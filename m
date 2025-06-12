@@ -4,84 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C828BC61CE8
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 06:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65D9C71136
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 06:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gWA4rWQFblMHLyOQJiiZfpNfuYpQigR0aYmrhJ+YKZY=; b=kvUNAEzh7EcWTl
-	YK1vtmOKgOgOz5Gq9bxT/DLPBkuRDtUMxZ27M0x5Cdok6a8zx9i54zcbpdLHKlv25hwXDGFHWFBfe
-	vHwvuUrwdxWLYtNIm5WMvCixMcnKv+UHf7isxIzkzDj4dI4TtEQ/DH0nICvjaqbj3kT5xJutUJpKP
-	Jd7ZPvedm3d2ODtUIFdfTSmvb/D5fQUW0VQCvEGDNM85fOoJ7LBHAzZnMfWqO/mPK4+srRCQ8/7It
-	8ivJV88NamZGEziK1cr3pyNstM9gXh2VucMBglYHCmUuZUDe27+iNktCZgZeTY2Nn/NpHJSUB/VZK
-	PUV9Sn8TUDQEnwmmzKNg==;
+	List-Owner; bh=YBqlopAV3pdCJf5kSkEBHRHYS6iXjNA8GRP6UpnugxA=; b=w7ra3+CWsX2K4M
+	QZ9E1rcq5LnOysWMIv7Y3FiWbMswx+vR4cidiCToC++f7igsXnG/cQnn1ouqkel4XvdtNl9w45cGs
+	I6DvqXeHdLQrRp85iCDLjOPTGEXc7/pWoYGqOKh8nBnwSUI4/gBzXZcpTgPrG6IYbfRWoT6pvd3Uf
+	L1WjSiiBIzQXwo1qXqOXqhRE2dcn0rsCUv4DP/24fhdUyjqYhBHjaTNGa0w0YBmtUbYjt+zyUmt54
+	OMi3CzEceAnXh5Eus41mzWVJRwVLSHj1fsxZyHTBOWH43gwroajd1GhAVfstI5WMIE3WlnIrDHDr0
+	ZJPobbcq+4Z3ICEHgm1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPbnh-0000000CMPz-0Cz7;
-	Thu, 12 Jun 2025 06:52:37 +0000
-Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
+	id 1uPbqZ-0000000CMoO-3QYa;
+	Thu, 12 Jun 2025 06:55:35 +0000
+Received: from mail-dm6nam10on20604.outbound.protection.outlook.com ([2a01:111:f403:2413::604] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPbne-0000000CMPc-1mez
-	for linux-riscv@lists.infradead.org;
-	Thu, 12 Jun 2025 06:52:35 +0000
-Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-2d0d25cebfeso431620fac.2
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 23:52:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749711153; x=1750315953; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=W2/+iUlaJ294s+wpba9MY64GmUZ7LAOV32lfNtCqjkY=;
-        b=hRtuhXanXFEa8JM0M1oftKh+78vLg94V6PwjNIRVXoLK0EVnpbPTEkMA/94mU3RFGo
-         a6N4rTY9WtgnQvEB59lK1CL3LrSzw1BgZYC6TuVxKkHddEkQyFR5htKR24h/xqUYMPia
-         rjfYLToeSNc5fj5smomxGMmY0QVK3vai7qWIQNO0YvhXux9pYTZiQmqSvxUo23syOt8X
-         zBBF0dUibgQkzgRGQ2X5to7XoshRpIUTAUad0pxyIqo/JYgCYpNzErodaC+TjLoUmMn8
-         2ZuuY9K70cMx0r0g0A8pSxpuhinuwYCMyDMB4F6b4gFUE+JyGiS1kWdxmf/iw5uX3e5d
-         aq5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749711153; x=1750315953;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=W2/+iUlaJ294s+wpba9MY64GmUZ7LAOV32lfNtCqjkY=;
-        b=VOi7fYQJR2Gk1FxCZLzygVCB+SuwhMuDIq7Y0iZZjXAmypBF89HZ18niDoelZwvyXe
-         QDNKQsH8SwwWE+EX+oP9lmF6B25Q23hCJi3CwGdsWrZ98xd0gDdzKursZs6EqK0dMLbz
-         LNuXIDmnn0xW/YDLVeyvatQosF+rq7qka/s4zdDBcrwsfZOn6qhyL/idNUxI96D9JVtU
-         tAr4Ib28nbe5YbkxW6Mi6VNGh6G+oRwqQspjU6q4NeTtyjpgYNT5iZr7oEKMtWAMabkC
-         yohvsfHKY7io0pZGeKwquSfDhBt0/znKUqhtoQmrg7WKnZiYbyzdxTLawGH/8qfTlu8f
-         fUxw==
-X-Forwarded-Encrypted: i=1; AJvYcCVs8iXg+e7leE1tfG0Zo+0AiVWQvvtOeuGEzbFgKQVDeBbq025+bWbKaIPrL+FAju2GN9PU5CD2100W5w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmQLzQjShfMqGtWZSb9y0l1A+Qe+y0n36m5EOme5Q36m3/vbKL
-	SAC6UUp7F1UgyZqZwweUIqn6WTBUcmmIoTDjLXolC/4XPLIBmpOS3TVN3Q6qrV/0AJWkoI6XqG2
-	L47PsRyWg3ICCrTdGQglhQri/IYtlngAZzhpY1HM=
-X-Gm-Gg: ASbGncuVitZ3rVzqT41jJtnkxNewsrUL8DOrKpOY1bNz4wK/JJuGBOeE2wYGTvSyXt7
-	f/zaam0ZWgsJDA/dIeZolHVKtk8RxdyRI65jBglGx2TAb3iDHA31B7kcOrhkz+bgpVq+A6Wr6WJ
-	g03tVk5JC4S7I8ZOC88U21Y9+M/C7CcILXLHwatTjosd4EcIxR+a5WNbyXASZigW06YNLYEhM1K
-	aQ=
-X-Google-Smtp-Source: AGHT+IEXaSAxJHBD5zJ/jXr/ytazFvv/SzoH8XkasFy+/Ngo9EnWqRZ5Z/KblRlbN0mv5KgJa+BmqpKyWeNniLArqs8=
-X-Received: by 2002:a05:6870:b489:b0:2e8:7471:6350 with SMTP id
- 586e51a60fabf-2eab6ee974fmr940028fac.1.1749711153330; Wed, 11 Jun 2025
- 23:52:33 -0700 (PDT)
+	id 1uPbqX-0000000CMni-0rGY;
+	Thu, 12 Jun 2025 06:55:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ne/mWo/3HIyKHZZXkuivVrlUSy3LPdP8WsKcgmVOmaO+o7mP8cAceChMLaq7VBrDHihu0TpCA+3rRBqqmlGaxvwVSVEWbOS9PWmosMZMm/uf5tOO5DqLrRXtKJfk0nQmSIs8t1A0bQr3Ha2ccIICxd8YW8coe0ENz7CycVV/il3yBzf1zw4G4xJoJ1MlL3yW6cdhx19t7UD9L49EqVZ/9OBH+9qiYy/dfIk71wpAKXlX/EoeSDJHTk+H5sGWvwbnfT4KP+sy4HQnnz7fYsNnFl1nfdc1f0L6XMwpbxNJ0zr1KU6FU97vWXiPT6XWA6FE+YGjb9Fz9J1sPTdztuMNNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mDCNxCiX5CIOfx/smFjNPbsKZhAyZ3eCgJahtTIlnys=;
+ b=GuALqvMTbv81a1wkhMcfsy51Mo2vX72F/jKXmtCMKzMyBQuoAywcsoMmdjuHc+La1BWMPPmML9OGB237mfHuqIbEhisDo9NVypuQGShi6kEjTGDZy4JyC6xLz3xzKeubtSw2By75So1VpgHPb9xuDPD4Racyug0rLTHJHLQyncfjxkXUMiCnSLq5yIEMU9L7LpcxUrFGfzlwptwdklpCS7efCzDwtiGR9SZETs/nT1+OqhYUmDvt4Vz4zfVEuBQB+rGKj8lWTQfgR9U9kE77cLNHrwlSdR7k93+BT4RSJmbczcRFU9dDmR0wpyrfsPDdWNfekhnQpSWBtTUZ/HhMmA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mDCNxCiX5CIOfx/smFjNPbsKZhAyZ3eCgJahtTIlnys=;
+ b=EDijHz/Gen4f8CgL1DFQwbYkpxNLz8kOMmTeIcIxEgsk4PRwQCb/ag8vL8Z52iD9MH2TFN1FuXZ75GWaOz5HTq/rxvwoWUCUdRxzJumOkHZab7hRmWa7FJWoZ8WHc8rrEkRecHup24MIqGpoJxcC/gVpypUW6qrTUSx9eTqtHtAZqxTJqukwHBWOjAHRXSIwNlnVgq4SrtruH0ucmkeGWcBDY6ctNnWi8Zla44Y2ditoPmWsTNhywZfjruYnFGhYC0u6qwEoSDPmcJYyJJY2VT7MAIDFTrep9u3O+kct9GcS00oV/vSsl7mxEiRhZs3Kjx33nzxisrqfkfsR179log==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7728.namprd12.prod.outlook.com (2603:10b6:8:13a::10)
+ by PH7PR12MB7257.namprd12.prod.outlook.com (2603:10b6:510:205::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.33; Thu, 12 Jun
+ 2025 06:55:28 +0000
+Received: from DS0PR12MB7728.namprd12.prod.outlook.com
+ ([fe80::f790:9057:1f2:6e67]) by DS0PR12MB7728.namprd12.prod.outlook.com
+ ([fe80::f790:9057:1f2:6e67%5]) with mapi id 15.20.8835.018; Thu, 12 Jun 2025
+ 06:55:28 +0000
+Date: Thu, 12 Jun 2025 16:55:23 +1000
+From: Alistair Popple <apopple@nvidia.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com, 
+	dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org, linux-kernel@vger.kernel.org, 
+	nvdimm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
+	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, zhang.lyra@gmail.com, 
+	debug@rivosinc.com, bjorn@kernel.org, balbirs@nvidia.com, lorenzo.stoakes@oracle.com, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	John@groves.net
+Subject: Re: [PATCH 02/12] mm: Convert pXd_devmap checks to vma_is_dax
+Message-ID: <ru3g42fdhlo4hrffkmuz7usqe77jetgggx7jmjdx3nr5gw7lrc@3te4cu737jqt>
+References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
+ <224f0265027a9578534586fa1f6ed80270aa24d5.1748500293.git-series.apopple@nvidia.com>
+ <371b8fdd-129d-4fe3-bbc7-f0a1bc433b30@redhat.com>
+Content-Disposition: inline
+In-Reply-To: <371b8fdd-129d-4fe3-bbc7-f0a1bc433b30@redhat.com>
+X-ClientProxiedBy: SYBPR01CA0191.ausprd01.prod.outlook.com
+ (2603:10c6:10:52::35) To DS0PR12MB7728.namprd12.prod.outlook.com
+ (2603:10b6:8:13a::10)
 MIME-Version: 1.0
-References: <20250409095320.224100-1-zhangchunyan@iscas.ac.cn>
- <20250409095320.224100-3-zhangchunyan@iscas.ac.cn> <aEMkW8py61njmNLo@debug.ba.rivosinc.com>
-In-Reply-To: <aEMkW8py61njmNLo@debug.ba.rivosinc.com>
-From: Chunyan Zhang <zhang.lyra@gmail.com>
-Date: Thu, 12 Jun 2025 14:51:57 +0800
-X-Gm-Features: AX0GCFvfXefT5-e0VhoPel5shfY3P4DRms3fCl30qyUVp20BchYZ18iAG961p5E
-Message-ID: <CAAfSe-u3oyjW7D0f=XUVaOJsM00Mqx7-LeR-Ecxjui3sfaAMUQ@mail.gmail.com>
-Subject: Re: [PATCH RFC v7 2/3] riscv: mm: Add soft-dirty page tracking support
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Andrew Morton <akpm@linux-foundation.org>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Ved Shanbhogue <ved@rivosinc.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7728:EE_|PH7PR12MB7257:EE_
+X-MS-Office365-Filtering-Correlation-Id: 17d71744-93a8-42a1-bcaa-08dda97e1d59
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CivukSvRdq+PrSaqv4nvjL0iIkAAc7sNQG4AEGFuHkj9kCCE1XOO1EdqCXL/?=
+ =?us-ascii?Q?XFGTXJE4lxUP9tF8UMyuefgydHDYkqca4KGEkKhOfyov2vg3Rw9WMu+8Mq5D?=
+ =?us-ascii?Q?1iNSXcVqq3XtVhSd+JlY35VDl/1xyoeJB00q0SPyhQ6JLJImtgsToH6sD0yR?=
+ =?us-ascii?Q?MnHPdtQMnb2W/5zx5tO0B993E2zEs/JpARr3pvNs8OQpMDbsApEWEi447eGU?=
+ =?us-ascii?Q?p7TAu43EKA+PZd3BKWi5o9ctZx/UWDi2lEt1we6XgTBC3wiBcJac8hsKIjtI?=
+ =?us-ascii?Q?nI3BNdrcqqTmzpVk8dd8F1V8D7ZQs52haAIUl4R+D/5OTNxyGi2ip674X70L?=
+ =?us-ascii?Q?XQzQvna464fA1gHJ3pzz6QFLR9pZOE+egawwkmoIKlHiYQT4ZtYI234Sb/5M?=
+ =?us-ascii?Q?6eLZwWBMP8dylortGt/sVTIIEoJLdrPur3EQ5UKDzgY/DGkLo9zT1J4FFDUW?=
+ =?us-ascii?Q?jDJpUr7E5Wz7nDgiMMn8DJF3Ux2S/1G/VXI+Gdafy2tZljG9e7FECSdsNLpm?=
+ =?us-ascii?Q?aH5qF7SN3jlaoKOrXEEIBylmEG/p7AoKzoIXYn8+MBbFgelp3vUkCrcTEDCy?=
+ =?us-ascii?Q?iJ4rpDYXrW6Iy4Sbv5FHimSC0csm8HK4pAhUyoEYYuMDytVygL/NKna3rHg2?=
+ =?us-ascii?Q?N7QryyRvaDCVsIOyD4YYcwvn5riIhoZ8+yA34ATNWAWkKH9/4hPHk+VrHY0L?=
+ =?us-ascii?Q?oU5CzMFzcHwIIhS0ztBwtMtCU39AwVJa44qaG3Ia1ij68ZXwaFnBUYgjlJpE?=
+ =?us-ascii?Q?PMZPnh+v6FJPif9dYziOOEVRyOIyw0+BVT7DtdIcwn0gXlJbvH3UCWMh5e9J?=
+ =?us-ascii?Q?ZsdJM0vmPQn2NGTNrbiEm9zlP1NRV5uTovqBZJ6ZsmorCIj8xQxaIMmdv11v?=
+ =?us-ascii?Q?w+qNuTWa2nwbWo7DjaKUQqM0Mr3gG4cZ9KWyhfyT+6asYVV2N+CT9DYoKFiT?=
+ =?us-ascii?Q?6RsGeb7uEhU9H/55A84Ck16xspbtviK1WDvMogKvmOVu30xv3o+wfqEv+NOp?=
+ =?us-ascii?Q?ImEjTIt2PLMYN99SJlXqOiiX++dr61NvVO5RxGMdNGUtKZFcuQAw9J+awxJ2?=
+ =?us-ascii?Q?dOnYbQKCwaO7rN+UfUpGCOOWkloYqFoe1ubPbGJyeLATrgdtECz1KG3Fveyw?=
+ =?us-ascii?Q?50+tlBm6NQqydTjSr7KaWE/X1mSKcj5pJ2fyNllFakLGkWBXWrzHevvd010C?=
+ =?us-ascii?Q?po8mnxQOQeaAxGiGXu2CSOWUrpll8rwQLFh8LH6eV3zyag3wMkxZkhgGhGvf?=
+ =?us-ascii?Q?PhQAlge3qtwDW/bpdut3h2vWj+GdcqaEyqlHj8Y5w0jco9hUfKWDTWr8occN?=
+ =?us-ascii?Q?VWCatG4iSTKhsQYPrF210UwUH7EtUYe/Rhm7lf7/wEiiqm8NFiB12WZ5BU6N?=
+ =?us-ascii?Q?DjwcUN72vv33L7ll/wfeSGvEI3Z/DypR34H/qxR6T0U2x4aH9A=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7728.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/EV+KhOxFJJGglJgod7Rp1eIOACACuQaPgNUfLCnTQ3sPV3/Qp0Q4Bluc9Uv?=
+ =?us-ascii?Q?hbMLdCkg0/IduXgKTBeJt64CuAJACUYSX82Amh+cDS+U7OAqj430LQru8ULN?=
+ =?us-ascii?Q?2hjUBYmuuNKJ2FCbNaXBN8aMcUbOoUL4eVLUWHscEAFLB+f2pqOV6m7dVVHb?=
+ =?us-ascii?Q?s44eUjne8RHyz+zQx6KOsguc5Z906g41SxAVQSxoaNKB9jTHLMs2aq+8AhaZ?=
+ =?us-ascii?Q?+csOSirW2mD123CYHCd4zc32jmJ8eSo6uZeuQSfCrqX+koeAN02aDZ9OLEiA?=
+ =?us-ascii?Q?+8PrT27OFOKdxAHKCpaxPh/lvB9ge8jWfdVz4/qysxetEA0Iar6NIcRuEcnG?=
+ =?us-ascii?Q?8H4PLrHj7EM6QwYGSfb1qRLIntGfeoH9XRrvrN+QUhnAEkGlgqyBWu9kXgpn?=
+ =?us-ascii?Q?5xwY3XI6IBHKPd77FcZG/GZZw6dBvGULB8cmezB/V+mG0cHVH3BqFUo6/K8Y?=
+ =?us-ascii?Q?NhMWQiqXCobcW7TsyqiTvSwCMDcHlZMGVXdhaU/h9PDCsw3C7SiNvbwCelYi?=
+ =?us-ascii?Q?kEbrM71ibDDmMiscwkRIWQ6JEGcj9ACWX4bm5K9FTs/aH0VzwmZwSbEVD5E+?=
+ =?us-ascii?Q?QXMCy+mQ5YhxWrmMFWMaZjJjXW63E9NpNRw1KOZaqgvmPkP9wWyjKkBMci9/?=
+ =?us-ascii?Q?3F83F8fTfZ7cEanVnBRf8vqXrH7QNqhiE99VxDS6zOZyDHj+rj2tBsW+h3zE?=
+ =?us-ascii?Q?YdD17PAm8IOMt0GgyDWW7auCyMhbiFQjLSeMffQBQYmJgqtjzHq7OR+9xZho?=
+ =?us-ascii?Q?G4CHttylo1ip69L2YHgxxJf6CnTMuokNhMlDOQ3jKBqKSSPGocu4gSD+T7MA?=
+ =?us-ascii?Q?rdLyW0o+/ZF8CDrjmd/DbPmSfMCkCypoIVQVLU5L315+jA7Ek97YJ1mnz+3E?=
+ =?us-ascii?Q?TSc937Vdbw2AjwRhJkYuWo9L8DV4CmZBjcA+f82Q+aUZP6r9gJdi4KyD4+FO?=
+ =?us-ascii?Q?Oaa3XVk87SkwgKzIbVNJegwaoQ0pyVgVk6qi2hE1qIlBhctviTlOl1AZRKpw?=
+ =?us-ascii?Q?IpQpwvZU1cbAPhhLwHey+8wOHVBFLLGgG5SMTGNdT/pgKjXvWX2jh5uHbSkw?=
+ =?us-ascii?Q?+UX7qFF+uBOOlE7DwjA6wi01Bz6A+ytMOP1ur3e7WnyoKWTd2eGeWqVvMrte?=
+ =?us-ascii?Q?Z4xqXmaTwfZ7fyFcY4kfyS7OzLJG49AyPfaxfL/KGb+U6uXG3cr7Ky20FxuF?=
+ =?us-ascii?Q?VAHng2Laft2TuvnYdP6Pdf4JL8OizYabgStLTD8VP5U7lkd9kOKITEoqz+sc?=
+ =?us-ascii?Q?b3XPztB2B1xchpAgWZNyPhxjXJLKCk7drZFJGn3/gOkIYBte+QZSTaKv1+t0?=
+ =?us-ascii?Q?dUN6QJ5f2VCblPY69ysxugeRIEVI3sjaJYUEPZTTiiQI0Z0Ftpl0nrqu1/GU?=
+ =?us-ascii?Q?ADjq3aeVomLj3JrnRBng3fa8EWYN2Wj27gphhyXQ3xjCNwC2o/9rIEiJJhGM?=
+ =?us-ascii?Q?oSbsGHy8KKXLjxUqdNtqsFOBBu1FvFisBogbm7O9HJ3O0zlBdY+ihGkd2C3A?=
+ =?us-ascii?Q?2OOqucJpvzTF1oRBIp6g8iObrbcQy5b9tPye7EqhKrueQeOpgdbn295sCpwi?=
+ =?us-ascii?Q?vUtfrJFWKO9tj+ukCZYzdGHhqyu5N2ZrtZMbwtcV?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 17d71744-93a8-42a1-bcaa-08dda97e1d59
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7728.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2025 06:55:28.4032
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0Pg+G/Xmvc/7fr9U1Ar0JTrj3yzIX9zeKy3WdQq7UKpk3WoSinUm94fuWOi7+NtzFwXFaT2o2TYHzBKKJHG8Wg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7257
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_235234_466511_5DECE476 
-X-CRM114-Status: GOOD (  24.37  )
+X-CRM114-CacheID: sfid-20250611_235533_242249_874D8843 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,219 +163,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Deepak,
+On Fri, May 30, 2025 at 11:37:21AM +0200, David Hildenbrand wrote:
+> On 29.05.25 08:32, Alistair Popple wrote:
+> > Currently dax is the only user of pmd and pud mapped ZONE_DEVICE
+> > pages. Therefore page walkers that want to exclude DAX pages can check
+> > pmd_devmap or pud_devmap. However soon dax will no longer set PFN_DEV,
+> > meaning dax pages are mapped as normal pages.
+> > 
+> > Ensure page walkers that currently use pXd_devmap to skip DAX pages
+> > continue to do so by adding explicit checks of the VMA instead.
+> > 
+> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> > ---
+> >   fs/userfaultfd.c | 2 +-
+> >   mm/hmm.c         | 2 +-
+> >   mm/userfaultfd.c | 2 +-
+> >   3 files changed, 3 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/fs/userfaultfd.c b/fs/userfaultfd.c
+> > index 22f4bf9..de671d3 100644
+> > --- a/fs/userfaultfd.c
+> > +++ b/fs/userfaultfd.c
+> > @@ -304,7 +304,7 @@ static inline bool userfaultfd_must_wait(struct userfaultfd_ctx *ctx,
+> >   		goto out;
+> >   	ret = false;
+> > -	if (!pmd_present(_pmd) || pmd_devmap(_pmd))
+> > +	if (!pmd_present(_pmd) || vma_is_dax(vmf->vma))
+> >   		goto out;
+> >   	if (pmd_trans_huge(_pmd)) {
+> > diff --git a/mm/hmm.c b/mm/hmm.c
+> > index 082f7b7..db12c0a 100644
+> > --- a/mm/hmm.c
+> > +++ b/mm/hmm.c
+> > @@ -429,7 +429,7 @@ static int hmm_vma_walk_pud(pud_t *pudp, unsigned long start, unsigned long end,
+> >   		return hmm_vma_walk_hole(start, end, -1, walk);
+> >   	}
+> > -	if (pud_leaf(pud) && pud_devmap(pud)) {
+> > +	if (pud_leaf(pud) && vma_is_dax(walk->vma)) {
+> >   		unsigned long i, npages, pfn;
+> >   		unsigned int required_fault;
+> >   		unsigned long *hmm_pfns;
+> > diff --git a/mm/userfaultfd.c b/mm/userfaultfd.c
+> > index e0db855..133f750 100644
+> > --- a/mm/userfaultfd.c
+> > +++ b/mm/userfaultfd.c
+> > @@ -1791,7 +1791,7 @@ ssize_t move_pages(struct userfaultfd_ctx *ctx, unsigned long dst_start,
+> >   		ptl = pmd_trans_huge_lock(src_pmd, src_vma);
+> >   		if (ptl) {
+> > -			if (pmd_devmap(*src_pmd)) {
+> > +			if (vma_is_dax(src_vma)) {
+> >   				spin_unlock(ptl);
+> >   				err = -ENOENT;
+> >   				break;
+> 
+> I assume we could also just refuse dax folios, right?
 
-On Sat, 7 Jun 2025 at 01:24, Deepak Gupta <debug@rivosinc.com> wrote:
->
-> On Wed, Apr 09, 2025 at 05:53:19PM +0800, Chunyan Zhang wrote:
-> >The Svrsw60t59b extension allows to free the PTE reserved bits 60 and 59
-> >for software, this patch uses bit 59 for soft-dirty.
-> >
-> >To add swap PTE soft-dirty tracking, we borrow bit 3 which is available
-> >for swap PTEs on RISC-V systems.
-> >
-> >Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-> >---
-> > arch/riscv/Kconfig                    |  1 +
-> > arch/riscv/include/asm/pgtable-bits.h | 19 +++++++
-> > arch/riscv/include/asm/pgtable.h      | 71 ++++++++++++++++++++++++++-
-> > 3 files changed, 89 insertions(+), 2 deletions(-)
-> >
-> >diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> >index 332fc00243ad..652e2bbfb702 100644
-> >--- a/arch/riscv/Kconfig
-> >+++ b/arch/riscv/Kconfig
-> >@@ -139,6 +139,7 @@ config RISCV
-> >       select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
-> >       select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
-> >       select HAVE_ARCH_SECCOMP_FILTER
-> >+      select HAVE_ARCH_SOFT_DIRTY if 64BIT && MMU && RISCV_ISA_SVRSW60T59B
-> >       select HAVE_ARCH_STACKLEAK
-> >       select HAVE_ARCH_THREAD_STRUCT_WHITELIST
-> >       select HAVE_ARCH_TRACEHOOK
-> >diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-> >index a8f5205cea54..a6fa871dc19e 100644
-> >--- a/arch/riscv/include/asm/pgtable-bits.h
-> >+++ b/arch/riscv/include/asm/pgtable-bits.h
-> >@@ -20,6 +20,25 @@
-> >
-> > #define _PAGE_SPECIAL   (1 << 8)    /* RSW: 0x1 */
-> > #define _PAGE_DEVMAP    (1 << 9)    /* RSW, devmap */
-> >+
-> >+#ifdef CONFIG_MEM_SOFT_DIRTY
-> >+
-> >+/* ext_svrsw60t59b: bit 59 for software dirty tracking */
-> >+#define _PAGE_SOFT_DIRTY                                              \
-> >+      ((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?    \
-> >+       (1UL << 59) : 0)
-> >+/*
-> >+ * Bit 3 is always zero for swap entry computation, so we
-> >+ * can borrow it for swap page soft-dirty tracking.
-> >+ */
-> >+#define _PAGE_SWP_SOFT_DIRTY                                          \
-> >+      ((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?    \
-> >+       _PAGE_EXEC : 0)
-> >+#else
-> >+#define _PAGE_SOFT_DIRTY      0
-> >+#define _PAGE_SWP_SOFT_DIRTY  0
-> >+#endif /* CONFIG_MEM_SOFT_DIRTY */
-> >+
->
-> Above can be done like this
->
-> +
-> +#ifdef CONFIG_MEM_SOFT_DIRTY && RISCV_ISA_EXT_SVRSW60T59B
-> +
-> +/* ext_svrsw60t59b: bit 59 for software dirty tracking */
-> +#define _PAGE_SOFT_DIRTY (1UL << 59)
-> +/*
-> + * Bit 3 is always zero for swap entry computation, so we
-> + * can borrow it for swap page soft-dirty tracking.
-> + */
-> +#define _PAGE_SWP_SOFT_DIRTY _PAGE_EXEC
-> +#else
-> +#define _PAGE_SOFT_DIRTY       0
-> +#define _PAGE_SWP_SOFT_DIRTY   0
-> +#endif /* CONFIG_MEM_SOFT_DIRTY */
->
+Yep.
 
-No, the feature depends not only on the compile-time configuration but
-also on the run-time environment.
+> If we decide to check VMAs, we should probably check earlier.
 
-We need to check if the platform on which the system is running
-supports the extension SVRSW60T59B, and riscv_has_extension_unlikely()
-does that check that is a run-time check, not a build-time condition.
+Ok, that makes sense.
+ 
+> But I wonder, what about anonymous non-dax pages in COW mappings? Is it
+> possible? Not supported?
 
-> > #define _PAGE_TABLE     _PAGE_PRESENT
-> >
-> > /*
-> >diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> >index 428e48e5f57d..14461ffe6321 100644
-> >--- a/arch/riscv/include/asm/pgtable.h
-> >+++ b/arch/riscv/include/asm/pgtable.h
-> >@@ -436,7 +436,7 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
->
-> Shouldn't "static inline int pte_dirty(pte_t pte)" be updated as well
+You mean other non-dax ZONE_DEVICE pages? Currently not possible, because
+non-dax ZONE_DEVICE pages can't be pmd mapped (although it is a future
+enhancement I'd like to make).
 
-It may not be needed, since pte_dirty() on X86 and ARM doesn't check
-_PAGE_SOFT_DIRTY either.
-
-Thanks for the review,
-Chunyan
-
-
-
-
->
-> static inline int pte_dirty(pte_t pte)
-> {
->         return pte_val(pte) & (_PAGE_DIRTY | _PAGE_SOFT_DIRTY);
-> }
->
-> Perhaps have a macro which includes both dirty together and then use together.
->
->
-> >
-> > static inline pte_t pte_mkdirty(pte_t pte)
-> > {
-> >-      return __pte(pte_val(pte) | _PAGE_DIRTY);
-> >+      return __pte(pte_val(pte) | _PAGE_DIRTY | _PAGE_SOFT_DIRTY);
-> > }
-> >
-> > static inline pte_t pte_mkclean(pte_t pte)
-> >@@ -469,6 +469,38 @@ static inline pte_t pte_mkhuge(pte_t pte)
-> >       return pte;
-> > }
-> >
-> >+#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
-> >+static inline bool pte_soft_dirty(pte_t pte)
-> >+{
-> >+      return !!(pte_val(pte) & _PAGE_SOFT_DIRTY);
-> >+}
-> >+
-> >+static inline pte_t pte_mksoft_dirty(pte_t pte)
-> >+{
-> >+      return __pte(pte_val(pte) | _PAGE_SOFT_DIRTY);
-> >+}
-> >+
-> >+static inline pte_t pte_clear_soft_dirty(pte_t pte)
-> >+{
-> >+      return __pte(pte_val(pte) & ~(_PAGE_SOFT_DIRTY));
-> >+}
-> >+
-> >+static inline bool pte_swp_soft_dirty(pte_t pte)
-> >+{
-> >+      return !!(pte_val(pte) & _PAGE_SWP_SOFT_DIRTY);
-> >+}
-> >+
-> >+static inline pte_t pte_swp_mksoft_dirty(pte_t pte)
-> >+{
-> >+      return __pte(pte_val(pte) | _PAGE_SWP_SOFT_DIRTY);
-> >+}
-> >+
-> >+static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
-> >+{
-> >+      return __pte(pte_val(pte) & ~(_PAGE_SWP_SOFT_DIRTY));
-> >+}
-> >+#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
-> >+
-> > #ifdef CONFIG_RISCV_ISA_SVNAPOT
-> > #define pte_leaf_size(pte)    (pte_napot(pte) ?                               \
-> >                                       napot_cont_size(napot_cont_order(pte)) :\
-> >@@ -821,6 +853,40 @@ static inline pud_t pud_mkspecial(pud_t pud)
-> > }
-> > #endif
-> >
-> >+#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
-> >+static inline bool pmd_soft_dirty(pmd_t pmd)
-> >+{
-> >+      return pte_soft_dirty(pmd_pte(pmd));
-> >+}
-> >+
-> >+static inline pmd_t pmd_mksoft_dirty(pmd_t pmd)
-> >+{
-> >+      return pte_pmd(pte_mksoft_dirty(pmd_pte(pmd)));
-> >+}
-> >+
-> >+static inline pmd_t pmd_clear_soft_dirty(pmd_t pmd)
-> >+{
-> >+      return pte_pmd(pte_clear_soft_dirty(pmd_pte(pmd)));
-> >+}
-> >+
-> >+#ifdef CONFIG_ARCH_ENABLE_THP_MIGRATION
-> >+static inline bool pmd_swp_soft_dirty(pmd_t pmd)
-> >+{
-> >+      return pte_swp_soft_dirty(pmd_pte(pmd));
-> >+}
-> >+
-> >+static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
-> >+{
-> >+      return pte_pmd(pte_swp_mksoft_dirty(pmd_pte(pmd)));
-> >+}
-> >+
-> >+static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
-> >+{
-> >+      return pte_pmd(pte_swp_clear_soft_dirty(pmd_pte(pmd)));
-> >+}
-> >+#endif /* CONFIG_ARCH_ENABLE_THP_MIGRATION */
-> >+#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
-> >+
-> > static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
-> >                               pmd_t *pmdp, pmd_t pmd)
-> > {
-> >@@ -910,7 +976,8 @@ extern pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
-> >  *
-> >  * Format of swap PTE:
-> >  *    bit            0:       _PAGE_PRESENT (zero)
-> >- *    bit       1 to 3:       _PAGE_LEAF (zero)
-> >+ *    bit       1 to 2:       (zero)
-> >+ *    bit            3:       _PAGE_SWP_SOFT_DIRTY
-> >  *    bit            5:       _PAGE_PROT_NONE (zero)
-> >  *    bit            6:       exclusive marker
-> >  *    bits      7 to 11:      swap type
-> >--
-> >2.34.1
-> >
+> If supported, checking the actual folio would be the right thing to do.
+> 
+> -- 
+> Cheers,
+> 
+> David / dhildenb
+> 
 
 _______________________________________________
 linux-riscv mailing list
