@@ -4,85 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 681D2C61CE8
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 22:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451EEC71156
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 22:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=RDrYUaN827x0VBY3hWAjGnLKnNqkt/QAV838K6g/h4o=; b=vny3hC4/hqca+UqHltq87+76sf
-	tJMBWNzouWfhPl/sJGjsX0UaNKye2k3HgiVOFPZzAqjZ7Gr3E/5DOWpwIirihd3qm2esg+gIxeOB3
-	i7LbkMe9Td+vviRunnDsS6iPt2PJZxgfIzaaQHyy38JnhlehzDRMTry1HvUTy/qEbbV8ZYiVXmtJk
-	BGlGH0Qq4KgkgUbhrsuSDceiW1p8/3BMnlxSh1q1jlNq/bDUHe666calyuFkH6xfyLflv2hxQBDI2
-	HkOaiw1WwNtGLtLZCf6MfmDtD8Mc8VMWukyuePWP88Rhsdq6lSOEDxiVl/zFq8UhCDyUHjCJhQOds
-	L0w6wMIQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BkfRN9AzI3h145k71Bow4zEQHWAJxEpZ2jTbcEFr4nk=; b=2XnU0RVRPFjC3+
+	jK4vH0Hnt7O9hUjLnSS9BaaeK2tE0nJYlgOADCGsmssD3vv5OFhxsgZUyl38/Gm2LX3aocRl1CbN+
+	3AUSYCy8E/xmZqj4JZdd9bI6x9youkFJ0GdA1x9RTsnpO97lpFkmHEgU5op2mZqeJTueni3QUur6m
+	ap+vY6y7y8FIvqHZkND3TJ+cP/NbQFVAXycmrk06eAmggbmHTcNnlSu+SB4VWTd2XJXU0HvvjU+q8
+	Tm2El3X3sCZDUgpMLAIRIJI/1/W9HYw7bvo3xrQNcZAWcfGN7QTeXzTJG0lp2OQcONYMG7yaGY0zG
+	lJx4drEi0xEynZR6/2hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPq7Q-0000000Ejsr-3y0O;
-	Thu, 12 Jun 2025 22:09:56 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1uPq7P-0000000EjqU-3HbD;
+	Thu, 12 Jun 2025 22:09:55 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPn7G-0000000E9wB-21SU
+	id 1uPmSu-0000000E6cE-0LLO
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Jun 2025 18:57:36 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-234bfe37cccso18131155ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 11:57:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1749754653; x=1750359453; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MRriOQjwYrLCtkslAVC8UMCVhN/d3luvPuUoipDEo9Y=;
-        b=IrVQI6o6eyFt5288vADLRUtySmOdou1LWpK8baO1QWgCDKrjTlZ9lIOBP9jWuhj9Li
-         qntDCQwZE/3Yd8J+8zs0VJiAEGZFVIxDR6ZQh9jT9Hh314LrT8+hE4Q7gil/uzWSR3eH
-         jul8SSexpXpWwix+SD0JXzcHNB/5OSmobaNTOLPJ8I9SvQpdX/nZSLGPh3gngxS6LNWW
-         CFKQGz5XtnlzbUzDxUIoBbvj8xzYzKUF/cOHpK0TkY6rr/CChc2mWVPlhSs+k5mq63kq
-         Hvm0VUDE7nyCx0wjenpJV1Htr0TXcSAKJyg8Nfv7lxMly8ICE6Gw3d25ZPa8qngFDVSH
-         w+WA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749754653; x=1750359453;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MRriOQjwYrLCtkslAVC8UMCVhN/d3luvPuUoipDEo9Y=;
-        b=Yt1SPyBdZ7ZwTHbFseV/236SgT3fBiJKAesAusB3bzOwsL02iAHKNca7D3kyAisQCa
-         XVwPaUIeNhi+Gky95g2igrFSZDDd5MJ4LXLOdSabEIwB1GMRLD/+7r/BYn5JDIgxKFAc
-         +zknzTFnqIBhYqmkL1605/9C3pK8AO0h3q+WgVoRBvlffKQchXn+5MNL5rqNIalux/CB
-         Aqpjgy3S2XT5OU21520bpBvNOi0wz/kLGp6euqYMNrzT6QpjOCabE7ouo6eOk1ovujau
-         mvagyx1HGffFDHct8OaywdCInmW44Zi+2HJnzNkXKYSrL314Dhwzf7QVz9YeQ2rh+ViD
-         d98g==
-X-Forwarded-Encrypted: i=1; AJvYcCVBo/5QuIsVSbTuCjJo2y6+gCnoZyVeV9m8494CV7XkwelUPh0Xx0+cqGt0EI5ZHDNaqSpiSa0E/NzQ9g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuLPlgSm9P6zC2QOZKvLBM1DSmoVkGLbz8JwexrnVRECX+NfI/
-	fa3HlBOuCkCMN9vKZRAbtlU81iNWW0Yebnv7fTAEs8WZUnyeuxgYMvjvxA1YhEdMZgNyEIHMTJg
-	ilN0K
-X-Gm-Gg: ASbGnctIhEgrG4caxleE3tpCH2et5b2G5SIuCLM3tN55WBkzIvsXu/gvfk1EArLhjs2
-	OUeLPfhrB4NSEcbWXXCwPs91cdtOqR75CT9isrPyqX/8I79wjD8C4QFcAE8q1XHGvAcCZJnMJU4
-	jZAh4Sy30jQynBgu5Iv2h466468cIVDbMFYqATi01rgsJ8sV5PDVUU6E/FWc80OHd+1FgwMUGp9
-	xIZHcxdwzDlf+EL7npbAv60sy1UXiBaCHmnBo5l6YMz+5/vnIPd7FxnG+i3HX9y/3q7U6NIYW83
-	4oFobn0p4UH1AuARU+afaZ/Uc96upghVeJBZjyc0wduEeda5WC065a8isTWJ
-X-Google-Smtp-Source: AGHT+IHb1WoqMR2DTGzMl28JEVGljgw7Pu+7yw8Q/cYEW3M+CVBNmCMmaIsDvjDf9/pnPWIpZxZksQ==
-X-Received: by 2002:a17:903:2305:b0:235:e1d6:4e45 with SMTP id d9443c01a7336-2365da06422mr2349555ad.25.1749754653208;
-        Thu, 12 Jun 2025 11:57:33 -0700 (PDT)
-Received: from localhost ([2620:10d:c090:500::7:116a])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2365d8a4278sm625105ad.78.2025.06.12.11.57.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 11:57:32 -0700 (PDT)
-Date: Thu, 12 Jun 2025 11:57:32 -0700 (PDT)
-X-Google-Original-Date: Thu, 12 Jun 2025 11:56:53 PDT (-0700)
-Subject: Re: [PATCH] riscv: defconfig: run savedefconfig to reorder it
-In-Reply-To: <221b0b7c-1879-4944-b9c4-cfb9fad9ae91@ghiti.fr>
-CC: dlan@gentoo.org, Conor Dooley <conor@kernel.org>,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, guodong@riscstar.com, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, spacemit@lists.linux.dev
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Message-ID: <mhng-131B0C4B-6AD9-4B65-BC91-927FD725E63F@palmerdabbelt-mac>
-Mime-Version: 1.0 (MHng)
+	Thu, 12 Jun 2025 18:15:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1749752153; x=1781288153;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=4OofUxrS1VHn2NikWkMKBtNsbAo1AC+xDhX2JTKKUZU=;
+  b=mxwTgdKC56Bnc+4WaSIxv71qrqONxgEFM2uzUFByFrldGwVRT4e8S1a3
+   ojIY2g8nMuVQ1sgiK6bVRP88J2zpGZCXBWaTzTDFomGfcqbGynrY9pgWy
+   9KMTTA8b6K4ZWCnWg4KG1p8Uo05QLhs656ZRPifU3exsPtieKEgzwbM2J
+   G3VwFVwm9CUTNVJe9D+wlUkpxlbPW4VwAJXxyWE445jxhO3MjqSEkfOy3
+   Fpw0s9fdgwQ50tgzEms66Nyr47Tac0GQy7aVAulPbDR5oLPa1y49j4opi
+   8tM+MpIxBooXA/O4RvLRrp9Zc73hLYf0tK4cBdpSemwHiHUE31l3DZCKF
+   Q==;
+X-CSE-ConnectionGUID: UpBt3LXPRw2htqf9cf2ggA==
+X-CSE-MsgGUID: gYvpNRKITEqY7KdV+fwiLQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11462"; a="62228328"
+X-IronPort-AV: E=Sophos;i="6.16,231,1744095600"; 
+   d="scan'208";a="62228328"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2025 11:15:47 -0700
+X-CSE-ConnectionGUID: jdO72gOWSsyQQXv8GZky7Q==
+X-CSE-MsgGUID: dZNBe+geS7+6msjZDxxpBw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,231,1744095600"; 
+   d="scan'208";a="147511276"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 12 Jun 2025 11:15:43 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uPmSi-000BrG-2m;
+	Thu, 12 Jun 2025 18:15:40 +0000
+Date: Fri, 13 Jun 2025 02:15:14 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chiang Brian <chiang.brian@inventec.com>,
+	Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: oe-kbuild-all@lists.linux.dev, Chiang Brian <chiang.brian@inventec.com>,
+	linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v9 2/2] hwmon: (pmbus/tps53679) Add support for TPS53685
+Message-ID: <202506130217.6OQ8zSf5-lkp@intel.com>
+References: <20250610102556.236300-3-chiang.brian@inventec.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250610102556.236300-3-chiang.brian@inventec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_115734_651757_AB041C6E 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20250612_111552_165155_341BC15C 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,71 +90,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Jun 2025 06:12:09 PDT (-0700), Alexandre Ghiti wrote:
-> On 6/12/25 11:32, Yixun Lan wrote:
->> Hi Alexandre,
->>
->> On 10:37 Thu 12 Jun     , Alexandre Ghiti wrote:
->>> Hi Yixun,
->>>
->>> On 6/11/25 16:56, Yixun Lan wrote:
->>>> Changes to defconfig should be always updated via 'make
->>>> savedefconfig', run this command to make it aligned again.
->>>>
->>>> This will ease the effort of reviewing changes of defconfig
->>>> in the future.
->>>>
->>>> Signed-off-by: Yixun Lan <dlan@gentoo.org>
->>>> ---
->>>> Update PDMA config bring in unnecessary changes[1], let's fix
->>>> it by run savedefconfig first.
->>>
->>> It would be easier if this patch was part of the PDMA series since the
->>> last patch will depend on it: @Guodong can you integrate this patch to
->>> your next revision of your patchset?
->>>
->> I'd rather make this patch independent, as nothing strongly ralated with PDMA,
->> and it probably would take several rounds for PDMA patch to be settled down..
+Hi Chiang,
 
-Ya, I agree.
+kernel test robot noticed the following build warnings:
 
->> Besides, there is no problem for PDMA patch to depend on this patch if
->> needed (easy to use b4 to handle this..)
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on groeck-staging/hwmon-next krzk-dt/for-next linus/master v6.16-rc1 next-20250612]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Yep, something like "b4 shazam -lts --merge --merge-base 958097bdf88"
-should do it on the merge side -- and maybe you don't even need the 
-merge base, if all the b4 send side stuff picks it up right.
+url:    https://github.com/intel-lab-lkp/linux/commits/Chiang-Brian/hwmon-pmbus-tps53679-Add-support-for-TPS53685/20250610-192612
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250610102556.236300-3-chiang.brian%40inventec.com
+patch subject: [PATCH v9 2/2] hwmon: (pmbus/tps53679) Add support for TPS53685
+config: s390-randconfig-r073-20250611 (https://download.01.org/0day-ci/archive/20250613/202506130217.6OQ8zSf5-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
 
->> The idea here is to get this patch merged as early as possible, as it's
->> quite straightforward, and other people may have similar problem instead
->> of PDMA here
->
->
-> Ok makes sense, so let's Guodong deal with that then.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506130217.6OQ8zSf5-lkp@intel.com/
 
-(for some reason this isn't showing up in patchwork)
+smatch warnings:
+drivers/hwmon/pmbus/tps53679.c:288 tps53679_probe() warn: inconsistent indenting
 
-I'm going to merge it as a single patch into for-next.  It'll loop 
-through the tester, but things look in good shape so it shouldn't take 
-too long.  This way there's a stable hash people can base stuff off, 
-rather than waiting for some other patch set.
+vim +288 drivers/hwmon/pmbus/tps53679.c
 
->
-> Thanks,
->
-> Alex
->
->
->>
->>> Thanks,
->>>
->>> Alex
->>>
+   249	
+   250	static int tps53679_probe(struct i2c_client *client)
+   251	{
+   252		struct device *dev = &client->dev;
+   253		struct pmbus_driver_info *info;
+   254		enum chips chip_id;
+   255	
+   256		if (dev->of_node)
+   257			chip_id = (uintptr_t)of_device_get_match_data(dev);
+   258		else
+   259			chip_id = i2c_match_id(tps53679_id, client)->driver_data;
+   260	
+   261		info = devm_kmemdup(dev, &tps53679_info, sizeof(*info), GFP_KERNEL);
+   262		if (!info)
+   263			return -ENOMEM;
+   264	
+   265		switch (chip_id) {
+   266		case tps53647:
+   267		case tps53667:
+   268			info->pages = TPS53647_PAGE_NUM;
+   269			info->identify = tps53679_identify;
+   270			break;
+   271		case tps53676:
+   272			info->identify = tps53676_identify;
+   273			break;
+   274		case tps53679:
+   275		case tps53688:
+   276			info->pages = TPS53679_PAGE_NUM;
+   277			info->identify = tps53679_identify;
+   278			break;
+   279		case tps53681:
+   280			info->pages = TPS53679_PAGE_NUM;
+   281			info->phases[0] = 6;
+   282			info->identify = tps53681_identify;
+   283			info->read_word_data = tps53681_read_word_data;
+   284			break;
+   285		case tps53685:
+   286		    info->pages = TPS53679_PAGE_NUM;
+   287		    info->identify = tps53685_identify;
+ > 288			break;
+   289		default:
+   290			return -ENODEV;
+   291		}
+   292	
+   293		return pmbus_do_probe(client, info);
+   294	}
+   295	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
