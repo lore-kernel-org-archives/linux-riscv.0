@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB685C61CE8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8EDDC71149
 	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 20:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,51 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gHijc1v48PtsvTLjFhKZ3D6CDyJm492/ZPWgnDiwgS4=; b=nRtf34C0LsFmon
-	32KDomVAnRYJhLqckf1ZhMNmzCFUt7ls2b9DIkqDIfTykAAzfi1vALLfjf36rltBvVsCSYtTdRgiB
-	p/OT37hEGzObobNiqvZpM/6agFTXIYWHbgiA9rOPOxiRN5VIDOtyA4o5PLSNfxnllFRd4zs2tuLge
-	3iCze1syFIRrPMGQLHgQvGRKCp37XJyD/Zd9ZJqbRjHdR813rlPOx2ayT/2gqJPCK+7wHS1h4sNvX
-	58ZLirn1p+KLBTt1Wb1jFuA5oGw2CzENnzqFm3uUia44Cl9Y1E71uqpSv4AIF4DrFW34fR3PPLkPc
-	SlhPhEZB5tu53seGRGBQ==;
+	List-Owner; bh=bdRzeRQkZ8vLmatbpbOEr2cAU8S6KNOjDdmXAOivJiE=; b=ROn7WYWBTygPJ1
+	QZe3uUrNUIbWnLgNMlQC+YAaetR4cjmHk+Rdo9eeQaWGQNbDuICUeLXMF4F8DMrgZcGQ1WzGQOUWK
+	xT8nAKU8gpmHzTb7TZSeqjZ9xuE6WQYmMjR6B/tz7v3QtiiCvzo+w5gzUeRvvhE6i+eevvvMbgAwp
+	wRwjbAMzKeW9vlCL3RzI6gtcNtZTxyRt1jqRdJO8jwZGv1TAIgl3y+L1JisptlR50pcnGWTzJem/4
+	NTrqQPbZqF28HP1IeTCbxrBaSkR1YljAyyw3G1A57WTMLk2ddGF6KmR5HbEm9Qjy19lVHGD99kyJG
+	8HrNQwzkmGD+ZcezdBLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPoFS-0000000ESct-10NL;
+	id 1uPoFS-0000000ESdM-3Weq;
 	Thu, 12 Jun 2025 20:10:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPoFQ-0000000ESc5-2ZtB
+	id 1uPoFP-0000000ESbb-1zqz
 	for linux-riscv@lists.infradead.org;
 	Thu, 12 Jun 2025 20:10:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1231262A10;
-	Thu, 12 Jun 2025 20:10:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCDA3C4CEED;
-	Thu, 12 Jun 2025 20:10:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 87CE14A78A;
+	Thu, 12 Jun 2025 20:10:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F207C4CEF0;
+	Thu, 12 Jun 2025 20:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749759003;
-	bh=gDmI1cm1UeJF7jH2D2QrNgyl09J8B2qKOnKgzQywqgQ=;
+	s=k20201202; t=1749759002;
+	bh=YOCVmeKBRysiWnBvav6fq3qoxg1Q2XSozX9bayl8u4I=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=RpJQkRtLfhWA2uG1vtFgZxvQIUsw31iQlNq7nCuzYv3g/RTEimDCAChcndTb0/8Zu
-	 IiAoGpRYFJzd6UM5KT6IGyz/YF6qrtdcgjzyBpZ43fpdc3B/Cm0C96nEg7KKOnD2GC
-	 kb9vPf5Wt/DeYAWGlB4JT+meU0R5QGjgRBxOQLXC/cKEIsbW4keUoUL1XUHG9EJ03H
-	 H7zegKl8lSwcEdbefokLSfBdvEsoCXnTZSNAR1f20t2I3asGfIQS4LgPzTG2U2+W4S
-	 wNOag9vOOGE6x3bkaxcyBDNIfaDZkFnTaC9xiLTvFxLg6H6EnrkPhxuniOtftSPL9P
-	 oORWEc0Bv77QQ==
+	b=PaRAapfYLHFg16tHym4n460n8XopEwfgvrIklxbgk/lMOS0VILEXPmWFkeTmoHi8s
+	 UMTyj53iGtpPhusZb4FA/eRPE2GYCglT0unNOWTU9fQd5JOCk28cmlv+kM4S4T75PB
+	 lYud8qLIBFlzuJIhtNNtvFloNc865IgYfLTH/7omqGehxk/QoqRQiYgb/VARdOCeYQ
+	 sU8MYDKWxklIGle1FEkcwt5vJb+wA7GhxH1cmsLd/OGLsqg9R00oAoAmqHpjteg8XL
+	 OlQhC7Wt0f0LBi8GIa9Ai3kJga2a4TFHR8vjMOQJ7KJj0xexuTZ5ss5TiYdHO3eTlh
+	 jp8QQrTq+XNog==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EABBE3822D43;
-	Thu, 12 Jun 2025 20:10:34 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70B853822D43;
+	Thu, 12 Jun 2025 20:10:33 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] RISC-V: uaccess: Wrap the get_user_8 uaccess macro
+Subject: Re: [PATCH v2] RISC-V: vDSO: Correct inline assembly constraints in
+ the
+ getrandom syscall wrapper
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174975903349.88969.3262884542771574514.git-patchwork-notify@kernel.org>
-Date: Thu, 12 Jun 2025 20:10:33 +0000
-References: <20250610213058.24852-1-palmer@dabbelt.com>
-In-Reply-To: <20250610213058.24852-1-palmer@dabbelt.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, cyrilbur@tenstorrent.com,
- jszhang@kernel.org, cleger@rivosinc.com, samuel.holland@sifive.com,
+Message-Id: <174975903199.88969.16808687093175866673.git-patchwork-notify@kernel.org>
+Date: Thu, 12 Jun 2025 20:10:31 +0000
+References: <20250606092443.73650-2-xry111@xry111.site>
+In-Reply-To: <20250606092443.73650-2-xry111@xry111.site>
+To: Xi Ruoyao <xry111@xry111.site>
+Cc: linux-riscv@lists.infradead.org, alex@ghiti.fr,
+ thomas.weissschuh@linutronix.de, nathan@kernel.org, Jason@zx2c4.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, guoren@kernel.org,
  linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250612_131003_538559_76747402 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +83,24 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@dabbelt.com>:
 
-On Tue, 10 Jun 2025 14:30:58 -0700 you wrote:
-> From: Palmer Dabbelt <palmer@dabbelt.com>
+On Fri,  6 Jun 2025 17:24:44 +0800 you wrote:
+> As recently pointed out by Thomas, if a register is forced for two
+> different register variables, among them one is used as "+" (both input
+> and output) and another is only used as input, Clang would treat the
+> conflicting input parameters as undefined behaviour and optimize away
+> the argument assignment.
 > 
-> I must have lost this rebasing things during the merge window, I know I
-> got it at some point but it's not here now.  Without this I get warnings
-> along the lines of
-> 
->     include/linux/fs.h:3975:15: warning: label followed by a declaration is a C23 extension [-Wc23-extensions]
->      3975 |         if (unlikely(get_user(c, path)))
->           |                      ^
->     arch/riscv/include/asm/uaccess.h:274:3: note: expanded from macro 'get_user'
->       274 |                 __get_user((x), __p) :                          \
->           |                 ^
->     arch/riscv/include/asm/uaccess.h:244:2: note: expanded from macro '__get_user'
->       244 |         __get_user_error(__gu_val, __gu_ptr, __gu_err);         \
->           |         ^
->     arch/riscv/include/asm/uaccess.h:207:2: note: expanded from macro '__get_user_error'
->       207 |         __ge  LD [M]  net/802/psnap.ko
->     t_user_nocheck(x, ptr, __gu_failed);                        \
->           |         ^
->     arch/riscv/include/asm/uaccess.h:196:3: note: expanded from macro '__get_user_nocheck'
->       196 |                 __get_user_8((x), __gu_ptr, label);             \
->           |                 ^
->     arch/riscv/include/asm/uaccess.h:130:2: note: expanded from macro '__get_user_8'
->       130 |         u32 __user *__ptr = (u32 __user *)(ptr);                \
->           |         ^
+> Per an example in the GCC documentation, for this purpose we can use "="
+> (only output) for the output, and "0" for the input for that we must
+> reuse the same register as the output.  And GCC developers have
+> confirmed using a simple "r" (that we use for most vDSO implementations)
+> instead of "0" is also fine.
 > 
 > [...]
 
 Here is the summary with links:
-  - RISC-V: uaccess: Wrap the get_user_8 uaccess macro
-    https://git.kernel.org/riscv/c/2aa5801ada29
+  - [v2] RISC-V: vDSO: Correct inline assembly constraints in the getrandom syscall wrapper
+    https://git.kernel.org/riscv/c/2b9518684f85
 
 You are awesome, thank you!
 -- 
