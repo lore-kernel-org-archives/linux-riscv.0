@@ -4,164 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3279C71148
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 23:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D03C71136
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 00:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RfO2ZSwwhVNBPAsc2+F86CH6UrF0O42rHJOSNhf7swo=; b=CAtrQyRjQf1glF
-	JaJsIHiFlFCz7ZOw0G5cAYisNY50Jziyn+H3M6MoR6SevDBEhXjAcY8pYOETiR+XgZJsbpHFkCyns
-	QyMFOyjrr748i1z+ZWdcabg5i6YOdi/oiwbnwXp23XC98mKpvaCL4GjLV1/WluCYrwgfob/oPRp6N
-	Rr0xDBuMjVJEMSHtwHN9ceEHXZwdQdBKJKY14PlUBdBk+BBw06SJcY79cbwuRtO0pK15EhwKOyuhA
-	uvbf/5eUB9ENANO0D+nEi11DI5pwb2ObZPqkhZ2H+hyOEYYmmPbATypVz/4t/eWaFDdxklRCSjiaQ
-	TQP8n5586/ewrZsznSNw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=62fzdwRr7W1HLgNN7Cf7gizpEP7gJhpF0P6hvYmvpoc=; b=Ot0HvemqUyPbsD
+	BcgHGs/mzG0GvBieq32mvBBao068l0OcGKCFVYa/SQ2iGrqF9zRBozG3uDTnfLpW/FVQHzuB4IM2X
+	KJxRWLWQrbJ+3ux99cX7MLDO3RR8ATSfKS8lED86A4aDu0IjG2Zt7H41sOiBtUrInXaQzclO45RVp
+	ujWgavgIiVylPDV84IHPgXhXJBlutSrU9LBqYEnGunz0NlR0bPgxItnOlfh1vGec0VXNq2yyQsf6o
+	OrImkzAX0BcX0+/zXiY8HP5rZQx9I6mDe+PqKnam4hMWqWQE2zMnppy3UYXuxXOyq/RQVL01J0g2K
+	N+Aiv347eNpd4FakVdbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPrkb-0000000EueE-34rD;
-	Thu, 12 Jun 2025 23:54:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPrz7-0000000EvlD-0VRc;
+	Fri, 13 Jun 2025 00:09:29 +0000
+Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPqkm-0000000EnzO-2EFB;
-	Thu, 12 Jun 2025 22:50:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=uoZL4nQnsuPbbzobiwxxLfLDempiqsD7YWenTsnQ5u0=; b=c75c6uvz+CMKg+IpGOzIqNtHYv
-	kYFF2+CgGXqtQ5yLwah9IbkzOiLHv6H5x8Zl2fi0giMtiF8V+MlVSiaJvEBl0ULsAKf5dzWxsMSem
-	P1vTlxoNPp6WFxX+l5lSkZtcrxd8jnSDmvS9nnpeHcUoMekA2NMMnzIxGYVKU3ADz4UKl/Yf1AfXj
-	AwbTLcEa10CI/d9ToFwFCsQ+FRtbHn1Tt5UnTSoxy7TG4ZXhXgAamVCvdLRhPZ/LGHLdX+UUC1qPg
-	96vKvH9lyl93DZ0Y3yN7uzxYmmriqhCfaxuZGTGxPnUfG4hE21fWUqwKOHcou4SF0F/PjG/RDlAQ8
-	OahF4POQ==;
-Received: from mail-bn7nam10on20609.outbound.protection.outlook.com ([2a01:111:f403:2009::609] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPqkj-00000002lFA-2HwE;
-	Thu, 12 Jun 2025 22:50:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C9WtQqMeYgsDK4LXBtPI8DJUYjSW8IsK+o0jdImkm4iFIWC7RxzHR392Uwj0+7JPKw1slYF94HGzOZbH3yYXhJBE1PtrrAE1ncA+fqes3vIIOP5jz+jcG0DcJu3xXYB+OmHcQYQAFxnP0gELxsfRRPALYPIJPAEcIY79Qs+BrDjWSByx5Mj/M6SB3TQnZKlkhndk4fZil2ARr6J4bOywQCcLPQHvon3d+W/arEOgN8cU9n2f/G+wErFBjU4pEnAiFsWrYTHSXd02cMEOjS/U77g+p8UNk04JNO9Be1tzYFmpTbXio/1vqkY2JiusHYFlZOyXBjHO/LLMgYzn21st8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uoZL4nQnsuPbbzobiwxxLfLDempiqsD7YWenTsnQ5u0=;
- b=Vop0HI6zQH0oxxJNykd7snjXPvI4IF8f9wbj9rtTk0E1BaaPuU01Fp/a4E14i3NKeFYvFVgBuR01CSzLV1gnF9inBKLfY20e/1uo854M56w1x/FDBzmUZmmFWPd0gdb0fOP4bWtrNeH/zg4lgUAHKdKqt7yvZPYhboFbXAHH4kMdAM3Dj5lY8pS/Of0kR/CYP6uDJwZ0SnowcG2zavIdGb+E4a5c6bthsnu2Cj0WJshBzAN1S06abtYY/dh+SLRkxepUyUeJh4T8pOGkorZaQEL5sMuehMKj9/2e30Hp5WF+R1QbYAAGn3vdLjc4lhUj+CoLlAOJ0hxGjPm9HQW+bQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uoZL4nQnsuPbbzobiwxxLfLDempiqsD7YWenTsnQ5u0=;
- b=Dfy8YJEzOexRWYLoog+n4L1hAGuVETR935zrjAXp0MFimi07TGwkjDngRmyaghJxabOq9UQ0U/Ox6sciTHrhFEXRsngAhv+KVXN8w95mCQtpy9jwolbnURzuz5Bllu5cCydU1GO7eK6Ddji0y4IbZGDLbBWNLq4so4j7eULdzXF/vUERIodo1QoW4qQOLY44AnaTiS2DJ/TpiguvSBZqsNiNqoczICjaGBSLqc074I77cPzguucTpfmhxU1nAqOhLqWJEHLbIo0wUWlJHbBJuP35XV5IpQqvoxzJFkk0vyfvoQS8XxpsRWE6Puqm8Dg0ytUx9m9iP1vFhp78ArH2iQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7728.namprd12.prod.outlook.com (2603:10b6:8:13a::10)
- by DM6PR12MB4138.namprd12.prod.outlook.com (2603:10b6:5:220::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Thu, 12 Jun
- 2025 22:50:20 +0000
-Received: from DS0PR12MB7728.namprd12.prod.outlook.com
- ([fe80::f790:9057:1f2:6e67]) by DS0PR12MB7728.namprd12.prod.outlook.com
- ([fe80::f790:9057:1f2:6e67%5]) with mapi id 15.20.8835.018; Thu, 12 Jun 2025
- 22:50:20 +0000
-Date: Fri, 13 Jun 2025 08:50:15 +1000
-From: Alistair Popple <apopple@nvidia.com>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com, 
-	dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org, david@redhat.com, 
-	linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
-	linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, 
-	zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org, balbirs@nvidia.com, 
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	John@groves.net
-Subject: Re: [PATCH 03/12] mm/pagewalk: Skip dax pages in pagewalk
-Message-ID: <q6wgtlud6gyz47fxpxnaxh7vv647kz3h4qyrnsjelxq2nocfai@pvllo4c3spfx>
-References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
- <fda482ca-ed0a-4c1e-a94d-38e3cfce0258@lucifer.local>
-Content-Disposition: inline
-In-Reply-To: <fda482ca-ed0a-4c1e-a94d-38e3cfce0258@lucifer.local>
-X-ClientProxiedBy: SY4P282CA0013.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:a0::23) To DS0PR12MB7728.namprd12.prod.outlook.com
- (2603:10b6:8:13a::10)
+	id 1uPqqV-0000000EpHc-2ryB
+	for linux-riscv@lists.infradead.org;
+	Thu, 12 Jun 2025 22:56:32 +0000
+Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3dda399db09so12529045ab.3
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 15:56:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1749768991; x=1750373791; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gIRR5bCoil2FaR591vuDwUpsGCoeLZpb18iQYK0axhg=;
+        b=SzpQHAjYkH/rXFvYr7uAlMSg8ZjTXk/kcWK48iXwnkmNNqpInbbzbazn3yrL5orQ84
+         4iHjz+BlcTMHe3aRqnSGsIM33Hh1u/xb9jM8iloCullKhUbnC4cjYuBeaWQiY2gBU0lb
+         EzUbNcHp+RFu2qHwfaqbG1tH4kq6JxcaOL00+vuc6alB9sGzG6ehNyQOzI41P2N/fXrG
+         OqwcfOfhM6oI4UiVkoOEriiHsJb/k7KjS8D4/kqeZlM3jrkADjSptso559epOap7UNx6
+         Yft7klnCjR/Mve06slS1SvOPtnWGoi/rTV2T7YM7Cwxt8mG8IHDsSmeU3kSTgj0rorwE
+         lbNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749768991; x=1750373791;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gIRR5bCoil2FaR591vuDwUpsGCoeLZpb18iQYK0axhg=;
+        b=NsmNtNPG02qxULFMZWFrIXA5Rn1Kfr74tmmSGw2X8BgaPat+zLpoOYqT4f/TUx1iss
+         XVqmnA60zzmMjfYuYJRNOqTlXFzKbHgWbd35HPC++XuX81hXdVrGC1sCVaB7+9cMnMRh
+         aR8eWWwf6OMqq14ofeHwtzoiDQ371+1k1Z1M0SQpMyg/GzUfWXu7YWMYSmW2RmC5pDZv
+         +KHq2OzOyxk0RgTD4F36rkNwYlTTxfi551w7nDhNyRJeH0ZHGfnBLAFlWmFMrTYgvWoy
+         xVpLv18BZr7nzQ0kXpvYgAZVYRtvO6jj91wP0UbaddFhwTm02yX88Ha4NWQ3jSEJWlqy
+         ATNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU808QTEap7hN8m/mIsMet/m+bZwduy7/DEndWfax9kqimg5tb3YSHl76Oggc0kETjVdXynrmhwZEw/Iw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVRq8yyiqfzSj+JdshgLBmpK/d+bT3WRAZ6N0+se+caM0eyIbk
+	MROyFgypECnZ7nIEpOPnlPcz3QuvGRmhtPvayBSp+sgDgmGLaVDeKQ4ePIrFbyIL/Pk=
+X-Gm-Gg: ASbGncu2OcfuFN1h757XZAL8Mnf0TtpQrcVMqMUqqzy25N/csoihgzmNHUiFADFJ9a8
+	TDGcn18vj4o712SLEtlNcPyEfL+iFx6IU+PjdLNUzQ9fVpJpv5kugEAiCX9B/leO9GbJkVgUOGQ
+	zPRmegeFuRQNwGmv5gvpr/svrTqPrtlq+5hqKxHfWZvtGMcCHX2KI5emXVyPifnEPGxcLCf9MW4
+	/87KiYlWTuSV5feV41lsC388MhC9rNX6a8JEBBgMwjXMTVr9n/cOP59AWANbomRsLjfPKiBT/YR
+	Zbz5vGhdXQKIOEXrQnbk50eiOI9yLSPv8MdiGUQ4v4DIBiXnjwpsa+a1LiksEHDX3GgrgW/sqD7
+	u3Zenr2GILSkD/UbhHvwtSJu269SFdPMJnX4RvI9kOg==
+X-Google-Smtp-Source: AGHT+IFl/qtFDEOg7fq5AKLUPKjkJzQ1QBSvDDw3zCkODT+b5Ce6LNmP5J2eqcw2VDryqjSPHaqh3g==
+X-Received: by 2002:a05:6e02:184a:b0:3dd:d6c0:cccd with SMTP id e9e14a558f8ab-3de00bd309amr7524375ab.13.1749768990866;
+        Thu, 12 Jun 2025 15:56:30 -0700 (PDT)
+Received: from presto.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3de019d0c4bsm209125ab.28.2025.06.12.15.56.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 15:56:30 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: andi.shyti@kernel.org,
+	dlan@gentoo.org,
+	troymitchell988@gmail.com
+Cc: elder@riscstar.com,
+	linux-i2c@vger.kernel.org,
+	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] i2c: k1: check for transfer error
+Date: Thu, 12 Jun 2025 17:56:25 -0500
+Message-ID: <20250612225627.1106735-1-elder@riscstar.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7728:EE_|DM6PR12MB4138:EE_
-X-MS-Office365-Filtering-Correlation-Id: f6cdde14-4bd0-4708-e1d5-08ddaa038203
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/I/gpqyKPCXbZtOvGagQ7C3fdiL0ajL6Sc+ET0we2xvEimifd4hauH2a2Lnf?=
- =?us-ascii?Q?0hYUPKpgbMliarz65l5uYEMGCKgtkYJzP2D42Ficbir5/5YSAvGX19WLCsCR?=
- =?us-ascii?Q?SwBxSmZ+0zIeJE47Vl8+rUdUyZribyupZm6Yx2nUcugrSn3yeRc0y/samFzd?=
- =?us-ascii?Q?mrTTAaN0uiVmZHZ9h3JgFcHb/WBPWAcQt7/V10mIbotsgPuDiPFov9u17/d7?=
- =?us-ascii?Q?CYnhvojmvXP8mNlFB4C9eoJEyN57OVC3ijNQKsdBW1pef8jvu85rmpDTKN3L?=
- =?us-ascii?Q?maUxIQw04+iY+2iqY92Nr4RhVDglcdKAbEPA/fUqxh56Sn9M7aE/KtvUCcgw?=
- =?us-ascii?Q?Nc50jGpCE9vkV1DpNJgUHj1OEsyXBwd2nSbW1AJdSwVZUN6mAHd1nn7Cz29a?=
- =?us-ascii?Q?yjwYh4lN/nv0784X3vyDxkhmoKVK68yjK3Ag6cCLKdf4o3F4JQ9h3kgYJbC/?=
- =?us-ascii?Q?h0XtuwCRNvdGW1TB7PGjjHfdls+C0KtYQaRre59LaAik8KGNUEKoatZXmD7v?=
- =?us-ascii?Q?/stOh1Ex0ASLcvm5UIVx5UeOMhC3hgEemA+D9EX/UzRb5+u30sLixYEjG4o4?=
- =?us-ascii?Q?WyTjhCjjDGOE+MuEC88Se0MK6/1twzIn1w/Vy3I/TKHY3D3i9PKbo5phUx+z?=
- =?us-ascii?Q?umNoEmu7T+mIwgcYXLC2e8mvIVXuIsiTigoKETJqOCrVgDgKnRbBpF913q+Y?=
- =?us-ascii?Q?/y0GWhKNMmsYMoIOaJRAfw0wympvSXWHQOxtEXNqmoK9b6tzaOD4pNHOi/1X?=
- =?us-ascii?Q?9YZo+YvnEWlMrZO7X5Sr5oFbfV6FkkHwLwa839HGpBYiFznfS4yNfgifDdh1?=
- =?us-ascii?Q?VS/sMz2djbLoHlBHm671b0jNDzxaf43VDmFqhxZIOLpATA1g2ZswwPNeOpE2?=
- =?us-ascii?Q?KLZB7OO4/MttboAVP2ljpqqKYeWN6ZWK9CWAclPxXDme/dKtfZEHrC7LMus3?=
- =?us-ascii?Q?cMM5i5SKeZkUs2a4L2YfSX44sPgHCg9RgYYxge2oTG8We+AbHY8vShAF20hv?=
- =?us-ascii?Q?EKECrM3dgY3ifbl0ElF8fHm7KF1MpjtjxBjqswQwPg+wuTnzwkHoQ+8VvVbq?=
- =?us-ascii?Q?5vM+aDc+K6Yx8RVmJkmaN+acYutCPZrKR4n4JCQPYF/3sr0rH5USDtYPmom3?=
- =?us-ascii?Q?Eu7jG3lvK6tPx3eyWx6DFBLcLFqfTyAnafUdh2J9GKDmqfVLfzlA6jbNNDF1?=
- =?us-ascii?Q?YXY2FCQNeXnLRSReEKS70fXNe1igjoCVmKarE1XoVysxRm7J7ZVweRatzwZo?=
- =?us-ascii?Q?BPe9HwlFmahTDz4/3FD8nLChLHoH0OkKhv7j6Vwh5HwMPGyLfVubGgpNXhpN?=
- =?us-ascii?Q?+4TKdUaePhgzQq6wzAU/RlftE2pqGDOHyGo1C8DOeLDWihHQrJLKPqpLuCIA?=
- =?us-ascii?Q?yf8owpId/sNxJsxSBhVvCWBGeo1aozdU8AsoPXqgc6vNZ4ajYPq6Ng63mgmf?=
- =?us-ascii?Q?m4ywDXp+WlE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7728.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nH+VVf3zCUBGiXeNYBib0WbsJt47SPfZLDDzEnfxRGfLhMATJi5IysCbD3ON?=
- =?us-ascii?Q?TCi2bYGN9Bmy7jUciTYm9QRy1bl6ai9gn2KAWTGKeT1hALcEQ4iVcWVpkxeg?=
- =?us-ascii?Q?eV1MF8s28mgUwknLiOF20APMPgs+pEew8UW/OR1427AhxjgnBHpLDtnQS5Ng?=
- =?us-ascii?Q?oBWZSNM+b7DeDWDzfju/taWCmeICFDCEtL5XxaM+weExgOYgjSOmiiWw+opt?=
- =?us-ascii?Q?+MRiSekn60x4RywrHpU5onZ08okj/K/SBEnTPFUqGFIGmgm4Cz/2s1LSn+u9?=
- =?us-ascii?Q?2WfPpHZ4y3M1hIw3IiaKCsD5Dv64/nKNPNP+/VQfA4ukd7ALRzuIOUnTQnR4?=
- =?us-ascii?Q?M6tN+W4KvJW891VFKxNFTOAw5jCdMjoKBlWXAo5ku0BEAbxIjdeTP3mWidSk?=
- =?us-ascii?Q?HmeTp+cjllYFuZCLEAotmnH3oySGc5By0ECx2Wf+5r59aDLmH5LhBXrQqALY?=
- =?us-ascii?Q?ZyHc0DA08jB78/kdyTaQiKBTJmm4nZesIX8rSYAEobxHZWgcJuPal445gnv6?=
- =?us-ascii?Q?Y+jjjCRqYmsUhurC8NNwxH5b+Eau//dpoThxOLrhzjgDeUyNtey68bNujzCn?=
- =?us-ascii?Q?RK1jU8qDkwN3vBefOZ2QCJP5wWFULetlwwf8riUf1OGZpP8CY9ZRZZjg3hh8?=
- =?us-ascii?Q?+EjFAQolzmMrROunGFo5HIdRRWEUCUKb3YupN+QUGJa98hoL2ZNeCdZcqrra?=
- =?us-ascii?Q?qjqbcH20i3kAefAI9OaCOkJ1iR70szOYtW8I1N/GSriBkXX6rAcNdOp6pwJb?=
- =?us-ascii?Q?9Gl2/UWAd7o2PqkJzk+T1+TDGnAzIIrFAmtqV21LMW45JezsWM9EdD8P3hNG?=
- =?us-ascii?Q?l9QUGYgrnD+cDZ+A6DYyAMtVIbcALOLRTba8an14jze57uN8x5LMDqdhi13i?=
- =?us-ascii?Q?K3svhgQXV+CTllOKG5CQqw2yLe0uyIO2o57HTZrwX4bG0KVIhzgZtu6Prcvt?=
- =?us-ascii?Q?+GzsuGMbGPJ1JfEUcXznP7z8nNd7c075Qap5Q6w40SAxnjxkjvDGHtv1yS9g?=
- =?us-ascii?Q?MwRPJNdNpXrM7tsKBbVuraUfD5GwZStnUoFhU7/m4x7Vrmxfevg6f2/Q9KO4?=
- =?us-ascii?Q?24iUSWBzScjL6VEK3SfMvW+rG6DWjyqJbWbuc3mnRtwsjJie26UyvK2zdBLe?=
- =?us-ascii?Q?+EsnFcY4o7y1EFHxl0ekAUq5ogmGoOxBGIS1JOOOPCLn3SObaZGcALu4+MNN?=
- =?us-ascii?Q?pe6ultKxzEps2dz9nJTG8Gqeakx9JO6u7cAQMSEpn3deNeZoi5FAwHA5cf1J?=
- =?us-ascii?Q?aaCKhad6oEolXWhnRY1y5MznZB7GjvwEdlYgDnuSTjMwOZdeuZjnzlK3iogg?=
- =?us-ascii?Q?xLWMEC5leIvx10tzuB4lMKXt5Dm7JNaKghZ80iGKyKIbxSGQ0qt7+uvRNy50?=
- =?us-ascii?Q?bfoXX+DkrMoTC1mj31nUMANU37p065Bcd96psb0Y2ekIWtK9M0aaww3fpo/p?=
- =?us-ascii?Q?fPzo97uFqHEEpqMq/eD+zyagfP+3pOIkK5xaf73yhlTsoygB2JzrivfSGUZ5?=
- =?us-ascii?Q?iP1hrF67l9bSGR1VO0OymiKqEPRnG+y4czY1IBTESf1naQGhbEZsQLocojf9?=
- =?us-ascii?Q?uowGiS4syEzrVWYAu3hhm4L6gTuE282yDSmvCQzV?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6cdde14-4bd0-4708-e1d5-08ddaa038203
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7728.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2025 22:50:20.7643
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FtDGNWNNX+HY+Par/I5yX6UMlbA+iRMLtO/gMt47T9psWU/Zdmt21bxa5Tgmq5JKtZYoU2/OParbmhQV9YfpAA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4138
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_235033_737199_99DB98A4 
-X-CRM114-Status: GOOD (  27.09  )
+X-CRM114-CacheID: sfid-20250612_155631_721350_E56699C3 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,101 +101,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 03:15:31PM +0100, Lorenzo Stoakes wrote:
-> On Thu, May 29, 2025 at 04:32:04PM +1000, Alistair Popple wrote:
-> > Previously dax pages were skipped by the pagewalk code as pud_special() or
-> > vm_normal_page{_pmd}() would be false for DAX pages. Now that dax pages are
-> > refcounted normally that is no longer the case, so add explicit checks to
-> > skip them.
-> >
-> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> > ---
-> >  include/linux/memremap.h | 11 +++++++++++
-> >  mm/pagewalk.c            | 12 ++++++++++--
-> >  2 files changed, 21 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/include/linux/memremap.h b/include/linux/memremap.h
-> > index 4aa1519..54e8b57 100644
-> > --- a/include/linux/memremap.h
-> > +++ b/include/linux/memremap.h
-> > @@ -198,6 +198,17 @@ static inline bool folio_is_fsdax(const struct folio *folio)
-> >  	return is_fsdax_page(&folio->page);
-> >  }
-> >
-> > +static inline bool is_devdax_page(const struct page *page)
-> > +{
-> > +	return is_zone_device_page(page) &&
-> > +		page_pgmap(page)->type == MEMORY_DEVICE_GENERIC;
-> > +}
-> > +
-> > +static inline bool folio_is_devdax(const struct folio *folio)
-> > +{
-> > +	return is_devdax_page(&folio->page);
-> > +}
-> > +
-> >  #ifdef CONFIG_ZONE_DEVICE
-> >  void zone_device_page_init(struct page *page);
-> >  void *memremap_pages(struct dev_pagemap *pgmap, int nid);
-> > diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-> > index e478777..0dfb9c2 100644
-> > --- a/mm/pagewalk.c
-> > +++ b/mm/pagewalk.c
-> > @@ -884,6 +884,12 @@ struct folio *folio_walk_start(struct folio_walk *fw,
-> >  		 * support PUD mappings in VM_PFNMAP|VM_MIXEDMAP VMAs.
-> >  		 */
-> >  		page = pud_page(pud);
-> > +
-> > +		if (is_devdax_page(page)) {
-> 
-> Is it only devdax that can exist at PUD leaf level, not fsdax?
+If spacemit_i2c_xfer_msg() times out waiting for a message transfer to
+complete, or if the hardware reports an error, it returns a negative
+error code (-ETIMEDOUT, -EAGAIN, -ENXIO. or -EIO).
 
-Correct.
+The sole caller of spacemit_i2c_xfer_msg() is spacemit_i2c_xfer(),
+which is the i2c_algorithm->xfer callback function.  It currently
+does not save the value returned by spacemit_i2c_xfer_msg().
 
-> > +			spin_unlock(ptl);
-> > +			goto not_found;
-> > +		}
-> > +
-> >  		goto found;
-> >  	}
-> >
-> > @@ -911,7 +917,8 @@ struct folio *folio_walk_start(struct folio_walk *fw,
-> >  			goto pte_table;
-> >  		} else if (pmd_present(pmd)) {
-> >  			page = vm_normal_page_pmd(vma, addr, pmd);
-> > -			if (page) {
-> > +			if (page && !is_devdax_page(page) &&
-> > +			    !is_fsdax_page(page)) {
-> >  				goto found;
-> >  			} else if ((flags & FW_ZEROPAGE) &&
-> >  				    is_huge_zero_pmd(pmd)) {
-> > @@ -945,7 +952,8 @@ struct folio *folio_walk_start(struct folio_walk *fw,
-> >
-> >  	if (pte_present(pte)) {
-> >  		page = vm_normal_page(vma, addr, pte);
-> > -		if (page)
-> > +		if (page && !is_devdax_page(page) &&
-> > +		    !is_fsdax_page(page))
-> >  			goto found;
-> >  		if ((flags & FW_ZEROPAGE) &&
-> >  		    is_zero_pfn(pte_pfn(pte))) {
-> 
-> I'm probably echoing others here (and I definitely particularly like Dan's
-> suggestion of a helper function here, and Jason's suggestion of explanatory
-> comments), but would also be nice to not have to do this separately at each page
-> table level and instead have something that you can say 'get me normal non-dax
-> page at page table level <parameter>'.
+The result is that transfer errors go unreported, and a caller
+has no indication anything is wrong.
 
-I did the filtering here because I was trying to avoid unintended behavioural
-changes and was being lazy by not auditing the callers. Turns out naming is
-harder than doing this properly so I'm going to go with Jason and David's
-suggestion and drop the filtering entirely. It will then be up to callers to
-define what is "normal" for them by filtering out folio types they don't care
-about. Most already do filter out zone device folios or DAX VMA's anyway, and I
-will add some commentary to this effect in the respin.
+When this code was out for review, the return value *was* checked
+in early versions.  But for some reason, that assignment got dropped
+between versions 5 and 6 of the series, perhaps related to reworking
+the code to merge spacemit_i2c_xfer_core() into spacemit_i2c_xfer().
 
-> > --
-> > git-series 0.9.1
-> 
+Simply assigning the value returned to "ret" fixes the problem.
+
+Fixes: 5ea558473fa31 ("i2c: spacemit: add support for SpacemiT K1 SoC")
+Signed-off-by: Alex Elder <elder@riscstar.com>
+Reviewed-by: Troy Mitchell <troymitchell988@gmail.com>
+---
+v2: Added Troy's Reviewed-by
+
+ drivers/i2c/busses/i2c-k1.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+index 5965b4cf6220e..b68a21fff0b56 100644
+--- a/drivers/i2c/busses/i2c-k1.c
++++ b/drivers/i2c/busses/i2c-k1.c
+@@ -477,7 +477,7 @@ static int spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, in
+ 
+ 	ret = spacemit_i2c_wait_bus_idle(i2c);
+ 	if (!ret)
+-		spacemit_i2c_xfer_msg(i2c);
++		ret = spacemit_i2c_xfer_msg(i2c);
+ 	else if (ret < 0)
+ 		dev_dbg(i2c->dev, "i2c transfer error: %d\n", ret);
+ 	else
+
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+-- 
+2.45.2
+
 
 _______________________________________________
 linux-riscv mailing list
