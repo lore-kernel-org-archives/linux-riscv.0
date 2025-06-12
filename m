@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B90EC61CE8
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 05:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E570CC61CE8
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 05:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w00tPq4YZpma+LpB57caHg0GpnDVQ5BNHIdeuiX5M9o=; b=ND4w8lbXPOdkl7Aj5TMvhrSiuJ
-	+k7QLrPVNYY2QMxR+zJ5UKGCP3jzXWMPyBiTp/1sK4lP29gZVGnSBKZVLHkxSek1VWXI1Y4gPED/G
-	Y9EzFTLLrAZt4kxZ4GUDkDU5CrwpTHu3VRnmK27KxPTSqMMANz1naniwG+OzZKFyirnxVU+uOJOFJ
-	7GLcd9YKYCK447ghnao1lIBFe3dvEEEvtyv46AF8yd0um9ynC3MfCak6zz45pC1Y/qVdzYL8K51xJ
-	4Iislz4C3qTKq5BkB9wAYvZr76xIDxM1mhSfBm064uzgyusyHJASGN+RdTtZbjK8aIsyaIfEQSxNQ
-	SolQBOMg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=K+FnK7ElX7CFiyRFnk12c3pPp9Uk8INeuDqUffdMA2Y=; b=zbvJEvrxeP1iIk
+	cmZF1crZ/gZTB8x7+7RWzOKPfntalmLPsapzmTHepRYVA00uZxV/6+07VbcJanKzZdtzuYcigWbo5
+	PKTOQPO3jq/su2heYCr0GOoRVERHW2pt6fiLKzsDAn9MnsvHdONg0bNRYM6CItChNMSB/ATV7I88H
+	GYJAcst0KClzAdDzX8sL11Wj0LNP1feArdEA2M+GTnKQ34WRc+WC0N04Yh9aVdOEOyfMa7YG4eGAI
+	15IqOTKCgaxT0LINPYaf9cw9nbv6zfclP7MLG4YoBmyfAI728sRrL/iiAbO+DL4iuX9l93WV9MKcj
+	ScHV8ngtNgmOmdRIAxWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPa4g-0000000CBxS-2WYy;
-	Thu, 12 Jun 2025 05:02:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uPanv-0000000CGOi-3ytD;
+	Thu, 12 Jun 2025 05:48:47 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPa4f-0000000CBx2-1Uy1
+	id 1uPans-0000000CGO9-0M8u
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Jun 2025 05:02:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 752FC60EDF;
-	Thu, 12 Jun 2025 05:02:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B056C4CEEA;
-	Thu, 12 Jun 2025 05:01:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749704520;
-	bh=AtroGsAe8tO4vVOIvU9dZHQFrQmVDJFDiGO4t+qeGxU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p36EjwWzOyew02KLXojOZJEFfyicj5NHustdqU8N+dsi1IDmylP1c8gN3qks1itWY
-	 me2jipboB28iWBiTsqUO/GaetMRgUflT+wIoiYUjzdarPmtHZTlexvOeh2FpQFlIiB
-	 tmqLKmihEz0qniwD96JID3jgHjsjSFyhPquQLjPxgByUTBuDGuBAvTpMjbO9N7Zhz2
-	 3g2JFPiNzTW71iZB1+er7DSSAzbJlurmx97+56uHNiAfSc3aUr9kw2oS8yMgcMbNEl
-	 eWhL1AK6GHUABpFlLu156DKXuFbHz1V4yN5SC54F+8dibyD7rLKT+BzGsCyoOeMQlL
-	 eI3GbtCoOJ4iA==
-Date: Thu, 12 Jun 2025 07:01:57 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Drew Fustini <drew@pdp7.com>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Thu, 12 Jun 2025 05:48:46 +0000
+Date: Thu, 12 Jun 2025 07:48:41 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1749707322;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=295phvnTuFSsjCeDnZlmZK8h66QjeJ1T36LZwhmRjSs=;
+	b=olTyEhgwS/t3rNkPXTYpL2F3CiUjR0QAWA0eK4PoRBErCgNIecxmzOAEZ4a42wnt8+oYDP
+	IRc4QT9MPm7b1YSVBlF7F3yP0C+mgKerU7s1ZaqYymWGYT5njMiKcyHp6FQS/sGQdgb6jF
+	1rdwFd+NHAZRBNInJKmgLcY64NSLI7TLwrycUyUS+HuPpAUWmO+WQW2Yc7bspbTUb4f1iP
+	7ZGzgqJij+F53jCOAH43yKvPmjtSswjW1T6Sf085xdpcmKIYjTYfiRMwE3IGoy2ZLLaYp9
+	u4y3+z7isw0DylgZiUKfiYIwOSGnyMhab6E/SHcAZjFdxCsXhdhPtJKDBcj3Zg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1749707322;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=295phvnTuFSsjCeDnZlmZK8h66QjeJ1T36LZwhmRjSs=;
+	b=y7bqoEplIrvlHxVMSD4+8ltJzhGmrMmGEI4hc1n9mNmGQvFx8lwhdJSR1MClRSs4xltoFs
+	ZYsB7jM7xPy45PBg==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Benno Lossin <lossin@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 0/7] Rust Abstractions for PWM subsystem with TH1520
- PWM driver
-Message-ID: <t26bhukukjzy7e4d2omtvjchxxzlnfyx54ku7xbytcnxkuk7xk@6tap2t3z2oaq>
-References: <CGME20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9@eucas1p2.samsung.com>
- <20250610-rust-next-pwm-working-fan-for-sending-v2-0-753e2955f110@samsung.com>
- <aEifXZnLxKd2wa0w@x1>
- <6ca6016e-3b17-48a0-ad8d-bb05317aa100@samsung.com>
- <aEoWtviFl0vYATXe@x1>
+	Alexandre Ghiti <alex@ghiti.fr>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v3 3/3] vdso: Reject absolute relocations during build
+Message-ID: <20250612074301-ef094934-158c-4fa1-a2ee-92d2f749fe39@linutronix.de>
+References: <20250611-vdso-absolute-reloc-v3-0-47897d73784b@linutronix.de>
+ <20250611-vdso-absolute-reloc-v3-3-47897d73784b@linutronix.de>
+ <20250611185727.GC2192624@ax162>
 MIME-Version: 1.0
-In-Reply-To: <aEoWtviFl0vYATXe@x1>
+Content-Disposition: inline
+In-Reply-To: <20250611185727.GC2192624@ax162>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250611_224844_409212_5D1DEC3F 
+X-CRM114-Status: GOOD (  28.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,71 +80,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6499834595770859465=="
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 11, 2025 at 11:57:27AM -0700, Nathan Chancellor wrote:
+> On Wed, Jun 11, 2025 at 11:22:14AM +0200, Thomas Wei=DFschuh wrote:
+> > All vDSO code needs to be completely position independent.
+> > Symbol references are marked as hidden so the compiler emits
+> > PC-relative relocations. However there are cases where the compiler may
+> > still emit absolute relocations, as they are valid in regular PIC DSO c=
+ode.
+> > These would be resolved by the linker and will break at runtime.
+> > This has been observed on arm64 under some circumstances, see
+> > commit 0c314cda9325 ("arm64: vdso: Work around invalid absolute relocat=
+ions from GCC")
+> > =
 
---===============6499834595770859465==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xq7etcxgxyqwg5gi"
-Content-Disposition: inline
+> > Introduce a build-time check for absolute relocations.
+> > The check is done on the object files as the relocations will not exist
+> > anymore in the final DSO. As there is no extension point for the
+> > compilation of each object file, perform the validation in vdso_check.
+> > =
 
+> > Debug information can contain legal absolute relocations and readelf can
+> > not print relocations from the .text section only. Make use of the fact
+> > that all global vDSO symbols follow the naming pattern "vdso_u_".
+> > =
 
---xq7etcxgxyqwg5gi
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 0/7] Rust Abstractions for PWM subsystem with TH1520
- PWM driver
-MIME-Version: 1.0
+> > Link: https://lore.kernel.org/lkml/aApGPAoctq_eoE2g@t14ultra/
+> > Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3D120002
+> > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> =
 
-Hello Drew,
+> I ran this through a few different architectures with LLVM=3D1 and did not
+> see anything interesting.
+> =
 
-On Wed, Jun 11, 2025 at 04:52:22PM -0700, Drew Fustini wrote:
-> I also enabled the pwm fan driver. However, there is a probe failure:
->=20
-> [    1.250921] pwm-fan pwm-fan: Failed to configure PWM: -524
-> [    1.256546] pwm-fan pwm-fan: probe with driver pwm-fan failed with err=
-or -524
+> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+> Tested-by: Nathan Chancellor <nathan@kernel.org>
 
-524 =3D ENOTSUPP, so it seems the request had duty_offset > 0. Does your
-fan use PWM_POLARITY_INVERTED? If so, try without that flag. If your fan
-really needs an inverted PWM this of course makes fan control buggy.
-With the next revision it should work fine (as a duty_offset > 0 should
-get rounded down to 0).
+Thanks!
 
-Best regards
-Uwe
+> > ---
+> >  lib/vdso/Makefile.include | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> > =
 
---xq7etcxgxyqwg5gi
-Content-Type: application/pgp-signature; name="signature.asc"
+> > diff --git a/lib/vdso/Makefile.include b/lib/vdso/Makefile.include
+> > index cedbf15f80874d4bb27c097244bc5b11272f261c..04257d0f28c0ed324e31adb=
+b68497181085752f8 100644
+> > --- a/lib/vdso/Makefile.include
+> > +++ b/lib/vdso/Makefile.include
+> > @@ -12,7 +12,13 @@ c-getrandom-$(CONFIG_VDSO_GETRANDOM) :=3D $(addprefi=
+x $(GENERIC_VDSO_DIR), getrand
+> >  #
+> >  # As a workaround for some GNU ld ports which produce unneeded R_*_NONE
+> >  # dynamic relocations, ignore R_*_NONE.
+> > +#
+> > +# Also validate that no absolute relocations against global symbols ar=
+e present
+> > +# in the object files.
+> >  quiet_cmd_vdso_check =3D VDSOCHK $@
+> =
 
------BEGIN PGP SIGNATURE-----
+> I do not see VDSOCHK in the normal build log but I do see the check
+> being executed with V=3D1. That's obviously an outstanding issue but
+> figured it was worth mentioning.
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhKX0IACgkQj4D7WH0S
-/k5cmwgAojpI13yoKGdS0NWryMcPvKU5a+1JbPt59o4PXbaSw5knpBShYrBVXz/I
-7d18yAnyyXsniwR1hd0KJPktunPYQR6xtv6d6TiaoiJhfziuznFm6d/lbC4ORtJe
-pXXEp1J1wCQobTjVt6PTmqNSkqStH5vAl6uEEb/0zHIiJ7DGKlqu7cKqlkeo6InV
-e/1Qsf85Pkc8v57zQBRoukYNU2MjJNh12bBfeYX8jCsxkU2FZuYljB22ByRqH15S
-hTJVeizgoIuoxNWKiI4nL1nVAr0YF40ieDXvpFIAHDbkPuu2hvvWzsl49PX9yWjs
-kgjE/rz6QmYYc90F6zSylgYQ14rObA==
-=nVye
------END PGP SIGNATURE-----
+This is because nobody actually directly uses the command "vdso_check".
+Instead all users use the variable "cmd_vdso_check" to build their own comm=
+and:
 
---xq7etcxgxyqwg5gi--
+quiet_cmd_vdso_and_check =3D VDSO    $@
+      cmd_vdso_and_check =3D $(cmd_vdso); $(cmd_vdso_check)
 
+$(obj)/vdso64.so.dbg: $(obj)/vdso.lds $(vobjs) FORCE
+	$(call if_changed,vdso_and_check)
 
---===============6499834595770859465==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+So you will only see "VDSO" in the logs.
+Which makes sense as VDSOCHK does not produce any output, so integrating it=
+ as
+its own command would be iffy.
+
+> >        cmd_vdso_check =3D if $(READELF) -rW $@ | grep -v _NONE | grep -=
+q " R_\w*_"; \
+> >  		       then (echo >&2 "$@: dynamic relocations are not supported"; \
+> > +			     rm -f $@; /bin/false); fi && \
+> > +		       if $(READELF) -rW $(filter %.o, $(real-prereqs)) | grep -q " =
+R_\w*_ABS.*vdso_u_"; \
+> > +		       then (echo >&2 "$@: absolute relocations are not supported"; \
+> >  			     rm -f $@; /bin/false); fi
+> > =
+
+> > -- =
+
+> > 2.49.0
+> > =
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6499834595770859465==--
-
