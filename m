@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC30C71149
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF96DC61CE8
 	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 20:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AZfCK7GQ+S3L5cn0+Hbborhio3LCayZlo2iDmvRodK0=; b=jIiNrmNWL0v2yX
-	6heWmlVcdUGdZCwAovV5ffHm88Ts+h1u5VOELVwVBZo7eBAGXKf7fxmUB0ll7t4iOi6Y2nZx+QPq4
-	pA1ago1JaqICgtcU3+Hq8oMRQU4YtE1Ba3baawFc6cs6tEF/tSmbBbGMhzZv2vAVEVW7PKiiu5orG
-	V1kDRW2Ao/z9TX18asjP4m6pWhZG0RsnakdTQzPMdwtCAfhSIKQBTZJxHcOFuFAJV2Vqss7oH3e+/
-	gwYslfS6M2M6GYwuHxXu80WGQW6bnW7WZAeLZ7JMUJzdobGNXFBploT0zyg9rslzE+gi8f0ioQP6x
-	NCONGVC8JqkLuiEaCYXw==;
+	List-Owner; bh=C6aPogq6kM3EMLHTNNwDgZhoQ74eacMAmXTelOelfwk=; b=EUCwjU/YW+HSLE
+	Yhm5HKDs8lcBPBe2ua0ZoTjv/wxQbR1Q/FjE0VsD5HrhkT7YSdv9tBNJsJW4uIHfeAu6LoFcztvGj
+	kTJA1Wnecz+PTfJ0yvqulSsmip8AhwQaFf0Yq8x4z10qU/ikhbv7NNSLMOvlcZrbT5iIk3STUBn0K
+	WzrfBDj/OAi9BV5iKm9DV2c5Fqq7lJXi/n8rQhFcvnzZC2kjRhd2GdzRUTYq/r36s+mamyjBFdeCo
+	vcnvoxVx2r5CinnAXt85ZSkTAngatPKrOcBq0smEUtZ3K43M6f4JYW12JEuhSRd/roKdCviAah0Mh
+	1+RMB8SCAybbdCjKvutQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPowT-0000000EXMW-2gw2;
-	Thu, 12 Jun 2025 20:54:33 +0000
+	id 1uPowU-0000000EXOH-1oEq;
+	Thu, 12 Jun 2025 20:54:34 +0000
 Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPj5M-0000000DeBW-09cb
+	id 1uPj5L-0000000DeB1-3N7y
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Jun 2025 14:39:21 +0000
+	Thu, 12 Jun 2025 14:39:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
   t=1749739159; x=1781275159;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=R0DjUyymyH51702nfIhvD4gSoTHc5AdW1g9ClY+/bUU=;
-  b=SMuPTDZGHfXbA8y2GWTSbu8xaPnbFciwFcJCj7l3kfCedZXpqqYod2kS
-   aS4YrzFIWF20LKdeGZnm1Maxe9PWsJuLq6fIBnz1/+A+iL8XcauKuENkw
-   Fb6i9AmqS/tXqyLyeGba1PAZyf2iA8mxJtI2zs765LZ5KcgyQWvsDOoQO
-   mx3TfGTpSt/2+UIFyU/+qBryvRc/4PPsgDaWaV8OnCDVdEHeKKHH7Zcx/
-   vK2IQQjI/cBfz7pnUFtRzHnMiI18I/pKLn2eX5Ou+KxmtBRDHT9wX7KkC
-   M6sqywAIcNZu/7Z37vpv+TCA5SUnI1ExMDJYG171pAjnpxzOToK1DQYXD
-   w==;
+  bh=rJw+iZgSceFPmWQsrS+uwRkcpeIPXD4DqfxkrrwqqmQ=;
+  b=hR7UDDKpMHclPdaM8y0qlDzy5+WgZpTuI57+7YjPleHx22iGsrKWfIFP
+   iog5Xv3fBeGBkLYGY4fIONdXuykwtntb9PeHV+Y4v6YFyEKq3Xt3VZK/R
+   YIUHdNYU2ra9e7Enq0hg6W1543rZiISXdwPkHTRgPjSXfZKm5sTQuvn1K
+   4ok4Smyjukrou+vq4P/RF+1tQZVvUY5J2H0OaqS3bVWKdy/Zm6GpVThuu
+   5T2rSJ5sC58A/+HmR824eu17tAlHbi/JIRqjBJSQ3WttsZ0YLnI7nfUWs
+   GchiJLxDFBEcubRL2Y0irwyZU+aYz1/6KaI9TSeWL5OyQM+DQGoptroIN
+   A==;
 X-CSE-ConnectionGUID: dmA6qLipRWS3XnypdCwDbw==
-X-CSE-MsgGUID: 4TKwQbdORASE3YBIXh0YVw==
+X-CSE-MsgGUID: rC7VIbbjS12WP3Y5SFe0Xw==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
 Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
-  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2025 17:39:18 +0300
-X-CSE-ConnectionGUID: +8ZAKTERTIydl0ak4WMZ5w==
-X-CSE-MsgGUID: i1rORHJeROiet+NjGoACVw==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.1])
-  by ces04_data.me-crop.lan with SMTP; 12 Jun 2025 17:39:16 +0300
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Thu, 12 Jun 2025 17:39:17 +0300
+  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2025 17:39:15 +0300
+X-CSE-ConnectionGUID: ky4FU3/vQr6CUKG7QLpYDw==
+X-CSE-MsgGUID: 3aQdNsO6QBmvDScTYdB+GQ==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.6])
+  by ces04_data.me-crop.lan with SMTP; 12 Jun 2025 17:39:13 +0300
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Thu, 12 Jun 2025 17:39:13 +0300
 From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Rob Herring <robh@kernel.org>,
@@ -71,16 +71,15 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	sophgo@lists.linux.dev,
 	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Subject: [PATCH v3 3/7] dt-bindings: interrupt-controller: add MIPS P8700 aclint-sswi
-Date: Thu, 12 Jun 2025 17:39:07 +0300
-Message-ID: <20250612143911.3224046-4-vladimir.kondratiev@mobileye.com>
-In-Reply-To: <20250612143911.3224046-1-vladimir.kondratiev@mobileye.com>
+Subject: [PATCH v3 0/7] MIPS P8700 variant of the ACLINT IPI controller
+Date: Thu, 12 Jun 2025 17:39:04 +0300
+Message-ID: <20250612143911.3224046-1-vladimir.kondratiev@mobileye.com>
+In-Reply-To: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
 References: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
- <20250612143911.3224046-1-vladimir.kondratiev@mobileye.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_073920_345874_46BFFA98 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20250612_073920_258995_5020CE9D 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,123 +96,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add ACLINT-SSWI variant for the MIPS P8700. This CPU has
-SSWI device compliant with the RISC-V draft spec (see [1])
-CPU indexes on this platform are not contiguous, instead
-it uses bit-fields to encode hart,core,cluster numbers, thus
-property "riscv,hart-indexes" is mandatory
+RISC-V draft specification for the ACLINT IPI controller describes
+an "SSWI" device that allows to send IPI by writing register from the
+S-mode (Linux kernel), as opposed to the "MSWI" device that does the
+same from the M-mode. Sending IPI through the M-mode requires extra
+SBI call, SSWI is much faster.
 
-Link: https://github.com/riscvarchive/riscv-aclint [1]
+Support for the SSWI exists for the Thead board, it is almost as by
+specification save for reading one custom CSR.
 
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
----
- .../thead,c900-aclint-sswi.yaml               | 64 ++++++++++++++++---
- 1 file changed, 55 insertions(+), 9 deletions(-)
+Soon to be released Mobileye SoC based on the MIPS P8700 RISC-V CPU has
+variant of the ACLINT SSWI device that follows the spec exactly.
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
-index 8d330906bbbd..c1ab865fcd64 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
-@@ -4,23 +4,32 @@
- $id: http://devicetree.org/schemas/interrupt-controller/thead,c900-aclint-sswi.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: T-HEAD C900 ACLINT Supervisor-level Software Interrupt Device
-+title: ACLINT Supervisor-level Software Interrupt Device
- 
- maintainers:
-   - Inochi Amaoto <inochiama@outlook.com>
- 
- description:
--  The SSWI device is a part of the THEAD ACLINT device. It provides
--  supervisor-level IPI functionality for a set of HARTs on a THEAD
--  platform. It provides a register to set an IPI (SETSSIP) for each
--  HART connected to the SSWI device.
-+  The SSWI device is a part of the ACLINT device. It provides
-+  supervisor-level IPI functionality for a set of HARTs on a supported
-+  platforms. It provides a register to set an IPI (SETSSIP) for each
-+  HART connected to the SSWI device. See draft specification
-+  https://github.com/riscvarchive/riscv-aclint
-+
-+  Following variants of the SSWI ACLINT supported, using dedicated
-+  compatible string
-+  - THEAD C900
-+  - MIPS P8700
- 
- properties:
-   compatible:
--    items:
--      - enum:
--          - sophgo,sg2044-aclint-sswi
--      - const: thead,c900-aclint-sswi
-+    oneOf:
-+      - items:
-+          - enum:
-+              - sophgo,sg2044-aclint-sswi
-+          - const: thead,c900-aclint-sswi
-+      - items:
-+          - const: mips,p8700-aclint-sswi
- 
-   reg:
-     maxItems: 1
-@@ -34,6 +43,14 @@ properties:
-     minItems: 1
-     maxItems: 4095
- 
-+  riscv,hart-indexes:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    minItems: 1
-+    maxItems: 4095
-+    description:
-+      A list of hart indexes that APLIC should use to address each hart
-+      that is mentioned in the "interrupts-extended"
-+
- additionalProperties: false
- 
- required:
-@@ -43,8 +60,22 @@ required:
-   - interrupt-controller
-   - interrupts-extended
- 
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mips,p8700-aclint-sswi
-+    then:
-+      required:
-+        - riscv,hart-indexes
-+    else:
-+      properties:
-+        riscv,hart-indexes: false
-+
- examples:
-   - |
-+    //Example 1
-     interrupt-controller@94000000 {
-       compatible = "sophgo,sg2044-aclint-sswi", "thead,c900-aclint-sswi";
-       reg = <0x94000000 0x00004000>;
-@@ -55,4 +86,19 @@ examples:
-                             <&cpu3intc 1>,
-                             <&cpu4intc 1>;
-     };
-+
-+  - |
-+    //Example 2
-+    interrupt-controller@94000000 {
-+      compatible = "mips,p8700-aclint-sswi";
-+      reg = <0x94000000 0x00004000>;
-+      #interrupt-cells = <0>;
-+      interrupt-controller;
-+      interrupts-extended = <&cpu1intc 1>,
-+                            <&cpu2intc 1>,
-+                            <&cpu3intc 1>,
-+                            <&cpu4intc 1>;
-+      riscv,hart-indexes = <0x0 0x1 0x10 0x11>;
-+    };
-+
- ...
+To support P8700, refactor Thead implementation, factoring out
+generic code that complies with the draft spec, and provide
+Thead and MIPS specific variants.
+
+In addition, MIPS P8700 uses non contiguous hart indexes, and thus
+requires "riscv,hart-indexes" property.
+
+Patches 1 and 2 refactor "hart index" support, replacing
+APLIC specific implementation with generic helper
+
+Patch 3 adds dt-bindings
+
+Patch 4 refactors Thead-specific SSWI, adding MIPS variant
+
+Patch 5 adds "riscv,hart-indexes" support
+
+Patches 6 and 7 do some minor improvements for the SSWI
+
+Changed from v1:
+1. RISC-V spec for the ACLINT is in a draft state, then can't
+use "riscv," prefix. Restcucture commits to add MIPS specific
+ACLINT-SSWI variant instead.
+
+Changed from v2:
+1. fix path prefix as in
+https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#patch-subject
+2. Optimize CONFIG to keep single ACLINT_SSWI supporting all
+variants
+3. Rename T-HEAD specific CPU hotplug state
+
+Vladimir Kondratiev (7):
+  riscv: helper to parse hart index
+  irqchip/riscv-aplic: use riscv_get_hart_index()
+  dt-bindings: interrupt-controller: add MIPS P8700 aclint-sswi
+  irqchip: MIPS P800 variant of aclint-sswi
+  irqchip/aslint-sswi: resolve hart index
+  irqchip/aclint-sswi: reduce data scope
+  irqchip/aclint-sswi: remove extra includes
+
+ .../thead,c900-aclint-sswi.yaml               |  64 ++++++++--
+ arch/riscv/include/asm/irq.h                  |   2 +
+ arch/riscv/kernel/irq.c                       |  34 ++++++
+ drivers/irqchip/Kconfig                       |  15 ++-
+ drivers/irqchip/Makefile                      |   2 +-
+ ...d-c900-aclint-sswi.c => irq-aclint-sswi.c} | 114 ++++++++++++------
+ drivers/irqchip/irq-riscv-aplic-direct.c      |  16 +--
+ include/linux/cpuhotplug.h                    |   2 +-
+ 8 files changed, 179 insertions(+), 70 deletions(-)
+ rename drivers/irqchip/{irq-thead-c900-aclint-sswi.c => irq-aclint-sswi.c} (63%)
+
+
+base-commit: 2c4a1f3fe03edab80db66688360685031802160a
 -- 
 2.43.0
 
