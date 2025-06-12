@@ -4,68 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CF4C71136
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 19:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732EEC7114A
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 19:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3vX6w2Rm6NUBg/PGR+eJMqSOHblg+IoZdvlLq5qQ46s=; b=iouywWIziL2P3MjljACb+Nh+Vs
-	750Tfw4bq3VZ70uZWqUZxO1HJJE5UtYSm3qC9TMic01dTgi9nHw7+arfe87HSagvNRIIyYlVZvXv+
-	xInx+MVWUULRt/xiNk9phJ+sD75Q0gopECEbq622JbrThiV00nTGfTzEcJo3iBctbxHzWwp69yijL
-	LhS3f1lgkmdTnDs/9OykQocetSYgGBbOjrVYnw9geXiAtmO+KC2oro6Hbsk8gTHjD63gqpo9DUJGE
-	CqWprh8H+0/Czb844FM3UgeOibPhpdKspTxWm5gGJudQ6TKXqjWYXmRS1ep0nbu3HUEVeNHHBtYFC
-	1Euhgx+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vgyNV+iENkH8XlgyI4dTSoDSBtridog9las6YINvT0s=; b=4ILjOyF3zGOvzq
+	FH3hTmoq8QXqGmPAfadXj7BI5fOMgaTdZ2+O9vXNENruD3xv6giT7PlrJ2m48WlkvlHiM5jUwy0cl
+	tqlyBIK+HhVqNW0SAapWsHYqqeV+OPnBK1PRkWTRoznAo1sUVFLseAn0ZqP931seO4Tsi/6ncXUcn
+	3Jt+GAVnwIR/vIxBdy+6l1A5rCJoVEaUiFAF3RUxukcSFv1IMbQ/zD7ebJeqd84NhnFvslMHlpPMb
+	QAHhxILeoBOpEnArRfZhW1FvtvD82Wf7yMyBQpDJguCC1ouDjDOWCHXg0frS/ebFHqYv293XnBW6K
+	SjWjodFwLdKLr5W/UVMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnsE-0000000EM1F-2EVO;
-	Thu, 12 Jun 2025 19:46:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uPntQ-0000000ENcW-1wvx;
+	Thu, 12 Jun 2025 19:47:20 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPkSt-0000000Du4z-1ZS3;
-	Thu, 12 Jun 2025 16:07:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 315E25C671D;
-	Thu, 12 Jun 2025 16:05:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CC20C4CEEA;
-	Thu, 12 Jun 2025 16:07:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749744462;
-	bh=U2fEccG9fwLvIRudQJWjcfVnqPecNc7cIYAnmbd9khA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mEh3gMA+uqltfgyJQaJ90yWpKwGTygJsPr0O9fMOzml4JNjs87T06CgqshJcmeK2a
-	 cR4rjIe2FUgOnMr7zcc4JULd1LTSgJdCmkTLzK0X8MhEy54PZZcTcO/W77Snrv9TAF
-	 9jjbS3IrliMLjb1gBPawNk57SFosgtvTcfV/pUX81mHnson4FtH3k/D3anOyqOQTdI
-	 tPOt1qpl894jqeGcBNZWQzyR0Zf/3LOnh26KTMCIGHm1+ymHK31BrfWy97HNfprnb1
-	 PvYzNT8C0/5IDjb8GOKphXcGP+c4OHWz65CuE33bnZpsPCqmXSH6JZX0H2PEqk92Pk
-	 NT4uu25RTCEwg==
-Date: Thu, 12 Jun 2025 17:07:37 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	id 1uPm3Z-0000000E4oY-3xgC
+	for linux-riscv@lists.infradead.org;
+	Thu, 12 Jun 2025 17:49:43 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-747fc7506d4so1294014b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 10:49:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1749750581; x=1750355381; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=kKudhM6GP7ucCr8LJ/xGTzdQhmTfuZa6CNBowxM0Kt8=;
+        b=KPuTZdmZTE6NXoN+5gltrhE7dVxUkEiUVKaSmbMEA9jKR84e/P8bKn0NJsj8Bj+DXC
+         bQz2aalDagSmTjHmZI1LuMTOTHuc5X7N67k7MDZbvE48hGqKiENVH/p5rkcEyeh+nUZA
+         jCCD87B6Qkxnkdct00LNlKmQerW95GAQvohtcmTSZ3w3H+bfwtH3hI2sWnfo67IO15wi
+         7HYKig7r7R6Bc2zlowlNC4VexrF7aL7eFim+nHII0MaQectDuSrgSx2Vg1c8HkZiSKP4
+         JnqQAsQm1ZumXXnSXEXmnRO6t3Lr3sheEhbYCwqq7Ugm3qNmuO7ha+e51EKj3dnuNJLH
+         dqSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749750581; x=1750355381;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kKudhM6GP7ucCr8LJ/xGTzdQhmTfuZa6CNBowxM0Kt8=;
+        b=wEUtfFPfBiyGtNG5naw9dqKUMNF6a+hOv1XYV1bigLV1dgYEclISIu3mSfd/MQ/LNo
+         gP4TqtO2tnfGNP/ldG+ka8pTwiYhI34dZZZ0jo846+O7TOlVrDgnJm43kV2C9dfqlw7l
+         I6SCcT2R4PTgfqDKl+SXwedO3CH2DqtcGWVgpmQyuOTKLHtA2cFnhqGpPY3Lqn/0m+91
+         0mOptMDDNf+0AXJH4XcJEvOfyIl3BtQxql1Y3ccMzQQOJ4xuUEeCEhmNaK24Sg3K2VtE
+         am0w9KcW/agBbIzXRn4wKzxGBvGlJVBYXl2Zmx5wBElgnwm3WKhlzJYhGU2lju2vSsAD
+         BA2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUs4dPEraq78ZhpqK3nps8Ta7dvb+IgdoKhMh5aXgNd2wnctSfUZZBk0AK+eOoQLA2ZlZ0jSim07Eblpw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6rlHo787ecLerzLb9EtmHTMzgFNlvAPpu8UptXHjBeE8kCMZq
+	/7UTVuXmCGBXZn427xcBk6tgAk/nNAXsx8NVEkvBZOFtKXrp+RZlWFXfUGF871uaNxc=
+X-Gm-Gg: ASbGncuko1geUh2osrsa2GQ3iomasoKJ1X1IXtPnBB+vC6HYC3odNqNUTWTzx/o865E
+	6JMWIMbD9NbIcMeTrrxJvwtBreD9riYf8yVTPD2uuJ/cfe1Re5MLGQhsdcPlSh10AwJ+dSuHBOn
+	Tv78sPR8zdfF3Hjzs/vYLIdYzfhQrfke2uIdiQGyKfqsYSgftlHjK5+PKU6Pbp3mSngU1cvaQE3
+	zWZ0X66yKbzfnFgdldpUkVG5tzu1DEwOXhQ1mOEXbLbzF5i2qX5NUE21o530o6TvtIfZu/7NLNY
+	LqZOelb+3P8fW1QnJfXaPcVC+USta6nJxfgG1TOWFrnv5vtslEaU+jeCLZoDPGpP2yeghjg7mA=
+	=
+X-Google-Smtp-Source: AGHT+IHLquFrw79+co4boFO8pJOfM9btk60nayGRQuNX/0ZumrQqIBCAkSYORT1Ip62N3F8udvKXLg==
+X-Received: by 2002:a05:6a00:984:b0:739:50c0:b3fe with SMTP id d2e1a72fcca58-7488f6cb9b2mr295006b3a.8.1749750581050;
+        Thu, 12 Jun 2025 10:49:41 -0700 (PDT)
+Received: from x1 (97-120-245-201.ptld.qwest.net. [97.120.245.201])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-748809eb146sm1837808b3a.109.2025.06.12.10.49.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 10:49:40 -0700 (PDT)
+Date: Thu, 12 Jun 2025 10:49:38 -0700
+From: Drew Fustini <drew@pdp7.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v4 1/2] dt-bindings: phy: Add Sophgo CV1800 USB phy
-Message-ID: <20250612-siesta-verbalize-6a7768ebc648@spud>
-References: <20250611081804.1196397-1-inochiama@gmail.com>
- <20250611081804.1196397-2-inochiama@gmail.com>
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 0/7] Rust Abstractions for PWM subsystem with TH1520
+ PWM driver
+Message-ID: <aEsTMrdmC7drMJIs@x1>
+References: <CGME20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9@eucas1p2.samsung.com>
+ <20250610-rust-next-pwm-working-fan-for-sending-v2-0-753e2955f110@samsung.com>
+ <aEifXZnLxKd2wa0w@x1>
+ <6ca6016e-3b17-48a0-ad8d-bb05317aa100@samsung.com>
+ <aEoWtviFl0vYATXe@x1>
+ <t26bhukukjzy7e4d2omtvjchxxzlnfyx54ku7xbytcnxkuk7xk@6tap2t3z2oaq>
+ <b3252042-e7fd-4ac9-a4ad-0226d21fd477@samsung.com>
 MIME-Version: 1.0
-In-Reply-To: <20250611081804.1196397-2-inochiama@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <b3252042-e7fd-4ac9-a4ad-0226d21fd477@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_090743_488749_CF36B3E4 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20250612_104942_067414_052A4F9A 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,132 +120,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5746389130814321388=="
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jun 12, 2025 at 03:27:09PM +0200, Michal Wilczynski wrote:
+> =
 
---===============5746389130814321388==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TJu6QFbeFePgDQPv"
-Content-Disposition: inline
+> =
 
+> On 6/12/25 07:01, Uwe Kleine-K=F6nig wrote:
+> > Hello Drew,
+> > =
 
---TJu6QFbeFePgDQPv
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> > On Wed, Jun 11, 2025 at 04:52:22PM -0700, Drew Fustini wrote:
+> >> I also enabled the pwm fan driver. However, there is a probe failure:
+> >>
+> >> [    1.250921] pwm-fan pwm-fan: Failed to configure PWM: -524
+> >> [    1.256546] pwm-fan pwm-fan: probe with driver pwm-fan failed with =
+error -524
+> > =
 
-On Wed, Jun 11, 2025 at 04:18:02PM +0800, Inochi Amaoto wrote:
-> The USB phy of Sophgo CV18XX series SoC needs to sense a pin called
-> "VBUS_DET" to get the right operation mode. If this pin is not
-> connected, it only supports setting the mode manually.
->=20
-> Add USB phy bindings for Sophgo CV18XX/SG200X series SoC.
->=20
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > 524 =3D ENOTSUPP, so it seems the request had duty_offset > 0. Does your
+> > fan use PWM_POLARITY_INVERTED? If so, try without that flag. If your fan
+> > really needs an inverted PWM this of course makes fan control buggy.
+> > With the next revision it should work fine (as a duty_offset > 0 should
+> > get rounded down to 0).
+> =
 
-I'm having a bit of trouble finding the v3 etc, could you provide a
-link?
-I think what is here is sane, but I want to make sure that review
-comments on previous versions have been addressed. "dfn:" searches for
-both driver and binding filenames turned up nothing.
+> Since we're running the same DT, the polarity shouldn't be inverted. I
+> see you have CONFIG_PWM_DEBUG=3Dy enabled, which is most likely the reason
+> the probe fails.
 
-> ---
->  .../bindings/phy/sophgo,cv1800b-usb2-phy.yaml | 54 +++++++++++++++++++
->  1 file changed, 54 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/sophgo,cv1800b-=
-usb2-phy.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-ph=
-y.yaml b/Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-phy.yaml
-> new file mode 100644
-> index 000000000000..2ff8f85d0282
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-phy.yaml
-> @@ -0,0 +1,54 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/sophgo,cv1800b-usb2-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo CV18XX/SG200X USB 2.0 PHY
-> +
-> +maintainers:
-> +  - Inochi Amaoto <inochiama@gmail.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: sophgo,cv1800b-usb2-phy
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#phy-cells":
-> +    const: 0
-> +
-> +  clocks:
-> +    items:
-> +      - description: PHY app clock
-> +      - description: PHY stb clock
-> +      - description: PHY lpm clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: app
-> +      - const: stb
-> +      - const: lpm
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - "#phy-cells"
-> +  - clocks
-> +  - clock-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    phy@48 {
-> +      compatible =3D "sophgo,cv1800b-usb2-phy";
-> +      reg =3D <0x48 0x4>;
-> +      #phy-cells =3D <0>;
-> +      clocks =3D <&clk 93>, <&clk 94>, <&clk 95>;
-> +      clock-names =3D "app", "stb", "lpm";
-> +      resets =3D <&rst 58>;
-> +    };
-> --=20
-> 2.49.0
->=20
+Thanks, I've disabled that options and the probe completes okay. The fan
+is now spinning :)
 
---TJu6QFbeFePgDQPv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaEr7SQAKCRB4tDGHoIJi
-0pktAP9VMMOkhXJg21RuCXXueBhHqnv5XmapThudPFOJGbmUdAEAvW5JBZ8R4b+W
-fK8JZ5b3IEgK+NyZ4wGFRnCQlzB1Pg0=
-=wnik
------END PGP SIGNATURE-----
-
---TJu6QFbeFePgDQPv--
-
-
---===============5746389130814321388==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5746389130814321388==--
-
