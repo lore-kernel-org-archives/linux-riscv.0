@@ -4,107 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 353D2C61DB2
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 08:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A90C71135
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 08:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5f1cCHSkchYa+6SkyaJR6dbjRZq9aGSIdMJXh1GC5QA=; b=YQOtmm9zKOQZlL
-	F+JN/8y9E1LkSYyy6YGH8h9uhCTlmT0LlzSvxXIFvMRZmi34bZ+SgWhZ72EngZu56ymmbg/RfQso+
-	UCpu3Gpjd+rCQRKy0ka7J6QUIEQedreCJP96kizGILb0Z57j7e9B6uZr/iYVVYDvcj7xR51LWMFLv
-	+cAM7woJUfsqTTlvYwdPb4BqpTkH5IdDcN62wJ4pw3xb72s5ihjsCEfWEh2QyTuaeQwIkkeAxKY0j
-	pCLo9xk9iGYs5DmUTJEqSpnmeIs08ZO0qAD6SDFiwvWPn0D7aZKEC66g4jhneEQWiudwRxeOUp7gh
-	3v/PIfscETRFx6ER9Hxw==;
+	List-Owner; bh=3YkYhENr+QH51RCYQIfq74NnW61kgnmCc9RCsk+byJE=; b=o/fuafw01+Xc1R
+	0nulaerjrQI+NWnMX/nzX7Kt5n9zVBOR/TjsMJS5QtzTFof2NUUrrrjKgZEX9zBN0KmEFuUdrRF0b
+	0Qdxt5F85jUCyPN7dHyLxQR3U6cpVOy0R60RkRrTQbwIHBQRGE7OtjN/LMS/+KJ8HAeMd/L/W0ihN
+	jyvNSFcUELipzLU9ixIhJDRzw6UfkCKrGc6GA2tzRnd1SORoIAvEDYyjym6d9OA6JuUW6RWVoY46Z
+	IfSH3FzAdD7QSrnzibEzDWr9Thh2uZ8GYfE8IyWbZVbvyfs140uv4qtwjcXqnYWfDsTMGG8fqCVFH
+	oDST0KixFoawG9tP0h+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPzjU-0000000Fkix-3chD;
-	Fri, 13 Jun 2025 08:25:52 +0000
+	id 1uPzkT-0000000FkuX-2ZaK;
+	Fri, 13 Jun 2025 08:26:53 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPzjT-0000000FkiI-2vQe
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 13 Jun 2025 08:25:51 +0000
+	id 1uPzkS-0000000Fktu-057n;
+	Fri, 13 Jun 2025 08:26:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=I8IkmX2ltxLIkn/+l8073UC2Q+m47Csc2VhEngKEE7U=; b=by5DifqAKVpy1jWnE56e19gMXX
-	I1DGiUY0EiqIaXdTwDE5UPFohJdQ/hOt+uzdyrGo5lPFV7vxI1F2FoM4tx4iPuIZoaAJCKKfWtl2e
-	orwxVC21jZQak4zfTd9yd4njkD5Oo8gIhxw3CdvRQ1+rQyX2VOm+kcHULSozL86HGh4adVk57D/rR
-	z17oZCFQZWMXjuUN95Q4Mze8Kr0eAW7kboWhfcgHHConDmS/ZTqJPg+zepTnMFqKjHGzPv00SWOma
-	gtKRJY51Dw2KGQpYfOQC2LZ5oaQ78lKdgvpT+8o57y+EL56270qXdUltSSTJdY02o9M7dUAGDtvDs
-	532gDa5w==;
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:To:From:Subject
+	:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=oy7cnpuIfUbxnBIHzSxSzs3wF3pN160eEFEtn1XrHHA=; b=gmH0ajnNPGxVN/gWStIoA6WohU
+	uG1HcSE6FPjGThP8edPn3aTX6bDbmukvB2lbdZnTLh9+WvBNAiR2zIwUhuEzB2d/Czlur+n7QPcUg
+	mTHk1vWiYx5E6O8Md/cMFkSJ+lULYcnp/UBIhiL8X/h4sied1CrYtHzAyH67L0NLYojnEBVUqVdo7
+	QNE4j7Wxb+2e/P0zuhrDreUfwVpdqaFwE9x6b62ZMZVHXBtsr3zCD8P6Jb9GVXoRJQkSloWC+b8y3
+	3t3/CpdFW6jnFTVZNzP0TsC+V0bXYOgKjH6JN/R1vEpvdV5akMj2U2lr4EWxYsIgWOmLxF1uJX6t4
+	vVTcs6/A==;
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPzjQ-00000002vM1-148Y
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 08:25:51 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250613082540euoutp021ba9abf3fe500a7b156162995407f339~IjK9vMWhe1265312653euoutp02P
-	for <linux-riscv@lists.infradead.org>; Fri, 13 Jun 2025 08:25:40 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250613082540euoutp021ba9abf3fe500a7b156162995407f339~IjK9vMWhe1265312653euoutp02P
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1749803140;
-	bh=I8IkmX2ltxLIkn/+l8073UC2Q+m47Csc2VhEngKEE7U=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=hQTSVmz3gpTinUPWOUdrn22NBzGwzqG9vLblhR6fqYlgPSJdOhjspCRG2jRa516Uw
-	 0O2rtvOD54U2FdOREeIqa8IHz0nM5Ton4y2y7sB4XdAcrq2xrO2d7Ejthw5XftV4cq
-	 ukCDeWAMy8dvO08ZUAiCgYZFkzfapAkyVDY8MdxQ=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250613082539eucas1p2b5a99e3e2413e78710bd36303e839cf8~IjK9Fl0ni1345813458eucas1p27;
-	Fri, 13 Jun 2025 08:25:39 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250613082538eusmtip2583bf59103d68afb613b87f12210c74b~IjK8C5sOg0843108431eusmtip2D;
-	Fri, 13 Jun 2025 08:25:38 +0000 (GMT)
-Message-ID: <e5d3d3b3-7ada-476f-9558-328d3d316088@samsung.com>
-Date: Fri, 13 Jun 2025 10:25:38 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/8] drm/imagination: Use pwrseq for TH1520 GPU power
- management
-To: Krzysztof Kozlowski <krzk@kernel.org>, Bartosz Golaszewski
-	<brgl@bgdev.pl>, Matt Coster <matt.coster@imgtec.com>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>
-Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei
-	<wefu@redhat.com>, Rob Herring <robh@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns
-	<frank.binns@imgtec.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>, Marek
-	Szyprowski <m.szyprowski@samsung.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <59cc6827-1602-402a-9279-96ad6285cff4@kernel.org>
-X-CMS-MailID: 20250613082539eucas1p2b5a99e3e2413e78710bd36303e839cf8
-X-Msg-Generator: CA
-X-RootMTR: 20250529222405eucas1p18ed1254bf1b2d78468734656fec537e1
-X-EPHeader: CA
-X-CMS-RootMailID: 20250529222405eucas1p18ed1254bf1b2d78468734656fec537e1
-References: <20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
-	<CGME20250529222405eucas1p18ed1254bf1b2d78468734656fec537e1@eucas1p1.samsung.com>
-	<20250530-apr_14_for_sending-v3-3-83d5744d997c@samsung.com>
-	<20250603-whispering-jaybird-of-thunder-f87867@kuoka>
-	<d42a8c49-7ad2-49ef-bd9c-1e3d9981b58e@samsung.com>
-	<e5a0bee2-ff74-47cf-ad2c-0c78b57ae6cf@kernel.org>
-	<a6a29e58-8613-47f0-9e5c-d125da7ddb49@samsung.com>
-	<cc4dbf7c-e023-403c-88be-4691f97a0ff0@kernel.org>
-	<c7774790-07c3-469d-a994-9e84108ad21d@samsung.com>
-	<CAMRc=Mexq9ThfG6jZUbs3wYDA9UZN-+pHnX_Y-7WO4ubXvEuCw@mail.gmail.com>
-	<ad6981eb-f53a-4a7b-90bd-2e2705bd0297@samsung.com>
-	<59cc6827-1602-402a-9279-96ad6285cff4@kernel.org>
+	id 1uPzkP-00000002vRc-1Zgy;
+	Fri, 13 Jun 2025 08:26:51 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B142A41C06;
+	Fri, 13 Jun 2025 08:26:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1749803203;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oy7cnpuIfUbxnBIHzSxSzs3wF3pN160eEFEtn1XrHHA=;
+	b=BnJGbMk/e7fYDOccAaKbhkPl6Zkb+CJk54xIzM7oGJ/68LdgKmC814rIU32t6tdn2RLttv
+	x15WZiOubSuud24F243NbAQNPG2k3Dui7U5bdWbzo6Lo7AjeJ+KSplTU5N9Z/cTjXj0Rr9
+	AtxWE42xFJSR7fqyJtvD37GTtg2rovAwTR+VAfdN1C4ZXMlk7rhOwNdTxFQnBalxqPz9tm
+	e/OD8ENjC+yzoBhzLvEBBNcwIj7ZN9YK2gi89xBilq+iVetQOvwYaFKA3l+J6erZ08hSMo
+	zVQuK+p9cI9MOofvRUYJC5RnI8Wf/o3bDNy4BjM6rT5BKMfG/sqEM22GLR1tVQ==
+Mime-Version: 1.0
+Date: Fri, 13 Jun 2025 10:26:37 +0200
+Message-Id: <DAL9GRMH74F4.2IV0HN0NGU65X@bootlin.com>
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
+ KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Song Liu" <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>,
+ "John Fastabend" <john.fastabend@gmail.com>, "KP Singh"
+ <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
+ <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>, "David S. Miller"
+ <davem@davemloft.net>, "David Ahern" <dsahern@kernel.org>, "Thomas
+ Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
+ Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
+ <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, "Menglong Dong"
+ <imagedong@tencent.com>, =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?=
+ <bjorn@kernel.org>, "Pu Lehui" <pulehui@huawei.com>, "Puranjay Mohan"
+ <puranjay@kernel.org>, "Paul Walmsley" <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Ilya Leoshkevich" <iii@linux.ibm.com>,
+ "Heiko Carstens" <hca@linux.ibm.com>, "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>, "Christian Borntraeger"
+ <borntraeger@linux.ibm.com>, "Sven Schnelle" <svens@linux.ibm.com>, "Hari
+ Bathini" <hbathini@linux.ibm.com>, "Christophe Leroy"
+ <christophe.leroy@csgroup.eu>, "Naveen N Rao" <naveen@kernel.org>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>, "Michael Ellerman"
+ <mpe@ellerman.id.au>, "Nicholas Piggin" <npiggin@gmail.com>, "Mykola
+ Lysenko" <mykolal@fb.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
+ <alexandre.torgue@foss.st.com>, <ebpf@linuxfoundation.org>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Bastien Curutchet"
+ <bastien.curutchet@bootlin.com>, <netdev@vger.kernel.org>,
+ <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>,
+ <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+ <linuxppc-dev@lists.ozlabs.org>, <linux-kselftest@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH bpf 2/7] bpf/x86: prevent trampoline attachment when
+ args location on stack is uncertain
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: "Peter Zijlstra" <peterz@infradead.org>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250613-deny_trampoline_structs_on_stack-v1-0-5be9211768c3@bootlin.com> <20250613-deny_trampoline_structs_on_stack-v1-2-5be9211768c3@bootlin.com> <20250613081150.GJ2273038@noisy.programming.kicks-ass.net>
+In-Reply-To: <20250613081150.GJ2273038@noisy.programming.kicks-ass.net>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddujeegiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepggfgtgffkfevuffhvffofhgjsehtqhertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepvdfftdejhefhieelvefhgeffvddulefhfeegleegkefgffejgeffjeeigfdtveeinecuffhomhgrihhnpehlihhnuhigsggrshgvrdhorhhgpdgsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekhedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeehkedprhgtphhtthhopehpvghtvghriiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrshhtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghnihgvlhesihhoghgvrghrsghogidrnhgvthdprhgtphhtthhopegrnhgurhhiihesk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhhtihhnrdhlrghusehlihhnuhigrdguvghvpdhrtghpthhtohepvgguugihiiekjeesghhmrghilhdrtghomhdprhgtphhtthhopehsohhngheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephihonhhghhhonhhgrdhsohhngheslhhinhhugidruggvvh
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_092548_546348_85B1CDDB 
-X-CRM114-Status: GOOD (  23.67  )
+X-CRM114-CacheID: sfid-20250613_092649_471088_7F449795 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,77 +117,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/13/25 08:44, Krzysztof Kozlowski wrote:
-> On 11/06/2025 14:01, Michal Wilczynski wrote:
->>
->> However, this leads me back to a fundamental issue with the
->> consumer side implementation in the generic pvr_device.c driver. The
->> current fallback code is:
->>
->> /*
->>  * If the error is -EPROBE_DEFER, it's because the
->>  * optional sequencer provider is not present
->>  * and it's safe to fall back on manual power-up.
->>  */
->> if (pwrseq_err == -EPROBE_DEFER)
->>         pvr_dev->pwrseq = NULL;
->>
->> As Krzysztof noted, simply ignoring -EPROBE_DEFER is not ideal. But if I
->> change this to a standard deferred probe, the pvr_device.c driver will
-> 
-> Why? You have specific compatible for executing such quirks only for
-> given platform.
-
-This is due to how the pwrseq API works; it constructs a bus on which
-provider devices may appear at any time. With the current API, there is
-no way to express that a provider for a specific target will never
-appear. ('gpu-power' is the generic target name, and of course, more
-specific binding is handled in the provider's .match callback - based on
-the compatible and the node phandle like discussed previously).
-
-For all other supported SoCs, no such provider will ever appear on the
-bus, and the current pwrseq API doesn't allow a generic consumer to know
-this.
-
-However, your suggestion of handling this with a platform specific
-driver is a good path forward. It would still require a minimal addition
-to the pwrseq API to work. For example, a new SoC specific driver for
-"thead,th1520" could call a new function like
-pwrseq_enable_optional_target("gpu-power") during its probe. This would
-signal to the pwrseq core that this target is expected on the platform.
-Therefore, when the Imagination driver later calls pwrseq_get() on a
-TH1520, it would correctly result in either a match or a deferral.
-
-On all other platforms, this optional target would not be enabled. The
-pwrseq_get() call would then immediately return -ENODEV instead of
-deferring, which solves the problem and allows the other supported SoCs
-to probe correctly.
-
-I wonder whether Bartosz would be okay with such an addition.
-
-> 
->> break on all other supported SoCs. It would wait indefinitely for a
->> pwrseq-thead-gpu provider that will never appear on those platforms.
->>
-> 
-> 
-> 
-> Best regards,
-> Krzysztof
-> 
-
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUGV0ZXIsCgpPbiBGcmkgSnVuIDEzLCAyMDI1IGF0IDEwOjExIEFNIENFU1QsIFBldGVyIFpp
+amxzdHJhIHdyb3RlOgo+IE9uIEZyaSwgSnVuIDEzLCAyMDI1IGF0IDA5OjM3OjExQU0gKzAyMDAs
+IEFsZXhpcyBMb3Rob3LDqSAoZUJQRiBGb3VuZGF0aW9uKSB3cm90ZToKPj4gV2hlbiB0aGUgdGFy
+Z2V0IGZ1bmN0aW9uIHJlY2VpdmVzIG1vcmUgYXJndW1lbnRzIHRoYW4gYXZhaWxhYmxlCj4+IHJl
+Z2lzdGVycywgdGhlIGFkZGl0aW9uYWwgYXJndW1lbnRzIGFyZSBwYXNzZWQgb24gc3RhY2ssIGFu
+ZCBzbyB0aGUKPj4gZ2VuZXJhdGVkIHRyYW1wb2xpbmUgbmVlZHMgdG8gcmVhZCB0aG9zZSB0byBw
+cmVwYXJlIHRoZSBicGYgY29udGV4dCwKPj4gYnV0IGFsc28gdG8gcHJlcGFyZSB0aGUgdGFyZ2V0
+IGZ1bmN0aW9uIHN0YWNrIHdoZW4gaXQgaXMgaW4gY2hhcmdlIG9mCj4+IGNhbGxpbmcgaXQuIFRo
+aXMgd29ya3Mgd2VsbCBmb3Igc2NhbGFyIHR5cGVzLCBidXQgaWYgdGhlIHZhbHVlIGlzIGEKPj4g
+c3RydWN0LCB3ZSBjYW4gbm90IGtub3cgZm9yIHN1cmUgdGhlIGV4YWN0IHN0cnVjdCBsb2NhdGlv
+biwgYXMgaXQgbWF5Cj4+IGhhdmUgYmVlbiBwYWNrZWQgb3IgbWFudWFsbHkgYWxpZ25lZCB0byBh
+IGdyZWF0ZXIgdmFsdWUuCj4KPiBodHRwczovL3JlZnNwZWNzLmxpbnV4YmFzZS5vcmcvZWxmL3g4
+Nl82NC1hYmktMC45OS5wZGYKPgo+IEhhcyBmYWlybHkgY2xlYXIgcnVsZXMgb24gaG93IGFyZ3Vt
+ZW50cyBhcmUgZW5jb2RlZC4gQnJvYWRseSBzcGVha2luZwo+IGZvciB0aGUga2VybmVsLCBpZiB0
+aGUgc3RydWN0dXJlIGV4Y2VlZHMgMiByZWdpc3RlcnMgaW4gc2l6ZSwgaXQgaXMKPiBwYXNzZWQg
+YXMgYSByZWZlcmVuY2UsIG90aGVyd2lzZSBpdCBpcyBwYXNzZWQgYXMgdHdvIHJlZ2lzdGVycy4K
+Ck1heWJlIG15IGNvbW1pdCB3b3JkaW5nIGlzIG5vdCBwcmVjaXNlIGVub3VnaCwgYnV0IGluZGVl
+ZCwgdGhlcmUncyBub3QKZG91YnQgYWJvdXQgd2hldGhlciB0aGUgc3RydWN0IHZhbHVlIGlzIHBh
+c3NlZCBvbiB0aGUgc3RhY2sgb3IgdGhyb3VnaCBhCnJlZ2lzdGVyL2EgcGFpciBvZiByZWdpc3Rl
+cnMuIFRoZSBkb3VidCBpcyByYXRoZXIgYWJvdXQgdGhlIHN0cnVjdCBsb2NhdGlvbgp3aGVuIGl0
+IGlzIHBhc3NlZCBfYnkgdmFsdWVfIGFuZCBfb24gdGhlIHN0YWNrXzogdGhlIEFCSSBpbmRlZWQg
+Y2xlYXJseQpzdGF0ZXMgdGhhdCAiU3RydWN0dXJlcyBhbmQgdW5pb25zIGFzc3VtZSB0aGUgYWxp
+Z25tZW50IG9mIHRoZWlyIG1vc3QKc3RyaWN0bHkgYWxpZ25lZCBjb21wb25lbnQiIChwLjEzKSwg
+YnV0IHRoaXMgcnVsZSBpcyAic2lsZW50bHkgYnJva2VuIiB3aGVuCmEgc3RydWN0IGhhcyBhbiBf
+X2F0dHJpYnV0ZV9fKChwYWNrZWQpKSBvciBhbmQgX19hdHRyaWJ1dGVfXygoYWxpZ25lZChYKSkp
+LAphbmQgQUZBSUNUIHRoaXMgY2FzZSBjYW4gbm90IGJlIGRldGVjdGVkIGF0IHJ1bnRpbWUgd2l0
+aCBjdXJyZW50IEJURiBpbmZvLgoKLS0gCkFsZXhpcyBMb3Rob3LDqSwgQm9vdGxpbgpFbWJlZGRl
+ZCBMaW51eCBhbmQgS2VybmVsIGVuZ2luZWVyaW5nCmh0dHBzOi8vYm9vdGxpbi5jb20KCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
