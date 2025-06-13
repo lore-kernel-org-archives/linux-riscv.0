@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4620C71148
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 03:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40E3C61DB2
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 05:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nl4TlJ5dtIoudiBAXFH7cLsMlEFLJ2eJIalkdQTCNyk=; b=SzUDDBtxq9sEdc
-	gkfB0LW23uj1WN9K8dR6IrsYIir7P7oGFq5kH22hiKCSMgkCKvEXaFBZyo3BHYIsQPHmAQXtjFwSe
-	GlsAq0k6U07tNI/F8YC90K2XDXxbSV0FAmKxJqgu5mQFCEMEBX6fOCTtvEdOrInnw8mRGtbcpFNqf
-	iHzzyOHXG8S0SDkgvSx0mDXR0TQWzoC177n+bIL+Qb4lJo3IHVxLWrzDEjPlC/SPHy4lKIuYmVX0t
-	XFuRBs8nuKaA5ddB3WJ6QP2coTDslnW9o2OGaRcj6fKkCLB5Z6/2lCohM9dQOPAK58lY1pxvBo+ir
-	CmLjVIltlLOXLGpRvRHQ==;
+	List-Owner; bh=igDn2K7NHfmmit1Ecpu7M6JHHnXjFhqv3tAtFfgjjII=; b=uPidHU4iMJ8wYA
+	lS9zgu/Su6xPzeI4dPhmgDQGUIa/1G9l2HRUDnwa1R+bzAkze4HVBbBmGbRq/lnBUPfOAP3fQ15r0
+	5M3DiHDpQsZq+UDkhYHAVPzLCbTVuKFOrEwzb7FEwrb+PGOvZBAVws8ple5oq4k9jM7blsr4aVFyy
+	msfgOjHFzSSiafJj2PZnmiwiFNvj+en0l3tDZq1c6W5cbiHT/Fc3kdI5n0lZfOPbVtKK4G3tzqqpw
+	o7ihLUw8tUxCuhIlT7BejOcFUFlxLuIzoOJKkU+3eNEq/yDaOwJNr62HO/oAEb4GcBiddAwmmmcGg
+	4tKzwOqiDwqgX37h+mkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPul8-0000000FCb2-1bcU;
-	Fri, 13 Jun 2025 03:07:14 +0000
-Received: from kuriko.dram.page ([65.108.252.55])
+	id 1uPwZP-0000000FLSN-3VmM;
+	Fri, 13 Jun 2025 05:03:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPul5-0000000FCaE-1fHJ
+	id 1uPwZN-0000000FLRz-0sNM
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 03:07:12 +0000
-Message-ID: <2b17769e-2620-4f22-9ea5-f15d4adcb27b@dram.page>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dram.page; s=mail;
-	t=1749784027; bh=cA+IcBU1gia9Td2DjCXd/ukireOfXEXdOVKdoG1N2b8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AQSmdXxdX0T+5qO8FcZSVfEVbNkoeROXd5dG+BsEBuS+BEYtoDnVBsbFPRTxiCUXg
-	 BVx7OXq9YmitSfaTIx5PtVZPSuQ1fOVirJfwl1eIwT4uypvHc5MqeHyOIiw9pnxrb0
-	 CbSrJQuRXmzHWeJdhPwA00Zqmhu/QawSrHUWxh6w=
-Date: Fri, 13 Jun 2025 11:06:43 +0800
+	Fri, 13 Jun 2025 05:03:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8DE37450DA;
+	Fri, 13 Jun 2025 05:03:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 888CDC4CEED;
+	Fri, 13 Jun 2025 05:03:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749790991;
+	bh=28rc7+v2kVerXbyWw3H3/T6kr4GP6Mq7cNkFNrIXQNg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HE2jeHGpZEIpEa7JSqyBP6T/bb04h6phgaAJVRf8pB34y1utOutI5D7WNH9Bu6yFi
+	 1K6N84HfvDGSEL9GTJ60egmOOykPwwCURDOLzjiAX0ACTkxIbm5KdFkzgPyvZTLZEq
+	 8xkVvtiuxgeWCMVZ7Hd+cYopqEBpAjo/njYAl7x3fGSkMSXTsoU7BUW1lsb5uXKs9m
+	 DohChY2Ptfp0wC/uCNJZ3q9+0DrX2qqu9Izj6/Ia60v6QyQHxXdrDtLNNEjXAqmexn
+	 so2m4sfzyeFoyv1FKH3dFyLk/OLNHG1DGOSy4qtkTNuUBWiWzT+ntZZpu83WhO05EX
+	 Z2HOOEtG2IX0g==
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Niklas Cassel <cassel@kernel.org>,
+	Johan Hovold <johan+linaro@kernel.org>,
+	Shradha Todi <shradha.t@samsung.com>,
+	Thippeswamy Havalige <thippeswamy.havalige@amd.com>,
+	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v3 0/2] riscv: sophgo Add PCIe support to Sophgo SG2044 SoC
+Date: Fri, 13 Jun 2025 10:32:54 +0530
+Message-ID: <174979096373.22387.8666752122012744282.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250504004420.202685-1-inochiama@gmail.com>
+References: <20250504004420.202685-1-inochiama@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 5/8] riscv: dts: spacemit: Add dma bus and PDMA node for
- K1 SoC
-To: Guodong Xu <guodong@riscstar.com>, vkoul@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, dlan@gentoo.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, p.zabel@pengutronix.de, drew@pdp7.com,
- emil.renner.berthing@canonical.com, inochiama@gmail.com,
- geert+renesas@glider.be, tglx@linutronix.de, hal.feng@starfivetech.com,
- joel@jms.id.au, duje.mihanovic@skole.hr, Ze Huang <huangze@whut.edu.cn>
-Cc: elder@riscstar.com, dmaengine@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-References: <20250611125723.181711-1-guodong@riscstar.com>
- <20250611125723.181711-6-guodong@riscstar.com>
-Content-Language: en-US
-From: Vivian Wang <uwu@dram.page>
-In-Reply-To: <20250611125723.181711-6-guodong@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_200711_607816_CA84F9CF 
-X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-CacheID: sfid-20250612_220313_269358_B4027981 
+X-CRM114-Status: UNSURE (   6.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,51 +95,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guodong,
 
-On 6/11/25 20:57, Guodong Xu wrote:
-> <snip>
->
-> -			status = "disabled";
-> +		dma_bus: bus@4 {
-> +			compatible = "simple-bus";
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
-> +				     <0x1 0x00000000 0x1 0x80000000 0x3 0x00000000>;
-> +			ranges;
->  		};
+On Sun, 04 May 2025 08:44:17 +0800, Inochi Amaoto wrote:
+> Sophgo's SG2044 SoC uses Synopsys Designware PCIe core
+> to implement RC mode.
+> 
+> For legacy interrupt, the PCIe controller on SG2044 implement
+> its own legacy interrupt controller. For MSI/MSI-X, it use an
+> external interrupt controller to handle.
+> 
+> [...]
 
-Can the addition of dma_bus and movement of nodes under it be extracted
-into a separate patch, and ideally, taken up by Yixun Lan without going
-through dmaengine? Not specifically "dram_range4", but all of these
-translations affects many devices on the SoC, including ethernet and
-USB3. See:
+Applied, thanks!
 
-https://lore.kernel.org/all/20250526-b4-k1-dwc3-v3-v4-2-63e4e525e5cb@whut.edu.cn/
-https://lore.kernel.org/all/20250613-net-k1-emac-v1-0-cc6f9e510667@iscas.ac.cn/
+[1/2] dt-bindings: pci: Add Sophgo SG2044 PCIe host
+      commit: a202f09e3e30622fdcae7d740dbf87fb0f032dd5
+[2/2] PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
+      commit: 74ab255bab3082fa6bd2a925a986526e093d615b
 
-(I haven't put eth{0,1} under dma_bus5 because in 6.16-rc1 there is
-none, but ideally we should fix this.)
-
-DMA address translation does not depend on PDMA. It would be best if we
-get all the possible dma-ranges buses handled in one place, instead of
-everyone moving nodes around.
-
-@Ze Huang: This affects your "MBUS" changes as well. Please take a look,
-thanks.
-
->  
->  		gpio: gpio@d4019000 {
-> @@ -792,3 +693,124 @@ pwm19: pwm@d4022c00 {
->  		};
->  	};
->  };
-> +
-> +&dma_bus {
->
-> <snip>
-
+Best regards,
+-- 
+Manivannan Sadhasivam <mani@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
