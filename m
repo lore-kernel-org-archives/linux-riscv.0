@@ -4,102 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23608C71136
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 18:17:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF42C71148
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 18:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nj0zB1cyFNPPfV8v667x/DaxQd2sKYgBrcQ/GAuwXrw=; b=skz2wA8oyuefXK
-	7Dg4F4Au13BsC6DJlXOiVxlMH0BILaxEcFFenJbudZCLH3EvjfPuh4FFhwd5pENV2+/14To9ECtuQ
-	GKbe65RZcWDojTHq4K/Ify4/MqUwkGt1HtqdfX5w8FeA1P/ysWJApQgUNdrpXMcWBQ4i5VySOPL/e
-	9meejyzI+sS9EKqeLURU+yRXAIvwJJEMc5cxQamfv0j6vC6z0+Ii6b4Igbz5rSTS7cgFhuqKnFuwh
-	G9A6mwnv+SB/wg9z32UCJSrsA3gx1TDJqaBdhmsxEcloXUpNijVHJGT73pJXKRNVmp/RmNjwi3pqX
-	YnzexW1s7saBKZU0GPPw==;
+	List-Owner; bh=103k99LxdZ79cag0fSjkh6dJs9y+o5n+JcTh4zbNIWo=; b=igHE03BiVq6rkA
+	76qupR0zQGBlEP9zrRaSF1tQS+kZbFnjeqas3+CLJ5ZmbWH2SXZbJAs/Bex4t3V9ti9zf6P3kdbHy
+	P2DgU4jrZSKLGIKVJrKk4PNtW7gPpRms7evFDVCDN6U2ObLLkr/lXZUDDZUFcqRplTYsuZmts+aFu
+	+lyZgLE+K0YKNnAPSzHmHhC38nDY3Py7aVSj13jtex2bWYUOCmiEEUa47o6636sn2Kz4RoILXzadZ
+	hz4p6r/JZzVK2hgOwnz0kDTr+AcdhhJRxIlCkkvbBgZKsrM2QjxD0HAUfRSn1TyNNgNj0D73+yAWu
+	PP0usBM8XMsZ5WdOIEBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ8xv-0000000HGpz-00Er;
-	Fri, 13 Jun 2025 18:17:23 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1uQ8yZ-0000000HHs3-0j3W;
+	Fri, 13 Jun 2025 18:18:03 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ6qq-0000000GzV9-2KFN;
-	Fri, 13 Jun 2025 16:01:57 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55DATE0P029060;
-	Fri, 13 Jun 2025 16:01:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=dxMSfWlJLSP1Q2CznlmbgSk8Q0tBnI
-	ErVGASW4hTcD0=; b=Zhfihg3QYV80iCtJFIZNXzwNsO28/CBzBPA1NW4+cP5VWr
-	k5l0f/92cmSa5uH4HyGSN7MW6sSZu3gD2JREmvkY9IWiDksFl/haBc28Yev1eh2p
-	fR3cqw2RD+tVrXIr7ijzmVyteuDmhjWOR5YkS2N2qTSLKs3rs5KGToPoP9lOHn28
-	Zc0+P608Mn4Oofwq9OObNNP0q5WFKuFHs7VgiBgMYGALGpI5XLkpWYhrNGGVAIJg
-	CsvXGDatoWJVdD4D+XIN/bR1Z2kVnng6dv251wWZwQ5XqU8LCwiGj9YrhbE5Yqqs
-	c0WIsVuRjG1it6BmiiXjCc1Dtc3+1matXW8Zfx8g==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 474dv8225n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 13 Jun 2025 16:01:47 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55DFim5F019573;
-	Fri, 13 Jun 2025 16:01:46 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4752f2tec9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 13 Jun 2025 16:01:45 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55DG1irx33227464
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 13 Jun 2025 16:01:44 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3311620040;
-	Fri, 13 Jun 2025 16:01:44 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4533A20043;
-	Fri, 13 Jun 2025 16:01:43 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.81.121])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 13 Jun 2025 16:01:43 +0000 (GMT)
-Date: Fri, 13 Jun 2025 18:01:41 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        sparclinux@vger.kernel.org, x86@kernel.org, linux-arch@vger.kernel.org,
-        Ard Biesheuvel <ardb@kernel.org>,
-        "Jason A . Donenfeld" <Jason@zx2c4.com>,
-        Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v2 09/12] lib/crc/s390: migrate s390-optimized CRC code
- into lib/crc/
-Message-ID: <aExLZaoBCg55rZWJ@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <20250607200454.73587-1-ebiggers@kernel.org>
- <20250607200454.73587-10-ebiggers@kernel.org>
+	id 1uQ7O8-0000000H4CX-1Otn
+	for linux-riscv@lists.infradead.org;
+	Fri, 13 Jun 2025 16:36:21 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-adf3b33f968so88232966b.0
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Jun 2025 09:36:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1749832578; x=1750437378; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=76g08zX1QgiOXgDWQ+4Q63FmolLqjqLzmJdnqen2jZI=;
+        b=J+OGoIWhfw8m4eoQj9fWEQi/EdbEzDitC1iRtRYFj03eObtblOBYcjXjCyyaBTEj3N
+         bf3XdyHTGyi+jw5+NdorkNcpyCyXssXbxis0GHL6LgeFW4SIMqGQl/r6RMNBTQxIwJfq
+         Y7dCD+sessGS5pXPrM+BM5Is0U/gN9dQ+t5go=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749832578; x=1750437378;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=76g08zX1QgiOXgDWQ+4Q63FmolLqjqLzmJdnqen2jZI=;
+        b=G7OoMH0Ams1Fdaa/hvFv6UGInClubdOTYFasAkZkapWocx217WBY2GtUaZhc1dexcb
+         MlgOonkoZQgbW1r9k152JMDLRaQDc+UqeWT2zV+f0FKb0u9WDSHxoWi9H9MDK0OL8vHl
+         m47E2GinXvA//ZfzbG45D//0qStqunRvDkHwDU3dfiNSkLZe8nvN8J5OO5SHQxdleVg/
+         yN/0owvKBMALfG6nFgYWpdP7tVCy7qBbA4ECZRdgTg8f6AxUDZG/Kr99fPJHGH4BuPXr
+         0nB9zBUvTqW/2O9yxTbKI5j2nmt2liSiMm6cy7jz4evHFRqEkToLQgJlUHdZicIHDi+u
+         zl+w==
+X-Forwarded-Encrypted: i=1; AJvYcCUdZjXurT/gHQf6Z3MzxeHQRMUQKixY5J23vw5v3n8n+l2119c3bHuV8dIIMT0iR1od98IV+iQz2REycg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyx3HfH5LxjO1/HSawjLKea+sq3rvni2NrMEMuqbzssdxXqouqP
+	HSq23vhyCoJHOhIrYlUHG8HJrsl5401tmMIdnrD/1VH4UI8HQHBZTG3W0KjLp5BXf0zAka4rIDr
+	hQT+2P1A+TQ==
+X-Gm-Gg: ASbGncsPYUTVTuwf0EDi4YiBc79duPOCCSbO6baRLL4+HAfQTiPBh4x15CiBUrZWdOt
+	QDaH3hTevvFaY0bR+g33tM/q4gEMJa6dxgTV5uOXQfyfeKdj3/goHPMSrBzyJlbve2v/xQrcB/Y
+	3UctFmJ6hM3Fb4d4B1f2Dsp2A4FGa6grbInCmBP3xLiz/vLRA+O3q+RjMCgXnUmcGlHed2L+wsv
+	1puwhskDYKvDNvNuG5tENablyaaqWKAeY8bT+EEdKlAvOP5srCq52vCSLuQXcTV9PnF6j/bp2R2
+	xcmxnD1AkVTK0XE3yu1ICkkQc/gUXWaBKZ7ETdjbrEj9fq4Hc6VWrAxRXf/Ur6CzVxT5gcy1AnB
+	PUgI/3qqSyX53P1MnR0gl+XUoqH+LTmGu/LKzMHgrElXe6hk=
+X-Google-Smtp-Source: AGHT+IEoloQR1aHHV+WOppTAKuNOzD7AhC5NS7HDDqTWDDyXdNOiq3F/8zSrN0dxY584mtm78qEF4w==
+X-Received: by 2002:a17:907:2d22:b0:aca:95eb:12e with SMTP id a640c23a62f3a-adf9f176fd2mr32808766b.24.1749832578442;
+        Fri, 13 Jun 2025 09:36:18 -0700 (PDT)
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com. [209.85.208.45])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-adec8928c20sm151652966b.111.2025.06.13.09.36.16
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Jun 2025 09:36:16 -0700 (PDT)
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-60780d74bbaso3986530a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Jun 2025 09:36:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWKjYD/StKFxwq8CUaD0QTEHRKfV3DbtyGExdL+4CGDOeMggpSTzO+dwc+iw/lg3SPYjc7kv7DwAmer2w==@lists.infradead.org
+X-Received: by 2002:a05:6402:35cd:b0:602:427c:452b with SMTP id
+ 4fb4d7f45d1cf-608ce49d897mr365341a12.3.1749832576184; Fri, 13 Jun 2025
+ 09:36:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250607200454.73587-10-ebiggers@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: oqxWeEseK0qommY-tA52lM8_yDgYBZ8b
-X-Proofpoint-GUID: oqxWeEseK0qommY-tA52lM8_yDgYBZ8b
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEzMDExNSBTYWx0ZWRfX2SFXW8bIydO8 QijS4XnzPyWGv7hUAVPhEsrOB00xE8g+gtnZ5TKc3xm/6m22RAo7pWDdkAUOPF1K6LO6qJEf193 PxiDvBNjb2KojolH7uIG4xIF5aoOVAuWCvsnLPUnzUljRW/4dT+d6yR8TGdRxod4wQd7u9oXLyt
- 960X1pKDQBdkA9i2fSfl/dxiyGZuXG6X5RlU4ZS8JXRnJlDwSVv11Yh0NZ3so0jxjPrI/YVMcT2 6jW8eHHK29fMPvF4SWZi3ZgmFX9oL1/VYz01noMZpHwwtcEMmmSVoqdhzy0/dmzN0+Go88V0p57 Weg2+fyKZ+PNLuJB+wyFM7SDDMfP0OJ1UZqOon8sp39ETo2dKYj4MRErDeC122oOtE8J8jykSry
- lFdOt02pLQfhwmo1MyS48Be/xFyI96QJGhA1Fc1zghsJy38d3Mb+b7BSNKN7KQSA+ld6RejI
-X-Authority-Analysis: v=2.4 cv=CfMI5Krl c=1 sm=1 tr=0 ts=684c4b6b cx=c_pps a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=1XWaLZrsAAAA:8 a=DtkNC_JpMhehFE-g-C8A:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-13_01,2025-06-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 spamscore=0
- phishscore=0 priorityscore=1501 clxscore=1011 impostorscore=0 mlxscore=0
- suspectscore=0 mlxlogscore=403 adultscore=0 malwarescore=0
- lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506130115
+References: <20250611020923.1482701-8-ebiggers@kernel.org> <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
+ <20250611033957.GA1484147@sol> <aEj8J3ZIYEFp_XT4@gondor.apana.org.au>
+ <20250611035842.GB1484147@sol> <20250613053624.GA163131@sol>
+ <aEu5cyDOMcKteW_b@gondor.apana.org.au> <20250613055439.GB163131@sol>
+ <CAMj1kXEDCRfCgvtuhRc+a=m1kVt-zkcCqi_=_WOFTmt4Hz2gGg@mail.gmail.com> <aEvjrhkLnB_GEKnV@gondor.apana.org.au>
+In-Reply-To: <aEvjrhkLnB_GEKnV@gondor.apana.org.au>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Fri, 13 Jun 2025 09:35:59 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wiewoOfhK=NVQT2uf+29Kngv9F9J6ObJRFUKi6n-=B06g@mail.gmail.com>
+X-Gm-Features: AX0GCFu7lGsyyFJqLRh6z7a562txhJJOyTpVqIIzlie72BRGPF0wH2A3ccvLGV0
+Message-ID: <CAHk-=wiewoOfhK=NVQT2uf+29Kngv9F9J6ObJRFUKi6n-=B06g@mail.gmail.com>
+Subject: Re: [PATCH 07/16] crypto: sha512 - replace sha512_generic with
+ wrapper around SHA-512 library
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Eric Biggers <ebiggers@kernel.org>, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org, 
+	Jason@zx2c4.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_090156_784467_BE2B8785 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20250613_093620_367300_7B4C9EDB 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,26 +112,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 07, 2025 at 01:04:51PM -0700, Eric Biggers wrote:
-> From: Eric Biggers <ebiggers@google.com>
-> 
-> Move the s390-optimized CRC code from arch/s390/lib/crc* into its new
-> location in lib/crc/s390/, and wire it up in the new way.  This new way
-> of organizing the CRC code eliminates the need to artificially split the
-> code for each CRC variant into separate arch and generic modules,
-> enabling better inlining and dead code elimination.  For more details,
-> see "lib/crc: prepare for arch-optimized code in subdirs of lib/crc/".
-> 
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
-...
+On Fri, 13 Jun 2025 at 01:39, Herbert Xu <herbert@gondor.apana.org.au> wrote:
+>
+> First of all the export format is being made consistent so that
+> any hardware hash can switch over to a software fallback after
+> it has started, e.g., in the event of a memory allocation failure.
 
-Hi Eric,
+Can we please instead aim to *simplify* the crypto thing?
 
-With this series I am getting on s390:
+Just say that hw accelerators that have this kind of issue shouldn't
+be used. At all. And certainly not be catered to by generic code.
 
-alg: hash: skipping comparison tests for crc32c-s390 because crc32c-generic is unavailable
+The whole hw acceleration is very dubious to begin with unless it's
+directly tied to the source (or destination) of the data in the first
+place, so that there isn't extra data movement.
 
-Thanks!
+And if there are any software fallbacks, that "dubious to begin with"
+pretty much becomes "entirely pointless".
+
+If the point is that there are existing stupid hw drivers that already
+do that fallback internally, then please just *keep* that kind of
+idiocy and workarounds in the drivers.
+
+It's actually *better* to have a broken garbage hardware driver - that
+you can easily just disable on its own - than having a broken garbage
+generic crypto layer that people just don't want to use at all because
+it's such a ess.
+
+This whole "make the mess that is the crypto layer EVEN MORE OF A
+MESS" model of development is completely broken in my opinion.
+
+There's a reason people prefer to have just the sw library without any
+of the indirection or complexity of the crypto layer.
+
+           Linus
 
 _______________________________________________
 linux-riscv mailing list
