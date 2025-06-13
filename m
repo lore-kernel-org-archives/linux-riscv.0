@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A812C61DB2
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 06:58:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D51AC61DB2
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 06:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xgosGhY9xAV79iZHBAJFY0fo2ImjHh3HbXAZZHWoT+s=; b=1lskOSBl6RFeqd
-	UvWlwqPqDskXGyNFEwcChRAT54YID6RiTWvTynb+WEzvv4/xI+6xJxt8i8oyYV80n1xbnPJP7UmiK
-	LJi3t22E8urp71bp0JL7ETorUyflUsVcYwozB5WWUlLUCNcC/qLyf34TtGAZCxM4oBer7iEwuOG8Z
-	O2KqG7YrCebKHQ/hE2AjdbxSwdp2puu7xA6M/qKj5pAoe/mHcahKGGap9zqNcuM0hYuK3X4A95uM9
-	2s/XeRANU6w7EHwXtGAd3OW4CQJw5eyGdHG2WiT9exW9RVZRPCvn7+HcXFknp3QOeGVbSQPCVThvY
-	vHnxbIIV8pSvK3jkbfKg==;
+	List-Owner; bh=KVimj/36Ezcxu/cnWTcLNFM+tpsJ9R/MrBTASe4sqZ4=; b=Oku0XiULZ4PDdc
+	tZNAdDIgeGSxQO/bqPjkcw37nHu6h3jmrUfbQGjZ1EO/i+2/jYnxKKac2zdxOWvhH+r5Xz6oQNETJ
+	5ui2oiH1avOe8Bq9NUH5X4Y693Wcp6k8rhKbkMuSpxxYjQtC7T5s5FIlw//kCMqDDGBv4A2g8PZPm
+	7lj9Xdbls71AcHkzqlor5DvfgXxV/KuDIHof2B2+fUthKAgSuslW89lFxx8NYDspECVd3Y3OmAhRu
+	RKO4tLifQzebhtN5djPPV2GSukSE9BdPenntDXMXJx70SA24df8BOxt0Jw6pvaywWQ/ezUn7CB5kP
+	iDuEN4nwQKcXUFn6d9tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPyMi-0000000FXPn-10YU;
-	Fri, 13 Jun 2025 06:58:16 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1uPyMw-0000000FXa8-1Uq4;
+	Fri, 13 Jun 2025 06:58:30 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPyMg-0000000FXOA-13lg
+	id 1uPyMt-0000000FXXc-1e3v
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 06:58:15 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3134c67a173so2013793a91.1
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 23:58:14 -0700 (PDT)
+	Fri, 13 Jun 2025 06:58:28 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-311c95ddfb5so1519833a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 23:58:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1749797894; x=1750402694; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1749797907; x=1750402707; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0APR23xoSpRoPrmHOoIW/fZKPHEwlO7VgBzBq3Nrcg8=;
-        b=doXJigJblpiyOBg1+ZGfDVulw4TmTaAz7NofWGf2i9hzSX48JSLiu2cXthzoju+MoS
-         Fpbcj3n0J8Ge4hpctyA7UkTCTC8ZEINUN9kj0zlWaA/p4ny8R/wlkRLcvHAbHZRVjXuu
-         1LINuRBV7Vwp/wn10bIWPQIQk/lXExNeZOdE53/60PBrFqMwgVXWEXKwnFYpgWjJfri7
-         kW9H42sKeD9RkdrkAPQSysP2kzgKNr9mVD5J8/Gpu9EgEAXnoQf7rsahpVPIBvpMIzAU
-         UY9TbIvlZSEDPXlMAF0tAnmFZLEIwL3D5wYzYTMB5cWADau7ukH8/JlNlX7IK76FJlFG
-         8vxg==
+        bh=x9NuUqyMjDjOZ8RZ5AE6YpvMfKBxH1jx9BmTdXWsOf0=;
+        b=MLK2FEzAUth2dlt7Ji9vLKntlIthLpbTcm8JSk92JjolrqJvCh+v4PFaUt1cSNSlQp
+         r5c2wu69MqGAxr64D3Ho1ga3Jxb1YZjQc599clblDvciocyRbNMchMAeaPXepvtIXib9
+         981qrIGxdNQPYRBwjV74yte4zXjccwG1/2TYPKguLazcNPjE53p+aZtOuaaDOE2cI7Fd
+         6BavD4hgcqBHFyv4fpceWRDCzNM5XzOICNZfloK/dYvUemAluWSAuLib+jF5Rycr08XN
+         NFnr8AaYUORFDfvEKLJ8xztwJD1FaufuZ9nidsikNBG/71Vs29Bs+BirAA8OdErzVuIK
+         o58A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749797894; x=1750402694;
+        d=1e100.net; s=20230601; t=1749797907; x=1750402707;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0APR23xoSpRoPrmHOoIW/fZKPHEwlO7VgBzBq3Nrcg8=;
-        b=vui4tdf73VV2ZlyzY3dQb2xRZt1e/3WEkVmm8n+KM/K9piTKzunDpMyyJt3WRSYUnK
-         LW9ZjWD3NK5uzCXpx8H0ZAKJ8X/2VaHEqZNLvqtPi8y9PzbnEVJ3mK2ST0SOc+oZ4eZc
-         XMLkqOanGgAdHcEfPUlm//6znWwtoNhMdpnIiMV7qMlyXOz4Qh3uRd3EuziYsC9Mj11/
-         VfueIFCSxKG8ABiZiuW6JSABw/fXaaBw/0ur733OUyocwcCzLQnMGyQGU938l5B7Zul8
-         eGOuYP8FKSxBUvFI7Txl8GPheBphbo/P9mhrZEJMhRfT3iYOyhx5zp8XR6/exYzhw79F
-         RESw==
-X-Forwarded-Encrypted: i=1; AJvYcCUM6587cC5PWx2txLXnB0TNsW1wpbNBAnbuP4lTqSVraH7VC8lKloqQKPjg6slasx9ZTNYZTedHOEBhkw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz417VpCKYIL7ib6NjWqemGe/bGcdzgjgBFCVGL5UfGEIDMoikB
-	jzyeKP2OAi/+J6knB+76odwObwyGXipTdvgqR8/YZ0f4gFbSws+mqcw/oPssujN91co=
-X-Gm-Gg: ASbGncsPc6x7dDQLcYtOdJNde1n9S7zOlo/cyMdvg3FH8MaULQj/3lrG2GqUZBlufYO
-	2iHeCROLEGgeBovvi41gTUdzkgJlO5aIWJl+atQ+3WISnr83/xVrjGPD1aYD0lxEC5dKrUTfn9h
-	Av0CXMg9AEewr65edZiwzC2g1B1J2gfgxojAYYijFsEy1cqDu2iMkNGjM2gECTBJ7Qk+pdJaqUa
-	OcTgK0JwDmoaP7Hh1qgt+UIa13RZBXw5eGkKfbOUbT+Q600ZfFHDOpoN3lVZRHoge+gLA0LHfAu
-	l+qv6T/Mz7tvbh9eSrw0G62QJRPQ41C5X6TvLmyOoufUjfORWYmbZnXtPRn0heQba2OzYCp1vm0
-	vFrVdNpd7GgtubDnOEDw=
-X-Google-Smtp-Source: AGHT+IF4XmbWIExFu1mlduKfiNfTLu/tQXyVfpn87Q8JCh/3y9agaf4v394uxNt/X9mcs0VMw2lIeA==
-X-Received: by 2002:a17:90b:5212:b0:312:25dd:1c99 with SMTP id 98e67ed59e1d1-313d9e92702mr2795609a91.19.1749797893528;
-        Thu, 12 Jun 2025 23:58:13 -0700 (PDT)
+        bh=x9NuUqyMjDjOZ8RZ5AE6YpvMfKBxH1jx9BmTdXWsOf0=;
+        b=WPmcQhBsdBCyusuhJyz34aOZ8pX9LT/yZRXiXfpx+KuCT7Xy5lfXW+ZGGvBEI8W1VU
+         bVsmbZRn7W230mOsSUyr5DnWGWeyRgnHV9Y2HeV+pICnpZuMYmUNxALWgKoHeU7mmmEv
+         lmDbfnItyW7EUz1j5Q1adhNFS5bEPYSYnaaZvB1Vh5CxX+owcvdoWan+bmhR9Tuqrhep
+         xnWA9dIoUAdLT3fsT+TWtapwDA6Irj3a2OtD3ZUvpP53G3MEycCnpS7wENtoN0ynZa7G
+         Jo/eG4JK2hKK6rLYXHx6Mn+ReZL1gygDEnjiwpUndzgUlghOk6/rZnCpRf42FYTp/ZGX
+         o77A==
+X-Forwarded-Encrypted: i=1; AJvYcCUVBlM8YIdgMr79TQo5B67DzEouX6Qks9Vp78Tor6koF7JuSEPVCF69lrfGRqR2q+6Bn9n1ynkEiSNJPw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUxdqRDG0te0dUcffkUNnbG2/9Px/rKRJmadkXhIVmLkr6EmGh
+	7oHMkq35ZTYhAoE5Ro9GKgeXY/zpLLIj8oEW5M5x9bGM48PZdNR2+ZmavJpCHt2DC1uK4nrfEDC
+	i24xKCrg=
+X-Gm-Gg: ASbGncuRwDZv1N1PTpElxarX2OOtTnKu20oTKp3+6wB0pMuEqT4ooXG3dulrd8N1U55
+	vcycrxQ20ec60tomfR/KEtXCPrvZtZY5kGWlLpgi0Nf97UcD7WYPJBI2xKAmiUsHgdyQjkWFQDR
+	ZFfs9vtoPBvcANgd+T2xKcFebv6x0lOvDfWkjrDmsx3lfsg3DoaSM7jFLBJUs4tHRT4UBtLH+xY
+	ayg6nuRhGu4mryJDGXk9OpAomxfGHDFiXGe8EqjpzREwRVVmkIgj7TwcRLhal/EpqWLHRgGemoR
+	LaIE2nBbKwW3ZC3InVItiSVx0At2lnTXfmWwg2/0gTf9k506O12BVgnegNo9lnniGHqhSXV0nGu
+	WjMn4simdv0xdn/WhtUg=
+X-Google-Smtp-Source: AGHT+IE8a5t2vAc7uHbhW52m189RNr8N2yqc2jJGrHdRdfFv50kYLOdkbxH34MMXUkyP4JTNM1l//w==
+X-Received: by 2002:a17:90b:2686:b0:313:db0b:75d8 with SMTP id 98e67ed59e1d1-313db0b77acmr2060784a91.32.1749797906744;
+        Thu, 12 Jun 2025 23:58:26 -0700 (PDT)
 Received: from localhost.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-313c1b49b7fsm2653022a91.24.2025.06.12.23.58.09
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-313c1b49b7fsm2653022a91.24.2025.06.12.23.58.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 23:58:13 -0700 (PDT)
+        Thu, 12 Jun 2025 23:58:26 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Atish Patra <atish.patra@linux.dev>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -80,18 +81,17 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v2 04/12] RISC-V: KVM: Replace KVM_REQ_HFENCE_GVMA_VMID_ALL with KVM_REQ_TLB_FLUSH
-Date: Fri, 13 Jun 2025 12:27:35 +0530
-Message-ID: <20250613065743.737102-5-apatel@ventanamicro.com>
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v2 07/12] RISC-V: KVM: Use ncsr_xyz() in kvm_riscv_vcpu_trap_redirect()
+Date: Fri, 13 Jun 2025 12:27:38 +0530
+Message-ID: <20250613065743.737102-8-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250613065743.737102-1-apatel@ventanamicro.com>
 References: <20250613065743.737102-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_235814_291581_0D7E205C 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250612_235827_433492_53FDB392 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,92 +108,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The KVM_REQ_HFENCE_GVMA_VMID_ALL is same as KVM_REQ_TLB_FLUSH so
-to avoid confusion let's replace KVM_REQ_HFENCE_GVMA_VMID_ALL with
-KVM_REQ_TLB_FLUSH. Also, rename kvm_riscv_hfence_gvma_vmid_all_process()
-to kvm_riscv_tlb_flush_process().
+The H-extension CSRs accessed by kvm_riscv_vcpu_trap_redirect() will
+trap when KVM RISC-V is running as Guest/VM hence remove these traps
+by using ncsr_xyz() instead of csr_xyz().
 
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/include/asm/kvm_host.h | 4 ++--
- arch/riscv/kvm/tlb.c              | 8 ++++----
- arch/riscv/kvm/vcpu.c             | 8 ++------
- 3 files changed, 8 insertions(+), 12 deletions(-)
+ arch/riscv/kvm/vcpu_exit.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 8aa705ac75a5..ff1f76d6f177 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -37,7 +37,6 @@
- #define KVM_REQ_UPDATE_HGATP		KVM_ARCH_REQ(2)
- #define KVM_REQ_FENCE_I			\
- 	KVM_ARCH_REQ_FLAGS(3, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
--#define KVM_REQ_HFENCE_GVMA_VMID_ALL	KVM_REQ_TLB_FLUSH
- #define KVM_REQ_HFENCE_VVMA_ALL		\
- 	KVM_ARCH_REQ_FLAGS(4, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
- #define KVM_REQ_HFENCE			\
-@@ -331,8 +330,9 @@ void kvm_riscv_local_hfence_vvma_gva(unsigned long vmid,
- 				     unsigned long order);
- void kvm_riscv_local_hfence_vvma_all(unsigned long vmid);
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 6e0c18412795..85c43c83e3b9 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -9,6 +9,7 @@
+ #include <linux/kvm_host.h>
+ #include <asm/csr.h>
+ #include <asm/insn-def.h>
++#include <asm/kvm_nacl.h>
  
-+void kvm_riscv_tlb_flush_process(struct kvm_vcpu *vcpu);
-+
- void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu);
--void kvm_riscv_hfence_gvma_vmid_all_process(struct kvm_vcpu *vcpu);
- void kvm_riscv_hfence_vvma_all_process(struct kvm_vcpu *vcpu);
- void kvm_riscv_hfence_process(struct kvm_vcpu *vcpu);
- 
-diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
-index b3461bfd9756..da98ca801d31 100644
---- a/arch/riscv/kvm/tlb.c
-+++ b/arch/riscv/kvm/tlb.c
-@@ -162,7 +162,7 @@ void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu)
- 	local_flush_icache_all();
- }
- 
--void kvm_riscv_hfence_gvma_vmid_all_process(struct kvm_vcpu *vcpu)
-+void kvm_riscv_tlb_flush_process(struct kvm_vcpu *vcpu)
+ static int gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			     struct kvm_cpu_trap *trap)
+@@ -135,7 +136,7 @@ unsigned long kvm_riscv_vcpu_unpriv_read(struct kvm_vcpu *vcpu,
+ void kvm_riscv_vcpu_trap_redirect(struct kvm_vcpu *vcpu,
+ 				  struct kvm_cpu_trap *trap)
  {
- 	struct kvm_vmid *v = &vcpu->kvm->arch.vmid;
- 	unsigned long vmid = READ_ONCE(v->vmid);
-@@ -342,14 +342,14 @@ void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
- 	data.size = gpsz;
- 	data.order = order;
- 	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE,
--			    KVM_REQ_HFENCE_GVMA_VMID_ALL, &data);
-+			    KVM_REQ_TLB_FLUSH, &data);
- }
+-	unsigned long vsstatus = csr_read(CSR_VSSTATUS);
++	unsigned long vsstatus = ncsr_read(CSR_VSSTATUS);
  
- void kvm_riscv_hfence_gvma_vmid_all(struct kvm *kvm,
- 				    unsigned long hbase, unsigned long hmask)
- {
--	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE_GVMA_VMID_ALL,
--			    KVM_REQ_HFENCE_GVMA_VMID_ALL, NULL);
-+	make_xfence_request(kvm, hbase, hmask, KVM_REQ_TLB_FLUSH,
-+			    KVM_REQ_TLB_FLUSH, NULL);
- }
+ 	/* Change Guest SSTATUS.SPP bit */
+ 	vsstatus &= ~SR_SPP;
+@@ -151,15 +152,15 @@ void kvm_riscv_vcpu_trap_redirect(struct kvm_vcpu *vcpu,
+ 	vsstatus &= ~SR_SIE;
  
- void kvm_riscv_hfence_vvma_asid_gva(struct kvm *kvm,
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index a2dd4161e5a4..6eb11c913b13 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -721,12 +721,8 @@ static void kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
- 		if (kvm_check_request(KVM_REQ_FENCE_I, vcpu))
- 			kvm_riscv_fence_i_process(vcpu);
+ 	/* Update Guest SSTATUS */
+-	csr_write(CSR_VSSTATUS, vsstatus);
++	ncsr_write(CSR_VSSTATUS, vsstatus);
  
--		/*
--		 * The generic KVM_REQ_TLB_FLUSH is same as
--		 * KVM_REQ_HFENCE_GVMA_VMID_ALL
--		 */
--		if (kvm_check_request(KVM_REQ_HFENCE_GVMA_VMID_ALL, vcpu))
--			kvm_riscv_hfence_gvma_vmid_all_process(vcpu);
-+		if (kvm_check_request(KVM_REQ_TLB_FLUSH, vcpu))
-+			kvm_riscv_tlb_flush_process(vcpu);
+ 	/* Update Guest SCAUSE, STVAL, and SEPC */
+-	csr_write(CSR_VSCAUSE, trap->scause);
+-	csr_write(CSR_VSTVAL, trap->stval);
+-	csr_write(CSR_VSEPC, trap->sepc);
++	ncsr_write(CSR_VSCAUSE, trap->scause);
++	ncsr_write(CSR_VSTVAL, trap->stval);
++	ncsr_write(CSR_VSEPC, trap->sepc);
  
- 		if (kvm_check_request(KVM_REQ_HFENCE_VVMA_ALL, vcpu))
- 			kvm_riscv_hfence_vvma_all_process(vcpu);
+ 	/* Set Guest PC to Guest exception vector */
+-	vcpu->arch.guest_context.sepc = csr_read(CSR_VSTVEC);
++	vcpu->arch.guest_context.sepc = ncsr_read(CSR_VSTVEC);
+ 
+ 	/* Set Guest privilege mode to supervisor */
+ 	vcpu->arch.guest_context.sstatus |= SR_SPP;
 -- 
 2.43.0
 
