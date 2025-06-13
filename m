@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5A1C71148
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 01:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A63C61CE8
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 01:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xecL1PwcBC/7688kAOXTnfeSWN0RvrX2WIkp1TjPrtA=; b=2zUQ4BT9A0ajsu
-	0G1SzcU7LBPdJZTvbIyKblc5hr+WmR1eu0bXddldzVmomtN0qijj/A1loYxz7l7J3sGXTPFCerwxO
-	u8l6Elrce7xY7ikixb9lFXg+wK1Hu9vWTg8sNI/FRWKY8co3jstgvQhYWJPPFJEyPX7ggmHu56hI7
-	dVfCeq9XRScgv6bfy2N2Jnh2g86c7r8P3ZNo+Dwutv0NIfBI9u/xsq8dVFoM5V5vKiPDxYY94f7Nh
-	4bKp62I377d5nOOp7Kg7fmd5AXc5KPEILBzBPud/7i7Q7C31xWJ0VQlbxGdicPKwcRYeM1fGNNYVa
-	Yo93t13rR0V7UlhIz6xA==;
+	List-Owner; bh=VXJr0LV1XQeecYoWAchCfKXBjvEcN5Lrg2YhLjO7qsQ=; b=21FZL+bb1DuUqL
+	Dxolzb4msA6vs/OCMUOiGRRxcs5t+VoJfMtbaetCVGX1U4jo2OvwmQ5y/zgbe+TNSFrwEpngjlaZk
+	APgPVwkdGQ5sjg/DO9CvxQ52EZ0nJyDglKdncTtzgqxEBbGprVF3MOhOsISokbcigjlsuHSrezF1p
+	6BQWA5BBbNW/fjPiaXup3V4RGuCmqTE814IwOMh5nrryQeGeIN9q3oGHo231Pmr7hxadpmu1JdFQd
+	qIh99mxYjhdwZaBz8NgIlB/SEc2fpdKMNOoBPgyn3i/bzNaeGsKWmRI8zpdSf0Y65G1v7lIZc4awy
+	1fsq/DavYJ4MH+ZyzTDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPsxY-0000000F1ft-3RIl;
-	Fri, 13 Jun 2025 01:11:56 +0000
-Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
+	id 1uPsxc-0000000F1i7-0oVu;
+	Fri, 13 Jun 2025 01:12:00 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPsxU-0000000F1co-386I
+	id 1uPsxY-0000000F1f9-2RKs
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 01:11:54 +0000
-Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-2eaad5eb1easo819874fac.3
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 18:11:52 -0700 (PDT)
+	Fri, 13 Jun 2025 01:11:57 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-6062e41916dso747776eaf.1
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 18:11:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1749777112; x=1750381912; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1749777116; x=1750381916; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Cjpgt53WofqzbGA4fRWGXisKKHuRc8Ezyw19NVROhHY=;
-        b=qLh21fU84Ruc+fQ/5vxbvRj9ceUZCt/Rabkv4+5dHvZBaa5mpIh7x1UKoKDBY+mJ0g
-         RZqmhhAUPk6zOL/D+Bht6PdDKB3tP42HKrTFvSNuRtT06TjWuf7dapOBWqrtHMC5hR/O
-         KfZoBYtxeSTJ/8VoNzgZveAEJxnhuPk7AVQEus3YPDpM/mgXRVD/CjH31XGIR60A9CAl
-         PIxVKRHq6A6gAWm8CBONr71VBQVn1bOIu6DMb6FybWYp7x6JnQb/Odb2U4E0WBV2/izp
-         dOBaYejtw+VM4JgZQ1VkoZbggC+0Gcwjz60VXZGy5aYIoKw6OPdLkp3zsuIAe55/f88v
-         fh1A==
+        bh=hXQ0rLrEsZDkkO0xDOFrK28pA119DtQt4oQHk7dYEkk=;
+        b=duIQYMc6bDvIovYG4FZNCNN7tw4TvHyrwsCR5YDttGWPL/VnXNYEqP5ux7o+P5umWF
+         t92a5UpGjVAY6LOREUs209bO/Zp4SoHXwRoI+iYa2SnfkaE72XCu1FfPCuxHnclqhCAo
+         3WJfpXEK9MvOsEjcrNcO2Xxpw9B6xyRSRFj0q9gsXBTgBMSVyQO3kZUsipwkm8MT3z0l
+         FwCvj7MesyoGOsQJobEgx9fjj/ZAs+0igor7G8bhmd/qicK1nOeldIv1IChQjh4xD6t0
+         zI6ET8s8E/7Pgb+J2oUCZn4EPnq1I1/TGdIQkv0ByMlPhvxG2laSed/vlfFYQPZQIT+X
+         KHmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749777112; x=1750381912;
+        d=1e100.net; s=20230601; t=1749777116; x=1750381916;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Cjpgt53WofqzbGA4fRWGXisKKHuRc8Ezyw19NVROhHY=;
-        b=E7GfU9qHnYd+KRsipSzL9OGGwI6WVmag96+4TmGu8M1Xikl1w5dD4mijgdLC34Ea9J
-         dUne1FEG1Rgo1Q2MnsrGI/vnV9UyOfL7jmoJP/Z+5whB6N18Tnb/Ih5tboomRzyyFOE9
-         dSFM0Sxs5LE/zWkD/ds/RmwsFftDwB8x6y/v4CwkqMe9XX72n+p22L+NdN+Qw8IVFWO8
-         dwpznVzdAmT0sQJzaadT7DZHrK9Mvzk3HQbEbTT08RDfxJDRnku64H7JBHYqQ3XyMj6Z
-         deSItKaGtsUfwL94poYc6LZcUzdq0Ja9neoXwcrOIuG8FmnsS0vCZco7OD72G4wFU6k2
-         Dpeg==
-X-Forwarded-Encrypted: i=1; AJvYcCUMoEVgRAIraKJXCybnjAVbzPtsrHmBNgcwq899RUPFYE8M1IVHdX0qILS3AiZIK6EY/6daPoQooqHExw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1tVHj13dsuWsI38hX2EbzvdSKptI/qeGz0FoSboM7eJFCCLsR
-	gYHCJn/qqM4eOVS5iAUeEI4eYWdlVuervaL1D6zK8cbYsI23UtzDJ1JxJdrL8/x8ZfE=
-X-Gm-Gg: ASbGncuSljA2fu99Pq2yxQQTyWVa2XrWZ/URw5QgO7Y88E80Ivw7yiD8FblD/GLlkOE
-	RLU3sbowqaPNT/CUnkEGgqrVms9yw0YlXTVFPiUovL2G3yc1PE/ZwbvgTaAG4iA8YTlS5Q5G34j
-	42md0jWfQqUQyVVC/Ppk2cBrqIY+FPSRZSko+3Tj3gu6b7Z5SqaInzr5HuQ0T2/lcF36l3Kll5r
-	cJM40IvOQAqDen0dSzIsWfEaRnqg+6s/4YHxf/kKxsbVY9LyXEbmuNqW2R0hQHbVYUWM1p4yQNt
-	eWQ1280ivOuXhNjMCDHmSJtuuImWzQsGrPlnUdGPny2sLJcdxx5Qk7MV9Idhpf+NEGZ6C7vzWsF
-	M07XMOm6PBnApmJKnGEcRL7Oxo96gZlo=
-X-Google-Smtp-Source: AGHT+IGLAOVwGQtHFMenQ5Pjgus0rfvs97TiY5MGJ1T6U7O3FKYbF5dGtfPW1aRPNW1u/ydyiJ4KnQ==
-X-Received: by 2002:a05:6870:8091:b0:2e9:95cc:b855 with SMTP id 586e51a60fabf-2ead5157caemr853318fac.34.1749777111937;
-        Thu, 12 Jun 2025 18:11:51 -0700 (PDT)
+        bh=hXQ0rLrEsZDkkO0xDOFrK28pA119DtQt4oQHk7dYEkk=;
+        b=I3JrUyZyPqaODrgX1yeduTrj2IKsb7vaQmlJtaUNj1zmuVGXtCCmutDgdRLtbjYGVZ
+         6bUulY5q7Y/evMwVtR6D31HouP1YlnaLMyHLVcAA0NsMjJKPGNcuhwgGFM/z6/Zqto3d
+         NwRXN2B3ekdyu+XcPYQ6yKFzS20RMPI/jnKsKzPNBu1+oBmt62Urx8Z1UgTMH47PAdaP
+         ezSObe4EDVCtm+Sc0SU5fssr3GzXVGdkRYnirOwpygMe5O9KKSknALU2IKG5+ouHBj94
+         AzUAcWnh+vLDjuk4qgl58f1UsU0RkUzxVHKgUrKcYk8IrvIJE+MA+xEFSxoOBMSv5RgQ
+         XxMw==
+X-Forwarded-Encrypted: i=1; AJvYcCVRjIUDD80n2jzAKLLWZY0rZ8xa6piz2ALjAt/iSGXUaBYAds3SylrUZRNnU4Wih+/b3wAMni8BkAMCmA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywibubr35PrVjBU4kavxeK0ttsin0Z4uFKKb8PSgPWM0fvabRSm
+	5SM9LghN3BBSj77m96odsuAxjoNjfWCwfNw215PLsStSjzLjAMJCCjQzQqd4Wpo8vxmhmTzfmJt
+	gl72I
+X-Gm-Gg: ASbGnctk9OWxWI8vID4mhx9U7o8C0KMKsstAQTMvDbbgagd20pZKX33I5fpFmiNtUpv
+	9JdbD9COyWNWrLSQNsrYZT6TXhXrO1DbFqMZhEc11t8S6Jz/4fyMIxavBcI4wa4VdQfXPGDqL0r
+	pmTpJxYUjLE5NFFCmZYCcxw/+Yi46hWZgWkBwmQpDKWRdjvo5gmmXfOMkaFSxF8kV7lAjsROVNR
+	cYziBQUr9ZDqOlYHsS4eohG/U4cmIgPuCAe8l0DHlFoCpP1LItW47+9XEvIZbo7LaWA0TLYwLVe
+	o2lx7UaYK0HMMtbUyqZS4dsuXfN+Y+tQTg3ZCTwMkyucH/+CTzrsHZQ0tgvtQMaH8WGdQLtzd9h
+	Y6Wa0Assos3bQFeXl6JmK6ubV9PQhFo4=
+X-Google-Smtp-Source: AGHT+IHLGWUc6QmwDBxYgPL11fCgmmDxgrSTZTWJDq5NM0vixs6NHFASZt4TXSVYr14kHaayK453+w==
+X-Received: by 2002:a05:6870:ce88:b0:2ea:d491:eb45 with SMTP id 586e51a60fabf-2ead510a3fbmr744385fac.18.1749777115684;
+        Thu, 12 Jun 2025 18:11:55 -0700 (PDT)
 Received: from presto.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2eac0c17211sm407685fac.18.2025.06.12.18.11.50
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2eac0c17211sm407685fac.18.2025.06.12.18.11.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 18:11:51 -0700 (PDT)
+        Thu, 12 Jun 2025 18:11:55 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -89,16 +90,16 @@ Cc: heylenay@4d2.org,
 	spacemit@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v11 4/6] clk: spacemit: define three reset-only CCUs
-Date: Thu, 12 Jun 2025 20:11:36 -0500
-Message-ID: <20250613011139.1201702-5-elder@riscstar.com>
+Subject: [PATCH v11 6/6] riscv: dts: spacemit: add reset support for the K1 SoC
+Date: Thu, 12 Jun 2025 20:11:38 -0500
+Message-ID: <20250613011139.1201702-7-elder@riscstar.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250613011139.1201702-1-elder@riscstar.com>
 References: <20250613011139.1201702-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_181152_792918_F716C31D 
-X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-CacheID: sfid-20250612_181156_624631_3D6BA332 
+X-CRM114-Status: UNSURE (   8.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,58 +117,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Three CCUs on the SpacemiT K1 SoC implement only resets, not clocks.
-Define the CCU data for these resets so their auxiliary devices get
-created.
+Define syscon nodes for the RCPU, RCPU2, and APBC2 SpacemiT CCUS, which
+currently support resets but not clocks in the SpacemiT K1.
 
 Signed-off-by: Alex Elder <elder@riscstar.com>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 Reviewed-by: Yixun Lan <dlan@gentoo.org>
 ---
- drivers/clk/spacemit/ccu-k1.c | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-index 1c9ed434ae93e..f9e2200d1fd04 100644
---- a/drivers/clk/spacemit/ccu-k1.c
-+++ b/drivers/clk/spacemit/ccu-k1.c
-@@ -943,6 +943,18 @@ static const struct spacemit_ccu_data k1_ccu_apmu_data = {
- 	.num		= ARRAY_SIZE(k1_ccu_apmu_hws),
- };
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index c0f8c5fca975d..de403bda2b878 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -346,6 +346,18 @@ soc {
+ 		dma-noncoherent;
+ 		ranges;
  
-+static const struct spacemit_ccu_data k1_ccu_rcpu_data = {
-+	.reset_name	= "rcpu-reset",
-+};
++		syscon_rcpu: system-controller@c0880000 {
++			compatible = "spacemit,k1-syscon-rcpu";
++			reg = <0x0 0xc0880000 0x0 0x2048>;
++			#reset-cells = <1>;
++		};
 +
-+static const struct spacemit_ccu_data k1_ccu_rcpu2_data = {
-+	.reset_name	= "rcpu2-reset",
-+};
++		syscon_rcpu2: system-controller@c0888000 {
++			compatible = "spacemit,k1-syscon-rcpu2";
++			reg = <0x0 0xc0888000 0x0 0x28>;
++			#reset-cells = <1>;
++		};
 +
-+static const struct spacemit_ccu_data k1_ccu_apbc2_data = {
-+	.reset_name	= "apbc2-reset",
-+};
+ 		syscon_apbc: system-controller@d4015000 {
+ 			compatible = "spacemit,k1-syscon-apbc";
+ 			reg = <0x0 0xd4015000 0x0 0x1000>;
+@@ -553,6 +565,12 @@ clint: timer@e4000000 {
+ 					      <&cpu7_intc 3>, <&cpu7_intc 7>;
+ 		};
+ 
++		syscon_apbc2: system-controller@f0610000 {
++			compatible = "spacemit,k1-syscon-apbc2";
++			reg = <0x0 0xf0610000 0x0 0x20>;
++			#reset-cells = <1>;
++		};
 +
- static int spacemit_ccu_register(struct device *dev,
- 				 struct regmap *regmap,
- 				 struct regmap *lock_regmap,
-@@ -1121,6 +1133,18 @@ static const struct of_device_id of_k1_ccu_match[] = {
- 		.compatible	= "spacemit,k1-syscon-apmu",
- 		.data		= &k1_ccu_apmu_data,
- 	},
-+	{
-+		.compatible	= "spacemit,k1-syscon-rcpu",
-+		.data		= &k1_ccu_rcpu_data,
-+	},
-+	{
-+		.compatible	= "spacemit,k1-syscon-rcpu2",
-+		.data		= &k1_ccu_rcpu2_data,
-+	},
-+	{
-+		.compatible	= "spacemit,k1-syscon-apbc2",
-+		.data		= &k1_ccu_apbc2_data,
-+	},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, of_k1_ccu_match);
+ 		sec_uart1: serial@f0612000 {
+ 			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+ 			reg = <0x0 0xf0612000 0x0 0x100>;
 -- 
 2.45.2
 
