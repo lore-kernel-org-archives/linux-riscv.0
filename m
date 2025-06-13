@@ -4,97 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849B1C61CE8
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 01:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD98C71148
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 01:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=crV98RD0WlL/cB1G9VxJCQq3jm2dTbfCeIJRcL1sEOs=; b=CoB7Izi/Ao55MO
-	YzvYAmzLK/VUm0pLvoMOEdCI8KYpYWJM3/rdYuNRGpnf8ZqQzlFuOMdpZFFbNokub7B0a3HFnwHTA
-	altBQ6fMbCFPPLRu34W1U4CrJWRjV9sKGSXDwcxdpzOpMxeEFp+ONkx6oYc25bc9JKrRmlmW/s9nc
-	S4aXnSDp9IpfWgumSaem9yKGeBTVn0/1Rt8bnIW9U4q4AoqUY+pr3S0mf+G5wHf4A07myI9kfTluV
-	3t1v6NjchJvpoU9JNKILly9tYQtNkAp46t5MQ/sXlPPd0CJTMImJfMvlYQcTOgpOg3jTvzOcBMqIE
-	aJqgoT5gLl9M/O+tpejA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UJHyWoqY24TeSxbWqkkm3BhGd031hsrqwb8Az6FU9Tg=; b=XcnAKCy9ZvDa9m
+	Vhkj9JQ+oC/8HrHRZSuW2T5/CrOXrOyCwaiMNuRGo5ef4QhWk1QRZudTZB1L522SXn/XqCwGLI7br
+	dH07BDZnNGm6EQILCP38Owg17wlqJDDM2CLzqDKnBkidulKt9ydoF/MzELse9L4JlZz4sH26fGix3
+	rJNhOoy4FHg9dsWzEXoYpBQ+4KNygonX45fGNyCmali5rT+OgHdGk7bMGfZ+mm2CdLf6Xwds7eLdx
+	FhuoM2kVXMckpFyhPw4Iiwel5eC0/C32IYFSCtZF7JKnoBRG2/hjCbQf9yldXYht4mWHbghvG2szI
+	LhvTa0tQpsle8ofuwe+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPsuE-0000000F1IL-49CX;
-	Fri, 13 Jun 2025 01:08:30 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uPsxS-0000000F1bF-2GKI;
+	Fri, 13 Jun 2025 01:11:50 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPsuD-0000000F1Hz-0HS2
+	id 1uPsxP-0000000F1Z9-2FFZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 01:08:30 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-451d3f72391so20949665e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 18:08:28 -0700 (PDT)
+	Fri, 13 Jun 2025 01:11:48 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-736f9e352cbso939062a34.2
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 18:11:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user; t=1749776907; x=1750381707; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1749777106; x=1750381906; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yV/+ZQq5RzgkIE87cL2HuuOvaHTwwG97pZ4IkkoLaPM=;
-        b=Hkmsc1xeBPSQdcGoJZFg2ghn1lWcK33kUCKdDnwSj6BqjuoLIDQCYN+4wRwyXdMDQf
-         GLSA7Lg1xjkCqiBszcxedY1CxaFuGBMzuse6GhxtPFrplWUXlRn8CqEjSSQac+OElet2
-         sas6Z9Rf99pRsBBIEPz2Duxgc6pTo463To+Xn3mWCNw+cMjxMCBTxDTl5mvhvdbhcPGv
-         sO+wfQfprO2kMRYQZsyB1bTmbOA1y6sAL3t4M+1gAdPMNkx+X5SvC2qHjaLM1UevSfWb
-         51lTxMIz3APVhSO41oAzNphhKU68U5QDqzGX8AbNWsHj0/6wTYk/8y194N3WcZpDPvKZ
-         9EFw==
+        bh=FIMzta2AftTuOCZk7on/aypnLuIwPcK53zSW3MHSvpg=;
+        b=A+Ltomak5rgPtm4dncdhtjjKeXn6QKZz8IREo54ijjYGxKZAog2ANxTMEACUPNZDCt
+         2sCElGMmqVQA3BYq1xdASUEJDXZPI3v1LD8lAy3QKAxYPyfWW/FTOCt9g1y94h30b9D/
+         RWaXHustD26Gy5RAOJCemOmS1EneDSSZK1mxHY1Y6Wy9rEgMKJ0QS71AY2RaM7iMYw6l
+         +RgOKTUJ+GpAswTpea2UrlswkvD9YsIKiRP+AVLxtK7hy+x0mXWhC15sP6Tw5tm3++4y
+         ieB8Jh5DQTgLXUWB3S3tWJ42VqG9xA+lJ00AtDq6kKNtL3tvfENRNH2HHbFJi9lZvlp9
+         JQYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749776907; x=1750381707;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1749777106; x=1750381906;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yV/+ZQq5RzgkIE87cL2HuuOvaHTwwG97pZ4IkkoLaPM=;
-        b=f35yLDfsGv6oMnK8imDG2v/Szfysw9+pAl7lQ82zs8CGcfnfgh8+LUOo5gEWTgZMCY
-         B/PBnNl3E4sG7h+XHw1/FtLOo5OWMTxbMU1bOt419vMPd+ur/veB7lVewxDBSGvCJBp5
-         8pX61hSjsUeUfKc5yNIdp0xGVr1i0YCNBECtRabfvYCn3xNAK09TQmaN01sY+ZVE0hm/
-         Qs51bAmrWxZ2PBcFy+JmmwFTHbHn7EFya2OqXSe25ZfMU1Ad7ZSqE/AYTuG+AxSlZYII
-         X17elBS3i3N/MwHZoG8tMAXLvV8TIhUZ7EMQKWgVbm7DmBEh71Hcl6+/vswj4PabUiI+
-         F0Uw==
-X-Forwarded-Encrypted: i=1; AJvYcCX689MIoJ7OpETKz6kc+grrqY4WY+6hvnSyqN0y3BHpDSvk73Isgw/xtoz6CVyDvoZfZPYt/O7q+GTLSQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxUC82xH0s4uYsdibmQ8nxT+oY8DRT6iPrQxmn6+kQabAtkcDs
-	cWzNrLgnljImvFWu77Z6P/0VcaszTMMKaxGrgFelNxX3QMBYf20Kg7y+/pxOCaV+mnI=
-X-Gm-Gg: ASbGncsiresZm5rtViufxpa8e6wwDCdWbfUy+O/43mhBlr6LcLc06OCLgRIPFYvjcey
-	Qr8mqxVijJX9wsqN4QjYTPSHQyRLn9qdvJ3BofCG7ZsLMfBcNtoj8YwGOlQ03H/RLX9dLUWaPVn
-	ascPbzS5F8ZYYgv7cOkwimHs1v0SKL4ZFhCy5QS/ij4awPGyPq+5gcHYhz8t7e2qnLuhl5ccWHY
-	gbSX9qKui25TBgF/ntodY5IuajqYtG9BI8bSN9jszjMiiwEIokd9ILCWkqyyZStACje2ZgRxmug
-	oAoCCmlxUM9mWGER6kchZzoxrU7pjrZuK+a8C5iYK3U/QuYlJaq/DDruoEH1axWrV0KhOPHppGk
-	=
-X-Google-Smtp-Source: AGHT+IFwyw9OHP+fZV6LAbNr0tT5uZJzpkB6b4K/Ns4tGf9uKmcXDtKWoPd0LKrnrhtueMGufyguFg==
-X-Received: by 2002:a05:600c:1c12:b0:439:9424:1b70 with SMTP id 5b1f17b1804b1-45334b5ae3cmr9341235e9.30.1749776906902;
-        Thu, 12 Jun 2025 18:08:26 -0700 (PDT)
-Received: from smtpclient.apple ([131.111.5.201])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532e24420csm35282755e9.20.2025.06.12.18.08.26
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 12 Jun 2025 18:08:26 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.600.51.1.1\))
-Subject: Re: [PATCH v3 3/3] vdso: Reject absolute relocations during build
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <mhng-4BA05CCD-6D5A-4067-B88A-DEBD4FCDED77@palmerdabbelt-mac>
-Date: Fri, 13 Jun 2025 02:08:14 +0100
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
- thomas.weissschuh@linutronix.de,
- Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu,
- nathan@kernel.org,
- nick.desaulniers+lkml@gmail.com,
- morbo@google.com,
- justinstitt@google.com,
- luto@kernel.org,
- tglx@linutronix.de,
- vincenzo.frascino@arm.com,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev
-Message-Id: <20ED8855-2A51-4821-9675-EF45041BCD31@jrtc27.com>
-References: <mhng-4BA05CCD-6D5A-4067-B88A-DEBD4FCDED77@palmerdabbelt-mac>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-X-Mailer: Apple Mail (2.3826.600.51.1.1)
+        bh=FIMzta2AftTuOCZk7on/aypnLuIwPcK53zSW3MHSvpg=;
+        b=XyX0y/6L9DhzMs0jnC50Tam5CjSimmr/EWwm+/eB/pY/lmjyKYFAhYBmdJWdDz3Lgw
+         exDjL9s6vlPeUVTapqpPgUyUxmxBFVWj/8pd4b8zcyC7job3NTtuuwPgVNZJbjWJYzdt
+         HoMTBJr0JrROTDhTnhXnp//8peeGl/BYFGBGuYfm7IZM0tblc8LZdauRgZZdWI+3jbOE
+         sgrAtcWzbxMQBnK/ykm0z1Iv2BTqnjZlOk+Edw2zncGotM5QzF1NtthbnRafHT0N52oU
+         eTQowENfjWsfVekK9EuSq1Y2iMaYz8qqocRGhwL64v4vJ9rtT0aYfSJrhEw0bQX/faTm
+         eJow==
+X-Forwarded-Encrypted: i=1; AJvYcCXzT8PBpvdLIFs6aiC0AN1MkSL0/uHv42cVXbg2b24ib2mo1GL3WkZFGJZrILIKVc+ku2sFZZLv6hCBNA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOn18CPwa3OE51dOZsQsTmtwYbK9tn25JeStUvCz/sUu3N7Pfe
+	gfITEYHmTVACq8KDFEPg65m1zrYQZY4xrX0LOpLplgkw0zKMDh9sVR6V0zapyxojivU=
+X-Gm-Gg: ASbGncstf6IXYDz/nXdQYtcCTNREw2QlaSi6ltpqHByaQOANmyQtDCRilTbVSe71J6A
+	0hPOuKBVAcYghdZW+2CEGEj73ZGZiFLGHRoRYGhMAltHWKtwFcJrYZ4/4FXuZUrDIRdqAr9eATa
+	LeWjeL4+zTtIijNzztuQUpy90g1zu55auc1juTl0wBPs5T9EC5D4Y6N9aLKTOfDxACce9QFmYHE
+	YMO0hQHjf2ITEq5XNU2DOV6R0gtIpKRpw9qKTgFzTPsELn/yICNdCDgZWADkbUICson8QeU0nEV
+	DnCbklr13NAcij06VCf9I71cj0n7f8kTWjRKqxLiP2MiG7RjdnBOVAL92Sr22M7BUfIPfnk+9Fb
+	cDfTTQJiFk7iCp/CYbTraKlV8VCENYWM=
+X-Google-Smtp-Source: AGHT+IHGyKqIzZMGUS+0mLJ+XXdHKM3DYFea7kD1MLQTICc0wh8Dsy0iZHSyESayB407m7TuPOsAmw==
+X-Received: by 2002:a05:6871:8011:b0:29e:65ed:5c70 with SMTP id 586e51a60fabf-2ead517c850mr729455fac.30.1749777106478;
+        Thu, 12 Jun 2025 18:11:46 -0700 (PDT)
+Received: from presto.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2eac0c17211sm407685fac.18.2025.06.12.18.11.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 18:11:46 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	p.zabel@pengutronix.de,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	dlan@gentoo.org
+Cc: heylenay@4d2.org,
+	inochiama@outlook.com,
+	guodong@riscstar.com,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v11 1/6] dt-bindings: soc: spacemit: define spacemit,k1-ccu resets
+Date: Thu, 12 Jun 2025 20:11:33 -0500
+Message-ID: <20250613011139.1201702-2-elder@riscstar.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250613011139.1201702-1-elder@riscstar.com>
+References: <20250613011139.1201702-1-elder@riscstar.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_180829_125104_D45201FB 
-X-CRM114-Status: GOOD (  25.66  )
+X-CRM114-CacheID: sfid-20250612_181147_572438_40969483 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,95 +111,261 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTIgSnVuIDIwMjUsIGF0IDIxOjA1LCBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQGRhYmJlbHQu
-Y29tPiB3cm90ZToKPiAKPiBPbiBUaHUsIDEyIEp1biAyMDI1IDAxOjMxOjIwIFBEVCAoLTA3MDAp
-LCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4+IEhpIFRob21hcywKPj4gCj4+IE9uIDYvMTEvMjUg
-MTE6MjIsIFRob21hcyBXZWnDn3NjaHVoIHdyb3RlOgo+Pj4gQWxsIHZEU08gY29kZSBuZWVkcyB0
-byBiZSBjb21wbGV0ZWx5IHBvc2l0aW9uIGluZGVwZW5kZW50Lgo+Pj4gU3ltYm9sIHJlZmVyZW5j
-ZXMgYXJlIG1hcmtlZCBhcyBoaWRkZW4gc28gdGhlIGNvbXBpbGVyIGVtaXRzCj4+PiBQQy1yZWxh
-dGl2ZSByZWxvY2F0aW9ucy4gSG93ZXZlciB0aGVyZSBhcmUgY2FzZXMgd2hlcmUgdGhlIGNvbXBp
-bGVyIG1heQo+Pj4gc3RpbGwgZW1pdCBhYnNvbHV0ZSByZWxvY2F0aW9ucywgYXMgdGhleSBhcmUg
-dmFsaWQgaW4gcmVndWxhciBQSUMgRFNPIGNvZGUuCj4+PiBUaGVzZSB3b3VsZCBiZSByZXNvbHZl
-ZCBieSB0aGUgbGlua2VyIGFuZCB3aWxsIGJyZWFrIGF0IHJ1bnRpbWUuCj4+PiBUaGlzIGhhcyBi
-ZWVuIG9ic2VydmVkIG9uIGFybTY0IHVuZGVyIHNvbWUgY2lyY3Vtc3RhbmNlcywgc2VlCj4+PiBj
-b21taXQgMGMzMTRjZGE5MzI1ICgiYXJtNjQ6IHZkc286IFdvcmsgYXJvdW5kIGludmFsaWQgYWJz
-b2x1dGUgcmVsb2NhdGlvbnMgZnJvbSBHQ0MiKQo+Pj4gCj4+PiBJbnRyb2R1Y2UgYSBidWlsZC10
-aW1lIGNoZWNrIGZvciBhYnNvbHV0ZSByZWxvY2F0aW9ucy4KPj4+IFRoZSBjaGVjayBpcyBkb25l
-IG9uIHRoZSBvYmplY3QgZmlsZXMgYXMgdGhlIHJlbG9jYXRpb25zIHdpbGwgbm90IGV4aXN0Cj4+
-PiBhbnltb3JlIGluIHRoZSBmaW5hbCBEU08uIEFzIHRoZXJlIGlzIG5vIGV4dGVuc2lvbiBwb2lu
-dCBmb3IgdGhlCj4+PiBjb21waWxhdGlvbiBvZiBlYWNoIG9iamVjdCBmaWxlLCBwZXJmb3JtIHRo
-ZSB2YWxpZGF0aW9uIGluIHZkc29fY2hlY2suCj4+PiAKPj4+IERlYnVnIGluZm9ybWF0aW9uIGNh
-biBjb250YWluIGxlZ2FsIGFic29sdXRlIHJlbG9jYXRpb25zIGFuZCByZWFkZWxmIGNhbgo+Pj4g
-bm90IHByaW50IHJlbG9jYXRpb25zIGZyb20gdGhlIC50ZXh0IHNlY3Rpb24gb25seS4gTWFrZSB1
-c2Ugb2YgdGhlIGZhY3QKPj4+IHRoYXQgYWxsIGdsb2JhbCB2RFNPIHN5bWJvbHMgZm9sbG93IHRo
-ZSBuYW1pbmcgcGF0dGVybiAidmRzb191XyIuCj4+PiAKPj4+IExpbms6IGh0dHBzOi8vbG9yZS5r
-ZXJuZWwub3JnL2xrbWwvYUFwR1BBb2N0cV9lb0UyZ0B0MTR1bHRyYS8KPj4+IExpbms6IGh0dHBz
-Oi8vZ2NjLmdudS5vcmcvYnVnemlsbGEvc2hvd19idWcuY2dpP2lkPTEyMDAwMgo+Pj4gU2lnbmVk
-LW9mZi1ieTogVGhvbWFzIFdlacOfc2NodWggPHRob21hcy53ZWlzc3NjaHVoQGxpbnV0cm9uaXgu
-ZGU+Cj4+PiAtLS0KPj4+ICBsaWIvdmRzby9NYWtlZmlsZS5pbmNsdWRlIHwgNiArKysrKysKPj4+
-ICAxIGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25zKCspCj4+PiAKPj4+IGRpZmYgLS1naXQgYS9s
-aWIvdmRzby9NYWtlZmlsZS5pbmNsdWRlIGIvbGliL3Zkc28vTWFrZWZpbGUuaW5jbHVkZQo+Pj4g
-aW5kZXggY2VkYmYxNWY4MDg3NGQ0YmIyN2MwOTcyNDRiYzViMTEyNzJmMjYxYy4uMDQyNTdkMGYy
-OGMwZWQzMjRlMzFhZGJiNjg0OTcxODEwODU3NTJmOCAxMDA2NDQKPj4+IC0tLSBhL2xpYi92ZHNv
-L01ha2VmaWxlLmluY2x1ZGUKPj4+ICsrKyBiL2xpYi92ZHNvL01ha2VmaWxlLmluY2x1ZGUKPj4+
-IEBAIC0xMiw3ICsxMiwxMyBAQCBjLWdldHJhbmRvbS0kKENPTkZJR19WRFNPX0dFVFJBTkRPTSkg
-Oj0gJChhZGRwcmVmaXggJChHRU5FUklDX1ZEU09fRElSKSwgZ2V0cmFuZAo+Pj4gICMKPj4+ICAj
-IEFzIGEgd29ya2Fyb3VuZCBmb3Igc29tZSBHTlUgbGQgcG9ydHMgd2hpY2ggcHJvZHVjZSB1bm5l
-ZWRlZCBSXypfTk9ORQo+Pj4gICMgZHluYW1pYyByZWxvY2F0aW9ucywgaWdub3JlIFJfKl9OT05F
-Lgo+Pj4gKyMKPj4+ICsjIEFsc28gdmFsaWRhdGUgdGhhdCBubyBhYnNvbHV0ZSByZWxvY2F0aW9u
-cyBhZ2FpbnN0IGdsb2JhbCBzeW1ib2xzIGFyZSBwcmVzZW50Cj4+PiArIyBpbiB0aGUgb2JqZWN0
-IGZpbGVzLgo+Pj4gIHF1aWV0X2NtZF92ZHNvX2NoZWNrID0gVkRTT0NISyAkQAo+Pj4gICAgICAg
-IGNtZF92ZHNvX2NoZWNrID0gaWYgJChSRUFERUxGKSAtclcgJEAgfCBncmVwIC12IF9OT05FIHwg
-Z3JlcCAtcSAiIFJfXHcqXyI7IFwKPj4+ICAgICAgICAgIHRoZW4gKGVjaG8gPiYyICIkQDogZHlu
-YW1pYyByZWxvY2F0aW9ucyBhcmUgbm90IHN1cHBvcnRlZCI7IFwKPj4+ICsgICAgICBybSAtZiAk
-QDsgL2Jpbi9mYWxzZSk7IGZpICYmIFwKPj4+ICsgICAgICAgIGlmICQoUkVBREVMRikgLXJXICQo
-ZmlsdGVyICUubywgJChyZWFsLXByZXJlcXMpKSB8IGdyZXAgLXEgIiBSX1x3Kl9BQlMuKnZkc29f
-dV8iOyBcCj4+IAo+PiAKPj4gVGhpcyBvbmx5IHdvcmtzIGZvciBhcm02NCByZWxvY2F0aW9ucyBy
-aWdodD8gSSBjYW4ndCBmaW5kIGFueSAqQUJTKgo+PiByZWxvY2F0aW9ucyBpbiByaXNjdiBlbGYg
-YWJpCj4+IChodHRwczovL2dpdGh1Yi5jb20vcmlzY3Ytbm9uLWlzYS9yaXNjdi1lbGYtcHNhYmkt
-ZG9jL3JlbGVhc2VzL3RhZy92MS4wKS4KPiAKPiBUaGF0J3MgYmVjYXVzZSB0aGUgcHNBQkkgcGVv
-cGxlIGRvIG5vdCBiZWxpZXZlIGluIGFic29sdXRlIHN5bWJvbHMuCgpJIGRvbuKAmXQga25vdyB3
-aGF0IHlvdeKAmXJlIHJlZmVycmluZyB0byBoZXJlLiBBYnNvbHV0ZSBzeW1ib2xzIChTSE5fQUJT
-CnJhdGhlciB0aGFuIGEgcmVhbCBzZWN0aW9uIGluZGV4KSBhcmUgZGlmZmVyZW50IHRvIGFic29s
-dXRlCnJlbG9jYXRpb25zLiBUaGUgY29kZSBoZXJlIGlzIGNoZWNraW5nIGZvciAqcmVsb2NhdGlv
-bnMqLCBub3Qgc3ltYm9scy4KUklTQy1WIGhhcyBhYnNvbHV0ZSByZWxvY2F0aW9ucywgdGhleeKA
-mXJlIFJfUklTQ1ZfMzIvNjQuIFB1dHRpbmcgQUJTIGluCnRoZSByZWxvY2F0aW9uIG5hbWUgaXMg
-YW4gQXJtLWlzbSB0aGF0IG90aGVyIGFyY2hpdGVjdHVyZXMgZG9u4oCZdCBkby4KQWJzb2x1dGUg
-YWRkcmVzc2luZyBleGlzdHMsIGFzIHRoZSBtZWRsb3cgYW5kIGxhcmdlIGNvZGUgbW9kZWxzICh3
-aXRoCi1mbm8tcGljL1BJQy9waWUvUElFKS4gU28gSeKAmW0gcmVhbGx5IG5vdCBzdXJlIHdoYXQg
-eW914oCZcmUgc2F5aW5nIHRoZQpjdXJyZW50IHBzQUJJIGRvZXNu4oCZdCBkbyB0aGF0IGl0IHNo
-b3VsZCwgbm9yIHdoYXQgZGlzY3Vzc2lvbnMgeW914oCZcmUKZXZlbiBzdWdnZXN0aW5nIGhhdmUg
-aGFwcGVuZWQgYW5kIGJlZW4gZGlzbWlzc2VkPwoKUGVyaGFwcyB5b3XigJlyZSByZWZlcnJpbmcg
-dG8gdGhlIGRpZmZpY3VsdHkgb2YgdXNpbmcgUEMtcmVsYXRpdmUKYWNjZXNzZXMgYWdhaW5zdCBh
-YnNvbHV0ZSBzeW1ib2xzLCBhcyB5b3XigJlsbCBnZXQgaW4gbWVkYW55IGFuZCBQSUUKY29kZT8g
-QnV0IHRoYXTigJlzIHNvbWV0aGluZyB0aGF0IGFmZmVjdHMgbWFueSBhcmNoaXRlY3R1cmVzOyB5
-b3UgY2FuCmhhdmUgaXNzdWVzIG9uIGFtZDY0IGFuZCBhYXJjaDY0LCBub3QganVzdCByaXNjdjY0
-LgoKSmVzc2ljYQoKPiBUaGV5IGV4aXN0IGluIHRoZSBhY3R1YWwgdG9vbGNoYWlucywgdGhvdWdo
-LCBhcyB0aGV5IGFyZSBwYXJ0IG9mIHRoZSBnZW5lcmljIEVMRiBBQkkuIEluIHRoZW9yeSB0aGV5
-J2Qgd29yayBmaW5lIGluIHRoZSBWRFNPIGFzIGxvbmcgYXMgd2UncmUgdXNpbmcgYWJzb2x1dGUg
-YWRkcmVzc2luZyBpbnN0cnVjdGlvbnMgZm9yIHRoZW0sIHdoaWNoIGlzIHBvc3NpYmxlIHRvIGRv
-IChhbmQgSSB0aGluayBzaG91bGQgaGFwcGVuIGZvciBzb21lIGdsb2JhbCBzeW1ib2xzKS4KPiAK
-PiBUaGF0IHNhaWQsIGl0IGRvZXNuJ3QgcmVhbGx5IHNlZW0gd29ydGggdGhlIGVmZm9ydCB0byBn
-ZXQgdGhlIGNoZWNraW5nIG1vcmUgZmluZS1ncmFpbmVkIGhlcmUuICBJIGRvbid0IHNlZSBhbnkg
-cmVhc29uIHdlJ2QgbmVlZCBhbiBhYnNvbHV0ZSBzeW1ib2wgaW4gdGhlIFZEU08sIHNvIHVuaWwg
-c29tZW9uZSBoYXMgb25lIHdlIG1pZ2h0IGFzIHdlbGwganVzdCBmb3JiaWQgdGhlbSBlbnRpcmVs
-eS4KPiAKPiBTb21lIG9sZCB0b29sY2hhaW5zIGhhZCBhbiBhYnNvbHV0ZSAiX19nbG9hYmxfcG9p
-bnRlciQiIGZsb2F0aW5nIGFyb3VuZCBzb21lIG9mIHRoZSBDUlQgZmlsZXMsIHNvIHdlIG1pZ2h0
-IHRyaXAgb3ZlciBidWdzIGhlcmUuICBJIHRoaW5rIHdlJ3JlIHNhZmUgYXMgdGhvc2Ugc2hvdWxk
-bid0IHNob3cgdXAgaW4gdGhlIFZEU08sIGJ1dCBub3QgMTAwJSBzdXJlLiAgUHJvYmFibHkgYmVz
-dCB0byBnZXQgdGhpcyBvbiBuZXh0IHRvIGJha2UgZm9yIGEgYml0LCBqdXN0IHRvIG1ha2Ugc3Vy
-ZSB3ZSdyZSBub3QgdHJpcHBpZyBhbnlvbmUgdXAuCj4gCj4+IFRoYW5rcywKPj4gCj4+IEFsZXgK
-Pj4gCj4+IAo+Pj4gKyAgICAgICAgdGhlbiAoZWNobyA+JjIgIiRAOiBhYnNvbHV0ZSByZWxvY2F0
-aW9ucyBhcmUgbm90IHN1cHBvcnRlZCI7IFwKPj4+ICAgICAgICBybSAtZiAkQDsgL2Jpbi9mYWxz
-ZSk7IGZpCj4+PiAKPiAKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2CgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+There are additional SpacemiT syscon CCUs whose registers control both
+clocks and resets:  RCPU, RCPU2, and APBC2. Unlike those defined
+previously, these will (initially) support only resets.  They do not
+incorporate power domain functionality.
+
+Previously the clock properties were required for all compatible nodes.
+Make that requirement only apply to the three existing CCUs (APBC, APMU,
+and MPMU), so that the new reset-only CCUs can go without specifying them.
+
+Define the index values for resets associated with all SpacemiT K1
+syscon nodes, including those with clocks already defined, as well as
+the new ones (without clocks).
+
+Signed-off-by: Alex Elder <elder@riscstar.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
+---
+v11: Expanded combined reset index values into individual ones,
+     e.g. AUDIO (3 bits) is now AUDIO_SYS, AUDIO_MCU, AUDIO_APMU
+
+ .../soc/spacemit/spacemit,k1-syscon.yaml      |  29 +++-
+ .../dt-bindings/clock/spacemit,k1-syscon.h    | 141 ++++++++++++++++++
+ 2 files changed, 163 insertions(+), 7 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+index 30aaf49da03d3..133a391ee68cd 100644
+--- a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
++++ b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+@@ -19,6 +19,9 @@ properties:
+       - spacemit,k1-syscon-apbc
+       - spacemit,k1-syscon-apmu
+       - spacemit,k1-syscon-mpmu
++      - spacemit,k1-syscon-rcpu
++      - spacemit,k1-syscon-rcpu2
++      - spacemit,k1-syscon-apbc2
+ 
+   reg:
+     maxItems: 1
+@@ -47,9 +50,6 @@ properties:
+ required:
+   - compatible
+   - reg
+-  - clocks
+-  - clock-names
+-  - "#clock-cells"
+   - "#reset-cells"
+ 
+ allOf:
+@@ -57,13 +57,28 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: spacemit,k1-syscon-apbc
++            enum:
++              - spacemit,k1-syscon-apmu
++              - spacemit,k1-syscon-mpmu
+     then:
+-      properties:
+-        "#power-domain-cells": false
+-    else:
+       required:
+         - "#power-domain-cells"
++    else:
++      properties:
++        "#power-domain-cells": false
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - spacemit,k1-syscon-apbc
++              - spacemit,k1-syscon-apmu
++              - spacemit,k1-syscon-mpmu
++    then:
++      required:
++        - clocks
++        - clock-names
++        - "#clock-cells"
+ 
+ additionalProperties: false
+ 
+diff --git a/include/dt-bindings/clock/spacemit,k1-syscon.h b/include/dt-bindings/clock/spacemit,k1-syscon.h
+index 35968ae982466..8142b1b4c5d7a 100644
+--- a/include/dt-bindings/clock/spacemit,k1-syscon.h
++++ b/include/dt-bindings/clock/spacemit,k1-syscon.h
+@@ -78,6 +78,9 @@
+ #define CLK_APB			31
+ #define CLK_WDT_BUS		32
+ 
++/* MPMU resets */
++#define RESET_WDT		0
++
+ /* APBC clocks */
+ #define CLK_UART0		0
+ #define CLK_UART2		1
+@@ -180,6 +183,59 @@
+ #define CLK_TSEN_BUS		98
+ #define CLK_IPC_AP2AUD_BUS	99
+ 
++/* APBC resets */
++#define RESET_UART0		0
++#define RESET_UART2		1
++#define RESET_UART3		2
++#define RESET_UART4		3
++#define RESET_UART5		4
++#define RESET_UART6		5
++#define RESET_UART7		6
++#define RESET_UART8		7
++#define RESET_UART9		8
++#define RESET_GPIO		9
++#define RESET_PWM0		10
++#define RESET_PWM1		11
++#define RESET_PWM2		12
++#define RESET_PWM3		13
++#define RESET_PWM4		14
++#define RESET_PWM5		15
++#define RESET_PWM6		16
++#define RESET_PWM7		17
++#define RESET_PWM8		18
++#define RESET_PWM9		19
++#define RESET_PWM10		20
++#define RESET_PWM11		21
++#define RESET_PWM12		22
++#define RESET_PWM13		23
++#define RESET_PWM14		24
++#define RESET_PWM15		25
++#define RESET_PWM16		26
++#define RESET_PWM17		27
++#define RESET_PWM18		28
++#define RESET_PWM19		29
++#define RESET_SSP3		30
++#define RESET_RTC		31
++#define RESET_TWSI0		32
++#define RESET_TWSI1		33
++#define RESET_TWSI2		34
++#define RESET_TWSI4		35
++#define RESET_TWSI5		36
++#define RESET_TWSI6		37
++#define RESET_TWSI7		38
++#define RESET_TWSI8		39
++#define RESET_TIMERS1		40
++#define RESET_TIMERS2		41
++#define RESET_AIB		42
++#define RESET_ONEWIRE		43
++#define RESET_SSPA0		44
++#define RESET_SSPA1		45
++#define RESET_DRO		46
++#define RESET_IR		47
++#define RESET_TSEN		48
++#define RESET_IPC_AP2AUD	49
++#define RESET_CAN0		50
++
+ /* APMU clocks */
+ #define CLK_CCI550		0
+ #define CLK_CPU_C0_HI		1
+@@ -244,4 +300,89 @@
+ #define CLK_V2D			60
+ #define CLK_EMMC_BUS		61
+ 
++/* APMU resets */
++#define RESET_CCIC_4X		0
++#define RESET_CCIC1_PHY		1
++#define RESET_SDH_AXI		2
++#define RESET_SDH0		3
++#define RESET_SDH1		4
++#define RESET_SDH2		5
++#define RESET_USBP1_AXI		6
++#define RESET_USB_AXI		7
++#define RESET_USB30_AHB		8
++#define RESET_USB30_VCC		9
++#define RESET_USB30_PHY		10
++#define RESET_QSPI		11
++#define RESET_QSPI_BUS		12
++#define RESET_DMA		13
++#define RESET_AES		14
++#define RESET_VPU		15
++#define RESET_GPU		16
++#define RESET_EMMC		17
++#define RESET_EMMC_X		18
++#define RESET_AUDIO_SYS		19
++#define RESET_AUDIO_MCU		20
++#define RESET_AUDIO_APMU	21
++#define RESET_HDMI		22
++#define RESET_PCIE0_DBI		23
++#define RESET_PCIE0_SLV		24
++#define RESET_PCIE0_MSTR	25
++#define RESET_PCIE0_GLB		26
++#define RESET_PCIE1_DBI		27
++#define RESET_PCIE1_SLV		28
++#define RESET_PCIE1_MSTR	29
++#define RESET_PCIE1_GLB		30
++#define RESET_PCIE2_DBI		31
++#define RESET_PCIE2_SLV		32
++#define RESET_PCIE2_MSTR	33
++#define RESET_PCIE2_GLB		34
++#define RESET_EMAC0		35
++#define RESET_EMAC1		36
++#define RESET_JPG		37
++#define RESET_CCIC2PHY		38
++#define RESET_CCIC3PHY		39
++#define RESET_CSI		40
++#define RESET_ISP_CPP		41
++#define RESET_ISP_BUS		42
++#define RESET_ISP		43
++#define RESET_ISP_CI		44
++#define RESET_DPU_MCLK		45
++#define RESET_DPU_ESC		46
++#define RESET_DPU_HCLK		47
++#define RESET_DPU_SPIBUS	48
++#define RESET_DPU_SPI_HBUS	49
++#define RESET_V2D		50
++#define RESET_MIPI		51
++#define RESET_MC		52
++
++/*	RCPU resets	*/
++#define RESET_RCPU_SSP0		0
++#define RESET_RCPU_I2C0		1
++#define RESET_RCPU_UART1	2
++#define RESET_RCPU_IR		3
++#define RESET_RCPU_CAN		4
++#define RESET_RCPU_UART0	5
++#define RESET_RCPU_HDMI_AUDIO	6
++
++/*	RCPU2 resets	*/
++#define RESET_RCPU2_PWM0	0
++#define RESET_RCPU2_PWM1	1
++#define RESET_RCPU2_PWM2	2
++#define RESET_RCPU2_PWM3	3
++#define RESET_RCPU2_PWM4	4
++#define RESET_RCPU2_PWM5	5
++#define RESET_RCPU2_PWM6	6
++#define RESET_RCPU2_PWM7	7
++#define RESET_RCPU2_PWM8	8
++#define RESET_RCPU2_PWM9	9
++
++/*	APBC2 resets	*/
++#define RESET_APBC2_UART1	0
++#define RESET_APBC2_SSP2	1
++#define RESET_APBC2_TWSI3	2
++#define RESET_APBC2_RTC		3
++#define RESET_APBC2_TIMERS0	4
++#define RESET_APBC2_KPC		5
++#define RESET_APBC2_GPIO	6
++
+ #endif /* _DT_BINDINGS_SPACEMIT_CCU_H_ */
+-- 
+2.45.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
