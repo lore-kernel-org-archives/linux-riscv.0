@@ -4,100 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7DAC71148
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 21:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A56DC71135
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 22:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2LVTiCe8R4z1A9YDJoRCtokM0+bxqOhSJHB23/wSoi8=; b=rhRHuF4p9PxBuz
-	+i50NYHs9ChhWiEnPwbE1vwXGFf3Fge/Y/v0dYzeC3RD3ridX8KmrKb+EwTFpAhoNXngSpO5OEgWc
-	v1B0fsYWY6YPpriq0Nse0i5/RCYsUIYylMuOBkADbVkVutvu55x+q5SY/YyiHU+rISmkk2leOm10n
-	pjpF7kJ/fK0+qRzjQwoL/40girBg0LqAQcFZrHrk+RC8YItIst2cWLz3FtpqfGpYpL/iOIwQyrunp
-	pHSLoklNwUR/3pbiNFlavtMPX3mj7c5HZ40ALirkgnU/61u0WOWzD/qfeLtlm1DYCo80Xvy9/vCfk
-	Mhe6sW02ChtQiIcWLLKg==;
+	List-Owner; bh=NRKKMA8q2HhC+9om9256oRwZNGOY4J2FR3pUQFEmEfA=; b=twMCzKdlfUncPg
+	Bwen9QpcFMEXoGIjYs530nDLAcpPN1lr/g4reia7o/R0wbMSOnHXY20Tox9HDNhYX9UqyV3gkIK6N
+	Kt1ReTHLcrJeIAl0yPkvHYhnwZKyUGrOR6rHUrqYrTd3M2vxWfFoW/iLLPtRfzdbEUcrmdY5iUqtN
+	2noeCzyrX8/1ABsOzn1qgCx1XPdFVCUDcirr7s7qN31QwduGt67ukMf9YhzpP/UY8xDefflILPpan
+	Iv8mpM7L5x9F9Kj/pjUD8h3lHb/+1y0stqj1kyqSI3ezAixxARrODMOiSne0aUxRq65vE4APd1RQo
+	EIdFOPD5m4iMswTETAdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQBaC-000000003wJ-1YfF;
-	Fri, 13 Jun 2025 21:05:04 +0000
-Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
+	id 1uQCaj-00000000Cyo-2hK8;
+	Fri, 13 Jun 2025 22:09:41 +0000
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQBXG-000000003Ku-1fhK
+	id 1uQBYQ-000000003dq-3uln
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 21:02:03 +0000
-Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3de00ea2a57so10459785ab.1
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Jun 2025 14:02:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1749848521; x=1750453321; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cWQTiP7h7eL+v8/SbkMciwBHxZWg6y7ToncXXww7MfI=;
-        b=Z3h2SZY/x4oA6AkYLho1lTzdZkJSss6sa+7UwRg8OSSRZjy1+WEh0WNfsy54Jdu0Gw
-         eWGxNpCC8R+qbLWTUNmFTGk2Bcgidm2GcIhgg1jBI2CdIs0ujOGQck4/ml9ythg2bSn5
-         TxN23hfaj8StBmnVaX7D9WrKwEK7EHcqCRIyOMg8CenSMA+g9cyYliOpujEOs40J7zKF
-         cTCohMs7+nNLNzfIntzHoKzh9qCopGq1aIUkIi8+cRKykkL0uRdrgcpyNL8dRtmN0dGq
-         vO1As6qsvWeYh1DbzA8ob7DhvNtmx2nLddPkgJglqIVY1bMpDdsDgTsrvInPP7/2c017
-         SXVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749848521; x=1750453321;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cWQTiP7h7eL+v8/SbkMciwBHxZWg6y7ToncXXww7MfI=;
-        b=Oj6r/FXiMdzK4fWreKCTsKnmC4ojnLTc6N6XNsUYzAlJprgod3hsdDwf7ftnC5AY3j
-         FOXs93bQeMRDD0R0ifQTwg71kVpSwq7qlJ/fzI1ovyag1FR9g2LqZDRVRcC4PsYl2a0w
-         Se5lYIqJDdp39/pA693tphlf9mubDKIEDLuC/98x9S+bFkT8MWYXvJLCF+DasKlU0U0Z
-         UZXnnk6j+l1QqfpbgxAFuVqJ+/C0u63Lkehf8G7sF8wb/LlWNHDBqx9ms9Pg2hho8CBZ
-         1iYyrdoqn75IAUVr81XWOlzsPOLA4raV/gxwCDd345GZkibqs4HChuq/scFpisk0fx4k
-         xkpw==
-X-Forwarded-Encrypted: i=1; AJvYcCWdtT1TmTg9GeRlaUjzpN53NOTULN52M7pBC4qtr3S+/h0LpXACVpyMFrhUnd8BNMEd/tDC6AfFx3uOeQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+9N0JubxWHcz8sXf8e8a574ZsHJBhiZZx5Uf5uWY5Ouh5vA+1
-	5ykbsN7XG5rJMojJ+/2y/Y+XCM7XqB0BbNm2pf2a7jhkLbj3U7mVRjTd8KbVhuXX1Vc=
-X-Gm-Gg: ASbGncs5pHf4nfuPCQi1Om73idEAytn/qe7jdliLVx0Wk8KXAXxyN9trMvSyJcxdlOD
-	30TANay1XSfGocuco8kbYAUZOCjeGvmwBL/G9b+49KPuCgZ5ci0b6F6Ey4pxU+IELiYG4ioNVmP
-	ftutdbGKi7W9VQIzG4sNSO0JFaABmnrnazmxQVo4EZ6u6NXBHhS2EERxbJRZL3Ioxwx0egt9V4p
-	cQueDQIjsXYMHQV7D+91os5WHsnLUzpvSL4o6lDv5wml4AvnnhUfmdueQgUrlPLXnzWcP6EYa4q
-	iM7+x8010gnV6IN2Rw7kKsBsIkE0MzDaozeDHTnrGOAAx7iuoNdY2KUrn+wW3E1J3Ox9m7pfqNd
-	2/51z8ShTioOZAOa6Fijj6bhFCO8XyOh9zA1HKI/jYw==
-X-Google-Smtp-Source: AGHT+IEecP3cifD7NNtM4x0PtjYEOx4vfWTMQlcOrKZqxEcJodip8ZghPio2mgJZ/Wq7eeZstJYUaw==
-X-Received: by 2002:a05:6e02:1f07:b0:3dd:88da:e7de with SMTP id e9e14a558f8ab-3de07cd355emr15624215ab.19.1749848521613;
-        Fri, 13 Jun 2025 14:02:01 -0700 (PDT)
-Received: from presto.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3de019b44b3sm4996315ab.10.2025.06.13.14.02.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jun 2025 14:02:01 -0700 (PDT)
-From: Alex Elder <elder@riscstar.com>
-To: lee@kernel.org,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	dlan@gentoo.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	troymitchell988@gmail.com,
-	guodong@riscstar.com,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 5/6] riscv: dts: spacemit: define fixed regulators
-Date: Fri, 13 Jun 2025 16:01:48 -0500
-Message-ID: <20250613210150.1468845-6-elder@riscstar.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250613210150.1468845-1-elder@riscstar.com>
-References: <20250613210150.1468845-1-elder@riscstar.com>
+	Fri, 13 Jun 2025 21:03:17 +0000
+Date: Fri, 13 Jun 2025 14:02:53 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1749848582;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UYPjxyG6Lkdruehl3Wfp/fvOgutsisDdZvGlZZakKgQ=;
+	b=Kc8nPVhlXgf6TePD1ArgM60c5dmNUT/R1JjVbnGxN7TexwkvkpcVz2WLId55A9oZ/CDUE5
+	FbP2i2FSaWw7NAS2SkcnbcgK6HWEZ0xCShW/gxdnuC/LY4NPQptRcXYiWmJk0yYg54tCZA
+	FkggVzxEL64vxvaUGTfILfyirGgdhDI=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Anish Ghulati <aghulati@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Thomas Huth <thuth@redhat.com>
+Subject: Re: [PATCH 0/8] KVM: Remove include/kvm, standardize includes
+Message-ID: <aEyR_bixN696F1sP@linux.dev>
+References: <20250611001042.170501-1-seanjc@google.com>
+ <125bfa5b-4727-4998-a0da-fb50feec6df6@redhat.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <125bfa5b-4727-4998-a0da-fb50feec6df6@redhat.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_140202_432536_41E011A6 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250613_140315_115659_425B038E 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,47 +85,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define the DC power input and the 4v power as fixed supplies in the
-Banana Pi BPI-F3.
+On Thu, Jun 12, 2025 at 06:56:53AM +0200, Paolo Bonzini wrote:
+> On 6/11/25 02:10, Sean Christopherson wrote:
+> > Kill off include/kvm (through file moves/renames), and standardize the set of
+> > KVM includes across all architectures.
+> > 
+> > This conflicts with Colton's partioned PMU series[1], but this should work as
+> > a nice prepatory cleanup for the partitioned PMU work (and hopefully can land
+> > sooner).
+> > 
+> > Note, these patches were originally posted as part of a much larger and more
+> > agressive RFC[1].  We've effectively abandoned upstreaming the multi-KVM idea,
+> > but I'm trying to (slowly) upstream the bits and pieces that I think/hope are
+> > generally beneficial.
+> > 
+> > [1] https://lore.kernel.org/all/20250602192702.2125115-1-coltonlewis@google.com
+> > [2] https://lore.kernel.org/all/20230916003118.2540661-1-seanjc@google.com
+> 
+> Marc, Oliver, I'd like to commit this to kvm/next sometime soon; I'll wait
+> for your ack since most of the meat here is in arch/arm64.
 
-Signed-off-by: Alex Elder <elder@riscstar.com>
----
- .../boot/dts/spacemit/k1-bananapi-f3.dts      | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+Let it rip, just to get ahead of potential conflicts can you push out a
+topic branch?
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index f5d454937d300..8003c8173a2aa 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -28,6 +28,25 @@ led1 {
- 			default-state = "on";
- 		};
- 	};
-+
-+	reg_dc_in: dc-in-12v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dc_in_12v";
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_vcc_4v: vcc-4v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_4v";
-+		regulator-min-microvolt = <4000000>;
-+		regulator-max-microvolt = <4000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+		vin-supply = <&reg_dc_in>;
-+	};
- };
- 
- &i2c8 {
--- 
-2.45.2
+Acked-by: Oliver Upton <oliver.upton@linux.dev>
 
+Thanks,
+Oliver
 
 _______________________________________________
 linux-riscv mailing list
