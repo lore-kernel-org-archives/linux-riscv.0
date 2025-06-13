@@ -4,89 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66194C61DB2
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E4FC71135
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 11:38:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PcAZFPBy84BdqLNlOEUAWqf999yKNL++bBF5CYwNonI=; b=tmL/sCmsXAcgFn
-	X/P+hNeMfy8MRTW6NpBO9dYm7k1o6qOpP14PO1zlD01mE+sYJfdq6DEn+eeRI+ubpB+aEOdR/09N8
-	hqW5KoEEC4qmMoMPQS1uvyfj975JVisZWVITdMyqGjyGNNggi7MjlRd7W80dT3FKjPvoj3pIMXrSV
-	bwV1ro9/WsX4vdlCZRsq1R3bcprbZBawqJyuQt8XJ2ginicGNPlAFv2R02uz875SiUnWzLhYjGC4z
-	li5a74nDNcyBPXpLvMehp1voGQSJMUiS3nHnZtGBg1wlen68wBaIoQtWjpwkxrLq6pJkYfsebUl8G
-	f3GRkF9jgc9IEyUMyjzw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JNfPYmD9WVL4dIVv/cK/P6MSn7Fidcp8gjjfNYCHWuk=; b=1hJbOO3MXVWqmO
+	OAJZT31qByScf8a28nFl6wfGOhIbNldz5BAd3w0u4Fcx/Osy1TNr21Xl0L41DIn0NSxwFt5FDIWaD
+	1igh3jPu4ElVDYS+cogtSlWkANRrDw2p740pw/QTIxkC8AJeQYELLbHSccQVrthkV3miENq5GdeZk
+	LdDAdCVgNxTwpnZ72Q6uQ/AYMVLOVM/ZtSfpzi7xTCbhryVSSZ6Z5jncvJwyMU/5WqsDHf4G2gs83
+	IrQx56mLZnEUX4IWYtnHZl4R+ON92FYik2V3Ji8Tm/E0bdmCZfpvrzXCOM3aCLt2k7d6E8owdNS4b
+	dWF0DD/laFtnNEh7gvow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2dD-0000000GC9k-2kjO;
-	Fri, 13 Jun 2025 11:31:35 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1uQ2k7-0000000GEf3-1mxj;
+	Fri, 13 Jun 2025 11:38:43 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ243-0000000G7mO-381N
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 10:55:16 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a4f379662cso1750366f8f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Jun 2025 03:55:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749812113; x=1750416913; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u9ln5HGGKIXvxuo/p2ea1FkQb90YA+7FEEhjYigED1Q=;
-        b=EXSZ5WkyOqCaGITzhHoVd5xfU6Xe+UyHCOjgPYwXH2eFjNO6550pfNwaAl5vYVs+SD
-         K1MFBpHQmMd/E7fSNJkZk5PLfyZxBt/rzqwl6ylsVaSsH+m9KthZ9BmLRlrc/mRRM75e
-         SHD6EXjf58JytWeKWtIiBPS3trTqU4UHbprOPDnn0kyewTWBlSH5Y2ar4Ld+PRHTGiIY
-         9MayvxAsz6TaKkcIfChaW94/mWCk9wWX6D788bLbnCOBNT+/NUPiEaWMork5HlAX3FUq
-         KsCQU++sQ/XoYtYRUuJdbfVHbTAcvNrR7Jlwx1DAxRj3vqxWLLqhctFzVkFYD8AB5+HV
-         aVPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749812113; x=1750416913;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=u9ln5HGGKIXvxuo/p2ea1FkQb90YA+7FEEhjYigED1Q=;
-        b=AAAuERtBUWSp3N+Vsq++L3G1SMLaNFK2DEg+/gwesvWwDvifw7pkBpRGhiMpy1Eoob
-         qveUcaxEG7DC+UgzwKbRCcapntxsNuUNE8mGP4/UX0FYsq0z0ppGGy29sBC4jzssqVNF
-         HYIpP6yQI4JRfzzJTM/Qafo3z7sSEUEPKNOoOiaS7ChtxT6cwsguQycTdx6dCGiAsH4L
-         vvddpOzCKg1HbaOTQNtk6zPJwteCQIt42DB5xTWDVks5w8TpD1/Kj8l0SgSmeY2sn8mQ
-         M7aUfNiffScezYLf80JXDaKhfZyZtnK9LtQbRFV3Pdobc2wE+YHFdxKzZExXukwKtLBy
-         1Mbg==
-X-Gm-Message-State: AOJu0YwsijOCpQ9rUKvulUvablzkS79LKJZYtTeONbGGUsopIR55Xncl
-	SqzOMcHeBQN2K1KuE1gjr4FIR7SR4sG+1A6idTDU18PRwj2aV8KxjqBx
-X-Gm-Gg: ASbGnctmYhCZyNLGi+5ixinQ7B/RdzJc4PDaUUBWqrmfktwR1mW3umzVPYrxus9GNbG
-	XyilEtSpJVQAWVqHsrSoFXHyWngrTVFPl2h+/5l0PQ66r9Obzt18eKp/mSoDu/swHlZ70yONxoU
-	pecTGRUCyPjg0rUDEPblykEGo7T3CrKNgZbr/sQIKUSNHSUeaJreAsh4zvuGDb3Q0xT+jE6ukRj
-	mJBlr1XI8hh8ORMaiEISU0SsdM3mm61yn48r2i6pKkBDrhZsI3941ZaHmMq0DH2aWUaf3rFKUj2
-	qTVXC/KViYWTyuZQ4Hd+K7YGfBy8T0naDIuejYHwEG4Y67FYPjIkRb2TI48kZICsFt6uc8Vlyzd
-	frIv4HN3EldhCIiY6zQ9AKtPQ
-X-Google-Smtp-Source: AGHT+IFfslJ2aEALYhnP/9BaW3mXjNd6nsmmUKqVe9C01aF5V4kiO/RmoLsZeW15nbsHhQac+oQ4vg==
-X-Received: by 2002:a05:6000:258a:b0:3a3:5f36:33ee with SMTP id ffacd0b85a97d-3a568755d12mr2100819f8f.32.1749812113385;
-        Fri, 13 Jun 2025 03:55:13 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a54b7asm2053143f8f.16.2025.06.13.03.55.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jun 2025 03:55:13 -0700 (PDT)
-Date: Fri, 13 Jun 2025 11:54:59 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Radim =?UTF-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Atish
- Patra <atishp@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, Anup Patel
- <apatel@ventanamicro.com>
-Subject: Re: [PATCH 2/2] RISC-V: make use of variadic sbi_ecall
-Message-ID: <20250613115459.6293f929@pumpkin>
-In-Reply-To: <20250612145754.2126147-4-rkrcmar@ventanamicro.com>
-References: <20250612145754.2126147-2-rkrcmar@ventanamicro.com>
-	<20250612145754.2126147-4-rkrcmar@ventanamicro.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1uQ2k4-0000000GEea-0z5z;
+	Fri, 13 Jun 2025 11:38:42 +0000
+Received: from zq-Legion-Y7000.smartont.net (unknown [180.110.114.155])
+	by APP-03 (Coremail) with SMTP id rQCowAC3CFG2DUxo0Ak5Bg--.60443S2;
+	Fri, 13 Jun 2025 19:38:32 +0800 (CST)
+From: zhouquan@iscas.ac.cn
+To: anup@brainfault.org,
+	ajones@ventanamicro.com,
+	atishp@atishpatra.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	Quan Zhou <zhouquan@iscas.ac.cn>
+Subject: [PATCH 0/2] RISC-V: KVM: Enable ring-based dirty memory tracking
+Date: Fri, 13 Jun 2025 19:29:48 +0800
+Message-Id: <cover.1749810735.git.zhouquan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-CM-TRANSID: rQCowAC3CFG2DUxo0Ak5Bg--.60443S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrZw47ZryxGFWUZw18ArW3GFg_yoWxAFbEk3
+	y8J397JrWxZa18XFW7Xan5XFWDKayfK34DXF1YvF15Kr1Dur47Ga1kZr1qvrWUCrs8X3sI
+	yF4fZFySq347KjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbTAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
+	cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwAKzVCY07xG64k0F24lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr4
+	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
+	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
+	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
+	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14
+	v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUoPEfDUUUU
+X-Originating-IP: [180.110.114.155]
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBg0MBmhL72JrpwAAsj
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_035515_788305_0C0731EB 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250613_043840_631156_E2A81399 
+X-CRM114-Status: UNSURE (   5.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,26 +79,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAxMiBKdW4gMjAyNSAxNjo1Nzo1NSArMDIwMApSYWRpbSBLcsSNbcOhxZkgPHJrcmNt
-YXJAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cgo+IFRoZSBuZXcgc2JpX2VjYWxsIGRvZXNuJ3Qg
-aGF2ZSB0byBsaXN0IGFsbCA4IGFyZ3VtZW50cyBhbnltb3JlLCBzbyBvbmx5Cj4gcGFzcyB0aGUg
-YWN0dWFsIG51bWJlcnMgb2YgYXJndW1lbnRzIGZvciBlYWNoIFNCSSBmdW5jdGlvbi4KPiAKPiBU
-cmFpbGluZyAwIGlzIHNvbWV0aW1lcyBpbnRlbnRpb25hbC4KLi4uCj4gQEAgLTYzMCwxMCArNjMw
-LDEwIEBAIHN0YXRpYyBpbnQgcG11X3NiaV9zbmFwc2hvdF9zZXR1cChzdHJ1Y3QgcmlzY3ZfcG11
-ICpwbXUsIGludCBjcHUpCj4gIAlpZiAoSVNfRU5BQkxFRChDT05GSUdfMzJCSVQpKQo+ICAJCXJl
-dCA9IHNiaV9lY2FsbChTQklfRVhUX1BNVSwgU0JJX0VYVF9QTVVfU05BUFNIT1RfU0VUX1NITUVN
-LAo+ICAJCQkJY3B1X2h3X2V2dC0+c25hcHNob3RfYWRkcl9waHlzLAo+IC0JCQkJKHU2NCkoY3B1
-X2h3X2V2dC0+c25hcHNob3RfYWRkcl9waHlzKSA+PiAzMiwgMCwgMCwgMCwgMCk7Cj4gKwkJCQko
-dTY0KShjcHVfaHdfZXZ0LT5zbmFwc2hvdF9hZGRyX3BoeXMpID4+IDMyKTsKClRoYXQgZG9lc24n
-dCBsb29rIHJpZ2h0IChhbmQgb3RoZXIgc2ltaWxhciBvbmVzKS4KVGhlIHZhbHVlcyBhcmUgc3Rp
-bGwgNjRiaXQgLSBzbyBnZXQgcGFzc2VkIGFzIHR3byAzMmJpdCB2YWx1ZXMgKGluIHNvbWUgd2F5
-KQpzbyB0aGF0IHZhcmFyZ3MgY29kZSB3aWxsIGdldCB0aGUgd3JvbmcgdmFsdWVzLgoKSSBndWVz
-cyB0aGUgcHJldmlvdXMgY2hhbmdlIHdhc24ndCB0ZXN0ZWQgb24gMzJiaXQ/CgoJRGF2aWQKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Quan Zhou <zhouquan@iscas.ac.cn>
+
+Enable ring-based dirty memory tracking and add some
+common KVM tests for riscv.
+
+Quan Zhou (2):
+  RISC-V: KVM: Enable ring-based dirty memory tracking
+  KVM: riscv: selftests: Add common supported test cases
+
+ Documentation/virt/kvm/api.rst                 |  2 +-
+ arch/riscv/include/uapi/asm/kvm.h              |  1 +
+ arch/riscv/kvm/Kconfig                         |  1 +
+ arch/riscv/kvm/vcpu.c                          | 18 ++++++++++++++++--
+ tools/testing/selftests/kvm/Makefile.kvm       | 12 ++++++++++++
+ .../selftests/kvm/include/riscv/processor.h    |  2 ++
+ tools/testing/selftests/rseq/rseq-riscv.h      |  3 +--
+ 7 files changed, 34 insertions(+), 5 deletions(-)
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
