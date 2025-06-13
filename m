@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B038C71136
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 18:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8905FC71136
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 18:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hFmUiK+ih26KecCM8JFUWBXdFJR38zXEqeL47ZmRFA8=; b=Me7IPu10sboLgS
-	oDgyw9uAAnEqFEa/3Q6k9BHwL72cdOIgzYlQilKbcq2jtNtBPJ9optwZccnii1hhcuRFYZ6YUT7W/
-	mWPOx1Ofip+FBtUr7f7smI6OrBmjTktpvXP0fnFimJzoFxRCLCWMpY5WZJ0NXZPKEzo5I4/IcdUU3
-	8MzrlM6NkwI3+rK9KNTEPGAhu/EftkqwfG8UrsnoBd0JyJIkfWDYK8SF2ef16Aq1W7zKUHUeal95o
-	zrEaFMacsmciuO0bsgOg3FJla6PzWM9t7LplLQxbprwfPjq7YDlEhg8oFT+6W5/mCw9wVjWDmJCCS
-	vc0KfTk5DSq1NEdDkOGA==;
+	List-Owner; bh=8HQCwTmYrrFDzaDmL86Pc1wLUEBhB/XPoQ2Nytx9mdw=; b=qppi+n3555H2vR
+	eaHMYn1oVsrQiuJACJbR/tkeh31MIH7YKvYmxcLaVzKQQwSwxoILRgh+PCmHVXDj8/jvxmWsq0Ivs
+	srf3m6EeWQA3wGLHKKbS59teq87XNpwDHIaEFw/odWBB7MCOZbhdAE1/FwA0ELrj9WjGFrgexmd1p
+	ny0s1vYiEHqSC/D0JQJ2UpR1GIHCuIVg0TY3dX2zb1KoZLoL66oDf7w9jEfiPsFGP21Fk91rIu8pV
+	yX/VXY4Lni4rOvCk0yIojTSd303RBbnEoHFJO7xm2ydUlxKAAgsCobYrW2Sf0XdSxX9K8ARba/K+c
+	jWHMghHksY5ijjZCza0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ94p-0000000HJF6-2O1q;
-	Fri, 13 Jun 2025 18:24:31 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1uQ996-0000000HJaJ-0Oeg;
+	Fri, 13 Jun 2025 18:28:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ7t6-0000000H8mD-1y3x
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 17:08:21 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a528e301b0so247325f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Jun 2025 10:08:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1749834498; x=1750439298; darn=lists.infradead.org;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Vue51+MgfibcA28it1/xkcw6YG/3bQrUPQvFZm0rgdk=;
-        b=hj4G8zFMtA72Qu7j5bvyW/kaeCXvvRrpqk+MeKTQzPVFmRGaNqquhtSuk21+LXl9Lj
-         1JlZL6Sj/5tafTjtdElAU/1Glspsn0hsyfluTlwg4AJA3fVa2Ib+Qy3G6r+QuH2J5/zw
-         UEJwRfrBPG2fhsmS+H7dNpCyyeyaW5ph10Qa27lu2oy8R4PLMRcJneJuyD5Blllld3By
-         W7HN3H1cnWAsgBHVbSkuxy/vUX+muyW8msyxsGABAIo1QQSqofmTya5DFBwiLZENZ0il
-         /dJVeOw4+2hFDbqbWvxjGCyFa8r+EafWAHIHt9ObX81a60+pwGJn8uZWmc8HguvrM8Jn
-         f6fg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749834498; x=1750439298;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Vue51+MgfibcA28it1/xkcw6YG/3bQrUPQvFZm0rgdk=;
-        b=KQDoblJX0b+usEvpBT5rrAwhGw0fIXc/4BCfU4XnBMazl41zuxvRTddFLBJyNlGq/R
-         punAgH7r2S8/aO5NbkGwS4f1rmjsO4+aSFQsDDdUDWlNsfSx6KWhZktAPKTEu/alrkrb
-         AiBnfbrbV7/f/hQd9YZ4pwluvEN9a2T5NWm7EKKFLH0Zi027dxrvgIsMhiPuP9niegA5
-         AllX3WT0fgN8vcE4+xHs+S82YsratDlQHbrwED3SYCxPfq1KLsvByWWXgr3G+R62hYHk
-         9i91wSSVRO55QN9x0O0Th1gZGdZCy67fpvS21icqoIHc3MvZ/AoqObhBgr99qnac+qnB
-         zLyA==
-X-Gm-Message-State: AOJu0YyrEsHmnko806QIFT69k3EaTi+7WM+4Y7Ob1yJp+lkxyYfWGouo
-	BnGCIzLcvrb5T5EDbR4RtdgGvss/nnUvYVCfROy1Tr6IBJciha2uZmBD8pjoTEb67W4=
-X-Gm-Gg: ASbGncscrQ47cBnInoYGDuC9vFQDahc27whcQZxeVHiMHBQsDH6W0789GQguXUQpjxt
-	olm9MDYJRg1gAdluIDZbxmdE7PxetBF3t7W8OgjfZXRV+yOj9U0RVXVl8uqWiSOWSXO+xr1y9vv
-	6oS+8fnTrX0L33M+JNeRJE7cv7mzywDJJ4v/tKq7BQUv13S8sieGozN2xTtjzeGhz2Nke4jBknL
-	tQpArsz+k8Hy6VqIKsDjfZDiLgl/xo8H581nYc/JRSfu7ZsjU0mhMi71e3pK0cpnth8ur3FR9jn
-	DecSIVXoDLa8bCTkher/QCuJmIz+0tscaz8YXdzxJ7itG6jqDYHX9EHqOZwTi7EP5KaFmw==
-X-Google-Smtp-Source: AGHT+IHfUlqWvloCSvdoAAhCyaKAAKDpychdD+BfdH2KIKQft+7sNerlZ4YyA9yLV1CZzyAdw2xnjQ==
-X-Received: by 2002:a05:6000:1789:b0:3a3:7be3:d0f3 with SMTP id ffacd0b85a97d-3a5723aea0cmr190535f8f.14.1749834498233;
-        Fri, 13 Jun 2025 10:08:18 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200:3c9f:2b68:ce36:f64b])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568b2c957sm2820587f8f.76.2025.06.13.10.08.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jun 2025 10:08:17 -0700 (PDT)
-Mime-Version: 1.0
-Date: Fri, 13 Jun 2025 19:08:17 +0200
-Message-Id: <DALKK6MHWD7D.3ZFXSS6YNLHL@ventanamicro.com>
-Subject: Re: [PATCH 2/2] RISC-V: make use of variadic sbi_ecall
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "Atish Patra" <atishp@rivosinc.com>, "Andrew Jones"
- <ajones@ventanamicro.com>, =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?=
- <cleger@rivosinc.com>, "Anup Patel" <apatel@ventanamicro.com>
-To: "David Laight" <david.laight.linux@gmail.com>
-From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
-References: <20250612145754.2126147-2-rkrcmar@ventanamicro.com>
- <20250612145754.2126147-4-rkrcmar@ventanamicro.com>
- <20250613115459.6293f929@pumpkin>
- <DALGSCDW0GIG.10I22KD2SCSNX@ventanamicro.com>
- <20250613165226.751541c6@pumpkin>
-In-Reply-To: <20250613165226.751541c6@pumpkin>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_100820_518205_15BD24E2 
-X-CRM114-Status: GOOD (  11.59  )
+	id 1uQ7wq-0000000H926-31kJ;
+	Fri, 13 Jun 2025 17:12:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0B2ED61F1A;
+	Fri, 13 Jun 2025 17:12:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43202C4CEEB;
+	Fri, 13 Jun 2025 17:12:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749834730;
+	bh=MwLvd5PG7WoLPNV5X3+UTldK/899ju4MNdrqiosDJ9I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BhivCur+l0uxRrXdj3m3GKjsKlQNT6CXQx3iCBvVkXSvE4m7EvCcVuRfY6gZB5DtI
+	 RrJabvRIGIr3L4g87xf0gTfQDs/DflrsqDAj5QlhN5vplNG9fEENywbAPzXW3gnNlq
+	 m+coGK+eBLQeJtsoxM3fU4c5Xpiy8kfmTbUODa1wg4jIDHjdtxdql01cyMgso0UG9q
+	 znLaUKdE+SbabPCvrEijY1od4XSYKiQECxgj+txYdWIoB7IUqgUD3yiEVggSkRo5Am
+	 oG2oDjLPd9qcjldUhG53BMbb8wG7cjW4jHsngIK0FAWMIuyciYpkyJRP9+ahUBrIUW
+	 mqv3dY3gjk5ZQ==
+Date: Fri, 13 Jun 2025 10:11:43 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	linux-arch@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH v2 09/12] lib/crc/s390: migrate s390-optimized CRC code
+ into lib/crc/
+Message-ID: <20250613171143.GB1284@sol>
+References: <20250607200454.73587-1-ebiggers@kernel.org>
+ <20250607200454.73587-10-ebiggers@kernel.org>
+ <aExLZaoBCg55rZWJ@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <aExLZaoBCg55rZWJ@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,29 +72,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-MjAyNS0wNi0xM1QxNjo1MjoyNiswMTowMCwgRGF2aWQgTGFpZ2h0IDxkYXZpZC5sYWlnaHQubGlu
-dXhAZ21haWwuY29tPjoKPiBPbiBGcmksIDEzIEp1biAyMDI1IDE2OjEwOjUyICswMjAwCj4gUmFk
-aW0gS3LEjW3DocWZIDxya3JjbWFyQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gLi4uCj4+
-IFRoZSBtYWNybyB3aWxsIHJlc3VsdCBpbiB0aGUgc2FtZSBhcmd1bWVudHMgYXMgYmVmb3JlLCBh
-bmQgaXQgaXMgd2hhdAo+PiB0aGUgc2JpX2VjYWxsIGFjdHVhbGx5IHNob3VsZCBkby4KPgo+IFVn
-Zy4uLgo+IEFyZSB5b3UgdXNpbmcgcHJlLXByb2Nlc3NvciAnbWFnaWMnIHRvIGFkZCBhIHBpbGUg
-b2YgemVyb3MgYW5kIHRoZW4KPiBzZWxlY3QgdGhlIGZpcnN0ICduJyBhcmd1bWVudHM/CgpTYWRs
-eSwgeWVzLiAgVGhlIHplcm9zIHNob3VsZCBoYXZlIG5ldmVyIGJlZW4gaW50cm9kdWNlZCBpbiB0
-aGUgY29kZSwgc28KSSdtIGhpZGluZyB0aGVtIGZvciB0aGUgbW9tZW50LgpJIHBsYW5uZWQgdG8g
-cmVtb3ZlIHRoZSB1c2VsZXNzIHplcm9zIGluIGZ1dHVyZSBwYXRjaGVzLgoKPiBUaGF0IG91Z2h0
-IHRvIGJlIGJhbm5lZCBhcyBlcnJvciBwcm9uZS4KClNvdW5kcyByZWFzb25hYmxlIHRvIG1lLiAg
-SSB3aWxsIHRyeSB0byBmaXggdGhlIGluc2FuZSB0cmFjZXBvaW50IGJsb2F0LAphbmQgc2VuZCBh
-IHYyIHRoYXQgZmlsbHMgb25seSB0aGUgY29ycmVjdCBhbW91bnQgb2YgcmVnaXN0ZXJzIGZvciB0
-aGUKZWNhbGwgaW5zdHJ1Y3Rpb24uCgo+IEkgdGhpbmsgdGhlIG9uZSBmb3Igc3RybmNweSgpIHJl
-bW92ZXMgdGhlIGltbWVkaWF0ZSBjb21waWxlIGVycm9yIGZvcjoKPiAJc3RybmNweShkZXN0LCBz
-cmMsIDEsIDIpOwoKSSB3b3VsZCBoYXZlIHByZWZlcnJlZCBpZiBzYmkuaCBoYWQgYSB3cmFwcGVy
-IGZ1bmN0aW9uIGZvciBlYWNoIFNCSQpmdW5jdGlvbiwgYW5kIHdlIG5ldmVyIGFsbG93ZWQgZGly
-ZWN0IGludm9jYXRpb24gb2YgdGhlIGVjYWxsCmluc3RydWN0aW9uIG91dHNpZGUgb2YgdGhlIGxp
-YnJhcnkuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Jun 13, 2025 at 06:01:41PM +0200, Alexander Gordeev wrote:
+> On Sat, Jun 07, 2025 at 01:04:51PM -0700, Eric Biggers wrote:
+> > From: Eric Biggers <ebiggers@google.com>
+> > 
+> > Move the s390-optimized CRC code from arch/s390/lib/crc* into its new
+> > location in lib/crc/s390/, and wire it up in the new way.  This new way
+> > of organizing the CRC code eliminates the need to artificially split the
+> > code for each CRC variant into separate arch and generic modules,
+> > enabling better inlining and dead code elimination.  For more details,
+> > see "lib/crc: prepare for arch-optimized code in subdirs of lib/crc/".
+> > 
+> > Signed-off-by: Eric Biggers <ebiggers@google.com>
+> ...
+> 
+> Hi Eric,
+> 
+> With this series I am getting on s390:
+> 
+> alg: hash: skipping comparison tests for crc32c-s390 because crc32c-generic is unavailable
+> 
+> Thanks!
+
+I think that's actually from "crypto/crc32c: register only one shash_alg"
+(https://lore.kernel.org/linux-crypto/20250601224441.778374-3-ebiggers@kernel.org/),
+not the patch you replied to.
+
+Those self-test warnings are expected.  But I guess they are going to confuse
+people, so we should do something to make them go away.
+
+I think we should do what I've proposed for SHA-512: stop worrying about setting
+the cra_driver_name to something meaningful (which has never really worked
+anyway), instead just use *-lib, and update crypto/testmgr.c accordingly.
+
+I'll send out patches that do that.
+
+- Eric
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
