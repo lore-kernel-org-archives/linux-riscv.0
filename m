@@ -4,53 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B55C61DB2
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 09:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4AF5C71135
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 09:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To:From:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=leentNWWxmJlAaC6ZmZeW8FvNobptRRRQm4syRmn6n4=; b=AtGntIjlBCig6X
-	IVh5sATpfnY+gBdfPrAa0i4+nxvGe4sfzELq3Zp0wLIcsRLfj8qSzUy8dc314pASt2GdQyoGy3j6E
-	Ocf3Nz4pVaDRWoxaZfNno32hJZrxeU2JtITDIfFG8UTJ7qn/35daHME6wacR9LooI6sabZD9G+l7o
-	EuTBuW90PD0s/7YTCVYj77idqR+npzt0r70D+9sSOITdqP9H0qqhInsigkUKuRkm9YToLc9Rp+8di
-	RBvuRCrdA/kWSf0Ayw29LIz4PVVFAgBlOY9TOKf1z3v+biIRSRqppX9p9XmD/2NKCaugks9z+nA+j
-	6OLxyDudtLBlYm/GzTnw==;
+	List-Owner; bh=dxkFEbVkRuwahJYKfUD6TafJQbl71JxTI57HzI9cclg=; b=sRBiOGfnT7Zhrv
+	n2LSKTgdGo82t94pbMc9BbXi9Iui43lk7tYVWnWERlnNlvX2mvIskzMPxeS+62dLomWMa9TzU1zk6
+	kcNtRP33ofacyjMN9ESVi6o7Xtj+11gq2P2H1uz8c2bA5d04hZFZr4ABRs5pBtmo6MImJlbFwV/Yu
+	fmwL3qScYJfNm7RYQg7q4kXz+XwgBRdQqTB7uGuc84xvCnglwMTrxA6oI0mmrHFEDvDMRC5jvVfOt
+	deTHjrsJK3tNw6VSQ3omGb95blC5lIlrhgQsrruv2m+xdlUR6oJlH8kNvU4HF5qokPaxtgeKp+fQD
+	g6eBolZMQ085QGJsJnEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ0xZ-0000000Fx7a-0x3q;
-	Fri, 13 Jun 2025 09:44:29 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1uQ18m-0000000FznF-1H5I;
+	Fri, 13 Jun 2025 09:56:04 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ0n6-0000000FvMN-0lLi
+	id 1uQ12e-0000000FyVN-36AG
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 09:33:41 +0000
-Received: from localhost (unknown [116.232.48.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 6409A342371;
-	Fri, 13 Jun 2025 09:33:37 +0000 (UTC)
-Date: Fri, 13 Jun 2025 09:33:33 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Alex Elder <elder@riscstar.com>, Vivian Wang <uwu@dram.page>,
-	linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] gpio: spacemit: Add missing MODULE_DEVICE_TABLE
-Message-ID: <20250613093333-GYA135173@gentoo>
-References: <20250613-k1-gpio-of-table-v1-1-9015da8fdfdb@iscas.ac.cn>
+	Fri, 13 Jun 2025 09:49:46 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250613094940euoutp01a3aa742eefe815e906cdf487536dda42~IkUTUVOpj1513315133euoutp01j
+	for <linux-riscv@lists.infradead.org>; Fri, 13 Jun 2025 09:49:40 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250613094940euoutp01a3aa742eefe815e906cdf487536dda42~IkUTUVOpj1513315133euoutp01j
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1749808180;
+	bh=kh1WI/bcozY1n6lzmehL+B2GaHGpJodSvRw79/7fyDs=;
+	h=Date:Subject:From:To:Cc:In-Reply-To:References:From;
+	b=KeXXtrQrpOo9k9DvNiYd5/p0RN5OETv7UZnLk2u/rgXrUymIm52y9w85Yr7XC/g/t
+	 ol8m6jQ7WrEMV/OQwyzA/v6GLEdTz9UB5OCdWztyv53RRzBRZfI8K3/IbkePmcs9Ki
+	 WK165kGbRXZvrbmDLUIR30Nzoczywx3Q9x0rfURw=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250613094939eucas1p223e7a49c4cdbbfbeb66f81b1c4d38a64~IkUS23hRn0145001450eucas1p26;
+	Fri, 13 Jun 2025 09:49:39 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250613094938eusmtip1d772fb1eb26491c3a808b58eca12daed~IkURy2A162383923839eusmtip1j;
+	Fri, 13 Jun 2025 09:49:38 +0000 (GMT)
+Message-ID: <44090712-0635-47bf-b73d-d9b16ec446a4@samsung.com>
+Date: Fri, 13 Jun 2025 11:49:38 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250613-k1-gpio-of-table-v1-1-9015da8fdfdb@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/8] drm/imagination: Use pwrseq for TH1520 GPU power
+ management
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Bartosz Golaszewski
+	<brgl@bgdev.pl>, Matt Coster <matt.coster@imgtec.com>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>
+Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei
+	<wefu@redhat.com>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns
+	<frank.binns@imgtec.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>, Marek
+	Szyprowski <m.szyprowski@samsung.com>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org
+Content-Language: en-US
+In-Reply-To: <e5d3d3b3-7ada-476f-9558-328d3d316088@samsung.com>
+X-CMS-MailID: 20250613094939eucas1p223e7a49c4cdbbfbeb66f81b1c4d38a64
+X-Msg-Generator: CA
+X-RootMTR: 20250529222405eucas1p18ed1254bf1b2d78468734656fec537e1
+X-EPHeader: CA
+X-CMS-RootMailID: 20250529222405eucas1p18ed1254bf1b2d78468734656fec537e1
+References: <20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
+	<CGME20250529222405eucas1p18ed1254bf1b2d78468734656fec537e1@eucas1p1.samsung.com>
+	<20250530-apr_14_for_sending-v3-3-83d5744d997c@samsung.com>
+	<20250603-whispering-jaybird-of-thunder-f87867@kuoka>
+	<d42a8c49-7ad2-49ef-bd9c-1e3d9981b58e@samsung.com>
+	<e5a0bee2-ff74-47cf-ad2c-0c78b57ae6cf@kernel.org>
+	<a6a29e58-8613-47f0-9e5c-d125da7ddb49@samsung.com>
+	<cc4dbf7c-e023-403c-88be-4691f97a0ff0@kernel.org>
+	<c7774790-07c3-469d-a994-9e84108ad21d@samsung.com>
+	<CAMRc=Mexq9ThfG6jZUbs3wYDA9UZN-+pHnX_Y-7WO4ubXvEuCw@mail.gmail.com>
+	<ad6981eb-f53a-4a7b-90bd-2e2705bd0297@samsung.com>
+	<59cc6827-1602-402a-9279-96ad6285cff4@kernel.org>
+	<e5d3d3b3-7ada-476f-9558-328d3d316088@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_023340_254214_5E4CD961 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250613_024945_387543_096C710C 
+X-CRM114-Status: GOOD (  28.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,51 +107,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vivian,
 
-On 17:25 Fri 13 Jun     , Vivian Wang wrote:
-> The gpio-spacemit-k1 driver can be compiled as a module. Add missing
-> MODULE_DEVICE_TABLE so it can be matched by modalias and automatically
-> loaded by udev.
-> 
-> Fixes: d00553240ef8 ("gpio: spacemit: add support for K1 SoC")
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-LGTM
 
-Reviewed-by: Yixun Lan <dlan@gentoo.org>
+On 6/13/25 10:25, Michal Wilczynski wrote:
+> 
+> 
+> On 6/13/25 08:44, Krzysztof Kozlowski wrote:
+>> On 11/06/2025 14:01, Michal Wilczynski wrote:
+>>>
+>>> However, this leads me back to a fundamental issue with the
+>>> consumer side implementation in the generic pvr_device.c driver. The
+>>> current fallback code is:
+>>>
+>>> /*
+>>>  * If the error is -EPROBE_DEFER, it's because the
+>>>  * optional sequencer provider is not present
+>>>  * and it's safe to fall back on manual power-up.
+>>>  */
+>>> if (pwrseq_err == -EPROBE_DEFER)
+>>>         pvr_dev->pwrseq = NULL;
+>>>
+>>> As Krzysztof noted, simply ignoring -EPROBE_DEFER is not ideal. But if I
+>>> change this to a standard deferred probe, the pvr_device.c driver will
+>>
+>> Why? You have specific compatible for executing such quirks only for
+>> given platform.
 
-> ---
-> This patch is available at:
+I realized now that you may have meant the "thead,th1520-gpu" compatible,
+not the "thead,th1520" SoC compatible.
+
+In any case, the whole reason for using the pwrseq framework is to avoid
+polluting the generic driver with SoC specific logic and instead offload
+that responsibility to a pwrseq provider. Therefore, I can't simply add
+a check like if (compatible == "thead,th1520-gpu") to the generic driver
+to decide whether to get a power sequencer. This entire matching
+responsibility was intended to be offloaded to the pwrseq framework.
+
 > 
-> https://github.com/dramforever/linux/tree/k1/gpio-of-table/v1
-> ---
->  drivers/gpio/gpio-spacemit-k1.c | 1 +
->  1 file changed, 1 insertion(+)
+> This is due to how the pwrseq API works; it constructs a bus on which
+> provider devices may appear at any time. With the current API, there is
+> no way to express that a provider for a specific target will never
+> appear. ('gpu-power' is the generic target name, and of course, more
+> specific binding is handled in the provider's .match callback - based on
+> the compatible and the node phandle like discussed previously).
 > 
-> diff --git a/drivers/gpio/gpio-spacemit-k1.c b/drivers/gpio/gpio-spacemit-k1.c
-> index f027066365ff8741f99da076d1e7b6339a6c1a22..3cc75c701ec40194e602b80d3f96f23204ce3b4d 100644
-> --- a/drivers/gpio/gpio-spacemit-k1.c
-> +++ b/drivers/gpio/gpio-spacemit-k1.c
-> @@ -278,6 +278,7 @@ static const struct of_device_id spacemit_gpio_dt_ids[] = {
->  	{ .compatible = "spacemit,k1-gpio" },
->  	{ /* sentinel */ }
->  };
-> +MODULE_DEVICE_TABLE(of, spacemit_gpio_dt_ids);
->  
->  static struct platform_driver spacemit_gpio_driver = {
->  	.probe		= spacemit_gpio_probe,
+> For all other supported SoCs, no such provider will ever appear on the
+> bus, and the current pwrseq API doesn't allow a generic consumer to know
+> this.
 > 
-> ---
-> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-> change-id: 20250613-k1-gpio-of-table-222b4b76b453
+> However, your suggestion of handling this with a platform specific
+> driver is a good path forward. It would still require a minimal addition
+> to the pwrseq API to work. For example, a new SoC specific driver for
+> "thead,th1520" could call a new function like
+> pwrseq_enable_optional_target("gpu-power") during its probe. This would
+> signal to the pwrseq core that this target is expected on the platform.
+> Therefore, when the Imagination driver later calls pwrseq_get() on a
+> TH1520, it would correctly result in either a match or a deferral.
+> 
+> On all other platforms, this optional target would not be enabled. The
+> pwrseq_get() call would then immediately return -ENODEV instead of
+> deferring, which solves the problem and allows the other supported SoCs
+> to probe correctly.
+> 
+> I wonder whether Bartosz would be okay with such an addition.
+> 
+>>
+>>> break on all other supported SoCs. It would wait indefinitely for a
+>>> pwrseq-thead-gpu provider that will never appear on those platforms.
+>>>
+>>
+>>
+>>
+>> Best regards,
+>> Krzysztof
+>>
 > 
 > Best regards,
-> -- 
-> Vivian "dramforever" Wang
-> 
 
+Best regards,
 -- 
-Yixun Lan (dlan)
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
