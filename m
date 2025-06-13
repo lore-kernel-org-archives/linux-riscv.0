@@ -4,130 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FBDC61DB2
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 10:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C244EC71153
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 10:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F+BsW++0SwRK5tkkVL1j6Hsce2xbRxNyFyPIKJx/AIc=; b=Fmv1bB0K/yazmk
-	VyFjzlah6aOkyz3yh652zIlpnx5Xgekpyw/9icD0LkgmJ2jIio7KGW+nDJqj5DzC70juUxHHC+D4V
-	CtQ9Am9Y+8b4hpZGtCaznU1n0h3T+w6qcFIk2v5Se7zFdpuzp3Bx8aP7Tod0p8mU0WA8ytPy8JnqX
-	h7HYbDACxMzbarOO2Z8/PhQ3gAzZIRiNcriTvrriNAZQKdV62unC8U/DOufACQBOptlZGLj84fV19
-	e7oX4RLG5txOCpCRKsTJdVPKKVyOHvQnyAdIm/c0SzsBDIgAN3hsBxStomfznhKcXIuCWTU2FrSKV
-	iVIhC9bN3BAQ0BCsrvpw==;
+	List-Owner; bh=WH31bDFvGbkKL5Gr6RFimEr1q0dV5XKyACpUtx6jDJU=; b=wg++iWZV3yfKBx
+	Utl4qvG1VNUzD952N8vZLeDzOX3EsVqvKzaHRV1WdMuW4yAFbWiiIjCYvGY4Hhk1qdtFaFpjU2b5l
+	3qyIoPYnX5vpmOla884hipQLqUeYNGNfGISe5UL7ZBYrh/BOCz7V09h2m4ck3vnzOkKaz2Io7q3Dy
+	rWdp8vXrHEFri9oO32Vjjs5Fg0B6pSVkNBY53B4hjJVSuYvWRJqZ4WoDbJILsSgPx+SdnJgOcRsfJ
+	HsiHmxhWLMf/0iLcZ3xmWCKmqUWP9+yca6In+zkwIXCB/Ck006b0rR1SoVmIZwzc+qwAq4fDVKphF
+	Y7OHyVARhkdx2WY8y9Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1FY-0000000G0tm-3syz;
-	Fri, 13 Jun 2025 10:03:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uQ1Lq-0000000G1xP-2lAd;
+	Fri, 13 Jun 2025 10:09:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1Di-0000000G0eG-2MlT
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 10:01:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 870CAA50B91;
-	Fri, 13 Jun 2025 10:01:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BAECC4CEE3;
-	Fri, 13 Jun 2025 10:01:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749808869;
-	bh=hzo5YZ2+59Ww2/Xt37jey9O/1XB9IVr5gQKh1UXWMqc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=M+i+dFitZ4SLhojmIk98p1eQBooTkkZ4ORHVZUgdju+63U/4treIGbCB+w9b+gBr6
-	 KgPy/3SmcIarW62bG5KANSgtrxA04yCZnFj62lDRpE4sWfvxmVXDv4ISqOy31dlaGl
-	 xP0rjMSKP3spCwrfyfWyiQOdAFPOuPNNoW99lLR4SJhbOSU9WffmaT012Y6QzR7v4o
-	 b27FrepMbwZuSX6kwyeIm8PwOh4LLWzoSBfpPgEAQ6/fmsaKxgnVI1hzYH5TxzUkue
-	 ia4LhORcCZ61v8GHJFbHImjGzcuiNLkvYeHopa+Kkf4vx/b+SKDOgv0oNlASYR9WcM
-	 4/P6KjWS2kGWw==
-Message-ID: <44fdaa5c-0fa4-457e-b193-e83cd06c1aed@kernel.org>
-Date: Fri, 13 Jun 2025 12:01:01 +0200
+	id 1uQ08b-0000000Fob7-2xGU;
+	Fri, 13 Jun 2025 08:51:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=wMKt/wPLq9KRfU6Jf04/z1jGFWH/wF4jH0NXJm6Bhlo=; b=P2ppK4slPzIPIUpPaOllJTjG98
+	8niRUGkbT+FrJOgGWk+t0x00GeyyJugkpkx343d8Ud5i+rQ98fiklT78X1dPz+KN2cXSNRT+Ra6w9
+	rBtTsEiy72njlgeFpGqirRh10ymTzmjDn75oB5SI01lQ+07bLaF9NcLtxy3oWzA/VT9fK6HccT5NI
+	0LGt0qc2tdWD6GC+N2pn5SQVjf/P1ImmwQqoVi00eEsPqQQyPrThG8yf5lginln8b5eZy2bd7ryoI
+	ZgMLy29CbXLiUCRlQf9HPzEorAtQuYSSsgvwoGTwk02dZc63x6kTMhT/Q5o6oGcC67affiCbmJ50y
+	c7lL8VHQ==;
+Received: from abb.hmeau.com ([144.6.53.87])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uQ08Y-00000002wFy-1bhl;
+	Fri, 13 Jun 2025 08:51:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=wMKt/wPLq9KRfU6Jf04/z1jGFWH/wF4jH0NXJm6Bhlo=; b=ejeNYxJxjqQkEf+Qtb4/A1GtfZ
+	b7jAaCx+igD/opjcpb3XKwVwchdM/PXR4tiwHprFmt4/L2Xs+ZpChWQHUuX2LYsCxrUU+eiustbeA
+	ZKVolER6TWQLfjepmarO/P1DHA89vwzY7ArJk9gDAzisKwslfsuuBqb/Wg3/aWQPZOOjQoyMRELCP
+	8Xbl2WNglxWI/mZ9MWHvlGbxuFigF+67XenNjqAmRVolrvDDN1QbLFg2RHZ/qe/i3LN+yRpvaWrJm
+	DTsKHT9mnfmMylzfbbw6eoUAmVq33jZS3a+a6lk6aGGMWMPA7TQxzmLPlMLIij5j0NMLYobmukZhv
+	QJp9aG1g==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1uQ08Q-00CsF4-2w;
+	Fri, 13 Jun 2025 16:51:39 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 13 Jun 2025 16:51:38 +0800
+Date: Fri, 13 Jun 2025 16:51:38 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org, ardb@kernel.org,
+	Jason@zx2c4.com, torvalds@linux-foundation.org
+Subject: [PATCH] crypto: ahash - Stop legacy tfms from using the set_virt
+ fallback path
+Message-ID: <aEvmmr0huGGd2Psv@gondor.apana.org.au>
+References: <20250611020923.1482701-8-ebiggers@kernel.org>
+ <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
+ <20250611033957.GA1484147@sol>
+ <aEj8J3ZIYEFp_XT4@gondor.apana.org.au>
+ <20250611035842.GB1484147@sol>
+ <20250613053624.GA163131@sol>
+ <aEu5cyDOMcKteW_b@gondor.apana.org.au>
+ <20250613055439.GB163131@sol>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/8] drm/imagination: Use pwrseq for TH1520 GPU power
- management
-To: Michal Wilczynski <m.wilczynski@samsung.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Matt Coster <matt.coster@imgtec.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>
-Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Frank Binns <frank.binns@imgtec.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- dri-devel@lists.freedesktop.org
-References: <20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
- <CGME20250529222405eucas1p18ed1254bf1b2d78468734656fec537e1@eucas1p1.samsung.com>
- <20250530-apr_14_for_sending-v3-3-83d5744d997c@samsung.com>
- <20250603-whispering-jaybird-of-thunder-f87867@kuoka>
- <d42a8c49-7ad2-49ef-bd9c-1e3d9981b58e@samsung.com>
- <e5a0bee2-ff74-47cf-ad2c-0c78b57ae6cf@kernel.org>
- <a6a29e58-8613-47f0-9e5c-d125da7ddb49@samsung.com>
- <cc4dbf7c-e023-403c-88be-4691f97a0ff0@kernel.org>
- <c7774790-07c3-469d-a994-9e84108ad21d@samsung.com>
- <CAMRc=Mexq9ThfG6jZUbs3wYDA9UZN-+pHnX_Y-7WO4ubXvEuCw@mail.gmail.com>
- <ad6981eb-f53a-4a7b-90bd-2e2705bd0297@samsung.com>
- <59cc6827-1602-402a-9279-96ad6285cff4@kernel.org>
- <e5d3d3b3-7ada-476f-9558-328d3d316088@samsung.com>
- <44090712-0635-47bf-b73d-d9b16ec446a4@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <44090712-0635-47bf-b73d-d9b16ec446a4@samsung.com>
+Content-Disposition: inline
+In-Reply-To: <20250613055439.GB163131@sol>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_030110_745743_62DEE685 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20250613_095146_658923_7ADE50B5 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,51 +98,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2025 11:49, Michal Wilczynski wrote:
+On Thu, Jun 12, 2025 at 10:54:39PM -0700, Eric Biggers wrote:
+>
+> Actually, crypto_ahash::base::fb is initialized if CRYPTO_ALG_NEED_FALLBACK,
+> which many of the drivers already set.  Then crypto_ahash_update() calls
+> ahash_do_req_chain() if the algorithm does *not* have
+> CRYPTO_AHASH_ALG_BLOCK_ONLY set.  Which then exports the driver's custom state
+> and tries to import it into the fallback.
 > 
-> 
-> On 6/13/25 10:25, Michal Wilczynski wrote:
->>
->>
->> On 6/13/25 08:44, Krzysztof Kozlowski wrote:
->>> On 11/06/2025 14:01, Michal Wilczynski wrote:
->>>>
->>>> However, this leads me back to a fundamental issue with the
->>>> consumer side implementation in the generic pvr_device.c driver. The
->>>> current fallback code is:
->>>>
->>>> /*
->>>>  * If the error is -EPROBE_DEFER, it's because the
->>>>  * optional sequencer provider is not present
->>>>  * and it's safe to fall back on manual power-up.
->>>>  */
->>>> if (pwrseq_err == -EPROBE_DEFER)
->>>>         pvr_dev->pwrseq = NULL;
->>>>
->>>> As Krzysztof noted, simply ignoring -EPROBE_DEFER is not ideal. But if I
->>>> change this to a standard deferred probe, the pvr_device.c driver will
->>>
->>> Why? You have specific compatible for executing such quirks only for
->>> given platform.
-> 
-> I realized now that you may have meant the "thead,th1520-gpu" compatible,
-> not the "thead,th1520" SoC compatible.
-> 
-> In any case, the whole reason for using the pwrseq framework is to avoid
-> polluting the generic driver with SoC specific logic and instead offload
-> that responsibility to a pwrseq provider. Therefore, I can't simply add
-> a check like if (compatible == "thead,th1520-gpu") to the generic driver
-> to decide whether to get a power sequencer. This entire matching
-> responsibility was intended to be offloaded to the pwrseq framework.
+> As far as I can tell, it's just broken for most of the existing drivers.
 
-No, just do how all drivers are doing - driver match data, describing
-that there is some component, e.g. quirks/flags, number of clocks and
-their names typically. In your case - name or presence of pwrseq.
+This fallback path is only meant to be used for drivers that have
+been converted.  But you're right there is a check missing in there.
 
+Thanks,
 
+---8<---
+Ensure that drivers that have not been converted to the ahash API
+do not use the ahash_request_set_virt fallback path as they cannot
+use the software fallback.
 
-Best regards,
-Krzysztof
+Reported-by: Eric Biggers <ebiggers@kernel.org>
+Fixes: 9d7a0ab1c753 ("crypto: ahash - Handle partial blocks in API")
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+
+diff --git a/crypto/ahash.c b/crypto/ahash.c
+index e10bc2659ae4..992228a9f283 100644
+--- a/crypto/ahash.c
++++ b/crypto/ahash.c
+@@ -347,6 +347,9 @@ static int ahash_do_req_chain(struct ahash_request *req,
+ 	if (crypto_ahash_statesize(tfm) > HASH_MAX_STATESIZE)
+ 		return -ENOSYS;
+ 
++	if (crypto_hash_no_export_core(tfm))
++		return -ENOSYS;
++
+ 	{
+ 		u8 state[HASH_MAX_STATESIZE];
+ 
+diff --git a/include/crypto/internal/hash.h b/include/crypto/internal/hash.h
+index 0f85c543f80b..f052afa6e7b0 100644
+--- a/include/crypto/internal/hash.h
++++ b/include/crypto/internal/hash.h
+@@ -91,6 +91,12 @@ static inline bool crypto_hash_alg_needs_key(struct hash_alg_common *alg)
+ 		!(alg->base.cra_flags & CRYPTO_ALG_OPTIONAL_KEY);
+ }
+ 
++static inline bool crypto_hash_no_export_core(struct crypto_ahash *tfm)
++{
++	return crypto_hash_alg_common(tfm)->base.cra_flags &
++	       CRYPTO_AHASH_ALG_NO_EXPORT_CORE;
++}
++
+ int crypto_grab_ahash(struct crypto_ahash_spawn *spawn,
+ 		      struct crypto_instance *inst,
+ 		      const char *name, u32 type, u32 mask);
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
