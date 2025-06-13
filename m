@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54807C61DB2
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 11:39:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB95C71135
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 13:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JszJm1Q0tIu/xx9uZeDgOGQ0KxmeICXc+zhpNK2qm4Q=; b=MeYGP83nFq597u
-	iLkuaUTVccFnN1Vnyl3sh2JOT2KRbsCwmWyc9qmCViX6AZlW1gjcnTrmzo0KN6sHpUq8t6HeKBDgS
-	yi30lxyuXImF2uzTY8Sg7LN6qWLbdxClweqvhAHwPvS+NDqY4ZvJ2wYmjUrWbhy+NDQWIE0Y+xrQL
-	NEbm7pRXHbaJhT9gpVGIPlQmGA7u8+xsQk/xb1BuTbFJn8HajeVIffED5VepWxTcTeyQvBzVaqGRm
-	9E4Gxpt1n0vKUMIS6CyyjnP6lMzbuQPwd/c9h1z83G4PO8hsP1T0FSB9zSJv7cWG7klOv1PBAkPRI
-	+RT1BwuEPvlfaQx+37Iw==;
+	List-Owner; bh=bpsyeHtZ8Cr4YEV/c/YdWXge8cXsJwwNcTL8iBfW+to=; b=zftfbpeZck6X/V
+	J77iBGT2HVf7GWbdKakJOwN/5iCrkQKjacBMOKpfWvqeUxbJg0zN9fru1ZueSqRsI0zyhCN/xxB5V
+	6wCjazibV37h04PpjYRZbefq61CSF6+z8Cdzfnmdr/2H8BqcVOYqnQcQlqzjenW7224KL0SBnaM08
+	9uwOVlPXFZvoPAvj16sQ1UQEc9v5bWXgCbNMCx39RdSVDihiKndm34ovqHFhVmjmBAmCbuS0Vbs1x
+	GL7xN7qvz7G40MoY2MarHFXjDLT7aGe5ocnLyEE5x2o/J/mbImOfejqB9eFeWzInncZk1Ec2OSdIv
+	VwgjBmiuCUB8R/NklT5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2kR-0000000GEm6-0tdW;
-	Fri, 13 Jun 2025 11:39:03 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1uQ4VY-0000000GUYx-2DKu;
+	Fri, 13 Jun 2025 13:31:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2kP-0000000GEkw-1TJD;
-	Fri, 13 Jun 2025 11:39:02 +0000
-Received: from zq-Legion-Y7000.smartont.net (unknown [180.110.114.155])
-	by APP-03 (Coremail) with SMTP id rQCowADXJ1DPDUxowQ45Bg--.50528S2;
-	Fri, 13 Jun 2025 19:38:55 +0800 (CST)
-From: zhouquan@iscas.ac.cn
-To: anup@brainfault.org,
-	ajones@ventanamicro.com,
-	atishp@atishpatra.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH 2/2] KVM: riscv: selftests: Add common supported test cases
-Date: Fri, 13 Jun 2025 19:30:13 +0800
-Message-Id: <7e8f1272337e8d03851fd3bb7f6fc739e604309e.1749810736.git.zhouquan@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1749810735.git.zhouquan@iscas.ac.cn>
-References: <cover.1749810735.git.zhouquan@iscas.ac.cn>
+	id 1uQ4VY-0000000GUYp-0EXD
+	for linux-riscv@lists.infradead.org;
+	Fri, 13 Jun 2025 13:31:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 04B606113B;
+	Fri, 13 Jun 2025 13:31:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01D37C4CEE3;
+	Fri, 13 Jun 2025 13:31:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749821506;
+	bh=MkEOfV0i8W8Lzd3l73+lQlM1om1xg080yIUMBBKWzQ4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=O/VPNTzUz05NC3yjAiux2hvUTE/Ka6AwFOVYrWp6ZFWiu4VJ+IgLHUlOBs4Jl0OKl
+	 MNDujlBTFjcz2gII6bn14jE28wbxEB/BDoHFBRXPLTH/TlkClG4dV/0IZRs3DO7uT2
+	 xp17cInINFkYJ+Ied5DPAOnBnOOr4x129XlGI/S1dyQEaKdwFa4z5XRdYA+MVJWdVK
+	 UJAJJ90dwdseQJ9jytb5XAypir0dPpjXGMPLwsjQtLbFAPudlFXY1/hmAaYJoCooP4
+	 ULDcQEeOBWLKVKx8lESCsQtDCdNEfaBm6oQd0VFH5ZDOJkWO8+HwuXNWYGeu5i99TM
+	 9i5tmtAqtt4cQ==
+Date: Fri, 13 Jun 2025 06:31:45 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan
+ <dlan@gentoo.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+ <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Russell King <linux@armlinux.org.uk>, Vivian Wang
+ <uwu@dram.page>, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 2/4] net: spacemit: Add K1 Ethernet MAC
+Message-ID: <20250613063145.62871999@kernel.org>
+In-Reply-To: <20250613-net-k1-emac-v1-2-cc6f9e510667@iscas.ac.cn>
+References: <20250613-net-k1-emac-v1-0-cc6f9e510667@iscas.ac.cn>
+	<20250613-net-k1-emac-v1-2-cc6f9e510667@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowADXJ1DPDUxowQ45Bg--.50528S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCr4Uur1xXFy7Ww4fAFyrJFb_yoW5tr47p3
-	W8Cryj9F1kCF47Jw1fGr1kZFWxK395Kr409Fy2gw4UuF1UJF4xJrsagay2kFnagw4Yvwnx
-	Za43Gr429ayDtw7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7M4kE6xkIj40Ew7xC0wCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwI
-	xGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480
-	Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7
-	IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k2
-	6cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxV
-	AFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUl-erUUUUU=
-X-Originating-IP: [180.110.114.155]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBgoMBmhL72Jr2AAAsb
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_043901_772693_1B06EE1F 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,94 +78,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Quan Zhou <zhouquan@iscas.ac.cn>
+On Fri, 13 Jun 2025 10:15:08 +0800 Vivian Wang wrote:
+> +	rx_ring->desc_addr = dma_alloc_coherent(&pdev->dev, rx_ring->total_size,
+> +						&rx_ring->desc_dma_addr,
+> +						GFP_KERNEL);
+> +	if (!rx_ring->desc_addr) {
+> +		kfree(rx_ring->rx_desc_buf);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	memset(rx_ring->desc_addr, 0, rx_ring->total_size);
 
-Some common KVM test cases are supported on riscv now as following:
-
-    access_tracking_perf_test
-    demand_paging_test
-    dirty_log_perf_test
-    dirty_log_test
-    guest_print_test
-    kvm_binary_stats_test
-    kvm_create_max_vcpus
-    kvm_page_table_test
-    memslot_modification_stress_test
-    memslot_perf_test
-    rseq_test
-    set_memory_region_test
-
-Add missing headers for tests and fix RISCV_FENCE redefinition
-in `rseq-riscv.h` by using the existing macro from <asm/fence.h>.
-
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
----
- tools/testing/selftests/kvm/Makefile.kvm             | 12 ++++++++++++
- .../testing/selftests/kvm/include/riscv/processor.h  |  2 ++
- tools/testing/selftests/rseq/rseq-riscv.h            |  3 +--
- 3 files changed, 15 insertions(+), 2 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 38b95998e1e6..565e191e99c8 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -197,6 +197,18 @@ TEST_GEN_PROGS_riscv += arch_timer
- TEST_GEN_PROGS_riscv += coalesced_io_test
- TEST_GEN_PROGS_riscv += get-reg-list
- TEST_GEN_PROGS_riscv += steal_time
-+TEST_GEN_PROGS_riscv += access_tracking_perf_test
-+TEST_GEN_PROGS_riscv += demand_paging_test
-+TEST_GEN_PROGS_riscv += dirty_log_perf_test
-+TEST_GEN_PROGS_riscv += dirty_log_test
-+TEST_GEN_PROGS_riscv += guest_print_test
-+TEST_GEN_PROGS_riscv += kvm_binary_stats_test
-+TEST_GEN_PROGS_riscv += kvm_create_max_vcpus
-+TEST_GEN_PROGS_riscv += kvm_page_table_test
-+TEST_GEN_PROGS_riscv += memslot_modification_stress_test
-+TEST_GEN_PROGS_riscv += memslot_perf_test
-+TEST_GEN_PROGS_riscv += rseq_test
-+TEST_GEN_PROGS_riscv += set_memory_region_test
- 
- TEST_GEN_PROGS_loongarch += coalesced_io_test
- TEST_GEN_PROGS_loongarch += demand_paging_test
-diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-index 162f303d9daa..4cf5ae11760f 100644
---- a/tools/testing/selftests/kvm/include/riscv/processor.h
-+++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-@@ -9,7 +9,9 @@
- 
- #include <linux/stringify.h>
- #include <asm/csr.h>
-+#include <asm/vdso/processor.h>
- #include "kvm_util.h"
-+#include "ucall_common.h"
- 
- #define INSN_OPCODE_MASK	0x007c
- #define INSN_OPCODE_SHIFT	2
-diff --git a/tools/testing/selftests/rseq/rseq-riscv.h b/tools/testing/selftests/rseq/rseq-riscv.h
-index 67d544aaa9a3..06c840e81c8b 100644
---- a/tools/testing/selftests/rseq/rseq-riscv.h
-+++ b/tools/testing/selftests/rseq/rseq-riscv.h
-@@ -8,6 +8,7 @@
-  * exception when executed in all modes.
-  */
- #include <endian.h>
-+#include <asm/fence.h>
- 
- #if defined(__BYTE_ORDER) ? (__BYTE_ORDER == __LITTLE_ENDIAN) : defined(__LITTLE_ENDIAN)
- #define RSEQ_SIG   0xf1401073  /* csrr mhartid, x0 */
-@@ -24,8 +25,6 @@
- #define REG_L	__REG_SEL("ld ", "lw ")
- #define REG_S	__REG_SEL("sd ", "sw ")
- 
--#define RISCV_FENCE(p, s) \
--	__asm__ __volatile__ ("fence " #p "," #s : : : "memory")
- #define rseq_smp_mb()	RISCV_FENCE(rw, rw)
- #define rseq_smp_rmb()	RISCV_FENCE(r, r)
- #define rseq_smp_wmb()	RISCV_FENCE(w, w)
+dma_alloc_coherent() already clears memory.
 -- 
-2.34.1
-
+pw-bot: cr
 
 _______________________________________________
 linux-riscv mailing list
