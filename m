@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58AEC61DB2
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 07:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06CB7C71136
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Jun 2025 08:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FQtjt/VzmTkws2LecFnrsFNJAnSZHoVaOoSgru6maFw=; b=0ICqa5Qkegy1nQ
-	CR7+pbfQWAGY8NzzmXnx4aNB35Ep3dUrRop3KQ2i+U7Dz1x/Kk5rf1eM2rWxhLxcnaWWBL0Po7Sak
-	OWJI/PLR+vel3AVQ4r6aUEesFYmZsmzyVBAwyadEAS/3XXYuSvdYktwoRx48B/HQs97B+dqudlZXn
-	Rip7Vr8dGTtojf6k13BTs+15XGQyBhGzjWYbtmb6nrAQ/1LolvN1D3Ca0zasggvdOVRJ+qtaM75fP
-	vkgD2j1nH/JtmP2OvWeAW2oqGKkiQuTMvj+tq5C9CyleEvfp8npJgtX69HDWy/0kVpAaA0ThVJHRU
-	exOprvhij9BW9jXOHxxg==;
+	List-Owner; bh=RpQl4LTPg81GhiO9gqiYqw5SoOd6JhsdJTzLMZyPVkk=; b=xBYghWZS4pjWUh
+	iXplTK5EfW53jhgAkRERHN39bxwUDcTTSxHAvu6IFhAMFHuO4Jj9hDbXW52p54gIII4LRbeIqOIqx
+	AHkk2vrR8Vd3ejfCFEVn3vJkbZ8SrWPybZcMQH04aVcLiSz5/GKUd2ruu8l7gKLh/2XmgUJtvkhYo
+	Ra3sEhdsYOdO4bavUegAAD9uZq52p61LTFTG7G38IG1ackImK/qEL2Vqc7GGrl3GBozwAaqIx9w59
+	7uDT97o9OIXPpI/LyMX4xQLVeqEnaj6xWcvdEnpWkHd96UYVjE/fdTKsaAtvyV42pw/K/yDLNktWP
+	TNBjFo3LEArnYi1TrmKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPzCa-0000000FgyX-292U;
-	Fri, 13 Jun 2025 07:51:52 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1uPzRT-0000000Fj21-0aWf;
+	Fri, 13 Jun 2025 08:07:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPz7K-0000000Feyk-1RIl
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Jun 2025 07:46:27 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-313cde344d4so1238293a91.0
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Jun 2025 00:46:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749800785; x=1750405585; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=K6bSQNVA5yuf9g//Y5ZRZfaI0JRcJqJDXAPJMrCnXWs=;
-        b=nlNs0LpWsmRKWvl/8SPemutIuX8Tr1WCKF/HYlR3jR406ABWfV0lexKUp2ddfnXKn0
-         AP8O5ngGr8EvWCjIC9CQNFLytbcD5+p4yWS8crDkYg/0k+w9G3GCEqt8piRoGV817JMg
-         GWxhl+ZiXlCaluMrNEcA2JKNUd/S/mvCtZEKmGQLdcqm3jhNha/hUmpn4+h4fMwiuXeC
-         6yOjQFMkdVTfXFRpAm7c+mSwhGxuLzdXzAXx45v6e9ipSH7TQyb2UBctVLsZ+7IvMlu2
-         OLLuzEhPbjDsQ5NQ2KRCapEhD/w3ItbuikEPVc2zqMs8v3Mh9eoUoVlaAIWNJc4eLz8K
-         ViDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749800785; x=1750405585;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=K6bSQNVA5yuf9g//Y5ZRZfaI0JRcJqJDXAPJMrCnXWs=;
-        b=N1sJ7hKYLe1cdgjFwRchPaFmDw9qKTe8dzFnJRFd5birrfiy1HuRgwyl0vzTNlXxt9
-         MZF96jCEYo7ngmAaov6Cmc7I4bWu1Y3TexLzJtm9AEd9LfgbIE26Laa44Oy/dG/knGNg
-         yegVRWAYrlXshOQ9NqETNt8Fk3LItmCYKyWJCJcijbJsb3LxdptWeawt3dQfoCSHe4ka
-         996gLRgxc1jr7Y+d+gI0uYhSSwEG4XXgCvnJnqJrHQXKBI34PRpVdEWIJsl8PsKMRSvf
-         AIKqlVJsNrAcj0Y/MwIYNRxhWXj0/ac89aenbwA3e/MgsN1PH2e93UZIo8O4mf5Yrfd/
-         2VMw==
-X-Forwarded-Encrypted: i=1; AJvYcCU1SqjV7s+Vp/m3/ue6vuHCdlgXfhnN82REC2efBmQzljDtoaSgPOHoj6vdZPLBOYviXNbItaerbmjfSg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZ23QIjhqDvQAbGM+iEkORIuC395QvXLcUwcpyKAhOSF+Hmgos
-	CNdoRmWzlHMfqCiE8wpCxX1I/+/bKAbYCO4k0psCIxwI9Ezhud0TyECB
-X-Gm-Gg: ASbGncvJPDyJQ04sr+qH2s5SedElhQUGMIlSjhs+aQ+6jaXx8IotVGI+ETK+/JSLElt
-	4+BP5ihLVoOm4rIm7UtwrbBoibYjC7r7oGsXjr7tzZb/sR0CgpCRLkgTnjckDVfYXnVExuDEr9y
-	oowh8e0awudBwDgoWqHIesTBWe0CooYZcP0dNQ6ZIwmug0/FS527lYxvLwESjaX9ARevp0Nxyna
-	4rAfEQ9hCWGgcYGLfd/OYNTSpo7KhY1AGKnwWeoj5jBVTcdyfH13n2wVn+DlDVzvk/lEMQutvXn
-	t/Odg7Wn2QpsSNCtuIBnnP39nUtYoVSLVxrAHTLLDuKRjWELiC67sIewOsRU
-X-Google-Smtp-Source: AGHT+IEHiqZU91BEWr689rdAeg1onprm20Y8mZ+dhE/6eZuFoYi2tnxp7zaqDSrxP6nriFmi39LU+A==
-X-Received: by 2002:a17:90b:5627:b0:311:cc4e:516b with SMTP id 98e67ed59e1d1-313d9ed50camr2700296a91.32.1749800785347;
-        Fri, 13 Jun 2025 00:46:25 -0700 (PDT)
-Received: from localhost ([121.250.214.124])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2365dea88d2sm8545225ad.148.2025.06.13.00.46.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jun 2025 00:46:24 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
+	id 1uPzN1-0000000Fig9-2iHk;
+	Fri, 13 Jun 2025 08:02:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=1atCFaF+jXxfv3Wrhd4WEd8iT/QBuFuMb3fzUs6qZHo=; b=IE3CweJTvWZE46N/oi9aqO73Uj
+	v0djj1GXdtmIEerRUlAxsbK762GQVrFYP5+7pLM/2AB0hODwWbJvUFzdzLf4o9wfidrGRBtbN+WuK
+	5je3mHgIn23lKVEkmJPGH+rHFbA7GQqGmDT9B+7BGn/ylipLpcCO6yx0lDDVYastR+22w4dFCUqjJ
+	vZA4VdqGCEwPni55WxuSsVKFGB/csnso3iYKCc8zKCMRUQBdF1yZQK+Q3vAzKSru3Lw6kAPX8oV3l
+	cFmQgBfGsTEvxAcB60rdRdvQ2rzhpPNo5TVllnaPorFN+l76Uvjct1usWtn0aFcuRM2+ZUleATkNv
+	irXnXJ/g==;
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPzMy-00000002uqJ-0JST;
+	Fri, 13 Jun 2025 08:02:39 +0000
+Received: from zq-Legion-Y7000.smartont.net (unknown [180.110.114.155])
+	by APP-05 (Coremail) with SMTP id zQCowABHzAoM20tolHFJBg--.51063S2;
+	Fri, 13 Jun 2025 16:02:20 +0800 (CST)
+From: zhouquan@iscas.ac.cn
+To: anup@brainfault.org,
+	ajones@ventanamicro.com,
+	atishp@atishpatra.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com
+Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH] riscv: dts: sophgo: sg2044: Add missing riscv,cbop-block-size property
-Date: Fri, 13 Jun 2025 15:45:12 +0800
-Message-ID: <20250613074513.1683624-1-inochiama@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	Quan Zhou <zhouquan@iscas.ac.cn>
+Subject: [PATCH] RISC-V: perf/kvm: Add reporting of interrupt events
+Date: Fri, 13 Jun 2025 15:53:38 +0800
+Message-Id: <9693132df4d0f857b8be3a75750c36b40213fcc0.1726211632.git.zhouquan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-CM-TRANSID: zQCowABHzAoM20tolHFJBg--.51063S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3GrWrtF4xJrykCF1kZFyUGFg_yoWxCr48pw
+	43CFZ2kr4FgrZrKa48GFnagF4xGFs3Xr1UGw1jgw409F4UAw1kJ3W7Wryrta4DWrZ5JrW8
+	Cr1DCrWY9w1Yqr7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9E14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI4
+	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
+	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjx
+	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
+	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
+	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VU1aFAJUUUUU==
+X-Originating-IP: [180.110.114.155]
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBwoMBmhLsDui7AAAsh
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_004626_394577_3335C04F 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250613_090236_737898_D323D779 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,533 +98,178 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The kernel complains no "riscv,cbop-block-size" and disables the Zicbop
-extension. Add the missing property to keep it functional.
+From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-Fixes: ae5bac370ed4 ("riscv: dts: sophgo: Add initial device tree of Sophgo SRD3-10")
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+For `perf kvm stat` on the RISC-V, in order to avoid the
+occurrence of `UNKNOWN` event names, interrupts should be
+reported in addition to exceptions.
+
+testing without patch:
 ---
- arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi | 64 +++++++++++++++++++++
- 1 file changed, 64 insertions(+)
+Event name                    Samples  Sample%       Time(ns)
+---------------------------  --------  --------  ------------
+STORE_GUEST_PAGE_FAULT   	  1496461   53.00%    889612544
+UNKNOWN                        887514   31.00%    272857968
+LOAD_GUEST_PAGE_FAULT          305164   10.00%    189186331
+VIRTUAL_INST_FAULT              70625    2.00%    134114260
+SUPERVISOR_SYSCALL              32014    1.00%     58577110
+INST_GUEST_PAGE_FAULT               1    0.00%         2545
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi b/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
-index 2a4267078ce6..6a35ed8f253c 100644
---- a/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
-@@ -38,6 +38,7 @@ cpu0: cpu@0 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu0_intc: interrupt-controller {
-@@ -73,6 +74,7 @@ cpu1: cpu@1 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu1_intc: interrupt-controller {
-@@ -108,6 +110,7 @@ cpu2: cpu@2 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu2_intc: interrupt-controller {
-@@ -143,6 +146,7 @@ cpu3: cpu@3 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu3_intc: interrupt-controller {
-@@ -178,6 +182,7 @@ cpu4: cpu@4 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu4_intc: interrupt-controller {
-@@ -213,6 +218,7 @@ cpu5: cpu@5 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu5_intc: interrupt-controller {
-@@ -248,6 +254,7 @@ cpu6: cpu@6 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu6_intc: interrupt-controller {
-@@ -283,6 +290,7 @@ cpu7: cpu@7 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu7_intc: interrupt-controller {
-@@ -318,6 +326,7 @@ cpu8: cpu@8 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu8_intc: interrupt-controller {
-@@ -353,6 +362,7 @@ cpu9: cpu@9 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu9_intc: interrupt-controller {
-@@ -388,6 +398,7 @@ cpu10: cpu@10 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu10_intc: interrupt-controller {
-@@ -423,6 +434,7 @@ cpu11: cpu@11 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu11_intc: interrupt-controller {
-@@ -458,6 +470,7 @@ cpu12: cpu@12 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu12_intc: interrupt-controller {
-@@ -493,6 +506,7 @@ cpu13: cpu@13 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu13_intc: interrupt-controller {
-@@ -528,6 +542,7 @@ cpu14: cpu@14 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu14_intc: interrupt-controller {
-@@ -563,6 +578,7 @@ cpu15: cpu@15 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu15_intc: interrupt-controller {
-@@ -598,6 +614,7 @@ cpu16: cpu@16 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu16_intc: interrupt-controller {
-@@ -633,6 +650,7 @@ cpu17: cpu@17 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu17_intc: interrupt-controller {
-@@ -668,6 +686,7 @@ cpu18: cpu@18 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu18_intc: interrupt-controller {
-@@ -703,6 +722,7 @@ cpu19: cpu@19 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu19_intc: interrupt-controller {
-@@ -738,6 +758,7 @@ cpu20: cpu@20 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu20_intc: interrupt-controller {
-@@ -773,6 +794,7 @@ cpu21: cpu@21 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu21_intc: interrupt-controller {
-@@ -808,6 +830,7 @@ cpu22: cpu@22 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu22_intc: interrupt-controller {
-@@ -843,6 +866,7 @@ cpu23: cpu@23 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu23_intc: interrupt-controller {
-@@ -878,6 +902,7 @@ cpu24: cpu@24 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu24_intc: interrupt-controller {
-@@ -913,6 +938,7 @@ cpu25: cpu@25 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu25_intc: interrupt-controller {
-@@ -948,6 +974,7 @@ cpu26: cpu@26 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu26_intc: interrupt-controller {
-@@ -983,6 +1010,7 @@ cpu27: cpu@27 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu27_intc: interrupt-controller {
-@@ -1018,6 +1046,7 @@ cpu28: cpu@28 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu28_intc: interrupt-controller {
-@@ -1053,6 +1082,7 @@ cpu29: cpu@29 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu29_intc: interrupt-controller {
-@@ -1088,6 +1118,7 @@ cpu30: cpu@30 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu30_intc: interrupt-controller {
-@@ -1123,6 +1154,7 @@ cpu31: cpu@31 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu31_intc: interrupt-controller {
-@@ -1158,6 +1190,7 @@ cpu32: cpu@32 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu32_intc: interrupt-controller {
-@@ -1193,6 +1226,7 @@ cpu33: cpu@33 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu33_intc: interrupt-controller {
-@@ -1228,6 +1262,7 @@ cpu34: cpu@34 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu34_intc: interrupt-controller {
-@@ -1263,6 +1298,7 @@ cpu35: cpu@35 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu35_intc: interrupt-controller {
-@@ -1298,6 +1334,7 @@ cpu36: cpu@36 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu36_intc: interrupt-controller {
-@@ -1333,6 +1370,7 @@ cpu37: cpu@37 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu37_intc: interrupt-controller {
-@@ -1368,6 +1406,7 @@ cpu38: cpu@38 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu38_intc: interrupt-controller {
-@@ -1403,6 +1442,7 @@ cpu39: cpu@39 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu39_intc: interrupt-controller {
-@@ -1438,6 +1478,7 @@ cpu40: cpu@40 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu40_intc: interrupt-controller {
-@@ -1473,6 +1514,7 @@ cpu41: cpu@41 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu41_intc: interrupt-controller {
-@@ -1508,6 +1550,7 @@ cpu42: cpu@42 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu42_intc: interrupt-controller {
-@@ -1543,6 +1586,7 @@ cpu43: cpu@43 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu43_intc: interrupt-controller {
-@@ -1578,6 +1622,7 @@ cpu44: cpu@44 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu44_intc: interrupt-controller {
-@@ -1613,6 +1658,7 @@ cpu45: cpu@45 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu45_intc: interrupt-controller {
-@@ -1648,6 +1694,7 @@ cpu46: cpu@46 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu46_intc: interrupt-controller {
-@@ -1683,6 +1730,7 @@ cpu47: cpu@47 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu47_intc: interrupt-controller {
-@@ -1718,6 +1766,7 @@ cpu48: cpu@48 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu48_intc: interrupt-controller {
-@@ -1753,6 +1802,7 @@ cpu49: cpu@49 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu49_intc: interrupt-controller {
-@@ -1788,6 +1838,7 @@ cpu50: cpu@50 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu50_intc: interrupt-controller {
-@@ -1823,6 +1874,7 @@ cpu51: cpu@51 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu51_intc: interrupt-controller {
-@@ -1858,6 +1910,7 @@ cpu52: cpu@52 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu52_intc: interrupt-controller {
-@@ -1893,6 +1946,7 @@ cpu53: cpu@53 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu53_intc: interrupt-controller {
-@@ -1928,6 +1982,7 @@ cpu54: cpu@54 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu54_intc: interrupt-controller {
-@@ -1963,6 +2018,7 @@ cpu55: cpu@55 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu55_intc: interrupt-controller {
-@@ -1998,6 +2054,7 @@ cpu56: cpu@56 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu56_intc: interrupt-controller {
-@@ -2033,6 +2090,7 @@ cpu57: cpu@57 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu57_intc: interrupt-controller {
-@@ -2068,6 +2126,7 @@ cpu58: cpu@58 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu58_intc: interrupt-controller {
-@@ -2103,6 +2162,7 @@ cpu59: cpu@59 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu59_intc: interrupt-controller {
-@@ -2138,6 +2198,7 @@ cpu60: cpu@60 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu60_intc: interrupt-controller {
-@@ -2173,6 +2234,7 @@ cpu61: cpu@61 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu61_intc: interrupt-controller {
-@@ -2208,6 +2270,7 @@ cpu62: cpu@62 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu62_intc: interrupt-controller {
-@@ -2243,6 +2306,7 @@ cpu63: cpu@63 {
- 					       "zvfbfmin", "zvfbfwma", "zvfh",
- 					       "zvfhmin";
- 			riscv,cbom-block-size = <64>;
-+			riscv,cbop-block-size = <64>;
- 			riscv,cboz-block-size = <64>;
- 
- 			cpu63_intc: interrupt-controller {
+testing with patch:
+---
+Event name                    Samples  Sample%       Time(ns)
+---------------------------  --------  --------  ------------
+IRQ_S_TIMER                   211271    58.00%  738298680600
+EXC_STORE_GUEST_PAGE_FAULT    111279    30.00%  130725914800
+EXC_LOAD_GUEST_PAGE_FAULT      22039     6.00%   25441480600
+EXC_VIRTUAL_INST_FAULT          8913     2.00%   21015381600
+IRQ_VS_EXT                      4748     1.00%   10155464300
+IRQ_S_EXT                       2802     0.00%   13288775800
+IRQ_S_SOFT                      1998     0.00%    4254129300
+
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+---
+ tools/perf/arch/riscv/util/kvm-stat.c         |  6 +-
+ .../arch/riscv/util/riscv_exception_types.h   | 35 ------------
+ tools/perf/arch/riscv/util/riscv_trap_types.h | 57 +++++++++++++++++++
+ 3 files changed, 60 insertions(+), 38 deletions(-)
+ delete mode 100644 tools/perf/arch/riscv/util/riscv_exception_types.h
+ create mode 100644 tools/perf/arch/riscv/util/riscv_trap_types.h
+
+diff --git a/tools/perf/arch/riscv/util/kvm-stat.c b/tools/perf/arch/riscv/util/kvm-stat.c
+index 491aef449d1a..3ea7acb5e159 100644
+--- a/tools/perf/arch/riscv/util/kvm-stat.c
++++ b/tools/perf/arch/riscv/util/kvm-stat.c
+@@ -9,10 +9,10 @@
+ #include <memory.h>
+ #include "../../../util/evsel.h"
+ #include "../../../util/kvm-stat.h"
+-#include "riscv_exception_types.h"
++#include "riscv_trap_types.h"
+ #include "debug.h"
+ 
+-define_exit_reasons_table(riscv_exit_reasons, kvm_riscv_exception_class);
++define_exit_reasons_table(riscv_exit_reasons, kvm_riscv_trap_class);
+ 
+ const char *vcpu_id_str = "id";
+ const char *kvm_exit_reason = "scause";
+@@ -30,7 +30,7 @@ static void event_get_key(struct evsel *evsel,
+ 			  struct event_key *key)
+ {
+ 	key->info = 0;
+-	key->key = evsel__intval(evsel, sample, kvm_exit_reason);
++	key->key = evsel__intval(evsel, sample, kvm_exit_reason) & ~CAUSE_IRQ_FLAG;
+ 	key->exit_reasons = riscv_exit_reasons;
+ }
+ 
+diff --git a/tools/perf/arch/riscv/util/riscv_exception_types.h b/tools/perf/arch/riscv/util/riscv_exception_types.h
+deleted file mode 100644
+index c49b8fa5e847..000000000000
+--- a/tools/perf/arch/riscv/util/riscv_exception_types.h
++++ /dev/null
+@@ -1,35 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#ifndef ARCH_PERF_RISCV_EXCEPTION_TYPES_H
+-#define ARCH_PERF_RISCV_EXCEPTION_TYPES_H
+-
+-#define EXC_INST_MISALIGNED 0
+-#define EXC_INST_ACCESS 1
+-#define EXC_INST_ILLEGAL 2
+-#define EXC_BREAKPOINT 3
+-#define EXC_LOAD_MISALIGNED 4
+-#define EXC_LOAD_ACCESS 5
+-#define EXC_STORE_MISALIGNED 6
+-#define EXC_STORE_ACCESS 7
+-#define EXC_SYSCALL 8
+-#define EXC_HYPERVISOR_SYSCALL 9
+-#define EXC_SUPERVISOR_SYSCALL 10
+-#define EXC_INST_PAGE_FAULT 12
+-#define EXC_LOAD_PAGE_FAULT 13
+-#define EXC_STORE_PAGE_FAULT 15
+-#define EXC_INST_GUEST_PAGE_FAULT 20
+-#define EXC_LOAD_GUEST_PAGE_FAULT 21
+-#define EXC_VIRTUAL_INST_FAULT 22
+-#define EXC_STORE_GUEST_PAGE_FAULT 23
+-
+-#define EXC(x) {EXC_##x, #x }
+-
+-#define kvm_riscv_exception_class                                         \
+-	EXC(INST_MISALIGNED), EXC(INST_ACCESS), EXC(INST_ILLEGAL),         \
+-	EXC(BREAKPOINT), EXC(LOAD_MISALIGNED), EXC(LOAD_ACCESS),           \
+-	EXC(STORE_MISALIGNED), EXC(STORE_ACCESS), EXC(SYSCALL),            \
+-	EXC(HYPERVISOR_SYSCALL), EXC(SUPERVISOR_SYSCALL),                  \
+-	EXC(INST_PAGE_FAULT), EXC(LOAD_PAGE_FAULT), EXC(STORE_PAGE_FAULT), \
+-	EXC(INST_GUEST_PAGE_FAULT), EXC(LOAD_GUEST_PAGE_FAULT),            \
+-	EXC(VIRTUAL_INST_FAULT), EXC(STORE_GUEST_PAGE_FAULT)
+-
+-#endif /* ARCH_PERF_RISCV_EXCEPTION_TYPES_H */
+diff --git a/tools/perf/arch/riscv/util/riscv_trap_types.h b/tools/perf/arch/riscv/util/riscv_trap_types.h
+new file mode 100644
+index 000000000000..854e9d95524d
+--- /dev/null
++++ b/tools/perf/arch/riscv/util/riscv_trap_types.h
+@@ -0,0 +1,57 @@
++// SPDX-License-Identifier: GPL-2.0
++#ifndef ARCH_PERF_RISCV_TRAP_TYPES_H
++#define ARCH_PERF_RISCV_TRAP_TYPES_H
++
++/* Exception cause high bit - is an interrupt if set */
++#define CAUSE_IRQ_FLAG		(_AC(1, UL) << (__riscv_xlen - 1))
++
++/* Interrupt causes (minus the high bit) */
++#define IRQ_S_SOFT 1
++#define IRQ_VS_SOFT 2
++#define IRQ_M_SOFT 3
++#define IRQ_S_TIMER 5
++#define IRQ_VS_TIMER 6
++#define IRQ_M_TIMER 7
++#define IRQ_S_EXT 9
++#define IRQ_VS_EXT 10
++#define IRQ_M_EXT 11
++#define IRQ_S_GEXT 12
++#define IRQ_PMU_OVF 13
++
++/* Exception causes */
++#define EXC_INST_MISALIGNED 0
++#define EXC_INST_ACCESS 1
++#define EXC_INST_ILLEGAL 2
++#define EXC_BREAKPOINT 3
++#define EXC_LOAD_MISALIGNED 4
++#define EXC_LOAD_ACCESS 5
++#define EXC_STORE_MISALIGNED 6
++#define EXC_STORE_ACCESS 7
++#define EXC_SYSCALL 8
++#define EXC_HYPERVISOR_SYSCALL 9
++#define EXC_SUPERVISOR_SYSCALL 10
++#define EXC_INST_PAGE_FAULT 12
++#define EXC_LOAD_PAGE_FAULT 13
++#define EXC_STORE_PAGE_FAULT 15
++#define EXC_INST_GUEST_PAGE_FAULT 20
++#define EXC_LOAD_GUEST_PAGE_FAULT 21
++#define EXC_VIRTUAL_INST_FAULT 22
++#define EXC_STORE_GUEST_PAGE_FAULT 23
++
++#define TRAP(x) { x, #x }
++
++#define kvm_riscv_trap_class \
++	TRAP(IRQ_S_SOFT), TRAP(IRQ_VS_SOFT), TRAP(IRQ_M_SOFT), \
++	TRAP(IRQ_S_TIMER), TRAP(IRQ_VS_TIMER), TRAP(IRQ_M_TIMER), \
++	TRAP(IRQ_S_EXT), TRAP(IRQ_VS_EXT), TRAP(IRQ_M_EXT), \
++	TRAP(IRQ_S_GEXT), TRAP(IRQ_PMU_OVF), \
++	TRAP(EXC_INST_MISALIGNED), TRAP(EXC_INST_ACCESS), TRAP(EXC_INST_ILLEGAL), \
++	TRAP(EXC_BREAKPOINT), TRAP(EXC_LOAD_MISALIGNED), TRAP(EXC_LOAD_ACCESS), \
++	TRAP(EXC_STORE_MISALIGNED), TRAP(EXC_STORE_ACCESS), TRAP(EXC_SYSCALL), \
++	TRAP(EXC_HYPERVISOR_SYSCALL), TRAP(EXC_SUPERVISOR_SYSCALL), \
++	TRAP(EXC_INST_PAGE_FAULT), TRAP(EXC_LOAD_PAGE_FAULT), \
++	TRAP(EXC_STORE_PAGE_FAULT), TRAP(EXC_INST_GUEST_PAGE_FAULT), \
++	TRAP(EXC_LOAD_GUEST_PAGE_FAULT), TRAP(EXC_VIRTUAL_INST_FAULT), \
++	TRAP(EXC_STORE_GUEST_PAGE_FAULT)
++
++#endif /* ARCH_PERF_RISCV_TRAP_TYPES_H */
+
+base-commit: da3ea35007d0af457a0afc87e84fddaebc4e0b63
 -- 
-2.49.0
+2.34.1
 
 
 _______________________________________________
