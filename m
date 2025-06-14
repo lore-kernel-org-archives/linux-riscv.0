@@ -4,104 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 679F7C71135
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Jun 2025 13:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 391F7C71151
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Jun 2025 18:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kpABD3rAlWEJpQ78c9Du0mW2btVxxP9mhMrxQHTzoA8=; b=pO4DK+F0tMMtkr
-	Ys0lys3ETpulOSVGH/29TAVsIqHeG/lGbljzRoNwwRDBkp5X3AxvGJ6cVaCv4MYMAv9f3b3D/LVEO
-	9N8ZKTIgMqzszq2EpAhBOOdj51E+HwBenyJM+8c/4CFY8tV/qsHynDsgnzEcUrHfkK31MfQg8AzLl
-	YbtpTyXlYfi+3zFi+oeXaSnoAd1uuswAC4bhQeDS8gbAYDiyCJJOB/XW/G8jaDBNrIcOeSFxP1iMN
-	6rpHpr4JjGe8FfqAICD7JrjWs2O5MqAVMMImBREogQOPoSaJJOWAd1dmqo0jjMA+FhMZKQPjg2iRY
-	AdkFYbGzt/rUoJwGE+dw==;
+	List-Owner; bh=j5CndKBA9eIY1JZfYx528JJg8DOM6+5aN5jcNX+5OBg=; b=y+SZYlI6hKd9KT
+	dC9p5pvV0n2skjxdekb4pJ0V+R315XkM7LJ3EyORi+0551TRzjhf566qH5PXb5jMBy8T7J5q1Sihk
+	FYndbvt5OTw6Tba1vIV89UU3uK/gZvbIiYgbergTzfdBivlhUeMgJOezdv4NsljRhNvQbzyEU321A
+	rANcr67U0vXk2SHucez1TbBXJbL877u3z6ryvymsPOAo2gLQ7b+yuZQn8XxriC95QazobvsCIhJXX
+	ItnD7no2AixNJN+TpLie6+020AV+9FB2YK151SsjNWIo6v1BI4q0zs5eXmaPCVJ2/8nixIk+rqhUK
+	zTBvBPHjBODMHt52Wd4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQQs6-00000001IOS-05mM;
-	Sat, 14 Jun 2025 13:24:34 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1uQVJf-00000001cqV-15rD;
+	Sat, 14 Jun 2025 18:09:19 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQQs2-00000001INp-3csq;
-	Sat, 14 Jun 2025 13:24:32 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55E31XiX026411;
-	Sat, 14 Jun 2025 13:24:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=asgOieLRu0diNOiUoZ2jXlR5JV3Qd/
-	n2DC6baSQLRnM=; b=QdpU4ujh2znmTfKyKlX4mmaJKgkxJQP5WltI8RvqMsauCi
-	D0xYclDyHiGT5WSF3VwCrWsgu9mx+Eg0IzqdzpXerpUx7hZs+Yk2o7UblXRFax2j
-	E4lBEW73KizXX3L+yOZehgIbmcuMcM1BmZ+9rZlxeKvSnGZtVx9vhzjhbsMu6acn
-	7zcRehZ0XP+l2W4e+C2M4TZdb8mPhiuelM90U8SdWQNsAlRMZ98qQIBqCqt3eXXF
-	KEdwgLK9qyRO7oNWnssXcAXuBM6QGDbbMZMBi/jFx9xxZg/pWkWA4tTo2YaG4B80
-	1kfaVdCSM7nE7DIcGUPaYUQwHOzU5f/rqDefmgnQ==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4790tdhky3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 14 Jun 2025 13:24:27 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55E8akJ8014948;
-	Sat, 14 Jun 2025 13:24:26 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4750rppu2a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 14 Jun 2025 13:24:26 +0000
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55EDOOCX37618074
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 14 Jun 2025 13:24:24 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4276A20043;
-	Sat, 14 Jun 2025 13:24:24 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5B75820040;
-	Sat, 14 Jun 2025 13:24:23 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.87.143.160])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Sat, 14 Jun 2025 13:24:23 +0000 (GMT)
-Date: Sat, 14 Jun 2025 15:24:21 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        sparclinux@vger.kernel.org, x86@kernel.org, linux-arch@vger.kernel.org,
-        Ard Biesheuvel <ardb@kernel.org>,
-        "Jason A . Donenfeld" <Jason@zx2c4.com>,
-        Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v2 09/12] lib/crc/s390: migrate s390-optimized CRC code
- into lib/crc/
-Message-ID: <aE14BfWQHvki9pW5@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <20250607200454.73587-1-ebiggers@kernel.org>
- <20250607200454.73587-10-ebiggers@kernel.org>
- <aExLZaoBCg55rZWJ@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
- <20250613171143.GB1284@sol>
+	id 1uQVJa-00000001cnW-2V4v
+	for linux-riscv@lists.infradead.org;
+	Sat, 14 Jun 2025 18:09:18 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250614180910euoutp012fd639f669c6c014eec813522c17f96e~I_xtW5FAC2694526945euoutp01l
+	for <linux-riscv@lists.infradead.org>; Sat, 14 Jun 2025 18:09:10 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250614180910euoutp012fd639f669c6c014eec813522c17f96e~I_xtW5FAC2694526945euoutp01l
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1749924550;
+	bh=63b01qSumkcLmIEY0xdhZ+QcRoYutlUuGjICSf4+AW0=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=ClZPKjxM5OghbTcfgCIe5d+vucZN+EPvVbPxD+9Zb8WF8Mgq/SyZ56JEQNKWXESQg
+	 Bhj+omRSPKgWYxnHmqIv2bmTCOMxjrmVLUL7ue7sTJAuJSgSHHRyW/awI2V15Dci+n
+	 3Q9smHBE/SKziJWQZhykb9AV3+c13r7QivZ2jnIc=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250614180908eucas1p1f8e152bc86111d1fab4916e1737534e1~I_xr8DbVU2845928459eucas1p1D;
+	Sat, 14 Jun 2025 18:09:08 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250614180907eusmtip1ff19c528fcdbe243e1c7de018a545147~I_xq78Vp31758317583eusmtip1o;
+	Sat, 14 Jun 2025 18:09:07 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Sat, 14 Jun 2025 20:06:08 +0200
+Subject: [PATCH v4 2/8] dt-bindings: firmware: thead,th1520: Add resets for
+ GPU clkgen
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250613171143.GB1284@sol>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: nj-5Q1qWGKzJpm-8fdR-97xdbrM1_VJ3
-X-Proofpoint-GUID: nj-5Q1qWGKzJpm-8fdR-97xdbrM1_VJ3
-X-Authority-Analysis: v=2.4 cv=c92rQQ9l c=1 sm=1 tr=0 ts=684d780b cx=c_pps a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8 a=fhZMs16YlvXlDsCV5c8A:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE0MDExMSBTYWx0ZWRfX9VGL3Nt2grmi XR12ZSw6bF5QzEcFwoU9YySQ7ESO7UBTeDWf9VSjgbgnS44V4zwPgmto4OmAvE7t1tkgKOgaEeJ 3KlPppY7dIwK4yNsfAdKeDH+PizbhKm6vQbc3IemUtkRykwmV4G0BRGMhkHA6dhLxnjHFmd6HiP
- L+RgSlaiw/7V+kb0HatOVNVB5PW2cjICh51TUaxD3pR6joEKa4bQfjBYnE3u1XGX98rL0iGK5QM ipnKhdfgzrpC1RV/yKaFvLGo8vJfC7pZB2tJb9BbwcIfChRVLo/5Q0opcEhYKHgkSaKhNTruY7x KV1ti89wPc3jLoJdwJKPmWKTTNqz8wdeqQyvN8sLH2hrdXbz7R9PQSf/sXKqzKXhjKIAewJR+bY
- NdnRQufd/o2KAEOF4Cnd4CKWD8yFSJFxKB+H54xsN950Da/R6flU9XzMmXFw5Rp0t+AS3P91
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-14_04,2025-06-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 malwarescore=0
- bulkscore=0 lowpriorityscore=0 clxscore=1015 priorityscore=1501
- mlxlogscore=853 mlxscore=0 adultscore=0 phishscore=0 suspectscore=0
- impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506140111
+Message-Id: <20250614-apr_14_for_sending-v4-2-8e3945c819cd@samsung.com>
+In-Reply-To: <20250614-apr_14_for_sending-v4-0-8e3945c819cd@samsung.com>
+To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,  Fu Wei
+	<wefu@redhat.com>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Michal
+	Wilczynski <m.wilczynski@samsung.com>,  Bartosz Golaszewski <brgl@bgdev.pl>,
+	Philipp Zabel <p.zabel@pengutronix.de>,  Frank Binns
+	<frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,  Maarten
+	Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Paul Walmsley
+	<paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson
+	<ulf.hansson@linaro.org>,  Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org
+X-Mailer: b4 0.15-dev
+X-CMS-MailID: 20250614180908eucas1p1f8e152bc86111d1fab4916e1737534e1
+X-Msg-Generator: CA
+X-RootMTR: 20250614180908eucas1p1f8e152bc86111d1fab4916e1737534e1
+X-EPHeader: CA
+X-CMS-RootMailID: 20250614180908eucas1p1f8e152bc86111d1fab4916e1737534e1
+References: <20250614-apr_14_for_sending-v4-0-8e3945c819cd@samsung.com>
+	<CGME20250614180908eucas1p1f8e152bc86111d1fab4916e1737534e1@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250614_062430_907646_AD754B6C 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20250614_110916_068420_0DC20B66 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,32 +95,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 10:11:43AM -0700, Eric Biggers wrote:
-> > Hi Eric,
-> > 
-> > With this series I am getting on s390:
-> > 
-> > alg: hash: skipping comparison tests for crc32c-s390 because crc32c-generic is unavailable
-> > 
-> > Thanks!
-> 
-> I think that's actually from "crypto/crc32c: register only one shash_alg"
-> (https://lore.kernel.org/linux-crypto/20250601224441.778374-3-ebiggers@kernel.org/),
-> not the patch you replied to.
-> 
-> Those self-test warnings are expected.  But I guess they are going to confuse
-> people, so we should do something to make them go away.
-> 
-> I think we should do what I've proposed for SHA-512: stop worrying about setting
-> the cra_driver_name to something meaningful (which has never really worked
-> anyway), instead just use *-lib, and update crypto/testmgr.c accordingly.
-> 
-> I'll send out patches that do that.
+Extend the TH1520 AON to describe the GPU clkgen reset line, required
+for proper GPU clock and reset sequencing.
 
-Thanks, Eric!
-Please, ignore my other email - I though I did not send this one.
+The T-HEAD TH1520 GPU requires coordinated management of two clocks
+(core and sys) and two resets (GPU core reset and GPU clkgen reset).
+Only the clkgen reset is exposed at the AON level, to support SoC
+specific initialization handled through a dedicated auxiliary power
+sequencing driver. The GPU core reset remains described in the GPU
+device node, as from the GPU driver's perspective, there is only a
+single reset line [1].
 
-> - Eric
+This follows upstream maintainers' recommendations [2] to abstract SoC
+specific details into the PM domain layer rather than exposing them to
+drivers directly.
+
+Link: https://lore.kernel.org/all/816db99d-7088-4c1a-af03-b9a825ac09dc@imgtec.com/ - [1]
+Link: https://lore.kernel.org/all/38d9650fc11a674c8b689d6bab937acf@kernel.org/ - [2]
+
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+index bbc183200400de7aadbb21fea21911f6f4227b09..3365124c7fd4736922717bd31caa13272f4a4ea6 100644
+--- a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
++++ b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+@@ -32,6 +32,13 @@ properties:
+     items:
+       - const: aon
+ 
++  resets:
++    maxItems: 1
++
++  reset-names:
++    items:
++      - const: gpu-clkgen
++
+   "#power-domain-cells":
+     const: 1
+ 
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
