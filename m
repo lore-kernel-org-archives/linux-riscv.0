@@ -4,44 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3DB0C71135
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Jun 2025 00:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9970BC71136
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Jun 2025 00:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7BPM/1tFR1WYdejsiuZ64C4eaefpwxlLgYuBI0nHOho=; b=aSHmyWXlS5HMmr
-	WLZZK10KXLMcC1yLzN0O1dgJ2ow0j0upDR3FUISHjKywueEQWAuPomYEP8D/p/SvvtPZ19C6QlFS3
-	11UdWxlp/ivYXTymcT3KxfDTtuLlVoGH+sEKFfkJ66/kSYn4k+T4ZbB/eMpqBKUlfHgc3+7gwo0Mi
-	PBBcIGCkafBu8iRmW1Vrcu1IcCLaz52N9NYVaBSNC9d4GuFqzUSZMI/VfkcJQGvuPnm+4U47ZTgFh
-	KbG4bC8mO+CSZ4LBE+2BURWUuToxoGYSccf822VRLz8dqgtPoMkr1gayggYbjFkSGFWQBamL3v0xg
-	8JCvJyNlpq0As0mpqdNw==;
+	List-Owner; bh=SHmxeY5/fcONsrKhZdNyA8lLNvwz9T3dJ6mBejKaC6s=; b=ccaOAQ0ubrwwqU
+	I7ySNGwKdST8h/vayxhcRlZmv5bACDi335ISxwHja4f9PX9Se/iGpsEjkI2tAgJoTgZHEYnuYwtnF
+	XR+JlMacPmJQEizaXhv4Kk2sefvx+Ah/675mpV1GOYSli+bhhq26WARsjmFmZqFQPSMQVgOZWyq1V
+	qsbgOJQqGWH9FiUcBUWdAa4s30/u8hTvSNYQAJOjn26WVHLtsIULxCFzQ4zxvcRM2AGqsNXDB3j7h
+	AA7GRA2w8htMVri4n3nPe6J3oftqgAGDfDRZIyEUP0lbnSmbYEZB91SAriuAOGkNb5amukuxR/nib
+	uUWgR0YU5T7A7NI0lNPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQETF-00000000NKm-30tz;
-	Sat, 14 Jun 2025 00:10:05 +0000
-Received: from out-182.mta1.migadu.com ([95.215.58.182])
+	id 1uQF0P-00000000PDP-049c;
+	Sat, 14 Jun 2025 00:44:21 +0000
+Received: from out-187.mta1.migadu.com ([95.215.58.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQETD-00000000NJF-0fjx
-	for linux-riscv@lists.infradead.org;
-	Sat, 14 Jun 2025 00:10:04 +0000
-Message-ID: <ffd04c9b-030d-4eaa-bbf6-d1f416565c35@linux.dev>
+	id 1uQF0M-00000000PCp-22Gq;
+	Sat, 14 Jun 2025 00:44:19 +0000
+Message-ID: <422c5677-48d1-41be-b128-595829c27167@linux.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1749859791;
+	t=1749861853;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LbpWLSH9rDDdqtA+Sb9xpkQ5UT+CvuC/hhHqruiikz4=;
-	b=iL4gr6Z6lF+iNm3fi26JoZLJFoc51ULHyABpXVyoijOfZz5KZi5RvdedlJOiSyWyBNto0k
-	cZ5LhikgZo3Yh66mubHMhwvPMZ9vf+ma1BrWnpHakAcBojLoUOJ/FeXDOSyvtql2QXdnic
-	whKaXzo2UigzOFa+B20N92/yuKviUes=
-Date: Fri, 13 Jun 2025 17:09:41 -0700
+	bh=EXuSTcUn0J6P+iqyqyqHY+kzA3pvndl/3kAQ7RECPmE=;
+	b=u/e9RR/rxfXPFPycnlPVQqNrU5k0V5o6T4a0vCElbgKU5CYulJQONn820Lt+bxrHKt3EJj
+	9HC0jaQ//KBjncZGpnjDfEzSqPcZs914149pSwPRty719isCXS245ZnwGFUdJjeAcsJvWy
+	YIWig0jncgm0xUQ2x57lRJYqQf2oUeE=
+Date: Fri, 13 Jun 2025 17:43:51 -0700
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 05/12] RISC-V: KVM: Don't flush TLB when PTE is
- unchanged
+Subject: Re: [PATCH v2 06/12] RISC-V: KVM: Implement
+ kvm_arch_flush_remote_tlbs_range()
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
@@ -49,15 +48,15 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20250613065743.737102-1-apatel@ventanamicro.com>
- <20250613065743.737102-6-apatel@ventanamicro.com>
+ <20250613065743.737102-7-apatel@ventanamicro.com>
 Content-Language: en-US
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20250613065743.737102-6-apatel@ventanamicro.com>
+In-Reply-To: <20250613065743.737102-7-apatel@ventanamicro.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_171003_351478_E12087A8 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20250613_174418_746453_E9C70CD3 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,59 +75,74 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 6/12/25 11:57 PM, Anup Patel wrote:
-> The gstage_set_pte() and gstage_op_pte() should flush TLB only when
-> a leaf PTE changes so that unnecessary TLB flushes can be avoided.
+> The kvm_arch_flush_remote_tlbs_range() expected by KVM core can be
+> easily implemented for RISC-V using kvm_riscv_hfence_gvma_vmid_gpa()
+> hence provide it.
+>
+> Also with kvm_arch_flush_remote_tlbs_range() available for RISC-V, the
+> mmu_wp_memory_region() can happily use kvm_flush_remote_tlbs_memslot()
+> instead of kvm_flush_remote_tlbs().
 >
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->   arch/riscv/kvm/mmu.c | 14 +++++++++-----
->   1 file changed, 9 insertions(+), 5 deletions(-)
+>   arch/riscv/include/asm/kvm_host.h | 2 ++
+>   arch/riscv/kvm/mmu.c              | 2 +-
+>   arch/riscv/kvm/tlb.c              | 8 ++++++++
+>   3 files changed, 11 insertions(+), 1 deletion(-)
 >
+> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+> index ff1f76d6f177..6162575e2177 100644
+> --- a/arch/riscv/include/asm/kvm_host.h
+> +++ b/arch/riscv/include/asm/kvm_host.h
+> @@ -43,6 +43,8 @@
+>   	KVM_ARCH_REQ_FLAGS(5, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+>   #define KVM_REQ_STEAL_UPDATE		KVM_ARCH_REQ(6)
+>   
+> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+> +
+>   #define KVM_HEDELEG_DEFAULT		(BIT(EXC_INST_MISALIGNED) | \
+>   					 BIT(EXC_BREAKPOINT)      | \
+>   					 BIT(EXC_SYSCALL)         | \
 > diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index 1087ea74567b..29f1bd853a66 100644
+> index 29f1bd853a66..a5387927a1c1 100644
 > --- a/arch/riscv/kvm/mmu.c
 > +++ b/arch/riscv/kvm/mmu.c
-> @@ -167,9 +167,11 @@ static int gstage_set_pte(struct kvm *kvm, u32 level,
->   		ptep = &next_ptep[gstage_pte_index(addr, current_level)];
->   	}
->   
-> -	set_pte(ptep, *new_pte);
-> -	if (gstage_pte_leaf(ptep))
-> -		gstage_remote_tlb_flush(kvm, current_level, addr);
-> +	if (pte_val(*ptep) != pte_val(*new_pte)) {
-> +		set_pte(ptep, *new_pte);
-> +		if (gstage_pte_leaf(ptep))
-> +			gstage_remote_tlb_flush(kvm, current_level, addr);
-> +	}
->   
->   	return 0;
->   }
-> @@ -229,7 +231,7 @@ static void gstage_op_pte(struct kvm *kvm, gpa_t addr,
->   			  pte_t *ptep, u32 ptep_level, enum gstage_op op)
->   {
->   	int i, ret;
-> -	pte_t *next_ptep;
-> +	pte_t old_pte, *next_ptep;
->   	u32 next_ptep_level;
->   	unsigned long next_page_size, page_size;
->   
-> @@ -258,11 +260,13 @@ static void gstage_op_pte(struct kvm *kvm, gpa_t addr,
->   		if (op == GSTAGE_OP_CLEAR)
->   			put_page(virt_to_page(next_ptep));
->   	} else {
-> +		old_pte = *ptep;
->   		if (op == GSTAGE_OP_CLEAR)
->   			set_pte(ptep, __pte(0));
->   		else if (op == GSTAGE_OP_WP)
->   			set_pte(ptep, __pte(pte_val(ptep_get(ptep)) & ~_PAGE_WRITE));
-> -		gstage_remote_tlb_flush(kvm, ptep_level, addr);
-> +		if (pte_val(*ptep) != pte_val(old_pte))
-> +			gstage_remote_tlb_flush(kvm, ptep_level, addr);
->   	}
+> @@ -344,7 +344,7 @@ static void gstage_wp_memory_region(struct kvm *kvm, int slot)
+>   	spin_lock(&kvm->mmu_lock);
+>   	gstage_wp_range(kvm, start, end);
+>   	spin_unlock(&kvm->mmu_lock);
+> -	kvm_flush_remote_tlbs(kvm);
+> +	kvm_flush_remote_tlbs_memslot(kvm, memslot);
 >   }
 >   
+>   int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
+> diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
+> index da98ca801d31..f46a27658c2e 100644
+> --- a/arch/riscv/kvm/tlb.c
+> +++ b/arch/riscv/kvm/tlb.c
+> @@ -403,3 +403,11 @@ void kvm_riscv_hfence_vvma_all(struct kvm *kvm,
+>   	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE_VVMA_ALL,
+>   			    KVM_REQ_HFENCE_VVMA_ALL, NULL);
+>   }
+> +
+> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 nr_pages)
+> +{
+> +	kvm_riscv_hfence_gvma_vmid_gpa(kvm, -1UL, 0,
+> +				       gfn << PAGE_SHIFT, nr_pages << PAGE_SHIFT,
+> +				       PAGE_SHIFT);
+> +	return 0;
+> +}
 
+LGTM. However, I noticed that kvm_flush_remote_tlbs_range doesn't 
+increment remote_tlb_flush_requests/remote_tlb_flush stat counter.
+
+So we would be losing those stats here. Do you know if there is a 
+specific reason behind not supporting the stat counters in the *tlbs_range
+function ?
+
+Otherwise,
 Reviewed-by: Atish Patra <atishp@rivosinc.com>
+
 
 _______________________________________________
 linux-riscv mailing list
