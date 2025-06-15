@@ -4,101 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBF0C7114A
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Jun 2025 22:34:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37BCBC7114A
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Jun 2025 01:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LQKi38+pocKrfUQZ9jbz+70zM+GEYFHOqnnQloMVRww=; b=hosG4tHQtD4bpa
-	IBzAlPYHwyqsRkwrlqPN/iBuoZoi4rhb6I0NMxAjsp/mIbYBZnRV1948AgPRPF0JIG610KjDWUHAc
-	vbMKMfjfgqNai9SlJ1db3tmLSYhI8GhnTITL/RK4ED0qcrxbJ14pdxIOoieJnP/ZzK6hNgORg3AO9
-	pCjVzaMFEDX0PznVV9bVPbmKxGJf8jb2MN/9+FuWeENlosxhOAuSmpUnkbPa/J1tOHIaqIQnQ+VMX
-	r9ar8koiypqMvaDU2QmeDjrH9XE9heGffAitbTosUmzcGfGZerspd+bzav2n9JdGiH2omaYKCZ4EZ
-	cHGrOMOWF/KVzGY6UNKw==;
+	List-Owner; bh=TPjvVcmQRrtUsZHjs35sFHJoBVKwdLg+oj4o3V7fkLs=; b=Kw077qlH5oPl8v
+	NpPXcYubmX7U+eZVsKydFWkEh9X/dbvD5nvRPD3n1sRZKvwPv4kitSLK2CDLrzVZBmBw1mrnliH0U
+	9Q+5mwP3XNXSps9kQc7WaPBk+0RRj73ebhOEVFTMgNpzrM8Y1Z7hPf8YxjVI6AAy3IJNze66r6XKu
+	smxvABx0fZzwemHqWW/cd/F6kFrFKTwIF25fK402A8wbMOU95ECh4GzOdZnBzz2Z8OaMLa2iBa1/4
+	JKCevoeQ4xzrYjcgbau9NGTu3c2AqPA4Tk6halvSEafuNDZR6qmaT4LvEMWONqAyaB9SjIu7Y6eIe
+	JKYYtL4dMoiOxsgaPs0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQZS4-00000001vEm-31EN;
-	Sat, 14 Jun 2025 22:34:16 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1uQcMm-000000026fu-0PxH;
+	Sun, 15 Jun 2025 01:41:00 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQZS2-00000001vER-1d5j
-	for linux-riscv@lists.infradead.org;
-	Sat, 14 Jun 2025 22:34:15 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3a531fcaa05so1953277f8f.3
-        for <linux-riscv@lists.infradead.org>; Sat, 14 Jun 2025 15:34:14 -0700 (PDT)
+	id 1uQcMi-000000026fD-47v5;
+	Sun, 15 Jun 2025 01:40:58 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-747abb3cd0bso3251452b3a.1;
+        Sat, 14 Jun 2025 18:40:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749940453; x=1750545253; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=eElX0K0mVGFpZdZanLnRJGH007mVfDUZMyXart8hp4s=;
-        b=UQ3hyjpYt4taEA+MvVrbAKwSTZlusGSc83gDPaBI2elTUscQIdI3EYVyjyuCKSPpIJ
-         9kJp/P3tfxUpMEHIzRQPhiczzZDoxbeH6Pqo/+MJLRE9IxDVfJmaB6Fs8VRzt3dt3sjL
-         fa2i2mhsOJUD2AEwVVkdsRi48C8rCiRC8iBG3m1qmLKtOYTmPYwGcCIW7p1+dLSJJziO
-         mvZqEp570VdXP7Nwsi31n7lZer4KvueAbGN7p6T4InSOKCsK8Ga3w5Orfw4uRVP+F24Y
-         XikLqwojHlgPlFd4V/jYFebkSqsXb4oby1WFdo0Obd0Qu8JxfYCn6+DgfdSVoO4CjlB/
-         aHXw==
+        d=gmail.com; s=20230601; t=1749951656; x=1750556456; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NBTMddD1EgJ5XqpJb4wGCf6dCboYJMy04qeMI4QwNwY=;
+        b=N5bWOAn5Hz2inuIdqYkaiZOftxrktJYTSVH+5NRci23qrYXlp5cAsNFRHRKYrb9HBk
+         VBg9gVLyifl+4BdV8Kr5+wvXRwtCD8AEVRyDUKvEX6gSV9M+fZsxRr9uollaMVJay4Vu
+         NlbefLKo2ZqTTwN2iJiTYiMyqSz+8tj/XL6TIdZlaYLNn4tFFOyKmUK+/oGlbnFCT20x
+         VzvaZ+p6meJdDvD4EcYWRILu6C+lALo0qkmrSWWCPd24K7CNYKXZv+FcC82pWMi/4CBA
+         nEpffSjfvNHJtz41hZ+O1aSz+Zz5uAgS6c41hhuCxXkl+VG0Jd2hoNS3wkBoIqljhKGW
+         43mw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749940453; x=1750545253;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=eElX0K0mVGFpZdZanLnRJGH007mVfDUZMyXart8hp4s=;
-        b=gO4ed9aRqp/gIOHYmq5wvHUOgXL9KL+xuQ/gFlucIE9ZicOyJbANvHDog16tDPoXYd
-         ySwqWMztCXjHTON5AItUZ6GdGWtkMVsITj6hN6MDDLcaxu+JptJ3UJQlzb3p9NUVp3/a
-         M7Ikj2Ulz1r2kmh5+kIvFYlBbjV8aZ6Q51KAAwCxtR8CRhyluwMx9rJiFO6smzXnK0DZ
-         7UkYvT75ABYwMOUGZZfariir8ELvhxkghWE2Ikq81NSHSVdJPmhVptTLiLpa554d9C9c
-         Q4tKHyNkK0ZIvkqUG2Fkso4l+Te3BfO9iIxHuGM1ecFe93Ol6EeuxWAHZ9lZnEFkUZVh
-         Rw/A==
-X-Forwarded-Encrypted: i=1; AJvYcCWBFRHIdcd900MtRYmg0swWRfRi9NIw65rQTo0TcZWHJLtewu8CwOPad2VioKkxfzByu2x7ckM91cs5Gg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxehoxW4g1TYBUElIjuh0X73mcJgeCwPR8AdfmSarPFxdqN7u+J
-	ol7YSdC4+4bE2uCLiF9vPPFqaiaSpntt8YF6hTp//LBHhhpy3Rz93YG6
-X-Gm-Gg: ASbGncs6dbX2gCNYtt+O32WUzOZSWYdiKtp+cdMWt77+iDhCZNm9Dh1DUiVBEChBjax
-	zbBESpv6i8I2fuJoIqmvpmOily2CYmU5CCP180ggB9zk+H1HghbeOoOB0awt+7bSdzknM38TQWm
-	YnsIFU30Et8UTMqLRT/Rj+pXXELRBvAbH2ffq4e1L0K5VPECQvwY+4MrbVHf/pBcGMbxWoJ7DJg
-	mJEb3CNmGANDhmO3ajeeQD6w3TA+LG8W7ahO3bst9fSgTRz97KM9Fy8uBdInVVdHl0lnCEeziEo
-	yS8jCwdkgmT5sbdolTvsNg9dJ5PG0kEzX7rydU7A8VLJ4tUzK/NIdrrGOw1LcypzrSz+BnrLzva
-	tFAIQvw==
-X-Google-Smtp-Source: AGHT+IHUSSE4wReaeDL8ecMX9RxikoVG4MsNqeGENvR2wr/CiqJiGVOf4JzoiiQACFFziT0S6EILMw==
-X-Received: by 2002:a05:6000:4308:b0:3a5:2cb5:642f with SMTP id ffacd0b85a97d-3a572e7a032mr4130209f8f.34.1749940452671;
-        Sat, 14 Jun 2025 15:34:12 -0700 (PDT)
-Received: from giga-mm-7.home ([2a02:1210:8608:9200:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532ddd29ffsm92955675e9.0.2025.06.14.15.34.11
+        d=1e100.net; s=20230601; t=1749951656; x=1750556456;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NBTMddD1EgJ5XqpJb4wGCf6dCboYJMy04qeMI4QwNwY=;
+        b=drhpmnQUMClItz/sWBQrmPIkjHcnwh6sfqFQKFFS1LwAnz06QESyXknX3vhq8c4bs8
+         N8JlYblEcOiWSfDFvxvvXxmO5cWNaQ+G+VPJ8iEx7BRWUOHuKP+7uJ7SWXCxxSNz+R7s
+         PJDzY2kQm7lSE8ygdHxAARrSeteENxpSFWXRLiTELO2IHgvZ1dPK0GKo+GEsIrtadhTt
+         rBTz9WxYA9vIoC4k91E1gbvwcjFE2aQTzQK5Pby1rBvjjLCnj3lkBPqH++CNa3rOCuDs
+         4MTOYCW8FIle0dbFqVzhIwhtAEfZjruL52T74bH0Ri1z2/PHdPWOTcWiaDmSe9ny3wgD
+         seRA==
+X-Forwarded-Encrypted: i=1; AJvYcCVDn0KFnBiVDfpYzxOMULGV7a7Wh0Ysqb2FCIXvLGgx+WHfa8AWWzCD50Bnxi4tLqs691OjtDd/BzE=@lists.infradead.org, AJvYcCXVzlAVKy0v3wUlaOk9EJgve8xKaYGgrO11CSjHttukKbY6fy3XNJE5GF3Irzi6jUw/TwjHyE8OX3PdcqM=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxu6Z/Uxf1MjDUF4q+DbnHdMlSKMq4OmvpfA7DbRIFNdy/t1m48
+	Vd/MOEHb5bZfoPzdQU76FqopfnEC3rUp2HwjsVrlweBiHds5AcS1d8uk
+X-Gm-Gg: ASbGnct9Jb4eKDAJskAKJ1jUTk4ZZ1nkT0BXT6CfLdm6f8xBignfL+fQ7FxNzJcmIi3
+	6zvE2gqklqkGYDigYy7VGCf50vPas352eDw2z3TJ8rI2A0Ld18LLzEKndJ9r+q1gsvzIh4L4seL
+	7yHKsipcIBCBzOAnSe+z1+RWHjmKP7rve6lbFtETpH3HxBf79kNUx2s/cfkJdWxWsVOTw9MKl5g
+	qTc67t/uooz8sKgA7qfnM3Y0JBv+uSj8eaxMro4yFZr2Bok9D/rIgCDPH9IhgdSU4sQyNUe5+M4
+	uQNMd0odxnpM37rbOy6AC95IAJWDnhemNnIPyRfo++eB89+iG8xJr+44v2BFiw==
+X-Google-Smtp-Source: AGHT+IFFtgSTT239FlySASeK/tmHjPqITYuVff3RfVuRfyAgy5DMcBJfIvR7fWesb8KRVOi1bJOajw==
+X-Received: by 2002:a05:6a21:9ccb:b0:21f:52ed:23cc with SMTP id adf61e73a8af0-21fbc7aab9fmr5594335637.15.1749951655619;
+        Sat, 14 Jun 2025 18:40:55 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-7488ffeca93sm4005306b3a.20.2025.06.14.18.40.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Jun 2025 15:34:12 -0700 (PDT)
-Message-ID: <55df35f66eeb8580b21337e4b2738801117c125a.camel@gmail.com>
-Subject: Re: [PATCH net-next RFC 0/3] riscv: dts: sophgo: Add ethernet
- support for cv18xx
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>,  "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen
- Wang	 <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,  Richard Cochran
- <richardcochran@gmail.com>, Yixun Lan <dlan@gentoo.org>, Thomas Bonnefille	
- <thomas.bonnefille@bootlin.com>, Ze Huang <huangze@whut.edu.cn>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, sophgo@lists.linux.dev,
- 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Longbin Li	
- <looong.bin@gmail.com>
-Date: Sun, 15 Jun 2025 00:34:24 +0200
-In-Reply-To: <05194937-8db3-4d90-9d03-9836c734fce1@lunn.ch>
-References: <20250611080709.1182183-1-inochiama@gmail.com>
-	 <7a4ceb2e0b75848c9400dc5a56007e6c46306cdc.camel@gmail.com>
-	 <e84c95fa52ead5d6099950400aac9fd38ee1574e.camel@gmail.com>
-	 <05194937-8db3-4d90-9d03-9836c734fce1@lunn.ch>
-User-Agent: Evolution 3.56.1 
+        Sat, 14 Jun 2025 18:40:55 -0700 (PDT)
+Date: Sun, 15 Jun 2025 09:39:42 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v4 1/2] dt-bindings: phy: Add Sophgo CV1800 USB phy
+Message-ID: <rsem5lx74zhfqmb3adljeesyhqtwf36asacle3jyo5kls4aadt@qmnve7qvctq7>
+References: <20250611081804.1196397-1-inochiama@gmail.com>
+ <20250611081804.1196397-2-inochiama@gmail.com>
+ <20250612-siesta-verbalize-6a7768ebc648@spud>
+ <jf76ak6b5edgqhx4rkhcsfpmcpkrxci7rq373ld2apue67q7hh@3fb346tgaxcq>
+ <20250613-deflation-aerosol-fed1d566fd0b@spud>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250613-deflation-aerosol-fed1d566fd0b@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250614_153414_447813_903B56F1 
-X-CRM114-Status: UNSURE (   7.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250614_184057_025662_DAB5C96B 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,53 +106,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sorry for confusion Andrew,
-
-On Sun, 2025-06-15 at 00:20 +0200, Andrew Lunn wrote:
-> > Also ethtool seems to be incompatible with mdio muxes :(
+On Fri, Jun 13, 2025 at 03:29:44PM +0100, Conor Dooley wrote:
+> On Fri, Jun 13, 2025 at 06:02:27AM +0800, Inochi Amaoto wrote:
+> > On Thu, Jun 12, 2025 at 05:07:37PM +0100, Conor Dooley wrote:
+> > > On Wed, Jun 11, 2025 at 04:18:02PM +0800, Inochi Amaoto wrote:
+> > > > The USB phy of Sophgo CV18XX series SoC needs to sense a pin called
+> > > > "VBUS_DET" to get the right operation mode. If this pin is not
+> > > > connected, it only supports setting the mode manually.
+> > > > 
+> > > > Add USB phy bindings for Sophgo CV18XX/SG200X series SoC.
+> > > > 
+> > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > > 
+> > > I'm having a bit of trouble finding the v3 etc, could you provide a
+> > > link?
+> > > I think what is here is sane, but I want to make sure that review
+> > > comments on previous versions have been addressed. "dfn:" searches for
+> > > both driver and binding filenames turned up nothing.
+> > > 
+> > 
+> > The v3 is
+> > https://lore.kernel.org/all/IA1PR20MB4953C1876484E149AA390DD5BB1D2@IA1PR20MB4953.namprd20.prod.outlook.com/
+> > It is a long time ago when sending these patch.
 > 
-> Please could you expand on that, because i don't know of a problem
-> with mdio muxes and ethtool.
+> Thanks. I think this patch looks okay, but probably worth Rob or
+> Krzysztof taking a look, even if you seem to have removed the props that
+> were objected to.
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-everything seems to be fine with ethtool and mdio mux!
-(I accidentally mixed up host and target consoles)
+Thanks for your tag. And I will wait to see if there is something to
+discuss.
 
-# ethtool eth0
-Settings for eth0:
-        Supported ports: [ TP MII ]
-        Supported link modes:   10baseT/Half 10baseT/Full 
-                                100baseT/Half 100baseT/Full 
-        Supported pause frame use: Symmetric Receive-only
-        Supports auto-negotiation: Yes
-        Supported FEC modes: Not reported
-        Advertised link modes:  10baseT/Half 10baseT/Full 
-                                100baseT/Half 100baseT/Full 
-        Advertised pause frame use: Symmetric Receive-only
-        Advertised auto-negotiation: Yes
-        Advertised FEC modes: Not reported
-        Link partner advertised link modes:  10baseT/Half 10baseT/Full 
-                                             100baseT/Half 100baseT/Full 
-        Link partner advertised pause frame use: Symmetric Receive-only
-        Link partner advertised auto-negotiation: Yes
-        Link partner advertised FEC modes: Not reported
-        Speed: 100Mb/s
-        Duplex: Full
-        Port: MII
-        PHYAD: 0
-        Transceiver: external
-        Auto-negotiation: on
-        Supports Wake-on: d
-        Wake-on: d
-        Current message level: 0x0000003f (63)
-                               drv probe link timer ifdown ifup
-        Link detected: yes
-
-But we do have some troubles with the internal PHY with Inochi's patches
-on SG2000, the above "Link detected: yes" is actually without cable
-inserted.
-
--- 
-Alexander Sverdlin.
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
