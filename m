@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2783C61CE8
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Jun 2025 07:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0043C61CE8
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Jun 2025 10:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lyVbt5TO08y/1ODHUxfwXpgq2Ko7ZI94+tgmHXTTE0c=; b=SMZMSZo+fnasxq
-	D5doSDR1y2+z378FtGqrFngeQGAH9P/CemlB3zCmGmP9MzJSI7QejCzZzOWA7xkwmEUaH8TAchEIX
-	KtkbuQpEdDSeBuoaUuuYdvik1SWDb6JZAHKlNI3XcwE3g6G66Bmwh39iWnRVL3R6Tqz5H+JavYUW/
-	2WWQ1R/m4J7FxbEjVIqzQJIQfrA3JSn9UWrMAhK8B6XdD0pMOsVjEBJEHF3LEReSt9e+Ks7wNBk4s
-	yyzdT1In5jHXI7YGRtnnMY0XKDNd+VDmd1N7GpTl6/nWIGaQ+l3Wox3WqoZEAamm7wKgznr/DBO5J
-	n00XynP/iK/vx3cCmdEg==;
+	List-Owner; bh=QTdoJQO758GTnV72SGuVUr8NzvreGL6RnOdtxN7uz28=; b=w4yr67tn6MG3b/
+	5/fC1WUGbhT0EXq0+o6bkvC8WYFX03rYeqr839WRl4ezxXlLECk/AyetAzx/7ef78I31uMiRa14gX
+	Iu5DrdctEeP0c2uOcaoFliw0nMc0HJ7DNuQgfeMPKujHsVM1SHqjzsEOwaOGgGUldpj/m2uf7UXZQ
+	F5g3gc5dkQVShy376PZcvUqjKkVxEkVP+kP6vDvT3sFxmpaE69sSFajX4j91OHOYj7xgyxw+81VsH
+	fqJ4UbGFR61RUaj7ZFlHhgk042JYOUaWKqXvlpZz9ouxh2Qeuzc7G3UQbBzqYtLY2aVjV3aDhJUfc
+	/Pnmz+ca8XGQ+R2fB1Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQhk6-00000002Jzo-2tAI;
-	Sun, 15 Jun 2025 07:25:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uQkyy-00000002RIC-2QsN;
+	Sun, 15 Jun 2025 10:53:00 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQhhr-00000002JuA-37zl;
-	Sun, 15 Jun 2025 07:23:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 18AD44A391;
-	Sun, 15 Jun 2025 07:23:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD72FC4CEEE;
-	Sun, 15 Jun 2025 07:23:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749972184;
-	bh=JWX10x0tUiGyirZtdUuM+U6VGu/piK3QA70v8Z35YDs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=pfSwWFd7QGhCYYSaHQcPdCfhyysto4iFPkwuCaPKEySFBEhoQUl88U2HQJiEao8Ob
-	 1SK4fto8CPqC4bJGD/Rd4r9Yw5hCp/2PzBH2ipTe6ceqNL2Ou9r6DYh6IUqg6qmF0S
-	 qYJ1t3krtwFd6JXM73SCx5AEQG0hP/qBQLjzqfn2GcLeiqbMaarr4r0ZDquwT6ZYjS
-	 rUvdjmncPrkt6EqnBm3asHiV3mScvBfPf0mPiHHoXkTJtcjzXZ5ieJ7Sq/+Qi6jcLb
-	 +m1yWQYNhaDKJuE4SqEU7HSxHLoPypb67qrCDT/uN2saglYzHSjnjeCiSEJOdJxdRL
-	 yanxuMPA3kquQ==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-551ed563740so3832585e87.2;
-        Sun, 15 Jun 2025 00:23:04 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVBprPIhi4BN6xP7R1ZwJ9wptNKTETCQcCIy6Wpjh0pCoOtXkKTSOZQtseyJi50V73kMphVg2LUowXrQn8frsjR@lists.infradead.org, AJvYcCXT5ok3obDyj+MyiMCqDnq6zw8klpQjfD/ZFrwrEPiqALv8DBLMMK7qtdHVGzi3Cd1GLIirck0XfgBjFd4=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtJ8ORUKtBTLGTujd9cTMp2lNFdFERDOQqPc+8iZkFftpg7kay
-	VoBus98oUyB9wwRNTp7bfpzQLqMjbtVZS0I7bUJ/LXmHFOkBZyfYCC9qcaHo3aww11r3jgzUP/r
-	5htOfVGgKDQopm8sUugsB9oGxfL/AqiE=
-X-Google-Smtp-Source: AGHT+IFn3BKZ/4LSxVR5KXcXwLoaa2Kdc1AeLDkxaymXoA6lOBMJ71ueZOjsj/pywa+41S2R3jXWsdX5Y53gLyxvvYg=
-X-Received: by 2002:a05:6512:691:b0:553:2759:7db4 with SMTP id
- 2adb3069b0e04-553b6f0b1aamr933983e87.26.1749972183272; Sun, 15 Jun 2025
- 00:23:03 -0700 (PDT)
+	id 1uQkyv-00000002RHB-1xmN
+	for linux-riscv@lists.infradead.org;
+	Sun, 15 Jun 2025 10:52:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1749984777; x=1781520777;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ejtojejYEkKUTk6N+o9TY6ArccN85B9ukz5YklvHMeQ=;
+  b=VonxRVk8hNIMrQIZCV8epEvpZTU6Xmws8tgMmb3pc4rxpYiOOMyw7R5v
+   U7ahPs7aUrN32bAZgWZjGX5HleJXTnuZohHqyra32ZtzdyafbbL6AlpG4
+   WCfajEeIZiBSY8EWZ0Rvxd8X7CAgvXmf9rX5ayRGc6TjnuYfetixwV4Nl
+   VfXWIIsa6hN//iCz6mmXkwwKw0+c1y2mohyKvIRvHX56smA42JvbunN90
+   KrlCbDlGuBkH6sc6AI9M12OYcpWOrexV3Z2036P4Su7nZuiNEw4nlNQAl
+   wOWzfqdczM2NHpWPxhdYXIbERoTk1NXO5Ydm3JTx5ueSET6uzGwifwa9q
+   g==;
+X-CSE-ConnectionGUID: Uh4hP9FUR8mTRutVgFxxNg==
+X-CSE-MsgGUID: bk59M+1YS8+Ttx5fQU3vow==
+X-IronPort-AV: E=McAfee;i="6800,10657,11464"; a="52285343"
+X-IronPort-AV: E=Sophos;i="6.16,239,1744095600"; 
+   d="scan'208";a="52285343"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 03:52:50 -0700
+X-CSE-ConnectionGUID: iPnqe7lDTyWwtmi51DmowQ==
+X-CSE-MsgGUID: KOTMKZ52R2ij4S+CeEoraw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,239,1744095600"; 
+   d="scan'208";a="149129847"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 15 Jun 2025 03:52:45 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uQkyg-000EFw-0j;
+	Sun, 15 Jun 2025 10:52:42 +0000
+Date: Sun, 15 Jun 2025 18:51:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>,
+	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Frank Binns <frank.binns@imgtec.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Paul Gazzillo <paul@pgazz.com>,
+	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+	oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v4 8/8] drm/imagination: Enable PowerVR driver for RISC-V
+Message-ID: <202506151839.IKkZs0Z0-lkp@intel.com>
+References: <20250614-apr_14_for_sending-v4-8-8e3945c819cd@samsung.com>
 MIME-Version: 1.0
-References: <20250611020923.1482701-8-ebiggers@kernel.org> <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
- <20250611033957.GA1484147@sol> <aEj8J3ZIYEFp_XT4@gondor.apana.org.au>
- <20250611035842.GB1484147@sol> <20250613053624.GA163131@sol>
- <aEu5cyDOMcKteW_b@gondor.apana.org.au> <20250613055439.GB163131@sol>
- <aEvmmr0huGGd2Psv@gondor.apana.org.au> <20250615031807.GA81869@sol>
-In-Reply-To: <20250615031807.GA81869@sol>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 15 Jun 2025 09:22:51 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXGd93Kg0Vs8ExLhK=fxhRBASU9sOPfgYUogv+rwVqgUsg@mail.gmail.com>
-X-Gm-Features: AX0GCFvXujBEz2gg1idEYRihdjR7urozsbmjreTha85WA-Kix9z2xocGepFq-cI
-Message-ID: <CAMj1kXGd93Kg0Vs8ExLhK=fxhRBASU9sOPfgYUogv+rwVqgUsg@mail.gmail.com>
-Subject: Re: [PATCH] crypto: ahash - Stop legacy tfms from using the set_virt
- fallback path
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org, 
-	Jason@zx2c4.com, torvalds@linux-foundation.org
+Content-Disposition: inline
+In-Reply-To: <20250614-apr_14_for_sending-v4-8-8e3945c819cd@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_002307_826864_CA0342AE 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20250615_035257_510536_15D2E486 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,40 +109,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 15 Jun 2025 at 05:18, Eric Biggers <ebiggers@kernel.org> wrote:
->
-...
-> After disabling the crypto self-tests, I was then able to run a benchmark of
-> SHA-256 hashing 4096-byte messages, which fortunately didn't encounter the
-> recursion bug.  I got the following results:
->
->     ARMv8 crypto extensions: 1864 MB/s
->     Generic C code: 358 MB/s
->     Qualcomm Crypto Engine: 55 MB/s
->
-> So just to clarify, you believe that asynchronous hash drivers like the Qualcomm
-> Crypto Engine one are useful, and the changes that you're requiring to the
-> CPU-based code are to support these drivers?
->
+Hi Michal,
 
-And this offload engine only has one internal queue, right? Whereas
-the CPU results may be multiplied by the number of cores on the soc.
-It would still be interesting how much of this is due to latency
-rather than limited throughput but it seems highly unlikely that there
-are any message sizes large enough where QCE would catch up with the
-CPUs. (AIUI, the only use case we have in the kernel today for message
-sizes that are substantially larger than this is kTLS, but I'm not
-sure how well it works with crypto_aead compared to offload at a more
-suitable level in the networking stack, and this driver does not
-implement GCM in the first place)
+kernel test robot noticed the following build warnings:
 
-On ARM socs, these offload engines usually exist primarily for the
-benefit of the verified boot implementation in mask ROM, which
-obviously needs to be minimal but doesn't have to be very fast in
-order to get past the first boot stages and hand over to software.
-Then, since the IP block is there, it's listed as a feature in the
-data sheet, even though it is not very useful when running under the
-OS.
+[auto build test WARNING on 4774cfe3543abb8ee98089f535e28ebfd45b975a]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Michal-Wilczynski/power-sequencing-Add-T-HEAD-TH1520-GPU-power-sequencer-driver/20250615-021142
+base:   4774cfe3543abb8ee98089f535e28ebfd45b975a
+patch link:    https://lore.kernel.org/r/20250614-apr_14_for_sending-v4-8-8e3945c819cd%40samsung.com
+patch subject: [PATCH v4 8/8] drm/imagination: Enable PowerVR driver for RISC-V
+config: riscv-kismet-CONFIG_DRM_GEM_SHMEM_HELPER-CONFIG_DRM_POWERVR-0-0 (https://download.01.org/0day-ci/archive/20250615/202506151839.IKkZs0Z0-lkp@intel.com/config)
+reproduce: (https://download.01.org/0day-ci/archive/20250615/202506151839.IKkZs0Z0-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506151839.IKkZs0Z0-lkp@intel.com/
+
+kismet warnings: (new ones prefixed by >>)
+>> kismet: WARNING: unmet direct dependencies detected for DRM_GEM_SHMEM_HELPER when selected by DRM_POWERVR
+   WARNING: unmet direct dependencies detected for DRM_GEM_SHMEM_HELPER
+     Depends on [n]: HAS_IOMEM [=y] && DRM [=y] && MMU [=n]
+     Selected by [y]:
+     - DRM_POWERVR [=y] && HAS_IOMEM [=y] && (ARM64 || RISCV [=y]) && DRM [=y] && PM [=y]
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
