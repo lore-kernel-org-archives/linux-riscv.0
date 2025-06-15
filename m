@@ -4,70 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11416C71135
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Jun 2025 18:49:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63EBC71135
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Jun 2025 19:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ufN+1fPH5n9ej3Vheex0koAF+CjHwc3RD/pVfts7tHA=; b=FmAwtRA6W7cDBY
-	3u8sNac/HKzttXjvZT38oHMCn066Q6i/sp1LAkdpOhzMcVEpuspHzYhykW+2ql+54yfocGekrAuZf
-	YExi4LF1oS8Hiw0fbsDVsylb72aVOIhcXxuA0ht4BaocbV2rvhrxMscNCaYwFjiOyof9vaMzEJaS4
-	8s7TdesIKqnldIuV1dOmsPg/47J8d+gdRKgbQ6QZb41r7qvwR7A6dlmpBxdiCeGWX+ZWqP5NeYXPN
-	HsZODgnp8Fv0EVRDNHRQxokccJqwOpb9nNwa39IKsugYOaBEuEVg1F2a785bLSe3suB0S+nxuLS1K
-	BoWD3P7w1KpqrC62B7Bw==;
+	List-Owner; bh=S2HOKY24dJYQAdrpBTaCCelozTHB1dwk/KLqkGpWFtM=; b=vKpmlwjCQNmNVu
+	rfmPMj/GcFVXpGOYG6QF2qLtgKVtJTB+hcnI5BkpHUuQzisuI8Cn7iQ7xqW3qN3ImrGKkOH9yCy8M
+	9PDuXIKlKR69ccopb/V4HImI5uNspVY2f4xap8PTmybtduwiqAldZoMLsghlqR+ewNx0WX3M5L8wn
+	1DepxWkN2IBa82jkQ/EkLqZLp49LISmjn3jkZmTg+rar1Bt7INyzKb4gMdY/9VAjV8HbZFNBWaBYH
+	NzdiSyVOZbqrpXs4YIKYxAv+HVII5qmW/YMr2HQ2UU4AxJssRxvLZUSdtecd7p+eCE1h3XaNNZg50
+	ib3l6HGmchCSJqc78wrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQsQ1-00000002kcc-24hg;
-	Sun, 15 Jun 2025 18:49:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uQtAu-00000002mI3-3DK4;
+	Sun, 15 Jun 2025 19:37:52 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQsNm-00000002kQZ-3YXO;
-	Sun, 15 Jun 2025 18:47:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2BC534AB32;
-	Sun, 15 Jun 2025 18:47:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA633C4CEE3;
-	Sun, 15 Jun 2025 18:47:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750013226;
-	bh=5b3uNryP074LRzS0e8lRw21Ibl8znCFGJk8dG32zXQw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dBPtFxhSJMUXxmaT/KxQ35nsgIcXL/g9ImLlDTQb++SUrhRAv5BrYEyhMzlivQTnA
-	 b5r6qgTgn/HKGqJKv8iIJZIrBrbSU8quRUHzUx02dyadCT/fXANUmLE4BYuuyerOk5
-	 syWDFFmKz8D7g32RagfLqYXxRSTC1HcHir74l/R1J5sHSjE1peKYYs60gZCL3eQPFb
-	 cTq1v0r+DKJnH6n9ApPtKk3wepQy940tpEOG1qlya7EY3CViKAzbLFJr2wnU1AGoVG
-	 WMCEPfl0m7mcUWeu5p5Yg2rrbz49hc8W2AJ7VRhT2wOOyNch3zWfyN/nLXRv7u5Cna
-	 suPZqRSuvlvJQ==
-Date: Sun, 15 Jun 2025 11:46:38 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, Jason@zx2c4.com, torvalds@linux-foundation.org
+	id 1uQtAr-00000002mHK-3vtD
+	for linux-riscv@lists.infradead.org;
+	Sun, 15 Jun 2025 19:37:51 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-606c5c9438fso7898811a12.2
+        for <linux-riscv@lists.infradead.org>; Sun, 15 Jun 2025 12:37:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1750016267; x=1750621067; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=9Bm1Ypz9xIQ9oSWoxmBY5SZFvMd6ktsJLpK/MNzMMqc=;
+        b=D0vObgpwjHMt0Gxsyt4Y5N7jXtY7Gl1hK0LYPnKfBUohU+lKbxIeKH/yQ5LyFWGqYu
+         qVTCTzgWng/iW0NXdhMKyEObWcdEc2SfrRePmrWz/52UNZHdDwtRYW/GtxC56m11nZ7s
+         JSbMTd9eOBSTSevUlhAkkMjGX2RKZjfoQNQkU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750016267; x=1750621067;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9Bm1Ypz9xIQ9oSWoxmBY5SZFvMd6ktsJLpK/MNzMMqc=;
+        b=FCwitBnOh3H1yXVpIynb+JLSs+F8tudAkj0Enwue9v0a6ZvVj/+FmAVIami8URR6yw
+         3gnKKF4W+Zy72hgEPD6lzpuxY0b4v9JW+LD2GDyZlg/K1a2PGd+GKi+ET2FoVt5v70zv
+         naVS5pYPWnJfm6GMqG6oXE3ohzC1oEb2BwSnGEw9qJL6n3x8+AoAuPHeBGonp8bw35ye
+         rQFhyHuM/an1dbnzITJMOxqD2jchaSrdIoWgvfNxIulalGP4PA2h/MOhOFRU8INWGg+p
+         9/K6+o9nTorP8V3DJg3MEiITDlFJ3kVc0uiDu+KbDlrYlrbRY6VDi10880Y56tGs1j+Z
+         vZbA==
+X-Forwarded-Encrypted: i=1; AJvYcCWAz9XijH8tVFWybG6JfZ/c5Xmg/CzCSLbhllTRMMUmNocA50fxaRAIhoyDSx31BCV+83CEEfd9VUf9Ug==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOLbf53dfcrrBRtn78D7r5JQoTEkCWjsngBQ1UuHoA9zqcwu+g
+	af2MixuG8AswLHLkT4gp4rx//lOgaImcv04vedB2s9Y1GfPE3qQfDdB630wLFkKijB6ZYI2A0+p
+	eYOkocSA=
+X-Gm-Gg: ASbGncs04Bx4EUTWvrbPAjO0RohOiCXqmQaQwT25hw0V53v8LBSASSjD9eH+qf9O7Pc
+	dIgYfLA/X6ZbswrfzMKDpzirFnG+VIa8+oeiQb3w0/NSkrzBWi8e1/SRT1mmMIzYCtqiJDkscXE
+	9qfDCrpZQAuFWpCyfKwhSvFeUniWoYlybJ5c9JSJREzhtXSfIT0p11xFNf6PWoWBNQV6Vbinl3U
+	Oj4jbOEbXmXySo1qKh7leSv+77QaucKdkAVgFnOGeQJWi32yeCHiPb/zkXH8iTNrbhCJgm1u6I0
+	htmKE5kiBEPLiVT9AL9xu8hxwaxGlsH2KJcRU4+FtAqJdOx0xkRJKRc+HOdbkRZNrakabJuFHYi
+	FeSeUxZmcvYSYqD0Td9SdED1oEv49RsYHZXJX
+X-Google-Smtp-Source: AGHT+IH5UeLQz0kG4my/FyTVcaNuLGRO2KTNtXiaLdcb53J3S+odNmS9OReP2JvH38grHvcrlODKtA==
+X-Received: by 2002:a17:907:7e98:b0:ade:5ba:40e6 with SMTP id a640c23a62f3a-adfad3137cemr711582366b.18.1750016267415;
+        Sun, 15 Jun 2025 12:37:47 -0700 (PDT)
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com. [209.85.208.45])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60900cdd4f1sm1955045a12.2.2025.06.15.12.37.46
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 15 Jun 2025 12:37:46 -0700 (PDT)
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-60700a745e5so8678184a12.3
+        for <linux-riscv@lists.infradead.org>; Sun, 15 Jun 2025 12:37:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVJYrVGP+INHDJYyciyo3xMhDT2PcN4bB+3Il6WrW6/ICKrT56LPpVEn5rPBg7teFjcDJo3p4OPYwjtxg==@lists.infradead.org
+X-Received: by 2002:a05:6402:50cc:b0:5f3:26bb:8858 with SMTP id
+ 4fb4d7f45d1cf-608d09a2d16mr6285703a12.34.1750016266135; Sun, 15 Jun 2025
+ 12:37:46 -0700 (PDT)
+MIME-Version: 1.0
+References: <aEjo6YZn59m5FnZ_@gondor.apana.org.au> <20250611033957.GA1484147@sol>
+ <aEj8J3ZIYEFp_XT4@gondor.apana.org.au> <20250611035842.GB1484147@sol>
+ <20250613053624.GA163131@sol> <aEu5cyDOMcKteW_b@gondor.apana.org.au>
+ <20250613055439.GB163131@sol> <aEvmmr0huGGd2Psv@gondor.apana.org.au>
+ <20250615031807.GA81869@sol> <CAMj1kXGd93Kg0Vs8ExLhK=fxhRBASU9sOPfgYUogv+rwVqgUsg@mail.gmail.com>
+ <20250615184638.GA1480@sol>
+In-Reply-To: <20250615184638.GA1480@sol>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Sun, 15 Jun 2025 12:37:29 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wiAh0fnfm-LomMWDV=OGhCHCp0C_7xZASE_8pZ3ZP0CXg@mail.gmail.com>
+X-Gm-Features: AX0GCFsirgA8Ga0u26X0ToUgNd-a86j5gL8Na8fIUJo1Hy2_joO0gogaJwm_iSM
+Message-ID: <CAHk-=wiAh0fnfm-LomMWDV=OGhCHCp0C_7xZASE_8pZ3ZP0CXg@mail.gmail.com>
 Subject: Re: [PATCH] crypto: ahash - Stop legacy tfms from using the set_virt
  fallback path
-Message-ID: <20250615184638.GA1480@sol>
-References: <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
- <20250611033957.GA1484147@sol>
- <aEj8J3ZIYEFp_XT4@gondor.apana.org.au>
- <20250611035842.GB1484147@sol>
- <20250613053624.GA163131@sol>
- <aEu5cyDOMcKteW_b@gondor.apana.org.au>
- <20250613055439.GB163131@sol>
- <aEvmmr0huGGd2Psv@gondor.apana.org.au>
- <20250615031807.GA81869@sol>
- <CAMj1kXGd93Kg0Vs8ExLhK=fxhRBASU9sOPfgYUogv+rwVqgUsg@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXGd93Kg0Vs8ExLhK=fxhRBASU9sOPfgYUogv+rwVqgUsg@mail.gmail.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	sparclinux@vger.kernel.org, x86@kernel.org, Jason@zx2c4.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_114706_915477_6AC04482 
-X-CRM114-Status: GOOD (  28.94  )
+X-CRM114-CacheID: sfid-20250615_123750_259583_6B6DE39C 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,62 +113,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 15, 2025 at 09:22:51AM +0200, Ard Biesheuvel wrote:
-> On Sun, 15 Jun 2025 at 05:18, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> ...
-> > After disabling the crypto self-tests, I was then able to run a benchmark of
-> > SHA-256 hashing 4096-byte messages, which fortunately didn't encounter the
-> > recursion bug.  I got the following results:
-> >
-> >     ARMv8 crypto extensions: 1864 MB/s
-> >     Generic C code: 358 MB/s
-> >     Qualcomm Crypto Engine: 55 MB/s
-> >
-> > So just to clarify, you believe that asynchronous hash drivers like the Qualcomm
-> > Crypto Engine one are useful, and the changes that you're requiring to the
-> > CPU-based code are to support these drivers?
-> >
-> 
-> And this offload engine only has one internal queue, right? Whereas
-> the CPU results may be multiplied by the number of cores on the soc.
-> It would still be interesting how much of this is due to latency
-> rather than limited throughput but it seems highly unlikely that there
-> are any message sizes large enough where QCE would catch up with the
-> CPUs. (AIUI, the only use case we have in the kernel today for message
-> sizes that are substantially larger than this is kTLS, but I'm not
-> sure how well it works with crypto_aead compared to offload at a more
-> suitable level in the networking stack, and this driver does not
-> implement GCM in the first place)
-> 
-> On ARM socs, these offload engines usually exist primarily for the
-> benefit of the verified boot implementation in mask ROM, which
-> obviously needs to be minimal but doesn't have to be very fast in
-> order to get past the first boot stages and hand over to software.
-> Then, since the IP block is there, it's listed as a feature in the
-> data sheet, even though it is not very useful when running under the
-> OS.
+On Sun, 15 Jun 2025 at 11:47, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> So yes, QCE seems to have only one queue, and even that one queue is *much*
+> slower than just using the CPU.  It's even slower than the generic C code.
 
-With 1 MiB messages, I get 1913 MB/s with ARMv8 CE and 142 MB/s with QCE.
+Honestly, I have *NEVER* seen an external crypto accelerator that is
+worth using unless it's integrated with the target IO.
 
-(BTW, that's single-buffer ARMv8 CE.  My two-buffer code is over 3000 MB/s.)
+Now, it's not my area of expertise either, so there may well be some
+random case that I haven't heard about, but the only sensible use-case
+I'm aware of is when the network card just does all the offloading and
+just does the whole SSL thing (or IPsec or whatever, but if you care
+about performance you'd be better off using wireguard and doing it all
+on the CPU anyway)
 
-I then changed my benchmark code to take full advantage of the async API and
-submit as many requests as the hardware can handle.  (This would be a best-case
-scenario for QCE; in many real use cases this is not possible.)  Result with QCE
-was 58 MB/s with 4 KiB messages or 155 MB/s for 1 MiB messages.
+And even then, people tend to not be happy with the results, because
+the hardware is too inflexible or too rare.
 
-So yes, QCE seems to have only one queue, and even that one queue is *much*
-slower than just using the CPU.  It's even slower than the generic C code.
+(Replace "network card" with "disk controller" if that's your thing -
+the basic idea is the same: it's worthwhile if it's done natively by
+the IO target, not done by some third party accelerator - and while
+I'm convinced encryption on the disk controller makes sense, I'm not
+sure I'd actually *trust* it from a real cryptographic standpoint if
+you really care about it, because some of those are most definitely
+black boxes with the trust model seemingly being based on the "Trust
+me, Bro" approach to security).
 
-And until I fixed it recently, the Crypto API defaulted to using QCE instead of
-ARMv8 CE.
+The other case is the "key is physically separate and isn't even under
+kernel control at all", but then it's never about performance in the
+first place (ie security keys etc).
 
-But this seems to be a common pattern among the offload engines.
-I noticed a similar issue with Intel QAT, which I elaborate on in this patch:
-https://lore.kernel.org/r/20250615045145.224567-1-ebiggers@kernel.org
+Even if the hardware crypto engine is fast - and as you see, no they
+aren't - any possible performance is absolutely killed by lack of
+caches and the IO overhead.
 
-- Eric
+This seems to also be pretty much true of async SMP crypto on the CPU
+as well.  You can get better benchmarks by offloading the crypto to
+other CPU's, but I'm not convinced it's actually a good trade-off in
+reality. The cost of scheduling and just all the overhead of
+synchronization is very very real, and the benchmarks where it looks
+good tend to be the "we do nothing else, and we don't actually touch
+the data anyway, it's just purely about pointless benchmarking".
+
+Just the set-up costs for doing things asynchronously can be higher
+than the cost of just doing the operation itself.
+
+             Linus
 
 _______________________________________________
 linux-riscv mailing list
