@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB488C71136
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 12:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C41C71155
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 12:18:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HIMlf7Up5igpwNhigMZjPvFScTCFE/PVqj81DKQIlas=; b=FlCfHgqwqNwxrY
-	1jtV4PFB0xdbgQ4Xnp6AsygrRRQc8zrdYaRniRd7zJuq0iHBVL0Eo0W2nNbEBD3Jb+w3Xs+3dyDeD
-	f91JWPG9vQ2aLTO2+Wz4Apr3W86xsfjHdfEzOFcYgilZdYxiU4a6P19/GgdnZGBchBh9kgxA5fmrQ
-	BWUdw2SQVX3A6h/C2v2bXcGbuPg6v3wNf3nEL7BgKdcjUhXkG0/LH24Ngm2aQDxLKCDdRysxt5Bcj
-	P/bG6o42wkwkzkquYsgIRlmmWLSUh9pZQO1iwT9/UNhuP7FUhd0lzK2DKG3n11Qvm6t5vlz2zUDUr
-	lQJesm/LaD5GVYZ73ocQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uwxml3nTYLvczo++z50RmCxSkT/VcGen6csI0ZK71FI=; b=wfnjJPMJR2nF/v
+	yKbzaPO/0oO/x7JoQdbRkfqItmWq9/t3tqZm83y3NPxsksbTjxsW0B5aVXb2s8AhnUpFkgznz3csf
+	q3kTjP++8RzRqqbAWe9Z2ULcu0K2RHt4Zi1eR/7ktH0q6YAqfJ3/s5l7x7bOJ8UH91uo+rZoGj3S1
+	IAIP1mHC/JQ+PbRUbKFWJElY5fH6g9Z6Dmoe8fWxPK14v/jYqIOHPwTw8XWT7se4rFkckYcvthITG
+	AXHEQ4MwyTbhm1JBpUHIvdXxReCJWXYC8k036bz8n6H/8NzoEbkPeC9LsHxPvSB8aPn6iCji29Bbi
+	GKu2qsnctL87bIcg4Z2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR8nX-00000004L4Z-40gC;
-	Mon, 16 Jun 2025 12:18:47 +0000
+	id 1uR8nZ-00000004L5U-0RY5;
+	Mon, 16 Jun 2025 12:18:49 +0000
 Received: from naesa05.arrow.com ([216.150.161.26])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR7vx-00000004BaR-0pq5
+	id 1uR7vy-00000004BbQ-1lTZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Jun 2025 11:23:26 +0000
+	Mon, 16 Jun 2025 11:23:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=einfochips.com; i=@einfochips.com; l=2938; q=dns/txt;
-  s=NAESA-Selector1; t=1750073005; x=1781609005;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=npKvrSYMx0G7203vj1pvhDj5mrw+axGZsxDIgzM8hM4=;
-  b=EgkWzC1Fbtndwl6T61VBAS7PNEAVuwhS3hBmVAje+1nQMv+rCQ3H7dc6
-   4d0FY+FMI9zYQz10SmDH2OEAWA4bMmUER5/rYAeWp3xcWfi+q4Y3amw3V
-   pxxiFs9f88Eu4lbwjKvbOJ2H7DOCXRV7tWnOx6MnOYmF2bh5YhA1ouZVz
-   dOMCR0wBgHQ9EVW0L1eq302YxWilfHMqWc/glq0dcq+OH6C2cQYrEJz2l
-   pGCf8Vgiwoou85eE/mHrtgnGSteD/fmFjoCBwUumaEJ8IXMw9N8luiWvT
-   1HLC05bR5IG/8TlDSFSx9AWpQp2zy5PaUAhKXtfeoKFRZkPdNR6atak94
+  d=einfochips.com; i=@einfochips.com; l=754; q=dns/txt;
+  s=NAESA-Selector1; t=1750073007; x=1781609007;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=i5P0tKBpmZ6mD0d91tJFPrQutrJ8bbOu8k+h7YJYWME=;
+  b=sgLIy/1jUsTCjB/e1h4QXpOrYZbwzbDNwJdzRbxOUSZUzehiODOnbqh0
+   HVmfiJQ3soQtDtNK2JImN7VKWDIwqQngW1gfb9RF9hshIe76CJFJyQ5Vz
+   5sn3DSAAZg8rJpjdd0YiBXs1R23RHanT4wqHsl1Bl1wwpVE2y/mpqJX/c
+   m0ns23uZHJXYUFGYPJkg2pDkw5j4WUXJ+UyPor7WoGNumTNMVVmcZrtXl
+   3TyjZcXnBqFCwUaIZ8HR8oSWoFMdjDUvMh48GgQ7qqECtDyP1Y6KscAt2
+   iJVM7emFUVS1fouYxomJIgYcc+9MEG8o+MYzR4OgPPN7vOVnX3JLhlS44
    A==;
-X-CSE-ConnectionGUID: 5heFyusuT2CiECH8iHH56g==
-X-CSE-MsgGUID: M+RciZ61RPe/1R332UDRpA==
+X-CSE-ConnectionGUID: wvjxoQH1TlWxvJvbzsG3bg==
+X-CSE-MsgGUID: AqhCloNkQuiGRCjFU3ZN1A==
 X-IronPort-AV: E=Sophos;i="6.16,241,1744092000"; 
-   d="scan'208";a="26863642"
+   d="scan'208";a="26863656"
 Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa05out.arrow.com with ESMTP; 16 Jun 2025 05:23:17 -0600
+  by naesa05out.arrow.com with ESMTP; 16 Jun 2025 05:23:20 -0600
 Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.14393.4169);
 	 Mon, 16 Jun 2025 16:53:16 +0530
 From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
@@ -75,15 +75,18 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 0/7] Basic device tree support for ESWIN EIC7700 RISC-V SoC
-Date: Mon, 16 Jun 2025 16:53:09 +0530
-Message-Id: <20250616112316.3833343-1-pinkesh.vaghela@einfochips.com>
+Subject: [PATCH v4 2/7] riscv: Add Kconfig option for ESWIN platforms
+Date: Mon, 16 Jun 2025 16:53:11 +0530
+Message-Id: <20250616112316.3833343-3-pinkesh.vaghela@einfochips.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250616112316.3833343-1-pinkesh.vaghela@einfochips.com>
+References: <20250616112316.3833343-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 16 Jun 2025 11:23:16.0327 (UTC) FILETIME=[0E03CF70:01DBDEB1]
+X-OriginalArrivalTime: 16 Jun 2025 11:23:16.0452 (UTC) FILETIME=[0E16E240:01DBDEB1]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_042325_294262_F236D026 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250616_042326_515262_E6026C2D 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,75 +103,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for ESWIN EIC7700 SoC consisting of SiFive Quad-Core
-P550 CPU cluster and the first development board that uses it, the
-SiFive HiFive Premier P550.
+Create a config option to build ESWIN SoC specific resources
 
-This patch series adds initial device tree and also adds ESWIN
-architecture support.
+Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/Kconfig.socs | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Boot-tested using intiramfs with Linux v6.16-rc1 on HiFive Premier
-P550 board using U-Boot 2024.01 and OpenSBI 1.4.
-
-Changes in v4:
-- Rebased the patches to kernel v6.16-rc1
-- Drop patches that are already merged
-- Added "Acked-by" tag of "Min Lin" for Patch 4
-- Corrected the commit message of Patch 7 (Patch #10 in v3)
-- Added "Tested-by" tag of "Ariel D'Alessandro" for Patch 7
-- Link to v3: https://lore.kernel.org/lkml/20250410152519.1358964-1-pinkesh.vaghela@einfochips.com/
-
-Changes in v3:
-- Rebased the patches to kernel 6.15.0-rc1
-- Added "Reviewed-by" tag of "Rob Herring" for Patch 4
-- Updated MAINTAINERS file
-  - Add GIT tree URL
-- Updated DTSI file
-  - Added "dma-noncoherent" property to soc node
-  - Updated GPIO node labels in DTSI file
-- Link to v2: https://lore.kernel.org/lkml/20250320105449.2094192-1-pinkesh.vaghela@einfochips.com/
-
-Changes in v2:
-- Added "Acked-by" tag of "Conor Dooley" for Patches 1, 2, 3, 7 and 8
-- Added "Reviewed-by" tag of "Matthias Brugger" for Patch 4
-- Updated MAINTAINERS file
-  - Add the path for the eswin binding file
-- Updated sifive,ccache0.yaml
-  - Add restrictions for "cache-size" property based on the
-    compatible string
-- Link to v1: https://lore.kernel.org/lkml/20250311073432.4068512-1-pinkesh.vaghela@einfochips.com/
-
-Darshan Prajapati (2):
-  dt-bindings: riscv: Add SiFive P550 CPU compatible
-  dt-bindings: interrupt-controller: Add ESWIN EIC7700 PLIC
-
-Min Lin (2):
-  riscv: dts: add initial support for EIC7700 SoC
-  riscv: dts: eswin: add HiFive Premier P550 board device tree
-
-Pinkesh Vaghela (1):
-  riscv: Add Kconfig option for ESWIN platforms
-
-Pritesh Patel (2):
-  dt-bindings: vendor-prefixes: add eswin
-  dt-bindings: riscv: Add SiFive HiFive Premier P550 board
-
- .../sifive,plic-1.0.0.yaml                    |   1 +
- .../devicetree/bindings/riscv/cpus.yaml       |   1 +
- .../devicetree/bindings/riscv/eswin.yaml      |  29 ++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- MAINTAINERS                                   |   9 +
- arch/riscv/Kconfig.socs                       |   6 +
- arch/riscv/boot/dts/Makefile                  |   1 +
- arch/riscv/boot/dts/eswin/Makefile            |   2 +
- .../dts/eswin/eic7700-hifive-premier-p550.dts |  29 ++
- arch/riscv/boot/dts/eswin/eic7700.dtsi        | 345 ++++++++++++++++++
- 10 files changed, 425 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/riscv/eswin.yaml
- create mode 100644 arch/riscv/boot/dts/eswin/Makefile
- create mode 100644 arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
- create mode 100644 arch/riscv/boot/dts/eswin/eic7700.dtsi
-
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index a9c3d2f6debc..3cd0999fe84f 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -1,5 +1,11 @@
+ menu "SoC selection"
+ 
++config ARCH_ESWIN
++	bool "ESWIN SoCs"
++	help
++	  This enables support for ESWIN SoC platform hardware,
++	  including the ESWIN EIC7700 SoC.
++
+ config ARCH_MICROCHIP_POLARFIRE
+ 	def_bool ARCH_MICROCHIP
+ 
 -- 
 2.25.1
 
