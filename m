@@ -4,87 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1098EC71155
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 14:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA856C7115F
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 15:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yO3wJhVwUj9JcUibKz8scWCgTtPruNtFzECVuSrLn4Y=; b=o3YW4bGUdrAq9A
-	VtQftHyOHbH4hCyjgzev+kUT7UwaSRJx3xLg4AzN8c2LlBNEkpNEz70CT26hRNiofIMx19bwUtWQt
-	I3vpqQ9mE5RodWjrSVbeIBnp8gU2Hwh/YK3JpHsHlfoXs2xRvtNtzQAZNFJ16tXmzs1FS07OpxJ3q
-	zTk2ayXSWQZkNg2Lw0QdVxCgSHNcavZivCGRw19t2F5XKay/mH696UUu4J5smmk3cSaHS+XiNEEGJ
-	MKzXbzyDPRiRahDUAwSVBH1pMGwLIL/v9uyaA7mK9ZT6/vNtHUYR0e2El7/3KSg9pzXo1Xzj5BbLF
-	8YM34+ogh+N9uZ68XnWA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9GMdKy/iyhNwjxYA8dHbDcxUTBW8LXzSWQeOyn/B6Ic=; b=1lYYiBVCURVANS
+	Ac8QA/gmszRBN747hoXoE6OlnRoDgFK/srv6QT5bJx4RBK2+8uyfGc4cV+V6sOFD5LpRHEZVG80Tq
+	u96VSogiIMVEB6bCtxWsl4LQtF0dXRitO36DOSL4RCtNwLP60ZONRqqlr7d030X/AFw6b2bKNhGCY
+	WcA6+wHEawBOPUe2pzeof6wFk5jtdqnQ3ipu3mD1i6iJNk//UIYEQUl0HaCQlxwkWVCUalAg/FFnk
+	MB0Tm6fwHrjBx3SqD7zu+/h1IwA2avHlMS0b1PB9oOxRpgN441/KCg+zFZQqQ1xtaoP+3Oo7tBaed
+	Ew026Eu5MALzAthIb9wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRAWB-00000004efb-1nCr;
-	Mon, 16 Jun 2025 14:08:59 +0000
-Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
+	id 1uRBiW-00000004ovP-3pYs;
+	Mon, 16 Jun 2025 15:25:48 +0000
+Received: from mail-bn8nam11on2062a.outbound.protection.outlook.com ([2a01:111:f403:2414::62a] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR9JN-00000004R3m-438Z
-	for linux-riscv@lists.infradead.org;
-	Mon, 16 Jun 2025 12:51:43 +0000
-Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-3ddc5084952so19044025ab.2
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Jun 2025 05:51:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1750078301; x=1750683101; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=S/rRqga4nciTe+40s1lGUJde2Ttgzu3tg/+nM/gCFAE=;
-        b=Fc252B5xboa4ttrfign45BbhvOActkQw6hAYAmBXTGLtF9ckxJdSLivv+gwgMxXMF6
-         Hf6O6wOhavoUOpzcsnUMyeJdHPu6I+3TQb9igPvSEoCb1m2aU1R3VqjuLjejuICzI409
-         ONbvNsduyL21KLICEWgoz9gwQrXWDN2JpHJ6w8n08dyaqPlpJQL1X6x6tTyOFQOPAH8L
-         knKPEJj2NtAHsO012eyccxac0xzutgGs+WYzJka0Kg0PbQqmjO1SrOaWMJV71b+C+Fti
-         +XmU3ack7dyeUI4WhgKUtuC8D1Kmy6MPuOmx+FcKaQ2TrDsaJ1aW+zk5BJE9+s6xqtRF
-         3qyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750078301; x=1750683101;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=S/rRqga4nciTe+40s1lGUJde2Ttgzu3tg/+nM/gCFAE=;
-        b=Dxp4zjsL1BBa252EykZOiajey7C6Afj0HhK6fM8tVwIzEOZW2DHZzhmEebc1vinCkx
-         c9P5RT2oiTCwXTxWFiIw4ZqsnkCeXlgqBOPMzbj5HubEYMDY6yF3gr66o//p5Kb4jR1f
-         vQVtgPVZdwgTSqunLCPPSaPMmZOMDjFqTiMZSg3U2BoZuVD46fntzR4Kz6+S6TN4+Plk
-         kyJyyDn+QkzDVoeaz5C2PfaoPRyVVIT8lCloLq6P0HBen6vJzULcomNqGYbIQTYnsY/I
-         hAKaTxv/zN8UvlJ/P1h4c4ZRUmngp5Q+qQ9aoQeaTJQaf42vE9qb45wAQLdVNr4yLdJ3
-         OxbA==
-X-Forwarded-Encrypted: i=1; AJvYcCUGz1lKVpclzReBVvEYJzyIFblZ8T2FTGz0RDubEnZxRXeck+lcdlA3SmdQCvpGK3mbCRyagmRHPvb+FQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YytHXGbv64SeLIMJq9lsED6r89v1KOE3P08XD6iC2mlIiEGEZil
-	pzo/R/HHxYcq8UppguMM1x9cQVtb3KiByM/i1mjQJLB7yOV3SWV/6eHyVIY92kkUIkk=
-X-Gm-Gg: ASbGnct0raHwZTiaupp5wCF79shvRYDYBumoJk8KEPReW/h99wHtGpieZz5fdGTLZmn
-	dDC7KUTkVSbMzBDYD1ti3B28CXID+7GgBtYXoVwnGvJG46Ix1T+p77BJ7T6jTo/6v2pME+RwnyW
-	LHToJZ1TL+jXsSg+n7xM5K6ZQgYFkbyDfE9rRfDeJKSouQgZHoq3FhGJk5dm5v3+J8n/uBVLr1P
-	sx31DEqsvJy/J2Z3P9wQ5Jf/gJd77ZKiHFYQ+nuX0GrAHLzGRIMduOdTd7/Dhwzsl9PD5oKq005
-	L8n+lT6PfPBm+MMvklPtjJH/6M/2fB5tsmYB7p3htHFI14EG8sgmJBzPnlx0GOuIQVK/uRWa5bJ
-	M+L6I86w5hqjMLPmvC05b7lHn/8xJgTk=
-X-Google-Smtp-Source: AGHT+IGBM9IfcIVPXLIx3r77XwCbfXk8tkksQXCR2d/8SBqn06Uhn07s7o49RLoWiyjUv193p5+5QQ==
-X-Received: by 2002:a05:6e02:1529:b0:3dd:cbbb:b731 with SMTP id e9e14a558f8ab-3de07c55b92mr92098655ab.9.1750078300563;
-        Mon, 16 Jun 2025 05:51:40 -0700 (PDT)
-Received: from presto.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3de019b442fsm20352865ab.2.2025.06.16.05.51.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Jun 2025 05:51:40 -0700 (PDT)
-From: Alex Elder <elder@riscstar.com>
-To: andi.shyti@kernel.org,
-	dlan@gentoo.org,
-	troymitchell988@gmail.com
-Cc: elder@riscstar.com,
-	linux-i2c@vger.kernel.org,
-	spacemit@lists.linux.dev,
+	id 1uR8Ui-00000004H9L-2O0S;
+	Mon, 16 Jun 2025 11:59:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Di4wdesScfi57RM6aSSejuuqQaUDIklY9JmYo2w+4pr2sesTlmGJXqDeg0fgxzj2JKgkHXAP2bnk2jlegJKzB4BKidGsU8eu9O2UDaf9rMBMwZ1twbHTRTvOYBgmievP5MfDnJIPMS/n1lH51vBA5odGUtvChZf8uz2tu6RrdG7wDaeR1AWCbTVNvPrDKidRq8PLvVvExEO/YyUYoDSUx9erLxvCqfbu/Lo7imHnt6H4V4ob99RfgiYouu70yUYFOxR+IRSAJLsTMx/z00s7fJ7qgBhbaCuikwyF4NAseiYdvsnjOJXwM/12pk18infA05bPQsJparTG8oFhW5dt/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+xUx1c5+/hnEU6D1bGTRIx4BR8cbdVRqbt77ULR2tT4=;
+ b=Soh8R8uGVYZKRxUyC5B7493TZc4FCT7MpJBbxGX6QfimU4Us24LfBE8oyyVy2r6wwicZPVxkERsYiusI3GWP0jhMDV99V8t/EmOpnGsXZdR7KJUehfzXRvTIZCa6nkxxbYqj8tzTwNo2ipAYDr967KYU6efiCPS7NzyNwlihJQiwRxRU41ByLfyniQ2HbTpyHbSyCu1QVwAfnlPpr+/irnfKDewA4yCuRHaXW3ePoeGh8l+3P39KCbw80tV2hFnX8ZqzHo4Ae8w0sBxtLv2CwvXYZqDE0KcUvluz0W+s5/RHMJ7JobmgCdvtwn/7MOs3K8l+O/V6PHeu1vSJSjz3/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+xUx1c5+/hnEU6D1bGTRIx4BR8cbdVRqbt77ULR2tT4=;
+ b=kUJqGMQvS/vtaOxHcPvn5viiUPIfOlP+N0F/Knkea2FAXMW6z295YyakyJ3+qSRm4E3nlijrrJ1Y5nYgHqq4cMui6TA6DzYNwyVTnvEKHr38M/vTqL8D0/Ye9baAa4rCM+2WB92tLjgSerxl430suYCzpeOoHYu7kl6RQ+2YZeG+jCJ9tSi1hqPgtXfLfZFePUtiFxDxQhIXIWURg/9ts/XMbTUryZOSvJ/GKsr24HVThip6taovq+10Vo8deSMAta71WzLcntCpNJ4eNSuTNEj5PPvpHzpPlTEQ53e3dgr6vxDqhqwg8NkEn81O//CtUB9CepKuQ9NKMYwkC/HwDQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY8PR12MB7705.namprd12.prod.outlook.com (2603:10b6:930:84::9)
+ by SA3PR12MB7878.namprd12.prod.outlook.com (2603:10b6:806:31e::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Mon, 16 Jun
+ 2025 11:59:16 +0000
+Received: from CY8PR12MB7705.namprd12.prod.outlook.com
+ ([fe80::4b06:5351:3db4:95f6]) by CY8PR12MB7705.namprd12.prod.outlook.com
+ ([fe80::4b06:5351:3db4:95f6%5]) with mapi id 15.20.8835.026; Mon, 16 Jun 2025
+ 11:59:16 +0000
+From: Alistair Popple <apopple@nvidia.com>
+To: akpm@linux-foundation.org
+Cc: linux-mm@kvack.org,
+	Alistair Popple <apopple@nvidia.com>,
+	gerald.schaefer@linux.ibm.com,
+	dan.j.williams@intel.com,
+	jgg@ziepe.ca,
+	willy@infradead.org,
+	david@redhat.com,
+	linux-kernel@vger.kernel.org,
+	nvdimm@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-xfs@vger.kernel.org,
+	jhubbard@nvidia.com,
+	hch@lst.de,
+	zhang.lyra@gmail.com,
+	debug@rivosinc.com,
+	bjorn@kernel.org,
+	balbirs@nvidia.com,
+	lorenzo.stoakes@oracle.com,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] i2c: k1: check for transfer error
-Date: Mon, 16 Jun 2025 07:51:36 -0500
-Message-ID: <20250616125137.1555453-1-elder@riscstar.com>
-X-Mailer: git-send-email 2.45.2
+	linux-cxl@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	John@Groves.net,
+	m.szyprowski@samsung.com,
+	Jason Gunthorpe <jgg@nvidia.com>
+Subject: [PATCH v2 08/14] mm/khugepaged: Remove redundant pmd_devmap() check
+Date: Mon, 16 Jun 2025 21:58:10 +1000
+Message-ID: <d4aa84277015fe21978232ed4ac91bd7270e9ee0.1750075065.git-series.apopple@nvidia.com>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
+References: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
+X-ClientProxiedBy: SY5P282CA0014.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:208::6) To CY8PR12MB7705.namprd12.prod.outlook.com
+ (2603:10b6:930:84::9)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PR12MB7705:EE_|SA3PR12MB7878:EE_
+X-MS-Office365-Filtering-Correlation-Id: 721e4d2a-a9de-4cba-a206-08ddaccd37ee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?H59VhGGio/sPZp/kabZ3OQ/K9+BtcrpGk3N87trms3MbWlBrSbw3jxdbF6Uw?=
+ =?us-ascii?Q?jhfjYglKGQ3mRgEClBU5svhZg3Mx3cx16hofOJVzLLT8H/iNL6+vMVmyaf5I?=
+ =?us-ascii?Q?iznmCRCg5bBcVstYAnm92b84/jSR4wkQY+/9mdnf6BmFq8m5VP0BySiAQng/?=
+ =?us-ascii?Q?sfMc+D0ofcvBQ1cMHj/c77YIYR3QNAlvhhtHWGD76TUKiV81zsEl+jp1jzCM?=
+ =?us-ascii?Q?Eve6DklwM8kEpQsd2BTZYjQVidAY0dqJ+qjYpOWEft75WPWufrUTTPAbLm3G?=
+ =?us-ascii?Q?AF/JKs08rtlMtXlEP1SZb0OLDjQBtBd4ujwSQSyn2+uZk0sQWHO3m0Fw9DGV?=
+ =?us-ascii?Q?W60iUZzXsTuZJZdZldRfsBt66feEoibj8ApVFiGcQxqrPGGWfmq8CaTsat1T?=
+ =?us-ascii?Q?skcsjAd0YYRlmGW5WV4099J07J5Vdj6nLW3lQ3VDuNFNOoLOHJqBq4RgjH0+?=
+ =?us-ascii?Q?xR7p8p33q79SA1yv0My69GSj/SiaJnJlfDatgEZ7ulkjmcI2VTOxdw5OZZ4b?=
+ =?us-ascii?Q?ysQ0KhLmoWNyci39wlqoV/CQFacOGA32WSmpiyrVf0Vfy9JAh13aMyMNjlob?=
+ =?us-ascii?Q?TXm1IuTQn1od3A/vEx39nm1XlVDV16KQr8m79XKRjtc5pgBEHLYXhcYUeeo6?=
+ =?us-ascii?Q?Nvfkd3rmXve3z/HzBu87XCpHXvvko5HA87wtVU8aqUjVYoSOaG+8LfLdb7MT?=
+ =?us-ascii?Q?EkpULo92jxNPw2/Xw+6Yhnje9v+uPo6qCCZKx9w2UFkGgbL6pgjcBZNfkwDB?=
+ =?us-ascii?Q?daLLMomALvScknrvlXo8tTlDSO3KfS+KrOTxsmk/hAx1hFXopOmUYZtkVv7J?=
+ =?us-ascii?Q?JEdEisVMSed0kdUqzt2HijJKKAEzci2rTfBjQc3ZRg1XbCWFhssCgv+03EiV?=
+ =?us-ascii?Q?QVikQ9YsAvooAM7U2drBFEFtFUELES/9RvW/o8IRDcNeuuiZb+Mk85K6F3zI?=
+ =?us-ascii?Q?PCdNLdaKUdcb0ZJgFEneylItrsFMqZTyQei1fZ7v9HKbxUVpaJtnpd37gQFo?=
+ =?us-ascii?Q?BKdvJZaibJvN7Gul7NTJFkgogMVk/6ii+7b8kqMrgHr2YuIMWA5PqDUK+T6f?=
+ =?us-ascii?Q?IulMDeAPgIEwdQmyH4nTDd+tE2r/X4or1M2lAB3gG7tp4ArUmKO4jWZaMtcR?=
+ =?us-ascii?Q?jAL1k5oksDLnzWMwUXKqls66dKAH4423F4i/ySRwMqW9BbNR3OB7NudycST2?=
+ =?us-ascii?Q?xA0xDLHHLnnLAOLfjeC3pQesJUsmx4U63amvRdAOY5G8eguSviCvjKmgxubM?=
+ =?us-ascii?Q?bs1me8X1f9Qo/2bCJQpRU4f2A+Nk3hqvrUyyC/IdDQVu/L9jjNVAAoz3Mbey?=
+ =?us-ascii?Q?l0N+E28WUNhp2IBqRFNQlWSI7GHyly295SDBejg5plY2NRnhUacbvNiHjtm6?=
+ =?us-ascii?Q?pz1I/WqH87ubTjlZDxHNveDJ5E/oAMc9kQVdFmRt/CkbI4Lp1Uqyf1p3NYL0?=
+ =?us-ascii?Q?GCDiQoMJ09A=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB7705.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bQu8ti42BdFfL3A+xR9lv5GYytnnvncmr9ohk2cTnLvtGtZ1FxFjpNyO6jIb?=
+ =?us-ascii?Q?KfN0RI6SG+lbJimVKK00ehx8FOc77tnJPuyGMcp1KcAKqrzdTEVHIwqXdsNG?=
+ =?us-ascii?Q?ymOjcAvWkMj6ZxfBIoql58frN7bnAOhfD5V8zF0wDwKG2GpDY/DsjwV03SiE?=
+ =?us-ascii?Q?lws/pWhlpEdRc/u+8Rkl4NovHeFw3W6QXMFzeABiONWyt96zA78jsQYRibxa?=
+ =?us-ascii?Q?fKBxoplKg+jhYJNbaVG5oeW6VFp0msPisXaQKM3LVNLx1BkfqRE8MwH9NjEo?=
+ =?us-ascii?Q?lzUIfINja3VDRqTOEkoUQFseC56Xawdr5HRTsoA+QhmQ1xcWZ82isccxC5Di?=
+ =?us-ascii?Q?hwUlLm3H3n5SF3LrX8NaijrTGsGeu4o3oESd6Czh2VdUrqc3yZLKWlUOxjLy?=
+ =?us-ascii?Q?PI/ozwZmpsksBqGGx3zjd6hvqahflvl/lIXrbPJsW1Yrloi6a18l8WyyrGO9?=
+ =?us-ascii?Q?i/puccdhY8UCUNQ0F4GkaM6SQXmLxN5d8tT3BdZYOvrvR1sYagnsd/a1RwlB?=
+ =?us-ascii?Q?YKzBWfrrlCI1CFVpTjq2XfikPb78jfLtyQi4PJ9KGh2jLfn37skb3hXmYKje?=
+ =?us-ascii?Q?WQO/aJuX7TUxh03QMBAZBvdffDMc7izSbOcN2R4YK8xpezuEuSIIoXnqsRup?=
+ =?us-ascii?Q?CEftlDwMQAoBAHT9HWUbWwO8I091YN7gMX/aONQDz3yz9UrlvtYqsBVYzuPs?=
+ =?us-ascii?Q?lcOt/dQkgPg1aR9rffgPC6ae9MQKsG6hNb7yDrGBZsHc316+2hKSbvwj2Cb5?=
+ =?us-ascii?Q?rd8C9g+I6C2cFGYAoWai5DMRsvglH/5FTLWmES5VZK5xey/LSMrG/F3pwS2a?=
+ =?us-ascii?Q?2/vkFxzA/M7/bujoYDDb32Ul4Ea42Kg6+wFCRWZLato0Y7ivYupSbYxIEeId?=
+ =?us-ascii?Q?Ot0GJjjX5Gj9rYpVxASQ7sr15wi5+YtlJMSxFjyJmaEHuh3wSzd4ovatkbIg?=
+ =?us-ascii?Q?vxF7v3hAD3aV/KgX8BsPtAo1xOzdVwJ5BF8qQ7Kwy93h1i5RWrLWZoNjjkc0?=
+ =?us-ascii?Q?441+8v+8qFqGUQUejQdd2V0eXVxN5Jg1t2kfhOZ4CawVVLDvglUE5DUd5OC4?=
+ =?us-ascii?Q?6NG+JnENJnsjxku0psJcYrBHPd0xVwPUwUmCviETg3d9JsEYY8n7kvqb6bla?=
+ =?us-ascii?Q?s3EMRP3mgVRKQzXWYg6ZE537XljTVamaDK/IMmxaizRXxLvrk6BS2O/xG7ix?=
+ =?us-ascii?Q?HQKDkq9DzA48dltpzM5RLzOD5HBJ/3praB/GFZ8IuPuDcv2NcHE2GlOKRp8A?=
+ =?us-ascii?Q?Eqs99WE1Bf2kEH67JCkG6qUN3XSpgHOU2qXBF8vLdc1a3Wq6Tw4Ig4QcUMK3?=
+ =?us-ascii?Q?PzLqsuCMdr/7g2jhacffZLpGggOFI6jnnatSflHbllJ/nGJH/1S6myh37Lsn?=
+ =?us-ascii?Q?Qv/ghu2gvjuHls6n/f0DS5u4LQ6D5nBuKfvBKm1F8x9rYhK4id9Fm9mynlge?=
+ =?us-ascii?Q?F+IRKtvHbCe1eY964sP9xNzB6Bs59/Xb7vc+bEe4oFeDMFQR/Pq30Zmowjf4?=
+ =?us-ascii?Q?AuVk++luX/jc8euYBNYoAnhSdWwf7i1I9ryKeoIN3kykCZiDNjRwqkbfTrZZ?=
+ =?us-ascii?Q?HqyQCZ+RPEzsRnMpx+oRLjrCI87thTXeDBWrRcQX?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 721e4d2a-a9de-4cba-a206-08ddaccd37ee
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB7705.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 11:59:16.4500
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6VdXLI07pTpBfSsgZj2qgdFs50Wfd60VBRKXfhsZP5ez1RJ9Ui0MXHheK8fd015qVjVzO+e5+4Sfe5vnm8To4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7878
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_055142_071180_9EC895D2 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20250616_045920_625682_F5712641 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +183,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If spacemit_i2c_xfer_msg() times out waiting for a message transfer to
-complete, or if the hardware reports an error, it returns a negative
-error code (-ETIMEDOUT, -EAGAIN, -ENXIO. or -EIO).
+The only users of pmd_devmap were device dax and fs dax. The check for
+pmd_devmap() in check_pmd_state() is therefore redundant as callers
+explicitly check for is_zone_device_page(), so this check can be dropped.
 
-The sole caller of spacemit_i2c_xfer_msg() is spacemit_i2c_xfer(),
-which is the i2c_algorithm->xfer callback function.  It currently
-does not save the value returned by spacemit_i2c_xfer_msg().
-
-The result is that transfer errors go unreported, and a caller
-has no indication anything is wrong.
-
-When this code was out for review, the return value *was* checked
-in early versions.  But for some reason, that assignment got dropped
-between versions 5 and 6 of the series, perhaps related to reworking
-the code to merge spacemit_i2c_xfer_core() into spacemit_i2c_xfer().
-
-Simply assigning the value returned to "ret" fixes the problem.
-
-Fixes: 5ea558473fa31 ("i2c: spacemit: add support for SpacemiT K1 SoC")
-Signed-off-by: Alex Elder <elder@riscstar.com>
-Reviewed-by: Troy Mitchell <troymitchell988@gmail.com>
+Signed-off-by: Alistair Popple <apopple@nvidia.com>
+Acked-by: David Hildenbrand <david@redhat.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
-v3: Rebased on v6.16-rc2; included version in message subject
+ mm/khugepaged.c | 2 --
+ 1 file changed, 2 deletions(-)
 
- drivers/i2c/busses/i2c-k1.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-index 5965b4cf6220e..b68a21fff0b56 100644
---- a/drivers/i2c/busses/i2c-k1.c
-+++ b/drivers/i2c/busses/i2c-k1.c
-@@ -477,7 +477,7 @@ static int spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, in
- 
- 	ret = spacemit_i2c_wait_bus_idle(i2c);
- 	if (!ret)
--		spacemit_i2c_xfer_msg(i2c);
-+		ret = spacemit_i2c_xfer_msg(i2c);
- 	else if (ret < 0)
- 		dev_dbg(i2c->dev, "i2c transfer error: %d\n", ret);
- 	else
+diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+index 15203ea..d45d08b 100644
+--- a/mm/khugepaged.c
++++ b/mm/khugepaged.c
+@@ -945,8 +945,6 @@ static inline int check_pmd_state(pmd_t *pmd)
+ 		return SCAN_PMD_NULL;
+ 	if (pmd_trans_huge(pmde))
+ 		return SCAN_PMD_MAPPED;
+-	if (pmd_devmap(pmde))
+-		return SCAN_PMD_NULL;
+ 	if (pmd_bad(pmde))
+ 		return SCAN_PMD_NULL;
+ 	return SCAN_SUCCEED;
 -- 
-2.45.2
-
+git-series 0.9.1
 
 _______________________________________________
 linux-riscv mailing list
