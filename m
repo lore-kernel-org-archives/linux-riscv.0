@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F31C71157
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 03:00:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D0BC71136
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 03:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rUrhHJX2e0VoSQkIV+QXpDorjpvjsKuA/JfAuSC2N2s=; b=PeIeP1FaamtDOz
-	y96IkX9h3FBXYbybxr69L8WrBuoBkY0yvBJD8lSLi0EMTyzXXxSSD9pmKU5bm9uFSvOAYyNDygNKS
-	MIxqyAbQ2ULzuFsldSKenswRpX3OcKpgstn/6xO/OJtU3Itg2x5yP+kZ32XwUZ1bGpeORzmi+ypL1
-	UzL/RuQX06goiiw+l6CkVn+L9rUnBwEeCihi6g0+jcYMcYc265VLK1C6IhKTZKyYXatv5Lb7UMQ4D
-	cwPL69T1ld3t2j/ohC78WvnDRfoSxr3xAkweTX0/qTbt+QoXK5fJ5NlRPYeBc6ngPWloNTjzsGZpZ
-	/ilkYBMjU18gnlgG639A==;
+	List-Owner; bh=10CAQGML1AtzRxH217SjI/Ef9b59lQoW3Z++X7KAtKQ=; b=Sj0nqmBOQcVmDd
+	2Js+9M0tKZSz/LJZMeTPJB4U0ET7qDkjyHe8KH/lup/AYsnsWWP0Jl2hBPFxdQgoKxMeFQgyes0Gf
+	VsA+ZzfsAsCWT4UIMELQTj9BKKExKKosX985OwPJzCUEV6TIibnLN1ETDQa3WsaGM5X7DBJ58FLca
+	uwFYhyV++Zz2amjyXrYeNwh/tY9hvLuGWCtGjGp2eAyW0Y3EbYgL7/U4fFetBaiwnhWFMAyo/P3Rk
+	rsTvoowquu8brcXrAuzdzAXXH7awaIX1TJ8fUCrktBq1b77St+Ko6wxvwYuaIIPqDXYj4Vr3Szr2q
+	JM5VQ6THuTFG8fInIrOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR05L-00000003DAK-1Gh1;
-	Mon, 16 Jun 2025 03:00:35 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uR0VY-00000003Fnq-2pZk;
+	Mon, 16 Jun 2025 03:27:40 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQyrK-000000035hk-09eZ;
-	Mon, 16 Jun 2025 01:42:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 55345A50FB9;
-	Mon, 16 Jun 2025 01:42:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA646C4CEE3;
-	Mon, 16 Jun 2025 01:42:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750038121;
-	bh=CfGkdjItRjUxPxMuzjk2hmHTtGTMsfQDaBtxQ0B43iQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Z9IltaIRjEW++YedV0DJ3CfVXd+Xyc7fbLUV/Wx4ucCrQ0eghn9Gn9GJLaLoHQVh2
-	 XWSblcvLg5aJ6vTHHX0EpXozgUUi9Uzq6dkphqTF0lKlOQC4aum2aNqlQp8QB6g6HT
-	 esK2eRppRjAlbT7fR0qd47BLDn+Dehao1YqIPheBSkseELa9k0v7QMfHeuSMyONqFu
-	 XlhnCLu0f4rh7xQVIPjwyOol+ByI0FqzhdGYWsbVD+DLrHAd2ZCzDy3c4KUvwSFOoM
-	 F6i0N8lU4ojD88r5m6lMYIRLIwadhObfSa85hyV1Z44CHV+Nt1IS7Q+6NgA4WlnvUV
-	 F3EO2mtC8d6Ww==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH v2 17/17] crypto: sha512 - remove sha512_base.h
-Date: Sun, 15 Jun 2025 18:40:19 -0700
-Message-ID: <20250616014019.415791-18-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250616014019.415791-1-ebiggers@kernel.org>
-References: <20250616014019.415791-1-ebiggers@kernel.org>
+	id 1uR08B-00000003DoC-2MjK
+	for linux-riscv@lists.infradead.org;
+	Mon, 16 Jun 2025 03:03:33 +0000
+Received: from [192.168.33.113] (unknown [210.73.43.2])
+	by APP-01 (Coremail) with SMTP id qwCowAB37dtliU9oEkrWBg--.22555S2;
+	Mon, 16 Jun 2025 11:03:02 +0800 (CST)
+Message-ID: <680be7d5-9cb4-4c8f-814e-7f22d9304d06@iscas.ac.cn>
+Date: Mon, 16 Jun 2025 11:02:59 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Subject: Re: [PATCH net-next 2/4] net: spacemit: Add K1 Ethernet MAC
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Russell King
+ <linux@armlinux.org.uk>, Vivian Wang <uwu@dram.page>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250613-net-k1-emac-v1-0-cc6f9e510667@iscas.ac.cn>
+ <20250613-net-k1-emac-v1-2-cc6f9e510667@iscas.ac.cn>
+ <20250613063145.62871999@kernel.org>
+Content-Language: en-US
+In-Reply-To: <20250613063145.62871999@kernel.org>
+X-CM-TRANSID: qwCowAB37dtliU9oEkrWBg--.22555S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYL7k0a2IF6F4UM7kC6x804xWl14x267AK
+	xVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWUuVWrJwAFIxvE14AKwVWUJVWUGw
+	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26ryj
+	6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26F
+	4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr1j6rxdM2AIxVAIcxkEcVAq07x20xvE
+	ncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I
+	8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIE
+	c7CjxVA2Y2ka0xkIwI1lc2xSY4AK67AK6r48MxAIw28IcxkI7VAKI48JMxAqzxv26xkF7I
+	0En4kS14v26r4a6rW5MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
+	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwI
+	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
+	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
+	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8AhL5UUUUU==
+X-Originating-IP: [210.73.43.2]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_184202_240016_13955636 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20250615_200331_988822_62001DA3 
+X-CRM114-Status: UNSURE (   5.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,141 +92,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+Hi Jakub,
 
-sha512_base.h is no longer used, so remove it.
+Thanks for your review.
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
- include/crypto/sha512_base.h | 117 -----------------------------------
- 1 file changed, 117 deletions(-)
- delete mode 100644 include/crypto/sha512_base.h
+On 6/13/25 21:31, Jakub Kicinski wrote:
+> On Fri, 13 Jun 2025 10:15:08 +0800 Vivian Wang wrote:
+>> +	rx_ring->desc_addr = dma_alloc_coherent(&pdev->dev, rx_ring->total_size,
+>> +						&rx_ring->desc_dma_addr,
+>> +						GFP_KERNEL);
+>> +	if (!rx_ring->desc_addr) {
+>> +		kfree(rx_ring->rx_desc_buf);
+>> +		return -ENOMEM;
+>> +	}
+>> +
+>> +	memset(rx_ring->desc_addr, 0, rx_ring->total_size);
+> dma_alloc_coherent() already clears memory.
 
-diff --git a/include/crypto/sha512_base.h b/include/crypto/sha512_base.h
-deleted file mode 100644
-index d1361b3eb70b0..0000000000000
---- a/include/crypto/sha512_base.h
-+++ /dev/null
-@@ -1,117 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * sha512_base.h - core logic for SHA-512 implementations
-- *
-- * Copyright (C) 2015 Linaro Ltd <ard.biesheuvel@linaro.org>
-- */
--
--#ifndef _CRYPTO_SHA512_BASE_H
--#define _CRYPTO_SHA512_BASE_H
--
--#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
--#include <linux/compiler.h>
--#include <linux/math.h>
--#include <linux/string.h>
--#include <linux/types.h>
--#include <linux/unaligned.h>
--
--typedef void (sha512_block_fn)(struct sha512_state *sst, u8 const *src,
--			       int blocks);
--
--static inline int sha384_base_init(struct shash_desc *desc)
--{
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--
--	sctx->state[0] = SHA384_H0;
--	sctx->state[1] = SHA384_H1;
--	sctx->state[2] = SHA384_H2;
--	sctx->state[3] = SHA384_H3;
--	sctx->state[4] = SHA384_H4;
--	sctx->state[5] = SHA384_H5;
--	sctx->state[6] = SHA384_H6;
--	sctx->state[7] = SHA384_H7;
--	sctx->count[0] = sctx->count[1] = 0;
--
--	return 0;
--}
--
--static inline int sha512_base_init(struct shash_desc *desc)
--{
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--
--	sctx->state[0] = SHA512_H0;
--	sctx->state[1] = SHA512_H1;
--	sctx->state[2] = SHA512_H2;
--	sctx->state[3] = SHA512_H3;
--	sctx->state[4] = SHA512_H4;
--	sctx->state[5] = SHA512_H5;
--	sctx->state[6] = SHA512_H6;
--	sctx->state[7] = SHA512_H7;
--	sctx->count[0] = sctx->count[1] = 0;
--
--	return 0;
--}
--
--static inline int sha512_base_do_update_blocks(struct shash_desc *desc,
--					       const u8 *data,
--					       unsigned int len,
--					       sha512_block_fn *block_fn)
--{
--	unsigned int remain = len - round_down(len, SHA512_BLOCK_SIZE);
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--
--	len -= remain;
--	sctx->count[0] += len;
--	if (sctx->count[0] < len)
--		sctx->count[1]++;
--	block_fn(sctx, data, len / SHA512_BLOCK_SIZE);
--	return remain;
--}
--
--static inline int sha512_base_do_finup(struct shash_desc *desc, const u8 *src,
--				       unsigned int len,
--				       sha512_block_fn *block_fn)
--{
--	unsigned int bit_offset = SHA512_BLOCK_SIZE / 8 - 2;
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--	union {
--		__be64 b64[SHA512_BLOCK_SIZE / 4];
--		u8 u8[SHA512_BLOCK_SIZE * 2];
--	} block = {};
--
--	if (len >= SHA512_BLOCK_SIZE) {
--		int remain;
--
--		remain = sha512_base_do_update_blocks(desc, src, len, block_fn);
--		src += len - remain;
--		len = remain;
--	}
--
--	if (len >= bit_offset * 8)
--		bit_offset += SHA512_BLOCK_SIZE / 8;
--	memcpy(&block, src, len);
--	block.u8[len] = 0x80;
--	sctx->count[0] += len;
--	block.b64[bit_offset] = cpu_to_be64(sctx->count[1] << 3 |
--					    sctx->count[0] >> 61);
--	block.b64[bit_offset + 1] = cpu_to_be64(sctx->count[0] << 3);
--	block_fn(sctx, block.u8, (bit_offset + 2) * 8 / SHA512_BLOCK_SIZE);
--	memzero_explicit(&block, sizeof(block));
--
--	return 0;
--}
--
--static inline int sha512_base_finish(struct shash_desc *desc, u8 *out)
--{
--	unsigned int digest_size = crypto_shash_digestsize(desc->tfm);
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--	__be64 *digest = (__be64 *)out;
--	int i;
--
--	for (i = 0; digest_size > 0; i++, digest_size -= sizeof(__be64))
--		put_unaligned_be64(sctx->state[i], digest++);
--	return 0;
--}
--
--#endif /* _CRYPTO_SHA512_BASE_H */
--- 
-2.49.0
+Thanks, I will remove memset in next version.
+
+Regards,
+Vivian "dramforever" Wang
 
 
 _______________________________________________
