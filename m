@@ -4,135 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BC70C7115B
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAED9C71136
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 18:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ljd4WBMH6MpAfkT9s2a5Rxp57DDwyUIW4TsabYnzz2w=; b=QXe/fF87HMDccD
-	rkjbFUXMe7Rr72rFZszIkcktjiOC5FZXsCUsx9PVB8zXzbV0xeHybUL0tPhxtlDgTbjgDeH6l9GIw
-	iAf4uCHaV1ITTd/rZSCpA1s/+ozPoMZNgBNnP/gbuGRpS39IVi9fkzgQqhn14dZlHjC/CctlQrb2A
-	tVYI0VxwambQgSRiGnjv3cY0PFdVJE6km9qVO4+6z5obCPFioCMHRgoS8N0I/cKvWLPCl0q1SLljC
-	eDsMHmhsWfuEXonYsy5bxEa1ivXDVym/BTvaMKu8sEA7osF/vqQrcU0CLoppvpzZZBYLOJEoUdTZq
-	4FTfPsrWvKDyoxPPPnPQ==;
+	List-Owner; bh=Xjs4PfZz1NyXkCHs60RRv/hTuervd9iIiEhPI7tHvQo=; b=rn5FXmOmJuVDIK
+	zxup3C4ZziGfBkAFTt1j/9lK5z0tbcZOiUw1Vis2FsLJw8+OUHA3IUDkQG+t6vWuKZkIeg4Q6phVi
+	ThfUKtQTGiJMrTEXT+Td2W18d3qBtyV8Skyp+yNEAgv7bPGvRdcQzoeTdRL0Oq7pM9drrg8X+fuqL
+	PyBDJkE012NpCJYfsLS0S0b5SGBhE/hk//WHOuGZ2Zy0djUm2Dlh0F40o59grHsBuAIZ130ywI47E
+	9eqcjKd5n8YztJyX+X2Kpvbcy07oU4GXr0qOiRhFaaiOCY3U2HevzeifY+n/lFCXT2QCaqsOInLW0
+	Cg/aJzQ035IwF9mbbyJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uREa6-00000005Dlu-2wBd;
-	Mon, 16 Jun 2025 18:29:19 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1uREoR-00000005Hjc-0hGe;
+	Mon, 16 Jun 2025 18:44:07 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRCUs-00000004yfs-43oM
+	id 1uREoO-00000005HjD-2GL1
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Jun 2025 16:15:48 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2363616a1a6so36174785ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Jun 2025 09:15:46 -0700 (PDT)
+	Mon, 16 Jun 2025 18:44:05 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5535e35b059so6039577e87.1
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Jun 2025 11:44:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750090546; x=1750695346; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=0uTrBAG2kfrUAaLMnOEIfmT4aWIhMhsYQt4NXevwF/c=;
-        b=S3L/b8Y16KmvnI3JfhwxjAWsq1sOQda/VSJRU+gmjd61hI2FCadSPAnwbdJufflefh
-         vRfcWmXn89oCz3fuhgZgVitI4Bk0M0W3ZAJRtVzcfJ27Qkl9e5p6v2n/EtKSJnIuAU/a
-         1Fgvca9T/dIX5CgXMiA7ZGRHnCbCSY+HueN0HEWG5bMjqVSHlq5MR9yY9/UZ6bfRkBKs
-         GA3UTv+wwwUL0Ixq/4Z/JNVNQHkcM89EYntCJUY9oOe7Xc7SSEaxXrp4hQ0NMOAy/lTq
-         DWe3mirXOmxEq2a4uGHXynV8IwFkBWHJGbWrosB+Mg0uAmLA24FppDeUvlvOhmiEiQKx
-         zPnQ==
+        d=gmail.com; s=20230601; t=1750099442; x=1750704242; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=c1qLN7T4HJJ+Y5LI/oNrcpp9DbSjlU6S/RVNFX71VBg=;
+        b=Br/so5F/pyoOZayOrp2UJtC8OYKU3aCVsYWawcPw6BwScOz+IHenRv4kQSIPSt/JYR
+         PV9DvPmt93yHlPZm2NTNOQTK61V3N69XC6Es/E3ipE3ACNk34LYdkO7uQeasbyGynCMi
+         p4IG1jNMzpRYFehb6zGFPXEgf3vF4fThE6T7wwXvdMAiOZ9ogS9W2pDY7nYLgOiAoXSJ
+         JVeqdhwYyLIt2uzugnJdhmuA0kH348NBd8cohMMBzyebSwd4f5BiymatApwtFdsvjrL3
+         5S3rlWqPMzlXIe2ouWttXlOLnYGe+JB5W6RPi8xpnhv0SFhMrydxj6+mLfz6ueakSO7E
+         Zyww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750090546; x=1750695346;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1750099442; x=1750704242;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0uTrBAG2kfrUAaLMnOEIfmT4aWIhMhsYQt4NXevwF/c=;
-        b=SbPpQd4HbX89qBLOkEcOnjRCCFJ1iaIqPGZzVz4fHZazlvB25p1LOSSxQu8gOqwmlj
-         Y9oDhycs0f36iXN0iEGrBQWhZNMRdZEJDDTGkrM3OaKhwBpIpZsnpLygnSJ74yAzIaJY
-         AfAOjoRlGWxek4eZTUcXh2TRbsl2/y/BDzzUshFUlvEu+hcVsdlpkmjbuCV8aMtMfE/D
-         IwjtKZqHyQvS4Nr8G5kHmO5rufr9sMScW1pUgL35VtIq8FAkmxt96dQSfVifdcOBkIEU
-         ev/U60MNQzuSJZbilTZ2AB5fFIz6o/fAuDOPsWPs7OFGmCp+xl3nFIQb/2nZzotASkW5
-         Z0gA==
-X-Forwarded-Encrypted: i=1; AJvYcCV2RYjnnteB4dEzto+HSt6WqDJfEkqBjL/+P01BVMrupJoaZwzRHutAYsXpA/JGx2/ysDTSd9YzR9DUqQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVByvwL1O7i1r+h2J84Dy6x1+uXzGO2IqidOCb6PcjXYrodA5R
-	+k2N1jybA2NkPtHK7yPMDSzr54c5UYKPpFlRnh9j95WJgcdzce9V0hEE
-X-Gm-Gg: ASbGncv9ICZYqAGHIL9a7pZY9g+RQ1+FY8ExnUVHD9HVI3+moMJ5nkYTZVh9I0ZsvZ2
-	lINRfEU7SG+oVt6frvp8gZC0S+WBWGJDP8yH2Ifh2v2CFEJyekVFAwAK2S10GiKhMZQXhvbSDpt
-	vPI8xIlh1A2d+FeFWekx8WTa0t0hkPxeKb+6oSoPaXDKnpjFd3ARcs+L13dTyJtOqVKR/EGbzs8
-	oSnHwYWbOqnHCsjtPPy2e1IfsuEPgFs7EgyfjN6182S1ArogfmS3O7M0JJkqc3L4B1fRHVRFMMt
-	+ZiEI1YO+ca33kPnOfTTGguxzjEgv2DJcLvqRv+9Y5QZGYqeUvodNmnJh748Aaj5QqRDvJBy8zH
-	CLgJNmXswKTdwEAT0UkOmk+B2wwZ8UkJCA+E=
-X-Google-Smtp-Source: AGHT+IE3tA7AOwwFFvjHA9hJdPQ7s1oXsnxKqkEoFfrcTl0NZisx9y/jSj/aqeB4j77TJbzdQQgPFQ==
-X-Received: by 2002:a17:902:fc8f:b0:235:6e7:8df2 with SMTP id d9443c01a7336-2366b14e74cmr163962135ad.41.1750090545628;
-        Mon, 16 Jun 2025 09:15:45 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365de78565sm63031435ad.124.2025.06.16.09.15.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Jun 2025 09:15:45 -0700 (PDT)
-Message-ID: <b278e83a-473f-46ee-b353-3f8c14d03aaf@roeck-us.net>
-Date: Mon, 16 Jun 2025 09:15:43 -0700
+        bh=c1qLN7T4HJJ+Y5LI/oNrcpp9DbSjlU6S/RVNFX71VBg=;
+        b=IyA9431Ds7dwI+Yr+vPgaLkLJeCSaO/voHMtyt0n6mJk1jIynzRj3KPdqn22IJAea3
+         uRRZIRp5R3ZvLoFpI0ZEgXCp3ToS+APray0M/SP+WgYc5FWvzxG2q6AsmfOyimvqFd8J
+         8lfMBZVueeapy9f+C+8aH1QiyDCFz3AB2jZ+4RPqFtSovmaCUldZKthLP0vmOiVsnmnT
+         +65Ol7Y/bh6iMwR1b8+Dv6m4K6Y3ixK/EBVioFJLUhJ5EmDSSUeMNuKtIWORAx1NaAJl
+         uQTNnqZ+iTlaedU9clGbkX/a5JIlCxEZHWS6/YBucE9TkojguQWFBvVdkPbLahsoVQDl
+         yVCw==
+X-Forwarded-Encrypted: i=1; AJvYcCWT6kM3uC6eTyAttUP4ySxZSChRJ6JSEFHNlsvNuqbtraihqCZ3FtAGv5n7/K91uMsFhK1+LThQJvSzdw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwGkyW+16qC0OSq3wgIcjpLHw9Z5ivltWs+38V7Smw1Wk2chag
+	N+1HaBVmbE85KYKiQObk7uU01WBjuTF8OD8vzog/rIv2I3AVUrBPL4q4
+X-Gm-Gg: ASbGncvEQicRu7MBdkKt9wg9/rKZwgL4iQ/HdxkBd8BWusbxt6Px7Of9vNwvecP2V+o
+	S6s0jXXX4ApdLM9kr7sL7SlBfkS+6h18eEnL1R7z3VlTCij8DVkukm/cKLta+zgQlvPsy0xEArK
+	zinkm4VfXYgp0eojK2ndf0HzCelBnkaUG7p0gf6v/nBMBYr4lpE7Jga6eTyITIasY3Vm/5n/5n7
+	nTm02jEIWDiV4/oyVl2FuizcMhYZ2TWSnVi4eZtf4LnE253FvcQ99VdziQcivB0CvQcMEp6jTXE
+	1DMcj2S3bxeXfz39kIVW/BGG95pvYj080AWR9G19ajB5Gffd+qtvLuHJV+NgervUe3dtHq3z0k1
+	Nww==
+X-Google-Smtp-Source: AGHT+IFym3ZWTKD87/DdAM+usukWodq2LIzMiT0j5EKO0t5vLXxpbSACWoxnRHmuff9KOJlv5S/f3Q==
+X-Received: by 2002:a05:6512:3196:b0:553:9d73:cb15 with SMTP id 2adb3069b0e04-553b54d984amr3390818e87.15.1750099441993;
+        Mon, 16 Jun 2025 11:44:01 -0700 (PDT)
+Received: from localhost (soda.int.kasm.eu. [2001:678:a5c:1202:4fb5:f16a:579c:6dcb])
+        by smtp.gmail.com with UTF8SMTPSA id 2adb3069b0e04-553ac1367e9sm1632899e87.79.2025.06.16.11.44.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Jun 2025 11:44:01 -0700 (PDT)
+Date: Mon, 16 Jun 2025 20:44:01 +0200
+From: Klara Modin <klarasmodin@gmail.com>
+To: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	conor.dooley@microchip.com, conor+dt@kernel.org, jassisinghbrar@gmail.com, robh@kernel.org, 
+	krzk+dt@kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v6 0/4] Add Microchip IPC mailbox
+Message-ID: <gcn3ot6angrjpmk5nu7gwcuqqrdecuxgisysmgkp4mof3egzot@dvruxuw6w5kp>
+References: <20241217113134.3508333-1-valentina.fernandezalanis@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/2] hwmon: (pmbus/tps53679) Add support for TPS53685
-To: Chiang Brian <chiang.brian@inventec.com>, Jean Delvare
- <jdelvare@suse.com>, Jonathan Corbet <corbet@lwn.net>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250610102556.236300-1-chiang.brian@inventec.com>
- <20250610102556.236300-3-chiang.brian@inventec.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20250610102556.236300-3-chiang.brian@inventec.com>
+Content-Disposition: inline
+In-Reply-To: <20241217113134.3508333-1-valentina.fernandezalanis@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_091547_011530_B9DA00A3 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250616_114404_587375_B0B85F65 
+X-CRM114-Status: GOOD (  31.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,39 +95,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/10/25 03:25, Chiang Brian wrote:
-...
-> @@ -263,6 +282,10 @@ static int tps53679_probe(struct i2c_client *client)
->   		info->identify = tps53681_identify;
->   		info->read_word_data = tps53681_read_word_data;
->   		break;
-> +	case tps53685:
-> +	    info->pages = TPS53679_PAGE_NUM;
-> +	    info->identify = tps53685_identify;
-> +		break;
+Hi,
 
-0-day rightfully complains about the bad alignment above.
+On 2024-12-17 11:31:30 +0000, Valentina Fernandez wrote:
+> Hello all,
+> 
+> This series adds support for the Microchip Inter-Processor Communication
+> (IPC) mailbox driver.
+> 
+> Microchip's family of RISC-V SoCs typically has one or more clusters
+> that can be configured to run in Asymmetric Multi-Processing (AMP) mode.
+> 
+> The Microchip IPC is used to send messages between processors using
+> an interrupt signaling mechanism. The driver uses the RISC-V Supervisor
+> Binary Interface (SBI) to communicate with software running in machine
+> mode (M-mode) to access the IPC hardware block.
+> 
+> Additional details on the Microchip vendor extension and the IPC
+> function IDs described in the driver can be found in the following
+> documentation:
+> 
+> https://github.com/linux4microchip/microchip-sbi-ecall-extension
+> 
+> The PIC64GX MPU has a Mi-V IHC block, this will be added to the PIC64GX
+> dts after the initial upstreaming [1].
+> 
+> [1] https://patchwork.kernel.org/project/linux-riscv/patch/20240725121609.13101-18-pierre-henry.moussay@microchip.com/
+> 
+> Changes in v6:
+> - update bindings to explain why 'reg' is not needed with microchip,sbi-ipc compatible
+> 
+> Changes in v5:
+> - change interrup-names property to use a list instead of pattern
+> - move assitionalProperties after allOf : block
+> - update reg property in dt binding example to use lowercase hex
+> 
+> Changes in v4:
+> - specify that microchip,miv-ihc-rtl-v2 is intended for use with MIV IHC Soft IP
+> - drop items array and use const value for compatible strings
+> - add a contraint to microchip,ihc-chan-disabled-mask property
+> - minor improvements to "'#mbox-cells' description
+> 
+> Changes in v3:
+> - Fix incorrent formatting around '=' in dt binding examples
+> - Add per compatible descriptions in dt binding
+> - Add '>' in certain dt binding descriptions to keep paragraphs maintained
+> - export __cpuid_to_hartid_map to compile mailbox driver as module
+> - Drop unused enum ipc_irq_type
+> - rename struct mchp_ipc_probe to mchp_ipc_mbox_info
+> - rename struct ipc_chan_info to mchp_ipc_sbi_chan
+> - rename struct microchip_ipc to mchp_ipc_sbi_mbox
+> - use phys_addr_t for __pa()
+> - drop mchp_ipc_get_chan_id function
+> - use num_chans in mbox_controller
+> - Fix buf_base_tx and buf_base_rx sizes using max and kmalloc
+> 
+> Changes in v2:
+> - use kmalloc and __pa() instead of DMA API
+> - fix size of buf_base to avoid potential buffer overflow
+> - add kernel doc for exported functions (mchp_ipc_get_chan_id)
+> - use EXPORT_SYMBOL_GPL instead of EXPORT_SYMBOL
+> - drop unnecessary blank line and fix alignment issues
+> - drop of_match_ptr
+> - move MODULE_DEVICE_TABLE next to the definition
+> - reword subject from riscv: asm: vendorid_list to riscv: sbi: vendorid_list
+> - remove the word "driver" from dt-binding commit subject
+> - make interrupt-names a required property for all cases
+> - add dependency on COMPILE_TEST and ARCH_MICROCHIP
+> 
+> Regards,
+> Valentina
+> 
+> Valentina Fernandez (4):
+>   riscv: sbi: vendorid_list: Add Microchip Technology to the vendor list
+>   riscv: export __cpuid_to_hartid_map
+>   dt-bindings: mailbox: add binding for Microchip IPC mailbox controller
+>   mailbox: add Microchip IPC support
+> 
+>  .../bindings/mailbox/microchip,sbi-ipc.yaml   | 123 +++++
+>  arch/riscv/include/asm/vendorid_list.h        |   1 +
+>  arch/riscv/kernel/smp.c                       |   1 +
+>  drivers/mailbox/Kconfig                       |  13 +
+>  drivers/mailbox/Makefile                      |   2 +
+>  drivers/mailbox/mailbox-mchp-ipc-sbi.c        | 504 ++++++++++++++++++
+>  include/linux/mailbox/mchp-ipc.h              |  33 ++
+>  7 files changed, 677 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
+>  create mode 100644 drivers/mailbox/mailbox-mchp-ipc-sbi.c
+>  create mode 100644 include/linux/mailbox/mchp-ipc.h
+> 
+> -- 
+> 2.34.1
+> 
 
-If you want this patch to be applied for the next kernel release,
-I would suggest to copy the hardware monitoring list on the first patch
-of the series. Without it, I get
+Building this driver as a module with SMP=n fails becuase the non-SMP
+cpuid_to_hartid_map() depends on the non-exported boot_cpu_hartid
+(discovered via randconfig).
 
-WARNING: DT compatible string "ti,tps53685" appears un-documented -- check ./Documentation/devicetree/bindings/
-#296: FILE: drivers/hwmon/pmbus/tps53679.c:316:
-+	{.compatible = "ti,tps53685", .data = (void *)tps53685},
+From the description of the driver it doesn't seem to be very useful
+with SMP=n, would it make sense to have it depend on SMP rather than
+exporting boot_cpu_hartid?
 
-Since I am not copied on the first patch of the series, that patch has to be applied
-through a different maintainer tree, and I have to wait until that is the case.
-Not that I understand the logic behind it, but I mentioned that before, so I assume
-this is on purpose.
-
-Guenter
-
+Regards,
+Klara Modin
 
 _______________________________________________
 linux-riscv mailing list
