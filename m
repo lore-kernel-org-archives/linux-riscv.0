@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE47CC71136
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 03:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A4DCC71159
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 03:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=razGh188JzBA/vO5MWrlU2LBA3fUKRy3nL1Pr0qJoHQ=; b=gNvjlcTFj+lW47
-	pUzJZrVCAnkMZs1wJmX2DVo3j8rNmrOVIxF48uLbt5t2FUSn6beafwzNq5LuXhmOYuruYcdG+Klfa
-	D3hDixh+LFutNJhMakJDSBY9OtUa9Zkx+6ookMOp34iKJs4IoEv6gJiDC/6vYdZMj7U1WcKKGoav7
-	vOAya4ZaLKfiynunHl2VUehDbD30Cvt/2nMtq9ux20gTCoFvEaPiM/+IAjfBaILoJ5WLfNDiKCaEV
-	HC5H2k9omffXXYXVUoddwSvXCRTLNJ7ydDGxCnGB8PnNvZenjwNuH0ua6fGm3w+EOhaHuJk93gGpu
-	3Mx13Vy4QE6EcH+TxoLw==;
+	List-Owner; bh=EOe+4tUZoN79b9uOg2evej3RvJjUB9vR+iIDNE56GXI=; b=0nLvjdAgRbiVwp
+	ocZQR1xQj0EkShDn//HQY+37OBoapfBR8JdH28uQtk73zpY+N4A0Y8oOAnFHUYT7g5fNDmKj/n8Yp
+	UzAnWmorykwwvaJhCyL0VU/fx9bbmwVfES05xljoFGy7I7s0DWeDvLx5IsPpoWVTsuEK6wZK8xFRX
+	Tn6Pg/qBKJxIVHxQOrIsfImC2AdX+uxJjMp8SGiGfEScElrrgKfaFNG2UHB6FtCNhewH/t0WrH4aW
+	jAsybRyaAaWlqiIIvhXk2h0+lNJ/+fuo6UFUQe6B1OX0NTePmokQ8lJpYKK73zBZBHBaC9HyrVCbg
+	6pW7npJ5qxNL+RI9OIOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR0VZ-00000003FoC-3Xuc;
-	Mon, 16 Jun 2025 03:27:41 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1uR0nd-00000003HkO-3EgU;
+	Mon, 16 Jun 2025 03:46:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR09T-00000003DvS-2oAV
-	for linux-riscv@lists.infradead.org;
-	Mon, 16 Jun 2025 03:04:53 +0000
-Received: from [192.168.33.113] (unknown [210.73.43.2])
-	by APP-01 (Coremail) with SMTP id qwCowACH+9nEiU9orVzWBg--.22797S2;
-	Mon, 16 Jun 2025 11:04:37 +0800 (CST)
-Message-ID: <c60e9579-c261-41e3-ad5a-f96ce6d76820@iscas.ac.cn>
-Date: Mon, 16 Jun 2025 11:04:36 +0800
+	id 1uQyrD-000000035a8-1YT7;
+	Mon, 16 Jun 2025 01:41:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 744A2A50F8F;
+	Mon, 16 Jun 2025 01:41:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9C7CC4CEF5;
+	Mon, 16 Jun 2025 01:41:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750038114;
+	bh=yWbt8mgAYStyi5rkaau5CzyBlRx7tQKKf71UUSvMVN8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HREITAUcldDTRek9x6GUiERWWD9hFy7pWPh7cQmmSRm7a/fVOQ4VwitEm5JFi1o1e
+	 bi0lpBdwflLndKhvB0iDjBDQb7lPwMuzFswODOdImM+EH29E+iOJ6HWQWTxNMXtv4W
+	 Dgv4hoFGG1DA5RXavlDnkZjd+/Tmq9K6bfp0aPDB3+ds2wlec9aBUc2wewxHWA0JpU
+	 aNBQ7TDMkvU5kMf5OGwTancYySAGl6J+5OORIaPSNNILuDavZToJBZqcwdkoEOP67m
+	 aqrxuB75FoG5EK1Gyw25hWEdugCgV6S9wEKApzwcfyIfdvZUe4w3B9Iy7PXeahTk3l
+	 8/w9Yz8W5KMkA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: [PATCH v2 02/17] lib/crypto/sha512: add support for SHA-384 and SHA-512
+Date: Sun, 15 Jun 2025 18:40:04 -0700
+Message-ID: <20250616014019.415791-3-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250616014019.415791-1-ebiggers@kernel.org>
+References: <20250616014019.415791-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Subject: Re: [PATCH net-next 2/4] net: spacemit: Add K1 Ethernet MAC
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Russell King
- <linux@armlinux.org.uk>, Vivian Wang <uwu@dram.page>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250613-net-k1-emac-v1-0-cc6f9e510667@iscas.ac.cn>
- <20250613-net-k1-emac-v1-2-cc6f9e510667@iscas.ac.cn>
- <7dfcfb04-8a7f-4884-9c91-413a6fb2a56b@lunn.ch>
-Content-Language: en-US
-In-Reply-To: <7dfcfb04-8a7f-4884-9c91-413a6fb2a56b@lunn.ch>
-X-CM-TRANSID: qwCowACH+9nEiU9orVzWBg--.22797S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3tr48Gw1DJw45ur4xKr4kWFg_yoWkXFW3pa
-	yDJFZ5GF17ZFy7Wr4qqr4DXr1Ivrn5tF4Ika4Yyan8Xr9Ikr1fCryrKrW2k3s3Cr909F45
-	uw1UZFsrWF4DKrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9mb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4
-	vEx4A2jsIEc7CjxVAFwI0_Cr1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVW8JV
-	WxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
-	wI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK67AK6r48MxAIw28IcxkI7VAKI48JMxC20s
-	026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_
-	JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
-	v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IY
-	s7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr
-	0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07bfzV8UUUUU=
-X-Originating-IP: [210.73.43.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_200452_347323_2F6975D9 
-X-CRM114-Status: GOOD (  34.51  )
+X-CRM114-CacheID: sfid-20250615_184155_582755_000C4491 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,401 +79,482 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+From: Eric Biggers <ebiggers@google.com>
 
-Thanks for your review and suggestions.
+Add basic support for SHA-384 and SHA-512 to lib/crypto/.
 
-On 6/13/25 22:32, Andrew Lunn wrote:
->> +static inline void emac_wr(struct emac_priv *priv, u32 reg, u32 val)
->> +{
->> +	writel(val, priv->iobase + reg);
->> +}
->> +
->> +static inline int emac_rd(struct emac_priv *priv, u32 reg)
->> +{
->> +	return readl(priv->iobase + reg);
->> +}
-> I only took a very quick look at the code. I'm sure there are more
-> issues....
->
-> Please do not user inline functions in a .c file. Let the compiler
-> decide.
-I will remove "inline" in next version.
->> +static void emac_alloc_rx_desc_buffers(struct emac_priv *priv);
->> +static int emac_phy_connect(struct net_device *dev);
->> +static void emac_tx_timeout_task(struct work_struct *work);
-> No forward declarations. Move the code around so they are not needed.
-I will reorganize in next version.
->> +static int emac_ioctl(struct net_device *ndev, struct ifreq *rq, int cmd)
->> +{
->> +	int ret = -EOPNOTSUPP;
->> +
->> +	if (!netif_running(ndev))
->> +		return -EINVAL;
->> +
->> +	switch (cmd) {
->> +	case SIOCGMIIPHY:
->> +	case SIOCGMIIREG:
->> +	case SIOCSMIIREG:
-> There is no need to test for these values. Just call phy_mii_ioctl()
-> and it will only act on IOCTLs it knows.
-I will simplify in next version.
->> +		if (!ndev->phydev)
->> +			return -EINVAL;
->> +		ret = phy_mii_ioctl(ndev->phydev, rq, cmd);
->> +		break;
->> +	default:
->> +		break;
->> +	}
->> +
->> +	return ret;
->> +}
->> +static int emac_up(struct emac_priv *priv)
->> +{
->> +	struct platform_device *pdev = priv->pdev;
->> +	struct net_device *ndev = priv->ndev;
->> +	int ret;
->> +
->> +#ifdef CONFIG_PM_SLEEP
->> +	pm_runtime_get_sync(&pdev->dev);
->> +#endif
-> You don't need this #ifdef, there is a stub function is PM_SLEEP is
-> not enabled.
-I will remove "#ifdef" in next version.
->> +
->> +	ret = emac_phy_connect(ndev);
->> +	if (ret) {
->> +		dev_err(&pdev->dev, "emac_phy_connect failed\n");
->> +		goto err;
->> +	}
->> +
->> +	emac_init_hw(priv);
->> +
->> +	emac_set_mac_addr(priv, ndev->dev_addr);
->> +	emac_configure_tx(priv);
->> +	emac_configure_rx(priv);
->> +
->> +	emac_alloc_rx_desc_buffers(priv);
->> +
->> +	if (ndev->phydev)
->> +		phy_start(ndev->phydev);
-> Is it possible to not have a PHY? emac_phy_connect() seems to return
-> an error if it cannot find one.
->
-I will remove unnecessary if (ndev->phydev) checks in next version.
->> +static int emac_down(struct emac_priv *priv)
->> +{
->> +	struct platform_device *pdev = priv->pdev;
->> +	struct net_device *ndev = priv->ndev;
->> +
->> +	netif_stop_queue(ndev);
->> +
->> +	if (ndev->phydev) {
->> +		phy_stop(ndev->phydev);
->> +		phy_disconnect(ndev->phydev);
->> +	}
->> +
->> +	priv->link = false;
->> +	priv->duplex = DUPLEX_UNKNOWN;
->> +	priv->speed = SPEED_UNKNOWN;
->> +
->> +	emac_wr(priv, MAC_INTERRUPT_ENABLE, 0x0);
->> +	emac_wr(priv, DMA_INTERRUPT_ENABLE, 0x0);
->> +
->> +	free_irq(priv->irq, ndev);
->> +
->> +	napi_disable(&priv->napi);
->> +
->> +	emac_reset_hw(priv);
->> +	netif_carrier_off(ndev);
-> phylib will of done this when phy_stop() is called. Let phylib manage
-> the carrier. The only thing you probably need is netif_carrier_off()
-> in probe().
-I will remove netif_carrier_off here and add to probe.
->> +static int emac_change_mtu(struct net_device *ndev, int mtu)
->> +{
->> +	struct emac_priv *priv = netdev_priv(ndev);
->> +	u32 frame_len;
->> +
->> +	if (netif_running(ndev)) {
->> +		netdev_err(ndev, "must be stopped to change MTU\n");
->> +		return -EBUSY;
->> +	}
->> +
->> +	frame_len = mtu + ETHERNET_HEADER_SIZE + ETHERNET_FCS_SIZE;
->> +
->> +	if (frame_len < MINIMUM_ETHERNET_FRAME_SIZE ||
->> +	    frame_len > EMAC_RX_BUF_4K) {
->> +		netdev_err(ndev, "Invalid MTU setting\n");
->> +		return -EINVAL;
->> +	}
-> If you set ndev->mtu_max and ndev->mtu_min, the core will check this
-> for you.
->
-I will remove this check and use mtu_{min,max} instead.
->> +static void emac_reset(struct emac_priv *priv)
->> +{
->> +	if (!test_and_clear_bit(EMAC_RESET_REQUESTED, &priv->state))
->> +		return;
->> +	if (test_bit(EMAC_DOWN, &priv->state))
->> +		return;
->> +
->> +	netdev_err(priv->ndev, "Reset controller\n");
->> +
->> +	rtnl_lock();
->> +	netif_trans_update(priv->ndev);
->> +	while (test_and_set_bit(EMAC_RESETING, &priv->state))
->> +		usleep_range(1000, 2000);
-> Don't do endless loops waiting for the hardware. It may never
-> happen. Please use something from iopoll.h
-It seems that I had misunderstood the original code here. I will
-simplify the logic here in next version.
->> +static int emac_mii_read(struct mii_bus *bus, int phy_addr, int regnum)
->> +{
->> +	struct emac_priv *priv = bus->priv;
->> +	u32 cmd = 0;
->> +	u32 val;
->> +
->> +	cmd |= phy_addr & 0x1F;
->> +	cmd |= (regnum & 0x1F) << 5;
->> +	cmd |= MREGBIT_START_MDIO_TRANS | MREGBIT_MDIO_READ_WRITE;
->> +
->> +	emac_wr(priv, MAC_MDIO_DATA, 0x0);
->> +	emac_wr(priv, MAC_MDIO_CONTROL, cmd);
->> +
->> +	if (readl_poll_timeout(priv->iobase + MAC_MDIO_CONTROL, val,
->> +			       !((val >> 15) & 0x1), 100, 10000))
->> +		return -EBUSY;
-> readl_poll_timeout() returns an error code. Don't replace it.
-I will fix it next version.
->> +static void emac_adjust_link(struct net_device *dev)
->> +{
->> +	struct emac_priv *priv = netdev_priv(dev);
->> +	struct phy_device *phydev = dev->phydev;
->> +	bool link_changed = false;
->> +	u32 ctrl;
->> +
->> +	if (!phydev)
->> +		return;
-> How does that happen?
->
->> +	if (phydev->link) {
->> +		ctrl = emac_rd(priv, MAC_GLOBAL_CONTROL);
->> +
->> +		/* Update duplex and speed from PHY */
->> +
->> +		if (phydev->duplex != priv->duplex) {
->> +			link_changed = true;
->> +
->> +			if (!phydev->duplex)
->> +				ctrl &= ~MREGBIT_FULL_DUPLEX_MODE;
->> +			else
->> +				ctrl |= MREGBIT_FULL_DUPLEX_MODE;
->> +			priv->duplex = phydev->duplex;
->> +		}
->> +
->> +		if (phydev->speed != priv->speed) {
->> +			link_changed = true;
->> +
->> +			ctrl &= ~MREGBIT_SPEED;
->> +
->> +			switch (phydev->speed) {
->> +			case SPEED_1000:
->> +				ctrl |= MREGBIT_SPEED_1000M;
->> +				break;
->> +			case SPEED_100:
->> +				ctrl |= MREGBIT_SPEED_100M;
->> +				break;
->> +			case SPEED_10:
->> +				ctrl |= MREGBIT_SPEED_10M;
->> +				break;
->> +			default:
->> +				netdev_err(dev, "Unknown speed: %d\n",
->> +					   phydev->speed);
->> +				phydev->speed = SPEED_UNKNOWN;
->> +				break;
->> +			}
->> +
->> +			if (phydev->speed != SPEED_UNKNOWN)
->> +				priv->speed = phydev->speed;
->> +		}
->> +
->> +		emac_wr(priv, MAC_GLOBAL_CONTROL, ctrl);
->> +
->> +		if (!priv->link) {
->> +			priv->link = true;
->> +			link_changed = true;
->> +		}
->> +	} else if (priv->link) {
->> +		priv->link = false;
->> +		link_changed = true;
->> +		priv->duplex = DUPLEX_UNKNOWN;
->> +		priv->speed = SPEED_UNKNOWN;
->> +	}
->> +
->> +	if (link_changed)
->> +		phy_print_status(phydev);
-> Can this ever be false?
->
-I will remove these checks in next version.
->> +static int emac_phy_connect(struct net_device *ndev)
->> +{
->> +	struct emac_priv *priv = netdev_priv(ndev);
->> +	struct device *dev = &priv->pdev->dev;
->> +	struct phy_device *phydev;
->> +	struct device_node *np;
->> +	int ret;
->> +
->> +	ret = of_get_phy_mode(dev->of_node, &priv->phy_interface);
->> +	if (ret) {
->> +		dev_err(dev, "No phy-mode found");
->> +		return ret;
->> +	}
->> +
->> +	np = of_parse_phandle(dev->of_node, "phy-handle", 0);
->> +	if (!np && of_phy_is_fixed_link(dev->of_node))
->> +		np = of_node_get(dev->of_node);
->> +	if (!np) {
->> +		dev_err(dev, "No PHY specified");
->> +		return -ENODEV;
->> +	}
->> +
->> +	ret = emac_phy_interface_config(priv);
->> +	if (ret)
->> +		goto err_node_put;
->> +
->> +	phydev = of_phy_connect(ndev, np, &emac_adjust_link, 0,
->> +				priv->phy_interface);
->> +	if (IS_ERR_OR_NULL(phydev)) {
->> +		dev_err(dev, "Could not attach to PHY\n");
->> +		ret = phydev ? PTR_ERR(phydev) : -ENODEV;
->> +		goto err_node_put;
->> +	}
->> +
->> +	dev_info(dev, "%s: attached to PHY (UID 0x%x) Link = %d\n", ndev->name,
->> +		 phydev->phy_id, phydev->link);
-> Don't spam the log. Only output something if something unexpected
-> happens, an error etc.
-I will remove this in next version.
->> +static int emac_mdio_init(struct emac_priv *priv)
->> +{
->> +	struct device *dev = &priv->pdev->dev;
->> +	struct device_node *mii_np;
->> +	struct mii_bus *mii;
->> +	int ret;
->> +
->> +	mii_np = of_get_child_by_name(dev->of_node, "mdio-bus");
->> +	if (!mii_np) {
->> +		if (of_phy_is_fixed_link(dev->of_node)) {
->> +			if ((of_phy_register_fixed_link(dev->of_node) < 0))
->> +				return -ENODEV;
->> +
->> +			return 0;
->> +		}
->> +
->> +		dev_err(dev, "no %s child node found", "mdio-bus");
-> Why is that an error?
-I will remove this in the next version.
->> +		return -ENODEV;
->> +	}
->> +
->> +	if (!of_device_is_available(mii_np)) {
->> +		ret = -ENODEV;
->> +		goto err_put_node;
->> +	}
->> +
->> +	mii = devm_mdiobus_alloc(dev);
->> +	priv->mii = mii;
->> +
->> +	if (!mii) {
->> +		ret = -ENOMEM;
->> +		goto err_put_node;
->> +	}
->> +	mii->priv = priv;
->> +	mii->name = "emac mii";
->> +	mii->read = emac_mii_read;
->> +	mii->write = emac_mii_write;
->> +	mii->parent = dev;
->> +	mii->phy_mask = 0xffffffff;
->> +	snprintf(mii->id, MII_BUS_ID_SIZE, "%s", priv->pdev->name);
->> +
->> +	ret = devm_of_mdiobus_register(dev, mii, mii_np);
->> +	if (ret) {
->> +		dev_err_probe(dev, ret, "Failed to register mdio bus.\n");
->> +		goto err_put_node;
->> +	}
->> +
->> +	priv->phy = phy_find_first(mii);
->> +	if (!priv->phy) {
->> +		dev_err(dev, "no PHY found\n");
->> +		ret = -ENODEV;
-> Please don't use phy_find_first(). Use phy-handle to point to the phy.
->
-I will remove this next version.
->> +static void emac_ethtool_get_regs(struct net_device *dev,
->> +				  struct ethtool_regs *regs, void *space)
->> +{
->> +	struct emac_priv *priv = netdev_priv(dev);
->> +	u32 *reg_space = space;
->> +	int i;
->> +
->> +	regs->version = 1;
->> +
->> +	memset(reg_space, 0x0, EMAC_REG_SPACE_SIZE);
-> Is that needed?
-I will remove in next version.
->> +static int emac_get_link_ksettings(struct net_device *ndev,
->> +				   struct ethtool_link_ksettings *cmd)
->> +{
->> +	if (!ndev->phydev)
->> +		return -ENODEV;
->> +
->> +	phy_ethtool_ksettings_get(ndev->phydev, cmd);
-> phy_ethtool_get_link_ksettings().
-I will use phy_ethtool_{get,set}_link_ksettings in next version.
->> +	if (priv->tx_delay > EMAC_MAX_DELAY_PS) {
->> +		dev_err(&pdev->dev, "tx-internal-delay-ps delay too large, clamped");
-> Please return -EINVAL;
->
->> +		priv->tx_delay = EMAC_MAX_DELAY_PS;
->> +	}
->> +
->> +	if (priv->rx_delay > EMAC_MAX_DELAY_PS) {
->> +		dev_err(&pdev->dev, "rx-internal-delay-ps delay too large, clamped");
-> and here. The device tree is broken, and we want the developer to
-> notice and fix it. The easiest way to do that is to refuse to load the
-> driver.
->
->> +		priv->rx_delay = EMAC_MAX_DELAY_PS;
->> +	}
->> +
->> +	if (priv->tx_delay || priv->rx_delay) {
-> Why the if () ?
->
->> +		priv->tx_delay = delay_ps_to_unit(priv->tx_delay);
->> +		priv->rx_delay = delay_ps_to_unit(priv->rx_delay);
->> +
->> +		/* Show rounded result here for convenience */
->> +		dev_info(&pdev->dev,
->> +			 "MAC internal delay: TX: %u ps, RX: %u ps",
->> +			 delay_unit_to_ps(priv->tx_delay),
->> +			 delay_unit_to_ps(priv->rx_delay));
-> Please don't. 
-I will simplify the checking logic and remove the print in next version.
->> +static void emac_shutdown(struct platform_device *pdev)
->> +{
->> +}
+Various in-kernel users will be able to use this instead of the
+old-school crypto API, which is harder to use and has more overhead.
 
-I will get rid of it in next version.
+The basic support added by this commit consists of the API and its
+documentation, backed by a C implementation of the algorithms.
+sha512_block_generic() is derived from crypto/sha512_generic.c.
 
-Thanks again for the review.
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ include/crypto/sha2.h | 128 ++++++++++++++++++++
+ lib/crypto/Kconfig    |  10 ++
+ lib/crypto/Makefile   |   6 +
+ lib/crypto/sha512.c   | 263 ++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 407 insertions(+)
+ create mode 100644 lib/crypto/sha512.c
 
-Regards,
-Vivian "dramforever" Wang
-
-> Since it is empty, is it needed?
->
-> 	Andrew
+diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
+index 4912572578dc2..f2a6e84b28400 100644
+--- a/include/crypto/sha2.h
++++ b/include/crypto/sha2.h
+@@ -127,6 +127,134 @@ static inline void sha224_init(struct sha256_state *sctx)
+ 	sha224_block_init(&sctx->ctx);
+ }
+ /* Simply use sha256_update as it is equivalent to sha224_update. */
+ void sha224_final(struct sha256_state *sctx, u8 out[SHA224_DIGEST_SIZE]);
+ 
++/* State for the SHA-512 (and SHA-384) compression function */
++struct sha512_block_state {
++	u64 h[8];
++};
++
++/*
++ * Context structure, shared by SHA-384 and SHA-512.  The sha384_ctx and
++ * sha512_ctx structs wrap this one so that the API has proper typing and
++ * doesn't allow mixing the SHA-384 and SHA-512 functions arbitrarily.
++ */
++struct __sha512_ctx {
++	struct sha512_block_state state;
++	u64 bytecount_lo;
++	u64 bytecount_hi;
++	u8 buf[SHA512_BLOCK_SIZE] __aligned(__alignof__(__be64));
++};
++void __sha512_update(struct __sha512_ctx *ctx, const u8 *data, size_t len);
++
++/**
++ * struct sha384_ctx - Context for hashing a message with SHA-384
++ * @ctx: private
++ */
++struct sha384_ctx {
++	struct __sha512_ctx ctx;
++};
++
++/**
++ * sha384_init() - Initialize a SHA-384 context for a new message
++ * @ctx: the context to initialize
++ *
++ * If you don't need incremental computation, consider sha384() instead.
++ *
++ * Context: Any context.
++ */
++void sha384_init(struct sha384_ctx *ctx);
++
++/**
++ * sha384_update() - Update a SHA-384 context with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times.
++ *
++ * Context: Any context.
++ */
++static inline void sha384_update(struct sha384_ctx *ctx,
++				 const u8 *data, size_t len)
++{
++	__sha512_update(&ctx->ctx, data, len);
++}
++
++/**
++ * sha384_final() - Finish computing a SHA-384 message digest
++ * @ctx: the context to finalize; must have been initialized
++ * @out: (output) the resulting SHA-384 message digest
++ *
++ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
++ *
++ * Context: Any context.
++ */
++void sha384_final(struct sha384_ctx *ctx, u8 out[SHA384_DIGEST_SIZE]);
++
++/**
++ * sha384() - Compute SHA-384 message digest in one shot
++ * @data: the message data
++ * @len: the data length in bytes
++ * @out: (output) the resulting SHA-384 message digest
++ *
++ * Context: Any context.
++ */
++void sha384(const u8 *data, size_t len, u8 out[SHA384_DIGEST_SIZE]);
++
++/**
++ * struct sha512_ctx - Context for hashing a message with SHA-512
++ * @ctx: private
++ */
++struct sha512_ctx {
++	struct __sha512_ctx ctx;
++};
++
++/**
++ * sha512_init() - Initialize a SHA-512 context for a new message
++ * @ctx: the context to initialize
++ *
++ * If you don't need incremental computation, consider sha512() instead.
++ *
++ * Context: Any context.
++ */
++void sha512_init(struct sha512_ctx *ctx);
++
++/**
++ * sha512_update() - Update a SHA-512 context with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times.
++ *
++ * Context: Any context.
++ */
++static inline void sha512_update(struct sha512_ctx *ctx,
++				 const u8 *data, size_t len)
++{
++	__sha512_update(&ctx->ctx, data, len);
++}
++
++/**
++ * sha512_final() - Finish computing a SHA-512 message digest
++ * @ctx: the context to finalize; must have been initialized
++ * @out: (output) the resulting SHA-512 message digest
++ *
++ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
++ *
++ * Context: Any context.
++ */
++void sha512_final(struct sha512_ctx *ctx, u8 out[SHA512_DIGEST_SIZE]);
++
++/**
++ * sha512() - Compute SHA-512 message digest in one shot
++ * @data: the message data
++ * @len: the data length in bytes
++ * @out: (output) the resulting SHA-512 message digest
++ *
++ * Context: Any context.
++ */
++void sha512(const u8 *data, size_t len, u8 out[SHA512_DIGEST_SIZE]);
++
+ #endif /* _CRYPTO_SHA2_H */
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index 1ec1466108ccd..2d295c0e0f792 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -165,10 +165,20 @@ config CRYPTO_LIB_SHA256_GENERIC
+ 	  This symbol can be selected by arch implementations of the SHA-256
+ 	  library interface that require the generic code as a fallback, e.g.,
+ 	  for SIMD implementations. If no arch specific implementation is
+ 	  enabled, this implementation serves the users of CRYPTO_LIB_SHA256.
+ 
++config CRYPTO_LIB_SHA512
++	tristate
++	help
++	  The SHA-384 and SHA-512 library functions.  Select this if your module
++	  uses any of these functions from <crypto/sha2.h>.
++
++config CRYPTO_LIB_SHA512_ARCH
++	bool
++	depends on CRYPTO_LIB_SHA512 && !UML
++
+ config CRYPTO_LIB_SM3
+ 	tristate
+ 
+ if !KMSAN # avoid false positives from assembly
+ if ARM
+diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
+index 3e79283b617d9..7e8baa4590896 100644
+--- a/lib/crypto/Makefile
++++ b/lib/crypto/Makefile
+@@ -58,10 +58,16 @@ obj-$(CONFIG_CRYPTO_LIB_SHA256)			+= libsha256.o
+ libsha256-y					:= sha256.o
+ 
+ obj-$(CONFIG_CRYPTO_LIB_SHA256_GENERIC)		+= libsha256-generic.o
+ libsha256-generic-y				:= sha256-generic.o
+ 
++obj-$(CONFIG_CRYPTO_LIB_SHA512) += libsha512.o
++libsha512-y := sha512.o
++ifeq ($(CONFIG_CRYPTO_LIB_SHA512_ARCH),y)
++CFLAGS_sha512.o += -I$(src)/$(SRCARCH)
++endif # CONFIG_CRYPTO_LIB_SHA512_ARCH
++
+ obj-$(CONFIG_MPILIB) += mpi/
+ 
+ obj-$(CONFIG_CRYPTO_SELFTESTS)			+= simd.o
+ 
+ obj-$(CONFIG_CRYPTO_LIB_SM3)			+= libsm3.o
+diff --git a/lib/crypto/sha512.c b/lib/crypto/sha512.c
+new file mode 100644
+index 0000000000000..ad70444e80a80
+--- /dev/null
++++ b/lib/crypto/sha512.c
+@@ -0,0 +1,263 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * SHA-384 and SHA-512 library functions
++ *
++ * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
++ * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
++ * Copyright (c) 2003 Kyle McMartin <kyle@debian.org>
++ * Copyright 2025 Google LLC
++ */
++
++#include <crypto/internal/sha2.h>
++#include <linux/export.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/overflow.h>
++
++static const u64 sha512_K[80] = {
++	0x428a2f98d728ae22ULL, 0x7137449123ef65cdULL, 0xb5c0fbcfec4d3b2fULL,
++	0xe9b5dba58189dbbcULL, 0x3956c25bf348b538ULL, 0x59f111f1b605d019ULL,
++	0x923f82a4af194f9bULL, 0xab1c5ed5da6d8118ULL, 0xd807aa98a3030242ULL,
++	0x12835b0145706fbeULL, 0x243185be4ee4b28cULL, 0x550c7dc3d5ffb4e2ULL,
++	0x72be5d74f27b896fULL, 0x80deb1fe3b1696b1ULL, 0x9bdc06a725c71235ULL,
++	0xc19bf174cf692694ULL, 0xe49b69c19ef14ad2ULL, 0xefbe4786384f25e3ULL,
++	0x0fc19dc68b8cd5b5ULL, 0x240ca1cc77ac9c65ULL, 0x2de92c6f592b0275ULL,
++	0x4a7484aa6ea6e483ULL, 0x5cb0a9dcbd41fbd4ULL, 0x76f988da831153b5ULL,
++	0x983e5152ee66dfabULL, 0xa831c66d2db43210ULL, 0xb00327c898fb213fULL,
++	0xbf597fc7beef0ee4ULL, 0xc6e00bf33da88fc2ULL, 0xd5a79147930aa725ULL,
++	0x06ca6351e003826fULL, 0x142929670a0e6e70ULL, 0x27b70a8546d22ffcULL,
++	0x2e1b21385c26c926ULL, 0x4d2c6dfc5ac42aedULL, 0x53380d139d95b3dfULL,
++	0x650a73548baf63deULL, 0x766a0abb3c77b2a8ULL, 0x81c2c92e47edaee6ULL,
++	0x92722c851482353bULL, 0xa2bfe8a14cf10364ULL, 0xa81a664bbc423001ULL,
++	0xc24b8b70d0f89791ULL, 0xc76c51a30654be30ULL, 0xd192e819d6ef5218ULL,
++	0xd69906245565a910ULL, 0xf40e35855771202aULL, 0x106aa07032bbd1b8ULL,
++	0x19a4c116b8d2d0c8ULL, 0x1e376c085141ab53ULL, 0x2748774cdf8eeb99ULL,
++	0x34b0bcb5e19b48a8ULL, 0x391c0cb3c5c95a63ULL, 0x4ed8aa4ae3418acbULL,
++	0x5b9cca4f7763e373ULL, 0x682e6ff3d6b2b8a3ULL, 0x748f82ee5defb2fcULL,
++	0x78a5636f43172f60ULL, 0x84c87814a1f0ab72ULL, 0x8cc702081a6439ecULL,
++	0x90befffa23631e28ULL, 0xa4506cebde82bde9ULL, 0xbef9a3f7b2c67915ULL,
++	0xc67178f2e372532bULL, 0xca273eceea26619cULL, 0xd186b8c721c0c207ULL,
++	0xeada7dd6cde0eb1eULL, 0xf57d4f7fee6ed178ULL, 0x06f067aa72176fbaULL,
++	0x0a637dc5a2c898a6ULL, 0x113f9804bef90daeULL, 0x1b710b35131c471bULL,
++	0x28db77f523047d84ULL, 0x32caab7b40c72493ULL, 0x3c9ebe0a15c9bebcULL,
++	0x431d67c49c100d4cULL, 0x4cc5d4becb3e42b6ULL, 0x597f299cfc657e2aULL,
++	0x5fcb6fab3ad6faecULL, 0x6c44198c4a475817ULL,
++};
++
++static const struct sha512_block_state sha384_iv = {
++	.h = {
++		SHA384_H0, SHA384_H1, SHA384_H2, SHA384_H3,
++		SHA384_H4, SHA384_H5, SHA384_H6, SHA384_H7,
++	},
++};
++
++static const struct sha512_block_state sha512_iv = {
++	.h = {
++		SHA512_H0, SHA512_H1, SHA512_H2, SHA512_H3,
++		SHA512_H4, SHA512_H5, SHA512_H6, SHA512_H7,
++	},
++};
++
++#define Ch(x, y, z) ((z) ^ ((x) & ((y) ^ (z))))
++#define Maj(x, y, z) (((x) & (y)) | ((z) & ((x) | (y))))
++#define e0(x) (ror64((x), 28) ^ ror64((x), 34) ^ ror64((x), 39))
++#define e1(x) (ror64((x), 14) ^ ror64((x), 18) ^ ror64((x), 41))
++#define s0(x) (ror64((x), 1) ^ ror64((x), 8) ^ ((x) >> 7))
++#define s1(x) (ror64((x), 19) ^ ror64((x), 61) ^ ((x) >> 6))
++
++static void sha512_block_generic(struct sha512_block_state *state,
++				 const u8 *data)
++{
++	u64 a = state->h[0];
++	u64 b = state->h[1];
++	u64 c = state->h[2];
++	u64 d = state->h[3];
++	u64 e = state->h[4];
++	u64 f = state->h[5];
++	u64 g = state->h[6];
++	u64 h = state->h[7];
++	u64 t1, t2;
++	u64 W[16];
++
++	for (int j = 0; j < 16; j++)
++		W[j] = get_unaligned_be64(data + j * sizeof(u64));
++
++	for (int i = 0; i < 80; i += 8) {
++		if ((i & 15) == 0 && i != 0) {
++			for (int j = 0; j < 16; j++) {
++				W[j & 15] += s1(W[(j - 2) & 15]) +
++					     W[(j - 7) & 15] +
++					     s0(W[(j - 15) & 15]);
++			}
++		}
++		t1 = h + e1(e) + Ch(e, f, g) + sha512_K[i]   + W[(i & 15)];
++		t2 = e0(a) + Maj(a, b, c);    d += t1;    h = t1 + t2;
++		t1 = g + e1(d) + Ch(d, e, f) + sha512_K[i+1] + W[(i & 15) + 1];
++		t2 = e0(h) + Maj(h, a, b);    c += t1;    g = t1 + t2;
++		t1 = f + e1(c) + Ch(c, d, e) + sha512_K[i+2] + W[(i & 15) + 2];
++		t2 = e0(g) + Maj(g, h, a);    b += t1;    f = t1 + t2;
++		t1 = e + e1(b) + Ch(b, c, d) + sha512_K[i+3] + W[(i & 15) + 3];
++		t2 = e0(f) + Maj(f, g, h);    a += t1;    e = t1 + t2;
++		t1 = d + e1(a) + Ch(a, b, c) + sha512_K[i+4] + W[(i & 15) + 4];
++		t2 = e0(e) + Maj(e, f, g);    h += t1;    d = t1 + t2;
++		t1 = c + e1(h) + Ch(h, a, b) + sha512_K[i+5] + W[(i & 15) + 5];
++		t2 = e0(d) + Maj(d, e, f);    g += t1;    c = t1 + t2;
++		t1 = b + e1(g) + Ch(g, h, a) + sha512_K[i+6] + W[(i & 15) + 6];
++		t2 = e0(c) + Maj(c, d, e);    f += t1;    b = t1 + t2;
++		t1 = a + e1(f) + Ch(f, g, h) + sha512_K[i+7] + W[(i & 15) + 7];
++		t2 = e0(b) + Maj(b, c, d);    e += t1;    a = t1 + t2;
++	}
++
++	state->h[0] += a;
++	state->h[1] += b;
++	state->h[2] += c;
++	state->h[3] += d;
++	state->h[4] += e;
++	state->h[5] += f;
++	state->h[6] += g;
++	state->h[7] += h;
++}
++
++static void __maybe_unused
++sha512_blocks_generic(struct sha512_block_state *state,
++		      const u8 *data, size_t nblocks)
++{
++	do {
++		sha512_block_generic(state, data);
++		data += SHA512_BLOCK_SIZE;
++	} while (--nblocks);
++}
++
++#ifdef CONFIG_CRYPTO_LIB_SHA512_ARCH
++#include "sha512.h" /* $(SRCARCH)/sha512.h */
++#else
++#define sha512_blocks sha512_blocks_generic
++#endif
++
++static void __sha512_final(struct __sha512_ctx *ctx,
++			   u8 *out, size_t digest_size)
++{
++	u64 bitcount_hi = (ctx->bytecount_hi << 3) | (ctx->bytecount_lo >> 61);
++	u64 bitcount_lo = ctx->bytecount_lo << 3;
++	size_t partial = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
++
++	ctx->buf[partial++] = 0x80;
++	if (partial > SHA512_BLOCK_SIZE - 16) {
++		memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - partial);
++		sha512_blocks(&ctx->state, ctx->buf, 1);
++		partial = 0;
++	}
++	memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - 16 - partial);
++	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 16] = cpu_to_be64(bitcount_hi);
++	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 8] = cpu_to_be64(bitcount_lo);
++	sha512_blocks(&ctx->state, ctx->buf, 1);
++
++	for (size_t i = 0; i < digest_size; i += 8)
++		put_unaligned_be64(ctx->state.h[i / 8], out + i);
++}
++
++static void __sha512_init(struct __sha512_ctx *ctx,
++			  const struct sha512_block_state *iv,
++			  u64 initial_bytecount)
++{
++	ctx->state = *iv;
++	ctx->bytecount_lo = initial_bytecount;
++	ctx->bytecount_hi = 0;
++}
++
++void sha384_init(struct sha384_ctx *ctx)
++{
++	__sha512_init(&ctx->ctx, &sha384_iv, 0);
++}
++EXPORT_SYMBOL_GPL(sha384_init);
++
++void sha512_init(struct sha512_ctx *ctx)
++{
++	__sha512_init(&ctx->ctx, &sha512_iv, 0);
++}
++EXPORT_SYMBOL_GPL(sha512_init);
++
++void __sha512_update(struct __sha512_ctx *ctx, const u8 *data, size_t len)
++{
++	size_t partial = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
++
++	if (check_add_overflow(ctx->bytecount_lo, len, &ctx->bytecount_lo))
++		ctx->bytecount_hi++;
++
++	if (partial + len >= SHA512_BLOCK_SIZE) {
++		size_t nblocks;
++
++		if (partial) {
++			size_t l = SHA512_BLOCK_SIZE - partial;
++
++			memcpy(&ctx->buf[partial], data, l);
++			data += l;
++			len -= l;
++
++			sha512_blocks(&ctx->state, ctx->buf, 1);
++		}
++
++		nblocks = len / SHA512_BLOCK_SIZE;
++		len %= SHA512_BLOCK_SIZE;
++
++		if (nblocks) {
++			sha512_blocks(&ctx->state, data, nblocks);
++			data += nblocks * SHA512_BLOCK_SIZE;
++		}
++		partial = 0;
++	}
++	if (len)
++		memcpy(&ctx->buf[partial], data, len);
++}
++EXPORT_SYMBOL_GPL(__sha512_update);
++
++void sha384_final(struct sha384_ctx *ctx, u8 out[SHA384_DIGEST_SIZE])
++{
++	__sha512_final(&ctx->ctx, out, SHA384_DIGEST_SIZE);
++	memzero_explicit(ctx, sizeof(*ctx));
++}
++EXPORT_SYMBOL_GPL(sha384_final);
++
++void sha512_final(struct sha512_ctx *ctx, u8 out[SHA512_DIGEST_SIZE])
++{
++	__sha512_final(&ctx->ctx, out, SHA512_DIGEST_SIZE);
++	memzero_explicit(ctx, sizeof(*ctx));
++}
++EXPORT_SYMBOL_GPL(sha512_final);
++
++void sha384(const u8 *data, size_t len, u8 out[SHA384_DIGEST_SIZE])
++{
++	struct sha384_ctx ctx;
++
++	sha384_init(&ctx);
++	sha384_update(&ctx, data, len);
++	sha384_final(&ctx, out);
++}
++EXPORT_SYMBOL_GPL(sha384);
++
++void sha512(const u8 *data, size_t len, u8 out[SHA512_DIGEST_SIZE])
++{
++	struct sha512_ctx ctx;
++
++	sha512_init(&ctx);
++	sha512_update(&ctx, data, len);
++	sha512_final(&ctx, out);
++}
++EXPORT_SYMBOL_GPL(sha512);
++
++#ifdef sha512_mod_init_arch
++static int __init sha512_mod_init(void)
++{
++	sha512_mod_init_arch();
++	return 0;
++}
++subsys_initcall(sha512_mod_init);
++
++static void __exit sha512_mod_exit(void)
++{
++}
++module_exit(sha512_mod_exit);
++#endif
++
++MODULE_DESCRIPTION("SHA-384 and SHA-512 library functions");
++MODULE_LICENSE("GPL");
+-- 
+2.49.0
 
 
 _______________________________________________
