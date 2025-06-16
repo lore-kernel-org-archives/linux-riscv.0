@@ -4,85 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21DD5C71135
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93253C7115C
 	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 09:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=On2fmj6sDwiJMeG++ph3B1KiOWN7v3ZXODcpmtYCamI=; b=SXhOczIKurPnKy
-	iTTiDxPqpw+t8Wgj/Cv7SAzvog7yyaymdhSrDzJ0xTjtT6eIdX+a+E4GPZcfTmSY9gj39qImWwrD6
-	EGYUar6SvE5hTEVKeC+WoO7i55fu/WAxJG4FhA+ExNZ2udO4cKwUnzavqunAk5M9u8fq3rBB0bL50
-	J7+4iWZDrkfGlM+vmrAyCSkiR52HLsHEl3nbgQwEqvYwW2lO/HxKAIRPnP9Kk5dbUZLoWXqfRzNb0
-	cuiAJUC05FeN7b9r4wWHX0C4OHtLk5OthPspzVAj58VqakkWhVWO09zqmDZxplgOxxFn5eFTLnRPR
-	LxWcFF2nAoI0S1fuwGcA==;
+	List-Owner; bh=pCb4iSH00KtFsebP2qQG9r2V0xI27PvmoHGZS5h8gUI=; b=LV6fiDIPgoMBw4
+	Sc/hu8LI+JXC5zL0gLhgAtRWVoWJojiATZEHYCm4Y0EWgawkSoU7Xa1jwTL60BJEj/dNaucIqSAln
+	c3q9K1WZN9Zb0+oVmRSadLgnWq+Etm269LEY9ggtzbenfSe3qbBAgRf6ljqXR9wlRS/EfbvmgWlBX
+	KiC3Nb1JRkTlbefK3BXdSJrhc7o+JHX9E9IzTPzZy9ZVasQnVMekgq/xoMXY6KPP3EBUfIJTD6DVD
+	4Dnl4+kPxRIHHmUnlefB1kRh/GhN6bQu8cbbRJiKqXArTdPuMJ3X6anZ7GYaEAlqiu7F1pdWNAf/H
+	IiVGt9RhYHQ3tI8gm9dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6VB-00000003yHN-2HnH;
-	Mon, 16 Jun 2025 09:51:41 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1uR6VC-00000003yHu-0qYq;
+	Mon, 16 Jun 2025 09:51:42 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR5qh-00000003si3-2wA4
+	id 1uR5rZ-00000003spR-0LRT
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Jun 2025 09:09:55 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250616090945euoutp02474ee6a9cb185c39bacc9d963f739224~JetToBIuL1953619536euoutp02y
-	for <linux-riscv@lists.infradead.org>; Mon, 16 Jun 2025 09:09:45 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250616090945euoutp02474ee6a9cb185c39bacc9d963f739224~JetToBIuL1953619536euoutp02y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1750064985;
-	bh=Z0yVDNlBuUeI2U5G9pnG88sUo+3LU8vld6YvrIkhECY=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=NJjjWtuiH8rQP1rLO+Qn29ldm7aH/ChlGrzo5voO7FGEzkE4eRwYtrAghrMJ1qEdP
-	 pYXMDPXEvc2SPnERO/SvJoRqMWNMp9pPt5+Fk5/14cuWB2tFCkCnyX/0IA0ziX3vRw
-	 E3glhShhovdXx4zJ4e/ZUFX1+Bhtz2spsF/SNLmQ=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250616090944eucas1p1ffc6fcf91024df239946d55f78cd73ab~JetTDE54A2755827558eucas1p16;
-	Mon, 16 Jun 2025 09:09:44 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250616090943eusmtip1582353473f82f3f625b89a1041e9e149~JetR4HUmp2738727387eusmtip1M;
-	Mon, 16 Jun 2025 09:09:43 +0000 (GMT)
-Message-ID: <9765c970-55cc-4413-9fd0-5e0cdfa900fa@samsung.com>
-Date: Mon, 16 Jun 2025 11:09:42 +0200
+	Mon, 16 Jun 2025 09:10:46 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-553b9eb2299so1263002e87.0
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Jun 2025 02:10:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750065043; x=1750669843; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dmDMMMFI5G4DNwFWGn674MZ5D9eFoURbFcL3QvAF4Ig=;
+        b=RW1BseD/abx9yTL9rnhScqIF2I43A+zRgJElEpHy2RDSX3zlfPA4h7fEae0r/bjRus
+         6Dswah3jougc9Fk22t9HOiL1n3UDmeuovIWOu+G/sJVLiSa56JCFqN28cByVBdvGvdj9
+         Ohi+HJQmO9dzKQT8zXflbqu7RCw7CvR4/J+0gdRHrwgsk9xxB0gjgJ0GVhlLTfdSC7Pq
+         MMTXej3TVxVhsxBpAOLzOGxMm5G78AMp0pgWsESGI5DXvXysf8GXMrUmSi0Xq8t3yXAw
+         +VujZgDfa+ZqmrMD3pgY8kIjNHaDdyIxyxSe8HkyQOflV3W3ekJcEAPHxEqK/iN178GT
+         l2qg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750065043; x=1750669843;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dmDMMMFI5G4DNwFWGn674MZ5D9eFoURbFcL3QvAF4Ig=;
+        b=UI2qXUvmGFPNUscv/uYVIxfpe+giRwM4leKJeu5B3XaJOktR8PqN9+Vbg9ITEBCh4C
+         gQclk7yZ1P25mPtYHrUVrZ5WFFqcSp8VS46IfyzuYfy0fLA+IIQkwH0QJoWCa8clrzQu
+         oC9CPo9gFvobG5EXt7Ocyw+HxaDuET0MewepnXxC5LK6qwoY5WeIYjJJVUVCAouLCuWe
+         YFcVGweInurAbAMau4vg5E2CAJs7PG03StwTgIR/3JPAoo8nlhg4N8z/0bWV+Q18GbHo
+         +ea+I92rFX6E9DsgkRUDAjIpIhwtqsIUivB6gYZwDcigGP+p8hyqIRM/Wk6kZBSEdIwx
+         SE9g==
+X-Forwarded-Encrypted: i=1; AJvYcCW7ZUIG4/JLBOZ3zVN1MOdQlck/3FY/Vp2D6aCxky/ZcEAzrp3Y0att1lZjZNb9FS6RfM34Fu/bEbIsNg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPbuga+qMaTzQ/LOpI/sKgL5LrrL1gSTH7j0JX8+MCynXEroeD
+	rD8X+FLF9O2wU0rIUqWwW2JepOw6xop29taDBLjo+gsxWl7+Pk5L8xb65B/5NRvkTp1m9FhKVJ3
+	8h47hixE0eyHSYf79Y4TnePMrFJFz65MM9SHKrwsDEQ==
+X-Gm-Gg: ASbGncsnNoKXlm7JA0mI1DLK1UrPaUITtOTnGuwlZudpPWoZ3sPVkWwhvH/GZ7ObMc7
+	7Nx3BdieVw1CQG5i5VUnM6EDXIIaAzrsGjDDhEa3Tc+IqmAosnzupW3zstzbelEpVYkr+vYT66J
+	d9P1kQ2dPs45de4Oz1RRPPYw7JkAsKyGAuMIGjXDesbaQ7MGc9I9xzCp3s5TdYZrWf76vjPHYhT
+	e0=
+X-Google-Smtp-Source: AGHT+IHuGL7ppu54TT/M3Hxiz/E57PX/ijwwJDHxeHuWrcclls/KmfWg30WiaNhrMMlcrNDHFrl4pCAUL311IM7bJx0=
+X-Received: by 2002:a05:6512:1053:b0:553:29cc:c49c with SMTP id
+ 2adb3069b0e04-553b6810d6bmr2008050e87.7.1750065043405; Mon, 16 Jun 2025
+ 02:10:43 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 8/8] drm/imagination: Enable PowerVR driver for
- RISC-V
-To: kernel test robot <lkp@intel.com>, Drew Fustini <drew@pdp7.com>, Guo Ren
-	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, Matt Coster
-	<matt.coster@imgtec.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>, Marek
-	Szyprowski <m.szyprowski@samsung.com>
-Cc: Paul Gazzillo <paul@pgazz.com>, Necip Fazil Yildiran
-	<fazilyildiran@gmail.com>, oe-kbuild-all@lists.linux.dev,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+References: <CGME20250614180909eucas1p2a34e3242fb42f7fd25e4038c291276ff@eucas1p2.samsung.com>
+ <20250614-apr_14_for_sending-v4-0-8e3945c819cd@samsung.com> <20250614-apr_14_for_sending-v4-3-8e3945c819cd@samsung.com>
+In-Reply-To: <20250614-apr_14_for_sending-v4-3-8e3945c819cd@samsung.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Mon, 16 Jun 2025 11:10:31 +0200
+X-Gm-Features: AX0GCFundfu1_DbYfr4amG4ZmgyhqyYCcYsn5RbDrpDylY7Och28dfv5wtCxrQQ
+Message-ID: <CAMRc=MdrvZ0_3aWcmhYZP4CxOVbuYjL66iLPHKkDt=vCP7VN-Q@mail.gmail.com>
+Subject: Re: [PATCH v4 3/8] pmdomain: thead: Instantiate GPU power sequencer
+ via auxiliary bus
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, 
+	Matt Coster <matt.coster@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
 	dri-devel@lists.freedesktop.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <202506151839.IKkZs0Z0-lkp@intel.com>
-X-CMS-MailID: 20250616090944eucas1p1ffc6fcf91024df239946d55f78cd73ab
-X-Msg-Generator: CA
-X-RootMTR: 20250615105256eucas1p21dba29a1450757d9201b2a9c7f0e34e8
-X-EPHeader: CA
-X-CMS-RootMailID: 20250615105256eucas1p21dba29a1450757d9201b2a9c7f0e34e8
-References: <20250614-apr_14_for_sending-v4-8-8e3945c819cd@samsung.com>
-	<CGME20250615105256eucas1p21dba29a1450757d9201b2a9c7f0e34e8@eucas1p2.samsung.com>
-	<202506151839.IKkZs0Z0-lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_020952_323271_A93B7F89 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20250616_021045_119572_0129FF18 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,54 +102,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/15/25 12:51, kernel test robot wrote:
-> Hi Michal,
-> 
-> kernel test robot noticed the following build warnings:
-> 
-> [auto build test WARNING on 4774cfe3543abb8ee98089f535e28ebfd45b975a]
-> 
-> url:    https://protect2.fireeye.com/v1/url?k=6c3bc994-0cd954c9-6c3a42db-000babd9f1ba-30c2378fa012fc4a&q=1&e=c39c960c-4d5f-44d7-aed7-0097394dfc81&u=https%3A%2F%2Fgithub.com%2Fintel-lab-lkp%2Flinux%2Fcommits%2FMichal-Wilczynski%2Fpower-sequencing-Add-T-HEAD-TH1520-GPU-power-sequencer-driver%2F20250615-021142
-> base:   4774cfe3543abb8ee98089f535e28ebfd45b975a
-> patch link:    https://lore.kernel.org/r/20250614-apr_14_for_sending-v4-8-8e3945c819cd%40samsung.com
-> patch subject: [PATCH v4 8/8] drm/imagination: Enable PowerVR driver for RISC-V
-> config: riscv-kismet-CONFIG_DRM_GEM_SHMEM_HELPER-CONFIG_DRM_POWERVR-0-0 (https://download.01.org/0day-ci/archive/20250615/202506151839.IKkZs0Z0-lkp@intel.com/config)
-> reproduce: (https://download.01.org/0day-ci/archive/20250615/202506151839.IKkZs0Z0-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202506151839.IKkZs0Z0-lkp@intel.com/
-> 
-> kismet warnings: (new ones prefixed by >>)
->>> kismet: WARNING: unmet direct dependencies detected for DRM_GEM_SHMEM_HELPER when selected by DRM_POWERVR
->    WARNING: unmet direct dependencies detected for DRM_GEM_SHMEM_HELPER
->      Depends on [n]: HAS_IOMEM [=y] && DRM [=y] && MMU [=n]
-
-I believe this is triggered because RISC-V can be compiled without MMU
-support, while MMU support is mandatory for ARM64.
-
-Would an acceptable fix be to require an explicit dependency on the MMU,
-like so?
-
-depends on (ARM64 || RISCV) && MMU
-
->      Selected by [y]:
->      - DRM_POWERVR [=y] && HAS_IOMEM [=y] && (ARM64 || RISCV [=y]) && DRM [=y] && PM [=y]
-> 
-
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBKdW4gMTQsIDIwMjUgYXQgODowOeKAr1BNIE1pY2hhbCBXaWxjenluc2tpCjxtLndp
+bGN6eW5za2lAc2Ftc3VuZy5jb20+IHdyb3RlOgo+Cj4gSW4gb3JkZXIgdG8gc3VwcG9ydCB0aGUg
+Y29tcGxleCBwb3dlciBzZXF1ZW5jaW5nIHJlcXVpcmVkIGJ5IHRoZSBUSDE1MjAKPiBHUFUsIHRo
+ZSBBT04gcG93ZXIgZG9tYWluIGRyaXZlciBtdXN0IGJlIHJlc3BvbnNpYmxlIGZvciBpbml0aWF0
+aW5nIHRoZQo+IGNvcnJlc3BvbmRpbmcgc2VxdWVuY2VyIGRyaXZlci4gVGhpcyBmdW5jdGlvbmFs
+aXR5IGlzIHNwZWNpZmljIHRvCj4gcGxhdGZvcm1zIHdoZXJlIHRoZSBHUFUgcG93ZXIgc2VxdWVu
+Y2luZyBoYXJkd2FyZSBpcyBjb250cm9sbGVkIGJ5IHRoZQo+IEFPTiBibG9jay4KPgo+IEV4dGVu
+ZCB0aGUgQU9OIHBvd2VyIGRvbWFpbiBkcml2ZXIgdG8gY2hlY2sgZm9yIHRoZSBwcmVzZW5jZSBv
+ZiB0aGUKPiAiZ3B1LWNsa2dlbiIgcmVzZXQgaW4gaXRzIG93biBkZXZpY2UgdHJlZSBub2RlLgo+
+Cj4gSWYgdGhlIHByb3BlcnR5IGlzIGZvdW5kLCBjcmVhdGUgYW5kIHJlZ2lzdGVyIGEgbmV3IGF1
+eGlsaWFyeSBkZXZpY2UuCj4gVGhpcyBkZXZpY2UgYWN0cyBhcyBhIHByb3h5IHRoYXQgYWxsb3dz
+IHRoZSBkZWRpY2F0ZWQgYHB3cnNlcS10aGVhZC1ncHVgCj4gYXV4aWxpYXJ5IGRyaXZlciB0byBi
+aW5kIGFuZCB0YWtlIGNvbnRyb2wgb2YgdGhlIHNlcXVlbmNpbmcgbG9naWMuCj4KPiBTaWduZWQt
+b2ZmLWJ5OiBNaWNoYWwgV2lsY3p5bnNraSA8bS53aWxjenluc2tpQHNhbXN1bmcuY29tPgo+IC0t
+LQoKW3NuaXBdCgo+ICsKPiArc3RhdGljIGludCB0aDE1MjBfcGRfcHdyc2VxX2dwdV9pbml0KHN0
+cnVjdCBkZXZpY2UgKmRldikKPiArewo+ICsgICAgICAgc3RydWN0IGF1eGlsaWFyeV9kZXZpY2Ug
+KmFkZXY7Cj4gKyAgICAgICBpbnQgcmV0Owo+ICsKPiArICAgICAgIC8qCj4gKyAgICAgICAgKiBD
+b3JyZWN0bHkgY2hlY2sgb25seSBmb3IgdGhlIHByb3BlcnR5J3MgZXhpc3RlbmNlIGluIHRoZSBE
+VCBub2RlLgo+ICsgICAgICAgICogV2UgZG9uJ3QgbmVlZCB0byBnZXQvY2xhaW0gdGhlIHJlc2V0
+IGhlcmU7IHRoYXQgaXMgdGhlIGpvYiBvZgo+ICsgICAgICAgICogdGhlIGF1eGlsaWFyeSBkcml2
+ZXIgdGhhdCB3ZSBhcmUgYWJvdXQgdG8gc3Bhd24uCj4gKyAgICAgICAgKi8KPiArICAgICAgIGlm
+IChvZl9wcm9wZXJ0eV9tYXRjaF9zdHJpbmcoZGV2LT5vZl9ub2RlLCAicmVzZXQtbmFtZXMiLAo+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiZ3B1LWNsa2dlbiIpIDwgMCkK
+CklmIHlvdSB1c2UgZGV2aWNlX3Byb3BlcnR5X21hdGNoX3N0cmluZygpIGhlcmUsIHlvdSBkb24n
+dCBuZWVkIHRvIHB1bGwKaW4gb2YuaC4gSXQncyB0eXBpY2FsbHkgcHJlZmVycmVkIHRvIHVzZSB0
+aGUgdG9wLWxldmVsIGFic3RyYWN0aW9uCnVubGVzcyBub3QgcG9zc2libGUuCgpbc25pcF0KClRo
+YW5rcywKQmFydG9zegoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
