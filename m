@@ -4,73 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D12C7115C
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 12:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB488C71136
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 12:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=na52TY5VUBIwdNa2eYVoIlYje08JM0ZuxUqfFlTHv5I=; b=tpD+YcnvU/UxwdBoyRxFxwiXN2
-	5HzQqB17LiPzNLgT5EnUq2ePHTFZbT3O5Qf3IXXWTG4IDOC280pvG6A3CxIKmpxFVoh541e1bvsVr
-	aIgK6XYoDY2ylrBGuwxE2er9yMrT8Jme1IBhbNKdzI7dC1SWRFk5wE9i/OWXnr2Cw6Lm91y+k2Jip
-	NuP204LWUeb/da9gZvQHfLcZrlFTqg8GkaAu0eeTzNmZwve6qFwW6MrywM9apShYxUljf8F4QcT4C
-	LO3ywdriAPqZqJXKKdqJuhIcRP0Ekc9RhZONIVFo3tZ6EvXAbgSn3fnVrH7l7Z2jPisOdzdI+OI2h
-	1roK9CJg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HIMlf7Up5igpwNhigMZjPvFScTCFE/PVqj81DKQIlas=; b=FlCfHgqwqNwxrY
+	1jtV4PFB0xdbgQ4Xnp6AsygrRRQc8zrdYaRniRd7zJuq0iHBVL0Eo0W2nNbEBD3Jb+w3Xs+3dyDeD
+	f91JWPG9vQ2aLTO2+Wz4Apr3W86xsfjHdfEzOFcYgilZdYxiU4a6P19/GgdnZGBchBh9kgxA5fmrQ
+	BWUdw2SQVX3A6h/C2v2bXcGbuPg6v3wNf3nEL7BgKdcjUhXkG0/LH24Ngm2aQDxLKCDdRysxt5Bcj
+	P/bG6o42wkwkzkquYsgIRlmmWLSUh9pZQO1iwT9/UNhuP7FUhd0lzK2DKG3n11Qvm6t5vlz2zUDUr
+	lQJesm/LaD5GVYZ73ocQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR8em-00000004Jml-3WvL;
-	Mon, 16 Jun 2025 12:09:44 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1uR8nX-00000004L4Z-40gC;
+	Mon, 16 Jun 2025 12:18:47 +0000
+Received: from naesa05.arrow.com ([216.150.161.26])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR7jF-00000004A23-2SXm;
-	Mon, 16 Jun 2025 11:10:19 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bLRzy28PLz1V43x;
-	Mon, 16 Jun 2025 19:07:42 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 287C3180044;
-	Mon, 16 Jun 2025 19:10:06 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 16 Jun 2025 19:10:04 +0800
-Subject: Re: [PATCH 3/8] KVM: arm64: Move ARM specific headers in include/kvm
- to arch directory
-To: Sean Christopherson <seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
-	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
-	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Anish Ghulati <aghulati@google.com>, Colton
- Lewis <coltonlewis@google.com>, Thomas Huth <thuth@redhat.com>
-References: <20250611001042.170501-1-seanjc@google.com>
- <20250611001042.170501-4-seanjc@google.com>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <a5032f01-9f54-eff9-ee72-b159ed56ca70@huawei.com>
-Date: Mon, 16 Jun 2025 19:10:04 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	id 1uR7vx-00000004BaR-0pq5
+	for linux-riscv@lists.infradead.org;
+	Mon, 16 Jun 2025 11:23:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=einfochips.com; i=@einfochips.com; l=2938; q=dns/txt;
+  s=NAESA-Selector1; t=1750073005; x=1781609005;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=npKvrSYMx0G7203vj1pvhDj5mrw+axGZsxDIgzM8hM4=;
+  b=EgkWzC1Fbtndwl6T61VBAS7PNEAVuwhS3hBmVAje+1nQMv+rCQ3H7dc6
+   4d0FY+FMI9zYQz10SmDH2OEAWA4bMmUER5/rYAeWp3xcWfi+q4Y3amw3V
+   pxxiFs9f88Eu4lbwjKvbOJ2H7DOCXRV7tWnOx6MnOYmF2bh5YhA1ouZVz
+   dOMCR0wBgHQ9EVW0L1eq302YxWilfHMqWc/glq0dcq+OH6C2cQYrEJz2l
+   pGCf8Vgiwoou85eE/mHrtgnGSteD/fmFjoCBwUumaEJ8IXMw9N8luiWvT
+   1HLC05bR5IG/8TlDSFSx9AWpQp2zy5PaUAhKXtfeoKFRZkPdNR6atak94
+   A==;
+X-CSE-ConnectionGUID: 5heFyusuT2CiECH8iHH56g==
+X-CSE-MsgGUID: M+RciZ61RPe/1R332UDRpA==
+X-IronPort-AV: E=Sophos;i="6.16,241,1744092000"; 
+   d="scan'208";a="26863642"
+Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
+  by naesa05out.arrow.com with ESMTP; 16 Jun 2025 05:23:17 -0600
+Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.14393.4169);
+	 Mon, 16 Jun 2025 16:53:16 +0530
+From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+To: Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Min Lin <linmin@eswincomputing.com>,
+	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Yu Chien Peter Lin <peterlin@andestech.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Kanak Shilledar <kanakshilledar@gmail.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Aradhya Bhatia <a-bhatia1@ti.com>,
+	rafal@milecki.pl,
+	Anup Patel <anup@brainfault.org>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/7] Basic device tree support for ESWIN EIC7700 RISC-V SoC
+Date: Mon, 16 Jun 2025 16:53:09 +0530
+Message-Id: <20250616112316.3833343-1-pinkesh.vaghela@einfochips.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <20250611001042.170501-4-seanjc@google.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200017.china.huawei.com (7.202.194.83)
+X-OriginalArrivalTime: 16 Jun 2025 11:23:16.0327 (UTC) FILETIME=[0E03CF70:01DBDEB1]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_041017_947874_FB9A2C6F 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250616_042325_294262_F236D026 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +100,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025/6/11 8:10, Sean Christopherson wrote:
-> Move kvm/arm_{arch_timer,pmu,vgic}.h to arch/arm64/include/asm and drop
-> the "arm" prefix from all file names.  Now that KVM no longer supports
-> 32-bit ARM, there is no reason to expose ARM specific headers to other
-> architectures beyond arm64.
-> 
-> Cc: Colton Lewis <coltonlewis@google.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  .../arm64/include/asm/kvm_arch_timer.h                     | 0
->  arch/arm64/include/asm/kvm_host.h                          | 7 +++----
->  include/kvm/arm_pmu.h => arch/arm64/include/asm/kvm_pmu.h  | 0
->  .../kvm/arm_vgic.h => arch/arm64/include/asm/kvm_vgic.h    | 0
->  arch/arm64/kvm/arch_timer.c                                | 5 ++---
->  arch/arm64/kvm/arm.c                                       | 3 +--
->  arch/arm64/kvm/pmu-emul.c                                  | 4 ++--
->  arch/arm64/kvm/reset.c                                     | 3 +--
->  arch/arm64/kvm/trace_arm.h                                 | 2 +-
->  arch/arm64/kvm/vgic/vgic-debug.c                           | 2 +-
->  arch/arm64/kvm/vgic/vgic-init.c                            | 2 +-
->  arch/arm64/kvm/vgic/vgic-irqfd.c                           | 2 +-
->  arch/arm64/kvm/vgic/vgic-kvm-device.c                      | 2 +-
->  arch/arm64/kvm/vgic/vgic-mmio-v2.c                         | 2 +-
->  arch/arm64/kvm/vgic/vgic-mmio-v3.c                         | 2 +-
->  arch/arm64/kvm/vgic/vgic-mmio.c                            | 4 ++--
->  arch/arm64/kvm/vgic/vgic-v2.c                              | 2 +-
->  arch/arm64/kvm/vgic/vgic-v3-nested.c                       | 3 +--
->  arch/arm64/kvm/vgic/vgic-v3.c                              | 2 +-
->  19 files changed, 21 insertions(+), 26 deletions(-)
->  rename include/kvm/arm_arch_timer.h => arch/arm64/include/asm/kvm_arch_timer.h (100%)
->  rename include/kvm/arm_pmu.h => arch/arm64/include/asm/kvm_pmu.h (100%)
->  rename include/kvm/arm_vgic.h => arch/arm64/include/asm/kvm_vgic.h (100%)
+Add support for ESWIN EIC7700 SoC consisting of SiFive Quad-Core
+P550 CPU cluster and the first development board that uses it, the
+SiFive HiFive Premier P550.
 
-Nitpick:
+This patch series adds initial device tree and also adds ESWIN
+architecture support.
 
-|F:	include/kvm/arm_*
+Boot-tested using intiramfs with Linux v6.16-rc1 on HiFive Premier
+P550 board using U-Boot 2024.01 and OpenSBI 1.4.
 
-can be deleted from the KVM/arm64 MAINTAINERS entry now.
+Changes in v4:
+- Rebased the patches to kernel v6.16-rc1
+- Drop patches that are already merged
+- Added "Acked-by" tag of "Min Lin" for Patch 4
+- Corrected the commit message of Patch 7 (Patch #10 in v3)
+- Added "Tested-by" tag of "Ariel D'Alessandro" for Patch 7
+- Link to v3: https://lore.kernel.org/lkml/20250410152519.1358964-1-pinkesh.vaghela@einfochips.com/
 
-Thanks,
-Zenghui
+Changes in v3:
+- Rebased the patches to kernel 6.15.0-rc1
+- Added "Reviewed-by" tag of "Rob Herring" for Patch 4
+- Updated MAINTAINERS file
+  - Add GIT tree URL
+- Updated DTSI file
+  - Added "dma-noncoherent" property to soc node
+  - Updated GPIO node labels in DTSI file
+- Link to v2: https://lore.kernel.org/lkml/20250320105449.2094192-1-pinkesh.vaghela@einfochips.com/
+
+Changes in v2:
+- Added "Acked-by" tag of "Conor Dooley" for Patches 1, 2, 3, 7 and 8
+- Added "Reviewed-by" tag of "Matthias Brugger" for Patch 4
+- Updated MAINTAINERS file
+  - Add the path for the eswin binding file
+- Updated sifive,ccache0.yaml
+  - Add restrictions for "cache-size" property based on the
+    compatible string
+- Link to v1: https://lore.kernel.org/lkml/20250311073432.4068512-1-pinkesh.vaghela@einfochips.com/
+
+Darshan Prajapati (2):
+  dt-bindings: riscv: Add SiFive P550 CPU compatible
+  dt-bindings: interrupt-controller: Add ESWIN EIC7700 PLIC
+
+Min Lin (2):
+  riscv: dts: add initial support for EIC7700 SoC
+  riscv: dts: eswin: add HiFive Premier P550 board device tree
+
+Pinkesh Vaghela (1):
+  riscv: Add Kconfig option for ESWIN platforms
+
+Pritesh Patel (2):
+  dt-bindings: vendor-prefixes: add eswin
+  dt-bindings: riscv: Add SiFive HiFive Premier P550 board
+
+ .../sifive,plic-1.0.0.yaml                    |   1 +
+ .../devicetree/bindings/riscv/cpus.yaml       |   1 +
+ .../devicetree/bindings/riscv/eswin.yaml      |  29 ++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ MAINTAINERS                                   |   9 +
+ arch/riscv/Kconfig.socs                       |   6 +
+ arch/riscv/boot/dts/Makefile                  |   1 +
+ arch/riscv/boot/dts/eswin/Makefile            |   2 +
+ .../dts/eswin/eic7700-hifive-premier-p550.dts |  29 ++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        | 345 ++++++++++++++++++
+ 10 files changed, 425 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/riscv/eswin.yaml
+ create mode 100644 arch/riscv/boot/dts/eswin/Makefile
+ create mode 100644 arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+ create mode 100644 arch/riscv/boot/dts/eswin/eic7700.dtsi
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
