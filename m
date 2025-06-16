@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C87C9C7115F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0980C73C66
 	for <linux-riscv@archiver.kernel.org>; Mon, 16 Jun 2025 12:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,40 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UOatIN85IhVFzhwCn3kA73AtwFAGefCF3UbmiCz3Omw=; b=lf6sF7yiR+POyN
-	targRGjOBJRUh0NOOqH+lkIXB4kQssSKb1Ca2GeuH91aRONaG3q5H4wq3vJWwMrcHHBVvP0Psoy5S
-	uu9GQB+VxdSvA41FLwenAqL32JBBxKwRV8e4cF+030BuvppoNlGSaUu+U6mAHt9DiotlCdOUh276r
-	1xUEmZQMqph0zqPw10i9dK3vsaiL2I4DGNso9ML7bkOMsm+ZohJa9poejfz+1HeLLx0BM2GyrGGSf
-	n2X4Wn8MX5nfdf4qXJDvYhiGLtguO1BsZSjKRNmpOOGHgIv65sgAuDK4TuE4qPyC7skjnyy4LoajT
-	u8y3mTzXjD7DgxB9AgBA==;
+	List-Owner; bh=5nTCQtJ4kEvqLRAIRXYud8ykEDl1pNSWYIHwaG6T8Ec=; b=yv6DM2KRjPtSEd
+	RtJiYnoudWGg0D6yw3AJsefaRaF4xu9qAEW27S7nUpnp2r47f4k6jBKWxEa7EZDxAmTLipR+Kw9T0
+	Vu/WSNOEwKVSjiofMQIj8QtP56TJHq3s7rdvhjfgPEQ7NN9Fm7ZZWEmWO90sqkJbxlREeTdOBjFJG
+	M4/2HDamTVol3DAk1j2Lo1UXSe4vMWWV0uysOkyCmYoU013VvEhXS2HXSIvvTzo+gfY35cm+OJQv8
+	h+70nOW3ntM6k7K5tKh9mrt5Vve42mrmizzWux8evnDEm06cG9wbD1bLRxUiXVlPQcfl0la8mWfvo
+	XHkU8aSJdJx9rU9BWjiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR8nb-00000004L7C-3629;
-	Mon, 16 Jun 2025 12:18:51 +0000
+	id 1uR8nc-00000004L7r-1jq4;
+	Mon, 16 Jun 2025 12:18:52 +0000
 Received: from naesa05.arrow.com ([216.150.161.26])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR7vy-00000004BaR-2x7J
+	id 1uR7w1-00000004Baz-0rCX
 	for linux-riscv@lists.infradead.org;
 	Mon, 16 Jun 2025 11:23:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=einfochips.com; i=@einfochips.com; l=2221; q=dns/txt;
-  s=NAESA-Selector1; t=1750073007; x=1781609007;
+  d=einfochips.com; i=@einfochips.com; l=11275;
+  q=dns/txt; s=NAESA-Selector1; t=1750073009;
+  x=1781609009;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=EJJhfSahaZIB8Ca/itivoDt+i23MPeJ1MfoSOfBJ2lc=;
-  b=RL2Euvp1IUY0tbs4V2eomq8oy+uahGtRXge8B8kA7GxbNF7EEHMFmZyp
-   OjUOuSXjz1fIefVjHnhZXsVh1KG1CJXMYs+RTF/O5xUDSnXtAEzUY3IW1
-   eTL++kyuYFdbG4UKWy9mPpYrHdaotnb1r48zD2M6ToMEVUkX8qkR8fVnK
-   JjcHpjSQpjRLad9y7fASVPiTcBGZa5XuGPESBUA2KJYRhI1C8qOZJl9UF
-   56NEZB41/rj0mVYIh9gw+rTGxy3fVKH7Ff5ZxYUihdiD249kulNqYFJ2v
-   9MEm6G5Ay2fF3ndtTERTaCTtT45S0roK74QiFcKto2U+hjU4tNBAVDsdJ
-   w==;
-X-CSE-ConnectionGUID: TLhHrwS8SFWcvmIRdL8zPA==
-X-CSE-MsgGUID: UW1lbXx7S7y2slYIubnt6w==
+  bh=kzGngVQLKJmSvAj307fFJjLeD7Enh4XUOwI2qPpogm0=;
+  b=JcU42XFKdWY5jAc48uaOc5FkJDP9PJagvDmfTpulk4WynHsLtdDJA3pY
+   3Rysii1A6RwiSRQ2EvjEGcSTynXF1J/yqzIeZRhW95N0lAzjSLc94L8Dg
+   BtSCQ4CEnzNVyAhfwhNfnCfWbMC6EI+YHznSjR9iV0ldJuDBkrY5GkM68
+   9q5WqHJaDNGRxEq2QzQ4OW9pQM85Q/c+uTGc1Etp3BYA6j9QEnjDPoD8J
+   C6Co+OH7SyWA1nZ/Tf1GHl583KGI4tfeTfAcNbx1QKk8Da8ROX8v6ivuW
+   tW3abSmzZom4USK1qQQ9NnpAosDtjgpsSg+IyLmUVSbURqLrGMUdoJ3Mb
+   Q==;
+X-CSE-ConnectionGUID: XrNgJBy3Th+DQ4abL/OfUQ==
+X-CSE-MsgGUID: A3TYWhsoR/iGMEWU1hTKRQ==
 X-IronPort-AV: E=Sophos;i="6.16,241,1744092000"; 
-   d="scan'208";a="26863667"
+   d="scan'208";a="26863679"
 Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa05out.arrow.com with ESMTP; 16 Jun 2025 05:23:22 -0600
+  by naesa05out.arrow.com with ESMTP; 16 Jun 2025 05:23:24 -0600
 Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.14393.4169);
 	 Mon, 16 Jun 2025 16:53:16 +0530
 From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
@@ -75,17 +76,17 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 4/7] dt-bindings: riscv: Add SiFive HiFive Premier P550 board
-Date: Mon, 16 Jun 2025 16:53:13 +0530
-Message-Id: <20250616112316.3833343-5-pinkesh.vaghela@einfochips.com>
+Subject: [PATCH v4 6/7] riscv: dts: add initial support for EIC7700 SoC
+Date: Mon, 16 Jun 2025 16:53:15 +0530
+Message-Id: <20250616112316.3833343-7-pinkesh.vaghela@einfochips.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250616112316.3833343-1-pinkesh.vaghela@einfochips.com>
 References: <20250616112316.3833343-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 16 Jun 2025 11:23:16.0624 (UTC) FILETIME=[0E312100:01DBDEB1]
+X-OriginalArrivalTime: 16 Jun 2025 11:23:16.0755 (UTC) FILETIME=[0E451E30:01DBDEB1]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_042326_821706_A360D10F 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20250616_042329_307014_F0AEFA2D 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,76 +103,393 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pritesh Patel <pritesh.patel@einfochips.com>
+From: Min Lin <linmin@eswincomputing.com>
 
-Add DT binding documentation for the ESWIN EIC7700 SoC and
-HiFive Premier P550 Board
+Add initial support for EIC7700 SoC that uses a SiFive Quad-Core
+P550 CPU cluster.
 
+This file is expected to grow as more device drivers are added to the
+kernel.
+
+Signed-off-by: Min Lin <linmin@eswincomputing.com>
+Co-developed-by: Pritesh Patel <pritesh.patel@einfochips.com>
 Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
+Co-developed-by: Darshan Prajapati <darshan.prajapati@einfochips.com>
+Signed-off-by: Darshan Prajapati <darshan.prajapati@einfochips.com>
 Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Tested-by: Samuel Holland <samuel.holland@sifive.com>
 Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-Reviewed-by: Matthias Brugger <matthias.bgg@kernel.org>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Acked-by: Min Lin <linmin@eswincomputing.com>
 ---
- .../devicetree/bindings/riscv/eswin.yaml      | 29 +++++++++++++++++++
- MAINTAINERS                                   |  7 +++++
- 2 files changed, 36 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/riscv/eswin.yaml
+ MAINTAINERS                            |   2 +
+ arch/riscv/boot/dts/eswin/eic7700.dtsi | 345 +++++++++++++++++++++++++
+ 2 files changed, 347 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/eswin/eic7700.dtsi
 
-diff --git a/Documentation/devicetree/bindings/riscv/eswin.yaml b/Documentation/devicetree/bindings/riscv/eswin.yaml
-new file mode 100644
-index 000000000000..c603c45eef22
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/eswin.yaml
-@@ -0,0 +1,29 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/eswin.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ESWIN SoC-based boards
-+
-+maintainers:
-+  - Min Lin <linmin@eswincomputing.com>
-+  - Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-+  - Pritesh Patel <pritesh.patel@einfochips.com>
-+
-+description:
-+  ESWIN SoC-based boards
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - sifive,hifive-premier-p550
-+          - const: eswin,eic7700
-+
-+additionalProperties: true
-+
-+...
 diff --git a/MAINTAINERS b/MAINTAINERS
-index a92290fffa16..8fadb4bae91f 100644
+index 8fadb4bae91f..84ecf004a59c 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -8914,6 +8914,13 @@ L:	linux-can@vger.kernel.org
+@@ -8919,7 +8919,9 @@ M:	Min Lin <linmin@eswincomputing.com>
+ M:	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+ M:	Pritesh Patel <pritesh.patel@einfochips.com>
  S:	Maintained
- F:	drivers/net/can/usb/esd_usb.c
++T:	git https://github.com/eswincomputing/linux-next.git
+ F:	Documentation/devicetree/bindings/riscv/eswin.yaml
++F:	arch/riscv/boot/dts/eswin/
  
-+ESWIN DEVICETREES
-+M:	Min Lin <linmin@eswincomputing.com>
-+M:	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-+M:	Pritesh Patel <pritesh.patel@einfochips.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/riscv/eswin.yaml
-+
  ET131X NETWORK DRIVER
  M:	Mark Einon <mark.einon@gmail.com>
- S:	Odd Fixes
+diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
+new file mode 100644
+index 000000000000..c3ed93008bca
+--- /dev/null
++++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
+@@ -0,0 +1,345 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (c) 2024 Beijing ESWIN Computing Technology Co., Ltd.
++ */
++
++/dts-v1/;
++
++/ {
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <1000000>;
++
++		cpu0: cpu@0 {
++			compatible = "sifive,p550", "riscv";
++			device_type = "cpu";
++			d-cache-block-size = <64>;
++			d-cache-sets = <128>;
++			d-cache-size = <32768>;
++			d-tlb-sets = <1>;
++			d-tlb-size = <32>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			i-tlb-sets = <1>;
++			i-tlb-size = <32>;
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache_0>;
++			reg = <0x0>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "sscofpmf",
++					       "zba", "zbb", "zicsr", "zifencei";
++			tlb-split;
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		cpu1: cpu@1 {
++			compatible = "sifive,p550", "riscv";
++			d-cache-block-size = <64>;
++			d-cache-sets = <128>;
++			d-cache-size = <32768>;
++			d-tlb-sets = <1>;
++			d-tlb-size = <32>;
++			device_type = "cpu";
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			i-tlb-sets = <1>;
++			i-tlb-size = <32>;
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache_1>;
++			reg = <0x1>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "sscofpmf",
++					       "zba", "zbb", "zicsr", "zifencei";
++			tlb-split;
++
++			cpu1_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		cpu2: cpu@2 {
++			compatible = "sifive,p550", "riscv";
++			d-cache-block-size = <64>;
++			d-cache-sets = <128>;
++			d-cache-size = <32768>;
++			d-tlb-sets = <1>;
++			d-tlb-size = <32>;
++			device_type = "cpu";
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			i-tlb-sets = <1>;
++			i-tlb-size = <32>;
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache_2>;
++			reg = <0x2>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "sscofpmf",
++					       "zba", "zbb", "zicsr", "zifencei";
++			tlb-split;
++
++			cpu2_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		cpu3: cpu@3 {
++			compatible = "sifive,p550", "riscv";
++			d-cache-block-size = <64>;
++			d-cache-sets = <128>;
++			d-cache-size = <32768>;
++			d-tlb-sets = <1>;
++			d-tlb-size = <32>;
++			device_type = "cpu";
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			i-tlb-sets = <1>;
++			i-tlb-size = <32>;
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache_3>;
++			reg = <0x3>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "sscofpmf",
++					       "zba", "zbb", "zicsr", "zifencei";
++			tlb-split;
++
++			cpu3_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		l2_cache_0: l2-cache0 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-sets = <512>;
++			cache-size = <262144>;
++			cache-unified;
++			next-level-cache = <&ccache>;
++		};
++
++		l2_cache_1: l2-cache1 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-sets = <512>;
++			cache-size = <262144>;
++			cache-unified;
++			next-level-cache = <&ccache>;
++		};
++
++		l2_cache_2: l2-cache2 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-sets = <512>;
++			cache-size = <262144>;
++			cache-unified;
++			next-level-cache = <&ccache>;
++		};
++
++		l2_cache_3: l2-cache3 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-sets = <512>;
++			cache-size = <262144>;
++			cache-unified;
++			next-level-cache = <&ccache>;
++		};
++	};
++
++	pmu {
++		compatible = "riscv,pmu";
++		riscv,event-to-mhpmcounters =
++				<0x00001 0x00001 0x00000001>,
++				<0x00002 0x00002 0x00000004>,
++				<0x00004 0x00006 0x00000078>,
++				<0x10009 0x10009 0x00000078>,
++				<0x10019 0x10019 0x00000078>,
++				<0x10021 0x10021 0x00000078>;
++		riscv,event-to-mhpmevent =
++				<0x00004 0x00000000 0x00000202>,
++				<0x00005 0x00000000 0x00004000>,
++				<0x00006 0x00000000 0x00002001>,
++				<0x10009 0x00000000 0x00000102>,
++				<0x10019 0x00000000 0x00001002>,
++				<0x10021 0x00000000 0x00000802>;
++		riscv,raw-event-to-mhpmcounters =
++				<0x00000000 0x00000000 0xffffffff 0xfc0000ff 0x00000078>,
++				<0x00000000 0x00000001 0xffffffff 0xfffe07ff 0x00000078>,
++				<0x00000000 0x00000002 0xffffffff 0xfffe00ff 0x00000078>,
++				<0x00000000 0x00000003 0xfffffffc 0x000000ff 0x00000078>,
++				<0x00000000 0x00000004 0xffffffc0 0x000000ff 0x00000078>,
++				<0x00000000 0x00000005 0xffffffff 0xfffffdff 0x00000078>,
++				<0x00000000 0x00000006 0xfffffe00 0x110204ff 0x00000078>,
++				<0x00000000 0x00000007 0xffffffff 0xf00000ff 0x00000078>,
++				<0x00000000 0x00000008 0xfffffe04 0x000000ff 0x00000078>,
++				<0x00000000 0x00000009 0xffffffff 0xffffc0ff 0x00000078>,
++				<0x00000000 0x0000000a 0xffffffff 0xf00000ff 0x00000078>,
++				<0x00000000 0x0000000b 0xffffffff 0xfffffcff 0x00000078>,
++				<0x00000000 0x0000000c 0xfffffff0 0x000000ff 0x00000078>,
++				<0x00000000 0x0000000d 0xffffffff 0x800000ff 0x00000078>,
++				<0x00000000 0x0000000e 0xffffffff 0xf80000ff 0x00000078>,
++				<0x00000000 0x0000000f 0xfffffffc 0x000000ff 0x00000078>;
++	};
++
++	soc {
++		compatible = "simple-bus";
++		ranges;
++		interrupt-parent = <&plic>;
++		#address-cells = <2>;
++		#size-cells = <2>;
++		dma-noncoherent;
++
++		clint: timer@2000000 {
++			compatible = "eswin,eic7700-clint", "sifive,clint0";
++			reg = <0x0 0x02000000 0x0 0x10000>;
++			interrupts-extended =
++				<&cpu0_intc 3>, <&cpu0_intc 7>,
++				<&cpu1_intc 3>, <&cpu1_intc 7>,
++				<&cpu2_intc 3>, <&cpu2_intc 7>,
++				<&cpu3_intc 3>, <&cpu3_intc 7>;
++		};
++
++		ccache: cache-controller@2010000 {
++			compatible = "eswin,eic7700-l3-cache", "sifive,ccache0", "cache";
++			reg = <0x0 0x2010000 0x0 0x4000>;
++			interrupts = <1>, <3>, <4>, <2>;
++			cache-block-size = <64>;
++			cache-level = <3>;
++			cache-sets = <4096>;
++			cache-size = <4194304>;
++			cache-unified;
++		};
++
++		plic: interrupt-controller@c000000 {
++			compatible = "eswin,eic7700-plic", "sifive,plic-1.0.0";
++			reg = <0x0 0xc000000 0x0 0x4000000>;
++			interrupt-controller;
++			interrupts-extended =
++				<&cpu0_intc 11>, <&cpu0_intc 9>,
++				<&cpu1_intc 11>, <&cpu1_intc 9>,
++				<&cpu2_intc 11>, <&cpu2_intc 9>,
++				<&cpu3_intc 11>, <&cpu3_intc 9>;
++			riscv,ndev = <520>;
++			#address-cells = <0>;
++			#interrupt-cells = <1>;
++		};
++
++		uart0: serial@50900000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x50900000 0x0 0x10000>;
++			interrupts = <100>;
++			clock-frequency = <200000000>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart1: serial@50910000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x50910000 0x0 0x10000>;
++			interrupts = <101>;
++			clock-frequency = <200000000>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart2: serial@50920000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x50920000 0x0 0x10000>;
++			interrupts = <102>;
++			clock-frequency = <200000000>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart3: serial@50930000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x50930000 0x0 0x10000>;
++			interrupts = <103>;
++			clock-frequency = <200000000>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		uart4: serial@50940000 {
++			compatible = "snps,dw-apb-uart";
++			reg = <0x0 0x50940000 0x0 0x10000>;
++			interrupts = <104>;
++			clock-frequency = <200000000>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			status = "disabled";
++		};
++
++		gpio@51600000 {
++			compatible = "snps,dw-apb-gpio";
++			reg = <0x0 0x51600000 0x0 0x80>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			gpioA: gpio-port@0 {
++				compatible = "snps,dw-apb-gpio-port";
++				reg = <0>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				interrupts =
++					<303>, <304>, <305>, <306>, <307>, <308>, <309>,
++					<310>, <311>, <312>, <313>, <314>, <315>, <316>,
++					<317>, <318>, <319>, <320>, <321>, <322>, <323>,
++					<324>, <325>, <326>, <327>, <328>, <329>, <330>,
++					<331>, <332>, <333>, <334>;
++				gpio-controller;
++				ngpios = <32>;
++				#gpio-cells = <2>;
++			};
++
++			gpioB: gpio-port@1 {
++				compatible = "snps,dw-apb-gpio-port";
++				reg = <1>;
++				gpio-controller;
++				ngpios = <32>;
++				#gpio-cells = <2>;
++			};
++
++			gpioC: gpio-port@2 {
++				compatible = "snps,dw-apb-gpio-port";
++				reg = <2>;
++				gpio-controller;
++				ngpios = <32>;
++				#gpio-cells = <2>;
++			};
++
++			gpioD: gpio-port@3 {
++				compatible = "snps,dw-apb-gpio-port";
++				reg = <3>;
++				gpio-controller;
++				ngpios = <16>;
++				#gpio-cells = <2>;
++			};
++		};
++	};
++};
 -- 
 2.25.1
 
