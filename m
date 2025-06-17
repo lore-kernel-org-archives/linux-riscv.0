@@ -4,105 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3B7C71136
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 09:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0754CC7115A
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 09:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UOD5enbzqvkBPNCF8HB5hzlW9pJk9GOGxNTDEvgrXfQ=; b=zf31b/Ak0/OIxL
-	LZhL+ylszLSOas+NwcR+WrTPaGTlhXU9cQriqrQKcdqvCXG4YnqQsY9mWAY+zbO10mO4o+vVfni7m
-	Shw71aKjU3AHDdAEpKAhNdcCYpO3a0wzUtbLUd4oAoqXCLPOxEa4yXUV8kxQNjupC2qFHIWEEM1QW
-	gC/InI85LaiqjqOx0R8aZnT8fPptnukLW56K3ERxhtKoVSeXMZCa76W90pvUwDOpQ9XIiCqBBpfND
-	9DceAN05i2hpMOvZy1UKOJEC+foiDrDJjbs4oay1mzA+2+gft53o1/x2lTE0qtFU908V5SggVyYej
-	OjMr6EVqqQ1Q3MpPgdOA==;
+	List-Owner; bh=nyuSoDGoFllgqiPcY+njGtMu8zJZ3f1d9JPuuQValwc=; b=QCDG1btpJieBye
+	84GOqxXF580PA1fqfqktRXMvsVxCQBnmUZRWsYvxeJUn+z2wJyL9a5n5HIm87WGu2xSZj/u97r2W1
+	/N+SAawxbu1HiXly8h9hOfUcsuEZEc1v0JfnLfJMuZfMDpzRkqfGUwh1nA9JN9tTZvByYWUCenLPZ
+	ZIuyQ5aKouqqefa2xWLIZ51ENv+glSBbLHJhiM5xGI1Lmvl0l11X1qtwf004eewQZjkGeQfR79ubN
+	cxHZW5N+FwM+KFxVvnHR3Ir75M8fahyHJv2cOZUNmOY/0vfLKZiqVuCKtSzLnTGNmNdnmjPh6tqvx
+	G1D3Q4odRexbzfyRRyTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSXt-00000006jZc-2k6z;
-	Tue, 17 Jun 2025 09:23:57 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uRScS-00000006kU6-2qC5;
+	Tue, 17 Jun 2025 09:28:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSOc-00000006htR-3euq
+	id 1uRSTl-00000006idU-1RzG
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Jun 2025 09:14:24 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a35c894313so6160049f8f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 02:14:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750151661; x=1750756461; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=z2DwhOwUsMunVDJWED8rmtY3JjlBmcuuZx6kyq72hSI=;
-        b=fHltgPCC6mJQVHxjBsi9/mPPKxmApVwitdh0ry5EBmzBMssixeCJ0NuSSBlQEVpECK
-         O01FMX9gIbvnZrIPK7JTFPDYphlDcxuGY1tnzSp2IoScarwbTJALWfGfiFaJpKW4jmra
-         yWQMcisjtgormBweJaBeiiik9bBnOuXg0cDP4YmsZmBaE2IGzpAZPb1LjkXQb/YE8KfI
-         WiW1djCni1rvotLDiwsKsTWflhv70eHOtcBYoyMvkaeAAVtviLKr1k5jnjfkN9wuipWU
-         5gZPIhEb1tK4O/1KahEUZogjy/a4D7g4H6+wtuepjCljDQvysT4pgaC5OTc+EYCvQfEG
-         L21w==
+	Tue, 17 Jun 2025 09:19:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750151980;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Pl6PxwbpUS7ADU1xqvtXXrf/iKUynSR5SAu+83BnGX4=;
+	b=J24VFdGI1Z2zNW5lowKImzrZa41MUw9N78xUxZth2XJjoSJShAPhIYTr2htFpfa59Cjdzw
+	XTUEUhkjhRqhQHbdlfuaXujIDXeP1HJQ3+X962gL36RkT2O/PpVH0L02K91PV/XOVVu71Z
+	UnuyuFkDzG9kNouA7GqVHe3zSyVWzwg=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-17-iBuoTmqpPYyMKacuQd_6Sg-1; Tue, 17 Jun 2025 05:19:38 -0400
+X-MC-Unique: iBuoTmqpPYyMKacuQd_6Sg-1
+X-Mimecast-MFC-AGG-ID: iBuoTmqpPYyMKacuQd_6Sg_1750151977
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3a4fac7fa27so2416508f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 02:19:38 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750151661; x=1750756461;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=z2DwhOwUsMunVDJWED8rmtY3JjlBmcuuZx6kyq72hSI=;
-        b=jHeL8OEn+ZlbHp3rWeFRYEjODVcRkepvA9HThZ3c2o7WDngQy4iL3x7UtS3gCBe5FE
-         TLQ6e9uAn1DpYIv8aQIKxZQxApI8aV5jZW61e/LdmveFs4fV6fOE6KYu4iWXfhtr6img
-         5cc/SVGOaGmpYIRNrMepLc/pP0ssIyXOKZGva+ItQ86LFXt/uxkjrSLUXQn9s3JayGn0
-         ZU3io3nqA6fhCGViLRThjzbfwsbwH2VeWoIKTdtE0rXp2TwOHjeX9ca/V0zG7FDgu9XM
-         swDVRqxcjAtXyFGcHP8srQYvNkRvYdQ7nGYJDq7QkAPEHzIxilsCmY1n7dxcmqic+pPR
-         uEZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUUnHAidwal1ctMMr3QgqXQOj6JCfyPXxm5/a1ECwJU/yoptLe7XpczixTiMgOuIkmpJOVmScGJiuND0g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcMe9+HNbjxo9+gg6ZIWJcM/nZCK0aoDTTu6VRJ71he4g9wbtB
-	zUBc7otm47tznJRSwQMRiBoynct5JNfzYXgAfQWWxA1x0+anjAum01/HgDSiLe43Fio=
-X-Gm-Gg: ASbGncteOOoaBKgUpf32CCBbIUIQ5c6UfKccKsSMz+rL7maGRS8OD9H0C6oo1QmJZcV
-	qV/N/QRw87fwZ71+yJIvV73iHFQrkdWH7hCmTNTcW8rrItdzBBtPjfG18QvySCMdOqdnqQYnhl0
-	OfoqYrRnheiPIfN71MzDGbyO9/4KgCZkhHEZ0SzzO361J+1hs/oVRfwXqbH+qA6wYsnRz1JNhSk
-	6NTqQmINMC5pCRsxE4vQRPs7PHi+JL9zYS2nYhFRMyqowGP7aIBkRfPSdDa2FV9VmepRfbVDiRY
-	cKy+dDofiiCsvr2wuJiNle6ockm62oYwyS0pTTTGIGXx/4m4UQaZbiBztENasl4=
-X-Google-Smtp-Source: AGHT+IHJrUzq11FqzFpCalpA8oxq7QOoJUd6doTIPdsMKhwT2j2fIZKoD5gQsAT4CYJMYxX4N6Amdw==
-X-Received: by 2002:a05:6000:230e:b0:3a4:e740:cd72 with SMTP id ffacd0b85a97d-3a572396df6mr10071598f8f.13.1750151661308;
-        Tue, 17 Jun 2025 02:14:21 -0700 (PDT)
-Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:90df:ded7:9cbf:4074])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a633ddsm13280685f8f.26.2025.06.17.02.14.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 02:14:20 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>,
-	Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Grygorii Strashko <grygorii.strashko@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Kevin Hilman <khilman@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	openbmc@lists.ozlabs.org,
-	linux-omap@vger.kernel.org
-Subject: Re: [PATCH 00/12] gpio: convert another round of GPIO drivers to using new line value setters
-Date: Tue, 17 Jun 2025 11:14:17 +0200
-Message-ID: <175015165197.21779.16487408157196142174.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
-References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
+        d=1e100.net; s=20230601; t=1750151977; x=1750756777;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Pl6PxwbpUS7ADU1xqvtXXrf/iKUynSR5SAu+83BnGX4=;
+        b=BHObcuZcifs6JDmGq9fycb+RJySYEeX5jzz30/S9Mp1HneDOsjTsD3sns1GNWJ2rZg
+         Z0XVwy4QXmmMg6PV9RWoIvp1/XbE3q66+dl1SBLDlDXVi5m8IphdQz7ekSqmJpL4+shZ
+         Yx7e7RTKdWEU3N+hGXZCb+rs3A/mVOlNJ+SpXCw6xLkx0UC2MMdD611p5GLgrqiqXeAc
+         Di3Wy2lk8U1cpyJqEQfPlPXuZJ2YTQfN//Uo5N1A5R8Ly11sPiRg4TWszW78bVZC4x8w
+         nedhf8W3ugANHXrngJJTmhgQc9QCMP9tgdsG6Qib0y/wkCKG/6tAJciFvqU8D3p3obM8
+         NSZw==
+X-Forwarded-Encrypted: i=1; AJvYcCU31MBmfGDoIpsDx565l3NgWfbiNyiW06N0smkWB3v8ZrxH8odU0cJ7wZ0YHpQ5BaCGsV5qlpi9zPG9qw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzn/fNrNiBYw8FyrLE71B6RQfmQBSPkh8p7jX/AmOc6w47dp2O7
+	M1ca0Pc0XpuQZIh2wzHMjtH4H3JH8huvj5b9adPpBxGPj/+YmT0lgtPjQIRt5TIWwXD2xD0mCWY
+	EplkGW2E2YMDN0xEFfdWcbOPscoShx3vV0NoL+kQjcdfCtZJjqW0kLxzDL4+/m/ItASSqog==
+X-Gm-Gg: ASbGncsfrcwlg12uhlP8N5TopbfmPoZTy1dVYI0drsCy/e5ejj+9iOtFGRd4hcGj9mI
+	BJVey9mtw8hxxrNpWUOes6O0e5nhkeozhc8kuocMZRNfLD+rfYK0jHQjEmGHGt22xaRrfhvT4xA
+	l5XtEQXcViFmFXFrjhDrjGOeStddhKX/jEchars7hWG1tVo0wrmF0OnK45dKwEvjygfelPyR2Ra
+	n5yBPeUmIXVH9uc1fCgeMu+2Cqf5Pq71pdKuByEU5rZhfkGJH1mBZT+sZxVV5vDWzt6Rbi5FQEU
+	xGlmjQ2oI/HQ7GfsjGQem37KI/mL3kgddbHibAXlPM2ptBmB4i7JPjmxZYCJefkUZVWNMyF4XW0
+	fkvcdohk/wBWSaFzH9Y0szrUF1czckfGY7r70+ySLwoscFYc=
+X-Received: by 2002:a05:6000:4202:b0:3a4:dfaa:df8d with SMTP id ffacd0b85a97d-3a572367c45mr11265692f8f.9.1750151977245;
+        Tue, 17 Jun 2025 02:19:37 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHt8iXJvJT0W2e4sI8GT6VcpVG8jxrePAU09oM8r6xnq4XSbjmN3FC6k4gXR+D2djVSpIQQtw==
+X-Received: by 2002:a05:6000:4202:b0:3a4:dfaa:df8d with SMTP id ffacd0b85a97d-3a572367c45mr11265656f8f.9.1750151976687;
+        Tue, 17 Jun 2025 02:19:36 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f31:700:3851:c66a:b6b9:3490? (p200300d82f3107003851c66ab6b93490.dip0.t-ipconnect.de. [2003:d8:2f31:700:3851:c66a:b6b9:3490])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568b08e21sm13528866f8f.52.2025.06.17.02.19.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Jun 2025 02:19:36 -0700 (PDT)
+Message-ID: <bf855ce0-d0ba-4bd6-bfc1-8be2fdbdfe70@redhat.com>
+Date: Tue, 17 Jun 2025 11:19:34 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/14] mm: Convert pXd_devmap checks to vma_is_dax
+To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org
+Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
+ dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org,
+ linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
+ zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
+ balbirs@nvidia.com, lorenzo.stoakes@oracle.com,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net,
+ m.szyprowski@samsung.com, Jason Gunthorpe <jgg@nvidia.com>
+References: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
+ <361009510f346090fad328c53ec228d99bb955ee.1750075065.git-series.apopple@nvidia.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <361009510f346090fad328c53ec228d99bb955ee.1750075065.git-series.apopple@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ctfYHeOOG8WfrqDy2U2f0A4GIl7g2seh97c0XYXNJFE_1750151977
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_021422_918040_346CE147 
-X-CRM114-Status: UNSURE (   7.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250617_021941_654637_266D8CB0 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,54 +161,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-
-
-On Tue, 10 Jun 2025 14:33:10 +0200, Bartosz Golaszewski wrote:
-> Commit 98ce1eb1fd87e ("gpiolib: introduce gpio_chip setters that return
-> values") added new line setter callbacks to struct gpio_chip. They allow
-> to indicate failures to callers. We're in the process of converting all
-> GPIO controllers to using them before removing the old ones. This series
-> converts another round of GPIO drivers.
+On 16.06.25 13:58, Alistair Popple wrote:
+> Currently dax is the only user of pmd and pud mapped ZONE_DEVICE
+> pages. Therefore page walkers that want to exclude DAX pages can check
+> pmd_devmap or pud_devmap. However soon dax will no longer set PFN_DEV,
+> meaning dax pages are mapped as normal pages.
 > 
+> Ensure page walkers that currently use pXd_devmap to skip DAX pages
+> continue to do so by adding explicit checks of the VMA instead.
+ > > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Dan Williams <dan.j.williams@intel.com>
 > 
-> [...]
+> ---
+> 
+> Changes from v1:
+> 
+>   - Remove vma_is_dax() check from mm/userfaultfd.c as
+>     validate_move_areas() will already skip DAX VMA's on account of them
+>     not being anonymous.
 
-Applied, thanks!
+This should be documented in the patch description above.
 
-[01/12] gpio: mmio: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/b908d35d0003cc75d4ebf7c24a61b07d34e7f5dc
-[02/12] gpio: mm-lantiq: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/d27746181905c256eced857f4b2c051ac44b0b45
-[03/12] gpio: moxtet: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/b454580cf11b45a9da22821543f1455a6a31c5ee
-[04/12] gpio: mpc5200: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/80d42372d9d87626b55516779e935c012cecdae7
-[05/12] gpio: mpfs: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/3aa3628f8168df9fe154b09b1710d3314b9fa4b7
-[06/12] gpio: mpsse: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/e63d9fbe9f148b44f2fdc211941f2d4485022549
-[07/12] gpio: msc313: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/88a775454a0fe923f3d34d8f30cd1d6b75be0859
-[08/12] gpio: nomadik: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/aaec273c7b511a7826df09123a1fd6e4896c1bfd
-[09/12] gpio: npcm-sgpio: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/0e1a8930c941e3a7bea25928b254ece8caa5135d
-[10/12] gpio: octeon: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/f02614561493da22f24b0e2ec1c2ae0d5b41c68b
-[11/12] gpio: omap: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/57065d62e672bce193f186c7b759f928b9a90ca0
-[12/12] gpio: palmas: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/f3763403a6bbc3a18379fe4c415bda899a111d55
+> ---
+>   fs/userfaultfd.c | 2 +-
+>   mm/hmm.c         | 2 +-
+>   mm/userfaultfd.c | 6 ------
+>   3 files changed, 2 insertions(+), 8 deletions(-)
+> 
+> diff --git a/fs/userfaultfd.c b/fs/userfaultfd.c
+> index ef054b3..a886750 100644
+> --- a/fs/userfaultfd.c
+> +++ b/fs/userfaultfd.c
+> @@ -304,7 +304,7 @@ static inline bool userfaultfd_must_wait(struct userfaultfd_ctx *ctx,
+>   		goto out;
+>   
+>   	ret = false;
+> -	if (!pmd_present(_pmd) || pmd_devmap(_pmd))
+> +	if (!pmd_present(_pmd) || vma_is_dax(vmf->vma))
+>   		goto out;
 
-Best regards,
+VMA checks should be done before doing any page table walk.
+
+>   
+>   	if (pmd_trans_huge(_pmd)) {
+> diff --git a/mm/hmm.c b/mm/hmm.c
+> index feac861..5311753 100644
+> --- a/mm/hmm.c
+> +++ b/mm/hmm.c
+> @@ -441,7 +441,7 @@ static int hmm_vma_walk_pud(pud_t *pudp, unsigned long start, unsigned long end,
+>   		return hmm_vma_walk_hole(start, end, -1, walk);
+>   	}
+>   
+> -	if (pud_leaf(pud) && pud_devmap(pud)) {
+> +	if (pud_leaf(pud) && vma_is_dax(walk->vma)) {
+>   		unsigned long i, npages, pfn;
+>   		unsigned int required_fault;
+>   		unsigned long *hmm_pfns;
+
+Dito.
+
+> diff --git a/mm/userfaultfd.c b/mm/userfaultfd.c
+> index 58b3ad6..8395db2 100644
+> --- a/mm/userfaultfd.c
+> +++ b/mm/userfaultfd.c
+> @@ -1818,12 +1818,6 @@ ssize_t move_pages(struct userfaultfd_ctx *ctx, unsigned long dst_start,
+>   
+>   		ptl = pmd_trans_huge_lock(src_pmd, src_vma);
+>   		if (ptl) {
+> -			if (pmd_devmap(*src_pmd)) {
+> -				spin_unlock(ptl);
+> -				err = -ENOENT;
+> -				break;
+> -			}
+> -
+>   			/* Check if we can move the pmd without splitting it. */
+>   			if (move_splits_huge_pmd(dst_addr, src_addr, src_start + len) ||
+>   			    !pmd_none(dst_pmdval)) {
+
+
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Cheers,
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
