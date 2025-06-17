@@ -4,88 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AF53C71136
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 13:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E98FC71157
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 13:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=H1lHWt1tZnMUmiQoc6UpBKFH/NNylZmo3bhfOOelPRc=; b=Qj8F71Wy9nPalD
-	tFE8rvAX0dHahiI+o5mzDUp5wElWFiHmmK/wCEy/ViFqBV92mdOprbteUQXVMlV5WoUt7XtH4ws+W
-	qZx3861ViRfLei1BaCk8EBLc3APCIGMxSqx9BnbordeDCS06PnviPkLi+0pVj9I0d6gWxpZp8/r/8
-	+GKRoaTyudPFw+KKSI6hINh4Ik8+PLfgpP87/Q7+lIFxgM5JBdMYYOaDY1+cZLYZgfWCfhQ+5PyIg
-	syAW1dk+SB5+dZOmV9eTOBZ1r0w6nDr8ko1QUPDgBs9qMnp+RpCxo0Xbq6ggyhe7rGGpw/vMU69y0
-	h/IHHbhaBhU/CkR+sIjA==;
+	List-Owner; bh=9C68f0WFvZgtIIsox0bhYT/O/eEMDyHWPk7Eyywh3TM=; b=c7uA94/uSkFZFt
+	HD8vRlzpHW9hxTZQQ9Pn3Nk2Yq14pmbrzQNwkrQGWo1bXvlDyJ7jJe/vpO+swLbTuriUuvQgMuE++
+	gdNYGAUC9in7+IGNPj+/untr2334o59bITkbEC4u3SGY/KcVLPmhuCY4nsQln1bzDMNEz6AhES/zI
+	iEN3NECUQVy0dfPGrabS49rX5OR5dtK3xK4pkAwtE0BK9ylN4KNkHuVpGA6o5DNfe1Dm2OfrYuPC6
+	2wdYtrm89kZGbt7lBnpiuGsX2b2QaWgFKNsjnDy49bUJB6k4sbm9ZxRY907taX2FIcRMCsG1z73XW
+	KKHgkRXwG2KGqmtyg5uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWIo-00000007LAG-0FF4;
-	Tue, 17 Jun 2025 13:24:38 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1uRWJB-00000007LKo-3IJc;
+	Tue, 17 Jun 2025 13:25:01 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRVzw-00000007HSf-2iEH
-	for linux-riscv@lists.infradead.org;
-	Tue, 17 Jun 2025 13:05:09 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-553b544e7b4so4414158e87.3
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 06:05:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750165507; x=1750770307; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hQ7rt4e14DyPGgHQFy3EQy+5G7wFsrLkDEYIps9brIY=;
-        b=ePI1OICePEwkVZC+CXYrSxROyk3iRmxQ9aVwZ/wo/7IybS98lDtqTQpEmxzvVpM5Cw
-         eYt7eYgpmIJkvLwn03zzB0W0cK/JJ+Ravc08RbFVm+U0FmpZ/QhBXsAf0GWAhyN65vX9
-         ANhv3zNw6dIUOaLnSjbl7QRKCW1v0NFNdhY+GAbr60fSnVDX7hVVnYt1w4mjiZ2inCAY
-         lU23u8X58EReRmDLoAGv6eAiTNHWdXLILn4qlZ9CnoVAvh58HExZnbeK1kiWMZtznvhg
-         HR9yoayz3rTAPUZSvI1SZGnc3Pm4Q5gv217zKJ7+QzTkhxXktJBtOmSRtUYbUssSBwZU
-         Ck/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750165507; x=1750770307;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hQ7rt4e14DyPGgHQFy3EQy+5G7wFsrLkDEYIps9brIY=;
-        b=NlpbaBL++VY9SrbBEx8UbfZNE0FHMq0scsWtNkhUBeF8VnsI0EG04u78ySWEFDWmmh
-         QKujUJAyHGQ87cesRfhouXIls0ZTuQEfGKyHqqGP50qM1SBwm29+3YoaJw4qMdqbSoRS
-         Ct73qMS3DAGuoZflTyw47J0mf7SAos+GY0b58HTDCHrHf0TZzicO8ll0IvnmBygSCXAi
-         rs99Y2nNIgmWkv5di705Jg/UVIb6emZWuG5VnFDSMlVf2Q8OsnEBJ8LkeCam7QFIqH9Q
-         ULOuMUFscXm72aVfodpgHlRDbuIN8427hdYP8oFnfOs1oPjwDekx+LRxWeNdo9K5vO40
-         EZ0Q==
-X-Gm-Message-State: AOJu0Yyj8Xf963E9Wsk0hYLB5JS/CZMbtOeK02nmIH2bgeQAL7CYa5FX
-	43T/Y/5RG3suiM4xWzQDJmnD3pomb06ZTAvlfz+GzQyvzXg+ByIR69TS
-X-Gm-Gg: ASbGncs3im4scuJ+1mZCR1lbwzC7IcM50bo0IU/bA7rMIKholHYN3HO+JmC9era4UxE
-	QkYfxkpWIoTwNQPTPFyEFWRCUsjDmIH11Tq3BtipFvQF7NGAM1UomqlQexy8vSaClL6my87m5fK
-	7GYhVOhIDp8SMv4RRFXTJxJsRc2nvMfW9yVPB/IPWPss0GNEtj81MPzVUR4irOZYYjZeu4y85/s
-	8Q6Lf/Ht7mIQzEpyBr1bDFP6rjj/ydgJ1+jRMKmO4+FOfBtljrJMyVPSNGC14wu2BeyohgPVB1N
-	RZPI3bzjRhHr6opNeHpqLk6cfV7+8+mpzzMevd8bBXP8gacK4EklxWZfH2JyGWV1WpmBjBRAGOH
-	gTV/hpFXGOTtFxHON6w==
-X-Google-Smtp-Source: AGHT+IHHo3gWM8jne4M/ik8SRuW9s/CXCSDuf5VVjjbmz065W7Ty2nNpgRR2fJksE2eb2m1Q59uOcg==
-X-Received: by 2002:a05:6512:15a2:b0:553:2ef3:f73d with SMTP id 2adb3069b0e04-553b6e8851amr3027873e87.14.1750165506269;
-        Tue, 17 Jun 2025 06:05:06 -0700 (PDT)
-Received: from localhost.localdomain (soda.int.kasm.eu. [2001:678:a5c:1202:4fb5:f16a:579c:6dcb])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-553ac1f91ddsm1900394e87.250.2025.06.17.06.05.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 06:05:05 -0700 (PDT)
-From: Klara Modin <klarasmodin@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	conor.dooley@microchip.com,
-	valentina.fernandezalanis@microchip.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Klara Modin <klarasmodin@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] riscv: export boot_cpu_hartid
-Date: Tue, 17 Jun 2025 14:58:47 +0200
-Message-ID: <20250617125847.23829-1-klarasmodin@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	id 1uRW7n-00000007Iyn-08HV;
+	Tue, 17 Jun 2025 13:13:17 +0000
+Received: from zq-Legion-Y7000.. (unknown [180.110.114.155])
+	by APP-05 (Coremail) with SMTP id zQCowACHCgniaVFopu48Bw--.10997S2;
+	Tue, 17 Jun 2025 21:13:06 +0800 (CST)
+From: zhouquan@iscas.ac.cn
+To: anup@brainfault.org,
+	ajones@ventanamicro.com,
+	atishp@atishpatra.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	Quan Zhou <zhouquan@iscas.ac.cn>
+Subject: [PATCH] RISC-V: KVM: Use find_vma_intersection() to search for intersecting VMAs
+Date: Tue, 17 Jun 2025 21:04:23 +0800
+Message-Id: <230d6c8c8b8dd83081fcfd8d83a4d17c8245fa2f.1731552790.git.zhouquan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-CM-TRANSID: zQCowACHCgniaVFopu48Bw--.10997S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7XrWxCrW7Xw1UKF4Uur17ZFb_yoWfGFX_CF
+	WxJa4kGry7JF1xZa1DCw1fWF4kW3y0yF4xXr129r4UGrnrGwnIyws8KrWUXrW8XF4xXF15
+	Jr98JrZ3tr9rtjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbTAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
+	cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwAKzVCY07xG64k0F24lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr4
+	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
+	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
+	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
+	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14
+	v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUFVyIDUUUU
+X-Originating-IP: [180.110.114.155]
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAYQBmhRLHXKVQAAsj
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_060508_680991_9AC89964 
-X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-CacheID: sfid-20250617_061315_432226_B7090306 
+X-CRM114-Status: UNSURE (   7.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,37 +84,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The mailbox controller driver for the Microchip Inter-processor
-Communication can be built as a module. It uses cpuid_to_hartid_map and
-commit 4783ce32b080 ("riscv: export __cpuid_to_hartid_map") enables that
-to work for SMP. However, cpuid_to_hartid_map uses boot_cpu_hartid on
-non-SMP kernels and this driver can be useful in such configurations[1].
+From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-Export boot_cpu_hartid so the driver can be built as a module on non-SMP
-kernels as well.
+There is already a helper function find_vma_intersection() in KVM
+for searching intersecting VMAs, use it directly.
 
-Link: https://lore.kernel.org/lkml/20250617-confess-reimburse-876101e099cb@spud/ [1]
-Cc: stable@vger.kernel.org
-Fixes: e4b1d67e7141 ("mailbox: add Microchip IPC support")
-Signed-off-by: Klara Modin <klarasmodin@gmail.com>
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
 ---
- arch/riscv/kernel/setup.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/kvm/mmu.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index f7c9a1caa83e..14888e5ea19a 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -50,6 +50,7 @@ atomic_t hart_lottery __section(".sdata")
- #endif
- ;
- unsigned long boot_cpu_hartid;
-+EXPORT_SYMBOL_GPL(boot_cpu_hartid);
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index b63650f9b966..3452a8b77af3 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -487,10 +487,11 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 	 *     +--------------------------------------------+
+ 	 */
+ 	do {
+-		struct vm_area_struct *vma = find_vma(current->mm, hva);
++		struct vm_area_struct *vma;
+ 		hva_t vm_start, vm_end;
  
- /*
-  * Place kernel memory regions on the resource tree so that
+-		if (!vma || vma->vm_start >= reg_end)
++		vma = find_vma_intersection(current->mm, hva, reg_end);
++		if (!vma)
+ 			break;
+ 
+ 		/*
 -- 
-2.49.0
+2.34.1
 
 
 _______________________________________________
