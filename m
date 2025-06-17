@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE21C71157
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 12:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43E3C7115F
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 12:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mnow3f1Na+iBxruztSrBTcmDUCMs9cS4Oppbc7E7B30=; b=jZiKIU1Y9UzbAY
-	qWVMSOU7ovD/JKLNtzIkwvRDN0ewpcB9V4SrCPb189T6pA9L/cyFG0Er/e2/jiGzVJOMVEZEvXDXf
-	VqwBbZG/MD9TGpKX2gVvMWIwmTWMwOotBk1XbTvpzr5OY2PHksfxpYAwdONMb2HKQ5PcDXxW3/ubv
-	PRXcf1gMLdzeRVKCkeurXwWwDGX4BbWXEEzx7COf0H9eSCZ/yOz23p9AwLipRquYj74GmP/rAuQzj
-	RSIFBW8GdcxfOsrWOo9rjq/aDYwW+ep4M4J+zj0U2InVFjREq8NX0QfqZvcz/8d1EjPtC1rBWdtkU
-	edxIJF/gHSFpzP0ecqkQ==;
+	List-Owner; bh=mnow3f1Na+iBxruztSrBTcmDUCMs9cS4Oppbc7E7B30=; b=ejlBepRhf+ko+z
+	iXk/m+6g0TlW53v8P3QMnF7kJBOo8/a6FudyP4BUBwxBn9Fnzev+lqZfwrtbL8P3/jteiB4aVLbtx
+	Uwc+UdC9dOi7YnmanyfzM8xm9fnOn7JUs2n/8lYB0VTBvBBLbldgU6iwZa1UGSG5FdRffZd38pcEd
+	8rHfq8ujw5WzUozHSTKVaD+tcRvn6hSpvmyISfTiey2KWRcIeap11D5aXrzESdsae4/BcbSPEOyIn
+	std7yDy1D0WCMUTqSnwdOtxky7M/2WHLdjipLdDDHNyiNnYDThmiA5sVyTT99MzW2Y9j4kkVQC1YT
+	0v75YLTRSezHtToy851g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRVeG-00000007DXs-3a8u;
-	Tue, 17 Jun 2025 12:42:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uRVeE-00000007DWX-0iLK;
+	Tue, 17 Jun 2025 12:42:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRVKc-00000007Afc-18N0
+	id 1uRVK2-00000007Aah-3byF
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Jun 2025 12:22:28 +0000
+	Tue, 17 Jun 2025 12:21:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9E0E1A43036;
-	Tue, 17 Jun 2025 12:22:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06534C4CEE3;
-	Tue, 17 Jun 2025 12:22:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 64F5A5C6639;
+	Tue, 17 Jun 2025 12:19:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56956C4CEE3;
+	Tue, 17 Jun 2025 12:21:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750162945;
+	s=k20201202; t=1750162909;
 	bh=/LPYQZLmEX/oN/lKZW2xuIsHxQu+peIge+QVmCf4NcQ=;
 	h=From:To:Cc:Subject:Date:From;
-	b=pHko6ytu1qU8iABYpRw9EVpXdzOwQpSZVUW/WxtjiBOtKHv+Af/QlrLAdE9rIqQ+F
-	 ZRQk5fRJhTxmobjZYfrKtcNc8S/bnrAs7bunM8X8GPzkp07RZaSWAXAqbblYAm66Zd
-	 3hvchcyWzgmP5ZUYmvbszcQxnPQq3nlghhyxL8Tu3DlBmgLIEpi3tYvzKz4QBwMB41
-	 VorhFwYB8U6xKJxCwOrMGRpraytmlhDfXthRzu7aH4MjKB9HEvWnYa1xzGUmsG0WsZ
-	 DhsRfjtSlmCPiBmw/o4lhg1KoOneDzADHm5f6t0RmevJBBBcx+WRDaorD8muXw9n+K
-	 gtVt9q34oCjCA==
+	b=HUfp80sU7EFPFZUIjwWaPhb9yb3dmk3OxvCDSlsGcqxcxg4UCN5TtPCN5TfOXAsME
+	 7RT4vnKFH2fSArNLLq9ij4PAoGpsRwj1jZhjTp36Bz7u7MCnyp3Q7X7ysEUwuXQup3
+	 RtJr0IvbP1xDTqj92uAKoue7lroaR2WDBiFt0fdwOBI/pGG1JI1yGDSpHrH3ZkYsqs
+	 Ser9KG0Jm8Ow0dZwA6EDpx7WNvxdLRRkAr5OE/dvDXR53ZaItVtDwynTy/OW8LcVRI
+	 0mvzVPANNGaWx9BqSfniVkgEUNib+eqP0WhfEw6RfPV+YPmBpoM6oL/ObsMCFqZ6ku
+	 4tMAtGEYsW74A==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -52,20 +52,20 @@ Cc: Andy Chiu <andybnac@gmail.com>,
 	Sasha Levin <sashal@kernel.org>,
 	paul.walmsley@sifive.com,
 	aou@eecs.berkeley.edu,
-	yury.norov@gmail.com,
 	charlie@rivosinc.com,
+	yury.norov@gmail.com,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 01/12] riscv: add a data fence for CMODX in the kernel mode
-Date: Tue, 17 Jun 2025 08:22:10 -0400
-Message-Id: <20250617122222.1968832-1-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.15 01/15] riscv: add a data fence for CMODX in the kernel mode
+Date: Tue, 17 Jun 2025 08:21:31 -0400
+Message-Id: <20250617122147.1968355-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.33
+X-stable-base: Linux 6.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_052226_447899_EDDC78B8 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20250617_052150_995149_823613CC 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
