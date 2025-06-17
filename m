@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B552DC71136
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 15:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF06C71136
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 15:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/MLTRUB+wLl+bobIn8yZXFlP2bd0F6WWTaPdhHQcp1s=; b=PZb+jXftU01Ky7
-	o33rzLv9sIhMrh98Xo5M8utST8M6/P0jDBpvZ/0OPnXusVdbZhvyoGPg+T/Egz8aaf4yhJKMeyiQX
-	Mi8+gom7O/h5FlrTdEkBdqHQuc++pcGyaJmSun41EokppdJsqX4LRIRlsuILoLDSVGMEi77HRp4OV
-	WbrfO9LD9TodPMhjUoEObI8mBKiyAUvb+OrfEpkO5gY9vw/qv5qpqry2qGCW03WDiE7/Fn/sCtj67
-	wN7CiYaOykXZiYiQPjPCiZVMDX/6C58tdRhACrBW8UPgboOoj+txLVPd3EXexQLrf2TVBNt6slm1P
-	8mi+YqIk/T/D3vlwojLg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=fS66u+gnP4HslIe9kNPz7eN110s4u4cJP0KwHJZZWgc=; b=c+ALG2J0n/fr41cn/WV9jpntww
+	XmELQF0CcVgFNgshVMFjHEne8ex0Rqq/wP8o6HQUy84U37uzhjUI81+BH/4VUB5Wxw49xEe/G9fma
+	OMM9BZY6knmXLZRDrVHNRyYPc0GfdgG/2yniavLh7Y8U1rsZBwvITYUTe1rgV43KnBttjfnl5+Mmi
+	RG6BafMlH8pwODrqGNHCxSCQn1vzgumoJRKfr4FzjCAWAm71YaBHSiPeLRVwGlyvChPAHiseyhksO
+	5IonDcZXHq9EEZkFtPhAK/otrjOUQBZaNJznQacOPb7/c3tjStZqywXYQ1Qefu2GHwIJrGbxFLZq+
+	Vi5hDIbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXpf-00000007flZ-0zhb;
-	Tue, 17 Jun 2025 15:02:39 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uRYJ2-00000007k2p-2YrW;
+	Tue, 17 Jun 2025 15:33:00 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWzQ-00000007Ucx-2UwQ
+	id 1uRXQI-00000007aGd-0UzN
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Jun 2025 14:08:42 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250617140837euoutp018737cfb7a1df766333d29e7f94700e18~J2bi4-Rvc2798127981euoutp01S
-	for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 14:08:37 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250617140837euoutp018737cfb7a1df766333d29e7f94700e18~J2bi4-Rvc2798127981euoutp01S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1750169317;
-	bh=qO3jU7spwp9AnsPu6rlaK9fzxjqj1cRECEod63pnXa0=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=FMJ7/DP2nk9W7Lw/N8GJcJEa1OGw+jt2V1rFSejISYpNfxdudyMFMUoGzcZpSHBj6
-	 gjAxojbL/LRW+rXwvs1aspRaJgqvsHDfaDfAH/JgjyLaLerRUz/OGnCea88WH3EXWS
-	 eFwafNTzcYEHYw0v6XGY9EFwkf4a1MXesF0YWnxE=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250617140836eucas1p1531fccff82c0fcec217ca3526ae09124~J2biTJd7d0447904479eucas1p19;
-	Tue, 17 Jun 2025 14:08:36 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250617140835eusmtip1f182b6f740177efd358f7dc18d1468f8~J2bhITtQI2854428544eusmtip1I;
-	Tue, 17 Jun 2025 14:08:35 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 17 Jun 2025 16:07:25 +0200
-Subject: [PATCH v3 2/9] rust: pwm: Add core 'Device' and 'Chip' object
- wrappers
-MIME-Version: 1.0
-Message-Id: <20250617-rust-next-pwm-working-fan-for-sending-v3-2-1cca847c6f9f@samsung.com>
-In-Reply-To: <20250617-rust-next-pwm-working-fan-for-sending-v3-0-1cca847c6f9f@samsung.com>
-To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
-	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
-	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,  Andreas
-	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,  Trevor
-	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,  Michal
-	Wilczynski <m.wilczynski@samsung.com>, Drew Fustini <drew@pdp7.com>,  Guo
-	Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
-	<conor+dt@kernel.org>,  Paul Walmsley <paul.walmsley@sifive.com>,  Palmer
-	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,  Alexandre
-	Ghiti <alex@ghiti.fr>,  Marek Szyprowski <m.szyprowski@samsung.com>,  Benno
-	Lossin <lossin@kernel.org>,  Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Benno Lossin <lossin@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250617140836eucas1p1531fccff82c0fcec217ca3526ae09124
-X-Msg-Generator: CA
-X-RootMTR: 20250617140836eucas1p1531fccff82c0fcec217ca3526ae09124
-X-EPHeader: CA
-X-CMS-RootMailID: 20250617140836eucas1p1531fccff82c0fcec217ca3526ae09124
-References: <20250617-rust-next-pwm-working-fan-for-sending-v3-0-1cca847c6f9f@samsung.com>
-	<CGME20250617140836eucas1p1531fccff82c0fcec217ca3526ae09124@eucas1p1.samsung.com>
+	Tue, 17 Jun 2025 14:36:27 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-74620e98ec8so4801266b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 07:36:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1750170984; x=1750775784; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uMwlSkCNIqJfHOH66+3JA30LqpAbnp8KrvmDSuhH/Ag=;
+        b=G7Ai+eqlcrQeUVDcQidrxdSaSgyrgz4bAZ9+z8rg2pFlfn5m08GAAVYTEnh0d+wt7A
+         N/+0ILtJc81m3Mtj8Wk2wJv+o40oYMId+dETbc0VUHJLPbsHP6Z7a3dq4Q6OJV5e//zo
+         KzBTyw8iNahVoOzqRGkciLb4vNz2piLWPBEnznWTQvToheVf4p+TrlzBiaX8lJrUU4Ue
+         HCV1eth3XzSN0pfwypZuyj506h0ld8ga8k6hoHzzPYSOShLMaJAxEqXXl3aNyxihlTTV
+         qYNJj9ORNniGRzqccg1v9oNj4Y9GB7LQzCRz7Bm+OqSaNFKpfdFWxvkuYbDpaPOGNYTj
+         tYYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750170984; x=1750775784;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=uMwlSkCNIqJfHOH66+3JA30LqpAbnp8KrvmDSuhH/Ag=;
+        b=MsSLFfhbySza4YfE4XkzZWQIGdrxac+t7a32CbYxKAx/YgZGB8iGbSUhpDENsIL3Fc
+         Gs5vvBk9sUC12M8ysbSyn6n2Zo3O7ri2NhvwIBkYYdNrSS2+yetQXBZ2VX5Sk5PcVOth
+         uv0WzkhBFgbq8xbCoe1WdykCvNaqWH7gy+PaV3ayx4cX5uDAGuoWd2p4VCUz8uBCasH7
+         vxmvuXYxiV4PKhGHw4oQRNm5rNLl/k7rcB4l98FgwF0fW+AbLBmqo6MQqc9L6pKeCdod
+         gdk5gAYnZvquzgiUQYxb+RGTSYs+/S3G9ERY7+lrxBMrmalvU9YMT89E38ahgsXBBnLz
+         tYTw==
+X-Forwarded-Encrypted: i=1; AJvYcCXX3Ex0i4keQN/hXO3CFMSds+7xomR8eKkeeajYgJYfob9dMauTY0himVtidL7DKZX9fRC1V9/Wee1J8w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yymf0WEgNksgaNv0uvQ0Ofey244FzsOuk4vE/Vcg6GIxMfap7TQ
+	ZizL+XV45TXacqK9ExGEA+25pT3+zu+3L3P59dM2BEbrAjchYUtJtJFx6oWZgNNHSJ66wWIyvDA
+	bz4CfOg==
+X-Google-Smtp-Source: AGHT+IFdJLXMZEEu8DdlQZ+U+oQwIvzvdGgAICIJ+geqiAScmpG1InwG5WTe3wRE1wV8wV8tzAaYKmdEpJA=
+X-Received: from pfnw6.prod.google.com ([2002:aa7:8586:0:b0:747:a8e8:603e])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:9181:b0:748:a0b9:f873
+ with SMTP id d2e1a72fcca58-748a0b9f8d2mr16220059b3a.9.1750170984466; Tue, 17
+ Jun 2025 07:36:24 -0700 (PDT)
+Date: Tue, 17 Jun 2025 07:36:22 -0700
+In-Reply-To: <CAK9=C2WFA+SDt4MCLj0reQnkkA2kxUmfWhT8HZxjT_DdW8W_rQ@mail.gmail.com>
+Mime-Version: 1.0
+References: <50989f0a02790f9d7dc804c2ade6387c4e7fbdbc.1749634392.git.zhouquan@iscas.ac.cn>
+ <20250611-352bef23df9a4ec55fe5cb68@orel> <aEmsIOuz3bLwjBW_@google.com>
+ <20250612-70c2e573983d05c4fbc41102@orel> <aEymPwNM59fafP04@google.com> <CAK9=C2WFA+SDt4MCLj0reQnkkA2kxUmfWhT8HZxjT_DdW8W_rQ@mail.gmail.com>
+Message-ID: <aFF9ZqbvZZtbUnGt@google.com>
+Subject: Re: [PATCH] RISC-V: KVM: Avoid re-acquiring memslot in kvm_riscv_gstage_map()
+From: Sean Christopherson <seanjc@google.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Andrew Jones <ajones@ventanamicro.com>, zhouquan@iscas.ac.cn, anup@brainfault.org, 
+	atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_070840_933664_A033A9DE 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20250617_073626_149273_8796E69C 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,287 +91,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Building on the basic data types, this commit introduces the central
-object abstractions for the PWM subsystem: Device and Chip. It also
-includes the core trait implementations that make the Chip wrapper a
-complete, safe, and managed object.
-
-The main components of this change are:
- - Device and Chip Structs: These structs wrap the underlying struct
-   pwm_device and struct pwm_chip C objects, providing safe, idiomatic
-   methods to access their fields.
-
- - Core Trait Implementations for Chip:
-    - AlwaysRefCounted: Links the Chip's lifetime to its embedded
-      struct device reference counter. This enables automatic lifetime
-      management via ARef.
-    - Send and Sync: Marks the Chip wrapper as safe for use across
-      threads. This is sound because the C core handles all necessary
-      locking for the underlying object's state.
-
-These wrappers and traits form a robust foundation for building PWM
-drivers in Rust.
-
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- rust/kernel/pwm.rs | 227 ++++++++++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 225 insertions(+), 2 deletions(-)
-
-diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
-index ed681b228c414e7ae8bf80ca649ad497c9dc4ec3..8c4c27a4e4fc9da2fc8ea5015df2a315cfc6b932 100644
---- a/rust/kernel/pwm.rs
-+++ b/rust/kernel/pwm.rs
-@@ -8,10 +8,12 @@
- 
- use crate::{
-     bindings,
-+    device,
-+    error,
-     prelude::*,
--    types::Opaque,
-+    types::{ARef, AlwaysRefCounted, ForeignOwnable, Opaque},
- };
--use core::convert::TryFrom;
-+use core::{convert::TryFrom, ptr::NonNull};
- 
- /// Maximum size for the hardware-specific waveform representation buffer.
- ///
-@@ -196,3 +198,224 @@ pub fn set_usage_power(&mut self, usage_power: bool) {
-         self.0.usage_power = usage_power;
-     }
- }
-+
-+/// Wrapper for a PWM device [`struct pwm_device`](srctree/include/linux/pwm.h).
-+#[repr(transparent)]
-+pub struct Device(Opaque<bindings::pwm_device>);
-+
-+impl Device {
-+    /// Creates a temporary `&mut Device` from a raw C pointer for use in callbacks.
-+    ///
-+    /// It returns a mutable reference (`&mut Self`) because the underlying C APIs
-+    /// for PWM operations use non-const pointers (`struct pwm_device *`). This
-+    /// signals that the functions in the vtable are permitted to mutate the
-+    /// device's state (e.g., by writing to hardware registers). Using `&mut`
-+    /// allows the `PwmOps` trait to accurately model this behavior and leverage
-+    /// Rust's aliasing rules for greater safety.
-+    ///
-+    /// # Safety
-+    ///
-+    /// The caller must ensure that `ptr` is a valid, non-null pointer to
-+    /// `bindings::pwm_device` that is properly initialized.
-+    /// The `pwm_device` must remain valid for the lifetime `'a`.
-+    /// The caller must also ensure that Rust's aliasing rules are upheld.
-+    pub(crate) unsafe fn from_ptr<'a>(ptr: *mut bindings::pwm_device) -> &'a mut Self {
-+        // SAFETY: Caller guarantees `ptr` is valid and meets lifetime/aliasing.
-+        // `Self` is `#[repr(transparent)]`, so casting is valid.
-+        unsafe { &mut *ptr.cast::<Self>() }
-+    }
-+
-+    /// Returns a raw pointer to the underlying `pwm_device`.
-+    fn as_raw(&self) -> *mut bindings::pwm_device {
-+        self.0.get()
-+    }
-+
-+    /// Gets the hardware PWM index for this device within its chip.
-+    pub fn hwpwm(&self) -> u32 {
-+        // SAFETY: `self.as_raw()` provides a valid pointer for `self`'s lifetime.
-+        unsafe { (*self.as_raw()).hwpwm }
-+    }
-+
-+    /// Gets a reference to the parent `Chip` that this device belongs to.
-+    pub fn chip(&self) -> &Chip {
-+        // SAFETY: `self.as_raw()` provides a valid pointer. (*self.as_raw()).chip
-+        // is assumed to be a valid pointer to `pwm_chip` managed by the kernel.
-+        // Chip::from_ptr's safety conditions must be met.
-+        unsafe { Chip::from_ptr((*self.as_raw()).chip) }
-+    }
-+
-+    /// Gets the label for this PWM device, if any.
-+    pub fn label(&self) -> Option<&CStr> {
-+        // SAFETY: self.as_raw() provides a valid pointer.
-+        let label_ptr = unsafe { (*self.as_raw()).label };
-+        if label_ptr.is_null() {
-+            None
-+        } else {
-+            // SAFETY: label_ptr is non-null and points to a C string
-+            // managed by the kernel, valid for the lifetime of the PWM device.
-+            Some(unsafe { CStr::from_char_ptr(label_ptr) })
-+        }
-+    }
-+
-+    /// Gets a copy of the board-dependent arguments for this PWM device.
-+    pub fn args(&self) -> Args {
-+        // SAFETY: self.as_raw() gives a valid pointer to `pwm_device`.
-+        // The `args` field is a valid `pwm_args` struct embedded within `pwm_device`.
-+        // `Args::from_c_ptr`'s safety conditions are met by providing this pointer.
-+        unsafe { Args::from_c_ptr(&(*self.as_raw()).args) }
-+    }
-+
-+    /// Gets a copy of the current state of this PWM device.
-+    pub fn state(&self) -> State {
-+        // SAFETY: `self.as_raw()` gives a valid pointer. `(*self.as_raw()).state`
-+        // is a valid `pwm_state` struct. `State::from_c` copies this data.
-+        State::from_c(unsafe { (*self.as_raw()).state })
-+    }
-+
-+    /// Returns `true` if the PWM signal is currently enabled based on its state.
-+    pub fn is_enabled(&self) -> bool {
-+        self.state().enabled()
-+    }
-+}
-+
-+/// Wrapper for a PWM chip/controller ([`struct pwm_chip`](srctree/include/linux/pwm.h)).
-+#[repr(transparent)]
-+pub struct Chip(Opaque<bindings::pwm_chip>);
-+
-+impl Chip {
-+    /// Creates a temporary `&mut Chip` from a raw C pointer for use in callbacks.
-+    ///
-+    /// It returns a mutable reference (`&mut Self`) because the underlying C APIs
-+    /// for PWM operations use non-const pointers (`struct pwm_chip *`). This
-+    /// signals that the functions in the vtable are permitted to mutate the
-+    /// chip's state (e.g., by calling `set_drvdata` or through operations that
-+    /// modify hardware registers). Using `&mut` is essential for these cases.
-+    ///
-+    /// # Safety
-+    ///
-+    /// The caller must ensure that `ptr` is a valid, non-null pointer to
-+    /// `bindings::pwm_chip` that is properly initialized.
-+    /// The `pwm_chip` must remain valid for the lifetime `'a`.
-+    /// The caller must also ensure that Rust's aliasing rules are upheld.
-+    pub(crate) unsafe fn from_ptr<'a>(ptr: *mut bindings::pwm_chip) -> &'a mut Self {
-+        // SAFETY: Caller guarantees `ptr` is valid and meets lifetime/aliasing.
-+        // `Self` is `#[repr(transparent)]`, so casting is valid.
-+        unsafe { &mut *ptr.cast::<Self>() }
-+    }
-+
-+    /// Returns a raw pointer to the underlying `pwm_chip`.
-+    pub(crate) fn as_raw(&self) -> *mut bindings::pwm_chip {
-+        self.0.get()
-+    }
-+
-+    /// Gets the number of PWM channels (hardware PWMs) on this chip.
-+    pub fn npwm(&self) -> u32 {
-+        // SAFETY: `self.as_raw()` provides a valid pointer for `self`'s lifetime.
-+        unsafe { (*self.as_raw()).npwm }
-+    }
-+
-+    /// Returns `true` if the chip supports atomic operations for configuration.
-+    pub fn is_atomic(&self) -> bool {
-+        // SAFETY: `self.as_raw()` provides a valid pointer for `self`'s lifetime.
-+        unsafe { (*self.as_raw()).atomic }
-+    }
-+
-+    /// Returns a reference to the embedded `struct device` abstraction.
-+    pub fn device(&self) -> &device::Device {
-+        // SAFETY: `self.as_raw()` provides a valid pointer to `bindings::pwm_chip`.
-+        // The `dev` field is an instance of `bindings::device` embedded within `pwm_chip`.
-+        // Taking a pointer to this embedded field is valid.
-+        // `device::Device` is `#[repr(transparent)]`.
-+        // The lifetime of the returned reference is tied to `self`.
-+        let dev_field_ptr = unsafe { core::ptr::addr_of!((*self.as_raw()).dev) };
-+        // SAFETY: `dev_field_ptr` is a valid pointer to `bindings::device`.
-+        // Casting and dereferencing is safe due to `repr(transparent)` and lifetime.
-+        unsafe { &*(dev_field_ptr.cast::<device::Device>()) }
-+    }
-+
-+    /// Returns a reference to the parent device of this PWM chip's device.
-+    pub fn parent_device(&self) -> Option<&device::Device> {
-+        self.device().parent()
-+    }
-+
-+    /// Gets the *typed* driver-specific data associated with this chip's embedded device.
-+    pub fn drvdata<T: 'static>(&self) -> Option<&T> {
-+        // SAFETY: `self.as_raw()` gives a valid pwm_chip pointer.
-+        // `bindings::pwmchip_get_drvdata` is the C function to retrieve driver data.
-+        let ptr = unsafe { bindings::pwmchip_get_drvdata(self.as_raw()) };
-+        if ptr.is_null() {
-+            None
-+        } else {
-+            // SAFETY: `ptr` is non-null. Caller ensures `T` is the correct type.
-+            // Lifetime of data is managed by the driver that set it.
-+            unsafe { Some(&*(ptr.cast::<T>())) }
-+        }
-+    }
-+
-+    /// Sets the *typed* driver-specific data associated with this chip's embedded device.
-+    pub fn set_drvdata<T: 'static + ForeignOwnable>(&self, data: T) {
-+        // SAFETY: `self.as_raw()` gives a valid pwm_chip pointer.
-+        // `bindings::pwmchip_set_drvdata` is the C function to set driver data.
-+        // `data.into_foreign()` provides a valid `*mut c_void`.
-+        unsafe { bindings::pwmchip_set_drvdata(self.as_raw(), data.into_foreign().cast()) }
-+    }
-+
-+    /// Allocates and wraps a PWM chip using `bindings::pwmchip_alloc`.
-+    ///
-+    /// Returns an [`ARef<Chip>`] managing the chip's lifetime via refcounting
-+    /// on its embedded `struct device`.
-+    pub fn new(parent_dev: &device::Device, npwm: u32, sizeof_priv: usize) -> Result<ARef<Self>> {
-+        // SAFETY: `parent_device_for_dev_field.as_raw()` is valid.
-+        // `bindings::pwmchip_alloc` returns a valid `*mut bindings::pwm_chip` (refcount 1)
-+        // or an ERR_PTR.
-+        let c_chip_ptr_raw =
-+            unsafe { bindings::pwmchip_alloc(parent_dev.as_raw(), npwm, sizeof_priv) };
-+
-+        let c_chip_ptr: *mut bindings::pwm_chip = error::from_err_ptr(c_chip_ptr_raw)?;
-+
-+        // Cast the `*mut bindings::pwm_chip` to `*mut Chip`. This is valid because
-+        // `Chip` is `repr(transparent)` over `Opaque<bindings::pwm_chip>`, and
-+        // `Opaque<T>` is `repr(transparent)` over `T`.
-+        let chip_ptr_as_self = c_chip_ptr.cast::<Self>();
-+
-+        // SAFETY: `chip_ptr_as_self` points to a valid `Chip` (layout-compatible with
-+        // `bindings::pwm_chip`) whose embedded device has refcount 1.
-+        // `ARef::from_raw` takes this pointer and manages it via `AlwaysRefCounted`.
-+        Ok(unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) })
-+    }
-+}
-+
-+// SAFETY: Implements refcounting for `Chip` using the embedded `struct device`.
-+unsafe impl AlwaysRefCounted for Chip {
-+    #[inline]
-+    fn inc_ref(&self) {
-+        // SAFETY: `self.0.get()` points to a valid `pwm_chip` because `self` exists.
-+        // The embedded `dev` is valid. `get_device` increments its refcount.
-+        unsafe {
-+            bindings::get_device(core::ptr::addr_of_mut!((*self.0.get()).dev));
-+        }
-+    }
-+
-+    #[inline]
-+    unsafe fn dec_ref(obj: NonNull<Chip>) {
-+        let c_chip_ptr = obj.cast::<bindings::pwm_chip>().as_ptr();
-+
-+        // SAFETY: `obj` is a valid pointer to a `Chip` (and thus `bindings::pwm_chip`)
-+        // with a non-zero refcount. `put_device` handles decrement and final release.
-+        unsafe {
-+            bindings::put_device(core::ptr::addr_of_mut!((*c_chip_ptr).dev));
-+        }
-+    }
-+}
-+
-+// SAFETY: `Chip` is a wrapper around `*mut bindings::pwm_chip`. The underlying C
-+// structure's state is managed and synchronized by the kernel's device model
-+// and PWM core locking mechanisms. Therefore, it is safe to move the `Chip`
-+// wrapper (and the pointer it contains) across threads.
-+unsafe impl Send for Chip {}
-+
-+// SAFETY: It is safe for multiple threads to have shared access (`&Chip`) because
-+// the `Chip` data is immutable from the Rust side without holding the appropriate
-+// kernel locks, which the C core is responsible for. Any interior mutability is
-+// handled and synchronized by the C kernel code.
-+unsafe impl Sync for Chip {}
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBKdW4gMTUsIDIwMjUsIEFudXAgUGF0ZWwgd3JvdGU6Cj4gT24gU2F0LCBKdW4gMTQs
+IDIwMjUgYXQgMzo1OeKAr0FNIFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5qY0Bnb29nbGUuY29t
+PiB3cm90ZToKPiA+Cj4gPiBPbiBUaHUsIEp1biAxMiwgMjAyNSwgQW5kcmV3IEpvbmVzIHdyb3Rl
+Ogo+ID4gPiBPbiBXZWQsIEp1biAxMSwgMjAyNSBhdCAwOToxNzozNkFNIC0wNzAwLCBTZWFuIENo
+cmlzdG9waGVyc29uIHdyb3RlOgo+ID4gPiA+IExvb2tzIGxpa2UgeSdhbGwgYWxzbyBoYXZlIGEg
+YnVnIHdoZXJlIGFuIC1FRVhJU1Qgd2lsbCBiZSByZXR1cm5lZCB0byB1c2Vyc3BhY2UsCj4gPiA+
+ID4gYW5kIHdpbGwgZ2VuZXJhdGUgd2hhdCdzIHByb2JhYmx5IGEgc3B1cmlvdXMga3ZtX2Vycigp
+IG1lc3NhZ2UuCj4gPiA+Cj4gPiA+IE9uIDMyLWJpdCByaXNjdiwgZHVlIHRvIGxvc2luZyB0aGUg
+dXBwZXIgYml0cyBvZiB0aGUgcGh5c2ljYWwgYWRkcmVzcz8gT3IKPiA+ID4gaXMgdGhlcmUgeWV0
+IGFub3RoZXIgdGhpbmcgdG8gZml4Pwo+ID4KPiA+IEFub3RoZXIgYnVnLCBJIHRoaW5rLiAgZ3N0
+YWdlX3NldF9wdGUoKSByZXR1cm5zIC1FRVhJU1QgaWYgYSBQVEUgZXhpc3RzLCBhbmQgSQo+ID4g
+X2Fzc3VtZV8gdGhhdCdzIHN1cHBvc2VkIHRvIGJlIGJlbmlnbj8gIEJ1dCB0aGlzIGNvZGUgcmV0
+dXJucyBpdCBibGluZGx5Ogo+IAo+IGdzdGFnZV9zZXRfcHRlKCkgcmV0dXJucyAtRUVYSVNUIG9u
+bHkgd2hlbiBpdCB3YXMgZXhwZWN0aW5nIGEgbm9uLWxlYWYKPiBQVEUgYXQgYSBwYXJ0aWN1bGFy
+IGxldmVsIGJ1dCBnb3QgYSBsZWFmIFBURSAKClJpZ2h0LCBidXQgaXNuJ3QgcmV0dXJuaW5nIC1F
+RVhJU1QgYWxsIHRoZSB3YXkgdG8gdXNlcnNwYWNlIHVuZGVzaXJhYmxlIGJlaGF2aW9yPwoKRS5n
+LiBpbiB0aGlzIHNlcXVlbmNlLCBLVk0gd2lsbCByZXR1cm4gLUVFWElTVCBhbmQgaW5jb3JyZWN0
+bHkgdGVybWluYXRlIHRoZSBWTQooYXNzdW1pbmcgdGhlIFZNTSBkb2Vzbid0IG1pcmFjdWxvdXNs
+eSByZWNvdmVyIHNvbWVob3cpOgoKIDEuIEJhY2sgdGhlIFZNIHdpdGggSHVnZVRMQkZTCiAyLiBG
+YXVsdC1pbiBtZW1vcnksIGkuZS4gY3JlYXRlIGh1Z2VwYWdlIG1hcHBpbmdzCiAzLiBFbmFibGUg
+S1ZNX01FTV9MT0dfRElSVFlfUEFHRVMKIDQuIFdyaXRlLXByb3RlY3Rpb24gZmF1bHQsIGt2bV9y
+aXNjdl9nc3RhZ2VfbWFwKCkgdHJpZXMgdG8gY3JlYXRlIGEgd3JpdGFibGUKICAgIG5vbi1odWdl
+IG1hcHBpbmcuCiA1LiBnc3RhZ2Vfc2V0X3B0ZSgpIGVuY291bnRlcnMgdGhlIGh1Z2UgbGVhZiBQ
+VEUgYmVmb3JlIHJlYWNoaW5nIHRoZSB0YXJnZXQKICAgIGxldmVsLCBhbmQgcmV0dXJucyAtRUVY
+SVNULgoKQUZBSUNULCBnc3RhZ2Vfd3BfbWVtb3J5X3JlZ2lvbigpIGRvZXNuJ3Qgc3BsaXQvc2hh
+dHRlci9kZW1vdGUgaHVnZXBhZ2VzLCBpdApzaW1wbHkgY2xlYXJzIF9QQUdFX1dSSVRFLgoKSXQn
+cyBlbnRpcmVseSBwb3NzaWJsZSBJJ20gbWlzc2luZyBzb21ldGhpbmcgdGhhdCBtYWtlcyB0aGUg
+YWJvdmUgc2NlbmFyaW8KaW1wb3NzaWJsZSBpbiBwcmFjdGljZSwgYnV0IGF0IHRoaXMgcG9pbnQg
+SSdtIGdlbnVpbmVseSBjdXJpb3VzIDotKQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
