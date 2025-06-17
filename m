@@ -4,103 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8267C71157
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 22:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE338C71136
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 22:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ciamim9QWMl2dVbJBMc+vjVOcBHiENW61+NjEDqnLxA=; b=KGN0eIvSjTJVyb
-	XVQboNcb2PWatK94807urjUdETIQgzbjEblMlBy3HgnlrLXkAgkqCY55Nph37EgTubalKoqhQuUfn
-	ymvyj49tKKlbkgQDrHVf/NWdpZ9GKyg6a61Iwu/igDVnc/5NXFpGilGBl3+n3skMfFiHBTLtQmFqf
-	KOg4duz2QAhoqpZ1oXu3+DUSMxml9fCGjSZs3mfWTo4OkHK2K+MivDqIymmm+4lXSIuRxEx6QlxTo
-	maDSa/mIuIeq8PHXY4AyJDg6ASYix47Y4DatpbMzuViBnYbDz0wM9+oMQ0EXSHspXCQlD07pLv+kr
-	v2p3cdzeozI/1KED6CSw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uDu8TrYQo1k77hxUs2O1qKDkEnv9NdVAVPzJbZ7F/DY=; b=d/tGX+WuTswSQH
+	NeK7Oz7SizscYW9mc/GMu2OTcvJu4qcXU3nvSTDmK0rmH0I0BAjwpZ6v17mG0TUAi1JhcCSMtF6tx
+	ythHXxFiDve7Vgr3vNVCwtajHP5kvKqZ378kf0CQpgCRTowJablymy6ixQxElgQ9unYLzyeU0w8p6
+	z4pzDf6CRLpVjxVEE6ra7d2tlCzqGjl3lGtBUHVn1sfvBd11gal1MwBCRa8KgyVMkgwYX4CPmKN9t
+	WkE6BH4UklS1kfQ2eMwKvFSCCBngqeXOCSmTMTHy/UfAhludLv8SACaUWp9G9v1FfQ5j7vYaCqi2I
+	YO02ZtCewT7dMRNi73rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uReZJ-00000008UfG-3OvG;
-	Tue, 17 Jun 2025 22:14:13 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1uReqn-00000008WXH-3az6;
+	Tue, 17 Jun 2025 22:32:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uReZH-00000008UeU-1IRE
-	for linux-riscv@lists.infradead.org;
-	Tue, 17 Jun 2025 22:14:12 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-313bb9b2f5bso7265439a91.3
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 15:14:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1750198451; x=1750803251; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rht1pWqTVlNemlSkA4kJuYwRKU6KD6oE4FAwP7gkVd8=;
-        b=mBy5oXEAnt96PY80L8cnh+M3h2GtorRUcqOL4syX0vjcpZjPxl3mka9x6kFaYEQCKc
-         ewSJKdz2wndOUQjWJxe71twsBGZm4RGkFuR4ytjVQAntGE+zvPeXMcIYBB0OqIYSCHVj
-         pWv5DIRz1cjVcapA1/wqwzC8AQdIp+nzJkkXA2EP0nojajxv6Y+GCeURcMKqSrd+0AR4
-         2YAfgIWhk85QrSOOgnPsC7YwjyThTOskPwdEe1dKZ4crjmQOq9zaPRkzTk/9ij2HVzIx
-         m6kMGSsFA16E76wRL20aDL8hnbgUFoJd8oACUsF+RmrRVxroMHX50fTnzeqnnvZNsJ6x
-         8asw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750198451; x=1750803251;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Rht1pWqTVlNemlSkA4kJuYwRKU6KD6oE4FAwP7gkVd8=;
-        b=fJNW/d5ZDyjAvJhTljfLz4K57J9+a9wRYE9MgRtI3Tl5b/HevQMP3bnYsNUkLpi9ve
-         tGIm1Eo/zz7+hRgLYwrGdKldK93TZ9B21oC9O/5JuhTBPVIi+zlW2tMYO9hCoDZx+2CY
-         iHK8FpkwQ6ci8+DgH4ctrMYNbVi/020vdoRF99P3vMSW2CpRXlgt5jHelWZXzclfj0CO
-         zNm+lkr09uueXJvsUhtJUwsOy4F7SUNdk0iBsruTvsdrbRxabQx0gvczJ8Lvl4/uFOpn
-         1NdnwjlF+oko41i/Xuq7Gzte8egFJzS43qAVIdqjzPPsVC/n4E0Tr9Iu1z6ZnUxT93Ij
-         ATOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVyb++Tryptz1tFutaRkysl++jwqm+rAwLcxTO3ipXA7qoJld2ZXJmQXFGyroLa7TC/ebkpuquxnaa7Eg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy18cw5X86oSId6dMhacTkjaqi2ThjhyRmh6fycxuQSzX/PdFu7
-	7jGRBJh7SehfBzRlajJF2aAmth0vWn66tsuEQDkd4UvZYQfeokQGS6/bz15nA+S74Uw=
-X-Gm-Gg: ASbGnctpDAkwzZWwBijWcZT5wB4BtDGBLx3XcKTeP9IirRP6Ju+1ZcksE98OIOZQtWt
-	67lB3eP8Xms850kR/hsAzBogDSkSXqxycUOqyqdnVJZq1PTETd2T2u5ggVFMOG1y9PwL1M/QHsj
-	ogT72KdrnGau8UQtMs08EdT+Ee9riFtKkbxejRqXrX+/3jSLm6I3RESUT6SwAmwm7CwM74G0pCM
-	7jvcXSaxoYNfwtmTy5mVbocFDe2lBEjY5zV6NC99VCey0uKm5XrQVJdb9ek4SOz9LFgQ44N4v9W
-	7ZlRwfMPzKs8GZ0yDyD5MmZWZSkEz8zY2htadl0Bxoav8KJvDJ48TdGfuGpYqtpqwplEoGs=
-X-Google-Smtp-Source: AGHT+IGjtDH8+7Qdmc6DGmjSJpavFXI06zS+xsVxnGKMVqLF3EoMugjqqf5A/sV2C5cZ3H3jbI/Tpg==
-X-Received: by 2002:a17:90a:dfc8:b0:311:f05b:86a5 with SMTP id 98e67ed59e1d1-313f19d2977mr26267870a91.0.1750198450546;
-        Tue, 17 Jun 2025 15:14:10 -0700 (PDT)
-Received: from x1 (97-120-250-80.ptld.qwest.net. [97.120.250.80])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365deb0fabsm85895565ad.181.2025.06.17.15.14.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 15:14:10 -0700 (PDT)
-Date: Tue, 17 Jun 2025 15:14:08 -0700
-From: Drew Fustini <drew@pdp7.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Frank Binns <frank.binns@imgtec.com>,
-	Matt Coster <matt.coster@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v4 0/8] Add TH1520 GPU support with power sequencing
-Message-ID: <aFHosEvn35Fr3LFv@x1>
-References: <CGME20250614180906eucas1p116f8a13a4013edd3bbedfd2e4a8b0aa3@eucas1p1.samsung.com>
- <20250614-apr_14_for_sending-v4-0-8e3945c819cd@samsung.com>
+	id 1uReoZ-00000008VoE-024F;
+	Tue, 17 Jun 2025 22:29:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1ABBA6111C;
+	Tue, 17 Jun 2025 22:29:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70007C4CEE3;
+	Tue, 17 Jun 2025 22:29:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750199397;
+	bh=0mROCvAkY84h3wsIpbNLCY1gzYL1020FxJLMgOjDJTY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=n+7P/y3EpQYb9JC/xhcaAICmrBI9FlrvjdYlDCtennrygikav6it9ZSmPjELmu69A
+	 +Zw+41ZhtHJEZMq4R/XTXsTuAIS5I3BgSGnqPpd+lwcem/AfJ+kqTuNi8JXZOo+FuD
+	 P0rLGSV7Q+xFY6bWX6bfYAiA4s6Y2hEVD4ZFIT9wiBOfLtzXQgeDQ73o6vcFBnyDws
+	 USOn8XsBOS9cmwle7zRncqZdHbuZgJIfnPjFzY5KkFkozqxlmNIH6zbfWdisNH4BdY
+	 vitO8k2Xa+pTENrYSdz/WA3iDYjm72BKzMeNOq8bxdT8sz44cMaG0kxKkZv/oESAhx
+	 pQAuGH0okF9nA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH 0/9] lib/crypto: move arch/$(ARCH)/lib/crypto/ to lib/crypto/$(ARCH)/
+Date: Tue, 17 Jun 2025 15:27:17 -0700
+Message-ID: <20250617222726.365148-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250614-apr_14_for_sending-v4-0-8e3945c819cd@samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_151411_584951_996D54F6 
-X-CRM114-Status: GOOD (  26.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,75 +74,199 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 14, 2025 at 08:06:06PM +0200, Michal Wilczynski wrote:
-> This patch series introduces support for the Imagination IMG BXM-4-64
-> GPU found on the T-HEAD TH1520 SoC. A key aspect of this support is
-> managing the GPU's complex power-up and power-down sequence, which
-> involves multiple clocks and resets.
-> 
-> The TH1520 GPU requires a specific sequence to be followed for its
-> clocks and resets to ensure correct operation. Initial discussions and
-> an earlier version of this series explored managing this via the generic
-> power domain (genpd) framework. However, following further discussions
-> with kernel maintainers [1], the approach has been reworked to utilize
-> the dedicated power sequencing (pwrseq) framework.
-> 
-> This revised series now employs a new pwrseq provider driver
-> (pwrseq-thead-gpu.c) specifically for the TH1520 GPU. This driver
-> encapsulates the SoC specific power sequence details. The Imagination
-> GPU driver (pvr_device.c) is updated to act as a consumer of this power
-> sequencer, requesting the "gpu-power" target. The sequencer driver,
-> during its match phase with the GPU device, acquires the necessary clock
-> and reset handles from the GPU device node to perform the full sequence.
-> 
-> This approach aligns with the goal of abstracting SoC specific power
-> management details away from generic device drivers and leverages the
-> pwrseq framework as recommended.
-> 
-> The series is structured as follows:
-> 
-> Patch 1: Introduces the pwrseq-thead-gpu auxiliary driver to manage the
->          GPU's power-on/off sequence.
-> Patch 2: Adds device tree bindings for the gpu-clkgen reset to the
->          existing thead,th1520-aon binding.
-> Patch 3: Extends the pm-domains driver to detect the gpu-clkgen reset
->          and spawn the pwrseq-thead-gpu auxiliary driver.
-> Patch 4: Updates the Imagination DRM driver to utilize the pwrseq
->          framework for TH1520 GPU power management.
-> Patch 5: Adds the thead,th1520-gpu compatible string to the PowerVR GPU
->          device tree bindings.
-> Patch 6: Adds the gpu-clkgen reset property to the aon node in the
->          TH1520 device tree source.
-> Patch 7: Adds the device tree node for the IMG BXM-4-64 GPU and its
->          required fixed-clock.
-> Patch 8: Enables compilation of the Imagination PowerVR driver on the
->          RISC-V architecture.
-> 
-> This patchset finishes the work started in bigger series [2] by adding
-> all remaining GPU power sequencing piece. After this patchset the GPU
-> probes correctly.
-> 
-> This series supersedes the previous genpd based approach. Testing on
-> T-HEAD TH1520 SoC indicates the new pwrseq based solution works
-> correctly.
-> 
-> An open point in Patch 7/8 concerns the GPU memory clock (gpu_mem_clk),
-> defined as a fixed-clock. The specific hardware frequency for this clock
-> on the TH1520 could not be determined from available public
-> documentation. Consequently, clock-frequency = <0>; has been used as a
-> placeholder to enable driver functionality.
-> 
+This series applies on top of
+https://lore.kernel.org/r/20250616014019.415791-1-ebiggers@kernel.org/
+and is also available in git at:
 
-I don't have any more information that what is in the public PDFs [1],
-so I think it is okay to have a placeholder frequency.
+    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git arch-to-lib-crypto-v1
 
-Is it the case that the frequency doesn't really matter from the
-perspective of the driver?
+This series moves the contents of arch/$(ARCH)/lib/crypto/ into
+lib/crypto/$(ARCH)/.
 
-Thanks,
-Drew
+The new code organization makes a lot more sense for how this code
+actually works and is developed.  In particular, it makes it possible to
+build each algorithm as a single module, with better inlining and dead
+code elimination.  For a more detailed explanation, see the patchset
+which did this for the CRC library code:
+https://lore.kernel.org/r/20250607200454.73587-1-ebiggers@kernel.org/.
+Also see the patchset which did this for SHA-512:
+https://lore.kernel.org/linux-crypto/20250616014019.415791-1-ebiggers@kernel.org/
 
-[1] https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/tree/main/docs
+This is just a preparatory series, which does the move to get the files
+into their new location but keeps them building the same way as before.
+Later patch series will make the actual improvements to the way the
+arch-optimized code is integrated for each algorithm.
+
+Note that .gitignore files are being intentionally kept for now.  See
+https://lore.kernel.org/r/CAHk-=whu2fb22rEy6+oKx1-+NCHuWucZepvD0H2MD38DrJVKtg@mail.gmail.com/
+I'll remove it later after some time has passed.
+
+Eric Biggers (9):
+  lib/crypto/arm: move arch/arm/lib/crypto/ to lib/crypto/arm/
+  lib/crypto/arm64: move arch/arm64/lib/crypto/ to lib/crypto/arm64/
+  lib/crypto/mips: move arch/mips/lib/crypto/ to lib/crypto/mips/
+  lib/crypto/powerpc: move arch/powerpc/lib/crypto/ to
+    lib/crypto/powerpc/
+  lib/crypto/riscv: move arch/riscv/lib/crypto/ to lib/crypto/riscv/
+  lib/crypto/s390: move arch/s390/lib/crypto/ to lib/crypto/s390/
+  lib/crypto/sparc: move arch/sparc/lib/crypto/ to lib/crypto/sparc/
+  lib/crypto/x86: move arch/x86/lib/crypto/ to lib/crypto/x86/
+  MAINTAINERS: drop arch/*/lib/crypto/ pattern
+
+ MAINTAINERS                                      |  1 -
+ arch/arm/lib/Makefile                            |  2 --
+ arch/arm64/lib/Makefile                          |  3 ---
+ arch/mips/lib/Makefile                           |  2 --
+ arch/powerpc/lib/Makefile                        |  2 --
+ arch/riscv/lib/Makefile                          |  1 -
+ arch/s390/lib/Makefile                           |  1 -
+ arch/sparc/lib/Makefile                          |  1 -
+ arch/x86/lib/Makefile                            |  2 --
+ lib/crypto/Kconfig                               | 16 ++++++++--------
+ lib/crypto/Makefile                              | 11 ++++++++++-
+ lib/crypto/arm/.gitignore                        |  2 ++
+ {arch/arm/lib/crypto => lib/crypto/arm}/Kconfig  |  0
+ {arch/arm/lib/crypto => lib/crypto/arm}/Makefile |  0
+ .../lib/crypto => lib/crypto/arm}/blake2s-core.S |  0
+ .../lib/crypto => lib/crypto/arm}/blake2s-glue.c |  0
+ .../lib/crypto => lib/crypto/arm}/chacha-glue.c  |  0
+ .../crypto => lib/crypto/arm}/chacha-neon-core.S |  0
+ .../crypto/arm}/chacha-scalar-core.S             |  0
+ .../crypto => lib/crypto/arm}/poly1305-armv4.pl  |  0
+ .../crypto => lib/crypto/arm}/poly1305-glue.c    |  0
+ .../crypto => lib/crypto/arm}/sha256-armv4.pl    |  0
+ .../lib/crypto => lib/crypto/arm}/sha256-ce.S    |  0
+ {arch/arm/lib/crypto => lib/crypto/arm}/sha256.c |  0
+ lib/crypto/arm64/.gitignore                      |  2 ++
+ .../lib/crypto => lib/crypto/arm64}/Kconfig      |  0
+ .../lib/crypto => lib/crypto/arm64}/Makefile     |  0
+ .../crypto/arm64}/chacha-neon-core.S             |  0
+ .../crypto/arm64}/chacha-neon-glue.c             |  0
+ .../crypto/arm64}/poly1305-armv8.pl              |  0
+ .../crypto => lib/crypto/arm64}/poly1305-glue.c  |  0
+ .../crypto => lib/crypto/arm64}/sha2-armv8.pl    |  0
+ .../lib/crypto => lib/crypto/arm64}/sha256-ce.S  |  0
+ .../lib/crypto => lib/crypto/arm64}/sha256.c     |  0
+ lib/crypto/mips/.gitignore                       |  2 ++
+ .../mips/lib/crypto => lib/crypto/mips}/Kconfig  |  0
+ .../mips/lib/crypto => lib/crypto/mips}/Makefile |  0
+ .../lib/crypto => lib/crypto/mips}/chacha-core.S |  0
+ .../lib/crypto => lib/crypto/mips}/chacha-glue.c |  0
+ .../crypto => lib/crypto/mips}/poly1305-glue.c   |  0
+ .../crypto => lib/crypto/mips}/poly1305-mips.pl  |  0
+ .../lib/crypto => lib/crypto/powerpc}/Kconfig    |  0
+ .../lib/crypto => lib/crypto/powerpc}/Makefile   |  0
+ .../crypto/powerpc}/chacha-p10-glue.c            |  0
+ .../crypto/powerpc}/chacha-p10le-8x.S            |  0
+ .../crypto/powerpc}/poly1305-p10-glue.c          |  0
+ .../crypto/powerpc}/poly1305-p10le_64.S          |  0
+ .../crypto/powerpc}/sha256-spe-asm.S             |  0
+ .../lib/crypto => lib/crypto/powerpc}/sha256.c   |  0
+ .../lib/crypto => lib/crypto/riscv}/Kconfig      |  0
+ .../lib/crypto => lib/crypto/riscv}/Makefile     |  0
+ .../crypto/riscv}/chacha-riscv64-glue.c          |  0
+ .../crypto/riscv}/chacha-riscv64-zvkb.S          |  0
+ .../sha256-riscv64-zvknha_or_zvknhb-zvkb.S       |  0
+ .../lib/crypto => lib/crypto/riscv}/sha256.c     |  0
+ .../s390/lib/crypto => lib/crypto/s390}/Kconfig  |  0
+ .../s390/lib/crypto => lib/crypto/s390}/Makefile |  0
+ .../lib/crypto => lib/crypto/s390}/chacha-glue.c |  0
+ .../lib/crypto => lib/crypto/s390}/chacha-s390.S |  0
+ .../lib/crypto => lib/crypto/s390}/chacha-s390.h |  0
+ .../s390/lib/crypto => lib/crypto/s390}/sha256.c |  0
+ .../lib/crypto => lib/crypto/sparc}/Kconfig      |  0
+ .../lib/crypto => lib/crypto/sparc}/Makefile     |  0
+ .../lib/crypto => lib/crypto/sparc}/sha256.c     |  0
+ .../lib/crypto => lib/crypto/sparc}/sha256_asm.S |  0
+ lib/crypto/x86/.gitignore                        |  2 ++
+ {arch/x86/lib/crypto => lib/crypto/x86}/Kconfig  |  0
+ {arch/x86/lib/crypto => lib/crypto/x86}/Makefile |  0
+ .../lib/crypto => lib/crypto/x86}/blake2s-core.S |  0
+ .../lib/crypto => lib/crypto/x86}/blake2s-glue.c |  0
+ .../crypto/x86}/chacha-avx2-x86_64.S             |  0
+ .../crypto/x86}/chacha-avx512vl-x86_64.S         |  0
+ .../crypto/x86}/chacha-ssse3-x86_64.S            |  0
+ .../lib/crypto => lib/crypto/x86}/chacha_glue.c  |  0
+ .../crypto/x86}/poly1305-x86_64-cryptogams.pl    |  0
+ .../crypto => lib/crypto/x86}/poly1305_glue.c    |  0
+ .../crypto => lib/crypto/x86}/sha256-avx-asm.S   |  0
+ .../crypto => lib/crypto/x86}/sha256-avx2-asm.S  |  0
+ .../crypto => lib/crypto/x86}/sha256-ni-asm.S    |  0
+ .../crypto => lib/crypto/x86}/sha256-ssse3-asm.S |  0
+ {arch/x86/lib/crypto => lib/crypto/x86}/sha256.c |  0
+ 81 files changed, 26 insertions(+), 24 deletions(-)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/Kconfig (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/Makefile (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/blake2s-core.S (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/blake2s-glue.c (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/chacha-glue.c (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/chacha-neon-core.S (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/chacha-scalar-core.S (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/poly1305-armv4.pl (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/poly1305-glue.c (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/sha256-armv4.pl (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/sha256-ce.S (100%)
+ rename {arch/arm/lib/crypto => lib/crypto/arm}/sha256.c (100%)
+ rename {arch/arm64/lib/crypto => lib/crypto/arm64}/Kconfig (100%)
+ rename {arch/arm64/lib/crypto => lib/crypto/arm64}/Makefile (100%)
+ rename {arch/arm64/lib/crypto => lib/crypto/arm64}/chacha-neon-core.S (100%)
+ rename {arch/arm64/lib/crypto => lib/crypto/arm64}/chacha-neon-glue.c (100%)
+ rename {arch/arm64/lib/crypto => lib/crypto/arm64}/poly1305-armv8.pl (100%)
+ rename {arch/arm64/lib/crypto => lib/crypto/arm64}/poly1305-glue.c (100%)
+ rename {arch/arm64/lib/crypto => lib/crypto/arm64}/sha2-armv8.pl (100%)
+ rename {arch/arm64/lib/crypto => lib/crypto/arm64}/sha256-ce.S (100%)
+ rename {arch/arm64/lib/crypto => lib/crypto/arm64}/sha256.c (100%)
+ create mode 100644 lib/crypto/mips/.gitignore
+ rename {arch/mips/lib/crypto => lib/crypto/mips}/Kconfig (100%)
+ rename {arch/mips/lib/crypto => lib/crypto/mips}/Makefile (100%)
+ rename {arch/mips/lib/crypto => lib/crypto/mips}/chacha-core.S (100%)
+ rename {arch/mips/lib/crypto => lib/crypto/mips}/chacha-glue.c (100%)
+ rename {arch/mips/lib/crypto => lib/crypto/mips}/poly1305-glue.c (100%)
+ rename {arch/mips/lib/crypto => lib/crypto/mips}/poly1305-mips.pl (100%)
+ rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/Kconfig (100%)
+ rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/Makefile (100%)
+ rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/chacha-p10-glue.c (100%)
+ rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/chacha-p10le-8x.S (100%)
+ rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/poly1305-p10-glue.c (100%)
+ rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/poly1305-p10le_64.S (100%)
+ rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/sha256-spe-asm.S (100%)
+ rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/sha256.c (100%)
+ rename {arch/riscv/lib/crypto => lib/crypto/riscv}/Kconfig (100%)
+ rename {arch/riscv/lib/crypto => lib/crypto/riscv}/Makefile (100%)
+ rename {arch/riscv/lib/crypto => lib/crypto/riscv}/chacha-riscv64-glue.c (100%)
+ rename {arch/riscv/lib/crypto => lib/crypto/riscv}/chacha-riscv64-zvkb.S (100%)
+ rename {arch/riscv/lib/crypto => lib/crypto/riscv}/sha256-riscv64-zvknha_or_zvknhb-zvkb.S (100%)
+ rename {arch/riscv/lib/crypto => lib/crypto/riscv}/sha256.c (100%)
+ rename {arch/s390/lib/crypto => lib/crypto/s390}/Kconfig (100%)
+ rename {arch/s390/lib/crypto => lib/crypto/s390}/Makefile (100%)
+ rename {arch/s390/lib/crypto => lib/crypto/s390}/chacha-glue.c (100%)
+ rename {arch/s390/lib/crypto => lib/crypto/s390}/chacha-s390.S (100%)
+ rename {arch/s390/lib/crypto => lib/crypto/s390}/chacha-s390.h (100%)
+ rename {arch/s390/lib/crypto => lib/crypto/s390}/sha256.c (100%)
+ rename {arch/sparc/lib/crypto => lib/crypto/sparc}/Kconfig (100%)
+ rename {arch/sparc/lib/crypto => lib/crypto/sparc}/Makefile (100%)
+ rename {arch/sparc/lib/crypto => lib/crypto/sparc}/sha256.c (100%)
+ rename {arch/sparc/lib/crypto => lib/crypto/sparc}/sha256_asm.S (100%)
+ create mode 100644 lib/crypto/x86/.gitignore
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/Kconfig (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/Makefile (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/blake2s-core.S (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/blake2s-glue.c (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/chacha-avx2-x86_64.S (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/chacha-avx512vl-x86_64.S (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/chacha-ssse3-x86_64.S (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/chacha_glue.c (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/poly1305-x86_64-cryptogams.pl (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/poly1305_glue.c (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/sha256-avx-asm.S (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/sha256-avx2-asm.S (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/sha256-ni-asm.S (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/sha256-ssse3-asm.S (100%)
+ rename {arch/x86/lib/crypto => lib/crypto/x86}/sha256.c (100%)
+
+-- 
+2.49.0
+
 
 _______________________________________________
 linux-riscv mailing list
