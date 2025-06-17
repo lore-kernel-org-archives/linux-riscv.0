@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88208C7115B
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 15:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED37C71157
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 17:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O4VCjDcT5QMy16JJWLp35XSA9dJGLnpAqHswXVTme1M=; b=2QhlwSPHJCk/eI
-	cKtUQF0GIwJrIkiIDMjKBboOKWDgEBNpHo03DENaqCJaPnNK35DUlImildiccLFhcq4NPRDr5X7zg
-	3U4YewuuLC3Ywg2QIrvStKOAQYZEO+qBJNLh56b4/RoktAdB+s2fvpKQaaFYAKkpcZqRdvHNgZJhM
-	WStoGSKZGYWMVK8rTBFCZHjx/uT7sQ8V95NC3Cti2hoayYaQ2fdZKrDMN/kSZXgEiq+8OBjfFW2kb
-	U8ZT4x4ZHWI2UEUalDgzWSmlKPZlZfqhh0M0EbRgPNYZTYi2HWOG0PwpCU1Y0OjdnUbZPxiExqpXa
-	LeJGlC5mOzvrH135DGUg==;
+	List-Owner; bh=t4QzF18I9o3vFoydw1XU317Ps969PJPFkuLydOBnYRc=; b=MuFDy2LED2HQ+1
+	G2pZcyQBFT0+rpEyk0hpDNtKAgntuQKif1sMRSnEFahbQaJC29BCOiRxJdsJUYoy2hBbRTGHkoqt5
+	4ZCbgJwLsPM2q52WBOCzzqqvbzCSuDzO2SRi11O75lzBv9J/BDYBu/OzZph/j/mr+PVj5nLzDn6M/
+	g3Auzw7onTYGTXKYO64VmyhZyzSIBtiKxcZi1Ah4zNCfFn4+tiycIqdvKLmtO8oTJjBYR3ufzCrbh
+	2lYNTfU6MhbSwGrWMiBCO07IzTDwXe5IAb1pF8VStKFHn5arNLo0mfhw+2W+fyfKRuwXhjgea1Q07
+	h+E39zj/pdHfiv6K6BqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRYJ3-00000007k33-0xyb;
-	Tue, 17 Jun 2025 15:33:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uRZpc-00000007xjB-2K3l;
+	Tue, 17 Jun 2025 17:10:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXUs-00000007b9h-18RM
+	id 1uRXJD-00000007Yh2-3F1Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Jun 2025 14:41:11 +0000
+	Tue, 17 Jun 2025 14:29:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C26C05C643D;
-	Tue, 17 Jun 2025 14:38:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CD93C4CEE3;
-	Tue, 17 Jun 2025 14:41:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 37E12629F1;
+	Tue, 17 Jun 2025 14:29:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32DEDC4CEF0;
+	Tue, 17 Jun 2025 14:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750171269;
-	bh=XdJb0Fw4Rr6pT0ZoN+vrT8BJNFqp2n7RZt9bLdoicy0=;
+	s=k20201202; t=1750170546;
+	bh=vZuBZ/NNaKoHy+qHAglUSSdmBK5dd29+q/mxOIMvh84=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dSTCRk8Uwi677vKg6k6lOAWXdtA+M+meFSVzjlFArZ9bvcH54PzhYbqd7CJlg63T/
-	 xJ0+p8rTVazZ6/wO72ITTYo2jiM5Tbugln+L3yIBtD9EBCyLvlK3Uf+wo/ABwAm3Vy
-	 fPAoXHXkEsLyBw49G9HKJjcjV6mofeyhQa4lbM/8mb3sWMomcQgyA7/LvkGC8yKDG9
-	 odnD5n9ZIAUz+x2GSLx7JB/j6pW2RBIQtlbDvHkin8zrtZV/xYDMLS6fmj6g31qdWG
-	 HZkv+V2DMP0ZzeS0iAymfIqkXqCiWdwpzWqjTJXdU4eV1g/aaKOhKSpv5Kz+VAmX7Z
-	 jrf/zUgEtABtw==
-Date: Tue, 17 Jun 2025 16:41:00 +0200
+	b=L/GWc64G66Vuy5MgIrXBzCYErB5Q2I4uR6gECe1Ix4gejac53fgNL0sH1c8CJT0to
+	 6sjnxKkIY+Dri1NME9ng3skoSb3aY1Dl/QO5iBKhpiu3I5ZXcEN6QCShKJ+IJiDcdg
+	 pZuMNQNboqoWmYKwXjSDQ4FBATBhR0Lf62okWNDqSM2p/sThGwKZ2wXQpjfXKL/k3M
+	 HpAyrH3KIIWMEbSNmcFPl/ySUzyQdWoWE2IE2SLpd7PAdXiY7H5/kp6eQePJG9vAJ6
+	 Q1mRvt/WLKfuGDD9hj9JgXH73VqCZG3zjS18jmr/QyYUs+co+jKbMoOJdjTlLwxW89
+	 1UHDRfg7kjKrA==
+Date: Tue, 17 Jun 2025 16:28:58 +0200
 From: Danilo Krummrich <dakr@kernel.org>
 To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
@@ -66,18 +66,14 @@ Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
 	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 3/9] rust: pwm: Add driver operations trait and
- registration support
-Message-ID: <aFF-fNOOEzoiomFu@pollux>
+Subject: Re: [PATCH v3 4/9] pwm: Add Rust driver for T-HEAD TH1520 SoC
+Message-ID: <aFF7qqlexxh540FW@pollux>
 References: <20250617-rust-next-pwm-working-fan-for-sending-v3-0-1cca847c6f9f@samsung.com>
- <CGME20250617140838eucas1p2a31af5a73297580c2421263c1c6ba700@eucas1p2.samsung.com>
- <20250617-rust-next-pwm-working-fan-for-sending-v3-3-1cca847c6f9f@samsung.com>
+ <CGME20250617140839eucas1p2d13775f8e6d34a516e93d3b426d5fb16@eucas1p2.samsung.com>
+ <20250617-rust-next-pwm-working-fan-for-sending-v3-4-1cca847c6f9f@samsung.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250617-rust-next-pwm-working-fan-for-sending-v3-3-1cca847c6f9f@samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_074110_396061_16647A9A 
-X-CRM114-Status: GOOD (  17.25  )
+In-Reply-To: <20250617-rust-next-pwm-working-fan-for-sending-v3-4-1cca847c6f9f@samsung.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,74 +90,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 04:07:26PM +0200, Michal Wilczynski wrote:
-> +/// Manages the registration of a PWM chip, ensuring `pwmchip_remove` is called on drop.
-> +pub struct Registration {
-> +    chip: ManuallyDrop<ARef<Chip>>,
+On Tue, Jun 17, 2025 at 04:07:27PM +0200, Michal Wilczynski wrote:
+> +    fn write_waveform(
+> +        chip: &mut pwm::Chip,
+> +        pwm: &mut pwm::Device,
 
-Why is this ManuallyDrop when you call ManuallyDrop::drop(&mut self.chip) as
-the last thing in Registration::drop()?
+I think you can't hand out mutable references here. This would allow things like
+mem::swap(), which I think are not valid on those structures.
 
-I think you don't need ManuallyDrop here.
+> +        wfhw: &Self::WfHw,
+> +        parent_dev: &Device<Bound>,
+> +    ) -> Result {
+> +        let data: &Self = chip.drvdata().ok_or(EINVAL)?;
+> +        let hwpwm = pwm.hwpwm();
+> +        let iomem_guard = data.iomem.access(parent_dev)?;
 
-> +}
+Technically, this isn't a guard, hence would't call it that way.
+
+> +        let iomap = iomem_guard.deref();
+> +        let was_enabled = pwm.state().enabled();
 > +
-> +impl Registration {
-> +    /// Registers a PWM chip (obtained via `Chip::new`) with the PWM subsystem.
-> +    ///
-> +    /// Takes an [`ARef<Chip>`]. On `Drop` of the returned `Registration` object,
-> +    /// `pwmchip_remove` is called for the chip.
-> +    pub fn new(chip: ARef<Chip>, ops_vtable: &'static PwmOpsVTable) -> Result<Self> {
-
-For the reason mentioned in [1] this should either return Result<Devres<Self>>
-or just Result, if you use Devres::new_foreign_owned() (see also [2]).
-
-In case of the latter, the Registration instance is automatically dropped once
-the parent device is unbound.
-
-If you go with the first, you can drop the Devres<Registration> (and hence the
-inner Registration) at any arbitrary point of time, but Devres will still
-gurarantee that the inner Registration is dropped once the parent device is
-unbound, i.e. it can't out-live driver unbind.
-
-This guarantees that the &Device<Bound> instance you provide in the callbacks
-below is guaranteed to be valid.
-
-[1] https://lore.kernel.org/lkml/aFF7qqlexxh540FW@pollux/
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/rust/kernel/drm/driver.rs#n134
-
-> +        // Get the raw C pointer from ARef<Chip>.
-> +        let c_chip_ptr = chip.as_raw().cast::<bindings::pwm_chip>();
-> +
-> +        // SAFETY: `c_chip_ptr` is valid (guaranteed by ARef existing).
-> +        // `ops_vtable.as_raw()` provides a valid `*const bindings::pwm_ops`.
-> +        // `bindings::__pwmchip_add` preconditions (valid pointers, ops set on chip) are met.
-> +        unsafe {
-> +            (*c_chip_ptr).ops = ops_vtable.as_raw();
-> +            to_result(bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()))?;
+> +        if !wfhw.enabled {
+> +            if was_enabled {
+> +                iomap.try_write32(wfhw.ctrl_val, th1520_pwm_ctrl(hwpwm))?;
+> +                iomap.try_write32(0, th1520_pwm_fp(hwpwm))?;
+> +                iomap.try_write32(wfhw.ctrl_val | PWM_CFG_UPDATE, th1520_pwm_ctrl(hwpwm))?;
+> +            }
+> +            return Ok(());
 > +        }
+> +
+> +        iomap.try_write32(wfhw.ctrl_val, th1520_pwm_ctrl(hwpwm))?;
+> +        iomap.try_write32(wfhw.period_cycles, th1520_pwm_per(hwpwm))?;
+> +        iomap.try_write32(wfhw.duty_cycles, th1520_pwm_fp(hwpwm))?;
+> +        iomap.try_write32(wfhw.ctrl_val | PWM_CFG_UPDATE, th1520_pwm_ctrl(hwpwm))?;
 
-Please split this up into separate unsafe blocks.
+None of the offsets are known at compile time? :(
 
-> +        Ok(Registration {
-> +            chip: ManuallyDrop::new(chip),
-> +        })
+> +
+> +        // The `PWM_START` bit must be written in a separate, final transaction, and
+> +        // only when enabling the channel from a disabled state.
+> +        if !was_enabled {
+> +            iomap.try_write32(wfhw.ctrl_val | PWM_START, th1520_pwm_ctrl(hwpwm))?;
+> +        }
+> +
+> +        dev_dbg!(
+> +            chip.device(),
+> +            "PWM-{}: Wrote (per: {}, duty: {})",
+> +            hwpwm,
+> +            wfhw.period_cycles,
+> +            wfhw.duty_cycles,
+> +        );
+> +
+> +        Ok(())
 > +    }
 > +}
-> +
-> +impl Drop for Registration {
-> +    fn drop(&mut self) {
-> +        let chip = &**self.chip;
-> +        let chip_raw: *mut bindings::pwm_chip = chip.as_raw();
-> +
-> +        // SAFETY: `chip_raw` points to a chip that was successfully registered via `Self::new`.
-> +        // `bindings::pwmchip_remove` is the correct C function to unregister it.
-> +        unsafe {
-> +            bindings::pwmchip_remove(chip_raw);
-> +            ManuallyDrop::drop(&mut self.chip); // Drops the ARef<Chip>
-> +        }
 
-Same here, but I don't think ManuallyDrop is needed anyways.
+<snip>
+
+> +impl platform::Driver for Th1520PwmPlatformDriver {
+> +    type IdInfo = ();
+> +    const OF_ID_TABLE: Option<of::IdTable<Self::IdInfo>> = Some(&OF_TABLE);
+> +
+> +    fn probe(
+> +        pdev: &platform::Device<Core>,
+> +        _id_info: Option<&Self::IdInfo>,
+> +    ) -> Result<Pin<KBox<Self>>> {
+> +        let dev = pdev.as_ref();
+> +        let resource = pdev.resource(0).ok_or(ENODEV)?;
+> +        let iomem = pdev.ioremap_resource_sized::<TH1520_PWM_REG_SIZE>(resource)?;
+> +        let clk = Clk::get(pdev.as_ref(), None)?;
+> +
+> +        clk.prepare_enable()?;
+> +
+> +        // TODO: Get exclusive ownership of the clock to prevent rate changes.
+> +        // The Rust equivalent of `clk_rate_exclusive_get()` is not yet available.
+> +        // This should be updated once it is implemented.
+> +        let rate_hz = clk.rate().as_hz();
+> +        if rate_hz == 0 {
+> +            dev_err!(dev, "Clock rate is zero\n");
+> +            return Err(EINVAL);
+> +        }
+> +
+> +        if rate_hz > time::NSEC_PER_SEC as usize {
+> +            dev_err!(
+> +                dev,
+> +                "Clock rate {} Hz is too high, not supported.\n",
+> +                rate_hz
+> +            );
+> +            return Err(ERANGE);
+> +        }
+> +
+> +        let chip = pwm::Chip::new(dev, MAX_PWM_NUM, 0)?;
+> +
+> +        let drvdata = KBox::new(Th1520PwmDriverData { iomem, clk }, GFP_KERNEL)?;
+> +        chip.set_drvdata(drvdata);
+> +
+> +        let registration = pwm::Registration::new(chip, &TH1520_PWM_OPS)?;
+> +
+> +        Ok(KBox::new(
+> +            Th1520PwmPlatformDriver {
+> +                _registration: registration,
+> +            },
+> +            GFP_KERNEL,
+> +        )?
+> +        .into())
+
+Here you are setting up the registration for the correct lifetime, however
+drivers could extend the lifetime of the registration arbitrarily, which would
+break the guarantee of the &Device<Bound> we rely on in the callbacks above
+(e.g. write_waveform()).
+
+Hence, pwm::Registration's lifetime has to be controlled by Devres. I'll also
+add a corresponding comment in your registration patch.
 
 > +    }
 > +}
