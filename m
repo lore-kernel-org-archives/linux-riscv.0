@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68DACC71157
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 13:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64CEEC71136
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 15:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jIZm1bqRgieG0QjzSZGHvIe8Y8dEesq4uNlbXUeFsC8=; b=fq0tk3FzlWfkVq
-	uCu5tMTAMjl8287DipWW8zVIzkd4MuzRKzVxY9Rzhti4HSkHju1h75SBjEVq/leSa4SGQUgK9Hvj9
-	neB97SQyF4KbyI/viRAj9Q+SXu7QHrktsXn+1IdA8K7YyaTwr5f+WN9pJeWjMZh4KY7l49tSGYw5k
-	yxjql8jxApvXMxgtctuTUi9clj3XOcASvATvgv+NGJ65oudK6aT5nOk7QVSuPgy8YSA4jc3EZ9476
-	9qWwG5IRBgswNQ6f1W4f4rT5uctT8LFdASo4rS9XqHA/+Z9QGgxUp/CKSdQHqgxec+MjT2PMdlIWG
-	bSDbFamjixU4PkGoA07g==;
+	List-Owner; bh=tVnQjiKpBL1wZGAVBtDmil+5UDgk7gtmdefF6z7hznU=; b=zynpz5SO1+6MYH
+	s97cK38cmS7qljqs7QZGuSjXoMeVyPokbbdH/d4t4W3WX7fE37IkBF7bPESHM+41P5QQsSOb4DDMT
+	qycZ3dybNcyc/PLdR0rxR6KZ8ojrgQi51Jc9VWcGGfQe3u1U5KYC76D2QguoIYz2sCVOzdMrVYKM2
+	h3qhPiO+AQonhSXoggr/KANe71ooJHCDzRsmLvkAWbSOxbKrO0+tqs5NUoaN0qnMxE/JLo2muh0AS
+	yMN9UAfNMLh+fIznygJxgGLeMnLxkjc7H3YOhTthEVM+kMsRlRH+yEIymQCKWwsNejT3oBFC9KuNU
+	i/zCKFjKg7Y78e3JzcCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWJS-00000007LXS-0CrJ;
-	Tue, 17 Jun 2025 13:25:18 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1uRXpi-00000007fo3-3UJs;
+	Tue, 17 Jun 2025 15:02:42 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWDz-00000007K7b-3YIM;
-	Tue, 17 Jun 2025 13:19:41 +0000
-Received: from zq-Legion-Y7000.. (unknown [180.110.114.155])
-	by APP-05 (Coremail) with SMTP id zQCowACn8xFla1Fopiw9Bw--.2140S2;
-	Tue, 17 Jun 2025 21:19:34 +0800 (CST)
-From: zhouquan@iscas.ac.cn
-To: anup@brainfault.org,
-	ajones@ventanamicro.com,
-	atishp@atishpatra.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH 5/5] KVM: riscv: selftests: Add bfloat16 extension to get-reg-list test
-Date: Tue, 17 Jun 2025 21:10:50 +0800
-Message-Id: <65752029ed1ae331a9ac867a6fef2e63a797569e.1750164414.git.zhouquan@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1750164414.git.zhouquan@iscas.ac.cn>
-References: <cover.1750164414.git.zhouquan@iscas.ac.cn>
+	id 1uRWzS-00000007Uf6-2wfo
+	for linux-riscv@lists.infradead.org;
+	Tue, 17 Jun 2025 14:08:44 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250617140841euoutp022e412b02ed7939d7ee0ec745d6002669~J2bmfBbKk0211402114euoutp02Q
+	for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 14:08:41 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250617140841euoutp022e412b02ed7939d7ee0ec745d6002669~J2bmfBbKk0211402114euoutp02Q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1750169321;
+	bh=Xe91emMRSSYzgLVJyetcqSNKJQUn2nWDQDykjLFdeWE=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=h93Q01bQEEc+DY3q/0N4t1f8NQG+RuSu3lHP0XFktZm5TgNsC4Ejo37sn4fhegsMI
+	 TWkjuhIYVxvt/xTp4vfHNlRGTl5RFHY79OTcEl5xSk/MVdbr+3762y932/b5AloHm8
+	 8Ex7eOothlZp6lki0ADswmmUEd5YAZgvm/EHkg7Y=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250617140840eucas1p1a55fd5f902aac84c16299a0a19852e0d~J2bl_j4FS1046610466eucas1p1d;
+	Tue, 17 Jun 2025 14:08:40 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250617140839eusmtip1a356f4868163ab79d3d8b399d3665470~J2bk0MDit2857428574eusmtip14;
+	Tue, 17 Jun 2025 14:08:39 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Tue, 17 Jun 2025 16:07:28 +0200
+Subject: [PATCH v3 5/9] clk: thead: Mark essential bus clocks as
+ CLK_IGNORE_UNUSED
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowACn8xFla1Fopiw9Bw--.2140S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGrWrXr1DZw15Ww1rZryrZwb_yoWrXF1Upr
-	10ya9xGr48J34fZws2yF98Gw48Xws8Jw4kCw47ur1fXFyjyryxJF1qy3W3Jw1qya4Fqr1S
-	vFyfXr4Iyw40yrUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUB014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7M4kE6xkIj40Ew7xC0wCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwI
-	xGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480
-	Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7
-	IYx2IY67AKxVW8JVW5JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK
-	8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I
-	0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOdgADUUUU
-X-Originating-IP: [180.110.114.155]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBgwQBmhRLE-RLwAAs4
+Message-Id: <20250617-rust-next-pwm-working-fan-for-sending-v3-5-1cca847c6f9f@samsung.com>
+In-Reply-To: <20250617-rust-next-pwm-working-fan-for-sending-v3-0-1cca847c6f9f@samsung.com>
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
+	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
+	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,  Andreas
+	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,  Trevor
+	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,  Michal
+	Wilczynski <m.wilczynski@samsung.com>, Drew Fustini <drew@pdp7.com>,  Guo
+	Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+	<conor+dt@kernel.org>,  Paul Walmsley <paul.walmsley@sifive.com>,  Palmer
+	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,  Alexandre
+	Ghiti <alex@ghiti.fr>,  Marek Szyprowski <m.szyprowski@samsung.com>,  Benno
+	Lossin <lossin@kernel.org>,  Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Benno Lossin <lossin@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
+X-Mailer: b4 0.15-dev
+X-CMS-MailID: 20250617140840eucas1p1a55fd5f902aac84c16299a0a19852e0d
+X-Msg-Generator: CA
+X-RootMTR: 20250617140840eucas1p1a55fd5f902aac84c16299a0a19852e0d
+X-EPHeader: CA
+X-CMS-RootMailID: 20250617140840eucas1p1a55fd5f902aac84c16299a0a19852e0d
+References: <20250617-rust-next-pwm-working-fan-for-sending-v3-0-1cca847c6f9f@samsung.com>
+	<CGME20250617140840eucas1p1a55fd5f902aac84c16299a0a19852e0d@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_061940_245382_76ACEA9E 
-X-CRM114-Status: UNSURE (   6.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250617_070843_031519_17C8C727 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,88 +97,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Quan Zhou <zhouquan@iscas.ac.cn>
+Probing peripherals in the AON and PERI domains, such as the PVT thermal
+sensor and the PWM controller, can lead to boot hangs or unresponsive
+devices on the LPi4A board. The root cause is that their parent bus
+clocks ('CLK_CPU2AON_X2H' and the 'CLK_PERISYS_APB' clocks) are
+automatically gated by the kernel's power-saving mechanisms when the bus
+is perceived as idle.
 
-The KVM RISC-V allows Zfbfmin/Zvfbfmin/Zvfbfwma extensions for Guest/VM
-so add them to get-reg-list test.
+Alternative solutions were investigated, including modeling the parent
+bus in the Device Tree with 'simple-pm-bus' or refactoring the clock
+driver's parentage. The 'simple-pm-bus' approach is not viable due to
+the lack of defined bus address ranges in the hardware manual and its
+creation of improper dependencies on the 'pm_runtime' API for consumer
+drivers.
 
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Therefore, applying the'`CLK_IGNORE_UNUSED' flag directly to the
+essential bus clocks is the most direct and targeted fix. This prevents
+the kernel from auto-gating these buses and ensures peripherals remain
+accessible.
+
+This change fixes the boot hang associated with the PVT sensor and
+resolves the functional issues with the PWM controller.
+
+Link: https://lore.kernel.org/all/9e8a12db-236d-474c-b110-b3be96edf057@samsung.com/ [1]
+
+Reviewed-by: Drew Fustini <drew@pdp7.com>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/clk/thead/clk-th1520-ap.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index ebdc34b58bad..e5a07e000b66 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -80,6 +80,7 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZCF:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZCMOP:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZFA:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZFBFMIN:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZFH:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZFHMIN:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOM:
-@@ -104,6 +105,8 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZTSO:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVBB:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVBC:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVFBFMIN:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVFBFWMA:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVFH:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVFHMIN:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVKB:
-@@ -535,6 +538,7 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
- 		KVM_ISA_EXT_ARR(ZCF),
- 		KVM_ISA_EXT_ARR(ZCMOP),
- 		KVM_ISA_EXT_ARR(ZFA),
-+		KVM_ISA_EXT_ARR(ZFBFMIN),
- 		KVM_ISA_EXT_ARR(ZFH),
- 		KVM_ISA_EXT_ARR(ZFHMIN),
- 		KVM_ISA_EXT_ARR(ZICBOM),
-@@ -559,6 +563,8 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
- 		KVM_ISA_EXT_ARR(ZTSO),
- 		KVM_ISA_EXT_ARR(ZVBB),
- 		KVM_ISA_EXT_ARR(ZVBC),
-+		KVM_ISA_EXT_ARR(ZVFBFMIN),
-+		KVM_ISA_EXT_ARR(ZVFBFWMA),
- 		KVM_ISA_EXT_ARR(ZVFH),
- 		KVM_ISA_EXT_ARR(ZVFHMIN),
- 		KVM_ISA_EXT_ARR(ZVKB),
-@@ -1138,6 +1144,7 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zcd, ZCD);
- KVM_ISA_EXT_SIMPLE_CONFIG(zcf, ZCF);
- KVM_ISA_EXT_SIMPLE_CONFIG(zcmop, ZCMOP);
- KVM_ISA_EXT_SIMPLE_CONFIG(zfa, ZFA);
-+KVM_ISA_EXT_SIMPLE_CONFIG(zfbfmin, ZFBFMIN);
- KVM_ISA_EXT_SIMPLE_CONFIG(zfh, ZFH);
- KVM_ISA_EXT_SIMPLE_CONFIG(zfhmin, ZFHMIN);
- KVM_ISA_EXT_SUBLIST_CONFIG(zicbom, ZICBOM);
-@@ -1162,6 +1169,8 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zkt, ZKT);
- KVM_ISA_EXT_SIMPLE_CONFIG(ztso, ZTSO);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvbb, ZVBB);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvbc, ZVBC);
-+KVM_ISA_EXT_SIMPLE_CONFIG(zvfbfmin, ZVFBFMIN);
-+KVM_ISA_EXT_SIMPLE_CONFIG(zvfbfwma, ZVFBFWMA);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvfh, ZVFH);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvfhmin, ZVFHMIN);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvkb, ZVKB);
-@@ -1213,6 +1222,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_zcf,
- 	&config_zcmop,
- 	&config_zfa,
-+	&config_zfbfmin,
- 	&config_zfh,
- 	&config_zfhmin,
- 	&config_zicbom,
-@@ -1237,6 +1247,8 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_ztso,
- 	&config_zvbb,
- 	&config_zvbc,
-+	&config_zvfbfmin,
-+	&config_zvfbfwma,
- 	&config_zvfh,
- 	&config_zvfhmin,
- 	&config_zvkb,
+diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+index ebfb1d59401d05443716eb0029403b01775e8f73..cf7f6bd428a0faa4611b3fc61edbbc6690e565d9 100644
+--- a/drivers/clk/thead/clk-th1520-ap.c
++++ b/drivers/clk/thead/clk-th1520-ap.c
+@@ -792,11 +792,12 @@ static CCU_GATE(CLK_AON2CPU_A2X, aon2cpu_a2x_clk, "aon2cpu-a2x", axi4_cpusys2_ac
+ 		0x134, BIT(8), 0);
+ static CCU_GATE(CLK_X2X_CPUSYS, x2x_cpusys_clk, "x2x-cpusys", axi4_cpusys2_aclk_pd,
+ 		0x134, BIT(7), 0);
+-static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd, 0x138, BIT(8), 0);
++static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd,
++		0x138, BIT(8), CLK_IGNORE_UNUSED);
+ static CCU_GATE(CLK_CPU2PERI_X2H, cpu2peri_x2h_clk, "cpu2peri-x2h", axi4_cpusys2_aclk_pd,
+ 		0x140, BIT(9), CLK_IGNORE_UNUSED);
+ static CCU_GATE(CLK_PERISYS_APB1_HCLK, perisys_apb1_hclk, "perisys-apb1-hclk", perisys_ahb_hclk_pd,
+-		0x150, BIT(9), 0);
++		0x150, BIT(9), CLK_IGNORE_UNUSED);
+ static CCU_GATE(CLK_PERISYS_APB2_HCLK, perisys_apb2_hclk, "perisys-apb2-hclk", perisys_ahb_hclk_pd,
+ 		0x150, BIT(10), CLK_IGNORE_UNUSED);
+ static CCU_GATE(CLK_PERISYS_APB3_HCLK, perisys_apb3_hclk, "perisys-apb3-hclk", perisys_ahb_hclk_pd,
+
 -- 
 2.34.1
 
