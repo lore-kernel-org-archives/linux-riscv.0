@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF06C71136
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88208C7115B
 	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 15:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=fS66u+gnP4HslIe9kNPz7eN110s4u4cJP0KwHJZZWgc=; b=c+ALG2J0n/fr41cn/WV9jpntww
-	XmELQF0CcVgFNgshVMFjHEne8ex0Rqq/wP8o6HQUy84U37uzhjUI81+BH/4VUB5Wxw49xEe/G9fma
-	OMM9BZY6knmXLZRDrVHNRyYPc0GfdgG/2yniavLh7Y8U1rsZBwvITYUTe1rgV43KnBttjfnl5+Mmi
-	RG6BafMlH8pwODrqGNHCxSCQn1vzgumoJRKfr4FzjCAWAm71YaBHSiPeLRVwGlyvChPAHiseyhksO
-	5IonDcZXHq9EEZkFtPhAK/otrjOUQBZaNJznQacOPb7/c3tjStZqywXYQ1Qefu2GHwIJrGbxFLZq+
-	Vi5hDIbg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=O4VCjDcT5QMy16JJWLp35XSA9dJGLnpAqHswXVTme1M=; b=2QhlwSPHJCk/eI
+	cKtUQF0GIwJrIkiIDMjKBboOKWDgEBNpHo03DENaqCJaPnNK35DUlImildiccLFhcq4NPRDr5X7zg
+	3U4YewuuLC3Ywg2QIrvStKOAQYZEO+qBJNLh56b4/RoktAdB+s2fvpKQaaFYAKkpcZqRdvHNgZJhM
+	WStoGSKZGYWMVK8rTBFCZHjx/uT7sQ8V95NC3Cti2hoayYaQ2fdZKrDMN/kSZXgEiq+8OBjfFW2kb
+	U8ZT4x4ZHWI2UEUalDgzWSmlKPZlZfqhh0M0EbRgPNYZTYi2HWOG0PwpCU1Y0OjdnUbZPxiExqpXa
+	LeJGlC5mOzvrH135DGUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRYJ2-00000007k2p-2YrW;
-	Tue, 17 Jun 2025 15:33:00 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1uRYJ3-00000007k33-0xyb;
+	Tue, 17 Jun 2025 15:33:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXQI-00000007aGd-0UzN
+	id 1uRXUs-00000007b9h-18RM
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Jun 2025 14:36:27 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-74620e98ec8so4801266b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 07:36:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750170984; x=1750775784; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uMwlSkCNIqJfHOH66+3JA30LqpAbnp8KrvmDSuhH/Ag=;
-        b=G7Ai+eqlcrQeUVDcQidrxdSaSgyrgz4bAZ9+z8rg2pFlfn5m08GAAVYTEnh0d+wt7A
-         N/+0ILtJc81m3Mtj8Wk2wJv+o40oYMId+dETbc0VUHJLPbsHP6Z7a3dq4Q6OJV5e//zo
-         KzBTyw8iNahVoOzqRGkciLb4vNz2piLWPBEnznWTQvToheVf4p+TrlzBiaX8lJrUU4Ue
-         HCV1eth3XzSN0pfwypZuyj506h0ld8ga8k6hoHzzPYSOShLMaJAxEqXXl3aNyxihlTTV
-         qYNJj9ORNniGRzqccg1v9oNj4Y9GB7LQzCRz7Bm+OqSaNFKpfdFWxvkuYbDpaPOGNYTj
-         tYYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750170984; x=1750775784;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=uMwlSkCNIqJfHOH66+3JA30LqpAbnp8KrvmDSuhH/Ag=;
-        b=MsSLFfhbySza4YfE4XkzZWQIGdrxac+t7a32CbYxKAx/YgZGB8iGbSUhpDENsIL3Fc
-         Gs5vvBk9sUC12M8ysbSyn6n2Zo3O7ri2NhvwIBkYYdNrSS2+yetQXBZ2VX5Sk5PcVOth
-         uv0WzkhBFgbq8xbCoe1WdykCvNaqWH7gy+PaV3ayx4cX5uDAGuoWd2p4VCUz8uBCasH7
-         vxmvuXYxiV4PKhGHw4oQRNm5rNLl/k7rcB4l98FgwF0fW+AbLBmqo6MQqc9L6pKeCdod
-         gdk5gAYnZvquzgiUQYxb+RGTSYs+/S3G9ERY7+lrxBMrmalvU9YMT89E38ahgsXBBnLz
-         tYTw==
-X-Forwarded-Encrypted: i=1; AJvYcCXX3Ex0i4keQN/hXO3CFMSds+7xomR8eKkeeajYgJYfob9dMauTY0himVtidL7DKZX9fRC1V9/Wee1J8w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymf0WEgNksgaNv0uvQ0Ofey244FzsOuk4vE/Vcg6GIxMfap7TQ
-	ZizL+XV45TXacqK9ExGEA+25pT3+zu+3L3P59dM2BEbrAjchYUtJtJFx6oWZgNNHSJ66wWIyvDA
-	bz4CfOg==
-X-Google-Smtp-Source: AGHT+IFdJLXMZEEu8DdlQZ+U+oQwIvzvdGgAICIJ+geqiAScmpG1InwG5WTe3wRE1wV8wV8tzAaYKmdEpJA=
-X-Received: from pfnw6.prod.google.com ([2002:aa7:8586:0:b0:747:a8e8:603e])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:9181:b0:748:a0b9:f873
- with SMTP id d2e1a72fcca58-748a0b9f8d2mr16220059b3a.9.1750170984466; Tue, 17
- Jun 2025 07:36:24 -0700 (PDT)
-Date: Tue, 17 Jun 2025 07:36:22 -0700
-In-Reply-To: <CAK9=C2WFA+SDt4MCLj0reQnkkA2kxUmfWhT8HZxjT_DdW8W_rQ@mail.gmail.com>
-Mime-Version: 1.0
-References: <50989f0a02790f9d7dc804c2ade6387c4e7fbdbc.1749634392.git.zhouquan@iscas.ac.cn>
- <20250611-352bef23df9a4ec55fe5cb68@orel> <aEmsIOuz3bLwjBW_@google.com>
- <20250612-70c2e573983d05c4fbc41102@orel> <aEymPwNM59fafP04@google.com> <CAK9=C2WFA+SDt4MCLj0reQnkkA2kxUmfWhT8HZxjT_DdW8W_rQ@mail.gmail.com>
-Message-ID: <aFF9ZqbvZZtbUnGt@google.com>
-Subject: Re: [PATCH] RISC-V: KVM: Avoid re-acquiring memslot in kvm_riscv_gstage_map()
-From: Sean Christopherson <seanjc@google.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Andrew Jones <ajones@ventanamicro.com>, zhouquan@iscas.ac.cn, anup@brainfault.org, 
-	atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+	Tue, 17 Jun 2025 14:41:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C26C05C643D;
+	Tue, 17 Jun 2025 14:38:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CD93C4CEE3;
+	Tue, 17 Jun 2025 14:41:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750171269;
+	bh=XdJb0Fw4Rr6pT0ZoN+vrT8BJNFqp2n7RZt9bLdoicy0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dSTCRk8Uwi677vKg6k6lOAWXdtA+M+meFSVzjlFArZ9bvcH54PzhYbqd7CJlg63T/
+	 xJ0+p8rTVazZ6/wO72ITTYo2jiM5Tbugln+L3yIBtD9EBCyLvlK3Uf+wo/ABwAm3Vy
+	 fPAoXHXkEsLyBw49G9HKJjcjV6mofeyhQa4lbM/8mb3sWMomcQgyA7/LvkGC8yKDG9
+	 odnD5n9ZIAUz+x2GSLx7JB/j6pW2RBIQtlbDvHkin8zrtZV/xYDMLS6fmj6g31qdWG
+	 HZkv+V2DMP0ZzeS0iAymfIqkXqCiWdwpzWqjTJXdU4eV1g/aaKOhKSpv5Kz+VAmX7Z
+	 jrf/zUgEtABtw==
+Date: Tue, 17 Jun 2025 16:41:00 +0200
+From: Danilo Krummrich <dakr@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v3 3/9] rust: pwm: Add driver operations trait and
+ registration support
+Message-ID: <aFF-fNOOEzoiomFu@pollux>
+References: <20250617-rust-next-pwm-working-fan-for-sending-v3-0-1cca847c6f9f@samsung.com>
+ <CGME20250617140838eucas1p2a31af5a73297580c2421263c1c6ba700@eucas1p2.samsung.com>
+ <20250617-rust-next-pwm-working-fan-for-sending-v3-3-1cca847c6f9f@samsung.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250617-rust-next-pwm-working-fan-for-sending-v3-3-1cca847c6f9f@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_073626_149273_8796E69C 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20250617_074110_396061_16647A9A 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,40 +89,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBKdW4gMTUsIDIwMjUsIEFudXAgUGF0ZWwgd3JvdGU6Cj4gT24gU2F0LCBKdW4gMTQs
-IDIwMjUgYXQgMzo1OeKAr0FNIFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5qY0Bnb29nbGUuY29t
-PiB3cm90ZToKPiA+Cj4gPiBPbiBUaHUsIEp1biAxMiwgMjAyNSwgQW5kcmV3IEpvbmVzIHdyb3Rl
-Ogo+ID4gPiBPbiBXZWQsIEp1biAxMSwgMjAyNSBhdCAwOToxNzozNkFNIC0wNzAwLCBTZWFuIENo
-cmlzdG9waGVyc29uIHdyb3RlOgo+ID4gPiA+IExvb2tzIGxpa2UgeSdhbGwgYWxzbyBoYXZlIGEg
-YnVnIHdoZXJlIGFuIC1FRVhJU1Qgd2lsbCBiZSByZXR1cm5lZCB0byB1c2Vyc3BhY2UsCj4gPiA+
-ID4gYW5kIHdpbGwgZ2VuZXJhdGUgd2hhdCdzIHByb2JhYmx5IGEgc3B1cmlvdXMga3ZtX2Vycigp
-IG1lc3NhZ2UuCj4gPiA+Cj4gPiA+IE9uIDMyLWJpdCByaXNjdiwgZHVlIHRvIGxvc2luZyB0aGUg
-dXBwZXIgYml0cyBvZiB0aGUgcGh5c2ljYWwgYWRkcmVzcz8gT3IKPiA+ID4gaXMgdGhlcmUgeWV0
-IGFub3RoZXIgdGhpbmcgdG8gZml4Pwo+ID4KPiA+IEFub3RoZXIgYnVnLCBJIHRoaW5rLiAgZ3N0
-YWdlX3NldF9wdGUoKSByZXR1cm5zIC1FRVhJU1QgaWYgYSBQVEUgZXhpc3RzLCBhbmQgSQo+ID4g
-X2Fzc3VtZV8gdGhhdCdzIHN1cHBvc2VkIHRvIGJlIGJlbmlnbj8gIEJ1dCB0aGlzIGNvZGUgcmV0
-dXJucyBpdCBibGluZGx5Ogo+IAo+IGdzdGFnZV9zZXRfcHRlKCkgcmV0dXJucyAtRUVYSVNUIG9u
-bHkgd2hlbiBpdCB3YXMgZXhwZWN0aW5nIGEgbm9uLWxlYWYKPiBQVEUgYXQgYSBwYXJ0aWN1bGFy
-IGxldmVsIGJ1dCBnb3QgYSBsZWFmIFBURSAKClJpZ2h0LCBidXQgaXNuJ3QgcmV0dXJuaW5nIC1F
-RVhJU1QgYWxsIHRoZSB3YXkgdG8gdXNlcnNwYWNlIHVuZGVzaXJhYmxlIGJlaGF2aW9yPwoKRS5n
-LiBpbiB0aGlzIHNlcXVlbmNlLCBLVk0gd2lsbCByZXR1cm4gLUVFWElTVCBhbmQgaW5jb3JyZWN0
-bHkgdGVybWluYXRlIHRoZSBWTQooYXNzdW1pbmcgdGhlIFZNTSBkb2Vzbid0IG1pcmFjdWxvdXNs
-eSByZWNvdmVyIHNvbWVob3cpOgoKIDEuIEJhY2sgdGhlIFZNIHdpdGggSHVnZVRMQkZTCiAyLiBG
-YXVsdC1pbiBtZW1vcnksIGkuZS4gY3JlYXRlIGh1Z2VwYWdlIG1hcHBpbmdzCiAzLiBFbmFibGUg
-S1ZNX01FTV9MT0dfRElSVFlfUEFHRVMKIDQuIFdyaXRlLXByb3RlY3Rpb24gZmF1bHQsIGt2bV9y
-aXNjdl9nc3RhZ2VfbWFwKCkgdHJpZXMgdG8gY3JlYXRlIGEgd3JpdGFibGUKICAgIG5vbi1odWdl
-IG1hcHBpbmcuCiA1LiBnc3RhZ2Vfc2V0X3B0ZSgpIGVuY291bnRlcnMgdGhlIGh1Z2UgbGVhZiBQ
-VEUgYmVmb3JlIHJlYWNoaW5nIHRoZSB0YXJnZXQKICAgIGxldmVsLCBhbmQgcmV0dXJucyAtRUVY
-SVNULgoKQUZBSUNULCBnc3RhZ2Vfd3BfbWVtb3J5X3JlZ2lvbigpIGRvZXNuJ3Qgc3BsaXQvc2hh
-dHRlci9kZW1vdGUgaHVnZXBhZ2VzLCBpdApzaW1wbHkgY2xlYXJzIF9QQUdFX1dSSVRFLgoKSXQn
-cyBlbnRpcmVseSBwb3NzaWJsZSBJJ20gbWlzc2luZyBzb21ldGhpbmcgdGhhdCBtYWtlcyB0aGUg
-YWJvdmUgc2NlbmFyaW8KaW1wb3NzaWJsZSBpbiBwcmFjdGljZSwgYnV0IGF0IHRoaXMgcG9pbnQg
-SSdtIGdlbnVpbmVseSBjdXJpb3VzIDotKQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+On Tue, Jun 17, 2025 at 04:07:26PM +0200, Michal Wilczynski wrote:
+> +/// Manages the registration of a PWM chip, ensuring `pwmchip_remove` is called on drop.
+> +pub struct Registration {
+> +    chip: ManuallyDrop<ARef<Chip>>,
+
+Why is this ManuallyDrop when you call ManuallyDrop::drop(&mut self.chip) as
+the last thing in Registration::drop()?
+
+I think you don't need ManuallyDrop here.
+
+> +}
+> +
+> +impl Registration {
+> +    /// Registers a PWM chip (obtained via `Chip::new`) with the PWM subsystem.
+> +    ///
+> +    /// Takes an [`ARef<Chip>`]. On `Drop` of the returned `Registration` object,
+> +    /// `pwmchip_remove` is called for the chip.
+> +    pub fn new(chip: ARef<Chip>, ops_vtable: &'static PwmOpsVTable) -> Result<Self> {
+
+For the reason mentioned in [1] this should either return Result<Devres<Self>>
+or just Result, if you use Devres::new_foreign_owned() (see also [2]).
+
+In case of the latter, the Registration instance is automatically dropped once
+the parent device is unbound.
+
+If you go with the first, you can drop the Devres<Registration> (and hence the
+inner Registration) at any arbitrary point of time, but Devres will still
+gurarantee that the inner Registration is dropped once the parent device is
+unbound, i.e. it can't out-live driver unbind.
+
+This guarantees that the &Device<Bound> instance you provide in the callbacks
+below is guaranteed to be valid.
+
+[1] https://lore.kernel.org/lkml/aFF7qqlexxh540FW@pollux/
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/rust/kernel/drm/driver.rs#n134
+
+> +        // Get the raw C pointer from ARef<Chip>.
+> +        let c_chip_ptr = chip.as_raw().cast::<bindings::pwm_chip>();
+> +
+> +        // SAFETY: `c_chip_ptr` is valid (guaranteed by ARef existing).
+> +        // `ops_vtable.as_raw()` provides a valid `*const bindings::pwm_ops`.
+> +        // `bindings::__pwmchip_add` preconditions (valid pointers, ops set on chip) are met.
+> +        unsafe {
+> +            (*c_chip_ptr).ops = ops_vtable.as_raw();
+> +            to_result(bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()))?;
+> +        }
+
+Please split this up into separate unsafe blocks.
+
+> +        Ok(Registration {
+> +            chip: ManuallyDrop::new(chip),
+> +        })
+> +    }
+> +}
+> +
+> +impl Drop for Registration {
+> +    fn drop(&mut self) {
+> +        let chip = &**self.chip;
+> +        let chip_raw: *mut bindings::pwm_chip = chip.as_raw();
+> +
+> +        // SAFETY: `chip_raw` points to a chip that was successfully registered via `Self::new`.
+> +        // `bindings::pwmchip_remove` is the correct C function to unregister it.
+> +        unsafe {
+> +            bindings::pwmchip_remove(chip_raw);
+> +            ManuallyDrop::drop(&mut self.chip); // Drops the ARef<Chip>
+> +        }
+
+Same here, but I don't think ManuallyDrop is needed anyways.
+
+> +    }
+> +}
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
