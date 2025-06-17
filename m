@@ -4,73 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A6FC7115A
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 08:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3B7C71136
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 09:24:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hlkvBYMKB491I+JFBOifypNr0BpsNeW/jQzhULNp7c8=; b=GnmJbBfJrKRQS3
-	WEAZZqEQVK3hAr7nBizWhDTvyJDl8F03LInqMZugcToUAhzt298Kvj3vO2s5obW6lxlEZIBCbcil5
-	0OvpkX0HKa1Jrg08aE4jii/uzsY4M8uQZIxm1PLPrGvDBf+DqcKKtMal/1XnXwqkR86HHa7v3jW9p
-	KCDk0HDX4sWlq0DxNXBc+8cHlmZnW/zIMfiADHnJWpSislf2SDTH+1V99lBPR+OVy2R030YamVCmI
-	RM+fcf2F4L2jZZg2pVE53j6WyiJOPe5N7If0lLbAy7Jugxxtq03qjidL9r7pNonYrDPVIF9norCCP
-	/SMXFRhWFkAlapPiHT7g==;
+	List-Owner; bh=UOD5enbzqvkBPNCF8HB5hzlW9pJk9GOGxNTDEvgrXfQ=; b=zf31b/Ak0/OIxL
+	LZhL+ylszLSOas+NwcR+WrTPaGTlhXU9cQriqrQKcdqvCXG4YnqQsY9mWAY+zbO10mO4o+vVfni7m
+	Shw71aKjU3AHDdAEpKAhNdcCYpO3a0wzUtbLUd4oAoqXCLPOxEa4yXUV8kxQNjupC2qFHIWEEM1QW
+	gC/InI85LaiqjqOx0R8aZnT8fPptnukLW56K3ERxhtKoVSeXMZCa76W90pvUwDOpQ9XIiCqBBpfND
+	9DceAN05i2hpMOvZy1UKOJEC+foiDrDJjbs4oay1mzA+2+gft53o1/x2lTE0qtFU908V5SggVyYej
+	OjMr6EVqqQ1Q3MpPgdOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRzv-00000006eAY-2Cyr;
-	Tue, 17 Jun 2025 08:48:51 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1uRSXt-00000006jZc-2k6z;
+	Tue, 17 Jun 2025 09:23:57 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRzg-00000006e66-27kl
+	id 1uRSOc-00000006htR-3euq
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Jun 2025 08:48:39 +0000
-Received: from [192.168.33.151] (unknown [210.73.43.2])
-	by APP-01 (Coremail) with SMTP id qwCowAAn2dfZK1FoBBEkBw--.8277S2;
-	Tue, 17 Jun 2025 16:48:26 +0800 (CST)
-Message-ID: <10ab212f-e06b-4214-99cd-a687659fcf71@iscas.ac.cn>
-Date: Tue, 17 Jun 2025 16:48:25 +0800
+	Tue, 17 Jun 2025 09:14:24 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a35c894313so6160049f8f.2
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 02:14:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750151661; x=1750756461; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=z2DwhOwUsMunVDJWED8rmtY3JjlBmcuuZx6kyq72hSI=;
+        b=fHltgPCC6mJQVHxjBsi9/mPPKxmApVwitdh0ry5EBmzBMssixeCJ0NuSSBlQEVpECK
+         O01FMX9gIbvnZrIPK7JTFPDYphlDcxuGY1tnzSp2IoScarwbTJALWfGfiFaJpKW4jmra
+         yWQMcisjtgormBweJaBeiiik9bBnOuXg0cDP4YmsZmBaE2IGzpAZPb1LjkXQb/YE8KfI
+         WiW1djCni1rvotLDiwsKsTWflhv70eHOtcBYoyMvkaeAAVtviLKr1k5jnjfkN9wuipWU
+         5gZPIhEb1tK4O/1KahEUZogjy/a4D7g4H6+wtuepjCljDQvysT4pgaC5OTc+EYCvQfEG
+         L21w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750151661; x=1750756461;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=z2DwhOwUsMunVDJWED8rmtY3JjlBmcuuZx6kyq72hSI=;
+        b=jHeL8OEn+ZlbHp3rWeFRYEjODVcRkepvA9HThZ3c2o7WDngQy4iL3x7UtS3gCBe5FE
+         TLQ6e9uAn1DpYIv8aQIKxZQxApI8aV5jZW61e/LdmveFs4fV6fOE6KYu4iWXfhtr6img
+         5cc/SVGOaGmpYIRNrMepLc/pP0ssIyXOKZGva+ItQ86LFXt/uxkjrSLUXQn9s3JayGn0
+         ZU3io3nqA6fhCGViLRThjzbfwsbwH2VeWoIKTdtE0rXp2TwOHjeX9ca/V0zG7FDgu9XM
+         swDVRqxcjAtXyFGcHP8srQYvNkRvYdQ7nGYJDq7QkAPEHzIxilsCmY1n7dxcmqic+pPR
+         uEZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUUnHAidwal1ctMMr3QgqXQOj6JCfyPXxm5/a1ECwJU/yoptLe7XpczixTiMgOuIkmpJOVmScGJiuND0g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcMe9+HNbjxo9+gg6ZIWJcM/nZCK0aoDTTu6VRJ71he4g9wbtB
+	zUBc7otm47tznJRSwQMRiBoynct5JNfzYXgAfQWWxA1x0+anjAum01/HgDSiLe43Fio=
+X-Gm-Gg: ASbGncteOOoaBKgUpf32CCBbIUIQ5c6UfKccKsSMz+rL7maGRS8OD9H0C6oo1QmJZcV
+	qV/N/QRw87fwZ71+yJIvV73iHFQrkdWH7hCmTNTcW8rrItdzBBtPjfG18QvySCMdOqdnqQYnhl0
+	OfoqYrRnheiPIfN71MzDGbyO9/4KgCZkhHEZ0SzzO361J+1hs/oVRfwXqbH+qA6wYsnRz1JNhSk
+	6NTqQmINMC5pCRsxE4vQRPs7PHi+JL9zYS2nYhFRMyqowGP7aIBkRfPSdDa2FV9VmepRfbVDiRY
+	cKy+dDofiiCsvr2wuJiNle6ockm62oYwyS0pTTTGIGXx/4m4UQaZbiBztENasl4=
+X-Google-Smtp-Source: AGHT+IHJrUzq11FqzFpCalpA8oxq7QOoJUd6doTIPdsMKhwT2j2fIZKoD5gQsAT4CYJMYxX4N6Amdw==
+X-Received: by 2002:a05:6000:230e:b0:3a4:e740:cd72 with SMTP id ffacd0b85a97d-3a572396df6mr10071598f8f.13.1750151661308;
+        Tue, 17 Jun 2025 02:14:21 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:90df:ded7:9cbf:4074])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a633ddsm13280685f8f.26.2025.06.17.02.14.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Jun 2025 02:14:20 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Patrick Venture <venture@google.com>,
+	Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	openbmc@lists.ozlabs.org,
+	linux-omap@vger.kernel.org
+Subject: Re: [PATCH 00/12] gpio: convert another round of GPIO drivers to using new line value setters
+Date: Tue, 17 Jun 2025 11:14:17 +0200
+Message-ID: <175015165197.21779.16487408157196142174.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
+References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC] riscv: dts: spacemit: Add DMA translation buses for
- K1
-To: Krzysztof Kozlowski <krzk@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Guodong Xu <guodong@riscstar.com>, Ze Huang <huangze@whut.edu.cn>,
- spacemit@lists.linux.dev
-Cc: Vivian Wang <uwu@dram.page>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250617-k1-dma-buses-rfc-wip-v1-1-c8ec192fbf58@iscas.ac.cn>
- <74e3c488-4457-4026-9597-806b98fd4e11@kernel.org>
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <74e3c488-4457-4026-9597-806b98fd4e11@kernel.org>
-X-CM-TRANSID: qwCowAAn2dfZK1FoBBEkBw--.8277S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4kCw13Kr1kWF1rZw15CFg_yoW8CF45pr
-	Z3u3ZayFZrAF40gws29rZrWa4ruwn7Za15JFn5Gr1rAFZ8XFyagrWxJw1j9w1UXrZ5Xa47
-	Xa1DZ3s7uF4UJr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Ib7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4I
-	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
-	WwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
-	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
-	IYCTnIWIevJa73UjIFyTuYvjxUy38nDUUUU
-X-Originating-IP: [210.73.43.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_014836_908753_D1F9EB9D 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250617_021422_918040_346CE147 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +114,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgS3J6eXN6dG9mLAoKT24gNi8xNy8yNSAxNDoyMSwgS3J6eXN6dG9mIEtvemxvd3NraSB3cm90
-ZToKPiBPbiAxNy8wNi8yMDI1IDA3OjIxLCBWaXZpYW4gV2FuZyB3cm90ZToKPj4gVGhlIFNwYWNl
-bWlUIEsxIGhhcyB2YXJpb3VzIHN0YXRpYyB0cmFuc2xhdGlvbnMgb2YgRE1BIGFjY2Vzc2VzLiBB
-ZGQKPj4gdGhlc2UgYXMgc2ltcGxlLWJ1cyBub2Rlcy4gRGV2aWNlcyBhY3R1YWxseSB1c2luZyB0
-aGVzZSB0cmFuc2xhdGlvbiB3aWxsCj4+IGJlIGFkZGVkIGluIGxhdGVyIHBhdGNoZXMuCj4+Cj4+
-IFRoZSBidXMgbmFtZXMgYXJlIGFzc2lnbmVkIGFjY29yZGluZyB0byBjb25zZW5zdXMgd2l0aCBT
-cGFjZW1pVCBbMV0uCj4KPiBSZWFkIHRoZSBmZWVkYmFjayB0aGVyZToKPgo+ICJTbywgYXMgeW91
-IGFyZSBzdWJtaXR0aW5nIHRoZSBmaXJzdCBub2RlKHMpIHVuZGVyIG5ldHdvcmtfYnVzOiBidXNA
-NSwgeW91Cj4gc2hvdWxkIGhhdmUgdGhpcyBhZGRlZCBpbnRvIHlvdXIgcGF0Y2hzZXQsIGluc3Rl
-YWQgb2Ygc2VuZGluZyBvdXQgd2l0aAo+IG5vbmUuIgpBcyBtZW50aW9uZWQgaW4gdGhlIHBhdGNo
-IGV4dHJhIG1lc3NhZ2UsIHRoaXMgaXMgYW4gUkZDIG1lYW50IGZvcgphY2hpZXZpbmcgY29uc2Vu
-c3VzIG9uIHdoYXQgdGhlIGJ1cyBub2RlcyBzaG91bGQgbG9vayBsaWtlLCBub3QgYW4KYWN0dWFs
-IHBhdGNoIG1lYW50IHRvIGJlIHRha2VuLiBJIHdhcyBob3BpbmcgSSB3YXMgY2xlYXIgb24gdGhh
-dCwgYnV0IEkKZ3Vlc3MgdGhhdCBwYXJhZ3JhcGggd2FzIGJ1cmllZCB0b28gZGVlcC4gV2VsbC4u
-Lgo+IFBsdXMgc2ltcGxlIGJ1cyB3aXRoaW4gTU1JTyBub2RlIG5lZWRzIHVuaXQgYWRkcmVzcy4g
-SU9XLCBkb24ndCBtaXggTU1JTwo+IHdpdGggbm9uLU1NSU8uIEkgYWxzbyBzdXNwZWN0IHRoaXMg
-ZG9lcyBub3QgcGFzcyBjaGVja3MsIHNvIHRoZSB0b29scwo+IGNhbiBkbyBvdXIgcmV2aWV3Li4u
-CgpUaGlzIERUIHBhc3NlcyAibWFrZSBkdGJzX2NoZWNrIiBmaW5lLCB3aXRoIG9ubHkgdW5yZWxh
-dGVkIHdhcm5pbmdzIG9uCnNlY191YXJ0MSB0aGF0IHdhcyBhbHJlYWR5IHRoZXJlIGJlZm9yZToK
-CsKgIERUQyBbQ10gYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1iYW5hbmFwaS1mMy5k
-dGIKLi4uL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtYmFuYW5hcGktZjMuZHRiOiBz
-ZXJpYWxAZjA2MTIwMDAKKHNwYWNlbWl0LGsxLXVhcnQpOiAnY2xvY2stbmFtZXMnIGlzIGEgcmVx
-dWlyZWQgcHJvcGVydHkKwqDCoMKgwqDCoMKgwqAgZnJvbSBzY2hlbWEgJGlkOiBodHRwOi8vZGV2
-aWNldHJlZS5vcmcvc2NoZW1hcy9zZXJpYWwvODI1MC55YW1sIwrCoCBEVEMgW0NdIGFyY2gvcmlz
-Y3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtbWlsa3YtanVwaXRlci5kdGIKLi4uL2FyY2gvcmlzY3Yv
-Ym9vdC9kdHMvc3BhY2VtaXQvazEtbWlsa3YtanVwaXRlci5kdGI6IHNlcmlhbEBmMDYxMjAwMAoo
-c3BhY2VtaXQsazEtdWFydCk6ICdjbG9jay1uYW1lcycgaXMgYSByZXF1aXJlZCBwcm9wZXJ0eQrC
-oMKgwqDCoMKgwqDCoCBmcm9tIHNjaGVtYSAkaWQ6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9zY2hl
-bWFzL3NlcmlhbC84MjUwLnlhbWwjCgpUbyBiZSBob25lc3QsIEkgZG9uJ3QgdW5kZXJzdGFuZCB3
-aGF0ICJ3aXRoaW4gTU1JTyBub2RlIiBtZWFucyBoZXJlLgpTaG91bGQgdGhlIGJ1c2VzIGJlIHRh
-a2VuIG91dCBvZiAvc29jIGFuZCBhZGRlZCBhcyBpdHMgc2libGluZ3M/CgpUaGFua3MsClZpdmlh
-biAiZHJhbWZvcmV2ZXIiIFdhbmcKCj4gQmVzdCByZWdhcmRzLAo+IEtyenlzenRvZgoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+
+On Tue, 10 Jun 2025 14:33:10 +0200, Bartosz Golaszewski wrote:
+> Commit 98ce1eb1fd87e ("gpiolib: introduce gpio_chip setters that return
+> values") added new line setter callbacks to struct gpio_chip. They allow
+> to indicate failures to callers. We're in the process of converting all
+> GPIO controllers to using them before removing the old ones. This series
+> converts another round of GPIO drivers.
+> 
+> 
+> [...]
+
+Applied, thanks!
+
+[01/12] gpio: mmio: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/b908d35d0003cc75d4ebf7c24a61b07d34e7f5dc
+[02/12] gpio: mm-lantiq: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/d27746181905c256eced857f4b2c051ac44b0b45
+[03/12] gpio: moxtet: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/b454580cf11b45a9da22821543f1455a6a31c5ee
+[04/12] gpio: mpc5200: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/80d42372d9d87626b55516779e935c012cecdae7
+[05/12] gpio: mpfs: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/3aa3628f8168df9fe154b09b1710d3314b9fa4b7
+[06/12] gpio: mpsse: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/e63d9fbe9f148b44f2fdc211941f2d4485022549
+[07/12] gpio: msc313: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/88a775454a0fe923f3d34d8f30cd1d6b75be0859
+[08/12] gpio: nomadik: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/aaec273c7b511a7826df09123a1fd6e4896c1bfd
+[09/12] gpio: npcm-sgpio: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/0e1a8930c941e3a7bea25928b254ece8caa5135d
+[10/12] gpio: octeon: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/f02614561493da22f24b0e2ec1c2ae0d5b41c68b
+[11/12] gpio: omap: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/57065d62e672bce193f186c7b759f928b9a90ca0
+[12/12] gpio: palmas: use new GPIO line value setter callbacks
+        https://git.kernel.org/brgl/linux/c/f3763403a6bbc3a18379fe4c415bda899a111d55
+
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
