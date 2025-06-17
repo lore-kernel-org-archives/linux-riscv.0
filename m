@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F58C71157
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 09:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D94C71157
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 09:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l7osk4OH5ZxjEx8+kK+mFK6A1heWtttqENsuDrVaa/s=; b=gp7c9DWG/RxyST
-	F1fi9u/nJRX5NtJPmsPWo9pZK4q2m4Po7Zj0HVPTvKnU9dWM1WS99JSwxTXRM09wmYPQu2k6R4NLv
-	4xw0oFiE69TdA96V9d6rw7Wc8cSkgJCcAj7GbaHZzVAMTWXtlhCjpf2frqvDDoqtC9J3qJjU7N0+u
-	6D0v3FlD2Vz/EOPOKEHHTg8uFalQFi5GI79lEWx39evX2zpSZ30chxlgwXF2xTYSiqhlz79POQFtd
-	1TOr8ogZcOXxRiKbb8o96gz88fAOoOjJmgUPqvtMxiIBPFrkQxjbkDAsKvcuMQ/e5wtnnJst97+7/
-	Fm9plySRO4PERsFYSbiw==;
+	List-Owner; bh=dO1YIZ/weBUeTdxM0veLbrjBy24vgUUBV25IBiMA4F0=; b=OqyE85vEZdXI+5
+	qMMBuB2QZ2VSkXLhxkY1qAkt6hocBOnHTmw8mmyLACZm1rDnXODCSJIjVwHZrG6xs82BqstSnLKn4
+	x3WpOM8lv8dslcjX0xMcVxd3G6HzqE3j7hxQd255L4sKFnUSmJsQ+em373bqSWTZGaBu47O195ej6
+	l3JiAlPAAFQ3/f9pDqYP9QG2YIG0TtJ0rq3btLEb3bS2y0hOduM4LKzNo08ZkSpJfOQ85+yVLQB6c
+	H9HuDLtnQQzdXPcRybcvBGf+FyyNlpc+dJg1NhtdxYb7dYntKp7nB4bUjIB9t67wQwOEhrZT/dur2
+	DPE8EZhiaoFXK7Bd7KmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRT3j-00000006qZr-3cLo;
-	Tue, 17 Jun 2025 09:56:51 +0000
+	id 1uRT3k-00000006qa1-1zX8;
+	Tue, 17 Jun 2025 09:56:52 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSku-00000006mbc-3lky
+	id 1uRSlC-00000006miN-1Kcp
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Jun 2025 09:37:26 +0000
+	Tue, 17 Jun 2025 09:37:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750153044;
+	s=mimecast20190719; t=1750153061;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=0iZWBl/87jpgBtc7g8vCiBj8fMDtEnqMgq5VqeHe2b4=;
-	b=MtApeEyCojhO+oxytgoKPQK9xoQBmfd+3UgBWGt7ZBaGGoQyY71uOYkCX8JPpeMoIJTfs8
-	WfJClzx/MlDJp89yqiC3eerEf5i8aWHnuJ7y4lh85bcUxYICEMGKItbnnGSh4O8Rm21i4u
-	4Jsa2LcVb6YLJpe9pHz0/cfM+Y5QcRU=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=2tVggpdHRMe70SNIVLjgFowvBJ62eIYbXphR2T3zCDQ=;
+	b=PcsDhlyVvDorkmhP8uemET1+nb5ry+oepbX4PejvDmQD5bxIQk55Ka6kfk/Mv0rUhTDkQY
+	q8FlvuPFuEg2kAGzM7CjS6GWG4fpE1KRBayUfCg5uRjpFueEJtuPkIqNVfqW8AACRSJRCY
+	2ZwvWIGaoKqvcVOp7Yfl+uc7Dv0oZBY=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-135-6CMGQQwCPqq6yNAOVuUxpA-1; Tue, 17 Jun 2025 05:37:20 -0400
-X-MC-Unique: 6CMGQQwCPqq6yNAOVuUxpA-1
-X-Mimecast-MFC-AGG-ID: 6CMGQQwCPqq6yNAOVuUxpA_1750153040
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a58939191eso189878f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 02:37:20 -0700 (PDT)
+ us-mta-93-nJYbwcOJP7utyfbrep9nXA-1; Tue, 17 Jun 2025 05:37:36 -0400
+X-MC-Unique: nJYbwcOJP7utyfbrep9nXA-1
+X-Mimecast-MFC-AGG-ID: nJYbwcOJP7utyfbrep9nXA_1750153055
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-450d244bfabso44594095e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 02:37:36 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750153039; x=1750757839;
+        d=1e100.net; s=20230601; t=1750153055; x=1750757855;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=0iZWBl/87jpgBtc7g8vCiBj8fMDtEnqMgq5VqeHe2b4=;
-        b=mbjESoebWBpAHo9Ir6x+rUVBB8oHrSZnwMpWOiJGG9TqvM1sHw4pMdSREMnKo/NVJG
-         hPA4Rr+9BS8yPQY4K7P4hEFF158JlMtghMxbC8QcLXtK1g4ADgurZy+g17inhh1pMQ8h
-         cbGGXVmaMMkV+T1eNXsCJLa2XYdq8ds8lV5LzRDHeU9Ccr5SsDcS1rgHc8045cwZcHDc
-         +fu7J/LdZr8tDG6QlhJIRx+mAddNI8oPJmmZo+zbHa/lH/G00CeprZiqjissxhSpGYmN
-         Sw78Xxr1Sx6p1WGx5hlae1uf80AtIdYNn1XS428mswYrSoJuzOmG9Sgc+c2tbJ+O90IK
-         5tRA==
-X-Forwarded-Encrypted: i=1; AJvYcCUFZ8XBYWjm12FALuVCJpiYrjqDCuWhsX+lVNWjVOHpm7VsIbmv2Plm/YYL3OIXikKcYiW++z4DaC+/9Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJyaRgUOJymxKZQMWMcjOww2mpTkO/as+1wqKbYBV4ynBNes1f
-	yXlsIUxwHsvekUZQ5GEhwBDn5CLxqyTeWHHx4P0KcWPteL3jPXdYTkMqKogW/Bl82oFYm8OeuWo
-	KS7dpCiwiEkSY6WC7wBQv9NWIV6Tx6H/lcsDzDTBx1mwVFNHKPPU49W1PSgFF6SFFKh7vkA==
-X-Gm-Gg: ASbGnculROSrV0wHvNGiBkWxfqBWJrv/cPwcLujhLusSBJF3JTv0iPmIINLoKFJhx+P
-	0QQnB59rvfwyS4bmLjl4O7yvCEXHiG1WpbUghxANXS4S45kP0JVQOPyFU5pKgawCSW/erSKptH0
-	jckUKcmBmAyvyuc4vxuys3HVeon20eqzD5BcBRXgdAS0/c8z2BxMYL5NFYJjaMX5wO90tNLl90K
-	p0pebgcC9eszMefi/grrj/pxKCrt8XrY7HEbqRdyCSpPti5U3+z+LG2vQTjj2kqwEbf5g9q8ntz
-	jVlLayvr5hhoaF34YHXGNDoYbt5gjFvtwvRgEynoSQGmiCg1LUu9L5l6kHKnVYr1K9XnxtcLjxK
-	cqz3OpE4wvp1kcSHnwRGTd8cz+Tex0IlqvInF7pFL4z+6kik=
-X-Received: by 2002:a05:6000:2089:b0:3a5:2ec5:35b8 with SMTP id ffacd0b85a97d-3a572398cecmr9501304f8f.11.1750153039539;
-        Tue, 17 Jun 2025 02:37:19 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGn0r2S94rVo2KuanbuIlCONOQLmf7OLS7ZUZs7agOAWDn3Sa7W8ftax638hwNbov3D5qaGyQ==
-X-Received: by 2002:a05:6000:2089:b0:3a5:2ec5:35b8 with SMTP id ffacd0b85a97d-3a572398cecmr9501261f8f.11.1750153038988;
-        Tue, 17 Jun 2025 02:37:18 -0700 (PDT)
+        bh=2tVggpdHRMe70SNIVLjgFowvBJ62eIYbXphR2T3zCDQ=;
+        b=tP4XasZ3eptHiFgyxtfDLAT+ihl9T/QauEze89mNqp+jFlVcnxqMNcZFQ8W48greOZ
+         0cqALJgSvF/vIrF+hpLFXTG6x1hz2bXG/RkgpCaAzlg43KsO4XPnyPLtAnYWBkHxnFVv
+         oVePC3ZoGvOD0Dyy2fRnBYZNl9rwf3U1uBZMYKSKxjAP4JMX9E/J5sB61OHOs23esbJQ
+         95oqNbMq7XPkwKzbP7F/q0oCvSuUMA79dLHdujtYN1NERTHyX5p7ar2Er1rOHePdCGYO
+         cO+Jh3axrO+Fv2nsusb8L2VTDulVIdcMJeidg2xhiiB3cIdhIUQjAUDLn7NmbjkNcCZL
+         YqLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX0vu85BHCybehgP9VGEZ9LLi/g2XOGVFZC+s5Jc1UBtqpxz2SeVNozrcLQYQajD5PwMCRgskI82qQCog==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhHeodWj8Kj4uMQEdHLn8PCl0jhJTH4SiUtYMbQohARIjQOpvc
+	pGVBG+lhTb/dEW6/1x2a1LmQOAZf4cjDHiIpoEMuE4NrYG9IfOL6RUGaRlvgrrU2WOs2LVr5Xlk
+	WbzYNcNmwmM8guScGxP82jgeKdKXliRjPNR/xTmywch/tC/4fkbvEmUvIc1fYPayxAC6dRw==
+X-Gm-Gg: ASbGncuac153g9ctyqF6awEoIj3bcOkN3TQR8T11iqkLd95gXNOQqnGsJ3pthEMFhUg
+	RgclZRc+Rq4g3jEd0kg0JIjikLgroakLzHWQ5/i9zu78k9MCX6FzVHe+u+j+ntULlCIZz5J2jpm
+	gnsUbN6Vgh4Z6BNmCQdKYhJM5OUcbsJX164po+1xYi+thxtp1JA07gxBQhBTEnVI2A59uvF+dLz
+	pa+rPWYe401uzk7KqqFDlnVU43TEIELtYvtnqALqF8sSSdlSq/4qvFnkq8HvFSy8xJIiquWiwTY
+	QdRopn7fHhtn/miZ1MlcwgSFIE1tgdjRnItnhf7jnKUnS4fbg0/qAdT9whhw4fo0X9jDAKFT/az
+	OIIHi7sP47pn6hED/JXKc2u/SfiAN5jye/fAMRlN5nZB7SZA=
+X-Received: by 2002:a05:600c:3587:b0:43c:fda5:41e9 with SMTP id 5b1f17b1804b1-4533cad1aa0mr127695065e9.31.1750153055568;
+        Tue, 17 Jun 2025 02:37:35 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE33mK7aAFnuzBQX82pmdkrCA/cX+3l1nAlm3F6BLNfxNOkhwo9+uvgQ5HQNw5b5NLLg7ZP1w==
+X-Received: by 2002:a05:600c:3587:b0:43c:fda5:41e9 with SMTP id 5b1f17b1804b1-4533cad1aa0mr127694505e9.31.1750153055045;
+        Tue, 17 Jun 2025 02:37:35 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f31:700:3851:c66a:b6b9:3490? (p200300d82f3107003851c66ab6b93490.dip0.t-ipconnect.de. [2003:d8:2f31:700:3851:c66a:b6b9:3490])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532de8c64esm175838425e9.7.2025.06.17.02.37.17
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532e224888sm172776835e9.1.2025.06.17.02.37.33
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Jun 2025 02:37:18 -0700 (PDT)
-Message-ID: <d9fc2e4f-3a4d-4bf2-9a45-b4d890f2b0d8@redhat.com>
-Date: Tue, 17 Jun 2025 11:37:16 +0200
+        Tue, 17 Jun 2025 02:37:34 -0700 (PDT)
+Message-ID: <338a45b0-40dd-4c11-bbe8-a047559fb77c@redhat.com>
+Date: Tue, 17 Jun 2025 11:37:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/14] fs/dax: Remove FS_DAX_LIMITED config option
+Subject: Re: [PATCH v2 09/14] powerpc: Remove checks for devmap pages and
+ PMDs/PUDs
 To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org
 Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
  dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org,
@@ -93,9 +94,9 @@ Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
  linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net,
- m.szyprowski@samsung.com
+ m.szyprowski@samsung.com, Jason Gunthorpe <jgg@nvidia.com>
 References: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
- <bbade6a3154d14d958f5f9cf65fd6424897ec9c2.1750075065.git-series.apopple@nvidia.com>
+ <818b2fb2f2cf7450ecdd698f2fa019aed3be7b85.1750075065.git-series.apopple@nvidia.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -142,14 +143,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <bbade6a3154d14d958f5f9cf65fd6424897ec9c2.1750075065.git-series.apopple@nvidia.com>
+In-Reply-To: <818b2fb2f2cf7450ecdd698f2fa019aed3be7b85.1750075065.git-series.apopple@nvidia.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: gISG1PwFUfF6ocAFy9DmJH_ttWKDoYKMMfvn_n3aigY_1750153040
+X-Mimecast-MFC-PROC-ID: 5QLBwB06yHprMI8vHOwX9zg0zc1bjt9AjGmlK7pJfcI_1750153055
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_023725_019448_987E9C75 
-X-CRM114-Status: UNSURE (   6.29  )
+X-CRM114-CacheID: sfid-20250617_023742_422761_DCE9DCC6 
+X-CRM114-Status: UNSURE (   6.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -168,12 +169,14 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 16.06.25 13:58, Alistair Popple wrote:
-> The dcssblk driver was the last user of FS_DAX_LIMITED. That was marked
-> broken by 653d7825c149 ("dcssblk: mark DAX broken, remove FS_DAX_LIMITED
-> support") to allow removal of PFN_SPECIAL. However the FS_DAX_LIMITED
-> config option itself was not removed, so do that now.
+> PFN_DEV no longer exists. This means no devmap PMDs or PUDs will be
+> created, so checking for them is redundant. Instead mappings of pages that
+> would have previously returned true for pXd_devmap() will return true for
+> pXd_trans_huge()
 > 
 > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
 
 Acked-by: David Hildenbrand <david@redhat.com>
 
