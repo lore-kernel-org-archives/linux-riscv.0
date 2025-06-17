@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82D6C7115B
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 20:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34032C71157
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 21:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cGcBOzMfuPOFTzojEAdauh8DQ8TkcMFQPmkOI6wmuuk=; b=qkmTzva5scI9AQ
-	Eracl62LjbsS9GahwQ69eAkQSoXwZMZz+YBBV4uBPi9j/MDUtpZouthSSgCoNOowN4pLWNb8gc/3N
-	SgRxmckvIP9y38yKRCtKYC5f9AhLvEO1uSvDb62Wsc/BVqY4jN8J9AeZB3529DYVsWRiRu4luNW3d
-	t/75W/jMpmeYE9wsDXPEahrDDNBl4IcxfGI+eLWJYfTKccZ38PSyUxEYLnjZVucr3BQtaWWYSq32X
-	BwxscdLvI99xwroeXamlMeARJwFseft9+n0ZWgIE9SURd5BQKTwwzPHoG6zQUlAXtZJu5PbuFAUA6
-	2efMFb6V7m5GmH0sWDfA==;
+	List-Owner; bh=7kky862edrUhsBuVQm2ha8mzVFRjtyRRsSDgVTZMy+U=; b=eeTHeJLQT5/i3j
+	qT3R7Fjfc79mdsYiJ5D3328KP1KnRJ/fM8PfYhMKESPNm35QXijwqkfhTRzQP3DZXhptu7OIPMyBC
+	iOKDDnJ7ZcfIbHI0qQcNWUaSU8dVWbQ109IxH1OGtXeroyA8yNoLlwPnZhwbbgLVKfOhDDsVW+JB/
+	F3ABHTFMg3YnCJFPQcegDsKNCkS3GKI5mgfsesYSZCreyQGEOFFi13JdctEzzyPWzP4UDCO0quQrD
+	3MurJ+mi+QX6xjeb9d6lN4/xG+pBtWcRQHhJ6H2VVn5Guq4WsPsg7OpDxRH4Qf6KE+yvWFG9bu3e0
+	HrXNhYnJrdRQzQESoDHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRd6Q-00000008MTT-0VZb;
-	Tue, 17 Jun 2025 20:40:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uRdcj-00000008Pdb-0zWe;
+	Tue, 17 Jun 2025 21:13:41 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRd4A-00000008MLl-2qN3;
-	Tue, 17 Jun 2025 20:38:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 604355C5E08;
-	Tue, 17 Jun 2025 20:35:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4624FC4CEE3;
-	Tue, 17 Jun 2025 20:37:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750192676;
-	bh=54r4znE4BXFv6bRlHG9/gifwZs8TUeyRhVX7bDrc6rU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V+b+de44XCuqsbVM2gPSQqPVm0WdGNUlqRBkLtWrdV+FwOXF3ttT9tRQ3SrjU8XjP
-	 xAajZnol+FMY0k3u6Y/eoNT/xYM8iQ/rfrgq7EinZfzqW4axMOLb+xGQ1YLf4HCIiq
-	 ntSlhcaR2Xl4jESgQFTDTdge2fxELUCsCpW+VVXBO3n4Dhkqishg81CcIOzoVqEmbp
-	 HKwdl3VT77uNQnla0VuHiSdpOBVzK0266GlFGLHUZrFy0BMkM4ZceHOWsZPWu8kmro
-	 HcjgwItg8W6ReZyV9qTGTU2VLTOCjf2zCJleOsH7TCyushCz/0yplJ0tLSz8MvemOL
-	 3bSdC0WwjC0fQ==
-Date: Tue, 17 Jun 2025 13:37:26 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [PATCH v2 00/17] SHA-512 library functions
-Message-ID: <20250617203726.GC1288@sol>
-References: <20250616014019.415791-1-ebiggers@kernel.org>
- <20250617060523.GH8289@sol>
- <CAHk-=wi5d4K+sF2L=tuRW6AopVxO1DDXzstMQaECmU2QHN13KA@mail.gmail.com>
- <20250617192212.GA1365424@google.com>
- <CAHk-=wiB6XYBt81zpebysAoya4T-YiiZEmW_7+TtoA=FSCA4XQ@mail.gmail.com>
- <20250617195858.GA1288@sol>
- <CAHk-=whJjS_wfxCDhkj2fNp1XPAbxDDdNwF1iqZbamZumBmZPg@mail.gmail.com>
+	id 1uRdZj-00000008PCl-2HRf
+	for linux-riscv@lists.infradead.org;
+	Tue, 17 Jun 2025 21:10:36 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6071ac9dc3eso10773322a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 14:10:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1750194633; x=1750799433; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=NscEjg9Y1LWinfHLpsahI5dfBkkxck14FsEzSEH/mHM=;
+        b=AWMA9lnHzQPplTC9N4ZVAQ6kTMfjxLIaJ2iIN8Q/At378KesXxeQy0gOHRnfSPQEVo
+         /Ox3oXUb5XC1HN3l4z1yOfc5k4n0bM5aL7eWrl48fFmazb35PGtLo2XsVrJi28+J+Y0k
+         K21B2aRZHqA4NwCF/vdtRsoEBQstWQKcqjRGg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750194633; x=1750799433;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NscEjg9Y1LWinfHLpsahI5dfBkkxck14FsEzSEH/mHM=;
+        b=nwdXuP3sQQYogc+DDurC0xfkC710OHZ0pyQTBtUf+VdZmoG2wexUCsv7ihivNTl4sP
+         7ggHMkBH46josv+jbk1QYUsECAekoa6dLdsYJMPCvpjqEk1jX3MO8BhpfwxFhC/Vtkc9
+         j9ejn54vx4Ul/pUYMlsvTjUcKhGHH2DoaP7aS/ZsUrAcoxscXz6xacihBX8JgyclNo1p
+         aDuIPJBnEfMA1e+JBYh6OhFR4zugom76T+LNeWcTVNPH41qTzg+mpwBCg/QpZmt+AUAA
+         fq+6w7VdI/0+xWZDP07TNyfcq8lbx00ZRlIeYupjKkt+16o6yFBoPaqXq++W610UtADO
+         +anQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVa9R9tydEJaljRtrOL5YTi8ULPlu3j+6VGh1dzjfWpZU1aXYtPNC949rdwJ50ISRLk3HdYhNhKJR9X9A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy80fL8Q2cVXsK+bKCw6s68Rg2RrX+rkGPqCgiei3ljnp5n73Qs
+	UKz03ZKbXgWPcqyw5iRJzRxanUq9AQaCMVATNmNKZdH6PWAGbIXhWQdlNh+AQaRSaqMA+Lg5InH
+	AWpJXg4Q=
+X-Gm-Gg: ASbGncsI6uA2LDPG52GkOtdbpCe5pSK73Z2cnpzvo/MO0Q9EGBGW8WULq0n9ywESj9J
+	nRoMFJ3nQwoncX4FFkKpoxAuo5J5LgcGlV2E2UtX7UdJoahwRNFEonrzjuIrJHV3+Ar8JIVBA4g
+	JZhFXpwsRQzk+tuLhxAGc6zKRnysQkalcunbW14LiNB2u+qiR0Rv5TFWYDqYtRnkLRJNyJZn2Wk
+	YqCyaO1BVLP1t5nzVawglGe/IAtt8gIhLUH1L9O9tgExefqhOpfGtfWhSzescSUacRjgoAXwc2v
+	Ro88ofHZgHTrkgfe7m345XHzeJGUraisg+VMb5somFh3snG1zsgTipcPWuRKkfg28MJUaq0Xk/y
+	m9inm410HqQEzi/Qa8XP8lpz2blT3Hef06iG4
+X-Google-Smtp-Source: AGHT+IEboTZgJDjss15Cepndo/s0Ehozstux+xENEAKmokyHP303blcO1c9h5G2yr4zRE+rn9CAjYw==
+X-Received: by 2002:a05:6402:42c3:b0:604:e602:779a with SMTP id 4fb4d7f45d1cf-608d097ab9fmr14399012a12.28.1750194633332;
+        Tue, 17 Jun 2025 14:10:33 -0700 (PDT)
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com. [209.85.208.42])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6095b1def4asm3912125a12.14.2025.06.17.14.10.32
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Jun 2025 14:10:32 -0700 (PDT)
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-605b9488c28so11911201a12.2
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 14:10:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXB7FyTPyYl7e9xVuvpH6W5Rdw5RRncxT0rW3Qwwp3dIjcYY9pLVuavDj/ZeehvvbWxzv9YTVKFab44cw==@lists.infradead.org
+X-Received: by 2002:a05:6402:5188:b0:607:f55d:7c56 with SMTP id
+ 4fb4d7f45d1cf-608d097a0a3mr14798722a12.25.1750194632040; Tue, 17 Jun 2025
+ 14:10:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAHk-=whJjS_wfxCDhkj2fNp1XPAbxDDdNwF1iqZbamZumBmZPg@mail.gmail.com>
+References: <20250616014019.415791-1-ebiggers@kernel.org> <20250617060523.GH8289@sol>
+ <CAHk-=wi5d4K+sF2L=tuRW6AopVxO1DDXzstMQaECmU2QHN13KA@mail.gmail.com>
+ <20250617192212.GA1365424@google.com> <CAHk-=wiB6XYBt81zpebysAoya4T-YiiZEmW_7+TtoA=FSCA4XQ@mail.gmail.com>
+ <20250617195858.GA1288@sol> <CAHk-=whJjS_wfxCDhkj2fNp1XPAbxDDdNwF1iqZbamZumBmZPg@mail.gmail.com>
+ <20250617203726.GC1288@sol>
+In-Reply-To: <20250617203726.GC1288@sol>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Tue, 17 Jun 2025 14:10:15 -0700
+X-Gmail-Original-Message-ID: <CAHk-=whLENPVgWtHg5jt42he8Eb2pFzZngbvfSWXUmq64cyaAw@mail.gmail.com>
+X-Gm-Features: AX0GCFteh8AxHdG-O3SktB-Vd7hTjMUC_EBJsHwrbakY8eEhqvV4OBO-zVcDyV4
+Message-ID: <CAHk-=whLENPVgWtHg5jt42he8Eb2pFzZngbvfSWXUmq64cyaAw@mail.gmail.com>
+Subject: Re: [PATCH v2 00/17] SHA-512 library functions
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	sparclinux@vger.kernel.org, x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
+	"Jason A . Donenfeld" <Jason@zx2c4.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_133758_787899_8DCF6538 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20250617_141035_616450_6BE2E5B2 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,127 +111,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 01:08:14PM -0700, Linus Torvalds wrote:
-> On Tue, 17 Jun 2025 at 12:59, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > Again, the tests depend on the code they test being added first.
-> 
-> Sure, and that's fine. We have lots of "this depends on that".
-> 
-> > I could do two pull requests, the first with all non-test code and the second
-> > with all test code, where the second depends on the first, i.e. it will have the
-> > last commit of the first as its base commit.  Is that what you want?
-> 
-> Yes.
-> 
-> Or if one single pull request, split out the diffstat with the
-> explanation (that's the "Or at the very least spell things out *very*
-> clearly" option). But two separate pull requests would actually be my
-> preference.
-> 
->           Linus
+On Tue, 17 Jun 2025 at 13:37, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> Okay.  For now I'll keep the test commits last and plan for a separate pull
+> request with them, based on the first.  I fear I'll quickly run into
+> interdependencies, in which case I'll need to fall back to "one pull request and
+> spell things out very clearly".  But I'll try it.
 
-Okay.  For now I'll keep the test commits last and plan for a separate pull
-request with them, based on the first.  I fear I'll quickly run into
-interdependencies, in which case I'll need to fall back to "one pull request and
-spell things out very clearly".  But I'll try it.
+Thanks.
 
-Just so it's clear, this is the diffstat of this patchset broken down by
-non-test code (patches 1-3 and 6-17) and tests (4-5):
+Note that this "split it out" is really _only_ for when there's big
+code movement and re-organization like this - it's certainly not a
+general thing.
 
-    Non-test:
-         arch/arm/configs/exynos_defconfig                  |   1 -
-         arch/arm/configs/milbeaut_m10v_defconfig           |   1 -
-         arch/arm/configs/multi_v7_defconfig                |   1 -
-         arch/arm/configs/omap2plus_defconfig               |   1 -
-         arch/arm/configs/pxa_defconfig                     |   1 -
-         arch/arm/crypto/Kconfig                            |  10 -
-         arch/arm/crypto/Makefile                           |  15 -
-         arch/arm/crypto/sha512-glue.c                      | 110 ------
-         arch/arm/crypto/sha512-neon-glue.c                 |  75 ----
-         arch/arm/crypto/sha512.h                           |   3 -
-         arch/arm64/configs/defconfig                       |   1 -
-         arch/arm64/crypto/Kconfig                          |  19 -
-         arch/arm64/crypto/Makefile                         |  14 -
-         arch/arm64/crypto/sha512-ce-glue.c                 |  96 -----
-         arch/arm64/crypto/sha512-glue.c                    |  83 -----
-         arch/mips/cavium-octeon/crypto/Makefile            |   1 -
-         arch/mips/cavium-octeon/crypto/octeon-crypto.c     |   3 +-
-         arch/mips/cavium-octeon/crypto/octeon-md5.c        |   3 +-
-         arch/mips/cavium-octeon/crypto/octeon-sha1.c       |   3 +-
-         arch/mips/cavium-octeon/crypto/octeon-sha256.c     |   3 +-
-         arch/mips/cavium-octeon/crypto/octeon-sha512.c     | 167 ---------
-         arch/mips/configs/cavium_octeon_defconfig          |   1 -
-         arch/mips/crypto/Kconfig                           |  10 -
-         .../asm/octeon/crypto.h}                           |   0
-         arch/riscv/crypto/Kconfig                          |  11 -
-         arch/riscv/crypto/Makefile                         |   3 -
-         arch/riscv/crypto/sha512-riscv64-glue.c            | 124 -------
-         arch/s390/configs/debug_defconfig                  |   1 -
-         arch/s390/configs/defconfig                        |   1 -
-         arch/s390/crypto/Kconfig                           |  10 -
-         arch/s390/crypto/Makefile                          |   1 -
-         arch/s390/crypto/sha512_s390.c                     | 151 --------
-         arch/sparc/crypto/Kconfig                          |  10 -
-         arch/sparc/crypto/Makefile                         |   2 -
-         arch/sparc/crypto/sha512_glue.c                    | 122 -------
-         arch/x86/crypto/Kconfig                            |  13 -
-         arch/x86/crypto/Makefile                           |   3 -
-         arch/x86/crypto/sha512_ssse3_glue.c                | 322 -----------------
-         crypto/Kconfig                                     |   4 +-
-         crypto/Makefile                                    |   2 +-
-         crypto/sha512.c                                    | 338 +++++++++++++++++
-         crypto/sha512_generic.c                            | 217 -----------
-         crypto/testmgr.c                                   |  16 +
-         drivers/crypto/starfive/jh7110-hash.c              |   8 +-
-         include/crypto/sha2.h                              | 350 ++++++++++++++++++
-         include/crypto/sha512_base.h                       | 120 -------
-         lib/crypto/Kconfig                                 |  18 +
-         lib/crypto/Makefile                                |  36 ++
-         lib/crypto/arm/.gitignore                          |   2 +
-         .../arm/crypto => lib/crypto/arm}/sha512-armv4.pl  |   0
-         lib/crypto/arm/sha512.h                            |  38 ++
-         lib/crypto/arm64/.gitignore                        |   2 +
-         .../crypto => lib/crypto/arm64}/sha512-ce-core.S   |  10 +-
-         lib/crypto/arm64/sha512.h                          |  46 +++
-         lib/crypto/mips/sha512.h                           |  74 ++++
-         .../crypto/riscv}/sha512-riscv64-zvknhb-zvkb.S     |   4 +-
-         lib/crypto/riscv/sha512.h                          |  41 +++
-         lib/crypto/s390/sha512.h                           |  28 ++
-         lib/crypto/sha512.c                                | 400 +++++++++++++++++++++
-         lib/crypto/sparc/sha512.h                          |  42 +++
-         .../sparc/crypto => lib/crypto/sparc}/sha512_asm.S |   0
-         .../x86/crypto => lib/crypto/x86}/sha512-avx-asm.S |  11 +-
-         .../crypto => lib/crypto/x86}/sha512-avx2-asm.S    |  11 +-
-         .../crypto => lib/crypto/x86}/sha512-ssse3-asm.S   |  12 +-
-         lib/crypto/x86/sha512.h                            |  54 +++
-         65 files changed, 1524 insertions(+), 1756 deletions(-)
+So you don't need to feel like I'm going to ask you to jump through
+hoops in general for normal crypto library updates, this is really
+only for these kinds of initial "big code movement" things.
 
-    Test:
-         lib/crypto/Kconfig                    |   2 +
-         lib/crypto/Makefile                   |   2 +
-         lib/crypto/tests/Kconfig              |  24 ++
-         lib/crypto/tests/Makefile             |   6 +
-         lib/crypto/tests/hash-test-template.h | 512 ++++++++++++++++++++++++++
-         lib/crypto/tests/sha224-testvecs.h    | 223 ++++++++++++
-         lib/crypto/tests/sha224_kunit.c       |  50 +++
-         lib/crypto/tests/sha256-testvecs.h    | 223 ++++++++++++
-         lib/crypto/tests/sha256_kunit.c       |  39 ++
-         lib/crypto/tests/sha384-testvecs.h    | 566 +++++++++++++++++++++++++++++
-         lib/crypto/tests/sha384_kunit.c       |  48 +++
-         lib/crypto/tests/sha512-testvecs.h    | 662 ++++++++++++++++++++++++++++++++++
-         lib/crypto/tests/sha512_kunit.c       |  48 +++
-         scripts/crypto/gen-hash-testvecs.py   |  83 +++++
-         14 files changed, 2488 insertions(+)
+> Just so it's clear, this is the diffstat of this patchset broken down by
+> non-test code (patches 1-3 and 6-17) and tests (4-5):
+>
+>     Non-test:
+>          65 files changed, 1524 insertions(+), 1756 deletions(-)
+>
+>     Test:
+>          14 files changed, 2488 insertions(+)
 
-Note that the non-test part includes kerneldoc comments.  I'll assume you aren't
-going to insist on those being in a separate "documentation" pull request...
+Looks good. That's the kind of diffstat that makes me happy to pull:
+the first one removes move code than it adds, and the second one very
+clearly just adds tests.
 
-If I need to resend this patchset for another reason, I'll also split it into
-two patchsets, one depending on the other.  But I'm not planning to resend it
-purely to do that split and with no other changes, as that seems a bit silly.
+So yes, this is the kind of thing that makes my life easy..
 
-- Eric
+> Note that the non-test part includes kerneldoc comments.  I'll assume you aren't
+> going to insist on those being in a separate "documentation" pull request...
+
+Naah, they're relatively tiny, and don't skew the diffstat in huge ways.
+
+             Linus
 
 _______________________________________________
 linux-riscv mailing list
