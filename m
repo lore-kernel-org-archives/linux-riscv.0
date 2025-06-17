@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4C7C7115A
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 09:35:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9995C71157
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Jun 2025 09:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oQWvM9dlFjn/7KyBr+UiozjtFm6eSR6PSmnS8AR4mJw=; b=BXnCuGSr/WFr/g
-	1g8pYNiusLiii9RuIa1JUbqwua3Y82R9NpJxUzMZTLwJ1bKxB1/xpvCPy2AGJzAIXDJcJcCFFnXbk
-	pNzW564e3fCiyiC8pr8DMf485hNlnbRCyrXMgAPOikdQ5MrvszCowYHwL+ZYbEO90cYILO56Awtdd
-	ozfkR3aNV6YE+YimSrN0X+3RHnJFyFV5FBVsG545zDeeDBkiLViVLrEtCtpfk7gUUnDCvgyPwOWUD
-	VNcIeDbXSyBXKnOxC/CsfU0OZyI9DQ8C8megBJt4RYyAHckXdPKyCaGEXhlcyzQNZnf9tz4xBsH5Y
-	rT6JWAffxFNvQs1vD07Q==;
+	List-Owner; bh=NK/aUO4bRfyGK21xcziipiB4fHL9LRRZCs/XbuQJZHs=; b=P+UmyC44OL8uHl
+	tlS7gbAIwhs6u6JKyIz37W9a06mLfDOKDrf4HDODe42hh6dbCmdREqPJ09TBqRg1fG9YHXKS2gMWl
+	lzePZfkJ+ytSnp9emxiyFhZbce6NslUzq/ykW0cUK+1PQNUdr/C1pZ8t+TzYz4aThLygvcjLFsWO2
+	t3bfXganRYFwH3BuHPwO3mNALhMmg3lDNx03YrS6eGEDv43GYxxYHiJT8j5u058cit106CLHehfEy
+	/FyTEOm/cgCETnK2AXGCKjl1Yyu5w5cwXW1FPOdRsSg3A3V+SiFnH+0Q2LXWojio5099c1WsJmZ9R
+	IMtrRRXh4U7O3NmGjBOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSjF-00000006m7O-2Kwn;
-	Tue, 17 Jun 2025 09:35:41 +0000
+	id 1uRSnn-00000006nEQ-1ccE;
+	Tue, 17 Jun 2025 09:40:23 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSZE-00000006jkY-2gaK
+	id 1uRSeB-00000006kxu-16GG
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Jun 2025 09:25:23 +0000
+	Tue, 17 Jun 2025 09:30:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750152319;
+	s=mimecast20190719; t=1750152626;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=6zkQFw/Ch3T6ugLEDBuaz32yOTGmLuefrLkmwqJMJuQ=;
-	b=KRf+QljUah1CBJD8g+uNYmULynoqSJDJ2Uf0pQ9vL/X7C50AuqizO3q3LZpLzU6ForEZG4
-	tbQZOIaEMQMfc5v93LAcp2CX0yjvqb0/SH8Q1jI1f+nSIJ/0mUMaufjOqYqVmRGAtmCs7t
-	oa8JOUK3Ps6qBtNg7/omFJfdL4TxMTs=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=AycC/SqlmFtbCkiK+UJFsVg8F5mY3OZuVJE4LIVGke0=;
+	b=V5GvZj85cMVYyTXDJ7amQOXGXFjlyN8mAUKTBMuuuQEI3RPN9p2IvKq6dYgC5Fa9XepOOj
+	HD8aDGmNAn3oXuemf3pdbsjZBELecH/anmpPZ80kNnxlggFgE//AiyZIG/vWi/VZG6QeZD
+	9p5rR1QOR7ma/eWWb+xhCDWQ5tQ75FI=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-13-hWkvLQPBOZ2Lbi3-OeI_6g-1; Tue, 17 Jun 2025 05:25:18 -0400
-X-MC-Unique: hWkvLQPBOZ2Lbi3-OeI_6g-1
-X-Mimecast-MFC-AGG-ID: hWkvLQPBOZ2Lbi3-OeI_6g_1750152317
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-451dda846a0so42412775e9.2
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 02:25:17 -0700 (PDT)
+ us-mta-613-MDERYIgMNvCAs9VR3iRn0Q-1; Tue, 17 Jun 2025 05:30:24 -0400
+X-MC-Unique: MDERYIgMNvCAs9VR3iRn0Q-1
+X-Mimecast-MFC-AGG-ID: MDERYIgMNvCAs9VR3iRn0Q_1750152624
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-450cb8f8b1bso11160085e9.3
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 02:30:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750152317; x=1750757117;
+        d=1e100.net; s=20230601; t=1750152623; x=1750757423;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
+         :content-language:references:cc:to:from:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=6zkQFw/Ch3T6ugLEDBuaz32yOTGmLuefrLkmwqJMJuQ=;
-        b=R0+jYtVsrhDRSjNNsAzHY54sCcxEKLkuHeexBoNz5EtosJcGZaTGyRxVZqGVn/LqPP
-         fBxiuYWfANZmOdClxWbDb1iwKIIFALv8DA/e/KZY8xTeb2JAmt2tXiNC+0QicylBpZNj
-         M20tZSVRzni8LtoBQPDH9LRSPPBArKO8ZbOHkzjzAb+i547LXtsOCzrK2aDrCJaKMdcx
-         JaQsA2YrOWnhRRKF7QXEIsdE5Dxl/5QIwdL9PsC1pPU8fvRkiRQDzwQ5U5JAN8qdcapM
-         ueFX5ZokVIk23HwJv+WK+Bh532vnKgQdVEqyY2jD5NoKI+nsDQYidV/ySvsaA8wRp8IE
-         VQ3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVTBNG8XRdyq973Tq5bV8tWzHbbMLiPglk03UjmXAovVglsOm5p3fGVDz0AxdQZgkAw3YqjunqnFGdOcg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3hQVEaFgYgnNm6FEYTHmS9LKo/e5rqKJB7/PQYV0iNH1SrOUE
-	FfGZqvdCNxP5LwVG576jci0WkuEDUpVrqP5nJp86wZI6jjsmxdS1Z68mUTANH9xZGDJE1spigDa
-	aF/vAW2VEf7plKWJK79y8vNjAYrTvv2ZUZdjP2kEai81X6F8R2rh24mtJtMmQDsz3HukGag==
-X-Gm-Gg: ASbGncu7DhT9OvFiVA0CrQMx/NsxN7OKIOOzLlpDvvt9ulO/qjtb14V6315gtHE1g0J
-	rqeDZK0dN1bB9CpFt9GzTnUZi4o+8suSNx3AwjL3q6CqNhMeLJpdZj52ADn44dA/SYCjRndRUVk
-	iszyelOkj8LXueifosFVLD/wnryNIxmohzDp/bCPVQgrFgMtopXe971kOCubI0nm94QuT4bkqJD
-	SxU5Hup0xVXJa7DTWpDeaA9ibmYi1TMDUhqmguRqf5trl4HFog+uP5U5PgeuEIWNKEPttU1D7D6
-	IeUCp6WgIIbRrpcVxCeDXbYUmWVYOBALTnAjCO3dGQlI3W8q4sew33vPBHhQAsQTaXRyETsxIf0
-	OBOlNOti0mRkpGwLqaOixnEGdFwL6gOArFHU+llkMp+HjjxE=
-X-Received: by 2002:a05:6000:1447:b0:3a5:2fad:17af with SMTP id ffacd0b85a97d-3a572e58cbemr8127089f8f.57.1750152316860;
-        Tue, 17 Jun 2025 02:25:16 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHNVa+RJrykc/8Xieu2BbPmReEGJ3iCm4JfplZNxZv4/8Vep/Wlu6kppgIaFWfNuw/GXp3OKw==
-X-Received: by 2002:a05:6000:1447:b0:3a5:2fad:17af with SMTP id ffacd0b85a97d-3a572e58cbemr8127063f8f.57.1750152316374;
-        Tue, 17 Jun 2025 02:25:16 -0700 (PDT)
+        bh=AycC/SqlmFtbCkiK+UJFsVg8F5mY3OZuVJE4LIVGke0=;
+        b=PsFLeJ0WqBv4qLKgnhtWpM0x56JrdU2jD9dLfLOPt6gP5U/O+mSvjM6V5dUolHa9jC
+         8qcfH0aE0WoR9QTfIaT+XpdaP9YeEgxfaAbRMnTEOta5CcP0PmPAAgeBBflNq2Flzd9o
+         Aeu/AHt1/J7CKeGDen+Ge3M0L2aYWCupA6OIJtE4gFLEZ6Z5ZqKv3He2lQeAXzjH0FyM
+         XryIO0xHo4XTbihR/iyZggqymh4zXSt3sZ2TvlSSS7viT3nr73WH7glKvjE2kjV0Lm1+
+         1PzuGqQj4JVj+D+WuGvUQ9wNgRvtP2+q66XOmyem+4lKBz0XgK6YPLM58pl/42gt1zg6
+         Wqjw==
+X-Forwarded-Encrypted: i=1; AJvYcCULXmb7OQtTEZWligXgtwt39hSzdJREwThwsl/qPWucn9nng9qJ3IOS1SH+WtJjgfgAEfnFDPcVQL3pyg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqCJl3UwdiNY4zJ/7yvlNaczg+GYCAZFWwNEwDEdaIKvOOksWZ
+	vLgdnP6JPmdhDKyUpPUczI4i/j05qYjVryKEGQfAwoNga0BUuHRbxXHyeJ2wb8vQib8BxegD1SZ
+	581BWt68HoHX4NZFjLBEowPMSrIzUmy/KRBjgXwyB/bYNkIuy94naf7y5XP0PlmbaVoVo2Q==
+X-Gm-Gg: ASbGncvQoiiGICeCFCN4wg1pcqy1F4DJOSNOgeYT+TCqxGIGtSaN0x6t/x6S4a5EFLn
+	//03T0tNhgTqujjb4BvoNLd9FytiJw6rLL8Hza/FKPb8wLdv9D4Ykszo2t/KKctMZ9qtCkdDR2s
+	ljRiXNZuNIU4FVp+CwcTWBWSYWKLCaxG3jB9ns9ddd83LwFMPyirAy+/LYuwd5ZIKPKrA5KE93p
+	s6rN582RlJl1lW9siaY3PnLiEaQfW+QjZgdT/HZli1ilVFWIkHYhQ1eq4mEShVDD1jVFrL7ng0J
+	qgNfEmSg1/d6mXDKC1lwU0NnmUbDGa/mGUcFB6U0uj6lfhhcEfjWiDyfv2CK4peRFgLQKybwmMD
+	HLW+xw7wpRReKi/YHEubzzoXayCTJN4320qFgld8sUJX1dOQ=
+X-Received: by 2002:a05:6000:3109:b0:3a3:7387:3078 with SMTP id ffacd0b85a97d-3a572367b6bmr10595421f8f.4.1750152623486;
+        Tue, 17 Jun 2025 02:30:23 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHzIdOD1Y0VrtNcMDMGER4ExUmFNXEczyRtVtoCy/fV6z201YqQ8+qNgA+yjmzITUoW9nwVOw==
+X-Received: by 2002:a05:6000:3109:b0:3a3:7387:3078 with SMTP id ffacd0b85a97d-3a572367b6bmr10595381f8f.4.1750152622944;
+        Tue, 17 Jun 2025 02:30:22 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f31:700:3851:c66a:b6b9:3490? (p200300d82f3107003851c66ab6b93490.dip0.t-ipconnect.de. [2003:d8:2f31:700:3851:c66a:b6b9:3490])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568b087f8sm13629833f8f.53.2025.06.17.02.25.14
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568b79f45sm13384674f8f.101.2025.06.17.02.30.21
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Jun 2025 02:25:15 -0700 (PDT)
-Message-ID: <6afc2e67-3ecb-41a5-9c8f-00ecd64f035a@redhat.com>
-Date: Tue, 17 Jun 2025 11:25:14 +0200
+        Tue, 17 Jun 2025 02:30:22 -0700 (PDT)
+Message-ID: <b67f8dea-dc22-4c83-a71f-f5a2ecc8a8d7@redhat.com>
+Date: Tue, 17 Jun 2025 11:30:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 02/14] mm: Filter zone device pages returned from
  folio_walk_start()
+From: David Hildenbrand <david@redhat.com>
 To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org
 Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
  dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org,
@@ -97,7 +98,7 @@ Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
  m.szyprowski@samsung.com
 References: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
  <11dd5b70546ec67593a4bf79f087b113f15d6bb1.1750075065.git-series.apopple@nvidia.com>
-From: David Hildenbrand <david@redhat.com>
+ <6afc2e67-3ecb-41a5-9c8f-00ecd64f035a@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
  dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
@@ -143,14 +144,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <11dd5b70546ec67593a4bf79f087b113f15d6bb1.1750075065.git-series.apopple@nvidia.com>
+In-Reply-To: <6afc2e67-3ecb-41a5-9c8f-00ecd64f035a@redhat.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Q_WWDePL_JEvD3ZYnR_t1gJXZZ5zpLJM11Xt9xBJaao_1750152317
+X-Mimecast-MFC-PROC-ID: LuYIxkrctUlLCX5BAavkHYECWYwMt7PQ0vLMVKwnQTM_1750152624
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_022520_778473_E63E8E7C 
-X-CRM114-Status: GOOD (  26.37  )
+X-CRM114-CacheID: sfid-20250617_023028_234299_10EFA741 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,119 +168,107 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 16.06.25 13:58, Alistair Popple wrote:
-> Previously dax pages were skipped by the pagewalk code as pud_special() or
-> vm_normal_page{_pmd}() would be false for DAX pages. Now that dax pages are
-> refcounted normally that is no longer the case, so the pagewalk code will
-> start returning them.
+On 17.06.25 11:25, David Hildenbrand wrote:
+> On 16.06.25 13:58, Alistair Popple wrote:
+>> Previously dax pages were skipped by the pagewalk code as pud_special() or
+>> vm_normal_page{_pmd}() would be false for DAX pages. Now that dax pages are
+>> refcounted normally that is no longer the case, so the pagewalk code will
+>> start returning them.
+>>
+>> Most callers already explicitly filter for DAX or zone device pages so
+>> don't need updating. However some don't, so add checks to those callers.
+>>
+>> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+>>
+>> ---
+>>
+>> Changes since v1:
+>>
+>>    - Dropped "mm/pagewalk: Skip dax pages in pagewalk" and replaced it
+>>      with this new patch for v2
+>>
+>>    - As suggested by David and Jason we can filter the folios in the
+>>      callers instead of doing it in folio_start_walk(). Most callers
+>>      already do this (see below).
+>>
+>> I audited all callers of folio_walk_start() and found the following:
+>>
+>> mm/ksm.c:
+>>
+>> break_ksm() - doesn't need to filter zone_device pages because the can
+>> never be KSM pages.
+>>
+>> get_mergeable_page() - already filters out zone_device pages.
+>> scan_get_next_rmap_iterm() - already filters out zone_device_pages.
+>>
+>> mm/huge_memory.c:
+>>
+>> split_huge_pages_pid() - already checks for DAX with
+>> vma_not_suitable_for_thp_split()
+>>
+>> mm/rmap.c:
+>>
+>> make_device_exclusive() - only works on anonymous pages, although
+>> there'd be no issue with finding a DAX page even if support was extended
+>> to file-backed pages.
+>>
+>> mm/migrate.c:
+>>
+>> add_folio_for_migration() - already checks the vma with vma_migratable()
+>> do_pages_stat_array() - explicitly checks for zone_device folios
+>>
+>> kernel/event/uprobes.c:
+>>
+>> uprobe_write_opcode() - only works on anonymous pages, not sure if
+>> zone_device could ever work so add an explicit check
+>>
+>> arch/s390/mm/fault.c:
+>>
+>> do_secure_storage_access() - not sure so be conservative and add a check
+>>
+>> arch/s390/kernel/uv.c:
+>>
+>> make_hva_secure() - not sure so be conservative and add a check
+>> ---
+>>    arch/s390/kernel/uv.c   | 2 +-
+>>    arch/s390/mm/fault.c    | 2 +-
+>>    kernel/events/uprobes.c | 2 +-
+>>    3 files changed, 3 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/s390/kernel/uv.c b/arch/s390/kernel/uv.c
+>> index b99478e..55aa280 100644
+>> --- a/arch/s390/kernel/uv.c
+>> +++ b/arch/s390/kernel/uv.c
+>> @@ -424,7 +424,7 @@ int make_hva_secure(struct mm_struct *mm, unsigned long hva, struct uv_cb_header
+>>    		return -EFAULT;
+>>    	}
+>>    	folio = folio_walk_start(&fw, vma, hva, 0);
+>> -	if (!folio) {
+>> +	if (!folio || folio_is_zone_device(folio)) {
+>>    		mmap_read_unlock(mm);
+>>    		return -ENXIO;
+>>    	}
+>> diff --git a/arch/s390/mm/fault.c b/arch/s390/mm/fault.c
+>> index e1ad05b..df1a067 100644
+>> --- a/arch/s390/mm/fault.c
+>> +++ b/arch/s390/mm/fault.c
+>> @@ -449,7 +449,7 @@ void do_secure_storage_access(struct pt_regs *regs)
+>>    		if (!vma)
+>>    			return handle_fault_error(regs, SEGV_MAPERR);
+>>    		folio = folio_walk_start(&fw, vma, addr, 0);
+>> -		if (!folio) {
+>> +		if (!folio || folio_is_zone_device(folio)) {
+>>    			mmap_read_unlock(mm);
+>>    			return;
+>>    		}
 > 
-> Most callers already explicitly filter for DAX or zone device pages so
-> don't need updating. However some don't, so add checks to those callers.
-> 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> 
-> ---
-> 
-> Changes since v1:
-> 
->   - Dropped "mm/pagewalk: Skip dax pages in pagewalk" and replaced it
->     with this new patch for v2
-> 
->   - As suggested by David and Jason we can filter the folios in the
->     callers instead of doing it in folio_start_walk(). Most callers
->     already do this (see below).
-> 
-> I audited all callers of folio_walk_start() and found the following:
-> 
-> mm/ksm.c:
-> 
-> break_ksm() - doesn't need to filter zone_device pages because the can
-> never be KSM pages.
-> 
-> get_mergeable_page() - already filters out zone_device pages.
-> scan_get_next_rmap_iterm() - already filters out zone_device_pages.
-> 
-> mm/huge_memory.c:
-> 
-> split_huge_pages_pid() - already checks for DAX with
-> vma_not_suitable_for_thp_split()
-> 
-> mm/rmap.c:
-> 
-> make_device_exclusive() - only works on anonymous pages, although
-> there'd be no issue with finding a DAX page even if support was extended
-> to file-backed pages.
-> 
-> mm/migrate.c:
-> 
-> add_folio_for_migration() - already checks the vma with vma_migratable()
-> do_pages_stat_array() - explicitly checks for zone_device folios
-> 
-> kernel/event/uprobes.c:
-> 
-> uprobe_write_opcode() - only works on anonymous pages, not sure if
-> zone_device could ever work so add an explicit check
-> 
-> arch/s390/mm/fault.c:
-> 
-> do_secure_storage_access() - not sure so be conservative and add a check
-> 
-> arch/s390/kernel/uv.c:
-> 
-> make_hva_secure() - not sure so be conservative and add a check
-> ---
->   arch/s390/kernel/uv.c   | 2 +-
->   arch/s390/mm/fault.c    | 2 +-
->   kernel/events/uprobes.c | 2 +-
->   3 files changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/s390/kernel/uv.c b/arch/s390/kernel/uv.c
-> index b99478e..55aa280 100644
-> --- a/arch/s390/kernel/uv.c
-> +++ b/arch/s390/kernel/uv.c
-> @@ -424,7 +424,7 @@ int make_hva_secure(struct mm_struct *mm, unsigned long hva, struct uv_cb_header
->   		return -EFAULT;
->   	}
->   	folio = folio_walk_start(&fw, vma, hva, 0);
-> -	if (!folio) {
-> +	if (!folio || folio_is_zone_device(folio)) {
->   		mmap_read_unlock(mm);
->   		return -ENXIO;
->   	}
-> diff --git a/arch/s390/mm/fault.c b/arch/s390/mm/fault.c
-> index e1ad05b..df1a067 100644
-> --- a/arch/s390/mm/fault.c
-> +++ b/arch/s390/mm/fault.c
-> @@ -449,7 +449,7 @@ void do_secure_storage_access(struct pt_regs *regs)
->   		if (!vma)
->   			return handle_fault_error(regs, SEGV_MAPERR);
->   		folio = folio_walk_start(&fw, vma, addr, 0);
-> -		if (!folio) {
-> +		if (!folio || folio_is_zone_device(folio)) {
->   			mmap_read_unlock(mm);
->   			return;
->   		}
+> Curious, does s390 even support ZONE_DEVICE and could trigger this?
 
-Curious, does s390 even support ZONE_DEVICE and could trigger this?
+Ah, I see you raised this above. Even if it could be triggered (which I 
+don't think), I wonder if there would actually be a problem with 
+zone_device folios in here?
 
-> diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
-> index 8a601df..f774367 100644
-> --- a/kernel/events/uprobes.c
-> +++ b/kernel/events/uprobes.c
-> @@ -539,7 +539,7 @@ int uprobe_write_opcode(struct arch_uprobe *auprobe, struct vm_area_struct *vma,
->   	}
->   
->   	ret = 0;
-> -	if (unlikely(!folio_test_anon(folio))) {
-> +	if (unlikely(!folio_test_anon(folio) || folio_is_zone_device(folio))) {
->   		VM_WARN_ON_ONCE(is_register);
->   		folio_put(folio);
->   		goto out;
-
-I wonder if __uprobe_write_opcode() would just work with anon device folios?
-
-We only modify page content, and conditionally zap the page. Would there 
-be a problem with anon device folios?
+I think these two can be dropped for now
 
 -- 
 Cheers,
