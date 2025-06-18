@@ -4,103 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0CAAC71157
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 20:04:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56EE0C7115A
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 21:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zD4kndxgVrYSPaUviIAp8Eltod7XE+H+t4papqSvFqs=; b=CiQGQiIik0PCdV
-	nYFshJmH8qNbEFHdvfQMDA3/3SACdAXOEhzTSUeNHRZVGV9ixo9DKFD7BaqYka9gEn8R8z4+ysYeh
-	m8HuALeDTTNiPkMPBoNir786gJiy808p++vRQjhvpuq1DcUWk/Fdv5of9urlfUBgsxj5RtWQTBqji
-	UxON9+WVhGuCz0F8qs+tb0Naopypt+1TKDTmdFL/GiqTaYOxnLSOWfJwrMx+jTGejeCZzf4UGtHOR
-	bYTPJlLTsIwjQt3eWxNraoHdpRTFhxYDBfc0SAManM8kiX4psq/UoKkcQhQrqNpyIhwRlKxSy7s6R
-	cVnIMU9lPf2jiu9SHD3A==;
+	List-Owner; bh=s5o7UOznW8R7koqQ68lOifUMSPI81rzy6koPT7qb6Vk=; b=HyOf1IPua7lkV0
+	Il0kQSHGBN7cvneEtewCw7n9OkeFNsBeiJgBDY52mCmDzz8cpSlxpJD6LhPUxxwn707Uge53sBY/Z
+	NZKwk5/U1IzlGmvlIOVNy6gLTDFICTM1EdsgSNVrxy5uqDoALgwzeUXZ5LVqygkIIdjTNxhpQJTdE
+	UWlhT9m0/40RwMY2Vyx32CAIMfq/OmAQ39ROkEQx4x6r3vhieSFLy1Wqk+8Tb6CzauYN24D19CnRO
+	VlqXq3+mgxyNVxBDPqHDelB2tbY0F5K2Uakf4GTgO34Mlpug4a6/zlnTAJavQ/i1wdu7+1Tz2i4RH
+	aMlBPGpTw7gCG92Sc2UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRz1T-0000000BIGH-2vDT;
-	Wed, 18 Jun 2025 20:04:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uS0NB-0000000BRsv-48DR;
+	Wed, 18 Jun 2025 21:31:09 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEPtU-000000091pu-1GST;
-	Mon, 12 May 2025 09:56:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6C6DDA4C9E3;
-	Mon, 12 May 2025 09:56:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C20E1C4CEE7;
-	Mon, 12 May 2025 09:55:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747043779;
-	bh=i+C4MquKCE5DzjebZIg1suA7nSkmpPf5qHNeApUsg1A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qRopC9c+wx/+YYC0sJ/UvJzWi+Nuq8Af/LOL6TTdw1ObAiA1N4EP+e6QolBr4MpT6
-	 p5ltChjlCbyDDYRz89R5OVuaZ83tbLw+pYcksx/XVXGNoBUri07jOIpHu8d097AHB/
-	 gSDUJRuD+w/qmayEwLfKcRkm+4e+sfpRcvHaPFTEPbrRTxGpnFsatWWUdcTBd7OQnA
-	 w+ym87xDkxssPWo79tPQu/rSntgc4PEKUjTQ4e3C6qaM9CVgjCp/lHxzZltc1AavRM
-	 /LPUSo4AklmCrtIuWgWZpLqR0YnBmCrfB22k4a1IjHg5OgJnYBulNV1QgQrtx5KTRE
-	 uIiF1y2I3VB1w==
-Message-ID: <a40c0dfc-b531-4cc0-80b2-5b972d9fb65c@kernel.org>
-Date: Mon, 12 May 2025 11:55:32 +0200
+	id 1uS0Ab-0000000BQDL-3Gfg
+	for linux-riscv@lists.infradead.org;
+	Wed, 18 Jun 2025 21:18:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=iYf/tNomgSGgOz7BCTF6vtkNgttRW7/vxsBrfT0uQsA=; b=hpg2gypn+kJFjDrCSZDUtil1Ba
+	6pMf9kt6UtVYEtL93a9okv/tzvA3XIQ9sOuWURR+YsyExYPt/oEk7cg8Zr6pSnT4pchtnt3Q5e+jk
+	AmvFCPd2dx3Rx2sepkzQzk/4rO2/K5tnJWedHXp5LA+ozr8KFyO1WitOnTimRiE3c7pk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uS0A5-00GL1Y-7J; Wed, 18 Jun 2025 23:17:37 +0200
+Date: Wed, 18 Jun 2025 23:17:37 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Vivian Wang <uwu@dram.page>,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 2/6] net: spacemit: Add K1 Ethernet MAC
+Message-ID: <e55d8a16-5e2c-4a46-99fd-8ea485269843@lunn.ch>
+References: <20250618-net-k1-emac-v2-0-94f5f07227a8@iscas.ac.cn>
+ <20250618-net-k1-emac-v2-2-94f5f07227a8@iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/57] irqdomain: Cleanups and Documentation
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: maz@kernel.org, linux-kernel@vger.kernel.org, Aaro Koskinen <aaro.koskinen@iki.fi>, Abhinav Kumar <quic_abhinavk@quicinc.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Alexandre Ghiti <alex@ghiti.fr>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Alex Deucher <alexander.deucher@amd.com>, Alex Shi <alexs@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, =?UTF-8?Q?Alvin_=C5=A0ipraga?= <alsi@bang-olufsen.dk>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, amd-gfx@lists.freedesktop.org, Amit Kucheria <amitk@kernel.org>, Anatolij Gustschin <agust@denx.de>, Andi Shyti <andi.shyti@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, Andreas Kemnade <andreas@kemnade.info>, Andrew Jeffery <andrew@codeconstruct.com.au>, Andrew Lunn <andrew@lunn.ch>, Andy Shevchenko <andy@kernel.org>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Antoine Tenart <atenart@kernel.org>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, Anup Patel <anup@brainfault.org>, Arnd Bergmann <arnd@arndb.de>, asahi@lists.linux.dev, Bartosz Golaszewski <brgl@bgdev.pl>, Baruch Siach <baruch@tkos.co.il>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, Bharat Kumar Gogada <bharat.kumar.gogada@amd.com>, Bjorn Andersson <andersson@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Borislav Petkov <bp@alien8.de>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Corentin Chary <corentin.chary@gmail.com>, Daire McNamara <daire.mcnamara@microchip.com>, Daniel Golle <daniel@makrotopia.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Daniel Mack <daniel@zonque.org>, Daniel Palmer <daniel@thingy.jp>, Dave Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@gmail.com>, "David S. Miller" <davem@davemloft.net>, DENG Qingfang <dqfext@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Dongliang Mu <dzm91@hust.edu.cn>, Doug Berger <opendmb@gmail.com>, dri-devel@lists.freedesktop.org, Eddie James <eajames@linux.ibm.com>, Eric Dumazet <edumazet@google.com>, Fabio Estevam <festevam@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Geoff Levand <geoff@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Gregory Clement <gregory.clement@bootlin.com>, Guo Ren <guoren@kernel.org>, Hans de Goede <hdegoede@redhat.com>, Haojian Zhuang <haojian.zhuang@gmail.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, Heiko Stuebner <heiko@sntech.de>, Herve Codina <herve.codina@bootlin.com>, Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, "H. Peter Anvin" <hpa@zytor.com>, Huacai Chen <chenhuacai@kernel.org>, Changhuang Liang <changhuang.liang@starfivetech.com>, Chen-Yu Tsai <wens@csie.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Chris Zankel <chris@zankel.net>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, Imre Kaloz <kaloz@openwrt.org>, Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>, James Morse <james.morse@arm.com>, Janne Grunau <j@jannau.net>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Jassi Brar <jassisinghbrar@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Jerome Brunet <jbrunet@baylibre.com>, Jianjun Wang <jianjun.wang@mediatek.com>, Jiawen Wu <jiawenwu@trustnetic.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, Jim Quinlan <jim2101024@gmail.com>, Jingoo Han <jingoohan1@gmail.com>, Joel Stanley <joel@jms.id.au>, Johannes Berg <johannes@sipsolutions.net>, John Crispin <john@phrozen.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Jonas Bonn <jonas@southpole.se>, Jonathan Cameron <jic23@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Jonathan Hunter <jonathanh@nvidia.com>, =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, Joyce Ooi <joyce.ooi@intel.com>, Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, Keerthy <j-keerthy@ti.com>, Kevin Hilman <khilman@baylibre.com>,
- Konrad Dybcio <konradybcio@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Lakshmi Sowjanya D <lakshmi.sowjanya.d@intel.com>, Lars-Peter Clausen <lars@metafoo.de>, Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, Linus Walleij <linusw@kernel.org>, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-doc@vger.kernel.org, linux-edac@vger.kernel.org, linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, linux-i2c@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org, linux-omap@vger.kernel.org, linux-pci@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-remoteproc@vger.kernel.org, linux-riscv@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org, linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-um@lists.infradead.org, linux-wireless@vger.kernel.org, loongarch@lists.linux.dev, Lorenzo Pieralisi <lpieralisi@kernel.org>, Ludovic Desroches <ludovic.desroches@microchip.com>, Lukasz Luba <lukasz.luba@arm.com>, "Luke D. Jones" <luke@ljones.dev>, Madhavan Srinivasan <maddy@linux.ibm.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>, Marijn Suijten <marijn.suijten@somainline.org>, Mark Brown <broonie@kernel.org>, Mark-PK Tsai <mark-pk.tsai@mediatek.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Mengyuan Lou <mengyuanlou@net-swift.com>, Michael Buesch <m@bues.ch>, Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <michal.simek@amd.com>, Miodrag Dinic <miodrag.dinic@mips.com>, Naveen N Rao <naveen@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org, Nicolas Ferre <nicolas.ferre@microchip.com>, Nicolas Saenz Julienne <nsaenz@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>, Nipun Gupta <nipun.gupta@amd.com>, Nishanth Menon <nm@ti.com>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paolo Abeni <pabeni@redhat.com>, Paul Cercueil <paul@crapouillou.net>, Paul Walmsley <paul.walmsley@sifive.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Peter Rosin <peda@axentia.se>, Philipp Zabel <p.zabel@pengutronix.de>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, platform-driver-x86@vger.kernel.org, Prasad Kumpatla <quic_pkumpatl@quicinc.com>, Qiang Zhao <qiang.zhao@nxp.com>, Qin Jian <qinjian@cqplus1.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, Ray Jui <rjui@broadcom.com>, Rengarajan Sundararajan <Rengarajan.S@microchip.com>, Richard Cochran <richardcochran@gmail.com>, Richard Weinberger <richard@nod.at>, Rich Felker <dalias@libc.org>, Rob Clark <robdclark@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, Robert Richter <rric@kernel.org>, Rob Herring <robh@kernel.org>, Roger Quadros <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>, Ryan Chen <ryan_chen@aspeedtech.com>, Ryder Lee <ryder.lee@mediatek.com>, Samuel Holland <samuel@sholland.org>, Santosh Shilimkar <ssantosh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Scott Branden <sbranden@broadcom.com>, Scott Wood <oss@buserror.net>, Sean Paul <sean@poorly.run>, Sean Wang <sean.wang@kernel.org>, Sean Wang <sean.wang@mediatek.com>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Sergio Paracuellos <sergio.paracuellos@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, Simona Vetter <simona@ffwll.ch>, Stafford Horne <shorne@gmail.com>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stephen Boyd <sboyd@kernel.org>, Sven Peter <sven@svenpeter.dev>, Takashi Iwai <tiwai@suse.com>, Talel Shenhar <talel@amazon.com>, Tero Kristo <kristo@kernel.org>, Thangaraj Samynathan <Thangaraj.S@microchip.com>, Thara Gopinath <thara.gopinath@gmail.com>, Thierry Reding <thierry.reding@gmail.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Toan Le <toan@os.amperecomputing.com>, Tony Lindgren <tony@atomide.com>, Tony Luck <tony.luck@intel.com>, UNGLinuxDriver@microchip.com, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, Vineet Gupta <vgupta@kernel.org>, Vladimir Oltean <olteanv@gmail.com>, Vladimir Zapolskiy <vz@mleia.com>, WANG Xuerui <kernel@xen0n.name>, Woojung Huh <woojung.huh@microchip.com>, x86@kernel.org, Yanteng Si <si.yanteng@linux.dev>, Yoshinori Sato <ysato@users.sourceforge.jp>, Zhang Rui <rui.zhang@intel.com>
-References: <20250319092951.37667-1-jirislaby@kernel.org>
- <874ixxonyy.ffs@tglx>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- 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
-In-Reply-To: <874ixxonyy.ffs@tglx>
+Content-Disposition: inline
+In-Reply-To: <20250618-net-k1-emac-v2-2-94f5f07227a8@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_025620_490918_080E466D 
-X-CRM114-Status: GOOD (  20.91  )
-X-Mailman-Approved-At: Wed, 18 Jun 2025 13:03:09 -0700
+X-CRM114-CacheID: sfid-20250618_141809_975589_FCF82B21 
+X-CRM114-Status: GOOD (  28.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,51 +80,292 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06. 05. 25, 15:41, Thomas Gleixner wrote:
-> On Wed, Mar 19 2025 at 10:28, Jiri Slaby wrote:
-> 
->> Hi,
->>
->> tl;dr if patches are agreed upon, I ask subsys maintainers to take the
->> respective ones via their trees (as they are split per subsys), so that
->> the IRQ tree can take only the rest. That would minimize churn/conflicts
->> during merges.
-> 
-> So. It's rc5 by now and I picked up everything
+> +/* The sizes (in bytes) of a ethernet packet */
+> +#define ETHERNET_HEADER_SIZE		14
 
-Good, thanks.
+Please replace with ETH_HLEN
 
-> which did not show up in next yet. 
+> +#define MINIMUM_ETHERNET_FRAME_SIZE	64 /* Incl. FCS */
 
-Which is the majority -- routing through subsystems didn't work as well 
-as I anticipated.
+I assume this device supports VLANS? If so, the minimum should
+actually be 68. You can then use ETH_MIN_MTU
 
-I planned to retry with v3 after the next merge window, but you were faster.
+> +#define ETHERNET_FCS_SIZE		4
 
-V3 contains a switch from nodes to dev_fwnode() in some cases. It 
-simplifies the code there. This did not get lost, I will send this 
-separately to maintainers once everything from this series settles in 
-the tree. I.e. likely after the next merge window.
+ETH_FCS_LEN
 
-> @Jiri, I fixed up all your subject prefixes as
-> 
->    'irqdomain: subsys: Switch to foo()'
-> 
-> does not make any sense at all. These subsystems have their regular
-> prefixes and these changes do not justify made up irqdomain special
-> prefixes at all.
+> +static int emac_tx_mem_map(struct emac_priv *priv, struct sk_buff *skb,
+> +			   u32 max_tx_len, u32 frag_num)
+> +{
+> +	struct emac_desc tx_desc, *tx_desc_addr;
+> +	u32 skb_linear_len = skb_headlen(skb);
+> +	struct emac_tx_desc_buffer *tx_buf;
+> +	u32 len, i, f, first, buf_idx = 0;
+> +	struct emac_desc_ring *tx_ring;
+> +	phys_addr_t addr;
+> +
+> +	tx_ring = &priv->tx_ring;
+> +
+> +	i = tx_ring->head;
+> +	first = i;
+> +
+> +	if (++i == tx_ring->total_cnt)
+> +		i = 0;
+> +
+> +	/* If the data is fragmented */
+> +	for (f = 0; f < frag_num; f++) {
+> +		const skb_frag_t *frag = &skb_shinfo(skb)->frags[f];
+> +
+> +		len = skb_frag_size(frag);
+> +
+> +		buf_idx = (f + 1) % 2;
+> +
+> +		/* First frag fill into second buffer of first descriptor */
+> +		if (f == 0) {
+> +			tx_buf = &tx_ring->tx_desc_buf[first];
+> +			tx_desc_addr = &((struct emac_desc *)
+> +						 tx_ring->desc_addr)[first];
+> +			memset(&tx_desc, 0, sizeof(tx_desc));
+> +		} else {
+> +			/*
+> +			 * From second frags to more frags,
+> +			 * we only get new descriptor when frag num is odd.
+> +			 */
+> +			if (!buf_idx) {
+> +				tx_buf = &tx_ring->tx_desc_buf[i];
+> +				tx_desc_addr = &((struct emac_desc *)
+> +							 tx_ring->desc_addr)[i];
+> +				memset(&tx_desc, 0, sizeof(tx_desc));
+> +			}
+> +		}
+> +		tx_buf->buf[buf_idx].dma_len = len;
+> +
+> +		addr = skb_frag_dma_map(&priv->pdev->dev, frag, 0,
+> +					skb_frag_size(frag), DMA_TO_DEVICE);
+> +
+> +		if (dma_mapping_error(&priv->pdev->dev, addr)) {
+> +			netdev_err(priv->ndev, "fail to map dma page: %d\n", f);
+> +			goto dma_map_err;
+> +		}
+> +		tx_buf->buf[buf_idx].dma_addr = addr;
+> +
+> +		tx_buf->buf[buf_idx].map_as_page = true;
+> +
+> +		/* Every desc has two buffers for packet */
+> +		if (buf_idx) {
+> +			tx_desc.buffer_addr_2 = addr;
+> +			tx_desc.desc1 |= make_buf_size_2(len);
+> +		} else {
+> +			tx_desc.buffer_addr_1 = addr;
+> +			tx_desc.desc1 = make_buf_size_1(len);
+> +
+> +			if (++i == tx_ring->total_cnt) {
+> +				tx_desc.desc1 |= TX_DESC_1_END_RING;
+> +				i = 0;
+> +			}
+> +		}
+> +
+> +		if (f == 0) {
+> +			*tx_desc_addr = tx_desc;
+> +			continue;
+> +		}
+> +
+> +		if (f == frag_num - 1) {
+> +			tx_desc.desc1 |= TX_DESC_1_LAST_SEGMENT;
+> +			tx_buf->skb = skb;
+> +			if (emac_tx_should_interrupt(priv, frag_num + 1))
+> +				tx_desc.desc1 |=
+> +					TX_DESC_1_INTERRUPT_ON_COMPLETION;
+> +		}
+> +
+> +		*tx_desc_addr = tx_desc;
+> +		dma_wmb();
+> +		WRITE_ONCE(tx_desc_addr->desc0, tx_desc.desc0 | TX_DESC_0_OWN);
+> +	}
+> +
+> +	/* fill out first descriptor for skb linear data */
+> +	tx_buf = &tx_ring->tx_desc_buf[first];
+> +
+> +	tx_buf->buf[0].dma_len = skb_linear_len;
+> +
+> +	addr = dma_map_single(&priv->pdev->dev, skb->data, skb_linear_len,
+> +			      DMA_TO_DEVICE);
+> +	if (dma_mapping_error(&priv->pdev->dev, addr)) {
+> +		netdev_err(priv->ndev, "dma_map_single failed\n");
+> +		goto dma_map_err;
+> +	}
+> +
+> +	tx_buf->buf[0].dma_addr = addr;
+> +
+> +	tx_buf->buf[0].buff_addr = skb->data;
+> +	tx_buf->buf[0].map_as_page = false;
+> +
+> +	/* Fill TX descriptor */
+> +	tx_desc_addr = &((struct emac_desc *)tx_ring->desc_addr)[first];
+> +
+> +	tx_desc = *tx_desc_addr;
+> +
+> +	tx_desc.buffer_addr_1 = addr;
+> +	tx_desc.desc1 |= make_buf_size_1(skb_linear_len);
+> +	tx_desc.desc1 |= TX_DESC_1_FIRST_SEGMENT;
+> +
+> +	/* If last desc for ring, set end ring flag */
+> +	if (first == tx_ring->total_cnt - 1)
+> +		tx_desc.desc1 |= TX_DESC_1_END_RING;
+> +
+> +	/*
+> +	 * If frag_num is more than 1, data need another desc, so current
+> +	 * descriptor isn't last piece of packet data.
+> +	 */
+> +	tx_desc.desc1 |= frag_num > 1 ? 0 : TX_DESC_1_LAST_SEGMENT;
+> +
+> +	if (frag_num <= 1 && emac_tx_should_interrupt(priv, 1))
+> +		tx_desc.desc1 |= TX_DESC_1_INTERRUPT_ON_COMPLETION;
+> +
+> +	/* Only last descriptor has skb pointer */
+> +	if (tx_desc.desc1 & TX_DESC_1_LAST_SEGMENT)
+> +		tx_buf->skb = skb;
+> +
+> +	*tx_desc_addr = tx_desc;
+> +	dma_wmb();
+> +	WRITE_ONCE(tx_desc_addr->desc0, tx_desc.desc0 | TX_DESC_0_OWN);
+> +
+> +	emac_dma_start_transmit(priv);
+> +
+> +	tx_ring->head = i;
+> +
+> +	return 0;
+> +
+> +dma_map_err:
+> +	dev_kfree_skb_any(skb);
+> +	priv->ndev->stats.tx_dropped++;
+> +	return 0;
+> +}
 
-Yes.
+This is a rather large function. Can parts of it be pulled out into
+helpers? The Coding style document says:
 
-thanks,
--- 
-js
-suse labs
+  Functions should be short and sweet, and do just one thing. They
+  should fit on one or two screenfuls of text (the ISO/ANSI screen
+  size is 80x24, as we all know), and do one thing and do that well.
+
+> +static int emac_mdio_init(struct emac_priv *priv)
+> +{
+> +	struct device *dev = &priv->pdev->dev;
+> +	struct device_node *mii_np;
+> +	struct mii_bus *mii;
+> +	int ret;
+> +
+> +	mii_np = of_get_available_child_by_name(dev->of_node, "mdio-bus");
+> +	if (!mii_np) {
+> +		if (of_phy_is_fixed_link(dev->of_node)) {
+> +			if ((of_phy_register_fixed_link(dev->of_node) < 0))
+> +				return -ENODEV;
+> +
+> +			return 0;
+> +		}
+> +
+> +		dev_info(dev, "No mdio-bus child node found");
+> +		return 0;
+> +	}
+
+An mdio-bus node is normally optional. You can pass NULL to
+devm_of_mdiobus_register() and it will do the correct thing, register
+the bus, and scan it for devices.
+
+An MDIO bus and fixed link are also not mutually exclusive. When the
+MAC is connected to an Ethernet switch, you often see an fixed-link,
+and have an MDIO bus, with the switches management interface being
+MDIO.
+
+> +static int emac_ethtool_get_regs_len(struct net_device *dev)
+> +{
+> +	return EMAC_REG_SPACE_SIZE;
+> +}
+> +
+> +static void emac_ethtool_get_regs(struct net_device *dev,
+> +				  struct ethtool_regs *regs, void *space)
+> +{
+> +	struct emac_priv *priv = netdev_priv(dev);
+> +	u32 *reg_space = space;
+> +	int i;
+> +
+> +	regs->version = 1;
+> +
+> +	for (i = 0; i < EMAC_DMA_REG_CNT; i++)
+> +		reg_space[i] = emac_rd(priv, DMA_CONFIGURATION + i * 4);
+> +
+> +	for (i = 0; i < EMAC_MAC_REG_CNT; i++)
+> +		reg_space[i + EMAC_DMA_REG_CNT] =
+> +			emac_rd(priv, MAC_GLOBAL_CONTROL + i * 4);
+> +}
+
+Given this implementation, it would be more readable, and less future
+extension error prone, if emac_ethtool_get_regs_len() returned
+
+EMAC_DMA_REG_CNT + EMAC_MAC_REG_CNT
+
+> +static int emac_ioctl(struct net_device *ndev, struct ifreq *rq, int cmd)
+> +{
+> +	if (!netif_running(ndev))
+> +		return -EINVAL;
+> +
+> +	return phy_mii_ioctl(ndev->phydev, rq, cmd);
+> +}
+
+phy_do_ioctl_running().
+
+> +static int emac_phy_connect(struct net_device *ndev)
+> +{
+> +	struct emac_priv *priv = netdev_priv(ndev);
+> +	struct device *dev = &priv->pdev->dev;
+> +	struct phy_device *phydev;
+> +	struct device_node *np;
+> +	int ret;
+> +
+> +	ret = of_get_phy_mode(dev->of_node, &priv->phy_interface);
+> +	if (ret) {
+> +		dev_err(dev, "No phy-mode found");
+> +		return ret;
+> +	}
+> +
+> +	np = of_parse_phandle(dev->of_node, "phy-handle", 0);
+> +	if (!np && of_phy_is_fixed_link(dev->of_node))
+> +		np = of_node_get(dev->of_node);
+> +	if (!np) {
+> +		dev_err(dev, "No PHY specified");
+> +		return -ENODEV;
+> +	}
+> +
+> +	ret = emac_phy_interface_config(priv);
+> +	if (ret)
+> +		goto err_node_put;
+> +
+> +	phydev = of_phy_connect(ndev, np, &emac_adjust_link, 0,
+> +				priv->phy_interface);
+> +	if (IS_ERR_OR_NULL(phydev)) {
+> +		dev_err(dev, "Could not attach to PHY\n");
+> +		ret = phydev ? PTR_ERR(phydev) : -ENODEV;
+> +		goto err_node_put;
+> +	}
+
+The documentation for of_phy_connect() says:
+
+ * If successful, returns a pointer to the phy_device with the embedded
+ * struct device refcount incremented by one, or NULL on failure. The
+ * refcount must be dropped by calling phy_disconnect() or phy_detach().
+
+An error code is not possible. So you can simply this.
+	
+    Andrew
+
+---
+pw-bot: cr
 
 _______________________________________________
 linux-riscv mailing list
