@@ -4,96 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C14C71157
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 03:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D40BC7115B
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 03:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=erS7rQXCyBSDaJdUjU5WI+VA3OEsiM/SOtKUMM7VHEE=; b=So1rcml9dG4c3B
-	cdLUL9NzRmFP6ANJ6AHjBZnUxv7VGN+aKr8hn5KgnJagi4oqcY+4roGcAdmZ9D1jnbXFVeurwp8wD
-	ZUnbeNBz5rLwrX07aUit5UQNFlFWBstfA8WH+EaUcv/EUPsoV7x5R0+2i6Zb790n/kmL8Ldv5LQFM
-	sHRAmhixZ+hNp1w0OkvWfh41Wqz1KI3g0SHj9Ble9Via4Z/0j1CUSLwmanrxoszntaASkE+Q54wgK
-	e6nUFHPlwC9Sikc8IUhHItyyLVmikIs2JkqUI+EmNbeXOMHc7GLadAlNtFNkuciMj3Vq/MUUMEM0n
-	akxgGilXc/PImH3cZZeg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0mufOUIPd8RA2C+3Ss/HC+lHxhbMcGjzqWBTxaEKaUQ=; b=nJNiOQpeUg+krc
+	s8pJyUmUH/cOen2nYqPYgceln4FR31Su49YvOW0zscdzqW7ZkiKH/gTlQTT1qCG0PjWa1H/6fOTep
+	NiRdpWsFAsBg7mq986zgO88VM/7sncPLXK7GdOdp+IoP/qClhimCw+Rt2T2IQiUPwtdzF5DJZf5Zk
+	l51hAyZBDKcmKFKoB+dfY4fByJb6KxZbYFzfEeEyLEBt7UCZrvRhiaNz1R3y5s1ImnWosdmnCrI6M
+	fQ4Q6bjm4598+kYC3NSDpdgzZhtzy9yhsPmn2lQhHVTYakk3qYU/vPfjO1nmczNrJjq4dgqamHsc1
+	vK2gOBT15TJq24vc4POQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRjGA-00000008t2z-2MUu;
-	Wed, 18 Jun 2025 03:14:46 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uRjiA-00000008vbv-05lF;
+	Wed, 18 Jun 2025 03:43:42 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRjEJ-00000008spz-3BOR
+	id 1uRjgG-00000008vFb-0JTb
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Jun 2025 03:12:52 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-237311f5a54so5137755ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 20:12:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750216371; x=1750821171; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bN1ufSIz6Wdr6sIyj7BRHf668iy1Pf2mMb4+ZdyIh2E=;
-        b=aimjUaI+TiMQVTSpMZmi1DYDICbMOuU9Tzfy74EjppVfvOnXqt//SeYSlYuXCVb/1b
-         qscjmlvK28hlmZxzvJcBC2dxQUL8Vv2BzxMRg5j/F6aqxi9yFkK+TfZUXRY/KL9yoYJc
-         NOmtieQBLvKfQdAL0hX5xCZ4Hbs5flImrC7pFF5FLdFe1cY1YTZCU211JOoNxTOx6uFR
-         UKCrUeMrDDdwHjLOBQ+aqHfBL6UbSsuwnGppyvs/jwrQ9dym8DyC0cUS6dJprpWEa/B2
-         QjSAMXnldIRxxTZV1/Z+wqce++aOtFdWKoFcv1qsA0hyISSkS7IBmmVER0xNIvLKtYxQ
-         vgUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750216371; x=1750821171;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bN1ufSIz6Wdr6sIyj7BRHf668iy1Pf2mMb4+ZdyIh2E=;
-        b=wEZ42qcSxMPMKB1pmh0mQs6dzli8z4hN/zzKU8ITWqzp/ePYgijnEy79vioWmBF9GA
-         srJ7Raudg8EHT/msnZkO/eciW0gT3QmJ+HBYerwhgNhT4RznFxflIS05Y84q7vx5hYSH
-         XIqdpDlXVyTeQmmSD4D7PeRYsBOcB0K8a3W233f0HQkznGnfW+fvAf/A3O3ggJM76db1
-         EENcGol6bdyLl66yV5HW5djyKBDK7IA0XjKwnde1u05mbiwAK9YA93CTrabKPPxozyix
-         zgodtN7juQHl/sDMcUHoXLXQk1gnpEGe5utS34MnoIsUX/orByyxj2rnXU7ga/xoE+os
-         6XrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWbuE0pQcXZMrHvdnjyP62o/CpZCPWWtOaIVs31RAH/CAne17VSj7te7C2wDxtuiWUhC089nWRSsCu3IQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyenSvnW+YQLK8ql+qYTp6/qB9wq4ODXmiNZnLX12udvl0g6+QS
-	5lXOPLltbLPnPzQmn6N7d4atkng8liL74e9nBRT6RuwzxZ4AqAH1KOEN
-X-Gm-Gg: ASbGncs99Vi3GFLfHDGOfEwRU6X6VwXKBDV/E3gjloyXOg+ei0eznihOX1RgZuA2rph
-	iRgR8nEC4CKGgD90KInADnx5At+gkTPVoOS/s07BBfc48ae8CRk2NG+2L+RqXyVNwQndFZbcD/p
-	CB3XZY/NJwPdxks/HpoWnc0t4q0unGuAKgrCqaf3cTnmIYxXDdSG/8C93obbl7UaoOzMRf9e1Vx
-	ujxjuagQ0dnLiHSUFINmuPELYI82Y5lyB9f2P0embs9ZIpw2F4WyY0m+k0UlZVY07nG1D6Qv1X6
-	k+ochgh8dbZZ2Hmnj7OgphnJBEzcoxsvQCTtIcG+3gg/jxj80SdMa4gXnuDKjg==
-X-Google-Smtp-Source: AGHT+IGlk8EgvUOrNowxfJO2EgnlRzNvjbjQNVRsCmwDyUQL2qNF7QpmdsaUlm4gLUxNgjcVNHsS2A==
-X-Received: by 2002:a17:903:46cb:b0:234:dd3f:80fd with SMTP id d9443c01a7336-2366b316c17mr244719105ad.2.1750216370686;
-        Tue, 17 Jun 2025 20:12:50 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2365d8a1847sm89028055ad.67.2025.06.17.20.12.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 20:12:50 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Minas Harutyunyan <hminas@synopsys.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 0/2] riscv: sophgo: rename compatible string of the USB device for cv18xx
-Date: Wed, 18 Jun 2025 11:11:28 +0800
-Message-ID: <20250618031132.373216-1-inochiama@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	Wed, 18 Jun 2025 03:41:47 +0000
+Received: from [127.0.0.2] (unknown [210.73.43.2])
+	by APP-01 (Coremail) with SMTP id qwCowABnFtVpNVJoV95NBw--.6548S5;
+	Wed, 18 Jun 2025 11:41:31 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Wed, 18 Jun 2025 11:40:48 +0800
+Subject: [PATCH net-next v2 3/6] riscv: dts: Add network-bus dma-ranges for
+ SpacemiT K1
 MIME-Version: 1.0
+Message-Id: <20250618-net-k1-emac-v2-3-94f5f07227a8@iscas.ac.cn>
+References: <20250618-net-k1-emac-v2-0-94f5f07227a8@iscas.ac.cn>
+In-Reply-To: <20250618-net-k1-emac-v2-0-94f5f07227a8@iscas.ac.cn>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Vivian Wang <uwu@dram.page>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>, 
+ netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-CM-TRANSID: qwCowABnFtVpNVJoV95NBw--.6548S5
+X-Coremail-Antispam: 1UD129KBjvJXoW7JF1fuw17CFW3uF1rGr4kWFg_yoW8Jr1fpr
+	ZxuFs3W3yIkr48Cr47ury7W34UGFZY9a18Gw1DC345Jrs5XrWUtrZrtw1fKF1UJrWrX34a
+	qFs5Xry8KF1UZw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQ014x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	A2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr1j6rxd
+	M2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjx
+	v20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1l
+	F7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2
+	IY04v7MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVAFwVW8GwCF04k20xvY0x0EwIxGrwCF
+	x2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14
+	v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY
+	67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI
+	8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
+	6r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRWtCzUUUUU
+X-Originating-IP: [210.73.43.2]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_201251_794524_C0B1EFC8 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20250617_204144_508788_1761DF83 
+X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,22 +95,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Old days I added the USB support with a wildcard compatible string.
-It is not formal and it is more clear to use a compatible for a
-real world SoC. As the usb device is not used in any board device
-tree (The patch for USB phy is under review), I think it is good
-to correct this mistake before submitting the device node.
+The SpacemiT K1 has various static translations of DMA accesses. Add one
+of these translations, namely network-bus, as a simple-bus node with
+dma-ranges. Child nodes of network-bus will come in later patches.
 
-Inochi Amaoto (2):
-  dt-bindings: usb: dwc2: rename sophgo usb compatible string
-  usb: dwc2: follow compatible string change for Sophgo CV18XX/SG200X
-    series SoC
+The node is named "network-bus" in consensus with SpacemiT [1].
 
- Documentation/devicetree/bindings/usb/dwc2.yaml | 2 +-
- drivers/usb/dwc2/params.c                       | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+[1]: https://lore.kernel.org/all/CAH1PCMaC+imcMZCFYtRdmH6ge=dPgnANn_GqVfsGRS=+YhyJCw@mail.gmail.com/
 
---
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+---
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index de403bda2b878c60d9eb5b4d8d336e5c52498159..b1b87ce1ab70faa8fb61fb27bc1845fe40b35561 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -580,5 +580,14 @@ sec_uart1: serial@f0612000 {
+ 			reg-io-width = <4>;
+ 			status = "reserved"; /* for TEE usage */
+ 		};
++
++		network-bus {
++			compatible = "simple-bus";
++			ranges;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
++				     <0x0 0x80000000 0x1 0x00000000 0x0 0x80000000>;
++		};
+ 	};
+ };
+
+-- 
 2.49.0
 
 
