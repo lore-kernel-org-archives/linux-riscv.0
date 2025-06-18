@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D9FC71155
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 03:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C14C71157
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 03:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pwR0WSUN2Mc0m3dtehazF/v9IX0LMXAWulgQfsODFVU=; b=vSPrYYgVYA73Bw
-	2HYoZ9Hf4Ia4/CkR0VksB2EdhvDOROvz5ssmzbOHHW0hdqXOAGMayE7L7lXZruil6isKKez50/GhZ
-	YLGoIr+WbP8+/A3thgSdr20IsDHxMsGofm7TslkswioOw32DlYd+iLPYGZn2eVURNq3XBozXU2SNh
-	XomBHlTN2yhZhGo9njhnpGEleQLvhaToh5XFzYLWPhNVyoHJuouPxyCzgRpp27IhdBhAfUtu7KsHX
-	it3bsyBmo/DjbhunIdXVVqbWoSptZua3ixYliYV4k9/SMrL1cLrqhZEsJSRQmw5X928SRxK/Z+DUX
-	XvQDWlmIzt8Xou3QwPSw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=erS7rQXCyBSDaJdUjU5WI+VA3OEsiM/SOtKUMM7VHEE=; b=So1rcml9dG4c3B
+	cdLUL9NzRmFP6ANJ6AHjBZnUxv7VGN+aKr8hn5KgnJagi4oqcY+4roGcAdmZ9D1jnbXFVeurwp8wD
+	ZUnbeNBz5rLwrX07aUit5UQNFlFWBstfA8WH+EaUcv/EUPsoV7x5R0+2i6Zb790n/kmL8Ldv5LQFM
+	sHRAmhixZ+hNp1w0OkvWfh41Wqz1KI3g0SHj9Ble9Via4Z/0j1CUSLwmanrxoszntaASkE+Q54wgK
+	e6nUFHPlwC9Sikc8IUhHItyyLVmikIs2JkqUI+EmNbeXOMHc7GLadAlNtFNkuciMj3Vq/MUUMEM0n
+	akxgGilXc/PImH3cZZeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRjGB-00000008t3G-34gv;
-	Wed, 18 Jun 2025 03:14:47 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1uRjGA-00000008t2z-2MUu;
+	Wed, 18 Jun 2025 03:14:46 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRjEQ-00000008sqs-1IcG
+	id 1uRjEJ-00000008spz-3BOR
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Jun 2025 03:12:59 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-235ef62066eso97910065ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 20:12:58 -0700 (PDT)
+	Wed, 18 Jun 2025 03:12:52 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-237311f5a54so5137755ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 20:12:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750216377; x=1750821177; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rVmw5bZbkl4jrrqCt8IvJKSgjCMD7aRK/gZMumHgDnk=;
-        b=i1Vm3V338ZmOvEK0vFLZnbvQMyfEmPMLabr4ipcPbe6ARwUt/mRR0fiGUXg/ANulDY
-         7CgYjh2njkUjTOEboYlY1eWmJJ8UNuV6dtmxbja1AVXno/jj/psJOLiDpShEK6zoJMY8
-         QBpSGhVInECNbPB/BfZQHD0dc3Yh3Gzv53zs3KAqYk/cKB1ZsuCaqfK172rkE/TTHGu3
-         bNq/axgZum8I8rHZsYzGKW1kyNDn1NItKN9eWcFql54h8qj6bBZVqaH3lHaLaCaz8mj+
-         qRDEcnZrtvPQUHNps8S6GE2DtVcmsl8SARwMF7hAJk1hTcW6cYyPZrcxQOfeKR3m1wMU
-         Q9Cg==
+        d=gmail.com; s=20230601; t=1750216371; x=1750821171; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bN1ufSIz6Wdr6sIyj7BRHf668iy1Pf2mMb4+ZdyIh2E=;
+        b=aimjUaI+TiMQVTSpMZmi1DYDICbMOuU9Tzfy74EjppVfvOnXqt//SeYSlYuXCVb/1b
+         qscjmlvK28hlmZxzvJcBC2dxQUL8Vv2BzxMRg5j/F6aqxi9yFkK+TfZUXRY/KL9yoYJc
+         NOmtieQBLvKfQdAL0hX5xCZ4Hbs5flImrC7pFF5FLdFe1cY1YTZCU211JOoNxTOx6uFR
+         UKCrUeMrDDdwHjLOBQ+aqHfBL6UbSsuwnGppyvs/jwrQ9dym8DyC0cUS6dJprpWEa/B2
+         QjSAMXnldIRxxTZV1/Z+wqce++aOtFdWKoFcv1qsA0hyISSkS7IBmmVER0xNIvLKtYxQ
+         vgUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750216377; x=1750821177;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rVmw5bZbkl4jrrqCt8IvJKSgjCMD7aRK/gZMumHgDnk=;
-        b=e/r3qtUSkxLg1tIgLi0DjHetE2llolRaEKwLocHhXVdVXJ5uJ+TcR3H0iZsEzxvRqY
-         /ghzgcX4LlUhGWj0Z/UQd+nGsJRIya+pi2SQkpnHdiryFSAu3jECd8fEsG1bc7QFzR8i
-         cBrTu7v+u5ZcDVA1Ez9LzG9QlC8Pi7iWDf3fQFSixpYruB3aIjzETmnv+xCEMcUm0esp
-         hGzhzWKu86YqyBrVe7c9GKk0rXiCwSrA5vsrSITIYoenkFz5sCd2vDKXGp2+kniImQGx
-         tZPqHlSwbXDjEifs0V/uWYF3fTCos+kwFgQunwIeuaaKwuiDttcW+1DdWLq4Bf3+pCHp
-         ue9g==
-X-Forwarded-Encrypted: i=1; AJvYcCUkwB4EaOWM45gsd4hHzcWlOiWUU3rvuvHZYTMEuin6OjF5CDaWO2+1oCHHGo/N9c5Fb9AQpINcef4yfQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTOwwt0YwJjEPptHyNiq19cK+uF+SRu8DMh61rQ2fx4vnzgoRf
-	sPBw3foXudiYJoQLIPBoz3YEhAeKSqaeoN7idwBGkDzAgbu47X9lSi7D
-X-Gm-Gg: ASbGncuxfMBOWbkkg3yXRR1exmwyFkio52GBd1CkGKaPifNw9t5PwzzfpYOOjk7RF3u
-	S/Kr0+LJgH41bJDpfoLo8teBQtQ4dI6P+7Pw+cwlvrbDikvj/iunA64bfUPMY6xdHfqaU2X8lDs
-	+8YYXMVU0h3FJVXAFbEiiiFhNVqxDwg3XvgN2Cx5NM1nFyT8GoAaCRt7/1NrOQhL00ofKkeD3TV
-	0O/ARV7HLX/Ihn+RgLvU6E+zupYHxiHstgw59jCp2EgkqeYVf1EySOR2RqRzimBziWMaVDu5hpi
-	WhC+gDXR7Hb7PXjzvnmrS06ok+AELpAircYJCWpaLV91UTojyLFyl1NbJtpWeYNAWxS/lYEj
-X-Google-Smtp-Source: AGHT+IH8hgD1LGsHJfDQnAXl9HvOeBTvxQ0AmdkVrJ64/WhDiqReq6a0y9o7OxH1H5lmzbPMTmNXgw==
-X-Received: by 2002:a17:902:ce81:b0:234:f1ac:c036 with SMTP id d9443c01a7336-2366b40b7c2mr211182775ad.50.1750216377556;
-        Tue, 17 Jun 2025 20:12:57 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750216371; x=1750821171;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bN1ufSIz6Wdr6sIyj7BRHf668iy1Pf2mMb4+ZdyIh2E=;
+        b=wEZ42qcSxMPMKB1pmh0mQs6dzli8z4hN/zzKU8ITWqzp/ePYgijnEy79vioWmBF9GA
+         srJ7Raudg8EHT/msnZkO/eciW0gT3QmJ+HBYerwhgNhT4RznFxflIS05Y84q7vx5hYSH
+         XIqdpDlXVyTeQmmSD4D7PeRYsBOcB0K8a3W233f0HQkznGnfW+fvAf/A3O3ggJM76db1
+         EENcGol6bdyLl66yV5HW5djyKBDK7IA0XjKwnde1u05mbiwAK9YA93CTrabKPPxozyix
+         zgodtN7juQHl/sDMcUHoXLXQk1gnpEGe5utS34MnoIsUX/orByyxj2rnXU7ga/xoE+os
+         6XrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWbuE0pQcXZMrHvdnjyP62o/CpZCPWWtOaIVs31RAH/CAne17VSj7te7C2wDxtuiWUhC089nWRSsCu3IQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyenSvnW+YQLK8ql+qYTp6/qB9wq4ODXmiNZnLX12udvl0g6+QS
+	5lXOPLltbLPnPzQmn6N7d4atkng8liL74e9nBRT6RuwzxZ4AqAH1KOEN
+X-Gm-Gg: ASbGncs99Vi3GFLfHDGOfEwRU6X6VwXKBDV/E3gjloyXOg+ei0eznihOX1RgZuA2rph
+	iRgR8nEC4CKGgD90KInADnx5At+gkTPVoOS/s07BBfc48ae8CRk2NG+2L+RqXyVNwQndFZbcD/p
+	CB3XZY/NJwPdxks/HpoWnc0t4q0unGuAKgrCqaf3cTnmIYxXDdSG/8C93obbl7UaoOzMRf9e1Vx
+	ujxjuagQ0dnLiHSUFINmuPELYI82Y5lyB9f2P0embs9ZIpw2F4WyY0m+k0UlZVY07nG1D6Qv1X6
+	k+ochgh8dbZZ2Hmnj7OgphnJBEzcoxsvQCTtIcG+3gg/jxj80SdMa4gXnuDKjg==
+X-Google-Smtp-Source: AGHT+IGlk8EgvUOrNowxfJO2EgnlRzNvjbjQNVRsCmwDyUQL2qNF7QpmdsaUlm4gLUxNgjcVNHsS2A==
+X-Received: by 2002:a17:903:46cb:b0:234:dd3f:80fd with SMTP id d9443c01a7336-2366b316c17mr244719105ad.2.1750216370686;
+        Tue, 17 Jun 2025 20:12:50 -0700 (PDT)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-b2fe1642ecfsm9772763a12.19.2025.06.17.20.12.56
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2365d8a1847sm89028055ad.67.2025.06.17.20.12.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 20:12:57 -0700 (PDT)
+        Tue, 17 Jun 2025 20:12:50 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh@kernel.org>,
@@ -87,16 +86,14 @@ Cc: linux-usb@vger.kernel.org,
 	sophgo@lists.linux.dev,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 2/2] usb: dwc2: follow compatible string change for Sophgo CV18XX/SG200X series SoC
-Date: Wed, 18 Jun 2025 11:11:30 +0800
-Message-ID: <20250618031132.373216-3-inochiama@gmail.com>
+Subject: [PATCH 0/2] riscv: sophgo: rename compatible string of the USB device for cv18xx
+Date: Wed, 18 Jun 2025 11:11:28 +0800
+Message-ID: <20250618031132.373216-1-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250618031132.373216-1-inochiama@gmail.com>
-References: <20250618031132.373216-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_201258_348863_5E4CAB07 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20250617_201251_794524_C0B1EFC8 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,30 +110,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As the wildcard name is dropped and favor new compatible string
-which match a real SoC, and it is not used for any board at now.
+Old days I added the USB support with a wildcard compatible string.
+It is not formal and it is more clear to use a compatible for a
+real world SoC. As the usb device is not used in any board device
+tree (The patch for USB phy is under review), I think it is good
+to correct this mistake before submitting the device node.
 
-Rename it to sophgo,cv1800b-usb to match the binding change.
+Inochi Amaoto (2):
+  dt-bindings: usb: dwc2: rename sophgo usb compatible string
+  usb: dwc2: follow compatible string change for Sophgo CV18XX/SG200X
+    series SoC
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- drivers/usb/dwc2/params.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/devicetree/bindings/usb/dwc2.yaml | 2 +-
+ drivers/usb/dwc2/params.c                       | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/usb/dwc2/params.c b/drivers/usb/dwc2/params.c
-index 4d73fae80b12..ea6bd537e337 100644
---- a/drivers/usb/dwc2/params.c
-+++ b/drivers/usb/dwc2/params.c
-@@ -334,7 +334,7 @@ const struct of_device_id dwc2_of_match_table[] = {
- 	  .data = dwc2_set_amlogic_a1_params },
- 	{ .compatible = "amcc,dwc-otg", .data = dwc2_set_amcc_params },
- 	{ .compatible = "apm,apm82181-dwc-otg", .data = dwc2_set_amcc_params },
--	{ .compatible = "sophgo,cv1800-usb",
-+	{ .compatible = "sophgo,cv1800b-usb",
- 	  .data = dwc2_set_cv1800_params },
- 	{ .compatible = "st,stm32f4x9-fsotg",
- 	  .data = dwc2_set_stm32f4x9_fsotg_params },
--- 
+--
 2.49.0
 
 
