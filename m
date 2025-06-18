@@ -4,62 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 121AAC7115D
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 12:59:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A77FC71157
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 13:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:
-	Subject:From:cc:To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RDE2AtgLZiFrmWUDkJyKrcynb09kL4HINxbe7/zudUs=; b=MnNNds/FZmo436
-	FHVwg+nPTVtP842EHvcUfeagNUyQpzDu0WWLPTCno71qFSDCywmGZgqhEzn+1G2LAF2MfULKpLg8t
-	bIn4Tj3qI1hjjdbEV1xaE9aA66XDuhNZ8R9NBAwtsPqnLg9rG4/sgyi6ehclhhatMByPVp9/V/yO8
-	aITAOT2FkBn3BpFfBudzr6DBcPmaZn+hkVMBjwljKncf1LetX1/VtLc/K9y+K0iWmkfHY9nMx8IgW
-	DJjXZB9gGuQ6umrh0sI4pVrhukE0C9uKo1meonXhxxdJ4CSTsTzpiPyCMPGR6vldKHKeATnXqwnag
-	kH1MjWRHFv3QfxzPUSoA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jQ1EsEtC3i3tzlc1Uzd1XTwPPF63Y6vKbhgS2EZUW5E=; b=eDk992pj81peq0
+	PPMxw1/TN0XglTUwwy9a3kJamPYl/Wq4j0oUkQc/dsJFA76vN4ETzaqsNFRqx/zmwh9E1IYJq555Y
+	6oLuy+PeOqnYs2aCLC1wuvCq34JmYzaeIr4HCIqMeiYXPvfrGNt3K5tW04tCIgSL1PgVU/HYaHu73
+	PmCtMFWKuuy0Xr3G1uIXyWuKfwr2QyB0Hq5fiWqWfL2FlmI19sZwpQ4/H3E5FeLEXx4ZOUmk7tPko
+	6A27ZvvsqdQesfFwPi+BSk/l55LFTIFTDDybN3HqD2m3zpKOBqwe1htoXs1stKAjvD2C6xUgzChBC
+	XVZIU0kY0pLdgi22wgQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsNs-0000000ACwH-2wmX;
-	Wed, 18 Jun 2025 12:59:20 +0000
-Received: from outgoing2021.csail.mit.edu ([128.30.2.78])
+	id 1uRsUS-0000000AE9R-3CHK;
+	Wed, 18 Jun 2025 13:06:08 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRqge-00000009tPx-1O5I
+	id 1uRqws-00000009vs5-04Ts
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Jun 2025 11:10:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=outgoing.csail.mit.edu; s=test20231205; h=Message-ID:Date:Subject:Reply-To:
-	From:cc:To:Sender:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=GFVJwktuxpkRDvLIb8jZl5z0PhGj4POY3csp1DDe88M=; t=1750245034; x=1751109034; 
-	b=goliRmJ2E5RLqUrm0yfOyymEp7pSjBUQTqLY+cu/x4NAbfaLhqUceB7cyruqAu16SmgRovQW7fz
-	ZSzTLcPD+hAVZHdqVdkihjJpsVWRezkEcilaxZb3swzNX3uJ2nqXYimObpEn2mVzknUPS5mYQKRqn
-	J9Xr6VntPMb7Hq13FNAAPXrtS3vCRIIN5cDGmurQcwt8/JUtGsUHfkOOy7Ogh8xxvl71AQj70jKW0
-	E/9FkRP/M1+rJAB2mghZ7qizJNgFsnscg3zRZIIvBPpFj+uYFALS3u8fRGHC6rHl8ah3ry8oyop4c
-	DlKHXLeUYy+7KidgQNWyb27qtziMEuC9/FFA==;
-Received: from c-71-235-5-26.hsd1.ma.comcast.net ([71.235.5.26] helo=crash.local)
-	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <rtm@csail.mit.edu>)
-	id 1uRqgX-006fPi-IL;
-	Wed, 18 Jun 2025 07:10:29 -0400
-Received: from localhost (localhost [127.0.0.1])
-	by crash.local (Postfix) with ESMTP id CCC4223DEF8E;
-	Wed, 18 Jun 2025 07:10:28 -0400 (EDT)
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-    Palmer Dabbelt <palmer@dabbelt.com>,
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-cc: linux-riscv@lists.infradead.org
-From: rtm@csail.mit.edu
-Subject: futex(0x1ffffff81300000) on risc-v -> mm panic
-Date: Wed, 18 Jun 2025 07:10:28 -0400
-Message-ID: <77605.1750245028@localhost>
+	Wed, 18 Jun 2025 11:27:23 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54b10594812so7023430e87.1
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 04:27:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750246040; x=1750850840; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hC/rxmNEx7lBs7LXqlf7wlayqnKtYiiYbKP9iLo7bEA=;
+        b=pZiZPQBX8EJE7nz32SiRxA/TOBcim3s9/WCTO7cPUh8Q2MqJKj0tv38M7DRF34lx/A
+         JUI2JhN9tJEOFLeP6/YP/HGiqcp6qYyVifBm8RvI5IBSburIFWvC16EMwp8cFgF60eCu
+         X3EENXPsATqCG7U/fmoRJmFsHuoZEeiK3/Os28Hj5NiadA2SYQfnG1Vxi8KNsgkMEMYR
+         O8ogZn3IzBeYQSBMGCq3/GjEF2aUJWJzXTw+/KQQYG56xVrexe2k9IwNEz2iveTgAdBe
+         Jm+irj5tp+Zm3Sb1hSKYNF/YZMxhOc5QGHMPnuV2n+9iEBkXdixVMupsdC6lrmpnOXGU
+         EO1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750246040; x=1750850840;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hC/rxmNEx7lBs7LXqlf7wlayqnKtYiiYbKP9iLo7bEA=;
+        b=NofqjlVyDIRBvJnPhSY1Qgh3z4GZhP4LV0Y1FzkNgWtuWdSf2fza5QNo7mm8kA5uas
+         Hpbap3BTVEsrCK+xvkG5gSWwmLZl5U1uAUEH4auWX6g3KRcAtKhM5htglxO1Pt8vk8Ml
+         m8G1ZC1EN6dF90Ai/EINvgoQIBQ0M4t1uIBkzIceDjytmJOl7+bTixxKzo6bOpTveQYT
+         CJvMa8kblFaImB2k7f0nID9d0xMYNN4YC64ND9bMvFb2mehqKA4hnn4KYzYJ/VQ5PIrj
+         N2J9bh3NV1aXvcRBRJb5us0GtI4wb3/CVYzB8+8Um6CaC8QbGEcSaq+ywM+qskDahgBb
+         h+kg==
+X-Forwarded-Encrypted: i=1; AJvYcCUvMqqe0EracDsWwybgXY5zckXF5tLNPnti1RCvP3LHzpaK/rUGCqaR1ApuJBuhIff3fociJZPfsHI7mg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbaVEItyLO6i/ArwyI9u9iyledON+1ThsEOMuxgj6gtzLzfb6O
+	wH/rOql3JM6UaOMw89DL385oU6DW/njQEkkoeQPca3s+fB6nf/BiYZ7RiSTQJObSkZToZt0zt3R
+	q682wZNiqhfl6GhYF+F0BGAMkUClqD8thaUJ0hEKhNw==
+X-Gm-Gg: ASbGncu3IV7V9F5T4XuBrGjs66+HrqQnF7mzQlCax90RTYk8rUu0fbcKu2BouLkOQ3g
+	X9sMdnLeIntOr2izcdaW8NMBROsmqvCSmVX09O6uzA8zMnGeNmgJiaeDt0fmS6zDD9Af/aEbkGA
+	BxIZdLJzMO9+tyMSRoMJ52FD8oa4dDbDQh9mUQl0rQYRg=
+X-Google-Smtp-Source: AGHT+IH9N3s8eV4QAoWcV3ZISC8T6rNpJ4leRaY7YHuJFlZ4bPXaxx7Hzh/4jfbIVAzp1tapzbe+4WLXZFpaeF/7BEk=
+X-Received: by 2002:a05:6512:39c8:b0:553:2bf7:77ac with SMTP id
+ 2adb3069b0e04-553b6f15af6mr5016567e87.41.1750246040209; Wed, 18 Jun 2025
+ 04:27:20 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org>
+In-Reply-To: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 18 Jun 2025 13:27:09 +0200
+X-Gm-Features: AX0GCFuhKOslIDouO5PgG3-FBiOJa3cs6VfF8AgbesblIRkK52-2f8uLA9uvwos
+Message-ID: <CACRpkdb1YqS00tEeyAUTjjJ-EQQbH5wfE8QzZt-UFwQYCfNHRg@mail.gmail.com>
+Subject: Re: [PATCH v2 00/17] pinctrl: Constify pointers to 'pinctrl_desc' and more
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Basavaraj Natikar <Basavaraj.Natikar@amd.com>, Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>, 
+	Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+	Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+	Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+	=?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Sean Wang <sean.wang@kernel.org>, Jesper Nilsson <jesper.nilsson@axis.com>, 
+	Lars Persson <lars.persson@axis.com>, Damien Le Moal <dlemoal@kernel.org>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Michal Simek <michal.simek@amd.com>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
+	Hal Feng <hal.feng@starfivetech.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Manivannan Sadhasivam <mani@kernel.org>, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-sound@vger.kernel.org, patches@opensource.cirrus.com, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@axis.com, 
+	linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	Florian Fainelli <florian.fainelli@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_041036_583212_4EC633D6 
-X-CRM114-Status: UNSURE (   5.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_042722_060971_5E6C8550 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,87 +114,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: rtm@csail.mit.edu
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This program on risc-v:
-
-main(){
-  futex((void*) 0x1ffffff81300000, FUTEX_WAIT, 0, 0, 0, 0);
-}
-
-results in:
-
-BUG: Bad page state in process a.out  pfn:81500
-page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x81500
-flags: 0x2000(reserved|zone=0)
-raw: 0000000000002000 ff1c000000054008 ff1c000000054008 0000000000000000
-raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
-page dumped because: PAGE_FLAGS_CHECK_AT_FREE flag(s) set
-Modules linked in:
-CPU: 0 UID: 0 PID: 105 Comm: a.out Not tainted 6.16.0-rc2-00067-gb61aa0e0059b #566 NONE 
-Hardware name: riscv-virtio,qemu (DT)
-Call Trace:
-[<ffffffff80025b62>] dump_backtrace+0x1c/0x24
-[<ffffffff800023b8>] show_stack+0x28/0x34
-[<ffffffff800205d2>] dump_stack_lvl+0x48/0x66
-[<ffffffff80020604>] dump_stack+0x14/0x1c
-[<ffffffff80262098>] bad_page+0x118/0x15c
-[<ffffffff80264e96>] __free_frozen_pages+0x494/0x650
-[<ffffffff80266fe2>] free_frozen_pages+0xe/0x16
-[<ffffffff8020926c>] __folio_put+0x60/0xae
-[<ffffffff800ec23a>] get_futex_key+0x2da/0x44e
-[<ffffffff800f0474>] futex_wait_setup+0x52/0x23a
-[<ffffffff800f06da>] __futex_wait+0x7e/0xd8
-[<ffffffff800f0782>] futex_wait+0x4e/0xbc
-[<ffffffff800ed3a0>] do_futex+0x74/0x100
-[<ffffffff800ed4f4>] __riscv_sys_futex+0xc8/0x148
-[<ffffffff811e4930>] do_trap_ecall_u+0x84/0x11a
-[<ffffffff811f0b0e>] handle_exception+0x146/0x152
-Disabling lock debugging due to kernel taint
-
-and after running this program a few more times:
-
-page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x81500
-flags: 0x2000(reserved|zone=0)
-raw: 0000000000002000 ff1c000000054008 ff1c000000054008 0000000000000000
-raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
-page dumped because: VM_BUG_ON_PAGE(page_ref_count(page) == 0)
-------------[ cut here ]------------
-kernel BUG at ./include/linux/mm.h:1034!
-Kernel BUG [#1]
-Modules linked in:
-CPU: 0 UID: 0 PID: 110 Comm: a.out Tainted: G    B               6.16.0-rc2-00067-gb61aa0e0059b #566 NONE 
-Tainted: [B]=BAD_PAGE
-Hardware name: riscv-virtio,qemu (DT)
-epc : get_futex_key+0x23c/0x44e
- ra : get_futex_key+0x23c/0x44e
-...
-[<ffffffff800ec19c>] get_futex_key+0x23c/0x44e
-[<ffffffff800f0474>] futex_wait_setup+0x52/0x23a
-[<ffffffff800f06da>] __futex_wait+0x7e/0xd8
-[<ffffffff800f0782>] futex_wait+0x4e/0xbc
-[<ffffffff800ed3a0>] do_futex+0x74/0x100
-[<ffffffff800ed4f4>] __riscv_sys_futex+0xc8/0x148
-[<ffffffff811e4930>] do_trap_ecall_u+0x84/0x11a
-[<ffffffff811f0b0e>] handle_exception+0x146/0x152
-Code: bdad a597 017c 8593 fa65 8526 7097 0014 80e7 a4a0 (9002) 8785 
----[ end trace 0000000000000000 ]---
-Kernel panic - not syncing: Fatal exception in interrupt
-
-get_futex_key() calls get_user_pages_fast(), which returns a
-PG_reserved page in one of the reserve_bootmem_region() areas. Beyond
-that I do not understand the situation.
-
-Robert Morris
-rtm@mit.edu
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdW4gMTEsIDIwMjUgYXQgODoxNOKAr0FNIEtyenlzenRvZiBLb3psb3dza2kKPGty
+enlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4gd3JvdGU6Cgo+IENoYW5nZXMgaW4gdjI6Cj4g
+LSBBZGQgUmIgdGFncwo+IC0gUGF0Y2ggIzE6IHJlcGhyYXNlIGNvbW1pdCBtc2cgKEdlZXJ0KQo+
+IC0gUGF0Y2ggIzI6IGZpeC9yZXF1aXJlIGRlcGVuZGVuY3kgb24gT0YKPiAtIExpbmsgdG8gdjE6
+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNTA1MjgtcGluY3RybC1jb25zdC1kZXNjLXYx
+LTAtNzZmZTk3ODk5OTQ1QGxpbmFyby5vcmcKPgo+IERlc2NyaXB0aW9uOgo+IC0tLS0tLS0tLS0t
+LQo+IEluIHNldmVyYWwgZHJpdmVycyBwb2ludGVycyB0byAnc3RydWN0IHBpbmN0cmxfZGVzYycg
+aXMgbm90IG1vZGlmaWVkLCBzbwo+IHNpbmNlIGNvcmUgZG9lcyBub3QgbW9kaWZ5IGl0LCBpdCBj
+YW4gYmUgbWFkZSBhcyBjb25zdC4KPgo+IERlcGVuZGVuY2llcy9tZXJnaW5nOgo+IC0tLS0tLS0t
+LS0tLS0tLS0tLS0tLQo+IFBhdGNoICM0ICJwaW5jdHJsOiBDb25zdGlmeSBwb2ludGVycyB0byAn
+cGluY3RybF9kZXNjJyIgaXMgYQo+IHByZXJlcXVpc2l0ZSBmb3IgYWxsIGZ1cnRoZXIgcGF0Y2hl
+cywgaW5jbHVkaW5nIFJUQyBwYXRjaCwgdGhlcmVmb3JlCj4gcHJvYmFibHkgZXZlcnl0aGluZyBz
+aG91bGQgYmUgdmlhIG1haW4gcGluY3RybCB0cmVlLgoKUGF0Y2hlcyBhcHBsaWVkIQoKWW91cnMs
+CkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
