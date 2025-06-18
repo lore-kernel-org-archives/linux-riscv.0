@@ -4,65 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 332EDC7115A
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 03:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58754C71157
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 03:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PHbaiUScqIKooD55nzEL1ATDXguKdeuOJxGoqBu33F8=; b=gIoyxKORfs1+5A
-	+g1e/RsPD/S6+ydJ0qGtJDgSAoTagEP1psmmAJCy+UPKtOdE33vHchfX8vxWEgoc/2dqOCw9TK1eP
-	4T74s+V4otj+k8PKqbZXZqIhWUQ+S22gWmCguG74+h7S78G4e3q6MBZPF+j53Ie707JQ2UccqKlwo
-	FYiT2rb5Izj36pfucLEVw4PGIukgOBp3CuiW5JG4pi1E3gGjGMPQQF7A40T7YIwgSJ0HjOiZzvDxQ
-	yQm0aMlz6snysdJoSRKldxaCUtSOrPegHrZ/n5hiLDCbYkJldFMmY/j/BHV7jyWX+6P5iYZYrj3X4
-	rRxdTpVu1YPvKP/AMGLQ==;
+	List-Owner; bh=jUZlcF3Di2txBVd4MYIpnuhegG041sOloLINZCngWrc=; b=dJ3s2bnzBwcIbf
+	8Y49mx7sXRaivN+6JGK0nrCm1fk11SIv0c4XJhJc+v9r3sKEFs9kWzaGJQh5zIcDRB8OvY+z9GPzP
+	mr26O0WN9/7Opc6HLr5Fy6ygqbefzWAmG5m2ndaLFicRRRotsz3nLuNbQJhxD4lRinYBfNfr4ErRU
+	VNzUadeUYgyAF0ne7QxCAf10fusdwKhweoobB3OzDXA2KzTelN//jX/dty2pMKRo/BdTMisTSGgG4
+	V4EDQ9B9yc8ZzDQH/s/J9DIJ0xde5V8rAj00zPteNot0x7hWijhifn8eTU2bJayl8WpDK75bR+z7N
+	snYwolZMDEbhhiMIUdaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRj5U-00000008ruf-1bzQ;
-	Wed, 18 Jun 2025 03:03:44 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uRjGB-00000008t35-0ZcV;
+	Wed, 18 Jun 2025 03:14:47 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRiur-00000008rAw-2MD7;
-	Wed, 18 Jun 2025 02:52:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 95A3BA51528;
-	Wed, 18 Jun 2025 02:52:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC05EC4CEE3;
-	Wed, 18 Jun 2025 02:52:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750215164;
-	bh=xibkBkl+LKRXep54JINrCcQx7QYwck9H1g7WJvKYXXE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mPFoctY2b4YRp0ICParubEBIZbOSf9Vk5KK8uS5PrU68/mm+Tz8vijYy669L9yxjm
-	 Jsv6rP0LyKuxoI+O6bOEIwMiUBAvM0LFyxdmzqXTetuviDjXgL79zCa0MkNRe26UZJ
-	 nmTPEi+nsnNBnQNcZVTMorAMhKugQ20v2b7tS7R4Wg/qgU1aCe1/KxTNGbXHZNp3s2
-	 x1c6uvob6lNCYNLO/miSBxmUGAC6yCJweLgoMx1DbKIQB9lR06t0ghAy3rr9+u8lXf
-	 Xpv9Fu6WPFd657Fqb98bOrRaq1+T2zwE7IyENAPdIk0Jvy78IS8GMNY23Rlo0baNFn
-	 vSmEyoM6yt63A==
-Date: Tue, 17 Jun 2025 19:52:13 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Sohil Mehta <sohil.mehta@intel.com>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH 8/9] lib/crypto/x86: move arch/x86/lib/crypto/ to
- lib/crypto/x86/
-Message-ID: <20250618025213.GA426513@sol>
-References: <20250617222726.365148-1-ebiggers@kernel.org>
- <20250617222726.365148-9-ebiggers@kernel.org>
- <983d7906-6510-4867-978f-4f937b29224b@intel.com>
+	id 1uRjEM-00000008sqU-3eHK
+	for linux-riscv@lists.infradead.org;
+	Wed, 18 Jun 2025 03:12:55 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3141f9ce4d1so2267105a91.2
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 20:12:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750216374; x=1750821174; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fxtR8f3zNuWY8ESAfyPo4qfcZH0MTD+lNydzwpGAHoc=;
+        b=bR37xfXYjk9dSVqKU4vtu+CDty3YHzNbv4BBwETb3zfwke0i8mkc/wAB1Z5K+VIaic
+         3WHROUj4ri+9DNS+W7zHLFvHlC4y75c8oFWks0H8F9AAqkVkUL/6OT9i7hep3qDGK7wQ
+         GEoRBDf+xEvUx2nDoKgDpde4ndJ6ALStiUyKf5PSn8IGt7z2N30wnmqkyALJa2aMrECd
+         dYoIlK14xx7EsFeZcRgMoFXUriICylOA21iPNektFxlUkTOvUL7uZnroRQN7ECfIVhGx
+         5LzvLz15+EheM+oyNCOkQ7sN8lwyrfk91H6Xy1ZBBjYJQw53zVl14G12R0RX3ChgOOE1
+         FfJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750216374; x=1750821174;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fxtR8f3zNuWY8ESAfyPo4qfcZH0MTD+lNydzwpGAHoc=;
+        b=KPGf/cBmlTr985klWm58n4fmLyxIlGOS4jACPJdpeV9MsaqPV7OBLjexweu4e6DJA5
+         3ofBJvDphg90Dwb9FekwtL4OrlGHd2TRbqr8WXq0pw/TGVXsP3GSzD4QhzmwuBc80ai1
+         Oy07Uwxs589nIj+d7dRS7bLVcqJHQXytr0Inr4EFrNjpxQr5AJoQV7armc6FRBkwUy03
+         HXL5FsJ6EfjlVTTTpU31WdYQVPxE3Fi0XnZfKDYWWwFHwx2/m1ndDa7X5qP9avVPRm9j
+         Lwj3AnLBTqRg9gF6NI9b1Jz5bqTAKD/9oMBNrvaKwEArdKilIth9X7S9PCSgjxYg/tyE
+         WBVg==
+X-Forwarded-Encrypted: i=1; AJvYcCUC9pk9anqkZ1u+hNcvVs68SdDezO1RmW4TSdeWa0Lv+QaR0bKNWBsmBqXn6YGUQRB9psIOUCY/1n1JCQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YweIhCWjARGTJE4XevUsDIeV+VMdgAo1ADBYzBllk+kO2sUULP0
+	4IHgGOWnwVAAcydwPnZWC2MNQ70Jy4rYl0CjsM5oC1CSAVtsFO0c07Nw
+X-Gm-Gg: ASbGnctHSYQSLSC3vCM6EMqOpC/mdX8Jm/KOoYLBy8561Yy0+Igq4GwxmeM7SfQAt0p
+	knmgBk4cK7VkA9XPxelT8dZkewHwQLPY4WC/8Ybhmye3CBnNmcxw5tnie8x3kiXx7tLMEHQGHa7
+	Y2zt7Ru2tMfIW1JmbfjPf0imXiNjXAwIPyugXr9ZhfHlI0fecgS0Hw3Dz3j+Ii5nJroEIktpcpl
+	s/x46FTHOw87iqCZKBVuTUzfVtb1EHPdMZm4VSPGVaPDqHk7uwdSq3uNiG+wjiYCN2/Jxcuiwn6
+	a86A0VAV8ePY0mgt3NagNvl2konHgUbFSLeIzYwb4JUVOUBNZiXyoLSHW4e7EQ==
+X-Google-Smtp-Source: AGHT+IHRI7h23bZzE8G1/NzKXA2jFwp08Y53wfU3eAL9uKH1xrpt17pvruqfqTfEBZAik8++WIVP2A==
+X-Received: by 2002:a17:90b:3a05:b0:313:62ee:45a with SMTP id 98e67ed59e1d1-313f1cd69femr22420814a91.13.1750216374059;
+        Tue, 17 Jun 2025 20:12:54 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2365d88bf54sm89057425ad.46.2025.06.17.20.12.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Jun 2025 20:12:53 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Minas Harutyunyan <hminas@synopsys.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	sophgo@lists.linux.dev,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH 1/2] dt-bindings: usb: dwc2: rename sophgo usb compatible string
+Date: Wed, 18 Jun 2025 11:11:29 +0800
+Message-ID: <20250618031132.373216-2-inochiama@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250618031132.373216-1-inochiama@gmail.com>
+References: <20250618031132.373216-1-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <983d7906-6510-4867-978f-4f937b29224b@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_195245_673861_18735C6B 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20250617_201254_907495_AE663546 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,51 +113,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 05:41:09PM -0700, Sohil Mehta wrote:
-> On 6/17/2025 3:27 PM, Eric Biggers wrote:
-> > From: Eric Biggers <ebiggers@google.com>
-> > 
-> > Move the contents of arch/x86/lib/crypto/ into lib/crypto/x86/.
-> > 
-> > The new code organization makes a lot more sense for how this code
-> > actually works and is developed.  In particular, it makes it possible to
-> > build each algorithm as a single module, with better inlining and dead
-> > code elimination.  For a more detailed explanation, see the patchset
-> > which did this for the CRC library code:
-> > https://lore.kernel.org/r/20250607200454.73587-1-ebiggers@kernel.org/.
-> > Also see the patchset which did this for SHA-512:
-> > https://lore.kernel.org/linux-crypto/20250616014019.415791-1-ebiggers@kernel.org/
-> > 
-> > This is just a preparatory commit, which does the move to get the files
-> > into their new location but keeps them building the same way as before.
-> > Later commits will make the actual improvements to the way the
-> > arch-optimized code is integrated for each algorithm.
-> > 
-> > arch/x86/lib/crypto/.gitignore is intentionally kept for now.  See
-> > https://lore.kernel.org/r/CAHk-=whu2fb22rEy6+oKx1-+NCHuWucZepvD0H2MD38DrJVKtg@mail.gmail.com/
-> > I'll remove it later after some time has passed.
-> > 
-> 
-> After this change, arch/x86/lib/ has a lone empty directory crypto with
-> the .gitignore file.
-> 
-> Instead, would it be cleaner to get rid of the crypto directory
-> altogether and update the .gitignore of the parent?
-> 
-> As per the link above, commit 2df0c02dab82 ("x86 boot build: make git
-> ignore stale 'tools' directory") says this:
-> 
-> "So when removing directories that had special .gitignore patterns, make
-> sure to add a new gitignore entry in the parent directory for the no
-> longer existing subdirectory."
-> 
-> With that change,
-> 
-> Reviewed-by: Sohil Mehta <sohil.mehta@intel.com>
+The support for Sophgo CV1800 series SoC introduces a wildcard compatible
+string "sophgo,cv1800-usb", rename it to sophgo,cv1800b-usb to match a
+real world SoC. As the compatible string is not used in any board dts.
+It is safe to rename it.
 
-Yes, that makes sense.  I'll do it that way.  Thanks!
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ Documentation/devicetree/bindings/usb/dwc2.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-- Eric
+diff --git a/Documentation/devicetree/bindings/usb/dwc2.yaml b/Documentation/devicetree/bindings/usb/dwc2.yaml
+index e83d30a91b88..6c3a10991b8b 100644
+--- a/Documentation/devicetree/bindings/usb/dwc2.yaml
++++ b/Documentation/devicetree/bindings/usb/dwc2.yaml
+@@ -59,7 +59,7 @@ properties:
+       - const: amcc,dwc-otg
+       - const: apm,apm82181-dwc-otg
+       - const: snps,dwc2
+-      - const: sophgo,cv1800-usb
++      - const: sophgo,cv1800b-usb
+       - const: st,stm32f4x9-fsotg
+       - const: st,stm32f4x9-hsotg
+       - const: st,stm32f7-hsotg
+-- 
+2.49.0
+
 
 _______________________________________________
 linux-riscv mailing list
