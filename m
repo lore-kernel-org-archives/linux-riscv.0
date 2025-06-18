@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6971BC73C66
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 12:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C61A8C7115A
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 12:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j5CndKBA9eIY1JZfYx528JJg8DOM6+5aN5jcNX+5OBg=; b=Gxg/lwMU0Q37Pe
-	Y6OGNXdO3YWfmJr3YHKYLiKDf3YIGV2HB+fsfRuk7HTYYhdxindpIYxwkNFVTKPSAafafQ34Mg5nq
-	jed3qjO7go3jeeRaZxGNFXGYj/hizz+FD4U19GUTjFEzmPFhAF/X9UvRcNerM7vwnNStVZOBdyA1J
-	FQ2CLhHsJvtvL8xk1M7H0okmw9yPij1cZL0T4V8pMqAgVCPslhW/nAzYgiT1F7TA5H6xdS6ykgUBz
-	d8yhs9MkOoLMK4fGN6qgn+PkerkQVYugcvWLEXqb1I4S227EZImlcwDcYp0Dtw0ybaGDmW6Ow91cv
-	uyNulFBf1kubfKHGr0EA==;
+	List-Owner; bh=C+f8I7bpAxUSQmrOYKatkSzC+EmPWf98l8nXDFBYskw=; b=QaNffaVj3X5hhk
+	/r1cXxzEOw2HsepQDJmIKD21QiBkaVrax8DcqE6hVlASuz07c2+zNAN+ItwWgAQJg/s9zik9JFE3f
+	cS17YJFsZqLy9NIjo2SZMaxIYjRtPCRzh3K7k5v3/J5FRjZnOpFem5tTuTorf37lfxgKt0YbYfnwl
+	05QN07bDMsWZ14u5hN50k9EcZDtBLnEJMHguotlam+vSAsZWRQGn8IQ4qbYyH8QHqF3fRqIwyt0Bk
+	8AP+Q0faD5uxcfq7ul7zR72XG0p6hiyP5Q8kFmvoucDpbsc0RjTbZxvpervDnVqzTmxqQiZh0hhjN
+	EF9+yzQtN8uIrm8Q3XsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrWN-0000000A3Fb-43lM;
-	Wed, 18 Jun 2025 12:04:03 +0000
+	id 1uRrWQ-0000000A3Hm-2Wa7;
+	Wed, 18 Jun 2025 12:04:06 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRpw9-00000009lKH-1YlX
+	id 1uRpwC-00000009lQ6-0cNh
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Jun 2025 10:22:37 +0000
+	Wed, 18 Jun 2025 10:22:38 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250618102227euoutp02daacb80eaa3c97b13737bb39872b17db~KG-XZZZux2448124481euoutp02M
-	for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 10:22:27 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250618102227euoutp02daacb80eaa3c97b13737bb39872b17db~KG-XZZZux2448124481euoutp02M
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250618102234euoutp02d3e487ce19d6b908912b06cac54f0749~KG-d8wgH52448124481euoutp02a
+	for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 10:22:34 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250618102234euoutp02d3e487ce19d6b908912b06cac54f0749~KG-d8wgH52448124481euoutp02a
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1750242147;
-	bh=63b01qSumkcLmIEY0xdhZ+QcRoYutlUuGjICSf4+AW0=;
+	s=mail20170921; t=1750242154;
+	bh=JYJBKhF2v7bBNigZ2HXUlSgsH/gCPb2a5CyAJ0JNsB8=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=I7tCKRCXBMwsN7DDxWGr8/nopg9pvsncPzwVEXmJobkp2biVaPpzlKrzr25w/CI+f
-	 /5huI2vayG2jHT0dUSoJywEjiT24tQyvfAUdjM9NgeFBIe8Q4TrFyZAIHFq1KxZVj1
-	 qoXcyqUdyD5L9YOvJDpOubTomdZuVKuchO5MhvDs=
+	b=j04e/btXNi8Ji11HKhAS3wDGDW2yMiQE3HS7ZLUxpDVg5hVvQN9wkd4/wWEorSbxl
+	 rA/GiV25041t5K01iNJtY4ydFGIgybKrCkXxMCYn1Y7/3bL6DjfqHHQAJu2JHuZQ8h
+	 IODlOfwZlZ14IPkkB++wkUUAEzNhhKefh9KJL6xw=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250618102227eucas1p26e8968805092c3ce0ecbe84e9724a6e2~KG-W6T4lR2901029010eucas1p2W;
-	Wed, 18 Jun 2025 10:22:27 +0000 (GMT)
+	20250618102234eucas1p2a1899b494c5ed75e0f39ea517d81c81d~KG-dMKK5z1803418034eucas1p25;
+	Wed, 18 Jun 2025 10:22:34 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250618102226eusmtip130e43c3ee9d13c7c00906f7347907b07~KG-V8arCD1490514905eusmtip1H;
-	Wed, 18 Jun 2025 10:22:26 +0000 (GMT)
+	20250618102233eusmtip19348d4038a9799137d47f88522c45772~KG-cMZhq41210412104eusmtip1r;
+	Wed, 18 Jun 2025 10:22:33 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Wed, 18 Jun 2025 12:22:08 +0200
-Subject: [PATCH v5 2/8] dt-bindings: firmware: thead,th1520: Add resets for
- GPU clkgen
+Date: Wed, 18 Jun 2025 12:22:14 +0200
+Subject: [PATCH v5 8/8] drm/imagination: Enable PowerVR driver for RISC-V
 MIME-Version: 1.0
-Message-Id: <20250618-apr_14_for_sending-v5-2-27ed33ea5c6f@samsung.com>
+Message-Id: <20250618-apr_14_for_sending-v5-8-27ed33ea5c6f@samsung.com>
 In-Reply-To: <20250618-apr_14_for_sending-v5-0-27ed33ea5c6f@samsung.com>
 To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,  Fu Wei
 	<wefu@redhat.com>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
@@ -69,16 +68,16 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
 	dri-devel@lists.freedesktop.org
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250618102227eucas1p26e8968805092c3ce0ecbe84e9724a6e2
+X-CMS-MailID: 20250618102234eucas1p2a1899b494c5ed75e0f39ea517d81c81d
 X-Msg-Generator: CA
-X-RootMTR: 20250618102227eucas1p26e8968805092c3ce0ecbe84e9724a6e2
+X-RootMTR: 20250618102234eucas1p2a1899b494c5ed75e0f39ea517d81c81d
 X-EPHeader: CA
-X-CMS-RootMailID: 20250618102227eucas1p26e8968805092c3ce0ecbe84e9724a6e2
+X-CMS-RootMailID: 20250618102234eucas1p2a1899b494c5ed75e0f39ea517d81c81d
 References: <20250618-apr_14_for_sending-v5-0-27ed33ea5c6f@samsung.com>
-	<CGME20250618102227eucas1p26e8968805092c3ce0ecbe84e9724a6e2@eucas1p2.samsung.com>
+	<CGME20250618102234eucas1p2a1899b494c5ed75e0f39ea517d81c81d@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_032233_806491_319B4DB5 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20250618_032236_491059_81A8D9F1 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,48 +94,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extend the TH1520 AON to describe the GPU clkgen reset line, required
-for proper GPU clock and reset sequencing.
+Several RISC-V boards feature Imagination GPUs that are compatible with
+the PowerVR driver. An example is the IMG BXM-4-64 GPU on the Lichee Pi
+4A board. This commit adjusts the driver's Kconfig dependencies to allow
+the PowerVR driver to be compiled on the RISC-V architecture.
 
-The T-HEAD TH1520 GPU requires coordinated management of two clocks
-(core and sys) and two resets (GPU core reset and GPU clkgen reset).
-Only the clkgen reset is exposed at the AON level, to support SoC
-specific initialization handled through a dedicated auxiliary power
-sequencing driver. The GPU core reset remains described in the GPU
-device node, as from the GPU driver's perspective, there is only a
-single reset line [1].
+By enabling compilation on RISC-V, we expand support for these GPUs,
+providing graphics acceleration capabilities and enhancing hardware
+compatibility on RISC-V platforms.
 
-This follows upstream maintainers' recommendations [2] to abstract SoC
-specific details into the PM domain layer rather than exposing them to
-drivers directly.
-
-Link: https://lore.kernel.org/all/816db99d-7088-4c1a-af03-b9a825ac09dc@imgtec.com/ - [1]
-Link: https://lore.kernel.org/all/38d9650fc11a674c8b689d6bab937acf@kernel.org/ - [2]
+Add a dependency on MMU to fix a build warning on RISC-V configurations
+without an MMU and enable COMPILE_TEST to improve build coverage.
 
 Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/gpu/drm/imagination/Kconfig | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-index bbc183200400de7aadbb21fea21911f6f4227b09..3365124c7fd4736922717bd31caa13272f4a4ea6 100644
---- a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-+++ b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-@@ -32,6 +32,13 @@ properties:
-     items:
-       - const: aon
+diff --git a/drivers/gpu/drm/imagination/Kconfig b/drivers/gpu/drm/imagination/Kconfig
+index 5f9fff43d6baadc42ebf48d91729bfbf27e06caa..48fd31c031628c70b1e0952271baccf7f4694810 100644
+--- a/drivers/gpu/drm/imagination/Kconfig
++++ b/drivers/gpu/drm/imagination/Kconfig
+@@ -3,9 +3,10 @@
  
-+  resets:
-+    maxItems: 1
-+
-+  reset-names:
-+    items:
-+      - const: gpu-clkgen
-+
-   "#power-domain-cells":
-     const: 1
- 
+ config DRM_POWERVR
+ 	tristate "Imagination Technologies PowerVR (Series 6 and later) & IMG Graphics"
+-	depends on ARM64
++	depends on (ARM64 || RISCV) || COMPILE_TEST
+ 	depends on DRM
+ 	depends on PM
++	depends on MMU
+ 	select DRM_EXEC
+ 	select DRM_GEM_SHMEM_HELPER
+ 	select DRM_SCHED
 
 -- 
 2.34.1
