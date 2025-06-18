@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F586C7115A
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 16:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63DB6C71157
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 17:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lIKccvfbanjnZElgkRQtDjqURXd7Dr4jTL30BjOI938=; b=IFN+XwKEEAtS94
-	fGs94xAzeJYjHv11+gpjQzxgu+xGOF3EdTtf7cbwMr/ORstSo34mXJXyVsct7EP7EgdfDfTnHcv6B
-	j0kCdfHLr0rqD7M2nMz342vdY/PUJj2awx+J/bPbN8/6pt8r4wuK/va5HTcI+xInrPlazx3J0/tHz
-	q3XYwW0h9FjO05dsXZLanN6e+tH8X4tl9568RZIfJYwBB0Q0eF54uWXGvM2QOdYWLRQu/gkOKDlAg
-	WKPCDiXbo8lDh6BCxElsO9Sin0jzxvo1iE80sCxsV/SEE3OTCcw/+XoA54hIXTaQGjmG/Xr0h0ZZA
-	4RnknpG2cZQTavJxg3+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F36+QYvsKHSe3citolHf9PcCMfWhnwgDgd49hmBMwwg=; b=SDihvo7RgIhlJTI+E1lhVRcysW
+	5KL+d/Y51mHuPcAt46T8sMHmKpMGSf3XSWOuu4Cjdik/07lGDVmNr+djkTY8bFI8rBPmyGu/ZP6FV
+	xMT86ybzJnfrmeHlbflZNkjiMybWNizDS/AUIAXQK0jck+ysEBnR+ZunPL/ScprxvOeefwENmQsXI
+	XyBIBM2KWjiZeACTie4F5gA/QinuATT2updeSFBJ7MTY0w9cNYJDrga6ow5piIRWhGqYeT9gLTcaC
+	VJloJAd6w/Lgxkl9v6gyJmbL/l7DyAy3WTOfuTLhRfo9qEDeCVDRsfMKNOcRz0YhvQeF9Lu/dAUkD
+	myhawexg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRvER-0000000Afai-1q2D;
-	Wed, 18 Jun 2025 16:01:47 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uRwWa-0000000Aqda-3l4m;
+	Wed, 18 Jun 2025 17:24:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrtf-0000000A7kS-0cix
-	for linux-riscv@lists.infradead.org;
-	Wed, 18 Jun 2025 12:28:10 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250618122803euoutp01ffa62e2222aa16cda3b745c24e022dd7~KItBMVlgb3083430834euoutp01Q
-	for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 12:28:03 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250618122803euoutp01ffa62e2222aa16cda3b745c24e022dd7~KItBMVlgb3083430834euoutp01Q
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1750249683;
-	bh=J65JaRuGLW1MK7iS3wcUH4sUEKCN5P+oJvskSjmp6ks=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=lL1q+WJiqA/4uhx1Xc+rnjc8Huxfu1cTzHb3aKC2uqwFjxoRJGzb4PkUIwrdDs3VR
-	 ztUJCCSKcqKiaCfuYXmujHDfv1rC3E41QJu+n4FcCZSIhd802FGJQ6SilLQhDllF/o
-	 uzwWRqOu43QE+ki6La8o0PRivMprnMNnesHDC6bA=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250618122802eucas1p2fb77369f40f70f67ac02658064b4a3ac~KItAip4Gn2280822808eucas1p2P;
-	Wed, 18 Jun 2025 12:28:02 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250618122801eusmtip137970edaf4ab4b09acdca0b16d0e2f18~KIs-X_kYO1801818018eusmtip1k;
-	Wed, 18 Jun 2025 12:28:01 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Wed, 18 Jun 2025 14:27:34 +0200
-Subject: [PATCH v4 1/9] rust: pwm: Add Kconfig and basic data structures
+	id 1uRvXu-0000000Aihj-213a;
+	Wed, 18 Jun 2025 16:21:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1C5975C050D;
+	Wed, 18 Jun 2025 16:19:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B415C4CEE7;
+	Wed, 18 Jun 2025 16:21:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750263713;
+	bh=xUvKBSuldPOnigx+hzuZCqKejVt7Z9jxo9NrGXELnA0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KQdZttsJukv/4wM4VVc7sFVswFh08WCU5NMTrU82y3RhOVfKRy2zj8lwZbwzcn8r4
+	 3ta46oUnWfG8W8n+swtTtTbNd4tEPqvF703KPhTpH8Xj8XkJs7N6lXnZu1C/pSU4mi
+	 f1CvBdnRB8T9PdysOJvF6dRddUoUwxdxgLSTKOItoNAj5HgxIffGmENKq5gpT6O+zO
+	 1RmMfk5rYRcNHgYK8MrVD1OpCquIu2x5uSkd3GWRuxpf+1FABLE9poLkyoQstVIEaL
+	 Jbt38/5IWld0vMwPCqCzfBCU5kQYhfzYxY4ubWek2Vma26WqZd21HO1Kx6z5a8bZ9Y
+	 sxpDM7vhvVNyA==
+Date: Wed, 18 Jun 2025 17:21:46 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org,
+	linux-omap@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 01/12] gpio: mmio: use new GPIO line value setter
+ callbacks
+Message-ID: <95f63f24-2c8f-4f0b-89a9-ddf39a8f2e12@sirena.org.uk>
+References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
+ <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org>
 MIME-Version: 1.0
-Message-Id: <20250618-rust-next-pwm-working-fan-for-sending-v4-1-a6a28f2b6d8a@samsung.com>
-In-Reply-To: <20250618-rust-next-pwm-working-fan-for-sending-v4-0-a6a28f2b6d8a@samsung.com>
-To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
-	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
-	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,  Andreas
-	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,  Trevor
-	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,  Michal
-	Wilczynski <m.wilczynski@samsung.com>, Drew Fustini <drew@pdp7.com>,  Guo
-	Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
-	<conor+dt@kernel.org>,  Paul Walmsley <paul.walmsley@sifive.com>,  Palmer
-	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,  Alexandre
-	Ghiti <alex@ghiti.fr>,  Marek Szyprowski <m.szyprowski@samsung.com>,  Benno
-	Lossin <lossin@kernel.org>,  Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Benno Lossin <lossin@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250618122802eucas1p2fb77369f40f70f67ac02658064b4a3ac
-X-Msg-Generator: CA
-X-RootMTR: 20250618122802eucas1p2fb77369f40f70f67ac02658064b4a3ac
-X-EPHeader: CA
-X-CMS-RootMailID: 20250618122802eucas1p2fb77369f40f70f67ac02658064b4a3ac
-References: <20250618-rust-next-pwm-working-fan-for-sending-v4-0-a6a28f2b6d8a@samsung.com>
-	<CGME20250618122802eucas1p2fb77369f40f70f67ac02658064b4a3ac@eucas1p2.samsung.com>
+In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org>
+X-Cookie: Drop in any mailbox.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_052807_777842_C7FD96C1 
-X-CRM114-Status: GOOD (  21.70  )
+X-CRM114-CacheID: sfid-20250618_092154_611892_F2DC7E1C 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,195 +84,287 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============5483536088392141925=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SW50cm9kdWNlIHRoZSBmb3VuZGF0aW9uYWwgc3VwcG9ydCBmb3IgUFdNIGFic3RyYWN0aW9ucyBp
-biBSdXN0LgoKVGhpcyBjb21taXQgYWRkcyB0aGUgYFJVU1RfUFdNX0FCU1RSQUNUSU9OU2AgS2Nv
-bmZpZyBvcHRpb24gdG8gZW5hYmxlCnRoZSBmZWF0dXJlLCBhbG9uZyB3aXRoIHRoZSBuZWNlc3Nh
-cnkgYnVpbGQtc3lzdGVtIHN1cHBvcnQgYW5kIEMKaGVscGVycy4KCkl0IGFsc28gaW50cm9kdWNl
-cyB0aGUgZmlyc3Qgc2V0IG9mIHNhZmUgd3JhcHBlcnMgZm9yIHRoZSBQV00Kc3Vic3lzdGVtLCBj
-b3ZlcmluZyB0aGUgYmFzaWMgZGF0YSBjYXJyeWluZyBDIHN0cnVjdHMgYW5kIGVudW1zOgotIGBQ
-b2xhcml0eWA6IEEgc2FmZSB3cmFwcGVyIGZvciBgZW51bSBwd21fcG9sYXJpdHlgLgotIGBXYXZl
-Zm9ybWA6IEEgd3JhcHBlciBmb3IgYHN0cnVjdCBwd21fd2F2ZWZvcm1gLgotIGBBcmdzYDogQSB3
-cmFwcGVyIGZvciBgc3RydWN0IHB3bV9hcmdzYC4KLSBgU3RhdGVgOiBBIHdyYXBwZXIgZm9yIGBz
-dHJ1Y3QgcHdtX3N0YXRlYC4KClRoZXNlIHR5cGVzIHByb3ZpZGUgbWVtb3J5IHNhZmUsIGlkaW9t
-YXRpYyBSdXN0IHJlcHJlc2VudGF0aW9ucyBvZiB0aGUKY29yZSBQV00gZGF0YSBzdHJ1Y3R1cmVz
-IGFuZCBmb3JtIHRoZSBidWlsZGluZyBibG9ja3MgZm9yIHRoZQphYnN0cmFjdGlvbnMgdGhhdCB3
-aWxsIGZvbGxvdy4KClNpZ25lZC1vZmYtYnk6IE1pY2hhbCBXaWxjenluc2tpIDxtLndpbGN6eW5z
-a2lAc2Ftc3VuZy5jb20+Ci0tLQogTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICB8ICAg
-NiArKwogZHJpdmVycy9wd20vS2NvbmZpZyAgICAgICAgICAgICB8ICAxMyArKysKIHJ1c3QvYmlu
-ZGluZ3MvYmluZGluZ3NfaGVscGVyLmggfCAgIDEgKwogcnVzdC9oZWxwZXJzL2hlbHBlcnMuYyAg
-ICAgICAgICB8ICAgMSArCiBydXN0L2tlcm5lbC9saWIucnMgICAgICAgICAgICAgIHwgICAyICsK
-IHJ1c3Qva2VybmVsL3B3bS5ycyAgICAgICAgICAgICAgfCAxOTggKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKwogNiBmaWxlcyBjaGFuZ2VkLCAyMjEgaW5zZXJ0aW9ucygr
-KQoKZGlmZiAtLWdpdCBhL01BSU5UQUlORVJTIGIvTUFJTlRBSU5FUlMKaW5kZXggMGMxZDI0NWJm
-N2I4NGY4YTc4YjgxMWUwYzljNWEzZWRjMDllZGMyMi4uYTU3NTYyMjQ1NGEyZWY1N2NlMDU1Yzhh
-OGM0NzY1ZmE0ZmRkYzQ5MCAxMDA2NDQKLS0tIGEvTUFJTlRBSU5FUlMKKysrIGIvTUFJTlRBSU5F
-UlMKQEAgLTIwMDczLDYgKzIwMDczLDEyIEBAIEY6CWluY2x1ZGUvbGludXgvcHdtLmgKIEY6CWlu
-Y2x1ZGUvbGludXgvcHdtX2JhY2tsaWdodC5oCiBLOglwd21fKGNvbmZpZ3xhcHBseV9taWdodF9z
-bGVlcHxhcHBseV9hdG9taWN8b3BzKQogCitQV00gU1VCU1lTVEVNIEJJTkRJTkdTIFtSVVNUXQor
-TToJTWljaGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5bnNraUBzYW1zdW5nLmNvbT4KK1M6CU1haW50
-YWluZWQKK0Y6CXJ1c3QvaGVscGVycy9wd20uYworRjoJcnVzdC9rZXJuZWwvcHdtLnJzCisKIFBY
-QSBHUElPIERSSVZFUgogTToJUm9iZXJ0IEphcnptaWsgPHJvYmVydC5qYXJ6bWlrQGZyZWUuZnI+
-CiBMOglsaW51eC1ncGlvQHZnZXIua2VybmVsLm9yZwpkaWZmIC0tZ2l0IGEvZHJpdmVycy9wd20v
-S2NvbmZpZyBiL2RyaXZlcnMvcHdtL0tjb25maWcKaW5kZXggZDliY2QxZTg0MTNlYWVkMTYwMmQ2
-Njg2ODczZTI2Mzc2N2M1OGY1Zi4uY2ZkZGVhZTBlYWIzNTIzZjA0ZjM2MWZiNDFjY2QxMzQ1YzBj
-OTM3YiAxMDA2NDQKLS0tIGEvZHJpdmVycy9wd20vS2NvbmZpZworKysgYi9kcml2ZXJzL3B3bS9L
-Y29uZmlnCkBAIC03OTAsNCArNzkwLDE3IEBAIGNvbmZpZyBQV01fWElMSU5YCiAJICBUbyBjb21w
-aWxlIHRoaXMgZHJpdmVyIGFzIGEgbW9kdWxlLCBjaG9vc2UgTSBoZXJlOiB0aGUgbW9kdWxlCiAJ
-ICB3aWxsIGJlIGNhbGxlZCBwd20teGlsaW54LgogCisgY29uZmlnIFJVU1RfUFdNX0FCU1RSQUNU
-SU9OUworCWJvb2wgIlJ1c3QgUFdNIGFic3RyYWN0aW9ucyBzdXBwb3J0IgorCWRlcGVuZHMgb24g
-UlVTVAorCWRlcGVuZHMgb24gUFdNPXkKKwloZWxwCisJICBUaGlzIG9wdGlvbiBlbmFibGVzIHRo
-ZSBzYWZlIFJ1c3QgYWJzdHJhY3Rpb24gbGF5ZXIgZm9yIHRoZSBQV00KKwkgIHN1YnN5c3RlbS4g
-SXQgcHJvdmlkZXMgaWRpb21hdGljIHdyYXBwZXJzIGFuZCB0cmFpdHMgbmVjZXNzYXJ5IGZvcgor
-CSAgd3JpdGluZyBQV00gY29udHJvbGxlciBkcml2ZXJzIGluIFJ1c3QuCisKKwkgIFRoZSBhYnN0
-cmFjdGlvbnMgaGFuZGxlIHJlc291cmNlIG1hbmFnZW1lbnQgKGxpa2UgbWVtb3J5IGFuZCByZWZl
-cmVuY2UKKwkgIGNvdW50aW5nKSBhbmQgcHJvdmlkZSBzYWZlIGludGVyZmFjZXMgdG8gdGhlIHVu
-ZGVybHlpbmcgQyBjb3JlLAorCSAgYWxsb3dpbmcgZHJpdmVyIGxvZ2ljIHRvIGJlIHdyaXR0ZW4g
-aW4gc2FmZSBSdXN0LgorCiBlbmRpZgpkaWZmIC0tZ2l0IGEvcnVzdC9iaW5kaW5ncy9iaW5kaW5n
-c19oZWxwZXIuaCBiL3J1c3QvYmluZGluZ3MvYmluZGluZ3NfaGVscGVyLmgKaW5kZXggNjkzY2Rk
-MDFmOTI5MGZhMDEzNzVjZjc4Y2FjMGU1YTkwZGY3NGM2Yy4uNmZlN2RkNTI5NTc3OTUyYmY3YWRi
-NGZlMDUyNmIwZDVmYmQ2ZjNiZCAxMDA2NDQKLS0tIGEvcnVzdC9iaW5kaW5ncy9iaW5kaW5nc19o
-ZWxwZXIuaAorKysgYi9ydXN0L2JpbmRpbmdzL2JpbmRpbmdzX2hlbHBlci5oCkBAIC02NCw2ICs2
-NCw3IEBACiAjaW5jbHVkZSA8bGludXgvcG1fb3BwLmg+CiAjaW5jbHVkZSA8bGludXgvcG9sbC5o
-PgogI2luY2x1ZGUgPGxpbnV4L3Byb3BlcnR5Lmg+CisjaW5jbHVkZSA8bGludXgvcHdtLmg+CiAj
-aW5jbHVkZSA8bGludXgvcmVmY291bnQuaD4KICNpbmNsdWRlIDxsaW51eC9zY2hlZC5oPgogI2lu
-Y2x1ZGUgPGxpbnV4L3NlY3VyaXR5Lmg+CmRpZmYgLS1naXQgYS9ydXN0L2hlbHBlcnMvaGVscGVy
-cy5jIGIvcnVzdC9oZWxwZXJzL2hlbHBlcnMuYwppbmRleCAxNmZhOWJjYTU5NDliODVlOGQ0Y2Rj
-ZmU4ZTY4ODYxMjRmNzJkOGQ4Li42MDg3OWU2ZDc5NGNlMGY4N2UzOWNhYWZjNTQ5NWJmNWU4YWNm
-OGYwIDEwMDY0NAotLS0gYS9ydXN0L2hlbHBlcnMvaGVscGVycy5jCisrKyBiL3J1c3QvaGVscGVy
-cy9oZWxwZXJzLmMKQEAgLTMxLDYgKzMxLDcgQEAKICNpbmNsdWRlICJwbGF0Zm9ybS5jIgogI2lu
-Y2x1ZGUgInBjaS5jIgogI2luY2x1ZGUgInBpZF9uYW1lc3BhY2UuYyIKKyNpbmNsdWRlICJwd20u
-YyIKICNpbmNsdWRlICJyYnRyZWUuYyIKICNpbmNsdWRlICJyY3UuYyIKICNpbmNsdWRlICJyZWZj
-b3VudC5jIgpkaWZmIC0tZ2l0IGEvcnVzdC9rZXJuZWwvbGliLnJzIGIvcnVzdC9rZXJuZWwvbGli
-LnJzCmluZGV4IDZiNDc3NGIyYjFjMzdmNGRhMTg2NmU5OTNiZTYyMzBiYzY3MTU4NDEuLmNlMWQw
-OGIxNGU0NTY5MDVkYmU3YjYyNWJiYjhjYThiMDhkZWFlMmEgMTAwNjQ0Ci0tLSBhL3J1c3Qva2Vy
-bmVsL2xpYi5ycworKysgYi9ydXN0L2tlcm5lbC9saWIucnMKQEAgLTEwNSw2ICsxMDUsOCBAQAog
-cHViIG1vZCBzZXFfZmlsZTsKIHB1YiBtb2Qgc2l6ZXM7CiBtb2Qgc3RhdGljX2Fzc2VydDsKKyNb
-Y2ZnKENPTkZJR19SVVNUX1BXTV9BQlNUUkFDVElPTlMpXQorcHViIG1vZCBwd207CiAjW2RvYyho
-aWRkZW4pXQogcHViIG1vZCBzdGRfdmVuZG9yOwogcHViIG1vZCBzdHI7CmRpZmYgLS1naXQgYS9y
-dXN0L2tlcm5lbC9wd20ucnMgYi9ydXN0L2tlcm5lbC9wd20ucnMKbmV3IGZpbGUgbW9kZSAxMDA2
-NDQKaW5kZXggMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMC4uZWQ2ODFi
-MjI4YzQxNGU3YWU4YmY4MGNhNjQ5YWQ0OTdjOWRjNGVjMwotLS0gL2Rldi9udWxsCisrKyBiL3J1
-c3Qva2VybmVsL3B3bS5ycwpAQCAtMCwwICsxLDE5OCBAQAorLy8gU1BEWC1MaWNlbnNlLUlkZW50
-aWZpZXI6IEdQTC0yLjAKKy8vIENvcHlyaWdodCAoYykgMjAyNSBTYW1zdW5nIEVsZWN0cm9uaWNz
-IENvLiwgTHRkLgorLy8gQXV0aG9yOiBNaWNoYWwgV2lsY3p5bnNraSA8bS53aWxjenluc2tpQHNh
-bXN1bmcuY29tPgorCisvLyEgUFdNIHN1YnN5c3RlbSBhYnN0cmFjdGlvbnMuCisvLyEKKy8vISBD
-IGhlYWRlcjogW2BpbmNsdWRlL2xpbnV4L3B3bS5oYF0oc3JjdHJlZS9pbmNsdWRlL2xpbnV4L3B3
-bS5oKS4KKwordXNlIGNyYXRlOjp7CisgICAgYmluZGluZ3MsCisgICAgcHJlbHVkZTo6KiwKKyAg
-ICB0eXBlczo6T3BhcXVlLAorfTsKK3VzZSBjb3JlOjpjb252ZXJ0OjpUcnlGcm9tOworCisvLy8g
-TWF4aW11bSBzaXplIGZvciB0aGUgaGFyZHdhcmUtc3BlY2lmaWMgd2F2ZWZvcm0gcmVwcmVzZW50
-YXRpb24gYnVmZmVyLgorLy8vCisvLy8gRnJvbSBDOiBgI2RlZmluZSBXRkhXU0laRSAyMGAKK3B1
-YiBjb25zdCBXRkhXX01BWF9TSVpFOiB1c2l6ZSA9IDIwOworCisvLy8gUFdNIHBvbGFyaXR5LiBN
-aXJyb3JzIFtgZW51bSBwd21fcG9sYXJpdHlgXShzcmN0cmVlL2luY2x1ZGUvbGludXgvcHdtLmgp
-LgorI1tkZXJpdmUoQ29weSwgQ2xvbmUsIERlYnVnLCBQYXJ0aWFsRXEsIEVxKV0KK3B1YiBlbnVt
-IFBvbGFyaXR5IHsKKyAgICAvLy8gTm9ybWFsIHBvbGFyaXR5IChkdXR5IGN5Y2xlIGRlZmluZXMg
-dGhlIGhpZ2ggcGVyaW9kIG9mIHRoZSBzaWduYWwpLgorICAgIE5vcm1hbCwKKworICAgIC8vLyBJ
-bnZlcnNlZCBwb2xhcml0eSAoZHV0eSBjeWNsZSBkZWZpbmVzIHRoZSBsb3cgcGVyaW9kIG9mIHRo
-ZSBzaWduYWwpLgorICAgIEludmVyc2VkLAorfQorCitpbXBsIFRyeUZyb208YmluZGluZ3M6OnB3
-bV9wb2xhcml0eT4gZm9yIFBvbGFyaXR5IHsKKyAgICB0eXBlIEVycm9yID0gRXJyb3I7CisKKyAg
-ICBmbiB0cnlfZnJvbShwb2xhcml0eTogYmluZGluZ3M6OnB3bV9wb2xhcml0eSkgLT4gUmVzdWx0
-PFNlbGYsIEVycm9yPiB7CisgICAgICAgIG1hdGNoIHBvbGFyaXR5IHsKKyAgICAgICAgICAgIGJp
-bmRpbmdzOjpwd21fcG9sYXJpdHlfUFdNX1BPTEFSSVRZX05PUk1BTCA9PiBPayhQb2xhcml0eTo6
-Tm9ybWFsKSwKKyAgICAgICAgICAgIGJpbmRpbmdzOjpwd21fcG9sYXJpdHlfUFdNX1BPTEFSSVRZ
-X0lOVkVSU0VEID0+IE9rKFBvbGFyaXR5OjpJbnZlcnNlZCksCisgICAgICAgICAgICBfID0+IEVy
-cihFSU5WQUwpLAorICAgICAgICB9CisgICAgfQorfQorCitpbXBsIEZyb208UG9sYXJpdHk+IGZv
-ciBiaW5kaW5nczo6cHdtX3BvbGFyaXR5IHsKKyAgICBmbiBmcm9tKHBvbGFyaXR5OiBQb2xhcml0
-eSkgLT4gU2VsZiB7CisgICAgICAgIG1hdGNoIHBvbGFyaXR5IHsKKyAgICAgICAgICAgIFBvbGFy
-aXR5OjpOb3JtYWwgPT4gYmluZGluZ3M6OnB3bV9wb2xhcml0eV9QV01fUE9MQVJJVFlfTk9STUFM
-LAorICAgICAgICAgICAgUG9sYXJpdHk6OkludmVyc2VkID0+IGJpbmRpbmdzOjpwd21fcG9sYXJp
-dHlfUFdNX1BPTEFSSVRZX0lOVkVSU0VELAorICAgICAgICB9CisgICAgfQorfQorCisvLy8gUmVw
-cmVzZW50cyBhIFBXTSB3YXZlZm9ybSBjb25maWd1cmF0aW9uLgorLy8vIE1pcnJvcnMgc3RydWN0
-IFtgc3RydWN0IHB3bV93YXZlZm9ybWBdKHNyY3RyZWUvaW5jbHVkZS9saW51eC9wd20uaCkuCisj
-W2Rlcml2ZShDb3B5LCBDbG9uZSwgRGVidWcsIERlZmF1bHQsIFBhcnRpYWxFcSwgRXEpXQorcHVi
-IHN0cnVjdCBXYXZlZm9ybSB7CisgICAgLy8vIFRvdGFsIGR1cmF0aW9uIG9mIG9uZSBjb21wbGV0
-ZSBQV00gY3ljbGUsIGluIG5hbm9zZWNvbmRzLgorICAgIHB1YiBwZXJpb2RfbGVuZ3RoX25zOiB1
-NjQsCisKKyAgICAvLy8gRHV0eS1jeWNsZSBhY3RpdmUgdGltZSwgaW4gbmFub3NlY29uZHMuCisg
-ICAgLy8vCisgICAgLy8vIEZvciBhIHR5cGljYWwgbm9ybWFsIHBvbGFyaXR5IGNvbmZpZ3VyYXRp
-b24gKGFjdGl2ZS1oaWdoKSB0aGlzIGlzIHRoZQorICAgIC8vLyBoaWdoIHRpbWUgb2YgdGhlIHNp
-Z25hbC4KKyAgICBwdWIgZHV0eV9sZW5ndGhfbnM6IHU2NCwKKworICAgIC8vLyBEdXR5LWN5Y2xl
-IHN0YXJ0IG9mZnNldCwgaW4gbmFub3NlY29uZHMuCisgICAgLy8vCisgICAgLy8vIERlbGF5IGZy
-b20gdGhlIGJlZ2lubmluZyBvZiB0aGUgcGVyaW9kIHRvIHRoZSBmaXJzdCBhY3RpdmUgZWRnZS4K
-KyAgICAvLy8gSW4gbW9zdCBzaW1wbGUgUFdNIHNldHVwcyB0aGlzIGlzIGAwYCwgc28gdGhlIGR1
-dHkgY3ljbGUgc3RhcnRzCisgICAgLy8vIGltbWVkaWF0ZWx5IGF0IGVhY2ggcGVyaW9k4oCZcyBz
-dGFydC4KKyAgICBwdWIgZHV0eV9vZmZzZXRfbnM6IHU2NCwKK30KKworaW1wbCBGcm9tPGJpbmRp
-bmdzOjpwd21fd2F2ZWZvcm0+IGZvciBXYXZlZm9ybSB7CisgICAgZm4gZnJvbSh3ZjogYmluZGlu
-Z3M6OnB3bV93YXZlZm9ybSkgLT4gU2VsZiB7CisgICAgICAgIFdhdmVmb3JtIHsKKyAgICAgICAg
-ICAgIHBlcmlvZF9sZW5ndGhfbnM6IHdmLnBlcmlvZF9sZW5ndGhfbnMsCisgICAgICAgICAgICBk
-dXR5X2xlbmd0aF9uczogd2YuZHV0eV9sZW5ndGhfbnMsCisgICAgICAgICAgICBkdXR5X29mZnNl
-dF9uczogd2YuZHV0eV9vZmZzZXRfbnMsCisgICAgICAgIH0KKyAgICB9Cit9CisKK2ltcGwgRnJv
-bTxXYXZlZm9ybT4gZm9yIGJpbmRpbmdzOjpwd21fd2F2ZWZvcm0geworICAgIGZuIGZyb20od2Y6
-IFdhdmVmb3JtKSAtPiBTZWxmIHsKKyAgICAgICAgYmluZGluZ3M6OnB3bV93YXZlZm9ybSB7Cisg
-ICAgICAgICAgICBwZXJpb2RfbGVuZ3RoX25zOiB3Zi5wZXJpb2RfbGVuZ3RoX25zLAorICAgICAg
-ICAgICAgZHV0eV9sZW5ndGhfbnM6IHdmLmR1dHlfbGVuZ3RoX25zLAorICAgICAgICAgICAgZHV0
-eV9vZmZzZXRfbnM6IHdmLmR1dHlfb2Zmc2V0X25zLAorICAgICAgICB9CisgICAgfQorfQorCisv
-Ly8gV3JhcHBlciBmb3IgYm9hcmQtZGVwZW5kZW50IFBXTSBhcmd1bWVudHMgW2BzdHJ1Y3QgcHdt
-X2FyZ3NgXShzcmN0cmVlL2luY2x1ZGUvbGludXgvcHdtLmgpLgorI1tyZXByKHRyYW5zcGFyZW50
-KV0KK3B1YiBzdHJ1Y3QgQXJncyhPcGFxdWU8YmluZGluZ3M6OnB3bV9hcmdzPik7CisKK2ltcGwg
-QXJncyB7CisgICAgLy8vIENyZWF0ZXMgYW4gYEFyZ3NgIHdyYXBwZXIgZnJvbSBhIEMgc3RydWN0
-IHBvaW50ZXIuCisgICAgLy8vCisgICAgLy8vICMgU2FmZXR5CisgICAgLy8vCisgICAgLy8vIFRo
-ZSBjYWxsZXIgbXVzdCBlbnN1cmUgdGhhdCBgY19hcmdzX3B0cmAgaXMgYSB2YWxpZCwgbm9uLW51
-bGwgcG9pbnRlcgorICAgIC8vLyB0byBgYmluZGluZ3M6OnB3bV9hcmdzYCBhbmQgdGhhdCB0aGUg
-cG9pbnRlZC10byBkYXRhIGlzIHZhbGlkCisgICAgLy8vIGZvciB0aGUgZHVyYXRpb24gb2YgdGhp
-cyBmdW5jdGlvbiBjYWxsIChhcyBkYXRhIGlzIGNvcGllZCkuCisgICAgdW5zYWZlIGZuIGZyb21f
-Y19wdHIoY19hcmdzX3B0cjogKmNvbnN0IGJpbmRpbmdzOjpwd21fYXJncykgLT4gU2VsZiB7Cisg
-ICAgICAgIC8vIFNBRkVUWTogQ2FsbGVyIGd1YXJhbnRlZXMgYGNfYXJnc19wdHJgIGlzIHZhbGlk
-LiBXZSBkZXJlZmVyZW5jZSBpdCB0byBjb3B5LgorICAgICAgICBBcmdzKE9wYXF1ZTo6bmV3KHVu
-c2FmZSB7ICpjX2FyZ3NfcHRyIH0pKQorICAgIH0KKworICAgIC8vLyBSZXR1cm5zIHRoZSBwZXJp
-b2Qgb2YgdGhlIFBXTSBzaWduYWwgaW4gbmFub3NlY29uZHMuCisgICAgcHViIGZuIHBlcmlvZCgm
-c2VsZikgLT4gdTY0IHsKKyAgICAgICAgLy8gU0FGRVRZOiBgc2VsZi4wLmdldCgpYCByZXR1cm5z
-IGEgcG9pbnRlciB0byB0aGUgYGJpbmRpbmdzOjpwd21fYXJnc2AKKyAgICAgICAgLy8gbWFuYWdl
-ZCBieSB0aGUgYE9wYXF1ZWAgd3JhcHBlci4gVGhpcyBwb2ludGVyIGlzIGd1YXJhbnRlZWQgdG8g
-YmUKKyAgICAgICAgLy8gdmFsaWQgYW5kIGFsaWduZWQgZm9yIHRoZSBsaWZldGltZSBvZiBgc2Vs
-ZmAgYmVjYXVzZSBgT3BhcXVlYCBvd25zIGEgY29weS4KKyAgICAgICAgdW5zYWZlIHsgKCpzZWxm
-LjAuZ2V0KCkpLnBlcmlvZCB9CisgICAgfQorCisgICAgLy8vIFJldHVybnMgdGhlIHBvbGFyaXR5
-IG9mIHRoZSBQV00gc2lnbmFsLgorICAgIHB1YiBmbiBwb2xhcml0eSgmc2VsZikgLT4gUmVzdWx0
-PFBvbGFyaXR5LCBFcnJvcj4geworICAgICAgICAvLyBTQUZFVFk6IGBzZWxmLjAuZ2V0KClgIHJl
-dHVybnMgYSBwb2ludGVyIHRvIHRoZSBgYmluZGluZ3M6OnB3bV9hcmdzYAorICAgICAgICAvLyBt
-YW5hZ2VkIGJ5IHRoZSBgT3BhcXVlYCB3cmFwcGVyLiBUaGlzIHBvaW50ZXIgaXMgZ3VhcmFudGVl
-ZCB0byBiZQorICAgICAgICAvLyB2YWxpZCBhbmQgYWxpZ25lZCBmb3IgdGhlIGxpZmV0aW1lIG9m
-IGBzZWxmYC4KKyAgICAgICAgbGV0IHJhd19wb2xhcml0eSA9IHVuc2FmZSB7ICgqc2VsZi4wLmdl
-dCgpKS5wb2xhcml0eSB9OworICAgICAgICBQb2xhcml0eTo6dHJ5X2Zyb20ocmF3X3BvbGFyaXR5
-KQorICAgIH0KK30KKworLy8vIFdyYXBwZXIgZm9yIFBXTSBzdGF0ZSBbYHN0cnVjdCBwd21fc3Rh
-dGVgXShzcmN0cmVlL2luY2x1ZGUvbGludXgvcHdtLmgpLgorI1tyZXByKHRyYW5zcGFyZW50KV0K
-K3B1YiBzdHJ1Y3QgU3RhdGUoYmluZGluZ3M6OnB3bV9zdGF0ZSk7CisKK2ltcGwgRGVmYXVsdCBm
-b3IgU3RhdGUgeworICAgIGZuIGRlZmF1bHQoKSAtPiBTZWxmIHsKKyAgICAgICAgU2VsZjo6bmV3
-KCkKKyAgICB9Cit9CisKK2ltcGwgU3RhdGUgeworICAgIC8vLyBDcmVhdGVzIGEgbmV3IHplcm9l
-ZCBgU3RhdGVgLgorICAgIHB1YiBmbiBuZXcoKSAtPiBTZWxmIHsKKyAgICAgICAgU3RhdGUoYmlu
-ZGluZ3M6OnB3bV9zdGF0ZTo6ZGVmYXVsdCgpKQorICAgIH0KKworICAgIC8vLyBDcmVhdGVzIGEg
-YFN0YXRlYCB3cmFwcGVyIGJ5IHRha2luZyBvd25lcnNoaXAgb2YgYSBDIGBwd21fc3RhdGVgIHZh
-bHVlLgorICAgIHB1YihjcmF0ZSkgZm4gZnJvbV9jKGNfc3RhdGU6IGJpbmRpbmdzOjpwd21fc3Rh
-dGUpIC0+IFNlbGYgeworICAgICAgICBTdGF0ZShjX3N0YXRlKQorICAgIH0KKworICAgIC8vLyBH
-ZXRzIHRoZSBwZXJpb2Qgb2YgdGhlIFBXTSBzaWduYWwgaW4gbmFub3NlY29uZHMuCisgICAgcHVi
-IGZuIHBlcmlvZCgmc2VsZikgLT4gdTY0IHsKKyAgICAgICAgc2VsZi4wLnBlcmlvZAorICAgIH0K
-KworICAgIC8vLyBTZXRzIHRoZSBwZXJpb2Qgb2YgdGhlIFBXTSBzaWduYWwgaW4gbmFub3NlY29u
-ZHMuCisgICAgcHViIGZuIHNldF9wZXJpb2QoJm11dCBzZWxmLCBwZXJpb2RfbnM6IHU2NCkgewor
-ICAgICAgICBzZWxmLjAucGVyaW9kID0gcGVyaW9kX25zOworICAgIH0KKworICAgIC8vLyBHZXRz
-IHRoZSBkdXR5IGN5Y2xlIG9mIHRoZSBQV00gc2lnbmFsIGluIG5hbm9zZWNvbmRzLgorICAgIHB1
-YiBmbiBkdXR5X2N5Y2xlKCZzZWxmKSAtPiB1NjQgeworICAgICAgICBzZWxmLjAuZHV0eV9jeWNs
-ZQorICAgIH0KKworICAgIC8vLyBTZXRzIHRoZSBkdXR5IGN5Y2xlIG9mIHRoZSBQV00gc2lnbmFs
-IGluIG5hbm9zZWNvbmRzLgorICAgIHB1YiBmbiBzZXRfZHV0eV9jeWNsZSgmbXV0IHNlbGYsIGR1
-dHlfbnM6IHU2NCkgeworICAgICAgICBzZWxmLjAuZHV0eV9jeWNsZSA9IGR1dHlfbnM7CisgICAg
-fQorCisgICAgLy8vIFJldHVybnMgYHRydWVgIGlmIHRoZSBQV00gc2lnbmFsIGlzIGVuYWJsZWQu
-CisgICAgcHViIGZuIGVuYWJsZWQoJnNlbGYpIC0+IGJvb2wgeworICAgICAgICBzZWxmLjAuZW5h
-YmxlZAorICAgIH0KKworICAgIC8vLyBTZXRzIHRoZSBlbmFibGVkIHN0YXRlIG9mIHRoZSBQV00g
-c2lnbmFsLgorICAgIHB1YiBmbiBzZXRfZW5hYmxlZCgmbXV0IHNlbGYsIGVuYWJsZWQ6IGJvb2wp
-IHsKKyAgICAgICAgc2VsZi4wLmVuYWJsZWQgPSBlbmFibGVkOworICAgIH0KKworICAgIC8vLyBH
-ZXRzIHRoZSBwb2xhcml0eSBvZiB0aGUgUFdNIHNpZ25hbC4KKyAgICBwdWIgZm4gcG9sYXJpdHko
-JnNlbGYpIC0+IFJlc3VsdDxQb2xhcml0eSwgRXJyb3I+IHsKKyAgICAgICAgUG9sYXJpdHk6OnRy
-eV9mcm9tKHNlbGYuMC5wb2xhcml0eSkKKyAgICB9CisKKyAgICAvLy8gU2V0cyB0aGUgcG9sYXJp
-dHkgb2YgdGhlIFBXTSBzaWduYWwuCisgICAgcHViIGZuIHNldF9wb2xhcml0eSgmbXV0IHNlbGYs
-IHBvbGFyaXR5OiBQb2xhcml0eSkgeworICAgICAgICBzZWxmLjAucG9sYXJpdHkgPSBwb2xhcml0
-eS5pbnRvKCk7CisgICAgfQorCisgICAgLy8vIFJldHVybnMgYHRydWVgIGlmIHRoZSBQV00gc2ln
-bmFsIGlzIGNvbmZpZ3VyZWQgZm9yIHBvd2VyIHVzYWdlIGhpbnQuCisgICAgcHViIGZuIHVzYWdl
-X3Bvd2VyKCZzZWxmKSAtPiBib29sIHsKKyAgICAgICAgc2VsZi4wLnVzYWdlX3Bvd2VyCisgICAg
-fQorCisgICAgLy8vIFNldHMgdGhlIHBvd2VyIHVzYWdlIGhpbnQgZm9yIHRoZSBQV00gc2lnbmFs
-LgorICAgIHB1YiBmbiBzZXRfdXNhZ2VfcG93ZXIoJm11dCBzZWxmLCB1c2FnZV9wb3dlcjogYm9v
-bCkgeworICAgICAgICBzZWxmLjAudXNhZ2VfcG93ZXIgPSB1c2FnZV9wb3dlcjsKKyAgICB9Cit9
-CgotLSAKMi4zNC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+
+--===============5483536088392141925==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Se8mI+hslVIXz9hL"
+Content-Disposition: inline
+
+
+--Se8mI+hslVIXz9hL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jun 10, 2025 at 02:33:11PM +0200, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>=20
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+
+I'm seeing boot failures on a UDOOq (an i.MX6 based board) in -next
+today which bisect to this patch (in -next as b908d35d0003cc7).  We get
+a NULL pointer dereference during boot while probing the poweroff driver
+for the system:
+
+[    0.443319] Unable to handle kernel NULL pointer dereference at virtual =
+address 00000000 when execute
+[    0.443330] [00000000] *pgd=3D00000000
+[    0.443347] Internal error: Oops: 80000005 [#2] SMP ARM
+
+=2E..
+
+[    2.522761]  bgpio_dir_out_val_first from gpiod_direction_output_raw_com=
+mit+0x194/0x390
+[    2.533330]  gpiod_direction_output_raw_commit from gpiod_find_and_reque=
+st+0x134/0x434
+[    2.541276]  gpiod_find_and_request from gpiod_get_index+0x58/0x70
+[    2.547482]  gpiod_get_index from devm_gpiod_get_index+0x10/0x78
+[    2.553516]  devm_gpiod_get_index from gpio_poweroff_probe+0xe8/0x174
+[    2.559990]  gpio_poweroff_probe from platform_probe+0x5c/0xb4
+
+Full boot log:
+
+    https://lava.sirena.org.uk/scheduler/job/1485011#L752
+
+bisect log:
+
+# bad: [6e5ab6fee68df8c40b338baeae6e269fa25a7e25] Add linux-next specific f=
+iles for 20250618
+# good: [94466168a05ed9aa92afdd54efcd89b3b227650d] Merge branch 'for-linux-=
+next-fixes' of https://gitlab.freedesktop.org/drm/misc/kernel.git
+# good: [3e1c01d06e1f52f78fe00ef26a9cf80dbb0a3115] regulator: rpi-panel-v2:=
+ Add shutdown hook
+# good: [d9f38d9824bfb1b046d2e720349d2f45959ab184] ASoC: tegra: AHUB: Remov=
+e unneeded semicolon
+# good: [dce4bc30f42d313b4dc5832316196411b7f07ad0] spi: spi-fsl-dspi: Rever=
+t unintended dependency change in config SPI_FSL_DSPI
+# good: [47972c1c3315672352f25c68f91dd88543541947] ASoC: Intel: Replace dep=
+recated strcpy() with strscpy()
+# good: [5eb8a0d7733d4cd32a776acf1d1aa1c7c01c8a14] ASoC: hdmi-codec: use SN=
+D_JACK_AVOUT as jack status
+# good: [bb8d8ba4715cb8f997d63d90ba935f6073595df5] ASoC: mediatek: mt8183-a=
+fe-pcm: use local `dev` pointer in driver callbacks
+# good: [8a5a5cecb79058b608e5562d8998123a3adb313c] ASoC: tas2781: Move the =
+"include linux/debugfs.h" into tas2781.h
+# good: [a4eb71ff98c4792f441f108910bd829da7a04092] regulator: rpi-panel-v2:=
+ Fix missing OF dependency
+# good: [6cafcc53eb5fffd9b9bdfde700bb9bad21e98ed3] spi: spi-mt65xx: Add sup=
+port for MT6991 Dimensity 9400 SPI IPM
+# good: [7e10d7242ea8a5947878880b912ffa5806520705] ASoC: ops: dynamically a=
+llocate struct snd_ctl_elem_value
+# good: [d6fa0ca959db8efd4462d7beef4bdc5568640fd0] regulator: rpi-panel-v2:=
+ Add missing GPIOLIB dependency
+# good: [d49305862fdc4d9ff1b1093b4ed7d8e0cb9971b4] regulator: rpi-panel-v2:=
+ Add regulator for 7" Raspberry Pi 720x1280
+# good: [6ba68e5aa9d5d15c8877a655db279fcfc0b38b04] ASoC: renesas: msiof: Co=
+nvert to <linux/spi/sh_msiof.h>
+# good: [1f5cdb6ab45e1c06ae0953609acbb52f8946b3e8] ASoC: codecs: Add suppor=
+t for Richtek RTQ9124
+# good: [c459262159f39e6e6336797feb975799344b749b] spi: spi-pci1xxxx: Add s=
+upport for 25MHz Clock frequency in C0
+# good: [548d770c330cd1027549947a6ea899c56b5bc4e4] regulator: pca9450: Add =
+support for mode operations
+# good: [03b778d1994827ea5cc971dbdfbb457bbb7bfa5d] ASOC: rockchip: Use help=
+er function devm_clk_get_enabled()
+# good: [267be32b0a7b70cc777f8a46f0904c92c0521d89] ASoC: remove component->=
+id
+# good: [111a2c8ab462d77d1519b71b46f13ae1b46920b4] ASoC: imx-card: Use help=
+er function for_each_child_of_node_scoped()
+# good: [f6f914893d478b7ba08e5c375de1ced16deb5e92] ASoC: dt-bindings: tas57=
+xx: add tas5753 compatibility
+# good: [9a30e332c36c52e92e5316b4a012d45284dedeb5] spi: spi-fsl-dspi: Enabl=
+e support for S32G platforms
+# good: [c95e925daa434ee1a40a86aec6476ce588e4bd77] ASoC: Intel: avs: Add rt=
+5640 machine board
+# good: [c8c4694ede7ed42d8d4db0e8927dea9839a3e248] regmap: kunit: Constify =
+regmap_range_cfg array
+# good: [e6e8897995a9e6028563ce36c27877e5478c8571] ASoC: qcom: sm8250: Add =
+Fairphone 5 soundcard compatible
+# good: [b9ecde0bcf6a99a3ff08496d4ba90a385ebbfd68] ASoC: codecs: wcd939x: A=
+dd VDD_PX supply
+# good: [ac209bde018fd320b79976657a44c23113181af6] ASoC: tas2781: Drop the =
+unnecessary symbol imply
+# good: [ece5d881004f041c2e1493436409dbcbea3ad5f8] ASoC: codecs: wcd939x: D=
+rop unused 'struct wcd939x_priv' fields
+# good: [7e17e80c3a7eb2734795f66ba946f933412d597f] Merge branch 'for-6.14/s=
+tack-order' into for-next
+git bisect start '6e5ab6fee68df8c40b338baeae6e269fa25a7e25' '94466168a05ed9=
+aa92afdd54efcd89b3b227650d' '3e1c01d06e1f52f78fe00ef26a9cf80dbb0a3115' 'd9f=
+38d9824bfb1b046d2e720349d2f45959ab184' 'dce4bc30f42d313b4dc5832316196411b7f=
+07ad0' '47972c1c3315672352f25c68f91dd88543541947' '5eb8a0d7733d4cd32a776acf=
+1d1aa1c7c01c8a14' 'bb8d8ba4715cb8f997d63d90ba935f6073595df5' '8a5a5cecb7905=
+8b608e5562d8998123a3adb313c' 'a4eb71ff98c4792f441f108910bd829da7a04092' '6c=
+afcc53eb5fffd9b9bdfde700bb9bad21e98ed3' '7e10d7242ea8a5947878880b912ffa5806=
+520705' 'd6fa0ca959db8efd4462d7beef4bdc5568640fd0' 'd49305862fdc4d9ff1b1093=
+b4ed7d8e0cb9971b4' '6ba68e5aa9d5d15c8877a655db279fcfc0b38b04' '1f5cdb6ab45e=
+1c06ae0953609acbb52f8946b3e8' 'c459262159f39e6e6336797feb975799344b749b' '5=
+48d770c330cd1027549947a6ea899c56b5bc4e4' '03b778d1994827ea5cc971dbdfbb457bb=
+b7bfa5d' '267be32b0a7b70cc777f8a46f0904c92c0521d89' '111a2c8ab462d77d1519b7=
+1b46f13ae1b46920b4' 'f6f914893d478b7ba08e5c375de1ced16deb5e92' '9a30e332c36=
+c52e92e5316b4a012d45284dedeb5' 'c95e925daa434ee1a40a86aec6476ce588e4bd77' '=
+c8c4694ede7ed42d8d4db0e8927dea9839a3e248' 'e6e8897995a9e6028563ce36c27877e5=
+478c8571' 'b9ecde0bcf6a99a3ff08496d4ba90a385ebbfd68' 'ac209bde018fd320b7997=
+6657a44c23113181af6' 'ece5d881004f041c2e1493436409dbcbea3ad5f8' '7e17e80c3a=
+7eb2734795f66ba946f933412d597f'
+# test job: [3e1c01d06e1f52f78fe00ef26a9cf80dbb0a3115] https://lava.sirena.=
+org.uk/scheduler/job/1481662
+# test job: [d9f38d9824bfb1b046d2e720349d2f45959ab184] https://lava.sirena.=
+org.uk/scheduler/job/1481666
+# test job: [dce4bc30f42d313b4dc5832316196411b7f07ad0] https://lava.sirena.=
+org.uk/scheduler/job/1479434
+# test job: [47972c1c3315672352f25c68f91dd88543541947] https://lava.sirena.=
+org.uk/scheduler/job/1479486
+# test job: [5eb8a0d7733d4cd32a776acf1d1aa1c7c01c8a14] https://lava.sirena.=
+org.uk/scheduler/job/1474632
+# test job: [bb8d8ba4715cb8f997d63d90ba935f6073595df5] https://lava.sirena.=
+org.uk/scheduler/job/1472186
+# test job: [8a5a5cecb79058b608e5562d8998123a3adb313c] https://lava.sirena.=
+org.uk/scheduler/job/1471943
+# test job: [a4eb71ff98c4792f441f108910bd829da7a04092] https://lava.sirena.=
+org.uk/scheduler/job/1469028
+# test job: [6cafcc53eb5fffd9b9bdfde700bb9bad21e98ed3] https://lava.sirena.=
+org.uk/scheduler/job/1469031
+# test job: [7e10d7242ea8a5947878880b912ffa5806520705] https://lava.sirena.=
+org.uk/scheduler/job/1466093
+# test job: [d6fa0ca959db8efd4462d7beef4bdc5568640fd0] https://lava.sirena.=
+org.uk/scheduler/job/1464729
+# test job: [d49305862fdc4d9ff1b1093b4ed7d8e0cb9971b4] https://lava.sirena.=
+org.uk/scheduler/job/1463110
+# test job: [6ba68e5aa9d5d15c8877a655db279fcfc0b38b04] https://lava.sirena.=
+org.uk/scheduler/job/1463434
+# test job: [1f5cdb6ab45e1c06ae0953609acbb52f8946b3e8] https://lava.sirena.=
+org.uk/scheduler/job/1463022
+# test job: [c459262159f39e6e6336797feb975799344b749b] https://lava.sirena.=
+org.uk/scheduler/job/1461222
+# test job: [548d770c330cd1027549947a6ea899c56b5bc4e4] https://lava.sirena.=
+org.uk/scheduler/job/1460610
+# test job: [03b778d1994827ea5cc971dbdfbb457bbb7bfa5d] https://lava.sirena.=
+org.uk/scheduler/job/1461219
+# test job: [267be32b0a7b70cc777f8a46f0904c92c0521d89] https://lava.sirena.=
+org.uk/scheduler/job/1461158
+# test job: [111a2c8ab462d77d1519b71b46f13ae1b46920b4] https://lava.sirena.=
+org.uk/scheduler/job/1459889
+# test job: [f6f914893d478b7ba08e5c375de1ced16deb5e92] https://lava.sirena.=
+org.uk/scheduler/job/1460442
+# test job: [9a30e332c36c52e92e5316b4a012d45284dedeb5] https://lava.sirena.=
+org.uk/scheduler/job/1460919
+# test job: [c95e925daa434ee1a40a86aec6476ce588e4bd77] https://lava.sirena.=
+org.uk/scheduler/job/1461120
+# test job: [c8c4694ede7ed42d8d4db0e8927dea9839a3e248] https://lava.sirena.=
+org.uk/scheduler/job/1460230
+# test job: [e6e8897995a9e6028563ce36c27877e5478c8571] https://lava.sirena.=
+org.uk/scheduler/job/1460605
+# test job: [b9ecde0bcf6a99a3ff08496d4ba90a385ebbfd68] https://lava.sirena.=
+org.uk/scheduler/job/1460221
+# test job: [ac209bde018fd320b79976657a44c23113181af6] https://lava.sirena.=
+org.uk/scheduler/job/1460665
+# test job: [ece5d881004f041c2e1493436409dbcbea3ad5f8] https://lava.sirena.=
+org.uk/scheduler/job/1461108
+# test job: [7e17e80c3a7eb2734795f66ba946f933412d597f] https://lava.sirena.=
+org.uk/scheduler/job/1127031
+# test job: [6e5ab6fee68df8c40b338baeae6e269fa25a7e25] https://lava.sirena.=
+org.uk/scheduler/job/1485029
+# bad: [6e5ab6fee68df8c40b338baeae6e269fa25a7e25] Add linux-next specific f=
+iles for 20250618
+git bisect bad 6e5ab6fee68df8c40b338baeae6e269fa25a7e25
+# test job: [5f792b60601e6bf7a9fb037edfc565c3aae4c12d] https://lava.sirena.=
+org.uk/scheduler/job/1485099
+# good: [5f792b60601e6bf7a9fb037edfc565c3aae4c12d] Merge branch 'master' of=
+ git://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth-next.git
+git bisect good 5f792b60601e6bf7a9fb037edfc565c3aae4c12d
+# test job: [4753f57fb1c41066519ab573a011801bf0553cbc] https://lava.sirena.=
+org.uk/scheduler/job/1485186
+# good: [4753f57fb1c41066519ab573a011801bf0553cbc] Merge branch 'drm-xe-nex=
+t' of https://gitlab.freedesktop.org/drm/xe/kernel
+git bisect good 4753f57fb1c41066519ab573a011801bf0553cbc
+# test job: [b8dcd86b8eadb53eb153ba69434d93f954f4e2d8] https://lava.sirena.=
+org.uk/scheduler/job/1485312
+# good: [b8dcd86b8eadb53eb153ba69434d93f954f4e2d8] Merge branch 'driver-cor=
+e-next' of git://git.kernel.org/pub/scm/linux/kernel/git/driver-core/driver=
+-core.git
+git bisect good b8dcd86b8eadb53eb153ba69434d93f954f4e2d8
+# test job: [86f5e3b87e543714db4274eaaac4fe877e1943b3] https://lava.sirena.=
+org.uk/scheduler/job/1485356
+# good: [86f5e3b87e543714db4274eaaac4fe877e1943b3] Merge branch 'for-next' =
+of git://git.kernel.org/pub/scm/linux/kernel/git/remoteproc/linux.git
+git bisect good 86f5e3b87e543714db4274eaaac4fe877e1943b3
+# test job: [6f73eec838ac00ec82b6808bf458cfead784cf21] https://lava.sirena.=
+org.uk/scheduler/job/1485541
+# bad: [6f73eec838ac00ec82b6808bf458cfead784cf21] Merge branch 'mhi-next' o=
+f git://git.kernel.org/pub/scm/linux/kernel/git/mani/mhi.git
+git bisect bad 6f73eec838ac00ec82b6808bf458cfead784cf21
+# test job: [3cbc2e700ace888f02a6059c9f865ef1a0743c29] https://lava.sirena.=
+org.uk/scheduler/job/1485816
+# bad: [3cbc2e700ace888f02a6059c9f865ef1a0743c29] Merge branch 'for-next' o=
+f git://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/intel.git
+git bisect bad 3cbc2e700ace888f02a6059c9f865ef1a0743c29
+# test job: [aaec273c7b511a7826df09123a1fd6e4896c1bfd] https://lava.sirena.=
+org.uk/scheduler/job/1486062
+# bad: [aaec273c7b511a7826df09123a1fd6e4896c1bfd] gpio: nomadik: use new GP=
+IO line value setter callbacks
+git bisect bad aaec273c7b511a7826df09123a1fd6e4896c1bfd
+# test job: [7b2c2f1eb3914f5214a5b2ae966d7d7bb0057582] https://lava.sirena.=
+org.uk/scheduler/job/1486129
+# good: [7b2c2f1eb3914f5214a5b2ae966d7d7bb0057582] gpio: Use dev_fwnode() w=
+here applicable across drivers
+git bisect good 7b2c2f1eb3914f5214a5b2ae966d7d7bb0057582
+# test job: [d27746181905c256eced857f4b2c051ac44b0b45] https://lava.sirena.=
+org.uk/scheduler/job/1486292
+# bad: [d27746181905c256eced857f4b2c051ac44b0b45] gpio: mm-lantiq: use new =
+GPIO line value setter callbacks
+git bisect bad d27746181905c256eced857f4b2c051ac44b0b45
+# test job: [367864935785382bab95f5e5a691535d28f5a21b] https://lava.sirena.=
+org.uk/scheduler/job/1486339
+# good: [367864935785382bab95f5e5a691535d28f5a21b] gpio: raspberrypi-exp: u=
+se new GPIO line value setter callbacks
+git bisect good 367864935785382bab95f5e5a691535d28f5a21b
+# test job: [b908d35d0003cc75d4ebf7c24a61b07d34e7f5dc] https://lava.sirena.=
+org.uk/scheduler/job/1486428
+# bad: [b908d35d0003cc75d4ebf7c24a61b07d34e7f5dc] gpio: mmio: use new GPIO =
+line value setter callbacks
+git bisect bad b908d35d0003cc75d4ebf7c24a61b07d34e7f5dc
+# test job: [d03b53c9139352b744ed007bf562bd35517bacff] https://lava.sirena.=
+org.uk/scheduler/job/1486540
+# good: [d03b53c9139352b744ed007bf562bd35517bacff] dt-bindings: gpio: gpio-=
+xilinx: Mark clocks as required property
+git bisect good d03b53c9139352b744ed007bf562bd35517bacff
+# first bad commit: [b908d35d0003cc75d4ebf7c24a61b07d34e7f5dc] gpio: mmio: =
+use new GPIO line value setter callbacks
+
+--Se8mI+hslVIXz9hL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhS55kACgkQJNaLcl1U
+h9CCdQf/TV2SaIkrUe80F2DZ/ZGbfMB7TRbBSIV18Kcyl8fnkBewFWPBDpB3zg21
+rkwcXN5K+9gWUI9JOL8jaF7BcguP4pA9sKcTu+lKul1OOiLmEo79fBbdtyeka8NQ
+khnfCcHHcUl1Dus3jVix/U3nUNq1YK8DgQlcwiJ8DstgaurRMWUZoqvnwCSeK/MM
+/pjget8Y/SDvbxDEBCUD4MfkndJav6npWepBzIJgHmiuuPGBx3kGswoSec84WIUR
+zC3eozsLnM57sqs49oRFMJdXKVEz2L4wPJbq+ZdTRRKNDTfg0QMWbYON74f7Gotm
+0HW7SzGU1lngH1koTwUyBP15z9WRhQ==
+=4SES
+-----END PGP SIGNATURE-----
+
+--Se8mI+hslVIXz9hL--
+
+
+--===============5483536088392141925==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5483536088392141925==--
+
