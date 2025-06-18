@@ -4,106 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F18FC7115B
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 05:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACBF7C71157
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 05:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0T9lxVyqhhmXSb6Mn31gQf2KJdeHX7miBQCg5ZVQCQU=; b=My6rhq9csgH5pU
-	6H3YtalQ465Ve92iZrbmDSEgQy/aCBc20LGHsSYnDVDPTXwPl1ri2Si4BFMNYbRUX4j+oV74GW3qb
-	8EJZ1YqVWF5jsJCcq00TKB3pp8/28A2QH5cfw4+cgGNMNjZh2XUeq7jVAfbIcwM/wY4UTXLbYu9ZF
-	xVjF1vTt+Dqt3EL2uU3dIRVcvZbq7KeEvfwW9wDr858zX3n92oU6poSMS0LYKrHLB7HVaaGZ7/NxR
-	6yc1a6hnk/izucFAVrr3oQFQP1uVF/riOCufrsJaq2VJYRefLyDCYOZ9Ft3fazAnuAbKOKwXy3W8o
-	c/b26Yc/jsJjDdDTECOA==;
+	List-Owner; bh=pc85L4T2/msm8t15m4kaYZPOWYL+DxORxqZVda8actw=; b=Cf+sBl5isof3OC
+	DwLaCRd1sow6rEOZB277NfqajTTmi+t2TMpJyn7tUFMDFcdUzehXw2ZhX9sVxV2R68YWNTc89Qchz
+	C9dcVi5mJ0yzH/aU9VKNDB8set9rQbHWpsM2/mKSLACG/b9t7Fsxa6sG1SWJgwZNONcjGJoNYpLbd
+	vpSSNebDSFdCUY4IhT9rcR2m8BYUkRZKf/Tr7N05DO1XlMv7VbsTnmJJsCUjHd5vTSapQNffmVFD6
+	q/pkGdjQGaLHQpG8LDc16TDzr+IEUWc2qBcz65QCha88OijNDC3FNruforonVsq7Hz5sdjzrfeboN
+	a8ctOxit1fJ3VPnlZrnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRl26-000000094Vh-2A9O;
-	Wed, 18 Jun 2025 05:08:22 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1uRlHY-000000095JT-0zD0;
+	Wed, 18 Jun 2025 05:24:20 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRl25-000000094VH-0Pv7
+	id 1uRlHV-000000095Ih-30FU
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Jun 2025 05:08:22 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-235e1d710d8so80806955ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 22:08:20 -0700 (PDT)
+	Wed, 18 Jun 2025 05:24:18 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-553b3316160so4060827e87.2
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Jun 2025 22:24:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1750223300; x=1750828100; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0piupPu8V/gl6O7trlkzEQzKsY2tqiYS+DKkqKrrgIw=;
-        b=iWo/3JRMl0/KSedmtwtzPLTp7qtLJqKyrGbB3wB3+7OZRHymdoehPPJ+mPPPwZ6izZ
-         u1QgRGuUaXs4MyckCeiHczhNMXHFGI07MkIOCWwD/PikRa1XzDy1hMYMDTUBXqFWR052
-         ruUzLgL8HP3Ug2OHsBQrrfnsG+/UsU+lARt7HzJbW3Iw+JI1Oc3JcWZh68Eu2g4TZ2gC
-         uSJYaqv+7JRVn9G7lZ0Z7Rq6Ws49rFXASBlX7pzi2N8MkPnlgElAPKTIltIP4bT/F59C
-         IhOqd/wi68b/Nj+vB7dpgP9wpPfbdri3Hjn1ljpTQDxjzm9iYW2IOPAUyrUWsmZMy9Yg
-         5E7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750223300; x=1750828100;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=ventanamicro.com; s=google; t=1750224255; x=1750829055; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0piupPu8V/gl6O7trlkzEQzKsY2tqiYS+DKkqKrrgIw=;
-        b=kGxtsXe8B3MAElVfXXYYts/Xa6DCSI2eoD0NqcIgF9NBzurb6Cf7UBx1kpl4gbPL3Z
-         HuRS2h4/KMX14HHuVkK9BzGmcIAkrkSApOwrnWPjdzPXVgiOlE/A6gt0USZZOJb0zRz+
-         cV+CZADCN1qYnS6nQAiAnfdbZJ2o/aUGFgeteid/3qv60sm89Z2nXLIPz3gYF3m+0I/W
-         BkaJ0HduN2jdU34hUBJcwEOExQgiZogd9RoqvdVasXDdivkbOK+9pr0YH8AJnlkQKWR6
-         76veYs7VZYuUAuOgwgpCS1G1f9rh1kb7i6a7s1Y1iiPvl7N9Ys2VEVdvKQoLAMFv1SQ/
-         HT4A==
-X-Forwarded-Encrypted: i=1; AJvYcCVqd6RygiUlqZIjMR38QuS6xZQvTpVXNX9oswKV1VrTCLyzfDKGjFKCfuy9rAP1TUlEp16Fql3CwzeF3A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPStk/8FTkLBUC3sN/XGwxUwLqtWXTtGxukUatp1h1oe/WXFvZ
-	2hcKVIreEGn3eepEFdSsPfoW9ipznvyi/0HHcx4fLXaQkZFwzOK4hMz5vsDHOAnqCP4=
-X-Gm-Gg: ASbGncsHHXcjq/ZI/esKUP/neCJ96knUzOHZHYd62yYmzTEfHTaVNUTxLwuc+BR4K5+
-	oCx0vAecxHm9b9aM5bp4PkXST3U1bbZTSGhxdaT6VfFA7ybxLefddGGr5qNTtShk4S6PUnxQpfC
-	M6t0bhNYvma4C5LbDIKO9o3ZAdHSdT/QFKjNiJ9HIW89bbiOEtt1AFOHkeYUbqkHk1c9Kw1qT7v
-	GJy4OdDKF8Esr+10pa+SFsVJ1lUJGqgqN2HwqKue9WheXse4WjGC1N5v0DMf6BquwdhUl68dJQS
-	YQhTrrd8p3hMwj7UX+lJeWz+WUSwLVtNVq8fxCw/rpHvFJJTJzr7DrLkZLzknA1IyWFt8Q==
-X-Google-Smtp-Source: AGHT+IFQmeYov3M4TJeicSZPxmrAUyfFLdsmh1502m8UPHV9igXkcxtyc+FtIrcqYue77oYSTt8fUA==
-X-Received: by 2002:a17:903:348f:b0:235:88b:2d06 with SMTP id d9443c01a7336-2366b337f3cmr135541935ad.6.1750223299794;
-        Tue, 17 Jun 2025 22:08:19 -0700 (PDT)
-Received: from sunil-laptop ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365deb54desm90646085ad.179.2025.06.17.22.08.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 22:08:19 -0700 (PDT)
-Date: Wed, 18 Jun 2025 10:38:05 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Anup Patel <apatel@ventanamicro.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Len Brown <lenb@kernel.org>,
-	Rahul Pathak <rpathak@ventanamicro.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 21/23] irqchip/riscv-rpmi-sysmsi: Add ACPI support
-Message-ID: <aFJJternIoBDAxrz@sunil-laptop>
-References: <20250611062238.636753-1-apatel@ventanamicro.com>
- <20250611062238.636753-22-apatel@ventanamicro.com>
- <87frg3irgq.ffs@tglx>
+        bh=7Z4TSLN8JZPIMvLRhF9VLnkxWZBX3eFV9ERu7o6ArDg=;
+        b=UzauM682mr2yKwFrOdNH3+9AuBmADdZai/WeSk/Qlen6chDG4/FSeiwe2o9LvioXkK
+         /gzcqWVbrcqnXfr2M04ug+LSFoEd2zR6lBHHaoyOCUjGhFTJCgGxz1LY3ijsT7Sn9u6z
+         pr+hq/sXqSSNXvrj96EScLFSWXConRFXeyzIc6hybxFboqjOY9mbJHbPJR4riJSHiemJ
+         JCqzUor23TbTPZUyv6jjtEXBz8nQb5I6UBAR69rBhpar1YFyJydUhS1t+ZtS+ZvU78Ww
+         i/iyr2XEZmbjUR4GetgiOMXbLaOiR9gt878gl4iZ8BVge4v2L1YAwDbsdtD+EqZNnTb4
+         36gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750224255; x=1750829055;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7Z4TSLN8JZPIMvLRhF9VLnkxWZBX3eFV9ERu7o6ArDg=;
+        b=LYplGcaXcNArlMrg7muDW03j0TYGWPsQ5pIySUCgmr6DMJm2BRmWBFLriNN0HPmeK8
+         se4pZVSgYcxvhb8lmdpR14zTC9yO4oWcqTgTERBhV0HYleie/Joh2HbH/xubPgkFneqQ
+         89XI3jWId2OhYtOSr7wt6a5rJAOIvBDi1M+kkixK3HU4mc2FWoVBbYd/Dw1jlMEWycLv
+         v9K3i91cnWNci5F9ts2t469v6wbc/2I7HgXLwPKavzZMR5m1qTEb9PcXtHfKS9JqaPsr
+         4hbElSwvrft3YSyP3MlIhHcrhCkI61eA2HSpKJGrJQl9rAf43T0wQGSEAgaJcYK2Y7cL
+         CV2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUva2JnZlvySE5DvKtZqk0na1B3GKY2YgDP1DZF/f8diuh6PJ6WVPty/6EzFpI4UZQ/U1WxTuxjK81ojA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTEEu3apVUSwGpb0q1JpbNb7uq5J7YRxSKZxWmRz8yFpgOsWXA
+	U5pp+6z29eHxZ924snSVmk2jusGRAgXOLDhfPhSse/c5/3Gu8IjMBjcgGNOeDah9n1jnGI0K2xy
+	MXGhoTqz4jqS7mJXNlpy2jWFZ2/4zSNnThM3dP7ftmQ==
+X-Gm-Gg: ASbGncsIqw4ONNohUVdKxWYIUtyKUN9ety8AeiozuV7G0FoVQqS3TeTKpZNeHjMgv6O
+	YWAA7GzHJycfzI5zbwP7OAdXIALMrOiqKrVaNfVYVoI1CKg3hN5PXUtena2rLEBKy9AdF4Zuj1O
+	MOq4xC38D/YfJ/WQYEJjPq/n1PB1w+qPnkmB+85bf/hg==
+X-Google-Smtp-Source: AGHT+IFwL9G1DHBfI/lVr74bMBkL3ROv8/Gb0OUH3lB+sHfgk3+LXmQwxwY2JVd0OZNae9e8E+jgY8I9Gk7tR0VNm6E=
+X-Received: by 2002:a05:6512:3b0f:b0:553:abbb:c530 with SMTP id
+ 2adb3069b0e04-553b6f49986mr4356712e87.56.1750224255114; Tue, 17 Jun 2025
+ 22:24:15 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87frg3irgq.ffs@tglx>
+References: <20250611062238.636753-1-apatel@ventanamicro.com>
+ <20250611062238.636753-13-apatel@ventanamicro.com> <87ldpvirl2.ffs@tglx>
+In-Reply-To: <87ldpvirl2.ffs@tglx>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Wed, 18 Jun 2025 10:54:02 +0530
+X-Gm-Features: AX0GCFuqAwxb7NkJo6ROc36kRxrpGi8zqYIq4k-XKsi8PzPM1EcP4vkMM19V2qo
+Message-ID: <CAK9=C2UCpth4GQ_q2OMwndBeZKf9e_bsoHXaKJW0cNzTWggNUg@mail.gmail.com>
+Subject: Re: [PATCH v5 12/23] irqchip: Add driver for the RPMI system MSI
+ service group
+To: Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_220821_143953_AD1CDAD2 
-X-CRM114-Status: GOOD (  22.02  )
+X-CRM114-CacheID: sfid-20250617_222417_759320_9D8FB23C 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,73 +89,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Rahul Pathak <rpathak@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 05:36:21PM +0200, Thomas Gleixner wrote:
-> On Wed, Jun 11 2025 at 11:52, Anup Patel wrote:
-> > @@ -211,6 +213,9 @@ static int rpmi_sysmsi_probe(struct platform_device *pdev)
-> >  {
-> >  	struct device *dev = &pdev->dev;
-> >  	struct rpmi_sysmsi_priv *priv;
-> > +	struct irq_domain *msi_domain;
-> > +	struct fwnode_handle *fwnode;
-> > +	u32 id;
-> >  	int rc;
-> >  
-> >  	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> > @@ -241,6 +246,22 @@ static int rpmi_sysmsi_probe(struct platform_device *pdev)
-> >  	}
-> >  	priv->nr_irqs = rc;
-> >  
-> > +	fwnode = dev_fwnode(dev);
-> > +	if (is_acpi_node(fwnode)) {
-> > +		u32 nr_irqs;
-> > +
-> > +		rc = riscv_acpi_get_gsi_info(fwnode, &priv->gsi_base, &id,
-> > +					     &nr_irqs, NULL);
-> > +		if (rc) {
-> > +			dev_err(dev, "failed to find GSI mapping\n");
-> > +			return rc;
-> > +		}
-> > +
-> > +		/* Update with actual GSI range */
-> > +		if (nr_irqs != priv->nr_irqs)
-> > +			riscv_acpi_update_gsi_range(priv->gsi_base, priv->nr_irqs);
-> > +	}
-> > +
-> >  	/* Set the device MSI domain if not available */
-> >  	if (!dev_get_msi_domain(dev)) {
-> >  		/*
-> > @@ -250,8 +271,13 @@ static int rpmi_sysmsi_probe(struct platform_device *pdev)
-> >  		 * then we need to set it explicitly before using any platform
-> >  		 * MSI functions.
-> >  		 */
-> > -		if (dev_of_node(dev))
-> > +		if (is_of_node(fwnode)) {
-> >  			of_msi_configure(dev, dev_of_node(dev));
-> > +		} else if (is_acpi_device_node(fwnode)) {
-> > +			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
-> > +							      DOMAIN_BUS_PLATFORM_MSI);
-> 
-> msi_domain is only used here and so it should be declared in this scope
-> and not at the top of the function.
-> 
-Yes, let me change in the next revision. Thanks!
-
-> > +			dev_set_msi_domain(dev, msi_domain);
-> > +		}
-> 
-> Other than that:
-> 
-> Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
-
-Thank you!
-Sunil
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKdW4gMTMsIDIwMjUgYXQgOTowM+KAr1BNIFRob21hcyBHbGVpeG5lciA8dGdseEBs
+aW51dHJvbml4LmRlPiB3cm90ZToKPgo+IE9uIFdlZCwgSnVuIDExIDIwMjUgYXQgMTE6NTIsIEFu
+dXAgUGF0ZWwgd3JvdGU6Cj4gPiArICAgICByZXQgPSBycG1pX3N5c21zaV9zZXRfbXNpX3Rhcmdl
+dChwcml2LCBod2lycSwgbXNnKTsKPiA+ICsgICAgIGlmIChyZXQpIHsKPiA+ICsgICAgICAgICAg
+ICAgZGV2X3dhcm4ocHJpdi0+ZGV2LCAiRmFpbGVkIHRvIHNldCB0YXJnZXQgZm9yIGh3aXJxICVs
+dSAoZXJyb3IgJWQpXG4iLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICBod2lycSwgcmV0KTsK
+Pgo+IEp1c3QgbGV0IHN0aWNrIGl0IG91dC4gWW91IGhhdmUgMTAwIGNoYXJhY3RlcnMgLi4uCgpP
+a2F5LCBJIHdpbGwgdXBkYXRlLgoKPgo+ID4gKyAgICAgfQo+ID4gK30KPgo+IE90aGVyIHRoYW4g
+dGhhdDoKPgo+IFJldmlld2VkLWJ5OiBUaG9tYXMgR2xlaXhuZXIgPHRnbHhAbGludXRyb25peC5k
+ZT4KPgo+IHVuZGVyIHRoZSBhc3N1bXB0aW9uIHRoYXQgdGhpcyBnb2VzIGFsbCB0aHJvdWdoIGVp
+dGhlciB0aGUgUklTQy1WIG9yIHRoZQo+IG1haWxib3ggdHJlZS4KPgoKSU1PLCB0aGlzIHNlcmll
+cyBzaG91bGQgZ28gdGhyb3VnaCB0aGUgUklTQy1WIHRyZWUgYnV0IEkgYW0gZmluZQp3aXRoIHRo
+ZSBtYWlsYm94IHRyZWUgYXMgd2VsbC4KCkJlc3QgUmVnYXJkcywKQW51cAoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
