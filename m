@@ -4,55 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5867C71157
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 12:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 121AAC7115D
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 12:59:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HEZNSeH8Tih4L4DwAUszDVeLmQZJmD4Jg23ZGvg42A4=; b=4meTW6eWocfi+n
-	6V7JUpbyC6PdjmF/nSa9f0ChgygkA2x5X2QeRoNBJJmyhtgGWFvgVpEGf7SYDv8LbJ8cuSTajwVeR
-	LWaSx0qOvgAcJrRiUl/fLgqhZdnu36HhHV/2cGATjP/nUMtwW5ciHjjRbOtYll5eL1oemApFPM9ff
-	vqgahYjyelEQeT9CD+BxfG2P3acxI96mj4Nt8v7ZW8dbVZxSa35fiExwmVTVgP2Djfa/GS18gFjq/
-	4+O9g/wTu+SPfEUz6nLalUtb21YgeNrp43JDe8CqzI9O2BAPNfC33arOBVSYFRNswQp0azyOgTzeJ
-	JHe/AgvHKLrtvD7QlLFg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:
+	Subject:From:cc:To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RDE2AtgLZiFrmWUDkJyKrcynb09kL4HINxbe7/zudUs=; b=MnNNds/FZmo436
+	FHVwg+nPTVtP842EHvcUfeagNUyQpzDu0WWLPTCno71qFSDCywmGZgqhEzn+1G2LAF2MfULKpLg8t
+	bIn4Tj3qI1hjjdbEV1xaE9aA66XDuhNZ8R9NBAwtsPqnLg9rG4/sgyi6ehclhhatMByPVp9/V/yO8
+	aITAOT2FkBn3BpFfBudzr6DBcPmaZn+hkVMBjwljKncf1LetX1/VtLc/K9y+K0iWmkfHY9nMx8IgW
+	DJjXZB9gGuQ6umrh0sI4pVrhukE0C9uKo1meonXhxxdJ4CSTsTzpiPyCMPGR6vldKHKeATnXqwnag
+	kH1MjWRHFv3QfxzPUSoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsNt-0000000ACwd-1EE9;
-	Wed, 18 Jun 2025 12:59:21 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1uRsNs-0000000ACwH-2wmX;
+	Wed, 18 Jun 2025 12:59:20 +0000
+Received: from outgoing2021.csail.mit.edu ([128.30.2.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRqne-00000009upk-05x7
+	id 1uRqge-00000009tPx-1O5I
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Jun 2025 11:17:51 +0000
-Received: from localhost (unknown [116.232.48.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id E2552341E5E;
-	Wed, 18 Jun 2025 11:17:47 +0000 (UTC)
-Date: Wed, 18 Jun 2025 11:17:37 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Alex Elder <elder@riscstar.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	mturquette@baylibre.com, sboyd@kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	heylenay@4d2.org, inochiama@outlook.com, guodong@riscstar.com,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 0/6] reset: spacemit: add K1 reset support
-Message-ID: <20250618111737-GYA157089@gentoo>
-References: <20250613011139.1201702-1-elder@riscstar.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250613011139.1201702-1-elder@riscstar.com>
+	Wed, 18 Jun 2025 11:10:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=outgoing.csail.mit.edu; s=test20231205; h=Message-ID:Date:Subject:Reply-To:
+	From:cc:To:Sender:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=GFVJwktuxpkRDvLIb8jZl5z0PhGj4POY3csp1DDe88M=; t=1750245034; x=1751109034; 
+	b=goliRmJ2E5RLqUrm0yfOyymEp7pSjBUQTqLY+cu/x4NAbfaLhqUceB7cyruqAu16SmgRovQW7fz
+	ZSzTLcPD+hAVZHdqVdkihjJpsVWRezkEcilaxZb3swzNX3uJ2nqXYimObpEn2mVzknUPS5mYQKRqn
+	J9Xr6VntPMb7Hq13FNAAPXrtS3vCRIIN5cDGmurQcwt8/JUtGsUHfkOOy7Ogh8xxvl71AQj70jKW0
+	E/9FkRP/M1+rJAB2mghZ7qizJNgFsnscg3zRZIIvBPpFj+uYFALS3u8fRGHC6rHl8ah3ry8oyop4c
+	DlKHXLeUYy+7KidgQNWyb27qtziMEuC9/FFA==;
+Received: from c-71-235-5-26.hsd1.ma.comcast.net ([71.235.5.26] helo=crash.local)
+	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <rtm@csail.mit.edu>)
+	id 1uRqgX-006fPi-IL;
+	Wed, 18 Jun 2025 07:10:29 -0400
+Received: from localhost (localhost [127.0.0.1])
+	by crash.local (Postfix) with ESMTP id CCC4223DEF8E;
+	Wed, 18 Jun 2025 07:10:28 -0400 (EDT)
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+    Palmer Dabbelt <palmer@dabbelt.com>,
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+cc: linux-riscv@lists.infradead.org
+From: rtm@csail.mit.edu
+Subject: futex(0x1ffffff81300000) on risc-v -> mm panic
+Date: Wed, 18 Jun 2025 07:10:28 -0400
+Message-ID: <77605.1750245028@localhost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_041750_084557_0E8577AF 
-X-CRM114-Status: GOOD (  22.87  )
+X-CRM114-CacheID: sfid-20250618_041036_583212_4EC633D6 
+X-CRM114-Status: UNSURE (   5.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,105 +71,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: rtm@csail.mit.edu
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi ALL,
-  As the reset driver going through several review cycles,
-it becomes quite calm down now, I'd like to request to merge
-it into v6.17, because various drivers (pwm, emac..) will depend
-on it, even in the worst case if there is problem, I believe Alex
-will help to address..
+This program on risc-v:
 
-Hi Philipp,
-  I'd like to query if you willing to take the reset driver -
-patch [5/6] through the reset tree? It sounds more intuitive,
-which also will avoid potential conflicts with Kconfig/Makefile..
-  I've created a prerequisite immutable tag which could be
-shared between clock and reset subsytem. It's tag -
-spacemit-reset-deps-for-6.17 at SpacemiT's SoC tree [1], which 
-effectively are patches [1-4] of this series.
-But, to make your life easy, I've also applied patch [5/6] at tag
-spacemit-reset-drv-for-6.17 [2] which has a small macro adjustment
-requested by Alex at [3]
-  Let me know what you think of this, thanks
+main(){
+  futex((void*) 0x1ffffff81300000, FUTEX_WAIT, 0, 0, 0, 0);
+}
 
+results in:
 
-Link: https://github.com/spacemit-com/linux/releases/tag/spacemit-reset-deps-for-6.17 [1]
-Link: https://github.com/spacemit-com/linux/releases/tag/spacemit-reset-drv-for-6.17 [2]
-Link: https://lore.kernel.org/all/528522d9-0467-428c-820a-9e9c8a6166e7@riscstar.com/ [3]
+BUG: Bad page state in process a.out  pfn:81500
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x81500
+flags: 0x2000(reserved|zone=0)
+raw: 0000000000002000 ff1c000000054008 ff1c000000054008 0000000000000000
+raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: PAGE_FLAGS_CHECK_AT_FREE flag(s) set
+Modules linked in:
+CPU: 0 UID: 0 PID: 105 Comm: a.out Not tainted 6.16.0-rc2-00067-gb61aa0e0059b #566 NONE 
+Hardware name: riscv-virtio,qemu (DT)
+Call Trace:
+[<ffffffff80025b62>] dump_backtrace+0x1c/0x24
+[<ffffffff800023b8>] show_stack+0x28/0x34
+[<ffffffff800205d2>] dump_stack_lvl+0x48/0x66
+[<ffffffff80020604>] dump_stack+0x14/0x1c
+[<ffffffff80262098>] bad_page+0x118/0x15c
+[<ffffffff80264e96>] __free_frozen_pages+0x494/0x650
+[<ffffffff80266fe2>] free_frozen_pages+0xe/0x16
+[<ffffffff8020926c>] __folio_put+0x60/0xae
+[<ffffffff800ec23a>] get_futex_key+0x2da/0x44e
+[<ffffffff800f0474>] futex_wait_setup+0x52/0x23a
+[<ffffffff800f06da>] __futex_wait+0x7e/0xd8
+[<ffffffff800f0782>] futex_wait+0x4e/0xbc
+[<ffffffff800ed3a0>] do_futex+0x74/0x100
+[<ffffffff800ed4f4>] __riscv_sys_futex+0xc8/0x148
+[<ffffffff811e4930>] do_trap_ecall_u+0x84/0x11a
+[<ffffffff811f0b0e>] handle_exception+0x146/0x152
+Disabling lock debugging due to kernel taint
 
-On 20:11 Thu 12 Jun     , Alex Elder wrote:
-> This series adds reset controller support for the SpacemiT K1 SoC.
-> A SpacemiT reset controller is implemented as an auxiliary device
-> associated with a clock controller (CCU).  A new header file
-> holds definitions used by both the clock and reset drivers.
-> 
-> In this version several "multi-bit" resets have been redefined as
-> individual ones.  For example, RESET_AUDIO had a mask that included
-> 3 bits.  Now there are 3 separate resets (one for each bit):
-> RESET_AUDIO_SYS; RESET_AUDIO_MCU_CORE; and RESET_AUDIO_APMU.
-> 
-> The reset symbols affected (their previous names) are:
->     RESET_USB3_0 ->
->       RESET_USB30_AHB,  RESET_USB30_VCC, RESET_USB30_PHY 
->     RESET_AUDIO ->
->       RESET_AUDIO_SYS, RESET_AUDIO_MCU, RESET_AUDIO_APMU
->     RESET_PCIE0 ->
->       RESET_PCI0_DBI, RESET_PCI0_SLV, RESET_PCI0_MSTR, RESET_PCI0_GLB
->     RESET_PCIE1 ->
->       RESET_PCI1_DBI, RESET_PCI1_SLV, RESET_PCI1_MSTR, RESET_PCI1_GLB
->     RESET_PCIE2 ->
->       RESET_PCI2_DBI, RESET_PCI2_SLV, RESET_PCI2_MSTR, RESET_PCI2_GLB
-> 
-> No other code has changed since v10.
-> 
-> All of these patches are available here:
->   https://github.com/riscstar/linux/tree/outgoing/reset-v11
-> 
-> 					-Alex
-> 
-> Between version 10 and version 11:
->   - Rebased onto Linux v6.16-rc1
->   - Redefined several "multi-bit" resets as individual ones.
-> 
-> Here is version 10 of this series.
->   https://lore.kernel.org/lkml/20250513215345.3631593-1-elder@riscstar.com/
-> 
-> All other history is available via that link, so I won't reproduce
-> it again here.
-> 
-> Alex Elder (6):
->   dt-bindings: soc: spacemit: define spacemit,k1-ccu resets
->   soc: spacemit: create a header for clock/reset registers
->   clk: spacemit: set up reset auxiliary devices
->   clk: spacemit: define three reset-only CCUs
->   reset: spacemit: add support for SpacemiT CCU resets
->   riscv: dts: spacemit: add reset support for the K1 SoC
-> 
->  .../soc/spacemit/spacemit,k1-syscon.yaml      |  29 +-
->  arch/riscv/boot/dts/spacemit/k1.dtsi          |  18 ++
->  drivers/clk/spacemit/Kconfig                  |   1 +
->  drivers/clk/spacemit/ccu-k1.c                 | 239 +++++++-------
->  drivers/reset/Kconfig                         |   9 +
->  drivers/reset/Makefile                        |   1 +
->  drivers/reset/reset-spacemit.c                | 304 ++++++++++++++++++
->  .../dt-bindings/clock/spacemit,k1-syscon.h    | 141 ++++++++
->  include/soc/spacemit/k1-syscon.h              | 160 +++++++++
->  9 files changed, 775 insertions(+), 127 deletions(-)
->  create mode 100644 drivers/reset/reset-spacemit.c
->  create mode 100644 include/soc/spacemit/k1-syscon.h
-> 
-> 
-> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-> -- 
-> 2.45.2
-> 
+and after running this program a few more times:
 
--- 
-Yixun Lan (dlan)
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x81500
+flags: 0x2000(reserved|zone=0)
+raw: 0000000000002000 ff1c000000054008 ff1c000000054008 0000000000000000
+raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: VM_BUG_ON_PAGE(page_ref_count(page) == 0)
+------------[ cut here ]------------
+kernel BUG at ./include/linux/mm.h:1034!
+Kernel BUG [#1]
+Modules linked in:
+CPU: 0 UID: 0 PID: 110 Comm: a.out Tainted: G    B               6.16.0-rc2-00067-gb61aa0e0059b #566 NONE 
+Tainted: [B]=BAD_PAGE
+Hardware name: riscv-virtio,qemu (DT)
+epc : get_futex_key+0x23c/0x44e
+ ra : get_futex_key+0x23c/0x44e
+...
+[<ffffffff800ec19c>] get_futex_key+0x23c/0x44e
+[<ffffffff800f0474>] futex_wait_setup+0x52/0x23a
+[<ffffffff800f06da>] __futex_wait+0x7e/0xd8
+[<ffffffff800f0782>] futex_wait+0x4e/0xbc
+[<ffffffff800ed3a0>] do_futex+0x74/0x100
+[<ffffffff800ed4f4>] __riscv_sys_futex+0xc8/0x148
+[<ffffffff811e4930>] do_trap_ecall_u+0x84/0x11a
+[<ffffffff811f0b0e>] handle_exception+0x146/0x152
+Code: bdad a597 017c 8593 fa65 8526 7097 0014 80e7 a4a0 (9002) 8785 
+---[ end trace 0000000000000000 ]---
+Kernel panic - not syncing: Fatal exception in interrupt
+
+get_futex_key() calls get_user_pages_fast(), which returns a
+PG_reserved page in one of the reserve_bootmem_region() areas. Beyond
+that I do not understand the situation.
+
+Robert Morris
+rtm@mit.edu
+
 
 _______________________________________________
 linux-riscv mailing list
