@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85059C7115B
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 19:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77B2C7115B
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 19:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2q6RNiBvUzF6XggfRxgVBgSfHJPXk/vdOqfMw8teof8=; b=MpLZAP57wsdgnm218NNak2BkEf
-	q6rJC6kwwN9Ef1E/ydiegHJQaGlRSI10bfttkO2fKYm8zmkZiAvFjjVpqhzZkxIBtPoasZ3Jv1GJu
-	1NFy22mig2rXOa9EHQijb7MjIYcCeCoHtK3gEm5WVaAFcazGVEvobDSW2ObvD4Rtx3/PVk+zt9Jw1
-	QTd4RoM5MPx7T0a4oEVNy/lAgLPozu/w9An2lSDsf8/+0MiZPZ2DTcxqLt9FZRB8RquLAadb8XuO1
-	nEH2hID0bj3jbN7z0btzrtqR+XZHm7KdkzsXNiSohEZS1Wm7P1kK9ErIJ2+DordUvGxl/GZzEjOjL
-	Xq9OMo+Q==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=ebJO0U7scjBs+0vfoPT0CaxulF7gYiSn8Srs3RrkcQA=; b=gcn7UMhug0mNdQJh1CddEgiOw6
+	Nn/Wk7LjEivzaYBsg8L/NgBO0k8lZJY2CVDN+Gn2uBBRiejKNky2EPR9SVS5fRsVnJVlisnj9T+XL
+	uVwUU8w5gA+bKUewJf8LHzavT6AV1fvDAuNK6fQ9lNz0y989hIcegEL4+dAHuW6Pe9i1epMe//fgu
+	7g6WUiTR2TZaHr5Lpuk3105SgfENSQKVbvk8cLS4KSid4/7hDi+sffytgTFiS5xZLJhELChlIAmMI
+	0/stElfirGHTXY3tmTT56ihY3gWfdXfiiaiNTMTHVzVmO8/p/gMqT9OGBk3+6T40nlqOjFizzOExl
+	+u/8b1fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRyCj-0000000BAcF-0sEh;
-	Wed, 18 Jun 2025 19:12:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uRywV-0000000BHi7-0DKR;
+	Wed, 18 Jun 2025 19:59:31 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRxNa-0000000B3Do-0Gkz;
-	Wed, 18 Jun 2025 18:19:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 711195C40C2;
-	Wed, 18 Jun 2025 18:17:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28080C4CEE7;
-	Wed, 18 Jun 2025 18:19:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750270760;
-	bh=a50wlknDlpagNq9jT3Q/IWSLUrXmeXKtizwXZ65RjX0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lzKZWqwHZj3IpGzO5PE2PMzFEc9y+To0ksq9WMfVFHMABL5TvgULiuHVEv1Q3sICd
-	 IvcBuy+9JdRDH9jmtmYKfEGU4DmKUfgoiKms+0R8YUpDXkRf3B0WH60WlDjuJTD6S4
-	 2RCswt7B+ik4mQwGkHA7obrN/2VGwQqRxPAXnAplqAx0PVQsRdI+UECPKAIBaAkBKL
-	 b0o1Um6RqawIVq36Xc0ZG/mgZFaifAE55ARqxI11lANsh5gjgdy4lJGu6smC7kBtZn
-	 CooEN3OuhxDOkP1Efqj2P6vx3bjkzTm2RZJcPdIZShHV0Ng8rm7gXcz/ml3vlKwCN5
-	 ZV200A33o5DPQ==
-Date: Wed, 18 Jun 2025 20:19:18 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: =?utf-8?B?0JDQu9C10LrRgdCw0L3QtNGAINCo0YPQsdC40L0=?= <privatesub2@gmail.com>, 
-	linux-kernel@vger.kernel.org, Brandon Cheo Fusi <fusibrandon13@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v12 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
- support
-Message-ID: <daopyy24kta2myimufkf2v6c6igdplco6b2kxohm47j6cez5mb@34ccs3wbtkop>
-References: <20250427142500.151925-1-privatesub2@gmail.com>
- <20250427142500.151925-3-privatesub2@gmail.com>
- <20250512233944.06bc1cb7@minigeek.lan>
- <CAF4idN=Kwp8bDYVyjM52eUwVEEZcPM9YyK9KiqUzyf8Dm=cXTQ@mail.gmail.com>
- <hetih6ul7hdj3kflhy2s2zkkh3r7pcupgwde3xnwmjzs6cujp3@vcw4pde76bdb>
- <20250528132902.70f634cd@donnerap.manchester.arm.com>
-MIME-Version: 1.0
-In-Reply-To: <20250528132902.70f634cd@donnerap.manchester.arm.com>
+	id 1uRyvl-0000000BHea-3faK
+	for linux-riscv@lists.infradead.org;
+	Wed, 18 Jun 2025 19:58:47 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-23636167afeso969915ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 12:58:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1750276725; x=1750881525; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=I20Ut8doZNHX8U8yLXVDaxEsIOgjNYrMNmiLkf6cgHg=;
+        b=V8ybHWRd5JcCd/IfI+C/G/0A8ikPoAlAcuH5ZisGm1mAE5hY8KlGwyzngQ/MQ2Cku+
+         15UYb318bh+Sit0H04YO/s9gxui8uwouaOdLk4+P+gZUyc34MhV2OroQV9KdpoKvzbfP
+         4mSkIMG9O3NbcxXNg8Pr9t5ujDVOj0hHGu6pu8OPy3MOq0h/c6rtOjv3K0psixM2rTD9
+         cju53ram0B3QT00Q+59vdMSPgXFiZmOnAI8sJIJ+vwgZgf7Js2z4P1qSLPQsc75SS3Em
+         A7MwGuuwW77F1nlN+BnrWZBhVAyUaRkKsCaRmog/F/PKzklD04JFwXHa68EYuN01vVos
+         L7bQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750276725; x=1750881525;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=I20Ut8doZNHX8U8yLXVDaxEsIOgjNYrMNmiLkf6cgHg=;
+        b=uPLUGQs4xjeh0fN5a9ll2manvePP36WKrQ7Zc3/QbYWO+Ji4M1DEyGuoeFih49fZsi
+         4rNL00unJEbhEeqzlgLjqcLkMBgvCONZw/efvbX+/b/ko1majM1jcUJfjtPOLC+7CLSE
+         UH7kVJacP9prryANuG+f48wi3hcBjwTc1SDeoKVjk2BQoWLt9OmrXu4g32aJ+ZXqd5Zl
+         uNNuPE1s7b3rEdrOJjJoh+vbYiMJx9VHUFL3iaEnWT0W4ea/hWFKqartUrA6KYSV0pbM
+         Bn5K1EoajlLm7rlxACyeDCDXcMqHt2BZt41BX/Xp1KZ3zb/GagDu0EZhVJhwJ+WQhuRv
+         A1MA==
+X-Forwarded-Encrypted: i=1; AJvYcCWLJIq/YccglaI3Wfg0yILmwftAsevt9Q0NvBSmyzXHl2BYoA9BNT2YIhxGu7XJKdl2qtT+NYW6oLrnjw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQD+4kUkyWlXqxE/Q20Ga2OerUXK7Hjj5iZXmkD/DCH5ULr/W3
+	J03JW60RiKNo3tYs9DDbXaSvKp5bZXX7onP19v8e939HQzwF9m98SrmBzwzeDOyaBtQ=
+X-Gm-Gg: ASbGncse9ks770mc9RsxCVpv+y69hw6+5CM0Duh0Gh0xp5QAgJo6MvrzBnLKUrvPRlH
+	a/CvgZwinu1MR8nFhaTShEcSqc5S3kQbhMnMNiHAwwelL5w6Mn4QyNoxotHxwqDYRGaXGEuiL8G
+	KOVyGwAcwktpxC9CYlO7QIKBeVXEGzFYdP37NHq/D9fsp2uurI7lrKLGZVQNgkKMoxe1T9C8kT6
+	wE9+rQiNd9bmodEtorq6WIycmAR1fDYBGc8zrn5cUrFw/Ki8VkfCM7wtiGJ7WpmspexP2OowI2O
+	vJg9bdAH1fulvqMVgT2nh7o9Defodcedyr36OAjlCxFLhOGGDZ+kptER30mx
+X-Google-Smtp-Source: AGHT+IGUYYsO2qdcRtNiMa6p2LaT5Au7HiEOyF+g5OMOytBszGUohndY00urZUVU1t/JvFtnxcCJZQ==
+X-Received: by 2002:a17:902:f683:b0:232:59b:58fe with SMTP id d9443c01a7336-2366b3169f9mr285322055ad.1.1750276724715;
+        Wed, 18 Jun 2025 12:58:44 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::7:ac69])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2365dea8ccbsm104676625ad.167.2025.06.18.12.58.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Jun 2025 12:58:44 -0700 (PDT)
+Date: Wed, 18 Jun 2025 12:58:44 -0700 (PDT)
+X-Google-Original-Date: Wed, 18 Jun 2025 12:58:42 PDT (-0700)
+Subject: Re: futex(0x1ffffff81300000) on risc-v -> mm panic
+In-Reply-To: <20250618132559.J2jP-TbE@linutronix.de>
+CC: rtm@csail.mit.edu, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: namcao@linutronix.de
+Message-ID: <mhng-CC013FD5-8FF2-40EB-902C-AA0078E99AB4@palmerdabbelt-mac>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_111922_187984_4E8A3E2B 
-X-CRM114-Status: GOOD (  49.54  )
+X-CRM114-CacheID: sfid-20250618_125846_151638_3141EB0B 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,174 +92,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6303112627956213111=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 18 Jun 2025 06:25:59 PDT (-0700), namcao@linutronix.de wrote:
+> On Wed, Jun 18, 2025 at 07:10:28AM -0400, rtm@csail.mit.edu wrote:
+>> This program on risc-v:
+>>
+>> main(){
+>>   futex((void*) 0x1ffffff81300000, FUTEX_WAIT, 0, 0, 0, 0);
+>> }
+>>
+>> results in:
+>>
+>> BUG: Bad page state in process a.out  pfn:81500
+>
+> I cannot reproduce this issue. Can you please share your .config?
 
---===============6303112627956213111==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zqgmvr7sp22wp6bu"
-Content-Disposition: inline
+It's also not reproducing for me -- or even compiling for that matter, 
+but I stuck one that compiles over at 
+<https://github.com/palmer-dabbelt/palmer-tests/blob/main/rtm-futex.c> 
+(I figured this was a good excuse to start piling up some tests).
 
+> Also, your kernel seems to have some commits on top. Are you sure none of
+> those is the reason?
 
---zqgmvr7sp22wp6bu
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v12 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
- support
-MIME-Version: 1.0
+This is on my fixes branch right now, with defconfig + 
+CONFIG_DEBUG_VM=y.  So maybe it's one of these patches, or moybe it's 
+some other configuration thing?
 
-Hello Andre,
+I'm also running this in QEMU virt, rv64gc, smp=4 (in case that 
+matters).  I've got a buildroot-based userspace with glibc.
 
-On Wed, May 28, 2025 at 01:29:02PM +0100, Andre Przywara wrote:
-> On Wed, 28 May 2025 13:08:40 +0200
-> Uwe Kleine-K=C3=B6nig <ukleinek@kernel.org> wrote:
-> > On Sat, May 24, 2025 at 12:07:28PM +0300, =D0=90=D0=BB=D0=B5=D0=BA=D1=
-=81=D0=B0=D0=BD=D0=B4=D1=80 =D0=A8=D1=83=D0=B1=D0=B8=D0=BD wrote:
-> > > =D0=B2=D1=82, 13 =D0=BC=D0=B0=D1=8F 2025=E2=80=AF=D0=B3. =D0=B2 01:39=
-, Andre Przywara <andre.przywara@arm.com>: =20
-> > > >
-> > > > On Sun, 27 Apr 2025 17:24:54 +0300
-> > > > Aleksandr Shubin <privatesub2@gmail.com> wrote: =20
-> > > > > +              */
-> > > > > +             use_bus_clk =3D false;
-> > > > > +             val =3D mul_u64_u64_div_u64(state->period, hosc_rat=
-e, NSEC_PER_SEC);
-> > > > > +             /*
-> > > > > +              * If the calculated value is =E2=89=A4 1, the peri=
-od is too short
-> > > > > +              * for proper PWM operation
-> > > > > +              */
-> > > > > +             if (val <=3D 1) { =20
-> > > >
-> > > > So if I get the code correctly, it prefers HOSC over APB? Is that
-> > > > really the best way? Shouldn't it be the other way around: we use t=
-he
-> > > > faster clock, since this will not limit the sibling channel?
-> > > >
-> > > > And another thing to consider are rounding errors due to integer
-> > > > division: certain period rates might be better achievable with one =
-or
-> > > > the other source clock: 3 MHz works best as 24MHz/8, 3.125MHz as
-> > > > 100MHz/32.
-> > > > So shall we calculate the values and compare the errors instead?
-> > > > Oh, and also we need to consider bypassing, I feel like this should=
- be
-> > > > checked first.
-> > > >
-> > > > In any case I think there should be a comment describing the strate=
-gy
-> > > > and give some rationale, I think. =20
-> > >=20
-> > > I like the idea of comparing the quantization error for each clock so=
-urce
-> > > (i.e. computing the actual period for both APB and HOSC and choosing
-> > > whichever is closer to the requested period).
-> > > I can try to implement that error-minimization approach in the next
-> > > series of patches and add a comment explaining the strategy. =20
-> >=20
-> > Consumers have different needs. Some might prefer a better match for
-> > period, but in my experience most would go for a fine-grained selection
-> > of duty_cycle, so prefering the faster clock sounds sane.
-> >=20
-> > I don't say minimizing the error is wrong, but if it's unclear that
-> > this matches what a consumer wants I object to make the procedure to
-> > select the hardware settings considerably more complicated and run-time
-> > intensive.
->=20
-> Yes, I agree. There seems to be another use case here, which is to provide
-> clocks on output pins. The PWM IP has a bypass switch (per channel, after
-> the divider), and this feature is already required to supply the
-> "internal" (co-packaged) Ethernet PHY on the Allwinner H616 with its cloc=
-k.
-> With the two possible input clocks and those pre-dividers there is actual=
-ly
-> quite a number of possible frequencies to deliver on output pins.
->=20
-> Since we need some algorithm to decide when we need to use the bypass
-> mode, should we check for that if the duty cycle is 50%, to see if we can
-> reach the frequency with just the pre-dividers?
-> Chances are we need this anyway, since for instance the 24MHz required for
-> the PHY cannot be achieved otherwise.
-
-And the clk output is the output after the predividers I assume? I would
-prefer to make the driver create a clk_provider instead of guessing
-which requests are supposed to have a meaning for the clk output.
-
-> > > > > +static int sun20i_pwm_probe(struct platform_device *pdev)
-> > > > > +{
-> > > > > +     struct pwm_chip *chip;
-> > > > > +     struct sun20i_pwm_chip *sun20i_chip;
-> > > > > +     struct clk *clk_bus;
-> > > > > +     struct reset_control *rst;
-> > > > > +     u32 npwm;
-> > > > > +     int ret;
-> > > > > +
-> > > > > +     ret =3D of_property_read_u32(pdev->dev.of_node, "allwinner,=
-npwms", &npwm);
-> > > > > +     if (ret < 0)
-> > > > > +             npwm =3D 8; /* Default value */
-> > > > > +
-> > > > > +     if (npwm > 16) {
-> > > > > +             dev_info(&pdev->dev, "Limiting number of PWM lines =
-=66rom %u to 16", npwm); =20
-> > > >
-> > > > I don't think we should proceed if the firmware information is clea=
-rly
-> > > > wrong. Just bail out with -EINVAL or so here, so that gets fixed in=
- the
-> > > > DT. =20
-> >=20
-> > To me it's not obvious that the "firmware information is clearly wrong".
-> > Maybe the next Allwinner SoC will have 24 outputs and the problem is
-> > only that this driver isn't prepared to cope for that number of outputs?
->=20
-> But then it would be an error, regardless?
-> The MMIO register frame of this IP here has a hard limit on 16 channels,
-> both by the bit assignments in each register (2 bits per channel in a
-> 32-bit register), but also by the layout of the registers (max 8
-> registers, each for a pair of 2 PWM channels). So anything with more than
-> 16 channels cannot be compatible with what this driver supports.
-> So as this driver here stands right now, more than 16 channels is an
-> error, simple as that. If we extend the driver later on, to cover more
-> advanced IP, we would naturally amend this check, of course.
-
-Agreed. In that case I don't care much if .probe() fails or just limits
-the number of PWMs to 16.
-
-Best regards
-Uwe
-
---zqgmvr7sp22wp6bu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhTAyMACgkQj4D7WH0S
-/k5TXQf/WQifjbmW7D5efouTLo5vO4iUok97pK1+s3+HHamdmm23IWg0PAFmFQBB
-UNd0buVhud3TtGtJeSPa57FUEzriGdGzJ2CFN+qDdUY7L7VGACE6S7mGsnLLYQuN
-UsGMB0G7qVL5h3zhySTgXtgMF+D9QZHZq/LwR00/PpXVDAG6vES7AwdQlsG0PS+4
-so3ravkEOTsVKRYzFLC6dNZoGeGWaz3X0Iedjl4Y8NXs+HKpp2qyh1x8FPJYIy9V
-GBtDzx8E4s8SwuJeTJSdcfs/PlIyCWCa51El8AExmHaB0oE8JEB3dqdrKRHxLc0Z
-Ie0GiCpIKi3W7ApbehC3rBcHxbwj9g==
-=USjg
------END PGP SIGNATURE-----
-
---zqgmvr7sp22wp6bu--
-
-
---===============6303112627956213111==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
+> Best regards,
+> Nam
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6303112627956213111==--
-
