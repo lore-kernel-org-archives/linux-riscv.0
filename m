@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B2FC77B73
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 13:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF6EC7115A
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 13:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g8ornIrHn5J6cNC8xlH/VOJtkecEu5DXfhTejjMPyLg=; b=bIoS5fu4cZ0Gn3
-	wxtPTcRLKMiAnC78khoFvNL/Q3OEJ7ZDB4d7Pu/q9sV9gHl0E4kHJCuhRRCv6dfOJhJajZg8L8JOy
-	uIe/31/051+eq5gyLNkLisLhGvwbqAuBle5K32ptcIUFmO6h+yxKD5FxFLzSUyC3rJ3COetjpnocL
-	1/zOmsImL/kWSy5llKvAzqnR2tGrvWu7zR7wIbAWNTBBxbrGpl7VLbgO/95FtNTP3OY3XlGTDR+ll
-	zGvUTAqKrcWvpH5+GZRWw8CuynuQhXlvBFwF9S/t/zHu8u/OB/pLcTZrLDu+E1dG9W8Zj8enKkuZy
-	azxUXV/yQmNSt0MaeqZA==;
+	List-Owner; bh=zHBFWMlytXg323bts36AIBx4MNPrqmpC5YDmbRbRmXY=; b=OQDHfP/ynr5K/u
+	QpPvCBmbFA5n7ghbadwz3uqeNeUVAN/IQz9tf40F0rnP/wHOSPjgqzRQ/FGiFxcYxTV6WqTkbqPy0
+	RkRihUZ6sQ4tfkE+/qJn+yxoynkli1b334y4WHXoTkCK2QveVRZdQ8xvnBAN9mciqbFctCuemgI7/
+	M+7296Zjb6BweixIi2sLU6bpKkAjU4ReTLBvNYpXwCTxJBmcWRgsH+yxyPOs6EljTwYSxEpZlj35Y
+	ocmgXputHB98LjGOlSADIiP+qdsJttdGkkSdYHMEyf6sMSkUtzoxesqZ7Sem/9XFk+MeSZYWSrQhQ
+	JSYRQCyrGM1A+bsN8bYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsWj-0000000AEZV-3zyj;
-	Wed, 18 Jun 2025 13:08:29 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uRsWn-0000000AEdx-2ZuO;
+	Wed, 18 Jun 2025 13:08:33 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRr59-00000009xeb-1vCD
+	id 1uRr5O-00000009xi6-3CWX
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Jun 2025 11:35:56 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-235ef62066eso103164455ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 04:35:55 -0700 (PDT)
+	Wed, 18 Jun 2025 11:36:12 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-7fd581c2bf4so5616361a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 04:36:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1750246555; x=1750851355; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1750246570; x=1750851370; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bKQfZHKenjLPRqEIi0Ln2Cx1EmVsnnUE8sKaMZB78eg=;
-        b=E8bP/IXvHVZltbcCQpMU+FeIcQfT7ze8RrES9xk+VtBWtRBfl+oR9Zvr4fCujEIWYx
-         7O3YYCPqp6/yKj/qWQ3kNOI92t5qHm0UkaMv6THMG7QG4/qui2vcYbEvRJUHO6fNXaWV
-         2a68mQW4s9vzW2sSZkjvXGWth23x/PQGRKTufFQSC8X423IhH5jD1FhjzQ9NYjxphffL
-         smXsZNQ6LsAJGv2cQZzBpAwjNgTj0BG0ZehaklNSN1CltMmRiHhYTJby7LFHsihUW8M4
-         m3QKxVETTIOZ2xf6xXAse7KjGByHEPUEEUCNNBH+zO5Z9QLw9sgr5uU+ZbD90MZiBTap
-         zqcA==
+        bh=ernJHGr8wUUltKH2OhtBcW3LIbI4jpB3xEJEU1yumiA=;
+        b=DZK6aNH7zCc1Y+QhUmSwR1Fg4i2CWWe8HPIpuELjJl34ekINzS2z1kd829M9q8hC8q
+         EIUtOC2SokP+8P4HPFIWpF8Bjz/OWgAVDkkJ7k9jYJxZpBupy9tI6EbkCeq7aROSGetJ
+         Tt6Yu+prRnmNqcQLNY01kKEB5Vverlt7PhOX1H43xiZToDcFsNJfCdsT2bJ/rXuM5VMD
+         8FX0BWaaTaXiIZngsAtjy9X7chuyMyabOx2JdfSB0kY+p04/kOhS4V7XDMnvE9W//9tZ
+         7b9Cvtz5O/7WsuVsZigLj0xL6HuqFuzR6JxVwfUvjuofK8F0aUY2SUglYSdvjSPobPf3
+         q6pg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750246555; x=1750851355;
+        d=1e100.net; s=20230601; t=1750246570; x=1750851370;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bKQfZHKenjLPRqEIi0Ln2Cx1EmVsnnUE8sKaMZB78eg=;
-        b=iJQh/9M+WloGepe6+qppNimzAa5G/2hmnlPUz5v27lqS7qbjdQTxIFsYfSrmEhP6jJ
-         sKF977v9S4DkPlhUYrLI+AseEQ4wM90WEZ35+ZAWxxRwN8M7Dh2OS8kw6eD4JBIeWIDv
-         2XHQPNU71Dm82QkoL30KHS2GAGcysXAIuGGPLux4+jh6aq2DV+RCgI66JVcqOOOLosYn
-         FofcxtiouYeWwF+eYkTDPeNGaj4fOSPVIQD70gCv/Y/y3bXNj9oftq/ZNcJqUD1Y1n4V
-         9aS7wNBeAhbe48EQZfM6UXbGSd3Vxz4X6Bmtl2pjC323IxLve9y8+JWnLwJEBM9VcILl
-         Ytxg==
-X-Forwarded-Encrypted: i=1; AJvYcCVacMR2WUocC5eYzotxFLDxhJPOTDL2XKNj6S/GxR2NLbQcaQtkzyLNOPzflCbqFhADrVa5sHDH9nkX2Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWyaiY1WT5474SC/5/asvs+tPZOWSSaFJqrcr2P1My7tBbxgcz
-	hH49fJyjTRdm7VjbM9+mIXWSgYhseFuB7vTKeOKDinHc4DzbyrOKqNaIRjdK2E6PM+k=
-X-Gm-Gg: ASbGncvhjbQ2FC94IzTzrqOm68ufjY+wlRwoG7YFASVQ6rDtPtIJuIBQ1Apmn4PodUG
-	MLFpi5dv31UcG6hz8xI1tDmd0jPeBj0XlkJM/u+9P1/4z0zQ8T9nUGyVsFK6D5hsiSub39vJXDX
-	IVq4Br1dwTvlZYwpm4lJwXbBRYDiH3awBIeLDRna4w6ugVo2IH8dK5jQEI3p6LfG4ZvdjYSq9kF
-	cDEDWkU3XcZtDvDZ5gh4EKVlNAkOfPR1VABJQJ5kRx/6j+84oOVMH3gDJi4YiUwGiGVqanzfzkm
-	/BEBrL9vktZhbx0epqcj24eNdP0LNtq0eRMGBlI3JnITCvQINjy3iF3JX5F3I91m0RTSc/K4lv4
-	kwDSBBYr80iNbP9XhRQ==
-X-Google-Smtp-Source: AGHT+IGDxSM7ATGEf8luR6FsHBoP9Rz03O76JFYYcytYYgv6CqHzBB2u3MegIdGDixYFe2vIN2X5yg==
-X-Received: by 2002:a17:902:dad1:b0:235:e9fe:83c0 with SMTP id d9443c01a7336-2366b3de5damr236240735ad.27.1750246554649;
-        Wed, 18 Jun 2025 04:35:54 -0700 (PDT)
+        bh=ernJHGr8wUUltKH2OhtBcW3LIbI4jpB3xEJEU1yumiA=;
+        b=WXoIg/0uf7hgMe/ZaE6nXy9OgaO8xYmIUzJoRh9/eRavB+91vmmWdRyhvI84KczooF
+         DdnXN2i5MseB6HFXqBVUyhIlSnxhzWzF8PdC3KVqXVaUeWzvGOOMucs9hDv3EyEUlFWC
+         3hzx+hbyx3YQYWFnP6kkwVnvuPO7EYsuvbpVP0Qgh+iGOnUiIVbqb26ppdx4CarLTqKr
+         m14XmTr9v0ZboLwWmweq5jsPQgKEGJaDWnwk2L3Yl5+T2t67vdJurCa0tPX6WPtk2Ytt
+         TMVeiTub5HvjjyAqR5w8dYaXAUb5KEzGZuMdvYvXTxD2hlz1sgIwiSC5DKtircIq3w1n
+         4ARg==
+X-Forwarded-Encrypted: i=1; AJvYcCXYsXItd9jvxod1sfzyq3knoCfX0LdDK6z0eh7iKb2ejh/fbvgMzFQTY5MG/FXG4NE+6JHInNkTu9droQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4oIq4T4yUbFejSxLJNtVfypEiSDegkZs/q2O0Kx9R89nr7/JB
+	nHUXRIOkDLF7LgBGlIm1o2t+IIYnzaEeKanlLtz00onPo0+KJfCCz1L7GiaL5MAaf/Q=
+X-Gm-Gg: ASbGncvcV2dPbktTxR5o9F9inXfHTN/mPk161JeJ1wX5JmEmVhPvwq0ot+ynjP5y0nf
+	NtANBO5aEz45EXOR2K/FoI96zGzpm2IrTA7q0WSMJ/RkshsXtkSlpmId5lOMERx0wysrwAciV0Q
+	nmuRshz9GmiaN/pXeeHvAFiA1FY+YFxBKu4td6mLkjOzRcfsxbPIOlhhi28FpPEAKgZDj8nV4Dt
+	DebKq3wOuXGOw/mVddRmDI160xJpyhbwHgOXkzHrwPu59QLj6rJaUbnhieM4BXEnm1nYJzJIu+t
+	iZ1LIb/fEQq3oUlJq6d4tTb/5NrZDbLlqycj+OHeMNfUWjgDFiyz+gcPTi6CNPxwCtG6eiNqfUk
+	Z6kXvIFn31x2sMqhwEPnZ4nQpq6So
+X-Google-Smtp-Source: AGHT+IED2oGexk/JFxqAVuWpL/++/t8pIqk6FimHQhJH+vt07+Mbc0bPBQs0X+EavqGGcAYnWQlaQw==
+X-Received: by 2002:a17:90b:1a87:b0:311:abba:53c0 with SMTP id 98e67ed59e1d1-313f1c03004mr26620231a91.9.1750246569846;
+        Wed, 18 Jun 2025 04:36:09 -0700 (PDT)
 Received: from localhost.localdomain ([122.171.23.44])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237c57c63efsm9112475ad.172.2025.06.18.04.35.49
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237c57c63efsm9112475ad.172.2025.06.18.04.36.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Jun 2025 04:35:53 -0700 (PDT)
+        Wed, 18 Jun 2025 04:36:08 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Atish Patra <atish.patra@linux.dev>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -81,17 +81,17 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>,
-	Nutty Liu <liujingqi@lanxincomputing.com>
-Subject: [PATCH v3 02/12] RISC-V: KVM: Drop the return value of kvm_riscv_vcpu_aia_init()
-Date: Wed, 18 Jun 2025 17:05:22 +0530
-Message-ID: <20250618113532.471448-3-apatel@ventanamicro.com>
+	Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH v3 05/12] RISC-V: KVM: Don't flush TLB when PTE is unchanged
+Date: Wed, 18 Jun 2025 17:05:25 +0530
+Message-ID: <20250618113532.471448-6-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250618113532.471448-1-apatel@ventanamicro.com>
 References: <20250618113532.471448-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_043555_496752_C9D5A921 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20250618_043610_804800_74EB1229 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,73 +108,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The kvm_riscv_vcpu_aia_init() does not return any failure so drop
-the return value which is always zero.
+The gstage_set_pte() and gstage_op_pte() should flush TLB only when
+a leaf PTE changes so that unnecessary TLB flushes can be avoided.
 
-Reviewed-by: Nutty Liu<liujingqi@lanxincomputing.com>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/include/asm/kvm_aia.h | 2 +-
- arch/riscv/kvm/aia_device.c      | 6 ++----
- arch/riscv/kvm/vcpu.c            | 4 +---
- 3 files changed, 4 insertions(+), 8 deletions(-)
+ arch/riscv/kvm/mmu.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
-index 3b643b9efc07..0a0f12496f00 100644
---- a/arch/riscv/include/asm/kvm_aia.h
-+++ b/arch/riscv/include/asm/kvm_aia.h
-@@ -147,7 +147,7 @@ int kvm_riscv_vcpu_aia_rmw_ireg(struct kvm_vcpu *vcpu, unsigned int csr_num,
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 1087ea74567b..29f1bd853a66 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -167,9 +167,11 @@ static int gstage_set_pte(struct kvm *kvm, u32 level,
+ 		ptep = &next_ptep[gstage_pte_index(addr, current_level)];
+ 	}
  
- int kvm_riscv_vcpu_aia_update(struct kvm_vcpu *vcpu);
- void kvm_riscv_vcpu_aia_reset(struct kvm_vcpu *vcpu);
--int kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu);
-+void kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu);
- void kvm_riscv_vcpu_aia_deinit(struct kvm_vcpu *vcpu);
+-	set_pte(ptep, *new_pte);
+-	if (gstage_pte_leaf(ptep))
+-		gstage_remote_tlb_flush(kvm, current_level, addr);
++	if (pte_val(*ptep) != pte_val(*new_pte)) {
++		set_pte(ptep, *new_pte);
++		if (gstage_pte_leaf(ptep))
++			gstage_remote_tlb_flush(kvm, current_level, addr);
++	}
  
- int kvm_riscv_aia_inject_msi_by_id(struct kvm *kvm, u32 hart_index,
-diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
-index 806c41931cde..b195a93add1c 100644
---- a/arch/riscv/kvm/aia_device.c
-+++ b/arch/riscv/kvm/aia_device.c
-@@ -509,12 +509,12 @@ void kvm_riscv_vcpu_aia_reset(struct kvm_vcpu *vcpu)
- 	kvm_riscv_vcpu_aia_imsic_reset(vcpu);
+ 	return 0;
  }
- 
--int kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu)
-+void kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu)
+@@ -229,7 +231,7 @@ static void gstage_op_pte(struct kvm *kvm, gpa_t addr,
+ 			  pte_t *ptep, u32 ptep_level, enum gstage_op op)
  {
- 	struct kvm_vcpu_aia *vaia = &vcpu->arch.aia_context;
+ 	int i, ret;
+-	pte_t *next_ptep;
++	pte_t old_pte, *next_ptep;
+ 	u32 next_ptep_level;
+ 	unsigned long next_page_size, page_size;
  
- 	if (!kvm_riscv_aia_available())
--		return 0;
-+		return;
- 
- 	/*
- 	 * We don't do any memory allocations over here because these
-@@ -526,8 +526,6 @@ int kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu)
- 	/* Initialize default values in AIA vcpu context */
- 	vaia->imsic_addr = KVM_RISCV_AIA_UNDEF_ADDR;
- 	vaia->hart_index = vcpu->vcpu_idx;
--
--	return 0;
+@@ -258,11 +260,13 @@ static void gstage_op_pte(struct kvm *kvm, gpa_t addr,
+ 		if (op == GSTAGE_OP_CLEAR)
+ 			put_page(virt_to_page(next_ptep));
+ 	} else {
++		old_pte = *ptep;
+ 		if (op == GSTAGE_OP_CLEAR)
+ 			set_pte(ptep, __pte(0));
+ 		else if (op == GSTAGE_OP_WP)
+ 			set_pte(ptep, __pte(pte_val(ptep_get(ptep)) & ~_PAGE_WRITE));
+-		gstage_remote_tlb_flush(kvm, ptep_level, addr);
++		if (pte_val(*ptep) != pte_val(old_pte))
++			gstage_remote_tlb_flush(kvm, ptep_level, addr);
+ 	}
  }
  
- void kvm_riscv_vcpu_aia_deinit(struct kvm_vcpu *vcpu)
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index b467dc1f4c7f..f9fb3dbbe0c3 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -159,9 +159,7 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 	kvm_riscv_vcpu_pmu_init(vcpu);
- 
- 	/* Setup VCPU AIA */
--	rc = kvm_riscv_vcpu_aia_init(vcpu);
--	if (rc)
--		return rc;
-+	kvm_riscv_vcpu_aia_init(vcpu);
- 
- 	/*
- 	 * Setup SBI extensions
 -- 
 2.43.0
 
