@@ -4,40 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD9CC7115E
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 03:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52275C7115F
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 03:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TxaGvgXw0rVSFNAGWnJNGm41abnFHSUID7wK1NX/YWI=; b=ajXiTnfiAjkcHJ
-	lc/Jd5t2SM12UR4oeVJTCvxavKspmsYgxdgU6Zyyl0b+oxm6LH1gbjWp/ZHBDWvVkzA+DrIYWUj8S
-	/iOlScxp0bfaWZcOII79VXtIF2CueiUTPCirNeLBdf48oQUKpd6O6JJAlAcAtwPP9rOD8/nHAIPdy
-	Am4jYDpO9epIlHXr70iZKobkeHojKCsXuJtObJfdX6085vF7GyAbX3tT+D/erF5ACWV3d6fnVb/6g
-	Nzd4JBgsg5t9Fp3EGGvgWBQJMKm+gAiRZgwth5i8vc6WcS4g40+f75XnnDcEPHBJhZjQU82+bMrlX
-	GoJUmdPwHJjgYKIqA73w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3/yx8CuKQxaXmF4mf0ysVXnsOs/OSnul07ou1NjO09s=; b=Oy4UXz+ysNgjRY
+	L90hfyRHU9uIxMcLlfL+kRPucgKVJR/kJftzcuUGtSmiGHqrXmMpD/YmuZLgS4AWkUWVUNZ3/JcFx
+	LKK0kgE8ThFevKSGXCALzPjRrh1TgCvKdac3aVZR4VkyXvvQ2Fr/U9yMH8sffbycyekj/T6qArJtd
+	lkzKirhg6Pwk/knyZ2YejGm8vvaDfoSLY4j/UbRlZfV4cyXyG2g4ojXrWheYcrtv/PBXE+kGASUIp
+	NrQwcVlmxMB8unKUWpLT9ZoC255ooHCPmOXbSlGTk9ukIfkNgBmI04K3fqeGTB7odz2E8aVPIQtz+
+	MCV7/qJyGmJ9mhDjSBCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRjiA-00000008vbz-2jGI;
-	Wed, 18 Jun 2025 03:43:42 +0000
+	id 1uRjiD-00000008vdy-2VHr;
+	Wed, 18 Jun 2025 03:43:45 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRjgG-00000008vFa-0Hxw
+	id 1uRjgG-00000008vFY-0H7y
 	for linux-riscv@lists.infradead.org;
 	Wed, 18 Jun 2025 03:41:47 +0000
 Received: from [127.0.0.2] (unknown [210.73.43.2])
-	by APP-01 (Coremail) with SMTP id qwCowABnFtVpNVJoV95NBw--.6548S7;
-	Wed, 18 Jun 2025 11:41:31 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowABnFtVpNVJoV95NBw--.6548S2;
+	Wed, 18 Jun 2025 11:41:30 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Wed, 18 Jun 2025 11:40:50 +0800
-Subject: [PATCH net-next v2 5/6] riscv: dts: spacemit: Add Ethernet support
- for BPI-F3
+Subject: [PATCH net-next v2 0/6] Add Ethernet MAC support for SpacemiT K1
+Date: Wed, 18 Jun 2025 11:40:45 +0800
+Message-Id: <20250618-net-k1-emac-v2-0-94f5f07227a8@iscas.ac.cn>
 MIME-Version: 1.0
-Message-Id: <20250618-net-k1-emac-v2-5-94f5f07227a8@iscas.ac.cn>
-References: <20250618-net-k1-emac-v2-0-94f5f07227a8@iscas.ac.cn>
-In-Reply-To: <20250618-net-k1-emac-v2-0-94f5f07227a8@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAD01UmgC/1WP0W7CMAxFf6XK8xzF6RqgQoj/mHjIghnRaAp2V
+ jGh/vtCgIc9Xl37HPumhDiSqL65KaYpShxTCfatUeHo0xdB3JesrLGdccZBogzfCDT4AC3hEju
+ zJO/eVdk4Mx3itdI+1H0w0TWr3aNhuvwUfH7Wn14IwjgMMffN5DQ64IB3ykAivor7Zv3wYmsQs
+ V1ptAYXxkI54LQn3nKUINmzLqRNNR2j5JF/60MTVtWL8e/2CcFACO6wog6Nc4ttQXnRPuiQ1G6
+ e5z8eKFlJHAEAAA==
+X-Change-ID: 20250606-net-k1-emac-3e181508ea64
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -53,32 +56,30 @@ Cc: Vivian Wang <uwu@dram.page>, Lukas Bulwahn <lukas.bulwahn@redhat.com>,
  Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>, 
  netdev@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org
+ linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
-X-CM-TRANSID: qwCowABnFtVpNVJoV95NBw--.6548S7
-X-Coremail-Antispam: 1UD129KBjvJXoW7Ary5JF47JFyxWw1UGrW7Arb_yoW8Wr1Dpr
-	WYkFs3urWDGr1Syw43Zryq9r4fGan5XrZ5G343uF1rJ3yqvF90vw15Kwn7tr1DWrW5X345
-	Wr4xtFWUur1qkw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQa14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr1j
-	6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6x
-	IIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_
-	Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8c
-	xan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVAFwVW8GwCF04k20xvY0x0EwIxG
-	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4
-	vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IY
-	x2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw2
-	0EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x02
-	67AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRrsqJUUUUU=
+X-CM-TRANSID: qwCowABnFtVpNVJoV95NBw--.6548S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxur1fZr1fXr47tFWxCrWxWFg_yoW5CF1xpa
+	y8ZrZxuwnxJr47trs7uws7urWfWa1vy3W5WF1UtryrX3sF9FWUJrnakr15Gr1UZrWrJryS
+	yr4kZw1fCFn8Ar7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9E14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK67AK6r48MxAIw28IcxkI7VAKI4
+	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
+	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjx
+	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
+	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
+	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sR_XTm7UUUUU==
 X-Originating-IP: [210.73.43.2]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_204144_514167_468AF9A3 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250617_204144_501729_ECAAACD8 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,71 +96,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Banana Pi BPI-F3 uses an RGMII PHY for each port and uses GPIO for PHY
-reset.
+SpacemiT K1 has two gigabit Ethernet MACs with RGMII and RMII support.
+Add a driver for them, as well as the supporting devicetree and bindings
+updates.
 
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+Tested on BananaPi BPI-F3 and Milk-V Jupiter.
+
+I would like to note that even though some bit field names superficially
+resemble that of DesignWare MAC, all other differences point to it in
+fact being a custom design.
+
+Based on SpacemiT drivers [1]. This series depends on reset controller
+support for K1 [2]. These patches can also be pulled from:
+
+https://github.com/dramforever/linux/tree/k1/ethernet/v2
+
+Note on patch 3: I am still fairly certain that such a bus with empty
+ranges is allowed under both the spirit and the letter of simple-bus
+bindings [3].  This also passes "make dtbs_check" with only unrelated
+warnings that was already there.
+
+[1]: https://github.com/spacemit-com/linux-k1x
+[2]: https://lore.kernel.org/all/20250613011139.1201702-1-elder@riscstar.com
+[3]: https://github.com/devicetree-org/dt-schema/commit/ed9190d20f146d13e262cc9138506326f7d4da91
+
 ---
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 46 +++++++++++++++++++++++++
- 1 file changed, 46 insertions(+)
+Changes in v2:
+- dts: Put eth0 and eth1 nodes under a bus with dma-ranges
+- dts: Added Milk-V Jupiter
+- Fix typo in emac_init_hw() that broke the driver (Oops!)
+- Reformatted line lengths to under 80
+- Addressed other v1 review comments
+- Link to v1: https://lore.kernel.org/r/20250613-net-k1-emac-v1-0-cc6f9e510667@iscas.ac.cn
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 816ef1bc358ec490aff184d5915d680dbd9f00cb..6b841dacb61ec6592339f174267f4936c0579597 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -35,3 +35,49 @@ &uart0 {
- 	pinctrl-0 = <&uart0_2_cfg>;
- 	status = "okay";
- };
-+
-+&eth0 {
-+	phy-handle = <&rgmii0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_cfg>;
-+	rx-internal-delay-ps = <0>;
-+	tx-internal-delay-ps = <0>;
-+	status = "okay";
-+
-+	mdio-bus {
-+		#address-cells = <0x1>;
-+		#size-cells = <0x0>;
-+
-+		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
-+		reset-delay-us = <10000>;
-+		reset-post-delay-us = <100000>;
-+
-+		rgmii0: phy@1 {
-+			reg = <0x1>;
-+		};
-+	};
-+};
-+
-+&eth1 {
-+	phy-handle = <&rgmii1>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1_cfg>;
-+	rx-internal-delay-ps = <0>;
-+	tx-internal-delay-ps = <250>;
-+	status = "okay";
-+
-+	mdio-bus {
-+		#address-cells = <0x1>;
-+		#size-cells = <0x0>;
-+
-+		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
-+		reset-delay-us = <10000>;
-+		reset-post-delay-us = <100000>;
-+
-+		rgmii1: phy@1 {
-+			reg = <0x1>;
-+		};
-+	};
-+};
+---
+Vivian Wang (6):
+      dt-bindings: net: Add support for SpacemiT K1
+      net: spacemit: Add K1 Ethernet MAC
+      riscv: dts: Add network-bus dma-ranges for SpacemiT K1
+      riscv: dts: spacemit: Add Ethernet support for K1
+      riscv: dts: spacemit: Add Ethernet support for BPI-F3
+      riscv: dts: spacemit: Add Ethernet support for Jupiter
 
+ .../devicetree/bindings/net/spacemit,k1-emac.yaml  |   81 +
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |   46 +
+ arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts  |   46 +
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi       |   48 +
+ arch/riscv/boot/dts/spacemit/k1.dtsi               |   31 +
+ drivers/net/ethernet/Kconfig                       |    1 +
+ drivers/net/ethernet/Makefile                      |    1 +
+ drivers/net/ethernet/spacemit/Kconfig              |   29 +
+ drivers/net/ethernet/spacemit/Makefile             |    6 +
+ drivers/net/ethernet/spacemit/k1_emac.c            | 1934 ++++++++++++++++++++
+ drivers/net/ethernet/spacemit/k1_emac.h            |  416 +++++
+ 11 files changed, 2639 insertions(+)
+---
+base-commit: d9946fe286439c2aeaa7953b8c316efe5b83d515
+change-id: 20250606-net-k1-emac-3e181508ea64
+prerequisite-message-id: <20250613011139.1201702-1-elder@riscstar.com>
+prerequisite-patch-id: 2c73c63bef3640e63243ddcf3c07b108d45f6816
+prerequisite-patch-id: 0faba75db33c96a588e722c4f2b3862c4cbdaeae
+prerequisite-patch-id: 5db8688ef86188ec091145fae9e14b2211cd2b8c
+prerequisite-patch-id: e0fe84381637dc888d996a79ea717ff0e3441bd1
+prerequisite-patch-id: 2fc0ef1c2fcda92ad83400da5aadaf194fe78627
+prerequisite-patch-id: bfa54447803e5642059c386e2bd96297e691d0bf
+
+Best regards,
 -- 
-2.49.0
+Vivian "dramforever" Wang
 
 
 _______________________________________________
