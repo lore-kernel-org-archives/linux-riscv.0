@@ -4,95 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB85C7115A
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 13:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D03C7115A
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 13:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5w+MuLMZrBc6lxPWhPhVbF0BaaG8s/IP8+zkOstfeqg=; b=Yj8LUBhBFOFC4z
-	Ti3/INhlP76RN4xJtqTfx7+yNA2o9puX8IB45uQdIQaJmglH4cG5cdG/jgfCNKWltDYaNPIZ+zQu2
-	slTN52OZI6u8YaHCOBwoMmw5QnHIcsMUqVRxs0dctaSBueF0V9YrxSNVXQ49KS1UR4KepgSW2toEn
-	vrdyLlx/76KeubRZYI6Du9G3r/LdOweQ9FxPeRVKjaY9QrHp82yfreAp3F9YFo9wCKXri1VJcfASa
-	MJL3arepCRPoqfGxxGsgpk8Vb3JU9qapUAaKyH+zlK/ct3S/d++EhTQfwGjY3xEg7XM26hKdBfkRe
-	cSsfPEgd06b/oq8W8wEg==;
+	List-Owner; bh=iDGkM1RjWZyHjx6513gZQChPh6XVf6ZcNabMdFmsM2A=; b=GQi+iiy71sfpro
+	nsGtQ95M7n8B7ZATdUsldRoeVTGm3IkARIZsAr1e89dgwCKXccGQ984Y6bDoEdwkx8IA5Er+X7QYE
+	Ijp+08EQ+Ydck+wiYO7wUJcQoLJRq72NN42d+2XV+hgppb9cTaeIwZveK7In3jxerKcJ74caAQnQx
+	mYV9V3jZorsI4MYNT34JWdkEviaP1Ut/FEtjyHlcLoimvqFU0kiP8LE1QN4+kSeyeNwRGwEPQqx9T
+	8As33HENgqiAF5pju1dRZqPzzYITgyFLX8xRJh+cAROUpANZhM3W4BWEIaAuxBtpIOPM/IDO+qJFs
+	pB+77UBXimBsMBKrew8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsYw-0000000AFry-1wtJ;
-	Wed, 18 Jun 2025 13:10:46 +0000
-Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
+	id 1uRsdN-0000000AGNx-12Y3;
+	Wed, 18 Jun 2025 13:15:21 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrBM-00000009z8a-20lw
-	for linux-riscv@lists.infradead.org;
-	Wed, 18 Jun 2025 11:42:22 +0000
-Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3ddc9872e69so27538265ab.1
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 04:42:19 -0700 (PDT)
+	id 1uRrSI-0000000A2fC-250R;
+	Wed, 18 Jun 2025 11:59:51 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-553b5165cf5so5771375e87.0;
+        Wed, 18 Jun 2025 04:59:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1750246939; x=1750851739; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jGoYPJ/PjlTLAT3PAQl7BTNWNSTONrcIyBDN+6W+nw4=;
-        b=N88NfwTm98KxGUQWu+lk8iJGYTC78lEFbCTT6ngSAtmzjHsGS7ZdZQs9knjK9VU8YL
-         nRU3bC1e6V/XiPS7uaD07KDVnEOlY8hcBEmfyPg7eeT6v+v98eecrvVpY+C0v7M5d3Qk
-         Es8YVWXVZ/cZqTmN6Vd33UC9QEq7fIZF2ExEOuQWiXdCTiKi1r4uOnKz3KwS4DpNdGwU
-         MQFoZrz0bQTukSIAkRM22ax2HX4eafMjNtxfeExf/mv/gsidbOuT0NQshOmwGp9lUB8H
-         leO8Xk5PWTaQI/KNdf0tiCKrWn3OKvrJXVsR8B/oy31KTQSu3PO0vPfI1bch35rDtO2l
-         PIXA==
+        d=gmail.com; s=20230601; t=1750247988; x=1750852788; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/TQmvTgeWB4YgSToPjAwaMsmcK/mn8xvOCLcOf55+Dk=;
+        b=Sm5HsPJLup4haN+JTiS5dCBzV5qwGUWxJaJnd1kqik9iodi2WZ73WJSGoiQdGyui4x
+         pIyC26+GKjBvWLyliIgCmvhIgpDv2OaolUSEOE5B5nXSwQl6S38TM58usn1YXP6uwNYF
+         PjcpVd8AYjoUgVIp9mUt7/HpBrRS6JY28KrnDer8OB0tJfyCVZQpZKc1HOJ8H0cBUUNK
+         AgP6r2twMnmHOwyANBIq86FxF+him+ya4OYg1psOm8blQ5vlLmlTqYf6BQL4DaGunMVL
+         BdbG9W9GkO+IJs9e7J4UVSYBiFPEOWAXxlPwQJMXtPBELma4IY41Ciq3BCznLUql0r+r
+         I6Tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750246939; x=1750851739;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jGoYPJ/PjlTLAT3PAQl7BTNWNSTONrcIyBDN+6W+nw4=;
-        b=JCH7veKgyhodxwPfBDh7y07B4sA7j+O+zTsmSGfFp1UUs+XN4VbCTGMCHywhDL80Jl
-         5yFCjtdPY2OscrXWO0OSFVPcThlPzp7hOzbREdxe9znr09Ldcya0Yr2+BzZCJQXlzKYd
-         hWOjz006J6dtzLKUPPML1OJ/kc2QMEfevpItfn+1IfGvqlT6D7dxztd8esXK24LQa+4V
-         DCg2LWwTZyAdMmmC/JeL0xT2JeM/79S1OohleCceF0ut7ISK4gaSd5yBTkSq5NxHWtrz
-         spbcfYJzpGagwOiywUVycg6bhhgb36lVl/RQyc5dAWfU2pIJWCxZOcT75+b7vY6t6C7I
-         Cu+g==
-X-Forwarded-Encrypted: i=1; AJvYcCV89ddxHknLPi71lAIbV+QpfS8XHj6Te8DhfgQuLeuUDfa61YTgf6S1isfDUV8pbgh8FiqiyMK9SR99WA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZsNf6RJoagUhc4sqoTjr5Uw9Js2fIm4X0ku/NEe5/7OOWThDu
-	eyttmobwWaZv1GxtOz4T08fBUlW87KSKmj8L20g22GcsC2DZL4eSIYf5xRqY3wpuxvo=
-X-Gm-Gg: ASbGnctzfdMVwCppL17OZXQdqg5J99dt9H3c7+B5vuyAxUiunfZLoPIWbd3ft7NZGrF
-	K//PsN8HQx+Zy4P6cLkPmP6/RTQTeuVke678K4vf9fjOpUKMg0/E6BlP4xH9PDeSq8aAPzos+a/
-	7psq2hVZf9YkiybWYL2zrHqtG41SFeapziox0oYPRgYGClTFNIPOWEVkbC5mxTU4zzevQgSV4FC
-	MF/Xk3CIzTUGFNcaJVVG1Quz95gTLPerLLiAjHhthUG4nM7OM2b26PQNG3zOt0K7YBmgiKdnYmR
-	Q/sjsx0yajEeazKQ7F4nJONCkcT8WOdBpStQVyjhYDNWjGXSNTnNkFta7QacID/aAIcHnD7Es/m
-	80SiDnlW8AW9F2jxFcMdMcl520Q==
-X-Google-Smtp-Source: AGHT+IGZEcu6gwBAOkwxavLZ+RywP72ic1e+8WKzjWeayufFiBzYjvq43wkZd9VQN5U2/4NY0wJZaQ==
-X-Received: by 2002:a05:6e02:2493:b0:3dd:ebb5:6382 with SMTP id e9e14a558f8ab-3de07c40cf8mr191072635ab.4.1750246939145;
-        Wed, 18 Jun 2025 04:42:19 -0700 (PDT)
-Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50149b9d9b0sm2675217173.38.2025.06.18.04.42.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Jun 2025 04:42:18 -0700 (PDT)
-Message-ID: <5be51d5f-67cf-4e47-9bdd-e1e5956e184a@riscstar.com>
-Date: Wed, 18 Jun 2025 06:42:17 -0500
+        d=1e100.net; s=20230601; t=1750247988; x=1750852788;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/TQmvTgeWB4YgSToPjAwaMsmcK/mn8xvOCLcOf55+Dk=;
+        b=vwOpX+f/NfZrmj+5ofHEJEz1brKdzSvMz4eYtIG1qMu690LLlMIPdyccURVI1zDPRv
+         +MdiY/jI5g5QiR1vAK/oNiPYGvIpSigRQV2tVGGeva5fWdpo0+uDkgWuA2v4RkoH9ORg
+         YmS+QuLXL3diOmyio/JlacyrpgKu/+BSf+TL8i1+qshQGJSwOpyF6OtyFrXatdQk+IOR
+         ivXNO4PCrE92T3a4oSKO82Sf7o4Q2tw072eEI1dKyHbovKPH+sKF29JXnEUPqXoybNAP
+         0uwvzTzLx7MR1lM8dfoCg6fb5+dpDdaQI/XH2w5EWFyAL42gO039hFQMx01r2FV1lhAn
+         vkvw==
+X-Forwarded-Encrypted: i=1; AJvYcCVefe15V1Y530m+HIwdhFOGqFjrLepLwjdYD47yM7GYXCYRz0jnjtzRqdMF3rm8oZ6aqPvAkDZ/xvVBijc=@lists.infradead.org, AJvYcCXLEZs9m7/WRGofItyM5Q26zKyzdLRYY/0BF+Wzk9hGSe/Sn0dgLkYqt4A3h9iFhs6T0rrcrrADkZdLPQ1l1wct@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmyV4/xOIEE0XA67Zn2/KNYB22d+37MbmLPrlxq3xENXzSAgdB
+	3P1NPPTV2D9K+a/Umrje6v5okQjJIpGknZMH/NExeKbRPSSPcLfoFkt0
+X-Gm-Gg: ASbGncv0ockWqQOddN3mDRQM40ACJ3J6Jb1sMx85FMj5KuCPE3qCVWXN7uTPZrz+N0Y
+	TdQdWn92A7SElDw/0ytyDSLBPl1KtolIPxpIp+doUMXOdoZEX2kuvxPANzXDhh7iMlY27+uqJo7
+	rjlUbGNVPvH8fjJGzu7w8S9Q75p6OKqZq8sh6Wowsv2dz+YoP45Vn46dMoCkZdHbRs4pmqVFO1h
+	lMTpsbygA+kTZGQYfDo8t2FXHFEHmEBPxpSFj6kUEUgZn8fzF0YHaG1HewhT7gFgzR4D8rDDjfM
+	ViposAzLiyQRTPvZHVmKh1XzovxzyvxU/+adBQB9NjWk6F6KLLUS2yZwN2GaqjYa2urNU5GxCiX
+	9vg==
+X-Google-Smtp-Source: AGHT+IEEuLAvgr2OL57VbH9FchKBqYmVVAHa3AT4JbHjg5k/1SYfHWucA3kEC25R23C9uvFFL7j1Sg==
+X-Received: by 2002:a2e:b8c4:0:b0:32b:2f36:4d92 with SMTP id 38308e7fff4ca-32b4a413262mr52990161fa.12.1750247987973;
+        Wed, 18 Jun 2025 04:59:47 -0700 (PDT)
+Received: from localhost (soda.int.kasm.eu. [2001:678:a5c:1202:4fb5:f16a:579c:6dcb])
+        by smtp.gmail.com with UTF8SMTPSA id 38308e7fff4ca-32b7dafc837sm1702891fa.47.2025.06.18.04.59.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Jun 2025 04:59:47 -0700 (PDT)
+Date: Wed, 18 Jun 2025 13:59:46 +0200
+From: Klara Modin <klarasmodin@gmail.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, Daniel Palmer <daniel@thingy.jp>, 
+	Romain Perier <romain.perier@gmail.com>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, Grygorii Strashko <grygorii.strashko@ti.com>, 
+	Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, linux-omap@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 01/12] gpio: mmio: use new GPIO line value setter
+ callbacks
+Message-ID: <2rw2sncevdiyirpdovotztlg77apcq2btzytuv5jnm55aqhlne@swtts3hl53tw>
+References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
+ <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 5/6] reset: spacemit: add support for SpacemiT CCU
- resets
-To: Yixun Lan <dlan@gentoo.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, heylenay@4d2.org, inochiama@outlook.com,
- guodong@riscstar.com, devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250613011139.1201702-1-elder@riscstar.com>
- <20250613011139.1201702-6-elder@riscstar.com>
- <528522d9-0467-428c-820a-9e9c8a6166e7@riscstar.com>
- <20250618111935-GYA156140@gentoo>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20250618111935-GYA156140@gentoo>
+Content-Disposition: inline
+In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_044220_758479_1E212CE1 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20250618_045950_538725_0685E1D2 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,51 +103,204 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/18/25 6:19 AM, Yixun Lan wrote:
-> Hi Alex,
+Hi,
+
+On 2025-06-10 14:33:11 +0200, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > 
-> On 21:44 Sat 14 Jun     , Alex Elder wrote:
->> On 6/12/25 8:11 PM, Alex Elder wrote:
->>> Implement reset support for SpacemiT CCUs.  A SpacemiT reset controller
->>> device is an auxiliary device associated with a clock controller (CCU).
->>>
->>> This patch defines the reset controllers for the MPMU, APBC, and MPMU
->>> CCUs, which already define clock controllers.  It also adds RCPU, RCPU2,
->>> and ACPB2 CCUs, which only define resets.
->>>
->>> Signed-off-by: Alex Elder <elder@riscstar.com>
->>> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
->>> Reviewed-by: Yixun Lan <dlan@gentoo.org>
->>> ---
->>> v11: Redefined combined reset definitions into individual ones
->>
->> After I sent this, I realized the clocks use a different
->> naming convention for two of the PCIe symbols.  I think
->> reset should follow the same convention.
->>
->> Yixun if you accept this series, would you mind updating
->> these?
->>
->>     RESET_PCIE0_SLV -> RESET_PCIE0_SLAVE
->>     RESET_PCIE0_MSTR -> RESET_PCIE_MASTER
->>
->> (And similar changes for PCIE1 and PCIE2.)
->>
-> sure, done, check here (let me know if I did wrong)
->   https://github.com/spacemit-com/linux/releases/tag/spacemit-reset-drv-for-6.17
-
-Looks good to me.  Thank you.	-Alex
-
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
 > 
->> Thank you.
->>
->> 					-Alex
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> ---
+>  drivers/gpio/gpio-mmio.c | 53 ++++++++++++++++++++++++++++++------------------
+>  1 file changed, 33 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
+> index 4841e4ebe7a67d0f954e9a6f995ec5758f124edd..9169eccadb238efe944d494054b1e009f16eee7f 100644
+> --- a/drivers/gpio/gpio-mmio.c
+> +++ b/drivers/gpio/gpio-mmio.c
+> @@ -211,11 +211,12 @@ static int bgpio_get_multiple_be(struct gpio_chip *gc, unsigned long *mask,
+>  	return 0;
+>  }
+>  
+> -static void bgpio_set_none(struct gpio_chip *gc, unsigned int gpio, int val)
+> +static int bgpio_set_none(struct gpio_chip *gc, unsigned int gpio, int val)
+>  {
+> +	return 0;
+>  }
+>  
+> -static void bgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
+> +static int bgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
+>  {
+>  	unsigned long mask = bgpio_line2mask(gc, gpio);
+>  	unsigned long flags;
+> @@ -230,10 +231,12 @@ static void bgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
+>  	gc->write_reg(gc->reg_dat, gc->bgpio_data);
+>  
+>  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
+> +
+> +	return 0;
+>  }
+>  
+> -static void bgpio_set_with_clear(struct gpio_chip *gc, unsigned int gpio,
+> -				 int val)
+> +static int bgpio_set_with_clear(struct gpio_chip *gc, unsigned int gpio,
+> +				int val)
+>  {
+>  	unsigned long mask = bgpio_line2mask(gc, gpio);
+>  
+> @@ -241,9 +244,11 @@ static void bgpio_set_with_clear(struct gpio_chip *gc, unsigned int gpio,
+>  		gc->write_reg(gc->reg_set, mask);
+>  	else
+>  		gc->write_reg(gc->reg_clr, mask);
+> +
+> +	return 0;
+>  }
+>  
+> -static void bgpio_set_set(struct gpio_chip *gc, unsigned int gpio, int val)
+> +static int bgpio_set_set(struct gpio_chip *gc, unsigned int gpio, int val)
+>  {
+>  	unsigned long mask = bgpio_line2mask(gc, gpio);
+>  	unsigned long flags;
+> @@ -258,6 +263,8 @@ static void bgpio_set_set(struct gpio_chip *gc, unsigned int gpio, int val)
+>  	gc->write_reg(gc->reg_set, gc->bgpio_data);
+>  
+>  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
+> +
+> +	return 0;
+>  }
+>  
+>  static void bgpio_multiple_get_masks(struct gpio_chip *gc,
+> @@ -298,21 +305,25 @@ static void bgpio_set_multiple_single_reg(struct gpio_chip *gc,
+>  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
+>  }
+>  
+> -static void bgpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
+> +static int bgpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
+>  			       unsigned long *bits)
+>  {
+>  	bgpio_set_multiple_single_reg(gc, mask, bits, gc->reg_dat);
+> +
+> +	return 0;
+>  }
+>  
+> -static void bgpio_set_multiple_set(struct gpio_chip *gc, unsigned long *mask,
+> -				   unsigned long *bits)
+> +static int bgpio_set_multiple_set(struct gpio_chip *gc, unsigned long *mask,
+> +				  unsigned long *bits)
+>  {
+>  	bgpio_set_multiple_single_reg(gc, mask, bits, gc->reg_set);
+> +
+> +	return 0;
+>  }
+>  
+> -static void bgpio_set_multiple_with_clear(struct gpio_chip *gc,
+> -					  unsigned long *mask,
+> -					  unsigned long *bits)
+> +static int bgpio_set_multiple_with_clear(struct gpio_chip *gc,
+> +					 unsigned long *mask,
+> +					 unsigned long *bits)
+>  {
+>  	unsigned long set_mask, clear_mask;
+>  
+> @@ -322,6 +333,8 @@ static void bgpio_set_multiple_with_clear(struct gpio_chip *gc,
+>  		gc->write_reg(gc->reg_set, set_mask);
+>  	if (clear_mask)
+>  		gc->write_reg(gc->reg_clr, clear_mask);
+> +
+> +	return 0;
+>  }
+>  
+>  static int bgpio_dir_return(struct gpio_chip *gc, unsigned int gpio, bool dir_out)
+> @@ -510,18 +523,18 @@ static int bgpio_setup_io(struct gpio_chip *gc,
+>  	if (set && clr) {
+>  		gc->reg_set = set;
+>  		gc->reg_clr = clr;
+> -		gc->set = bgpio_set_with_clear;
+> -		gc->set_multiple = bgpio_set_multiple_with_clear;
+> +		gc->set_rv = bgpio_set_with_clear;
+> +		gc->set_multiple_rv = bgpio_set_multiple_with_clear;
+>  	} else if (set && !clr) {
+>  		gc->reg_set = set;
+> -		gc->set = bgpio_set_set;
+> -		gc->set_multiple = bgpio_set_multiple_set;
+> +		gc->set_rv = bgpio_set_set;
+> +		gc->set_multiple_rv = bgpio_set_multiple_set;
+>  	} else if (flags & BGPIOF_NO_OUTPUT) {
+> -		gc->set = bgpio_set_none;
+> -		gc->set_multiple = NULL;
+> +		gc->set_rv = bgpio_set_none;
+> +		gc->set_multiple_rv = NULL;
+>  	} else {
+> -		gc->set = bgpio_set;
+> -		gc->set_multiple = bgpio_set_multiple;
+> +		gc->set_rv = bgpio_set;
+> +		gc->set_multiple_rv = bgpio_set_multiple;
+>  	}
+>  
+>  	if (!(flags & BGPIOF_UNREADABLE_REG_SET) &&
+> @@ -654,7 +667,7 @@ int bgpio_init(struct gpio_chip *gc, struct device *dev,
+>  	}
+>  
+>  	gc->bgpio_data = gc->read_reg(gc->reg_dat);
+> -	if (gc->set == bgpio_set_set &&
+> +	if (gc->set_rv == bgpio_set_set &&
+>  			!(flags & BGPIOF_UNREADABLE_REG_SET))
+>  		gc->bgpio_data = gc->read_reg(gc->reg_set);
+>  
+> 
+> -- 
+> 2.48.1
+> 
 
+Isn't this missing to convert gc->set() to gc-set_rv() in several
+places?
+
+Without the attached diff I get a null pointer reference on e.g. the
+spacemit k1 driver.
+
+Regards,
+Klara Modin
+
+--
+
+diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
+index 9169eccadb23..57622f45d33e 100644
+--- a/drivers/gpio/gpio-mmio.c
++++ b/drivers/gpio/gpio-mmio.c
+@@ -362,7 +362,7 @@ static int bgpio_dir_out_err(struct gpio_chip *gc, unsigned int gpio,
+ static int bgpio_simple_dir_out(struct gpio_chip *gc, unsigned int gpio,
+ 				int val)
+ {
+-	gc->set(gc, gpio, val);
++	gc->set_rv(gc, gpio, val);
+ 
+ 	return bgpio_dir_return(gc, gpio, true);
+ }
+@@ -427,14 +427,14 @@ static int bgpio_dir_out_dir_first(struct gpio_chip *gc, unsigned int gpio,
+ 				   int val)
+ {
+ 	bgpio_dir_out(gc, gpio, val);
+-	gc->set(gc, gpio, val);
++	gc->set_rv(gc, gpio, val);
+ 	return bgpio_dir_return(gc, gpio, true);
+ }
+ 
+ static int bgpio_dir_out_val_first(struct gpio_chip *gc, unsigned int gpio,
+ 				   int val)
+ {
+-	gc->set(gc, gpio, val);
++	gc->set_rv(gc, gpio, val);
+ 	bgpio_dir_out(gc, gpio, val);
+ 	return bgpio_dir_return(gc, gpio, true);
+ }
 
 _______________________________________________
 linux-riscv mailing list
