@@ -4,92 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143CCC7115A
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 15:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C39C7115E
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Jun 2025 16:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e7TkpNgtE6mCxPKg/AUfFlavOBpYfgTK0j08CxT+FQQ=; b=Em4YRMcmXxOEpN
-	oSdlJ3ezsx1auFYHiNaBaXngMW3C2tK9Y0IFx0N0hKqhRxeQhyVB8jWtsOUhRU4xXWTuyiw5glg5Q
-	3HsLTQzkAcnWKZkHXE+U6DiaUeWsd9YsmsU75dSabpkGl0QrOq0zP1lm99B0twoeAPOu6mAv1AYqN
-	k7H5VWUgXrZQU/s0o8jNTQX++l9Pz8RamMau3HC1grIOaKM95orrBkOIjcDKA98//VRprwLnZr4J9
-	+qGqPxR9681NPGVIiuNI+cJw0DyP2IUcBO7ta7aeq7mGFhMPJX5gVKEGLiuGtsVpYg2YvcFVvhBsO
-	Mu/M8JadzEfUi/hmhjkw==;
+	List-Owner; bh=tVnQjiKpBL1wZGAVBtDmil+5UDgk7gtmdefF6z7hznU=; b=jHi/8HWRiZuBVS
+	OcTmfn6LKqtdw4fbJr9o8lQTIirWnL0fDS7xhSsdrJ+5sGtrHBQYPdMfAZApwhRGB5eb/J4LgIBR+
+	6TMfyuaojA7LOqom0S3Vlkrg49WOU2jHcPN/BJS2Riz8bpGoFCSWIOPRAzdm2CtsCB2wWFMTcMmzr
+	SiTAlJmM0pCfy870q8at4l+OTsO+krc+yosigoyQKon8Tyazy1bHUnncqvRm3YkOzCbSXATgepGv/
+	X22+2xTl/gL+YHqLreHlzNGT2MEJCjGvaEQ5Go83mOhQg91fz7F7T4Vmg6VTwzWi14X/V1ziMcQqY
+	DWm2fG1td8G/OoD5K+Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRulN-0000000AbgP-1yS6;
-	Wed, 18 Jun 2025 15:31:45 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1uRvES-0000000Afam-025s;
+	Wed, 18 Jun 2025 16:01:48 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRt5s-0000000ALIc-47DI
+	id 1uRrti-0000000A7n0-0tk6
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Jun 2025 13:44:50 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-553b544e7b4so5920574e87.3
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 06:44:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750254287; x=1750859087; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EOnqA9glXHMp+wjKPZ26EK/2be4ewo0aSocx50Gz+sQ=;
-        b=ogDF61OOgruJnd05yGkvNZt3brk3Ek63Z8bRcq9xhgy1cfvWu6LJOZXSJwVnHfhYrG
-         quM8ZEMjTy13u2+Zf45k5YbteGXanORgEQAIz26iLa4sv/y3aobiJc1xRJKcduf/PdyG
-         i114Fz4Bxc6zOrebfM6CHO/nXCoAXvHIL8nzO75ZXNVGxM8kqxqe6Hh55AAvWWaoS4MR
-         KCDCMPRlobOoB+0dJJaBSqED3sIUU1ArMWiFEgyDnZy93n7AHe3j8wkcOMeXCV5e+BCG
-         DDY74DEQVW03hFT4WtU97pGj0IR5P9+hCi77/SVc9BJfrY7ssVLx28IjvSGBGwjNg9Lp
-         0+3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750254287; x=1750859087;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EOnqA9glXHMp+wjKPZ26EK/2be4ewo0aSocx50Gz+sQ=;
-        b=i7/tmuiUXTFyAqgyutqYOQu3ObC7PBYDdhDvNL65oQQPNB/iHgXQuFOTjfag7rUj5N
-         aCYpxXEYXMO7jDNmCtY1yazFj6iYL76cyAS+hnWujkuuykCrD6LrhZqmIT6pd+Nhwy0T
-         /uINTf/p5+3P01/Af1veiQ6VFXGEJ3eRnyAEVM8Nl7X+ZBT1y7A1XLBqIQqmCyXW9PeO
-         jKzQElfiK2hOVtedujr+8fc/9WgLmFzpVUBx4Pge1dPuDu7NON6yBcwc5wldextSBs7T
-         l84+wn08NwsTadNWs1EFJDbamL3CSXUaX+tmFLe+ZTSGJKeNBZpVQXxWnfyOA4IFwJfR
-         Q0cQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXqBWfTgpyWX7DH+Y7JyPB8fLOG1Vs8za93YhuR7pmcLC/EQA3zMBSztEiHw/oKxMvh2GU4LJK6VbILPA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIgWHGmYwCAYnVpWQrMbT5k2qeXVyRZmXb+MiyROtISzOjJ3EB
-	LxDpDoxTjAQGnMPTBA5U6jX3D1Wn/+bAxx5OMNUYjV0Sh/26XkV0tiXBsAOo3VZDmPqCsJbBxfV
-	3RcUA4t8mHvWnJx2C1GYQDPxriQAluf2T9iz8U9rjmQ==
-X-Gm-Gg: ASbGncu/ffjbNqdoMAQ19lEMvdVDi7Y+U7IyVlQIreyXQA2MduVQmLhpDzRtsyMWR+j
-	iahk97TS1Pl13/CQkyEpY4VuK9VGmuWgo/5ismPAMA9tPX9heiim3vjMoLzeb3ByVQu5JHPSMMS
-	tlnATwYs9o5qNHN/apKa8VFhSzz7CrzuK+PCkseWmPk8CLoZxrlFEQSM05vg2zywsP9fw73ET5h
-	g==
-X-Google-Smtp-Source: AGHT+IH6Ld+eVfdvk23fMVj2Sr97EjUVBPbCt4xJwvj5ob6oDsk8hpgZs7OsgvSQaNDiPWolo67AHI2eB2C2BKgawwc=
-X-Received: by 2002:a05:6512:3ba5:b0:553:25f4:695c with SMTP id
- 2adb3069b0e04-553b6f4470cmr4999420e87.50.1750254287228; Wed, 18 Jun 2025
- 06:44:47 -0700 (PDT)
+	Wed, 18 Jun 2025 12:28:11 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250618122808euoutp014c51d1836c9c8c718eb6fc0c669bdc8a~KItGkd7gD0250602506euoutp01F
+	for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 12:28:08 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250618122808euoutp014c51d1836c9c8c718eb6fc0c669bdc8a~KItGkd7gD0250602506euoutp01F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1750249689;
+	bh=Xe91emMRSSYzgLVJyetcqSNKJQUn2nWDQDykjLFdeWE=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=VLfABj5ZVCXKnAPkvx/7N5g7DyRw2cOz5o2fq7YHshjs2RduTxgeAdv/9zLLgTlBX
+	 5lQARDBtY5ZynhnY3EKbtPX5hirhKGN7SkWRI5iHqFMutoACbFNbM3sDXg1hIBf41g
+	 wm7kl0MyxZqTpQQCsMLzDgeiWpwjdiRwyxpBgOWc=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250618122808eucas1p1734efef72b723602969465d6cd0c01d2~KItGDMiIN3060530605eucas1p1O;
+	Wed, 18 Jun 2025 12:28:08 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250618122807eusmtip17966074cf02e0a8c674880f2475400b6~KItE1do9C2089120891eusmtip19;
+	Wed, 18 Jun 2025 12:28:07 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Wed, 18 Jun 2025 14:27:38 +0200
+Subject: [PATCH v4 5/9] clk: thead: Mark essential bus clocks as
+ CLK_IGNORE_UNUSED
 MIME-Version: 1.0
-References: <CGME20250618102234eucas1p2a1899b494c5ed75e0f39ea517d81c81d@eucas1p2.samsung.com>
- <20250618-apr_14_for_sending-v5-0-27ed33ea5c6f@samsung.com> <20250618-apr_14_for_sending-v5-8-27ed33ea5c6f@samsung.com>
-In-Reply-To: <20250618-apr_14_for_sending-v5-8-27ed33ea5c6f@samsung.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 18 Jun 2025 15:44:35 +0200
-X-Gm-Features: AX0GCFuxF3RhQHueJgJf3bU829GFZMlCkCu1kP_wz3N4DTe6r8qi2RcA-BS33s4
-Message-ID: <CAMRc=MdXmtZ3EbPDSGQeVaH40oZS7yc8MSMO2TbHza+F2HnBng@mail.gmail.com>
-Subject: Re: [PATCH v5 8/8] drm/imagination: Enable PowerVR driver for RISC-V
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, 
-	Matt Coster <matt.coster@imgtec.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org
+Message-Id: <20250618-rust-next-pwm-working-fan-for-sending-v4-5-a6a28f2b6d8a@samsung.com>
+In-Reply-To: <20250618-rust-next-pwm-working-fan-for-sending-v4-0-a6a28f2b6d8a@samsung.com>
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
+	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
+	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,  Andreas
+	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,  Trevor
+	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,  Michal
+	Wilczynski <m.wilczynski@samsung.com>, Drew Fustini <drew@pdp7.com>,  Guo
+	Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+	<conor+dt@kernel.org>,  Paul Walmsley <paul.walmsley@sifive.com>,  Palmer
+	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,  Alexandre
+	Ghiti <alex@ghiti.fr>,  Marek Szyprowski <m.szyprowski@samsung.com>,  Benno
+	Lossin <lossin@kernel.org>,  Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Benno Lossin <lossin@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
+X-Mailer: b4 0.15-dev
+X-CMS-MailID: 20250618122808eucas1p1734efef72b723602969465d6cd0c01d2
+X-Msg-Generator: CA
+X-RootMTR: 20250618122808eucas1p1734efef72b723602969465d6cd0c01d2
+X-EPHeader: CA
+X-CMS-RootMailID: 20250618122808eucas1p1734efef72b723602969465d6cd0c01d2
+References: <20250618-rust-next-pwm-working-fan-for-sending-v4-0-a6a28f2b6d8a@samsung.com>
+	<CGME20250618122808eucas1p1734efef72b723602969465d6cd0c01d2@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_064449_020041_C08B71E1 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20250618_052810_514953_C4BC39CA 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,42 +92,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdW4gMTgsIDIwMjUgYXQgMTI6MjLigK9QTSBNaWNoYWwgV2lsY3p5bnNraQo8bS53
-aWxjenluc2tpQHNhbXN1bmcuY29tPiB3cm90ZToKPgo+IFNldmVyYWwgUklTQy1WIGJvYXJkcyBm
-ZWF0dXJlIEltYWdpbmF0aW9uIEdQVXMgdGhhdCBhcmUgY29tcGF0aWJsZSB3aXRoCj4gdGhlIFBv
-d2VyVlIgZHJpdmVyLiBBbiBleGFtcGxlIGlzIHRoZSBJTUcgQlhNLTQtNjQgR1BVIG9uIHRoZSBM
-aWNoZWUgUGkKPiA0QSBib2FyZC4gVGhpcyBjb21taXQgYWRqdXN0cyB0aGUgZHJpdmVyJ3MgS2Nv
-bmZpZyBkZXBlbmRlbmNpZXMgdG8gYWxsb3cKPiB0aGUgUG93ZXJWUiBkcml2ZXIgdG8gYmUgY29t
-cGlsZWQgb24gdGhlIFJJU0MtViBhcmNoaXRlY3R1cmUuCj4KPiBCeSBlbmFibGluZyBjb21waWxh
-dGlvbiBvbiBSSVNDLVYsIHdlIGV4cGFuZCBzdXBwb3J0IGZvciB0aGVzZSBHUFVzLAo+IHByb3Zp
-ZGluZyBncmFwaGljcyBhY2NlbGVyYXRpb24gY2FwYWJpbGl0aWVzIGFuZCBlbmhhbmNpbmcgaGFy
-ZHdhcmUKPiBjb21wYXRpYmlsaXR5IG9uIFJJU0MtViBwbGF0Zm9ybXMuCj4KPiBBZGQgYSBkZXBl
-bmRlbmN5IG9uIE1NVSB0byBmaXggYSBidWlsZCB3YXJuaW5nIG9uIFJJU0MtViBjb25maWd1cmF0
-aW9ucwo+IHdpdGhvdXQgYW4gTU1VIGFuZCBlbmFibGUgQ09NUElMRV9URVNUIHRvIGltcHJvdmUg
-YnVpbGQgY292ZXJhZ2UuCj4KPiBSZXZpZXdlZC1ieTogVWxmIEhhbnNzb24gPHVsZi5oYW5zc29u
-QGxpbmFyby5vcmc+Cj4gU2lnbmVkLW9mZi1ieTogTWljaGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5
-bnNraUBzYW1zdW5nLmNvbT4KPiAtLS0KPiAgZHJpdmVycy9ncHUvZHJtL2ltYWdpbmF0aW9uL0tj
-b25maWcgfCAzICsrLQo+ICAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAxIGRlbGV0
-aW9uKC0pCj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL2ltYWdpbmF0aW9uL0tjb25m
-aWcgYi9kcml2ZXJzL2dwdS9kcm0vaW1hZ2luYXRpb24vS2NvbmZpZwo+IGluZGV4IDVmOWZmZjQz
-ZDZiYWFkYzQyZWJmNDhkOTE3MjliZmJmMjdlMDZjYWEuLjQ4ZmQzMWMwMzE2MjhjNzBiMWUwOTUy
-MjcxYmFjY2Y3ZjQ2OTQ4MTAgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9ncHUvZHJtL2ltYWdpbmF0
-aW9uL0tjb25maWcKPiArKysgYi9kcml2ZXJzL2dwdS9kcm0vaW1hZ2luYXRpb24vS2NvbmZpZwo+
-IEBAIC0zLDkgKzMsMTAgQEAKPgo+ICBjb25maWcgRFJNX1BPV0VSVlIKPiAgICAgICAgIHRyaXN0
-YXRlICJJbWFnaW5hdGlvbiBUZWNobm9sb2dpZXMgUG93ZXJWUiAoU2VyaWVzIDYgYW5kIGxhdGVy
-KSAmIElNRyBHcmFwaGljcyIKPiAtICAgICAgIGRlcGVuZHMgb24gQVJNNjQKPiArICAgICAgIGRl
-cGVuZHMgb24gKEFSTTY0IHx8IFJJU0NWKSB8fCBDT01QSUxFX1RFU1QKClNvbWUgbWFpbnRhaW5l
-cnMgY291bGQgc2F5IHRoYXQgdGhlIENPTVBJTEVfVEVTVCBiaXQgc2hvdWxkIGJlIGEKc2VwYXJh
-dGUgY29tbWl0IGJ1dCBpdCdzIHR5cGljYWxseSBmaW5lIHdpdGggbWUuCgo+ICAgICAgICAgZGVw
-ZW5kcyBvbiBEUk0KPiAgICAgICAgIGRlcGVuZHMgb24gUE0KPiArICAgICAgIGRlcGVuZHMgb24g
-TU1VCj4gICAgICAgICBzZWxlY3QgRFJNX0VYRUMKPiAgICAgICAgIHNlbGVjdCBEUk1fR0VNX1NI
-TUVNX0hFTFBFUgo+ICAgICAgICAgc2VsZWN0IERSTV9TQ0hFRAo+Cj4gLS0KPiAyLjM0LjEKPgoK
-UmV2aWV3ZWQtYnk6IEJhcnRvc3ogR29sYXN6ZXdza2kgPGJhcnRvc3ouZ29sYXN6ZXdza2lAbGlu
-YXJvLm9yZz4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Probing peripherals in the AON and PERI domains, such as the PVT thermal
+sensor and the PWM controller, can lead to boot hangs or unresponsive
+devices on the LPi4A board. The root cause is that their parent bus
+clocks ('CLK_CPU2AON_X2H' and the 'CLK_PERISYS_APB' clocks) are
+automatically gated by the kernel's power-saving mechanisms when the bus
+is perceived as idle.
+
+Alternative solutions were investigated, including modeling the parent
+bus in the Device Tree with 'simple-pm-bus' or refactoring the clock
+driver's parentage. The 'simple-pm-bus' approach is not viable due to
+the lack of defined bus address ranges in the hardware manual and its
+creation of improper dependencies on the 'pm_runtime' API for consumer
+drivers.
+
+Therefore, applying the'`CLK_IGNORE_UNUSED' flag directly to the
+essential bus clocks is the most direct and targeted fix. This prevents
+the kernel from auto-gating these buses and ensures peripherals remain
+accessible.
+
+This change fixes the boot hang associated with the PVT sensor and
+resolves the functional issues with the PWM controller.
+
+Link: https://lore.kernel.org/all/9e8a12db-236d-474c-b110-b3be96edf057@samsung.com/ [1]
+
+Reviewed-by: Drew Fustini <drew@pdp7.com>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ drivers/clk/thead/clk-th1520-ap.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+index ebfb1d59401d05443716eb0029403b01775e8f73..cf7f6bd428a0faa4611b3fc61edbbc6690e565d9 100644
+--- a/drivers/clk/thead/clk-th1520-ap.c
++++ b/drivers/clk/thead/clk-th1520-ap.c
+@@ -792,11 +792,12 @@ static CCU_GATE(CLK_AON2CPU_A2X, aon2cpu_a2x_clk, "aon2cpu-a2x", axi4_cpusys2_ac
+ 		0x134, BIT(8), 0);
+ static CCU_GATE(CLK_X2X_CPUSYS, x2x_cpusys_clk, "x2x-cpusys", axi4_cpusys2_aclk_pd,
+ 		0x134, BIT(7), 0);
+-static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd, 0x138, BIT(8), 0);
++static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd,
++		0x138, BIT(8), CLK_IGNORE_UNUSED);
+ static CCU_GATE(CLK_CPU2PERI_X2H, cpu2peri_x2h_clk, "cpu2peri-x2h", axi4_cpusys2_aclk_pd,
+ 		0x140, BIT(9), CLK_IGNORE_UNUSED);
+ static CCU_GATE(CLK_PERISYS_APB1_HCLK, perisys_apb1_hclk, "perisys-apb1-hclk", perisys_ahb_hclk_pd,
+-		0x150, BIT(9), 0);
++		0x150, BIT(9), CLK_IGNORE_UNUSED);
+ static CCU_GATE(CLK_PERISYS_APB2_HCLK, perisys_apb2_hclk, "perisys-apb2-hclk", perisys_ahb_hclk_pd,
+ 		0x150, BIT(10), CLK_IGNORE_UNUSED);
+ static CCU_GATE(CLK_PERISYS_APB3_HCLK, perisys_apb3_hclk, "perisys-apb3-hclk", perisys_ahb_hclk_pd,
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
