@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC14DC71136
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 06:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3DA8C71136
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 06:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AkjEaswHp0eGRso5LRFHGPKuVG/DJylzzAllkagV2xw=; b=y0YySCJq3DmuiN
-	NmNIU10AlKYI2XioC0MbTv6Zku8Y2n1rECL4fBlUwjBIFYuy/AEMC+xT88sdWgSsYYlPBaRbRn+Mi
-	egG2lXr1XMIxeW8FWbLI1SvHkDEreeKhcm3N8CNRBH571KSHAAHCuMs4v4XlHNM+gug3o60AQEsNi
-	DICxLi9SQLTUAVsGRMY3uXo/AzXCvkeidxNXM9RadwhF7iNSXjs2JQBMa64RFIbdi/IGCxHM0FcBf
-	K9eIemvTrbk5zElUEabie4+4TRYzcUytmcQtofBtFuIJEywemtqlT65vv0Ab1PTTopXKu5iw4TIK0
-	gFGNc2B2Kt6djQls4pWQ==;
+	List-Owner; bh=KV8td7CQ+kdMcpAmxNBG05K4mXYcil8DzUvYY2SSheY=; b=B37wn/o+//IXgn
+	peJfogZOIyXakvQDSj8PGqOlBXkbBqV5K0kfBT0YgpBHfmV8Z2/O7nAjVnUAU3r1g5uvEFHRp4s+l
+	+WEHpiu9+ZkfzQohUxO0GtNgTMSMJ89RQN5mICmYPaZ4lYqlnBaTg1NQiZT+CPrxQZJ6r5l6gJWG/
+	+cE/vD3YAoVoZnPiX64tGMgyo/FxXmlbbQOw9BnugTnqKtaEsAwbhwnHx3lSUmpbetMYin3TPjEP8
+	L/CPyiCRkebkeic9NWrPi+w550TL97LYN0dfrJORGWXO3kQXMlhymf81qeYyYvNW+25FjbW4aDZYF
+	cH2BxC4s2/Y83QDeqLxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8p7-0000000CA1e-2R3o;
-	Thu, 19 Jun 2025 06:32:33 +0000
+	id 1uS8tV-0000000CAP0-0Vpn;
+	Thu, 19 Jun 2025 06:37:05 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8Mn-0000000C7UE-1q8a
+	id 1uS8Yd-0000000C8Wx-0ZVS
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Jun 2025 06:03:19 +0000
+	Thu, 19 Jun 2025 06:15:33 +0000
 Received: from [192.168.33.139] (unknown [210.73.43.2])
-	by APP-01 (Coremail) with SMTP id qwCowAA359UdqFNolI6KBw--.6418S2;
-	Thu, 19 Jun 2025 14:03:10 +0800 (CST)
-Message-ID: <123a7558-fda9-4b56-b6ae-a29d704419ac@iscas.ac.cn>
-Date: Thu, 19 Jun 2025 14:03:09 +0800
+	by APP-01 (Coremail) with SMTP id qwCowACHONf6qlNoGg+LBw--.43032S2;
+	Thu, 19 Jun 2025 14:15:23 +0800 (CST)
+Message-ID: <acac9522-fb19-4659-8e1a-544bf75f3864@iscas.ac.cn>
+Date: Thu, 19 Jun 2025 14:15:22 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] dt-bindings: mfd: add support the SpacmiT P1 PMIC
+Subject: Re: [PATCH 3/6] regulator: spacemit: support SpacemiT P1 regulators
 To: Alex Elder <elder@riscstar.com>, lee@kernel.org, lgirdwood@gmail.com,
  broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, dlan@gentoo.org
@@ -43,33 +43,32 @@ Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 References: <20250613210150.1468845-1-elder@riscstar.com>
- <20250613210150.1468845-2-elder@riscstar.com>
+ <20250613210150.1468845-4-elder@riscstar.com>
 Content-Language: en-US
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20250613210150.1468845-2-elder@riscstar.com>
-X-CM-TRANSID: qwCowAA359UdqFNolI6KBw--.6418S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7XryxCw47JF45ZF1fWFyfZwb_yoWDAFX_ur
-	93uayDtrsrJFn2kas0van7AryfGr42yr4xXay3JFy8J395Z3Z8u3ZrJry7ArWrXrWUZrn3
-	Jrn3Xr40q3WjgjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb-8YjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_JFC_Wr1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
-	8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVAFwVW8AwCF04k20xvY0x0EwIxGrwCFx2IqxV
-	CFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r10
-	6r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxV
-	WUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG
-	6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr
-	1UYxBIdaVFxhVjvjDU0xZFpf9x07jm4E_UUUUU=
+In-Reply-To: <20250613210150.1468845-4-elder@riscstar.com>
+X-CM-TRANSID: qwCowACHONf6qlNoGg+LBw--.43032S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZF4xXF1xZFWktr1DKr18Grg_yoW8Ww1UpF
+	s0vr9xCr1ktFWrur4xur9Fy3W5W3Z3XasrAry8Jw45W3yDCF1xZr4DtF43ZF1kZrn5Gr12
+	934kuF4xWFnxWrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9qb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
+	C2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
+	xwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE14v_GF1l42xK82IYc2Ij64vIr41l4I8I3I
+	0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWU
+	GVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI
+	0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0
+	rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJbIYCTnIWIevJa73UjIFyTuYvjxUB1SrDUUUU
 X-Originating-IP: [210.73.43.2]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_230317_852558_15ACAB88 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_231531_555891_56F631ED 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,48 +85,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
-
-Before the patch body, there's a typo in the subject line: "SpacmiT" ->
-"SpacemiT".
-
 On 6/14/25 05:01, Alex Elder wrote:
-> Enable the SpacemiT P1, which is an I2C-controlled PMIC.  Initially we
-> only the regulators will be supported.
+> <snip>
 >
-> Signed-off-by: Alex Elder <elder@riscstar.com>
-> ---
->  .../devicetree/bindings/mfd/spacemit,p1.yaml  | 86 +++++++++++++++++++
->  1 file changed, 86 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/spacemit,p1.yaml
+> diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
+> index 6d8988387da45..7bb7b8fad24f2 100644
+> --- a/drivers/regulator/Kconfig
+> +++ b/drivers/regulator/Kconfig
+> @@ -1384,6 +1384,15 @@ config REGULATOR_SLG51000
+>  	  The SLG51000 is seven compact and customizable low dropout
+>  	  regulators.
+>  
+> +config REGULATOR_SPACEMIT_P1
+> +	tristate "SpacemiT P1 regulators"
+> +	depends on ARCH_SPACEMIT || COMPILE_TEST
+> +	default ARCH_SPACEMIT
+> +	help
+> +	  Enable support for regulators implemented by the SpacemiT P1
+> +	  power controller.  The P1 implements 6 high-efficiency buck
+> +	  converters and 12 programmable LDO regulators.
+Needs module name in help text, as is the case with spacemit-pmic.
+> +
+>  config REGULATOR_STM32_BOOSTER
+>  	tristate "STMicroelectronics STM32 BOOSTER"
+>  	depends on ARCH_STM32 || COMPILE_TEST
 >
 > <snip>
 >
+> +static struct platform_driver p1_regulator_driver = {
+> +	.probe = p1_regulator_probe,
+> +	.driver = {
+> +		.name = "spacemit-p1-regulator",
+> +	},
+> +};
 > +
-> +examples:
-> +  - |
-> +    i2c {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
+> +module_platform_driver(p1_regulator_driver);
 > +
-> +        pmic@41 {
-> +            compatible = "spacemit,p1";
-> +            reg = <0x41>;
-> +            interrupts = <64>;
-> +
+> +MODULE_DESCRIPTION("SpacemiT P1 regulator driver");
+> +MODULE_LICENSE("GPL");
 
-(Not really a review, just a note.)
+If this driver is compiled as a module, it needs to be found by modalias
+so the driver auto-loads after spacemit-pmic registers the regulator
+device, so you need:
 
-I couldn't believe it at first, but it looks like the SpacemiT K1 really
-does have PLIC interrupt 64 dedicated to receiving PMIC interrupt [1]
-over pin "PMIC_INT_N".
++MODULE_ALIAS("platform:spacemit-p1-regulator");
+
+Also, consider extracting the name to a macro:
+
+#define DRV_NAME "spacemit-p1-regulator"
+
+Also, consider naming this consistently: "spacemit-p1", or
+"spacemit-p1-regulator"?
 
 Regards,
 Vivian "dramforever" Wang
-
-[1]: https://developer.spacemit.com/documentation?token=AZsXwVrqaisaDGkUqMWcNuMVnPb
-
-> <snip>
 
 
 _______________________________________________
