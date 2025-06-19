@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13BEAC7115D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66784C7115B
 	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 17:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GLnYd2l0SYd5PEBSyxG1BCWfIaWCYwvx90rgFUEeVLM=; b=WocexWuLfuSkPx
-	OWoAZeWPTVdd48fmdbJiG0Ff3e5CuPJN20lMNe3AbaGmFHI+xt2lhTBGKk4UsRK+lUVbQjKfzicva
-	ifdBdrzuDMZFibom1wAs7pjfXO9+BQjtMQpBUd1sqnI+6cExKRfeYUyAL4DC8n9Nenm50e2X1mgaq
-	tDsgUeY4eh9RlOH1fkcZCeuy16PdDbpLf2oqEHXTdMHz8WB6qDSjnQGFptPRuWWweT5a9A91T8P20
-	Xuh5ut1lzaVB1rPudLJZjrEvk1aL/NvmVsWHs291DcmjDIl7Pzf0RezUHX7QOEey4kbLDjEfr1nSn
-	HEADgUw13gx5isgkZYkw==;
+	List-Owner; bh=leVC3lNKq9GrI8x3a+o37IhB5PAqCXAD/IqVN6J4ZnI=; b=gN/q4brLfsYfZd
+	HqiEltAAEdvZEbqasoDTFfYT4DDxL6DedDSBTHLTUY9wJt8IP9NaLyztH4NoR67duj2AuuD6E+BTB
+	pu+cuOi9bL9sHsi9irwPqbq7N3BiQGyFWBZIc8VNJN1MqpNEiWKcTWQmHuA79pHRqJHH0rUs8Lry2
+	Jp1JB4cJJkB8axwaGcX3f5YepFMDJsJvp3kqjalDY2n9KbxXONZvrEKtaiKCood1xBrgslgLK6Gig
+	aCIhOCk/wn+AiacPH8DzNjISpTJByHnnH0qFJ4PnFCcbEMIO2/z0fWCOLDDA4+eIHS7g+DqEatNjH
+	rL6Xyyfti31C7B4UcJYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSIem-0000000Devx-0iJ9;
-	Thu, 19 Jun 2025 17:02:32 +0000
-Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
+	id 1uSIen-0000000Dewo-00iC;
+	Thu, 19 Jun 2025 17:02:33 +0000
+Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSFgQ-0000000DDzB-3QOR
+	id 1uSFgR-0000000DDzV-2jRz
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Jun 2025 13:52:03 +0000
-Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3dc9e7d10bdso2468205ab.2
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Jun 2025 06:52:02 -0700 (PDT)
+	Thu, 19 Jun 2025 13:52:04 +0000
+Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-8760d31bd35so24175339f.2
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Jun 2025 06:52:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1750341122; x=1750945922; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1750341123; x=1750945923; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bpaBoGbv3UwS2ctJ5MNrLd4WnRBIdXYjgTh8qQmsLHk=;
-        b=bBcgeaNwnmcMJnlUJpHl4ZnkEfesxAj+pAcvSVtbM5IE9OsaCDF1HVfLON7Jrnvwb1
-         9oa7ZosWmckTU/tkaOPWUcCiCP53N+G5z//bi3wv/+4I5fyEPt4lAbBujfgE0soosh9p
-         wfBvHFpUv4oqpCpM/94pOvfEmH6roi2WZddfBG7WWt7mBsGONAUA7O6fk42f4jF5WgPl
-         XW435+upsTF7mXnZO94AfphOzmT+zkWX1nxlVJ/IHRAnyHHyCP2I1zq877pyU9Wl1mw8
-         n3d6KRLyFAqxC1FATuBu7UUCE4erBlOPQ1j5YytDZwRK6ycv3k75TyXgMBKHzv8lpKMZ
-         yjrg==
+        bh=ihUO+G2zPvFD7djd8+4VxSPuuLI+GNqieXaQtnBxio4=;
+        b=ZeQAec+tsnrAsd4EKTvOnxdPp1B04bH2TfqIt4t7ztKI4xRyLHlPwZ+AWvshGhBreB
+         Du1Bcsm7+E1qhbXgOZPSKXwF0Dej3wrijdpOaH5FJWvFtCHhcE8Vtut/0TdVhZS9QHW1
+         ES5Vk7wBrzaM0VUEZzydbXyCkhOnyYcB+B6rPu2myjsKOSKz8LpQaz74AZEaQ9R5CEno
+         OFR+J/XKXbcIVy9VQzQ4+YDPS4yqKsEqfKmxFZmcgllsMU76T9t7GifmlfRSygqXsixI
+         NBK5dovTFQHF4RNNXifmj5YXeE6NggZGtCc1OUGLy4zLezyZ5AQ186Bk0aHVbPg9pDwT
+         IG4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750341122; x=1750945922;
+        d=1e100.net; s=20230601; t=1750341123; x=1750945923;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bpaBoGbv3UwS2ctJ5MNrLd4WnRBIdXYjgTh8qQmsLHk=;
-        b=FZ+CmX70tDHEJ8pvF2pShzIGwH9lpmSPC/SFK1MX/ZE79dKep7tDIE3tDr4AQYoGg+
-         0dlEsglFUm7k7krdaTjYLq3PB0iSHdZfVmn7++gAdy7JmBqLsgI/kZv9K6eVDM+d+ep/
-         3dxmg4Zgd8Pt8lzm+4k4gF+aNWaM/O0vBMyaH1eTEueg9aL852ThpUGH+1HWE0/HXves
-         HenEjm23M6Zen0TdcexoWmQoNjCL2relrqMowTx1wFsfyu4JrnGn5GR9H/Xbyr0ZBmYU
-         eNHSg2XHG8G2+PJ6Wa8oNAKwASycwigax3A56OiKJwcAuadKzjwcMicLNUIs7c1CL+kP
-         Tyqw==
-X-Forwarded-Encrypted: i=1; AJvYcCUnK0hrG9ICRxZdiamKHISDOPhaFf11tmpbBD1psDvDRmNkjfvdbrQDGo0sjvI542vQJe0AOMsRdn1eWg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhdqsB89RxMu9yzqk491hcw5yLFMWDU5LW8CLXH+I7qKxdIRyV
-	WmZ/4+f4HTMGqxPT1Kh/dHbBhUNUMpZOTEQk7OdHy9l3R+/yW0fUgHR5R80ka7WdmuM=
-X-Gm-Gg: ASbGncvbaSpsGY+8GmaysariosJ8bNTHh2/Y+y9KVKQGF3EYx+Y8994GLHDz9PNSgFz
-	AyQ1rJBUvxtdROsGK5QpWh4UkMbLOUw5yesSnot1veio5Gk/UHl20UJIo0ES9YbpgHGzC66cMUo
-	isbkCrKbonjZsMjyTfEX3fg2K/tVPaNghSZ+FpCr6NQJZpfWkDrYYCX6owE8lq9F79cxqNzOKXn
-	NxSuLBO8YQ1mPhC50fsRYkYDXC9QeMZ1B6kFzX3fvh1374+CyZnAdcRTKbw7ScRNDZD+0szCM1L
-	qCsFrYM5KX58yO1IVYJ+k5LELudKRNjFXe2L5kJPU9G3tJ+HDnCTPGXQcWqrTF5lzcYQikOUgmv
-	vq9XQb3aT/iU+rm9/sfAvR1tXhxGBnM0=
-X-Google-Smtp-Source: AGHT+IGE/+9c8lEGLG5Mz9Y+oJ+vIpq7U0/P4Uj/YFoaee96+eti9bY0TLGKxf+d/f/CIswKZrljdQ==
-X-Received: by 2002:a05:6e02:168b:b0:3dc:7cc1:b731 with SMTP id e9e14a558f8ab-3de07c21db4mr231847495ab.0.1750341121785;
-        Thu, 19 Jun 2025 06:52:01 -0700 (PDT)
+        bh=ihUO+G2zPvFD7djd8+4VxSPuuLI+GNqieXaQtnBxio4=;
+        b=H7V4p4Ec4M2OTJH2k55Sh/0b3ThStc1W8Lnno5EVLhPMn27fLuk/Szyz9IJ4O8838I
+         kz3HKnXOXaYcqYSf6ZrshRU2YN2mf9hl/d0584n3F8mQLLTzxhRPq4hjtXkVhz3Z0J9U
+         ISme5GflVvp18p7PlcneWv3GZDLvBpQHwO6tKEEfVoyINNvSynkqO5Qk++dZZlMeBPcU
+         +LBX99dzcle8Pv3TapKDT+QJHtEUF6DTlUPLfEgrUhivCjvnLfqhPsCdnpF5iyH/jdR5
+         eJbAsfThN6RSkUO9jtd0f68/WWqTWEi6iopw5sm2TF+GIYLuTfgD561np7Ck535v5DmL
+         1j7g==
+X-Forwarded-Encrypted: i=1; AJvYcCXppPSbHK4JRP5hO/hYS4EnFy1Fsse+KgTNHnzmmdh+YdrdW9QCtHGMnc8uhfJbLE2WxGLdcZi1pHSfsA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyObR1yxup+IE/65RM2Vjd++jRoGWScWGqe+/TO2nXl6DJyW+92
+	j4PEcZxCOfaSZp5KgH3680oQ3djb+UKbolkYN5GpsX8TCOeY7Cj3wUOKAZeLchS3T6g=
+X-Gm-Gg: ASbGncu4ut+hhYJh2i5mQBLkbXF72PTPvPz4kZ+0m+wbs6P99WPgjnY9VsdhowehjDZ
+	TcCGyw0vigSrYLkCV1wI0/giJuqavT8GIS4ztk20RK+p4QS2vXwDB4brTvOF+VoxN2aI9fGGJzm
+	ekcs505orZiUCz/oABfMMXeKLtF50M/hRkb3zi/ugT0667ceHX5BKh5uDKVfjw5XyFXk4nvKQuG
+	yzHF6jT1vx5jRKqCtmUjT+4gl6o7a/XJpWRWWIGKdgaNM/QAp5PAOPoviyTLPOfbQ0A7EllQWHD
+	3gdGg/iG9esDGlv7UxRjCwQCLfrTjwZtaTJNJ41ctz0f/t4ayWIh3D43mZV3v+iv1WqQK6k9rKx
+	lIR12c6ePFyiSpiRJiOIEAvAYm8ka/l5w9RPZl67BuQ==
+X-Google-Smtp-Source: AGHT+IExem0l4ezDbiC0YunjYTLQzP9AWFOBkBc8gw8zgbBmASiZICSB36WYhCAntpWfGoVKA6+PlQ==
+X-Received: by 2002:a05:6e02:1a8a:b0:3dd:ebb4:bcd8 with SMTP id e9e14a558f8ab-3de07c5cc98mr247003285ab.9.1750341122994;
+        Thu, 19 Jun 2025 06:52:02 -0700 (PDT)
 Received: from presto.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3de01a453b4sm38246015ab.47.2025.06.19.06.52.00
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3de01a453b4sm38246015ab.47.2025.06.19.06.52.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Jun 2025 06:52:01 -0700 (PDT)
+        Thu, 19 Jun 2025 06:52:02 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: lee@kernel.org,
 	robh@kernel.org,
@@ -87,16 +87,16 @@ Cc: wangruikang@iscas.ac.cn,
 	spacemit@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 5/6] riscv: dts: spacemit: define fixed regulators
-Date: Thu, 19 Jun 2025 08:51:49 -0500
-Message-ID: <20250619135151.3206258-6-elder@riscstar.com>
+Subject: [PATCH v2 6/6] riscv: dts: spacemit: define regulator constraints
+Date: Thu, 19 Jun 2025 08:51:50 -0500
+Message-ID: <20250619135151.3206258-7-elder@riscstar.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250619135151.3206258-1-elder@riscstar.com>
 References: <20250619135151.3206258-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_065202_857014_189176B3 
-X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-CacheID: sfid-20250619_065203_688661_726A0F93 
+X-CRM114-Status: UNSURE (   8.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,44 +114,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define the DC power input and the 4v power as fixed supplies in the
-Banana Pi BPI-F3.
+Define basic constraints for the regulators in the SpacemiT P1 PMIC,
+as implemented in the Banana Pi BPI-F3.
 
 Signed-off-by: Alex Elder <elder@riscstar.com>
 ---
- .../boot/dts/spacemit/k1-bananapi-f3.dts      | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ .../boot/dts/spacemit/k1-bananapi-f3.dts      | 104 ++++++++++++++++++
+ 1 file changed, 104 insertions(+)
 
 diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 7c9f91c88e01a..a1c184b814262 100644
+index a1c184b814262..83907cc1d5ccf 100644
 --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
 +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -28,6 +28,25 @@ led1 {
- 			default-state = "on";
- 		};
+@@ -70,7 +70,111 @@ pmic@41 {
+ 		compatible = "spacemit,p1";
+ 		reg = <0x41>;
+ 		interrupts = <64>;
++		vin-supply = <&reg_vcc_4v>;
+ 		status = "okay";
++
++		regulators {
++			buck1 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3450000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck2 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3450000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck3 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck4 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck5 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3450000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck6 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3450000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			aldo1 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++			};
++
++			aldo2 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			aldo3 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			aldo4 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			dldo1 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++			};
++
++			dldo2 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			dldo3 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			dldo4 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-always-on;
++			};
++
++			dldo5 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			dldo6 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-always-on;
++			};
++
++			dldo7 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++		};
  	};
-+
-+	reg_dc_in: dc-in-12v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dc_in_12v";
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_vcc_4v: vcc-4v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_4v";
-+		regulator-min-microvolt = <4000000>;
-+		regulator-max-microvolt = <4000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+		vin-supply = <&reg_dc_in>;
-+	};
  };
  
- &emmc {
 -- 
 2.45.2
 
