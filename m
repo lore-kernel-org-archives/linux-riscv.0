@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E474C7115D
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 18:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5573C7115B
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 18:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D1J+Gqa900w8Jb/2t5TIxw/2hDfWZA2XVs/Njaydiw4=; b=Awq+DoYpLLyhJK
-	u1xKjpq13wZ2d3tfi3vbm5mioQ7ABORcdywMD9wfYD+Rv0zUtgov1IDmPzXu7ecGS4kLifctT7qwI
-	tqZx6t9mZfMDC6Ox3BzLvS/oFevFDyT65DDaH7kF/5mnZPF3m3WTfp0Spt3mdjJs6IqnthiLYW4Oe
-	W3fhBTwYyhzx9lF6SxlrsAwRe1ck2YXqdEDckLO0nDxy6szjXxQBw/CLXEyzPkMLE3ftpXD+A2lNH
-	21zM6qT1Ml4iMkEV/LaBib4LSY4GiWaJ6otXHYvpI86xqfQHpRwxOluy0NiurLBpTdkdlr7s3j+3C
-	8UyPkTHPo0R3vBTxP2Tw==;
+	List-Owner; bh=QltqIIfzCiI2LI/S0tz6Je5s/BdTDhKCtXp10GBlT/U=; b=nypznj2tR4D85S
+	N8GWDIEA8cLARpWNYkyr5YOQSU9XigzpMkcQxv1tV0ckAGT+zh02ZRlTUrAdCDH4nogSo7kPAAkkA
+	wL2OzUvt14R3PvrafIWNdUxMre4gYYcPVjE1vTPxtzhMLjUmvYdz1Pv1mDHnmzS6kWDQK1a5hmjnG
+	MeDv/EH8FAxtboT4AKbB+2rZxV70DBNiVwU71nVJ8zrMKlpn4E2hoGG1Mc8QNMsCMej5Z8+Xd6jUN
+	5DprR4Ox9iJQ3/NMfkzjPwoYas0D0MlznovDLT03LSVsjvYcQZeyS9e/vVJDg+YdmQp2/HCSp0Re9
+	9fKKN12sIe1djmKYmphw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSK7S-0000000DtSD-3rcw;
-	Thu, 19 Jun 2025 18:36:14 +0000
-Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
+	id 1uSKAM-0000000DwpZ-44uU;
+	Thu, 19 Jun 2025 18:39:15 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSGvR-0000000DNFV-3cbF
+	id 1uSHPJ-0000000DRAe-1PfP
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Jun 2025 15:11:39 +0000
-Received: by mail-io1-xd2d.google.com with SMTP id ca18e2360f4ac-86cdb34a56cso26247139f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Jun 2025 08:11:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ieee.org; s=google; t=1750345895; x=1750950695; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oFGwKffzZxxx+liHIJgaBF+mW0zmVCScmb0c46n6Kak=;
-        b=FxPQ6DtkhH6omeYA7wmKBig/eSbMuZCXvd6L3KEwIsBKba7WK9hkYpCKzAeoA7NP7W
-         jKUOZa9UKryRsOuylzJAvHzXekL9k1jYWozqrj5C3+kf/3szKPsjf9zWXC1NdjnrM6u4
-         lrjB9muLJuX8wrkgpyakSCJFZ8FZ19vB/huoU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750345895; x=1750950695;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oFGwKffzZxxx+liHIJgaBF+mW0zmVCScmb0c46n6Kak=;
-        b=Cvs+YXQ2/VPlHwi0d2Es9xDGAH4DQfDJm8ChlG2Nf0is9m9Jwn35bdLsPWAkzY7Xrl
-         GuVgRD7R6gYfbTAF2fm/OTXKa0GN0d7WVbdBlKKjzsTFHoqPq90PEipTXe/ueUR8MWUx
-         Ux/P1Yk+1MLHV7+tvZq8565tDckrLQPCbIUwKlAz0jvDMTDrNmd2TvG25SKpkntsHs65
-         eu9/x4WsnEXmm7ZHMbdH7x4w9egoNSa2vbg6mXbOwntRQ/XkR+68kukP36dzqRV0yTGP
-         /mvzRXqlVZlIuZuMh4F3HTkXFeBD4RmehSM0QNUq3PbRumTbdtR5H8AilWNfQ/D4Kmu7
-         bTxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW8Dbizwq5kPYJjG/HiGK2X5bdWFyXpDVFIKoHKXpOLyI28p9s1m2tZbNMv64x/X9sKwTbweN/JPKZzLA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YySOI4UdUyp+Ex40LNKkCQPzTXDhIdKkGBEYuA8cBTyi2CknzQ1
-	AAxkM3MSb14qZIQjbpoDS2+hn08l8ymmZxLxx9P6YoDTRdlE7CvG6yxfDxyEgJ0V+Q==
-X-Gm-Gg: ASbGncvVSLRwq7kxpzYa+TZBoIlP/i6queg/yUk1lJuKbTuy33EMtihF9cmF8oe2Aq6
-	9B1Ch3cYu501ARMHy4earq+lYrd1CwAlk4mrqfH4a399rFG/mT+NYm1BDFuQr/QAdBJ7YEUMZMn
-	tuWkY6nR/eCSOp5lqPL8e4S8J3ITMBmG4eQxKFUunR8kV+1BBp/hLmAMyXpqJitpdodDYAaRg6B
-	1/ePU352oIEmvRsSfJW/Kr/WJscm58qAtwv6d6pJ7ZsLy/rF2FputPsL7uk7ILvbcLY77bw8wVp
-	QfUDIdC0YOl3T7PYk00H9/Fs1SYYH52X76wODcuwCzKMODcM5hieNU79D8nVS8x9aSasUJ2ta1f
-	B5er5SBldf4TeeJh9CFlTiZtDo7vEuDE=
-X-Google-Smtp-Source: AGHT+IF6bvglZ3cpBSripQco+ttcnZ5jzG2rPUkRsO79qncZB/5WB1V0utxb8yyQkNyJncd7lYe5LA==
-X-Received: by 2002:a05:6602:6424:b0:862:fe54:df4e with SMTP id ca18e2360f4ac-875ded5d849mr2848267139f.7.1750345894752;
-        Thu, 19 Jun 2025 08:11:34 -0700 (PDT)
-Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.googlemail.com with ESMTPSA id ca18e2360f4ac-875d5829e9dsm302704139f.37.2025.06.19.08.11.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Jun 2025 08:11:33 -0700 (PDT)
-Message-ID: <5cc644f8-7394-48f2-b62b-1e7cd5ce27d3@ieee.org>
-Date: Thu, 19 Jun 2025 10:11:32 -0500
+	Thu, 19 Jun 2025 15:42:31 +0000
+Received: from [192.168.0.111] (unknown [114.241.87.235])
+	by APP-05 (Coremail) with SMTP id zQCowAAnZxTZL1RoE7qwBw--.30021S2;
+	Thu, 19 Jun 2025 23:42:17 +0800 (CST)
+Message-ID: <9e5e54a9-ef90-4a87-b082-d6eb9c7468c5@iscas.ac.cn>
+Date: Thu, 19 Jun 2025 23:42:17 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH RFC] riscv: dts: spacemit: Add DMA translation buses for
  K1
-To: Vivian Wang <wangruikang@iscas.ac.cn>, Yixun Lan <dlan@gentoo.org>,
- Guodong Xu <guodong@riscstar.com>, Ze Huang <huangze@whut.edu.cn>,
- spacemit@lists.linux.dev
-Cc: Vivian Wang <uwu@dram.page>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Alex Elder <elder@ieee.org>, Vivian Wang <wangruikang@iscas.ac.cn>,
+ Yixun Lan <dlan@gentoo.org>, Guodong Xu <guodong@riscstar.com>,
+ Ze Huang <huangze@whut.edu.cn>, spacemit@lists.linux.dev
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 References: <20250617-k1-dma-buses-rfc-wip-v1-1-c8ec192fbf58@iscas.ac.cn>
+ <5cc644f8-7394-48f2-b62b-1e7cd5ce27d3@ieee.org>
 Content-Language: en-US
-From: Alex Elder <elder@ieee.org>
-In-Reply-To: <20250617-k1-dma-buses-rfc-wip-v1-1-c8ec192fbf58@iscas.ac.cn>
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <5cc644f8-7394-48f2-b62b-1e7cd5ce27d3@ieee.org>
+X-CM-TRANSID: zQCowAAnZxTZL1RoE7qwBw--.30021S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3JF43JF4UuryDXrWxZrWfuFg_yoWxJF48pF
+	s3GFsxKrWDtr1Ik39F934xXa4rtws5AFWUJFn8Wry5Ars8WFyIqryfKw1jvFyDursayw42
+	vr43Kr95WF1qyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvC14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IY64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY
+	04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r
+	1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CE
+	b7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0x
+	vE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAI
+	cVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2Kf
+	nxnUUI43ZEXa7VUbGQ6JUUUUU==
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_081138_038543_59263CF3 
-X-CRM114-Status: GOOD (  35.47  )
+X-CRM114-CacheID: sfid-20250619_084229_732916_BCD1314F 
+X-CRM114-Status: GOOD (  39.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,190 +83,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/17/25 12:21 AM, Vivian Wang wrote:
-> The SpacemiT K1 has various static translations of DMA accesses. Add
-> these as simple-bus nodes. Devices actually using these translation will
-> be added in later patches.
-> 
-> The bus names are assigned according to consensus with SpacemiT [1].
-> 
-> [1] https://lore.kernel.org/all/CAH1PCMaC+imcMZCFYtRdmH6ge=dPgnANn_GqVfsGRS=+YhyJCw@mail.gmail.com/
-
-So what you include here very closely matches what Guodong
-said in the message above.  Yours differs from his proposal
-and that makes it hard to compare them.  I have a few comments
-on that below.
-
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> ---
-> This is my concrete proposal for representing DMA translations for
-> SpacemiT K1.
-
-It's worth acknowledging that this is derived from what Guodong
-proposed (it's not "your" proposal in that respect).  That said,
-yours is a more complete and "formal" RFP than what he wrote.
-
-> For context, memory on the SpacemiT K1 is split into two chunks:
-> 
-> - 0x0000_0000 to 0x8000_0000: First 2 GiB of memory
-> - 0x1_0000_0000 above: Rest of memory
-> 
-> DMA-capable devices on the K1 all have access to the lower 2G of memory
-> through an identity mapping. However, for the upper region of memory,
-> each device falls under one of six different mappings. The mappings are
-> provided in this patch as simple-bus nodes that device nodes should be
-> added to.
-> 
-> This patch is an RFC because it is not meant to be applied, or at least,
-> not certainly meant to be applied. Instead, this is an attempt to come
-> to a consensus on how these bus nodes should look like.
-
-I think the above is what Krzysztof might not have seen.  Perhaps
-it could have been made more clear--maybe in the "main" description
-section (above the ---) or even the subject line.
-
-> More specifically, I propose that the process proceeds as follows:
-> 
-> - Firstly, relevant parties agree on these bus nodes given here.
-> - After that, each time the first user of a bus appears, the series
->    should include a patch to add the bus required for that driver.
-> - If a driver being submitted uses the same bus as another one that has
->    been submitted but hasn't yet landed, it can depend on the bus patch
->    from that previous series.
-
-Getting agreement is good, but otherwise this is basically
-the process Guodong was suggesting, right?
-
-> For conventions regarding coding style, I propose that:
-> 
-> - #address-cells and #size-cells are 2 for consistency
-> - These bus nodes are put at the end of /soc, inside /soc
-> - These bus nodes are sorted alphabetically, not in vendor's order
-> - Devices are added into *-bus nodes directly, not appended towards the
->    end with a label reference
-
-I do like that you're trying to be more complete and explicit
-on what you think needs agreement on.
-
-> The K1 DMA translations are *not* interconnects, since they do not
-> provide any configuration capabilities.
-> 
-> These bus nodes names and properties are provided compliant with
-> "simple-bus" bindings, and should pass "make dtbs_check".
-> 
-> Remaining questions:
-> 
-> - Should storage-bus exist? Or should drivers under it simply specify
->    32-bit DMA?
-
-Explicitly saying storage devices have one-to-one mapping
-seems informative, to me.
-
-> ---
->   arch/riscv/boot/dts/spacemit/k1.dtsi | 53 ++++++++++++++++++++++++++++++++++++
->   1 file changed, 53 insertions(+)
-
-The short summary of what differs between your proposal
-and what Guodong said is:
-- You sort nodes alphabetically, Guodong did not
-- You dropped the unit address
-- You dropped the comments he had, which indicated which
-   devices "belonged" to each mapping
-- You added a compatible property to each ("simple-bus")
-- You added an explicit (empty) ranges property to each
-- You add #address-cells and #size-cells properties, both 2
-- Your dma-ranges properties are identical to Guodong's,
-   for all nodes
-
-My comments:
-- I agree with you that a unit address doesn't really make
-   sense, because there is no meaningful ordering
-- Sorting alphabetically also makes sense to me
-- I think the comments about devices associated with each
-   mapping were informative
-
-I think Yixun should manage getting consensus on this
-(i.e., he should sign off on the RFP somehow).
-
-					-Alex
-
-> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> index c0f8c5fca975d73b6ea6886da13fcf55289cb16c..efefed21b9fa1ab9c6ac3d24cd0cca8958b85184 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> @@ -562,5 +562,58 @@ sec_uart1: serial@f0612000 {
->   			reg-io-width = <4>;
->   			status = "reserved"; /* for TEE usage */
->   		};
-> +
-> +		camera-bus {
-> +			compatible = "simple-bus";
-> +			ranges;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
-> +				     <0x0 0x80000000 0x1 0x00000000 0x1 0x80000000>;
-> +		};
-> +
-> +		dma-bus {
-> +			compatible = "simple-bus";
-> +			ranges;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
-> +				     <0x1 0x00000000 0x1 0x80000000 0x3 0x00000000>;
-> +		};
-> +
-> +		multimedia-bus {
-> +			compatible = "simple-bus";
-> +			ranges;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
-> +				     <0x0 0x80000000 0x1 0x00000000 0x3 0x80000000>;
-> +		};
-> +
-> +		network-bus {
-> +			compatible = "simple-bus";
-> +			ranges;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
-> +				     <0x0 0x80000000 0x1 0x00000000 0x0 0x80000000>;
-> +		};
-> +
-> +		pcie-bus {
-> +			compatible = "simple-bus";
-> +			ranges;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
-> +				     <0x0 0xb8000000 0x1 0x38000000 0x3 0x48000000>;
-> +		};
-> +
-> +		storage-bus {
-> +			compatible = "simple-bus";
-> +			ranges;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>;
-> +		};
->   	};
->   };
-> 
-> ---
-> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-> change-id: 20250616-k1-dma-buses-rfc-wip-3be7a01f47c8
-> 
-> Best regards,
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQWxleCwKClRoYW5rIHlvdSBmb3IgeW91ciBjb21tZW50cyBvbiB0aGlzLgoKT24gNi8xOS8y
+NSAyMzoxMSwgQWxleCBFbGRlciB3cm90ZToKPiBPbiA2LzE3LzI1IDEyOjIxIEFNLCBWaXZpYW4g
+V2FuZyB3cm90ZToKPj4gVGhlIFNwYWNlbWlUIEsxIGhhcyB2YXJpb3VzIHN0YXRpYyB0cmFuc2xh
+dGlvbnMgb2YgRE1BIGFjY2Vzc2VzLiBBZGQKPj4gdGhlc2UgYXMgc2ltcGxlLWJ1cyBub2Rlcy4g
+RGV2aWNlcyBhY3R1YWxseSB1c2luZyB0aGVzZSB0cmFuc2xhdGlvbiB3aWxsCj4+IGJlIGFkZGVk
+IGluIGxhdGVyIHBhdGNoZXMuCj4+Cj4+IFRoZSBidXMgbmFtZXMgYXJlIGFzc2lnbmVkIGFjY29y
+ZGluZyB0byBjb25zZW5zdXMgd2l0aCBTcGFjZW1pVCBbMV0uCj4+Cj4+IFsxXSAKPj4gaHR0cHM6
+Ly9sb3JlLmtlcm5lbC5vcmcvYWxsL0NBSDFQQ01hQytpbWNNWkNGWXRSZG1INmdlPWRQZ25BTm5f
+R3FWZnNHUlM9K1loeUpDd0BtYWlsLmdtYWlsLmNvbS8KPgo+IFNvIHdoYXQgeW91IGluY2x1ZGUg
+aGVyZSB2ZXJ5IGNsb3NlbHkgbWF0Y2hlcyB3aGF0IEd1b2RvbmcKPiBzYWlkIGluIHRoZSBtZXNz
+YWdlIGFib3ZlLsKgIFlvdXJzIGRpZmZlcnMgZnJvbSBoaXMgcHJvcG9zYWwKPiBhbmQgdGhhdCBt
+YWtlcyBpdCBoYXJkIHRvIGNvbXBhcmUgdGhlbS7CoCBJIGhhdmUgYSBmZXcgY29tbWVudHMKPiBv
+biB0aGF0IGJlbG93Lgo+Cj4+IFNpZ25lZC1vZmYtYnk6IFZpdmlhbiBXYW5nIDx3YW5ncnVpa2Fu
+Z0Bpc2Nhcy5hYy5jbj4KPj4gLS0tCj4+IFRoaXMgaXMgbXkgY29uY3JldGUgcHJvcG9zYWwgZm9y
+IHJlcHJlc2VudGluZyBETUEgdHJhbnNsYXRpb25zIGZvcgo+PiBTcGFjZW1pVCBLMS4KPgo+IEl0
+J3Mgd29ydGggYWNrbm93bGVkZ2luZyB0aGF0IHRoaXMgaXMgZGVyaXZlZCBmcm9tIHdoYXQgR3Vv
+ZG9uZwo+IHByb3Bvc2VkIChpdCdzIG5vdCAieW91ciIgcHJvcG9zYWwgaW4gdGhhdCByZXNwZWN0
+KS7CoCBUaGF0IHNhaWQsCj4geW91cnMgaXMgYSBtb3JlIGNvbXBsZXRlIGFuZCAiZm9ybWFsIiBS
+RlAgdGhhbiB3aGF0IGhlIHdyb3RlLgo+CkkgaGFkIHRob3VnaHQgdGhhdCBzaW5jZSB0aGUgYWRk
+cmVzc2VzIHdlcmUgYWxyZWFkeSB0aGVyZSBpbiB2ZW5kb3IncyBEVCAKWzJdLCBhbmQgdGhlIG5h
+bWVzIHdlcmUgcHJvdmlkZWQgYnkgU3BhY2VtaVQsIGFueXRoaW5nIG90aGVyIHRoYW4gdGhlIApu
+YW1lcyB3YXMgIndlbGwta25vd24gaW5mb3JtYXRpb24iLiBJbiByZXRyb3NwZWN0LCBJIHNob3Vs
+ZCBoYXZlIG1hZGUgCnRoZSBjaGFpbiBvZiBpbmZvcm1hdGlvbiBvZiB0aGlzIGNsZWFyZXIgYW5k
+IG1ha2UgaXQgZXhwbGljaXQgdGhhdCB0aGlzIAp3YXMgYmFzZWQgb24gR3VvZG9uZydzIG5vdGUu
+CgpTbywganVzdCB0byBiZSBjbGVhciwgdGhlIGluZm9ybWF0aW9uIGluIG15IHByb3Bvc2FsIGlz
+IGJhc2VkIG9uIApHdW9kb25nJ3MgcmVwbHkgWzFdIChsaW5rIHRoZSBxdW90ZWQgdGV4dCksIHdo
+aWNoIEkgaGFkIGFzc3VtZWQsIGJ1dCBub3QgCmV4cGxpY2l0bHkgY29uZmlybWVkLCB3YXMgYmFz
+ZWQgb24gYWxyZWFkeSBhZGRyZXNzZXMgaW4gU3BhY2VtaVQncyBEVCAKYW5kIG5hbWVzIHByb3Zp
+ZGVkIGJ5IFNwYWNlbWlULgoKWzJdOiBodHRwczovL2dpdGh1Yi5jb20vc3BhY2VtaXQtY29tL2xp
+bnV4LWsxeC9ibG9iL2sxL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEteC5kdHNpCgo+
+PiBGb3IgY29udGV4dCwgbWVtb3J5IG9uIHRoZSBTcGFjZW1pVCBLMSBpcyBzcGxpdCBpbnRvIHR3
+byBjaHVua3M6Cj4+Cj4+IC0gMHgwMDAwXzAwMDAgdG8gMHg4MDAwXzAwMDA6IEZpcnN0IDIgR2lC
+IG9mIG1lbW9yeQo+PiAtIDB4MV8wMDAwXzAwMDAgYWJvdmU6IFJlc3Qgb2YgbWVtb3J5Cj4+Cj4+
+IERNQS1jYXBhYmxlIGRldmljZXMgb24gdGhlIEsxIGFsbCBoYXZlIGFjY2VzcyB0byB0aGUgbG93
+ZXIgMkcgb2YgbWVtb3J5Cj4+IHRocm91Z2ggYW4gaWRlbnRpdHkgbWFwcGluZy4gSG93ZXZlciwg
+Zm9yIHRoZSB1cHBlciByZWdpb24gb2YgbWVtb3J5LAo+PiBlYWNoIGRldmljZSBmYWxscyB1bmRl
+ciBvbmUgb2Ygc2l4IGRpZmZlcmVudCBtYXBwaW5ncy4gVGhlIG1hcHBpbmdzIGFyZQo+PiBwcm92
+aWRlZCBpbiB0aGlzIHBhdGNoIGFzIHNpbXBsZS1idXMgbm9kZXMgdGhhdCBkZXZpY2Ugbm9kZXMg
+c2hvdWxkIGJlCj4+IGFkZGVkIHRvLgo+Pgo+PiBUaGlzIHBhdGNoIGlzIGFuIFJGQyBiZWNhdXNl
+IGl0IGlzIG5vdCBtZWFudCB0byBiZSBhcHBsaWVkLCBvciBhdCBsZWFzdCwKPj4gbm90IGNlcnRh
+aW5seSBtZWFudCB0byBiZSBhcHBsaWVkLiBJbnN0ZWFkLCB0aGlzIGlzIGFuIGF0dGVtcHQgdG8g
+Y29tZQo+PiB0byBhIGNvbnNlbnN1cyBvbiBob3cgdGhlc2UgYnVzIG5vZGVzIHNob3VsZCBsb29r
+IGxpa2UuCj4KPiBJIHRoaW5rIHRoZSBhYm92ZSBpcyB3aGF0IEtyenlzenRvZiBtaWdodCBub3Qg
+aGF2ZSBzZWVuLsKgIFBlcmhhcHMKPiBpdCBjb3VsZCBoYXZlIGJlZW4gbWFkZSBtb3JlIGNsZWFy
+LS1tYXliZSBpbiB0aGUgIm1haW4iIGRlc2NyaXB0aW9uCj4gc2VjdGlvbiAoYWJvdmUgdGhlIC0t
+LSkgb3IgZXZlbiB0aGUgc3ViamVjdCBsaW5lLgo+ClllYWgsIHRoYXQncyBteSBtaXN0YWtlIGlu
+IG9yZ2FuaXppbmcgdGhlIHBhcmFncmFwaHMuCgo+PiBNb3JlIHNwZWNpZmljYWxseSwgSSBwcm9w
+b3NlIHRoYXQgdGhlIHByb2Nlc3MgcHJvY2VlZHMgYXMgZm9sbG93czoKPj4KPj4gLSBGaXJzdGx5
+LCByZWxldmFudCBwYXJ0aWVzIGFncmVlIG9uIHRoZXNlIGJ1cyBub2RlcyBnaXZlbiBoZXJlLgo+
+PiAtIEFmdGVyIHRoYXQsIGVhY2ggdGltZSB0aGUgZmlyc3QgdXNlciBvZiBhIGJ1cyBhcHBlYXJz
+LCB0aGUgc2VyaWVzCj4+IMKgwqAgc2hvdWxkIGluY2x1ZGUgYSBwYXRjaCB0byBhZGQgdGhlIGJ1
+cyByZXF1aXJlZCBmb3IgdGhhdCBkcml2ZXIuCj4+IC0gSWYgYSBkcml2ZXIgYmVpbmcgc3VibWl0
+dGVkIHVzZXMgdGhlIHNhbWUgYnVzIGFzIGFub3RoZXIgb25lIHRoYXQgaGFzCj4+IMKgwqAgYmVl
+biBzdWJtaXR0ZWQgYnV0IGhhc24ndCB5ZXQgbGFuZGVkLCBpdCBjYW4gZGVwZW5kIG9uIHRoZSBi
+dXMgcGF0Y2gKPj4gwqDCoCBmcm9tIHRoYXQgcHJldmlvdXMgc2VyaWVzLgo+Cj4gR2V0dGluZyBh
+Z3JlZW1lbnQgaXMgZ29vZCwgYnV0IG90aGVyd2lzZSB0aGlzIGlzIGJhc2ljYWxseQo+IHRoZSBw
+cm9jZXNzIEd1b2Rvbmcgd2FzIHN1Z2dlc3RpbmcsIHJpZ2h0PwoKSG1tLCBhY3R1YWxseSByZS1y
+ZWFkaW5nIHRoZSBkaXNjdXNzaW9uIG5vdywgSSByZWFsaXplZCB0aGF0IEkgbWF5IGhhdmUgCmNv
+bWUgdG8gdGhpcyBsYXRlIGFuZCBtaXNzZWQgb3V0IG9uIHNvbWUgcHJldmlvdXMgZGlzY3Vzc2lv
+bnMsIHdoaWNoIAp3ZXJlIGFsbHVkZWQgdG8gaW4gWWl4dW4ncyBtZXNzYWdlcy4gKFRoaXMgaXMg
+YWdhaW4gdGhyZWFkIGFyb3VuZCBsaW5rIApbMV0gaW4gcXVvdGVkIHRleHQuKSBUaGlzIGxlZCBt
+ZSB0byBiZWxpZXZlIHRoYXQgc29tZSBvZiB0aGVzZSB3ZXJlIG5vdCAKcmVhbGx5IGFncmVlZCB1
+cG9uLgoKSSBhbHNvIHJlYWxpemVkIEkgdGhpbmsgb25lIG9mIHRoZSB0aGluZ3MgSSBtYXkgaGF2
+ZSBub3QgeWV0IG1hZGUgY2xlYXIgCmlzIHRoYXQgSSB3b3VsZCBsaWtlIHRoZSBidXMgbm9kZSB0
+byBiZSBhICpzZXBhcmF0ZSogcGF0Y2guIEkgdGhpbmsgdGhpcyAKbWFrZXMgc2Vuc2UsIGJlY2F1
+c2UgaXQncyBkZWFsaW5nIHdpdGggdHdvIGRpZmZlcmVudCBzdWJzeXN0ZW1zLgoKPgo+PiBGb3Ig
+Y29udmVudGlvbnMgcmVnYXJkaW5nIGNvZGluZyBzdHlsZSwgSSBwcm9wb3NlIHRoYXQ6Cj4+Cj4+
+IC0gI2FkZHJlc3MtY2VsbHMgYW5kICNzaXplLWNlbGxzIGFyZSAyIGZvciBjb25zaXN0ZW5jeQo+
+PiAtIFRoZXNlIGJ1cyBub2RlcyBhcmUgcHV0IGF0IHRoZSBlbmQgb2YgL3NvYywgaW5zaWRlIC9z
+b2MKPj4gLSBUaGVzZSBidXMgbm9kZXMgYXJlIHNvcnRlZCBhbHBoYWJldGljYWxseSwgbm90IGlu
+IHZlbmRvcidzIG9yZGVyCj4+IC0gRGV2aWNlcyBhcmUgYWRkZWQgaW50byAqLWJ1cyBub2RlcyBk
+aXJlY3RseSwgbm90IGFwcGVuZGVkIHRvd2FyZHMgdGhlCj4+IMKgwqAgZW5kIHdpdGggYSBsYWJl
+bCByZWZlcmVuY2UKPgo+IEkgZG8gbGlrZSB0aGF0IHlvdSdyZSB0cnlpbmcgdG8gYmUgbW9yZSBj
+b21wbGV0ZSBhbmQgZXhwbGljaXQKPiBvbiB3aGF0IHlvdSB0aGluayBuZWVkcyBhZ3JlZW1lbnQg
+b24uCj4KQmVpbmcgdGhvcm91Z2ggd2FzIHRoZSBtYWluIGdvYWwgb2YgdGhpcyBSRkMuIElmIHRo
+ZXJlIHdhcyBwcmV2aW91cyAKYWdyZWVtZW50IG9uIGhvdyBkbWEtcmFuZ2VzIHNob3VsZCBiZSBk
+b25lLCBJJ20gc29ycnkgZm9yIG1pc3NpbmcgdGhlbSwgCmJ1dCBmcm9tIG15IG9ic2VydmF0aW9u
+cyBvbiB0aGUgbWFpbGluZyBsaXN0IG9uIGhvdyB0aGVzZSBlbmRlZCB1cCBpbnRvIApwYXRjaGVz
+IEkgcmVhbGx5IGhhdmVuJ3Qgc2VlbiBtdWNoIGNvbnNpc3RlbmN5LiBNYXliZSB0aGVyZSB3YXMg
+Cm1pc3VuZGVyc3RhbmRpbmcsIHdoaWNoIEknbSBob3BpbmcgdG8gY2xlYXIgdXAuCgooQWx0aG91
+Z2ggc2VlIG15IHBhcmFncmFwaCBhYm92ZSwgbWF5YmUgSSBoYXZlbid0IGJlZW4gdGhvcm91Z2gg
+ZW5vdWdoLikKCj4+IFRoZSBLMSBETUEgdHJhbnNsYXRpb25zIGFyZSAqbm90KiBpbnRlcmNvbm5l
+Y3RzLCBzaW5jZSB0aGV5IGRvIG5vdAo+PiBwcm92aWRlIGFueSBjb25maWd1cmF0aW9uIGNhcGFi
+aWxpdGllcy4KPj4KPj4gVGhlc2UgYnVzIG5vZGVzIG5hbWVzIGFuZCBwcm9wZXJ0aWVzIGFyZSBw
+cm92aWRlZCBjb21wbGlhbnQgd2l0aAo+PiAic2ltcGxlLWJ1cyIgYmluZGluZ3MsIGFuZCBzaG91
+bGQgcGFzcyAibWFrZSBkdGJzX2NoZWNrIi4KPj4KPj4gUmVtYWluaW5nIHF1ZXN0aW9uczoKPj4K
+Pj4gLSBTaG91bGQgc3RvcmFnZS1idXMgZXhpc3Q/IE9yIHNob3VsZCBkcml2ZXJzIHVuZGVyIGl0
+IHNpbXBseSBzcGVjaWZ5Cj4+IMKgwqAgMzItYml0IERNQT8KPgo+IEV4cGxpY2l0bHkgc2F5aW5n
+IHN0b3JhZ2UgZGV2aWNlcyBoYXZlIG9uZS10by1vbmUgbWFwcGluZwo+IHNlZW1zIGluZm9ybWF0
+aXZlLCB0byBtZS4KPgo+PiAtLS0KPj4gwqAgYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9r
+MS5kdHNpIHwgNTMgCj4+ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+PiDC
+oCAxIGZpbGUgY2hhbmdlZCwgNTMgaW5zZXJ0aW9ucygrKQo+Cj4gVGhlIHNob3J0IHN1bW1hcnkg
+b2Ygd2hhdCBkaWZmZXJzIGJldHdlZW4geW91ciBwcm9wb3NhbAo+IGFuZCB3aGF0IEd1b2Rvbmcg
+c2FpZCBpczoKPiAtIFlvdSBzb3J0IG5vZGVzIGFscGhhYmV0aWNhbGx5LCBHdW9kb25nIGRpZCBu
+b3QKPiAtIFlvdSBkcm9wcGVkIHRoZSB1bml0IGFkZHJlc3MKPiAtIFlvdSBkcm9wcGVkIHRoZSBj
+b21tZW50cyBoZSBoYWQsIHdoaWNoIGluZGljYXRlZCB3aGljaAo+IMKgIGRldmljZXMgImJlbG9u
+Z2VkIiB0byBlYWNoIG1hcHBpbmcKPiAtIFlvdSBhZGRlZCBhIGNvbXBhdGlibGUgcHJvcGVydHkg
+dG8gZWFjaCAoInNpbXBsZS1idXMiKQo+IC0gWW91IGFkZGVkIGFuIGV4cGxpY2l0IChlbXB0eSkg
+cmFuZ2VzIHByb3BlcnR5IHRvIGVhY2gKPiAtIFlvdSBhZGQgI2FkZHJlc3MtY2VsbHMgYW5kICNz
+aXplLWNlbGxzIHByb3BlcnRpZXMsIGJvdGggMgo+IC0gWW91ciBkbWEtcmFuZ2VzIHByb3BlcnRp
+ZXMgYXJlIGlkZW50aWNhbCB0byBHdW9kb25nJ3MsCj4gwqAgZm9yIGFsbCBub2Rlcwo+ClRoYXQg
+d2FzIGEgZ29vZCBzdW1tYXJ5LiBUaGFua3MhCgpNeSBtYWluIGdvYWwgb2Ygb3JnYW5pemluZyB0
+aGUgYnVzIHRoaXMgd2F5IGlzIG1ha2luZyBpdCBhY3R1YWxseSBwYXNzIAoibWFrZSBkdGJzX2No
+ZWNrIi4gSSdtIG5vdCBzdXJlIGlmIEtyenlzenRvZiBzdGlsbCBvYmplY3RzIHRvIG15IHJlYWRp
+bmcgCm9mIHNpbXBsZS1idXMueWFtbCB0aG91Z2guCgpCeSB0aGUgd2F5LCBJIGRvbid0IHRoaW5r
+IEkgd2lsbCBiZSBtYWtpbmcgYW4gUkZDIHYyIG9mIHRoaXMuIEkgdGhpbmsgd2UgCnNob3VsZCBn
+ZXQgZXZlcnl0aGluZyBzb3J0ZWQgdW5kZXIgdGhpcyBvbmUgdGhyZWFkLgoKVGhhbmtzIGFnYWlu
+IGZvciB0YWtpbmcgYSBsb29rLgoKVml2aWFuICJkcmFtZm9yZXZlciIgV2FuZwoKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
