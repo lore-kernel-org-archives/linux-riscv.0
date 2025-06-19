@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA31BC7115A
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 01:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F806C71157
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 02:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ay1UQRHrbCOlIIlJYAKgP1s8IuWu266v0pOvGZpYQ/E=; b=mI+KkrnID9w6h+
-	ikCjeHdJqM8nRohLwOkGdHMsbIf0YW0KuEb4boAxfAi4iULnKePJiB1NpRC/E40Va9ElJm9R1/SjM
-	l304foePfstcW9M6fLpYR8O2yxuHO5DUpIRccsCmThgM58RXNCN4akU2riggw5jAlrLoclka6LXDQ
-	/sRAlXD+lYWNJxnSNj1lVAEwwI8DEApZlGEb3lbps75KLvR9WYEbY3HrwBO0xF1EEn3w+GS12hpfg
-	ilP2QvGS5e70MUIgEGhKL5LuML/z5ErkFrqZWfedEdFW6TIXmlDdldej3eRaV1js8cBC3QLzGh6ZM
-	PzjJfGhdVfaOJ652870Q==;
+	List-Owner; bh=J5M2gxEDXi6Nb4M1P60tXVPjjuiYVVFrySKl829YHdE=; b=zWUJKZeFRy2Z1L
+	ZOJiotyAbBE56y5h/E3RjBDGbi7KoZZGcP3QuEMX+etMv4LsOzgbqCPTOIffn/q/PqzSj6ln/zlTb
+	vgvQYJeca9DBmkvF89XBfqCjut+wl+Qd9hDdcZYWHYo61HIgLTANZcGbetvfiRGcoF8JrsNjXY5hD
+	dS9/9ja1yCAjjkHXl2hwPk6vLzQQGedVMrijQ+30VBR647YIk+h1yeiue/bFa8bb1BkA8xRtonVJG
+	RCTV1c4FfAP84lKv/YyDAZyXuoqHtky9WGOYs/DCb0iKiyrDpAbxUGqn7Cyqlq1NrX6Q+TVv9tKNs
+	jmdUiKcMNz+6/ljs/Orw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS4QY-0000000Bmfs-2Q31;
-	Thu, 19 Jun 2025 01:50:54 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1uS4tN-0000000BnuP-2ccU;
+	Thu, 19 Jun 2025 02:20:41 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS4QV-0000000Bmf2-2U10
+	id 1uS4tK-0000000Bntf-3ik2
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Jun 2025 01:50:52 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-b170c99aa49so224776a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 18:50:51 -0700 (PDT)
+	Thu, 19 Jun 2025 02:20:40 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-748d982e92cso153325b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Jun 2025 19:20:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1750297851; x=1750902651; darn=lists.infradead.org;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1750299638; x=1750904438; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=77PKh9SalLpybL3AAe7PoOLwMgQqtz9KiJ/uaTkWDSw=;
-        b=k3bp4bFPXyiC31cS76iIEw9PhFLTl/INJOKHUW7xy4sOUmVhmw4RwdwvNQ6HSvGwnQ
-         Rrrfqgtt3QDGEe9v9jvdgyxkKcmEF4+ftrDHPu3M6GUBJJtkKlvI25oNBjiJBQyiGMrn
-         du6JgnqeqsnE6IFSdFKrNMdOBsu0X4NZiEoziXuQzjdbLWr1A4s3B9iKHFoI24epZa+Z
-         ZF8xYEFsARueGL2I4QPqgB8zUCqf1J79RkQbssl7tKTfLmKkomlPtt4N8jxU3/HvHPSG
-         Q1+olTjpO66sXNgRZ7CwnzpxaQBN9uEzSZjbR+xnNZJ/2swo5K9dbEHu+aM3LzhcLMwc
-         s2+g==
+        bh=aB+z+oapAeIvD/LMQC0pA+9Dvh98i3pYzrLPX5UVNgs=;
+        b=zZQnOwjGnYRxp3A7GHy6siAtGFKAqkI2BtoSpOXxkRMiGx2UxNixtICD1GjK9ZBu8A
+         9a9T/PJSQjlh/15ybChrqFFD/Wou+p1fUqlzoCcHhrplQbVON3RfBwrMWymaTTfyeSoP
+         elUBHwkr5r7VwMJA18iXq69MTQ+YTKWE0R4P4QzQMHokFrl953QrUeJ6uZ0YR3/bOy7V
+         hMEhDIjMkYhe5v//bZc282um6s7Foj4Qy7Ip26EJTUMY8UtNw88XBIk4etsY6ozsxn6q
+         62wVMHGrmiWa7d3KBIz0CCrVKJSBWKhjJE82vtpgzWlxlfGkqHLEYvGIN5cH8WYxJ0cq
+         MP2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750297851; x=1750902651;
+        d=1e100.net; s=20230601; t=1750299638; x=1750904438;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=77PKh9SalLpybL3AAe7PoOLwMgQqtz9KiJ/uaTkWDSw=;
-        b=WCrsuHObzhCwPa+OLUqVuUiYHcjXFJKqsk6scz6+1VYdjtZdogMScNT/oLJ5BRCRAD
-         DwDF8GUAuKs8pOxtnJ4D3fR7gdWzY1+4jZiiy3gYLmxE3D3kozjISMtoE0icKkYzYQLq
-         ma+tOIa9G5aGpZMKtOFWX/pD1t66Awi9Yg125IPBvtAJ751c3AkDBllHGELtpE3V0bP9
-         ILzjg65S3GNqY0TsA1HJAlYpXZWgom2djYvOfkkzRuWwlK2D18NLCgYHcPsY2Zk8ZfYM
-         X4sbw8d7rurnRIF4G0SdUtbRuelinJx0oc6egBZlg9UFXCy5gDog3oNc/Q4RBfqiQinZ
-         iTjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVwwWfuntYv17e1mxWJhpj+ZTkY1rvNtcFD7Atvq3WwI8y5uJAx2KX3MI6LxctIBE0UVsevGyOelYwhLg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyiEuKB3na7d+pz49tNZumQsFOFMcLR2nxeEjkPTqvXO24GhPng
-	jX14NICxPa/CYLqSbn8zDIZQYjTenu4xHaEV/V2mINDAAJplNQliku7bFHFb57j8kp4=
-X-Gm-Gg: ASbGncutPLodUopMoeY4P/XkaAVd0nHd712zMwd0FSkE6tmsjvusWF6k+mwqkKvx25s
-	Tn52OEbVijDX5f9rTDJNSjGT8527j6RbLcxK1Wxk+SqswwIUSvgPpYeRvMalNOWBUHejQXB5+Xk
-	6btUZ7RJPRAuHjxmA6Y3C9d0jRSBFUKyVKoVM3uWuWwaVnsstwXR14pihCkl7EzqxK5feGwg4qz
-	KHNZQU5ODI52KsffSH6hGhL0B0nyk4Yna9txt3or4SEnHE3AfIoXeNTQEcsaCdX9vWf66TTdHRx
-	XS4it8z2VberAK3B7ajE4WM1rm2ujiE1PbynKvFBtpOoOSESsbrIgEdRjcdLq759QYNvJPg=
-X-Google-Smtp-Source: AGHT+IEH8ENEIXXiapQFn7dY5pW85bznCSDAM8YeveXgruCVaip94nhm+ZCyfl9XM7JJOLVmNJsDyw==
-X-Received: by 2002:a17:90b:586b:b0:312:39c1:c9cf with SMTP id 98e67ed59e1d1-313f1be1c89mr31855817a91.7.1750297850614;
-        Wed, 18 Jun 2025 18:50:50 -0700 (PDT)
+        bh=aB+z+oapAeIvD/LMQC0pA+9Dvh98i3pYzrLPX5UVNgs=;
+        b=jVbjpSI9gQTAL8mHgh2h6P7t/OzWzdnkTmuoCF08g7u+7urwtLw2bns3rEG7aNynIC
+         cqXsL8ekd4sRslU8F7bsIF+onflb2WEVD5HTlCtlauFwGQaexdIujqYUUmBWDDHv1G5m
+         Qd/Ww52Sixc4Beg1oLe1dULBQh1YwEEhSPq0yvKlffqsHV4vfCKIeUh99+11XjmJz9Fk
+         8WVBJt79UCp/nPUm+wUmMiL7rQujvkx1Au2wLPyshJk1Cn86FrTc7yu8HsSHsJ/jho9r
+         9jQmE0/LTwY3AZAFlEs/Qv5DtnqEJ5K8d07iKgsZnwqxZtp9eypr+bfy7Mnn/5+YkV4W
+         r3Bg==
+X-Forwarded-Encrypted: i=1; AJvYcCVlFp+sLVtaPKh3nGj8qNrH+I42dnRmOYTWX6MPvTFrFdMksPo1uzzD8zyIrHiMXrBnvaIjIi7Ch4YehA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwX66b746kCwLWeS9B9LS01uwHbZyzFy4LJnbIgL2a66bCLfUux
+	ytjVjRXs51Vk/GcAhT0xFebLzn/66cdQcD2HzIuWDg+Bdbtttbw0Ogh8Y1p8Bhy7Yoo=
+X-Gm-Gg: ASbGncvQlOvt2rgstBSQA+NWvysYyVSU0VSJmGF1JnTBmILI71pLaRERgGs7hvs3UYv
+	/ww+RhQCi7rbUQ+vcDtMHc8UvDFSPlvB4t/3+SZca+lLTkpsHCz20qCqoB9rCG9R/o6ro7diEun
+	cweec26WU5QoDbBI0afFl9Sc2I9nZ+RICSrdMZ8MvxFrPGOOTma9DaJpVnsYQQi6ZM6vckdqnhb
+	2tXQZhRN0o5x0QBI/D4e6h4h9Hziv4ImUbaZ7jHkRXQUD3XQPzkeaQtJcNqdvFPWFKa08+aCyZG
+	/sNlwyUXJ90XnSFqTtoVHLqFnPx8q1CvySHyo4qEj3mvjaflIU7W1CmWH4v63pCtpHMisfQ=
+X-Google-Smtp-Source: AGHT+IGjSSZuolaUpbJOSDgxdNJ2rz6g6jIUWqfE+ln3NvBoOq+EqOxlPwszxtc7pzssoDHlu8HO3g==
+X-Received: by 2002:a05:6a21:62c9:b0:1f5:7366:2a01 with SMTP id adf61e73a8af0-21fbd6925a5mr30398731637.37.1750299638092;
+        Wed, 18 Jun 2025 19:20:38 -0700 (PDT)
 Received: from x1 (97-120-250-80.ptld.qwest.net. [97.120.250.80])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3158a226f7asm811267a91.10.2025.06.18.18.50.49
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b31c84be11fsm2584945a12.78.2025.06.18.19.20.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Jun 2025 18:50:50 -0700 (PDT)
-Date: Wed, 18 Jun 2025 18:50:48 -0700
+        Wed, 18 Jun 2025 19:20:37 -0700 (PDT)
+Date: Wed, 18 Jun 2025 19:20:35 -0700
 From: Drew Fustini <drew@pdp7.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>,
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	Frank Binns <frank.binns@imgtec.com>,
 	Matt Coster <matt.coster@imgtec.com>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -86,22 +85,23 @@ Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
 	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v5 2/8] dt-bindings: firmware: thead,th1520: Add resets
- for GPU clkgen
-Message-ID: <aFNs+PLgw1jqqiUm@x1>
+Subject: Re: [PATCH v5 6/8] riscv: dts: thead: th1520: Add GPU clkgen reset
+ to AON node
+Message-ID: <aFNz8/m7q4T2qSHd@x1>
 References: <20250618-apr_14_for_sending-v5-0-27ed33ea5c6f@samsung.com>
- <CGME20250618102227eucas1p26e8968805092c3ce0ecbe84e9724a6e2@eucas1p2.samsung.com>
- <20250618-apr_14_for_sending-v5-2-27ed33ea5c6f@samsung.com>
+ <CGME20250618102231eucas1p1ec99058179825cb1250a1f189313b3eb@eucas1p1.samsung.com>
+ <20250618-apr_14_for_sending-v5-6-27ed33ea5c6f@samsung.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250618-apr_14_for_sending-v5-2-27ed33ea5c6f@samsung.com>
+In-Reply-To: <20250618-apr_14_for_sending-v5-6-27ed33ea5c6f@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_185051_630297_61AEB2C9 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20250618_192038_925574_85118824 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,48 +118,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 12:22:08PM +0200, Michal Wilczynski wrote:
-> Extend the TH1520 AON to describe the GPU clkgen reset line, required
-> for proper GPU clock and reset sequencing.
+On Wed, Jun 18, 2025 at 12:22:12PM +0200, Michal Wilczynski wrote:
+> Add the "gpu-clkgen" reset property to the AON device tree node. This
+> allows the AON power domain driver to detect the capability to power
+> sequence the GPU and spawn the necessary pwrseq-thead-gpu auxiliary
+> driver for managing the GPU's complex power sequence.
 > 
-> The T-HEAD TH1520 GPU requires coordinated management of two clocks
-> (core and sys) and two resets (GPU core reset and GPU clkgen reset).
-> Only the clkgen reset is exposed at the AON level, to support SoC
-> specific initialization handled through a dedicated auxiliary power
-> sequencing driver. The GPU core reset remains described in the GPU
-> device node, as from the GPU driver's perspective, there is only a
-> single reset line [1].
+> This commit also adds the prerequisite
+> dt-bindings/reset/thead,th1520-reset.h include to make the
+> TH1520_RESET_ID_GPU_CLKGEN available. This include was previously
+> dropped during a conflict resolution [1].
 > 
-> This follows upstream maintainers' recommendations [2] to abstract SoC
-> specific details into the PM domain layer rather than exposing them to
-> drivers directly.
-> 
-> Link: https://lore.kernel.org/all/816db99d-7088-4c1a-af03-b9a825ac09dc@imgtec.com/ - [1]
-> Link: https://lore.kernel.org/all/38d9650fc11a674c8b689d6bab937acf@kernel.org/ - [2]
+> Link: https://lore.kernel.org/all/aAvfn2mq0Ksi8DF2@x1/ [1]
 > 
 > Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-> index bbc183200400de7aadbb21fea21911f6f4227b09..3365124c7fd4736922717bd31caa13272f4a4ea6 100644
-> --- a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-> +++ b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-> @@ -32,6 +32,13 @@ properties:
->      items:
->        - const: aon
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> index 1db0054c4e093400e9dbebcee5fcfa5b5cae6e32..f3f5db0201ab8c0306d4d63072a1573431e51893 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -7,6 +7,7 @@
+>  #include <dt-bindings/interrupt-controller/irq.h>
+>  #include <dt-bindings/clock/thead,th1520-clk-ap.h>
+>  #include <dt-bindings/power/thead,th1520-power.h>
+> +#include <dt-bindings/reset/thead,th1520-reset.h>
 >  
-> +  resets:
-> +    maxItems: 1
-> +
-> +  reset-names:
-> +    items:
-> +      - const: gpu-clkgen
-> +
->    "#power-domain-cells":
->      const: 1
+>  / {
+>  	compatible = "thead,th1520";
+> @@ -234,6 +235,8 @@ aon: aon {
+>  		compatible = "thead,th1520-aon";
+>  		mboxes = <&mbox_910t 1>;
+>  		mbox-names = "aon";
+> +		resets = <&rst TH1520_RESET_ID_GPU_CLKGEN>;
+> +		reset-names = "gpu-clkgen";
+>  		#power-domain-cells = <1>;
+>  	};
 >  
 > 
 > -- 
@@ -167,12 +164,6 @@ On Wed, Jun 18, 2025 at 12:22:08PM +0200, Michal Wilczynski wrote:
 > 
 
 Reviewed-by: Drew Fustini <drew@pdp7.com>
-
-I'm wondering what tree this should go through. Ulf took the original
-patch that created the binding.
-
-Thanks,
-Drew
 
 _______________________________________________
 linux-riscv mailing list
