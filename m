@@ -4,153 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D9CC7115E
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 08:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F2AC7115B
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 08:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4TXFihHpL7oCB/dwYVKHh9avyglanFosUidBoszh7w4=; b=U3zmUIa1uE9RSv4uMJL+Nm9Omd
-	z+4BQUx4D8USo/qXBQ5q7BXDnPF87BzmOhnkNQRgJiDcrNaLa+ryyVsrjDcT1PiGFJ3WgmzrLhDtE
-	oWPc3OFVS7AWc64lJDtYbA/RKIhFSWKJZ4NtraD+CVFkFq7gdG+6vRlllFjr/kZmWqBJ/ao0loe7Q
-	3e2KcSglF4EyHIrctuXgzfDkL3LbQgP/y845Shy0Wi1XXmbSbazhWmX5lD5w5TVlXz5cPPA808lGR
-	LIt0OARlMJ1c3TUCrpPLvHz30Egir5uvm3TqL7TUpbkTDUnoXWGns9Lg/mgCYKTaWb2qW0pAhu2pN
-	a/ctPUvg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1L+unug34ojKXkONluLwb3amMH7U0aBoqjLzT3DTtY8=; b=cV9IRim/uyYXB6JVZXZeIa2do1
+	AYavCQkXliqQFOEIM/dfcwsTqmottWw6mWMV2RfAQ65+gV4JE81U7Iem3OXjfZdjNnwwTfMRT4ry4
+	d91GU82mTcvyYeTUzzf8wTWrQ/1jMQKDnxESCwFO6qDzxa7uBZJfWl6GhOVBvBSpp5fMi/0VguZ2P
+	shozIQPS7hV6w55n0widhlpS0hpkP+n84X61XiAalfe/7mUvU7AbDXonhbsUBfTnlFGkLbgj2Gdrm
+	GtgFOgIsgFitLvGIRM8T80vDbfXRMG1Jx6cIalX2M8ovfaXTsrUvW9QEvvNoOXA0d8ush2Huo6me6
+	GSboHPuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSAF1-0000000CNx8-1Aaq;
-	Thu, 19 Jun 2025 08:03:23 +0000
-Received: from mail-southindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d408::1] helo=MA0PR01CU012.outbound.protection.outlook.com)
+	id 1uSAJR-0000000COaE-37W8;
+	Thu, 19 Jun 2025 08:07:57 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS9jf-0000000CIev-12ja
+	id 1uS9na-0000000CJRQ-1MHz
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Jun 2025 07:31:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dntzjtXIJXF8e+hNVlaB1EbfuAcc9JGmZqkZpuyeK/lDqaKIMm88uKUWw7afjJgc80wttIgRZoOV2+jtCwzETXlSeQC7nXt+5AHBtJ/xXtSIFo/PoXFxLDvmrDzv8vSTe97MNq2W7Q6bwwDJ36abnSKEQxgQf/TtKAeoUiGnGvuAZB0vl6P0xONGlu/QTdS9rBjIXiiRM0YFpZOQ2merzDI3ZOHu1ndeEY93iJWTAbYfcxaEBuUbcEdxmrvgULZLa4TafsaRUAnvPF0Ww/OOTmhEQc3KHSFsdslM3yYJCqD8cqp6ZYpsKBXtvtshx4XsM4S2I7GOwI9egMH3o7paCg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1qFU7jFfawnZrirkptHldHvPeuUgH00LkqkjD6ZGWKQ=;
- b=W4oha5yC0zVa28XXk8GNDC8as7rIRHhOH2ehaG4PwtfIc4a+qMLKrWjvWg2uKhOPWF3KZm9b95fU0Nvvo4lWpQXxNW8RY8TWlL1r7YErnBelnkkZEy8y/1300rHIZhwKzDSqfGAlEEtvUzdZxJLB+bjMQ34fiahp+dXfoOzvsA+zpzYkJDc/oKM0nzPVO8GciugOTIfyUUbPlJHad9S/XPiR3K0lMkdgvTBOw6j6XJI+fcnpIheswow2muFWS4ItztkeWcdSOiUkTkenwn3VhykZdBG2KaeSlHMOLQGneO2TFZO9jpaO2yBrR6XdU30aU0sf4dQmlomTbaVJ7NZVEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1qFU7jFfawnZrirkptHldHvPeuUgH00LkqkjD6ZGWKQ=;
- b=EBTqB2yLq42y3fWhf8x92plCFhT9PleCXIOxsLrbISoivNWpmzs1u/N5OWxr24zKnFVN5oxeJBtsnfWHdbPUDNvbUG8KMB5zOlhp1uh7q8B6EegTqj3chtC4DSdgx1ZBumUVagYJlzFV5Qo2nZmY0W0YAcgNIwq8cXgppt9v3HEagIcpopu5OH1VglPk9jbXFt3CeFIkdcJwQo3p1v++Eqjy034A/0Xm/QGZJsAytnK2ps2pb9GYsTzGxrBPnInQwmFtWoXz5b6GfgKsaTRrBMI0QbqHhzHmiY1C9agSpLjUqwkUdLa5tJ/OJVzL4PeEhKQ12Q9jcKDZAJ8EWRqwIQ==
-Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:100::6)
- by PN3PPFA16F39546.INDP287.PROD.OUTLOOK.COM (2603:1096:c04:1::c6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.22; Thu, 19 Jun
- 2025 07:30:38 +0000
-Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
- ([fe80::ca81:3600:b1e4:fcf4]) by MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
- ([fe80::ca81:3600:b1e4:fcf4%3]) with mapi id 15.20.8857.020; Thu, 19 Jun 2025
- 07:30:37 +0000
-Message-ID: <MA0P287MB226203FCCC7A25D2140ACE01FE7DA@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
-Date: Thu, 19 Jun 2025 15:30:31 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: dts: sophgo: sg2044: Add missing
- riscv,cbop-block-size property
-To: Inochi Amaoto <inochiama@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-References: <20250613074513.1683624-1-inochiama@gmail.com>
- <175013680588.1018298.10559632401541865399.b4-ty@gmail.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <175013680588.1018298.10559632401541865399.b4-ty@gmail.com>
-X-ClientProxiedBy: SG2PR06CA0203.apcprd06.prod.outlook.com (2603:1096:4:1::35)
- To MA0P287MB2262.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:100::6)
-X-Microsoft-Original-Message-ID: <8ff27e79-9697-4acf-bb44-37bb743ff401@outlook.com>
+	Thu, 19 Jun 2025 07:35:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1750318502; x=1781854502;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=aH4MYI7c3m+ShgBRS97B9wA9VDRXLN0Ik809nqZTBM8=;
+  b=cElNEALuIza3Y0lQhADHm1FV6F3FXCmOT/CfN2ZtcmrdmKJ4kI+NSS7O
+   HaezSHZ9gv/fXjDkh3pX+lzFKDA0MzUXV6Fo5L24/LuEf1UGi7yNllLaJ
+   4eVcHsxQZGREKcJU5Lp/PFtY/PgbmC5XzzlMkPoyQA0yOBi19dRL8WKgV
+   eu9oo4WXJhOnVNT+5s1EdgojMVsmWUbEYBAx+MHmrLsKtuKJn5fPHvFxG
+   +cZxfGTsphKvUfOkZ2VOmd/JnLc85jkJLrV/jeHrs2Mp7C587rg5Zq3Da
+   2B/fnBjN4yqDuysoiigqw6Gy4W7tCJ8ZdiBk96bA0xsf45/yr3yI8GKjN
+   w==;
+X-CSE-ConnectionGUID: Okrbc+Y5Sn2HmFwBqXV6bQ==
+X-CSE-MsgGUID: gNNiB0ORS/Sg5ekHcFUhbA==
+X-IronPort-AV: E=Sophos;i="6.16,247,1744095600"; 
+   d="asc'?scan'208";a="43566381"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 Jun 2025 00:35:01 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Thu, 19 Jun 2025 00:34:20 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44 via Frontend
+ Transport; Thu, 19 Jun 2025 00:34:19 -0700
+Date: Thu, 19 Jun 2025 08:33:10 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Alex Guo <alexguo1023@gmail.com>
+CC: <daire.mcnamara@microchip.com>, <andi.shyti@kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-i2c@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] i2c: busses: Fix out-of-bounds bug in
+ mchp_corei2c_smbus_xfer
+Message-ID: <20250619-jubilant-nag-c50bdebdac0c@wendy>
+References: <20250615234919.525431-1-alexguo1023@gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2262:EE_|PN3PPFA16F39546:EE_
-X-MS-Office365-Filtering-Correlation-Id: 441e7282-9ad0-4720-5d81-08ddaf032f9f
-X-Microsoft-Antispam: BCL:0;ARA:14566002|21061999006|5072599009|8060799009|7092599006|15080799009|461199028|19110799006|6090799003|440099028|3412199025|10035399007|40105399003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cUV5YnprYzkvRXRnUklGbVAzbUhnTUxMQUZEb0wwd1lTTDlWOGRBenBRRnN2?=
- =?utf-8?B?UTBmd0dXREh5MSs1UG9VbjRhZnVZbnJabXVnajh5V010SGNTVGdjZk9pNnBN?=
- =?utf-8?B?SWtrSlJQeDZpYVFqMUFXZmI3ZUxuSEtTQmlGRXBCeHkzK3lGaExDZE1BQlZ4?=
- =?utf-8?B?RG9hMkUwUUFsL3ljbk1QRzNlcW5OQUxLbU5XSmJtb0RTcmVaV3FoalZNanM5?=
- =?utf-8?B?bzBNMmgxRE5aTjNBN2hQdDNoUGFCbUhtU3luUVFZYXBRSHFVZ21rclBXaFhC?=
- =?utf-8?B?aHdUSEEwTUVYZjlCbVB4RVU5ald5bFBEelg4S2RuTjNmc1RWK3BmUS9LNTVK?=
- =?utf-8?B?VXdzS0Z3QUkybElkdW5tb1ZPVjFyY0lSc2E0citGRDRxVnBGendWWlJwOEZU?=
- =?utf-8?B?TkRJajU4YTA1cCtrbDRmMHJUWmxDQ3ZNSTBXTGRKUEpVcEhNZFNlVEZUbW1M?=
- =?utf-8?B?T0o4Nytoa2xVZjR4V3R3N0tWUStpUng4SytlYWJHb2c2T01iUzZ4UjIySFRF?=
- =?utf-8?B?a2x5OXFOcm9zUEhZaFU0bWd6K0pTdk5EbGRWT24rSno2NS9VcXlvTXQ0N1ZV?=
- =?utf-8?B?ZCtZdEovb05QckI4VkJMbThQZWJzemFCcHNLOXJYVHMrSkJtOFN2aENPcXdJ?=
- =?utf-8?B?eUxCcHRBeW1kTXBBRDdPMk9LbG9lYUMybkcrRi9CUjRvbyt3WUlqV3ZQazZE?=
- =?utf-8?B?U0YwaHVZRlNoc3hJUHhuMHVCaUpQcElUTG5GbXZZNnByVGt5bys5WmVjakhi?=
- =?utf-8?B?T0NqMGlrYi9HT3pkN20rYWdHQzZTbnJCNXQ1aFJaNnh2c1dhTmhxSzFibHda?=
- =?utf-8?B?N3pINVRWbTM3c3l0cnEyWkNObjhFdDRsUXgxYm9KeW1XaytvUG9nZHczR3Fy?=
- =?utf-8?B?ZEszMHA0WmlJVy96a013a1kwdFArUHR2Y21CZnAvakpUTkRuYzN2eEU3Z3Zn?=
- =?utf-8?B?RFg0NDY3TXVkM0E5N2xhaU9xZFIxR2FaOWp4ejczRjFXakNrZXJMalFld2Iv?=
- =?utf-8?B?UHVWWlNXMjNLNnFqc0hYVVVvdUdYZVpka0xvVWdsK3phUTVNMDkzcWJ5ZjZK?=
- =?utf-8?B?UWNHL1psUjA4NGlRYjZ0dHdWb3lud0w0NE5HaWlESGZGb3RjbHQweGJhN2VL?=
- =?utf-8?B?TXl6MlNBcnk1bXhYcDRHbEttRE1JUHM3Z2dadzQ3UWZzYTFRK3B6SUwzZDRi?=
- =?utf-8?B?MGtKNVdCUzRqTWlFKysvR3FJY1pTTGZ1c2JtN3ZhYmRpbUlTdUJRR0pCYkRx?=
- =?utf-8?B?Q2RLd0tiVDBUK3JGRm8vUTlhUXVKQmt6bzhXalRlOGhxcStJdkNXTDhNTExp?=
- =?utf-8?B?bFVKQWhiZUhodHNYRGp5aUkyQjBiUitSMHF4c01yWFJRajlocXJwTXJ0M1F2?=
- =?utf-8?B?Wm1uaTdHc0ZJbUhmVFBRb2lwbU9iL3FkcWhUK3ZoRzREbjVTMFFUVmpRMXpK?=
- =?utf-8?B?WWlWQjVGVklSSmRQSGV4Q3hQejJxS2R6YkY3dHpvbkhCb2NmMXZqNnY4ZWZr?=
- =?utf-8?B?N0tDMXhONjQydmF6ci80STRMVDRCMTVHT0k4bThUcjFiZlhRUFpFbnVsbXZC?=
- =?utf-8?B?Ym5OSDI1RFJTYzJaMU5xWThKbnB6Z1h2QllwU1U5OERhWHZ1d21BWFpIbzZ2?=
- =?utf-8?B?TkJNcGdmbjV6RjF5Z1RrMy9LMGpEcmpJZmhGVSszMG1Ucjg1TEVTMWJibHVt?=
- =?utf-8?B?dllGNjNSTy9WT00wZVdxNUZaUUd4N3I0elF3ZEExZ29rcWtEQzdiMlJBcTU4?=
- =?utf-8?Q?hdQYiSW1eUBUQc0szbrl4odrjvrKxDmup7qqQkT?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dy8rTm05VlV0RktIdjZGSnRPNjB3Tll2eGttdGp4a0lTaTJWanI1QzFvcWFh?=
- =?utf-8?B?dTZpUEdZYXFITFJIZHdSUFB2UUI5b2pBRG1rU0NzK1hkUktlZGRzWVBoV3BR?=
- =?utf-8?B?b2FnNStwbVMwUmNCSC91c3dvOUhtdjJkVFlmLzArUjQ3amE2RzE1aXhuWHlx?=
- =?utf-8?B?c0k4b0V1WWZ5QmQ2TjgvNVkzNkZNaitBVHl3MDdtUzg5ekY0R3M5S0c2VDI2?=
- =?utf-8?B?Vmx5azYzOUtLWDY2N1IwSFREbzgyaWlEMlhIVzNFNklBNXE4N0lXK00zOVZu?=
- =?utf-8?B?Wk96WWVPMjNFMDlqRVByY2p2cDNhd1BqdGJtRVlpY2FsZUJzNWliTjExNE4x?=
- =?utf-8?B?U0RyOXgrVGdET21JQTk1bFNxR215YmVBckVtMllDY0VHS3BqcDVsUXh1UXFm?=
- =?utf-8?B?bE9uSmtxbU1JejdyMVp6bnZFcU9ybUlvbzJUMVdWckFKU2VHbFVEV0RkMEpu?=
- =?utf-8?B?UG1ST3VmcU9DNVAxeStSUFZtaGN2NnlZbkFkOHo5eVNPakVnWHltajQzcFZs?=
- =?utf-8?B?RE5Ib0lNWlZacm1SVnl1MDZuK2xRNjZ5eHZSWXUwek5GaUxJYUF5WVg2dkRP?=
- =?utf-8?B?eFVaeHhUOTU4dTd2c1c1cmhubnY4SXpsbUREUEpIZ2lqWEwvajlIY0FuYzZ2?=
- =?utf-8?B?Nnl6VXVBMzBLWTRvd09XcHlwUkY5ZHBJaERNbWNnRkQ0RVFKZHJmOGpGa1FC?=
- =?utf-8?B?NjNlNzZKYUpocDhhNUpTdFZEb0pqNG43YzhuOEJBV0owa0dyM3B2eS9NM3hh?=
- =?utf-8?B?RGNxbkdVSHl3bndITWlGbnBzM2lqcUlpUWFQNzM0Q0p1cHFkQlJZbnhzUVRK?=
- =?utf-8?B?SWRjUGZPL2RpelEwM01CUll5b01YcUhUMnBFYVpmaFhsejBBTjBvSlA3bE03?=
- =?utf-8?B?cnZQQWUxZ2hJWTh1TlZYVXhzdVBZYmx3ZnltUXNpajVQNitscWdnTHRYcWR6?=
- =?utf-8?B?TW95TURackt1N3hadWlHdEgxckwzMjJHUkdYOU50WHdQeHlUeTZBVVpQcTJj?=
- =?utf-8?B?RlVoczFleW4wUjZSRXNGZHVtOXZWUXVFbk9veFBkNUp0RHJqbG5GQmZSZzQv?=
- =?utf-8?B?NFJmbmJtUVRKdzVEeTlTQ0NROTRFcEVvT2JNSmZjTDRSWW1DRlg4OFkyb3c1?=
- =?utf-8?B?VlVEOU1WMWtBVUcrRXVQemV2KzZTVzFmS0xvamI4SnQwdzFNTFhKRlVpN2lk?=
- =?utf-8?B?Y2xhcmhqYjM5eE5jeklCYVdwSUtCU1U4cXdtaWpTUlNhN1ZVWGdqQXVGZkk2?=
- =?utf-8?B?OXN6YjM3K3h0L3piRkFmUVBSUTluNFh0SGlIOHRLTTBSaUZKNjZSQnUvV0pH?=
- =?utf-8?B?K2FOWjRLcmNWR1U2dTd1RFM5OFY4eEZRRDBwRHl0eGk0cDZ3SjBlK0R4dG1l?=
- =?utf-8?B?N0RyOEd6dXdidFNkbFR0bXpETk0xYk1uY2kxUC94Y1AxZ1NyOElZVVhmbXNP?=
- =?utf-8?B?KytkREc1a01jSUNNd3hyamFMdGRCUEZZdVFtWUg2ajdHWmQ5dWxSNVdPaERP?=
- =?utf-8?B?QytVNjBGOWo3WmRheG4wTmVpTTVheUlSSDhsS3UzbGlJK3FzWkR3S3dvS095?=
- =?utf-8?B?Vjd2WGwybWZLNTh1cUlNNllHVTU4cnhaTm1uVWxJak1qc2EzRWdhT2hhZGRY?=
- =?utf-8?B?b3lVS2NYbE53TURENVhoK25BSDYxZFRSRTljMlh5cVJvbU9kZlBSck9aK3ZJ?=
- =?utf-8?B?a2F2dXM1SHVZZlpvRmk5bEhFbzZnZ1Qzd2FIOU13NDk3OVlxYkZCTWVtcVpr?=
- =?utf-8?Q?L/RFL3nH5rTgdee5vdjV+lyGWxPURyU7Jj5X1r+?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 441e7282-9ad0-4720-5d81-08ddaf032f9f
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 07:30:37.8448
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3PPFA16F39546
+In-Reply-To: <20250615234919.525431-1-alexguo1023@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_003059_303356_0E5E7704 
-X-CRM114-Status: UNSURE (   7.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250619_003502_431773_478BB101 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,29 +82,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============7657156471370871809=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Why not apply this to fixes so we can pull this soon?
+--===============7657156471370871809==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="JByXUeaN4Z+QSMXa"
+Content-Disposition: inline
 
-On 2025/6/17 13:07, Inochi Amaoto wrote:
-> On Fri, 13 Jun 2025 15:45:12 +0800, Inochi Amaoto wrote:
->> The kernel complains no "riscv,cbop-block-size" and disables the Zicbop
->> extension. Add the missing property to keep it functional.
->>
->>
-> Applied to for-next, thanks!
->
-> [1/1] riscv: dts: sophgo: sg2044: Add missing riscv,cbop-block-size property
->        https://github.com/sophgo/linux/commit/b8518378ffd3469b5ba871ee0210b3c16de45d66
->
-> Thanks,
-> Inochi
->
+--JByXUeaN4Z+QSMXa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Jun 15, 2025 at 07:49:19PM -0400, Alex Guo wrote:
+> The data->block[0] variable comes from user. Without proper check,
+> the variable may be very large to cause an out-of-bounds bug.
+>=20
+> Fix this bug by checking the value of data->block[0] first.
+>=20
+> Similar commit:
+> 1. commit 39244cc7548 ("i2c: ismt: Fix an out-of-bounds bug in
+> ismt_access()")
+> 2. commit 92fbb6d1296 ("i2c: xgene-slimpro: Fix out-of-bounds
+> bug in xgene_slimpro_i2c_xfer()")
+>=20
+> Signed-off-by: Alex Guo <alexguo1023@gmail.com>
+> ---
+>  drivers/i2c/busses/i2c-microchip-corei2c.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>=20
+> diff --git a/drivers/i2c/busses/i2c-microchip-corei2c.c b/drivers/i2c/bus=
+ses/i2c-microchip-corei2c.c
+> index 492bf4c34722..a79d4d327f20 100644
+> --- a/drivers/i2c/busses/i2c-microchip-corei2c.c
+> +++ b/drivers/i2c/busses/i2c-microchip-corei2c.c
+> @@ -492,6 +492,8 @@ static int mchp_corei2c_smbus_xfer(struct i2c_adapter=
+ *adap, u16 addr, unsigned
+>  		if (read_write =3D=3D I2C_SMBUS_WRITE) {
+>  			int data_len;
+> =20
+> +			if (data->block[0] < 1 || data->block[0] > I2C_SMBUS_BLOCK_MAX)
+> +				return -EINVAL;
+
+Seems reasonable, but I'd like to see a blank line here after the
+return. Maybe Andi can do it on application?
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+>  			data_len =3D data->block[0];
+>  			msgs[CORE_I2C_SMBUS_MSG_WR].len =3D data_len + 2;
+>  			for (int i =3D 0; i <=3D data_len; i++)
+> --=20
+> 2.34.1
+>=20
+
+--JByXUeaN4Z+QSMXa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaFO9JwAKCRB4tDGHoIJi
+0oORAPwOMF7HJ4ncK8AJdngYGaRq0iU6yc1gSpPtOdeH4MjGdgEArIT7bXuTG9EK
+znXpn8yenjNsLNWz4BhevGHIXt2A0gA=
+=VSNl
+-----END PGP SIGNATURE-----
+
+--JByXUeaN4Z+QSMXa--
+
+
+--===============7657156471370871809==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7657156471370871809==--
+
