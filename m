@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0638C7115B
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 21:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF454C7115B
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 21:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:Subject:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ArUutO4cxlbK/2Aj6Vo7ZOOuKKXaRZbErPrORs5sdYg=; b=kNLeaXVHIg9Jih
-	78V78GAPHbKMPF36sIfpWrrIwStkY+wKxiE4fA13kjq67aoI04K9kmAkcpL98Tu6YAFlt9BB9Y7qA
-	HZmzGFeW5OInSVB58eH01ckTKZJ3dzYVL/18kdVI2n/SWiSjPXUuAlQaIo18Ohkh1Xtrp1q7ylqmN
-	8iEY0PdUvLGuUZRq57yCII4zReQWOwDW6xn3yzC0oa8jcvFtLOVyn8AfJAmMkIbb+155BKjEKcQ+2
-	oNhSyuqCIyyGP+YGLafoQBsqvZ6en44k68+gil94PVV41XV6+foytkrHU8bgljfBWmM3CDX3wLFZ5
-	TLJFhntQFJ5nPslkARHw==;
+	List-Owner; bh=ROBXF5sX76EdKGG9jswnAt8pwoHA8qCrV1tN/8WGs5M=; b=NrT8FF7sd0rxTm
+	vfGWhnB3M+wXu8M/VqE3KBXhZGyjd3cKvI8yJSngV81rcIHpHFi3e1sZVIg2w8tAYwM6Gf7Rw1bSt
+	NelipNGX5bLNtobuWp1cCWl639wxR9SfsnmuupKGrr0bt8yyC2K7C1TSiZAxEkf2uvVTZ21EPjPgs
+	0kj0YGTZ+/5UG5uouDgsdDmUlGDfMjhG9K3Sa9cLIj5m90Zu3EmBbQPCshtf4nn7lihVCTGB1DaTv
+	EefanG1ma6koFbEqBOh7yGHuEgjT3U9lbLf3e7X/rsgpLpEcsekpdoFiutvjpCq6o/40tnA/UCn6w
+	rK16c+jaB5DrmHvgfoxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSMrj-0000000EIvl-12Fi;
-	Thu, 19 Jun 2025 21:32:11 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uSN6B-0000000EK2V-2PuL;
+	Thu, 19 Jun 2025 21:47:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKpu-0000000E56b-16o2;
-	Thu, 19 Jun 2025 19:22:11 +0000
+	id 1uSLNo-0000000EAFg-07tk
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Jun 2025 19:57:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 73C88A54752;
-	Thu, 19 Jun 2025 19:22:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E70CEC4CEEA;
-	Thu, 19 Jun 2025 19:22:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6C1E35C66FA;
+	Thu, 19 Jun 2025 19:54:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88289C4CEEE;
+	Thu, 19 Jun 2025 19:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750360929;
-	bh=3DyeUW/WI822CziP8LflvlPGRnidGfXtAs+o4+U8YL0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CkfubopaY6VurlxxTDeKt8EuEdcI0jI8Ltmpks0RGHy/xxpDowfcQFmgSd56Dojjl
-	 8GXxHra63v7nHHvUxy5f9ZrcMNoQzOhVQW42dqFNm775PqtCJx02qBK6gIVVFTNygI
-	 l9uYbgRMBSgv0j9EzGm/JjC2KNcgiaQEngRGSKXkudVKWSI8Mi3c94FQ2hmZZgK5Vw
-	 3rKGG8cLGgKOzR4GHC/Q1KDQ56GrawR15ExRtAkzK7JlISUNzUrdgWpXQ1sFulToOQ
-	 faEt5eEfuWqmFWmpwIynw0lVykla8gG7dwdRNImsH3tEbqP474rmedKVJoMjBMNlhK
-	 muEWsRTZZp9yA==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v2 6/9] lib/crypto: s390: move arch/s390/lib/crypto/ into lib/crypto/
-Date: Thu, 19 Jun 2025 12:19:05 -0700
-Message-ID: <20250619191908.134235-7-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250619191908.134235-1-ebiggers@kernel.org>
-References: <20250619191908.134235-1-ebiggers@kernel.org>
+	s=k20201202; t=1750363030;
+	bh=ibWzxSUcPdGpnUffjV9oSw3Mgv/hOA1CQ+xqnIiMa/A=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=g7jPXHykDJy4xCaKiVKrMn/tusr/gawzeCFHZsc615sMC0WdBFcbe0OEa/N2TwOU/
+	 8cCrH8oAjJGS25DqiggSTogcvqHVrqG3TX2l/vfNry2tD22ByRLNj/3wo7br5XAs27
+	 LbzPlS6RZBVgJ/aeKgQXXsKfz5ghIbHtulZDVyt/l4IVyTkWIXfwHi49CqD++c/KEm
+	 ILBSgtmDHnclzgrdvUrpKTudmpzrPXV24U7LJ6smnPjOzyKzH1/Dine16SudrOKCaf
+	 xFTD3rTebrWRDONzLhLiL2HHOSafqYpf6frftNckvxweqvVKY+Ee52uOZd32SnAOuF
+	 0X3uMOw0XlNdg==
 MIME-Version: 1.0
+In-Reply-To: <20250618-rust-next-pwm-working-fan-for-sending-v4-5-a6a28f2b6d8a@samsung.com>
+References: <20250618-rust-next-pwm-working-fan-for-sending-v4-0-a6a28f2b6d8a@samsung.com> <CGME20250618122808eucas1p1734efef72b723602969465d6cd0c01d2@eucas1p1.samsung.com> <20250618-rust-next-pwm-working-fan-for-sending-v4-5-a6a28f2b6d8a@samsung.com>
+Subject: Re: [PATCH v4 5/9] clk: thead: Mark essential bus clocks as CLK_IGNORE_UNUSED
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-clk@vger.kernel.org
+To: Albert Ou <aou@eecs.berkeley.edu>, Alex Gaynor <alex.gaynor@gmail.com>, Alexandre Ghiti <alex@ghiti.fr>, Alice Ryhl <aliceryhl@google.com>, Andreas Hindborg <a.hindborg@kernel.org>, Benno Lossin <lossin@kernel.org>, =?utf-8?q?Bj=C3=B6rn?= Roy Baron <bjorn3_gh@protonmail.com>, Boqun Feng <boqun.feng@gmail.com>, Conor Dooley <conor+dt@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Drew Fustini <drew@pdp7.com>, Fu Wei <wefu@redhat.com>, Gary Guo <gary@garyguo.net>, Guo Ren <guoren@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, Michael Turquette <mturquette@baylibre.com>, Michal Wilczynski <m.wilczynski@samsung.com>, Miguel Ojeda <ojeda@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>, Trevor Gross <tmgross@umich.edu>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Date: Thu, 19 Jun 2025 12:57:09 -0700
+Message-ID: <175036302986.4372.15656426260486761164@lazor>
+User-Agent: alot/0.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_122210_431520_BD9DADF8 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20250619_125712_144774_DAFA4953 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,114 +71,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+Quoting Michal Wilczynski (2025-06-18 05:27:38)
+> Probing peripherals in the AON and PERI domains, such as the PVT thermal
+> sensor and the PWM controller, can lead to boot hangs or unresponsive
+> devices on the LPi4A board. The root cause is that their parent bus
+> clocks ('CLK_CPU2AON_X2H' and the 'CLK_PERISYS_APB' clocks) are
+> automatically gated by the kernel's power-saving mechanisms when the bus
+> is perceived as idle.
+> 
+> Alternative solutions were investigated, including modeling the parent
+> bus in the Device Tree with 'simple-pm-bus' or refactoring the clock
+> driver's parentage. The 'simple-pm-bus' approach is not viable due to
+> the lack of defined bus address ranges in the hardware manual and its
+> creation of improper dependencies on the 'pm_runtime' API for consumer
+> drivers.
+> 
+> Therefore, applying the'`CLK_IGNORE_UNUSED' flag directly to the
+> essential bus clocks is the most direct and targeted fix. This prevents
+> the kernel from auto-gating these buses and ensures peripherals remain
+> accessible.
+> 
+> This change fixes the boot hang associated with the PVT sensor and
+> resolves the functional issues with the PWM controller.
+> 
+> Link: https://lore.kernel.org/all/9e8a12db-236d-474c-b110-b3be96edf057@samsung.com/ [1]
+> 
+> Reviewed-by: Drew Fustini <drew@pdp7.com>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
 
-Move the contents of arch/s390/lib/crypto/ into lib/crypto/s390/.
-
-The new code organization makes a lot more sense for how this code
-actually works and is developed.  In particular, it makes it possible to
-build each algorithm as a single module, with better inlining and dead
-code elimination.  For a more detailed explanation, see the patchset
-which did this for the CRC library code:
-https://lore.kernel.org/r/20250607200454.73587-1-ebiggers@kernel.org/.
-Also see the patchset which did this for SHA-512:
-https://lore.kernel.org/linux-crypto/20250616014019.415791-1-ebiggers@kernel.org/
-
-This is just a preparatory commit, which does the move to get the files
-into their new location but keeps them building the same way as before.
-Later commits will make the actual improvements to the way the
-arch-optimized code is integrated for each algorithm.
-
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
- arch/s390/lib/Makefile                                  | 1 -
- lib/crypto/Kconfig                                      | 2 +-
- lib/crypto/Makefile                                     | 1 +
- {arch/s390/lib/crypto => lib/crypto/s390}/Kconfig       | 0
- {arch/s390/lib/crypto => lib/crypto/s390}/Makefile      | 0
- {arch/s390/lib/crypto => lib/crypto/s390}/chacha-glue.c | 0
- {arch/s390/lib/crypto => lib/crypto/s390}/chacha-s390.S | 0
- {arch/s390/lib/crypto => lib/crypto/s390}/chacha-s390.h | 0
- {arch/s390/lib/crypto => lib/crypto/s390}/sha256.c      | 0
- 9 files changed, 2 insertions(+), 2 deletions(-)
- rename {arch/s390/lib/crypto => lib/crypto/s390}/Kconfig (100%)
- rename {arch/s390/lib/crypto => lib/crypto/s390}/Makefile (100%)
- rename {arch/s390/lib/crypto => lib/crypto/s390}/chacha-glue.c (100%)
- rename {arch/s390/lib/crypto => lib/crypto/s390}/chacha-s390.S (100%)
- rename {arch/s390/lib/crypto => lib/crypto/s390}/chacha-s390.h (100%)
- rename {arch/s390/lib/crypto => lib/crypto/s390}/sha256.c (100%)
-
-diff --git a/arch/s390/lib/Makefile b/arch/s390/lib/Makefile
-index cd35cdbfa8713..271a1c407121c 100644
---- a/arch/s390/lib/Makefile
-+++ b/arch/s390/lib/Makefile
-@@ -1,11 +1,10 @@
- # SPDX-License-Identifier: GPL-2.0
- #
- # Makefile for s390-specific library files..
- #
- 
--obj-y += crypto/
- lib-y += delay.o string.o uaccess.o find.o spinlock.o tishift.o
- lib-y += csum-partial.o
- obj-y += mem.o xor.o
- lib-$(CONFIG_KPROBES) += probes.o
- lib-$(CONFIG_UPROBES) += probes.o
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index a2b58ca2df0cc..278b7ef5ec4f9 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -203,11 +203,11 @@ source "lib/crypto/powerpc/Kconfig"
- endif
- if RISCV
- source "lib/crypto/riscv/Kconfig"
- endif
- if S390
--source "arch/s390/lib/crypto/Kconfig"
-+source "lib/crypto/s390/Kconfig"
- endif
- if SPARC
- source "arch/sparc/lib/crypto/Kconfig"
- endif
- if X86
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 0fe9200a031d6..4cda1f5cd21d4 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -106,5 +106,6 @@ libsm3-y					:= sm3.o
- obj-$(CONFIG_ARM) += arm/
- obj-$(CONFIG_ARM64) += arm64/
- obj-$(CONFIG_MIPS) += mips/
- obj-$(CONFIG_PPC) += powerpc/
- obj-$(CONFIG_RISCV) += riscv/
-+obj-$(CONFIG_S390) += s390/
-diff --git a/arch/s390/lib/crypto/Kconfig b/lib/crypto/s390/Kconfig
-similarity index 100%
-rename from arch/s390/lib/crypto/Kconfig
-rename to lib/crypto/s390/Kconfig
-diff --git a/arch/s390/lib/crypto/Makefile b/lib/crypto/s390/Makefile
-similarity index 100%
-rename from arch/s390/lib/crypto/Makefile
-rename to lib/crypto/s390/Makefile
-diff --git a/arch/s390/lib/crypto/chacha-glue.c b/lib/crypto/s390/chacha-glue.c
-similarity index 100%
-rename from arch/s390/lib/crypto/chacha-glue.c
-rename to lib/crypto/s390/chacha-glue.c
-diff --git a/arch/s390/lib/crypto/chacha-s390.S b/lib/crypto/s390/chacha-s390.S
-similarity index 100%
-rename from arch/s390/lib/crypto/chacha-s390.S
-rename to lib/crypto/s390/chacha-s390.S
-diff --git a/arch/s390/lib/crypto/chacha-s390.h b/lib/crypto/s390/chacha-s390.h
-similarity index 100%
-rename from arch/s390/lib/crypto/chacha-s390.h
-rename to lib/crypto/s390/chacha-s390.h
-diff --git a/arch/s390/lib/crypto/sha256.c b/lib/crypto/s390/sha256.c
-similarity index 100%
-rename from arch/s390/lib/crypto/sha256.c
-rename to lib/crypto/s390/sha256.c
--- 
-2.50.0
-
+Acked-by: Stephen Boyd <sboyd@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
