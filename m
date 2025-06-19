@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08EFFC71136
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 06:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC14DC71136
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Jun 2025 06:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TXn5pQZn2xX4LLYfgsQRgSa8/auS+k5fI+gSlq76YDI=; b=bYiwCV7J0HZTDd
-	hJIhvppa1cWIuFv2ok+ZBqEaZW1Fu7TVpGHuFToZ5MJ5Aqetxh3w1HlNzhW3V4749C23fmLJdHDzR
-	yhTLo62lmG3sVm8ChQGqp7gXjqadg9eMpp9svCoLlxA+VvwyMyIiRRlpd6Sk/7noAe0mtW3gYSn4/
-	GgErZaAnAZHleu4Kp6vGU8jIiqJCdxLBpO5RBwlM9zHIQeOBk48/jC3KU9KIIrbJ1mOtZXShypu36
-	CamHRNwCF4oq1AOcdWrBDn76o+1ImnVBOkpdYOnlWWUynEBdFK0pwPMBm3BN/aRj/yefb7W5Ng49V
-	PuXbvd7rw0wvxUrK9fHw==;
+	List-Owner; bh=AkjEaswHp0eGRso5LRFHGPKuVG/DJylzzAllkagV2xw=; b=y0YySCJq3DmuiN
+	NmNIU10AlKYI2XioC0MbTv6Zku8Y2n1rECL4fBlUwjBIFYuy/AEMC+xT88sdWgSsYYlPBaRbRn+Mi
+	egG2lXr1XMIxeW8FWbLI1SvHkDEreeKhcm3N8CNRBH571KSHAAHCuMs4v4XlHNM+gug3o60AQEsNi
+	DICxLi9SQLTUAVsGRMY3uXo/AzXCvkeidxNXM9RadwhF7iNSXjs2JQBMa64RFIbdi/IGCxHM0FcBf
+	K9eIemvTrbk5zElUEabie4+4TRYzcUytmcQtofBtFuIJEywemtqlT65vv0Ab1PTTopXKu5iw4TIK0
+	gFGNc2B2Kt6djQls4pWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8R5-0000000C7rE-1ILE;
-	Thu, 19 Jun 2025 06:07:43 +0000
+	id 1uS8p7-0000000CA1e-2R3o;
+	Thu, 19 Jun 2025 06:32:33 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS86e-0000000C5Tj-3JOW
+	id 1uS8Mn-0000000C7UE-1q8a
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Jun 2025 05:46:39 +0000
+	Thu, 19 Jun 2025 06:03:19 +0000
 Received: from [192.168.33.139] (unknown [210.73.43.2])
-	by APP-01 (Coremail) with SMTP id qwCowAAHt9UrpFNods+JBw--.6421S2;
-	Thu, 19 Jun 2025 13:46:20 +0800 (CST)
-Message-ID: <4036e3c2-8324-4eeb-9aa8-df1fbe9c7943@iscas.ac.cn>
-Date: Thu, 19 Jun 2025 13:46:19 +0800
+	by APP-01 (Coremail) with SMTP id qwCowAA359UdqFNolI6KBw--.6418S2;
+	Thu, 19 Jun 2025 14:03:10 +0800 (CST)
+Message-ID: <123a7558-fda9-4b56-b6ae-a29d704419ac@iscas.ac.cn>
+Date: Thu, 19 Jun 2025 14:03:09 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] mfd: spacemit: add support for SpacemiT PMICs
+Subject: Re: [PATCH 1/6] dt-bindings: mfd: add support the SpacmiT P1 PMIC
 To: Alex Elder <elder@riscstar.com>, lee@kernel.org, lgirdwood@gmail.com,
  broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, dlan@gentoo.org
@@ -43,32 +43,33 @@ Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 References: <20250613210150.1468845-1-elder@riscstar.com>
- <20250613210150.1468845-3-elder@riscstar.com>
+ <20250613210150.1468845-2-elder@riscstar.com>
 Content-Language: en-US
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20250613210150.1468845-3-elder@riscstar.com>
-X-CM-TRANSID: qwCowAAHt9UrpFNods+JBw--.6421S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WF48Aw17uw17Ar1rAry5urg_yoW8Wry3pF
-	Z8Zr93uF1UZFWF9w4DWrsruFyrGan7uFWjqFy3JwsIqFyq934jkr4DtFW7ZrWDJrWkGr42
-	gw4F9r9rWF4UJa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Sb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+In-Reply-To: <20250613210150.1468845-2-elder@riscstar.com>
+X-CM-TRANSID: qwCowAA359UdqFNolI6KBw--.6418S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7XryxCw47JF45ZF1fWFyfZwb_yoWDAFX_ur
+	93uayDtrsrJFn2kas0van7AryfGr42yr4xXay3JFy8J395Z3Z8u3ZrJry7ArWrXrWUZrn3
+	Jrn3Xr40q3WjgjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb-8YjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_JFC_Wr1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
 	8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
 	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
 	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVAFwVW8WwCF04k20xvY0x0EwIxGrwCFx2IqxV
+	MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVAFwVW8AwCF04k20xvY0x0EwIxGrwCFx2IqxV
 	CFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r10
 	6r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxV
 	WUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG
 	6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr
-	1UYxBIdaVFxhVjvjDU0xZFpf9x07jkNVkUUUUU=
+	1UYxBIdaVFxhVjvjDU0xZFpf9x07jm4E_UUUUU=
 X-Originating-IP: [210.73.43.2]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_224637_200191_7081E811 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250618_230317_852558_15ACAB88 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +86,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Alex,
+
+Before the patch body, there's a typo in the subject line: "SpacmiT" ->
+"SpacemiT".
+
 On 6/14/25 05:01, Alex Elder wrote:
-> <snip>
+> Enable the SpacemiT P1, which is an I2C-controlled PMIC.  Initially we
+> only the regulators will be supported.
 >
-> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-> index 6fb3768e3d71c..c59ae6cc2dd8d 100644
-> --- a/drivers/mfd/Kconfig
-> +++ b/drivers/mfd/Kconfig
-> @@ -1182,6 +1182,17 @@ config MFD_QCOM_RPM
->  	  Say M here if you want to include support for the Qualcomm RPM as a
->  	  module. This will build a module called "qcom_rpm".
->  
-> +config MFD_SPACEMIT_PMIC
-> +	tristate "SpacemiT PMIC"
-> +	depends on ARCH_SPACEMIT || COMPILE_TEST
-> +	depends on I2C && OF
-> +	select MFD_CORE
-> +	select REGMAP_I2C
-> +	default ARCH_SPACEMIT
-> +	help
-> +	  This option enables support for SpacemiT I2C based PMICs.  At
-> +	  this time only the P1 PMIC (used with the K1 SoC) is supported.
-> +
-
-Module name?
-
-+	  To compile this driver as a module, choose M here: the
-+	  module will be called spacemit-pmic.
-
->  config MFD_SPMI_PMIC
->  	tristate "Qualcomm SPMI PMICs"
->  	depends on ARCH_QCOM || COMPILE_TEST
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
+>  .../devicetree/bindings/mfd/spacemit,p1.yaml  | 86 +++++++++++++++++++
+>  1 file changed, 86 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/spacemit,p1.yaml
 >
 > <snip>
 >
-> +static struct i2c_driver spacemit_pmic_i2c_driver = {
-> +	.driver = {
-> +		.name = "spacemit-pmic",
-> +		.of_match_table = spacemit_pmic_match,
-> +	},
-> +	.probe    = spacemit_pmic_probe,
-> +};
 > +
-> +static int __init spacemit_pmic_init(void)
-> +{
-> +	return i2c_add_driver(&spacemit_pmic_i2c_driver);
-> +}
+> +examples:
+> +  - |
+> +    i2c {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
 > +
-> +static void __exit spacemit_pmic_exit(void)
-> +{
-> +	i2c_del_driver(&spacemit_pmic_i2c_driver);
-> +}
-> +
-> +module_init(spacemit_pmic_init);
-> +module_exit(spacemit_pmic_exit);
+> +        pmic@41 {
+> +            compatible = "spacemit,p1";
+> +            reg = <0x41>;
+> +            interrupts = <64>;
 > +
 
-module_i2c_driver
+(Not really a review, just a note.)
+
+I couldn't believe it at first, but it looks like the SpacemiT K1 really
+does have PLIC interrupt 64 dedicated to receiving PMIC interrupt [1]
+over pin "PMIC_INT_N".
 
 Regards,
 Vivian "dramforever" Wang
 
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("SpacemiT multi-function PMIC driver");
+[1]: https://developer.spacemit.com/documentation?token=AZsXwVrqaisaDGkUqMWcNuMVnPb
+
+> <snip>
 
 
 _______________________________________________
