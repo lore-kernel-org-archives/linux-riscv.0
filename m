@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3105BC7115C
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 15:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE412C7115C
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 16:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UYWgo3RmlVCbcm5Y0RJIGkOLE1N7YWheE21s/INHzbQ=; b=BP8uEoNvT/Pg27
-	W2ZQATjM9MVxDGNILStnMO9bO5bJrCI77QNVPWaycLmqt+vou4MKs76HomS7AX7XfCxp9UzZvAxFH
-	deQiolvVxaOyp2Ssst25doDqnAKodPwZkuUgFb+gq2F+eiXRgSqkJi1u6RhrZo5TCKncUOhQbu838
-	QR5UDwcGjuulyB17BKnFhkrdSJdNE+NyG01XvMi7HvjVElx+vTN1D54tTedu8Drh4XSwcyOQWcHEv
-	ZRmIpD5Meo2U9JC554VDfU/fzc3N3h3oyrktLsBsVXM3kzWdQT1P6g+8NtDuixOapuioAFpRVuRN1
-	PSF9oGixHm/GCEpJdJmQ==;
+	List-Owner; bh=WhrxltlmSADLuhQm/Yxy0IFMM1LDwTrxo9Zme/S1fS8=; b=WKvlJv3SXBvTQj
+	6hiQ1MVg3GPQT/uR+KOPQfp7N70ryU7HgXfrf7Y2MqmCgfPZtza0bUUGSj9C8CL/ce4+UbtcMeYeH
+	pUiZaip6UHpXkZULUWLkhiT3GfVjPpnXm2Pcanai1Fkx0Y/Jv9GkkiCa/NnnUnCobHvaEUKwhXg7k
+	LdsfV6fDe089IDBy7HzlxNthztoIik2oWTW6uzZpRvp4NtIQuv1LZLeVGOMP/hXs++7IuwO1PXPcX
+	tqGNCHLt6b2LyItasjISaV1TRkhZ0H86uagKay+T3BgI0mDgprr4Z1aJQmDupLsDJApixxzbC97jo
+	J0qPgjopOPm6ctQQUNdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSdFt-0000000FvR6-3ztB;
-	Fri, 20 Jun 2025 15:02:13 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uSeO1-0000000G6rq-2JqZ;
+	Fri, 20 Jun 2025 16:14:41 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSc8L-0000000Fm8p-3sr5
+	id 1uSdxo-0000000G2hG-3iy2
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jun 2025 13:50:23 +0000
-Date: Fri, 20 Jun 2025 15:50:19 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750427420;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cjzSfiMgzjbJPtz34LRfOtXpbo+tLxgxkNks+JkVZ88=;
-	b=bL6iBar9j84mRqpnw2Bb/piFTqoCtYiys7YQUV+/ydPaRa9/fY/7fEmjlVkAPc/XakoGbw
-	sW2MRFs8TMcPHCu413LXsftJlEZtMdQdroNYGVFOEJSOrr3ZDc8ojpD2YCFN76LtYjZEjR
-	4EfS+iShJfP33H6stThryXblX1IdUp/Cdda5ynWW0cQ3lFkgF6HOcfRqnaNjwTiLyYLTNb
-	y12aoeOdhC6kF0OmuZonAZ5aAwgiE+bgI17vTKmGjUsZZAq1qgGmDJOCwDrAFCY2LJz84f
-	DLgeQD5IG/+cHQhnUm7zAJZyhzMUuG89/h/ufq5rIJkNgbuxqgadJZhe9U1Kzw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750427420;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cjzSfiMgzjbJPtz34LRfOtXpbo+tLxgxkNks+JkVZ88=;
-	b=uI2lqy+e+cujbEB1wBGlRvE7HiY0YGnrv1yYnXFyP+bB8A2OhDYaslLPUpICycctN+U2CO
-	rpo8YxbPjbrhKrDw==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: David Gow <davidgow@google.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Willy Tarreau <w@1wt.eu>, Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
-	Brendan Higgins <brendan.higgins@linux.dev>, Rae Moar <rmoar@google.com>, Shuah Khan <shuah@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Nicolas Schier <nicolas.schier@linux.dev>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, linux-doc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, workflows@vger.kernel.org
-Subject: Re: [PATCH v3 16/16] kunit: uapi: Validate usability of /proc
-Message-ID: <20250620154408-bc103402-56f0-4ac1-a06f-63b2ed30ed29@linutronix.de>
-References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de>
- <20250611-kunit-kselftests-v3-16-55e3d148cbc6@linutronix.de>
- <CABVgOSkzpY8327ePSjuLcbz2jWZkavJvJfF7eehCsS0uzkB65g@mail.gmail.com>
+	Fri, 20 Jun 2025 15:47:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750434456; x=1781970456;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=HB6q6Zx5mOBujUOsBMfV/rOeFmq/1ii8asxoKAUsy0o=;
+  b=H6VCjRPSG9fa+i7tr4zIIAoxLQLOQXRwVKXpz7AqFpH/IdkiPGpiBIKK
+   8v0xmm0U/qpXFKJ6pT0iv8IoJsTodR6uEhd9gX90q+LSxMBErjrPDewXL
+   Varzmb3DCkSzo9oopS5K3+pRoi8ruB03uE8shjd4FldZCqQREpRTHTftC
+   5I4KG8JyXq8Z20LgbmkS0dwurrJ37MA7aU6oUpSThcJGg8IlZzPzMUkLQ
+   keXr50IcvDoVzItvBL0hwRKBDcggrk8ZOa92yjEAnhqPAX1YMpn1sw1Gh
+   UHw4ssX+DwTH8QI5APinZTIix594IdG6YCdqUYlYnnAfiU/anEbs1bMPo
+   A==;
+X-CSE-ConnectionGUID: Z/+MWjhbQgSqLaJkKQFiRQ==
+X-CSE-MsgGUID: lKZ2LFNYSleeeofnAYsMdg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11469"; a="51929929"
+X-IronPort-AV: E=Sophos;i="6.16,251,1744095600"; 
+   d="scan'208";a="51929929"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jun 2025 08:47:36 -0700
+X-CSE-ConnectionGUID: mizpIV4gQTyf+VLZoEzF+w==
+X-CSE-MsgGUID: kWYn61oQT7StHW/fudnPBQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,251,1744095600"; 
+   d="scan'208";a="155236555"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 20 Jun 2025 08:47:33 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uSdxj-000LuE-1D;
+	Fri, 20 Jun 2025 15:47:31 +0000
+Date: Fri, 20 Jun 2025 23:47:28 +0800
+From: kernel test robot <lkp@intel.com>
+To: cp0613@linux.alibaba.com, yury.norov@gmail.com,
+	linux@rasmusvillemoes.dk, arnd@arndb.de, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
+Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Chen Pei <cp0613@linux.alibaba.com>
+Subject: Re: [PATCH 1/2] bitops: generic rotate
+Message-ID: <202506202300.dZGgBtbQ-lkp@intel.com>
+References: <20250620111610.52750-2-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CABVgOSkzpY8327ePSjuLcbz2jWZkavJvJfF7eehCsS0uzkB65g@mail.gmail.com>
+In-Reply-To: <20250620111610.52750-2-cp0613@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_065022_104283_B05A936E 
-X-CRM114-Status: GOOD (  27.82  )
+X-CRM114-CacheID: sfid-20250620_084736_938639_A95D57C1 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,126 +87,142 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 05:48:07PM +0800, David Gow wrote:
-> On Wed, 11 Jun 2025 at 15:38, Thomas Wei=DFschuh
-> <thomas.weissschuh@linutronix.de> wrote:
-> >
-> > Show that the selftests are executed from a fairly "normal"
-> > userspace context.
-> >
-> > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> > ---
-> =
+Hi,
 
-> This is good. I'm not 100% sure the example test is the best place for
-> it, though.
-> =
+kernel test robot noticed the following build errors:
 
-> Would it make more sense to either have this:
-> - in the main kunit test (since it's really _verifying_ the KUnit
-> environment, rather than documenting it)
-> - in a separate kunit-uapi test (if we want to keep some separation
-> between the UAPI and entirely in-kernel tests)
-> - in a separate procfs test (since it tests procfs functionality as
-> much as it's testing the KUnit environment)
+[auto build test ERROR on arnd-asm-generic/master]
+[also build test ERROR on linus/master v6.16-rc2 next-20250620]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Originally this change was really meant as an example for users.
-But moving it into the main kunit test probably makes more sense.
+url:    https://github.com/intel-lab-lkp/linux/commits/cp0613-linux-alibaba-com/bitops-generic-rotate/20250620-192016
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arnd/asm-generic.git master
+patch link:    https://lore.kernel.org/r/20250620111610.52750-2-cp0613%40linux.alibaba.com
+patch subject: [PATCH 1/2] bitops: generic rotate
+reproduce: (https://download.01.org/0day-ci/archive/20250620/202506202300.dZGgBtbQ-lkp@intel.com/reproduce)
 
-> Personally, my gut feeling is the main kunit-test is the best place
-> for this, even if it means spinning up a separate file is best here.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506202300.dZGgBtbQ-lkp@intel.com/
 
-Ack.
+All errors (new ones prefixed by >>):
 
-> As for the actual implementation, though, that looks fine to me. A few
-> small comments below, but nothing particularly important.
-> =
+   make[1]: *** [Makefile:1281: prepare0] Error 2
+   In file included from weak.c:10:
+   In file included from tools/objtool/include/objtool/objtool.h:11:
+   In file included from tools/include/linux/hashtable.h:13:
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+      27 | #include <asm-generic/bitops/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from arch/x86/orc.c:5:
+   In file included from tools/objtool/include/objtool/check.h:11:
+   In file included from tools/objtool/include/objtool/arch.h:11:
+   In file included from tools/objtool/include/objtool/objtool.h:11:
+   In file included from tools/include/linux/hashtable.h:13:
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+      27 | #include <asm-generic/bitops/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from check.c:13:
+   In file included from tools/objtool/include/objtool/arch.h:11:
+   In file included from tools/objtool/include/objtool/objtool.h:11:
+   In file included from tools/include/linux/hashtable.h:13:
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+      27 | #include <asm-generic/bitops/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from orc_gen.c:12:
+   In file included from tools/objtool/include/objtool/check.h:11:
+   In file included from tools/objtool/include/objtool/arch.h:11:
+   In file included from tools/objtool/include/objtool/objtool.h:11:
+   In file included from tools/include/linux/hashtable.h:13:
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+      27 | #include <asm-generic/bitIn file included from orc_dump.c:8:
+   In file included from tools/objtool/include/objtool/objtool.h:11:
+   In file included from tools/include/linux/hashtable.h:13:
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+   o   27 | #include <asm-generic/bitops/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ps/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from arch/x86/special.c:4:
+--
+   In file included from tools/objtool/include/objtool/check.h:11:
+   In file included from tools/objtool/include/objtool/arch.h:11:
+   In file included from tools/objtool/include/objtool/objtool.h:11:
+   In file included from tools/include/linux/hashtable.h:13:
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+   :13   27 | #include <asm-generic/bitops/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   :
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+      27 | #include <asm-generic/bitops/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+   make[4]: *** [tools/build/Makefile.build:86: tools/objtool/weak.o] Error 1
+   In file included from elf.c:22:
+   In file included from tools/objtool/include/objtool/elf.h:12:
+   In file included from tools/include/linux/hashtable.h:13:
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+      27 | #include <asm-generic/bitops/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from builtin-check.c:15:
+   In file included from tools/objtool/include/objtool/objtool.h:11:
+   In file included from tools/include/linux/hashtable.h:13:
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+      27 | #include <asm-generic/bitops/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from objtool.c:16:
+   In file included from tools/objtool/include/objtool/objtool.h:11:
+   In file included from tools/include/linux/hashtable.h:13:
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+      27 | #include <asm-generic/bitops/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+   1 error generated.
+   make[5]: *** [tools/build/Makefile.build:86: tools/objtool/arch/x86/orc.o] Error 1
+--
+   In file included from tools/objtool/include/objtool/check.h:11:
+   In file included from tools/objtool/include/objtool/arch.h:11:
+   In file included from tools/objtool/include/objtool/objtool.h:11:
+   In file included from tools/include/linux/hashtable.h:13:
+   In file included from tools/include/linux/bitops.h:52:
+>> tools/include/asm-generic/bitops.h:27:10: fatal error: 'asm-generic/bitops/rotate.h' file not found
+      27 | #include <asm-generic/bitops/rotate.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+   make[4]: *** [tools/build/Makefile.build:86: tools/objtool/check.o] Error 1
+   1 error generated.
 
-> Reviewed-by: David Gow <davidgow@google.com>
-> =
 
-> Cheers,
-> -- David
-> =
+vim +27 tools/include/asm-generic/bitops.h
 
-> >  lib/kunit/kunit-example-uapi.c | 34 +++++++++++++++++++++++++++++++++-
-> >  1 file changed, 33 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/lib/kunit/kunit-example-uapi.c b/lib/kunit/kunit-example-u=
-api.c
-> > index 4ce657050dd4a576632a41ca0309c4cb5134ce14..5e7a0f3b68f182c42b03e66=
-7567e66f02d8c2b86 100644
-> > --- a/lib/kunit/kunit-example-uapi.c
-> > +++ b/lib/kunit/kunit-example-uapi.c
-> > @@ -8,13 +8,45 @@
-> >   * This is *userspace* code.
-> >   */
-> >
-> > +#include <fcntl.h>
-> > +#include <unistd.h>
-> > +#include <string.h>
-> > +
-> >  #include "../../tools/testing/selftests/kselftest.h"
-> >
-> > +static void test_procfs(void)
-> > +{
-> > +       char buf[256];
-> > +       ssize_t r;
-> > +       int fd;
-> > +
-> > +       fd =3D open("/proc/self/comm", O_RDONLY);
-> > +       if (fd =3D=3D -1) {
-> > +               ksft_test_result_fail("procfs: open() failed: %s\n", st=
-rerror(errno));
-> > +               return;
-> > +       }
-> > +
-> > +       r =3D read(fd, buf, sizeof(buf));
-> > +       close(fd);
-> > +
-> > +       if (r =3D=3D -1) {
-> > +               ksft_test_result_fail("procfs: read() failed: %s\n", st=
-rerror(errno));
-> > +               return;
-> > +       }
-> > +
-> =
+    25	
+    26	#include <asm-generic/bitops/hweight.h>
+  > 27	#include <asm-generic/bitops/rotate.h>
+    28	#include <asm-generic/bitops/atomic.h>
+    29	#include <asm-generic/bitops/non-atomic.h>
+    30	
 
-> Do we want to use TASK_COMM_LEN rather than hardcoding 16 below?
-
-> (And, if so, do we need something more complicated in case it's not 16?)
-
-TASK_COMM_LEN is not part of the UAPI headers.
-But I don't think it can ever change.
-
-> > +       if (r !=3D 16 || strncmp("kunit-example-u\n", buf, 16) !=3D 0) {
-> > +               ksft_test_result_fail("procfs: incorrect comm\n");
-> > +               return;
-> > +       }
-> > +
-> > +       ksft_test_result_pass("procfs\n");
-> > +}
-> > +
-> >  int main(void)
-> >  {
-> >         ksft_print_header();
-> >         ksft_set_plan(4);
-> > -       ksft_test_result_pass("userspace test 1\n");
-> > +       test_procfs();
-> >         ksft_test_result_pass("userspace test 2\n");
-> >         ksft_test_result_skip("userspace test 3: some reason\n");
-> >         ksft_test_result_pass("userspace test 4\n");
-> >
-> > --
-> > 2.49.0
-> >
-
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
