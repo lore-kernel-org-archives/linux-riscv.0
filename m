@@ -4,87 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E26EC7115C
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 12:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540AFC7115C
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 12:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jq3nU2Bzqr7pFKJbappSV/8ZXuoCUYkE/+YYJRFqpD4=; b=3yCEposEzmZfjW
-	MB1MUldijvKoK+QRUI0ulF+zPmesNIHGQ6CGSmWbnybvXQMEWvIG0kkj4yfEMeZfOkSEXKE4r7dPa
-	aSw8AhZ0NbIkteqEb88ej/iF2DwCgoq6PrYCInRYM+nompKnvPPuSvp54xPQR9N54ENLzDVKGiwWX
-	bDVWSo3ECTzlHH7n6R0skbg9mu4L+8sB/7SQuaJ5uTYvwNc3SboXKUp+aG8BjqCgneodaPUjQUlrl
-	xBx3lrbyZcB7fe2t4Ml012oaRA4yZDNuycId/XvnmgpSFuo6Efc+EloDqE5nuSD2ssWrFx2WuEEEn
-	72hVE4cPv1IIaNMo5r/g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xWDk687xGM5kUD0tUzv/2IrWSjJJsjqTTnhT9kPCTvU=; b=h5/aUFdHok2LVC
+	d1q9LIPvdPUAkxL+If9v4Sfm5TIH81BdtIMWTqwbwPNJ6fyE+iGG1b4hVM5CZRtPwE19yKAt61CjJ
+	mUPPRrmsDV17HXPTUxEu3+Jw/05tIjtiA4y5bS2BnXQfhS17ERfQjVaADfm7LNHQMLt/AlQtxYut8
+	ucsopU3QE0GzrI6or4zTa/8imGdU8OlLZyvoiCjY6xorpnhePTj5/z16fgsd5PvpvjGDJG7Gd9zrw
+	Sd0dX7LBrO1/nXMiICp0OZ0GgV3V8XPbS/uQBJdVVQxSbiQF9+LF1AWvz1uxdNYORdaWlS49TTRNj
+	8voFeeA3ddZEzIMBAfiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSbJS-0000000Fc2N-18ae;
-	Fri, 20 Jun 2025 12:57:46 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1uSbJa-0000000Fc9F-3KUc;
+	Fri, 20 Jun 2025 12:57:54 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSaTw-0000000FWtp-1hcY
+	id 1uSaXh-0000000FXbs-0BZ1
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jun 2025 12:04:33 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3a4ee391e6fso290633f8f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 05:04:32 -0700 (PDT)
+	Fri, 20 Jun 2025 12:08:26 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-235ea292956so17982265ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 05:08:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1750421071; x=1751025871; darn=lists.infradead.org;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+XeTD7cN51Pn2KJSTE1mvF0ehQNPT1Jdjz2pWXS0RPo=;
-        b=a20Vg2EpwDsTjXumuOOW2z1CYQiCqaJ+RkvE87V5OFbZ68swpjKzYSNnvP9iA/o2Ia
-         vHjepT19ki3+MpDzStfa8SJdDT6IZBjAm2Axdwh6JMKvcWmGShQ68zObmahSwcoi5iCl
-         AeYh5CVgExsEIlJSF8Z1co8FiYq+dXZx1YzcYs9crkW1pBEsbJeONaGEb1U90X8K70Bc
-         loBtgF5ftSVsKDHQKaKfwPMeWWbDwzx+pnWf9rKDJ2BrMrzIkFGo+PyodtkgUM0UN+IN
-         P5GtEhoEjMxWAfb2/Q8BWIdkb+rNZ9ibXVFGeLaFtlfxJih2OPMmuZKlsTDBFgNJ9MM5
-         MnOA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1750421303; x=1751026103; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=x1fjBUL2XYvHrykgkOfMnXaOkNrBJXoSMebmbae1qII=;
+        b=jcZ84I8HhsI06BB/sbO5Bpg4eBTfrpoQhdKlGs5OyQ5Fz81S5OFJe1397tTwaOWShW
+         H1OXvEJyorYFKk1QnKUbrNoAQA7MDlFZ8oxF0BZYy6K1qZV5SFITGhpQu6mkjthdxVVp
+         qvaLHF5Me4vOjnZR0oLFzRJ6B6lxCC7elTDyoG/o26xHfy2b2ELkhDRNGE1jaclh4Zkj
+         ZFq1cMHPTAywNZobDigpByHFTF27SvYXz7KWyWZ8NjZ/Cx/otfbVAbEBIz91SWFFRNF0
+         Ye/ECuskm42iusaOpDrGDyb6W9DNsyzY4kIT1NMHWBRr64nwpGcl+PRgp9nH218xSo59
+         lu2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750421071; x=1751025871;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+XeTD7cN51Pn2KJSTE1mvF0ehQNPT1Jdjz2pWXS0RPo=;
-        b=xQ9FXGVst7w21nhaRBNR1a/lcHPjpdn19qM9bmjiWJRVRN0PWP6DJmKzd46At9Vg2n
-         WmLzmtuQfCcpGu/bKp6LPKvtZe/WNkXxWCf17rGmUQmagF7+OBn30xM+YuTMwm1ITLlH
-         E+KWvRCE6NZtkpf7wtpx4aY5bFDczCNf1yLmprSxSr5uVB1Df2M2xnWLikxC1DWRAfnR
-         KPpiDMeA8Asv23JNfkLplicT89R5S4CvA7kn2Ro7EcxkZTfqaK2VJMKp7rW4ZlPYyorS
-         MI5WA323HX1Ndt84olfk5KXFtSICDZBRzVncpe0zdcWPJpF0KLx8VZ95vg6LmJ0KwPv4
-         NwEw==
-X-Forwarded-Encrypted: i=1; AJvYcCUgWyaP2liegilHWneCJlS4h0QISTHSdjNUeHhp8kVdLeL/3+n4m9xChv8FCpmXkTvSkotwenDmYv6k6Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTMYoezC/hQiSBzrtVaqxiTDGxgPK+y/CS/zrxBOPqGgIDavBx
-	vkeQ1NiHwZhlgHhOb12JY5zYF4Le4bWqFkHTHIhnBBN+d4QfjhzwAaRupmZUSlhdaGUPhjt+Eu9
-	VC9Ehuhc=
-X-Gm-Gg: ASbGnctqt9HUhXa32WMCbskHPaeUnGqNaQGMxwnrT7if0FTQGSlh5WFLPgm2eMEBzTQ
-	iYAiIhUWOrVPjLs27RL69TUkMsrOG3i+bnelz+NoOHx+PMcRrEYvdBP5IHmh+2SkX4rlvx7MHdX
-	KyqUosbZ24zAlXD53N4Z1PLD0txzo/7uSpMkbzF2MxOpRN6WsSdkr8CgeUbYg/yxjZjzeMoSdrH
-	ft63u+1XlErckAp8eI3aRjJJcm2funOf1SjjDIKPg7raq1eMMuKGCU4b/wTQG2Q80sLBabP8Z0F
-	Enx0qBeYT21bT8QlTNBGWCvvkLVtnB08ggqwJ4LhMKAa704Z86m8exKodKnoLhPkw3hy
-X-Google-Smtp-Source: AGHT+IE5Nwx55CYVDH94kaBUPm5U9VYUEHy18TPg0VqIF2/T7Ln2PcZvxS2VOj8pKTt4zB2/NGi+iQ==
-X-Received: by 2002:a05:600c:c087:b0:441:c1ae:3340 with SMTP id 5b1f17b1804b1-453657bf6camr6628245e9.1.1750421069056;
-        Fri, 20 Jun 2025 05:04:29 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200:81c5:fb37:d08e:99a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4535ead2a5fsm57299655e9.34.2025.06.20.05.04.28
+        d=1e100.net; s=20230601; t=1750421303; x=1751026103;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=x1fjBUL2XYvHrykgkOfMnXaOkNrBJXoSMebmbae1qII=;
+        b=HYU6zzBo1hDKM1/rE+JwoZlSB6ydyPqRR70+mcAr8hHNaFVYLDd3xn0sIT+9pVhXiE
+         HU2dWBOLzcsqqMZwxphZjyj4fV53PoZIHaBUwrsucjJgFSuBBER6lK0uWZ2/sDkKaFWz
+         apUV3F+eiHA4MQI9gP+MNYqLVzdfHs8lLPs8Ioo/Lg+9wFkPfdrkademAAJCz269VMrP
+         VOYvttXODiuyc03vKEUOFPfMXnLiR7B0qWo2/P+H4oMEc6v+51IO67PE6ErogvygY2yp
+         jD3I5245jNTMHeFn/3pjEBKenERzGoVByM0TOdaTYp/k6OxDBvJ4kHkzmWLH0kOuA8ng
+         /xOg==
+X-Forwarded-Encrypted: i=1; AJvYcCUUO8MynMDJyQQ+QrO1tvXB/uvF5Xg+ORMYa8IUpi4P11A46IQ0s3aZ+nBxB8RYpqCWUwgUNY5mx4vS1Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6o3b9+iulKg8gAFNU0MEYyZknl9GfcnU7isthGBIp7e23luve
+	GRGfpRvnv0GdKPrT8zU1MJ+sW1Ugw3MZ9zTMz9LTvuKy2X1Z8/yHi8Uc3mA/lzxpBl2phgTTyrC
+	Ag9gn
+X-Gm-Gg: ASbGncu8JfJ5EM7qN8bgkAaHPcgDU/lAxeC2nCHU6B7hWjSuUR+9CSvvH1AnC3Oafqb
+	7A/SMOh77AQb6qGulFW9xhIAhwel34tgxeGbtOJUs2cukb2gN8XUwno71lKKOa93lckUQ6oy28f
+	rJL4dgSBYpxD6ety4Qf/EPaYhc+vSw05EemSC8Injqfg9ZpzJn3ShZKVDKxIIPHJD3hmx87GFB/
+	aj1ntvzvmJUoUNAOX5FYeAf1z/XY6NkblEpLhQGGQOTQKEfhCRMRz0urQQyuBpL1VCtS5HGh/zD
+	XWTQuWMeZqUaRHrvSBUZdfHbBzJgCla7EZ7nvgtb/db3NcKA03uIy+uhrXbmxAzVFZJXljjyf0q
+	bWvTSPkHO8ysAIvo4KheTeZCAY6fIcO4P0g==
+X-Google-Smtp-Source: AGHT+IGycHzAhUJJAN9cpgp+5Y+FIXbfgDE2lvPamJQsbOi0tfEHUE8qePJHDEgGxwDJWS+qCgrtVg==
+X-Received: by 2002:a17:903:1988:b0:234:f182:a734 with SMTP id d9443c01a7336-237d9954d7dmr41126535ad.31.1750421303295;
+        Fri, 20 Jun 2025 05:08:23 -0700 (PDT)
+Received: from alexghiti.eu.rivosinc.com (alexghiti.eu.rivosinc.com. [141.95.202.232])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d8664731sm17063945ad.155.2025.06.20.05.08.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Jun 2025 05:04:28 -0700 (PDT)
-Mime-Version: 1.0
-Date: Fri, 20 Jun 2025 14:04:28 +0200
-Message-Id: <DARCHDIZG7IP.2VTEVNMVX8R1E@ventanamicro.com>
-Subject: Re: [PATCH] RISC-V: KVM: Delegate illegal instruction fault
-Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-To: "Xu Lu" <luxu.kernel@bytedance.com>, <anup@brainfault.org>,
- <atish.patra@linux.dev>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
- <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
-From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
-References: <20250620091720.85633-1-luxu.kernel@bytedance.com>
-In-Reply-To: <20250620091720.85633-1-luxu.kernel@bytedance.com>
+        Fri, 20 Jun 2025 05:08:22 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Fri, 20 Jun 2025 12:08:11 +0000
+Subject: [PATCH] riscv: Fix sparse warning in vendor_extensions/sifive.c
+MIME-Version: 1.0
+Message-Id: <20250620-dev-alex-fix_sparse_sifive_v1-v1-1-efa3a6f93846@rivosinc.com>
+X-B4-Tracking: v=1; b=H4sIACtPVWgC/x3MWwqDMBBG4a2Eee5ALlrFrZQSQv2tA6IhA0EQ9
+ 97Qxw8O5yJFEShN5qKCKirH3uAehj5r2r9gmZvJW9/bp7c8o3LacPIiZ9SciiKqLFIRq+MOLlg
+ M8GMI1B65oHX//+t93z9FVBIabwAAAA==
+X-Change-ID: 20250620-dev-alex-fix_sparse_sifive_v1-4e130e7e2833
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Cyan Yang <cyan.yang@sifive.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>, 
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1614;
+ i=alexghiti@rivosinc.com; h=from:subject:message-id;
+ bh=NBzdre9NgtizA5cyu5ssuTUFGpGinr6k0RX+SHNCvt4=;
+ b=owGbwMvMwCGWYr9pz6TW912Mp9WSGDJC/Y3nfbjQHPYnKbowX3HWUfd5d8wWzG3IWWmu+8ZOd
+ r2dbSNXRykLgxgHg6yYIouCeUJXi/3Z+tl/Lr2HmcPKBDKEgYtTACbybQojw9PtcupSx3e9LN9Q
+ 42T8XUS+w+zuzcLfkpOu2JYoVwQpVDAybC8oE3rvUXh55+IT6mp+VX4tU0+wTcoSsvlhISTj8fE
+ RAwA=
+X-Developer-Key: i=alexghiti@rivosinc.com; a=openpgp;
+ fpr=DC049C97114ED82152FE79A783E4BA75438E93E3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_050432_448726_D58BC6C9 
-X-CRM114-Status: UNSURE (   5.94  )
+X-CRM114-CacheID: sfid-20250620_050825_094454_97C41A9D 
+X-CRM114-Status: UNSURE (   9.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,23 +115,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-2025-06-20T17:17:20+08:00, Xu Lu <luxu.kernel@bytedance.com>:
-> Delegate illegal instruction fault to VS mode in default to avoid such
-> exceptions being trapped to HS and redirected back to VS.
->
-> Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
-> ---
-> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> @@ -48,6 +48,7 @@
-> +					 BIT(EXC_INST_ILLEGAL)    | \
+sparse reports the following warning:
 
-You should also remove the dead code in kvm_riscv_vcpu_exit.
+arch/riscv/kernel/vendor_extensions/sifive.c:11:33: sparse: sparse: symbol 'riscv_isa_vendor_ext_sifive' was not declared. Should it be static?
 
-And why not delegate the others as well?
-(EXC_LOAD_MISALIGNED, EXC_STORE_MISALIGNED, EXC_LOAD_ACCESS,
- EXC_STORE_ACCESS, and EXC_INST_ACCESS.)
+So as this struct is only used in this file, make it static.
 
-Thanks.
+Fixes: 2d147d77ae6e ("riscv: Add SiFive xsfvqmaccdod and xsfvqmaccqoq vendor extensions")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202505072100.TZlEp8h1-lkp@intel.com/
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/kernel/vendor_extensions/sifive.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/vendor_extensions/sifive.c b/arch/riscv/kernel/vendor_extensions/sifive.c
+index 1411337dc1e61aba0b844902f356625048c85abc..8fcf67e8c07facd1bfdbc0e18dd9b43102f22145 100644
+--- a/arch/riscv/kernel/vendor_extensions/sifive.c
++++ b/arch/riscv/kernel/vendor_extensions/sifive.c
+@@ -8,7 +8,7 @@
+ #include <linux/types.h>
+ 
+ /* All SiFive vendor extensions supported in Linux */
+-const struct riscv_isa_ext_data riscv_isa_vendor_ext_sifive[] = {
++static const struct riscv_isa_ext_data riscv_isa_vendor_ext_sifive[] = {
+ 	__RISCV_ISA_EXT_DATA(xsfvfnrclipxfqf, RISCV_ISA_VENDOR_EXT_XSFVFNRCLIPXFQF),
+ 	__RISCV_ISA_EXT_DATA(xsfvfwmaccqqq, RISCV_ISA_VENDOR_EXT_XSFVFWMACCQQQ),
+ 	__RISCV_ISA_EXT_DATA(xsfvqmaccdod, RISCV_ISA_VENDOR_EXT_XSFVQMACCDOD),
+
+---
+base-commit: e10a0dc2d21fd742c8d6ba042a98c05815011f9d
+change-id: 20250620-dev-alex-fix_sparse_sifive_v1-4e130e7e2833
+
+Best regards,
+-- 
+Alexandre Ghiti <alexghiti@rivosinc.com>
+
 
 _______________________________________________
 linux-riscv mailing list
