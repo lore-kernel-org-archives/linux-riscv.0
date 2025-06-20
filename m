@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC953C77B7F
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 10:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C2CC7EE24
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 10:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:
 	To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D7xdI11JqkZCnGua+uNIX7O+Zhia/N6ts18kne0+J6w=; b=BZekU8wY92NCKEO6s0zerjroz0
-	UUYxOVKKb+fWF0YZ6hlOa0AFCeOlN5qEjZT+x+8PRwXIpQQSgM5irhf2pv3pU6ccHVM09EIypGe1T
-	/HeSjSBuSivvD9yPDj3FDuFKUB/HqsPrZjhWDZsXZio+YCspaeEtS4UrzrlPtx3D5Ru0Tw+7h3vm9
-	VKf2MkmWllmJDbtcGk3pXwl2vOHU05wGdT07eLqtKeNlwlhRxveODMp/atHX82BKKHnHWWI8HMME2
-	QMjYkoHhlyOLq+lFV/jQWrXOBvQccpRsOpab0UNW+ySfFx++gernrp3QfKUu6SRXQcbQL58jQFgKS
-	TjICzsew==;
+	bh=mgQeKxBilrNRZH8148r8FhYMWB2T6zyWg0xGSxlDwQE=; b=pO5PvcSH8BhPTBa4CXjQ7/XHoL
+	Iq4tjWHgk4x47DeuC/xN7GsiNMlGxYWBSUnF94D1yxZNRHJKz/1FOI7q988YqDroDVHo6JBvN29RT
+	aLspvxH3UiELv9OCG4ls/3iMC3VmH4h17mhEfBqmym7oTAip66ZLMorxjnJk57bczIVcCyeycuDTl
+	35DiP+BPE1s6VWPBqpvoKwYteqteDrWJFAGqVSznXVJrcESpw9g93B/AysAjSH0N+yzNODx4aptwh
+	dlxc2R4MRBell4pQdusDlbVkRPDk+BxX6kfS6hd/653NHgFDWmVEeyRccZXj4//2JB5usYWlUTCZo
+	7oW0dPQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZ72-0000000FLpI-4A8c;
-	Fri, 20 Jun 2025 10:36:48 +0000
-Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
+	id 1uSZ71-0000000FLnv-2NZB;
+	Fri, 20 Jun 2025 10:36:47 +0000
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYCE-0000000FD56-2A5a
+	id 1uSYC2-0000000FD0A-2lcX
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jun 2025 09:38:07 +0000
-Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7d0a0bcd3f3so180647985a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:38:06 -0700 (PDT)
+	Fri, 20 Jun 2025 09:37:55 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-6fd0a3cd326so7489376d6.1
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:37:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750412285; x=1751017085; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1750412273; x=1751017073; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ol4mpPJ33pOAETuqltXJIrQPlqOn6SXQHHFTQz1hytk=;
-        b=DxvHJ+50F80TJ1aL9mXD7f7auat64eBGnM94i0GiuTcAzWR8ZqhcbSZnOsitPi1qjt
-         cdLhKLkgMn23oDwnFz8Bpni73SxqoJFTeOIXRpCDxoXnLynl+Z7wUS9LWLSlobMZN0SZ
-         ewRuJnZrT/9t57aS4cWG9r8LI3TbKu840S/aH5/W9H+n1tyB97TiX8Z1BOkzbV694Gqr
-         vZM4MlE8S5hssqXHXYfI7p8nSZB3BrCfMHX0DWOpRPOQFL3qracSDMU5jC3othuTh+jt
-         6RITppQDS5/HRdgShhHA8sOfjX3DNhc9es9SVsy2HKRlYOQH15PuYGkH7zYtusILMgcU
-         zy6A==
+        bh=eFC59r/Fs+gR1N32bLsfeQkxAZPxI/WwusIPLFRtOpk=;
+        b=QIzZogI3eTEU4g9TaIs0v8MfybnjqHgvOOn1uPEoeOCKLJxSAVGE30mQTumq4p+0y1
+         UmEB78+MbrWEfvYDa1J/HrpcoVVZ0QrqGB3C9LFLplx+wSWb+/79w9h/a+cnQEgbFSNk
+         M3eIcvvWQrk0LnVxdRc5u1m3vhhSU4CLjc4wFA6Ik90DocAM2WwMKRaxPYbtU+VB0PcE
+         +lh68C6sGVDY8rNMBH8c53RR5GYSD9V/gJLpzeswFuGwZ3Jl0kcy7+Q+MsJWaCvS6Yql
+         BJZE0fbT8xCPrEuvHl9vuY2PaJHEiCq1n2U1U+6Sbg8yeC+CSBiNAO1I/wZwjo71iEfl
+         WlgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750412285; x=1751017085;
+        d=1e100.net; s=20230601; t=1750412273; x=1751017073;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ol4mpPJ33pOAETuqltXJIrQPlqOn6SXQHHFTQz1hytk=;
-        b=l3qpnAbxqfuaHgQtG951TOc8BNlROD09lnY6yAu9/+jvgHmSMS2Du4NymtvvxPQ7H8
-         IqfVUWCLYBdYs/t0q/V21/YwgvVuYQbzrd05Xqh1ZK2+qVRInpdLPMKqJg2yGJmMBHN5
-         ZEJ2NrADTX52khQIE9jzcos9hawfZqTaoqIvFGypYZzSJsMIes8KbO3CPDz++PBTjzSf
-         syBOJERNT4tP7o1v+Ojh5ruCMju9YFhC7YeV4owoeQMw9BfZF7sSbk+gQhDx6IqMls5r
-         univLp/jnlMP1IW0xbtjzqMGS1UTmyCN2PFTC+4n5AFIIkQxMJKOcXfWBRrWjmsdzBv7
-         LrPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU9W5lL7CeHMCRU0l/fhmUw2BUGWjIYscBg9VE24wcSXRwlyq0J4VUOAY2VVJiAGsFYEMSDzbDIyCzkOg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWrHKku8oYvvoaAsZWCeaj+R6gTvmCW6TS9HeGImJwfrMXRrKP
-	A0T72enmrv6w44b3fVY5ykKWlcA/O8h34QA5pW7pMh8pAA3ZqMrmVBkP8DbNHE7SkaODRnk51kU
-	EjzX18P5MdBn7jZvGEmmCGGeEr+6wuOLlZ1VEfqDx
-X-Gm-Gg: ASbGncuFq6r3RXlVOg2XHLYX1c8yEI0nqDhDdnrSK4Y2Ez5oVGwheEfre1zOjhKzdSz
-	yjFGwXH7MOUOeg0CVomZVbtmoipMehMNHZzkDWE5YbGZudHzrtil/t1faQoNGG7xzN90zwTT6nt
-	Ik6M1roGG7OWiLh+xQtsVW/k5afkNfOh+Z1L9kD067oyuVEfqFxjVRJOmLae3aJ7F0biEldN7wd
-	qsaeQ==
-X-Google-Smtp-Source: AGHT+IFIgJtPNCQts/K87Az+Gfj8Ls09sh+yFk1QVyftwxKFWHObPIiGAJ0OO5N6B6kB4hYGw/4/McNKewbriKC2ZJ4=
-X-Received: by 2002:a05:620a:1904:b0:7cb:de0d:ba59 with SMTP id
- af79cd13be357-7d3fc02d722mr188483285a.17.1750412285076; Fri, 20 Jun 2025
- 02:38:05 -0700 (PDT)
+        bh=eFC59r/Fs+gR1N32bLsfeQkxAZPxI/WwusIPLFRtOpk=;
+        b=JvBVq3tAL/A3NYd7WXS1cWwYJE89eanI1+4dJicWeag06/ya3noIdZ7scxf5dfjEJI
+         3fIjyQeMlXk6KIR8fVh5GthaD6vqcUUqN2h9UuECOUZkNXDDrm1Kiu+HfJCjsqTUVIyT
+         i3BBrbg3VHqNqFBnUqjYiec2lHraofSzWKmd/JxBjORsGnuStgv0RnOu14lTOlpYQmLw
+         83xaG8un1VrYuyxg9rQkmdOA/hgDAis5IhUL8WSAAE7tdpDbahzAGYvKKAwHqwZMdqSG
+         4GAODjdFNb9hm1RLBJLKNzQquySGnF6Dq9bxG38kQH0kSPTSjmoUjhSdSmY4aCvFZHFT
+         e9lA==
+X-Forwarded-Encrypted: i=1; AJvYcCU0aoTuLZqLoL12x81SXU5Bzd9JxkftdomHXOjHOnryYDBnhIvijqoamO7S+n2gEqvjy4/XVcgl9kBO7Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxsd042VANcQpXJ9ZbY6uAijLYGKMq5rfay2ydenW3r9iI5TW2K
+	REVieOgS5N2hEYhcgzgeqfCeiEHsy0qAS+HX+RjSFXwAN4UIUfcWEnQ0UmuLbe/QUa8ytyORmr+
+	iHt7q2cTYzD3Iw2plV7cYXsvk3FhgP7Cxr00hrv1J
+X-Gm-Gg: ASbGncvyB33wib1KUPTJawSQJ/7LbUTVG5L9ZlYx3YCAlUFqkgaov9KimK7/mgoo+pd
+	99smYzguFYOxfWVGHk63gq2adz3TwIy1PfZ6CGI2qAxSxyXyCaMfYWPVQuu9TLLmLLKX4oqNpf3
+	sYLFZUZSOgbdQ16Q7+FOJCMncGnSau2KjmuAEsqZ/q/VZuF+lLPBLlLZF6/WQ6BIo/mLOmwpGR9
+	zayZQ==
+X-Google-Smtp-Source: AGHT+IGZxIM7GPvbTY2arqggUTYoxEzuDTKoZd1O0OeIn+P1sXE7k2iSVc4RNw1PQjsj+kGF4CBMgdAc2GFdvv4jfkM=
+X-Received: by 2002:ad4:5b87:0:b0:6fa:c67f:5e66 with SMTP id
+ 6a1803df08f44-6fd0a5ce768mr36464426d6.39.1750412273339; Fri, 20 Jun 2025
+ 02:37:53 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de> <20250611-kunit-kselftests-v3-10-55e3d148cbc6@linutronix.de>
-In-Reply-To: <20250611-kunit-kselftests-v3-10-55e3d148cbc6@linutronix.de>
+References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de> <20250611-kunit-kselftests-v3-8-55e3d148cbc6@linutronix.de>
+In-Reply-To: <20250611-kunit-kselftests-v3-8-55e3d148cbc6@linutronix.de>
 From: David Gow <davidgow@google.com>
-Date: Fri, 20 Jun 2025 17:37:51 +0800
-X-Gm-Features: Ac12FXxDSYdzF8nvRo_Y9mOy6b2ne2WSx9Dq24D16a0Q3u4ZDa0s1yox8-Zeodc
-Message-ID: <CABVgOSmRtKnTfCy5SPUiGJpVf_Y_HuAdgihjJ_ZkjeqgZVRnEg@mail.gmail.com>
-Subject: Re: [PATCH v3 10/16] kunit: tool: Parse skipped tests from kselftest.h
+Date: Fri, 20 Jun 2025 17:37:39 +0800
+X-Gm-Features: Ac12FXysTtBwTRgfCeStH5aPi1JCg-30YJ-6ps7Ea_pLEOgRICtacFRUZcAUy6A
+Message-ID: <CABVgOSmTXj_t0_nJyjhc=mvpPkGGW5D4qGd0WajmVgVyMgd_Hg@mail.gmail.com>
+Subject: Re: [PATCH v3 08/16] kunit: tool: Add test for nested test result reporting
 To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
 	Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>, 
@@ -86,8 +86,8 @@ Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org
 	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	workflows@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_023806_572792_CD58DC14 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250620_023754_701141_E07D422B 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,114 +99,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4322676149284186666=="
+Content-Type: multipart/mixed; boundary="===============2725734047438973545=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4322676149284186666==
+--===============2725734047438973545==
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="0000000000008168810637fd9e49"
+	boundary="000000000000cca6e50637fd9d6a"
 
---0000000000008168810637fd9e49
+--000000000000cca6e50637fd9d6a
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 On Wed, 11 Jun 2025 at 15:38, Thomas Wei=C3=9Fschuh
 <thomas.weissschuh@linutronix.de> wrote:
 >
-> Skipped tests reported by kselftest.h use a different format than KTAP,
-> there is no explicit test name. Normally the test name is part of the
-> free-form string after the SKIP keyword:
->
->         ok 3 # SKIP test: some reason
->
-> Extend the parser to handle those correctly. Use the free-form string as
-> test name instead.
+> Currently there is no test validating the result reporting from nested
+> tests. Add one, it will also be used to validate upcoming changes to the
+> nested test parsing.
 >
 > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
 > ---
 
-Nice: this is a great improvement.
+This looks good, modulo a couple of minor suggestions below.
 
+Regardless,
 Reviewed-by: David Gow <davidgow@google.com>
 
 Cheers,
 -- David
 
+>  tools/testing/kunit/kunit_tool_test.py                           | 9 +++=
+++++++
+>  .../kunit/test_data/test_is_test_passed-failure-nested.log       | 7 +++=
+++++
+>  2 files changed, 16 insertions(+)
+>
+> diff --git a/tools/testing/kunit/kunit_tool_test.py b/tools/testing/kunit=
+/kunit_tool_test.py
+> index bbba921e0eacb18663abfcabb2bccf330d8666f5..691cde9b030f7729128490c1b=
+db42ccee1967ad6 100755
+> --- a/tools/testing/kunit/kunit_tool_test.py
+> +++ b/tools/testing/kunit/kunit_tool_test.py
+> @@ -165,6 +165,15 @@ class KUnitParserTest(unittest.TestCase):
+>                 self.assertEqual(kunit_parser.TestStatus.FAILURE, result.=
+status)
+>                 self.assertEqual(result.counts.errors, 0)
+>
+> +       def test_parse_failed_nested_tests_log(self):
+> +               nested_log =3D test_data_path('test_is_test_passed-failur=
+e-nested.log')
+> +               with open(nested_log) as file:
+> +                       result =3D kunit_parser.parse_run_tests(file.read=
+lines(), stdout)
+> +               self.assertEqual(kunit_parser.TestStatus.FAILURE, result.=
+status)
+> +               self.assertEqual(result.counts.failed, 2)
+> +               self.assertEqual(kunit_parser.TestStatus.FAILURE, result.=
+subtests[0].status)
 
->  tools/testing/kunit/kunit_parser.py                             | 8 ++++=
-+---
->  tools/testing/kunit/test_data/test_is_test_passed-kselftest.log | 3 ++-
->  2 files changed, 7 insertions(+), 4 deletions(-)
->
-> diff --git a/tools/testing/kunit/kunit_parser.py b/tools/testing/kunit/ku=
-nit_parser.py
-> index 2478beb28fc3db825855ad46200340e884da7df1..4599d23c79b79f0e219d655c7=
-053c8c3b34f8152 100644
-> --- a/tools/testing/kunit/kunit_parser.py
-> +++ b/tools/testing/kunit/kunit_parser.py
-> @@ -352,9 +352,9 @@ def parse_test_plan(lines: LineStream, test: Test) ->=
- bool:
->         lines.pop()
->         return True
->
-> -TEST_RESULT =3D re.compile(r'^\s*(ok|not ok) ([0-9]+) (- )?([^#]*)( # .*=
-)?$')
-> +TEST_RESULT =3D re.compile(r'^\s*(ok|not ok) ([0-9]+)? ?(- )?([^#]*)( # =
-.*)?$')
->
-> -TEST_RESULT_SKIP =3D re.compile(r'^\s*(ok|not ok) ([0-9]+) (- )?(.*) # S=
-KIP(.*)$')
-> +TEST_RESULT_SKIP =3D re.compile(r'^\s*(ok|not ok) ([0-9]+)? ?(- )?(.*) #=
- SKIP ?(.*)$')
->
->  def peek_test_name_match(lines: LineStream, test: Test) -> bool:
->         """
-> @@ -379,6 +379,8 @@ def peek_test_name_match(lines: LineStream, test: Tes=
-t) -> bool:
->         if not match:
->                 return False
->         name =3D match.group(4)
-> +       if not name:
-> +               return False
->         return name =3D=3D test.name
->
->  def parse_test_result(lines: LineStream, test: Test,
-> @@ -416,7 +418,7 @@ def parse_test_result(lines: LineStream, test: Test,
->
->         # Set name of test object
->         if skip_match:
-> -               test.name =3D skip_match.group(4)
-> +               test.name =3D skip_match.group(4) or skip_match.group(5)
->         else:
->                 test.name =3D match.group(4)
->
-> diff --git a/tools/testing/kunit/test_data/test_is_test_passed-kselftest.=
-log b/tools/testing/kunit/test_data/test_is_test_passed-kselftest.log
-> index 65d3f27feaf22a3f47ed831c4c24f6f11c625a92..30d9ef18bcec177067288d524=
-2771236f29b7d56 100644
-> --- a/tools/testing/kunit/test_data/test_is_test_passed-kselftest.log
-> +++ b/tools/testing/kunit/test_data/test_is_test_passed-kselftest.log
-> @@ -1,5 +1,5 @@
->  TAP version 13
-> -1..2
-> +1..3
->  # selftests: membarrier: membarrier_test_single_thread
->  # TAP version 13
->  # 1..2
-> @@ -12,3 +12,4 @@ ok 1 selftests: membarrier: membarrier_test_single_thre=
-ad
->  # ok 1 sys_membarrier available
->  # ok 2 sys membarrier invalid command test: command =3D -1, flags =3D 0,=
- errno =3D 22. Failed as expected
->  ok 2 selftests: membarrier: membarrier_test_multi_thread
-> +ok 3 # SKIP selftests: membarrier: membarrier_test_multi_thread
+Is it worth also testing the value of the nested test's result here? i.e.,
+self.assertEqual(kunit_parser.TestStatus.FAILURE,
+result.subtests[0].subtests[0].status)
+
+
+> +               self.assertEqual(kunit_parser.TestStatus.FAILURE, result.=
+subtests[1].status)
+> +
+>         def test_no_header(self):
+>                 empty_log =3D test_data_path('test_is_test_passed-no_test=
+s_run_no_header.log')
+>                 with open(empty_log) as file:
+> diff --git a/tools/testing/kunit/test_data/test_is_test_passed-failure-ne=
+sted.log b/tools/testing/kunit/test_data/test_is_test_passed-failure-nested=
+.log
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..835816e0a07715a514f5f5afa=
+b1b6250037feaf4
+> --- /dev/null
+> +++ b/tools/testing/kunit/test_data/test_is_test_passed-failure-nested.lo=
+g
+> @@ -0,0 +1,7 @@
+> +KTAP version 1
+> +1..2
+> +not ok 1 subtest 1
+> +    KTAP version 1
+> +    1..1
+> +        not ok 1 test 1
+> +not ok 2 subtest 2
+
+Having these named 'subtest 1' and 'test 1' is a bit confusing to me
+(as it implies the outer tests are subtests of the inner ones, which
+isn't right).
+
+Could we either swap 'subtest' and 'test' here, or -- if we want to
+preserve the match between 'subtest' here and the subtest in the
+python code -- label the inner one something like 'subsubtest'?
+
+
 >
 > --
 > 2.49.0
 >
 
---0000000000008168810637fd9e49
+--000000000000cca6e50637fd9d6a
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -296,19 +292,19 @@ Vumvw5QTHe29TYxSiusovM6OD5y0I+4zaIaYDx/AtF0mMOFXb1MDyynf1CDxhtkgnrBUseHSOU2e
 MYs7IqzRap5xsgpJS+t7cp/P8fdlCNvsXss9zZa279tKwaxR0U2IzGxRGsWKGxDysn1HT6pqMDGC
 Al0wggJZAgEBMGgwVDELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExKjAo
 BgNVBAMTIUdsb2JhbFNpZ24gQXRsYXMgUjYgU01JTUUgQ0EgMjAyMwIQAUXA7LnOuRz2DvkWTeMc
-0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgx5hZS2f7vGv71nGipu63Ua0b3BgO
-THDz28XVxigNWs8wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
-NjIwMDkzODA1WjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
+0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQggNQMI9VgOK4DKFNnhpsiBJAMkbPU
+q1GhLRXSzR78870wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
+NjIwMDkzNzUzWjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
 YIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzALBglghkgBZQMEAgEwDQYJKoZIhvcN
-AQEBBQAEggEAAzfx4qIaMjwZzUXiVeus6srlL8JBWNHeXjoDyXiaNTbkmKxgEZI1GT//SuPGpG2T
-kWsEuM8XzJY4x34xXnCaj6gzPINI1NOKYoS3AlDjD3IqXTu+ytjVmjXzqpX9+/V407DzlPLsGgx5
-9JfAH22bhVszPegOLEIgzlrGDHQXKRmvRy8OCIwjlVTFLV/FIdS6ktK4hspZ2mid5dieoCb/nd9H
-Le3q5Xyh6XSJ3AAapiXmsqMmlskIbNNQcc+3/Wl28Ux3fwae1HQkrIeR8nSu0ymXTSJ3klCvnI3b
-ORsKEJfutZXACE4xSVNUjBN0eJAlNkxUK4qAC8IY9e1CUt7NgQ==
---0000000000008168810637fd9e49--
+AQEBBQAEggEAhMrQJsuW3pv8TUPGx0imPUzkuz7UiR4jnY3PWkYHVaNhxRpSoq9vH3py7+v4DeHA
+czfwGOYYhUm4O/M3Cn+TK0QOhhd8EO1+u/FwsUJwcSkAHy4n2sc4GK7uNqlQuwnVmTMTJ7aTu6a6
+DMIBv+etslpLrkdR7rNLm1N1ibK3YdobJYglAy6vr5O8krTN7dt2s5T9Imo9BQfUqrFDfQOIrgKX
+V+qlC6dlp7z+oRbe2pDS7x7H7QCBBgo0c/A7gWcAnZd2LiZVl3wyjra0y3U4IGSL4OGMc6ud2W5G
+2CBwkpN/E2mlDP4CYbKb/psa8m9bblxnp6PUwDuFR9DiVTbF4Q==
+--000000000000cca6e50637fd9d6a--
 
 
---===============4322676149284186666==
+--===============2725734047438973545==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -319,5 +315,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4322676149284186666==--
+--===============2725734047438973545==--
 
