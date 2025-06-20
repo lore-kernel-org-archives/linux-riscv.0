@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F35C7115C
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 21:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA80C7115B
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 21:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gFQXmNa7nyOcUb8/zLHJ/nNt3yip2ON7y82zfa94tQs=; b=oKKaHUP3WG6nQ7
-	Epj3zK9CYAspx26povqjKvxYtHDHc+l52dJoLGPds3GJAQE56Mu5x/Cg+7HykpRyaUfvPo3V/dFJV
-	z8meF1UEp+oiW7oPdG4DRJGTxEI2+J4k0X+MGKjmP8cf7LYNmQWev1OGSn3xNqNFJiEPJEZFIeWir
-	4T+3vba2P4qIqRa8GcflH2oJLAfXRZRqeKpdtgUXAVx13DVL5r6ctOinDqpQDh57wbDerP+w6fJFB
-	AImvTHeQ94/Rn5cYGmFaae7mCmM2OX4riTJc0cU9bevapOvvmHn1jE91A17Jb5Zxp7mCJwCsEJp+v
-	UBYMJLPRoomSOiHSfvsg==;
+	List-Owner; bh=vzrpOh7z68R5rIKEFBzpKJYa0zNJckgzWB/Q3XubDCo=; b=Iui3ZiIUsf0NZ4
+	Ao3oui8nViYTsM3E9rSRbs6WXIwG8z7myHs3NWyfbZUOLh+kA5zEzokh9pFTb3BuQxQFl7C2K0OsD
+	Q/tFCh9UpBVmsPyHC13/beKPEvSU7kP4J+BC5kltwyQVqp2179l7aa9r29IHeVSjsgyVYBKP/ooOI
+	3FyQfu+DuQ/nz+EaBq3Fu4FmRiQQUa4Gb/SaThJVUGebGgfvz7aeEoeoOSS0docjXgnxPT03POpED
+	SHe7aeHG7egoNjm4B0E4ysCxGRdNYM5Lw09sf6OfIopipvUrN9hqITPtcPTIFHpry+x+h87zqQUEv
+	IJr6aUUrQ0uzmsSmFeAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSjcE-0000000GeY0-3GP0;
-	Fri, 20 Jun 2025 21:49:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uSjj0-0000000Gf7J-2Nbh;
+	Fri, 20 Jun 2025 21:56:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSjIG-0000000GcMN-2Ifv;
-	Fri, 20 Jun 2025 21:29:04 +0000
+	id 1uSjSU-0000000Gd7G-3gNi;
+	Fri, 20 Jun 2025 21:39:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9998C6155F;
-	Fri, 20 Jun 2025 21:29:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03F16C4CEE3;
-	Fri, 20 Jun 2025 21:29:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 02C79615EC;
+	Fri, 20 Jun 2025 21:39:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF15FC4CEF6;
+	Fri, 20 Jun 2025 21:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750454943;
-	bh=ps9ILEhzF10vdX7dPy5yWB5StkYw8T+IpOw27+HOqYg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FC6E1Xcsnro+YOpDn8hTu0nsIFn++h4KBl0QuHYkEldKj/k+d4y6w6M6qTq1srOEb
-	 nphAh45+luPlOza9k/LIGiTbnucAbyiaYQKu35fCeF/4UeE6qHizoUNUQ651lcrwy2
-	 9B8AsOSU/IbiYESK+VnWwIDmkYyfPuZfhcxVI5jvUSzpyHXAwU3LfPV8cdlkFSPdBF
-	 xMjNdQkGjmPO1/cWgdHC1ud81t7SJsdgZ+qBWAEQ83ndAMnkuPMMUOkbXi61DBaRZC
-	 OYic/USnxpBjVMFFaIQ2ObMgL4xYVKNxAVGs0qognj4+skHnKSZZYyuLE926HJgkeW
-	 3AzWwoBcF1kOA==
-Date: Fri, 20 Jun 2025 14:29:01 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, "Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v2 0/9] lib/crypto: move arch/$(ARCH)/lib/crypto/ to
- lib/crypto/$(ARCH)/
-Message-ID: <20250620212901.GC5460@quark>
-References: <20250619191908.134235-1-ebiggers@kernel.org>
+	s=k20201202; t=1750455577;
+	bh=HvoFMsnVPaebNolXyEd0amy4ilKaPCQCYOjaJT3HRfw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=jJfZU4Vlyv60JLf4iYDzXyYj/nNjhRcuRyHNx/9hf1bvjOsD/F3//RsHPhpBnMvu1
+	 sHOuMaZNHrm1NP/OmRnsAsoiIfuN6NQdHRux1JYZKklSHFNo3QRkWEmGXQhA9bQ1Pt
+	 7Je39+LmoAGcqvDoPPqBsDnIYV9O0mez0OCndPDKcLPSYZm4s9atUB+OzHNXTpIsWk
+	 BFDevwltARm0TQJUc0KDj4xt99mrgD5pveawyhxsuMTTJtSOfhBaUXVRX8RtDN+haj
+	 5jImxo/vKcxFVFTcWmRi9pN5JK/XeV0v4p2sCz/ECpyw8qTB0/Oo9ixY3eo5cEIrfp
+	 Ycg1/VMY7bIYw==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-553b16a0e38so2431877e87.1;
+        Fri, 20 Jun 2025 14:39:37 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW4ZnAP3bZw+peYN8pZVquAlcBHUGGM9BzJsR3SUaYPo9hnudsQkB5w11Lb6VSsqzRtjN4HE0VFrUzdzEEA9j2J@lists.infradead.org, AJvYcCXnsVpc76bJ2hcRnmUh+ElYoL9h7bXdjE0bSkEJalqyDWUln+ckzgnrvMOx0TKa9nIoNW0Kf6JVihpM6Xg=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJvNUOSHpzHj4AV6PupjIxHjBwl527Vgcmf0l4bZlEGyR4849d
+	DIbF/zwtkNzRXr5kVILtWpCDYaQQnLzzcru1wNeaxD4y1zDCBgnZ23WmDybXW3KVFiySxiV1Rra
+	Q16bOvf0+1vE4XBUTTxrt4BGbbmH5YRA=
+X-Google-Smtp-Source: AGHT+IFlzPdW/TAjB41pWNx+EWn0IQNKfWjtbAPkCDzwR/Cmxb5FPmWfpoRjKRGa+GebEYrhPkOrWG7ilfOzIslgaJA=
+X-Received: by 2002:a05:6512:15a2:b0:553:510d:f464 with SMTP id
+ 2adb3069b0e04-553e3be0118mr1238378e87.25.1750455576146; Fri, 20 Jun 2025
+ 14:39:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
+References: <20250619191908.134235-1-ebiggers@kernel.org>
 In-Reply-To: <20250619191908.134235-1-ebiggers@kernel.org>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 20 Jun 2025 23:39:24 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXHMjG77Q9WxwqACekQNnEU0DdQPsamt5v5PjtmgguWDuw@mail.gmail.com>
+X-Gm-Features: AX0GCFsPzv-r5KhW4GCiBgsxcKQ8jDKA8HBlXZ_WU75HnhkUOj_Q-bl9RCm5Y74
+Message-ID: <CAMj1kXHMjG77Q9WxwqACekQNnEU0DdQPsamt5v5PjtmgguWDuw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/9] lib/crypto: move arch/$(ARCH)/lib/crypto/ to lib/crypto/$(ARCH)/
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	"Jason A . Donenfeld" <Jason@zx2c4.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	sparclinux@vger.kernel.org, x86@kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,19 +82,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 19, 2025 at 12:18:59PM -0700, Eric Biggers wrote:
+On Thu, 19 Jun 2025 at 21:22, Eric Biggers <ebiggers@kernel.org> wrote:
+>
 > This series applies on top of
 > https://lore.kernel.org/r/20250616014019.415791-1-ebiggers@kernel.org/
 > and is also available in git at:
-> 
+>
 >     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git arch-to-lib-crypto-v2
+>
+> This series moves the contents of arch/$(ARCH)/lib/crypto/ into
+> lib/crypto/$(ARCH)/.
+>
+> The new code organization makes a lot more sense for how this code
+> actually works and is developed.  In particular, it makes it possible to
+> build each algorithm as a single module, with better inlining and dead
+> code elimination.  For a more detailed explanation, see the patchset
+> which did this for the CRC library code:
+> https://lore.kernel.org/r/20250607200454.73587-1-ebiggers@kernel.org/.
+> Also see the patchset which did this for SHA-512:
+> https://lore.kernel.org/linux-crypto/20250616014019.415791-1-ebiggers@kernel.org/
+>
+> This is just a preparatory series, which does the move to get the files
+> into their new location but keeps them building the same way as before.
+> Later patch series will make the actual improvements to the way the
+> arch-optimized code is integrated for each algorithm.
+>
+> Changed in v2:
+>    - Instead of keeping arch/*/lib/crypto/.gitignore, instead add entry
+>      for now-removed crypto directory to arch/*/lib/.gitignore.
+>    - Adjusted commit messages and titles.
+>    - Added Reviewed-by.
+>
+> Eric Biggers (9):
+>   lib/crypto: arm: move arch/arm/lib/crypto/ into lib/crypto/
+>   lib/crypto: arm64: move arch/arm64/lib/crypto/ into lib/crypto/
+>   lib/crypto: mips: move arch/mips/lib/crypto/ into lib/crypto/
+>   lib/crypto: powerpc: move arch/powerpc/lib/crypto/ into lib/crypto/
+>   lib/crypto: riscv: move arch/riscv/lib/crypto/ into lib/crypto/
+>   lib/crypto: s390: move arch/s390/lib/crypto/ into lib/crypto/
+>   lib/crypto: sparc: move arch/sparc/lib/crypto/ into lib/crypto/
+>   lib/crypto: x86: move arch/x86/lib/crypto/ into lib/crypto/
+>   MAINTAINERS: drop arch/*/lib/crypto/ pattern
+>
 
-Applied to
-https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
+For the series,
 
-But as always, additional reviews and acks would be appreciated.
-
-- Eric
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
