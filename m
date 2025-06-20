@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0E4C7115D
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 10:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C50EC7EE2A
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 10:36:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:
 	To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TfnRsm/QshlVn2sO5hAqIjt1J0tr9FJt7vv5LeaGtJs=; b=Pr+9WXS2anEdRaJZI8plswaWsz
-	vdFf0ucDI9bLAL7wkzv+BcWHGZzawpE3s6QUHasRRN4vEzzkfS28JtgsTMfsOq+A4dhbsh5ImRNZk
-	/6MpV/74xEGuyqC3yVlpA8X91k5WDliqJ6r7yTTCJmqxRYk3xTVkdOHs7GSm5J5+MngNrpZi5AfNk
-	vIwhEqG6Bz4YHf5g0bYUjT6mQOP6lhMbhBnJNHDYH2X7v1rzHx7hS8tfzGaPj6DURKlmd4SoODBp1
-	BpfqV04HNqljptyi0w/M4onHbT1tS9RFX0kn6gSmx05OI0oSqb+2VIGyR5kEC8uTjOwTntujhcXeh
-	NU4Q78NA==;
+	bh=5VEAxOELcduYt1gWvlm1r8r67N7CwRfVezzOha5Z9cQ=; b=WPxmhmsh9A7h+ff5ld7qPXmdgE
+	cH9dt7n00lHuzX7iuSxTb+bml+EWhC2EssCyMW3KachwwdTu/vwGsBZ99GUmyDGrOueCkkU2DyAOI
+	j/iwjWw34L5+9SCHBwZUso+Ksm0rMJ6o1PilOpfyc3wYZf7Xc/ZdDalUbKnWpRnrs4y17L1Jbv1aW
+	MBsmlM7MotsrqDyx50I/ShPlsu2NrAbnJtzyTThnEsZ2POFv3jIa4HXwmmnZRbjfsw09eAUs26rbd
+	VZK3ocaw7lmanLrk3WN0iGamiIdNujpNrqgsl3BIy467w6vCN3N0arE7yRBDUZUBHxJDZQiSZQtgC
+	zngTHZZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZ72-0000000FLoh-1FEX;
-	Fri, 20 Jun 2025 10:36:48 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1uSZ73-0000000FLpj-2nKq;
+	Fri, 20 Jun 2025 10:36:49 +0000
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYC6-0000000FD18-2t4j
+	id 1uSYCK-0000000FD7U-0GOs
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jun 2025 09:37:59 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7c56a3def84so170561485a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:37:58 -0700 (PDT)
+	Fri, 20 Jun 2025 09:38:13 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-6faf66905baso23453136d6.2
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:38:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750412277; x=1751017077; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1750412291; x=1751017091; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=JDOMbmylSl5ARudhiSEkvGTMGtNKHDAx7U1DKjWNbrE=;
-        b=qhs+MSC7csKc8dz/De595pgVEpJSYPrsTLHiMS/u5zkKK70J45yCY2u+P0NaKO7Vz7
-         HJq/M8WwkCMYFG8FX52h6bSa4eUmFv0zrpmEOO+et+VLwIbSxPM+6ya1/5SEta73oE3S
-         vx9vL2zenGH5lwtM4hyuRIJDjQ2thHpyfEbZooCBOkQ96YHKu1SMNMvsCB9jMR5n2Ygj
-         HtATHmsGjSRBU+NBsY/5rXHn7sJma5uslbzHB7/xnh+S+rE0BmNMIdenEpA8Knm5Ghe/
-         JmwbLF2tvTpkLunxt6017sK/NnvrXOGjBzvVTKIlVJfugNQxldUGCNb9ghc4Zuciyn52
-         tSvw==
+        bh=XvDrV6NHEt7Yyhm/LauHJ+jNRO3aNVuKK4ogmbFZoeg=;
+        b=OmcAa+v+tEGoWDtZoz8IH6OzqSyEph17OxCBqnP7WmJ9CbtSIkK8chEj4WyCwHgf3Z
+         7NnE6tfbhWRePZX18fvGHvg546xr709F/zBFUHkkdW1Ors/o17+BnjhsdoPas4cTPaWi
+         nKcG8RRTcLpugdpOs3B15AaS7WnLqTu2EgCCeAY2Xij7FTjbKkpyzqKN1dCEw/QCOhU9
+         1tv4InGW2ju8bn2zYKmtSigZAMuQsFES0jAFMuMPdFicr8jarQYdORlbd5pnNtMLbol6
+         +w9OnoztLvfatp//HMlRgAJT4/wG/scfg6h22lPpbN2sdnw+sAgkYtRQCYEGH6VEf0QY
+         l3sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750412277; x=1751017077;
+        d=1e100.net; s=20230601; t=1750412291; x=1751017091;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JDOMbmylSl5ARudhiSEkvGTMGtNKHDAx7U1DKjWNbrE=;
-        b=f0ZvEppasCNz3VRg5O64i9CuBAR2wCwfRZHUU+MV7c3MMgcjwSaLLjGhUfYR7lYJGy
-         LQUVSrxftLvv3PM88wP+qL54wsNlaOFiMkD1wKV+AwysIPCLRi2ERtxCSvlu/jFTK3Jj
-         YXlFWVt0Py3JullQqKk6j0vKcIa3rXU1tiibw3nSp5x9Dh+IN0Ti4HF3IcWRl2PXRLH0
-         BeBdu7mSfE8r7am7UHuFl0sRNzCkGEVy00+VWDF/PnHT69nXdaKB9PTiGVdCsiKmRTTf
-         eyXiyzzgx5XaIobJp1J2qAz290WDz90SUHlGR9Om8dTWKXDJ0/QzcM+MTLzLVdEjtNEx
-         9tqg==
-X-Forwarded-Encrypted: i=1; AJvYcCWEdJl8gOfyNxtSb8pHIRRsfCIVDjcusrI08nSLD2tyFr2a2nMjBtIsQc9ZEdLrkZpZ3AkVxDDu+guRXg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLcpfZFhrgf7cVoZfHXXid5IR1Ofgv/CeFQ1bRoc6pG9R8LjCN
-	EVy8TH4IeEeriiRxpk/BeRa5qtwB8zpup/6utPiofWBfKIjRzawZXQpOxgiM9e1JxqTSzStQIyO
-	trV3N9GLRJT85BvWrEae68BQnAc4VS5tjMdPc3/+E
-X-Gm-Gg: ASbGncsVRRg5MjPbHfMHahzdDSH7R80ud26+pvp/yqUmSfSxW9RIHaOBM7k9br77t/o
-	ez+NznI9opdTMScLV/vFdifAi8LMQm84bNQzM7jSunV/YEkYmVaCj+zp6DG0PFeI8qvZSQ8QnAc
-	7EC8tuHCFthbskuUDlwKy5Iv1bzf97f6bSy0lEEy87XFf4vvHjJXKeApz//HgYUIpVchKggsIb/
-	osKyA==
-X-Google-Smtp-Source: AGHT+IH1TD7sFLVLxLNDZ8cOfYRjL/tT2kVxcg2PElAyBtkqeDrdZR4VhtKx2gcfBWmyNH4WFLtTAKj4ScRPvS1jgHY=
-X-Received: by 2002:a05:6214:124d:b0:6fa:c697:97a5 with SMTP id
- 6a1803df08f44-6fd0a46f07fmr36390116d6.15.1750412277186; Fri, 20 Jun 2025
- 02:37:57 -0700 (PDT)
+        bh=XvDrV6NHEt7Yyhm/LauHJ+jNRO3aNVuKK4ogmbFZoeg=;
+        b=TeVkAdFLoqwEjSC9saFuZ+xiXylW7WEB5wPjI75Hlt2gYDW2Wc3Jzh8kPdAfyiBIrU
+         Vh6PWhw6vJT8e6Tk1ewATeJQSu1A2GYWI1ecDp/96RE+mdlM+VNRjz+ALYvu012dDoGS
+         6LLjYfrE5CKSgtqRiWXJL6JarMIWcy53EaWhmQE6CbqPLZopvQvg0ZCSkRunQoBNNjbG
+         TQNfR3fjBghoQcAoEzvqxh6ZChteZjdLDJaClLynH73eHSDsn1t3zM0+n8iwUSxj4deG
+         DjMLtbH5UD0KXSDdZWbnAvyehRZj6UwLOit6+K8SvvR2ymUhSQaOS2d4EX86JHTXgMMl
+         VNrw==
+X-Forwarded-Encrypted: i=1; AJvYcCVGBuepmk+fLiK7fn1++eA3pfxapQ6HGJ8l03/jZw4B1Jb0i8HThoYFOD+JMAgum+RDtvRsLom+YABImQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNUmmYDP6B79jdhJcLMl61JXsgD6o6siZ9pm94roBbzucC5LLc
+	k8Yj837Ej3JkEwZN3IMxiBctZS7bcN5jOJmaODCVNZ7A9Z0pyxdYAuvMfN+ia+Som0rHxmOrQPM
+	jb0/8g9l9YUQHjHfhhfeFoBvfsoGMD1MbXCzou7rM
+X-Gm-Gg: ASbGnct+cC0nFpM5WijKunauwx4bp/bXlpdAABygbHdBRQ0vAV1IUIQ832Vl8k3XAE6
+	bzHrR/iUXklgurjkTTuOW9LI892Bf3hGWSD/LvaK7tyMljim8HZfQ5ONCrb7+TwDMQFJm7nkXhn
+	Cw0I3iklGjLnLGclw7AN/yvqQMy4xG6vOo+SMIkNQp9wee66I1utWFuh9rgG5/lfOXEmo6gRZD1
+	uJfPA==
+X-Google-Smtp-Source: AGHT+IHQRmOnbKSBIf89VSyNKtPGCMRQ0h0fC5YdqXOzj+9IApycf43fjMllrY7wV8xe0r/PlJS92AO/kHnetzmEzO8=
+X-Received: by 2002:a05:6214:4885:b0:6fa:9f9b:8df0 with SMTP id
+ 6a1803df08f44-6fd0a534772mr34873236d6.20.1750412291053; Fri, 20 Jun 2025
+ 02:38:11 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de> <20250611-kunit-kselftests-v3-9-55e3d148cbc6@linutronix.de>
-In-Reply-To: <20250611-kunit-kselftests-v3-9-55e3d148cbc6@linutronix.de>
+References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de> <20250611-kunit-kselftests-v3-12-55e3d148cbc6@linutronix.de>
+In-Reply-To: <20250611-kunit-kselftests-v3-12-55e3d148cbc6@linutronix.de>
 From: David Gow <davidgow@google.com>
-Date: Fri, 20 Jun 2025 17:37:44 +0800
-X-Gm-Features: Ac12FXwRaH3OfJhCzT5AZcyk8RCDXf0-Z1aDXf_aau98Tkhf8caX_HLkU_59kY8
-Message-ID: <CABVgOSkG3dY3THo5DQOvWj1xX8XFFnnk7CXvVE2opQJZg4nwXg@mail.gmail.com>
-Subject: Re: [PATCH v3 09/16] kunit: tool: Don't overwrite test status based
- on subtest counts
+Date: Fri, 20 Jun 2025 17:37:57 +0800
+X-Gm-Features: Ac12FXyFoljdSZ7ABL78oDq9rw_5mltpFUvMzADHo2O_rdx82VoZtEQLIK4MFWw
+Message-ID: <CABVgOSkgOgjiZf56RzmaP0Uc5Q4A3-1FEXCJMYM8wBDs4xv1_A@mail.gmail.com>
+Subject: Re: [PATCH v3 12/16] kunit: qemu_configs: loongarch: Enable LSX/LSAX
 To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
 	Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>, 
@@ -87,8 +86,8 @@ Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org
 	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	workflows@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_023758_729910_FF47F8FF 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20250620_023812_103386_D4612F02 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,131 +99,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2420307304511289845=="
+Content-Type: multipart/mixed; boundary="===============4351881560777290246=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2420307304511289845==
+--===============4351881560777290246==
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000069bc70637fd9e93"
+	boundary="000000000000d93c090637fd9e0a"
 
---000000000000069bc70637fd9e93
+--000000000000d93c090637fd9e0a
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 On Wed, 11 Jun 2025 at 15:38, Thomas Wei=C3=9Fschuh
 <thomas.weissschuh@linutronix.de> wrote:
 >
-> If a subtest itself reports success, but the outer testcase fails,
-> the whole testcase should be reported as a failure.
-> However the status is recalculated based on the test counts,
-> overwriting the outer test result.
-> Synthesize a failed test in this case to make sure the failure is not
-> swallowed.
+> The upcoming kunit UAPI framework will run userspace executables as part =
+of
+> kunit. These may use the LSX or LASX instructions.
+>
+> Make sure the kunit kernel can handle these instructions.
 >
 > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
 > ---
 
-Hmm... this is definitely a nasty edge-case. I don't completely like
-this solution, but none of the other options seem drastically better.
-
-I think the more obvious options are either to _always_ count tests
-alongside their subtests, or to _never_ do so, but acknowledge that
-"test failed, but failure count is 0" is a valid option. But neither
-of those are especially satisfying, either greatly inflating test
-counts, or creating obvious contradictions.
-
-So I'm tentatively in favour of this, but if anyone has a nicer way of
-doing it, I'm all ears.
-
-The implementation looks good. If we can add the explicit checks for
-the sub(sub)test results as mentioned in the previous patch, that'd be
-even better.
+Looks fine to me. I confess to not knowing much about the details of
+Loongarch CPUs, though, so while it hasn't broken anything here, I
+make no further guarantees.
 
 Reviewed-by: David Gow <davidgow@google.com>
 
->  tools/testing/kunit/kunit_parser.py                                  | 5=
- +++++
->  tools/testing/kunit/kunit_tool_test.py                               | 2=
- +-
->  tools/testing/kunit/test_data/test_is_test_passed-failure-nested.log | 3=
- +++
->  3 files changed, 9 insertions(+), 1 deletion(-)
+Cheers,
+-- David
+
+
+>  tools/testing/kunit/qemu_configs/loongarch.py | 2 ++
+>  1 file changed, 2 insertions(+)
 >
-> diff --git a/tools/testing/kunit/kunit_parser.py b/tools/testing/kunit/ku=
-nit_parser.py
-> index c176487356e6c94882046b19ea696d750905b8d5..2478beb28fc3db825855ad462=
-00340e884da7df1 100644
-> --- a/tools/testing/kunit/kunit_parser.py
-> +++ b/tools/testing/kunit/kunit_parser.py
-> @@ -686,6 +686,11 @@ def bubble_up_test_results(test: Test) -> None:
->                 counts.add_status(status)
->         elif test.counts.get_status() =3D=3D TestStatus.TEST_CRASHED:
->                 test.status =3D TestStatus.TEST_CRASHED
-> +       if not test.ok_status():
-> +               for t in subtests:
-> +                       if not t.ok_status():
-> +                               counts.add_status(t.status)
-> +                               break
->
->  def parse_test(lines: LineStream, expected_num: int, log: List[str], is_=
-subtest: bool, printer: Printer) -> Test:
->         """
-> diff --git a/tools/testing/kunit/kunit_tool_test.py b/tools/testing/kunit=
-/kunit_tool_test.py
-> index 691cde9b030f7729128490c1bdb42ccee1967ad6..c25f52650837e83325b06bddd=
-2aa665fd29f91d9 100755
-> --- a/tools/testing/kunit/kunit_tool_test.py
-> +++ b/tools/testing/kunit/kunit_tool_test.py
-> @@ -170,7 +170,7 @@ class KUnitParserTest(unittest.TestCase):
->                 with open(nested_log) as file:
->                         result =3D kunit_parser.parse_run_tests(file.read=
-lines(), stdout)
->                 self.assertEqual(kunit_parser.TestStatus.FAILURE, result.=
-status)
-> -               self.assertEqual(result.counts.failed, 2)
-> +               self.assertEqual(result.counts.failed, 3)
->                 self.assertEqual(kunit_parser.TestStatus.FAILURE, result.=
-subtests[0].status)
-
-Could we add:
-self.assertEqual(kunit_parser.TestStatus.SUCCESS,
-result.subtests[0].subtests[0].status)
-
->                 self.assertEqual(kunit_parser.TestStatus.FAILURE, result.=
-subtests[1].status)
-
-and
-
-self.assertEqual(kunit_parser.TestStatus.FAILURE,
-result.subtests[1].subtests[0].status)
-
-
->
-> diff --git a/tools/testing/kunit/test_data/test_is_test_passed-failure-ne=
-sted.log b/tools/testing/kunit/test_data/test_is_test_passed-failure-nested=
-.log
-> index 835816e0a07715a514f5f5afab1b6250037feaf4..cd9033c464792e6294905a567=
-6346684182874ad 100644
-> --- a/tools/testing/kunit/test_data/test_is_test_passed-failure-nested.lo=
-g
-> +++ b/tools/testing/kunit/test_data/test_is_test_passed-failure-nested.lo=
-g
-> @@ -1,5 +1,8 @@
->  KTAP version 1
->  1..2
-> +    KTAP version 1
-> +    1..1
-> +        ok 1 test 1
->  not ok 1 subtest 1
->      KTAP version 1
->      1..1
+> diff --git a/tools/testing/kunit/qemu_configs/loongarch.py b/tools/testin=
+g/kunit/qemu_configs/loongarch.py
+> index a92422967d1da9f1658ef1e80d0d7365ddbae307..1dba755284f11ffc94d894610=
+5b0cfa49cb6f604 100644
+> --- a/tools/testing/kunit/qemu_configs/loongarch.py
+> +++ b/tools/testing/kunit/qemu_configs/loongarch.py
+> @@ -11,6 +11,8 @@ CONFIG_PVPANIC_PCI=3Dy
+>  CONFIG_SERIAL_8250=3Dy
+>  CONFIG_SERIAL_8250_CONSOLE=3Dy
+>  CONFIG_SERIAL_OF_PLATFORM=3Dy
+> +CONFIG_CPU_HAS_LSX=3Dy
+> +CONFIG_CPU_HAS_LASX=3Dy
+>  ''',
+>                            qemu_arch=3D'loongarch64',
+>                            kernel_path=3D'arch/loongarch/boot/vmlinux.elf=
+',
 >
 > --
 > 2.49.0
 >
 
---000000000000069bc70637fd9e93
+--000000000000d93c090637fd9e0a
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -314,19 +247,19 @@ Vumvw5QTHe29TYxSiusovM6OD5y0I+4zaIaYDx/AtF0mMOFXb1MDyynf1CDxhtkgnrBUseHSOU2e
 MYs7IqzRap5xsgpJS+t7cp/P8fdlCNvsXss9zZa279tKwaxR0U2IzGxRGsWKGxDysn1HT6pqMDGC
 Al0wggJZAgEBMGgwVDELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExKjAo
 BgNVBAMTIUdsb2JhbFNpZ24gQXRsYXMgUjYgU01JTUUgQ0EgMjAyMwIQAUXA7LnOuRz2DvkWTeMc
-0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgD3zuI9iU4DB2wbGfklbpYijAIovy
-hOAXyvOCGLVDNOgwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
-NjIwMDkzNzU3WjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
+0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgdmRkn+roJnIRM7dOmFoKnCUuDTOA
+BI5IB+0ZaM0EHxswGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
+NjIwMDkzODExWjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
 YIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzALBglghkgBZQMEAgEwDQYJKoZIhvcN
-AQEBBQAEggEAk424lyjHkVMODpnptIS1uEWFky04fRHhprsSPrXGp9cLUVyFUa/mqVhutk/W8gEp
-oJ4DcPJOjyIemXr3xyPmfeBCqA1V0SC8MKAKtbRPxTLLDbJw2FKQ+LO5Q8ZnUjtps38cnVLlyzAU
-pCww4YB2eFodo9qAryoHfeB8RpVY0uWsPeKdvwnKky1iDMfse8ffuAiRpcAceh89WStzAxrgmR6c
-CJXFN+xEbzTbOzXz/eXkHJytuCN3IwveVis0rWv+Kg/9c7q1IJICTf68R89aeh1sS/wUMCrOenhH
-IZ5XJipV6nHg0K2D+ZPSxMwDpN9spvIRlocSwZiWkOlP13uO6Q==
---000000000000069bc70637fd9e93--
+AQEBBQAEggEAe2+hv7Z6q94sXBjDeyL5nFRNzuM7CGCciGs8J8Xe6Aid7xz9X+nog1oSN2J553o5
+dKPTqhGxSiaD4a+xQEwEg2jHMCPboHd4eGihQB0XjcQnp5rgpQZZ8qQXFVa2QjSPOyVvM4BVXucO
++1LUJCanqUZUhPrshXj+EKgAM6VKqxv2JXKg3ZgHAJY3OzxI4+f14PNkHkAS8SM5OQVgzBcKoNHc
+2XWRgTf0xF4Qkj3SqFrZj7CuluU3yOJaHJnkFY1CZoLy2hcub0MTfvz7Ylqgt7fygj3d6j9TOdgo
+B/bLq10X0vzGvuQI5McgNMY4YpEs0hXE4U8pBGB5f+THcAzD4g==
+--000000000000d93c090637fd9e0a--
 
 
---===============2420307304511289845==
+--===============4351881560777290246==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -337,5 +270,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2420307304511289845==--
+--===============4351881560777290246==--
 
