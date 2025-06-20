@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEACC77B7C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC953C77B7F
 	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 10:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,66 +12,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qIp/1+srrrw7OgmBgwkLG7tPnONWG86Kla4XYpMGm3M=; b=wXWOVXFCboSCPZ9O2Pzj0hNjDb
-	Xi+qTmV0LRxQ9PkssmJW2af8yEx0to1kQUsoQfqN6z5YJSS56lWk3Ihhglwl4tHciEq8dp7JXxuVF
-	tYlQXB8MVzn/ztzm+Ln+ZkY1XZ48gPbizT1/ii0UAsiMTtTy8R/m0WIRqokLcgUkjGYVl+tU2CA5f
-	SdthIgOpELofPXzGpXMzgV8zdXxmgh2B/kDP6LphKE7BWyObzoILOc+A7fvZVWQ+Gvr2tq1fdouUG
-	liqvqUzlZIlqhUA42t3R7Tkykiws7aaFF7W0baL/WqkK1zHb6lbtD/POu3q3rjWL7eg4BYSFzXyxM
-	2JAcipRQ==;
+	bh=D7xdI11JqkZCnGua+uNIX7O+Zhia/N6ts18kne0+J6w=; b=BZekU8wY92NCKEO6s0zerjroz0
+	UUYxOVKKb+fWF0YZ6hlOa0AFCeOlN5qEjZT+x+8PRwXIpQQSgM5irhf2pv3pU6ccHVM09EIypGe1T
+	/HeSjSBuSivvD9yPDj3FDuFKUB/HqsPrZjhWDZsXZio+YCspaeEtS4UrzrlPtx3D5Ru0Tw+7h3vm9
+	VKf2MkmWllmJDbtcGk3pXwl2vOHU05wGdT07eLqtKeNlwlhRxveODMp/atHX82BKKHnHWWI8HMME2
+	QMjYkoHhlyOLq+lFV/jQWrXOBvQccpRsOpab0UNW+ySfFx++gernrp3QfKUu6SRXQcbQL58jQFgKS
+	TjICzsew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZ70-0000000FLmi-3Vc7;
-	Fri, 20 Jun 2025 10:36:46 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1uSZ72-0000000FLpI-4A8c;
+	Fri, 20 Jun 2025 10:36:48 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYBo-0000000FCv0-4BvV
+	id 1uSYCE-0000000FD56-2A5a
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jun 2025 09:37:42 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-6face1d58dcso25818026d6.2
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:37:40 -0700 (PDT)
+	Fri, 20 Jun 2025 09:38:07 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7d0a0bcd3f3so180647985a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:38:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750412259; x=1751017059; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1750412285; x=1751017085; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=1Tc5cSEqqJbEV812TuXJRmo6JTY8nALoT71iOuxrS3c=;
-        b=CmwmchSgGagWlTQ3CyZMA/zMyjhvKY3R/p7d+gpNgYv3jXp9qi5pyzUZ6wO5V2ngMO
-         BdCtiRXPnIF1EfXtcrL6Q1bU02TBCbz2NSLASVLLdDntZI08sJBtBsWPbC3b7EC00BTI
-         DGtequVKIWQJSQ3zUtzE3ap0EOe6p96LBxoUhoZArxg/8ZK6JYFDbk9alwN/Vso7cJfq
-         ld3l3ZW2jCNlrY9TL32DBN1A5c1lcL58SP/z/OtsH7LSliYaJ5Wn+dJKuotOs40B8mxx
-         Kpy3D7JTZ3XKBZzfUtzAJNO4dsdUs8l+NbvQoX3Dx7j8sK3WBgIohDPZwDkQbxUVkYTU
-         vcQQ==
+        bh=ol4mpPJ33pOAETuqltXJIrQPlqOn6SXQHHFTQz1hytk=;
+        b=DxvHJ+50F80TJ1aL9mXD7f7auat64eBGnM94i0GiuTcAzWR8ZqhcbSZnOsitPi1qjt
+         cdLhKLkgMn23oDwnFz8Bpni73SxqoJFTeOIXRpCDxoXnLynl+Z7wUS9LWLSlobMZN0SZ
+         ewRuJnZrT/9t57aS4cWG9r8LI3TbKu840S/aH5/W9H+n1tyB97TiX8Z1BOkzbV694Gqr
+         vZM4MlE8S5hssqXHXYfI7p8nSZB3BrCfMHX0DWOpRPOQFL3qracSDMU5jC3othuTh+jt
+         6RITppQDS5/HRdgShhHA8sOfjX3DNhc9es9SVsy2HKRlYOQH15PuYGkH7zYtusILMgcU
+         zy6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750412259; x=1751017059;
+        d=1e100.net; s=20230601; t=1750412285; x=1751017085;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1Tc5cSEqqJbEV812TuXJRmo6JTY8nALoT71iOuxrS3c=;
-        b=JkV5gLUt7+JejQ1JoBdvBrRnro006W93ELjx3vgBiee9e0sE/sIpWKvR7JJI+cl0tT
-         yDCfGx2SVj2fZSm4caiN01k4UZ2+6bvJ983/MUxQZrIcERavJn9nEYDcThhbIptFAfwq
-         Axsm1vXk8FjXU8QlnlF5QaYZU+RLRJpyiTYuGXwhQt1Ubuv0GoG8hrhKzYOyVyN7jXEp
-         +WeELv523d4WDYSYnz4k451L9bTVWEZHdrjT9n1R+tETAQq0KYt0aK7BY9M2y4bH1zii
-         H8Eue5WMd049+BB0eFU6EVW0JRLQXs8ajsSZMH39SQJbj7nnoBVHEOQpZ9zObPWEYolm
-         zfzw==
-X-Forwarded-Encrypted: i=1; AJvYcCUgr9gipjiNQukvOQC1EENuPfz5B9wIqzo8XYCq9FGig7eetonj94XENXU2B4eDR0itJsnAjwPKffrLmA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFMrV02D/Q00fS763qO0XzuLwWTfzJU3/dnu/EVv4jiNuVwuYD
-	WddUIkSIEe+YJtP+s6YigImeDD0chd5e6j6HBsjtrQuRE5B4/A4hNMipmqfk894Gj3CwJ6ypktF
-	c68sgQyHU/nTdrYQ6LV1ddC/GgVMK9o5ztVUxMrZ0
-X-Gm-Gg: ASbGncu9WHimNT0Xzx9zA4X4ymg4v+v7F+n3K+fyPEq+EZ9W53dYbafeP9vOKU9oF/s
-	+vRU423VLhJkvKLv1gx+cO1WHFiiSW4HOzXh02N9kKa3qEPhgS0sAXIzWEM9+xrqH3+EjETS2F1
-	37LtQtwR0Fg7UbqUMum4HVBCjowr0rCTLxIrVZ9vhKBcMviQWh6LzxPCO4BGG9vdGeoaMC1KMtd
-	Dh+xQ==
-X-Google-Smtp-Source: AGHT+IErJ+/IXvkNnmleNXee0uB9y1ieMYz+cxmjWnlEKMqOuBGTR5sDOb9IWM/kUNvAZoqG36Mzii4wmQOUVHjs+rY=
-X-Received: by 2002:a05:6214:194f:b0:6fa:ccff:352a with SMTP id
- 6a1803df08f44-6fd0a5714cdmr30186986d6.37.1750412258699; Fri, 20 Jun 2025
- 02:37:38 -0700 (PDT)
+        bh=ol4mpPJ33pOAETuqltXJIrQPlqOn6SXQHHFTQz1hytk=;
+        b=l3qpnAbxqfuaHgQtG951TOc8BNlROD09lnY6yAu9/+jvgHmSMS2Du4NymtvvxPQ7H8
+         IqfVUWCLYBdYs/t0q/V21/YwgvVuYQbzrd05Xqh1ZK2+qVRInpdLPMKqJg2yGJmMBHN5
+         ZEJ2NrADTX52khQIE9jzcos9hawfZqTaoqIvFGypYZzSJsMIes8KbO3CPDz++PBTjzSf
+         syBOJERNT4tP7o1v+Ojh5ruCMju9YFhC7YeV4owoeQMw9BfZF7sSbk+gQhDx6IqMls5r
+         univLp/jnlMP1IW0xbtjzqMGS1UTmyCN2PFTC+4n5AFIIkQxMJKOcXfWBRrWjmsdzBv7
+         LrPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU9W5lL7CeHMCRU0l/fhmUw2BUGWjIYscBg9VE24wcSXRwlyq0J4VUOAY2VVJiAGsFYEMSDzbDIyCzkOg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWrHKku8oYvvoaAsZWCeaj+R6gTvmCW6TS9HeGImJwfrMXRrKP
+	A0T72enmrv6w44b3fVY5ykKWlcA/O8h34QA5pW7pMh8pAA3ZqMrmVBkP8DbNHE7SkaODRnk51kU
+	EjzX18P5MdBn7jZvGEmmCGGeEr+6wuOLlZ1VEfqDx
+X-Gm-Gg: ASbGncuFq6r3RXlVOg2XHLYX1c8yEI0nqDhDdnrSK4Y2Ez5oVGwheEfre1zOjhKzdSz
+	yjFGwXH7MOUOeg0CVomZVbtmoipMehMNHZzkDWE5YbGZudHzrtil/t1faQoNGG7xzN90zwTT6nt
+	Ik6M1roGG7OWiLh+xQtsVW/k5afkNfOh+Z1L9kD067oyuVEfqFxjVRJOmLae3aJ7F0biEldN7wd
+	qsaeQ==
+X-Google-Smtp-Source: AGHT+IFIgJtPNCQts/K87Az+Gfj8Ls09sh+yFk1QVyftwxKFWHObPIiGAJ0OO5N6B6kB4hYGw/4/McNKewbriKC2ZJ4=
+X-Received: by 2002:a05:620a:1904:b0:7cb:de0d:ba59 with SMTP id
+ af79cd13be357-7d3fc02d722mr188483285a.17.1750412285076; Fri, 20 Jun 2025
+ 02:38:05 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de>
-In-Reply-To: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de>
+References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de> <20250611-kunit-kselftests-v3-10-55e3d148cbc6@linutronix.de>
+In-Reply-To: <20250611-kunit-kselftests-v3-10-55e3d148cbc6@linutronix.de>
 From: David Gow <davidgow@google.com>
-Date: Fri, 20 Jun 2025 17:37:24 +0800
-X-Gm-Features: Ac12FXx28olkUyVElK3tsWSDMtkeXemtFUwtYOQJLlznDr2PS8RYZiAf4PgYcC4
-Message-ID: <CABVgOSn+530YJ3OPNJQncLDQNbd9JEDtZ04Amyyxk57jOVYUyQ@mail.gmail.com>
-Subject: Re: [PATCH v3 00/16] kunit: Introduce UAPI testing framework
+Date: Fri, 20 Jun 2025 17:37:51 +0800
+X-Gm-Features: Ac12FXxDSYdzF8nvRo_Y9mOy6b2ne2WSx9Dq24D16a0Q3u4ZDa0s1yox8-Zeodc
+Message-ID: <CABVgOSmRtKnTfCy5SPUiGJpVf_Y_HuAdgihjJ_ZkjeqgZVRnEg@mail.gmail.com>
+Subject: Re: [PATCH v3 10/16] kunit: tool: Parse skipped tests from kselftest.h
 To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
 	Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>, 
@@ -86,8 +86,8 @@ Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org
 	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	workflows@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_023741_067633_3AAA7187 
-X-CRM114-Status: GOOD (  44.43  )
+X-CRM114-CacheID: sfid-20250620_023806_572792_CD58DC14 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,241 +99,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1658002182824417972=="
+Content-Type: multipart/mixed; boundary="===============4322676149284186666=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1658002182824417972==
+--===============4322676149284186666==
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000f26c8a0637fd9c45"
+	boundary="0000000000008168810637fd9e49"
 
---000000000000f26c8a0637fd9c45
+--0000000000008168810637fd9e49
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 On Wed, 11 Jun 2025 at 15:38, Thomas Wei=C3=9Fschuh
 <thomas.weissschuh@linutronix.de> wrote:
 >
-> Currently testing of userspace and in-kernel API use two different
-> frameworks. kselftests for the userspace ones and Kunit for the
-> in-kernel ones. Besides their different scopes, both have different
-> strengths and limitations:
+> Skipped tests reported by kselftest.h use a different format than KTAP,
+> there is no explicit test name. Normally the test name is part of the
+> free-form string after the SKIP keyword:
 >
-> Kunit:
-> * Tests are normal kernel code.
-> * They use the regular kernel toolchain.
-> * They can be packaged and distributed as modules conveniently.
+>         ok 3 # SKIP test: some reason
 >
-> Kselftests:
-> * Tests are normal userspace code
-> * They need a userspace toolchain.
->   A kernel cross toolchain is likely not enough.
-> * A fair amout of userland is required to run the tests,
->   which means a full distro or handcrafted rootfs.
-> * There is no way to conveniently package and run kselftests with a
->   given kernel image.
-> * The kselftests makefiles are not as powerful as regular kbuild.
->   For example they are missing proper header dependency tracking or more
->   complex compiler option modifications.
->
-> Therefore kunit is much easier to run against different kernel
-> configurations and architectures.
-> This series aims to combine kselftests and kunit, avoiding both their
-> limitations. It works by compiling the userspace kselftests as part of
-> the regular kernel build, embedding them into the kunit kernel or module
-> and executing them from there. If the kernel toolchain is not fit to
-> produce userspace because of a missing libc, the kernel's own nolibc can
-> be used instead.
-> The structured TAP output from the kselftest is integrated into the
-> kunit KTAP output transparently, the kunit parser can parse the combined
-> logs together.
->
-> Further room for improvements:
-> * Call each test in its completely dedicated namespace
-> * Handle additional test files besides the test executable through
->   archives. CPIO, cramfs, etc.
-> * Compatibility with kselftest_harness.h (in progress)
-> * Expose the blobs in debugfs
-> * Provide some convience wrappers around compat userprogs
-> * Figure out a migration path/coexistence solution for
->   kunit UAPI and tools/testing/selftests/
->
-> Output from the kunit example testcase, note the output of
-> "example_uapi_tests".
->
-> $ ./tools/testing/kunit/kunit.py run --kunitconfig lib/kunit example
-> ...
-> Running tests with:
-> $ .kunit/linux kunit.filter_glob=3Dexample kunit.enable=3D1 mem=3D1G cons=
-ole=3Dtty kunit_shutdown=3Dhalt
-> [11:53:53] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D example=
- (10 subtests) =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> [11:53:53] [PASSED] example_simple_test
-> [11:53:53] [SKIPPED] example_skip_test
-> [11:53:53] [SKIPPED] example_mark_skipped_test
-> [11:53:53] [PASSED] example_all_expect_macros_test
-> [11:53:53] [PASSED] example_static_stub_test
-> [11:53:53] [PASSED] example_static_stub_using_fn_ptr_test
-> [11:53:53] [PASSED] example_priv_test
-> [11:53:53] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D exam=
-ple_params_test  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> [11:53:53] [SKIPPED] example value 3
-> [11:53:53] [PASSED] example value 2
-> [11:53:53] [PASSED] example value 1
-> [11:53:53] [SKIPPED] example value 0
-> [11:53:53] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D [PASSED] example=
-_params_test =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> [11:53:53] [PASSED] example_slow_test
-> [11:53:53] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D (4 subtests) =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D
-> [11:53:53] [PASSED] procfs
-> [11:53:53] [PASSED] userspace test 2
-> [11:53:53] [SKIPPED] userspace test 3: some reason
-> [11:53:53] [PASSED] userspace test 4
-> [11:53:53] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D [PASSED] exam=
-ple_uapi_test =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> [11:53:53] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D [PASSED] example =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D
-> [11:53:53] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> [11:53:53] Testing complete. Ran 16 tests: passed: 11, skipped: 5
-> [11:53:53] Elapsed time: 67.543s total, 1.823s configuring, 65.655s build=
-ing, 0.058s running
->
-> Based on v6.15-rc1.
+> Extend the parser to handle those correctly. Use the free-form string as
+> test name instead.
 >
 > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
 > ---
-> Changes in v3:
-> - Reintroduce CONFIG_CC_CAN_LINK_STATIC
-> - Enable CONFIG_ARCH_HAS_NOLIBC for m68k and SPARC
-> - Properly handle 'clean' target for userprogs
-> - Use ramfs over tmpfs to reduce dependencies
-> - Inherit userprogs byte order and ABI from kernel
-> - Drop now unnecessary "#ifndef NOLIBC"
-> - Pick up review tags
-> - Drop usage of __private in blob.h,
->   sparse complains and it is not really necessary
-> - Fix execution on loongarch when using clang
-> - Drop userprogs libgcc handling, it was ugly and is not yet necessary
-> - Link to v2: https://lore.kernel.org/r/20250407-kunit-kselftests-v2-0-45=
-4114e287fd@linutronix.de
->
-> Changes in v2:
-> - Rebase onto v6.15-rc1
-> - Add documentation and kernel docs
-> - Resolve invalid kconfig breakages
-> - Drop already applied patch "kbuild: implement CONFIG_HEADERS_INSTALL fo=
-r Usermode Linux"
-> - Drop userprogs CONFIG_WERROR integration, it doesn't need to be part of=
- this series
-> - Replace patch prefix "kconfig" with "kbuild"
-> - Rename kunit_uapi_run_executable() to kunit_uapi_run_kselftest()
-> - Generate private, conflict-free symbols in the blob framework
-> - Handle kselftest exit codes
-> - Handle SIGABRT
-> - Forward output also to kunit debugfs log
-> - Install a fd=3D0 stdin filedescriptor
-> - Link to v1: https://lore.kernel.org/r/20250217-kunit-kselftests-v1-0-42=
-b4524c3b0a@linutronix.de
->
-> ---
 
+Nice: this is a great improvement.
 
-Thanks very much for persisting with this, and sorry for the delayed respon=
-se.
-
-I've taken quite a liking to it: it'd definitely have made my life
-easier more than once.
-
-As a more general wrapping of selftests in KUnit tests, I do think
-that there's still some risk of confusion as to when a KUnit UAPI test
-makes sense versus a simple selftest. The UAPI tests are definitely
-(IMO) easier to build and run, but won't be easier to debug, or to run
-on an existing, non-test system as a part of troubleshooting (which
-has been a complaint when selftests have been ported to KUnit in the
-past).
-
-Nevertheless, I'm pretty happy to have this be a part of KUnit, though
-I have three slight reservations:
-1. There's no real _user_ of this yet -- save for the small test of
-/proc/self/comm in the example -- I'd like to see a real-world test
-using this.
-2. There's a fair bit of complexity here, and we're already a bit
-behind with KUnit reviews. I'd love it if you could commit to helping
-maintain the KUnit parts of this in MAINTAINERS.
-3. We need to make sure that there's a clear understanding of when to
-use this, versus in-kernel KUnit tests, versus kselftest. This'll
-probably involve (a) making sure Shuah is on board -- or at least not
-strongly opposed, and (b) updating
-Documentation/dev-tools/testing-overview.rst.
-
-But thanks very much -- it's working well in my testing here, and
-running the tests is very pleasant.
+Reviewed-by: David Gow <davidgow@google.com>
 
 Cheers,
 -- David
 
 
-> Thomas Wei=C3=9Fschuh (16):
->       kbuild: userprogs: avoid duplicating of flags inherited from kernel
->       kbuild: userprogs: also inherit byte order and ABI from kernel
->       init: re-add CONFIG_CC_CAN_LINK_STATIC
->       kbuild: userprogs: add nolibc support
->       kbuild: introduce CONFIG_ARCH_HAS_NOLIBC
->       kbuild: doc: add label for userprogs section
->       kbuild: introduce blob framework
->       kunit: tool: Add test for nested test result reporting
->       kunit: tool: Don't overwrite test status based on subtest counts
->       kunit: tool: Parse skipped tests from kselftest.h
->       kunit: Always descend into kunit directory during build
->       kunit: qemu_configs: loongarch: Enable LSX/LSAX
->       kunit: Introduce UAPI testing framework
->       kunit: uapi: Add example for UAPI tests
->       kunit: uapi: Introduce preinit executable
->       kunit: uapi: Validate usability of /proc
+>  tools/testing/kunit/kunit_parser.py                             | 8 ++++=
++---
+>  tools/testing/kunit/test_data/test_is_test_passed-kselftest.log | 3 ++-
+>  2 files changed, 7 insertions(+), 4 deletions(-)
 >
->  Documentation/dev-tools/kunit/api/index.rst        |   5 +
->  Documentation/dev-tools/kunit/api/uapi.rst         |  12 +
->  Documentation/kbuild/makefiles.rst                 |  38 ++-
->  MAINTAINERS                                        |   2 +
->  Makefile                                           |   7 +-
->  include/kunit/uapi.h                               |  24 ++
->  include/linux/blob.h                               |  31 +++
->  init/Kconfig                                       |   7 +
->  lib/Makefile                                       |   4 -
->  lib/kunit/Kconfig                                  |  10 +
->  lib/kunit/Makefile                                 |  20 +-
->  lib/kunit/kunit-example-test.c                     |  15 ++
->  lib/kunit/kunit-example-uapi.c                     |  54 ++++
->  lib/kunit/uapi-preinit.c                           |  63 +++++
->  lib/kunit/uapi.c                                   | 294 +++++++++++++++=
-++++++
->  scripts/Makefile.blobs                             |  19 ++
->  scripts/Makefile.build                             |   6 +
->  scripts/Makefile.clean                             |   2 +-
->  scripts/Makefile.userprogs                         |  13 +-
->  scripts/blob-wrap.c                                |  27 ++
->  tools/include/nolibc/Kconfig.nolibc                |  15 ++
->  tools/testing/kunit/kunit_parser.py                |  13 +-
->  tools/testing/kunit/kunit_tool_test.py             |   9 +
->  tools/testing/kunit/qemu_configs/loongarch.py      |   2 +
->  .../test_is_test_passed-failure-nested.log         |  10 +
->  .../test_data/test_is_test_passed-kselftest.log    |   3 +-
->  26 files changed, 686 insertions(+), 19 deletions(-)
-> ---
-> base-commit: f07a3558c4a5d76f3fea004075e5151c4516d055
-> change-id: 20241015-kunit-kselftests-56273bc40442
+> diff --git a/tools/testing/kunit/kunit_parser.py b/tools/testing/kunit/ku=
+nit_parser.py
+> index 2478beb28fc3db825855ad46200340e884da7df1..4599d23c79b79f0e219d655c7=
+053c8c3b34f8152 100644
+> --- a/tools/testing/kunit/kunit_parser.py
+> +++ b/tools/testing/kunit/kunit_parser.py
+> @@ -352,9 +352,9 @@ def parse_test_plan(lines: LineStream, test: Test) ->=
+ bool:
+>         lines.pop()
+>         return True
 >
-> Best regards,
+> -TEST_RESULT =3D re.compile(r'^\s*(ok|not ok) ([0-9]+) (- )?([^#]*)( # .*=
+)?$')
+> +TEST_RESULT =3D re.compile(r'^\s*(ok|not ok) ([0-9]+)? ?(- )?([^#]*)( # =
+.*)?$')
+>
+> -TEST_RESULT_SKIP =3D re.compile(r'^\s*(ok|not ok) ([0-9]+) (- )?(.*) # S=
+KIP(.*)$')
+> +TEST_RESULT_SKIP =3D re.compile(r'^\s*(ok|not ok) ([0-9]+)? ?(- )?(.*) #=
+ SKIP ?(.*)$')
+>
+>  def peek_test_name_match(lines: LineStream, test: Test) -> bool:
+>         """
+> @@ -379,6 +379,8 @@ def peek_test_name_match(lines: LineStream, test: Tes=
+t) -> bool:
+>         if not match:
+>                 return False
+>         name =3D match.group(4)
+> +       if not name:
+> +               return False
+>         return name =3D=3D test.name
+>
+>  def parse_test_result(lines: LineStream, test: Test,
+> @@ -416,7 +418,7 @@ def parse_test_result(lines: LineStream, test: Test,
+>
+>         # Set name of test object
+>         if skip_match:
+> -               test.name =3D skip_match.group(4)
+> +               test.name =3D skip_match.group(4) or skip_match.group(5)
+>         else:
+>                 test.name =3D match.group(4)
+>
+> diff --git a/tools/testing/kunit/test_data/test_is_test_passed-kselftest.=
+log b/tools/testing/kunit/test_data/test_is_test_passed-kselftest.log
+> index 65d3f27feaf22a3f47ed831c4c24f6f11c625a92..30d9ef18bcec177067288d524=
+2771236f29b7d56 100644
+> --- a/tools/testing/kunit/test_data/test_is_test_passed-kselftest.log
+> +++ b/tools/testing/kunit/test_data/test_is_test_passed-kselftest.log
+> @@ -1,5 +1,5 @@
+>  TAP version 13
+> -1..2
+> +1..3
+>  # selftests: membarrier: membarrier_test_single_thread
+>  # TAP version 13
+>  # 1..2
+> @@ -12,3 +12,4 @@ ok 1 selftests: membarrier: membarrier_test_single_thre=
+ad
+>  # ok 1 sys_membarrier available
+>  # ok 2 sys membarrier invalid command test: command =3D -1, flags =3D 0,=
+ errno =3D 22. Failed as expected
+>  ok 2 selftests: membarrier: membarrier_test_multi_thread
+> +ok 3 # SKIP selftests: membarrier: membarrier_test_multi_thread
+>
 > --
-> Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
+> 2.49.0
 >
 
---000000000000f26c8a0637fd9c45
+--0000000000008168810637fd9e49
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -423,19 +296,19 @@ Vumvw5QTHe29TYxSiusovM6OD5y0I+4zaIaYDx/AtF0mMOFXb1MDyynf1CDxhtkgnrBUseHSOU2e
 MYs7IqzRap5xsgpJS+t7cp/P8fdlCNvsXss9zZa279tKwaxR0U2IzGxRGsWKGxDysn1HT6pqMDGC
 Al0wggJZAgEBMGgwVDELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExKjAo
 BgNVBAMTIUdsb2JhbFNpZ24gQXRsYXMgUjYgU01JTUUgQ0EgMjAyMwIQAUXA7LnOuRz2DvkWTeMc
-0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgfgLrF6e8xjqqjbqwmahPbSkIMUKo
-ka+6Zf2gbhWRhJYwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
-NjIwMDkzNzM5WjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
+0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgx5hZS2f7vGv71nGipu63Ua0b3BgO
+THDz28XVxigNWs8wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
+NjIwMDkzODA1WjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
 YIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzALBglghkgBZQMEAgEwDQYJKoZIhvcN
-AQEBBQAEggEADraqfMRGTNuly9iDyzGlZO4dpKx9d65OdOwEFjz8zgVuEte+5rAtYKwGRCqUCR5O
-GsxZRtOaIUK2jn1dCPL5wEEBu023LznNlYHVQ50kFbl7L3Fp+I3hY83OcNe61U5ztcG4KOhLilYR
-w6692cO2SpWe/L5VnOyhMBhcmYiVWevdkghHXN0W/twqXQLXv7e/uwruRmaSdZcPCBquXlOZTCpN
-015GvFcMgrzQx1UsBYqp8UDjDcPpiKCUyfM3r6mhuQ/rzG/3xuNDfgwBz8e6mNNkz616AN8iijjk
-9tBG7QsynxP14yAWShr0IcvADqOjQKRv2AdwTKLfHVK7GZilxw==
---000000000000f26c8a0637fd9c45--
+AQEBBQAEggEAAzfx4qIaMjwZzUXiVeus6srlL8JBWNHeXjoDyXiaNTbkmKxgEZI1GT//SuPGpG2T
+kWsEuM8XzJY4x34xXnCaj6gzPINI1NOKYoS3AlDjD3IqXTu+ytjVmjXzqpX9+/V407DzlPLsGgx5
+9JfAH22bhVszPegOLEIgzlrGDHQXKRmvRy8OCIwjlVTFLV/FIdS6ktK4hspZ2mid5dieoCb/nd9H
+Le3q5Xyh6XSJ3AAapiXmsqMmlskIbNNQcc+3/Wl28Ux3fwae1HQkrIeR8nSu0ymXTSJ3klCvnI3b
+ORsKEJfutZXACE4xSVNUjBN0eJAlNkxUK4qAC8IY9e1CUt7NgQ==
+--0000000000008168810637fd9e49--
 
 
---===============1658002182824417972==
+--===============4322676149284186666==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -446,5 +319,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1658002182824417972==--
+--===============4322676149284186666==--
 
