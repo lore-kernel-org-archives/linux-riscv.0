@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA91C71155
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025FEC77B7C
 	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 10:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,67 +12,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3NX6oJTGvMiIxc08mqGx+OHwQx2XjZ24NoPR14GBBj0=; b=M5xqKcC7MhpQ3lPrBU3ObSHRtN
-	AS4dkShXBc4X0WW07TeAymNXm58zavNKwN1iuLwai3i8imecBc9SgvGyR5I3w67hWsvj3KYEIsZxZ
-	0Y2J4igx93Z3ihgXlYFVRB1K91gCkoB2jaM0XgaRBk5OBLS2efu+/bbHlTTj9j0QI9+6WUEL4bvMb
-	1ZShLyo8PYCeHIXTImscIeKjJSnvG4zuWGB0tEcHkvJobqXZwtdNa8yDwO1g3cZOZ1Gc5RYBtDAVC
-	P9l0zNlKFKWTNwNAZ8xq4D7AG5rLMw4dFsPbOa5D2LyEmmVDg1Qgw/wcjgYuCahL+2S/QRhfGg9DM
-	1n4YFRjA==;
+	bh=xa0whO5H6pRED3vR4PjYzkMP8pvfj9dAUJCB2MVUcb8=; b=prTZ3G2Y2s7qVpQAtCz8k6/aiN
+	lqQzGi6iET4KeE2P0ZNcpxCi+sqTshsNodoYgCScYFyGdRMunKUJ+lF6f9sEd0cHRbJ87dviReirM
+	5lATEff7udq6i6uhDf/lyPr85RZQl0rQD59wIOxd0sAjbmFkMsNLVyzrtjSAlao0EdH70U8JeJ9Cz
+	xZ+/kawgTyV6KEaWgna4+zAyAMve3hAhpZLLtGEdipOcG5zFHj2jw4REnQs+IWYvbzrMAIhJXnhPF
+	16yt8401MG+MKHgjRyTSzv+CIFsBhPwywEzc+3BZUop86aWnDZ4wuQvTnto/KqSDoEtg02qq0cpdO
+	aA5ECGxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZH2-0000000FNsR-3ypg;
+	id 1uSZH2-0000000FNrt-1DPH;
 	Fri, 20 Jun 2025 10:47:08 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYM0-0000000FFaC-39Xv
+	id 1uSYLv-0000000FFYK-0Wki
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jun 2025 09:48:14 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-6face1d58dcso25942736d6.2
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:48:12 -0700 (PDT)
+	Fri, 20 Jun 2025 09:48:08 +0000
+Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6fabb948e5aso19710956d6.1
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:48:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750412892; x=1751017692; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1750412886; x=1751017686; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=dBionrcgDqzjAGMvLhLAOLVz7l5t1PoBQiIkzWr22go=;
-        b=JNCYTUNJJKZ2Fkt+BuHLyF/JCovcAFvyn8DBJjitc8HohTj530+AffZET8jTY2x7gK
-         tfPWjkIBN2PvWtZZ7SH+VPk5HroIgzW7XGJrnnkts9esCewcmkGaECQg0wsVZ5xHU+jh
-         W3fCs7ifCNjL3oqjDnrbtHlAuonrUXx0m93Xui+fWHa0zlBpqI6voq7zU35NW7+Sdez/
-         lp10JXnJfhk+hgVa7zuPSEz8RLX7y3Gisinttver4eh4s1e2/FdyiPLW6NRvM6CgSx6c
-         kmJAY8cUlxieuB35PPlcAzV3MPd07x6vQzyhN5yN5BD2wXahdjLSGDzdQIRhdLslVZ2P
-         n9kQ==
+        bh=wHeuhgQCFMnWhjqU632ckU9qY/LhUsZYY0hLvVGDnFM=;
+        b=zBH6+7xpqyDrCzOAMQLOMrMKE+PrSRHfL01GzF4OuadqMVPEUQBml3ibK91wwpPODg
+         Xz+FLc2QJ+98frWr4osnBCWC9YsjGOobuRySbidA0AslSOcEV92fld9x5clHAcA6/vCC
+         13dFJBgG2qdswlnr9GmaCsstuWYBUIeF/ssGfEeMF6N+0pvZEbTlqTJKmPg0MjedXzLt
+         kab+JLDBXT/fh09Kq9sEQZf5qkRGabq68A+x5PapCnfe6eoPaMM8ROZWJ+puTxuBzIro
+         WRtUYwlLU/3xa2BIRyldPLpuV3wHL3xwd47QDFqcZEVMaEEYezkjSS0brusUu8S/nGN7
+         5b4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750412892; x=1751017692;
+        d=1e100.net; s=20230601; t=1750412886; x=1751017686;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dBionrcgDqzjAGMvLhLAOLVz7l5t1PoBQiIkzWr22go=;
-        b=p8wuw3LIEMrMHruSf2KgcBQf9CNSdu5JyLzDfUSC1nBLkWLunUCmZzopeUWxPj4D4r
-         I9dzIxCVAxjJ77qC/Rfav/HwX/6n6QpKBkrPxlp+fAzxS+Lr1EINOOb7UvkK/uawdA/t
-         UprhsaNcl0lRHMvDzRz8JXNcM8f0BIGVloICWlpRvWTVe0v+P+iv5f9XhfVrCI9CMYRM
-         Bnb8VnF0Bi3E5gLOUVwEJxK93lem1u2a3402P41V96bSld+qhkfNODG0u/W3UFnil5yp
-         aqxHgyZPEGqRibqO6bRGMHANuNW6syaoHh3FbLQxY1kQRoym/JMfEDiEqEU8qy8W/lvu
-         rK/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXpd5Ul3S9Z5Bl1+wxreO+UP2euLlRVx3VMbCxKBztgijXVz9pyXk5kI8XbkgUCsUV/1WHQPGfIbNG2yA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxj/iQh7784Q8LajiejqNTfi0bQVrwL3SXV8+5Ayal2yXGl+2XF
-	qjpYtZ9ybLAT73uAkHqWPTiNOZjhkZAhq1+Q/t8b/j6nwmhKhD3TtZuvXFDWfiQ+uCtWZeNX0A8
-	46VTSHWGbAneEw/pq9pN0o89kfpYHXuWp7CcJfh+a
-X-Gm-Gg: ASbGnct6hgTN0UvbuVrmbY1FuxHMUiHpUiSiXAJsbno51/J7fJNMY/vxS2W+3Tvz3SA
-	X3apZG/PZMXOXYWOMu4dh7s5GzZGE6cxjdeIagjoZ0hNrwCp0WtcO1YHfa76vNwNS2ZkihfX6jS
-	rO0m0IOIxhQDXm/SuvWAInap/HGeeZX/iQ6ANdreWc85tqG3WQ0DJfy1KZd392WT/kWaWi7mHCd
-	tY1Ng==
-X-Google-Smtp-Source: AGHT+IF3hfRWwfu8d+uu7377W+fT4nOapBohpTadRVU47G95rcPljItCrNSHpbMlCO1DkFItjQy4chIkWP0pOrd4/zo=
-X-Received: by 2002:a05:6214:cc1:b0:6fb:4e9a:663d with SMTP id
- 6a1803df08f44-6fd0a4c1508mr37022636d6.17.1750412891540; Fri, 20 Jun 2025
- 02:48:11 -0700 (PDT)
+        bh=wHeuhgQCFMnWhjqU632ckU9qY/LhUsZYY0hLvVGDnFM=;
+        b=huMhqjXp4+g65szYUUowBWdcOGm4y89dlH22yRzFKIgzRNYfCjuouQy7ZCmEbtzQqH
+         2i0sVwOcn8ka995wcyZHJsNJYsEFHEC0jTKllOWt0n6Zq1c7qMt0hxciYz5Fc4ga1gwA
+         KSPoKNYdWxVAxpV97a2Jk/xIBcit1kPs4hP8vFYiVbbNLCIrcb2nQu4z0es6X/aNTudN
+         E+/qskwdneJpF84gXkqBTZL+wqdnuHVHp2tZPEg2iWPx+MdtrYOIFj5Ie8vwnYw5D4rk
+         ZH2MOmImGfwK2oEV/mVcfDpqEtAyrhY447cYy70PmaAeXBGDcJwvxesU7BMPisOet0bu
+         SKYA==
+X-Forwarded-Encrypted: i=1; AJvYcCUCOKiM6PFNYgbG1dmYQRrmNjdaHb2qQaCcPKQlcvWBZ3mZIq1JdAm1YTV1dspa4+qhwl2BX+nOajUy9w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgyRiL2zGlRmQKJKtNKwIEFXz7spijxm9M0d+i/y0lIj+sqxYO
+	W+gJ1kNW5cZLiXEAACRfcWm/AxNNM98JwNS1VottnuYFk2iJMov175sQKcef1U/a4rzQ+Yvbyv0
+	ugvuBTgaE0RaC2qy4qi95feqlTnXmcUVCX/EbWcU+
+X-Gm-Gg: ASbGncsmLSfhiwNkNYfMuC9Hoe0ZOveEtoJHMCmCm1dQyVxIiJxoIEUpgGWGWmgv8UY
+	l03fNS/k9AsjY16fmldzL0o5mWQUIoC0pPM4gfWevCfU2a1kIJ7gHWXs5PrrCogLz2da6tRfdqd
+	mu2BxAE4AZ6kxzyLfqUcp6W3VYZJE927QhjkP2yFH9Y8V7q5MHnGVUxAARQXwFk35AmEEOSPx2u
+	RAqDg==
+X-Google-Smtp-Source: AGHT+IH2VbZ8sTk8CXNiHNzNudykkei9NhU3ukDwMiIblAxulTl5eCamk8ZeKq8qXzyhGE0u7cw13qLap5kso8QKIUQ=
+X-Received: by 2002:a05:6214:20c4:b0:6fb:96:36b0 with SMTP id
+ 6a1803df08f44-6fd0a576ff9mr32766906d6.31.1750412885855; Fri, 20 Jun 2025
+ 02:48:05 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de> <20250611-kunit-kselftests-v3-11-55e3d148cbc6@linutronix.de>
-In-Reply-To: <20250611-kunit-kselftests-v3-11-55e3d148cbc6@linutronix.de>
+References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de> <20250611-kunit-kselftests-v3-14-55e3d148cbc6@linutronix.de>
+In-Reply-To: <20250611-kunit-kselftests-v3-14-55e3d148cbc6@linutronix.de>
 From: David Gow <davidgow@google.com>
-Date: Fri, 20 Jun 2025 17:47:58 +0800
-X-Gm-Features: Ac12FXwanhL_6ajC96LXETu4jC3ictaYERJTwd0X40ut3IHtQwdsByb3lXzq8q0
-Message-ID: <CABVgOSmVPStp91aSLpSMs1618r7j2JCA8Xbt4BnBz7-97fO+-A@mail.gmail.com>
-Subject: Re: [PATCH v3 11/16] kunit: Always descend into kunit directory
- during build
+Date: Fri, 20 Jun 2025 17:47:52 +0800
+X-Gm-Features: Ac12FXzP5bbs3Fo55AZsi6RK7Qdw2kJoFi-CbyZ0DxjszonEa7qJje79mecmEZY
+Message-ID: <CABVgOSneoHqQ_1fgQYvE_jj3cZ=wgaxZA7U4-7V0Cqi2JD4yAA@mail.gmail.com>
+Subject: Re: [PATCH v3 14/16] kunit: uapi: Add example for UAPI tests
 To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
 	Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>, 
@@ -87,8 +86,8 @@ Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org
 	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	workflows@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_024812_793432_E8DC11E6 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20250620_024807_171140_9B321DF7 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +99,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5183451264303156485=="
+Content-Type: multipart/mixed; boundary="===============0134462624835642962=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5183451264303156485==
+--===============0134462624835642962==
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000a46d260637fdc2d0"
+	boundary="0000000000004f0e310637fdc2fc"
 
---000000000000a46d260637fdc2d0
+--0000000000004f0e310637fdc2fc
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 On Wed, 11 Jun 2025 at 15:38, Thomas Wei=C3=9Fschuh
 <thomas.weissschuh@linutronix.de> wrote:
 >
-> An upcoming change will add 'userprogs' to the kunit subdirectory.
-> For kbuild to properly clean up these build artifacts the subdirectory
-> needs to be always processed.
->
-> Pushing the special logic for hook.o into the kunit Makefile also makes t=
-he
-> logic easier to understand.
+> Extend the example to show how to run a userspace executable.
 >
 > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
 > ---
-
-I'm quite happy with this.
 
 Reviewed-by: David Gow <davidgow@google.com>
 
@@ -134,55 +125,113 @@ Cheers,
 -- David
 
 
->  lib/Makefile       | 4 ----
->  lib/kunit/Makefile | 2 +-
->  2 files changed, 1 insertion(+), 5 deletions(-)
+
+>  lib/kunit/Makefile             |  9 ++++++++-
+>  lib/kunit/kunit-example-test.c | 15 +++++++++++++++
+>  lib/kunit/kunit-example-uapi.c | 22 ++++++++++++++++++++++
+>  3 files changed, 45 insertions(+), 1 deletion(-)
 >
-> diff --git a/lib/Makefile b/lib/Makefile
-> index c38582f187dd81916113319072e5cfef26f26c84..698566135091cc3bf0054f195=
-4b434dc3325364a 100644
-> --- a/lib/Makefile
-> +++ b/lib/Makefile
-> @@ -108,11 +108,7 @@ test_fpu-y :=3D test_fpu_glue.o test_fpu_impl.o
->  CFLAGS_test_fpu_impl.o +=3D $(CC_FLAGS_FPU)
->  CFLAGS_REMOVE_test_fpu_impl.o +=3D $(CC_FLAGS_NO_FPU)
->
-> -# Some KUnit files (hooks.o) need to be built-in even when KUnit is a mo=
-dule,
-> -# so we can't just use obj-$(CONFIG_KUNIT).
-> -ifdef CONFIG_KUNIT
->  obj-y +=3D kunit/
-> -endif
->
->  ifeq ($(CONFIG_DEBUG_KOBJECT),y)
->  CFLAGS_kobject.o +=3D -DDEBUG
 > diff --git a/lib/kunit/Makefile b/lib/kunit/Makefile
-> index 5aa51978e456ab3bb60c12071a26cf2bdcb1b508..656f1fa35abcc635e67d5b4cb=
-1bc586b48415ac5 100644
+> index dafa09bd4241c24d31c4c19edecb67bf724127d7..e406a31df1df834a87961663d=
+e0b7921b59481c2 100644
 > --- a/lib/kunit/Makefile
 > +++ b/lib/kunit/Makefile
-> @@ -17,7 +17,7 @@ kunit-objs +=3D                         debugfs.o
+> @@ -30,4 +30,11 @@ obj-$(CONFIG_KUNIT_TEST) +=3D          string-stream-t=
+est.o
+>  obj-$(CONFIG_KUNIT_TEST) +=3D            assert_test.o
 >  endif
 >
->  # KUnit 'hooks' are built-in even when KUnit is built as a module.
-> -obj-y +=3D                               hooks.o
-> +obj-$(if $(CONFIG_KUNIT),y) +=3D         hooks.o
+> -obj-$(CONFIG_KUNIT_EXAMPLE_TEST) +=3D    kunit-example-test.o
+> +userprogs +=3D                           kunit-example-uapi
+> +kunit-example-uapi-userccflags :=3D      -static
+> +kunit-example-uapi-nolibc :=3D           $(CONFIG_ARCH_HAS_NOLIBC)
+> +blobs +=3D                               kunit-example-uapi.blob.o
+> +
+> +obj-$(CONFIG_KUNIT_EXAMPLE_TEST) +=3D    kunit-example-mod.o
+> +kunit-example-mod-y +=3D                 kunit-example-test.o
+> +kunit-example-mod-$(CONFIG_KUNIT_UAPI) +=3D kunit-example-uapi.blob.o
+> diff --git a/lib/kunit/kunit-example-test.c b/lib/kunit/kunit-example-tes=
+t.c
+> index 3056d6bc705d0a8f196f0f4412e679dbb0e03114..b2681a6e047dfd6fea4a7cca6=
+0e81651d09c2eae 100644
+> --- a/lib/kunit/kunit-example-test.c
+> +++ b/lib/kunit/kunit-example-test.c
+> @@ -6,8 +6,11 @@
+>   * Author: Brendan Higgins <brendanhiggins@google.com>
+>   */
 >
->  obj-$(CONFIG_KUNIT_TEST) +=3D            kunit-test.o
->  obj-$(CONFIG_KUNIT_TEST) +=3D            platform-test.o
+> +#include <linux/blob.h>
+> +
+>  #include <kunit/test.h>
+>  #include <kunit/static_stub.h>
+> +#include <kunit/uapi.h>
+>
+>  /*
+>   * This is the most fundamental element of KUnit, the test case. A test =
+case
+> @@ -277,6 +280,17 @@ static void example_slow_test(struct kunit *test)
+>         KUNIT_EXPECT_EQ(test, 1 + 1, 2);
+>  }
+>
+> +/*
+> + * This test shows the usage of UAPI tests.
+> + */
+> +static void example_uapi_test(struct kunit *test)
+> +{
+> +       if (IS_ENABLED(CONFIG_KUNIT_UAPI))
+> +               kunit_uapi_run_kselftest(test, BLOB(kunit_example_uapi));
+> +       else
+> +               kunit_skip(test, "CONFIG_KUNIT_UAPI is not enabled");
+> +}
+> +
+>  /*
+>   * Here we make a list of all the test cases we want to add to the test =
+suite
+>   * below.
+> @@ -297,6 +311,7 @@ static struct kunit_case example_test_cases[] =3D {
+>         KUNIT_CASE(example_priv_test),
+>         KUNIT_CASE_PARAM(example_params_test, example_gen_params),
+>         KUNIT_CASE_SLOW(example_slow_test),
+> +       KUNIT_CASE(example_uapi_test),
+>         {}
+>  };
+>
+> diff --git a/lib/kunit/kunit-example-uapi.c b/lib/kunit/kunit-example-uap=
+i.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..4ce657050dd4a576632a41ca0=
+309c4cb5134ce14
+> --- /dev/null
+> +++ b/lib/kunit/kunit-example-uapi.c
+> @@ -0,0 +1,22 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * KUnit Userspace example test.
+> + *
+> + * Copyright (C) 2025, Linutronix GmbH.
+> + * Author: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
+> + *
+> + * This is *userspace* code.
+> + */
+> +
+> +#include "../../tools/testing/selftests/kselftest.h"
+> +
+> +int main(void)
+> +{
+> +       ksft_print_header();
+> +       ksft_set_plan(4);
+> +       ksft_test_result_pass("userspace test 1\n");
+> +       ksft_test_result_pass("userspace test 2\n");
+> +       ksft_test_result_skip("userspace test 3: some reason\n");
+> +       ksft_test_result_pass("userspace test 4\n");
+> +       ksft_finished();
+> +}
 >
 > --
 > 2.49.0
 >
-> --
-> You received this message because you are subscribed to the Google Groups=
- "KUnit Development" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to kunit-dev+unsubscribe@googlegroups.com.
-> To view this discussion visit https://groups.google.com/d/msgid/kunit-dev=
-/20250611-kunit-kselftests-v3-11-55e3d148cbc6%40linutronix.de.
 
---000000000000a46d260637fdc2d0
+--0000000000004f0e310637fdc2fc
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -272,19 +321,19 @@ Vumvw5QTHe29TYxSiusovM6OD5y0I+4zaIaYDx/AtF0mMOFXb1MDyynf1CDxhtkgnrBUseHSOU2e
 MYs7IqzRap5xsgpJS+t7cp/P8fdlCNvsXss9zZa279tKwaxR0U2IzGxRGsWKGxDysn1HT6pqMDGC
 Al0wggJZAgEBMGgwVDELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExKjAo
 BgNVBAMTIUdsb2JhbFNpZ24gQXRsYXMgUjYgU01JTUUgQ0EgMjAyMwIQAUXA7LnOuRz2DvkWTeMc
-0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgaBrznGvcp3hv1G/qo/a5Wwrm4nkA
-h8wSfIRsgQy6pAgwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
-NjIwMDk0ODEyWjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
+0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgBKYtzZEa4Ddg4+3QCmnZ1mh5rwLd
+AZafAWLn84sKTGowGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
+NjIwMDk0ODA2WjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
 YIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzALBglghkgBZQMEAgEwDQYJKoZIhvcN
-AQEBBQAEggEAA1VpT4ySetim2z2YWn4C69klNXOryCHHPFkSmpLHxdTyVW7Ig1l7jybcdRSu6DdH
-IIktjjYZLZLAiR2ZJ3anMz03lGcFoRejXG72sZiSLRWVXflQSbitWjpcBw3qzPcHUD9x/wWdKl9i
-8IaD6+VmM8lAjyhv8FOJRDMBErN5uZOdvIxK3etkqdigUjYkPfgObee2iVvIDuaUTDuagQcn9pt7
-x2mppPu6IKbSzaGDltbgr5pGBbz7fmRIGUHIlDTReXG8YB6xxo9F3MjIL37dRyR7PfMCYB4cO650
-LbNSUvojQy8cDjARiL9xBXF1rdDti7mrTHwq/bDtlnuKx+T/nw==
---000000000000a46d260637fdc2d0--
+AQEBBQAEggEAkO/uXk7By+DTBuP3+z/H9J2VjZMPjifQSGosbr4ua+g3dIf5YVQSMtXLiSvWHKqe
+fGh/XxB43pw0sxKR5Zv36amn3S4Ty9yFa/SGM21ajxnTxf/qmtAYGijeR5G3rkC9jRsXmgZNys9m
+VbwJEId29GCVKjgE7Zp7qcJGraFh529WnfY6nzWEyoicbO3P0UJ2wtCRU0PKC4V5Q+T3B2rnL4pG
+b2Ef2bJKNVaWM4ahgBY1ibDzEadfaHhOUJ1RgBXDfsAmeOSg3/+DQIblabOf/09+j1ThpG2Ho2/h
+4jENXtPe/GivL0YPpKjsHaGUOdrDL9mE5qKfO6Mvb8aQXmTmQg==
+--0000000000004f0e310637fdc2fc--
 
 
---===============5183451264303156485==
+--===============0134462624835642962==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -295,5 +344,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5183451264303156485==--
+--===============0134462624835642962==--
 
