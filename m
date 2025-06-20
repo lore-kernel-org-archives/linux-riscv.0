@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3210C7115D
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 10:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25899C71155
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 10:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:
 	To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XKzpanXGK5PUKk5Gc9K/Xk/OoO7lzc5x8WYOE224fKU=; b=eVvW5fB2FTqzMZLO0nY5z9fNEw
-	C+NeOYM5F8laDIiXVqJ5VN/MY1ANG4LQCFmr6IrpVhDFS8jXyB+pDuPiVjI5wwcG8BDePhfBxeKhs
-	kvAdS8RWaCEP1oDWYajMlEogVTi/cgBqc/854gDJL6Lns88kn/h/6cL5H3Kd6ZuuZe8dCrvIv6/rQ
-	P8rM6BegSg2/e6rFIuXBpUsGmrZWVbXzKL+k9hoK6VcLF9s5QGwJDOGxE/wgYphCK8Uh5F78OhkiO
-	ARk+bu+aa9A7b20qXK2coUqSqiBudcRNLUg/aIifkfk68HwB2z0tpXJN248mi1kly5imd1Wi9Y//n
-	l5kVoWzA==;
+	bh=eVu1fzlcyQx2apV3RzB2Yv6i5nOKorcx3sOd0GX3PzA=; b=sJeNoXgSyXFRSwCupcXJNcvXsE
+	K0M2NY9KF63uFe0HRcCpRC11N6QpGTlThO+oaun/sGTyj1iU5uCiwonqDmwnJk4efV112qDnIWNsf
+	VsF7PyLp/pwCzSuhhazLMbzpsM9Zkhj9f/sbo4EHL2STmFkTOjMriBZsENh/jYEBW4sj7lbO/lP+9
+	3bS7CvYo+AsjYLbcbAIR1Z9OoSn8CWGTHjQtEtl/ZCSEA6I0TdcBEHqtNsHD2bkZ2Q6cQ0oaTuwcG
+	xKUSiyJeAG4qJjnmT0uMB2ctHWh+oABqAlfPNoMnFK5WsgxEA/jFoDhB+x3URbIAj/LCaIcl3CaaR
+	yEtcNYFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZH3-0000000FNtC-2mUO;
-	Fri, 20 Jun 2025 10:47:09 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1uSZH1-0000000FNrf-2iiA;
+	Fri, 20 Jun 2025 10:47:07 +0000
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYM6-0000000FFcw-2c1d
+	id 1uSYLh-0000000FFUd-3A3e
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jun 2025 09:48:19 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-6fb01566184so13351756d6.1
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:48:18 -0700 (PDT)
+	Fri, 20 Jun 2025 09:47:55 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-6fafd3cc8f9so24302076d6.3
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:47:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750412897; x=1751017697; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1750412873; x=1751017673; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3ophzJ2KcsiNavT/VmG68xdzK6AlkZlfpiSptBRHbes=;
-        b=PDm/rSpnk8ixurChOW9F6oWghGYeZPhp8KsGpvj+Jy7x2kMHFqZPPs08PSvfxRZ1kf
-         HskBa66rQgpsOygxd74UXEak/gpaAI7k44B2LRtQXlFZeUPgKW+At2f7STqfCWnf68Cp
-         kBtwuIVt0PYICkfnDvDUEXD2O6KLIxGRTL8ch+u4hOu8sfrDJ70bmAQ8BTEAJAkMt93T
-         NzM41n4mLCvW93V9kpHu2He3LYv8eJiBFF1nbdduZPbqVLkNzPkIBt54Kz2B+h8jOsZB
-         H/7NsM2gfSqInPj/YQoqaS/kvVYFnIkqUmNHBY8+81WaiqivlqorO/njmIlD/XO+CjUG
-         rapg==
+        bh=VQ3j77nwCD00iP66UdF2XjbRMeXfGVIDn+tQRmSuK+4=;
+        b=jtuGM+rJdtihUeLZTW61QKMoW/8/2ZyRaWePSJYGAaBpAbqFaDImUcQxS60amnRH1O
+         CjZPEgvlNrflqbjJDTmHyk1pUjxrj6oWJlNpa+f8lN+DAvXhCXMVUAJ35a59mTa0GZ1L
+         HXZ8jQ0dHIHGD49N9gwHs/zcoijIEI2jwRavLrTKo2s1wQC71/pTMPgHHD1uMzPX646J
+         0gWuamowfhabDPj9UyIgFWST90GUabRiyClYIJJf2HPYyRG8vms9ZoFrRE4vCCss5DCk
+         5+THDDHuY7tANFDMKy97cpm/GSvQiT5UgcUCB0NzAGNKO8l+jTC7BGMfx+oQ6vyq3vvA
+         4n9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750412897; x=1751017697;
+        d=1e100.net; s=20230601; t=1750412873; x=1751017673;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3ophzJ2KcsiNavT/VmG68xdzK6AlkZlfpiSptBRHbes=;
-        b=gWSK2yg/AILUGzRI3jQuSe8Qd62XQhaZcsrGxuK+5rFCyo07TZ48uJlOcj+qEFX3b7
-         WMi6wiGuUh2e7uLTRLX+5H6QSLNNMyYJV2GlOL1XKaGhlNGdpEChNJ9N67/RpQVyvQUZ
-         95NWBZc9UmBjF8WeoeuQaKB73WgoBQvvBVWVkkA3WDinaQ+ihxOsjfeO6xOIJeagNsmX
-         7L+++4vCxFbZuH2cPVRUzcIHyqJ82uM3QApemZxb8BMELqhhKKjkkQUxH+9iGn/zDXPP
-         lH+QE0nWDJ2FbLp6sHdlf9d8AWrp8WpmqBLsT4QjeVlvOKmzAnZ9o8liAxU2WBeQBCNf
-         +ZNw==
-X-Forwarded-Encrypted: i=1; AJvYcCUi+X0UyhinJISfxgaiyrYd5IkmYQ2EuOe/Q0qM6lOqBrnb3shYcBFfKQEHxvL18CzwWsAydJbOF2R8iQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZ7H4FqEEehVyPis/fYM7xLEPRz8eCZpY9t6Fr99vxtaZoaY5O
-	JBmZNQR0CKLotCh/NBXzEM/n1VXsvRrD4IP8rXemWofdk1MI3dJcCTbqwGUBEu/Tg006Cj8Aq4O
-	AYtCal9R+Xp3jHro7h1Qy4C016609bDXG/K1b5iMe
-X-Gm-Gg: ASbGncv87gsTz15NQR2SlybipOUP24LeforWJmboDJKd/XA/LpmZEEwM+x8iK06D9Xb
-	RX64QzhGOtyBWzwWkaYFBfpZxT8o39HFKICRXrn6odB5vFUHVs4dEofLJu+9XlSoL+R+8e5POyd
-	WDkKe9fD2Lc2l6NYsxWB65WxrcJwuaTMNfZEQFis9m36eY0vg90REswX75AM+dtWvTImcrHcp4D
-	cXK6g==
-X-Google-Smtp-Source: AGHT+IGYGP7SnLkzjM9/T5Xsy95Slyh2NxtweHTH1rWExcw2f5G76TAZn3tbXeICLUNovXsgPwORkl23aK2y+Ng0l78=
-X-Received: by 2002:a05:6214:19cd:b0:6fa:a0af:7644 with SMTP id
- 6a1803df08f44-6fd0a53189cmr39225806d6.27.1750412897416; Fri, 20 Jun 2025
- 02:48:17 -0700 (PDT)
+        bh=VQ3j77nwCD00iP66UdF2XjbRMeXfGVIDn+tQRmSuK+4=;
+        b=tj6DEPJZU76z0dEB9bd6EUJwe5PsDZRJ+t4Mz9KPSRLGqX7XdGqyVmU53dYVcRynvC
+         XsQeDzOEyRj3/aY5dWtA4q948L9Zoe9n6UlioKeeY9LfVx17VfkgQx6C6FqDmgJuhqCI
+         vLC/J+45c9uyPwwP44J4eMKAcGhQJLsIm4Kc11CltK6UvcqEBSnT5Y6EWn990/uC+Qmy
+         qO1kz6fNPNsfmkipNNvyjOdaMeWrE04v9i+Lo+n2PlG38eAtR4feFqDSVyeLaB8QOXQ/
+         BM4m8xTTZeGLjBUihOyPhK58qGfQoXzoJmxQjOW48tcUBYuuWFsgh78reb2GjyewL8L9
+         gCoA==
+X-Forwarded-Encrypted: i=1; AJvYcCVb5cZ3nlk8MmTjdYUbUEpKtlq8Xn0Bx3td9O5HzzHehOm7EsCHVn/lNC4HHJmkAsfYDIj/e0gnNnR7uQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmMlM1/wet04xwU5UpI2SdrgJxfeysig0qS/N0FpYENbvLVSFj
+	j9tKZ0boyiGOabvdVXBCIT7QVURgn5w9vTP89yOrXGAEhq20mB5Lt9ss56EMZUIygPWZvzO6kq5
+	vTWmNGIpwTXZ2nowO4dGTi8tF8GjHVSnlQbMGWFOV
+X-Gm-Gg: ASbGnctHxEmU/mGIjGf0Gr1RycvQcMnfyGxFDu/8u71D7/9qxln1/m5MoSmvRkPqke5
+	S3OkDj+5dJFKXwFwsUg2QxBUlQ7nmceYTIXsaQulcQ0Akoc34JS4+JA7ku4htT0aP5WPygxENOS
+	pQdAIqGcQplfUGgG9KZupQE/Ms4Y3o+cn95U77fvK1ABG7Xkfc51Zcugoa/5WcnbrSwyqYXFGWt
+	waA0A==
+X-Google-Smtp-Source: AGHT+IHCGzQiP9CoGn78oFXm7GG9cJ2j2G+bhX3F++LMsSLfCrbMShIHuTWLQHphIpCfEmf02xMc7nJ8bWdmwSrhFzc=
+X-Received: by 2002:a05:6214:e8c:b0:6fa:9a6a:7d03 with SMTP id
+ 6a1803df08f44-6fd0a46a25cmr38800396d6.7.1750412872214; Fri, 20 Jun 2025
+ 02:47:52 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de> <20250611-kunit-kselftests-v3-15-55e3d148cbc6@linutronix.de>
-In-Reply-To: <20250611-kunit-kselftests-v3-15-55e3d148cbc6@linutronix.de>
+References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de> <20250611-kunit-kselftests-v3-13-55e3d148cbc6@linutronix.de>
+In-Reply-To: <20250611-kunit-kselftests-v3-13-55e3d148cbc6@linutronix.de>
 From: David Gow <davidgow@google.com>
-Date: Fri, 20 Jun 2025 17:48:03 +0800
-X-Gm-Features: Ac12FXw0vvK0kNUL8PLM_I85MLksd3wdHePhrJe7vZL6QWot_OYNXjXBHL8Pg2A
-Message-ID: <CABVgOSmr_0rDxC-K96o0RzfppXQiEjSWO-e8xj+0i1kUtVo8CQ@mail.gmail.com>
-Subject: Re: [PATCH v3 15/16] kunit: uapi: Introduce preinit executable
+Date: Fri, 20 Jun 2025 17:47:39 +0800
+X-Gm-Features: Ac12FXx_BlS7BHHL9NkeffPaXzgrAycoeiIR7KaWT2kxyBUQ0Md-rQdk8rWlmgs
+Message-ID: <CABVgOSmdcOZ0+-k=SM4LibOVMKtcbF27p6N40kuDX_axTPZ=QQ@mail.gmail.com>
+Subject: Re: [PATCH v3 13/16] kunit: Introduce UAPI testing framework
 To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
 	Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>, 
@@ -86,8 +86,8 @@ Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org
 	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	workflows@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_024818_666734_1B3A42EF 
-X-CRM114-Status: GOOD (  24.82  )
+X-CRM114-CacheID: sfid-20250620_024753_807144_1B0E7725 
+X-CRM114-Status: GOOD (  40.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,198 +99,521 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8522338863602580763=="
+Content-Type: multipart/mixed; boundary="===============4229205367425304010=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8522338863602580763==
+--===============4229205367425304010==
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000fe42760637fdc2ba"
+	boundary="000000000000817eef0637fdc168"
 
---000000000000fe42760637fdc2ba
+--000000000000817eef0637fdc168
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 On Wed, 11 Jun 2025 at 15:38, Thomas Wei=C3=9Fschuh
 <thomas.weissschuh@linutronix.de> wrote:
 >
-> UAPI selftests may expect a "normal" userspace environment.
-> For example the normal kernel API pseudo-filesystems should be mounted.
-> This could be done from kernel code but it is non-idiomatic.
+> Enable running UAPI tests as part of kunit.
+> The selftests are embedded into the kernel image and their output is
+> forwarded to kunit for unified reporting.
 >
-> Add a preinit userspace executable which performs these setup steps
-> before running the final test executable.
-> This preinit executable is only ever run from the kernel.
-> Give it access to autoconf.h and kconfig.h to adapt itself to the
-> tested kernel.
+> The implementation reuses parts of usermode drivers and usermode
+> helpers. However these frameworks are not used directly as they make it
+> impossible to retrieve a thread's exit code.
 >
 > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
+>
 > ---
 
-Looks good and works here.
+It feels to me like there are three features hidden in here:
+- KUnit helpers for manipulating vfs files
+- A way of having KUnit tests run userspace helpers
+- The full framework for writing/running whole tests in userspace.
 
+It's really the first two which excite me personally most -- as they
+give us a sort-of inverse to the kselftest "helper module" paradigm --
+so we can test things which are impossible to test from within
+kernelspace. So maybe those APIs should be exposed separately (so a
+test can be written mostly in kernel-space using the KUnit framework
+APIs, and just call out to a helper where needed). But I'm happy for
+them to stay private functions until we have a test which actually
+needs them.
+
+
+> Currently this depends on CONFIG_KUNIT=3Dy as it uses some non-exported
+> symbols around process management.
+
+That's fine for now, IMHO, but will make it difficult to use this on,
+e.g., Red Hat setups, where CONFIG_KUNIT=3Dm. Hopefully we can resolve
+this by exporting some of the symbols?
+
+
+In general, I'm happy with the implementation here. The fs stuff
+probably needs a closer look from someone who knows the vfs better
+than me, though.
+
+Nevertheless,
 Reviewed-by: David Gow <davidgow@google.com>
-
-(Although, personally, _I wish_ it were more idiomatic to mount things
-from kernelspace.)
 
 Cheers,
 -- David
 
-
->  lib/kunit/Makefile       |  9 ++++++-
->  lib/kunit/uapi-preinit.c | 63 ++++++++++++++++++++++++++++++++++++++++++=
+> ---
+>  Documentation/dev-tools/kunit/api/index.rst |   5 +
+>  Documentation/dev-tools/kunit/api/uapi.rst  |  12 ++
+>  include/kunit/uapi.h                        |  24 +++
+>  lib/kunit/Kconfig                           |  10 +
+>  lib/kunit/Makefile                          |   2 +
+>  lib/kunit/uapi.c                            | 287 ++++++++++++++++++++++=
 ++++++
->  lib/kunit/uapi.c         | 11 +++++++--
->  3 files changed, 80 insertions(+), 3 deletions(-)
+>  6 files changed, 340 insertions(+)
 >
-> diff --git a/lib/kunit/Makefile b/lib/kunit/Makefile
-> index e406a31df1df834a87961663de0b7921b59481c2..19493ec320c61e2ccbb58e8b2=
-e943e9a4ec447e2 100644
-> --- a/lib/kunit/Makefile
-> +++ b/lib/kunit/Makefile
-> @@ -12,7 +12,14 @@ kunit-objs +=3D                                test.o =
-\
->                                         device.o \
->                                         platform.o
+> diff --git a/Documentation/dev-tools/kunit/api/index.rst b/Documentation/=
+dev-tools/kunit/api/index.rst
+> index 5cdb552a0808f25baeff5e47a9227b7b62c69e40..34d8fee9a97059d6da919a6fb=
+1a7e359b5e0beef 100644
+> --- a/Documentation/dev-tools/kunit/api/index.rst
+> +++ b/Documentation/dev-tools/kunit/api/index.rst
+> @@ -9,6 +9,7 @@ API Reference
+>         test
+>         resource
+>         functionredirection
+> +       uapi
+>         clk
+>         of
+>         platformdevice
+> @@ -32,6 +33,10 @@ Documentation/dev-tools/kunit/api/functionredirection.=
+rst
 >
-> -kunit-$(CONFIG_KUNIT_UAPI) +=3D          uapi.o
-> +userprogs +=3D                           uapi-preinit
-> +uapi-preinit-nolibc :=3D                 $(CONFIG_ARCH_HAS_NOLIBC)
-> +uapi-preinit-userccflags +=3D            -static \
-> +                                       -include include/generated/autoco=
-nf.h \
-> +                                       -include $(srctree)/tools/include=
-/linux/kconfig.h
-> +blobs +=3D                               uapi-preinit.blob.o
-> +uapi-preinit.blob-symbol :=3D            kunit_uapi_preinit
-> +kunit-$(CONFIG_KUNIT_UAPI) +=3D          uapi.o uapi-preinit.blob.o
+>   - Documents the KUnit Function Redirection API
 >
->  ifeq ($(CONFIG_KUNIT_DEBUGFS),y)
->  kunit-objs +=3D                          debugfs.o
-> diff --git a/lib/kunit/uapi-preinit.c b/lib/kunit/uapi-preinit.c
+> +Documentation/dev-tools/kunit/api/uapi.rst
+> +
+> + - Documents the KUnit Userspace testing API
+> +
+>  Driver KUnit API
+>  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+> diff --git a/Documentation/dev-tools/kunit/api/uapi.rst b/Documentation/d=
+ev-tools/kunit/api/uapi.rst
 > new file mode 100644
-> index 0000000000000000000000000000000000000000..81182039965a8c93aebb2d5d7=
-6f4113bfef277a6
+> index 0000000000000000000000000000000000000000..b4764424c629bf69194cf2786=
+f52aef154b02bf8
 > --- /dev/null
-> +++ b/lib/kunit/uapi-preinit.c
-> @@ -0,0 +1,63 @@
-> +// SPDX-License-Identifier: GPL-2.0
+> +++ b/Documentation/dev-tools/kunit/api/uapi.rst
+> @@ -0,0 +1,12 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +
+> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> +Userspace Test API
+> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> +
+> +This file documents all of the userspace testing API.
+> +Userspace tests should be built as :ref:`userprogs <kbuild_userprogs>` a=
+nd included into the test
+> +module or kernel as :ref:`blobs <kbuild_blobs>`.
+> +
+> +.. kernel-doc:: include/kunit/uapi.h
+> +   :internal:
+> diff --git a/include/kunit/uapi.h b/include/kunit/uapi.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..a6181790c96a42df058390979=
+91c1fbfd889cdbe
+> --- /dev/null
+> +++ b/include/kunit/uapi.h
+> @@ -0,0 +1,24 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
 > +/*
-> + * KUnit Userspace environment setup.
+> + * KUnit Userspace testing API.
 > + *
 > + * Copyright (C) 2025, Linutronix GmbH.
 > + * Author: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
-> + *
-> + * This is *userspace* code.
 > + */
 > +
-> +#include <sys/mount.h>
-> +#include <sys/stat.h>
+> +#ifndef _KUNIT_UAPI_H
+> +#define _KUNIT_UAPI_H
 > +
-> +#include "../../tools/testing/selftests/kselftest.h"
+> +struct blob;
+> +struct kunit;
 > +
-> +static int setup_api_mount(const char *target, const char *fstype)
+> +/**
+> + * kunit_uapi_run_kselftest() - Run a userspace kselftest as part of kun=
+it
+> + * @test: The test context object.
+> + * @executable: kselftest executable to run
+> + *
+> + * Runs the kselftest and forwards its TAP output and exit status to kun=
+it.
+> + */
+> +void kunit_uapi_run_kselftest(struct kunit *test, const struct blob *exe=
+cutable);
+> +
+> +#endif /* _KUNIT_UAPI_H */
+> diff --git a/lib/kunit/Kconfig b/lib/kunit/Kconfig
+> index a97897edd9642f3e5df7fdd9dee26ee5cf00d6a4..1f2f5f2213a7d8438cd268395=
+5f22e34f3a036dd 100644
+> --- a/lib/kunit/Kconfig
+> +++ b/lib/kunit/Kconfig
+> @@ -93,4 +93,14 @@ config KUNIT_AUTORUN_ENABLED
+>           In most cases this should be left as Y. Only if additional opt-=
+in
+>           behavior is needed should this be set to N.
+>
+> +config KUNIT_UAPI
+> +       def_bool y
+
+Maybe it's worth making this configurable separately? I could imagine
+people wanting an easy way to build a kernel without all of the test
+blobs built-in.
+
+> +       depends on KUNIT=3Dy
+> +       depends on CC_CAN_LINK_STATIC || ARCH_HAS_NOLIBC
+> +       select HEADERS_INSTALL
+> +       help
+> +         Enables support for building and running userspace selftests as=
+ part of kunit.
+> +         These tests should be statically linked and use kselftest.h or =
+kselftest_harness.h
+> +         for status reporting.
+> +
+>  endif # KUNIT
+> diff --git a/lib/kunit/Makefile b/lib/kunit/Makefile
+> index 656f1fa35abcc635e67d5b4cb1bc586b48415ac5..dafa09bd4241c24d31c4c19ed=
+ecb67bf724127d7 100644
+> --- a/lib/kunit/Makefile
+> +++ b/lib/kunit/Makefile
+> @@ -12,6 +12,8 @@ kunit-objs +=3D                         test.o \
+>                                         device.o \
+>                                         platform.o
+>
+> +kunit-$(CONFIG_KUNIT_UAPI) +=3D          uapi.o
+> +
+>  ifeq ($(CONFIG_KUNIT_DEBUGFS),y)
+>  kunit-objs +=3D                          debugfs.o
+>  endif
+> diff --git a/lib/kunit/uapi.c b/lib/kunit/uapi.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..121146dda533b3f90aca37c20=
+bd0e7a1d20cb3b5
+> --- /dev/null
+> +++ b/lib/kunit/uapi.c
+> @@ -0,0 +1,287 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * KUnit Userspace testing API.
+> + *
+> + * Copyright (C) 2025, Linutronix GmbH.
+> + * Author: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
+> + */
+> +
+> +#include <linux/binfmts.h>
+> +#include <linux/blob.h>
+> +#include <linux/file.h>
+> +#include <linux/fs.h>
+> +#include <linux/fs_struct.h>
+> +#include <linux/pid.h>
+> +#include <linux/pipe_fs_i.h>
+> +#include <linux/sched/task.h>
+> +#include <linux/types.h>
+> +
+> +#include <kunit/test.h>
+> +#include <kunit/uapi.h>
+> +
+> +#define KSFT_PASS      0
+> +#define KSFT_FAIL      1
+> +#define KSFT_XFAIL     2
+> +#define KSFT_XPASS     3
+> +#define KSFT_SKIP      4
+> +
+> +static struct vfsmount *kunit_uapi_mount_ramfs(void)
 > +{
-> +       int ret;
+> +       struct file_system_type *type;
+> +       struct vfsmount *mnt;
 > +
-> +       ret =3D mkdir(target, 0755);
-> +       if (ret && errno !=3D EEXIST)
-> +               return -errno;
+> +       type =3D get_fs_type("ramfs");
+> +       if (!type)
+> +               return ERR_PTR(-ENODEV);
 > +
-> +       ret =3D mount("none", target, fstype, 0, NULL);
-> +       if (ret && errno !=3D EBUSY)
-> +               return -errno;
+> +       /* FIXME
+> +        * The mount setup is supposed to look like this:
+> +        * kunit_uapi_mount_ramfs() sets up a private mount,
+> +        * with nothing visible except the new tmpfs.
+> +        * Then each executable execution gets a new namespace on top of =
+that
+> +        * on which it can mount whatever it needs.
+> +        * However I didn't manage to set this up, so keep everything sim=
+ple
+> +        * for now and let somebody familiar with the VFS figure this out=
+.
+> +        */
 > +
-> +       return 0;
+> +       mnt =3D kern_mount(type);
+> +       put_filesystem(type);
+> +
+> +       return mnt;
 > +}
 > +
-> +static void exit_failure(const char *stage, int err)
+> +static int kunit_uapi_write_file(struct vfsmount *mnt, const char *name,=
+ mode_t mode,
+> +                                const u8 *data, size_t size)
 > +{
-> +       /* If preinit fails synthesize a failed test report. */
-> +       ksft_print_header();
-> +       ksft_set_plan(1);
-> +       ksft_test_result_fail("Failed during test setup: %s: %s\n", stage=
-, strerror(-err));
-> +       ksft_finished();
-> +}
+> +       struct file *file;
+> +       ssize_t written;
 > +
-> +int main(int argc, char **argv, char **envp)
-> +{
-> +       int ret;
+> +       file =3D file_open_root_mnt(mnt, name, O_CREAT | O_WRONLY, mode);
+> +       if (IS_ERR(file))
+> +               return PTR_ERR(file);
 > +
-> +       ret =3D setup_api_mount("/proc", "proc");
-> +       if (ret)
-> +               exit_failure("mount /proc", ret);
-> +
-> +       ret =3D setup_api_mount("/sys", "sysfs");
-> +       if (ret)
-> +               exit_failure("mount /sys", ret);
-> +
-> +       if (IS_ENABLED(CONFIG_DEVTMPFS)) {
-> +               ret =3D setup_api_mount("/dev", "devtmpfs");
-> +               if (ret)
-> +                       exit_failure("mount /dev", ret);
+> +       written =3D kernel_write(file, data, size, NULL);
+> +       filp_close(file, NULL);
+> +       if (written !=3D size) {
+> +               if (written >=3D 0)
+> +                       return -ENOMEM;
+> +               return written;
 > +       }
 > +
-> +       ret =3D execve(argv[0], argv, envp);
-> +       if (ret)
-> +               exit_failure("execve", ret);
+> +       /* Flush delayed fput so exec can open the file read-only */
+> +       flush_delayed_fput();
 > +
 > +       return 0;
 > +}
-> diff --git a/lib/kunit/uapi.c b/lib/kunit/uapi.c
-> index 121146dda533b3f90aca37c20bd0e7a1d20cb3b5..bccc081a6538507724c1ef340=
-203cfd147170dc4 100644
-> --- a/lib/kunit/uapi.c
-> +++ b/lib/kunit/uapi.c
-> @@ -139,7 +139,7 @@ static int kunit_uapi_user_mode_thread_init(void *dat=
-a)
->         kernel_sigaction(SIGABRT, SIG_DFL);
->
->         complete(&ctx->setup_done);
-> -       ctx->exec_err =3D kernel_execve(ctx->executable, argv, NULL);
-> +       ctx->exec_err =3D kernel_execve(kbasename(BLOB(kunit_uapi_preinit=
-)->path), argv, NULL);
->         if (!ctx->exec_err)
->                 return 0;
->         do_exit(0);
-> @@ -239,6 +239,7 @@ static int kunit_uapi_run_executable_in_mount(struct =
-kunit *test, const char *ex
->
->  static int kunit_uapi_run_executable(struct kunit *test, const struct bl=
+> +
+> +struct kunit_uapi_user_mode_thread_ctx {
+> +       const char *executable;
+> +
+> +       /* Signals mnt, out, pwd and tgid */
+> +       struct completion setup_done;
+> +       struct vfsmount *mnt;
+> +       struct file *out;
+> +       struct path pwd;
+> +       pid_t tgid;
+> +
+> +       /* Valid after wait(tgid) */
+> +       int exec_err;
+> +};
+> +
+> +static int kunit_uapi_user_mode_thread_init(void *data)
+> +{
+> +       struct kunit_uapi_user_mode_thread_ctx *ctx =3D data;
+> +       const char *const argv[] =3D {
+> +               ctx->executable,
+> +               NULL
+> +       };
+> +       struct file *out[2];
+> +       int err;
+> +
+> +       err =3D create_pipe_files(out, 0);
+> +       if (err)
+> +               return err;
+> +
+> +       /* stdin, use the *write* end to the pipe to have an unreadable i=
+nput */
+> +       err =3D replace_fd(0, out[1], 0);
+> +       if (err < 0) {
+> +               fput(out[0]);
+> +               fput(out[1]);
+> +               return err;
+> +       }
+> +
+> +       /* stdout */
+> +       err =3D replace_fd(1, out[1], 0);
+> +       if (err < 0) {
+> +               replace_fd(0, NULL, 0);
+> +               fput(out[0]);
+> +               fput(out[1]);
+> +               return err;
+> +       }
+> +
+> +       /* stderr */
+> +       err =3D replace_fd(2, out[1], 0);
+> +       if (err < 0) {
+> +               replace_fd(0, NULL, 0);
+> +               replace_fd(1, NULL, 0);
+> +               fput(out[0]);
+> +               fput(out[1]);
+> +               return err;
+> +       }
+> +
+> +       fput(out[1]);
+> +
+> +       ctx->out =3D out[0];
+> +       ctx->tgid =3D current->tgid;
+> +
+> +       set_fs_pwd(current->fs, &ctx->pwd);
+> +       kernel_sigaction(SIGKILL, SIG_DFL);
+> +       kernel_sigaction(SIGABRT, SIG_DFL);
+> +
+> +       complete(&ctx->setup_done);
+> +       ctx->exec_err =3D kernel_execve(ctx->executable, argv, NULL);
+> +       if (!ctx->exec_err)
+> +               return 0;
+> +       do_exit(0);
+> +}
+> +
+> +static size_t kunit_uapi_printk_subtest_lines(struct kunit *test, char *=
+buf, size_t s)
+> +{
+> +       const char *ptr =3D buf, *newline;
+> +       size_t n;
+> +
+> +       while (s) {
+> +               newline =3D strnchr(ptr, s, '\n');
+> +               if (!newline)
+> +                       break;
+> +
+> +               n =3D newline - ptr + 1;
+> +
+> +               kunit_log(KERN_INFO, test, KUNIT_SUBSUBTEST_INDENT "%.*s"=
+, (int)n, ptr);
+> +               ptr +=3D n;
+> +               s -=3D n;
+> +       }
+> +
+> +       memmove(buf, ptr, s);
+> +
+> +       return s;
+> +}
+> +
+> +static int kunit_uapi_forward_to_printk(struct kunit *test, struct file =
+*output)
+> +{
+> +       /*
+> +        * printk() automatically adds a newline after each message.
+> +        * Therefore only fully accumulated lines can be forwarded.
+> +        * Each line needs to fit into the buffer below.
+> +        */
+> +       char buf[512];
+> +       size_t s =3D 0;
+> +       ssize_t n;
+> +
+> +       while (1) {
+> +               n =3D kernel_read(output, buf + s, sizeof(buf) - s, NULL)=
+;
+> +               if (n <=3D 0)
+> +                       return n;
+> +               s =3D kunit_uapi_printk_subtest_lines(test, buf, s + n);
+> +       }
+> +}
+> +
+> +static void kunit_uapi_kill_pid(pid_t pid)
+> +{
+> +       struct pid *p;
+> +
+> +       p =3D find_get_pid(pid);
+> +       kill_pid(p, SIGKILL, 1);
+> +       put_pid(p);
+> +}
+> +
+> +static int kunit_uapi_run_executable_in_mount(struct kunit *test, const =
+char *executable,
+> +                                                  struct vfsmount *mnt)
+> +{
+> +       struct kunit_uapi_user_mode_thread_ctx ctx =3D {
+> +               .setup_done     =3D COMPLETION_INITIALIZER_ONSTACK(ctx.se=
+tup_done),
+> +               .executable     =3D executable,
+> +               .pwd            =3D {
+> +                       .mnt    =3D mnt,
+> +                       .dentry =3D mnt->mnt_root,
+> +               },
+> +       };
+> +       int forward_err, wait_err, ret;
+> +       pid_t pid;
+> +
+> +       /* If SIGCHLD is ignored do_wait won't populate the status. */
+> +       kernel_sigaction(SIGCHLD, SIG_DFL);
+> +       pid =3D user_mode_thread(kunit_uapi_user_mode_thread_init, &ctx, =
+SIGCHLD);
+> +       if (pid < 0) {
+> +               kernel_sigaction(SIGCHLD, SIG_IGN);
+> +               return pid;
+> +       }
+> +
+> +       wait_for_completion(&ctx.setup_done);
+> +
+> +       forward_err =3D kunit_uapi_forward_to_printk(test, ctx.out);
+> +       if (forward_err)
+> +               kunit_uapi_kill_pid(ctx.tgid);
+> +
+> +       wait_err =3D kernel_wait(ctx.tgid, &ret);
+> +
+> +       /* Restore default kernel sig handler */
+> +       kernel_sigaction(SIGCHLD, SIG_IGN);
+> +
+> +       if (ctx.exec_err)
+> +               return ctx.exec_err;
+> +       if (forward_err)
+> +               return forward_err;
+> +       if (wait_err < 0)
+> +               return wait_err;
+> +       return ret;
+> +}
+> +
+> +static int kunit_uapi_run_executable(struct kunit *test, const struct bl=
 ob *executable)
->  {
-> +       const struct blob *preinit =3D BLOB(kunit_uapi_preinit);
->         const char *exe_name =3D kbasename(executable->path);
->         struct vfsmount *mnt;
->         int err;
-> @@ -247,7 +248,13 @@ static int kunit_uapi_run_executable(struct kunit *t=
-est, const struct blob *exec
->         if (IS_ERR(mnt))
->                 return PTR_ERR(mnt);
->
-> -       err =3D kunit_uapi_write_file(mnt, exe_name, 0755, executable->da=
+> +{
+> +       const char *exe_name =3D kbasename(executable->path);
+> +       struct vfsmount *mnt;
+> +       int err;
+> +
+> +       mnt =3D kunit_uapi_mount_ramfs();
+> +       if (IS_ERR(mnt))
+> +               return PTR_ERR(mnt);
+> +
+> +       err =3D kunit_uapi_write_file(mnt, exe_name, 0755, executable->da=
 ta, blob_size(executable));
-> +       err =3D kunit_uapi_write_file(mnt, kbasename(preinit->path), 0755=
-,
-> +                                   preinit->data,
-> +                                   blob_size(preinit));
 > +
 > +       if (!err)
-> +               err =3D kunit_uapi_write_file(mnt, exe_name, 0755,
-> +                                           executable->data, blob_size(e=
-xecutable));
->
->         if (!err)
->                 err =3D kunit_uapi_run_executable_in_mount(test, exe_name=
+> +               err =3D kunit_uapi_run_executable_in_mount(test, exe_name=
 , mnt);
+> +
+> +       kern_unmount(mnt);
+> +
+> +       return err;
+> +}
+> +
+> +void kunit_uapi_run_kselftest(struct kunit *test, const struct blob *exe=
+cutable)
+> +{
+> +       u8 exit_code, exit_signal;
+> +       int err;
+> +
+> +       err =3D kunit_uapi_run_executable(test, executable);
+> +       if (err < 0)
+> +               KUNIT_FAIL(test, "Could not run test executable: %pe\n", =
+ERR_PTR(err));
+> +
+> +       exit_code =3D err >> 8;
+> +       exit_signal =3D err & 0xff;
+> +
+> +       if (exit_signal)
+> +               KUNIT_FAIL(test, "kselftest exited with signal: %d\n", ex=
+it_signal);
+> +       else if (exit_code =3D=3D KSFT_PASS)
+> +               ; /* Noop */
+> +       else if (exit_code =3D=3D KSFT_FAIL)
+> +               KUNIT_FAIL(test, "kselftest exited with code KSFT_FAIL\n"=
+);
+> +       else if (exit_code =3D=3D KSFT_XPASS)
+> +               KUNIT_FAIL(test, "kselftest exited with code KSFT_XPASS\n=
+");
+> +       else if (exit_code =3D=3D KSFT_XFAIL)
+> +               ; /* Noop */
+> +       else if (exit_code =3D=3D KSFT_SKIP)
+> +               kunit_mark_skipped(test, "kselftest exited with code KSFT=
+_SKIP\n");
+> +       else
+> +               KUNIT_FAIL(test, "kselftest exited with unknown exit code=
+: %d\n", exit_code);
+> +}
+> +EXPORT_SYMBOL_GPL(kunit_uapi_run_kselftest);
 >
 > --
 > 2.49.0
 >
 
---000000000000fe42760637fdc2ba
+--000000000000817eef0637fdc168
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -380,19 +703,19 @@ Vumvw5QTHe29TYxSiusovM6OD5y0I+4zaIaYDx/AtF0mMOFXb1MDyynf1CDxhtkgnrBUseHSOU2e
 MYs7IqzRap5xsgpJS+t7cp/P8fdlCNvsXss9zZa279tKwaxR0U2IzGxRGsWKGxDysn1HT6pqMDGC
 Al0wggJZAgEBMGgwVDELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExKjAo
 BgNVBAMTIUdsb2JhbFNpZ24gQXRsYXMgUjYgU01JTUUgQ0EgMjAyMwIQAUXA7LnOuRz2DvkWTeMc
-0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgs4VcxKYjtKh6NTZuUwJLHTBnO1Um
-GVIEtaLUncX1XocwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
-NjIwMDk0ODE3WjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
+0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgcutP6NJCb85IQJuV/sWPoU7YzxlE
+AsYqhdc29JKnRmcwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
+NjIwMDk0NzUzWjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
 YIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzALBglghkgBZQMEAgEwDQYJKoZIhvcN
-AQEBBQAEggEAIWzJZQOQEcyCknyZ2DOVAfbXx3LURsX9h4sbV2IiAUN5cW8NWUMo/jl/i/zX592l
-z74sta1itA8W5zi2vC9HSjVVZFnyVtrs8ISB8p/J14zLSS1RSc1Mp1tlt03MLaJF5i/xl/1UKb2W
-RrmxuH+p1h1gHnzCuZqwM29rnYWuhfKMf/YcKeQKzuKuzTGF4Iqlr6/BMfIIwrW4sUI0qlpNKP8f
-2i70xkgvrWv3XtKxniHudv8d9EEdIiVldfg7qRQVrFhu+YsTp377WL+b0eaXeG7E+BgSPqE2e+Bw
-uC/lxKmmyH/MnlFz+7seKkqinivq2t0uPurADJwllM4wz7d8VQ==
---000000000000fe42760637fdc2ba--
+AQEBBQAEggEAD0uesPC9YgYyLjPcmYIB7XAhHa9mssGZwEWobWXJVpOj53JgdxYx/8HIAB0eZ+GX
+ITD2wXpjULzEgrD4MsXRf7kfqMGhKysOB6NqTbaKecSLBtoJxoy6/7aPfwGln+pnMPy3j++jOy5G
+Ne4t6BZmDEei6nXcZ9Bg7zDGBnUuWR0XttIre9QzdR/bI65pXwuBVmcv/KHqYjYwTm1RjcbwOp9l
+rJa3uPqUWjroTIdUNeKUoOSe16WZ62G5RT+iyVBMbMH1a2Y/CUdSFWb8ln5AhK5q1Gl+ekHotc8D
+obe9/W6jk9IWBQIDfDnrnmpw5CXT4bujBSP+/ZTixfSb5Tw3DQ==
+--000000000000817eef0637fdc168--
 
 
---===============8522338863602580763==
+--===============4229205367425304010==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -403,5 +726,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8522338863602580763==--
+--===============4229205367425304010==--
 
