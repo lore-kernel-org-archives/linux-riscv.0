@@ -4,59 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF1EC7115D
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 10:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD0E3C77B7C
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 10:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Mime-Version:
-	Message-Id:Date:From:Cc:To:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3FkS6SMfap1fG3EFzJ1I0Xpn23RFHqNwWM21EY3DzsU=; b=iD2CAzBPd+/vlL
-	x2q8pl7ZcNoKm5vJvh7JT4KG/T3q+gvybzP24EbflDjKcZG4ZgvrV+ZI0CLvhOVHhAg41R8xKKNe2
-	LcYfxrlP/x6hN8kvIEK5eflA58Mxtrfnt1vG7mvlENY2xiOzvWQogkYOZL3Q989WRUeFFcNQQLBnT
-	oHC6X8vdTZm5YpyPt4hDDgGOP+7/bLW+uCWpSNcB4UU7B89n403zkiQpiNZlh/WcdYWOysxH4t97B
-	poOCa+9mIad9UrCbEp1shchup2OWNgzsaDut4nn6yddndzF4fea6EaQB5d8CV9jMh5ssQb1Ntlxt9
-	9JdjnyOh4/72uAkdtJdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:
+	To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rm+52WpR2n1KRkZXuaXq/7B7G46sqUrA9fKU8LqQQGI=; b=ZcBdH1iGsZoItyooCK66hn1hSe
+	DJLSipEiQpJhJJabKc5ct0v7rRRabEsf/+FKcfb/NFKogi8lxAbzLyI1mxXKaq0z0cPXLT0ChqfFM
+	PwjQXFHGgqxauA36SfEpLEXo3VdEDyltKe2k3cKr0QyR3sBgEKoOd8jBnd2H3rq8qkdj/bmu8BmgV
+	+d3NgymlSDE3lUlItljiQYORrq0Ffsj0/6VTphVPo1bwxox1M0hhBU5yb9qpoykleEplPD9re8GKo
+	XauWnbYvmrwiihhTRUqBSHlr8T5xMhIxqeimBYoP9CqATw99aNrP4Sgn8AgXpzNXivXLzsGoZNLV4
+	Teh5II4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZ6z-0000000FLlw-3n55;
-	Fri, 20 Jun 2025 10:36:45 +0000
-Received: from sg-3-13.ptr.tlmpb.com ([101.45.255.13])
+	id 1uSZH4-0000000FNtf-1Su1;
+	Fri, 20 Jun 2025 10:47:10 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYBL-0000000FCph-3AJk
+	id 1uSYMA-0000000FFeH-0wtk
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jun 2025 09:37:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1750412220;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=oeXxAIqzohSWPmedTEZHs1J1ce2tPrIZS+IBTNkDcr8=;
- b=AF1ceC70Y+GV1+D5xXqF8udpzakQZUwAaNT0se6YcyniphkrwbqLYF07pg7LFWVsj6AXhn
- ucJsWNwhk0Pc2leTiU3TP4ZBO0g4f+bhz/5VpimV1wsuuPGV6k2pz9hDJGEoxrE7C7mDpo
- iBduWSrtu80KrA7BPBWMls5kAbnv8Md5ytYL/Jwu2SSRatUNpYL7ykWF4yEIdpdxAaQx/Q
- nVP91BdtnmUaNCozzGXNhqk3byAgjosMXepeX01JU7vEDOugHXFNEn50O1VHKIXNsR5YNo
- bOSZBeeGmtEeFPk5krB62IYteWYdUdyYO7h6qi2K/Bc48uRVg7XsYRo0eBo80w==
-Subject: Re: [PATCH 1/5] RISC-V: KVM: Provide UAPI for Zicbop block size
-X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
-X-Lms-Return-Path: <lba+268552bba+6dd456+lists.infradead.org+liujingqi@lanxincomputing.com>
-Content-Language: en-US
-User-Agent: Mozilla Thunderbird
-To: <zhouquan@iscas.ac.cn>, <anup@brainfault.org>, <ajones@ventanamicro.com>, 
-	<atishp@atishpatra.org>, <paul.walmsley@sifive.com>, 
-	<palmer@dabbelt.com>
-Cc: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, 
-	<kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>
-From: "Nutty Liu" <liujingqi@lanxincomputing.com>
-Date: Fri, 20 Jun 2025 17:36:55 +0800
-Message-Id: <193a6972-2498-4661-8b76-4303819ca0b2@lanxincomputing.com>
-Mime-Version: 1.0
-Received: from [127.0.0.1] ([180.165.3.105]) by smtp.feishu.cn with ESMTPS; Fri, 20 Jun 2025 17:36:57 +0800
-In-Reply-To: <553bacc4f66e815975bb8ee0e4696397407b0a82.1750164414.git.zhouquan@iscas.ac.cn>
-References: <cover.1750164414.git.zhouquan@iscas.ac.cn> <553bacc4f66e815975bb8ee0e4696397407b0a82.1750164414.git.zhouquan@iscas.ac.cn>
+	Fri, 20 Jun 2025 09:48:24 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-6fae04a3795so18157306d6.3
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 02:48:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1750412901; x=1751017701; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=NSBvBMItWKc5lTtHmR7Pf3t7Ss50qSKyzEfyahxBp1A=;
+        b=qHWWp4fZFHP0bpe27plrEktx0HExG+HwN6hFgHzA7m9gttCGee80MIl5wupyNCigQS
+         nJnth5AZ8FxxqIdBOlWrCZ17jvulArq6WUJ3eJiKlNVjUYHE7FAPrShMjaGecu4ahOd2
+         6JN0OzU4s3HjR+CSPtlFFjrbXDOpHHl+YqJ5zaDOmfbkvqesNw6KvvF8f0md3M2NUeg1
+         1Zt+VsBv9XKKDHOsIpsEb29GMb5xdPAD4da4dr+hiyfhAQs7y2cnS3kEeP8LfKOjxADd
+         JKulHTW01TgLqI9UoqTTWFIwPpP4Z3/YXIi0I22lLg5FrJnww1T6IsCD0ouiKZO733HY
+         l91g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750412901; x=1751017701;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NSBvBMItWKc5lTtHmR7Pf3t7Ss50qSKyzEfyahxBp1A=;
+        b=TI4zhVvaQrkOuJs4X99zvCu+ZpLpwwrOsIkcAB5uuchVPzGTtShDEXrLRqHCYF46Qb
+         S2UM3zGgEp8Lot9D6kIRQzoqE7BI1aiR1na29aSI85hyvzclyWHbjPdvVg7OcDo9zMu+
+         Bg0eXPIexReqayrYQ9aWlOJMBw67RCClvjlw+UeCHPrUYObVeED3RA84eZd4BaYpZNGA
+         HhfAxuS36z+RflGwp+PXL5AFR6x5gbJ6MUHOkqkDGpXUPSjRkh1Nv67+b+73sYMZ89B2
+         3XSutXcxmrCd8JH+B3xPCXl+Ab2oS9ktGFVH+cs/gm+OOLKK3xe+Ib8WXVg6HYmNbubQ
+         ES8w==
+X-Forwarded-Encrypted: i=1; AJvYcCXZOsjnKIyXX8khA5f6ppDTwvrOzWlGJUrWcWtaBXDPa9C9W3caIQOtajPSTCUllElOVkoGtyJGK6Xbfw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9gn81tL9PSNnUD3Hn7VzMwEJYvf/QY4YvICn+eoZMV7y7GH8T
+	WP0OQyXWgju/24fcbfRgWGmMIKDq8c0eLfxTcLht+koLmDJxXWq3/jomnzTfsJOL1A5uQKLyEdB
+	1Q3WMFgCeVeyAImDtTGY6R6xuhGnmf1hxBMAKOyy2
+X-Gm-Gg: ASbGncszdLpm5m8ZENBFSB4SX5R1dqZO9c1A2h9zKyilXP7hCvsHbmZK91sfe7tBiBB
+	Ow2ecgybgTvlyrxAiIJg1iAaqj9Ap6BUxofYFCke60zfh1ahY1384ekXGe68O2ESlvCjlYn/NGO
+	RyXN/Ud0XQ4mCtXTufiaNjABxKH7c90lcfJH6QlqBjfk+rzFy2ofJEyg6yaQkx8WRASNpQv8ug8
+	9c0zg==
+X-Google-Smtp-Source: AGHT+IG9l5kxV+1Ma4bC/Ch21pNSqqetHy75BeA92GPqCkiA+bQJbD7IsIRL0I1y9bQPx2uEdJUuoJ0+0CcL4GfInSI=
+X-Received: by 2002:a05:6214:d65:b0:6fa:fbb4:6408 with SMTP id
+ 6a1803df08f44-6fd0a468d1bmr39369366d6.7.1750412900984; Fri, 20 Jun 2025
+ 02:48:20 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de> <20250611-kunit-kselftests-v3-16-55e3d148cbc6@linutronix.de>
+In-Reply-To: <20250611-kunit-kselftests-v3-16-55e3d148cbc6@linutronix.de>
+From: David Gow <davidgow@google.com>
+Date: Fri, 20 Jun 2025 17:48:07 +0800
+X-Gm-Features: Ac12FXziy84ZitrRyNjPJ5X18Rn5RbIW_PxLqeeotLRQa3GNSMkRr034RqGPbsU
+Message-ID: <CABVgOSkzpY8327ePSjuLcbz2jWZkavJvJfF7eehCsS0uzkB65g@mail.gmail.com>
+Subject: Re: [PATCH v3 16/16] kunit: uapi: Validate usability of /proc
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>, 
+	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
+	Brendan Higgins <brendan.higgins@linux.dev>, Rae Moar <rmoar@google.com>, 
+	Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Nicolas Schier <nicolas.schier@linux.dev>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	workflows@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_023712_152750_2E9AC4C3 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20250620_024822_287159_87A4FB11 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,77 +99,230 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4190916195371065009=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/17/2025 9:10 PM, zhouquan@iscas.ac.cn wrote:
-> From: Quan Zhou <zhouquan@iscas.ac.cn>
+--===============4190916195371065009==
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="00000000000035a6b40637fdc31f"
+
+--00000000000035a6b40637fdc31f
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, 11 Jun 2025 at 15:38, Thomas Wei=C3=9Fschuh
+<thomas.weissschuh@linutronix.de> wrote:
 >
-> We're about to allow guests to use the Zicbop extension.
-> KVM userspace needs to know the cache block size in order to
-> properly advertise it to the guest. Provide a virtual config
-> register for userspace to get it with the GET_ONE_REG API, but
-> setting it cannot be supported, so disallow SET_ONE_REG.
+> Show that the selftests are executed from a fairly "normal"
+> userspace context.
 >
-> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
 > ---
->   arch/riscv/include/uapi/asm/kvm.h |  1 +
->   arch/riscv/kvm/vcpu_onereg.c      | 11 +++++++++++
->   2 files changed, 12 insertions(+)
+
+This is good. I'm not 100% sure the example test is the best place for
+it, though.
+
+Would it make more sense to either have this:
+- in the main kunit test (since it's really _verifying_ the KUnit
+environment, rather than documenting it)
+- in a separate kunit-uapi test (if we want to keep some separation
+between the UAPI and entirely in-kernel tests)
+- in a separate procfs test (since it tests procfs functionality as
+much as it's testing the KUnit environment)
+
+Personally, my gut feeling is the main kunit-test is the best place
+for this, even if it means spinning up a separate file is best here.
+
+As for the actual implementation, though, that looks fine to me. A few
+small comments below, but nothing particularly important.
+
+Reviewed-by: David Gow <davidgow@google.com>
+
+Cheers,
+-- David
+
+>  lib/kunit/kunit-example-uapi.c | 34 +++++++++++++++++++++++++++++++++-
+>  1 file changed, 33 insertions(+), 1 deletion(-)
 >
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index 5f59fd226cc5..0863ca178066 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -55,6 +55,7 @@ struct kvm_riscv_config {
->   	unsigned long mimpid;
->   	unsigned long zicboz_block_size;
->   	unsigned long satp_mode;
-> +	unsigned long zicbop_block_size;
->   };
->   
->   /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-> diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-> index 2e1b646f0d61..b08a22eaa7a7 100644
-> --- a/arch/riscv/kvm/vcpu_onereg.c
-> +++ b/arch/riscv/kvm/vcpu_onereg.c
-> @@ -256,6 +256,11 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
->   			return -ENOENT;
->   		reg_val = riscv_cboz_block_size;
->   		break;
-> +	case KVM_REG_RISCV_CONFIG_REG(zicbop_block_size):
-> +		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOP))
-> +			return -ENOENT;
-> +		reg_val = riscv_cbop_block_size;
-> +		break;
->   	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
->   		reg_val = vcpu->arch.mvendorid;
->   		break;
-> @@ -347,6 +352,12 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
->   		if (reg_val != riscv_cboz_block_size)
->   			return -EINVAL;
->   		break;
-> +	case KVM_REG_RISCV_CONFIG_REG(zicbop_block_size):
-> +		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOP))
-> +			return -ENOENT;
-> +		if (reg_val != riscv_cbop_block_size)
+> diff --git a/lib/kunit/kunit-example-uapi.c b/lib/kunit/kunit-example-uap=
+i.c
+> index 4ce657050dd4a576632a41ca0309c4cb5134ce14..5e7a0f3b68f182c42b03e6675=
+67e66f02d8c2b86 100644
+> --- a/lib/kunit/kunit-example-uapi.c
+> +++ b/lib/kunit/kunit-example-uapi.c
+> @@ -8,13 +8,45 @@
+>   * This is *userspace* code.
+>   */
+>
+> +#include <fcntl.h>
+> +#include <unistd.h>
+> +#include <string.h>
+> +
+>  #include "../../tools/testing/selftests/kselftest.h"
+>
+> +static void test_procfs(void)
+> +{
+> +       char buf[256];
+> +       ssize_t r;
+> +       int fd;
+> +
+> +       fd =3D open("/proc/self/comm", O_RDONLY);
+> +       if (fd =3D=3D -1) {
+> +               ksft_test_result_fail("procfs: open() failed: %s\n", stre=
+rror(errno));
+> +               return;
+> +       }
+> +
+> +       r =3D read(fd, buf, sizeof(buf));
+> +       close(fd);
+> +
+> +       if (r =3D=3D -1) {
+> +               ksft_test_result_fail("procfs: read() failed: %s\n", stre=
+rror(errno));
+> +               return;
+> +       }
+> +
 
-Seems "riscv_cbop_block_size" has not been declared.
-Otherwise,
-Reviewed-by: Nutty Liu<liujingqi@lanxincomputing.com>
+Do we want to use TASK_COMM_LEN rather than hardcoding 16 below?
 
-Thanks,
-Nutty
+(And, if so, do we need something more complicated in case it's not 16?)
 
-> +			return -EINVAL;
-> +		break;
->   	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
->   		if (reg_val == vcpu->arch.mvendorid)
->   			break;
+
+> +       if (r !=3D 16 || strncmp("kunit-example-u\n", buf, 16) !=3D 0) {
+> +               ksft_test_result_fail("procfs: incorrect comm\n");
+> +               return;
+> +       }
+> +
+> +       ksft_test_result_pass("procfs\n");
+> +}
+> +
+>  int main(void)
+>  {
+>         ksft_print_header();
+>         ksft_set_plan(4);
+> -       ksft_test_result_pass("userspace test 1\n");
+> +       test_procfs();
+>         ksft_test_result_pass("userspace test 2\n");
+>         ksft_test_result_skip("userspace test 3: some reason\n");
+>         ksft_test_result_pass("userspace test 4\n");
+>
+> --
+> 2.49.0
+>
+
+--00000000000035a6b40637fdc31f
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+MIIUnQYJKoZIhvcNAQcCoIIUjjCCFIoCAQExDzANBglghkgBZQMEAgEFADALBgkqhkiG9w0BBwGg
+ghIEMIIGkTCCBHmgAwIBAgIQfofDAVIq0iZG5Ok+mZCT2TANBgkqhkiG9w0BAQwFADBMMSAwHgYD
+VQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSNjETMBEGA1UEChMKR2xvYmFsU2lnbjETMBEGA1UE
+AxMKR2xvYmFsU2lnbjAeFw0yMzA0MTkwMzUzNDdaFw0zMjA0MTkwMDAwMDBaMFQxCzAJBgNVBAYT
+AkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMSowKAYDVQQDEyFHbG9iYWxTaWduIEF0bGFz
+IFI2IFNNSU1FIENBIDIwMjMwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDYydcdmKyg
+4IBqVjT4XMf6SR2Ix+1ChW2efX6LpapgGIl63csmTdJQw8EcbwU9C691spkltzTASK2Ayi4aeosB
+mk63SPrdVjJNNTkSbTowej3xVVGnYwAjZ6/qcrIgRUNtd/mbtG7j9W80JoP6o2Szu6/mdjb/yxRM
+KaCDlloE9vID2jSNB5qOGkKKvN0x6I5e/B1Y6tidYDHemkW4Qv9mfE3xtDAoe5ygUvKA4KHQTOIy
+VQEFpd/ZAu1yvrEeA/egkcmdJs6o47sxfo9p/fGNsLm/TOOZg5aj5RHJbZlc0zQ3yZt1wh+NEe3x
+ewU5ZoFnETCjjTKz16eJ5RE21EmnCtLb3kU1s+t/L0RUU3XUAzMeBVYBEsEmNnbo1UiiuwUZBWiJ
+vMBxd9LeIodDzz3ULIN5Q84oYBOeWGI2ILvplRe9Fx/WBjHhl9rJgAXs2h9dAMVeEYIYkvW+9mpt
+BIU9cXUiO0bky1lumSRRg11fOgRzIJQsphStaOq5OPTb3pBiNpwWvYpvv5kCG2X58GfdR8SWA+fm
+OLXHcb5lRljrS4rT9MROG/QkZgNtoFLBo/r7qANrtlyAwPx5zPsQSwG9r8SFdgMTHnA2eWCZPOmN
+1Tt4xU4v9mQIHNqQBuNJLjlxvalUOdTRgw21OJAFt6Ncx5j/20Qw9FECnP+B3EPVmQIDAQABo4IB
+ZTCCAWEwDgYDVR0PAQH/BAQDAgGGMDMGA1UdJQQsMCoGCCsGAQUFBwMCBggrBgEFBQcDBAYJKwYB
+BAGCNxUGBgkrBgEEAYI3FQUwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUM7q+o9Q5TSoZ
+18hmkmiB/cHGycYwHwYDVR0jBBgwFoAUrmwFo5MT4qLn4tcc1sfwf8hnU6AwewYIKwYBBQUHAQEE
+bzBtMC4GCCsGAQUFBzABhiJodHRwOi8vb2NzcDIuZ2xvYmFsc2lnbi5jb20vcm9vdHI2MDsGCCsG
+AQUFBzAChi9odHRwOi8vc2VjdXJlLmdsb2JhbHNpZ24uY29tL2NhY2VydC9yb290LXI2LmNydDA2
+BgNVHR8ELzAtMCugKaAnhiVodHRwOi8vY3JsLmdsb2JhbHNpZ24uY29tL3Jvb3QtcjYuY3JsMBEG
+A1UdIAQKMAgwBgYEVR0gADANBgkqhkiG9w0BAQwFAAOCAgEAVc4mpSLg9A6QpSq1JNO6tURZ4rBI
+MkwhqdLrEsKs8z40RyxMURo+B2ZljZmFLcEVxyNt7zwpZ2IDfk4URESmfDTiy95jf856Hcwzdxfy
+jdwx0k7n4/0WK9ElybN4J95sgeGRcqd4pji6171bREVt0UlHrIRkftIMFK1bzU0dgpgLMu+ykJSE
+0Bog41D9T6Swl2RTuKYYO4UAl9nSjWN6CVP8rZQotJv8Kl2llpe83n6ULzNfe2QT67IB5sJdsrNk
+jIxSwaWjOUNddWvCk/b5qsVUROOuctPyYnAFTU5KY5qhyuiFTvvVlOMArFkStNlVKIufop5EQh6p
+jqDGT6rp4ANDoEWbHKd4mwrMtvrh51/8UzaJrLzj3GjdkJ/sPWkDbn+AIt6lrO8hbYSD8L7RQDqK
+C28FheVr4ynpkrWkT7Rl6npWhyumaCbjR+8bo9gs7rto9SPDhWhgPSR9R1//WF3mdHt8SKERhvtd
+NFkE3zf36V9Vnu0EO1ay2n5imrOfLkOVF3vtAjleJnesM/R7v5tMS0tWoIr39KaQNURwI//WVuR+
+zjqIQVx5s7Ta1GgEL56z0C5GJoNE1LvGXnQDyvDO6QeJVThFNgwkossyvmMAaPOJYnYCrYXiXXle
+A6TpL63Gu8foNftUO0T83JbV/e6J8iCOnGZwZDrubOtYn1QwggWDMIIDa6ADAgECAg5F5rsDgzPD
+hWVI5v9FUTANBgkqhkiG9w0BAQwFADBMMSAwHgYDVQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBS
+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
+jmkLAgMBAAGjggHgMIIB3DAeBgNVHREEFzAVgRNkYXZpZGdvd0Bnb29nbGUuY29tMA4GA1UdDwEB
+/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIwHQYDVR0OBBYEFBp5bTxrTm/d
+WMmRETO8lNkA4c7fMFgGA1UdIARRME8wCQYHZ4EMAQUBAjBCBgorBgEEAaAyCgMDMDQwMgYIKwYB
+BQUHAgEWJmh0dHBzOi8vd3d3Lmdsb2JhbHNpZ24uY29tL3JlcG9zaXRvcnkvMAwGA1UdEwEB/wQC
+MAAwgZoGCCsGAQUFBwEBBIGNMIGKMD4GCCsGAQUFBzABhjJodHRwOi8vb2NzcC5nbG9iYWxzaWdu
+LmNvbS9jYS9nc2F0bGFzcjZzbWltZWNhMjAyMzBIBggrBgEFBQcwAoY8aHR0cDovL3NlY3VyZS5n
+bG9iYWxzaWduLmNvbS9jYWNlcnQvZ3NhdGxhc3I2c21pbWVjYTIwMjMuY3J0MB8GA1UdIwQYMBaA
+FDO6vqPUOU0qGdfIZpJogf3BxsnGMEYGA1UdHwQ/MD0wO6A5oDeGNWh0dHA6Ly9jcmwuZ2xvYmFs
+c2lnbi5jb20vY2EvZ3NhdGxhc3I2c21pbWVjYTIwMjMuY3JsMA0GCSqGSIb3DQEBCwUAA4ICAQBF
+tO3/N2l9hTaij/K0xCpLwIlrqpNo0nMAvvG5LPQQjSeHnTh06tWTgsPCOJ65GX+bqWRDwGTu8WTq
+c5ihCNOikBs25j82yeLkfdbeN/tzRGUb2RD+8n9I3CnyMSG49U2s0ZdncsrIVFh47KW2TpHTF7R8
+N1dri01wPg8hw4u0+XoczR2TiBrBOISKmAlkAi+P9ivT31gSHdbopoL4x0V2Ow9IOp0chrQQUZtP
+KBytLhzUzd9wIsE0QMNDbw6jeG8+a4sd17zpXSbBywIGw7sEvPtnBjMaf5ib3kznlOne6tuDVx4y
+QFExTCSrP3OTMUkNbpIdgzg2CHQ2aB8i8YsTZ8Q8Q8ztPJ+xDNsqBUeYxILLjTjxQQovToqipB3f
+6IMyk+lWCdDS+iCLYZULV1BTHSdwp1NM3t4jZ8TMlV+JzAyRqz4lzSl8ptkFhKBJ7w2tDrZ3BEXB
+8ASUByRxeh+pC1Z5/HhqfiWMVPjaWmlRRJVlRk+ObKIv2CblwxMYlo2Mn8rrbEDyfum1RTMW55Z6
+Vumvw5QTHe29TYxSiusovM6OD5y0I+4zaIaYDx/AtF0mMOFXb1MDyynf1CDxhtkgnrBUseHSOU2e
+MYs7IqzRap5xsgpJS+t7cp/P8fdlCNvsXss9zZa279tKwaxR0U2IzGxRGsWKGxDysn1HT6pqMDGC
+Al0wggJZAgEBMGgwVDELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExKjAo
+BgNVBAMTIUdsb2JhbFNpZ24gQXRsYXMgUjYgU01JTUUgQ0EgMjAyMwIQAUXA7LnOuRz2DvkWTeMc
+0TANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgu2eBGmuTuVNQyj0fEcKWKy+6sQHD
+prtlLXAqTM7vqCYwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
+NjIwMDk0ODIxWjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
+YIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzALBglghkgBZQMEAgEwDQYJKoZIhvcN
+AQEBBQAEggEAA8GMaESfCverlSr922Cc5gnmckCdXsyPkEv7ljJqN+lbIVNc8Gt8do9EWyJMrQC8
+gv2CUVxje2e1g66VViPK/1BmnyRZjGBVtpA2dNSj7JT9Xn9yVl/klYtfJXT8kpvPbFVIXO74733i
+phaosOZ/b4D9HibxoNGOnaUzh/A7j5aX+qgRpOaDTlh7Ps5t+iD/38tTW4IhXvNn1RYgNNcfA1x9
+QHVEsV4Xu2R9nDJMov0lX+uHigF8nob3+3VAmjoMSCgn9atjOLnfkGLDbbQlvFdWBgjgATig2aFv
+5npsXmRQ+UDFLV+mq1hNPthR7D5/HxENELLX+JzrN77msd5lTQ==
+--00000000000035a6b40637fdc31f--
+
+
+--===============4190916195371065009==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4190916195371065009==--
+
