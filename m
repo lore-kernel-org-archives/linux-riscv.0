@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC92FC7115C
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 14:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1108DC7115C
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Jun 2025 14:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hrzcj4u47eUGD6UQgX0y7/EwAJgi07lm98lY8XWlQXQ=; b=uzKK2/pkKqAUM6
-	VVFTC5O1h1jIaQocV2BLx4W4d0o7WCqQsHFLVy3ZFTxqpQx9VAi8LKeQdybRpwVxg4NNASX4tavL8
-	qI7GNGU0QDInfan65y+GeuOEXlj/QHVQfvZKze4Mp9CMNKTCOC7GU0sbpAkwcFFlfh5ee9ugrX1fr
-	bIp/qqzfv7hqKIUlSYDdrVVptFChxQxgFh6Kq7JTIxTz6hk2LMqlL4b8SRryB+AhJUnfa5UI4RTIx
-	BM1rqiiFloXN5ctNPy+nx2ObTQuejOkBOWy+RBcx8ZhHPHlOInrntBC4sWIRsC7iiVJRLnLzlcskF
-	296i8Wg7OM53aslsG4gQ==;
+	List-Owner; bh=ILV2tn0L77hICVNNBFONHABsNEo1OKgUQO3DtACtbJc=; b=QyTY0w1vVwdGlO
+	30Y34b0G43Ht6VDGxcR+nry0xjHnWPSUrhKJPwyPjdgH34EX1lnQFUhmSRm5Vr/4k8oGh9QKzmzsP
+	0njig5ZYqud+MGq6rFcoqgRMhCHfXx4XHM7+h2iSHOX5S+y2gYQe9vOsU/3tW55xtkJeWFkQwOBOX
+	aCh5krSS2uxjM9ipElIDp32J9Fxi/a7+ULTCb4WFKwkH9akIL0eK8SBX35yqJt6B2pv98DUjr1IJV
+	N1prLsCpAj84ED+wWoDuMpHd3Fpso+OrCjy3KUaQwfrcFWdvNp5272CstdDGAmf66LuNh1EwD7RhC
+	uiPNG9buvCir9LCBJ1Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScRd-0000000FojS-0L9T;
-	Fri, 20 Jun 2025 14:10:17 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1uScS9-0000000FoqI-2s2K;
+	Fri, 20 Jun 2025 14:10:49 +0000
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScRa-0000000Foj8-3AdE
+	id 1uScS4-0000000Fonr-4AY2
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Jun 2025 14:10:16 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-711d4689084so20637777b3.0
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 07:10:14 -0700 (PDT)
+	Fri, 20 Jun 2025 14:10:48 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-875acfc133dso62973539f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Jun 2025 07:10:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1750428613; x=1751033413; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r+pLxQe4eVRAY0bh5C+6wdQnLVkUY9s5flt9lCy/28I=;
-        b=2JKKcZriyPce6cFWiX/aBFUWu5MIFx+ENGDwPp/3/fQfUVp+JWGyk1WM5MzJO2vp5x
-         i540W0d1IlwYDDyZZJ40kHCncCtGJrzoO7/MOVpP6pOBMhweIcQNBFdPRplknrU7MUx2
-         wht3qzTEY4H6l3UGNd0YUtKXKOVN9nhOxTD6r+fe3mEE0+XNA+ddnkvppgRs9W/KrCBO
-         6Dre6I3V1TP0CW28k/qKyUnCVz6En+xPw/YQR+OFIJ606biaQKKU/lJpddeUDs+aJ3PN
-         NlwOpu0VS8bPz5GXHw6ooNeei8wTzhEpd7P/Ce5jRpa1BwAkVehDS/ELvgP06eXfwA2x
-         30kw==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1750428644; x=1751033444; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=cb95wT6YAeXhB7wAUnmyxgUJVnkrUiVyQ4loitF5Mh0=;
+        b=A7JjOABw5UFHDXs85F+XjN7U5KZI9QkEMn3B0esDg9UAfLMuigC2P4lvx3RYDOHCyT
+         MptRt3deP14XD4dDxEsWaKODd/th6S83jLmqEfrxL9VYm9NdTbYy/sB4KAiQigiC4NcZ
+         6zJx6C9d5S5G1TcmYCzLrfS2khTukuW7OS430cMeybQzCbOyJIs4ygVhjEX6SnWUCuCA
+         ZjTYvBugebLStfcufIwsb1qWTLyhPYh/EvecfCO8UCv5vo4y8GSF59+6SB7iFe6PGJke
+         HeNbhs8TJnWgdB3nok4Ds6+Vlm83+3m/ey5Q7IjDVTRPOhvBL135adm2tpM3OfLx9gq8
+         CnSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750428613; x=1751033413;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=r+pLxQe4eVRAY0bh5C+6wdQnLVkUY9s5flt9lCy/28I=;
-        b=sTNWIrKKdA4fHrwP+Cz50JnmGC748KJCeFksPtztbg5kvIrj3blsQsD5r1tOiby62B
-         KYfIPPapRHg16dZCG/OcrWW9mgh1V30yNx19sDClIKUK6I6Ce/rcyGzgHtie26Zp0VWO
-         ZQ83/Y27KIsD7y/G2Ux+TCDsDKOKS5xL4CUdmzChwLFj3k+dR+3A5HobYMevMABqDann
-         sp4RRvWy+8xOZsgPjzM/xXGpX9+UlW1UF/9RI317zxCdzzWKqIS72vH/TxsHs38ZN7O+
-         EPjOLQ2omiD55jN13eiLGMSEwd+BToROqG8ev7cpeJ2iB9TXUUFgB6UmFRcTqNdGWHGO
-         DoSg==
-X-Forwarded-Encrypted: i=1; AJvYcCVibdGY2MYhKlKY+xMg1oPTHF49ZfMJnnz0f0fBSK4/tAVclHr0iba7aP4fKtR9rE3hJ1qq47ujirjuPQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvIp5u1PMkLiMopvbtjB9xNQ05M3zXGz97po+oLe1NoB/lAXbH
-	eF3Kr0bS1KPC26LP0WfV+El0TINp5ie5pYzKg86siHsnIayMvemaGgLETBhrqzI5wnl7xLQXsoG
-	BPOFES7QSEMnFatp33U7CCKnClbP+BVivaDYRIBEsOg==
-X-Gm-Gg: ASbGncsloGQheLunDKe4qtOeIa/X/ZHC/h5BZUb6VS4CoGhVEYY8Gxiob0uCAUAaBJO
-	3+evtSwXtd750rLAoANEaAtVvT4/ddsae+6WxSxsR4Ef76XkQ5P5YE62sumCzRZzSgfMJtFMsv0
-	9uTsxKybJUK2gWesl2iG0nqwaJHbajlqz/K3M1Ko9gx6Q=
-X-Google-Smtp-Source: AGHT+IErXi1FXvWIfcINPIC2kRfbQWrm886Vqr6UoQFGwv43uK/gV2FH6lDzRfIyRbnRc7wq5KlIwUNxU6fp12JvFqM=
-X-Received: by 2002:a05:690c:6b85:b0:710:f74b:61ab with SMTP id
- 00721157ae682-712c63ed50amr38667807b3.9.1750428612962; Fri, 20 Jun 2025
- 07:10:12 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750428644; x=1751033444;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cb95wT6YAeXhB7wAUnmyxgUJVnkrUiVyQ4loitF5Mh0=;
+        b=ZVUolQoKT9xOzN09W73FHhpioYpyYcgUsjkYOyuICuX/UtCAG44iNNrsvy0UcebDJp
+         91UCyexg83l57TpFzTZGq0nVwEkJTPI3b0QPuFJr34qt0DrRWtS2U+YN7RWfCiXk0kqp
+         nXvs55zNPktwPoPpJDmqyFVxWis8U7LXxHvkfGngINq00ErBlD9mgRbSuBRy/AR/anIZ
+         31WVyR6AQh8I0cjmCZWx99AZYRldSZYj4BiDejfCVKCR+nzSHhw1KHaMFR/qdl8kNukC
+         osjIhISztBj6lqeN7Nh9AfBIgby+6jRnDGlVT4ANoO2gEnfFOWaS45gN7jkvdJhl5orL
+         SHKg==
+X-Forwarded-Encrypted: i=1; AJvYcCUb72EE9wbjeH7fihzWPvtT7l5QtMwnkZG3CpL0M4OUfaRiDseECPX6hyqZN7/PHG7k/k0ztMq7UPihtQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7SNU5ANxTiUafyfpSmIc8/s/NWu3u17nvSiu/D4GBOUPfDgoG
+	l5fMIHMZEyqCT9ttv46Eq9Ed6U0t9RIqAWAiYLvkTkuvThCrZbvSgGYnEgbDC7cXB6U=
+X-Gm-Gg: ASbGnctjkFxehjFMcVkvH9RYcuk/V6PXgKhRzyRofnvF7QTDlL0Oc36vfI7Ml4of++A
+	peLtAMkyGWw9/9f668wj3uUIVvoT882At9cAt4dZnHpRGu2A13Q+IXjH/NJI3XFNoxchVUpWmN9
+	9OwqM8BkNyzmPGvYqDoFx6tWpl+nFQCHixL2ooSEJQ2/Ca9DTEacYe2/m6l9tBAskTDlu8uEQge
+	+v0ATIjb2DCPZC/mHtAkoNY/vJ1hLk0jkvfc1ICYjcen8wpSy0cF7dbSm7wZM2gRw6NnKSTSESp
+	XMDhfqJxiL1cGSGdUQtFz0v/4A9lRg3L0XfK6LC4TgxnFq3Pl7XN4hYVCcHlAqoyYQUrYeguYu3
+	hm+ePTdLTxdno3nIg8N254NN7QekraTUomqss
+X-Google-Smtp-Source: AGHT+IHOWUr/z3EkWBYHmgxBtlE4mt4YGXnWdQgUSVsQC0wQSTfNxZFXIK4wwFK7GGyxDqhayW89fg==
+X-Received: by 2002:a05:6602:26ca:b0:86d:5b3:3b88 with SMTP id ca18e2360f4ac-8762d1b0cedmr243625639f.1.1750428637859;
+        Fri, 20 Jun 2025 07:10:37 -0700 (PDT)
+Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-8762b7adc23sm50782439f.35.2025.06.20.07.10.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Jun 2025 07:10:37 -0700 (PDT)
+Message-ID: <8126de92-0338-4cd0-98fc-4f8c37500201@riscstar.com>
+Date: Fri, 20 Jun 2025 09:10:35 -0500
 MIME-Version: 1.0
-References: <20250617-k1-dma-buses-rfc-wip-v1-1-c8ec192fbf58@iscas.ac.cn>
- <5cc644f8-7394-48f2-b62b-1e7cd5ce27d3@ieee.org> <9e5e54a9-ef90-4a87-b082-d6eb9c7468c5@iscas.ac.cn>
- <20250620105619-GYA165049@gentoo>
-In-Reply-To: <20250620105619-GYA165049@gentoo>
-From: Guodong Xu <guodong@riscstar.com>
-Date: Fri, 20 Jun 2025 22:10:01 +0800
-X-Gm-Features: AX0GCFv9n0bzPRKSi_EV7zEUnvgGx0rfSCuPNUTx-ocg18nmlNPk27cj-wTyKM8
-Message-ID: <CAH1PCMZibCc-P7JQf4WyhkKuT607bWppKfKQ-7eo7-PyNGDAOg@mail.gmail.com>
-Subject: Re: [PATCH RFC] riscv: dts: spacemit: Add DMA translation buses for K1
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Vivian Wang <wangruikang@iscas.ac.cn>, Alex Elder <elder@ieee.org>, 
-	Ze Huang <huangze@whut.edu.cn>, spacemit@lists.linux.dev, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/6] mfd: spacemit: add support for SpacemiT PMICs
+To: Lee Jones <lee@kernel.org>
+Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, dlan@gentoo.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, troymitchell988@gmail.com, guodong@riscstar.com,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250613210150.1468845-1-elder@riscstar.com>
+ <20250613210150.1468845-3-elder@riscstar.com>
+ <20250619144023.GG795775@google.com>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250619144023.GG795775@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_071014_908418_D7D08D0A 
-X-CRM114-Status: GOOD (  67.58  )
+X-CRM114-CacheID: sfid-20250620_071045_045382_A53AA751 
+X-CRM114-Status: GOOD (  41.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,172 +101,267 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdW4gMjAsIDIwMjUgYXQgNjo1NuKAr1BNIFlpeHVuIExhbiA8ZGxhbkBnZW50b28u
-b3JnPiB3cm90ZToKPgo+IEhpIFZpdmlhbiwgQWxleCwKPgo+IE9uIDIzOjQyIFRodSAxOSBKdW4g
-ICAgICwgVml2aWFuIFdhbmcgd3JvdGU6Cj4gPiBIaSBBbGV4LAo+ID4KPiA+IFRoYW5rIHlvdSBm
-b3IgeW91ciBjb21tZW50cyBvbiB0aGlzLgo+ID4KPiA+IE9uIDYvMTkvMjUgMjM6MTEsIEFsZXgg
-RWxkZXIgd3JvdGU6Cj4gPiA+IE9uIDYvMTcvMjUgMTI6MjEgQU0sIFZpdmlhbiBXYW5nIHdyb3Rl
-Ogo+ID4gPj4gVGhlIFNwYWNlbWlUIEsxIGhhcyB2YXJpb3VzIHN0YXRpYyB0cmFuc2xhdGlvbnMg
-b2YgRE1BIGFjY2Vzc2VzLiBBZGQKPiA+ID4+IHRoZXNlIGFzIHNpbXBsZS1idXMgbm9kZXMuIERl
-dmljZXMgYWN0dWFsbHkgdXNpbmcgdGhlc2UgdHJhbnNsYXRpb24gd2lsbAo+ID4gPj4gYmUgYWRk
-ZWQgaW4gbGF0ZXIgcGF0Y2hlcy4KPiA+ID4+Cj4gPiA+PiBUaGUgYnVzIG5hbWVzIGFyZSBhc3Np
-Z25lZCBhY2NvcmRpbmcgdG8gY29uc2Vuc3VzIHdpdGggU3BhY2VtaVQgWzFdLgo+ID4gPj4KPiA+
-ID4+IFsxXQo+ID4gPj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsL0NBSDFQQ01hQytpbWNN
-WkNGWXRSZG1INmdlPWRQZ25BTm5fR3FWZnNHUlM9K1loeUpDd0BtYWlsLmdtYWlsLmNvbS8KPiA+
-ID4KPiA+ID4gU28gd2hhdCB5b3UgaW5jbHVkZSBoZXJlIHZlcnkgY2xvc2VseSBtYXRjaGVzIHdo
-YXQgR3VvZG9uZwo+ID4gPiBzYWlkIGluIHRoZSBtZXNzYWdlIGFib3ZlLiAgWW91cnMgZGlmZmVy
-cyBmcm9tIGhpcyBwcm9wb3NhbAo+ID4gPiBhbmQgdGhhdCBtYWtlcyBpdCBoYXJkIHRvIGNvbXBh
-cmUgdGhlbS4gIEkgaGF2ZSBhIGZldyBjb21tZW50cwo+ID4gPiBvbiB0aGF0IGJlbG93Lgo+ID4g
-Pgo+ID4gPj4gU2lnbmVkLW9mZi1ieTogVml2aWFuIFdhbmcgPHdhbmdydWlrYW5nQGlzY2FzLmFj
-LmNuPgo+ID4gPj4gLS0tCj4gPiA+PiBUaGlzIGlzIG15IGNvbmNyZXRlIHByb3Bvc2FsIGZvciBy
-ZXByZXNlbnRpbmcgRE1BIHRyYW5zbGF0aW9ucyBmb3IKPiA+ID4+IFNwYWNlbWlUIEsxLgo+ID4g
-Pgo+ID4gPiBJdCdzIHdvcnRoIGFja25vd2xlZGdpbmcgdGhhdCB0aGlzIGlzIGRlcml2ZWQgZnJv
-bSB3aGF0IEd1b2RvbmcKPiA+ID4gcHJvcG9zZWQgKGl0J3Mgbm90ICJ5b3VyIiBwcm9wb3NhbCBp
-biB0aGF0IHJlc3BlY3QpLiAgVGhhdCBzYWlkLAo+ID4gPiB5b3VycyBpcyBhIG1vcmUgY29tcGxl
-dGUgYW5kICJmb3JtYWwiIFJGUCB0aGFuIHdoYXQgaGUgd3JvdGUuCj4gPiA+Cj4gPiBJIGhhZCB0
-aG91Z2h0IHRoYXQgc2luY2UgdGhlIGFkZHJlc3NlcyB3ZXJlIGFscmVhZHkgdGhlcmUgaW4gdmVu
-ZG9yJ3MgRFQKPiA+IFsyXSwgYW5kIHRoZSBuYW1lcyB3ZXJlIHByb3ZpZGVkIGJ5IFNwYWNlbWlU
-LCBhbnl0aGluZyBvdGhlciB0aGFuIHRoZQo+ID4gbmFtZXMgd2FzICJ3ZWxsLWtub3duIGluZm9y
-bWF0aW9uIi4gSW4gcmV0cm9zcGVjdCwgSSBzaG91bGQgaGF2ZSBtYWRlCj4gPiB0aGUgY2hhaW4g
-b2YgaW5mb3JtYXRpb24gb2YgdGhpcyBjbGVhcmVyIGFuZCBtYWtlIGl0IGV4cGxpY2l0IHRoYXQg
-dGhpcwo+ID4gd2FzIGJhc2VkIG9uIEd1b2RvbmcncyBub3RlLgo+ID4KPiA+IFNvLCBqdXN0IHRv
-IGJlIGNsZWFyLCB0aGUgaW5mb3JtYXRpb24gaW4gbXkgcHJvcG9zYWwgaXMgYmFzZWQgb24KPiA+
-IEd1b2RvbmcncyByZXBseSBbMV0gKGxpbmsgdGhlIHF1b3RlZCB0ZXh0KSwgd2hpY2ggSSBoYWQg
-YXNzdW1lZCwgYnV0IG5vdAo+ID4gZXhwbGljaXRseSBjb25maXJtZWQsIHdhcyBiYXNlZCBvbiBh
-bHJlYWR5IGFkZHJlc3NlcyBpbiBTcGFjZW1pVCdzIERUCj4gPiBhbmQgbmFtZXMgcHJvdmlkZWQg
-YnkgU3BhY2VtaVQuCj4gPgo+ID4gWzJdOiBodHRwczovL2dpdGh1Yi5jb20vc3BhY2VtaXQtY29t
-L2xpbnV4LWsxeC9ibG9iL2sxL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEteC5kdHNp
-Cj4gPgo+ID4gPj4gRm9yIGNvbnRleHQsIG1lbW9yeSBvbiB0aGUgU3BhY2VtaVQgSzEgaXMgc3Bs
-aXQgaW50byB0d28gY2h1bmtzOgo+ID4gPj4KPiA+ID4+IC0gMHgwMDAwXzAwMDAgdG8gMHg4MDAw
-XzAwMDA6IEZpcnN0IDIgR2lCIG9mIG1lbW9yeQo+ID4gPj4gLSAweDFfMDAwMF8wMDAwIGFib3Zl
-OiBSZXN0IG9mIG1lbW9yeQo+ID4gPj4KPiA+ID4+IERNQS1jYXBhYmxlIGRldmljZXMgb24gdGhl
-IEsxIGFsbCBoYXZlIGFjY2VzcyB0byB0aGUgbG93ZXIgMkcgb2YgbWVtb3J5Cj4gPiA+PiB0aHJv
-dWdoIGFuIGlkZW50aXR5IG1hcHBpbmcuIEhvd2V2ZXIsIGZvciB0aGUgdXBwZXIgcmVnaW9uIG9m
-IG1lbW9yeSwKPiA+ID4+IGVhY2ggZGV2aWNlIGZhbGxzIHVuZGVyIG9uZSBvZiBzaXggZGlmZmVy
-ZW50IG1hcHBpbmdzLiBUaGUgbWFwcGluZ3MgYXJlCj4gPiA+PiBwcm92aWRlZCBpbiB0aGlzIHBh
-dGNoIGFzIHNpbXBsZS1idXMgbm9kZXMgdGhhdCBkZXZpY2Ugbm9kZXMgc2hvdWxkIGJlCj4gPiA+
-PiBhZGRlZCB0by4KPiA+ID4+Cj4gPiA+PiBUaGlzIHBhdGNoIGlzIGFuIFJGQyBiZWNhdXNlIGl0
-IGlzIG5vdCBtZWFudCB0byBiZSBhcHBsaWVkLCBvciBhdCBsZWFzdCwKPiA+ID4+IG5vdCBjZXJ0
-YWlubHkgbWVhbnQgdG8gYmUgYXBwbGllZC4gSW5zdGVhZCwgdGhpcyBpcyBhbiBhdHRlbXB0IHRv
-IGNvbWUKPiA+ID4+IHRvIGEgY29uc2Vuc3VzIG9uIGhvdyB0aGVzZSBidXMgbm9kZXMgc2hvdWxk
-IGxvb2sgbGlrZS4KPiA+ID4KPiA+ID4gSSB0aGluayB0aGUgYWJvdmUgaXMgd2hhdCBLcnp5c3p0
-b2YgbWlnaHQgbm90IGhhdmUgc2Vlbi4gIFBlcmhhcHMKPiA+ID4gaXQgY291bGQgaGF2ZSBiZWVu
-IG1hZGUgbW9yZSBjbGVhci0tbWF5YmUgaW4gdGhlICJtYWluIiBkZXNjcmlwdGlvbgo+ID4gPiBz
-ZWN0aW9uIChhYm92ZSB0aGUgLS0tKSBvciBldmVuIHRoZSBzdWJqZWN0IGxpbmUuCj4gPiA+Cj4g
-PiBZZWFoLCB0aGF0J3MgbXkgbWlzdGFrZSBpbiBvcmdhbml6aW5nIHRoZSBwYXJhZ3JhcGhzLgo+
-ID4KPiA+ID4+IE1vcmUgc3BlY2lmaWNhbGx5LCBJIHByb3Bvc2UgdGhhdCB0aGUgcHJvY2VzcyBw
-cm9jZWVkcyBhcyBmb2xsb3dzOgo+ID4gPj4KPiA+ID4+IC0gRmlyc3RseSwgcmVsZXZhbnQgcGFy
-dGllcyBhZ3JlZSBvbiB0aGVzZSBidXMgbm9kZXMgZ2l2ZW4gaGVyZS4KPiA+ID4+IC0gQWZ0ZXIg
-dGhhdCwgZWFjaCB0aW1lIHRoZSBmaXJzdCB1c2VyIG9mIGEgYnVzIGFwcGVhcnMsIHRoZSBzZXJp
-ZXMKPiA+ID4+ICAgIHNob3VsZCBpbmNsdWRlIGEgcGF0Y2ggdG8gYWRkIHRoZSBidXMgcmVxdWly
-ZWQgZm9yIHRoYXQgZHJpdmVyLgo+ID4gPj4gLSBJZiBhIGRyaXZlciBiZWluZyBzdWJtaXR0ZWQg
-dXNlcyB0aGUgc2FtZSBidXMgYXMgYW5vdGhlciBvbmUgdGhhdCBoYXMKPiA+ID4+ICAgIGJlZW4g
-c3VibWl0dGVkIGJ1dCBoYXNuJ3QgeWV0IGxhbmRlZCwgaXQgY2FuIGRlcGVuZCBvbiB0aGUgYnVz
-IHBhdGNoCj4gPiA+PiAgICBmcm9tIHRoYXQgcHJldmlvdXMgc2VyaWVzLgo+ID4gPgo+ID4gPiBH
-ZXR0aW5nIGFncmVlbWVudCBpcyBnb29kLCBidXQgb3RoZXJ3aXNlIHRoaXMgaXMgYmFzaWNhbGx5
-Cj4gPiA+IHRoZSBwcm9jZXNzIEd1b2Rvbmcgd2FzIHN1Z2dlc3RpbmcsIHJpZ2h0Pwo+ID4KPiA+
-IEhtbSwgYWN0dWFsbHkgcmUtcmVhZGluZyB0aGUgZGlzY3Vzc2lvbiBub3csIEkgcmVhbGl6ZWQg
-dGhhdCBJIG1heSBoYXZlCj4gPiBjb21lIHRvIHRoaXMgbGF0ZSBhbmQgbWlzc2VkIG91dCBvbiBz
-b21lIHByZXZpb3VzIGRpc2N1c3Npb25zLCB3aGljaAo+ID4gd2VyZSBhbGx1ZGVkIHRvIGluIFlp
-eHVuJ3MgbWVzc2FnZXMuIChUaGlzIGlzIGFnYWluIHRocmVhZCBhcm91bmQgbGluawo+ID4gWzFd
-IGluIHF1b3RlZCB0ZXh0LikgVGhpcyBsZWQgbWUgdG8gYmVsaWV2ZSB0aGF0IHNvbWUgb2YgdGhl
-c2Ugd2VyZSBub3QKPiA+IHJlYWxseSBhZ3JlZWQgdXBvbi4KPiA+Cj4gPiBJIGFsc28gcmVhbGl6
-ZWQgSSB0aGluayBvbmUgb2YgdGhlIHRoaW5ncyBJIG1heSBoYXZlIG5vdCB5ZXQgbWFkZSBjbGVh
-cgo+ID4gaXMgdGhhdCBJIHdvdWxkIGxpa2UgdGhlIGJ1cyBub2RlIHRvIGJlIGEgKnNlcGFyYXRl
-KiBwYXRjaC4gSSB0aGluayB0aGlzCj4gPiBtYWtlcyBzZW5zZSwgYmVjYXVzZSBpdCdzIGRlYWxp
-bmcgd2l0aCB0d28gZGlmZmVyZW50IHN1YnN5c3RlbXMuCj4gPgo+ID4gPgo+ID4gPj4gRm9yIGNv
-bnZlbnRpb25zIHJlZ2FyZGluZyBjb2Rpbmcgc3R5bGUsIEkgcHJvcG9zZSB0aGF0Ogo+ID4gPj4K
-PiA+ID4+IC0gI2FkZHJlc3MtY2VsbHMgYW5kICNzaXplLWNlbGxzIGFyZSAyIGZvciBjb25zaXN0
-ZW5jeQo+ID4gPj4gLSBUaGVzZSBidXMgbm9kZXMgYXJlIHB1dCBhdCB0aGUgZW5kIG9mIC9zb2Ms
-IGluc2lkZSAvc29jCj4gPiA+PiAtIFRoZXNlIGJ1cyBub2RlcyBhcmUgc29ydGVkIGFscGhhYmV0
-aWNhbGx5LCBub3QgaW4gdmVuZG9yJ3Mgb3JkZXIKPiA+ID4+IC0gRGV2aWNlcyBhcmUgYWRkZWQg
-aW50byAqLWJ1cyBub2RlcyBkaXJlY3RseSwgbm90IGFwcGVuZGVkIHRvd2FyZHMgdGhlCj4gPiA+
-PiAgICBlbmQgd2l0aCBhIGxhYmVsIHJlZmVyZW5jZQo+ID4gPgo+ID4gPiBJIGRvIGxpa2UgdGhh
-dCB5b3UncmUgdHJ5aW5nIHRvIGJlIG1vcmUgY29tcGxldGUgYW5kIGV4cGxpY2l0Cj4gPiA+IG9u
-IHdoYXQgeW91IHRoaW5rIG5lZWRzIGFncmVlbWVudCBvbi4KPiA+ID4KPiA+IEJlaW5nIHRob3Jv
-dWdoIHdhcyB0aGUgbWFpbiBnb2FsIG9mIHRoaXMgUkZDLiBJZiB0aGVyZSB3YXMgcHJldmlvdXMK
-PiA+IGFncmVlbWVudCBvbiBob3cgZG1hLXJhbmdlcyBzaG91bGQgYmUgZG9uZSwgSSdtIHNvcnJ5
-IGZvciBtaXNzaW5nIHRoZW0sCj4gPiBidXQgZnJvbSBteSBvYnNlcnZhdGlvbnMgb24gdGhlIG1h
-aWxpbmcgbGlzdCBvbiBob3cgdGhlc2UgZW5kZWQgdXAgaW50bwo+ID4gcGF0Y2hlcyBJIHJlYWxs
-eSBoYXZlbid0IHNlZW4gbXVjaCBjb25zaXN0ZW5jeS4gTWF5YmUgdGhlcmUgd2FzCj4gPiBtaXN1
-bmRlcnN0YW5kaW5nLCB3aGljaCBJJ20gaG9waW5nIHRvIGNsZWFyIHVwLgo+ID4KPiA+IChBbHRo
-b3VnaCBzZWUgbXkgcGFyYWdyYXBoIGFib3ZlLCBtYXliZSBJIGhhdmVuJ3QgYmVlbiB0aG9yb3Vn
-aCBlbm91Z2guKQo+ID4KPiA+ID4+IFRoZSBLMSBETUEgdHJhbnNsYXRpb25zIGFyZSAqbm90KiBp
-bnRlcmNvbm5lY3RzLCBzaW5jZSB0aGV5IGRvIG5vdAo+ID4gPj4gcHJvdmlkZSBhbnkgY29uZmln
-dXJhdGlvbiBjYXBhYmlsaXRpZXMuCj4gPiA+Pgo+ID4gPj4gVGhlc2UgYnVzIG5vZGVzIG5hbWVz
-IGFuZCBwcm9wZXJ0aWVzIGFyZSBwcm92aWRlZCBjb21wbGlhbnQgd2l0aAo+ID4gPj4gInNpbXBs
-ZS1idXMiIGJpbmRpbmdzLCBhbmQgc2hvdWxkIHBhc3MgIm1ha2UgZHRic19jaGVjayIuCj4gPiA+
-Pgo+ID4gPj4gUmVtYWluaW5nIHF1ZXN0aW9uczoKPiA+ID4+Cj4gPiA+PiAtIFNob3VsZCBzdG9y
-YWdlLWJ1cyBleGlzdD8gT3Igc2hvdWxkIGRyaXZlcnMgdW5kZXIgaXQgc2ltcGx5IHNwZWNpZnkK
-PiA+ID4+ICAgIDMyLWJpdCBETUE/Cj4gPiA+Cj4gPiA+IEV4cGxpY2l0bHkgc2F5aW5nIHN0b3Jh
-Z2UgZGV2aWNlcyBoYXZlIG9uZS10by1vbmUgbWFwcGluZwo+ID4gPiBzZWVtcyBpbmZvcm1hdGl2
-ZSwgdG8gbWUuCj4gc291bmRzIGdvb2QgdG8gYmUgZXhwbGljaXQKPgo+ID4gPgo+ID4gPj4gLS0t
-Cj4gPiA+PiAgIGFyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEuZHRzaSB8IDUzCj4gPiA+
-PiArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKPiA+ID4+ICAgMSBmaWxlIGNo
-YW5nZWQsIDUzIGluc2VydGlvbnMoKykKPiA+ID4KPiA+ID4gVGhlIHNob3J0IHN1bW1hcnkgb2Yg
-d2hhdCBkaWZmZXJzIGJldHdlZW4geW91ciBwcm9wb3NhbAo+ID4gPiBhbmQgd2hhdCBHdW9kb25n
-IHNhaWQgaXM6Cj4gPiA+IC0gWW91IHNvcnQgbm9kZXMgYWxwaGFiZXRpY2FsbHksIEd1b2Rvbmcg
-ZGlkIG5vdAo+ID4gPiAtIFlvdSBkcm9wcGVkIHRoZSB1bml0IGFkZHJlc3MKPiBJJ2QgYWdyZWUg
-d2l0aCBub3QgYWRkaW5nIHVuaXQgbnVtYmVyIHRvIHRoZSBzaW1wbGUtYnVzCj4KPiA+ID4gLSBZ
-b3UgZHJvcHBlZCB0aGUgY29tbWVudHMgaGUgaGFkLCB3aGljaCBpbmRpY2F0ZWQgd2hpY2gKPiA+
-ID4gICBkZXZpY2VzICJiZWxvbmdlZCIgdG8gZWFjaCBtYXBwaW5nCj4gSSB3ZW50IGFoZWFkIGFu
-ZCBjaGVja2VkIHRob3NlIGNvbW1lbnRzLCBhbmQgZm91bmQgdGhlbSBhbGwgYWJvdXQKPiBkZXZp
-Y2VzIHVuZGVyIHNwZWNpZmljIGJ1cywgSSdtIG5vdCBzdHJvbmdseSBhZ2FpbnN0IGFkZGluZyB0
-aGUKPiBjb21tZW50cyBidXQgZmVlbCBpdCdzIGtpbmQgb2YgdW5uZWNlc3NhcnksIG9yIGV2ZW4g
-aW4gd29yc3QgY2FzZXMsCj4gaXQgbWF5IGJyaW5nIGV4dHJhIGNvbmZ1c2lvbnMuLiBvbiB0aGUg
-b3RoZXIgaGFuZCwgeW91IGNhbiBhbHdheXMKPiBjaGVjayAgZGV2aWNlIG5vZGVzIHVuZGVyIHRo
-ZSBidXMgdG8gZmluZCB3aGF0J3MgdGhlcmUuCj4KPiBleG1hcGxlIGZvciBkcmFtNF9yYW5nZSh2
-ZW5kb3IgY29kZSkvZG1hX2J1cywgdGhlIGNvbW1lbnRzIGlzCj4gIC8qIERNQSBjb250cm9sbGVy
-LCBhbmQgdXNlcnMgKi8KPiB3aGF0J3MgaXMgJ3VzZXJzJz8gc3RpbGwgaGF2ZSB0byBjaGVjayB0
-aGUgZHRzLCBhbmQgZmluZCB0aGVtIC0KPiB1YXJ0LCBzcGksIGkyYywgcXNwaSwgaGRtaSwgc291
-bmRzLi4KPgo+IElmIHBlb3BsZSByZWFsbHkgd2FudCB0byBhZGQgY29tbWVudHMgYW5kIGhlbHAg
-b3RoZXJzIHRvIHVuZGVyc3RhbmQKPiB0aGlzIHBhdGNoLCB0aGVuIEknZCBzdWdnZXN0IHRvIGFk
-ZCBleHBsYW5hdGlvbiBpbiBjb21taXQgbWVzc2FnZShiZXR0ZXI/KQo+IHRvIGZ1bGx5IGRlc2Ny
-aWJlIGFsbCB0aGUgYnVzc2VzLCBvciB3aHkgY2hvb3NlIHRoaXMgbmFtZT8gLQo+ICBzdG9yYWdl
-L211bHRpbWVkaWEvcGNpZS9jYW1lcmEvZG1hL25ldHdvcmtfYnVzCj4gcHJldHR5IG11Y2ggaW4g
-bXVjaCBoaWdoIGxldmVsIHBlcnNwZWN0aXZlLi4KPgo+ID4gPiAtIFlvdSBhZGRlZCBhIGNvbXBh
-dGlibGUgcHJvcGVydHkgdG8gZWFjaCAoInNpbXBsZS1idXMiKQo+ID4gPiAtIFlvdSBhZGRlZCBh
-biBleHBsaWNpdCAoZW1wdHkpIHJhbmdlcyBwcm9wZXJ0eSB0byBlYWNoCj4gPiA+IC0gWW91IGFk
-ZCAjYWRkcmVzcy1jZWxscyBhbmQgI3NpemUtY2VsbHMgcHJvcGVydGllcywgYm90aCAyCj4gPiA+
-IC0gWW91ciBkbWEtcmFuZ2VzIHByb3BlcnRpZXMgYXJlIGlkZW50aWNhbCB0byBHdW9kb25nJ3Ms
-Cj4gPiA+ICAgZm9yIGFsbCBub2Rlcwo+IEkgdGhpbmsgdGhvc2UgYWxsIGFib3ZlIGFscmVhZHkg
-ZXhpc3QgaW4gR3VvZG9uZydzIHZlcnNpb24gd2hpY2gKPiBhbGlnbiBoaXMgaWRlYQo+Cj4gPiA+
-Cj4gPiBUaGF0IHdhcyBhIGdvb2Qgc3VtbWFyeS4gVGhhbmtzIQo+ID4KPiA+IE15IG1haW4gZ29h
-bCBvZiBvcmdhbml6aW5nIHRoZSBidXMgdGhpcyB3YXkgaXMgbWFraW5nIGl0IGFjdHVhbGx5IHBh
-c3MKPiA+ICJtYWtlIGR0YnNfY2hlY2siLiBJJ20gbm90IHN1cmUgaWYgS3J6eXN6dG9mIHN0aWxs
-IG9iamVjdHMgdG8gbXkgcmVhZGluZwo+ID4gb2Ygc2ltcGxlLWJ1cy55YW1sIHRob3VnaC4KPiBJ
-dCB3b3VsZCBiZSBncmVhdCBpZiBEVCBtYWludGFpbmVyIGNhbiBjbGFyaWZ5LCBvciBnaXZlIGFu
-IEFDSwo+Cj4gPgo+ID4gQnkgdGhlIHdheSwgSSBkb24ndCB0aGluayBJIHdpbGwgYmUgbWFraW5n
-IGFuIFJGQyB2MiBvZiB0aGlzLiBJIHRoaW5rIHdlCj4gPiBzaG91bGQgZ2V0IGV2ZXJ5dGhpbmcg
-c29ydGVkIHVuZGVyIHRoaXMgb25lIHRocmVhZC4KPiA+Cj4gSW5zdGVhZCwgZnJvbSBhIFNvQyB0
-cmVlIG1haW50YWluZXIncyBwZXJzcGVjdGl2ZSAod2hvbSB0YWtpbmcgY2FyZSBvZgo+IG1lcmdp
-bmcgYWxsIHRoZSBkdHMgZmlsZXMpLCBJJ2QgcmF0aGVyIHBlcmZlciBhbiBpbmRlcGVuZGVudCBv
-cgo+IHNlcGFyYXRlZCBwYXRjaCBmb3IgdGhpcyBnaXZlbiBldmVyeSBwYXJ0eSByZWFjaGVkIGNv
-bnNlc3VzLCBzbyB3ZSBjb3VsZAo+IGdldCB0aGlzIHBhdGNoIG1lcmdlZCBmaXJzdCBhbmQgZWFy
-bHksIGluc3RlYWQgb2YgZ2V0dGluZyB0aGVtIGRpc3RyaWJ1dGVkIGFsbAo+IG92ZXIgaW4gZGlm
-ZmVyZW50IHNlcmllcywgSU1PLCBzZXBhcmF0ZWQgcGF0Y2hlcyBicmluZ3MgbW9yZSBkZWRlcGVu
-ZGVuY2llcwo+IGlmIG1vcmUgdGhhbiB0d28gc2VyaWVzIHJlcXVpcmUgb25lIGJ1cyBhbmQgcmVz
-dWx0IGluIG1vcmUgbWVyZ2UgY29uZmxpY3RzLi4KPiBCZXNpZGVzLCBpbnRyb2R1Y2luZyBuZXcg
-YnVzc2VzIHJlc3VsdCBpbiByZS1hcnJhbmdlbWVudCBvZiBwcmV2aW91cyBub2RlcywKPiB0aG9z
-ZSBsaWtlIHVhcnQsIGkyYyAoZXZlbiB0aGV5IGhhdmUgbm8gRE1BIGZlYXR1cmUgaW1wbGVtZW50
-ZWQgY3VycmVudGx5KS4uCj4KCkhpIFlpeHVuLAoKU28sIGhlcmUgaXMgbXkgcHJvcG9zZWQgcGxh
-bjogSSB3aWxsIHN1Ym1pdCB0d28gcGF0Y2hlcy4gVGhlIGZpcnN0CnBhdGNoIHdpbGwgaW50cm9k
-dWNlIHRoZSBkbWEtYnVzIG5vZGUgYW5kIG1vdmUgdGhlIHJlbGV2YW50ICh1YXJ0MCwgdWFydDIK
-Li51YXJ0OSkgZGV2aWNlIG5vZGVzIHVuZGVyIGl0LiBUaGUgc2Vjb25kIHBhdGNoIHdpbGwgdGhl
-biBhZGQgdGhlIHBkbWEwCm5vZGUgaXRzZWxmLiBQbGVhc2UgbGV0IG1lIGtub3cgaWYgeW91IGhh
-dmUgYSBkaWZmZXJlbnQgYXBwcm9hY2ggaW4gbWluZC4KCk1heWJlIHlvdSB3YW50IHRvIHNlZSBh
-biBpbmRlcGVuZGVudCBwYXRjaHNldCB3aXRoIGp1c3QgdGhlIGZpcnN0IHBhdGNoPyBUaGlzCndh
-eSBpdCBjYW4gYmUgbWVyZ2VkIGVhcmx5IHdpdGhvdXQgd2FpdGluZyBmb3IgdGhlIHBkbWEwIHNl
-cmllcy4KTGV0IG1lIGtub3cuIFRoYW5rcy4KCk9uIGEgc2lkZSBub3RlLCB5b3UgbWVudGlvbmVk
-IEkyQy4gSSBzZWFyY2hlZCBmb3IgdXBzdHJlYW0gSTJDIERUUyBub2Rlcwpmb3IgdGhlIEsxIGJ1
-dCBjb3VsZG4ndCBmaW5kIGFueS4gSSBjaGVja2VkIHRoZSBmb3ItbmV4dC9kdC1mb3ItbmV4dApi
-cmFuY2hlcyBpbiB0aGUgc3BhY2VtaXQtY29tL2xpbnV4LmdpdCByZXBvc2l0b3J5LiBEaWQgSSBt
-aXNzIHNvbWV0aGluZz8KCkJSLApHdW9kb25nCgoKPiA+Cj4KPiAtLQo+IFlpeHVuIExhbiAoZGxh
-bikKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 6/19/25 9:40 AM, Lee Jones wrote:
+> On Fri, 13 Jun 2025, Alex Elder wrote:
+> 
+>> Add support for SpacemiT PMICs. Initially only the P1 PMIC is supported
+>> but the driver is structured to allow support for others to be added.
+>>
+>> The P1 PMIC is controlled by I2C, and is normally implemented with the
+>> SpacemiT K1 SoC.  This PMIC provides six buck converters and 12 LDO
+> 
+> six or 12.  Please pick a format and remain consistent.
+
+"Numbers smaller than ten should be spelled out."
+
+But I'll use 6 and 12.
+
+>> regulators.  It also implements a switch, watchdog timer, real-time clock,
+>> and more, but initially we will only support its regulators.
+> 
+> You have to provide support for more than one device for this to be
+> accepted into MFD.
+
+OK.  I'm looking at the other device functions to see if I
+can pick the easiest one.
+
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>> ---
+>>   drivers/mfd/Kconfig         | 11 +++++
+>>   drivers/mfd/Makefile        |  1 +
+>>   drivers/mfd/spacemit-pmic.c | 91 +++++++++++++++++++++++++++++++++++++
+>>   3 files changed, 103 insertions(+)
+>>   create mode 100644 drivers/mfd/spacemit-pmic.c
+>>
+>> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+>> index 6fb3768e3d71c..c59ae6cc2dd8d 100644
+>> --- a/drivers/mfd/Kconfig
+>> +++ b/drivers/mfd/Kconfig
+>> @@ -1182,6 +1182,17 @@ config MFD_QCOM_RPM
+>>   	  Say M here if you want to include support for the Qualcomm RPM as a
+>>   	  module. This will build a module called "qcom_rpm".
+>>   
+>> +config MFD_SPACEMIT_PMIC
+>> +	tristate "SpacemiT PMIC"
+>> +	depends on ARCH_SPACEMIT || COMPILE_TEST
+>> +	depends on I2C && OF
+>> +	select MFD_CORE
+>> +	select REGMAP_I2C
+>> +	default ARCH_SPACEMIT
+>> +	help
+>> +	  This option enables support for SpacemiT I2C based PMICs.  At
+>> +	  this time only the P1 PMIC (used with the K1 SoC) is supported.
+>> +
+>>   config MFD_SPMI_PMIC
+>>   	tristate "Qualcomm SPMI PMICs"
+>>   	depends on ARCH_QCOM || COMPILE_TEST
+>> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+>> index 79495f9f3457b..59d1ec8db3a3f 100644
+>> --- a/drivers/mfd/Makefile
+>> +++ b/drivers/mfd/Makefile
+>> @@ -266,6 +266,7 @@ obj-$(CONFIG_MFD_SUN4I_GPADC)	+= sun4i-gpadc.o
+>>   obj-$(CONFIG_MFD_STM32_LPTIMER)	+= stm32-lptimer.o
+>>   obj-$(CONFIG_MFD_STM32_TIMERS) 	+= stm32-timers.o
+>>   obj-$(CONFIG_MFD_MXS_LRADC)     += mxs-lradc.o
+>> +obj-$(CONFIG_MFD_SPACEMIT_PMIC)	+= spacemit-pmic.o
+>>   obj-$(CONFIG_MFD_SC27XX_PMIC)	+= sprd-sc27xx-spi.o
+>>   obj-$(CONFIG_RAVE_SP_CORE)	+= rave-sp.o
+>>   obj-$(CONFIG_MFD_ROHM_BD71828)	+= rohm-bd71828.o
+>> diff --git a/drivers/mfd/spacemit-pmic.c b/drivers/mfd/spacemit-pmic.c
+>> new file mode 100644
+>> index 0000000000000..7c3c3e27236da
+>> --- /dev/null
+>> +++ b/drivers/mfd/spacemit-pmic.c
+>> @@ -0,0 +1,91 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Copyright (C) 2025 by RISCstar Solutions Corporation.  All rights reserved.
+>> + * Derived from code from:
+>> + *	Copyright (C) 2024 Troy Mitchell <troymitchell988@gmail.com>
+>> + */
+>> +
+>> +#include <linux/device.h>
+>> +#include <linux/err.h>
+>> +#include <linux/i2c.h>
+>> +#include <linux/mfd/core.h>
+>> +#include <linux/module.h>
+>> +#include <linux/of.h>
+>> +#include <linux/regmap.h>
+>> +#include <linux/types.h>
+>> +
+>> +struct spacemit_pmic_data {
+> 
+> s/data/ddata/
+
+I hadn't noticed that convention.  I'll use it.
+
+>> +	const struct regmap_config *regmap_config;
+>> +	const struct mfd_cell *mfd_cells;	/* array */
+> 
+> Hmm ... this is a red flag.  Let's see.
+> 
+>> +	size_t mfd_cell_count;
+>> +};
+>> +
+>> +static const struct regmap_config p1_regmap_config = {
+>> +	.reg_bits	= 8,
+>> +	.val_bits	= 8,
+>> +	.max_register	= 0xaa,
+>> +};
+>> +
+>> +/* The name field defines the *driver* name that should bind to the device */
+> 
+> This comment is superfluous.
+
+I'll delete it.
+
+I was expecting the driver to recognize the device, not
+the device specifying what driver to use, but I guess
+I'm used to the DT model.
+
+>> +static const struct mfd_cell p1_cells[] = {
+>> +	{
+>> +		.name		= "spacemit-p1-regulator",
+> 
+> This spacing is wonky.  Take a look at all the other drivers here.
+> 
+> Also, you probably want to use MFD_CELL_NAME().
+
+Yes, I see that does what I want.
+
+> One is not enough.
+> 
+>> +	},
+>> +};
+>> +
+>> +static const struct spacemit_pmic_data p1_pmic_data = {
+>> +	.regmap_config	= &p1_regmap_config,
+>> +	.mfd_cells	= p1_cells,
+>> +	.mfd_cell_count	= ARRAY_SIZE(p1_cells),
+>> +};
+>> +
+>> +static int spacemit_pmic_probe(struct i2c_client *client)
+>> +{
+>> +	const struct spacemit_pmic_data *data;
+>> +	struct device *dev = &client->dev;
+>> +	struct regmap *regmap;
+>> +
+>> +	/* We currently have no need for a device-specific structure */
+> 
+> Then why are we adding one?
+
+I don't understand, but it might be moot once I add support
+for another (sub)device.
+
+>> +	data = of_device_get_match_data(dev);
+>> +	regmap = devm_regmap_init_i2c(client, data->regmap_config);
+>> +	if (IS_ERR(regmap))
+>> +		return dev_err_probe(dev, PTR_ERR(regmap),
+>> +				     "regmap initialization failed");
+>> +
+>> +	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO,
+>> +				    data->mfd_cells, data->mfd_cell_count,
+>> +				    NULL, 0, NULL);
+>> +}
+>> +
+>> +static const struct of_device_id spacemit_pmic_match[] = {
+>> +	{
+>> +		.compatible	= "spacemit,p1",
+>> +		.data		= &p1_pmic_data,
+> 
+> Ah, now I see.
+> 
+> We do not allow one data from registration mechanism (MFD) to be piped
+> through another (OF).  If you have to match platform data to device (you
+> don't), then pass through identifiers and match on those in a switch()
+> statement instead.
+
+I haven't done an MFD driver before and it took some time
+to get this working.  I'll tell you what led me to it.
+
+I used code posted by Troy Mitchell (plus downstream) as a
+starting point.
+   https://lore.kernel.org/lkml/20241230-k1-p1-v1-0-aa4e02b9f993@gmail.com/
+
+Krzysztof Kozlowski made this comment on Troy's DT binding:
+   Drop compatible, regulators are not re-usable blocks.
+
+So my goal was to have the PMIC regulators get bound to a
+driver without specifying a DT compatible string, and I
+found this worked.
+
+You say I don't need to match platform data to device, but
+if I did I would pass through identifiers.  Can you refer
+me to an example of code that correctly does what I should
+be doing instead?
+
+One other comment/question:
+   This driver is structured as if it could support a different
+   PMIC (in addition to P1).  Should I *not* do that, and simply
+   make a source file hard-coded for this one PMIC?
+
+>> +	},
+>> +	{ }
+>> +};
+>> +MODULE_DEVICE_TABLE(of, spacemit_pmic_match);
+>> +
+>> +static struct i2c_driver spacemit_pmic_i2c_driver = {
+>> +	.driver = {
+>> +		.name = "spacemit-pmic",
+>> +		.of_match_table = spacemit_pmic_match,
+>> +	},
+>> +	.probe    = spacemit_pmic_probe,
+> 
+> Remove these odd tabs please.
+
+OK.
+
+>> +};
+>> +
+>> +static int __init spacemit_pmic_init(void)
+>> +{
+>> +	return i2c_add_driver(&spacemit_pmic_i2c_driver);
+>> +}
+>> +
+>> +static void __exit spacemit_pmic_exit(void)
+>> +{
+>> +	i2c_del_driver(&spacemit_pmic_i2c_driver);
+>> +}
+>> +
+> 
+> Remove this line.
+
+Sure.
+
+>> +module_init(spacemit_pmic_init);
+>> +module_exit(spacemit_pmic_exit);
+> 
+> Are you sure there isn't some boiler plate to do all of this?
+> 
+> Ah ha:
+> 
+>    module_i2c_driver()
+
+Thanks for Googling that for me.  And thank you very much
+for the review.
+
+					-Alex
+
+
+>> +MODULE_LICENSE("GPL");
+>> +MODULE_DESCRIPTION("SpacemiT multi-function PMIC driver");
+>> -- 
+>> 2.45.2
+>>
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
