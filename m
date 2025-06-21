@@ -4,98 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C9CC7115C
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Jun 2025 12:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4CA3C71157
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Jun 2025 14:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WRD4SAj/eHr/+2B9aVqMlmn7VocGsjYuxfIKwLcV2Dc=; b=SrGiybBGtbs4r/
-	DP4xmLTa9Lta2FNmzv4rFjXLpFodL18gnzwBJNbLJvYlo4W87UgiPXUThUV/YNl0tI6UoQvEAIBd2
-	TFf888c1xUmpMxC7oGQq9y5k4OOoFRkTeKzRvhqribexIFc4tjPETCl9LrF6w7P0od4VHZmqdQnkk
-	jQc3Je9DfWhdoZql2n9hoa91bZtf/hbMz7C5vcNQd69MLUVpV/XxljpMZLTfCgREq6ASISFLFMeIA
-	2Q4KpXYeN8r8Ps057fQ0qqJSwuSwYohMxJ1Qx61LeUYPj8Bu0ZHHf5xg494FrdwDiO8kokLVkjnAK
-	l1oBAtoQHZmvYyVkWBrw==;
+	List-Owner; bh=QxeNfm/Lp6gH2xN3zVyA5vRWlbg4ehIjTX4rCtkiXO8=; b=rgtX6N9hMPeJpn
+	M+IS/FtKXi7yxpfnnjqWrn70v9k3p6UT47Kz2pk3vY7MGLbjFCJ76U7HCmtMI6p9GYi5s+25K2Q+N
+	5PZBjMJfqF9UHovV+7f2JeneNsW9XUxM2VQfLft6uEglPTn+tQoEvpfX59CCHRZXgZDPuXsiWCtDO
+	6VkFeXc7+9qFvqjKhAxwmRYj5NyLg9a90tbOKmPcn/Y++AIgqKEr+aT6C/arLDUsvp70ZpHEF/XLb
+	df4gk2pApaeTXZir2TxRqkY7YUtd7POHXibDnkTgHCMhZLZQVwNpPErXbmcPd7ZO+zm3EuTPzdn8K
+	YEPNnK8Td2eweJQUaCYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSxDf-0000000HQYI-2mum;
-	Sat, 21 Jun 2025 12:21:15 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1uSzHf-0000000HW6R-0fQ7;
+	Sat, 21 Jun 2025 14:33:31 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSxDd-0000000HQXz-30EY
+	id 1uSzHd-0000000HW5z-0Lxt
 	for linux-riscv@lists.infradead.org;
-	Sat, 21 Jun 2025 12:21:14 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-312efc384fcso329456a91.3
-        for <linux-riscv@lists.infradead.org>; Sat, 21 Jun 2025 05:21:13 -0700 (PDT)
+	Sat, 21 Jun 2025 14:33:30 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b31befde0a0so1684560a12.0
+        for <linux-riscv@lists.infradead.org>; Sat, 21 Jun 2025 07:33:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750508473; x=1751113273; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mJSNLN94yCCCB04rPzGHW0u9z5VpgtHFtBKWC0jstGM=;
-        b=lOdD+JBQRlolDEsr0urVXKXQAMp24Y9WmfiFyNJ44+tTyghKZH4fnHNvJ0Ah0KcZmT
-         wB1IcEpwAx2TPlx65Ld+2IZ3p7eQ6vvvJyeeBRUoaIcCZGApAP6WQWxEPnQ3X6QFvfJg
-         cGkhNvKTepo8oL90IdCqO0+uwFtgrKLj0uXddPob4HonmIzbhTggbmvknPqclytU64fi
-         SoBsG0pxvlk/uudH3Qvw3r+LuPD4uVEW8sm6KPdH9kdG9BkGjLJA8SqTmFjUyL9IXMQ3
-         EkQh2WSv0LthZ0F1VhhqgyymavyCgCk6sA/5DrYbZOdTRQLGIKuCLTT8MuAfoWP2c+AM
-         qZKg==
+        d=gmail.com; s=20230601; t=1750516408; x=1751121208; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rpcV6fctoPHKkMmJOO7gDCJf9UFeAem7Es9ZNVW1blc=;
+        b=fOqm1AMPtq18+pjnE2qJMnv3NvmliRJ6Hx9NPDY3a33i2P4cRDqQNRpQnLUDQcXTIC
+         ivGUBoFF/MXXj6pH9uAivzwI/S/q6u+P6RzAXPLA7Y9NTOmQe8WeqRSFqs/EdX4MY0cG
+         4agK6voIq9NZoPSNhR0R98wxGXxWJeSmd0/pn7l1s/b/ix9k6imjo4L+y1Ti7OEVySb4
+         y5/FYc/b8zMTEb/56ZFGV9Zl1ElN55pViHPVJ+233CJADef73DlfD1S1VOYDBlYwHmGK
+         69qOth6uaFL44rv80pUbfiXZo3fWySZlmuCOjNL+/v1Ox3bDB45CebJB55GZnhmp2+X+
+         6bUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750508473; x=1751113273;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mJSNLN94yCCCB04rPzGHW0u9z5VpgtHFtBKWC0jstGM=;
-        b=w2C2W8eT9yZN+a+tAJ3G+mt2n4CAXr4INehjhzT7OVboP7y2cu9He2QfauTnKt/9ON
-         79beZKZVTP3iIaV6cwDW/md3IaK+2ahlxesKKnMDzYOzKO8nxIIuAFsD69jPf/WKxkTY
-         HsSnADCJUA/3QeW2ayV+Es4gRjdrYSquzGyMqCGySSWDaKKb2k20Ufv6RxTpGDExOM8U
-         I1klbd5CE8tm4JCr2v/IJg8uOmclAqYPlTuECP+IpEKjRYptCEU8HzdAqpRi0QobLgiE
-         KnhIFv2HL+cSIv0fMxIRfkg/TVmqkz/CdYmcGv7Az7SdRd6xDAMY9evZTAz+/Du6D8z6
-         q2Rg==
-X-Forwarded-Encrypted: i=1; AJvYcCVrH3q253AtmHmMUQ3WWWWjbvGhDHHG5VvT1izfjtm44sU2DeXFLv4Wb8hEFpK9zMjYmxkYC7Ljaab84g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YygKhhf62LL6BiPIMFGggb3FpQrT5xoAzn0WmrdpJvU+4n46VCG
-	7l24CvVKdS7pxMyHMd/66mZ0KfL3cEqCOIXH7VMPyBNmkLKTMvdCV7FgkBAZLzK1pixRjwx4gru
-	81gaCaqv6wbehy7/3k3qtCuQqupqTjGE=
-X-Gm-Gg: ASbGncvg0eWO9w8P+mjWMopOAC7rsC/4vOGA7U7vtVC8dp1+RJz/h2mXxpubR5zWMAS
-	6Sn+tied3LoeEkeUEyu2q/NMG1gzkwhMZc82SKHLA/frx7s0F02O0azqnqh865xyD2nqItI5DSI
-	IUFFwG7514Ab+t92hzcPhIbO3WKWfX0/gP22GMMwNVh6I=
-X-Google-Smtp-Source: AGHT+IHBkoA8R73wdbCEFSmfGebQhGfDwh3U+PqjqU9Rd7GJGvM7aIk3FgAkUqqEjAXM3xI4sgTT1lGB5ApP/eWh1zs=
-X-Received: by 2002:a17:90b:57ec:b0:311:9c9a:58e8 with SMTP id
- 98e67ed59e1d1-3159d90f997mr3211194a91.7.1750508472604; Sat, 21 Jun 2025
- 05:21:12 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750516408; x=1751121208;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rpcV6fctoPHKkMmJOO7gDCJf9UFeAem7Es9ZNVW1blc=;
+        b=FqsmRWZDqD1MACi4/tBJmZiRisuB2EmxkK8sOsA+zDkL/mA1nJ+ccUXJhx9j0XkwQt
+         rngnri6cpNizh0Y7n/d+KGhrN1zh1IG2Koa8wBY/0mbNMNSVd2cMLfrI+lmNjZmJU8w8
+         mGeG2qp4/DxudEFXyW8qJinjdEPBRZy5X5veAa5z1o5gJeLHPsyiMfAmtSdYsYXKP2ZE
+         qnHEg25O/uWMv5qcv4VVo0gY+Uu46yqM1h8lipIIScWtkhFNkwExiidDD9Xbe7M5kyux
+         RnlQMmPwpEGwXXdjnZc9pgy7FK8pw+LhOshwrPqr2+1CVWd//aQf2pcpyr/dDjjVeSoj
+         ElhA==
+X-Forwarded-Encrypted: i=1; AJvYcCWyvaamM8WLfaXtuFqG3XYbd7v3botDIRJjNS2FfNkPzmEDlACsC0WHjcaxeh7eew/XGsUWnUpcD4xQaA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDsMLPttBwfQuTbMuxdrf17z3ua1wAQEgSnjief+aV+qrokv+X
+	vKbMadm5Ckg++Od/shqTm5pvQKOvBx8p6qH94MyG+gr4KYvZVoONcfqJ
+X-Gm-Gg: ASbGncuEiG14IuqSGCFtvKXl62idYIBSm8GoahOINFz0UIByBKam0GfaI+xmJ0cm7ed
+	6LPsRDEZyH6UjquOJhjW3S3Ig67mlOfn+4vp0sTYKFoHVBf2XAxoQ3MhfMK43aOA7clkX6KDT/v
+	ykvpLrMZCXczoNRzXtUsMHJnn82I6cCxIfb6xeS2awb/jOknZXkPNf1cLTgQyCRHpr9QMKd/sPD
+	2pPAJCMLTVQqOKUaMvm5UmSAsU0T0BGPpxpsSVoaqQUZZHm8YGZssawusmLQC2uq1Gw6Scf2iar
+	SnOA0lt/fJAeBma0l0AS8n7NYlW652Bp1JWfvYzjNpILx9WE5Dv+xqoTylby1aJVb2MjMrHG
+X-Google-Smtp-Source: AGHT+IEa1dzclDb2tuusdyRFUEN+RVm3ocXALNNj4v2dS5L9ixXeDKVBkqE/mg1/e/SCGi0mCloBfg==
+X-Received: by 2002:a17:90b:3505:b0:312:959:dc49 with SMTP id 98e67ed59e1d1-3159d642a58mr10688811a91.13.1750516408260;
+        Sat, 21 Jun 2025 07:33:28 -0700 (PDT)
+Received: from localhost ([216.228.127.128])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3159df93ad9sm3999598a91.21.2025.06.21.07.33.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Jun 2025 07:33:27 -0700 (PDT)
+Date: Sat, 21 Jun 2025 10:33:25 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: linux@rasmusvillemoes.dk, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dennis@kernel.org, tj@kernel.org, cl@gentwo.org, linux-mm@kvack.org
+Subject: Re: [PATCH RFC 1/2] riscv: remove irqflags.h inclusion in
+ asm/bitops.h
+Message-ID: <aFbCtb2oWxPbq1SN@yury>
+References: <20250618034328.21904-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-References: <CGME20250618122801eucas1p2f9ca464e9e5c8d954d5150500952aeed@eucas1p2.samsung.com>
- <20250618-rust-next-pwm-working-fan-for-sending-v4-0-a6a28f2b6d8a@samsung.com>
- <aFSw44++s7xMkJ9I@x1>
-In-Reply-To: <aFSw44++s7xMkJ9I@x1>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Sat, 21 Jun 2025 14:21:00 +0200
-X-Gm-Features: Ac12FXwlYvFTtsebXFsluqzoJQuMLv7aX97g0RdMlPc1xrNUVWgbbVLGEB9yHw4
-Message-ID: <CANiq72=YsoFSSm9QU0W2ZQseeQTWFNkXYVR1mODdv3HHg-0PAQ@mail.gmail.com>
-Subject: Re: [PATCH v4 0/9] Rust Abstractions for PWM subsystem with TH1520
- PWM driver
-To: Drew Fustini <fustini@kernel.org>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Drew Fustini <drew@pdp7.com>, 
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Benno Lossin <lossin@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Disposition: inline
+In-Reply-To: <20250618034328.21904-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_052113_752406_96E1E236 
-X-CRM114-Status: UNSURE (   6.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250621_073329_125725_C40927C2 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,14 +95,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdW4gMjAsIDIwMjUgYXQgMjo1MuKAr0FNIERyZXcgRnVzdGluaSA8ZnVzdGluaUBr
-ZXJuZWwub3JnPiB3cm90ZToKPgo+IERpZCBJIGRvIHNvbWV0aGluZyB3cm9uZz8KCk5vIC0tIHRo
-ZSBmaWxlIGp1c3QgZG9lc24ndCBleGlzdCBpbiB0aGUgcGF0Y2hlcy4KCkNoZWVycywKTWlndWVs
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Jun 18, 2025 at 11:43:27AM +0800, Yunhui Cui wrote:
+> The arch/riscv/include/asm/bitops.h does not functionally require
+> including /linux/irqflags.h. Additionally, adding
+> arch/riscv/include/asm/percpu.h causes a circular inclusion:
+> kernel/bounds.c
+> ->include/linux/log2.h
+> ->include/linux/bitops.h
+> ->arch/riscv/include/asm/bitops.h
+> ->include/linux/irqflags.h
+> ->include/linux/find.h
+> ->return val ? __ffs(val) : size;
+> ->arch/riscv/include/asm/bitops.h
+> 
+> The compilation log is as follows:
+> CC      kernel/bounds.s
+> In file included from ./include/linux/bitmap.h:11,
+>                from ./include/linux/cpumask.h:12,
+>                from ./arch/riscv/include/asm/processor.h:55,
+>                from ./arch/riscv/include/asm/thread_info.h:42,
+>                from ./include/linux/thread_info.h:60,
+>                from ./include/asm-generic/preempt.h:5,
+>                from ./arch/riscv/include/generated/asm/preempt.h:1,
+>                from ./include/linux/preempt.h:79,
+>                from ./arch/riscv/include/asm/percpu.h:8,
+>                from ./include/linux/irqflags.h:19,
+>                from ./arch/riscv/include/asm/bitops.h:14,
+>                from ./include/linux/bitops.h:68,
+>                from ./include/linux/log2.h:12,
+>                from kernel/bounds.c:13:
+> ./include/linux/find.h: In function 'find_next_bit':
+> ./include/linux/find.h:66:30: error: implicit declaration of function '__ffs' [-Wimplicit-function-declaration]
+>    66 |                 return val ? __ffs(val) : size;
+>       |                              ^~~~~
+> 
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+
+Is this patch a prerequisite for #2 or it fixes build on master for
+you?
+
+If fixes broken build, I'll take it and send an -rc pull request.
+Otherwise, please work with RISC-V maintainers to move them together.
+
+Thanks,
+Yury
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
