@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F19C7EE33
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068DDC7EE2A
 	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 16:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KJyfaxHL7oyaZPzqCOSu2jMe5vrLb+C+6s84sdjV8+M=; b=JoVdBWlIL5OB0u
-	czjhlEHsWetx9nz5Ch2q2NSbJaIStj6ok+Yi+mFsNFSCGEi96CbBpTQ68sqgNAENHeu/FaARCKEBS
-	R+/yC+/+zs469lOrvTLwF8W6pT7QM5I8jbP9/9fJ4nbptfaPFIadjFfyXxvDWT9s2daM+7zEK48Wm
-	oDUhKvD7OHajEl24u6iz+PGy92Olw1WXkOl3hACR/kX7w0HOLyUmJ3UlzCtMwKw48kZCPvcxm3vBL
-	ETGCz4pLXhPA/bDaxyzrqpnptib8I2b4LZZomP7LUt6KGYnU4YEV/Oa9MpzkHmGjCtjsvL2txId6e
-	nQcW5MvwOACYhOgZExnw==;
+	List-Owner; bh=QTUYSRUQ7wiChQxJZwd/QpbZwgBNh9hcm143S4Whda8=; b=fHwSeNM7la9/7j
+	eqK9GY4bXHQ2LoBPNjso4D+y4DdCa1+CwLHClOzTRNO/arlwI/hQNzu4tPkKUvAjJE3Gbp48y8N6S
+	a4cfVctNZftkk2ZRkYl1vIGokMQesnzRCKzKPEec5mZu8sAwoQIcUajG35ZwyFIa4rJw1afavzgzQ
+	5F8Brz0xoAh0mikKke40hPwwFyMKRIrfuOv8inNfTzYyv4FA4CtD85zsRPFdDrC5GJBe94nsRmb0U
+	H8GeL2xPoHjb9wnHD81ou87q+Om1KT1XIiFz7lsBjoYt2TRzBDI8XF50OzfQ27NFTewVSBskv2nlA
+	1W1AVGi6dvs7niK1L2PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTk3x-00000003QYK-2Gcf;
-	Mon, 23 Jun 2025 16:30:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uTk3w-00000003QXQ-3SKP;
+	Mon, 23 Jun 2025 16:30:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgjZ-00000002nBq-0Hon
+	id 1uTgjV-00000002nBS-0g2Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Jun 2025 12:57:14 +0000
+	Mon, 23 Jun 2025 12:57:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 54073A51AFD;
-	Mon, 23 Jun 2025 12:57:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0426C4CEF2;
-	Mon, 23 Jun 2025 12:57:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 21F5A5C5D43;
+	Mon, 23 Jun 2025 12:54:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 063DBC4CEF0;
+	Mon, 23 Jun 2025 12:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750683432;
-	bh=ix4sQ34JPxCSiUUiRsS0uHeEHS+bhk2iYFRRYP8FzOs=;
+	s=k20201202; t=1750683428;
+	bh=6Ucfb1L2qIWPZPYszOsiQY5ELklXZC8qWZBX6OzDPyg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=U80bDazBAxV3LbQXojEjjkURit4HqA1wBXOVefF4khXubI9+sNChj3EiY+7bV+4SL
-	 dKxmdwFwjeq5A8AaNNAsNVDkPbAvxlcbVUL5GlgfLwopG4pOjOflc6VKOpeK4QBga7
-	 KSd7w17wciCYll7+b/DBgyJ6/30pt26HghuVZ6Q2xm829fwj3MN3ThHefK+Sgiqtx9
-	 FRt5wS1iLHjFATZM0EfgKcE8gqUK1XhEL/tTel6+8Yx8/lLkc1sP7RLQn4uC7035aA
-	 lM7oCCTiLvTtgLkIYthoIjJxwDosFBuBKHmZHYnEzH9+xZmVkvKUKTygXPdphJEayT
-	 nvYweseGyl4xg==
+	b=LrmrexSb7s2B0rwEd3k6FjaQH9FDthqJ78OwE105n2ChC8RJ+fOH+6Fy1mDMBQmKX
+	 TVbUWV2HEuzd1h4frHvAtTePvUUX+/qMRGNwG/v82+MzHlPRg7ZhfkE16EiFcqw046
+	 0ogEwBwvtxJsBYJlwygufv6S2OY5kopxjCGxY6xKLV+HvZ2EJxVcxPkRAoRK0sFbqx
+	 QDlRcESNbq4rrvaEbEn/HCET+1MWbgA07yS0VvL16THp7xZ5V89BxMHSremTIWQe+D
+	 FjthczL/uZsLG9fAgCZavnwvxfb1cYGW1FxXuUrpKM3GRoIH7FTAIogtJthNa+DTAA
+	 9QM4VUxJ2wQfg==
 From: Conor Dooley <conor@kernel.org>
 To: sboyd@kernel.org
 Cc: conor@kernel.org,
@@ -61,18 +61,18 @@ Cc: conor@kernel.org,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 6/9] riscv: dts: microchip: fix mailbox description
-Date: Mon, 23 Jun 2025 13:56:20 +0100
-Message-ID: <20250623-crazily-boogieman-08d72613ebac@spud>
+Subject: [PATCH v3 5/9] dt-bindings: clk: microchip: mpfs: remove first reg region
+Date: Mon, 23 Jun 2025 13:56:19 +0100
+Message-ID: <20250623-hypnotist-research-c6e8af149d02@spud>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250623-levitate-nugget-08c9a01f401d@spud>
 References: <20250623-levitate-nugget-08c9a01f401d@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2050; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=UOaeuCyA0NwooEKtPScWmm72FpyZFfETubTA7thTmBE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDBmRfh8uz/vidvtnKfe2og9S+fVvOUTCFMI8TTkj+U0N5 CbvzCjrKGVhEONgkBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwER+r2P4pyBasvZWwsv6rsrJ e5ujD82/KJnknJ6zeNubO3oPJNezmDH8d3hQZtpil/rtqoyApVqIvdhkCWPZDJao4uk5+t/fz+r lAAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3161; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=UdUqQObnXpHYaHDeBwfkNqw526ibviGaaI8ii4cMcNg=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDBmRfh/eO/tU9G0JrHy57NtajeBnCyofGSw9tfmIqNlup lffWI986yhlYRDjYJAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBE6t4zMuxq3H2r44Vbvb3A qvtThDtevXt52n8Rjxbfmjm2u8RruL8wMky7Llr1KGnV7Zc5mXdWbfHI6FQvq77xSmm/yAqORWz zTzICAA==
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_055713_250499_05E5139A 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20250623_055709_285437_CB42EE01 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +91,78 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-When the binding for the mailbox on PolarFire SoC was originally
-written, and later modified, mistakes were made - and the precise
-nature of the later modification should have been a giveaway, but alas
-I was naive at the time.
+The first reg region in this binding is not exclusively for clocks, as
+evidenced by the dual role of this device as a reset controller at
+present. The first region is however better described by a simple-mfd
+syscon, but this would have require a significant re-write of the
+devicetree for the platform, so the easy way out was chosen when reset
+support was first introduced. The region doesn't just contain clock and
+reset registers, it also contains pinctrl and interrupt controller
+functionality, so drop the region from the clock binding so that it can
+be described instead by a simple-mfd syscon rather than propagate this
+incorrect description of the hardware to the new pic64gx SoC.
 
-A more correct modelling of the hardware is to use two syscons and have
-a single reg entry for the mailbox, containing the mailbox region. The
-two syscons contain the general control/status registers for the mailbox
-and the interrupt related registers respectively. The reason for two
-syscons is that the same mailbox is present on the non-SoC version of
-the FPGA, which has no interrupt controller, and the shared part of the
-rtl was unchanged between devices.
-
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/microchip/mpfs.dtsi | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+ .../bindings/clock/microchip,mpfs-clkcfg.yaml | 36 +++++++++++--------
+ 1 file changed, 22 insertions(+), 14 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index 9883ca3554c50..f9d6bf08e7170 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -259,6 +259,11 @@ clkcfg: clkcfg@20002000 {
- 			#reset-cells = <1>;
- 		};
+diff --git a/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
+index e4e1c31267d2a..ee4f31596d978 100644
+--- a/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
++++ b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
+@@ -22,16 +22,23 @@ properties:
+     const: microchip,mpfs-clkcfg
  
-+		sysreg_scb: syscon@20003000 {
-+			compatible = "microchip,mpfs-sysreg-scb", "syscon";
-+			reg = <0x0 0x20003000 0x0 0x1000>;
-+		};
-+
- 		ccc_se: clock-controller@38010000 {
- 			compatible = "microchip,mpfs-ccc";
- 			reg = <0x0 0x38010000 0x0 0x1000>, <0x0 0x38020000 0x0 0x1000>,
-@@ -521,10 +526,14 @@ usb: usb@20201000 {
- 			status = "disabled";
- 		};
+   reg:
+-    items:
+-      - description: |
+-          clock config registers:
+-          These registers contain enable, reset & divider tables for the, cpu,
+-          axi, ahb and rtc/mtimer reference clocks as well as enable and reset
+-          for the peripheral clocks.
+-      - description: |
+-          mss pll dri registers:
+-          Block of registers responsible for dynamic reconfiguration of the mss
+-          pll
++    oneOf:
++      - items:
++          - description: |
++              clock config registers:
++              These registers contain enable, reset & divider tables for the, cpu,
++              axi, ahb and rtc/mtimer reference clocks as well as enable and reset
++              for the peripheral clocks.
++          - description: |
++              mss pll dri registers:
++              Block of registers responsible for dynamic reconfiguration of the mss
++              pll
++        deprecated: true
++      - items:
++          - description: |
++              mss pll dri registers:
++              Block of registers responsible for dynamic reconfiguration of the mss
++              pll
  
--		mbox: mailbox@37020000 {
-+		control_scb: syscon@37020000 {
-+			compatible = "microchip,mpfs-control-scb", "syscon";
-+			reg = <0x0 0x37020000 0x0 0x100>;
-+		};
+   clocks:
+     maxItems: 1
+@@ -69,11 +76,12 @@ examples:
+   - |
+     #include <dt-bindings/clock/microchip,mpfs-clock.h>
+     soc {
+-            #address-cells = <2>;
+-            #size-cells = <2>;
+-            clkcfg: clock-controller@20002000 {
++            #address-cells = <1>;
++            #size-cells = <1>;
 +
-+		mbox: mailbox@37020800 {
- 			compatible = "microchip,mpfs-mailbox";
--			reg = <0x0 0x37020000 0x0 0x58>, <0x0 0x2000318C 0x0 0x40>,
--			      <0x0 0x37020800 0x0 0x100>;
-+			reg = <0x0 0x37020800 0x0 0x1000>;
- 			interrupt-parent = <&plic>;
- 			interrupts = <96>;
- 			#mbox-cells = <1>;
++            clkcfg: clock-controller@3E001000 {
+                 compatible = "microchip,mpfs-clkcfg";
+-                reg = <0x0 0x20002000 0x0 0x1000>, <0x0 0x3E001000 0x0 0x1000>;
++                reg = <0x3E001000 0x1000>;
+                 clocks = <&ref>;
+                 #clock-cells = <1>;
+         };
 -- 
 2.45.2
 
