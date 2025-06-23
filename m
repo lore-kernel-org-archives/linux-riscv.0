@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308FDC7115B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5D9C77B7F
 	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 13:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,61 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3/gs/qyS/EFkTFrdzPSrbu+fs/5ibXQuTYxpzCBwHwI=; b=ufJyEhUayUUv0B
-	+M4pjXBc4j+mCAmQqFaF/ywEJa3uDc5fft4hhn9/5PUFcEmkO6sC+85msc7hjVM4h0wGmw2wTYw4A
-	qdswXCBKN6m4MuqQ7IT2A3+xM+qJI0tRWCbWgl+H4HN1o6dcG13vhhRCKHuP+mmouLD4v8sHrS/i4
-	8StjwOdd7o4InF4GQjpHeRUhZmRvZKhcriZzsHEC6Z9864EKlcu22NYFF4vjOzpipgUhTomxSKXR6
-	xsyyi/T/brVlkcezPREZU7vjNhF+A3RIhJyE3xCy+mPKqwIaaZjz4zftX5L4ogI2pw7OzzpC1rQA0
-	/vKqqqLmBe5eemwFQVpQ==;
+	List-Owner; bh=xkFuNa8lsdMPY3woPr4StnJc6GTxNJwWNDH7vL1LOmA=; b=nqPorQpkbd1MzI
+	tayAoJsn7Xc//3eedYA8hza/zT7fUd2RCVhn+zPcDLE/VfirGCW45yzgXVhEDuccpEii+r92AohGu
+	cgt5XdpFkYspsHVatmwbdEV1V1YBDW3GjCQg+EbSRANZq7LMifDP0lxXAg2JwKpqS64gLTFl6xfoH
+	6Ed/AZMRLat0ZiZEhzTLorATmqTjfN7Zzi2hOu0lyBokJx7EWwxF6qJ2jUGVjV2dg3/awXFoPypkQ
+	MPV5FObNf3sFmeiHEUGpRZLQz7IZNapETOPr6AuSLfJsBYDY/euZiXCrQEf39uZI8QydrsUf3EpHV
+	ln+VTQRw4uTUBY1271Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTh31-00000002qGQ-0vGa;
-	Mon, 23 Jun 2025 13:17:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfbO-00000002XU6-0fCi
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 23 Jun 2025 11:44:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:Cc:To:
-	In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=tNSG9xdO/yT874UKULeA9IupmCwWnGM0EeVN9ziifd8=; b=mpiC+VQ+1F26RoJfLSUrLYO828
-	m4aF0zHX/pr/2y/Rv5JrFa3k59wslMhlc6/zJ/puAE7lky96tfMikjYccrvVBdA52eUIeqGx0RegS
-	05zfujRcUxwBkgi/va+1p9ojLR1ut73YQtDcpWrswKH0K8HkUibl3N7KhFt7pplXmpDwKpTqHZ2KY
-	G2t7vHooq15dsQcq0BqAM6A8fM6Y8VhDqWHtBotGAzyFHUonw9cYsBjKJNVxg7HOg+zEaimm8LFtA
-	6a8d/1qXbA6HcqnHljo2rDIOC6ITec2v6TQa932coFIoHtBdXFE3yG9W/xBGPHqgUinStc4ffVC5/
-	LG5+QA+Q==;
+	id 1uTh2z-00000002qFb-3pMR;
+	Mon, 23 Jun 2025 13:17:17 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfbL-00000005Cd6-0w0h
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTfbL-00000002XSc-35NK
 	for linux-riscv@lists.infradead.org;
 	Mon, 23 Jun 2025 11:44:41 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250623114433euoutp021844e2d603f0f16ee0b21ec0d7d62659~LqVd0vPvK1759017590euoutp02S
-	for <linux-riscv@lists.infradead.org>; Mon, 23 Jun 2025 11:44:33 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250623114433euoutp021844e2d603f0f16ee0b21ec0d7d62659~LqVd0vPvK1759017590euoutp02S
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250623114437euoutp02163d0f5c5870cfb7fbca92bbac104d1b~LqVhWaesV1537015370euoutp02P
+	for <linux-riscv@lists.infradead.org>; Mon, 23 Jun 2025 11:44:37 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250623114437euoutp02163d0f5c5870cfb7fbca92bbac104d1b~LqVhWaesV1537015370euoutp02P
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1750679073;
-	bh=tNSG9xdO/yT874UKULeA9IupmCwWnGM0EeVN9ziifd8=;
+	s=mail20170921; t=1750679077;
+	bh=H1rGnOtR74xeJYKxpm+NO1laK19Izpd1vlfX7eD26VQ=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=OnhoKDKUJlMu/iX+3AiCvoLOUUqaaH2ZSv/MNJ2FDG3W8gBnNFkFQIxEeKxzsln+u
-	 6DovMPJbN0tZTKmcB6CY24kVWpKzkZRkT7cxnnSudcy7HNI+ztOsw2C1TIuh7Gncjc
-	 pol13vVuUqvVKqvMrGMxmYM6Gl0G0g4K6uYeCP1k=
+	b=mOx5eqimlZ+gVjVSPRyaCHXhHMjcdG+cfvwt1k9HIk98ctc+LouADYW79NrPSKZJt
+	 bdF706t1+rRkiJQ6Gxp4lAJPVPg4T81CV+oq2VdFk//mHB7WvhbA4AzDWAekCa/t43
+	 Tw3gzy+GcJ/CTGZ5x81NGc9q0lVWyH42Rmzoo48k=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250623114432eucas1p2642e24f2dea577c211f26e2738210c4a~LqVdXeNiM1259112591eucas1p29;
-	Mon, 23 Jun 2025 11:44:32 +0000 (GMT)
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250623114436eucas1p1ab8455b32937a472f5f656086e38f428~LqVgykXd71399313993eucas1p1c;
+	Mon, 23 Jun 2025 11:44:36 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250623114431eusmtip17d8774218f038c94d99c5c902eb2247c~LqVcV2wB-1799017990eusmtip1j;
-	Mon, 23 Jun 2025 11:44:31 +0000 (GMT)
+	20250623114434eusmtip1190a72352b897b95137ce69ce4a96d8a~LqVeloFza1638616386eusmtip12;
+	Mon, 23 Jun 2025 11:44:34 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Mon, 23 Jun 2025 13:42:41 +0200
-Subject: [PATCH v6 3/8] pmdomain: thead: Instantiate GPU power sequencer via
- auxiliary bus
+Date: Mon, 23 Jun 2025 13:42:43 +0200
+Subject: [PATCH v6 5/8] dt-bindings: gpu: img,powervr-rogue: Add TH1520 GPU
+ compatible
 MIME-Version: 1.0
-Message-Id: <20250623-apr_14_for_sending-v6-3-6583ce0f6c25@samsung.com>
+Message-Id: <20250623-apr_14_for_sending-v6-5-6583ce0f6c25@samsung.com>
 In-Reply-To: <20250623-apr_14_for_sending-v6-0-6583ce0f6c25@samsung.com>
 To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,  Fu Wei
 	<wefu@redhat.com>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
@@ -82,19 +67,20 @@ To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,  Fu Wei
 	<ulf.hansson@linaro.org>,  Marek Szyprowski <m.szyprowski@samsung.com>
 Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org,  Bartosz Golaszewski
+	dri-devel@lists.freedesktop.org,  Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,  Bartosz Golaszewski
 	<bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250623114432eucas1p2642e24f2dea577c211f26e2738210c4a
+X-CMS-MailID: 20250623114436eucas1p1ab8455b32937a472f5f656086e38f428
 X-Msg-Generator: CA
-X-RootMTR: 20250623114432eucas1p2642e24f2dea577c211f26e2738210c4a
+X-RootMTR: 20250623114436eucas1p1ab8455b32937a472f5f656086e38f428
 X-EPHeader: CA
-X-CMS-RootMailID: 20250623114432eucas1p2642e24f2dea577c211f26e2738210c4a
+X-CMS-RootMailID: 20250623114436eucas1p1ab8455b32937a472f5f656086e38f428
 References: <20250623-apr_14_for_sending-v6-0-6583ce0f6c25@samsung.com>
-	<CGME20250623114432eucas1p2642e24f2dea577c211f26e2738210c4a@eucas1p2.samsung.com>
+	<CGME20250623114436eucas1p1ab8455b32937a472f5f656086e38f428@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_124439_698558_DD99995D 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20250623_044440_066920_59611515 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,117 +97,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In order to support the complex power sequencing required by the TH1520
-GPU, the AON power domain driver must be responsible for initiating the
-corresponding sequencer driver. This functionality is specific to
-platforms where the GPU power sequencing hardware is controlled by the
-AON block.
+Update the img,powervr-rogue.yaml to include the T-HEAD TH1520 SoC's
+specific GPU compatible string.
 
-Extend the AON power domain driver to check for the presence of the
-"gpu-clkgen" reset in its own device tree node.
+The thead,th1520-gpu compatible, along with its full chain
+img,img-bxm-4-64, and img,img-rogue, is added to the
+list of recognized GPU types.
 
-If the property is found, create and register a new auxiliary device.
-This device acts as a proxy that allows the dedicated `pwrseq-thead-gpu`
-auxiliary driver to bind and take control of the sequencing logic.
+The power-domains property requirement for img,img-bxm-4-64 is also
+ensured by adding it to the relevant allOf condition.
 
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- drivers/pmdomain/thead/Kconfig             |  1 +
- drivers/pmdomain/thead/th1520-pm-domains.c | 51 ++++++++++++++++++++++++++++++
- 2 files changed, 52 insertions(+)
+ Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pmdomain/thead/Kconfig b/drivers/pmdomain/thead/Kconfig
-index 7d52f8374b074167d508a80fd807929c53faef12..208828e0fa0dc91256bf808b905bea32bb84250d 100644
---- a/drivers/pmdomain/thead/Kconfig
-+++ b/drivers/pmdomain/thead/Kconfig
-@@ -4,6 +4,7 @@ config TH1520_PM_DOMAINS
- 	tristate "Support TH1520 Power Domains"
- 	depends on TH1520_AON_PROTOCOL
- 	select REGMAP_MMIO
-+	select AUXILIARY_BUS
- 	help
- 	  This driver enables power domain management for the T-HEAD
- 	  TH-1520 SoC. On this SoC there are number of power domains,
-diff --git a/drivers/pmdomain/thead/th1520-pm-domains.c b/drivers/pmdomain/thead/th1520-pm-domains.c
-index f702e20306f469aeb0ed15e54bd4f8309f28018c..9040b698e7f7f2400163841530fecacfb0f917bc 100644
---- a/drivers/pmdomain/thead/th1520-pm-domains.c
-+++ b/drivers/pmdomain/thead/th1520-pm-domains.c
-@@ -5,6 +5,7 @@
-  * Author: Michal Wilczynski <m.wilczynski@samsung.com>
-  */
- 
-+#include <linux/auxiliary_bus.h>
- #include <linux/firmware/thead/thead,th1520-aon.h>
- #include <linux/slab.h>
- #include <linux/platform_device.h>
-@@ -128,6 +129,50 @@ static void th1520_pd_init_all_off(struct generic_pm_domain **domains,
- 	}
- }
- 
-+static void th1520_pd_pwrseq_unregister_adev(void *adev)
-+{
-+	auxiliary_device_delete(adev);
-+	auxiliary_device_uninit(adev);
-+}
-+
-+static int th1520_pd_pwrseq_gpu_init(struct device *dev)
-+{
-+	struct auxiliary_device *adev;
-+	int ret;
-+
-+	/*
-+	 * Correctly check only for the property's existence in the DT node.
-+	 * We don't need to get/claim the reset here; that is the job of
-+	 * the auxiliary driver that we are about to spawn.
-+	 */
-+	if (device_property_match_string(dev, "reset-names", "gpu-clkgen") < 0)
-+		/*
-+		 * This is not an error. It simply means the optional sequencer
-+		 * is not described in the device tree.
-+		 */
-+		return 0;
-+
-+	adev = devm_kzalloc(dev, sizeof(*adev), GFP_KERNEL);
-+	if (!adev)
-+		return -ENOMEM;
-+
-+	adev->name = "pwrseq-gpu";
-+	adev->dev.parent = dev;
-+
-+	ret = auxiliary_device_init(adev);
-+	if (ret)
-+		return ret;
-+
-+	ret = auxiliary_device_add(adev);
-+	if (ret) {
-+		auxiliary_device_uninit(adev);
-+		return ret;
-+	}
-+
-+	return devm_add_action_or_reset(dev, th1520_pd_pwrseq_unregister_adev,
-+					adev);
-+}
-+
- static int th1520_pd_probe(struct platform_device *pdev)
- {
- 	struct generic_pm_domain **domains;
-@@ -186,8 +231,14 @@ static int th1520_pd_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_clean_genpd;
- 
-+	ret = th1520_pd_pwrseq_gpu_init(dev);
-+	if (ret)
-+		goto err_clean_provider;
-+
- 	return 0;
- 
-+err_clean_provider:
-+	of_genpd_del_provider(dev->of_node);
- err_clean_genpd:
- 	for (i--; i >= 0; i--)
- 		pm_genpd_remove(domains[i]);
+diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+index 4450e2e73b3ccf74d29f0e31e2e6687d7cbe5d65..9b241a0c1f5941dc58a1e23970f6d3773d427c22 100644
+--- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
++++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+@@ -21,6 +21,11 @@ properties:
+           # work with newer dts.
+           - const: img,img-axe
+           - const: img,img-rogue
++      - items:
++          - enum:
++              - thead,th1520-gpu
++          - const: img,img-bxm-4-64
++          - const: img,img-rogue
+       - items:
+           - enum:
+               - ti,j721s2-gpu
+@@ -93,7 +98,9 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: img,img-axe-1-16m
++            enum:
++              - img,img-axe-1-16m
++              - img,img-bxm-4-64
+     then:
+       properties:
+         power-domains:
 
 -- 
 2.34.1
