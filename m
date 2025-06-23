@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53DFCC77B7C
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 16:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0EAAC77B7C
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 16:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I8isAsJuhhzCpoGwe37WNKw+0rjk8SO+nZH6Mj7tits=; b=zJpDu/2LDuVFeC
-	jOPo+ilXZKX+NFx+MnJd2fBN0mDQwXYl0h3ieUuKlORh9ylLzLRA+KK2IlKdnihFTLCQBSu8FT0Pi
-	z9F60sPICIs/Yk83WHLaW7US1Wgg6g7Nc+C+PR6pOxC3dGnisK8Sk3fM9l1LiroPPHlLB6JbIzQBD
-	2bLnvT/uJPnThO+MYPdmGWbBuTVZBFtr8T0YSdrmLKJTqPOK2BKY2F5HDC5KmhqCbbslUWRqOFpO+
-	lyP56A3BFGrT9HXGcSt8oFbxMJW2TuJM+8fXdK7KmtCPg8S5t3zvICepyt0PnEi0U/VfPJ1GRqrO7
-	XWmbL63fBbzXlyj0+f9w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NPopAZtQir5L4+IS3PeyccD53oI3paRvKl3g+V68Bik=; b=VT+NSY7zaJM2P0
+	RjfndV0c75oTmvnDbVFlPMnFt405UQZTgF3QBQri+uBxen2o0ku4q12AY1TxAo6SnYa5syLsHVmqI
+	rUJ43MWYpEA6z9it6rodze4xNFcUnQUb3cPJuniUUDR/nWa8I9AhPcmnOrrCfdrKUxOsmjvJC27KK
+	fglKLHrI0ubI7rMiCmLaXxIgftRH6TzOwvY1Gy/l3RezBHJj0jBuXTyq8K3oYa2eZhjxofdY+lgOJ
+	G6ETdF66n9cRQO9nmtORPeAtUT9DQfuwRF4a9l8DOVuSz86vFoLQ8eaJPQqIZQolMnMCQ1TtaZvuv
+	9SGhgOsBqpMiC2uZxjdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTk3j-00000003QSC-2pl6;
-	Mon, 23 Jun 2025 16:30:15 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1uTk3t-00000003QVB-1FQE;
+	Mon, 23 Jun 2025 16:30:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgfk-00000002mLY-1yGG
+	id 1uTgjC-00000002n7G-1mEI
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Jun 2025 12:53:18 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E3B8E44418;
-	Mon, 23 Jun 2025 12:53:06 +0000 (UTC)
-Message-ID: <eb8f5a3b-edee-4525-be69-7a4ad55168a2@ghiti.fr>
-Date: Mon, 23 Jun 2025 14:53:06 +0200
+	Mon, 23 Jun 2025 12:56:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C1D384A326;
+	Mon, 23 Jun 2025 12:56:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59E8AC4CEF1;
+	Mon, 23 Jun 2025 12:56:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750683409;
+	bh=AN/fmMRmp199vwZFouxTxb9gbavJDOlWyfuWbGe5Y8A=;
+	h=From:To:Cc:Subject:Date:From;
+	b=jHPjRLu5+7OJ1P6bsAXyRqJ+0mJ8o67o14jKkyP5htkeVxnjSYyS1+d5UuppMIuXj
+	 kI3qVnh2fprV5KEVamnUAj75MlMgx1lt+74x59mxrxFJGVc6dMn0JuBQRZUon7ep5F
+	 saMvGzunJQJEPmeyWY6pfPI9aV+9D31zg+ERysTOB63g+1aFRiLCRQmaQJuPRc99Xa
+	 QBy04+qYv5RsU4NayCOv3eWPzsqoyXl36bsU+4VHmOT5wFnouWleN1dq++xf/o0mR3
+	 VbuZI3jH8PfkY3uVxd1xZ4MtikRnROg78rW9UaHSMKJNg26HwFTCZqJjig47uM96VK
+	 yM/UMT3j6F9Eg==
+From: Conor Dooley <conor@kernel.org>
+To: sboyd@kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/9] Redo PolarFire SoC's mailbox/clock devicestrees and related code
+Date: Mon, 23 Jun 2025 13:56:14 +0100
+Message-ID: <20250623-levitate-nugget-08c9a01f401d@spud>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/7] riscv: helper to parse hart index
-To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto <inochiama@gmail.com>, Sunil V L <sunilvl@ventanamicro.com>,
- "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
- Ryo Takakura <takakura@valinux.co.jp>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, sophgo@lists.linux.dev
-References: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
- <20250609134749.1453835-2-vladimir.kondratiev@mobileye.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250609134749.1453835-2-vladimir.kondratiev@mobileye.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgddujedtjecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepieffvdeiveeuhfegvddvuefhveejhfffudffhfdufeeuudegtdfguddthfetledvnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmedvieeijeemvgejvgdtmeehudeltdemfhgvtdehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmedvieeijeemvgejvgdtmeehudeltdemfhgvtdehpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmedvieeijeemvgejvgdtmeehudeltdemfhgvtdehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedukedprhgtphhtthhopehvlhgrughimhhirhdrkhhonhgurhgrthhivghvsehmohgsihhlvgihvgdrtghomhdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdpr
- hgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughu
-X-GND-Sasl: alex@ghiti.fr
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5494; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=omk1CikIFivBf32iix8/b+9fYptZBC4DMf6e6vdMZ9Q=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDBmRfu+UlRaJzN+b06Qs+4B3wkE1nSePln3MULi+8v9r1 +IF4rkGHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhIqwPDf/eZwed3xWXuajF9 fK9y4w7VVrHt1tofDx3qmLAr2LRb6QvD/4CNvY+S/8y/Jdhz2yH07YoS/i8x5168V9+zdsqu2fp cOXwA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_055316_642288_500951ED 
-X-CRM114-Status: GOOD (  26.78  )
+X-CRM114-CacheID: sfid-20250623_055650_508750_C586F95D 
+X-CRM114-Status: GOOD (  28.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,86 +82,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVmxhZGltaXIsCgpPbiA2LzkvMjUgMTU6NDcsIFZsYWRpbWlyIEtvbmRyYXRpZXYgd3JvdGU6
-Cj4gUklTQy1WIEFQTElDIHNwZWNpZmljYXRpb24gZGVmaW5lcyAiaGFydCBpbmRleCIgaW4gWzFd
-Cj4gQW5kIHNpbWlsYXIgZGVmaW5pdGlvbnMgZm91bmQgZm9yIEFDTElOVCBpbiBbMl0KPgo+IFF1
-b3RlIGZyb20gWzFdOgo+Cj4gV2l0aGluIGEgZ2l2ZW4gaW50ZXJydXB0IGRvbWFpbiwgZWFjaCBv
-ZiB0aGUgZG9tYWlu4oCZcyBoYXJ0cyBoYXMgYSB1bmlxdWUKPiBpbmRleCBudW1iZXIgaW4gdGhl
-IHJhbmdlIDAgdG8gMl4xNCDiiJIgMSAoPSAxNiwzODMpLiBUaGUgaW5kZXggbnVtYmVyIGEKPiBk
-b21haW4gYXNzb2NpYXRlcyB3aXRoIGEgaGFydCBtYXkgb3IgbWF5IG5vdCBoYXZlIGFueSByZWxh
-dGlvbnNoaXAgdG8gdGhlCj4gdW5pcXVlIGhhcnQgaWRlbnRpZmllciAo4oCcaGFydCBJROKAnSkg
-dGhhdCB0aGUgUklTQy1WIFByaXZpbGVnZWQKPiBBcmNoaXRlY3R1cmUgYXNzaWducyB0byB0aGUg
-aGFydC4gVHdvIGRpZmZlcmVudCBpbnRlcnJ1cHQgZG9tYWlucyBtYXkKPiBlbXBsb3kgZW50aXJl
-bHkgZGlmZmVyZW50IGluZGV4IG51bWJlcnMgZm9yIHRoZSBzYW1lIHNldCBvZiBoYXJ0cy4KPgo+
-IEZ1cnRoZXIsIFsxXSBzYXlzIGluICI0LjUgTWVtb3J5LW1hcHBlZCBjb250cm9sIHJlZ2lvbiBm
-b3IgYW4KPiBpbnRlcnJ1cHQgZG9tYWluIjoKPgo+IFRoZSBhcnJheSBvZiBJREMgc3RydWN0dXJl
-cyBtYXkgaW5jbHVkZSBzb21lIGZvciBwb3RlbnRpYWwgaGFydCBpbmRleAo+IG51bWJlcnMgdGhh
-dCBhcmUgbm90IGFjdHVhbCBoYXJ0IGluZGV4IG51bWJlcnMgaW4gdGhlIGRvbWFpbi4KPiBGb3Ig
-ZXhhbXBsZSwgdGhlIGZpcnN0IElEQyBzdHJ1Y3R1cmUgaXMgYWx3YXlzIGZvciBoYXJ0IGluZGV4
-IDAsIGJ1dCAwIGlzCj4gbm90IG5lY2Vzc2FyaWx5IGEgdmFsaWQgaW5kZXggbnVtYmVyIGZvciBh
-bnkgaGFydCBpbiB0aGUgZG9tYWluLgo+Cj4gU3VwcG9ydCBhcmJpdHJhcnkgaGFydCBpbmRpY2Vz
-IHNwZWNpZmllZCBpbiBhbiBvcHRpb25hbCBwcm9wZXJ0eQo+ICJyaXNjdixoYXJ0LWluZGV4ZXMi
-IHdoaWNoIGlzIHNwZWNpZmllZCBhcyBhbiBhcnJheSBvZiB1MzIgZWxlbWVudHMsIG9uZQo+IHBl
-ciBpbnRlcnJ1cHQgdGFyZ2V0LCBsaXN0aW5nIGhhcnQgaW5kZXhlcyBpbiB0aGUgc2FtZSBvcmRl
-ciBhcyBpbgo+ICJpbnRlcnJ1cHRzLWV4dGVuZGVkIi4gSWYgdGhpcyBwcm9wZXJ0eSBpcyBub3Qg
-c3BlY2lmaWVkLCBmYWxsYmFjayB0byB1c2UKPiBsb2dpY2FsIGhhcnQgaW5kaWNlcyB3aXRoaW4g
-dGhlIGRvbWFpbi4KPgo+IElmIHByb3BlcnR5IG5vdCBleGlzdCwgZmFsbCBiYWNrIHRvIGxvZ2lj
-YWwgaGFydCBpbmRleGVzCgoKZG9lcyBub3QKCgo+Cj4gTGluazogaHR0cHM6Ly9naXRodWIuY29t
-L3Jpc2N2L3Jpc2N2LWFpYSBbMV0KPiBMaW5rOiBodHRwczovL2dpdGh1Yi5jb20vcmlzY3ZhcmNo
-aXZlL3Jpc2N2LWFjbGludCBbMl0KPiBTaWduZWQtb2ZmLWJ5OiBWbGFkaW1pciBLb25kcmF0aWV2
-IDx2bGFkaW1pci5rb25kcmF0aWV2QG1vYmlsZXllLmNvbT4KPiAtLS0KPiAgIGFyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vaXJxLmggfCAgMiArKwo+ICAgYXJjaC9yaXNjdi9rZXJuZWwvaXJxLmMgICAg
-ICB8IDM0ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKPiAgIDIgZmlsZXMgY2hh
-bmdlZCwgMzYgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vaXJxLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2lycS5oCj4gaW5kZXggN2IwMzhm
-M2I3Y2IwLi41OWM5NzVmNzUwYzkgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9pcnEuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaXJxLmgKPiBAQCAtMjIsNiAr
-MjIsOCBAQCB2b2lkIGFyY2hfdHJpZ2dlcl9jcHVtYXNrX2JhY2t0cmFjZShjb25zdCBjcHVtYXNr
-X3QgKm1hc2ssIGludCBleGNsdWRlX2NwdSk7Cj4gICB2b2lkIHJpc2N2X3NldF9pbnRjX2h3bm9k
-ZV9mbihzdHJ1Y3QgZndub2RlX2hhbmRsZSAqKCpmbikodm9pZCkpOwo+ICAgCj4gICBzdHJ1Y3Qg
-Zndub2RlX2hhbmRsZSAqcmlzY3ZfZ2V0X2ludGNfaHdub2RlKHZvaWQpOwo+ICtpbnQgcmlzY3Zf
-Z2V0X2hhcnRfaW5kZXgoc3RydWN0IGZ3bm9kZV9oYW5kbGUgKmZ3bm9kZSwgdTMyIGxvZ2ljYWxf
-aW5kZXgsCj4gKwkJCSB1MzIgKmhhcnRfaW5kZXgpOwo+ICAgCj4gICAjaWZkZWYgQ09ORklHX0FD
-UEkKPiAgIAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9pcnEuYyBiL2FyY2gvcmlz
-Y3Yva2VybmVsL2lycS5jCj4gaW5kZXggOWNlZGEwMjUwN2NhLi5lZmRmNTA1YmI3NzYgMTAwNjQ0
-Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvaXJxLmMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5l
-bC9pcnEuYwo+IEBAIC0zMiw2ICszMiw0MCBAQCBzdHJ1Y3QgZndub2RlX2hhbmRsZSAqcmlzY3Zf
-Z2V0X2ludGNfaHdub2RlKHZvaWQpCj4gICB9Cj4gICBFWFBPUlRfU1lNQk9MX0dQTChyaXNjdl9n
-ZXRfaW50Y19od25vZGUpOwo+ICAgCj4gKy8qKgo+ICsgKiByaXNjdl9nZXRfaGFydF9pbmRleCgp
-IC0gZ2V0IGhhcnQgaW5kZXggZm9yIGludGVycnVwdCBkZWxpdmVyeQo+ICsgKiBAZndub2RlOiBp
-bnRlcnJ1cHQgY29udHJvbGxlciBub2RlCj4gKyAqIEBsb2dpY2FsX2luZGV4OiBpbmRleCB3aXRo
-aW4gdGhlICJpbnRlcnJ1cHRzLWV4dGVuZGVkIiBwcm9wZXJ0eQo+ICsgKiBAaGFydF9pbmRleDog
-ZmlsbGVkIHdpdGggdGhlIGhhcnQgaW5kZXggdG8gdXNlCj4gKyAqCj4gKyAqIFJpc2MtViB1c2Vz
-IHRlcm0gImhhcnQgaW5kZXgiIGZvciBpdHMgaW50ZXJydXB0IGNvbnRyb2xsZXJzLCBmb3IgdGhl
-CgoKcy9SaXNjLVYvUklTQy1WCgoKPiArICogcHVycG9zZSBvZiB0aGUgaW50ZXJydXB0IHJvdXRp
-bmcgdG8gZGVzdGluYXRpb24gaGFydHMuCj4gKyAqIEl0IG1heSBiZSBhcmJpdHJhcnkgbnVtYmVy
-cyBhc3NpZ25lZCB0byBlYWNoIGRlc3RpbmF0aW9uIGhhcnQgaW4gY29udGV4dAo+ICsgKiBvZiB0
-aGUgcGFydGljdWxhciBpbnRlcnJ1cHQgZG9tYWluLgo+ICsgKgo+ICsgKiBUaGVzZSBudW1iZXJz
-IGVuY29kZWQgaW4gdGhlIG9wdGlvbmFsIHByb3BlcnR5ICJyaXNjdixoYXJ0LWluZGV4ZXMiCj4g
-KyAqIHRoYXQgc2hvdWxkIGNvbnRhaW4gaGFydCBpbmRleCBmb3IgZWFjaCBpbnRlcnJ1cHQgZGVz
-dGluYXRpb24gaW4gdGhlIHNhbWUKPiArICogb3JkZXIgYXMgaW4gdGhlICJpbnRlcnJ1cHRzLWV4
-dGVuZGVkIiBwcm9wZXJ0eS4gSWYgdGhpcyBwcm9wZXJ0eQo+ICsgKiBub3QgZXhpc3QsIGl0IGFz
-c3VtZWQgZXF1YWwgdG8gdGhlIGxvZ2ljYWwgaW5kZXgsIGkuZS4gaW5kZXggd2l0aGluIHRoZQo+
-ICsgKiAiaW50ZXJydXB0cy1leHRlbmRlZCIgcHJvcGVydHkuCj4gKyAqCj4gKyAqIFJldHVybjog
-ZXJyb3IgY29kZQoKClRoaXMgZG9lcyBub3QgYWRkIGEgbG90IG9mIHZhbHVlLCBtYXliZSBzb21l
-dGhpbmcgbGlrZSB0aGF0ICJSZXR1cm46IDAgCm9uIHN1Y2Nlc3MsIGEgbmVnYXRpdmUgZXJyb3Ig
-Y29kZSBvdGhlcndpc2UiPwoKCj4gKyAqLwo+ICtpbnQgcmlzY3ZfZ2V0X2hhcnRfaW5kZXgoc3Ry
-dWN0IGZ3bm9kZV9oYW5kbGUgKmZ3bm9kZSwgdTMyIGxvZ2ljYWxfaW5kZXgsCj4gKwkJCSB1MzIg
-KmhhcnRfaW5kZXgpCj4gK3sKPiArCXN0YXRpYyBjb25zdCBjaGFyICpwcm9wX2hhcnRfaW5kZXgg
-PSAicmlzY3YsaGFydC1pbmRleGVzIjsKPiArCXN0cnVjdCBkZXZpY2Vfbm9kZSAqbnAgPSB0b19v
-Zl9ub2RlKGZ3bm9kZSk7Cj4gKwo+ICsJaWYgKCFucCB8fCAhb2ZfcHJvcGVydHlfcHJlc2VudChu
-cCwgcHJvcF9oYXJ0X2luZGV4KSkgewo+ICsJCSpoYXJ0X2luZGV4ID0gbG9naWNhbF9pbmRleDsK
-PiArCQlyZXR1cm4gMDsKPiArCX0KPiArCj4gKwlyZXR1cm4gb2ZfcHJvcGVydHlfcmVhZF91MzJf
-aW5kZXgobnAsIHByb3BfaGFydF9pbmRleCwKPiArCQkJCQkgIGxvZ2ljYWxfaW5kZXgsIGhhcnRf
-aW5kZXgpOwo+ICt9Cj4gKwo+ICAgI2lmZGVmIENPTkZJR19JUlFfU1RBQ0tTCj4gICAjaW5jbHVk
-ZSA8YXNtL2lycV9zdGFjay5oPgo+ICAgCgoKV2l0aCB0aG9zZSBuaXRzIGFib3ZlIGZpeGVkLCB5
-b3UgY2FuIGFkZDoKCkFja2VkLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2lu
-Yy5jb20+CgpUaGFua3MsCgpBbGV4CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+From: Conor Dooley <conor.dooley@microchip.com>
+
+Yo,
+
+Stephen - I would really like to know if what I have done with the
+regmap clock is what you were asking for (a there's a link to that below
+to remind yourself). I've been trying to get you to look at this for a
+while, even just to affirm that I am on the right track!
+
+Cheers,
+Conor.
+
+v3 changes:
+- drop simple-mfd (for now) from syscon node
+
+v2 cover letter:
+
+Here's something that I've been mulling over for a while, since I
+started to understand how devicetree stuff was "meant" to be done.
+There'd been little reason to actually press forward with it, because it
+is fairly disruptive. I've finally opted to do it, because a user has
+come along with a hwmon driver that needs to access the same register
+region as the mailbox and the author is not keen on using the aux bus,
+and because I do not want the new pic64gx SoC that's based on PolarFire
+SoC to use bindings etc that I know to be incorrect.
+
+Given backwards compatibility needs to be maintained, this patch series
+isn't the prettiest thing I have ever written. The reset driver needs to
+retain support for the auxiliary bus, which looks a bit mess, but not
+much can be done there. The mailbox and clock drivers both have to have
+an "old probe" function to handle the old layout. Thankfully in the
+clock driver, regmap support can be used to identically
+handle both old and new devicetree formats - but using a regmap in the
+mailbox driver was only really possible for the new format, so the code
+there is unfortunately a bit of an if/else mess that I'm both not proud
+of, nor really sure is worth "improving".
+
+The series should be pretty splitable per subsystem, only the dts change
+has some sort of dependency, but I'll not be applying that till
+everything else is in Linus' tree, so that's not a big deal.
+
+I don't really want this stuff in stable, hence a lack of cc: stable
+anywhere here, since what's currently in the tree works fine for the
+currently supported hardware.
+
+AFAIK, the only other project affected here is U-Boot, which I have
+already modified to support the new format.
+
+I previously submitted this as an RFC, only to Lee and the dt list, in
+order to get some feedback on the syscon/mfd bindings:
+https://lore.kernel.org/all/20240815-shindig-bunny-fd42792d638a@spud/
+I'm not really going to bother with a proper changelog, since that was
+submitted with lots of WIP code to get answers to some questions. The
+main change was "removing" some of the child nodes of the syscons.
+
+And as a "real" series where discussion lead to me dropping use of the
+amlogic clk-regmap support:
+https://lore.kernel.org/linux-clk/20241002-private-unequal-33cfa6101338@spud/
+As a result of that, I've implemented what I think Stephen was asking
+for - but I'm not at all sure that it is..
+
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: pierre-henry.moussay@microchip.com
+CC: valentina.fernandezalanis@microchip.com
+CC: Michael Turquette <mturquette@baylibre.com>
+CC: Stephen Boyd <sboyd@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Jassi Brar <jassisinghbrar@gmail.com>
+CC: Lee Jones <lee@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Philipp Zabel <p.zabel@pengutronix.de>
+CC: linux-riscv@lists.infradead.org
+CC: linux-clk@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+
+Conor Dooley (9):
+  dt-bindings: mfd: syscon document the control-scb syscon on PolarFire
+    SoC
+  dt-bindings: soc: microchip: document the simple-mfd syscon on
+    PolarFire SoC
+  soc: microchip: add mfd drivers for two syscon regions on PolarFire
+    SoC
+  reset: mpfs: add non-auxiliary bus probing
+  dt-bindings: clk: microchip: mpfs: remove first reg region
+  riscv: dts: microchip: fix mailbox description
+  riscv: dts: microchip: convert clock and reset to use syscon
+  clk: divider, gate: create regmap-backed copies of gate and divider
+    clocks
+  clk: microchip: mpfs: use regmap clock types
+
+ .../bindings/clock/microchip,mpfs-clkcfg.yaml |  36 ++-
+ .../devicetree/bindings/mfd/syscon.yaml       |   2 +
+ .../microchip,mpfs-mss-top-sysreg.yaml        |  47 +++
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  34 ++-
+ drivers/clk/Kconfig                           |   8 +
+ drivers/clk/Makefile                          |   2 +
+ drivers/clk/clk-divider-regmap.c              | 271 ++++++++++++++++++
+ drivers/clk/clk-gate-regmap.c                 | 254 ++++++++++++++++
+ drivers/clk/microchip/Kconfig                 |   4 +
+ drivers/clk/microchip/clk-mpfs.c              | 151 ++++++----
+ drivers/reset/reset-mpfs.c                    |  81 ++++--
+ drivers/soc/microchip/Kconfig                 |  13 +
+ drivers/soc/microchip/Makefile                |   1 +
+ drivers/soc/microchip/mpfs-control-scb.c      |  45 +++
+ drivers/soc/microchip/mpfs-mss-top-sysreg.c   |  48 ++++
+ include/linux/clk-provider.h                  | 120 ++++++++
+ 16 files changed, 1023 insertions(+), 94 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
+ create mode 100644 drivers/clk/clk-divider-regmap.c
+ create mode 100644 drivers/clk/clk-gate-regmap.c
+ create mode 100644 drivers/soc/microchip/mpfs-control-scb.c
+ create mode 100644 drivers/soc/microchip/mpfs-mss-top-sysreg.c
+
+-- 
+2.45.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
