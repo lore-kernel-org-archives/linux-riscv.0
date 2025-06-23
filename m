@@ -4,100 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355D7C7115B
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 12:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308FDC7115B
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 13:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LK9HsMZ27uErClSvlesNDQKIot7R8RHQK2MosXhpjpg=; b=BqLbXDxznPa6Zm
-	sR0V20XrKDQTb2M4CrdYv7b4NIeFIi0Y+bcOWlqWoqfXQsfmppceElpL1rh88P+Yr8s6PxhfqzZWg
-	iTZodM0od19cehlW9NS5gUuhbGqUglPHAKQE6ezS61r/Lm4uFi0CuNVBU7QJYj3JDcL9eBcNay/1Q
-	fnwjDye3NgaNun7Ly+UH+jBVt/X8GDBDk0cb+HMPtxiJ0mYfe/y8wc3EX2sF3wtM7CuOCS78WGA6u
-	lYTuN02Zq/KtaF9CIf6DQ9PZxS0sqplNCbLgEVRZLn+w/5Fo2hq3dorb6JstbEukHi+80Yg1vnLVG
-	a7IZqHn5ZKHHAAAdDFlw==;
+	List-Owner; bh=3/gs/qyS/EFkTFrdzPSrbu+fs/5ibXQuTYxpzCBwHwI=; b=ufJyEhUayUUv0B
+	+M4pjXBc4j+mCAmQqFaF/ywEJa3uDc5fft4hhn9/5PUFcEmkO6sC+85msc7hjVM4h0wGmw2wTYw4A
+	qdswXCBKN6m4MuqQ7IT2A3+xM+qJI0tRWCbWgl+H4HN1o6dcG13vhhRCKHuP+mmouLD4v8sHrS/i4
+	8StjwOdd7o4InF4GQjpHeRUhZmRvZKhcriZzsHEC6Z9864EKlcu22NYFF4vjOzpipgUhTomxSKXR6
+	xsyyi/T/brVlkcezPREZU7vjNhF+A3RIhJyE3xCy+mPKqwIaaZjz4zftX5L4ogI2pw7OzzpC1rQA0
+	/vKqqqLmBe5eemwFQVpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgfl-00000002mML-093g;
-	Mon, 23 Jun 2025 12:53:17 +0000
+	id 1uTh31-00000002qGQ-0vGa;
+	Mon, 23 Jun 2025 13:17:19 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTeRR-00000002Lxi-44Au
+	id 1uTfbO-00000002XU6-0fCi
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 23 Jun 2025 10:30:22 +0000
+	Mon, 23 Jun 2025 11:44:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=S2Xh6Dpoc9NJla9DLdZ/WLUd9H1GHAIOhYhI+2Em4eg=; b=K0ad/PmWjhnZpUiwdNGFvu91Xz
-	eYdrKMepCOHXV0TUckiyOnFOcqtAMo7q7pabMAGjsuww22w6IdLDYy8r3SYUgnDr7IoDTDCFElAgo
-	MfX38HPNi+X7vUyvJ3QN9q5jrF/eANGqeFhuShR+rY1fxzziHVLDwhyZo3oyM+BgQQIsWqwLqQegv
-	KCOKAZIwzOy8zoeCmemvc7KSDEZqPL+tzLGdg1gOTEHBTD/mJBCAi5kjkj1UQc4CekxY5p7bUECFk
-	1ul84TTffYy9aILWoh8uWTYB1j5s1VBOKgDNQHWT80tntujB4UIUxkawTVUYDJhRKA2H9qyMPfedf
-	DDQJWJSg==;
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	d=infradead.org; s=desiato.20200630; h=References:Content-Type:Cc:To:
+	In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=tNSG9xdO/yT874UKULeA9IupmCwWnGM0EeVN9ziifd8=; b=mpiC+VQ+1F26RoJfLSUrLYO828
+	m4aF0zHX/pr/2y/Rv5JrFa3k59wslMhlc6/zJ/puAE7lky96tfMikjYccrvVBdA52eUIeqGx0RegS
+	05zfujRcUxwBkgi/va+1p9ojLR1ut73YQtDcpWrswKH0K8HkUibl3N7KhFt7pplXmpDwKpTqHZ2KY
+	G2t7vHooq15dsQcq0BqAM6A8fM6Y8VhDqWHtBotGAzyFHUonw9cYsBjKJNVxg7HOg+zEaimm8LFtA
+	6a8d/1qXbA6HcqnHljo2rDIOC6ITec2v6TQa932coFIoHtBdXFE3yG9W/xBGPHqgUinStc4ffVC5/
+	LG5+QA+Q==;
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTeRO-00000005BUb-2yLh
+	id 1uTfbL-00000005Cd6-0w0h
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Jun 2025 10:30:21 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-7fd581c2bf4so2903828a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Jun 2025 03:30:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1750674611; x=1751279411; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S2Xh6Dpoc9NJla9DLdZ/WLUd9H1GHAIOhYhI+2Em4eg=;
-        b=LBbs4lel64pKHYREkfqlDz43ES8VmvaxTZ0yUNwK6Dg6ixG7hJIo/PerOTqKhdrZnp
-         Zo9uisn9TypWGP00hUZkm3XRU5/4/Pai/tQ1jtdYJwDbjlLnY4SViOiYPlQh0oAzda0I
-         xxdwun+8+9DLvZklmaJ57cZrRjiJrAP50yjaF8VCo64Gh4KcNUulid8uCNqoZD9QZjqN
-         wQFfmHeG4HOvMqbkbKG+1O0hW95mrzibqU7f8rWLv1vldmjd+m5y2Iza3136euK1Vbni
-         1x1N9eWKXDAtyD5IgHREKX95eOV+NNyC5Bhfs3pGgfNAQimR7Q/fwUCr0Bor/GhZLEBo
-         88tA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750674611; x=1751279411;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=S2Xh6Dpoc9NJla9DLdZ/WLUd9H1GHAIOhYhI+2Em4eg=;
-        b=ZRLqUUV65gk8qGP8BaRHUa1aAHscoxnM7IIDHRs2ow4JPac/Ct89OCSx13Kfl95QgX
-         gzp65aFKV5RTFXG3vnaD3E6ji8ro3di1/ZBZLRLrGZke0QtM22GqCeNtU2O0hpGa129c
-         EQNsj2pWpglVb9vNw7TEAjW7Q7BYIJm1UpUNTcSGo2LWKFqMvNDEuJkSgBBFE5/eQHJe
-         Bzr4dFCHSsrIXvghLtwqjFg7e3qKNRkcS+Zr9JGrfJa61Jrv8+cp0yJbP/ZlT05u9b3g
-         nsQfI3wa9dSl2B721oG6kuXr27mJPF/M/2Ou4ff7r5Pcg04anWRXTBn0+Lu3J4Gso1GM
-         qaSw==
-X-Forwarded-Encrypted: i=1; AJvYcCX6KzVKdXBzR+3QHmMc0+YRK++o2yWDq8+hJhccpAONLv8SumEgR8QIIGo23fP5PGBMtC59r4b5nwPC1Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpldB7GqjOplVqb8ft65O46G29I9/4vrACtTgSMi6bqwoQ57N/
-	g0+nceA0LwYDLvILYpto4UJY10EBavwyt7jAyCLEFrAaXCFmdhJtvJvJevwkSr8SmpjKjAU6WWp
-	vieHdBPHRrbkPVjbDXKp2gEw4ENYOFOlyITWMrKQcvg==
-X-Gm-Gg: ASbGncubqO5Jo8v/l7sHs6CiF9LtOLwd5QuHTBqj/TWZyDmREoIXhDEqjlBGHUs0Dva
-	B0xXLrVl/8kI4GC3PhJ1uGyYSB9MjgLzLgMK/K++vRHAf6gilyHPyLRsJcy7eRka0Rs1AEdBVS/
-	QahZr7q8BOLeVWCB1GEZOpViJmx63yFfBul3s9uaO/fY/bPOe8J2qtwd+B
-X-Google-Smtp-Source: AGHT+IHUUgFd5CAVoui8WeB8d4VDjaMayhZu3ZI45zZpLWDJx7B3fRr4MhP36Fw+gyvFSnnTysBzyBVcg3Vlfp8B2jA=
-X-Received: by 2002:a17:90b:5690:b0:312:f0d0:bc4 with SMTP id
- 98e67ed59e1d1-3159d626112mr16340875a91.5.1750674610724; Mon, 23 Jun 2025
- 03:30:10 -0700 (PDT)
+	Mon, 23 Jun 2025 11:44:41 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250623114433euoutp021844e2d603f0f16ee0b21ec0d7d62659~LqVd0vPvK1759017590euoutp02S
+	for <linux-riscv@lists.infradead.org>; Mon, 23 Jun 2025 11:44:33 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250623114433euoutp021844e2d603f0f16ee0b21ec0d7d62659~LqVd0vPvK1759017590euoutp02S
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1750679073;
+	bh=tNSG9xdO/yT874UKULeA9IupmCwWnGM0EeVN9ziifd8=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=OnhoKDKUJlMu/iX+3AiCvoLOUUqaaH2ZSv/MNJ2FDG3W8gBnNFkFQIxEeKxzsln+u
+	 6DovMPJbN0tZTKmcB6CY24kVWpKzkZRkT7cxnnSudcy7HNI+ztOsw2C1TIuh7Gncjc
+	 pol13vVuUqvVKqvMrGMxmYM6Gl0G0g4K6uYeCP1k=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250623114432eucas1p2642e24f2dea577c211f26e2738210c4a~LqVdXeNiM1259112591eucas1p29;
+	Mon, 23 Jun 2025 11:44:32 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250623114431eusmtip17d8774218f038c94d99c5c902eb2247c~LqVcV2wB-1799017990eusmtip1j;
+	Mon, 23 Jun 2025 11:44:31 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Mon, 23 Jun 2025 13:42:41 +0200
+Subject: [PATCH v6 3/8] pmdomain: thead: Instantiate GPU power sequencer via
+ auxiliary bus
 MIME-Version: 1.0
-References: <20250620091720.85633-1-luxu.kernel@bytedance.com>
- <DARCHDIZG7IP.2VTEVNMVX8R1E@ventanamicro.com> <CAPYmKFvcnDJWXAUEX8oY6seQrgwKiZjDqrJ_R2rJ4kWq7RQUSg@mail.gmail.com>
- <DATTT5U64J4L.3UTDRVT2YP7GT@ventanamicro.com>
-In-Reply-To: <DATTT5U64J4L.3UTDRVT2YP7GT@ventanamicro.com>
-From: Xu Lu <luxu.kernel@bytedance.com>
-Date: Mon, 23 Jun 2025 18:29:59 +0800
-X-Gm-Features: AX0GCFtfoIOnfs7J2STs_OR-jY-38t6kH55fmz7DcsUlJBJ7-TA3sUK7F3GCaB8
-Message-ID: <CAPYmKFtyJ-6N8ArP04QJNMFC3ScRnvp_9rijufQEnJRz4UrBQQ@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH] RISC-V: KVM: Delegate illegal instruction fault
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: anup@brainfault.org, atish.patra@linux.dev, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, 
-	linux-riscv <linux-riscv-bounces@lists.infradead.org>
+Message-Id: <20250623-apr_14_for_sending-v6-3-6583ce0f6c25@samsung.com>
+In-Reply-To: <20250623-apr_14_for_sending-v6-0-6583ce0f6c25@samsung.com>
+To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,  Fu Wei
+	<wefu@redhat.com>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Michal
+	Wilczynski <m.wilczynski@samsung.com>,  Bartosz Golaszewski <brgl@bgdev.pl>,
+	Philipp Zabel <p.zabel@pengutronix.de>,  Frank Binns
+	<frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,  Maarten
+	Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Paul Walmsley
+	<paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson
+	<ulf.hansson@linaro.org>,  Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org,  Bartosz Golaszewski
+	<bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.15-dev
+X-CMS-MailID: 20250623114432eucas1p2642e24f2dea577c211f26e2738210c4a
+X-Msg-Generator: CA
+X-RootMTR: 20250623114432eucas1p2642e24f2dea577c211f26e2738210c4a
+X-EPHeader: CA
+X-CMS-RootMailID: 20250623114432eucas1p2642e24f2dea577c211f26e2738210c4a
+References: <20250623-apr_14_for_sending-v6-0-6583ce0f6c25@samsung.com>
+	<CGME20250623114432eucas1p2642e24f2dea577c211f26e2738210c4a@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_113019_249631_6519BF93 
-X-CRM114-Status: GOOD (  27.71  )
+X-CRM114-CacheID: sfid-20250623_124439_698558_DD99995D 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,54 +106,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUmFkaW0sCgpPbiBNb24sIEp1biAyMywgMjAyNSBhdCA2OjA04oCvUE0gUmFkaW0gS3LEjW3D
-ocWZIDxya3JjbWFyQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gMjAyNS0wNi0yMlQxODox
-MTo0OSswODowMCwgWHUgTHUgPGx1eHUua2VybmVsQGJ5dGVkYW5jZS5jb20+Ogo+ID4gSGkgUmFk
-aW0sCj4gPgo+ID4gT24gRnJpLCBKdW4gMjAsIDIwMjUgYXQgODowNOKAr1BNIFJhZGltIEtyxI1t
-w6HFmSA8cmtyY21hckB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPiA+Pgo+ID4+IDIwMjUtMDYt
-MjBUMTc6MTc6MjArMDg6MDAsIFh1IEx1IDxsdXh1Lmtlcm5lbEBieXRlZGFuY2UuY29tPjoKPiA+
-PiA+IERlbGVnYXRlIGlsbGVnYWwgaW5zdHJ1Y3Rpb24gZmF1bHQgdG8gVlMgbW9kZSBpbiBkZWZh
-dWx0IHRvIGF2b2lkIHN1Y2gKPiA+PiA+IGV4Y2VwdGlvbnMgYmVpbmcgdHJhcHBlZCB0byBIUyBh
-bmQgcmVkaXJlY3RlZCBiYWNrIHRvIFZTLgo+ID4+ID4KPiA+PiA+IFNpZ25lZC1vZmYtYnk6IFh1
-IEx1IDxsdXh1Lmtlcm5lbEBieXRlZGFuY2UuY29tPgo+ID4+ID4gLS0tCj4gPj4gPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1faG9zdC5oIGIvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9rdm1faG9zdC5oCj4gPj4gPiBAQCAtNDgsNiArNDgsNyBAQAo+ID4+ID4gKyAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQklUKEVYQ19JTlNUX0lMTEVHQUwpICAg
-IHwgXAo+ID4+Cj4gPj4gWW91IHNob3VsZCBhbHNvIHJlbW92ZSB0aGUgZGVhZCBjb2RlIGluIGt2
-bV9yaXNjdl92Y3B1X2V4aXQuCj4gPgo+ID4gSSBvbmx5IHdhbnQgdG8gZGVsZWdhdGUgaXQgYnkg
-ZGVmYXVsdC4gQW5kIEtWTSBtYXkgc3RpbGwgd2FudCB0bwo+ID4gZGVsZWdhdGUgZGlmZmVyZW50
-IGV4Y2VwdGlvbnMgZm9yIGRpZmZlcmVudCBWTXMgbGlrZSB3aGF0IGl0IGRvZXMgZm9yCj4gPiBF
-WENfQlJFQUtQT0lOVC4KPgo+IChJIHRoaW5rIHdlIGNvdWxkIGVhc2lseSByZWludHJvZHVjZSB0
-aGUgY29kZSBpZiBLVk0gd2FudHMgdG8gZG8gdGhhdCBpbgo+ICB0aGUgZnV0dXJlLiAgSSBhbHNv
-IHRoaW5rIHRoYXQgaXQncyBiYWQgdGhhdCB0aGlzIHBhdGNoIGlzIGRvaW5nIGFuCj4gIG9ic2Vy
-dmFibGUgY2hhbmdlIHdpdGhvdXQgdXNlcnNwYWNlIGludm9sdmVtZW50IC0tIHRoZSBjb3VudGlu
-ZyBvZiBLVk0KPiAgU0JJIFBNVSBldmVudHMsIGJ1dCBvdGhlcnMgd2lsbCBwcm9iYWJseSBkaXNh
-Z3JlZSB3aXRoIG1lIG9uIHRoaXMuKQo+Cj4gPiAgICAgICAgICAgICAgICAgU28gbWF5YmUgaXQg
-aXMgYmV0dGVyIHRvIHJlc2VydmUgdGhlc2UgY29kZXM/Cj4KPiBQb3NzaWJseSwgdGhlIGN1cnJl
-bnQgaXMgYWNjZXB0YWJsZSBpZiB5b3UgaGF2ZSBjb25zaWRlcmVkIHRoZQo+IGltcGxpY2F0aW9u
-cyBvbiBQTVUgZXZlbnRzLgoKU28gbWF5YmUgaXQgY29tZXMgYmFjayB0byBvdXIgZGlzY3Vzc2lv
-biBvbiB0aGUgZGlmZmVyZW5jZSBiZXR3ZWVuIHZzCmluc24gZmF1bHQgYW5kIGlsbGVnYWwgaW5z
-biBmYXVsdCBhZ2Fpbn4gSW4gbXkgcGVyc29uYWwgb3BpbmlvbiwgaXQKc2VlbXMgdG8gYmUgYSB3
-YXN0ZSBvZiBDUFUgcmVzb3VyY2VzIHRvIHRyYXAgaWxsZWdhbCBpbnN0cnVjdGlvbiB0bwpIUy1t
-b2RlIGh5cGVydmlzb3IsIHdoaWNoIGRvZXMgbm90aGluZyBidXQgcmVkaXJlY3QgaXQgYmFjayB0
-byBWUy1tb2RlCmd1ZXN0IGtlcm5lbC4gSSB0aGluayBpdCBpcyBPSyAoYW5kIG1heWJlIGl0IHNo
-b3VsZCkgdG8gcmVjb3JkIDAKaWxsZWdhbCBpbnN0cnVjdGlvbiBleGl0cyBpbiBLVk0gUE1VLiBJ
-ZiBzb21lb25lIHdhbnRzIGlsbGVnYWwgaW5zbiB0bwp0cmlnZ2VyIGFuIHZjcHUgZXhpdCwgdGhl
-biBhbiBpb2N0bCBjYW4gYmUgcHJvdmlkZWQgdG8gcmVtb3ZlIHRoZQpkZWxlZ2F0aW9uIGxpa2Ug
-d2hhdCBLVk1fU0VUX0dVRVNUX0RFQlVHIGRvZXMuCgo+Cj4gPj4gQW5kIHdoeSBub3QgZGVsZWdh
-dGUgdGhlIG90aGVycyBhcyB3ZWxsPwo+ID4+IChFWENfTE9BRF9NSVNBTElHTkVELCBFWENfU1RP
-UkVfTUlTQUxJR05FRCwgRVhDX0xPQURfQUNDRVNTLAo+ID4+ICBFWENfU1RPUkVfQUNDRVNTLCBh
-bmQgRVhDX0lOU1RfQUNDRVNTLikKPiA+Cj4gPiBUaGFua3MgZm9yIHRoZSByZW1pbmRlci4gSSB3
-aWxsIGhhdmUgYSB0ZXN0IGFuZCByZXNlbmQgdGhlIHBhdGNoIGlmIGl0IHdvcmtzLgo+Cj4gVGhl
-IG1pc2FsaWduZWQgZXhjZXB0aW9ucyBhcmUgYWxyZWFkeSBiZWluZyB3b3JrZWQgb24sIHNvIGRv
-bid0IHdhc3RlCj4geW91ciB0aW1lIG9uIHRoZW0sIHNvcnJ5LgoKVGhhbmtzIGZvciB0aGUgcmVt
-aW5kZXIgdG9vLiBJIGRpZCBub3QgY29uc2lkZXIgdGhpcyBiZWZvcmUuIEkgd2lsbApsZWF2ZSB0
-aGUgTUlTQUxJR05FRCBmYXVsdHMgYWxvbmUuCgpCZXN0IFJlZ2FyZHMsCgpYdSBMdQoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+In order to support the complex power sequencing required by the TH1520
+GPU, the AON power domain driver must be responsible for initiating the
+corresponding sequencer driver. This functionality is specific to
+platforms where the GPU power sequencing hardware is controlled by the
+AON block.
+
+Extend the AON power domain driver to check for the presence of the
+"gpu-clkgen" reset in its own device tree node.
+
+If the property is found, create and register a new auxiliary device.
+This device acts as a proxy that allows the dedicated `pwrseq-thead-gpu`
+auxiliary driver to bind and take control of the sequencing logic.
+
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ drivers/pmdomain/thead/Kconfig             |  1 +
+ drivers/pmdomain/thead/th1520-pm-domains.c | 51 ++++++++++++++++++++++++++++++
+ 2 files changed, 52 insertions(+)
+
+diff --git a/drivers/pmdomain/thead/Kconfig b/drivers/pmdomain/thead/Kconfig
+index 7d52f8374b074167d508a80fd807929c53faef12..208828e0fa0dc91256bf808b905bea32bb84250d 100644
+--- a/drivers/pmdomain/thead/Kconfig
++++ b/drivers/pmdomain/thead/Kconfig
+@@ -4,6 +4,7 @@ config TH1520_PM_DOMAINS
+ 	tristate "Support TH1520 Power Domains"
+ 	depends on TH1520_AON_PROTOCOL
+ 	select REGMAP_MMIO
++	select AUXILIARY_BUS
+ 	help
+ 	  This driver enables power domain management for the T-HEAD
+ 	  TH-1520 SoC. On this SoC there are number of power domains,
+diff --git a/drivers/pmdomain/thead/th1520-pm-domains.c b/drivers/pmdomain/thead/th1520-pm-domains.c
+index f702e20306f469aeb0ed15e54bd4f8309f28018c..9040b698e7f7f2400163841530fecacfb0f917bc 100644
+--- a/drivers/pmdomain/thead/th1520-pm-domains.c
++++ b/drivers/pmdomain/thead/th1520-pm-domains.c
+@@ -5,6 +5,7 @@
+  * Author: Michal Wilczynski <m.wilczynski@samsung.com>
+  */
+ 
++#include <linux/auxiliary_bus.h>
+ #include <linux/firmware/thead/thead,th1520-aon.h>
+ #include <linux/slab.h>
+ #include <linux/platform_device.h>
+@@ -128,6 +129,50 @@ static void th1520_pd_init_all_off(struct generic_pm_domain **domains,
+ 	}
+ }
+ 
++static void th1520_pd_pwrseq_unregister_adev(void *adev)
++{
++	auxiliary_device_delete(adev);
++	auxiliary_device_uninit(adev);
++}
++
++static int th1520_pd_pwrseq_gpu_init(struct device *dev)
++{
++	struct auxiliary_device *adev;
++	int ret;
++
++	/*
++	 * Correctly check only for the property's existence in the DT node.
++	 * We don't need to get/claim the reset here; that is the job of
++	 * the auxiliary driver that we are about to spawn.
++	 */
++	if (device_property_match_string(dev, "reset-names", "gpu-clkgen") < 0)
++		/*
++		 * This is not an error. It simply means the optional sequencer
++		 * is not described in the device tree.
++		 */
++		return 0;
++
++	adev = devm_kzalloc(dev, sizeof(*adev), GFP_KERNEL);
++	if (!adev)
++		return -ENOMEM;
++
++	adev->name = "pwrseq-gpu";
++	adev->dev.parent = dev;
++
++	ret = auxiliary_device_init(adev);
++	if (ret)
++		return ret;
++
++	ret = auxiliary_device_add(adev);
++	if (ret) {
++		auxiliary_device_uninit(adev);
++		return ret;
++	}
++
++	return devm_add_action_or_reset(dev, th1520_pd_pwrseq_unregister_adev,
++					adev);
++}
++
+ static int th1520_pd_probe(struct platform_device *pdev)
+ {
+ 	struct generic_pm_domain **domains;
+@@ -186,8 +231,14 @@ static int th1520_pd_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_clean_genpd;
+ 
++	ret = th1520_pd_pwrseq_gpu_init(dev);
++	if (ret)
++		goto err_clean_provider;
++
+ 	return 0;
+ 
++err_clean_provider:
++	of_genpd_del_provider(dev->of_node);
+ err_clean_genpd:
+ 	for (i--; i >= 0; i--)
+ 		pm_genpd_remove(domains[i]);
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
