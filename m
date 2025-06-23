@@ -4,83 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860B7C7115B
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 10:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6729FC7115B
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 10:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+49ja7sMR4bcMIK/XQDi7GaOLtgtA+mIHTuQwudEBXI=; b=fm7yREwCtQjuhg
-	nGfBHI8gpBsO4Gm6xfKuv/4Qe1Oz9DNWi1qxjqO0FNfeR9DK+gb7O9J57JCAv84mS+sL94WcPG8nB
-	8w9hSe5ZyugaL8TAcTRY2lT+y9KvADhMNZOGaZX2LFtiw8SJyI9FVOQR7+cb3U7GuZk9ORm8IeOc9
-	fmRaDIpbSpdPJHmyUtEYr43hKHyHHybIfBc3PJdQW6X92vM1aLMldb4r6xy4pFvHXqO82IBWrxgIC
-	fiB3Q3CYzEJqYmNPn8LUuVjqWmu4hjbZNI+0+tBIABf5BiJewENO64bsWBAUUrGG4OspVQeKh2mEN
-	WLO2B1GqhrfQyPHwJK1A==;
+	List-Owner; bh=+K8vvV4oO94zFbjtOGJzU2erPys4XCTjZgagSnVpeOE=; b=POrSNmtapis+4K
+	yQwveKcIaqBLfMvH1rjUP1RXXDZd3smcA6xjtD6xQypgmzn5yehQ8L/gFkOFCnzZz5fLkjS2g6bha
+	a6pukfR0Ogbnt4mkWVE88tBhvwaXUfCjsnwKDs59NIUMKpEA+0Z+rqwYYxrTzLqFxkKgRpB443nC+
+	evHILL/+cShIS2tPQUHJ4iq9EK8jFDGLssZXrVP6c9uO5KeP+tL+yad5mJOtoi/EXBWg20mQbMLEG
+	MUOtt6lmm/0gEMBcpvobeLljjES7/l1mxUpL5lNoEu9OsSb0yEfBgMzuHE0ll9uQs25lTIqBeWzsB
+	BLp8z+ENq8I+IEWwsCDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTeEs-00000002Jyz-2kKZ;
-	Mon, 23 Jun 2025 10:17:22 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uTeMD-00000002L3N-32Zk;
+	Mon, 23 Jun 2025 10:24:57 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdcR-00000002Ch2-47db
+	id 1uTdtD-00000002Fs8-2Pi0
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Jun 2025 09:37:42 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250623093736euoutp0151bafaba3eacc0934bc7ceec2ef03525~Lomn0O-cF1509815098euoutp01v
-	for <linux-riscv@lists.infradead.org>; Mon, 23 Jun 2025 09:37:36 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250623093736euoutp0151bafaba3eacc0934bc7ceec2ef03525~Lomn0O-cF1509815098euoutp01v
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1750671456;
-	bh=A+5IcRjSNl6qTqtwlarHYbjTthP/DIVVwhUwdFuoGjY=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=fVouHzBovKz06ZjCSTUzzVtvq1/bXcnO6R8VuQS7xqwdD09innDB78O3m+FPkHLQT
-	 jCR+MZVCrVaSRAkIqbLUqSBVCpUJaxGHhomvvJVspNLeVVsHSvszjhylVLw61sbF5I
-	 ZYoEU7YplN+4hRjKmoHlscC77y4zVCqcTlzmneLE=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250623093735eucas1p2843b624612475c22eb8e1c677b03d9cc~Lomm81wST1776817768eucas1p2q;
-	Mon, 23 Jun 2025 09:37:35 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250623093734eusmtip2411fe770a0df6b19f0942a2c666da528~Loml5U_gb0224702247eusmtip2N;
-	Mon, 23 Jun 2025 09:37:34 +0000 (GMT)
-Message-ID: <c7f8523e-a139-4438-9987-466f415099f8@samsung.com>
-Date: Mon, 23 Jun 2025 11:37:33 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 8/8] drm/imagination: Enable PowerVR driver for
- RISC-V
-To: kernel test robot <lkp@intel.com>, Drew Fustini <drew@pdp7.com>, Guo Ren
-	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, Matt Coster
-	<matt.coster@imgtec.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>, Marek
-	Szyprowski <m.szyprowski@samsung.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <202506201103.GX6DA9Gx-lkp@intel.com>
-X-CMS-MailID: 20250623093735eucas1p2843b624612475c22eb8e1c677b03d9cc
-X-Msg-Generator: CA
-X-RootMTR: 20250620033331eucas1p22011774fc3a362b04e2bb98db2424299
-X-EPHeader: CA
-X-CMS-RootMailID: 20250620033331eucas1p22011774fc3a362b04e2bb98db2424299
-References: <20250618-apr_14_for_sending-v5-8-27ed33ea5c6f@samsung.com>
-	<CGME20250620033331eucas1p22011774fc3a362b04e2bb98db2424299@eucas1p2.samsung.com>
-	<202506201103.GX6DA9Gx-lkp@intel.com>
+	Mon, 23 Jun 2025 09:55:00 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4530e6f4db4so1558745e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jun 2025 02:54:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1750672497; x=1751277297; darn=lists.infradead.org;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rIpxzH7Ey6NOPuneckkYZHJ6AcvohPz9IFjSsSYVnZQ=;
+        b=gg++P37CblgwovUyd2ovQEaRUWC7M//CIPSvIr2Gd9qrCQNF1rFRLMPxFQjNJKOwkd
+         IKfJcFMRLamSMP+jm8ZUrHCkis0QYifbhsEwR4AAvQfUBDo96MCYw4JZrFD2bPpooZT7
+         B5jpaVXUF13qiU9BoroND1SR1+dcHY/p7BALNc4s2XmFy3QDHOK7EFlrpPjgRENKWlWL
+         YfiFf7r0RK20dh8TnxelD2gq+Qq2vRohx5pFbnVJSPPzOrgvZhlj0TSopPFHGdnkQgws
+         ZkdXgICAPJjXC/xz+X7WCT9aBs0gFdzlxKj3YOW1JK+j4OEO/mCmK0CTC+9hiP68bjhf
+         3UQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750672497; x=1751277297;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=rIpxzH7Ey6NOPuneckkYZHJ6AcvohPz9IFjSsSYVnZQ=;
+        b=Uls3QLdK4A4XlzD875rXa+IL0bEvV/ootjosl376wPhh4x54xyW6rqCzxMF2LMjHvn
+         jfyR5IvYjWEQy4EnJ/tC7Ad9B0kiRDDNlTRuWhdO2e82jjoVoo6p+SXtz16i3esThsoW
+         qIqtf2q2Pu2Apnp8dDUaA1EfZlreinZ/cJEyHH3eF2lVRUO4Dc+KYG/l73vOpfk6wTyx
+         A+rACq+jCKH00YucqCy1FOf4MQaQgEta9SrLwVEI1VV+0GEaYxrlKZJ7JXZaIWA3URsk
+         YF8akqh0xLKbW1tXN1Ufw1SuaVn4m4eB8D4EYOSaZsxP064N0qJLyAPh7J/fLSgRr9y4
+         CvKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVFbxfx+DE3Y4tqFvUry9X0RnYLAFWXxSQFQoCIfbKzXRptLzzxsnU42reLprBt0445K0ayY4ukqzup+A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxB1qp3lrPUbad3Qs6zYZkSsvyG3ylB6yA6jwFsc8zYbYjsR7kE
+	EUgqwOCBnnTOqpiE3KC71BgdyvOjAWK/i7FxgVVv4zEVKH9VUiCLWxDTIzOCnE9TxGQ=
+X-Gm-Gg: ASbGncsuqPbmThsM4UK4JhBZveHM6uPEbBTJvYlxBr7YzCz3OWq5SlL2osYGE0gm5db
+	44CQu9CCUBF1DQHrwxfwovdEAi4YVvlgXTlYFJIWQl/gBw4GuW71FFDtWEQjA8rykppnGeNz4Qq
+	Gl0J5DeA0FnfCWSWBxkbc3uxAvkM53rKnITiB1XALZn1autZWHkN2of3r60SXiq007Vs5XM5wQJ
+	NT6pabmAF2ixm0mgsx9xlLU2Pb9pqG6sfFCckM+mubif5ctsPPnL2dsE8nRSj1J1/1mtnSeFj9I
+	JIaViBSxun4paWH6WShjhDkme9+hM2GoMR5M8YfERDnOJUO4Mbjtr84X8/vNIbCnhFU=
+X-Google-Smtp-Source: AGHT+IFkDuNZbXec7bV7lPuMQ95q5Ol9D1Ng0Rhf3YsBGcD5BWQyx/AdkT7xTPlkQyoHbl04rNQmfg==
+X-Received: by 2002:a05:600c:1d02:b0:450:d4b4:92d0 with SMTP id 5b1f17b1804b1-453653c105emr39996555e9.3.1750672497513;
+        Mon, 23 Jun 2025 02:54:57 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200:8947:973b:de:93b7])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6d0f10502sm9198663f8f.18.2025.06.23.02.54.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Jun 2025 02:54:57 -0700 (PDT)
+Mime-Version: 1.0
+Date: Mon, 23 Jun 2025 11:54:56 +0200
+Message-Id: <DATTLU8NTTUV.1L05K3TTMV29X@ventanamicro.com>
+Subject: Re: [PATCH] RISC-V: KVM: Delegate illegal instruction fault
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
+To: =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, "Xu Lu"
+ <luxu.kernel@bytedance.com>, <anup@brainfault.org>,
+ <atish.patra@linux.dev>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+ <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+References: <20250620091720.85633-1-luxu.kernel@bytedance.com>
+ <DARCHDIZG7IP.2VTEVNMVX8R1E@ventanamicro.com>
+ <1d9ad2a8-6ab5-4f5e-b514-4a902392e074@rivosinc.com>
+In-Reply-To: <1d9ad2a8-6ab5-4f5e-b514-4a902392e074@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_023740_310750_2F9BA45E 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20250623_025459_623377_1571569F 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,105 +99,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/20/25 05:32, kernel test robot wrote:
-> Hi Michal,
-> 
-> kernel test robot noticed the following build warnings:
-> 
-> [auto build test WARNING on 4774cfe3543abb8ee98089f535e28ebfd45b975a]
-> 
-> url:    https://protect2.fireeye.com/v1/url?k=459f4078-1a047974-459ecb37-000babff3563-f67f8714258a7e91&q=1&e=0474f2bc-b688-4260-ae67-33e26f33bf90&u=https%3A%2F%2Fgithub.com%2Fintel-lab-lkp%2Flinux%2Fcommits%2FMichal-Wilczynski%2Fpower-sequencing-Add-T-HEAD-TH1520-GPU-power-sequencer-driver%2F20250618-182429
-> base:   4774cfe3543abb8ee98089f535e28ebfd45b975a
-> patch link:    https://lore.kernel.org/r/20250618-apr_14_for_sending-v5-8-27ed33ea5c6f%40samsung.com
-> patch subject: [PATCH v5 8/8] drm/imagination: Enable PowerVR driver for RISC-V
-> config: sparc64-randconfig-r121-20250620 (https://download.01.org/0day-ci/archive/20250620/202506201103.GX6DA9Gx-lkp@intel.com/config)
-> compiler: sparc64-linux-gcc (GCC) 8.5.0
-> reproduce: (https://download.01.org/0day-ci/archive/20250620/202506201103.GX6DA9Gx-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202506201103.GX6DA9Gx-lkp@intel.com/
-> 
-> All warnings (new ones prefixed by >>):
-> 
->    drivers/gpu/drm/imagination/pvr_mmu.c:57:3: error: #error Unsupported device page size PVR_DEVICE_PAGE_SIZE
->     # error Unsupported device page size PVR_DEVICE_PAGE_SIZE
->       ^~~~~
->    In file included from ./arch/sparc/include/generated/asm/rwonce.h:1,
->                     from include/linux/compiler.h:390,
->                     from include/linux/dev_printk.h:14,
->                     from include/linux/device.h:15,
->                     from include/linux/node.h:18,
->                     from include/linux/memory.h:19,
->                     from drivers/gpu/drm/imagination/pvr_mmu.h:7,
->                     from drivers/gpu/drm/imagination/pvr_mmu.c:4:
->    drivers/gpu/drm/imagination/pvr_mmu.c: In function 'pvr_page_table_l1_entry_raw_set':
->    drivers/gpu/drm/imagination/pvr_mmu.c:577:50: error: 'ROGUE_MMUCTRL_PAGE_SIZE_X' undeclared (first use in this function); did you mean 'ROGUE_MMUCTRL_PAGE_SIZE_1MB'?
->          PVR_PAGE_TABLE_FIELD_PREP(1, PD, PAGE_SIZE, ROGUE_MMUCTRL_PAGE_SIZE_X) |
->                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~
->    include/asm-generic/rwonce.h:55:33: note: in definition of macro '__WRITE_ONCE'
->      *(volatile typeof(x) *)&(x) = (val);    \
->                                     ^~~
->    drivers/gpu/drm/imagination/pvr_mmu.c:574:2: note: in expansion of macro 'WRITE_ONCE'
->      WRITE_ONCE(entry->val,
->      ^~~~~~~~~~
->    drivers/gpu/drm/imagination/pvr_mmu.c:577:6: note: in expansion of macro 'PVR_PAGE_TABLE_FIELD_PREP'
->          PVR_PAGE_TABLE_FIELD_PREP(1, PD, PAGE_SIZE, ROGUE_MMUCTRL_PAGE_SIZE_X) |
->          ^~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/gpu/drm/imagination/pvr_mmu.c:577:50: note: each undeclared identifier is reported only once for each function it appears in
->          PVR_PAGE_TABLE_FIELD_PREP(1, PD, PAGE_SIZE, ROGUE_MMUCTRL_PAGE_SIZE_X) |
->                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~
->    include/asm-generic/rwonce.h:55:33: note: in definition of macro '__WRITE_ONCE'
->      *(volatile typeof(x) *)&(x) = (val);    \
->                                     ^~~
->    drivers/gpu/drm/imagination/pvr_mmu.c:574:2: note: in expansion of macro 'WRITE_ONCE'
->      WRITE_ONCE(entry->val,
->      ^~~~~~~~~~
->    drivers/gpu/drm/imagination/pvr_mmu.c:577:6: note: in expansion of macro 'PVR_PAGE_TABLE_FIELD_PREP'
->          PVR_PAGE_TABLE_FIELD_PREP(1, PD, PAGE_SIZE, ROGUE_MMUCTRL_PAGE_SIZE_X) |
->          ^~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/gpu/drm/imagination/pvr_mmu.c: In function 'pvr_page_table_l0_entry_raw_set':
->    drivers/gpu/drm/imagination/pvr_mmu.c:741:24: error: 'ROGUE_MMUCTRL_PAGE_X_RANGE_CLRMSK' undeclared (first use in this function); did you mean 'ROGUE_MMUCTRL_PAGE_1MB_RANGE_CLRMSK'?
->               (dma_addr & ~ROGUE_MMUCTRL_PAGE_X_RANGE_CLRMSK) |
->                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    include/asm-generic/rwonce.h:55:33: note: in definition of macro '__WRITE_ONCE'
->      *(volatile typeof(x) *)&(x) = (val);    \
->                                     ^~~
->    drivers/gpu/drm/imagination/pvr_mmu.c:739:2: note: in expansion of macro 'WRITE_ONCE'
->      WRITE_ONCE(entry->val, PVR_PAGE_TABLE_FIELD_PREP(0, PT, VALID, true) |
->      ^~~~~~~~~~
->    drivers/gpu/drm/imagination/pvr_mmu.c: In function 'pvr_page_table_l0_idx':
->    drivers/gpu/drm/imagination/pvr_mmu.c:1713:9: error: 'ROGUE_MMUCTRL_PAGE_X_RANGE_SHIFT' undeclared (first use in this function); did you mean 'ROGUE_MMUCTRL_PAGE_4KB_RANGE_SHIFT'?
->             ROGUE_MMUCTRL_PAGE_X_RANGE_SHIFT;
->             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->             ROGUE_MMUCTRL_PAGE_4KB_RANGE_SHIFT
->>> drivers/gpu/drm/imagination/pvr_mmu.c:1714:1: warning: control reaches end of non-void function [-Wreturn-type]
->     }
-
-It's clear from the build log that enabling COMPILE_TEST has exposed
-some pre existing portability issues in pvr_mmu.c.
-
-Fixing these underlying MMU issues seem to be outside the scope
-of this patch series, which is focused on enabling the TH1520 SoC GPU.
-To keep this work focused on its original goal, I will remove the
-COMPILE_TEST addition for now.
-
-The addition of COMPILE_TEST support can be revisited in a separate,
-dedicated series.
-
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+MjAyNS0wNi0yM1QxMDowNDo0NSswMjowMCwgQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3Np
+bmMuY29tPjoKPiBPbiAyMC8wNi8yMDI1IDE0OjA0LCBSYWRpbSBLcsSNbcOhxZkgd3JvdGU6Cj4+
+IEFuZCB3aHkgbm90IGRlbGVnYXRlIHRoZSBvdGhlcnMgYXMgd2VsbD8KPj4gKEVYQ19MT0FEX01J
+U0FMSUdORUQsIEVYQ19TVE9SRV9NSVNBTElHTkVELCBFWENfTE9BRF9BQ0NFU1MsCj4+ICBFWENf
+U1RPUkVfQUNDRVNTLCBhbmQgRVhDX0lOU1RfQUNDRVNTLikKPgo+IEN1cnJlbnRseSwgT3BlblNC
+SSBkb2VzIG5vdCBkZWxlZ2F0ZSBtaXNhbGlnbmVkIGV4Y2VwdGlvbiBieSBkZWZhdWx0IGFuZAo+
+IGhhbmRsZXMgbWlzYWxpZ25lZCBhY2Nlc3MgYnkgaXRzZWxmLCB0aGlzIGlzIChwYXJ0aWFsbHkp
+IHdoeSB3ZSBhZGRlZAo+IHRoZSBGV0ZUIFNCSSBleHRlbnNpb24gdG8gcmVxdWVzdCBzdWNoIGRl
+bGVnYXRpb24uIFNpbmNlIHNvbWUgc3VwZXJ2aXNvcgo+IHNvZnR3YXJlIGV4cGVjdCB0aGF0IGRl
+ZmF1bHQsIHRoZXkgZG8gbm90IGhhdmUgY29kZSB0byBoYW5kbGUgbWlzYWxpZ25lZAo+IGFjY2Vz
+c2VzIGVtdWxhdGlvbi4gU28gdGhleSBzaG91bGQgbm90IGJlIGRlbGVnYXRlZCBieSBkZWZhdWx0
+LgoKWWVhaCwgSSBmb3Jnb3QgYWJvdXQgeW91ciBwYXRjaGVzIHRoYXQgY29uZmxpY3Qgd2l0aCB0
+aGUgY2hhbmdlLCB0aGFua3MuCgooVGhlIGN1cnJlbnQgS1ZNIGV4Y2VwdGlvbiBoYW5kbGVyIG9u
+bHkgZm9yd2FyZHMgYWxsIHRoZSBsaXN0ZWQKIGV4Y2VwdGlvbnMsIHNvIHRoZSBvbmx5IG9ic2Vy
+dmFibGUgZGlmZmVyZW5jZSB0aGlzIGNoYW5nZSB3b3VsZCBtYWtlIGlzCiB0aGF0IHRoZSBLVk0g
+U0JJIFBNVSBldmVudCBpcyBub3QgY291bnRlZC4pCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
