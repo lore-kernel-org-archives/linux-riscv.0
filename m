@@ -4,77 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EB1C77B7F
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 14:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005D0C77B7C
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 15:31:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uk4dOAss1kX5s8Sw5f6G6e4IiqguFM7v0kuMaviE7R8=; b=jfCMwZy2AOTj+j
-	PpPtCjhMfc7sflaM/w09nTYog1VuSx5UAy62QInAMK29HOOODNpjN6f6EgriAdIE9rZBlaUU8Ttg2
-	qN3MNlXSsyDR7LDnXyhc/BFsTFE0HIR6nXYvVHVYHgeLuYz9Z9xFXHiUc54mxDxnEI99IqFZeKZBp
-	UcVopNV/l15/xOQQrQmUZaULDVg3/VWxHQ2jZWX3TnmlhfbBWrapYSO4DlwJGat9qlAnJ9DATtqqY
-	IsFYyl+TdtVTMkETA20sM0y0ixsYUABP6IAY4SrI0yxSWRZcX27+uRcorFwMwoyNLJ1Oz8pRxkxfb
-	6hMnJaHw/VT+RQLad5QQ==;
+	List-Owner; bh=fxVc/rHcUWYp76F0AuPVvcWYQbp242QyDwJMCS1ZgyY=; b=px2nQImNUXugf1
+	RLkjrY/63vEv/JpUw8AdFDEIOLMSikjVtc3K07iFD5/VuEF7C89mcwfPnfi1EFNBFNloArYgqqXOI
+	vMyEoQ+zVHKw70H/60gYrnfl1xj9iWVWesCR/vn17/IuKHqW81CP3NwYO0gYjPTO096xJKghKfeJ5
+	y3ukfNVkS/6E0qAWYZvDLIgbwV6MLXFMTmwfthyvXZKT95oRoHiEald55VPwNGFA2YrcTLEGXkUbs
+	LsUDuN2GueA2+96Ro0glwhrSmbgm1yfNU/OWu3W95E1HyHCXw4NvNNxcN7i4EKGVb0qubnjzn1WKg
+	YKCdLoxy05uhbne2dLIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThop-00000002ycx-3fQW;
-	Mon, 23 Jun 2025 14:06:43 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1uTj8k-00000003FDz-20OZ;
+	Mon, 23 Jun 2025 15:31:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfr3-00000002alJ-3Bb7
+	id 1uTg2c-00000002dNe-3Hln
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 23 Jun 2025 12:12:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=eHyOQjUXQ/n7o6SDLI9e+lRQsNueNKsItK2jIA0gB9c=; b=Z+EG6eAKjJlQOE7+k68Su1Y/cG
+	x2zUDC5pFAac3viDNN3J46flo8EG/aMP2IBKOtK2QJvQh0YhuUmRDWglu5MXgulcwW/bDv4nMSz4l
+	t0mvr1y4gl4TJK+t8hd3b0DOQKBVcXcsv5HLD2UxoU47UCC6H/RlhYj8wgRHVWhQQJfCWyldyvUu+
+	d2VPBDZ0CvtA37O/Vb3Wcg6cpATOAVBoUs2uWQI4J+ZACzF1Iod7nfJGySJXalA13rvBgNXY3xZVg
+	sfFVvisWVYVpCOI4d4hKauEf6r7Q2hzP0da/Zf1xC5OKCimiRfvydoSG702k4+mZhw3S0o+eqo50x
+	uqBJ3szg==;
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTg2X-00000005D0f-2jUm
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Jun 2025 12:00:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750680053; x=1782216053;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=S45BOtnpLY803LtSlt8cS8oUCjZlOAl7O/M8gBmSjZo=;
-  b=FQ0onncvokaVbfp2KxEZ2BzvduUfPnfIdy8L8D+Wv6zlXut6Hyh70KnM
-   Mq9ybOWA+oQVEkxQDKN500eDUzQzSHxOstNAcTBR+bo7zpN0IxLrrKT/M
-   XNhynDionERxMAc3Tb+xX2unYDjSBvzHgAYzcLHPhi6qUaTLwCzVvyDxI
-   pkFgEE5U+VxMXzhiDN3juS7mGMTAjPKr5oob+iKZt1Ny+5PmKnLW70PZh
-   3a10rpJEAF7SY/eQY1m7WTOxGJ/7FmX6Oe5rXczExGKHBl3qjIxcj9QOY
-   VrQ8XzUPRHAi4f2Oru2S45+GpqNE4l0QnUSRQtvJd0RDTPl/dTOFfcIHQ
-   Q==;
-X-CSE-ConnectionGUID: AWjgeki8R/6i+Jnc9MZwRQ==
-X-CSE-MsgGUID: Rv7vaqkSSga0MPMwQ4KIng==
-X-IronPort-AV: E=McAfee;i="6800,10657,11473"; a="52752409"
-X-IronPort-AV: E=Sophos;i="6.16,258,1744095600"; 
-   d="scan'208";a="52752409"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2025 05:00:50 -0700
-X-CSE-ConnectionGUID: ePnLZKKyST24ZYz8OIpbZw==
-X-CSE-MsgGUID: jEmw7k6oSoywR5Gyh7kHWg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,258,1744095600"; 
-   d="scan'208";a="151761795"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 23 Jun 2025 05:00:47 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uTfqu-000O1q-0S;
-	Mon, 23 Jun 2025 12:00:44 +0000
-Date: Mon, 23 Jun 2025 19:59:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: cp0613@linux.alibaba.com, yury.norov@gmail.com,
-	linux@rasmusvillemoes.dk, arnd@arndb.de, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Chen Pei <cp0613@linux.alibaba.com>
-Subject: Re: [PATCH 1/2] bitops: generic rotate
-Message-ID: <202506231924.kPX5UiaD-lkp@intel.com>
-References: <20250620111610.52750-2-cp0613@linux.alibaba.com>
+	Mon, 23 Jun 2025 12:12:48 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2363497cc4dso35271225ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jun 2025 05:12:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1750680762; x=1751285562; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eHyOQjUXQ/n7o6SDLI9e+lRQsNueNKsItK2jIA0gB9c=;
+        b=Ci+i000B7GXKi9RvFNHNJ7XFe/UvbHhtHXTSx39QRSzMrDmusjEJM6yPsnz+jD6Y1Y
+         FXFjfui4Z2CUUAkenm20VBZtx6CirhcskKZCx1IdTKAekutC2gZyNv3/uEnSF+yH9C9p
+         QKv+14CZeyXmEouXyi1POhrlMIpJ52ufy7IcUXIeHQtgedTzWptRIjyYGJx9o7zzlr2Q
+         WWbaERRYDPkDLl38YsLeNnrE2cbtyIfiFov/uiO5OLc5tyvnMFXFELJ0RfXvavbEvfrA
+         83v9W6yWOqsulA7oAP9Z9g1H2yS6WS6vn0I9pRcghlNY7DnS76k0aIfvF6bW7KQAq4mf
+         RUSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750680762; x=1751285562;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eHyOQjUXQ/n7o6SDLI9e+lRQsNueNKsItK2jIA0gB9c=;
+        b=E0zYX7kETzFEiDr11NX/UE0qo8LebpC8j7YxMzGSrOTFaQuz+PToApkSGGkd6mckCQ
+         lsBbXhAviqyza4craYOUolF9Lx4HEfCyxROfd0AJyVP6wYyo1MoijGmNcxBS8yZT37qa
+         klHTvFvAGt9rHBfAqQSsGxemB6gsyPoYmCu6ELnJt0GdNRBRUborH+0Df1KZKRx7EJFQ
+         DKKoC5CJ1LA+hofW81QD2Kzs72ZTOpe30FHWroHBnz70ouUzj1dJUgvS0e1cPZLC4EYl
+         ieqNai+GuWg+DH1jjtbhGqKzhMxiS8vT58A0im4IscF5kKmWPN/XLn7k7hFo6Ne/HjhT
+         QdrA==
+X-Forwarded-Encrypted: i=1; AJvYcCXaGaVSPL+FDcQib1Bw7tUO1zt0gjAuFsInKj/ApfSwJI9DoXjyhwLllgp1Cbhdj2qOUAtaGvy8ymBRCQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVPgUCifBQMvX8r8fqFD3tfQoxLw/NKQ8M/e+wLbnHUqGMJ7qP
+	8r5s+CVqvxXQYjouzZ5YvRSCA7VCa3Q+AghgbtwZsXIzj7gaFiN6Tz/36qwrapH4WPBUDnAM0vQ
+	dTkCpUZZHxXGa10QFyEKv9zYkSIF5Oh1q0MbshV/iXA==
+X-Gm-Gg: ASbGncsTVQ016URyJ/FIr1GuSSVaW2Ejvruo/NocG85pMX++zx8iL2QlQRmCLXsWFI+
+	pb+zAeLGcN4ANxsJJHnzX2hKPrgdmg/BfPwxOpW9AEgTArh1QsR4S3NySB7IqC4bhac/QHXxsDw
+	jDR0CVBbzNfc55SmYlYIs7faUYhmolvbn0VBSG/r0d+QZe3ptGEnCed3KjX6pu7Vdov+s=
+X-Google-Smtp-Source: AGHT+IG6HZ/8Fi0eQ+rXE+47WUzLt+zmbjPe+C1XDxRfNdt32Ri4/qwaBYXVXZGqFfIan5V1AhcN8nK7xhtxwnbINxY=
+X-Received: by 2002:a17:90b:2dd0:b0:311:9c1f:8522 with SMTP id
+ 98e67ed59e1d1-3159d6466bfmr19690671a91.10.1750680762455; Mon, 23 Jun 2025
+ 05:12:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250620111610.52750-2-cp0613@linux.alibaba.com>
+References: <20250620091720.85633-1-luxu.kernel@bytedance.com>
+ <DARCHDIZG7IP.2VTEVNMVX8R1E@ventanamicro.com> <1d9ad2a8-6ab5-4f5e-b514-4a902392e074@rivosinc.com>
+In-Reply-To: <1d9ad2a8-6ab5-4f5e-b514-4a902392e074@rivosinc.com>
+From: Xu Lu <luxu.kernel@bytedance.com>
+Date: Mon, 23 Jun 2025 20:12:31 +0800
+X-Gm-Features: AX0GCFtYKxGqlHuJJ47JAXMxUFhLXnT6cZnnppHiAtMF1rC-04ON37kUhYiGk7I
+Message-ID: <CAPYmKFs7tmMg4VQX=5YFhSzDGxodiBxv+v1SoqwTHvE1Khsr_A@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH] RISC-V: KVM: Delegate illegal instruction fault
+To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, 
+	anup@brainfault.org, atish.patra@linux.dev, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	linux-riscv <linux-riscv-bounces@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_050053_910776_528639D0 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250623_131246_307395_8E73BF65 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,265 +109,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on arnd-asm-generic/master]
-[also build test WARNING on linus/master v6.16-rc3 next-20250623]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/cp0613-linux-alibaba-com/bitops-generic-rotate/20250620-192016
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arnd/asm-generic.git master
-patch link:    https://lore.kernel.org/r/20250620111610.52750-2-cp0613%40linux.alibaba.com
-patch subject: [PATCH 1/2] bitops: generic rotate
-config: powerpc-allyesconfig (https://download.01.org/0day-ci/archive/20250623/202506231924.kPX5UiaD-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 875b36a8742437b95f623bab1e0332562c7b4b3f)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250623/202506231924.kPX5UiaD-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506231924.kPX5UiaD-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-         |         ^
-   In file included from drivers/net/ethernet/pensando/ionic/ionic_txrx.c:5:
-   In file included from include/linux/ipv6.h:102:
-   In file included from include/linux/tcp.h:19:
-   In file included from include/net/sock.h:46:
-   In file included from include/linux/netdevice.h:44:
-   In file included from include/uapi/linux/neighbour.h:6:
-   In file included from include/linux/netlink.h:9:
-   In file included from include/net/scm.h:13:
-   In file included from include/net/compat.h:8:
-   include/linux/compat.h:458:22: warning: array index 1 is past the end of the array (that has type 'const unsigned long[1]') [-Warray-bounds]
-     458 |         case 2: v.sig[3] = (set->sig[1] >> 32); v.sig[2] = set->sig[1];
-         |                             ^        ~
-   arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
-      18 |         unsigned long sig[_NSIG_WORDS];
-         |         ^
-   In file included from drivers/net/ethernet/pensando/ionic/ionic_txrx.c:5:
-   In file included from include/linux/ipv6.h:102:
-   In file included from include/linux/tcp.h:19:
-   In file included from include/net/sock.h:46:
-   In file included from include/linux/netdevice.h:44:
-   In file included from include/uapi/linux/neighbour.h:6:
-   In file included from include/linux/netlink.h:9:
-   In file included from include/net/scm.h:13:
-   In file included from include/net/compat.h:8:
-   include/linux/compat.h:458:10: warning: array index 3 is past the end of the array (that has type 'compat_sigset_word[2]' (aka 'unsigned int[2]')) [-Warray-bounds]
-     458 |         case 2: v.sig[3] = (set->sig[1] >> 32); v.sig[2] = set->sig[1];
-         |                 ^     ~
-   include/linux/compat.h:130:2: note: array 'sig' declared here
-     130 |         compat_sigset_word      sig[_COMPAT_NSIG_WORDS];
-         |         ^
-   include/linux/compat.h:458:42: warning: array index 2 is past the end of the array (that has type 'compat_sigset_word[2]' (aka 'unsigned int[2]')) [-Warray-bounds]
-     458 |         case 2: v.sig[3] = (set->sig[1] >> 32); v.sig[2] = set->sig[1];
-         |                                                 ^     ~
-   include/linux/compat.h:130:2: note: array 'sig' declared here
-     130 |         compat_sigset_word      sig[_COMPAT_NSIG_WORDS];
-         |         ^
-   include/linux/compat.h:458:53: warning: array index 1 is past the end of the array (that has type 'const unsigned long[1]') [-Warray-bounds]
-     458 |         case 2: v.sig[3] = (set->sig[1] >> 32); v.sig[2] = set->sig[1];
-         |                                                            ^        ~
-   arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
-      18 |         unsigned long sig[_NSIG_WORDS];
-         |         ^
-   In file included from drivers/net/ethernet/pensando/ionic/ionic_txrx.c:5:
-   In file included from include/linux/ipv6.h:102:
-   In file included from include/linux/tcp.h:20:
-   In file included from include/net/inet_connection_sock.h:21:
-   In file included from include/net/inet_sock.h:18:
-   include/linux/jhash.h:83:3: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      83 |                 __jhash_mix(a, b, c);
-         |                 ^
-   include/linux/jhash.h:37:16: note: expanded from macro '__jhash_mix'
-      37 |         a -= c;  a ^= rol32(c, 4);  c += b;     \
-         |                       ^
-   include/linux/jhash.h:101:4: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     101 |                  __jhash_final(a, b, c);
-         |                  ^
-   include/linux/jhash.h:48:15: note: expanded from macro '__jhash_final'
-      48 |         c ^= b; c -= rol32(b, 14);              \
-         |                      ^
-   include/linux/jhash.h:129:3: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     129 |                 __jhash_mix(a, b, c);
-         |                 ^
-   include/linux/jhash.h:37:16: note: expanded from macro '__jhash_mix'
-      37 |         a -= c;  a ^= rol32(c, 4);  c += b;     \
-         |                       ^
-   include/linux/jhash.h:139:3: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     139 |                 __jhash_final(a, b, c);
-         |                 ^
-   include/linux/jhash.h:48:15: note: expanded from macro '__jhash_final'
-      48 |         c ^= b; c -= rol32(b, 14);              \
-         |                      ^
-   include/linux/jhash.h:156:2: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     156 |         __jhash_final(a, b, c);
-         |         ^
-   include/linux/jhash.h:48:15: note: expanded from macro '__jhash_final'
-      48 |         c ^= b; c -= rol32(b, 14);              \
-         |                      ^
-   In file included from drivers/net/ethernet/pensando/ionic/ionic_txrx.c:7:
-   In file included from include/net/ip6_checksum.h:27:
-   In file included from include/net/ip.h:30:
-   In file included from include/net/route.h:24:
-   In file included from include/net/inetpeer.h:16:
-   include/net/ipv6.h:975:9: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     975 |         hash = rol32(hash, 16);
-         |                ^
-   In file included from drivers/net/ethernet/pensando/ionic/ionic_txrx.c:7:
-   In file included from include/net/ip6_checksum.h:27:
-   include/net/ip.h:478:14: warning: default initialization of an object of type 'typeof (rt->dst.expires)' (aka 'const unsigned long') leaves the object uninitialized [-Wdefault-const-init-var-unsafe]
-     478 |                 if (mtu && time_before(jiffies, rt->dst.expires))
-         |                            ^
-   include/linux/jiffies.h:138:26: note: expanded from macro 'time_before'
-     138 | #define time_before(a,b)        time_after(b,a)
-         |                                 ^
-   include/linux/jiffies.h:128:3: note: expanded from macro 'time_after'
-     128 |         (typecheck(unsigned long, a) && \
-         |          ^
-   include/linux/typecheck.h:11:12: note: expanded from macro 'typecheck'
-      11 |         typeof(x) __dummy2; \
-         |                   ^
->> drivers/net/ethernet/pensando/ionic/ionic_txrx.c:203:30: warning: implicit conversion from 'unsigned long' to 'u16' (aka 'unsigned short') changes value from 65536 to 0 [-Wconstant-conversion]
-     203 |                 frag_len = min_t(u16, len, IONIC_PAGE_SIZE);
-         |                            ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
-   drivers/net/ethernet/pensando/ionic/ionic_dev.h:184:32: note: expanded from macro 'IONIC_PAGE_SIZE'
-     184 | #define IONIC_PAGE_SIZE                         MIN(PAGE_SIZE, IONIC_MAX_BUF_LEN)
-         |                                                     ^
-   include/vdso/page.h:15:30: note: expanded from macro 'PAGE_SIZE'
-      15 | #define PAGE_SIZE       (_AC(1,UL) << CONFIG_PAGE_SHIFT)
-         |                                    ^
-   include/linux/minmax.h:314:30: note: expanded from macro 'MIN'
-     314 | #define MIN(a, b) __cmp(min, a, b)
-         |                              ^
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/minmax.h:161:52: note: expanded from macro 'min_t'
-     161 | #define min_t(type, x, y) __cmp_once(min, type, x, y)
-         |                           ~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/linux/minmax.h:89:33: note: expanded from macro '__cmp_once'
-      89 |         __cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
-         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/minmax.h:86:31: note: expanded from macro '__cmp_once_unique'
-      86 |         ({ type ux = (x); type uy = (y); __cmp(op, ux, uy); })
-         |                                ~~    ^
-   drivers/net/ethernet/pensando/ionic/ionic_txrx.c:803:36: warning: implicit conversion from 'unsigned long' to 'u16' (aka 'unsigned short') changes value from 65536 to 0 [-Wconstant-conversion]
-     803 |                 first_frag_len = min_t(u16, len, IONIC_PAGE_SIZE);
-         |                                  ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
-   drivers/net/ethernet/pensando/ionic/ionic_dev.h:184:32: note: expanded from macro 'IONIC_PAGE_SIZE'
-     184 | #define IONIC_PAGE_SIZE                         MIN(PAGE_SIZE, IONIC_MAX_BUF_LEN)
-         |                                                     ^
-   include/vdso/page.h:15:30: note: expanded from macro 'PAGE_SIZE'
-      15 | #define PAGE_SIZE       (_AC(1,UL) << CONFIG_PAGE_SHIFT)
-         |                                    ^
-   include/linux/minmax.h:314:30: note: expanded from macro 'MIN'
-     314 | #define MIN(a, b) __cmp(min, a, b)
-         |                              ^
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/minmax.h:161:52: note: expanded from macro 'min_t'
-     161 | #define min_t(type, x, y) __cmp_once(min, type, x, y)
-         |                           ~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/linux/minmax.h:89:33: note: expanded from macro '__cmp_once'
-      89 |         __cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
-         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/minmax.h:86:31: note: expanded from macro '__cmp_once_unique'
-      86 |         ({ type ux = (x); type uy = (y); __cmp(op, ux, uy); })
-         |                                ~~    ^
-   drivers/net/ethernet/pensando/ionic/ionic_txrx.c:838:38: warning: implicit conversion from 'unsigned long' to 'u16' (aka 'unsigned short') changes value from 65536 to 0 [-Wconstant-conversion]
-     838 |                         frag_len = min_t(u16, remain_len, IONIC_PAGE_SIZE);
-         |                                    ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
-   drivers/net/ethernet/pensando/ionic/ionic_dev.h:184:32: note: expanded from macro 'IONIC_PAGE_SIZE'
-     184 | #define IONIC_PAGE_SIZE                         MIN(PAGE_SIZE, IONIC_MAX_BUF_LEN)
-         |                                                     ^
-   include/vdso/page.h:15:30: note: expanded from macro 'PAGE_SIZE'
-      15 | #define PAGE_SIZE       (_AC(1,UL) << CONFIG_PAGE_SHIFT)
-         |                                    ^
-   include/linux/minmax.h:314:30: note: expanded from macro 'MIN'
-     314 | #define MIN(a, b) __cmp(min, a, b)
-         |                              ^
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/minmax.h:161:52: note: expanded from macro 'min_t'
-     161 | #define min_t(type, x, y) __cmp_once(min, type, x, y)
-         |                           ~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/linux/minmax.h:89:33: note: expanded from macro '__cmp_once'
-      89 |         __cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
-         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/minmax.h:86:31: note: expanded from macro '__cmp_once_unique'
-      86 |         ({ type ux = (x); type uy = (y); __cmp(op, ux, uy); })
-         |                                ~~    ^
-   16 warnings and 9 errors generated.
-
-
-vim +203 drivers/net/ethernet/pensando/ionic/ionic_txrx.c
-
-36a47c906b23240 Shannon Nelson 2024-03-06  174  
-36a47c906b23240 Shannon Nelson 2024-03-06  175  static struct sk_buff *ionic_rx_build_skb(struct ionic_queue *q,
-4dcd4575bfb17d0 Shannon Nelson 2024-03-06  176  					  struct ionic_rx_desc_info *desc_info,
-f81da39bf4c0a54 Shannon Nelson 2024-02-14  177  					  unsigned int headroom,
-f81da39bf4c0a54 Shannon Nelson 2024-02-14  178  					  unsigned int len,
-f81da39bf4c0a54 Shannon Nelson 2024-02-14  179  					  unsigned int num_sg_elems,
-180e35cdf035d1c Shannon Nelson 2024-02-14  180  					  bool synced)
-0f3154e6bcb3549 Shannon Nelson 2019-09-03  181  {
-4b0a7539a3728f0 Shannon Nelson 2021-03-10  182  	struct ionic_buf_info *buf_info;
-08f2e4b2b2008ce Shannon Nelson 2019-10-23  183  	struct sk_buff *skb;
-08f2e4b2b2008ce Shannon Nelson 2019-10-23  184  	unsigned int i;
-08f2e4b2b2008ce Shannon Nelson 2019-10-23  185  	u16 frag_len;
-08f2e4b2b2008ce Shannon Nelson 2019-10-23  186  
-4b0a7539a3728f0 Shannon Nelson 2021-03-10  187  	buf_info = &desc_info->bufs[0];
-e75ccac1d0644c9 Shannon Nelson 2021-07-27  188  	prefetchw(buf_info->page);
-08f2e4b2b2008ce Shannon Nelson 2019-10-23  189  
-89e572e7369fd9a Shannon Nelson 2021-03-10  190  	skb = napi_get_frags(&q_to_qcq(q)->napi);
-89e572e7369fd9a Shannon Nelson 2021-03-10  191  	if (unlikely(!skb)) {
-89e572e7369fd9a Shannon Nelson 2021-03-10  192  		net_warn_ratelimited("%s: SKB alloc failed on %s!\n",
-36a47c906b23240 Shannon Nelson 2024-03-06  193  				     dev_name(q->dev), q->name);
-2854242d23a7b3a Shannon Nelson 2024-03-06  194  		q_to_rx_stats(q)->alloc_err++;
-08f2e4b2b2008ce Shannon Nelson 2019-10-23  195  		return NULL;
-89e572e7369fd9a Shannon Nelson 2021-03-10  196  	}
-ac8813c0ab7d281 Shannon Nelson 2024-09-06  197  	skb_mark_for_recycle(skb);
-08f2e4b2b2008ce Shannon Nelson 2019-10-23  198  
-f81da39bf4c0a54 Shannon Nelson 2024-02-14  199  	if (headroom)
-36a47c906b23240 Shannon Nelson 2024-03-06  200  		frag_len = min_t(u16, len,
-36a47c906b23240 Shannon Nelson 2024-03-06  201  				 IONIC_XDP_MAX_LINEAR_MTU + VLAN_ETH_HLEN);
-f81da39bf4c0a54 Shannon Nelson 2024-02-14  202  	else
-ac8813c0ab7d281 Shannon Nelson 2024-09-06 @203  		frag_len = min_t(u16, len, IONIC_PAGE_SIZE);
-f81da39bf4c0a54 Shannon Nelson 2024-02-14  204  
-36a47c906b23240 Shannon Nelson 2024-03-06  205  	if (unlikely(!buf_info->page))
-36a47c906b23240 Shannon Nelson 2024-03-06  206  		goto err_bad_buf_page;
-36a47c906b23240 Shannon Nelson 2024-03-06  207  	ionic_rx_add_skb_frag(q, skb, buf_info, headroom, frag_len, synced);
-36a47c906b23240 Shannon Nelson 2024-03-06  208  	len -= frag_len;
-4b0a7539a3728f0 Shannon Nelson 2021-03-10  209  	buf_info++;
-4b0a7539a3728f0 Shannon Nelson 2021-03-10  210  
-36a47c906b23240 Shannon Nelson 2024-03-06  211  	for (i = 0; i < num_sg_elems; i++, buf_info++) {
-36a47c906b23240 Shannon Nelson 2024-03-06  212  		if (unlikely(!buf_info->page))
-36a47c906b23240 Shannon Nelson 2024-03-06  213  			goto err_bad_buf_page;
-ac8813c0ab7d281 Shannon Nelson 2024-09-06  214  		frag_len = min_t(u16, len, buf_info->len);
-36a47c906b23240 Shannon Nelson 2024-03-06  215  		ionic_rx_add_skb_frag(q, skb, buf_info, 0, frag_len, synced);
-36a47c906b23240 Shannon Nelson 2024-03-06  216  		len -= frag_len;
-36a47c906b23240 Shannon Nelson 2024-03-06  217  	}
-08f2e4b2b2008ce Shannon Nelson 2019-10-23  218  
-08f2e4b2b2008ce Shannon Nelson 2019-10-23  219  	return skb;
-36a47c906b23240 Shannon Nelson 2024-03-06  220  
-36a47c906b23240 Shannon Nelson 2024-03-06  221  err_bad_buf_page:
-36a47c906b23240 Shannon Nelson 2024-03-06  222  	dev_kfree_skb(skb);
-36a47c906b23240 Shannon Nelson 2024-03-06  223  	return NULL;
-0f3154e6bcb3549 Shannon Nelson 2019-09-03  224  }
-0f3154e6bcb3549 Shannon Nelson 2019-09-03  225  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ2zDqW1lbnQsCgpPbiBNb24sIEp1biAyMywgMjAyNSBhdCA0OjA14oCvUE0gQ2zDqW1lbnQg
+TMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPiB3cm90ZToKPgo+Cj4KPiBPbiAyMC8wNi8yMDI1
+IDE0OjA0LCBSYWRpbSBLcsSNbcOhxZkgd3JvdGU6Cj4gPiAyMDI1LTA2LTIwVDE3OjE3OjIwKzA4
+OjAwLCBYdSBMdSA8bHV4dS5rZXJuZWxAYnl0ZWRhbmNlLmNvbT46Cj4gPj4gRGVsZWdhdGUgaWxs
+ZWdhbCBpbnN0cnVjdGlvbiBmYXVsdCB0byBWUyBtb2RlIGluIGRlZmF1bHQgdG8gYXZvaWQgc3Vj
+aAo+ID4+IGV4Y2VwdGlvbnMgYmVpbmcgdHJhcHBlZCB0byBIUyBhbmQgcmVkaXJlY3RlZCBiYWNr
+IHRvIFZTLgo+ID4+Cj4gPj4gU2lnbmVkLW9mZi1ieTogWHUgTHUgPGx1eHUua2VybmVsQGJ5dGVk
+YW5jZS5jb20+Cj4gPj4gLS0tCj4gPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20va3ZtX2hvc3QuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX2hvc3QuaAo+ID4+IEBA
+IC00OCw2ICs0OCw3IEBACj4gPj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBCSVQoRVhDX0lOU1RfSUxMRUdBTCkgICAgfCBcCj4gPgo+ID4gWW91IHNob3VsZCBhbHNvIHJl
+bW92ZSB0aGUgZGVhZCBjb2RlIGluIGt2bV9yaXNjdl92Y3B1X2V4aXQuCj4gPgo+ID4gQW5kIHdo
+eSBub3QgZGVsZWdhdGUgdGhlIG90aGVycyBhcyB3ZWxsPwo+ID4gKEVYQ19MT0FEX01JU0FMSUdO
+RUQsIEVYQ19TVE9SRV9NSVNBTElHTkVELCBFWENfTE9BRF9BQ0NFU1MsCj4gPiAgRVhDX1NUT1JF
+X0FDQ0VTUywgYW5kIEVYQ19JTlNUX0FDQ0VTUy4pCj4KPiBDdXJyZW50bHksIE9wZW5TQkkgZG9l
+cyBub3QgZGVsZWdhdGUgbWlzYWxpZ25lZCBleGNlcHRpb24gYnkgZGVmYXVsdCBhbmQKPiBoYW5k
+bGVzIG1pc2FsaWduZWQgYWNjZXNzIGJ5IGl0c2VsZiwgdGhpcyBpcyAocGFydGlhbGx5KSB3aHkg
+d2UgYWRkZWQKPiB0aGUgRldGVCBTQkkgZXh0ZW5zaW9uIHRvIHJlcXVlc3Qgc3VjaCBkZWxlZ2F0
+aW9uLiBTaW5jZSBzb21lIHN1cGVydmlzb3IKPiBzb2Z0d2FyZSBleHBlY3QgdGhhdCBkZWZhdWx0
+LCB0aGV5IGRvIG5vdCBoYXZlIGNvZGUgdG8gaGFuZGxlIG1pc2FsaWduZWQKPiBhY2Nlc3NlcyBl
+bXVsYXRpb24uIFNvIHRoZXkgc2hvdWxkIG5vdCBiZSBkZWxlZ2F0ZWQgYnkgZGVmYXVsdC4KCkl0
+IGRvZXNuJ3QgbWF0dGVyIHdoZXRoZXIgdGhlc2UgZXhjZXB0aW9ucyBhcmUgZGVsZWdhdGVkIGlu
+IG1lZGVsZWcuCktWTSBpbiBIUy1tb2RlIGRvZXMgbm90IGhhbmRsZSBpbGxlZ2FsIGluc3RydWN0
+aW9uIG9yIG1pc2FsaWduZWQKYWNjZXNzIGFuZCBvbmx5IHJlZGlyZWN0cyB0aGVtIGJhY2sgdG8g
+VlMtbW9kZS4gRGVsZWdhdGluZyBzdWNoCmV4Y2VwdGlvbnMgaW4gaGVkZWxlZyBoZWxwcyBzYXZl
+IENQVSB1c2FnZSBldmVuIHdoZW4gdGhleSBhcmUgbm90CmRlbGVnYXRlZCBpbiBtZWRlbGVnOiBv
+cGVuc2JpIHdpbGwgY2hlY2sgd2hldGhlciB0aGVzZSBleGNlcHRpb25zIGFyZQpkZWxlZ2F0ZWQg
+dG8gVlMtbW9kZSBhbmQgcmVkaXJlY3QgdGhlbSB0byBWUy1tb2RlIGlmIHBvc3NpYmxlLiBUaGVy
+ZQpzZWVtcyB0byBiZSBubyBjb25mbGljdHMgd2l0aCBTU0UgaW1wbGVtZW50YXRpb24uIFBsZWFz
+ZSBjb3JyZWN0IG1lIGlmCkkgbWlzc2VkIGFueXRoaW5nLgoKQmVzdCBSZWdhcmRzLApYdSBMdQoK
+Pgo+IFRoYW5rcywKPgo+IENsw6ltZW50Cj4KPiA+Cj4gPiBUaGFua3MuCj4gPgo+ID4gX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiA+IGxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdAo+ID4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ID4gaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo+Cgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
