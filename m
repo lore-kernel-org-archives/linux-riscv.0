@@ -4,75 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D494C7115B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C108DC7EE33
 	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 09:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UVbDamYjByHLKK9k4R06Au3aLxLpEy81hkGPemnkadQ=; b=oSK52QvCSnHACh
-	LK1cVyJiP3zJ2MZbsomVqWzswbjA79sxfOwIsTpW4xUbmpN3AmJjzp15v/f5AXpR9oUuqOsWAgEAK
-	0LNqAuKnZSlPNInLPjkdj9IvojKuz4WIzicQKzI7T2483IQKhGWkph5RS+qZO8YOU2z1ZyG6rT0un
-	QL7dPtaJJvZQYe7uWR/jh+xbegEYGRG0AsowKfZjlotwyZO+HA16q1M4/wTzn+BDieIVm8CuDgk3U
-	Pl9APV7II1wFfVnXoF7Xop2Bsdh7in+I/mo54bOCy0GxZwClnEtk6XcTHdmufwvTaNL+kRLeCd8Ax
-	92FDyvRu9SpfUm21GppA==;
+	List-Owner; bh=+hSNWSH3ikK4NNRltwsJ7eGT04MaAVfRj3Icq3bKPKE=; b=ZrLKoLjAgvrON2
+	lLjinTrUU1QHOurqaKuDmnVMfhDBw+XGG588VUARmZncQTNrY6oxvBChC6UWI3SnjvkqprRMn8cxm
+	b5eJBBDcnyRyZbBXAXZ80YiNy+2vqogRVbax6Gsj6sBnr9uGQQ5gO67iyTIuaSEX6MdfVtNctteCT
+	r3sND8nf1uuvWZpPui1Vw0gYohZmSUdD/VQ0ipmmtN/9waL9VuNq7EFXUDkhThMxJfw3+38Nw01ja
+	oqZo+BLVVh4W30+1zvT1M+0WIitRlBCeQ4uAj1Z3aP+xCQj6f5HIeUAw3tcN5zfshaQW5zLYrhQHp
+	KsyaAlHCkk+CKNgJo7HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdOF-000000029wg-3NNJ;
-	Mon, 23 Jun 2025 09:22:59 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1uTdOG-000000029x9-3NJ5;
+	Mon, 23 Jun 2025 09:23:00 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdFy-000000028J0-1icV
+	id 1uTdHO-000000028VY-1hPF
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Jun 2025 09:14:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750670066; x=1782206066;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=eIeY3heN+gnrpZQU6Tbcw37VApX8DZLMbgNPQw+j5oI=;
-  b=M9+TxHmB9wMgmsHBBpmUDchcKOU6YAl3mI8DuUGWfIicDk19tplmuc1v
-   73lH+yr47P0JZkrvf3oxSye32TQ9TrT+l0wmH0ko8ND85Y1swOhHzskYq
-   o4u+ZXEURzBD7KwqocIhCCiseqejnqr31hfGeEPBsVvgyc4s9V5hr7Xrj
-   BGKTGIrehIqSjGclcx6oYOf+D/mGYtjBgLu67CNoRak3IjaJwFb687tnv
-   HkguNDEAYNeb3g2e66UTmQCHafHM16G4FZec7/HT3i6fM5Dy+uwoG3gXq
-   RpEjbxd2UyYTw9600vohNowxr+y1hOFyJD0monrkhGARvE6zI7XHrZ9Cr
-   w==;
-X-CSE-ConnectionGUID: 2nuR/rwMRbqT5XfDnxcRJg==
-X-CSE-MsgGUID: npV9eOHtSteCy1OeASBSwA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11472"; a="75401273"
-X-IronPort-AV: E=Sophos;i="6.16,258,1744095600"; 
-   d="scan'208";a="75401273"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2025 02:14:18 -0700
-X-CSE-ConnectionGUID: e4ekD39qTday9sIFTi7Scg==
-X-CSE-MsgGUID: 9gtBh0Q9Tb6PnnFaBaRxUg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,258,1744095600"; 
-   d="scan'208";a="155846754"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2025 02:14:12 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uTdFf-000000097Qy-3DMk;
-	Mon, 23 Jun 2025 12:14:07 +0300
-Date: Mon, 23 Jun 2025 12:14:07 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v6 14/23] ACPI: property: Add support for cells property
-Message-ID: <aFka3y1494LIzyUA@smile.fi.intel.com>
-References: <20250618121358.503781-1-apatel@ventanamicro.com>
- <20250618121358.503781-15-apatel@ventanamicro.com>
+	Mon, 23 Jun 2025 09:15:55 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BD23D41B5F;
+	Mon, 23 Jun 2025 09:15:48 +0000 (UTC)
+Message-ID: <027ef1a9-6a5c-4dba-8816-159411739b71@ghiti.fr>
+Date: Mon, 23 Jun 2025 11:15:48 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250618121358.503781-15-apatel@ventanamicro.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Revert "riscv: Define TASK_SIZE_MAX for __access_ok()"
+To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: rtm@csail.mit.edu, stable@vger.kernel.org
+References: <20250619155858.1249789-1-namcao@linutronix.de>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250619155858.1249789-1-namcao@linutronix.de>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdduieeigecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhephffhuddtveegleeggeefledtudfhudelvdetudfhgeffffeigffgkeethfejudejnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmedvieeijeemvgejvgdtmeehudeltdemfhgvtdehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmedvieeijeemvgejvgdtmeehudeltdemfhgvtdehpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmedvieeijeemvgejvgdtmeehudeltdemfhgvtdehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeekpdhrtghpthhtohepnhgrmhgtrghosehlihhnuhhtrhhonhhigidruggvpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepp
+ hgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhtmhestghsrghilhdrmhhithdrvgguuhdprhgtphhtthhopehsthgrsghlvgesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_021426_484836_5119C12B 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20250623_021554_581202_71702529 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,69 +61,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 05:43:49PM +0530, Anup Patel wrote:
-> From: Sunil V L <sunilvl@ventanamicro.com>
-> 
-> Currently, ACPI doesn't support cells property when
-> fwnode_property_get_reference_args() is called. ACPI always expects
-> the number of arguments to be passed. However, the above mentioned
-> call being a common interface for OF and ACPI, it is better to have
-> single calling convention which works for both. Hence, add support
-> for cells property on the reference device to get the number of
-> arguments dynamically.
+Hi Nam,
 
-...
+On 6/19/25 17:58, Nam Cao wrote:
+> This reverts commit ad5643cf2f69 ("riscv: Define TASK_SIZE_MAX for
+> __access_ok()").
+>
+> This commit changes TASK_SIZE_MAX to be LONG_MAX to optimize access_ok(),
+> because the previous TASK_SIZE_MAX (default to TASK_SIZE) requires some
+> computation.
+>
+> The reasoning was that all user addresses are less than LONG_MAX, and all
+> kernel addresses are greater than LONG_MAX. Therefore access_ok() can
+> filter kernel addresses.
+>
+> Addresses between TASK_SIZE and LONG_MAX are not valid user addresses, but
+> access_ok() let them pass. That was thought to be okay, because they are
+> not valid addresses at hardware level.
+>
+> Unfortunately, one case is missed: get_user_pages_fast() happily accepts
+> addresses between TASK_SIZE and LONG_MAX. futex(), for instance, uses
+> get_user_pages_fast(). This causes the problem reported by Robert [1].
+>
+> Therefore, revert this commit. TASK_SIZE_MAX is changed to the default:
+> TASK_SIZE.
+>
+> This unfortunately reduces performance, because TASK_SIZE is more expensive
+> to compute compared to LONG_MAX. But correctness first, we can think about
+> optimization later, if required.
+>
+> Reported-by: <rtm@csail.mit.edu>
+> Closes: https://lore.kernel.org/linux-riscv/77605.1750245028@localhost/
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> Cc: stable@vger.kernel.org
+> ---
+>   arch/riscv/include/asm/pgtable.h | 1 -
+>   1 file changed, 1 deletion(-)
+>
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 438ce7df24c39..5bd5aae60d536 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -1075,7 +1075,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+>    */
+>   #ifdef CONFIG_64BIT
+>   #define TASK_SIZE_64	(PGDIR_SIZE * PTRS_PER_PGD / 2)
+> -#define TASK_SIZE_MAX	LONG_MAX
+>   
+>   #ifdef CONFIG_COMPAT
+>   #define TASK_SIZE_32	(_AC(0x80000000, UL) - PAGE_SIZE)
 
-> +static unsigned int acpi_fwnode_get_args_count(const struct acpi_device *device,
-> +					       const char *nargs_prop)
-> +{
-> +	const union acpi_object *obj;
 
-> +	if (!nargs_prop)
-> +		return 0;
+I agree with this revert, the next step is to implement the same 
+optimization using alternatives (like x86 does).
 
-This check is implied by the call. No need to duplicate.
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
-> +	if (acpi_dev_get_property(device, nargs_prop, ACPI_TYPE_INTEGER, &obj))
-> +		return 0;
-> +
-> +	return obj->integer.value;
-> +}
+It should land into -fixes.
 
-...
+Thanks,
 
-> +			if (nargs_prop)
-
-Again, if you don't won't to reassign the existing value, it's better to have
-this data be collected in the temporary variable of the same semantics. Then
-you will choose one when it's needed, no need to have this dup check (again!).
-
-> +				args_count = acpi_fwnode_get_args_count(device, nargs_prop);
-> +
->  			element++;
->  
->  			ret = acpi_get_ref_args(idx == index ? args : NULL,
-
-...
-
-> +			if (nargs_prop) {
-
-Ditto.
-
-> +				device = to_acpi_device_node(ref_fwnode);
-> +				args_count = acpi_fwnode_get_args_count(device, nargs_prop);
-> +			}
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+Alex
 
 
 _______________________________________________
