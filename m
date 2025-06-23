@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E0DCC77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 00:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D1FBC77B7C
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 00:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=INVeQXiGg5XfhMW/d+r7kvo+rkMwf+ujZVIKdVxFp7E=; b=3QlFdW3O06uizZ
-	JYy7eaMHFIXAoUeZ02GBQmXBIh0i0xvlsdszLZaIrvLcR5K0+4aHyzgyo2t5kkniafYsek5+oSufc
-	ojeaD7+U1dcVr9CezfegrRML8bzWVNobSjABTae52JZB0ciasO4qyreeivEuWv5ntyGp+hAtqupYB
-	7y5V4yoyXb16OwBVd9vnkMyYaJtmoB7Td0FCWc533CDt17n2p47A2TtHW//esfqGpq74k/Er9A4tS
-	OWjDY+7ub7wgK3NYefejbPDro7xIpLeBBxikHvY3rH3aoEmKNQsiWte9CGKMiBsW/OaGIZalynWwj
-	IH8ckdJ7dCxqP2g6kYYw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wiEDfPvEGwNQtktEM3P3mhJlaQh0WVycCO5Wc+yCvuY=; b=JU/56BSdXLfoyc
+	AFmWc9jB3/HNa6yFgUnWSjlLWTTxy6vgoVci+VS1OKeNEtaIm7jyEmIjAcnzBYxG3NA0KQy0f/PEG
+	Iw2f1IOn8UUzVziAQ/5o0sPVpQxTUbEc2wb+SzhZH290IcGMWGLhr1W86GrZ1hoCTvrT70xni2UcK
+	462OutjUSi1z1Q2EzpXnPfAXK9iCKvF3WEbTriRA3RlccvfO46nSnsT4ni3JBH3A0nimyfjF+J+qa
+	vU183G27RpjnTam50CVFkPC/EoCohCRgeAvWuT8S6Tfk8/bmnuSWL9g11J6joOCceT20jiNinVhyl
+	zSHyYJmlfvUG4AUFmeeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTrZp-00000004Fto-41fl;
-	Tue, 24 Jun 2025 00:31:53 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1uTraA-00000004GFW-3byf;
+	Tue, 24 Jun 2025 00:32:15 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTlbU-00000003eBv-0E84
+	id 1uTlyF-00000003h5m-3Lzj
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Jun 2025 18:09:13 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250623180909euoutp0292407ab7d3231d49c4f407f27224eff2~LvlRlf8f-2683526835euoutp02Z
-	for <linux-riscv@lists.infradead.org>; Mon, 23 Jun 2025 18:09:09 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250623180909euoutp0292407ab7d3231d49c4f407f27224eff2~LvlRlf8f-2683526835euoutp02Z
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1750702149;
-	bh=Thc/4MnT4r5I8ag38cbivyQhpbuX345C1nEB0lzCSSU=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=l4i87764c4t/HnfCZ+5UFqdEXrcuyOHrgrER0xN/t/TVnHg4hlvR9qO570ZnZVc/L
-	 kvcuvLqzLNdTL2k6/aby4ydB5Ov+RPGcXiu5/em1DLzZR5NEtQSjidLcpUUo8Yx3tA
-	 y0pRn2r81/6FZWiAguXjBeicofEge1/Q4QfiGz84=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250623180908eucas1p1a3494bba009ff1d7b7d5d59f915e9927~LvlQeI11R2898428984eucas1p1Y;
-	Mon, 23 Jun 2025 18:09:08 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250623180907eusmtip10853b0d9e99b673eabdf4475ccf85ae0~LvlPWboOD3150531505eusmtip1z;
-	Mon, 23 Jun 2025 18:09:07 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Mon, 23 Jun 2025 20:08:57 +0200
-Subject: [PATCH v5 9/9] riscv: dts: thead: Add PWM fan and thermal control
+	Mon, 23 Jun 2025 18:32:45 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-313a188174fso3497515a91.1
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Jun 2025 11:32:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750703563; x=1751308363; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=kruPxOyyvUJ301Bt/UNLMGQOlJa4yMmtInWP2erojtI=;
+        b=l03iKb6aV7N9Y8L7ua4uaCGy3iSYFe9yw0RWgOK+60n10Rpp3YEfFUlGX5uV+LSO7n
+         Sgalz/1Xyd+bmehB252av+OfOgViM6L/ttNkRKlxP+s09edncSyW0Biyol9iurpBqK90
+         fg0pxtHogE6i/MYjCX4uNp4FU7TYu/U9Lg/b8GE6sFptrhqXlxnMUiGfVISPPRmCMMid
+         mVnj2CFpEzpqmPU/JTyCzXKqKDlqLT0NJ0ycU4KwXcO3ZGuF57W6TQE2w15FhMnoflCA
+         TG2hFF2QWOx6pVawr+GYxVvlVoII34jcqboU8Pw9adCTIrD78+S97sc5ANGwwpI5R9vE
+         9udQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750703563; x=1751308363;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kruPxOyyvUJ301Bt/UNLMGQOlJa4yMmtInWP2erojtI=;
+        b=ncoSsZUh7Xk9b5qqgdMrGb7SaOzX2ZdX4TxPULAx33k6wqTuQ9NnPzxAEL6Nznas/Z
+         nUtEbAZjnbC/cf48URT1rLitC+rrnHKsZXoKoH+DtLcnKGwtH8U0jnOwol4ILkdyjzFb
+         4t8HnVUApXmBoDATebHysAoCDrCaecRzCnfR2beAHQoZYstYoOrj4sjvM5MH2kZXX2+k
+         QFfD2Fgg5B1ZmoH4rlqxZ7hekuEyY1rCMI2/B0FPvs+ZRS7YCbYW2KEOvlDZxkV1cMMj
+         R3VneBUfUF5p016bn6/2/UmJcwGSWxKBZ8jzsyPLap0EpyQBl1Se2gTMEv55WeFgyUVV
+         Jy7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWekX/wYzu67WhTeifNozxkTJ5AXuxLX73J4/UEtLmAnw3PGM5ECRCaG4vZnC5Q9R8PYywtH8Dzc4Ivnw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjiyuADYDGp1+F0mx9Otwbsz4ONPmXI4NogdVOM+T7pjeW+qnu
+	zzcoh2mUJKcJKUvzLrb6a4+xzq6YOhr5tg0L5xTUmjousn+YTkk0Z5qZ1MMRj2cIaEw/w26Mi4v
+	XwWAPpDLnb+KSGUcY4f90To8Ag/BqMRCfogECDe8F/A==
+X-Gm-Gg: ASbGncty1bIxqWlTPXe92zXMuxmVQFf6YnbU01cgMm/E9CmW/djS4Mw4r0DeaGv/Bid
+	HpcMYo2UGNmqVnzXZJsJ0r/34MVpupwsErY0PPk5RdScNiwRAUeIp6I8mKdfPnfmotGweNZfYGj
+	zGOcMRNk9Cvnsg/AVKBg7kHP22/z+5IX2KFb8v8VEIOItVShpakzkpjkfel5bmsEivl9BpHM14m
+	jHJ
+X-Google-Smtp-Source: AGHT+IFN+MuBxJ+QUL+UQe2hu7b0+Ppkb80MQX/ZVfwxCOW2lGiDat39qnGph06M7YMdl+YKMYdCUOnoxk8zPjTW19g=
+X-Received: by 2002:a17:90b:4fd0:b0:311:a5ab:3d47 with SMTP id
+ 98e67ed59e1d1-315ccc48857mr832647a91.1.1750703562413; Mon, 23 Jun 2025
+ 11:32:42 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20250623-rust-next-pwm-working-fan-for-sending-v5-9-0ca23747c23e@samsung.com>
-In-Reply-To: <20250623-rust-next-pwm-working-fan-for-sending-v5-0-0ca23747c23e@samsung.com>
-To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
-	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
-	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,  Andreas
-	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,  Trevor
-	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,  Michal
-	Wilczynski <m.wilczynski@samsung.com>, Drew Fustini <drew@pdp7.com>,  Guo
-	Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
-	<conor+dt@kernel.org>,  Paul Walmsley <paul.walmsley@sifive.com>,  Palmer
-	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,  Alexandre
-	Ghiti <alex@ghiti.fr>,  Marek Szyprowski <m.szyprowski@samsung.com>,  Benno
-	Lossin <lossin@kernel.org>,  Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Benno Lossin <lossin@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250623180908eucas1p1a3494bba009ff1d7b7d5d59f915e9927
-X-Msg-Generator: CA
-X-RootMTR: 20250623180908eucas1p1a3494bba009ff1d7b7d5d59f915e9927
-X-EPHeader: CA
-X-CMS-RootMailID: 20250623180908eucas1p1a3494bba009ff1d7b7d5d59f915e9927
-References: <20250623-rust-next-pwm-working-fan-for-sending-v5-0-0ca23747c23e@samsung.com>
-	<CGME20250623180908eucas1p1a3494bba009ff1d7b7d5d59f915e9927@eucas1p1.samsung.com>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Tue, 24 Jun 2025 00:02:29 +0530
+X-Gm-Features: Ac12FXz8Xagh8-R9UdOPbyOpKzegWYcA5INp1WSEVpTVF86rd3gJifht0qGqOmw
+Message-ID: <CA+G9fYv2i5AOYOkepUq_Rz1wxfzu1o2W59xDgui7VPw7g-fV9w@mail.gmail.com>
+Subject: next-20250623: riscv defconfig raid6 recov_rvv.c use of undeclared
+ identifier 'raid6_empty_zero_page'
+To: open list <linux-kernel@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, lkft-triage@lists.linaro.org, 
+	Linux Regressions <regressions@lists.linux.dev>, linux-raid@vger.kernel.org
+Cc: Song Liu <song@kernel.org>, yukuai3@huawei.com, 
+	Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Charlie Jenkins <charlie@rivosinc.com>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Anders Roxell <anders.roxell@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_110912_364361_D12A6741 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250623_113243_854905_34D6E0A3 
+X-CRM114-Status: UNSURE (   3.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,102 +98,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Device Tree nodes to enable a PWM controlled fan and it's associated
-thermal management for the Lichee Pi 4A board.
+Regressions on riscv defconfig builds with gcc-13 and clang failed
+on the Linux next-20250623 tag.
 
-This enables temperature-controlled active cooling for the Lichee Pi 4A
-board based on SoC temperature.
+Regressions found on riscv
+* riscv, build
+  - clang-20-defconfig
+  - gcc-13-defconfig
+  - rustclang-nightly-lkftconfig-kselftest
+  - rustgcc-lkftconfig-kselftest
+  - rv32-clang-20-defconfig
 
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts | 67 +++++++++++++++++++++++
- 1 file changed, 67 insertions(+)
+Regression Analysis:
+ - New regression? Yes
+ - Reproducibility? Yes
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-index 4020c727f09e8e2286fdc7fecd79dbd8eba69556..c58c2085ca92a3234f1350500cedae4157f0c35f 100644
---- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-+++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-@@ -28,9 +28,76 @@ aliases {
- 	chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
-+
-+	thermal-zones {
-+		cpu-thermal {
-+			polling-delay = <1000>;
-+			polling-delay-passive = <1000>;
-+			thermal-sensors = <&pvt 0>;
-+
-+			trips {
-+				fan_config0: fan-trip0 {
-+					temperature = <39000>;
-+					hysteresis = <5000>;
-+					type = "active";
-+				};
-+
-+				fan_config1: fan-trip1 {
-+					temperature = <50000>;
-+					hysteresis = <5000>;
-+					type = "active";
-+				};
-+
-+				fan_config2: fan-trip2 {
-+					temperature = <60000>;
-+					hysteresis = <5000>;
-+					type = "active";
-+				};
-+			};
-+
-+			cooling-maps {
-+				map-active-0 {
-+					cooling-device = <&fan 1 1>;
-+					trip = <&fan_config0>;
-+				};
-+
-+				map-active-1 {
-+					cooling-device = <&fan 2 2>;
-+					trip = <&fan_config1>;
-+				};
-+
-+				map-active-2 {
-+					cooling-device = <&fan 3 3>;
-+					trip = <&fan_config2>;
-+				};
-+			};
-+		};
-+	};
-+
-+	fan: pwm-fan {
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&fan_pins>;
-+		compatible = "pwm-fan";
-+		#cooling-cells = <2>;
-+		pwms = <&pwm 1 10000000 0>;
-+		cooling-levels = <0 66 196 255>;
-+	};
-+
- };
- 
- &padctrl0_apsys {
-+	fan_pins: fan-0 {
-+		pwm1-pins {
-+			pins = "GPIO3_3"; /* PWM1 */
-+			function = "pwm";
-+			bias-disable;
-+			drive-strength = <25>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
- 	uart0_pins: uart0-0 {
- 		tx-pins {
- 			pins = "UART0_TXD";
+Build regression: riscv defconfig raid6 recov_rvv.c use of undeclared
+identifier 'raid6_empty_zero_page'
 
--- 
-2.34.1
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
 
+## Build log
+lib/raid6/recov_rvv.c:168:24: error: use of undeclared identifier
+'raid6_empty_zero_page'
+  168 |         ptrs[faila] = (void *)raid6_empty_zero_page;
+      |                               ^
+/lib/raid6/recov_rvv.c:171:24: error: use of undeclared identifier
+'raid6_empty_zero_page'
+  171 |         ptrs[failb] = (void *)raid6_empty_zero_page;
+      |                               ^
+/lib/raid6/recov_rvv.c:206:24: error: use of undeclared identifier
+'raid6_empty_zero_page'
+  206 |         ptrs[faila] = (void *)raid6_empty_zero_page;
+      |                               ^
+3 errors generated.
+
+## Source
+* Kernel version: 6.16.0-rc3-next-20250623
+* Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next.git
+* Git sha: f817b6dd2b62d921a6cdc0a3ac599cd1851f343c
+* Git describe: next-20250623
+* Project details:
+https://regressions.linaro.org/lkft/linux-next-master/next-20250623/
+* Architectures: riscv
+* Toolchains: gcc-13
+* Kconfigs: defconfig
+
+## Build arm64
+* Build log: https://qa-reports.linaro.org/api/testruns/28829977/log_file/
+* Build details:
+https://regressions.linaro.org/lkft/linux-next-master/next-20250623/build/gcc-13-defconfig/
+* Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/2ytmqfZ6v24dxq5kjorJbgH6hC8/
+* Kernel config:
+https://storage.tuxsuite.com/public/linaro/lkft/builds/2ytmqfZ6v24dxq5kjorJbgH6hC8/config
+
+--
+Linaro LKFT
+https://lkft.linaro.org
 
 _______________________________________________
 linux-riscv mailing list
