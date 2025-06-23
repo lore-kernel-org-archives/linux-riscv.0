@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663E4C77B7C
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 06:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3605FC7115B
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 06:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5wLhrS15ZPyNgV3DfugBIJPqZP1V5IEdsL3gWow1weU=; b=eUSQ5O+1zpwdNd
-	Y0ZAt1S7lo4iiUDqdke+9827XjUTYBtVDDGBSPJ3IjXdc17ltsHwUVm1/NRHruF9iBmDQIIx1wp+1
-	ANhchUt0Tc5k5pOFYmK2pB0vrDNazY21tW/8GOuLVZWx3HYfHpGugVA+LXwVOSg4e44dqkBByIzJG
-	6pTsg0S2FdVb+kQCsdVMALjCoZl5aCnFHehmoiAEULnTAFwAa6Hi9rnO3dQUmYMPzz+mChWgCbyd4
-	3A+wHca4rFFXbQBXHZfwlx77iQlp7OBieWodQStS0NPl+afTP3JWlYe5Ba9bEXb15OstNHfW4vyvK
-	aJ6UsSSeUbyz/MGdByfg==;
+	List-Owner; bh=b5qu3NopBLMu7epsFKDCgvIABYrFK3TBA5YCX8zp2TU=; b=CB9T4FS+EAnV8D
+	cK4bxEdS7HhDFghTF1H8IK/T0Y5joJ3fdbjXXw/ncSkUTrvjrVY8r84PDqwjCwoR/70WrCDgtIK8S
+	73NY0vfF7iaaytqwne+OLH7vqirkEHQVBzqlMpz6+1gsLCdpdJkWID57Jsxb6V0MQxlj+Wg7e9Qej
+	vt/ZnlgW6Epg6uw/IehFwGQ/v8MH2TxuhBrKkXSLPX3nLlwl2vk77zJv1Zc+QegbnKdic36sEztLh
+	a1cSn1Ny4oQ0RU8JIYtqwM+p9v3NE81WXmLF/CvNlK2ez2kBAH6PlUMJ8rPLy9FaLa4iLyKrPbow+
+	C25O0nx8rQnBBkAmVxsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTaxf-00000001mm4-1Kh5;
-	Mon, 23 Jun 2025 06:47:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uTaxg-00000001mmh-1Aax;
+	Mon, 23 Jun 2025 06:47:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTauV-00000001lqb-42Hh
+	id 1uTavX-00000001mGi-1gTH
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Jun 2025 06:44:09 +0000
+	Mon, 23 Jun 2025 06:45:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E47295C04A3;
-	Mon, 23 Jun 2025 06:41:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66A49C4CEED;
-	Mon, 23 Jun 2025 06:44:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE49961139;
+	Mon, 23 Jun 2025 06:45:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A09AC4CEF1;
+	Mon, 23 Jun 2025 06:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750661047;
-	bh=6OAlBChjsCeFaZXQLqbpyy2nqdAr666kNYNsvjQqJyw=;
+	s=k20201202; t=1750661108;
+	bh=GZFyB/aUGD9ot5Zd67wfsA7xVEkO24ZVylG7vA8lQQM=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=i1Vvi/56hg3iMco8iFOfED4+mWh00mEGPP+PIK21eb02qJX5GWwtB9tlyBOw5fGU1
-	 wPBq9CdkO8TB0htyZ5+Me4CnBaplsQoTWUG/eezJK1r2ud2nMxn/5qWDcRVEwtnrSx
-	 iENcZkzPDRhzUVPYutAwY68E7NX7e0Uui/xHT/9zMRwt25oJtGXp4bBu2p+r9aKTBB
-	 OX8PreDod1ZLiu9/2XHdf2KkI2uqWl9wOaURaEKAYE54EPTFJiKvLZ0lIJqBXgSdz/
-	 SGA6qc5ShGBwkYdQKLnaYFIFCcrFd7Q7I8yJFnTPxFWSv5gBy0sDJY/VB2ibORS3rd
-	 HFRS+HUZPEQog==
-Message-ID: <2e53fc11-49eb-420c-ab8e-57e9493c42ba@kernel.org>
-Date: Mon, 23 Jun 2025 08:44:03 +0200
+	b=SPq63yCPB+fuIeFcjrMpkxjWdmtrTT/YcbeI6nnUcLgY0GOIszXc3z5BsOnbcNOYJ
+	 3VWTN6BjPsduKSYTUcDBGyW22qZMrd+f8S2c+UFvuY5tG2HgeX7/bhJDNZhCLjjJk6
+	 l+uhWJfT06Bnb+a71RCaP2qjdRukoxGD5MalfRSUL7T2oL9aI7l2gafJv5CIxnTg8a
+	 +BMjP1AKYJ0aerFZtNq3RBA8EKDjfaqIJw4Lc4vO4hOoHxHwrSW5spCmXS7NR2xahi
+	 pZGu89qQIewkajWdUs747q7gErGzyGzuFIfgd4Cc71A9DbYYLIM6T1UgBM37P2gRXo
+	 66qt44U1mAKPA==
+Message-ID: <79d84bc5-1b39-433d-afc3-b6ca84f274f0@kernel.org>
+Date: Mon, 23 Jun 2025 08:45:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v1 1/3] dt-bindings: memory-controllers: add StarFive
@@ -99,9 +99,6 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
 In-Reply-To: <20250606130253.1105273-2-e@freeshell.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_234408_116141_64309E1C 
-X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,88 +118,13 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 06/06/2025 15:02, E Shattow wrote:
 > Document bindings for the JH7110 SoC DMC as implemented in downstream
 > U-Boot driver starfive_ddr.c
-> 
-> Signed-off-by: E Shattow <e@freeshell.de>
-> ---
->  .../starfive,jh7110-dmc.yaml                  | 76 +++++++++++++++++++
->  1 file changed, 76 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/memory-controllers/starfive,jh7110-dmc.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/memory-controllers/starfive,jh7110-dmc.yaml b/Documentation/devicetree/bindings/memory-controllers/starfive,jh7110-dmc.yaml
-> new file mode 100644
-> index 000000000000..299c86893db1
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/memory-controllers/starfive,jh7110-dmc.yaml
-> @@ -0,0 +1,76 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/memory-controllers/starfive,jh7110-dmc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 DMC
-> +
-> +maintainers:
-> +  - E Shattow <e@freeshell.de>
-> +
-> +description:
-> +  JH7110 DMC as implemented by U-Boot boot loader driver starfive_ddr.c
 
-Bindings are about hardware. Explain the hardware, not drivers.
+Heh, I totally missed "downstream"... We do not add bindings for
+downstream. We do not care about downstream, so I should not spend my
+time on this.
 
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: starfive,jh7110-dmc
-> +
-> +  reg:
-> +    minItems: 2
+Do not send code for downstream.
 
-Drop
-
-> +    maxItems: 2
-
-Drop and list items with description instead
-
-
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    items:
-> +      - const: pll1_out
-> +
-> +  clock-frequency:
-> +    enum: [2133, 2800]
-> +    default: 2133
-
-Drop clock-frequency. I doubt 2133 Hz is even correct... This is a
-legacy property, use common clock framework.
-
-> +
-> +  resets:
-> +    minItems: 3
-> +    maxItems: 3
-
-List the items with description instead
-
-> +
-> +  reset-names:
-> +    items:
-> +      - const: axi
-> +      - const: osc
-> +      - const: apb
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - clock-frequency
-> +  - resets
-> +  - reset-names
 Best regards,
 Krzysztof
 
