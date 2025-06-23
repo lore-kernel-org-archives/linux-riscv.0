@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B09C77B7F
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 13:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EB1C77B7F
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Jun 2025 14:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:MIME-Version:
-	Message-Id:Date:Subject:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:List-Owner; bh=NuG8zc3gqMGZI9puybGf1iATvD1zJ0pTeCOye+6SApY=; b=w1
-	7vkum/cnTDMEEXNYcOt41gvBjm0w5VqBn60WWlag4mB6cZPalC3EH9EjT0FG0ZZmSRoJo5mFuDXdO
-	T8X0ijph/peNt5oKSmWntbDJy1ItGCjfn464iwu9wc6lEjVXGUrIv2SAh3ApLDYUggy/kWscqU2h1
-	EVJqy2kxfYyPuI6+LpsJKD1fVFc9PkJmLFeLP/CKH0zlQnKpRwCAkYxSKtR87/dPze5y4i+Z1ttHd
-	zy2vXINSXarOBCXeJ8XbhTltqoX3XcTc5I2lw00F3L81aV66gItEzF3TFY/r9uQBF19y6SP/4QpvD
-	yAX2NRoyRVBFZuYSLDgWwiEZIBZRqM9w==;
+	List-Owner; bh=uk4dOAss1kX5s8Sw5f6G6e4IiqguFM7v0kuMaviE7R8=; b=jfCMwZy2AOTj+j
+	PpPtCjhMfc7sflaM/w09nTYog1VuSx5UAy62QInAMK29HOOODNpjN6f6EgriAdIE9rZBlaUU8Ttg2
+	qN3MNlXSsyDR7LDnXyhc/BFsTFE0HIR6nXYvVHVYHgeLuYz9Z9xFXHiUc54mxDxnEI99IqFZeKZBp
+	UcVopNV/l15/xOQQrQmUZaULDVg3/VWxHQ2jZWX3TnmlhfbBWrapYSO4DlwJGat9qlAnJ9DATtqqY
+	IsFYyl+TdtVTMkETA20sM0y0ixsYUABP6IAY4SrI0yxSWRZcX27+uRcorFwMwoyNLJ1Oz8pRxkxfb
+	6hMnJaHw/VT+RQLad5QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTh2z-00000002qFT-1JLF;
-	Mon, 23 Jun 2025 13:17:17 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1uThop-00000002ycx-3fQW;
+	Mon, 23 Jun 2025 14:06:43 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfbI-00000002XPR-1ljr
+	id 1uTfr3-00000002alJ-3Bb7
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Jun 2025 11:44:38 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250623114430euoutp02f759ba5be4a9415b20b3f8e7e0bbf08c~LqVa2pDLo1765417654euoutp02G
-	for <linux-riscv@lists.infradead.org>; Mon, 23 Jun 2025 11:44:30 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250623114430euoutp02f759ba5be4a9415b20b3f8e7e0bbf08c~LqVa2pDLo1765417654euoutp02G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1750679070;
-	bh=7rc1fzF0QTmKxkyJFBOrevb3sgychXffT2onchk1Wxw=;
-	h=From:Subject:Date:To:Cc:References:From;
-	b=jB3SvszPClaE6yGDgxOb5xF+XHjVibiu+3rymf4nDAXUu44N8Sd2BdKaoFktZyvm6
-	 vneFX83MvIPkbjZhRUj+gpYU6Tsqp2GXlsXNVPJ58Y6PV4Jx8QyHciiIsr2Oo5QmDD
-	 bSupBZSv5eL66fPcQ7vNcX+04PadNf6r6KtQL9hY=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250623114429eucas1p1e74e09e74c5873b2f7f01228073be72a~LqVaD0D3O0450604506eucas1p1l;
-	Mon, 23 Jun 2025 11:44:29 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250623114428eusmtip1e82762bc55e1f3da0e06fca082af295d~LqVY_i1qQ1799017990eusmtip1h;
-	Mon, 23 Jun 2025 11:44:28 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH v6 0/8] Add TH1520 GPU support with power sequencing
-Date: Mon, 23 Jun 2025 13:42:38 +0200
-Message-Id: <20250623-apr_14_for_sending-v6-0-6583ce0f6c25@samsung.com>
+	Mon, 23 Jun 2025 12:00:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750680053; x=1782216053;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=S45BOtnpLY803LtSlt8cS8oUCjZlOAl7O/M8gBmSjZo=;
+  b=FQ0onncvokaVbfp2KxEZ2BzvduUfPnfIdy8L8D+Wv6zlXut6Hyh70KnM
+   Mq9ybOWA+oQVEkxQDKN500eDUzQzSHxOstNAcTBR+bo7zpN0IxLrrKT/M
+   XNhynDionERxMAc3Tb+xX2unYDjSBvzHgAYzcLHPhi6qUaTLwCzVvyDxI
+   pkFgEE5U+VxMXzhiDN3juS7mGMTAjPKr5oob+iKZt1Ny+5PmKnLW70PZh
+   3a10rpJEAF7SY/eQY1m7WTOxGJ/7FmX6Oe5rXczExGKHBl3qjIxcj9QOY
+   VrQ8XzUPRHAi4f2Oru2S45+GpqNE4l0QnUSRQtvJd0RDTPl/dTOFfcIHQ
+   Q==;
+X-CSE-ConnectionGUID: AWjgeki8R/6i+Jnc9MZwRQ==
+X-CSE-MsgGUID: Rv7vaqkSSga0MPMwQ4KIng==
+X-IronPort-AV: E=McAfee;i="6800,10657,11473"; a="52752409"
+X-IronPort-AV: E=Sophos;i="6.16,258,1744095600"; 
+   d="scan'208";a="52752409"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2025 05:00:50 -0700
+X-CSE-ConnectionGUID: ePnLZKKyST24ZYz8OIpbZw==
+X-CSE-MsgGUID: jEmw7k6oSoywR5Gyh7kHWg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,258,1744095600"; 
+   d="scan'208";a="151761795"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 23 Jun 2025 05:00:47 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uTfqu-000O1q-0S;
+	Mon, 23 Jun 2025 12:00:44 +0000
+Date: Mon, 23 Jun 2025 19:59:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: cp0613@linux.alibaba.com, yury.norov@gmail.com,
+	linux@rasmusvillemoes.dk, arnd@arndb.de, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Chen Pei <cp0613@linux.alibaba.com>
+Subject: Re: [PATCH 1/2] bitops: generic rotate
+Message-ID: <202506231924.kPX5UiaD-lkp@intel.com>
+References: <20250620111610.52750-2-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAK49WWgC/33OzW7DIAzA8VepOI+JL4fQ095jqiJmTMqhpIIt6
-	lTl3Ud6aatlO/4t+WdfWaWSqLL97soKzammKbfoXnYMjz6PxFNozZRQIIw03J/LIM0QpzJUyiH
-	lkcOHdtL20npE1hbPhWK63ND3Q+tjqp9T+b7dmNU6/ZebFRfcCgQflY+uw7fqT/Urj684ndgKz
-	vqOgBabiG5IrwNYY4JzdgMxd6T74xOzIqSdAeylw/AbgUek30SgIcpS0Jo8YBefkWVZfgCXIGA
-	KhQEAAA==
-X-Change-ID: 20250414-apr_14_for_sending-5b3917817acc
-To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,  Fu Wei
-	<wefu@redhat.com>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Michal
-	Wilczynski <m.wilczynski@samsung.com>,  Bartosz Golaszewski <brgl@bgdev.pl>,
-	Philipp Zabel <p.zabel@pengutronix.de>,  Frank Binns
-	<frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,  Maarten
-	Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Paul Walmsley
-	<paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson
-	<ulf.hansson@linaro.org>,  Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org,  Bartosz Golaszewski
-	<bartosz.golaszewski@linaro.org>,  Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250623114429eucas1p1e74e09e74c5873b2f7f01228073be72a
-X-Msg-Generator: CA
-X-RootMTR: 20250623114429eucas1p1e74e09e74c5873b2f7f01228073be72a
-X-EPHeader: CA
-X-CMS-RootMailID: 20250623114429eucas1p1e74e09e74c5873b2f7f01228073be72a
-References: <CGME20250623114429eucas1p1e74e09e74c5873b2f7f01228073be72a@eucas1p1.samsung.com>
+Content-Disposition: inline
+In-Reply-To: <20250620111610.52750-2-cp0613@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_044437_056288_C035325E 
-X-CRM114-Status: GOOD (  25.94  )
+X-CRM114-CacheID: sfid-20250623_050053_910776_528639D0 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,162 +91,258 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces support for the Imagination IMG BXM-4-64
-GPU found on the T-HEAD TH1520 SoC. A key aspect of this support is
-managing the GPU's complex power-up and power-down sequence, which
-involves multiple clocks and resets.
+Hi,
 
-The TH1520 GPU requires a specific sequence to be followed for its
-clocks and resets to ensure correct operation. Initial discussions and
-an earlier version of this series explored managing this via the generic
-power domain (genpd) framework. However, following further discussions
-with kernel maintainers [1], the approach has been reworked to utilize
-the dedicated power sequencing (pwrseq) framework.
+kernel test robot noticed the following build warnings:
 
-This revised series now employs a new pwrseq provider driver
-(pwrseq-thead-gpu.c) specifically for the TH1520 GPU. This driver
-encapsulates the SoC specific power sequence details. The Imagination
-GPU driver (pvr_device.c) is updated to act as a consumer of this power
-sequencer, requesting the "gpu-power" target. The sequencer driver,
-during its match phase with the GPU device, acquires the necessary clock
-and reset handles from the GPU device node to perform the full sequence.
+[auto build test WARNING on arnd-asm-generic/master]
+[also build test WARNING on linus/master v6.16-rc3 next-20250623]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-This approach aligns with the goal of abstracting SoC specific power
-management details away from generic device drivers and leverages the
-pwrseq framework as recommended.
+url:    https://github.com/intel-lab-lkp/linux/commits/cp0613-linux-alibaba-com/bitops-generic-rotate/20250620-192016
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arnd/asm-generic.git master
+patch link:    https://lore.kernel.org/r/20250620111610.52750-2-cp0613%40linux.alibaba.com
+patch subject: [PATCH 1/2] bitops: generic rotate
+config: powerpc-allyesconfig (https://download.01.org/0day-ci/archive/20250623/202506231924.kPX5UiaD-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 875b36a8742437b95f623bab1e0332562c7b4b3f)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250623/202506231924.kPX5UiaD-lkp@intel.com/reproduce)
 
-The series is structured as follows:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506231924.kPX5UiaD-lkp@intel.com/
 
-Patch 1: Introduces the pwrseq-thead-gpu auxiliary driver to manage the
-         GPU's power-on/off sequence.
-Patch 2: Adds device tree bindings for the gpu-clkgen reset to the
-         existing thead,th1520-aon binding.
-Patch 3: Extends the pm-domains driver to detect the gpu-clkgen reset
-         and spawn the pwrseq-thead-gpu auxiliary driver.
-Patch 4: Updates the Imagination DRM driver to utilize the pwrseq
-         framework for TH1520 GPU power management.
-Patch 5: Adds the thead,th1520-gpu compatible string to the PowerVR GPU
-         device tree bindings.
-Patch 6: Adds the gpu-clkgen reset property to the aon node in the
-         TH1520 device tree source.
-Patch 7: Adds the device tree node for the IMG BXM-4-64 GPU and its
-         required fixed-clock.
-Patch 8: Enables compilation of the Imagination PowerVR driver on the
-         RISC-V architecture.
+All warnings (new ones prefixed by >>):
 
-This patchset finishes the work started in bigger series [2] by adding
-all remaining GPU power sequencing piece. After this patchset the GPU
-probes correctly.
+         |         ^
+   In file included from drivers/net/ethernet/pensando/ionic/ionic_txrx.c:5:
+   In file included from include/linux/ipv6.h:102:
+   In file included from include/linux/tcp.h:19:
+   In file included from include/net/sock.h:46:
+   In file included from include/linux/netdevice.h:44:
+   In file included from include/uapi/linux/neighbour.h:6:
+   In file included from include/linux/netlink.h:9:
+   In file included from include/net/scm.h:13:
+   In file included from include/net/compat.h:8:
+   include/linux/compat.h:458:22: warning: array index 1 is past the end of the array (that has type 'const unsigned long[1]') [-Warray-bounds]
+     458 |         case 2: v.sig[3] = (set->sig[1] >> 32); v.sig[2] = set->sig[1];
+         |                             ^        ~
+   arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
+      18 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from drivers/net/ethernet/pensando/ionic/ionic_txrx.c:5:
+   In file included from include/linux/ipv6.h:102:
+   In file included from include/linux/tcp.h:19:
+   In file included from include/net/sock.h:46:
+   In file included from include/linux/netdevice.h:44:
+   In file included from include/uapi/linux/neighbour.h:6:
+   In file included from include/linux/netlink.h:9:
+   In file included from include/net/scm.h:13:
+   In file included from include/net/compat.h:8:
+   include/linux/compat.h:458:10: warning: array index 3 is past the end of the array (that has type 'compat_sigset_word[2]' (aka 'unsigned int[2]')) [-Warray-bounds]
+     458 |         case 2: v.sig[3] = (set->sig[1] >> 32); v.sig[2] = set->sig[1];
+         |                 ^     ~
+   include/linux/compat.h:130:2: note: array 'sig' declared here
+     130 |         compat_sigset_word      sig[_COMPAT_NSIG_WORDS];
+         |         ^
+   include/linux/compat.h:458:42: warning: array index 2 is past the end of the array (that has type 'compat_sigset_word[2]' (aka 'unsigned int[2]')) [-Warray-bounds]
+     458 |         case 2: v.sig[3] = (set->sig[1] >> 32); v.sig[2] = set->sig[1];
+         |                                                 ^     ~
+   include/linux/compat.h:130:2: note: array 'sig' declared here
+     130 |         compat_sigset_word      sig[_COMPAT_NSIG_WORDS];
+         |         ^
+   include/linux/compat.h:458:53: warning: array index 1 is past the end of the array (that has type 'const unsigned long[1]') [-Warray-bounds]
+     458 |         case 2: v.sig[3] = (set->sig[1] >> 32); v.sig[2] = set->sig[1];
+         |                                                            ^        ~
+   arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
+      18 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from drivers/net/ethernet/pensando/ionic/ionic_txrx.c:5:
+   In file included from include/linux/ipv6.h:102:
+   In file included from include/linux/tcp.h:20:
+   In file included from include/net/inet_connection_sock.h:21:
+   In file included from include/net/inet_sock.h:18:
+   include/linux/jhash.h:83:3: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      83 |                 __jhash_mix(a, b, c);
+         |                 ^
+   include/linux/jhash.h:37:16: note: expanded from macro '__jhash_mix'
+      37 |         a -= c;  a ^= rol32(c, 4);  c += b;     \
+         |                       ^
+   include/linux/jhash.h:101:4: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     101 |                  __jhash_final(a, b, c);
+         |                  ^
+   include/linux/jhash.h:48:15: note: expanded from macro '__jhash_final'
+      48 |         c ^= b; c -= rol32(b, 14);              \
+         |                      ^
+   include/linux/jhash.h:129:3: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     129 |                 __jhash_mix(a, b, c);
+         |                 ^
+   include/linux/jhash.h:37:16: note: expanded from macro '__jhash_mix'
+      37 |         a -= c;  a ^= rol32(c, 4);  c += b;     \
+         |                       ^
+   include/linux/jhash.h:139:3: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     139 |                 __jhash_final(a, b, c);
+         |                 ^
+   include/linux/jhash.h:48:15: note: expanded from macro '__jhash_final'
+      48 |         c ^= b; c -= rol32(b, 14);              \
+         |                      ^
+   include/linux/jhash.h:156:2: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     156 |         __jhash_final(a, b, c);
+         |         ^
+   include/linux/jhash.h:48:15: note: expanded from macro '__jhash_final'
+      48 |         c ^= b; c -= rol32(b, 14);              \
+         |                      ^
+   In file included from drivers/net/ethernet/pensando/ionic/ionic_txrx.c:7:
+   In file included from include/net/ip6_checksum.h:27:
+   In file included from include/net/ip.h:30:
+   In file included from include/net/route.h:24:
+   In file included from include/net/inetpeer.h:16:
+   include/net/ipv6.h:975:9: error: call to undeclared function 'rol32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     975 |         hash = rol32(hash, 16);
+         |                ^
+   In file included from drivers/net/ethernet/pensando/ionic/ionic_txrx.c:7:
+   In file included from include/net/ip6_checksum.h:27:
+   include/net/ip.h:478:14: warning: default initialization of an object of type 'typeof (rt->dst.expires)' (aka 'const unsigned long') leaves the object uninitialized [-Wdefault-const-init-var-unsafe]
+     478 |                 if (mtu && time_before(jiffies, rt->dst.expires))
+         |                            ^
+   include/linux/jiffies.h:138:26: note: expanded from macro 'time_before'
+     138 | #define time_before(a,b)        time_after(b,a)
+         |                                 ^
+   include/linux/jiffies.h:128:3: note: expanded from macro 'time_after'
+     128 |         (typecheck(unsigned long, a) && \
+         |          ^
+   include/linux/typecheck.h:11:12: note: expanded from macro 'typecheck'
+      11 |         typeof(x) __dummy2; \
+         |                   ^
+>> drivers/net/ethernet/pensando/ionic/ionic_txrx.c:203:30: warning: implicit conversion from 'unsigned long' to 'u16' (aka 'unsigned short') changes value from 65536 to 0 [-Wconstant-conversion]
+     203 |                 frag_len = min_t(u16, len, IONIC_PAGE_SIZE);
+         |                            ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+   drivers/net/ethernet/pensando/ionic/ionic_dev.h:184:32: note: expanded from macro 'IONIC_PAGE_SIZE'
+     184 | #define IONIC_PAGE_SIZE                         MIN(PAGE_SIZE, IONIC_MAX_BUF_LEN)
+         |                                                     ^
+   include/vdso/page.h:15:30: note: expanded from macro 'PAGE_SIZE'
+      15 | #define PAGE_SIZE       (_AC(1,UL) << CONFIG_PAGE_SHIFT)
+         |                                    ^
+   include/linux/minmax.h:314:30: note: expanded from macro 'MIN'
+     314 | #define MIN(a, b) __cmp(min, a, b)
+         |                              ^
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/minmax.h:161:52: note: expanded from macro 'min_t'
+     161 | #define min_t(type, x, y) __cmp_once(min, type, x, y)
+         |                           ~~~~~~~~~~~~~~~~~~~~~~~~~^~
+   include/linux/minmax.h:89:33: note: expanded from macro '__cmp_once'
+      89 |         __cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
+         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/minmax.h:86:31: note: expanded from macro '__cmp_once_unique'
+      86 |         ({ type ux = (x); type uy = (y); __cmp(op, ux, uy); })
+         |                                ~~    ^
+   drivers/net/ethernet/pensando/ionic/ionic_txrx.c:803:36: warning: implicit conversion from 'unsigned long' to 'u16' (aka 'unsigned short') changes value from 65536 to 0 [-Wconstant-conversion]
+     803 |                 first_frag_len = min_t(u16, len, IONIC_PAGE_SIZE);
+         |                                  ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+   drivers/net/ethernet/pensando/ionic/ionic_dev.h:184:32: note: expanded from macro 'IONIC_PAGE_SIZE'
+     184 | #define IONIC_PAGE_SIZE                         MIN(PAGE_SIZE, IONIC_MAX_BUF_LEN)
+         |                                                     ^
+   include/vdso/page.h:15:30: note: expanded from macro 'PAGE_SIZE'
+      15 | #define PAGE_SIZE       (_AC(1,UL) << CONFIG_PAGE_SHIFT)
+         |                                    ^
+   include/linux/minmax.h:314:30: note: expanded from macro 'MIN'
+     314 | #define MIN(a, b) __cmp(min, a, b)
+         |                              ^
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/minmax.h:161:52: note: expanded from macro 'min_t'
+     161 | #define min_t(type, x, y) __cmp_once(min, type, x, y)
+         |                           ~~~~~~~~~~~~~~~~~~~~~~~~~^~
+   include/linux/minmax.h:89:33: note: expanded from macro '__cmp_once'
+      89 |         __cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
+         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/minmax.h:86:31: note: expanded from macro '__cmp_once_unique'
+      86 |         ({ type ux = (x); type uy = (y); __cmp(op, ux, uy); })
+         |                                ~~    ^
+   drivers/net/ethernet/pensando/ionic/ionic_txrx.c:838:38: warning: implicit conversion from 'unsigned long' to 'u16' (aka 'unsigned short') changes value from 65536 to 0 [-Wconstant-conversion]
+     838 |                         frag_len = min_t(u16, remain_len, IONIC_PAGE_SIZE);
+         |                                    ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+   drivers/net/ethernet/pensando/ionic/ionic_dev.h:184:32: note: expanded from macro 'IONIC_PAGE_SIZE'
+     184 | #define IONIC_PAGE_SIZE                         MIN(PAGE_SIZE, IONIC_MAX_BUF_LEN)
+         |                                                     ^
+   include/vdso/page.h:15:30: note: expanded from macro 'PAGE_SIZE'
+      15 | #define PAGE_SIZE       (_AC(1,UL) << CONFIG_PAGE_SHIFT)
+         |                                    ^
+   include/linux/minmax.h:314:30: note: expanded from macro 'MIN'
+     314 | #define MIN(a, b) __cmp(min, a, b)
+         |                              ^
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/minmax.h:161:52: note: expanded from macro 'min_t'
+     161 | #define min_t(type, x, y) __cmp_once(min, type, x, y)
+         |                           ~~~~~~~~~~~~~~~~~~~~~~~~~^~
+   include/linux/minmax.h:89:33: note: expanded from macro '__cmp_once'
+      89 |         __cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
+         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/minmax.h:86:31: note: expanded from macro '__cmp_once_unique'
+      86 |         ({ type ux = (x); type uy = (y); __cmp(op, ux, uy); })
+         |                                ~~    ^
+   16 warnings and 9 errors generated.
 
-This series supersedes the previous genpd based approach. Testing on
-T-HEAD TH1520 SoC indicates the new pwrseq based solution works
-correctly.
 
-Link to v5 of this series - [3].
+vim +203 drivers/net/ethernet/pensando/ionic/ionic_txrx.c
 
-v6:
- - check return values from reset_control_assert() and propagate the
-   first error, ensuring all teardown steps are still attempted
- - the driver now stores a reference to the consumer's device node to
-   ensure it binds to a single, specific device
- - rename Kconfig option to POWER_SEQUENCING_TH1520_GPU
- - remove COMPILE_TEST
+36a47c906b23240 Shannon Nelson 2024-03-06  174  
+36a47c906b23240 Shannon Nelson 2024-03-06  175  static struct sk_buff *ionic_rx_build_skb(struct ionic_queue *q,
+4dcd4575bfb17d0 Shannon Nelson 2024-03-06  176  					  struct ionic_rx_desc_info *desc_info,
+f81da39bf4c0a54 Shannon Nelson 2024-02-14  177  					  unsigned int headroom,
+f81da39bf4c0a54 Shannon Nelson 2024-02-14  178  					  unsigned int len,
+f81da39bf4c0a54 Shannon Nelson 2024-02-14  179  					  unsigned int num_sg_elems,
+180e35cdf035d1c Shannon Nelson 2024-02-14  180  					  bool synced)
+0f3154e6bcb3549 Shannon Nelson 2019-09-03  181  {
+4b0a7539a3728f0 Shannon Nelson 2021-03-10  182  	struct ionic_buf_info *buf_info;
+08f2e4b2b2008ce Shannon Nelson 2019-10-23  183  	struct sk_buff *skb;
+08f2e4b2b2008ce Shannon Nelson 2019-10-23  184  	unsigned int i;
+08f2e4b2b2008ce Shannon Nelson 2019-10-23  185  	u16 frag_len;
+08f2e4b2b2008ce Shannon Nelson 2019-10-23  186  
+4b0a7539a3728f0 Shannon Nelson 2021-03-10  187  	buf_info = &desc_info->bufs[0];
+e75ccac1d0644c9 Shannon Nelson 2021-07-27  188  	prefetchw(buf_info->page);
+08f2e4b2b2008ce Shannon Nelson 2019-10-23  189  
+89e572e7369fd9a Shannon Nelson 2021-03-10  190  	skb = napi_get_frags(&q_to_qcq(q)->napi);
+89e572e7369fd9a Shannon Nelson 2021-03-10  191  	if (unlikely(!skb)) {
+89e572e7369fd9a Shannon Nelson 2021-03-10  192  		net_warn_ratelimited("%s: SKB alloc failed on %s!\n",
+36a47c906b23240 Shannon Nelson 2024-03-06  193  				     dev_name(q->dev), q->name);
+2854242d23a7b3a Shannon Nelson 2024-03-06  194  		q_to_rx_stats(q)->alloc_err++;
+08f2e4b2b2008ce Shannon Nelson 2019-10-23  195  		return NULL;
+89e572e7369fd9a Shannon Nelson 2021-03-10  196  	}
+ac8813c0ab7d281 Shannon Nelson 2024-09-06  197  	skb_mark_for_recycle(skb);
+08f2e4b2b2008ce Shannon Nelson 2019-10-23  198  
+f81da39bf4c0a54 Shannon Nelson 2024-02-14  199  	if (headroom)
+36a47c906b23240 Shannon Nelson 2024-03-06  200  		frag_len = min_t(u16, len,
+36a47c906b23240 Shannon Nelson 2024-03-06  201  				 IONIC_XDP_MAX_LINEAR_MTU + VLAN_ETH_HLEN);
+f81da39bf4c0a54 Shannon Nelson 2024-02-14  202  	else
+ac8813c0ab7d281 Shannon Nelson 2024-09-06 @203  		frag_len = min_t(u16, len, IONIC_PAGE_SIZE);
+f81da39bf4c0a54 Shannon Nelson 2024-02-14  204  
+36a47c906b23240 Shannon Nelson 2024-03-06  205  	if (unlikely(!buf_info->page))
+36a47c906b23240 Shannon Nelson 2024-03-06  206  		goto err_bad_buf_page;
+36a47c906b23240 Shannon Nelson 2024-03-06  207  	ionic_rx_add_skb_frag(q, skb, buf_info, headroom, frag_len, synced);
+36a47c906b23240 Shannon Nelson 2024-03-06  208  	len -= frag_len;
+4b0a7539a3728f0 Shannon Nelson 2021-03-10  209  	buf_info++;
+4b0a7539a3728f0 Shannon Nelson 2021-03-10  210  
+36a47c906b23240 Shannon Nelson 2024-03-06  211  	for (i = 0; i < num_sg_elems; i++, buf_info++) {
+36a47c906b23240 Shannon Nelson 2024-03-06  212  		if (unlikely(!buf_info->page))
+36a47c906b23240 Shannon Nelson 2024-03-06  213  			goto err_bad_buf_page;
+ac8813c0ab7d281 Shannon Nelson 2024-09-06  214  		frag_len = min_t(u16, len, buf_info->len);
+36a47c906b23240 Shannon Nelson 2024-03-06  215  		ionic_rx_add_skb_frag(q, skb, buf_info, 0, frag_len, synced);
+36a47c906b23240 Shannon Nelson 2024-03-06  216  		len -= frag_len;
+36a47c906b23240 Shannon Nelson 2024-03-06  217  	}
+08f2e4b2b2008ce Shannon Nelson 2019-10-23  218  
+08f2e4b2b2008ce Shannon Nelson 2019-10-23  219  	return skb;
+36a47c906b23240 Shannon Nelson 2024-03-06  220  
+36a47c906b23240 Shannon Nelson 2024-03-06  221  err_bad_buf_page:
+36a47c906b23240 Shannon Nelson 2024-03-06  222  	dev_kfree_skb(skb);
+36a47c906b23240 Shannon Nelson 2024-03-06  223  	return NULL;
+0f3154e6bcb3549 Shannon Nelson 2019-09-03  224  }
+0f3154e6bcb3549 Shannon Nelson 2019-09-03  225  
 
-v5:
-
-- reworked the pwrseq-thead-gpu driver, now using manual resource
-  management in .match and a .remove callback
-- refactored the drm/imagination driver to use function pointers for
-  power management instead of a boolean flag
-- switched the pmdomain driver to use the generic
-  device_property_match_string() helper
-- added MMU and COMPILE_TEST dependencies to Kconfig to fix RISC-V
-  build warnings.
-
-v4:
-
-- the pwrseq driver is now an auxiliary driver with a robust match
-  function based on the power-domains property, spawned from the AON
-  node 
-- Imagination DRM driver now uses of_device_id match data to
-  conditionally probe for the pwrseq, solving the cross platform
-  probe deferral issue
-- add Reviewed-by from Ulf for the entire series
-
-v3:
-
-- re-worked cover letter completely
-- complete architectural rework from using extended genpd callbacks to a
-  dedicated pwrseq provider driver
-- introduced pwrseq-thead-gpu.c and associated DT bindings
-   (thead,th1520-gpu-pwrseq)
-- the Imagination driver now calls devm_pwrseq_get() and uses
-  pwrseq_power_on() / pwrseq_power_off() for the TH1520 GPU
-- removed the platform_resources_managed flag from dev_pm_info and
-  associated logic
-- the new pwrseq driver's match() function now acquires consumer-specific
-  resources (GPU clocks, GPU core reset) directly from the consumer device
-
-v2:
-
-Extended the series by adding two new commits:
- - introduced a new platform_resources_managed flag in dev_pm_info along
-   with helper functions, allowing drivers to detect when clocks and resets
-   are managed by the platform
- - updated the DRM Imagination driver to skip claiming clocks when
-   platform_resources_managed is set
-
-Split the original bindings update:
- - the AON firmware bindings now only add the GPU clkgen reset (the GPU
-   core reset remains handled by the GPU node)
-
-Reworked the TH1520 PM domain driver to:
- - acquire GPU clocks and reset dynamically using attach_dev/detach_dev
-   callbacks
- - handle clkgen reset internally, while GPU core reset is obtained from
-   the consumer device node
- - added a check to enforce that only a single device can be attached to
-   the GPU PM domain
-
-[1] - https://lore.kernel.org/all/CAPDyKFpi6_CD++a9sbGBvJCuBSQS6YcpNttkRQhQMTWy1yyrRg@mail.gmail.com/
-[2] - https://lore.kernel.org/all/20250219140239.1378758-1-m.wilczynski@samsung.com/
-[3] - https://lore.kernel.org/all/20250618-apr_14_for_sending-v5-0-27ed33ea5c6f@samsung.com/
-
----
-Michal Wilczynski (8):
-      power: sequencing: Add T-HEAD TH1520 GPU power sequencer driver
-      dt-bindings: firmware: thead,th1520: Add resets for GPU clkgen
-      pmdomain: thead: Instantiate GPU power sequencer via auxiliary bus
-      drm/imagination: Use pwrseq for TH1520 GPU power management
-      dt-bindings: gpu: img,powervr-rogue: Add TH1520 GPU compatible
-      riscv: dts: thead: th1520: Add GPU clkgen reset to AON node
-      riscv: dts: thead: th1520: Add IMG BXM-4-64 GPU node
-      drm/imagination: Enable PowerVR driver for RISC-V
-
- .../bindings/firmware/thead,th1520-aon.yaml        |   7 +
- .../devicetree/bindings/gpu/img,powervr-rogue.yaml |   9 +-
- MAINTAINERS                                        |   1 +
- arch/riscv/boot/dts/thead/th1520.dtsi              |  25 +++
- drivers/gpu/drm/imagination/Kconfig                |   4 +-
- drivers/gpu/drm/imagination/pvr_device.c           |  31 ++-
- drivers/gpu/drm/imagination/pvr_device.h           |  19 ++
- drivers/gpu/drm/imagination/pvr_drv.c              |  30 ++-
- drivers/gpu/drm/imagination/pvr_power.c            | 112 ++++++----
- drivers/gpu/drm/imagination/pvr_power.h            |   6 +
- drivers/pmdomain/thead/Kconfig                     |   1 +
- drivers/pmdomain/thead/th1520-pm-domains.c         |  51 +++++
- drivers/power/sequencing/Kconfig                   |   8 +
- drivers/power/sequencing/Makefile                  |   1 +
- drivers/power/sequencing/pwrseq-thead-gpu.c        | 247 +++++++++++++++++++++
- 15 files changed, 503 insertions(+), 49 deletions(-)
----
-base-commit: 4774cfe3543abb8ee98089f535e28ebfd45b975a
-change-id: 20250414-apr_14_for_sending-5b3917817acc
-
-Best regards,
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
