@@ -4,97 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F8FC77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FCFC77B7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2yzqhBBcI3+6HRzz/HgclfEhvCY4ewM3Y4bV+sYveD4=; b=MlMR54vwg3XWSq
-	+NRejMwvf8is1EV3h6NdCKOvy/c92DI1GXdaBUwknd2hjqc/nx0ROix0TcMQgN6FZaX6k0yrfjFnh
-	siVZ1FO3hGOwB7fYy9lo5hVuqRbIw2b+6mIffebzoaad5tYiIsGuA/gAAAoSTjQ0ylshmtLA7qDqd
-	1rzuzRr6R57F2frXeaqIWyvFdks7eiCsjG4poj9oiDDHUi4inH+hZI7jh06PWMJ3IDrQXQYo/Chxs
-	MPw7dYI/0IycJsA6nkUEjuc0xA7W8/ZJncrBHjNcUsF3/Defnmw5wI7qlgaOz7USdZxsPQrX7XVRa
-	oTs/N+eUh83Q6pUULcYw==;
+	List-Owner; bh=sZtMxQ/wdZ9DCNCX3X/JbpBxCCpM3e82a74pw8hfX7U=; b=xXscAGUTnxXXk9
+	61KnQF5f7vU5KWfzKMv+8GspPmhjBLDQz/ph/p8mpwsXGvEbMup4mWyV827HEEfMchdTxakKuTe1H
+	glufzCq5F1xMZTFJqcuL8p+0HfupjPGhCbTXnhGd4SJKqxXQ1CkARF3dQDleKvgpkoxdyGzmyWqXl
+	oeq6Bs+d+BqezY9S6Uk0zOJaw4hDMdRGBbMcYZZ7IkMcNeGQMGmqv0V1u7KzI3nfh6YKkCTUA6Ciq
+	KLnZuk3V5TpvX8f+QIcef5LM50N5ACmiruQY66WPuwZzdScaoz4sijQ6hipE+jyrimXtUAsUgt9yN
+	oLGxKghKERzRUuOZK9Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9ix-00000006fAB-3fu0;
-	Tue, 24 Jun 2025 19:54:31 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1uU9iy-00000006fAU-21Vo;
+	Tue, 24 Jun 2025 19:54:32 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5a4-000000067Ha-1LLh;
-	Tue, 24 Jun 2025 15:29:05 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a51481a598so2841800f8f.3;
-        Tue, 24 Jun 2025 08:29:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750778942; x=1751383742; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5HKZOMizjC+LML2kgDOmX49x7zP8t7J7YW3XavcrCNs=;
-        b=JUd63dny2z3nX2pqj7V5k9LT6SrJUH/8mZYMRyiE5Papor1f1h0ftBg7NP5bVCMVQ3
-         HxdHZvzy0ACxa9CKd4ykTDh8mdZfBHsn9xBPYylGXbi1UmYHDwGlhEOHJXsrxyDy3iuw
-         DSeu5otOOcV6r/NnZx4A/ox826uvBDydfO0xneN7LvPUhWP3+69plKc7pw9I5L4jvXr4
-         ZQCxVSbdXrmtxzveK6z729SYc7EHjkNMRHQNPilg1NjKusqtpRTajrcuiu+C1ark5rJ4
-         wvaIaLO8mFk7m/WM0EEFT7/M06FY4xCvqrVAW2iN3WtQqH+lZKHPKjkD3GzfpHA3LAjv
-         BkKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750778942; x=1751383742;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5HKZOMizjC+LML2kgDOmX49x7zP8t7J7YW3XavcrCNs=;
-        b=NgNJ1G8VBuaK0FGjE5SonrPRhEjF4XicERpgs3kFrcFGdDLjpqydOwQ/pOEqqjmGZi
-         xd7h7DI+PVBhOGEjH6t+bksyJOMlMbsgFBUc3AGxbZTJSqJm2e8yP38qQN0Z67WUG5+M
-         PXBZg0ODQXK6Cnue+OYQ3SNq3kf0ZD1EQxWNzlexRiK5yBdeZtWq2wHG67Dqnx/JpvZR
-         6SRgiHNosgzP9jMvyE9f1JzTAiqlF4lfHKBS7PdYHb5Ji2r7H1FLbZRYIwAhD0q3Qa8J
-         IamHVNAT0iGuJt6Ml44CulqkYI94iAtE3Nm9aZ5xN2IMwYpcP7+bnfng6PrcnFGh99+N
-         TIYA==
-X-Forwarded-Encrypted: i=1; AJvYcCUScCktkbbbbQjoA9AcTzm6F7a6uXmXRovvjb3Mvrfd0HDnpCA+p5ldxbYG8uyIbz6x09d6iQ4QvjLw80k=@lists.infradead.org, AJvYcCXaWp5x+1J5Cj+u8nYfm2IjkXQEQzrGprSkLilG+jCxX3MnMcw0CoaPSdB7iyQ070qtE4upvKX5Rnx4IcquaTdo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHjbRTt+5WFfeeq1CV3O6v4ISAC56W5LYOJCj4ZADwGHObTDgQ
-	HGs4IOvXeMYMheJV5B1weae+7T8DOI99yVWQDRSqChQLmVluW2tdCWSd
-X-Gm-Gg: ASbGncsDnFSRWSJPtJdepDZaqSuyuN3ZaXm5P8rOPFMYSU70bFyfBsUI2kKX76pQCUZ
-	BNF2lv4NK04niHuAIPe6ht+2yKPVEXmVbzdNufnKLVE/yBFverdqqh1+qQMPrK7zwEnQ36QfH1w
-	OYHGJLryJcygZk4QWqwhWYdlMQbr0d7QanbgqsiycyZSRUoIrZkgO0+J4gry1mcG+alT7krmm0o
-	eJUWVIySr9+doMSuSyz+XnFaAi/YAaQJ9eyL3UN2WMRihB4u79B7KXgqIo2ZB9WMycCTBIE/q4p
-	45uG76FEkaShA4PqTc75Gdg6UDls+7yChYYIokViF0FYV6a4PIo5U+q7cwJn
-X-Google-Smtp-Source: AGHT+IGcrYUCG4zfszj6fg/blm8ReRuQCCQCBeOsqMPtqwdTWUylx1xgbwj//MHlp30gYyOjSUtesw==
-X-Received: by 2002:a05:6000:178f:b0:3a5:2257:17b4 with SMTP id ffacd0b85a97d-3a6d1319d72mr16109499f8f.55.1750778942035;
-        Tue, 24 Jun 2025 08:29:02 -0700 (PDT)
-Received: from localhost.localdomain ([2a09:0:1:2::305a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6e80f2977sm2272345f8f.63.2025.06.24.08.28.58
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Jun 2025 08:29:01 -0700 (PDT)
-From: Lance Yang <ioworker0@gmail.com>
-To: david@redhat.com
-Cc: 21cnbao@gmail.com,
-	akpm@linux-foundation.org,
-	baolin.wang@linux.alibaba.com,
-	chrisl@kernel.org,
-	ioworker0@gmail.com,
-	kasong@tencent.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	lorenzo.stoakes@oracle.com,
-	ryan.roberts@arm.com,
-	v-songbaohua@oppo.com,
-	x86@kernel.org,
-	ying.huang@intel.com,
-	zhengtangquan@oppo.com
-Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large folios during reclamation
-Date: Tue, 24 Jun 2025 23:26:54 +0800
-Message-ID: <20250624152654.38145-1-ioworker0@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com>
-References: <a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com>
+	id 1uU5eA-0000000689B-3DZK
+	for linux-riscv@lists.infradead.org;
+	Tue, 24 Jun 2025 15:33:20 +0000
+Date: Tue, 24 Jun 2025 17:33:14 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1750779195;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PBrzg5DCuHrE1OY+QwXkYAH3DJNsPYdSW7dnUZCTfyk=;
+	b=gxSriVND0Umc1rzkQrowmw7fLnGOU0KC7P7VlIYi3MHtfr1jmWIR3tWpp0OsN0CW7tPSc7
+	SlPxftUHUyx0rW9Av6YeE9wBkPRBwij2J9O32AjYjfh9DDn/wHnY2igOlJGBerF9p2DHC9
+	nItHplqYTT1zIq0hybApyVIsvalJhnmW+BqcqEyXix+bQb5W8aC6fBh0Ulpv+C1mEYmo2a
+	qQZhm7lgfmD6DDyYkBvePQt6CFfs+LLDktcczrRf6NAumtIw4imroSSFjzwK509FGqMYq/
+	iRo64jZl/ZXYKWHi4SinwzyzU3508zqE0hsaMSzgxX+CKWgW5H0xAR1BM9QGAQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1750779195;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PBrzg5DCuHrE1OY+QwXkYAH3DJNsPYdSW7dnUZCTfyk=;
+	b=S5Og8P0vHyE3rai9+oFP5AquPdi3KPrrqARx0pEPwNeBj/xJU/A/R29GcX0CAt5veRBwA6
+	+NUrjc8Ux0vAlBDA==
+From: Nam Cao <namcao@linutronix.de>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	"Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	Alexandre Ghiti <alex@ghiti.fr>, clrkwllms@kernel.org,
+	rostedt@goodmis.org, linux-rt-devel@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Enable interrupt during exception handling
+Message-ID: <20250624153314.2Mwvvjmy@linutronix.de>
+References: <mhng-60581B88-6FC7-4349-96B6-730D908ABF4A@palmerdabbelt-mac>
+ <alpine.DEB.2.21.2506240303170.61655@angie.orcam.me.uk>
+ <19cf2371-7293-4e71-a17d-669db4c8270a@rivosinc.com>
+ <20250624131730.XqPd1HUR@linutronix.de>
+ <d135d6cc-5117-4b3a-9abe-2e5fd9e3e490@rivosinc.com>
+ <20250624140815.GU1613200@noisy.programming.kicks-ass.net>
+ <20250624141130.gZVv4WnP@linutronix.de>
+ <20250624141801.GV1613200@noisy.programming.kicks-ass.net>
+ <20250624142350.xZ_DdClH@linutronix.de>
+ <20250624143458.GW1613200@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250624143458.GW1613200@noisy.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_082904_372380_3422109B 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20250624_083318_946473_37B25497 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,69 +91,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025/6/24 20:55, David Hildenbrand wrote:
-> On 14.02.25 10:30, Barry Song wrote:
->> From: Barry Song <v-songbaohua@oppo.com>
-[...]
->> diff --git a/mm/rmap.c b/mm/rmap.c
->> index 89e51a7a9509..8786704bd466 100644
->> --- a/mm/rmap.c
->> +++ b/mm/rmap.c
->> @@ -1781,6 +1781,25 @@ void folio_remove_rmap_pud(struct folio *folio, 
->> struct page *page,
->>   #endif
->>   }
->> +/* We support batch unmapping of PTEs for lazyfree large folios */
->> +static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
->> +            struct folio *folio, pte_t *ptep)
->> +{
->> +    const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
->> +    int max_nr = folio_nr_pages(folio);
+On Tue, Jun 24, 2025 at 04:34:58PM +0200, Peter Zijlstra wrote:
+> On Tue, Jun 24, 2025 at 04:23:50PM +0200, Sebastian Andrzej Siewior wrote:
+> > On 2025-06-24 16:18:01 [+0200], Peter Zijlstra wrote:
+> > > I'm confused, sending signals is for exception from userspace. That has
+> > > nothing to do with exceptions from kernelspace being NMI like.
+> > 
+> > Yes. See the original submission
+> > 	https://lore.kernel.org/linux-riscv/20250620114346.1740512-1-namcao@linutronix.de/
 > 
-> Let's assume we have the first page of a folio mapped at the last page 
-> table entry in our page table.
-
-Good point. I'm curious if it is something we've seen in practice ;)
-
+> I'm still confused, that code is trying to enable IRQs in the
+> from-kernel part. That's insane.
 > 
-> What prevents folio_pte_batch() from reading outside the page table?
+> Can some Risc-V person explain why a from-kernel exception would ever
+> result in a signal?!?!
 
-Assuming such a scenario is possible, to prevent any chance of an
-out-of-bounds read, how about this change:
+Exceptions from kernel do not raise signals. Enabling irqs there is not
+necessary, I can remove that part.
 
-diff --git a/mm/rmap.c b/mm/rmap.c
-index fb63d9256f09..9aeae811a38b 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -1852,6 +1852,25 @@ static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
- 	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
- 	int max_nr = folio_nr_pages(folio);
- 	pte_t pte = ptep_get(ptep);
-+	unsigned long end_addr;
-+
-+	/*
-+	 * To batch unmap, the entire folio's PTEs must be contiguous
-+	 * and mapped within the same PTE page table, which corresponds to
-+	 * a single PMD entry. Before calling folio_pte_batch(), which does
-+	 * not perform boundary checks itself, we must verify that the
-+	 * address range covered by the folio does not cross a PMD boundary.
-+	 */
-+	end_addr = addr + (max_nr * PAGE_SIZE) - 1;
-+
-+	/*
-+	 * A fast way to check for a PMD boundary cross is to align both
-+	 * the start and end addresses to the PMD boundary and see if they
-+	 * are different. If they are, the range spans across at least two
-+	 * different PMD-managed regions.
-+	 */
-+	if ((addr & PMD_MASK) != (end_addr & PMD_MASK))
-+		return false;
- 
- 	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
- 		return false;
---
-Thanks,
-Lance
+But for my curiousity, do you mind elaborating why it is insane to enable
+irqs in from-kernel exception handling?
+
+For "NMI-like" exceptions, (I think) I get it, the context would be messed
+up. But what about the others, e.g. kernel page faults?
+
+Best regards,
+Nam
 
 _______________________________________________
 linux-riscv mailing list
