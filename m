@@ -4,77 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FCFC77B7F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA94C77B7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sZtMxQ/wdZ9DCNCX3X/JbpBxCCpM3e82a74pw8hfX7U=; b=xXscAGUTnxXXk9
-	61KnQF5f7vU5KWfzKMv+8GspPmhjBLDQz/ph/p8mpwsXGvEbMup4mWyV827HEEfMchdTxakKuTe1H
-	glufzCq5F1xMZTFJqcuL8p+0HfupjPGhCbTXnhGd4SJKqxXQ1CkARF3dQDleKvgpkoxdyGzmyWqXl
-	oeq6Bs+d+BqezY9S6Uk0zOJaw4hDMdRGBbMcYZZ7IkMcNeGQMGmqv0V1u7KzI3nfh6YKkCTUA6Ciq
-	KLnZuk3V5TpvX8f+QIcef5LM50N5ACmiruQY66WPuwZzdScaoz4sijQ6hipE+jyrimXtUAsUgt9yN
-	oLGxKghKERzRUuOZK9Sg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b9tJ92WmdPs6HRsZ6UMC3BRQCPtLto8thZzOPvHNtpk=; b=oubulvbHquhU6VLLyNoLb6bu1A
+	HVLvcplQjTB7U4LWkuKGqaJftPZKCkQBkI0y6KfITh2Onc5kp7HSKbstaeTR24gWtb0dsFAjOYUK2
+	fZs6g10R5reGQBFs0zIMefcHYtKj36xd8NZKiM3D80tc/2qYqoucN3ZVp0VWeBTU4LVDVCj51U/F5
+	9CdFzrAqQgZG1QOl7xDFZg1C6XJHcbisPsGJbsaA1VDjjEkZMWvar9zJxVtIOxqvznjLt6iKlnb1C
+	Tc04oq+/GACekWsC8hOxpg+gI4F09Ma5l+rM5uyJ1d1nc2Cfmvh5iv6QMCJpm75q+ECnD69OvmiN7
+	hFiN87fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9iy-00000006fAU-21Vo;
-	Tue, 24 Jun 2025 19:54:32 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uU9j8-00000006fIn-05HA;
+	Tue, 24 Jun 2025 19:54:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5eA-0000000689B-3DZK
+	id 1uU643-00000006D2M-3LUv
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Jun 2025 15:33:20 +0000
-Date: Tue, 24 Jun 2025 17:33:14 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750779195;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PBrzg5DCuHrE1OY+QwXkYAH3DJNsPYdSW7dnUZCTfyk=;
-	b=gxSriVND0Umc1rzkQrowmw7fLnGOU0KC7P7VlIYi3MHtfr1jmWIR3tWpp0OsN0CW7tPSc7
-	SlPxftUHUyx0rW9Av6YeE9wBkPRBwij2J9O32AjYjfh9DDn/wHnY2igOlJGBerF9p2DHC9
-	nItHplqYTT1zIq0hybApyVIsvalJhnmW+BqcqEyXix+bQb5W8aC6fBh0Ulpv+C1mEYmo2a
-	qQZhm7lgfmD6DDyYkBvePQt6CFfs+LLDktcczrRf6NAumtIw4imroSSFjzwK509FGqMYq/
-	iRo64jZl/ZXYKWHi4SinwzyzU3508zqE0hsaMSzgxX+CKWgW5H0xAR1BM9QGAQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750779195;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PBrzg5DCuHrE1OY+QwXkYAH3DJNsPYdSW7dnUZCTfyk=;
-	b=S5Og8P0vHyE3rai9+oFP5AquPdi3KPrrqARx0pEPwNeBj/xJU/A/R29GcX0CAt5veRBwA6
-	+NUrjc8Ux0vAlBDA==
-From: Nam Cao <namcao@linutronix.de>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	Alexandre Ghiti <alex@ghiti.fr>, clrkwllms@kernel.org,
-	rostedt@goodmis.org, linux-rt-devel@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Enable interrupt during exception handling
-Message-ID: <20250624153314.2Mwvvjmy@linutronix.de>
-References: <mhng-60581B88-6FC7-4349-96B6-730D908ABF4A@palmerdabbelt-mac>
- <alpine.DEB.2.21.2506240303170.61655@angie.orcam.me.uk>
- <19cf2371-7293-4e71-a17d-669db4c8270a@rivosinc.com>
- <20250624131730.XqPd1HUR@linutronix.de>
- <d135d6cc-5117-4b3a-9abe-2e5fd9e3e490@rivosinc.com>
- <20250624140815.GU1613200@noisy.programming.kicks-ass.net>
- <20250624141130.gZVv4WnP@linutronix.de>
- <20250624141801.GV1613200@noisy.programming.kicks-ass.net>
- <20250624142350.xZ_DdClH@linutronix.de>
- <20250624143458.GW1613200@noisy.programming.kicks-ass.net>
+	Tue, 24 Jun 2025 16:00:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F30B960010;
+	Tue, 24 Jun 2025 16:00:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05257C4CEE3;
+	Tue, 24 Jun 2025 16:00:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750780802;
+	bh=oAj6M5RJNPj9zPVNfLaIS7Hz87nTWDNolCrwMJkPsAc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OdctnZWYTC2OySmeHB0kk3tnxgJZhoD2Eszg4FdDvvp+inSJCTCGaDxjW5Lgqn03T
+	 pCrEQrvJU7EuKdEChDca44k/Bi3meJzZNJ1HpC/L7VmFBlsc8bgdxqXyTHa3BX1LW5
+	 pUdH9oU7w9n+Ipb7C0SZR+f3x91NOtFln7yoANDlOujkjcu/Kg3FPjylHH1BCpoeJh
+	 /ks5EEIbWYW8Gbq0WgH/6rq6+r3SnqtUx/MOaR62bnRhpj97dE0f2ZwGn7WmHwLsln
+	 ijKFARQzyMJ65Ttx9CarMFe0ZyAwVGIGYu+Xd3winavaZacvw087EBZbB8TswaPzMP
+	 gpzs14eDgxrzQ==
+Date: Tue, 24 Jun 2025 16:59:58 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alok Tiwari <alok.a.tiwari@oracle.com>
+Cc: conor.dooley@microchip.com, daire.mcnamara@microchip.com,
+	mturquette@baylibre.com, sboyd@kernel.org,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: microchip: mpfs: Fix incorrect MSSPLL ID in error
+ message
+Message-ID: <20250624-monotype-disorder-aedee5ef7cfa@spud>
+References: <20250622180352.4151679-1-alok.a.tiwari@oracle.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250624143458.GW1613200@noisy.programming.kicks-ass.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_083318_946473_37B25497 
-X-CRM114-Status: GOOD (  12.11  )
+In-Reply-To: <20250622180352.4151679-1-alok.a.tiwari@oracle.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,39 +66,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1798347063279828544=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 24, 2025 at 04:34:58PM +0200, Peter Zijlstra wrote:
-> On Tue, Jun 24, 2025 at 04:23:50PM +0200, Sebastian Andrzej Siewior wrote:
-> > On 2025-06-24 16:18:01 [+0200], Peter Zijlstra wrote:
-> > > I'm confused, sending signals is for exception from userspace. That has
-> > > nothing to do with exceptions from kernelspace being NMI like.
-> > 
-> > Yes. See the original submission
-> > 	https://lore.kernel.org/linux-riscv/20250620114346.1740512-1-namcao@linutronix.de/
-> 
-> I'm still confused, that code is trying to enable IRQs in the
-> from-kernel part. That's insane.
-> 
-> Can some Risc-V person explain why a from-kernel exception would ever
-> result in a signal?!?!
 
-Exceptions from kernel do not raise signals. Enabling irqs there is not
-necessary, I can remove that part.
+--===============1798347063279828544==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="kYIau9vyQZzfZ+VS"
+Content-Disposition: inline
 
-But for my curiousity, do you mind elaborating why it is insane to enable
-irqs in from-kernel exception handling?
 
-For "NMI-like" exceptions, (I think) I get it, the context would be messed
-up. But what about the others, e.g. kernel page faults?
+--kYIau9vyQZzfZ+VS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
-Nam
+On Sun, Jun 22, 2025 at 11:03:49AM -0700, Alok Tiwari wrote:
+> The error message in mpfs_clk_register_mssplls() incorrectly
+> printed a constant CLK_MSSPLL_INTERNAL instead of the actual
+> PLL ID that failed to register.
+
+Huh, that's weird. Did you actually encounter this happening, or is this
+some sort of patch based on the output from a tool?
+I ask because I don't see how this could ever actually report a
+constant, when the array it loops over only has a single element.
+Feels like we should just do something like the following (if we do
+anything at all)
+
+Cheers,
+Conor.
+
+diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-m=
+pfs.c
+index c22632a7439c5..ed6d5e6ff98ec 100644
+--- a/drivers/clk/microchip/clk-mpfs.c
++++ b/drivers/clk/microchip/clk-mpfs.c
+@@ -148,22 +148,18 @@ static struct mpfs_msspll_hw_clock mpfs_msspll_clks[]=
+ =3D {
+ };
+=20
+ static int mpfs_clk_register_mssplls(struct device *dev, struct mpfs_msspl=
+l_hw_clock *msspll_hws,
+-				     unsigned int num_clks, struct mpfs_clock_data *data)
++				     struct mpfs_clock_data *data)
+ {
+-	unsigned int i;
++	struct mpfs_msspll_hw_clock *msspll_hw =3D &msspll_hws[0];
+ 	int ret;
+=20
+-	for (i =3D 0; i < num_clks; i++) {
+-		struct mpfs_msspll_hw_clock *msspll_hw =3D &msspll_hws[i];
++	msspll_hw->base =3D data->msspll_base;
++	ret =3D devm_clk_hw_register(dev, &msspll_hw->hw);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to register msspll id: %d\n",
++				     CLK_MSSPLL_INTERNAL);
+=20
+-		msspll_hw->base =3D data->msspll_base;
+-		ret =3D devm_clk_hw_register(dev, &msspll_hw->hw);
+-		if (ret)
+-			return dev_err_probe(dev, ret, "failed to register msspll id: %d\n",
+-					     CLK_MSSPLL_INTERNAL);
+-
+-		data->hw_data.hws[msspll_hw->id] =3D &msspll_hw->hw;
+-	}
++	data->hw_data.hws[msspll_hw->id] =3D &msspll_hw->hw;
+=20
+ 	return 0;
+ }
+@@ -386,8 +382,7 @@ static int mpfs_clk_probe(struct platform_device *pdev)
+ 	clk_data->dev =3D dev;
+ 	dev_set_drvdata(dev, clk_data);
+=20
+-	ret =3D mpfs_clk_register_mssplls(dev, mpfs_msspll_clks, ARRAY_SIZE(mpfs_=
+msspll_clks),
+-					clk_data);
++	ret =3D mpfs_clk_register_mssplls(dev, mpfs_msspll_clks, clk_data);
+ 	if (ret)
+ 		return ret;
+=20
+
+>=20
+> Update it to msspll_hw->id for accurate diagnostics
+>=20
+> Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+> ---
+>  drivers/clk/microchip/clk-mpfs.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk=
+-mpfs.c
+> index c22632a7439c5..d12b7120f16ff 100644
+> --- a/drivers/clk/microchip/clk-mpfs.c
+> +++ b/drivers/clk/microchip/clk-mpfs.c
+> @@ -160,7 +160,7 @@ static int mpfs_clk_register_mssplls(struct device *d=
+ev, struct mpfs_msspll_hw_c
+>  		ret =3D devm_clk_hw_register(dev, &msspll_hw->hw);
+>  		if (ret)
+>  			return dev_err_probe(dev, ret, "failed to register msspll id: %d\n",
+> -					     CLK_MSSPLL_INTERNAL);
+> +					     msspll_hw->id);
+> =20
+>  		data->hw_data.hws[msspll_hw->id] =3D &msspll_hw->hw;
+>  	}
+> --=20
+> 2.46.0
+>=20
+
+--kYIau9vyQZzfZ+VS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaFrLfgAKCRB4tDGHoIJi
+0vgFAP9GyzbHnazol+NlKh5je3tRgPsVvN7IpkQiog8B5K4D0QEA2xnruSiwTK/I
+46n97dx2MdGT4uUpeQbsfTsUm0KjmwM=
+=SyNN
+-----END PGP SIGNATURE-----
+
+--kYIau9vyQZzfZ+VS--
+
+
+--===============1798347063279828544==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1798347063279828544==--
+
