@@ -4,106 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCD9C77B7F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 13:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31005C77B7C
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 13:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pM3Gc60KO0KDguTiibrPnPKWIssFMWwI5DFAdjICICo=; b=S5bPsM6FaKnpAZ
-	kQYKR2sbbbb9dJbqtXng4bB9Y9wICQGfxeTkDrH5R9+Fyw8g5EDKq6A7TSsea1ygZ2z523mh4Qzav
-	yt9c1x8cKFwyUDnryOv90pobuMQqRjtyZUIs1C6JgqrkfSgBP9eRwXRmbVcZe+K1iofDoWcbBJDWH
-	D2pAMT/k8l91lBReO4Kg1gVyod3C79hgN460ZPWt8OuwONQlJUXu0SrBkaK30Am24aImPjdb6WxZa
-	t1HgV3p4pEadcGmD+lGdNskqlIlTgIMhCYGjrv/WYrJeK90tJ/OrT0P/zlAbgBBqRSlTWsR9PKVf9
-	r5zmI6F7iqEjcT77NPUA==;
+	List-Owner; bh=8tY5drvdZ8xrbq8oOO3XGRp9pkVvrcenE69xBBypehY=; b=ZAXLyuJnmoHHI8
+	pIVS3O8ns4Jw9e/tKqa+5wo8iy2kLxOdb0qOftXPECB2CFTwFyT4erugsMY1mXs/GMMhrhP6dCE7i
+	aKd+mIwmsPcFaxpYWm0m5HX8lPBTdFpK336Y2mH+4itTvYA71uNNGNHYNG0Ihxea61YSKa74Fd+Ih
+	Gs4jbEtux1DQVl47VlY3Vhi6EFjBvLNM6IxnqHE5/YcBsg1OQP0FC/8+GHTGtd/7gLSXL4liGMDs1
+	LXFDm7LfW1VN99XUESJQoRD6yUdigiToDUaJ0TgMTTUbgBRCXE5IOEHY+QyjDNbyKXyp6ot/A55rp
+	dNYFG4mkS/61ZsLs5Y0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU3UE-00000005gZx-2hzX;
-	Tue, 24 Jun 2025 13:14:54 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1uU3XK-00000005guO-2HeP;
+	Tue, 24 Jun 2025 13:18:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU3UC-00000005gYt-35VG;
-	Tue, 24 Jun 2025 13:14:53 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55O9SR9j010062;
-	Tue, 24 Jun 2025 13:14:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=U1b7kGuG6w3J+nQm326bu7WrlCXb8Y
-	4yIFWrd2HzQ7c=; b=ttkp/TMt1njJEUuanIdX00YM1lq+GbRNVJHnk5bhxhCgJn
-	0Wyq361KKhWSTiscw3ZXfe4+Nr10lQm7y+c869NoctO0G+9VvYLeYCbrNPoFeHbf
-	aNSb7VndV9CL3DrqtrBPlDhx42xYbsdx+HnLWTNjF9p+QJP50Rr6oXPbOTK80bOd
-	IvBaddFFPzeaUgOCjQGaEgSIJV6muKZd5jtxD3A63uw7rMTr+VU7OeBX8EFwCjnW
-	E7qrz2bYS12d4DGLLE96+CSrY7gm/b9/FfRE4QmsypRmDJVGt6rZf3Eb2DXt7+5i
-	N+CMCSRqLczUz7g0WwxbqnU1PIYdLPdSyWT2TcuA==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 47dmfe8vhr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Jun 2025 13:14:41 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55OBSTUE003983;
-	Tue, 24 Jun 2025 13:14:40 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 47e99kkvkp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Jun 2025 13:14:40 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55ODEaIp29491908
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Jun 2025 13:14:36 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 875C92004B;
-	Tue, 24 Jun 2025 13:14:36 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 15F8220043;
-	Tue, 24 Jun 2025 13:14:36 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 24 Jun 2025 13:14:36 +0000 (GMT)
-Date: Tue, 24 Jun 2025 15:14:34 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-mm@kvack.org, dev.jain@arm.com,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH V2] mm/ptdump: Take the memory hotplug lock inside
- ptdump_walk_pgd()
-Message-ID: <aFqkus8o8HESv36F@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <20250620052427.2092093-1-anshuman.khandual@arm.com>
+	id 1uU3XJ-00000005guG-11rh
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 24 Jun 2025 13:18:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=IieBpWHrUJv1ck4+wSYHEjk5x9SCb1YNYUD3LP0jkSk=; b=HKhVub41OECmOFO458Cc1rQOVx
+	gmwzUzxgfSsChY1YuDlCxnp2Zy99pxyz1pOHFZtssWRVE8pY51a0qeDtYXJW2SR4m6/kM4/laMtbi
+	sVFU0Isk/rsSml5YsSr403HQ2pq9cZtTanNNNlaRCq1AvZQ20Qm8HWh0QrDrd1kyhl4/Nofx2Yx7S
+	ZGzLMTH/aVIMDHR1zqR6LewDyi4SEmweGx7CHatIOXBKIp6WBuR4V8fFC7HdVhSg3/3/vV5tZretP
+	bFZLCLslnqgx9hVCN8CE7qEF2Lc/hy6PdOFfyATwOVu2452MMaabuDo3norkORt5BjzRJlSLYh+So
+	cgK9FzTw==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uU3XG-00000005RYB-1cHa
+	for linux-riscv@lists.infradead.org;
+	Tue, 24 Jun 2025 13:18:04 +0000
+Date: Tue, 24 Jun 2025 15:17:30 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1750771056;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IieBpWHrUJv1ck4+wSYHEjk5x9SCb1YNYUD3LP0jkSk=;
+	b=dVh7i0sjSNv6aPgxQQ3ZbfR+PVq9/BRCCT5OvFwO4opVw94YOleFduwwtJ7i35s0RY1mcc
+	spkMDXgoW422GwQP6qWPAM0CmCOl+LbO7vvk1oI42cBn31ikvj30RLLzB/lE49oQY7KduT
+	yaBtTMMeKTgHPaDyiijt/qzGrYm/GwVCwNV3HVqKRZ8ljkEzSEesDWoEAEauJ2jnydQSqW
+	KPcM3FdptK4WSd0JK86mxmDCa5fGFnQ4qGNznydbfIm8qeXtSulkG2+3VFtJwFWqnQ8APQ
+	fpYMGkbEodnbIM6uVPLqM2tND7SieEpJZXJ9p+i81HbitX3t4+tQDAplLelxOA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1750771056;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IieBpWHrUJv1ck4+wSYHEjk5x9SCb1YNYUD3LP0jkSk=;
+	b=dj4kO9HfCpnvs8yEFiJQ1vwOtBep2CJz4cxkEeFgjILyB6PMaRzRqeRIOnE/DR03iTOxoI
+	CxclgKHT7ijIsMAQ==
+From: Nam Cao <namcao@linutronix.de>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: "Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	Alexandre Ghiti <alex@ghiti.fr>, bigeasy@linutronix.de,
+	clrkwllms@kernel.org, rostedt@goodmis.org,
+	linux-rt-devel@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Enable interrupt during exception handling
+Message-ID: <20250624131730.XqPd1HUR@linutronix.de>
+References: <mhng-60581B88-6FC7-4349-96B6-730D908ABF4A@palmerdabbelt-mac>
+ <alpine.DEB.2.21.2506240303170.61655@angie.orcam.me.uk>
+ <19cf2371-7293-4e71-a17d-669db4c8270a@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250620052427.2092093-1-anshuman.khandual@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: tpoh_-DuFORup-7aDX-wiD9nGJ-goSq1
-X-Proofpoint-GUID: tpoh_-DuFORup-7aDX-wiD9nGJ-goSq1
-X-Authority-Analysis: v=2.4 cv=BpqdwZX5 c=1 sm=1 tr=0 ts=685aa4c1 cx=c_pps a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=pFyQfRViAAAA:8 a=_O3DOGVWAAAA:8 a=VnNF1IyMAAAA:8
- a=Z4Rwk6OoAAAA:8 a=JfrnYn6hAAAA:8 a=37rDS-QxAAAA:8 a=z9UPMGBGUIMZAgjR794A:9 a=CjuIK1q_8ugA:10 a=a-qgeE7W1pNrGK8U0ZQC:22 a=oJz5jJLG1JtSoe7EL652:22 a=2TKV-7w1aU1AVAwN0oqT:22 a=HkZW87K1Qel5hWWM3VKY:22 a=1CNFftbPRP8L7MoqJWF3:22 a=k1Nq6YrhK2t884LQW06G:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI0MDEwMyBTYWx0ZWRfX6E327hRc6aDk hKF/HFnXUNObf2UTDgM1VZzqktUiCJR5R6i+xbrKoaKj+++8rPalrEUY+v+LmjosOxe6TX3gkYA EYegRUD7j4nJu9/nkRifsCaGmWBmIPfzAi6jkCyyTxDqDYxn9uTbLQ8DirEjsjvOfRMQRdezSjh
- 5aoZQ4oyUr6J4SNX/l9wta6Z3ejCjKiRfvn22Ukc4SjtVshDIJVxULk5fxdIy6ZWSNDeOf0cpjK lR4vvvOFppK+6Uh7lotCdIW61NWb8NLa30CqMZyJF0EvzFLNCMrHpsjhIsdmmR0cSbPM3eF51ep TUObotLYybaen9FK/VQEa4zEkC4NsR3QonM+iZrys/2J1Xv2G7F9xZ87LKpho/rZdAh+4Yf3Lhl
- z1HiVaQYxOSf+WzkbpUmgTMez7u0QpXbt/Y2/ERbb3RAGRr3AhOTO1yRpTACAxqK4cvI9J0X
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-24_04,2025-06-23_07,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 lowpriorityscore=0
- impostorscore=0 clxscore=1015 spamscore=0 mlxlogscore=495
- priorityscore=1501 phishscore=0 malwarescore=0 adultscore=0 bulkscore=0
- suspectscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506240103
+In-Reply-To: <19cf2371-7293-4e71-a17d-669db4c8270a@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_061452_776828_F6ED6423 
-X-CRM114-Status: GOOD (  25.78  )
+X-CRM114-CacheID: sfid-20250624_141802_520679_0BA84651 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,76 +95,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 10:54:27AM +0530, Anshuman Khandual wrote:
-> Memory hot remove unmaps and tears down various kernel page table regions
-> as required. The ptdump code can race with concurrent modifications of the
-> kernel page tables. When leaf entries are modified concurrently, the dump
-> code may log stale or inconsistent information for a VA range, but this is
-> otherwise not harmful.
-> 
-> But when intermediate levels of kernel page table are freed, the dump code
-> will continue to use memory that has been freed and potentially reallocated
-> for another purpose. In such cases, the ptdump code may dereference bogus
-> addresses, leading to a number of potential problems.
-> 
-> To avoid the above mentioned race condition, platforms such as arm64, riscv
-> and s390 take memory hotplug lock, while dumping kernel page table via the
-> sysfs interface /sys/kernel/debug/kernel_page_tables.
-> 
-> Similar race condition exists while checking for pages that might have been
-> marked W+X via /sys/kernel/debug/kernel_page_tables/check_wx_pages which in
-> turn calls ptdump_check_wx(). Instead of solving this race condition again,
-> let's just move the memory hotplug lock inside generic ptdump_check_wx()
-> which will benefit both the scenarios.
-> 
-> Drop get_online_mems() and put_online_mems() combination from all existing
-> platform ptdump code paths.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Alexander Gordeev <agordeev@linux.ibm.com>
-> Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-> Cc: Heiko Carstens <hca@linux.ibm.com>
-> Cc: Vasily Gorbik <gor@linux.ibm.com>
-> Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
-> Cc: Sven Schnelle <svens@linux.ibm.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> CC: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-s390@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> This patch applies on v6.16-rc2 and has been tested on arm64. Besides it
-> builds on riscv, s390, x86 and powerpc as well. But should the following
-> fixes tag from V1 also needs to be around as well ?
-> 
-> Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-> 
-> Changes in V2:
-> 
-> - Moved [get|put]_online_mems() inside generic ptdump_walk_pgd()
-> 
-> Changes in V1:
-> 
-> https://lore.kernel.org/all/20250609041214.285664-1-anshuman.khandual@arm.com/
-> 
->  arch/arm64/mm/ptdump_debugfs.c | 3 ---
->  arch/riscv/mm/ptdump.c         | 3 ---
->  arch/s390/mm/dump_pagetables.c | 2 --
->  mm/ptdump.c                    | 2 ++
->  4 files changed, 2 insertions(+), 8 deletions(-)
+On Tue, Jun 24, 2025 at 01:37:13PM +0200, Cl=E9ment L=E9ger wrote:
+> On 24/06/2025 04:09, Maciej W. Rozycki wrote:
+> > On Mon, 23 Jun 2025, Palmer Dabbelt wrote:
+> >> I'm kind of split on a Fixes tag here.  One could argue it's a regress=
+ion, as
+> >> having interrupts disabled during exceptions is going to cause all sor=
+ts of
+> >> performance issues for users.  Seems a bit risk to just backport, thou=
+gh...
+> >>
+> >> That said, if nobody noticed then it's probably a good sign nobody is =
+really
+> >> paying attention and we should just backport it before anyone notices.=
+..
+> > =
 
-Acked-by: Alexander Gordeev <agordeev@linux.ibm.com> # s390
+> >  Oh, someone did notice and it's not only performance, cf. =
+
+> > <https://lore.kernel.org/r/alpine.DEB.2.21.2501070143250.18889@angie.or=
+cam.me.uk/>.
+> =
+
+> I also had a series which was doing so for misaligned accesses handling,
+> but after discussion, it was not ok to do so.:
+> =
+
+> https://lore.kernel.org/linux-riscv/20250422094419.GC14170@noisy.programm=
+ing.kicks-ass.net/
+
+If I understand that right, exceptions from kernel should be treated as
+NMI, so that lockdep can tell us if exception handlers touch locks.
+
+But (conditionally) enabling interrupts does not lose us that benefit. It
+is still considered NMI by lockdep.
+
+Unless I miss something, the patch is fine as is.
+
+Best regards,
+Nam
 
 _______________________________________________
 linux-riscv mailing list
