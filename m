@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C7EC7EE30
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B839C7EE30
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 19:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gH63hdlx0N6gqFhBwES6k2FwPeVwU2KMankzFYQLMJQ=; b=YkE0z/HFRAhlG8c1jHNRktXBeb
-	XhTKtxQpJGG9GIOm1QAFKB1XfP3mQeTCra79vZZVWOvLbe3e1YheFGGTFWWFeg5v45clx8fzw/JIT
-	+IFmKieH1+BiGrTA7sEf96yHsY8mfVMTLnkZQn7vwFQ8PuuB29L533dMillG3Vs1lHHNbnDJ2CUJ7
-	kLJ8L6apCax0Er0gxECZBzmHo/Z5O274KJMTjtAK9ZVPtm9X7rAEaCNkyiCNY+oqhLZGLd96lGCfr
-	ZzncUaiKcirg+ZV9i+nT02PHR/jt2+KdBwi69B3Q+8AcDOLYVUXJ3yYaVhpOsppZ/m0bU2FrUYeJx
-	qWvrbW+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n5gDn+OxO9gjrWQ0hZMe12ioMw+tH0PkRLDiPBbNEHc=; b=AXsDZLhBMunwFC
+	sMr1oOPg1hGjQOHOVgRSRGpTTqpNdLDwUbJ6snh3dFqCAd403QZyfibdzu5DcjCXaQXREj93+9Zzi
+	vpRNsQUb3lBnjT/vhB7A3AP7lGoNltwpU1O/mKN3v8gLoqldT2OVJXag7JD0D0gzz2Yvv65Z1RxHF
+	lvC442Dc+Z0Nlfr7piv5f23EanHFuEfffMqFLzvZR5K2++DOCXXRWspSfDDBhi01OJLVpId1r9fV5
+	wlfYXU00NFFN6erpZY0yIsO9cZLMJmlaJ8fBq+OGrojL1ctha6P3duiFpxYPf+q/5wXBNy9A8QJcv
+	EWtDJkY8ibtMG5ys8YYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9jA-00000006fLj-3rCP;
-	Tue, 24 Jun 2025 19:54:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uU9jY-00000006fxL-0dWp;
+	Tue, 24 Jun 2025 19:55:08 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU68K-00000006EYa-4262
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Jun 2025 16:04:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 58DA761142;
-	Tue, 24 Jun 2025 16:04:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DF1BC4CEE3;
-	Tue, 24 Jun 2025 16:04:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750781068;
-	bh=QbCVRBh2Lu2DWsu/OspFLvrpSVg7Vb0ull1pA72H2zE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pxJhHrWA1IAKtCFz64tYdA190DbEFcxU37tR5p6wbNLYPycUj0Zy3cLlPgm/VdhVQ
-	 uB36eC2CiSE3m6yUPyIrUSfIT3SVZiA/NL7Xox2zUksSymsGbW8fEifGGaRTxv70vI
-	 NH7FvmiKC+D4cuCmVmmeOot6oMsgYxjSadwId5IS4q8YYF5b2vBOJ2B7THpRpDi0OB
-	 oNxcr23ltHETJ+6PuAcGHjmHl9z5dMQ+4G+3dE/JEt4kvbc4iWutLCvZ/3n8/l8Wsn
-	 TnObWWLGYvd2UMUFK7/T2C42G5zh8zSbBSXMi9PbQavNYe/Uz9eZQsdYRcmVL0ttr+
-	 BSxERCJRbX4uw==
-Date: Tue, 24 Jun 2025 18:04:25 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, 
-	Michal Wilczynski <m.wilczynski@samsung.com>, Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, 
-	Matt Coster <matt.coster@imgtec.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [GIT PULL] Immutable tag between the pwrseq, drm and pmdomain
- trees for v6.17-rc1
-Message-ID: <20250624-didactic-inquisitive-axolotl-33c2ce@houat>
-References: <20250624141013.81358-1-brgl@bgdev.pl>
- <CAMRc=MeKfWsf8T1tJLdj=+7aq0zGpQ07pHd2Mz-Y=Bwae0sAbw@mail.gmail.com>
+	id 1uU6UK-00000006Gb2-0Orz;
+	Tue, 24 Jun 2025 16:27:13 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-451dbe494d6so63425655e9.1;
+        Tue, 24 Jun 2025 09:27:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750782430; x=1751387230; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vfQI9Zp3u7xxHzx8USFneWg+7J0GkvoymFFOyqkhxfc=;
+        b=D8J2FrCFQlAC/fmX/uAaDxs7Sr5TwHolmSsdgOjHVwXmBDsnWyGH5UWnMXGVUdKiah
+         bo3bOlrshrLOe+v+lUaGOpKnetJ/22DeRTcC54nt2VsmOYTLWCpkBBfYFHW1N6Ip5Yzp
+         I1/tLIroTBdGOIYZsDAI3pbxFiyCzc6tCgLpW8feJCa7dxtizAzXMN2Ov9YOmPEZ2kKs
+         6HKzz9NinFdHlRHAlw7J9ioNXVuaSLLbDVMkvGftiG0cG5LJh9vQTXytEK2fGi9QAW35
+         qYmF0i/tkd2G7sENjTiHyxqMq28oYxX1GM2bHCkOFqaTm1O0uNrNpIIrYs5CMUidl2L8
+         aTQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750782430; x=1751387230;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vfQI9Zp3u7xxHzx8USFneWg+7J0GkvoymFFOyqkhxfc=;
+        b=ReM9bQWTT/NFEQjMHCIqkFv49wqfkK8qPnQ6hoR7v7UBz5ft09SGuY7Fh+v74ajwqv
+         8Rj02M4xho98tqmTyaMBfMI2+HzDv0ZT8IFiQ7nnqVEtzMlczirSYxRvweOqKCpWYSmz
+         KK7Zdr45ZQY6pqwII0afviiWPpzI9UZU1CJbKGwj0WuiwNUsu3kdKFgqJ8cGwehmRzn3
+         tfnmUIY/sbMLvFAKU2KNHEuZYVZGSs5oDw++icZDfxH7tS5spJGF3C45zuEQU3jNdknL
+         J2jEBhwW9QgNygKCIrxX9z6lFiecpn1mh6nYjxvp1v1PuUdsYb0SN+WvBHQrrb/tsDu6
+         wfZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUY8OMhB3kvemjrs7zoSdhcbDDtSq3nFz38/L7vacrtoiz8yxDHK/yp4IEC1SGj1fDYwOpgKQ3tic1Rm+Q=@lists.infradead.org, AJvYcCXPEzKD8aVMNQlDo21qMeztWjoRGtEW2fJCyRBibxxYY9+fRwCpIDofZBPs7c800LKXSzUOfQHei6IhLBzXftSH@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywxbk6vLX3Zt3aEx8Zb3uinDSqX/oVDtEOvhHWxWhoG5eRcCvle
+	1AY3olymE6kYqRuAaY+H9GXudJHAdo5XtyCbhoMZuvGSFqFIP6ScZaq5
+X-Gm-Gg: ASbGnctIbkbzxFFCIrn10Cncj3Np4TWeAcUnkHiG4L6p0FalSJpJwUTT22k36IbH84s
+	O5QJOFEReMeYkD6R77z1MTTOfJXVPl+8VBUiicAJjgnO4k/x6asCTOLgJ5Wn88SKuJbIuTaC/q7
+	is+1VCEPwKLfX7hOaPNFfJrBkujok0qq1aWGadN25Uz5b98pcdFVPlQoMQxVw0PiWDvuj/uCVS0
+	1oQ6o5mrJDG4BSYwezd660y81q0ckYdGrDlqINRMWTCXlMkXbHQ/Ss7K67d/BfXu78BT9lm6eus
+	2ncWe5qlTfFlUD99waGAB8NlKhoxyrNNkZ7zX1NjwHF3U4ClGw==
+X-Google-Smtp-Source: AGHT+IGjHJmY+eS3Ezzzmmv0iIiNJG0AeJ4sIzX9fod1PSWFl8jor/RhAVVtop+K7gu3E2hIu7gfhA==
+X-Received: by 2002:a05:6000:4a16:b0:3a4:ee3f:e9a6 with SMTP id ffacd0b85a97d-3a6d1331fd2mr14561131f8f.54.1750782430437;
+        Tue, 24 Jun 2025 09:27:10 -0700 (PDT)
+Received: from localhost.localdomain ([2a09:0:1:2::305a])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6e805175asm2267875f8f.20.2025.06.24.09.27.06
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Jun 2025 09:27:10 -0700 (PDT)
+From: Lance Yang <ioworker0@gmail.com>
+To: david@redhat.com
+Cc: 21cnbao@gmail.com,
+	akpm@linux-foundation.org,
+	baolin.wang@linux.alibaba.com,
+	chrisl@kernel.org,
+	ioworker0@gmail.com,
+	kasong@tencent.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	lorenzo.stoakes@oracle.com,
+	ryan.roberts@arm.com,
+	v-songbaohua@oppo.com,
+	x86@kernel.org,
+	ying.huang@intel.com,
+	zhengtangquan@oppo.com
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large folios during reclamation
+Date: Wed, 25 Jun 2025 00:25:03 +0800
+Message-ID: <20250624162503.78957-1-ioworker0@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com>
+References: <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <CAMRc=MeKfWsf8T1tJLdj=+7aq0zGpQ07pHd2Mz-Y=Bwae0sAbw@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250624_092712_137646_C1921703 
+X-CRM114-Status: GOOD (  25.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,77 +106,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6720564887278193607=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 2025/6/24 23:34, David Hildenbrand wrote:
+> On 24.06.25 17:26, Lance Yang wrote:
+>> On 2025/6/24 20:55, David Hildenbrand wrote:
+>>> On 14.02.25 10:30, Barry Song wrote:
+>>>> From: Barry Song <v-songbaohua@oppo.com>
+>> [...]
+>>>> diff --git a/mm/rmap.c b/mm/rmap.c
+>>>> index 89e51a7a9509..8786704bd466 100644
+>>>> --- a/mm/rmap.c
+>>>> +++ b/mm/rmap.c
+>>>> @@ -1781,6 +1781,25 @@ void folio_remove_rmap_pud(struct folio *folio,
+>>>> struct page *page,
+>>>>    #endif
+>>>>    }
+>>>> +/* We support batch unmapping of PTEs for lazyfree large folios */
+>>>> +static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
+>>>> +            struct folio *folio, pte_t *ptep)
+>>>> +{
+>>>> +    const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+>>>> +    int max_nr = folio_nr_pages(folio);
+>>>
+>>> Let's assume we have the first page of a folio mapped at the last page
+>>> table entry in our page table.
+>>
+>> Good point. I'm curious if it is something we've seen in practice ;)
+> 
+> I challenge you to write a reproducer :P I assume it might be doable 
+> through simple mremap().
+> 
+>>
+>>>
+>>> What prevents folio_pte_batch() from reading outside the page table?
+>>
+>> Assuming such a scenario is possible, to prevent any chance of an
+>> out-of-bounds read, how about this change:
+>>
+>> diff --git a/mm/rmap.c b/mm/rmap.c
+>> index fb63d9256f09..9aeae811a38b 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -1852,6 +1852,25 @@ static inline bool 
+>> can_batch_unmap_folio_ptes(unsigned long addr,
+>>       const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+>>       int max_nr = folio_nr_pages(folio);
+>>       pte_t pte = ptep_get(ptep);
+>> +    unsigned long end_addr;
+>> +
+>> +    /*
+>> +     * To batch unmap, the entire folio's PTEs must be contiguous
+>> +     * and mapped within the same PTE page table, which corresponds to
+>> +     * a single PMD entry. Before calling folio_pte_batch(), which does
+>> +     * not perform boundary checks itself, we must verify that the
+>> +     * address range covered by the folio does not cross a PMD boundary.
+>> +     */
+>> +    end_addr = addr + (max_nr * PAGE_SIZE) - 1;
+>> +
+>> +    /*
+>> +     * A fast way to check for a PMD boundary cross is to align both
+>> +     * the start and end addresses to the PMD boundary and see if they
+>> +     * are different. If they are, the range spans across at least two
+>> +     * different PMD-managed regions.
+>> +     */
+>> +    if ((addr & PMD_MASK) != (end_addr & PMD_MASK))
+>> +        return false;
+> 
+> You should not be messing with max_nr = folio_nr_pages(folio) here at 
+> all. folio_pte_batch() takes care of that.
+> 
+> Also, way too many comments ;)
+> 
+> You may only batch within a single VMA and within a single page table.
+> 
+> So simply align the addr up to the next PMD, and make sure it does not 
+> exceed the vma end.
+> 
+> ALIGN and friends can help avoiding excessive comments.
 
---===============6720564887278193607==
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="t7y4wxlov2z67pu2"
-Content-Disposition: inline
+Thanks! How about this updated version based on your suggestion:
 
-
---t7y4wxlov2z67pu2
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL] Immutable tag between the pwrseq, drm and pmdomain
- trees for v6.17-rc1
-MIME-Version: 1.0
-
-Hi,
-
-On Tue, Jun 24, 2025 at 04:40:43PM +0200, Bartosz Golaszewski wrote:
-> On Tue, Jun 24, 2025 at 4:10=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.p=
-l> wrote:
-> >
-> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> >
-> > Here's an immutable tag containing the thead 1520 power sequencing driv=
-er
-> > for the drm and pmdomain trees to pull from.
-> >
-> > Best Regards,
-> > Bartosz Golaszewski
->=20
-> Just an FYI - there don't seem to be any actual build-time
-> dependencies between this driver and the rest of the code that uses it
-> (thanks to the aux bus usage etc.) so Michal, Ulf et al: you can
-> probably skip the pull if you can rely on this being available in
-> linux-next for run-time testing.
-
-Yeah, I was about to say I don't think we will pull it in DRM. As far as
-I know, it's only about runtime dependencies that will be reconciled
-when all the trees will be merged by Linus.
-
-Maxime
-
---t7y4wxlov2z67pu2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaFrMiQAKCRAnX84Zoj2+
-dsYBAYCu3xP1Pw5J37rmb/byVqOoAoydBCvTz3kfgbVQp3vPUTr0ZD2UbuN+ujlL
-Zkmbkk0BfiUojDX+qMMUGMXoyoaJl+/0kqMvR5GbrFkjXthPpZDq6r6DYHOfahhj
-xLUHbqmIbg==
-=0bcI
------END PGP SIGNATURE-----
-
---t7y4wxlov2z67pu2--
-
-
---===============6720564887278193607==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+diff --git a/mm/rmap.c b/mm/rmap.c
+index fb63d9256f09..241d55a92a47 100644
+--- a/mm/rmap.c
++++ b/mm/rmap.c
+@@ -1847,12 +1847,25 @@ void folio_remove_rmap_pud(struct folio *folio, struct page *page,
+ 
+ /* We support batch unmapping of PTEs for lazyfree large folios */
+ static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
+-			struct folio *folio, pte_t *ptep)
++					      struct folio *folio, pte_t *ptep,
++					      struct vm_area_struct *vma)
+ {
+ 	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
++	unsigned long next_pmd, vma_end, end_addr;
+ 	int max_nr = folio_nr_pages(folio);
+ 	pte_t pte = ptep_get(ptep);
+ 
++	/*
++	 * Limit the batch scan within a single VMA and within a single
++	 * page table.
++	 */
++	vma_end = vma->vm_end;
++	next_pmd = ALIGN(addr + 1, PMD_SIZE);
++	end_addr = addr + (unsigned long)max_nr * PAGE_SIZE;
++
++	if (end_addr > min(next_pmd, vma_end))
++		return false;
++
+ 	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
+ 		return false;
+ 	if (pte_unused(pte))
+@@ -2025,7 +2038,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 				folio_mark_dirty(folio);
+ 		} else if (likely(pte_present(pteval))) {
+ 			if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
+-			    can_batch_unmap_folio_ptes(address, folio, pvmw.pte))
++			    can_batch_unmap_folio_ptes(address, folio, pvmw.pte, pvmw.vma))
+ 				nr_pages = folio_nr_pages(folio);
+ 			end_addr = address + nr_pages * PAGE_SIZE;
+ 			flush_cache_range(vma, address, end_addr);
+--
+Thanks,
+Lance
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6720564887278193607==--
-
