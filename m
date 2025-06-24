@@ -4,52 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 197DFC77B7C
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 16:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7CEBC77B7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Jun 2025 16:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Usr7vgyDA5LLeD1Wkia1bLNjnyocwzt5FYFK9PMuH9M=; b=kEEB7WkwYvAbp6
-	8soKS0oiMznw+mFCyyjzxhTdjDCvz4OgvjiwxjpDZjMMujbAKMeSQbd3+Y7+cjG5qQ32dUs820qrM
-	g5zDuA4JVhLyBuNlobH1pWhKp1vDAaqs/4IgN0OOLZU8FWnhammtnedM7INxEViMRgWb2tvPxTUeG
-	LnJ2kxVMHDsXo4r+bRQ4IFj4VCN/5JxC/zh6C0G8+1kuHvjrCBLMB/57H1qWt0nJqYWcdcoYZqSSX
-	eebFFjwDuthv9Ugsh2wcPbkWbGD5ouALh+WGV8HI+DQ3Ax/OJ4ySMSMcmzw7+OCP5QTfBfM09ZkQ8
-	xCpIChU3fAj3qCz47OzA==;
+	List-Owner; bh=hBN4rzoWV5q+dnJQXpqk8xgTngr0rhwgvBGxWHwIgHM=; b=gzujNlfsKX4M/w
+	6nZv1FSvMQvMKj2FMY/Ki4RoQpW9DYufLnKctDy7l0NVYj6uuA0pOf54e8/UXBWYIubME7x83/Cqt
+	siIKYZvQaNzRGhA4J+FZkCfLmxsiKCBF//gg8d9RXAGsi/glA0SmhlqFQxFpyPY4m2OwdfHBi3xJy
+	t8qhk7E8U6PaogN2VwYlXgtVLz6qcknn2z4WOx9+6BFV9N/ddHLNB+BOdwFREDw92lliLlUGMtwiH
+	BPhSpi3qMXRhR73MIGKzgABAYgzneHXAeEjGU+pTmo98T5IdXSY/TNZfG8q07dhxu4pXzkzxuQTLK
+	JPKT2/92ribhobzy8xhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU64e-00000006DEO-2DLG;
-	Tue, 24 Jun 2025 16:00:40 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uU64d-00000006DDh-399Y;
+	Tue, 24 Jun 2025 16:00:39 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4Yz-00000005tbf-3rf5
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Jun 2025 14:23:55 +0000
-Date: Tue, 24 Jun 2025 16:23:50 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750775032;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lrpSBL/DLIzI8Jp1GABlBZa1QLU8cOGFC43YvRyDTwg=;
-	b=ki3e8wtCd9SJ7t9BIbk/33RI2H3L4u1EgoQsMqDtqMTIucEh+FwvCt6HLpzmcgpfiQk2LK
-	9ZIWfpRTRuthrnt+vbLsy9Bm8osVRcZ0sKoVpCiN2+o0gCrwELuoU2JwEgQEx/LOxXbTSd
-	b9f+NTbWKejtUmZVGDhIV7Dkw9MbMlwPCFISMIvS/k5ErRAHRN3q1yT1EPYWVqa3M7rUTX
-	qnrtAVkJeMkr88US/gVcQb2bq4tGi45elRV+1UrugGKc+OeBDiDwCs01YwKw/JBjkG1fNV
-	0wyUbsTRfFDhlwQUZewhAT9FNC4SkCyzdD5A9/0pa5zxYKSs0bJYk4+z1zCsNw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750775032;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lrpSBL/DLIzI8Jp1GABlBZa1QLU8cOGFC43YvRyDTwg=;
-	b=+Ox1q9upvHIs+HqG0mecMSWkZTr4CpN8Ir6qcIVFg6RmjyCmJcl5BucqBcplFnhDne/GxY
-	/krpYf0/y4Tu7cCQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+	id 1uU4TO-00000005sKi-33us
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 24 Jun 2025 14:18:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=3M75jWfb216WOXODZaCIr+/xgufHXrDaemvMWPhwVns=; b=rUks+Jnd4nDKeI7pcVJcAxPX/9
+	EVO7M1Q4v3jE949Tyg0JRRMteD8qYmBkKc56jbyJouA7cRoo23e1P6LjS1b02LmcarmMrSfD0O5bp
+	OnP65PXhe9637K/umZcSFe4XWnk+zYlQTyiswkPLTUCraqv9aXGiU4b244nq1diovouBtgV0sQ00T
+	asrCe0KC06qYGERqFS7lPqvF3eL6swKXLgf1p6maB6T5KjYHYt0hGXASv4/J+ggOwOyHNDGdWoNvB
+	yxroEGo6wEI/DNeBlEzq/qTr4eN2MclVN5MZgN9aUMrYpUYaF62p5onmCZGn2KzUuKYC6c1Hn55VZ
+	bKSyL7ZQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uU4TK-00000006n9g-1heH;
+	Tue, 24 Jun 2025 14:18:02 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 82F9A307E51; Tue, 24 Jun 2025 16:18:01 +0200 (CEST)
+Date: Tue, 24 Jun 2025 16:18:01 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
 	Nam Cao <namcao@linutronix.de>,
 	"Maciej W. Rozycki" <macro@orcam.me.uk>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -58,7 +55,7 @@ Cc: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
 	rostedt@goodmis.org, linux-rt-devel@lists.linux.dev,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH] riscv: Enable interrupt during exception handling
-Message-ID: <20250624142350.xZ_DdClH@linutronix.de>
+Message-ID: <20250624141801.GV1613200@noisy.programming.kicks-ass.net>
 References: <mhng-60581B88-6FC7-4349-96B6-730D908ABF4A@palmerdabbelt-mac>
  <alpine.DEB.2.21.2506240303170.61655@angie.orcam.me.uk>
  <19cf2371-7293-4e71-a17d-669db4c8270a@rivosinc.com>
@@ -66,14 +63,9 @@ References: <mhng-60581B88-6FC7-4349-96B6-730D908ABF4A@palmerdabbelt-mac>
  <d135d6cc-5117-4b3a-9abe-2e5fd9e3e490@rivosinc.com>
  <20250624140815.GU1613200@noisy.programming.kicks-ass.net>
  <20250624141130.gZVv4WnP@linutronix.de>
- <20250624141801.GV1613200@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250624141801.GV1613200@noisy.programming.kicks-ass.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_072354_173995_40F0D243 
-X-CRM114-Status: UNSURE (   4.17  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250624141130.gZVv4WnP@linutronix.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,14 +82,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-24 16:18:01 [+0200], Peter Zijlstra wrote:
-> I'm confused, sending signals is for exception from userspace. That has
-> nothing to do with exceptions from kernelspace being NMI like.
+On Tue, Jun 24, 2025 at 04:11:30PM +0200, Sebastian Andrzej Siewior wrote:
+> On 2025-06-24 16:08:15 [+0200], Peter Zijlstra wrote:
+> > > >>
+> > > >> I also had a series which was doing so for misaligned accesses handling,
+> > > >> but after discussion, it was not ok to do so.:
+> > > >>
+> > > >> https://lore.kernel.org/linux-riscv/20250422094419.GC14170@noisy.programming.kicks-ass.net/
+> > > > 
+> > > > If I understand that right, exceptions from kernel should be treated as
+> > > > NMI, so that lockdep can tell us if exception handlers touch locks.
+> > > > 
+> > > > But (conditionally) enabling interrupts does not lose us that benefit. It
+> > > > is still considered NMI by lockdep.
+> > > > 
+> > > > Unless I miss something, the patch is fine as is.
+> > 
+> > I'm confused, you're wanting to conditionally enable interrupts from a
+> > kernel exception while its NMI like? *WHY* ?!
+> 
+> What we want is to enable interrupt handling if it was enabled before
+> the exception occured. So we can send a proper signal on PREEMPT_RT
+> without chocking on spinlock_t/ sighand.
 
-Yes. See the original submission
-	https://lore.kernel.org/linux-riscv/20250620114346.1740512-1-namcao@linutronix.de/
-
-Sebastian
+I'm confused, sending signals is for exception from userspace. That has
+nothing to do with exceptions from kernelspace being NMI like.
 
 _______________________________________________
 linux-riscv mailing list
