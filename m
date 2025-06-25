@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C286CC7115C
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 07:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D49C7115C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 07:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KJTOvYKgITMqqU4OYetZsWk3wCg4Jocj5I8NfC420oo=; b=EyMme87+nr4JV4
-	f7fk9XrFpUj9AfEQtXTn+3jVOrpySq1xfSFnBmQNZsfdpu5jqRsXF1/bT74WPqcEXlQNZ7/Qo3sYG
-	Oq3tuxI1aapshX6LMEZNCree2ELQXFWUgXjre7J/OTFl1xFiFTHhz8+d+HX8GPdXhCszppvY/X3Pz
-	YUWHodETP8uSJBdADD2+wSKcaMZQ93H24VdEC5tutQbBj12XuEmcVppnDDuR52ErQYR/LzKeuHffg
-	96rqIR1tGT+YvpdJSNLrai5dX1wl1O03Zno/vBPgep7xNswxrZB5loreSl6bbbQtcUGlW2122lIlx
-	7CFUVIpbZ8uxyFrRvkoA==;
+	List-Owner; bh=Lc2tOFs/nfPs2kR1+NWEZvoN98pTndNbtUSk3k9YY18=; b=bhSYYvIpe92EJo
+	N5bNV8IqWdWcXjTJq6MZw+vsGrqCkfqgFkl9i0N8dhDAn7OZ3Z6p/w+ZP755Mjunx9mBi7/rdI6KW
+	CmZPNDTIug10dSsjPd8QdJkcX11BdR0y7DlsJSUYfbvfcFvgH6340xdOx+Clx2j00TH6I72xcqNP4
+	gMp1BA4hoXDigofArMeZAOY3dEGpuY+10S+7/GiumbNUeeu9ECnPCPceCdVSqqSrW+H+rIXZtDUXg
+	ohj+a2Eb6Tbt3uMxHNx+ESFc+ymS+m7WWiOUjORDD6y5hGgxCz7Bg1IRqxkEmDcH5KY5ndRXur1XV
+	2CUczFWrIS4vYWq30rKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKLj-00000007maT-0tfv;
-	Wed, 25 Jun 2025 07:15:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uUKO0-00000007n6C-0bXh;
+	Wed, 25 Jun 2025 07:17:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKH6-00000007lJ8-2JrC;
-	Wed, 25 Jun 2025 07:10:29 +0000
+	id 1uUKH7-00000007lJe-1pTu;
+	Wed, 25 Jun 2025 07:10:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E38D8A51207;
-	Wed, 25 Jun 2025 07:10:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DC29C4AF09;
+	by sea.source.kernel.org (Postfix) with ESMTP id 32D384AA30;
+	Wed, 25 Jun 2025 07:10:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4181C4CEF4;
 	Wed, 25 Jun 2025 07:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750835427;
-	bh=oP/HTNYTl9LXpDk4PHssqzdxrIaWg9Dc4X7a2efoHe0=;
+	s=k20201202; t=1750835428;
+	bh=UROoErFHCYCaDPqAxDhc4AhSGoASaVjnImGlpaYhSWw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=grOdLOtZgoIKmEWCLoLH/9c0vB0aNmsNV3SxcH0BZP5ljLtkHnx2+AKoNSsaq9vrv
-	 DUs8v9tEITVzaIhBG2hZl5pFHjoAU65Vwvo8XLLJNUhLYdlK9SUpvu0gRKUh3lVnmx
-	 xe7B9ojnICi0YfGfAQLPYVUBhPYUYbz115fGEy9isHKdHCYMvqY4oW6SNKWv4FJRs2
-	 WjGEQ1c2vJ3eCDQIKmq8N+TBXe4uIfevRVsKQTU4aigzoOA6WXabW0iVDnRucYJXPc
-	 sldN4RMVz138oOya4ugf0A3vVhvZXhzWJ6hACVLHuujYIZAQvxI5l26FaziMpipYfV
-	 E4hbrlgSnTpIg==
+	b=AFyVXiVibPF18EO8gj6Jg8HFt9D0dAKEtmgBllL6vS9puXEkLps5gGp8IKQOMYoEU
+	 5cIMp+c+4Lw+Md2qvcSaljt6xufjhViD2eHp77C7AyQs1BQx07SSUxJHjp1R0N/16N
+	 C9qn8pZxEt5b6NDQUrlVxIrbOHtSyYVwN3KGx7y0MOmYsCFQU2MsU02kMD0HmvZdME
+	 yIShdZk23UOa1raxW1EGKtqSRe/5QtI3T6rhPGDi9zx6HVJpqsBfLq3VyQx3ChC4Nn
+	 p2b5qocKN78Ox6UeR+WxFAOugP5RqbJOBsLqASFPiHO8G/b6w8RjDlMzNOJo72ptLm
+	 N8Lwk1i6vX/Nw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,16 +54,16 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 01/18] libceph: Rename hmac_sha256() to ceph_hmac_sha256()
-Date: Wed, 25 Jun 2025 00:08:02 -0700
-Message-ID: <20250625070819.1496119-2-ebiggers@kernel.org>
+Subject: [PATCH 02/18] cxl/test: Simplify fw_buf_checksum_show()
+Date: Wed, 25 Jun 2025 00:08:03 -0700
+Message-ID: <20250625070819.1496119-3-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
 References: <20250625070819.1496119-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_001028_655893_9CFA1F9D 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20250625_001029_494604_D33EF7E4 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +80,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Rename hmac_sha256() to ceph_hmac_sha256(), to avoid a naming conflict
-with the upcoming hmac_sha256() library function.
+First, just use sha256() instead of a sequence of sha256_init(),
+sha256_update(), and sha256_final().  The result is the same.
 
-This code will be able to use the HMAC-SHA256 library, but that's left
-for a later commit.
+Second, use *phN instead of open-coding the conversion of bytes to hex.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- net/ceph/messenger_v2.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ tools/testing/cxl/test/mem.c | 21 ++-------------------
+ 1 file changed, 2 insertions(+), 19 deletions(-)
 
-diff --git a/net/ceph/messenger_v2.c b/net/ceph/messenger_v2.c
-index bd608ffa06279..5483b4eed94e1 100644
---- a/net/ceph/messenger_v2.c
-+++ b/net/ceph/messenger_v2.c
-@@ -791,12 +791,12 @@ static int setup_crypto(struct ceph_connection *con,
- 	       con_secret + CEPH_GCM_KEY_LEN + CEPH_GCM_IV_LEN,
- 	       CEPH_GCM_IV_LEN);
- 	return 0;  /* auth_x, secure mode */
+diff --git a/tools/testing/cxl/test/mem.c b/tools/testing/cxl/test/mem.c
+index 0f1d91f57ba34..d533481672b78 100644
+--- a/tools/testing/cxl/test/mem.c
++++ b/tools/testing/cxl/test/mem.c
+@@ -1826,31 +1826,14 @@ static DEVICE_ATTR_RW(security_lock);
+ static ssize_t fw_buf_checksum_show(struct device *dev,
+ 				    struct device_attribute *attr, char *buf)
+ {
+ 	struct cxl_mockmem_data *mdata = dev_get_drvdata(dev);
+ 	u8 hash[SHA256_DIGEST_SIZE];
+-	unsigned char *hstr, *hptr;
+-	struct sha256_state sctx;
+-	ssize_t written = 0;
+-	int i;
+-
+-	sha256_init(&sctx);
+-	sha256_update(&sctx, mdata->fw, mdata->fw_size);
+-	sha256_final(&sctx, hash);
+-
+-	hstr = kzalloc((SHA256_DIGEST_SIZE * 2) + 1, GFP_KERNEL);
+-	if (!hstr)
+-		return -ENOMEM;
+-
+-	hptr = hstr;
+-	for (i = 0; i < SHA256_DIGEST_SIZE; i++)
+-		hptr += sprintf(hptr, "%02x", hash[i]);
+ 
+-	written = sysfs_emit(buf, "%s\n", hstr);
++	sha256(mdata->fw, mdata->fw_size, hash);
+ 
+-	kfree(hstr);
+-	return written;
++	return sysfs_emit(buf, "%*phN\n", SHA256_DIGEST_SIZE, hash);
  }
  
--static int hmac_sha256(struct ceph_connection *con, const struct kvec *kvecs,
--		       int kvec_cnt, u8 *hmac)
-+static int ceph_hmac_sha256(struct ceph_connection *con,
-+			    const struct kvec *kvecs, int kvec_cnt, u8 *hmac)
- {
- 	SHASH_DESC_ON_STACK(desc, con->v2.hmac_tfm);  /* tfm arg is ignored */
- 	int ret;
- 	int i;
+ static DEVICE_ATTR_RO(fw_buf_checksum);
  
-@@ -1460,12 +1460,12 @@ static int prepare_auth_signature(struct ceph_connection *con)
- 	buf = alloc_conn_buf(con, head_onwire_len(SHA256_DIGEST_SIZE,
- 						  con_secure(con)));
- 	if (!buf)
- 		return -ENOMEM;
- 
--	ret = hmac_sha256(con, con->v2.in_sign_kvecs, con->v2.in_sign_kvec_cnt,
--			  CTRL_BODY(buf));
-+	ret = ceph_hmac_sha256(con, con->v2.in_sign_kvecs,
-+			       con->v2.in_sign_kvec_cnt, CTRL_BODY(buf));
- 	if (ret)
- 		return ret;
- 
- 	return prepare_control(con, FRAME_TAG_AUTH_SIGNATURE, buf,
- 			       SHA256_DIGEST_SIZE);
-@@ -2458,12 +2458,12 @@ static int process_auth_signature(struct ceph_connection *con,
- 	if (con->state != CEPH_CON_S_V2_AUTH_SIGNATURE) {
- 		con->error_msg = "protocol error, unexpected auth_signature";
- 		return -EINVAL;
- 	}
- 
--	ret = hmac_sha256(con, con->v2.out_sign_kvecs,
--			  con->v2.out_sign_kvec_cnt, hmac);
-+	ret = ceph_hmac_sha256(con, con->v2.out_sign_kvecs,
-+			       con->v2.out_sign_kvec_cnt, hmac);
- 	if (ret)
- 		return ret;
- 
- 	ceph_decode_need(&p, end, SHA256_DIGEST_SIZE, bad);
- 	if (crypto_memneq(p, hmac, SHA256_DIGEST_SIZE)) {
+ static ssize_t sanitize_timeout_show(struct device *dev,
 -- 
 2.50.0
 
