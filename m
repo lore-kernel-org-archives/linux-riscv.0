@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C20EEC7EE32
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 20:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A01BC7EE2A
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 20:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+A8C1DvYBGK7wrIaO4Fve1W2CsC/SG0SzNJqyr03YlY=; b=vHyun9j9V2V6zM
-	w2jzvWq52OqrXvbR8S3HPJyLpOPXARKyAtidaY7VykFBtVCJ8qzIvPuwycTJfNFSckIlo/jeRtSAo
-	lcbvv1WWCLWsiNu/6XbyQWFZN4cbiUEuoFeqQyw0/F5aBprFXp5FOLExm0JQq57QP6nzGy9a3Q2W9
-	/xsbrjgE4sxNISsB1imjWCBGKXDvPkhFjJ12hAoJKZMTWG6y0JI6VY2Y4JVENg3TMYlcQdTGMLM6/
-	LXaIA7dEiHJp50Wr3WGrYtoeXmdew3BP5YsFB5UP2jRZkPUHWGQj4MBBQZzIfvNDrvq43Ndr80dA/
-	yNntc4T/a/QtEjvtikCA==;
+	List-Owner; bh=4S/a0HuRk3Pc/QrTRjScWjvt8N3aw9CW/Dm9jxiXli0=; b=x+pFFb4tZwflIe
+	lbENZcCiyoJupZ7KfJrEWW2mtMoi0vqog1XAB6+Hc2Rr+igqktFYM7skgicmOSMAXu2szhrAHxfiY
+	xq70BdMyw2EfNk8p/KYI1u7G9LaQKKJ5sDC9ou1CycLrM7fuPVOp+wXk+qt+oWohahhY1stn2Vtrl
+	g3+c/MqmkzROeD7SkmQLhUEeGlPpOemS3KfJNif82cK4qxl6g2hED1lFwsfRJxZqKnwhqh02Ke2bZ
+	JzE55Re7PG8CDUQqdrlNzTjeYXMLE1p+ZD0wKMUlr1zOHMvFJUENscget/KG9fhNfLUY1hDhxWIe3
+	tSbt4vtEDxOizYbUOCnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUWq1-00000009rc4-3Aw1;
-	Wed, 25 Jun 2025 20:35:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUWqJ-00000009s1o-0uYX;
+	Wed, 25 Jun 2025 20:35:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUyb-00000009ciW-1Omz
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 25 Jun 2025 18:36:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Rn+b59/Gm4SJ2kcrqSbPbMkO1yDeshXU9PcJiU+UZ3E=; b=kYFtUMYE/wnUf96S9YREsE+ZhE
-	hQtXbkJFYd/c+VwDCgKuDb2zVXl+QoBreSDXpwJ8eS83P/VGKzObDIbAl6l5LCnAmV8GPW9PSk3ib
-	mFRsGnCoyz+oCQD7kIj1+WsgRWQauNK8DUP1gOE6pfKh5w+MlhndwIE+5A/q73xRT7NM6eNc/kAs6
-	Wl6NjzRA2kI16SMEmi1+o0h3Anw1g0cwui7XGKiQYKVFP++pV4J1knRM0hw5J2bqZ1MfVx6sPn/d+
-	8cazVwqwUbz8OeBRRGmzbFTnNp3OaxF7pw4zE9/fcbC6bd5j4DC6+CGKQIuj/hP51aRXUTIA/r1fp
-	ipPesGOA==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUyY-00000005vNI-1oMf
+	id 1uUVbT-00000009j8F-0fsf
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 18:36:04 +0000
+	Wed, 25 Jun 2025 19:16:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BFF05A5213F;
-	Wed, 25 Jun 2025 18:35:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 522FBC4CEF0;
-	Wed, 25 Jun 2025 18:35:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5299661151;
+	Wed, 25 Jun 2025 19:16:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D58DBC4CEEA;
+	Wed, 25 Jun 2025 19:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750876558;
-	bh=rNYUfS+QC6CJz32WWVNOnG+NFAUPmM8wTr2iF+yy6i8=;
+	s=k20201202; t=1750878974;
+	bh=3xx8v1UwfRqi0ZG+i5McWZ2XEzZuimQytzqJT5SglHc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ijdc8opzcaW6MuLyFnJUXGU1CZ8ABOCxbuSE1BtuDANMj48/SGChoOa92abfv1XIl
-	 qpZ7Eik37hF1LDo+2oq16TgoTRuffYQEJv5dNinJDTv0KjlynhGBlUfSuqBfcYJBxS
-	 lPZou+m+ADZbe/4SRat7B5eslYfTPKi+cG9iqYln3hpSJfKN/Xodl1GCNXHw+FVMca
-	 1uNRnYq3Jr/SIrOVVkdIr76t8VaP2vpk0oAX71sb/gnH8cLFLaJiUj+V1PIwN3Nrij
-	 PY/6j1sDx652jPiz36ANOKSrHBQhpZDbBVQ49L1nhVRLauVFBO5Qs8bW9uoCCVocg4
-	 PlOEm7rFGF8ug==
-Date: Wed, 25 Jun 2025 13:35:57 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	Yixun Lan <dlan@gentoo.org>, Conor Dooley <conor+dt@kernel.org>,
-	linux-kernel@vger.kernel.org, Jiri Slaby <jirislaby@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	imx@lists.linux.dev, Lubomir Rintel <lkundrak@v3.sk>,
-	devicetree@vger.kernel.org,
+	b=ll2ev9x+mDm8fPwuaepM18THd82jsyPWzG1/HqjPrZGqYpAzaSSUdOof59nOSs7rO
+	 2u3wLcOS0vbFia4CRWStDdB+amoW4c7rRUfueX91+SbCUNc5BdtdepjG4dus7voYR+
+	 HtwGuwjRm+c2GtlaamNxkd819845Wo0pT0gRxPhoOsosCJGyVKqBLrVB/SlLHZQKI0
+	 32owTpKRMV7oaDrPeMCMSBy95Or3G9HSoVih9qazQ4LZpKfwnHCUVJytV4JgCF/xvd
+	 b5Gk1VBplToldZh8xhEKFCiO7EcenEo2YdWqXI53zv4pOOvUPJf1uC2LXHbqXCUMAq
+	 IaV6JW0gJ6bTA==
+Date: Wed, 25 Jun 2025 14:16:13 -0500
+From: Rob Herring <robh@kernel.org>
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-serial@vger.kernel.org
-Subject: Re: [PATCH 1/1] dt-bindings: serial: 8250: allow clock 'uartclk' and
- 'reg' for nxp,lpc1850-uart
-Message-ID: <175087655526.1993020.9662520639460479640.robh@kernel.org>
-References: <20250602142745.942568-1-Frank.Li@nxp.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: Add C906L rproc for Sophgo
+ CV1800B SoC
+Message-ID: <20250625191613.GA2059062-robh@kernel.org>
+References: <20250608-cv1800-rproc-v1-0-57cf66cdf6a3@pigmoral.tech>
+ <20250608-cv1800-rproc-v1-1-57cf66cdf6a3@pigmoral.tech>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250602142745.942568-1-Frank.Li@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_193602_733163_F5B0A006 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250608-cv1800-rproc-v1-1-57cf66cdf6a3@pigmoral.tech>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +82,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 02 Jun 2025 10:27:45 -0400, Frank Li wrote:
-> Allow clock 'uartclk' and 'reg' for nxp,lpc1850-uart to align existed
-> driver and dts. It is really old platform. Keep the same restriction for
-> others.
+On Sun, Jun 08, 2025 at 10:37:39AM +0800, Junhui Liu wrote:
+> Add C906L remote processor for CV1800B SoC, which is an asymmetric
+> processor typically running RTOS.
 > 
-> Allow dmas and dma-names property, which allow maxItems 4 because very old
-> platform (arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi) use duplicate "tx", "rx",
-> "tx", "rx" as dma-names.
-> 
-> Fix below CHECK_DTB warnings:
->   arch/arm/boot/dts/nxp/lpc/lpc4337-ciaa.dtb: serial@40081000 (nxp,lpc1850-uart): clock-names: ['uartclk', 'reg'] is too long
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 > ---
->  .../devicetree/bindings/serial/8250.yaml      | 41 +++++++++++++++++--
->  1 file changed, 37 insertions(+), 4 deletions(-)
+>  .../bindings/remoteproc/sophgo,cv1800b-c906l.yaml  | 68 ++++++++++++++++++++++
+>  1 file changed, 68 insertions(+)
 > 
+> diff --git a/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml b/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..455e957dec01c16424c49ebe5ef451883b0c3d4a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml
+> @@ -0,0 +1,68 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/remoteproc/sophgo,cv1800b-c906l.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo C906L remote processor controller for CV1800B SoC
+> +
+> +maintainers:
+> +  - Junhui Liu <junhui.liu@pigmoral.tech>
+> +
+> +description:
+> +  Document the bindings for the C906L remoteproc component that loads and boots
+> +  firmwares on the CV1800B SoC.
+> +
+> +properties:
+> +  compatible:
+> +    const: sophgo,cv1800b-c906l
+> +
+> +  firmware-name:
+> +    $ref: /schemas/types.yaml#/definitions/string
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Already has a type. You just need 'maxItems: 1'.
 
+> +    description:
+> +      The name of the firmware file to load for this remote processor, relative
+> +      to the firmware search path (typically /lib/firmware/).
+
+That's the same for every 'firmware-name' instance. So drop.
+
+Is there a default name?
+
+> +
+> +  memory-region:
+
+       maxItems: 1
+
+> +    description:
+> +      Phandle to a reserved memory region that is used to load the firmware for
+> +      this remote processor. The remote processor will use this memory region
+> +      as its execution memory.
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  sophgo,syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      A phandle to the SEC_SYS region, used for configuration of the remote processor.
+> +
+> +required:
+> +  - compatible
+> +  - firmware-name
+> +  - memory-region
+> +  - resets
+> +  - sophgo,syscon
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    reserved-memory {
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +        ranges;
+> +
+> +        c906l_mem: region@83f40000 {
+> +            reg = <0x83f40000 0xc0000>;
+> +            no-map;
+> +        };
+> +    };
+
+Drop. No need to show how /reserved-memory works here.
+
+> +
+> +    c906l-rproc {
+> +        compatible = "sophgo,cv1800b-c906l";
+> +        firmware-name = "c906l-firmware.elf";
+> +        memory-region = <&c906l_mem>;
+> +        resets = <&rst 294>;
+> +        sophgo,syscon = <&sec_sys>;
+> +    };
+> 
+> -- 
+> 2.49.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
