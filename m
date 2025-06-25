@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FFB1C77B7C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AD7C7EE2A
 	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,44 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7JuBGKrwKOQGzkoidyw7DEbjqa23iY7/30Z3s3VStek=; b=pJBFbiGx8qcNyf
-	YkR98hRWTSQzafT6AM2VHlwR0HjUdWJ0eOzmW/F8C8jEyK5iiaQrzrYzk0B77K0ND0j4QoVEUKXd6
-	ODaUqq3dVO6HrJxWENL3/QI6+JrzLKVrOHFPEtrrFAFIBRA1x5WK+xN3CHxXB/8tHro0YyUQ/97a+
-	bZT67n8vE4NE7/q8Qt4766WPvuvYYcI6+NheqtJWBE/XT9l3uTOFjkkhIypwjLys0Mdmgls+NmLOj
-	RdqolBvBVy6OJzUa5+bfLeFV7RL6PgZJFRFFvjTiTAKVl+h5uJGgu7s9m9a52JpKD1KR53O8dhakt
-	YdeExmsqJBw/lN/2UqaQ==;
+	List-Owner; bh=iUH9xrzJXL10DmVqtxv0SURmUz2+bJIyyXe8C7H66PM=; b=ZlZRCTwPQQxG3O
+	tkftKLTL8EEKwV9W/XRoW9qtP+VBhO5++Stzfk1vBnSKP5I/655SGztPITnatkQ3eH6+R85XvfJ7/
+	cLhCm2u7ZECEXsq43mRv7f/JKTed/iffHumosXBgvr2MsQs6cicyZ8VgfVxz6Jv5Rl2SUx7HtVBbB
+	cJ/JBAdsPEwrTFpbZ8PLW1OjYnfH4cIpbsn21e35CjnlBxshkEw9crgHyeoochUpuNgb3gjfkReZj
+	zBc8V/rfMIZrDBrUkFGhy+wdK7A1k9TsDXKPLNmTrEppOrs1a3wPglzJobTPNK1qSjt8WdsikCJW8
+	Yewg2v8eZ96v3hxtNABg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUrm-00000009ZLh-3icX;
+	id 1uUUrm-00000009ZL9-0dN6;
 	Wed, 25 Jun 2025 18:29:02 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUQzl-00000008wX9-0xQw
+	id 1uUQzl-00000008wWZ-0Njo
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 14:21:03 +0000
+	Wed, 25 Jun 2025 14:21:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 73FA8A52AC6;
-	Wed, 25 Jun 2025 14:21:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B6F0DC4AF0D;
+	by nyc.source.kernel.org (Postfix) with ESMTP id F1803A526E3;
+	Wed, 25 Jun 2025 14:20:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 91366C4CEEA;
 	Wed, 25 Jun 2025 14:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1750861259;
-	bh=r/g52Sw7NE3cZ4s+t+ohbfBzr9iGvkNvjqfeVNpE7FQ=;
+	bh=GKbzOIdtzFvop5ar2d9+3emwLLF5QXNzgs6b3CUkOPk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=upzViby8EQuva8lr/4oenmGINdY9cilyMktgzhlfDm9eJCX+RFmyuthJv498IYo5e
-	 04XAyroc0vg8RaNHfV4H0ycOk3CmJpXFBlNl/f86j7/yBmU5ifttGnnP7az+EDGwON
-	 6XraF55xTvqJLFYlkJmOhY1aojILQh7P1wu+Jx/qDkX3rrVDpKoeoBcF39LtpinDnA
-	 oQxUWOb/eM/8EVyPlwGRIpjewvlLrbrOK33FJ08hiqTr1+F3DFJjikHFo7IVKODMNf
-	 1vjM7HKnXWzF7K/scCSBz+S82jLwhAUhXwLt6mYy93Hj2miK3UpJJijA6/cz8B0Hkx
-	 oWb9shvPDBuiw==
+	b=flDlzeJnraRftrK84Q+l68/q/JKOEfSgZhA69SlgO8yO+F9A1fEf7ng+zjIViJzs7
+	 ZA9xWqh9g40IUaVwyRpV3XOzl00L9NIvk/0hhnsrxLvRpxqQrR2TvtQ6Bt8fUxCWCB
+	 hL/0es/zvq16yRcaRGV6X5Te0cpG7lJ81cR0VJQ6olIXCtNIK91TB7YcgFTvT2LkDy
+	 C1vzQW1Ev4O7Ki8iv7RM0d2QARCni3nXLyRe1I5wdjhl1oVvH7hvjabf5wQ06fXTxZ
+	 qKHPOgp75vG4+ZhvpHi0FbWejHOBxx1nFrYKzY+sKh93l1mu3oBoUGgbjlTRo7vetE
+	 0qGeMVrsWsHNA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A5668C7EE39;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 77C42C7115C;
 	Wed, 25 Jun 2025 14:20:59 +0000 (UTC)
 From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Wed, 25 Jun 2025 16:20:59 +0200
-Subject: [PATCH v4 4/7] riscv: hwprobe: Add MIPS vendor extension probing
+Date: Wed, 25 Jun 2025 16:20:56 +0200
+Subject: [PATCH v4 1/7] dt-bindings: riscv: Add xmipsexectl ISA extension
+ description
 MIME-Version: 1.0
-Message-Id: <20250625-p8700-pause-v4-4-6c7dd7f85756@htecgroup.com>
+Message-Id: <20250625-p8700-pause-v4-1-6c7dd7f85756@htecgroup.com>
 References: <20250625-p8700-pause-v4-0-6c7dd7f85756@htecgroup.com>
 In-Reply-To: <20250625-p8700-pause-v4-0-6c7dd7f85756@htecgroup.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,19 +63,20 @@ Cc: Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
  Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750861257; l=5977;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750861257; l=1302;
  i=aleksa.paunovic@htecgroup.com; s=20250514; h=from:subject:message-id;
- bh=/ra2A5ZQBIS0eY7nK1+Pygc9iGRZBnPpkjFyim2jAcM=;
- b=DKnf1MnaJfdG4LaMyGA42WkhQmot9xI5Tl2HPA2YoVTRV69zvFWo+5MJTGdWmn3ejdsDCkkjI
- gBuFjf9NjEHD27S1ci/8j0AnZGzSBn9L6JtoKkBqwRfZyA1CFDVQS4K
+ bh=h13o/f46vhfOxj3D4iHSUN8apIuhKjiCZWPiTgA7Dm8=;
+ b=bybQmtA8JYGfk8SiLTuOilDEXK5tT9xmFca05oXB0CyhBAtjNDrFXIGgHUHKdAijZXjcbV3p1
+ JgyhwV4egd+C8PDaz7ap5wnXKVTad51WO59WymZenWRomONPsWUPyfr
 X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
  pk=gFVSVYLKAgJiS5qCnDyUMGOFuczv8C6o0UmRs+fgisA=
 X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250514
  with auth_id=403
 X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_072101_474247_622BFDF6 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20250625_072101_276612_89DC7D5A 
+X-CRM114-Status: UNSURE (   6.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,167 +89,35 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Reply-To: aleksa.paunovic@htecgroup.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-
-Add a new hwprobe key "RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0" which allows
-userspace to probe for the new xmipsexectl vendor extension.
-
-Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
----
- arch/riscv/include/asm/hwprobe.h                   |  3 ++-
- .../include/asm/vendor_extensions/mips_hwprobe.h   | 23 ++++++++++++++++++++++
- arch/riscv/include/uapi/asm/hwprobe.h              |  1 +
- arch/riscv/include/uapi/asm/vendor/mips.h          |  3 +++
- arch/riscv/kernel/sys_hwprobe.c                    |  4 ++++
- arch/riscv/kernel/vendor_extensions/Makefile       |  1 +
- arch/riscv/kernel/vendor_extensions/mips_hwprobe.c | 22 +++++++++++++++++++++
- 7 files changed, 56 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 7fe0a379474ae2c64d300d6fee4a012173f6a6d7..948d2b34e94e84e4c2c351ffe91f4b3afcefc3f7 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -8,7 +8,7 @@
- 
- #include <uapi/asm/hwprobe.h>
- 
--#define RISCV_HWPROBE_MAX_KEY 13
-+#define RISCV_HWPROBE_MAX_KEY 14
- 
- static inline bool riscv_hwprobe_key_is_valid(__s64 key)
- {
-@@ -22,6 +22,7 @@ static inline bool hwprobe_key_is_bitmask(__s64 key)
- 	case RISCV_HWPROBE_KEY_IMA_EXT_0:
- 	case RISCV_HWPROBE_KEY_CPUPERF_0:
- 	case RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0:
-+	case RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0:
- 	case RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0:
- 		return true;
- 	}
-diff --git a/arch/riscv/include/asm/vendor_extensions/mips_hwprobe.h b/arch/riscv/include/asm/vendor_extensions/mips_hwprobe.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..0af8c07c22f293b5f772709f774de78dd60c7f39
---- /dev/null
-+++ b/arch/riscv/include/asm/vendor_extensions/mips_hwprobe.h
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2025 MIPS.
-+ */
-+
-+#ifndef _ASM_RISCV_VENDOR_EXTENSIONS_MIPS_HWPROBE_H_
-+#define _ASM_RISCV_VENDOR_EXTENSIONS_MIPS_HWPROBE_H_
-+
-+#include <linux/cpumask.h>
-+#include <uapi/asm/hwprobe.h>
-+
-+
-+#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_MIPS
-+void hwprobe_isa_vendor_ext_mips_0(struct riscv_hwprobe *pair, const struct cpumask *cpus);
-+#else
-+static inline void hwprobe_isa_vendor_ext_mips_0(struct riscv_hwprobe *pair,
-+						 const struct cpumask *cpus)
-+{
-+	pair->value = 0;
-+}
-+#endif
-+
-+#endif // _ASM_RISCV_VENDOR_EXTENSIONS_MIPS_HWPROBE_H_
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index aaf6ad97049931381f9542bb9316c873ec6ab9f6..5d30a4fae37a82ef4d968d20b187420772ad8946 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -106,6 +106,7 @@ struct riscv_hwprobe {
- #define RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0	11
- #define RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE	12
- #define RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0	13
-+#define RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0	14
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
- 
- /* Flags */
-diff --git a/arch/riscv/include/uapi/asm/vendor/mips.h b/arch/riscv/include/uapi/asm/vendor/mips.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..11d41651178233a5f06ab9541ea0506d9883aa19
---- /dev/null
-+++ b/arch/riscv/include/uapi/asm/vendor/mips.h
-@@ -0,0 +1,3 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+
-+#define RISCV_HWPROBE_VENDOR_EXT_XMIPSEXECTL	(1 << 0)
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index 0b170e18a2beba576f4f8787d6ef6aa67c5c3d0e..6c73e167ef4ccc7f99dd2793acde2595fffdcbad 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -15,6 +15,7 @@
- #include <asm/uaccess.h>
- #include <asm/unistd.h>
- #include <asm/vector.h>
-+#include <asm/vendor_extensions/mips_hwprobe.h>
- #include <asm/vendor_extensions/sifive_hwprobe.h>
- #include <asm/vendor_extensions/thead_hwprobe.h>
- #include <vdso/vsyscall.h>
-@@ -309,6 +310,9 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 	case RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0:
- 		hwprobe_isa_vendor_ext_thead_0(pair, cpus);
- 		break;
-+	case RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0:
-+		hwprobe_isa_vendor_ext_mips_0(pair, cpus);
-+		break;
- 
- 	/*
- 	 * For forward compatibility, unknown keys don't fail the whole
-diff --git a/arch/riscv/kernel/vendor_extensions/Makefile b/arch/riscv/kernel/vendor_extensions/Makefile
-index ccad4ebafb43412e72e654da3bdb9face53b80c6..bf116c82b6bdb3aee23e27fc0b2a69be7c7a5ccb 100644
---- a/arch/riscv/kernel/vendor_extensions/Makefile
-+++ b/arch/riscv/kernel/vendor_extensions/Makefile
-@@ -2,6 +2,7 @@
- 
- obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_ANDES)	+= andes.o
- obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_MIPS)  	+= mips.o
-+obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_MIPS)  	+= mips_hwprobe.o
- obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE)	+= sifive.o
- obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE)	+= sifive_hwprobe.o
- obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_THEAD)	+= thead.o
-diff --git a/arch/riscv/kernel/vendor_extensions/mips_hwprobe.c b/arch/riscv/kernel/vendor_extensions/mips_hwprobe.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..43944f2b484af257fa358cda53c12b4d6f54b78b
---- /dev/null
-+++ b/arch/riscv/kernel/vendor_extensions/mips_hwprobe.c
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2025 MIPS.
-+ */
-+
-+#include <asm/vendor_extensions/mips.h>
-+#include <asm/vendor_extensions/mips_hwprobe.h>
-+#include <asm/vendor_extensions/vendor_hwprobe.h>
-+
-+#include <linux/cpumask.h>
-+#include <linux/types.h>
-+
-+#include <uapi/asm/hwprobe.h>
-+#include <uapi/asm/vendor/mips.h>
-+
-+void hwprobe_isa_vendor_ext_mips_0(struct riscv_hwprobe *pair,
-+				   const struct cpumask *cpus)
-+{
-+	VENDOR_EXTENSION_SUPPORTED(
-+		pair, cpus, riscv_isa_vendor_ext_list_mips.per_hart_isa_bitmap,
-+		{ VENDOR_EXT_KEY(XMIPSEXECTL); });
-+}
-
--- 
-2.34.1
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQWxla3NhIFBhdW5vdmljIDxhbGVrc2EucGF1bm92aWNAaHRlY2dyb3VwLmNvbT4KClRo
+ZSB4bWlwc2V4ZWN0bCBleHRlbnNpb24gaXMgZGVzY3JpYmVkIGluIHRoZSBNSVBTIFJWNjQgUDg3
+MDAvUDg3MDAtRgpNdWx0aXByb2Nlc3NpbmcgU3lzdGVtIFByb2dyYW1tZXLigJlzIEd1aWRlIGxp
+bmtlZCBhdCBbMV0uCgpMaW5rOiBodHRwczovL21pcHMuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8y
+MDI1LzA2L1A4NzAwX1Byb2dyYW1tZXJzX1JlZmVyZW5jZV9NYW51YWxfUmV2MS44NF81LTMxLTIw
+MjUucGRmCgpTaWduZWQtb2ZmLWJ5OiBBbGVrc2EgUGF1bm92aWMgPGFsZWtzYS5wYXVub3ZpY0Bo
+dGVjZ3JvdXAuY29tPgotLS0KIERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNj
+di9leHRlbnNpb25zLnlhbWwgfCA2ICsrKysrKwogMSBmaWxlIGNoYW5nZWQsIDYgaW5zZXJ0aW9u
+cygrKQoKZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNj
+di9leHRlbnNpb25zLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvcmlz
+Y3YvZXh0ZW5zaW9ucy55YW1sCmluZGV4IGVkZTZhNThjY2Y1MzQ3ZDkyNzg1ZGMwODVhMDExMDUy
+YzFhYWRlMTQuLmRlNDFhNmYwNzRkM2FmMmNlYWY1MjkzZGZlNzVkMTZmNDNkNDE2ZDYgMTAwNjQ0
+Ci0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25z
+LnlhbWwKKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVu
+c2lvbnMueWFtbApAQCAtNjYyLDYgKzY2MiwxMiBAQCBwcm9wZXJ0aWVzOgogICAgICAgICAgICAg
+UmVnaXN0ZXJzIGluIHRoZSBBWDQ1TVAgZGF0YXNoZWV0LgogICAgICAgICAgICAgaHR0cHM6Ly93
+d3cuYW5kZXN0ZWNoLmNvbS93cC1jb250ZW50L3VwbG9hZHMvQVg0NU1QLTFDLVJldi4tNS4wLjAt
+RGF0YXNoZWV0LnBkZgogCisgICAgICAgICMgTUlQUworICAgICAgICAtIGNvbnN0OiB4bWlwc2V4
+ZWN0bAorICAgICAgICAgIGRlc2NyaXB0aW9uOgorICAgICAgICAgICAgVGhlIE1JUFMgZXh0ZW5z
+aW9uIGZvciBleGVjdXRpb24gY29udHJvbCBhcyBkb2N1bWVudGVkIGluCisgICAgICAgICAgICBo
+dHRwczovL21pcHMuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDI1LzA2L1A4NzAwX1Byb2dyYW1t
+ZXJzX1JlZmVyZW5jZV9NYW51YWxfUmV2MS44NF81LTMxLTIwMjUucGRmCisKICAgICAgICAgIyBT
+aUZpdmUKICAgICAgICAgLSBjb25zdDogeHNmdnFtYWNjZG9kCiAgICAgICAgICAgZGVzY3JpcHRp
+b246CgotLSAKMi4zNC4xCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
