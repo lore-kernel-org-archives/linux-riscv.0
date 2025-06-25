@@ -4,108 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02202C7115C
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 09:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7BA7C7EE30
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 09:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UVaH1lW5WAi3CXp7pY8nKr1g9u0j1AHudWlOvAPpXAM=; b=aF2ZSW2RO5ID1S
-	rTVP3qldojtvlr1M7FggsWDr/dDakrFcDLSQR8hP38gMcOyHGKNo2UXSRm9ql8VcZzxCifquUD3Ug
-	aa8tUvKWWdg5g+G0+SIMoC0/QSUnEOAT5HhXYU4vEvUe+sY79J0ulQU7KF941RbLkSDi6PCYz5SiG
-	TzU3MPe3n8o1u+9icyjin6qbTE4shjliWRNo2Eszgn/r+K+UM4ygAON6OobbM4dcB+AD+VB9Dx7dk
-	9Arxq9qaNWl529bvceKdv6f3OoPqyjo0d5BmfhVoeXucN/WahhBmmIrewdMdiRONUNGzgDlmNevbZ
-	cvMbY+UcuW2SqXmD1L2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9wBW5jOHgtsqi6Fgg+7hlc8yCodBWQDzBLBMltVWXCk=; b=XiorKHh5LQc1Bq2Bj6cRTwWXBT
+	gf4BuR7F+OwBSpsU3vUefQfLMPG/RYCfuz5+xZSYLpkVuOv8Zcud4iB6dO46WiYcFwNU05V3nLzlS
+	P6klQL7tQK+W6FDADr70qOWx3ekmRFp73OqNxMjyybg18WJkvuYx7gT5b4s735fhAAdiKgjShGJr8
+	lvV5v3qislylJ+H7kMP3XPlIZPAz3XyNwW2iOWN2gv3thy4Ya2I1EWnBpeDvMwMqHPx4NQ3TPL4cR
+	m1pKUlwtYnLY4Tnf8nUpvasSkQymFkqqDd7xS3+v7vph4re2RRS+LuTLuiBsbn1zcNvEVSfzu8NUn
+	9k7hWsew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMDY-000000085ju-1847;
-	Wed, 25 Jun 2025 09:14:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUMFp-000000086D3-1fPY;
+	Wed, 25 Jun 2025 09:17:17 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULaI-00000007yHL-1Bsu
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 25 Jun 2025 08:34:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=RzsHE0Dm+vaKIDZxCmSo57hINCBe8Wa9oOmgUaoD+0o=; b=F9WIGcj3nLiACDj0tVo/fCPzVj
-	mFnTO1Ycv7OVw1xNVRdj1moaT6HDI3mXePFYMlwK1qGV3/y0VogAKILYFvpjfR3KqSGc6rqai6an+
-	JasgjHUT6voG5Q/x80867kaYbCZRd2YOcGEBLS7F7UCsCbkG/DSdyzHBEf51ixXnWaFjVyJT2pQ0Q
-	BV7A7HwRfyPZPZ3845KAUZcVqwxgFLbZZZiYNDkSGJoL9skdbsrFIKqhgsDmf8+d0LblDzdjv1tEL
-	+Clph2Bbn3XDJvzcRF2LdWLVS0GQR/p9ZnFslGlCyhNw3GyxTYxGUiBTvjr2Iwwlw/S/lIzGxUV2S
-	ZTt/351w==;
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULaF-00000005gzU-2hHm
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 08:34:21 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3a548a73ff2so1253092f8f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Jun 2025 01:34:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750840457; x=1751445257; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RzsHE0Dm+vaKIDZxCmSo57hINCBe8Wa9oOmgUaoD+0o=;
-        b=HhelVktHBQtkdlnuWTfY4rgZ8SlSgO27Ra88XtCz2JiH6J9teDn+ugGlmJnt4iY7yL
-         qiGdyT08PlnwbpnAQBe86fg6wdgiXn85w3zRX1dna+zbyY7LclPlS9AdQA8cTfmT8xrq
-         dfngltqnVfUw99G/Oz+QhfaqJidWd5oaTQLvBZSSgQnQ4F9+NSJZGcY8vqYv6mg2MHZu
-         cNI/XwT9GmzU3ECGl43Zo2nTgGN+fIn/VfoGQNN8vHxgJ+iHTuc28FpbX5EDdBJTGdwT
-         VzIQmbdT2TVUa4mkFVbDQ3RpJOcHSOclAEeAAaFnMndbs41FDZKgwDaVSvAp/iyU5h4W
-         ezcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750840457; x=1751445257;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RzsHE0Dm+vaKIDZxCmSo57hINCBe8Wa9oOmgUaoD+0o=;
-        b=IuNYLKT+shZP/7MtQpnjV9WDaFeVZeAEGHbSIb0mWctUy5LPqNvsceq8oMmKaL9Uy6
-         gWrkew3AZ4WdFARGkL6n0E8shWDdjjgmTLjeyqTnxgujmfZu1/cg4f0iy+rgUMHgghDb
-         qNNXuDf+fajhk5NqEoxeYltWcwnJC15kOwIvNvxnWyMvnO2ulS2gK/C4E983kceesflo
-         5ZoJAHlSzj7iq6JOztBONbbPToRLwrawnI0cShTRSjHjiH+CT4+3XpSNZdcx10KJVXrn
-         bY2V95xITGn/fya5cKPM5vI9R050rr8ebJa9sDm1KmLS5mANx35jP1ebyGkQCLLd3h4r
-         77qQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX+4Ki8jlhtwjdkUu6Acv/uKrfdRL9Un1Hiypp/C/IPQPtUyPmDoKKlYouBV6+e2M2l0TK7zNhiBIGQ/g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2WB8OR5ovy8eVV+1FQM1NH2fsntYKXD2BbZSqSwOWcouBAApo
-	uMVPnmFtmk5b65sYaB3tcrTVXsupQBhuYdSq8TTRz72XtyZwHB6Du1mVo1roUg==
-X-Gm-Gg: ASbGnctQu/739iNcEq2hyRQ8AWSwWSEHITKIR8DZWK6MkatWafBxmIAn3k6RT8max2a
-	6+Wjo8Q6LuY8orjtQ4Nlq3io5KCedXBlo54wBbltJfa1ST0G1/H6n7do/Yh9lZmIMWaRaD9zK3S
-	9akDHwvi06ESz9hcOacRGHrqkJPp2MeYjlx2XucwdMapq+PWAkmZEeQjWmFxRRJE3XTHju8/KVL
-	A3AZ2oyg5mCe/zuzWhX3FTGCja1e5wqilNLZTlwgKH8ro7vNvfweVN/ZUDaYncvi8ooZYlkfEUM
-	8LK3bATUV4n8dBaoAmBXtS62rE8EF2+BqodQY94+BGIehleycIB9HOjOL7BqgPxDNW4M2F9RtoE
-	y9gnIhcn88jLSGqSuHdmtPxew
-X-Google-Smtp-Source: AGHT+IG4iG1MpnnxD3c0z3g1108nyY/UfjDrLLLTyFBsEARnqSoXsXoPNJxtt7ch3KoKN+2Mq6N5Pw==
-X-Received: by 2002:a05:6000:1449:b0:3a4:dbac:2dc1 with SMTP id ffacd0b85a97d-3a6ed6506a3mr1622991f8f.54.1750840456547;
-        Wed, 25 Jun 2025 01:34:16 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538238198asm12803765e9.39.2025.06.25.01.34.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jun 2025 01:34:16 -0700 (PDT)
-Date: Wed, 25 Jun 2025 09:34:15 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Radim =?UTF-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: "Palmer Dabbelt" <palmer@dabbelt.com>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "Atish Patra" <atishp@rivosinc.com>,
- <ajones@ventanamicro.com>, <cleger@rivosinc.com>,
- <apatel@ventanamicro.com>, <thomas.weissschuh@linutronix.de>, "Jeff Law"
- <jlaw@ventanamicro.com>
-Subject: Re: [PATCH v2 3/2] RISC-V: sbi: remove sbi_ecall tracepoints
-Message-ID: <20250625093415.53fd21cf@pumpkin>
-In-Reply-To: <DAVG8M70SJ4Q.ZSTC5VSJWGSK@ventanamicro.com>
-References: <20250619190315.2603194-4-rkrcmar@ventanamicro.com>
-	<mhng-516082EA-5A9A-4A76-9448-70828749F95F@palmerdabbelt-mac>
-	<DAUSD38QIV6D.1YO5ASNI3EUGV@ventanamicro.com>
-	<DAVG8M70SJ4Q.ZSTC5VSJWGSK@ventanamicro.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1uULbJ-00000007yTU-44uK;
+	Wed, 25 Jun 2025 08:35:27 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 42AC51F00050;
+	Wed, 25 Jun 2025 08:35:21 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id F2609AC7A37; Wed, 25 Jun 2025 08:35:19 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 4EC5EAC7A2F;
+	Wed, 25 Jun 2025 08:35:18 +0000 (UTC)
+Date: Wed, 25 Jun 2025 10:35:16 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Kuba =?utf-8?Q?Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH 0/5] drm/sun4i: Support LVDS on D1s/T113 combo D-PHY
+Message-ID: <aFu0xIHURuDttwJn@shepard>
+References: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
 MIME-Version: 1.0
+In-Reply-To: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_093419_862940_42056465 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20250625_013526_330326_9E3653E6 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,38 +69,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3825878319399910704=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyNSBKdW4gMjAyNSAwOTo1MTo0NSArMDIwMApSYWRpbSBLcsSNbcOhxZkgPHJrcmNt
-YXJAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cgo+IDIwMjUtMDYtMjRUMTU6MDk6MDkrMDI6MDAs
-IFJhZGltIEtyxI1tw6HFmSA8cmtyY21hckB2ZW50YW5hbWljcm8uY29tPjoKPiA+IEZvciBhbm90
-aGVyIGV4YW1wbGUsIGxldCdzIGhhdmUgdGhlIGZvbGxvd2luZyBmdW5jdGlvbjoKPiA+Cj4gPiAg
-IHN0cnVjdCBzYmlyZXQgc29tZV9zYmlfZWNhbGwodWludHB0cl90IGEwLCB1aW50cHRyX3QgYTEp
-Cj4gPiAgIHsKPiA+ICAgICByZXR1cm4gc2JpX2VjYWxsKDEyMywgNDU2LCBhMCwgYTEpOwo+ID4g
-ICB9Cj4gPgouLi4KPiAKPiBHQ0MgMTUuMSBzdGlsbCBsZWF2ZXMgIm12IiBvdXRzaWRlIHRoZSBi
-cmFuY2gsIGJ1dCBhdCBsZWFzdCBzZWVtcyB0byBiZQo+IG9uIHRoZSByaWdodCB0cmFjayAodW5k
-ZXNpcmVkIG92ZXJoZWFkIGlzIG1hcmtlZCB3aXRoIGxlYWRpbmcgc3RhcnMpOgo+IAo+ICAgIDB4
-ZmZmZmZmZmY4MDAyMzZlOCA8KzA+OglhZGRpCXNwLHNwLC00OAo+ICAgIDB4ZmZmZmZmZmY4MDAy
-MzZlYSA8KzI+OglzZAlzMCwzMihzcCkKPiAgICAweGZmZmZmZmZmODAwMjM2ZWMgPCs0PjoJc2QJ
-cmEsNDAoc3ApCj4gICAgMHhmZmZmZmZmZjgwMDIzNmVlIDwrNj46CWFkZGkJczAsc3AsNDgKPiAq
-ICAweGZmZmZmZmZmODAwMjM2ZjAgPCs4PjoJbXYJYTQsYTAKPiAqICAweGZmZmZmZmZmODAwMjM2
-ZjIgPCsxMD46CW12CWE1LGExCj4gICAgMHhmZmZmZmZmZjgwMDIzNmY0IDwrMTI+Oglub3AKPiAq
-ICAweGZmZmZmZmZmODAwMjM2ZjggPCsxNj46CW12CWEwLGE0Cj4gKiAgMHhmZmZmZmZmZjgwMDIz
-NmZhIDwrMTg+OgltdglhMSxhNQo+ICAgIDB4ZmZmZmZmZmY4MDAyMzZmYyA8KzIwPjoJbGkJYTcs
-MTIzCj4gICAgMHhmZmZmZmZmZjgwMDIzNzAwIDwrMjQ+OglsaQlhNiw0NTYKPiAgICAweGZmZmZm
-ZmZmODAwMjM3MDQgPCsyOD46CWVjYWxsCj4gKiAgMHhmZmZmZmZmZjgwMDIzNzA4IDwrMzI+Oglt
-dglhNSxhMAo+ICogIDB4ZmZmZmZmZmY4MDAyMzcwYSA8KzM0PjoJbXYJYTIsYTEKPiAgICAweGZm
-ZmZmZmZmODAwMjM3MGMgPCszNj46CW5vcAo+ICAgIDB4ZmZmZmZmZmY4MDAyMzcxMCA8KzQwPjoJ
-bGQJcmEsNDAoc3ApCj4gICAgMHhmZmZmZmZmZjgwMDIzNzEyIDwrNDI+OglsZAlzMCwzMihzcCkK
-PiAqICAweGZmZmZmZmZmODAwMjM3MTQgPCs0ND46CW12CWEwLGE1Cj4gKiAgMHhmZmZmZmZmZjgw
-MDIzNzE2IDwrNDY+OgltdglhMSxhMgo+ICAgIDB4ZmZmZmZmZmY4MDAyMzcxOCA8KzQ4PjoJYWRk
-aQlzcCxzcCw0OAo+ICAgIDB4ZmZmZmZmZmY4MDAyMzcxYSA8KzUwPjoJcmV0Cj4gICAgW1RyYWNp
-bmcgZ29lcyB0byArMTI2XQoKSG93IG11Y2ggZG8gYSBmZXcgcmVnaXN0ZXIgbW92ZXMvc3BpbGxz
-IG1hdHRlciBjb21wYXJlZCB0byB0aGUKY29zdCBvZiB0aGUgY2FsbGVkIGNvZGU/ClRoZXJlIHdp
-bGwgYnV0IG11Y2ggd29yc2UgdGhpbmdzIG91dCB0aGVyZSBpZiB5b3UgbG9vay4KCglEYXZpZAoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============3825878319399910704==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lE79oaprNLAlqRlL"
+Content-Disposition: inline
+
+
+--lE79oaprNLAlqRlL
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+Thanks for your work!
+
+On Fri 21 Feb 25, 17:17, Kuba Szczodrzy=C5=84ski wrote:
+> Some Allwinner chips (notably the D1s/T113 and the A100) have a "combo
+> MIPI DSI D-PHY" which is required when using single-link LVDS0. The same
+> PD0..PD9 pins are used for either DSI or LVDS.
+>=20
+> Other than having to use the combo D-PHY, LVDS output is configured in
+> the same way as on older chips.
+
+=46rom what I understand of section 5.1.4.2 LVDS Mode Configuration Process
+there's two LVDS outputs:
+- LVDS0, driven by the combo-phy
+- LVDS1, driven by the usual TCON0 LVDS PHY
+
+As far as I understand the LVDS_IF register still has to be configured for
+LVDS0. The D1 manual mentions a LVDS1_IF register at offset 0x244 (which I =
+don't
+see in the T113-S3 manual, but is probably also there), which is liekely us=
+ed to
+configure LVDS1. Then we find our LVDS_ANA0/ANA1 registers that are likely =
+just
+used for LVDS1.
+
+While this series adds support for LVDS0 only, it would be good to also be =
+able
+to support LVDS1, including dual-link modes. So eventually we'd need a way =
+to
+actually support both cases.
+
+It would be great if you could include these details somewhere so they don'=
+t get
+lost. And this seems to be the exact same situation as the A133 by the way.
+
+All the best,
+
+Paul
+
+> This series enables the sun6i MIPI D-PHY to also work in LVDS mode. It
+> is then configured by the LCD TCON, which allows connecting a
+> single-link LVDS display panel.
+>=20
+> Kuba Szczodrzy=C5=84ski (5):
+>   phy: allwinner: phy-sun6i-mipi-dphy: Support LVDS in combo D-PHY
+>   drm/sun4i: Support LVDS using MIPI DSI combo D-PHY
+>   drm/sun4i: Enable LVDS output on sun20i D1s/T113
+>   riscv: dts: allwinner: d1s-t113: Add D-PHY to TCON LCD0
+>   riscv: dts: allwinner: d1s-t113: Add LVDS0 pins
+>=20
+>  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 10 +++
+>  drivers/gpu/drm/sun4i/sun4i_tcon.c            | 40 ++++++++++++
+>  drivers/gpu/drm/sun4i/sun4i_tcon.h            |  6 ++
+>  drivers/phy/allwinner/phy-sun6i-mipi-dphy.c   | 65 ++++++++++++++++++-
+>  4 files changed, 119 insertions(+), 2 deletions(-)
+>=20
+> --=20
+> 2.25.1
+>=20
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--lE79oaprNLAlqRlL
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhbtMQACgkQhP3B6o/u
+lQy1gA/+Iu8VPy90JA8o66lrxeIiIPWu6Xc+0rbfnad0J7/iNziGmCOxQ3XaZbd7
+W5L9p+yX9ByxxHM5Ijwujnq47fMWfOSXRCtwxN7BR2rlpp9F6RmnI7qxRnv14n74
+ygKt4UEbPCsvtLj6X7w76NQK1qotvnQYwwdkoRKM0zKKvah2N49FFgSmue/AI3QZ
+rDbK/WWXOdxuEIv8kp6L3zlWLsm9Rdc9NprRjlXzTESyHfFlE7be8hiKs1OLwoh2
+jy9PFCzCSSbWx6ePb6pjPq07gVmjQxr4IQys0EHgxWvNeq4d/AdLzzijuiWR9sbM
+FfzTvWtV/eSrg1cedRGejZqY9K+rHC1naCmaJaxXppqBcTveO/coAb3Gt3HJh6PL
+NU+LWe1mFgKS1iU+PZX8Kz2eRmeqYBxPHNIpgLsqGlnqeHG1yNODCgj84PJF5nN6
+1vnELm6+dBfMhg7LYv/N0Z1kaYHAyFPU7F0Cq3L+NHRiqBCZK2nSRnb7DhqNt4Nn
+jcQbee+prBnM+tMoH5qtJLQ8vZ37XNZwbmHKOP/f5mzS04YUsWI2cvdSvXReMgLZ
+TfJjvNYmIZdarxMFsA6+E0TeZp7l7zLuxMFAO/v83VpxtmRnx5w+kYc4VJG7vAe3
+cMlHuxed0U8beaagiB+SYqTPx4VFjBLAw2SY8RYS4HuovYh4v5o=
+=RNKR
+-----END PGP SIGNATURE-----
+
+--lE79oaprNLAlqRlL--
+
+
+--===============3825878319399910704==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3825878319399910704==--
+
