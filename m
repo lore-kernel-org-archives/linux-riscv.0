@@ -4,52 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98760C7115C
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E332AC7115C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Cc:References:From:To:
-	Message-Id:Date:Subject:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:From:References:Date:To:
+	In-Reply-To:Cc:Mime-Version:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dcbEJ5QmbtjVx9z3xsJ6ORQE9kftD9hZSoTKgifhTeg=; b=03EW4034uRjYRo
-	HRnKFusN1bG7Ri0kBs/oOSLHlrVor/UtA5vR/Fqm8sUJMFCByp+Rz1L8kgg0kwM+R+Jcge9iCIl/B
-	NxOfMLsZzPGilZ/ncviXXa45NH5nqGzMusS+itvd3OZNArIlGiEXHQTcXdIYtvFR4ESBqpiY8Ucuo
-	D1H1LLLfcHTP20jsbpHvDwGQO0h9fRvwhPaGxLo9ZppTnbsnYYX6qkQd+4B77a3MWbmASD0pqysZh
-	jicpeXeeLUXlaoIKNi0V0sRF/tVds1GmgQm83arO1ZVZs5AbkWxQPb9CMcKMui8CBUOkPM9HHa9gn
-	PcqtA5fL4nGcFogNYJQw==;
+	List-Owner; bh=HKx6O0CgBkKXhJZZWbKlV7m44NXF/rs+jhdMzi9onj4=; b=JI3WILeDMwYjLZ
+	FCVS4fIQAaSey1PjQnvjenIYD/ap53j9MV/4FGWRAlLY6dUSAp9pMmuAMxDgqfOYE/YzxST6gQjKG
+	5hgpzDPq7VwJWXykfA8/9071AQVbLrgsEqA+XiMWDZeNWYXOZoy+12Jn73BZdxfm94kSDzKekqWLX
+	Yq++oq/WXqVaLmWEgKx7U97pVco1DewSW7Ihv84b69/lV3qDynNQK6e/I+7DkNc10S81vm5rF8y4O
+	pdt0EYyjTZBn922OVKx7qtXfTSa6iixd95Lt2sppKVyljNjZ+Wiz8zgWA+gGi5Lu1vickcU4UIvew
+	tFCdYj+RFw+/vngn1MAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULcj-00000007yao-25Yy;
-	Wed, 25 Jun 2025 08:36:53 +0000
-Received: from va-2-35.ptr.blmpb.com ([209.127.231.35])
+	id 1uULck-00000007yb9-1zIY;
+	Wed, 25 Jun 2025 08:36:54 +0000
+Received: from sg-3-15.ptr.tlmpb.com ([101.45.255.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKix-00000007qTO-1yE6
+	id 1uUKji-00000007pmp-2C5f
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 07:39:17 +0000
+	Wed, 25 Jun 2025 07:40:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1750837147;
+ s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1750837193;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=VYCLNIDhFn58v6NVsiYfx2EHCtJBoqLZUjdlDct+nWU=;
- b=hbDZHriFQtJP3Kr/a7knKEcE8Ehxy3ZjTKmkGvu6zWogQMAYp+Qc6V3AKiG5wfB+dxrfPW
- ClH/moCwn0mDFCYZUK6Oma+66y7LXuxY5b0cn0i/yWLUZeOc6RMhXFoUtHj8/dzZNMALp7
- 4uaq+39rK5QSGrpNKDrdK5rvnZC//7WHlcRsYaNwg4qrUiYfJSSz319pZKBoW7V6s3Zo5M
- awJZVx7Pzirap1QrZ+8kNLOUozbcf+j5+PCVMxAQ/snA+H2keDmQEQ7eH6IsDZwbp9fN37
- DKyPj1LqhduV2yJC3CpBOi8kNPGksAzLefkPhdJgdDaPZYWvVJlgXglQ/PCoug==
-In-Reply-To: <20250618113532.471448-7-apatel@ventanamicro.com>
+ bh=yzsraZSWqwSvVbcAdyXaFFgenrSPFsa+2FOgTUwiozM=;
+ b=j+dxlps+gqW75WVPPsqWlJvqwvDuXfQft+a69WvTgKMfG1ztI7NAwby5qicDw6C1+PSBxw
+ anus9AjfqKrhz+CeM1ftngoAyn6nIG/2al8nXPvRgFxxZoDZRJQ9dz2n49mku6rDE6IsPV
+ EQiJgGU6FXMYxuoUupl7koWKIUCmuDGPCEFuFUgutgoFLDUXrcpwohxK9/JTytFS/8AWqO
+ bcBc/nmibBonzP9JG+TOhkRmLQFUxfEee0VnXIjfv57q+3semoTOuB6gZcfPqmdruAGMrP
+ z0y6cFdUQCLmm8C28TzINWZdhEGMCEctyUnaBMFooxCKHWz/xXXmB4YZDXq3vg==
 Content-Language: en-US
-Subject: Re: [PATCH v3 06/12] RISC-V: KVM: Implement kvm_arch_flush_remote_tlbs_range()
-Date: Wed, 25 Jun 2025 15:39:02 +0800
-Message-Id: <87fda112-4ecd-4631-98be-da420aa59dd5@lanxincomputing.com>
-Received: from [127.0.0.1] ([139.226.59.215]) by smtp.feishu.cn with ESMTPS; Wed, 25 Jun 2025 15:39:03 +0800
-X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
-To: "Anup Patel" <apatel@ventanamicro.com>, 
-	"Atish Patra" <atish.patra@linux.dev>
-From: "Nutty Liu" <liujingqi@lanxincomputing.com>
-X-Lms-Return-Path: <lba+2685ba799+e1baac+lists.infradead.org+liujingqi@lanxincomputing.com>
-References: <20250618113532.471448-1-apatel@ventanamicro.com> <20250618113532.471448-7-apatel@ventanamicro.com>
-User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 07/12] RISC-V: KVM: Use ncsr_xyz() in kvm_riscv_vcpu_trap_redirect()
+Mime-Version: 1.0
+Received: from [127.0.0.1] ([139.226.59.215]) by smtp.feishu.cn with ESMTPS; Wed, 25 Jun 2025 15:39:50 +0800
 Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, 
 	"Paul Walmsley" <paul.walmsley@sifive.com>, 
 	"Alexandre Ghiti" <alex@ghiti.fr>, 
@@ -57,10 +48,19 @@ Cc: "Palmer Dabbelt" <palmer@dabbelt.com>,
 	"Anup Patel" <anup@brainfault.org>, <kvm@vger.kernel.org>, 
 	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>, 
 	<linux-kernel@vger.kernel.org>, "Atish Patra" <atishp@rivosinc.com>
-Mime-Version: 1.0
+In-Reply-To: <20250618113532.471448-8-apatel@ventanamicro.com>
+X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
+X-Lms-Return-Path: <lba+2685ba7c7+14a66b+lists.infradead.org+liujingqi@lanxincomputing.com>
+To: "Anup Patel" <apatel@ventanamicro.com>, 
+	"Atish Patra" <atish.patra@linux.dev>
+Date: Wed, 25 Jun 2025 15:39:48 +0800
+User-Agent: Mozilla Thunderbird
+References: <20250618113532.471448-1-apatel@ventanamicro.com> <20250618113532.471448-8-apatel@ventanamicro.com>
+From: "Nutty Liu" <liujingqi@lanxincomputing.com>
+Message-Id: <88b20a43-46c7-4297-ac20-dea7b0157c92@lanxincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_003915_579988_4CBBAB3C 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20250625_004002_938754_027AF591 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,64 +78,58 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 6/18/2025 7:35 PM, Anup Patel wrote:
-> The kvm_arch_flush_remote_tlbs_range() expected by KVM core can be
-> easily implemented for RISC-V using kvm_riscv_hfence_gvma_vmid_gpa()
-> hence provide it.
->
-> Also with kvm_arch_flush_remote_tlbs_range() available for RISC-V, the
-> mmu_wp_memory_region() can happily use kvm_flush_remote_tlbs_memslot()
-> instead of kvm_flush_remote_tlbs().
+> The H-extension CSRs accessed by kvm_riscv_vcpu_trap_redirect() will
+> trap when KVM RISC-V is running as Guest/VM hence remove these traps
+> by using ncsr_xyz() instead of csr_xyz().
 >
 > Reviewed-by: Atish Patra <atishp@rivosinc.com>
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->   arch/riscv/include/asm/kvm_host.h | 2 ++
->   arch/riscv/kvm/mmu.c              | 2 +-
->   arch/riscv/kvm/tlb.c              | 8 ++++++++
->   3 files changed, 11 insertions(+), 1 deletion(-)
+>   arch/riscv/kvm/vcpu_exit.c | 13 +++++++------
+>   1 file changed, 7 insertions(+), 6 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> index ff1f76d6f177..6162575e2177 100644
-> --- a/arch/riscv/include/asm/kvm_host.h
-> +++ b/arch/riscv/include/asm/kvm_host.h
-> @@ -43,6 +43,8 @@
->   	KVM_ARCH_REQ_FLAGS(5, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
->   #define KVM_REQ_STEAL_UPDATE		KVM_ARCH_REQ(6)
+> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+> index 6e0c18412795..85c43c83e3b9 100644
+> --- a/arch/riscv/kvm/vcpu_exit.c
+> +++ b/arch/riscv/kvm/vcpu_exit.c
+> @@ -9,6 +9,7 @@
+>   #include <linux/kvm_host.h>
+>   #include <asm/csr.h>
+>   #include <asm/insn-def.h>
+> +#include <asm/kvm_nacl.h>
 >   
-> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
-> +
->   #define KVM_HEDELEG_DEFAULT		(BIT(EXC_INST_MISALIGNED) | \
->   					 BIT(EXC_BREAKPOINT)      | \
->   					 BIT(EXC_SYSCALL)         | \
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index 29f1bd853a66..a5387927a1c1 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -344,7 +344,7 @@ static void gstage_wp_memory_region(struct kvm *kvm, int slot)
->   	spin_lock(&kvm->mmu_lock);
->   	gstage_wp_range(kvm, start, end);
->   	spin_unlock(&kvm->mmu_lock);
-> -	kvm_flush_remote_tlbs(kvm);
-> +	kvm_flush_remote_tlbs_memslot(kvm, memslot);
->   }
+>   static int gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>   			     struct kvm_cpu_trap *trap)
+> @@ -135,7 +136,7 @@ unsigned long kvm_riscv_vcpu_unpriv_read(struct kvm_vcpu *vcpu,
+>   void kvm_riscv_vcpu_trap_redirect(struct kvm_vcpu *vcpu,
+>   				  struct kvm_cpu_trap *trap)
+>   {
+> -	unsigned long vsstatus = csr_read(CSR_VSSTATUS);
+> +	unsigned long vsstatus = ncsr_read(CSR_VSSTATUS);
 >   
->   int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
-> diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
-> index da98ca801d31..f46a27658c2e 100644
-> --- a/arch/riscv/kvm/tlb.c
-> +++ b/arch/riscv/kvm/tlb.c
-> @@ -403,3 +403,11 @@ void kvm_riscv_hfence_vvma_all(struct kvm *kvm,
->   	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE_VVMA_ALL,
->   			    KVM_REQ_HFENCE_VVMA_ALL, NULL);
->   }
-> +
-> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 nr_pages)
-> +{
-> +	kvm_riscv_hfence_gvma_vmid_gpa(kvm, -1UL, 0,
-> +				       gfn << PAGE_SHIFT, nr_pages << PAGE_SHIFT,
-> +				       PAGE_SHIFT);
-> +	return 0;
-> +}
+>   	/* Change Guest SSTATUS.SPP bit */
+>   	vsstatus &= ~SR_SPP;
+> @@ -151,15 +152,15 @@ void kvm_riscv_vcpu_trap_redirect(struct kvm_vcpu *vcpu,
+>   	vsstatus &= ~SR_SIE;
+>   
+>   	/* Update Guest SSTATUS */
+> -	csr_write(CSR_VSSTATUS, vsstatus);
+> +	ncsr_write(CSR_VSSTATUS, vsstatus);
+>   
+>   	/* Update Guest SCAUSE, STVAL, and SEPC */
+> -	csr_write(CSR_VSCAUSE, trap->scause);
+> -	csr_write(CSR_VSTVAL, trap->stval);
+> -	csr_write(CSR_VSEPC, trap->sepc);
+> +	ncsr_write(CSR_VSCAUSE, trap->scause);
+> +	ncsr_write(CSR_VSTVAL, trap->stval);
+> +	ncsr_write(CSR_VSEPC, trap->sepc);
+>   
+>   	/* Set Guest PC to Guest exception vector */
+> -	vcpu->arch.guest_context.sepc = csr_read(CSR_VSTVEC);
+> +	vcpu->arch.guest_context.sepc = ncsr_read(CSR_VSTVEC);
+>   
+>   	/* Set Guest privilege mode to supervisor */
+>   	vcpu->arch.guest_context.sstatus |= SR_SPP;
 
 Reviewed-by: Nutty Liu <liujingqi@lanxincomputing.com>
 
