@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B773CC7115C
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:46:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03672C7EE31
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 09:03:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Subject:From:Cc:In-Reply-To:
-	Mime-Version:Date:References:To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WosUjBwy8/5NNkeDwCWhQ8MPOwRueAC1uokq83Uxnik=; b=2mgbTXu1Y3R5o0
-	O506NWnKLITCD130lIM9YlJC08kNI4rxydF8wLj/Aw+tPq237SVl/chBC2jnybp6XNEMFJLLNAtAn
-	XOXwKP+aZUfJLW9s8tzI2gjGSHlHbVzxFAUL91afHRJV4mV3y+Ri4w+tVJ1UQWznVej4k5qOuqPo/
-	uc9NRzT2tc+TpbH9Vuu21W0BLdhwK8fFmVmX8YQlYTrgLHY83odx2BxtbUhxbpOqsV4OmK3wI0Pkn
-	CXC64xdEGeUqZmAQaf7b6rY/y1gn/wJSqFMiblO53fpIceEYmyKo4ahzC5FyR+u51IxI6a30qxgnv
-	jTwLWmE3kd6UO4V1is7Q==;
+	List-Owner; bh=k7pRqIGukkDjzBOtEj5Q63TQtWIKhAVMy3bhht1fxSc=; b=KhJGDX/14HY+Wg
+	RvCCJwpC1RWAW8ensP6yvufP93UUb7j7JXy3pg1R8STOHjL7cpY4dRfua2pKwbNsxf6ib2V3BGoFn
+	U5jdPNhVtLT47cWeTR8fexa3YvgG+E2Zo0R09PYWLkf4xC6H/cTsL3T8yydPPwRSHlVBzTQW62ire
+	buogoqY8lBj7nB9FR/HVlr5BlfnfyQ9kyXqeV1M/F1XvtxDDp2lGl+b3KFILnPqFpCiU2lbyo5M+J
+	a7Kud4bu/KiwAERd80JRuurgEK5cjwAmo7WMvRZYPByxBUljVumlRD+AecI5liv9giJ/XzMZD8SBj
+	8Ol6RrTo/j0zqLPY9FsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULmH-000000080z7-08nf;
-	Wed, 25 Jun 2025 08:46:45 +0000
-Received: from sg-1-18.ptr.blmpb.com ([118.26.132.18])
+	id 1uUM2B-000000083sV-0p8W;
+	Wed, 25 Jun 2025 09:03:11 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUL2n-00000007tHT-2Mu2
+	id 1uULOG-00000007wWS-1gfT
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 07:59:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1750838312;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=dEQ9sBnSb1IxAaBtFr6qN+iSK2n4Wh6F+hsqcQlC8zs=;
- b=CGzctu5L1cpjqnlnm20yQffQGtzcaqPrbUh1I5b/FDWtT1UeegCg1LYzkXEyphFGlvzN4b
- CWGTq47Uow/Uiu5Kjd+KpM7hmLX+EQ38W0wAjQj/AuUK/J8r0pIX4WdS0FP89/wf8h8uDe
- bAEb0pAfzB3zBvt0DdTty+FIdXWLU2NH3sluhlexWpTH2KGEwvqwpHuA/QnGq2u0xCVq2X
- bQd9Alf+5pITsnJapVNeNm3P7ZtYmLFiwtGG1Ki6gc7PH0lSaHNtJb5+zcoip5yJ6STjf4
- tIqveS31ID913YRmri7S0AUJdRLrQofPHLq/2ZGL5cFIoPKOaQE9R+VXv5qp9g==
-Content-Language: en-US
-To: "Anup Patel" <apatel@ventanamicro.com>, 
-	"Atish Patra" <atish.patra@linux.dev>
-References: <20250618113532.471448-1-apatel@ventanamicro.com> <20250618113532.471448-13-apatel@ventanamicro.com>
-Date: Wed, 25 Jun 2025 15:58:27 +0800
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+2685bac26+3c834c+lists.infradead.org+liujingqi@lanxincomputing.com>
-In-Reply-To: <20250618113532.471448-13-apatel@ventanamicro.com>
-Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Alexandre Ghiti" <alex@ghiti.fr>, 
-	"Andrew Jones" <ajones@ventanamicro.com>, 
-	"Anup Patel" <anup@brainfault.org>, <kvm@vger.kernel.org>, 
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>, 
-	<linux-kernel@vger.kernel.org>
-From: "Nutty Liu" <liujingqi@lanxincomputing.com>
-X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
-User-Agent: Mozilla Thunderbird
-Received: from [127.0.0.1] ([139.226.59.215]) by smtp.feishu.cn with ESMTPS; Wed, 25 Jun 2025 15:58:29 +0800
-Subject: Re: [PATCH v3 12/12] RISC-V: KVM: Pass VMID as parameter to kvm_riscv_hfence_xyz() APIs
-Message-Id: <68964c3d-eaba-4bdd-bdeb-169d64889db5@lanxincomputing.com>
+	Wed, 25 Jun 2025 08:21:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7ED03A48E5C;
+	Wed, 25 Jun 2025 08:21:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A48CC4CEEA;
+	Wed, 25 Jun 2025 08:21:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750839715;
+	bh=EWmpGBQr93VwGYphPN1mqtDgtD2Nh9NaQj6utWcWPlw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QNtVW0PciOraX7px3gUf6NBKLnvSlyvsSJ6TLRHWjUzX0iwSm3iR/M3Pr9jiHZWvh
+	 GmOrxW8fPt5ABhZrSrlOmgnBtOUelqqTxqXsxTTyq8bg+mtSiI0CpvFEytlQsIGc7j
+	 nsBIz8QjD+9r9Q8v8TbuHkWQgfCDFifE9+veARSvsKk2BkGFdHG/CmIbYH2+T00qKX
+	 g3RfNFfjUbVV/oWFJyAGxl4ybPu5hIv7t/gAxapfhBnEmSjf0kQ3Gb4aoKBxvGnArX
+	 Uy1qRxAKjVy5TQ582NauhE5PA+vSz5xwXsWIfnVcBHAvYSxibp0pac6B4nuN/cm7Hh
+	 QursECtoS8m7Q==
+Date: Wed, 25 Jun 2025 09:21:49 +0100
+From: Lee Jones <lee@kernel.org>
+To: Alex Elder <elder@riscstar.com>
+Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, dlan@gentoo.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, troymitchell988@gmail.com, guodong@riscstar.com,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/6] mfd: spacemit: add support for SpacemiT PMICs
+Message-ID: <20250625082149.GO795775@google.com>
+References: <20250613210150.1468845-1-elder@riscstar.com>
+ <20250613210150.1468845-3-elder@riscstar.com>
+ <20250619144023.GG795775@google.com>
+ <8126de92-0338-4cd0-98fc-4f8c37500201@riscstar.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <8126de92-0338-4cd0-98fc-4f8c37500201@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_005945_957006_7F5C0C33 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20250625_012156_577318_CF609D92 
+X-CRM114-Status: GOOD (  59.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,331 +74,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/18/2025 7:35 PM, Anup Patel wrote:
-> Currently, all kvm_riscv_hfence_xyz() APIs assume VMID to be the
-> host VMID of the Guest/VM which resticts use of these APIs only
-> for host TLB maintenance. Let's allow passing VMID as a parameter
-> to all kvm_riscv_hfence_xyz() APIs so that they can be re-used
-> for nested virtualization related TLB maintenance.
->
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->   arch/riscv/include/asm/kvm_tlb.h  | 17 ++++++---
->   arch/riscv/kvm/gstage.c           |  3 +-
->   arch/riscv/kvm/tlb.c              | 61 ++++++++++++++++++++-----------
->   arch/riscv/kvm/vcpu_sbi_replace.c | 17 +++++----
->   arch/riscv/kvm/vcpu_sbi_v01.c     | 25 ++++++-------
->   5 files changed, 73 insertions(+), 50 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/kvm_tlb.h b/arch/riscv/include/asm/kvm_tlb.h
-> index f67e03edeaec..38a2f933ad3a 100644
-> --- a/arch/riscv/include/asm/kvm_tlb.h
-> +++ b/arch/riscv/include/asm/kvm_tlb.h
-> @@ -11,9 +11,11 @@
->   enum kvm_riscv_hfence_type {
->   	KVM_RISCV_HFENCE_UNKNOWN = 0,
->   	KVM_RISCV_HFENCE_GVMA_VMID_GPA,
-> +	KVM_RISCV_HFENCE_GVMA_VMID_ALL,
->   	KVM_RISCV_HFENCE_VVMA_ASID_GVA,
->   	KVM_RISCV_HFENCE_VVMA_ASID_ALL,
->   	KVM_RISCV_HFENCE_VVMA_GVA,
-> +	KVM_RISCV_HFENCE_VVMA_ALL
->   };
->   
->   struct kvm_riscv_hfence {
-> @@ -59,21 +61,24 @@ void kvm_riscv_fence_i(struct kvm *kvm,
->   void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
->   				    unsigned long hbase, unsigned long hmask,
->   				    gpa_t gpa, gpa_t gpsz,
-> -				    unsigned long order);
-> +				    unsigned long order, unsigned long vmid);
->   void kvm_riscv_hfence_gvma_vmid_all(struct kvm *kvm,
-> -				    unsigned long hbase, unsigned long hmask);
-> +				    unsigned long hbase, unsigned long hmask,
-> +				    unsigned long vmid);
->   void kvm_riscv_hfence_vvma_asid_gva(struct kvm *kvm,
->   				    unsigned long hbase, unsigned long hmask,
->   				    unsigned long gva, unsigned long gvsz,
-> -				    unsigned long order, unsigned long asid);
-> +				    unsigned long order, unsigned long asid,
-> +				    unsigned long vmid);
->   void kvm_riscv_hfence_vvma_asid_all(struct kvm *kvm,
->   				    unsigned long hbase, unsigned long hmask,
-> -				    unsigned long asid);
-> +				    unsigned long asid, unsigned long vmid);
->   void kvm_riscv_hfence_vvma_gva(struct kvm *kvm,
->   			       unsigned long hbase, unsigned long hmask,
->   			       unsigned long gva, unsigned long gvsz,
-> -			       unsigned long order);
-> +			       unsigned long order, unsigned long vmid);
->   void kvm_riscv_hfence_vvma_all(struct kvm *kvm,
-> -			       unsigned long hbase, unsigned long hmask);
-> +			       unsigned long hbase, unsigned long hmask,
-> +			       unsigned long vmid);
->   
->   #endif
-> diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-> index 9c7c44f09b05..24c270d6d0e2 100644
-> --- a/arch/riscv/kvm/gstage.c
-> +++ b/arch/riscv/kvm/gstage.c
-> @@ -117,7 +117,8 @@ static void gstage_tlb_flush(struct kvm_gstage *gstage, u32 level, gpa_t addr)
->   	if (gstage->flags & KVM_GSTAGE_FLAGS_LOCAL)
->   		kvm_riscv_local_hfence_gvma_vmid_gpa(gstage->vmid, addr, BIT(order), order);
->   	else
-> -		kvm_riscv_hfence_gvma_vmid_gpa(gstage->kvm, -1UL, 0, addr, BIT(order), order);
-> +		kvm_riscv_hfence_gvma_vmid_gpa(gstage->kvm, -1UL, 0, addr, BIT(order), order,
-> +					       gstage->vmid);
->   }
->   
->   int kvm_riscv_gstage_set_pte(struct kvm_gstage *gstage,
-> diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
-> index 349fcfc93f54..3c5a70a2b927 100644
-> --- a/arch/riscv/kvm/tlb.c
-> +++ b/arch/riscv/kvm/tlb.c
-> @@ -251,6 +251,12 @@ void kvm_riscv_hfence_process(struct kvm_vcpu *vcpu)
->   				kvm_riscv_local_hfence_gvma_vmid_gpa(d.vmid, d.addr,
->   								     d.size, d.order);
->   			break;
-> +		case KVM_RISCV_HFENCE_GVMA_VMID_ALL:
-> +			if (kvm_riscv_nacl_available())
-> +				nacl_hfence_gvma_vmid_all(nacl_shmem(), d.vmid);
-> +			else
-> +				kvm_riscv_local_hfence_gvma_vmid_all(d.vmid);
-> +			break;
->   		case KVM_RISCV_HFENCE_VVMA_ASID_GVA:
->   			kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD);
->   			if (kvm_riscv_nacl_available())
-> @@ -276,6 +282,13 @@ void kvm_riscv_hfence_process(struct kvm_vcpu *vcpu)
->   				kvm_riscv_local_hfence_vvma_gva(d.vmid, d.addr,
->   								d.size, d.order);
->   			break;
-> +		case KVM_RISCV_HFENCE_VVMA_ALL:
-> +			kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_RCVD);
-> +			if (kvm_riscv_nacl_available())
-> +				nacl_hfence_vvma_all(nacl_shmem(), d.vmid);
-> +			else
-> +				kvm_riscv_local_hfence_vvma_all(d.vmid);
-> +			break;
->   		default:
->   			break;
->   		}
-> @@ -328,14 +341,13 @@ void kvm_riscv_fence_i(struct kvm *kvm,
->   void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
->   				    unsigned long hbase, unsigned long hmask,
->   				    gpa_t gpa, gpa_t gpsz,
-> -				    unsigned long order)
-> +				    unsigned long order, unsigned long vmid)
->   {
-> -	struct kvm_vmid *v = &kvm->arch.vmid;
->   	struct kvm_riscv_hfence data;
->   
->   	data.type = KVM_RISCV_HFENCE_GVMA_VMID_GPA;
->   	data.asid = 0;
-> -	data.vmid = READ_ONCE(v->vmid);
-> +	data.vmid = vmid;
->   	data.addr = gpa;
->   	data.size = gpsz;
->   	data.order = order;
-> @@ -344,23 +356,28 @@ void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
->   }
->   
->   void kvm_riscv_hfence_gvma_vmid_all(struct kvm *kvm,
-> -				    unsigned long hbase, unsigned long hmask)
-> +				    unsigned long hbase, unsigned long hmask,
-> +				    unsigned long vmid)
->   {
-> -	make_xfence_request(kvm, hbase, hmask, KVM_REQ_TLB_FLUSH,
-> -			    KVM_REQ_TLB_FLUSH, NULL);
-> +	struct kvm_riscv_hfence data = {0};
-> +
-> +	data.type = KVM_RISCV_HFENCE_GVMA_VMID_ALL;
-> +	data.vmid = vmid;
-> +	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE,
-> +			    KVM_REQ_TLB_FLUSH, &data);
->   }
->   
->   void kvm_riscv_hfence_vvma_asid_gva(struct kvm *kvm,
->   				    unsigned long hbase, unsigned long hmask,
->   				    unsigned long gva, unsigned long gvsz,
-> -				    unsigned long order, unsigned long asid)
-> +				    unsigned long order, unsigned long asid,
-> +				    unsigned long vmid)
->   {
-> -	struct kvm_vmid *v = &kvm->arch.vmid;
->   	struct kvm_riscv_hfence data;
->   
->   	data.type = KVM_RISCV_HFENCE_VVMA_ASID_GVA;
->   	data.asid = asid;
-> -	data.vmid = READ_ONCE(v->vmid);
-> +	data.vmid = vmid;
->   	data.addr = gva;
->   	data.size = gvsz;
->   	data.order = order;
-> @@ -370,15 +387,13 @@ void kvm_riscv_hfence_vvma_asid_gva(struct kvm *kvm,
->   
->   void kvm_riscv_hfence_vvma_asid_all(struct kvm *kvm,
->   				    unsigned long hbase, unsigned long hmask,
-> -				    unsigned long asid)
-> +				    unsigned long asid, unsigned long vmid)
->   {
-> -	struct kvm_vmid *v = &kvm->arch.vmid;
-> -	struct kvm_riscv_hfence data;
-> +	struct kvm_riscv_hfence data = {0};
->   
->   	data.type = KVM_RISCV_HFENCE_VVMA_ASID_ALL;
->   	data.asid = asid;
-> -	data.vmid = READ_ONCE(v->vmid);
-> -	data.addr = data.size = data.order = 0;
-> +	data.vmid = vmid;
->   	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE,
->   			    KVM_REQ_HFENCE_VVMA_ALL, &data);
->   }
-> @@ -386,14 +401,13 @@ void kvm_riscv_hfence_vvma_asid_all(struct kvm *kvm,
->   void kvm_riscv_hfence_vvma_gva(struct kvm *kvm,
->   			       unsigned long hbase, unsigned long hmask,
->   			       unsigned long gva, unsigned long gvsz,
-> -			       unsigned long order)
-> +			       unsigned long order, unsigned long vmid)
->   {
-> -	struct kvm_vmid *v = &kvm->arch.vmid;
->   	struct kvm_riscv_hfence data;
->   
->   	data.type = KVM_RISCV_HFENCE_VVMA_GVA;
->   	data.asid = 0;
-> -	data.vmid = READ_ONCE(v->vmid);
-> +	data.vmid = vmid;
->   	data.addr = gva;
->   	data.size = gvsz;
->   	data.order = order;
-> @@ -402,16 +416,21 @@ void kvm_riscv_hfence_vvma_gva(struct kvm *kvm,
->   }
->   
->   void kvm_riscv_hfence_vvma_all(struct kvm *kvm,
-> -			       unsigned long hbase, unsigned long hmask)
-> +			       unsigned long hbase, unsigned long hmask,
-> +			       unsigned long vmid)
->   {
-> -	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE_VVMA_ALL,
-> -			    KVM_REQ_HFENCE_VVMA_ALL, NULL);
-> +	struct kvm_riscv_hfence data = {0};
-> +
-> +	data.type = KVM_RISCV_HFENCE_VVMA_ALL;
-> +	data.vmid = vmid;
-> +	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE,
-> +			    KVM_REQ_HFENCE_VVMA_ALL, &data);
->   }
->   
->   int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 nr_pages)
->   {
->   	kvm_riscv_hfence_gvma_vmid_gpa(kvm, -1UL, 0,
->   				       gfn << PAGE_SHIFT, nr_pages << PAGE_SHIFT,
-> -				       PAGE_SHIFT);
-> +				       PAGE_SHIFT, READ_ONCE(kvm->arch.vmid.vmid));
->   	return 0;
->   }
-> diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-> index b17fad091bab..b490ed1428a6 100644
-> --- a/arch/riscv/kvm/vcpu_sbi_replace.c
-> +++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-> @@ -96,6 +96,7 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
->   	unsigned long hmask = cp->a0;
->   	unsigned long hbase = cp->a1;
->   	unsigned long funcid = cp->a6;
-> +	unsigned long vmid;
->   
->   	switch (funcid) {
->   	case SBI_EXT_RFENCE_REMOTE_FENCE_I:
-> @@ -103,22 +104,22 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
->   		kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_FENCE_I_SENT);
->   		break;
->   	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA:
-> +		vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
->   		if ((cp->a2 == 0 && cp->a3 == 0) || cp->a3 == -1UL)
-> -			kvm_riscv_hfence_vvma_all(vcpu->kvm, hbase, hmask);
-> +			kvm_riscv_hfence_vvma_all(vcpu->kvm, hbase, hmask, vmid);
->   		else
->   			kvm_riscv_hfence_vvma_gva(vcpu->kvm, hbase, hmask,
-> -						  cp->a2, cp->a3, PAGE_SHIFT);
-> +						  cp->a2, cp->a3, PAGE_SHIFT, vmid);
->   		kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_SENT);
->   		break;
->   	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID:
-> +		vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
->   		if ((cp->a2 == 0 && cp->a3 == 0) || cp->a3 == -1UL)
-> -			kvm_riscv_hfence_vvma_asid_all(vcpu->kvm,
-> -						       hbase, hmask, cp->a4);
-> +			kvm_riscv_hfence_vvma_asid_all(vcpu->kvm, hbase, hmask,
-> +						       cp->a4, vmid);
->   		else
-> -			kvm_riscv_hfence_vvma_asid_gva(vcpu->kvm,
-> -						       hbase, hmask,
-> -						       cp->a2, cp->a3,
-> -						       PAGE_SHIFT, cp->a4);
-> +			kvm_riscv_hfence_vvma_asid_gva(vcpu->kvm, hbase, hmask, cp->a2,
-> +						       cp->a3, PAGE_SHIFT, cp->a4, vmid);
->   		kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_ASID_SENT);
->   		break;
->   	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA:
-> diff --git a/arch/riscv/kvm/vcpu_sbi_v01.c b/arch/riscv/kvm/vcpu_sbi_v01.c
-> index 8f4c4fa16227..368dfddd23d9 100644
-> --- a/arch/riscv/kvm/vcpu_sbi_v01.c
-> +++ b/arch/riscv/kvm/vcpu_sbi_v01.c
-> @@ -23,6 +23,7 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
->   	struct kvm *kvm = vcpu->kvm;
->   	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
->   	struct kvm_cpu_trap *utrap = retdata->utrap;
-> +	unsigned long vmid;
->   
->   	switch (cp->a7) {
->   	case SBI_EXT_0_1_CONSOLE_GETCHAR:
-> @@ -78,25 +79,21 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
->   		if (cp->a7 == SBI_EXT_0_1_REMOTE_FENCE_I)
->   			kvm_riscv_fence_i(vcpu->kvm, 0, hmask);
->   		else if (cp->a7 == SBI_EXT_0_1_REMOTE_SFENCE_VMA) {
-> +			vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
->   			if (cp->a1 == 0 && cp->a2 == 0)
-> -				kvm_riscv_hfence_vvma_all(vcpu->kvm,
-> -							  0, hmask);
-> +				kvm_riscv_hfence_vvma_all(vcpu->kvm, 0, hmask, vmid);
->   			else
-> -				kvm_riscv_hfence_vvma_gva(vcpu->kvm,
-> -							  0, hmask,
-> -							  cp->a1, cp->a2,
-> -							  PAGE_SHIFT);
-> +				kvm_riscv_hfence_vvma_gva(vcpu->kvm, 0, hmask, cp->a1,
-> +							  cp->a2, PAGE_SHIFT, vmid);
->   		} else {
-> +			vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
->   			if (cp->a1 == 0 && cp->a2 == 0)
-> -				kvm_riscv_hfence_vvma_asid_all(vcpu->kvm,
-> -							       0, hmask,
-> -							       cp->a3);
-> +				kvm_riscv_hfence_vvma_asid_all(vcpu->kvm, 0, hmask,
-> +							       cp->a3, vmid);
->   			else
-> -				kvm_riscv_hfence_vvma_asid_gva(vcpu->kvm,
-> -							       0, hmask,
-> -							       cp->a1, cp->a2,
-> -							       PAGE_SHIFT,
-> -							       cp->a3);
-> +				kvm_riscv_hfence_vvma_asid_gva(vcpu->kvm, 0, hmask,
-> +							       cp->a1, cp->a2, PAGE_SHIFT,
-> +							       cp->a3, vmid);
->   		}
->   		break;
->   	default:
-
-Reviewed-by: Nutty Liu <liujingqi@lanxincomputing.com>
-
-Thanks,
-Nutty
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAyMCBKdW4gMjAyNSwgQWxleCBFbGRlciB3cm90ZToKCj4gT24gNi8xOS8yNSA5OjQw
+IEFNLCBMZWUgSm9uZXMgd3JvdGU6Cj4gPiBPbiBGcmksIDEzIEp1biAyMDI1LCBBbGV4IEVsZGVy
+IHdyb3RlOgo+ID4gCj4gPiA+IEFkZCBzdXBwb3J0IGZvciBTcGFjZW1pVCBQTUlDcy4gSW5pdGlh
+bGx5IG9ubHkgdGhlIFAxIFBNSUMgaXMgc3VwcG9ydGVkCj4gPiA+IGJ1dCB0aGUgZHJpdmVyIGlz
+IHN0cnVjdHVyZWQgdG8gYWxsb3cgc3VwcG9ydCBmb3Igb3RoZXJzIHRvIGJlIGFkZGVkLgo+ID4g
+PiAKPiA+ID4gVGhlIFAxIFBNSUMgaXMgY29udHJvbGxlZCBieSBJMkMsIGFuZCBpcyBub3JtYWxs
+eSBpbXBsZW1lbnRlZCB3aXRoIHRoZQo+ID4gPiBTcGFjZW1pVCBLMSBTb0MuICBUaGlzIFBNSUMg
+cHJvdmlkZXMgc2l4IGJ1Y2sgY29udmVydGVycyBhbmQgMTIgTERPCj4gPiAKPiA+IHNpeCBvciAx
+Mi4gIFBsZWFzZSBwaWNrIGEgZm9ybWF0IGFuZCByZW1haW4gY29uc2lzdGVudC4KPiAKPiAiTnVt
+YmVycyBzbWFsbGVyIHRoYW4gdGVuIHNob3VsZCBiZSBzcGVsbGVkIG91dC4iCgpOZXZlciBoZWFy
+ZCBvZiB0aGF0IGJlZm9yZSBHb29nbGluZyBpdC4gIEZvcm1hbCB3cml0aW5nIGlzIG9kZC4gOikK
+Cj4gQnV0IEknbGwgdXNlIDYgYW5kIDEyLgo+IAo+ID4gPiByZWd1bGF0b3JzLiAgSXQgYWxzbyBp
+bXBsZW1lbnRzIGEgc3dpdGNoLCB3YXRjaGRvZyB0aW1lciwgcmVhbC10aW1lIGNsb2NrLAo+ID4g
+PiBhbmQgbW9yZSwgYnV0IGluaXRpYWxseSB3ZSB3aWxsIG9ubHkgc3VwcG9ydCBpdHMgcmVndWxh
+dG9ycy4KPiA+IAo+ID4gWW91IGhhdmUgdG8gcHJvdmlkZSBzdXBwb3J0IGZvciBtb3JlIHRoYW4g
+b25lIGRldmljZSBmb3IgdGhpcyB0byBiZQo+ID4gYWNjZXB0ZWQgaW50byBNRkQuCj4gCj4gT0su
+ICBJJ20gbG9va2luZyBhdCB0aGUgb3RoZXIgZGV2aWNlIGZ1bmN0aW9ucyB0byBzZWUgaWYgSQo+
+IGNhbiBwaWNrIHRoZSBlYXNpZXN0IG9uZS4KPiAKPiA+ID4gU2lnbmVkLW9mZi1ieTogQWxleCBF
+bGRlciA8ZWxkZXJAcmlzY3N0YXIuY29tPgo+ID4gPiAtLS0KPiA+ID4gICBkcml2ZXJzL21mZC9L
+Y29uZmlnICAgICAgICAgfCAxMSArKysrKwo+ID4gPiAgIGRyaXZlcnMvbWZkL01ha2VmaWxlICAg
+ICAgICB8ICAxICsKPiA+ID4gICBkcml2ZXJzL21mZC9zcGFjZW1pdC1wbWljLmMgfCA5MSArKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gPiA+ICAgMyBmaWxlcyBjaGFuZ2Vk
+LCAxMDMgaW5zZXJ0aW9ucygrKQo+ID4gPiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21m
+ZC9zcGFjZW1pdC1wbWljLmMKPiA+ID4gCj4gPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL21mZC9L
+Y29uZmlnIGIvZHJpdmVycy9tZmQvS2NvbmZpZwo+ID4gPiBpbmRleCA2ZmIzNzY4ZTNkNzFjLi5j
+NTlhZTZjYzJkZDhkIDEwMDY0NAo+ID4gPiAtLS0gYS9kcml2ZXJzL21mZC9LY29uZmlnCj4gPiA+
+ICsrKyBiL2RyaXZlcnMvbWZkL0tjb25maWcKPiA+ID4gQEAgLTExODIsNiArMTE4MiwxNyBAQCBj
+b25maWcgTUZEX1FDT01fUlBNCj4gPiA+ICAgCSAgU2F5IE0gaGVyZSBpZiB5b3Ugd2FudCB0byBp
+bmNsdWRlIHN1cHBvcnQgZm9yIHRoZSBRdWFsY29tbSBSUE0gYXMgYQo+ID4gPiAgIAkgIG1vZHVs
+ZS4gVGhpcyB3aWxsIGJ1aWxkIGEgbW9kdWxlIGNhbGxlZCAicWNvbV9ycG0iLgo+ID4gPiArY29u
+ZmlnIE1GRF9TUEFDRU1JVF9QTUlDCj4gPiA+ICsJdHJpc3RhdGUgIlNwYWNlbWlUIFBNSUMiCj4g
+PiA+ICsJZGVwZW5kcyBvbiBBUkNIX1NQQUNFTUlUIHx8IENPTVBJTEVfVEVTVAo+ID4gPiArCWRl
+cGVuZHMgb24gSTJDICYmIE9GCj4gPiA+ICsJc2VsZWN0IE1GRF9DT1JFCj4gPiA+ICsJc2VsZWN0
+IFJFR01BUF9JMkMKPiA+ID4gKwlkZWZhdWx0IEFSQ0hfU1BBQ0VNSVQKPiA+ID4gKwloZWxwCj4g
+PiA+ICsJICBUaGlzIG9wdGlvbiBlbmFibGVzIHN1cHBvcnQgZm9yIFNwYWNlbWlUIEkyQyBiYXNl
+ZCBQTUlDcy4gIEF0Cj4gPiA+ICsJICB0aGlzIHRpbWUgb25seSB0aGUgUDEgUE1JQyAodXNlZCB3
+aXRoIHRoZSBLMSBTb0MpIGlzIHN1cHBvcnRlZC4KPiA+ID4gKwo+ID4gPiAgIGNvbmZpZyBNRkRf
+U1BNSV9QTUlDCj4gPiA+ICAgCXRyaXN0YXRlICJRdWFsY29tbSBTUE1JIFBNSUNzIgo+ID4gPiAg
+IAlkZXBlbmRzIG9uIEFSQ0hfUUNPTSB8fCBDT01QSUxFX1RFU1QKPiA+ID4gZGlmZiAtLWdpdCBh
+L2RyaXZlcnMvbWZkL01ha2VmaWxlIGIvZHJpdmVycy9tZmQvTWFrZWZpbGUKPiA+ID4gaW5kZXgg
+Nzk0OTVmOWYzNDU3Yi4uNTlkMWVjOGRiM2EzZiAxMDA2NDQKPiA+ID4gLS0tIGEvZHJpdmVycy9t
+ZmQvTWFrZWZpbGUKPiA+ID4gKysrIGIvZHJpdmVycy9tZmQvTWFrZWZpbGUKPiA+ID4gQEAgLTI2
+Niw2ICsyNjYsNyBAQCBvYmotJChDT05GSUdfTUZEX1NVTjRJX0dQQURDKQkrPSBzdW40aS1ncGFk
+Yy5vCj4gPiA+ICAgb2JqLSQoQ09ORklHX01GRF9TVE0zMl9MUFRJTUVSKQkrPSBzdG0zMi1scHRp
+bWVyLm8KPiA+ID4gICBvYmotJChDT05GSUdfTUZEX1NUTTMyX1RJTUVSUykgCSs9IHN0bTMyLXRp
+bWVycy5vCj4gPiA+ICAgb2JqLSQoQ09ORklHX01GRF9NWFNfTFJBREMpICAgICArPSBteHMtbHJh
+ZGMubwo+ID4gPiArb2JqLSQoQ09ORklHX01GRF9TUEFDRU1JVF9QTUlDKQkrPSBzcGFjZW1pdC1w
+bWljLm8KPiA+ID4gICBvYmotJChDT05GSUdfTUZEX1NDMjdYWF9QTUlDKQkrPSBzcHJkLXNjMjd4
+eC1zcGkubwo+ID4gPiAgIG9iai0kKENPTkZJR19SQVZFX1NQX0NPUkUpCSs9IHJhdmUtc3Aubwo+
+ID4gPiAgIG9iai0kKENPTkZJR19NRkRfUk9ITV9CRDcxODI4KQkrPSByb2htLWJkNzE4Mjgubwo+
+ID4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tZmQvc3BhY2VtaXQtcG1pYy5jIGIvZHJpdmVycy9t
+ZmQvc3BhY2VtaXQtcG1pYy5jCj4gPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiA+IGluZGV4
+IDAwMDAwMDAwMDAwMDAuLjdjM2MzZTI3MjM2ZGEKPiA+ID4gLS0tIC9kZXYvbnVsbAo+ID4gPiAr
+KysgYi9kcml2ZXJzL21mZC9zcGFjZW1pdC1wbWljLmMKPiA+ID4gQEAgLTAsMCArMSw5MSBAQAo+
+ID4gPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb25seQo+ID4gPiArLyoK
+PiA+ID4gKyAqIENvcHlyaWdodCAoQykgMjAyNSBieSBSSVNDc3RhciBTb2x1dGlvbnMgQ29ycG9y
+YXRpb24uICBBbGwgcmlnaHRzIHJlc2VydmVkLgo+ID4gPiArICogRGVyaXZlZCBmcm9tIGNvZGUg
+ZnJvbToKPiA+ID4gKyAqCUNvcHlyaWdodCAoQykgMjAyNCBUcm95IE1pdGNoZWxsIDx0cm95bWl0
+Y2hlbGw5ODhAZ21haWwuY29tPgo+ID4gPiArICovCj4gPiA+ICsKPiA+ID4gKyNpbmNsdWRlIDxs
+aW51eC9kZXZpY2UuaD4KPiA+ID4gKyNpbmNsdWRlIDxsaW51eC9lcnIuaD4KPiA+ID4gKyNpbmNs
+dWRlIDxsaW51eC9pMmMuaD4KPiA+ID4gKyNpbmNsdWRlIDxsaW51eC9tZmQvY29yZS5oPgo+ID4g
+PiArI2luY2x1ZGUgPGxpbnV4L21vZHVsZS5oPgo+ID4gPiArI2luY2x1ZGUgPGxpbnV4L29mLmg+
+Cj4gPiA+ICsjaW5jbHVkZSA8bGludXgvcmVnbWFwLmg+Cj4gPiA+ICsjaW5jbHVkZSA8bGludXgv
+dHlwZXMuaD4KPiA+ID4gKwo+ID4gPiArc3RydWN0IHNwYWNlbWl0X3BtaWNfZGF0YSB7Cj4gPiAK
+PiA+IHMvZGF0YS9kZGF0YS8KPiAKPiBJIGhhZG4ndCBub3RpY2VkIHRoYXQgY29udmVudGlvbi4g
+IEknbGwgdXNlIGl0Lgo+IAo+ID4gPiArCWNvbnN0IHN0cnVjdCByZWdtYXBfY29uZmlnICpyZWdt
+YXBfY29uZmlnOwo+ID4gPiArCWNvbnN0IHN0cnVjdCBtZmRfY2VsbCAqbWZkX2NlbGxzOwkvKiBh
+cnJheSAqLwo+ID4gCj4gPiBIbW0gLi4uIHRoaXMgaXMgYSByZWQgZmxhZy4gIExldCdzIHNlZS4K
+PiA+IAo+ID4gPiArCXNpemVfdCBtZmRfY2VsbF9jb3VudDsKPiA+ID4gK307Cj4gPiA+ICsKPiA+
+ID4gK3N0YXRpYyBjb25zdCBzdHJ1Y3QgcmVnbWFwX2NvbmZpZyBwMV9yZWdtYXBfY29uZmlnID0g
+ewo+ID4gPiArCS5yZWdfYml0cwk9IDgsCj4gPiA+ICsJLnZhbF9iaXRzCT0gOCwKPiA+ID4gKwku
+bWF4X3JlZ2lzdGVyCT0gMHhhYSwKPiA+ID4gK307Cj4gPiA+ICsKPiA+ID4gKy8qIFRoZSBuYW1l
+IGZpZWxkIGRlZmluZXMgdGhlICpkcml2ZXIqIG5hbWUgdGhhdCBzaG91bGQgYmluZCB0byB0aGUg
+ZGV2aWNlICovCj4gPiAKPiA+IFRoaXMgY29tbWVudCBpcyBzdXBlcmZsdW91cy4KPiAKPiBJJ2xs
+IGRlbGV0ZSBpdC4KPiAKPiBJIHdhcyBleHBlY3RpbmcgdGhlIGRyaXZlciB0byByZWNvZ25pemUg
+dGhlIGRldmljZSwgbm90Cj4gdGhlIGRldmljZSBzcGVjaWZ5aW5nIHdoYXQgZHJpdmVyIHRvIHVz
+ZSwgYnV0IEkgZ3Vlc3MKPiBJJ20gdXNlZCB0byB0aGUgRFQgbW9kZWwuCgpFdmVuIGluIERULCB0
+aGUgKmRyaXZlciogY29tcGF0aWJsZSBpcyBzcGVjaWZpZWQuCgogIC5kcml2ZXIub2ZfbWF0Y2hf
+dGFibGUtPmNvbXBhdGlibGUKCj4gPiA+ICtzdGF0aWMgY29uc3Qgc3RydWN0IG1mZF9jZWxsIHAx
+X2NlbGxzW10gPSB7Cj4gPiA+ICsJewo+ID4gPiArCQkubmFtZQkJPSAic3BhY2VtaXQtcDEtcmVn
+dWxhdG9yIiwKPiA+IAo+ID4gVGhpcyBzcGFjaW5nIGlzIHdvbmt5LiAgVGFrZSBhIGxvb2sgYXQg
+YWxsIHRoZSBvdGhlciBkcml2ZXJzIGhlcmUuCj4gPiAKPiA+IEFsc28sIHlvdSBwcm9iYWJseSB3
+YW50IHRvIHVzZSBNRkRfQ0VMTF9OQU1FKCkuCj4gCj4gWWVzLCBJIHNlZSB0aGF0IGRvZXMgd2hh
+dCBJIHdhbnQuCj4gCj4gPiBPbmUgaXMgbm90IGVub3VnaC4KPiA+IAo+ID4gPiArCX0sCj4gPiA+
+ICt9Owo+ID4gPiArCj4gPiA+ICtzdGF0aWMgY29uc3Qgc3RydWN0IHNwYWNlbWl0X3BtaWNfZGF0
+YSBwMV9wbWljX2RhdGEgPSB7Cj4gPiA+ICsJLnJlZ21hcF9jb25maWcJPSAmcDFfcmVnbWFwX2Nv
+bmZpZywKPiA+ID4gKwkubWZkX2NlbGxzCT0gcDFfY2VsbHMsCj4gPiA+ICsJLm1mZF9jZWxsX2Nv
+dW50CT0gQVJSQVlfU0laRShwMV9jZWxscyksCj4gPiA+ICt9Owo+ID4gPiArCj4gPiA+ICtzdGF0
+aWMgaW50IHNwYWNlbWl0X3BtaWNfcHJvYmUoc3RydWN0IGkyY19jbGllbnQgKmNsaWVudCkKPiA+
+ID4gK3sKPiA+ID4gKwljb25zdCBzdHJ1Y3Qgc3BhY2VtaXRfcG1pY19kYXRhICpkYXRhOwo+ID4g
+PiArCXN0cnVjdCBkZXZpY2UgKmRldiA9ICZjbGllbnQtPmRldjsKPiA+ID4gKwlzdHJ1Y3QgcmVn
+bWFwICpyZWdtYXA7Cj4gPiA+ICsKPiA+ID4gKwkvKiBXZSBjdXJyZW50bHkgaGF2ZSBubyBuZWVk
+IGZvciBhIGRldmljZS1zcGVjaWZpYyBzdHJ1Y3R1cmUgKi8KPiA+IAo+ID4gVGhlbiB3aHkgYXJl
+IHdlIGFkZGluZyBvbmU/Cj4gCj4gSSBkb24ndCB1bmRlcnN0YW5kLCBidXQgaXQgbWlnaHQgYmUg
+bW9vdCBvbmNlIEkgYWRkIHN1cHBvcnQKPiBmb3IgYW5vdGhlciAoc3ViKWRldmljZS4KClRoZXJl
+IGFyZSAyIHJ1bGVzIGluIHBsYXkgaGVyZToKCiAgLSBPbmx5IGFkZCB3aGF0IHlvdSBuZWVkLCB3
+aGVuIHlvdSBuZWVkIGl0CiAgLSBNRkRzIG11c3QgY29udGFpbiBtb3JlIHRoYW4gMSBkZXZpY2UK
+Ci4uLiBhbmQgeW91J3JlIHJpZ2h0LiAgVGhlIHNlY29uZCBydWxlIG1vb3RzIHRoZSBmaXJzdCBo
+ZXJlLgoKPiA+ID4gKwlkYXRhID0gb2ZfZGV2aWNlX2dldF9tYXRjaF9kYXRhKGRldik7Cj4gPiA+
+ICsJcmVnbWFwID0gZGV2bV9yZWdtYXBfaW5pdF9pMmMoY2xpZW50LCBkYXRhLT5yZWdtYXBfY29u
+ZmlnKTsKPiA+ID4gKwlpZiAoSVNfRVJSKHJlZ21hcCkpCj4gPiA+ICsJCXJldHVybiBkZXZfZXJy
+X3Byb2JlKGRldiwgUFRSX0VSUihyZWdtYXApLAo+ID4gPiArCQkJCSAgICAgInJlZ21hcCBpbml0
+aWFsaXphdGlvbiBmYWlsZWQiKTsKPiA+ID4gKwo+ID4gPiArCXJldHVybiBkZXZtX21mZF9hZGRf
+ZGV2aWNlcyhkZXYsIFBMQVRGT1JNX0RFVklEX0FVVE8sCj4gPiA+ICsJCQkJICAgIGRhdGEtPm1m
+ZF9jZWxscywgZGF0YS0+bWZkX2NlbGxfY291bnQsCj4gPiA+ICsJCQkJICAgIE5VTEwsIDAsIE5V
+TEwpOwo+ID4gPiArfQo+ID4gPiArCj4gPiA+ICtzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2Rldmlj
+ZV9pZCBzcGFjZW1pdF9wbWljX21hdGNoW10gPSB7Cj4gPiA+ICsJewo+ID4gPiArCQkuY29tcGF0
+aWJsZQk9ICJzcGFjZW1pdCxwMSIsCj4gPiA+ICsJCS5kYXRhCQk9ICZwMV9wbWljX2RhdGEsCj4g
+PiAKPiA+IEFoLCBub3cgSSBzZWUuCj4gPiAKPiA+IFdlIGRvIG5vdCBhbGxvdyBvbmUgZGF0YSBm
+cm9tIHJlZ2lzdHJhdGlvbiBtZWNoYW5pc20gKE1GRCkgdG8gYmUgcGlwZWQKPiA+IHRocm91Z2gg
+YW5vdGhlciAoT0YpLiAgSWYgeW91IGhhdmUgdG8gbWF0Y2ggcGxhdGZvcm0gZGF0YSB0byBkZXZp
+Y2UgKHlvdQo+ID4gZG9uJ3QpLCB0aGVuIHBhc3MgdGhyb3VnaCBpZGVudGlmaWVycyBhbmQgbWF0
+Y2ggb24gdGhvc2UgaW4gYSBzd2l0Y2goKQo+ID4gc3RhdGVtZW50IGluc3RlYWQuCj4gCj4gSSBo
+YXZlbid0IGRvbmUgYW4gTUZEIGRyaXZlciBiZWZvcmUgYW5kIGl0IHRvb2sgc29tZSB0aW1lCj4g
+dG8gZ2V0IHRoaXMgd29ya2luZy4gIEknbGwgdGVsbCB5b3Ugd2hhdCBsZWQgbWUgdG8gaXQuCj4g
+Cj4gSSB1c2VkIGNvZGUgcG9zdGVkIGJ5IFRyb3kgTWl0Y2hlbGwgKHBsdXMgZG93bnN0cmVhbSkg
+YXMgYQo+IHN0YXJ0aW5nIHBvaW50Lgo+ICAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8y
+MDI0MTIzMC1rMS1wMS12MS0wLWFhNGUwMmI5Zjk5M0BnbWFpbC5jb20vCj4gCj4gS3J6eXN6dG9m
+IEtvemxvd3NraSBtYWRlIHRoaXMgY29tbWVudCBvbiBUcm95J3MgRFQgYmluZGluZzoKPiAgIERy
+b3AgY29tcGF0aWJsZSwgcmVndWxhdG9ycyBhcmUgbm90IHJlLXVzYWJsZSBibG9ja3MuCj4gCj4g
+U28gbXkgZ29hbCB3YXMgdG8gaGF2ZSB0aGUgUE1JQyByZWd1bGF0b3JzIGdldCBib3VuZCB0byBh
+Cj4gZHJpdmVyIHdpdGhvdXQgc3BlY2lmeWluZyBhIERUIGNvbXBhdGlibGUgc3RyaW5nLCBhbmQg
+SQo+IGZvdW5kIHRoaXMgd29ya2VkLgo+IAo+IFlvdSBzYXkgSSBkb24ndCBuZWVkIHRvIG1hdGNo
+IHBsYXRmb3JtIGRhdGEgdG8gZGV2aWNlLCBidXQKPiBpZiBJIGRpZCBJIHdvdWxkIHBhc3MgdGhy
+b3VnaCBpZGVudGlmaWVycy4gIENhbiB5b3UgcmVmZXIKPiBtZSB0byBhbiBleGFtcGxlIG9mIGNv
+ZGUgdGhhdCBjb3JyZWN0bHkgZG9lcyB3aGF0IEkgc2hvdWxkCj4gYmUgZG9pbmcgaW5zdGVhZD8K
+CmdpdCBncmVwIC1BNSBjb21wYXRpYmxlIC0tIGRyaXZlcnMvbWZkIHwgZ3JlcCAtRSAiXC5kYXRh
+ID0gLipbQS1aXSsiCgpUaG9zZSBpZGVudGlmaWVycyBhcmUgdXN1YWxseSBtYXRjaGVkIGluIGEg
+c3d0aWNoKCkgc3RhdGVtZW50LgoKPiBPbmUgb3RoZXIgY29tbWVudC9xdWVzdGlvbjoKPiAgIFRo
+aXMgZHJpdmVyIGlzIHN0cnVjdHVyZWQgYXMgaWYgaXQgY291bGQgc3VwcG9ydCBhIGRpZmZlcmVu
+dAo+ICAgUE1JQyAoaW4gYWRkaXRpb24gdG8gUDEpLiAgU2hvdWxkIEkgKm5vdCogZG8gdGhhdCwg
+YW5kIHNpbXBseQo+ICAgbWFrZSBhIHNvdXJjZSBmaWxlIGhhcmQtY29kZWQgZm9yIHRoaXMgb25l
+IFBNSUM/CgpUaGlzIGNvbWVzIGJhY2sgdG8gdGhlICJhZGQgb25seSB3aGF0IHlvdSBuZWVkLCB3
+aGVuIHlvdSBuZWVkIGl0IiBydWxlLgoKPiA+ID4gKwl9LAo+ID4gPiArCXsgfQo+ID4gPiArfTsK
+PiA+ID4gK01PRFVMRV9ERVZJQ0VfVEFCTEUob2YsIHNwYWNlbWl0X3BtaWNfbWF0Y2gpOwo+ID4g
+PiArCj4gPiA+ICtzdGF0aWMgc3RydWN0IGkyY19kcml2ZXIgc3BhY2VtaXRfcG1pY19pMmNfZHJp
+dmVyID0gewo+ID4gPiArCS5kcml2ZXIgPSB7Cj4gPiA+ICsJCS5uYW1lID0gInNwYWNlbWl0LXBt
+aWMiLAo+ID4gPiArCQkub2ZfbWF0Y2hfdGFibGUgPSBzcGFjZW1pdF9wbWljX21hdGNoLAo+ID4g
+PiArCX0sCj4gPiA+ICsJLnByb2JlICAgID0gc3BhY2VtaXRfcG1pY19wcm9iZSwKPiA+IAo+ID4g
+UmVtb3ZlIHRoZXNlIG9kZCB0YWJzIHBsZWFzZS4KPiAKPiBPSy4KPiAKPiA+ID4gK307Cj4gPiA+
+ICsKPiA+ID4gK3N0YXRpYyBpbnQgX19pbml0IHNwYWNlbWl0X3BtaWNfaW5pdCh2b2lkKQo+ID4g
+PiArewo+ID4gPiArCXJldHVybiBpMmNfYWRkX2RyaXZlcigmc3BhY2VtaXRfcG1pY19pMmNfZHJp
+dmVyKTsKPiA+ID4gK30KPiA+ID4gKwo+ID4gPiArc3RhdGljIHZvaWQgX19leGl0IHNwYWNlbWl0
+X3BtaWNfZXhpdCh2b2lkKQo+ID4gPiArewo+ID4gPiArCWkyY19kZWxfZHJpdmVyKCZzcGFjZW1p
+dF9wbWljX2kyY19kcml2ZXIpOwo+ID4gPiArfQo+ID4gPiArCj4gPiAKPiA+IFJlbW92ZSB0aGlz
+IGxpbmUuCj4gCj4gU3VyZS4KPiAKPiA+ID4gK21vZHVsZV9pbml0KHNwYWNlbWl0X3BtaWNfaW5p
+dCk7Cj4gPiA+ICttb2R1bGVfZXhpdChzcGFjZW1pdF9wbWljX2V4aXQpOwo+ID4gCj4gPiBBcmUg
+eW91IHN1cmUgdGhlcmUgaXNuJ3Qgc29tZSBib2lsZXIgcGxhdGUgdG8gZG8gYWxsIG9mIHRoaXM/
+Cj4gPiAKPiA+IEFoIGhhOgo+ID4gCj4gPiAgICBtb2R1bGVfaTJjX2RyaXZlcigpCj4gCj4gVGhh
+bmtzIGZvciBHb29nbGluZyB0aGF0IGZvciBtZS4gIEFuZCB0aGFuayB5b3UgdmVyeSBtdWNoCj4g
+Zm9yIHRoZSByZXZpZXcuCgpgZ2l0IGdyZXBgIGlzIG15IGJlc3RpZSEgPTotKQoKLS0gCkxlZSBK
+b25lcyBb5p2O55C85pavXQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
