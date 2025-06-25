@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D8FC7EE32
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 07:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05BCBC7EE32
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 07:36:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yWkNnoMvxSChuzw3I38b5Ccyozsn8xw5RfeJkwUBIG4=; b=ArQ7sFvQrScgqV
-	69Yx3RECSvUngEs7HVPQYFBJnBox/+7UWH685Dk+sL6/KVXnbc/QK9pIFmJ4r4OKrAG+3BuLPRuF0
-	6lgu7HSEHTzdHWhBwBurEAbw/76HRjihsL0cHLAbONa0+5Bjxuqvg0rD7bMBE7nVQh0I6bxGXdvhz
-	md6frVF00/qpPwnSZEIpxtzu8vnEoaoj0gKGvAfdpaL4Y4J2bPOLlsw+YE8lzNHpk/8wv+6LUbMFl
-	xWXtO2KlARgPJvqkbfTtm2qPrFzMyZgBfMIp2jND2AsUSUU4tdzNLxGHF8zXgu/GDtZZwhBQaUrXB
-	YieSsWLfp6rxXLkUf+7Q==;
+	List-Owner; bh=D8R4CF66zJKn5TUC8bX+531WAo3Wdb1ueoYZFGrKYBY=; b=PvRuy1V336I1iR
+	AE050EuLpFcdWbN5wKse81b1NmOjKywtcnFZrVQD21tYnp8WBl6ldXFJSTGIsC/Mmo43aEJcdH3qn
+	nOP6r2NitDd9xICkdiDN22+IiV7c1n93+IAG6M2YkWFdWxY5zHNaPHhykHHBkB04zomNUU2I4AE2V
+	6zA/IZHp5qOpejxfF1Ky51eJA6Scggbe3UvfjGKfG3kXXraZxvXWgdmaf8DZdNLo1sq3kPLoWhM27
+	fWNbtQkbQAz34OA37tJ3LLhBKeMbGeOsAVDmL7RZjqivT0pBSs1APtC7nRG9XyCAcWlfkKdhKMaBH
+	dUMtd+njc7sOCNVcSTWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKbf-00000007otr-3Y86;
-	Wed, 25 Jun 2025 07:31:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uUKgF-00000007puJ-0zqt;
+	Wed, 25 Jun 2025 07:36:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHD-00000007lOZ-19SN;
+	id 1uUKHD-00000007lOY-2WWs;
 	Wed, 25 Jun 2025 07:10:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=KYmOcR+Ty6ORVYOprUyh9SHSbbSmp4y4Zcmg/7D/5kY=; b=ZJvFllUJTzbgQkkFzdAHnJsHIa
+	UMo+xAnULOSHxMHkQFACnkQakXq/+o3150cAtc/U43yQAsDliFITONiviQ0zG4FHc56uZq+ZErI6N
+	f+8CefnnxDzjyTtkJY+i9twLJWbpoULtb8gzRx8bvJJ9cqqQuaFUOsP3HNp1TdGZojj9f5tXbRHII
+	XiUcQU3D0Z6oahHdlwPxYgWXJkMbJVlLiOoL5XXmDXnurpggITtRq8iY7HA36Q4UYlVcXoSQ9V9ku
+	bcBaAsaHWmxUVjb3PCy46OCjOYsmaL/oIwJPhUaaahEj2qLagBG91BwFmA3BP09du6DSQbySGaohO
+	/2tiYJZw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUKHB-00000005ddF-031A;
+	Wed, 25 Jun 2025 07:10:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B3546627C7;
-	Wed, 25 Jun 2025 07:10:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1651AC4CEEE;
-	Wed, 25 Jun 2025 07:10:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9F8F44AFEC;
+	Wed, 25 Jun 2025 07:10:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 303BCC4CEF4;
+	Wed, 25 Jun 2025 07:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750835434;
-	bh=S+CsVx9dQpCGjijF7e+ZbdDM5QBgscfKC4GdP91vltQ=;
+	s=k20201202; t=1750835429;
+	bh=1DNk7tX1YvvlA6uSWHlfTS+Bb3s1eS+aWteQQPlb1JM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kyYjW82EC/38db+3veMXnZFHE54YSYV+kKjN6MFru4nkzIGgs46VmKUI0bATwPXY4
-	 gOrldjdHacg1a2nKYAdSM9e5WzJKF99M+vkA0mtbd+MFOKqNwPSU3aC4UYtBfPgMfB
-	 ialFlK523z2IO+ksv6EWAQLoB8sI/sb9SU3yH1kmSvVxjGY1NEerbkRO4S715T8EJR
-	 zC2tV9CDuqId2iSscOziziqU7Gve96UZNpI2G3CrpUMmrKS9N8BLz0fTu2HNx+E9tz
-	 Nd4Jx1zyC0AtoiXb8STQlrXgmZFEx+ZTv9FZoarslRIPkYei/QBp+yslpmjgACXVM4
-	 LOWPa81y+8YLg==
+	b=nqVpQzpxUnKXPMGrZ1EGYozacdniZ2Ei1z0BDb9CArbXCIdhByuU9MICPVrjgSPOs
+	 7I9XtCbuuhB6jWShxX4zi3pBcGSRDxsestEYjY/AaCTGarh3AmLmMYGVmsNHH1evss
+	 mVm19s4IODFj3zJjHA7UoVak1Yktt1eeG3x4UvGqP1eBFy9no7S/Z2ct6nwLqYlGJV
+	 Hfjb4JOyB1ZwjnDHOmsYhRJU6IML4Cg4wPn/XWbASQCigU+IWieRPJoRfKCL2onHLw
+	 c93er26kDV2ZMVmMh48fmsPNOWrh8d0egdKTyR/kurxPY6+tKSegQkxGRUJK1Iqp4n
+	 jcy1kRYUqSgXw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,13 +68,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 15/18] lib/crypto: sha512: Remove sha256_is_arch_optimized()
-Date: Wed, 25 Jun 2025 00:08:16 -0700
-Message-ID: <20250625070819.1496119-16-ebiggers@kernel.org>
+Subject: [PATCH 05/18] lib/crypto: sha512: Do not include <crypto/internal/sha2.h>
+Date: Wed, 25 Jun 2025 00:08:06 -0700
+Message-ID: <20250625070819.1496119-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
 References: <20250625070819.1496119-1-ebiggers@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_081033_278943_8AB5800B 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,209 +95,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove sha256_is_arch_optimized(), since it is no longer used.
+Since the SHA-512 code is now consolidated into a single translation
+unit except for assembly code, there is no longer any need for an
+internal header.  Indeed, lib/crypto/sha512.c relies on
+<crypto/internal/sha2.h> only for indirect inclusions.  Stop including
+it.  This prepares for the later removal of this header, once the
+SHA-256 code is reorganized similarly and stops needing it too.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/mips/cavium-octeon/crypto/octeon-sha256.c | 6 ------
- include/crypto/internal/sha2.h                 | 8 --------
- lib/crypto/arm/sha256.c                        | 7 -------
- lib/crypto/arm64/sha256.c                      | 7 -------
- lib/crypto/powerpc/sha256.c                    | 6 ------
- lib/crypto/riscv/sha256.c                      | 6 ------
- lib/crypto/s390/sha256.c                       | 6 ------
- lib/crypto/sparc/sha256.c                      | 6 ------
- lib/crypto/x86/sha256.c                        | 6 ------
- 9 files changed, 58 deletions(-)
+ lib/crypto/sha512.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha256.c b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
-index f8664818d04ec..c7c67bdc2bd06 100644
---- a/arch/mips/cavium-octeon/crypto/octeon-sha256.c
-+++ b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
-@@ -59,14 +59,8 @@ void sha256_blocks_arch(struct sha256_block_state *state,
- 	state64[3] = read_octeon_64bit_hash_dword(3);
- 	octeon_crypto_disable(&cop2_state, flags);
- }
- EXPORT_SYMBOL_GPL(sha256_blocks_arch);
+diff --git a/lib/crypto/sha512.c b/lib/crypto/sha512.c
+index fe9d98b9b7db9..f5a9569a7ef96 100644
+--- a/lib/crypto/sha512.c
++++ b/lib/crypto/sha512.c
+@@ -7,15 +7,16 @@
+  * Copyright (c) 2003 Kyle McMartin <kyle@debian.org>
+  * Copyright 2025 Google LLC
+  */
  
--bool sha256_is_arch_optimized(void)
--{
--	return octeon_has_crypto();
--}
--EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
--
- MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("SHA-256 Secure Hash Algorithm (OCTEON)");
- MODULE_AUTHOR("Aaro Koskinen <aaro.koskinen@iki.fi>");
-diff --git a/include/crypto/internal/sha2.h b/include/crypto/internal/sha2.h
-index 51028484ccdc7..f724e6ad03a9f 100644
---- a/include/crypto/internal/sha2.h
-+++ b/include/crypto/internal/sha2.h
-@@ -7,18 +7,10 @@
- #include <linux/compiler_attributes.h>
- #include <linux/string.h>
- #include <linux/types.h>
- #include <linux/unaligned.h>
+ #include <crypto/hmac.h>
+-#include <crypto/internal/sha2.h>
++#include <crypto/sha2.h>
+ #include <linux/export.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/overflow.h>
++#include <linux/unaligned.h>
+ #include <linux/wordpart.h>
  
--#if IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_SHA256)
--bool sha256_is_arch_optimized(void);
--#else
--static inline bool sha256_is_arch_optimized(void)
--{
--	return false;
--}
--#endif
- void sha256_blocks_generic(struct sha256_block_state *state,
- 			   const u8 *data, size_t nblocks);
- void sha256_blocks_arch(struct sha256_block_state *state,
- 			const u8 *data, size_t nblocks);
- 
-diff --git a/lib/crypto/arm/sha256.c b/lib/crypto/arm/sha256.c
-index 7d90823586952..27181be0aa92e 100644
---- a/lib/crypto/arm/sha256.c
-+++ b/lib/crypto/arm/sha256.c
-@@ -35,17 +35,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
- 		sha256_block_data_order(state, data, nblocks);
- 	}
- }
- EXPORT_SYMBOL_GPL(sha256_blocks_arch);
- 
--bool sha256_is_arch_optimized(void)
--{
--	/* We always can use at least the ARM scalar implementation. */
--	return true;
--}
--EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
--
- static int __init sha256_arm_mod_init(void)
- {
- 	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && (elf_hwcap & HWCAP_NEON)) {
- 		static_branch_enable(&have_neon);
- 		if (elf_hwcap2 & HWCAP2_SHA2)
-diff --git a/lib/crypto/arm64/sha256.c b/lib/crypto/arm64/sha256.c
-index 609ffb8151987..a5a4982767089 100644
---- a/lib/crypto/arm64/sha256.c
-+++ b/lib/crypto/arm64/sha256.c
-@@ -45,17 +45,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
- 		sha256_block_data_order(state, data, nblocks);
- 	}
- }
- EXPORT_SYMBOL_GPL(sha256_blocks_arch);
- 
--bool sha256_is_arch_optimized(void)
--{
--	/* We always can use at least the ARM64 scalar implementation. */
--	return true;
--}
--EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
--
- static int __init sha256_arm64_mod_init(void)
- {
- 	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
- 	    cpu_have_named_feature(ASIMD)) {
- 		static_branch_enable(&have_neon);
-diff --git a/lib/crypto/powerpc/sha256.c b/lib/crypto/powerpc/sha256.c
-index c3f844ae0aceb..437e587b05754 100644
---- a/lib/crypto/powerpc/sha256.c
-+++ b/lib/crypto/powerpc/sha256.c
-@@ -58,13 +58,7 @@ void sha256_blocks_arch(struct sha256_block_state *state,
- 		nblocks -= unit;
- 	} while (nblocks);
- }
- EXPORT_SYMBOL_GPL(sha256_blocks_arch);
- 
--bool sha256_is_arch_optimized(void)
--{
--	return true;
--}
--EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
--
- MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("SHA-256 Secure Hash Algorithm, SPE optimized");
-diff --git a/lib/crypto/riscv/sha256.c b/lib/crypto/riscv/sha256.c
-index a2079aa3ae925..01004cb9c6e9e 100644
---- a/lib/crypto/riscv/sha256.c
-+++ b/lib/crypto/riscv/sha256.c
-@@ -32,16 +32,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
- 		sha256_blocks_generic(state, data, nblocks);
- 	}
- }
- EXPORT_SYMBOL_GPL(sha256_blocks_arch);
- 
--bool sha256_is_arch_optimized(void)
--{
--	return static_key_enabled(&have_extensions);
--}
--EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
--
- static int __init riscv64_sha256_mod_init(void)
- {
- 	/* Both zvknha and zvknhb provide the SHA-256 instructions. */
- 	if ((riscv_isa_extension_available(NULL, ZVKNHA) ||
- 	     riscv_isa_extension_available(NULL, ZVKNHB)) &&
-diff --git a/lib/crypto/s390/sha256.c b/lib/crypto/s390/sha256.c
-index fb565718f7539..6ebfd35a5d44c 100644
---- a/lib/crypto/s390/sha256.c
-+++ b/lib/crypto/s390/sha256.c
-@@ -21,16 +21,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
- 	else
- 		sha256_blocks_generic(state, data, nblocks);
- }
- EXPORT_SYMBOL_GPL(sha256_blocks_arch);
- 
--bool sha256_is_arch_optimized(void)
--{
--	return static_key_enabled(&have_cpacf_sha256);
--}
--EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
--
- static int __init sha256_s390_mod_init(void)
- {
- 	if (cpu_have_feature(S390_CPU_FEATURE_MSA) &&
- 	    cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA_256))
- 		static_branch_enable(&have_cpacf_sha256);
-diff --git a/lib/crypto/sparc/sha256.c b/lib/crypto/sparc/sha256.c
-index 060664b88a6d3..f41c109c1c18d 100644
---- a/lib/crypto/sparc/sha256.c
-+++ b/lib/crypto/sparc/sha256.c
-@@ -30,16 +30,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
- 	else
- 		sha256_blocks_generic(state, data, nblocks);
- }
- EXPORT_SYMBOL_GPL(sha256_blocks_arch);
- 
--bool sha256_is_arch_optimized(void)
--{
--	return static_key_enabled(&have_sha256_opcodes);
--}
--EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
--
- static int __init sha256_sparc64_mod_init(void)
- {
- 	unsigned long cfr;
- 
- 	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
-diff --git a/lib/crypto/x86/sha256.c b/lib/crypto/x86/sha256.c
-index cbb45defbefab..9ee38d2b3d572 100644
---- a/lib/crypto/x86/sha256.c
-+++ b/lib/crypto/x86/sha256.c
-@@ -35,16 +35,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
- 		sha256_blocks_generic(state, data, nblocks);
- 	}
- }
- EXPORT_SYMBOL_GPL(sha256_blocks_arch);
- 
--bool sha256_is_arch_optimized(void)
--{
--	return static_key_enabled(&have_sha256_x86);
--}
--EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
--
- static int __init sha256_x86_mod_init(void)
- {
- 	if (boot_cpu_has(X86_FEATURE_SHA_NI)) {
- 		static_call_update(sha256_blocks_x86, sha256_ni_transform);
- 	} else if (cpu_has_xfeatures(XFEATURE_MASK_SSE |
+ static const struct sha512_block_state sha384_iv = {
+ 	.h = {
+ 		SHA384_H0, SHA384_H1, SHA384_H2, SHA384_H3,
 -- 
 2.50.0
 
