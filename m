@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A239EC77B7C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B869AC7EE2A
 	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 17:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,65 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EvDKKSiWlH2uCmnmhmZuvu3WHoUxjPw8wjGBDmxwPO0=; b=G2OzceX7NN5GSz
-	2rcUvnzdRvhtEUTJRulzsZMlipX+xKJOayhKZAydQ9gAQ586GtMQIpfQjiP34PLLJeUp6LGEoOx0r
-	MSI1E+377XWVoIQqY7YbCJEHB5sSmLgDWmT08HoOq6V6TF4wOwaWf6fu586s9FB31nRkpC7z+o3j9
-	apPxw3mzZJLJ8zYpDCcgtyTTaObus8a/+3fQ6n8ZpJeWhRJEg5wCG/0gmN3Dg0qD+wgrp9Xo3S+E4
-	zb4GG9lAhRGpl/BNTBNVCrDs1x/uE5ijTD6MN/WCQ40YdbFHb42I4CZoRVXVflXx2FaJvLOJiHDJt
-	Pj++9qv0+MxV0U4n2zBw==;
+	List-Owner; bh=4H/D0KDTYLtuDXQ7FFWvsBCosrU+5mi63BkHOvqGhSE=; b=oCVnvkgAj4yxkX
+	yoRcW6tSOUGlpiP/MnHUnNkE0LqEYMPz1Zf8FqSarSyztzCroR2681tlDLqdYWiTVjznWj15kztTR
+	MuOGGrpEwSDXwsOUJhAj2Q+e46gkzj2IDGRaxzCRdNmrXXG35Z+GS3StlecV/3KC4MS6v93dt+1L4
+	8tT5NlBVxf47eLpc1iX8wLzqR3GCNmwGqF9s5hBzVY6noTXBZhTjqtNcIXGuoQHRs+Bj1QOu7Gq1V
+	Zfz1yNzvB08lD5Xn5TzRqBbMruZVJUX8cqfOLD/cqKLOzR/JJBnmIUnmuEiryTcgrJyBXABX09AsP
+	7KfginIxpxRmgJXbSF9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUU30-00000009T0J-0eyN;
-	Wed, 25 Jun 2025 17:36:34 +0000
-Received: from mail-vk1-f181.google.com ([209.85.221.181])
+	id 1uUU2v-00000009Sxv-3qgo;
+	Wed, 25 Jun 2025 17:36:29 +0000
+Received: from mail-qv1-f47.google.com ([209.85.219.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPPk-00000008eRe-1nXS;
-	Wed, 25 Jun 2025 12:39:45 +0000
-Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-5313a2566f9so937162e0c.0;
-        Wed, 25 Jun 2025 05:39:44 -0700 (PDT)
+	id 1uUPIa-00000008dWf-3xBH;
+	Wed, 25 Jun 2025 12:32:22 +0000
+Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-6fafaa60889so41360106d6.3;
+        Wed, 25 Jun 2025 05:32:20 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750855182; x=1751459982;
+        d=1e100.net; s=20230601; t=1750854738; x=1751459538;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xfGTcVvQA4QV7t/B5E/h74PebrSqIHkIgMNL94El15A=;
-        b=Z2XvhF1O3yTX+k+QYw8mr1F2hsqAkq+BhGH5CA4D9IWOLgcNjQF6uLGoyVNXJY8lZ7
-         yG+Ov25xBT+1p8hyR5Pg2ygtB7rRWc+k2AW2KdKXASl1oyc5I9EqBaE/tjJCAiykcuDW
-         +pyddIXPVRhyhruS2xT6hiVau5+xDvO1ofP1zZCkF18vTBJlEpGOrEhDSqrTMOD5KebN
-         14bmAO5+OY4P5G5ZnJg5up/+XH/zAi4Ongz/kNssgOGqVoPewZflUbBE5q97IFrE7wTZ
-         OSxuB5SbpOmppAtmGCCpm7SOKreY5DqaoNU2Qb7p5H+KZC1DPw5OKR8l5qXN9b0l/Q2w
-         o8PA==
-X-Forwarded-Encrypted: i=1; AJvYcCWAy/jRR5x2zloOa7WNCO5Z+YiH8LqmpoYcaUYtYUObEb+w5ffpb2rZzv9IguRgfqN9GQ7ka31hVkaJCYc=@lists.infradead.org, AJvYcCXA2H/IB6rzP3VgXYvPJDdJlKWx9xWhHYfA8w3R+eQ4ADziWHbHlst8uG2j4e6vCcVNEG4wLaibyf33Gumh9gvd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz35JOIgMdghlvyoQXG9FemleIzRcpCmso2tVrbSABRKeHOTPvk
-	cQxMgyS/6PDFu8MFB9MbWmf6d2n27mZKGmA6sbq5t1XIW3belP/cX0F4CxGgDVmD
-X-Gm-Gg: ASbGncsajbmASM+XdwFLuSeorlLX12205+DidOK3P//sGqs7SwqWd+Q3m7tDe0mO+aA
-	n7b/1WwQzoLz79xrrFk2Aqv7PNoH4oXhNFg+oyu4F6jbiom4zS5yfqX+yGzHfOwB6MuqBK3MFia
-	zl77Xcu/P35Ok9BhqtQe0iEiZLvU/tc253fyVWBAeQjyP0/tgWr8T5rIHh8aT1yco2+bNGc8YMd
-	QfrUafMgcl+OyWAtCq9TTACNGyvRaEUwWJpe7gHUJfvY0npT3aNKGzHNe3RqE8s1e21NSwQtRJ+
-	4vOrRVyHumNiNaX/Rmc5kHX83B/SXu/7PSIGWItUYQ9b1li5/4VzgwVdJ6gsvQQzZsIB6gyQD94
-	f5DlxRTjIcpMCVG1Fz0FPSgq7
-X-Google-Smtp-Source: AGHT+IE4x3p7hO16RcqoOv45KW6ncPyot4pXb41AVVts65j/J3f6Tr7vW2rkNVXyx3i9oGTfjMm76g==
-X-Received: by 2002:a05:6122:280c:b0:531:2906:752d with SMTP id 71dfb90a1353d-532ef6c4e6bmr1801174e0c.11.1750855181793;
-        Wed, 25 Jun 2025 05:39:41 -0700 (PDT)
-Received: from mail-vs1-f52.google.com (mail-vs1-f52.google.com. [209.85.217.52])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-531ab37885csm1926408e0c.32.2025.06.25.05.39.40
+        bh=B8p2OpGo8CDaPQfPclMnd2uTE+ODzAt+oveKwlFe1wI=;
+        b=rzgi4Ab7j2xxto+ZQ7KKBxcqtBwjVIyKj4n2xsfw6JZShxJc0Ch7Mn8U+BGANWhfpe
+         qzmaGA6jn0U1kMJOmWofLIKpUXqUxWG9pmcCF1HjiODzVXzFcYSPh/EVgbSz9X3DxT7c
+         UncfmdBD8f3mbzvb/0AMspBGck+5Ne0xiUPltwupa4ghv4z0nNeNM/Du2g9+G+Ui30Ib
+         vmliM7pE5tMd0unk1FcIj1MzDEbRp+oXmiBZaU2DraFnunki33RV/uNl3Jry1HUZMBZf
+         9bnf+cHz8zdS22efcAjfZMynGVjjtLFMvkhFBtbKdyk2BJoMCuAWv6wA/PqSkoGR6TY6
+         02PQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJd+H5BFkT5BlSEHSaurGKjqwcQrS0/OFIajPVD907ro5nsTcJlM05RducEEqVPa4vLjSGX9Sf6lpUIAY=@lists.infradead.org, AJvYcCXaDWN12WFz4RBrKPMyG/L5FiVqwqRr6n2bVKopqW6AtaYtihRHs2UrBZxdcnxeyBkRnhmdzfZFvcCEmd0N0pQY@lists.infradead.org
+X-Gm-Message-State: AOJu0YysOS37QM06/TdSLPVOyklWc2xSRaz5Z8rXeoBsnlqYVdGcbswk
+	Jss/s1S00MW+IhX/SCTXzy080KaawYhAy/WEDHXZOgkRKAAlzvhHTSJzx04C4mop
+X-Gm-Gg: ASbGncuNigq8PAcVpbBoWGQgzYVdDQMJU1vmVsMzZwKMu053urnCEv4p9xA6w9S3DYU
+	RrKujd9hoWHrHQ3ojvdlFIjf6lK3mjJJNSu9YebjCMmuH7IAzVlTJvlX8q6EMdG78xGcr0pblOe
+	B3LVNDKOVk6NgUESh/veKZYcQkNtlZQ+Tcj//e82kbG5/vBnRTSSaSadJ7gwYsifjlkC8oqpVbJ
+	WW+RZBA45z+IT7a7/aZlXfc2hUpiH+WxcvVbjgk+TgbKcDT7F4xBsaqZqKgwkYqfbFPutSEhWk1
+	KpxOcC6s/wkuSWYyPljLWNic4b+JXAOsKvMD1G/U0jtmHGQ4oxWVcbBLSD4s4gePQiyL/GRu5p6
+	l0pyFh6ReKoe+DCByXJpiKQKCLQep
+X-Google-Smtp-Source: AGHT+IGc7edEM06kxAuntVk3HMCEak3IsC7YMg8we7l4itoKMn/7ETJbD8ej6XLIM2gq0DCKb1AbjA==
+X-Received: by 2002:a05:6214:2522:b0:6fa:fbb4:6404 with SMTP id 6a1803df08f44-6fd5ef29741mr46569016d6.5.1750854738321;
+        Wed, 25 Jun 2025 05:32:18 -0700 (PDT)
+Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com. [209.85.222.169])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fd093de890sm67578036d6.12.2025.06.25.05.32.17
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Jun 2025 05:39:41 -0700 (PDT)
-Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-4e9c3d752a8so963344137.2;
-        Wed, 25 Jun 2025 05:39:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUp/q0q36GHvJUVIU7X4QeMsaYV3fa6gy509qRKXd4PlvPjmvb3KLX/bdgVSnv/RzGry84lWQ8rYBwTj9I=@lists.infradead.org, AJvYcCWGNoA0KKiapJzVKPEUCdXtK6IPO4Tk45/NPNuyo5Qh6KV2LbuipxnXR6asrUA+LZSdvvT249UcwCrUKJq8KmMP@lists.infradead.org
-X-Received: by 2002:a05:6102:390a:b0:4ec:c513:f3d with SMTP id
- ada2fe7eead31-4ecc76b5c72mr1424726137.25.1750855180432; Wed, 25 Jun 2025
- 05:39:40 -0700 (PDT)
+        Wed, 25 Jun 2025 05:32:17 -0700 (PDT)
+Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-7d3e7641b76so389558185a.3;
+        Wed, 25 Jun 2025 05:32:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVTzOrxWXmNPlHt/9S+q74XrqYElTQrRa+qHP5zHtyU8/pj7CsG9QC6Z2FAiJu8dodcBT1KeHa3oqVdx6i9Yzxi@lists.infradead.org, AJvYcCXPOgVEhs4qpbWTwbYzRN3gIGa2SerUDs0JNu2BjLmhHLI41+lyW+bOXDzOtTVVqL2WmigvwX4ju+WgeoQ=@lists.infradead.org
+X-Received: by 2002:a05:620a:198b:b0:7d0:9ed4:d269 with SMTP id
+ af79cd13be357-7d429710333mr334230485a.2.1750854737237; Wed, 25 Jun 2025
+ 05:32:17 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250625111806.4153773-1-maz@kernel.org>
-In-Reply-To: <20250625111806.4153773-1-maz@kernel.org>
+References: <20250625111806.4153773-1-maz@kernel.org> <20250625111806.4153773-3-maz@kernel.org>
+In-Reply-To: <20250625111806.4153773-3-maz@kernel.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 25 Jun 2025 14:39:28 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVMgK0rQgVsUa6VhwkgtDp56kKnL3rOQJyw+zOCaruHMQ@mail.gmail.com>
-X-Gm-Features: Ac12FXxK6cNyNoyRBhl82L6AsapcQAs6YOl3OFDtLzqdZ4Opz860a6cw_SA705M
-Message-ID: <CAMuHMdVMgK0rQgVsUa6VhwkgtDp56kKnL3rOQJyw+zOCaruHMQ@mail.gmail.com>
-Subject: Re: [PATCH 0/3] PCI: host-generic: Fix driver_data overwriting bugs
+Date: Wed, 25 Jun 2025 14:32:05 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVQLEQziPueu64ueCrkhh9PtZeGWGVR-yHkbKBUTPfFyw@mail.gmail.com>
+X-Gm-Features: Ac12FXyYeQYex53YhZaoUKJ8ttY42d8BJ7oEfG35VrnSztAFwUMET7EHu4gB7r8
+Message-ID: <CAMuHMdVQLEQziPueu64ueCrkhh9PtZeGWGVR-yHkbKBUTPfFyw@mail.gmail.com>
+Subject: Re: [PATCH 2/3] PCI: apple: Add tracking of probed root ports
 To: Marc Zyngier <maz@kernel.org>
 Cc: Bjorn Helgaas <bhelgaas@google.com>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
 	Rob Herring <robh@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
@@ -79,8 +79,8 @@ Cc: Bjorn Helgaas <bhelgaas@google.com>, Alyssa Rosenzweig <alyssa@rosenzweig.io
 	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_053944_465091_819C6430 
-X-CRM114-Status: GOOD (  23.69  )
+X-CRM114-CacheID: sfid-20250625_053220_986129_EF29D569 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,25 +97,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
-
 On Wed, 25 Jun 2025 at 13:18, Marc Zyngier <maz@kernel.org> wrote:
-> Geert reports that some drivers do rely on the device driver_data
-> field containing a pointer to the bridge structure at the point of
-> initialising the root port, while this has been recently changed to
-> contain some other data for the benefit of the Apple PCIe driver.
+> The apple driver relies on being able to directly find the matching
+> root port structure from the platform device that represents this
+> port.
 >
-> This small series builds on top of Geert previously posted (and
-> included as a prefix for reference) fix for the Microchip driver,
-> which breaks the Apple driver. This is basically swapping a regression
-> for another, which isn't a massive deal at this stage, as the
-> follow-up patch fixes things for the Apple driver by adding extra
-> tracking.
+> A previous hack stashed a pointer to the root port structure in
+> the config window private pointer, but that ended up relying on
+> assumptions that break other drivers.
 >
-> Finally, we can revert a one-liner that glued the whole thing
-> together, and that isn't needed anymore.
+> Instead, bite the bullet and track the association as part of the
+> driver itself as a list of probed root ports.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Thanks, works fine on Icicle.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
 Gr{oetje,eeting}s,
 
