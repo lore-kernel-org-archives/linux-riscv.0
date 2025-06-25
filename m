@@ -4,50 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC46C7115C
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98760C7115C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:Mime-Version:Date:
-	Subject:References:Message-Id:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Cc:References:From:To:
+	Message-Id:Date:Subject:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s5tIIjiDB6LMIJ9MlmywL3aSywOAs4GqTEZhERMETP0=; b=x4C95bnN6qOuzh
-	rbDjXIXqJCqJKJeoS1wbokg+6rBIBfkUmg9w7Dl8EiBtkA4sUzhvYGlaXnyhcX/WLFbf4+ljiuiQQ
-	cW9sFNAGhE5FatO6sMhHuTjYCI+DA2lWi21Srzs+S99YzNNMtUivWpTQxI6eekhW3hvNt8lPF1dlG
-	5dfwX1o38XcbMjEJGDF/oXDNn55gSCLXEMQI73yJGbzASysHYHB1h9aZaZAzWaDdztziBcUWzWARC
-	+NYNmiHTN2BEjv2lwipBBNn342jbze8zzhNhXgeHLQO+JmP0MPV8v+wpAbmptO7Nkjb01fWbbor8f
-	Kj0UBUUi837MdPkWgXhw==;
+	List-Owner; bh=dcbEJ5QmbtjVx9z3xsJ6ORQE9kftD9hZSoTKgifhTeg=; b=03EW4034uRjYRo
+	HRnKFusN1bG7Ri0kBs/oOSLHlrVor/UtA5vR/Fqm8sUJMFCByp+Rz1L8kgg0kwM+R+Jcge9iCIl/B
+	NxOfMLsZzPGilZ/ncviXXa45NH5nqGzMusS+itvd3OZNArIlGiEXHQTcXdIYtvFR4ESBqpiY8Ucuo
+	D1H1LLLfcHTP20jsbpHvDwGQO0h9fRvwhPaGxLo9ZppTnbsnYYX6qkQd+4B77a3MWbmASD0pqysZh
+	jicpeXeeLUXlaoIKNi0V0sRF/tVds1GmgQm83arO1ZVZs5AbkWxQPb9CMcKMui8CBUOkPM9HHa9gn
+	PcqtA5fL4nGcFogNYJQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULVW-00000007xQE-2SxY;
-	Wed, 25 Jun 2025 08:29:26 +0000
-Received: from sg-3-15.ptr.tlmpb.com ([101.45.255.15])
+	id 1uULcj-00000007yao-25Yy;
+	Wed, 25 Jun 2025 08:36:53 +0000
+Received: from va-2-35.ptr.blmpb.com ([209.127.231.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKfQ-00000007pmp-1cDT
+	id 1uUKix-00000007qTO-1yE6
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 07:35:38 +0000
+	Wed, 25 Jun 2025 07:39:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1750836927;
+ s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1750837147;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=CEUqe5ahfZFpVFJnOYxZcTEDjpo1QaA063NLvGo/wqE=;
- b=4GaTykiebG8UNFNWxzI0CcLswfHuuePdzu31ndQJtrBNXMy4B8WQCqIc1vbDAFofS1GWU2
- z0PFgNdpMRTiW/vq+GgDbtpziDRA4Yr0XL6636HYF2aswHkKBSCqJUJr8DKcRK4YfjgGgL
- 0t5IJn7BhFQGkXNfis1NlC03x/U9XU3Unpik1KgFlh9fupDoOHSjSBMv4DLrmHxYxfICvw
- dMfkj6u+8RHBb5T6G+Ua9Bw8cyMOfGCIYvUtrA9csuGzL3Y0o+rbMd/P8opCQSBdMsiJh/
- SMoyjYsHio0+TevQ4HTJ7DBzs9pXIi7V5GGqglbpPMS5L/zw8wOXT2L0ctkf8w==
-From: "Nutty Liu" <liujingqi@lanxincomputing.com>
-Message-Id: <794a81fa-41d5-4b1e-816f-6d63b883f935@lanxincomputing.com>
-References: <20250618113532.471448-1-apatel@ventanamicro.com> <20250618113532.471448-5-apatel@ventanamicro.com>
-Subject: Re: [PATCH v3 04/12] RISC-V: KVM: Replace KVM_REQ_HFENCE_GVMA_VMID_ALL with KVM_REQ_TLB_FLUSH
-Received: from [127.0.0.1] ([139.226.59.215]) by smtp.feishu.cn with ESMTPS; Wed, 25 Jun 2025 15:35:24 +0800
-Date: Wed, 25 Jun 2025 15:35:23 +0800
-Mime-Version: 1.0
+ bh=VYCLNIDhFn58v6NVsiYfx2EHCtJBoqLZUjdlDct+nWU=;
+ b=hbDZHriFQtJP3Kr/a7knKEcE8Ehxy3ZjTKmkGvu6zWogQMAYp+Qc6V3AKiG5wfB+dxrfPW
+ ClH/moCwn0mDFCYZUK6Oma+66y7LXuxY5b0cn0i/yWLUZeOc6RMhXFoUtHj8/dzZNMALp7
+ 4uaq+39rK5QSGrpNKDrdK5rvnZC//7WHlcRsYaNwg4qrUiYfJSSz319pZKBoW7V6s3Zo5M
+ awJZVx7Pzirap1QrZ+8kNLOUozbcf+j5+PCVMxAQ/snA+H2keDmQEQ7eH6IsDZwbp9fN37
+ DKyPj1LqhduV2yJC3CpBOi8kNPGksAzLefkPhdJgdDaPZYWvVJlgXglQ/PCoug==
+In-Reply-To: <20250618113532.471448-7-apatel@ventanamicro.com>
+Content-Language: en-US
+Subject: Re: [PATCH v3 06/12] RISC-V: KVM: Implement kvm_arch_flush_remote_tlbs_range()
+Date: Wed, 25 Jun 2025 15:39:02 +0800
+Message-Id: <87fda112-4ecd-4631-98be-da420aa59dd5@lanxincomputing.com>
+Received: from [127.0.0.1] ([139.226.59.215]) by smtp.feishu.cn with ESMTPS; Wed, 25 Jun 2025 15:39:03 +0800
 X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
-In-Reply-To: <20250618113532.471448-5-apatel@ventanamicro.com>
 To: "Anup Patel" <apatel@ventanamicro.com>, 
 	"Atish Patra" <atish.patra@linux.dev>
+From: "Nutty Liu" <liujingqi@lanxincomputing.com>
+X-Lms-Return-Path: <lba+2685ba799+e1baac+lists.infradead.org+liujingqi@lanxincomputing.com>
+References: <20250618113532.471448-1-apatel@ventanamicro.com> <20250618113532.471448-7-apatel@ventanamicro.com>
+User-Agent: Mozilla Thunderbird
 Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, 
 	"Paul Walmsley" <paul.walmsley@sifive.com>, 
 	"Alexandre Ghiti" <alex@ghiti.fr>, 
@@ -55,12 +57,10 @@ Cc: "Palmer Dabbelt" <palmer@dabbelt.com>,
 	"Anup Patel" <anup@brainfault.org>, <kvm@vger.kernel.org>, 
 	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>, 
 	<linux-kernel@vger.kernel.org>, "Atish Patra" <atishp@rivosinc.com>
-Content-Language: en-US
-User-Agent: Mozilla Thunderbird
-X-Lms-Return-Path: <lba+2685ba6bd+9e4b5c+lists.infradead.org+liujingqi@lanxincomputing.com>
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_003536_809374_B03FCDC8 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20250625_003915_579988_4CBBAB3C 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,92 +78,64 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 6/18/2025 7:35 PM, Anup Patel wrote:
-> The KVM_REQ_HFENCE_GVMA_VMID_ALL is same as KVM_REQ_TLB_FLUSH so
-> to avoid confusion let's replace KVM_REQ_HFENCE_GVMA_VMID_ALL with
-> KVM_REQ_TLB_FLUSH. Also, rename kvm_riscv_hfence_gvma_vmid_all_process()
-> to kvm_riscv_tlb_flush_process().
+> The kvm_arch_flush_remote_tlbs_range() expected by KVM core can be
+> easily implemented for RISC-V using kvm_riscv_hfence_gvma_vmid_gpa()
+> hence provide it.
+>
+> Also with kvm_arch_flush_remote_tlbs_range() available for RISC-V, the
+> mmu_wp_memory_region() can happily use kvm_flush_remote_tlbs_memslot()
+> instead of kvm_flush_remote_tlbs().
 >
 > Reviewed-by: Atish Patra <atishp@rivosinc.com>
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->   arch/riscv/include/asm/kvm_host.h | 4 ++--
->   arch/riscv/kvm/tlb.c              | 8 ++++----
->   arch/riscv/kvm/vcpu.c             | 8 ++------
->   3 files changed, 8 insertions(+), 12 deletions(-)
+>   arch/riscv/include/asm/kvm_host.h | 2 ++
+>   arch/riscv/kvm/mmu.c              | 2 +-
+>   arch/riscv/kvm/tlb.c              | 8 ++++++++
+>   3 files changed, 11 insertions(+), 1 deletion(-)
 >
 > diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> index 8aa705ac75a5..ff1f76d6f177 100644
+> index ff1f76d6f177..6162575e2177 100644
 > --- a/arch/riscv/include/asm/kvm_host.h
 > +++ b/arch/riscv/include/asm/kvm_host.h
-> @@ -37,7 +37,6 @@
->   #define KVM_REQ_UPDATE_HGATP		KVM_ARCH_REQ(2)
->   #define KVM_REQ_FENCE_I			\
->   	KVM_ARCH_REQ_FLAGS(3, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
-> -#define KVM_REQ_HFENCE_GVMA_VMID_ALL	KVM_REQ_TLB_FLUSH
->   #define KVM_REQ_HFENCE_VVMA_ALL		\
->   	KVM_ARCH_REQ_FLAGS(4, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
->   #define KVM_REQ_HFENCE			\
-> @@ -331,8 +330,9 @@ void kvm_riscv_local_hfence_vvma_gva(unsigned long vmid,
->   				     unsigned long order);
->   void kvm_riscv_local_hfence_vvma_all(unsigned long vmid);
+> @@ -43,6 +43,8 @@
+>   	KVM_ARCH_REQ_FLAGS(5, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+>   #define KVM_REQ_STEAL_UPDATE		KVM_ARCH_REQ(6)
 >   
-> +void kvm_riscv_tlb_flush_process(struct kvm_vcpu *vcpu);
+> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
 > +
->   void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu);
-> -void kvm_riscv_hfence_gvma_vmid_all_process(struct kvm_vcpu *vcpu);
->   void kvm_riscv_hfence_vvma_all_process(struct kvm_vcpu *vcpu);
->   void kvm_riscv_hfence_process(struct kvm_vcpu *vcpu);
+>   #define KVM_HEDELEG_DEFAULT		(BIT(EXC_INST_MISALIGNED) | \
+>   					 BIT(EXC_BREAKPOINT)      | \
+>   					 BIT(EXC_SYSCALL)         | \
+> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+> index 29f1bd853a66..a5387927a1c1 100644
+> --- a/arch/riscv/kvm/mmu.c
+> +++ b/arch/riscv/kvm/mmu.c
+> @@ -344,7 +344,7 @@ static void gstage_wp_memory_region(struct kvm *kvm, int slot)
+>   	spin_lock(&kvm->mmu_lock);
+>   	gstage_wp_range(kvm, start, end);
+>   	spin_unlock(&kvm->mmu_lock);
+> -	kvm_flush_remote_tlbs(kvm);
+> +	kvm_flush_remote_tlbs_memslot(kvm, memslot);
+>   }
 >   
+>   int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
 > diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
-> index b3461bfd9756..da98ca801d31 100644
+> index da98ca801d31..f46a27658c2e 100644
 > --- a/arch/riscv/kvm/tlb.c
 > +++ b/arch/riscv/kvm/tlb.c
-> @@ -162,7 +162,7 @@ void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu)
->   	local_flush_icache_all();
+> @@ -403,3 +403,11 @@ void kvm_riscv_hfence_vvma_all(struct kvm *kvm,
+>   	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE_VVMA_ALL,
+>   			    KVM_REQ_HFENCE_VVMA_ALL, NULL);
 >   }
->   
-> -void kvm_riscv_hfence_gvma_vmid_all_process(struct kvm_vcpu *vcpu)
-> +void kvm_riscv_tlb_flush_process(struct kvm_vcpu *vcpu)
->   {
->   	struct kvm_vmid *v = &vcpu->kvm->arch.vmid;
->   	unsigned long vmid = READ_ONCE(v->vmid);
-> @@ -342,14 +342,14 @@ void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
->   	data.size = gpsz;
->   	data.order = order;
->   	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE,
-> -			    KVM_REQ_HFENCE_GVMA_VMID_ALL, &data);
-> +			    KVM_REQ_TLB_FLUSH, &data);
->   }
->   
->   void kvm_riscv_hfence_gvma_vmid_all(struct kvm *kvm,
->   				    unsigned long hbase, unsigned long hmask)
->   {
-> -	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE_GVMA_VMID_ALL,
-> -			    KVM_REQ_HFENCE_GVMA_VMID_ALL, NULL);
-> +	make_xfence_request(kvm, hbase, hmask, KVM_REQ_TLB_FLUSH,
-> +			    KVM_REQ_TLB_FLUSH, NULL);
->   }
->   
->   void kvm_riscv_hfence_vvma_asid_gva(struct kvm *kvm,
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index a2dd4161e5a4..6eb11c913b13 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -721,12 +721,8 @@ static void kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
->   		if (kvm_check_request(KVM_REQ_FENCE_I, vcpu))
->   			kvm_riscv_fence_i_process(vcpu);
->   
-> -		/*
-> -		 * The generic KVM_REQ_TLB_FLUSH is same as
-> -		 * KVM_REQ_HFENCE_GVMA_VMID_ALL
-> -		 */
-> -		if (kvm_check_request(KVM_REQ_HFENCE_GVMA_VMID_ALL, vcpu))
-> -			kvm_riscv_hfence_gvma_vmid_all_process(vcpu);
-> +		if (kvm_check_request(KVM_REQ_TLB_FLUSH, vcpu))
-> +			kvm_riscv_tlb_flush_process(vcpu);
->   
->   		if (kvm_check_request(KVM_REQ_HFENCE_VVMA_ALL, vcpu))
->   			kvm_riscv_hfence_vvma_all_process(vcpu);
+> +
+> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 nr_pages)
+> +{
+> +	kvm_riscv_hfence_gvma_vmid_gpa(kvm, -1UL, 0,
+> +				       gfn << PAGE_SHIFT, nr_pages << PAGE_SHIFT,
+> +				       PAGE_SHIFT);
+> +	return 0;
+> +}
 
 Reviewed-by: Nutty Liu <liujingqi@lanxincomputing.com>
 
