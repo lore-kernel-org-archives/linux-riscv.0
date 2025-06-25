@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9AA1C7EE3A
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 133D4C77B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
-	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=O7A9Bm26ufjIv5Q3DHSeSMZeikqmgODzxQOrAITNhxU=; b=f6T2D/UOsYWVMH
-	X2NCICmiSxDe8Y/3CE2x1I0XRcUeN0U8ADVGgLb/5Re2aa7HKBPnw0RtiiHUhrroSVbcmwspK5MWD
-	GqC4L/MJ3gLvdctzSDmF6MunAwt9OSYexVun9LMUF0FZlKRB7r7/ovKkHu8LWWv7IeNKuoxMEzwoV
-	vXOb0y00X7rDwm/HkyNhyyq+9UnGY337R556OHd0q0VnctpsDhyL0el1p6zECWD72nZAe/tazox/O
-	Yko9ioobEMUbaZMOAIpM8V65AMy0OgC9n9k7w6DpE98ZGpC9OFHKsU2PhV6M6eSto73AQuOBoH3+J
-	+pTZ73tQNlx8EyMQjVOg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ifoCppKLLZ0spx/Gp5bgWC5Yp+VuHDGxxG8T/ynYHP4=; b=pNgk/dRyP4pL81
+	F3iOfIIxO65Z9hTLHRuG6zbojukaoqechlX5L8hdTDbp/CorS12GtWhgMF59hhfZX8WU012V1bWrh
+	Lf1WZYNCMNkYdWyWYLXsE8zh7EMhVEaBzGmWjfk2piildItNULuynKEAxDcjix7pN4pSKJMJXS1k4
+	X9VE10iCqaG4PUOixlcJzu9I+OoSU3zgoHjITYMFIe2H+gU5Q4XpTZVaNg/EVMXuIHynalXZ0cplh
+	nG5WWTqOKtgsFE3aQh1KYyDqVjrNhSVtEH+e5OOdqTaVzaUt9vCU8PLbqpdbjoOMnBNk7/aox9UrX
+	9DMHVnJN2n0ZeylMR32w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUri-00000009ZH7-05Uj;
-	Wed, 25 Jun 2025 18:28:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uUUrh-00000009ZGx-1mwG;
+	Wed, 25 Jun 2025 18:28:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUQzk-00000008wWY-2DCc
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 14:21:00 +0000
+	id 1uUQyT-00000008wEj-0t9L;
+	Wed, 25 Jun 2025 14:19:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E8ED3611BD;
-	Wed, 25 Jun 2025 14:20:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 73A1BC4CEF3;
-	Wed, 25 Jun 2025 14:20:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C0C375C42B5;
+	Wed, 25 Jun 2025 14:17:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0CE9C4CEEA;
+	Wed, 25 Jun 2025 14:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750861259;
-	bh=AKkCB0Fn/Ec0J/1YhLs2exR0gTfL+alBY0dWRjOKJfY=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=kHPcQqlhBqBz6om3lVhgh+BuhcVVtS3SVOtH2YV0rrk7lFet1oJgI6j1H+TzRftye
-	 C4aa+GnG+DPFlZK58vqUPm5N0uAf6iph89rPGGctjtqWbEw6wQNi24NdAhbxN1usgv
-	 DDDonqyDXNw6HS91V3R5yx17MU6lEhWHeyQAb1rr8/uus6hI+R0y3mPAaEqaD6/XJr
-	 20NqICYdnjPf+lh/tT4m+9vGzHDTyH1lYa0cPjlI4yl1707Zm6i4v+e/TA9JOhvy0o
-	 DUpzMopORVJeaU/rx2QwbeJSvNYV8aYtWux2jdv7MrHFsE8YBmNj1OK2sRaexxAVkI
-	 SIuAq8QP1gy4w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 68EEEC77B7C;
-	Wed, 25 Jun 2025 14:20:59 +0000 (UTC)
-From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Subject: [PATCH v4 0/7] riscv: Add support for xmipsexectl
-Date: Wed, 25 Jun 2025 16:20:55 +0200
-Message-Id: <20250625-p8700-pause-v4-0-6c7dd7f85756@htecgroup.com>
+	s=k20201202; t=1750861179;
+	bh=g4ArFd+mq5NzwEmHH7H82HIytBCVh2j1tA+eOOIjQ3E=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=E7GJaO4RctEbyOoOCUvcBAsNztHOzSfPvfS43x5dBuK5XgD8KEseQCXN0hiA6zIsO
+	 0cG9p2RXIeXJwQExX9t4tEhJ02NomZgciueU9iSh2vH24/8e1CHxktmLMNGwHMUfIt
+	 lkIt/IDQV+GpYVEPJJHG8CbXJjbUd/IKHzMXEDNcsc1tJoUn/oSqCr7UTuaHKzdKTF
+	 BHfAbu8PB2p7M0Ks2v9CCsywliMON+syXXGBZoIrLaqDpFzrGgrvFIqqucr29k9ozM
+	 qJU44MeQeqTj9ilwi9H7Nz+Ow7KSLrc/fpNKCKwjZg211h6mNSUUhZP/58fkhkcDRD
+	 RUcCeRV80mnDw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADDB53A40FCB;
+	Wed, 25 Jun 2025 14:20:07 +0000 (UTC)
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAMcFXGgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyTHQUlJIzE
- vPSU3UzU4B8JSMDI1MDEyMT3QILcwMD3YLE0uJU3ZTkJDMTS0szi1QjEyWgjoKi1LTMCrBp0bG
- 1tQCI/NDSXQAAAA==
-X-Change-ID: 20250424-p8700-pause-dcb649968e24
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>
-Cc: Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
- Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
- Aleksandar Rikalo <arikalo@gmail.com>, 
- Raj Vishwanathan4 <rvishwanathan@mips.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750861257; l=3219;
- i=aleksa.paunovic@htecgroup.com; s=20250514; h=from:subject:message-id;
- bh=AKkCB0Fn/Ec0J/1YhLs2exR0gTfL+alBY0dWRjOKJfY=;
- b=/HMVj1SwzEI08oQFtLo1Ahc7Gh6hhXWEWC5Ge5p6KquI8NEYcZUJKfIghbMpNuj39KKehh1df
- 0AfmJD3xM0WD6sDJrQFM0OI3s1rkWUsydP4U4YfOpkrEHfC2X5QKF8V
-X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
- pk=gFVSVYLKAgJiS5qCnDyUMGOFuczv8C6o0UmRs+fgisA=
-X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250514
- with auth_id=403
-X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+Subject: Re: [PATCH v5 0/3] Move duplicated instructions macros into
+ asm/insn.h
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <175086120650.493996.14965405389031258218.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Jun 2025 14:20:06 +0000
+References: <20250620-dev-alex-insn_duplicate_v5_manual-v5-0-d865dc9ad180@rivosinc.com>
+In-Reply-To: <20250620-dev-alex-insn_duplicate_v5_manual-v5-0-d865dc9ad180@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ anup@brainfault.org, atish.patra@linux.dev, linux-kernel@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, philmd@linaro.org,
+ ajones@ventanamicro.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_071941_288718_E290C0E7 
+X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,77 +73,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: aleksa.paunovic@htecgroup.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the xmipsexectl vendor extension.
-A new hardware probe key has also been added to allow userspace to probe for MIPS vendor extensions.
+Hello:
 
-Additionally, since the standard Zihintpause PAUSE instruction encoding is not supported on some MIPS CPUs,
-an errata was implemented for replacing this instruction with the xmipsexectl MIPS.PAUSE alternative encoding.
+This series was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@dabbelt.com>:
 
-Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
----
-This is a continuation of a previous series, which did not implement the full
-xmipsexectl vendor extension. The title was updated accordingly.
+On Fri, 20 Jun 2025 20:21:56 +0000 you wrote:
+> The instructions parsing macros were duplicated and one of them had different
+> implementations, which is error prone.
+> 
+> So let's consolidate those macros in asm/insn.h.
+> 
+> v1: https://lore.kernel.org/linux-riscv/20250422082545.450453-1-alexghiti@rivosinc.com/
+> v2: https://lore.kernel.org/linux-riscv/20250508082215.88658-1-alexghiti@rivosinc.com/
+> v3: https://lore.kernel.org/linux-riscv/20250508125202.108613-1-alexghiti@rivosinc.com/
+> v4: https://lore.kernel.org/linux-riscv/20250516140805.282770-1-alexghiti@rivosinc.com/
+> 
+> [...]
 
-Changes in v4:
-- Add support for the xmipsexectl vendor extension
-- Remove the ifdef/else from errata_list.h
-- Replace the ifdef/else with a hwprobe call in the userspace code.
+Here is the summary with links:
+  - [v5,1/3] riscv: Fix typo EXRACT -> EXTRACT
+    https://git.kernel.org/riscv/c/e2d02461b2e2
+  - [v5,2/3] riscv: Strengthen duplicate and inconsistent definition of RV_X()
+    https://git.kernel.org/riscv/c/771c94605d50
+  - [v5,3/3] riscv: Move all duplicate insn parsing macros into asm/insn.h
+    https://git.kernel.org/riscv/c/38b566b84cf6
 
-Link to v3:
-https://lore.kernel.org/linux-riscv/20250129131703.733098-1-arikalo@gmail.com/
-
----
-Aleksa Paunovic (6):
-      dt-bindings: riscv: Add xmipsexectl ISA extension description
-      riscv: Add xmipsexectl as a vendor extension
-      riscv: Add xmipsexectl PAUSE instruction
-      riscv: hwprobe: Add MIPS vendor extension probing
-      riscv: hwprobe: Document MIPS xmipsexectl vendor extension
-      riscv: Add tools support for xmipsexectl
-
-Djordje Todorovic (1):
-      riscv: errata: Fix the PAUSE Opcode for MIPS P8700
-
- Documentation/arch/riscv/hwprobe.rst               |  9 +++
- .../devicetree/bindings/riscv/extensions.yaml      |  6 ++
- arch/riscv/Kconfig.errata                          | 23 ++++++++
- arch/riscv/Kconfig.vendor                          | 13 +++++
- arch/riscv/errata/Makefile                         |  1 +
- arch/riscv/errata/mips/Makefile                    |  5 ++
- arch/riscv/errata/mips/errata.c                    | 67 ++++++++++++++++++++++
- arch/riscv/include/asm/alternative.h               |  3 +
- arch/riscv/include/asm/cmpxchg.h                   |  3 +-
- arch/riscv/include/asm/errata_list.h               | 17 +++++-
- arch/riscv/include/asm/hwprobe.h                   |  3 +-
- arch/riscv/include/asm/vdso/processor.h            |  4 +-
- arch/riscv/include/asm/vendor_extensions/mips.h    | 23 ++++++++
- .../include/asm/vendor_extensions/mips_hwprobe.h   | 23 ++++++++
- arch/riscv/include/asm/vendorid_list.h             |  1 +
- arch/riscv/include/uapi/asm/hwprobe.h              |  1 +
- arch/riscv/include/uapi/asm/vendor/mips.h          |  3 +
- arch/riscv/kernel/alternative.c                    |  5 ++
- arch/riscv/kernel/entry.S                          |  2 +
- arch/riscv/kernel/sys_hwprobe.c                    |  4 ++
- arch/riscv/kernel/vendor_extensions.c              | 10 ++++
- arch/riscv/kernel/vendor_extensions/Makefile       |  2 +
- arch/riscv/kernel/vendor_extensions/mips.c         | 22 +++++++
- arch/riscv/kernel/vendor_extensions/mips_hwprobe.c | 22 +++++++
- arch/riscv/mm/init.c                               |  1 +
- tools/arch/riscv/include/asm/vdso/processor.h      | 27 +++++----
- 26 files changed, 286 insertions(+), 14 deletions(-)
----
-base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-change-id: 20250424-p8700-pause-dcb649968e24
-
-Best regards,
+You are awesome, thank you!
 -- 
-Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
 
