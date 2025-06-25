@@ -4,106 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2D0C7EE2A
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD573C7EE30
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=49E943oU3rqsH+bPuMu7hLG38NDi+thz92v1xcwSuxQ=; b=Upj6xygBCMwMog
-	xldz0hxmMpRLWjkN1JYca3ATF2jJc5ZYtgKIOAbdv5Nq70SgCfLTDLbqQKwN/2EYpf83xkj9Jld5E
-	YHU3wE6EUpINCRP4Eu/nv3waS38Dkzif1cdBB5Tx0+bJQfj7X96pp+Wi73a3VF7xTdrtflqQSPMxk
-	kEWz72b29y8B5pbpgHOZE7SFI6ac0OnYN68c5i2ioskpia/bRxSSxYyA5pwSMSBD8VMEOOmwXWb2W
-	nKrFpqI22FvqdujHDdnlt81dsCLok4zSHphwudgr5Hj8qdhCkte1i7yF6RWFRH3ACdufH8gPc2yRJ
-	CXatGRHEaxiR0nMj0WMw==;
+	List-Owner; bh=U9J2/HGX7WRKm80pK0tRu6/UQkEuRlaU6p9NIgPd1b4=; b=O+C/E8Yy1S9iYr
+	L2xINkOBf7czxo1OBPmlUbtOnOFBcWoBcFhxAb6R0/ShL05qCeiDIEcezPF3CnpjaoZVNm0Br0rFr
+	qY3nFH60Pr1fDZErUIoVamJv2R88ucsx7tsoUM0rqi52VZ9mlcbSh97ruyoTOAbRZIISJSZmAI2nc
+	7HG6qZM8VgKeLmiKMoQ2cGUNSP0DG0x7mVje72TsGsEaifLXkOkznkizX+0yqmPKvWxiKiz70HT3q
+	t2+fnC23/X17HzOA4W6ZnAsVnSRLsANTeK9dNZOxMsLbUb3gg7ER4BlRtSWmUKi8l0ySxhqQpBvJK
+	Ux4Po/d8UFGWbkuwfjXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUsH-00000009aDb-1f9g;
-	Wed, 25 Jun 2025 18:29:33 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1uUUsY-00000009ajo-2k7X;
+	Wed, 25 Jun 2025 18:29:50 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUS10-0000000970H-0v7F
+	id 1uUSaI-00000009DEu-48j0
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 15:26:23 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-234d3261631so121785ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Jun 2025 08:26:21 -0700 (PDT)
+	Wed, 25 Jun 2025 16:02:52 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4537deebb01so12624225e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Jun 2025 09:02:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1750865181; x=1751469981; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gE8jHxo+PQ6FPeXXY1t5SkeB5q8vcyLGyWcRWobT2vU=;
-        b=2qpFeu1l6N5t1x6MBn1SjlKGVRZdz6LWx4HrXSrk9sxXMc/LLYC3HBuLz0Kow4qO7k
-         VWGzbWaVeLYSIt6iamrZBJbFhGP6/a0UQC6xUnSPbziUIGXnyQy/CVzmxVhgCP5f6Ncn
-         KES4XqezO4u+ycNXz9M9QefRfvwXPBkYB664kqEtalU1OLdnD64Y+gca4s7EkZfDdurM
-         8yNxrx496P0Jpgz3GS0gm9q/AYhfQIq6A3Do8wWFK7t7dDwJLqYrr57xeDagq6iSfxRB
-         4bV78EODjpKb9laRVFH0PqTRx5wlxahQq0fPs6TPFIP6QDQSaNm9HHrpdfH7hBcRptzB
-         vOqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750865181; x=1751469981;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1750867369; x=1751472169; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gE8jHxo+PQ6FPeXXY1t5SkeB5q8vcyLGyWcRWobT2vU=;
-        b=vkqhaF1PLsAQSY88YTxhQb1f5S4YySY3VUnOTheGMNkLePBvJUVR/vsfOjOKVmbUU9
-         g+i8JxkKkalqrIgmLMKiGYdkJ57l2sBaWQc24K8SdEd6CHb5RrJfG+Qud4Z1or0XQHp5
-         N9cU+hdu07BoXVDJ4CTfzoC69j1WDPKXcXR1SDDBWEgLZfShs794R6SGCd0Ns8VZvG3h
-         Inf8IjA731eWotlMqQCuBrCN65xuUbiEidkqqTBKvtcg/Lg20UkwNZnvLmjPepMO+vds
-         E/jbXK/Xkz8Cdk6Omlg4Ffyolfph731kdLQfSQhnEZJ3O1958DoSxzNDQjYkgGxgQ/Xz
-         2m7w==
-X-Forwarded-Encrypted: i=1; AJvYcCUatROuUJ2ITBQUCU34+bT1YMhGrNdSKjMZ9Bou9a2fQrIR1yseIPGFqEGMrxuOF6xJ2AeeLXvB58Qj2w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyDdhpCwCfvXSkw8fhKeJBm8OHugCcyj4eyGSWl37fLrYIGFKb
-	oo5ksl/19Z938SHn9jxWjHcbcgsB1mkj30dm+Z8rQcVnQr6ii3Og3r2X7rs4N+yX4qI=
-X-Gm-Gg: ASbGncs49DH2PuCXL/HV05N2uvtqesxna4MSBD5cgU/8MBceB0HSwMliNGqIEHnRdCO
-	V7bDj9eIXAWGj5mFZBnW3d3+yw6tlqENXdwPBCBJDrcdNXbfDOLbpUdeXmN4y+yjcfUy9u9se0Z
-	edG5JugGyY8VeH/gUxuxHpraI/KjKwEPMzqtWgf9a4o2DoDB1xbNQeZMiIijzQDTKNSXfwukyGo
-	Dap2IwrhOACl96jCAFmTmziE0W7rd9aIzjytkFzsFG3j/yhm6CaarzLIYJytUGnMJBBi/Hyki/y
-	SW18FW41lgDaM0oyX3e05p9hqzCRPSJIWm8PVfwOVvciouMc4wdPVyy2tyaCFmohV1kgVaxknc8
-	ZqsZarXvb
-X-Google-Smtp-Source: AGHT+IHrt+1gjc7s6rRerhB4Z7Hf4zvb7Zi6obxep/7tJ3hlo/78JEJ8gL2cW7XB4z6XD8DMAOJnew==
-X-Received: by 2002:a17:902:f552:b0:235:655:11aa with SMTP id d9443c01a7336-238243620b9mr62700495ad.39.1750865180734;
-        Wed, 25 Jun 2025 08:26:20 -0700 (PDT)
-Received: from x1 (97-120-252-192.ptld.qwest.net. [97.120.252.192])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d839354esm137239885ad.16.2025.06.25.08.26.19
+        bh=cINHqIFzOlIyPqhGj+q+rLlY+QbAuzwrgIP8a6FcGlk=;
+        b=Q/fspb6Qz6JoVjaW+erePG2kaT8AV/V0NvjiB9nR8SU5nflFia2H2mjsVyEOoBeH3t
+         usOGQIHmNeHqXQrfBgPDg95FSJhExboENiH6UQBt5/xbN0Vsud82JhVOYf+aOC/c8Fdf
+         HcwaWgPf/R+Ke0IbU7Ag9R+HqwESYP/UcKYWB2tm5NxLnZUfMGkru89LMbtxjKR7jm7e
+         qMYTNKYvxakrCssTV2r7v0B3Fe/EtzI8AAKeg0mxJypzbTgvGUg4V1kAKR/sM/4ubrX9
+         SlAlASmbezKKYGe20fFEotMTCITgKFNCBfTUsKoeUvYSGKsJp1Xoi9E2lYBmimgrprNQ
+         Comw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750867369; x=1751472169;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cINHqIFzOlIyPqhGj+q+rLlY+QbAuzwrgIP8a6FcGlk=;
+        b=evkHAmyC/5gIm6arazGY+YDcwR0WIM7GB+5K4qHwBDGzC5i2sKYhfdgrNMapfTIXOi
+         +SIXV3wT7aD72nGTDim9SpuOTXsCeOZ46pFHY06NUGlzlVw2oi6D8EmT/vBKkKFG4Z3p
+         AA1cLDoPwTi+lkinGEuDI03e5TpKMBRevz8okz3cXH4ruV8abPLKfsodPFy2Cb30hLlh
+         tXfF8VDdd4oHR4EMgUV8THG+sBuPR1LfeTTKB3mLfH4L82+rSuHlmCakeNbde/rrl0lx
+         Qg7nWbNlz9jSwXJvhL3si1oLJb5SQcfcjrRxTC0ovoQtSHXtn9jcvpJxeqbwnZeBX5sn
+         v12g==
+X-Forwarded-Encrypted: i=1; AJvYcCVSDANhfmaY4RqRUudFz66sG4WljaxGat0CcKumDvBtWDcTVw+pkjPBLDHU8CLpxFQC62HIole5B7LZgw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzftF/IybWvDDm0MwtAHyv6T6mOdbLLmPNW1jGmAepwMzaDQiJk
+	r/8mm5er+J16WOmAjRsRaQ71JTRAqn1JlbfDsta3esAP2wFkFwtYdNxG
+X-Gm-Gg: ASbGncuGHbBqh8MuykvWKZzihyQkr7AC8IVbXAumIX23MNFk8LG0Z/vHE7lt7ygQzSy
+	ZCPk514E2ax27fA/YOsgMVNEoRHzGfCtWGoKCc0O9G23/MEngHg9idvi5u9fs/R3WfSBAH4qDoT
+	dpD76Aum2dOHZAp2UojdjKtXwVlkoxx3K1HPfWK/B84QkbqOSxjO7uLnn4b8YXjWnqRZLZTvCvR
+	qfYnLkcZy0EcaITx3Ef4S0/9W+83/dciSN7FhwNX409+Vyy0eGFzkCvjB7eNRoE3Tw42qoJWg3V
+	F4HcUm0d6qYYQoRLCJGG3GLG91QF4RLSP+OYrugic2T1+JNktmqsFfHa9pgAdwA/HmUfy5IJgIp
+	+ZQMIDmK1pYAOyIrDUhTup9u2
+X-Google-Smtp-Source: AGHT+IEMB/YbssMtZ1NrMoQOmyfN0LtNB/8HKXUiqEQNnI7tYcd1rYZA65i7s1VULz2iDuXb5Pc0CQ==
+X-Received: by 2002:a05:600c:5305:b0:43d:abd:ad1c with SMTP id 5b1f17b1804b1-45381ae787fmr35533775e9.6.1750867368666;
+        Wed, 25 Jun 2025 09:02:48 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538233c05csm24091875e9.5.2025.06.25.09.02.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jun 2025 08:26:20 -0700 (PDT)
-Date: Wed, 25 Jun 2025 08:26:18 -0700
-From: Drew Fustini <drew@pdp7.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Frank Binns <frank.binns@imgtec.com>,
-	Matt Coster <matt.coster@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v5 0/8] Add TH1520 GPU support with power sequencing
-Message-ID: <aFwVGkAbRUm0j1hv@x1>
-References: <CGME20250618102225eucas1p129b1172bf54521c1eb0f718cb31af468@eucas1p1.samsung.com>
- <20250618-apr_14_for_sending-v5-0-27ed33ea5c6f@samsung.com>
- <aFNrRtbWzeRa7GmQ@x1>
- <12eed587-a8f3-4a67-8808-5e32617ded93@samsung.com>
+        Wed, 25 Jun 2025 09:02:48 -0700 (PDT)
+Date: Wed, 25 Jun 2025 17:02:34 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Yury Norov <yury.norov@gmail.com>
+Cc: cp0613@linux.alibaba.com, linux@rasmusvillemoes.dk, arnd@arndb.de,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] bitops: rotate: Add riscv implementation using Zbb
+ extension
+Message-ID: <20250625170234.29605eed@pumpkin>
+In-Reply-To: <aFWKX4rpuNCDBP67@yury>
+References: <20250620111610.52750-1-cp0613@linux.alibaba.com>
+	<20250620111610.52750-3-cp0613@linux.alibaba.com>
+	<aFWKX4rpuNCDBP67@yury>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <12eed587-a8f3-4a67-8808-5e32617ded93@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_082622_493726_040E49C5 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250625_090251_032641_43884D9C 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,31 +104,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 10:17:36AM +0200, Michal Wilczynski wrote:
-> Hi,
-> 
-> Apologies for the late reply, it was a long weekend in Poland and I was
-> away without access to e-mail.
-> 
-> This is the Imagination repository that hosts the firmware [1].
-> Admittedly I'm not using the newest firmware blobs available, as per
-> discussion here [2] I downloaded mine last year so haven't tested the
-> new ones yet.
-> 
-> For my own testing, I  embed the firmware directly into the kernel to
-> avoid issues with the initramfs. If you're compiling your own kernel,
-> you can do this with the following configuration options:
-> 
-> CONFIG_EXTRA_FIRMWARE="powervr/rogue_36.52.104.182_v1.fw"
-> CONFIG_EXTRA_FIRMWARE_DIR="/home/local_user"
+On Fri, 20 Jun 2025 12:20:47 -0400
+Yury Norov <yury.norov@gmail.com> wrote:
 
-Thank you, that worked.
+> On Fri, Jun 20, 2025 at 07:16:10PM +0800, cp0613@linux.alibaba.com wrote:
+> > From: Chen Pei <cp0613@linux.alibaba.com>
+> > 
+> > The RISC-V Zbb extension[1] defines bitwise rotation instructions,
+> > which can be used to implement rotate related functions.
+> > 
+> > [1] https://github.com/riscv/riscv-bitmanip/
+> > 
+> > Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+> > ---
+> >  arch/riscv/include/asm/bitops.h | 172 ++++++++++++++++++++++++++++++++
+> >  1 file changed, 172 insertions(+)
+> > 
+> > diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
+> > index d59310f74c2b..be247ef9e686 100644
+> > --- a/arch/riscv/include/asm/bitops.h
+> > +++ b/arch/riscv/include/asm/bitops.h
+> > @@ -20,17 +20,20 @@
+> >  #include <asm-generic/bitops/__fls.h>
+> >  #include <asm-generic/bitops/ffs.h>
+> >  #include <asm-generic/bitops/fls.h>
+> > +#include <asm-generic/bitops/rotate.h>
+> >  
+> >  #else
+> >  #define __HAVE_ARCH___FFS
+> >  #define __HAVE_ARCH___FLS
+> >  #define __HAVE_ARCH_FFS
+> >  #define __HAVE_ARCH_FLS
+> > +#define __HAVE_ARCH_ROTATE
+> >  
+> >  #include <asm-generic/bitops/__ffs.h>
+> >  #include <asm-generic/bitops/__fls.h>
+> >  #include <asm-generic/bitops/ffs.h>
+> >  #include <asm-generic/bitops/fls.h>
+> > +#include <asm-generic/bitops/rotate.h>
+> >  
+> >  #include <asm/alternative-macros.h>
+> >  #include <asm/hwcap.h>
+> > @@ -175,6 +178,175 @@ static __always_inline int variable_fls(unsigned int x)
+> >  	 variable_fls(x_);					\
+> >  })  
+> 
+> ...
+> 
+> > +static inline u8 variable_ror8(u8 word, unsigned int shift)
+> > +{
+> > +	u32 word32 = ((u32)word << 24) | ((u32)word << 16) | ((u32)word << 8) | word;  
+> 
+> Can you add a comment about what is happening here? Are you sure it's
+> optimized out in case of the 'legacy' alternative?
 
-[    1.041146] powervr ffef400000.gpu: [drm] loaded firmware powervr/rogue_36.52.104.182_v1.fw
-[    1.049654] powervr ffef400000.gpu: [drm] FW version v1.0 (build 6734358 OS)
-[    1.062024] [drm] Initialized powervr 1.0.0 for ffef400000.gpu on minor 0
+Is it even a gain in the zbb case?
+The "rorw" is only ever going to help full word rotates.
+Here you might as well do ((word << 8 | word) >> shift).
 
--Drew
+For "rol8" you'd need ((word << 24 | word) 'rol' shift).
+I still bet the generic code is faster (but see below).
+
+Same for 16bit rotates.
+
+Actually the generic version is (probably) horrid for everything except x86.
+See https://www.godbolt.org/z/xTxYj57To
+
+unsigned char rol(unsigned char v, unsigned int shift)
+{
+    return (v << 8 | v) << shift >> 8;
+}
+
+unsigned char ror(unsigned char v, unsigned int shift)
+{
+    return (v << 8 | v) >> shift;
+}
+
+	David
 
 _______________________________________________
 linux-riscv mailing list
