@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B869AC7EE2A
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 17:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEC7C83010
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 17:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4H/D0KDTYLtuDXQ7FFWvsBCosrU+5mi63BkHOvqGhSE=; b=oCVnvkgAj4yxkX
-	yoRcW6tSOUGlpiP/MnHUnNkE0LqEYMPz1Zf8FqSarSyztzCroR2681tlDLqdYWiTVjznWj15kztTR
-	MuOGGrpEwSDXwsOUJhAj2Q+e46gkzj2IDGRaxzCRdNmrXXG35Z+GS3StlecV/3KC4MS6v93dt+1L4
-	8tT5NlBVxf47eLpc1iX8wLzqR3GCNmwGqF9s5hBzVY6noTXBZhTjqtNcIXGuoQHRs+Bj1QOu7Gq1V
-	Zfz1yNzvB08lD5Xn5TzRqBbMruZVJUX8cqfOLD/cqKLOzR/JJBnmIUnmuEiryTcgrJyBXABX09AsP
-	7KfginIxpxRmgJXbSF9A==;
+	List-Owner; bh=0dBntiUE7tfaD2taXniH9VZw0MwQ0+LdxXXGQPQeONc=; b=LnjGwk2USKptAa
+	iEMNrx5LG7rTSHYtvfSTa2FfGT1SphW8as/d7YqUgzigQeEGqAMtkISnlS9aRblSlQxAtpaHv9GDX
+	Kjak24J1/yuMUq2pQaKOPu/i5gLSzrp3OKoySli6laPD49Ned4p73eJX/xzJeHGV6WNRx1VKLndip
+	VHBQh0J8xMbetT6/9RGakask0V6G0NFYBi/HFJFPWDqnCYpQsjxORiY+d57BSYfDiIugVKpTpJUIE
+	p08tvPv8jeMpUIlEPvcmq4TDfY4OZj+cVRtYelBNxvfhSYrKb5fiEjpzoCP45HY/X2nQP6WtignqO
+	HTSgXgR8h/p5LV8IVhIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUU2v-00000009Sxv-3qgo;
-	Wed, 25 Jun 2025 17:36:29 +0000
-Received: from mail-qv1-f47.google.com ([209.85.219.47])
+	id 1uUU2x-00000009Sy6-0C7a;
+	Wed, 25 Jun 2025 17:36:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPIa-00000008dWf-3xBH;
-	Wed, 25 Jun 2025 12:32:22 +0000
-Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-6fafaa60889so41360106d6.3;
-        Wed, 25 Jun 2025 05:32:20 -0700 (PDT)
+	id 1uUPIz-00000008dby-3yB5;
+	Wed, 25 Jun 2025 12:32:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=NhTGhxf402H0iQPCNCiqCI6RIMS+rgS0mxhxD4XS+R4=; b=ePPCwni8NwPvb7USa2CZUlhCuz
+	2Gh9vm64Eh7luN95psYCzPXhylnp4DqnTWpqvzBNitXIGpsgvX1T4i9GHiEr2Ck8la8UCzmsT5TXj
+	ZJApa/DYksJsmXN5ugf7ctE6owN7uDqFSdn7UFbrU7p9S6q2sAL7TNNAo8QIYKEaoqUw5eaAus3fj
+	lqQ5SqvD+5Mc7PBn0k7Vgi8skc3IBlCNPz0sBXZdlywOOWaDtR3qaXcLM3Vq0zZ+r7y3gLHLnIStw
+	DA574iK40EY1AfN4HEqjLHlfM2PXd9o9KnwnCmTX8r15PmtuYE7Azrj4HJfiu5KI9mIEiaEogpwso
+	PIBgmpLg==;
+Received: from mail-qk1-f176.google.com ([209.85.222.176])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUPIx-00000005r0s-0H3y;
+	Wed, 25 Jun 2025 12:32:44 +0000
+Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-7d3f192a64eso153565185a.2;
+        Wed, 25 Jun 2025 05:32:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750854738; x=1751459538;
+        d=1e100.net; s=20230601; t=1750854759; x=1751459559;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=B8p2OpGo8CDaPQfPclMnd2uTE+ODzAt+oveKwlFe1wI=;
-        b=rzgi4Ab7j2xxto+ZQ7KKBxcqtBwjVIyKj4n2xsfw6JZShxJc0Ch7Mn8U+BGANWhfpe
-         qzmaGA6jn0U1kMJOmWofLIKpUXqUxWG9pmcCF1HjiODzVXzFcYSPh/EVgbSz9X3DxT7c
-         UncfmdBD8f3mbzvb/0AMspBGck+5Ne0xiUPltwupa4ghv4z0nNeNM/Du2g9+G+Ui30Ib
-         vmliM7pE5tMd0unk1FcIj1MzDEbRp+oXmiBZaU2DraFnunki33RV/uNl3Jry1HUZMBZf
-         9bnf+cHz8zdS22efcAjfZMynGVjjtLFMvkhFBtbKdyk2BJoMCuAWv6wA/PqSkoGR6TY6
-         02PQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUJd+H5BFkT5BlSEHSaurGKjqwcQrS0/OFIajPVD907ro5nsTcJlM05RducEEqVPa4vLjSGX9Sf6lpUIAY=@lists.infradead.org, AJvYcCXaDWN12WFz4RBrKPMyG/L5FiVqwqRr6n2bVKopqW6AtaYtihRHs2UrBZxdcnxeyBkRnhmdzfZFvcCEmd0N0pQY@lists.infradead.org
-X-Gm-Message-State: AOJu0YysOS37QM06/TdSLPVOyklWc2xSRaz5Z8rXeoBsnlqYVdGcbswk
-	Jss/s1S00MW+IhX/SCTXzy080KaawYhAy/WEDHXZOgkRKAAlzvhHTSJzx04C4mop
-X-Gm-Gg: ASbGncuNigq8PAcVpbBoWGQgzYVdDQMJU1vmVsMzZwKMu053urnCEv4p9xA6w9S3DYU
-	RrKujd9hoWHrHQ3ojvdlFIjf6lK3mjJJNSu9YebjCMmuH7IAzVlTJvlX8q6EMdG78xGcr0pblOe
-	B3LVNDKOVk6NgUESh/veKZYcQkNtlZQ+Tcj//e82kbG5/vBnRTSSaSadJ7gwYsifjlkC8oqpVbJ
-	WW+RZBA45z+IT7a7/aZlXfc2hUpiH+WxcvVbjgk+TgbKcDT7F4xBsaqZqKgwkYqfbFPutSEhWk1
-	KpxOcC6s/wkuSWYyPljLWNic4b+JXAOsKvMD1G/U0jtmHGQ4oxWVcbBLSD4s4gePQiyL/GRu5p6
-	l0pyFh6ReKoe+DCByXJpiKQKCLQep
-X-Google-Smtp-Source: AGHT+IGc7edEM06kxAuntVk3HMCEak3IsC7YMg8we7l4itoKMn/7ETJbD8ej6XLIM2gq0DCKb1AbjA==
-X-Received: by 2002:a05:6214:2522:b0:6fa:fbb4:6404 with SMTP id 6a1803df08f44-6fd5ef29741mr46569016d6.5.1750854738321;
-        Wed, 25 Jun 2025 05:32:18 -0700 (PDT)
-Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com. [209.85.222.169])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fd093de890sm67578036d6.12.2025.06.25.05.32.17
+        bh=NhTGhxf402H0iQPCNCiqCI6RIMS+rgS0mxhxD4XS+R4=;
+        b=Yg+YuaptWY12N+Af2sxfvtDMHCglNl7SWdmAuyNWu7RRWeMCwHRSqyfIhtXjRuGTUL
+         Z7HrJXRkZdhKWWUgGppl4zYCBONuW1at4OroZmjK/9yajeMfBBGQ8mVqevBANEGMQCV8
+         HbsrIUJrGN/y0DaQTeAaa3lIsB+pKRVD0ZodJf6PQb3VaKG3nToGRK0rbwa05C5Ipc4b
+         NbQyy2UB3pJPtRNKyz7563sEfFWGRXxM3AQ1VtfkuHSM9Uy3YHPOMm642SGFKJMEUmox
+         nJhrgqyuAa9I7WQXB6Opre8n8Dq7zHp3NTN4ksfZO4hdJF4sBBN6PdSTBNSFQFtmqnoE
+         9VXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU3qHtCNU8hWRGTVFavSrlF8rZQpzWV9/IADE0VVMlq3Tl5uaGm31D0vw1/XkZJaWmCZd/f0Og3DUCaMD8=@lists.infradead.org, AJvYcCWhTntG/zwtxrXP9F7IB4kD6zjmMDahs3kT2MNB677eCwgS/5X8Aar1NdLiaha6ucFLYW/BYAEeX3kO9DPyGGwe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxj0nQRWq//njMcd+CP6834e5/nx3k51GdXlylTiZbu+scXZgoF
+	R6x1BsufpJBa4KxmvBLFyDhohAmVb77ww2zjXrr4lfCfoeiys0sLTHiyhPZCSUZv
+X-Gm-Gg: ASbGncvWP5Ru9ii2hSMDXPOkTLAMCyht7OrYZvZmZ9ap/eOfuoXTf2PXc9ZUxeAm+Ab
+	O3EHjkjfCT+bgHsFEuAhsKHheJka7m5F7r7wHekWrJz88af+Km2g1NLuf+GLEVyUy6/ebH4b57B
+	GxGTU06GcVyfnF3MWFuW2jfxte3laJ5O6iMsPsrcm0sFHlJaBDpWMO1ICqy4P46GreKe9jmCD64
+	R6yqLQAxBh/RhRp//sXmJfeUoXEnHDGimPo3Ty908DrSIw5DW6O3S6riaFl+GSfs6cwnH3cCnWq
+	5+pJ05Vh+qTJgySV63owDxrKz2wnG1Cwoy3zxPO/TrE1X4/xrJHyGjNjWvIOfp4f26LbVJbOzED
+	/prbCf1mtHodB1rjyZQ6DaHm78e8xGK6V+YSRRRc=
+X-Google-Smtp-Source: AGHT+IENIEtKgw6za1J/rqRmOOIw3Sy+OKAIVQyhXVx5uXoJoj8F/VJfatJxePux/KJputD50SzJzw==
+X-Received: by 2002:a05:620a:d84:b0:7d4:dce:5f5d with SMTP id af79cd13be357-7d42973ef53mr352753885a.38.1750854758930;
+        Wed, 25 Jun 2025 05:32:38 -0700 (PDT)
+Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com. [209.85.222.172])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d3f99a6415sm602669585a.40.2025.06.25.05.32.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Jun 2025 05:32:17 -0700 (PDT)
-Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-7d3e7641b76so389558185a.3;
-        Wed, 25 Jun 2025 05:32:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVTzOrxWXmNPlHt/9S+q74XrqYElTQrRa+qHP5zHtyU8/pj7CsG9QC6Z2FAiJu8dodcBT1KeHa3oqVdx6i9Yzxi@lists.infradead.org, AJvYcCXPOgVEhs4qpbWTwbYzRN3gIGa2SerUDs0JNu2BjLmhHLI41+lyW+bOXDzOtTVVqL2WmigvwX4ju+WgeoQ=@lists.infradead.org
-X-Received: by 2002:a05:620a:198b:b0:7d0:9ed4:d269 with SMTP id
- af79cd13be357-7d429710333mr334230485a.2.1750854737237; Wed, 25 Jun 2025
- 05:32:17 -0700 (PDT)
+        Wed, 25 Jun 2025 05:32:38 -0700 (PDT)
+Received: by mail-qk1-f172.google.com with SMTP id af79cd13be357-7d3f192a64eso153562685a.2;
+        Wed, 25 Jun 2025 05:32:38 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUPT0MNa5PK1wcrG+TxPOWhlWzikboRWluoBs4hsyJ5twvstfHWwsfpjVgrdMIVwZCicrZZIXJsGuGoFpc=@lists.infradead.org, AJvYcCWH/loV3fpzlrNiz9y0tofDnS2RsAHj1MbHjPAVkcGPfiO2sWH0TBSpfeVHC+XX869jrunlVLeZwnpCaRdwl2IC@lists.infradead.org
+X-Received: by 2002:a05:620a:8011:b0:7cd:5b2a:979e with SMTP id
+ af79cd13be357-7d42971e484mr353693085a.30.1750854758407; Wed, 25 Jun 2025
+ 05:32:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250625111806.4153773-1-maz@kernel.org> <20250625111806.4153773-3-maz@kernel.org>
-In-Reply-To: <20250625111806.4153773-3-maz@kernel.org>
+References: <20250625111806.4153773-1-maz@kernel.org> <20250625111806.4153773-4-maz@kernel.org>
+In-Reply-To: <20250625111806.4153773-4-maz@kernel.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 25 Jun 2025 14:32:05 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVQLEQziPueu64ueCrkhh9PtZeGWGVR-yHkbKBUTPfFyw@mail.gmail.com>
-X-Gm-Features: Ac12FXyYeQYex53YhZaoUKJ8ttY42d8BJ7oEfG35VrnSztAFwUMET7EHu4gB7r8
-Message-ID: <CAMuHMdVQLEQziPueu64ueCrkhh9PtZeGWGVR-yHkbKBUTPfFyw@mail.gmail.com>
-Subject: Re: [PATCH 2/3] PCI: apple: Add tracking of probed root ports
+Date: Wed, 25 Jun 2025 14:32:26 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWE-hnQEL4EU5H7ciFGUPUfN2c86ePjOG51tEiR_xhL1A@mail.gmail.com>
+X-Gm-Features: Ac12FXwRxxe4uRV1CN0dx9-vvun5P0zm41CVyhHyZ3rpCXz5PgKojsS4sa7YJUs
+Message-ID: <CAMuHMdWE-hnQEL4EU5H7ciFGUPUfN2c86ePjOG51tEiR_xhL1A@mail.gmail.com>
+Subject: Re: [PATCH 3/3] Revert "PCI: ecam: Allow cfg->priv to be
+ pre-populated from the root port device"
 To: Marc Zyngier <maz@kernel.org>
 Cc: Bjorn Helgaas <bhelgaas@google.com>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
 	Rob Herring <robh@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
@@ -79,8 +94,8 @@ Cc: Bjorn Helgaas <bhelgaas@google.com>, Alyssa Rosenzweig <alyssa@rosenzweig.io
 	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_053220_986129_EF29D569 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20250625_133243_209309_A900963B 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,16 +113,10 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Wed, 25 Jun 2025 at 13:18, Marc Zyngier <maz@kernel.org> wrote:
-> The apple driver relies on being able to directly find the matching
-> root port structure from the platform device that represents this
-> port.
+> This reverts commit 4900454b4f819e88e9c57ed93542bf9325d7e161.
 >
-> A previous hack stashed a pointer to the root port structure in
-> the config window private pointer, but that ended up relying on
-> assumptions that break other drivers.
->
-> Instead, bite the bullet and track the association as part of the
-> driver itself as a list of probed root ports.
+> Now that nobody relies of cfg->priv containing anything useful before
+> the .init() callback is used, restore the previous behaviour.
 >
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
 
