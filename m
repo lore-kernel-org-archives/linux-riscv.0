@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB117C7EE30
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 872ACC7EE30
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 10:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sUUrObjHlwK1bDY2CQX/aaqx/QDmCaJB/6ShEMXgqCg=; b=1Kk4QXbHhjETJPS1ued3t90PQ0
-	Z+ZJ/BwT2dxcuJD+tPgRbvoab6bDfwX+i1rDuO3xrq4gbPbeR8g7L09P2HFTbqErymjWBrKE2RkvN
-	en4QEV7Jk6YZGS1V59U2ZER205LvR0WmzL5MCSUEniZTvFzX20CWmhs+qe6rxFLvRaHdyMcO5u5Mg
-	DxZsc+akeUVZyuxmfwhv2LieIVNVjDKOcv3pWdgC9vXy1+UDUpgaeMKavAQPF5R16xqqF2XkMxrgb
-	FbuYZuBNgepDwCHKOX3R3Adk7zxrzu5tRlIJhLFZaBlutJukVQ3/eZ/SwWMVdf6VrvLe26xm0a/70
-	Rv3V2G6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gWmR9kypasfpW29sLlLEhUPxEWNbwwXEvYugJpB8FHw=; b=RlqC8rR0wk4ibs
+	Q4HyyyqIZ/SQXpXlTZ4576OSU5UgXirX5IlcTsLaWJda2tr/7Sw/Ww4X1DBkCaO+exnFcnfR/qjol
+	eKWYAvj8G2/Gb7Mh18T+DqpzjUPJEtWGFvIvVk5nefV0ys1htoZQR7Oren8ppx8SQ5m92HsEE8ekV
+	GTq+aXMO2pLNQZNLestrOU3pNxEV+to0EA+JfMV2oSwgcfFFeIvlBBbvfOrGEMbtAZ9dBtcufL0GS
+	+uPOVz0phmZtMmQaKvEEbzgSm02hyWPoKb2re0QZX8njw+jyy67zUHVKVYVH5/u//zQ0RAEHla8N9
+	ImiRWZCDYVYQqFa2bw4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMpD-00000008DE3-29wj;
-	Wed, 25 Jun 2025 09:53:51 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uUN3c-00000008Fz6-0o8N;
+	Wed, 25 Jun 2025 10:08:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUL6g-00000007tvi-2sAg;
-	Wed, 25 Jun 2025 08:03:48 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id D28F71F00050;
-	Wed, 25 Jun 2025 08:03:41 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 53CE6AC79F9; Wed, 25 Jun 2025 08:03:40 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id 14C8CAC7957;
-	Wed, 25 Jun 2025 08:03:39 +0000 (UTC)
-Date: Wed, 25 Jun 2025 10:03:36 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Kuba =?utf-8?Q?Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH 2/5] drm/sun4i: Support LVDS using MIPI DSI combo D-PHY
-Message-ID: <aFutWCScsMNgXUAu@shepard>
-References: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
- <20250221161751.1278049-3-kuba@szczodrzynski.pl>
+	id 1uUKHH-00000007lQl-09my;
+	Wed, 25 Jun 2025 07:10:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=GI+baXLMItSjgcBMZ7twd6x6pbRFh6QmlEtpG5t/zdQ=; b=PaBBGvpmoTyNNgPYeU6GZGaNcG
+	lRToE+iN7YA43x4qgNJSwzQjTCWfxN+jo6ZxWaQcYqtYj/J116ieFay6ddpRhLSjdGVsf/Sf3EWms
+	mrqyfc+UTxq8KQEjzMXtWV7lvsv/9kDFqAL7G8FnDi6xviOAi0//73WjJMLCLYU7auop6JYvNZG91
+	GdukDcuKeHKfnRr12rmq7X2UWnkAzp+zPMMe6P1hQgdXviST6prrHYywnn9OWnWAH4fXR10s3p84/
+	9wzPaYWqPQTixLIRuSgKKwS5TP1fixpWtbCWiPDCitN2lFk9aPvwsLzUVsMJUDNN/RibrlwJ1mF4p
+	sMMPD8Fg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUKHD-00000005deg-2Rnj;
+	Wed, 25 Jun 2025 07:10:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EC944AA30;
+	Wed, 25 Jun 2025 07:10:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9507DC4CEF3;
+	Wed, 25 Jun 2025 07:10:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750835433;
+	bh=IkX8c809Bkwa5YKNS0n0XaW5ZPy/jAKfSUJXB4aJ5O4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WxdR8L6aeMZxRKJr8FD2AsRFrBKpUzk1K4lUjaxONdjsjrofU9tvADZLCp7CkzrlK
+	 m0K7EkyB+j5p5vLFZt6YAEpKOvT0LVBlHYDPmc3fOUaIicfbg2NYypwvKJ45xTvdGK
+	 WDLnxSIouflaXT1XNx17bdfFWsUAHXRg2Ak7p6epGMBwfJGCdOvWmgBbH/JLeo/+bd
+	 +6uAIVeAU7zJw/K/Pygyx77H3LapMXvu0bWMAOf5L/L0okQKFfIP2Q83geBPW7cVfI
+	 CYF0Du6S/hnBtCKQ/96pidTDm63RqkmUO71j3+3VNjhpIYFQkdWzSe4ss0z4MJZf2H
+	 pR0iU1NIwFyPA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH 14/18] crypto: sha256 - Use same state format as legacy drivers
+Date: Wed, 25 Jun 2025 00:08:15 -0700
+Message-ID: <20250625070819.1496119-15-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
+References: <20250625070819.1496119-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20250221161751.1278049-3-kuba@szczodrzynski.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_010346_885630_5865DB5F 
-X-CRM114-Status: GOOD (  32.77  )
+X-CRM114-CacheID: sfid-20250625_081036_512787_921E344A 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,177 +89,227 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3234081682214022771=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Make the export and import functions for the sha224, sha256,
+hmac(sha224), and hmac(sha256) shash algorithms use the same format as
+the padlock-sha and nx-sha256 drivers, as required by Herbert.
 
---===============3234081682214022771==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2x3bFr3NhO0jjsdL"
-Content-Disposition: inline
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+---
+ crypto/sha256.c | 95 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 95 insertions(+)
 
+diff --git a/crypto/sha256.c b/crypto/sha256.c
+index d81166cbba953..052806559f06c 100644
+--- a/crypto/sha256.c
++++ b/crypto/sha256.c
+@@ -11,10 +11,47 @@
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha2.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ 
++/*
++ * Export and import functions.  crypto_shash wants a particular format that
++ * matches that used by some legacy drivers.  It currently is the same as the
++ * library SHA context, except the value in bytecount must be block-aligned and
++ * the remainder must be stored in an extra u8 appended to the struct.
++ */
++
++#define SHA256_SHASH_STATE_SIZE 105
++static_assert(offsetof(struct __sha256_ctx, state) == 0);
++static_assert(offsetof(struct __sha256_ctx, bytecount) == 32);
++static_assert(offsetof(struct __sha256_ctx, buf) == 40);
++static_assert(sizeof(struct __sha256_ctx) + 1 == SHA256_SHASH_STATE_SIZE);
++
++static int __crypto_sha256_export(const struct __sha256_ctx *ctx0, void *out)
++{
++	struct __sha256_ctx ctx = *ctx0;
++	unsigned int partial;
++	u8 *p = out;
++
++	partial = ctx.bytecount % SHA256_BLOCK_SIZE;
++	ctx.bytecount -= partial;
++	memcpy(p, &ctx, sizeof(ctx));
++	p += sizeof(ctx);
++	*p = partial;
++	return 0;
++}
++
++static int __crypto_sha256_import(struct __sha256_ctx *ctx, const void *in)
++{
++	const u8 *p = in;
++
++	memcpy(ctx, p, sizeof(*ctx));
++	p += sizeof(*ctx);
++	ctx->bytecount += *p;
++	return 0;
++}
++
+ /* SHA-224 */
+ 
+ const u8 sha224_zero_message_hash[SHA224_DIGEST_SIZE] = {
+ 	0xd1, 0x4a, 0x02, 0x8c, 0x2a, 0x3a, 0x2b, 0xc9, 0x47,
+ 	0x61, 0x02, 0xbb, 0x28, 0x82, 0x34, 0xc4, 0x15, 0xa2,
+@@ -49,10 +86,20 @@ static int crypto_sha224_digest(struct shash_desc *desc,
+ {
+ 	sha224(data, len, out);
+ 	return 0;
+ }
+ 
++static int crypto_sha224_export(struct shash_desc *desc, void *out)
++{
++	return __crypto_sha256_export(&SHA224_CTX(desc)->ctx, out);
++}
++
++static int crypto_sha224_import(struct shash_desc *desc, const void *in)
++{
++	return __crypto_sha256_import(&SHA224_CTX(desc)->ctx, in);
++}
++
+ /* SHA-256 */
+ 
+ const u8 sha256_zero_message_hash[SHA256_DIGEST_SIZE] = {
+ 	0xe3, 0xb0, 0xc4, 0x42, 0x98, 0xfc, 0x1c, 0x14,
+ 	0x9a, 0xfb, 0xf4, 0xc8, 0x99, 0x6f, 0xb9, 0x24,
+@@ -87,10 +134,20 @@ static int crypto_sha256_digest(struct shash_desc *desc,
+ {
+ 	sha256(data, len, out);
+ 	return 0;
+ }
+ 
++static int crypto_sha256_export(struct shash_desc *desc, void *out)
++{
++	return __crypto_sha256_export(&SHA256_CTX(desc)->ctx, out);
++}
++
++static int crypto_sha256_import(struct shash_desc *desc, const void *in)
++{
++	return __crypto_sha256_import(&SHA256_CTX(desc)->ctx, in);
++}
++
+ /* HMAC-SHA224 */
+ 
+ #define HMAC_SHA224_KEY(tfm) ((struct hmac_sha224_key *)crypto_shash_ctx(tfm))
+ #define HMAC_SHA224_CTX(desc) ((struct hmac_sha224_ctx *)shash_desc_ctx(desc))
+ 
+@@ -126,10 +183,23 @@ static int crypto_hmac_sha224_digest(struct shash_desc *desc,
+ {
+ 	hmac_sha224(HMAC_SHA224_KEY(desc->tfm), data, len, out);
+ 	return 0;
+ }
+ 
++static int crypto_hmac_sha224_export(struct shash_desc *desc, void *out)
++{
++	return __crypto_sha256_export(&HMAC_SHA224_CTX(desc)->ctx.sha_ctx, out);
++}
++
++static int crypto_hmac_sha224_import(struct shash_desc *desc, const void *in)
++{
++	struct hmac_sha224_ctx *ctx = HMAC_SHA224_CTX(desc);
++
++	ctx->ctx.ostate = HMAC_SHA224_KEY(desc->tfm)->key.ostate;
++	return __crypto_sha256_import(&ctx->ctx.sha_ctx, in);
++}
++
+ /* HMAC-SHA256 */
+ 
+ #define HMAC_SHA256_KEY(tfm) ((struct hmac_sha256_key *)crypto_shash_ctx(tfm))
+ #define HMAC_SHA256_CTX(desc) ((struct hmac_sha256_ctx *)shash_desc_ctx(desc))
+ 
+@@ -165,10 +235,23 @@ static int crypto_hmac_sha256_digest(struct shash_desc *desc,
+ {
+ 	hmac_sha256(HMAC_SHA256_KEY(desc->tfm), data, len, out);
+ 	return 0;
+ }
+ 
++static int crypto_hmac_sha256_export(struct shash_desc *desc, void *out)
++{
++	return __crypto_sha256_export(&HMAC_SHA256_CTX(desc)->ctx.sha_ctx, out);
++}
++
++static int crypto_hmac_sha256_import(struct shash_desc *desc, const void *in)
++{
++	struct hmac_sha256_ctx *ctx = HMAC_SHA256_CTX(desc);
++
++	ctx->ctx.ostate = HMAC_SHA256_KEY(desc->tfm)->key.ostate;
++	return __crypto_sha256_import(&ctx->ctx.sha_ctx, in);
++}
++
+ /* Algorithm definitions */
+ 
+ static struct shash_alg algs[] = {
+ 	{
+ 		.base.cra_name		= "sha224",
+@@ -179,11 +262,14 @@ static struct shash_alg algs[] = {
+ 		.digestsize		= SHA224_DIGEST_SIZE,
+ 		.init			= crypto_sha224_init,
+ 		.update			= crypto_sha224_update,
+ 		.final			= crypto_sha224_final,
+ 		.digest			= crypto_sha224_digest,
++		.export			= crypto_sha224_export,
++		.import			= crypto_sha224_import,
+ 		.descsize		= sizeof(struct sha224_ctx),
++		.statesize		= SHA256_SHASH_STATE_SIZE,
+ 	},
+ 	{
+ 		.base.cra_name		= "sha256",
+ 		.base.cra_driver_name	= "sha256-lib",
+ 		.base.cra_priority	= 300,
+@@ -192,11 +278,14 @@ static struct shash_alg algs[] = {
+ 		.digestsize		= SHA256_DIGEST_SIZE,
+ 		.init			= crypto_sha256_init,
+ 		.update			= crypto_sha256_update,
+ 		.final			= crypto_sha256_final,
+ 		.digest			= crypto_sha256_digest,
++		.export			= crypto_sha256_export,
++		.import			= crypto_sha256_import,
+ 		.descsize		= sizeof(struct sha256_ctx),
++		.statesize		= SHA256_SHASH_STATE_SIZE,
+ 	},
+ 	{
+ 		.base.cra_name		= "hmac(sha224)",
+ 		.base.cra_driver_name	= "hmac-sha224-lib",
+ 		.base.cra_priority	= 300,
+@@ -207,11 +296,14 @@ static struct shash_alg algs[] = {
+ 		.setkey			= crypto_hmac_sha224_setkey,
+ 		.init			= crypto_hmac_sha224_init,
+ 		.update			= crypto_hmac_sha224_update,
+ 		.final			= crypto_hmac_sha224_final,
+ 		.digest			= crypto_hmac_sha224_digest,
++		.export			= crypto_hmac_sha224_export,
++		.import			= crypto_hmac_sha224_import,
+ 		.descsize		= sizeof(struct hmac_sha224_ctx),
++		.statesize		= SHA256_SHASH_STATE_SIZE,
+ 	},
+ 	{
+ 		.base.cra_name		= "hmac(sha256)",
+ 		.base.cra_driver_name	= "hmac-sha256-lib",
+ 		.base.cra_priority	= 300,
+@@ -222,11 +314,14 @@ static struct shash_alg algs[] = {
+ 		.setkey			= crypto_hmac_sha256_setkey,
+ 		.init			= crypto_hmac_sha256_init,
+ 		.update			= crypto_hmac_sha256_update,
+ 		.final			= crypto_hmac_sha256_final,
+ 		.digest			= crypto_hmac_sha256_digest,
++		.export			= crypto_hmac_sha256_export,
++		.import			= crypto_hmac_sha256_import,
+ 		.descsize		= sizeof(struct hmac_sha256_ctx),
++		.statesize		= SHA256_SHASH_STATE_SIZE,
+ 	},
+ };
+ 
+ static int __init crypto_sha256_mod_init(void)
+ {
+-- 
+2.50.0
 
---2x3bFr3NhO0jjsdL
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-Some comments below.
-
-On Fri 21 Feb 25, 17:17, Kuba Szczodrzy=C5=84ski wrote:
-> On Allwinner chips with a combo D-PHY, the TCON LCD0 should fetch it
-> from device tree, in order to enable LVDS. Since the PHY also needs to
-> be powered off to disable LVDS, add a function to the quirks.
->=20
-> Signed-off-by: Kuba Szczodrzy=C5=84ski <kuba@szczodrzynski.pl>
-> ---
->  drivers/gpu/drm/sun4i/sun4i_tcon.c | 12 ++++++++++++
->  drivers/gpu/drm/sun4i/sun4i_tcon.h |  6 ++++++
->  2 files changed, 18 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon.c b/drivers/gpu/drm/sun4i/s=
-un4i_tcon.c
-> index 960e83c82..ccf335a61 100644
-> --- a/drivers/gpu/drm/sun4i/sun4i_tcon.c
-> +++ b/drivers/gpu/drm/sun4i/sun4i_tcon.c
-> @@ -12,6 +12,7 @@
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/of_platform.h>
-> +#include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
->  #include <linux/regmap.h>
->  #include <linux/reset.h>
-> @@ -183,6 +184,8 @@ static void sun4i_tcon_lvds_set_status(struct sun4i_t=
-con *tcon,
->  	} else {
->  		regmap_update_bits(tcon->regs, SUN4I_TCON0_LVDS_IF_REG,
->  				   SUN4I_TCON0_LVDS_IF_EN, 0);
-
-Does the T113-S3/D1 also have LVDS support in TCON regsiters?
-My understanding is that it only has the combo-phy, so this register write
-should not take place.
-
-I think it would be easier to just move this to a common callback for users=
- of
-the tcon0 lvds phy and always call=20
-
-> +		if (tcon->quirks->disable_lvds_phy)
-> +			tcon->quirks->disable_lvds_phy(tcon, encoder);
-
-Also "disable" is often used as opposite of "enable", so I would suggest us=
-ing
-"teardown" as opposite of "setup" instead.
-
->  	}
->  }
-> =20
-> @@ -1245,6 +1248,15 @@ static int sun4i_tcon_bind(struct device *dev, str=
-uct device *master,
->  		goto err_free_dclk;
->  	}
-> =20
-> +	if (tcon->quirks->has_combo_dphy) {
-> +		tcon->dphy =3D devm_phy_get(dev, "dphy");
-
-I don't think it makes sense to call this dphy since it's used in LVDS mode
-and not in D-PHY mode. I would suggest using "combo" as phy name instead.
-
-It would have made more sense to also have the compatible reflect this
-(by calling it combo-phy instead of mipi-dphy) but it's too late now.
-
-> +		if (IS_ERR(tcon->dphy)) {
-> +			dev_err(dev, "Couldn't get the combo D-PHY\n");
-> +			ret =3D PTR_ERR(tcon->dphy);
-> +			goto err_free_dclk;
-> +		}
-> +	}
-> +
->  	if (tcon->quirks->has_channel_0) {
->  		/*
->  		 * If we have an LVDS panel connected to the TCON, we should
-> diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon.h b/drivers/gpu/drm/sun4i/s=
-un4i_tcon.h
-> index fa23aa23f..b270d1a13 100644
-> --- a/drivers/gpu/drm/sun4i/sun4i_tcon.h
-> +++ b/drivers/gpu/drm/sun4i/sun4i_tcon.h
-> @@ -239,6 +239,7 @@ struct sun4i_tcon_quirks {
->  	bool	has_channel_0;	/* a83t does not have channel 0 on second TCON */
->  	bool	has_channel_1;	/* a33 does not have channel 1 */
->  	bool	has_lvds_alt;	/* Does the LVDS clock have a parent other than the =
-TCON clock? */
-> +	bool	has_combo_dphy; /* Is the D-PHY used for LVDS output? */
->  	bool	needs_de_be_mux; /* sun6i needs mux to select backend */
->  	bool    needs_edp_reset; /* a80 edp reset needed for tcon0 access */
->  	bool	supports_lvds;   /* Does the TCON support an LVDS output? */
-> @@ -250,6 +251,8 @@ struct sun4i_tcon_quirks {
->  	/* handler for LVDS setup routine */
->  	void	(*setup_lvds_phy)(struct sun4i_tcon *tcon,
->  				  const struct drm_encoder *encoder);
-> +	void	(*disable_lvds_phy)(struct sun4i_tcon *tcon,
-> +				    const struct drm_encoder *encoder);
->  };
-> =20
->  struct sun4i_tcon {
-> @@ -282,6 +285,9 @@ struct sun4i_tcon {
->  	/* Associated crtc */
->  	struct sun4i_crtc		*crtc;
-> =20
-> +	/* Associated D-PHY */
-> +	struct phy			*dphy;
-> +
->  	int				id;
-> =20
->  	/* TCON list management */
-> --=20
-> 2.25.1
->=20
->=20
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---2x3bFr3NhO0jjsdL
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhbrVgACgkQhP3B6o/u
-lQxnIhAAhxvpGk5iu3GYSCq8EbYxLP0XgYfTkaAH54Zet2LTYk7P4AuzXmopcX4e
-N/4ZElElUqgy80ScsSc9cXgkVzESvITZct1RbbJrhMNsNnaJXiG2thBwlf+K/HDn
-2mzyKSLPkgIzEbrhkLchwpnahcplsnRoTeDwuKjGVGRpHdgCjirSy2oyDjjWIPx8
-yxRd6Lh3QnWef8Rp+2Ad/mzF/RwPsPf0j1Cd9sVa29ICvejakCdBPgP2r0/zLBiO
-lixWOi6P/8896L+mXNGwtbitd7KGEMSHMGfMnuggyzQufD7kEIlVvujJf62j96JN
-eGkeexJTO9ZBruyBM6HF72uPDe+UL57URKMPb0ZQEEu4s/XLKeqzy+am+JXj2lnI
-lYjwceLHCmAeIuCEbqPWAxJDjJA5J3J9K4YRA8DKtBqbOn8hSZp21n1e3cKsVRL9
-LPAxyJQ8HkbGrlldSEDTbw3vR5yrBins3OEVqt8/VH6NimfOjsfXnZxqXC8pTZ0A
-kc27/8mojPQ8MMpf9ms2lBIcGh5dPZjAicy/Iahl/l1w5xEc7CJGiSUf4FEK29MJ
-sIuHsVGsVDgzt39z6itWeGLGzYX8tT0SThStwa4h/DMb97Bj7XbWZfZNrfnZTWjS
-pJzD1zflVjGaQWnsIzX5S+mAS44sCdV/5zZjzvFdOB65MaDEkOs=
-=p+Op
------END PGP SIGNATURE-----
-
---2x3bFr3NhO0jjsdL--
-
-
---===============3234081682214022771==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3234081682214022771==--
-
