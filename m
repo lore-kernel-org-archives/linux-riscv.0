@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 309B5C7EE32
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB117C7EE30
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:To:
-	Mime-Version:Date:From:Cc:Message-Id:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=klFiInlpoCkoUr8yMQMBUNKq9VDVYhyeu2UYwPgxhwM=; b=I7dQzYl0dhxWH/
-	HgAxvt86/k27ieIV1W/BJD+9b5SJm2BWJUuw6rATZbFsOLvALUStJ+yZWxqo4lk5L82yZrzFkI+4w
-	iTzsfntHyC4dJ1cIYMgnNYW+s6lrtocAcdd1lj+2nCz0ZU8YyLtc//9DMgN+40rdKmAVFUzNDTJ9v
-	fJOlwKtbTHHGqGasdsv2WZILqcCHKrVoKi656iJYt69xJPCO8JObGQJgQK5dOLKYaLOlMDwVgOdl8
-	ysrzYYBrXRYmIhYGBwX78uQgFzbry0ETAryDvyPUGNIGPwQGAzOEfUpQoGvFrFyxxhJgKGkgs36l0
-	7PxkicWKgJkhdpaCC7+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sUUrObjHlwK1bDY2CQX/aaqx/QDmCaJB/6ShEMXgqCg=; b=1Kk4QXbHhjETJPS1ued3t90PQ0
+	Z+ZJ/BwT2dxcuJD+tPgRbvoab6bDfwX+i1rDuO3xrq4gbPbeR8g7L09P2HFTbqErymjWBrKE2RkvN
+	en4QEV7Jk6YZGS1V59U2ZER205LvR0WmzL5MCSUEniZTvFzX20CWmhs+qe6rxFLvRaHdyMcO5u5Mg
+	DxZsc+akeUVZyuxmfwhv2LieIVNVjDKOcv3pWdgC9vXy1+UDUpgaeMKavAQPF5R16xqqF2XkMxrgb
+	FbuYZuBNgepDwCHKOX3R3Adk7zxrzu5tRlIJhLFZaBlutJukVQ3/eZ/SwWMVdf6VrvLe26xm0a/70
+	Rv3V2G6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMpA-00000008D9S-02JJ;
-	Wed, 25 Jun 2025 09:53:48 +0000
-Received: from sg-3-13.ptr.tlmpb.com ([101.45.255.13])
+	id 1uUMpD-00000008DE3-29wj;
+	Wed, 25 Jun 2025 09:53:51 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKnH-00000007qxN-3ekc
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 07:43:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1750837409;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=oGnmteCS7Y1cGbRip4TRzIH/m6fa6vD0sYRYRmitVFM=;
- b=AL55rIKM7mvoV3OqGg0WItMPupsay1lsa/aY7NjNvEp7qKQMC72K5CkStaERm0JhpkVFmx
- kQuc85PVKGPja7UMzosma1NFFEdING69ixdAtE36iKJZilzj+2Z7RsCsX4rpXuHOK7FlNT
- RaOHwPSo27Z+5AI10vEK66yFY+rn8IC9sEFUkU5yl9GzOapK94NV6HBNcP42i0ew3NaGJ0
- IQYY6qjzlEdPEDyFLUp7CUOQNpm6C6D4SJcU8fOTsSPqt5+mtLbrUZ4//QSFzavEBoVFuG
- uhoxFzJ7L3NkL9+2NNN8M9dBsJ4OTNF8Gc4j4G7XBDKfWdIgRuD265qg0cWoqA==
-Message-Id: <8e8b241b-ef9d-4559-a451-e4cc1067c7fa@lanxincomputing.com>
-User-Agent: Mozilla Thunderbird
-X-Lms-Return-Path: <lba+2685ba89f+1bfe08+lists.infradead.org+liujingqi@lanxincomputing.com>
-Content-Language: en-US
-Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Alexandre Ghiti" <alex@ghiti.fr>, 
-	"Andrew Jones" <ajones@ventanamicro.com>, 
-	"Anup Patel" <anup@brainfault.org>, <kvm@vger.kernel.org>, 
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>, 
-	<linux-kernel@vger.kernel.org>, "Atish Patra" <atishp@rivosinc.com>
-From: "Nutty Liu" <liujingqi@lanxincomputing.com>
-Date: Wed, 25 Jun 2025 15:43:25 +0800
-Mime-Version: 1.0
-To: "Anup Patel" <apatel@ventanamicro.com>, 
-	"Atish Patra" <atish.patra@linux.dev>
-Subject: Re: [PATCH v3 09/12] RISC-V: KVM: Introduce struct kvm_gstage_mapping
-X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
-References: <20250618113532.471448-1-apatel@ventanamicro.com> <20250618113532.471448-10-apatel@ventanamicro.com>
-In-Reply-To: <20250618113532.471448-10-apatel@ventanamicro.com>
-Received: from [127.0.0.1] ([139.226.59.215]) by smtp.feishu.cn with ESMTPS; Wed, 25 Jun 2025 15:43:26 +0800
+	id 1uUL6g-00000007tvi-2sAg;
+	Wed, 25 Jun 2025 08:03:48 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id D28F71F00050;
+	Wed, 25 Jun 2025 08:03:41 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 53CE6AC79F9; Wed, 25 Jun 2025 08:03:40 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 14C8CAC7957;
+	Wed, 25 Jun 2025 08:03:39 +0000 (UTC)
+Date: Wed, 25 Jun 2025 10:03:36 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Kuba =?utf-8?Q?Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH 2/5] drm/sun4i: Support LVDS using MIPI DSI combo D-PHY
+Message-ID: <aFutWCScsMNgXUAu@shepard>
+References: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
+ <20250221161751.1278049-3-kuba@szczodrzynski.pl>
+MIME-Version: 1.0
+In-Reply-To: <20250221161751.1278049-3-kuba@szczodrzynski.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_004344_288980_418C7313 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20250625_010346_885630_5865DB5F 
+X-CRM114-Status: GOOD (  32.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,233 +70,177 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3234081682214022771=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/18/2025 7:35 PM, Anup Patel wrote:
-> Introduce struct kvm_gstage_mapping which represents a g-stage
-> mapping at a particular g-stage page table level. Also, update
-> the kvm_riscv_gstage_map() to return the g-stage mapping upon
-> success.
->
-> Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+
+--===============3234081682214022771==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2x3bFr3NhO0jjsdL"
+Content-Disposition: inline
+
+
+--2x3bFr3NhO0jjsdL
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+Some comments below.
+
+On Fri 21 Feb 25, 17:17, Kuba Szczodrzy=C5=84ski wrote:
+> On Allwinner chips with a combo D-PHY, the TCON LCD0 should fetch it
+> from device tree, in order to enable LVDS. Since the PHY also needs to
+> be powered off to disable LVDS, add a function to the quirks.
+>=20
+> Signed-off-by: Kuba Szczodrzy=C5=84ski <kuba@szczodrzynski.pl>
 > ---
->   arch/riscv/include/asm/kvm_mmu.h |  9 ++++-
->   arch/riscv/kvm/mmu.c             | 58 ++++++++++++++++++--------------
->   arch/riscv/kvm/vcpu_exit.c       |  3 +-
->   3 files changed, 43 insertions(+), 27 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/kvm_mmu.h b/arch/riscv/include/asm/kvm_mmu.h
-> index 4e1654282ee4..91c11e692dc7 100644
-> --- a/arch/riscv/include/asm/kvm_mmu.h
-> +++ b/arch/riscv/include/asm/kvm_mmu.h
-> @@ -8,6 +8,12 @@
->   
->   #include <linux/kvm_types.h>
->   
-> +struct kvm_gstage_mapping {
-> +	gpa_t addr;
-> +	pte_t pte;
-> +	u32 level;
-> +};
-> +
->   int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
->   			     phys_addr_t hpa, unsigned long size,
->   			     bool writable, bool in_atomic);
-> @@ -15,7 +21,8 @@ void kvm_riscv_gstage_iounmap(struct kvm *kvm, gpa_t gpa,
->   			      unsigned long size);
->   int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
->   			 struct kvm_memory_slot *memslot,
-> -			 gpa_t gpa, unsigned long hva, bool is_write);
-> +			 gpa_t gpa, unsigned long hva, bool is_write,
-> +			 struct kvm_gstage_mapping *out_map);
->   int kvm_riscv_gstage_alloc_pgd(struct kvm *kvm);
->   void kvm_riscv_gstage_free_pgd(struct kvm *kvm);
->   void kvm_riscv_gstage_update_hgatp(struct kvm_vcpu *vcpu);
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index c1a3eb076df3..806614b3e46d 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -135,18 +135,18 @@ static void gstage_remote_tlb_flush(struct kvm *kvm, u32 level, gpa_t addr)
->   	kvm_riscv_hfence_gvma_vmid_gpa(kvm, -1UL, 0, addr, BIT(order), order);
->   }
->   
-> -static int gstage_set_pte(struct kvm *kvm, u32 level,
-> -			   struct kvm_mmu_memory_cache *pcache,
-> -			   gpa_t addr, const pte_t *new_pte)
-> +static int gstage_set_pte(struct kvm *kvm,
-> +			  struct kvm_mmu_memory_cache *pcache,
-> +			  const struct kvm_gstage_mapping *map)
->   {
->   	u32 current_level = gstage_pgd_levels - 1;
->   	pte_t *next_ptep = (pte_t *)kvm->arch.pgd;
-> -	pte_t *ptep = &next_ptep[gstage_pte_index(addr, current_level)];
-> +	pte_t *ptep = &next_ptep[gstage_pte_index(map->addr, current_level)];
->   
-> -	if (current_level < level)
-> +	if (current_level < map->level)
->   		return -EINVAL;
->   
-> -	while (current_level != level) {
-> +	while (current_level != map->level) {
->   		if (gstage_pte_leaf(ptep))
->   			return -EEXIST;
->   
-> @@ -165,13 +165,13 @@ static int gstage_set_pte(struct kvm *kvm, u32 level,
->   		}
->   
->   		current_level--;
-> -		ptep = &next_ptep[gstage_pte_index(addr, current_level)];
-> +		ptep = &next_ptep[gstage_pte_index(map->addr, current_level)];
->   	}
->   
-> -	if (pte_val(*ptep) != pte_val(*new_pte)) {
-> -		set_pte(ptep, *new_pte);
-> +	if (pte_val(*ptep) != pte_val(map->pte)) {
-> +		set_pte(ptep, map->pte);
->   		if (gstage_pte_leaf(ptep))
-> -			gstage_remote_tlb_flush(kvm, current_level, addr);
-> +			gstage_remote_tlb_flush(kvm, current_level, map->addr);
->   	}
->   
->   	return 0;
-> @@ -181,14 +181,16 @@ static int gstage_map_page(struct kvm *kvm,
->   			   struct kvm_mmu_memory_cache *pcache,
->   			   gpa_t gpa, phys_addr_t hpa,
->   			   unsigned long page_size,
-> -			   bool page_rdonly, bool page_exec)
-> +			   bool page_rdonly, bool page_exec,
-> +			   struct kvm_gstage_mapping *out_map)
->   {
-> -	int ret;
-> -	u32 level = 0;
-> -	pte_t new_pte;
->   	pgprot_t prot;
-> +	int ret;
->   
-> -	ret = gstage_page_size_to_level(page_size, &level);
-> +	out_map->addr = gpa;
-> +	out_map->level = 0;
-> +
-> +	ret = gstage_page_size_to_level(page_size, &out_map->level);
->   	if (ret)
->   		return ret;
->   
-> @@ -216,10 +218,10 @@ static int gstage_map_page(struct kvm *kvm,
->   		else
->   			prot = PAGE_WRITE;
->   	}
-> -	new_pte = pfn_pte(PFN_DOWN(hpa), prot);
-> -	new_pte = pte_mkdirty(new_pte);
-> +	out_map->pte = pfn_pte(PFN_DOWN(hpa), prot);
-> +	out_map->pte = pte_mkdirty(out_map->pte);
->   
-> -	return gstage_set_pte(kvm, level, pcache, gpa, &new_pte);
-> +	return gstage_set_pte(kvm, pcache, out_map);
->   }
->   
->   enum gstage_op {
-> @@ -352,7 +354,6 @@ int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
->   			     phys_addr_t hpa, unsigned long size,
->   			     bool writable, bool in_atomic)
->   {
-> -	pte_t pte;
->   	int ret = 0;
->   	unsigned long pfn;
->   	phys_addr_t addr, end;
-> @@ -360,22 +361,25 @@ int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
->   		.gfp_custom = (in_atomic) ? GFP_ATOMIC | __GFP_ACCOUNT : 0,
->   		.gfp_zero = __GFP_ZERO,
->   	};
-> +	struct kvm_gstage_mapping map;
->   
->   	end = (gpa + size + PAGE_SIZE - 1) & PAGE_MASK;
->   	pfn = __phys_to_pfn(hpa);
->   
->   	for (addr = gpa; addr < end; addr += PAGE_SIZE) {
-> -		pte = pfn_pte(pfn, PAGE_KERNEL_IO);
-> +		map.addr = addr;
-> +		map.pte = pfn_pte(pfn, PAGE_KERNEL_IO);
-> +		map.level = 0;
->   
->   		if (!writable)
-> -			pte = pte_wrprotect(pte);
-> +			map.pte = pte_wrprotect(map.pte);
->   
->   		ret = kvm_mmu_topup_memory_cache(&pcache, gstage_pgd_levels);
->   		if (ret)
->   			goto out;
->   
->   		spin_lock(&kvm->mmu_lock);
-> -		ret = gstage_set_pte(kvm, 0, &pcache, addr, &pte);
-> +		ret = gstage_set_pte(kvm, &pcache, &map);
->   		spin_unlock(&kvm->mmu_lock);
->   		if (ret)
->   			goto out;
-> @@ -593,7 +597,8 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
->   
->   int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
->   			 struct kvm_memory_slot *memslot,
-> -			 gpa_t gpa, unsigned long hva, bool is_write)
-> +			 gpa_t gpa, unsigned long hva, bool is_write,
-> +			 struct kvm_gstage_mapping *out_map)
->   {
->   	int ret;
->   	kvm_pfn_t hfn;
-> @@ -608,6 +613,9 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
->   	unsigned long vma_pagesize, mmu_seq;
->   	struct page *page;
->   
-> +	/* Setup initial state of output mapping */
-> +	memset(out_map, 0, sizeof(*out_map));
-> +
->   	/* We need minimum second+third level pages */
->   	ret = kvm_mmu_topup_memory_cache(pcache, gstage_pgd_levels);
->   	if (ret) {
-> @@ -677,10 +685,10 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
->   	if (writable) {
->   		mark_page_dirty(kvm, gfn);
->   		ret = gstage_map_page(kvm, pcache, gpa, hfn << PAGE_SHIFT,
-> -				      vma_pagesize, false, true);
-> +				      vma_pagesize, false, true, out_map);
->   	} else {
->   		ret = gstage_map_page(kvm, pcache, gpa, hfn << PAGE_SHIFT,
-> -				      vma_pagesize, true, true);
-> +				      vma_pagesize, true, true, out_map);
->   	}
->   
->   	if (ret)
-> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-> index 965df528de90..6b4694bc07ea 100644
-> --- a/arch/riscv/kvm/vcpu_exit.c
-> +++ b/arch/riscv/kvm/vcpu_exit.c
-> @@ -15,6 +15,7 @@
->   static int gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
->   			     struct kvm_cpu_trap *trap)
->   {
-> +	struct kvm_gstage_mapping host_map;
->   	struct kvm_memory_slot *memslot;
->   	unsigned long hva, fault_addr;
->   	bool writable;
-> @@ -43,7 +44,7 @@ static int gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
->   	}
->   
->   	ret = kvm_riscv_gstage_map(vcpu, memslot, fault_addr, hva,
-> -		(trap->scause == EXC_STORE_GUEST_PAGE_FAULT) ? true : false);
-> +		(trap->scause == EXC_STORE_GUEST_PAGE_FAULT) ? true : false, &host_map);
->   	if (ret < 0)
->   		return ret;
->   
+>  drivers/gpu/drm/sun4i/sun4i_tcon.c | 12 ++++++++++++
+>  drivers/gpu/drm/sun4i/sun4i_tcon.h |  6 ++++++
+>  2 files changed, 18 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon.c b/drivers/gpu/drm/sun4i/s=
+un4i_tcon.c
+> index 960e83c82..ccf335a61 100644
+> --- a/drivers/gpu/drm/sun4i/sun4i_tcon.c
+> +++ b/drivers/gpu/drm/sun4i/sun4i_tcon.c
+> @@ -12,6 +12,7 @@
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/of_platform.h>
+> +#include <linux/phy/phy.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/regmap.h>
+>  #include <linux/reset.h>
+> @@ -183,6 +184,8 @@ static void sun4i_tcon_lvds_set_status(struct sun4i_t=
+con *tcon,
+>  	} else {
+>  		regmap_update_bits(tcon->regs, SUN4I_TCON0_LVDS_IF_REG,
+>  				   SUN4I_TCON0_LVDS_IF_EN, 0);
 
-Reviewed-by: Nutty Liu <liujingqi@lanxincomputing.com>
+Does the T113-S3/D1 also have LVDS support in TCON regsiters?
+My understanding is that it only has the combo-phy, so this register write
+should not take place.
 
-Thanks,
-Nutty
+I think it would be easier to just move this to a common callback for users=
+ of
+the tcon0 lvds phy and always call=20
+
+> +		if (tcon->quirks->disable_lvds_phy)
+> +			tcon->quirks->disable_lvds_phy(tcon, encoder);
+
+Also "disable" is often used as opposite of "enable", so I would suggest us=
+ing
+"teardown" as opposite of "setup" instead.
+
+>  	}
+>  }
+> =20
+> @@ -1245,6 +1248,15 @@ static int sun4i_tcon_bind(struct device *dev, str=
+uct device *master,
+>  		goto err_free_dclk;
+>  	}
+> =20
+> +	if (tcon->quirks->has_combo_dphy) {
+> +		tcon->dphy =3D devm_phy_get(dev, "dphy");
+
+I don't think it makes sense to call this dphy since it's used in LVDS mode
+and not in D-PHY mode. I would suggest using "combo" as phy name instead.
+
+It would have made more sense to also have the compatible reflect this
+(by calling it combo-phy instead of mipi-dphy) but it's too late now.
+
+> +		if (IS_ERR(tcon->dphy)) {
+> +			dev_err(dev, "Couldn't get the combo D-PHY\n");
+> +			ret =3D PTR_ERR(tcon->dphy);
+> +			goto err_free_dclk;
+> +		}
+> +	}
+> +
+>  	if (tcon->quirks->has_channel_0) {
+>  		/*
+>  		 * If we have an LVDS panel connected to the TCON, we should
+> diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon.h b/drivers/gpu/drm/sun4i/s=
+un4i_tcon.h
+> index fa23aa23f..b270d1a13 100644
+> --- a/drivers/gpu/drm/sun4i/sun4i_tcon.h
+> +++ b/drivers/gpu/drm/sun4i/sun4i_tcon.h
+> @@ -239,6 +239,7 @@ struct sun4i_tcon_quirks {
+>  	bool	has_channel_0;	/* a83t does not have channel 0 on second TCON */
+>  	bool	has_channel_1;	/* a33 does not have channel 1 */
+>  	bool	has_lvds_alt;	/* Does the LVDS clock have a parent other than the =
+TCON clock? */
+> +	bool	has_combo_dphy; /* Is the D-PHY used for LVDS output? */
+>  	bool	needs_de_be_mux; /* sun6i needs mux to select backend */
+>  	bool    needs_edp_reset; /* a80 edp reset needed for tcon0 access */
+>  	bool	supports_lvds;   /* Does the TCON support an LVDS output? */
+> @@ -250,6 +251,8 @@ struct sun4i_tcon_quirks {
+>  	/* handler for LVDS setup routine */
+>  	void	(*setup_lvds_phy)(struct sun4i_tcon *tcon,
+>  				  const struct drm_encoder *encoder);
+> +	void	(*disable_lvds_phy)(struct sun4i_tcon *tcon,
+> +				    const struct drm_encoder *encoder);
+>  };
+> =20
+>  struct sun4i_tcon {
+> @@ -282,6 +285,9 @@ struct sun4i_tcon {
+>  	/* Associated crtc */
+>  	struct sun4i_crtc		*crtc;
+> =20
+> +	/* Associated D-PHY */
+> +	struct phy			*dphy;
+> +
+>  	int				id;
+> =20
+>  	/* TCON list management */
+> --=20
+> 2.25.1
+>=20
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--2x3bFr3NhO0jjsdL
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhbrVgACgkQhP3B6o/u
+lQxnIhAAhxvpGk5iu3GYSCq8EbYxLP0XgYfTkaAH54Zet2LTYk7P4AuzXmopcX4e
+N/4ZElElUqgy80ScsSc9cXgkVzESvITZct1RbbJrhMNsNnaJXiG2thBwlf+K/HDn
+2mzyKSLPkgIzEbrhkLchwpnahcplsnRoTeDwuKjGVGRpHdgCjirSy2oyDjjWIPx8
+yxRd6Lh3QnWef8Rp+2Ad/mzF/RwPsPf0j1Cd9sVa29ICvejakCdBPgP2r0/zLBiO
+lixWOi6P/8896L+mXNGwtbitd7KGEMSHMGfMnuggyzQufD7kEIlVvujJf62j96JN
+eGkeexJTO9ZBruyBM6HF72uPDe+UL57URKMPb0ZQEEu4s/XLKeqzy+am+JXj2lnI
+lYjwceLHCmAeIuCEbqPWAxJDjJA5J3J9K4YRA8DKtBqbOn8hSZp21n1e3cKsVRL9
+LPAxyJQ8HkbGrlldSEDTbw3vR5yrBins3OEVqt8/VH6NimfOjsfXnZxqXC8pTZ0A
+kc27/8mojPQ8MMpf9ms2lBIcGh5dPZjAicy/Iahl/l1w5xEc7CJGiSUf4FEK29MJ
+sIuHsVGsVDgzt39z6itWeGLGzYX8tT0SThStwa4h/DMb97Bj7XbWZfZNrfnZTWjS
+pJzD1zflVjGaQWnsIzX5S+mAS44sCdV/5zZjzvFdOB65MaDEkOs=
+=p+Op
+-----END PGP SIGNATURE-----
+
+--2x3bFr3NhO0jjsdL--
+
+
+--===============3234081682214022771==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3234081682214022771==--
+
