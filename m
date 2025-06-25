@@ -4,111 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F6CC7EE30
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC46C7115C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:Mime-Version:Date:
+	Subject:References:Message-Id:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ho3HLBEVS2KaBw1dcgrHUyIWErdKuuqkyKcAzRL9z94=; b=ZHo2AHyVtmCsTp
-	pOFZiKHlXTBln332kw7Q2tfV1H0j7xx07kJFyzuLYAUzV+DJFcA1eBF2/o+lr9bW0UY0yT6xMPASN
-	M2klDiEG0JhxdHMwq54ejuh35lhpZm0EMTurwT5BXmJEeTLfiD+k+zKAw+lWUAxC/uSmvsjEEWqQs
-	n2K7/jlxp+j+ULBNqhYxKUP3fnrsZF1u90MTR+WB1baUCd7CqmE5/uaoZ1JJ1vnS04NrrBx6eKRsv
-	hD8frs5cd6ZrsaDwjifOaSbzB6vPc9qdXW+dqNotzo5WOF+P86pjNrbmLebofclpQTThnhACaXMLB
-	F0UrwXYO+YyibbrtxAaQ==;
+	List-Owner; bh=s5tIIjiDB6LMIJ9MlmywL3aSywOAs4GqTEZhERMETP0=; b=x4C95bnN6qOuzh
+	rbDjXIXqJCqJKJeoS1wbokg+6rBIBfkUmg9w7Dl8EiBtkA4sUzhvYGlaXnyhcX/WLFbf4+ljiuiQQ
+	cW9sFNAGhE5FatO6sMhHuTjYCI+DA2lWi21Srzs+S99YzNNMtUivWpTQxI6eekhW3hvNt8lPF1dlG
+	5dfwX1o38XcbMjEJGDF/oXDNn55gSCLXEMQI73yJGbzASysHYHB1h9aZaZAzWaDdztziBcUWzWARC
+	+NYNmiHTN2BEjv2lwipBBNn342jbze8zzhNhXgeHLQO+JmP0MPV8v+wpAbmptO7Nkjb01fWbbor8f
+	Kj0UBUUi837MdPkWgXhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULJX-00000007vqJ-2kxZ;
-	Wed, 25 Jun 2025 08:17:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uULVW-00000007xQE-2SxY;
+	Wed, 25 Jun 2025 08:29:26 +0000
+Received: from sg-3-15.ptr.tlmpb.com ([101.45.255.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKcO-00000007pCO-0fnc;
-	Wed, 25 Jun 2025 07:32:28 +0000
+	id 1uUKfQ-00000007pmp-1cDT
+	for linux-riscv@lists.infradead.org;
+	Wed, 25 Jun 2025 07:35:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=SdHmWdtJdXywjnFki6pMDF+cv/p3m8y12Ko9UALN5k8=; b=eCsaWJefX9COyKHZONyyitGT/U
-	tXDYmv0qWR5X+E+NBSTadYLKgBtgtHc9Cm5/tJIuRRq9mkzvswDyzXwj39lT7p4Wg7Kb/zV9hAphQ
-	NZXVAGvlDYVCUeohF5e2RQTOUGSeizKP80sSx3iK6UCMAutJHalTJiNYQIVs1A/LlbBjjUECJX2U8
-	5Y1DnszdgtPsYzSA+QhnBixmf32Aoc0+CRY6JFYX450/uLwPf/pJleZEFiOFEQBghWSmomDrbVJOR
-	pb6zwl6ixDSssdwXvgYDjQa7cWK0e+r+hrSongZ2DxwoyVoAe9+YvL4BwAMRveCegM+tQW77ADJHF
-	lovAS+aA==;
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKcL-00000005e7B-2dfU;
-	Wed, 25 Jun 2025 07:32:27 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P2E7DG032228;
-	Wed, 25 Jun 2025 07:32:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=SdHmWdtJdXywjnFki
-	6pMDF+cv/p3m8y12Ko9UALN5k8=; b=HXQPutwfNWG5n1awDV9MGzceyVtIonbG3
-	saYe/l5jrUEdTS90zsz0vYTpIA3OJEFIS2MCZQpA6IelhdGE4FA5Opq2nWOpOm+W
-	SYviE6PHOfhJZG3HtpIAHlWw7lGvd3FThOGwl9nnREG5WTEat4vS93TxfoBgPa7D
-	gOpO07dNKXpp5jEh4Hl5djhGzBGYEqf8lQDxEsBgSDh9GIa/5QA3iGzGjfXijeBl
-	2pul6Ua68k2gu3TKNxbgJ4GqeY8bma2XhQ8Rj0XqUX2Jpm58cBqEyB8X5NQK088l
-	d8pmGMECmmuLCwh3phhpiRNGbM5Fm6OxQna+6R3Z+5gPsOQag5blA==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 47dmf35ebp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 07:32:14 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55P3vGDE014775;
-	Wed, 25 Jun 2025 07:32:13 GMT
-Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 47e9s2fuej-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 07:32:13 +0000
-Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
-	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55P7WChX41353660
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 25 Jun 2025 07:32:13 GMT
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F0E97588D8;
-	Wed, 25 Jun 2025 06:38:50 +0000 (GMT)
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 29ADC588AF;
-	Wed, 25 Jun 2025 06:38:45 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com.com (unknown [9.36.18.35])
-	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 25 Jun 2025 06:38:35 +0000 (GMT)
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org, pasha.tatashin@soleen.com,
-        akpm@linux-foundation.org
-Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-mm@kvack.org, sweettea-kernel@dorminy.me,
-        christophe.leroy@csgroup.eu, mingo@kernel.org
-Subject: [PATCH v15 05/13] mm/page_table_check: Provide addr parameter to [__]page_table_check_ptes_set()
-Date: Wed, 25 Jun 2025 16:37:45 +1000
-Message-ID: <20250625063753.77511-6-ajd@linux.ibm.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250625063753.77511-1-ajd@linux.ibm.com>
-References: <20250625063753.77511-1-ajd@linux.ibm.com>
-MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=M5FNKzws c=1 sm=1 tr=0 ts=685ba5fe cx=c_pps a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17 a=6IFa9wvqVegA:10 a=VnNF1IyMAAAA:8 a=7ipKWUHlAAAA:8 a=UVT5Uxx9rTNGLfuASP4A:9 a=gpc5p9EgBqZVLdJeV_V1:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI1MDA1MyBTYWx0ZWRfX2nMa5uLzSSEA 5X2uboYAF1YmbDu9JtYgYYmyboW9oxIHT2K9EoZdPpdY/oISzouWtkVYVME7b4mu+XQ3x1V5geA +wzLABnjWDYmQ5+IVQNUHYYmuubAuKdn6VseEeqhQndgeuVskxfUlm+IlFuo8Jfvn1XP3/Hvz4N
- P94p9fOYbFugBelNIVu1BhGb1E1UgmAxHDSzWgfmGzssOP2wOLRDzTNUiYjFiRR90fU8Tjvp7C+ bIY/g76FfqIbNAC9INy+IZmgUU0RZye5JXMKVjoBabmInMKIBguwKRzizW9CKJ7G1pYHOWqEBty avzAFq5B/bCdxIZwnPNtmjdC6key5f/qZA+d+cZ3HEGRutpGUM9TrQMlKpmjdE9rRyojAWizDuU
- oEf6VXmf464qEuTyIZLy34nOZEeFtEZ/l37Ed7QPWqhp6zBxf375NGarCOcrb4ZKvpauc4HH
-X-Proofpoint-GUID: HUcES6SWk-Vz2agbVgpCKVh_AX4lJpCX
-X-Proofpoint-ORIG-GUID: HUcES6SWk-Vz2agbVgpCKVh_AX4lJpCX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-25_01,2025-06-23_07,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- bulkscore=0 malwarescore=0 impostorscore=0 suspectscore=0
- priorityscore=1501 phishscore=0 spamscore=0 clxscore=1015 adultscore=0
- mlxscore=0 mlxlogscore=792 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506250053
+ s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1750836927;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=CEUqe5ahfZFpVFJnOYxZcTEDjpo1QaA063NLvGo/wqE=;
+ b=4GaTykiebG8UNFNWxzI0CcLswfHuuePdzu31ndQJtrBNXMy4B8WQCqIc1vbDAFofS1GWU2
+ z0PFgNdpMRTiW/vq+GgDbtpziDRA4Yr0XL6636HYF2aswHkKBSCqJUJr8DKcRK4YfjgGgL
+ 0t5IJn7BhFQGkXNfis1NlC03x/U9XU3Unpik1KgFlh9fupDoOHSjSBMv4DLrmHxYxfICvw
+ dMfkj6u+8RHBb5T6G+Ua9Bw8cyMOfGCIYvUtrA9csuGzL3Y0o+rbMd/P8opCQSBdMsiJh/
+ SMoyjYsHio0+TevQ4HTJ7DBzs9pXIi7V5GGqglbpPMS5L/zw8wOXT2L0ctkf8w==
+From: "Nutty Liu" <liujingqi@lanxincomputing.com>
+Message-Id: <794a81fa-41d5-4b1e-816f-6d63b883f935@lanxincomputing.com>
+References: <20250618113532.471448-1-apatel@ventanamicro.com> <20250618113532.471448-5-apatel@ventanamicro.com>
+Subject: Re: [PATCH v3 04/12] RISC-V: KVM: Replace KVM_REQ_HFENCE_GVMA_VMID_ALL with KVM_REQ_TLB_FLUSH
+Received: from [127.0.0.1] ([139.226.59.215]) by smtp.feishu.cn with ESMTPS; Wed, 25 Jun 2025 15:35:24 +0800
+Date: Wed, 25 Jun 2025 15:35:23 +0800
+Mime-Version: 1.0
+X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
+In-Reply-To: <20250618113532.471448-5-apatel@ventanamicro.com>
+To: "Anup Patel" <apatel@ventanamicro.com>, 
+	"Atish Patra" <atish.patra@linux.dev>
+Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Alexandre Ghiti" <alex@ghiti.fr>, 
+	"Andrew Jones" <ajones@ventanamicro.com>, 
+	"Anup Patel" <anup@brainfault.org>, <kvm@vger.kernel.org>, 
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>, 
+	<linux-kernel@vger.kernel.org>, "Atish Patra" <atishp@rivosinc.com>
+Content-Language: en-US
+User-Agent: Mozilla Thunderbird
+X-Lms-Return-Path: <lba+2685ba6bd+9e4b5c+lists.infradead.org+liujingqi@lanxincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_083225_903923_3C3D5EB7 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20250625_003536_809374_B03FCDC8 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,126 +77,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
+On 6/18/2025 7:35 PM, Anup Patel wrote:
+> The KVM_REQ_HFENCE_GVMA_VMID_ALL is same as KVM_REQ_TLB_FLUSH so
+> to avoid confusion let's replace KVM_REQ_HFENCE_GVMA_VMID_ALL with
+> KVM_REQ_TLB_FLUSH. Also, rename kvm_riscv_hfence_gvma_vmid_all_process()
+> to kvm_riscv_tlb_flush_process().
+>
+> Reviewed-by: Atish Patra <atishp@rivosinc.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>   arch/riscv/include/asm/kvm_host.h | 4 ++--
+>   arch/riscv/kvm/tlb.c              | 8 ++++----
+>   arch/riscv/kvm/vcpu.c             | 8 ++------
+>   3 files changed, 8 insertions(+), 12 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+> index 8aa705ac75a5..ff1f76d6f177 100644
+> --- a/arch/riscv/include/asm/kvm_host.h
+> +++ b/arch/riscv/include/asm/kvm_host.h
+> @@ -37,7 +37,6 @@
+>   #define KVM_REQ_UPDATE_HGATP		KVM_ARCH_REQ(2)
+>   #define KVM_REQ_FENCE_I			\
+>   	KVM_ARCH_REQ_FLAGS(3, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+> -#define KVM_REQ_HFENCE_GVMA_VMID_ALL	KVM_REQ_TLB_FLUSH
+>   #define KVM_REQ_HFENCE_VVMA_ALL		\
+>   	KVM_ARCH_REQ_FLAGS(4, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+>   #define KVM_REQ_HFENCE			\
+> @@ -331,8 +330,9 @@ void kvm_riscv_local_hfence_vvma_gva(unsigned long vmid,
+>   				     unsigned long order);
+>   void kvm_riscv_local_hfence_vvma_all(unsigned long vmid);
+>   
+> +void kvm_riscv_tlb_flush_process(struct kvm_vcpu *vcpu);
+> +
+>   void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu);
+> -void kvm_riscv_hfence_gvma_vmid_all_process(struct kvm_vcpu *vcpu);
+>   void kvm_riscv_hfence_vvma_all_process(struct kvm_vcpu *vcpu);
+>   void kvm_riscv_hfence_process(struct kvm_vcpu *vcpu);
+>   
+> diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
+> index b3461bfd9756..da98ca801d31 100644
+> --- a/arch/riscv/kvm/tlb.c
+> +++ b/arch/riscv/kvm/tlb.c
+> @@ -162,7 +162,7 @@ void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu)
+>   	local_flush_icache_all();
+>   }
+>   
+> -void kvm_riscv_hfence_gvma_vmid_all_process(struct kvm_vcpu *vcpu)
+> +void kvm_riscv_tlb_flush_process(struct kvm_vcpu *vcpu)
+>   {
+>   	struct kvm_vmid *v = &vcpu->kvm->arch.vmid;
+>   	unsigned long vmid = READ_ONCE(v->vmid);
+> @@ -342,14 +342,14 @@ void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
+>   	data.size = gpsz;
+>   	data.order = order;
+>   	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE,
+> -			    KVM_REQ_HFENCE_GVMA_VMID_ALL, &data);
+> +			    KVM_REQ_TLB_FLUSH, &data);
+>   }
+>   
+>   void kvm_riscv_hfence_gvma_vmid_all(struct kvm *kvm,
+>   				    unsigned long hbase, unsigned long hmask)
+>   {
+> -	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE_GVMA_VMID_ALL,
+> -			    KVM_REQ_HFENCE_GVMA_VMID_ALL, NULL);
+> +	make_xfence_request(kvm, hbase, hmask, KVM_REQ_TLB_FLUSH,
+> +			    KVM_REQ_TLB_FLUSH, NULL);
+>   }
+>   
+>   void kvm_riscv_hfence_vvma_asid_gva(struct kvm *kvm,
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index a2dd4161e5a4..6eb11c913b13 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -721,12 +721,8 @@ static void kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
+>   		if (kvm_check_request(KVM_REQ_FENCE_I, vcpu))
+>   			kvm_riscv_fence_i_process(vcpu);
+>   
+> -		/*
+> -		 * The generic KVM_REQ_TLB_FLUSH is same as
+> -		 * KVM_REQ_HFENCE_GVMA_VMID_ALL
+> -		 */
+> -		if (kvm_check_request(KVM_REQ_HFENCE_GVMA_VMID_ALL, vcpu))
+> -			kvm_riscv_hfence_gvma_vmid_all_process(vcpu);
+> +		if (kvm_check_request(KVM_REQ_TLB_FLUSH, vcpu))
+> +			kvm_riscv_tlb_flush_process(vcpu);
+>   
+>   		if (kvm_check_request(KVM_REQ_HFENCE_VVMA_ALL, vcpu))
+>   			kvm_riscv_hfence_vvma_all_process(vcpu);
 
-To provide support for powerpc platforms, provide an addr parameter to
-the __page_table_check_ptes_set() and page_table_check_ptes_set() routines.
-This parameter is needed on some powerpc platforms which do not encode whether
-a mapping is for user or kernel in the pte. On such platforms, this can be
-inferred from the addr parameter.
+Reviewed-by: Nutty Liu <liujingqi@lanxincomputing.com>
 
-[ajd@linux.ibm.com: rebase on arm64 + riscv changes, update commit message]
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
----
-v15: rebase, amend commit message
----
- arch/arm64/include/asm/pgtable.h |  2 +-
- arch/riscv/include/asm/pgtable.h |  2 +-
- include/linux/page_table_check.h | 12 +++++++-----
- include/linux/pgtable.h          |  2 +-
- mm/page_table_check.c            |  4 ++--
- 5 files changed, 12 insertions(+), 10 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 0d34157106ee..383c01f9cae9 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -720,7 +720,7 @@ static inline void __set_ptes_anysz(struct mm_struct *mm, unsigned long addr,
- 
- 	switch (pgsize) {
- 	case PAGE_SIZE:
--		page_table_check_ptes_set(mm, ptep, pte, nr);
-+		page_table_check_ptes_set(mm, addr, ptep, pte, nr);
- 		break;
- 	case PMD_SIZE:
- 		page_table_check_pmds_set(mm, addr, (pmd_t *)ptep,
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 62778ccdcf52..7b292af35f4b 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -572,7 +572,7 @@ static inline void __set_pte_at(struct mm_struct *mm, pte_t *ptep, pte_t pteval)
- static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
- 		pte_t *ptep, pte_t pteval, unsigned int nr)
- {
--	page_table_check_ptes_set(mm, ptep, pteval, nr);
-+	page_table_check_ptes_set(mm, addr, ptep, pteval, nr);
- 
- 	for (;;) {
- 		__set_pte_at(mm, ptep, pteval);
-diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
-index cf7c28d8d468..66e109238416 100644
---- a/include/linux/page_table_check.h
-+++ b/include/linux/page_table_check.h
-@@ -17,8 +17,8 @@ void __page_table_check_zero(struct page *page, unsigned int order);
- void __page_table_check_pte_clear(struct mm_struct *mm, pte_t pte);
- void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd);
- void __page_table_check_pud_clear(struct mm_struct *mm, pud_t pud);
--void __page_table_check_ptes_set(struct mm_struct *mm, pte_t *ptep, pte_t pte,
--		unsigned int nr);
-+void __page_table_check_ptes_set(struct mm_struct *mm, unsigned long addr,
-+		pte_t *ptep, pte_t pte, unsigned int nr);
- void __page_table_check_pmds_set(struct mm_struct *mm, unsigned long addr,
- 		pmd_t *pmdp, pmd_t pmd, unsigned int nr);
- void __page_table_check_puds_set(struct mm_struct *mm, unsigned long addr,
-@@ -68,12 +68,13 @@ static inline void page_table_check_pud_clear(struct mm_struct *mm, pud_t pud)
- }
- 
- static inline void page_table_check_ptes_set(struct mm_struct *mm,
--		pte_t *ptep, pte_t pte, unsigned int nr)
-+					     unsigned long addr, pte_t *ptep,
-+					     pte_t pte, unsigned int nr)
- {
- 	if (static_branch_likely(&page_table_check_disabled))
- 		return;
- 
--	__page_table_check_ptes_set(mm, ptep, pte, nr);
-+	__page_table_check_ptes_set(mm, addr, ptep, pte, nr);
- }
- 
- static inline void page_table_check_pmds_set(struct mm_struct *mm,
-@@ -127,7 +128,8 @@ static inline void page_table_check_pud_clear(struct mm_struct *mm, pud_t pud)
- }
- 
- static inline void page_table_check_ptes_set(struct mm_struct *mm,
--		pte_t *ptep, pte_t pte, unsigned int nr)
-+					     unsigned long addr, pte_t *ptep,
-+					     pte_t pte, unsigned int nr)
- {
- }
- 
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 0b6e1f781d86..d06b5fec9540 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -289,7 +289,7 @@ static inline pte_t pte_advance_pfn(pte_t pte, unsigned long nr)
- static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
- 		pte_t *ptep, pte_t pte, unsigned int nr)
- {
--	page_table_check_ptes_set(mm, ptep, pte, nr);
-+	page_table_check_ptes_set(mm, addr, ptep, pte, nr);
- 
- 	for (;;) {
- 		set_pte(ptep, pte);
-diff --git a/mm/page_table_check.c b/mm/page_table_check.c
-index 09258f2ad93f..0957767a2940 100644
---- a/mm/page_table_check.c
-+++ b/mm/page_table_check.c
-@@ -193,8 +193,8 @@ static inline void page_table_check_pte_flags(pte_t pte)
- 		WARN_ON_ONCE(swap_cached_writable(pte_to_swp_entry(pte)));
- }
- 
--void __page_table_check_ptes_set(struct mm_struct *mm, pte_t *ptep, pte_t pte,
--		unsigned int nr)
-+void __page_table_check_ptes_set(struct mm_struct *mm, unsigned long addr,
-+				 pte_t *ptep, pte_t pte, unsigned int nr)
- {
- 	unsigned int i;
- 
--- 
-2.49.0
-
+Thanks,
+Nutty
 
 _______________________________________________
 linux-riscv mailing list
