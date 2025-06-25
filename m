@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05BCBC7EE32
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 07:36:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D87B8C7EE30
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 07:36:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D8R4CF66zJKn5TUC8bX+531WAo3Wdb1ueoYZFGrKYBY=; b=PvRuy1V336I1iR
-	AE050EuLpFcdWbN5wKse81b1NmOjKywtcnFZrVQD21tYnp8WBl6ldXFJSTGIsC/Mmo43aEJcdH3qn
-	nOP6r2NitDd9xICkdiDN22+IiV7c1n93+IAG6M2YkWFdWxY5zHNaPHhykHHBkB04zomNUU2I4AE2V
-	6zA/IZHp5qOpejxfF1Ky51eJA6Scggbe3UvfjGKfG3kXXraZxvXWgdmaf8DZdNLo1sq3kPLoWhM27
-	fWNbtQkbQAz34OA37tJ3LLhBKeMbGeOsAVDmL7RZjqivT0pBSs1APtC7nRG9XyCAcWlfkKdhKMaBH
-	dUMtd+njc7sOCNVcSTWQ==;
+	List-Owner; bh=zecNVRAAsPKXurEFNYvwDjxa1d0C1QGNXsLjmA0lswM=; b=stgN4I9ErY9lhk
+	R/BsuF8mynt98Hkj50FJVrSabI+WOErOwAurW4pAeIa0f1cl9qNZ8N2+Xb8Cl6gr4WdPzPYi5bfxZ
+	Nvip3BYtuIwwVteijjiCvyqIdeYUp90ZE/UdDrVrNjfuMeGW0nuc7DbO2QV90QYoYddmsvl1RF9TL
+	+N9jQc8+7ia1tRRlha49z1PBCQb/WONgGmfqF/taATmk1KLNhXqlSjozKw7lsyM6/vSzQGC0rA8vH
+	wMsWeUVyGrRO0u588b4UoJRdPbv2XeJSMP2p1QQmQv/IKi9KkD4W9CN96i0rdphPtrQlECYGHvOcP
+	JMzxV4VWNa+8kdTL2tTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKgF-00000007puJ-0zqt;
-	Wed, 25 Jun 2025 07:36:27 +0000
+	id 1uUKgE-00000007pu3-2SUM;
+	Wed, 25 Jun 2025 07:36:26 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHD-00000007lOY-2WWs;
+	id 1uUKHD-00000007lOa-2bvB;
 	Wed, 25 Jun 2025 07:10:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=KYmOcR+Ty6ORVYOprUyh9SHSbbSmp4y4Zcmg/7D/5kY=; b=ZJvFllUJTzbgQkkFzdAHnJsHIa
-	UMo+xAnULOSHxMHkQFACnkQakXq/+o3150cAtc/U43yQAsDliFITONiviQ0zG4FHc56uZq+ZErI6N
-	f+8CefnnxDzjyTtkJY+i9twLJWbpoULtb8gzRx8bvJJ9cqqQuaFUOsP3HNp1TdGZojj9f5tXbRHII
-	XiUcQU3D0Z6oahHdlwPxYgWXJkMbJVlLiOoL5XXmDXnurpggITtRq8iY7HA36Q4UYlVcXoSQ9V9ku
-	bcBaAsaHWmxUVjb3PCy46OCjOYsmaL/oIwJPhUaaahEj2qLagBG91BwFmA3BP09du6DSQbySGaohO
-	/2tiYJZw==;
+	bh=RHtYeLfcxPt6tkSx5THYp4Q4BiufLUsgip9qC/sOP2s=; b=j1rM+5VsQ28CaGlzBJGokU3t2T
+	XoU5tyadUB51gE4ogSzR3lx8oGXqqMsjqGTO7MsyZ+9t56DOY0DfF3w/qqrsrYcNRi+ZjGKLJ37uv
+	tK4tC6b24zlH826KgT+/r1YJoD+1wl/Uz6YI5NkWGQ2ETcnYqFBDweCGd7AVkaN7WcaQaWTomvwPv
+	UNcOxTI2ovrgxmO6QD+mAgDx7bfMQJexABFC9SfSXlZlVCe2r2iJBSgqsrTd7+Gc/alq6P3jqcXSu
+	QoXpJ+zzPK977nNkIcoRauKxb55C1YU/Em5+qyb13u0Bj+Yi+5S3R7KaiiV6nXdOiS99EBkJIEy5N
+	c1AqCdfw==;
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHB-00000005ddF-031A;
+	id 1uUKHB-00000005ddC-03nE;
 	Wed, 25 Jun 2025 07:10:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F8F44AFEC;
-	Wed, 25 Jun 2025 07:10:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 303BCC4CEF4;
-	Wed, 25 Jun 2025 07:10:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AEEA34AFE0;
+	Wed, 25 Jun 2025 07:10:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35A21C4CEF8;
+	Wed, 25 Jun 2025 07:10:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750835429;
-	bh=1DNk7tX1YvvlA6uSWHlfTS+Bb3s1eS+aWteQQPlb1JM=;
+	s=k20201202; t=1750835428;
+	bh=MVpW9jOYl5nfA5iSMc4oN4R/qeu/fhMbVZxtFi5zdFA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nqVpQzpxUnKXPMGrZ1EGYozacdniZ2Ei1z0BDb9CArbXCIdhByuU9MICPVrjgSPOs
-	 7I9XtCbuuhB6jWShxX4zi3pBcGSRDxsestEYjY/AaCTGarh3AmLmMYGVmsNHH1evss
-	 mVm19s4IODFj3zJjHA7UoVak1Yktt1eeG3x4UvGqP1eBFy9no7S/Z2ct6nwLqYlGJV
-	 Hfjb4JOyB1ZwjnDHOmsYhRJU6IML4Cg4wPn/XWbASQCigU+IWieRPJoRfKCL2onHLw
-	 c93er26kDV2ZMVmMh48fmsPNOWrh8d0egdKTyR/kurxPY6+tKSegQkxGRUJK1Iqp4n
-	 jcy1kRYUqSgXw==
+	b=eaWrFSUhcCI7riLUfFOXOKpU7RRqzyayHnNsr0WqvQSAzXanOJBDrb0E5xCtJtois
+	 8LShoehuDb1UkTBdzvjnDGljGp3yrYnOf2GxQfhGzZJE6b/KqYJikZ8wgjHjdNfNPi
+	 mSTR1FAb33fdLl/btE0meQ09o5r4K6cPrIg9STvdmgXdU1T4r2tm+MQ235u9xHlGPe
+	 cdGa0cns8ZIr3XYa0cJBGr4rbTwGYLKfBa7QGwMZwnJsPNjVGxQI3of78cc5JJiyZm
+	 wU21Gged0J0nqc1T/laJis8r+d0qh5/kKhXdRXWILByu9uENEwQX2fTTLyncyq9hrE
+	 LX8wskdgDHsZg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -68,17 +68,16 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 05/18] lib/crypto: sha512: Do not include <crypto/internal/sha2.h>
-Date: Wed, 25 Jun 2025 00:08:06 -0700
-Message-ID: <20250625070819.1496119-6-ebiggers@kernel.org>
+Subject: [PATCH 03/18] crypto: sha512 - Use the correct legacy export format
+Date: Wed, 25 Jun 2025 00:08:04 -0700
+Message-ID: <20250625070819.1496119-4-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
 References: <20250625070819.1496119-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_081033_278943_8AB5800B 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_081033_271717_ED56299C 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,40 +94,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since the SHA-512 code is now consolidated into a single translation
-unit except for assembly code, there is no longer any need for an
-internal header.  Indeed, lib/crypto/sha512.c relies on
-<crypto/internal/sha2.h> only for indirect inclusions.  Stop including
-it.  This prepares for the later removal of this header, once the
-SHA-256 code is reorganized similarly and stops needing it too.
+It appears the legacy export format is intended to have the value of the
+bytecount field be block-aligned, so update __crypto_sha512_export() and
+__crypto_sha512_import() to match.
 
+Fixes: e62c2fe56418 ("crypto: sha512 - Use same state format as legacy drivers")
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/sha512.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ crypto/sha512.c | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
 
-diff --git a/lib/crypto/sha512.c b/lib/crypto/sha512.c
-index fe9d98b9b7db9..f5a9569a7ef96 100644
---- a/lib/crypto/sha512.c
-+++ b/lib/crypto/sha512.c
-@@ -7,15 +7,16 @@
-  * Copyright (c) 2003 Kyle McMartin <kyle@debian.org>
-  * Copyright 2025 Google LLC
+diff --git a/crypto/sha512.c b/crypto/sha512.c
+index 0eed801346018..5bda259dd22fe 100644
+--- a/crypto/sha512.c
++++ b/crypto/sha512.c
+@@ -13,30 +13,42 @@
+ #include <linux/module.h>
+ 
+ /*
+  * Export and import functions.  crypto_shash wants a particular format that
+  * matches that used by some legacy drivers.  It currently is the same as the
+- * library SHA context but with the partial block length as a u8 appended to it.
++ * library SHA context, except the value in bytecount_lo must be block-aligned
++ * and the remainder must be stored in an extra u8 appended to the struct.
   */
  
- #include <crypto/hmac.h>
--#include <crypto/internal/sha2.h>
-+#include <crypto/sha2.h>
- #include <linux/export.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/overflow.h>
-+#include <linux/unaligned.h>
- #include <linux/wordpart.h>
+ #define SHA512_SHASH_STATE_SIZE 209
+ static_assert(offsetof(struct __sha512_ctx, state) == 0);
+ static_assert(offsetof(struct __sha512_ctx, bytecount_lo) == 64);
+ static_assert(offsetof(struct __sha512_ctx, bytecount_hi) == 72);
+ static_assert(offsetof(struct __sha512_ctx, buf) == 80);
+ static_assert(sizeof(struct __sha512_ctx) + 1 == SHA512_SHASH_STATE_SIZE);
  
- static const struct sha512_block_state sha384_iv = {
- 	.h = {
- 		SHA384_H0, SHA384_H1, SHA384_H2, SHA384_H3,
+-static int __crypto_sha512_export(const struct __sha512_ctx *ctx, void *out)
++static int __crypto_sha512_export(const struct __sha512_ctx *ctx0, void *out)
+ {
+-	memcpy(out, ctx, sizeof(*ctx));
+-	*((u8 *)out + sizeof(*ctx)) = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
++	struct __sha512_ctx ctx = *ctx0;
++	unsigned int partial;
++	u8 *p = out;
++
++	partial = ctx.bytecount_lo % SHA512_BLOCK_SIZE;
++	ctx.bytecount_lo -= partial;
++	memcpy(p, &ctx, sizeof(ctx));
++	p += sizeof(ctx);
++	*p = partial;
+ 	return 0;
+ }
+ 
+ static int __crypto_sha512_import(struct __sha512_ctx *ctx, const void *in)
+ {
+-	memcpy(ctx, in, sizeof(*ctx));
++	const u8 *p = in;
++
++	memcpy(ctx, p, sizeof(*ctx));
++	p += sizeof(*ctx);
++	ctx->bytecount_lo += *p;
+ 	return 0;
+ }
+ 
+ /* SHA-384 */
+ 
 -- 
 2.50.0
 
