@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94354C7EE2A
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 14:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3401C77B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 14:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2nwlkw8UEXnLqMyMS3VgchJS5lzcHtph6Hv9c9OTj88=; b=PRtA8DO3x6xx5k
-	S5T3/zLEwf9xpmkFzA0fqBUMb3LhSnHcWc8QtotCk6lJ74s0QPWkBjWOOqiLK9a1hZQVsp8RvkTnQ
-	pYDkCyfDfFVrRIJr/ChevZBley2WfPAW5fc0nQ0m8iHsIGqgzXMLN2Vdicx1IjTccBCwgkUj/mPaG
-	vK9tnF0fQE42jH+ZfCdqX2gEF8/UEmAmPVd4Ema8bgM+ysxZRnJHOT5Q9WOGHA17II7lKAmn9ddv/
-	VXurIDC0ufN2hTZi438i07A+Xs5UDAyG5EpnJSzulxUkxJHvBdqE3QsmjYwDKXZamqJ/ddbSY08Z8
-	EFyCgfgOjAmdf8ImECgw==;
+	List-Owner; bh=C13H891MZzYxEIHkbBnqH4YWYebozcZvJYFB5euFf0g=; b=E0Irg++kPihJ8Q
+	RZCAuQXMIDT9ulhla+5EDp52AHCs3HbE8DsczCVDPrQaWU43XTIvQYL5sFq4PqjksQmx9ZWO12jxF
+	YBZJqiJyIJvw2z85ALBFVbNCOwAogkM2q1K9oRHZ565uthGrI2y64F/F6fqgPZg9o27SkE3WKHrNR
+	bUGuxGN1Nh6jLfRj+BwqXCBCAygXdImNyCdvWW0+KXrLOmjlPsVytACzqW+MZoUfE52btdR9RNte9
+	/+IMiOS50nX4LXc9Hk0opQPDsrD6UfCi8NFW1y2k5uD52xsxpuhKJdE5ZHH0ln8O4Kn8hEwcT9x0B
+	C9vdm/vQk1mUfJrl+eaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uURRr-000000091WB-0EOi;
-	Wed, 25 Jun 2025 14:50:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uURU7-000000091rN-1rNT;
+	Wed, 25 Jun 2025 14:52:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUO8s-00000008Rm9-2By0;
-	Wed, 25 Jun 2025 11:18:14 +0000
+	id 1uUO8r-00000008Rm4-3Plj;
+	Wed, 25 Jun 2025 11:18:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A88EB61787;
+	by sea.source.kernel.org (Postfix) with ESMTP id 747DA49D45;
 	Wed, 25 Jun 2025 11:18:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ED69C4CEF7;
-	Wed, 25 Jun 2025 11:18:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0192BC4CEEE;
+	Wed, 25 Jun 2025 11:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1750850293;
-	bh=gLYaNgAZuxDXE2XrENbyIyyl/VKE48uI7zW50LW8qC8=;
+	bh=WsJdVrVj4ofp0/SbGBVzpnHuyNRsJKf/ry9C4XCbF/Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TLqOBvfB6N8p+vlU3KWt7GkA1uZ/xntkHNvXFi1CcNfZbGlt3QyP2K8GtBpq7CJQs
-	 K+McshF92vdpZpsGfqOP4/yijvY1yYrannvex/UVQrfN78IEgQ5vJeItz5RK2z7ISp
-	 Cg35w/yDANBYSFYgCK5iw1Dx7dttT3M83D+FudDcz8Pw423ZmJcRzsMLvAJ9TaWD3+
-	 Nt4G5/vyXahOzmmWKA+9AahEnAVDtNrrQ17Q1BpBFM0Jy0Qp/pMNToLU9MrYQP3Ytu
-	 5TfGiRWnjC9CefbmRntnzbuwmr5bkV9wkh0+2UVeBZi+/KYe/LJ5DSAz3dizGpJv36
-	 /NcNHB92reeCQ==
+	b=dAC/31ewbo3QRxuZFSw8EzTDwqv0ipowojGvEixFYHuMktkG6s2giUtNp0SuPPF0a
+	 DrXI3ppULXIh3Q2V9TLEvSvxuf/ib4r7cQuxas3i2YkzYNoB2XWQd3J9Cnq6dURVtK
+	 cqntZn7fgXL0HBGHU606I8Bm07dTzggoSFNrOg3/LAozktKiE68S9AC4DSS3D99C77
+	 kSMn8Br/yMqbOr5JRsFgklnN3JldxafPjV4rvyahmGY98oALjhs+7mfi+PFNGGUhj0
+	 M+w8s5qXide6KXAUU7grkP7XmQVBExYXUJ82YwxBehgTi+5rrAyTgTT4uSEm1L4wLy
+	 Iaq7eMRlKAguQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uUO8p-009qM2-64;
+	id 1uUO8o-009qM2-Us;
 	Wed, 25 Jun 2025 12:18:11 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: Bjorn Helgaas <bhelgaas@google.com>
@@ -60,9 +60,9 @@ Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] PCI: apple: Add tracking of probed root ports
-Date: Wed, 25 Jun 2025 12:18:05 +0100
-Message-Id: <20250625111806.4153773-3-maz@kernel.org>
+Subject: [PATCH 1/3] PCI: host-generic: Set driver_data before calling gen_pci_init()
+Date: Wed, 25 Jun 2025 12:18:04 +0100
+Message-Id: <20250625111806.4153773-2-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250625111806.4153773-1-maz@kernel.org>
 References: <20250625111806.4153773-1-maz@kernel.org>
@@ -71,6 +71,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: bhelgaas@google.com, alyssa@rosenzweig.io, robh@kernel.org, mani@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, j@jannau.net, geert+renesas@glider.be, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_041813_901892_867DA878 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,128 +90,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The apple driver relies on being able to directly find the matching
-root port structure from the platform device that represents this
-port.
+From: Geert Uytterhoeven <geert+renesas@glider.be>
 
-A previous hack stashed a pointer to the root port structure in
-the config window private pointer, but that ended up relying on
-assumptions that break other drivers.
+On MicroChip MPFS Icicle:
 
-Instead, bite the bullet and track the association as part of the
-driver itself as a list of probed root ports.
+    microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000 ranges:
+    microchip-pcie 2000000000.pcie: Parsing ranges property...
+    microchip-pcie 2000000000.pcie:      MEM 0x2008000000..0x2087ffffff -> 0x0008000000
+    Unable to handle kernel NULL pointer dereference at virtual address 0000000000000368
+    Current swapper/0 pgtable: 4K pagesize, 39-bit VAs, pgdp=0x00000000814f1000
+    [0000000000000368] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
+    Oops [#1]
+    Modules linked in:
+    CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.15.0-rc1-icicle-00003-gafc0a570bb61 #232 NONE
+    Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
+    [...]
+    [<ffffffff803fb8a4>] plda_pcie_setup_iomems+0xe/0x78
+    [<ffffffff803fc246>] mc_platform_init+0x80/0x1d2
+    [<ffffffff803f9c88>] pci_ecam_create+0x104/0x1e2
+    [<ffffffff8000adbe>] pci_host_common_init+0x120/0x228
+    [<ffffffff8000af42>] pci_host_common_probe+0x7c/0x8a
 
+The initialization of driver_data was moved after the call to
+gen_pci_init(), while the pci_ecam_ops.init() callback
+mc_platform_init() expects it has already been initialized.
+
+Fix this by moving the initialization of driver_data up.
+
+Fixes: afc0a570bb613871 ("PCI: host-generic: Extract an ECAM bridge creation helper from pci_host_common_probe()")
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Link: https://lore.kernel.org/r/774290708a6f0f683711914fda110742c18a7fb2.1750787223.git.geert+renesas@glider.be
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/pci/controller/pcie-apple.c | 53 ++++++++++++++++++++++++++---
- 1 file changed, 49 insertions(+), 4 deletions(-)
+ drivers/pci/controller/pci-host-common.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index 77fe739766548..0380d300adca6 100644
---- a/drivers/pci/controller/pcie-apple.c
-+++ b/drivers/pci/controller/pcie-apple.c
-@@ -187,6 +187,7 @@ struct apple_pcie {
- 	const struct hw_info	*hw;
- 	unsigned long		*bitmap;
- 	struct list_head	ports;
-+	struct list_head	entry;
- 	struct completion	event;
- 	struct irq_fwspec	fwspec;
- 	u32			nvecs;
-@@ -205,6 +206,9 @@ struct apple_pcie_port {
- 	int			idx;
- };
+diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+index b0992325dd65f..b370528638471 100644
+--- a/drivers/pci/controller/pci-host-common.c
++++ b/drivers/pci/controller/pci-host-common.c
+@@ -64,13 +64,13 @@ int pci_host_common_init(struct platform_device *pdev,
  
-+static LIST_HEAD(pcie_list);
-+static DEFINE_MUTEX(pcie_list_lock);
-+
- static void rmw_set(u32 set, void __iomem *addr)
- {
- 	writel_relaxed(readl_relaxed(addr) | set, addr);
-@@ -720,13 +724,45 @@ static int apple_msi_init(struct apple_pcie *pcie)
- 	return 0;
- }
+ 	of_pci_check_probe_only();
  
-+static void apple_pcie_register(struct apple_pcie *pcie)
-+{
-+	guard(mutex)(&pcie_list_lock);
++	platform_set_drvdata(pdev, bridge);
 +
-+	list_add_tail(&pcie->entry, &pcie_list);
-+}
-+
-+static void apple_pcie_unregister(struct apple_pcie *pcie)
-+{
-+	guard(mutex)(&pcie_list_lock);
-+
-+	list_del(&pcie->entry);
-+}
-+
-+static struct apple_pcie *apple_pcie_lookup(struct device *dev)
-+{
-+	struct apple_pcie *pcie;
-+
-+	guard(mutex)(&pcie_list_lock);
-+
-+	list_for_each_entry(pcie, &pcie_list, entry) {
-+		if (pcie->dev == dev)
-+			return pcie;
-+	}
-+
-+	return NULL;
-+}
-+
- static struct apple_pcie_port *apple_pcie_get_port(struct pci_dev *pdev)
- {
- 	struct pci_config_window *cfg = pdev->sysdata;
--	struct apple_pcie *pcie = cfg->priv;
-+	struct apple_pcie *pcie;
- 	struct pci_dev *port_pdev;
- 	struct apple_pcie_port *port;
+ 	/* Parse and map our Configuration Space windows */
+ 	cfg = gen_pci_init(dev, bridge, ops);
+ 	if (IS_ERR(cfg))
+ 		return PTR_ERR(cfg);
  
-+	pcie = apple_pcie_lookup(cfg->parent);
-+	if (WARN_ON(!pcie))
-+		return NULL;
-+
- 	/* Find the root port this device is on */
- 	port_pdev = pcie_find_root_port(pdev);
- 
-@@ -806,10 +842,14 @@ static void apple_pcie_disable_device(struct pci_host_bridge *bridge, struct pci
- 
- static int apple_pcie_init(struct pci_config_window *cfg)
- {
--	struct apple_pcie *pcie = cfg->priv;
- 	struct device *dev = cfg->parent;
-+	struct apple_pcie *pcie;
- 	int ret;
- 
-+	pcie = apple_pcie_lookup(dev);
-+	if (WARN_ON(!pcie))
-+		return -ENOENT;
-+
- 	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
- 		ret = apple_pcie_setup_port(pcie, of_port);
- 		if (ret) {
-@@ -852,13 +892,18 @@ static int apple_pcie_probe(struct platform_device *pdev)
- 
- 	mutex_init(&pcie->lock);
- 	INIT_LIST_HEAD(&pcie->ports);
--	dev_set_drvdata(dev, pcie);
- 
- 	ret = apple_msi_init(pcie);
- 	if (ret)
- 		return ret;
- 
--	return pci_host_common_init(pdev, &apple_pcie_cfg_ecam_ops);
-+	apple_pcie_register(pcie);
-+
-+	ret = pci_host_common_init(pdev, &apple_pcie_cfg_ecam_ops);
-+	if (ret)
-+		apple_pcie_unregister(pcie);
-+
-+	return ret;
- }
- 
- static const struct of_device_id apple_pcie_of_match[] = {
+-	platform_set_drvdata(pdev, bridge);
+-
+ 	bridge->sysdata = cfg;
+ 	bridge->ops = (struct pci_ops *)&ops->pci_ops;
+ 	bridge->enable_device = ops->enable_device;
 -- 
 2.39.2
 
