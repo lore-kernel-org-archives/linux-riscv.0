@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A01BC7EE2A
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 20:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59F7CC7EE31
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 21:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4S/a0HuRk3Pc/QrTRjScWjvt8N3aw9CW/Dm9jxiXli0=; b=x+pFFb4tZwflIe
-	lbENZcCiyoJupZ7KfJrEWW2mtMoi0vqog1XAB6+Hc2Rr+igqktFYM7skgicmOSMAXu2szhrAHxfiY
-	xq70BdMyw2EfNk8p/KYI1u7G9LaQKKJ5sDC9ou1CycLrM7fuPVOp+wXk+qt+oWohahhY1stn2Vtrl
-	g3+c/MqmkzROeD7SkmQLhUEeGlPpOemS3KfJNif82cK4qxl6g2hED1lFwsfRJxZqKnwhqh02Ke2bZ
-	JzE55Re7PG8CDUQqdrlNzTjeYXMLE1p+ZD0wKMUlr1zOHMvFJUENscget/KG9fhNfLUY1hDhxWIe3
-	tSbt4vtEDxOizYbUOCnA==;
+	List-Owner; bh=baCPS+ujbyMGlcVEga1jmgRfgujJWg4v2RSHKWhWETA=; b=U4qJ0G0Sary+fM
+	TTPaX00WGp5ARwr8/FVQyCMe42Yrx+f9YdSaf+y/APBRtr4VuZU4JViiBSbyRx3oMZBQBfJrt7Sxs
+	D4EU9sxzWqaOrLVoyKkE3O8rtCAi7Nn/bIxAv39LccNk13dv4ccQnz6wEEwehMfYJVdjAL4f0AAgR
+	t/cf+eZaNUOV0n1AEGRUNtb/fqdvJ9GlAaQMaxvNu5VrOKXl0pjQ0tZJJ5uIWjKvs2e+jwcnW/kut
+	12MCuKaEIsedKx9xz5sgtImVAqVvz981c0VZMsLfLxhWhIv6jIP5u3SGAM/gYcK/ipA2tbkTNFiEI
+	xcCSc/BcSVJP2YNAilsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUWqJ-00000009s1o-0uYX;
-	Wed, 25 Jun 2025 20:35:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uUXpY-00000009yhm-0moF;
+	Wed, 25 Jun 2025 21:38:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUVbT-00000009j8F-0fsf
+	id 1uUWGq-00000009nXb-12KR
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 19:16:15 +0000
+	Wed, 25 Jun 2025 19:59:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5299661151;
-	Wed, 25 Jun 2025 19:16:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D58DBC4CEEA;
-	Wed, 25 Jun 2025 19:16:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1B6CD5C5CDB;
+	Wed, 25 Jun 2025 19:56:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ECD4C4CEEA;
+	Wed, 25 Jun 2025 19:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750878974;
-	bh=3xx8v1UwfRqi0ZG+i5McWZ2XEzZuimQytzqJT5SglHc=;
+	s=k20201202; t=1750881539;
+	bh=/QqjKA1nb6MHEABcPVKqJW38bKn+uzRsO95qFrtWnas=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ll2ev9x+mDm8fPwuaepM18THd82jsyPWzG1/HqjPrZGqYpAzaSSUdOof59nOSs7rO
-	 2u3wLcOS0vbFia4CRWStDdB+amoW4c7rRUfueX91+SbCUNc5BdtdepjG4dus7voYR+
-	 HtwGuwjRm+c2GtlaamNxkd819845Wo0pT0gRxPhoOsosCJGyVKqBLrVB/SlLHZQKI0
-	 32owTpKRMV7oaDrPeMCMSBy95Or3G9HSoVih9qazQ4LZpKfwnHCUVJytV4JgCF/xvd
-	 b5Gk1VBplToldZh8xhEKFCiO7EcenEo2YdWqXI53zv4pOOvUPJf1uC2LXHbqXCUMAq
-	 IaV6JW0gJ6bTA==
-Date: Wed, 25 Jun 2025 14:16:13 -0500
+	b=NGQgAtxXVdUaq5D0XGTFjnPhGxs89C40PEYlONinnaK/PlHyPtgQw+SphbOjV6l5Y
+	 LtU0X9Ds5KNGuHEmrBl5oFTrd6u+WP9tPCaNV5Q5nZ49L4sFN1aVZm6D+JZzsuG5Ui
+	 /X0Y5k1fQhzEXcCN/1HUKyQD7/JtcTJjQE8YzgCQ6meTb7mFjRltPQU2TcmJxCppb8
+	 3cDpmgvTzR4s3D8cv005uy5QVF8kFdcC30+2tv7w9YK/klqlVJfImpQLR8t4bdguRQ
+	 qQ0+iFxS3WuUXqIIl61zM1V5SORd0Eho1ue8Bocpu1kGmBCSgKX7Xpbw3FjtQ3fvWN
+	 hZsIowV/uZm4Q==
+Date: Wed, 25 Jun 2025 14:58:58 -0500
 From: Rob Herring <robh@kernel.org>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
+To: Conor Dooley <conor@kernel.org>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: Add C906L rproc for Sophgo
- CV1800B SoC
-Message-ID: <20250625191613.GA2059062-robh@kernel.org>
-References: <20250608-cv1800-rproc-v1-0-57cf66cdf6a3@pigmoral.tech>
- <20250608-cv1800-rproc-v1-1-57cf66cdf6a3@pigmoral.tech>
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Yu Yuan <yu.yuan@sjtu.edu.cn>, Yixun Lan <dlan@gentoo.org>,
+	Ze Huang <huangze@whut.edu.cn>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH RFC 1/3] dt-bindings: soc: sophgo: add TOP syscon for
+ CV18XX/SG200X series SoC
+Message-ID: <20250625195858.GA2115486-robh@kernel.org>
+References: <20250611082452.1218817-1-inochiama@gmail.com>
+ <20250611082452.1218817-2-inochiama@gmail.com>
+ <20250612-culpable-roman-295df1360198@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250608-cv1800-rproc-v1-1-57cf66cdf6a3@pigmoral.tech>
+In-Reply-To: <20250612-culpable-roman-295df1360198@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_125900_369639_5620419B 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,107 +87,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 08, 2025 at 10:37:39AM +0800, Junhui Liu wrote:
-> Add C906L remote processor for CV1800B SoC, which is an asymmetric
-> processor typically running RTOS.
+On Thu, Jun 12, 2025 at 05:04:46PM +0100, Conor Dooley wrote:
+> On Wed, Jun 11, 2025 at 04:24:49PM +0800, Inochi Amaoto wrote:
+> > The Sophgo CV1800/SG2000 SoC top misc system controller provides register
+> > access to configure related modules. It includes a usb2 phy and a dma
+> > multiplexer.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  .../soc/sophgo/sophgo,cv1800b-top-syscon.yaml | 57 +++++++++++++++++++
+> >  1 file changed, 57 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top-syscon.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top-syscon.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top-syscon.yaml
+> > new file mode 100644
+> > index 000000000000..e8093a558c4e
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top-syscon.yaml
+> > @@ -0,0 +1,57 @@
+> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,cv1800b-top-syscon.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Sophgo CV18XX/SG200X SoC top system controller
+> > +
+> > +maintainers:
+> > +  - Inochi Amaoto <inochiama@outlook.com>
+> > +
+> > +description:
+> > +  The Sophgo CV18XX/SG200X SoC top misc system controller provides
+> > +  register access to configure related modules.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    oneOf:
+> > +      - items:
+> > +          - const: sophgo,cv1800b-top-syscon
+> > +          - const: syscon
+> > +          - const: simple-mfd
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  "#address-cells":
+> > +    const: 1
+> > +
+> > +  "#size-cells":
+> > +    const: 1
+> > +
+> > +patternProperties:
+> > +  "dma-router@[0-9a-f]+$":
+> > +    $ref: /schemas/dma/sophgo,cv1800b-dmamux.yaml#
 > 
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->  .../bindings/remoteproc/sophgo,cv1800b-c906l.yaml  | 68 ++++++++++++++++++++++
->  1 file changed, 68 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml b/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..455e957dec01c16424c49ebe5ef451883b0c3d4a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml
-> @@ -0,0 +1,68 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/remoteproc/sophgo,cv1800b-c906l.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo C906L remote processor controller for CV1800B SoC
-> +
-> +maintainers:
-> +  - Junhui Liu <junhui.liu@pigmoral.tech>
-> +
-> +description:
-> +  Document the bindings for the C906L remoteproc component that loads and boots
-> +  firmwares on the CV1800B SoC.
-> +
-> +properties:
-> +  compatible:
-> +    const: sophgo,cv1800b-c906l
-> +
-> +  firmware-name:
-> +    $ref: /schemas/types.yaml#/definitions/string
+> I think you're supposed to add "unevaluatedProperties: false" to each of
+> these nodes.
 
-Already has a type. You just need 'maxItems: 1'.
+Not necessary if the referenced schema has 
+unevaluatedProperties/additionalProperties set to false. The tools check 
+for this.
 
-> +    description:
-> +      The name of the firmware file to load for this remote processor, relative
-> +      to the firmware search path (typically /lib/firmware/).
-
-That's the same for every 'firmware-name' instance. So drop.
-
-Is there a default name?
-
-> +
-> +  memory-region:
-
-       maxItems: 1
-
-> +    description:
-> +      Phandle to a reserved memory region that is used to load the firmware for
-> +      this remote processor. The remote processor will use this memory region
-> +      as its execution memory.
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  sophgo,syscon:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      A phandle to the SEC_SYS region, used for configuration of the remote processor.
-> +
-> +required:
-> +  - compatible
-> +  - firmware-name
-> +  - memory-region
-> +  - resets
-> +  - sophgo,syscon
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    reserved-memory {
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +        ranges;
-> +
-> +        c906l_mem: region@83f40000 {
-> +            reg = <0x83f40000 0xc0000>;
-> +            no-map;
-> +        };
-> +    };
-
-Drop. No need to show how /reserved-memory works here.
-
-> +
-> +    c906l-rproc {
-> +        compatible = "sophgo,cv1800b-c906l";
-> +        firmware-name = "c906l-firmware.elf";
-> +        memory-region = <&c906l_mem>;
-> +        resets = <&rst 294>;
-> +        sophgo,syscon = <&sec_sys>;
-> +    };
-> 
-> -- 
-> 2.49.0
-> 
+Rob
 
 _______________________________________________
 linux-riscv mailing list
