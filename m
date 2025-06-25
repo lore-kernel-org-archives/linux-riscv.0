@@ -4,63 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFADC7EE30
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06C2AC7115C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dCfpPDxAzeEpyvhrxArU05hS47/87mptCM7QxHMRMes=; b=faSGekvWkpPMcg
-	ckxct6Ugxh/CRVAsBPgRFt7GSKkasJwQ5NU4ntFdC2vsTQOPVa/GG9HlrISSrRuAPBZS89ObQJYpe
-	RmzTFjaoPkNMGXvNbZliz3vzCVcpFxjP8GfvbC/LMXTxuZ6igkxxy+sUrNpA0JybjV6e/KrtM0JOF
-	97ZTsEHZnYT7pVrj1UEH+4AYM5w9/bk4sOmbDVgCp9dzv33mro6Z7KPGJVUk8wtSpAVCTbzBrbXFf
-	97Ikg/wSRjRARnYcoNKmKPcOf5muf9ArnQPvwaglver/uM2TPiDx15i7IrNXLE3/vEL8U3CqIDz6/
-	/A82Th4Ib1ql+NaZig0A==;
+	List-Owner; bh=ChDynUGIzL56LmrlJWUxdX1FXO4Fnt+P+J4cmF6Zpzw=; b=jmbe8ufm59A5Ui
+	vmVvTXf6FyzdDCc2QVOou3qgjFMHrKsPLVo9ePKDpVadm8tq1/fdOKvoGNfQkBBV0NcmbCTdTkSi7
+	h75Uu0wKojFUuXlonM4qV2APae93877OGEhNZsEjT4hG6WwjliYp6h/YQjDNDG9diq04h6UrKFTL3
+	IraoYfmyaCEdTTum6VdgRuKxyZ30u8TeLArc/G2DeTi+lQ+M2oieYYtC2UIzIUE7aptOU56nlewXi
+	Rn2UCvl2DCK8Aet/P290O5pQdKTBXeb4UR+lJu5+7rrfx8pAKIAfyrL/yWErMqBnPNv3Hb9v//FqM
+	Uq/VTfcMhrXiD2KnZE2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULeU-00000007zHb-3s0E;
-	Wed, 25 Jun 2025 08:38:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uULhg-00000007zn7-2Jyv;
+	Wed, 25 Jun 2025 08:42:00 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHB-00000007lMj-2pQB;
-	Wed, 25 Jun 2025 07:10:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BBD5161784;
-	Wed, 25 Jun 2025 07:10:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20A8FC4CEEE;
-	Wed, 25 Jun 2025 07:10:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750835432;
-	bh=GMam131N1o/5e3I3F+I9ymjxueGAN0OrCeWnHp1EQDA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UZg5CVnOW+bpgYExd5yE3LBDQF4l8SyP1jY0An82o+CEsahhSP60qCkUDAEeDZ9Qi
-	 wcM/LqGssYMo0UDtpeqKxTL15GlL6pdrfjimwOODY4lS8HABWXmlvnCZDJE0XK/7xO
-	 1BGNtUoczmt7Q53+QLkX7mMxsapsC5XMd96eShPkVIiRxLVxVXXlpjMg19ExJ+CPgr
-	 dtGg7jUUv4zGum2btrBJTFSLWNSrDK51HD6P/eJKdK8xdIZz+FAU+S7PeN9OuV+r86
-	 UvM8ut3Pzrcsfdotx6biYw6wt9ZiUoBGE/KsnwSNbeT72e/Bb2Y5N8JElE3zv1Cg4U
-	 X9kgYBl8dyFiA==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 11/18] lib/crypto: sha256: Propagate sha256_block_state type to implementations
-Date: Wed, 25 Jun 2025 00:08:12 -0700
-Message-ID: <20250625070819.1496119-12-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
-References: <20250625070819.1496119-1-ebiggers@kernel.org>
-MIME-Version: 1.0
+	id 1uUKv7-00000007s4I-12AT
+	for linux-riscv@lists.infradead.org;
+	Wed, 25 Jun 2025 07:51:50 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3a524caf77eso933997f8f.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Jun 2025 00:51:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1750837907; x=1751442707; darn=lists.infradead.org;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0/1kqXJPNv0gRjI46k/A/EmGeeHWQcmxjkHDa0w7+p0=;
+        b=WgTMEy7odgvvfw/u3TUlMha3qBAs+foXDqJN5Wv4orhB4qNGwZBxjXkcRvZr+vgLmI
+         /HjtOani/57K4Ill/tf0sNXM2/rfOX317MeWjCCOnGpYN+6krE5MJLyIWCXAvmhxGucV
+         FkgV/BlYz7nGJU4W2uj4BS52uP86SsxB/n/G1Yfo8Rfbq5kNFBPzZ8t2OPle6Z3cx2JX
+         6Xad2YtKZLK1BM+GCWYhcoatGk6rOntdfH9mypcYTiHeuRt0uKh0Zyu11XQ4ClkOWrbB
+         o9+FIQcaRFVadW1uvSOGs7fXqCW8jrMyHvb9hLPO0XMIsHIbiZ9PZCCzSGX3RnK3C0Ra
+         JYgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750837907; x=1751442707;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=0/1kqXJPNv0gRjI46k/A/EmGeeHWQcmxjkHDa0w7+p0=;
+        b=toFrJhyym4Qf6VVlFq7RSvmttpqA2omcQvszzmHozDxH1tGhONm7hwTTpLi57jJDwz
+         cJQXXa6rzcPdjf/6om2HtwVwcz4GDcrbz7SZa9+BcXafWUyikS1EZ+ZD/hv4TJgypRqO
+         FDux90DeZVCC9swjMIRSTQLRGsjfaMUNAuuQ/JUgOhcGp8NXIgGdJK3EwJsRG7K3OtIn
+         /3hy76LhPN2Vtiy2xPoOllGjGJWmCExa6yWr8FClaUei+vu5uELB87VoWxwPPx7qZaG0
+         53EtuDsMO9tt7aSBkACbYcclmG/g+lYc4pz9L9xLU89pi9wwnNGj8u2wxAAPQEOEWhpB
+         X4cA==
+X-Gm-Message-State: AOJu0Yy5QWOiDGPcnXqoBDGykiky78uadWZYVqZatJ2wSlc/zbChEMbd
+	lSP/DZVGKZi4ArQl3DqQ3SWvWxqZFmr+EGxDDFW86DH7AeP1NY5eGXgBtibPgfsRW7g=
+X-Gm-Gg: ASbGncuqklE/l77ttQXU6EPrBM5P2uQy8Ru4x8YHXRWnE/KBppxGhNkDDoxqY8ms/ZX
+	rE/j7gcq9tFN2CjN9GHL7WjuPGvJ8MSSmcQqq40tSxArLa/R6gyAr/WhvluRNqDTAUNbob+OYEJ
+	NFr095jIHZu5fVIkUFryHqP12RXB7tRE5Tj3+3by522RxH3xymf8iX9FxKizh9LnwizCXUD1pGE
+	I6VievBQgX0LpCMBWbp2EHy7HeCp946lmDiBwem4lbMqPofskhpseHkYogFAGyIK7S2ho7iH+9z
+	MhMfXTP/QSLbkL/ruWWuf1BiyZ30VcGqfng2+FfzvGP3KEJS2p4fiewv6MWM0xF0IeoKEkZaZFB
+	q1MYB6jOG6xqSAyj263U4Cg==
+X-Google-Smtp-Source: AGHT+IF/TkpC3NlD/HMifpack2QrokmF522u7Xr5D13/dT5pwOLN83NtG9UoEcLzCyYMeIfkeQYZhg==
+X-Received: by 2002:a05:6000:410d:b0:3a5:7875:576 with SMTP id ffacd0b85a97d-3a6ed60db76mr384507f8f.1.1750837907380;
+        Wed, 25 Jun 2025 00:51:47 -0700 (PDT)
+Received: from localhost (ip-89-103-73-235.bb.vodafone.cz. [89.103.73.235])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6e80f27a8sm3859432f8f.56.2025.06.25.00.51.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jun 2025 00:51:46 -0700 (PDT)
+Mime-Version: 1.0
+Date: Wed, 25 Jun 2025 09:51:45 +0200
+Message-Id: <DAVG8M70SJ4Q.ZSTC5VSJWGSK@ventanamicro.com>
+Subject: Re: [PATCH v2 3/2] RISC-V: sbi: remove sbi_ecall tracepoints
+Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, "Atish Patra" <atishp@rivosinc.com>,
+ <ajones@ventanamicro.com>, <cleger@rivosinc.com>,
+ <apatel@ventanamicro.com>, <thomas.weissschuh@linutronix.de>,
+ <david.laight.linux@gmail.com>, "Jeff Law" <jlaw@ventanamicro.com>
+To: "Palmer Dabbelt" <palmer@dabbelt.com>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+References: <20250619190315.2603194-4-rkrcmar@ventanamicro.com>
+ <mhng-516082EA-5A9A-4A76-9448-70828749F95F@palmerdabbelt-mac>
+ <DAUSD38QIV6D.1YO5ASNI3EUGV@ventanamicro.com>
+In-Reply-To: <DAUSD38QIV6D.1YO5ASNI3EUGV@ventanamicro.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_005149_287479_DD0842F2 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,446 +98,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The previous commit made the SHA-256 compression function state be
-strongly typed, but it wasn't propagated all the way down to the
-implementations of it.  Do that now.
-
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- .../mips/cavium-octeon/crypto/octeon-sha256.c |  2 +-
- include/crypto/internal/sha2.h                |  8 +++----
- lib/crypto/arm/sha256-ce.S                    |  2 +-
- lib/crypto/arm/sha256.c                       |  8 +++----
- lib/crypto/arm64/sha256-ce.S                  |  2 +-
- lib/crypto/arm64/sha256.c                     |  8 +++----
- lib/crypto/powerpc/sha256.c                   |  2 +-
- .../sha256-riscv64-zvknha_or_zvknhb-zvkb.S    |  2 +-
- lib/crypto/riscv/sha256.c                     |  7 +++---
- lib/crypto/s390/sha256.c                      |  2 +-
- lib/crypto/sha256-generic.c                   | 24 ++++++++++++++-----
- lib/crypto/sparc/sha256.c                     |  4 ++--
- lib/crypto/x86/sha256-avx-asm.S               |  2 +-
- lib/crypto/x86/sha256-avx2-asm.S              |  2 +-
- lib/crypto/x86/sha256-ni-asm.S                |  2 +-
- lib/crypto/x86/sha256-ssse3-asm.S             |  2 +-
- lib/crypto/x86/sha256.c                       | 10 ++++----
- 17 files changed, 51 insertions(+), 38 deletions(-)
-
-diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha256.c b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
-index c20038239cb6b..f8664818d04ec 100644
---- a/arch/mips/cavium-octeon/crypto/octeon-sha256.c
-+++ b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
-@@ -20,11 +20,11 @@
- 
- /*
-  * We pass everything as 64-bit. OCTEON can handle misaligned data.
-  */
- 
--void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_arch(struct sha256_block_state *state,
- 			const u8 *data, size_t nblocks)
- {
- 	struct octeon_cop2_state cop2_state;
- 	u64 *state64 = (u64 *)state;
- 	unsigned long flags;
-diff --git a/include/crypto/internal/sha2.h b/include/crypto/internal/sha2.h
-index 79be22381ef86..51028484ccdc7 100644
---- a/include/crypto/internal/sha2.h
-+++ b/include/crypto/internal/sha2.h
-@@ -15,23 +15,23 @@ bool sha256_is_arch_optimized(void);
- static inline bool sha256_is_arch_optimized(void)
- {
- 	return false;
- }
- #endif
--void sha256_blocks_generic(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_generic(struct sha256_block_state *state,
- 			   const u8 *data, size_t nblocks);
--void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_arch(struct sha256_block_state *state,
- 			const u8 *data, size_t nblocks);
- 
- static inline void sha256_choose_blocks(
- 	u32 state[SHA256_STATE_WORDS], const u8 *data, size_t nblocks,
- 	bool force_generic, bool force_simd)
- {
- 	if (!IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_SHA256) || force_generic)
--		sha256_blocks_generic(state, data, nblocks);
-+		sha256_blocks_generic((struct sha256_block_state *)state, data, nblocks);
- 	else
--		sha256_blocks_arch(state, data, nblocks);
-+		sha256_blocks_arch((struct sha256_block_state *)state, data, nblocks);
- }
- 
- static __always_inline void sha256_finup(
- 	struct crypto_sha256_state *sctx, u8 buf[SHA256_BLOCK_SIZE],
- 	size_t len, u8 out[SHA256_DIGEST_SIZE], size_t digest_size,
-diff --git a/lib/crypto/arm/sha256-ce.S b/lib/crypto/arm/sha256-ce.S
-index ac2c9b01b22d2..7481ac8e6c0d9 100644
---- a/lib/crypto/arm/sha256-ce.S
-+++ b/lib/crypto/arm/sha256-ce.S
-@@ -65,11 +65,11 @@
- 	.word		0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3
- 	.word		0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208
- 	.word		0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
- 
- 	/*
--	 * void sha256_ce_transform(u32 state[SHA256_STATE_WORDS],
-+	 * void sha256_ce_transform(struct sha256_block_state *state,
- 	 *			    const u8 *data, size_t nblocks);
- 	 */
- ENTRY(sha256_ce_transform)
- 	/* load state */
- 	vld1.32		{dga-dgb}, [r0]
-diff --git a/lib/crypto/arm/sha256.c b/lib/crypto/arm/sha256.c
-index 2c9cfdaaa0691..7d90823586952 100644
---- a/lib/crypto/arm/sha256.c
-+++ b/lib/crypto/arm/sha256.c
-@@ -8,21 +8,21 @@
- #include <crypto/internal/sha2.h>
- #include <crypto/internal/simd.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- 
--asmlinkage void sha256_block_data_order(u32 state[SHA256_STATE_WORDS],
-+asmlinkage void sha256_block_data_order(struct sha256_block_state *state,
- 					const u8 *data, size_t nblocks);
--asmlinkage void sha256_block_data_order_neon(u32 state[SHA256_STATE_WORDS],
-+asmlinkage void sha256_block_data_order_neon(struct sha256_block_state *state,
- 					     const u8 *data, size_t nblocks);
--asmlinkage void sha256_ce_transform(u32 state[SHA256_STATE_WORDS],
-+asmlinkage void sha256_ce_transform(struct sha256_block_state *state,
- 				    const u8 *data, size_t nblocks);
- 
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_ce);
- 
--void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_arch(struct sha256_block_state *state,
- 			const u8 *data, size_t nblocks)
- {
- 	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
- 	    static_branch_likely(&have_neon) && crypto_simd_usable()) {
- 		kernel_neon_begin();
-diff --git a/lib/crypto/arm64/sha256-ce.S b/lib/crypto/arm64/sha256-ce.S
-index f3e21c6d87d2e..b99d9589c4217 100644
---- a/lib/crypto/arm64/sha256-ce.S
-+++ b/lib/crypto/arm64/sha256-ce.S
-@@ -69,11 +69,11 @@
- 	.word		0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3
- 	.word		0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208
- 	.word		0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
- 
- 	/*
--	 * size_t __sha256_ce_transform(u32 state[SHA256_STATE_WORDS],
-+	 * size_t __sha256_ce_transform(struct sha256_block_state *state,
- 	 *				const u8 *data, size_t nblocks);
- 	 */
- 	.text
- SYM_FUNC_START(__sha256_ce_transform)
- 	/* load round constants */
-diff --git a/lib/crypto/arm64/sha256.c b/lib/crypto/arm64/sha256.c
-index fb9bff40357be..609ffb8151987 100644
---- a/lib/crypto/arm64/sha256.c
-+++ b/lib/crypto/arm64/sha256.c
-@@ -8,21 +8,21 @@
- #include <crypto/internal/sha2.h>
- #include <crypto/internal/simd.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- 
--asmlinkage void sha256_block_data_order(u32 state[SHA256_STATE_WORDS],
-+asmlinkage void sha256_block_data_order(struct sha256_block_state *state,
- 					const u8 *data, size_t nblocks);
--asmlinkage void sha256_block_neon(u32 state[SHA256_STATE_WORDS],
-+asmlinkage void sha256_block_neon(struct sha256_block_state *state,
- 				  const u8 *data, size_t nblocks);
--asmlinkage size_t __sha256_ce_transform(u32 state[SHA256_STATE_WORDS],
-+asmlinkage size_t __sha256_ce_transform(struct sha256_block_state *state,
- 					const u8 *data, size_t nblocks);
- 
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_ce);
- 
--void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_arch(struct sha256_block_state *state,
- 			const u8 *data, size_t nblocks)
- {
- 	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
- 	    static_branch_likely(&have_neon) && crypto_simd_usable()) {
- 		if (static_branch_likely(&have_ce)) {
-diff --git a/lib/crypto/powerpc/sha256.c b/lib/crypto/powerpc/sha256.c
-index 6b0f079587eb6..c3f844ae0aceb 100644
---- a/lib/crypto/powerpc/sha256.c
-+++ b/lib/crypto/powerpc/sha256.c
-@@ -40,11 +40,11 @@ static void spe_end(void)
- 	disable_kernel_spe();
- 	/* reenable preemption */
- 	preempt_enable();
- }
- 
--void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_arch(struct sha256_block_state *state,
- 			const u8 *data, size_t nblocks)
- {
- 	do {
- 		/* cut input data into smaller blocks */
- 		u32 unit = min_t(size_t, nblocks,
-diff --git a/lib/crypto/riscv/sha256-riscv64-zvknha_or_zvknhb-zvkb.S b/lib/crypto/riscv/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
-index fad501ad06171..1618d1220a6e7 100644
---- a/lib/crypto/riscv/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
-+++ b/lib/crypto/riscv/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
-@@ -104,11 +104,11 @@
- 	sha256_4rounds	\last, \k1, W1, W2, W3, W0
- 	sha256_4rounds	\last, \k2, W2, W3, W0, W1
- 	sha256_4rounds	\last, \k3, W3, W0, W1, W2
- .endm
- 
--// void sha256_transform_zvknha_or_zvknhb_zvkb(u32 state[SHA256_STATE_WORDS],
-+// void sha256_transform_zvknha_or_zvknhb_zvkb(struct sha256_block_state *state,
- //					       const u8 *data, size_t nblocks);
- SYM_FUNC_START(sha256_transform_zvknha_or_zvknhb_zvkb)
- 
- 	// Load the round constants into K0-K15.
- 	vsetivli	zero, 4, e32, m1, ta, ma
-diff --git a/lib/crypto/riscv/sha256.c b/lib/crypto/riscv/sha256.c
-index aa77349d08f30..a2079aa3ae925 100644
---- a/lib/crypto/riscv/sha256.c
-+++ b/lib/crypto/riscv/sha256.c
-@@ -13,16 +13,17 @@
- #include <crypto/internal/sha2.h>
- #include <crypto/internal/simd.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- 
--asmlinkage void sha256_transform_zvknha_or_zvknhb_zvkb(
--	u32 state[SHA256_STATE_WORDS], const u8 *data, size_t nblocks);
-+asmlinkage void
-+sha256_transform_zvknha_or_zvknhb_zvkb(struct sha256_block_state *state,
-+				       const u8 *data, size_t nblocks);
- 
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_extensions);
- 
--void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_arch(struct sha256_block_state *state,
- 			const u8 *data, size_t nblocks)
- {
- 	if (static_branch_likely(&have_extensions) && crypto_simd_usable()) {
- 		kernel_vector_begin();
- 		sha256_transform_zvknha_or_zvknhb_zvkb(state, data, nblocks);
-diff --git a/lib/crypto/s390/sha256.c b/lib/crypto/s390/sha256.c
-index 7dfe120fafaba..fb565718f7539 100644
---- a/lib/crypto/s390/sha256.c
-+++ b/lib/crypto/s390/sha256.c
-@@ -10,11 +10,11 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- 
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_cpacf_sha256);
- 
--void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_arch(struct sha256_block_state *state,
- 			const u8 *data, size_t nblocks)
- {
- 	if (static_branch_likely(&have_cpacf_sha256))
- 		cpacf_kimd(CPACF_KIMD_SHA_256, state, data,
- 			   nblocks * SHA256_BLOCK_SIZE);
-diff --git a/lib/crypto/sha256-generic.c b/lib/crypto/sha256-generic.c
-index 2968d95d04038..99f904033c261 100644
---- a/lib/crypto/sha256-generic.c
-+++ b/lib/crypto/sha256-generic.c
-@@ -68,11 +68,11 @@ static inline void BLEND_OP(int I, u32 *W)
- 	t2 = e0(a) + Maj(a, b, c);				\
- 	d += t1;						\
- 	h = t1 + t2;						\
- } while (0)
- 
--static void sha256_block_generic(u32 state[SHA256_STATE_WORDS],
-+static void sha256_block_generic(struct sha256_block_state *state,
- 				 const u8 *input, u32 W[64])
- {
- 	u32 a, b, c, d, e, f, g, h;
- 	int i;
- 
-@@ -99,12 +99,18 @@ static void sha256_block_generic(u32 state[SHA256_STATE_WORDS],
- 		BLEND_OP(i + 6, W);
- 		BLEND_OP(i + 7, W);
- 	}
- 
- 	/* load the state into our registers */
--	a = state[0];  b = state[1];  c = state[2];  d = state[3];
--	e = state[4];  f = state[5];  g = state[6];  h = state[7];
-+	a = state->h[0];
-+	b = state->h[1];
-+	c = state->h[2];
-+	d = state->h[3];
-+	e = state->h[4];
-+	f = state->h[5];
-+	g = state->h[6];
-+	h = state->h[7];
- 
- 	/* now iterate */
- 	for (i = 0; i < 64; i += 8) {
- 		SHA256_ROUND(i + 0, a, b, c, d, e, f, g, h);
- 		SHA256_ROUND(i + 1, h, a, b, c, d, e, f, g);
-@@ -114,15 +120,21 @@ static void sha256_block_generic(u32 state[SHA256_STATE_WORDS],
- 		SHA256_ROUND(i + 5, d, e, f, g, h, a, b, c);
- 		SHA256_ROUND(i + 6, c, d, e, f, g, h, a, b);
- 		SHA256_ROUND(i + 7, b, c, d, e, f, g, h, a);
- 	}
- 
--	state[0] += a; state[1] += b; state[2] += c; state[3] += d;
--	state[4] += e; state[5] += f; state[6] += g; state[7] += h;
-+	state->h[0] += a;
-+	state->h[1] += b;
-+	state->h[2] += c;
-+	state->h[3] += d;
-+	state->h[4] += e;
-+	state->h[5] += f;
-+	state->h[6] += g;
-+	state->h[7] += h;
- }
- 
--void sha256_blocks_generic(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_generic(struct sha256_block_state *state,
- 			   const u8 *data, size_t nblocks)
- {
- 	u32 W[64];
- 
- 	do {
-diff --git a/lib/crypto/sparc/sha256.c b/lib/crypto/sparc/sha256.c
-index 8bdec2db08b30..060664b88a6d3 100644
---- a/lib/crypto/sparc/sha256.c
-+++ b/lib/crypto/sparc/sha256.c
-@@ -17,14 +17,14 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- 
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha256_opcodes);
- 
--asmlinkage void sha256_sparc64_transform(u32 state[SHA256_STATE_WORDS],
-+asmlinkage void sha256_sparc64_transform(struct sha256_block_state *state,
- 					 const u8 *data, size_t nblocks);
- 
--void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_arch(struct sha256_block_state *state,
- 			const u8 *data, size_t nblocks)
- {
- 	if (static_branch_likely(&have_sha256_opcodes))
- 		sha256_sparc64_transform(state, data, nblocks);
- 	else
-diff --git a/lib/crypto/x86/sha256-avx-asm.S b/lib/crypto/x86/sha256-avx-asm.S
-index 0d7b2c3e45d9a..73bcff2b548f4 100644
---- a/lib/crypto/x86/sha256-avx-asm.S
-+++ b/lib/crypto/x86/sha256-avx-asm.S
-@@ -339,11 +339,11 @@ a = TMP_
-         add     y0, h                   # h = h + S1 + CH + k + w + S0 + MAJ
-         ROTATE_ARGS
- .endm
- 
- ########################################################################
--## void sha256_transform_avx(u32 state[SHA256_STATE_WORDS],
-+## void sha256_transform_avx(struct sha256_block_state *state,
- ##			     const u8 *data, size_t nblocks);
- ########################################################################
- .text
- SYM_FUNC_START(sha256_transform_avx)
- 	ANNOTATE_NOENDBR	# since this is called only via static_call
-diff --git a/lib/crypto/x86/sha256-avx2-asm.S b/lib/crypto/x86/sha256-avx2-asm.S
-index 25d3380321ec3..45787570387f2 100644
---- a/lib/crypto/x86/sha256-avx2-asm.S
-+++ b/lib/crypto/x86/sha256-avx2-asm.S
-@@ -516,11 +516,11 @@ STACK_SIZE	= _CTX      + _CTX_SIZE
- 	ROTATE_ARGS
- 
- .endm
- 
- ########################################################################
--## void sha256_transform_rorx(u32 state[SHA256_STATE_WORDS],
-+## void sha256_transform_rorx(struct sha256_block_state *state,
- ##			      const u8 *data, size_t nblocks);
- ########################################################################
- .text
- SYM_FUNC_START(sha256_transform_rorx)
- 	ANNOTATE_NOENDBR	# since this is called only via static_call
-diff --git a/lib/crypto/x86/sha256-ni-asm.S b/lib/crypto/x86/sha256-ni-asm.S
-index d3548206cf3d4..4af7d22e29e47 100644
---- a/lib/crypto/x86/sha256-ni-asm.S
-+++ b/lib/crypto/x86/sha256-ni-asm.S
-@@ -104,11 +104,11 @@
-  * input data, and the number of 64-byte blocks to process.  Once all blocks
-  * have been processed, the state is updated with the new state.  This function
-  * only processes complete blocks.  State initialization, buffering of partial
-  * blocks, and digest finalization is expected to be handled elsewhere.
-  *
-- * void sha256_ni_transform(u32 state[SHA256_STATE_WORDS],
-+ * void sha256_ni_transform(struct sha256_block_state *state,
-  *			    const u8 *data, size_t nblocks);
-  */
- .text
- SYM_FUNC_START(sha256_ni_transform)
- 	ANNOTATE_NOENDBR	# since this is called only via static_call
-diff --git a/lib/crypto/x86/sha256-ssse3-asm.S b/lib/crypto/x86/sha256-ssse3-asm.S
-index 7f24a4cdcb257..407b30adcd37f 100644
---- a/lib/crypto/x86/sha256-ssse3-asm.S
-+++ b/lib/crypto/x86/sha256-ssse3-asm.S
-@@ -346,11 +346,11 @@ a = TMP_
- 	add     y0, h		      # h = h + S1 + CH + k + w + S0 + MAJ
- 	ROTATE_ARGS
- .endm
- 
- ########################################################################
--## void sha256_transform_ssse3(u32 state[SHA256_STATE_WORDS],
-+## void sha256_transform_ssse3(struct sha256_block_state *state,
- ##			       const u8 *data, size_t nblocks);
- ########################################################################
- .text
- SYM_FUNC_START(sha256_transform_ssse3)
- 	ANNOTATE_NOENDBR	# since this is called only via static_call
-diff --git a/lib/crypto/x86/sha256.c b/lib/crypto/x86/sha256.c
-index baba74d7d26f2..cbb45defbefab 100644
---- a/lib/crypto/x86/sha256.c
-+++ b/lib/crypto/x86/sha256.c
-@@ -9,24 +9,24 @@
- #include <crypto/internal/simd.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/static_call.h>
- 
--asmlinkage void sha256_transform_ssse3(u32 state[SHA256_STATE_WORDS],
-+asmlinkage void sha256_transform_ssse3(struct sha256_block_state *state,
- 				       const u8 *data, size_t nblocks);
--asmlinkage void sha256_transform_avx(u32 state[SHA256_STATE_WORDS],
-+asmlinkage void sha256_transform_avx(struct sha256_block_state *state,
- 				     const u8 *data, size_t nblocks);
--asmlinkage void sha256_transform_rorx(u32 state[SHA256_STATE_WORDS],
-+asmlinkage void sha256_transform_rorx(struct sha256_block_state *state,
- 				      const u8 *data, size_t nblocks);
--asmlinkage void sha256_ni_transform(u32 state[SHA256_STATE_WORDS],
-+asmlinkage void sha256_ni_transform(struct sha256_block_state *state,
- 				    const u8 *data, size_t nblocks);
- 
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha256_x86);
- 
- DEFINE_STATIC_CALL(sha256_blocks_x86, sha256_transform_ssse3);
- 
--void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+void sha256_blocks_arch(struct sha256_block_state *state,
- 			const u8 *data, size_t nblocks)
- {
- 	if (static_branch_likely(&have_sha256_x86) && crypto_simd_usable()) {
- 		kernel_fpu_begin();
- 		static_call(sha256_blocks_x86)(state, data, nblocks);
--- 
-2.50.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+MjAyNS0wNi0yNFQxNTowOTowOSswMjowMCwgUmFkaW0gS3LEjW3DocWZIDxya3JjbWFyQHZlbnRh
+bmFtaWNyby5jb20+Ogo+IEZvciBhbm90aGVyIGV4YW1wbGUsIGxldCdzIGhhdmUgdGhlIGZvbGxv
+d2luZyBmdW5jdGlvbjoKPgo+ICAgc3RydWN0IHNiaXJldCBzb21lX3NiaV9lY2FsbCh1aW50cHRy
+X3QgYTAsIHVpbnRwdHJfdCBhMSkKPiAgIHsKPiAgICAgcmV0dXJuIHNiaV9lY2FsbCgxMjMsIDQ1
+NiwgYTAsIGExKTsKPiAgIH0KPgo+IFRoZSBkaXNhc3NlbWJseSB3aXRob3V0IHRyYWNlcG9pbnRz
+ICh3aXRoIC1mbm8tb21pdC1mcmFtZS1wb2ludGVyKToKPiAoSXQgY291bGQgaGF2ZSBiZWVuIGp1
+c3QgImxpO2xpO2VjYWxsO3JldCIgd2l0aG91dCBmcmFtZSBwb2ludGVyLikKPgo+ICAgIDB4ZmZm
+ZmZmZmY4MDAxNmQ0OCA8KzA+OglhZGRpCXNwLHNwLC0xNgo+ICAgIDB4ZmZmZmZmZmY4MDAxNmQ0
+YSA8KzI+OglzZAlyYSw4KHNwKQo+ICAgIDB4ZmZmZmZmZmY4MDAxNmQ0YyA8KzQ+OglzZAlzMCww
+KHNwKQo+ICAgIDB4ZmZmZmZmZmY4MDAxNmQ0ZSA8KzY+OglhZGRpCXMwLHNwLDE2Cj4gICAgMHhm
+ZmZmZmZmZjgwMDE2ZDUwIDwrOD46CWxpCWE3LDEyMwo+ICAgIDB4ZmZmZmZmZmY4MDAxNmQ1NCA8
+KzEyPjoJbGkJYTYsNDU2Cj4gICAgMHhmZmZmZmZmZjgwMDE2ZDU4IDwrMTY+OgllY2FsbAo+ICAg
+IDB4ZmZmZmZmZmY4MDAxNmQ1YyA8KzIwPjoJbGQJcmEsOChzcCkKPiAgICAweGZmZmZmZmZmODAw
+MTZkNWUgPCsyMj46CWxkCXMwLDAoc3ApCj4gICAgMHhmZmZmZmZmZjgwMDE2ZDYwIDwrMjQ+Oglh
+ZGRpCXNwLHNwLDE2Cj4gICAgMHhmZmZmZmZmZjgwMDE2ZDYyIDwrMjY+OglyZXQKPgo+IFsgUmVt
+b3ZlZCBwcmV2aW91cyBkaXNhc3NlbWJseSB3aXRoIHRyYWNlcG9pbnRzLiBdCj4gICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgSSds
+bCB0cnkKPiBhZ2FpbiB3aXRoIEdDQyAxNS4xLCBhbmQgZ2V0IGJhY2sgaWYgaXQgYWN0dWFsbHkg
+aW1wcm92ZXMgdGhlIHNpdHVhdGlvbi4KCkdDQyAxNS4xIHN0aWxsIGxlYXZlcyAibXYiIG91dHNp
+ZGUgdGhlIGJyYW5jaCwgYnV0IGF0IGxlYXN0IHNlZW1zIHRvIGJlCm9uIHRoZSByaWdodCB0cmFj
+ayAodW5kZXNpcmVkIG92ZXJoZWFkIGlzIG1hcmtlZCB3aXRoIGxlYWRpbmcgc3RhcnMpOgoKICAg
+MHhmZmZmZmZmZjgwMDIzNmU4IDwrMD46CWFkZGkJc3Asc3AsLTQ4CiAgIDB4ZmZmZmZmZmY4MDAy
+MzZlYSA8KzI+OglzZAlzMCwzMihzcCkKICAgMHhmZmZmZmZmZjgwMDIzNmVjIDwrND46CXNkCXJh
+LDQwKHNwKQogICAweGZmZmZmZmZmODAwMjM2ZWUgPCs2PjoJYWRkaQlzMCxzcCw0OAoqICAweGZm
+ZmZmZmZmODAwMjM2ZjAgPCs4PjoJbXYJYTQsYTAKKiAgMHhmZmZmZmZmZjgwMDIzNmYyIDwrMTA+
+OgltdglhNSxhMQogICAweGZmZmZmZmZmODAwMjM2ZjQgPCsxMj46CW5vcAoqICAweGZmZmZmZmZm
+ODAwMjM2ZjggPCsxNj46CW12CWEwLGE0CiogIDB4ZmZmZmZmZmY4MDAyMzZmYSA8KzE4PjoJbXYJ
+YTEsYTUKICAgMHhmZmZmZmZmZjgwMDIzNmZjIDwrMjA+OglsaQlhNywxMjMKICAgMHhmZmZmZmZm
+ZjgwMDIzNzAwIDwrMjQ+OglsaQlhNiw0NTYKICAgMHhmZmZmZmZmZjgwMDIzNzA0IDwrMjg+Ogll
+Y2FsbAoqICAweGZmZmZmZmZmODAwMjM3MDggPCszMj46CW12CWE1LGEwCiogIDB4ZmZmZmZmZmY4
+MDAyMzcwYSA8KzM0PjoJbXYJYTIsYTEKICAgMHhmZmZmZmZmZjgwMDIzNzBjIDwrMzY+Oglub3AK
+ICAgMHhmZmZmZmZmZjgwMDIzNzEwIDwrNDA+OglsZAlyYSw0MChzcCkKICAgMHhmZmZmZmZmZjgw
+MDIzNzEyIDwrNDI+OglsZAlzMCwzMihzcCkKKiAgMHhmZmZmZmZmZjgwMDIzNzE0IDwrNDQ+Oglt
+dglhMCxhNQoqICAweGZmZmZmZmZmODAwMjM3MTYgPCs0Nj46CW12CWExLGEyCiAgIDB4ZmZmZmZm
+ZmY4MDAyMzcxOCA8KzQ4PjoJYWRkaQlzcCxzcCw0OAogICAweGZmZmZmZmZmODAwMjM3MWEgPCs1
+MD46CXJldAogICBbVHJhY2luZyBnb2VzIHRvICsxMjZdCgpJIHJlYWxpemVkIEkgaGFkIHRoZSBl
+bnZpcm9ubWVudCBjb25maWd1cmVkIGZvciBjbGFuZyBpbiB0aGUgbGFzdCBtYWlsLApzbyBoZXJl
+IGlzIGFjdHVhbCBHQ0MgMTQuMywgd2hpY2ggYWxzbyBzcGlsbHMgaW4gdGhlIHByb2xvZ3VlOgoK
+ICAgMHhmZmZmZmZmZjgwMDIzMzYwIDwrMD46CWFkZGkJc3Asc3AsLTQ4CiAgIDB4ZmZmZmZmZmY4
+MDAyMzM2MiA8KzI+OglzZAlzMCwzMihzcCkKKiAgMHhmZmZmZmZmZjgwMDIzMzY0IDwrND46CXNk
+CXMxLDI0KHNwKQoqICAweGZmZmZmZmZmODAwMjMzNjYgPCs2PjoJc2QJczIsMTYoc3ApCiAgIDB4
+ZmZmZmZmZmY4MDAyMzM2OCA8Kzg+OglzZAlyYSw0MChzcCkKICAgMHhmZmZmZmZmZjgwMDIzMzZh
+IDwrMTA+OglhZGRpCXMwLHNwLDQ4CiogIDB4ZmZmZmZmZmY4MDAyMzM2YyA8KzEyPjoJbXYJczIs
+YTAKKiAgMHhmZmZmZmZmZjgwMDIzMzZlIDwrMTQ+OgltdglzMSxhMQogICAweGZmZmZmZmZmODAw
+MjMzNzAgPCsxNj46CW5vcAoqICAweGZmZmZmZmZmODAwMjMzNzQgPCsyMD46CW12CWEwLHMyCiog
+IDB4ZmZmZmZmZmY4MDAyMzM3NiA8KzIyPjoJbXYJYTEsczEKICAgMHhmZmZmZmZmZjgwMDIzMzc4
+IDwrMjQ+OglsaQlhNywxMjMKICAgMHhmZmZmZmZmZjgwMDIzMzdjIDwrMjg+OglsaQlhNiw0NTYK
+ICAgMHhmZmZmZmZmZjgwMDIzMzgwIDwrMzI+OgllY2FsbAoqICAweGZmZmZmZmZmODAwMjMzODQg
+PCszNj46CW12CXMyLGEwCiogIDB4ZmZmZmZmZmY4MDAyMzM4NiA8KzM4PjoJbXYJczEsYTEKICAg
+MHhmZmZmZmZmZjgwMDIzMzg4IDwrNDA+Oglub3AKICAgMHhmZmZmZmZmZjgwMDIzMzhjIDwrNDQ+
+OglsZAlyYSw0MChzcCkKICAgMHhmZmZmZmZmZjgwMDIzMzhlIDwrNDY+OglsZAlzMCwzMihzcCkK
+KiAgMHhmZmZmZmZmZjgwMDIzMzkwIDwrNDg+OgltdglhMCxzMgoqICAweGZmZmZmZmZmODAwMjMz
+OTIgPCs1MD46CW12CWExLHMxCiogIDB4ZmZmZmZmZmY4MDAyMzM5NCA8KzUyPjoJbGQJczIsMTYo
+c3ApCiogIDB4ZmZmZmZmZmY4MDAyMzM5NiA8KzU0PjoJbGQJczEsMjQoc3ApCiAgIDB4ZmZmZmZm
+ZmY4MDAyMzM5OCA8KzU2PjoJYWRkaQlzcCxzcCw0OAogICAweGZmZmZmZmZmODAwMjMzOWEgPCs1
+OD46CXJldAogICBbVHJhY2luZyBnb2VzIHRvICsxMDhdCgpBbmQgY2xhbmcgaW4gdGhlIGxhc3Qg
+bWFpbCBpbmxpbmVkIHRoZSB0cmFjZXBvaW50cywgYmVjYXVzZSBJIHB1dCB0aGUKZXhhbXBsZSBm
+dW5jdGlvbiBpbiBzYmlfZWNhbGwuYywgd2hpY2ggYmxvYXRlZCB0aGUgdHJhY2luZyBzbG93cGF0
+aCwgYW5kCnNwaWxsZWQgb25lIG1vcmUgcmVnaXN0ZXIgdGhhbiBuZWVkZWQuCldpdGggdGhlIGZ1
+bmN0aW9uIGluIHNiaS5jLCB0byBiZXR0ZXIgc2ltdWxhdGUgYWN0dWFsIHVzZSAoZ2NjIGV4YW1w
+bGVzCmFyZSBhbHJlYWR5IGRvaW5nIHRoaXMpLCBjbGFuZyAyMC4xLjYgYW5kIDE5LjEuNyBkbzoK
+CiAgIDB4ZmZmZmZmZmY4MDAxNmYwOCA8KzA+OglhZGRpCXNwLHNwLC0zMgogICAweGZmZmZmZmZm
+ODAwMTZmMGEgPCsyPjoJc2QJcmEsMjQoc3ApCiAgIDB4ZmZmZmZmZmY4MDAxNmYwYyA8KzQ+Oglz
+ZAlzMCwxNihzcCkKKiAgMHhmZmZmZmZmZjgwMDE2ZjBlIDwrNj46CXNkCXMxLDgoc3ApCiogIDB4
+ZmZmZmZmZmY4MDAxNmYxMCA8Kzg+OglzZAlzMiwwKHNwKQogICAweGZmZmZmZmZmODAwMTZmMTIg
+PCsxMD46CWFkZGkJczAsc3AsMzIKICAgMHhmZmZmZmZmZjgwMDE2ZjE0IDwrMTI+Oglub3AKICAg
+MHhmZmZmZmZmZjgwMDE2ZjE4IDwrMTY+OglsaQlhNywxMjMKICAgMHhmZmZmZmZmZjgwMDE2ZjFj
+IDwrMjA+OglsaQlhNiw0NTYKICAgMHhmZmZmZmZmZjgwMDE2ZjIwIDwrMjQ+OgllY2FsbAogICAw
+eGZmZmZmZmZmODAwMTZmMjQgPCsyOD46CW5vcAogICAweGZmZmZmZmZmODAwMTZmMjggPCszMj46
+CWxkCXJhLDI0KHNwKQogICAweGZmZmZmZmZmODAwMTZmMmEgPCszND46CWxkCXMwLDE2KHNwKQoq
+ICAweGZmZmZmZmZmODAwMTZmMmMgPCszNj46CWxkCXMxLDgoc3ApCiogIDB4ZmZmZmZmZmY4MDAx
+NmYyZSA8KzM4PjoJbGQJczIsMChzcCkKICAgMHhmZmZmZmZmZjgwMDE2ZjMwIDwrNDA+OglhZGRp
+CXNwLHNwLDMyCiAgIDB4ZmZmZmZmZmY4MDAxNmYzMiA8KzQyPjoJcmV0CiAgIFtUcmFjaW5nIGdv
+ZXMgdG8gKzk0XQoKV2hlbiBjb21wYXJlZCB0byBHQ0MgMTUuMSwgY2xhbmcgc3BpbGxzIGluIHRo
+ZSBwcm9sb2d1ZSwgYnV0IGRvZXNuJ3QKc3RvcmUgYXJvdW5kIHRoZSBzdGF0aWMgYnJhbmNoIHNp
+dGVzLiAgVGhlIG9wdGltYWwgcmVzdWx0IHdvdWxkIGJlIGEKY29tYmluYXRpb24gb2Ygd2hhdCBj
+bGFuZyBhbmQgR0NDIDE1LjEgZG8gKGNvZGUgd2l0aG91dCBhbnkgc3RhcnMpLgoKV2hlbiBJIGxv
+b2tlZCBhdCByZWFsIGNvZGUgc2FtcGxlcywgdGhlIGJlaGF2aW9yIHdhcyByb3VnaGx5IHNpbWls
+YXIuCkdDQyBqdXN0IHdhc24ndCBhbHdheXMgcGxhY2luZyB0aGUgIm12InMgYXMgb2J2aW91c2x5
+LgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
