@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B71BC7EE31
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C13CC7EE32
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 08:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lNyv+dF0CdO+mDQmsd+3wFfvThDRiDlo7CTN6bYB71k=; b=ztNYXM8SSYu31hM1faK0rDDt/n
-	MtcxGQ1KRP8Bc+QpjNfGQLbDNBluHAWfE1vmAbyrMg/Q/XedsFKmcUYfvjONY+uqh7qrs5p/ROKSW
-	FFv3JlBZhhPrdih8V8z6rxz9qoXXeRFaF9btZcRx1w081Vx1dUwtsoCamvdqhZ/czmgLoV5s00AnW
-	dTBJCKHE7LjFBkQrmKeiBGsxL7I7UDiXYnaR3bvIMpcz3SmNgPZKZXB8oY3H1WvFm+v0c4Ku2SKzJ
-	P+82Saq/cW1ICL/l7ggPN+JOa9Qe+lnp65PLgq8tyelh2fnKf1cLw9PPjxeq0BapgExVILfjLHH7A
-	DU/AtiUg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+eHNZ1hGT5fB0RE75TFpIAqJ+SvOOUWkRi95Bi70Hec=; b=tM2nKm+o8paOh2
+	2fiUMvC2Ql353Kj6KfUcOujmwcyPB1/0zk88Y2eRuKamlyh8n3HPOJ0xaTxhBs1xxn3c+ju2CYTso
+	vsXbX0PbAkfUAZ5qfUpJ7JHW8HUIJv2Jlhhs69hVGPJ/t5ruKombhscfyqDYrw9+qfjTHXcQbV5ao
+	Be6BGFQYmvZIIHJpmN//J08FtHL+vlEJAYX1p0qJbdD/Fn8JiN2QDoXyudbduDgXq/Z+5rw6uGSOQ
+	KbUCA0Dfd4h6Y8zDPnc0qMBMXna/fMiYiSNQKhumPV1YGM+hfVQSwJGyJhz7i3dM7Y9mtgHpeq0X4
+	N9rwy+q+H7VieRoUdpGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULjw-000000080Qn-0lrG;
-	Wed, 25 Jun 2025 08:44:20 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uULmG-000000080yB-0dgD;
+	Wed, 25 Jun 2025 08:46:44 +0000
+Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKzV-00000007skR-2N9c;
-	Wed, 25 Jun 2025 07:56:23 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 1153F1F00050;
-	Wed, 25 Jun 2025 07:56:10 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 09850AC79EE; Wed, 25 Jun 2025 07:56:08 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id BC2BDAC79E5;
-	Wed, 25 Jun 2025 07:56:04 +0000 (UTC)
-Date: Wed, 25 Jun 2025 09:56:02 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Kuba =?utf-8?Q?Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH 1/5] phy: allwinner: phy-sun6i-mipi-dphy: Support LVDS in
- combo D-PHY
-Message-ID: <aFurkudIvrbRjJ5N@shepard>
-References: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
- <20250221161751.1278049-2-kuba@szczodrzynski.pl>
+	id 1uUL2P-00000007tF2-31M1;
+	Wed, 25 Jun 2025 07:59:23 +0000
+Message-ID: <9d9316d7-7e00-4274-bd1c-9cb83fd82d32@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750838356;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5/oz/zGgO2lN3zqV+etyJUP5tKHg/3V30huStLqNW9k=;
+	b=kZuJ4DhW42AB1uTtKIOcJmDzEI3f1DUB1nDhB7RmZtJyIpYhTJbyYeKOS66gVENcr/UcM8
+	oNSuSRj0UCwzfK2urGWKsxJICw5xZK0LbYSMC0yFWQcuzaw4E4OtO9mbxkhVNeiwY6LWVg
+	75ADxYh8LfI1v6hi2eejSlcLC/nYAoY=
+Date: Wed, 25 Jun 2025 00:59:10 -0700
 MIME-Version: 1.0
-In-Reply-To: <20250221161751.1278049-2-kuba@szczodrzynski.pl>
+Subject: Re: [PATCH v3 00/12] MMU related improvements for KVM RISC-V
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250618113532.471448-1-apatel@ventanamicro.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <20250618113532.471448-1-apatel@ventanamicro.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_005621_923794_63BF95BA 
-X-CRM114-Status: GOOD (  33.02  )
+X-CRM114-CacheID: sfid-20250625_005922_276410_4B0D4E43 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,253 +66,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4555338357886535912=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4555338357886535912==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="M3lDD/H+Q2OgnYvP"
-Content-Disposition: inline
+On 6/18/25 4:35 AM, Anup Patel wrote:
+> This series primarily has various MMU improvements for KVM RISC-V
+> and it also serves as a preparatory series for the upcoming nested
+> virtualization support.
+>
+> PATCH1 to PATCH4: Few cosmetic improvements
+> PATCH5 to PATCH7: TLB maintenance and SBI NACL related improvements
+> PATCH8 to PATCH12: MMU related preparatory work for nested virtualization
 
+For the entire series:
 
---M3lDD/H+Q2OgnYvP
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Tested-by: Atish Patra <atishp@rivosinc.com>
 
-Hi,
-
-Thanks for working on this! See a few comments below.
-
-On Fri 21 Feb 25, 17:17, Kuba Szczodrzy=C5=84ski wrote:
-> Some Allwinner chips (notably the D1s/T113 and the A100) have a "combo
-> MIPI DSI D-PHY" which is required when using single-link LVDS0.
->=20
-> In this mode, the DSI peripheral is not used and the PHY is not
-> configured for DSI. Instead, the COMBO_PHY_REGx registers are set to
-> enable LVDS operation.
->=20
-> Enable the PHY driver to work in LVDS mode on chips with a combo D-PHY.
->=20
-> Signed-off-by: Kuba Szczodrzy=C5=84ski <kuba@szczodrzynski.pl>
-> ---
->  drivers/phy/allwinner/phy-sun6i-mipi-dphy.c | 65 ++++++++++++++++++++-
->  1 file changed, 63 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/phy/allwinner/phy-sun6i-mipi-dphy.c b/drivers/phy/al=
-lwinner/phy-sun6i-mipi-dphy.c
-> index 36eab9527..f958e34da 100644
-> --- a/drivers/phy/allwinner/phy-sun6i-mipi-dphy.c
-> +++ b/drivers/phy/allwinner/phy-sun6i-mipi-dphy.c
-> @@ -166,8 +166,8 @@
->  #define SUN50I_COMBO_PHY_REG0_EN_CP		BIT(0)
-> =20
->  #define SUN50I_COMBO_PHY_REG1		0x114
-> -#define SUN50I_COMBO_PHY_REG2_REG_VREF1P6(n)	(((n) & 0x7) << 4)
-> -#define SUN50I_COMBO_PHY_REG2_REG_VREF0P8(n)	((n) & 0x7)
-> +#define SUN50I_COMBO_PHY_REG1_REG_VREF1P6(n)	(((n) & 0x7) << 4)
-> +#define SUN50I_COMBO_PHY_REG1_REG_VREF0P8(n)	((n) & 0x7)
-
-Good catch! Would be good to mention in the commit log (or split in a separ=
-ate
-patch but that might be overdoing it since this register wasn't used so far=
-).
-
->  #define SUN50I_COMBO_PHY_REG2		0x118
->  #define SUN50I_COMBO_PHY_REG2_HS_STOP_DLY(n)	((n) & 0xff)
-> @@ -181,7 +181,9 @@ struct sun6i_dphy;
-> =20
->  struct sun6i_dphy_variant {
->  	void	(*tx_power_on)(struct sun6i_dphy *dphy);
-> +	void	(*lvds_power_on)(struct sun6i_dphy *dphy);
->  	bool	rx_supported;
-> +	bool	is_combo_dphy;
->  };
-> =20
->  struct sun6i_dphy {
-> @@ -222,6 +224,18 @@ static int sun6i_dphy_configure(struct phy *phy, uni=
-on phy_configure_opts *opts)
->  	return 0;
->  }
-> =20
-> +static int sun6i_dphy_set_mode(struct phy *phy, enum phy_mode mode, int =
-submode)
-> +{
-> +	struct sun6i_dphy *dphy =3D phy_get_drvdata(phy);
-> +
-> +	if (mode =3D=3D PHY_MODE_LVDS && !dphy->variant->is_combo_dphy) {
-> +		/* Not a combo D-PHY: LVDS is not supported */
-
-Missing a final . in the comment.
-
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static void sun6i_a31_mipi_dphy_tx_power_on(struct sun6i_dphy *dphy)
->  {
->  	u8 lanes_mask =3D GENMASK(dphy->config.lanes - 1, 0);
-> @@ -329,6 +343,37 @@ static void sun50i_a100_mipi_dphy_tx_power_on(struct=
- sun6i_dphy *dphy)
->  	udelay(1);
->  }
-> =20
-> +static void sun50i_a100_mipi_dphy_lvds_power_on(struct sun6i_dphy *dphy)
-> +{
-> +	regmap_write(dphy->regs, SUN50I_COMBO_PHY_REG1,
-> +		     SUN50I_COMBO_PHY_REG1_REG_VREF1P6(4) |
-> +		     SUN50I_COMBO_PHY_REG1_REG_VREF0P8(3));
-> +
-> +	regmap_write(dphy->regs, SUN50I_COMBO_PHY_REG0,
-> +		     SUN50I_COMBO_PHY_REG0_EN_CP);
-> +	udelay(5);
-
-Please add a white space here...
-
-> +	regmap_update_bits(dphy->regs, SUN50I_COMBO_PHY_REG0,
-> +			   SUN50I_COMBO_PHY_REG0_EN_LVDS,
-> +			   SUN50I_COMBO_PHY_REG0_EN_LVDS);
-> +	udelay(5);
-
-here too...
-
-> +	regmap_update_bits(dphy->regs, SUN50I_COMBO_PHY_REG0,
-> +			   SUN50I_COMBO_PHY_REG0_EN_COMBOLDO,
-> +			   SUN50I_COMBO_PHY_REG0_EN_COMBOLDO);
-> +	udelay(5);
-
-here too...
-
-> +	regmap_update_bits(dphy->regs, SUN50I_COMBO_PHY_REG0,
-> +			   SUN50I_COMBO_PHY_REG0_EN_MIPI,
-> +			   SUN50I_COMBO_PHY_REG0_EN_MIPI);
-> +
-> +	regmap_write(dphy->regs, SUN6I_DPHY_ANA4_REG,
-> +		     SUN6I_DPHY_ANA4_REG_EN_MIPI |
-> +		     SUN6I_DPHY_ANA4_REG_IB(2));
-here too...
-
-> +	regmap_write(dphy->regs, SUN6I_DPHY_ANA3_REG,
-> +		     SUN6I_DPHY_ANA3_EN_LDOR |
-> +		     SUN6I_DPHY_ANA3_EN_LDOD);
-
-here too...
-
-> +	regmap_write(dphy->regs, SUN6I_DPHY_ANA2_REG, 0);
-
-and here too in order to match the coding style.
-
-> +	regmap_write(dphy->regs, SUN6I_DPHY_ANA1_REG, 0);
-> +}
-> +
->  static int sun6i_dphy_tx_power_on(struct sun6i_dphy *dphy)
->  {
->  	u8 lanes_mask =3D GENMASK(dphy->config.lanes - 1, 0);
-> @@ -492,6 +537,14 @@ static int sun6i_dphy_power_on(struct phy *phy)
->  {
->  	struct sun6i_dphy *dphy =3D phy_get_drvdata(phy);
-> =20
-> +	if (phy->attrs.mode =3D=3D PHY_MODE_LVDS && dphy->variant->is_combo_dph=
-y) {
-> +		if (dphy->variant->lvds_power_on) {
-> +			dphy->variant->lvds_power_on(dphy);
-> +			return 0;
-> +		}
-> +		return -EINVAL;
-
-This would look better the other way round: first check:
-	if (!dphy->variant->lvds_power_on)
-		return -EINVAL;
-
-and then call the function pointer and return 0 without extra indentation.
-
-> +	}
-> +
->  	switch (dphy->direction) {
->  	case SUN6I_DPHY_DIRECTION_TX:
->  		return sun6i_dphy_tx_power_on(dphy);
-> @@ -514,6 +567,11 @@ static int sun6i_dphy_power_off(struct phy *phy)
->  	regmap_write(dphy->regs, SUN6I_DPHY_ANA3_REG, 0);
->  	regmap_write(dphy->regs, SUN6I_DPHY_ANA4_REG, 0);
-> =20
-> +	if (phy->attrs.mode =3D=3D PHY_MODE_LVDS && dphy->variant->is_combo_dph=
-y) {
-> +		regmap_write(dphy->regs, SUN50I_COMBO_PHY_REG1, 0);
-> +		regmap_write(dphy->regs, SUN50I_COMBO_PHY_REG0, 0);
-> +	}
-> +
->  	return 0;
->  }
-> =20
-> @@ -533,6 +591,7 @@ static const struct phy_ops sun6i_dphy_ops =3D {
->  	.configure	=3D sun6i_dphy_configure,
->  	.power_on	=3D sun6i_dphy_power_on,
->  	.power_off	=3D sun6i_dphy_power_off,
-> +	.set_mode	=3D sun6i_dphy_set_mode,
->  	.init		=3D sun6i_dphy_init,
->  	.exit		=3D sun6i_dphy_exit,
->  };
-> @@ -619,6 +678,8 @@ static const struct sun6i_dphy_variant sun6i_a31_mipi=
-_dphy_variant =3D {
-> =20
->  static const struct sun6i_dphy_variant sun50i_a100_mipi_dphy_variant =3D=
- {
->  	.tx_power_on	=3D sun50i_a100_mipi_dphy_tx_power_on,
-> +	.lvds_power_on	=3D sun50i_a100_mipi_dphy_lvds_power_on,
-> +	.is_combo_dphy	=3D true,
->  };
-> =20
->  static const struct of_device_id sun6i_dphy_of_table[] =3D {
-> --=20
-> 2.25.1
->=20
->=20
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---M3lDD/H+Q2OgnYvP
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhbq5IACgkQhP3B6o/u
-lQytpg//bGHggO6GMgSRUWrRfU67xQXC0LWqeX5lbWuCQJk2xbXl8iQMa9wosfOG
-oGqxsObFtN+fh7G/j+I8hBtoB8V6/5PfYpYmN4YmZxwy2lur5ULXAB82DApLV2ki
-+Eb5/Fox4n+t3mcfkrL9vseJHEfu1Em4CiM06U3h/GQidM6plSj+NU4J0+Rnn93G
-ayYVPuuoqcfdfnjMbGCOoGJFjlVbCAM/D71wyeBepFaEYTPgq+4LidmpPhaS7irt
-BgSH+D59cMj2ChJJQCRh3E5BkbAOWi62T7TIbzfIc/eKCaZgABN0DGFcpBoA22JG
-tuRrdpDXp5YcfPYfitvRt0idVyJsBG+zcuHY2fQlqjCrMWAVcctNZWX8jpu8LY7r
-oT727jRFb1oVVBr0FNyP1AM9PKmBhY2fj3S+vQvjSBYe1kKTjvxaMhyeT9+K7ihC
-fY3Hm7hLbDjm5TO8mSfRADkZLXZ+mvtYw7wg7apzWWfE2aCmg+EItQcw9WYAIZrH
-cCzCC2LftXzY9B24svI8K5rSE0gMGFKcs+2WWoEaLFCXosGWeJ+w2es6a0jQGvJc
-augMFPF1G1NqbN61PLXrK5JYDvzwu//BgrmNKo9fgCHUsId03crklxmU/crqj3g5
-5pkqZEm8h+ZWxCUbO6sC0qauT63pXfy5OmMSLpJeIGqW2z8B3u0=
-=LII3
------END PGP SIGNATURE-----
-
---M3lDD/H+Q2OgnYvP--
-
-
---===============4555338357886535912==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> These patches can also be found in the riscv_kvm_mmu_imp_v3 branch
+> at: https://github.com/avpatel/linux.git
+>
+> Changes since v2:
+>   - Rebased upon Linux-6.16-rc2 and latest riscv_kvm_queue branch
+>   - Added Reviewed-by tags to appropriate patches
+>
+> Changes since v1:
+>   - Rebased upon Linux-6.16-rc1
+>   - Dropped PATCH1 and PATCH2 of v1 series since these are queued
+>     as fixes for Linux-6.16
+>   - Addressed Atish's comment on PATCH1 in this series
+>   - Added new PATCH7 in this series
+>
+> Anup Patel (12):
+>    RISC-V: KVM: Check kvm_riscv_vcpu_alloc_vector_context() return value
+>    RISC-V: KVM: Drop the return value of kvm_riscv_vcpu_aia_init()
+>    RISC-V: KVM: Rename and move kvm_riscv_local_tlb_sanitize()
+>    RISC-V: KVM: Replace KVM_REQ_HFENCE_GVMA_VMID_ALL with
+>      KVM_REQ_TLB_FLUSH
+>    RISC-V: KVM: Don't flush TLB when PTE is unchanged
+>    RISC-V: KVM: Implement kvm_arch_flush_remote_tlbs_range()
+>    RISC-V: KVM: Use ncsr_xyz() in kvm_riscv_vcpu_trap_redirect()
+>    RISC-V: KVM: Factor-out MMU related declarations into separate headers
+>    RISC-V: KVM: Introduce struct kvm_gstage_mapping
+>    RISC-V: KVM: Add vmid field to struct kvm_riscv_hfence
+>    RISC-V: KVM: Factor-out g-stage page table management
+>    RISC-V: KVM: Pass VMID as parameter to kvm_riscv_hfence_xyz() APIs
+>
+>   arch/riscv/include/asm/kvm_aia.h    |   2 +-
+>   arch/riscv/include/asm/kvm_gstage.h |  72 ++++
+>   arch/riscv/include/asm/kvm_host.h   | 103 +-----
+>   arch/riscv/include/asm/kvm_mmu.h    |  21 ++
+>   arch/riscv/include/asm/kvm_tlb.h    |  84 +++++
+>   arch/riscv/include/asm/kvm_vmid.h   |  27 ++
+>   arch/riscv/kvm/Makefile             |   1 +
+>   arch/riscv/kvm/aia_device.c         |   6 +-
+>   arch/riscv/kvm/aia_imsic.c          |  12 +-
+>   arch/riscv/kvm/gstage.c             | 338 +++++++++++++++++++
+>   arch/riscv/kvm/main.c               |   3 +-
+>   arch/riscv/kvm/mmu.c                | 499 ++++++----------------------
+>   arch/riscv/kvm/tlb.c                | 110 +++---
+>   arch/riscv/kvm/vcpu.c               |  26 +-
+>   arch/riscv/kvm/vcpu_exit.c          |  20 +-
+>   arch/riscv/kvm/vcpu_sbi_replace.c   |  17 +-
+>   arch/riscv/kvm/vcpu_sbi_v01.c       |  25 +-
+>   arch/riscv/kvm/vm.c                 |   7 +-
+>   arch/riscv/kvm/vmid.c               |  25 ++
+>   19 files changed, 795 insertions(+), 603 deletions(-)
+>   create mode 100644 arch/riscv/include/asm/kvm_gstage.h
+>   create mode 100644 arch/riscv/include/asm/kvm_mmu.h
+>   create mode 100644 arch/riscv/include/asm/kvm_tlb.h
+>   create mode 100644 arch/riscv/include/asm/kvm_vmid.h
+>   create mode 100644 arch/riscv/kvm/gstage.c
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4555338357886535912==--
-
