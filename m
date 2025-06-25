@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11957C83026
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9AA1C7EE3A
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vRJDNYGPD/i3bVGifA0EAGUsdkbxivcz39TbnMe5QJ0=; b=mRNOJqfsXAFv6y
-	/FWanTRsh+bdkpEYExHq1SY1QkLDUeQrBv0JywbHhEAkoHrotG4JsUQObppCJhxkTVy+G/JDg1jst
-	mF+nDM2/IGD6C7MP+CjIlxYVhTCnTZ43S8US6duPoHBkEn0yYFVlN7AV8yBF/p9YRvH+kA6j8jhuD
-	QKNxPoBq/X2KgNKqDhFgQlyOub/Z8ykIDdsT5bnaAo5EZxN51zOlH7ZBUBt8matbP1/yewx1KjeNs
-	cdIqJXQQqLXyhzLwYqJ5DqUNoKM/UC3AdT7KJI0PqkcFmqJU2e/3F4XxBQ1GuZTlOaQYzreSIkfYB
-	6gHgp30qEH3bnBCgY6vg==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=O7A9Bm26ufjIv5Q3DHSeSMZeikqmgODzxQOrAITNhxU=; b=f6T2D/UOsYWVMH
+	X2NCICmiSxDe8Y/3CE2x1I0XRcUeN0U8ADVGgLb/5Re2aa7HKBPnw0RtiiHUhrroSVbcmwspK5MWD
+	GqC4L/MJ3gLvdctzSDmF6MunAwt9OSYexVun9LMUF0FZlKRB7r7/ovKkHu8LWWv7IeNKuoxMEzwoV
+	vXOb0y00X7rDwm/HkyNhyyq+9UnGY337R556OHd0q0VnctpsDhyL0el1p6zECWD72nZAe/tazox/O
+	Yko9ioobEMUbaZMOAIpM8V65AMy0OgC9n9k7w6DpE98ZGpC9OFHKsU2PhV6M6eSto73AQuOBoH3+J
+	+pTZ73tQNlx8EyMQjVOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUrl-00000009ZKI-1PmM;
-	Wed, 25 Jun 2025 18:29:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uUUri-00000009ZH7-05Uj;
+	Wed, 25 Jun 2025 18:28:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUQzl-00000008wX3-0lUT
+	id 1uUQzk-00000008wWY-2DCc
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 14:21:02 +0000
+	Wed, 25 Jun 2025 14:21:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 61ABDA52AC3;
-	Wed, 25 Jun 2025 14:21:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 992DCC4CEF5;
+	by tor.source.kernel.org (Postfix) with ESMTP id E8ED3611BD;
+	Wed, 25 Jun 2025 14:20:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 73A1BC4CEF3;
 	Wed, 25 Jun 2025 14:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1750861259;
-	bh=9/w0s/AcGaLZDmP6rWTTjg/6zkeEgbPdsIflpQ6oanA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=e7aZOUARc1frPkmKfagHGLCYTy3tPMQdQQDI+w/lAp9DynbrZw3Zu5uemFrsY6Esr
-	 CrNaBA72KxpGpWLkOmVdYVtbgOBj2IGiH2BnSwk0/GKVv/2kqK5+3G/OmeO7Pf8+/u
-	 ai0Fdwe88avpsX+x9Ln2m3ItJAFwylGtJfTgNq4PPQ7MC6AYXisIrQBOiGvnzMFfI5
-	 Nk27QuGKaBNxM01loTxWBcu9OVxrVu81qhbwWMfS4JFsg3fi5+fk18HT7HLNNrOL+S
-	 2MbckYw2CKVR6/sHz2lLAXp71VYY2+oR8gQTypAUhdBl36arkOtcXXyknCUdqoSWIY
-	 QOWWtlRGSoOVQ==
+	bh=AKkCB0Fn/Ec0J/1YhLs2exR0gTfL+alBY0dWRjOKJfY=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=kHPcQqlhBqBz6om3lVhgh+BuhcVVtS3SVOtH2YV0rrk7lFet1oJgI6j1H+TzRftye
+	 C4aa+GnG+DPFlZK58vqUPm5N0uAf6iph89rPGGctjtqWbEw6wQNi24NdAhbxN1usgv
+	 DDDonqyDXNw6HS91V3R5yx17MU6lEhWHeyQAb1rr8/uus6hI+R0y3mPAaEqaD6/XJr
+	 20NqICYdnjPf+lh/tT4m+9vGzHDTyH1lYa0cPjlI4yl1707Zm6i4v+e/TA9JOhvy0o
+	 DUpzMopORVJeaU/rx2QwbeJSvNYV8aYtWux2jdv7MrHFsE8YBmNj1OK2sRaexxAVkI
+	 SIuAq8QP1gy4w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 86B96C7EE33;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 68EEEC77B7C;
 	Wed, 25 Jun 2025 14:20:59 +0000 (UTC)
 From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Wed, 25 Jun 2025 16:20:57 +0200
-Subject: [PATCH v4 2/7] riscv: Add xmipsexectl as a vendor extension
+Subject: [PATCH v4 0/7] riscv: Add support for xmipsexectl
+Date: Wed, 25 Jun 2025 16:20:55 +0200
+Message-Id: <20250625-p8700-pause-v4-0-6c7dd7f85756@htecgroup.com>
 MIME-Version: 1.0
-Message-Id: <20250625-p8700-pause-v4-2-6c7dd7f85756@htecgroup.com>
-References: <20250625-p8700-pause-v4-0-6c7dd7f85756@htecgroup.com>
-In-Reply-To: <20250625-p8700-pause-v4-0-6c7dd7f85756@htecgroup.com>
+X-B4-Tracking: v=1; b=H4sIAMcFXGgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyTHQUlJIzE
+ vPSU3UzU4B8JSMDI1MDEyMT3QILcwMD3YLE0uJU3ZTkJDMTS0szi1QjEyWgjoKi1LTMCrBp0bG
+ 1tQCI/NDSXQAAAA==
+X-Change-ID: 20250424-p8700-pause-dcb649968e24
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -60,21 +62,21 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
+ Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
+ Aleksandar Rikalo <arikalo@gmail.com>, 
+ Raj Vishwanathan4 <rvishwanathan@mips.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750861257; l=5238;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750861257; l=3219;
  i=aleksa.paunovic@htecgroup.com; s=20250514; h=from:subject:message-id;
- bh=idU65tzeIlPrlIohcZNq9ktJdzyHclYmJbVJ2jCsPDc=;
- b=kO8mk5hvK45YHZ9X0kMzHOWgOPjhwHEqgpLRpKkIBTkcoqrd7zNTg6y6OhQE5GZL2eta/yfJ3
- OztvXZ7CAAoBNl8EU1u+SK5GUzcENCVAIkFvVXUwFyZyaIx3FeXY9hj
+ bh=AKkCB0Fn/Ec0J/1YhLs2exR0gTfL+alBY0dWRjOKJfY=;
+ b=/HMVj1SwzEI08oQFtLo1Ahc7Gh6hhXWEWC5Ge5p6KquI8NEYcZUJKfIghbMpNuj39KKehh1df
+ 0AfmJD3xM0WD6sDJrQFM0OI3s1rkWUsydP4U4YfOpkrEHfC2X5QKF8V
 X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
  pk=gFVSVYLKAgJiS5qCnDyUMGOFuczv8C6o0UmRs+fgisA=
 X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250514
  with auth_id=403
 X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_072101_411404_FF53BD9A 
-X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,144 +94,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+This patch series adds support for the xmipsexectl vendor extension.
+A new hardware probe key has also been added to allow userspace to probe for MIPS vendor extensions.
 
-Add support for MIPS vendor extensions. Add support for the xmipsexectl
-vendor extension.
+Additionally, since the standard Zihintpause PAUSE instruction encoding is not supported on some MIPS CPUs,
+an errata was implemented for replacing this instruction with the xmipsexectl MIPS.PAUSE alternative encoding.
 
 Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 ---
- arch/riscv/Kconfig.vendor                       | 13 +++++++++++++
- arch/riscv/include/asm/vendor_extensions/mips.h | 16 ++++++++++++++++
- arch/riscv/kernel/vendor_extensions.c           | 10 ++++++++++
- arch/riscv/kernel/vendor_extensions/Makefile    |  1 +
- arch/riscv/kernel/vendor_extensions/mips.c      | 22 ++++++++++++++++++++++
- 5 files changed, 62 insertions(+)
+This is a continuation of a previous series, which did not implement the full
+xmipsexectl vendor extension. The title was updated accordingly.
 
-diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
-index e14f26368963c178e3271e0f716b27fff7671e78..3c1f92e406c3f21481b56e61229716fd02ab81b2 100644
---- a/arch/riscv/Kconfig.vendor
-+++ b/arch/riscv/Kconfig.vendor
-@@ -16,6 +16,19 @@ config RISCV_ISA_VENDOR_EXT_ANDES
- 	  If you don't know what to do here, say Y.
- endmenu
- 
-+menu "MIPS"
-+config RISCV_ISA_VENDOR_EXT_MIPS
-+	bool "MIPS vendor extension support"
-+	select RISCV_ISA_VENDOR_EXT
-+	default y
-+	help
-+	  Say N here to disable detection of and support for all MIPS vendor
-+	  extensions. Without this option enabled, MIPS vendor extensions will
-+	  not be detected at boot and their presence not reported to userspace.
-+
-+	  If you don't know what to do here, say Y.
-+endmenu
-+
- menu "SiFive"
- config RISCV_ISA_VENDOR_EXT_SIFIVE
- 	bool "SiFive vendor extension support"
-diff --git a/arch/riscv/include/asm/vendor_extensions/mips.h b/arch/riscv/include/asm/vendor_extensions/mips.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..757c941cfd86e9fced6169b1a82200e6bb5c6132
---- /dev/null
-+++ b/arch/riscv/include/asm/vendor_extensions/mips.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2025 MIPS.
-+ */
-+
-+#ifndef _ASM_RISCV_VENDOR_EXTENSIONS_MIPS_H
-+#define _ASM_RISCV_VENDOR_EXTENSIONS_MIPS_H
-+
-+#include <asm/vendor_extensions.h>
-+#include <linux/types.h>
-+
-+#define RISCV_ISA_VENDOR_EXT_XMIPSEXECTL	0
-+
-+extern struct riscv_isa_vendor_ext_data_list riscv_isa_vendor_ext_list_mips;
-+
-+#endif // _ASM_RISCV_VENDOR_EXTENSIONS_MIPS_H
-diff --git a/arch/riscv/kernel/vendor_extensions.c b/arch/riscv/kernel/vendor_extensions.c
-index 92d8ff81f42c9ceba63bef0170ab134564a24a4e..bb4a7592368560ebacbcd8a5ce335eea6312ea5c 100644
---- a/arch/riscv/kernel/vendor_extensions.c
-+++ b/arch/riscv/kernel/vendor_extensions.c
-@@ -6,6 +6,7 @@
- #include <asm/vendorid_list.h>
- #include <asm/vendor_extensions.h>
- #include <asm/vendor_extensions/andes.h>
-+#include <asm/vendor_extensions/mips.h>
- #include <asm/vendor_extensions/sifive.h>
- #include <asm/vendor_extensions/thead.h>
- 
-@@ -16,6 +17,9 @@ struct riscv_isa_vendor_ext_data_list *riscv_isa_vendor_ext_list[] = {
- #ifdef CONFIG_RISCV_ISA_VENDOR_EXT_ANDES
- 	&riscv_isa_vendor_ext_list_andes,
- #endif
-+#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_MIPS
-+	&riscv_isa_vendor_ext_list_mips,
-+#endif
- #ifdef CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE
- 	&riscv_isa_vendor_ext_list_sifive,
- #endif
-@@ -49,6 +53,12 @@ bool __riscv_isa_vendor_extension_available(int cpu, unsigned long vendor, unsig
- 		cpu_bmap = riscv_isa_vendor_ext_list_andes.per_hart_isa_bitmap;
- 		break;
- 	#endif
-+	#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_MIPS
-+	case MIPS_VENDOR_ID:
-+		bmap = &riscv_isa_vendor_ext_list_mips.all_harts_isa_bitmap;
-+		cpu_bmap = riscv_isa_vendor_ext_list_mips.per_hart_isa_bitmap;
-+		break;
-+	#endif
- 	#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE
- 	case SIFIVE_VENDOR_ID:
- 		bmap = &riscv_isa_vendor_ext_list_sifive.all_harts_isa_bitmap;
-diff --git a/arch/riscv/kernel/vendor_extensions/Makefile b/arch/riscv/kernel/vendor_extensions/Makefile
-index a4eca96d1c8a2fd165220f6439a3884cf90a9593..ccad4ebafb43412e72e654da3bdb9face53b80c6 100644
---- a/arch/riscv/kernel/vendor_extensions/Makefile
-+++ b/arch/riscv/kernel/vendor_extensions/Makefile
-@@ -1,6 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_ANDES)	+= andes.o
-+obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_MIPS)  	+= mips.o
- obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE)	+= sifive.o
- obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE)	+= sifive_hwprobe.o
- obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_THEAD)	+= thead.o
-diff --git a/arch/riscv/kernel/vendor_extensions/mips.c b/arch/riscv/kernel/vendor_extensions/mips.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..f691129f96c21f2ef089124f4b64a6f0a8e6d4aa
---- /dev/null
-+++ b/arch/riscv/kernel/vendor_extensions/mips.c
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2025 MIPS.
-+ */
-+
-+#include <asm/cpufeature.h>
-+#include <asm/vendor_extensions.h>
-+#include <asm/vendor_extensions/mips.h>
-+
-+#include <linux/array_size.h>
-+#include <linux/cpumask.h>
-+#include <linux/types.h>
-+
-+/* All MIPS vendor extensions supported in Linux */
-+static const struct riscv_isa_ext_data riscv_isa_vendor_ext_mips[] = {
-+	__RISCV_ISA_EXT_DATA(xmipsexectl, RISCV_ISA_VENDOR_EXT_XMIPSEXECTL),
-+};
-+
-+struct riscv_isa_vendor_ext_data_list riscv_isa_vendor_ext_list_mips = {
-+	.ext_data_count = ARRAY_SIZE(riscv_isa_vendor_ext_mips),
-+	.ext_data = riscv_isa_vendor_ext_mips,
-+};
+Changes in v4:
+- Add support for the xmipsexectl vendor extension
+- Remove the ifdef/else from errata_list.h
+- Replace the ifdef/else with a hwprobe call in the userspace code.
 
+Link to v3:
+https://lore.kernel.org/linux-riscv/20250129131703.733098-1-arikalo@gmail.com/
+
+---
+Aleksa Paunovic (6):
+      dt-bindings: riscv: Add xmipsexectl ISA extension description
+      riscv: Add xmipsexectl as a vendor extension
+      riscv: Add xmipsexectl PAUSE instruction
+      riscv: hwprobe: Add MIPS vendor extension probing
+      riscv: hwprobe: Document MIPS xmipsexectl vendor extension
+      riscv: Add tools support for xmipsexectl
+
+Djordje Todorovic (1):
+      riscv: errata: Fix the PAUSE Opcode for MIPS P8700
+
+ Documentation/arch/riscv/hwprobe.rst               |  9 +++
+ .../devicetree/bindings/riscv/extensions.yaml      |  6 ++
+ arch/riscv/Kconfig.errata                          | 23 ++++++++
+ arch/riscv/Kconfig.vendor                          | 13 +++++
+ arch/riscv/errata/Makefile                         |  1 +
+ arch/riscv/errata/mips/Makefile                    |  5 ++
+ arch/riscv/errata/mips/errata.c                    | 67 ++++++++++++++++++++++
+ arch/riscv/include/asm/alternative.h               |  3 +
+ arch/riscv/include/asm/cmpxchg.h                   |  3 +-
+ arch/riscv/include/asm/errata_list.h               | 17 +++++-
+ arch/riscv/include/asm/hwprobe.h                   |  3 +-
+ arch/riscv/include/asm/vdso/processor.h            |  4 +-
+ arch/riscv/include/asm/vendor_extensions/mips.h    | 23 ++++++++
+ .../include/asm/vendor_extensions/mips_hwprobe.h   | 23 ++++++++
+ arch/riscv/include/asm/vendorid_list.h             |  1 +
+ arch/riscv/include/uapi/asm/hwprobe.h              |  1 +
+ arch/riscv/include/uapi/asm/vendor/mips.h          |  3 +
+ arch/riscv/kernel/alternative.c                    |  5 ++
+ arch/riscv/kernel/entry.S                          |  2 +
+ arch/riscv/kernel/sys_hwprobe.c                    |  4 ++
+ arch/riscv/kernel/vendor_extensions.c              | 10 ++++
+ arch/riscv/kernel/vendor_extensions/Makefile       |  2 +
+ arch/riscv/kernel/vendor_extensions/mips.c         | 22 +++++++
+ arch/riscv/kernel/vendor_extensions/mips_hwprobe.c | 22 +++++++
+ arch/riscv/mm/init.c                               |  1 +
+ tools/arch/riscv/include/asm/vdso/processor.h      | 27 +++++----
+ 26 files changed, 286 insertions(+), 14 deletions(-)
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250424-p8700-pause-dcb649968e24
+
+Best regards,
 -- 
-2.34.1
+Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
 
 
