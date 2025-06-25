@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F7CBC7EE32
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 09:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514C0C7EE39
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=szENXZRfiQhR0+qTHQuEoeQ+ZbSKXlFTCd+tL5iZNPg=; b=pImCQcxnRgUzZf
-	S3wzhgWKIqbb1ukipBnISL4tJKXa6sPAc3SWwsvqxkZ5f1FvK2RkF4OjfsopNcinuyt9CSKyV0HWv
-	9dJ3SjHxmPo4/uA0oP7BUUGgsHNDxez3EUXOUol8AHWagi8g/YOyPt1HXCoenfqRpqag3OqGOXH0e
-	1dSFaII0fIUI8X+iEP0toi8hmoS4KQzbmRlffynwiiOqKAMmJrjpMpS/AeAF59Wkzwr48XIS1zgXJ
-	syww0ZcxtFqCXmzAKaT36A7DsZdcmGMSOblpzrHuqigVqwK4L6DMBfziAUp/k9FVxz2KfXuk9womR
-	LoltDAaz+pCt1tY8z0JQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Hoxos9aqB8MGqK/jycyNjiz1Rek8h5VYd0i1DPLs9HU=; b=yrr+U9Oe9g86Yx
+	B7vASSroECl+rxHJSsPWtrHPs+IE4obBBoIgCfxn/iBstlQgdWPodBwc7fRADUYFcETlZGtat9Y7O
+	+1eyQtIP9lPM+NVvB/lLyL9MMXpFg8oVrUv5it0UQCM0XGECjp0vIO1AqOotU/Fz9CWPrXgPACY3a
+	lZBop+iWuKWM2Pk992FYxvxKEg8GcEkK9MkEjQwLPhEvqud+2Gzu/cPV06dYCVNw6Zn+EUx2qig2+
+	ZE/BeNzNahVVeXYdVPGhZhju0SU/6FVWrHkB+r1Mn71no4nZdBYikWvPsRhvxCeCnXQVF9hBhp/NP
+	QbJQ3MLRnpFXbKu4PMVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMlt-00000008Bo6-1kXl;
-	Wed, 25 Jun 2025 09:50:25 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uUMp6-00000008D5a-0o2c;
+	Wed, 25 Jun 2025 09:53:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULwW-000000082mn-1cQL
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 08:57:21 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750841837;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=dSz85eYJTtAi2agc17qHX/1+bUZe+MGxymAHtYLqr88=;
-	b=lFgpfZjx6uGRBsvO6dZpYkaK/A1Hv0Lp9I4Gy2AZkQTGOTa3Xkj7rsKYGOYsFwfOIaYG5N
-	OQflmYoNU4FsbqpmCLHi5QQ8+2j6tDjTcldiGCjpuI/4AUnBj/UqKIjzGlYacLOt1HBvT4
-	n+4SZws3px68REiKi7p4bIuK8jA0kb/jf7rKqVHaD4N2MYWi7eBJGastjFjNDU2ioMcSXK
-	DfSzFi8Sox6he9lwzpem7dlJ8aEc//nGHpGD04NWF8w5psSR+U9Y6fADi5Gbu1LKudCYRT
-	Eglv1lVnyXXHQfai9C0f8oVZ1H82LMVIOuCGTQCuog+vxFEjWxH0w7wQEUK3jg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750841837;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=dSz85eYJTtAi2agc17qHX/1+bUZe+MGxymAHtYLqr88=;
-	b=oB49dWEhOw+nx9sg5XL7NPDHjTHRc9m7yCEd4CUCCHCIbhEt9u6hptaDyX1AHnG9X4HFbi
-	2DFIVtQyBwQwKtBg==
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-rt-devel@lists.linux.dev,
+	id 1uUKHF-00000007lPp-11CW;
+	Wed, 25 Jun 2025 07:10:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=jmk1ZYv8Vqnkp3j2taSYxgOhWaWsh5xUu3yydRBxIZ8=; b=g0Y1OunpDTunZHd8OWZQ+qNerW
+	swQJsFe6Fsn1u+0X2e+kE9dFTKH5Gv/QTdeCAHHw7KNzqjgwSTUJx0i2uQrD/K0yu/KBnM4O8NKbW
+	V/wRjDmztSkXqepluktC79SDWcLvpI4/9feIz70Qnvfetty0O9x7ZFm5ctRjQqQ/Dg4ZWgMXQVB98
+	EhofZXCfnQK+FBQd3IqokQwPJtJ0OV4Z6WNxhtyTHtBqJ3PrU5C+JrMuP32Np7H3O5UAH4caNxR7x
+	tX9o4E4xvCq/jF9cyGjtZlDkP5wg3PMnJL8nsH//pnLHC4ZMCmBRm+AHWqVAzBIqc2GXI0S4mRlVU
+	MnNBSwnA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUKHB-00000005ddH-0SzM;
+	Wed, 25 Jun 2025 07:10:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DDE755C64E2;
+	Wed, 25 Jun 2025 07:08:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABB70C4CEF7;
+	Wed, 25 Jun 2025 07:10:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750835429;
+	bh=wPEV3rkHpzYVStrK7S+qOEmN99dY6Jna9uLe/dZKuSY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bHR0hOQpGCME4HCeGmCX904RXEPw/TVTjCShb++7vtpvuct9mHCrY3zmjEN3EOY1V
+	 oc+LTrVLqyi0cKlotcCmSMOB8FKkw8Dd3Fy/b+uePu/qdN6BNQBAULp46mdxxZtTj3
+	 mdwTUDBLqYDpifbNeaaeQ5Y0kDbuqjpG5o21k3CGocmTX9Rt78RohLYMG8qkf7vOYp
+	 zusgIsPmXgmfMQwmrJPjaMjLTcMADjv8xcxlZYNroQzTFFD97pk5zBP3xV6LX1woWw
+	 Qh1iNmOM11c5oKDqBHtp99vPiRBuJPm7QlmTpXX//ENMsdxfQKSS7wycNxJQTFVEuC
+	 E+nYupYb1ivkQ==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH v2] riscv: Enable interrupt during exception handling
-Date: Wed, 25 Jun 2025 10:56:30 +0200
-Message-Id: <20250625085630.3649485-1-namcao@linutronix.de>
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH 04/18] lib/crypto: sha512: Reorder some code in sha512.c
+Date: Wed, 25 Jun 2025 00:08:05 -0700
+Message-ID: <20250625070819.1496119-5-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
+References: <20250625070819.1496119-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_015720_562897_7873507B 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_081033_455410_FE459517 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,87 +94,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-force_sig_fault() takes a spinlock, which is a sleeping lock with
-CONFIG_PREEMPT_RT=y. However, exception handling calls force_sig_fault()
-with interrupt disabled, causing a sleeping in atomic context warning.
+Put the IVs before the round constants, since the IVs are used first.
 
-This can be reproduced using userspace programs such as:
-    int main() { asm ("ebreak"); }
-or
-    int main() { asm ("unimp"); }
+Put __sha512_final() just above sha384_final() and sha512_final(), which
+are the functions that call it.
 
-There is no reason that interrupt must be disabled while handling
-exceptions from userspace.
+No code changes other than reordering.
 
-Enable interrupt while handling user exceptions. This also has the added
-benefit of avoiding unnecessary delays in interrupt handling.
-
-Fixes: f0bddf50586d ("riscv: entry: Convert to generic entry")
-Suggested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Signed-off-by: Nam Cao <namcao@linutronix.de>
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
-v2: stop enabling interrupts for kernel exceptions. For exceptions treated
-like NMI, it is wrong. For page faults, interrupts are already
-(conditionally) enabled.
----
- arch/riscv/kernel/traps.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ lib/crypto/sha512.c | 72 ++++++++++++++++++++++-----------------------
+ 1 file changed, 36 insertions(+), 36 deletions(-)
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 9c83848797a78..80230de167def 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -6,6 +6,7 @@
- #include <linux/cpu.h>
+diff --git a/lib/crypto/sha512.c b/lib/crypto/sha512.c
+index e650e2c3317b1..fe9d98b9b7db9 100644
+--- a/lib/crypto/sha512.c
++++ b/lib/crypto/sha512.c
+@@ -14,10 +14,24 @@
  #include <linux/kernel.h>
- #include <linux/init.h>
-+#include <linux/irqflags.h>
- #include <linux/randomize_kstack.h>
- #include <linux/sched.h>
- #include <linux/sched/debug.h>
-@@ -151,7 +152,9 @@ asmlinkage __visible __trap_section void name(struct pt_regs *regs)		\
- {										\
- 	if (user_mode(regs)) {							\
- 		irqentry_enter_from_user_mode(regs);				\
-+		local_irq_enable();						\
- 		do_trap_error(regs, signo, code, regs->epc, "Oops - " str);	\
-+		local_irq_disable();						\
- 		irqentry_exit_to_user_mode(regs);				\
- 	} else {								\
- 		irqentry_state_t state = irqentry_nmi_enter(regs);		\
-@@ -173,17 +176,14 @@ asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *re
+ #include <linux/module.h>
+ #include <linux/overflow.h>
+ #include <linux/wordpart.h>
  
- 	if (user_mode(regs)) {
- 		irqentry_enter_from_user_mode(regs);
--
- 		local_irq_enable();
++static const struct sha512_block_state sha384_iv = {
++	.h = {
++		SHA384_H0, SHA384_H1, SHA384_H2, SHA384_H3,
++		SHA384_H4, SHA384_H5, SHA384_H6, SHA384_H7,
++	},
++};
++
++static const struct sha512_block_state sha512_iv = {
++	.h = {
++		SHA512_H0, SHA512_H1, SHA512_H2, SHA512_H3,
++		SHA512_H4, SHA512_H5, SHA512_H6, SHA512_H7,
++	},
++};
++
+ static const u64 sha512_K[80] = {
+ 	0x428a2f98d728ae22ULL, 0x7137449123ef65cdULL, 0xb5c0fbcfec4d3b2fULL,
+ 	0xe9b5dba58189dbbcULL, 0x3956c25bf348b538ULL, 0x59f111f1b605d019ULL,
+ 	0x923f82a4af194f9bULL, 0xab1c5ed5da6d8118ULL, 0xd807aa98a3030242ULL,
+ 	0x12835b0145706fbeULL, 0x243185be4ee4b28cULL, 0x550c7dc3d5ffb4e2ULL,
+@@ -44,24 +58,10 @@ static const u64 sha512_K[80] = {
+ 	0x28db77f523047d84ULL, 0x32caab7b40c72493ULL, 0x3c9ebe0a15c9bebcULL,
+ 	0x431d67c49c100d4cULL, 0x4cc5d4becb3e42b6ULL, 0x597f299cfc657e2aULL,
+ 	0x5fcb6fab3ad6faecULL, 0x6c44198c4a475817ULL,
+ };
  
- 		handled = riscv_v_first_use_handler(regs);
+-static const struct sha512_block_state sha384_iv = {
+-	.h = {
+-		SHA384_H0, SHA384_H1, SHA384_H2, SHA384_H3,
+-		SHA384_H4, SHA384_H5, SHA384_H6, SHA384_H7,
+-	},
+-};
 -
--		local_irq_disable();
+-static const struct sha512_block_state sha512_iv = {
+-	.h = {
+-		SHA512_H0, SHA512_H1, SHA512_H2, SHA512_H3,
+-		SHA512_H4, SHA512_H5, SHA512_H6, SHA512_H7,
+-	},
+-};
 -
- 		if (!handled)
- 			do_trap_error(regs, SIGILL, ILL_ILLOPC, regs->epc,
- 				      "Oops - illegal instruction");
+ #define Ch(x, y, z) ((z) ^ ((x) & ((y) ^ (z))))
+ #define Maj(x, y, z) (((x) & (y)) | ((z) & ((x) | (y))))
+ #define e0(x) (ror64((x), 28) ^ ror64((x), 34) ^ ror64((x), 39))
+ #define e1(x) (ror64((x), 14) ^ ror64((x), 18) ^ ror64((x), 41))
+ #define s0(x) (ror64((x), 1) ^ ror64((x), 8) ^ ((x) >> 7))
+@@ -134,32 +134,10 @@ sha512_blocks_generic(struct sha512_block_state *state,
+ #include "sha512.h" /* $(SRCARCH)/sha512.h */
+ #else
+ #define sha512_blocks sha512_blocks_generic
+ #endif
  
-+		local_irq_disable();
- 		irqentry_exit_to_user_mode(regs);
- 	} else {
- 		irqentry_state_t state = irqentry_nmi_enter(regs);
-@@ -308,9 +308,11 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
+-static void __sha512_final(struct __sha512_ctx *ctx,
+-			   u8 *out, size_t digest_size)
+-{
+-	u64 bitcount_hi = (ctx->bytecount_hi << 3) | (ctx->bytecount_lo >> 61);
+-	u64 bitcount_lo = ctx->bytecount_lo << 3;
+-	size_t partial = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
+-
+-	ctx->buf[partial++] = 0x80;
+-	if (partial > SHA512_BLOCK_SIZE - 16) {
+-		memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - partial);
+-		sha512_blocks(&ctx->state, ctx->buf, 1);
+-		partial = 0;
+-	}
+-	memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - 16 - partial);
+-	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 16] = cpu_to_be64(bitcount_hi);
+-	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 8] = cpu_to_be64(bitcount_lo);
+-	sha512_blocks(&ctx->state, ctx->buf, 1);
+-
+-	for (size_t i = 0; i < digest_size; i += 8)
+-		put_unaligned_be64(ctx->state.h[i / 8], out + i);
+-}
+-
+ static void __sha512_init(struct __sha512_ctx *ctx,
+ 			  const struct sha512_block_state *iv,
+ 			  u64 initial_bytecount)
  {
- 	if (user_mode(regs)) {
- 		irqentry_enter_from_user_mode(regs);
-+		local_irq_enable();
+ 	ctx->state = *iv;
+@@ -211,10 +189,32 @@ void __sha512_update(struct __sha512_ctx *ctx, const u8 *data, size_t len)
+ 	if (len)
+ 		memcpy(&ctx->buf[partial], data, len);
+ }
+ EXPORT_SYMBOL_GPL(__sha512_update);
  
- 		handle_break(regs);
- 
-+		local_irq_disable();
- 		irqentry_exit_to_user_mode(regs);
- 	} else {
- 		irqentry_state_t state = irqentry_nmi_enter(regs);
++static void __sha512_final(struct __sha512_ctx *ctx,
++			   u8 *out, size_t digest_size)
++{
++	u64 bitcount_hi = (ctx->bytecount_hi << 3) | (ctx->bytecount_lo >> 61);
++	u64 bitcount_lo = ctx->bytecount_lo << 3;
++	size_t partial = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
++
++	ctx->buf[partial++] = 0x80;
++	if (partial > SHA512_BLOCK_SIZE - 16) {
++		memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - partial);
++		sha512_blocks(&ctx->state, ctx->buf, 1);
++		partial = 0;
++	}
++	memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - 16 - partial);
++	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 16] = cpu_to_be64(bitcount_hi);
++	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 8] = cpu_to_be64(bitcount_lo);
++	sha512_blocks(&ctx->state, ctx->buf, 1);
++
++	for (size_t i = 0; i < digest_size; i += 8)
++		put_unaligned_be64(ctx->state.h[i / 8], out + i);
++}
++
+ void sha384_final(struct sha384_ctx *ctx, u8 out[SHA384_DIGEST_SIZE])
+ {
+ 	__sha512_final(&ctx->ctx, out, SHA384_DIGEST_SIZE);
+ 	memzero_explicit(ctx, sizeof(*ctx));
+ }
 -- 
-2.39.5
+2.50.0
 
 
 _______________________________________________
