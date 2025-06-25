@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AD8C77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 03:11:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C23C7115C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 03:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hTSq3khxuib/rNb5YhjBV1wsMa49henQZFp+71OEyGI=; b=QCHzO1TcWsPdu6
-	z2YaI87ghHOqgqHLS2mQ0exbWfeurJNPmSZttsBXfw5AZz98ISb9fMSRmfi3pqYoSrANVWFxl9MjU
-	d1mL8G+SJNU9mzXSL0i9EWqEGl/IpE9EiM+OO/e9+pRrU39tNgfsV6lC/mj2A707n8QC0CPqkpIzV
-	dlCNaaVwwJdVl5MtBsR9fXDgWwKNz4Ba3D0pdStednH0OMd0zRAVrvkJVH5vAVg4MLwiL68mX4PdE
-	LQIgIwb9FMLqkMoR5Zw2M5ixYl+hn2NAsruI6aFbygorev8/d9JmYmw/Lm7Wk0xECIk02s4vICvyR
-	9dZT8kvvwEheH8oJ2R2g==;
+	List-Owner; bh=lYsig4Lag5s0eFsEKrHKnofsKXXuQYpKLf7EjEB6KXY=; b=X1tMGneW/476M8
+	FnfBGIgRs93RRcf3t/XldWKdXGpW+thLmMBBolxnD73CFwuw4IbAo15JdnMa5gREl0rNNT30D0kdB
+	wyXtziK5nZ2KLF/ueqtFl5ZKpcbZnmUUjLC6uuY58+ez5v7tyGaoloaQTpXZ7tQ8/bPhqJCEP33S/
+	+aops5a8l65CSdebpdKNnpPBn/wwptmNvKxexQxfhRvsair1RBOSUk9D8pTTXFNVFng9Zo/KwSUnB
+	jIUix6KAhOfz9kF9yaKeREW4uBfvqI7Eb4AcnAF/c2ZfL9RukSPBSPQ/EUxTR1BO/i+i3IteE70XQ
+	vDcow2bQSHipz+tNkWjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUGXG-00000007Nax-0o29;
-	Wed, 25 Jun 2025 03:10:54 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1uUGhk-00000007OdJ-0b21;
+	Wed, 25 Jun 2025 03:21:44 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUGXB-00000007NaV-2WvD
+	id 1uUGhh-00000007Ocs-29pl
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 03:10:52 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4bRn0S3Zv3z2QTyp;
-	Wed, 25 Jun 2025 11:11:36 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 631A7140144;
-	Wed, 25 Jun 2025 11:10:41 +0800 (CST)
-Received: from kwepemq500002.china.huawei.com (7.202.195.240) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 25 Jun 2025 11:10:41 +0800
-Received: from kwepemq200002.china.huawei.com (7.202.195.90) by
- kwepemq500002.china.huawei.com (7.202.195.240) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 25 Jun 2025 11:10:40 +0800
-Received: from kwepemq200002.china.huawei.com ([7.202.195.90]) by
- kwepemq200002.china.huawei.com ([7.202.195.90]) with mapi id 15.02.1544.011;
- Wed, 25 Jun 2025 11:10:40 +0800
-From: duchangbin <changbin.du@huawei.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-CC: duchangbin <changbin.du@huawei.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: Prevent early kernel panic in instrumented
- apply_early_boot_alternatives
-Thread-Topic: [PATCH] riscv: Prevent early kernel panic in instrumented
- apply_early_boot_alternatives
-Thread-Index: AQHb5PtyjCfzcR/e2EWBZK4/MCSYmLQRvi4AgAF1PoA=
-Date: Wed, 25 Jun 2025 03:10:40 +0000
-Message-ID: <d41d9c7a103f4600a4fc5beea77e0f4e@huawei.com>
-References: <20250624113042.2123140-1-changbin.du@huawei.com>
- <a89f5970-5ea9-4d92-8952-6c26a22ac153@ghiti.fr>
-In-Reply-To: <a89f5970-5ea9-4d92-8952-6c26a22ac153@ghiti.fr>
-Accept-Language: en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-imapappendstamp: kwepemq200002.china.huawei.com (15.02.1544.011)
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [10.110.54.75]
-Content-ID: <6B6D87550F0AC946A7F2343632909A59@huawei.com>
+	Wed, 25 Jun 2025 03:21:43 +0000
+Received: from [192.168.33.186] (unknown [210.73.43.2])
+	by APP-05 (Coremail) with SMTP id zQCowAA3vgw4a1toj5shCQ--.56893S2;
+	Wed, 25 Jun 2025 11:21:30 +0800 (CST)
+Message-ID: <965d5dca-72b0-47da-bd9d-efeca16db826@iscas.ac.cn>
+Date: Wed, 25 Jun 2025 11:21:28 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] riscv: dts: spacemit: Move UARTs under dma-bus for K1
+To: Guodong Xu <guodong@riscstar.com>
+Cc: Yixun Lan <dlan@gentoo.org>, Ze Huang <huangze@whut.edu.cn>,
+ Alex Elder <elder@riscstar.com>, spacemit@lists.linux.dev,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Vivian Wang <uwu@dram.page>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250623-k1-dma-buses-rfc-wip-v1-0-c0144082061f@iscas.ac.cn>
+ <20250623-k1-dma-buses-rfc-wip-v1-2-c0144082061f@iscas.ac.cn>
+ <CAH1PCMZ1YUC9SLOSEuCL3oUhYN23UOL+kLrOk8fbJ+EG-w3Umg@mail.gmail.com>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <CAH1PCMZ1YUC9SLOSEuCL3oUhYN23UOL+kLrOk8fbJ+EG-w3Umg@mail.gmail.com>
+X-CM-TRANSID: zQCowAA3vgw4a1toj5shCQ--.56893S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CryxGr1rtFy7tr45CF47XFb_yoW8GrW5pa
+	y7Xr4kKrWkJr4kArnrXF1qgFWfWr4Sqa4xCFyDGwn8Za98WF12qFWSkr9Fkry7Wwn5Aa1I
+	yanava4q9FW5XaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxU2X_-DUUUU
+X-Originating-IP: [210.73.43.2]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_201049_969553_D09DAA01 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20250624_202141_922051_1E76C7D9 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,101 +83,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 24, 2025 at 02:54:32PM +0200, Alexandre Ghiti wrote:
-> Hi Changbin,
-> 
-> On 6/24/25 13:30, Changbin Du wrote:
-> > Under FTRACE=y, DYNAMIC_FTRACE=n, and RISCV_ALTERNATIVE_EARLY=n, the kernel
-> 
-> 
-> Your above config works fine for me, I guess you meant FUNCTION_TRACER &&
-> !DYNAMIC_FTRACE (which fails).
->
-Yes, it's FUNCTION_TRACER.
-
-> We were just talking with Andy about this configuration (FUNCTION_TRACER &&
-> !DYNAMIC_FTRACE): do we really want to support static ftrace? Andy should
-> send a patch soon to remove this possibility as IMO we don't want to support
-> it. Let's wait for this patch and the discussion that will follow before
-> merging your fix. I'll keep it in my list for 6.16 just in case someone
-> comes up with a good argument to keep it.
-> 
-No problem. I'm unable to enable DYNAMIC_FTRACE because GCC_SUPPORTS_DYNAMIC_FTRACE=n
-and CC_HAS_MIN_FUNCTION_ALIGNMENT=n are set. It seems that my GCC version (13.3.0)
-does not support the option -fmin-function-alignment=8.
-
-By the way, this change also eliminates an empty function call.
-
-> Thanks,
-> 
-> Alex
-> 
-> 
-> > panics upon returning from _mcount() in the early boot path. This occurs
-> > during _start_kernel() -> setup_vm() -> apply_early_boot_alternatives().
-> > 
-> > The CC_FLAGS_FTRACE is only removed from alternative.c when
-> > CONFIG_RISCV_ALTERNATIVE_EARLY=y. Therefore, no function calls should be
-> > made to alternative.c during early boot in this configuration.
-> > 
-> > Fixes: a35707c3d850 ("riscv: add memory-type errata for T-Head")
-> > Signed-off-by: Changbin Du <changbin.du@huawei.com>
-> > ---
-> >   arch/riscv/include/asm/alternative.h | 6 ++++++
-> >   arch/riscv/kernel/alternative.c      | 4 ++--
-> >   2 files changed, 8 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-> > index 3c2b59b25017..c670b0cc55f4 100644
-> > --- a/arch/riscv/include/asm/alternative.h
-> > +++ b/arch/riscv/include/asm/alternative.h
-> > @@ -31,7 +31,13 @@
-> >   #define ALT_ALT_PTR(a)			__ALT_PTR(a, alt_offset)
-> >   void __init apply_boot_alternatives(void);
-> > +
-> > +# ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
-> >   void __init apply_early_boot_alternatives(void);
-> > +# else
-> > +static inline void apply_early_boot_alternatives(void) { }
-> > +# endif
-> > +
-> >   void apply_module_alternatives(void *start, size_t length);
-> >   void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
-> > diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-> > index 7eb3cb1215c6..5406c3301627 100644
-> > --- a/arch/riscv/kernel/alternative.c
-> > +++ b/arch/riscv/kernel/alternative.c
-> > @@ -205,6 +205,7 @@ void __init apply_boot_alternatives(void)
-> >   	apply_vdso_alternatives();
-> >   }
-> > +#ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
-> >   /*
-> >    * apply_early_boot_alternatives() is called from setup_vm() with MMU-off.
-> >    *
-> > @@ -219,12 +220,11 @@ void __init apply_boot_alternatives(void)
-> >    */
-> >   void __init apply_early_boot_alternatives(void)
-> >   {
-> > -#ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
-> >   	_apply_alternatives((struct alt_entry *)__alt_start,
-> >   			    (struct alt_entry *)__alt_end,
-> >   			    RISCV_ALTERNATIVES_EARLY_BOOT);
-> > -#endif
-> >   }
-> > +#endif
-> >   #ifdef CONFIG_MODULES
-> >   void apply_module_alternatives(void *start, size_t length)
-
--- 
-Cheers,
-Changbin Du
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gNi8yNC8yNSAyMDoyMSwgR3VvZG9uZyBYdSB3cm90ZToKPiBPbiBNb24sIEp1biAyMywgMjAy
+NSBhdCA2OjA04oCvUE0gVml2aWFuIFdhbmcgPHdhbmdydWlrYW5nQGlzY2FzLmFjLmNuPiB3cm90
+ZToKPj4gVUFSVCBkZXZpY2VzIGluIFNwYWNlbWl0IEsxIHVzZSBkbWEtYnVzIERNQSB0cmFuc2xh
+dGlvbnMuIE1vdmUgdGhlc2UKPj4gbm9kZXMgdW5kZXIgZG1hLWJ1cyB0byByZWZsZWN0IHRoaXMg
+ZmFjdC4KLi4uCj4+Cj4+IC0gICAgICAgICAgICAgICBzZWNfdWFydDE6IHNlcmlhbEBmMDYxMjAw
+MCB7Cj4+IC0gICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAic3BhY2VtaXQsazEt
+dWFydCIsICJpbnRlbCx4c2NhbGUtdWFydCI7Cj4+IC0gICAgICAgICAgICAgICAgICAgICAgIHJl
+ZyA9IDwweDAgMHhmMDYxMjAwMCAweDAgMHgxMDA+Owo+PiAtICAgICAgICAgICAgICAgICAgICAg
+ICBpbnRlcnJ1cHRzID0gPDQzPjsKPj4gLSAgICAgICAgICAgICAgICAgICAgICAgY2xvY2stZnJl
+cXVlbmN5ID0gPDE0ODU3MDAwPjsKPj4gLSAgICAgICAgICAgICAgICAgICAgICAgcmVnLXNoaWZ0
+ID0gPDI+Owo+PiAtICAgICAgICAgICAgICAgICAgICAgICByZWctaW8td2lkdGggPSA8ND47Cj4+
+IC0gICAgICAgICAgICAgICAgICAgICAgIHN0YXR1cyA9ICJyZXNlcnZlZCI7IC8qIGZvciBURUUg
+dXNhZ2UgKi8KPj4gLSAgICAgICAgICAgICAgIH07Cj4+IC0KPiBBcmUgeW91IHN1cmUgc2VjX3Vh
+cnQxIHNob3VsZCBiZSBwbGFjZWQgdW5kZXIgdGhlIGRtYV9idXM/IFBsZWFzZSBkb3VibGUKPiBj
+aGVjay4gSWYgc2VjX3VhcnQxIGFuZCBvdGhlciBwZXJpcGhlcmFscyBzdXBwb3J0ZWQgYnkgdGhl
+IHNlY3VyZSBETUEKPiAoYmFzZSBhZGRyZXNzOiAweEYwNjAwMDAwKSBzaGFyZSB0aGUgc2FtZSBh
+ZGRyZXNzIG1hcHBpbmcgYXMgZG1hX2J1cywgYW5kCj4gaWYgdGhleSBjYW4gYmUgYWNjZXNzZWQg
+YnkgdGhlIGxpbnV4IGtlcm5lbCBpbiBzb21lIGNhc2VzIChhcyBzYXlpbmcKPiAncmVzZXJ2ZWQn
+KSwgdGhlbiB0aGF0IG1ha2VzIHNlbnNlLiBJZiBub3QsIGJldHRlciBub3QgbW92ZSB0aGVtLgoK
+SGkgR3VvZG9uZywKCkkgaGF2ZSBjb25maXJtZWQgd2l0aCBTcGFjZW1pVCB0aGF0IHNlY191YXJ0
+MSB1c2VzIGRyYW1fcmFuZ2U0LCBhLmsuYS4KZG1hLWJ1cywgd2hpY2ggaXMgc2FtZSBhcyB0aGUg
+cmVzdCBvZiB0aGUgVUFSVHMuCgpBbHNvLCBzZWNfdWFydDEgaXMgdXNhYmxlIGluIGUuZy4gTGlu
+dXgsIGJ1dCBvbmx5IGlmIG5vIFRFRSBpcyBpbiB1c2UuClVzaW5nIHN0YXR1cyA9ICJyZXNlcnZl
+ZCIgaXMgdGhlIHNhZmUgY2hvaWNlIGhlcmUuIFBsYXRmb3JtcyB0aGF0IGRvIG5vdApydW4gYSBU
+RUUgKG9yIGFueXRoaW5nIHNpbWlsYXIgdGhhdCB3b3VsZCBkaXNhYmxlIGFjY2VzcyB0byB0aGUK
+MHhmMDAwXzAwMDAgdG8gMHhmZmZmX2ZmZmYgcmFuZ2UpIGFuZCB3aXNoaW5nIHRvIGVuYWJsZSB1
+c2Ugb2Ygc2VjX3VhcnQxCmNhbiBjaGFuZ2UgdGhlIHN0YXR1cyB0byAib2theSIuCgpWaXZpYW4g
+ImRyYW1mb3JldmVyIiBXYW5nCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
