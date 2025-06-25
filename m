@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD573C7EE30
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4914CC7EE2A
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 18:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U9J2/HGX7WRKm80pK0tRu6/UQkEuRlaU6p9NIgPd1b4=; b=O+C/E8Yy1S9iYr
-	L2xINkOBf7czxo1OBPmlUbtOnOFBcWoBcFhxAb6R0/ShL05qCeiDIEcezPF3CnpjaoZVNm0Br0rFr
-	qY3nFH60Pr1fDZErUIoVamJv2R88ucsx7tsoUM0rqi52VZ9mlcbSh97ruyoTOAbRZIISJSZmAI2nc
-	7HG6qZM8VgKeLmiKMoQ2cGUNSP0DG0x7mVje72TsGsEaifLXkOkznkizX+0yqmPKvWxiKiz70HT3q
-	t2+fnC23/X17HzOA4W6ZnAsVnSRLsANTeK9dNZOxMsLbUb3gg7ER4BlRtSWmUKi8l0ySxhqQpBvJK
-	Ux4Po/d8UFGWbkuwfjXw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+deXBGMYWjAuulmgScgUlrnXdKa0NoJvd1fFWHR2fSo=; b=2aM0OeAZBgySQw
+	NSEBCf1NUeOjiCXOwOtJbB1n6KTvW6ak8U9fNbvKFzSH8mKZhyjGnNa1MJMCeRTT3zVbm9j2E+O+s
+	Opslp/RhD3LAKi1Qlug/bR3JOXdxMcJ8Eq3ojrZkkZDhuIWFouLVkRcKKq5ZAk2Ok+tZ1NTEh9qZS
+	9C1+kPH+9T/ip2vPHGPmRYACuFU7RQwV+zqnPNBKma0Xgm6GrEAJKbTfcbiqPAwR65zIMylyDeoJI
+	Jj15twr/AP/1JKtpEG24V3ZqCoS7gmpFCO8UcyUGANUsQ57t64J1HANc/u2Nn+5MHnnEAmKje2IaD
+	ZotQ5KcUVfzUTvoU+cpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUsY-00000009ajo-2k7X;
-	Wed, 25 Jun 2025 18:29:50 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uUUsc-00000009ar5-0nie;
+	Wed, 25 Jun 2025 18:29:54 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUSaI-00000009DEu-48j0
+	id 1uUSoU-00000009Fmx-2CbY
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 16:02:52 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4537deebb01so12624225e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Jun 2025 09:02:50 -0700 (PDT)
+	Wed, 25 Jun 2025 16:17:31 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7426c44e014so126303b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Jun 2025 09:17:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750867369; x=1751472169; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cINHqIFzOlIyPqhGj+q+rLlY+QbAuzwrgIP8a6FcGlk=;
-        b=Q/fspb6Qz6JoVjaW+erePG2kaT8AV/V0NvjiB9nR8SU5nflFia2H2mjsVyEOoBeH3t
-         usOGQIHmNeHqXQrfBgPDg95FSJhExboENiH6UQBt5/xbN0Vsud82JhVOYf+aOC/c8Fdf
-         HcwaWgPf/R+Ke0IbU7Ag9R+HqwESYP/UcKYWB2tm5NxLnZUfMGkru89LMbtxjKR7jm7e
-         qMYTNKYvxakrCssTV2r7v0B3Fe/EtzI8AAKeg0mxJypzbTgvGUg4V1kAKR/sM/4ubrX9
-         SlAlASmbezKKYGe20fFEotMTCITgKFNCBfTUsKoeUvYSGKsJp1Xoi9E2lYBmimgrprNQ
-         Comw==
+        d=ventanamicro.com; s=google; t=1750868249; x=1751473049; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3ucgASzDHlxpA/1R6gfwSR+grfWmp0YH8y7SE+A0JJg=;
+        b=M3TtRdOltqMbx5xiahCuzRD2nPCIaBm8Z2/sIC/ZfZzJCBrhh1VcMTs6QZPNPNaYO+
+         s1bUeGCoJWy4zgmqyRpZiDOfXA9ZGJyAN566G4zp/wIO3lqSUWhmqpevzQLAYXx7vDmJ
+         Esnop4XagZN8roCSTR8TW0cZz2AZImc3W7SXhvv/jqBnQ+wtR59lgFXWdrfSVUkJxSgJ
+         mkF0ol+F/bd+HXQY0B+0EbkwyXfoqKhqQJaOXj05ASq2psc1pK1Esw57dWQ0KwBrBj8N
+         qAf8MmVef4Mt0YPw5cuXfgFMG91NqohEefhftriX2/WkDwBQD0EG+7CTeSr6LjaCtGs9
+         JBVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750867369; x=1751472169;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cINHqIFzOlIyPqhGj+q+rLlY+QbAuzwrgIP8a6FcGlk=;
-        b=evkHAmyC/5gIm6arazGY+YDcwR0WIM7GB+5K4qHwBDGzC5i2sKYhfdgrNMapfTIXOi
-         +SIXV3wT7aD72nGTDim9SpuOTXsCeOZ46pFHY06NUGlzlVw2oi6D8EmT/vBKkKFG4Z3p
-         AA1cLDoPwTi+lkinGEuDI03e5TpKMBRevz8okz3cXH4ruV8abPLKfsodPFy2Cb30hLlh
-         tXfF8VDdd4oHR4EMgUV8THG+sBuPR1LfeTTKB3mLfH4L82+rSuHlmCakeNbde/rrl0lx
-         Qg7nWbNlz9jSwXJvhL3si1oLJb5SQcfcjrRxTC0ovoQtSHXtn9jcvpJxeqbwnZeBX5sn
-         v12g==
-X-Forwarded-Encrypted: i=1; AJvYcCVSDANhfmaY4RqRUudFz66sG4WljaxGat0CcKumDvBtWDcTVw+pkjPBLDHU8CLpxFQC62HIole5B7LZgw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzftF/IybWvDDm0MwtAHyv6T6mOdbLLmPNW1jGmAepwMzaDQiJk
-	r/8mm5er+J16WOmAjRsRaQ71JTRAqn1JlbfDsta3esAP2wFkFwtYdNxG
-X-Gm-Gg: ASbGncuGHbBqh8MuykvWKZzihyQkr7AC8IVbXAumIX23MNFk8LG0Z/vHE7lt7ygQzSy
-	ZCPk514E2ax27fA/YOsgMVNEoRHzGfCtWGoKCc0O9G23/MEngHg9idvi5u9fs/R3WfSBAH4qDoT
-	dpD76Aum2dOHZAp2UojdjKtXwVlkoxx3K1HPfWK/B84QkbqOSxjO7uLnn4b8YXjWnqRZLZTvCvR
-	qfYnLkcZy0EcaITx3Ef4S0/9W+83/dciSN7FhwNX409+Vyy0eGFzkCvjB7eNRoE3Tw42qoJWg3V
-	F4HcUm0d6qYYQoRLCJGG3GLG91QF4RLSP+OYrugic2T1+JNktmqsFfHa9pgAdwA/HmUfy5IJgIp
-	+ZQMIDmK1pYAOyIrDUhTup9u2
-X-Google-Smtp-Source: AGHT+IEMB/YbssMtZ1NrMoQOmyfN0LtNB/8HKXUiqEQNnI7tYcd1rYZA65i7s1VULz2iDuXb5Pc0CQ==
-X-Received: by 2002:a05:600c:5305:b0:43d:abd:ad1c with SMTP id 5b1f17b1804b1-45381ae787fmr35533775e9.6.1750867368666;
-        Wed, 25 Jun 2025 09:02:48 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538233c05csm24091875e9.5.2025.06.25.09.02.48
+        d=1e100.net; s=20230601; t=1750868249; x=1751473049;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3ucgASzDHlxpA/1R6gfwSR+grfWmp0YH8y7SE+A0JJg=;
+        b=OmQ+vPpuIdQ7aTFzqYQSZ9Z/R+3qzBFNLnWr7usb7NiEvl5A/IzXN/0xmhL+d+HR/o
+         35M3T+0gUIQvLazwD6Flw1jvGZf354Ha5ClHDcw58doiw1s2sGIhsrZ1wmgJL417ipa1
+         IfOOrKzNlci12hqOPIUGPtjVIYnTY+jvm/nJnB7xJWexicCScV7ol9mLVEK2PKTY6lJY
+         4D2YnNvzNcAM+Ul2o51PR+G+gBaAd+EAdeGstGrpAjKt0HHyxwXtnTAtC1GhZEyTz0GO
+         ElLS9m8c5S4fCD8OzAI4zma8JDCu59Lj0k6nbalfU0qq30mYbGCbALK+jOugMVKmVIVt
+         YsYg==
+X-Forwarded-Encrypted: i=1; AJvYcCXrj5Fj5MajgGjit9kceuuS4ka4ehpuRA4sALH8uF8mo+cOV9ey20A8jSSPVC1pbpWEy9RQAw/v5YAtpg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUV+pYEOQs/R8ExfubmR1eZkfWrN0zpXeTqTxK56ZlBKHEOX+3
+	K8W1HwvtzneB9Msxc/LiGcrbrZYJ41uLVZ785iK7Z7LX4XJ0HG8YIxUCYH3nD/jSK43zmuhfIKX
+	XmAs4
+X-Gm-Gg: ASbGncttDEDAuXUMFDHcnd6QH1VnAG86RWJZ8vnBI62NvmdDVoCOfXTLeZo83dC2EL1
+	5Y6IfLDdMkDGw5IMucQ/VYuxINeYvOZMd+CeR7INwckrrPnkzSG7LoPpTSZek7D+YpJCuGCU0mm
+	1urcCzqzUcFUB6f54Wush8Y0qA55XMISLqsbJLDEezXkvN8D5tPeZEBbyr8uWBq1R6KsRPNdqxu
+	/2lP2PqIhv8DMBxG0qvucgOE2cDMWyD6E56IVbu0QyjzcCA4hP1H7gw+pWLNVcIdSxtG3AeVKXH
+	TAwCZbXEDKWbrNv9F9ZCkV5urvUTf8qS5uO6gPvvOV+yJB0lag/p+ZLjKwa4VUEQuOC+o2/WKhW
+	T0KtyWeOCA880YI/4Z+/sY+dWntjxCdK6B56M
+X-Google-Smtp-Source: AGHT+IFpDcqx44HzncJdJNVAkQLG5gSRrOhDC4JGf2UMPexno4tsLpTKKz23ZIhlWN8/zRHxl5MEaw==
+X-Received: by 2002:a05:6a21:e96:b0:21f:4ecc:11ab with SMTP id adf61e73a8af0-2208c08a340mr673741637.9.1750868247253;
+        Wed, 25 Jun 2025 09:17:27 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-749b5e217afsm5024436b3a.55.2025.06.25.09.17.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jun 2025 09:02:48 -0700 (PDT)
-Date: Wed, 25 Jun 2025 17:02:34 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Yury Norov <yury.norov@gmail.com>
-Cc: cp0613@linux.alibaba.com, linux@rasmusvillemoes.dk, arnd@arndb.de,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] bitops: rotate: Add riscv implementation using Zbb
- extension
-Message-ID: <20250625170234.29605eed@pumpkin>
-In-Reply-To: <aFWKX4rpuNCDBP67@yury>
-References: <20250620111610.52750-1-cp0613@linux.alibaba.com>
-	<20250620111610.52750-3-cp0613@linux.alibaba.com>
-	<aFWKX4rpuNCDBP67@yury>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        Wed, 25 Jun 2025 09:17:26 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH] irqchip: riscv-imsic: Add kernel parameter to disable IPIs
+Date: Wed, 25 Jun 2025 21:47:15 +0530
+Message-ID: <20250625161715.1003948-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_090251_032641_43884D9C 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20250625_091730_565258_9EEEDE16 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,83 +106,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Jun 2025 12:20:47 -0400
-Yury Norov <yury.norov@gmail.com> wrote:
+When injecting IPIs to a set of harts, the IMSIC IPI support will
+do a separate MMIO write to SETIPNUM_LE register of each target
+hart. This means on a platform where IMSIC is trap-n-emulated,
+there will be N MMIO traps when injecting IPI to N target harts
+hence IPIs based on IMSIC software injected MSI is slow compared
+to the SBI IPI extension.
 
-> On Fri, Jun 20, 2025 at 07:16:10PM +0800, cp0613@linux.alibaba.com wrote:
-> > From: Chen Pei <cp0613@linux.alibaba.com>
-> > 
-> > The RISC-V Zbb extension[1] defines bitwise rotation instructions,
-> > which can be used to implement rotate related functions.
-> > 
-> > [1] https://github.com/riscv/riscv-bitmanip/
-> > 
-> > Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-> > ---
-> >  arch/riscv/include/asm/bitops.h | 172 ++++++++++++++++++++++++++++++++
-> >  1 file changed, 172 insertions(+)
-> > 
-> > diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
-> > index d59310f74c2b..be247ef9e686 100644
-> > --- a/arch/riscv/include/asm/bitops.h
-> > +++ b/arch/riscv/include/asm/bitops.h
-> > @@ -20,17 +20,20 @@
-> >  #include <asm-generic/bitops/__fls.h>
-> >  #include <asm-generic/bitops/ffs.h>
-> >  #include <asm-generic/bitops/fls.h>
-> > +#include <asm-generic/bitops/rotate.h>
-> >  
-> >  #else
-> >  #define __HAVE_ARCH___FFS
-> >  #define __HAVE_ARCH___FLS
-> >  #define __HAVE_ARCH_FFS
-> >  #define __HAVE_ARCH_FLS
-> > +#define __HAVE_ARCH_ROTATE
-> >  
-> >  #include <asm-generic/bitops/__ffs.h>
-> >  #include <asm-generic/bitops/__fls.h>
-> >  #include <asm-generic/bitops/ffs.h>
-> >  #include <asm-generic/bitops/fls.h>
-> > +#include <asm-generic/bitops/rotate.h>
-> >  
-> >  #include <asm/alternative-macros.h>
-> >  #include <asm/hwcap.h>
-> > @@ -175,6 +178,175 @@ static __always_inline int variable_fls(unsigned int x)
-> >  	 variable_fls(x_);					\
-> >  })  
-> 
-> ...
-> 
-> > +static inline u8 variable_ror8(u8 word, unsigned int shift)
-> > +{
-> > +	u32 word32 = ((u32)word << 24) | ((u32)word << 16) | ((u32)word << 8) | word;  
-> 
-> Can you add a comment about what is happening here? Are you sure it's
-> optimized out in case of the 'legacy' alternative?
+Add a kernel parameter to disable IPIs in IMSIC driver for platforms
+with trap-n-emulated IMSIC.
 
-Is it even a gain in the zbb case?
-The "rorw" is only ever going to help full word rotates.
-Here you might as well do ((word << 8 | word) >> shift).
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ Documentation/admin-guide/kernel-parameters.txt |  7 +++++++
+ drivers/irqchip/irq-riscv-imsic-early.c         | 12 ++++++++++++
+ 2 files changed, 19 insertions(+)
 
-For "rol8" you'd need ((word << 24 | word) 'rol' shift).
-I still bet the generic code is faster (but see below).
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index f1f2c0874da9..7f0e12d0d260 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -2538,6 +2538,13 @@
+ 			requires the kernel to be built with
+ 			CONFIG_ARM64_PSEUDO_NMI.
+ 
++	irqchip.riscv_imsic_noipi
++			[RISC-V,EARLY]
++			Force the kernel to not use IMSIC software injected MSIs
++			as IPIs. Intended for system where IMSIC is trap-n-emulated,
++			and thus want to reduce MMIO traps when triggering IPIs
++			to multiple harts.
++
+ 	irqfixup	[HW]
+ 			When an interrupt is not handled search all handlers
+ 			for it. Intended to get systems with badly broken
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index 1dbc41d7fe80..c6fba92dd5a9 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -9,6 +9,7 @@
+ #include <linux/cpu.h>
+ #include <linux/export.h>
+ #include <linux/interrupt.h>
++#include <linux/init.h>
+ #include <linux/io.h>
+ #include <linux/irq.h>
+ #include <linux/irqchip.h>
+@@ -22,6 +23,14 @@
+ #include "irq-riscv-imsic-state.h"
+ 
+ static int imsic_parent_irq;
++static bool imsic_noipi;
++
++static int __init imsic_noipi_cfg(char *buf)
++{
++	imsic_noipi = true;
++	return 0;
++}
++early_param("irqchip.riscv_imsic_noipi", imsic_noipi_cfg);
+ 
+ #ifdef CONFIG_SMP
+ static void imsic_ipi_send(unsigned int cpu)
+@@ -47,6 +56,9 @@ static int __init imsic_ipi_domain_init(void)
+ {
+ 	int virq;
+ 
++	if (imsic_noipi)
++		return 0;
++
+ 	/* Create IMSIC IPI multiplexing */
+ 	virq = ipi_mux_create(IMSIC_NR_IPI, imsic_ipi_send);
+ 	if (virq <= 0)
+-- 
+2.43.0
 
-Same for 16bit rotates.
-
-Actually the generic version is (probably) horrid for everything except x86.
-See https://www.godbolt.org/z/xTxYj57To
-
-unsigned char rol(unsigned char v, unsigned int shift)
-{
-    return (v << 8 | v) << shift >> 8;
-}
-
-unsigned char ror(unsigned char v, unsigned int shift)
-{
-    return (v << 8 | v) >> shift;
-}
-
-	David
 
 _______________________________________________
 linux-riscv mailing list
