@@ -4,82 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A6CC7115C
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 11:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9825C7115C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 11:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wwrAzf44ObTV3VeAa0kSl2Adgax6arhQGz3z5HXcsoU=; b=3+7TZatQNz2lmP
-	dN7FAJ0r1SrC2q6A5/u4cRzqBNc+yeFUEbe1lfT20D59yUx/HayMeVFZkn8lTRWsN0GJH0Va3XaUI
-	uilLyfrJVV9NzTzesY+MePIvsJsOR5gpp3Bt7ArcyinOWWLk2Jpn3xC9/ZV5sFRT2SMgO8IM09mOq
-	71m4UTTqs9kwJ67jQ0DSYKWIz1zwawX3BQfUBgy4j4/XmbJOvfJ/QvE9ShsCjmNReE1Gchj5vlZQp
-	WnT00apKsVR0v+lpV0R6rMd9PgsvBlaq4bxUNWssxUNh6ib9pDjrMxa0dD9XplN+iysxVTHJDJNJj
-	igERXUhiW+rvjGlUJiIg==;
+	List-Owner; bh=Z5IMk8UbPsEzpG8UIPXfvco7Rv4kd8c0QmN0T6kRCHY=; b=YuyjOpBXvBgsFz
+	qsYXViPdQNEZ4El4dteASJM0fRHGbkcXsyoPOplLvpYRxzy0UzRXtWaXoJDAQuFaZB06CtQuoIVxh
+	LrVQIMDDKeIpWrt6VpufCCalMYLeS7hTaqyqfUV0yUJqvqmGR3H2U+B59hB14fLdN3zL4ZsPlV+By
+	JTZOCw8pOuUc4xsSTVBs89l5kabrugCXE70nUgMGCLi+DmP+Wp8SM2BP/GbNi+bb/8h0tTFrOtMfQ
+	7nyzLNNg4pQKbPtJisJoQF6ImDOzaVTSha36e9WkPBv8eh3ZQB7UcKCfWp8y1w+Nq+S0YJlpP/Jtl
+	4/1nMqP/jjMU7jl0PVzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNyG-00000008Q6B-1Fcq;
-	Wed, 25 Jun 2025 11:07:16 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1uUNyJ-00000008Q9j-2NlU;
+	Wed, 25 Jun 2025 11:07:19 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMzX-00000008FIf-1XBG
+	id 1uUN5Q-00000008Gsv-36Hv
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Jun 2025 10:04:32 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e81cf6103a6so5746694276.3
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Jun 2025 03:04:31 -0700 (PDT)
+	Wed, 25 Jun 2025 10:10:37 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e84207a8aa3so3997572276.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Jun 2025 03:10:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750845870; x=1751450670; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1750846236; x=1751451036; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=2FoYZ4Nr01R53huec/tf1xznQvupBhVO4tbylq2xKes=;
-        b=AOOl2UGyqEzDQWMThw52s0fhHroBKN6q7+Jr2RNwqsdH0RzcdUOGNLZgDzLcoJGhKR
-         XxKW2RmjyKnzPdP0lenOiA/BCch9k13UclnscJ0AQR4dGrnmWNw53bI0n2o44jw8YWXu
-         mIDOXYeMrOxsfqAON2rTZ0PzpN1wbtrZGXaKMWhfovWp0x00OpdYzFQmRPpDN/t0y1Ik
-         yb9SAzyoTEKLov61N1osYuO1XG1zSF37DsF841vJkS2dkek5aV8VNA++xaWPhcbDvYdD
-         9PQ+mIFg30Gh+HE1Ax4MmBLEycmGzrjdQ47qya9+d0V0sg+Qu94l5kMPhkrjVss3C59h
-         N5gA==
+        bh=NyqCTrWRH38g5oBlyqrDfAPMaqAjSD4w/gNXRimf4zI=;
+        b=tYpKIon1PzXxh4LHm1ab0+wYqEWwMrruys3IGkaAjlPgvY4344kpjhSaMHhZtB8vOP
+         9K8vUOYSiOoBb2S9q6MvCCMuCz972DXVjXcRymThwXmMSx53BSIvViaWsdURObtaWYek
+         iAnN3z9C4W3LTSjL9WC4DBEM5X6EjiPVY59zH6yhYV2TT/F0e38dT+AYALjE2/Q9kGNu
+         CY2v6rYv5ifiYYLexNVzcyWDKCbL92R/xDR8P+QS7BQdPLm3KlN1WWrWy60aBXN/FYru
+         HVgH9Tno5FLswfe7tmQz2i2KbqWFqW1sUw+yg4vzhp/980i2aV9U0WfSQZX4rVcT523M
+         s13Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750845870; x=1751450670;
+        d=1e100.net; s=20230601; t=1750846236; x=1751451036;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=2FoYZ4Nr01R53huec/tf1xznQvupBhVO4tbylq2xKes=;
-        b=M0b6PhO04ScFK7Cz58MGLxrp9dVZeTn9wXriv6+8SQan/M10O53fu9oGMqQtSWP2YZ
-         Q2hs9AcgHlgElcW+1SGVMxkdgaeyBw728jdz9pnqyaIzceOVyoqfjey29x1GbEAlalyp
-         VLUVkev/3sUb9BXpb6pKb6J8zfS4Js8DjlyGa9Ro7e6Ui6oz+iz1H37h5lRCPPnrQ57f
-         a1/bVz49eAogbzEsj+DDfcZgDP6z9lj3pczx1Q6tbmc4+377TERv/pTiqze4JSyYWJXJ
-         vYRtvlBNI7LSDGjgTzQltL9QTRRyH5hT665wN5zOYJCqT2154MWpb872c4eXQ2o7+Ii+
-         yqoA==
-X-Forwarded-Encrypted: i=1; AJvYcCW14z+5k3/VPuHWG+GWOtSZXFIwTfeKkVW8tj6n0B+p2gQGBitYAssj5xtYRfdcpGQsgcZqBAvnzS9Zug==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOPHBYQU2UmczHyZNWU/2RtTiufj5JHFk39io50uFWSsm3W24G
-	yKxOnfYUQLSft8N4m88+CJKPHzFFMbXgovCqfSPoGJ5XvZBVghep2C92fFdjdcHCLRZQOMP8s87
-	ZsOxlzwr1c54uPoSd2MO7f4jzj+mFTwvMTMOw0kFy5Q==
-X-Gm-Gg: ASbGncu5RJpQrqgOo2V5ItIzwq+OcPTL48wMfYeO/UJfCO+aFvPWgw8pzq/DmCN+AcK
-	RymzF2N00tLznhJ2zMnSOdEZuYlD500+PMUky+yy+1Mbt5PHiCjiPRmLPMql6vkWPhDR2iYmvda
-	21h7ZLl9DWr+DXBrwH9TB42KOH07QZTBcY310keuCeHi4=
-X-Google-Smtp-Source: AGHT+IGEwF//unOd8KqnIb3kUSk3TkEl6eAh1VfDQazORQUWho3pyKqqzApD4UjhgThjUzADzPYQsRLphHC9Om0O8cU=
-X-Received: by 2002:a05:6902:100e:b0:e81:4a97:b8dc with SMTP id
- 3f1490d57ef6-e86019b93abmr2658200276.48.1750845870308; Wed, 25 Jun 2025
- 03:04:30 -0700 (PDT)
+        bh=NyqCTrWRH38g5oBlyqrDfAPMaqAjSD4w/gNXRimf4zI=;
+        b=WunblSG5JF8NFRoEGWHJ/61nlHak1F16/r1JE4+nAXAsa+m1sySp5cdD78m2PVgjVu
+         97AFIS/ondKSrtZgdWY16XSddoiF4yBZ0oJwEhulbSMjVcbiVb3nI2s+yqwU8GASBkAF
+         dw0hmW+vQvCSLUJGtaMvlsy4DdMvUyfqGXcQPpErG/nn2swCBcEwc1XVmzbwclGDM0HG
+         lV66Lw0yAx8QEs4mRmQz8mj0UniPqAcXLoXGxwmmRqHFb2WrV5vyEotiz8AtOiqeogYK
+         kaT5RSAHWs6bsLtJ3re+rFth9CtWvOfNk5TJ0qWKTAANRpL3kV0DGcxtxg8BMY+QkoyP
+         RkOw==
+X-Forwarded-Encrypted: i=1; AJvYcCXKEQF6G+HukiujFWblE4N0lCo1s8ENKvMYXH85k8voNvgtU5iHCPm+/7g9h2kCckvgxyZ48CgRpjsPDg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YybPIR2KrlHfzLOlR/oVeXtQ5PWbPR8oNDJUrN8Tn3IJ01sOEIh
+	nur6NFY9wGlZOO7ORZ2EiLddaO+goKLWgLtb/wseR4Xxe7lAAOrCVkVIKuiuZcHksVzUNUuuIBG
+	82njGR6sMhHKJiugG9NOjFr2ifSkKNMCiRSRrxM7O9Q==
+X-Gm-Gg: ASbGnctPn/mHPzycrZqM2WXOWsqiuRPlVhbgv2CjoX3+XDXLV46LqATjsqeZLw4PbrS
+	uKJGWVt+EDXMbNmJm8nILBySmTQIzOwave6cFUGm4qAkSyL/QLcQ/b4OsSrXcPH6PyxA6SKEBMB
+	7LdZVoS+b1zqCAguF6O4CCcHRP9p8uIZKLY1ESWpKYsIw=
+X-Google-Smtp-Source: AGHT+IGe9cdom9zPx5u2qPQ0tKYQR48QY3X3hjRnSL5OJURAbiiA4qXISjJMreIIdvqnR03DBzmyaEkxFKrpD5ccSCA=
+X-Received: by 2002:a05:6902:1703:b0:e81:9aa9:88d0 with SMTP id
+ 3f1490d57ef6-e86018ef2f7mr2666888276.40.1750846235599; Wed, 25 Jun 2025
+ 03:10:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250624-pwrseq-match-defines-v1-0-a59d90a951f1@linaro.org>
-In-Reply-To: <20250624-pwrseq-match-defines-v1-0-a59d90a951f1@linaro.org>
+References: <CGME20250623114429eucas1p1e74e09e74c5873b2f7f01228073be72a@eucas1p1.samsung.com>
+ <20250623-apr_14_for_sending-v6-0-6583ce0f6c25@samsung.com>
+In-Reply-To: <20250623-apr_14_for_sending-v6-0-6583ce0f6c25@samsung.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 25 Jun 2025 12:03:54 +0200
-X-Gm-Features: Ac12FXxb7NJQLDFAGAZjqxBIaCwRE2IAI0_rkmMKymSaefvVyWHj4pimfXs-K_g
-Message-ID: <CAPDyKFqUZ4pVPgrWfCjH2dDBPRs37L9nc_tAqOtUR=0hzweKVA@mail.gmail.com>
-Subject: Re: [PATCH 0/5] pwrseq: replace magic numbers with defines for
- match() return values
-To: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 25 Jun 2025 12:09:59 +0200
+X-Gm-Features: AX0GCFuzRfZFQhIpkvF03Pc7_qxAuJk_yHypckCZgiSZSQVUDRcV_4FwsCAnQX0
+Message-ID: <CAPDyKFrCeYxtqscX8Vr165HMOcSof_d62PMtRwt_yDyZ4ujSDQ@mail.gmail.com>
+Subject: Re: [PATCH v6 0/8] Add TH1520 GPU support with power sequencing
+To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Frank Binns <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_030431_415875_8570B291 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20250625_031036_778620_9B3FBF69 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,40 +105,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Jun 2025 at 16:32, Bartosz Golaszewski <brgl@bgdev.pl> wrote:
+On Mon, 23 Jun 2025 at 13:44, Michal Wilczynski
+<m.wilczynski@samsung.com> wrote:
 >
-> We currently use 0 or 1 as magic numbers returned from the match()
-> callback. It's more readable to replace them with proper defines whose
-> names indicate the meaning. While at it: fix a build issue with the
-> thead-gpu driver I noticed and extend build coverage for the drivers.
+> This patch series introduces support for the Imagination IMG BXM-4-64
+> GPU found on the T-HEAD TH1520 SoC. A key aspect of this support is
+> managing the GPU's complex power-up and power-down sequence, which
+> involves multiple clocks and resets.
 >
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
-> Bartosz Golaszewski (5):
->       pwrseq: thead-gpu: add missing header
->       pwrseq: extend build coverage for pwrseq drivers with COMPILE_TEST=y
->       pwrseq: add defines for return values of the match() callback
->       pwrseq: qcom-wcn: use new defines for match() return values
->       pwrseq: thead-gpu: use new defines for match() return values
+> The TH1520 GPU requires a specific sequence to be followed for its
+> clocks and resets to ensure correct operation. Initial discussions and
+> an earlier version of this series explored managing this via the generic
+> power domain (genpd) framework. However, following further discussions
+> with kernel maintainers [1], the approach has been reworked to utilize
+> the dedicated power sequencing (pwrseq) framework.
 >
->  drivers/power/sequencing/Kconfig            |  4 ++--
->  drivers/power/sequencing/core.c             |  6 +++---
->  drivers/power/sequencing/pwrseq-qcom-wcn.c  |  8 ++++----
->  drivers/power/sequencing/pwrseq-thead-gpu.c | 12 +++++++-----
->  include/linux/pwrseq/provider.h             |  3 +++
->  5 files changed, 19 insertions(+), 14 deletions(-)
-> ---
-> base-commit: d4c2d9b5b7ceed14a3a835fd969bb0699b9608d3
-> change-id: 20250624-pwrseq-match-defines-aec46817e69e
+> This revised series now employs a new pwrseq provider driver
+> (pwrseq-thead-gpu.c) specifically for the TH1520 GPU. This driver
+> encapsulates the SoC specific power sequence details. The Imagination
+> GPU driver (pvr_device.c) is updated to act as a consumer of this power
+> sequencer, requesting the "gpu-power" target. The sequencer driver,
+> during its match phase with the GPU device, acquires the necessary clock
+> and reset handles from the GPU device node to perform the full sequence.
 >
-> Best regards,
-> --
-> Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> This approach aligns with the goal of abstracting SoC specific power
+> management details away from generic device drivers and leverages the
+> pwrseq framework as recommended.
 >
+> The series is structured as follows:
+>
+> Patch 1: Introduces the pwrseq-thead-gpu auxiliary driver to manage the
+>          GPU's power-on/off sequence.
+> Patch 2: Adds device tree bindings for the gpu-clkgen reset to the
+>          existing thead,th1520-aon binding.
+> Patch 3: Extends the pm-domains driver to detect the gpu-clkgen reset
+>          and spawn the pwrseq-thead-gpu auxiliary driver.
+> Patch 4: Updates the Imagination DRM driver to utilize the pwrseq
+>          framework for TH1520 GPU power management.
+> Patch 5: Adds the thead,th1520-gpu compatible string to the PowerVR GPU
+>          device tree bindings.
+> Patch 6: Adds the gpu-clkgen reset property to the aon node in the
+>          TH1520 device tree source.
+> Patch 7: Adds the device tree node for the IMG BXM-4-64 GPU and its
+>          required fixed-clock.
+> Patch 8: Enables compilation of the Imagination PowerVR driver on the
+>          RISC-V architecture.
+>
+> This patchset finishes the work started in bigger series [2] by adding
+> all remaining GPU power sequencing piece. After this patchset the GPU
+> probes correctly.
+>
+> This series supersedes the previous genpd based approach. Testing on
+> T-HEAD TH1520 SoC indicates the new pwrseq based solution works
+> correctly.
 
-For the series, feel free to add:
+I have applied patch2 and patch3 for next via the pmdomain tree, thanks!
 
-Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+Note that, the DT patch (patch2) is also available on the immutable dt
+branch, if it needs to be pulled into some other tree.
+
+[...]
 
 Kind regards
 Uffe
