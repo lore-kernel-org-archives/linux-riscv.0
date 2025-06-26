@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5388C7EE30
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 15:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6322C7EE31
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 15:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0oq1rHr+k98CD4L0pAbNLf3JFPqzlsayr7DwTvMxP2Y=; b=l9QYZnpUnWtg39
-	8zblYoqFZkpEuuW4+S928Zhs75B49uHfJt40sJhQJmhWFqQ4GA+UpYLa/bVZ/fWAslC7gEkvdSf6r
-	sXnhZfC++U9ltbUfp5w4ff46XtvgGXXNYe+Xm3Lv0Hb7d+P9iPzTCqMrXJ5BaU7LCuQi4aEEl09Dw
-	4GhmOLNlCW/6l3Vml2lLusYTycSh88+O9asa+o/PYh7NefzIM80wca08bIJLQGlXf7tCiy/YhGxpd
-	6e23iovgZIsDKaFduc8bkIXwdUNLeOGf8qhinAqGFNnC4W+095VLyvefdTlfMjaTRXI861vFpACrV
-	swxBRyg59IXTAE743reQ==;
+	List-Owner; bh=bRhZ7qulCNf9Nzd6wvJ/tGnn2exV+/FGAX5IzO4CWio=; b=4SQgS6m186OVAR
+	orBNI65W8wtKhvzrCK/1ulUaaLRGUz2ogwSRgXCPyxK1qyx12366zg5aw/bu/WlXcNQMFpviA5CCA
+	USKVme59X91JvdQAddrL2AC+bJI/pJOH9wVLQYqxwVvAVpUVrTHVqKJejvwFjgtC+jYO21c7eCR0Y
+	oPcN6ZLhtXcLHvO2gnzRLVMwOvMVoRD/Ej9mjE7K5OtDkALJAHiFmCQHRiNDoEFOhVjMsxTQn/7zD
+	o+mgtXrGyFh5fYk30nc7L7wTeTNMPFUxIHQvSXtl0J0pTxnr/XRtFH385Fp0esB9Au6r4uo+eKZ5H
+	EIRfrkFHd0O6I7ebk7zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUoje-0000000CATC-0thZ;
-	Thu, 26 Jun 2025 15:41:58 +0000
+	id 1uUoly-0000000CAsA-2ZAZ;
+	Thu, 26 Jun 2025 15:44:22 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnuy-0000000BzzF-3rlm;
-	Thu, 26 Jun 2025 14:49:38 +0000
+	id 1uUnv0-0000000C00O-43wG;
+	Thu, 26 Jun 2025 14:49:40 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750949375;
+	s=2020; t=1750949377;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pKzcREMF/JSs7xXlqj/sW2W9jbHL2lsx1h1l0bkVD/k=;
-	b=mknJkKZ3dsxzRYSiFcfJAu8ZW0SvTtRoiLXI+AItcOAmWaNPgnHkjQSUezF9K1TXydwAiY
-	SperwGoSIVLi++KTIn3bMYSZ2lOnCiBj0Ts3LIrZs2tKAiv+UFGDjfzbYQd1FyQ69rKg0N
-	K0cxzDk8398RDbeMhu1rFKyUt3eBaXaI6sP6ghQjlbMq0OYu2KR5U9U86ZXStAKt068mjY
-	W7MhZ3WIaBMp8pq7UWxlS/lcdV6R60bVqg4IQIl2WbC790qDBWAAO2F+thAsz8Ui88ZydK
-	xALxRwiZe5MoA68JoVqyhBrwozvsxggJsWbA30nfBR4Gqo+9JkGxB3liXIediQ==
+	bh=Z2aznJGf1J+nG8uzCfZ1sNahDbmhHRYzTMg4koq1VzA=;
+	b=Idsc8a/+lTtARTa2nNQrRNQvokiSlvPFnhxaytrQ1nkjwUGdApgKmyVsjOyhGmvOp4ruxo
+	wHOArztVX7uJfBbPcb5uK+/ha9KjEzBrVLjNkwu4ToXBKnDeNVvgtVZ8Jffcp3WCHD51dl
+	tyLoQN/tcNmUDMdoQU3HAuCbuIfqzUKHZmtWJodFHRT7kxMZyK/w2cMUg7W6AvnE+ddqoX
+	5JplpIQjp7LKjWwfnjsu2LpTon/d3QZLEUXZUD1WroEV9z9Yy82LiFMJ1LklSdz+Pdc8vG
+	ZHYAO9xbNSUowGTAn9O4rGFjA7rTnPg3VI26DrrCoifOHT9hriabbgAbyz0+TQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750949375;
+	s=2020e; t=1750949377;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pKzcREMF/JSs7xXlqj/sW2W9jbHL2lsx1h1l0bkVD/k=;
-	b=zh/sN6K5PYvw9e+ovearVI0kjX5nowPlZtz10Zu4nVjSVwP16igkDrKBXczXR3H3H4b0LD
-	Yo36rnD4pBvjeiAA==
+	bh=Z2aznJGf1J+nG8uzCfZ1sNahDbmhHRYzTMg4koq1VzA=;
+	b=JBEOGIcDy1WIGOz1iEnahNhZLPLAPyxSPGYQw3pRNaIE4sX+XH1TNAh/rWBgqYtgSBL7GW
+	zn74SJJMSYMKUdCA==
 To: Marc Zyngier <maz@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Antoine Tenart <atenart@kernel.org>,
@@ -71,15 +71,15 @@ To: Marc Zyngier <maz@kernel.org>,
 	linux-mips@vger.kernel.org,
 	linux-riscv@lists.infradead.org
 Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 07/12] irqchip/alpine-msi: Clean up whitespace style
-Date: Thu, 26 Jun 2025 16:49:04 +0200
-Message-Id: <3bbf719fcd974b0f52a832552b986116bdc70203.1750860131.git.namcao@linutronix.de>
+Subject: [PATCH 09/12] irqchip/alpine-msi: Convert to __free
+Date: Thu, 26 Jun 2025 16:49:06 +0200
+Message-Id: <ff2c9460d03e44cb2946521dbae5ce800d34523e.1750860131.git.namcao@linutronix.de>
 In-Reply-To: <cover.1750860131.git.namcao@linutronix.de>
 References: <cover.1750860131.git.namcao@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074937_122491_E1A19371 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20250626_074939_173500_ADB30C84 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,7 +98,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Tidy up the code style. Whitespace changes only.
+Tidy up the code with __free. No functional change.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Signed-off-by: Nam Cao <namcao@linutronix.de>
@@ -106,128 +106,80 @@ Signed-off-by: Nam Cao <namcao@linutronix.de>
 Cc: Antoine Tenart <atenart@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- drivers/irqchip/irq-alpine-msi.c | 37 +++++++++++---------------------
- 1 file changed, 13 insertions(+), 24 deletions(-)
+ drivers/irqchip/irq-alpine-msi.c | 31 ++++++++++++-------------------
+ 1 file changed, 12 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/irqchip/irq-alpine-msi.c b/drivers/irqchip/irq-alpine-msi.c
-index a5289dc26dca0..7e379a6985a6a 100644
+index cf188e5feefc0..43d6db290138a 100644
 --- a/drivers/irqchip/irq-alpine-msi.c
 +++ b/drivers/irqchip/irq-alpine-msi.c
-@@ -29,11 +29,11 @@
- #define ALPINE_MSIX_SPI_TARGET_CLUSTER0		BIT(16)
+@@ -207,11 +207,10 @@ static int alpine_msix_init_domains(struct alpine_msix_data *priv, struct device
  
- struct alpine_msix_data {
--	spinlock_t msi_map_lock;
--	phys_addr_t addr;
--	u32 spi_first;		/* The SGI number that MSIs start */
--	u32 num_spis;		/* The number of SGIs for MSIs */
--	unsigned long *msi_map;
-+	spinlock_t	msi_map_lock;
-+	phys_addr_t	addr;
-+	u32		spi_first;	/* The SGI number that MSIs start */
-+	u32		num_spis;	/* The number of SGIs for MSIs */
-+	unsigned long	*msi_map;
- };
- 
- static void alpine_msix_mask_msi_irq(struct irq_data *d)
-@@ -76,8 +76,7 @@ static int alpine_msix_allocate_sgi(struct alpine_msix_data *priv, int num_req)
- 	return priv->spi_first + first;
- }
- 
--static void alpine_msix_free_sgi(struct alpine_msix_data *priv, unsigned sgi,
--				 int num_req)
-+static void alpine_msix_free_sgi(struct alpine_msix_data *priv, unsigned int sgi, int num_req)
+ static int alpine_msix_init(struct device_node *node, struct device_node *parent)
  {
- 	int first = sgi - priv->spi_first;
- 
-@@ -88,14 +87,12 @@ static void alpine_msix_free_sgi(struct alpine_msix_data *priv, unsigned sgi,
- 	spin_unlock(&priv->msi_map_lock);
- }
- 
--static void alpine_msix_compose_msi_msg(struct irq_data *data,
--					struct msi_msg *msg)
-+static void alpine_msix_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- {
- 	struct alpine_msix_data *priv = irq_data_get_irq_chip_data(data);
- 	phys_addr_t msg_addr = priv->addr;
- 
- 	msg_addr |= (data->hwirq << 3);
--
- 	msg->address_hi = upper_32_bits(msg_addr);
- 	msg->address_lo = lower_32_bits(msg_addr);
- 	msg->data = 0;
-@@ -116,8 +113,7 @@ static struct irq_chip middle_irq_chip = {
- 	.irq_compose_msi_msg	= alpine_msix_compose_msi_msg,
- };
- 
--static int alpine_msix_gic_domain_alloc(struct irq_domain *domain,
--					unsigned int virq, int sgi)
-+static int alpine_msix_gic_domain_alloc(struct irq_domain *domain, unsigned int virq, int sgi)
- {
- 	struct irq_fwspec fwspec;
- 	struct irq_data *d;
-@@ -138,12 +134,10 @@ static int alpine_msix_gic_domain_alloc(struct irq_domain *domain,
- 
- 	d = irq_domain_get_irq_data(domain->parent, virq);
- 	d->chip->irq_set_type(d, IRQ_TYPE_EDGE_RISING);
--
- 	return 0;
- }
- 
--static int alpine_msix_middle_domain_alloc(struct irq_domain *domain,
--					   unsigned int virq,
-+static int alpine_msix_middle_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 					   unsigned int nr_irqs, void *args)
- {
- 	struct alpine_msix_data *priv = domain->host_data;
-@@ -161,7 +155,6 @@ static int alpine_msix_middle_domain_alloc(struct irq_domain *domain,
- 		irq_domain_set_hwirq_and_chip(domain, virq + i, sgi + i,
- 					      &middle_irq_chip, priv);
- 	}
--
- 	return 0;
- 
- err_sgi:
-@@ -170,8 +163,7 @@ static int alpine_msix_middle_domain_alloc(struct irq_domain *domain,
- 	return err;
- }
- 
--static void alpine_msix_middle_domain_free(struct irq_domain *domain,
--					   unsigned int virq,
-+static void alpine_msix_middle_domain_free(struct irq_domain *domain, unsigned int virq,
- 					   unsigned int nr_irqs)
- {
- 	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
-@@ -186,8 +178,7 @@ static const struct irq_domain_ops alpine_msix_middle_domain_ops = {
- 	.free	= alpine_msix_middle_domain_free,
- };
- 
--static int alpine_msix_init_domains(struct alpine_msix_data *priv,
--				    struct device_node *node)
-+static int alpine_msix_init_domains(struct alpine_msix_data *priv, struct device_node *node)
- {
- 	struct irq_domain *middle_domain, *msi_domain, *gic_domain;
- 	struct device_node *gic_node;
-@@ -224,8 +215,7 @@ static int alpine_msix_init_domains(struct alpine_msix_data *priv,
- 	return 0;
- }
- 
--static int alpine_msix_init(struct device_node *node,
--			    struct device_node *parent)
-+static int alpine_msix_init(struct device_node *node, struct device_node *parent)
- {
- 	struct alpine_msix_data *priv;
+-	struct alpine_msix_data *priv;
++	struct alpine_msix_data *priv __free(kfree) = kzalloc(sizeof(*priv), GFP_KERNEL);
  	struct resource res;
-@@ -271,8 +261,7 @@ static int alpine_msix_init(struct device_node *node,
- 		goto err_priv;
+ 	int ret;
+ 
+-	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+ 	if (!priv)
+ 		return -ENOMEM;
+ 
+@@ -220,7 +219,7 @@ static int alpine_msix_init(struct device_node *node, struct device_node *parent
+ 	ret = of_address_to_resource(node, 0, &res);
+ 	if (ret) {
+ 		pr_err("Failed to allocate resource\n");
+-		goto err_priv;
++		return ret;
  	}
  
--	pr_debug("Registering %d msixs, starting at %d\n",
--		 priv->num_spis, priv->spi_first);
-+	pr_debug("Registering %d msixs, starting at %d\n", priv->num_spis, priv->spi_first);
+ 	/*
+@@ -235,34 +234,28 @@ static int alpine_msix_init(struct device_node *node, struct device_node *parent
+ 
+ 	if (of_property_read_u32(node, "al,msi-base-spi", &priv->spi_first)) {
+ 		pr_err("Unable to parse MSI base\n");
+-		ret = -EINVAL;
+-		goto err_priv;
++		return -EINVAL;
+ 	}
+ 
+ 	if (of_property_read_u32(node, "al,msi-num-spis", &priv->num_spis)) {
+ 		pr_err("Unable to parse MSI numbers\n");
+-		ret = -EINVAL;
+-		goto err_priv;
++		return -EINVAL;
+ 	}
+ 
+-	priv->msi_map = bitmap_zalloc(priv->num_spis, GFP_KERNEL);
+-	if (!priv->msi_map) {
+-		ret = -ENOMEM;
+-		goto err_priv;
+-	}
++	unsigned long *msi_map __free(kfree) = bitmap_zalloc(priv->num_spis, GFP_KERNEL);
++
++	if (!msi_map)
++		return -ENOMEM;
++	priv->msi_map = msi_map;
+ 
+ 	pr_debug("Registering %d msixs, starting at %d\n", priv->num_spis, priv->spi_first);
  
  	ret = alpine_msix_init_domains(priv, node);
  	if (ret)
+-		goto err_map;
++		return ret;
+ 
++	retain_and_null_ptr(priv);
++	retain_and_null_ptr(msi_map);
+ 	return 0;
+-
+-err_map:
+-	bitmap_free(priv->msi_map);
+-err_priv:
+-	kfree(priv);
+-	return ret;
+ }
+ IRQCHIP_DECLARE(alpine_msix, "al,alpine-msix", alpine_msix_init);
 -- 
 2.39.5
 
