@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE23C7EE31
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 15:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B01E7C7EE31
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 15:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RQhe9zqOZToncfAhLLyKN7tAOK5gaF9hURb/91Mvw0k=; b=1ZX4AxbflZivy3
-	jEpu008fncEzWZbG7Q9nQtGnSkqJPeWaCC3AIbzjDoLdf/yLs3LJY3IEvg2HS/VClhU32mzJVUPp0
-	IHvKXT3UEWS6Q+/vGh0VJtToGzR32T5u0BVPjtXSL7TOiIa4RwkQ6nMNIzvNMcvkSrtoeiXM17EaB
-	FPfo4bbscR5zYxCo15VeSfaYFFElTL3FBU14WcasdvicofgJo8OSIlLxPYvkhkA7kvSHN+3svaX2M
-	YZD+03QA/X1+KrmFBt8DcqfBfBKZERHcH35sjFRmb9HKB5nb0KhjXC3SKfcSl7DB0a480PJSGNb5h
-	cEZ2721ZS3SsYDE/owxQ==;
+	List-Owner; bh=HdIhTnVjkewc2QtsIqZqBgoNzy6qAqXhCzRsVQ20Oto=; b=CG2JaI0wqBWk4O
+	wVBRaV2Dl29aopACFqpF6hVO4MxrfN/EdL5lt8rNY30vHpHo1ydkYaMReohfiiH/hVR7lsWlv1zPO
+	5nFUX30Xkm5EXCNwiJS61Zuv8Gl4YGuAjPA2X9S4ObNcObKUPshttDqTcRUygx4gSQV9VaDeXQL+R
+	uW0Q8e5yz9fn+gkp3L6TlvRSq+auStcS6wSpf6PiOyccLBstbY8scfu6D/YOklQRBcYXdo0hTOKhs
+	H/MRLnHhac3B/PKDiRpwwVTmUY7Ap2NgXjR9woWoud//zzoTOiaWtyS/aK/vnz9yvzaj3zTvCzh8A
+	xCXUC7Mm6woJNZ8OMygw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUocJ-0000000C8kG-3PEy;
-	Thu, 26 Jun 2025 15:34:23 +0000
+	id 1uUoea-0000000C9Bh-0xzh;
+	Thu, 26 Jun 2025 15:36:44 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnut-0000000Bzw7-1ETh;
-	Thu, 26 Jun 2025 14:49:32 +0000
+	id 1uUnut-0000000BzwQ-4ACc;
+	Thu, 26 Jun 2025 14:49:33 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1750949370;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
+	 to:to:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=R1h6sQyjT8FDCPgBDdSgNZubpG9nhAkbkG2lkhugPhQ=;
-	b=MOZ6E7iCTTEcetQzCELuNNuAx46vOhJE14mS5kWCVx4b/hnfKfKTmEpmq/QC0A9/FB0qAi
-	k6gq5qNFLVX/E/WI4svdHeFVdjv4MFup2wUKRr6oPKVlV0PH14Qth60GR9sA84tuam5m3x
-	YfD899AMdpHiYFtrCB4BcIg1Y8sWAa41X89Hq+yurNqbxgHh7rxn13z0QiIKruUeacYL4J
-	ptyXr6wwLw3rTN+FMbHwc+qBSsVoxW/+c9UYdyXY1Tmutcb9OQyrGQysQdiyOJxlcj3I5z
-	hzuqwRtzKP4YyLhzvgFaG1+1FO0FV1iLpuoUmY/H0jJKTdgDW+41KgIETpvJ6A==
+	bh=fupjHTV5DnOmVcgCuGo7Gn43pEA+0f/cXil9unSCcGQ=;
+	b=Le0CtdFBiqX2btBCd9aUHwSpvNJJiERCenIY0xuoHYXzpcWz2J+t6YAvYp0KU/Ah9dP9Fj
+	aqOGCEsXMWdkZdfNy2manEE695M6vy8P3+cS8qpYiZYHsKvkdmAWebgkaazG398a+Y5Bsp
+	U3TtFq3Re6osMhOL5sP/6tgiASvW1/GDVOgJJhX3P/oBJ3tLGToiEHKNwBRJbnLAOqABKN
+	XSZROilhPoyjGfqXrJBqR/9D7VFdFzhs88J4n0uEM1hF6Se8qjzY5WWJiXMG3KcMOQ/eF4
+	bVtOKD+LeaQ3bP4pak/PmNjfsHaJYPkG715aZJ4vJqjFVWocYyBh1pGn1D5teA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1750949370;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
+	 to:to:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=R1h6sQyjT8FDCPgBDdSgNZubpG9nhAkbkG2lkhugPhQ=;
-	b=65z1qE3l+CngzEH4hNvhsaFiTqSH3y7pkFbPyEi+jWPHv0rSZHOo5JR2/C0Qje6SB9PiLj
-	p6dBstpI32Jtq3AQ==
+	bh=fupjHTV5DnOmVcgCuGo7Gn43pEA+0f/cXil9unSCcGQ=;
+	b=Mzr5HnfB60mMPL7NGoooAyg1xNzdkmbmHxXDYU5fjXyt0j9iN7EVzDaRqZ7rQSd7VG1RaK
+	/trtgHhcMHyE3rDQ==
 To: Marc Zyngier <maz@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Antoine Tenart <atenart@kernel.org>,
@@ -70,16 +70,16 @@ To: Marc Zyngier <maz@kernel.org>,
 	imx@lists.linux.dev,
 	linux-mips@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 01/12] irqdomain: Add device pointer to irq_domain_info and msi_domain_info
-Date: Thu, 26 Jun 2025 16:48:58 +0200
-Message-Id: <943e52403b20cf13c320d55bd4446b4562466aab.1750860131.git.namcao@linutronix.de>
+Subject: [PATCH 02/12] irqchip/bcm2712-mip: Switch to msi_create_parent_irq_domain()
+Date: Thu, 26 Jun 2025 16:48:59 +0200
+Message-Id: <92a6d68db014e945337c10649a41605da05783da.1750860131.git.namcao@linutronix.de>
 In-Reply-To: <cover.1750860131.git.namcao@linutronix.de>
 References: <cover.1750860131.git.namcao@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074931_474586_7B758FC2 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20250626_074932_187704_DA32671B 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,98 +98,47 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Add device pointer to irq_domain_info and msi_domain_info, so that device
-can be specified at domain creation.
+Switch to use the concise helper to create an MSI parent domain.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Signed-off-by: Nam Cao <namcao@linutronix.de>
+Signed-off-by: Nam Cao <tglx@linutronix.de>
 ---
- include/linux/irqdomain.h | 2 ++
- include/linux/msi.h       | 2 ++
- kernel/irq/irqdomain.c    | 1 +
- kernel/irq/msi.c          | 3 ++-
- 4 files changed, 7 insertions(+), 1 deletion(-)
+ drivers/irqchip/irq-bcm2712-mip.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
-index 7387d183029b7..266b5e5bb8ced 100644
---- a/include/linux/irqdomain.h
-+++ b/include/linux/irqdomain.h
-@@ -279,6 +279,7 @@ struct irq_domain_chip_generic_info;
-  *			domains are added using same fwnode
-  * @ops:		Domain operation callbacks
-  * @host_data:		Controller private data pointer
-+ * @dev:		Device which creates the domain
-  * @dgc_info:		Geneneric chip information structure pointer used to
-  *			create generic chips for the domain if not NULL.
-  * @init:		Function called when the domain is created.
-@@ -298,6 +299,7 @@ struct irq_domain_info {
- 	const char				*name_suffix;
- 	const struct irq_domain_ops		*ops;
- 	void					*host_data;
-+	struct device				*dev;
- #ifdef CONFIG_IRQ_DOMAIN_HIERARCHY
- 	/**
- 	 * @parent: Pointer to the parent irq domain used in a hierarchy domain
-diff --git a/include/linux/msi.h b/include/linux/msi.h
-index 6863540f4b717..77227d23ea84b 100644
---- a/include/linux/msi.h
-+++ b/include/linux/msi.h
-@@ -488,6 +488,7 @@ struct msi_domain_ops {
-  *			gets initialized to the maximum software index limit
-  *			by the domain creation code.
-  * @ops:		The callback data structure
-+ * @dev:		Device which creates the domain
-  * @chip:		Optional: associated interrupt chip
-  * @chip_data:		Optional: associated interrupt chip data
-  * @handler:		Optional: associated interrupt flow handler
-@@ -501,6 +502,7 @@ struct msi_domain_info {
- 	enum irq_domain_bus_token	bus_token;
- 	unsigned int			hwsize;
- 	struct msi_domain_ops		*ops;
-+	struct device			*dev;
- 	struct irq_chip			*chip;
- 	void				*chip_data;
- 	irq_flow_handler_t		handler;
-diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
-index c8b6de09047be..4afbd3ac532fb 100644
---- a/kernel/irq/irqdomain.c
-+++ b/kernel/irq/irqdomain.c
-@@ -317,6 +317,7 @@ static struct irq_domain *__irq_domain_instantiate(const struct irq_domain_info
+diff --git a/drivers/irqchip/irq-bcm2712-mip.c b/drivers/irqchip/irq-bcm2712-mip.c
+index 63de5ef6cf2db..9bd7bc0bf6d59 100644
+--- a/drivers/irqchip/irq-bcm2712-mip.c
++++ b/drivers/irqchip/irq-bcm2712-mip.c
+@@ -172,18 +172,18 @@ static const struct msi_parent_ops mip_msi_parent_ops = {
  
- 	domain->flags |= info->domain_flags;
- 	domain->exit = info->exit;
-+	domain->dev = info->dev;
+ static int mip_init_domains(struct mip_priv *mip, struct device_node *np)
+ {
+-	struct irq_domain *middle;
+-
+-	middle = irq_domain_create_hierarchy(mip->parent, 0, mip->num_msis, of_fwnode_handle(np),
+-					     &mip_middle_domain_ops, mip);
+-	if (!middle)
++	struct irq_domain_info info = {
++		.fwnode		= of_fwnode_handle(np),
++		.ops		= &mip_middle_domain_ops,
++		.host_data	= mip,
++		.size		= mip->num_msis,
++		.parent		= mip->parent,
++		.dev		= mip->dev,
++	};
++
++	if (!msi_create_parent_irq_domain(&info, &mip_msi_parent_ops))
+ 		return -ENOMEM;
  
- #ifdef CONFIG_IRQ_DOMAIN_HIERARCHY
- 	if (info->parent) {
-diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
-index 9febe797a5f6a..9b09ad3f9914c 100644
---- a/kernel/irq/msi.c
-+++ b/kernel/irq/msi.c
-@@ -889,6 +889,7 @@ static struct irq_domain *__msi_create_irq_domain(struct fwnode_handle *fwnode,
- 
- 	if (domain) {
- 		irq_domain_update_bus_token(domain, info->bus_token);
-+		domain->dev = info->dev;
- 		if (info->flags & MSI_FLAG_PARENT_PM_DEV)
- 			domain->pm_dev = parent->pm_dev;
- 	}
-@@ -1051,6 +1052,7 @@ bool msi_create_device_irq_domain(struct device *dev, unsigned int domid,
- 	bundle->info.data = domain_data;
- 	bundle->info.chip_data = chip_data;
- 	bundle->info.alloc_data = &bundle->alloc_info;
-+	bundle->info.dev = dev;
- 
- 	pops = parent->msi_parent_ops;
- 	snprintf(bundle->name, sizeof(bundle->name), "%s%s-%s",
-@@ -1089,7 +1091,6 @@ bool msi_create_device_irq_domain(struct device *dev, unsigned int domid,
- 	if (!domain)
- 		return false;
- 
--	domain->dev = dev;
- 	dev->msi.data->__domains[domid].domain = domain;
- 
- 	if (msi_domain_prepare_irqs(domain, dev, hwsize, &bundle->alloc_info)) {
+-	irq_domain_update_bus_token(middle, DOMAIN_BUS_GENERIC_MSI);
+-	middle->dev = mip->dev;
+-	middle->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
+-	middle->msi_parent_ops = &mip_msi_parent_ops;
+-
+ 	/*
+ 	 * All MSI-X unmasked for the host, masked for the VPU, and edge-triggered.
+ 	 */
 -- 
 2.39.5
 
