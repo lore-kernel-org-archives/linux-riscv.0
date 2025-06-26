@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE596C7EE30
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 16:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3DBBC7EE32
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 16:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ejAR7G9ZiN4fRlXIdpgyABrOaOvbzhEoVe7T/dTCNEo=; b=qGaMORSF8BRi3S
-	ZAG2YFSYkVgChNSzfaUzzhW3rYgtR90o5/0KLaa2bYVexGeUf7xxnhTL4kraGhjP9FpqtzIo1Gsw5
-	b9IZGOas4SQ0dhKZyYgdgp4fPJOkEkPpf5QFzttFKhm4gsiC/meHr6hifgdRSM5HSwBXVmZWQiKUO
-	7hhGB0PYvwiVOl9mwnPKCyfHSVq7yMm3nn5QXRThVfx+1gFxWsrVFn6oLpcR59FoICH0unsKG5YAk
-	jJ02OPUThFs/XGBtpSntgVgYfjNloG/PckT2/HE07DyIN8YEwFcgAe4xgHRPPmAuizfsUZnZF1i4N
-	RmdDuQyYY1fj6Bdkx0Uw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IkM5RBIh2Z8pK4uynSob8cjV81j58F+TLQbwNIwvQxM=; b=QEMT8Djg4x9LhRAtjkSt0XAk9y
+	xqlqp2F4uXGup1mUhGiNou68TRar1ZSrCTEaO73RXqX4BpudfNLLfCCxIznnfScCFgZe0jMntW+dK
+	Z06KOcIXG25q8cgl3MnYdgSWzANQuXSiUdXRfFz9aiMnlxZ+fhBunJrSn2LmkOPkyRkD++uejpaS0
+	6AJRB/hKl1uV9vlmoWqxoG+Ur9Ev4xtyG9auiebVf8RNsOMeCq+S9auriJJBg8Mvuto3JhIulDDNM
+	viBM5PhcqbSnjJm3XzMavKgztO412lTSpSodNpQl6UCJw4SZr3kuAUJVnpFskCJPZRv/h62rI2RoJ
+	3FJYGpvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUpSH-0000000CH0o-0FOM;
-	Thu, 26 Jun 2025 16:28:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUpSI-0000000CH1Y-1szZ;
+	Thu, 26 Jun 2025 16:28:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUpDI-0000000CET6-2PY0;
-	Thu, 26 Jun 2025 16:12:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:To:From:Date:Sender:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=; b=WZUaYR4MGDcwA72Cd1oB7SIN0F
-	IFMAmPV7c00mJPk2CVhNVrN29w8KbLmEphp3RL4R63R4OUaUKxPZYcVSAN2tY/ZlU8l5OCWyQavDa
-	tligsFzmreVUsDgk34KMrgXyQSbPNUTLn4NU80KrGc2yXX2Zv0d+1KKvvkmphxig1Te66I9T+aiAJ
-	0ManUiJQs6f4Y/VgDFHI+DQ9mOkPERLaFTlvo2wrN3sLWMy6u6MSlfCO10MRmmqRH0iDoX1jNpwOd
-	3EXHrnWTg5FauhOwgr1ZcxKwpULUNMAo1hWX56jzidYQM3pzgPxPJuFnQgPTEoMWcAtTcCVEyDx1L
-	pVfwJKTQ==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUpDF-000000068og-3PWS;
-	Thu, 26 Jun 2025 16:12:35 +0000
-Date: Thu, 26 Jun 2025 18:12:28 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750954350;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=;
-	b=0LYeaLtAJ5FAMG3LKAeKdLDltJhvOW1WHfMGoLPpHniE2OZI85uX1GQ2ey33i0w2d3okwY
-	y8RJdyrEW9ZY/cT+ZjwXRpUAjWJ0kCU+X2/JsCqHsZ9U3aZ2TChCv+CCVSJp+KV+L4Zxa2
-	z1/e8Cw6EEDWNScScFvdTo+JFjdypZBGw3uOzxDCwl0rK8PijcEKtHTsbEtaOJrOY79zE+
-	lyYrnQXacHleQNfDRVYS/oxCSupzyLsGdaUVpCsib+pW7FPXQCOPPYoVqYsGycNLqIR0Mq
-	0QXD62rY8oOCAC9hVds/VEowvpYLNn7GWPeodcQRkAMgY2ncXFVKyAVu6ZobjA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750954350;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=;
-	b=rtm8MhjqrOGX+yu466ihurQqBVjxnH6Q7AddtO63t9athnBOj9mUFoMRtFMFVGiDMnsQtE
-	sk4IQPJV0R8iU4AQ==
-From: Nam Cao <namcao@linutronix.de>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Antoine Tenart <atenart@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Anup Patel <anup@brainfault.org>,
+	id 1uUpIE-0000000CExQ-3eO0
+	for linux-riscv@lists.infradead.org;
+	Thu, 26 Jun 2025 16:17:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DBBD76112A;
+	Thu, 26 Jun 2025 16:17:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DB5FC4CEEB;
+	Thu, 26 Jun 2025 16:17:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750954661;
+	bh=FcMAs4cr6VLQ5THiQAsVxnlsWy5vYErs3oBHPmAG8rQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MIwKM+p0PZQE8g8sIkRqSQ4pFAucadt2eHG9gKidUiUnYTNHh6SK8ua2r3gDc5lvO
+	 FJ19t8rEjqbwq8j48SKX05rsC/DZ6QSNa46wMSnxJiiCMDgATUAkLBqHCAWB/ifFNX
+	 A0fLpNl+YCMvPaeguUnKtSGYRX79Z8i4/dbgSWHjkTftrm+pOtjJ2dViSRqZ2z3ZIL
+	 R6SZtShOUvmWS7bl140VQYeCs3EQVDcx3KLdTG94gXgpfVIaavjhLR5Y004OZgaBNA
+	 Lt6c8xS6LoAUHtByo5WYe1zVDi1+hg/wAy8KqpJPbazJTRr4woZ/rRrkHWBVfxOYOV
+	 aWwmh46j697Cw==
+Date: Thu, 26 Jun 2025 17:17:36 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/12] irqchip/bcm2712-mip: Switch to
- msi_create_parent_irq_domain()
-Message-ID: <20250626161228.N6byQ97v@linutronix.de>
-References: <cover.1750860131.git.namcao@linutronix.de>
- <92a6d68db014e945337c10649a41605da05783da.1750860131.git.namcao@linutronix.de>
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Yu Yuan <yu.yuan@sjtu.edu.cn>, Yixun Lan <dlan@gentoo.org>,
+	Ze Huang <huangze@whut.edu.cn>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH RFC 1/3] dt-bindings: soc: sophgo: add TOP syscon for
+ CV18XX/SG200X series SoC
+Message-ID: <20250626-glandular-founder-2f44973683e5@spud>
+References: <20250611082452.1218817-1-inochiama@gmail.com>
+ <20250611082452.1218817-2-inochiama@gmail.com>
+ <20250612-culpable-roman-295df1360198@spud>
+ <20250625195858.GA2115486-robh@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <92a6d68db014e945337c10649a41605da05783da.1750860131.git.namcao@linutronix.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_171233_972171_AA77809E 
-X-CRM114-Status: UNSURE (   8.18  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250625195858.GA2115486-robh@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,26 +79,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2613087525673962033=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 04:48:59PM +0200, Nam Cao wrote:
-> From: Thomas Gleixner <tglx@linutronix.de>
-> 
-> Switch to use the concise helper to create an MSI parent domain.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Signed-off-by: Nam Cao <tglx@linutronix.de>
-                          ^ oops, that's not my email
 
-I will send v2, but let's wait for a few days if there is something else I
-should fix.
+--===============2613087525673962033==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="iC7+lZmyKlilUlMQ"
+Content-Disposition: inline
 
-Nam
+
+--iC7+lZmyKlilUlMQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Jun 25, 2025 at 02:58:58PM -0500, Rob Herring wrote:
+> On Thu, Jun 12, 2025 at 05:04:46PM +0100, Conor Dooley wrote:
+> > On Wed, Jun 11, 2025 at 04:24:49PM +0800, Inochi Amaoto wrote:
+> > > The Sophgo CV1800/SG2000 SoC top misc system controller provides regi=
+ster
+> > > access to configure related modules. It includes a usb2 phy and a dma
+> > > multiplexer.
+> > >=20
+> > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > > ---
+> > >  .../soc/sophgo/sophgo,cv1800b-top-syscon.yaml | 57 +++++++++++++++++=
+++
+> > >  1 file changed, 57 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/soph=
+go,cv1800b-top-syscon.yaml
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv18=
+00b-top-syscon.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,c=
+v1800b-top-syscon.yaml
+> > > new file mode 100644
+> > > index 000000000000..e8093a558c4e
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800b-top=
+-syscon.yaml
+> > > @@ -0,0 +1,57 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,cv1800b-top-sys=
+con.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: Sophgo CV18XX/SG200X SoC top system controller
+> > > +
+> > > +maintainers:
+> > > +  - Inochi Amaoto <inochiama@outlook.com>
+> > > +
+> > > +description:
+> > > +  The Sophgo CV18XX/SG200X SoC top misc system controller provides
+> > > +  register access to configure related modules.
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    oneOf:
+> > > +      - items:
+> > > +          - const: sophgo,cv1800b-top-syscon
+> > > +          - const: syscon
+> > > +          - const: simple-mfd
+> > > +
+> > > +  reg:
+> > > +    maxItems: 1
+> > > +
+> > > +  "#address-cells":
+> > > +    const: 1
+> > > +
+> > > +  "#size-cells":
+> > > +    const: 1
+> > > +
+> > > +patternProperties:
+> > > +  "dma-router@[0-9a-f]+$":
+> > > +    $ref: /schemas/dma/sophgo,cv1800b-dmamux.yaml#
+> >=20
+> > I think you're supposed to add "unevaluatedProperties: false" to each of
+> > these nodes.
+>=20
+> Not necessary if the referenced schema has=20
+> unevaluatedProperties/additionalProperties set to false. The tools check=
+=20
+> for this.
+
+Oh cool, that's good to know, thanks.
+
+--iC7+lZmyKlilUlMQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaF1yoAAKCRB4tDGHoIJi
+0psEAQCiyo1+b9AvMe/EpRaJklfQNqQpCR9Mv1sARmJoDpdRKwD+Me8ov5JrZ4p0
+Q47E/uNqXiO6fziM3poa8aA91Wj/8w8=
+=/sgH
+-----END PGP SIGNATURE-----
+
+--iC7+lZmyKlilUlMQ--
+
+
+--===============2613087525673962033==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2613087525673962033==--
+
