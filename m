@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 459F2C7EE30
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 15:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5388C7EE30
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 15:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u+BKA6CRXkj248ki6GpIRlenNiOoAWTEcJEqA5e5S7s=; b=UAZgUaWF8LLEZN
-	haZsGgwdmMYaOmNloFqe9RjLzwoj+yYPtvxFvHpzVTyIShQBPyyEM86gc4bW/BEkjZJ3PNO5sfKS6
-	OEXVotee9ZJlNvdhb5a3I0W2FXGU+gIvQLGcBLyDrEWkO4dxtCvSorU19Wj34GgRyMx1xczPNCMMh
-	bNyn+uUOIj0ntgQ1J/PZqd1ehtxshxZjrnLS93dOOi333Zi+lzzgj4K0mPaDVkDzr+1n8ZCdfMIEf
-	z9PbuHV3p/sNBFMFM6T/9VJt0SbICQyYHrxbMYoEdXlOMcviEn8Vz6Rwp9+NxEDEUw0sbdzEbzlP4
-	ykH8J8cB+Y7o1bBkmNtA==;
+	List-Owner; bh=0oq1rHr+k98CD4L0pAbNLf3JFPqzlsayr7DwTvMxP2Y=; b=l9QYZnpUnWtg39
+	8zblYoqFZkpEuuW4+S928Zhs75B49uHfJt40sJhQJmhWFqQ4GA+UpYLa/bVZ/fWAslC7gEkvdSf6r
+	sXnhZfC++U9ltbUfp5w4ff46XtvgGXXNYe+Xm3Lv0Hb7d+P9iPzTCqMrXJ5BaU7LCuQi4aEEl09Dw
+	4GhmOLNlCW/6l3Vml2lLusYTycSh88+O9asa+o/PYh7NefzIM80wca08bIJLQGlXf7tCiy/YhGxpd
+	6e23iovgZIsDKaFduc8bkIXwdUNLeOGf8qhinAqGFNnC4W+095VLyvefdTlfMjaTRXI861vFpACrV
+	swxBRyg59IXTAE743reQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUojT-0000000CAQC-2L0l;
-	Thu, 26 Jun 2025 15:41:47 +0000
+	id 1uUoje-0000000CATC-0thZ;
+	Thu, 26 Jun 2025 15:41:58 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnuy-0000000Bzyy-2DBU;
+	id 1uUnuy-0000000BzzF-3rlm;
 	Thu, 26 Jun 2025 14:49:38 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
@@ -33,21 +33,21 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=QQJvh+4qMJpBwXh0oz+ildmCIKYnFwkVpJiG0W9NSek=;
-	b=Q89pqfCdat4vTT56i2MTX0cTaMwEjsqBm0u4pbQnqmzE0GD2jw+bQLBlo/pBmMGqNAA0Qi
-	IKr2QvMqOX0DRNXW90uw9oHztaPjiVlvXBFiF/aOqOgvpaQ87+cJuATK29xIkL+q9W/e2M
-	t0p5DWIbScJ+4w9ctgp1UJXODLgYog+boNeuXrfqMuQxenCHgmvPdcibhqLp7kk7OxcBpb
-	KopyBUISrjxix+ONfrCI9WMMwfd7rxwufRt3hoF63Ls1srjswmZK2RcKQ6EeeYhQScDfV9
-	ZBbW94kOKIvU3Kh57llhjE8i1PBVG4WT5t3mTGLHXX6JC3cTSmAQXEk9QRY1uQ==
+	bh=pKzcREMF/JSs7xXlqj/sW2W9jbHL2lsx1h1l0bkVD/k=;
+	b=mknJkKZ3dsxzRYSiFcfJAu8ZW0SvTtRoiLXI+AItcOAmWaNPgnHkjQSUezF9K1TXydwAiY
+	SperwGoSIVLi++KTIn3bMYSZ2lOnCiBj0Ts3LIrZs2tKAiv+UFGDjfzbYQd1FyQ69rKg0N
+	K0cxzDk8398RDbeMhu1rFKyUt3eBaXaI6sP6ghQjlbMq0OYu2KR5U9U86ZXStAKt068mjY
+	W7MhZ3WIaBMp8pq7UWxlS/lcdV6R60bVqg4IQIl2WbC790qDBWAAO2F+thAsz8Ui88ZydK
+	xALxRwiZe5MoA68JoVqyhBrwozvsxggJsWbA30nfBR4Gqo+9JkGxB3liXIediQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1750949375;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=QQJvh+4qMJpBwXh0oz+ildmCIKYnFwkVpJiG0W9NSek=;
-	b=xxE65vbvF2hQ7Y9sZ9cCcwBqJ1qtggiCp0YusxI6VwHfX7Psmg4sc3ccQUZF44/xzfh1Jh
-	2lSa5cZxvKNYFKBg==
+	bh=pKzcREMF/JSs7xXlqj/sW2W9jbHL2lsx1h1l0bkVD/k=;
+	b=zh/sN6K5PYvw9e+ovearVI0kjX5nowPlZtz10Zu4nVjSVwP16igkDrKBXczXR3H3H4b0LD
+	Yo36rnD4pBvjeiAA==
 To: Marc Zyngier <maz@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Antoine Tenart <atenart@kernel.org>,
@@ -71,15 +71,15 @@ To: Marc Zyngier <maz@kernel.org>,
 	linux-mips@vger.kernel.org,
 	linux-riscv@lists.infradead.org
 Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 06/12] irqchip/sg2042-msi: Switch to msi_create_parent_irq_domain()
-Date: Thu, 26 Jun 2025 16:49:03 +0200
-Message-Id: <3e901db1a4c87678af053019774d95b73bfb9ef9.1750860131.git.namcao@linutronix.de>
+Subject: [PATCH 07/12] irqchip/alpine-msi: Clean up whitespace style
+Date: Thu, 26 Jun 2025 16:49:04 +0200
+Message-Id: <3bbf719fcd974b0f52a832552b986116bdc70203.1750860131.git.namcao@linutronix.de>
 In-Reply-To: <cover.1750860131.git.namcao@linutronix.de>
 References: <cover.1750860131.git.namcao@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074936_703524_455CD8CE 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250626_074937_122491_E1A19371 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,48 +98,136 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Switch to use the concise helper to create an MSI parent domain.
+Tidy up the code style. Whitespace changes only.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 ---
- drivers/irqchip/irq-sg2042-msi.c | 20 +++++++++-----------
- 1 file changed, 9 insertions(+), 11 deletions(-)
+Cc: Antoine Tenart <atenart@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ drivers/irqchip/irq-alpine-msi.c | 37 +++++++++++---------------------
+ 1 file changed, 13 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/irqchip/irq-sg2042-msi.c b/drivers/irqchip/irq-sg2042-msi.c
-index af16bc5a3c8b5..bcfddc51bc6a1 100644
---- a/drivers/irqchip/irq-sg2042-msi.c
-+++ b/drivers/irqchip/irq-sg2042-msi.c
-@@ -219,20 +219,18 @@ static const struct msi_parent_ops sg2044_msi_parent_ops = {
- static int sg204x_msi_init_domains(struct sg204x_msi_chipdata *data,
- 				   struct irq_domain *plic_domain, struct device *dev)
+diff --git a/drivers/irqchip/irq-alpine-msi.c b/drivers/irqchip/irq-alpine-msi.c
+index a5289dc26dca0..7e379a6985a6a 100644
+--- a/drivers/irqchip/irq-alpine-msi.c
++++ b/drivers/irqchip/irq-alpine-msi.c
+@@ -29,11 +29,11 @@
+ #define ALPINE_MSIX_SPI_TARGET_CLUSTER0		BIT(16)
+ 
+ struct alpine_msix_data {
+-	spinlock_t msi_map_lock;
+-	phys_addr_t addr;
+-	u32 spi_first;		/* The SGI number that MSIs start */
+-	u32 num_spis;		/* The number of SGIs for MSIs */
+-	unsigned long *msi_map;
++	spinlock_t	msi_map_lock;
++	phys_addr_t	addr;
++	u32		spi_first;	/* The SGI number that MSIs start */
++	u32		num_spis;	/* The number of SGIs for MSIs */
++	unsigned long	*msi_map;
+ };
+ 
+ static void alpine_msix_mask_msi_irq(struct irq_data *d)
+@@ -76,8 +76,7 @@ static int alpine_msix_allocate_sgi(struct alpine_msix_data *priv, int num_req)
+ 	return priv->spi_first + first;
+ }
+ 
+-static void alpine_msix_free_sgi(struct alpine_msix_data *priv, unsigned sgi,
+-				 int num_req)
++static void alpine_msix_free_sgi(struct alpine_msix_data *priv, unsigned int sgi, int num_req)
  {
--	struct fwnode_handle *fwnode = dev_fwnode(dev);
--	struct irq_domain *middle_domain;
+ 	int first = sgi - priv->spi_first;
+ 
+@@ -88,14 +87,12 @@ static void alpine_msix_free_sgi(struct alpine_msix_data *priv, unsigned sgi,
+ 	spin_unlock(&priv->msi_map_lock);
+ }
+ 
+-static void alpine_msix_compose_msi_msg(struct irq_data *data,
+-					struct msi_msg *msg)
++static void alpine_msix_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+ {
+ 	struct alpine_msix_data *priv = irq_data_get_irq_chip_data(data);
+ 	phys_addr_t msg_addr = priv->addr;
+ 
+ 	msg_addr |= (data->hwirq << 3);
 -
--	middle_domain = irq_domain_create_hierarchy(plic_domain, 0, data->num_irqs, fwnode,
--						    &sg204x_msi_middle_domain_ops, data);
--	if (!middle_domain) {
-+	struct irq_domain_info info = {
-+		.ops		= &sg204x_msi_middle_domain_ops,
-+		.parent		= plic_domain,
-+		.size		= data->num_irqs,
-+		.fwnode		= dev_fwnode(dev),
-+		.host_data	= data,
-+	};
-+
-+	if (!msi_create_parent_irq_domain(&info, data->chip_info->parent_ops)) {
- 		pr_err("Failed to create the MSI middle domain\n");
- 		return -ENOMEM;
- 	}
+ 	msg->address_hi = upper_32_bits(msg_addr);
+ 	msg->address_lo = lower_32_bits(msg_addr);
+ 	msg->data = 0;
+@@ -116,8 +113,7 @@ static struct irq_chip middle_irq_chip = {
+ 	.irq_compose_msi_msg	= alpine_msix_compose_msi_msg,
+ };
+ 
+-static int alpine_msix_gic_domain_alloc(struct irq_domain *domain,
+-					unsigned int virq, int sgi)
++static int alpine_msix_gic_domain_alloc(struct irq_domain *domain, unsigned int virq, int sgi)
+ {
+ 	struct irq_fwspec fwspec;
+ 	struct irq_data *d;
+@@ -138,12 +134,10 @@ static int alpine_msix_gic_domain_alloc(struct irq_domain *domain,
+ 
+ 	d = irq_domain_get_irq_data(domain->parent, virq);
+ 	d->chip->irq_set_type(d, IRQ_TYPE_EDGE_RISING);
 -
--	irq_domain_update_bus_token(middle_domain, DOMAIN_BUS_NEXUS);
--
--	middle_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
--	middle_domain->msi_parent_ops = data->chip_info->parent_ops;
  	return 0;
  }
  
+-static int alpine_msix_middle_domain_alloc(struct irq_domain *domain,
+-					   unsigned int virq,
++static int alpine_msix_middle_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ 					   unsigned int nr_irqs, void *args)
+ {
+ 	struct alpine_msix_data *priv = domain->host_data;
+@@ -161,7 +155,6 @@ static int alpine_msix_middle_domain_alloc(struct irq_domain *domain,
+ 		irq_domain_set_hwirq_and_chip(domain, virq + i, sgi + i,
+ 					      &middle_irq_chip, priv);
+ 	}
+-
+ 	return 0;
+ 
+ err_sgi:
+@@ -170,8 +163,7 @@ static int alpine_msix_middle_domain_alloc(struct irq_domain *domain,
+ 	return err;
+ }
+ 
+-static void alpine_msix_middle_domain_free(struct irq_domain *domain,
+-					   unsigned int virq,
++static void alpine_msix_middle_domain_free(struct irq_domain *domain, unsigned int virq,
+ 					   unsigned int nr_irqs)
+ {
+ 	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
+@@ -186,8 +178,7 @@ static const struct irq_domain_ops alpine_msix_middle_domain_ops = {
+ 	.free	= alpine_msix_middle_domain_free,
+ };
+ 
+-static int alpine_msix_init_domains(struct alpine_msix_data *priv,
+-				    struct device_node *node)
++static int alpine_msix_init_domains(struct alpine_msix_data *priv, struct device_node *node)
+ {
+ 	struct irq_domain *middle_domain, *msi_domain, *gic_domain;
+ 	struct device_node *gic_node;
+@@ -224,8 +215,7 @@ static int alpine_msix_init_domains(struct alpine_msix_data *priv,
+ 	return 0;
+ }
+ 
+-static int alpine_msix_init(struct device_node *node,
+-			    struct device_node *parent)
++static int alpine_msix_init(struct device_node *node, struct device_node *parent)
+ {
+ 	struct alpine_msix_data *priv;
+ 	struct resource res;
+@@ -271,8 +261,7 @@ static int alpine_msix_init(struct device_node *node,
+ 		goto err_priv;
+ 	}
+ 
+-	pr_debug("Registering %d msixs, starting at %d\n",
+-		 priv->num_spis, priv->spi_first);
++	pr_debug("Registering %d msixs, starting at %d\n", priv->num_spis, priv->spi_first);
+ 
+ 	ret = alpine_msix_init_domains(priv, node);
+ 	if (ret)
 -- 
 2.39.5
 
