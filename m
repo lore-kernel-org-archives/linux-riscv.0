@@ -4,91 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D4BC7EE2A
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Jun 2025 23:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C271C77B7C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 00:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yDb6vuq5O42xIk79nBYoveq0AsFu9cfbPzCZZB+jCME=; b=yDXv+qjs00LORT
-	x1AIy8noHYyuw707tVsVd0p5f1Z56OiDX01VYKMaprwKztDkdoIcmJPNUxZCeVSzdaEtVYi9JTmIo
-	4EPTJjlGMVM6kmVRAiDw+GXR4rueKq4ZrDIufK8cLMDUNzxXfuhc8whbydVsQLM7qOCET42nE+fim
-	6al64d5wqTlOOqnhs1w3bGmbvQ+60I0ygS/ucWNi79NZ18dfC/Nzteex8huqKY120UaNe9MPhAbP4
-	TsZt2+iPp9Ub1tnoN3qLrMUun+usy+DBWaN25JU62sErvzbU+v/tWpv1CeKg0YJqXYk3XguGWI1XW
-	++XU1PlcAXHjTyI6SWgw==;
+	List-Owner; bh=L4OQuGqxoOH+NUGF+3AgBX95u6Uk2/pSA8sYlcINRPg=; b=b47LP9JPlR0F2F
+	uzVhMhjtxAlkLUw5I3OEWJGBdZan0d+hIoy36FikX1lVLWgu8WS1HJT6MqYlTO0gi2x6/oMuM7J2k
+	75smuHxYp0ps/kSNgjadt/PUqaApV6SfNaK/Avf+Bo7rM8SCjYaNIJfklwDFy72LECNdy/ClhX4PQ
+	5eeakV6ok+G/mlpdo4/mFhLbgwRIDWVfJCDhE9pupAk5YlFaWYsdOBfpJhCa4uu2LGqXyXiK4x8Ez
+	2JTQsKcBzG3B5CjHXXb51EB6cWtTvvvFOPlyLKzTYaBxHlEl84wI16FvNCQfynw181On3g36EXYWM
+	uihImYENf3bpCaGHyyMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUZEa-0000000A9uO-3Fbj;
-	Wed, 25 Jun 2025 23:08:52 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1uUatc-0000000AN5l-0mQo;
+	Thu, 26 Jun 2025 00:55:20 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUXHL-00000009w15-3cik;
-	Wed, 25 Jun 2025 21:03:40 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7d219896edeso33142785a.1;
-        Wed, 25 Jun 2025 14:03:35 -0700 (PDT)
+	id 1uUatZ-0000000AN52-1xSM;
+	Thu, 26 Jun 2025 00:55:18 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-748e81d37a7so370264b3a.1;
+        Wed, 25 Jun 2025 17:55:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750885415; x=1751490215; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1750899316; x=1751504116; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=LuTntz9BFf5ebn4Es7zVDFmervtvOhJ6FRn+jJiUsIQ=;
-        b=Rvw/RFh0S0kWomn2fbt2r8TxoH7g5fraGyvYpJaczCZzrtF1KaNMvNJxXmwZfdq9rJ
-         pAMbsCN58iIbLJdYL3rTGLg+LnbHavOiQbA9b+Pk9yFOLS5XNGNdAdxqiYWv5zT9WWPM
-         HohbXlaSFexAM5xpNxw+q+UTOMNZFD55k8BNckyoiVeIX6kqK+pKbmalayZvBI2RXhNW
-         CKd+/17xwlHhsIYnx9Jd2Zvhd1GI67lXn7CAjoIpepvP/10T9ZgPFQQTTrSLuZ49BnrX
-         p7soaS3ZtzzrWXRYYepTYxGBGNM5Qb1oBQTND9iSEuiOTaV1/KfPVUKCRa8kKVFebmjo
-         qZJw==
+        bh=FKP9uNgbOA7UG3M4PzocnFVU56S59A2JUS0TA3YuX7c=;
+        b=FQcmpY4+X5QWFmmoy+j0pu9uMGqmscgEIgiGtmcAeyJyJEgG3jtZPU6RGGSy1Zql9k
+         QOkxJ3ryf3VNejpOJSp/bhmgTN6eqwDXSiMvz34sWXSrTtXc4TixzSndiY8emsC6gIhA
+         z8cKjlPReEbTXR4hS2Zw38yTYulixkttU8IYAnhHE6JB2SKT6ZBLjYzQAQwdVsUI1RNJ
+         iFMPY85O+qw+KmZRXSEnMGSzXKT6zoi3+J56nk9Kpw7RoGtSjaxs3azVV8ZPD9IVFJ+B
+         V/l9hFVA/sHP47ilUvD0WCgmQB3CN4yb8/eOa2+9WsLEsN0gYuG1adQ4WqAm3r6we2Vi
+         K6Uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750885415; x=1751490215;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1750899316; x=1751504116;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LuTntz9BFf5ebn4Es7zVDFmervtvOhJ6FRn+jJiUsIQ=;
-        b=HfNNHNZ19qv5uGt3GOGjCCfnIR2KUIZKhK1f27qlh126d3MjapR+dhKIz1JAHuN+M7
-         +dHM7IdtBIwTho4gGsM2njZXaoiojlL+KTnVeuBpon0Q2WGu61LzrvmN67ZboIr8XK6K
-         HoAcok+0tpYCUjcwVJkH+o594mp3SvnEttYLWde7dnpM28jajdkMPLKVc1LyaJbPexJ5
-         gCQDYusj7U1Bu9BtxKzl+g4t8pmwl/UMGu7j3Dtn9HiARcRO9BElWNsBD1LJVIDckp6G
-         OwLCGCrkbiNfHuebNqTEy9+Nz45DxVGJgNA4Gzteo9/pC7iKcP6MiXcC8Pux1hY4U/l+
-         D/Hw==
-X-Forwarded-Encrypted: i=1; AJvYcCXV63BKlIjI2gVsTS+BTl2j/hYMasvCpuDGUiPc9C3wlpNE00yCuZffs2OeE2klYVTdglIy6gLkATTmgXU=@lists.infradead.org, AJvYcCXvvZmEmnP5Ugw38KLSJAiNQtLbC2o06OQulNty9cWDISogYV0jU2JuCRG9qgBbxjSjHziPx9oBfu2+s7WTdWWV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyE39TDcTYaBEq/RPj2Ly8ldNeOcCZ5KoOve4ZviNbNVh02v8eD
-	OIeRusVfGYsxxugTYpYGP/CfvAYwqApoChbQpKrLzTV1xfvAPI+M8UcxaC3sZW3lztOgJjcxb2e
-	5MNsKqqeskI31iJGTxWFDkXNGkqmXY/Q=
-X-Gm-Gg: ASbGnctBgXbdn4MBpU29FPo0w3PmiSaldGhIFljlLA6Je6v6n8j7vuZbfAxyf11aTUC
-	6nGsgUlRvmBh23emgwzUzGMYN5YmENm+D1pA1BDSTFAOFVGNPRLQlJAPendXTkVxOkSvL872Jtr
-	vrpwn2ZrUMQEG/u0VbxaP6Amd34WcpeFvQAMIpNUDdv8A=
-X-Google-Smtp-Source: AGHT+IGkZzN4RHAItzfVLBrQRGdxtXN6wVwXiT3SzYF5su+kRDMMqhI/uAjSaA5p+2yU3Clxr1zSjUyiiTMDtJ2mex0=
-X-Received: by 2002:a05:620a:2b93:b0:7c5:4adb:782a with SMTP id
- af79cd13be357-7d4296921f8mr635368985a.9.1750885414506; Wed, 25 Jun 2025
- 14:03:34 -0700 (PDT)
+        bh=FKP9uNgbOA7UG3M4PzocnFVU56S59A2JUS0TA3YuX7c=;
+        b=dPllZzCH5MFLD+ahvv+cPUd5BAKx1FiCQJg2Uy+URgdM4bHjBpqB7pe9GR7oxHCuna
+         ibVHOM2Xa/Wo6ivB0sTkNqlVfskB9VNVWv66Axz3P8a9JE9tmynfoq4WRglcuQFEU+0u
+         PJmgNoc8Ro/eRTWJu/3q6pEtuwag/t/38PUNkrjgCUvMC6MXYyUsBIQ4ga5qBgqYEojP
+         TtiHWNFwTY/ry9xp68u4ZoVC9u3Dwd71pxKwQjTUHp3TIkvJ+zoEaWkwY8M0iJP0NHPX
+         RzJKgU1EEu09/lZW0hMwEBVMr0H4Zt2Z95ZPbEAlZl9DbD4RUH8nssd0kppcmp5UwWCt
+         hwCg==
+X-Forwarded-Encrypted: i=1; AJvYcCVKuRInttLWgSbHZrQEfcbtte6CauwuTwFE1XQl8bjcPKM/Hd7PPI0ZowN6h6cQeMZBvJHMieZpZBOFqso=@lists.infradead.org, AJvYcCXOVONUeROau4igb4dZ4ZCuDnqF+McEmQTWiw29abCXd7FUJ8F+RECmM13K19EHUDsIbXH8S4KzxXkg+EOG69xG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmsKy9TsL675dQl5JM5ZyJPHCwnnCTEaBTp1pMUqY8OWQT4rTJ
+	n2OJADl5Ohq8TB4uqxdRwFnVtHKQQt0AiBkFJV9Wmg0Ymb8F+QKpxCFF
+X-Gm-Gg: ASbGncskvCnpaUsTFXgpTbeyM6Hu2pU2H5WNmwPTg17xSBPGAZ4zWq3AbSuxeAyt7rj
+	/i29ZyAyxZ78lJiSH5ExyB3vfPiekEZHT6LMpEY2KAwCQ7iv18NWzEGtVGPwHKJ2L3whdZh20JD
+	2WWxu5q4zJHl4KrVc3nPTaYKzwVwHYbylEcBrwf8VJcKBxEluye/K9GDT93i42jkhHHmr68KCVj
+	NnQx0Q7Oc/RgdqbaZeF3DOX+WSlP/5g8or8Bh7ZEu30f4FPy0+hvfDDKZacOYix6gLPGFxH3TSf
+	TU0PKT/p4L859/efIywkema7Oz33JNq5L9lxjQ3175e6m2aOqNTYti4EVDHQlQ==
+X-Google-Smtp-Source: AGHT+IEQdAUYETW/gFl9/oAcelA7lj1OlgJJckAOnjGK9HyiGax3+ORLzbkl8qg66/CLNj/A5zHCVA==
+X-Received: by 2002:a05:6a00:3e23:b0:736:9f20:a175 with SMTP id d2e1a72fcca58-74ad4462133mr7446024b3a.2.1750899316199;
+        Wed, 25 Jun 2025 17:55:16 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-749c882cd8fsm5330612b3a.77.2025.06.25.17.55.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jun 2025 17:55:15 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: sophgo@lists.linux.dev,
+	soc@lists.linux.dev,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Haylen Chu <heylenay@outlook.com>,
+	Chao Wei <chao.wei@sophgo.com>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 0/6] arm64 support for Milk-V Duo Module 01 EVB
+Date: Thu, 26 Jun 2025 08:55:03 +0800
+Message-ID: <175089922824.136282.4248920975036123392.b4-ty@gmail.com>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250612132844.767216-1-alexander.sverdlin@gmail.com>
+References: <20250612132844.767216-1-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
-References: <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com>
- <20250624162503.78957-1-ioworker0@gmail.com> <27d174e0-c209-4851-825a-0baeb56df86f@redhat.com>
- <938c4726-b93e-46df-bceb-65c7574714a6@linux.dev> <CAGsJ_4y1GObH-C7R=FQL=UWe3kF6qhKoRqPxNPYx0k7uwocc+g@mail.gmail.com>
- <5ba95609-302b-456a-a863-2bd5df51baf2@redhat.com> <CAGsJ_4zSGT05GjxM1H6JwSa5MhgtxaiYVa1Wtvm8+SmYkm=jmQ@mail.gmail.com>
- <6179dd30-5351-4a79-b0d6-f0e85650a926@redhat.com> <CAGsJ_4yTH5ngM++e=c+P7g0fXs-QQsOk2oxd1RWa3Qww97Knrw@mail.gmail.com>
- <5db6fb4c-079d-4237-80b3-637565457f39@redhat.com> <42f1d84f-2d17-43b7-8fa2-83322fcca44f@linux.dev>
- <9bb1e917-891d-4e1b-915f-98cdd5fc578b@redhat.com>
-In-Reply-To: <9bb1e917-891d-4e1b-915f-98cdd5fc578b@redhat.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Thu, 26 Jun 2025 09:03:23 +1200
-X-Gm-Features: Ac12FXzQ50B3QUTM3cNo6E1eE61G-cA_2po-kY1vzGFbEMDCEnj9ZU8KpCPcWfA
-Message-ID: <CAGsJ_4woYd_TmZU94nedH=x_+HTwLxz94ih1jFmxoj4CxuhqzQ@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
- folios during reclamation
-To: David Hildenbrand <david@redhat.com>
-Cc: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org, 
-	baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
-	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
-	x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com, 
-	Lance Yang <ioworker0@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_140335_903614_A8C5B0D8 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20250625_175517_509079_96BF6563 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +111,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdW4gMjYsIDIwMjUgYXQgMTI6MjXigK9BTSBEYXZpZCBIaWxkZW5icmFuZCA8ZGF2
-aWRAcmVkaGF0LmNvbT4gd3JvdGU6Cj4KPiBPbiAyNS4wNi4yNSAxNDoyMCwgTGFuY2UgWWFuZyB3
-cm90ZToKWy4uLl0KPiA+IEhtbS4uLiBJIGhhdmUgYSBxdWVzdGlvbiBhYm91dCB0aGUgcmVmZXJl
-bmNlIGNvdW50aW5nIGhlcmUgLi4uCj4gPgo+ID4gICAgICAgICAgICAgICBpZiAodm1hLT52bV9m
-bGFncyAmIFZNX0xPQ0tFRCkKPiA+ICAgICAgICAgICAgICAgICAgICAgICBtbG9ja19kcmFpbl9s
-b2NhbCgpOwo+ID4gICAgICAgICAgICAgICBmb2xpb19wdXQoZm9saW8pOwo+ID4gICAgICAgICAg
-ICAgICAvKiBXZSBoYXZlIGFscmVhZHkgYmF0Y2hlZCB0aGUgZW50aXJlIGZvbGlvICovCj4gPgo+
-ID4gRG9lcyBhbnlvbmUgZWxzZSBzdGlsbCBob2xkIGEgcmVmZXJlbmNlIHRvIHRoaXMgZm9saW8g
-YWZ0ZXIgZm9saW9fcHV0KCk/Cj4KPiBUaGUgY2FsbGVyIG9mIHRoZSB1bm1hcCBvcGVyYXRpb24g
-c2hvdWxkIGJldHRlciBob2xkIGEgcmVmZXJlbmNlIDopCj4KPiBBbHNvLCBJIGFtIG5vdCBzdXJl
-IHdoeSB3ZSBkb24ndCBwZXJmb3JtIGEKPgo+IGZvbGlvX3B1dF9yZWZzKGZvbGlvLCBucl9wYWdl
-cyk7CgpCZWNhdXNlIHdlJ3ZlIGFscmVhZHkgY2FsbGVkIGZvbGlvX3JlZl9zdWIoZm9saW8sIG5y
-X3BhZ2VzIC0gMSk7Ckxvb2tpbmcgYmFjaywgaXTigJlzIGtpbmQgb2YgdWdseSwgaHVoLgoKZGlz
-Y2FyZDoKICAgICAgICAgICAgICAgIGlmICh1bmxpa2VseShmb2xpb190ZXN0X2h1Z2V0bGIoZm9s
-aW8pKSkgewogICAgICAgICAgICAgICAgICAgICAgICBodWdldGxiX3JlbW92ZV9ybWFwKGZvbGlv
-KTsKICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGZvbGlv
-X3JlbW92ZV9ybWFwX3B0ZXMoZm9saW8sIHN1YnBhZ2UsIG5yX3BhZ2VzLCB2bWEpOwogICAgICAg
-ICAgICAgICAgICAgICAgICBmb2xpb19yZWZfc3ViKGZvbGlvLCBucl9wYWdlcyAtIDEpOwogICAg
-ICAgICAgICAgICAgfQoKSSBhc3N1bWUgTGFuY2Ugd2lsbCBzZW5kIGEgcGF0Y2g/IElmIHNvLCBy
-ZW1lbWJlciB0byByZW1vdmUgdGhpcwp3aGVuIHN3aXRjaGluZyB0byBmb2xpb19wdXRfcmVmcyhm
-b2xpbywgbnJfcGFnZXMpOwoKVGhhbmtzCkJhcnJ5CgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, 12 Jun 2025 15:28:08 +0200, Alexander Sverdlin wrote:
+> This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
+> arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
+> been chosen because the upstream toolchain can be utilized.
+> 
+> Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
+> peripherals with an addition of ARM64 core. Therefore it would be
+> beneficial not to copy-paste the peripherals' device-tree, but rather split
+> the most suitable riscv DT into ARCH-specific and peripherals parts and
+> just include the latter on the arm64 side.
+> 
+> [...]
+
+Applied to for-next, thanks!
+
+[1/6] dt-bindings: soc: sophgo: Move SoCs/boards from riscv into soc, add SG2000
+      https://github.com/sophgo/linux/commit/f71cc64dde536e1e805e5b38855d8d3a01eec845
+[2/6] arm64: dts: sophgo: Add initial SG2000 SoC device tree
+      https://github.com/sophgo/linux/commit/7846621ce517375537ae2772e54f033a241fe382
+[3/6] arm64: dts: sophgo: Add Duo Module 01
+      https://github.com/sophgo/linux/commit/7a2f4a250a1129e9d92ed8c43c02f528181df679
+[4/6] arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
+      https://github.com/sophgo/linux/commit/29f4eab1d97c89a0a72793823db287ea6649baf6
+[5/6] arm64: Add SOPHGO SOC family Kconfig support
+      https://github.com/sophgo/linux/commit/af00cebfbb31190dd0124c431d1baabae456c313
+[6/6] arm64: defconfig: Enable rudimentary Sophgo SG2000 support
+      https://github.com/sophgo/linux/commit/1793a187e20257c260f520d42611966d6d249f22
+
+Thanks,
+Inochi
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
