@@ -4,98 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D75C7EE32
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 09:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A682C7EE33
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 09:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SObu/aIjmw1vhFIoAOVbguRK4FXPELn/eUpV7QjRK7Q=; b=2xylFg+nO8J0jD
-	MS4rFF95kyWud+Xi0+uHWC7U+keoRmo5lVigpM8m/Nos6S1/QEBQ7QJli9nOcDO7CoaY//7149fUW
-	lXHWEgo3+ZMo5Fz6JoSe2uA12Jjzl4zid4uz7HBn5yYdwHIH6pEMQ6vT7sfIjJeewq178pgKbVN6I
-	YNiLwqghgFxnpNJ2W9P3nn0bf0Lnzzvl+iBpseqWaYRD3F/YRbF3B2gzsBAdRwHp8J9NzNfN6bMfw
-	anWnEDxGCYX08YxZGGVGRdPZbhbtRculynd9JG67F6izoLLdXygbEg/bYM49WjmCXnxFwPbhj779M
-	U2f1p3HeyH0ncTzICrBA==;
+	List-Owner; bh=Gd7HRgRo7PhWiz2Yk1pWK3Zpwn2oXe6YTXYgUVv9Seg=; b=gLKo6dwkQlysRA
+	IkisnMBH7mY9T7EC/wnFiBDhV+dcP5BH4NHkTBr6ZAH/KwOaSfmN3VOhyp94MVM8X63qLxImy0LQm
+	8lvpc5FbA7g555uN3PRv0fye2Y8C8W74BQu2X83R8Urx38ljrFJ0L3ZOUhJZP4OacGChOIn4d1VHN
+	Zggg5e+7tu7vmpiZzb9rrHI6hFSsWX389S03AU+NlmudcrwWoc59WduGrgh9//TSCjcAdDRCrgtg3
+	5ut+YiNN4Ou2AyQu/Uboav7X6r8k1qwt2AodUD8xBzQi36HFz+ruKOEFy7ksqolZCD0JoTA8CA+jB
+	oSqMojN4NKGIJfh05T3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUjG0-0000000BCMZ-17Oi;
-	Thu, 26 Jun 2025 09:51:00 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1uUjGB-0000000BCRh-3JZv;
+	Thu, 26 Jun 2025 09:51:11 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUiux-0000000B8g9-3xgt;
-	Thu, 26 Jun 2025 09:29:17 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a50fc819f2so551756f8f.2;
-        Thu, 26 Jun 2025 02:29:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750930154; x=1751534954; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vfPg1bPzYUgjbdKxXUbIHHPyI6o1ylxUcethQzPOy2s=;
-        b=MzBz7bZ8GIzMiF0e83orZBlahEM2X6Aio15Q5pJsU5Z9ASdPoRiApc7RDj8kC6hBIb
-         9bkndeOMTS8JQSHNiguOIe95cmzT2eEd/THVsLPoxSYwmZILfN+T7zNsTNOy2X809uNp
-         ya6I0J6nvg1NrkX9rIeTGQWtSny7bXK8o6y7U7U67CPqBGppBlZdci6h80kOpnaaK8lC
-         JS+0UtEradVw9BPsjkSqCATelLw5f90EDTjiK9PRDD1B7AMejynXOQ2XfAHtLVVw+29/
-         35MltTEtAGFFCWeZkWt9dcBmPsYMnJqSB7da5cRZ9lvbx4afu0eg1+AlISxXI+IqXkoO
-         AuzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750930154; x=1751534954;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vfPg1bPzYUgjbdKxXUbIHHPyI6o1ylxUcethQzPOy2s=;
-        b=AAlg33Geeelw6BF6VhfFlRhftG9rqUuMQVOz6vyGfkDyFl55HGHC87AbV3WXrrKhBQ
-         KV74sKG96Sm0yViY4wNpUjj2gWyvO+1QdkCainak0SeLyH1zSSozDKcnO2F5fRigz/bR
-         /btgI7wk+Eu6x4fEipv4GMOLhwTeq1G97mTaU2pigDwjMukUubg2xOibJuhceGdE1ih3
-         vgMRVZopRbAs/Dy6Uwfc6Wmefih5XTo7TUrFoA9cUs9Cj6nCvm4obrUmb5rpKHAkuSa9
-         rRY6hfMvW9SKdJYNQi/Wwq5WMisgtj2D/tTEpHREFivNaZdv9y6uZDE7eGCDO6w40WaZ
-         Tovw==
-X-Forwarded-Encrypted: i=1; AJvYcCUhlYq7Sby8Wrdk8XOdLvltKj8u28VOKZr7ZSssT5POSwz1YmqHqZuXmd6Ji+mBPDyZCDNUh6Rr5n8inDqNRJgN@lists.infradead.org, AJvYcCVjpmF46L+g4zG1uBNCtu9RsQ/1O5v4GlqBxpvq7gPx1AusvUAuVLqR2PW5hCpSa8VhniB28B24rlv7Yp4=@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywvqkym+TvF+1coYzkJuBBsNHabXbjYLriTC7B4+XDSTSSAfCjp
-	CtCszEyMPFm7rl8HOAxkVsi9Ut4znjNcVZ4OnWReEoliZYw+m94rFJdd
-X-Gm-Gg: ASbGncs3RRseZEuF14R97pOGo+AcZOWcnVtg5xSoozJfM/Hu6xkKcVUtjqkJN2WHcXX
-	9yiCSZ1g0R3+k6zuwBL/qsK0YlvRGtP8cJekXGe+x52hsFE+gZrIYytgJsOf6eBejnCcMHNa+3m
-	AFdMsL29p75+GVpmQ9tnzd56pRYxQxrYK4AqLutOblx/BFyFdT206PvB7AvRyJLp6i6LiRyN5e9
-	FdlACuozcfVjxaXjfQNjNs8eC3GC0Ghqpj90+hTvDZceTUylHD6gc72OvXWOoKK6zYcvzfe6tTN
-	0stDpV20id0TjZ1Xy+OuB9FqzI/oBuRJ9BoR9MHotvzJAPQ=
-X-Google-Smtp-Source: AGHT+IFKXFVQqQF/e1a/uqOSmFAWHw7Suwi2bBnIU1uj7qmwG8d6IbJ3C4uZB9qONaL/NItzf1KkxQ==
-X-Received: by 2002:a05:6000:4112:b0:3a5:8905:2dda with SMTP id ffacd0b85a97d-3a6ed646c23mr5123244f8f.43.1750930153481;
-        Thu, 26 Jun 2025 02:29:13 -0700 (PDT)
-Received: from EBJ9932692.tcent.cn ([2a09:0:1:2::3086])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6e8113b00sm7002427f8f.96.2025.06.26.02.29.09
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Jun 2025 02:29:13 -0700 (PDT)
-From: Lance Yang <ioworker0@gmail.com>
-To: david@redhat.com
-Cc: 21cnbao@gmail.com,
-	akpm@linux-foundation.org,
-	baolin.wang@linux.alibaba.com,
-	chrisl@kernel.org,
-	ioworker0@gmail.com,
-	kasong@tencent.com,
-	lance.yang@linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	lorenzo.stoakes@oracle.com,
-	ryan.roberts@arm.com,
-	v-songbaohua@oppo.com,
-	x86@kernel.org,
-	ying.huang@intel.com,
-	zhengtangquan@oppo.com
-Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large folios during reclamation
-Date: Thu, 26 Jun 2025 17:29:05 +0800
-Message-ID: <20250626092905.31305-1-ioworker0@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <a5b5b0aa-21c4-4abf-b323-63af96aabcd5@redhat.com>
-References: <a5b5b0aa-21c4-4abf-b323-63af96aabcd5@redhat.com>
+	id 1uUiza-0000000B9QS-0NkU
+	for linux-riscv@lists.infradead.org;
+	Thu, 26 Jun 2025 09:34:04 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250626093358euoutp014f1d25cd5df4d15cf9f37fac9b509528~MjfUQ_rsI1777317773euoutp013
+	for <linux-riscv@lists.infradead.org>; Thu, 26 Jun 2025 09:33:58 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250626093358euoutp014f1d25cd5df4d15cf9f37fac9b509528~MjfUQ_rsI1777317773euoutp013
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1750930438;
+	bh=0cxYq6ecVQYEouUOPludphXkFkj0eDSu98gp3EjBQ5g=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=cpcdJzxkzYfTBJ8g3eTivV+VFcqLIo4A5TGF44U7he6ORcviZKuvIOmmfQ8fcwJ3a
+	 7JfYJ49Ix94GvCThF5LjCCefm5AUu2ouBlO1tTFhfDvCDOQ9aMvL2VxWfbim5ZUYJH
+	 f/flD2h9GknJWjEqCoYkM0Xz1sNQB8cMsKidX5sM=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250626093358eucas1p1e5d763dc86dccb0ed9fa725182ea59e6~MjfTpEyTP0080700807eucas1p1T;
+	Thu, 26 Jun 2025 09:33:58 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250626093356eusmtip219bc257793110e2073fe16714d5ec177~MjfSjBKcC1062510625eusmtip2O;
+	Thu, 26 Jun 2025 09:33:56 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Thu, 26 Jun 2025 11:33:47 +0200
+Subject: [PATCH v7 2/5] dt-bindings: gpu: img,powervr-rogue: Add TH1520 GPU
+ compatible
 MIME-Version: 1.0
+Message-Id: <20250626-apr_14_for_sending-v7-2-6593722e0217@samsung.com>
+In-Reply-To: <20250626-apr_14_for_sending-v7-0-6593722e0217@samsung.com>
+To: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+	<conor+dt@kernel.org>,  Michal Wilczynski <m.wilczynski@samsung.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Frank Binns <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Paul Walmsley
+	<paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson
+	<ulf.hansson@linaro.org>,  Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Drew Fustini <fustini@kernel.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org,  Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,  Bartosz Golaszewski
+	<bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.15-dev
+X-CMS-MailID: 20250626093358eucas1p1e5d763dc86dccb0ed9fa725182ea59e6
+X-Msg-Generator: CA
+X-RootMTR: 20250626093358eucas1p1e5d763dc86dccb0ed9fa725182ea59e6
+X-EPHeader: CA
+X-CMS-RootMailID: 20250626093358eucas1p1e5d763dc86dccb0ed9fa725182ea59e6
+References: <20250626-apr_14_for_sending-v7-0-6593722e0217@samsung.com>
+	<CGME20250626093358eucas1p1e5d763dc86dccb0ed9fa725182ea59e6@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_022915_984821_C989806A 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20250626_023402_621006_D0273AB4 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,100 +97,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Before I send out the real patch, I'd like to get some quick feedback to
-ensure I've understood the discussion correctly ;)
+Update the img,powervr-rogue.yaml to include the T-HEAD TH1520 SoC's
+specific GPU compatible string.
 
-Does this look like the right direction?
+The thead,th1520-gpu compatible, along with its full chain
+img,img-bxm-4-64, and img,img-rogue, is added to the
+list of recognized GPU types.
 
-diff --git a/mm/rmap.c b/mm/rmap.c
-index fb63d9256f09..5ebffe2137e4 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -1845,23 +1845,37 @@ void folio_remove_rmap_pud(struct folio *folio, struct page *page,
- #endif
- }
- 
--/* We support batch unmapping of PTEs for lazyfree large folios */
--static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
--			struct folio *folio, pte_t *ptep)
-+static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
-+			struct page_vma_mapped_walk *pvmw,
-+			enum ttu_flags flags, pte_t pte)
- {
- 	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
--	int max_nr = folio_nr_pages(folio);
--	pte_t pte = ptep_get(ptep);
-+	unsigned long end_addr, addr = pvmw->address;
-+	struct vm_area_struct *vma = pvmw->vma;
-+	unsigned int max_nr;
-+
-+	if (flags & TTU_HWPOISON)
-+		return 1;
-+	if (!folio_test_large(folio))
-+		return 1;
- 
-+	/* We may only batch within a single VMA and a single page table. */
-+	end_addr = pmd_addr_end(addr, vma->vm_end);
-+	max_nr = (end_addr - addr) >> PAGE_SHIFT;
-+
-+	/* We only support lazyfree batching for now ... */
- 	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
--		return false;
-+		return 1;
- 	if (pte_unused(pte))
--		return false;
--	if (pte_pfn(pte) != folio_pfn(folio))
--		return false;
-+		return 1;
-+
-+	/* ... where we must be able to batch the whole folio. */
-+	if (pte_pfn(pte) != folio_pfn(folio) || max_nr != folio_nr_pages(folio))
-+		return 1;
-+	max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, fpb_flags,
-+				 NULL, NULL, NULL);
- 
--	return folio_pte_batch(folio, addr, ptep, pte, max_nr, fpb_flags, NULL,
--			       NULL, NULL) == max_nr;
-+	return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
- }
- 
- /*
-@@ -2024,9 +2038,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 			if (pte_dirty(pteval))
- 				folio_mark_dirty(folio);
- 		} else if (likely(pte_present(pteval))) {
--			if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
--			    can_batch_unmap_folio_ptes(address, folio, pvmw.pte))
--				nr_pages = folio_nr_pages(folio);
-+			nr_pages = folio_unmap_pte_batch(folio, &pvmw, flags, pteval);
- 			end_addr = address + nr_pages * PAGE_SIZE;
- 			flush_cache_range(vma, address, end_addr);
- 
-@@ -2206,13 +2218,16 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 			hugetlb_remove_rmap(folio);
- 		} else {
- 			folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
--			folio_ref_sub(folio, nr_pages - 1);
- 		}
- 		if (vma->vm_flags & VM_LOCKED)
- 			mlock_drain_local();
--		folio_put(folio);
--		/* We have already batched the entire folio */
--		if (nr_pages > 1)
-+		folio_put_refs(folio, nr_pages);
-+
-+		/*
-+		 * If we are sure that we batched the entire folio and cleared
-+		 * all PTEs, we can just optimize and stop right here.
-+		 */
-+		if (nr_pages == folio_nr_pages(folio))
- 			goto walk_done;
- 		continue;
- walk_abort:
---
+While the BXM-4-64 GPU IP is designed with two distinct power domains,
+the TH1520 SoC integrates it with only a single, unified power gate that
+is controllable by the kernel.
 
-Thanks,
-Lance
+To model this reality correctly while keeping the binding accurate for
+other devices, add conditional constraints to the `allOf` section:
+ - If the compatible is "thead,th1520-gpu", enforce a maximum of one
+   power domain.
+ - For other "img,img-bxm-4-64" and "img,img-bxs-4-64" devices,
+   enforce a minimum of two power domains, using a 'not:' clause to
+   exclude the TH1520.
+
+This makes the binding strict and correct for both the specific TH1520
+implementation and for other SoCs that use the B-series Rogue GPUs.
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 26 +++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+index 4450e2e73b3ccf74d29f0e31e2e6687d7cbe5d65..263c40c8438e26efcf1613b5e2af54f2d6599871 100644
+--- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
++++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+@@ -21,6 +21,11 @@ properties:
+           # work with newer dts.
+           - const: img,img-axe
+           - const: img,img-rogue
++      - items:
++          - enum:
++              - thead,th1520-gpu
++          - const: img,img-bxm-4-64
++          - const: img,img-rogue
+       - items:
+           - enum:
+               - ti,j721s2-gpu
+@@ -89,6 +94,18 @@ allOf:
+         - power-domains
+         - power-domain-names
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: thead,th1520-gpu
++    then:
++      properties:
++        power-domains:
++          maxItems: 1
++        power-domain-names:
++          maxItems: 1
++
+   - if:
+       properties:
+         compatible:
+@@ -105,7 +122,14 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: img,img-bxs-4-64
++            enum:
++              - img,img-bxs-4-64
++              - img,img-bxm-4-64
++      not:
++        properties:
++          compatible:
++            contains:
++              const: thead,th1520-gpu
+     then:
+       properties:
+         power-domains:
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
