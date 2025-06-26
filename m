@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9C7C7115B
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 08:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA6EC77B7F
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 08:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=f42DSPwsBXJYAgIGMi5PGESnDTz2TsN4xRsShayTuHk=; b=naT9C3st7fwD4G
-	axxlzRKsTKmo8bzJ63PMXSSbutdGCJs7Ez35AjnVNNdijtnJ156UlexPHNF0RiOljjFDrYDu8z6jL
-	A9iylaXryDwZANNtRskI8STsE52oKmIwr1S+w6qfCSO1sb6qBiGuTJQTFuTxoJFX78paVpMiaM40+
-	EPZVNLkdXajm9Hu/wyz7jPcP96S8j8LY9yJ4l94GwLSSeRSlkLRDQFospkXRkOTH75T22pXMc6l+0
-	Ru8FwUUSyD/MLw8m+HRqKA2aE7H+R0JoctAT3meeg2Qry03t+CvIq1DM4o5gavnzIge47ZK2dBHBw
-	2Z6Avxdg24ic7iQwbY0Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nPKrUHIC84HUTFDSH+y0wnEEWpBgwF2fWPv10lLLEg8=; b=zHLSNVePk6VMUK
+	M+yVHaCN7tk2L6UEM0uawr/aZA1K8YC+5ckLMum7Rg13UjBlzUGyyurODnmzuuaxBVh2OOrN/kF9k
+	lRzB2LngnC7q278hQ+UHSo5rk2CdaarX3SFUdMEhrh+HbtisSsYNpdyPyvAt6fDvbauunHfxui26O
+	/gz7Nm+ge/qX3jV3RtGEc7x9aA95RJY9MBUpK3T92kSUJ0l+3u3477qE5shW1yqS+pyP12kTQtgE8
+	Ht4JTb6+hhbRS78mYHFEG6oCQl73Mci932Vx5kKspkpEnoGBdL74TVzeuIOzcQfD7NxK7A+TxvaMP
+	WWm7RoJkW5JLT5Toa5dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhek-0000000AtTV-0Tkz;
+	id 1uUhek-0000000AtTz-3GzH;
 	Thu, 26 Jun 2025 08:08:26 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhXh-0000000AsNL-4BuY
+	id 1uUhXl-0000000AsNr-2GJa
 	for linux-riscv@lists.infradead.org;
 	Thu, 26 Jun 2025 08:01:14 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-313bb9b2f5bso766674a91.3
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Jun 2025 01:01:09 -0700 (PDT)
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-739b3fe7ce8so908675b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Jun 2025 01:01:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750924869; x=1751529669; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MutTzljpNoSQQ8KY/Naa1K0a5hKmtznD/W4HGzANsVs=;
-        b=XRDdlIi8mT8uKjqpFVnv+7/wgu3saD3y327TnHKidHW+ySxpN/XEs+labHLDA4G6Yf
-         oxFWIb1zSjdG1G52T348QWV299XCkTwKKOyp6NdP2lyE0jxlICmrnhSAioC556n4e/L9
-         gLI4TnkSuITdNLLXLg+yznfqM81LYlMfc7HzGY4yiAY5NpX2/oXLdYUvmWD9I0DozY9n
-         lOvUiAYLwIyD8kcEWthWa64BavMTFZX5aXlIFBrcYfpMfpG1Lfs5v0DyP/ShHqSdThDc
-         0Gkv/LPMF3vF+c5ue7ngETl52K8RF0ueWso4vFLQjpO8gFCQJto9KOfeE9dcNjQSbjhc
-         seDg==
+        d=gmail.com; s=20230601; t=1750924873; x=1751529673; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=w6V/oR/DnwI2Qi+5VQkNfiNRfkRvGXnx3kp/m9SpAb0=;
+        b=M9W8E2Q7JhP5qVAyQKleOawTLIJFkQls3Sv73xEZ8mXLGmUb7AZGyuJnfADOf+CkZj
+         U688S6cWLMe0xhddkGWfODTbP4XcGU1O9wb3p4kNxUskpqGDazGk+xNMUoPskRKRh36D
+         wnk1pumVG+7oXm5gqkzwZVqIQ248JfsxG2evPqEg55GnwnCjN4q/cN0IS7NAF0dQdO1u
+         kj+gyIeWERsBxpv8uFvDYrRaGv+NpX4pI7Vb7oTF7+4Kru0F3p0oeQ2RGcKkPkbXYAAz
+         TK6/2UnWwZDYlD2A/BCxAGoEKmVZcQnxN4uGK+PpWEC9mgBYkmVTCutiS8TNgdlU0ACw
+         v57A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750924869; x=1751529669;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MutTzljpNoSQQ8KY/Naa1K0a5hKmtznD/W4HGzANsVs=;
-        b=LO8ioYyJVhC8KrJFUbI4ovd8SUUGybOUAafcSZC19OHPCQUUypV4EBP6vpvDC8nsBH
-         LclX4e9DAEQocZgN5WYlQ8VSEfCI5NQK7SdaUGXK2vNrFueUoH8AhyFPwpEbhL9pYbNG
-         Y9935xeUYYMs8YkbPN2GJHqdiGsP8jieR0Mk0xSe6roM4fhJxGhaRsCX6eD3PciVZssv
-         jJGplRn1hViHGiZz2Y8Qrz4VGqz65B1cTqPS3EiTd2KUjwIO8CVUaMWk3YCjysFE/b9u
-         QVnwhguIgtH8UlJweuOJyED1nJHRfHRaJIUk+rRV5FSWsS5Vy+T5eTvRIw74C5K4ezx8
-         3Q1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXDh09e9Y09uPuf+a3YKbF2jv2h6qQZ2ntruVyBTXh3NXZ6+bzhTYaatH6dNoZ5k52HEPbTCNDrbsfxGA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHc4Z/JtHpSlePnaWsrSlqT0leW3tihwUB9VdxjuiTpdYZJ4i+
-	VIQou8mk2ZTruAWPDJxZnYSwFcxBJNX0h2tCMSBdnF3qWEBmXICohj3a
-X-Gm-Gg: ASbGnct0Oqwb+Swt69aKuBQmuRYElS7dmxcJ9R5mGt8fj+tmJ03nIXQc0kXsPaB0XoN
-	ZQFzZsb1/3pM4W1K4vqWs1236/C88yxYkPGIlxk3/XWes4k79OJavANtuBJ2odYZ0A1JpOXq17U
-	7yqQRaU+ZiXIpjZdSaynP/K6E80Y0nlIr/wbLoaGFpqoI8xnV12BO3hOh9V7Qcp8g8r7mCIKBzb
-	TS3g1u7UbUB/0fFwo7OwmfCrXMqgEQCQBBc2yUzQR4m1l0Cypldb6anmW45qR1PfXeYilOvXdC4
-	9q9VLKoI2V5lr7wU7IgXEqBKfFgoGYRuBnfH+7esc1/nOmv5KgFQl9eUipBF0A==
-X-Google-Smtp-Source: AGHT+IEvFHP6OohPGoe/i9ODcPd4CzHYZYohuqPcN6oUCsWyV/2LcB0WXZlgW3DjTlwzc5TunaJepw==
-X-Received: by 2002:a17:90b:350e:b0:312:f54e:ba28 with SMTP id 98e67ed59e1d1-315f2689fa0mr8936538a91.24.1750924869022;
-        Thu, 26 Jun 2025 01:01:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750924873; x=1751529673;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=w6V/oR/DnwI2Qi+5VQkNfiNRfkRvGXnx3kp/m9SpAb0=;
+        b=JmTKG2YPwm9J3cgOafgKjqHaGNC5Ovu4aw3+PlXkEF47u7J8sl8ZzMD0as1ZcL4onK
+         EyxdXQtY0SP4tWRuCvgBvejVveMFejZ8PZJ1ChzoS9S1OFZgGwKQa2EPl+upa5zv6gBl
+         OpQSjcdwsZYdb444CVJhyJXScvIn++cwe8h08fLBy3d3Ci9+QAIukEb3ClHnPHW/9X2Q
+         9+Ec+MwnsHpQIyE5yXkgAaXegPs06jrJReOS8m9SKgjyK9trFwQzoGqryt94orr9/3Yo
+         WshtQBA54+7G7n2NH/7oeObXNGlmU4A4k0EHDcwfwWxm8O1XQRlqLkZ6tsK3sxwP/b42
+         FtPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVpji0iH89m9af3Mr5iLXDSpWDNjlCBymSc6JA08ROYDW0KeIQTwBS7o8YCR+rAF/JzKv8f94TERVf38Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz402qDptxwyrDz/2fr/lvtKBNhGI6b7U+yM7XMNJlcBt7lW22i
+	LCPmXXznp1OzvOxv1Z4iwXRjSxdD78pubwECiQIWlxVmOv1xXnFVAF63
+X-Gm-Gg: ASbGnctoHgpfLjSKqLB6bnWqSW40aKgzTqknLce9gcvP+17ylHvWchT57u6RvbxR5uI
+	EIysGNNCBFQ+/w1t/lR1ORudqMp53KKVhnUDgSQlJYwXKu2prhLtpqDB8mjT8INuqQAKjBugIo2
+	aBYwp8jyUXjZz+uEHK/UuWVFCc4EHYhSXCrWcNDO5U7/zDmUaS9q970BCfFVdh5INEfk1HARc2C
+	NlMQuQJmbmSBuwX4BAsClXi797Mo6XkqpMOxJTctThTx7uLrvVItm0cRaTe502+plrrsoW6o9SF
+	ABpXsPpHqBjWvI0Ma5GO5J84Tc/axAfIYdb2AnTA4U5DPsczntK2n0VfagjPsg==
+X-Google-Smtp-Source: AGHT+IHj+Op94mzlo16js4gRYFsEOUzqX/RPIICMR4H1DzKdZ+5MaSCW3aQOPebkZZvTUcK0EQmzrw==
+X-Received: by 2002:a05:6a21:103:b0:21a:e751:e048 with SMTP id adf61e73a8af0-2207f289a0emr10750457637.35.1750924872745;
+        Thu, 26 Jun 2025 01:01:12 -0700 (PDT)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-315f53f3a64sm3785918a91.48.2025.06.26.01.01.08
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-74ad63d3facsm3799107b3a.102.2025.06.26.01.01.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Jun 2025 01:01:08 -0700 (PDT)
+        Thu, 26 Jun 2025 01:01:12 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -92,16 +93,18 @@ Cc: netdev@vger.kernel.org,
 	sophgo@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next RFC v3 0/4] riscv: dts: sophgo: Add ethernet support for cv18xx
-Date: Thu, 26 Jun 2025 16:00:50 +0800
-Message-ID: <20250626080056.325496-1-inochiama@gmail.com>
+	Longbin Li <looong.bin@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH net-next RFC v3 1/4] dt-bindings: net: Add support for Sophgo CV1800 dwmac
+Date: Thu, 26 Jun 2025 16:00:51 +0800
+Message-ID: <20250626080056.325496-2-inochiama@gmail.com>
 X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250626080056.325496-1-inochiama@gmail.com>
+References: <20250626080056.325496-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_010110_039764_73CC3C82 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250626_010113_578682_8C301D75 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,36 +121,138 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device binding and dts for CV18XX series SoC, this dts change series
-required the reset patch [1] for the dts.
+The GMAC IP on CV1800 series SoC is a standard Synopsys
+DesignWare MAC (version 3.70a).
 
-[1] https://lore.kernel.org/all/20250617070144.1149926-1-inochiama@gmail.com
+Add necessary compatible string for this device.
 
-Change from RFC v2:
-- https://lore.kernel.org/all/20250623003049.574821-1-inochiama@gmail.com
-1. patch 1: fix wrong binding title
-2. patch 3: fix unmatched mdio bus number
-3. patch 4: remove setting phy-mode and phy-handle in board dts and move
-	    them into patch 3.
-
-Change from RFC v1:
-- https://lore.kernel.org/all/20250611080709.1182183-1-inochiama@gmail.com
-1. patch 3: switch to mdio-mux-mmioreg
-2. patch 4: add configuration for Huashan Pi
-
-Inochi Amaoto (4):
-  dt-bindings: net: Add support for Sophgo CV1800 dwmac
-  riscv: dts: sophgo: Add ethernet device for cv18xx
-  riscv: dts: sophgo: Add mdio multiplexer device for cv18xx
-  riscv: dts: sophgo: Enable ethernet device for Huashan Pi
-
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
  .../bindings/net/sophgo,cv1800b-dwmac.yaml    | 113 ++++++++++++++++++
- arch/riscv/boot/dts/sophgo/cv180x.dtsi        |  73 +++++++++++
- .../boot/dts/sophgo/cv1812h-huashan-pi.dts    |   8 ++
- 3 files changed, 194 insertions(+)
+ 1 file changed, 113 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml
 
---
+diff --git a/Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml
+new file mode 100644
+index 000000000000..8abd2cf06e2c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml
+@@ -0,0 +1,113 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/sophgo,cv1800b-dwmac.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo CV1800B DWMAC glue layer
++
++maintainers:
++  - Inochi Amaoto <inochiama@gmail.com>
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - sophgo,cv1800b-dwmac
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: sophgo,cv1800b-dwmac
++      - const: snps,dwmac-3.70a
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: GMAC main clock
++      - description: PTP clock
++
++  clock-names:
++    items:
++      - const: stmmaceth
++      - const: ptp_ref
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-names:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  reset-names:
++    const: stmmaceth
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - interrupt-names
++  - resets
++  - reset-names
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    ethernet@4070000 {
++      compatible = "sophgo,cv1800b-dwmac", "snps,dwmac-3.70a";
++      reg = <0x04070000 0x10000>;
++      clocks = <&clk 35>, <&clk 36>;
++      clock-names = "stmmaceth", "ptp_ref";
++      interrupts = <31 IRQ_TYPE_LEVEL_HIGH>;
++      interrupt-names = "macirq";
++      resets = <&rst 12>;
++      reset-names = "stmmaceth";
++      rx-fifo-depth = <8192>;
++      tx-fifo-depth = <8192>;
++      snps,multicast-filter-bins = <0>;
++      snps,perfect-filter-entries = <1>;
++      snps,aal;
++      snps,txpbl = <8>;
++      snps,rxpbl = <8>;
++      snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
++      snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
++      snps,axi-config = <&gmac0_stmmac_axi_setup>;
++      status = "disabled";
++
++      mdio {
++        compatible = "snps,dwmac-mdio";
++        #address-cells = <1>;
++        #size-cells = <0>;
++      };
++
++      gmac0_mtl_rx_setup: rx-queues-config {
++        snps,rx-queues-to-use = <1>;
++        queue0 {};
++      };
++
++      gmac0_mtl_tx_setup: tx-queues-config {
++        snps,tx-queues-to-use = <1>;
++        queue0 {};
++      };
++
++      gmac0_stmmac_axi_setup: stmmac-axi-config {
++        snps,blen = <16 8 4 0 0 0 0>;
++        snps,rd_osr_lmt = <2>;
++        snps,wr_osr_lmt = <1>;
++      };
++    };
+-- 
 2.50.0
 
 
