@@ -4,92 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C702C7EE32
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 12:00:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F381DC7EE30
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Jun 2025 12:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EHOoGwa9tE0nJTBZYtsUKCxLTk9ga1ltYO3u+mHz3tA=; b=cC8vxia9Ws7Q3o
-	7Z+TPUnFbsJKBQccp8oaSeM5EmZbce6ENJvKYMbscNbWPgoQkniBsjfRC3BlESYF695vLNF50djTw
-	LtHS8JJPxjA5+dluBCIeaaFMJszFBBoWeBTepXFdo8RVGgnoGTJSOJhVLpvZDYsWizePTo35uEpT1
-	Ibu0zmns65PynicBpSYXFTeRA0um6D8z8FXNhif+r9S97jPIi7b52hUr/xIDuuf/mTlWMz8Fswy1b
-	fTBoB2dkHdgXZUuF2JfHoc9q75ry3kuZdibe4U2muNbmQePuAVDHkiFFFl6UiGSHCymimPrL2FzHT
-	8zp0qia/n40OtJrdxQLQ==;
+	List-Owner; bh=txRC8boF+9OSz1r6XqrEgOFBc50t8DWVfsx831+eqWM=; b=C6NVcHn7tFgaW4
+	QSiPmvbSNtf7SDd+mAOQh3pBAJXcXGdhdOTqiHtweYxc373OSXbeP+e7xaix7iNbihoSVVT6w29jp
+	VBX5uGMaVCPLnxmm7TE1m/EvwGgqjNvOp0d12qixWxAhJs34ZuGg9DBDopuLoNulkYb8YSoasN2yi
+	o9j5LhIdIjuK0VjT4MNizToNDaEOpZ9DnC/YNGuJHzzLq8z19HfF87PsDwgQWcOvz+5o8otVZkPe6
+	yujSQxjUItoOFQMdBbuXBQOOof3iaDudcegJjn9hCbw1j92oAoAvS3oe2dCJd1d2jA8UuHL1d2IkY
+	/xaLWxEUbGuInSNgo46A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUlHS-0000000BUGJ-2ljH;
-	Thu, 26 Jun 2025 12:00:38 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1uUm40-0000000BaMn-112C;
+	Thu, 26 Jun 2025 12:50:48 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUkAm-0000000BKJA-3H3t
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Jun 2025 10:49:41 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a588da60dfso516162f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Jun 2025 03:49:40 -0700 (PDT)
+	id 1uUlyI-0000000BZT5-18yj;
+	Thu, 26 Jun 2025 12:44:55 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-453643020bdso8184805e9.1;
+        Thu, 26 Jun 2025 05:44:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1750934979; x=1751539779; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1a0bjQkrE0lXOwbpfOZiZMnL8XuL0L+bDp2YasyQuLw=;
-        b=jLm2e7tBY/7PhYSK0BU1tzBYjOreBvzXT9jeubCzT/Ymc82QH6ITBcgZfjn6QjbE4z
-         uRpCEUttVOdfhYCbQURIc/aQFHL1aKBA4wI7pvRtLjesqrabHW9fIJTt5XBjMmRYnNPY
-         2Xrz4Lpx7CM9MnHHQ82vEFq25K93ziIortb6YBrWlshPvJ9e7FyFDCSisYaD9lmZQtPy
-         tz5UCS2FdaM+5TFizaEonzFSaUAByKJkmuQHhsgkwsAY7j3WskEy5vh8edSRzkxdc5eb
-         krqXB69qBmi4CTxkBVo5bQCaIiEJ6F0lOAPJZbXFFjeStE0rj9TVXRErGcKeoyTZmVU9
-         VL9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750934979; x=1751539779;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1750941893; x=1751546693; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1a0bjQkrE0lXOwbpfOZiZMnL8XuL0L+bDp2YasyQuLw=;
-        b=uboSRrpb4GXMII+lZGaHOYXW9FqYqPzTSekNJLUi6ESthsN/b8ybxWoOn6M3XgmH69
-         icL8KzIbYleQ7GOvYwdYls9x1FQPYvDMHZ0MUa4vW8mJ1q06L3a0vcs9/uOcxOBVoAtb
-         6gUmJ9fY+VRFPTdsvC2MpRDCZTFIN7gNK8MIBUx7Louiv2ERQgE3vW8D+9pTVmzMgokg
-         cjLrEJxGKsUgZDqmsWNGxnCBtVl/GrVbfFkefFbToJ/2L9N5qsJ6ZseQlA+jMTxXsZcG
-         sdGKGz4F8ykQ8MskcO0ySw2oNboQSHFgMlaeUhoQBKzsUtvB+qlFV6OmXoC1SFtsNVu4
-         huXw==
-X-Forwarded-Encrypted: i=1; AJvYcCU0SbsSWB/oM9suav84DCbVIeJKAskyKUhUaVdx6FB8QQbx+z6dj1NaGUUrPtZbGrwIQ63XjRmngjAixw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2u1vQE1deLvF9g9+O04Lj29LpS1MhrDi5yEAHe7EhGWvJYAx8
-	0yzrfSOWrIN4CC1v26oLBFzGnFy+w/oVH2gWLjLaJ1aCskUbgVbAlxJWg9y/XehbNpc=
-X-Gm-Gg: ASbGnctIcl1Tamwil0mj55PlhTDtJ9Szh1UfomZYYfXGComhXJh0MLKe256PNjSIR5D
-	I4Xa5Y2Dk3hyT+XJVKTmxIdWRHwVfJo98n0nL58szsSLPLt8zHuEHsFigXGFi4kkTc6sU3UWGlu
-	X45PByheCdLhG20i6jtXmtahmPv3JF25+rJMnhmD/uyNrWNXCEdR+w1r5rq2xjiAAxMDi0hJR9V
-	c2lQL89uSdzJ6rj8ZUfmWQYk6wOL5J/YHK+qjU93OzgiyFBVRQZTR8O14jIhuSMJk9YCJnu5dxD
-	WIozl8Oa//CoenwtI4NZlYF4IJnQs0BlWH5aDooMIQE/g4ZyOrKrHxOkZ0vg
-X-Google-Smtp-Source: AGHT+IHq/vFRkJj/oJMZi+3J+q9S/bpmTny3iypeXTqCnR6Swc4ofLBoKTbFvUTAYU6DIEK0HRcCDQ==
-X-Received: by 2002:a5d:64e1:0:b0:3a6:d92d:9f7c with SMTP id ffacd0b85a97d-3a6ed5e9c5bmr5333270f8f.9.1750934978974;
-        Thu, 26 Jun 2025 03:49:38 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::5485])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6f3a79377sm1808780f8f.20.2025.06.26.03.49.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Jun 2025 03:49:38 -0700 (PDT)
-Date: Thu, 26 Jun 2025 12:49:37 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Jonathan Corbet <corbet@lwn.net>, Palmer Dabbelt <palmer@sifive.com>, 
-	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-Subject: Re: [PATCH v4 6/7] riscv: Add tools support for xmipsexectl
-Message-ID: <20250626-af013235ad8d22421b2fe5b1@orel>
-References: <20250625-p8700-pause-v4-0-6c7dd7f85756@htecgroup.com>
- <20250625-p8700-pause-v4-6-6c7dd7f85756@htecgroup.com>
- <20250626-a1aca9887bbf5410741e17c4@orel>
- <20250626-0186dfe9df28f9bb72a91426@orel>
+        bh=W9Q6vWQMAD+pyX5yU0mYRqo1CgBOlEkw6ZKpgSd/AcU=;
+        b=CYrHo1xaH6jyaPUqtbEtfeonKV5YWamqOF8fep3waRbDL0xP6l8//2GU2Q83C6d1UF
+         d6mZxPOMrbkA6UH+Y2P/oFCqwu4DO/xRPMuSNfXNp+736n+T3uR4xevqHFfV7aRXasrG
+         9XvUWaTv0++HNV/PWvAJqwnbPiby7ZiX0db3J7rmyS7Qu9bUZxpCkbsStQTnOBNOE9Y1
+         x45ZO0HWLmc1600/XwhngCcWxWGNIWPlH8tRAV3jwPjO3ZR5NmM7OJG3P4rk9yyAh0y/
+         pss50eKyz4hdUKclKViAkQj6ya/scxpLvuMnOym5oudX3BTrlGeS53Wtx3JvpMHau/z2
+         8Qpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750941893; x=1751546693;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=W9Q6vWQMAD+pyX5yU0mYRqo1CgBOlEkw6ZKpgSd/AcU=;
+        b=vtCCKK06lAOeLwf060Bk355wDdzwqB5c3u1pz+FsEQJm6CQSoNDCHNBNAenwvczvse
+         ArSCFdRi1qu6LQRvLBQGs1fB7bX+v6o1kSIkQnAJoi4hPcjmAAlbdjAGzsUyGXsODIIl
+         oEHsBSgu5ay+oEolb/kFWLMwJBLX5fu3kyFhempoalXBfNGeblXgnxHzMcGjPjkolcaT
+         fo2JTMTH9t+gb2fA2UtjkL7fDNYV2GzT2Cd0S4ZfuKC3Qk0v5HcR6LHBTVnxtNeeFCzl
+         NTq7a0G7VfIYKES1mlixkHUWoGG3sZ8zxevXtG/ptPoabj06yLMeDNdyM7Z9zNupIOFB
+         ttaw==
+X-Forwarded-Encrypted: i=1; AJvYcCV1YPcTVMgmtapwa9zLzKeVHkPjaPRGuOYcP0ADsfhu/E8V3vXZBjhB9J01A/JmSD5tsQK8CheZUW/cdhsL7PYf@lists.infradead.org, AJvYcCXOG8++n3DnxuROYHHaZ6ig2L51sEGwM28XxKMasW2SoFiw2ZsrkRnSMh69van0BBb4H5yev5wgEl2X9ac=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrfmEF7VurjsVS7De+UURMq/1JWbwLqOGBojH09Y5MXmSqwGvX
+	NY4F7A410Qm0tZjbO80mMBLvh/TvL4FCUZsdcKcmS0ncAZUB9HTsJonw
+X-Gm-Gg: ASbGncvYm+F/Y+GfIrTHbsTOZahnr0vLXnDKsSdP7dUJrwkEN999mxUZLYwXtOLvxP2
+	UnH2awe2JgzVer3hRmXxkZuTG6TLsCTc4XX3YTcU+c6csR74PSlZXRn8KB2NJeUo8p1OFbyRCq/
+	yJHG1CKXfU0IeQ+5fxJhtzdLmiFYefON7tAyHjZa0KlD+89QWdY4DoV5Ur49WBxchSOhT2p7bEW
+	JPaP8NbVdJixrHoRuXnjjoEDQcpasoTrMnoupYnZQa5kR7Fx4WwY05+BQp67r083w4dmjFUalzk
+	zZki7PCl5xgJcOEEWLAlRFs+AKLQFz7XuhIKivTa+i3Uh48=
+X-Google-Smtp-Source: AGHT+IHK9z/BBG/9EKAw7EpO3uOD6zjU0SI80m4T9S7pG+NIa80Str49cvuzTLt7WfihJvvYhpI4ug==
+X-Received: by 2002:a5d:5847:0:b0:3a3:7593:818b with SMTP id ffacd0b85a97d-3a6ed62eb62mr6202221f8f.21.1750941892202;
+        Thu, 26 Jun 2025 05:44:52 -0700 (PDT)
+Received: from EBJ9932692.tcent.cn ([2a09:0:1:2::3086])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a831051c49sm161455f8f.30.2025.06.26.05.44.47
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Jun 2025 05:44:51 -0700 (PDT)
+From: Lance Yang <ioworker0@gmail.com>
+To: ioworker0@gmail.com
+Cc: 21cnbao@gmail.com,
+	akpm@linux-foundation.org,
+	baolin.wang@linux.alibaba.com,
+	chrisl@kernel.org,
+	david@redhat.com,
+	kasong@tencent.com,
+	lance.yang@linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	lorenzo.stoakes@oracle.com,
+	ryan.roberts@arm.com,
+	v-songbaohua@oppo.com,
+	x86@kernel.org,
+	ying.huang@intel.com,
+	zhengtangquan@oppo.com
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large folios during reclamation
+Date: Thu, 26 Jun 2025 20:44:45 +0800
+Message-ID: <20250626124445.77865-1-ioworker0@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250626092905.31305-1-ioworker0@gmail.com>
+References: <20250626092905.31305-1-ioworker0@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250626-0186dfe9df28f9bb72a91426@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_034940_819503_5157938E 
-X-CRM114-Status: GOOD (  30.46  )
+X-CRM114-CacheID: sfid-20250626_054454_309320_7B32D20B 
+X-CRM114-Status: GOOD (  24.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,88 +112,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 11:34:21AM +0200, Andrew Jones wrote:
-> On Thu, Jun 26, 2025 at 11:21:10AM +0200, Andrew Jones wrote:
-> > On Wed, Jun 25, 2025 at 04:21:01PM +0200, Aleksa Paunovic via B4 Relay wrote:
-> > > From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-> > > 
-> > > Use the hwprobe syscall to decide which PAUSE instruction to execute in
-> > > userspace code.
-> > > 
-> > > Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-> > > ---
-> > >  tools/arch/riscv/include/asm/vdso/processor.h | 27 +++++++++++++++++----------
-> > >  1 file changed, 17 insertions(+), 10 deletions(-)
-> > > 
-> > > diff --git a/tools/arch/riscv/include/asm/vdso/processor.h b/tools/arch/riscv/include/asm/vdso/processor.h
-> > > index 662aca03984817f9c69186658b19e9dad9e4771c..027219a486b7b93814888190f8224af29498707c 100644
-> > > --- a/tools/arch/riscv/include/asm/vdso/processor.h
-> > > +++ b/tools/arch/riscv/include/asm/vdso/processor.h
-> > > @@ -4,26 +4,33 @@
-> > >  
-> > >  #ifndef __ASSEMBLY__
-> > >  
-> > > +#include <asm/hwprobe.h>
-> > > +#include <sys/hwprobe.h>
-> > > +#include <asm/vendor/mips.h>
-> > >  #include <asm-generic/barrier.h>
-> > >  
-> > >  static inline void cpu_relax(void)
-> > >  {
-> > > +	struct riscv_hwprobe pair;
-> > > +	bool has_mipspause;
-> > >  #ifdef __riscv_muldiv
-> > >  	int dummy;
-> > >  	/* In lieu of a halt instruction, induce a long-latency stall. */
-> > >  	__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
-> > >  #endif
-> > >  
-> > > -#ifdef CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE
-> > > -	/*
-> > > -	 * Reduce instruction retirement.
-> > > -	 * This assumes the PC changes.
-> > > -	 */
-> > > -	__asm__ __volatile__ ("pause");
-> > > -#else
-> > > -	/* Encoding of the pause instruction */
-> > > -	__asm__ __volatile__ (".4byte 0x100000F");
-> > > -#endif
-> > > +	pair.key = RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0;
-> > > +	__riscv_hwprobe(&pair, 1, 0, NULL, 0);
-> > > +	has_mipspause = pair.value & RISCV_HWPROBE_VENDOR_EXT_XMIPSEXECTL;
-> > > +
-> > > +	if (has_mipspause) {
-> > > +		/* Encoding of the mips pause instruction */
-> > > +		__asm__ __volatile__(".4byte 0x00501013");
-> > > +	} else {
-> > > +		/* Encoding of the pause instruction */
-> > > +		__asm__ __volatile__(".4byte 0x100000F");
-> > > +	}
-> > > +
-> > 
-> > cpu_relax() is used in places where we cannot afford the overhead nor call
-> > arbitrary functions which may take locks, etc. We've even had trouble
-> > using a static key here in the past since this is inlined and it bloated
-> > the size too much. You'll need to use ALTERNATIVE().
+
+On 2025/6/26 17:29, Lance Yang wrote:
+> Before I send out the real patch, I'd like to get some quick feedback to
+> ensure I've understood the discussion correctly ;)
 > 
-> Oh, I see now that the next patch is handling the kernel cpu_relax with
-> ALTERNATIVE and this was just the tools cpu_relax. We don't want to make
-> a syscall inside cpu_relax though either, since it gets called in loops.
-
-(Another follow up to myself...)
-
-I guess with the vdso cached result it should only be a handful of
-instructions, but it still seems odd to embed a call in cpu_relax.
-
-Thanks,
-drew
-
-> It'd be better to just call the standard pause (0x100000F) even if it
-> does nothing. Or maybe there's some define that can be added/used to
-> select the correct instruction?
+> Does this look like the right direction?
 > 
-> Thanks,
-> drew
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index fb63d9256f09..5ebffe2137e4 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -1845,23 +1845,37 @@ void folio_remove_rmap_pud(struct folio *folio, struct page *page,
+>   #endif
+>   }
+>   
+> -/* We support batch unmapping of PTEs for lazyfree large folios */
+> -static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
+> -			struct folio *folio, pte_t *ptep)
+> +static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+> +			struct page_vma_mapped_walk *pvmw,
+> +			enum ttu_flags flags, pte_t pte)
+>   {
+>   	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+> -	int max_nr = folio_nr_pages(folio);
+> -	pte_t pte = ptep_get(ptep);
+> +	unsigned long end_addr, addr = pvmw->address;
+> +	struct vm_area_struct *vma = pvmw->vma;
+> +	unsigned int max_nr;
+> +
+> +	if (flags & TTU_HWPOISON)
+> +		return 1;
+> +	if (!folio_test_large(folio))
+> +		return 1;
+>   
+> +	/* We may only batch within a single VMA and a single page table. */
+> +	end_addr = pmd_addr_end(addr, vma->vm_end);
+> +	max_nr = (end_addr - addr) >> PAGE_SHIFT;
+> +
+> +	/* We only support lazyfree batching for now ... */
+>   	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
+> -		return false;
+> +		return 1;
+>   	if (pte_unused(pte))
+> -		return false;
+> -	if (pte_pfn(pte) != folio_pfn(folio))
+> -		return false;
+> +		return 1;
+> +
+> +	/* ... where we must be able to batch the whole folio. */
+> +	if (pte_pfn(pte) != folio_pfn(folio) || max_nr != folio_nr_pages(folio))
+> +		return 1;
+> +	max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, fpb_flags,
+> +				 NULL, NULL, NULL);
+>   
+> -	return folio_pte_batch(folio, addr, ptep, pte, max_nr, fpb_flags, NULL,
+> -			       NULL, NULL) == max_nr;
+> +	return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
+>   }
+>   
+>   /*
+> @@ -2024,9 +2038,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>   			if (pte_dirty(pteval))
+>   				folio_mark_dirty(folio);
+>   		} else if (likely(pte_present(pteval))) {
+> -			if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
+> -			    can_batch_unmap_folio_ptes(address, folio, pvmw.pte))
+> -				nr_pages = folio_nr_pages(folio);
+> +			nr_pages = folio_unmap_pte_batch(folio, &pvmw, flags, pteval);
+>   			end_addr = address + nr_pages * PAGE_SIZE;
+>   			flush_cache_range(vma, address, end_addr);
+>   
+> @@ -2206,13 +2218,16 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>   			hugetlb_remove_rmap(folio);
+>   		} else {
+>   			folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
+> -			folio_ref_sub(folio, nr_pages - 1);
+>   		}
+>   		if (vma->vm_flags & VM_LOCKED)
+>   			mlock_drain_local();
+> -		folio_put(folio);
+> -		/* We have already batched the entire folio */
+> -		if (nr_pages > 1)
+> +		folio_put_refs(folio, nr_pages);
+> +
+> +		/*
+> +		 * If we are sure that we batched the entire folio and cleared
+> +		 * all PTEs, we can just optimize and stop right here.
+> +		 */
+> +		if (nr_pages == folio_nr_pages(folio))
+>   			goto walk_done;
+>   		continue;
+>   walk_abort:
+> --
+
+Oops ... Through testing on my machine, I found that the logic doesn't
+behave as expected because I messed up the meaning of max_nr (the available
+scan room in the page table) with folio_nr_pages(folio) :(
+
+With the following change:
+
+diff --git a/mm/rmap.c b/mm/rmap.c
+index 5ebffe2137e4..b1407348e14e 100644
+--- a/mm/rmap.c
++++ b/mm/rmap.c
+@@ -1850,9 +1850,9 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+ 			enum ttu_flags flags, pte_t pte)
+ {
+ 	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
++	unsigned int max_nr, nr_pages = folio_nr_pages(folio);
+ 	unsigned long end_addr, addr = pvmw->address;
+ 	struct vm_area_struct *vma = pvmw->vma;
+-	unsigned int max_nr;
+ 
+ 	if (flags & TTU_HWPOISON)
+ 		return 1;
+@@ -1870,12 +1870,13 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+ 		return 1;
+ 
+ 	/* ... where we must be able to batch the whole folio. */
+-	if (pte_pfn(pte) != folio_pfn(folio) || max_nr != folio_nr_pages(folio))
++	if (pte_pfn(pte) != folio_pfn(folio) || max_nr < nr_pages)
+ 		return 1;
+-	max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, fpb_flags,
+-				 NULL, NULL, NULL);
+ 
+-	return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
++	max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, nr_pages,
++				 fpb_flags, NULL, NULL, NULL);
++
++	return (max_nr != nr_pages) ? 1 : max_nr;
+ }
+ 
+ /*
+--
+
+... then things work as expected for the lazyfree case, without any
+splitting.
 
 _______________________________________________
 linux-riscv mailing list
