@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2670AC7EE32
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 00:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4408CC7EE32
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 00:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FvHAZR1EXH3JgYjKR7S00t9W/WshUTOsWY8CEw+amdA=; b=DZiiODrjoafSTLlpwtwd92cjOD
-	FCk3OM2Z50yEhTLPZdT6kX5kDzvS1QQSmRJ5VJMbyPg57a/ZGxRobcRjsFNTz+/nggAyqRFCiahqE
-	CBmw+MOBkHEtusEIt+IwT9aIIgjIi5k3ncTNB+4bgpT6lsPITi/EjcP3xLzLqIXVT6ZLqW2IkGnLb
-	aGnozfSsKnpw1vkB89Ps0aQX2sPJmrd8nhE3Gx9H7HPa6C/q8tJU0nEQcKY43QVLMQBJdQkaBf0KW
-	F0GZdKFut9gAIgMaxk50PJERmrREor8K50igChnM/NsQl5JsR7Np4Efviw45YJJpdV2fGBgQw5Jkb
-	JF67tsaA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2TihOLiVjSjjcbB3KIM8KrYEmfT/6wTo53Wo6Lw7pSc=; b=fTjCBf8WM5yk0H
+	cS69X/rj2374/jbhMUwjPp7mLkglkDOh2krRAniuMNeRnLNozc4f1vYVqqauHlLS5SMFM5+e7vOR1
+	d3ju5t5J8ITUzw2NsPTF2UTT7fbvB8t/w220Na2P+kv9l6MAtWnI5Yc8L4u6M7PKKKtg/PhY3/OUj
+	3Vn6y68mEZmJyy72nEoA1l2qaNW4L03pP3uQ0oKKlldf945Jew7W6QEj0g/UgLUAoKQGAkLJBcr3O
+	56vqj0Ejoj0DbJTTL+d0DOZ+CPS0sTOWIbNqyr31cXvBRgzOZL97wlNrSpMUBw24YNYZjaqVjCoek
+	ZrkiJMNEcPX4VsebO5Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUwnY-0000000DBd4-1Oj9;
-	Fri, 27 Jun 2025 00:18:32 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1uUxH0-0000000DF28-1389;
+	Fri, 27 Jun 2025 00:48:58 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUvQv-0000000CzTj-0t8H
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Jun 2025 22:51:08 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-234c5b57557so17080225ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Jun 2025 15:51:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1750978264; x=1751583064; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=AEnbe9pZhpI1K6vrxMSYleXTttDFS5F3fDukSEShxfY=;
-        b=wO0luWHskQzlkqfnptj4RLydakSIFvi97965DReQLkxm+J8kSAf6B3VsAtYCv61oeT
-         obolKZS5aJ9DZqiy6xWHtSYXfxCIKgkkb6tmhE0bX8zLFQnImZ3Ipa3PSoOk7HfxYDwP
-         0+Inc1W+zraTDlE5EG6+HjztVbM/K4AHtPY0/yMV9gxeue5JyO3nH0RggOhzpqXGlJ+w
-         pacVwpfcVI4TYjuqDcZla/rbPAwb61UPFmbA1WbgJ5xWAPThz5At9Phmy8Em21T+zWGp
-         7w5Sg8elJusxypwoMx/yphwr/yQ6wNVFWjM/hj90KMNcaK7/5g4oFezM+AFcL1NBdUYj
-         GZUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750978264; x=1751583064;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AEnbe9pZhpI1K6vrxMSYleXTttDFS5F3fDukSEShxfY=;
-        b=s8L4ue+od3p1RJrlztHnEAyHmnt9BNI9TbZ/qJ56SFiy9iSSLTnMCCB3vS+mvCh0WI
-         u1uJQM+UGT1K+LTFxOSHMKr+cP+qqAy5g9bF8nnCHEqAXu8WqUtSDX46RGhbMO61L6OB
-         Tzkdmr4gE+xNq+lS9YL7OM8hOuhXNPTXRBAKG5TjDbVIYx3+CFMOtNU/v9cDCFOFqEpL
-         tArNjJGJb/BVLZa7DIOkXEUOn0rpSA9laOVG+kzS+OvGsZ/fGcOXQcHHHrjLZkMG84EF
-         MG0lwGFEqlPw/r+qrO2YLr/9Iq8vKVOAIoTDW0uKwhcVOwAlal5f4l/w9PV92ZwnPb0i
-         PQRA==
-X-Gm-Message-State: AOJu0Ywtrw/QrKUGsWNZkgsfcF4pgQOMdDRVv08N51HNbwkFnkOHv3QH
-	Wou/AmLgL4rRlHq3R/R8MzlRafvzDwg5cRDurXP0gaRiWtDSmDe02n7t8wPIQ5hJcWA=
-X-Gm-Gg: ASbGncsYQIZAhQKvgnhG97/kg5RNlwj3Gt0yT/9icNYjO/YRhzekNcZKJpsX2pBS2/A
-	5b6tvNcAZGaI3UtyY/L3X6syvezCBwaccwbkqboSMm6w8s6Hrv1+4p9elN8YKpbVgpbSc2Sm/FU
-	pZc8dvUiBkBlB3lWsN11Y6yDWiXFezUIOj9Wc/HAuhn0cvwe63zIRrLPoyt3QxQpXdHRPXG70X5
-	WSh0z74xdajNt0uO6yoiJJL6wJdTakDLavmKGN2EH3E+KkGa2iG4ELeJl0TIhlxKMYIt4kvkTw/
-	ClU5dXeL2EMdpMrv5PFYKVFkPkmDaw/X1m2Yiq2S58sybZJWFB3QFcpmKbM6r3dwgDUx2pto
-X-Google-Smtp-Source: AGHT+IF9pZAM3AyIObkxYVNdUrFcRsBrOefpD8ZRTDy6dPjoRKmU5cA1eZAOa2yQ85ik9Cv6JN4o6A==
-X-Received: by 2002:a17:903:2351:b0:238:2990:6382 with SMTP id d9443c01a7336-23ac19a7938mr15760395ad.0.1750978264113;
-        Thu, 26 Jun 2025 15:51:04 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb3b7f5dsm1104235ad.179.2025.06.26.15.51.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Jun 2025 15:51:03 -0700 (PDT)
-Date: Thu, 26 Jun 2025 15:51:01 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Vineet Gupta <vineetg@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	Atish Patra <atish.patra@linux.dev>, bjorn@kernel.org
-Subject: Re: [PATCH] RISC-V: avoid using t6/x31 in hand asm
-Message-ID: <aF3O1brBEq1bospS@debug.ba.rivosinc.com>
-References: <20250626214455.285086-1-vineetg@rivosinc.com>
+	id 1uUwla-0000000DBVM-2A3k;
+	Fri, 27 Jun 2025 00:16:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A6106A4F04B;
+	Fri, 27 Jun 2025 00:16:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4121FC4CEEB;
+	Fri, 27 Jun 2025 00:16:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750983389;
+	bh=Drbs52CyKM+EsOpE81VcTWNKkqjmlBxF8J1HXfdBQek=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fdd22rWuQTBh9UZwpcJ97lO61MCgnbk64wUJ0KWL/TfSmDcaBdS9qZjIUrQjytM6K
+	 KDr3+4K15j9mE/fT0wt2TOWeFArxvTtcixOOmKojFhgNs+FZVq66IFrP0NwW6WcqDs
+	 rvx3X5OcyWJR+WaPfS6RKKFebfGHosN7dVc87fCZ8clpT/4M8DLWKV/VHwqMUHjXWQ
+	 ezvuSAzQxaLKq7W000Lgglvpci/UVjIBYoxWC7L7xSZOyBYO86UbZnZxiz2Q4PLAxz
+	 Mqx9/5V/d3N/hye93jQpbShDpnxLaU9yMa4AQrVlqoQrQbg2kIVsTQBMHj67UE4xHr
+	 8dgVn7h7iJQ9Q==
+Date: Thu, 26 Jun 2025 17:16:28 -0700
+From: Vinod Koul <vkoul@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v4 2/2] phy: sophgo: Add USB 2.0 PHY driver for Sophgo
+ CV18XX/SG200X
+Message-ID: <aF3i3L4BF6YgUMcO@vaman>
+References: <20250611081804.1196397-1-inochiama@gmail.com>
+ <20250611081804.1196397-3-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250626214455.285086-1-vineetg@rivosinc.com>
+In-Reply-To: <20250611081804.1196397-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_155105_368681_B7CD65A6 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20250626_171630_702058_4B93B533 
+X-CRM114-Status: GOOD (  30.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,410 +78,327 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 02:44:55PM -0700, Vineet Gupta wrote:
->This is technically NFC as nothing functional changes, except for usage
->of different regs in some of the asm code.
->
->This paves the way for using t6 as a global reg for say hoisting percpu
->base address (with further compiler toggles suh as -ffixed-t6.
->
->Lightly tested on QEMU: survives boot/hachbench (thx Atish for the
->testing).
+On 11-06-25, 16:18, Inochi Amaoto wrote:
+> Add USB 2.0 PHY driver for Sophgo CV18XX/SG200X. Currently
+> this driver does not support OTG mode as lack of document.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  drivers/phy/Kconfig                  |   1 +
+>  drivers/phy/Makefile                 |   1 +
+>  drivers/phy/sophgo/Kconfig           |  19 +++
+>  drivers/phy/sophgo/Makefile          |   2 +
+>  drivers/phy/sophgo/phy-cv1800-usb2.c | 222 +++++++++++++++++++++++++++
+>  5 files changed, 245 insertions(+)
+>  create mode 100644 drivers/phy/sophgo/Kconfig
+>  create mode 100644 drivers/phy/sophgo/Makefile
+>  create mode 100644 drivers/phy/sophgo/phy-cv1800-usb2.c
+> 
+> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+> index 58c911e1b2d2..678dd0452f0a 100644
+> --- a/drivers/phy/Kconfig
+> +++ b/drivers/phy/Kconfig
+> @@ -122,6 +122,7 @@ source "drivers/phy/renesas/Kconfig"
+>  source "drivers/phy/rockchip/Kconfig"
+>  source "drivers/phy/samsung/Kconfig"
+>  source "drivers/phy/socionext/Kconfig"
+> +source "drivers/phy/sophgo/Kconfig"
+>  source "drivers/phy/st/Kconfig"
+>  source "drivers/phy/starfive/Kconfig"
+>  source "drivers/phy/sunplus/Kconfig"
+> diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
+> index c670a8dac468..bfb27fb5a494 100644
+> --- a/drivers/phy/Makefile
+> +++ b/drivers/phy/Makefile
+> @@ -35,6 +35,7 @@ obj-y					+= allwinner/	\
+>  					   rockchip/	\
+>  					   samsung/	\
+>  					   socionext/	\
+> +					   sophgo/	\
+>  					   st/		\
+>  					   starfive/	\
+>  					   sunplus/	\
+> diff --git a/drivers/phy/sophgo/Kconfig b/drivers/phy/sophgo/Kconfig
+> new file mode 100644
+> index 000000000000..2c943bbe1f81
+> --- /dev/null
+> +++ b/drivers/phy/sophgo/Kconfig
+> @@ -0,0 +1,19 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# Phy drivers for Sophgo platforms
+> +#
+> +
+> +if ARCH_SOPHGO || COMPILE_TEST
+> +
+> +config PHY_SOPHGO_CV1800_USB2
+> +	tristate "Sophgo CV18XX/SG200X USB 2.0 PHY support"
+> +	depends on MFD_SYSCON
+> +	depends on USB_SUPPORT
+> +	select GENERIC_PHY
+> +	help
+> +	  Enable this to support the USB 2.0 PHY used with
+> +	  the DWC2 USB controller in Sophgo CV18XX/SG200X
+> +	  series SoC.
+> +	  If unsure, say N.
+> +
+> +endif # ARCH_SOPHGO || COMPILE_TEST
+> diff --git a/drivers/phy/sophgo/Makefile b/drivers/phy/sophgo/Makefile
+> new file mode 100644
+> index 000000000000..318060661759
+> --- /dev/null
+> +++ b/drivers/phy/sophgo/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +obj-$(CONFIG_PHY_SOPHGO_CV1800_USB2)	+= phy-cv1800-usb2.o
+> diff --git a/drivers/phy/sophgo/phy-cv1800-usb2.c b/drivers/phy/sophgo/phy-cv1800-usb2.c
+> new file mode 100644
+> index 000000000000..1d21db7f875b
+> --- /dev/null
+> +++ b/drivers/phy/sophgo/phy-cv1800-usb2.c
+> @@ -0,0 +1,222 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2025 Inochi Amaoto <inochiama@outlook.com>
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/debugfs.h>
+> +#include <linux/kernel.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_gpio.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/regmap.h>
+> +#include <linux/spinlock.h>
+> +
+> +#define REG_USB_PHY_CTRL		0x048
+> +
+> +#define PHY_ID_OVERWRITE_EN		BIT(6)
+> +#define PHY_ID_OVERWRITE_MODE		BIT(7)
+> +#define PHY_ID_OVERWRITE_MODE_HOST	FIELD_PREP(BIT(7), 0)
+> +#define PHY_ID_OVERWRITE_MODE_DEVICE	FIELD_PREP(BIT(7), 1)
+> +
+> +#define PHY_APP_CLK_RATE		125000000
+> +#define PHY_LPM_CLK_RATE		12000000
+> +#define PHY_STB_CLK_RATE		333334
+> +
+> +struct cv1800_usb_phy {
+> +	struct phy	*phy;
+> +	struct regmap	*syscon;
+> +	spinlock_t	lock;
+> +	struct clk	*usb_app_clk;
+> +	struct clk	*usb_lpm_clk;
+> +	struct clk	*usb_stb_clk;
+> +	bool		support_otg;
+> +};
+> +
+> +static int cv1800_usb_phy_set_mode(struct phy *_phy,
+> +				   enum phy_mode mode, int submode)
+> +{
+> +	struct cv1800_usb_phy *phy = phy_get_drvdata(_phy);
+> +	unsigned int regval = 0;
+> +	int ret;
+> +
+> +	switch (mode) {
+> +	case PHY_MODE_USB_DEVICE:
+> +		regval = PHY_ID_OVERWRITE_EN | PHY_ID_OVERWRITE_MODE_DEVICE;
+> +		break;
+> +	case PHY_MODE_USB_HOST:
+> +		regval = PHY_ID_OVERWRITE_EN | PHY_ID_OVERWRITE_MODE_HOST;
+> +		break;
+> +	case PHY_MODE_USB_OTG:
+> +		if (!phy->support_otg)
+> +			return 0;
+> +
+> +		ret = regmap_read(phy->syscon, REG_USB_PHY_CTRL, &regval);
+> +		if (ret)
+> +			return ret;
+> +
+> +		regval = FIELD_GET(PHY_ID_OVERWRITE_MODE, regval);
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	return regmap_update_bits(phy->syscon, REG_USB_PHY_CTRL,
+> +				  PHY_ID_OVERWRITE_EN | PHY_ID_OVERWRITE_MODE,
+> +				  regval);
+> +}
+> +
+> +static ssize_t dr_mode_write(struct file *file, const char __user *_buf,
+> +			     size_t count, loff_t *ppos)
+> +{
+> +	struct seq_file *seq = file->private_data;
+> +	struct cv1800_usb_phy *phy = seq->private;
+> +	enum phy_mode mode;
+> +	char buf[16];
+> +
+> +	if (copy_from_user(&buf, _buf, min_t(size_t, sizeof(buf) - 1, count)))
+> +		return -EFAULT;
+> +
+> +	if (sysfs_streq(buf, "host"))
+> +		mode = PHY_MODE_USB_DEVICE;
+> +	else if (sysfs_streq(buf, "peripheral"))
+> +		mode = PHY_MODE_USB_DEVICE;
+> +	else if (sysfs_streq(buf, "otg"))
+> +		mode = PHY_MODE_USB_OTG;
+> +	else
+> +		return -EINVAL;
+> +
+> +	return cv1800_usb_phy_set_mode(phy->phy, mode, 0);
+> +}
+> +
+> +static int dr_mode_show(struct seq_file *seq, void *v)
+> +{
+> +	struct cv1800_usb_phy *phy = seq->private;
+> +	unsigned long flags;
+> +	unsigned int regval;
+> +	bool is_host = true;
+> +	int ret;
+> +
+> +	spin_lock_irqsave(&phy->lock, flags);
+> +	ret = regmap_read(phy->syscon, REG_USB_PHY_CTRL, &regval);
+> +	spin_unlock_irqrestore(&phy->lock, flags);
+> +
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (regval & PHY_ID_OVERWRITE_MODE)
+> +		is_host = false;
+> +
+> +	if (!(regval & PHY_ID_OVERWRITE_EN))
+> +		seq_puts(seq, "otg: ");
+> +
+> +	seq_puts(seq, is_host ? "host\n" : "peripheral\n");
+> +
+> +	return 0;
+> +}
 
-Do we care about 32 bit? I see that bpf jitting for 32bit uses t6 in
-codegen. Doesn't look like 64-bit uses t6 in codegen (but take a closer
-look). CC: bjorn
+This should be done by host controller and not phy and then use apis to
+set the mode for phy from controller, pls see other driver on how they
+do this
 
->
->Cc: Yunhui Cui <cuiyunhui@bytedance.com>
->Cc: Atish Patra <atish.patra@linux.dev>
->Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
->---
-> arch/riscv/kernel/entry.S       | 14 +++----
-> arch/riscv/kernel/mcount.S      |  4 +-
-> arch/riscv/lib/memcpy.S         | 66 ++++++++++++++++-----------------
-> arch/riscv/lib/memmove.S        | 20 +++++-----
-> arch/riscv/lib/strncmp.S        |  6 +--
-> arch/riscv/lib/uaccess.S        | 24 ++++++------
-> arch/riscv/lib/uaccess_vector.S | 12 +++---
-> 7 files changed, 73 insertions(+), 73 deletions(-)
->
->diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
->index 75656afa2d6b..0b5791feae5f 100644
->--- a/arch/riscv/kernel/entry.S
->+++ b/arch/riscv/kernel/entry.S
->@@ -285,13 +285,13 @@ ASM_NOKPROBE(ret_from_exception)
-> #ifdef CONFIG_VMAP_STACK
-> SYM_CODE_START_LOCAL(handle_kernel_stack_overflow)
-> 	/* we reach here from kernel context, sscratch must be 0 */
->-	csrrw x31, CSR_SCRATCH, x31
->-	asm_per_cpu sp, overflow_stack, x31
->-	li x31, OVERFLOW_STACK_SIZE
->-	add sp, sp, x31
->-	/* zero out x31 again and restore x31 */
->-	xor x31, x31, x31
->-	csrrw x31, CSR_SCRATCH, x31
->+	csrrw x30, CSR_SCRATCH, x30
->+	asm_per_cpu sp, overflow_stack, x30
->+	li x30, OVERFLOW_STACK_SIZE
->+	add sp, sp, x30
->+	/* zero out x30 again and restore x30 */
->+	xor x30, x30, x30
->+	csrrw x30, CSR_SCRATCH, x30
->
-> 	addi sp, sp, -(PT_SIZE_ON_STACK)
->
->diff --git a/arch/riscv/kernel/mcount.S b/arch/riscv/kernel/mcount.S
->index da4a4000e57e..d7e4303a18a4 100644
->--- a/arch/riscv/kernel/mcount.S
->+++ b/arch/riscv/kernel/mcount.S
->@@ -89,8 +89,8 @@ SYM_FUNC_START(_mcount)
->
-> 	la	t3, ftrace_graph_entry
-> 	REG_L	t2, 0(t3)
->-	la	t6, ftrace_graph_entry_stub
->-	bne	t2, t6, .Ldo_ftrace_graph_caller
->+	la	t5, ftrace_graph_entry_stub
->+	bne	t2, t5, .Ldo_ftrace_graph_caller
-> #endif
-> 	la	t3, ftrace_trace_function
-> 	REG_L	t5, 0(t3)
->diff --git a/arch/riscv/lib/memcpy.S b/arch/riscv/lib/memcpy.S
->index 44e009ec5fef..37ebe9f2b355 100644
->--- a/arch/riscv/lib/memcpy.S
->+++ b/arch/riscv/lib/memcpy.S
->@@ -8,13 +8,13 @@
->
-> /* void *memcpy(void *, const void *, size_t) */
-> SYM_FUNC_START(__memcpy)
->-	move t6, a0  /* Preserve return value */
->+	move t5, a0  /* Preserve return value */
->
-> 	/* Defer to byte-oriented copy for small sizes */
-> 	sltiu a3, a2, 128
-> 	bnez a3, 4f
-> 	/* Use word-oriented copy only if low-order bits match */
->-	andi a3, t6, SZREG-1
->+	andi a3, a0, SZREG-1
-> 	andi a4, a1, SZREG-1
-> 	bne a3, a4, 4f
->
->@@ -30,8 +30,8 @@ SYM_FUNC_START(__memcpy)
-> 1:
-> 	lb a5, 0(a1)
-> 	addi a1, a1, 1
->-	sb a5, 0(t6)
->-	addi t6, t6, 1
->+	sb a5, 0(t5)
->+	addi t5, t5, 1
-> 	bltu a1, a3, 1b
-> 	sub a2, a2, a4  /* Update count */
->
->@@ -49,31 +49,31 @@ SYM_FUNC_START(__memcpy)
-> 	REG_L t2, 6*SZREG(a1)
-> 	REG_L t3, 7*SZREG(a1)
-> 	REG_L t4, 8*SZREG(a1)
->-	REG_L t5, 9*SZREG(a1)
->-	REG_S a4,       0(t6)
->-	REG_S a5,   SZREG(t6)
->-	REG_S a6, 2*SZREG(t6)
->-	REG_S a7, 3*SZREG(t6)
->-	REG_S t0, 4*SZREG(t6)
->-	REG_S t1, 5*SZREG(t6)
->-	REG_S t2, 6*SZREG(t6)
->-	REG_S t3, 7*SZREG(t6)
->-	REG_S t4, 8*SZREG(t6)
->-	REG_S t5, 9*SZREG(t6)
->-	REG_L a4, 10*SZREG(a1)
->-	REG_L a5, 11*SZREG(a1)
->-	REG_L a6, 12*SZREG(a1)
->-	REG_L a7, 13*SZREG(a1)
->-	REG_L t0, 14*SZREG(a1)
->-	REG_L t1, 15*SZREG(a1)
->+	REG_S a4,       0(t5)
->+	REG_S a5,   SZREG(t5)
->+	REG_S a6, 2*SZREG(t5)
->+	REG_S a7, 3*SZREG(t5)
->+	REG_S t0, 4*SZREG(t5)
->+	REG_S t1, 5*SZREG(t5)
->+	REG_S t2, 6*SZREG(t5)
->+	REG_S t3, 7*SZREG(t5)
->+	REG_S t4, 8*SZREG(t5)
->+	REG_L a4, 9*SZREG(a1)
->+	REG_L a5, 10*SZREG(a1)
->+	REG_L a6, 11*SZREG(a1)
->+	REG_L a7, 12*SZREG(a1)
->+	REG_L t0, 13*SZREG(a1)
->+	REG_L t1, 14*SZREG(a1)
->+	REG_L t2, 15*SZREG(a1)
-> 	addi a1, a1, 16*SZREG
->-	REG_S a4, 10*SZREG(t6)
->-	REG_S a5, 11*SZREG(t6)
->-	REG_S a6, 12*SZREG(t6)
->-	REG_S a7, 13*SZREG(t6)
->-	REG_S t0, 14*SZREG(t6)
->-	REG_S t1, 15*SZREG(t6)
->-	addi t6, t6, 16*SZREG
->+	REG_S a4, 9*SZREG(t5)
->+	REG_S a5, 10*SZREG(t5)
->+	REG_S a6, 11*SZREG(t5)
->+	REG_S a7, 12*SZREG(t5)
->+	REG_S t0, 13*SZREG(t5)
->+	REG_S t1, 14*SZREG(t5)
->+	REG_S t2, 15*SZREG(t5)
->+	addi t5, t5, 16*SZREG
-> 	bltu a1, a3, 3b
-> 	andi a2, a2, (16*SZREG)-1  /* Update count */
->
->@@ -83,15 +83,15 @@ SYM_FUNC_START(__memcpy)
-> 	add a3, a1, a2
->
-> 	/* Use word-oriented copy if co-aligned to word boundary */
->-	or a5, a1, t6
->+	or a5, a1, t5
-> 	or a5, a5, a3
-> 	andi a5, a5, 3
-> 	bnez a5, 5f
-> 7:
-> 	lw a4, 0(a1)
-> 	addi a1, a1, 4
->-	sw a4, 0(t6)
->-	addi t6, t6, 4
->+	sw a4, 0(t5)
->+	addi t5, t5, 4
-> 	bltu a1, a3, 7b
->
-> 	ret
->@@ -99,8 +99,8 @@ SYM_FUNC_START(__memcpy)
-> 5:
-> 	lb a4, 0(a1)
-> 	addi a1, a1, 1
->-	sb a4, 0(t6)
->-	addi t6, t6, 1
->+	sb a4, 0(t5)
->+	addi t5, t5, 1
-> 	bltu a1, a3, 5b
-> 6:
-> 	ret
->diff --git a/arch/riscv/lib/memmove.S b/arch/riscv/lib/memmove.S
->index cb3e2e7ef0ba..5fbd84c2cf18 100644
->--- a/arch/riscv/lib/memmove.S
->+++ b/arch/riscv/lib/memmove.S
->@@ -35,7 +35,7 @@ SYM_FUNC_START(__memmove)
-> 	 *      Forward Copy: t3 - Index counter of dest
-> 	 *      Reverse Copy: t4 - Index counter of dest
-> 	 *   Both Copy Modes: t5 - Inclusive first multibyte/aligned of dest
->-	 *   Both Copy Modes: t6 - Non-Inclusive last multibyte/aligned of dest
->+	 *   Both Copy Modes: a3 - Non-Inclusive last multibyte/aligned of dest
-> 	 *   Both Copy Modes: t0 - Link / Temporary for load-store
-> 	 *   Both Copy Modes: t1 - Temporary for load-store
-> 	 *   Both Copy Modes: t2 - Temporary for load-store
->@@ -47,7 +47,7 @@ SYM_FUNC_START(__memmove)
->
-> 	/*
-> 	 * Solve for some register values now.
->-	 * Byte copy does not need t5 or t6.
->+	 * Byte copy does not need t5 or a3.
-> 	 */
-> 	mv   t3, a0
-> 	add  t4, a0, a2
->@@ -62,10 +62,10 @@ SYM_FUNC_START(__memmove)
-> 	beqz t0, .Lbyte_copy
->
-> 	/*
->-	 * Now solve for t5 and t6.
->+	 * Now solve for t5 and a3.
-> 	 */
-> 	andi t5, t3, -SZREG
->-	andi t6, t4, -SZREG
->+	andi a3, t4, -SZREG
-> 	/*
-> 	 * If dest(Register t3) rounded down to the nearest naturally
-> 	 * aligned SZREG address, does not equal dest, then add SZREG
->@@ -99,7 +99,7 @@ SYM_FUNC_START(__memmove)
-> 	slli a6, a5, 3 /* Multiply by 8 to convert that to bits to shift */
-> 	sub  a5, a1, t3 /* Find the difference between src and dest */
-> 	andi a1, a1, -SZREG /* Align the src pointer */
->-	addi a2, t6, SZREG /* The other breakpoint for the unrolled loop*/
->+	addi a2, a3, SZREG /* The other breakpoint for the unrolled loop*/
->
-> 	/*
-> 	 * Compute The Inverse Shift
->@@ -147,9 +147,9 @@ SYM_FUNC_START(__memmove)
-> 	or    t2, t1, t2
-> 	REG_S t2, ((1 * SZREG) - (2 * SZREG))(t3)
->
->-	bne   t3, t6, 1b
->+	bne   t3, a3, 1b
-> 	2:
->-	mv    t3, t6 /* Fix the dest pointer in case the loop was broken */
->+	mv    t3, a3 /* Fix the dest pointer in case the loop was broken */
->
-> 	add  a1, t3, a5 /* Restore the src pointer */
-> 	j .Lbyte_copy_forward /* Copy any remaining bytes */
->@@ -232,7 +232,7 @@ SYM_FUNC_START(__memmove)
-> 	addi  a1, a1, SZREG
-> 	addi  t3, t3, SZREG
-> 	REG_S t1, (-1 * SZREG)(t3)
->-	bne   t3, t6, 1b
->+	bne   t3, a3, 1b
->
-> 	j .Lbyte_copy_forward /* Copy any remaining bytes */
->
->@@ -269,13 +269,13 @@ SYM_FUNC_START(__memmove)
-> 	jalr zero, 0x0(t0) /* Return to multibyte copy loop */
->
-> .Lbyte_copy_until_aligned_reverse:
->-	beq  t4, t6, 2f
->+	beq  t4, a3, 2f
-> 	1:
-> 	lb   t1, -1(a4)
-> 	addi a4, a4, -1
-> 	addi t4, t4, -1
-> 	sb   t1,  0(t4)
->-	bne  t4, t6, 1b
->+	bne  t4, a3, 1b
-> 	2:
-> 	jalr zero, 0x0(t0) /* Return to multibyte copy loop */
->
->diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
->index 062000c468c8..536d8ba8caa1 100644
->--- a/arch/riscv/lib/strncmp.S
->+++ b/arch/riscv/lib/strncmp.S
->@@ -63,7 +63,7 @@ strncmp_zbb:
-> 	 *   a2 - number of characters to compare
-> 	 *
-> 	 * Clobbers
->-	 *   t0, t1, t2, t3, t4, t5, t6
->+	 *   t0, t1, t2, t3, t4, t5
-> 	 */
->
-> 	or	t2, a0, a1
->@@ -73,12 +73,12 @@ strncmp_zbb:
-> 	bnez	t2, 3f
->
-> 	/* Adjust limit for fast-path.  */
->-	andi	t6, t4, -SZREG
->+	andi	t0, t4, -SZREG
->
-> 	/* Main loop for aligned string.  */
-> 	.p2align 3
-> 1:
->-	bge	a0, t6, 3f
->+	bge	a0, t0, 3f
-> 	REG_L	t0, 0(a0)
-> 	REG_L	t1, 0(a1)
-> 	orc.b	t3, t0
->diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
->index 4efea1b3326c..25fdedc0efdb 100644
->--- a/arch/riscv/lib/uaccess.S
->+++ b/arch/riscv/lib/uaccess.S
->@@ -27,16 +27,16 @@ EXPORT_SYMBOL(__asm_copy_from_user)
->
-> SYM_FUNC_START(fallback_scalar_usercopy)
-> 	/* Enable access to user memory */
->-	li	t6, SR_SUM
->-	csrs 	CSR_STATUS, t6
->-	mv 	t6, ra
->+	li	a7, SR_SUM
->+	csrs 	CSR_STATUS, a7
->+	mv 	a7, ra
->
-> 	call 	fallback_scalar_usercopy_sum_enabled
->
-> 	/* Disable access to user memory */
->-	mv 	ra, t6
->-	li 	t6, SR_SUM
->-	csrc 	CSR_STATUS, t6
->+	mv 	ra, a7
->+	li 	a7, SR_SUM
->+	csrc 	CSR_STATUS, a7
-> 	ret
-> SYM_FUNC_END(fallback_scalar_usercopy)
->
->@@ -117,7 +117,7 @@ SYM_FUNC_START(fallback_scalar_usercopy_sum_enabled)
-> 	fixup REG_L   a4,        0(a1), 10f
-> 	fixup REG_L   a5,    SZREG(a1), 10f
-> 	fixup REG_L   a6,  2*SZREG(a1), 10f
->-	fixup REG_L   a7,  3*SZREG(a1), 10f
->+	fixup REG_L   a2,  3*SZREG(a1), 10f
-> 	fixup REG_L   t1,  4*SZREG(a1), 10f
-> 	fixup REG_L   t2,  5*SZREG(a1), 10f
-> 	fixup REG_L   t3,  6*SZREG(a1), 10f
->@@ -125,7 +125,7 @@ SYM_FUNC_START(fallback_scalar_usercopy_sum_enabled)
-> 	fixup REG_S   a4,        0(a0), 10f
-> 	fixup REG_S   a5,    SZREG(a0), 10f
-> 	fixup REG_S   a6,  2*SZREG(a0), 10f
->-	fixup REG_S   a7,  3*SZREG(a0), 10f
->+	fixup REG_S   a2,  3*SZREG(a0), 10f
-> 	fixup REG_S   t1,  4*SZREG(a0), 10f
-> 	fixup REG_S   t2,  5*SZREG(a0), 10f
-> 	fixup REG_S   t3,  6*SZREG(a0), 10f
->@@ -217,8 +217,8 @@ SYM_FUNC_END(fallback_scalar_usercopy_sum_enabled)
-> SYM_FUNC_START(__clear_user)
->
-> 	/* Enable access to user memory */
->-	li t6, SR_SUM
->-	csrs CSR_STATUS, t6
->+	li t5, SR_SUM
->+	csrs CSR_STATUS, t5
->
-> 	add a3, a0, a1
-> 	addi t0, a0, SZREG-1
->@@ -240,7 +240,7 @@ SYM_FUNC_START(__clear_user)
->
-> 3:
-> 	/* Disable access to user memory */
->-	csrc CSR_STATUS, t6
->+	csrc CSR_STATUS, t5
-> 	li a0, 0
-> 	ret
-> 4: /* Edge case: unalignment */
->@@ -257,7 +257,7 @@ SYM_FUNC_START(__clear_user)
-> 	/* Exception fixup code */
-> 11:
-> 	/* Disable access to user memory */
->-	csrc CSR_STATUS, t6
->+	csrc CSR_STATUS, t5
-> 	sub a0, a3, a0
-> 	ret
-> SYM_FUNC_END(__clear_user)
->diff --git a/arch/riscv/lib/uaccess_vector.S b/arch/riscv/lib/uaccess_vector.S
->index 03b5560609a2..401fde708c77 100644
->--- a/arch/riscv/lib/uaccess_vector.S
->+++ b/arch/riscv/lib/uaccess_vector.S
->@@ -22,16 +22,16 @@
->
-> SYM_FUNC_START(__asm_vector_usercopy)
-> 	/* Enable access to user memory */
->-	li	t6, SR_SUM
->-	csrs	CSR_STATUS, t6
->-	mv	t6, ra
->+	li	a7, SR_SUM
->+	csrs	CSR_STATUS, a7
->+	mv	a7, ra
->
-> 	call 	__asm_vector_usercopy_sum_enabled
->
-> 	/* Disable access to user memory */
->-	mv 	ra, t6
->-	li 	t6, SR_SUM
->-	csrc	CSR_STATUS, t6
->+	mv 	ra, a7
->+	li 	a7, SR_SUM
->+	csrc	CSR_STATUS, a7
-> 	ret
-> SYM_FUNC_END(__asm_vector_usercopy)
->
->-- 
->2.43.0
->
->
+> +
+> +DEFINE_SHOW_STORE_ATTRIBUTE(dr_mode);
+> +
+> +static int cv1800_usb_phy_set_clock(struct cv1800_usb_phy *phy)
+> +{
+> +	int ret;
+> +
+> +	ret = clk_set_rate(phy->usb_app_clk, PHY_APP_CLK_RATE);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = clk_set_rate(phy->usb_lpm_clk, PHY_LPM_CLK_RATE);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = clk_set_rate(phy->usb_stb_clk, PHY_STB_CLK_RATE);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+
+Should this not be return ret here? or just do return clk_set_rate()
+here
+
+
+> +}
+> +
+> +static const struct phy_ops cv1800_usb_phy_ops = {
+> +	.set_mode	= cv1800_usb_phy_set_mode,
+> +	.owner		= THIS_MODULE,
+> +};
+> +
+> +static int cv1800_usb_phy_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device *parent = dev->parent;
+> +	struct cv1800_usb_phy *phy;
+> +	struct phy_provider *phy_provider;
+> +	int ret;
+> +
+> +	if (!parent)
+> +		return -ENODEV;
+> +
+> +	phy = devm_kmalloc(dev, sizeof(*phy), GFP_KERNEL);
+> +	if (!phy)
+> +		return -ENOMEM;
+> +
+> +	phy->syscon = syscon_node_to_regmap(parent->of_node);
+> +	if (IS_ERR_OR_NULL(phy->syscon))
+> +		return -ENODEV;
+> +
+> +	phy->support_otg = false;
+> +
+> +	spin_lock_init(&phy->lock);
+> +
+> +	phy->usb_app_clk = devm_clk_get_enabled(dev, "app");
+> +	if (IS_ERR(phy->usb_app_clk))
+> +		return dev_err_probe(dev, PTR_ERR(phy->usb_app_clk),
+> +			"Failed to get app clock\n");
+> +
+> +	phy->usb_lpm_clk = devm_clk_get_enabled(dev, "lpm");
+> +	if (IS_ERR(phy->usb_lpm_clk))
+> +		return dev_err_probe(dev, PTR_ERR(phy->usb_lpm_clk),
+> +			"Failed to get lpm clock\n");
+> +
+> +	phy->usb_stb_clk = devm_clk_get_enabled(dev, "stb");
+> +	if (IS_ERR(phy->usb_stb_clk))
+> +		return dev_err_probe(dev, PTR_ERR(phy->usb_stb_clk),
+> +			"Failed to get stb clock\n");
+> +
+> +	phy->phy = devm_phy_create(dev, NULL, &cv1800_usb_phy_ops);
+> +	if (IS_ERR(phy->phy))
+> +		return dev_err_probe(dev, PTR_ERR(phy->phy),
+> +			"Failed to create phy\n");
+> +
+> +	ret = cv1800_usb_phy_set_clock(phy);
+> +	if (ret)
+> +		return ret;
+> +
+> +	debugfs_create_file("dr_mode", 0644, phy->phy->debugfs,
+> +			    phy, &dr_mode_fops);
+> +
+> +	phy_set_drvdata(phy->phy, phy);
+> +	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+> +
+> +	return PTR_ERR_OR_ZERO(phy_provider);
+> +}
+> +
+> +static const struct of_device_id cv1800_usb_phy_ids[] = {
+> +	{ .compatible = "sophgo,cv1800b-usb2-phy" },
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, cv1800_usb_phy_ids);
+> +
+> +static struct platform_driver cv1800_usb_phy_driver = {
+> +	.probe = cv1800_usb_phy_probe,
+> +	.driver = {
+> +		.name = "cv1800-usb2-phy",
+> +		.of_match_table = cv1800_usb_phy_ids,
+> +	 },
+> +};
+> +module_platform_driver(cv1800_usb_phy_driver);
+> +
+> +MODULE_AUTHOR("Inochi Amaoto <inochiama@outlook.com>");
+> +MODULE_DESCRIPTION("CV1800/SG2000 SoC USB 2.0 PHY driver");
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.49.0
+
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
