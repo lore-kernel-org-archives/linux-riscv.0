@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B048C7EE2A
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 15:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D917C7EE2A
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 15:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4xz/UrsqqzDFHXWmJTzZBqIMqEM4d+hjndiqtFSHXSU=; b=0fYl4oCNWKuVv6
-	W2XRKh3lo4GLf7TzgX1mXosn0o9aCQPfswtddyM8j+JooFFylJL/lpr1BlprgoUAzaAuZGfkxEuWT
-	kAYc1DVSrMlKnh2UtxSnvBbWRmZeSyFWOCMQMgZ97pjgry24yiyq0AjcIHG7fTVMvqeEVBOy88IHB
-	KAoz8d9kXv6C/x2AyN7ExFmKWJOrqY/rCEoRc+lqhoFrNS3eenARo4ZFjzK7EtxeOvcVQ+QoHej4e
-	6IOIS2MEcuviCpLYDU28qwd/9oLFErbM5SicGENukJwe0kgYCpfRp8HQ2ld49kHoYZdcmHc8/b4hJ
-	02NfiN2IflLNS5tGZYbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BCmZtByhOC91PS3rj9B1Jg54TQEF26gGgnL0OWH9HlY=; b=rwfEZyIbz/TOAnWM2HcVIqmRuK
+	3hFPn9umPBQrRRuIIdOyzY7TdYOQAB0wFFN81JSnt7+rcjVOtXHWlLZL8a9H1RbfRO6DQi7xARgNk
+	2b/N0P/DOQ2xantsbyPY3en1ftRP2SfPmDyYyy046EPptf4EZTy6blj8je7hF9JpB0idz1BgjYz6r
+	OhSXQQplWBfKrNTa3uSsgWcANulaVtNEvkI65OhKwKT9qyMxCKh+qH+fR7FHtNVzO61I1kfneLCeI
+	LWirQYsQx4S0TlLGtKT7jki3l4fVEs//78K9SuYxT8DbGn53k0PXAQr9kT6/GRGKdreqxtT5cxR2q
+	vRQK18gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAsm-0000000F3sb-0EC8;
-	Fri, 27 Jun 2025 15:20:52 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1uVAxd-0000000F5kc-3oMz;
+	Fri, 27 Jun 2025 15:25:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAfg-0000000F0cR-2Rag
+	id 1uVAiM-0000000F1el-0dSo
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Jun 2025 15:07:21 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b170c99aa49so1749713a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Jun 2025 08:07:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751036839; x=1751641639; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=kTVCLY7nH8LB+Zm3xLfrn9nxZr6jXIw9YXpYJef7Kgs=;
-        b=L0K+/G28s62VLJkMhWbljokhApgNiK3HtEjm3Qy1nc3hnEY018/Sumae9VEBO/xkQR
-         wZ96ssmbWPpquXFhYhwRP61HA88vgeGQ/NK/raQmSOU8tajz203fZQrHbmcp8acXF2Xw
-         muocPRT7BcC0XWQASj2rHna/QMweXbpGtuQV/vtdlDpkOAQ0mPa8I2Rt2MdRcyZvDgKs
-         CJvPSABltOUHOTbFX5pq9qjJwXtHKwan6I8xl/1KiOx+WExyy9A0gVM49I3XbQsgOpfj
-         NHY1NAiRDjusu7C0tKdarrJZYBdxHTDORr0HIwBoOKqY7rOHal7pnT1WjpT23Mt0Qb3x
-         xouA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751036839; x=1751641639;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kTVCLY7nH8LB+Zm3xLfrn9nxZr6jXIw9YXpYJef7Kgs=;
-        b=UgIblB/+ocMYr0NwDxr/GzA0mXg1sQU0AyAOx2VNFBHJhPihhK4JZugkoGwz0bLhbL
-         yHypFHd5QUb7XzDeecxltts8pt3LcwEKCFpMGmKV+nBSmnA/XR76bhJ4YnTwBU521/9S
-         lbXnjkwBlBSTYf73+NYfpTu1pSoiZR5DBmyWdUPRBIWPB85su2CU9gLvhhnZ0Hj27e+N
-         jPRUKJxeA28bRk+1k81lHv0evDxJgeo00dVJvi9aYMY6Q3/216rT0O7rwZitp8it4qbS
-         YMebBa5Zl3eLCvqbQV17JettacQRWs+0kSADnwAziCY/m8hHWouqFcUy22T5QqDrBhJR
-         f45w==
-X-Forwarded-Encrypted: i=1; AJvYcCWQQiT7ZpXQdwNT6HHn29QPkTxWZc0M7ViR+veOQymZLX+jRvr0g0yAHAvQDFK0/tdpg5o93hFeRsyMNw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDwynwJFK6g8XsXZLxXq4Srw5O9omXJR/T5edx/yB0F+gxSpi2
-	PzvsrCDvK9D5vlI6yiugMiG3IFuPfiVLuJUBrWQBx4w3aOKo1XTmdGixFro+FdbPNdQqpanBRYa
-	MNsqHeAMui1MDHG7jSh6oX9lzKhRNpD0tpEYPUo9CQA==
-X-Gm-Gg: ASbGncvWs+vLfQEp15Lfy381jcwbnFzlg9Aoge+Z73PQdYQjloEO1It9tH9pVC+dNzu
-	7vq3VTQIpYZT9ixZGMVEeuETGW7I9K+qzOhO9NX1Qpokjf/ZrrLLXko0WRNUQHZ+yghPg0GSMFg
-	VPKXOvLymXsgqouTYL+OlnA1mrWmaKcfW7bj/yWA9Ge3FySxizl67SDyF2h6z9KpL2xp4ZmbA9W
-	/yU
-X-Google-Smtp-Source: AGHT+IF4AdiLDVJzWcIgdL/8Bs2UVOqvh/d51X69lsgIeuxgoVvKvtiPfY/zv1dvVDdkVgnc/ZS5VJNJlB5QgtEcAew=
-X-Received: by 2002:a17:90b:528a:b0:311:d3a5:572a with SMTP id
- 98e67ed59e1d1-318c9225e52mr5337592a91.8.1751036839222; Fri, 27 Jun 2025
- 08:07:19 -0700 (PDT)
+	Fri, 27 Jun 2025 15:10:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 32A355C6153;
+	Fri, 27 Jun 2025 15:10:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3761CC4CEE3;
+	Fri, 27 Jun 2025 15:10:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751037004;
+	bh=ecZ01HNw03w8/mQcWZ0Ph+YBOVuhBufRrHPrYkQk+ZA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OM5s/gJ50f12Ha3yblezKhnd7lEXXVUIJ78UyJ/sYqcHyescZmhZ+9VwbVlxs+g7H
+	 61xMDfE18sBvTkXHTHJq3sEURJ11EKYPnE9mK/Flr5mQsQoURy82bAe+ukPA3MZ9DY
+	 7UIAj9CAw6sRJE6TPm2blXWcO2UbJW7ahycNcb4Bwl8K+AJAYJHLsoK7oBAZDqN/XJ
+	 dKNG6qGZXJZYRWZz5l3V7mPNBKkJSY4L4BgZ52U+yhD/iwGpuVwbSXzejA8MnvxILY
+	 fB2QooKmYDmV/P3sbEO64CnTolT0JNj0+DCVMHQwpA/vgPCR6F2kylE695kWC6yERu
+	 c43/tztr6kIBg==
+Date: Fri, 27 Jun 2025 17:10:01 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Benno Lossin <lossin@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v5 1/9] rust: pwm: Add Kconfig and basic data structures
+Message-ID: <q7sz7uci5vnyc24laqzs56vgt4i2jamb3ifyxkqom6qcml5kkv@642prvwxjkxc>
+References: <20250623-rust-next-pwm-working-fan-for-sending-v5-0-0ca23747c23e@samsung.com>
+ <CGME20250623180858eucas1p1815f6d6815b1c715baad94810cefacd5@eucas1p1.samsung.com>
+ <20250623-rust-next-pwm-working-fan-for-sending-v5-1-0ca23747c23e@samsung.com>
 MIME-Version: 1.0
-References: <20250618121358.503781-1-apatel@ventanamicro.com>
- <20250618121358.503781-10-apatel@ventanamicro.com> <aFkZJKnweqBi64b8@smile.fi.intel.com>
- <CA+Oz1=a65HvfXHWjeSq4Ubq=5kzHp9pkLJVr77hvTYAGFHv0Mg@mail.gmail.com> <aF1UWNzWhheLNTky@smile.fi.intel.com>
-In-Reply-To: <aF1UWNzWhheLNTky@smile.fi.intel.com>
-From: Rahul Pathak <rpathak@ventanamicro.com>
-Date: Fri, 27 Jun 2025 20:36:41 +0530
-X-Gm-Features: Ac12FXyg_1voP3_rSKmrZJ_A-E3gflVigZ0fA-ce5u-xgIj9wegRrIsa-1iLCcE
-Message-ID: <CA+Oz1=bAsykB=qAk3r8FV8K8cnPEVT4Ow7L4SWBvrc_3DsyaWw@mail.gmail.com>
-Subject: Re: [PATCH v6 09/23] clk: Add clock driver for the RISC-V RPMI clock
- service group
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+In-Reply-To: <20250623-rust-next-pwm-working-fan-for-sending-v5-1-0ca23747c23e@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_080720_629802_955BE97B 
-X-CRM114-Status: GOOD (  35.79  )
+X-CRM114-CacheID: sfid-20250627_081006_307294_87756A93 
+X-CRM114-Status: GOOD (  35.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,103 +79,438 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Anup Patel <apatel@ventanamicro.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7710592499266030650=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > > > +union rpmi_clk_rates {
-> > > > +     u64 discrete[RPMI_CLK_DISCRETE_MAX_NUM_RATES];
-> > > > +     struct {
-> > > > +             u64 min;
-> > > > +             u64 max;
-> > > > +             u64 step;
-> > > > +     } linear;
-> > >
-> > > Have you looked at the linear_range.h? Why can it not be (re-)used here?
-> >
-> > I did the first time only when you commented. And i dont see any
-> > benefit in that.
-> > linear_range has slightly different way to access any value using `sel`.
-> > Here this union represents how RPMI protocol represents the rates and
-> > reusing linear_range will only introduce conversion to and fro.
->
-> Summarize this in the comment on top of the struct definition so one will not
-> attempt to convert the driver in the future.
->
 
-Sure, I will update.
-
-> >
-> > >
-> > > > +     if (ret || rx.status)
-> > > > +             return 0;
-> > >
-> > > Why rx.status can't be checked before calling to a sending message?
-> > > Sounds like the rpmi_mbox_init_send_with_response() links rx to msg somehow.
-> > > If this is the case, use msg here, otherwise move the check to be in the
-> > > correct place.
-> >
-> > Yes, the rpmi_mbox_init_send_with_response is a helper function which links
-> > the rx to msg. It's a very simple function which only performs assignments.
-> >
-> > Using msg instead of rx directly will require additional typecasting
-> > which will only clutter
-> > I can add a comment if that helps wherever the rpmi_mbox_init_send_with_response
-> > is used.
->
-> This is besides harder-to-read code is kinda of layering violation.
-> If you afraid of a casting, add a helper to check for the status error.
-> Comment won't help much as making code better to begin with.
-
-Why using rx is the issue in the first place when it's the same layer
-which links the rx with msg using the helper function and then
-uses it directly?  Infact using rx directly avoids unnecessary code
-which is only increasing redundant code which ultimately results in
-same thing. Even if I add a helper function that will require additional
-pointer passing with NULL checking which all is currently avoided.
-And, we are not just talking about rx.status but a lot of other fields.
-
->
-> > > > +     struct rpmi_clk_context *context = rpmi_clk->context;
-> > > > +     struct rpmi_clk_rate_discrete *rate_discrete;
-> > > > +     struct rpmi_clk_rate_linear *rate_linear;
->
-> > > > +     struct rpmi_get_supp_rates_rx *rx __free(kfree) = NULL;
->
-> This should be assigned where it's used. NULL assignment is not encouraged.
-
-Sure, I will update.
-
->
-> > > > +     struct rpmi_get_supp_rates_tx tx;
-> > > > +     struct rpmi_mbox_message msg;
-> > >
-> > > > +     size_t clk_rate_idx = 0;
-> > >
-> > > This kind of assignments is hard to maintain and it's mistake prone in case
-> > > some additional code is injected in the future that might reuse it.
-> > >
-> > I dont understand what is the problem with this assignment. If any
-> > code added in the future reuse it then it has to make sure that
-> > clk_rate_idx has the correct initial value before any further references.
->
-> Yes, it will add an additional churn and require more brain activity to
-> maintain such a code. It's a general recommendation to assign when it's
-> actually needed (there are, of course, exceptions for some small functions,
-> but this one is not).
-
-Sure, I will update.
+--===============7710592499266030650==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="djkmowd5nddaduey"
+Content-Disposition: inline
 
 
+--djkmowd5nddaduey
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 1/9] rust: pwm: Add Kconfig and basic data structures
+MIME-Version: 1.0
 
--- 
+On Mon, Jun 23, 2025 at 08:08:49PM +0200, Michal Wilczynski wrote:
+> Introduce the foundational support for PWM abstractions in Rust.
+>=20
+> This commit adds the `RUST_PWM_ABSTRACTIONS` Kconfig option to enable
+> the feature, along with the necessary build-system support and C
+> helpers.
+>=20
+> It also introduces the first set of safe wrappers for the PWM
+> subsystem, covering the basic data carrying C structs and enums:
+> - `Polarity`: A safe wrapper for `enum pwm_polarity`.
+> - `Waveform`: A wrapper for `struct pwm_waveform`.
+> - `Args`: A wrapper for `struct pwm_args`.
+> - `State`: A wrapper for `struct pwm_state`.
+>=20
+> These types provide memory safe, idiomatic Rust representations of the
+> core PWM data structures and form the building blocks for the
+> abstractions that will follow.
+>=20
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  MAINTAINERS                     |   6 ++
+>  drivers/pwm/Kconfig             |  13 +++
+>  rust/bindings/bindings_helper.h |   1 +
+>  rust/helpers/helpers.c          |   1 +
+>  rust/helpers/pwm.c              |  20 ++++
+>  rust/kernel/lib.rs              |   2 +
+>  rust/kernel/pwm.rs              | 198 ++++++++++++++++++++++++++++++++++=
+++++++
+>  7 files changed, 241 insertions(+)
+>=20
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 0c1d245bf7b84f8a78b811e0c9c5a3edc09edc22..a575622454a2ef57ce055c8a8=
+c4765fa4fddc490 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -20073,6 +20073,12 @@ F:	include/linux/pwm.h
+>  F:	include/linux/pwm_backlight.h
+>  K:	pwm_(config|apply_might_sleep|apply_atomic|ops)
+> =20
+> +PWM SUBSYSTEM BINDINGS [RUST]
+> +M:	Michal Wilczynski <m.wilczynski@samsung.com>
+> +S:	Maintained
+> +F:	rust/helpers/pwm.c
+> +F:	rust/kernel/pwm.rs
+> +
+>  PXA GPIO DRIVER
+>  M:	Robert Jarzmik <robert.jarzmik@free.fr>
+>  L:	linux-gpio@vger.kernel.org
+> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> index d9bcd1e8413eaed1602d6686873e263767c58f5f..cfddeae0eab3523f04f361fb4=
+1ccd1345c0c937b 100644
+> --- a/drivers/pwm/Kconfig
+> +++ b/drivers/pwm/Kconfig
+> @@ -790,4 +790,17 @@ config PWM_XILINX
+>  	  To compile this driver as a module, choose M here: the module
+>  	  will be called pwm-xilinx.
+> =20
+> + config RUST_PWM_ABSTRACTIONS
+> +	bool "Rust PWM abstractions support"
+> +	depends on RUST
+> +	depends on PWM=3Dy
 
-Thanks
-Rahul Pathak
+Currently CONFIG_PWM is a bool, so it cannot be =3Dm. But I considered
+making PWM a tristate variable. How would that interfere with Rust
+support?
+
+> +	help
+> +	  This option enables the safe Rust abstraction layer for the PWM
+> +	  subsystem. It provides idiomatic wrappers and traits necessary for
+> +	  writing PWM controller drivers in Rust.
+> +
+> +	  The abstractions handle resource management (like memory and reference
+> +	  counting) and provide safe interfaces to the underlying C core,
+> +	  allowing driver logic to be written in safe Rust.
+> +
+>  endif
+> diff --git a/rust/bindings/bindings_helper.h b/rust/bindings/bindings_hel=
+per.h
+> index 693cdd01f9290fa01375cf78cac0e5a90df74c6c..6fe7dd529577952bf7adb4fe0=
+526b0d5fbd6f3bd 100644
+> --- a/rust/bindings/bindings_helper.h
+> +++ b/rust/bindings/bindings_helper.h
+> @@ -64,6 +64,7 @@
+>  #include <linux/pm_opp.h>
+>  #include <linux/poll.h>
+>  #include <linux/property.h>
+> +#include <linux/pwm.h>
+>  #include <linux/refcount.h>
+>  #include <linux/sched.h>
+>  #include <linux/security.h>
+> diff --git a/rust/helpers/helpers.c b/rust/helpers/helpers.c
+> index 16fa9bca5949b85e8d4cdcfe8e6886124f72d8d8..60879e6d794ce0f87e39caafc=
+5495bf5e8acf8f0 100644
+> --- a/rust/helpers/helpers.c
+> +++ b/rust/helpers/helpers.c
+> @@ -31,6 +31,7 @@
+>  #include "platform.c"
+>  #include "pci.c"
+>  #include "pid_namespace.c"
+> +#include "pwm.c"
+>  #include "rbtree.c"
+>  #include "rcu.c"
+>  #include "refcount.c"
+> diff --git a/rust/helpers/pwm.c b/rust/helpers/pwm.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..d75c588863685d3990b525bb1=
+b84aa4bc35ac397
+> --- /dev/null
+> +++ b/rust/helpers/pwm.c
+> @@ -0,0 +1,20 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (c) 2025 Samsung Electronics Co., Ltd.
+> +// Author: Michal Wilczynski <m.wilczynski@samsung.com>
+> +
+> +#include <linux/pwm.h>
+> +
+> +struct device *rust_helper_pwmchip_parent(const struct pwm_chip *chip)
+> +{
+> +	return pwmchip_parent(chip);
+> +}
+> +
+> +void *rust_helper_pwmchip_get_drvdata(struct pwm_chip *chip)
+> +{
+> +	return pwmchip_get_drvdata(chip);
+> +}
+> +
+> +void rust_helper_pwmchip_set_drvdata(struct pwm_chip *chip, void *data)
+> +{
+> +	pwmchip_set_drvdata(chip, data);
+> +}
+> diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
+> index 6b4774b2b1c37f4da1866e993be6230bc6715841..ce1d08b14e456905dbe7b625b=
+bb8ca8b08deae2a 100644
+> --- a/rust/kernel/lib.rs
+> +++ b/rust/kernel/lib.rs
+> @@ -105,6 +105,8 @@
+>  pub mod seq_file;
+>  pub mod sizes;
+>  mod static_assert;
+> +#[cfg(CONFIG_RUST_PWM_ABSTRACTIONS)]
+> +pub mod pwm;
+>  #[doc(hidden)]
+>  pub mod std_vendor;
+>  pub mod str;
+> diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..ed681b228c414e7ae8bf80ca6=
+49ad497c9dc4ec3
+> --- /dev/null
+> +++ b/rust/kernel/pwm.rs
+> @@ -0,0 +1,198 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (c) 2025 Samsung Electronics Co., Ltd.
+> +// Author: Michal Wilczynski <m.wilczynski@samsung.com>
+> +
+> +//! PWM subsystem abstractions.
+> +//!
+> +//! C header: [`include/linux/pwm.h`](srctree/include/linux/pwm.h).
+> +
+> +use crate::{
+> +    bindings,
+> +    prelude::*,
+> +    types::Opaque,
+> +};
+> +use core::convert::TryFrom;
+> +
+> +/// Maximum size for the hardware-specific waveform representation buffe=
+r.
+> +///
+> +/// From C: `#define WFHWSIZE 20`
+> +pub const WFHW_MAX_SIZE: usize =3D 20;
+
+Can we somehow enforce that this doesn't diverge if the C define is
+increased?
+
+> +/// PWM polarity. Mirrors [`enum pwm_polarity`](srctree/include/linux/pw=
+m.h).
+> +#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+> +pub enum Polarity {
+> +    /// Normal polarity (duty cycle defines the high period of the signa=
+l).
+> +    Normal,
+> +
+> +    /// Inversed polarity (duty cycle defines the low period of the sign=
+al).
+> +    Inversed,
+> +}
+> +
+> +impl TryFrom<bindings::pwm_polarity> for Polarity {
+> +    type Error =3D Error;
+> +
+> +    fn try_from(polarity: bindings::pwm_polarity) -> Result<Self, Error>=
+ {
+> +        match polarity {
+> +            bindings::pwm_polarity_PWM_POLARITY_NORMAL =3D> Ok(Polarity:=
+:Normal),
+> +            bindings::pwm_polarity_PWM_POLARITY_INVERSED =3D> Ok(Polarit=
+y::Inversed),
+> +            _ =3D> Err(EINVAL),
+> +        }
+> +    }
+> +}
+> +
+> +impl From<Polarity> for bindings::pwm_polarity {
+> +    fn from(polarity: Polarity) -> Self {
+> +        match polarity {
+> +            Polarity::Normal =3D> bindings::pwm_polarity_PWM_POLARITY_NO=
+RMAL,
+> +            Polarity::Inversed =3D> bindings::pwm_polarity_PWM_POLARITY_=
+INVERSED,
+> +        }
+> +    }
+> +}
+> +
+> +/// Represents a PWM waveform configuration.
+> +/// Mirrors struct [`struct pwm_waveform`](srctree/include/linux/pwm.h).
+> +#[derive(Copy, Clone, Debug, Default, PartialEq, Eq)]
+> +pub struct Waveform {
+> +    /// Total duration of one complete PWM cycle, in nanoseconds.
+> +    pub period_length_ns: u64,
+> +
+> +    /// Duty-cycle active time, in nanoseconds.
+> +    ///
+> +    /// For a typical normal polarity configuration (active-high) this i=
+s the
+> +    /// high time of the signal.
+> +    pub duty_length_ns: u64,
+> +
+> +    /// Duty-cycle start offset, in nanoseconds.
+> +    ///
+> +    /// Delay from the beginning of the period to the first active edge.
+> +    /// In most simple PWM setups this is `0`, so the duty cycle starts
+> +    /// immediately at each period=E2=80=99s start.
+> +    pub duty_offset_ns: u64,
+> +}
+> +
+> +impl From<bindings::pwm_waveform> for Waveform {
+> +    fn from(wf: bindings::pwm_waveform) -> Self {
+> +        Waveform {
+> +            period_length_ns: wf.period_length_ns,
+> +            duty_length_ns: wf.duty_length_ns,
+> +            duty_offset_ns: wf.duty_offset_ns,
+> +        }
+> +    }
+> +}
+> +
+> +impl From<Waveform> for bindings::pwm_waveform {
+> +    fn from(wf: Waveform) -> Self {
+> +        bindings::pwm_waveform {
+> +            period_length_ns: wf.period_length_ns,
+> +            duty_length_ns: wf.duty_length_ns,
+> +            duty_offset_ns: wf.duty_offset_ns,
+> +        }
+> +    }
+> +}
+> +
+> +/// Wrapper for board-dependent PWM arguments [`struct pwm_args`](srctre=
+e/include/linux/pwm.h).
+> +#[repr(transparent)]
+> +pub struct Args(Opaque<bindings::pwm_args>);
+> +
+> +impl Args {
+> +    /// Creates an `Args` wrapper from a C struct pointer.
+> +    ///
+> +    /// # Safety
+> +    ///
+> +    /// The caller must ensure that `c_args_ptr` is a valid, non-null po=
+inter
+> +    /// to `bindings::pwm_args` and that the pointed-to data is valid
+> +    /// for the duration of this function call (as data is copied).
+> +    unsafe fn from_c_ptr(c_args_ptr: *const bindings::pwm_args) -> Self {
+> +        // SAFETY: Caller guarantees `c_args_ptr` is valid. We dereferen=
+ce it to copy.
+> +        Args(Opaque::new(unsafe { *c_args_ptr }))
+> +    }
+> +
+> +    /// Returns the period of the PWM signal in nanoseconds.
+> +    pub fn period(&self) -> u64 {
+> +        // SAFETY: `self.0.get()` returns a pointer to the `bindings::pw=
+m_args`
+> +        // managed by the `Opaque` wrapper. This pointer is guaranteed t=
+o be
+> +        // valid and aligned for the lifetime of `self` because `Opaque`=
+ owns a copy.
+> +        unsafe { (*self.0.get()).period }
+> +    }
+> +
+> +    /// Returns the polarity of the PWM signal.
+> +    pub fn polarity(&self) -> Result<Polarity, Error> {
+> +        // SAFETY: `self.0.get()` returns a pointer to the `bindings::pw=
+m_args`
+> +        // managed by the `Opaque` wrapper. This pointer is guaranteed t=
+o be
+> +        // valid and aligned for the lifetime of `self`.
+> +        let raw_polarity =3D unsafe { (*self.0.get()).polarity };
+> +        Polarity::try_from(raw_polarity)
+> +    }
+> +}
+> +
+> +/// Wrapper for PWM state [`struct pwm_state`](srctree/include/linux/pwm=
+=2Eh).
+> +#[repr(transparent)]
+> +pub struct State(bindings::pwm_state);
+> +
+> +impl Default for State {
+> +    fn default() -> Self {
+> +        Self::new()
+> +    }
+> +}
+> +
+> +impl State {
+> +    /// Creates a new zeroed `State`.
+> +    pub fn new() -> Self {
+> +        State(bindings::pwm_state::default())
+> +    }
+> +
+> +    /// Creates a `State` wrapper by taking ownership of a C `pwm_state`=
+ value.
+> +    pub(crate) fn from_c(c_state: bindings::pwm_state) -> Self {
+> +        State(c_state)
+> +    }
+> +
+> +    /// Gets the period of the PWM signal in nanoseconds.
+> +    pub fn period(&self) -> u64 {
+> +        self.0.period
+> +    }
+> +
+> +    /// Sets the period of the PWM signal in nanoseconds.
+> +    pub fn set_period(&mut self, period_ns: u64) {
+> +        self.0.period =3D period_ns;
+> +    }
+> +
+> +    /// Gets the duty cycle of the PWM signal in nanoseconds.
+> +    pub fn duty_cycle(&self) -> u64 {
+> +        self.0.duty_cycle
+> +    }
+> +
+> +    /// Sets the duty cycle of the PWM signal in nanoseconds.
+> +    pub fn set_duty_cycle(&mut self, duty_ns: u64) {
+> +        self.0.duty_cycle =3D duty_ns;
+> +    }
+> +
+> +    /// Returns `true` if the PWM signal is enabled.
+> +    pub fn enabled(&self) -> bool {
+> +        self.0.enabled
+> +    }
+> +
+> +    /// Sets the enabled state of the PWM signal.
+> +    pub fn set_enabled(&mut self, enabled: bool) {
+> +        self.0.enabled =3D enabled;
+> +    }
+> +
+> +    /// Gets the polarity of the PWM signal.
+> +    pub fn polarity(&self) -> Result<Polarity, Error> {
+> +        Polarity::try_from(self.0.polarity)
+> +    }
+> +
+> +    /// Sets the polarity of the PWM signal.
+> +    pub fn set_polarity(&mut self, polarity: Polarity) {
+> +        self.0.polarity =3D polarity.into();
+> +    }
+
+Please don't expose these non-atomic callbacks. pwm_disable() would be
+fine.
+
+Otherwise I'd prefer if pwm_set_waveform_might_sleep() is the API
+exposed to/by Rust.
+
+> +    /// Returns `true` if the PWM signal is configured for power usage h=
+int.
+> +    pub fn usage_power(&self) -> bool {
+> +        self.0.usage_power
+> +    }
+> +
+> +    /// Sets the power usage hint for the PWM signal.
+> +    pub fn set_usage_power(&mut self, usage_power: bool) {
+> +        self.0.usage_power =3D usage_power;
+> +    }
+
+I would prefer to not expose usage_power, too.
+
+> +}
+
+Best regards
+Uwe
+
+--djkmowd5nddaduey
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhetEcACgkQj4D7WH0S
+/k5Qzgf+IP3VcXjlu5slOEzweMckF6TssvkQXvkWSPspAsIBWfJs1u5oazmNoil7
+KSYVg7F8jWamYHVZyka9FzmIGPzaK7HAmEr8dhPpOfvnTH5Cwj4b7qEAJZ2OsGRC
+qX5I1gzxtdV9+W+joaFNYRq6gLvuRCok7Fwszkf/xFLPUQdAJr0c26fOXSqd6OmQ
+9DZ3tmzUph8NNdvHvz0gtgfmx98HmYqSlxY0fBV1MK3Gk2jyhIkhlvyOUcbf9btu
+frqIqxv8BJAMnndE0lkzPehQg3t8pQqgci6gnulC/d/rU1eNbz6JE/8goCTa0rHt
+tEujjCnA89MMqqI1EekmtuuTzle6Pw==
+=mdlD
+-----END PGP SIGNATURE-----
+
+--djkmowd5nddaduey--
+
+
+--===============7710592499266030650==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7710592499266030650==--
+
