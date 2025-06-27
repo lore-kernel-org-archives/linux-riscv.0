@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9B4C7EE2A
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 22:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C03C7EE32
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 22:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0fWNGwk58DnpvOm5X+eTsOrFTD6TcvYmJd+cMLRyLK8=; b=DuoK4/KYH0rH3M
-	VADb+YznAd4D/tkbAZiiLUURZggp6hMBhX5j430GKX4rawcQ5ySv6mh35IE37mXc+Nx0GDA/dfpop
-	hsV5zZba/ARMdnlH4xr1voDrEts3bKa+j7QZaYRfW4fUaUO1YuIfUOXaW3A9aCX8uCEFvkOXv9Hw+
-	onZZC9bZR+0o9/VreODxoWKxlRqI5QY06JVCBQwkPwK+DEnk4SWXGf7GO/7M+FRPBCUj7ZEfO4Ts+
-	cxNVYZ9dfBXhLlo2XnmFlPIv2ASfin47A+NLvdgiVqY4OZ0EQ8cTshNyMolHJgLbH9SOwyZOG9ljh
-	3bRQek9yt6fI9jYIV/Yw==;
+	List-Owner; bh=bBfo6/JZpbs839xPMrqrQ/mKfijsa3QE9UvYBkmPF3M=; b=uA9Ujauc8b+A+8
+	3ZkJjG2rlXacqoF/hgJUPJyXkHXZxlUt1Qz92M23iVSVRFMaVUYylGKq1fxTy4xXicEDj1mq1yLd/
+	QszknCBvX1W1uuR2LpBOAIcHCVJfxELu4JTpXa6Wu5S/IsL6QpwAclke1+7tIR9tvv7/BzGuMiN54
+	AcRKCKUroM0FVZBwP1nRju1Xgfbzpcs4W7m1jp1Ximg3ex0kyzmcKfGHRKO32DnxAzyppvvgs3KT8
+	dAnTWRGj6buOITG1+8r5eLSCwrvDoIxFWYQL9j85jQCVwi+YRf/aNPIW+KGPFrTU4luu2WgJHcr+G
+	J1fbgWXidI4IQHAQAynw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVH9g-0000000FuY9-1nlT;
-	Fri, 27 Jun 2025 22:02:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uVHp0-0000000Fx2H-0unk;
+	Fri, 27 Jun 2025 22:45:26 +0000
+Received: from mail-vk1-xa34.google.com ([2607:f8b0:4864:20::a34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVGzC-0000000Ftje-2Vk9
-	for linux-riscv@lists.infradead.org;
-	Fri, 27 Jun 2025 21:51:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E0A7943B9D;
-	Fri, 27 Jun 2025 21:51:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D065C4CEE3;
-	Fri, 27 Jun 2025 21:51:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751061113;
-	bh=6RlVLwYxD624F9ZBWUaG+TvP/YFr9pDC9swFlV1MCJI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bNR6UU/EFCvxF2MMtQuuUGTLigvVXiscRJT9MZmA26crak9uEmQyPcq55CeFac3v/
-	 AWfeg3SCMS1ZJnFsmUH2Y1yuuSf6bI+yvLWqpZL2sjiZXSVPpaThMeww50ZefgQ8J1
-	 mDT53jECnlr8uVYkRhy5aWftw8yfgHCerNJc19+pD6oFMJvmhRcf9kJRN7ye7m/C1U
-	 bwU9Irxcba/iUrh9gVMmjnUPGYYpg/3StEIg0I4Be0hQ/QNr3AE0N9IvK0u+SaZg0M
-	 sfqbWPnXojS4WAfxIeipuFmyMg/pf6XjDumswLwEwCJJJgd9J4PGQOFV+bLC0tUonR
-	 1SMm5s3II4i3Q==
-Date: Fri, 27 Jun 2025 21:51:51 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Andy Polyakov <appro@cryptogams.org>,
-	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
-	linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org,
-	herbert@gondor.apana.org.au, paul.walmsley@sifive.com,
-	alex@ghiti.fr, zhang.lyra@gmail.com
-Subject: Re: [PATCH v4] crypto: riscv/poly1305 - import OpenSSL/CRYPTOGAMS
- implementation
-Message-ID: <20250627215151.GA1194754@google.com>
-References: <20250611033150.396172-2-zhihang.shao.iscas@gmail.com>
- <20250624035057.GD7127@sol>
- <48de9a74-58e8-49c2-8d8a-fa9c71bf0092@cryptogams.org>
- <20250625035446.GC8962@sol>
- <CABCJKudbdWThfL71L-ccCpCeVZBW7Yhf3JXo9FvaPboRVaXOyg@mail.gmail.com>
- <fa13aa9c-fd72-4aa3-98bc-becaf68a5469@cryptogams.org>
- <CABCJKucHNWz6J9vvDvKh_Je8eQTJO_1r0f6jsDTsDmfaxdBygg@mail.gmail.com>
+	id 1uVHmf-0000000FwXE-3XHm;
+	Fri, 27 Jun 2025 22:43:02 +0000
+Received: by mail-vk1-xa34.google.com with SMTP id 71dfb90a1353d-51eb1a714bfso1591994e0c.3;
+        Fri, 27 Jun 2025 15:43:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751064180; x=1751668980; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u4NjeapwgPl7o9j68s8R5yPMQayON7gZ7uf9DS/utGE=;
+        b=Ef/ZPwIE2y23FoKTAlfJOVDTWubMLXXas7jFoWYJjO/Sq9ebStokgbhCNCyO/oh6Cn
+         /MCbe4i7nV4Pu0z9qx0Cm3UoFARd98WcaCbwNQ5jGlpdQwJe6SIwss2xQw07J+IYtXPq
+         tpaAoDXWRWSideSORjJQ4OQqi63+IHdawBuir9fGe2/NBDmlotu1ELudBO0nPQiiqcCu
+         LGlozJx8WpjYLRSDGOObx4Sl3E1BrtRsgQlC+elnhXmIcoIG7THCEIRFG1yrUBSHP7ZV
+         UckQctmPTkIn+NcXRILPQSgDeVX6G/vIOQ5EaAXPgWDV3YD8MYJ4aFsCBLvlA+rGepHZ
+         0b8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751064180; x=1751668980;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=u4NjeapwgPl7o9j68s8R5yPMQayON7gZ7uf9DS/utGE=;
+        b=HLqg47r5DXgfsnADYKcgqWqTOJjDsgn7zCq0cUl57OEq6MVmZ/Y6A3vWWB/VZZfSB5
+         10l2HTgkoFN42UdOzIJTfwfztnDaM5kFtIkEw2XyJmyKRM/TbNiCY1fy1jvXB+RNlwU3
+         YQ+8De9GTw6VLKE5lDMHh1vl+xxY+rI3wEesp82TES0TNtEc4mQ0u5wI3sUvWGtLfcN4
+         8y24TOyJO0W8ouR8k2VjHbK34hTsuXGrCLw4kVEqeAqqAVY0TBCtWYwCR5AYScF4YllE
+         GKFX0jAyeLTQODuZZ92aN9uwMEmAb2ZeyYC7scWCci3D2KvaNDpD15TfZd4tyBQsG4In
+         pYSA==
+X-Forwarded-Encrypted: i=1; AJvYcCUfthxdCIRPT06p6slIKqQvut4rgYPKhkPMbq7n1GTiPIB+b2bJ1SQG7rTJ0OOdL2HMhFu62c7jyFvfWE5GpgK7@lists.infradead.org, AJvYcCUxve+pPCARy2soXmjNEhEBFXvfbTy5WUS7FufZIcG08HxVCVQYR6OqPZRY3zzauuFDlbVPOdHIv59HReY=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyT4dNU6s95gRhcUbxbnh+DpZLaq2Ef7xM+2Sm6vf0vooGbJF2R
+	/SCltiE/s+zOmlyKqpRSX8MFbQFSZus6k6CZqVWa7fCKHsgYw89DGUPADYHrmuVroGZmvTQEgQr
+	vThUl70kjTaEOf76msfmviMENgg0JmR0=
+X-Gm-Gg: ASbGncsQXEeSviIdLOqFJ21O4DIFot02rCWnl0MNbOSzi/zyAlwhz8v8GZFMWt7+FZ+
+	YkqKvgpk4ixj6e0gN+ksbVNqxU8Fs2TODk+GR5ybhIzDqBRbXe99i9pXVQA2jwOy3p5n69z8ZL+
+	WzNnzMExV70AV0O0SBiyWE69MtySNGeJq334Iaa3iBkEw=
+X-Google-Smtp-Source: AGHT+IFk0Ei4GgmAkHyX5mZ9ZCWUvEwxuRN77hDGrq2whD37UOPWeYi0DQsxO0na667fxWtBBPxMAXvU8evvWeuNBWE=
+X-Received: by 2002:a05:6122:660a:b0:523:dd87:fe95 with SMTP id
+ 71dfb90a1353d-5330c0c680emr4562995e0c.9.1751064180351; Fri, 27 Jun 2025
+ 15:43:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CABCJKucHNWz6J9vvDvKh_Je8eQTJO_1r0f6jsDTsDmfaxdBygg@mail.gmail.com>
+References: <20250627062319.84936-1-lance.yang@linux.dev> <CAGsJ_4xQW3O=-VoC7aTCiwU4NZnK0tNsG1faAUgLvf4aZSm8Eg@mail.gmail.com>
+ <CAGsJ_4z+DU-FhNk9vkS-epdxgUMjrCvh31ZBwoAs98uWnbTK-A@mail.gmail.com>
+ <1d39b66e-4009-4143-a8fa-5d876bc1f7e7@linux.dev> <CAGsJ_4xX+kW1msaXpEPqX7aQ-GYG9QVMo+JYBc18BfLCs8eFyA@mail.gmail.com>
+ <609409c7-91a8-4898-ab29-fa00eb36df02@redhat.com> <530101b3-34d2-49bb-9a12-c7036b0c0a69@linux.dev>
+In-Reply-To: <530101b3-34d2-49bb-9a12-c7036b0c0a69@linux.dev>
+From: Barry Song <21cnbao@gmail.com>
+Date: Sat, 28 Jun 2025 10:42:49 +1200
+X-Gm-Features: Ac12FXxGFmLgQUm1TzQ4GRXvYtSFtMDf_ZQxI7m__F1iEVPCgA6gaIbZBp5ogkM
+Message-ID: <CAGsJ_4whENJnq+XBu9VnRWMTh9HouQdULO5u1G=+d3JVmdRpeA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/1] mm/rmap: fix potential out-of-bounds page table
+ access during batched unmap
+To: Lance Yang <lance.yang@linux.dev>
+Cc: David Hildenbrand <david@redhat.com>, akpm@linux-foundation.org, 
+	baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
+	x86@kernel.org, huang.ying.caritas@gmail.com, zhengtangquan@oppo.com, 
+	riel@surriel.com, Liam.Howlett@oracle.com, vbabka@suse.cz, 
+	harry.yoo@oracle.com, mingzhe.yang@ly.com, stable@vger.kernel.org, 
+	Lance Yang <ioworker0@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_145154_658483_174C380D 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250627_154301_880364_36502CFE 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +99,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 09:10:30AM -0700, Sami Tolvanen wrote:
-> > Would it be sufficient to #include <linux/cfi_types.h>?
-> 
-> Yes, but this requires the function to be indirectly called, because
-> with CFI_CLANG the compiler only emits CFI type information for
-> functions that are address-taken in C. If, like Eric suggested, these
-> functions are not currently indirectly called, I would simply leave
-> out the lpad instructions for kernel builds and worry about
-> kernel-mode CFI annotations when they're actually needed:
-> 
-> # if defined(__riscv_zicfilp) && !defined(__KERNEL__)
->         lpad    0
-> # endif
-
-These functions aren't indirectly called, and I'm intending to keep it that way.
-
-- Eric
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBKdW4gMjgsIDIwMjUgYXQgMzoyOeKAr0FNIExhbmNlIFlhbmcgPGxhbmNlLnlhbmdA
+bGludXguZGV2PiB3cm90ZToKClsuLi5dCj4KPiBCYXNlZCBvbiB0aGF0LCBJIHRoaW5rIHdlJ3Jl
+IG9uIHRoZSBzYW1lIHBhZ2Ugbm93LiBJJ2QgbGlrZSB0byBwb3N0Cj4gdGhlIGZvbGxvd2luZyBj
+b21taXQgbWVzc2FnZSBmb3IgdGhlIG5leHQgdmVyc2lvbjoKPgo+IGBgYAo+IEFzIHBvaW50ZWQg
+b3V0IGJ5IERhdmlkWzFdLCB0aGUgYmF0Y2hlZCB1bm1hcCBsb2dpYyBpbiB0cnlfdG9fdW5tYXBf
+b25lKCkKPiBtYXkgcmVhZCBwYXN0IHRoZSBlbmQgb2YgYSBQVEUgdGFibGUgd2hlbiBhIGxhcmdl
+IGZvbGlvJ3MgUFRFIG1hcHBpbmdzCj4gYXJlIG5vdCBmdWxseSBjb250YWluZWQgd2l0aGluIGEg
+c2luZ2xlIHBhZ2UgdGFibGUuCj4KPiBXaGlsZSB0aGlzIHNjZW5hcmlvIG1pZ2h0IGJlIHJhcmUs
+IGFuIGlzc3VlIHRyaWdnZXJhYmxlIGZyb20gdXNlcnNwYWNlIG11c3QKPiBiZSBmaXhlZCByZWdh
+cmRsZXNzIG9mIGl0cyBsaWtlbGlob29kLiBUaGlzIHBhdGNoIGZpeGVzIHRoZSBvdXQtb2YtYm91
+bmRzCj4gYWNjZXNzIGJ5IHJlZmFjdG9yaW5nIHRoZSBsb2dpYyBpbnRvIGEgbmV3IGhlbHBlciwg
+Zm9saW9fdW5tYXBfcHRlX2JhdGNoKCkuCj4KPiBUaGUgbmV3IGhlbHBlciBjb3JyZWN0bHkgY2Fs
+Y3VsYXRlcyB0aGUgc2FmZSBiYXRjaCBzaXplIGJ5IGNhcHBpbmcgdGhlCj4gc2NhbiBhdCBib3Ro
+IHRoZSBWTUEgYW5kIFBNRCBib3VuZGFyaWVzLiBUbyBzaW1wbGlmeSB0aGUgY29kZSwgaXQgYWxz
+bwo+IHN1cHBvcnRzIHBhcnRpYWwgYmF0Y2hpbmcgKGkuZS4sIGFueSBudW1iZXIgb2YgcGFnZXMg
+ZnJvbSAxIHVwIHRvIHRoZQo+IGNhbGN1bGF0ZWQgc2FmZSBtYXhpbXVtKSwgYXMgdGhlcmUgaXMg
+bm8gc3Ryb25nIHJlYXNvbiB0byBzcGVjaWFsLWNhc2UKPiBmb3IgZnVsbHkgbWFwcGVkIGZvbGlv
+cy4KPiBgYGAKPgo+IFNvLCB3ZHl0Pwo+CgpBY2tlZC1ieTogQmFycnkgU29uZyA8YmFvaHVhQGtl
+cm5lbC5vcmc+CgpUaGFua3MKQmFycnkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
