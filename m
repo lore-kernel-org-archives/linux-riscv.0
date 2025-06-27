@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF5BC77B7F
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 19:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 418C4C77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 19:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gZthwiUFR9NZbO7OAuFwI9ulRY+yObMw9ntBmJPGxG8=; b=kWQeU6fy9HxgTC
-	blT+oPSR3kyt8mU7QioMu2AjnwjTShql7bG7GMyKnJ+b5kDY6R2NuhtYidCSjvmNcWqsJCaYuRwSx
-	s9qiuzJ82QSovmgb9UWwDCOFbM7dyZCFxE6p814Otvse3lv+rkjijRIYGOsjH1eiBIzBzQaDpb2GP
-	rj0ZIIOUAGn82fU626GS6XDppa0vwLrtFkwo6jL0rZdXn3CGLHEhtRkK54iKUrXQGiBfmhfQCpXn7
-	fLtPREDVrHkknk57B9mG9xmiihNlwIwKsrWSKW6OI06M4veSi47RqXaZpEQxkjJtGn8tITXFkVhxi
-	VcdkfICZDP3kIzh+CDNQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LlzBYVtTYz22wpnxUf5ZGISwE/wSZ/Gun6ANkGzRaj4=; b=hyySMToAM53www
+	qOKjDA7sINFGUA/gKp+YQnjTT2cMaIbSGVVdtfzuvtA/dX5JANR0h3brObtNpHK2vQM+vZzGt0EWJ
+	yOo1D5A9PXe1BZB6zwvgjNPRcwOyYLSn7JpNDcMPlgJ5LEennwXIzEFCU79r0Rd3XyWr+tai80p2Y
+	6zc/1mIkyXxsNSHzy6ZnelqbnGkK8RQaCpOtkjS2uJFCrWc/BGMJ3DVOrkhsVepIixF9f2UzKCmTq
+	MC0YKoWNj/Al1V1RuLWPZCbYon/uPP2K7EkgNLL0D4yF5m0AiRxb1XMq6nFJsoycRB06OBDwqWMaR
+	ovljd4oV39Uih96H2rPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEta-0000000FerL-1vWI;
-	Fri, 27 Jun 2025 19:37:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uVFBu-0000000Fhdn-2MjS;
+	Fri, 27 Jun 2025 19:56:54 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEYQ-0000000Fc3z-0VQG
+	id 1uVFBr-0000000FhdP-2QsF
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Jun 2025 19:16:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E57835C6B9F;
-	Fri, 27 Jun 2025 19:16:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7DD2C4CEE3;
-	Fri, 27 Jun 2025 19:15:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751051764;
-	bh=e3ItbkmjlCF+WHhbj2/fNpi4b7yR0M+6lB+y/2rBgh4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HeSdvolZ1UWrXJ9VSVn0ZS0DXIqe2eIXrXITt8duLo+CfF5vTXac+ssoZApecraH1
-	 P6B34G+ZT4coa3ZcU6wxNroRRNJoZdFztXJD03a4AdF1WGj/t9kpNYDL/NfBJE4Wof
-	 KmdnpV4SLP6BzmvZek6j0+ATHYvGhFeAd1DG8mXmgIsOfucxt3OywgB99zLXehfevR
-	 mqU7rlqzqJtoNk10nnojKRiZNt0EB9GqJ5bK68DoJUsEIZlO21up/E/uvVTp+qY8Wt
-	 bHmHC42juwXKYjbB+5rAmVCmyt4SIW3YdBju8ygb3Yey69lLMJjOUfvZszDV8BjyJY
-	 3XsaCQMDAlyHw==
-Date: Fri, 27 Jun 2025 20:15:55 +0100
-From: Simon Horman <horms@kernel.org>
-To: =?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	Cyrille Pitchen <cyrille.pitchen@atmel.com>,
-	Harini Katakam <harini.katakam@xilinx.com>,
-	Rafal Ozieblo <rafalo@cadence.com>,
-	Haavard Skinnemoen <hskinnemoen@atmel.com>,
-	Jeff Garzik <jeff@garzik.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Tawfik Bayouk <tawfik.bayouk@mobileye.com>
-Subject: Re: [PATCH net-next v2 16/18] MIPS: mobileye: add EyeQ5 DMA IOCU
- support
-Message-ID: <20250627191555.GD1776@horms.kernel.org>
-References: <20250627-macb-v2-0-ff8207d0bb77@bootlin.com>
- <20250627-macb-v2-16-ff8207d0bb77@bootlin.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250627-macb-v2-16-ff8207d0bb77@bootlin.com>
+	Fri, 27 Jun 2025 19:56:53 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-74924255af4so392357b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Jun 2025 12:56:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1751054210; x=1751659010; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kd16DZ58Lx6jlqmHg0BJHa0UNLPbmEfykzddN70SEj8=;
+        b=K9uDjUhdc7qP5OdJHHGI85yEREnzZZrGS5xZcYmmWlSmdRxj3bxr1PPdSh4lXtVnBD
+         tf25lgeGL/qAkV76V2Uqz/hg0V0MxKfwEKFaqt90sfvwRyD+bgu95TzygNhuzA7an8qR
+         WQ7eV1uUs+z3gCE/z44W7JjyI/DrUlYM1KY1UB6MIAZzkqO03KRK8BnfT+sc1TfsJ9rN
+         p+6Rj7+7YfJx8+W010kPmlhjqTrx2EoQvxc4oLTWXH+6qJtKhGoTXnu2jVQSASx8bzGA
+         x5Jz/j545nNjYum39BIUJtY2VZD4dSrx/79ytq+hq7Q3ZwicYYMo32H9/VLDjQM2nFtZ
+         NDOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751054210; x=1751659010;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kd16DZ58Lx6jlqmHg0BJHa0UNLPbmEfykzddN70SEj8=;
+        b=E7SijKF1vf6CNXShRU5OGjezGX59OcthpUMC5g35W4NrzsoNtx9RrntEqMgBtySS0n
+         NTnFK+ACuwol9IObJIezka/PtaRFz3HkA3hf6uyLKavQgHc5AIWXYeRs0s1k/tEdG6xf
+         LlwBm9QYISyQWZ05Xq8F9GUzLv4QyUXBKzuCul2EBQ/qS+ydGuo9wA98v+G/E1fh24yU
+         qt+XQvE3enawm0co2ZT6aDC7+uWWwBlMOC2EsIOCbBtk20oyXCQSfLN1ySW2hPShujRA
+         8SyqnwHJAeHs/a8PepiojVJVeSD+qEPV3VuagMt9CKIKPbBI3Wsew67yy7XvfM/gJACb
+         CESA==
+X-Gm-Message-State: AOJu0Yx2xUFsw0HVJdik5d4uxQAHK/AOO75/9SoialTGoWRyWkOXMzYl
+	JasMxCVbPenhhzU6HR8d06kaTA9ImUWNyhWUG8hnBWqDf1KoQs/X9aJqE3xS81NQOkQYQnvi3vg
+	PVcxVuk0=
+X-Gm-Gg: ASbGncsrf3h6HVcp/6BfqRM/pqLde6BgS5zGYoW56OZI76nGv/o+Gp0R/n8wzf/nyUK
+	lfBbwj2UKslRlQhaNDLFHk9hlh2IwIrFRFFakTi9zVbtzOwJMWVLfX2IFf3bWZMcJXuSkqa5Qjt
+	IHo+tFJmKNHtfo8ajY9P3N5BibgYeNkwMJIZKw+jg6ydNLvJo5CVw5WuzTukZ/aewwq5m+/tunH
+	rxcgvGyCPAHTaLBcZlSbgNSlx7/xHv7D5IQNNXeW6F3gcnOCA6HlP9yRvSf5v7C0J3GNNnN2Ew9
+	1wsbWtAX2KwsoczeWtP4YCAba2zka7WG7vJx2CTRyTUKC8G/hMsK9CwoyybV
+X-Google-Smtp-Source: AGHT+IEQsJdpkJDVb09SU1wr49pMTne/iSq+L4sJx5vWT2zoGuZipLcGALrfoeDygSP3qPW8yNJm9A==
+X-Received: by 2002:a05:6a00:4b16:b0:740:aa33:c6f8 with SMTP id d2e1a72fcca58-74af6e662ddmr6737555b3a.7.1751054209885;
+        Fri, 27 Jun 2025 12:56:49 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::4:8d10])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-74af5574390sm3201286b3a.90.2025.06.27.12.56.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Jun 2025 12:56:49 -0700 (PDT)
+Date: Fri, 27 Jun 2025 12:56:49 -0700 (PDT)
+X-Google-Original-Date: Fri, 27 Jun 2025 12:56:41 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 5.16-rc4
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-BFF0FF2C-E730-45D5-8E5F-48D03E841EB2@palmerdabbelt-mac>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_121606_242907_36671F4E 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20250627_125651_854492_649D2A72 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,43 +87,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdW4gMjcsIDIwMjUgYXQgMTE6MDk6MDJBTSArMDIwMCwgVGjDqW8gTGVicnVuIHdy
-b3RlOgo+IEJvdGggQ2FkZW5jZSBHRU0gRXRoZXJuZXQgY29udHJvbGxlcnMgb24gRXllUTUgYXJl
-IGhhcmR3aXJlZCB0aHJvdWdoIENNMwo+IElPIENvaGVyZW5jeSBVbml0cyAoSU9DVSkuIEZvciBE
-TUEgY29oZXJlbnQgYWNjZXNzZXMsIEJJVCgzNikgbXVzdCBiZQo+IHNldCBpbiBETUEgYWRkcmVz
-c2VzLgo+IAo+IEltcGxlbWVudCB0aGF0IGluIHBsYXRmb3JtLXNwZWNpZmljIGRtYV9tYXBfb3Bz
-IHdoaWNoIGdldCBhdHRhY2hlZCB0bwo+IGJvdGggaW5zdGFuY2VzIG9mIGBjZG5zLGV5ZXE1LWdl
-bWAgdGhyb3VnaCBhIG5vdGlmaWVyIGJsb2NrLgo+IAo+IFNpZ25lZC1vZmYtYnk6IFRow6lvIExl
-YnJ1biA8dGhlby5sZWJydW5AYm9vdGxpbi5jb20+CgouLi4KCj4gZGlmZiAtLWdpdCBhL2FyY2gv
-bWlwcy9tb2JpbGV5ZS9leWVxNS1pb2N1LWRtYS5jIGIvYXJjaC9taXBzL21vYmlsZXllL2V5ZXE1
-LWlvY3UtZG1hLmMKCi4uLgoKPiArY29uc3Qgc3RydWN0IGRtYV9tYXBfb3BzIGV5ZXE1X2lvY3Vf
-b3BzID0gewo+ICsJLmFsbG9jCQkJPSBleWVxNV9pb2N1X2FsbG9jLAo+ICsJLmZyZWUJCQk9IGV5
-ZXE1X2lvY3VfZnJlZSwKPiArCS5hbGxvY19wYWdlc19vcAkJPSBkbWFfZGlyZWN0X2FsbG9jX3Bh
-Z2VzLAo+ICsJLmZyZWVfcGFnZXMJCT0gZG1hX2RpcmVjdF9mcmVlX3BhZ2VzLAo+ICsJLm1tYXAJ
-CQk9IGV5ZXE1X2lvY3VfbW1hcCwKPiArCS5nZXRfc2d0YWJsZQkJPSBleWVxNV9pb2N1X2dldF9z
-Z3RhYmxlLAo+ICsJLm1hcF9wYWdlCQk9IGV5ZXE1X2lvY3VfbWFwX3BhZ2UsCj4gKwkudW5tYXBf
-cGFnZQkJPSBleWVxNV9pb2N1X3VubWFwX3BhZ2UsCj4gKwkubWFwX3NnCQkJPSBleWVxNV9pb2N1
-X21hcF9zZywKPiArCS51bm1hcF9zZwkJPSBleWVxNV9pb2N1X3VubWFwX3NnLAo+ICsJLmdldF9y
-ZXF1aXJlZF9tYXNrCT0gZG1hX2RpcmVjdF9nZXRfcmVxdWlyZWRfbWFzaywKPiArfTsKPiArRVhQ
-T1JUX1NZTUJPTChleWVxNV9pb2N1X29wcyk7CgpIaSBUaMOpbywKCkRvZXMgZXllcTVfaW9jdV9v
-cHMgbmVlZCB0byBiZSBleHBvcnRlZD8KSWYgc28gaXQgc2hvdWxkIHByb2JhYmx5IGJlIGRlY2xh
-cmVkIGluIGEgaGVhZGVyIGZpbGUgc29tZXdoZXJlLgpCdXQgSSBpZiBub3QgcHJvYmFibHkgdGhl
-IEVYUE9SVF9TWU1CT0wgbGluZSBzaG91bGQgYmUKZHJvcHBlZCwgYW5kIHRoZSBzdHJ1Y3R1cmUg
-bWFkZSBzdGF0aWMuCgpGbGFnZ2VkIGJ5IFNwYXJzZS4KCj4gKwo+ICtzdGF0aWMgaW50IGV5ZXE1
-X2lvY3Vfbm90aWZpZXIoc3RydWN0IG5vdGlmaWVyX2Jsb2NrICpuYiwKPiArCQkJICAgICAgIHVu
-c2lnbmVkIGxvbmcgZXZlbnQsCj4gKwkJCSAgICAgICB2b2lkICpkYXRhKQo+ICt7Cj4gKwlzdHJ1
-Y3QgZGV2aWNlICpkZXYgPSBkYXRhOwo+ICsKPiArCS8qCj4gKwkgKiBJT0NVIHJvdXRpbmcgaXMg
-aGFyZHdpcmVkOyB3ZSBtdXN0IHVzZSBvdXIgYWJvdmUgY3VzdG9tCj4gKwkgKiByb3V0aW5lcyBm
-b3IgY2FjaGUtY29oZXJlbnQgRE1BIG9uIGV0aGVybmV0IGludGVyZmFjZXMuCj4gKwkgKi8KPiAr
-CWlmIChldmVudCA9PSBCVVNfTk9USUZZX0FERF9ERVZJQ0UgJiYKPiArCSAgICBkZXZpY2VfaXNf
-Y29tcGF0aWJsZShkZXYsICJtb2JpbGV5ZSxleWVxNS1nZW0iKSkgewo+ICsJCXNldF9kbWFfb3Bz
-KGRldiwgJmV5ZXE1X2lvY3Vfb3BzKTsKPiArCQlyZXR1cm4gTk9USUZZX09LOwo+ICsJfQo+ICsK
-PiArCXJldHVybiBOT1RJRllfRE9ORTsKPiArfQoKLi4uCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.16-rc4
+
+for you to fetch changes up to c5136add3f9b4c23b8bbe5f4d722c95d4cfb936e:
+
+  riscv: export boot_cpu_hartid (2025-06-23 16:30:05 -0700)
+
+----------------------------------------------------------------
+There's a trivial merge conflict in .mailmap that's in next, but seems like
+that's just bad luck on the timing.
+
+----------------------------------------------------------------
+RISC-V Fixes for 5.16-rc4
+
+* .rodata is no longer linkd into PT_DYNAMIC, it was not supposed to be
+  there in the first place and resultst in invalid (but unused) entries.
+  This manifests as at least warnings in llvm-readelf.
+* A fix for runtime constants with all-0 upper 32-bits.  This should
+  only manifest on MMU=n kernels.
+* A fix for context save/restore on systems using the T-Head vector
+  extensions.
+* A fix for a conflicting "+r"/"r" register constraint in the VDSO
+  getrandom syscall wrapper, which is undefined behavior in clang.
+* A fix for a missing register clobber in the RVV raid6 implementation.
+  This manifests as a NULL pointer reference on some compilers, but
+  could trigger in other ways.
+* Misaligned accesses from userspace at faulting addresses are now
+  handled correctly.
+* A fix for an incorrect optimization that allowed access_ok() to mark
+  invalid addresses as accessible, which can result in userspace
+  triggering BUG()s.
+* A few fixes for build warnings, and an update to Drew's email address.
+
+----------------------------------------------------------------
+Alexandre Ghiti (1):
+      riscv: Fix sparse warning in vendor_extensions/sifive.c
+
+Charles Mirabile (1):
+      riscv: fix runtime constant support for nommu kernels
+
+Chunyan Zhang (1):
+      raid6: riscv: Fix NULL pointer dereference caused by a missing clobber
+
+Drew Fustini (1):
+      MAINTAINERS: Update Drew Fustini's email address
+
+Fangrui Song (1):
+      riscv: vdso: Exclude .rodata from the PT_DYNAMIC segment
+
+Han Gao (1):
+      riscv: vector: Fix context save/restore with xtheadvector
+
+Klara Modin (1):
+      riscv: export boot_cpu_hartid
+
+Nam Cao (2):
+      Revert "riscv: misaligned: fix sleeping function called during misaligned access handling"
+      Revert "riscv: Define TASK_SIZE_MAX for __access_ok()"
+
+Palmer Dabbelt (3):
+      Merge tag 'riscv-fixes-6.16-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/alexghiti/linux into fixes
+      Merge patch "Fix a segmentation fault also add raid6test for RISC-V support"
+      RISC-V: uaccess: Wrap the get_user_8 uaccess macro
+
+Xi Ruoyao (1):
+      RISC-V: vDSO: Correct inline assembly constraints in the getrandom syscall wrapper
+
+ .mailmap                                     |  1 +
+ MAINTAINERS                                  |  2 +-
+ arch/riscv/include/asm/pgtable.h             |  1 -
+ arch/riscv/include/asm/runtime-const.h       |  2 +-
+ arch/riscv/include/asm/uaccess.h             |  3 +-
+ arch/riscv/include/asm/vdso/getrandom.h      |  2 +-
+ arch/riscv/include/asm/vector.h              | 12 +++----
+ arch/riscv/kernel/setup.c                    |  1 +
+ arch/riscv/kernel/traps_misaligned.c         |  4 +--
+ arch/riscv/kernel/vdso/vdso.lds.S            |  2 +-
+ arch/riscv/kernel/vendor_extensions/sifive.c |  2 +-
+ lib/raid6/rvv.c                              | 48 ++++++++++++++++------------
+ 12 files changed, 45 insertions(+), 35 deletions(-)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
