@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2921DC83000
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 17:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8EDC77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 19:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6xGi8weCxF9inpRnjfPbvAWVlXjZ1sfzrhfbahd8758=; b=kE82LamptVHxQu
-	nvJwDH20j8FBWLrbaM5MUnWUM+Dbnbgd8onraZWPbpvHT8+9WxwAQ5e34Tsd/afboASY9x4cGmgFH
-	A7MHOCDVaQ+ouC3t3B6AqTTIRh3nC5A3bvUuLnnI2O0G1ybN4S++Btr9yoZZ2gWAzP/UB7vlWamjr
-	gKHfjogdQY8jMMlvE3TF6o9SB5tcA1Ybl/K2/yuMBJ2yHHkUDCNltrXwNL3vygpURJcRDvyBcV1EZ
-	ZKI4hyTXvDPgOQnviQjNsc+upO4y9IP+SvHk/8YkakocuxZjyE5DrgMBL6zrJkOfIT5jP/0Pixo+6
-	dAv0JeoAHHJqItvVQqnQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tPpB0eEjRl4L4uvWaeI0a5yoN8vN6roWSwhtZxoGp0E=; b=eTwlMqtdcp07dR
+	MvNyU7sc6vF014Rrj/NfaDTEln+c3SZErnJL2C8dHXX7XI6FDqHMAD4aMc20bSFxmV5oaXKbnvlmj
+	znOlQ9scbQsJGk+BVMQZLv5N8/QKSUoH/u0iwC2DjpWxAvcV4uENEZZSfXECnvFKwtZn/ydm4p14u
+	lPtzKaIdL1hzwRuQBeloDn5DOtpHAkH4jCQLv217Rkv8/j/dIz32BC/JPcDOa9SOGZGkouKWPZowp
+	zta5EfbTkHIAvbtYM+PC/3ljReCMtTZzkG0TpSstbJzbuSyMoeWPgyz+gn52JNQGITWpLbTrb4V/Z
+	brSQDgGkpxYXdOdv5Pyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVCno-0000000FOqK-08LX;
-	Fri, 27 Jun 2025 17:23:52 +0000
-Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
+	id 1uVENX-0000000FYz0-0ZN1;
+	Fri, 27 Jun 2025 19:04:51 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVBfS-0000000FDoR-1p7b
+	id 1uVCtB-0000000FPev-00H7
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Jun 2025 16:11:11 +0000
-Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-3df2fa612c4so280715ab.1
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Jun 2025 09:11:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1751040668; x=1751645468; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TcIH4pjrPEib5s/3B0d1zkZ9Z/0XhgYXm5HComwjvMU=;
-        b=onFFlQlkz6mXvzxeSqpHPViPx/LMTik25OSlBrQRu6fL0lT2HvMK6mk442BiyXHkuf
-         BHrByX5tmzDfgwYXvtyKTvmeav5NXNAFxiHF7YveS2kERH5DYBdLDa6DGh0mz6qn23xi
-         VHCAcq5VlXd/OuqXV9c5mI1VzrjY6X4LLudZ4Hx1LmUKMnq3vJa6y1VAFy8cRGi3+zUZ
-         lDyoRoxgLda0TjdBQskbkpSaD/iZPf/ZShaGSDRI2LiN7lGykDNvOv9R0IGx98XlQpui
-         FfZATmB/TwbeQieDH880r2lq8JVQHEUJp9ZY/ZsIEyEd54tGaI2mghCYlifFAXHbPdOF
-         exmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751040668; x=1751645468;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TcIH4pjrPEib5s/3B0d1zkZ9Z/0XhgYXm5HComwjvMU=;
-        b=u+iXUrOBICTZI8LYAhVyud1kqt1JBVllQug8UgHERvmxb8b3GB/WXhq0bU4AVTtDE6
-         ZwLNnivFpR9n0se+V5l5JvK7ZC8lN7+NulUi1yT8Y88gU7zdmwkWvB25zYBAq1WtUF3c
-         ndiPI5W4P/jDbepSS/36haIv9XtVK5SlVVwPh5mBEFRWjyVw+HDIQIqeQkt+nf5pb0tN
-         dvTbBcct9co2gpSJEt4P/Opns0Os8Ey0vMjovvY9czRKtBV7EXhP4F3UsV3J4AsAsXRI
-         elU7XRaLLOxsauaJd9tkHucn7dfnU8Xts9paI6FacNybrhVv/RLuTC61ewFM4jUpb1Bv
-         HW4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUopb45d8ph1PEvQdMDOdCgKH3o4aXaWx7gDhInCboDhw8aGOvQB62f5xys5snqKTiYqPJ7KwIZyctylw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YymLYfu/85DkAeGAWzAvwVnBo+lJDXI6kZrDpDf16KHgX8qVaH4
-	GnFZAsrGuQl2uNyKdEDaGRKrUT7N5f+odnduw3rczWNh2df59400EYW4Qxmfjdsi8qRg6Ud75Vi
-	4LKdCdvbPa3vB1KRkmSTpg5SBnJK+Mwbi8qjqHxSH
-X-Gm-Gg: ASbGnct28ZsTG68XGx5HQgnHCMLPMyngkfCWvKHtEH9HWKGtEOFYgBvw9q1crNrb4gf
-	hKhlVTT5frB2qFXtKNJeredgHe8MDwJBgo4bKb30/XvzbAUij11MwfAffFnPkOH5g71DTDBeGqh
-	04D1IPG57F3qfHEAyYas2aWXePTjax71OzAoFLn3Mm
-X-Google-Smtp-Source: AGHT+IFg6e4a6YEfWbui8xwO9yD9rLdV6FsjD0j7apl8hIGvv47L9p86pecdsvAU0q7wRaa8l3NwHfyIyMgL9Gnaxno=
-X-Received: by 2002:a17:903:2ca:b0:237:e45b:4f45 with SMTP id
- d9443c01a7336-23ae4db11d0mr267905ad.1.1751040668255; Fri, 27 Jun 2025
- 09:11:08 -0700 (PDT)
+	Fri, 27 Jun 2025 17:29:27 +0000
+Received: from dev-suse (unknown [223.72.91.169])
+	by APP-01 (Coremail) with SMTP id qwCowADHeNfg1F5omh6oCQ--.1108S2;
+	Sat, 28 Jun 2025 01:29:05 +0800 (CST)
+From: Jingwei Wang <wangjingwei@iscas.ac.cn>
+To: linux-riscv@lists.infradead.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Jesse Taube <jesse@rivosinc.com>,
+	Yixun Lan <dlan@gentoo.org>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	Tsukasa OI <research_trasio@irq.a4lg.com>,
+	stable@vger.kernel.org,
+	Jingwei Wang <wangjingwei@iscas.ac.cn>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v4] riscv: hwprobe: Fix stale vDSO data for late-initialized keys at boot
+Date: Sat, 28 Jun 2025 01:27:42 +0800
+Message-ID: <20250627172814.66367-1-wangjingwei@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-References: <20250611033150.396172-2-zhihang.shao.iscas@gmail.com>
- <20250624035057.GD7127@sol> <48de9a74-58e8-49c2-8d8a-fa9c71bf0092@cryptogams.org>
- <20250625035446.GC8962@sol> <CABCJKudbdWThfL71L-ccCpCeVZBW7Yhf3JXo9FvaPboRVaXOyg@mail.gmail.com>
- <fa13aa9c-fd72-4aa3-98bc-becaf68a5469@cryptogams.org>
-In-Reply-To: <fa13aa9c-fd72-4aa3-98bc-becaf68a5469@cryptogams.org>
-From: Sami Tolvanen <samitolvanen@google.com>
-Date: Fri, 27 Jun 2025 09:10:30 -0700
-X-Gm-Features: Ac12FXznZZZX9Qm6z0k4xbwNRAF0CTs4EHV5XI2tFLn6EJECgfKuduEu2PnIjzI
-Message-ID: <CABCJKucHNWz6J9vvDvKh_Je8eQTJO_1r0f6jsDTsDmfaxdBygg@mail.gmail.com>
-Subject: Re: [PATCH v4] crypto: riscv/poly1305 - import OpenSSL/CRYPTOGAMS implementation
-To: Andy Polyakov <appro@cryptogams.org>
-Cc: Eric Biggers <ebiggers@kernel.org>, Zhihang Shao <zhihang.shao.iscas@gmail.com>, 
-	linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	herbert@gondor.apana.org.au, paul.walmsley@sifive.com, alex@ghiti.fr, 
-	zhang.lyra@gmail.com
+X-CM-TRANSID: qwCowADHeNfg1F5omh6oCQ--.1108S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Gr1DAF4xZFy7tryxKFy3Jwb_yoW7Cr4kpF
+	WDCrsYqFy5Jr4xWay7K3s7ZF10gas5Gr43GFsFkw15ZryxZr13J3saqrsxAr1DtrWqva40
+	9F45WFWYkw42yr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr
+	0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
+	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
+	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
+	x4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r
+	1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
+	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcS
+	sGvfC2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
+X-Originating-IP: [223.72.91.169]
+X-CM-SenderInfo: pzdqwy5lqj4v3l6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_091110_492239_445473F0 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20250627_102925_421337_86F76766 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,52 +85,154 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdW4gMjcsIDIwMjUgYXQgMjowN+KAr0FNIEFuZHkgUG9seWFrb3YgPGFwcHJvQGNy
-eXB0b2dhbXMub3JnPiB3cm90ZToKPgo+ID4gd2Ugd291bGQgbmVlZAo+ID4gdG8gdXNlIFNZTV9U
-WVBFRF9GVU5DX1NUQVJUIHRvIGVtaXQgQ0ZJIHR5cGUgaW5mb3JtYXRpb24gZm9yIHRoZW0uCj4K
-PiBJJ20gY29uZnVzZWQuIE15IHVuZGVyc3RhbmRpbmcgaXMgdGhhdCBTWU1fVFlQRURfRlVOQ19T
-VEFSVCBpcyBhYm91dAo+IGNsYW5nIC1mc2FuaXRpemU9a2NmaSwgd2hpY2ggaXMgYSBkaWZmZXJl
-bnQgbWVjaGFuaXNtLiBXZWxsLCB5b3UgbWlnaHQKPiBiZSByZWZlcnJpbmcgdG8gZnV0dXJlIGRl
-dmVsb3BtZW50cy4uLgoKQ09ORklHX0NGSV9DTEFORyBpcyBzdXBwb3J0ZWQgaW4gdGhlIGtlcm5l
-bCByaWdodCBub3csIHdoaWNoIGlzIHdoeSB3ZQpuZWVkIHRvIG1ha2Ugc3VyZSBpbmRpcmVjdCBj
-YWxsIHRhcmdldHMgaW4gYXNzZW1ibHkgY29kZSBhcmUgcHJvcGVybHkKYW5ub3RhdGVkLgoKTGlr
-ZSBJIHNhaWQsIGlmIFJJU0MtViBnYWlucyBrZXJuZWwtbW9kZSBaaWNmaWxwIHN1cHBvcnQgbGF0
-ZXIsIEkKd291bGQgZXhwZWN0IHRoZSBTWU1fVFlQRURfRlVOQ19TVEFSVCBtYWNybyB0byBiZSBv
-dmVycmlkZGVuIHRvCmluY2x1ZGUgdGhlIGxwYWQgaW5zdHJ1Y3Rpb24gYXMgd2VsbCwgc2ltaWxh
-cmx5IHRvIG90aGVyIGFyY2hpdGVjdHVyZXMKdGhhdCBhbHJlYWR5IHN1cHBvcnQgbGFuZGluZyBw
-YWQgaW5zdHJ1Y3Rpb25zLiBJbiBlaXRoZXIgY2FzZSwgaW5zdGVhZApvZiBpbmNsdWRpbmcgcmF3
-IGxwYWQgaW5zdHJ1Y3Rpb25zIGluIHRoZSBjb2RlLCBpdCBzaG91bGQgYmUgdXAgdG8gdGhlCmtl
-cm5lbCB0byBkZWNpZGUgaWYgbGFuZGluZyBwYWRzIChvciBvdGhlciBDRkkgYW5ub3RhdGlvbnMp
-IGFyZSBuZWVkZWQKZm9yIHRoZSBmdW5jdGlvbi4KCj4gPiBBbHNvLCBpZiB0aGUga2VybmVsIGRl
-Y2lkZXMgdG8gdXNlIHR5cGUtYmFzZWQgbGFuZGluZyBwYWQgbGFiZWxzIGZvcgo+ID4gZmluZXIt
-Z3JhaW5lZCBDRkksICJscGFkIDAiIGlzbid0IGdvaW5nIHRvIHdvcmsgYW55d2F5Lgo+Cj4gSXQg
-d291bGQsIGl0IHNpbXBseSB3b24ndCBiZSBmaW5lLWdyYW5lZC4KClNvcnJ5IGZvciBub3QgYmVp
-bmcgY2xlYXIuIElmIHRoZSBrZXJuZWwgaW1wbGVtZW50cyBhIGZpbmUtZ3JhaW5lZApaaWNmaWxw
-IHNjaGVtZSwgd2Ugd291bGRuJ3Qgd2FudCB1bml2ZXJzYWwgaW5kaXJlY3QgY2FsbCB0YXJnZXRz
-IChpLmUuCmxwYWQgMCkgYW55d2hlcmUgaW4gdGhlIGNvZGUuIEFuZCBldmVuIGlmIHdlIGltcGxl
-bWVudCBjb2Fyc2UtZ3JhaW5lZApaaWNmaWxwLCB3ZSB3b3VsZCBvbmx5IHdhbnQgbGFuZGluZyBw
-YWRzIGluIGZ1bmN0aW9ucyB3aGVyZSB0aGV5J3JlCm5lZWRlZCB0byBtaW5pbWl6ZSB0aGUgbnVt
-YmVyIG9mIGNhbGwgdGFyZ2V0cy4KCj4gPiBQZXJoYXBzIGl0Cj4gPiB3b3VsZCBtYWtlIHNlbnNl
-IHRvIGp1c3QgZHJvcCB0aGUgbHBhZCBpbnN0cnVjdGlvbiBpbiBrZXJuZWwgYnVpbGRzCj4gPiBm
-b3Igbm93IHRvIGF2b2lkIGNvbmZ1c2lvbj8KPgo+IExldCdzIHNheSBJIGdvIGZvcgo+Cj4gI2lm
-ZGVmIF9fS0VSTkVMX18KPiBTWU1fVFlQRURfRlVOQ19TVEFSVChwb2x5MTMwNV9pbml0LCAuLi4p
-Cj4gI2Vsc2UKPiAuZ2xvYmwgIHBvbHkxMzA1X2luaXQKPiAudHlwZSAgIHBvbHkxMzA1X2luaXQs
-XEBmdW5jdGlvbgo+IHBvbHkxMzA1X2luaXQ6Cj4gIyBpZmRlZiBfX3Jpc2N2X3ppY2ZpbHAKPiAg
-ICAgICAgIGxwYWQgICAgMAo+ICMgZW5kaWYKPiAjZW5kaWYKPgo+IFdvdWxkIGl0IGJlIHN1ZmZp
-Y2llbnQgdG8gI2luY2x1ZGUgPGxpbnV4L2NmaV90eXBlcy5oPj8KClllcywgYnV0IHRoaXMgcmVx
-dWlyZXMgdGhlIGZ1bmN0aW9uIHRvIGJlIGluZGlyZWN0bHkgY2FsbGVkLCBiZWNhdXNlCndpdGgg
-Q0ZJX0NMQU5HIHRoZSBjb21waWxlciBvbmx5IGVtaXRzIENGSSB0eXBlIGluZm9ybWF0aW9uIGZv
-cgpmdW5jdGlvbnMgdGhhdCBhcmUgYWRkcmVzcy10YWtlbiBpbiBDLiBJZiwgbGlrZSBFcmljIHN1
-Z2dlc3RlZCwgdGhlc2UKZnVuY3Rpb25zIGFyZSBub3QgY3VycmVudGx5IGluZGlyZWN0bHkgY2Fs
-bGVkLCBJIHdvdWxkIHNpbXBseSBsZWF2ZQpvdXQgdGhlIGxwYWQgaW5zdHJ1Y3Rpb25zIGZvciBr
-ZXJuZWwgYnVpbGRzIGFuZCB3b3JyeSBhYm91dAprZXJuZWwtbW9kZSBDRkkgYW5ub3RhdGlvbnMg
-d2hlbiB0aGV5J3JlIGFjdHVhbGx5IG5lZWRlZDoKCiMgaWYgZGVmaW5lZChfX3Jpc2N2X3ppY2Zp
-bHApICYmICFkZWZpbmVkKF9fS0VSTkVMX18pCiAgICAgICAgbHBhZCAgICAwCiMgZW5kaWYKClNh
-bWkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The value for some hwprobe keys, like MISALIGNED_VECTOR_PERF, is
+determined by an asynchronous kthread. This kthread can finish after
+the hwprobe vDSO data is populated, creating a race condition where
+userspace can read stale values.
+
+A completion-based framework is introduced to synchronize the async
+probes with the vDSO population. The init_hwprobe_vdso_data()
+function is deferred to `late_initcall` and now blocks until all
+probes signal completion.
+
+Reported-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+Closes: https://lore.kernel.org/linux-riscv/760d637b-b13b-4518-b6bf-883d55d44e7f@irq.a4lg.com/
+Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: stable@vger.kernel.org
+Signed-off-by: Jingwei Wang <wangjingwei@iscas.ac.cn>
+---
+Changes in v4:
+	- Reworked the synchronization mechanism based on feedback from Palmer
+    	and Alexandre.
+	- Instead of a post-hoc refresh, this version introduces a robust
+	completion-based framework using an atomic counter to ensure async
+	probes are finished before populating the vDSO.
+	- Moved the vdso data initialization to a late_initcall to avoid
+	impacting boot time.
+
+Changes in v3:
+	- Retained existing blank line.
+
+Changes in v2:
+	- Addressed feedback from Yixun's regarding #ifdef CONFIG_MMU usage.
+	- Updated commit message to provide a high-level summary.
+	- Added Fixes tag for commit e7c9d66e313b.
+
+v1: https://lore.kernel.org/linux-riscv/20250521052754.185231-1-wangjingwei@iscas.ac.cn/T/#u
+
+ arch/riscv/include/asm/hwprobe.h           |  8 +++++++-
+ arch/riscv/kernel/sys_hwprobe.c            | 20 +++++++++++++++++++-
+ arch/riscv/kernel/unaligned_access_speed.c |  9 +++++++--
+ 3 files changed, 33 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 7fe0a379474ae2c6..87af186d92e75ddb 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -40,5 +40,11 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
+ 
+ 	return pair->value == other_pair->value;
+ }
+-
++#ifdef CONFIG_MMU
++void riscv_hwprobe_register_async_probe(void);
++void riscv_hwprobe_complete_async_probe(void);
++#else
++inline void riscv_hwprobe_register_async_probe(void) {}
++inline void riscv_hwprobe_complete_async_probe(void) {}
++#endif
+ #endif
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index 0b170e18a2beba57..8c50dcec2b754c30 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -5,6 +5,8 @@
+  * more details.
+  */
+ #include <linux/syscalls.h>
++#include <linux/completion.h>
++#include <linux/atomic.h>
+ #include <asm/cacheflush.h>
+ #include <asm/cpufeature.h>
+ #include <asm/hwprobe.h>
+@@ -467,6 +469,20 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+ 
+ #ifdef CONFIG_MMU
+ 
++static DECLARE_COMPLETION(boot_probes_done);
++static atomic_t pending_boot_probes = ATOMIC_INIT(0);
++
++void riscv_hwprobe_register_async_probe(void)
++{
++	atomic_inc(&pending_boot_probes);
++}
++
++void riscv_hwprobe_complete_async_probe(void)
++{
++	if (atomic_dec_and_test(&pending_boot_probes))
++		complete(&boot_probes_done);
++}
++
+ static int __init init_hwprobe_vdso_data(void)
+ {
+ 	struct vdso_arch_data *avd = vdso_k_arch_data;
+@@ -474,6 +490,8 @@ static int __init init_hwprobe_vdso_data(void)
+ 	struct riscv_hwprobe pair;
+ 	int key;
+ 
++	if (unlikely(atomic_read(&pending_boot_probes) > 0))
++		wait_for_completion(&boot_probes_done);
+ 	/*
+ 	 * Initialize vDSO data with the answers for the "all CPUs" case, to
+ 	 * save a syscall in the common case.
+@@ -504,7 +522,7 @@ static int __init init_hwprobe_vdso_data(void)
+ 	return 0;
+ }
+ 
+-arch_initcall_sync(init_hwprobe_vdso_data);
++late_initcall(init_hwprobe_vdso_data);
+ 
+ #endif /* CONFIG_MMU */
+ 
+diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+index ae2068425fbcd207..4b8ad2673b0f7470 100644
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ -379,6 +379,7 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
+ static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+ {
+ 	schedule_on_each_cpu(check_vector_unaligned_access);
++	riscv_hwprobe_complete_async_probe();
+ 
+ 	return 0;
+ }
+@@ -473,8 +474,12 @@ static int __init check_unaligned_access_all_cpus(void)
+ 			per_cpu(vector_misaligned_access, cpu) = unaligned_vector_speed_param;
+ 	} else if (!check_vector_unaligned_access_emulated_all_cpus() &&
+ 		   IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
+-		kthread_run(vec_check_unaligned_access_speed_all_cpus,
+-			    NULL, "vec_check_unaligned_access_speed_all_cpus");
++		riscv_hwprobe_register_async_probe();
++		if (IS_ERR(kthread_run(vec_check_unaligned_access_speed_all_cpus,
++				NULL, "vec_check_unaligned_access_speed_all_cpus"))) {
++			pr_warn("Failed to create vec_unalign_check kthread\n");
++			riscv_hwprobe_complete_async_probe();
++		}
+ 	}
+ 
+ 	/*
+-- 
+2.50.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
