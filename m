@@ -4,90 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50550C77B7F
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 07:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32386C7EE33
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 08:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RypmDtEXs95ZttcInAWS5K+CRmm11/NBdQ3szrucses=; b=XIYzFe7zRXeMAQ
-	uoQIzjAowso/X24VDVrYbyyJcBsLBWOxgiYOHn+caqkQPW3DV/xcXvj3qsOagucfD4HvATgGf5qU9
-	9MBfmE4wryiCzxeYCoyeR2tId/p/E7EYMAHZDFEasXxeed4yjMS98aAen2ahKT6o8lgRBSJ5PLJCA
-	dB0D0ypfVMrI0wrmhoYY2BsjPcjj8RTjdFcVJWol2AaQQBMbDyuKEevO3wqK7BpVaf+DSefl3Gm/B
-	sDZ2zLWB8Q//PPecbCO+vV87B2urGnleXNgPrMXI3z/g7i86A4aW+NzMuWrq+naq5a1Y9UA9U2xAT
-	JkW609jSlzQf0WMHkuiw==;
+	List-Owner; bh=45RgNSQgQ1cPOy6KK6s4bv6/J1JxZ7uey7oPI3+ETFA=; b=x5lIiQ5u/ebQfF
+	zOEO9yJT3CLxWXKYLbgpE0U+3CracOxNeftUn1A9l6W/kOIdO7II7CoTmmHqRQcZ014bwLQ+a8a9m
+	ybYrJCgX1IQIUX3UXiZPNTouZYvLNirABYY0cS6MnuwaAtYRwUlU1AXfu3C8lsoEdbtov+1uCbvMf
+	9RWw6HlO6GYyOlxJ6/mLWQBtL/dO5Qbvqd5A2ydmr9rPWKWnBOyZIaCm6nTUb5HXpA0SMKTpODWx5
+	kw+3YN6HXAM3mswI+NOiOyMmswMyU7GOsqB3uuhMSC1+fQs3W4osDzyqH1OzAWHsX0INKlmHd30BS
+	VINFAg7ik3MpyRBKvXJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV3vF-0000000DtMi-2ZlA;
-	Fri, 27 Jun 2025 07:54:57 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV3lo-0000000Drql-3qPz
-	for linux-riscv@lists.infradead.org;
-	Fri, 27 Jun 2025 07:45:14 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-234c5b57557so20088115ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Jun 2025 00:45:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751010312; x=1751615112; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6kwXMa0RVLz7EpJ4koQvotLZKLm6G+hz8I9ALzuYytU=;
-        b=VqirorWxyHuGZGGXnN/Oe6EwRTm0FuqEOC1ezRAw3qsl/mo2BXPgLcFQmAGww6oycv
-         +CDoA/rjqIKfbopkwzbCp7gW6p/JOhyHcfn2vPNu7gv/Az8uWJmAUukhxSfYRPtQ0WzN
-         trKlzNDAppJGKZuDEo2k2xqSaXeLbh61iTLy0auucJy1NQWkQCV8/XbIiKAzoSv08o6e
-         KvxC+fHoK8FXQ7LW56PSkeg870Uz5a76g8g1Uwi4bAoEoIWQSQwkj56pv8zJp+p4of8B
-         5+yktbMlBeJ3I9jG62OueUJ76gkCVBGv6Jd7kH4Y1P1a+Bn8VEzDO0Tu3sKDtkPDsihp
-         llNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751010312; x=1751615112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6kwXMa0RVLz7EpJ4koQvotLZKLm6G+hz8I9ALzuYytU=;
-        b=Q/Z7zaVdhqil6VIGw8BthDRWcIliFRil/C3waalGs55sVuqjtelaxrPkLumoHH2u+t
-         jZLUhViF9hQWWPCU3YUd29sq01m+Is5uIldY1BBvggHhdI4rdfezhBgN3SeBob5MIkRB
-         S8Gl+oxXWAyqAFiDlNBDuwkupC69XmKQlruc/eHHr+cEZZtbeopX7sSMTqC7/v1jDBro
-         kF7WmYgzyaGSZPNd2A5b/lbw2Zkvg4rgTGK3+ZBYoy9iuvX1w6HD+VNRCP5nyY+IgxVs
-         StkJixxYv0E3l9ixus/1cO6ucw85/J6i2TQRAHigfJefc4NvSh9G0I1AmQ7NZYaOxnDe
-         xI9A==
-X-Forwarded-Encrypted: i=1; AJvYcCUyAG/jV0bdzHjAZRf1kKfJVHpVmmGexdL/Pltw/ZeqAjKfqNRWHR8B2x6GBLFh4jyMmI2OfyvqSfYQgA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkDjO2W9O+15EjQHjyR4ye4ieCsluZ6+gSNndwjhA9coESGpun
-	dB6lpd4GzAjEmMnbz0QMEmPm8OnD5HZQPg45nETjH1Q+ol0/zMS05v92
-X-Gm-Gg: ASbGncuosItbd3vL5Y8+L8dZejOM4AoCyKTh2qS/cQiLdK5B3a4YqlhLBcagE5l6x13
-	zhB4ABL+pRrdpljatH2/MGdGA8WKGSNQR071g4AoCEcQfLTjusIp1Goy+AEnIgUcwL1SUJgn1vB
-	PKFKa9pILxRluxJuBA6RMCgu7m1xbxIT88y/BAYglgG24dYAba28rQT3ANqphS2YeUX81sX7SDK
-	t1HKjLJ/FpwY2oUy9GLdr6F49TiBik85pgB2HsoxIp5COFz5qo1IPWivKBtfKRvCOeRnTBopQ0G
-	wB2ReAga4iCYIgNXKazYKPTyhw0xC+xTIgvp/Xb/O+61HiooMO4mq3VAdVPUfkDbjebhExEL
-X-Google-Smtp-Source: AGHT+IEosVdRq8jswGr8fyP/uRwtM7xveOdc4+/YhWRKXXFAv1fBojRPrGKTceYMplzzNMFyzx4jZA==
-X-Received: by 2002:a17:902:f601:b0:235:c9a7:d5fb with SMTP id d9443c01a7336-23ac3deaf2cmr35094145ad.16.1751010312004;
-        Fri, 27 Jun 2025 00:45:12 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-23acb39b99esm10595105ad.102.2025.06.27.00.45.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Jun 2025 00:45:11 -0700 (PDT)
-Date: Fri, 27 Jun 2025 15:44:58 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>, Yixun Lan <dlan@gentoo.org>, Ze Huang <huangze@whut.edu.cn>, 
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>
-Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v4 0/4] riscv: sophgo: cv18xx: Add reset generator support
-Message-ID: <ep7gbthprqyzfdcqvs3wadqflyusdsut3uxt5wv5j7mvazyl5s@muk77uizwcrg>
-References: <20250617070144.1149926-1-inochiama@gmail.com>
+	id 1uV4S0-0000000Dxh0-3n76;
+	Fri, 27 Jun 2025 08:28:48 +0000
+Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uV4Rj-0000000Dxdx-2Uwi;
+	Fri, 27 Jun 2025 08:28:33 +0000
+Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id AFEEC4CD24;
+	Fri, 27 Jun 2025 10:28:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1751012910;
+	bh=spP82C2j5HjhFI0G1+bra4EcZ2gIWe3Xap3JvO6Y+tY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ruBmO6pEKxHw+iozycJ13LII2JRcnlvNJbdkcSPtOvF+7GcYHHzQ8rIwQsDyGYdm4
+	 WJoGBf2xPamc7hgsjAF1E+f1v20tTwnCyok8JG8vLlQJJLSj4ROIDyejWb6Q5Gu157
+	 blQjCKlEmYkU5eFyu3Zr/8IYwouNWYpdl74bpyomnipeY0J6lDTGjOrT9p1pBhlPec
+	 eKZkDo2TECJdKfSKqfRMI8vxpVjNmEzyMlfWU2TLjQ/XuPehgEnYJHJNJtMEbqyKdH
+	 tQmL3gD1g1KD8+Sfs25b06SXqogj0/2g+e263Fp0JteVfDPr+VYn/CLyNUsnc+j+we
+	 MqcTPrBaNcFRg==
+Date: Fri, 27 Jun 2025 10:28:28 +0200
+From: Joerg Roedel <joro@8bytes.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, David Woodhouse <dwmw2@infradead.org>, 
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev, 
+	Janne Grunau <j@jannau.net>, Jean-Philippe Brucker <jean-philippe@linaro.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Matthew Rosato <mjrosato@linux.ibm.com>, Neal Gompa <neal@gompa.dev>, Orson Zhai <orsonzhai@gmail.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Rob Clark <robin.clark@oss.qualcomm.com>, Robin Murphy <robin.murphy@arm.com>, 
+	Samuel Holland <samuel@sholland.org>, Sven Peter <sven@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Krishna Reddy <vdumpa@nvidia.com>, 
+	virtualization@lists.linux.dev, Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>, 
+	Yong Wu <yong.wu@mediatek.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Lu Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>, patches@lists.linux.dev, 
+	Niklas Schnelle <schnelle@linux.ibm.com>, Sven Peter <sven@svenpeter.dev>, 
+	Tomasz Jeznach <tjeznach@rivosinc.com>
+Subject: Re: [PATCH v2 7/7] iommu: Remove ops->pgsize_bitmap
+Message-ID: <r55jzziwjtb37qufil4zgj22zqbmu7gpjs7gciib66ix564baz@juuhk6bqoj2j>
+References: <0-v2-68a2e1ba507c+1fb-iommu_rm_ops_pgsize_jgg@nvidia.com>
+ <7-v2-68a2e1ba507c+1fb-iommu_rm_ops_pgsize_jgg@nvidia.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250617070144.1149926-1-inochiama@gmail.com>
+In-Reply-To: <7-v2-68a2e1ba507c+1fb-iommu_rm_ops_pgsize_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_004512_958573_3D4B51D2 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20250627_012831_796476_CC386C9D 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,48 +94,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 03:01:38PM +0800, Inochi Amaoto wrote:
-> Like SG2042, CV1800 Series SoCs also have simple bit reset generator.
-> Add necessary code and bindings for it.
-> 
-> Changes from v4:
-> 1. patch 1: convert the compatible as entry of enum.
-> 1. patch 2, 3: apply Alexander's tag.
-> 1. patch 3: apply Junhui's tag.
-> 
-> Changes from v2:
-> 1. patch 3: fix wrong reset ID.
-> 
-> Changes from v1:
-> 1. rebase to v6.16-rc1
-> 2. patch 1: apply Rob's tag
-> 3. patch 3: fix wrong reset ID
-> 
-> Inochi Amaoto (4):
->   dt-bindings: reset: sophgo: Add CV1800B support
->   reset: simple: add support for Sophgo CV1800B
->   riscv: dts: sophgo: add reset generator for Sophgo CV1800 series SoC
->   riscv: dts: sophgo: add reset configuration for Sophgo CV1800 series
->     SoC
-> 
->  .../bindings/reset/sophgo,sg2042-reset.yaml   |  4 +-
->  arch/riscv/boot/dts/sophgo/cv180x.dtsi        | 25 +++++
->  arch/riscv/boot/dts/sophgo/cv18xx-reset.h     | 98 +++++++++++++++++++
->  drivers/reset/reset-simple.c                  |  2 +
->  4 files changed, 128 insertions(+), 1 deletion(-)
->  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-reset.h
-> 
-> --
-> 2.49.0
-> 
+Hi Jason,
 
-I wonder if the binding and driver can be merged, as many devices
-require reset to functional normally. If these two are taken, I
-can take the dts change.
+On Mon, Jun 09, 2025 at 05:41:31PM -0300, Jason Gunthorpe wrote:
+> No driver uses it now, remove the core code.
+
+That is actually not true, the MSM driver still uses it, and this patch breaks
+my arm32 compile tests. Please send a fix for this driver so that I can put it
+on-top.
 
 Regards,
-Inochi
 
+	Joerg
 
 _______________________________________________
 linux-riscv mailing list
