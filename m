@@ -4,93 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D66C77B7F
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 14:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A6BC77B7F
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 14:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=drhpXOzjw336p3FfR69LYdmqAZsNzJNxWO+sLOfpItM=; b=UJYxR3Qo+SK/l3
-	Hj0FPz1JNqgsgKiVI3EGy0ZPAh8cuuficKfMd4HnprslvchgOBri7DjDZ8izb+egFcXvlxmFgCxcm
-	p2d4z1PrXoZdE7csHaVYGYUaRYcgB+jZxLVxFEc0xF5omv6TPdzNQlj3lUphVm0PgKP6BwFr3CX2+
-	nVNEFLjxmI7uszwVXU9WS2SqeYFxS4beG7dwWreMM3Mdrh9Bc7H9y1sSB+Gz8DVrQvsPGUy/TZC0V
-	gOvKgAa4GegVMwrZk5kUKiMbycafDROQ9DaR0Pc0udq5ZXiByOncYQs+D04guESUcZHMb65+3mtZg
-	qcWFHJYgQjiTuRfqYVwg==;
+	List-Owner; bh=Zk19tGrHeYc08EH/xBd8fKxZpTkT32zfgrecMXmbKlg=; b=drcMhQcldMOYtG
+	TPlnnAKPa6FRld8DJAnIzZxvOJwnmR3RG/Gw46F1/A9vMnr5MPBK8kWEQrEpqZGwJxBl6N99AV0Wv
+	aVKNKwirkbhKS/UK6kx2BZpmGeKtVXKjus0PwfM77q4qmjDQWymVjOENLGCJwLhTeKF0+r/WB6Xmi
+	gpUgsL6ntlxfQKJxM9b/YVo7GtgTkmUmSTxJyHqyXcSmtMKqYGiupp6NbS/8KZAQNGSqmI9JwggIK
+	4XQODA076JZ3X5n/ZYiq9DKkok/kAQFWy6SXYp/BFrp1QNpE32ufqkyERW+qJJ4DnokfbcmkNu5fm
+	VsoHKwW73zZITt16DTBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9qx-0000000EsCY-1evU;
-	Fri, 27 Jun 2025 14:14:55 +0000
-Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
+	id 1uVAWG-0000000Eydx-2byc;
+	Fri, 27 Jun 2025 14:57:36 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9Fy-0000000EnTQ-3IhL
+	id 1uV9z2-0000000EtwN-22B8
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Jun 2025 13:36:44 +0000
-Received: by mail-io1-xd29.google.com with SMTP id ca18e2360f4ac-86cf9f46b06so68366739f.2
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Jun 2025 06:36:42 -0700 (PDT)
+	Fri, 27 Jun 2025 14:23:17 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4a43972dcd7so29130591cf.3
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Jun 2025 07:23:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1751031402; x=1751636202; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XfiJnZdQRFrCAW+w9heCSHyeWa3Z+YlU9j/j6ABGxx8=;
-        b=L3RGRK5RS0ko8xUHcuSIAiflOLv82zBZ7VOlHX02RcreLt25uAQOmyX6aeOZ8lK7uy
-         WRN0SM+w0QXnNZLatccO4fqSCXB6GedG4uJ7nbD4MinQl6XkesAMivKArlibGvGHvI3h
-         CYLeuPs/fnsrXytzHKIwuViDvXwoYWuVazwg/n3d1RVcueTD7DneOmbTdVqUYT2yNwN1
-         /81TlfYNc4mF+iCkiv2ZTbRjGukH7yeqzHehKJLsTlx6V/M2aV55E33zHQ/mxhurin5t
-         QoIgygIrbAaEh/JYv2oyrkaZd3H4p3gHcHeUzp69BIP/XgCaWUcDH0dYB52CEEye+tfx
-         yGpw==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1751034195; x=1751638995; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nEeEDXRCRhzfd7WiQWk3nSeJTZHMTuZTnU4CBiNxmaU=;
+        b=0KtisoUivtNDcMAA84YIwjOaIkK7bXWnCNsv3OFyJXbMmjMkvU0n3N7sXgxBtZBIe/
+         XK8EFd56yLYvBjl8gPFiyH0ABxnnJtD8otiTIH2HZf0BMkhrS0eG73Sc1nWrjek4Lgzy
+         t/rZ20EE2EN/hQx8nCYy4QBnaX58sehYZe04ZBDp3s9F5ETSF3Uj9JOuG96lNDlG1xqc
+         O4wni0pefphY+vNUfTjX06U9A8lB1NbuWWkqpm79T9tF0ZDVzp2WzZWtUWK7opPX01wG
+         wKIOHTDED2l76yHDfrjDSQ3DyNWJSYTVNO8ED3b7UAB9+Q4XvUauUqqbTDBbt5nziJUu
+         psag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751031402; x=1751636202;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XfiJnZdQRFrCAW+w9heCSHyeWa3Z+YlU9j/j6ABGxx8=;
-        b=OZVlxJd1ef7Pl0LbonIuz/MOCcCPRHv4gwe0QP7ShQ3KgdP+tW7vvBx9HsWvhejCgk
-         tyz73/JSRviJGTsH6tpSnsbacEo1pTAnNYKjBlnWFkutiorWJ2FwIelYharWiC5yYY1Z
-         iT7udkAXl7otCXEWsjMl2hS+mCLYH3uKDeioJ3FY6RPlYHUroGxl53q5Iv8hHtWZIck2
-         DyX1cKrmbt+S8tJ5WrYfeFSVBONh2xHB/k3Ewl/xpfKPmAqhonLAPgAW1QRqU+Pg/FPJ
-         VcbkomD4UWutv7ye6bEGr4NX6j33Bk2KJcrorgZa/RJcq6jHmOR+ZSbu/F6XaqCiGUxC
-         2apw==
-X-Forwarded-Encrypted: i=1; AJvYcCXO+tSigYtYy9i2mxs5UEsj6YvWHjyEX0NhhGiF2VBkY9WB3tdYpdaS7RRw4Y9dZ3yanGdrMu9NIJYy8w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwO6kbrdmYZJt8F1vpJwiw5YOMQYv4q91O7r+zZ3+oG0ciNoLY
-	Ubgdc5AG1yWGlOCh807fm1pt6A2lueSZgSAa9FOIFKpz+2K8ovbM+e3A/VYrzTW4GkM=
-X-Gm-Gg: ASbGncvQIwLbQB+mPpQ9FK1jXwnGAzCAs1F/Q2c0JwI1lOksXjbI/I81GN37F4csvWM
-	yqbWMNKF+evKmhUulg/lHA4zq9Qfs35Z3XscNgWSfXg2MPkPsUX5ZjGKskkG75/Ek4SLpXWOes3
-	qEo4MWKBtufBW5QjL2SRM5f3sXJCl/pG0j9XKAk+2fbuP3Kg6YbQshaTvGi7j606h6pEt8+Y3bp
-	2GP5bcuKuPNGUkqUyE9imUL+YojBJxg1QVnrkK0QSmikP+GscBQO7tNxggRHpWDAdh9oNyEMnqg
-	ZLETHvHCbAQgokPgMA/j0YrvbzyV36ftwxnMllPPH470hTpdtqOqGd7e+2jaGeBQalGJfDeUEjN
-	PxDTWMQsMILoMs0gY54yZu5OD0w==
-X-Google-Smtp-Source: AGHT+IF1O8tzv2KWCzSl21OTyig59TTY0gf7CGovzXL+B16wQcpv5kKezeVDaVnpkiTgGZ9wCICGDQ==
-X-Received: by 2002:a05:6602:2dcc:b0:873:3691:6fb8 with SMTP id ca18e2360f4ac-876882cb88dmr404639839f.8.1751031401882;
-        Fri, 27 Jun 2025 06:36:41 -0700 (PDT)
-Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-876879f3584sm46791339f.9.2025.06.27.06.36.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Jun 2025 06:36:41 -0700 (PDT)
-Message-ID: <0eda5bf4-ce63-43da-9c2f-7d4ec902758c@riscstar.com>
-Date: Fri, 27 Jun 2025 08:36:39 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/7] mfd: simple-mfd-i2c: add SpacemiT P1 support
-To: Lee Jones <lee@kernel.org>
-Cc: lgirdwood@gmail.com, broonie@kernel.org, alexandre.belloni@bootlin.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, mat.jonczyk@o2.pl,
- dlan@gentoo.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, troymitchell988@gmail.com,
- linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250625164119.1068842-1-elder@riscstar.com>
- <20250625164119.1068842-3-elder@riscstar.com>
- <20250627125119.GF10134@google.com>
-Content-Language: en-US
+        d=1e100.net; s=20230601; t=1751034195; x=1751638995;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nEeEDXRCRhzfd7WiQWk3nSeJTZHMTuZTnU4CBiNxmaU=;
+        b=TxKuPZ7eIxJlg9hcZ9Du27HID8WPwWsm8XbJOnQXjKJXnvVXt4yAanHxEgGlTfUGIY
+         yEHKDNV5CT+iO49mPMxh1436x8ALlKWhH3rFfSgvSSsvmUUNQrwhn98NG93PYUJSzL7P
+         VCs7yc3jb/4IJqPDaFaKI3hkxiHyzYPOOhJ7v9PCfylNofnyRZU7NuLPbHXlf7Ln/N3D
+         qykKtg7RkC60QY+AsGwHeYOeozTD8irOLYggu7iOIQvvqX3XQQAGvGmKUepivZy+fl5S
+         E5VtG2bSCKpXuPNgJl21i/lAXd3Rn1gP54D+vZN43bclW6ViHdQpzYOqY0xBHs06xpSC
+         BSNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUxJkLTHNFssiIqH0fQOMy6h8vcT8P0QoDxTJt8UR7nPpS8bvP5/Qpfa4FysZKgnqjmCG4SNMo3YFRxxA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFU5oM406pGetnPUFTFYnZEyo9rltNosWmHatguzRWx8HtFNVD
+	HIdyASYx+2kUxU9btNjW/ulSm/jP5WY6Wme0PTeK3h1dA7Cp1bKAA+6Z6wJQDeMaXu8=
+X-Gm-Gg: ASbGnctdmi6fWcc1jLg9R28AFHiUWXC3zkHQJTueIzOarjw5ABP8gxV/k4b+hPuylSR
+	6303mG0fTJNtlAVKutJiSMtOYf+KKbqlK8xwPvWKzicEjeasRudPXq1TsMmJ/8vJuaV/CwxamJI
+	y8gTCt0ZHG/AwAffyCliJBd966jaqF5F0K9uf6XBEOmDcn3VC9pNY5eZ6gpwKHyTQb4cq+XsTqv
+	6JhabAXtkMXlasF1u3/Wnq+icavWA2zwlVfiJ9hIzdl1SNMWAwp47TGPnw+QUE5oRnBI32DuMCt
+	9yuEMkWcmGUNJyG1XFQDU2Xy+KH5ikUoFipGK+9po4mLGVLavO3BjgtgvDztZbOLUeUlEtQcheQ
+	YXA4Xj+/tO8msQzrqD2wy27J7p7iC22nZ7J2ITLUAWNpk4w==
+X-Google-Smtp-Source: AGHT+IHjeJKicOQMrv5A2JPa7JA08EcBfBp+Vurfdw26JNZtOFtPu0+xcyBQuRqWuhl/FSD4KBiKAg==
+X-Received: by 2002:a05:620a:2b87:b0:7d3:8ee7:ca10 with SMTP id af79cd13be357-7d443935786mr517736085a.2.1751034195204;
+        Fri, 27 Jun 2025 07:23:15 -0700 (PDT)
+Received: from localhost.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d44323b4c4sm135708785a.106.2025.06.27.07.23.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Jun 2025 07:23:14 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20250627125119.GF10134@google.com>
+To: lee@kernel.org,
+	lgirdwood@gmail.com,
+	broonie@kernel.org,
+	alexandre.belloni@bootlin.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: mat.jonczyk@o2.pl,
+	dlan@gentoo.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	troymitchell988@gmail.com,
+	guodong@riscstar.com,
+	linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 2/8] mfd: simple-mfd-i2c: specify max_register
+Date: Fri, 27 Jun 2025 09:23:01 -0500
+Message-ID: <20250627142309.1444135-3-elder@riscstar.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250627142309.1444135-1-elder@riscstar.com>
+References: <20250627142309.1444135-1-elder@riscstar.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_063642_958579_2CFD4FDD 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20250627_072316_523618_D91CA34F 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,49 +111,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/27/25 7:51 AM, Lee Jones wrote:
->> @@ -93,12 +93,30 @@ static const struct simple_mfd_data maxim_mon_max77705 = {
->>   	.mfd_cell_size = ARRAY_SIZE(max77705_sensor_cells),
->>   };
->>   
->> +static const struct regmap_config spacemit_p1_regmap_config = {
->> +	.reg_bits = 8,
->> +	.val_bits = 8,
->> +	.max_register = 0xaa,
->> +};
-> Suggest making this more widely useful by adding the 'max_register'
-> attribute to 'struct simple_mfd' and conditionally overriding
-> regmap_config_8r_8v's value during probe.
+All devices supported by simple MFD use the same 8-bit register
+8-bit value regmap configuration.  There is an option available
+for a device to specify a custome configuration, but no existing
+device uses it.
 
-So you're suggesting I make a general improvement to
-"simple-mfd-i2c.c", because everybody else just uses
-the generic fallback regmap config?
+Lee Jones suggested modifying the simple MFD implementation to
+remove the generality of the full regmap configuration and add a
+max_register value to the simple_mfd_data structure.  This can
+be used in the regmap configuration to limit the valid register
+addresses if desired.  It's simpler, and covers all existing and
+anticipated device types.
 
-(I'm asking because at first I didn't understand your
-statement, and the "more widely useful" comment).
+Signed-off-by: Alex Elder <elder@riscstar.com>
+Suggested-by: Lee Jones <lee@kernel.org>
+---
+v6: - New patch, changing the simple MFD functionality
 
-I would be happy to do this, and it's not that hard.
-Can I do it as a follow-on patch though?  It's adding
-scope (again), beyond what I anticipated and honestly
-I'm ready to be done with this...
+ drivers/mfd/simple-mfd-i2c.c | 18 ++++++------------
+ drivers/mfd/simple-mfd-i2c.h |  2 +-
+ 2 files changed, 7 insertions(+), 13 deletions(-)
 
-Anyway, if you say "no" I'll send another version of
-this series today.
-
-					-Alex
-
-
-> 
->> +static const struct mfd_cell spacemit_p1_cells[] = {
->> +	{ .name = "spacemit-p1-regulator", },
->> +	{ .name = "spacemit-p1-rtc", },
->> +};
->> +
+diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
+index 22159913bea03..c1dc315d44dcf 100644
+--- a/drivers/mfd/simple-mfd-i2c.c
++++ b/drivers/mfd/simple-mfd-i2c.c
+@@ -24,27 +24,21 @@
+ 
+ #include "simple-mfd-i2c.h"
+ 
+-static const struct regmap_config regmap_config_8r_8v = {
+-	.reg_bits = 8,
+-	.val_bits = 8,
+-};
+-
+ static int simple_mfd_i2c_probe(struct i2c_client *i2c)
+ {
+ 	const struct simple_mfd_data *simple_mfd_data;
+-	const struct regmap_config *regmap_config;
++	struct regmap_config regmap_config = { };
+ 	struct regmap *regmap;
+ 	int ret;
+ 
+ 	simple_mfd_data = device_get_match_data(&i2c->dev);
+ 
+-	/* If no regmap_config is specified, use the default 8reg and 8val bits */
+-	if (!simple_mfd_data || !simple_mfd_data->regmap_config)
+-		regmap_config = &regmap_config_8r_8v;
+-	else
+-		regmap_config = simple_mfd_data->regmap_config;
++	regmap_config.reg_bits = 8;
++	regmap_config.val_bits = 8;
++	if (simple_mfd_data)
++		regmap_config.max_register = simple_mfd_data->max_register;
+ 
+-	regmap = devm_regmap_init_i2c(i2c, regmap_config);
++	regmap = devm_regmap_init_i2c(i2c, &regmap_config);
+ 	if (IS_ERR(regmap))
+ 		return PTR_ERR(regmap);
+ 
+diff --git a/drivers/mfd/simple-mfd-i2c.h b/drivers/mfd/simple-mfd-i2c.h
+index 7cb2bdd347d97..4121fe1bc1d70 100644
+--- a/drivers/mfd/simple-mfd-i2c.h
++++ b/drivers/mfd/simple-mfd-i2c.h
+@@ -24,9 +24,9 @@
+ #include <linux/regmap.h>
+ 
+ struct simple_mfd_data {
+-	const struct regmap_config *regmap_config;
+ 	const struct mfd_cell *mfd_cell;
+ 	size_t mfd_cell_size;
++	unsigned int max_register;
+ };
+ 
+ #endif /* __MFD_SIMPLE_MFD_I2C_H */
+-- 
+2.45.2
 
 
 _______________________________________________
