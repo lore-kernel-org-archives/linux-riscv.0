@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E72CC7EE32
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3F9C7EE3A
 	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 14:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=He5yIO8ETs3bXqXAZ06y1Lm0dzrd6WfK/hNCNqmIVpU=; b=aANohn5Wk/IBt3
-	XtrQ5VwlCBKDhK6GLz9eqiElpqA9Tw7D3SdHeW7BkUYXglPnVGiyxRPOa4oY4y4zdhotFKy/Srjm1
-	7r6khxNTIldMGzdjeJl5CPoRh5fz68wQ+lo3NzsK54Kaq4w3DERY4WB/DLHKqNgXPDGEVSw4ZigA+
-	8GrGz5NmC1AC+HqF4ibsk84Lx6SOJa4so6W/GtpPgOyvzVCFhbVqBkWzGcj/VxK8by9Uqe+P/SFPR
-	xQifypovRQZovzNS1Na5lAvl1tXMbGdGFwIcx/cXCv9o9RpXxKU39tCvZYuCl6nGHOcJM9Q5a/bK7
-	IqCiLeaHCNOB28c6Yu1Q==;
+	List-Owner; bh=Y56WcoUPPG1tcyFwmS2u+2bM7n1/SiEuqod/bBfDWVs=; b=2olvtpbDvYInAk
+	rih5AnEK4Ou1U2ksr+hAURUCyuAyteozLokZwvvdv1LSYf0qutwbae2vZ16fLdMfsTDYDPgORMbbA
+	bC7VG4PBgYWamzw+C2wUz+A55PpV41JcT4tpHMd6GBYTb40N2Q5yMjTVKdP0QZV79ZQNhivahfNv2
+	DtTIBUxwAJ9pVBv1oZ7joPi7Xp0uYrb2k5EstRCU0V1K5eLkj+sZjbOq//F9dr36cCRNJHCiwZLct
+	zCpRWbPHzCD9oDDBsLFEiMBjIfz5B6i0uNll4OCi9nXghcax2SgMukUufWPAei86wjSnaIgHR+ZPm
+	ls2IM9pJ1v3rqY6ilZIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAWG-0000000Eydo-0BEj;
-	Fri, 27 Jun 2025 14:57:36 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1uVAWJ-0000000Eyg0-0qOE;
+	Fri, 27 Jun 2025 14:57:39 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9z0-0000000Etw1-3lLt
+	id 1uV9z8-0000000Etxm-1QYH
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Jun 2025 14:23:16 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7d0976776dcso236649985a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Jun 2025 07:23:14 -0700 (PDT)
+	Fri, 27 Jun 2025 14:23:23 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7d20f79a00dso286274585a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Jun 2025 07:23:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1751034194; x=1751638994; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1751034201; x=1751639001; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=riR2NvFzHSo1w0g4tV+4jS0ZXA7bNFeHnroyUa7Novo=;
-        b=vUuGxZ3ZssEeZdTkfjGI26UpbqDo970h8TZyu1/PNbJchDC2awLmf3uawJIimHR7Lz
-         YeVYOsE/w39FK4Tm2FvlCFk8TEJujkHmyOEGVYfyjExNkRKBxneWclzyTBPwhfsuKwfG
-         HvDys3r5Twbyz5tTorMClysBX03DZLjshAQqZwcML+tpflETTHhAsLWYbmaxdQ9sKp0Z
-         34ZfID8XM/ixkyX0NrVCjxYdAQYom+AkL8MEk/97TVmHWs0rKKEt/Z8u/nRQbpwkmcqJ
-         UnBt3pA7y3zVXw8wZUIsQRhcwO8cwVhlOSiXI1ZTccGTP5kvxMrrjxXMBhKXkbIg2MSG
-         1z4g==
+        bh=NWnze/SjFdW+lfNDCsnEitBUx1r5ZcEMc14OReZ/axQ=;
+        b=oyW+HnCnK+wyRoSd7EMgkLIe/ABuBaYgV35wBsWOMKdER0fmVwan1mpOLStRQdw38t
+         eis1bSsuyY76K0iYVa4F0xcmjxwssyuqTuDDpdhKN2mzqhNEHRx8Ic0qdVS3OcNWBrMv
+         CMlbQCwngd0sfMdfDdk1Mucyzsqrmw71pvan3jMIvEAwFH28jXo00SLYbwRdj6p6eDoU
+         VJVBecIf6BnV4bof328e9ULyFfQcT/dLT3R0qlZp88JM1/80VtsuC2ci8CYL7dADS1ge
+         N/V9QKirWwZYwc4TGWkvDkU1ajV5c+kGvjQKA04RcCEe18Eyfa7+20CIATbm4I2iPO9x
+         3zeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751034194; x=1751638994;
+        d=1e100.net; s=20230601; t=1751034201; x=1751639001;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=riR2NvFzHSo1w0g4tV+4jS0ZXA7bNFeHnroyUa7Novo=;
-        b=t2cI9nGXaLnqxlLhv+g3ZZryvEO4D0afMkExnO0h5j8UiYz4H4vKTnnimAZ1Ok0lmB
-         E92vIQ9D/HUAwN+yYOIctpFD9Ve7IsRblOyh6+ZmbK/Y9zdfqrI9EKEjR5nogigrsqpe
-         ViLmK1Nvy+aZY29R+x/f0PVuJNV/z4MCiCvAowdrwW2Nmb2AifFJIuSRiA6q8imxvHp/
-         BDsQoskaQPpM43L/fTtqDJ4Ois0HM8cpT0I4Y8k9tecjQ51R8GkCqZZWvdDsrjFjQh74
-         kanWPcG8vK+L8bcVRK0CGfzcPuLqJLHSN3qWtFndhoxcNUOlZ3WoH6o0TG5GjWXstI68
-         t3sA==
-X-Forwarded-Encrypted: i=1; AJvYcCW7I/Ll527UihAi2zH57FKJKz4CSLznbuH25Uwqfx9WzPl+gVDSXhmB/CjByby25c9vdc/9qv8RPLwTXw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3mj/ATKSKBPtb2i7pYUgkwst6qaI4B7iSaKbInX9PSBPi8jlB
-	c+a/peqsNX2jrqg32NRCPAZdkqmIoAQHPdL+LLEwd30YURLyLlYyiUFGyWqg2xyNgmI=
-X-Gm-Gg: ASbGncviRvsDzk25h7/1l5MwK8lK9DUoRY2UEqURfyq8Ig5yimnKZC10aY2BJov4jDW
-	WggpaXk+7lmG0hAdlPvV3tr2wEhiehhnQOgnfQ6+faypuNhJI+pYdzbmsn/9lqyuLKrjxSMBWOr
-	GBboPGLl3NOuQGfgh04hplDQ1K93Tnx0pFrMQNUkQDszBzlfY9PUYwaogYSZh4YKH7UUbUPk7D/
-	0qswmcyeVrrVCTkNaw+A6yfFoCpnPqK5XEN2j9FeQUIF1rr79alYniFYvnbPC10XTtBdL5+u5l9
-	zXWiirxW5Ckj6ZE+kaJcdDmr4ptseyj4ychK/RGTj9uBx7sdtFbz33DG8oPT7Hw1u3SuaNOu8jX
-	3rs/j5sYnA8FfhrCC8Cv7Y051ZQsjQVf3m44=
-X-Google-Smtp-Source: AGHT+IFt3w8KBQHmUinwLlL1S6ACJgjHlzpbWyZ0LJDc8hDP+5NLFg8sIB0fDMXq9nh17vsNn8bIaA==
-X-Received: by 2002:a05:620a:2809:b0:7d2:18a1:ce0 with SMTP id af79cd13be357-7d4439c5607mr583492485a.49.1751034193763;
-        Fri, 27 Jun 2025 07:23:13 -0700 (PDT)
+        bh=NWnze/SjFdW+lfNDCsnEitBUx1r5ZcEMc14OReZ/axQ=;
+        b=LXkWiL2E3m4Qm9ByhLiYrj1oAduFZdHuqwQbwCQyoy9VScCigIDi97v5wVUWgIbIIU
+         XvKZLo5h3uiTpGONuq6Cw3iPalX0UiFaFVx5PGgXs8ZDPXBDZR2vdiQm4CobA5DIL8Pd
+         DVgpQ9Qgq53IEQF65IBxSl9PkQypBhOOgmwcpWPtxlghhuR2JPCpxqwJEkFvidxAC6MN
+         CAo3YR5P+AbYygI9Cgzw4G+gF53LJShYg6mnsSKRha+NqbZXeE7eyAcu5G8AphW8INRn
+         DDza0kJLMuq1218eoFF2o7bT/UqapeAVGTigPTwwlmefGaZ54bpzhGUXPoj/sEUhFTja
+         iinw==
+X-Forwarded-Encrypted: i=1; AJvYcCWeUkxdjeXN1LkQf1LAOYhysDnYzwUtrRnxQ+AHy7x6B7aoKlrLGYD3Mf+eSV4n5cSSG4LOptNOJTeMLA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp3isZ+MdlaYEQZ0H5VmPw9JwU8LLlJUT6Z46McKe7blpZJ576
+	YB9dfmEwnQdO9QdsXEscN91+6Qynxxd+E4t38ZH9Rqi5lEOUOlZD3Y9HEKuZKi2DqqU=
+X-Gm-Gg: ASbGnctM6G9qh0Bv1McFuJwtUYE71ev4Qllpv/7O+H0SGVu5GKeTDC1CqUl0tO0KhYE
+	rC0iv5xgUXwAwOVCIFPmQVzWYN6SAcSDiK/RkYjpz3QCnCD+Iuunnva/18lX8jcoQ6QNbLOaMVL
+	PIsXKlF1JdQnu3iDq/EcAHyyU9BbKqbnqLIdIrCVIuQ5s0Zen0XYAYHyZ8bPB/7XfyToEj0k9oM
+	cd9/OqMGSnCSo2/T90purEgY7mviunM535CNO9e+BCtwDjSdMb33aBmcxVRLEdC2nJF4bo2W1QF
+	ogtBr1d+4MjsiWsxWfZXn4mZCNrVME/xh0L7O46rq4HZXrRARXZg8c7ZO4ZTyOGL84aIOpy96jk
+	+jGLAE1540vCDO4d2bEOnwaHrvW1BFM82dOQ=
+X-Google-Smtp-Source: AGHT+IGbR8LfUszD/aEIdWwkUQ61eynSIqFyVoyDA8206vPOUxXJejP9vRZ618fRX8/VdY8/tjO/YQ==
+X-Received: by 2002:a05:620a:198b:b0:7d3:9113:7902 with SMTP id af79cd13be357-7d44397f5e8mr481566285a.38.1751034201091;
+        Fri, 27 Jun 2025 07:23:21 -0700 (PDT)
 Received: from localhost.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d44323b4c4sm135708785a.106.2025.06.27.07.23.12
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d44323b4c4sm135708785a.106.2025.06.27.07.23.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Jun 2025 07:23:13 -0700 (PDT)
+        Fri, 27 Jun 2025 07:23:20 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: lee@kernel.org,
 	lgirdwood@gmail.com,
@@ -90,16 +90,17 @@ Cc: mat.jonczyk@o2.pl,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 1/8] dt-bindings: mfd: add support the SpacemiT P1 PMIC
-Date: Fri, 27 Jun 2025 09:23:00 -0500
-Message-ID: <20250627142309.1444135-2-elder@riscstar.com>
+Subject: [PATCH v6 6/8] riscv: dts: spacemit: enable the i2c8 adapter
+Date: Fri, 27 Jun 2025 09:23:05 -0500
+Message-ID: <20250627142309.1444135-7-elder@riscstar.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250627142309.1444135-1-elder@riscstar.com>
 References: <20250627142309.1444135-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_072314_936507_1CF8EB00 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20250627_072322_372602_3CB80DF2 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,110 +117,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable the SpacemiT P1, which is an I2C-controlled PMIC.  Initially
-only the RTC and regulators will be supported.
+Define properties for the I2C adapter that provides access to the
+SpacemiT P1 PMIC.  Enable this adapter on the Banana Pi BPI-F3.
 
 Signed-off-by: Alex Elder <elder@riscstar.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-v6: - Add Rob's reviewed-by tag
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 15 +++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi    |  7 +++++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi            | 11 +++++++++++
+ 3 files changed, 33 insertions(+)
 
- .../devicetree/bindings/mfd/spacemit,p1.yaml  | 86 +++++++++++++++++++
- 1 file changed, 86 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mfd/spacemit,p1.yaml
-
-diff --git a/Documentation/devicetree/bindings/mfd/spacemit,p1.yaml b/Documentation/devicetree/bindings/mfd/spacemit,p1.yaml
-new file mode 100644
-index 0000000000000..5cc34d4934b54
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/spacemit,p1.yaml
-@@ -0,0 +1,86 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/spacemit,p1.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index fe22c747c5012..7c9f91c88e01a 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -40,6 +40,21 @@ &emmc {
+ 	status = "okay";
+ };
+ 
++&i2c8 {
++	pinctrl-0 = <&i2c8_cfg>;
++	pinctrl-names = "default";
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
 +
-+title: SpacemiT P1 Power Management Integrated Circuit
++	pmic@41 {
++		compatible = "spacemit,p1";
++		reg = <0x41>;
++		interrupts = <64>;
++		status = "okay";
++	};
++};
 +
-+maintainers:
-+  - Troy Mitchell <troymitchell988@gmail.com>
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_2_cfg>;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+index 283663647a86f..9d6d4503fe751 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+@@ -11,6 +11,13 @@
+ #define K1_GPIO(x)	(x / 32) (x % 32)
+ 
+ &pinctrl {
++	i2c8_cfg: i2c8-cfg {
++		i2c8-0-pins {
++			pinmux = <K1_PADCONF(93, 0)>,	/* PWR_SCL */
++				 <K1_PADCONF(94, 0)>;	/* PWR_SDA */
++		};
++	};
 +
-+description:
-+  P1 is an I2C-controlled PMIC produced by SpacemiT.  It implements six
-+  constant-on-time buck converters and twelve low-dropout regulators.
-+  It also contains a load switch, watchdog timer, real-time clock, eight
-+  12-bit ADC channels, and six GPIOs.  Additional details are available
-+  in the "Power Stone/P1" section at the following link.
-+    https://developer.spacemit.com/documentation
+ 	uart0_2_cfg: uart0-2-cfg {
+ 		uart0-2-pins {
+ 			pinmux = <K1_PADCONF(68, 2)>,
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index 14097f1f6f447..a85239e8e430b 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -483,6 +483,17 @@ gpio: gpio@d4019000 {
+ 				      <&pinctrl 3 0 96 32>;
+ 		};
+ 
++		i2c8: i2c@d401d800 {
++			compatible = "spacemit,k1-i2c";
++			reg = <0x0 0xd401d800 0x0 0x38>;
++			interrupts = <19>;
++			clocks = <&syscon_apbc CLK_TWSI8>,
++				 <&syscon_apbc CLK_TWSI8_BUS>;
++			clock-names = "func", "bus";
++			clock-frequency = <400000>;
++			status = "disabled";
++		};
 +
-+properties:
-+  compatible:
-+    const: spacemit,p1
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  vin-supply:
-+    description: Input supply phandle.
-+
-+  regulators:
-+    type: object
-+
-+    patternProperties:
-+      "^(buck[1-6]|aldo[1-4]|dldo[1-7])$":
-+        type: object
-+        $ref: /schemas/regulator/regulator.yaml#
-+        unevaluatedProperties: false
-+
-+    unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        pmic@41 {
-+            compatible = "spacemit,p1";
-+            reg = <0x41>;
-+            interrupts = <64>;
-+
-+            regulators {
-+                buck1 {
-+                    regulator-name = "buck1";
-+                    regulator-min-microvolt = <500000>;
-+                    regulator-max-microvolt = <3450000>;
-+                    regulator-ramp-delay = <5000>;
-+                    regulator-always-on;
-+                };
-+
-+                aldo1 {
-+                    regulator-name = "aldo1";
-+                    regulator-min-microvolt = <500000>;
-+                    regulator-max-microvolt = <3400000>;
-+                    regulator-boot-on;
-+                };
-+
-+                dldo1 {
-+                    regulator-name = "dldo1";
-+                    regulator-min-microvolt = <500000>;
-+                    regulator-max-microvolt = <3400000>;
-+                    regulator-boot-on;
-+                };
-+            };
-+        };
-+    };
+ 		pinctrl: pinctrl@d401e000 {
+ 			compatible = "spacemit,k1-pinctrl";
+ 			reg = <0x0 0xd401e000 0x0 0x400>;
 -- 
 2.45.2
 
