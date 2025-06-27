@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B626CC7EE2A
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 07:00:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6109C7EE2A
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Jun 2025 07:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aYslB4V09Oqf7i792DnxvcsN1IQJAOv2p66u1gXCHYI=; b=UchxOV8uH+cF58
-	lAkAVEKIAFY3ErZQcPdK5URknphrs5OdWoNTJPXcejgcGZd8IwLPZePSsf6JHZ+G2zXdks1MRhY30
-	9vnKeDurzT45ydn9Hcyti3hpApMQK+eR7+WWcijoU/1uYBC/ilb+HqXc+8vw6INaYiOW9T1DzBVmm
-	azwBOFlu6hLWY8v8XOZqHCka4m3lpLhKP+e3PSnW/TS124hzqldtER1Ww5TW4uaN5QeqwNck0HoZL
-	GHtO1vIt7bQc7naB4zLuvVTMOaL0QcZoMqx6j142j0Y4DQPInVuhH7/vfhxMjaNs+2qeLVxJSAkyK
-	HZvMGO1Qcqp0A+BS5OXg==;
+	List-Owner; bh=6NTH9jHbGKi5lDKhLdqosmbqCputdLT3FuYzdcfHUz0=; b=t+7osqltRqZBcN
+	BAAyqPBu0oOFc68H2lrGBdOzTQQacE5sBMGMKNZ1Zw8X/xYm8i6Tq4pEGCHKbn7zG2R7jLVWQjrW9
+	hHuRFjPXHT4AgAp2oHblAWh9HIwGBfuMt/kfmXacj2UxyTDHkydsp1yd4QeH6qo6pWHRxdgHdDiQb
+	p9S9MjZX9sV7n0Va6mxs6La8LPNx8lYPpfMGGyVYQRQ8rOnfBlmE8EmxFQYc417TCJ34Fdatq6Oo8
+	1elRP21eRU8tzkuopKp5urDhpF9UJGIcUBBMDj8elBdqE3V6XhK5KFWc/XWuC+bVbgbYg97TOpicZ
+	XgmTSF5WhSLpm2Jiom8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV347-0000000DlGD-2Dgv;
-	Fri, 27 Jun 2025 07:00:03 +0000
-Received: from mail.8bytes.org ([85.214.250.239])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV30s-0000000Dkgk-1Xew;
-	Fri, 27 Jun 2025 06:56:43 +0000
-Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id B2DBE4D686;
-	Fri, 27 Jun 2025 08:56:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1751007397;
-	bh=8cyCUVLrNKS6tVu4VEKnS5rU8EEbVvMM4YBN4njzgJc=;
+	id 1uV38v-0000000DmKe-22KO;
+	Fri, 27 Jun 2025 07:05:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uV38n-0000000DmH0-3xI9
+	for linux-riscv@lists.infradead.org;
+	Fri, 27 Jun 2025 07:04:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 67490449EF;
+	Fri, 27 Jun 2025 07:04:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69656C4CEE3;
+	Fri, 27 Jun 2025 07:04:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751007893;
+	bh=wHRTKr2VmrGasuOExBXaGPc3GVwWpS6rGum/hpAQojw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XU+Ec1H6zYbpoJnBguJ7GDr9FEN9rGsre0pu8KqaKGy81Z4kSMmAWmsLnuh8C6DXX
-	 NNDbZaaw/8hi+SEmWsp5x3pevvQorZ/gnxPIioOfE8HvHGxwz1755SXHcf4LYAXtZ2
-	 4mCpj7FQzDFz6VXNwUJwKVqKYmzDv8PJ9OZQsqYZo+D5KCzC+3KXRAYaDgs30cvzbf
-	 b9rnpd2DjGQE4e7TFeqIpB49EWs2qUxIo370ZNhi4u0ii2sX+By78Bt9A5CzII9ZQu
-	 qAYA7JvY8BJ+VxyGicYP9L2BwXzRfRdSbcDYET1GuYoeHH7ug+hgwd2x2yUSyjfWiH
-	 g0r0oGD4DIalg==
-Date: Fri, 27 Jun 2025 08:56:35 +0200
-From: Joerg Roedel <joro@8bytes.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Janne Grunau <j@jannau.net>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Matthew Rosato <mjrosato@linux.ibm.com>,
-	Neal Gompa <neal@gompa.dev>, Orson Zhai <orsonzhai@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>, Sven Peter <sven@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, virtualization@lists.linux.dev,
-	Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Kevin Tian <kevin.tian@intel.com>, patches@lists.linux.dev,
-	Niklas Schnelle <schnelle@linux.ibm.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>
-Subject: Re: [PATCH v2 0/7] Remove ops.pgsize_bitmap
-Message-ID: <aF5Ao_yAbTGCPh3u@8bytes.org>
-References: <0-v2-68a2e1ba507c+1fb-iommu_rm_ops_pgsize_jgg@nvidia.com>
+	b=FzkJatIhdldH9AkFNKlH9+ImdxqmeOgD9DmKrKe+eReaB3bALWNRpFnDovccBjGoy
+	 6cx4vkDM2zkvPj5P2Q9IR5ssftuZK4RUzox0ZbIjH+ii0MGQGRxs71WG//WxFTtDQS
+	 3VJ5E6S0tqJtTM5Cj7Fbrgz+G/cInFWUY/1apSFFags1zo3SFePxxeb+xgvBt3SBjc
+	 X7Q8SDEV4j1E5PNdUqPu7hi9Quh4kxEpxeKIhVFpIM3Apsz2oxZGPDrFA370/uyl87
+	 E8cSz0RRPJsqgSrRY2s6O1pTqFyOVT0LG7LVzLtKmWninSyUyFam1I7dp2gAHaQrWO
+	 nkyPdxDiSlBDA==
+Date: Fri, 27 Jun 2025 09:04:49 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: sboyd@kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, pierre-henry.moussay@microchip.com, 
+	valentina.fernandezalanis@microchip.com, Michael Turquette <mturquette@baylibre.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/9] dt-bindings: soc: microchip: document the
+ simple-mfd syscon on PolarFire SoC
+Message-ID: <20250627-portable-acrid-caiman-4ae73a@krzk-bin>
+References: <20250623-levitate-nugget-08c9a01f401d@spud>
+ <20250623-underwear-refinery-9203f771bc39@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <0-v2-68a2e1ba507c+1fb-iommu_rm_ops_pgsize_jgg@nvidia.com>
+In-Reply-To: <20250623-underwear-refinery-9203f771bc39@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_235642_549447_82E9B541 
-X-CRM114-Status: UNSURE (   7.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250627_000454_003620_609AC867 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,16 +80,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Jason Gunthorpe (7):
->   qiommu/arm-smmu-v3: Remove iommu_ops pgsize_bitmap
->   iommu/arm-smmu: Remove iommu_ops pgsize_bitmap
->   iommu: Remove ops.pgsize_bitmap from drivers that don't use it
->   iommu: Remove iommu_ops pgsize_bitmap from simple drivers
->   iommu/mtk: Remove iommu_ops pgsize_bitmap
->   iommu/qcom: Remove iommu_ops pgsize_bitmap
->   iommu: Remove ops->pgsize_bitmap
+On Mon, Jun 23, 2025 at 01:56:16PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> "mss-top-sysreg" contains clocks, pinctrl, resets, an interrupt controller
+> and more. At this point, only the reset controller child is described as
+> that's all that is described by the existing bindings.
+> The clock controller already has a dedicated node, and will retain it as
+> there are other clock regions, so like the mailbox, a compatible-based
+> lookup of the syscon is sufficient to keep the clock driver working as
+> before, so no child is needed. There's also an interrupt multiplexing
+> service provided by this syscon, for which there is work in progress at
+> [1].
+> 
+> Link: https://lore.kernel.org/linux-gpio/20240723-uncouple-enforcer-7c48e4a4fefe@wendy/ [1]
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-Applied, thanks Jason.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
