@@ -4,88 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAB9C83000
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Jun 2025 01:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A3D9C83000
+	for <linux-riscv@archiver.kernel.org>; Sun, 29 Jun 2025 03:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xeRET+TQXXjs2L8uBnUHtroxNT9aZr5tVKMNdp5R5hk=; b=Ywz9wkFAzMNVly
-	06HQv94y7Lhtc93saA5zaHQpULCJesMissWVUkirV928rkwp1OatJ7g6X8IkGOf48f3mTVI5pe9MY
-	2mkRgQ+oXhSu9GuWuQ+pElyiClYluZXeeTCH/Fys7x/qHa8LxRBdkoxusMDZsCGm+aJ0ic3LodqGp
-	p43cA64st0oHkFt1rjgXWZFAg663sxvzv5897v6mEs/Kwr6ZUfRHjPelMIbwS5yhXBO8+cAdiDlQS
-	J8WVrdabHAnDvwu4GMQJuypBYoOwqVerkN3iTPVPdAs9Uzew4DHXJei//S1ojXGotzzV5nLeFaJKp
-	Ox45K3Z+Kp579Z98t0Tg==;
+	List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:In-Reply-To:
+	To:From:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=+PXIzLnk7Udz+8JksSzdAgXJuxae7pvLfW/po2h9uwU=; b=eaamJc/U8xDzNa
+	fs9gOJzS2QEQQni3UfazFhPOcYwe600RtMCi1JUIK/lMQbTNR6YjKFWfdtSCsR5UOLd6SMdlZ7Jmv
+	BSrw9vjiAD7FJir1SUmjxRxm4HYJwTCDkUlSCENtwAovsRKivxPQ+3lFii0KTlz4YHJomzLTycoqx
+	cMbcGefdniqGevrCNlKz2rkPXqwumoAllD+mISN/SDVM3qF1DwuP5lupV/0LM7Rfp6yGJSrQw0gTr
+	GfdedGVXvNmMnPBTy/3nNeLgxhPJ0VqwYMuYQzPJzNzoPfpXtXxkpb/kChRDEgJ/ah4ghqQwJJCgB
+	uCVXVa3sntVADSs7zEwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVh9L-0000000HRUv-1Sag;
-	Sun, 29 Jun 2025 01:48:07 +0000
-Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
+	id 1uViZm-0000000HU3M-1vAY;
+	Sun, 29 Jun 2025 03:19:30 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVh9J-0000000HRUH-2kgB
+	id 1uViZk-0000000HU2y-0PCk
 	for linux-riscv@lists.infradead.org;
-	Sun, 29 Jun 2025 01:48:06 +0000
-Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e8187601f85so2761966276.2
-        for <linux-riscv@lists.infradead.org>; Sat, 28 Jun 2025 18:48:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751161684; x=1751766484; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lDT3P9jNXthcT/eRpPSOP1p81uBOui1vV+1BgbEUh2o=;
-        b=ORYLBoQ99ENn2jvPd1DMtY3UzxqgEevxGlMCnMXNkK7R2hQwj0v7wu70avQnzHB1fA
-         6XuIRG93Tqg0lv73pClYdcOigG1SKK6PUjzN/V5QydhuFAn9iOgz4TSb5JroGI3tlhgx
-         aqh/zXtoaITFuHubAHqz+10/neMhsrjHJ83oWCrnBIkQlbnVUWCrYgiKSd7aewx8kfdM
-         HwQcKFyy8mAO3+L0vCEDhVy8AOCbIC6CvNHinRjAlLRTqt4cfeTIjHoOv3bqpEskDRZR
-         URLKmlRQqd9R4Z49IyZlFUt++eazZSVejJvHfYPZhTjnWFKjppvjDwZkbOllaDWAdaa0
-         yybA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751161684; x=1751766484;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lDT3P9jNXthcT/eRpPSOP1p81uBOui1vV+1BgbEUh2o=;
-        b=X74jYwqGDvzyL/Zctm1ghYy0f20qfFIdQPLGPAZMxDw+vPxqs3b0djPYPEoRtjljlS
-         /J9HqQ4xfrRkdO3lFMIL+GJRxy7bYFm/LHkktSflHqUmkd1jQIQiryCR1lbSBU73iPMY
-         thXcdLIE9FPzHqH9pKn4+M6xXYQHgIzO/ANAgCfqpWAcKm5hf9brYVAXaxJG7fqpJ/DQ
-         sz62XjG2cR7F/Q+dQYSbwVh+k0TYU8mN/kGPxmfxASVpXVd0ep8SGUEcavbaIxSxBVqL
-         ftQMuqlxDdhfRO+uz4uT+1EdecJL3c8OrcnXSzugIDMz8vQW8hGe1KXjCNLmyr26WiwJ
-         RRgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX/cHTTplt6EMc7czOjex7vlkt6tvPxdgzpt9UG6AG+puLF/P70Gm1G+UFg2AwwL7eGF/X5CELXzH4Jow==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLNUJ76Qy2wss3E40Ycb6whUecb1JyPoVXgZNdSZpn5U67hlr7
-	vKb/qWsAPCntG4txoxxJFX6gifJBkdyQaTxAp4FIGuBQc5wEjwZE2p7P
-X-Gm-Gg: ASbGncu9aWXZpV7ImnELuHziMZBJX95RNn6S644SIEBG5XMJ1yIdBTi4wsujMm/5Avz
-	1f9rS9wjG21cnTM5HPRrqIwV4+C8XZOXv3BqW6F7ApdK5Q2YngPPsHwYmYuXvQPxmc4owMfwoZR
-	eL3jbSYTsCwoc1jypQfZXcMyIvyVZwxe6kPvY14DAC7mWDtQEO1/Q1x8rZEUheP9l1LdGi7jD7o
-	+ZtitRM4Bg1VdZKAY/CFNLFJkY2kja7GP/dtgkvH1OqiB+IJjtDnx5quLToQW6rxiTkMTCqnbTk
-	RxdMEFQLo22pI0iwm1MJcMj2eB/npxtk+oDf6C1m1D5kCqlfmuUr/9CC32Fex1b32Q4jf4JGhrb
-	YjEsfepZAHPFTPN1pjfRtjA==
-X-Google-Smtp-Source: AGHT+IH4TLdAYIsHiepvr2Og34KFXHu8F1zJHY5NzzLF3EuhS8CAS2k0zjoVIZ1RY0JMNPJ8L2smrQ==
-X-Received: by 2002:a05:690c:3506:b0:70e:404:85e5 with SMTP id 00721157ae682-71517160c96mr155811537b3.11.1751161683934;
-        Sat, 28 Jun 2025 18:48:03 -0700 (PDT)
-Received: from localhost (c-73-224-175-84.hsd1.fl.comcast.net. [73.224.175.84])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-71515c90f5asm10244537b3.57.2025.06.28.18.48.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Jun 2025 18:48:03 -0700 (PDT)
-Date: Sat, 28 Jun 2025 21:48:02 -0400
-From: Yury Norov <yury.norov@gmail.com>
-To: cp0613@linux.alibaba.com
-Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, arnd@arndb.de,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux@rasmusvillemoes.dk,
-	palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: Re: [PATCH 2/2] bitops: rotate: Add riscv implementation using Zbb
- extension
-Message-ID: <aGCbRguHwFY372Ut@yury>
-References: <aFWKX4rpuNCDBP67@yury>
- <20250628111357.1627-1-cp0613@linux.alibaba.com>
+	Sun, 29 Jun 2025 03:19:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1751167152; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=c4yg0VkzAxe6/1DNdK0m7HWg28vbCWKpN7647AxuXUIs4+J+5rDNErGq8UbeMNljwV/xVuI/0sxAnPN7hOYsdsuGCr9ok4v3rFqsU8ut8THmnixP2qtIcYIwownOETkyZK21I659cvXMH0P54yFoVCjV/2+3vPt16j8omvc7sOc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1751167152; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=5sZgel47h61IZI/xBdVfE3mfXZ87n6o+GU/uHbeZ/ug=; 
+	b=bRmxTnwIvSybezz3VhAoC9vuoZms4A9yUx0TMg/I9rDiESy6Skst7f1kaMkuWY7N/rlEgzYr7J2QRJ1IxoMXE9URKuFbd+/Wt/knayGd18AwcGmKjo/wbYnUSNz2rmC13BLp5aQKdxVUph3g5lY3l5q3hvmkV0dK86OvfFhI8so=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751167152;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=MIME-Version:From:From:To:To:In-Reply-To:Cc:Cc:Subject:Subject:Message-ID:Date:Date:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=5sZgel47h61IZI/xBdVfE3mfXZ87n6o+GU/uHbeZ/ug=;
+	b=TdOoCWJvcKB2dULI/kgdt/2VVSmAs1dfEHjGWJVNfGP+9cviyJ7RvFhpNbPy2bHl
+	eooGQ/vp9QZr9rK1RAdOJczhfeWcZLyO27ADykvZBtpUGvZnZr68wbWu1HxriJwwTUR
+	W1OtdfKk4iwVBA3zNf1u8vybSyaNxCmsHGTOA3SM=
+Received: by mx.zohomail.com with SMTPS id 1751167149312644.3787975589289;
+	Sat, 28 Jun 2025 20:19:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250628111357.1627-1-cp0613@linux.alibaba.com>
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Rob Herring" <robh@kernel.org>
+In-Reply-To: <20250625191613.GA2059062-robh@kernel.org>
+Cc: "Bjorn Andersson" <andersson@kernel.org>, 
+	"Mathieu Poirier" <mathieu.poirier@linaro.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>, 
+	"Chen Wang" <unicorn_wang@outlook.com>, 
+	"Inochi Amaoto" <inochiama@gmail.com>, 
+	"Philipp Zabel" <p.zabel@pengutronix.de>, 
+	"Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, 
+	"Alexandre Ghiti" <alex@ghiti.fr>, <linux-remoteproc@vger.kernel.org>, 
+	<devicetree@vger.kernel.org>, <sophgo@lists.linux.dev>, 
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: Add C906L rproc for Sophgo
+	 CV1800B SoC
+Message-ID: <184d653d449ed7b0.6a3574329a6ead7.ebc417e4db758a3b@Mac>
+Date: Sun, 29 Jun 2025 03:19:03 +0000
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_184805_692066_E34EF554 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20250628_201928_508248_BDDEDAB4 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,61 +87,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 28, 2025 at 07:13:57PM +0800, cp0613@linux.alibaba.com wrote:
-> On Fri, 20 Jun 2025 12:20:47 -0400, yury.norov@gmail.com wrote:
+Hi Rob,
+Thanks for your review.
+
+On 25/06/2025 14:16, Rob Herring wrote:
+> On Sun, Jun 08, 2025 at 10:37:39AM +0800, Junhui Liu wrote:
+>> Add C906L remote processor for CV1800B SoC, which is an asymmetric
+>> processor typically running RTOS.
+>> 
+>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+>> ---
+>>  .../bindings/remoteproc/sophgo,cv1800b-c906l.yaml  | 68 ++++++++++++++++++++++
+>>  1 file changed, 68 insertions(+)
+>> 
+>> diff --git a/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml b/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..455e957dec01c16424c49ebe5ef451883b0c3d4a
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml
+>> @@ -0,0 +1,68 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/remoteproc/sophgo,cv1800b-c906l.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Sophgo C906L remote processor controller for CV1800B SoC
+>> +
+>> +maintainers:
+>> +  - Junhui Liu <junhui.liu@pigmoral.tech>
+>> +
+>> +description:
+>> +  Document the bindings for the C906L remoteproc component that loads and boots
+>> +  firmwares on the CV1800B SoC.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: sophgo,cv1800b-c906l
+>> +
+>> +  firmware-name:
+>> +    $ref: /schemas/types.yaml#/definitions/string
 > 
-> > Can you add a comment about what is happening here? Are you sure it's
-> > optimized out in case of the 'legacy' alternative?
+> Already has a type. You just need 'maxItems: 1'.
+
+Will do.
+
 > 
-> Thank you for your review. Yes, I referred to the existing variable__fls()
-> implementation, which should be fine.
-
-No, it's not fine. Because you trimmed your original email completely,
-so there's no way to understand what I'm asking about; and because you
-didn't answer my question. So I'll ask again: what exactly you are doing
-in the line you've trimmed out? 
- 
-> > Here you wire ror/rol() to the variable_ror/rol() unconditionally, and
-> > that breaks compile-time rotation if the parameter is known at compile
-> > time.
-> > 
-> > I believe, generic implementation will allow compiler to handle this
-> > case better. Can you do a similar thing to what fls() does in the same
-> > file?
+>> +    description:
+>> +      The name of the firmware file to load for this remote processor, relative
+>> +      to the firmware search path (typically /lib/firmware/).
 > 
-> I did consider it, but I did not find any toolchain that provides an
-> implementation similar to __builtin_ror or __builtin_rol. If there is one,
-> please help point it out.
+> That's the same for every 'firmware-name' instance. So drop.
+> 
+> Is there a default name?
 
-This is the example of the toolchain you're looking for:
+The firmware name would be specified in the board device tree, and
+there is no default value. For reference, an example value is provided
+in the example DT.
 
-  /**
-   * rol64 - rotate a 64-bit value left
-   * @word: value to rotate
-   * @shift: bits to roll
-   */
-  static inline __u64 rol64(__u64 word, unsigned int shift)
-  {
-          return (word << (shift & 63)) | (word >> ((-shift) & 63));
-  }
+> 
+>> +
+>> +  memory-region:
+> 
+>        maxItems: 1
 
-What I'm asking is: please show me that compile-time rol/ror is still
-calculated at compile time, i.e. ror64(1234, 12) is evaluated at
-compile time. 
+I plan to add a description for the rpmsg-related regions in the next
+version. Since the number of these regions may be flexible, I think I
+will only add a minItems property to ensure the execution memory
+region is specified.
 
-> In addition, I did not consider it carefully before. If the rotate function
-> is to be genericized, all archneed to include <asm-generic/bitops/rotate.h>.
-> I missed this step.
+> 
+>> +    description:
+>> +      Phandle to a reserved memory region that is used to load the firmware for
+>> +      this remote processor. The remote processor will use this memory region
+>> +      as its execution memory.
+>> +
+>> +  resets:
+>> +    maxItems: 1
+>> +
+>> +  sophgo,syscon:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +    description:
+>> +      A phandle to the SEC_SYS region, used for configuration of the remote processor.
+>> +
+>> +required:
+>> +  - compatible
+>> +  - firmware-name
+>> +  - memory-region
+>> +  - resets
+>> +  - sophgo,syscon
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    reserved-memory {
+>> +        #address-cells = <1>;
+>> +        #size-cells = <1>;
+>> +        ranges;
+>> +
+>> +        c906l_mem: region@83f40000 {
+>> +            reg = <0x83f40000 0xc0000>;
+>> +            no-map;
+>> +        };
+>> +    };
+> 
+> Drop. No need to show how /reserved-memory works here.
 
-Sorry, I'm lost here about what you've considered and what not. I'm OK
-about accelerating ror/rol, but I want to make sure that;
+Will do.
 
-1. The most trivial compile-case is actually evaluated at compile time; and
-2. Any arch-specific code is well explained; and
-3. legacy case optimized just as well as non-legacy.
+> 
+>> +
+>> +    c906l-rproc {
+>> +        compatible = "sophgo,cv1800b-c906l";
+>> +        firmware-name = "c906l-firmware.elf";
+>> +        memory-region = <&c906l_mem>;
+>> +        resets = <&rst 294>;
+>> +        sophgo,syscon = <&sec_sys>;
+>> +    };
+>> 
+>>
 
-Thanks,
-Yury
+-- 
+Best regards,
+Junhui Liu
 
 _______________________________________________
 linux-riscv mailing list
