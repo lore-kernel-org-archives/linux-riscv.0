@@ -4,73 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A3D9C83000
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Jun 2025 03:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0279C83029
+	for <linux-riscv@archiver.kernel.org>; Sun, 29 Jun 2025 08:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:In-Reply-To:
-	To:From:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=+PXIzLnk7Udz+8JksSzdAgXJuxae7pvLfW/po2h9uwU=; b=eaamJc/U8xDzNa
-	fs9gOJzS2QEQQni3UfazFhPOcYwe600RtMCi1JUIK/lMQbTNR6YjKFWfdtSCsR5UOLd6SMdlZ7Jmv
-	BSrw9vjiAD7FJir1SUmjxRxm4HYJwTCDkUlSCENtwAovsRKivxPQ+3lFii0KTlz4YHJomzLTycoqx
-	cMbcGefdniqGevrCNlKz2rkPXqwumoAllD+mISN/SDVM3qF1DwuP5lupV/0LM7Rfp6yGJSrQw0gTr
-	GfdedGVXvNmMnPBTy/3nNeLgxhPJ0VqwYMuYQzPJzNzoPfpXtXxkpb/kChRDEgJ/ah4ghqQwJJCgB
-	uCVXVa3sntVADSs7zEwg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=S3gWO6qNc0Z5IYlqM27JNKscSbN6UHQevKchMqzDrRE=; b=0hnc5SUFENVhqy
+	uUSNGwwG1nWNKH1j8Tt2ilUJ17Jn+lJ9BCUzYkmrMPQWo12dPOOW1Lr+vsMvSialwRIsEAb8ogI3d
+	5AoAsk0M5NnnM9d0bGr+rfxl5es1krhBLpC5X9CG7D5kDuXe64cS/Hn0N3JmLYXYuwiimYWDYBg/s
+	COxelIvKagTNKMimpq2hTyDXpbNxBhEJubYAnny4cHvQ4y1pLDrayokMidxvNIeuOoJvYXpCqJ+ns
+	JzyB5Vh+D0nIwTnsAmpmualoWCW01sxqXTT44aAZ9KZeQ9wy8Bg+DQlXMmZWr4Xcf0O1/X4ELJkn9
+	lqrx5F4jF4tXcDCqQwPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uViZm-0000000HU3M-1vAY;
-	Sun, 29 Jun 2025 03:19:30 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1uVnKG-000000001WL-2stY;
+	Sun, 29 Jun 2025 08:23:48 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uViZk-0000000HU2y-0PCk
-	for linux-riscv@lists.infradead.org;
-	Sun, 29 Jun 2025 03:19:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751167152; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=c4yg0VkzAxe6/1DNdK0m7HWg28vbCWKpN7647AxuXUIs4+J+5rDNErGq8UbeMNljwV/xVuI/0sxAnPN7hOYsdsuGCr9ok4v3rFqsU8ut8THmnixP2qtIcYIwownOETkyZK21I659cvXMH0P54yFoVCjV/2+3vPt16j8omvc7sOc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751167152; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=5sZgel47h61IZI/xBdVfE3mfXZ87n6o+GU/uHbeZ/ug=; 
-	b=bRmxTnwIvSybezz3VhAoC9vuoZms4A9yUx0TMg/I9rDiESy6Skst7f1kaMkuWY7N/rlEgzYr7J2QRJ1IxoMXE9URKuFbd+/Wt/knayGd18AwcGmKjo/wbYnUSNz2rmC13BLp5aQKdxVUph3g5lY3l5q3hvmkV0dK86OvfFhI8so=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751167152;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=MIME-Version:From:From:To:To:In-Reply-To:Cc:Cc:Subject:Subject:Message-ID:Date:Date:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=5sZgel47h61IZI/xBdVfE3mfXZ87n6o+GU/uHbeZ/ug=;
-	b=TdOoCWJvcKB2dULI/kgdt/2VVSmAs1dfEHjGWJVNfGP+9cviyJ7RvFhpNbPy2bHl
-	eooGQ/vp9QZr9rK1RAdOJczhfeWcZLyO27ADykvZBtpUGvZnZr68wbWu1HxriJwwTUR
-	W1OtdfKk4iwVBA3zNf1u8vybSyaNxCmsHGTOA3SM=
-Received: by mx.zohomail.com with SMTPS id 1751167149312644.3787975589289;
-	Sat, 28 Jun 2025 20:19:09 -0700 (PDT)
+	id 1uVnKD-000000001VA-2k3E;
+	Sun, 29 Jun 2025 08:23:46 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-23526264386so8898045ad.2;
+        Sun, 29 Jun 2025 01:23:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751185425; x=1751790225; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+5t0qkAHCUwUVEonnqGFQqn/6cdBXFEA5e8qoGS3Oz8=;
+        b=Ihrm/7CMYTx543vPA68PG7ONVeNyQ/NB7SQZriRE1xzx0WE9fj0kLqdhEnpQjkycfm
+         m69h1cbQeQiqjKoXbm78nDNtP0K85xa5hjYbBOpj9X7mj5JCP6PEEq0uwiTlC4nphCMN
+         2P8sE2PeX6OP7xkHBG4HxnkBWDy9yjb8LsEuqI5uez3apZgSy8TsqmgEvoBHYIh47W49
+         ssnUzFFHHKWUCpYhA0dc5ioEbgDggIgTNJcB2psAqhA19kTD6WDzMji4Y68MevDX/hxi
+         KZEf7kkPdZ2PHo0CkPoI8quDfjMnCT1qIRLvMnMLF5We+QlpdzGLiA6FsTJQ/0zGMW2S
+         o5LA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751185425; x=1751790225;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+5t0qkAHCUwUVEonnqGFQqn/6cdBXFEA5e8qoGS3Oz8=;
+        b=qAA0dsZP/DTDvud9JrP7zS/i77lrtbXKI+LPxEYaL18Qq/lu86rDOk7nGfTMtCssXB
+         nhP5R+Kp66dQaNWuz1b9R7dzJJSfbV1NHmoM9CgQMVqXaQZlpb/gBlBqSZVKCBAECRxQ
+         NkhoQ0Va6M5HqTQnfjZw824knXN3SoDZn47OkYybeGfJxxwmxF4OwU1Y50DILgSHOCEo
+         kUqNjU25sQg9vTT2pt1IXuIAlaaId3ulubdZ3xr1dk/WONdXk7i1nPC6OWb10wFU0eCN
+         sJaCvIn89mPt0BRUe8Ytl0DIyvW38zvhKsx4EBJCibrj1FI0yeUO27ZoBb9Nylaku4Ff
+         UDMw==
+X-Forwarded-Encrypted: i=1; AJvYcCUaUeMwflZkqQuXbYQcEezAS+Yz/09rB2ou7OeskN1IdDRVSG4bursOS8CUIZ0NujBfPdFwT5Q97/O0GA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYPsXH18Cfxr9+XX/IgGvefMb7svFEoW2fviu8mNr2GH7UBWHx
+	ft6NUiCa+R/g1JvrzLp4I4Lz/2Uz+Fx+ZHb49XJQUM8C1HKU4wwRuahw
+X-Gm-Gg: ASbGncthg4z3ghHP03kGOy10t6egUdwRwDOC2E2nm2jpEfqzeX9/+fVUod9p8q9kcXN
+	lVGSGdlr0CZqx4J0P2dGAc2PPE+Aw3aqqzX43ZmxMfouo3mHwt1MWfpkeqz45+8DPc2owC/v0SM
+	5Tsgglyu7v+pBvpw0ZKMsMuEcCL5lb/bowZLmROddrIgOuMFipKsaMy0npG1q4IC+W5njIG+q8P
+	1KFfa7Iljb8yXaSJ2og8giW9j8tAcYxcBuFkkV7wEwSlUe+kzBeKF9mzLhhtYINEucPZBBhzZUl
+	H3y2Xeh+I/s5W30ZIrqet1RcexL7lGlk6ZPbPtlqOD4ozwgSBlNDhw==
+X-Google-Smtp-Source: AGHT+IGbMuEWFzEQmcPfSGUyuO/vpiR0F/dpgN6q2wxjWT/5kSKuK3KVHvhvvINAfAKvfiDaNX3KCg==
+X-Received: by 2002:a17:902:d607:b0:235:129a:175f with SMTP id d9443c01a7336-23ac46527famr141581505ad.34.1751185424260;
+        Sun, 29 Jun 2025 01:23:44 -0700 (PDT)
+Received: from [127.0.0.1] ([2001:250:5800:1000::168a])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-315f542661asm10495839a91.26.2025.06.29.01.23.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Jun 2025 01:23:43 -0700 (PDT)
+From: Zixian Zeng <sycamoremoon376@gmail.com>
+Date: Sun, 29 Jun 2025 16:23:10 +0800
+Subject: [PATCH v3 1/4] spi: dt-bindings: spi-sg2044-nor: Change SOPHGO
+ SG2042
 MIME-Version: 1.0
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Rob Herring" <robh@kernel.org>
-In-Reply-To: <20250625191613.GA2059062-robh@kernel.org>
-Cc: "Bjorn Andersson" <andersson@kernel.org>, 
-	"Mathieu Poirier" <mathieu.poirier@linaro.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Conor Dooley" <conor+dt@kernel.org>, 
-	"Chen Wang" <unicorn_wang@outlook.com>, 
-	"Inochi Amaoto" <inochiama@gmail.com>, 
-	"Philipp Zabel" <p.zabel@pengutronix.de>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, 
-	"Alexandre Ghiti" <alex@ghiti.fr>, <linux-remoteproc@vger.kernel.org>, 
-	<devicetree@vger.kernel.org>, <sophgo@lists.linux.dev>, 
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: Add C906L rproc for Sophgo
-	 CV1800B SoC
-Message-ID: <184d653d449ed7b0.6a3574329a6ead7.ebc417e4db758a3b@Mac>
-Date: Sun, 29 Jun 2025 03:19:03 +0000
-X-ZohoMailClient: External
+Message-Id: <20250629-sfg-spifmc-v3-1-28db1f27e999@gmail.com>
+References: <20250629-sfg-spifmc-v3-0-28db1f27e999@gmail.com>
+In-Reply-To: <20250629-sfg-spifmc-v3-0-28db1f27e999@gmail.com>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Longbin Li <looong.bin@gmail.com>
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-spi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Zixian Zeng <sycamoremoon376@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751185413; l=953;
+ i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
+ bh=ETMNqPLnrAXwhjSmox3seEy1rdOzecBNyCB7CgBbOLg=;
+ b=Ua4qsIQdrMlRlRlRmLVxWOFnI0KLWyYbMeNhHAXkmgvG83CASwH+MS37sIVU/oD/jeC60bVwg
+ AhYJmFtW6lHA+b5WGe/HJJWjLetKnjitOuWS/eOms3fYxuQnZejtDr+
+X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
+ pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_201928_508248_BDDEDAB4 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20250629_012345_705293_5DE55E10 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,130 +118,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-Thanks for your review.
+SG2042 is not fully compatiable with SG2044,
+So it is necessary to become independent const
 
-On 25/06/2025 14:16, Rob Herring wrote:
-> On Sun, Jun 08, 2025 at 10:37:39AM +0800, Junhui Liu wrote:
->> Add C906L remote processor for CV1800B SoC, which is an asymmetric
->> processor typically running RTOS.
->> 
->> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
->> ---
->>  .../bindings/remoteproc/sophgo,cv1800b-c906l.yaml  | 68 ++++++++++++++++++++++
->>  1 file changed, 68 insertions(+)
->> 
->> diff --git a/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml b/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..455e957dec01c16424c49ebe5ef451883b0c3d4a
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml
->> @@ -0,0 +1,68 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/remoteproc/sophgo,cv1800b-c906l.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Sophgo C906L remote processor controller for CV1800B SoC
->> +
->> +maintainers:
->> +  - Junhui Liu <junhui.liu@pigmoral.tech>
->> +
->> +description:
->> +  Document the bindings for the C906L remoteproc component that loads and boots
->> +  firmwares on the CV1800B SoC.
->> +
->> +properties:
->> +  compatible:
->> +    const: sophgo,cv1800b-c906l
->> +
->> +  firmware-name:
->> +    $ref: /schemas/types.yaml#/definitions/string
-> 
-> Already has a type. You just need 'maxItems: 1'.
+Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+---
+ Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-Will do.
-
-> 
->> +    description:
->> +      The name of the firmware file to load for this remote processor, relative
->> +      to the firmware search path (typically /lib/firmware/).
-> 
-> That's the same for every 'firmware-name' instance. So drop.
-> 
-> Is there a default name?
-
-The firmware name would be specified in the board device tree, and
-there is no default value. For reference, an example value is provided
-in the example DT.
-
-> 
->> +
->> +  memory-region:
-> 
->        maxItems: 1
-
-I plan to add a description for the rpmsg-related regions in the next
-version. Since the number of these regions may be flexible, I think I
-will only add a minItems property to ensure the execution memory
-region is specified.
-
-> 
->> +    description:
->> +      Phandle to a reserved memory region that is used to load the firmware for
->> +      this remote processor. The remote processor will use this memory region
->> +      as its execution memory.
->> +
->> +  resets:
->> +    maxItems: 1
->> +
->> +  sophgo,syscon:
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +    description:
->> +      A phandle to the SEC_SYS region, used for configuration of the remote processor.
->> +
->> +required:
->> +  - compatible
->> +  - firmware-name
->> +  - memory-region
->> +  - resets
->> +  - sophgo,syscon
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    reserved-memory {
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +        ranges;
->> +
->> +        c906l_mem: region@83f40000 {
->> +            reg = <0x83f40000 0xc0000>;
->> +            no-map;
->> +        };
->> +    };
-> 
-> Drop. No need to show how /reserved-memory works here.
-
-Will do.
-
-> 
->> +
->> +    c906l-rproc {
->> +        compatible = "sophgo,cv1800b-c906l";
->> +        firmware-name = "c906l-firmware.elf";
->> +        memory-region = <&c906l_mem>;
->> +        resets = <&rst 294>;
->> +        sophgo,syscon = <&sec_sys>;
->> +    };
->> 
->>
+diff --git a/Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml b/Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml
+index 66e54dedab140a167ad84c43f312f93af2bfa06a..1299097a210d5074cb23b644d4f102a2fb1a0e3a 100644
+--- a/Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml
++++ b/Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml
+@@ -16,10 +16,7 @@ properties:
+   compatible:
+     oneOf:
+       - const: sophgo,sg2044-spifmc-nor
+-      - items:
+-          - enum:
+-              - sophgo,sg2042-spifmc-nor
+-          - const: sophgo,sg2044-spifmc-nor
++      - const: sophgo,sg2042-spifmc-nor
+ 
+   reg:
+     maxItems: 1
 
 -- 
-Best regards,
-Junhui Liu
+2.49.0
+
 
 _______________________________________________
 linux-riscv mailing list
