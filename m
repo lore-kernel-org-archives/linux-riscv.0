@@ -4,82 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 277A2C83000
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E13C7EE2A
 	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 03:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ukRJL7qoc2y9fi7JUK6FCD5ZR6Z+1f36KZ10wtHrE2Q=; b=nflKe4tUZ7Rau5
-	+BI2D7Bb465lebbPlaeCTVZ9/xpAm2H5FGI68/ZKtbtmHM8FI7vBt0ZcCB1tvDni002fGV57VAAOD
-	ua6Rc61erIBjmGN37aDLn3O2kdo9+oR6CaF9kO/IJ5Uf98GkXQLxyY2QiYD9SVoj9tqUfhTeOVqS+
-	HceOXnrWwBdIiqH7Q66gggQ3d2PkxpKu3SVlM3eHXswoiRi4/IZOoWguTLPlJvWkTKj0YBFimMzF2
-	a5cCQu7TpA7v+sxqXh2J1u+5WCh8V5dYiOmfx9nXBnCAozTMPnxXxxc2ZqwTOcWFuNMnFso4juWlj
-	Jyv55ByrWYuHQBdMAEzA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WJeQbFQqzOfCBgMRkCLnoI1Z+xOfhrG0/yiq1hRYB+A=; b=gr7e6k6SeQI71Q
+	DsmdxDdnoEpYeN+66D4EBEmTKFgy8sV1gBtMEwmGBZzpT1MsbAGSgPqLXYL8oP2MnzWNPXt3QkdgR
+	YpL+DfwupJ3BA7oJslLD9tR45zVztjwSXIF3A7t6tcNOXVu/31DbmA7xJHKro9aNL4X+qTc7rRP0D
+	Z3PxMUBnhq1oE2ApZFhUItN10KDJx64dpg3EQ4aLHzsENQGgZKiC4SI8d6ZpjLMIxTXH20ppzb+fN
+	I8bUV7qrNOIXbG5Np2jQWgfKvYsQAWk3AxmkmQvCpAzu4DSNAM7AUN34OtvMWcWkMvhd2bDBKQFAB
+	vdZPRBdcs/rVEzjCF+fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW5Wt-000000019Ka-0XaY;
-	Mon, 30 Jun 2025 03:50:03 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1uW5Wu-000000019Kx-1LBM;
+	Mon, 30 Jun 2025 03:50:04 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW5V6-000000018yM-3W1e
+	id 1uW5VH-000000018zy-0eeB
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Jun 2025 03:48:14 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7399a2dc13fso2032515b3a.2
-        for <linux-riscv@lists.infradead.org>; Sun, 29 Jun 2025 20:48:12 -0700 (PDT)
+	Mon, 30 Jun 2025 03:48:25 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-747c2cc3419so3875972b3a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 29 Jun 2025 20:48:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751255291; x=1751860091; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yFeBhYBHOrC/0c43zTo39sGlheeTzLpojcRGicgsOS8=;
-        b=YfuxqToWdGy1lHJWSYd0hpbY/6R5oWB4fxEUwEEV2YIIxnm3DyUoHYbX9HFD4ul+OL
-         8LIo6QhwoFPi1D7lQTZqCVE67FWdWI9raoPlRmoLDPauHFg39HbSez7WixKDhJieIfq+
-         NuUFEc86dB5cHeh97w8tnk8LUZnFi96grNb/CdTcRjhA1QRJ4vbtI/YZ62zPMYw4Xhxl
-         jWRQpH3wKxf2pckLO73ifYrbU1B1RHQ28AtA311zBzeHHV+h0p0qZ2jsCc/HKnnYe7sx
-         xPRWd3UjLDzAWPIQvlEr6VdWXJlVwS5VdCmfkFZgH1I2aCBhCiVATOxNgoWtCPe8Ft36
-         bIwg==
+        d=ventanamicro.com; s=google; t=1751255302; x=1751860102; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ri1e7xvqfD1xJqzMHYa8cxstKVT8liDfwJUs4Nyy/QU=;
+        b=a8DS3cpAw1gmrOz6STJhq38bblLWqPermNA3AKdaesOfueMijpUJb6TiEGkS5sHHLz
+         4X+GC9qJ/DLvJaB1ANhPHWt2N5ha7jGbqB0R7/6DUEomDySftBJ1u2u58gpb4Imtxdzg
+         jZrkcOnRon6Sw+ue926Yy8/f8NHX/I0smrH1Z+IzERQfHSclvpmeNvMB2I6wQEZQcwAN
+         fzobHeHqjpGcJtDMydoWjc0L0H0OV3DnYD1JLqqFW5ULeV+zJvQnBi/iBU8LWelwehjd
+         AV+d3OR61EgVbnkMUJnFS+HwYT11y9C1qvBME9p9bvfvt7HZufnDtQUkjSpNxKPyeCfb
+         ufRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751255291; x=1751860091;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yFeBhYBHOrC/0c43zTo39sGlheeTzLpojcRGicgsOS8=;
-        b=ZcvwXTGLsd+6LdjTH7q6MykAhkfTq3YdvN4UbXKImdVOs2ek2ZYSVtiSn9OTJJH1fI
-         LBurWEkmSTV1rrFoWkX3/UbRF58luh9OdcEjnQymt5b0boJfI7qEz5Yk1p+jRajGxhX3
-         V9t+URsCP4TOtiBLKwEtrnW5olk+V07ABZsbfRGbYdCZBzjOJqMj48JqfJ6TqHetC1Os
-         igSadMb8oVjHadUtfAooaiQKaByh4WGrdyXd2ARcxIpAOoA8DVs21egu3x0VtVN1512L
-         92s1Sl12OrhxznQHzR93bwsPoyCzGOe4b82Ei2SmCko3Sb9kQ4AtWH432Rw5le4sv9zV
-         CZ5w==
-X-Forwarded-Encrypted: i=1; AJvYcCWHkmfFHH+g9PgWZ/HZPHou2RLoFKAT339gQ3bcLiayh/RCqglEtrLZdwsJkS8yk0OV1RynE4VickznsQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUE/8fZ3fCiiZHpaEI3EE3uA4XLu9Zy5Irb8EQCx3FlMESXL+d
-	MCBzeKmZoh+pZ4M2/NONM5vEjYFKTGgsr1tjQnQ2LDGurRtfd7GHhsVL8AxPzjlzsfM=
-X-Gm-Gg: ASbGnctK0cCJ0p/lFlLkNKjffixNGiGo07gziuEWOlUGIRC07veePKdpqOX2ZJW2Acz
-	HGKfe3Qz8rxLQMDIPSNwMbPCFp09eqJUkJIVauu6uCWxwOTdR9bjtUuMt9IdBlBD1BMlfYvksIT
-	FugKeOb1S7SqP0zTIIIfM0xUE63UMKRaUVNyjLgggGQA5fwkIr/wu6ri/sxzfIHYgUSBaqmEP12
-	fygQZFsaqxE1UPpNFEKnru86RRiO5m3Pe6K6+TsxL/4z4/U+rtw7jYyCd3LpRbpHZtB9+Luj06m
-	Ue6b+JC3wCkTpI7AZiC0g0sSE1E9a4MzKdJuUM2rX76TFj2+90kGWssBsyoH1zkIErgnebR1
-X-Google-Smtp-Source: AGHT+IEzTTqz9HI75CbRtfblsCPZ+bl54XYhiD9/Nlz3V+rIBZOaNxNzGv638imyLy83nUUnGEXiUg==
-X-Received: by 2002:a05:6a00:3e25:b0:748:2f4e:ab4e with SMTP id d2e1a72fcca58-74af6fcf67emr16315764b3a.11.1751255291494;
-        Sun, 29 Jun 2025 20:48:11 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1751255302; x=1751860102;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ri1e7xvqfD1xJqzMHYa8cxstKVT8liDfwJUs4Nyy/QU=;
+        b=i4cQrtGyEBD5nOpn+v3bvjojRsHs0u50lX3X3MywP866ddUfz43se1qda/bYK4ECQu
+         R8s7XqWsAm2aBhuVwuj2jpsVOH6JImxmkYU22pw8kv4qc2VgBPt84SmBkWBEhLC2pSBq
+         uzSOw0JKelBF0eyj/9hsUX91xdTEBXb0XL7ScHuAARUHu1rVZSw8g/p3uXsBxRfjjeNU
+         7ZfsHLlT0SBygBMMgn8Y47IFaFBiU7DG2jU5ldPYPqG4jJC2yolpsaN3xMPSTDHHaB55
+         yjDhxVl+NO+o/Lqgn7sSL3Lw05IXFJ48fyDRICwou4yexEGE6E0qXWKs8Sh/rCiqVUlI
+         x7Jw==
+X-Forwarded-Encrypted: i=1; AJvYcCX2Khvg+xvWGejLY+lfLRX0yYvrCVlps0k9ZpPzm5seQX/DZjRI5/kmyOlHGuiU18JhBG3ChYI8Al79GQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8B+Fyi3BjXllYXisdrYCxB/xgvzy+D3QjTcBSJRe/acmj/TiP
+	R/evbXgeZccYR83GplWwgHIEhrvM4AToLqCFX4EuXOgGdIhncrd2+vnCaFtXABPe/r4=
+X-Gm-Gg: ASbGncvNFbKWlrUAryzYM3mjBpSvRzw9//gESFqv8eKmQNTxTcv+L+arN7yI2hoQu+C
+	hs8kSPi+MUWxPZG4OLx3peb1B0vOhyTe2XQaTG+/z94sZf2OMQXuDiGR3L7tSCJspe4UAcdZ/od
+	zimWV+jS5m/VtV+st0gXPfxt+A3tSQX8KZ0Zf4RC89EVo4UhRvaKzVyfuDG6TMhTASR2CIX6tlL
+	8C3zScMIhbwZcaER6BjwInQzJlr9E41YhXwXKJOh9G3ImDN/XnvjyJQwfnANq7Zkyfou6WWDhur
+	usHi8V+zYZUlkulSEHLlrcH2LRJwbPDdECRXQbMeR0oN4ZfdgtW+edbl21crRKFnQg6WV0nf
+X-Google-Smtp-Source: AGHT+IG71WwVUzest/mJtvn+9x2w5xMiAsY0zQAJe8GnER+ZaxhJXmmKNzdMlkrBD48ocwYkdyfatg==
+X-Received: by 2002:a05:6a00:1813:b0:746:2591:e531 with SMTP id d2e1a72fcca58-74af6f081c9mr17099430b3a.12.1751255302416;
+        Sun, 29 Jun 2025 20:48:22 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.195.230])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74af57efaecsm7837862b3a.161.2025.06.29.20.48.06
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74af57efaecsm7837862b3a.161.2025.06.29.20.48.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Jun 2025 20:48:10 -0700 (PDT)
+        Sun, 29 Jun 2025 20:48:21 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	iommu@lists.linux.dev
-Subject: [PATCH v3 0/3] RISC-V: Add ACPI support for IOMMU
-Date: Mon, 30 Jun 2025 09:18:00 +0530
-Message-ID: <20250630034803.1611262-1-sunilvl@ventanamicro.com>
+Subject: [PATCH v3 2/3] ACPI: scan: Add support for RISC-V in acpi_iommu_configure_id()
+Date: Mon, 30 Jun 2025 09:18:02 +0530
+Message-ID: <20250630034803.1611262-3-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250630034803.1611262-1-sunilvl@ventanamicro.com>
+References: <20250630034803.1611262-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_204812_882214_96C6C4BF 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250629_204823_192514_610E7B92 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,51 +94,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Tomasz Jeznach <tjeznach@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>, "Rafael J . Wysocki" <rafael@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>, Len Brown <lenb@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Tomasz Jeznach <tjeznach@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>, "Rafael J . Wysocki" <rafael@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for RISC-V IOMMU on ACPI based platforms.
-RISC-V IO Mapping Table (RIMT) is a new static ACPI table [1] introduced
-to communicate IOMMU information to the OS.
+acpi_iommu_configure_id() currently supports only IORT (ARM) and VIOT.
+Add support for RISC-V as well.
 
-[1] - https://github.com/riscv-non-isa/riscv-acpi-rimt/releases/download/v1.0/rimt-spec.pdf
+Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+---
+ drivers/acpi/scan.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-Changes since v2:
-	1) Rebased to 6.16-rc4
-	2) Removed Anup's SOB and link tags added by mistake in v2.
-
-Changes since v1:
-	1) Rebased to v6.16-rc1.
-	2) Dropped ACPICA patch since it is already available in 6.16-rc1.
-	3) Added Rafael's ACK.
-	4) Fixed few issues found by bots.
-
-
-Sunil V L (3):
-  ACPI: RISC-V: Add support for RIMT
-  ACPI: scan: Add support for RISC-V in acpi_iommu_configure_id()
-  iommu/riscv: Add ACPI support
-
- MAINTAINERS                          |   1 +
- arch/riscv/Kconfig                   |   1 +
- drivers/acpi/Kconfig                 |   4 +
- drivers/acpi/riscv/Kconfig           |   7 +
- drivers/acpi/riscv/Makefile          |   1 +
- drivers/acpi/riscv/init.c            |   2 +
- drivers/acpi/riscv/init.h            |   1 +
- drivers/acpi/riscv/rimt.c            | 523 +++++++++++++++++++++++++++
- drivers/acpi/scan.c                  |   9 +-
- drivers/iommu/riscv/iommu-platform.c |  17 +-
- drivers/iommu/riscv/iommu.c          |  10 +
- include/linux/acpi_rimt.h            |  26 ++
- 12 files changed, 599 insertions(+), 3 deletions(-)
- create mode 100644 drivers/acpi/riscv/Kconfig
- create mode 100644 drivers/acpi/riscv/rimt.c
- create mode 100644 include/linux/acpi_rimt.h
-
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index fb1fe9f3b1a3..70f57d58fd61 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -11,6 +11,7 @@
+ #include <linux/kernel.h>
+ #include <linux/acpi.h>
+ #include <linux/acpi_iort.h>
++#include <linux/acpi_rimt.h>
+ #include <linux/acpi_viot.h>
+ #include <linux/iommu.h>
+ #include <linux/signal.h>
+@@ -1628,8 +1629,12 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
+ 	}
+ 
+ 	err = iort_iommu_configure_id(dev, id_in);
+-	if (err && err != -EPROBE_DEFER)
+-		err = viot_iommu_configure(dev);
++	if (err && err != -EPROBE_DEFER) {
++		err = rimt_iommu_configure_id(dev, id_in);
++		if (err && err != -EPROBE_DEFER)
++			err = viot_iommu_configure(dev);
++	}
++
+ 	mutex_unlock(&iommu_probe_device_lock);
+ 
+ 	return err;
 -- 
 2.43.0
 
