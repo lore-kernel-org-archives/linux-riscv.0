@@ -4,107 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFBDC7EE2A
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 05:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96874C83000
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 06:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x1+ymYXd8VlO6QqCrQdtE2HAp3g6aaMtVjaoaytj6gk=; b=zjvLYGkHVyRoBk
-	H6oWDqJ4092stzmqK+5FbHeZCN7cTjGj/HFcgmPKnyFU6n5IQUgHZDZ3aEFTKZGiAyMGAeP7AZGIu
-	rv0PmMwplenw1HxgYDN04yJxmG57Opy54zCOuYqsfNuKEvtKcNm0H0L3gtNlIHuViWSGzkTq/cgsw
-	mSOsOQrqgLeR0fqvrJxinBm/bksUDd5XfTB5EAW1+xpzPJZM0mTbP14t4W4D/tN6HZE5WjvtwWuHE
-	BPz+XiJpTsv9zjyM29PKP8DzhvNZ59W86ZpNF+8V7wd7xRZnL9r/q4gVt6Njib8pWntMnu9ME3b83
-	9Zv/fGSB8/DsgLwYn38Q==;
+	List-Owner; bh=kYhQu5Zik/NWu+zKhbzJN0iTEFZiZ7dF8NMa1FVzg5o=; b=p5oBT7IEYY3Cb+
+	i7HOggmvVvVKX69RSWI540ZDxpyF2H560rp4p5uqp2t1kNRMt5UgfKroqW3QxZUAxArjfJ0IQq7AP
+	0KmcYZdwOMZxGj0cjeVjSEcySZCoG4Q2TBOX6+5jg0QC4jlTtb2o/ySjzGTQd1yP+TN6YLy6Bbwkj
+	VHVqpF49CwFE99sySBxIxpZ3JKl0NQH6UPbNPJcS0FRI91O4SshcB4EPXaIeBzkEuf7xIac79dr6d
+	3oLDwobVun3nbLFg2enb34Fbp4fAAj4GcWcKfFiPUs9K9/vFh+M0sP2hDL/YxiZ2IT1PYGqSSeHlU
+	C80bhYlPXvg8N5YtqFgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW6tm-00000001FU8-3zNV;
-	Mon, 30 Jun 2025 05:17:46 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1uW8GT-00000001MxI-3IBs;
+	Mon, 30 Jun 2025 06:45:17 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW6tj-00000001FTh-3XlX
+	id 1uW8GQ-00000001Mww-419n
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Jun 2025 05:17:44 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-748e81d37a7so2912594b3a.1
-        for <linux-riscv@lists.infradead.org>; Sun, 29 Jun 2025 22:17:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751260663; x=1751865463; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CHPtwkORxYza8f0AQe4trY9Wlzmo7dC+e4hGrz5TZ/8=;
-        b=Dh1K/4asSfh/jFGROENpU4W7oOS9ywp5kLEGWsqPOZ+yjLxUArmz89KrSsUWAp5vQF
-         i8vUuQAaERETgulVCpuFoW6jn6EIjnzx3Cecp2ferYt6Lik8i06KdXGMqsydRbdbSZTX
-         c93Wvk88wy5ZJM+iti+LTRQ6AxkdQQKzM8pViQbLYRBE910ZNeGcJpvhjSCE5nJMqr6p
-         NYR328ECsDLvfQnE3WBaraS2e1Eq/9HZNRcpvl12SOELMhuhJ+18zISbJ17w1pO50NvV
-         bzJbngfF818Dc0f7cITlA0C1MqDnyv1E0MeVha4I5WyBU+IYzzoSajVTgHuZZc6722uH
-         9bdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751260663; x=1751865463;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CHPtwkORxYza8f0AQe4trY9Wlzmo7dC+e4hGrz5TZ/8=;
-        b=nt3gOx1Gex1HfowhoPtVJh9Kj8bx+iv3qMxq3TYjdWkk1bZ30l6q86xktSkToVDg62
-         KELD+OagkD9PlLZZQgUTVoOwWWf5AMv6ONhikVG9E9j0q1yH1g4Os+7dzJQZJY/fOwdn
-         0CBQz1mZ9KTBO026UngQHVbk4jRSGp24xbYxyidYYR9OZ1qbz1OFro9V96wxvAp+TPQf
-         iUZ90ANZxCoExgvdgq9fBBM9bH/FrD9Vq62jKV7kRawTMrGw1cmottq+ZD7XQ5rO95IT
-         CWhVyp/CLRlkzPMRdhosBNprK27DLpwtPH9AQz7fKt0q322UwDkwM7HgXP5ETaM+yUyK
-         pNvw==
-X-Forwarded-Encrypted: i=1; AJvYcCUIUMFHrX9PFHLuw3MqZXpRGBXVgrIOhTnmOSG2XWWNmilzhZb+x0ZxLoTuE2COvbKnKYGLTriAmcsFtw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yys8OrkEsLN2/VCOogEIKIayq2tk6KEvQK7ncg/YJcOGtC1mYCE
-	KfUsIsCUB5cysKzPjeLuudXbmy2ZM+tppQkERzGsqzWRr6PcBCToYd+qDMIugI18Ggs=
-X-Gm-Gg: ASbGncs4YzgWVVkKvClrdOJEze1N77uuKr+cvwArDfkf4jNhYLAYfyDmScQd3irUwb/
-	TjbAvL0Cf/xuLofaubKdD7shJgyhgZKiFrpj8EplpLEQ+T+3ENz/jBSt4Tq03UOaHhDyUHzVkUq
-	vjsRgbLeWyQjBXlqD1jmJjl8huNzM5AlLvzT6nVWsAMBoPfoeCeahSK70ubB65OFos2eC+yIll4
-	U2ospzIXKeWRepNCYGaC2OexEz24feFZiMrhjf5DzA4gJrE2wFTlNNgHR62SZyjOd2sObdN3kBN
-	zOIBf7YtTsJKQe3MW0swH2iUMWXWrX9fOLh4zi2wO651LdHokBIx/TFo6+4XW1FvRy2mE5GtJ5M
-	O8zWK
-X-Google-Smtp-Source: AGHT+IEHPxZf5K+6rB6h+G22ROpgqRBCwgyhaeWghhTRXeAPT0VUHYSFlG21O4cgJMdUdvOxbVQ28Q==
-X-Received: by 2002:a05:6a00:3e17:b0:748:33f3:8da3 with SMTP id d2e1a72fcca58-74af6f2f9d7mr18261164b3a.19.1751260663025;
-        Sun, 29 Jun 2025 22:17:43 -0700 (PDT)
-Received: from sunil-laptop ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74af56e3ac1sm8021982b3a.145.2025.06.29.22.17.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Jun 2025 22:17:42 -0700 (PDT)
-Date: Mon, 30 Jun 2025 10:47:28 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Anup Patel <apatel@ventanamicro.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Len Brown <lenb@kernel.org>,
-	Rahul Pathak <rpathak@ventanamicro.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 14/23] ACPI: property: Add support for cells property
-Message-ID: <aGId6M_0D0qERUu_@sunil-laptop>
-References: <20250618121358.503781-1-apatel@ventanamicro.com>
- <20250618121358.503781-15-apatel@ventanamicro.com>
- <aFka3y1494LIzyUA@smile.fi.intel.com>
+	Mon, 30 Jun 2025 06:45:16 +0000
+Date: Mon, 30 Jun 2025 08:45:06 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751265910;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QZQltrJmsUv5t75sduP0xOfkCDCGatOPuiFCAR+zNeU=;
+	b=OujG/FW7w2zbApKtr9vE6HArhqNcbw3ImwDJDisdlEkk1t2HCMjwtrLRQ1/rs4+17H3YUl
+	XxFm/zjgI5M36oDVYIEHXbHI5FFg/VxL4YCbaDiXWa+YngTnTS4VVIxi5/BBYsDf4vAAQG
+	mF4uccUOgrl0gFifZlNA5GqOshFS/qqFbCz1GPdN4yNj8I8xn3KMhWObJ8sLblodxz1mTO
+	nuBOT/mcXz8YFjXJNOmLeWUh4gf7Ixg3VwtGF+ZHD5uQMSpIUhH50CgWvqUVQsaPLs1V6I
+	UdYFwF1415IuLHOUZnrtdqB8wZvKJ0gmYTLIOPtdy7vvVqp55NuD8xUhEyQ7hg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751265910;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QZQltrJmsUv5t75sduP0xOfkCDCGatOPuiFCAR+zNeU=;
+	b=hCS6zI6mXbfa8ruVxFhSDZbvAzAQ1i0Q2z+VsINTus+7rGoccNHJOH+xaOSwkTTWLOhGwS
+	617UoxWjv5els8BQ==
+From: Nam Cao <namcao@linutronix.de>
+To: kernel test robot <lkp@intel.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	linux-riscv@lists.infradead.org
+Subject: Re: ld.lld: error: Function Import: link error: linking module flags
+ 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at
+ 899876), and 'i32 1' from vmlinux.a(security.o at 937376)
+Message-ID: <20250630064442.M5D7FRfm@linutronix.de>
+References: <202506290255.KBVM83vZ-lkp@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aFka3y1494LIzyUA@smile.fi.intel.com>
+In-Reply-To: <202506290255.KBVM83vZ-lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_221743_888067_E0202B54 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20250629_234515_172634_50085BAB 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,48 +80,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 12:14:07PM +0300, Andy Shevchenko wrote:
-> On Wed, Jun 18, 2025 at 05:43:49PM +0530, Anup Patel wrote:
-> > From: Sunil V L <sunilvl@ventanamicro.com>
-> > 
-> > Currently, ACPI doesn't support cells property when
-> > fwnode_property_get_reference_args() is called. ACPI always expects
-> > the number of arguments to be passed. However, the above mentioned
-> > call being a common interface for OF and ACPI, it is better to have
-> > single calling convention which works for both. Hence, add support
-> > for cells property on the reference device to get the number of
-> > arguments dynamically.
-> 
-> ...
-> 
-> > +static unsigned int acpi_fwnode_get_args_count(const struct acpi_device *device,
-> > +					       const char *nargs_prop)
-> > +{
-> > +	const union acpi_object *obj;
-> 
-> > +	if (!nargs_prop)
-> > +		return 0;
-> 
-> This check is implied by the call. No need to duplicate.
-> 
-> > +	if (acpi_dev_get_property(device, nargs_prop, ACPI_TYPE_INTEGER, &obj))
-> > +		return 0;
-> > +
-> > +	return obj->integer.value;
-> > +}
-> 
-> ...
-> 
-> > +			if (nargs_prop)
-> 
-> Again, if you don't won't to reassign the existing value, it's better to have
-> this data be collected in the temporary variable of the same semantics. Then
-> you will choose one when it's needed, no need to have this dup check (again!).
-> 
-Okay. Let me update in the next version.
++Cc: linux-riscv@lists.infradead.org
 
-Thanks!
-Sunil
+On Sun, Jun 29, 2025 at 02:25:33AM +0800, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> head:   aaf724ed69264719550ec4f194d3ab17b886af9a
+> commit: 890ba5be6335dbbbc99af14ea007befb5f83f174 Revert "riscv: Define TASK_SIZE_MAX for __access_ok()"
+> date:   5 days ago
+> config: riscv-randconfig-001-20250628 (https://download.01.org/0day-ci/archive/20250629/202506290255.KBVM83vZ-lkp@intel.com/config)
+> compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project e04c938cc08a90ae60440ce22d072ebc69d67ee8)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250629/202506290255.KBVM83vZ-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202506290255.KBVM83vZ-lkp@intel.com/
+> 
+> All errors (new ones prefixed by >>):
+> 
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(net-traces.o at 1014596)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(e1000_main.o at 992876)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(core.o at 912236)
+> >> ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(security.o at 937376)
+> >> ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(sock.o at 1012256)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(ioctl.o at 1015736)
+> >> ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(socket.o at 1012196)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(ring_buffer.o at 910076)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(hugetlb.o at 919016)
+> >> ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(btf.o at 913916)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(page_alloc.o at 918536)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(slub.o at 918836)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(spi.o at 992036)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(vmalloc.o at 918296)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(syscall.o at 912296)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(trace.o at 910136)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(skbuff.o at 1012376)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(vmscan.o at 916376)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(xprtsock.o at 1024196)
+>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899876), and 'i32 1' from vmlinux.a(filemap.o at 915776)
+>    ld.lld: error: too many errors emitted, stopping now (use --error-limit=0 to see all errors)
+
+I'm not sure what lld is saying here. It seems this problem has always been
+there, the revert commit just made it appears more.
+
+These errors should still be investigated, but I think the revert commit is
+fine.
+
+I see CONFIG_CMODEL_MEDLOW=y, so probably has something to do with
+arch/riscv/mm/init.c is compiled with -mcmodel=medany, while the others are
+compiled with -mcmodel=medlow. I leave it to smarter minds..
+
+Nam
 
 _______________________________________________
 linux-riscv mailing list
