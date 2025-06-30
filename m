@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8DC2C7EE39
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 10:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62434C7EE39
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 11:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K2Rwzh2C9AhrZ711838hZthQdLkmxyE42tXSdikqgaA=; b=JLrjLnWHYUuJId
-	75jXQiklJ36v29a2XWoDSzu8Opoqwan9oGGKLlwOSbS0lEffQ0j1avJdqhSA6vSDzQaBbB/1Ulovr
-	j7vhwHderGnjYuMWQh86bu5tfsv4pvYDVXt2sh+KLiWnXADZNmW8qCXjVlW/+3Mqd8D/sbUHHQU3A
-	q/W0foCRaLLsJopgzw0jfMDm3Hu8//S9UPULU+/mV9cEJ1CL6sZf+RBSUvx2Yuct5dfpVWQI05J/M
-	QDW/9BwtwFgtgmktPpmUfRbMEcSRd+stI2/CmQT/Z/NP9d91mgfsJMIqGM3LTZVvSNGBUUI53DtQS
-	k8J04RfmLiy1N4eJZKHg==;
+	List-Owner; bh=G/NGFW7NBshc3dSTUL6VVd9UKBOaR/6yn6pbMPbX+3c=; b=4UljaoHESSJ4z1
+	te0+16XMxENPy+2QzZi+ha2pygykWSHVogEWkud40Sf0dakJ3cY2kLdf2ZTXGLWUDOOxpoevaazVS
+	hXYCYwJJ4qPA6tNFpp4Drcrx1WMQ5xvC6nKyie2yAvE8vy89cygtO1hw+GTTnfC8idCGC2rNZQLGw
+	ISdMhujOxuGjHta67zZUUIAvB5C6BUKH3LBwudhjZ1t7pL3PY0uL3MA3CHJMCTe2nJUpp8s/qxV+a
+	wzA3mYwXBfMOxsMwedDi3wlduwtnRZHlaOKJxa7H/lu0k4Dpckqx8Te9u5zVgVFela1r7xOo1uYiM
+	ZI9dVP/Hgfi9L3Zwz/0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWCA7-00000001x0n-06R7;
-	Mon, 30 Jun 2025 10:54:59 +0000
-Received: from jpms-ob02-os7.noc.sony.co.jp ([2001:cf8:acf:41::8])
+	id 1uWCw6-000000024tK-1G0V;
+	Mon, 30 Jun 2025 11:44:34 +0000
+Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWBlw-00000001tOk-2YKH;
-	Mon, 30 Jun 2025 10:30:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=sony.com; s=s1jp; t=1751279401; x=1782815401;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=u4+i+fCG0zXOAmrMwSL4XzdeT83nVSjToGPcdOCxeS8=;
-  b=ujl/zgnwFIUKtnX7CL7xJo+Gp3zBl8kNDQVniSg2VoIc/KDupijZm2wI
-   KbdEAT0XaaTuGnwY0V/FEwYl1Ufl/7PhU+ztkcFjVyVC2UlCExtH2iHCB
-   0UFpBjaH5btXTjrYRkPlL5tqSxyEj6dYypEPyCsIDpinu5K4dgHI0ekjw
-   uEQKH1j+lKBOFAmRTT9eZ8pQwtv8eLgfgKqf3s/+54XghSXR1NdUmIO3m
-   PB5Lj4hdN7zRMlOdqyvYeLLBnyr8gwNhiILg2dANGqvCbwUEnZUImi0m6
-   Zc/asHZjaCPDCcxsY4h5A/TF2iJaZH5UhmEMy6weUGJKjA21qy51+TJZu
-   w==;
-Received: from unknown (HELO jpmta-ob01-os7.noc.sony.co.jp) ([IPv6:2001:cf8:acf:1104::6])
-  by jpms-ob02-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2025 19:29:55 +0900
-X-IronPort-AV: E=Sophos;i="6.16,277,1744038000"; 
-   d="scan'208";a="2171375"
-Received: from unknown (HELO JPC00244420) ([IPv6:2001:cf8:1:573:0:dddd:eb3e:119e])
-  by jpmta-ob01-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2025 19:29:55 +0900
-Date: Mon, 30 Jun 2025 19:29:51 +0900
-From: Shashank Balaji <shashank.mahadasyam@sony.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
-	James Morse <james.morse@arm.com>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Rahul Bukte <rahul.bukte@sony.com>,
-	Daniel Palmer <daniel.palmer@sony.com>,
-	Shinya Takumi <shinya.takumi@sony.com>
-Subject: Re: [RFC PATCH] kernel/cpu: in freeze_secondary_cpus() ensure
- primary cpu is of domain type
-Message-ID: <aGJnH0Ka2Y0koGAX@JPC00244420>
-References: <20250630082103.829352-1-shashank.mahadasyam@sony.com>
- <20250630084808.GH1613376@noisy.programming.kicks-ass.net>
+	id 1uWCcb-0000000217r-3hTC
+	for linux-riscv@lists.infradead.org;
+	Mon, 30 Jun 2025 11:24:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1751282666; x=1782818666;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=rtGozj1Eecsc0Y022urCuSqjhAue5dzTmGXqpT9ZSF0=;
+  b=Ie4vjYc+6Ek4Ii9w2I1SUANS20+m1s1bWMFoJyPJAU2XxXbZHrdSOXuN
+   UGxVN9zenT1HprVW6Mcz1H/rQZJrQRFbyeIQBbf11AuujfMqHWX504JFH
+   9aSZGIM5/8RCtKZLy2H5rF5dqV5zQ4YSySkGMJP+O/FNkyR9VWLGppMgw
+   96KtSr8XRPahFWdq0hHgfClovtOVR0lYMTQZ3HPWj69JYMcOD06ySlYa5
+   FBnILiPLsH9orL2BLwDh4K2PPp2fjuyNjB3nXYdIbQoEr3B5lou/FyR0+
+   feeCFBqdYuw7VVOOEvdhcfu0l7vxqJkKBBG2Xagb8CjqBvnkoifLEf0cm
+   A==;
+X-CSE-ConnectionGUID: /8xEBu/PRPGl5Ten3WctcQ==
+X-CSE-MsgGUID: m67o+qpgTwiK4wRqK7ZKeg==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
+  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2025 14:24:23 +0300
+X-CSE-ConnectionGUID: IGZG9yLwTFKAHMP+1UGyIQ==
+X-CSE-MsgGUID: bfdPHOXyTq2LEkMUeDkMhw==
+Received: from unknown (HELO epgd034.me-corp.lan) ([10.154.54.6])
+  by ces04_data.me-crop.lan with SMTP; 30 Jun 2025 14:24:20 +0300
+Received: by epgd034.me-corp.lan (sSMTP sendmail emulation); Mon, 30 Jun 2025 14:24:21 +0300
+From: Pnina Feder <pnina.feder@mobileye.com>
+To: bjorn@kernel.org
+Cc: alex@ghiti.fr,
+	bjorn@rivosinc.com,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	mick@ics.forth.gr,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	Pnina Feder <pnina.feder@mobileye.com>
+Subject: [PATCH 1/1] riscv: Change memblock reserved name to be recognized on kexec
+Date: Mon, 30 Jun 2025 14:21:30 +0300
+Message-ID: <20250630112309.97162-4-pnina.feder@mobileye.com>
+In-Reply-To: <20250409182129.634415-1-bjorn@kernel.org>
+References: <20250409182129.634415-1-bjorn@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250630084808.GH1613376@noisy.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_033000_872300_01975AE2 
-X-CRM114-Status: GOOD (  34.91  )
+X-CRM114-CacheID: sfid-20250630_042426_224400_766C6A11 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,169 +86,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
+memblock resreved exposes as Reserved on iomem,
+kexec tool doesn't take those parts to vmcore, but
+the kernel use those address and it needed when opening the vmcore.
+Without this fix the crash-tool fails.
 
-On Mon, Jun 30, 2025 at 10:48:08AM +0200, Peter Zijlstra wrote:
-> > diff --git a/kernel/cpu.c b/kernel/cpu.c
-> > index a59e009e0be4..d9167b0559a5 100644
-> > --- a/kernel/cpu.c
-> > +++ b/kernel/cpu.c
-> > @@ -1902,12 +1902,28 @@ int freeze_secondary_cpus(int primary)
-> >  
-> >  	cpu_maps_update_begin();
-> >  	if (primary == -1) {
-> > -		primary = cpumask_first(cpu_online_mask);
-> > -		if (!housekeeping_cpu(primary, HK_TYPE_TIMER))
-> > -			primary = housekeeping_any_cpu(HK_TYPE_TIMER);
-> > +		primary = cpumask_first_and_and(cpu_online_mask,
-> > +								housekeeping_cpumask(HK_TYPE_TIMER),
-> > +								housekeeping_cpumask(HK_TYPE_DOMAIN));
-> 
-> That's terrible indenting, please align after the opening bracket like:
-> 
-> 		primary = cpumask_first_and_and(cpu_online_mask,
-> 						housekeeping_cpumask(HK_TYPE_TIMER),
-> 						housekeeping_cpumask(HK_TYPE_DOMAIN));
-> 
-> Also, IIRC HK_TYPE_HRTIMER is deprecated and should be something like
-> HK_TYPE_NOISE or somesuch. Frederic?
->     <snip>
-> > +			primary = cpumask_first_and(cpu_online_mask,
-> > +								housekeeping_cpumask(HK_TYPE_DOMAIN));
-> 
-> Indenting again.
+Fixes: e94eb7ea6f20 ("riscv: Properly export reserved regions in /proc/iomem")
+Signed-off-by: Pnina Feder <pnina.feder@mobileye.com>
+---
+ arch/riscv/kernel/setup.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Sorry about the indentation. I've now set my editor to use 8-space tabs.
-I'll have it fixed in the next version of the patch.
-
-HK_TYPE_KERNEL_NOISE was added by commit 6010d245ddc9f463bbf0
-(sched/isolation: Consolidate housekeeping cpumasks that are always identical).
-I'll replace HK_TYPE_TIMER with HK_TYPE_KERNEL_NOISE in the next
-version.
-
-> 
-> > +			if (primary >= nr_cpu_ids) {
-> > +				error = -ENODEV;
-> > +				pr_err("No suitable primary CPU found. Ensure at least one non-isolated CPU is online\n");
-> > +				goto abort;
-> > +			}
-> > +		} else if (!housekeeping_cpu(primary, HK_TYPE_DOMAIN)) {
-> > +			error = -ENODEV;
-> > +			pr_err("Primary CPU %d should not be isolated\n", primary);
-> > +			goto abort;
-> > +		}
-> >  	}
-> >  
-> >  	/*
-> > @@ -1943,6 +1959,7 @@ int freeze_secondary_cpus(int primary)
-> >  	else
-> >  		pr_err("Non-boot CPUs are not disabled\n");
-> >  
-> > +abort:
-> >  	/*
-> >  	 * Make sure the CPUs won't be enabled by someone else. We need to do
-> >  	 * this even in case of failure as all freeze_secondary_cpus() users are
-> 
-> 
-> Also; doesn't the above boil down to something like:
-> 
-> 	if (primary == -1) {
-> 		primary = cpumask_first_and_and(cpu_online_mask,
-> 						housekeeping_cpumask(HK_TYPE_TIMER),
-> 						housekeeping_cpumask(HK_TYPE_DOMAIN));
-> 	} if (!cpu_online(primary)) {
-> 		primary = cpumask_first_and(cpu_online_mask,
-> 					    housekeeping_cpumask(HK_TYPE_DOMAIN));
-> 	} 
-> 
-> 	if (primary >= nr_cpu_ids || !housekeeping_cpu(primary, HK_TYPE_DOMAIN)) {
-> 		error = -ENODEV;
-> 		pr_err("Primary CPU %d should not be isolated\n", primary);
-> 		goto abort;
-> 	}
-> 
-> Yes, this has less error string variation, but the code is simpler.
-
-If primary >= nr_cpu_ids, primary should not be used in the error
-string. But I do think it can be simplified as so, at the cost of the
-error string not being completely accurate:
-
-	if (primary == -1) {
-		primary = cpumask_first_and_and(cpu_online_mask,
-						housekeeping_cpumask(HK_TYPE_TIMER),
-						housekeeping_cpumask(HK_TYPE_DOMAIN));
-	} else if (!cpu_online(primary)) {
-		primary = cpumask_first_and(cpu_online_mask,
-					    housekeeping_cpumask(HK_TYPE_DOMAIN));
-	}
-	if (primary >= nr_cpu_ids) {
-		error = -ENODEV;
-		pr_err("No suitable primary CPU found. Ensure at least one non-isolated CPU is online\n");
-		goto abort;
-	} else if (!housekeeping_cpu(HK_TYPE_DOMAIN)) {
-		error = -ENODEV;
-		pr_err("Primary CPU %d should not be isolated\n", primary);
-		goto abort;
-	}
-
-The "Ensure at lest one non-isolated CPU is online" is only partially
-true in the case primary = -1 was passed and we couldn't find a suitable
-cpu because we were looking for an online cpu that's non-isolated _and_
-non-nohz_full. But the "non-nohz_full" condition isn't taken care of in
-the !cpu_online(primary) branch. Although, I do think it should be
-(question 2 below): in both the branches, we should look for a cpu that's online,
-non-isolated, and of domain type. That would further simplify the above snippet to,
-
-	if (primary == -1 || !cpu_online(primary)) {
-		primary = cpumask_first_and_and(cpu_online_mask,
-						housekeeping_cpumask(HK_TYPE_TIMER),
-						housekeeping_cpumask(HK_TYPE_DOMAIN));
-	}
-	if (primary >= nr_cpu_ids) {
-		error = -ENODEV;
-		pr_err("No suitable primary CPU found. Ensure at least one non-isolated, non-nohz_full CPU is online\n");
-		goto abort;
-	} else if (!housekeeping_cpu(HK_TYPE_DOMAIN) || !housekeeping_cpu(HK_TYPE_TIMER)) {
-		error = -ENODEV;
-		pr_err("Primary CPU %d should not be isolated or nohz_full\n", primary);
-		goto abort;
-	}
-
-Now the error string is accurate.
-
->2. This concerns the following snippet of freeze_secondary_cpus():
->
->        if (primary == -1) {
->            primary = cpumask_first(cpu_online_mask);
->            if (!housekeeping_cpu(primary, HK_TYPE_TIMER))
->                primary = housekeeping_any_cpu(HK_TYPE_TIMER);
->        } else {
->            if (!cpu_online(primary))
->                primary = cpumask_first(cpu_online_mask);
->        }
->
->    suspend_disable_secondary_cpus() calls freeze_secondary_cpus() with primary = -1,
->    if CONFIG_PM_SLEEP_SMP_NONZERO_CPU, and primary = 0 otherwise. On x86 and arm64,
->    for example, it's called with primary = 0. In the primary != -1 branch, why
->    isn't primary checked for HK_TYPE_TIMER as is done in the primary == 1 branch?
->    On x86 this is fine, since it doesn't advertise ARCH_SUSPEND_NONZERO_CPU,
->    cpu 0 will be removed out of the nohz_full mask even if it's specified. And it
->    also cannot be offlined. So on x86, the primary cpu will always be online and
->    non-nohz_full. But on arm64, for example, cpu 0 _can_ be offlined. So
->    cpumask_first(cpu_online_mask) will find the next online cpu, which may not
->    be non-nohz_full.
->
->    Also, why the requirement for the primary cpu to be of HK_TYPE_TIMER?
-
-The HK_TYPE_TIMER check was added by Nicholas in
-commit 9ca12ac04bb7d7cfb28aa5 (kernel/cpu: Allow non-zero CPU to be primary
-for suspend / kexec freeze) [1], but it was added only to the primary = -1 branch.
-I'm not sure why we don't check for HK_TYPE_TIMER when primary is specified.
-
-[1] https://lore.kernel.org/all/20190411033448.20842-4-npiggin@gmail.com/
-
-Thanks,
-Shashank
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 14888e5ea19a..16e0cebed170 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -249,7 +249,7 @@ static int __init reserve_memblock_reserved_regions(void)
+ 			if (start > mem->end || end < mem->start)
+ 				continue;
+ 
+-			reserve_region_with_split(mem, start, end, "Reserved");
++			reserve_region_with_split(mem, start, end, "Reserved-memblock");
+ 		}
+ 	}
+ 
+-- 
+2.43.0
 
 
 _______________________________________________
