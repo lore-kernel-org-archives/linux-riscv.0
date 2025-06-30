@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C53C83038
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 20:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC581C83033
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 20:53:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vp+JRPcZDFveSTbCh43ZmwCyM55jVx7lpvuz1SEAW3s=; b=GmnAJfwW8/3EJ7
-	mMnNZhgzV1FBQ9pj/ae0qUQdrDWTBvZwHkwXRjAtmO6FoCSSaLbKpC4Rgk1bIJSoPb4n/8tqK8NDU
-	DHA16qJLHsbHUyBRZuGQ4rjBfbvrqLBl47L4FIQcrUDarLwyv45VqrgP60G3Ya/Ov14e7X4nFb+x6
-	Sn9uPuDalrskUG/4DgB24x5i9bJCqon+R9e7RmEXk2EzggJ2LQxOuRjkM9KsI6pm3LzUpFqWllLZ7
-	i4rRXu0tuye+P9+CR1uV3YQVxuEHD+UsNbz0bLG7D4y42V5hUA6z7oxvFla0Jp5EtdO/S8PO0C4QT
-	669Xe0vJ4GFpcZkmjsVg==;
+	List-Owner; bh=O7d1Ika3N3cRPTXWwFCE6dB5ViTr1tYMlWBPqeH2S78=; b=EYjZ3xYWn5LjHF
+	uOcJnXU5JzwOzpocydF9oVUGav5jRfR5D+WOdTltpTKWW4KZWD8JBHDZxQfLvqHfnNuTKZB3T+yDJ
+	NOlql9AGDggix7jslDcy43tJPN72Jjqm4u5Po7n0rUDeUvNa1S/X7tOgAcWh/Ww2ZGbFCnFx5a8aD
+	TG4f2yOMQNsPVqAnZ4qcoU01goaZ6qN1UvX0gdN2iueJUum4Ymyro5OvDH45iEfsJmWUWNIRQWm2M
+	Ep7X9TDjm6aexonNN27HJ1kDtaQcV13AHrdOnYmNRm//7KF6WhwFWWpceFFdc/le7e5O7ioTHNziv
+	sbS5dB3lFq78hHftHIiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWLE7-00000003PZF-2Ad5;
-	Mon, 30 Jun 2025 20:35:43 +0000
+	id 1uWLUj-00000003RHM-2tGg;
+	Mon, 30 Jun 2025 20:52:53 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWLDl-00000003PVa-1xPZ
+	id 1uWLUh-00000003RGl-0aZR
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Jun 2025 20:35:23 +0000
+	Mon, 30 Jun 2025 20:52:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 90E78A53332;
-	Mon, 30 Jun 2025 20:35:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8278FC4CEE3;
-	Mon, 30 Jun 2025 20:35:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5B7B3A5361C;
+	Mon, 30 Jun 2025 20:52:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A063C4CEE3;
+	Mon, 30 Jun 2025 20:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751315720;
-	bh=tQs2Z2Qlt33u9MXNYKvC5h012PuPJ3SbrN4OrPh6WUM=;
+	s=k20201202; t=1751316770;
+	bh=HxNS8mhOfCb2u6BZlip3RJTcxTguswhUtDe5juU/JBM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jQdPVWlEXvMQf260xJdBEwJ5mye0aeV5BlmUUkJyQiwtf4pqIzmLONkUBMckpQoc9
-	 W/Gf30/G7C3LEJuIqE8b2ijFpfBO2Z9jhqb2AF62IGrJXteH9c6lSB7k7fBCecGEH4
-	 9S37AvxNcIpOYeUr+5NNnQoXyK81waffWOCYOZO3Wl5bJYSH5r+QSkoDh0pB6SASoa
-	 DPOgBmc691vLQSaDa82hz08t8TNYhHg5WTC600Nb4o3OTeYG0VTQsUc2pi48hpm25L
-	 i1KUb5f1JjCndHAgnhqZQ0svQ3XmvjKUn0GJb4HFDru94h27kWiGJGdA5EqLj0LR9j
-	 3d2oOyqVsae3g==
-Date: Mon, 30 Jun 2025 13:35:18 -0700
+	b=miH6P3n5QAkKFfbrZCDoFYqmhti01pJkS6lvdQerD1SnIftpFt/Qf/xe7XbAoFGlg
+	 EjJqkwhJWK2x5MmXkwFLgNxI+VC1v3BfmWHz1aY+sFVcw0J6DtJ4RMRXuauuedNK+I
+	 1KbuO53vw1Nx0Ubl0xUWpAynhUCcglsRdTSBwMyZyXGCJc8/j4GJ2qS1CLFWyVbuPR
+	 wQWkRqUzkd126bIx4FdFve76YSEhhMi28G8F/43AycBB551pfKinVpjyVlX1/EU48J
+	 tYQcgJCtEYl/pqDmc5jdKGZAi7yOFC2VO3pnc3aJgpEf0cnF1JuGRqSJZgOcDg1LHI
+	 Mh7Eoj/UXwT2Q==
+Date: Mon, 30 Jun 2025 13:52:48 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>, Drew Fustini <drew@pdp7.com>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Frank Binns <frank.binns@imgtec.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v4 5/9] clk: thead: Mark essential bus clocks as
- CLK_IGNORE_UNUSED
-Message-ID: <aGL1BjGowU3HNsYE@x1>
-References: <20250618-rust-next-pwm-working-fan-for-sending-v4-0-a6a28f2b6d8a@samsung.com>
- <CGME20250618122808eucas1p1734efef72b723602969465d6cd0c01d2@eucas1p1.samsung.com>
- <20250618-rust-next-pwm-working-fan-for-sending-v4-5-a6a28f2b6d8a@samsung.com>
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v7 3/5] riscv: dts: thead: th1520: Add GPU clkgen reset
+ to AON node
+Message-ID: <aGL5IBDii4kLXeQH@x1>
+References: <20250626-apr_14_for_sending-v7-0-6593722e0217@samsung.com>
+ <CGME20250626093359eucas1p20a737f31b582ef0a2d54082eb172586e@eucas1p2.samsung.com>
+ <20250626-apr_14_for_sending-v7-3-6593722e0217@samsung.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250618-rust-next-pwm-working-fan-for-sending-v4-5-a6a28f2b6d8a@samsung.com>
+In-Reply-To: <20250626-apr_14_for_sending-v7-3-6593722e0217@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_133521_639318_1608081C 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20250630_135251_304063_9E38F82A 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,74 +94,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 02:27:38PM +0200, Michal Wilczynski wrote:
-> Probing peripherals in the AON and PERI domains, such as the PVT thermal
-> sensor and the PWM controller, can lead to boot hangs or unresponsive
-> devices on the LPi4A board. The root cause is that their parent bus
-> clocks ('CLK_CPU2AON_X2H' and the 'CLK_PERISYS_APB' clocks) are
-> automatically gated by the kernel's power-saving mechanisms when the bus
-> is perceived as idle.
+On Thu, Jun 26, 2025 at 11:33:48AM +0200, Michal Wilczynski wrote:
+> Add the "gpu-clkgen" reset property to the AON device tree node. This
+> allows the AON power domain driver to detect the capability to power
+> sequence the GPU and spawn the necessary pwrseq-thead-gpu auxiliary
+> driver for managing the GPU's complex power sequence.
 > 
-> Alternative solutions were investigated, including modeling the parent
-> bus in the Device Tree with 'simple-pm-bus' or refactoring the clock
-> driver's parentage. The 'simple-pm-bus' approach is not viable due to
-> the lack of defined bus address ranges in the hardware manual and its
-> creation of improper dependencies on the 'pm_runtime' API for consumer
-> drivers.
+> This commit also adds the prerequisite
+> dt-bindings/reset/thead,th1520-reset.h include to make the
+> TH1520_RESET_ID_GPU_CLKGEN available. This include was previously
+> dropped during a conflict resolution [1].
 > 
-> Therefore, applying the'`CLK_IGNORE_UNUSED' flag directly to the
-> essential bus clocks is the most direct and targeted fix. This prevents
-> the kernel from auto-gating these buses and ensures peripherals remain
-> accessible.
+> Link: https://lore.kernel.org/all/aAvfn2mq0Ksi8DF2@x1/ [1]
 > 
-> This change fixes the boot hang associated with the PVT sensor and
-> resolves the functional issues with the PWM controller.
-> 
-> Link: https://lore.kernel.org/all/9e8a12db-236d-474c-b110-b3be96edf057@samsung.com/ [1]
-> 
+> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > Reviewed-by: Drew Fustini <drew@pdp7.com>
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  drivers/clk/thead/clk-th1520-ap.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
-> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-> index ebfb1d59401d05443716eb0029403b01775e8f73..cf7f6bd428a0faa4611b3fc61edbbc6690e565d9 100644
-> --- a/drivers/clk/thead/clk-th1520-ap.c
-> +++ b/drivers/clk/thead/clk-th1520-ap.c
-> @@ -792,11 +792,12 @@ static CCU_GATE(CLK_AON2CPU_A2X, aon2cpu_a2x_clk, "aon2cpu-a2x", axi4_cpusys2_ac
->  		0x134, BIT(8), 0);
->  static CCU_GATE(CLK_X2X_CPUSYS, x2x_cpusys_clk, "x2x-cpusys", axi4_cpusys2_aclk_pd,
->  		0x134, BIT(7), 0);
-> -static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd, 0x138, BIT(8), 0);
-> +static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd,
-> +		0x138, BIT(8), CLK_IGNORE_UNUSED);
->  static CCU_GATE(CLK_CPU2PERI_X2H, cpu2peri_x2h_clk, "cpu2peri-x2h", axi4_cpusys2_aclk_pd,
->  		0x140, BIT(9), CLK_IGNORE_UNUSED);
->  static CCU_GATE(CLK_PERISYS_APB1_HCLK, perisys_apb1_hclk, "perisys-apb1-hclk", perisys_ahb_hclk_pd,
-> -		0x150, BIT(9), 0);
-> +		0x150, BIT(9), CLK_IGNORE_UNUSED);
->  static CCU_GATE(CLK_PERISYS_APB2_HCLK, perisys_apb2_hclk, "perisys-apb2-hclk", perisys_ahb_hclk_pd,
->  		0x150, BIT(10), CLK_IGNORE_UNUSED);
->  static CCU_GATE(CLK_PERISYS_APB3_HCLK, perisys_apb3_hclk, "perisys-apb3-hclk", perisys_ahb_hclk_pd,
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> index 1db0054c4e093400e9dbebcee5fcfa5b5cae6e32..f3f5db0201ab8c0306d4d63072a1573431e51893 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -7,6 +7,7 @@
+>  #include <dt-bindings/interrupt-controller/irq.h>
+>  #include <dt-bindings/clock/thead,th1520-clk-ap.h>
+>  #include <dt-bindings/power/thead,th1520-power.h>
+> +#include <dt-bindings/reset/thead,th1520-reset.h>
+>  
+>  / {
+>  	compatible = "thead,th1520";
+> @@ -234,6 +235,8 @@ aon: aon {
+>  		compatible = "thead,th1520-aon";
+>  		mboxes = <&mbox_910t 1>;
+>  		mbox-names = "aon";
+> +		resets = <&rst TH1520_RESET_ID_GPU_CLKGEN>;
+> +		reset-names = "gpu-clkgen";
+>  		#power-domain-cells = <1>;
+>  	};
+>  
 > 
 > -- 
 > 2.34.1
 > 
 
-I've applied this patch to thead-clk-for-next [1] as commit 0370395 [2].
+I have applied this patch to thead-dt-for-next [1] as commit cf5e81d [2].
 
 Thanks,
 Drew
 
-[1] https://github.com/pdp7/linux/commits/thead-clk-for-next/
-[2] https://github.com/pdp7/linux/commit/0370395d45ca6dd53bb931978f0e91ac8dd6f1c5
-~                                                                                                                                                     
-~                                                                                                                                                     
-~                                                                                                 
-
-
-
+[1] https://github.com/pdp7/linux/commits/thead-dt-for-next/
+[2] https://github.com/pdp7/linux/commit/cf5e81da0ed7f548367a9687ad73956a8dfb54d1
 
 _______________________________________________
 linux-riscv mailing list
