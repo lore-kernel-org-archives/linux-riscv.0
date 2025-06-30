@@ -4,126 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893DEC83037
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 16:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93E94C83029
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 16:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H6FhC4vvU5iTS9hr2Ixug9VM5aaYp2eUQ4qfvhPxwtc=; b=jCPr3F8+p2Cs69
-	s4Is4Vc546gCiPBHv85XwEmCpZ0vDaCnyQgBXDZOM6r4mlHGwiXSxTYYVW+pUbUz1zAretyVFtA7J
-	4Sou9QCLBB8GP2jE9YJzWwM7yWMvsmAi42qV63wjRAuUK0l0PcSiXGvnLUzobM7BHTyKjlvHoLX5f
-	ijoByLPW+v5tPdaU6rHHk7LVe1n1Av2McWcnAnxX/SCPV+f+fi68ebr9aBgtACGQbGkkJ6N6LhIwU
-	h0Ghxg/97G1SD2acrH6pYlFtnPJZifRAkGhTroBj+B8j0ogRQBYVvpSOgRAha7sHAEqyDimK0mPik
-	R68cJPnjF+g3p379E+RA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nbFga64Y+MEE/ZfOeecHX7xc79XF4YB5znuWLR5GiBU=; b=oUczuRIrAJ8IU8
+	tNIjth/DI8JUgM6dXIVKLU8yYzU5+lcxVOFQDE6yPjemc8WNabjUogKcW6CAFz0RoWX/AkhAVfdLQ
+	VgPrZRQhwKnrCv2/9dIYgMQRYL44vjhVNAdYgV+JJeyJjdT5N2XwR/g20zATUgM1Tm50yugUXhCgY
+	T49okg88XFYufwuGRCvFLJQmbj/jeWRIAbcT4zNzCw9RUMKdQBfekXyRAt5ME3LubD/ZjuJx/vPjH
+	vC4s+cnNGyN1y7nnyeZf7xRWYYx1MwdwHBT1RF0D4Xv97AK6Yfe2wvutlSfNVRYM4cXdgglbrCWVp
+	RMsb3TAn0jeJkDhu/eJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWHAJ-00000002rEo-2mEP;
-	Mon, 30 Jun 2025 16:15:31 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uWHEr-00000002tVz-449q;
+	Mon, 30 Jun 2025 16:20:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWGMX-00000002jx4-1KyR;
-	Mon, 30 Jun 2025 15:24:06 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55U8V2Ia000758;
-	Mon, 30 Jun 2025 15:23:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=6FceECBbuO6Z4x2Rp39hcL1hfD2xOI
-	56xCXiWcKK9WA=; b=Ab5IZRmwLvmMk3AiZ89wAAQHApO3HRzY/FKi33YccoEVV8
-	62jDs8lp3GuMhnbp5PvwJeVzIOTdSyIpma+gS0Ugks/c8ATcOXl8/K0Lujz+g0Ad
-	dM1SgFXrBuUMrFqGRGP0yd+oVE8+JDooGZJbbiLjhPut5GCRrRHFIebtiR9AW6Jx
-	+jqh3I+r86Dc9UH2RwXLLF7G0y4EGIwXIEG+8EQguDuTyxyDmyjszA0gk24KkYF+
-	WMQi8/9cdZV76CjE0Ytj99DnJbIc8orRNj1BD/lhbit4VZ05IUXEHPr+1f9T4Iaf
-	PZjXXX61nBxSuq0zpSNKKHaNRcKWSqGn9BNz7ZPg==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 47j5tt2hv1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 Jun 2025 15:23:21 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 55UFKkJT001633;
-	Mon, 30 Jun 2025 15:23:20 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 47j5tt2hut-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 Jun 2025 15:23:20 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55UF6Jrx006928;
-	Mon, 30 Jun 2025 15:23:19 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 47jvxm687n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 Jun 2025 15:23:19 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55UFNFi141091496
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 30 Jun 2025 15:23:15 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9E3012004E;
-	Mon, 30 Jun 2025 15:23:15 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4EF2520043;
-	Mon, 30 Jun 2025 15:23:14 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 30 Jun 2025 15:23:14 +0000 (GMT)
-Date: Mon, 30 Jun 2025 17:23:12 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Heiko Carstens <hca@linux.ibm.com>
-Cc: Vasily Gorbik <gor@linux.ibm.com>,
-        Sabyrzhan Tasbolatov <snovitoll@gmail.com>, ryabinin.a.a@gmail.com,
-        glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
-        vincenzo.frascino@arm.com, linux@armlinux.org.uk,
-        catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
-        kernel@xen0n.name, maddy@linux.ibm.com, mpe@ellerman.id.au,
-        npiggin@gmail.com, christophe.leroy@csgroup.eu,
-        paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-        alex@ghiti.fr, borntraeger@linux.ibm.com, svens@linux.ibm.com,
-        richard@nod.at, anton.ivanov@cambridgegreys.com,
-        johannes@sipsolutions.net, dave.hansen@linux.intel.com,
-        luto@kernel.org, peterz@infradead.org, tglx@linutronix.de,
-        mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com,
-        chris@zankel.net, jcmvbkbc@gmail.com, akpm@linux-foundation.org,
-        nathan@kernel.org, nick.desaulniers+lkml@gmail.com, morbo@google.com,
-        justinstitt@google.com, arnd@arndb.de, rppt@kernel.org,
-        geert@linux-m68k.org, mcgrof@kernel.org, guoweikang.kernel@gmail.com,
-        tiwei.btw@antgroup.com, kevin.brodsky@arm.com, benjamin.berg@intel.com,
-        kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
-        linux-mm@kvack.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v2 01/11] kasan: unify static kasan_flag_enabled across
- modes
-Message-ID: <aGKr4DgJ4w3TfJm1@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <20250626153147.145312-1-snovitoll@gmail.com>
- <20250626153147.145312-2-snovitoll@gmail.com>
- <aGKDhPBgDv2JjJZr@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
- <20250630143934.15284Caf-hca@linux.ibm.com>
+	id 1uWH0U-00000002ojO-42gt;
+	Mon, 30 Jun 2025 16:05:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1CAC361126;
+	Mon, 30 Jun 2025 16:05:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CF64C4CEE3;
+	Mon, 30 Jun 2025 16:05:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751299521;
+	bh=UkM9WqpU5Sx5JdLDa3qEPydxoH8maIJf8+SQ9HnNupo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sBYmJ8H3kL3CkKIDl8seNCQySJ0kDr96EADkNECv264riK/6RWSRB6enyEPbhlRMC
+	 EEbAWcaPtQQgSgERS4LFaWhrPd67ViW9ZwIwoCS7ZUWuwku2ljagMRaEKaNkfI5lWa
+	 E2KENqUzzaFSAPFwi+eAAwSxROzfbCH82TCE+XnzNtIiDItAnNPrnKommdUgNbu1i+
+	 2EQfNtFttk+JJQqq8RJTLDrZfwufYxeMSD8VaLlJ37LuUVDRVO1wI39q5FJ3PWIvrh
+	 vWg7U67Yv3qMhNPykLFteLKS3EEFWJR+BxML9LC887iUl7PHuUmoHtN+nuTyAJ1APk
+	 /UWmXZ65pEwSQ==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH v3 00/16] SHA-512 library functions
+Date: Mon, 30 Jun 2025 09:03:04 -0700
+Message-ID: <20250630160320.2888-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250630143934.15284Caf-hca@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: z4_YQR3yiIx6CG78lyz9FOWfFKu_sVzX
-X-Authority-Analysis: v=2.4 cv=UtNjN/wB c=1 sm=1 tr=0 ts=6862abe9 cx=c_pps a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=DoNX2vE5F4BLjyZpJB8A:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: tSMJYZyFhxN0ELYUCpeHLTTc07NMO3uI
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjMwMDEyNiBTYWx0ZWRfX8gNfFxZTXHKZ dZ80+g69PboCFvZ7mBnOUfK0bCwcv0dSYRqbRWUQ19q/nN1wI6TuhuYqwHy593nbcEA7jlbJwZD 77dnrz9oUStk3kQiVeqmPXKGtKxsdBJ2rMDUHOTQC4GBaAbPZwrp6WqFZf9dFe5sx5xhOKbWCy/
- NwZq+dxl31GEeh7qeRCnnHi4Qxd16CxChbxAbT7vyTZGkfYmt2gzAZsQ9WVivWWtyFljm9LUYUu /A210g10AJ2Cdlfpn7GA0E0mvRxrp+tSiKfaUfSUuPHgdjtBlrSqzSrHD/D2Xsqd7rUwWfMIZjW fInaitcISkEwByhpED+nxsY2XtLUIBynWgUbXHjHc6nBJWSN0rrJzyr4x5ElJH4AxMuQUcAIOs7
- 1rhZuhkKthJv/kG2udE/dGMrx+Msfn4q3zQeVCOUgtPKntnHQoMJd3LZcLGKdzNOHbuQfZDm
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-30_04,2025-06-27_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- priorityscore=1501 phishscore=0 mlxscore=0 spamscore=0 mlxlogscore=999
- adultscore=0 clxscore=1015 lowpriorityscore=0 bulkscore=0 impostorscore=0
- malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506300126
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_082405_475674_9B3A8908 
-X-CRM114-Status: GOOD (  23.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,40 +74,203 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 04:39:34PM +0200, Heiko Carstens wrote:
-> > > +/*
-> > > + * Initialize Generic KASAN and enable runtime checks.
-> > > + * This should be called from arch kasan_init() once shadow memory is ready.
-> > > + */
-> > > +void __init kasan_init_generic(void)
-> > > +{
-> > > +	static_branch_enable(&kasan_flag_enabled);
-> > 
-> > s390 crashes at this line, when the whole series is applied.
-> > 
-> > FWIW, it looks like kasan is called while its state is not yet finalized.
-> > E.g. whether calling __asan_report_store4_noabort() before kasan_init_generic()
-> > is expected?
-> 
-> It crashes because with this conversion a call to static_branch_enable() is
-> introduced. This one get's called way before jump_label_init() init has been
-> called. Therefore the STATIC_KEY_CHECK_USE() in static_key_enable_cpuslocked()
-> triggers.
-> 
-> This again tries to emit a warning. Due to lack of console support that early
-> the kernel crashes.
-> 
-> One possible solution would be to move the kasan init function to
-> arch/s390/kernel/setup.c, after jump_label_init() has been called.
-> If we want this, is a different question.
-> 
-> It seems to work, so I see no reason for not doing that.
+[ I had applied v2 of this earlier, but since it's been accumulating
+  some minor fixups and it's still -rc4, I figured I'd just refresh it ]
 
-IIRC, we wanted to have kasan coverage as early as possible.
-Delaying it past jump_label_init() leaves out pretty big chunk of code?
+This series is also available at:
 
-> Vasily, since you did nearly all of the KASAN work for s390, do you have any
-> opinion about this?
+    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha512-lib-v3
+
+This series adds support for SHA-384, SHA-512, HMAC-SHA384, and
+HMAC-SHA512 to lib/crypto/.  The new functions take advantage of the
+kernel's existing architecture-optimized implementations of the SHA-512
+compression function.  The new functions are fully tested using KUnit.
+
+To avoid duplicating all arch-optimized implementations of the SHA-512
+compression function (~3000 lines of code total), they are moved into
+lib/crypto/ rather than copied.  To make the "sha384", "sha512",
+"hmac(sha384)", and "hmac(sha512)" crypto_shash algorithms in the
+old-school crypto API continue to be properly optimized after that, they
+are reimplemented on top of lib/crypto/, which is straightforward.
+
+The following lists some of the design choices and conventions that I've
+followed in more detail.  Where these differ from the code or APIs for
+other algorithms (e.g., SHA-256 in some cases), I'd like to do it this
+way going forward and plan to fix up the other algorithms accordingly:
+
+- APIs are fully documented with kerneldoc comments.
+
+- APIs cannot fail, and return void.
+
+- APIs work in all contexts.  This doesn't mean that they *should* be
+  called in all contexts, but rather they always just work as expected.
+
+- Tests are KUnit tests, and they are fairly thorough (more thorough
+  than crypto/testmgr.c) and also optionally include benchmarks.
+
+- Architecture-optimized code is integrated the same way I'm doing it
+  for lib/crc/: it's in subdirectories lib/crypto/$(SRCARCH), it's
+  enabled by default, and it's inlined into the same module as the
+  generic code.  This solves a number of problems; for more details, see
+  https://lore.kernel.org/r/20250607200454.73587-1-ebiggers@kernel.org
+
+- HMAC support is a first-class citizen.
+
+- APIs handle zeroization, when applicable.
+
+- Message contexts are *_ctx instead of *_state.  It's shorter, avoids
+  ambiguity with the compression function state, and matches OpenSSL.
+
+- Length arguments are size_t, are in bytes, are named len or *_len, and
+  immediately follow the corresponding buffer.  "Object" being operated
+  on is first argument; outputs otherwise follow inputs.
+
+- The structures for different algorithms use different types, which
+  prevents usage errors where functions are mixed up between algorithms.
+
+- The compression function state is strongly typed, not a plain array.
+
+Changed in v3:
+- Dropped KUnit tests from this series, since they'll be separate and
+  will need to go last in the branch (as per request from Linus)
+- Folded in the following fixups I previously sent:
+  "crypto: testmgr/sha512 - Omit generic_driver for no-op tests",
+  "crypto: sha512 - Use the correct legacy export format",
+  "lib/crypto: sha512: Reorder some code in sha512.c",
+  "lib/crypto: sha512: Do not include <crypto/internal/sha2.h>",
+  "lib/crypto: sha512: Fix a grammatical error in kerneldoc comments",
+  "lib/crypto: x86/sha512: Drop unnecessary ANNOTATE_NOENDBR"
+- Updated cra_priority values to be consistent with sha256.c and not
+  decreased from what the arch-optimized code used before
+- Added MODULE_ALIAS_CRYPTO() lines for the *-lib cra_driver_names
+- Updated commit titles to align with the conventions I'm adopting
+
+Changed in v2:
+- Added "crypto: sha512 - use same state format as legacy drivers"
+- Fixed build on user-mode Linux
+- Fixed W=1 build warning by adding <linux/export.h>
+- Optimized __sha512_final() and __hmac_sha512_final() slightly
+
+Eric Biggers (16):
+  crypto: sha512 - Rename conflicting symbols
+  lib/crypto: sha512: Add support for SHA-384 and SHA-512
+  lib/crypto: sha512: Add HMAC-SHA384 and HMAC-SHA512 support
+  crypto: riscv/sha512 - Stop depending on sha512_generic_block_fn
+  crypto: sha512 - Replace sha512_generic with wrapper around SHA-512
+    library
+  crypto: sha512 - Use same state format as legacy drivers
+  lib/crypto: arm/sha512: Migrate optimized SHA-512 code to library
+  lib/crypto: arm64/sha512: Migrate optimized SHA-512 code to library
+  mips: cavium-octeon: Move octeon-crypto.h into asm directory
+  lib/crypto: mips/sha512: Migrate optimized SHA-512 code to library
+  lib/crypto: riscv/sha512: Migrate optimized SHA-512 code to library
+  lib/crypto: s390/sha512: Migrate optimized SHA-512 code to library
+  lib/crypto: sparc/sha512: Migrate optimized SHA-512 code to library
+  lib/crypto: x86/sha512: Migrate optimized SHA-512 code to library
+  lib/crypto: x86/sha512: Remove unnecessary checks for nblocks==0
+  crypto: sha512 - Remove sha512_base.h
+
+ arch/arm/configs/exynos_defconfig             |   1 -
+ arch/arm/configs/milbeaut_m10v_defconfig      |   1 -
+ arch/arm/configs/multi_v7_defconfig           |   1 -
+ arch/arm/configs/omap2plus_defconfig          |   1 -
+ arch/arm/configs/pxa_defconfig                |   1 -
+ arch/arm/crypto/Kconfig                       |  10 -
+ arch/arm/crypto/Makefile                      |  15 -
+ arch/arm/crypto/sha512-glue.c                 | 110 -----
+ arch/arm/crypto/sha512-neon-glue.c            |  75 ----
+ arch/arm/crypto/sha512.h                      |   3 -
+ arch/arm64/configs/defconfig                  |   1 -
+ arch/arm64/crypto/Kconfig                     |  19 -
+ arch/arm64/crypto/Makefile                    |  14 -
+ arch/arm64/crypto/sha512-ce-glue.c            |  96 -----
+ arch/arm64/crypto/sha512-glue.c               |  83 ----
+ arch/mips/cavium-octeon/crypto/Makefile       |   1 -
+ .../mips/cavium-octeon/crypto/octeon-crypto.c |   3 +-
+ arch/mips/cavium-octeon/crypto/octeon-md5.c   |   3 +-
+ arch/mips/cavium-octeon/crypto/octeon-sha1.c  |   3 +-
+ .../mips/cavium-octeon/crypto/octeon-sha256.c |   3 +-
+ .../mips/cavium-octeon/crypto/octeon-sha512.c | 167 --------
+ arch/mips/configs/cavium_octeon_defconfig     |   1 -
+ arch/mips/crypto/Kconfig                      |  10 -
+ .../asm/octeon/crypto.h}                      |   0
+ arch/riscv/crypto/Kconfig                     |  11 -
+ arch/riscv/crypto/Makefile                    |   3 -
+ arch/riscv/crypto/sha512-riscv64-glue.c       | 124 ------
+ arch/s390/configs/debug_defconfig             |   1 -
+ arch/s390/configs/defconfig                   |   1 -
+ arch/s390/crypto/Kconfig                      |  10 -
+ arch/s390/crypto/Makefile                     |   1 -
+ arch/s390/crypto/sha512_s390.c                | 151 -------
+ arch/sparc/crypto/Kconfig                     |  10 -
+ arch/sparc/crypto/Makefile                    |   2 -
+ arch/sparc/crypto/sha512_glue.c               | 122 ------
+ arch/x86/crypto/Kconfig                       |  13 -
+ arch/x86/crypto/Makefile                      |   3 -
+ arch/x86/crypto/sha512_ssse3_glue.c           | 322 --------------
+ crypto/Kconfig                                |   4 +-
+ crypto/Makefile                               |   2 +-
+ crypto/sha512.c                               | 354 +++++++++++++++
+ crypto/sha512_generic.c                       | 217 ----------
+ crypto/testmgr.c                              |  10 +
+ drivers/crypto/starfive/jh7110-hash.c         |   8 +-
+ include/crypto/sha2.h                         | 350 +++++++++++++++
+ include/crypto/sha512_base.h                  | 120 ------
+ lib/crypto/Kconfig                            |  18 +
+ lib/crypto/Makefile                           |  36 ++
+ lib/crypto/arm/.gitignore                     |   2 +
+ .../crypto => lib/crypto/arm}/sha512-armv4.pl |   0
+ lib/crypto/arm/sha512.h                       |  38 ++
+ lib/crypto/arm64/.gitignore                   |   2 +
+ .../crypto/arm64}/sha512-ce-core.S            |  10 +-
+ lib/crypto/arm64/sha512.h                     |  46 ++
+ lib/crypto/mips/sha512.h                      |  74 ++++
+ .../riscv}/sha512-riscv64-zvknhb-zvkb.S       |   4 +-
+ lib/crypto/riscv/sha512.h                     |  41 ++
+ lib/crypto/s390/sha512.h                      |  28 ++
+ lib/crypto/sha512.c                           | 402 ++++++++++++++++++
+ lib/crypto/sparc/sha512.h                     |  42 ++
+ .../crypto => lib/crypto/sparc}/sha512_asm.S  |   0
+ .../crypto/x86}/sha512-avx-asm.S              |  11 +-
+ .../crypto/x86}/sha512-avx2-asm.S             |  12 +-
+ .../crypto/x86}/sha512-ssse3-asm.S            |  14 +-
+ lib/crypto/x86/sha512.h                       |  54 +++
+ 65 files changed, 1529 insertions(+), 1766 deletions(-)
+ delete mode 100644 arch/arm/crypto/sha512-glue.c
+ delete mode 100644 arch/arm/crypto/sha512-neon-glue.c
+ delete mode 100644 arch/arm/crypto/sha512.h
+ delete mode 100644 arch/arm64/crypto/sha512-ce-glue.c
+ delete mode 100644 arch/arm64/crypto/sha512-glue.c
+ delete mode 100644 arch/mips/cavium-octeon/crypto/octeon-sha512.c
+ rename arch/mips/{cavium-octeon/crypto/octeon-crypto.h => include/asm/octeon/crypto.h} (100%)
+ delete mode 100644 arch/riscv/crypto/sha512-riscv64-glue.c
+ delete mode 100644 arch/s390/crypto/sha512_s390.c
+ delete mode 100644 arch/sparc/crypto/sha512_glue.c
+ delete mode 100644 arch/x86/crypto/sha512_ssse3_glue.c
+ create mode 100644 crypto/sha512.c
+ delete mode 100644 crypto/sha512_generic.c
+ delete mode 100644 include/crypto/sha512_base.h
+ create mode 100644 lib/crypto/arm/.gitignore
+ rename {arch/arm/crypto => lib/crypto/arm}/sha512-armv4.pl (100%)
+ create mode 100644 lib/crypto/arm/sha512.h
+ create mode 100644 lib/crypto/arm64/.gitignore
+ rename {arch/arm64/crypto => lib/crypto/arm64}/sha512-ce-core.S (97%)
+ create mode 100644 lib/crypto/arm64/sha512.h
+ create mode 100644 lib/crypto/mips/sha512.h
+ rename {arch/riscv/crypto => lib/crypto/riscv}/sha512-riscv64-zvknhb-zvkb.S (98%)
+ create mode 100644 lib/crypto/riscv/sha512.h
+ create mode 100644 lib/crypto/s390/sha512.h
+ create mode 100644 lib/crypto/sha512.c
+ create mode 100644 lib/crypto/sparc/sha512.h
+ rename {arch/sparc/crypto => lib/crypto/sparc}/sha512_asm.S (100%)
+ rename {arch/x86/crypto => lib/crypto/x86}/sha512-avx-asm.S (98%)
+ rename {arch/x86/crypto => lib/crypto/x86}/sha512-avx2-asm.S (99%)
+ rename {arch/x86/crypto => lib/crypto/x86}/sha512-ssse3-asm.S (97%)
+ create mode 100644 lib/crypto/x86/sha512.h
+
+-- 
+2.50.0
+
 
 _______________________________________________
 linux-riscv mailing list
