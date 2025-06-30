@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F323C83029
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 17:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E4CC83029
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 17:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=94BRwQOs41hhQWtNrxVnhiHDnkhq068Vgm7wWYcaRys=; b=q3XCUhiN1iiwXq
-	y//GXauXbI26gItZlP188OcaFoyAJf1L2IPXYQnPf9jLs/uyiObTVxvbHC4HCkh6fVFTtB1xFk1y1
-	tZikE5wuSMh5rkBZTkGM4M7TcHs0k7Mr53DXpVjkhZq3wsmGzoYMgk1EpnO30OcGBHgyBruPjnVId
-	6kpTH7LqKvP66dZZJSrr6rd95n29e08+Iv1wbAHsN+dhBZ/s6JyiQ0O+5+GQ3mOhN0psLchnZL9qv
-	e6VDrtjizgy9XNjHi4mPx8nhypFzsZp4YZhC6zKs6oHGpWya4EG0DiMWH6OZmZ1ejJHCm/IbI7tyQ
-	1IoDtHaAOS369cX5aWyQ==;
+	List-Owner; bh=OLoRQ2rZsA6uY1CWIg55ahghX/qqx1R7nIMk/4GZ/l4=; b=TFWMgfywSBYPOB
+	OQ6Qx/dqRIgzh4/Epg8k9jD3pf9uM/E5Gh80N1DmCRZ7QQ73BCgRaK1LqOpTOnzzm0M792wbV6HEw
+	VBCoF+87Izywln+3a3memq/yBiGIrRxBNKMDmigytBZ0t/6vfUQcEDkV5FzpoutnnqABI9F2tFoG9
+	YUI+46+/MxuZI6Fznho0OSDWv3bnCs0UcrpGhLzJIRHDLfQLaW5dk5fIDWN/xDvEct/5DOsjofO/L
+	NTGcJ6oG+PSApgQRDqqBf8S5TbBFzl3oc3cr9NzKIGt32+lqyYXd0FOtlcmuiDuBoZnOu4pACjT3X
+	A5zNInSN26uW0MBUGhCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWHub-000000031Vg-1oi3;
-	Mon, 30 Jun 2025 17:03:21 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uWIeV-000000037FD-0IJO;
+	Mon, 30 Jun 2025 17:50:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWH4S-00000002pqL-3J1e;
-	Mon, 30 Jun 2025 16:09:32 +0000
+	id 1uWH0Z-00000002on0-2hMr;
+	Mon, 30 Jun 2025 16:05:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 19317A53519;
-	Mon, 30 Jun 2025 16:09:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EC2DC4CEF3;
-	Mon, 30 Jun 2025 16:09:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 345645C5B6B;
+	Mon, 30 Jun 2025 16:05:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7BB2C4AF09;
+	Mon, 30 Jun 2025 16:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751299767;
-	bh=pkoFPfsdz5mUfc5I4FK+MnyFLsCjGsnnD9jc5ME9fN4=;
+	s=k20201202; t=1751299527;
+	bh=sOr7n7osKoPo0iWtqMHhPhtDizNmc02j97iKsfhVDgI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jnBxR32keuveFDD/erORneyVQFZMExFVwQ2m1PRHBM8e09zhVEcpdxXezXwhIRIep
-	 1b/hAsrsEPE4GO34uoemDkgD6DfhLn2c+0We3yqTqkDW1Zdqk+usXyKw0ahpO/QyDk
-	 kq8OJiVNVNYv+79sZjwcLRLPE8u+AXxrFrb5rUo1EG4MgLQWKf4VRjl6PqF6ZW6RvL
-	 tO/4ewF4TqSoMw0NJ2cWpzPbScaI6j0B3laWfK7QYlGoz9vuy6ps6Y8wwL6bttBzRT
-	 i6YDWFUv5OhMZDpFhfE2wkKZC04+niDSZ+wBsXg2HLi3z3ji0M2HuML4L/kX6ufOLl
-	 sxIXnWBzurdOw==
+	b=mnk5p5kHUp5XLzKIHdu9Xj6bGlhyzDSJSu0/mBqEEQhM3pcKMwOLzG1xvojCgM41R
+	 yeoKZUT8c6Cc/5eRXRs6VKuJhz37JPnhbR3KCcCZq36K6muCR15e0MO2UOGh+riYIu
+	 xtGcdMjmh+BhJKvOatGq58kCZ6Xkh2/2tQ3qn2todXp0KVQEoxwfxwtcJpx8i2DTNc
+	 vzBzPSz+agDzgQ9iQHG2j1gHbvXVsa649XkGvv8XsOY8s7rUXKiNYZomenlidkHvSN
+	 mPNS9IzZk5C+0EkCsQY5LKSXwER4Y8MdhGqvPxv/8UUmV8x/4q+g6ezeYlnZPtRk1G
+	 FSL+fDwuFL6Sg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	sparclinux@vger.kernel.org,
@@ -54,16 +53,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 14/14] lib/crypto: sha256: Document the SHA-224 and SHA-256 API
-Date: Mon, 30 Jun 2025 09:06:45 -0700
-Message-ID: <20250630160645.3198-15-ebiggers@kernel.org>
+Subject: [PATCH v3 11/16] lib/crypto: riscv/sha512: Migrate optimized SHA-512 code to library
+Date: Mon, 30 Jun 2025 09:03:15 -0700
+Message-ID: <20250630160320.2888-12-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250630160645.3198-1-ebiggers@kernel.org>
-References: <20250630160645.3198-1-ebiggers@kernel.org>
+In-Reply-To: <20250630160320.2888-1-ebiggers@kernel.org>
+References: <20250630160320.2888-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_090928_982353_0277D6DA 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20250630_090527_756628_8807B652 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,130 +79,319 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add kerneldoc comments, consistent with the kerneldoc comments of the
-SHA-384 and SHA-512 API.
+Instead of exposing the riscv-optimized SHA-512 code via riscv-specific
+crypto_shash algorithms, instead just implement the sha512_blocks()
+library function.  This is much simpler, it makes the SHA-512 (and
+SHA-384) library functions be riscv-optimized, and it fixes the
+longstanding issue where the riscv-optimized SHA-512 code was disabled
+by default.  SHA-512 still remains available through crypto_shash, but
+individual architectures no longer need to handle it.
 
+To match sha512_blocks(), change the type of the nblocks parameter of
+the assembly function from int to size_t.  The assembly function
+actually already treated it as size_t.
+
+Note: to see the diff from arch/riscv/crypto/sha512-riscv64-glue.c to
+lib/crypto/riscv/sha512.h, view this commit with 'git show -M10'.
+
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- include/crypto/sha2.h | 76 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 76 insertions(+)
+ arch/riscv/crypto/Kconfig                     |  12 --
+ arch/riscv/crypto/Makefile                    |   3 -
+ arch/riscv/crypto/sha512-riscv64-glue.c       | 130 ------------------
+ lib/crypto/Kconfig                            |   1 +
+ lib/crypto/Makefile                           |   2 +
+ .../riscv}/sha512-riscv64-zvknhb-zvkb.S       |   4 +-
+ lib/crypto/riscv/sha512.h                     |  41 ++++++
+ 7 files changed, 46 insertions(+), 147 deletions(-)
+ delete mode 100644 arch/riscv/crypto/sha512-riscv64-glue.c
+ rename {arch/riscv/crypto => lib/crypto/riscv}/sha512-riscv64-zvknhb-zvkb.S (98%)
+ create mode 100644 lib/crypto/riscv/sha512.h
 
-diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
-index 2e3fc2cf4aa0d..e0a08f6addd00 100644
---- a/include/crypto/sha2.h
-+++ b/include/crypto/sha2.h
-@@ -153,17 +153,55 @@ void __hmac_sha256_init(struct __hmac_sha256_ctx *ctx,
-  */
- struct sha224_ctx {
- 	struct __sha256_ctx ctx;
- };
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index 53e4e1eacf554..a75d6325607b4 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -26,22 +26,10 @@ config CRYPTO_GHASH_RISCV64
+ 	  GCM GHASH function (NIST SP 800-38D)
  
-+/**
-+ * sha224_init() - Initialize a SHA-224 context for a new message
-+ * @ctx: the context to initialize
-+ *
-+ * If you don't need incremental computation, consider sha224() instead.
-+ *
-+ * Context: Any context.
-+ */
- void sha224_init(struct sha224_ctx *ctx);
-+
-+/**
-+ * sha224_update() - Update a SHA-224 context with message data
-+ * @ctx: the context to update; must have been initialized
-+ * @data: the message data
-+ * @len: the data length in bytes
-+ *
-+ * This can be called any number of times.
-+ *
-+ * Context: Any context.
-+ */
- static inline void sha224_update(struct sha224_ctx *ctx,
- 				 const u8 *data, size_t len)
- {
- 	__sha256_update(&ctx->ctx, data, len);
- }
-+
-+/**
-+ * sha224_final() - Finish computing a SHA-224 message digest
-+ * @ctx: the context to finalize; must have been initialized
-+ * @out: (output) the resulting SHA-224 message digest
-+ *
-+ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-+ *
-+ * Context: Any context.
-+ */
- void sha224_final(struct sha224_ctx *ctx, u8 out[SHA224_DIGEST_SIZE]);
-+
-+/**
-+ * sha224() - Compute SHA-224 message digest in one shot
-+ * @data: the message data
-+ * @len: the data length in bytes
-+ * @out: (output) the resulting SHA-224 message digest
-+ *
-+ * Context: Any context.
-+ */
- void sha224(const u8 *data, size_t len, u8 out[SHA224_DIGEST_SIZE]);
+ 	  Architecture: riscv64 using:
+ 	  - Zvkg vector crypto extension
  
- /**
-  * struct hmac_sha224_key - Prepared key for HMAC-SHA224
-  * @key: private
-@@ -273,17 +311,55 @@ void hmac_sha224_usingrawkey(const u8 *raw_key, size_t raw_key_len,
-  */
- struct sha256_ctx {
- 	struct __sha256_ctx ctx;
- };
+-config CRYPTO_SHA512_RISCV64
+-	tristate "Hash functions: SHA-384 and SHA-512"
+-	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+-	select CRYPTO_LIB_SHA512
+-	select CRYPTO_SHA512
+-	help
+-	  SHA-384 and SHA-512 secure hash algorithm (FIPS 180)
+-
+-	  Architecture: riscv64 using:
+-	  - Zvknhb vector crypto extension
+-	  - Zvkb vector crypto extension
+-
+ config CRYPTO_SM3_RISCV64
+ 	tristate "Hash functions: SM3 (ShangMi 3)"
+ 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+ 	select CRYPTO_HASH
+ 	select CRYPTO_LIB_SM3
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+index e10e8257734e3..183495a95cc0e 100644
+--- a/arch/riscv/crypto/Makefile
++++ b/arch/riscv/crypto/Makefile
+@@ -5,13 +5,10 @@ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o \
+ 		 aes-riscv64-zvkned-zvbb-zvkg.o aes-riscv64-zvkned-zvkb.o
  
-+/**
-+ * sha256_init() - Initialize a SHA-256 context for a new message
-+ * @ctx: the context to initialize
-+ *
-+ * If you don't need incremental computation, consider sha256() instead.
-+ *
-+ * Context: Any context.
-+ */
- void sha256_init(struct sha256_ctx *ctx);
-+
-+/**
-+ * sha256_update() - Update a SHA-256 context with message data
-+ * @ctx: the context to update; must have been initialized
-+ * @data: the message data
-+ * @len: the data length in bytes
-+ *
-+ * This can be called any number of times.
-+ *
-+ * Context: Any context.
-+ */
- static inline void sha256_update(struct sha256_ctx *ctx,
- 				 const u8 *data, size_t len)
- {
- 	__sha256_update(&ctx->ctx, data, len);
- }
-+
-+/**
-+ * sha256_final() - Finish computing a SHA-256 message digest
-+ * @ctx: the context to finalize; must have been initialized
-+ * @out: (output) the resulting SHA-256 message digest
-+ *
-+ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-+ *
-+ * Context: Any context.
-+ */
- void sha256_final(struct sha256_ctx *ctx, u8 out[SHA256_DIGEST_SIZE]);
-+
-+/**
-+ * sha256() - Compute SHA-256 message digest in one shot
-+ * @data: the message data
-+ * @len: the data length in bytes
-+ * @out: (output) the resulting SHA-256 message digest
-+ *
-+ * Context: Any context.
-+ */
- void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE]);
+ obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
+ ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
  
- /**
-  * struct hmac_sha256_key - Prepared key for HMAC-SHA256
-  * @key: private
+-obj-$(CONFIG_CRYPTO_SHA512_RISCV64) += sha512-riscv64.o
+-sha512-riscv64-y := sha512-riscv64-glue.o sha512-riscv64-zvknhb-zvkb.o
+-
+ obj-$(CONFIG_CRYPTO_SM3_RISCV64) += sm3-riscv64.o
+ sm3-riscv64-y := sm3-riscv64-glue.o sm3-riscv64-zvksh-zvkb.o
+ 
+ obj-$(CONFIG_CRYPTO_SM4_RISCV64) += sm4-riscv64.o
+ sm4-riscv64-y := sm4-riscv64-glue.o sm4-riscv64-zvksed-zvkb.o
+diff --git a/arch/riscv/crypto/sha512-riscv64-glue.c b/arch/riscv/crypto/sha512-riscv64-glue.c
+deleted file mode 100644
+index b3dbc71de07b0..0000000000000
+--- a/arch/riscv/crypto/sha512-riscv64-glue.c
++++ /dev/null
+@@ -1,130 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/*
+- * SHA-512 and SHA-384 using the RISC-V vector crypto extensions
+- *
+- * Copyright (C) 2023 VRULL GmbH
+- * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
+- *
+- * Copyright (C) 2023 SiFive, Inc.
+- * Author: Jerry Shih <jerry.shih@sifive.com>
+- */
+-
+-#include <asm/simd.h>
+-#include <asm/vector.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/internal/simd.h>
+-#include <crypto/sha512_base.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-
+-/*
+- * Note: the asm function only uses the 'state' field of struct sha512_state.
+- * It is assumed to be the first field.
+- */
+-asmlinkage void sha512_transform_zvknhb_zvkb(
+-	struct sha512_state *state, const u8 *data, int num_blocks);
+-
+-static void sha512_block(struct sha512_state *state, const u8 *data,
+-			 int num_blocks)
+-{
+-	/*
+-	 * Ensure struct sha512_state begins directly with the SHA-512
+-	 * 512-bit internal state, as this is what the asm function expects.
+-	 */
+-	BUILD_BUG_ON(offsetof(struct sha512_state, state) != 0);
+-
+-	if (crypto_simd_usable()) {
+-		kernel_vector_begin();
+-		sha512_transform_zvknhb_zvkb(state, data, num_blocks);
+-		kernel_vector_end();
+-	} else {
+-		struct __sha512_ctx ctx = {};
+-
+-		static_assert(sizeof(ctx.state) == sizeof(state->state));
+-		memcpy(&ctx.state, state->state, sizeof(ctx.state));
+-		__sha512_update(&ctx, data,
+-				(size_t)num_blocks * SHA512_BLOCK_SIZE);
+-		memcpy(state->state, &ctx.state, sizeof(state->state));
+-	}
+-}
+-
+-static int riscv64_sha512_update(struct shash_desc *desc, const u8 *data,
+-				 unsigned int len)
+-{
+-	return sha512_base_do_update_blocks(desc, data, len, sha512_block);
+-}
+-
+-static int riscv64_sha512_finup(struct shash_desc *desc, const u8 *data,
+-				unsigned int len, u8 *out)
+-{
+-	sha512_base_do_finup(desc, data, len, sha512_block);
+-	return sha512_base_finish(desc, out);
+-}
+-
+-static int riscv64_sha512_digest(struct shash_desc *desc, const u8 *data,
+-				 unsigned int len, u8 *out)
+-{
+-	return sha512_base_init(desc) ?:
+-	       riscv64_sha512_finup(desc, data, len, out);
+-}
+-
+-static struct shash_alg riscv64_sha512_algs[] = {
+-	{
+-		.init = sha512_base_init,
+-		.update = riscv64_sha512_update,
+-		.finup = riscv64_sha512_finup,
+-		.digest = riscv64_sha512_digest,
+-		.descsize = SHA512_STATE_SIZE,
+-		.digestsize = SHA512_DIGEST_SIZE,
+-		.base = {
+-			.cra_blocksize = SHA512_BLOCK_SIZE,
+-			.cra_priority = 300,
+-			.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-				     CRYPTO_AHASH_ALG_FINUP_MAX,
+-			.cra_name = "sha512",
+-			.cra_driver_name = "sha512-riscv64-zvknhb-zvkb",
+-			.cra_module = THIS_MODULE,
+-		},
+-	}, {
+-		.init = sha384_base_init,
+-		.update = riscv64_sha512_update,
+-		.finup = riscv64_sha512_finup,
+-		.descsize = SHA512_STATE_SIZE,
+-		.digestsize = SHA384_DIGEST_SIZE,
+-		.base = {
+-			.cra_blocksize = SHA384_BLOCK_SIZE,
+-			.cra_priority = 300,
+-			.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-				     CRYPTO_AHASH_ALG_FINUP_MAX,
+-			.cra_name = "sha384",
+-			.cra_driver_name = "sha384-riscv64-zvknhb-zvkb",
+-			.cra_module = THIS_MODULE,
+-		},
+-	},
+-};
+-
+-static int __init riscv64_sha512_mod_init(void)
+-{
+-	if (riscv_isa_extension_available(NULL, ZVKNHB) &&
+-	    riscv_isa_extension_available(NULL, ZVKB) &&
+-	    riscv_vector_vlen() >= 128)
+-		return crypto_register_shashes(riscv64_sha512_algs,
+-					       ARRAY_SIZE(riscv64_sha512_algs));
+-
+-	return -ENODEV;
+-}
+-
+-static void __exit riscv64_sha512_mod_exit(void)
+-{
+-	crypto_unregister_shashes(riscv64_sha512_algs,
+-				  ARRAY_SIZE(riscv64_sha512_algs));
+-}
+-
+-module_init(riscv64_sha512_mod_init);
+-module_exit(riscv64_sha512_mod_exit);
+-
+-MODULE_DESCRIPTION("SHA-512 (RISC-V accelerated)");
+-MODULE_AUTHOR("Heiko Stuebner <heiko.stuebner@vrull.eu>");
+-MODULE_LICENSE("GPL");
+-MODULE_ALIAS_CRYPTO("sha512");
+-MODULE_ALIAS_CRYPTO("sha384");
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index 303ea15e3e900..656f2c08c46cd 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -178,10 +178,11 @@ config CRYPTO_LIB_SHA512_ARCH
+ 	bool
+ 	depends on CRYPTO_LIB_SHA512 && !UML
+ 	default y if ARM && !CPU_V7M
+ 	default y if ARM64
+ 	default y if MIPS && CPU_CAVIUM_OCTEON
++	default y if RISCV && 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+ 
+ config CRYPTO_LIB_SM3
+ 	tristate
+ 
+ if !KMSAN # avoid false positives from assembly
+diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
+index 22269ab06d700..bc42464a279b8 100644
+--- a/lib/crypto/Makefile
++++ b/lib/crypto/Makefile
+@@ -90,10 +90,12 @@ libsha512-y += arm64/sha512-core.o
+ $(obj)/arm64/sha512-core.S: $(src)/../../arch/arm64/lib/crypto/sha2-armv8.pl
+ 	$(call cmd,perlasm_with_args)
+ clean-files += arm64/sha512-core.S
+ libsha512-$(CONFIG_KERNEL_MODE_NEON) += arm64/sha512-ce-core.o
+ endif
++
++libsha512-$(CONFIG_RISCV) += riscv/sha512-riscv64-zvknhb-zvkb.o
+ endif # CONFIG_CRYPTO_LIB_SHA512_ARCH
+ 
+ obj-$(CONFIG_MPILIB) += mpi/
+ 
+ obj-$(CONFIG_CRYPTO_SELFTESTS_FULL)		+= simd.o
+diff --git a/arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S b/lib/crypto/riscv/sha512-riscv64-zvknhb-zvkb.S
+similarity index 98%
+rename from arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S
+rename to lib/crypto/riscv/sha512-riscv64-zvknhb-zvkb.S
+index 89f4a10d12dd6..b41eebf605462 100644
+--- a/arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S
++++ b/lib/crypto/riscv/sha512-riscv64-zvknhb-zvkb.S
+@@ -91,12 +91,12 @@
+ 	sha512_4rounds	\last, W1, W2, W3, W0
+ 	sha512_4rounds	\last, W2, W3, W0, W1
+ 	sha512_4rounds	\last, W3, W0, W1, W2
+ .endm
+ 
+-// void sha512_transform_zvknhb_zvkb(u64 state[8], const u8 *data,
+-//				     int num_blocks);
++// void sha512_transform_zvknhb_zvkb(struct sha512_block_state *state,
++//				     const u8 *data, size_t nblocks);
+ SYM_FUNC_START(sha512_transform_zvknhb_zvkb)
+ 
+ 	// Setup mask for the vmerge to replace the first word (idx==0) in
+ 	// message scheduling.  There are 4 words, so an 8-bit mask suffices.
+ 	vsetivli	zero, 1, e8, m1, ta, ma
+diff --git a/lib/crypto/riscv/sha512.h b/lib/crypto/riscv/sha512.h
+new file mode 100644
+index 0000000000000..9d0abede322f7
+--- /dev/null
++++ b/lib/crypto/riscv/sha512.h
+@@ -0,0 +1,41 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * SHA-512 and SHA-384 using the RISC-V vector crypto extensions
++ *
++ * Copyright (C) 2023 VRULL GmbH
++ * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
++ *
++ * Copyright (C) 2023 SiFive, Inc.
++ * Author: Jerry Shih <jerry.shih@sifive.com>
++ */
++
++#include <asm/simd.h>
++#include <asm/vector.h>
++#include <crypto/internal/simd.h>
++
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_extensions);
++
++asmlinkage void sha512_transform_zvknhb_zvkb(struct sha512_block_state *state,
++					     const u8 *data, size_t nblocks);
++
++static void sha512_blocks(struct sha512_block_state *state,
++			  const u8 *data, size_t nblocks)
++{
++	if (static_branch_likely(&have_extensions) &&
++	    likely(crypto_simd_usable())) {
++		kernel_vector_begin();
++		sha512_transform_zvknhb_zvkb(state, data, nblocks);
++		kernel_vector_end();
++	} else {
++		sha512_blocks_generic(state, data, nblocks);
++	}
++}
++
++#define sha512_mod_init_arch sha512_mod_init_arch
++static inline void sha512_mod_init_arch(void)
++{
++	if (riscv_isa_extension_available(NULL, ZVKNHB) &&
++	    riscv_isa_extension_available(NULL, ZVKB) &&
++	    riscv_vector_vlen() >= 128)
++		static_branch_enable(&have_extensions);
++}
 -- 
 2.50.0
 
