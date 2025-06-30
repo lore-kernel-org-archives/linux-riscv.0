@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED3E3C83033
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 18:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18192C8302D
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 18:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lrstVMy4GyYhTiT1EgoQusT+Jz7edBTXSwuQ1Y5HzVk=; b=WLfzSEN198zO2q
-	NDMAZo3Rn63XU1vx84LcA8aA6GRIcRU+vRASBF8beIf1KsMYXWAfdWxf7cl/xTNFcLPiIC0raCQJj
-	jZwPwdRH28X6MuGUxcKh4Yvnnrg6NVPVC2vGmrox7ytcrzl81guz+xA9+KdhF0hmw5kB8D5XMoOHb
-	5vji8OQ0nWpwtYYAQN8FssuSmfqcBVjH/3iimZbj7hfmB4sPk5GKCUFXuNadZpABIExnvtwcGpCp/
-	W94aN/QwzekeRD+JvkB4fcqPZz2j7k2XpDDMnZnil44op2wRkJKYF+DqfkCBEl35AjRvSOLLKZWXG
-	NHqFGvK/2otvq+QQfNXQ==;
+	List-Owner; bh=rk2dq2yjaR0sVD1iZAAn54p9ZQI3CnYf56LXbwPYFc0=; b=PtLtguS6oM/sCn
+	pLAtxFmiKwxFW1JPa1VD8nt730jzqM6flddY2cohZiTzOE3J8qPvsHqBhFby8xVwDVqfJPX1STpeO
+	06i02h1sIdhJay6WDLHWdJkJjVRr9Oy11lYTQ6hkL8ga1e/rWOAupEaA9oTnHtJQs2s5E6GEEdk0m
+	T460sxYzhmaWrXu+qTj8H6GXdgS5cmluGx/yt+Bz082CwEmyrNWVwyYBB5qyYxexEfDB4g0h575LQ
+	2Pm2Nos1OV8nmKg9tKjQOlYOVd6o1imigvJ/qDTuSbH5I5/939DS3wPx7VGgcntJa9H7FuQN6cNft
+	P4hba9Ex9NnARxjk9KUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWJ1T-000000039bh-2KIW;
-	Mon, 30 Jun 2025 18:14:31 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uWJ1R-000000039bO-0r4p;
+	Mon, 30 Jun 2025 18:14:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWH4S-00000002ppZ-0KdD;
-	Mon, 30 Jun 2025 16:09:30 +0000
+	id 1uWH4N-00000002plM-3sO2;
+	Mon, 30 Jun 2025 16:09:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6C7A9A53426;
-	Mon, 30 Jun 2025 16:09:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4921C4CEF2;
-	Mon, 30 Jun 2025 16:09:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C36D613AA;
+	Mon, 30 Jun 2025 16:09:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB4A6C4CEF2;
+	Mon, 30 Jun 2025 16:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751299767;
-	bh=hI7/9MXXn63qxg1DA2W2CAE23ZWS/FopAAuRjD/xhFs=;
+	s=k20201202; t=1751299763;
+	bh=6di/lemdUUuURN063IywyRZhcwaKdCBZPfLQhM19GXE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oN5D7nM68TGKPGZYZfUCmR2idT6QSU/9V6Bm4Nd+BH4W3ccbIdeb6eX7QizYZe7ce
-	 b1C5ugHHJ0UyxkvLvqKHVwgxGKT2tGHhB6SkNjeJGS9EyxEhNmgQq5gaTCKepPBrbJ
-	 5/KKuQsavBRZWjviiWq9Uc2bjEiTbU9DMXo7pTiwZtgmTIrc/Rb1onnm2pYpEKE2nL
-	 jc5sTkLpA1W6qHTjKTlNmOXhKDDJcBdsrgZFT2ZZcVkciO2+Tsu4E2Cq1YITmIm7m9
-	 uWHqbWEOtWiMOYhvUlspb4D980aEHInjhTTJMzcxAAfrmqYalRCh3cKOmAFJLmFBiN
-	 uueT2Z+/VqTzA==
+	b=YUEz13trRmGOF1EnTtptvIlzO1jaL21f4T0TLFxkW98FzmMLj6qDaW0ODvpbNWxVx
+	 tfzJ5ASzjGW+jCVRJoRjoHWBYInTKNgLLwpEMauVZBla27IPaaN+Sguq8bUNybwcZ4
+	 m+N6TBi5X7Aay6IJ+JyWUd5O6u3c4w4eAXAtYJv0zGGmEokWNCcro5PhDuNp1zwNIV
+	 7GOiv6OLqYq9c2mtptz2nJBsjhusfEek4rvPdyXbAKJYVSSGkIMS15fAWfrnJ7CW2r
+	 CftvB1tqiZa/uHE5fCme+6m0uY6xzuSfr5q5bF9mchP3IO8KvUpNaXsOLzSyGIIoJR
+	 H3sy/rJqdx/Hw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,16 +54,13 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 13/14] lib/crypto: sha256: Sync sha256_update() with sha512_update()
-Date: Mon, 30 Jun 2025 09:06:44 -0700
-Message-ID: <20250630160645.3198-14-ebiggers@kernel.org>
+Subject: [PATCH v2 05/14] lib/crypto: sha256: Add sha224() and sha224_update()
+Date: Mon, 30 Jun 2025 09:06:36 -0700
+Message-ID: <20250630160645.3198-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250630160645.3198-1-ebiggers@kernel.org>
 References: <20250630160645.3198-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_090928_206049_EFDFC0C2 
-X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,71 +77,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The BLOCK_HASH_UPDATE_BLOCKS macro is difficult to read.  For now, let's
-just write the update explicitly in the straightforward way, mirroring
-sha512_update().  It's possible that we'll bring back a macro for this
-later, but it needs to be properly justified and hopefully a bit more
-readable.
+Add a one-shot SHA-224 computation function sha224(), for consistency
+with sha256(), sha384(), and sha512() which all already exist.
+
+Similarly, add sha224_update().  While for now it's identical to
+sha256_update(), omitting it makes the API harder to use since users
+have to "know" which functions are the same between SHA-224 and SHA-256.
+Also, this is a prerequisite for using different context types for each.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/sha256.c | 28 +++++++++++++++++++++++++---
- 1 file changed, 25 insertions(+), 3 deletions(-)
+ include/crypto/sha2.h | 10 ++++++++--
+ lib/crypto/sha256.c   | 10 ++++++++++
+ 2 files changed, 18 insertions(+), 2 deletions(-)
 
+diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
+index bb181b7996cdc..e31da0743a522 100644
+--- a/include/crypto/sha2.h
++++ b/include/crypto/sha2.h
+@@ -112,22 +112,28 @@ struct sha512_state {
+ 	u64 state[SHA512_DIGEST_SIZE / 8];
+ 	u64 count[2];
+ 	u8 buf[SHA512_BLOCK_SIZE];
+ };
+ 
++void sha256_update(struct sha256_state *sctx, const u8 *data, size_t len);
++
+ static inline void sha224_init(struct sha256_state *sctx)
+ {
+ 	sha224_block_init(&sctx->ctx);
+ }
+-/* Simply use sha256_update as it is equivalent to sha224_update. */
++static inline void sha224_update(struct sha256_state *sctx,
++				 const u8 *data, size_t len)
++{
++	sha256_update(sctx, data, len);
++}
+ void sha224_final(struct sha256_state *sctx, u8 out[SHA224_DIGEST_SIZE]);
++void sha224(const u8 *data, size_t len, u8 out[SHA224_DIGEST_SIZE]);
+ 
+ static inline void sha256_init(struct sha256_state *sctx)
+ {
+ 	sha256_block_init(&sctx->ctx);
+ }
+-void sha256_update(struct sha256_state *sctx, const u8 *data, size_t len);
+ void sha256_final(struct sha256_state *sctx, u8 out[SHA256_DIGEST_SIZE]);
+ void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE]);
+ 
+ /* State for the SHA-512 (and SHA-384) compression function */
+ struct sha512_block_state {
 diff --git a/lib/crypto/sha256.c b/lib/crypto/sha256.c
-index 68936d5cd7745..808438d4f4278 100644
+index 573ccecbf48bf..ccaae70880166 100644
 --- a/lib/crypto/sha256.c
 +++ b/lib/crypto/sha256.c
-@@ -8,11 +8,10 @@
-  * Copyright (c) 2014 Red Hat Inc.
-  * Copyright 2025 Google LLC
-  */
- 
- #include <crypto/hmac.h>
--#include <crypto/internal/blockhash.h>
- #include <crypto/sha2.h>
- #include <linux/export.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/string.h>
-@@ -178,12 +177,35 @@ EXPORT_SYMBOL_GPL(sha256_init);
- void __sha256_update(struct __sha256_ctx *ctx, const u8 *data, size_t len)
+@@ -68,10 +68,20 @@ void sha256_final(struct sha256_state *sctx, u8 out[SHA256_DIGEST_SIZE])
  {
- 	size_t partial = ctx->bytecount % SHA256_BLOCK_SIZE;
- 
- 	ctx->bytecount += len;
--	BLOCK_HASH_UPDATE_BLOCKS(sha256_blocks, &ctx->state, data, len,
--				 SHA256_BLOCK_SIZE, ctx->buf, partial);
-+
-+	if (partial + len >= SHA256_BLOCK_SIZE) {
-+		size_t nblocks;
-+
-+		if (partial) {
-+			size_t l = SHA256_BLOCK_SIZE - partial;
-+
-+			memcpy(&ctx->buf[partial], data, l);
-+			data += l;
-+			len -= l;
-+
-+			sha256_blocks(&ctx->state, ctx->buf, 1);
-+		}
-+
-+		nblocks = len / SHA256_BLOCK_SIZE;
-+		len %= SHA256_BLOCK_SIZE;
-+
-+		if (nblocks) {
-+			sha256_blocks(&ctx->state, data, nblocks);
-+			data += nblocks * SHA256_BLOCK_SIZE;
-+		}
-+		partial = 0;
-+	}
-+	if (len)
-+		memcpy(&ctx->buf[partial], data, len);
+ 	__sha256_final(sctx, out, SHA256_DIGEST_SIZE);
  }
- EXPORT_SYMBOL(__sha256_update);
+ EXPORT_SYMBOL(sha256_final);
  
- static void __sha256_final(struct __sha256_ctx *ctx,
- 			   u8 *out, size_t digest_size)
++void sha224(const u8 *data, size_t len, u8 out[SHA224_DIGEST_SIZE])
++{
++	struct sha256_state sctx;
++
++	sha224_init(&sctx);
++	sha224_update(&sctx, data, len);
++	sha224_final(&sctx, out);
++}
++EXPORT_SYMBOL(sha224);
++
+ void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE])
+ {
+ 	struct sha256_state sctx;
+ 
+ 	sha256_init(&sctx);
 -- 
 2.50.0
 
