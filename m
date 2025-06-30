@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC38C8302D
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 16:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7C0C8302D
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 16:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LR0n4RCuuCXkksgvDaoxUS/XNFGBw1mqkE23jSipdS4=; b=duYq3uo4Fedlzk
-	fi6ntzH360x8+vlnoQNqnX8b3+7fb5uCvoCgPBt8dwcuTl4TOQdT+ybacUpbBrgSS5M3ta69lYhsI
-	BrA1myQnMDN8svAQBUJeSEXk8Kr8eyvMocVYHnXGxgvBLu2VqAURj6z1hrL9GV802nr8/1vhm+hyy
-	Jc7v9Ujr9zTMoSWWsESSxRi+iaffmP/AoT1Km/eGApCRH9fqodCO6u8+tvL2nzVJLAGUC9VSX4iPl
-	SEI5D6vgBRKwjYQ2iznsq8Tr08ODLFiBMLARueP0Ep7FbS+lZiuC/J45JnGywzDmxVFJmRAZoK3sU
-	1bf0ug6uKayLpz6nPcww==;
+	List-Owner; bh=wombkmb8hBqdTxtUHmNEBNFzyINbyWDOnMqz2eqieQM=; b=iWrKAKKcr8V4+a
+	0oikM6gl8acx3m+a0didKQFypDYoseoq2QdxTOtEoSPZTyYcq6P42KWp7kP3s4f53rCjX/5wZ3tiH
+	ntlCM+cJBcCRKLxdMNB+KA06bDztY9f2SQo/oiqVltQ8L5JPvZu8QCYigNzQHFw/Be9hXq0z310nl
+	TK1tDniQE0mP4EIIurQ/8yHjvyEKXzy80qzAz11VKdr8KMeFoAYsnU2F+Lw0In5oR02OgNEd8+jOL
+	YPixRrQvqpE2sY3zA/9gGpXpuLxcxhnNA7GvxhEW7lwie4SW1TGczD2KGiz9v9QiXDdq+ElgrcP64
+	lA6xa9O1/qxdrHzoBn1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWHSg-00000002wds-253c;
-	Mon, 30 Jun 2025 16:34:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uWHXH-00000002xer-0wku;
+	Mon, 30 Jun 2025 16:39:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWH0X-00000002olQ-3ogQ;
+	id 1uWH0Y-00000002ojg-1l4k;
 	Mon, 30 Jun 2025 16:05:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4F5DD61448;
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F7AA613AC;
+	Mon, 30 Jun 2025 16:05:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B72D0C4CEF5;
 	Mon, 30 Jun 2025 16:05:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5FF6C4CEF2;
-	Mon, 30 Jun 2025 16:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751299525;
-	bh=/omQk0AnfhMvcqecsM2I25KnqR+dVzBwTNmX31ZnD+I=;
+	s=k20201202; t=1751299526;
+	bh=JG4DTgucZUrWoEuYJPtjg0ziG3DV7kKAWZi/WwQtPT8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NGd3wu7j7sKL/um4b0OWMF3aaE1syWgvDA5LSmZu/ZEMkWrHGFx5Flqi2slW0qtbL
-	 arqlfH9D5NG5oIEsZF9jmUx72q45G1nToNEKH6CG1qveaSA3P1JZqovBbs6uCVqwG8
-	 OqsoJF4Hy1qvMOuDVU/BDXxNNdMtzYtc1hdNpwwTz+f8hXDYp3DuUl1UXPKANwrmCB
-	 Af4f9v7fy29lTX4Jkuy93oiWuCPdd6alLUPYcUtOvQrPfb8r9hyD8M2vNmiuIKurch
-	 AUD0EynZj16eH/R2qERsVARGCFnnpQFS9CoblAbmnWfdN8iJTB2MJupQE3JXx4Hld9
-	 9q1aI4pemzf6A==
+	b=ApnEO8WUpJ+HKPFHeRZUHExWJBFUYzvVnT6VdNOePMw9WGwx8hz6EmDTiW70uLQ1D
+	 JVwjyKEx1AEGxEvedB7Hsm1TGLFnWP+Iz1kWVUW13AlOPPasV+0VIpNabEw5Ztz996
+	 gtgEP6gkKn8Lf+T7iqB71BKDIReiN/L0P5pUiEkmApW0eQ/JybpRt3W3xIAWXsjj8I
+	 +DZuchFl4lzxIpizrG+v3v3higRcxF2I1ZGnPKWcatTcoMhuC6kA4jMZ8jLlFtjV52
+	 vQePNePrSq1BSGwtEjjE7ygZUS1d1mJMEWQcscWCIIH5OcSga0/DyKYR5gH6Yazmws
+	 FJ1WA8zdeA8nw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,9 +53,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v3 07/16] lib/crypto: arm/sha512: Migrate optimized SHA-512 code to library
-Date: Mon, 30 Jun 2025 09:03:11 -0700
-Message-ID: <20250630160320.2888-8-ebiggers@kernel.org>
+Subject: [PATCH v3 09/16] mips: cavium-octeon: Move octeon-crypto.h into asm directory
+Date: Mon, 30 Jun 2025 09:03:13 -0700
+Message-ID: <20250630160320.2888-10-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250630160320.2888-1-ebiggers@kernel.org>
 References: <20250630160320.2888-1-ebiggers@kernel.org>
@@ -76,506 +76,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Instead of exposing the arm-optimized SHA-512 code via arm-specific
-crypto_shash algorithms, instead just implement the sha512_blocks()
-library function.  This is much simpler, it makes the SHA-512 (and
-SHA-384) library functions be arm-optimized, and it fixes the
-longstanding issue where the arm-optimized SHA-512 code was disabled by
-default.  SHA-512 still remains available through crypto_shash, but
-individual architectures no longer need to handle it.
-
-To match sha512_blocks(), change the type of the nblocks parameter of
-the assembly functions from int to size_t.  The assembly functions
-actually already treated it as size_t.
+Since arch/mips/cavium-octeon/crypto/octeon-crypto.h is now needed
+outside of its directory, move it to
+arch/mips/include/asm/octeon/crypto.h so that it can be included as
+<asm/octeon/crypto.h>.
 
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm/configs/exynos_defconfig             |   1 -
- arch/arm/configs/milbeaut_m10v_defconfig      |   1 -
- arch/arm/configs/multi_v7_defconfig           |   1 -
- arch/arm/configs/omap2plus_defconfig          |   1 -
- arch/arm/configs/pxa_defconfig                |   1 -
- arch/arm/crypto/Kconfig                       |  10 --
- arch/arm/crypto/Makefile                      |  15 ---
- arch/arm/crypto/sha512-glue.c                 | 110 ------------------
- arch/arm/crypto/sha512-neon-glue.c            |  75 ------------
- arch/arm/crypto/sha512.h                      |   3 -
- lib/crypto/Kconfig                            |   1 +
- lib/crypto/Makefile                           |  14 +++
- lib/crypto/arm/.gitignore                     |   2 +
- .../crypto => lib/crypto/arm}/sha512-armv4.pl |   0
- lib/crypto/arm/sha512.h                       |  38 ++++++
- 15 files changed, 55 insertions(+), 218 deletions(-)
- delete mode 100644 arch/arm/crypto/sha512-glue.c
- delete mode 100644 arch/arm/crypto/sha512-neon-glue.c
- delete mode 100644 arch/arm/crypto/sha512.h
- create mode 100644 lib/crypto/arm/.gitignore
- rename {arch/arm/crypto => lib/crypto/arm}/sha512-armv4.pl (100%)
- create mode 100644 lib/crypto/arm/sha512.h
+ arch/mips/cavium-octeon/crypto/octeon-crypto.c                 | 3 +--
+ arch/mips/cavium-octeon/crypto/octeon-md5.c                    | 3 +--
+ arch/mips/cavium-octeon/crypto/octeon-sha1.c                   | 3 +--
+ arch/mips/cavium-octeon/crypto/octeon-sha256.c                 | 3 +--
+ arch/mips/cavium-octeon/crypto/octeon-sha512.c                 | 3 +--
+ .../crypto/octeon-crypto.h => include/asm/octeon/crypto.h}     | 0
+ 6 files changed, 5 insertions(+), 10 deletions(-)
+ rename arch/mips/{cavium-octeon/crypto/octeon-crypto.h => include/asm/octeon/crypto.h} (100%)
 
-diff --git a/arch/arm/configs/exynos_defconfig b/arch/arm/configs/exynos_defconfig
-index f71af368674cf..d58e300693045 100644
---- a/arch/arm/configs/exynos_defconfig
-+++ b/arch/arm/configs/exynos_defconfig
-@@ -362,11 +362,10 @@ CONFIG_CRYPTO_LZ4=m
- CONFIG_CRYPTO_USER_API_HASH=m
- CONFIG_CRYPTO_USER_API_SKCIPHER=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
- CONFIG_CRYPTO_SHA1_ARM_NEON=m
--CONFIG_CRYPTO_SHA512_ARM=m
- CONFIG_CRYPTO_AES_ARM_BS=m
- CONFIG_CRYPTO_CHACHA20_NEON=m
- CONFIG_CRYPTO_DEV_EXYNOS_RNG=y
- CONFIG_CRYPTO_DEV_S5P=y
- CONFIG_DMA_CMA=y
-diff --git a/arch/arm/configs/milbeaut_m10v_defconfig b/arch/arm/configs/milbeaut_m10v_defconfig
-index 242e7d5a3f682..8ebf8bd872fe8 100644
---- a/arch/arm/configs/milbeaut_m10v_defconfig
-+++ b/arch/arm/configs/milbeaut_m10v_defconfig
-@@ -98,11 +98,10 @@ CONFIG_CRYPTO_SELFTESTS=y
- CONFIG_CRYPTO_AES=y
- CONFIG_CRYPTO_SEQIV=m
- CONFIG_CRYPTO_GHASH_ARM_CE=m
- CONFIG_CRYPTO_SHA1_ARM_NEON=m
- CONFIG_CRYPTO_SHA1_ARM_CE=m
--CONFIG_CRYPTO_SHA512_ARM=m
- CONFIG_CRYPTO_AES_ARM=m
- CONFIG_CRYPTO_AES_ARM_BS=m
- CONFIG_CRYPTO_AES_ARM_CE=m
- CONFIG_CRYPTO_CHACHA20_NEON=m
- # CONFIG_CRYPTO_HW is not set
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 50c170b4619f7..3fd07e864ca85 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -1280,11 +1280,10 @@ CONFIG_CRYPTO_USER_API_SKCIPHER=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
- CONFIG_CRYPTO_GHASH_ARM_CE=m
- CONFIG_CRYPTO_SHA1_ARM_NEON=m
- CONFIG_CRYPTO_SHA1_ARM_CE=m
--CONFIG_CRYPTO_SHA512_ARM=m
- CONFIG_CRYPTO_AES_ARM=m
- CONFIG_CRYPTO_AES_ARM_BS=m
- CONFIG_CRYPTO_AES_ARM_CE=m
- CONFIG_CRYPTO_CHACHA20_NEON=m
- CONFIG_CRYPTO_DEV_SUN4I_SS=m
-diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
-index 9f9780c8e62aa..530dfb8338c98 100644
---- a/arch/arm/configs/omap2plus_defconfig
-+++ b/arch/arm/configs/omap2plus_defconfig
-@@ -703,11 +703,10 @@ CONFIG_NLS_CODEPAGE_437=y
- CONFIG_NLS_ISO8859_1=y
- CONFIG_SECURITY=y
- CONFIG_CRYPTO_MICHAEL_MIC=y
- CONFIG_CRYPTO_GHASH_ARM_CE=m
- CONFIG_CRYPTO_SHA1_ARM_NEON=m
--CONFIG_CRYPTO_SHA512_ARM=m
- CONFIG_CRYPTO_AES_ARM=m
- CONFIG_CRYPTO_AES_ARM_BS=m
- CONFIG_CRYPTO_CHACHA20_NEON=m
- CONFIG_CRYPTO_DEV_OMAP=m
- CONFIG_CRYPTO_DEV_OMAP_SHAM=m
-diff --git a/arch/arm/configs/pxa_defconfig b/arch/arm/configs/pxa_defconfig
-index ff29c5b0e9c93..eaa44574d4a64 100644
---- a/arch/arm/configs/pxa_defconfig
-+++ b/arch/arm/configs/pxa_defconfig
-@@ -657,11 +657,10 @@ CONFIG_CRYPTO_WP512=m
- CONFIG_CRYPTO_ANUBIS=m
- CONFIG_CRYPTO_XCBC=m
- CONFIG_CRYPTO_DEFLATE=y
- CONFIG_CRYPTO_LZO=y
- CONFIG_CRYPTO_SHA1_ARM=m
--CONFIG_CRYPTO_SHA512_ARM=m
- CONFIG_CRYPTO_AES_ARM=m
- CONFIG_FONTS=y
- CONFIG_FONT_8x8=y
- CONFIG_FONT_8x16=y
- CONFIG_FONT_6x11=y
-diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
-index 7efb9a8596e4e..a18f97f1597cb 100644
---- a/arch/arm/crypto/Kconfig
-+++ b/arch/arm/crypto/Kconfig
-@@ -91,20 +91,10 @@ config CRYPTO_SHA1_ARM_CE
- 	help
- 	  SHA-1 secure hash algorithm (FIPS 180)
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-crypto.c b/arch/mips/cavium-octeon/crypto/octeon-crypto.c
+index cfb4a146cf178..0ff8559391f5b 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-crypto.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-crypto.c
+@@ -5,16 +5,15 @@
+  *
+  * Copyright (C) 2004-2012 Cavium Networks
+  */
  
- 	  Architecture: arm using ARMv8 Crypto Extensions
+ #include <asm/cop2.h>
++#include <asm/octeon/crypto.h>
+ #include <linux/export.h>
+ #include <linux/interrupt.h>
+ #include <linux/sched/task_stack.h>
  
--config CRYPTO_SHA512_ARM
--	tristate "Hash functions: SHA-384 and SHA-512 (NEON)"
--	select CRYPTO_HASH
--	depends on !CPU_V7M
--	help
--	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
+-#include "octeon-crypto.h"
 -
--	  Architecture: arm using
--	  - NEON (Advanced SIMD) extensions
--
- config CRYPTO_AES_ARM
- 	tristate "Ciphers: AES"
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_AES
- 	help
-diff --git a/arch/arm/crypto/Makefile b/arch/arm/crypto/Makefile
-index 8479137c6e800..78a4042d8761c 100644
---- a/arch/arm/crypto/Makefile
-+++ b/arch/arm/crypto/Makefile
-@@ -5,11 +5,10 @@
+ /**
+  * Enable access to Octeon's COP2 crypto hardware for kernel use. Wrap any
+  * crypto operations in calls to octeon_crypto_enable/disable in order to make
+  * sure the state of COP2 isn't corrupted if userspace is also performing
+  * hardware crypto operations. Allocate the state parameter on the stack.
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-md5.c b/arch/mips/cavium-octeon/crypto/octeon-md5.c
+index fbc84eb7fedf5..a8ce831e2cebd 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-md5.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-md5.c
+@@ -17,20 +17,19 @@
+  * under the terms of the GNU General Public License as published by the Free
+  * Software Foundation; either version 2 of the License, or (at your option)
+  * any later version.
+  */
  
- obj-$(CONFIG_CRYPTO_AES_ARM) += aes-arm.o
- obj-$(CONFIG_CRYPTO_AES_ARM_BS) += aes-arm-bs.o
- obj-$(CONFIG_CRYPTO_SHA1_ARM) += sha1-arm.o
- obj-$(CONFIG_CRYPTO_SHA1_ARM_NEON) += sha1-arm-neon.o
--obj-$(CONFIG_CRYPTO_SHA512_ARM) += sha512-arm.o
- obj-$(CONFIG_CRYPTO_BLAKE2B_NEON) += blake2b-neon.o
- obj-$(CONFIG_CRYPTO_NHPOLY1305_NEON) += nhpoly1305-neon.o
- obj-$(CONFIG_CRYPTO_CURVE25519_NEON) += curve25519-neon.o
++#include <asm/octeon/crypto.h>
+ #include <asm/octeon/octeon.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/md5.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/string.h>
+ #include <linux/unaligned.h>
  
- obj-$(CONFIG_CRYPTO_AES_ARM_CE) += aes-arm-ce.o
-@@ -18,25 +17,11 @@ obj-$(CONFIG_CRYPTO_GHASH_ARM_CE) += ghash-arm-ce.o
+-#include "octeon-crypto.h"
+-
+ struct octeon_md5_state {
+ 	__le32 hash[MD5_HASH_WORDS];
+ 	u64 byte_count;
+ };
  
- aes-arm-y	:= aes-cipher-core.o aes-cipher-glue.o
- aes-arm-bs-y	:= aes-neonbs-core.o aes-neonbs-glue.o
- sha1-arm-y	:= sha1-armv4-large.o sha1_glue.o
- sha1-arm-neon-y	:= sha1-armv7-neon.o sha1_neon_glue.o
--sha512-arm-neon-$(CONFIG_KERNEL_MODE_NEON) := sha512-neon-glue.o
--sha512-arm-y	:= sha512-core.o sha512-glue.o $(sha512-arm-neon-y)
- blake2b-neon-y  := blake2b-neon-core.o blake2b-neon-glue.o
- sha1-arm-ce-y	:= sha1-ce-core.o sha1-ce-glue.o
- aes-arm-ce-y	:= aes-ce-core.o aes-ce-glue.o
- ghash-arm-ce-y	:= ghash-ce-core.o ghash-ce-glue.o
- nhpoly1305-neon-y := nh-neon-core.o nhpoly1305-neon-glue.o
- curve25519-neon-y := curve25519-core.o curve25519-glue.o
--
--quiet_cmd_perl = PERL    $@
--      cmd_perl = $(PERL) $(<) > $(@)
--
--$(obj)/%-core.S: $(src)/%-armv4.pl
--	$(call cmd,perl)
--
--clean-files += sha512-core.S
--
--aflags-thumb2-$(CONFIG_THUMB2_KERNEL)  := -U__thumb2__ -D__thumb2__=1
--
--AFLAGS_sha512-core.o += $(aflags-thumb2-y)
-diff --git a/arch/arm/crypto/sha512-glue.c b/arch/arm/crypto/sha512-glue.c
-deleted file mode 100644
-index f8a6480889b1b..0000000000000
---- a/arch/arm/crypto/sha512-glue.c
-+++ /dev/null
-@@ -1,110 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * sha512-glue.c - accelerated SHA-384/512 for ARM
-- *
-- * Copyright (C) 2015 Linaro Ltd <ard.biesheuvel@linaro.org>
-- */
--
--#include <asm/hwcap.h>
--#include <asm/neon.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
--#include <crypto/sha512_base.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--#include "sha512.h"
--
--MODULE_DESCRIPTION("Accelerated SHA-384/SHA-512 secure hash for ARM");
--MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
--MODULE_LICENSE("GPL v2");
--
--MODULE_ALIAS_CRYPTO("sha384");
--MODULE_ALIAS_CRYPTO("sha512");
--MODULE_ALIAS_CRYPTO("sha384-arm");
--MODULE_ALIAS_CRYPTO("sha512-arm");
--
--asmlinkage void sha512_block_data_order(struct sha512_state *state,
--					u8 const *src, int blocks);
--
--static int sha512_arm_update(struct shash_desc *desc, const u8 *data,
--			     unsigned int len)
--{
--	return sha512_base_do_update_blocks(desc, data, len,
--					    sha512_block_data_order);
--}
--
--static int sha512_arm_finup(struct shash_desc *desc, const u8 *data,
--			    unsigned int len, u8 *out)
--{
--	sha512_base_do_finup(desc, data, len, sha512_block_data_order);
--	return sha512_base_finish(desc, out);
--}
--
--static struct shash_alg sha512_arm_algs[] = { {
--	.init			= sha384_base_init,
--	.update			= sha512_arm_update,
--	.finup			= sha512_arm_finup,
--	.descsize		= SHA512_STATE_SIZE,
--	.digestsize		= SHA384_DIGEST_SIZE,
--	.base			= {
--		.cra_name		= "sha384",
--		.cra_driver_name	= "sha384-arm",
--		.cra_priority		= 250,
--		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize		= SHA512_BLOCK_SIZE,
--		.cra_module		= THIS_MODULE,
--	}
--},  {
--	.init			= sha512_base_init,
--	.update			= sha512_arm_update,
--	.finup			= sha512_arm_finup,
--	.descsize		= SHA512_STATE_SIZE,
--	.digestsize		= SHA512_DIGEST_SIZE,
--	.base			= {
--		.cra_name		= "sha512",
--		.cra_driver_name	= "sha512-arm",
--		.cra_priority		= 250,
--		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize		= SHA512_BLOCK_SIZE,
--		.cra_module		= THIS_MODULE,
--	}
--} };
--
--static int __init sha512_arm_mod_init(void)
--{
--	int err;
--
--	err = crypto_register_shashes(sha512_arm_algs,
--				      ARRAY_SIZE(sha512_arm_algs));
--	if (err)
--		return err;
--
--	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && cpu_has_neon()) {
--		err = crypto_register_shashes(sha512_neon_algs,
--					      ARRAY_SIZE(sha512_neon_algs));
--		if (err)
--			goto err_unregister;
--	}
--	return 0;
--
--err_unregister:
--	crypto_unregister_shashes(sha512_arm_algs,
--				  ARRAY_SIZE(sha512_arm_algs));
--
--	return err;
--}
--
--static void __exit sha512_arm_mod_fini(void)
--{
--	crypto_unregister_shashes(sha512_arm_algs,
--				  ARRAY_SIZE(sha512_arm_algs));
--	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && cpu_has_neon())
--		crypto_unregister_shashes(sha512_neon_algs,
--					  ARRAY_SIZE(sha512_neon_algs));
--}
--
--module_init(sha512_arm_mod_init);
--module_exit(sha512_arm_mod_fini);
-diff --git a/arch/arm/crypto/sha512-neon-glue.c b/arch/arm/crypto/sha512-neon-glue.c
-deleted file mode 100644
-index bd528077fefbf..0000000000000
---- a/arch/arm/crypto/sha512-neon-glue.c
-+++ /dev/null
-@@ -1,75 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * sha512-neon-glue.c - accelerated SHA-384/512 for ARM NEON
-- *
-- * Copyright (C) 2015 Linaro Ltd <ard.biesheuvel@linaro.org>
-- */
--
--#include <asm/neon.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
--#include <crypto/sha512_base.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--#include "sha512.h"
--
--MODULE_ALIAS_CRYPTO("sha384-neon");
--MODULE_ALIAS_CRYPTO("sha512-neon");
--
--asmlinkage void sha512_block_data_order_neon(struct sha512_state *state,
--					     const u8 *src, int blocks);
--
--static int sha512_neon_update(struct shash_desc *desc, const u8 *data,
--			      unsigned int len)
--{
--	int remain;
--
--	kernel_neon_begin();
--	remain = sha512_base_do_update_blocks(desc, data, len,
--					      sha512_block_data_order_neon);
--	kernel_neon_end();
--	return remain;
--}
--
--static int sha512_neon_finup(struct shash_desc *desc, const u8 *data,
--			     unsigned int len, u8 *out)
--{
--	kernel_neon_begin();
--	sha512_base_do_finup(desc, data, len, sha512_block_data_order_neon);
--	kernel_neon_end();
--	return sha512_base_finish(desc, out);
--}
--
--struct shash_alg sha512_neon_algs[] = { {
--	.init			= sha384_base_init,
--	.update			= sha512_neon_update,
--	.finup			= sha512_neon_finup,
--	.descsize		= SHA512_STATE_SIZE,
--	.digestsize		= SHA384_DIGEST_SIZE,
--	.base			= {
--		.cra_name		= "sha384",
--		.cra_driver_name	= "sha384-neon",
--		.cra_priority		= 300,
--		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize		= SHA384_BLOCK_SIZE,
--		.cra_module		= THIS_MODULE,
--
--	}
--},  {
--	.init			= sha512_base_init,
--	.update			= sha512_neon_update,
--	.finup			= sha512_neon_finup,
--	.descsize		= SHA512_STATE_SIZE,
--	.digestsize		= SHA512_DIGEST_SIZE,
--	.base			= {
--		.cra_name		= "sha512",
--		.cra_driver_name	= "sha512-neon",
--		.cra_priority		= 300,
--		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize		= SHA512_BLOCK_SIZE,
--		.cra_module		= THIS_MODULE,
--	}
--} };
-diff --git a/arch/arm/crypto/sha512.h b/arch/arm/crypto/sha512.h
-deleted file mode 100644
-index eeaee52cda69b..0000000000000
---- a/arch/arm/crypto/sha512.h
-+++ /dev/null
-@@ -1,3 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--
--extern struct shash_alg sha512_neon_algs[2];
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index d1bee3787eb3c..dac6356ba0aac 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -175,10 +175,11 @@ config CRYPTO_LIB_SHA512
- 	  <crypto/sha2.h>.
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha1.c b/arch/mips/cavium-octeon/crypto/octeon-sha1.c
+index e70f21a473daf..e4a369a7764fb 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-sha1.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-sha1.c
+@@ -11,20 +11,19 @@
+  * Copyright (c) Alan Smithee.
+  * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+  * Copyright (c) Jean-Francois Dive <jef@linuxbe.org>
+  */
  
- config CRYPTO_LIB_SHA512_ARCH
- 	bool
- 	depends on CRYPTO_LIB_SHA512 && !UML
-+	default y if ARM && !CPU_V7M
++#include <asm/octeon/crypto.h>
+ #include <asm/octeon/octeon.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha1.h>
+ #include <crypto/sha1_base.h>
+ #include <linux/errno.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
  
- config CRYPTO_LIB_SM3
- 	tristate
+-#include "octeon-crypto.h"
+-
+ /*
+  * We pass everything as 64-bit. OCTEON can handle misaligned data.
+  */
  
- if !KMSAN # avoid false positives from assembly
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index f6b6f370451ec..67008a1612c6f 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -1,7 +1,12 @@
- # SPDX-License-Identifier: GPL-2.0
+ static void octeon_sha1_store_hash(struct sha1_state *sctx)
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha256.c b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
+index f93faaf1f4af6..c20038239cb6b 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-sha256.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
+@@ -10,17 +10,16 @@
+  * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+  * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
+  * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
+  */
  
-+aflags-thumb2-$(CONFIG_THUMB2_KERNEL)  := -U__thumb2__ -D__thumb2__=1
-+
-+quiet_cmd_perlasm = PERLASM $@
-+      cmd_perlasm = $(PERL) $(<) > $(@)
-+
- obj-$(CONFIG_CRYPTO_LIB_UTILS)			+= libcryptoutils.o
- libcryptoutils-y				:= memneq.o utils.o
++#include <asm/octeon/crypto.h>
+ #include <asm/octeon/octeon.h>
+ #include <crypto/internal/sha2.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
  
- # chacha is used by the /dev/random driver which is always builtin
- obj-y						+= chacha.o
-@@ -66,10 +71,19 @@ libsha256-generic-y				:= sha256-generic.o
+-#include "octeon-crypto.h"
+-
+ /*
+  * We pass everything as 64-bit. OCTEON can handle misaligned data.
+  */
  
- obj-$(CONFIG_CRYPTO_LIB_SHA512) += libsha512.o
- libsha512-y := sha512.o
- ifeq ($(CONFIG_CRYPTO_LIB_SHA512_ARCH),y)
- CFLAGS_sha512.o += -I$(src)/$(SRCARCH)
-+
-+ifeq ($(CONFIG_ARM),y)
-+libsha512-y += arm/sha512-core.o
-+$(obj)/arm/sha512-core.S: $(src)/arm/sha512-armv4.pl
-+	$(call cmd,perlasm)
-+clean-files += arm/sha512-core.S
-+AFLAGS_arm/sha512-core.o += $(aflags-thumb2-y)
-+endif
-+
- endif # CONFIG_CRYPTO_LIB_SHA512_ARCH
+ void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha512.c b/arch/mips/cavium-octeon/crypto/octeon-sha512.c
+index 215311053db3c..53de74f642db0 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-sha512.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-sha512.c
+@@ -11,19 +11,18 @@
+  * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
+  * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+  * Copyright (c) 2003 Kyle McMartin <kyle@debian.org>
+  */
  
- obj-$(CONFIG_MPILIB) += mpi/
++#include <asm/octeon/crypto.h>
+ #include <asm/octeon/octeon.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha2.h>
+ #include <crypto/sha512_base.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
  
- obj-$(CONFIG_CRYPTO_SELFTESTS_FULL)		+= simd.o
-diff --git a/lib/crypto/arm/.gitignore b/lib/crypto/arm/.gitignore
-new file mode 100644
-index 0000000000000..670a4d97b5684
---- /dev/null
-+++ b/lib/crypto/arm/.gitignore
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+sha512-core.S
-diff --git a/arch/arm/crypto/sha512-armv4.pl b/lib/crypto/arm/sha512-armv4.pl
+-#include "octeon-crypto.h"
+-
+ /*
+  * We pass everything as 64-bit. OCTEON can handle misaligned data.
+  */
+ 
+ static void octeon_sha512_store_hash(struct sha512_state *sctx)
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-crypto.h b/arch/mips/include/asm/octeon/crypto.h
 similarity index 100%
-rename from arch/arm/crypto/sha512-armv4.pl
-rename to lib/crypto/arm/sha512-armv4.pl
-diff --git a/lib/crypto/arm/sha512.h b/lib/crypto/arm/sha512.h
-new file mode 100644
-index 0000000000000..f147b6490d6cd
---- /dev/null
-+++ b/lib/crypto/arm/sha512.h
-@@ -0,0 +1,38 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * arm32-optimized SHA-512 block function
-+ *
-+ * Copyright 2025 Google LLC
-+ */
-+
-+#include <asm/neon.h>
-+#include <crypto/internal/simd.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
-+
-+asmlinkage void sha512_block_data_order(struct sha512_block_state *state,
-+					const u8 *data, size_t nblocks);
-+asmlinkage void sha512_block_data_order_neon(struct sha512_block_state *state,
-+					     const u8 *data, size_t nblocks);
-+
-+static void sha512_blocks(struct sha512_block_state *state,
-+			  const u8 *data, size_t nblocks)
-+{
-+	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
-+	    static_branch_likely(&have_neon) && likely(crypto_simd_usable())) {
-+		kernel_neon_begin();
-+		sha512_block_data_order_neon(state, data, nblocks);
-+		kernel_neon_end();
-+	} else {
-+		sha512_block_data_order(state, data, nblocks);
-+	}
-+}
-+
-+#ifdef CONFIG_KERNEL_MODE_NEON
-+#define sha512_mod_init_arch sha512_mod_init_arch
-+static inline void sha512_mod_init_arch(void)
-+{
-+	if (cpu_has_neon())
-+		static_branch_enable(&have_neon);
-+}
-+#endif /* CONFIG_KERNEL_MODE_NEON */
+rename from arch/mips/cavium-octeon/crypto/octeon-crypto.h
+rename to arch/mips/include/asm/octeon/crypto.h
 -- 
 2.50.0
 
