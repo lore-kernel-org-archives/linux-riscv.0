@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F6DC83030
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 20:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C53C83038
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 20:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7kOD2WYNROfpQR7K8ZTWf8R1nU7Ny+Ab3ezimpucgfw=; b=dHDY/MMIjxVIAB
-	KHAg5/IRjWoaeNyyOeTGwSOgVJHjwS2179vz+7crrpLurXqxJ8M3KwjJktIaGktYQIZa6TdbDB9TA
-	ORGVNSXNxM+JMn9+frhUHXxJJ2r6mnXEwmL0la+LrqsVIYh3tFY8dDzk3g6kD83BP+7b14vQ5fH6+
-	i3PdNvX/0j+tSRfDQMJOZb/vIHWWXbCF6kCFEh993/3EAOXJBu+69Olo8dgJvRn/fx2Ze/cm8KQeu
-	4DjXujeb4hPE1eK2ZOqu89eS0ln1Hhq7JYCO0Zw5hPmJk5wuiD9FqGhN726EMrPT4/p8rC5X06Z7R
-	2Fd1+6ndWYUQjGynBySg==;
+	List-Owner; bh=vp+JRPcZDFveSTbCh43ZmwCyM55jVx7lpvuz1SEAW3s=; b=GmnAJfwW8/3EJ7
+	mMnNZhgzV1FBQ9pj/ae0qUQdrDWTBvZwHkwXRjAtmO6FoCSSaLbKpC4Rgk1bIJSoPb4n/8tqK8NDU
+	DHA16qJLHsbHUyBRZuGQ4rjBfbvrqLBl47L4FIQcrUDarLwyv45VqrgP60G3Ya/Ov14e7X4nFb+x6
+	Sn9uPuDalrskUG/4DgB24x5i9bJCqon+R9e7RmEXk2EzggJ2LQxOuRjkM9KsI6pm3LzUpFqWllLZ7
+	i4rRXu0tuye+P9+CR1uV3YQVxuEHD+UsNbz0bLG7D4y42V5hUA6z7oxvFla0Jp5EtdO/S8PO0C4QT
+	669Xe0vJ4GFpcZkmjsVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWL69-00000003OjM-0keE;
-	Mon, 30 Jun 2025 20:27:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uWLE7-00000003PZF-2Ad5;
+	Mon, 30 Jun 2025 20:35:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWL66-00000003Oih-49sJ
+	id 1uWLDl-00000003PVa-1xPZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Jun 2025 20:27:28 +0000
+	Mon, 30 Jun 2025 20:35:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C3C79A5361D;
-	Mon, 30 Jun 2025 20:27:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04FFEC4CEE3;
-	Mon, 30 Jun 2025 20:27:24 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 90E78A53332;
+	Mon, 30 Jun 2025 20:35:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8278FC4CEE3;
+	Mon, 30 Jun 2025 20:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751315245;
-	bh=mm6D6rN9YCLi05ZkS4Yr8AiNEs/PMDAf3hD+0ETdEvA=;
+	s=k20201202; t=1751315720;
+	bh=tQs2Z2Qlt33u9MXNYKvC5h012PuPJ3SbrN4OrPh6WUM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V9/a6/NxFgycREwnlDhrZgtvp8pAFZImQNec5/c/twV2DgQ0znTyfrop3lQKZeZ7h
-	 fgQ39nnpkRhWhAyw5J5AKzgtDzpQvA8Z6tMKD+u2aCTt3+GoDm8ccE4Xg5Q9i1qZUL
-	 +AD2WCWeY8ARVpccuvjwuKYMzBHzXkqT3laSqVLK03++8wYeeec8cBrN+EjhvUvlLZ
-	 T9RKDw2/uEOdkpuEHNebR6fa64ajz0bL7erRyjy6bsF3BlvXYHo+XO1du383Eg2Cjc
-	 pjDM2rlbVJL/SPYAj2u0PIRbIwo4D6mqHolSxIp6xoG2RrlsNvRZAJD3WF1ySGItIF
-	 otdth+1F2/mOQ==
-Date: Mon, 30 Jun 2025 13:27:23 -0700
+	b=jQdPVWlEXvMQf260xJdBEwJ5mye0aeV5BlmUUkJyQiwtf4pqIzmLONkUBMckpQoc9
+	 W/Gf30/G7C3LEJuIqE8b2ijFpfBO2Z9jhqb2AF62IGrJXteH9c6lSB7k7fBCecGEH4
+	 9S37AvxNcIpOYeUr+5NNnQoXyK81waffWOCYOZO3Wl5bJYSH5r+QSkoDh0pB6SASoa
+	 DPOgBmc691vLQSaDa82hz08t8TNYhHg5WTC600Nb4o3OTeYG0VTQsUc2pi48hpm25L
+	 i1KUb5f1JjCndHAgnhqZQ0svQ3XmvjKUn0GJb4HFDru94h27kWiGJGdA5EqLj0LR9j
+	 3d2oOyqVsae3g==
+Date: Mon, 30 Jun 2025 13:35:18 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
@@ -67,17 +67,18 @@ Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
 	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v5 8/9] riscv: dts: thead: Add PVT node
-Message-ID: <aGLzK8wTFcWuR4Zv@x1>
-References: <20250623-rust-next-pwm-working-fan-for-sending-v5-0-0ca23747c23e@samsung.com>
- <CGME20250623180907eucas1p10c0ca6b667debcc8139402d97e4ef800@eucas1p1.samsung.com>
- <20250623-rust-next-pwm-working-fan-for-sending-v5-8-0ca23747c23e@samsung.com>
+Subject: Re: [PATCH v4 5/9] clk: thead: Mark essential bus clocks as
+ CLK_IGNORE_UNUSED
+Message-ID: <aGL1BjGowU3HNsYE@x1>
+References: <20250618-rust-next-pwm-working-fan-for-sending-v4-0-a6a28f2b6d8a@samsung.com>
+ <CGME20250618122808eucas1p1734efef72b723602969465d6cd0c01d2@eucas1p1.samsung.com>
+ <20250618-rust-next-pwm-working-fan-for-sending-v4-5-a6a28f2b6d8a@samsung.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250623-rust-next-pwm-working-fan-for-sending-v5-8-0ca23747c23e@samsung.com>
+In-Reply-To: <20250618-rust-next-pwm-working-fan-for-sending-v4-5-a6a28f2b6d8a@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_132727_167570_35743C53 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20250630_133521_639318_1608081C 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,55 +95,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 08:08:56PM +0200, Michal Wilczynski wrote:
-> Add PVT DT node for thermal sensor.
+On Wed, Jun 18, 2025 at 02:27:38PM +0200, Michal Wilczynski wrote:
+> Probing peripherals in the AON and PERI domains, such as the PVT thermal
+> sensor and the PWM controller, can lead to boot hangs or unresponsive
+> devices on the LPi4A board. The root cause is that their parent bus
+> clocks ('CLK_CPU2AON_X2H' and the 'CLK_PERISYS_APB' clocks) are
+> automatically gated by the kernel's power-saving mechanisms when the bus
+> is perceived as idle.
 > 
+> Alternative solutions were investigated, including modeling the parent
+> bus in the Device Tree with 'simple-pm-bus' or refactoring the clock
+> driver's parentage. The 'simple-pm-bus' approach is not viable due to
+> the lack of defined bus address ranges in the hardware manual and its
+> creation of improper dependencies on the 'pm_runtime' API for consumer
+> drivers.
+> 
+> Therefore, applying the'`CLK_IGNORE_UNUSED' flag directly to the
+> essential bus clocks is the most direct and targeted fix. This prevents
+> the kernel from auto-gating these buses and ensures peripherals remain
+> accessible.
+> 
+> This change fixes the boot hang associated with the PVT sensor and
+> resolves the functional issues with the PWM controller.
+> 
+> Link: https://lore.kernel.org/all/9e8a12db-236d-474c-b110-b3be96edf057@samsung.com/ [1]
+> 
+> Reviewed-by: Drew Fustini <drew@pdp7.com>
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  arch/riscv/boot/dts/thead/th1520.dtsi | 11 +++++++++++
->  1 file changed, 11 insertions(+)
+>  drivers/clk/thead/clk-th1520-ap.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index 26996422e1efe5d2dde68819c2cec1c3fa782a23..bef30780034e06b07aa29b27b0225ea891a4b531 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -669,6 +669,17 @@ padctrl_aosys: pinctrl@fffff4a000 {
->  			thead,pad-group = <1>;
->  		};
->  
-> +		pvt: pvt@fffff4e000 {
-> +			compatible = "moortec,mr75203";
-> +			reg = <0xff 0xfff4e000 0x0 0x80>,
-> +			      <0xff 0xfff4e080 0x0 0x100>,
-> +			      <0xff 0xfff4e180 0x0 0x680>,
-> +			      <0xff 0xfff4e800 0x0 0x600>;
-> +			reg-names = "common", "ts", "pd", "vm";
-> +			clocks = <&aonsys_clk>;
-> +			#thermal-sensor-cells = <1>;
-> +		};
-> +
->  		gpio@fffff52000 {
->  			compatible = "snps,dw-apb-gpio";
->  			reg = <0xff 0xfff52000 0x0 0x1000>;
+> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+> index ebfb1d59401d05443716eb0029403b01775e8f73..cf7f6bd428a0faa4611b3fc61edbbc6690e565d9 100644
+> --- a/drivers/clk/thead/clk-th1520-ap.c
+> +++ b/drivers/clk/thead/clk-th1520-ap.c
+> @@ -792,11 +792,12 @@ static CCU_GATE(CLK_AON2CPU_A2X, aon2cpu_a2x_clk, "aon2cpu-a2x", axi4_cpusys2_ac
+>  		0x134, BIT(8), 0);
+>  static CCU_GATE(CLK_X2X_CPUSYS, x2x_cpusys_clk, "x2x-cpusys", axi4_cpusys2_aclk_pd,
+>  		0x134, BIT(7), 0);
+> -static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd, 0x138, BIT(8), 0);
+> +static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd,
+> +		0x138, BIT(8), CLK_IGNORE_UNUSED);
+>  static CCU_GATE(CLK_CPU2PERI_X2H, cpu2peri_x2h_clk, "cpu2peri-x2h", axi4_cpusys2_aclk_pd,
+>  		0x140, BIT(9), CLK_IGNORE_UNUSED);
+>  static CCU_GATE(CLK_PERISYS_APB1_HCLK, perisys_apb1_hclk, "perisys-apb1-hclk", perisys_ahb_hclk_pd,
+> -		0x150, BIT(9), 0);
+> +		0x150, BIT(9), CLK_IGNORE_UNUSED);
+>  static CCU_GATE(CLK_PERISYS_APB2_HCLK, perisys_apb2_hclk, "perisys-apb2-hclk", perisys_ahb_hclk_pd,
+>  		0x150, BIT(10), CLK_IGNORE_UNUSED);
+>  static CCU_GATE(CLK_PERISYS_APB3_HCLK, perisys_apb3_hclk, "perisys-apb3-hclk", perisys_ahb_hclk_pd,
 > 
 > -- 
 > 2.34.1
 > 
 
-The PVT sensor is useful for more than just the fan so I'm okay with
-taking this even though the PWM driver has yet to be accepted. I have
-applied this patch to thead-dt-for-next [1] as commit c31f289 [2].
-
-The required clk driver fix has been applied to thead-clk-for-next [3]
-as commit 0370395 [4], so PVT sensor will be able to be tested in next.
+I've applied this patch to thead-clk-for-next [1] as commit 0370395 [2].
 
 Thanks,
 Drew
 
-[1] https://github.com/pdp7/linux/commits/thead-dt-for-next/
-[2] https://github.com/pdp7/linux/commit/c31f2899eab084b3557e9f9e10fc7898113ef18d
-[3] https://github.com/pdp7/linux/commits/thead-clk-for-next/
-[4] https://github.com/pdp7/linux/commit/0370395d45ca6dd53bb931978f0e91ac8dd6f1c5
+[1] https://github.com/pdp7/linux/commits/thead-clk-for-next/
+[2] https://github.com/pdp7/linux/commit/0370395d45ca6dd53bb931978f0e91ac8dd6f1c5
+~                                                                                                                                                     
+~                                                                                                                                                     
+~                                                                                                 
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
