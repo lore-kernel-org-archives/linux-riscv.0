@@ -4,65 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E4CC83029
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 17:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08DCDC83029
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 17:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OLoRQ2rZsA6uY1CWIg55ahghX/qqx1R7nIMk/4GZ/l4=; b=TFWMgfywSBYPOB
-	OQ6Qx/dqRIgzh4/Epg8k9jD3pf9uM/E5Gh80N1DmCRZ7QQ73BCgRaK1LqOpTOnzzm0M792wbV6HEw
-	VBCoF+87Izywln+3a3memq/yBiGIrRxBNKMDmigytBZ0t/6vfUQcEDkV5FzpoutnnqABI9F2tFoG9
-	YUI+46+/MxuZI6Fznho0OSDWv3bnCs0UcrpGhLzJIRHDLfQLaW5dk5fIDWN/xDvEct/5DOsjofO/L
-	NTGcJ6oG+PSApgQRDqqBf8S5TbBFzl3oc3cr9NzKIGt32+lqyYXd0FOtlcmuiDuBoZnOu4pACjT3X
-	A5zNInSN26uW0MBUGhCA==;
+	List-Owner; bh=SvX6n18Mt/Cl7g58cNrXjmHmCMXhPOCbUNvUevVsgUg=; b=U78cLhKVcmpzlg
+	inoSNGp/y/vqo6RNzfNKACb9m0zbFGTaPMLapUQAY5+Qs0B1wjbMzfghm05cKix3VNgXTUwWu664K
+	d14aXHqvYqlniRaDwUsYAHPvncR61sa2WJ3QKWEn9nCNdfm7zVsn+w2xJW4s6/sudBtawpK8y2Kf3
+	yzFap6zoTQyWU683AW+i4FiC9bg2gHSjxcNewRRoOWTfoJ4sGsZl4t2RYidBuPWCa0v+UJHfvUTKS
+	5871rBpbyC0aJUQncy4pOquAHdxiE3JsXlvfl1vtL6+I9jDTa5nM4Y4Lm/LeEFHO7jE11WwGSMGEM
+	yOnxDNDE1erkyEvSqXSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWIeV-000000037FD-0IJO;
-	Mon, 30 Jun 2025 17:50:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uWIj9-000000037xv-2a2p;
+	Mon, 30 Jun 2025 17:55:35 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWH0Z-00000002on0-2hMr;
-	Mon, 30 Jun 2025 16:05:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 345645C5B6B;
-	Mon, 30 Jun 2025 16:05:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7BB2C4AF09;
-	Mon, 30 Jun 2025 16:05:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751299527;
-	bh=sOr7n7osKoPo0iWtqMHhPhtDizNmc02j97iKsfhVDgI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mnk5p5kHUp5XLzKIHdu9Xj6bGlhyzDSJSu0/mBqEEQhM3pcKMwOLzG1xvojCgM41R
-	 yeoKZUT8c6Cc/5eRXRs6VKuJhz37JPnhbR3KCcCZq36K6muCR15e0MO2UOGh+riYIu
-	 xtGcdMjmh+BhJKvOatGq58kCZ6Xkh2/2tQ3qn2todXp0KVQEoxwfxwtcJpx8i2DTNc
-	 vzBzPSz+agDzgQ9iQHG2j1gHbvXVsa649XkGvv8XsOY8s7rUXKiNYZomenlidkHvSN
-	 mPNS9IzZk5C+0EkCsQY5LKSXwER4Y8MdhGqvPxv/8UUmV8x/4q+g6ezeYlnZPtRk1G
-	 FSL+fDwuFL6Sg==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v3 11/16] lib/crypto: riscv/sha512: Migrate optimized SHA-512 code to library
-Date: Mon, 30 Jun 2025 09:03:15 -0700
-Message-ID: <20250630160320.2888-12-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250630160320.2888-1-ebiggers@kernel.org>
-References: <20250630160320.2888-1-ebiggers@kernel.org>
+	id 1uWHkh-00000002zpy-3UT5
+	for linux-riscv@lists.infradead.org;
+	Mon, 30 Jun 2025 16:53:08 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2349f096605so25007065ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jun 2025 09:53:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751302387; x=1751907187; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=rhwmu3jF4Je/8Qh/5IFiLV5HdTzjZvADtchCUmoZy+s=;
+        b=K5eQOp+QZaCHLF6uRgS5RfpiGUApbGZztVpMwCC4BKmHIfzhs4ALfikgcD/qPNyt+2
+         iR3klM4RJmSle2+cFU6jLzz1vbm0OGeJq+u1n+zSuRR8gDTYjRF3k0STg7wbvWXr9Gbx
+         irOOuMbjsNp+d6qCKW771IgiNWoQ0f9RAvdNEE+Zfg0n0FMkzajVFl+cUWNjk6T21nxx
+         uS8WkyggzAKIuW0xHGIAkXS3iwa81dx/AIhrje4znOD7W4RYJvOyZSOtGldTtE91OGb2
+         L0Ww+eDrdZPB+IOdHpHwI01IbavgSyYZRAwBsaA6hDCwGA1cYqrk6KJKMhRxHDYypZ0Y
+         h7jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751302387; x=1751907187;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rhwmu3jF4Je/8Qh/5IFiLV5HdTzjZvADtchCUmoZy+s=;
+        b=rp9lPHTDPpmgvCnXSNKOWnhhYulexzQOKeVVynfDSGKfG+M/GItU7/5TZGOpXaA3bC
+         hTRt9hfLF5N9orkTQ8U8RfHP6+1dMtIJbd3whjOMQeBt2ygPtfnN6wrgk2f9AgxmvE5P
+         /dakP91BSULXHKVX/srD5aR8fJ9GjedcvaASSdVFtQ931vd2iu5TdrQq9rYrl79Q0gGk
+         y/r2pPACxAqgraSbCTOnVGt+SawN0NHwHhVY8eaULIFRoDVWUccb8x56YzQliQelNG5E
+         qdDcemtLeodB12qTJMwXz4Yd8VeypGji52f1j4HiIsSV1IuSUMpk8xy0+/bB0W+9EQWq
+         NXiw==
+X-Forwarded-Encrypted: i=1; AJvYcCW49OIMrkDVZjmCHPZ+8+wNZBi4oa3wuUtIBOnVB27L9MOfXNvLvMrs4/eGNjowxVk94/o6JrocQj/yIA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqLrsOUwnzKNfmIQm5aZ1R9Y4ysSJ9R1P2IQSs6wxmcB9EZR7A
+	IZDznGRHo83hdmU5/OwXesPZvQ6gAMzaXgHzoUJzSKWhL8irPS/NaJD5
+X-Gm-Gg: ASbGncupxJyiACYhKcBCPVm1LrCPzUfqdVuA1KX2K/PiYtK7BMQ4H3jsDgsTg9uOzVB
+	NlJLKPNkJhD42FrTfEnVO85sTkLlj7Dm2uSFWSPqiH/Ciz08Nyt9+LGzsCmYsq23cFchSiZzUWI
+	oApe0eHMjALJllmtFvbFETlbJ88nqIJcwM2Z+fHVS75EFlz3KKfUVuBWkvHyLcZAmBjTG0AhG6a
+	rRyhcCcBp5KdC0WsG/DKq8HDqZ/zzfZJ4QwqHGTmAiRQWm5HLCJfCrY3JdoRJC2UJLacE/AROPh
+	o8XFr5ZYdnvmdEtHrI+psqAOFJ36NmbL9ja/XwAJ2w2mqP2e3YmE/g6KoOuacQ==
+X-Google-Smtp-Source: AGHT+IEmP9coDGlfmU5ZCxbp02gfgkkPWL9aLzFkh3gfnmqdK4vHzSxpJeZniUGXfUtnHdsMYRf2oA==
+X-Received: by 2002:a17:902:db10:b0:235:1706:1fe7 with SMTP id d9443c01a7336-23ac3bffb5fmr204787945ad.4.1751302386491;
+        Mon, 30 Jun 2025 09:53:06 -0700 (PDT)
+Received: from localhost ([216.228.127.130])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb3c94b3sm84031335ad.245.2025.06.30.09.53.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Jun 2025 09:53:06 -0700 (PDT)
+Date: Mon, 30 Jun 2025 12:53:03 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: cp0613@linux.alibaba.com
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, arnd@arndb.de,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux@rasmusvillemoes.dk,
+	palmer@dabbelt.com, paul.walmsley@sifive.com
+Subject: Re: [PATCH 2/2] bitops: rotate: Add riscv implementation using Zbb
+ extension
+Message-ID: <aGLA78usaJOnpols@yury>
+References: <aGCbRguHwFY372Ut@yury>
+ <20250630120457.1941-1-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250630120457.1941-1-cp0613@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_090527_756628_8807B652 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20250630_095307_879575_8CE03A0A 
+X-CRM114-Status: GOOD (  50.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,329 +97,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Instead of exposing the riscv-optimized SHA-512 code via riscv-specific
-crypto_shash algorithms, instead just implement the sha512_blocks()
-library function.  This is much simpler, it makes the SHA-512 (and
-SHA-384) library functions be riscv-optimized, and it fixes the
-longstanding issue where the riscv-optimized SHA-512 code was disabled
-by default.  SHA-512 still remains available through crypto_shash, but
-individual architectures no longer need to handle it.
-
-To match sha512_blocks(), change the type of the nblocks parameter of
-the assembly function from int to size_t.  The assembly function
-actually already treated it as size_t.
-
-Note: to see the diff from arch/riscv/crypto/sha512-riscv64-glue.c to
-lib/crypto/riscv/sha512.h, view this commit with 'git show -M10'.
-
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- arch/riscv/crypto/Kconfig                     |  12 --
- arch/riscv/crypto/Makefile                    |   3 -
- arch/riscv/crypto/sha512-riscv64-glue.c       | 130 ------------------
- lib/crypto/Kconfig                            |   1 +
- lib/crypto/Makefile                           |   2 +
- .../riscv}/sha512-riscv64-zvknhb-zvkb.S       |   4 +-
- lib/crypto/riscv/sha512.h                     |  41 ++++++
- 7 files changed, 46 insertions(+), 147 deletions(-)
- delete mode 100644 arch/riscv/crypto/sha512-riscv64-glue.c
- rename {arch/riscv/crypto => lib/crypto/riscv}/sha512-riscv64-zvknhb-zvkb.S (98%)
- create mode 100644 lib/crypto/riscv/sha512.h
-
-diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-index 53e4e1eacf554..a75d6325607b4 100644
---- a/arch/riscv/crypto/Kconfig
-+++ b/arch/riscv/crypto/Kconfig
-@@ -26,22 +26,10 @@ config CRYPTO_GHASH_RISCV64
- 	  GCM GHASH function (NIST SP 800-38D)
- 
- 	  Architecture: riscv64 using:
- 	  - Zvkg vector crypto extension
- 
--config CRYPTO_SHA512_RISCV64
--	tristate "Hash functions: SHA-384 and SHA-512"
--	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
--	select CRYPTO_LIB_SHA512
--	select CRYPTO_SHA512
--	help
--	  SHA-384 and SHA-512 secure hash algorithm (FIPS 180)
--
--	  Architecture: riscv64 using:
--	  - Zvknhb vector crypto extension
--	  - Zvkb vector crypto extension
--
- config CRYPTO_SM3_RISCV64
- 	tristate "Hash functions: SM3 (ShangMi 3)"
- 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
- 	select CRYPTO_HASH
- 	select CRYPTO_LIB_SM3
-diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
-index e10e8257734e3..183495a95cc0e 100644
---- a/arch/riscv/crypto/Makefile
-+++ b/arch/riscv/crypto/Makefile
-@@ -5,13 +5,10 @@ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o \
- 		 aes-riscv64-zvkned-zvbb-zvkg.o aes-riscv64-zvkned-zvkb.o
- 
- obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
- ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
- 
--obj-$(CONFIG_CRYPTO_SHA512_RISCV64) += sha512-riscv64.o
--sha512-riscv64-y := sha512-riscv64-glue.o sha512-riscv64-zvknhb-zvkb.o
--
- obj-$(CONFIG_CRYPTO_SM3_RISCV64) += sm3-riscv64.o
- sm3-riscv64-y := sm3-riscv64-glue.o sm3-riscv64-zvksh-zvkb.o
- 
- obj-$(CONFIG_CRYPTO_SM4_RISCV64) += sm4-riscv64.o
- sm4-riscv64-y := sm4-riscv64-glue.o sm4-riscv64-zvksed-zvkb.o
-diff --git a/arch/riscv/crypto/sha512-riscv64-glue.c b/arch/riscv/crypto/sha512-riscv64-glue.c
-deleted file mode 100644
-index b3dbc71de07b0..0000000000000
---- a/arch/riscv/crypto/sha512-riscv64-glue.c
-+++ /dev/null
-@@ -1,130 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-or-later
--/*
-- * SHA-512 and SHA-384 using the RISC-V vector crypto extensions
-- *
-- * Copyright (C) 2023 VRULL GmbH
-- * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
-- *
-- * Copyright (C) 2023 SiFive, Inc.
-- * Author: Jerry Shih <jerry.shih@sifive.com>
-- */
--
--#include <asm/simd.h>
--#include <asm/vector.h>
--#include <crypto/internal/hash.h>
--#include <crypto/internal/simd.h>
--#include <crypto/sha512_base.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--/*
-- * Note: the asm function only uses the 'state' field of struct sha512_state.
-- * It is assumed to be the first field.
-- */
--asmlinkage void sha512_transform_zvknhb_zvkb(
--	struct sha512_state *state, const u8 *data, int num_blocks);
--
--static void sha512_block(struct sha512_state *state, const u8 *data,
--			 int num_blocks)
--{
--	/*
--	 * Ensure struct sha512_state begins directly with the SHA-512
--	 * 512-bit internal state, as this is what the asm function expects.
--	 */
--	BUILD_BUG_ON(offsetof(struct sha512_state, state) != 0);
--
--	if (crypto_simd_usable()) {
--		kernel_vector_begin();
--		sha512_transform_zvknhb_zvkb(state, data, num_blocks);
--		kernel_vector_end();
--	} else {
--		struct __sha512_ctx ctx = {};
--
--		static_assert(sizeof(ctx.state) == sizeof(state->state));
--		memcpy(&ctx.state, state->state, sizeof(ctx.state));
--		__sha512_update(&ctx, data,
--				(size_t)num_blocks * SHA512_BLOCK_SIZE);
--		memcpy(state->state, &ctx.state, sizeof(state->state));
--	}
--}
--
--static int riscv64_sha512_update(struct shash_desc *desc, const u8 *data,
--				 unsigned int len)
--{
--	return sha512_base_do_update_blocks(desc, data, len, sha512_block);
--}
--
--static int riscv64_sha512_finup(struct shash_desc *desc, const u8 *data,
--				unsigned int len, u8 *out)
--{
--	sha512_base_do_finup(desc, data, len, sha512_block);
--	return sha512_base_finish(desc, out);
--}
--
--static int riscv64_sha512_digest(struct shash_desc *desc, const u8 *data,
--				 unsigned int len, u8 *out)
--{
--	return sha512_base_init(desc) ?:
--	       riscv64_sha512_finup(desc, data, len, out);
--}
--
--static struct shash_alg riscv64_sha512_algs[] = {
--	{
--		.init = sha512_base_init,
--		.update = riscv64_sha512_update,
--		.finup = riscv64_sha512_finup,
--		.digest = riscv64_sha512_digest,
--		.descsize = SHA512_STATE_SIZE,
--		.digestsize = SHA512_DIGEST_SIZE,
--		.base = {
--			.cra_blocksize = SHA512_BLOCK_SIZE,
--			.cra_priority = 300,
--			.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY |
--				     CRYPTO_AHASH_ALG_FINUP_MAX,
--			.cra_name = "sha512",
--			.cra_driver_name = "sha512-riscv64-zvknhb-zvkb",
--			.cra_module = THIS_MODULE,
--		},
--	}, {
--		.init = sha384_base_init,
--		.update = riscv64_sha512_update,
--		.finup = riscv64_sha512_finup,
--		.descsize = SHA512_STATE_SIZE,
--		.digestsize = SHA384_DIGEST_SIZE,
--		.base = {
--			.cra_blocksize = SHA384_BLOCK_SIZE,
--			.cra_priority = 300,
--			.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY |
--				     CRYPTO_AHASH_ALG_FINUP_MAX,
--			.cra_name = "sha384",
--			.cra_driver_name = "sha384-riscv64-zvknhb-zvkb",
--			.cra_module = THIS_MODULE,
--		},
--	},
--};
--
--static int __init riscv64_sha512_mod_init(void)
--{
--	if (riscv_isa_extension_available(NULL, ZVKNHB) &&
--	    riscv_isa_extension_available(NULL, ZVKB) &&
--	    riscv_vector_vlen() >= 128)
--		return crypto_register_shashes(riscv64_sha512_algs,
--					       ARRAY_SIZE(riscv64_sha512_algs));
--
--	return -ENODEV;
--}
--
--static void __exit riscv64_sha512_mod_exit(void)
--{
--	crypto_unregister_shashes(riscv64_sha512_algs,
--				  ARRAY_SIZE(riscv64_sha512_algs));
--}
--
--module_init(riscv64_sha512_mod_init);
--module_exit(riscv64_sha512_mod_exit);
--
--MODULE_DESCRIPTION("SHA-512 (RISC-V accelerated)");
--MODULE_AUTHOR("Heiko Stuebner <heiko.stuebner@vrull.eu>");
--MODULE_LICENSE("GPL");
--MODULE_ALIAS_CRYPTO("sha512");
--MODULE_ALIAS_CRYPTO("sha384");
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 303ea15e3e900..656f2c08c46cd 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -178,10 +178,11 @@ config CRYPTO_LIB_SHA512_ARCH
- 	bool
- 	depends on CRYPTO_LIB_SHA512 && !UML
- 	default y if ARM && !CPU_V7M
- 	default y if ARM64
- 	default y if MIPS && CPU_CAVIUM_OCTEON
-+	default y if RISCV && 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
- 
- config CRYPTO_LIB_SM3
- 	tristate
- 
- if !KMSAN # avoid false positives from assembly
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 22269ab06d700..bc42464a279b8 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -90,10 +90,12 @@ libsha512-y += arm64/sha512-core.o
- $(obj)/arm64/sha512-core.S: $(src)/../../arch/arm64/lib/crypto/sha2-armv8.pl
- 	$(call cmd,perlasm_with_args)
- clean-files += arm64/sha512-core.S
- libsha512-$(CONFIG_KERNEL_MODE_NEON) += arm64/sha512-ce-core.o
- endif
-+
-+libsha512-$(CONFIG_RISCV) += riscv/sha512-riscv64-zvknhb-zvkb.o
- endif # CONFIG_CRYPTO_LIB_SHA512_ARCH
- 
- obj-$(CONFIG_MPILIB) += mpi/
- 
- obj-$(CONFIG_CRYPTO_SELFTESTS_FULL)		+= simd.o
-diff --git a/arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S b/lib/crypto/riscv/sha512-riscv64-zvknhb-zvkb.S
-similarity index 98%
-rename from arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S
-rename to lib/crypto/riscv/sha512-riscv64-zvknhb-zvkb.S
-index 89f4a10d12dd6..b41eebf605462 100644
---- a/arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S
-+++ b/lib/crypto/riscv/sha512-riscv64-zvknhb-zvkb.S
-@@ -91,12 +91,12 @@
- 	sha512_4rounds	\last, W1, W2, W3, W0
- 	sha512_4rounds	\last, W2, W3, W0, W1
- 	sha512_4rounds	\last, W3, W0, W1, W2
- .endm
- 
--// void sha512_transform_zvknhb_zvkb(u64 state[8], const u8 *data,
--//				     int num_blocks);
-+// void sha512_transform_zvknhb_zvkb(struct sha512_block_state *state,
-+//				     const u8 *data, size_t nblocks);
- SYM_FUNC_START(sha512_transform_zvknhb_zvkb)
- 
- 	// Setup mask for the vmerge to replace the first word (idx==0) in
- 	// message scheduling.  There are 4 words, so an 8-bit mask suffices.
- 	vsetivli	zero, 1, e8, m1, ta, ma
-diff --git a/lib/crypto/riscv/sha512.h b/lib/crypto/riscv/sha512.h
-new file mode 100644
-index 0000000000000..9d0abede322f7
---- /dev/null
-+++ b/lib/crypto/riscv/sha512.h
-@@ -0,0 +1,41 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * SHA-512 and SHA-384 using the RISC-V vector crypto extensions
-+ *
-+ * Copyright (C) 2023 VRULL GmbH
-+ * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
-+ *
-+ * Copyright (C) 2023 SiFive, Inc.
-+ * Author: Jerry Shih <jerry.shih@sifive.com>
-+ */
-+
-+#include <asm/simd.h>
-+#include <asm/vector.h>
-+#include <crypto/internal/simd.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_extensions);
-+
-+asmlinkage void sha512_transform_zvknhb_zvkb(struct sha512_block_state *state,
-+					     const u8 *data, size_t nblocks);
-+
-+static void sha512_blocks(struct sha512_block_state *state,
-+			  const u8 *data, size_t nblocks)
-+{
-+	if (static_branch_likely(&have_extensions) &&
-+	    likely(crypto_simd_usable())) {
-+		kernel_vector_begin();
-+		sha512_transform_zvknhb_zvkb(state, data, nblocks);
-+		kernel_vector_end();
-+	} else {
-+		sha512_blocks_generic(state, data, nblocks);
-+	}
-+}
-+
-+#define sha512_mod_init_arch sha512_mod_init_arch
-+static inline void sha512_mod_init_arch(void)
-+{
-+	if (riscv_isa_extension_available(NULL, ZVKNHB) &&
-+	    riscv_isa_extension_available(NULL, ZVKB) &&
-+	    riscv_vector_vlen() >= 128)
-+		static_branch_enable(&have_extensions);
-+}
--- 
-2.50.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdW4gMzAsIDIwMjUgYXQgMDg6MDQ6NTNQTSArMDgwMCwgY3AwNjEzQGxpbnV4LmFs
+aWJhYmEuY29tIHdyb3RlOgo+IE9uIFNhdCwgMjggSnVuIDIwMjUgMjE6NDg6MDIgLTA0MDAsIHl1
+cnkubm9yb3ZAZ21haWwuY29tIHdyb3RlOgo+IAo+ID4gPiA+ID4gK3N0YXRpYyBpbmxpbmUgdTgg
+dmFyaWFibGVfcm9yOCh1OCB3b3JkLCB1bnNpZ25lZCBpbnQgc2hpZnQpCj4gPiA+ID4gPiArewo+
+ID4gPiA+ID4gKwl1MzIgd29yZDMyID0gKCh1MzIpd29yZCA8PCAyNCkgfCAoKHUzMil3b3JkIDw8
+IDE2KSB8ICgodTMyKXdvcmQgPDwgOCkgfCB3b3JkOwo+ID4gPiA+IAo+ID4gPiA+IENhbiB5b3Ug
+YWRkIGEgY29tbWVudCBhYm91dCB3aGF0IGlzIGhhcHBlbmluZyBoZXJlPyBBcmUgeW91IHN1cmUg
+aXQncwo+ID4gPiA+IG9wdGltaXplZCBvdXQgaW4gY2FzZSBvZiB0aGUgJ2xlZ2FjeScgYWx0ZXJu
+YXRpdmU/Cj4gPiA+IAo+ID4gPiBUaGFuayB5b3UgZm9yIHlvdXIgcmV2aWV3LiBZZXMsIEkgcmVm
+ZXJyZWQgdG8gdGhlIGV4aXN0aW5nIHZhcmlhYmxlX19mbHMoKQo+ID4gPiBpbXBsZW1lbnRhdGlv
+biwgd2hpY2ggc2hvdWxkIGJlIGZpbmUuCj4gPiAKPiA+IE5vLCBpdCdzIG5vdCBmaW5lLiBCZWNh
+dXNlIHlvdSB0cmltbWVkIHlvdXIgb3JpZ2luYWwgZW1haWwgY29tcGxldGVseSwKPiA+IHNvIHRo
+ZXJlJ3Mgbm8gd2F5IHRvIHVuZGVyc3RhbmQgd2hhdCBJJ20gYXNraW5nIGFib3V0OyBhbmQgYmVj
+YXVzZSB5b3UKPiA+IGRpZG4ndCBhbnN3ZXIgbXkgcXVlc3Rpb24uIFNvIEknbGwgYXNrIGFnYWlu
+OiB3aGF0IGV4YWN0bHkgeW91IGFyZSBkb2luZwo+ID4gaW4gdGhlIGxpbmUgeW91J3ZlIHRyaW1t
+ZWQgb3V0Pwo+IAo+IFNvcnJ5LCBJIG1pc3VuZGVyc3Rvb2QgeW91ciBxdWVzdGlvbi4gTm93IEkg
+aGF2ZSBtYWRlIHVwIGZvciB0aGUgbG9zdCBvcmlnaW5hbAo+IGVtYWlsLiBUaGlzIGlzIG15IGFu
+c3dlci4gVGhlIFJJU0MtViBaYmIgZXh0ZW5zaW9uIG9ubHkgcHJvdmlkZXMgNjQtYml0IGRhdGEK
+PiByb3RhdGlvbiBpbnN0cnVjdGlvbnMgcm9sL3JvciBhbmQgMzItYml0IGRhdGEgcm90YXRpb24g
+aW5zdHJ1Y3Rpb25zIHJvbHcvcm9ydy4KPiBUaGVyZWZvcmUsIGZvciAxNi1iaXQgYW5kIDgtYml0
+IGRhdGEsIGluIG9yZGVyIHRvIHVzZSB0aGUgcm9sdy9yb3J3IGluc3RydWN0aW9uCj4gb3B0aW1p
+emF0aW9uLCB0aGUgZGF0YSBpcyBjeWNsaWNhbGx5IHNwbGljZWQg4oCL4oCLaGVyZSwgYW5kIHRo
+ZSBjb3JyZXNwb25kaW5nIG51bWJlcgo+IG9mIGJpdHMgaXMgdHJ1bmNhdGVkIGFmdGVyIHByb2Nl
+c3NpbmcgdG8gYWNoaWV2ZSB0aGUgZnVuY3Rpb24uCj4gCj4gVGhpcyBkYXRhIHByZXBhcmF0aW9u
+IHByb2Nlc3MgZG9lcyBpbnRyb2R1Y2UgYWRkaXRpb25hbCBvcGVyYXRpb25zLiBDb21wYXJlZCB3
+aXRoCj4gZ2VubmVyaWMncyBpbXBsZW1lbnRhdGlvbiwgSSB1c2UgdGhlIHdlYiB0b29sIHByb3Zp
+ZGVkIGJ5IERhdmlkIHRvIGlsbHVzdHJhdGUuCj4gCj4gVGhlIHR3byBmdW5jdGlvbnMgdGhhdCBu
+ZWVkIHRvIGJlIGNvbXBhcmVkIGFyZSBicmllZmx5IHN1bW1hcml6ZWQgYXMgZm9sbG93czoKPiBg
+YGAKPiB1bnNpZ25lZCBjaGFyIGdlbmVyaWNfcm9yOCh1bnNpZ25lZCBjaGFyIHdvcmQsIHVuc2ln
+bmVkIGludCBzaGlmdCkKPiB7Cj4gCXJldHVybiAod29yZCA+PiAoc2hpZnQgJiA3KSkgfCAod29y
+ZCA8PCAoKC1zaGlmdCkgJiA3KSk7Cj4gfQo+IAo+IHVuc2lnbmVkIGNoYXIgemJiX29wdF9yb3I4
+KHVuc2lnbmVkIGNoYXIgd29yZCwgdW5zaWduZWQgaW50IHNoaWZ0KQo+IHsKPiAJdW5zaWduZWQg
+aW50IHdvcmQzMiA9ICgodW5zaWduZWQgaW50KXdvcmQgPDwgMjQpIHwgXAo+IAkgICAgKCh1bnNp
+Z25lZCBpbnQpd29yZCA8PCAxNikgfCAoKHVuc2lnbmVkIGludCl3b3JkIDw8IDgpIHwgd29yZDsK
+PiAjaWZkZWYgX19yaXNjdgo+IAlfX2FzbV9fIHZvbGF0aWxlKCJub3AiKTsgLy8gQUxURVJOQVRJ
+VkUobm9wKQo+IAo+IAlfX2FzbV9fIHZvbGF0aWxlKAo+IAkJIi5vcHRpb24gcHVzaFxuIgo+IAkJ
+Ii5vcHRpb24gYXJjaCwremJiXG4iCj4gCQkicm9ydyAlMCwgJTEsICUyXG4iCj4gCQkiLm9wdGlv
+biBwb3BcbiIKPiAJCTogIj1yIiAod29yZDMyKSA6ICJyIiAod29yZDMyKSwgInIiIChzaGlmdCkg
+Oik7Cj4gI2VuZGlmCj4gCXJldHVybiAodW5zaWduZWQgY2hhcil3b3JkMzI7Cj4gfQo+IGBgYAo+
+IFRoZSBkaXNhc3NlbWJseSBvYnRhaW5lZCBpczoKPiBgYGAKPiBnZW5lcmljX3Jvcjg6Cj4gICAg
+IGFuZGkgICAgYTEsYTEsNwo+ICAgICBuZWd3ICAgIGE1LGExCj4gICAgIGFuZGkgICAgYTUsYTUs
+Nwo+ICAgICBzbGx3ICAgIGE1LGEwLGE1Cj4gICAgIHNybHcgICAgYTAsYTAsYTEKPiAgICAgb3Ig
+ICAgICBhMCxhMCxhNQo+ICAgICBhbmRpICAgIGEwLGEwLDB4ZmYKPiAgICAgcmV0Cj4gCj4gemJi
+X29wdF9yb3I4Ogo+ICAgICBzbGxpICAgIGE1LGEwLDgKPiAgICAgYWRkICAgICBhMCxhNSxhMAo+
+ICAgICBzbGxpdyAgIGE1LGEwLDE2Cj4gICAgIGFkZHcgICAgYTUsYTUsYTAKPiAgICAgbm9wCj4g
+ICAgIHJvcncgYTUsIGE1LCBhMQo+ICAgICBhbmRpICAgIGEwLGE1LDB4ZmYKPiAgICAgcmV0Cj4g
+YGBgCj4gRnJvbSB0aGUgcGVyc3BlY3RpdmUgb2YgdGhlIHRvdGFsIG51bWJlciBvZiBpbnN0cnVj
+dGlvbnMsIGFsdGhvdWdoIHpiYl9vcHRfcm9yOCBoYXMKPiBvbmUgbW9yZSBpbnN0cnVjdGlvbiwg
+b25lIG9mIHRoZW0gaXMgYSBub3AsIHNvIHRoZSBkaWZmZXJlbmNlIHdpdGggZ2VuZXJpY19yb3I4
+IHNob3VsZAo+IGJlIHZlcnkgc21hbGwsIG9yIHVzaW5nIHRoZSBzb2x1dGlvbiBwcm92aWRlZCBi
+eSBEYXZpZCB3b3VsZCBiZSBiZXR0ZXIgZm9yIG5vbi14ODYuCgpBbmQgd2hhdCBhYm91dCBwZXJm
+b3JtYW5jZT8KCj4gPiA+IEkgZGlkIGNvbnNpZGVyIGl0LCBidXQgSSBkaWQgbm90IGZpbmQgYW55
+IHRvb2xjaGFpbiB0aGF0IHByb3ZpZGVzIGFuCj4gPiA+IGltcGxlbWVudGF0aW9uIHNpbWlsYXIg
+dG8gX19idWlsdGluX3JvciBvciBfX2J1aWx0aW5fcm9sLiBJZiB0aGVyZSBpcyBvbmUsCj4gPiA+
+IHBsZWFzZSBoZWxwIHBvaW50IGl0IG91dC4KPiA+IAo+ID4gVGhpcyBpcyB0aGUgZXhhbXBsZSBv
+ZiB0aGUgdG9vbGNoYWluIHlvdSdyZSBsb29raW5nIGZvcjoKPiA+IAo+ID4gICAvKioKPiA+ICAg
+ICogcm9sNjQgLSByb3RhdGUgYSA2NC1iaXQgdmFsdWUgbGVmdAo+ID4gICAgKiBAd29yZDogdmFs
+dWUgdG8gcm90YXRlCj4gPiAgICAqIEBzaGlmdDogYml0cyB0byByb2xsCj4gPiAgICAqLwo+ID4g
+ICBzdGF0aWMgaW5saW5lIF9fdTY0IHJvbDY0KF9fdTY0IHdvcmQsIHVuc2lnbmVkIGludCBzaGlm
+dCkKPiA+ICAgewo+ID4gICAgICAgICAgIHJldHVybiAod29yZCA8PCAoc2hpZnQgJiA2MykpIHwg
+KHdvcmQgPj4gKCgtc2hpZnQpICYgNjMpKTsKPiA+ICAgfQo+ID4gCj4gPiBXaGF0IEknbSBhc2tp
+bmcgaXM6IHBsZWFzZSBzaG93IG1lIHRoYXQgY29tcGlsZS10aW1lIHJvbC9yb3IgaXMgc3RpbGwK
+PiA+IGNhbGN1bGF0ZWQgYXQgY29tcGlsZSB0aW1lLCBpLmUuIHJvcjY0KDEyMzQsIDEyKSBpcyBl
+dmFsdWF0ZWQgYXQKPiA+IGNvbXBpbGUgdGltZS4KPiAKPiBJIHNlZSB3aGF0IHlvdSBtZWFuLCBJ
+IGRpZG4ndCBjb25zaWRlciB0aGUgY2FzZSBvZiBjb25zdGFudHMgYmVpbmcgZXZhbHVhdGVkCj4g
+YXQgY29tcGlsZSB0aW1lLCBhcyB5b3UgcG9pbnRlZCBvdXQgZWFybGllcjoKPiAieW91IHdpcmUg
+cm9yL3JvbCgpIHRvIHRoZSB2YXJpYWJsZV9yb3Ivcm9sKCkgdW5jb25kaXRpb25hbGx5LCBhbmQg
+dGhhdCBicmVha3MKPiBjb21waWxlLXRpbWUgcm90YXRpb24gaWYgdGhlIHBhcmFtZXRlciBpcyBr
+bm93biBhdCBjb21waWxlIHRpbWUuIgo+IAo+IEluIHRoZSBhYnNlbmNlIG9mIGNvbXBpbGVyIGJ1
+aWx0LWluIGZ1bmN0aW9uIHN1cHBvcnQsIEkgdGhpbmsgaXQgY2FuIGJlIGhhbmRsZWQKPiBsaWtl
+IHRoaXM6Cj4gYGBgCj4gI2RlZmluZSByb2wxNih3b3JkLCBzaGlmdCkgXAo+IAkoX19idWlsdGlu
+X2NvbnN0YW50X3Aod29yZCkgJiYgX19idWlsdGluX2NvbnN0YW50X3Aoc2hpZnQpID8gXAo+IAln
+ZW5lcmljX3JvcjE2KHdvcmQsIHNoaWZ0KSA6IHZhcmlhYmxlX3JvbDE2KHdvcmQsIHNoaWZ0KSkK
+PiBgYGAKPiBIb3cgZG8geW91IHNlZT8KClRoYXQncyB3aGF0IEkgbWVhbnQuCiAKPiA+ID4gSW4g
+YWRkaXRpb24sIEkgZGlkIG5vdCBjb25zaWRlciBpdCBjYXJlZnVsbHkgYmVmb3JlLiBJZiB0aGUg
+cm90YXRlIGZ1bmN0aW9uCj4gPiA+IGlzIHRvIGJlIGdlbmVyaWNpemVkLCBhbGwgYXJjaG5lZWQg
+dG8gaW5jbHVkZSA8YXNtLWdlbmVyaWMvYml0b3BzL3JvdGF0ZS5oPi4KPiA+ID4gSSBtaXNzZWQg
+dGhpcyBzdGVwLgo+ID4gCj4gPiBTb3JyeSwgSSdtIGxvc3QgaGVyZSBhYm91dCB3aGF0IHlvdSd2
+ZSBjb25zaWRlcmVkIGFuZCB3aGF0IG5vdC4gSSdtIE9LCj4gPiBhYm91dCBhY2NlbGVyYXRpbmcg
+cm9yL3JvbCwgYnV0IEkgd2FudCB0byBtYWtlIHN1cmUgdGhhdDsKPiA+IAo+ID4gMS4gVGhlIG1v
+c3QgdHJpdmlhbCBjb21waWxlLWNhc2UgaXMgYWN0dWFsbHkgZXZhbHVhdGVkIGF0IGNvbXBpbGUg
+dGltZTsgYW5kCj4gPiAyLiBBbnkgYXJjaC1zcGVjaWZpYyBjb2RlIGlzIHdlbGwgZXhwbGFpbmVk
+OyBhbmQKPiA+IDMuIGxlZ2FjeSBjYXNlIG9wdGltaXplZCBqdXN0IGFzIHdlbGwgYXMgbm9uLWxl
+Z2FjeS4KPiAKPiAxLiBBcyBpbiB0aGUgYWJvdmUgcmVwbHksIHVzZSB0aGUgZ2VuZXJpYyBpbXBs
+ZW1lbnRhdGlvbiB3aGVuIGNvbXBpbGUtdGltZSBldmFsdWF0aW9uCj4gICAgaXMgcG9zc2libGXj
+gIIKPiAyLiBJIHdpbGwgaW1wcm92ZSB0aGUgY29tbWVudHMgbGF0ZXIuCgpJJ20gcGFydGljdWxh
+cmx5IGludGVyZXN0ZWQgaW4gcm9yOC9yb2w4IGNhc2U6CgogICAgICAgIHUzMiB3b3JkMzIgPSAo
+KHUzMil3b3JkIDw8IDI0KSB8ICgodTMyKXdvcmQgPDwgMTYpIHwgKCh1MzIpd29yZCA8PCA4KSB8
+IHdvcmQ7CgpXaGVuIHlvdSBleHBhbmQgaXQgdG8gMzItYml0IHdvcmQsIGFuZCB3YW50IHRvIHJv
+dGF0ZSwgeW91IG9idmlvdXNseQpuZWVkIHRvIGNvcHkgbG93ZXIgcXVhcnRlcndvcmQgdG8gdGhl
+IGhpZ2hlciBvbmU6CgogICAgICAgIDB4YWIgPj4gMHhhYjAwMDBhYgoKVGhhdCB3YXkgZ2VuZXJp
+YyAodTgpcm9yMzIoMHhhYiwgc2hpZnQpIHdvdWxkIHdvcmsuIEJ1dCBJIGRvbid0IHVuZGVyc3Rh
+bmQKd2h5IHlvdSBjb3B5IHRoZSBsb3dlciA4IGJpdHMgdG8gaW5uZXIgcXVhcnRlcndvcmRzLiBJ
+cyB0aGF0IGEgaGFyZHdhcmUKcmVxdWlyZW1lbnQ/IENhbiB5b3UgcG9pbnQgdG8gYW55IGFyY2gg
+ZG9jdW1lbnRhdGlvbiAKCj4gMy4gQXMgbWVudGlvbmVkIGJlZm9yZSwgb25seSA4LWJpdCByb3Rh
+dGlvbiBzaG91bGQgaGF2ZSBubyBvcHRpbWl6YXRpb24gZWZmZWN0LCBhbmQKPiAgICAxNi1iaXQg
+YW5kIGFib3ZlIHdpbGwgaGF2ZSBzaWduaWZpY2FudCBvcHRpbWl6YXRpb24uCgpJIGFza2VkIHlv
+dSBhYm91dCB0aGUgYXNtIGdvdG8gKCJsZWdhY3kiKSB0aGluZzogeW91IGNhbGN1bGF0ZSB0aGF0
+CmNvbXBsZXggd29yZDMyIF9iZWZvcmVfIGV2YWx1YXRpbmcgdGhlIGdvdG8uIFNvIHRoaXMgd29y
+ZDMyIG1heSBnZXQKdW51c2VkLCBhbmQgeW91IHdhc3RlIGN5Y2xlcy4gSSB3YW50IHRvIG1ha2Ug
+c3VyZSB0aGlzIGlzbid0IHRoZSBjYXNlLgoKUGxlYXNlIGZpbmQgYXR0YWNoZWQgYSB0ZXN0IGZv
+ciBjb21waWxlLXRpbWUgcm9yL3JvbCBldmFsdWF0aW9uLgpQbGVhc2UgY29uc2lkZXIgcHJlcGVu
+ZGluZyB5b3VyIHNlcmllcyB3aXRoIGl0LgoKVGhhbmtzLApZdXJ5CgpGcm9tIDVjNWJlMjIxMTdh
+MmJkMGE2NTZlZmFlMGVmZDZlZDE1OWQ0MTY4YzUgTW9uIFNlcCAxNyAwMDowMDowMCAyMDAxCkZy
+b206IFl1cnkgTm9yb3YgPHl1cnkubm9yb3ZAZ21haWwuY29tPgpEYXRlOiBNb24sIDMwIEp1biAy
+MDI1IDEyOjA3OjQ3IC0wNDAwClN1YmplY3Q6IFtQQVRDSF0gYml0b3BzOiBhZGQgY29tcGlsZS10
+aW1lIHRlc3QgZm9yIHJvcigpIGFuZCByb2woKQoKSWYgcGFyYW1ldGVycyBmb3IgdGhlIGZ1bmN0
+aW9ucyBhcmUgcGFzc2VkIGF0IGNvbXBpbGUgdGltZSwgdGhlIGNvbXBpbGVyCm11c3QgY2FsY3Vs
+YXRlIHRoZSByZXN1bHQgYXQgY29tcGlsZSB0aW1lLCBhcyB3ZWxsLgoKTm93IHRoYXQgYXJjaGl0
+ZWN0dXJlcyBpbnRyb2R1Y2UgYWNjZWxlcmF0ZWQgaW1wbGVtZW50YXRpb25zIGZvciBiaXQKcm90
+YXRpb24sIHdlIG11c3QgbWFrZSBzdXJlIHRoYXQgdGhleSBkb24ndCBicmVhayBjb21waWxlLXRp
+bWUKZXZhbHVhdGlvbi4KClRoaXMgcGF0Y2ggYWRkcyBhIHRlc3QgZm9yIGl0LCBzaW1pbGFybHkg
+dG8gdGVzdF9iaXRtYXBfY29uc3RfZXZhbCgpLgoKVGVzdGVkIG9uIHg4Nl82NC4KClNpZ25lZC1v
+ZmYtYnk6IFl1cnkgTm9yb3YgKE5WSURJQSkgPHl1cnkubm9yb3ZAZ21haWwuY29tPgotLS0KIGxp
+Yi90ZXN0X2JpdG9wcy5jIHwgNTEgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysKIDEgZmlsZSBjaGFuZ2VkLCA1MSBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0
+IGEvbGliL3Rlc3RfYml0b3BzLmMgYi9saWIvdGVzdF9iaXRvcHMuYwppbmRleCA1NTY2OTYyNGJi
+MjguLmFhNGMwNmRmMzRmNyAxMDA2NDQKLS0tIGEvbGliL3Rlc3RfYml0b3BzLmMKKysrIGIvbGli
+L3Rlc3RfYml0b3BzLmMKQEAgLTc2LDYgKzc2LDU2IEBAIHN0YXRpYyBpbnQgX19pbml0IHRlc3Rf
+Zm5zKHZvaWQpCiAJcmV0dXJuIDA7CiB9CiAKK3N0YXRpYyB2b2lkIF9faW5pdCB0ZXN0X2JpdG9w
+c19jb25zdF9ldmFsKHZvaWQpCit7CisJLyoKKwkgKiByb3Ivcm9sIG9wZXJhdGlvbnMgb24gcGFy
+YW1ldGVycyBrbm93biBhdCBjb21waWxlLXRpbWUgbXVzdCBiZQorCSAqIG9wdGltaXplZCB0byBj
+b21waWxlLXRpbWUgY29uc3RhbnRzIG9uIGFueSBzdXBwb3J0ZWQgb3B0aW1pemF0aW9uCisJICog
+bGV2ZWwgKC1PMiwgLU9zKSBhbmQgYWxsIGFyY2hpdGVjdHVyZXMuIE90aGVyd2lzZSwgdHJpZ2dl
+ciBhIGJ1aWxkCisJICogYnVnLgorCSAqLworCisJdTY0IHI2NCA9IHJvcjY0KDB4MTIzNDU2Nzg5
+MGFiY2RlZnVsbCwgMjQpOworCisJQlVJTERfQlVHX09OKCFfX2J1aWx0aW5fY29uc3RhbnRfcChy
+NjQpKTsKKwlCVUlMRF9CVUdfT04ocjY0ICE9IDB4YWJjZGVmMTIzNDU2Nzg5MHVsbCk7CisKKwl1
+NjQgbDY0ID0gcm9sNjQoMHgxMjM0NTY3ODkwYWJjZGVmdWxsLCAyNCk7CisKKwlCVUlMRF9CVUdf
+T04oIV9fYnVpbHRpbl9jb25zdGFudF9wKGw2NCkpOworCUJVSUxEX0JVR19PTihsNjQgIT0gMHg3
+ODkwYWJjZGVmMTIzNDU2dWxsKTsKKworCXUzMiByMzIgPSByb3IzMigweDEyMzQ1Njc4LCAyNCk7
+CisKKwlCVUlMRF9CVUdfT04oIV9fYnVpbHRpbl9jb25zdGFudF9wKHIzMikpOworCUJVSUxEX0JV
+R19PTihyMzIgIT0gMHgzNDU2NzgxMik7CisKKwl1MzIgbDMyID0gcm9sMzIoMHgxMjM0NTY3OCwg
+MjQpOworCisJQlVJTERfQlVHX09OKCFfX2J1aWx0aW5fY29uc3RhbnRfcChsMzIpKTsKKwlCVUlM
+RF9CVUdfT04obDMyICE9IDB4NzgxMjM0NTYpOworCisJdTE2IHIxNiA9IHJvcjE2KDB4MTIzNCwg
+MTIpOworCisJQlVJTERfQlVHX09OKCFfX2J1aWx0aW5fY29uc3RhbnRfcChyMTYpKTsKKwlCVUlM
+RF9CVUdfT04ocjE2ICE9IDB4MjM0MSk7CisKKwl1MTYgbDE2ID0gcm9sMTYoMHgxMjM0LCAxMik7
+CisKKwlCVUlMRF9CVUdfT04oIV9fYnVpbHRpbl9jb25zdGFudF9wKGwxNikpOworCUJVSUxEX0JV
+R19PTihsMTYgIT0gMHg0MTIzKTsKKworCXU4IHI4ID0gcm9yOCgweDEyLCA2KTsKKworCUJVSUxE
+X0JVR19PTighX19idWlsdGluX2NvbnN0YW50X3AocjE2KSk7CisJQlVJTERfQlVHX09OKHI4ICE9
+IDB4NDgpOworCisJdTggbDggPSByb2w4KDB4MTIsIDYpOworCisJQlVJTERfQlVHX09OKCFfX2J1
+aWx0aW5fY29uc3RhbnRfcChsMTYpKTsKKwlCVUlMRF9CVUdfT04obDggIT0gMHg4NCk7Cit9CisK
+IHN0YXRpYyBpbnQgX19pbml0IHRlc3RfYml0b3BzX3N0YXJ0dXAodm9pZCkKIHsKIAlpbnQgaSwg
+Yml0X3NldDsKQEAgLTEyMSw2ICsxNzEsNyBAQCBzdGF0aWMgaW50IF9faW5pdCB0ZXN0X2JpdG9w
+c19zdGFydHVwKHZvaWQpCiAJCXByX2VycigiRVJST1I6IEZPVU5EIFNFVCBCSVQgJWRcbiIsIGJp
+dF9zZXQpOwogCiAJdGVzdF9mbnMoKTsKKwl0ZXN0X2JpdG9wc19jb25zdF9ldmFsKCk7CiAKIAlw
+cl9pbmZvKCJDb21wbGV0ZWQgYml0b3BzIHRlc3RcbiIpOwogCi0tIAoyLjQzLjAKCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
