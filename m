@@ -4,59 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C8BFC7EE39
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 07:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19338C7EE39
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Jun 2025 07:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o+86+19GU3Xy/9m+Fyqk+lYn2oidfBQvfCaF1rhNdrk=; b=1eBsnZogqZpYqK
-	ogra8gom7nfLLwoKFPSlK2mL8sujOy8BxxVolk04ct5GgrCjAzi5OcAbWxcPBcuhZEN/9sSGHheFR
-	6Bs1GrTBGbPH6tXRnXI4m5HYEdH2FBPJzT9S44MM+POU8deA6iwzbL4xYgCN1df2A3Tye1MbYkLQO
-	nA6lUs0T7t72x2l2A/4HmZ9EsA+UrtY+BAQO+cQazwtUoei2XB05j3Ogs8Bm+SyF012+hGk5W2qCb
-	jkm3TJUBbEY9ODOx7Qt1gWZuGNXD65JpdjKPzKanmJNRG8VwxqZefn8HRFHCN0JnLAzXFziDao4hz
-	HPKnpnb8ifsTUgddNpTA==;
+	List-Owner; bh=39NZSU7x4uhKGL6kqVIjIChKYnjT6hysFz/Mi7SXPUg=; b=o8BXJSF01+0LYU
+	QjBaaweAR1Ywr4ojph8o43vzhqv4AEx4b3esNe5qp3+yYyDJ8PLWwq5YBRzYgJl3UxGU/X6zy9Afu
+	eOkMQ/83I6BULyYpiNUsyY8JB54W1ApCkrSOcbcFBHKiCWxGzaBKm1b/jV6O5HZcdwZ1o2wOoYXuT
+	Bl8P5EpRiDhhrLx72woEmGZsHNVjqeoNTTsbU5VjYFVKIfXRTJVJWuql9OBmy3iY2lv60quezZjVS
+	qMAjO2AxcgUw9tnvXv+/Y23+vdn8LQgpQfSDhCov7pi5XLZ+JqT1zBe4aK7wjgIGCanUJv4s1FTx5
+	mvmEdYMFJlvNYnD3Piqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW94U-00000001T0m-1CEM;
-	Mon, 30 Jun 2025 07:36:58 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1uW9P2-00000001X6h-234I;
+	Mon, 30 Jun 2025 07:58:12 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW92F-00000001Sfo-36Fz
+	id 1uW9M8-00000001Wc1-2tI4
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Jun 2025 07:34:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 8634D442CE;
-	Mon, 30 Jun 2025 07:34:28 +0000 (UTC)
-Message-ID: <a57e83be-c506-4ab4-962d-4cdbce4aaed9@ghiti.fr>
-Date: Mon, 30 Jun 2025 09:34:28 +0200
+	Mon, 30 Jun 2025 07:55:14 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3a575a988f9so2617874f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jun 2025 00:55:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1751270111; x=1751874911; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=HghRs6CfnwHTHOlXV70nfKWub1+X04TsUPMptUI+VJs=;
+        b=isJcOxfFNS2mDRe5iguKzzqfePEQBqCiU9pgW9EyRa0rbCYOEeRRznt8fJ1W19Vred
+         usTeN5Gwp5C91LgrpRZ3y2oKQJV6MgXovwpFzABd68PpvtVs19aHK5Zt7nEc70fENqcs
+         mGrnCx7ufj6G6+l6z1YxXV34/MNxw0RzUdo+RAea+cY7JzpddJHD1PdwP6ArC6y0Azvc
+         zW1RzYi4+i9hfiUQDwxsSsg19U4OwVe3wVq5lZlQ6yPdDL11C++Mv3oldFDoLa/8n1wI
+         s6iGEWiQUIY/96tH0C+tQPquk64ULFDJloaTtAUEIJ4XjA2hxhzrrg7l6KrFdX3bzf6i
+         XoPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751270111; x=1751874911;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HghRs6CfnwHTHOlXV70nfKWub1+X04TsUPMptUI+VJs=;
+        b=ek2YBjNGX2dmNJJcgLEfRxlIXKppJZpD1PS9Dy7Cyi5cUPJPy8WAn4FUGSFtu1zsFB
+         KN1KuMOQANE5fuK2boSUsSkuw4ajjG5VfxCms7UrPyumGOOQRCXS7F4Zp1Md0RurAzse
+         IvZtwOForrTEdyOvO9I7qVjxYIUwE5/IVb0gwCR7mZe7cXdMK8oRI5vSrXVYRq7EjT9Q
+         cKYkrnKAC8YOEIa4PfExq4Ayd9Cdl1Rc/MVNC7JpqBc7OLwhzhQgvoSYr6bE6EAlrcsU
+         Py2tlVLZcn0aQGBzASMFJrswDLUQciTmt/4b6bFx7/NJbGdbIU7A5kkJrIPzOH4RMK7k
+         +DZg==
+X-Forwarded-Encrypted: i=1; AJvYcCUa2wklkPXHugZYxDC2MA1wd2cVtFkVOcvSmAgjbFNvsG/UdR0XtycXnb8AQnKUBVQSNPW+D5J/iXPewA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywz0QTXhnOjdHOok/HnWRwxe6NhJwEIM1zMk6Q44HYM7IT7ivYn
+	W8ZN0Ie23mTyOrc8d4xQUwf89FmX1sl8U0a88C7UCMLUtO1xFXfX/5fTMlAAWsC8cOQ=
+X-Gm-Gg: ASbGnctEWnZc2IC6wg9W7vKJPVKMWNkVoQxn85t55cYLkZWatVDhSNItpcQQrBnaK/g
+	874LqRYEUVbOOtnjulBI0m/SdPGKNtMI0seKV4v+8Uzj0CUvYl2xlEJllqpxLW73VigEz1zhpd3
+	cdCwOYpFa8Aisng40QnFB87bJ1nsoCN8EcyccaVFCzoYRIT7u5sB3abA+HFsH4GOSVMbe3MTOpl
+	NqpjzqprDbe80gKaXVDJluTjUJx+usAmnju5o6jp6bJ1pMs9QleSNpNPeg7pWYZ81dPF/QQBWzr
+	+WTxq9j3gUapnEMQjoo0vjoGmfkijQlrslimj219LiCyCdrBJQ==
+X-Google-Smtp-Source: AGHT+IG92wkHjuyk0ApSRhWj67SqYF0q/SBS/jy4B5fUyqzFPMBafLN5zoXgCa94YJarzkfDAO+uSA==
+X-Received: by 2002:a05:6000:2f81:b0:3a5:8cf0:fc0f with SMTP id ffacd0b85a97d-3a8fe1defd2mr9621290f8f.19.1751270110516;
+        Mon, 30 Jun 2025 00:55:10 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::5485])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a87e947431sm9709614f8f.0.2025.06.30.00.55.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Jun 2025 00:55:09 -0700 (PDT)
+Date: Mon, 30 Jun 2025 09:55:09 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-acpi@vger.kernel.org, iommu@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Len Brown <lenb@kernel.org>, Tomasz Jeznach <tjeznach@rivosinc.com>, 
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Anup Patel <apatel@ventanamicro.com>, 
+	Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH v3 1/3] ACPI: RISC-V: Add support for RIMT
+Message-ID: <20250630-4a94187c794980bb830c539a@orel>
+References: <20250630034803.1611262-1-sunilvl@ventanamicro.com>
+ <20250630034803.1611262-2-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] riscv: hwprobe: Fix stale vDSO data for
- late-initialized keys at boot
-To: Jingwei Wang <wangjingwei@iscas.ac.cn>, linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Jones <ajones@ventanamicro.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Charlie Jenkins <charlie@rivosinc.com>, Jesse Taube <jesse@rivosinc.com>,
- Yixun Lan <dlan@gentoo.org>, Yanteng Si <si.yanteng@linux.dev>,
- Tsukasa OI <research_trasio@irq.a4lg.com>, stable@vger.kernel.org,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-References: <20250627172814.66367-1-wangjingwei@iscas.ac.cn>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250627172814.66367-1-wangjingwei@iscas.ac.cn>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduudduudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhephffhuddtveegleeggeefledtudfhudelvdetudfhgeffffeigffgkeethfejudejnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmegtheekieemkeehhegvmeguugdutdemfeejudhfnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegtheekieemkeehhegvmeguugdutdemfeejudhfpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmegtheekieemkeehhegvmeguugdutdemfeejudhfngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeduhedprhgtphhtthhopeifrghnghhjihhnghifvghisehishgtrghsrdgrtgdrtghnpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdro
- hhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheprghjohhnvghssehvvghnthgrnhgrmhhitghrohdrtghomhdprhgtphhtthhopegtohhnohhrrdguohholhgvhiesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopegtlhgvghgvrhesrhhivhhoshhinhgtrdgtohhm
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <20250630034803.1611262-2-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_003439_937941_D2D27232 
-X-CRM114-Status: GOOD (  25.61  )
+X-CRM114-CacheID: sfid-20250630_005512_749822_E208A91F 
+X-CRM114-Status: GOOD (  42.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,171 +99,711 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jingwei,
+Hi Sunil,
 
-On 6/27/25 19:27, Jingwei Wang wrote:
-> The value for some hwprobe keys, like MISALIGNED_VECTOR_PERF, is
-> determined by an asynchronous kthread. This kthread can finish after
-> the hwprobe vDSO data is populated, creating a race condition where
-> userspace can read stale values.
->
-> A completion-based framework is introduced to synchronize the async
-> probes with the vDSO population. The init_hwprobe_vdso_data()
-> function is deferred to `late_initcall` and now blocks until all
-> probes signal completion.
+I found a few nits while skimming this.
 
-
-Can you add an explanation of why the move to late_initcall() here?
-
-
->
-> Reported-by: Tsukasa OI <research_trasio@irq.a4lg.com>
-> Closes: https://lore.kernel.org/linux-riscv/760d637b-b13b-4518-b6bf-883d55d44e7f@irq.a4lg.com/
-> Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Jingwei Wang <wangjingwei@iscas.ac.cn>
+On Mon, Jun 30, 2025 at 09:18:01AM +0530, Sunil V L wrote:
+> RISC-V IO Mapping Table (RIMT) is a static ACPI table to communicate
+> IOMMU information to the OS. The spec is available at [1].
+> 
+> The changes at high level are,
+> 	a) Initialize data structures required for IOMMU/device
+> 	   configuration using the data from RIMT. Provide APIs required
+> 	   for device configuration.
+> 	b) Provide an API for IOMMU drivers to register the
+> 	   fwnode with RIMT data structures. This API will create a
+> 	   fwnode for PCIe IOMMU.
+> 
+> [1] - https://github.com/riscv-non-isa/riscv-acpi-rimt
+> 
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 > ---
-> Changes in v4:
-> 	- Reworked the synchronization mechanism based on feedback from Palmer
->      	and Alexandre.
-> 	- Instead of a post-hoc refresh, this version introduces a robust
-> 	completion-based framework using an atomic counter to ensure async
-> 	probes are finished before populating the vDSO.
-> 	- Moved the vdso data initialization to a late_initcall to avoid
-> 	impacting boot time.
->
-> Changes in v3:
-> 	- Retained existing blank line.
->
-> Changes in v2:
-> 	- Addressed feedback from Yixun's regarding #ifdef CONFIG_MMU usage.
-> 	- Updated commit message to provide a high-level summary.
-> 	- Added Fixes tag for commit e7c9d66e313b.
->
-> v1: https://lore.kernel.org/linux-riscv/20250521052754.185231-1-wangjingwei@iscas.ac.cn/T/#u
->
->   arch/riscv/include/asm/hwprobe.h           |  8 +++++++-
->   arch/riscv/kernel/sys_hwprobe.c            | 20 +++++++++++++++++++-
->   arch/riscv/kernel/unaligned_access_speed.c |  9 +++++++--
->   3 files changed, 33 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-> index 7fe0a379474ae2c6..87af186d92e75ddb 100644
-> --- a/arch/riscv/include/asm/hwprobe.h
-> +++ b/arch/riscv/include/asm/hwprobe.h
-> @@ -40,5 +40,11 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
->   
->   	return pair->value == other_pair->value;
->   }
-> -
-> +#ifdef CONFIG_MMU
-> +void riscv_hwprobe_register_async_probe(void);
-> +void riscv_hwprobe_complete_async_probe(void);
+>  MAINTAINERS                 |   1 +
+>  arch/riscv/Kconfig          |   1 +
+>  drivers/acpi/Kconfig        |   4 +
+>  drivers/acpi/riscv/Kconfig  |   7 +
+>  drivers/acpi/riscv/Makefile |   1 +
+>  drivers/acpi/riscv/init.c   |   2 +
+>  drivers/acpi/riscv/init.h   |   1 +
+>  drivers/acpi/riscv/rimt.c   | 523 ++++++++++++++++++++++++++++++++++++
+>  include/linux/acpi_rimt.h   |  26 ++
+>  9 files changed, 566 insertions(+)
+>  create mode 100644 drivers/acpi/riscv/Kconfig
+>  create mode 100644 drivers/acpi/riscv/rimt.c
+>  create mode 100644 include/linux/acpi_rimt.h
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 4bac4ea21b64..c8aac26707af 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -345,6 +345,7 @@ L:	linux-acpi@vger.kernel.org
+>  L:	linux-riscv@lists.infradead.org
+>  S:	Maintained
+>  F:	drivers/acpi/riscv/
+> +F:	include/linux/acpi_rimt.h
+>  
+>  ACPI PCC(Platform Communication Channel) MAILBOX DRIVER
+>  M:	Sudeep Holla <sudeep.holla@arm.com>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 36061f4732b7..96d64e0a7b97 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -16,6 +16,7 @@ config RISCV
+>  	select ACPI_MCFG if (ACPI && PCI)
+>  	select ACPI_PPTT if ACPI
+>  	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
+> +        select ACPI_RIMT if ACPI
+
+Should use tab here.
+
+>  	select ACPI_SPCR_TABLE if ACPI
+>  	select ARCH_DMA_DEFAULT_COHERENT
+>  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+> diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+> index 7bc40c2735ac..4381803c308c 100644
+> --- a/drivers/acpi/Kconfig
+> +++ b/drivers/acpi/Kconfig
+> @@ -546,6 +546,10 @@ if ARM64
+>  source "drivers/acpi/arm64/Kconfig"
+>  endif
+>  
+> +if RISCV
+> +source "drivers/acpi/riscv/Kconfig"
+> +endif
+> +
+>  config ACPI_PPTT
+>  	bool
+>  
+> diff --git a/drivers/acpi/riscv/Kconfig b/drivers/acpi/riscv/Kconfig
+> new file mode 100644
+> index 000000000000..046296a18d00
+> --- /dev/null
+> +++ b/drivers/acpi/riscv/Kconfig
+> @@ -0,0 +1,7 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# ACPI Configuration for RISC-V
+> +#
+> +
+> +config ACPI_RIMT
+> +	bool
+> diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
+> index a96fdf1e2cb8..1284a076fa88 100644
+> --- a/drivers/acpi/riscv/Makefile
+> +++ b/drivers/acpi/riscv/Makefile
+> @@ -2,3 +2,4 @@
+>  obj-y					+= rhct.o init.o irq.o
+>  obj-$(CONFIG_ACPI_PROCESSOR_IDLE)	+= cpuidle.o
+>  obj-$(CONFIG_ACPI_CPPC_LIB)		+= cppc.o
+> +obj-$(CONFIG_ACPI_RIMT)			+= rimt.o
+> diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
+> index 673e4d5dd752..7c00f7995e86 100644
+> --- a/drivers/acpi/riscv/init.c
+> +++ b/drivers/acpi/riscv/init.c
+> @@ -10,4 +10,6 @@
+>  void __init acpi_arch_init(void)
+>  {
+>  	riscv_acpi_init_gsi_mapping();
+> +	if (IS_ENABLED(CONFIG_ACPI_RIMT))
+> +		riscv_acpi_rimt_init();
+>  }
+> diff --git a/drivers/acpi/riscv/init.h b/drivers/acpi/riscv/init.h
+> index 0b9a07e4031f..1680aa2aaf23 100644
+> --- a/drivers/acpi/riscv/init.h
+> +++ b/drivers/acpi/riscv/init.h
+> @@ -2,3 +2,4 @@
+>  #include <linux/init.h>
+>  
+>  void __init riscv_acpi_init_gsi_mapping(void);
+> +void __init riscv_acpi_rimt_init(void);
+> diff --git a/drivers/acpi/riscv/rimt.c b/drivers/acpi/riscv/rimt.c
+> new file mode 100644
+> index 000000000000..8cb6f5cf39e2
+> --- /dev/null
+> +++ b/drivers/acpi/riscv/rimt.c
+> @@ -0,0 +1,523 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2024-2025, Ventana Micro Systems Inc
+> + *	Author: Sunil V L <sunilvl@ventanamicro.com>
+> + *
+> + */
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/acpi_rimt.h>
+> +#include <linux/iommu.h>
+> +#include <linux/list.h>
+> +#include <linux/pci.h>
+> +#include <linux/platform_device.h>
+> +#include "init.h"
+> +
+> +struct rimt_fwnode {
+> +	struct list_head list;
+> +	struct acpi_rimt_node *rimt_node;
+> +	struct fwnode_handle *fwnode;
+> +};
+> +
+> +static LIST_HEAD(rimt_fwnode_list);
+> +static DEFINE_SPINLOCK(rimt_fwnode_lock);
+> +
+> +#define RIMT_TYPE_MASK(type)	(1 << (type))
+> +#define RIMT_IOMMU_TYPE		BIT(0)
+> +
+> +/* Root pointer to the mapped RIMT table */
+> +static struct acpi_table_header *rimt_table;
+> +
+> +/**
+> + * rimt_set_fwnode() - Create rimt_fwnode and use it to register
+> + *		       iommu data in the rimt_fwnode_list
+> + *
+> + * @rimt_node: RIMT table node associated with the IOMMU
+> + * @fwnode: fwnode associated with the RIMT node
+> + *
+> + * Returns: 0 on success
+> + *          <0 on failure
+> + */
+> +static inline int rimt_set_fwnode(struct acpi_rimt_node *rimt_node,
+> +				  struct fwnode_handle *fwnode)
+
+I see this is a faithful port of arm's iort functions, but using
+'inline' in source files is pretty pointless, so we could drop
+that.
+
+> +{
+> +	struct rimt_fwnode *np;
+> +
+> +	np = kzalloc(sizeof(*np), GFP_ATOMIC);
+> +
+> +	if (WARN_ON(!np))
+> +		return -ENOMEM;
+> +
+> +	INIT_LIST_HEAD(&np->list);
+> +	np->rimt_node = rimt_node;
+> +	np->fwnode = fwnode;
+> +
+> +	spin_lock(&rimt_fwnode_lock);
+> +	list_add_tail(&np->list, &rimt_fwnode_list);
+> +	spin_unlock(&rimt_fwnode_lock);
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * rimt_get_fwnode() - Retrieve fwnode associated with an RIMT node
+> + *
+> + * @node: RIMT table node to be looked-up
+> + *
+> + * Returns: fwnode_handle pointer on success, NULL on failure
+> + */
+> +static inline struct fwnode_handle *rimt_get_fwnode(struct acpi_rimt_node *node)
+> +{
+> +	struct rimt_fwnode *curr;
+> +	struct fwnode_handle *fwnode = NULL;
+> +
+> +	spin_lock(&rimt_fwnode_lock);
+> +	list_for_each_entry(curr, &rimt_fwnode_list, list) {
+> +		if (curr->rimt_node == node) {
+> +			fwnode = curr->fwnode;
+> +			break;
+> +		}
+> +	}
+> +	spin_unlock(&rimt_fwnode_lock);
+> +
+> +	return fwnode;
+> +}
+> +
+> +static acpi_status rimt_match_node_callback(struct acpi_rimt_node *node,
+> +					    void *context)
+> +{
+> +	struct device *dev = context;
+> +	acpi_status status = AE_NOT_FOUND;
+> +
+> +	if (node->type == ACPI_RIMT_NODE_TYPE_IOMMU) {
+> +		struct acpi_rimt_iommu *iommu_node = (struct acpi_rimt_iommu *)&node->node_data;
+> +
+> +		if (dev_is_pci(dev)) {
+> +			struct pci_dev *pdev;
+> +			u16 bdf;
+> +
+> +			pdev = to_pci_dev(dev);
+> +			bdf = PCI_DEVID(pdev->bus->number, pdev->devfn);
+> +			if ((pci_domain_nr(pdev->bus) == iommu_node->pcie_segment_number) &&
+> +			    bdf == iommu_node->pcie_bdf) {
+> +				status = AE_OK;
+> +			} else {
+> +				status = AE_NOT_FOUND;
+> +			}
+> +		} else {
+> +			struct platform_device *pdev = to_platform_device(dev);
+> +			struct resource *res;
+> +
+> +			res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +			if (res && res->start == iommu_node->base_address)
+> +				status = AE_OK;
+> +			else
+> +				status = AE_NOT_FOUND;
+> +		}
+> +	} else if (node->type == ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX) {
+> +		struct acpi_rimt_pcie_rc *pci_rc;
+> +		struct pci_bus *bus;
+> +
+> +		bus = to_pci_bus(dev);
+> +		pci_rc = (struct acpi_rimt_pcie_rc *)node->node_data;
+> +
+> +		/*
+> +		 * It is assumed that PCI segment numbers maps one-to-one
+> +		 * with root complexes. Each segment number can represent only
+> +		 * one root complex.
+> +		 */
+> +		status = pci_rc->pcie_segment_number == pci_domain_nr(bus) ?
+> +							AE_OK : AE_NOT_FOUND;
+> +	} else if (node->type == ACPI_RIMT_NODE_TYPE_PLAT_DEVICE) {
+> +		struct acpi_buffer buf = { ACPI_ALLOCATE_BUFFER, NULL };
+> +		struct acpi_device *adev;
+> +		struct acpi_rimt_platform_device *ncomp;
+> +		struct device *plat_dev = dev;
+> +
+> +		/*
+> +		 * Walk the device tree to find a device with an
+> +		 * ACPI companion; there is no point in scanning
+> +		 * RIMT for a device matching a platform device if
+> +		 * the device does not have an ACPI companion to
+> +		 * start with.
+> +		 */
+> +		do {
+> +			adev = ACPI_COMPANION(plat_dev);
+> +			if (adev)
+> +				break;
+> +
+> +			plat_dev = plat_dev->parent;
+> +		} while (plat_dev);
+> +
+> +		if (!adev)
+> +			return status;
+> +
+> +		status = acpi_get_name(adev->handle, ACPI_FULL_PATHNAME, &buf);
+> +		if (ACPI_FAILURE(status)) {
+> +			dev_warn(plat_dev, "Can't get device full path name\n");
+> +			return status;
+> +		}
+> +
+> +		ncomp = (struct acpi_rimt_platform_device *)node->node_data;
+> +		status = !strcmp(ncomp->device_name, buf.pointer) ?
+> +							AE_OK : AE_NOT_FOUND;
+> +		acpi_os_free(buf.pointer);
+> +	}
+> +
+> +	return status;
+> +}
+> +
+> +static struct acpi_rimt_node *rimt_scan_node(enum acpi_rimt_node_type type,
+> +					     void *context)
+> +{
+> +	struct acpi_rimt_node *rimt_node, *rimt_end;
+> +	struct acpi_table_rimt *rimt;
+> +	int i;
+> +
+> +	if (!rimt_table)
+> +		return NULL;
+> +
+> +	/* Get the first RIMT node */
+> +	rimt = (struct acpi_table_rimt *)rimt_table;
+> +	rimt_node = ACPI_ADD_PTR(struct acpi_rimt_node, rimt,
+> +				 rimt->node_offset);
+> +	rimt_end = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_table,
+> +				rimt_table->length);
+> +
+> +	for (i = 0; i < rimt->num_nodes; i++) {
+> +		if (WARN_TAINT(rimt_node >= rimt_end, TAINT_FIRMWARE_WORKAROUND,
+> +			       "RIMT node pointer overflows, bad table!\n"))
+> +			return NULL;
+> +
+> +		if (rimt_node->type == type &&
+> +		    ACPI_SUCCESS(rimt_match_node_callback(rimt_node, context)))
+> +			return rimt_node;
+> +
+> +		rimt_node = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_node,
+> +					 rimt_node->length);
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static bool rimt_pcie_rc_supports_ats(struct acpi_rimt_node *node)
+> +{
+> +	struct acpi_rimt_pcie_rc *pci_rc;
+> +
+> +	pci_rc = (struct acpi_rimt_pcie_rc *)node->node_data;
+> +	return pci_rc->flags & ACPI_RIMT_PCIE_ATS_SUPPORTED;
+> +}
+> +
+> +static int rimt_iommu_xlate(struct device *dev, struct acpi_rimt_node *node, u32 deviceid)
+> +{
+> +	struct fwnode_handle *rimt_fwnode;
+> +
+> +	if (!node)
+> +		return -ENODEV;
+> +
+> +	rimt_fwnode = rimt_get_fwnode(node);
+> +
+> +	/*
+> +	 * The IOMMU drivers may not be probed yet.
+> +	 * Defer the IOMMU configuration
+> +	 */
+> +	if (!rimt_fwnode)
+> +		return -EPROBE_DEFER;
+> +
+> +	return acpi_iommu_fwspec_init(dev, deviceid, rimt_fwnode);
+> +}
+> +
+> +struct rimt_pci_alias_info {
+> +	struct device *dev;
+> +	struct acpi_rimt_node *node;
+> +	const struct iommu_ops *ops;
+> +};
+> +
+> +static int rimt_id_map(struct acpi_rimt_id_mapping *map, u8 type, u32 rid_in, u32 *rid_out)
+> +{
+> +	if (rid_in < map->source_id_base ||
+> +	    (rid_in > map->source_id_base + map->num_ids))
+> +		return -ENXIO;
+> +
+> +	*rid_out = map->dest_id_base + (rid_in - map->source_id_base);
+> +	return 0;
+> +}
+> +
+> +static struct acpi_rimt_node *rimt_node_get_id(struct acpi_rimt_node *node,
+> +					       u32 *id_out, int index)
+> +{
+> +	struct acpi_rimt_platform_device *plat_node;
+> +	struct acpi_rimt_pcie_rc *pci_node;
+> +	u32 id_mapping_offset, num_id_mapping;
+> +	struct acpi_rimt_id_mapping *map;
+> +	struct acpi_rimt_node *parent;
+> +
+> +	if (node->type == ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX) {
+> +		pci_node = (struct acpi_rimt_pcie_rc *)&node->node_data;
+> +		id_mapping_offset = pci_node->id_mapping_offset;
+> +		num_id_mapping = pci_node->num_id_mappings;
+> +	} else if (node->type == ACPI_RIMT_NODE_TYPE_PLAT_DEVICE) {
+> +		plat_node = (struct acpi_rimt_platform_device *)&node->node_data;
+> +		id_mapping_offset = plat_node->id_mapping_offset;
+> +		num_id_mapping = plat_node->num_id_mappings;
+> +	} else {
+> +		return NULL;
+> +	}
+> +
+> +	if (!id_mapping_offset || !num_id_mapping || index >= num_id_mapping)
+> +		return NULL;
+> +
+> +	map = ACPI_ADD_PTR(struct acpi_rimt_id_mapping, node,
+> +			   id_mapping_offset + index * sizeof(*map));
+> +
+> +	/* Firmware bug! */
+> +	if (!map->dest_offset) {
+> +		pr_err(FW_BUG "[node %p type %d] ID map has NULL parent reference\n",
+> +		       node, node->type);
+
+Should we have a pr_fmt() definition at the top of this source file for
+this pr_err?
+
+> +		return NULL;
+> +	}
+> +
+> +	parent = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_table, map->dest_offset);
+> +
+> +	if (node->type == ACPI_RIMT_NODE_TYPE_PLAT_DEVICE ||
+> +	    node->type == ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX) {
+> +		*id_out = map->dest_offset;
+> +		return parent;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static struct acpi_rimt_node *rimt_node_map_id(struct acpi_rimt_node *node,
+> +					       u32 id_in, u32 *id_out,
+> +					       u8 type_mask)
+> +{
+> +	struct acpi_rimt_pcie_rc *pci_node;
+> +	struct acpi_rimt_platform_device *plat_node;
+> +	u32 id = id_in;
+> +	u32 id_mapping_offset, num_id_mapping;
+> +
+> +	/* Parse the ID mapping tree to find specified node type */
+> +	while (node) {
+> +		struct acpi_rimt_id_mapping *map;
+> +		int i, rc = 0;
+> +		u32 map_id = id;
+> +
+> +		if (RIMT_TYPE_MASK(node->type) & type_mask) {
+> +			if (id_out)
+> +				*id_out = id;
+> +			return node;
+> +		}
+> +
+> +		if (node->type == ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX) {
+> +			pci_node = (struct acpi_rimt_pcie_rc *)&node->node_data;
+> +			id_mapping_offset = pci_node->id_mapping_offset;
+> +			num_id_mapping = pci_node->num_id_mappings;
+> +		} else if (node->type == ACPI_RIMT_NODE_TYPE_PLAT_DEVICE) {
+> +			plat_node = (struct acpi_rimt_platform_device *)&node->node_data;
+> +			id_mapping_offset = plat_node->id_mapping_offset;
+> +			num_id_mapping = plat_node->num_id_mappings;
+> +		} else {
+> +			goto fail_map;
+> +		}
+> +
+> +		if (!id_mapping_offset || !num_id_mapping)
+> +			goto fail_map;
+> +
+> +		map = ACPI_ADD_PTR(struct acpi_rimt_id_mapping, node,
+> +				   id_mapping_offset);
+> +
+> +		/* Firmware bug! */
+> +		if (!map->dest_offset) {
+> +			pr_err(FW_BUG "[node %p type %d] ID map has NULL parent reference\n",
+> +			       node, node->type);
+> +			goto fail_map;
+> +		}
+> +
+> +		/* Do the ID translation */
+> +		for (i = 0; i < num_id_mapping; i++, map++) {
+> +			rc = rimt_id_map(map, node->type, map_id, &id);
+> +			if (!rc)
+> +				break;
+> +		}
+> +
+> +		if (i == num_id_mapping)
+> +			goto fail_map;
+> +
+> +		node = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_table,
+> +				    rc ? 0 : map->dest_offset);
+> +	}
+> +
+> +fail_map:
+> +	/* Map input ID to output ID unchanged on mapping failure */
+> +	if (id_out)
+> +		*id_out = id_in;
+> +
+> +	return NULL;
+> +}
+> +
+> +static struct acpi_rimt_node *rimt_node_map_platform_id(struct acpi_rimt_node *node, u32 *id_out,
+> +							u8 type_mask, int index)
+> +{
+> +	struct acpi_rimt_node *parent;
+> +	u32 id;
+> +
+> +	parent = rimt_node_get_id(node, &id, index);
+> +	if (!parent)
+> +		return NULL;
+> +
+> +	if (!(RIMT_TYPE_MASK(parent->type) & type_mask))
+> +		parent = rimt_node_map_id(parent, id, id_out, type_mask);
+> +	else
+> +		if (id_out)
+> +			*id_out = id;
+> +
+> +	return parent;
+> +}
+> +
+> +static int rimt_pci_iommu_init(struct pci_dev *pdev, u16 alias, void *data)
+> +{
+> +	struct rimt_pci_alias_info *info = data;
+> +	struct acpi_rimt_node *parent;
+> +	u32 deviceid;
+> +
+> +	parent = rimt_node_map_id(info->node, alias, &deviceid, RIMT_IOMMU_TYPE);
+> +	return rimt_iommu_xlate(info->dev, parent, deviceid);
+> +}
+> +
+> +/*
+> + * RISC-V supports IOMMU as a PCI device or a platform device.
+> + * When it is a platform device, there should be a namespace device as
+> + * well along with RIMT. To create the link between RIMT information and
+> + * the platform device, the IOMMU driver should register itself with the
+> + * RIMT module. This is true for PCI based IOMMU as well.
+> + */
+> +int rimt_iommu_register(struct device *dev)
+> +{
+> +	struct fwnode_handle *rimt_fwnode;
+> +	struct acpi_rimt_node *node;
+> +
+> +	node = rimt_scan_node(ACPI_RIMT_NODE_TYPE_IOMMU, dev);
+> +	if (!node) {
+> +		pr_err("Could not find IOMMU node in RIMT\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	if (dev_is_pci(dev)) {
+> +		rimt_fwnode = acpi_alloc_fwnode_static();
+> +		if (!rimt_fwnode)
+> +			return -ENOMEM;
+> +
+> +		rimt_fwnode->dev = dev;
+> +		if (!dev->fwnode)
+> +			dev->fwnode = rimt_fwnode;
+> +
+> +		rimt_set_fwnode(node, rimt_fwnode);
+> +	} else {
+> +		rimt_set_fwnode(node, dev->fwnode);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +#ifdef CONFIG_IOMMU_API
+> +
+> +static int rimt_plat_iommu_map(struct device *dev, struct acpi_rimt_node *node)
+> +{
+> +	struct acpi_rimt_node *parent;
+> +	int err = -ENODEV, i = 0;
+> +	u32 deviceid = 0;
+> +
+> +	do {
+> +		parent = rimt_node_map_platform_id(node, &deviceid,
+> +						   RIMT_IOMMU_TYPE,
+> +						   i++);
+> +
+> +		if (parent)
+> +			err = rimt_iommu_xlate(dev, parent, deviceid);
+> +	} while (parent && !err);
+> +
+> +	return err;
+> +}
+> +
+> +static int rimt_plat_iommu_map_id(struct device *dev,
+> +				  struct acpi_rimt_node *node,
+> +				  const u32 *in_id)
+> +{
+> +	struct acpi_rimt_node *parent;
+> +	u32 deviceid;
+> +
+> +	parent = rimt_node_map_id(node, *in_id, &deviceid, RIMT_IOMMU_TYPE);
+> +	if (parent)
+> +		return rimt_iommu_xlate(dev, parent, deviceid);
+> +
+> +	return -ENODEV;
+> +}
+> +
+> +/**
+> + * rimt_iommu_configure_id - Set-up IOMMU configuration for a device.
+> + *
+> + * @dev: device to configure
+> + * @id_in: optional input id const value pointer
+> + *
+> + * Returns: 0 on success, <0 on failure
+> + */
+> +int rimt_iommu_configure_id(struct device *dev, const u32 *id_in)
+> +{
+> +	struct acpi_rimt_node *node;
+> +	int err = -ENODEV;
+> +
+> +	if (dev_is_pci(dev)) {
+> +		struct iommu_fwspec *fwspec;
+> +		struct pci_bus *bus = to_pci_dev(dev)->bus;
+> +		struct rimt_pci_alias_info info = { .dev = dev };
+> +
+> +		node = rimt_scan_node(ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX, &bus->dev);
+> +		if (!node)
+> +			return -ENODEV;
+> +
+> +		info.node = node;
+> +		err = pci_for_each_dma_alias(to_pci_dev(dev),
+> +					     rimt_pci_iommu_init, &info);
+> +
+> +		fwspec = dev_iommu_fwspec_get(dev);
+> +		if (fwspec && rimt_pcie_rc_supports_ats(node))
+> +			fwspec->flags |= IOMMU_FWSPEC_PCI_RC_ATS;
+> +	} else {
+> +		node = rimt_scan_node(ACPI_RIMT_NODE_TYPE_PLAT_DEVICE, dev);
+> +		if (!node)
+> +			return -ENODEV;
+> +
+> +		err = id_in ? rimt_plat_iommu_map_id(dev, node, id_in) :
+> +			      rimt_plat_iommu_map(dev, node);
+> +	}
+> +
+> +	return err;
+> +}
+> +
 > +#else
-> +inline void riscv_hwprobe_register_async_probe(void) {}
-> +inline void riscv_hwprobe_complete_async_probe(void) {}
+> +int rimt_iommu_configure_id(struct device *dev, const u32 *id_in)
+> +{
+> +	return -ENODEV;
+> +}
+
+This is unnecessary since we have the stub in the header file.
+
 > +#endif
->   #endif
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> index 0b170e18a2beba57..8c50dcec2b754c30 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -5,6 +5,8 @@
->    * more details.
->    */
->   #include <linux/syscalls.h>
-> +#include <linux/completion.h>
-> +#include <linux/atomic.h>
->   #include <asm/cacheflush.h>
->   #include <asm/cpufeature.h>
->   #include <asm/hwprobe.h>
-> @@ -467,6 +469,20 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
->   
->   #ifdef CONFIG_MMU
->   
-> +static DECLARE_COMPLETION(boot_probes_done);
-> +static atomic_t pending_boot_probes = ATOMIC_INIT(0);
 > +
-> +void riscv_hwprobe_register_async_probe(void)
+> +void __init riscv_acpi_rimt_init(void)
 > +{
-> +	atomic_inc(&pending_boot_probes);
+> +	acpi_status status;
+> +
+> +	/* rimt_table will be used at runtime after the rimt init,
+> +	 * so we don't need to call acpi_put_table() to release
+> +	 * the RIMT table mapping.
+> +	 */
+> +	status = acpi_get_table(ACPI_SIG_RIMT, 0, &rimt_table);
+> +	if (ACPI_FAILURE(status)) {
+> +		if (status != AE_NOT_FOUND) {
+> +			const char *msg = acpi_format_exception(status);
+> +
+> +			pr_err("Failed to get table, %s\n", msg);
+> +		}
+> +
+> +		return;
+> +	}
+> +}
+> diff --git a/include/linux/acpi_rimt.h b/include/linux/acpi_rimt.h
+> new file mode 100644
+> index 000000000000..ce4d136d4f81
+> --- /dev/null
+> +++ b/include/linux/acpi_rimt.h
+> @@ -0,0 +1,26 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + *  Copyright (C) 2024-2025, Ventana Micro Systems Inc.
+> + *	Author: Sunil V L <sunilvl@ventanamicro.com>
+> + */
+> +
+> +#ifndef _ACPI_RIMT_H
+> +#define _ACPI_RIMT_H
+> +
+> +#ifdef CONFIG_ACPI_RIMT
+> +int rimt_iommu_configure_id(struct device *dev, const u32 *id_in);
+> +
+
+ubernit: no need for this blank line
+
+> +int rimt_iommu_register(struct device *dev);
+> +#else
+> +static inline int rimt_iommu_register(struct device *dev)
+> +{
+> +	return -ENODEV;
 > +}
 > +
-> +void riscv_hwprobe_complete_async_probe(void)
+> +static inline int rimt_iommu_configure_id(struct device *dev, const u32 *id_in)
 > +{
-> +	if (atomic_dec_and_test(&pending_boot_probes))
-> +		complete(&boot_probes_done);
+> +	return -ENODEV;
 > +}
+> +#endif
 > +
->   static int __init init_hwprobe_vdso_data(void)
->   {
->   	struct vdso_arch_data *avd = vdso_k_arch_data;
-> @@ -474,6 +490,8 @@ static int __init init_hwprobe_vdso_data(void)
->   	struct riscv_hwprobe pair;
->   	int key;
->   
-> +	if (unlikely(atomic_read(&pending_boot_probes) > 0))
-> +		wait_for_completion(&boot_probes_done);
-
-
-To me it's not working: if a first async probe registers and completes 
-before another async probe registers, pending_boot_probes will be > 0 
-but wait_for_completion() will proceed before the second async probe 
-completes (since the first async probe marked the completion as done).
-
-Let me know if I missed something,
+> +#endif /* _ACPI_RIMT_H */
+> -- 
+> 2.43.0
+>
 
 Thanks,
-
-Alex
-
-
->   	/*
->   	 * Initialize vDSO data with the answers for the "all CPUs" case, to
->   	 * save a syscall in the common case.
-> @@ -504,7 +522,7 @@ static int __init init_hwprobe_vdso_data(void)
->   	return 0;
->   }
->   
-> -arch_initcall_sync(init_hwprobe_vdso_data);
-> +late_initcall(init_hwprobe_vdso_data);
->   
->   #endif /* CONFIG_MMU */
->   
-> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> index ae2068425fbcd207..4b8ad2673b0f7470 100644
-> --- a/arch/riscv/kernel/unaligned_access_speed.c
-> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> @@ -379,6 +379,7 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
->   static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
->   {
->   	schedule_on_each_cpu(check_vector_unaligned_access);
-> +	riscv_hwprobe_complete_async_probe();
->   
->   	return 0;
->   }
-> @@ -473,8 +474,12 @@ static int __init check_unaligned_access_all_cpus(void)
->   			per_cpu(vector_misaligned_access, cpu) = unaligned_vector_speed_param;
->   	} else if (!check_vector_unaligned_access_emulated_all_cpus() &&
->   		   IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
-> -		kthread_run(vec_check_unaligned_access_speed_all_cpus,
-> -			    NULL, "vec_check_unaligned_access_speed_all_cpus");
-> +		riscv_hwprobe_register_async_probe();
-> +		if (IS_ERR(kthread_run(vec_check_unaligned_access_speed_all_cpus,
-> +				NULL, "vec_check_unaligned_access_speed_all_cpus"))) {
-> +			pr_warn("Failed to create vec_unalign_check kthread\n");
-> +			riscv_hwprobe_complete_async_probe();
-> +		}
->   	}
->   
->   	/*
+drew
 
 _______________________________________________
 linux-riscv mailing list
