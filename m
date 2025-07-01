@@ -4,68 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 015DDC8303B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC02C7EE30
 	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 07:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vtxC10+CXQ2jm2JTe7dalcmR9MRsNwiSEU03mEW9+Ek=; b=J/ThsnT4UTe1/R
-	ZNDBp/QqZP8ZtTAMFKMIAB0X9nEJWeEfNMFyZkd9tcjK8kbJnzpjV4Q7Qx5A4RVMAUcrNU893XHAG
-	7vMpzWxSEZjcGyGWKqHuqbvDcbltDeoJYh6dQ4kR2c+8PduW5jNHLl15kDBBd1JzQAjbDbXir8zAH
-	NXPN/XuEwBO1UbkcShOOWC2pFs8tnEbfrR/QXXFbpM+UZE+oCXRgWtHwr08Rl506CGVYiue9U/Mlp
-	9pyBFhjVJeC2uZSZzns75WHD1imS0UR6MCP11eOxDUqnntC2GF7wyFEQH3mryfi9zUfdZbivhH5Ox
-	1QmNEuNGLHgFtWYXQRyQ==;
+	List-Owner; bh=NHer8cGqYGYSiY7r1rDYH5hGNP/3DdMzrCEqtkuCU0k=; b=wH95ub5Um6P8BE
+	fFqJlrfEvfLX6dmc2UNgJHXis8AEFQjT78/s8BIbU7ieFxSLnefynk5F15klbCYd0EydnhMSURPTo
+	9Xx0mxgMjsG5uKZGSlkJCZ1SV720LmwCjvON8GNU9UeNjKBix/qpNPM1RTmm/b1c+i3iDy7XmALb9
+	HO29+GP4fWpLwfGO8A/ZW6ifArYLqpbEK47WCfIq6fo3nXEXTCZRG6DwBoAA3wG9HFdOfL9rN3W0q
+	7C+j5aOURJvfQaBw53hNI328jce6hwxBQbm5/2EDRkxIeAzexs+c43VjXlwU/ABZSslkR/3SVrJKg
+	+v6nrWOaHQqTX2VrFlgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVnQ-00000004KO8-1tph;
-	Tue, 01 Jul 2025 07:52:52 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uWVnR-00000004KPA-3QJS;
+	Tue, 01 Jul 2025 07:52:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVVg-00000004HYd-3YR4
+	id 1uWVWe-00000004Hdx-1TIk
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 07:34:34 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1751355270;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Q3pTxglj7rUaxTbf+kwFx+KhAmOnfuP/vGPEozKgxCs=;
-	b=SLeZn/oISCskojCC5wqqgkJTMqAEjmNuH4xDYrPBA0i6op+Z97AmYXCL+HlD+S5KcDZp8J
-	nQY5EOq6Z3HVLD9yg7HySrFYQjHt1VW6/WiQbtknVAac7IwUQ1V3+SsO0gFDs1aLg4nfiY
-	lpFfnmVp8ycxnL3nOZvpIxLIRypW6+ud0sLtDt7IBn/xtRfyqqdXf0wRO4HKzk7CFI2LJW
-	CiUdtztRAczzn/EMp9Kxo4Kib0whDuR5R1Aq/NIJNCipHuGjHd+sbA6FbVnrlJURW+WK7D
-	wWRLWcRmmCB27pSSSoohceSFres5pESoTLkbb1SvFWGUYzAmKhInlpkN51f10A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1751355270;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Q3pTxglj7rUaxTbf+kwFx+KhAmOnfuP/vGPEozKgxCs=;
-	b=kq9kpmEIKmCa77n3xHqg9PI3O5HFmJRcwwTQpSTIlSYRrEyYHYsWXuF8zWLoho7nDnwtFh
-	OlNhQPLGg8OnahDQ==
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atish.patra@linux.dev>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Andrew Jones <ajones@ventanamicro.com>, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] irqchip: riscv-imsic: Add kernel parameter to disable IPIs
-In-Reply-To: <CAK9=C2Ue36iF8X17n-D70BkMk69bGKb+8dSmro6SEo5i2d+OSg@mail.gmail.com>
-References: <20250625161715.1003948-1-apatel@ventanamicro.com>
- <87wm8tmcsr.ffs@tglx>
- <CAK9=C2Ue36iF8X17n-D70BkMk69bGKb+8dSmro6SEo5i2d+OSg@mail.gmail.com>
-Date: Tue, 01 Jul 2025 09:34:29 +0200
-Message-ID: <87ikkcmkje.ffs@tglx>
+	Tue, 01 Jul 2025 07:35:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CB0645C65F6;
+	Tue,  1 Jul 2025 07:35:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1D15C4CEEB;
+	Tue,  1 Jul 2025 07:35:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751355331;
+	bh=e2EpXBFjaYIIp6kEDbtynlAx+t4UZrjkqzi6BdYvlKs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gLAhX1pGfGHjJorK/JnsksT/+iVcm91wV04/z6EM/WS7ODCB8SYcSuurvEnlXu7P6
+	 fQS0rEvYSjb1PNiJl7hGzna84hApy+ap84u7HFvCNxtoVTH+R1xlYKFViF/2/Kwa+1
+	 5sNmLmToXJYi9sjqYM5CfWkYjFOb3KG2aRx4MDRxUaa83a56haZD0gsvW6WxnLD7rI
+	 x0ybO0USKdiZp9rs7Kt8M8w18gg8BP2e3WOQlXHaJSjYEyH688HlZuIf3VeYkDhb6a
+	 qRI7iFNnxoWIG4erxx7xkX+Omq1wv5AXWAzdWTNe8GQUPF2hMkyXhM4dyrd8t43wyn
+	 OwWT+qKdRWjSw==
+Message-ID: <de965773-bab1-4c50-b111-19896465e53e@kernel.org>
+Date: Tue, 1 Jul 2025 09:35:24 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/8] dt-bindings: dma: marvell,mmp-dma: Add SpacemiT K1
+ PDMA support
+To: Guodong Xu <guodong@riscstar.com>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
+ dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev
+References: <20250701-working_dma_0701_v2-v2-0-ab6ee9171d26@riscstar.com>
+ <20250701-working_dma_0701_v2-v2-1-ab6ee9171d26@riscstar.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250701-working_dma_0701_v2-v2-1-ab6ee9171d26@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_003433_105394_8ED39E75 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20250701_003532_634875_9EBD1A12 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +122,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMDEgMjAyNSBhdCAxMjowMCwgQW51cCBQYXRlbCB3cm90ZToKPiBPbiBNb24s
-IEp1biAzMCwgMjAyNSBhdCA5OjM54oCvUE0gVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGxpbnV0cm9u
-aXguZGU+IHdyb3RlOgo+PiA+IFdoZW4gaW5qZWN0aW5nIElQSXMgdG8gYSBzZXQgb2YgaGFydHMs
-IHRoZSBJTVNJQyBJUEkgc3VwcG9ydCB3aWxsCj4+ID4gZG8gYSBzZXBhcmF0ZSBNTUlPIHdyaXRl
-IHRvIFNFVElQTlVNX0xFIHJlZ2lzdGVyIG9mIGVhY2ggdGFyZ2V0Cj4+ID4gaGFydC4gVGhpcyBt
-ZWFucyBvbiBhIHBsYXRmb3JtIHdoZXJlIElNU0lDIGlzIHRyYXAtbi1lbXVsYXRlZCwKPj4gPiB0
-aGVyZSB3aWxsIGJlIE4gTU1JTyB0cmFwcyB3aGVuIGluamVjdGluZyBJUEkgdG8gTiB0YXJnZXQg
-aGFydHMKPj4gPiBoZW5jZSBJUElzIGJhc2VkIG9uIElNU0lDIHNvZnR3YXJlIGluamVjdGVkIE1T
-SSBpcyBzbG93IGNvbXBhcmVkCj4+ID4gdG8gdGhlIFNCSSBJUEkgZXh0ZW5zaW9uLgo+PiA+Cj4+
-ID4gQWRkIGEga2VybmVsIHBhcmFtZXRlciB0byBkaXNhYmxlIElQSXMgaW4gSU1TSUMgZHJpdmVy
-IGZvciBwbGF0Zm9ybXMKPj4gPiB3aXRoIHRyYXAtbi1lbXVsYXRlZCBJTVNJQy4KPj4KPj4gV2h5
-IGRvIHlvdSBuZWVkIGEga2VybmVsIHBhcmFtZXRlciBmb3IgdGhhdC4gSWYgdGhlIHBsYXRmb3Jt
-IHVzZXMgdHJhcC1uCj4+IGVtdWxhdGlvbiwgdGhlbiBkaXNhYmxlIHRoZSBJUEkgbXVjayBhdXRv
-bWF0aWNhbGx5LCBubz8KPj4KPiBVbmZvcnR1bmF0ZWx5LCB3ZSBkb24ndCBoYXZlIERULCBBQ1BJ
-LCBvciBhbnkgb3RoZXIgd2F5IG9mIGRpc2NvdmVyaW5nCj4gd2hldGhlciB1bmRlcmx5aW5nIElN
-U0lDIGlzIHRyYXAtbi1lbXVsYXRlZC4gSW4gZmFjdCwgdGhlIERUIG9yIEFDUEkKPiBwYXNzZWQg
-dG8gYSBLVk0gR3Vlc3QgaXMgdGhlIHNhbWUgaXJyZXNwZWN0aXZlIG9mIHdoZXRoZXIgdW5kZXJs
-eWluZwo+IElNU0lDIGlzIHRyYXAtbi1lbXVsYXRlZCBvciBiYWNrZWQgYnkgaGFyZHdhcmUgSU1T
-SUMgVlMtZmlsZS4KClNpZ2guCgo+IFVzaW5nIHNvZnR3YXJlIGluamVjdGVkIE1TSXMgYXMgSVBJ
-cyBpcyBwdXJlbHkgYSBzb2Z0d2FyZSBjaG9pY2UgaW4gdGhlCj4gSU1TSUMgZHJpdmVyIHNvIHRo
-aXMgbmV3IGtlcm5lbCBwYXJhbWV0ZXIgYWxsb3dzIHVzZXJzIHRvIG92ZXJyaWRlIGl0LgoKUGxl
-YXNlIGFkZCB0aGF0IGluZm9ybWF0aW9uIHRvIHRoZSBjaGFuZ2UgbG9nLgoKVGhhbmtzLAoKICAg
-ICAgICB0Z2x4CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On 01/07/2025 07:36, Guodong Xu wrote:
+> Add "spacemit,k1-pdma" compatible string to support SpacemiT K1 PDMA
+> controller. This variant requires:
+
+Why is this marvell? This should be explained here, it's really unexpected.
+
+> - clocks: Clock controller for the DMA
+> - resets: Reset controller for the DMA
+> 
+> Also add explicit #dma-cells property definition with proper constraints:
+> - 2 cells for marvell,pdma-1.0 and spacemit,k1-pdma
+>     - (request number + unused)
+> - 1 cell for other variants
+>     - (request number only)
+> 
+> This fixes "make dtbs_check W=3" warnings about unevaluated properties.
+
+How can I reproduce these warnings? Looks like this is not relevant
+here. Each patch is applied one after another and commit msg must be
+correct at this point.
+
+
+> 
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> ---
+> v2:
+> - Used more specific compatible string "spacemit,k1-pdma"
+> - Enhanced DT bindings with conditional constraints:
+>   - clocks/resets properties only required for SpacemiT K1
+>   - #dma-cells set to 2 for marvell,pdma-1.0 and spacemit,k1-pdma
+>   - #dma-cells set to 1 for other variants, ie.
+>       marvell,adma-1.0 and  marvell,pxa910-squ
+> ---
+>  .../devicetree/bindings/dma/marvell,mmp-dma.yaml   | 49 ++++++++++++++++++++++
+>  1 file changed, 49 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml b/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
+> index d447d5207be0436bc7fb648dffe31f8b780b491d..7b5f7ccfc9dbb69bfef250146cba5434548f3702 100644
+> --- a/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
+> +++ b/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
+> @@ -18,6 +18,7 @@ properties:
+>        - marvell,pdma-1.0
+>        - marvell,adma-1.0
+>        - marvell,pxa910-squ
+> +      - spacemit,k1-pdma
+>  
+>    reg:
+>      maxItems: 1
+> @@ -32,6 +33,19 @@ properties:
+>        A phandle to the SRAM pool
+>      $ref: /schemas/types.yaml#/definitions/phandle
+>  
+> +  clocks:
+> +    description: Clock for the controller
+> +    maxItems: 1
+> +
+> +  resets:
+> +    description: Reset controller for the DMA controller
+> +    maxItems: 1
+> +
+> +  '#dma-cells':
+> +    description:
+> +      DMA specifier, consisting of a phandle to DMA controller plus the
+> +      following integer cells
+
+Why do you need it here? Isn't this coming from dma common schemas?
+> +
+>    '#dma-channels':
+>      deprecated: true
+>  
+> @@ -52,12 +66,47 @@ allOf:
+>            contains:
+>              enum:
+>                - marvell,pdma-1.0
+> +              - spacemit,k1-pdma
+>      then:
+>        properties:
+>          asram: false
+>      else:
+>        required:
+>          - asram
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: spacemit,k1-pdma
+> +    then:
+> +      required:
+> +        - clocks
+> +        - resets
+> +    else:
+> +      properties:
+> +        clocks: false
+> +        resets: false
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - marvell,pdma-1.0
+> +              - spacemit,k1-pdma
+> +    then:
+> +      properties:
+> +        '#dma-cells':
+> +          const: 2
+> +          description:
+> +            The first cell contains the DMA request number for the peripheral
+> +            device. The second cell is currently unused but must be present for
+> +            backward compatibility.
+> +    else:
+> +      properties:
+> +        '#dma-cells':
+> +          const: 1
+> +          description:
+> +            The cell contains the DMA request number for the peripheral device.
+
+
+It's getting complicated. I suggest to make your own schema. Then you
+would also switch to preferred 'sram' property instead of that legacy
+'asram'.
+
+Really, ancient schemas should not be grown for new, completely
+different platforms.
+
+
+Best regards,
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
