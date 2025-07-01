@@ -4,94 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC6EC8302F
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 01:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF90C8302F
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 03:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4guY5e2sn3EXUf6vDtrzaoNfn3nTO9xB7cGDnObLyxY=; b=P6A/DVIEX8PcPK
-	vqi/PgXA9nrpedem1yvyzOSxJ0vU0/grFcVBUyW1VatzSMAw+rMC6hVlKMzBBi6RkWaalXnu6OXcK
-	jflwXDn9cZq+UloF06xr6ZQngkefdzBaesv51AOpoWPJi+KB6b2vjWiuYgobCKq9vkOhgpm77l7wK
-	r+2ybk8QxZXXpWdcs2NyCtnizEc9ke1otvWc17MPyCmse3nlUw5gZ5i63CSAkSfmdND4i5PspDWgU
-	uIWAXjXtYB9b59OkkbYFNhMdXlPDNEitMlRuIBTDHRkb2O3dDdGVdiAivPy0QLFUIlrAp+lUej1nP
-	Vczxbcj6iECeEs4AUruA==;
+	List-Owner; bh=oxbBLXdQooOjBwd5g0MFbVFlpRDAn06LpRJAmJoAJhA=; b=yqp0kcTy6s2Z/J
+	AXBNCcoXugbPYM13VD2WctO7h7GNsjn9TFqyZkneKx4dfS7Rdq8uDkZUKz1oMlaq7OT5QLteAUp3I
+	sEz/e7Xqe7UaeMQAApGKKGOeBIOfyCDLTal4E/kZS9Vow6HUVfvdrRtZ0JswHVE9e559nkI9z7yUd
+	L6POPlwwjzv+g+cHjujOKztuF5hyK6sQRspTtFQevmLgfeUmUxFzrYuZ/6+cguwhM25YEzbSxaQGs
+	MLLv4rOIY2si1QFsyBCDzCt9NvWM1o0W14j2ep08cChcHGfh7Aupc6N4/tK6lZL61PdGH3oEpgFom
+	7IrZnRLND90o1eQQNf7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWPij-00000003oqI-40cz;
-	Tue, 01 Jul 2025 01:23:37 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1uWRl4-00000003wnZ-1UbU;
+	Tue, 01 Jul 2025 03:34:10 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWPih-00000003opx-0igf
+	id 1uWRl2-00000003wn8-0Nz6
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 01:23:36 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b2fca9dc5f8so4918099a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jun 2025 18:23:34 -0700 (PDT)
+	Tue, 01 Jul 2025 03:34:09 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-236377f00a1so50958045ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jun 2025 20:34:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751333014; x=1751937814; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1751340847; x=1751945647; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=z6DtZA4TeVhHJ4LgQPcp62/OtINngczo0Qlp10jTpvs=;
-        b=dPoreBmkTPqzf1ZTqGSVPAMnSOijXmGVg11E9VhwTGzt2RGcn9+qFEKVtDnlF0OiN+
-         mH8aLhF3s27fQfrXexZd7wda7aYxA331/lnuS8io4Tahzo4fw5pSxt+Ys3fkba74o7O2
-         tayUYWXNSALHtw7cJOGf7BEvWFdfR+4t6IxWGeHnOcWj7gycmB/cxsJr4favuOMUaQzZ
-         b4fxCAokOOhMZH65lN2y/fAc/zQUppgpsgfsZhE+Z5V8yqCnO++0a6Ro8WitjFmaLBCL
-         O9grpMzmVKduRvUdCecJ/FatoymLi2Jj5XwFB48E60h42riKP5S9sGxeP14dq4YzNo+L
-         2wSw==
+        bh=31XS2nxYehKiliXMsYuVNFSQuv9hNJl6nMqw6J9ZvFA=;
+        b=l2fx3uyyRiSB7XaZ9PReeiJx5rEAEMdi0YppYLS2JABCTOSaMXDXrStux1pLHhZZvp
+         6klYFk8Lvup4Isq5iDSpmmRmaUtHmil4oLlFTNXziYsh+FqN/E7YPIneqly1kv/CjXLp
+         xRfbGFvo08ZvXy9yDM2y5BmWsqlKMCQIHOl5///Mdjmdxt8+A9D1YibYXWKTDeba/QZk
+         op8fYVx4+cNBcRKS2U6td5mVQTa+F2rPzH6438pR1CwQfL01drw5j1kGkxJR5W1iASYE
+         +d8YPk7Qr3l3cna0Flp8qCnAGrVnHKc6NwvKXUKf2JLsEXglx9+SDd7zbgDFXkEtUUf+
+         MRGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751333014; x=1751937814;
+        d=1e100.net; s=20230601; t=1751340847; x=1751945647;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=z6DtZA4TeVhHJ4LgQPcp62/OtINngczo0Qlp10jTpvs=;
-        b=pUlVznzv7pQlAdTgXfDYs2l/gBQ/Thw/gPlVg0lwi5StRJBHgfeuaI6FB740YsiZ0q
-         +gyJAcu9rvrIs7fwpd1JDtxSkF8yjLluM729VrMZR+E0hKpxa/d7PPukhD/WMDOf1HML
-         DqwBra1KINp2V/AVnS+D1Ek+2eYh7SAZjVRofeUcJA2NXGTNhtG3ZCkvbUqHyFybG4uw
-         Ne0PC3gzu1Ra4R6MsXIz2S1QfBe7P+o4/Cv3UoASDnQMVxoKxT1aNY+7AuE33fXcbTft
-         ehFQ6n4wUDukAcU4JjzWXHBifS+UBATcxaB5RasIIJivvXJpp6UcAdxdqub/RI2bqRiF
-         Vs1g==
-X-Forwarded-Encrypted: i=1; AJvYcCXx1AvCCJsBYAVUvNOH6Fvhne1yrbgO7jWiPXrN0BPJWMULTEEF7E3XMvpfQMmWYVuy6qUK+Ewv2rwSXg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6LP7pgpeuZSmtOjKIJ2fmPQINPx9Uhr7RSte0o0I5zZ1guPd8
-	gVUKdP0n/T2HRNOFOUqts8+N44d6+eacpQF/0c2c9r3SOZt98pawqF6i
-X-Gm-Gg: ASbGncvV1/vdO3ZsVRrUMoWUcQ+XD+m0FPvx5xIedIXbBV0B2gYHK6uAP21KZEKM1gi
-	eki7gi6onBNjRkHGv17whclFkUA7bFBoJrGS2i5POc09s0TkaiG9r+ZlOIzDBInqxlZ5StbuoTg
-	EyzlGvz7l1iZ/t3/IvyLnfcP/W3vRgj9qbNP8derJh5zgTDbd3qpv1zfQ4ZN3KPQ17hgvocf5JK
-	8Lc56GhMv8mWuYpnqOOqlsIcaGzESB4kM+X7l9TdJZmwZNzjN0ieFNpRn1ytKXTLyUhBVdLYkmm
-	Uhjilt0wUhwLEX21PiH3mml1cMqh7jh6idbAGRqd8nohAr1+5M0c7fwF96rwUA==
-X-Google-Smtp-Source: AGHT+IHBfzg5Sx40TE02hAClbOF6eEZK4Q2Z0GmTczaAMMCBaM6R3MFw6f7sjjsS70ov9TvAF6LTsg==
-X-Received: by 2002:a17:903:1b28:b0:235:2403:779f with SMTP id d9443c01a7336-23ac4682496mr217436775ad.29.1751333014268;
-        Mon, 30 Jun 2025 18:23:34 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-23acb2e2423sm91648245ad.37.2025.06.30.18.23.33
+        bh=31XS2nxYehKiliXMsYuVNFSQuv9hNJl6nMqw6J9ZvFA=;
+        b=QOzTeT613JE7qqMSvLhgwYK+SKa3x3zLmFC4DN4UDoT+tML99kizgrcr9ia5l+mRig
+         9x63smzTWa7TpiBOWGRGxRBMC/XZNB2ZmUe4dAFvqK1z8VpzA1aMA8AoN/PQIKNMctZc
+         26d7ln4NkHkfT+5Vc8vJuesKlaNSXXDhApupoxRGOUdQ20zoTtiIu5/cWUVySdDFGnry
+         rUwIFeDLCWI2sD8RpNbpkdaBQMjciYnkF9dmQ4WgfwocQ0syVCy1HCNaPkDwQ8a3IBaB
+         sSUPaE+u7CoweC+a1y/ZV2Pl9lKNrQ5sMqSUhSLEEbM0YXG+w/O9liup730iNYxQU+lp
+         gJFw==
+X-Forwarded-Encrypted: i=1; AJvYcCU82rVGq9mZ9upZ7YqxR70+EDoXZJu1M2y7nJexsbwezlIAP79EDj2sUfnAB4DFKNaMf121iA1CKcVKyA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt6Fr05XtvEuj9tLLqYixGt35B2ztS1Es1h2ylNZ3swJcnurkF
+	E3qqYQ9zuL/mUClUvEzgfDwQyJrmmZYtv057gDq9n3O05zAl+R6Gj7CdMVwtlUUZzxU=
+X-Gm-Gg: ASbGncvorPReIIXF7w1nqFkkIArl+ZWLtKa1xjFlPDg8vRv5K0OembKSJLgOcBDoLiv
+	O7mtBPLswn0ROV6FcwK88LIhp4DSMSKCNFqqRjydrOBMij2tASUV+JmUfNwA19X9BlDVUWX88kF
+	/KYv/uqXXVOwf8Pp9OfwTM4LnR+gX5hBy8NZiu/Y/LaHy43deY+QeHS8nGudkyptFn2U5ITteo5
+	WrLf67BdlAZkfSLTSGHa6gvkkxbAJ6SHdr11b/L0mpIfy+Kw27bJoRjlCBK9mUdvPUK7iT0jaFh
+	XzO4+DTuRj99UtuDOBH5E5RHOn7O9oCbjSTc3BQwWNxFcq28B063loo5exXfsyupKZ6kvQ==
+X-Google-Smtp-Source: AGHT+IHBFOUU87e7HImdYW3OwpB6jU6VOhsQ+1GbwVU50fpWtSuIe6bavi41hI7Zk0rpNJpgH2mTrQ==
+X-Received: by 2002:a17:903:1a70:b0:236:6f5f:caaf with SMTP id d9443c01a7336-23ac40f4e43mr241646815ad.15.1751340847108;
+        Mon, 30 Jun 2025 20:34:07 -0700 (PDT)
+Received: from sunil-laptop ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb3c90d5sm95757375ad.247.2025.06.30.20.34.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jun 2025 18:23:34 -0700 (PDT)
-Date: Tue, 1 Jul 2025 09:23:16 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Richard Cochran <richardcochran@gmail.com>, Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	Yixun Lan <dlan@gentoo.org>, Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
-	Ze Huang <huangze@whut.edu.cn>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next RFC v4 0/4] riscv: dts: sophgo: Add ethernet
- support for cv18xx
-Message-ID: <vxnvovuetfd6rzgaenwplpkhxm62fhw6t3vi4wkyigul7p4bkx@pwlprna4pyul>
-References: <20250701011730.136002-1-inochiama@gmail.com>
+        Mon, 30 Jun 2025 20:34:06 -0700 (PDT)
+Date: Tue, 1 Jul 2025 09:03:55 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-acpi@vger.kernel.org, iommu@lists.linux.dev,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>
+Subject: Re: [PATCH v3 2/3] ACPI: scan: Add support for RISC-V in
+ acpi_iommu_configure_id()
+Message-ID: <aGNXIzi8vYL4AOj4@sunil-laptop>
+References: <20250630034803.1611262-1-sunilvl@ventanamicro.com>
+ <20250630034803.1611262-3-sunilvl@ventanamicro.com>
+ <20250630-c479c6607cf8c1430f11336f@orel>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250701011730.136002-1-inochiama@gmail.com>
+In-Reply-To: <20250630-c479c6607cf8c1430f11336f@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_182335_233241_3717CBC8 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20250630_203408_136970_5ACD3FA7 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,53 +110,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 01, 2025 at 09:17:25AM +0800, Inochi Amaoto wrote:
-> Add device binding and dts for CV18XX series SoC, this dts change series
-> required the reset patch [1] for the dts, which is already taken.
+On Mon, Jun 30, 2025 at 10:02:53AM +0200, Andrew Jones wrote:
+> On Mon, Jun 30, 2025 at 09:18:02AM +0530, Sunil V L wrote:
+> > acpi_iommu_configure_id() currently supports only IORT (ARM) and VIOT.
+> > Add support for RISC-V as well.
+> > 
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+> > ---
+> >  drivers/acpi/scan.c | 9 +++++++--
+> >  1 file changed, 7 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+> > index fb1fe9f3b1a3..70f57d58fd61 100644
+> > --- a/drivers/acpi/scan.c
+> > +++ b/drivers/acpi/scan.c
+> > @@ -11,6 +11,7 @@
+> >  #include <linux/kernel.h>
+> >  #include <linux/acpi.h>
+> >  #include <linux/acpi_iort.h>
+> > +#include <linux/acpi_rimt.h>
+> >  #include <linux/acpi_viot.h>
+> >  #include <linux/iommu.h>
+> >  #include <linux/signal.h>
+> > @@ -1628,8 +1629,12 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
+> >  	}
+> >  
+> >  	err = iort_iommu_configure_id(dev, id_in);
+> > -	if (err && err != -EPROBE_DEFER)
+> > -		err = viot_iommu_configure(dev);
+> > +	if (err && err != -EPROBE_DEFER) {
+> > +		err = rimt_iommu_configure_id(dev, id_in);
+> > +		if (err && err != -EPROBE_DEFER)
+> > +			err = viot_iommu_configure(dev);
+> > +	}
 > 
-> [1] https://lore.kernel.org/all/20250617070144.1149926-1-inochiama@gmail.com
+> This can just be
 > 
-> The patch is marked as RFC as it require reset dts.
+>   err = iort_iommu_configure_id(dev, id_in);
+>   if (err...
+>      err = rimt_iommu_configure_id(dev, id_in);
+>   if (err...
+>      err = viot_iommu_configure(dev);
 > 
-> Change from RFC v3:
-> - https://lore.kernel.org/all/20250626080056.325496-1-inochiama@gmail.com
-> 1. patch 3: change internal phy id from 0 to 1
+> Thanks,
+> drew
 > 
-> Change from RFC v2:
-> - https://lore.kernel.org/all/20250623003049.574821-1-inochiama@gmail.com
-> 1. patch 1: fix wrong binding title
-> 2. patch 3: fix unmatched mdio bus number
-> 3. patch 4: remove setting phy-mode and phy-handle in board dts and move
-> 	    them into patch 3.
-> 
-> Change from RFC v1:
-> - https://lore.kernel.org/all/20250611080709.1182183-1-inochiama@gmail.com
-> 1. patch 3: switch to mdio-mux-mmioreg
-> 2. patch 4: add configuration for Huashan Pi
-> 
-> Inochi Amaoto (4):
->   dt-bindings: net: Add support for Sophgo CV1800 dwmac
->   riscv: dts: sophgo: Add ethernet device for cv18xx
->   riscv: dts: sophgo: Add mdio multiplexer device for cv18xx
->   riscv: dts: sophgo: Enable ethernet device for Huashan Pi
-> 
->  .../bindings/net/sophgo,cv1800b-dwmac.yaml    | 113 ++++++++++++++++++
->  arch/riscv/boot/dts/sophgo/cv180x.dtsi        |  73 +++++++++++
->  .../boot/dts/sophgo/cv1812h-huashan-pi.dts    |   8 ++
->  3 files changed, 194 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml
-> 
-> --
-> 2.50.0
-> 
+Sure. Let me update in the next version.
 
-As this is mark as RFC due to the reset dependency, now it is OK
-to merge it as the reset patch is taken and this patch is a minor
-change . I hopeif anyone can take the binding patch so I can take
-the devicetree patches.
-
-Regards,
-Inochi
+Thanks!
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
