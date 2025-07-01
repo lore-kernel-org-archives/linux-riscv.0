@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C071EC83038
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 16:19:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CC1C83038
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 18:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GAxw9Ej7Hn0NHwWoOMeHB8eziqGsIhGdvIS3294UkUs=; b=ui5GVsCkuljnks
-	KdWmKh2uGHVtG6jozjJ9BjUG27TRvDI0xSKWonv4Sfj6k7/Nt8xKceQvxeXlaXHdLYB2p3vLL8Eh5
-	moT4AoqYsxeK/Hd6kCKRsvdEm+O0vRIgAWWePyrIQ5lLDlXwu3UesFvzGDKaqUXkjbEezlt7U7RNX
-	Xc/s6HzS1w++k9YtSEG/UtAXTse2Pu8ilHIVmjAyTGI5nL80LM9yxx7JTOsHvyZ3KQoF/Bi/MYoYF
-	V+TLR0OrluozgW7yN97sp3bT3uv0P70lpkiTScN1gfnIZAdk76/9Awqer9aFRaTUhi1ZHr6Vuk8X+
-	FPcqkqyB4hC4uZ10rP0g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tsMgvIAVjURA2Qmv76HscjGJm+6O69YgNieqveXc1UU=; b=tstbI+3QRK2C6M
+	fLq1HWaBGC/P4szPdmiU1Eh3niuujUE86PgykJc5EVZQ+FDHXa4r4ULnOZYcAFGudkywq3osfoCmi
+	769wkb4qT4B9Pcekh7J8RmG3AwrMUNs0GC+8FUAH1TP/b1zc7XcNcobbxFr6la1WHJg0WpmwJrNmS
+	0Nle2pFOmcxs6Q0KzQvHl6kocXj5HhSxojLxC9q0+yOJ8/I4aze549+A4erhftk9r7MSfJXp9itFP
+	XwoQ99XZbAytPTKWr0kFbv+fvWtS225xDHqkoO/7wakY4mEu777DIS8DerZJQGhGTD/qYkCH9KBYD
+	hBGvE6K7en34ZkMSXFvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWdhs-000000060n6-43sr;
-	Tue, 01 Jul 2025 16:19:40 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1uWfJb-00000006I8a-2CHF;
+	Tue, 01 Jul 2025 18:02:43 +0000
+Received: from smtprelay0012.hostedemail.com ([216.40.44.12] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWc39-00000005imt-1HdL;
-	Tue, 01 Jul 2025 14:33:32 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-453634d8609so41024215e9.3;
-        Tue, 01 Jul 2025 07:33:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751380409; x=1751985209; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1Yt3x3zsr5fbqG+1bODhLJma2AVCo1fUrMLDWbtz//4=;
-        b=SYCdfMwpn+IjQaeEZwp7FaaOfX8+A9UcpmDTtA5F0xQkgZ0D2Et3oZxGsIv6xKbk6S
-         3idP+EloVMH+Dyrn3fFoKGf/pR1CJquCG0kM4lgViEuIIp5xGB8i/+E3ABrZfbciMgXI
-         PkA7K+vuPpEZyXMz/4ao6IOBArLmy+dAF9BXDNG3MnA3QZNhXmC/7e2CqKISMiOEgR3I
-         EN6UG3VDXYUjQ6k4e/sj6sewhBWd2/ercitidtRr0nqK7KP5I5sXxvO9hmDPDYnT2MM6
-         pfCZPoYmXnhzeY8UXvdsrbkSpCO9QoK1N0bw1h9YZjAWJDT8woB2rmJuKTlkm132afwl
-         q3ZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751380409; x=1751985209;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1Yt3x3zsr5fbqG+1bODhLJma2AVCo1fUrMLDWbtz//4=;
-        b=gj2Nm3f0+Ct/nXTLOe8ULyewT+G+RsKdnyLsgHyYWodYSVGs1tLvfQOCZBtdCNr8jU
-         /0p+ZB6sfvNKM8w86+sbctNOayeG5fudLoN4Doh8FsFEcTj0FIi5CmqJarRiyfO2oax3
-         CR6vL/AwziMmVspUy8oxEeq6/yErSaTVKKdjtlUhk5jG23xb7Dwj4SPXjgqcaw3ID0I1
-         44pCns0CSP7xMAMTBKVdrxYBL4X6Inc216vJa39vEGfR2vtLkxIwJh5qbxh5lfZL35P/
-         3/jX6hAF/D1Gn/TC6KcXcj9fmTiZ21CIm/aO6IA4EWze1lGzc74oSRGEZNYNmJqUNtBz
-         nYTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU9Q0pss8T8/PopOVohoRpGn1QqFeYWmUb5mrSIaWqpyNehJ1J3uhxOU1mJbwKWWQHn8Dwy/q33f8CNwos=@lists.infradead.org, AJvYcCXMt+BIHL9lmskqp2smuI/3GROeuphGf8sSXZevOvDFo+3b6M6K2SHltfDWO1DkbxLHjNVaWyZsyxjTCvIWVIXx@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNUTMJHf4d1ZZY3ovEY07cmrPI0wuYosCjVpNNHMNEe135nLhf
-	xxQTaK4E8N5FvUJbXGaaUAn0pH2wR2KhySwri7Z8KvA+VdTh5xLjp31S
-X-Gm-Gg: ASbGncs6fBLxdjJzxjURhtOxZkI22bVyzJ3ZHyrqh0mnoE/7swU1zjb1tOnkZ5fVayK
-	B+qiT/s+QWn/3jwWEZRZZPMMOakexbsC80iftXzWTZSAVVGbCjsbl0gKLdQgPN5yqceiovqOwjC
-	r7ls1RXrZsoanUiJOuoOKlYVlBrhwZsKaUamcnybiQqwHlR8Zuqr6GUhmBkaNZpG1z+7RiilWao
-	tME+c052Vevl20onZC5Qa/UvGT/t3fI1vQXcPitMsVjY4XWoTZG+JcwKMaHYrW+NqUhTkwfgMtL
-	xmCZYk3hPz9jSIXv4b/bsJ8DjUVisDbpkIezx4GA2Mq2GRb91H4=
-X-Google-Smtp-Source: AGHT+IHdbiNvZTIGRfHjK3LlOcp8azh08Vy9sNOtWFRXMMltik4m+thxSCZBh8cytvB5myfYwyr7/g==
-X-Received: by 2002:a05:600c:1e8a:b0:450:d3b9:a5fc with SMTP id 5b1f17b1804b1-4539551fea8mr127351845e9.27.1751380408083;
-        Tue, 01 Jul 2025 07:33:28 -0700 (PDT)
-Received: from localhost.localdomain ([2a09:0:1:2::305e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a3fe592sm163990875e9.21.2025.07.01.07.33.11
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 01 Jul 2025 07:33:27 -0700 (PDT)
-From: Lance Yang <ioworker0@gmail.com>
-X-Google-Original-From: Lance Yang <lance.yang@linux.dev>
-To: akpm@linux-foundation.org,
-	david@redhat.com,
-	21cnbao@gmail.com
-Cc: baolin.wang@linux.alibaba.com,
-	chrisl@kernel.org,
-	ioworker0@gmail.com,
-	kasong@tencent.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	lorenzo.stoakes@oracle.com,
-	ryan.roberts@arm.com,
-	v-songbaohua@oppo.com,
-	x86@kernel.org,
-	huang.ying.caritas@gmail.com,
-	zhengtangquan@oppo.com,
-	riel@surriel.com,
-	Liam.Howlett@oracle.com,
-	vbabka@suse.cz,
-	harry.yoo@oracle.com,
-	mingzhe.yang@ly.com,
-	stable@vger.kernel.org,
-	Barry Song <baohua@kernel.org>,
-	Lance Yang <lance.yang@linux.dev>
-Subject: [PATCH v4 1/1] mm/rmap: fix potential out-of-bounds page table access during batched unmap
-Date: Tue,  1 Jul 2025 22:31:00 +0800
-Message-ID: <20250701143100.6970-1-lance.yang@linux.dev>
-X-Mailer: git-send-email 2.49.0
+	id 1uWcnX-00000005s1h-25Ta
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Jul 2025 15:21:28 +0000
+Received: from omf06.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay03.hostedemail.com (Postfix) with ESMTP id E517DB9E49;
+	Tue,  1 Jul 2025 15:21:22 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf06.hostedemail.com (Postfix) with ESMTPA id 62A7A2000E;
+	Tue,  1 Jul 2025 15:21:17 +0000 (UTC)
+Date: Tue, 1 Jul 2025 11:21:16 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Yao Zi <ziyao@disroot.org>, Andy Chiu <andybnac@gmail.com>,
+ alexghiti@rivosinc.com, palmer@dabbelt.com, Andy Chiu
+ <andy.chiu@sifive.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Mark Rutland <mark.rutland@arm.com>,
+ puranjay12@gmail.com, paul.walmsley@sifive.com, greentime.hu@sifive.com,
+ nick.hu@sifive.com, nylon.chen@sifive.com, eric.lin@sifive.com,
+ vicent.chen@sifive.com, zong.li@sifive.com, yongxuan.wang@sifive.com,
+ samuel.holland@sifive.com, olivia.chu@sifive.com, c2232430@gmail.com, Han
+ Gao <rabenda.cn@gmail.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ regressions@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [REGRESSION] Random oops on SG2042 with Linux 6.16-rc and
+ dynamic ftrace
+Message-ID: <20250701112116.24cf8163@batman.local.home>
+In-Reply-To: <b060e694-caa0-4aa5-ac67-75531a5f60eb@ghiti.fr>
+References: <aGODMpq7TGINddzM@pie.lan>
+	<b060e694-caa0-4aa5-ac67-75531a5f60eb@ghiti.fr>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
+X-Rspamd-Queue-Id: 62A7A2000E
+X-Stat-Signature: 59cfkw1pdim9kresnutii68uakri7p8t
+X-Rspamd-Server: rspamout06
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/NJMVWipJuBxIYkuT6e6RUoPIwwQiqAis=
+X-HE-Tag: 1751383277-669370
+X-HE-Meta: U2FsdGVkX182ALet42c3iMi2YFUYr6K+qXWSp9Nc2/oYd4UWY+lrz0yseqtNdf6s4czTyAhl5x/WZDEy3JbSXCbHDUBzGKoGw881QaXZ0ZsNE5KwJ/VDEiMwGYgEDlxQRRgmsoe+oGOwdoiHeZGVY8opsV8mRqdJhWy1IQGC73NeW1eMVY3rIrmb+6G0erF4jL93o1W4Wx3KJs1PLKxzpg7wAW1ad9oPC98SY87CUhOkRZE1ZzVdjmLD+HsHgydL+CSpVZ93Y8SBw2qi066qFiGHlmYeeyU+chGglyPEoNGNo5zNX5cGPjR0HknSPNxd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_073331_346286_E01583D0 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20250701_082127_591557_550BAE62 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,142 +76,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Lance Yang <lance.yang@linux.dev>
-
-As pointed out by David[1], the batched unmap logic in try_to_unmap_one()
-may read past the end of a PTE table when a large folio's PTE mappings
-are not fully contained within a single page table.
-
-While this scenario might be rare, an issue triggerable from userspace must
-be fixed regardless of its likelihood. This patch fixes the out-of-bounds
-access by refactoring the logic into a new helper, folio_unmap_pte_batch().
-
-The new helper correctly calculates the safe batch size by capping the scan
-at both the VMA and PMD boundaries. To simplify the code, it also supports
-partial batching (i.e., any number of pages from 1 up to the calculated
-safe maximum), as there is no strong reason to special-case for fully
-mapped folios.
-
-[1] https://lore.kernel.org/linux-mm/a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com
-
-Cc: <stable@vger.kernel.org>
-Reported-by: David Hildenbrand <david@redhat.com>
-Closes: https://lore.kernel.org/linux-mm/a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com
-Fixes: 354dffd29575 ("mm: support batched unmap for lazyfree large folios during reclamation")
-Suggested-by: Barry Song <baohua@kernel.org>
-Acked-by: Barry Song <baohua@kernel.org>
-Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Acked-by: David Hildenbrand <david@redhat.com>
-Signed-off-by: Lance Yang <lance.yang@linux.dev>
----
-v3 -> v4:
- - Add Reported-by + Closes tags (per David)
- - Pick RB from Lorenzo - thanks!
- - Pick AB from David - thanks!
- - https://lore.kernel.org/linux-mm/20250630011305.23754-1-lance.yang@linux.dev
-
-v2 -> v3:
- - Tweak changelog (per Barry and David)
- - Pick AB from Barry - thanks!
- - https://lore.kernel.org/linux-mm/20250627062319.84936-1-lance.yang@linux.dev
-
-v1 -> v2:
- - Update subject and changelog (per Barry)
- - https://lore.kernel.org/linux-mm/20250627025214.30887-1-lance.yang@linux.dev
-
- mm/rmap.c | 46 ++++++++++++++++++++++++++++------------------
- 1 file changed, 28 insertions(+), 18 deletions(-)
-
-diff --git a/mm/rmap.c b/mm/rmap.c
-index fb63d9256f09..1320b88fab74 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -1845,23 +1845,32 @@ void folio_remove_rmap_pud(struct folio *folio, struct page *page,
- #endif
- }
- 
--/* We support batch unmapping of PTEs for lazyfree large folios */
--static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
--			struct folio *folio, pte_t *ptep)
-+static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
-+			struct page_vma_mapped_walk *pvmw,
-+			enum ttu_flags flags, pte_t pte)
- {
- 	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
--	int max_nr = folio_nr_pages(folio);
--	pte_t pte = ptep_get(ptep);
-+	unsigned long end_addr, addr = pvmw->address;
-+	struct vm_area_struct *vma = pvmw->vma;
-+	unsigned int max_nr;
-+
-+	if (flags & TTU_HWPOISON)
-+		return 1;
-+	if (!folio_test_large(folio))
-+		return 1;
- 
-+	/* We may only batch within a single VMA and a single page table. */
-+	end_addr = pmd_addr_end(addr, vma->vm_end);
-+	max_nr = (end_addr - addr) >> PAGE_SHIFT;
-+
-+	/* We only support lazyfree batching for now ... */
- 	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
--		return false;
-+		return 1;
- 	if (pte_unused(pte))
--		return false;
--	if (pte_pfn(pte) != folio_pfn(folio))
--		return false;
-+		return 1;
- 
--	return folio_pte_batch(folio, addr, ptep, pte, max_nr, fpb_flags, NULL,
--			       NULL, NULL) == max_nr;
-+	return folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, fpb_flags,
-+			       NULL, NULL, NULL);
- }
- 
- /*
-@@ -2024,9 +2033,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 			if (pte_dirty(pteval))
- 				folio_mark_dirty(folio);
- 		} else if (likely(pte_present(pteval))) {
--			if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
--			    can_batch_unmap_folio_ptes(address, folio, pvmw.pte))
--				nr_pages = folio_nr_pages(folio);
-+			nr_pages = folio_unmap_pte_batch(folio, &pvmw, flags, pteval);
- 			end_addr = address + nr_pages * PAGE_SIZE;
- 			flush_cache_range(vma, address, end_addr);
- 
-@@ -2206,13 +2213,16 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 			hugetlb_remove_rmap(folio);
- 		} else {
- 			folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
--			folio_ref_sub(folio, nr_pages - 1);
- 		}
- 		if (vma->vm_flags & VM_LOCKED)
- 			mlock_drain_local();
--		folio_put(folio);
--		/* We have already batched the entire folio */
--		if (nr_pages > 1)
-+		folio_put_refs(folio, nr_pages);
-+
-+		/*
-+		 * If we are sure that we batched the entire folio and cleared
-+		 * all PTEs, we can just optimize and stop right here.
-+		 */
-+		if (nr_pages == folio_nr_pages(folio))
- 			goto walk_done;
- 		continue;
- walk_abort:
--- 
-2.49.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAxIEp1bCAyMDI1IDE0OjI3OjMyICswMjAwCkFsZXhhbmRyZSBHaGl0aSA8YWxleEBn
+aGl0aS5mcj4gd3JvdGU6Cgo+IEBAIC0xNDksMTYgKzE1NywxNyBAQCBpbnQgZnRyYWNlX2luaXRf
+bm9wKHN0cnVjdCBtb2R1bGUgKm1vZCwgc3RydWN0IAo+IGR5bl9mdHJhY2UgKnJlYykKPiAgwqDC
+oMKgwqDCoMKgwqAgdW5zaWduZWQgaW50IG5vcHNbMl0sIG9mZnNldDsKPiAgwqDCoMKgwqDCoMKg
+wqAgaW50IHJldDsKPiAKPiArwqDCoMKgwqDCoMKgIG11dGV4X2xvY2soJnRleHRfbXV0ZXgpOwoK
+VGhpcyBsb29rcyBsaWtlIGEgcHJpbWUgY2FuZGlkYXRlIGZvcjoKCglndWFyZChtdXRleCkoJnRl
+eHRfbXV0ZXgpOwoKPiAgwqDCoMKgwqDCoMKgwqAgcmV0ID0gZnRyYWNlX3JlY19zZXRfbm9wX29w
+cyhyZWMpOwo+ICDCoMKgwqDCoMKgwqDCoCBpZiAocmV0KQo+IC3CoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgIHJldHVybiByZXQ7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZ290
+byBlbmQ7CgpUaGVuIHRoaXMgY2hhbmdlIHdvdWxkbid0IGJlIG5lZWRlZC4KCj4gCj4gIMKgwqDC
+oMKgwqDCoMKgIG9mZnNldCA9ICh1bnNpZ25lZCBsb25nKSAmZnRyYWNlX2NhbGxlciAtIHBjOwo+
+ICDCoMKgwqDCoMKgwqDCoCBub3BzWzBdID0gdG9fYXVpcGNfdDAob2Zmc2V0KTsKPiAgwqDCoMKg
+wqDCoMKgwqAgbm9wc1sxXSA9IFJJU0NWX0lOU05fTk9QNDsKPiAKPiAtwqDCoMKgwqDCoMKgIG11
+dGV4X2xvY2soJnRleHRfbXV0ZXgpOwo+ICDCoMKgwqDCoMKgwqDCoCByZXQgPSBwYXRjaF9pbnNu
+X3dyaXRlKCh2b2lkICopcGMsIG5vcHMsIDIgKiBNQ09VTlRfSU5TTl9TSVpFKTsKPiArZW5kOgo+
+ICDCoMKgwqDCoMKgwqDCoCBtdXRleF91bmxvY2soJnRleHRfbXV0ZXgpOwoKYW5kICJlbmQ6IiBh
+cyB3ZWxsIGFzIHRoZSBtdXRleF91bmxvY2soKSBjYW4gYmUgcmVtb3ZlZC4KCj4gCj4gIMKgwqDC
+oMKgwqDCoMKgIHJldHVybiByZXQ7Cj4gCj4gCj4gQW5keSBpcyBhbHNvIHRha2luZyBhIGxvb2ss
+IEknbGwgbGV0IGhpbSBjb25maXJtIHRoZSBhYm92ZSBmaXggaXMgY29ycmVjdC4KPiAKPiBUaGFu
+a3MgZm9yIHRoZSB0aG9yb3VnaCByZXBvcnQhCgpZZXMsIHRoYW5rIHlvdSBZYW8gWmkgZm9yIHRo
+ZSB2ZXJ5IGRldGFpbGVkIGJ1ZyByZXBvcnQhIFRoYXQgbWFkZQp0aGluZ3Mgc28gbXVjaCBlYXNp
+ZXIuCgotLSBTdGV2ZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
