@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55FFBC8302F
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 07:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E4BC7EE30
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 07:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OChhue9lQHZNgROZ7FafmCDr1saV9S5LF+y2I/ZBeqs=; b=tuKGEIWUWahqoN
-	KH9j3lEH4LXoJoeEN4UzUj+3I4pmj5dnyT/o9C42AMLxdsylHhXOadRLCDifTtcLIWiSEIcLAfMSE
-	3fZIUkA+U/+IfAgwFThH2JTQVQSZGdtlkhMdmbM+g2TDj9mbZZC7+OYW5SFs9g1x8kWW/DIYvL5aS
-	PS3fTg3HXbIJPgUhlAxmOmOUvsGyzdGyk80cvYNyaxBP9sjON4P+6eaWcZjdrFENeNziv1CudUQ2F
-	hJRN17S/qWCsDZ4tpCkVEixW/c+YPLnNV1jy5YDv3dopbnHuoRpGEj3wNzqxqfmY3loRoP4JATckm
-	eBE6Wa1LKGiQCXDdBAaA==;
+	List-Owner; bh=18dDASCDhWvi79ZatdZWC6A6E4HuOXXJzyhr8fGuLKY=; b=twhDy66QhhKgBr
+	zzbvpJsv3aNODqcZOdTbhB4TQSEexFWlDMuIyUCDZOhcr2Na1KotjVcRl3YgUyXc/3S8COh1y03ZR
+	HsBqrSQ4+nVslLWslBC3sUUEgjhhGRsg57cRPHKYboyT9+K4wlSsQep/nrOwDd2yK6De+9dit9Pmi
+	prK2hm4PyHIlavBZtaJeJhUIP8l6HEVIdfKwyvv4BuwhGugnyNMd2eLSHUq904bLvdSYL7BCNT+Sh
+	tfysu7tgbBif9yM4VkAjtgabsowy1GjAC2mdlHx/dEShlcRFiNY1M1n3Yy2dQTGbE7VaHxh97pgro
+	vhBhT2qb5Ce/WVLMODTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWV17-00000004Dlb-13e2;
-	Tue, 01 Jul 2025 07:02:57 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uWVAI-00000004F0W-2AnD;
+	Tue, 01 Jul 2025 07:12:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWUQz-000000048kH-3PWf
+	id 1uWUS1-000000048zL-3IBG
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 06:25:39 +0000
+	Tue, 01 Jul 2025 06:26:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CC55EA50EFE;
-	Tue,  1 Jul 2025 06:25:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C8F1C4CEF1;
-	Tue,  1 Jul 2025 06:25:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 394F843B4E;
+	Tue,  1 Jul 2025 06:26:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BC5FC4CEEB;
+	Tue,  1 Jul 2025 06:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751351136;
-	bh=jpp29UZcLJ0WwYutQ8qsGjJqabZOEG+1euvx0Os75vk=;
+	s=k20201202; t=1751351201;
+	bh=k/ticS7hIAAWxY9laIuFjHn3kYId2TOgfiR6jOhFUBY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i7NRF8nzIYANG64I2/rZDt4gjpaa0F1BFgF3uEHNMEVfRnxTjClS6UZuWb8edqACB
-	 6mokYeiHHQbp6Yv02wfm6djw38gvJmUth5/8Ua2U+UsL+Ls2tyv4z7xV7i1i8v+G6K
-	 7UorPbT1Ef/nZp8eFiDsCbRgPJKGDml46R4+wR+99bN7TchE3fIpKW3Zuu5bkcEe24
-	 mYzCOAVEvkG2w8FBr5PKin2I/ND+Rjr5EjRGNMmmZP1jqty4OTIpUcAgHCp1V8tj7B
-	 d/GPxugXFJ//cwttKX8Rp1kLVppiGmIJDRdXXGUS8gVRgmOBRIVbpyvjPC3Vhd6jlQ
-	 OyvOH6xFlU3xQ==
-Message-ID: <aea586a9-bb5d-41eb-bf5f-3cf72e9f8af2@kernel.org>
-Date: Tue, 1 Jul 2025 08:25:25 +0200
+	b=POH/UCP42qv1aCRSzVAaU2IDqIdvF0SihBBqRF1GtoqeNKrysTCFQ34LndoWUQbok
+	 06mVAiNlLtZLccSNPpqMvKx7ieF10csL/fx/QTY8c+6odRjopiT45TT9w0VN1ufeeo
+	 Rh23X8wfltIejM5NgyZjnXuyJz6kpiIrtDC9DdgL7OopQr5OQImHAJnAkYppZGBScv
+	 ULhD53XlLzJBJ6Z/zJzgO7RMhQ2RgdFQBhxGhZpqf5xzImI9g/wIh3D8sLfYorsydZ
+	 YvBvz+5jj2StYPpEtyiLJwaf82CGFSnXJsuVlgXYmz45STnnHT+NxsHgcOyMmUx2TQ
+	 l2SLAa7FXaowQ==
+Message-ID: <a5107266-853e-4658-ba90-d6a08882d2a8@kernel.org>
+Date: Tue, 1 Jul 2025 08:26:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next RFC v4 1/4] dt-bindings: net: Add support for
- Sophgo CV1800 dwmac
+Subject: Re: [PATCH net-next RFC v4 0/4] riscv: dts: sophgo: Add ethernet
+ support for cv18xx
 To: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
@@ -62,10 +62,9 @@ To: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
  Ze Huang <huangze@whut.edu.cn>
 Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Longbin Li <looong.bin@gmail.com>,
- Conor Dooley <conor.dooley@microchip.com>
+ linux-riscv@lists.infradead.org, Longbin Li <looong.bin@gmail.com>
 References: <20250701011730.136002-1-inochiama@gmail.com>
- <20250701011730.136002-2-inochiama@gmail.com>
+ <vxnvovuetfd6rzgaenwplpkhxm62fhw6t3vi4wkyigul7p4bkx@pwlprna4pyul>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,11 +110,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250701011730.136002-2-inochiama@gmail.com>
+In-Reply-To: <vxnvovuetfd6rzgaenwplpkhxm62fhw6t3vi4wkyigul7p4bkx@pwlprna4pyul>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_232538_056096_88C033E6 
-X-CRM114-Status: UNSURE (   6.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250630_232641_867632_2711168F 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,35 +130,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2025 03:17, Inochi Amaoto wrote:
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    ethernet@4070000 {
-> +      compatible = "sophgo,cv1800b-dwmac", "snps,dwmac-3.70a";
-> +      reg = <0x04070000 0x10000>;
-> +      clocks = <&clk 35>, <&clk 36>;
-> +      clock-names = "stmmaceth", "ptp_ref";
-> +      interrupts = <31 IRQ_TYPE_LEVEL_HIGH>;
-> +      interrupt-names = "macirq";
-> +      resets = <&rst 12>;
-> +      reset-names = "stmmaceth";
-> +      rx-fifo-depth = <8192>;
-> +      tx-fifo-depth = <8192>;
-> +      snps,multicast-filter-bins = <0>;
-> +      snps,perfect-filter-entries = <1>;
-> +      snps,aal;
-> +      snps,txpbl = <8>;
-> +      snps,rxpbl = <8>;
-> +      snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
-> +      snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
-> +      snps,axi-config = <&gmac0_stmmac_axi_setup>;
-> +      status = "disabled";
+On 01/07/2025 03:23, Inochi Amaoto wrote:
+> On Tue, Jul 01, 2025 at 09:17:25AM +0800, Inochi Amaoto wrote:
+>> Add device binding and dts for CV18XX series SoC, this dts change series
+>> required the reset patch [1] for the dts, which is already taken.
+>>
+>> [1] https://lore.kernel.org/all/20250617070144.1149926-1-inochiama@gmail.com
+>>
+>> The patch is marked as RFC as it require reset dts.
+>>
+>> Change from RFC v3:
+>> - https://lore.kernel.org/all/20250626080056.325496-1-inochiama@gmail.com
+>> 1. patch 3: change internal phy id from 0 to 1
+>>
+>> Change from RFC v2:
+>> - https://lore.kernel.org/all/20250623003049.574821-1-inochiama@gmail.com
+>> 1. patch 1: fix wrong binding title
+>> 2. patch 3: fix unmatched mdio bus number
+>> 3. patch 4: remove setting phy-mode and phy-handle in board dts and move
+>> 	    them into patch 3.
+>>
+>> Change from RFC v1:
+>> - https://lore.kernel.org/all/20250611080709.1182183-1-inochiama@gmail.com
+>> 1. patch 3: switch to mdio-mux-mmioreg
+>> 2. patch 4: add configuration for Huashan Pi
+>>
+>> Inochi Amaoto (4):
+>>   dt-bindings: net: Add support for Sophgo CV1800 dwmac
+>>   riscv: dts: sophgo: Add ethernet device for cv18xx
+>>   riscv: dts: sophgo: Add mdio multiplexer device for cv18xx
+>>   riscv: dts: sophgo: Enable ethernet device for Huashan Pi
+>>
+>>  .../bindings/net/sophgo,cv1800b-dwmac.yaml    | 113 ++++++++++++++++++
+>>  arch/riscv/boot/dts/sophgo/cv180x.dtsi        |  73 +++++++++++
+>>  .../boot/dts/sophgo/cv1812h-huashan-pi.dts    |   8 ++
+>>  3 files changed, 194 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml
+>>
+>> --
+>> 2.50.0
+>>
+> 
+> As this is mark as RFC due to the reset dependency, now it is OK
+> to merge it as the reset patch is taken and this patch is a minor
+> change . I hopeif anyone can take the binding patch so I can take
+> the devicetree patches.
 
-This cannot be disabled.
-
-Also means it was not really tested.
+I don't understand why you target net-next with your DTS patches. The
+subject prefix is here not correct and probably this should be split.
+Anyway, bindings have issues, so no, it cannot be merged.
 
 Best regards,
 Krzysztof
