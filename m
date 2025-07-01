@@ -4,113 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC02C7EE30
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 07:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898DDC7EE30
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 08:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NHer8cGqYGYSiY7r1rDYH5hGNP/3DdMzrCEqtkuCU0k=; b=wH95ub5Um6P8BE
-	fFqJlrfEvfLX6dmc2UNgJHXis8AEFQjT78/s8BIbU7ieFxSLnefynk5F15klbCYd0EydnhMSURPTo
-	9Xx0mxgMjsG5uKZGSlkJCZ1SV720LmwCjvON8GNU9UeNjKBix/qpNPM1RTmm/b1c+i3iDy7XmALb9
-	HO29+GP4fWpLwfGO8A/ZW6ifArYLqpbEK47WCfIq6fo3nXEXTCZRG6DwBoAA3wG9HFdOfL9rN3W0q
-	7C+j5aOURJvfQaBw53hNI328jce6hwxBQbm5/2EDRkxIeAzexs+c43VjXlwU/ABZSslkR/3SVrJKg
-	+v6nrWOaHQqTX2VrFlgw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vv0fj+b7Hr3VAONTK/awi0c5rls7OQynMCt4gEV8PL4=; b=Zi1RB33rSPURZnPVmQPnrk3QPT
+	hDviQgEROw87IGH4g6PY3+mzE6NH25+vmjs6Z82GbYnnkTVqwWbYn5qkVfMpSNvga9OGBQVCryY7j
+	KJxdlK6E+UsYTRMsdxOL69VmVOMocDEsdFhqAVlQ8dq77x5OVILKazfaGCncqXkSUR07H2xQWLPYF
+	ExojMdkYzXko5J6KG0zcyTMSgSWAEbj43y4kIMM0uFRk2cFdgEN2btBxOV3B+EK0rBphZbF2Zv6o3
+	lut0M5pwrs/6PAPk6SI7ADnzrsxl7FkYs3/t8AmyqsOYfMBDPQAYmvpCjra8Kq+BCW+bm3QM928qO
+	02Z06EkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVnR-00000004KPA-3QJS;
-	Tue, 01 Jul 2025 07:52:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uWVwf-00000004MGg-1L6H;
+	Tue, 01 Jul 2025 08:02:25 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVWe-00000004Hdx-1TIk
+	id 1uWVsP-00000004Lcd-1ph1
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 07:35:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CB0645C65F6;
-	Tue,  1 Jul 2025 07:35:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1D15C4CEEB;
-	Tue,  1 Jul 2025 07:35:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751355331;
-	bh=e2EpXBFjaYIIp6kEDbtynlAx+t4UZrjkqzi6BdYvlKs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gLAhX1pGfGHjJorK/JnsksT/+iVcm91wV04/z6EM/WS7ODCB8SYcSuurvEnlXu7P6
-	 fQS0rEvYSjb1PNiJl7hGzna84hApy+ap84u7HFvCNxtoVTH+R1xlYKFViF/2/Kwa+1
-	 5sNmLmToXJYi9sjqYM5CfWkYjFOb3KG2aRx4MDRxUaa83a56haZD0gsvW6WxnLD7rI
-	 x0ybO0USKdiZp9rs7Kt8M8w18gg8BP2e3WOQlXHaJSjYEyH688HlZuIf3VeYkDhb6a
-	 qRI7iFNnxoWIG4erxx7xkX+Omq1wv5AXWAzdWTNe8GQUPF2hMkyXhM4dyrd8t43wyn
-	 OwWT+qKdRWjSw==
-Message-ID: <de965773-bab1-4c50-b111-19896465e53e@kernel.org>
-Date: Tue, 1 Jul 2025 09:35:24 +0200
+	Tue, 01 Jul 2025 07:58:03 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ae0b6532345so1232965466b.1
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 00:58:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751356679; x=1751961479; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0fGtepblwK+PwnUbRqr8IJdvtvAvDr3iEbtu2aVkHEg=;
+        b=M7wzQevqaFbpbIbD0zY2/33/gaTPiSY6OWzft1TpYQJ0aM63VjrSya9L0mPW+6qync
+         5myBdXd6VOqgRK2JsqJmaMN37y20pB8hpNaBLD4fRAClzSkEjjKiwyvK80zOUsA+/vG7
+         PbAV9MFCFebHvwPmN17gyM+YSdnvOOc0D+sDpi01i7km8vIgwvTtX7mTHa4mLgW2XR03
+         WNDhBhNcV+DjUai2q5s3IC713vhWOIqfmxCZiRz1NBBjrOdbpN9mGEK+ps5xwJH8l2qq
+         2P2Y/KCuTTRLDGGfYDBKo2SGvUh5m6F6oV1tVlq/sK0+NgY8kGIvi+za/hVuFbCeXMm+
+         BfXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751356679; x=1751961479;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0fGtepblwK+PwnUbRqr8IJdvtvAvDr3iEbtu2aVkHEg=;
+        b=hpliMFUv8jMpNQxDSdX4xk8kqkT5oxjJA174AATm6t3ShUETIWDNyO973SOpra8tVF
+         fgWPBQUeedDzbKa6v191JcAT7F/3n50zcljeyHV09bVmulPL+1eT0KOiIkCD+i5vZ5PV
+         tR85bKkQfImoSxNItF8MJUPcP0JLJOEzmSFdOza5Dp0SP/ha1eap+AN8sus5DbdnKsN2
+         vfMGuPlz6mWB5CQMWAM8IsU5K0ReIXF6r/bQMkjjU/0kf0nkodW2qVcan0xvTMkdbEc+
+         +g/mlZ8Mw7aCq6m0ykn70y16J4rg+GW+lqnlmRs4Pb/GSgOq1OF3idRdjM1mcyr+65Ak
+         fAoA==
+X-Forwarded-Encrypted: i=1; AJvYcCVngYfFaqpFa0rXjIa9+7zCXPYCaZBeuw8odru56NzMN3iss7kzwX515aDETpRYgP2URQBxV84hGI/ozQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjedJAYXixY+JVRPudle6XIk9cUTTC/pYfsMu8JKjprA4GEF8S
+	syrRbmqfl35HvBNhG3iiA3maUQLbvhIvWjn64Vujv+Yal2Lgkezjy7ZOz6sZbVN10sM=
+X-Gm-Gg: ASbGncu+HJ1obuZ0k9I4Tk+3y0122DLGbwGIwguvpO8DsDzU2WNhraGm4myPiUNmSxy
+	9JQAjcfT9mgbSYUKDQLuxU6xU0nOqdYyYVBiFt3jN9dJ1QOuT+L3DN6T81UbzEMzA188scWaw9x
+	vN7Ro7XDwEiNa+gTMCFwtaSEQ2l0tzSFUCn3KYnTe2LLzHROlRw3u4sLZqGMP+jHWTZLhQIQK4f
+	Csbq7T0mLnEzTey03AihgRKaua+39bC9FDS128RtQ3G9o+Pb20m6/ow6dmZ6N6mFFZIBIAYxbbt
+	y1G2/G08eJfCOzfCz8fzHcIcf2+uQ9XveOsx09hhZKJJcXkWp0ov5lXnMaDbMSqhT84f2B7L78H
+	B7WaYl7IaUFacSyU3SEiv5C4c+3eA
+X-Google-Smtp-Source: AGHT+IGGrCAc15VHtma/sGYQ2QD6trb1EHpP/JN8l1psGDWhOW7Eth1ZId1p8Z9JxXzDyNqdoc0dkQ==
+X-Received: by 2002:a17:907:3d8f:b0:ae0:c4e3:e2e8 with SMTP id a640c23a62f3a-ae3b0b8fa19mr136200866b.28.1751356679310;
+        Tue, 01 Jul 2025 00:57:59 -0700 (PDT)
+Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ae35363a172sm808993166b.8.2025.07.01.00.57.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jul 2025 00:57:58 -0700 (PDT)
+Date: Tue, 1 Jul 2025 09:57:57 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: linux-pwm@vger.kernel.org
+Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	linux-arm-kernel@lists.infradead.org, Vladimir Zapolskiy <vz@mleia.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	linux-riscv@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 0/8] pwm: Drop local locking in several drivers
+Message-ID: <wzadx2ut3wjm24bw7ol4qjjeku6f74sp3tovtexs5w62ljesid@n7d2f4uzga6b>
+References: <cover.1750788649.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] dt-bindings: dma: marvell,mmp-dma: Add SpacemiT K1
- PDMA support
-To: Guodong Xu <guodong@riscstar.com>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev
-References: <20250701-working_dma_0701_v2-v2-0-ab6ee9171d26@riscstar.com>
- <20250701-working_dma_0701_v2-v2-1-ab6ee9171d26@riscstar.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250701-working_dma_0701_v2-v2-1-ab6ee9171d26@riscstar.com>
+In-Reply-To: <cover.1750788649.git.u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_003532_634875_9EBD1A12 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20250701_005801_479586_35DF0A39 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,140 +97,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1258436532786528359=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2025 07:36, Guodong Xu wrote:
-> Add "spacemit,k1-pdma" compatible string to support SpacemiT K1 PDMA
-> controller. This variant requires:
 
-Why is this marvell? This should be explained here, it's really unexpected.
-
-> - clocks: Clock controller for the DMA
-> - resets: Reset controller for the DMA
-> 
-> Also add explicit #dma-cells property definition with proper constraints:
-> - 2 cells for marvell,pdma-1.0 and spacemit,k1-pdma
->     - (request number + unused)
-> - 1 cell for other variants
->     - (request number only)
-> 
-> This fixes "make dtbs_check W=3" warnings about unevaluated properties.
-
-How can I reproduce these warnings? Looks like this is not relevant
-here. Each patch is applied one after another and commit msg must be
-correct at this point.
+--===============1258436532786528359==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dvqu3sv3rcoezsre"
+Content-Disposition: inline
 
 
-> 
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> ---
-> v2:
-> - Used more specific compatible string "spacemit,k1-pdma"
-> - Enhanced DT bindings with conditional constraints:
->   - clocks/resets properties only required for SpacemiT K1
->   - #dma-cells set to 2 for marvell,pdma-1.0 and spacemit,k1-pdma
->   - #dma-cells set to 1 for other variants, ie.
->       marvell,adma-1.0 and  marvell,pxa910-squ
-> ---
->  .../devicetree/bindings/dma/marvell,mmp-dma.yaml   | 49 ++++++++++++++++++++++
->  1 file changed, 49 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml b/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
-> index d447d5207be0436bc7fb648dffe31f8b780b491d..7b5f7ccfc9dbb69bfef250146cba5434548f3702 100644
-> --- a/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
-> +++ b/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
-> @@ -18,6 +18,7 @@ properties:
->        - marvell,pdma-1.0
->        - marvell,adma-1.0
->        - marvell,pxa910-squ
-> +      - spacemit,k1-pdma
->  
->    reg:
->      maxItems: 1
-> @@ -32,6 +33,19 @@ properties:
->        A phandle to the SRAM pool
->      $ref: /schemas/types.yaml#/definitions/phandle
->  
-> +  clocks:
-> +    description: Clock for the controller
-> +    maxItems: 1
-> +
-> +  resets:
-> +    description: Reset controller for the DMA controller
-> +    maxItems: 1
-> +
-> +  '#dma-cells':
-> +    description:
-> +      DMA specifier, consisting of a phandle to DMA controller plus the
-> +      following integer cells
+--dvqu3sv3rcoezsre
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/8] pwm: Drop local locking in several drivers
+MIME-Version: 1.0
 
-Why do you need it here? Isn't this coming from dma common schemas?
-> +
->    '#dma-channels':
->      deprecated: true
->  
-> @@ -52,12 +66,47 @@ allOf:
->            contains:
->              enum:
->                - marvell,pdma-1.0
-> +              - spacemit,k1-pdma
->      then:
->        properties:
->          asram: false
->      else:
->        required:
->          - asram
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: spacemit,k1-pdma
-> +    then:
-> +      required:
-> +        - clocks
-> +        - resets
-> +    else:
-> +      properties:
-> +        clocks: false
-> +        resets: false
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - marvell,pdma-1.0
-> +              - spacemit,k1-pdma
-> +    then:
-> +      properties:
-> +        '#dma-cells':
-> +          const: 2
-> +          description:
-> +            The first cell contains the DMA request number for the peripheral
-> +            device. The second cell is currently unused but must be present for
-> +            backward compatibility.
-> +    else:
-> +      properties:
-> +        '#dma-cells':
-> +          const: 1
-> +          description:
-> +            The cell contains the DMA request number for the peripheral device.
+Hello,
+
+On Tue, Jun 24, 2025 at 08:15:36PM +0200, Uwe Kleine-K=F6nig wrote:
+> some time ago the pwm core implemented additional locking to protect
+> lowlevel driver callbacks against driver removal. A side effect is that
+> .apply() and .get_state() are serialized. This allows to drop some
+> locking that is now superfluous due to the core's locking.
+>=20
+> I identified a few drivers that are affected; these are cleaned up
+> accordingly here.
+
+I applied these patches to
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+now.
+
+Best regards
+Uwe
+
+--dvqu3sv3rcoezsre
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhjlQEACgkQj4D7WH0S
+/k4vegf8DgkQ0a9kQ5LjlzCtQA04Tm1xfeP7UVjfQXVsJkkBcOU4mfdoSrU9tfno
+BfO6tWeFYcUdJbCAPLDW0rtt/PLGq00m1Ti+DotG0ys5XYfE4C/L2gEcEJXEWdh5
+teuOCdBWo55vAOj0OT+fFWSagAH5t1UJvOiX/XHUqS4do4wNVCUDo3oCG94zvqRo
+t+cSZpO8iWlY+qK/wJu7rClU87CHx+WgtSs+TKH44z6SV8chWe2sh2a8bJzEYjLf
+oCP3jZ6htcXuYiqQEyxRtyzYPvV7Uhy3tnshs2tS54Pyvgs6hYa13ZkPU9uSa154
+6kyYGeshrOV0IJSJUvGmR+mfNO9lcQ==
+=GkCe
+-----END PGP SIGNATURE-----
+
+--dvqu3sv3rcoezsre--
 
 
-It's getting complicated. I suggest to make your own schema. Then you
-would also switch to preferred 'sram' property instead of that legacy
-'asram'.
-
-Really, ancient schemas should not be grown for new, completely
-different platforms.
-
-
-Best regards,
-Krzysztof
+--===============1258436532786528359==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1258436532786528359==--
+
