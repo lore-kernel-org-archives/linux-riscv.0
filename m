@@ -4,71 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874D7C8303A
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 09:00:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEADC7EE30
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 09:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=V9ZueB6Ydvtz1bx9uGLM8E7/M3DbbTrUteOVBBcjl0A=; b=PN0PqBoC16MV6m
-	BdUwmJ0ogEQYb2yuzlWfRnz1e2gp9Bk1rQ/NUwNLefxYkWrVanFdjwbA2j8LblxRZzkn8LTX+Yg2B
-	yl/+pwZkmJya4R1mv81NpGwAfylri5fhUqZWYUndHZTa+epUwRlNnxcEnLdbt9bzLMK6Npzu8p7RE
-	uX+sLfyhrGxXlxvaS2Vb4hpRsaWbU4Y7i830XkWBtdROZlqM6tI9htyJ7ZDltAE+cQNQK9JVYJiko
-	3nSGk8mYxgTKAXIyapx9RSqLX/bU9XAvo9UYOVsTkZAEI+aoUPihsYF7qAXhQsnkYPvvRC2ILnnHy
-	iR5N6PUP43pzUPzA8Iog==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=es67yM/wX4nc0jmRFnYPCRVXjEx4rBQvRgqEtQ9e7RU=; b=hIba2jqVv4pqa+
+	GT4SIqFQu/g8Y9IB49bgkXYWE+W8Z/0LQ5sXItyKgATyzAARsLe9K7oRS45Y3drhA1EPkKBzlv3iX
+	RGUnBVdj+PhB1CAN9bFFrryqp0m6tiOduNrJbGWuVVNQb/kknR19CxlYrhwY+sYcUrcxij4xMe8e2
+	4cPzCTv4ECg3BhxcP0EMPwpKlT/+Qfgj7aw3jGpXgJ5mCazA1QKY38wwzwEYfKkdGUxX+IpNstfME
+	9WWw5ZyQj1M/5Psth0udnNXDldy6flKcUaz7HkHQKGDd7Nvzi1gbbvbKf4zspxxZXao8DQS9dLJ1k
+	GD8MQGtTLNROpJ2zIOMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWqw-00000004WvM-1pEx;
-	Tue, 01 Jul 2025 09:00:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uWWqr-00000004Wri-3GnL;
+	Tue, 01 Jul 2025 09:00:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWnu-00000004VzV-1fuW
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 01 Jul 2025 08:57:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=qJC4fJm2YhnjpF2wX77l9euWqeB/b0iLJ4T9FOe1boc=; b=nJhFtTghrxhQoSDi//F/VZeNYE
-	CEalOUwVPVgyUkFhzXEoBzUVqthmgySRWJerkIBcmwstfqu51Nzly90OABdWDs+jCFNwyz4FVecSl
-	c702U+A9YgrVeLTJ7wcqI2Za2pubvz9sX6dJ5GXl6fY+V3V01AEwpgD0azMG7RzFS6hHFeHW58evf
-	kmv86ZE4fVEnS65s3urWoWxR9UYjWUSN5baNgf3+U9nF6RZm4wRJw4jLa+7MYZgXq4WCcxYZL/Uon
-	S14IvpWClLl+VGio4TtojynjwWUtvOUWyS3a3lS6q23yU441pPhNVh4DP79KaVvXv9SrQOaxIQDkg
-	j0Ru3abA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWnp-000000070dr-3xkk
+	id 1uWWnn-00000004Vwx-24s7
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 08:57:25 +0000
+	Tue, 01 Jul 2025 08:57:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E7AB6461A6;
-	Tue,  1 Jul 2025 08:57:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B89D5C4CEEB;
+	by tor.source.kernel.org (Postfix) with ESMTP id 3389261443;
+	Tue,  1 Jul 2025 08:57:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DD135C4AF09;
 	Tue,  1 Jul 2025 08:57:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1751360237;
-	bh=dP90U+P+CIJkX3PevzW9Eoc1cobYxd/SZNH6G2NvVvo=;
-	h=From:Subject:Date:To:Cc:From;
-	b=bGqLX9VYHiEQceo1jpTP0qNo7U221u/c6/SKV0j6ao5/kU5a/oiF+gN23CVN6WVq2
-	 IHjLEU0e6qNvDGbsUJ0LtgflknNjSajIns+plR9/JOWCrTu6v/3TzEj2vyYzZbLUvo
-	 //AKeBhd1Q/pEC/8sFpCmS816VSX+Mxf7WNw3CHjWCAGIUKDn7O+wipudGAX8gUayI
-	 OukNQogwkg8iWUSWPXbndrdiL2qnYG/Rg/EWJKBZsDZhZdYKZMaYps9Xzvqz7RY+sR
-	 PBMM3heuWCDnllKvWbEGkdrvW5B5ssHx1zHBIAxd7GZ92+h3D5cICG0g8kwGzdHtXm
-	 Y7x7hldO7Tckg==
+	bh=dEWKHLfVWADiu1QnYIwVkFpHz0JRRQExXjCQUaLKIu4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ReaEsB3EaPR8rmbNzY8yX+QZaDj8KFP9YwWt92J1LaIkjgdPF2joJJ0QeLHWp9uP5
+	 v+H+0DEBvxu3K2lonwCt/eYovGH0SrCgpRLdZIrnfthA3CT0KneF4Wq8FBsfKj7Y25
+	 8NVZqQ/IaNXs/DDDXECVu2UYSJEk1lioARIzJfnYN3csGsd43ZcNP5LjJ3AU7yf4th
+	 1JN7A9Cu4RDHqsfz1NQs7+juNduFCA2rLlJqFpgZyrkDosJyJo372su50rMvGoXUZs
+	 bO/70xbzatLXMYAvtx4rN7pyobwzuivuhqDs5naqeANKdDXTGEBye3yRAkdsW1jt2v
+	 amJG+//KqUXMw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A674CC83038;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D29A4C7EE30;
 	Tue,  1 Jul 2025 08:57:17 +0000 (UTC)
 From: Joel Granados <joel.granados@kernel.org>
-Subject: [PATCH 0/6] docs: Remove false positives from check-sysctl-docs
-Date: Tue, 01 Jul 2025 10:56:41 +0200
-Message-Id: <20250701-jag-sysctldoc-v1-0-936912553f58@kernel.org>
+Date: Tue, 01 Jul 2025 10:56:44 +0200
+Subject: [PATCH 3/6] docs: Add awk section for ucount sysctl entries
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAMmiY2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDcwND3azEdN3iyuLkkpyU/GRdYyMLw+RUc4NUI4skJaCegqLUtMwKsHn
- RsbW1ABH4LJxfAAAA
-X-Change-ID: 20250701-jag-sysctldoc-3281ce70e28b
+Message-Id: <20250701-jag-sysctldoc-v1-3-936912553f58@kernel.org>
+References: <20250701-jag-sysctldoc-v1-0-936912553f58@kernel.org>
+In-Reply-To: <20250701-jag-sysctldoc-v1-0-936912553f58@kernel.org>
 To: Kees Cook <kees@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -77,27 +60,23 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Joel Granados <joel.granados@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1241;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1085;
  i=joel.granados@kernel.org; h=from:subject:message-id;
- bh=dP90U+P+CIJkX3PevzW9Eoc1cobYxd/SZNH6G2NvVvo=;
- b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGhjot2AfezT7qOGdr19ioQfavdV9DUKox1i/
- DrrVSqP5eV72YkBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJoY6LdAAoJELqXzVK3
- lkFP7WIL/2XyjWIY8MH+O6PwTq1+qzC/LvN6NJLzZEpEAkcsfEkSuJEeRjN7SgwiHNPvmYhiUKt
- n6IGsJDdCa6bXWpNAIpADHqebELpG/nst/oScGmdBE/6wiVc3DEDdAYgkvzusitb8OPA7WVRL6i
- JQ5fYy+QD9Tnvgzdhgc6JO401DOJan7piJVygliiqxUZLgtvtQtxpUQXxi098HxW1F7pRWxzOL9
- PPzNJfPBF5lyn6+dnp5jtZPSTUfCbo8rnurr0yY8bRGaJMZ6Qbl385ThjpgfhL+ADpr9ahQXRHh
- ot8CQ0u0Tw0eC+T7XpltJ468fh2+Gl2NKVr0iBhIxbIeslSYPVsjI6HKWIYrfWMnN1lgwTT9WPC
- MbHrjgSVjEpcMquHSN17VQHuiVufWJ2ofuAR37q83LTsJ3oFfl8VYycqNijRwoMb5/rrNyyZiLZ
- ctjNJcj/ssk3hnu2IISO3wadRSJ9EqQ6b0cAMNoIYm9uk9X3ag8f0IzApiyCpFrlc52ECB0gFI6
- Pk=
+ bh=dEWKHLfVWADiu1QnYIwVkFpHz0JRRQExXjCQUaLKIu4=;
+ b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGhjoup1BoiQAVRdV9XfCUFoG/uF/frNFIkXC
+ i+CR4U02T0/dYkBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJoY6LqAAoJELqXzVK3
+ lkFPVIAL/0vcTuIFspDtPyHHqoflZX6qS//pVY7/KpYONXZz54qbFsOYcvHsalOcGGRbEyeFThS
+ KJkmT1iH2UU8KpuV8wdyHxS7BuJkSGBSCI06dqU1E7NuggI1xdSqJzpj3aj65vbrlVSF/Fw4ysg
+ m+ooQgPBmxB2EjAFIL5ymNSvmEeLOtXCj8tpZf992bh3HlVjEWT0I76FstxyqDEDuKAZoeB32vC
+ sre7GB8OXb8ePKNLeiICC7ntminZexu5r6dm1FWu2RRfiwx172eK9+/mKSKGfIqXJDe96/zEgC/
+ Ml3+i5C5zmoqqfjW8lgE/2Ey7ipB0efkUsUJvJNg40jcITxfeIhDSs8Tj3fzqPpCSdttwqc9DPk
+ E8ScOJWN71+ny43P1VI7brgjJbjWztK8I/IPYJfuqATg7tOoDH6lEP5wH/V2xM3pNIRWQMMb3NY
+ Hqs/UfkRALjcAXdH/gnssypUCpgQYVLzUM89LnLP3wx67tTwqi2o1ENGRLrQaVG7hk5Cjg37hS6
+ Yc=
 X-Developer-Key: i=joel.granados@kernel.org; a=openpgp;
  fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
 X-Endpoint-Received: by B4 Relay for joel.granados@kernel.org/default with
  auth_id=239
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_095722_468986_AB52B79F 
-X-CRM114-Status: UNSURE (   6.25  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,38 +93,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Removed false positives from check-sysctl-docs where there where
-ctl_tables that were implemented and had documentation but were being
-marked as undocumented or unimplemented.
-
-Besides adjusting the patterns in the check-sysctl-docs script, I also
-corrected formatting in the kernel.rst and vm.rst doc files (no wording
-changes!)
-
-Please get back to me if you have any comment or suggestions
-best
+Adjust the sysctl table detection to include the macro pattern used for
+the ucount ctl_tables. This prevents falsly assigning them as
+non-documented ctl_tables
 
 Signed-off-by: Joel Granados <joel.granados@kernel.org>
 ---
-Joel Granados (6):
-      docs: nixify check-sysctl-docs
-      docs: Use skiplist when checking sysctl admin-guide
-      docs: Add awk section for ucount sysctl entries
-      docs: Remove colon from ctltable title in vm.rst
-      docs: Replace spaces with tabs in check-sysctl-docs
-      docs: Downgrade arm64 & riscv from titles to comment
+ scripts/check-sysctl-docs | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
- Documentation/admin-guide/sysctl/kernel.rst |  32 +++--
- Documentation/admin-guide/sysctl/vm.rst     |   8 +-
- scripts/check-sysctl-docs                   | 184 +++++++++++++++-------------
- 3 files changed, 120 insertions(+), 104 deletions(-)
----
-base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-change-id: 20250701-jag-sysctldoc-3281ce70e28b
+diff --git a/scripts/check-sysctl-docs b/scripts/check-sysctl-docs
+index 568197cb1c0a84147785f05aabbbc6ab9dd896bc..3166012b9c6ea4435dc77afaadcff3a4944b1ca8 100755
+--- a/scripts/check-sysctl-docs
++++ b/scripts/check-sysctl-docs
+@@ -130,6 +130,14 @@ curtable && /\.procname[\t ]*=[\t ]*".+"/ {
+     file[curentry] = FILENAME
+ }
+ 
++curtable && /UCOUNT_ENTRY.*/ {
++    match($0, /UCOUNT_ENTRY\("([^"]+)"\)/, names)
++    curentry = names[1]
++    if (debug) print "Adding entry " curentry " to table " curtable
++    entries[curtable][curentry]++
++    file[curentry] = FILENAME
++}
++
+ /register_sysctl.*/ {
+     match($0, /register_sysctl(|_init|_sz)\("([^"]+)" *, *([^,)]+)/, tables)
+     if (debug) print "Registering table " tables[3] " at " tables[2]
 
-Best regards,
 -- 
-Joel Granados <joel.granados@kernel.org>
+2.47.2
 
 
 
