@@ -4,109 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3574C8302F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 015DDC8303B
 	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 07:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+fcxnRPCUmlIBn+uOqHCVjIObvv4ylw5etJ9Nko7XTY=; b=urT2CM9utNvrnd
-	aj/DjhmrCradG+Z0d+jdj8zuLsVoP2J9kSwdkKmKLZkuhy4k3z1J1kmqonnsgbzLHNWyCYZZZ7mSx
-	7oSqT9qT6O42u60ax6wS2KsPL/17/I8jKsrdT2ojTGDvrlvGTmrnVnw3ESlL6vWlCnHHmaWn0JTCb
-	3GvahaQkfn3NNypOvPyaQim6JeVpH6iRPsA3vwNOOzf8OCNaKeRMhLOkcM8x1jdw1Oiln4Z0bsTiL
-	lUFxHKk+BcpWxH+QnfsHoUMR9Rk4wFqH4GoqGbi/k4s2Ug5qlCLobNmSmTbxxGmdZBcJSO7pYmvS+
-	ZoAYps4dU1ut+hwHe/bg==;
+	List-Owner; bh=vtxC10+CXQ2jm2JTe7dalcmR9MRsNwiSEU03mEW9+Ek=; b=J/ThsnT4UTe1/R
+	ZNDBp/QqZP8ZtTAMFKMIAB0X9nEJWeEfNMFyZkd9tcjK8kbJnzpjV4Q7Qx5A4RVMAUcrNU893XHAG
+	7vMpzWxSEZjcGyGWKqHuqbvDcbltDeoJYh6dQ4kR2c+8PduW5jNHLl15kDBBd1JzQAjbDbXir8zAH
+	NXPN/XuEwBO1UbkcShOOWC2pFs8tnEbfrR/QXXFbpM+UZE+oCXRgWtHwr08Rl506CGVYiue9U/Mlp
+	9pyBFhjVJeC2uZSZzns75WHD1imS0UR6MCP11eOxDUqnntC2GF7wyFEQH3mryfi9zUfdZbivhH5Ox
+	1QmNEuNGLHgFtWYXQRyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVnT-00000004KQf-0dee;
-	Tue, 01 Jul 2025 07:52:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uWVnQ-00000004KO8-1tph;
+	Tue, 01 Jul 2025 07:52:52 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVYW-00000004Hr4-0KdK
+	id 1uWVVg-00000004HYd-3YR4
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 07:37:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 38D786112D;
-	Tue,  1 Jul 2025 07:37:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A23E6C4CEEB;
-	Tue,  1 Jul 2025 07:37:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751355445;
-	bh=tz9T+HYGlllDN1MZ/abac2KVF7+1D3682xOF+HsLY5c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=t30PodeJ3I6msIWp7IWV431di3gpRjTmkfmEMSwWjQGMdqwdd7ipv46rKvf4ptqee
-	 ZLeWbSjMlzbDZcTXIImM0ErJpTjelcfi6T0KwYSLidLqLyXrye4nbbF6OKID6cGDku
-	 qHKkEzNluWuUmKhL95mNI46oj7S/z6HconCiy/AwUySzRLbiIuigky+ZXSiajqsh7k
-	 sJ+I+CmNRGPBXrWrKt1SuOSQKjWrMyEGCLnBBX5fBWCEW6x/swF0WYGw2vA5TmZenp
-	 pyKEVN3w8Zh6jcrfW2tH6lQKKa4srM7NSRDkFA0rZanVf6yuDpmiEmfF6pFZErElEj
-	 zx2HsR+Kw3nOQ==
-Message-ID: <a329e8a9-d581-4af1-ac0f-9f104a810bc9@kernel.org>
-Date: Tue, 1 Jul 2025 09:37:19 +0200
+	Tue, 01 Jul 2025 07:34:34 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751355270;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Q3pTxglj7rUaxTbf+kwFx+KhAmOnfuP/vGPEozKgxCs=;
+	b=SLeZn/oISCskojCC5wqqgkJTMqAEjmNuH4xDYrPBA0i6op+Z97AmYXCL+HlD+S5KcDZp8J
+	nQY5EOq6Z3HVLD9yg7HySrFYQjHt1VW6/WiQbtknVAac7IwUQ1V3+SsO0gFDs1aLg4nfiY
+	lpFfnmVp8ycxnL3nOZvpIxLIRypW6+ud0sLtDt7IBn/xtRfyqqdXf0wRO4HKzk7CFI2LJW
+	CiUdtztRAczzn/EMp9Kxo4Kib0whDuR5R1Aq/NIJNCipHuGjHd+sbA6FbVnrlJURW+WK7D
+	wWRLWcRmmCB27pSSSoohceSFres5pESoTLkbb1SvFWGUYzAmKhInlpkN51f10A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751355270;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Q3pTxglj7rUaxTbf+kwFx+KhAmOnfuP/vGPEozKgxCs=;
+	b=kq9kpmEIKmCa77n3xHqg9PI3O5HFmJRcwwTQpSTIlSYRrEyYHYsWXuF8zWLoho7nDnwtFh
+	OlNhQPLGg8OnahDQ==
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atish.patra@linux.dev>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andrew Jones <ajones@ventanamicro.com>, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip: riscv-imsic: Add kernel parameter to disable IPIs
+In-Reply-To: <CAK9=C2Ue36iF8X17n-D70BkMk69bGKb+8dSmro6SEo5i2d+OSg@mail.gmail.com>
+References: <20250625161715.1003948-1-apatel@ventanamicro.com>
+ <87wm8tmcsr.ffs@tglx>
+ <CAK9=C2Ue36iF8X17n-D70BkMk69bGKb+8dSmro6SEo5i2d+OSg@mail.gmail.com>
+Date: Tue, 01 Jul 2025 09:34:29 +0200
+Message-ID: <87ikkcmkje.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/8] riscv: dts: spacemit: Add PDMA0 node for K1 SoC
-To: Guodong Xu <guodong@riscstar.com>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev
-References: <20250701-working_dma_0701_v2-v2-0-ab6ee9171d26@riscstar.com>
- <20250701-working_dma_0701_v2-v2-6-ab6ee9171d26@riscstar.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250701-working_dma_0701_v2-v2-6-ab6ee9171d26@riscstar.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250701_003433_105394_8ED39E75 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,46 +77,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2025 07:37, Guodong Xu wrote:
-> Add PDMA0 dma-controller node under dma_bus for SpacemiT K1 SoC.
-> 
-> The PDMA0 node is marked as disabled by default, allowing board-specific
-> device trees to enable it as needed.
-> 
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> ---
-> v2:
-> - Updated the compatible string.
-> - Rebased. Part of the changes in v1 is now in this patchset:
->    - "riscv: dts: spacemit: Add DMA translation buses for K1"
->    - Link: https://lore.kernel.org/all/20250623-k1-dma-buses-rfc-wip-v1-0-c0144082061f@iscas.ac.cn/
-> ---
->  arch/riscv/boot/dts/spacemit/k1.dtsi | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> index 8f44c1458123be9e74a80878517b2b785d743bef..69e0b1edf3276df26c07c15d81607f83de0e5d57 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> @@ -591,6 +591,17 @@ uart9: serial@d4017800 {
->  				status = "disabled";
->  			};
->  
-> +			pdma0: dma-controller@d4000000 {
-
-
-Oddly placed. Is spacemit not following standard DTS coding style ordering?
-
-
-Best regards,
-Krzysztof
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdWwgMDEgMjAyNSBhdCAxMjowMCwgQW51cCBQYXRlbCB3cm90ZToKPiBPbiBNb24s
+IEp1biAzMCwgMjAyNSBhdCA5OjM54oCvUE0gVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGxpbnV0cm9u
+aXguZGU+IHdyb3RlOgo+PiA+IFdoZW4gaW5qZWN0aW5nIElQSXMgdG8gYSBzZXQgb2YgaGFydHMs
+IHRoZSBJTVNJQyBJUEkgc3VwcG9ydCB3aWxsCj4+ID4gZG8gYSBzZXBhcmF0ZSBNTUlPIHdyaXRl
+IHRvIFNFVElQTlVNX0xFIHJlZ2lzdGVyIG9mIGVhY2ggdGFyZ2V0Cj4+ID4gaGFydC4gVGhpcyBt
+ZWFucyBvbiBhIHBsYXRmb3JtIHdoZXJlIElNU0lDIGlzIHRyYXAtbi1lbXVsYXRlZCwKPj4gPiB0
+aGVyZSB3aWxsIGJlIE4gTU1JTyB0cmFwcyB3aGVuIGluamVjdGluZyBJUEkgdG8gTiB0YXJnZXQg
+aGFydHMKPj4gPiBoZW5jZSBJUElzIGJhc2VkIG9uIElNU0lDIHNvZnR3YXJlIGluamVjdGVkIE1T
+SSBpcyBzbG93IGNvbXBhcmVkCj4+ID4gdG8gdGhlIFNCSSBJUEkgZXh0ZW5zaW9uLgo+PiA+Cj4+
+ID4gQWRkIGEga2VybmVsIHBhcmFtZXRlciB0byBkaXNhYmxlIElQSXMgaW4gSU1TSUMgZHJpdmVy
+IGZvciBwbGF0Zm9ybXMKPj4gPiB3aXRoIHRyYXAtbi1lbXVsYXRlZCBJTVNJQy4KPj4KPj4gV2h5
+IGRvIHlvdSBuZWVkIGEga2VybmVsIHBhcmFtZXRlciBmb3IgdGhhdC4gSWYgdGhlIHBsYXRmb3Jt
+IHVzZXMgdHJhcC1uCj4+IGVtdWxhdGlvbiwgdGhlbiBkaXNhYmxlIHRoZSBJUEkgbXVjayBhdXRv
+bWF0aWNhbGx5LCBubz8KPj4KPiBVbmZvcnR1bmF0ZWx5LCB3ZSBkb24ndCBoYXZlIERULCBBQ1BJ
+LCBvciBhbnkgb3RoZXIgd2F5IG9mIGRpc2NvdmVyaW5nCj4gd2hldGhlciB1bmRlcmx5aW5nIElN
+U0lDIGlzIHRyYXAtbi1lbXVsYXRlZC4gSW4gZmFjdCwgdGhlIERUIG9yIEFDUEkKPiBwYXNzZWQg
+dG8gYSBLVk0gR3Vlc3QgaXMgdGhlIHNhbWUgaXJyZXNwZWN0aXZlIG9mIHdoZXRoZXIgdW5kZXJs
+eWluZwo+IElNU0lDIGlzIHRyYXAtbi1lbXVsYXRlZCBvciBiYWNrZWQgYnkgaGFyZHdhcmUgSU1T
+SUMgVlMtZmlsZS4KClNpZ2guCgo+IFVzaW5nIHNvZnR3YXJlIGluamVjdGVkIE1TSXMgYXMgSVBJ
+cyBpcyBwdXJlbHkgYSBzb2Z0d2FyZSBjaG9pY2UgaW4gdGhlCj4gSU1TSUMgZHJpdmVyIHNvIHRo
+aXMgbmV3IGtlcm5lbCBwYXJhbWV0ZXIgYWxsb3dzIHVzZXJzIHRvIG92ZXJyaWRlIGl0LgoKUGxl
+YXNlIGFkZCB0aGF0IGluZm9ybWF0aW9uIHRvIHRoZSBjaGFuZ2UgbG9nLgoKVGhhbmtzLAoKICAg
+ICAgICB0Z2x4CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
