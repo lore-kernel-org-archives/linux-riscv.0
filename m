@@ -4,86 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6D5C83038
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 15:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F259C83038
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 16:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cqrCBNfobDE/0uGWZcbvFlVjoxAgQjLyvst2gPuoZRU=; b=dLJDW/T3Hmbgbu
-	A6C/aq2wkfkFVqKii2ZQCct6xv7kHuvo3cV8vexf5m7B9wbaGDFeai1wZNio9t0+Sf+tAsL1JMjHM
-	5HgHmETQfAIqLveTvOGASJb2B2jdA/CaJ5EioSuPV+HDKBlgxkPq4QlFg6ZVsBycNVTArg+KoAvWX
-	JgkffLnmpbImhfgeeLj1MFJogG14/agaaq3dhOCDYnOiIlpE4kxQ0VpMicgmb1wPSghPlmMyNuG5y
-	r1rS7FcndfAdAFEpELlX1ON/a2y7Ho3vMQemPr2eZFkd4JZA68rizt7mLb98ll7Wl9m9wcQvARCdm
-	LkSoJ38L7Cd6MOPmB3Qw==;
+	List-Owner; bh=26Mt7XWy3Z/cs9CgNxjTWzL+M+/4pivWDU96yzhumQ0=; b=GapE0yQAn8OoHs
+	Vl3bXbqIXVoWgqyv+zc3cFaaQwMdFUPFskOV62Hm/+p8UkAySSz3OFW9wuQQt5JI8GfYN7MLS02iC
+	yMIG/RAO8LnIe4xvi/oMtIyyOpXJpBctiv9qM0SAP/9BC7ShHFmZJ6OtRIigzfnsQrisZYKjQ4p3R
+	dyPtVrDGZHRRM8p9jroi0uoKSJuRyC6LzyekRhRug6LNWpf1pSWVji5OPSoGL+rHUtU4iyt+w1ATU
+	cqPl69SQ9KWcbqEP185K3NErTkJm8+5KorEUl4ZhWJBamn2C7tj/Rw0P0u5aNKyjRD2qv9ewXRDG6
+	Z1jAhMPxSSLd3i0SaQkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWdDv-00000005wB1-3PfX;
-	Tue, 01 Jul 2025 15:48:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uWdPR-00000005xZl-33le;
+	Tue, 01 Jul 2025 16:00:37 +0000
+Received: from out-179.mta0.migadu.com ([91.218.175.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWba8-00000005cyn-3YsN
+	id 1uWbm9-00000005fAR-2ILh
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 14:03:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751378611;
+	Tue, 01 Jul 2025 14:15:58 +0000
+Message-ID: <0a96ce38-163e-4566-b666-b074bd82c75a@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1751379345;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=RTx+g/ICXN+t4dz9YafghFmb5+aFmfAwgPNFgDgkBAM=;
-	b=PUEMtgxGTLz5trVFQ1Ik1Qluwa8WfQD1QashAVwvtRDXesUgBcTJS4PDNeREua2m33GqS1
-	r7QzDOufIerw7y7vMbQe5u+MQMr4/d2q87qG6pwAZojXQIrarvX1EsoKgXIZQqPO8Fp5Em
-	x3waDU3jhzehiqyxF9izqUN6Q+/lHCc=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-333-hxMgnUo-OCuG5uuIoRz31g-1; Tue, 01 Jul 2025 10:03:30 -0400
-X-MC-Unique: hxMgnUo-OCuG5uuIoRz31g-1
-X-Mimecast-MFC-AGG-ID: hxMgnUo-OCuG5uuIoRz31g_1751378596
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3a4e9252ba0so2108299f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 07:03:16 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751378595; x=1751983395;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=RTx+g/ICXN+t4dz9YafghFmb5+aFmfAwgPNFgDgkBAM=;
-        b=SzopTRpAHFfUFOXOisb/rSV1aO4RbFkDk5KWnSeEyI3m9Hs1nPjR1vmzvGh1EJhFwW
-         wDZJMZ7lWbWYVfzgUfZ3P1hJKidbL1qcG0IAv7nlm8qdiwmCnk98T7rl2hMHz4DFJql6
-         pyhAgembUI81Ht0FUd93sw8xS1yfZ6l1YRKfPTqHxdIJ0v+muiTrTfKcM3L7uKeBVbjL
-         HBlZp/4pHMxF1gR5BLzBAdJ8RuHWr2CvBviuPItJQQHatjgV0roGRmt3fcSKHTUpSCXM
-         nd3iWmEQkhnb3iH0Smp2A/pk05ROefRZHRlCVHN4lKZ85Mxz/R0jhRTrghSHK/M5s+Z+
-         dM2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUnLVQI86SoCEU55opUNnghwUSkRqk7MlOKxd80tlsIF6cigp4E2Ft0xc+EnRRaWbPu7XKd/Ip8mf0HQg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnH58ZLCF8FNiJLuxMcvZaTPypxs9i46T2zTfrrn5UJZVxaJIh
-	/glywGRlG5Lh+qebdYlgR6nCCAYVU4ehCHm49dVVOBr5j6ewbvvzfygmwwfdlsXG3lWPh2M+NvI
-	9ghSn6TwjHKV5EENYSIEmbLHhsla08DXoL7thduFGnqbAcytiAKbb6sogfgR9OP5nckhGdQ==
-X-Gm-Gg: ASbGncuXmltQN5j2vr/uSu7aEXSuerrTSHN7PvBbb7nkvB9H6dIYQ6gJoEqTzhJYokO
-	Q6H9aKvPf31ARFqdTZYxZkZC9D+vLftFSKAWZDpDTJ7Gm6jREVAVi80taVrD8S8cg8sWuOMctt9
-	o+4C5wtu7nwUtEqQgkxPIW6SFvxsqL+Z0MuSeGB+FZOKk6QSzrV0QrfZH4p+0QXoaY3wmj6z0vo
-	/8rh9TFfZ0FezMvrZgvtQTqnAyjWF8OkhEiPhpMzJ0NrcU7qydw58yMNP2yHtiByylCzU7a5j/b
-	vo07FEG2OoR93XP0paP6G1+MFGSZiNN1pf56QNph9wCXNBeaMQ7NThhdxRtmTjawCcDS/OgSiy8
-	0Fg3PFcgurudV0AWEAYPQCfk/CL0x3jeH+2G154StR4vUBkKHoA==
-X-Received: by 2002:adf:b64f:0:b0:3a0:9dfc:da4 with SMTP id ffacd0b85a97d-3a8ff5201efmr11485721f8f.42.1751378591836;
-        Tue, 01 Jul 2025 07:03:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG7R3QME11ZBj9+BG46czHqpSceP+vF115DNdQ6LNVtWM1I1Qv3+VwohoaUOVRnSiIQOjQm8w==
-X-Received: by 2002:adf:b64f:0:b0:3a0:9dfc:da4 with SMTP id ffacd0b85a97d-3a8ff5201efmr11485359f8f.42.1751378588233;
-        Tue, 01 Jul 2025 07:03:08 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f18:7500:202e:b0f1:76d6:f9af? (p200300d82f187500202eb0f176d6f9af.dip0.t-ipconnect.de. [2003:d8:2f18:7500:202e:b0f1:76d6:f9af])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a87e947431sm13377312f8f.0.2025.07.01.07.03.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Jul 2025 07:03:07 -0700 (PDT)
-Message-ID: <330f29ee-ba55-4ae6-a695-ddaba58d5cb8@redhat.com>
-Date: Tue, 1 Jul 2025 16:03:06 +0200
+	 in-reply-to:in-reply-to:references:references;
+	bh=CbwuurgTDZ+BaZBkyMf18Zq8IPSFXnHhnJxSaiCg6gM=;
+	b=rwerCEIAJb39fesv0EF8pOU/ob/YjbEMZ4v0sWNU2xHq0OxhcXljvBD2n5VH+/cKs1v5qS
+	GEq/jLdRP4QJopKUgt18uPvXuzdrO+Gw3KUgU3FysEGlvfuCeVyGbBJd7yShJDeT+1GSXC
+	8ObslLOB3iUPbBIQR6Kfi8w4SylwS7k=
+Date: Tue, 1 Jul 2025 22:15:27 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 1/1] mm/rmap: fix potential out-of-bounds page table
  access during batched unmap
-To: Lance Yang <ioworker0@gmail.com>, akpm@linux-foundation.org,
+Content-Language: en-US
+To: David Hildenbrand <david@redhat.com>, akpm@linux-foundation.org,
  21cnbao@gmail.com
 Cc: baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -92,62 +52,16 @@ Cc: baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com,
  x86@kernel.org, huang.ying.caritas@gmail.com, zhengtangquan@oppo.com,
  riel@surriel.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
  harry.yoo@oracle.com, mingzhe.yang@ly.com, stable@vger.kernel.org,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>
+ Barry Song <baohua@kernel.org>, Lance Yang <ioworker0@gmail.com>
 References: <20250630011305.23754-1-lance.yang@linux.dev>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <20250630011305.23754-1-lance.yang@linux.dev>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 8W4Oz0tw2qxuqVy1cYTqKP_OFIeVcqg2g9GA38z6uek_1751378596
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+ <330f29ee-ba55-4ae6-a695-ddaba58d5cb8@redhat.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <330f29ee-ba55-4ae6-a695-ddaba58d5cb8@redhat.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_070332_966399_0CCE9D16 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20250701_071557_729947_3F2D5734 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,37 +78,43 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30.06.25 03:13, Lance Yang wrote:
-> From: Lance Yang <lance.yang@linux.dev>
-> 
-> As pointed out by David[1], the batched unmap logic in try_to_unmap_one()
-> may read past the end of a PTE table when a large folio's PTE mappings
-> are not fully contained within a single page table.
-> 
-> While this scenario might be rare, an issue triggerable from userspace must
-> be fixed regardless of its likelihood. This patch fixes the out-of-bounds
-> access by refactoring the logic into a new helper, folio_unmap_pte_batch().
-> 
-> The new helper correctly calculates the safe batch size by capping the scan
-> at both the VMA and PMD boundaries. To simplify the code, it also supports
-> partial batching (i.e., any number of pages from 1 up to the calculated
-> safe maximum), as there is no strong reason to special-case for fully
-> mapped folios.
-> 
-> [1] https://lore.kernel.org/linux-mm/a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com
-> 
-> Fixes: 354dffd29575 ("mm: support batched unmap for lazyfree large folios during reclamation")
-> Cc: <stable@vger.kernel.org>
-> Acked-by: Barry Song <baohua@kernel.org>
-> Suggested-by: David Hildenbrand <david@redhat.com>
 
-Realized this now: This should probably be a "Reported-by:" with the 
-"Closes:" and and a link to my mail.
 
--- 
-Cheers,
+On 2025/7/1 22:03, David Hildenbrand wrote:
+> On 30.06.25 03:13, Lance Yang wrote:
+>> From: Lance Yang <lance.yang@linux.dev>
+>>
+>> As pointed out by David[1], the batched unmap logic in try_to_unmap_one()
+>> may read past the end of a PTE table when a large folio's PTE mappings
+>> are not fully contained within a single page table.
+>>
+>> While this scenario might be rare, an issue triggerable from userspace 
+>> must
+>> be fixed regardless of its likelihood. This patch fixes the out-of-bounds
+>> access by refactoring the logic into a new helper, 
+>> folio_unmap_pte_batch().
+>>
+>> The new helper correctly calculates the safe batch size by capping the 
+>> scan
+>> at both the VMA and PMD boundaries. To simplify the code, it also 
+>> supports
+>> partial batching (i.e., any number of pages from 1 up to the calculated
+>> safe maximum), as there is no strong reason to special-case for fully
+>> mapped folios.
+>>
+>> [1] https://lore.kernel.org/linux-mm/ 
+>> a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com
+>>
+>> Fixes: 354dffd29575 ("mm: support batched unmap for lazyfree large 
+>> folios during reclamation")
+>> Cc: <stable@vger.kernel.org>
+>> Acked-by: Barry Song <baohua@kernel.org>
+>> Suggested-by: David Hildenbrand <david@redhat.com>
+> 
+> Realized this now: This should probably be a "Reported-by:" with the 
+> "Closes:" and and a link to my mail.
 
-David / dhildenb
+Got it. Both tags (Reported-by/Closes) will be in the next commit ;)
 
 
 _______________________________________________
