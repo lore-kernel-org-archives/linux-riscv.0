@@ -4,91 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8706C8303D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F67C8303A
 	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 10:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZuhuvrHnnwQa74yr0slIYlRbWfgj40e4LEBMHP5q0KU=; b=P8ZX0DqgXzu0sG
-	2sRF5KqrNxcDbnQNfDh3bVuoRDTNntXWN/D8DFp9rcd/tZf0KB5GfGGWwhtwitWwvKEpxT0gBAKjP
-	U5rs7ZsCzMUr1AbiQ27ih0lSBr9p3QPADRo53aUcjpqyMCn9saz0jvhEw2hPWdxuJf+d/V82+mAk4
-	fB0KRUVLjZGxzL7gDkwgLj1MieHeimmsGL1A/r38k0CGTB5y4Q9JNQ/J2OOzM258c0WegKy+yDwNG
-	ZkDKf7ydlMi8atMQQ/jDamnyYuWCI+w8GAc8YSAsujqbuFDrhdpMcu6/JPbsBgclGdyxJzbRen8xk
-	H8WG1y36lym4LiaLy6NQ==;
+	List-Owner; bh=03cJvf9J+UqzeC7IJfMa8z5Ca1v8n8KiHD7DwjH2Lmk=; b=AcE4vJuux74ui+
+	d9OL1u7rQ/3jNo3cItMu+kk4xEQwBLQ5Y8MgYdiAleH+mDmNL2AXku6rUfUL7Cd2O5tU+nrv2Pttm
+	AfrSUbyTWNbFWpzIzlcG3+gsK9b5lEfFf4SntBgr+PbcZYc3mVVusaoFI31vatGB6OgsalOkgqfGm
+	PsUiPMrfaUYv5kCKUQ9bbRQjjUJcBBmHC8BrCpCN1L3DegIdBOt0QklBii7AIdTOz3imyoDFzY/E4
+	Js5eGepJCYBuEy2cd6It1Mgi3klVtbYvohQt0qbHVkujJ9Szb4GqijTWf4jt8yIEjqHrWrwlx8C+H
+	/SpxlUuAUCvhwW429qQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXty-00000004hYe-2bzd;
-	Tue, 01 Jul 2025 10:07:46 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1uWXtz-00000004hYz-19pt;
+	Tue, 01 Jul 2025 10:07:47 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXqu-00000004gGM-11F7
+	id 1uWXr2-00000004gID-21pl
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 10:04:37 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e8601ce24c9so2299156276.1
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 03:04:35 -0700 (PDT)
+	Tue, 01 Jul 2025 10:04:45 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-747c2cc3419so5157352b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 03:04:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1751364275; x=1751969075; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tI2TEX0v6p76uLE+ptZngTvOHJFtlrTXX6bq47hMyoo=;
-        b=PWPodCZOGloB8NhkgV+fvuL9gqihKmkxwdKHK8K+FWpm7doBW89+LHTF6BXFCsZej1
-         RVtnSoerpn8jchigJ16zPzvaCILOPqmaE+OxLCJaDvRO/eJx+7MbKgfIgMCwMK+wV+9C
-         CmCwC2kmZp/fxzkhu1E6obe+7VCXMANNh8hjQq9mzFNZHcG9xukuYj5cAZDqLLEl0b5K
-         KpBCCEaHjbM0Rxn3QScmp0It5dQ92ByfKZJuuvBsORQYGfKttld5YkYHrsLikn4ycAza
-         0OggsCyPK0/PvGZyxAI8UfH89b8OCHOFsj6d0MCHjMSwdpDDYIY46fpsCFv9Tl1WcA+9
-         tF5w==
+        d=gmail.com; s=20230601; t=1751364284; x=1751969084; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=71QusJ5AouGsm2mgHkr3YzuD0h0jCWeTyt1AC4+RDvs=;
+        b=Pk2mwppusev8eOqfeFsDmZzFpwk8GugCRUD28UEtDXpY7l4QAhpgQpmBvp+cY2FB9J
+         TjQC8osp/+VkgXhMb9aBGYaovnDbsP89Yxc5Ws2roW3N97cpHoIMcTv+aqIPq2s/vjgn
+         DQHBi01JIIygiaqaClQqTCrpZTTol5Ng1N3pNECHUMlOKqDublLV65lAejbk+lCBg2Xr
+         0rLFeqsr1hfNcq07aMbM5TVufs9Mu3l6npPddhwoyn0GGxHHU9p0rnpIKgZVWG36cnUl
+         GM16iXOVI8d3S9UTyf2a79ICyarcLeLwsAk8kAIXDMsdUeyK/V2y4V3Sdg/q10lQog0l
+         45nQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751364275; x=1751969075;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tI2TEX0v6p76uLE+ptZngTvOHJFtlrTXX6bq47hMyoo=;
-        b=TObC5LnTvcwVoAo98dCg/tpM7rl5sepCE7tdapxW6zoQhr03OXdy/PeZXRipl/+uIl
-         GflrakeBpCvJB296i9CSdlczuLjwsCWtEAslQ6gM1ExSwd06oVI32L8H7LTST2wRgqK7
-         l1K/galWCw0EEBVWKjeLcaDaSQ0o77RU8LdwTruuajVnFuRL6QF9x2SowaqBYiWHSv7r
-         Wr5NxdKMMW8GgpgllQuF0udSmODTDgO6QsTgxscCRJPD5kwqjqpG6R4rrscWTDzqRUZA
-         tBl1jjsMXAyxTcA59EIkUNNudIBIvTpa/S9hopLHQbdtqQzxfm8x2cCIXOM46ES4bpz4
-         kzXA==
-X-Forwarded-Encrypted: i=1; AJvYcCVA1brDtRI9NAw6DREw/CsnnMDmOQisRAurOpa2U18rtmQooPCoQcajESZQe0z73ZCEIVchNob93mKESg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YziqK1cWMxmxQ7NCYUpfT5gnSFIQhff4MpEgLyZPSnezZxFg/EF
-	+9yTnuDda4JSQPRvDNlFKZuEh9JYuJer0mw0MS+H+AWYgMaBjHQpHa8dpscMZvsFBxjazON6MIN
-	dmq3YBN1LBC7/qvC5oqtsHJFQCcNEPlR2nE7/tF4vDg==
-X-Gm-Gg: ASbGncsrhTU2YEO6Bo+uH9Maqqtx676i1V4H8uVlwq6fMMADu4fJL2wn4MA8eFKehW9
-	uPHMMw+gKJa3cd4HlTo+0ms26z6sTZn5iqw0sc2c6CqCFHovd3ByTbv8lMvFNEoAaok3GQ/uVYT
-	hSw92R243xaHVVIvL/61wsAjdf9vArNWVv+o2M7UYW519NxpZkVd1OhjBE6wg=
-X-Google-Smtp-Source: AGHT+IFFvhwLw/jJrBvk5mcq4A9/NKoJsPfn9jlPFZrZKY33NEca9HgiwrZDw7XbN2a2/VI+7HKKIkBzK0LvZEqayRQ=
-X-Received: by 2002:a05:690c:38b:b0:709:1529:c24f with SMTP id
- 00721157ae682-7151713cdcemr231087327b3.4.1751364275152; Tue, 01 Jul 2025
- 03:04:35 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250701-working_dma_0701_v2-v2-0-ab6ee9171d26@riscstar.com>
- <20250701-working_dma_0701_v2-v2-7-ab6ee9171d26@riscstar.com>
- <ebc16dbe-2405-4956-91a0-bcce9f199326@kernel.org> <CAH1PCMa2dB1fefzGgo-kKfgAdou_KaDSvTDsvYPjsGKODHETCA@mail.gmail.com>
- <d3d73135-15d8-487d-a55a-44f1f98db930@kernel.org>
-In-Reply-To: <d3d73135-15d8-487d-a55a-44f1f98db930@kernel.org>
-From: Guodong Xu <guodong@riscstar.com>
+        d=1e100.net; s=20230601; t=1751364284; x=1751969084;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=71QusJ5AouGsm2mgHkr3YzuD0h0jCWeTyt1AC4+RDvs=;
+        b=T2hqJGdNYVhFOVGDAcfvm+gbAbeEEeVlz99QOF3P1wEAULLNGu5ozE8b2TFNXckvLg
+         DvjEWL3Mh5D0cIFfpXE++DHfT2VsjZhubSE9jkYIIMAnFUsPYJAbZH5s2CpSrVoe6xYS
+         wbkAUoa+tZ9nd0UbDosMir0UTZw1wR02MVQJ+fcbbhV4BOORF2ijL2l/u/5+DvqPI9Ft
+         dyoqloeO8NjL/t0BDD7gxAbyBYwcxP61VgBw+EEYLVr+he/+Dif9xMLfMqsZkXdZJV+X
+         iGnO7tpVMIjtLr2nGYU6SNthfB0ELgFww2pR+4UGjqhMAxMDYl1Pv2ldKjd4Vm9U9m5Y
+         zgeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWCjREzmaYDtoV7Ef5d1ntt+qV1yaGpsMTFe5r3V05rcVO/bPLl4bqHlYMLZ4QNadAHQv+JQpG+KNdvjw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOz37kxI+PJg2+pKlESFCn5iCm/rQVsNcWUcenE2HnqXCfI2pa
+	gt+nURwn2HXGOwfsyVob9+ed4iLkFkWQLwvbaA+qHdfF3jC10vO5IhK2uscbB0uzz/s=
+X-Gm-Gg: ASbGncuWrgTEoQr7vHQvX2KC/PPCpWs46MbHXw2uCRolFC03qFWY8nUSCIiQLTfO3bG
+	pUdPPZxqtVmodzsi6qdxXY7yhGHFEUoY4CGPmgrypkRmtOc5Qh1d4gKW1/reJaA9t1clKkm8721
+	HfPODWLwq7wmEz37rQmnjNpoLvkx+/kLzyNcCd0sPgTMcfeeHM5v+46vnZZXxPHKRk8H+vony8S
+	YIWZCj3GiSb9+DTIYQYXjdpaoECH8n6D9VFvRyDZ1xEI7gFB911RZmfl1HrfPPuojVn61JrB/GP
+	kA9XfO8OVlnEnrWbVLrjm7h11joBUXGVgwqD9FAzXK4PbMsPtKEGSYxhCTMOzA==
+X-Google-Smtp-Source: AGHT+IHie6mqvlaJorzA6xUxii2gAFC0YaJ/JvpPEZQX9X8fCXiwrRfXuXkWDPVsvQUlpXtMG94W6A==
+X-Received: by 2002:a05:6a00:2195:b0:748:f80c:b398 with SMTP id d2e1a72fcca58-74af6f08c99mr21158524b3a.15.1751364283601;
+        Tue, 01 Jul 2025 03:04:43 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-74af57f467bsm11309945b3a.170.2025.07.01.03.04.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jul 2025 03:04:43 -0700 (PDT)
 Date: Tue, 1 Jul 2025 18:04:24 +0800
-X-Gm-Features: Ac12FXwHr2IIx2UMlAjmgrdgoDgmw39WTy6GMM6om5RG4oXPV4Hi_Mb50OUfJEU
-Message-ID: <CAH1PCMa35n4dnJ94-EHGrJyU3kztQYO8_v2CkD=rid466zv3+A@mail.gmail.com>
-Subject: Re: [PATCH v2 7/8] riscv: dts: spacemit: Enable PDMA0 on Banana Pi F3
- and Milkv Jupiter
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	=?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Alex Elder <elder@riscstar.com>, 
-	Vivian Wang <wangruikang@iscas.ac.cn>, dmaengine@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+	Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, 
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>, Yixun Lan <dlan@gentoo.org>, 
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Ze Huang <huangze@whut.edu.cn>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next RFC v4 0/4] riscv: dts: sophgo: Add ethernet
+ support for cv18xx
+Message-ID: <gkyq4gakaji6ddx5btmd6fzehfu5mzfhdy5pch32idoio3jf7g@7zlwkf2bvhac>
+References: <20250701011730.136002-1-inochiama@gmail.com>
+ <vxnvovuetfd6rzgaenwplpkhxm62fhw6t3vi4wkyigul7p4bkx@pwlprna4pyul>
+ <a5107266-853e-4658-ba90-d6a08882d2a8@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <a5107266-853e-4658-ba90-d6a08882d2a8@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_030436_282981_7C336645 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250701_030444_525790_930F53B3 
+X-CRM114-Status: GOOD (  26.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,42 +105,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMSwgMjAyNSBhdCA1OjAy4oCvUE0gS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6
-a0BrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIDAxLzA3LzIwMjUgMTA6NDgsIEd1b2RvbmcgWHUg
-d3JvdGU6Cj4gPiBPbiBUdWUsIEp1bCAxLCAyMDI1IGF0IDM6MzbigK9QTSBLcnp5c3p0b2YgS296
-bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4+Cj4gPj4gT24gMDEvMDcvMjAyNSAw
-NzozNywgR3VvZG9uZyBYdSB3cm90ZToKPiA+Pj4gRW5hYmxlIHRoZSBQRE1BMCBvbiB0aGUgU3Bh
-Y2VtaVQgSzEtYmFzZWQgQmFuYW5hIFBpIEYzIGFuZCBNaWxrdiBKdXBpdGVyCj4gPj4+IGJvYXJk
-cyBieSBzZXR0aW5nIGl0cyBzdGF0dXMgdG8gIm9rYXkiLgo+ID4+Pgo+ID4+PiBTaWduZWQtb2Zm
-LWJ5OiBHdW9kb25nIFh1IDxndW9kb25nQHJpc2NzdGFyLmNvbT4KPiA+Pj4gLS0tCj4gPj4+IHYy
-OiBhZGRlZCBwZG1hMCBlbmFibGVtZW50IG9uIE1pbGt2IEp1cGl0ZXIKPiA+Pj4gLS0tCj4gPj4+
-ICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLWJhbmFuYXBpLWYzLmR0cyAgIHwgNCAr
-KysrCj4gPj4+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLW1pbGt2LWp1cGl0ZXIu
-ZHRzIHwgNCArKysrCj4gPj4+ICAyIGZpbGVzIGNoYW5nZWQsIDggaW5zZXJ0aW9ucygrKQo+ID4+
-Pgo+ID4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1iYW5h
-bmFwaS1mMy5kdHMgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLWJhbmFuYXBpLWYz
-LmR0cwo+ID4+PiBpbmRleCBmZTIyYzc0N2M1MDEyZmU1NmQ0MmFjOGE3ZWZkYmJkYjY5NGYzMWI2
-Li4zOTEzMzQ1MGUwN2YyY2I5Y2IyMjQ3ZGMwMjg0ODUxZjhjNTUwMzFiIDEwMDY0NAo+ID4+PiAt
-LS0gYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLWJhbmFuYXBpLWYzLmR0cwo+ID4+
-PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLWJhbmFuYXBpLWYzLmR0cwo+
-ID4+PiBAQCAtNDUsMyArNDUsNyBAQCAmdWFydDAgewo+ID4+PiAgICAgICBwaW5jdHJsLTAgPSA8
-JnVhcnQwXzJfY2ZnPjsKPiA+Pj4gICAgICAgc3RhdHVzID0gIm9rYXkiOwo+ID4+PiAgfTsKPiA+
-Pj4gKwo+ID4+PiArJnBkbWEwIHsKPiA+Pgo+ID4+Cj4gPj4gRG9lcyBub3QgbG9vayBsaWtlIHBs
-YWNlZCBhY2NvcmRpbmcgdG8gRFRTIGNvZGluZyBzdHlsZS4gV2hhdCBzb3J0IG9mCj4gPj4gb3Jk
-ZXJpbmcgU3BhY2VtaXQgZm9sbG93cz8KPiA+Pgo+ID4KPiA+IEFncmVlZC4gV2Ugc2hvdWxkIGVz
-dGFibGlzaCBhIGNvbnNpc3RlbnQgb3JkZXJpbmcgcnVsZSBmb3IgU3BhY2VtaVQgYm9hcmQKPgo+
-Cj4gSXNuJ3QgdGhlcmUgYSBzdHlsZSBhbHJlYWR5PyBPciB3aGF0IGlzIHRoZSBzdHlsZSBmb3Ig
-UmlzYy12IGFyY2g/Cj4KClBlciBteSBjaGVja2luZywgaXQncyBub3QgY29uc2lzdGVudCBmb3Ig
-YXJjaC9yaXNjdi4KClNpRml2ZSBib2FyZHMgKGhpZml2ZS11bmxlYXNoZWQtYTAwLmR0cyBhbmQK
-aGlmaXZlLXVubWF0Y2hlZC1hMDAuZHRzKSBhcmUgbm90IGFscGhhYmV0aWNhbC4KCk1vc3Qgb3Ro
-ZXIgUklTQy1WIHZlbmRvcnMgKFN0YXJGaXZlLCBNaWNyb2NoaXAsIFNvcGhnbyBNaWxrLVYgRHVv
-LCBldGMuKQp1c2UgYWxwaGFiZXRpY2FsIG9yZGVyaW5nLiBUaGF0J3MgdGhlIG1ham9yaXR5LiBS
-aWdodD8KCi1HdW9kb25nCgo+IEJlc3QgcmVnYXJkcywKPiBLcnp5c3p0b2YKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Jul 01, 2025 at 08:26:31AM +0200, Krzysztof Kozlowski wrote:
+> On 01/07/2025 03:23, Inochi Amaoto wrote:
+> > On Tue, Jul 01, 2025 at 09:17:25AM +0800, Inochi Amaoto wrote:
+> >> Add device binding and dts for CV18XX series SoC, this dts change series
+> >> required the reset patch [1] for the dts, which is already taken.
+> >>
+> >> [1] https://lore.kernel.org/all/20250617070144.1149926-1-inochiama@gmail.com
+> >>
+> >> The patch is marked as RFC as it require reset dts.
+> >>
+> >> Change from RFC v3:
+> >> - https://lore.kernel.org/all/20250626080056.325496-1-inochiama@gmail.com
+> >> 1. patch 3: change internal phy id from 0 to 1
+> >>
+> >> Change from RFC v2:
+> >> - https://lore.kernel.org/all/20250623003049.574821-1-inochiama@gmail.com
+> >> 1. patch 1: fix wrong binding title
+> >> 2. patch 3: fix unmatched mdio bus number
+> >> 3. patch 4: remove setting phy-mode and phy-handle in board dts and move
+> >> 	    them into patch 3.
+> >>
+> >> Change from RFC v1:
+> >> - https://lore.kernel.org/all/20250611080709.1182183-1-inochiama@gmail.com
+> >> 1. patch 3: switch to mdio-mux-mmioreg
+> >> 2. patch 4: add configuration for Huashan Pi
+> >>
+> >> Inochi Amaoto (4):
+> >>   dt-bindings: net: Add support for Sophgo CV1800 dwmac
+> >>   riscv: dts: sophgo: Add ethernet device for cv18xx
+> >>   riscv: dts: sophgo: Add mdio multiplexer device for cv18xx
+> >>   riscv: dts: sophgo: Enable ethernet device for Huashan Pi
+> >>
+> >>  .../bindings/net/sophgo,cv1800b-dwmac.yaml    | 113 ++++++++++++++++++
+> >>  arch/riscv/boot/dts/sophgo/cv180x.dtsi        |  73 +++++++++++
+> >>  .../boot/dts/sophgo/cv1812h-huashan-pi.dts    |   8 ++
+> >>  3 files changed, 194 insertions(+)
+> >>  create mode 100644 Documentation/devicetree/bindings/net/sophgo,cv1800b-dwmac.yaml
+> >>
+> >> --
+> >> 2.50.0
+> >>
+> > 
+> > As this is mark as RFC due to the reset dependency, now it is OK
+> > to merge it as the reset patch is taken and this patch is a minor
+> > change . I hopeif anyone can take the binding patch so I can take
+> > the devicetree patches.
+> 
+> I don't understand why you target net-next with your DTS patches.
+
+I just want to make them all get reviewed, as the dts patch is
+related to the binding.
+ 
+> The subject prefix is here not correct and probably this should be
+> split. Anyway, bindings have issues, so no, it cannot be merged.
+> 
+
+Thanks, I will separate the binding patch and fix the issue.
+
+Regards,
+Inochi
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
