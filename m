@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D041C8302F
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 05:38:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED35AC8302F
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 05:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uj0l+DQy5K8s925kUs5LvGOp3igEKXFXG3+jhg08FJU=; b=CtbhMztj1McRPE
-	EdreZdYrr0OV89J+N42tLYbF9sooSiNgC2nipuAZ48Jd0RJCAHkAOWeXy+lUEEygLJJBUmYP4tdop
-	HPFfdbXsYWR2O92K//ld0KYF6RLOjcIY90Ao0HpuvhVSITbmJUIRUGb4w8UeBaRf9ZvpGsgn6Ee9t
-	2wzzYKreBgkVP+Z0YHojs8hdcadQk7qAL6VtxNE19OutJSn2mIsFyWXwiafmEegR5521wekJjqXCU
-	OeTRstcTsYyTCfdFsx4RTrytmlp/5j4T/xMwfZpRW23ncLfBBqYElmIUcoTvHw6puDJdGIaFUERiZ
-	6sbScAzF17TdI2UxodYw==;
+	List-Owner; bh=C65jlRTLfq/ExMnQRwO/AhdqAZF1l3EquLQk65EM3pQ=; b=um+aZ2x2kggCQP
+	gyJhoxL5e7ZQA1jeTh5JpHmn9TWGwfkuk/0DwYTSi7p+MauqY+0smc3y27iH9mJD6QPJsjnZuIYcF
+	Gi3Q4ojO6gJtiZFq8GiCeXRqWCzTC1trlwzrHlOvvOjeDJz/rue9IdRTdPieMzsjVy517jOm6esIp
+	2Kky5QkLJXRuJXdbb6QLVusb5U9Zrdr693Y49bhI1uP8n4M5GP8ixWqzVrocIHNgRO5k4pqQrSpwF
+	kBueEtOus+kmRn8haMP5vcRe4HMhArPy83A1Wkx0ZsietU/KPKlOrspA4df98GqmDOajxE6uhgug3
+	opS9kPXgK2cPgmSa6vEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWThF-000000043dC-1ZUa;
-	Tue, 01 Jul 2025 05:38:21 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uWThL-000000043hI-1V8d;
+	Tue, 01 Jul 2025 05:38:27 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWThC-000000043aK-114u
+	id 1uWThI-000000043fU-32sM
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 05:38:19 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-235ea292956so25137325ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Jun 2025 22:38:18 -0700 (PDT)
+	Tue, 01 Jul 2025 05:38:26 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2363616a1a6so22773855ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Jun 2025 22:38:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1751348297; x=1751953097; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1751348304; x=1751953104; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VBY768blUCx3GgOj3PZ2sE3UTLG71MWHW7v9NvluTM0=;
-        b=neeNwQN0lq6nMzC9t9PX6uvl/P5k2HMpHfUXf0G0x7wCltlbdRwtTkHNvdc51Q6D21
-         12mmB8L5L4PCawUUczaeGjqeClbs9GdxSSFqiAaaP0DVb/0+w1xrvhmq5w6+cbbVCDOV
-         dMHMdGB+nBjLuSqi3Mddqj843jtJT7r+7/Xbf8SKtfYd6f9PPtSWynmvaK9Vbarxg/70
-         2tYaRAjcnDLErYJivRUYGJlMwuYwn70uV5/BLkXx/CRKi57rOIfBPKLoXNi4r79Oh3pO
-         G0gha/Nv0eXc/VlMGcph6YF8/g2k2DxGE1QTYdFOBDmMsQD3QiKc8Tb7/CQOU7WPbuWn
-         zdMw==
+        bh=WkkyJkVw0bfJeEfuvrb6+q04bt1dqt1H1Dk83FQ9SZU=;
+        b=KU9eyBjlkHrblNiSeovhj+ordGMxAk+4wkCG+5+TCbyih7ChGEhjRuwih7AeMwJVyw
+         1cQhotR3VUEzKv2Otw8vlr0p+pIzbk6gAwdqFQVXqmqAg0pMtxL+ToJHi37BkwgXZjzk
+         1e82JxWTN9VKOBi7prCO0lIv0G6VSa0AMuq25YeoX/CcGYCG0xAnS+E0uQ0kXMXbzh4z
+         v2z6cY8d8l5IyODi4tjBI6KOKz0al3yyL5NVOATdGZZJbOk+STWTRam4TN8F8ClYGOp4
+         y1Bnb4RZq8wgUPpI9a3ueteq6/HIPkoQeF/G74OJsg0lp+YzlrzJnzVQDCMk4iiADL92
+         hWug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751348297; x=1751953097;
+        d=1e100.net; s=20230601; t=1751348304; x=1751953104;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VBY768blUCx3GgOj3PZ2sE3UTLG71MWHW7v9NvluTM0=;
-        b=gOjd+PhXXgAHbRD1TsVs/efebl8gvDMAUPgE6mRdisIHAkXL/KlgnSDu1uefGKBcqv
-         QTdt1jiUAvQ0AozjCTOyeST6cLiAP7KHSEAh8MDCrnv3f1JrhFsBZug0OiCSXi0/mXJe
-         WWyFmjEns6rxOt5vDr6Mi+CSkz3ZEn/vswegLDmy0KtVLhSMPDPxXPw/9Oi04iBi3rXJ
-         yFkHZUsdT0VhemPBoec8cGekdByrDfFCB2NB5lwrxQOpT6gIxoYZ1KnFr0JgTx9Mb1jS
-         tRofbS1Icr/5yFqbjDPALeR6+3lZr4eDevyIGfhDwiZDWZXhn+RQzDy4KCQ4Bfs4/4lW
-         YnOA==
-X-Forwarded-Encrypted: i=1; AJvYcCXdIqv16UQ3W9t+xA219fROxruEEbw5zUBgYRVQuyo2dWr/ywK2gdF7TtzIgSUjqttfPPjUdEDtyt3NKw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywitl4pxK0ULaskofTjpwoseLUbeWKSNDFdUiNfNu9Mk3bSnIoh
-	E9bOdd16lYDAfCGhLBnDypxELAgNoSCfFeAHyMqcveCoJtTo0l5Cb5kMDt1spOpw92M=
-X-Gm-Gg: ASbGncv2hsqUuTXECE6S8jPDSYE4hLOQiEvJ8BQE178F6rj5N+qYTBrvLGjC4nipr3F
-	zZBRGLAinxMQypmykfWHfU3lS4VXGc9L1JrJkL/6IE2fzEOpD4d2DxdalDoW4Jitw6qR055NNwV
-	G5CVsh/ybYZE4OGA6vBYpTqUdEcfCHvV1dcIAxLYpy+Venl6jkjxdKHZe/ALErY4iyJJMjSyQV8
-	kAAnfoRZP4wKkMdlNNKpfUOWG026Sd4RI0r1cFe3QGJeHqXuVD3QqL7I8Neu7qqwQgsI7s5pL0L
-	cdVnE3APccs/yoZBTW73NZEzI/WoKiVatHEyS18=
-X-Google-Smtp-Source: AGHT+IHwDteRU6Yz8aP+7dgjVpXAB0rA+2JkOitsu+96XwoftfjHHSIxcqXxmNoS+PXV1A0eJAitSg==
-X-Received: by 2002:a17:902:d603:b0:234:8c64:7885 with SMTP id d9443c01a7336-23ac48b6862mr236842415ad.53.1751348297431;
-        Mon, 30 Jun 2025 22:38:17 -0700 (PDT)
+        bh=WkkyJkVw0bfJeEfuvrb6+q04bt1dqt1H1Dk83FQ9SZU=;
+        b=evwwJWAue9kTsUIoWUwnL/DiZy3YDesfgfX7rsHxtMGFhJ4l6ln7xGh8FLCzzA6Ylk
+         fFPPS5DNtAad2SiV+1lCP4u2NoKErlDNHnpctEN/Q37Gfrfld7UT+zBTdM7tvcJJhwrS
+         /NbahX5PhSMrYtdAg+rWOW05fhNg+hE/X+zKEXp9vtEn3qWY3OgwKn7++URgbMDTUN6j
+         i8uksFINDsNp3gFGdm1TC1g63VYpmnXryZ4k422h+0S+1kaK74QjRnMEPAE/5Op/70et
+         ldVaerHJd2wyngUmMQEVL6Dpw2y4LVZPS1nLv0POR0yAdv4HuHsEEbjGxqqkATOiIgCk
+         qdcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXXKlArIqx3T45+lO0cURkE8nRQQvLzLt8JpYR+hIeLl7j6cnUjkN1q73teCNPRHcNpuAf1PkqrHT/IPg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpIdmkmHHDmr0v5m7rymajq8/9ydwA0XiAJ8f9dy8P+Wbefrgg
+	gwQ4KeAW40vFY8NX9lMnVTQ5jN01wTeerZteW6Kw5I6alYX8XWA5TnuIbU1k+K+56vs=
+X-Gm-Gg: ASbGnct7bjLAamn8xu9NOdbYbJK3iA0WT5ApnIQz/pTUaj55CPgswT5YkTMmhl9QpCo
+	nclndwFJVQKe0//dMajR7s37Y1Vx0/Ciw/Xmc/jIWWYI5RD7XQCDHlXll3585iB2HP/HsKpUAm+
+	H+F+DBpWC6IQ3fo+g+2XEsZBHvOG918rv7s3sB46YVxJK9KSV5UQms6PGJru5N2AMx+NSyX8Es8
+	70z93Wd+qvUZXN+pdcGaHN6B58ZJzl1+jJ5R04i0Mfyzf4IH2Zt2W/ou5p3bwsmV4VDNgYWN+Eh
+	sq0KSnjkgiUR8qzQTTIRX3VocE0g7MHKKRcYmjQ=
+X-Google-Smtp-Source: AGHT+IFV0sJft9TTbW6Dof5c+OPMKTEfD4ooz1HCHFSKDnOrbvDpDaREUu+dR1A/ELAjaCh8Jizt9A==
+X-Received: by 2002:a17:903:2983:b0:234:aa98:7d41 with SMTP id d9443c01a7336-23ac4685adbmr249282415ad.42.1751348303953;
+        Mon, 30 Jun 2025 22:38:23 -0700 (PDT)
 Received: from [127.0.1.1] ([2403:2c80:6::3092])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb39bf5fsm101729865ad.115.2025.06.30.22.38.12
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb39bf5fsm101729865ad.115.2025.06.30.22.38.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jun 2025 22:38:17 -0700 (PDT)
+        Mon, 30 Jun 2025 22:38:23 -0700 (PDT)
 From: Guodong Xu <guodong@riscstar.com>
-Date: Tue, 01 Jul 2025 13:37:01 +0800
-Subject: [PATCH v2 7/8] riscv: dts: spacemit: Enable PDMA0 on Banana Pi F3
- and Milkv Jupiter
+Date: Tue, 01 Jul 2025 13:37:02 +0800
+Subject: [PATCH v2 8/8] riscv: defconfig: Enable MMP_PDMA support for
+ SpacemiT K1 SoC
 MIME-Version: 1.0
-Message-Id: <20250701-working_dma_0701_v2-v2-7-ab6ee9171d26@riscstar.com>
+Message-Id: <20250701-working_dma_0701_v2-v2-8-ab6ee9171d26@riscstar.com>
 References: <20250701-working_dma_0701_v2-v2-0-ab6ee9171d26@riscstar.com>
 In-Reply-To: <20250701-working_dma_0701_v2-v2-0-ab6ee9171d26@riscstar.com>
 To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -90,8 +90,8 @@ Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
  spacemit@lists.linux.dev, Guodong Xu <guodong@riscstar.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_223818_293522_046C30EF 
-X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-CacheID: sfid-20250630_223824_770044_64D83556 
+X-CRM114-Status: UNSURE (   8.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,41 +109,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable the PDMA0 on the SpacemiT K1-based Banana Pi F3 and Milkv Jupiter
-boards by setting its status to "okay".
+Enable CONFIG_MMP_PDMA in the riscv defconfig for SpacemiT K1 SoC boards.
 
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
-v2: added pdma0 enablement on Milkv Jupiter
+v2: Rebased. Part of the modification in v1 is now in this patch:
+     - "riscv: defconfig: run savedefconfig to reorder it"
+        , which has been merged into riscv/linux.git (for-next)
+     - Link: https://git.kernel.org/riscv/c/d958097bdf88
 ---
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   | 4 ++++
- arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 4 ++++
- 2 files changed, 8 insertions(+)
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index fe22c747c5012fe56d42ac8a7efdbbdb694f31b6..39133450e07f2cb9cb2247dc0284851f8c55031b 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -45,3 +45,7 @@ &uart0 {
- 	pinctrl-0 = <&uart0_2_cfg>;
- 	status = "okay";
- };
-+
-+&pdma0 {
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-index 4483192141049caa201c093fb206b6134a064f42..afb88ddf36eb8e5e3bf74fa29f9bc006e45814e7 100644
---- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-@@ -25,3 +25,7 @@ &uart0 {
- 	pinctrl-0 = <&uart0_2_cfg>;
- 	status = "okay";
- };
-+
-+&pdma0 {
-+	status = "okay";
-+};
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 37c98c0f98ffc0ee9d021e4d07aa37a27d342f7a..b6519fcc91c0bb56f71df336fd3793af3d64fe78 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -240,6 +240,7 @@ CONFIG_RTC_DRV_SUN6I=y
+ CONFIG_DMADEVICES=y
+ CONFIG_DMA_SUN6I=m
+ CONFIG_DW_AXI_DMAC=y
++CONFIG_MMP_PDMA=m
+ CONFIG_VIRTIO_PCI=y
+ CONFIG_VIRTIO_BALLOON=y
+ CONFIG_VIRTIO_INPUT=y
 
 -- 
 2.43.0
