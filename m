@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE47C8302F
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 09:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874D7C8303A
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 09:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hNph/fNS7Soa9UKGnFsv4ZyXvblHBz1/YW6RzIW7ges=; b=OuvuKOk277r+m5
-	sCroumazg2EXIPGWCkuDdr/XLI4JEBkK1gP5gFf//ilMV8b1oKmuRA8YhFiyzcFrCsLv5fExiH0Zh
-	5aYNdSDf2uSneVt1vRGRp9+e0N1Hg8V6PcMHH0s6jKnVrZumzGkzY1qHpRv94Ch5vdEo1DmpPa4e+
-	PCzJoiNZhqsAbXbVPUhR2QFunDfMniOXsXO0MYuDJRnaNfCllcNXI0Agi1kAIKhc/Av8UfqJNZ6bf
-	rD0WVk4cg7jKK9OnAkXqoHkudus4xqB0ZxiR625OssTgvHo0VpInzh3k/zsgwwunylH/qYzU7Ts7m
-	GIy+G2FG5l9O5yN9NdlA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=V9ZueB6Ydvtz1bx9uGLM8E7/M3DbbTrUteOVBBcjl0A=; b=PN0PqBoC16MV6m
+	BdUwmJ0ogEQYb2yuzlWfRnz1e2gp9Bk1rQ/NUwNLefxYkWrVanFdjwbA2j8LblxRZzkn8LTX+Yg2B
+	yl/+pwZkmJya4R1mv81NpGwAfylri5fhUqZWYUndHZTa+epUwRlNnxcEnLdbt9bzLMK6Npzu8p7RE
+	uX+sLfyhrGxXlxvaS2Vb4hpRsaWbU4Y7i830XkWBtdROZlqM6tI9htyJ7ZDltAE+cQNQK9JVYJiko
+	3nSGk8mYxgTKAXIyapx9RSqLX/bU9XAvo9UYOVsTkZAEI+aoUPihsYF7qAXhQsnkYPvvRC2ILnnHy
+	iR5N6PUP43pzUPzA8Iog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWqv-00000004WuI-1v8p;
-	Tue, 01 Jul 2025 09:00:33 +0000
+	id 1uWWqw-00000004WvM-1pEx;
+	Tue, 01 Jul 2025 09:00:34 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWnt-00000004Vz7-0Mer
+	id 1uWWnu-00000004VzV-1fuW
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 01 Jul 2025 08:57:25 +0000
+	Tue, 01 Jul 2025 08:57:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=3Z9loxoOzfAEecUgiXSRjkNq2/wt/HRgnj0MonqE6PY=; b=D1qpVzpxTNTnkUKRqBlFEppXhx
-	hSWbCyjvR2yMYKk1W5nUQft5p1/031Wnc106mtC9oA/paDQ5WSyt7AG08vYCd2sPyZY2ds+M7eORw
-	yCpXtvFREGBaSS2fjlDAvxNH4uaZw5nzIRq8sr2T/B6VfDHbHNxz1uZh9Mt8YZK3mvwHmYLvLAHTZ
-	ESaZi11SI3eg1KigwbT7MSySlumamFe8Uv+sCuEe7m/zJ3LZ8nAXS1Kyw099bRaZDE5uomJ42m4uh
-	JAlRBF4zapQbGB1qHNSH5Zuhr6B33iiuSn1eW5FPvIfFpGsqEFArT/rBsE5v/PjMxRFVa5cuAdDwo
-	D7NxXkKQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=qJC4fJm2YhnjpF2wX77l9euWqeB/b0iLJ4T9FOe1boc=; b=nJhFtTghrxhQoSDi//F/VZeNYE
+	CEalOUwVPVgyUkFhzXEoBzUVqthmgySRWJerkIBcmwstfqu51Nzly90OABdWDs+jCFNwyz4FVecSl
+	c702U+A9YgrVeLTJ7wcqI2Za2pubvz9sX6dJ5GXl6fY+V3V01AEwpgD0azMG7RzFS6hHFeHW58evf
+	kmv86ZE4fVEnS65s3urWoWxR9UYjWUSN5baNgf3+U9nF6RZm4wRJw4jLa+7MYZgXq4WCcxYZL/Uon
+	S14IvpWClLl+VGio4TtojynjwWUtvOUWyS3a3lS6q23yU441pPhNVh4DP79KaVvXv9SrQOaxIQDkg
+	j0Ru3abA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWnp-000000070dt-3tRh
+	id 1uWWnp-000000070dr-3xkk
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 08:57:23 +0000
+	Tue, 01 Jul 2025 08:57:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 82103A5212B;
-	Tue,  1 Jul 2025 08:57:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 06881C4CEFB;
-	Tue,  1 Jul 2025 08:57:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E7AB6461A6;
+	Tue,  1 Jul 2025 08:57:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B89D5C4CEEB;
+	Tue,  1 Jul 2025 08:57:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751360238;
-	bh=WZgQ14D22dPLNcKEi9IjqUPAXlhupD02zXCi6Noet+Y=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=J2ODeEEgPNRDu9oYlBwdaulZ8f/3Ww5Kk8nUVcACl0lyxIWOq+C/F3UiWDFWJMfEs
-	 qmMj5jjkM5McIu4DeeV+9/Wdmg3f6Fe1JUKFpu10Fp0gVuCFe+ToHWKZbe8sVawX1w
-	 byhS/y3cnV0ir+h0ZV1cP1cD4on9v0P6HM4oCiqMRgKHqWcf673UHhTDoz2tTVrCnw
-	 76BI6mYQtpnl3aa6hrEq/84gz2YEsTPXjzGjxDszyjBuMAivuPWvsUal1uY2alEabK
-	 obhrKcGhqsdLTTN0cpBcJ2Vxb7WcK6JzG8m9gigEnRkOeUqC6iJh3de3iM1k+0KEC2
-	 OUWyGX7N4ilgg==
+	s=k20201202; t=1751360237;
+	bh=dP90U+P+CIJkX3PevzW9Eoc1cobYxd/SZNH6G2NvVvo=;
+	h=From:Subject:Date:To:Cc:From;
+	b=bGqLX9VYHiEQceo1jpTP0qNo7U221u/c6/SKV0j6ao5/kU5a/oiF+gN23CVN6WVq2
+	 IHjLEU0e6qNvDGbsUJ0LtgflknNjSajIns+plR9/JOWCrTu6v/3TzEj2vyYzZbLUvo
+	 //AKeBhd1Q/pEC/8sFpCmS816VSX+Mxf7WNw3CHjWCAGIUKDn7O+wipudGAX8gUayI
+	 OukNQogwkg8iWUSWPXbndrdiL2qnYG/Rg/EWJKBZsDZhZdYKZMaYps9Xzvqz7RY+sR
+	 PBMM3heuWCDnllKvWbEGkdrvW5B5ssHx1zHBIAxd7GZ92+h3D5cICG0g8kwGzdHtXm
+	 Y7x7hldO7Tckg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F045BC8303D;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A674CC83038;
 	Tue,  1 Jul 2025 08:57:17 +0000 (UTC)
 From: Joel Granados <joel.granados@kernel.org>
-Date: Tue, 01 Jul 2025 10:56:46 +0200
-Subject: [PATCH 5/6] docs: Replace spaces with tabs in check-sysctl-docs
+Subject: [PATCH 0/6] docs: Remove false positives from check-sysctl-docs
+Date: Tue, 01 Jul 2025 10:56:41 +0200
+Message-Id: <20250701-jag-sysctldoc-v1-0-936912553f58@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20250701-jag-sysctldoc-v1-5-936912553f58@kernel.org>
-References: <20250701-jag-sysctldoc-v1-0-936912553f58@kernel.org>
-In-Reply-To: <20250701-jag-sysctldoc-v1-0-936912553f58@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAMmiY2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDcwND3azEdN3iyuLkkpyU/GRdYyMLw+RUc4NUI4skJaCegqLUtMwKsHn
+ RsbW1ABH4LJxfAAAA
+X-Change-ID: 20250701-jag-sysctldoc-3281ce70e28b
 To: Kees Cook <kees@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -75,26 +77,27 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Joel Granados <joel.granados@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6467;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1241;
  i=joel.granados@kernel.org; h=from:subject:message-id;
- bh=WZgQ14D22dPLNcKEi9IjqUPAXlhupD02zXCi6Noet+Y=;
- b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGhjouvcIQVcgTjcMwYVUzjN9clCy+sHEF9p5
- hcxDDX/MlPGXokBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJoY6LrAAoJELqXzVK3
- lkFPCLgL/0lRvZ0dCLUwkAUFUrId8D+HSxIbi5ts9LpkVtQN+/aLjDaApT5YXFq0LvXbe7+mGXF
- chBdiVr0jGNHhpELcWG5iXprYpknA2Ef0xPSNy/FEjuAymi4UFZuxSHwzfUZmytK/dyrodTb8oM
- j84G7XarKoIMoD8owzE8lI8n6O8BZ3u4C83ry8tepNb3DPYLA5HO7Dc/wcxTdrpc+sat11Vyg3S
- egynAQEAPwKaWvl2jkiZs7yJ8abu1jBagkLlFkcHi1K0r4TDeYl2GsjM7lu7aRNKcYXo8kXdPhu
- o0JiBR/V3vn4kmxpBX/sKDEHSfymiLrg2cGF28Q82vUVQod/lFPmLv9YijvgXRQt3jrurLAvQOy
- 0CFHlL1pTRaGINjgYDR74msCNjQtwWQ4OWAXAMaZNiCqcXu4w2dQfpo292e8loG23FwWq7Onte1
- Iocgogu1KdbcEKBPjlPLGqh1AsbOCxy70cbzHq+vPwncrQDhzJUas7/ADAPU6oCpH9zLfx1r6F6
- kU=
+ bh=dP90U+P+CIJkX3PevzW9Eoc1cobYxd/SZNH6G2NvVvo=;
+ b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGhjot2AfezT7qOGdr19ioQfavdV9DUKox1i/
+ DrrVSqP5eV72YkBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJoY6LdAAoJELqXzVK3
+ lkFP7WIL/2XyjWIY8MH+O6PwTq1+qzC/LvN6NJLzZEpEAkcsfEkSuJEeRjN7SgwiHNPvmYhiUKt
+ n6IGsJDdCa6bXWpNAIpADHqebELpG/nst/oScGmdBE/6wiVc3DEDdAYgkvzusitb8OPA7WVRL6i
+ JQ5fYy+QD9Tnvgzdhgc6JO401DOJan7piJVygliiqxUZLgtvtQtxpUQXxi098HxW1F7pRWxzOL9
+ PPzNJfPBF5lyn6+dnp5jtZPSTUfCbo8rnurr0yY8bRGaJMZ6Qbl385ThjpgfhL+ADpr9ahQXRHh
+ ot8CQ0u0Tw0eC+T7XpltJ468fh2+Gl2NKVr0iBhIxbIeslSYPVsjI6HKWIYrfWMnN1lgwTT9WPC
+ MbHrjgSVjEpcMquHSN17VQHuiVufWJ2ofuAR37q83LTsJ3oFfl8VYycqNijRwoMb5/rrNyyZiLZ
+ ctjNJcj/ssk3hnu2IISO3wadRSJ9EqQ6b0cAMNoIYm9uk9X3ag8f0IzApiyCpFrlc52ECB0gFI6
+ Pk=
 X-Developer-Key: i=joel.granados@kernel.org; a=openpgp;
  fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
 X-Endpoint-Received: by B4 Relay for joel.granados@kernel.org/default with
  auth_id=239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_095722_351110_579A3D4D 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20250701_095722_468986_AB52B79F 
+X-CRM114-Status: UNSURE (   6.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,242 +114,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove the combination of spaces and tabs in favor of just tabs.
+Removed false positives from check-sysctl-docs where there where
+ctl_tables that were implemented and had documentation but were being
+marked as undocumented or unimplemented.
+
+Besides adjusting the patterns in the check-sysctl-docs script, I also
+corrected formatting in the kernel.rst and vm.rst doc files (no wording
+changes!)
+
+Please get back to me if you have any comment or suggestions
+best
 
 Signed-off-by: Joel Granados <joel.granados@kernel.org>
 ---
- scripts/check-sysctl-docs | 163 +++++++++++++++++++++++-----------------------
- 1 file changed, 81 insertions(+), 82 deletions(-)
+Joel Granados (6):
+      docs: nixify check-sysctl-docs
+      docs: Use skiplist when checking sysctl admin-guide
+      docs: Add awk section for ucount sysctl entries
+      docs: Remove colon from ctltable title in vm.rst
+      docs: Replace spaces with tabs in check-sysctl-docs
+      docs: Downgrade arm64 & riscv from titles to comment
 
-diff --git a/scripts/check-sysctl-docs b/scripts/check-sysctl-docs
-index 3166012b9c6ea4435dc77afaadcff3a4944b1ca8..910fd8a9a2684aa709c1572e24fc94d52b093381 100755
---- a/scripts/check-sysctl-docs
-+++ b/scripts/check-sysctl-docs
-@@ -13,10 +13,10 @@
- # Specify -vdebug=1 to see debugging information
- 
- BEGIN {
--    if (!table) {
-+	if (!table) {
- 	print "Please specify the table to look for using the table variable" > "/dev/stderr"
- 	exit 1
--    }
-+	}
- 
- 	# Documentation title skiplist
- 	skiplist[0] = "^Documentation for"
-@@ -43,23 +43,23 @@ BEGIN {
- 
- # Remove punctuation from the given value
- function trimpunct(value) {
--    while (value ~ /^["&]/) {
--	value = substr(value, 2)
--    }
--    while (value ~ /[]["&,}]$/) {
--	value = substr(value, 1, length(value) - 1)
--    }
--    return value
-+	while (value ~ /^["&]/) {
-+		value = substr(value, 2)
-+	}
-+	while (value ~ /[]["&,}]$/) {
-+		value = substr(value, 1, length(value) - 1)
-+	}
-+	return value
- }
- 
- # Print the information for the given entry
- function printentry(entry) {
--    seen[entry]++
--    printf "* %s from %s", entry, file[entry]
--    if (documented[entry]) {
--	printf " (documented)"
--    }
--    print ""
-+	seen[entry]++
-+	printf "* %s from %s", entry, file[entry]
-+	if (documented[entry]) {
-+		printf " (documented)"
-+	}
-+	print ""
- }
- 
- 
-@@ -71,105 +71,104 @@ FNR == NR && /^=+$/ {
- 		}
- 	}
- 
--    # The previous line is a section title, parse it
--    $0 = prevline
--    if (debug) print "Parsing " $0
--    inbrackets = 0
--    for (i = 1; i <= NF; i++) {
--	if (length($i) == 0) {
--	    continue
-+	# The previous line is a section title, parse it
-+	$0 = prevline
-+	if (debug) print "Parsing " $0
-+	inbrackets = 0
-+	for (i = 1; i <= NF; i++) {
-+		if (length($i) == 0) {
-+			continue
-+		}
-+		if (!inbrackets && substr($i, 1, 1) == "(") {
-+			inbrackets = 1
-+		}
-+		if (!inbrackets) {
-+			token = trimpunct($i)
-+			if (length(token) > 0 && token != "and") {
-+				if (debug) print trimpunct($i)
-+					documented[trimpunct($i)]++
-+			}
-+		}
-+		if (inbrackets && substr($i, length($i), 1) == ")") {
-+			inbrackets = 0
-+		}
- 	}
--	if (!inbrackets && substr($i, 1, 1) == "(") {
--	    inbrackets = 1
--	}
--	if (!inbrackets) {
--	    token = trimpunct($i)
--	    if (length(token) > 0 && token != "and") {
--		if (debug) print trimpunct($i)
--		documented[trimpunct($i)]++
--	    }
--	}
--	if (inbrackets && substr($i, length($i), 1) == ")") {
--	    inbrackets = 0
--	}
--    }
- }
- 
- FNR == NR {
--    prevline = $0
--    next
-+	prevline = $0
-+	next
- }
- 
- 
- # Stage 2: process each file and find all sysctl tables
- BEGINFILE {
--    delete entries
--    curtable = ""
--    curentry = ""
--    delete vars
--    if (debug) print "Processing file " FILENAME
-+	delete entries
-+	curtable = ""
-+	curentry = ""
-+	delete vars
-+	if (debug) print "Processing file " FILENAME
- }
- 
- /^static( const)? struct ctl_table/ {
--    match($0, /static( const)? struct ctl_table ([^][]+)/, tables)
--    curtable = tables[2]
--    if (debug) print "Processing table " curtable
-+	match($0, /static( const)? struct ctl_table ([^][]+)/, tables)
-+	curtable = tables[2]
-+	if (debug) print "Processing table " curtable
- }
- 
- /^};$/ {
--    curtable = ""
--    curentry = ""
--    delete vars
-+	curtable = ""
-+	curentry = ""
-+	delete vars
- }
- 
- curtable && /\.procname[\t ]*=[\t ]*".+"/ {
--    match($0, /.procname[\t ]*=[\t ]*"([^"]+)"/, names)
--    curentry = names[1]
--    if (debug) print "Adding entry " curentry " to table " curtable
--    entries[curtable][curentry]++
--    file[curentry] = FILENAME
-+	match($0, /.procname[\t ]*=[\t ]*"([^"]+)"/, names)
-+	curentry = names[1]
-+	if (debug) print "Adding entry " curentry " to table " curtable
-+	entries[curtable][curentry]++
-+	file[curentry] = FILENAME
- }
- 
- curtable && /UCOUNT_ENTRY.*/ {
--    match($0, /UCOUNT_ENTRY\("([^"]+)"\)/, names)
--    curentry = names[1]
--    if (debug) print "Adding entry " curentry " to table " curtable
--    entries[curtable][curentry]++
--    file[curentry] = FILENAME
-+	match($0, /UCOUNT_ENTRY\("([^"]+)"\)/, names)
-+	curentry = names[1]
-+	if (debug) print "Adding entry " curentry " to table " curtable
-+	entries[curtable][curentry]++
-+	file[curentry] = FILENAME
- }
- 
- /register_sysctl.*/ {
--    match($0, /register_sysctl(|_init|_sz)\("([^"]+)" *, *([^,)]+)/, tables)
--    if (debug) print "Registering table " tables[3] " at " tables[2]
--    if (tables[2] == table) {
--        for (entry in entries[tables[3]]) {
--            printentry(entry)
--        }
--    }
-+	match($0, /register_sysctl(|_init|_sz)\("([^"]+)" *, *([^,)]+)/, tables)
-+	if (debug) print "Registering table " tables[3] " at " tables[2]
-+	if (tables[2] == table) {
-+		for (entry in entries[tables[3]]) {
-+			printentry(entry)
-+		}
-+	}
- }
- 
- /kmemdup.*/ {
--    match($0, /([^ \t]+) *= *kmemdup\(([^,]+) *,/, names)
--    if (debug) print "Found variable " names[1] " for table " names[2]
--    if (names[2] in entries) {
--        vars[names[1]] = names[2]
--    }
-+	match($0, /([^ \t]+) *= *kmemdup\(([^,]+) *,/, names)
-+	if (debug) print "Found variable " names[1] " for table " names[2]
-+	if (names[2] in entries) {
-+		vars[names[1]] = names[2]
-+	}
- }
- 
- /__register_sysctl_table.*/ {
--    match($0, /__register_sysctl_table\([^,]+, *"([^"]+)" *, *([^,]+)/, tables)
--    if (debug) print "Registering variable table " tables[2] " at " tables[1]
--    if (tables[1] == table && tables[2] in vars) {
--        for (entry in entries[vars[tables[2]]]) {
--            printentry(entry)
--        }
--    }
-+	match($0, /__register_sysctl_table\([^,]+, *"([^"]+)" *, *([^,]+)/, tables)
-+	if (debug) print "Registering variable table " tables[2] " at " tables[1]
-+	if (tables[1] == table && tables[2] in vars) {
-+		for (entry in entries[vars[tables[2]]]) {
-+			printentry(entry)
-+		}
-+	}
- }
- 
- END {
--    for (entry in documented) {
--	if (!seen[entry]) {
--	    print "No implementation for " entry
-+	for (entry in documented) {
-+		if (!seen[entry])
-+			print "No implementation for " entry
- 	}
--    }
- }
+ Documentation/admin-guide/sysctl/kernel.rst |  32 +++--
+ Documentation/admin-guide/sysctl/vm.rst     |   8 +-
+ scripts/check-sysctl-docs                   | 184 +++++++++++++++-------------
+ 3 files changed, 120 insertions(+), 104 deletions(-)
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250701-jag-sysctldoc-3281ce70e28b
 
+Best regards,
 -- 
-2.47.2
+Joel Granados <joel.granados@kernel.org>
 
 
 
