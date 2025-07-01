@@ -4,72 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8EBC83038
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 15:27:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91AD8C83038
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 15:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4DfarCxltXa3gaTvdlpFS5EDy5G1hl0gQNWICCoVVaY=; b=3WJ0AxP5JN0Kov5DBcNFA0JjQF
-	EEk4YZuRLgwirLAVSDqnom+Ukc/nPXxr4b6GQpJ2kkqIV/cepijCrOIiLKKN9yARGkwQx0yJJI5mp
-	QYKgjD0P7wRIK2IwFhGMvQ6+f3/9hx7F6lE4pAQiFwXA4JfxbRJP2msdnKQghP5Mb6tFOR0agCSCZ
-	ooiryuwraYhNEEIjbC9tWP5OSWWTk6kxmqmJrAxpk5HGivCG5r6ZTWeo+gNcvfwQUY8GyNrDs3XV0
-	OYom8sRqb60a/yQRdDOBWPuMTk+0LyYoLLhm+rfuGxrrQmfofpDmzcAagkHNNwpXDc7fa73yp8Apo
-	m3TIL1lQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=u3DxX7l6xUeUmMO2ji/R56VgnSckcXIYy0N6wxhlE/c=; b=IYYO8pXHofoeGB
+	0CcvmRncJURR2Wfw+1SXcADfgHfJUrVr+56lHondOueCdTcfAwcPn96Bb0A9LDrQdUvH/tTD4+o6t
+	VOSTTVBT1A36hmnLjYi1kFbeelIihJJh70em6OV03AEoTm4v40pJZXy/rEm4fWXJO770tQMLG1SR+
+	hwcCfjw9T5KDo59oY9f3YZGBcwGt69vUE5STMTQ/OLLNIkjARNd0Ri5XohfqJa94cC95196V8n7bn
+	2KIJXQ0X6n1VjvOA6Ax5+ZcxPbICKy4I4bdJBwMRYbFwSJUiYvUfxilpucgnsJhKL0sjGbgtLpXwS
+	Rjy/dmVV+Y3pT3uvNxTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWctA-00000005sqR-0dTf;
-	Tue, 01 Jul 2025 15:27:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWbL1-00000005ZRx-2iPd
-	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 13:47:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9BD2A6143F;
-	Tue,  1 Jul 2025 13:47:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA291C4CEEB;
-	Tue,  1 Jul 2025 13:47:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751377674;
-	bh=BJoRfhtEL+X1bH/jHqhnpouOMrtPwiiWI2DW54qSaAg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oKP8WDWFQdAxIkofySD3R0UNvP/6lJYjlUArVy1GUBHMQ2n59LMtoTmERDI7fHBcR
-	 tDGFl4wmyZj07pPEA4II5Kpy0C+EF0wyENGWgdZ5nFpE/gvEfVUuwNsUPvpw91kcSt
-	 mKDgTEpdxdUrmhQ97sNkYt9BgbwFNXkFN/RSmxvV3P1XZUQApED6Z06R6YqYIahV+4
-	 D0NqogZd6jr629Km1IGner83srqGMqXnUCsG8cS69bDb/3cK4E6Aq10p689ifbLolL
-	 j3MFZwVNnyHJ0/xTS+e8qCkDvoH2d84I5arsh8ookOXd+8vRWqgKxOJ6zRBUbqgi5w
-	 TdLOM7wRWjSOw==
-Date: Tue, 1 Jul 2025 15:47:51 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Benno Lossin <lossin@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v5 1/9] rust: pwm: Add Kconfig and basic data structures
-Message-ID: <wee6qrsgqojb36pb2ykle5dzlt3x3vscjx6nedy3xlrtdgy3wm@sgduuiflto2p>
-References: <20250623-rust-next-pwm-working-fan-for-sending-v5-0-0ca23747c23e@samsung.com>
- <CGME20250623180858eucas1p1815f6d6815b1c715baad94810cefacd5@eucas1p1.samsung.com>
- <20250623-rust-next-pwm-working-fan-for-sending-v5-1-0ca23747c23e@samsung.com>
- <q7sz7uci5vnyc24laqzs56vgt4i2jamb3ifyxkqom6qcml5kkv@642prvwxjkxc>
- <c127e368-8c1f-4299-b222-a105940ac34e@samsung.com>
- <1450a457-4bd3-4e9c-a74f-3be15c9ec84f@samsung.com>
- <n5zfbzu3hn7kqdf3xc7orpeovvdprc2xlf7w3f62uoohkxdk5c@cc24urt5xf36>
- <ca58f110-7f9a-427d-b018-e514cf34adaf@samsung.com>
+	id 1uWd04-00000005u6b-2vy0;
+	Tue, 01 Jul 2025 15:34:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWbTQ-00000005bdL-1D7n;
+	Tue, 01 Jul 2025 13:56:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4C6151515;
+	Tue,  1 Jul 2025 06:56:18 -0700 (PDT)
+Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE12C3F58B;
+	Tue,  1 Jul 2025 06:56:23 -0700 (PDT)
+From: Dave Martin <Dave.Martin@arm.com>
+To: linux-kernel@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Akihiko Odaki <akihiko.odaki@daynix.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chris Zankel <chris@zankel.net>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonas Bonn <jonas@southpole.se>,
+	Kees Cook <kees@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rich Felker <dalias@libc.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Will Deacon <will@kernel.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH 00/23] binfmt_elf,arch/*: Use elf.h for coredump note names
+Date: Tue,  1 Jul 2025 14:55:53 +0100
+Message-Id: <20250701135616.29630-1-Dave.Martin@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <ca58f110-7f9a-427d-b018-e514cf34adaf@samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250701_065636_405856_527C5A20 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,86 +117,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6346167562710554710=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series aims to clean up an aspect of coredump generation:
 
---===============6346167562710554710==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="a3yx2qm3x3iy6jfn"
-Content-Disposition: inline
+ELF coredumps contain a set of notes describing the state of machine
+registers and other information about the dumped process.
 
+Notes are identified by a numeric identifier n_type and a "name"
+string, although this terminology is somewhat misleading.  Officially,
+the "name" of a note is really an "originator" or namespace identifier
+that indicates how to interpret n_type [1], although in practice it is
+often used more loosely.
 
---a3yx2qm3x3iy6jfn
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 1/9] rust: pwm: Add Kconfig and basic data structures
-MIME-Version: 1.0
+Either way, each kind of note needs _both_ a specific "name" string and
+a specific n_type to identify it robustly.
 
-Hello Michal,
+To centralise this knowledge in one place and avoid the need for ad-hoc
+code to guess the correct name for a given note, commit 7da8e4ad4df0
+("elf: Define note name macros") [2] added an explicit NN_<foo> #define
+in elf.h to give the name corresponding to each named note type
+NT_<foo>.
 
-On Tue, Jul 01, 2025 at 10:24:54AM +0200, Michal Wilczynski wrote:
-> On 6/29/25 12:29, Uwe Kleine-K=F6nig wrote:
-> > On Sat, Jun 28, 2025 at 09:47:19PM +0200, Michal Wilczynski wrote:
->=20
-> >>>>> +    /// Sets the polarity of the PWM signal.
-> >>>>> +    pub fn set_polarity(&mut self, polarity: Polarity) {
-> >>>>> +        self.0.polarity =3D polarity.into();
-> >>>>> +    }
-> >>>>
-> >>>> Please don't expose these non-atomic callbacks. pwm_disable() would =
-be
-> >>>> fine.
-> >>
-> >> Hmm, I've just realized that without those setters it would most likely
-> >> impossible to correctly implement the get_state callback.
-> >=20
-> > You shouldn't implement the get_state callback for a waveform driver.
->=20
-> You're right that a new driver using the waveform API shouldn't
-> implement .get_state.
->=20
-> My goal for the abstraction layer, however, is to be flexible enough to
-> support writing both modern waveform drivers and legacy style drivers
-> that use the .apply and .get_state callbacks.
+Now that the note name for each note is specified explicitly, the
+remaining guesswork for determining the note name for common and
+arch-specific regsets in ELF core dumps can be eliminated.
 
-No, please don't. New C drivers should implement the waveform API. The
-same holds true for Rust drivers. So don't create a door that isn't
-supposed to be used.
+This series aims to do just that:
 
-Best regards
-Uwe
+ * Patch 2 adds a user_regset field to specify the note name, and a
+   helper macro to populate it correctly alongside the note type.
 
---a3yx2qm3x3iy6jfn
-Content-Type: application/pgp-signature; name="signature.asc"
+ * Patch 3 ports away the ad-hoc note names in the common coredump
+   code.
 
------BEGIN PGP SIGNATURE-----
+ * Patches 4-22 make the arch-specific changes.  (This is pretty
+   mechanical for most arches.)
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhj5wQACgkQj4D7WH0S
-/k57mggAjV/gPHEZEhCbpbGaA0U7iyTFgEmMeVkkJxzImAE2AmC1ed9voHg64BLd
-TLDis9YSPhntR2Km1fd4c5x1ina+fVZITIPTm8z9XUaQJk99UfsSuZPX0mTsyo4o
-O4jBd2cpo/MPcv/FodAIhNfILnnArRfMkOJTTSl+L8H5g7IUXOcGVtF+3EkgP3gh
-pClTe7NYPLD5I4MDBV+eK0JopHWbTfQJ608ob/vcPZdycjfyYE45fhXrYFEFjvnB
-12jFYYENaO3/HTGs92o4NvjVdYgPLOj3TsiUU4c+UPrxRpLlsJS4J6Pu1TRxt+Jl
-q9K1u2WtSUbHvMEl7Y61fbNlEOwgPg==
-=Q8/O
------END PGP SIGNATURE-----
+ * The final patch adds a WARN() when no note name is specified,
+   and simplifies the fallback guess.  This should only be applied
+   when all arches have ported across.
 
---a3yx2qm3x3iy6jfn--
+See the individual patches for details.
 
 
---===============6346167562710554710==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Testing:
+
+ * x86, arm64: Booted in a VM and triggered a core dump with no WARN(),
+   and verified that the dumped notes are the same.
+
+ * arm: Build-tested only (for now).
+
+ * Other arches: not tested yet
+
+Any help with testing is appreciated.  If the following generates the
+same notes (as dumped by readelf -n core) and doesn't trigger a WARN,
+then we are probably good.
+
+$ sleep 60 &
+$ kill -QUIT $!
+
+(Register content might differ between runs, but it should be safe to
+ignore that -- this series only deals with the note names and types.)
+
+Cheers
+---Dave
+
+
+[1] System V Application Binary Interface, Edition 4.1,
+Section 5 (Program Loading and Dynamic Linking) -> "Note Section"
+
+https://refspecs.linuxfoundation.org/elf/gabi41.pdf
+
+[2] elf: Define note name macros
+
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/include/uapi/linux/elf.h?id=7da8e4ad4df0dd12f37357af62ce1b63e75ae2e6
+
+
+Dave Martin (23):
+  regset: Fix kerneldoc for struct regset_get() in user_regset
+  regset: Add explicit core note name in struct user_regset
+  binfmt_elf: Dump non-arch notes with strictly matching name and type
+  ARC: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
+  ARM: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
+  arm64: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note
+    names
+  csky: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
+  hexagon: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note
+    names
+  LoongArch: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note
+    names
+  m68k: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
+  MIPS: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
+  nios2: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note
+    names
+  openrisc: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note
+    names
+  parisc: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note
+    names
+  powerpc/ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note
+    names
+  riscv: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note
+    names
+  s390/ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
+  sh: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
+  sparc: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note
+    names
+  x86/ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
+  um: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
+  xtensa: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note
+    names
+  binfmt_elf: Warn on missing or suspicious regset note names
+
+ arch/arc/kernel/ptrace.c                 |  4 +-
+ arch/arm/kernel/ptrace.c                 |  6 +-
+ arch/arm64/kernel/ptrace.c               | 52 ++++++++---------
+ arch/csky/kernel/ptrace.c                |  4 +-
+ arch/hexagon/kernel/ptrace.c             |  2 +-
+ arch/loongarch/kernel/ptrace.c           | 16 ++---
+ arch/m68k/kernel/ptrace.c                |  4 +-
+ arch/mips/kernel/ptrace.c                | 20 +++----
+ arch/nios2/kernel/ptrace.c               |  2 +-
+ arch/openrisc/kernel/ptrace.c            |  4 +-
+ arch/parisc/kernel/ptrace.c              |  8 +--
+ arch/powerpc/kernel/ptrace/ptrace-view.c | 74 ++++++++++++------------
+ arch/riscv/kernel/ptrace.c               | 12 ++--
+ arch/s390/kernel/ptrace.c                | 42 +++++++-------
+ arch/sh/kernel/ptrace_32.c               |  4 +-
+ arch/sparc/kernel/ptrace_32.c            |  4 +-
+ arch/sparc/kernel/ptrace_64.c            |  8 +--
+ arch/x86/kernel/ptrace.c                 | 22 +++----
+ arch/x86/um/ptrace.c                     | 10 ++--
+ arch/xtensa/kernel/ptrace.c              |  4 +-
+ fs/binfmt_elf.c                          | 36 +++++++-----
+ fs/binfmt_elf_fdpic.c                    | 17 +++---
+ include/linux/regset.h                   | 12 +++-
+ 23 files changed, 194 insertions(+), 173 deletions(-)
+
+
+base-commit: 86731a2a651e58953fc949573895f2fa6d456841
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6346167562710554710==--
-
