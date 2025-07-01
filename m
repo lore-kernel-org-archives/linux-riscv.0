@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BCC7C8303A
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 11:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F133C83F01
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 12:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Isn2UPy+euBFNGWHxBTNzf2shaKGRxlnm1NdVSF5HB4=; b=gYNnNNd011VLBw
-	Plpz5GUgA86lqACAcgAP7EgZPIC4yx3pwniOBj6CtwfIsviyQaaIZaqp/zoCRpO7lTT+ygnv9pTS1
-	KRdzRVI+Yn45tjluyErxxqKZKc45cvIhHtIUj+liN9sjNri7kWaKTiIMLEP14+OEUW/KZBo0oaMql
-	2kL8v2HgFPQK0onWLVeaw9n5at2TU8zczX/CHnPCUWX1JwDuAxsgyQjOU12Y6zlzzsR57ASQGcx3C
-	rMm+q+5+TBK+CHv80RKuAni+yjcBa0F5CibvyWfjbKGTZ7vwAsvhaZbDPw2Ti7P010x9Ftay8i3k6
-	6+oWrh+Gru7r/aUGYDlQ==;
+	List-Owner; bh=kJ26IDPdlo3tpH+bVOQw3ls5jFWI5h0R/op61d6lMXc=; b=MskPzc2/X+KZ6s
+	I3E8db2iwOQN421kn5S7dhtMTUPEBv+IbOnxGh2MLiF0AD2YHyFKk+miQgGjHAWOovfrNc3KWTWAE
+	29YzyZZZNxPJRWbACrhVt1F8LgHjPM8O10MbodkzggPLYF5QDiSe8srMjFdLJLqTtvlkiJhy1LbgX
+	al0nB8DeAKBJJJySGeGHc3PKJ+aL/4FahZei5vCEBPy/u3cCQKMs8KP1G8dXPGSQXtod141vIzO+Y
+	QWyFRAoFhNksq6Wny0ZoBEMXiK6o9GlDOILtFSB3Cbx9xVgoh6XxtO7BBg4JD/2ImiB/J57Llv6Hu
+	yoyev4mIp7nah83TYoJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWYyB-00000004qnP-356I;
-	Tue, 01 Jul 2025 11:16:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uWa9B-00000005K0E-0Tjh;
+	Tue, 01 Jul 2025 12:31:37 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWYpc-00000004px6-20st
+	id 1uWZSy-00000004uia-44Ad
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 11:07:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C6C745C6493;
-	Tue,  1 Jul 2025 11:07:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2E43C4CEEB;
-	Tue,  1 Jul 2025 11:07:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751368039;
-	bh=QvUkAIj85QispQ/Cda6kxqhm5CHP0RxSRAtQsd9DPbY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=k7GZChhX1jIGglTCB6ytto/fvvg7NWrSPNfZQwWfVXH4VPxJ37v2OCyFpfp8ZMofi
-	 yzD6f21+FrwFsN6thLLYUbL89IDVsaJcI3rcY5r3we9p0EcOO0ZkdH9vQYjFeHLOAc
-	 vjF8cQqH27UlHDnmQr8w542/Wd3U5bgEigvxAmG/pO+kdfvctNi3tNeD+hkJo8XBvn
-	 AGnDrS+QOPOJ2lql/PMSLP4x0+drp3IILj/Ax06aJcixFn8w36sa30oRzZw/lRK7Fl
-	 xNk+CqlU9x1is+X07hzCaNGH0XONGITOUgiU31yJtkTUfgZrXe9sLlJz9TLMUG2wlF
-	 JafNuKRYR6ZNg==
-Date: Tue, 1 Jul 2025 12:07:13 +0100
-From: Lee Jones <lee@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: lgirdwood@gmail.com, broonie@kernel.org, alexandre.belloni@bootlin.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	mat.jonczyk@o2.pl, dlan@gentoo.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	troymitchell988@gmail.com, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/7] mfd: simple-mfd-i2c: add SpacemiT P1 support
-Message-ID: <20250701110713.GL10134@google.com>
-References: <20250625164119.1068842-1-elder@riscstar.com>
- <20250625164119.1068842-3-elder@riscstar.com>
- <20250627125119.GF10134@google.com>
- <0eda5bf4-ce63-43da-9c2f-7d4ec902758c@riscstar.com>
+	Tue, 01 Jul 2025 11:48:03 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-553e5df44f8so2687292e87.3
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 04:48:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1751370479; x=1751975279; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yHynz9mWDead3UZZabeI741cKQ7wi8Dc9CTNMBrKiZk=;
+        b=WMEIZp7bRUjvyWbAnvkflEWzWsaWC5909ZMoUGH60rGH4l8bWt6BtNNnhbleovEDa2
+         JnSprdt1NDdoilm/MXX/blJcAdG3Uigo8wPtylVJJ0JzQMtvGZ9GRg6ZsSvbVaSp3kZQ
+         lHgVsPyM/nycIrv/5Kvr9bQOLyBTgdc1JtO3zq3JRsHao4YPwifJmBNTjtIbuugSsm6c
+         /S+h7uFi6Qn6vVjuT4LfP3cZ4oYS6LL2yQnQDre7y19EqHwreXxfWZgJaolm7AZc4Kya
+         +5B0d0nqfvurzjeAi8ZMRc4BuNt7v6hxik4fYtEGK2rUB2B8ZjWBNTqG8ksJhPSavU0Q
+         iVIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751370479; x=1751975279;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yHynz9mWDead3UZZabeI741cKQ7wi8Dc9CTNMBrKiZk=;
+        b=ZDhXBshE0n9tkElJIWspEH0TSe0iHbOxHVXv5zmArnaBMAZFnBPXrZrCfJy/laJGOV
+         25ZlqBLecNbiIM+NQnZVYJhHKzCCUza8E5HiOfPfb+VlHicOJLunPrr8QspOjFlbfaso
+         wnfowj3vaGNcvXtDYwfYV5JaTKkM29SSzrLGKRyHrabkSXVvYZPz6RbDnmfHKyV579Vw
+         R7huCS2A1fgqb44VYvariPAXdBTT9GklHKR6FCOLTOqifJH2E48jgBGc66R6NhAaspBQ
+         lL79D7crTpi6J86BlRrxRuYNGGzjxdRIBYFGbCLApJd2BMuhAMqTc+ekiDBp+Mp/F4ih
+         2mIw==
+X-Forwarded-Encrypted: i=1; AJvYcCVtiuxIg36NdBn4deKU3lnvaKh7U5FJ4FCS4lEIfp1cC61otLCZl4O0lN3DiYnM53AIyy5U1kozdLG5Qw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUvS0p5ewfc4deGPc546t24W+etU2RoC7t5xn4pg/oXCFT5Qod
+	ZTKh+xjSOndGTWFgal4gEhXu/hllQ0JPjsvcxM2R4NK/ztuHbxirwROtjkVlDPNYCSE=
+X-Gm-Gg: ASbGncsgSibFe+pM69w0iO30/PfB8b33lShkDLLmCxOYKHTsVf9tGGDwD0YkKmY+S/I
+	HQeK0x/ULU9r27gvgDLu3Qd8Lx5vPU+mmN6OwwWYVzYJSX3mF8R2sCCc9m1n8OpAY7Wa03JPGDa
+	UiW9bsSXm/eDz8ikUn/bmmoPFcW5PvOBky9XXzQZuFpYXIWhNhBVZKpagcuxe+cUVHizngahLno
+	bZ2CssQy+eCasEqJ1kuXPM489Nlq8bJ606wEYYoSDPdIu/66iIyktRNpnytFZwKAXH7gvM8EB3h
+	CnSAPyrPAHBbsHzPH2L6qy1unLj3UpNxuT56EN4wSSuEXXcdLPfX5oSP/hFaHJjm8r6+KgQWWmO
+	Fwf+etXJyBTXJE7aNe0yO1VeCApH+fm6oUVXv
+X-Google-Smtp-Source: AGHT+IFqyMXKCb8elAwuQdxdqHT2scTfHnmyox7XhrjqrojZnvfr/F02wddlYBxLw5k9BSZ0P+ueUg==
+X-Received: by 2002:a05:6512:114a:b0:553:a867:8dd6 with SMTP id 2adb3069b0e04-5550b7ecd57mr5857067e87.9.1751370479219;
+        Tue, 01 Jul 2025 04:47:59 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2f162dsm1800592e87.248.2025.07.01.04.47.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jul 2025 04:47:58 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: Saravana Kannan <saravanak@google.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	linux-pm@vger.kernel.org
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michael Grzeschik <m.grzeschik@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Abel Vesa <abel.vesa@linaro.org>,
+	Peng Fan <peng.fan@oss.nxp.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Johan Hovold <johan@kernel.org>,
+	Maulik Shah <maulik.shah@oss.qualcomm.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v3 11/24] cpuidle: riscv-sbi: Opt-out from genpd's common ->sync_state() support
+Date: Tue,  1 Jul 2025 13:47:13 +0200
+Message-ID: <20250701114733.636510-12-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250701114733.636510-1-ulf.hansson@linaro.org>
+References: <20250701114733.636510-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0eda5bf4-ce63-43da-9c2f-7d4ec902758c@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_040720_560492_C2A84D3F 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20250701_044801_022133_3A759A68 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +114,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyNyBKdW4gMjAyNSwgQWxleCBFbGRlciB3cm90ZToKCj4gT24gNi8yNy8yNSA3OjUx
-IEFNLCBMZWUgSm9uZXMgd3JvdGU6Cj4gPiA+IEBAIC05MywxMiArOTMsMzAgQEAgc3RhdGljIGNv
-bnN0IHN0cnVjdCBzaW1wbGVfbWZkX2RhdGEgbWF4aW1fbW9uX21heDc3NzA1ID0gewo+ID4gPiAg
-IAkubWZkX2NlbGxfc2l6ZSA9IEFSUkFZX1NJWkUobWF4Nzc3MDVfc2Vuc29yX2NlbGxzKSwKPiA+
-ID4gICB9Owo+ID4gPiArc3RhdGljIGNvbnN0IHN0cnVjdCByZWdtYXBfY29uZmlnIHNwYWNlbWl0
-X3AxX3JlZ21hcF9jb25maWcgPSB7Cj4gPiA+ICsJLnJlZ19iaXRzID0gOCwKPiA+ID4gKwkudmFs
-X2JpdHMgPSA4LAo+ID4gPiArCS5tYXhfcmVnaXN0ZXIgPSAweGFhLAo+ID4gPiArfTsKPiA+IFN1
-Z2dlc3QgbWFraW5nIHRoaXMgbW9yZSB3aWRlbHkgdXNlZnVsIGJ5IGFkZGluZyB0aGUgJ21heF9y
-ZWdpc3RlcicKPiA+IGF0dHJpYnV0ZSB0byAnc3RydWN0IHNpbXBsZV9tZmQnIGFuZCBjb25kaXRp
-b25hbGx5IG92ZXJyaWRpbmcKPiA+IHJlZ21hcF9jb25maWdfOHJfOHYncyB2YWx1ZSBkdXJpbmcg
-cHJvYmUuCj4gCj4gU28geW91J3JlIHN1Z2dlc3RpbmcgSSBtYWtlIGEgZ2VuZXJhbCBpbXByb3Zl
-bWVudCB0bwo+ICJzaW1wbGUtbWZkLWkyYy5jIiwgYmVjYXVzZSBldmVyeWJvZHkgZWxzZSBqdXN0
-IHVzZXMKPiB0aGUgZ2VuZXJpYyBmYWxsYmFjayByZWdtYXAgY29uZmlnPwoKWWVzLCBleGFjdGx5
-IHRoYXQuCgo+IChJJ20gYXNraW5nIGJlY2F1c2UgYXQgZmlyc3QgSSBkaWRuJ3QgdW5kZXJzdGFu
-ZCB5b3VyCj4gc3RhdGVtZW50LCBhbmQgdGhlICJtb3JlIHdpZGVseSB1c2VmdWwiIGNvbW1lbnQp
-Lgo+IAo+IEkgd291bGQgYmUgaGFwcHkgdG8gZG8gdGhpcywgYW5kIGl0J3Mgbm90IHRoYXQgaGFy
-ZC4KPiBDYW4gSSBkbyBpdCBhcyBhIGZvbGxvdy1vbiBwYXRjaCB0aG91Z2g/ICBJdCdzIGFkZGlu
-Zwo+IHNjb3BlIChhZ2FpbiksIGJleW9uZCB3aGF0IEkgYW50aWNpcGF0ZWQgYW5kIGhvbmVzdGx5
-Cj4gSSdtIHJlYWR5IHRvIGJlIGRvbmUgd2l0aCB0aGlzLi4uCgpHb29kIGpvYiB5b3UncmUgbm90
-IHdvcmtpbmcgb24gYSBjb21wbGV4IGFkZGl0aW9uIHRoZW4uICA9Oy0pCgo+IEFueXdheSwgaWYg
-eW91IHNheSAibm8iIEknbGwgc2VuZCBhbm90aGVyIHZlcnNpb24gb2YKPiB0aGlzIHNlcmllcyB0
-b2RheS4KCkEgZm9sbG93LXVwIHdvdWxkIGJlIGdvb2QsIHRoYW5rcy4KCi0tIApMZWUgSm9uZXMg
-W+adjueQvOaWr10KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+The riscv-sbi-domain implements its own specific ->sync_state() callback.
+Let's set the GENPD_FLAG_NO_SYNC_STATE to inform genpd about it.
+
+Moreover, let's call of_genpd_sync_state() to make sure genpd tries to
+power off unused PM domains.
+
+Cc: Anup Patel <anup@brainfault.org>
+Cc: linux-riscv@lists.infradead.org
+Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
+Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xilinx ZynqMP ZCU106
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+---
+ drivers/cpuidle/cpuidle-riscv-sbi.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+index 0fe1ece9fbdc..83d58d00872f 100644
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -347,11 +347,16 @@ static int sbi_cpuidle_init_cpu(struct device *dev, int cpu)
+ 
+ static void sbi_cpuidle_domain_sync_state(struct device *dev)
+ {
++	struct sbi_pd_provider *pd_provider;
++
+ 	/*
+ 	 * All devices have now been attached/probed to the PM domain
+ 	 * topology, hence it's fine to allow domain states to be picked.
+ 	 */
+ 	sbi_cpuidle_pd_allow_domain_state = true;
++
++	list_for_each_entry(pd_provider, &sbi_pd_providers, link)
++		of_genpd_sync_state(pd_provider->node);
+ }
+ 
+ #ifdef CONFIG_DT_IDLE_GENPD
+@@ -396,7 +401,8 @@ static int sbi_pd_init(struct device_node *np)
+ 	if (!pd_provider)
+ 		goto free_pd;
+ 
+-	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
++	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN |
++		     GENPD_FLAG_NO_SYNC_STATE;
+ 
+ 	/* Allow power off when OSI is available. */
+ 	if (sbi_cpuidle_use_osi)
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
