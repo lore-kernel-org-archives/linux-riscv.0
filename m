@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88AA3C8302F
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 08:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A44EC83039
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jul 2025 08:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zqD22SyB+J7t9lLotV+6+2HJ3ySydptThonBiID9BBo=; b=EJDQTBVbMsqpSw
-	7HON8Lq8XqRs/XW/dwQ/dPsq6ZNQHTeqGwC+cvcfSSq6nwg7/bTdjS7g+5rkNzURRPZHp0wm62v44
-	V9JAIGd4jwCcWpSWEHavKk1aAWzEV/a6nmqOAaZvTG2tbkDkgRy4HpSvp8XAJJ/VpmbvM6bNhmHmz
-	smMyPrvwx16JNgARFJymQ6eDwxA03SkyzR/OAEEhbrBlj+f7i44UY+HhtVEQRjhni3FLet2PpC5Zz
-	mNcTlNNdxC6IJLkzTsWCvHw7au1nHvpN9k9FawD9uxahRtcFd8wOQBPKfgk8szTC2UKQ1l2qvwihZ
-	AvV3B8Ftt7Z0a9KZWY+A==;
+	List-Owner; bh=+R7VV6LsV/ZroWZJ2NqRUbsjeU1sWirCXaNK34L6rTg=; b=zeOSzfo4W4yDNF
+	PoC+R5NaTF4Z2hxg/F/poJLTOLFumfYt6AN8bfJfHvDH2ios8I4iVl3RCbh2FaticG33A+vuxX7bl
+	tm9a5wgrn/NYEhpVMDCDEdgnJYuVlkfLhUpaJm/ckCyWtz8I1EDXlc5Zz1alh7pJJKp2EUjfafdL7
+	UPlTO8phej1gV90E6sq2fU9pkJcO8nYSgYCA5iWJyKbSzuSo4BnlHU+11wz3u7s+gJXhuXeC08+MT
+	CsHtc1cj9Zb++pM35zhfX5QDTTmRPSm+uRjfTMjhQFOf3yXe+4P5lBm08XDZ9VEdfUydLKEQ7ah/Q
+	PmwdQXi2TWXdnVEkIJ7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWjU-00000004UFL-0cEY;
-	Tue, 01 Jul 2025 08:52:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uWWji-00000004UZI-1AzR;
+	Tue, 01 Jul 2025 08:53:06 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWWj-00000004RGP-1WUJ
+	id 1uWWfd-00000004Sot-0x7w
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Jul 2025 08:39:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C5165A5200E;
-	Tue,  1 Jul 2025 08:39:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EAAFC4CEEB;
-	Tue,  1 Jul 2025 08:39:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751359179;
-	bh=6Ggj5SJgHebL8gcjHvs9jvZzSJ1s613481Vhv3KjfRU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GCm73nGU15vuV2sTjTwwXn59T9LmFXeMdS+GEy1dhUPutHdW61z0dbqa33kLknsjA
-	 V3js4HL7jNYC9mKajEgkRipDo7+6fyP/+pwfid/yGs6uJinH3hFIxRsmpSjPDZ7R/i
-	 1OnDkV1UJABp5u0XzYdqGMQx333tHFmQzBvRVfCEC6FRlyL0GtUZEelhb2TFtiarbH
-	 ZaycuwMtRKXTPp9xaKfoiVSvi+zl/qXQZrteVa9h6ak0klUYtxPxDMxgesJv7izsEB
-	 W5dCQZKH42CnbxmRnGJptcX4yviL1iPVWJI9JsjdGXdU3xwWDe7Kyo/XgIMTQSLEJD
-	 7+XMuVY4oDe7A==
-Date: Tue, 1 Jul 2025 17:39:34 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Yao Zi <ziyao@disroot.org>
-Cc: Andy Chiu <andybnac@gmail.com>, alexghiti@rivosinc.com,
- palmer@dabbelt.com, "Andy Chiu" <andy.chiu@sifive.com>, =?UTF-8?B?Qmo=?=
- =?UTF-8?B?w7ZybiBUw7ZwZWw=?= <bjorn@rivosinc.com>, Mark Rutland
- <mark.rutland@arm.com>, "Alexandre Ghiti" <alex@ghiti.fr>,
- puranjay12@gmail.com, paul.walmsley@sifive.com, greentime.hu@sifive.com,
- nick.hu@sifive.com, nylon.chen@sifive.com, eric.lin@sifive.com,
- vicent.chen@sifive.com, zong.li@sifive.com, yongxuan.wang@sifive.com,
- samuel.holland@sifive.com, olivia.chu@sifive.com, c2232430@gmail.com, Han
- Gao <rabenda.cn@gmail.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- regressions@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [REGRESSION] Random oops on SG2042 with Linux 6.16-rc and
- dynamic ftrace
-Message-Id: <20250701173934.cc92a6d1d5a976a6556e6863@kernel.org>
-In-Reply-To: <aGODMpq7TGINddzM@pie.lan>
-References: <aGODMpq7TGINddzM@pie.lan>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Tue, 01 Jul 2025 08:48:54 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e733a6ff491so2643090276.2
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 01:48:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1751359732; x=1751964532; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ham4MleQtpYSqIWPo8fq/MuoFtt+t8Ya59SZXOm39+s=;
+        b=BS+T+bQXPB2ieMQRle1lJn6HG6YaavMJqF14C/BT8MHRKJZe+98MAIqvRMHlN2jiN2
+         5bENh2E/Kjn2fA74ACpozZC1OzTGcHHn3Vp/39JqH9/BwgNZgmJZyIXS+PBPuMw2to5U
+         Q3XWzrs91VP3L7hFaDRXQTWAvpTZVXxQytryXkfn/g27XT3L3x5S8mm0/UNWI5LNLGI7
+         KtdG7Ot4Jrzdu1dw7KR9sVXmRXD6sqxpxTSfQYlUNsy92Ox4R6yCL7ImwYT33aBljIxF
+         mL1sj1gY5jxnif50vMjoRmMV9tqi0B1/luHnAnt4gARJPjPipSbOHP4/JTqB0zeHRVfv
+         fM+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751359732; x=1751964532;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ham4MleQtpYSqIWPo8fq/MuoFtt+t8Ya59SZXOm39+s=;
+        b=wbyiXNOFFcxVlIaIWkf2K/nxPwinnYqBA6p3KFoknJW80cyOSAYnHeyLCJ9DNNbdtV
+         zsr3eZk+gn7WcEtIMqbY5POPYu0B6asMqUc0MUYkGmXUbTZ8852ZZa55ht0JOXGikm26
+         PCvJG0qO7PfFlyKlovYUq47Ulp48ahgFk3RkGxE2YAKl6cc5tUi+Oi0OpsCZJwF3BqKb
+         5OsZCsD5OdP4HBbNveCd3jheVIRrAiNgwweA5Rj4dNBJUrLj4oArYgTwoOEVNR2p9Owj
+         LHRbMblmDSDd7VT0K00llX2+x57CofOjLIvWRdFlKl4iV6OgJ9ovkIcl6zdofjsPgmOr
+         Gl9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXpRrwqvoAh1afdc0+Mvc0f36oqm8/saTx+9W/9v86SjU1kzqqtcqlRc+FyoKNy2aMfJAUKZt+lQA1twQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzprHsGA0EQmsPAjbyOsflNTuC0INnYDpveuuYDNxMNguBwsKPP
+	cEYjoFFzIphjLFqQT2FnMQG36mfZcf3hdEDOpvzgVEMPYq2+S4E16/5e2h3hYHMkBqzg381Hpqd
+	KxBnLHJn5N+d0HOG2PokH77Jzc1SKYLwQgTFeTwou7Q==
+X-Gm-Gg: ASbGncvgJX1/JfDPhsQ29KCJsCg7IztTkIHedPaWgA2p5tuOK8HyFGsDwUkqGjVaU9P
+	b/6QSqEj2y+mor7DVpchG1CPovQizxJcoI4k2U2omQqEphakgQTNBdShA7Gm5MsW1LbN1eO0glW
+	oHj8wbuBprPNnwFVXkhN6UWMQV/GwHiik4xlbIbR637vTWkVMf
+X-Google-Smtp-Source: AGHT+IExwbxuXz67r7i2U0Hj9e39nnEuFRzklLDURAXbWXk0DV903xSBiVjsaBHg1u3FdNeBklfefUYYXWQaY3P289M=
+X-Received: by 2002:a05:690c:45ca:b0:70e:29af:844a with SMTP id
+ 00721157ae682-71517196047mr247551697b3.18.1751359731954; Tue, 01 Jul 2025
+ 01:48:51 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250701-working_dma_0701_v2-v2-0-ab6ee9171d26@riscstar.com>
+ <20250701-working_dma_0701_v2-v2-7-ab6ee9171d26@riscstar.com> <ebc16dbe-2405-4956-91a0-bcce9f199326@kernel.org>
+In-Reply-To: <ebc16dbe-2405-4956-91a0-bcce9f199326@kernel.org>
+From: Guodong Xu <guodong@riscstar.com>
+Date: Tue, 1 Jul 2025 16:48:41 +0800
+X-Gm-Features: Ac12FXzG_24euqC2ksqQUMdli-9vCkce_uhDVNzQHQHTjfNnkSCnW6ua-Xfs0vo
+Message-ID: <CAH1PCMa2dB1fefzGgo-kKfgAdou_KaDSvTDsvYPjsGKODHETCA@mail.gmail.com>
+Subject: Re: [PATCH v2 7/8] riscv: dts: spacemit: Enable PDMA0 on Banana Pi F3
+ and Milkv Jupiter
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+	=?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Alex Elder <elder@riscstar.com>, 
+	Vivian Wang <wangruikang@iscas.ac.cn>, dmaengine@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_013941_539521_1F646F2A 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20250701_014853_268733_F9241889 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,313 +98,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 1 Jul 2025 06:41:54 +0000
-Yao Zi <ziyao@disroot.org> wrote:
-
-> Linux v6.16 built with dynamic ftrace randomly oops or triggers
-> ftrace_bug() on Sophgo SG2042 when booting systemd-based userspace,
-> 
-> [    9.913462] ------------[ ftrace bug ]------------
-> [    9.913921] usbcore: registered new interface driver hub
-> [    9.917914] ftrace faulted on modifying
-> [    9.922947] usbcore: registered new device driver usb
-> [    9.928062] [<ffffffff030b7a7c>] 0xffffffff030b7a7c
-> [    9.941963] Initializing ftrace call sites
-> [    9.946086] ftrace record flags: 2000000
-> [    9.950028]  (0)
->                 expected tramp: ffffffff8001f840
-> [    9.956592] ------------[ cut here ]------------
-> [    9.956597] WARNING: CPU: 3 PID: 673 at kernel/trace/ftrace.c:2213 ftrace_bug+0x278/0x2b0
-> [    9.956625] Modules linked in: fixed_phy(E+) fwnode_mdio(E) nvme_core(E) usbcore(E) scsi_mod(E) sdhci(E) libphy(E) nvme_keyring(E) scsi_common(E) usb_common(E) nvme_auth(E) cqhci(E) mdio_bus(E) mdio(E) mmc_core(E) gpio_dwapb(E) spi_sg2044_nor(E) i2c_designware_platform(E)
-> [    9.956667] CPU: 3 UID: 0 PID: 673 Comm: (udev-worker) Tainted: G            E       6.16.0-rc3-pioneer #2025.06.24.16.00+074b194ff VOLUNTARY
-> [    9.956677] Tainted: [E]=UNSIGNED_MODULE
-> [    9.956680] Hardware name: Milk-V Pioneer (DT)
-> [    9.956683] epc : ftrace_bug+0x278/0x2b0
-> [    9.956689]  ra : ftrace_bug+0x278/0x2b0
-> [    9.956694] epc : ffffffff80007018 ra : ffffffff80007018 sp : ffffffc60a2b3800
-> [    9.956698]  gp : ffffffff81dbf1e8 tp : ffffffd70246aac0 t0 : ffffffff8001ff48
-> [    9.956702]  t1 : 0000000000000020 t2 : 6465746365707865 s0 : ffffffc60a2b3830
-> [    9.956705]  s1 : ffffffff030b7a7c a0 : 0000000000000022 a1 : fffffff5ffaad8c0
-> [    9.956708]  a2 : 0000000000000010 a3 : fffffff5ffaad8c0 a4 : 0000000000000000
-> [    9.956711]  a5 : 0000000000000000 a6 : 0000000000007ffe a7 : 000000000015ffa8
-> [    9.956715]  s2 : ffffffd722b77130 s3 : fffffffffffffff2 s4 : ffffffd722b77130
-> [    9.956718]  s5 : fffffff5dda52b60 s6 : ffffffff030ca500 s7 : 0000000002000000
-> [    9.956721]  s8 : 0000000000000013 s9 : fffffff5dda52b60 s10: 0000000000000046
-> [    9.956724]  s11: 0000000000000014 t3 : ffffffff81dda237 t4 : ffffffff81dda237
-> [    9.956727]  t5 : ffffffff81dda238 t6 : ffffffc60a2b3628
-> [    9.956730] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
-> [    9.956735] [<ffffffff80007018>] ftrace_bug+0x278/0x2b0
-> [    9.956753] [<ffffffff8015cc32>] ftrace_process_locs+0x392/0x4f0
-> [    9.956762] [<ffffffff80160a3c>] ftrace_module_init+0x3c/0x58
-> [    9.956768] [<ffffffff800f4c8e>] load_module+0x178e/0x1f78
-> [    9.956777] [<ffffffff800f5682>] init_module_from_file+0x82/0xc8
-> [    9.956783] [<ffffffff800f58e8>] __riscv_sys_finit_module+0x1c0/0x300
-> [    9.956789] [<ffffffff80b10c58>] do_trap_ecall_u+0xa0/0x420
-> [    9.956795] [<ffffffff80b1e17a>] handle_exception+0x14a/0x156
-> [    9.956804] ---[ end trace 0000000000000000 ]---
-> 
-> Here's the log when ftrace_bug() is triggered. It's worth noting that
-> all strange behaviors happen after the userspace starts to load modules.
-> 
-> During debugging, we found if the kernel is built with lockdep enabled,
-> it triggers tons of warnings during kernel startup and module
-> initialization, which is reproducible on QEMU as well. A typical log
-> looks like,
-> 
-> [   30.219049] ------------[ cut here ]------------
-> [   30.219072] WARNING: CPU: 0 PID: 61 at arch/riscv/kernel/patch.c:135 __patch_insn_write+0x356/0x3b8
-> [   30.219113] Modules linked in:
-> [   30.219145] CPU: 0 UID: 0 PID: 61 Comm: modprobe Tainted: G        W           6.16.0-rc4 #64 NONE
-> [   30.219170] Tainted: [W]=WARN
-> [   30.219179] Hardware name: riscv-virtio,qemu (DT)
-> [   30.219189] epc : __patch_insn_write+0x356/0x3b8
-> [   30.219209]  ra : __patch_insn_write+0x352/0x3b8
-> [   30.219227] epc : ffffffff80018c7e ra : ffffffff80018c7a sp : ff2000000032b9e0
-> [   30.219239]  gp : ffffffff81a07500 tp : ff600000823199c0 t0 : ffffffff8001ee78
-> [   30.219250]  t1 : ff6000008231a9c0 t2 : 0000000000000000 s0 : ff2000000032ba30
-> [   30.219261]  s1 : 0000000000000008 a0 : 0000000000000000 a1 : ffffffff8181f318
-> [   30.219272]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : ff600000faa43398
-> [   30.219283]  a5 : 0000000000000000 a6 : 000000000e2d0519 a7 : 0000000000000004
-> [   30.219294]  s2 : ffffffff0258b3a0 s3 : 0000000000000008 s4 : 00000000000003a0
-> [   30.219305]  s5 : ff2000000032ba78 s6 : 00000000000003a8 s7 : 0000000002000000
-> [   30.219316]  s8 : 000000000000007a s9 : ff60000083a8a040 s10: 0000000000000147
-> [   30.219327]  s11: 000000000000007b t3 : 0000000000001fff t4 : 0000000000000004
-> [   30.219338]  t5 : 0000000000000002 t6 : 0000000000040000
-> [   30.219347] status: 0000000200000120 badaddr: ffffffff80018c7e cause: 0000000000000003
-> [   30.219360] [<ffffffff80018c7e>] __patch_insn_write+0x356/0x3b8
-> [   30.219380] [<ffffffff80019268>] patch_text_nosync+0x48/0x80
-> [   30.219400] [<ffffffff8001ebb6>] ftrace_init_nop+0x3e/0xd0
-> [   30.219417] [<ffffffff8016cbe4>] ftrace_process_locs+0x29c/0x530
-> [   30.219436] [<ffffffff80170d14>] ftrace_module_init+0x3c/0x58
-> [   30.219454] [<ffffffff800f8500>] load_module+0x14f0/0x1c70
-> [   30.219473] [<ffffffff800f8e6a>] init_module_from_file+0x82/0xc8
-> [   30.219491] [<ffffffff800f9066>] idempotent_init_module+0x1b6/0x2b8
-> [   30.219510] [<ffffffff800f922c>] __riscv_sys_finit_module+0x64/0xa0
-> [   30.219528] [<ffffffff80b1c590>] do_trap_ecall_u+0x2b0/0x4e0
-> [   30.219549] [<ffffffff80b2b172>] handle_exception+0x14a/0x156
-> [   30.219573] irq event stamp: 5143
-> [   30.219582] hardirqs last  enabled at (5143): [<ffffffff80b1d55a>] irqentry_exit+0x6a/0x128
-> [   30.219601] hardirqs last disabled at (5141): [<ffffffff800365fc>] handle_softirqs+0x4a4/0x518
-> [   30.219620] softirqs last  enabled at (5142): [<ffffffff8003661a>] handle_softirqs+0x4c2/0x518
-> [   30.219637] softirqs last disabled at (5137): [<ffffffff800367ee>] __irq_exit_rcu+0xe6/0x120
-> [   30.219656] ---[ end trace 0000000000000000 ]---
-> [   30.219858] ------------[ cut here ]------------
-> 
-> With some digging, it's found that mutex_lock isn't correctly held when
-> ftrace_init_nop() initializes the address of ops stored before the
-> function entry., which is the cause of crashes: without correct lock
-> protection, __patch_insn_write() may wrongly modify the text segment if
-> the userspace concurrently issues module initialization, since all code
-> patching functions share two fixmap pages to modify the code.
-> 
-> The bug was newly introduced by recent RISC-V ftrace changes[1] in
-> v6.16-rc1, precisely saying commit 881dadf0792c ("Merge patch series
-> "riscv: ftrace: atmoic patching and preempt improvements"").
-> 
-> We also found another lockdep failure introduced by the series, which
-> could be reproduced by loading a module after enabling a tracer,
-> 
->         cd /sys/kernel/debug/tracing
->         echo 0 > tracing_on
->         echo function > current_tracer
->         echo printk > set_ftrace_filter
->         echo 1 > tracing_on
->         modprobe xxx    # loading anything causes lockdep failures
-> 
-> a typical log for the issue looks like,
-> 
-> [   40.420039] ------------[ cut here ]------------
-> [   40.420078] WARNING: CPU: 1 PID: 60 at arch/riscv/kernel/patch.c:135 __patch_insn_write+0x356/0x3b8
-> [   40.420145] Modules linked in: fuse(+)
-> [   40.420229] CPU: 1 UID: 0 PID: 60 Comm: modprobe Tainted: G        W           6.16.0-rc4+ #69 NONE
-> [   40.420272] Tainted: [W]=WARN
-> [   40.420296] Hardware name: riscv-virtio,qemu (DT)
-> [   40.420323] epc : __patch_insn_write+0x356/0x3b8
-> [   40.420367]  ra : __patch_insn_write+0x352/0x3b8
-> [   40.420409] epc : ffffffff80018c7e ra : ffffffff80018c7a sp : ff2000000030b9d0
-> [   40.420437]  gp : ffffffff81a07500 tp : ff60000083433380 t0 : ffffffff80024060
-> [   40.420465]  t1 : ffffffff81a0a250 t2 : 0000000000000001 s0 : ff2000000030ba20
-> [   40.420492]  s1 : 0000000000000004 a0 : 0000000000000000 a1 : ffffffff8181f318
-> [   40.420519]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : ff600000fac22398
-> [   40.420546]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000052464e43
-> [   40.420573]  s2 : ffffffff02581804 s3 : 0000000000000004 s4 : 0000000000000804
-> [   40.420600]  s5 : ff2000000030ba74 s6 : 0000000000000808 s7 : 0000000000000002
-> [   40.420628]  s8 : 0000000000000001 s9 : ffffffff818b09d8 s10: 00000000efffffff
-> [   40.420655]  s11: 0000000040000000 t3 : 0000000000100000 t4 : 0000000000000064
-> [   40.420682]  t5 : ff6000008392a9d0 t6 : ff600000837c6fff
-> [   40.420708] status: 0000000200000120 badaddr: ffffffff80018c7e cause: 0000000000000003
-> [   40.420740] [<ffffffff80018c7e>] __patch_insn_write+0x356/0x3b8
-> [   40.420783] [<ffffffff800191f8>] patch_insn_write+0x48/0x70
-> [   40.420825] [<ffffffff8001eacc>] ftrace_make_call+0x8c/0xc0
-> [   40.420866] [<ffffffff8016c928>] __ftrace_replace_code+0xc0/0xd0
-> [   40.420909] [<ffffffff80170c82>] ftrace_module_enable+0x292/0x2d8
-> [   40.420951] [<ffffffff800f85e4>] load_module+0x15e4/0x1c70
-> [   40.420993] [<ffffffff800f8e5a>] init_module_from_file+0x82/0xc8
-> [   40.421035] [<ffffffff800f9056>] idempotent_init_module+0x1b6/0x2b8
-> [   40.421076] [<ffffffff800f921c>] __riscv_sys_finit_module+0x64/0xa0
-> [   40.421118] [<ffffffff80b1c580>] do_trap_ecall_u+0x2b0/0x4e0
-> [   40.421160] [<ffffffff80b2b162>] handle_exception+0x14a/0x156
-> [   40.421210] irq event stamp: 5977
-> [   40.421234] hardirqs last  enabled at (5977): [<ffffffff80b1d54a>] irqentry_exit+0x6a/0x128
-> [   40.421275] hardirqs last disabled at (5975): [<ffffffff800365ec>] handle_softirqs+0x4a4/0x518
-> [   40.421315] softirqs last  enabled at (5976): [<ffffffff8003660a>] handle_softirqs+0x4c2/0x518
-> [   40.421355] softirqs last disabled at (5969): [<ffffffff800367de>] __irq_exit_rcu+0xe6/0x120
-> [   40.421397] ---[ end trace 0000000000000000 ]---
-> 
-> the text_mutex lock isn't taken when ftrace_module_enable() indirectly
-> calls ftrace_make_call(), which *theoretically* may trigger a race, too.
-
-Good catch! Thanks for this precise report.
-
-Hm, it seems that the ftrace_module_enable() takes a text_mutex via
-ftrace_arch_code_modify_prepare() on x86. But commit 5aa4ef955884 
-("riscv: ftrace: do not use stop_machine to update code") removed it
-from RISCV.
-
-
-> 
-> Reverting the series fixes the second problem as well, but it's worth
-> noting that lockdep still reports a possible dead lock condition when
-> setting the tracer with
-> 
->         echo function > /sys/kernel/debug/tracing/current_tracer
-> 
-> [   21.344316] ======================================================
-> [   21.345382] WARNING: possible circular locking dependency detected
-> [   21.346914] 6.16.0-rc4+ #70 Not tainted
-> [   21.347924] ------------------------------------------------------
-> [   21.348961] bash/58 is trying to acquire lock:
-> [   21.349844] ffffffff8181a0a0 (cpu_hotplug_lock){++++}-{0:0}, at: stop_machine+0x24/0x4c
-> [   21.354283]
-> [   21.354283] but task is already holding lock:
-> [   21.355431] ffffffff8181f318 (text_mutex){+.+.}-{4:4}, at: ftrace_arch_code_modify_prepare+0x1a/0x2c
-> [   21.357233]
-> [   21.357233] which lock already depends on the new lock.
-> [   21.357233]
-> [   21.358534]
-> [   21.358534] the existing dependency chain (in reverse order) is:
-> [   21.359668]
-> [   21.359668] -> #2 (text_mutex){+.+.}-{4:4}:
-> [   21.360862]        lock_acquire+0xf0/0x30e
-> [   21.361749]        __mutex_lock+0xa6/0x8ee
-> [   21.362566]        mutex_lock_nested+0x20/0x28
-> [   21.363310]        arch_jump_label_transform_queue+0x48/0x100
-> [   21.364226]        __jump_label_update+0x42/0xe8
-> [   21.365034]        jump_label_update+0x126/0x1da
-> [   21.365764]        static_key_slow_inc_cpuslocked+0x6c/0xa4
-> [   21.366579]        static_key_slow_inc+0x26/0x3c
-> [   21.367305]        sched_clock_init+0x20/0x50
-> [   21.368041]        start_kernel+0x9b8/0xa94
-> [   21.368940]
-> [   21.368940] -> #1 (jump_label_mutex){+.+.}-{4:4}:
-> [   21.370062]        lock_acquire+0xf0/0x30e
-> [   21.370748]        __mutex_lock+0xa6/0x8ee
-> [   21.371459]        mutex_lock_nested+0x20/0x28
-> [   21.372136]        jump_label_init+0x38/0xee
-> [   21.372894]        setup_arch+0xd0/0x634
-> [   21.373568]        start_kernel+0x90/0xa94
-> [   21.374310]
-> [   21.374310] -> #0 (cpu_hotplug_lock){++++}-{0:0}:
-> [   21.375509]        check_noncircular+0x144/0x15c
-> [   21.376313]        __lock_acquire+0xd88/0x2176
-> [   21.377029]        lock_acquire+0xf0/0x30e
-> [   21.377683]        cpus_read_lock+0x44/0x118
-> [   21.378447]        stop_machine+0x24/0x4c
-> [   21.379123]        arch_ftrace_update_code+0x38/0x56
-> [   21.379896]        ftrace_startup+0xd0/0x170
-> [   21.380673]        register_ftrace_function+0x11c/0x1f0
-> [   21.381489]        function_trace_init+0x6c/0xae
-> [   21.382238]        tracing_set_tracer+0xba/0x14c
-> [   21.383044]        tracing_set_trace_write+0x96/0xd0
-> [   21.383871]        vfs_writev+0x1b8/0x400
-> [   21.384501]        do_writev+0x6e/0xe8
-> [   21.385168]        __riscv_sys_writev+0x22/0x2a
-> [   21.385919]        do_trap_ecall_u+0x2b0/0x4de
-> [   21.386695]        handle_exception+0x14a/0x156
-> [   21.387516]
-> [   21.387516] other info that might help us debug this:
-> [   21.387516]
-> [   21.388995] Chain exists of:
-> [   21.388995]   cpu_hotplug_lock --> jump_label_mutex --> text_mutex
-
-Yeah, this chain is correct. We can not get cpus_read_lock() after
-text_mutex. cpus_read_lock() before text_mutex and use
-stop_machine_cpuslocked() instead. (if revert the series).
-
-Thank you,
-
-
-> [   21.388995]
-> [   21.390786]  Possible unsafe locking scenario:
-> [   21.390786]
-> [   21.391724]        CPU0                    CPU1
-> [   21.392608]        ----                    ----
-> [   21.393357]   lock(text_mutex);
-> [   21.394035]                                lock(jump_label_mutex);
-> [   21.395118]                                lock(text_mutex);
-> [   21.396157]   rlock(cpu_hotplug_lock);
-> [   21.397030]
-> [   21.397030]  *** DEADLOCK ***
-> [   21.397030]
-> [   21.398110] 5 locks held by bash/58:
-> [   21.398751]  #0: ff60000080a59430 (sb_writers#6){.+.+}-{0:0}, at: do_writev+0x6e/0xe8
-> [   21.400343]  #1: ffffffff818b1548 (trace_types_lock){+.+.}-{4:4}, at: tracing_set_tracer+0x24/0x14c
-> [   21.401948]  #2: ffffffff818b0df8 (direct_mutex){+.+.}-{4:4}, at: register_ftrace_function+0x20/0x1f0
-> [   21.403531]  #3: ffffffff818b0908 (ftrace_lock){+.+.}-{4:4}, at: register_ftrace_function+0x110/0x1f0
-> [   21.405208]  #4: ffffffff8181f318 (text_mutex){+.+.}-{4:4}, at: ftrace_arch_code_modify_prepare+0x1a/0x2c
-> [   21.406948]
-> [   21.406948] stack backtrace:
-> [   21.408285] CPU: 1 UID: 0 PID: 58 Comm: bash Not tainted 6.16.0-rc4+ #70 NONE
-> [   21.408915] Hardware name: riscv-virtio,qemu (DT)
-> [   21.409325] Call Trace:
-> [   21.409448] [<ffffffff80016fa8>] dump_backtrace+0x28/0x30
-> [   21.409546] [<ffffffff80002534>] show_stack+0x38/0x44
-> [   21.409595] [<ffffffff8000fe1a>] dump_stack_lvl+0x70/0x9c
-> [   21.409644] [<ffffffff8000fe5e>] dump_stack+0x18/0x20
-> [   21.409691] [<ffffffff800a764c>] print_circular_bug+0x26c/0x2bc
-> [   21.409744] [<ffffffff800a77e0>] check_noncircular+0x144/0x15c
-> [   21.409797] [<ffffffff800aa1a6>] __lock_acquire+0xd88/0x2176
-> [   21.409850] [<ffffffff800ab684>] lock_acquire+0xf0/0x30e
-> [   21.409902] [<ffffffff8002bd76>] cpus_read_lock+0x44/0x118
-> [   21.409954] [<ffffffff80144498>] stop_machine+0x24/0x4c
-> [   21.410000] [<ffffffff8001d1ea>] arch_ftrace_update_code+0x38/0x56
-> [   21.410050] [<ffffffff80161fe4>] ftrace_startup+0xd0/0x170
-> [   21.410102] [<ffffffff80162ee8>] register_ftrace_function+0x11c/0x1f0
-> [   21.410154] [<ffffffff8017d9ac>] function_trace_init+0x6c/0xae
-> [   21.410207] [<ffffffff80176444>] tracing_set_tracer+0xba/0x14c
-> [   21.410262] [<ffffffff8017656c>] tracing_set_trace_write+0x96/0xd0
-> [   21.410318] [<ffffffff80292d70>] vfs_writev+0x1b8/0x400
-> [   21.410365] [<ffffffff80293026>] do_writev+0x6e/0xe8
-> [   21.410411] [<ffffffff80294982>] __riscv_sys_writev+0x22/0x2a
-> [   21.410460] [<ffffffff80ab6704>] do_trap_ecall_u+0x2b0/0x4de
-> [   21.410508] [<ffffffff80ac4b0e>] handle_exception+0x14a/0x156
-> 
-> which seems to exist since at least v6.15.
-> 
-> Not sure either reverting the commits or fixing them up is a better
-> idea, but anyway the fatal first issue shouidn't go into the stable
-> release.
-> 
-> Thanks for your suggestions on the problems.
-> 
-> Regards,
-> Yao Zi
-> 
-> [1]: https://lore.kernel.org/all/20250407180838.42877-1-andybnac@gmail.com/
-> 
-> #regzbot introduced: 881dadf0792c
-> 
-
-
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdWwgMSwgMjAyNSBhdCAzOjM24oCvUE0gS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6
+a0BrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIDAxLzA3LzIwMjUgMDc6MzcsIEd1b2RvbmcgWHUg
+d3JvdGU6Cj4gPiBFbmFibGUgdGhlIFBETUEwIG9uIHRoZSBTcGFjZW1pVCBLMS1iYXNlZCBCYW5h
+bmEgUGkgRjMgYW5kIE1pbGt2IEp1cGl0ZXIKPiA+IGJvYXJkcyBieSBzZXR0aW5nIGl0cyBzdGF0
+dXMgdG8gIm9rYXkiLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IEd1b2RvbmcgWHUgPGd1b2RvbmdA
+cmlzY3N0YXIuY29tPgo+ID4gLS0tCj4gPiB2MjogYWRkZWQgcGRtYTAgZW5hYmxlbWVudCBvbiBN
+aWxrdiBKdXBpdGVyCj4gPiAtLS0KPiA+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sx
+LWJhbmFuYXBpLWYzLmR0cyAgIHwgNCArKysrCj4gPiAgYXJjaC9yaXNjdi9ib290L2R0cy9zcGFj
+ZW1pdC9rMS1taWxrdi1qdXBpdGVyLmR0cyB8IDQgKysrKwo+ID4gIDIgZmlsZXMgY2hhbmdlZCwg
+OCBpbnNlcnRpb25zKCspCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMv
+c3BhY2VtaXQvazEtYmFuYW5hcGktZjMuZHRzIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1p
+dC9rMS1iYW5hbmFwaS1mMy5kdHMKPiA+IGluZGV4IGZlMjJjNzQ3YzUwMTJmZTU2ZDQyYWM4YTdl
+ZmRiYmRiNjk0ZjMxYjYuLjM5MTMzNDUwZTA3ZjJjYjljYjIyNDdkYzAyODQ4NTFmOGM1NTAzMWIg
+MTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLWJhbmFuYXBp
+LWYzLmR0cwo+ID4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1iYW5hbmFw
+aS1mMy5kdHMKPiA+IEBAIC00NSwzICs0NSw3IEBAICZ1YXJ0MCB7Cj4gPiAgICAgICBwaW5jdHJs
+LTAgPSA8JnVhcnQwXzJfY2ZnPjsKPiA+ICAgICAgIHN0YXR1cyA9ICJva2F5IjsKPiA+ICB9Owo+
+ID4gKwo+ID4gKyZwZG1hMCB7Cj4KPgo+IERvZXMgbm90IGxvb2sgbGlrZSBwbGFjZWQgYWNjb3Jk
+aW5nIHRvIERUUyBjb2Rpbmcgc3R5bGUuIFdoYXQgc29ydCBvZgo+IG9yZGVyaW5nIFNwYWNlbWl0
+IGZvbGxvd3M/Cj4KCkFncmVlZC4gV2Ugc2hvdWxkIGVzdGFibGlzaCBhIGNvbnNpc3RlbnQgb3Jk
+ZXJpbmcgcnVsZSBmb3IgU3BhY2VtaVQgYm9hcmQKRFRTIGZpbGVzLiBBY2NvcmRpbmcgdG8gdGhl
+IGNvZGluZyBzdHlsZSBkb2N1bWVudGF0aW9uLCB0aGVyZSBhcmUgdHdvCmFjY2VwdGFibGUgYXBw
+cm9hY2hlcyBmb3Igb3JkZXJpbmcgbm9kZSByZWZlcmVuY2VzIGluIGJvYXJkIERUUyBmaWxlczoK
+CiJXaGVuIGV4dGVuZGluZyBub2RlcyBpbiB0aGUgYm9hcmQgRFRTIHZpYSAmbGFiZWwsIHRoZSBl
+bnRyaWVzIHNoYWxsIGJlCm9yZGVyZWQgZWl0aGVyIGFscGhhLW51bWVyaWNhbGx5IG9yIGJ5IGtl
+ZXBpbmcgdGhlIG9yZGVyIGZyb20gRFRTSSwgd2hlcmUKdGhlIGNob2ljZSBkZXBlbmRzIG9uIHRo
+ZSBzdWJhcmNoaXRlY3R1cmUuIgoKUmVmZXIgdG8gRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
+bmRpbmdzL2R0cy1jb2Rpbmctc3R5bGUucnN0CgpNeSBwcmVmZXJlbmNlIHdvdWxkIGJlIGFscGhh
+YmV0aWNhbCBvcmRlcmluZyBmb3IgZWFzeSBtYWludGFpbmFiaWxpdHkuIEhvd2V2ZXIsCkknZCBs
+aWtlIHRvIGhlYXIgWWl4dW4ncyBwZXJzcGVjdGl2ZSBvbiB0aGlzIGJlZm9yZSB3ZSBzdGFuZGFy
+ZGl6ZSB0aGUKYXBwcm9hY2ggYWNyb3NzIGJvdGggYm9hcmQgRFRTIGZpbGVzLCBCUEktRjMgYW5k
+IE1pbGtWIEp1cHRpZXIuCgpUaGFua3MuCkd1b2RvbmcKCj4KPgo+IEJlc3QgcmVnYXJkcywKPiBL
+cnp5c3p0b2YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
