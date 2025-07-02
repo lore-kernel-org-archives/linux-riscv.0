@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3FAC83F07
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 07:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E2E4C83013
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 07:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MEJ9SQJwdOk9JSE2EAV5LffF/i4nt7+MqheoeRiZu5I=; b=do9nCaRjgTHsur
-	KR8g+d305JQf0o+EIymH2/dw11eYTNaZS4TJSlcEOGmHoWs8wEqXl+Nr7LXE6+GgZEJMWChyeSCvX
-	Nbe3su54qkPU/P/Vg3UnqdiDyM+N22Xrn+OgNOlUO+ylpeZGZ88SSwLxEKLRMnEjTgzeR8rRzfFxH
-	YeMFQzM52Kq73PHL2vUd5r1/yTyWg7AwtpuMJOKIHV5dcW0d/ZUlYUDbDEeywB30yJZlTsPUfjYxa
-	BfkpNA+nJ3Ho60v9dFNsNdocAlNdq3dsY17W/nas6U18AfZp+mMssl4YlZ90d8+mmtF3r6TLFLgn5
-	t3w3YhiLOmyf1SCZ75OA==;
+	List-Owner; bh=ZZuRwYaDezwwgNTjQu5h9WdQ181nkZEXBet3d5W+Buc=; b=G2m7xZx4NKGg4T
+	3A7mFAXimrufHMk3NERGoYVTYMvDyxnKlNI1r6+71QM6f4gPu/uQABwzd94/KQG94shWymVZDFPg9
+	sv2Hn+NGt4DVW9BnTWFx8fiBqVxam4gbU+BbWF8JtCdZEmo591/+WqVeA7/9yaWMCdFYkMlC6pxex
+	Yamg+PvTyG0VwTm4jBKUuC2elbHpGS1ig4O4h8h0Aw0ipkrPI/dCf9NwybNvkOhFAXGQmeCBsRyEB
+	0D/JyvrJyw2BiA26/ifPmVavWPxaCk8ReIOk55repqf1Sp/axGq1orMw/QlE/xLbc7D/xntHJBlBD
+	5IAsaI76D6IvJPPy9iNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWsFO-00000007XxA-0ktB;
+	id 1uWsFO-00000007Xxu-48vk;
 	Wed, 02 Jul 2025 07:51:14 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWppY-00000007GGq-1TXC
+	id 1uWppf-00000007GKQ-275S
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Jul 2025 05:16:25 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-23636167b30so37275775ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 22:16:24 -0700 (PDT)
+	Wed, 02 Jul 2025 05:16:33 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2353a2bc210so37517655ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 22:16:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751433383; x=1752038183; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1751433391; x=1752038191; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=P3TJh+HyLkyeQ1VqRyPxzf43XEd03uT1gCuO+kpCcOM=;
-        b=mE0wUdjlsOGVGECr6SfwL7V8SSLgApBYqDKIYsDHs71OMdHAaLvqvBZo/8hX40HyTJ
-         /se+X9QYOIA1oQqnxsynTdg1EtP7qsXJHjBE2EQitNQaQASrxhHc/Vjis7uZ/h1R765P
-         WTbYJ+XUlG7QGSO31w6RL+FZWP59wlUqYOiSOuNseFMPn2G99MZwp49w0pphNdPfZrn6
-         CJn+d3/NfBpmyjPnOsMqoU26B0xf+YlAFCUVke85tIKm/iJibTDowPjDe42ubA5nmz7l
-         nlbS2z5O3UEVOdlL+BKmOEEesp4BEQUHButFsX6fNSwOTciPTDZdaYQpkZIvwoUS4wd6
-         F9jw==
+        bh=R+ya0GtiFk/8ci1A3C7Dw+WSyLS2yytdeeB0s74FDG4=;
+        b=oMJjWjvzFq4/GfoNfQBmQ8j86IKhjx5kfT8jH/5P3V7m6gigvDhJl7qX3Fy5iNnzA+
+         KRiNVhMTh/aBffBDr/9TfNoB3TwJ05A4ulRPD/AsxUOyOSHn7yd1QW5qdVXxoUoMYavZ
+         xsYLxbe562mB5nrSwT3yaJVaxWW3F9B4eRK9/8LX2aegNUB2jtRhsqBisLuy5rDXIZBm
+         JnD+j5gCTb/jml9+fNg0J+e81k1/fOY19tZP+Yxqsr7BKF1/35zCRCCM3MKk/tBOCOhW
+         hym++smJq+eIfMc+Py4Gjnad8OX9txPt0iaSBtpP6Dey8z2FnmDa94H0SoiSwzwXeayc
+         XuOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751433383; x=1752038183;
+        d=1e100.net; s=20230601; t=1751433391; x=1752038191;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=P3TJh+HyLkyeQ1VqRyPxzf43XEd03uT1gCuO+kpCcOM=;
-        b=L01NzchXV7wDdRv4D5z3Yki4Cwkdk5OvfJcgsBtEV1qJkDNe5+9MdtgGXazej0z+ft
-         fPYoHPsyoeKElpBsZ788G6KkMTEEL74cGdq+4nfOW9KLCNDbw7NURBe9Xq+MdeYmrRWv
-         ueQI+y136xvpAKhI8kIVbdva3Jw9RL6hBbID8zkg5ywEhUVbhJt7600PhVJoxGq46rHQ
-         Pxp1o/PIKB3reQeMZB5mSEEvCpGu3sy2HylWwikZJl8Ky9Q0Zlv3YtYZk8COdgsJ68zO
-         Ng5VDCf2h8ryZ86Xm071LzAsqdH+bq/kYvsGXcTJAyYPcGImly7BgHa9Rm3VZC3if1Ex
-         2joA==
-X-Forwarded-Encrypted: i=1; AJvYcCUhxWvSUZYLDWxhmwSbrFLb6IPDborLuRUu7TsJn0O8GbUjwHaN39b9pO5kyymc7y0tszGKIP3RmMEmbw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzulUgY9ghjuDC+d3hJcyqssvxI+n/hq278YAl/L9janqZe/zId
-	1yKQWKj/KqKpyyMS4UqoZWrjwUzglxxf6rYiU2T3huxFcGIay/q9cCBomSU9DDevHws=
-X-Gm-Gg: ASbGncu5Et5F1YDhmtPx/6qEl2+oCzLd1ToqIGz9saDU/RSaiPEwmtMupWR6rQkhfFO
-	+iYXizXdC7ONJTDgULl1loK1annpYeSbQI6RLPN6XJa/biQnZOm7TiCHeVyS34OtZtYvNCZ+l3E
-	Bcls+084l34MQd9wWeMlibUyWz6jYW7fa0VTGEFXlmNZgBY6EuVZSKFDyXXfs5Ko8Tg+ZkElI7m
-	3wC+uzw6oYlxMJpmouK0OyO19+XtdoDsGAdrzA1+h/TY4DiMJmJGJPm+cn/rkhvKty1jbbcZkfW
-	rNaf8e+kNPI6ELRn5XlyBZee8W38p2O5XeGxd9Vd/RO48FsIX7h6omSUQbG5thonbcWEldFmGLu
-	AD2rr5fkCVAR7GRFjzGlJIE983tA=
-X-Google-Smtp-Source: AGHT+IGjcdQ5SCYBwX/q8Ua3m2HXtZ+rTtj1lRl52H5ZQqdaEzollbkuxBGMe/8i5xm2XRTqzzD/0w==
-X-Received: by 2002:a17:903:1b63:b0:235:2403:77c7 with SMTP id d9443c01a7336-23c6e5708bdmr18551065ad.37.1751433383171;
-        Tue, 01 Jul 2025 22:16:23 -0700 (PDT)
+        bh=R+ya0GtiFk/8ci1A3C7Dw+WSyLS2yytdeeB0s74FDG4=;
+        b=DV3ekbuSWYUdZIPtAnB7eE5PgHbLZpdASHOTo3QyfEAKmdHhmrRaGtHw+xtT2EnHxX
+         sSipeb5f3anVxtHOQFNdZfwSp8NG9r858b+IqO2cVY7SZ1NDYeBPYpgGZOswZ1pbTggD
+         ZqXgJU1FVSTeFcmC/EhCyYCR0ZykPhlMV9MMF9K/CNmso9/AmjSJwVjiHpf2L1mmc1uj
+         kij3BoebIDrUxZFwXzoG+HHKpsqMB33jFG5NIwkd4xrT2KWsdGQz9cVBRxNu+g7nLp1U
+         FgthXKXmikfeBjuljB7QTAhiA81sNxBnW9fqqr/ncbGmDxSOcjGwddOHHpdDFcAaRTOt
+         E/Fw==
+X-Forwarded-Encrypted: i=1; AJvYcCVQZ9uUST0ajj1XQqNexeRV7IKKrlFsxQj08xOrv9RxQdSHIBrCfKSdMvHv/L6eY4onxPlDf8wxyJYn6g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYBl6UEun9js+C3LUSILambAKGgBxmGBgbXZxK4RmuBCMCuo71
+	3B/kzuBSJshJJt3KckZ1Xqfcw8WWiUCiaKdSYD+2cag1FDmRwffxwo9sjpW/tBAjI/E=
+X-Gm-Gg: ASbGnct0CF36z2slQ69vS/rBV8enZUob4v1VooEVLSy4YwdmtC1ykdJNBVkKRFj0bYs
+	c2dkBplYYobRT0NLHgQ1iTSiTFxUgnS5yZsJVhV3GfC3p6ciu36AQTkRoIJmRU5X12x32dqtnfl
+	dxNkr9zmRDjS8UV5PHKpIkTRpT1Msr6zXCdEA4puS0N3kV3PL7yNMGcjivMsX2Y08Vb8cs0m7qM
+	Fpt02bkWgA1bRCfL9HqfkIrpH3mzKQf6CLp/ZrOlburWGAtJhTaFzKIlf4/xqLKD+WvEKpMGviM
+	F+R/J2HLPLo+HKoOpsU6cUEGFW9qAw9qH5RXUP9heeQMTgvumRgTR5Qh1MMx2IOpZ/XtjRrHkdU
+	aOUEAT3zSJZaow1EW
+X-Google-Smtp-Source: AGHT+IGVPhlwjhXki+/3hyU8U7wHE3TbWpzk5YrsdGI24+SP+ypvFn2VzK1niX3bMdBnop5rpgktYA==
+X-Received: by 2002:a17:903:3c6b:b0:234:9670:cc73 with SMTP id d9443c01a7336-23c6e490fc1mr24534815ad.5.1751433390748;
+        Tue, 01 Jul 2025 22:16:30 -0700 (PDT)
 Received: from localhost.localdomain ([14.141.91.70])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c6fe31933sm4719595ad.220.2025.07.01.22.16.16
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c6fe31933sm4719595ad.220.2025.07.01.22.16.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 22:16:22 -0700 (PDT)
+        Tue, 01 Jul 2025 22:16:30 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -83,16 +83,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v7 18/24] ACPI: RISC-V: Add support to update gsi range
-Date: Wed,  2 Jul 2025 10:43:39 +0530
-Message-ID: <20250702051345.1460497-19-apatel@ventanamicro.com>
+Subject: [PATCH v7 19/24] ACPI: RISC-V: Add RPMI System MSI to GSI mapping
+Date: Wed,  2 Jul 2025 10:43:40 +0530
+Message-ID: <20250702051345.1460497-20-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250702051345.1460497-1-apatel@ventanamicro.com>
 References: <20250702051345.1460497-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_221624_399454_CD6C848B 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20250701_221631_541500_D53EEBF7 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,128 +112,76 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Sunil V L <sunilvl@ventanamicro.com>
 
-Some RISC-V interrupt controllers like RPMI based system MSI interrupt
-controllers do not have MADT entry defined. These interrupt controllers
-exist only in the namespace. ACPI spec defines _GSB method to get the
-GSI base of the interrupt controller, However, there is no such standard
-method to get the GSI range. To support such interrupt controllers, set
-the GSI range of such interrupt controllers to non-overlapping range and
-provide API for interrupt controller driver to update it with proper
-value.
+The RPMI System MSI device will provide GSIs to downstream devices
+(such as GED) so add it to the RISC-V GSI to fwnode mapping.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/include/asm/irq.h |  5 +++++
- drivers/acpi/riscv/irq.c     | 38 ++++++++++++++++++++++++++++++++++--
- 2 files changed, 41 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/irq.h |  1 +
+ drivers/acpi/riscv/irq.c     | 30 ++++++++++++++++++++++++++++++
+ 2 files changed, 31 insertions(+)
 
 diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
-index 7b038f3b7cb0..2caf049f09c8 100644
+index 2caf049f09c8..9c9d22f5165e 100644
 --- a/arch/riscv/include/asm/irq.h
 +++ b/arch/riscv/include/asm/irq.h
-@@ -40,6 +40,7 @@ unsigned long acpi_rintc_ext_parent_to_hartid(unsigned int plic_id, unsigned int
- unsigned int acpi_rintc_get_plic_nr_contexts(unsigned int plic_id);
- unsigned int acpi_rintc_get_plic_context(unsigned int plic_id, unsigned int ctxt_idx);
- int __init acpi_rintc_get_imsic_mmio_info(u32 index, struct resource *res);
-+int riscv_acpi_update_gsi_range(u32 gsi_base, u32 nr_irqs);
- 
- #else
- static inline int riscv_acpi_get_gsi_info(struct fwnode_handle *fwnode, u32 *gsi_base,
-@@ -74,6 +75,10 @@ static inline int __init acpi_rintc_get_imsic_mmio_info(u32 index, struct resour
- 	return 0;
- }
- 
-+static inline int riscv_acpi_update_gsi_range(u32 gsi_base, u32 nr_irqs)
-+{
-+	return -ENODEV;
-+}
- #endif /* CONFIG_ACPI */
- 
- #endif /* _ASM_RISCV_IRQ_H */
-diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
-index 33c073e2e71d..cc1928422418 100644
---- a/drivers/acpi/riscv/irq.c
-+++ b/drivers/acpi/riscv/irq.c
-@@ -10,6 +10,8 @@
- 
- #include "init.h"
- 
-+#define RISCV_ACPI_INTC_FLAG_PENDING BIT(0)
-+
- struct riscv_ext_intc_list {
- 	acpi_handle		handle;
- 	u32			gsi_base;
-@@ -17,6 +19,7 @@ struct riscv_ext_intc_list {
- 	u32			nr_idcs;
- 	u32			id;
- 	u32			type;
-+	u32			flag;
- 	struct list_head	list;
+@@ -30,6 +30,7 @@ enum riscv_irqchip_type {
+ 	ACPI_RISCV_IRQCHIP_IMSIC	= 0x01,
+ 	ACPI_RISCV_IRQCHIP_PLIC		= 0x02,
+ 	ACPI_RISCV_IRQCHIP_APLIC	= 0x03,
++	ACPI_RISCV_IRQCHIP_SMSI		= 0x04,
  };
  
-@@ -69,6 +72,22 @@ static acpi_status riscv_acpi_update_gsi_handle(u32 gsi_base, acpi_handle handle
- 	return AE_NOT_FOUND;
- }
- 
-+int riscv_acpi_update_gsi_range(u32 gsi_base, u32 nr_irqs)
-+{
-+	struct riscv_ext_intc_list *ext_intc_element;
-+
-+	list_for_each_entry(ext_intc_element, &ext_intc_list, list) {
-+		if (gsi_base == ext_intc_element->gsi_base &&
-+		    (ext_intc_element->flag & RISCV_ACPI_INTC_FLAG_PENDING)) {
-+			ext_intc_element->nr_irqs = nr_irqs;
-+			ext_intc_element->flag &= ~RISCV_ACPI_INTC_FLAG_PENDING;
-+			return 0;
-+		}
-+	}
-+
-+	return -ENODEV;
-+}
-+
  int riscv_acpi_get_gsi_info(struct fwnode_handle *fwnode, u32 *gsi_base,
- 			    u32 *id, u32 *nr_irqs, u32 *nr_idcs)
- {
-@@ -115,14 +134,22 @@ struct fwnode_handle *riscv_acpi_get_gsi_domain_id(u32 gsi)
- static int __init riscv_acpi_register_ext_intc(u32 gsi_base, u32 nr_irqs, u32 nr_idcs,
- 					       u32 id, u32 type)
- {
--	struct riscv_ext_intc_list *ext_intc_element, *node;
-+	struct riscv_ext_intc_list *ext_intc_element, *node, *prev;
- 
- 	ext_intc_element = kzalloc(sizeof(*ext_intc_element), GFP_KERNEL);
- 	if (!ext_intc_element)
- 		return -ENOMEM;
- 
- 	ext_intc_element->gsi_base = gsi_base;
--	ext_intc_element->nr_irqs = nr_irqs;
-+
-+	/* If nr_irqs is zero, indicate it in flag and set to max range possible */
-+	if (nr_irqs) {
-+		ext_intc_element->nr_irqs = nr_irqs;
-+	} else {
-+		ext_intc_element->flag |= RISCV_ACPI_INTC_FLAG_PENDING;
-+		ext_intc_element->nr_irqs = U32_MAX - ext_intc_element->gsi_base;
-+	}
-+
- 	ext_intc_element->nr_idcs = nr_idcs;
- 	ext_intc_element->id = id;
- 	list_for_each_entry(node, &ext_intc_list, list) {
-@@ -130,6 +157,13 @@ static int __init riscv_acpi_register_ext_intc(u32 gsi_base, u32 nr_irqs, u32 nr
- 			break;
- 	}
- 
-+	/* Adjust the previous node's GSI range if that has pending registration */
-+	prev = list_prev_entry(node, list);
-+	if (!list_entry_is_head(prev, &ext_intc_list, list)) {
-+		if (prev->flag & RISCV_ACPI_INTC_FLAG_PENDING)
-+			prev->nr_irqs = ext_intc_element->gsi_base - prev->gsi_base;
-+	}
-+
- 	list_add_tail(&ext_intc_element->list, &node->list);
+diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
+index cc1928422418..d9a2154d6c6a 100644
+--- a/drivers/acpi/riscv/irq.c
++++ b/drivers/acpi/riscv/irq.c
+@@ -168,6 +168,33 @@ static int __init riscv_acpi_register_ext_intc(u32 gsi_base, u32 nr_irqs, u32 nr
  	return 0;
  }
+ 
++static acpi_status __init riscv_acpi_create_gsi_map_smsi(acpi_handle handle, u32 level,
++							 void *context, void **return_value)
++{
++	acpi_status status;
++	u64 gbase;
++
++	if (!acpi_has_method(handle, "_GSB")) {
++		acpi_handle_err(handle, "_GSB method not found\n");
++		return AE_ERROR;
++	}
++
++	status = acpi_evaluate_integer(handle, "_GSB", NULL, &gbase);
++	if (ACPI_FAILURE(status)) {
++		acpi_handle_err(handle, "failed to evaluate _GSB method\n");
++		return status;
++	}
++
++	riscv_acpi_register_ext_intc(gbase, 0, 0, 0, ACPI_RISCV_IRQCHIP_SMSI);
++	status = riscv_acpi_update_gsi_handle((u32)gbase, handle);
++	if (ACPI_FAILURE(status)) {
++		acpi_handle_err(handle, "failed to find the GSI mapping entry\n");
++		return status;
++	}
++
++	return AE_OK;
++}
++
+ static acpi_status __init riscv_acpi_create_gsi_map(acpi_handle handle, u32 level,
+ 						    void *context, void **return_value)
+ {
+@@ -222,6 +249,9 @@ void __init riscv_acpi_init_gsi_mapping(void)
+ 
+ 	if (acpi_table_parse_madt(ACPI_MADT_TYPE_APLIC, riscv_acpi_aplic_parse_madt, 0) > 0)
+ 		acpi_get_devices("RSCV0002", riscv_acpi_create_gsi_map, NULL, NULL);
++
++	/* Unlike PLIC/APLIC, SYSMSI doesn't have MADT */
++	acpi_get_devices("RSCV0006", riscv_acpi_create_gsi_map_smsi, NULL, NULL);
+ }
+ 
+ static acpi_handle riscv_acpi_get_gsi_handle(u32 gsi)
 -- 
 2.43.0
 
