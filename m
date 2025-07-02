@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C11AC83F07
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 05:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81775C83F05
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 05:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=89OCfY1A1Mz5H+RKsvkGy/QsDcymgoYZbOgrxgq3pYA=; b=MbUejWa4GIlK3j
-	Onc6DLXsCvaPshnxYLU9lo0rwXU9w2prG/TsHErdVF6+9CYppLY147mA19fxZ+oSUA1gyAk/SE6bN
-	mQBhVp3dbUvaFmi1xysfAx+Rf0cy1SR3TG5z2KiYADT6O2ydZQT8W6K67WWxrksrbQs5nsdea8bfS
-	dmKjowVgIn8XJS9lan+2OZVQWf53rxgOOg7tx3T88oSCFTqN52IvoRA0D6YIFDIloULN2LzE4Gm7M
-	Nw/xANmKG0W7A5WfogHZouZbAkizUOT3ZZCA8cur0NoucqIWi8ncobYze7PKJayVogtV0e+Q9PeMn
-	wP63mOS04M7tIxOqX4bg==;
+	List-Owner; bh=drVtD1qop3WP0rG1W1ZLTILKeF6xZZDGZeWjNuMIBE8=; b=J2b0SdFe4G6XB2
+	mE0rK6tBfIJkSVKRD1nYMzybp7Ym4hPS4B5lxILnCuiRFXNsNtFx5ePZbNw1X6JDMmcbBpmA4I8jF
+	dTx3swNQi5FPtooiUpDd03g4TCZqerkeBEXJZeFuUJb0AV0u2rBjsvJze8GxRMgXi8Is1oAsWeSUb
+	pEc9pEItzWFP2aorDZLbCrRJI4UE19n6/7/cf7iASMt41w29fgTeceE8TtVaprx28SZElCUO6kml1
+	+m1myQgE6L/mYZUq2ThITAtSZM9jRHCNSK7noIZxOxsWCmCD1R0r2fsU+Ac6hM9g888fa1AtUEzF2
+	SrfhiNSBjeiI3anBTTtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWpuD-00000007HNr-0wiz;
+	id 1uWpuD-00000007HOG-3kwh;
 	Wed, 02 Jul 2025 05:21:13 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWpnx-00000007FqE-1CWW
+	id 1uWpo4-00000007Fre-3EWA
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Jul 2025 05:14:46 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-234b9dfb842so36868205ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 22:14:45 -0700 (PDT)
+	Wed, 02 Jul 2025 05:14:53 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-23aeac7d77aso36085705ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 22:14:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751433284; x=1752038084; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1751433292; x=1752038092; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oP6ThGaZGs8MyIgO+nprUM8QR3vfVMjtp+0dcAYkEZA=;
-        b=IElAiD7SmiA1ocnxn2P1ZXj6j2aWidI30FXDsuBShgjz4/9obxBBvHvtpAYSMhQXh6
-         xenK087tn/ZMze0t4pEzG96KCeaIcrGTI0jlzCuSqjoNYhHRK7VgOXmsk7PuM5JG6Gq8
-         ycBiQaqa5PN/tcInUKXh+3G95OWKLW6F6P3eLPFYlfPlhIYGAsvc2Np7XInsME+tMpFr
-         4HhNqUuwHaZe0DYs8tI65oKfO5Nmcs652A0oivZ7a/Zupk+/L/P3Q4zB8PVSFu3x2RqX
-         PVuA7KVS0guMeGZ/EJJXASY7jMWRavZZZZPwNn5q3NZBLk0UFVOPA5quMc/6H+bgUEwt
-         wZpQ==
+        bh=nqC4VLtB/5V/tfhRhr6dfZ8k+2Am0+dgL1H83VW+Xe4=;
+        b=aFHZYwfcgNJb38toeGo4bV2wszltTlLvbnu+3TEem51f/w9FALjAsgHAFDausoWymz
+         SS1aa85xglITIIBAcT614qREURskEU1ScwmBpxRh+qXp08/yCPOkr5MB6a5dhdEMnktv
+         31krazCE8pgRV54fWnl6zKQHjEUTrwVE+M+pubCKCMs9lbiznFiT9i15IxNRB2FX+uId
+         B/RqCHgEjPK6vGp9nGsios9Dtmq07lAOtMOH8P0zqkYFud1wFwRwFqeR6Ozs/QXjKfis
+         IklCS1VONYuLO8pHNynP2DqWL7uThnxtyAhMb46UiVbgHjFxaZXxMctkwgXJtNqzep7v
+         gqKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751433284; x=1752038084;
+        d=1e100.net; s=20230601; t=1751433292; x=1752038092;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=oP6ThGaZGs8MyIgO+nprUM8QR3vfVMjtp+0dcAYkEZA=;
-        b=pawM+5IGYSwUYwCNvdnFWDpDDdc/3nBx8F7XtWtRuhMurcqD180VrINTB/oilT7yNx
-         oDkySWTAEGX6tEKukkNvt/7Ps2u3s8+e0g5SsPjAPnO9fJu3yc/636Chagrkx5cV9GZG
-         kqX3xHcWn4vELUlsqkLCMtQJytpbJopaf8WUqNPTgtLytp/656heqWKhxdlXfYxmfp3W
-         60q/rv5d5wK+36SwUbdbCrH+IuRLTOC7vNzYN/teF4ztETBTzy18PV4m8YtVz/0jaZf7
-         wRbCO0KYidUrQUhkrWZ1EmEy8LHt2HWbFFcysB23Hgqf0gdwlbteay8G+4lraWHn5rjn
-         RGbw==
-X-Forwarded-Encrypted: i=1; AJvYcCWk/L/LQr01bDdelt4EgxmDrCvpe/MqnitE+7NBxnISqqB36qx0Zoch4urWR2iRnLFcwnf+TrYxF+W3vw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzuu8TX1INv7m/+Amuv50usD6PtRtVbBieelUtoo9ovMHJ65N3I
-	D3xAcA9jxhTD0+pDCde1T6wgEHZs2sJr+y33ux5ekHQPRvRyOjsYrzuntmZzpMhcrLI=
-X-Gm-Gg: ASbGncvlSHQr5RRIb+wjgO7c6spy+eflEYbkEV1GP7KtRLi3NJum+T57/0CaOlTBWN4
-	LPRGx4VRN3P8aI3zeucynl6Lt2l8VEvQaucMvgFbZKI4S0ZCQoGzVwDJA3sHqDTtfzQGOuQThtR
-	9EfUhQJFs4bjrDccpltC5uwAYHrFuI8wdhjtUxX1a4BXofjLK9vbSiSnym3ky9Fwm9JD3Et/2QX
-	m1bYIsWvYmG2Ipq5kpFngrY/RYxlOGlhMAFPSgnWky7WbY+osQfrS0L8NQd/CcIUq8wJUsKta4R
-	LtkzAxCJcvtDJUArC/0lMd8KdbzNZ2eO9XL073NmyWWcrSxoMGMPTyx2TynYCXJXrt53JMPt6BE
-	a5v0tMTt4yaow8Ux0
-X-Google-Smtp-Source: AGHT+IHW6+yjygzJaRYVJbk398vw/ZCnNjzG8uYmd5NcS+WaiG0hLE/XIX5nmwnliNsaVR742l1nrQ==
-X-Received: by 2002:a17:903:1a2e:b0:232:59b:58fe with SMTP id d9443c01a7336-23c6e4d6e93mr19975825ad.1.1751433284391;
-        Tue, 01 Jul 2025 22:14:44 -0700 (PDT)
+        bh=nqC4VLtB/5V/tfhRhr6dfZ8k+2Am0+dgL1H83VW+Xe4=;
+        b=jCCd9p/30rSCJS39G44BhKH3pUoXx87Ryi+yqYctx+GUGY5knv8x6kfB/nkdkLjVxG
+         E3lv2qRp4Jb33I7ie+czXBu4rViNsKmDieo5rPRNCHgRCW0zuLPerk/fCuiAzBQP3Y4Y
+         jDff/fIC9H4KICuB73jsPreCAZROnfY3t5reDioN8qZWTbEiiZB+qLk9dL63xbFBVYiU
+         L9CbDYdgOf3u0ir8qYNT3vHBMpGFUltApVNkeasrbe8d9TvnOEPBRm1nhQX7VRpoNMdA
+         jWMyTG/cvQ24kqaxoit48NNrqQYVr3jn7S06Qbtp4ML2UnnjXj1jAVOLrjm4tM5KnLqn
+         e8Ew==
+X-Forwarded-Encrypted: i=1; AJvYcCUvXWmUXVIo5zSdwuHBoa6bchqSatKcZvIWM17RWRma67vVCsdiE/EWPkkh3ufD8MzbAVddkS6AYJQWDw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNg9WmDkj9IlU1elE4h2oLlJBea9xcVqyNTwPIemyv8eYHXxIN
+	izgFgtaR7P8ndpJGyh8+mJnIo2paR86uO9u9xj+EbUgLB2SgETxj2nB2f2g8M/YvUCo=
+X-Gm-Gg: ASbGnctqr6szlGtAviJX4bYmJkt7hSusjjfCFUcBRcumQIosnTCazbG+QqckS9JW+Sk
+	aCa1GmQbbUvG0t/Z9bsy6qzZRZgHxtwUzj7KoE8yWWJlgZsi4FfSLWAenKjMoB/1pu8TyNXXp7+
+	OSM+ZMUHHYWAqU4f6kjGUNiPiFvFcsNWNED2NQr1Woxq+xbPvdftb+3CiYR7hFBCHn3nGk5u70R
+	Tjkn7yIMwIeHGe/LQTzl0FgF8ftCljj+FdZw20CVCiAqAmgU9VQv8FNcxaE5g1bhtP0oPbHBf+g
+	iI0EYDpCezX2eq749q25ozRjDehIK9ZUCL5X0DILBLXC06X2THcOgERCGVARcB83D1itzbwLieM
+	sfz+slM+z0/a/i8Jp
+X-Google-Smtp-Source: AGHT+IGlyNbAZQuDOeCGGhEH6QTSFXwRevz7KU5t+CywLuVwtZ+G8tX33M+R/3t7hDV3PPKWLn7voA==
+X-Received: by 2002:a17:902:d2c6:b0:234:8ef1:aa7b with SMTP id d9443c01a7336-23c6e48f8admr18399295ad.20.1751433291916;
+        Tue, 01 Jul 2025 22:14:51 -0700 (PDT)
 Received: from localhost.localdomain ([14.141.91.70])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c6fe31933sm4719595ad.220.2025.07.01.22.14.37
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c6fe31933sm4719595ad.220.2025.07.01.22.14.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 22:14:43 -0700 (PDT)
+        Tue, 01 Jul 2025 22:14:51 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -83,16 +83,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v7 05/24] mailbox: Allow controller specific mapping using fwnode
-Date: Wed,  2 Jul 2025 10:43:26 +0530
-Message-ID: <20250702051345.1460497-6-apatel@ventanamicro.com>
+Subject: [PATCH v7 06/24] byteorder: Add memcpy_to_le32() and memcpy_from_le32()
+Date: Wed,  2 Jul 2025 10:43:27 +0530
+Message-ID: <20250702051345.1460497-7-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250702051345.1460497-1-apatel@ventanamicro.com>
 References: <20250702051345.1460497-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_221445_324800_2C75C8F1 
-X-CRM114-Status: GOOD (  22.89  )
+X-CRM114-CacheID: sfid-20250701_221452_807290_A69BF6B3 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,161 +110,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce optional fw_node() callback which allows a mailbox controller
-driver to provide controller specific mapping using fwnode.
+Add common memcpy APIs for copying u32 array to/from __le32 array.
 
-The Linux OF framework already implements fwnode operations for the
-Linux DD framework so the fw_xlate() callback works fine with device
-tree as well.
-
+Suggested-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/mailbox/mailbox.c          | 65 ++++++++++++++++++------------
- include/linux/mailbox_controller.h |  3 ++
- 2 files changed, 43 insertions(+), 25 deletions(-)
+ include/linux/byteorder/generic.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
-index 5cd8ae222073..2acc6ec229a4 100644
---- a/drivers/mailbox/mailbox.c
-+++ b/drivers/mailbox/mailbox.c
-@@ -15,6 +15,7 @@
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/of.h>
-+#include <linux/property.h>
- #include <linux/spinlock.h>
- 
- #include "mailbox.h"
-@@ -383,34 +384,56 @@ EXPORT_SYMBOL_GPL(mbox_bind_client);
-  */
- struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
- {
--	struct device *dev = cl->dev;
-+	struct fwnode_reference_args fwspec;
-+	struct fwnode_handle *fwnode;
- 	struct mbox_controller *mbox;
- 	struct of_phandle_args spec;
- 	struct mbox_chan *chan;
-+	struct device *dev;
-+	unsigned int i;
- 	int ret;
- 
--	if (!dev || !dev->of_node) {
--		pr_debug("%s: No owner device node\n", __func__);
-+	dev = cl->dev;
-+	if (!dev) {
-+		pr_debug("No owner device\n");
- 		return ERR_PTR(-ENODEV);
+diff --git a/include/linux/byteorder/generic.h b/include/linux/byteorder/generic.h
+index c9a4c96c9943..b3705e8bbe2b 100644
+--- a/include/linux/byteorder/generic.h
++++ b/include/linux/byteorder/generic.h
+@@ -173,6 +173,22 @@ static inline void cpu_to_le32_array(u32 *buf, unsigned int words)
  	}
- 
--	ret = of_parse_phandle_with_args(dev->of_node, "mboxes", "#mbox-cells",
--					 index, &spec);
-+	fwnode = dev_fwnode(dev);
-+	if (!fwnode) {
-+		dev_dbg(dev, "No owner fwnode\n");
-+		return ERR_PTR(-ENODEV);
-+	}
-+
-+	ret = fwnode_property_get_reference_args(fwnode, "mboxes", "#mbox-cells",
-+						 0, index, &fwspec);
- 	if (ret) {
--		dev_err(dev, "%s: can't parse \"mboxes\" property\n", __func__);
-+		dev_err(dev, "%s: can't parse \"%s\" property\n", __func__, "mboxes");
- 		return ERR_PTR(ret);
- 	}
- 
-+	spec.np = to_of_node(fwspec.fwnode);
-+	spec.args_count = fwspec.nargs;
-+	for (i = 0; i < spec.args_count; i++)
-+		spec.args[i] = fwspec.args[i];
-+
- 	scoped_guard(mutex, &con_mutex) {
- 		chan = ERR_PTR(-EPROBE_DEFER);
--		list_for_each_entry(mbox, &mbox_cons, node)
--			if (mbox->dev->of_node == spec.np) {
--				chan = mbox->of_xlate(mbox, &spec);
--				if (!IS_ERR(chan))
--					break;
-+		list_for_each_entry(mbox, &mbox_cons, node) {
-+			if (device_match_fwnode(mbox->dev, fwspec.fwnode)) {
-+				if (mbox->fw_xlate) {
-+					chan = mbox->fw_xlate(mbox, &fwspec);
-+					if (!IS_ERR(chan))
-+						break;
-+				} else if (mbox->of_xlate) {
-+					chan = mbox->of_xlate(mbox, &spec);
-+					if (!IS_ERR(chan))
-+						break;
-+				}
- 			}
-+		}
- 
--		of_node_put(spec.np);
-+		fwnode_handle_put(fwspec.fwnode);
- 
- 		if (IS_ERR(chan))
- 			return chan;
-@@ -427,15 +450,8 @@ EXPORT_SYMBOL_GPL(mbox_request_channel);
- struct mbox_chan *mbox_request_channel_byname(struct mbox_client *cl,
- 					      const char *name)
- {
--	struct device_node *np = cl->dev->of_node;
--	int index;
--
--	if (!np) {
--		dev_err(cl->dev, "%s() currently only supports DT\n", __func__);
--		return ERR_PTR(-EINVAL);
--	}
-+	int index = device_property_match_string(cl->dev, "mbox-names", name);
- 
--	index = of_property_match_string(np, "mbox-names", name);
- 	if (index < 0) {
- 		dev_err(cl->dev, "%s() could not locate channel named \"%s\"\n",
- 			__func__, name);
-@@ -470,9 +486,8 @@ void mbox_free_channel(struct mbox_chan *chan)
  }
- EXPORT_SYMBOL_GPL(mbox_free_channel);
  
--static struct mbox_chan *
--of_mbox_index_xlate(struct mbox_controller *mbox,
--		    const struct of_phandle_args *sp)
-+static struct mbox_chan *fw_mbox_index_xlate(struct mbox_controller *mbox,
-+					     const struct fwnode_reference_args *sp)
++static inline void memcpy_from_le32(u32 *dst, const __le32 *src, size_t words)
++{
++	size_t i;
++
++	for (i = 0; i < words; i++)
++		dst[i] = le32_to_cpu(src[i]);
++}
++
++static inline void memcpy_to_le32(__le32 *dst, const u32 *src, size_t words)
++{
++	size_t i;
++
++	for (i = 0; i < words; i++)
++		dst[i] = cpu_to_le32(src[i]);
++}
++
+ static inline void be16_add_cpu(__be16 *var, u16 val)
  {
- 	int ind = sp->args[0];
- 
-@@ -523,8 +538,8 @@ int mbox_controller_register(struct mbox_controller *mbox)
- 		spin_lock_init(&chan->lock);
- 	}
- 
--	if (!mbox->of_xlate)
--		mbox->of_xlate = of_mbox_index_xlate;
-+	if (!mbox->fw_xlate && !mbox->of_xlate)
-+		mbox->fw_xlate = fw_mbox_index_xlate;
- 
- 	scoped_guard(mutex, &con_mutex)
- 		list_add_tail(&mbox->node, &mbox_cons);
-diff --git a/include/linux/mailbox_controller.h b/include/linux/mailbox_controller.h
-index ad01c4082358..80a427c7ca29 100644
---- a/include/linux/mailbox_controller.h
-+++ b/include/linux/mailbox_controller.h
-@@ -66,6 +66,7 @@ struct mbox_chan_ops {
-  *			no interrupt rises. Ignored if 'txdone_irq' is set.
-  * @txpoll_period:	If 'txdone_poll' is in effect, the API polls for
-  *			last TX's status after these many millisecs
-+ * @fw_xlate:		Controller driver specific mapping of channel via fwnode
-  * @of_xlate:		Controller driver specific mapping of channel via DT
-  * @poll_hrt:		API private. hrtimer used to poll for TXDONE on all
-  *			channels.
-@@ -79,6 +80,8 @@ struct mbox_controller {
- 	bool txdone_irq;
- 	bool txdone_poll;
- 	unsigned txpoll_period;
-+	struct mbox_chan *(*fw_xlate)(struct mbox_controller *mbox,
-+				      const struct fwnode_reference_args *sp);
- 	struct mbox_chan *(*of_xlate)(struct mbox_controller *mbox,
- 				      const struct of_phandle_args *sp);
- 	/* Internal to API */
+ 	*var = cpu_to_be16(be16_to_cpu(*var) + val);
 -- 
 2.43.0
 
