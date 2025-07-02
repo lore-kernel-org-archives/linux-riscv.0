@@ -4,81 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A858C83013
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 07:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C344C83038
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 07:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FLqimHIyYHDtuFVYcK/BLIqJl/hXebEC+gq4m/YP5j8=; b=nI4h5DgS6SptPM
-	1bhkFp8y19w3R7EXBmbbb0JJLmTR0XsqfzYMnj5x3R0NcvWkAYeDH1DzULnmnIS6wLsHBuys/gPUN
-	VSfbKkX+iaAuzJz+JDxLVCZ1xDZzn0NvK2NkhAoQ2r/8KMJWDB67+4uaYLBaqXQvbQDsh8NyWl2ki
-	ciOpx0aLSa9ibbpxym3DkeuCJ3O1LXYdpw2rsi1I991LhnzAIyxhjJ+zTfF5GXRmkTCfZwWMgzXnX
-	kuQWVEPrdQ+Hbw8mml1+JBrLGfOx934vungaL8qa64ifOQKsSDgifhut/K2xIX3rI1Lazj784WNma
-	RSPytj2bAwXn5qwl1QlQ==;
+	List-Owner; bh=hrnKkvELy1VlLWePoRj1wz273AWPoeqWexesuw21l6o=; b=sa0HgKoZDCa5Y6
+	7gPLrBtCAbbnfo5Hs4JLLsUJHIbGds6z4fneDNumeRIGB//r7GHk2NI8nrtvUWZKFc2iXxtRD7gNu
+	00dgxDFopnPmXDiF7OvEtET+fU0/7KRgtTIszo4Jkj10NoMsZhkLUndD/oHWyFW1wt8M1JbuRJpMn
+	aEkTPtFjZp1LVzy/kHeYOXSoPPfFMpFO26VV8HVww/T0pdsSbdfsC1siOoTaDVatI9R8/mXGNduR5
+	42VWhwpBZybb+krOyGNFKR3DInIbISt53lFRZp2+PIumeA4ZrEq655p/0V7GrXWi62OgE10bHmmZm
+	E6kZes9Bc6G0sLcB/OCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWs7q-00000007Wdb-3hK7;
-	Wed, 02 Jul 2025 07:43:27 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1uWsFM-00000007XvW-1agc;
+	Wed, 02 Jul 2025 07:51:12 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWs69-00000007WQ5-0UyR
+	id 1uWppI-00000007GBp-3wxQ
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Jul 2025 07:41:43 +0000
-Received: from [192.168.33.13] (unknown [210.73.43.2])
-	by APP-03 (Coremail) with SMTP id rQCowAAXrn+f4mRooUF4AA--.33051S2;
-	Wed, 02 Jul 2025 15:41:20 +0800 (CST)
-Message-ID: <5f02539a-2541-4705-b1a3-c1095416463e@iscas.ac.cn>
-Date: Wed, 2 Jul 2025 15:41:18 +0800
+	Wed, 02 Jul 2025 05:16:10 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-235ea292956so37482455ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 22:16:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1751433368; x=1752038168; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PBceoBehx8BvgZH4kIrIZIQMdJgc3OIIxRIhQIQqZsc=;
+        b=kOKmwdNkFCsLG0MttthCG5/1KgP6LOvpxDxV2UvdtTKKh7phl/p8JFs0gr4X9qSnSA
+         JfFc3zwTQxTBQnmLy0j/3low6j9o+d2rwzjxMgZHXT2aNak/wqXVSmGA6VJdT7OjEqYr
+         uPak/EgNedl2pg43HCW9bxq6YlF3liJ6K9FkipPXb50m1PozR821Ff88uDacLwGjecv0
+         mFuwaCmBxUY5BOZ4vp1xU8oHyvKgGqi7OFCtjAp2qU/v1nzTPwKOnc+lz9WYOZaIVYvG
+         6jiQDOMEicmJvYtLlB0gmVDMJGwUGBb3Ykw+o/rNwm4zRN5bXEEQp6X215I33buheuhb
+         aHhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751433368; x=1752038168;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PBceoBehx8BvgZH4kIrIZIQMdJgc3OIIxRIhQIQqZsc=;
+        b=SnZVBAXNhG9d4GTuWUNf/498tGw9SCYhx7ZMueEKnIZCq3NhQvzF3ZTk/rmE5XL/j/
+         IOdzomhV9xGAfo/tTFiU4TDJtHlf16xPUKERChSTgiONuUP3CyiKblYJoSTIXdzcfdGt
+         TYeufHLKj0ANpg+Bhd6U7nHCQEaRMzO1oao/IXeS1DGWQbqoHwNhHn8d6+U1itp2KROd
+         0eiExGbzoD/byWitnPVdmVS8qavgM+dFOeAmuaNk6C8SSibi7Wdyn1/TMv87tl+2bMCn
+         75qZlBRFbOA90hEf4hsbS5nYUV1oMz2vRySYJ3VgG2tPVQx+O6k/RFDYb3TDf2DnT954
+         h91A==
+X-Forwarded-Encrypted: i=1; AJvYcCXnSFXmIcDwcx1Mby/3/CCqE8pxKBb0FbwBsocfz6ja4QM4DJW3OV5TkWqkzWEeIEgX1sTQjQWctrLsEg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmhaNB6jujlAcRSi1hIYvUsME4L+s5wCipnCn1+u1wuGOraxJw
+	MbzSccq8Ff6S3yW/i35PFPn9jSsGquvLZNlVsq/57N7QFWSGw9i5WkYiJ9HMyE0F9zE=
+X-Gm-Gg: ASbGncsqRvzH7H2P8m6zcRgQ9+CxyIeh0l/hGNToH+thdEwf/WHN397WPIapoiFhRpP
+	+u2ly1HBtCgplDtfdBCSDoJSUIeACE5sOVlUVbnyGrm0qdlMpTJlq3hT0XYsyBeviCP2Ymmj/W7
+	F1TAbjpy2larQG6179rKTFnitsjDys8kuQO/WjLZxATG5I1yf7STgO8BGLAE/Ttftaa11qCtTw3
+	o8F5USEugFCrRtSJa0NYTRMxYFj/i7pBkzprkeF0tL9RL+/YNTs8d337YxyWCKluwLHIYitqUjd
+	m6gBSHqSWgx5j+hhNPtKgBU3CYy5E9AJIpf3UeCFTTUn4t4qeG3L3f2ADOWBL7ORBUvf+q81hvn
+	d0sPbO8jrAe/Q2d2M
+X-Google-Smtp-Source: AGHT+IFKKOiOcB60DEsZKqmVfcXE0dhCOXPWFAp2kRuerlsj/aT4QarUNKrpH9hQuOyq/8oYcK2PvQ==
+X-Received: by 2002:a17:903:3c4d:b0:237:d486:706a with SMTP id d9443c01a7336-23c6e584257mr21721685ad.48.1751433368200;
+        Tue, 01 Jul 2025 22:16:08 -0700 (PDT)
+Received: from localhost.localdomain ([14.141.91.70])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c6fe31933sm4719595ad.220.2025.07.01.22.16.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jul 2025 22:16:07 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Subject: [PATCH v7 16/24] ACPI: scan: Update honor list for RPMI System MSI
+Date: Wed,  2 Jul 2025 10:43:37 +0530
+Message-ID: <20250702051345.1460497-17-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250702051345.1460497-1-apatel@ventanamicro.com>
+References: <20250702051345.1460497-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 2/5] net: spacemit: Add K1 Ethernet MAC
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Vivian Wang <uwu@dram.page>,
- Lukas Bulwahn <lukas.bulwahn@redhat.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250702-net-k1-emac-v3-0-882dc55404f3@iscas.ac.cn>
- <20250702-net-k1-emac-v3-2-882dc55404f3@iscas.ac.cn>
- <20250702091708.7d459213@fedora.home>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20250702091708.7d459213@fedora.home>
-X-CM-TRANSID: rQCowAAXrn+f4mRooUF4AA--.33051S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxtw18ZF47GFWUAFy8KF13twb_yoW7Cw13pa
-	95GFWftF18Zr1xWr42vr4DJr92vw1ktF10kryYyay8u3sIyr1fJFy8KrWUCas5AFyqvrW5
-	Zw4UXFnrua1kWrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvCb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr1j6F
-	4UJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
-	wI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2Kf
-	nxnUUI43ZEXa7IUY4pBDUUUUU==
-X-Originating-IP: [210.73.43.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_004141_532871_DF515778 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20250701_221608_978970_A633838E 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,225 +104,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+From: Sunil V L <sunilvl@ventanamicro.com>
 
-Thanks for your suggestions.
+The RPMI System MSI interrupt controller (just like PLIC and APLIC)
+needs to probed prior to devices like GED which use interrupts provided
+by it. Also, it has dependency on the SBI MPXY mailbox device.
 
-On 7/2/25 15:17, Maxime Chevallier wrote:
-> Hello Vivian,
->
-> On Wed, 02 Jul 2025 14:01:41 +0800
-> Vivian Wang <wangruikang@iscas.ac.cn> wrote:
->
->> The Ethernet MACs found on SpacemiT K1 appears to be a custom design
->> that only superficially resembles some other embedded MACs. SpacemiT
->> refers to them as "EMAC", so let's just call the driver "k1_emac".
->>
->> This driver is based on "k1x-emac" in the same directory in the vendor's
->> tree [1]. Some debugging tunables have been fixed to vendor-recommended
->> defaults, and PTP support is not included yet.
->>
->> [1]: https://github.com/spacemit-com/linux-k1x
->>
->> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> I have a handful of tiny comments, the rest looks fine by me !
->
->> +static int emac_phy_connect(struct net_device *ndev)
->> +{
->> +	struct emac_priv *priv = netdev_priv(ndev);
->> +	struct device *dev = &priv->pdev->dev;
->> +	struct phy_device *phydev;
->> +	struct device_node *np;
->> +	int ret;
->> +
->> +	ret = of_get_phy_mode(dev->of_node, &priv->phy_interface);
->> +	if (ret) {
->> +		dev_err(dev, "No phy-mode found");
->> +		return ret;
->> +	}
->> +
->> +	np = of_parse_phandle(dev->of_node, "phy-handle", 0);
->> +	if (!np && of_phy_is_fixed_link(dev->of_node))
->> +		np = of_node_get(dev->of_node);
->> +
->> +	if (!np) {
->> +		dev_err(dev, "No PHY specified");
->> +		return -ENODEV;
->> +	}
->> +
->> +	ret = emac_phy_interface_config(priv);
->> +	if (ret)
->> +		goto err_node_put;
->> +
->> +	phydev = of_phy_connect(ndev, np, &emac_adjust_link, 0,
->> +				priv->phy_interface);
->> +	if (!phydev) {
->> +		dev_err(dev, "Could not attach to PHY\n");
->> +		ret = -ENODEV;
->> +		goto err_node_put;
->> +	}
->> +
->> +	phydev->mac_managed_pm = true;
->> +
->> +	ndev->phydev = phydev;
-> of_phy_connect() eventually calls phy_attach_direct(), which sets
-> ndev->phydev, so you don't need to do it here :)
+Add HIDs of RPMI System MSI and SBI MPXY mailbox devices to the honor
+list so that those dependencies are handled.
 
-I will remove it next version.
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ drivers/acpi/scan.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
->> +
->> +	emac_update_delay_line(priv);
->> +
->> +err_node_put:
->> +	of_node_put(np);
->> +	return ret;
->> +}
-> [ ... ]
->
->> +static int emac_down(struct emac_priv *priv)
->> +{
->> +	struct platform_device *pdev = priv->pdev;
->> +	struct net_device *ndev = priv->ndev;
->> +
->> +	netif_stop_queue(ndev);
->> +
->> +	phy_stop(ndev->phydev);
-> phy_disconnect() will call phy_stop() for you, you can remove it.
-
-Thanks, I will simplify handling of this.
-
->> +	phy_disconnect(ndev->phydev);
->> +
->> +	emac_wr(priv, MAC_INTERRUPT_ENABLE, 0x0);
->> +	emac_wr(priv, DMA_INTERRUPT_ENABLE, 0x0);
->> +
->> +	free_irq(priv->irq, ndev);
->> +
->> +	napi_disable(&priv->napi);
->> +
->> +	emac_reset_hw(priv);
->> +
->> +	pm_runtime_put_sync(&pdev->dev);
->> +	return 0;
->> +}
->> +
-> [ ... ]
->
->> +static int emac_probe(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct reset_control *reset;
->> +	struct net_device *ndev;
->> +	struct emac_priv *priv;
->> +	int ret;
->> +
->> +	ndev = devm_alloc_etherdev(dev, sizeof(struct emac_priv));
->> +	if (!ndev)
->> +		return -ENOMEM;
->> +
->> +	ndev->hw_features = NETIF_F_SG;
->> +	ndev->features |= ndev->hw_features;
->> +
->> +	ndev->min_mtu = ETH_MIN_MTU;
-> This should already be the default value when using
-> devm_alloc_etherdev()
-
-I will remove next version.
-
->> +	ndev->max_mtu = EMAC_RX_BUF_4K - (ETH_HLEN + ETH_FCS_LEN);
->> +
->> +	priv = netdev_priv(ndev);
->> +	priv->ndev = ndev;
->> +	priv->pdev = pdev;
->> +	platform_set_drvdata(pdev, priv);
->> +	priv->hw_stats = devm_kzalloc(dev, sizeof(*priv->hw_stats), GFP_KERNEL);
->> +	if (!priv->hw_stats) {
->> +		dev_err(dev, "Failed to allocate memory for stats\n");
->> +		ret = -ENOMEM;
->> +		goto err;
->> +	}
->> +
->> +	ret = emac_config_dt(pdev, priv);
->> +	if (ret < 0) {
->> +		dev_err(dev, "Configuration failed\n");
->> +		goto err;
->> +	}
->> +
->> +	ndev->watchdog_timeo = 5 * HZ;
->> +	ndev->base_addr = (unsigned long)priv->iobase;
->> +	ndev->irq = priv->irq;
->> +
->> +	ndev->ethtool_ops = &emac_ethtool_ops;
->> +	ndev->netdev_ops = &emac_netdev_ops;
->> +
->> +	devm_pm_runtime_enable(&pdev->dev);
->> +
->> +	priv->bus_clk = devm_clk_get_enabled(&pdev->dev, NULL);
->> +	if (IS_ERR(priv->bus_clk)) {
->> +		ret = dev_err_probe(dev, PTR_ERR(priv->bus_clk),
->> +				    "Failed to get clock\n");
->> +		goto err;
->> +	}
->> +
->> +	reset = devm_reset_control_get_optional_exclusive_deasserted(&pdev->dev,
->> +								     NULL);
->> +	if (IS_ERR(reset)) {
->> +		ret = dev_err_probe(dev, PTR_ERR(reset),
->> +				    "Failed to get reset\n");
->> +		goto err;
->> +	}
->> +
->> +	emac_sw_init(priv);
->> +
->> +	if (of_phy_is_fixed_link(dev->of_node)) {
->> +		ret = of_phy_register_fixed_link(dev->of_node);
->> +		if (ret) {
->> +			dev_err_probe(dev, ret,
->> +				      "Failed to register fixed-link");
->> +			goto err_timer_delete;
->> +		}
-> It looks like you're missing the calls to:
->
->   of_phy_deregister_fixed_link()
->
-> in the error path here as well as in the .remove() function.
-
-It seems I had misunderstood the use of of_phy_register_fixed_link, I
-will fix this next version.
-
-Thanks,
-Vivian "dramforever" Wang
-
->> +	}
->> +
->> +	ret = emac_mdio_init(priv);
->> +	if (ret)
->> +		goto err_timer_delete;
->> +
->> +	SET_NETDEV_DEV(ndev, &pdev->dev);
->> +
->> +	ret = devm_register_netdev(dev, ndev);
->> +	if (ret) {
->> +		dev_err(dev, "devm_register_netdev failed\n");
->> +		goto err_timer_delete;
->> +	}
->> +
->> +	netif_napi_add(ndev, &priv->napi, emac_rx_poll);
->> +	netif_carrier_off(ndev);
->> +
->> +	return 0;
->> +
->> +err_timer_delete:
->> +	timer_delete_sync(&priv->txtimer);
->> +err:
->> +	return ret;
->> +}
-> Maxime
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index fb1fe9f3b1a3..54181b03b345 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -858,6 +858,8 @@ static const char * const acpi_honor_dep_ids[] = {
+ 	"INTC10CF", /* IVSC (MTL) driver must be loaded to allow i2c access to camera sensors */
+ 	"RSCV0001", /* RISC-V PLIC */
+ 	"RSCV0002", /* RISC-V APLIC */
++	"RSCV0005", /* RISC-V SBI MPXY MBOX */
++	"RSCV0006", /* RISC-V RPMI SYSMSI */
+ 	"PNP0C0F",  /* PCI Link Device */
+ 	NULL
+ };
+-- 
+2.43.0
 
 
 _______________________________________________
