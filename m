@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63596C83F03
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC4BC83F04
 	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 21:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,63 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ukFAL6s/4pjAWE0I89qnciowOpPw0Z/3jAruxUolLpE=; b=LAq2FNOnSe++PL
-	BMxYAgWTg2xqn9SURW6Ta33vrehvrLzU1ZkrHXw9ruH82R+P+zb06zvXBrIGp8H1sOg70YLUfPT7K
-	YlO+vvY1vT8dqpFU17kIiukZkdtoiJ8tS7171Fg9nraHJUVN3qBtRiaTbsjKT//lmKKkdXfgBIpue
-	CIlD7g3qyDLbzh50b4lhbEpsKZ7hILTY72Y/ZaSiwiZN4t6JSRZoQzTElcsFIunkThU+Jb2B1G0uw
-	qQhUeAsv+AO/lwmZvMUI6CtiTCjLxPTTIoJWIB7McN1zTsyUcg5pvat9DrtWfwiXdBf2gWz1bHKGp
-	kdG7Pzst1Z6Ype+lAT8Q==;
+	List-Owner; bh=nLvE06Y/NYyDVPIP1IMcZRB2Dvovg9wPePlO8ZJVEoA=; b=WPitphbMjOfmS2
+	ckwxtLSumhP0WwEwopuPBJU+Y5K4Ux+/TzuYfZH1pzoCepJ8oQGxqPYvnEZqs/BTkzQ3ktHDArath
+	8eT2peDFWDITxY+daeFTxfyeaf0E17t7ZxU+0GuFzyn5JYOUC/n6BK5rXrGBOajHf8Wi2uIUAQ1lK
+	921EEuLDrkoP653wEMBmKph/erOdCen/SxGxMQuzGS+vLqV4k8V6O/iCJmqyRI3COJvjWc96VuVLR
+	udt2tAf7qK1i0XVsZtQm8uS8nKUQhi2ukBLHgqwKAYs/8dCsWcjwV1L1p63VDMhJYyetRGmfvXoY8
+	PWC97xsnkyfzPZi0jIYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX58g-00000009bY9-23RM;
-	Wed, 02 Jul 2025 21:37:10 +0000
-Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
+	id 1uX58h-00000009bZu-3j30;
+	Wed, 02 Jul 2025 21:37:11 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX58e-00000009bVy-0Hzg
+	id 1uX58f-00000009bXQ-2qBR
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Jul 2025 21:37:09 +0000
-Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-6facacf521eso67707086d6.3
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Jul 2025 14:37:07 -0700 (PDT)
+	Wed, 02 Jul 2025 21:37:10 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-6fd0a91ae98so34492866d6.1
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Jul 2025 14:37:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1751492227; x=1752097027; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1751492229; x=1752097029; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Z77tQyjzfW0dcmF8i2CALNcRi1lkFInteyFHSr2VXyM=;
-        b=3KOn/vm61UfCgDIybyHcB5DBxRKne8d2t/a2b5IEaF/dsbq34NLOLDhuS39JYG1hoP
-         ztuvEFPp7zly7DQ9XZWotm76V/YJVJKWg5Oobg3xnglMXypS8PejQ/EFA5nSIPr34goi
-         kADyjdx6OQ/dnXBU/xl2iNoWqF709Xt6jH93e6vCGco4sYNSpqZGq/iR3axdG0YO6ADY
-         w4vUpL1M5Rx/OvE4HDaD1bbmzzIm3+jBC4C12shbguVixNxQpt+DOU0adeV1lPCCDKEr
-         /6MO7+XIxyLElmXFJ5cYIrTFWW6RzEBcLJgOKS8mM2bK7PAg1JAPw7pp90kLQnOwz+uM
-         ViEg==
+        bh=C9QbUmj59wRT1di1iGfusS/bH4bYig6dp2mkPaC/GC4=;
+        b=rIu90s21bLkjUUuRMBlm2iTk9pLq/QoDL64QZwZGd2VT35SgrE9V5Ga3Vdr1oI2n0e
+         aqGmKNMP+djmTGPgMTqhgqzLczzMjIeXIe1/fbRofibEGjjDGqMKAmgfkB8oUsi9QkTt
+         lBhSe2bQmTX/uxo7mUM5D2wzq2fgCQVr/lcsb8HMGiUvqOAr6fVCohk3flN9YIEDgPwy
+         VqF4Pqe6B4SfjIPHutysTHkHhn+m8WlCfYQWebJ5vPoPp9Lm4sutlKQfDz0knYQzBGJy
+         4s/W1jMOBkhYnyaX2Ea9iHcqQM6Y2UYf91kYdKqAFKgAPIm2UrZcSETH83w0rziaomhd
+         feyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751492227; x=1752097027;
+        d=1e100.net; s=20230601; t=1751492229; x=1752097029;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Z77tQyjzfW0dcmF8i2CALNcRi1lkFInteyFHSr2VXyM=;
-        b=a+J0tRoiQVGT4PL0P/ZjTP8U4WgJaNI4ZnN6IO+MI+SMNU8Nkkb4t+wmkiaDO3Zeso
-         KEHcvnvc6bdsEfoBz55RHiCuMZaSplm8B91GL2VJSvbU2WJBEF7E7arWa7c2V6V1LThO
-         +q4e41SiaNHf3ucfwv8K7z7baLa5DQo85OEYtNWHi9PU7vyuqZeeuSXNBy1TAdKCHwFj
-         MzTns0sNr/NcDkX7Ro6syB984nyUnojVW816FlTya29Ig6gy8MSjPz1+EXIu6iPNetOa
-         RAvLoyPe4/JVKwP1GmIjxWmEDcwMU88oZRE3jpf+OhlhY8JMEHbaknQrEXa6pDVbR3IV
-         IaSw==
-X-Forwarded-Encrypted: i=1; AJvYcCWPALGxSDWQ/ejp9QxZXu+vd03jrwmUQIdAiDf5DnxFMP6Fc1ePyLVRATVlt3k0jgE5Ek2IuaXy18JCyw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYLzGzhsUTYq0pEut7n3ab0WI8HaZTL9s5+LMpFUhbyGrKJT6M
-	5aFkWjROH2hdM9GXzcJq6LKfujdI8p4wW35W6WBh1hi0O4fGlid6gzSPEbK9ForUSWk=
-X-Gm-Gg: ASbGncuxi/In7jv6zgRLBsSQddiNgUoJt3lj9L/z9QlgIwhx8NLYWgHSwViz+DleBxl
-	Bz0xGtqoIwKB/OALLOY5W1c04vdnOGNTBJcdczqKYI0yrRohXr2MJU7bhh+Jc5s88syAacED1iF
-	QzkZIC33BZnFsjVpCN5fE2QKiqZnypNHor+E0N6DilO6Ul7nIBrcecAfwE0hE84MAwGIeu89GNI
-	TESnnGvsc9jG5WFH/ZBNWkdEPblFgc/nTElLCh6S6ML76pOf56UcpZ+Z/kFuchayJtkz7fHCh6F
-	Hh35ti9Icbn2vFqPctZirJC03QnWrjNa8nTR5ZRgGpa4qsxPFiUMwCmC32fJ2IznvyhDetRKDoT
-	Iiz+z+RUeIyfmlCj2191j9nW8Zt+DOjgXi4w=
-X-Google-Smtp-Source: AGHT+IGRObx6Rpk1Zs9IQPZXVPL/wda/SaVAzAggTxX0GxDaBqWEjwz2sqTqj864Fw46dZI0C1TGsA==
-X-Received: by 2002:a05:6214:2342:b0:6fb:66cb:5112 with SMTP id 6a1803df08f44-702b1c1ed54mr54743616d6.43.1751492226919;
-        Wed, 02 Jul 2025 14:37:06 -0700 (PDT)
+        bh=C9QbUmj59wRT1di1iGfusS/bH4bYig6dp2mkPaC/GC4=;
+        b=l/l3OB2z6WyacXr6C5QqjlYsftYMKXohceMTxMEdOx6p1ErxJRQXlt8/dUwGJ7LoLY
+         DtmjiLl+clOtDScxkjhs5f7jEY+tRGnxmHoqpnLmg2c5G0wUpQfmsPkAVcEu1Cx3KIWh
+         jmHfvA8yeuTMohnPPSzga+exkZAYb8k9BFtc3LKKm2hmoVqLcemHYogHLCYULkCve9fU
+         VRqlqCQFS73nuyilDqXosYYmdcsgsoiMaVYxp4JLUMZXZv9lWYVbX8ee4siSLMtjrm4r
+         dBh8arFqV4xiFOPuv169qwcLELkjt1a7IKzenh4v21yZAoUNRZLPtVjd2inZxSOffBXB
+         G1Ww==
+X-Forwarded-Encrypted: i=1; AJvYcCXCegc9B0JI9aei2lC8vXRANeyqdrGskHuneTD68LjVXL8t0NXF8bcVejgyLONh7Qy+X6pO3HvbpuvB7g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUEBlHj9WEI1U0s5uUoXuSdtFJNnzA5XgDUyOLJ1BovGzCc1La
+	MZgVqU4bYY9LDlTz6MFlXPQiUsg0F3isYLnSh9v+VchSKnnOF66EUYsT38myiAP4q7AzbNpjr6i
+	jhi0C
+X-Gm-Gg: ASbGncuA4+erJ+YDzETBOWruQT9EpnMenttVQAUTOBUD+V/uS1jmIkPBETGjbBhj/1m
+	/ppm99hKeoJi9hkcApXg8GEp9xG9oIzfLE6R4R7w7emeazZ6FIBd4nWuu/jpTxedNFJOYoW51Ff
+	mK5+D944kxgRhMfriwTr6Ynt07TVDbWkdXeAP4OAqtpForlkN5EMyWLC3wipsSHgTdrD7f+PDIG
+	rk9+LY/i0F5v6alrY61Du4xDaaafAHEDzIpx/KzqDVFsteHc/+Wz7dLGpmHJGzkVFk+WR8kfEVc
+	/6is+G/ieerlQiCFj3Irc7Hz62U2rR1xhvZisgfs4tNudmFOCr5Wg10F47PP9FTA6WwtVsbvpb5
+	nwBv0smGGJmPJg5JtOUu4REAGvayrbBnD+tc=
+X-Google-Smtp-Source: AGHT+IGHBPpKrSSwLwzqeOwEldJB7kkfzgUut8xtD4fDxnQG/VP7sB0/kJKkmFEHtrrUYH6env2kYw==
+X-Received: by 2002:a05:6214:2b94:b0:6fd:ace:4cf7 with SMTP id 6a1803df08f44-702b1b0658amr50726846d6.24.1751492228549;
+        Wed, 02 Jul 2025 14:37:08 -0700 (PDT)
 Received: from localhost.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fd771bc01bsm105691746d6.40.2025.07.02.14.37.05
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fd771bc01bsm105691746d6.40.2025.07.02.14.37.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Jul 2025 14:37:06 -0700 (PDT)
+        Wed, 02 Jul 2025 14:37:08 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: lee@kernel.org,
 	lgirdwood@gmail.com,
@@ -90,16 +91,16 @@ Cc: mat.jonczyk@o2.pl,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v7 2/8] mfd: simple-mfd-i2c: specify max_register
-Date: Wed,  2 Jul 2025 16:36:51 -0500
-Message-ID: <20250702213658.545163-3-elder@riscstar.com>
+Subject: [PATCH v7 3/8] mfd: simple-mfd-i2c: add SpacemiT P1 support
+Date: Wed,  2 Jul 2025 16:36:52 -0500
+Message-ID: <20250702213658.545163-4-elder@riscstar.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250702213658.545163-1-elder@riscstar.com>
 References: <20250702213658.545163-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_143708_249818_3A71B7DF 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20250702_143709_712993_58C391C5 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,69 +117,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-All devices supported by simple MFD use the same 8-bit register
-8-bit value regmap configuration.  There is an option available
-for a device to specify a custom configuration, but no existing
-device uses it.
+Enable support for the RTC and regulators found in the SpacemiT P1
+PMIC.  Support is implemented by the simple I2C MFD driver.
 
-Rather than specify a "full" regmap configuration to use this
-option, Lee Jones suggested allowing just the max_register value
-to be specified in the simple_mfd_data structure.
+The P1 PMIC is normally implemented with the SpacemiT K1 SoC.  This
+PMIC provides 6 buck converters and 12 LDO regulators.  It also
+implements a switch, watchdog timer, real-time clock, and more.
+Initially its RTC and regulators are supported.
 
 Signed-off-by: Alex Elder <elder@riscstar.com>
-Suggested-by: Lee Jones <lee@kernel.org>
 ---
-v2: - Allow max_register *and* regmap_config to be supplied
+ drivers/mfd/Kconfig          | 11 +++++++++++
+ drivers/mfd/simple-mfd-i2c.c | 12 ++++++++++++
+ 2 files changed, 23 insertions(+)
 
- drivers/mfd/simple-mfd-i2c.c | 15 ++++++++++++---
- drivers/mfd/simple-mfd-i2c.h |  1 +
- 2 files changed, 13 insertions(+), 3 deletions(-)
-
+diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+index 6fb3768e3d71c..01805c3eec57d 100644
+--- a/drivers/mfd/Kconfig
++++ b/drivers/mfd/Kconfig
+@@ -1182,6 +1182,17 @@ config MFD_QCOM_RPM
+ 	  Say M here if you want to include support for the Qualcomm RPM as a
+ 	  module. This will build a module called "qcom_rpm".
+ 
++config MFD_SPACEMIT_P1
++	tristate "SpacemiT P1 PMIC"
++	depends on I2C
++	select MFD_SIMPLE_MFD_I2C
++	help
++	  This option supports the I2C-based SpacemiT P1 PMIC, which
++	  contains regulators, a power switch, GPIOs, an RTC, and more.
++	  This option is selected when any of the supported sub-devices
++	  is configured.  The basic functionality is implemented by the
++	  simple MFD I2C driver.
++
+ config MFD_SPMI_PMIC
+ 	tristate "Qualcomm SPMI PMICs"
+ 	depends on ARCH_QCOM || COMPILE_TEST
 diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
-index 22159913bea03..3f959f4f98261 100644
+index 3f959f4f98261..a8f658eaf4108 100644
 --- a/drivers/mfd/simple-mfd-i2c.c
 +++ b/drivers/mfd/simple-mfd-i2c.c
-@@ -33,16 +33,25 @@ static int simple_mfd_i2c_probe(struct i2c_client *i2c)
- {
- 	const struct simple_mfd_data *simple_mfd_data;
- 	const struct regmap_config *regmap_config;
-+	struct regmap_config config;
- 	struct regmap *regmap;
- 	int ret;
- 
- 	simple_mfd_data = device_get_match_data(&i2c->dev);
- 
- 	/* If no regmap_config is specified, use the default 8reg and 8val bits */
--	if (!simple_mfd_data || !simple_mfd_data->regmap_config)
-+	if (simple_mfd_data) {
-+		if (simple_mfd_data->regmap_config)
-+			config = *simple_mfd_data->regmap_config;
-+		else
-+			config = regmap_config_8r_8v;
-+
-+		if (simple_mfd_data->max_register)
-+			config.max_register = simple_mfd_data->max_register;
-+		regmap_config = &config;
-+	} else {
- 		regmap_config = &regmap_config_8r_8v;
--	else
--		regmap_config = simple_mfd_data->regmap_config;
-+	}
- 
- 	regmap = devm_regmap_init_i2c(i2c, regmap_config);
- 	if (IS_ERR(regmap))
-diff --git a/drivers/mfd/simple-mfd-i2c.h b/drivers/mfd/simple-mfd-i2c.h
-index 7cb2bdd347d97..706b6f53155ff 100644
---- a/drivers/mfd/simple-mfd-i2c.h
-+++ b/drivers/mfd/simple-mfd-i2c.h
-@@ -27,6 +27,7 @@ struct simple_mfd_data {
- 	const struct regmap_config *regmap_config;
- 	const struct mfd_cell *mfd_cell;
- 	size_t mfd_cell_size;
-+	unsigned int max_register;
+@@ -102,12 +102,24 @@ static const struct simple_mfd_data maxim_mon_max77705 = {
+ 	.mfd_cell_size = ARRAY_SIZE(max77705_sensor_cells),
  };
  
- #endif /* __MFD_SIMPLE_MFD_I2C_H */
++static const struct mfd_cell spacemit_p1_cells[] = {
++	{ .name = "spacemit-p1-regulator", },
++	{ .name = "spacemit-p1-rtc", },
++};
++
++static const struct simple_mfd_data spacemit_p1 = {
++	.mfd_cell = spacemit_p1_cells,
++	.mfd_cell_size = ARRAY_SIZE(spacemit_p1_cells),
++	.max_register = 0xaa,
++};
++
+ static const struct of_device_id simple_mfd_i2c_of_match[] = {
+ 	{ .compatible = "kontron,sl28cpld" },
+ 	{ .compatible = "silergy,sy7636a", .data = &silergy_sy7636a},
+ 	{ .compatible = "maxim,max5970", .data = &maxim_max5970},
+ 	{ .compatible = "maxim,max5978", .data = &maxim_max5970},
+ 	{ .compatible = "maxim,max77705-battery", .data = &maxim_mon_max77705},
++	{ .compatible = "spacemit,p1", .data = &spacemit_p1, },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, simple_mfd_i2c_of_match);
 -- 
 2.45.2
 
