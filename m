@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6097C8303C
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 11:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5649C8303F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 11:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rKxZ8cZkyWQ3rIvGuF4wsQKVfdnd3NV9EIhNU3T9Cv0=; b=ss1dU/TtC2jyYN
-	Blvay7m3qoBbvcJND6QSyI2i+T9iLtGwkFXE0/iZn8iJmtDQ3PYvPvHYDVjEnqaCftjC1TY422TL/
-	LEiLRR8mnsJezY9+6LGkfmEUguQG1CGLX4mjNibsRX5uUjrX8wtzrPYfQ4lvKCYv9kE+qvCnFJuxn
-	bKsRN0Is1LJ3UdflhagmtyUaujnXfmYTiiWuGqHlcV1A04xnYfYnrSJ0arX/v/ZXyyiNtu3K03k2V
-	RIN8CSxSUt5doe6QlNHoialmSM+oUj1OHv7KPquncL1fwAIkx5wlI6XDRU1kUNmCn2ceerOxnsSIQ
-	MBBVLbSG1yvRJECCUpyg==;
+	List-Owner; bh=9EosLP5rgcUoX+4fv3eKTKjuZkvbXJPOpahKGoSkxi4=; b=Ehgp6WxBiabgVE
+	owA3o+fT7R58ZKCcBcjepNLQSQaSMk7w+t0E12gUKFiD9u3XA7As7SBEGoi15PPowN8BJSGDbPEHi
+	JvBthwLoPPVIof19IPk2gfAoL4GowbznKZ3GwNhVxqPPVuHVUK4NFIR8Obb/okYZTBhO9SDvyk8LY
+	in+7SDj9vTgqfjdPpV2/4cMvrtlDck1gi0hnr0UeyzaXpu4vZFl6BauAA2o3lyOa7v8QsjaCGV8zo
+	div1ksghAUHoO9jwX2N0lhoOEyZ/38E/tor9KHm073yl9V4AXpVrm+TH1nHrUZP3Yk95bPQOlX1O5
+	DcIbNObIKxLz0XbNoqGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWvEK-000000083eR-3hq0;
-	Wed, 02 Jul 2025 11:02:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uWviS-0000000893k-0qbL;
+	Wed, 02 Jul 2025 11:33:28 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWubG-00000007w9G-2HG6
+	id 1uWv3B-000000080RJ-1h86
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Jul 2025 10:21:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 48C5945E4E
-	for <linux-riscv@lists.infradead.org>; Wed,  2 Jul 2025 10:21:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19D19C4CEFA
-	for <linux-riscv@lists.infradead.org>; Wed,  2 Jul 2025 10:21:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751451718;
-	bh=dev3dwMQN1yzY1rh7c/NWkAu3zaem3ULhrEy2Os6A3k=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=gKb9H5tjCKMpWdrmwlrz4o511Ue55dDLqhHuWDZQwxHTV2jvlbA4Bxo/YrK8TzDQ2
-	 GeyXY3dZHvu27WNWPlSyx4VUXfBtWXq0kfulrZewtKrJYEge60w+7ZwYJ2U0iX9Ukm
-	 u0rLb6x15YkOmZxjW1GTjqtI/nrdKvSkY04sImgXHd+t5xcT4Mc4Aq79bV5ljFe1vQ
-	 j7aC5qkma6xcP7DN8IYGBTKehW8g5unXI7947p0EIo/457fBaZ1cFXoEhbiGvtFLB1
-	 UcoBNTD5y0fUfHeLz+gBXnsLRXaV1CEJvZ2e35dzE9JJMd6SA4oQLnVEOVJtE464gW
-	 7/i1Z5O/GD9gg==
-Received: by mail-oi1-f181.google.com with SMTP id 5614622812f47-40a7322f081so1014041b6e.3
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Jul 2025 03:21:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXczYkhYyqE4XZQHxb3QfKdHRwHdh1dHwjhuX9Fr67tGmbgykNNTMr5BISoHkTbAtqHxoZG8PiYP+6z4Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzImuGfOZ4bgCV7u1S9ME8qtmGhw/L+cIrstpJ0YFqgj1St5I/
-	mu7udgS0ApXjZ9zj1y5pUaOhpgfV/yWBc8yZ/5EbgAV6yd787Zz8Y6GyxBGzWYPSrpkii1Bi8EX
-	N2on5wfuB2Zqy1KJAdPXv43DdVqOcEGc=
-X-Google-Smtp-Source: AGHT+IE2Kkk8T0ZbVBmpiOQbam/pLa6wG5+XN/RreLIx2X9wnWq0x8o9JpWoqRvdPgQY0h9YV/+fKkFjda3J6bwfL00=
-X-Received: by 2002:a05:6808:1b99:b0:3f9:aeb6:6eac with SMTP id
- 5614622812f47-40b889192f1mr1729652b6e.30.1751451717345; Wed, 02 Jul 2025
- 03:21:57 -0700 (PDT)
+	Wed, 02 Jul 2025 10:50:51 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id D1B6D25989;
+	Wed,  2 Jul 2025 12:50:44 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id wXDIgFDv1hRC; Wed,  2 Jul 2025 12:50:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1751453443; bh=vmWjYoBfYxlOYco20r6RIBn8cZBvLKaPN8KKU21TzFQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RnVx24f9NbGTPcW02J4/MbYtrfymL7Riba0/wdfkV2lAwx9rP1m+kCb0/bcq307O4
+	 oo9GMzcj/rrGQHZbDaRM4t07RH4cxgUK3TTX28E+t9UGTl7uB57tiZLJIqt+uWJY9G
+	 8V4Hut87c6Yg8tkudmT3/DYNX8AokQCL2xqQN6Ney3mA4DulZg7hJIyOQHsQNWydD0
+	 kuTPDcem79XpW8KZVfCXb5OyWqMHGfDMNuXZCECPze1vHh8B1U4vylPGACv1d2nfOA
+	 UFivrXR741lHUtMOtf8VrjvIZpDhJpYf9idLf9b7WxCIwe5TC3y24Iyw73FmSH5JD+
+	 HB4t47eI68uJQ==
+Date: Wed, 2 Jul 2025 10:50:24 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Alexandre Ghiti <alex@ghiti.fr>, Andy Chiu <andybnac@gmail.com>,
+	alexghiti@rivosinc.com, palmer@dabbelt.com,
+	Andy Chiu <andy.chiu@sifive.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Mark Rutland <mark.rutland@arm.com>, puranjay12@gmail.com,
+	paul.walmsley@sifive.com, greentime.hu@sifive.com,
+	nick.hu@sifive.com, nylon.chen@sifive.com, eric.lin@sifive.com,
+	vicent.chen@sifive.com, zong.li@sifive.com,
+	yongxuan.wang@sifive.com, samuel.holland@sifive.com,
+	olivia.chu@sifive.com, c2232430@gmail.com
+Cc: Han Gao <rabenda.cn@gmail.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	regressions@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [REGRESSION] Random oops on SG2042 with Linux 6.16-rc and
+ dynamic ftrace
+Message-ID: <aGUO8L7oXpvEpvZo@pie.lan>
+References: <aGODMpq7TGINddzM@pie.lan>
+ <b060e694-caa0-4aa5-ac67-75531a5f60eb@ghiti.fr>
 MIME-Version: 1.0
-References: <20250702051345.1460497-1-apatel@ventanamicro.com> <20250702051345.1460497-17-apatel@ventanamicro.com>
-In-Reply-To: <20250702051345.1460497-17-apatel@ventanamicro.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Wed, 2 Jul 2025 12:21:45 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0gkCtxMWvgjS+CXOgC2QzCFFQ1bX6XA_D2HCOuGwT67kg@mail.gmail.com>
-X-Gm-Features: Ac12FXwD-4N8bNKSBtHuf_106cJhbwii5ybB7cDrqtVYJiIXKxNBIQd1GfJzRU8
-Message-ID: <CAJZ5v0gkCtxMWvgjS+CXOgC2QzCFFQ1bX6XA_D2HCOuGwT67kg@mail.gmail.com>
-Subject: Re: [PATCH v7 16/24] ACPI: scan: Update honor list for RPMI System MSI
-To: Anup Patel <apatel@ventanamicro.com>
+Content-Disposition: inline
+In-Reply-To: <b060e694-caa0-4aa5-ac67-75531a5f60eb@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_032158_622784_FC3F18F7 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20250702_035049_852022_2B6E3CDE 
+X-CRM114-Status: GOOD (  24.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +80,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Atish Patra <atishp@rivosinc.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, linux-acpi@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, Rahul Pathak <rpathak@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdWwgMiwgMjAyNSBhdCA3OjE24oCvQU0gQW51cCBQYXRlbCA8YXBhdGVsQHZlbnRh
-bmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gRnJvbTogU3VuaWwgViBMIDxzdW5pbHZsQHZlbnRhbmFt
-aWNyby5jb20+Cj4KPiBUaGUgUlBNSSBTeXN0ZW0gTVNJIGludGVycnVwdCBjb250cm9sbGVyIChq
-dXN0IGxpa2UgUExJQyBhbmQgQVBMSUMpCj4gbmVlZHMgdG8gcHJvYmVkIHByaW9yIHRvIGRldmlj
-ZXMgbGlrZSBHRUQgd2hpY2ggdXNlIGludGVycnVwdHMgcHJvdmlkZWQKPiBieSBpdC4gQWxzbywg
-aXQgaGFzIGRlcGVuZGVuY3kgb24gdGhlIFNCSSBNUFhZIG1haWxib3ggZGV2aWNlLgo+Cj4gQWRk
-IEhJRHMgb2YgUlBNSSBTeXN0ZW0gTVNJIGFuZCBTQkkgTVBYWSBtYWlsYm94IGRldmljZXMgdG8g
-dGhlIGhvbm9yCj4gbGlzdCBzbyB0aGF0IHRob3NlIGRlcGVuZGVuY2llcyBhcmUgaGFuZGxlZC4K
-Pgo+IFJldmlld2VkLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT4KPiBTaWdu
-ZWQtb2ZmLWJ5OiBTdW5pbCBWIEwgPHN1bmlsdmxAdmVudGFuYW1pY3JvLmNvbT4KPiBTaWduZWQt
-b2ZmLWJ5OiBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVudGFuYW1pY3JvLmNvbT4KClRoaXMgaXMgZmlu
-ZSBieSBtZSwgc28KCkFja2VkLWJ5OiBSYWZhZWwgSi4gV3lzb2NraSA8cmFmYWVsLmoud3lzb2Nr
-aUBpbnRlbC5jb20+Cgo+IC0tLQo+ICBkcml2ZXJzL2FjcGkvc2Nhbi5jIHwgMiArKwo+ICAxIGZp
-bGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspCj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9hY3Bp
-L3NjYW4uYyBiL2RyaXZlcnMvYWNwaS9zY2FuLmMKPiBpbmRleCBmYjFmZTlmM2IxYTMuLjU0MTgx
-YjAzYjM0NSAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2FjcGkvc2Nhbi5jCj4gKysrIGIvZHJpdmVy
-cy9hY3BpL3NjYW4uYwo+IEBAIC04NTgsNiArODU4LDggQEAgc3RhdGljIGNvbnN0IGNoYXIgKiBj
-b25zdCBhY3BpX2hvbm9yX2RlcF9pZHNbXSA9IHsKPiAgICAgICAgICJJTlRDMTBDRiIsIC8qIElW
-U0MgKE1UTCkgZHJpdmVyIG11c3QgYmUgbG9hZGVkIHRvIGFsbG93IGkyYyBhY2Nlc3MgdG8gY2Ft
-ZXJhIHNlbnNvcnMgKi8KPiAgICAgICAgICJSU0NWMDAwMSIsIC8qIFJJU0MtViBQTElDICovCj4g
-ICAgICAgICAiUlNDVjAwMDIiLCAvKiBSSVNDLVYgQVBMSUMgKi8KPiArICAgICAgICJSU0NWMDAw
-NSIsIC8qIFJJU0MtViBTQkkgTVBYWSBNQk9YICovCj4gKyAgICAgICAiUlNDVjAwMDYiLCAvKiBS
-SVNDLVYgUlBNSSBTWVNNU0kgKi8KPiAgICAgICAgICJQTlAwQzBGIiwgIC8qIFBDSSBMaW5rIERl
-dmljZSAqLwo+ICAgICAgICAgTlVMTAo+ICB9Owo+IC0tCj4gMi40My4wCj4KCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Jul 01, 2025 at 02:27:32PM +0200, Alexandre Ghiti wrote:
+> Hi Yao,
+> =
+
+> On 7/1/25 08:41, Yao Zi wrote:
+> > Linux v6.16 built with dynamic ftrace randomly oops or triggers
+> > ftrace_bug() on Sophgo SG2042 when booting systemd-based userspace,
+
+...
+
+> > Not sure either reverting the commits or fixing them up is a better
+> > idea, but anyway the fatal first issue shouidn't go into the stable
+> > release.
+> =
+
+> Let's fix this, we were expecting issues with dynamic ftrace :)
+> =
+
+> So the following diff fixes all the issues you mentioned (not the first
+> crash though, I'll let you test and see if it works better, I don't have
+> this board):
+
+Thanks for the fix! I've tested it with both QEMU and SG2042, it does
+fix the lockdep failures as well as the boot time crash on SG2042. The
+boot-time crash is caused by the race so will disappear as long as we
+fix the race.
+
+> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> index 4c6c24380cfd9..97ced537aa1e0 100644
+> --- a/arch/riscv/kernel/ftrace.c
+> +++ b/arch/riscv/kernel/ftrace.c
+> @@ -14,6 +14,16 @@
+> =A0#include <asm/text-patching.h>
+> =
+
+> =A0#ifdef CONFIG_DYNAMIC_FTRACE
+> +void ftrace_arch_code_modify_prepare(void)
+> +{
+> +=A0=A0=A0=A0=A0=A0 mutex_lock(&text_mutex);
+> +}
+> +
+> +void ftrace_arch_code_modify_post_process(void)
+> +{
+> +=A0=A0=A0=A0=A0=A0 mutex_unlock(&text_mutex);
+> +}
+> +
+> =A0unsigned long ftrace_call_adjust(unsigned long addr)
+> =A0{
+> =A0=A0=A0=A0=A0=A0=A0 if (IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS))
+> @@ -29,10 +39,8 @@ unsigned long arch_ftrace_get_symaddr(unsigned long
+> fentry_ip)
+> =
+
+> =A0void arch_ftrace_update_code(int command)
+> =A0{
+> -=A0=A0=A0=A0=A0=A0 mutex_lock(&text_mutex);
+> =A0=A0=A0=A0=A0=A0=A0 command |=3D FTRACE_MAY_SLEEP;
+> =A0=A0=A0=A0=A0=A0=A0 ftrace_modify_all_code(command);
+> -=A0=A0=A0=A0=A0=A0 mutex_unlock(&text_mutex);
+> =A0=A0=A0=A0=A0=A0=A0 flush_icache_all();
+> =A0}
+> =
+
+> @@ -149,16 +157,17 @@ int ftrace_init_nop(struct module *mod, struct
+> dyn_ftrace *rec)
+> =A0=A0=A0=A0=A0=A0=A0 unsigned int nops[2], offset;
+> =A0=A0=A0=A0=A0=A0=A0 int ret;
+> =
+
+> +=A0=A0=A0=A0=A0=A0 mutex_lock(&text_mutex);
+
+Besides using the guard API, could we swap the order between
+ftrace_rec_set_nop_ops() and calculation of the nops array? This shrinks
+the critical region a little.
+
+With or without the change, here's my tag,
+
+Tested-by: Yao Zi <ziyao@disroot.org>
+
+and also
+
+Reported-by: Han Gao <rabenda.cn@gmail.com>
+Reported-by: Vivian Wang <wangruikang@iscas.ac.cn>
+
+for their first-hand report of boot-time crash and analysis for the
+first lock issue.
+
+Regards,
+Yao Zi
+
+> =A0=A0=A0=A0=A0=A0=A0 ret =3D ftrace_rec_set_nop_ops(rec);
+> =A0=A0=A0=A0=A0=A0=A0 if (ret)
+> -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 return ret;
+> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 goto end;
+> =
+
+> =A0=A0=A0=A0=A0=A0=A0 offset =3D (unsigned long) &ftrace_caller - pc;
+> =A0=A0=A0=A0=A0=A0=A0 nops[0] =3D to_auipc_t0(offset);
+> =A0=A0=A0=A0=A0=A0=A0 nops[1] =3D RISCV_INSN_NOP4;
+> =
+
+> -=A0=A0=A0=A0=A0=A0 mutex_lock(&text_mutex);
+> =A0=A0=A0=A0=A0=A0=A0 ret =3D patch_insn_write((void *)pc, nops, 2 * MCOU=
+NT_INSN_SIZE);
+> +end:
+> =A0=A0=A0=A0=A0=A0=A0 mutex_unlock(&text_mutex);
+> =
+
+> =A0=A0=A0=A0=A0=A0=A0 return ret;
+> =
+
+> Andy is also taking a look, I'll let him confirm the above fix is correct.
+> =
+
+> Thanks for the thorough report!
+> =
+
+> Alex
+> =
+
+> =
+
+> > =
+
+> > Thanks for your suggestions on the problems.
+> > =
+
+> > Regards,
+> > Yao Zi
+> > =
+
+> > [1]: https://lore.kernel.org/all/20250407180838.42877-1-andybnac@gmail.=
+com/
+> > =
+
+> > #regzbot introduced: 881dadf0792c
+> > =
+
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
