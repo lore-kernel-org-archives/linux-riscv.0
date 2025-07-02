@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C344C83038
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E64DC83F05
 	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 07:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hrnKkvELy1VlLWePoRj1wz273AWPoeqWexesuw21l6o=; b=sa0HgKoZDCa5Y6
-	7gPLrBtCAbbnfo5Hs4JLLsUJHIbGds6z4fneDNumeRIGB//r7GHk2NI8nrtvUWZKFc2iXxtRD7gNu
-	00dgxDFopnPmXDiF7OvEtET+fU0/7KRgtTIszo4Jkj10NoMsZhkLUndD/oHWyFW1wt8M1JbuRJpMn
-	aEkTPtFjZp1LVzy/kHeYOXSoPPfFMpFO26VV8HVww/T0pdsSbdfsC1siOoTaDVatI9R8/mXGNduR5
-	42VWhwpBZybb+krOyGNFKR3DInIbISt53lFRZp2+PIumeA4ZrEq655p/0V7GrXWi62OgE10bHmmZm
-	E6kZes9Bc6G0sLcB/OCg==;
+	List-Owner; bh=1+/7n2Oz4l3An3R23NNYONJVQv7tTIr3roLhxP9cuxY=; b=19zy+Angp5lSO7
+	JylxZ0mpuFYf/98G7b2vh/17XV+81C+UI9d/dpM7Dd5gRTUq/peqbE80xPtzi5ighOZ8Dke9xGkLx
+	4ZNmSJ6ky36Rq+1eAGKMIvq9BocogxOTN+P92zugMhTUMEnI4eocwXtBsNR4vimlSyk0xhI0BNO0Y
+	JdX3cbjkAP4ARYT8nrAvsnaYbiRKpQ9xuImmVendOMQCjc3ToY3xzliocwtUn4MBfFZ6oz1aBuexp
+	AWI/FH7i34sr2XceKO3Z9Ea/hUnY9jHpPtf5UX8cb7lqr99sW1YIGxZXtROezggYOn6YvpPybPe+O
+	rDTjj1cFPBGeVu4CeXEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWsFM-00000007XvW-1agc;
-	Wed, 02 Jul 2025 07:51:12 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uWsFN-00000007XwG-0dNf;
+	Wed, 02 Jul 2025 07:51:13 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWppI-00000007GBp-3wxQ
+	id 1uWppQ-00000007GEA-2WBc
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Jul 2025 05:16:10 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-235ea292956so37482455ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 22:16:08 -0700 (PDT)
+	Wed, 02 Jul 2025 05:16:17 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-236470b2dceso34032045ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Jul 2025 22:16:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751433368; x=1752038168; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1751433376; x=1752038176; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PBceoBehx8BvgZH4kIrIZIQMdJgc3OIIxRIhQIQqZsc=;
-        b=kOKmwdNkFCsLG0MttthCG5/1KgP6LOvpxDxV2UvdtTKKh7phl/p8JFs0gr4X9qSnSA
-         JfFc3zwTQxTBQnmLy0j/3low6j9o+d2rwzjxMgZHXT2aNak/wqXVSmGA6VJdT7OjEqYr
-         uPak/EgNedl2pg43HCW9bxq6YlF3liJ6K9FkipPXb50m1PozR821Ff88uDacLwGjecv0
-         mFuwaCmBxUY5BOZ4vp1xU8oHyvKgGqi7OFCtjAp2qU/v1nzTPwKOnc+lz9WYOZaIVYvG
-         6jiQDOMEicmJvYtLlB0gmVDMJGwUGBb3Ykw+o/rNwm4zRN5bXEEQp6X215I33buheuhb
-         aHhg==
+        bh=yiu9LW4OQPcl48oQrH2DU+mLfm2FHbXqcRasNtW9C8A=;
+        b=FeaPbZ/+Xt+SJcAEaWdDs6gt4PuOlaSV/zTJCvJEW7QzpEUpGMInxfanrD3VPTGiJO
+         QZ8GFXyJSVecnzhsfCkfQg7tYuePpQpFnS6YZgk0w64rmpzDX+mYiienDtVzVRvZZc38
+         C6D4U+uBScP5RmZEz0SES+lGMEu7PxWlMYQR880PorXx5j+Se0kExsW9LVJVQfSufmHC
+         6InsNplL5x+HdriW0lE2+uZJCnFqSPYLBp5/Z6n4eCrkC5J5T5vsJ1at2AY6ZFLiClyG
+         Js/jWFzl08yd7McywIHtfTU1S8ieqd2J9+ULpqUAOXGMmXT0h99qVQqNdMVrWvJI9f46
+         Rifw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751433368; x=1752038168;
+        d=1e100.net; s=20230601; t=1751433376; x=1752038176;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=PBceoBehx8BvgZH4kIrIZIQMdJgc3OIIxRIhQIQqZsc=;
-        b=SnZVBAXNhG9d4GTuWUNf/498tGw9SCYhx7ZMueEKnIZCq3NhQvzF3ZTk/rmE5XL/j/
-         IOdzomhV9xGAfo/tTFiU4TDJtHlf16xPUKERChSTgiONuUP3CyiKblYJoSTIXdzcfdGt
-         TYeufHLKj0ANpg+Bhd6U7nHCQEaRMzO1oao/IXeS1DGWQbqoHwNhHn8d6+U1itp2KROd
-         0eiExGbzoD/byWitnPVdmVS8qavgM+dFOeAmuaNk6C8SSibi7Wdyn1/TMv87tl+2bMCn
-         75qZlBRFbOA90hEf4hsbS5nYUV1oMz2vRySYJ3VgG2tPVQx+O6k/RFDYb3TDf2DnT954
-         h91A==
-X-Forwarded-Encrypted: i=1; AJvYcCXnSFXmIcDwcx1Mby/3/CCqE8pxKBb0FbwBsocfz6ja4QM4DJW3OV5TkWqkzWEeIEgX1sTQjQWctrLsEg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmhaNB6jujlAcRSi1hIYvUsME4L+s5wCipnCn1+u1wuGOraxJw
-	MbzSccq8Ff6S3yW/i35PFPn9jSsGquvLZNlVsq/57N7QFWSGw9i5WkYiJ9HMyE0F9zE=
-X-Gm-Gg: ASbGncsqRvzH7H2P8m6zcRgQ9+CxyIeh0l/hGNToH+thdEwf/WHN397WPIapoiFhRpP
-	+u2ly1HBtCgplDtfdBCSDoJSUIeACE5sOVlUVbnyGrm0qdlMpTJlq3hT0XYsyBeviCP2Ymmj/W7
-	F1TAbjpy2larQG6179rKTFnitsjDys8kuQO/WjLZxATG5I1yf7STgO8BGLAE/Ttftaa11qCtTw3
-	o8F5USEugFCrRtSJa0NYTRMxYFj/i7pBkzprkeF0tL9RL+/YNTs8d337YxyWCKluwLHIYitqUjd
-	m6gBSHqSWgx5j+hhNPtKgBU3CYy5E9AJIpf3UeCFTTUn4t4qeG3L3f2ADOWBL7ORBUvf+q81hvn
-	d0sPbO8jrAe/Q2d2M
-X-Google-Smtp-Source: AGHT+IFKKOiOcB60DEsZKqmVfcXE0dhCOXPWFAp2kRuerlsj/aT4QarUNKrpH9hQuOyq/8oYcK2PvQ==
-X-Received: by 2002:a17:903:3c4d:b0:237:d486:706a with SMTP id d9443c01a7336-23c6e584257mr21721685ad.48.1751433368200;
-        Tue, 01 Jul 2025 22:16:08 -0700 (PDT)
+        bh=yiu9LW4OQPcl48oQrH2DU+mLfm2FHbXqcRasNtW9C8A=;
+        b=lZx3BY+bthyP9Mj2SUfGFrdtpfyds8gXChnibTMhIaAi/YEZ8iEJujHhrHWUMaA5sB
+         Aka58hkAPcPwNd3b8dlEkOFuQUBXmkOTiY17gY2gpxqgKnJrfGxlkM+ihMpDUfrcgQY5
+         Wxosl/8HrJFZVJc0z4bGTUJ/5TY3+pD9TUbDaM7j7rSjsPJZiDn3WaGIy7iVYc52h+Qu
+         GLj4CyAX9hkfyRJD6lRchMx7bYlYAsrdvLoZJDZzr55iFAISdqVco6MFQAJ5kE+BTnbe
+         CYy67lkGT7q2Bq45dmPMQgmhOF6F6Els1JBhwyddfvDJAFYTRWc/Lf3E9uSPn0889KY9
+         YGjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXOUCt0geCN2T7Jg+NacSN2tnAzv30Oe7z5eSSdtzxIm/c5f7lgjv9GvcFRMxNGwV2dtW2NV+SDAUJPlw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywo3eRRpgyRieNu9v+fzLWnpEy0gqAsloOO7C49phRHYak3sVGO
+	TO62xSOoZpzFzBDnnDICIpyW1VyDXD7vpDvoazVnPxYm09YXZl/hrNvgsipVOQo9U/U=
+X-Gm-Gg: ASbGncuLON2ZgJecctxR1j3uCKFFRPVVFPN4tQ2ach5o/4nkHQJLUP8pmAP2QbfSG6a
+	quMBcgcXYnxBvAY14l1ekL+COoV0wxvKiMm3dusvBDodmJ7nATBo0yBeL4dHk+5s994xhlCaj6S
+	lP26siW/R78ZpSQvmV++Foj06BplYx0oMI5G2BxoEjwU9nbeMf16Q+KgeTYpgVaYvVLSzwtA6Yu
+	zhXIdkgp888/5wVZYNG7tTdCVesnfrNf9TOO00vKLV5vGMpbXaRDjzqlTPdhjOD/hK7oeCN3Pjx
+	tEeA+P+Iqs5VF+lRyKbMR0pXcPp0VpqAQtPS+PxgLwBIj1I4asonNd43zQJAiaI7vEwLu7V6IGB
+	pv1y87xB2V8E9lxWJ
+X-Google-Smtp-Source: AGHT+IHK7JJshpTCYWIRPYhBfujfdQF43fCmzueM9e8EwtFQkDR9S8tXHvcjhHdLfuN/8WzEAqudfQ==
+X-Received: by 2002:a17:903:948:b0:236:6f5f:cab4 with SMTP id d9443c01a7336-23c6e4d3578mr24923105ad.5.1751433375731;
+        Tue, 01 Jul 2025 22:16:15 -0700 (PDT)
 Received: from localhost.localdomain ([14.141.91.70])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c6fe31933sm4719595ad.220.2025.07.01.22.16.00
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c6fe31933sm4719595ad.220.2025.07.01.22.16.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 22:16:07 -0700 (PDT)
+        Tue, 01 Jul 2025 22:16:15 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -83,16 +83,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v7 16/24] ACPI: scan: Update honor list for RPMI System MSI
-Date: Wed,  2 Jul 2025 10:43:37 +0530
-Message-ID: <20250702051345.1460497-17-apatel@ventanamicro.com>
+Subject: [PATCH v7 17/24] ACPI: RISC-V: Create interrupt controller list in sorted order
+Date: Wed,  2 Jul 2025 10:43:38 +0530
+Message-ID: <20250702051345.1460497-18-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250702051345.1460497-1-apatel@ventanamicro.com>
 References: <20250702051345.1460497-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_221608_978970_A633838E 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250701_221616_638584_BA065B77 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,7 +104,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -112,33 +112,42 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Sunil V L <sunilvl@ventanamicro.com>
 
-The RPMI System MSI interrupt controller (just like PLIC and APLIC)
-needs to probed prior to devices like GED which use interrupts provided
-by it. Also, it has dependency on the SBI MPXY mailbox device.
+Currently, the interrupt controller list is created without any order.
+Create the list sorted with the GSI base of the interrupt controllers.
 
-Add HIDs of RPMI System MSI and SBI MPXY mailbox devices to the honor
-list so that those dependencies are handled.
-
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/acpi/scan.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/acpi/riscv/irq.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index fb1fe9f3b1a3..54181b03b345 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -858,6 +858,8 @@ static const char * const acpi_honor_dep_ids[] = {
- 	"INTC10CF", /* IVSC (MTL) driver must be loaded to allow i2c access to camera sensors */
- 	"RSCV0001", /* RISC-V PLIC */
- 	"RSCV0002", /* RISC-V APLIC */
-+	"RSCV0005", /* RISC-V SBI MPXY MBOX */
-+	"RSCV0006", /* RISC-V RPMI SYSMSI */
- 	"PNP0C0F",  /* PCI Link Device */
- 	NULL
- };
+diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
+index cced960c2aef..33c073e2e71d 100644
+--- a/drivers/acpi/riscv/irq.c
++++ b/drivers/acpi/riscv/irq.c
+@@ -115,7 +115,7 @@ struct fwnode_handle *riscv_acpi_get_gsi_domain_id(u32 gsi)
+ static int __init riscv_acpi_register_ext_intc(u32 gsi_base, u32 nr_irqs, u32 nr_idcs,
+ 					       u32 id, u32 type)
+ {
+-	struct riscv_ext_intc_list *ext_intc_element;
++	struct riscv_ext_intc_list *ext_intc_element, *node;
+ 
+ 	ext_intc_element = kzalloc(sizeof(*ext_intc_element), GFP_KERNEL);
+ 	if (!ext_intc_element)
+@@ -125,7 +125,12 @@ static int __init riscv_acpi_register_ext_intc(u32 gsi_base, u32 nr_irqs, u32 nr
+ 	ext_intc_element->nr_irqs = nr_irqs;
+ 	ext_intc_element->nr_idcs = nr_idcs;
+ 	ext_intc_element->id = id;
+-	list_add_tail(&ext_intc_element->list, &ext_intc_list);
++	list_for_each_entry(node, &ext_intc_list, list) {
++		if (node->gsi_base < ext_intc_element->gsi_base)
++			break;
++	}
++
++	list_add_tail(&ext_intc_element->list, &node->list);
+ 	return 0;
+ }
+ 
 -- 
 2.43.0
 
