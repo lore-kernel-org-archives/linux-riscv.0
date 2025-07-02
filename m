@@ -4,81 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F7A3C7EE30
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 06:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E3DC7EE30
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jul 2025 06:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1+7S8NsWBzwgqN38TMD6g1lOVg/MGh4VCdrrxmPmtxY=; b=rT/dcRhEMYYaO+
-	id7ttNnXtYjq0Y2rHub88Or4vOi6SDCr2muH/hcgZ7H5I+jtUVk6Cv570OOYPPNNVIRTPJdK0efoX
-	hCRNUO2Uw6xKhR29gPc9TeLQdzVkphjy9VhHkeTIiz2WUG61pjeQHvDQZC/AzPCQ8OuydLDpQunx1
-	ECQX9kj1pnZbr+CCQ/AniCmEQhBoKIfBBZYq1+3fErPSdezO02ayND1ujuVKVSKHLbQiT8vbJ9CfC
-	4sbH7lWJwLzu4uKB8Ady53UAnm3s/013TyeNEh91vBpg26E3iQzl3OJltCoGKRuuwms/VHCV3VZL4
-	Xt3H0jr0CCCzzrqpeYOA==;
+	List-Owner; bh=a2/b95BVcahAejuYtefj2aH4jv0Y8bHImsa+6EwDXFg=; b=ccTK7lwx3Kv5k7
+	mFJczLAtVV9DUrmgxBoGwCFiBb/fVln2QGwJNWa4PZi1v6L5tVxYXlhDNemljgO6KNNoJAROtjMOP
+	O53OmJL9sCVY/FaNqnpyQIUIMIvlvzSGOVnycNXex9k66esnZrYqWFMM5a1acjSBgVSH/Jg0g5cle
+	sLtUmfeIVPPOhU6VFOq9sPyervgvyWrEr71NhPIyXKXNtgrOCYGXhlMMnweHcFuw3tZRToo2h7PnG
+	DNVdvqBwiQMPmut8DvAIBXXw1E1Oi4gTvoVfMhaNRKJtP4NskKRwt+Rwr80zqO8bAC5xYVHWTbLWN
+	R+TEfCYo73noWVou5QNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWqYJ-00000007Lip-0yIf;
-	Wed, 02 Jul 2025 06:02:39 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1uWqmq-00000007Nt2-1wCO;
+	Wed, 02 Jul 2025 06:17:40 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWqYE-00000007LfG-3Pyj
+	id 1uWqmn-00000007Nsf-2ufv
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Jul 2025 06:02:37 +0000
-Received: from [127.0.0.2] (unknown [210.73.43.2])
-	by APP-01 (Coremail) with SMTP id qwCowAC3pqpny2RomPduAA--.1282S6;
-	Wed, 02 Jul 2025 14:02:17 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Wed, 02 Jul 2025 14:01:43 +0800
-Subject: [PATCH net-next v3 4/5] riscv: dts: spacemit: Add Ethernet support
- for BPI-F3
+	Wed, 02 Jul 2025 06:17:39 +0000
+Received: from localhost (unknown [116.232.48.207])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 86AE7341F5E;
+	Wed, 02 Jul 2025 06:17:35 +0000 (UTC)
+Date: Wed, 2 Jul 2025 06:17:17 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Alex Elder <elder@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, heylenay@4d2.org, inochiama@outlook.com,
+	guodong@riscstar.com, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v11 0/6] reset: spacemit: add K1 reset support
+Message-ID: <20250702061717-GYA304216@gentoo>
+References: <20250613011139.1201702-1-elder@riscstar.com>
+ <20250618111737-GYA157089@gentoo>
 MIME-Version: 1.0
-Message-Id: <20250702-net-k1-emac-v3-4-882dc55404f3@iscas.ac.cn>
-References: <20250702-net-k1-emac-v3-0-882dc55404f3@iscas.ac.cn>
-In-Reply-To: <20250702-net-k1-emac-v3-0-882dc55404f3@iscas.ac.cn>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Vivian Wang <wangruikang@iscas.ac.cn>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Vivian Wang <uwu@dram.page>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-CM-TRANSID: qwCowAC3pqpny2RomPduAA--.1282S6
-X-Coremail-Antispam: 1UD129KBjvJXoW7Ary5JF45JFW8Xr1kAw4fZrb_yoW8WrWDp3
-	yakFs3urWDGr4Skw43Zr9F9r4fGa95XrWkC343uF1rJrWvvas0vw15Kwn7tr1DWrW5X345
-	Xr4xtFWj9r1qkw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQI14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
-	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
-	IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJVW8
-	JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2
-	ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK67AK6r47MxAIw28IcxkI7VAKI48J
-	MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwV
-	AFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv2
-	0xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8V
-	AvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E
-	14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7sRiEoXUUUUUU==
-X-Originating-IP: [210.73.43.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+Content-Disposition: inline
+In-Reply-To: <20250618111737-GYA157089@gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_230235_225311_19657072 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250701_231737_761053_C824C87C 
+X-CRM114-Status: GOOD (  32.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,75 +70,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Banana Pi BPI-F3 uses an RGMII PHY for each port and uses GPIO for PHY
-reset.
+Hi Philipp,
 
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 46 +++++++++++++++++++++++++
- 1 file changed, 46 insertions(+)
+On 11:17 Wed 18 Jun     , Yixun Lan wrote:
+> Hi ALL,
+>   As the reset driver going through several review cycles,
+> it becomes quite calm down now, I'd like to request to merge
+> it into v6.17, because various drivers (pwm, emac..) will depend
+> on it, even in the worst case if there is problem, I believe Alex
+> will help to address..
+> 
+> Hi Philipp,
+>   I'd like to query if you willing to take the reset driver -
+> patch [5/6] through the reset tree? It sounds more intuitive,
+> which also will avoid potential conflicts with Kconfig/Makefile..
+>   I've created a prerequisite immutable tag which could be
+> shared between clock and reset subsytem. It's tag -
+> spacemit-reset-deps-for-6.17 at SpacemiT's SoC tree [1], which 
+> effectively are patches [1-4] of this series.
+> But, to make your life easy, I've also applied patch [5/6] at tag
+> spacemit-reset-drv-for-6.17 [2] which has a small macro adjustment
+> requested by Alex at [3]
+>   Let me know what you think of this, thanks
+> 
+Just want to ping this, what do you want from my side to proceed?
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index fe22c747c5012fe56d42ac8a7efdbbdb694f31b6..15fa4a5ebd043f3fbb115d37e5a980c9b773a228 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -40,6 +40,52 @@ &emmc {
- 	status = "okay";
- };
- 
-+&eth0 {
-+	phy-handle = <&rgmii0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_cfg>;
-+	rx-internal-delay-ps = <0>;
-+	tx-internal-delay-ps = <0>;
-+	status = "okay";
-+
-+	mdio-bus {
-+		#address-cells = <0x1>;
-+		#size-cells = <0x0>;
-+
-+		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
-+		reset-delay-us = <10000>;
-+		reset-post-delay-us = <100000>;
-+
-+		rgmii0: phy@1 {
-+			reg = <0x1>;
-+		};
-+	};
-+};
-+
-+&eth1 {
-+	phy-handle = <&rgmii1>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1_cfg>;
-+	rx-internal-delay-ps = <0>;
-+	tx-internal-delay-ps = <250>;
-+	status = "okay";
-+
-+	mdio-bus {
-+		#address-cells = <0x1>;
-+		#size-cells = <0x0>;
-+
-+		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
-+		reset-delay-us = <10000>;
-+		reset-post-delay-us = <100000>;
-+
-+		rgmii1: phy@1 {
-+			reg = <0x1>;
-+		};
-+	};
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_2_cfg>;
+or do you want me to send a more formal Pull-Request for [1],
+then you can apply patch [5/6] (still need to fix the macro of [3])
+
+
+> 
+> Link: https://github.com/spacemit-com/linux/releases/tag/spacemit-reset-deps-for-6.17 [1]
+> Link: https://github.com/spacemit-com/linux/releases/tag/spacemit-reset-drv-for-6.17 [2]
+> Link: https://lore.kernel.org/all/528522d9-0467-428c-820a-9e9c8a6166e7@riscstar.com/ [3]
+> 
+> On 20:11 Thu 12 Jun     , Alex Elder wrote:
+> > This series adds reset controller support for the SpacemiT K1 SoC.
+> > A SpacemiT reset controller is implemented as an auxiliary device
+> > associated with a clock controller (CCU).  A new header file
+> > holds definitions used by both the clock and reset drivers.
+> > 
+> > In this version several "multi-bit" resets have been redefined as
+> > individual ones.  For example, RESET_AUDIO had a mask that included
+> > 3 bits.  Now there are 3 separate resets (one for each bit):
+> > RESET_AUDIO_SYS; RESET_AUDIO_MCU_CORE; and RESET_AUDIO_APMU.
+> > 
+> > The reset symbols affected (their previous names) are:
+> >     RESET_USB3_0 ->
+> >       RESET_USB30_AHB,  RESET_USB30_VCC, RESET_USB30_PHY 
+> >     RESET_AUDIO ->
+> >       RESET_AUDIO_SYS, RESET_AUDIO_MCU, RESET_AUDIO_APMU
+> >     RESET_PCIE0 ->
+> >       RESET_PCI0_DBI, RESET_PCI0_SLV, RESET_PCI0_MSTR, RESET_PCI0_GLB
+> >     RESET_PCIE1 ->
+> >       RESET_PCI1_DBI, RESET_PCI1_SLV, RESET_PCI1_MSTR, RESET_PCI1_GLB
+> >     RESET_PCIE2 ->
+> >       RESET_PCI2_DBI, RESET_PCI2_SLV, RESET_PCI2_MSTR, RESET_PCI2_GLB
+> > 
+> > No other code has changed since v10.
+> > 
+> > All of these patches are available here:
+> >   https://github.com/riscstar/linux/tree/outgoing/reset-v11
+> > 
+> > 					-Alex
+> > 
+> > Between version 10 and version 11:
+> >   - Rebased onto Linux v6.16-rc1
+> >   - Redefined several "multi-bit" resets as individual ones.
+> > 
+> > Here is version 10 of this series.
+> >   https://lore.kernel.org/lkml/20250513215345.3631593-1-elder@riscstar.com/
+> > 
+> > All other history is available via that link, so I won't reproduce
+> > it again here.
+> > 
+> > Alex Elder (6):
+> >   dt-bindings: soc: spacemit: define spacemit,k1-ccu resets
+> >   soc: spacemit: create a header for clock/reset registers
+> >   clk: spacemit: set up reset auxiliary devices
+> >   clk: spacemit: define three reset-only CCUs
+> >   reset: spacemit: add support for SpacemiT CCU resets
+> >   riscv: dts: spacemit: add reset support for the K1 SoC
+> > 
+> >  .../soc/spacemit/spacemit,k1-syscon.yaml      |  29 +-
+> >  arch/riscv/boot/dts/spacemit/k1.dtsi          |  18 ++
+> >  drivers/clk/spacemit/Kconfig                  |   1 +
+> >  drivers/clk/spacemit/ccu-k1.c                 | 239 +++++++-------
+> >  drivers/reset/Kconfig                         |   9 +
+> >  drivers/reset/Makefile                        |   1 +
+> >  drivers/reset/reset-spacemit.c                | 304 ++++++++++++++++++
+> >  .../dt-bindings/clock/spacemit,k1-syscon.h    | 141 ++++++++
+> >  include/soc/spacemit/k1-syscon.h              | 160 +++++++++
+> >  9 files changed, 775 insertions(+), 127 deletions(-)
+> >  create mode 100644 drivers/reset/reset-spacemit.c
+> >  create mode 100644 include/soc/spacemit/k1-syscon.h
+> > 
+> > 
+> > base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+> > -- 
+> > 2.45.2
+> > 
+> 
+> -- 
+> Yixun Lan (dlan)
 
 -- 
-2.49.0
-
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
