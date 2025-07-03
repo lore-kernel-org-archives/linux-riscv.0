@@ -4,61 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C253DC83F03
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 21:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9857C83F03
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 22:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LlLAfIjoItCl5W0SNEZn23CBrx4S8RfgYcZK/Ezl8YE=; b=N/BxptmPFu9Ikt
-	+bRgWrF3+JeSq4hZFX1tbQSy5lE5EEeDwkPZTb86ypLsxNN10Agv3MaGy4RuKAMd3RdHazmMqf7Ez
-	tiAWkYXG4Mi13aYYQispm7Pitm1MLWffyv4OV2cpFevau+hEqok+4dMoOqcYvptLCT3X1cLihWVQq
-	Vo7tegcAxFx44h8tWXGiv2BvhDJ7IR9VCsdTs/JbC3nIiz/MaCFYFFdzBMJ7sMc+Oa4Kyzb1cNJT3
-	ENuRfqkJtUjrIjweuIUpyQmWo8pZtP9lukODfWIyml3EsTZho/1v6vkhHLrBHJi3pVF2DWNuqO/js
-	yVyb5f9h6ItUMcECTW0Q==;
+	List-Owner; bh=Cg6F0skcwDRMxY5mjY1HGM3kjWKXV+ElUFaR7B3hCNA=; b=v15dKbU0BQbmVf
+	NiY5SzhCeTF0hTOm5BteO6pCFYkQIohFxi+449npNo37EG9nvCKUTLOfcFX1o2Vu947pzRMj8yQP6
+	RqN5Y7ql8c61Sdkyg5bl0B8AgbBbIrTw2jONIG7gqKb3Czro8k2hcQayj5CnAt7g+jWm07lw67eY9
+	KxobSclaEnBDHVyGlGpopMbqq5+8TQ4CpcsyS9i5B8IyBn17KBUx9rvQRt17uEytdL3y0ykzqKV2J
+	JIrnz1f9kkniQuASCDWKSsKNYEFhjPNQeO8qLA62Hgv7qbgQGmUc6nQE7C2tIf1vS7LfOuyvVji1V
+	rdywf7bqrBwHQ4Us8uOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR94-0000000CaPI-2wou;
-	Thu, 03 Jul 2025 21:07:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uXSa0-0000000CkL6-2FXj;
+	Thu, 03 Jul 2025 22:38:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXNuE-0000000CAHR-1sSo;
-	Thu, 03 Jul 2025 17:39:31 +0000
+	id 1uXREG-0000000Cask-0xL9
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 03 Jul 2025 21:12:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=O94o4jozzFFAfKsJVa9lwJ7EljQwKROq2DUyFvePVVY=; b=fsSd4lUMhFD57oNILD2mDfZEtj
+	A6H607lXdRYGRYO1i1/VhLpg+x9/YvdyH7J4lbYayDY1V9NPWraYcssdE4BwoKoIIa67X8rIQv+vF
+	sQZ+9xlHfz/mhTCx0KmF78dQfOHF9efa/47XiPoZqTOc0f5LLt37KT2UOV/GMUrrY+U7ZNELqVyA3
+	M1W2OiieldsoBE0qrw3DGxIMyFT3LJWUL/OMdjxiebzzyAwaYoXZVtlSIBuTXcKPcGEn2Z4QDgOsN
+	9s78numfvR3DtSKwX+tlb0N+9VnUCbJD5sj3Y2CuGddkeJSigDTO2F+tB6l8phDyM/zmZWMV5JWkJ
+	1F/NpQrQ==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXRED-00000007k61-0BWA
+	for linux-riscv@lists.infradead.org;
+	Thu, 03 Jul 2025 21:12:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 581475C4D09;
-	Thu,  3 Jul 2025 17:39:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A728FC4CEEE;
-	Thu,  3 Jul 2025 17:39:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 53103A53A62;
+	Thu,  3 Jul 2025 21:12:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A2B6C4CEEB;
+	Thu,  3 Jul 2025 21:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751564369;
-	bh=CjXapFJRn6jr02iNiY/fdYyplTrLIb9R/H97pjZWheY=;
+	s=k20201202; t=1751577130;
+	bh=BccBPphFegUfvo9vaJnC2YeCQIMSxr8COvMz3kKjdFQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O0dZv+fn7ZOGn/n+ubYI9NUTtwxmvb9diBgsUdEhHae7Zutp0YZ/+WA2QVDvdceiE
-	 O7nTHh2055ZVNVomkVuKLY51txoTK4sQYkxGKJLuNGWjgzMCqLrTSI5Zrmre6E3N9d
-	 fCqJIJIrxGQVxECwKzwOsl0MmJKaXvuoOJBu7JvuajS+a7E5T7s6Jw4u0HPzn2fuBc
-	 54A/tyxdEBU9TN8TDN+tWrXb6uTuzTklHPasl0pvtNY3Cpy1Z6/shg/mObJA41LApq
-	 X+dBhsWzfe+qFZKn+tPjo/AztvrCYwi/805NTK1OeGQuHpPC0XEgAeQNLWLO7L2VOg
-	 LRPocxpDJ4F5w==
-Date: Thu, 3 Jul 2025 10:38:47 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [PATCH v2 00/14] SHA-256 library improvements
-Message-ID: <20250703173847.GB2284@sol>
-References: <20250630160645.3198-1-ebiggers@kernel.org>
+	b=MM2xOjYPR/IlHPzFnc4v2tVz/O2tS3X1RNb1e1zd37lyGL3SuN4QC2cD2rggrgojM
+	 YqnQMLcCzLbZYB97rUY8sid3KisERGoNEM89VfLjSqmgPU4GFfBsbGO/oMLjNDC6CB
+	 +bmZ5tUZ0Uj0Z5JJHvqMlBG5QZAUjDq9eCOGUaaLy9RA7rzjPaVijO25n2XibWN2/A
+	 s4rdeHqvUtmuJ1qG71Px/2qpMUJm45f1tAwV9dQb+oTmxlm5jzgEVWE8uOiGVSnZrW
+	 7OjzF+BqqRhVtSUZU8NXUsq095I++8WhR8gdQ5XmKnXnTj+i7ie+9J+OuR+w6ZyKfC
+	 FOk/GBTTD0aUw==
+Date: Thu, 3 Jul 2025 14:12:08 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v7 8/8] riscv: dts: thead: Add PWM fan and thermal control
+Message-ID: <aGbyKAYPc3Hqc+uY@x1>
+References: <20250702-rust-next-pwm-working-fan-for-sending-v7-0-67ef39ff1d29@samsung.com>
+ <CGME20250702135003eucas1p114a5ce5dea469242940b7e2e44a7ad59@eucas1p1.samsung.com>
+ <20250702-rust-next-pwm-working-fan-for-sending-v7-8-67ef39ff1d29@samsung.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250630160645.3198-1-ebiggers@kernel.org>
+In-Reply-To: <20250702-rust-next-pwm-working-fan-for-sending-v7-8-67ef39ff1d29@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_103930_567780_6125A240 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20250703_221221_424734_A298CE02 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,75 +108,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 09:06:31AM -0700, Eric Biggers wrote:
-> This series is also available at:
+On Wed, Jul 02, 2025 at 03:45:36PM +0200, Michal Wilczynski wrote:
+> Add Device Tree nodes to enable a PWM controlled fan and it's associated
+> thermal management for the Lichee Pi 4A board.
 > 
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha256-lib-cleanup-v2
+> This enables temperature-controlled active cooling for the Lichee Pi 4A
+> board based on SoC temperature.
 > 
-> This series improves the SHA-224 and SHA-256 library code to be
-> consistent with what I did for SHA-384 and SHA-512.  This includes:
-> 
-> - Use stronger typing in the SHA-224 and SHA-256 functions.
-> 
-> - Add support for HMAC-SHA224 and HMAC-SHA256.  (I'll send a separate
->   patch with KUnit test cases for this.)
-> 
-> - Make the old-school crypto API's support for sha224 and sha256 just
->   use the actual library API, instead of unsafe low-level functions.
-> 
-> - Consolidate the CPU-based SHA-224 and SHA-256 code into a single
->   module, with better inlining and dead code elimination.
-> 
-> - Properly document the SHA-224 and SHA-256 functions.
-> 
-> - Other changes to synchronize the code with SHA-384 and SHA-512.
-> 
-> Changed in v2:
-> - Dropped sha224_kunit.c changes; it will be added later in the history
-> - Dropped some patches that I folded into the SHA-512 series
-> - Removed redundant checks of IS_ENABLED(CONFIG_KERNEL_MODE_NEON)
-> - Removed obsolete setting of -DARCH for sha256.o
-> - Fixed a commit title to mention sha256 instead of sha512
-> - Excluded HMAC-SHA{224,256} code from purgatory, where it isn't needed
-> 
-> Eric Biggers (14):
->   libceph: Rename hmac_sha256() to ceph_hmac_sha256()
->   cxl/test: Simplify fw_buf_checksum_show()
->   lib/crypto: sha256: Reorder some code
->   lib/crypto: sha256: Remove sha256_blocks_simd()
->   lib/crypto: sha256: Add sha224() and sha224_update()
->   lib/crypto: sha256: Make library API use strongly-typed contexts
->   lib/crypto: sha256: Propagate sha256_block_state type to
->     implementations
->   lib/crypto: sha256: Add HMAC-SHA224 and HMAC-SHA256 support
->   crypto: sha256 - Wrap library and add HMAC support
->   crypto: sha256 - Use same state format as legacy drivers
->   lib/crypto: sha256: Remove sha256_is_arch_optimized()
->   lib/crypto: sha256: Consolidate into single module
->   lib/crypto: sha256: Sync sha256_update() with sha512_update()
->   lib/crypto: sha256: Document the SHA-224 and SHA-256 API
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 
-FYI, applied to libcrypto-next.  Reviews and acks would be greatly appreciated,
-though!
+Reviewed-by: Drew Fustini <fustini@kernel.org>
 
-To fix https://lore.kernel.org/r/202507010837.ERX7aWw7-lkp@intel.com/
-I applied the following fixup to
-"lib/crypto: sha256: Propagate sha256_block_state type to implementations".
+I'll apply this to the thead-dt-for-next branch once the PWM driver is
+accepted by Uwe.
 
-diff --git a/lib/crypto/powerpc/sha256.c b/lib/crypto/powerpc/sha256.c
-index c3f844ae0aceb..55f42403d572a 100644
---- a/lib/crypto/powerpc/sha256.c
-+++ b/lib/crypto/powerpc/sha256.c
-@@ -26,7 +26,8 @@
-  */
- #define MAX_BYTES 1024
- 
--extern void ppc_spe_sha256_transform(u32 *state, const u8 *src, u32 blocks);
-+extern void ppc_spe_sha256_transform(struct sha256_block_state *state,
-+				     const u8 *src, u32 blocks);
- 
- static void spe_begin(void)
- {
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
