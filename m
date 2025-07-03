@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05BB6C8303C
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 00:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E800C8303C
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 00:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sdzkeQS04P7w9RcWhZf67IV5So7WElMzjPO3nslxUig=; b=PHYVN2tCXfaWVq
-	SAU69yLagjfmRXU2ZWi7xDcCCx5/x6zY/w1+IxE/tnuLXk1WT47xqCvI1mkZw2nalb3tcc3t4hEEA
-	DL8Q8FsXBAaD/QK6J/9woox18rNaUH4K4sgAXQD6ky4PLE6d/zXuhtwdGYR0W33gqZNhCtFU3oc+h
-	EFU+IUwX8GolD6W6WkWy3we7jrI0umyVVmt2hQwA4iqi2K+bQ/d+X6FciDxo2vuwcdN1mzOJXOaCR
-	vYHjUgSW6V/koKsJ0EsSFuYGIbgFDkRNxLudsPthLW02kn30kLvVynrdHCm92FhhGhN+KjH9T/jZ9
-	ickF8fN1z8p/r46WqU4A==;
+	List-Owner; bh=z3t3yKPGbU+TRtdAGtc/yWjlhYwM8qxXdq/YQ1lt+WQ=; b=j8ZTqUzb3+pvE5
+	klWvHvNUV0gRpoFB3REeC7RTGhmnCOYbIJZs/sC66rrrYg0KEQpJfsm5QfZxw9kwEZSl8MqosBr2K
+	izTEycjEKMczUC9hs9Nc3YPD8i2FB2nLRATMLImznYJzMIdBPM9NI1ivEscvlKWKHXg+Ia6xWVtmb
+	SC/NdAQUE8LyfML46R3HS+P73zzIKLwvnULKdkpXoTeKW+prcfFO3Ziun9lN14vtmlsFI74JWOoNq
+	N3ckwfVeo61iKK0eDUoFxe848E7ZcxYIKfV4XXeVPUwlmBo77TSO43wfgkeyPxXE0lKAqJPTKNcyS
+	seZwg7iDpbIdEiQE7XqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX88w-00000009taV-02GP;
-	Thu, 03 Jul 2025 00:49:38 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1uX88u-00000009ta7-3wzn;
+	Thu, 03 Jul 2025 00:49:36 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX80L-00000009su8-40VE
+	id 1uX7yo-00000009slb-276C
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Jul 2025 00:40:47 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-747e41d5469so5598372b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Jul 2025 17:40:45 -0700 (PDT)
+	Thu, 03 Jul 2025 00:39:12 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-879d2e419b9so5502372a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Jul 2025 17:39:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751503245; x=1752108045; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1751503149; x=1752107949; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QGPW00Wqzr+TkyN3TBBplCnltrgypUhsxgUVEyLdzHk=;
-        b=TrpnWfraw/vbEEX4nerrnMCwrDpm1uON0lE2RSqbm3ehiy8d+6o9z8IHMWigerV2BT
-         n0SWOvVlprb8Mf7qHJjCFUfw1XoHRTaDAOY4MxRk/+K4wkQ6An7sbzdnH+awk6LkWG3Q
-         kxLrqG0PV0M9YTYaBa9HetKt77WQ9eGGDaP0YhHqFufwhQioH6GAs94ibRYjP7NbFedu
-         2tmWXjTvD1KfaPJCW3iC0E97qFDl8jLNb4JYdmSlaEKZDsU9rzy1DnpQK3UhmI8TS2oG
-         E+pGMY/zZDdwmcsbCg42pY33AsvZE61Wvdi1FdJCYeNjfKCV6nMGpdmpiT0qEuj/n11K
-         boZw==
+        bh=Zp6SVLQWv+yq/FCUnVZXe5xSnWGW/xX2hl0tN5GjdNg=;
+        b=mhv5PrVkCyTmU7aqqgbqc14A5IaL2D19MPdsodSvEoJ1PfVdFpQlRAVttJj+3KeAmY
+         8hYp/1F/KlCPo6a0dmfDisgu6aWJ/SPG4u6UUdqhK/qMUMd/DiR2jTcB1qg1KTlV8pqC
+         /V+7GRm9QTH8XJs01u3T7v8j+zp0oLSlMxrGu45spLEjsOIwTEeDZttNEfgykiGrqPcT
+         xydcj0JI4K/bFHXt8gQtT9fPNXNjIUn069cghMuamccmaz3q02OfdGHxm1I06OzksZ6I
+         tiRnp5Mo2OiicMzlmUZUBVa0NJmxEJLtPZaq/mR98c1aGSO2LvdT7HQvfSFM8571LZsC
+         KiKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751503245; x=1752108045;
+        d=1e100.net; s=20230601; t=1751503149; x=1752107949;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=QGPW00Wqzr+TkyN3TBBplCnltrgypUhsxgUVEyLdzHk=;
-        b=Fp4tWvMCzwPUXdr+yc7Ux3GkvypKUtLW5AXm9+5s39lMz1mXvIN/DC9xOng9Nh2fV9
-         rnXKoRnICsMUN6WvUJkMhkUrtpiNHyJr+VFeU2JcISLLNfu6uQLSLu8r31mzztPmi70n
-         qH3IqNP4B/0U5PzIHdv3bWSNl+mUjCE2+nOwZITJKM9RYqpQ61x3Fnr/SPCs5krYAb8O
-         8gvfuTF7jbak0TJT7amWE9g/lUgVI8+ymx/mGa/0LcB5AdHrlXmN75E5gToGIf7U0Wie
-         bNqaYeFMe6+F3ISXZZELA8EX5FhDvBHLEgVBZtoBluvlTRduTmKCOH+GQVxKD8EIoOz5
-         nVOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXbvZ+qwQulBu0o8i2WXUehYAiL/MSO7/ik3hb7KFX8fjDoqetjxfw4fU7O1SPfCoJolleuOAKoOM+jlQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQ3rjyFB/AQ3gSX2pH5f7RzjKxVSApSr+THTM+ihrdCkn+1xDA
-	KArFPaIxknABULRlbcg0zFLe1ogq/5NUoVq/36dQKTZqg6hcFCPxtyHq
-X-Gm-Gg: ASbGncuspMOwArGflT0KXgpmPvvh718mNcyhj8ElGSV/4+LzGbhHx1Q+0wtIw2sNrdP
-	01RTgvxN4HKOsPmqMvj8a67CHUKTbEOYlA7/oWlG9RkOipattlw6Whw8Fyw93awOUWar0r/LyxF
-	PdSpY+uWxokt8X4bhywsgnVps14pCa8duYRBmpiSEGFd9rFJ/Vrtxvb7M7S+trVldXxpcco0VJp
-	eoMVpzt3yVItBwJVp2G+H2/AmjgT2hlDXbLeckyL0wtoyp0MaQwi+a88cAirVmNQwIb/8GdB+rB
-	ad+QAmOmhdJnb7PKar1/K3iBgl2BwR+9WOzB6w6rcs+JMTTYgTvnEOXRx4KPWH8ci2WLJqla
-X-Google-Smtp-Source: AGHT+IFEgHWRSZOM1OGOkaV/VMwcCoCEpYqFzUShN8zioQuMCjdKGgVKSOQXH56aFJAs4t/pv3Uo0g==
-X-Received: by 2002:a05:6a00:2349:b0:74a:e29c:287d with SMTP id d2e1a72fcca58-74b5149d55dmr5410675b3a.11.1751503245093;
-        Wed, 02 Jul 2025 17:40:45 -0700 (PDT)
+        bh=Zp6SVLQWv+yq/FCUnVZXe5xSnWGW/xX2hl0tN5GjdNg=;
+        b=KdqB14Y+alwMfclZeotQNTH5XwYj+HQpLoXTC/qw3sKaVxMkpvlFQqTiQSUT69kF29
+         C7wr6epKUL/wjyBT/lqwHMJX5dk9JkygW7a5isyX8I9YowVd0i9IWQtuMS1ixtQ3ZFCT
+         81BfWGRJIwbcDbrzeNjBfZKaUQlf8VTurEJ5H6RyTVrUNr9igoEiZ2Rer8Vx/wROw3Fq
+         Hqum6Gdcii+Lx6ntLJUhPWvBWAA6+11E+WomPKLWq3GJN5AE8qvthFALJ23REdoAbafD
+         BSToxyff2gm4O/bbSrk7IIoWRz17DuDj3qVB4b+vs4WB/qT9vymExOFcsThSgkLyRW6U
+         eBxA==
+X-Forwarded-Encrypted: i=1; AJvYcCWruh0LV4iiXGGQ30ZBM4OmOGk9wl+CV014C26ycufjVuVIJUOnAuksLM7tDlL2gJi7O56J8bcixuI0Pw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaLkTCKGjfI+zSsvwbZuo7hOwRDbkTC4v1FdaffTyqK/HrvXBu
+	U8efauNQnBuJXeGqtO7mfmxIr4hEK/pt+JORK6oLZgKemczO9hAkqFF6
+X-Gm-Gg: ASbGncsKVocHHrGJ1g4+WU/sgkxOtkOkmV9hnbYkj1OWaLIbhZYTqkOuc4hgM+j4kli
+	7m65sudq/HX+lCmr3HMblegJ7plWtx3wZ0CLM/hCxMIivnDbSnO7uTuvFgJTAW6rlfbJ9iMteFQ
+	ChznGXptni7F0tyUL7eKLVG3fX1F3HOwC+UwNNgTAKDT83GU63xhKTQ+jEzpB71fbbZw1GDh7yh
+	DQXr7CD6FTYUBjtxTsKJ5X2dkn2hm9qt3kh88Dif4ccEVUTP5Gn786pW0YtPTGWNliPg7nrqH3p
+	BpMSrY00PO7BjkUiWOhwzpcXOyeu/CSbrj9LMi1dXa1dJ9PQ7fMo6q7R2Yx0xiKVMJMS2RYK
+X-Google-Smtp-Source: AGHT+IE6EjPWTP12xSibuAaTHAAp7XhOTvQoc548Zur0R4Hz0WB245X9+rq3l6A2vL6aDv6YxuH4PQ==
+X-Received: by 2002:a05:6a21:9988:b0:21a:de8e:5cc3 with SMTP id adf61e73a8af0-222d7dcf2e0mr8369054637.4.1751503149400;
+        Wed, 02 Jul 2025 17:39:09 -0700 (PDT)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-b34e31bea22sm13872345a12.38.2025.07.02.17.40.44
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-74af541e8fasm15585369b3a.67.2025.07.02.17.39.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Jul 2025 17:40:44 -0700 (PDT)
+        Wed, 02 Jul 2025 17:39:09 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -76,21 +76,21 @@ To: Rob Herring <robh@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Longbin Li <looong.bin@gmail.com>
+	Inochi Amaoto <inochiama@gmail.com>
 Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	sophgo@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Yixun Lan <dlan@gentoo.org>
-Subject: [PATCH] riscv: dts: sophgo: sophgo-srd3-10: reserve uart0 device
-Date: Thu,  3 Jul 2025 08:40:23 +0800
-Message-ID: <20250703004024.85221-1-inochiama@gmail.com>
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH] riscv: dts: sophgo: sg2044: add pmu configuration
+Date: Thu,  3 Jul 2025 08:38:43 +0800
+Message-ID: <20250703003844.84617-1-inochiama@gmail.com>
 X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_174045_995398_A8CC46B1 
-X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-CacheID: sfid-20250702_173910_542274_093EF068 
+X-CRM114-Status: UNSURE (   7.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,30 +108,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As the uart0 is already occupied by the firmware, reserve it
-to avoid this port is used by mistake.
+Add PMU configuration for the cpu of sg2044, which is the V2
+version of C920.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi | 91 +++++++++++++++++++++
+ 1 file changed, 91 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
-index 96ccb6120114..1b506972d465 100644
---- a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
-@@ -113,6 +113,11 @@ &sd {
- 	status = "okay";
- };
+diff --git a/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi b/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
+index 6a35ed8f253c..2d21b2881ab8 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
++++ b/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
+@@ -2778,6 +2778,97 @@ l3_cache: cache-controller-16 {
+ 		};
+ 	};
  
-+&uart0 {
-+	/* for firmware */
-+	status = "reserved";
-+};
++	pmu {
++		compatible = "riscv,pmu";
++		riscv,event-to-mhpmevent =
++			<0x00003 0x00000000 0x00000010>,
++			<0x00004 0x00000000 0x00000011>,
++			<0x00005 0x00000000 0x00000007>,
++			<0x00006 0x00000000 0x00000006>,
++			<0x00008 0x00000000 0x00000027>,
++			<0x00009 0x00000000 0x00000028>,
++			<0x10000 0x00000000 0x0000000c>,
++			<0x10001 0x00000000 0x0000000d>,
++			<0x10002 0x00000000 0x0000000e>,
++			<0x10003 0x00000000 0x0000000f>,
++			<0x10008 0x00000000 0x00000001>,
++			<0x10009 0x00000000 0x00000002>,
++			<0x10010 0x00000000 0x00000010>,
++			<0x10011 0x00000000 0x00000011>,
++			<0x10012 0x00000000 0x00000012>,
++			<0x10013 0x00000000 0x00000013>,
++			<0x10019 0x00000000 0x00000004>,
++			<0x10021 0x00000000 0x00000003>,
++			<0x10030 0x00000000 0x0000001c>,
++			<0x10031 0x00000000 0x0000001b>;
++		riscv,event-to-mhpmcounters =
++			<0x00003 0x00003 0xfffffff8>,
++			<0x00004 0x00004 0xfffffff8>,
++			<0x00005 0x00005 0xfffffff8>,
++			<0x00006 0x00006 0xfffffff8>,
++			<0x00007 0x00007 0xfffffff8>,
++			<0x00008 0x00008 0xfffffff8>,
++			<0x00009 0x00009 0xfffffff8>,
++			<0x0000a 0x0000a 0xfffffff8>,
++			<0x10000 0x10000 0xfffffff8>,
++			<0x10001 0x10001 0xfffffff8>,
++			<0x10002 0x10002 0xfffffff8>,
++			<0x10003 0x10003 0xfffffff8>,
++			<0x10008 0x10008 0xfffffff8>,
++			<0x10009 0x10009 0xfffffff8>,
++			<0x10010 0x10010 0xfffffff8>,
++			<0x10011 0x10011 0xfffffff8>,
++			<0x10012 0x10012 0xfffffff8>,
++			<0x10013 0x10013 0xfffffff8>,
++			<0x10019 0x10019 0xfffffff8>,
++			<0x10021 0x10021 0xfffffff8>,
++			<0x10030 0x10030 0xfffffff8>,
++			<0x10031 0x10031 0xfffffff8>;
++		riscv,raw-event-to-mhpmcounters =
++			<0x00000000 0x00000001 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000002 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000003 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000004 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000005 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000006 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000007 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000008 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000009 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000000a 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000000b 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000000c 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000000d 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000000e 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000000f 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000010 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000011 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000012 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000013 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000014 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000015 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000016 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000017 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000018 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000019 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000001a 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000001b 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000001c 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000001d 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000001e 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000001f 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000020 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000021 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000022 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000023 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000024 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000025 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000026 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000027 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000028 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x00000029 0xffffffff 0xffffffff 0xfffffff8>,
++			<0x00000000 0x0000002a 0xffffffff 0xffffffff 0xfffffff8>;
++	};
 +
- &uart1 {
- 	status = "okay";
- };
+ 	soc {
+ 		intc: interrupt-controller@6d40000000 {
+ 			compatible = "sophgo,sg2044-plic", "thead,c900-plic";
 -- 
 2.50.0
 
