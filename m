@@ -4,55 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86903C83F03
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 14:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D90FC77B7C
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 15:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XWPKIGzy6eX7CT/zC0DuzYsEClgZZ/Xlmi4h6qNecV8=; b=fAl0E56vCMDiQP
-	3BAlEffTPRrU9KQLczjL7giCcq5sxZEpoF0VnsP9OSMG9yePombCT+cYdurqscuwF8PFxZQeLwFGM
-	hyPgiZM4UPKMHrwwAXFJ4LQf8dSmecS/qOfr2OvyWyLcE0duj54oD29a/CeYg9ioknspny3jQvRjs
-	XRcdDTOZmhePowxWW/DesJQAovNWXEu9q2oyTock28c8yG7PWq6WZ87WoHHSYcQIaqySoDDg+Cp/R
-	a4X95Y5vEw+xMdkAw7w483s4UGO2QgZZL67SyZ+YJa/mGNnorntwNc4ZN0GtSRMB3UiAnjl41aUtB
-	RGF1ovp9PXOqSUReq9KA==;
+	List-Owner; bh=KbG5bY7fUDbZo/7Gr3IF4tNj54x/+NRr5MufgOVfGhw=; b=YnGK1LuXzGcbdb
+	nyrwXXVoJNY9/DOC+yZgWueMiIRg0ZkmpAhJUOFenP9pqQO0pjJAG+yQYBucoQ73zUwvQsd7iYm47
+	EFmx9BRZgvnxhqhh4g55lXyGFBzawibNMENpDuW8cNTz3M98rzUfKGqJnz7FMYuOpb+CJgYXqCZLp
+	FdWhHiYKXVSlUgN0Win4YeD8NKgFKSXP6RqzskcEjpTiKkzmQCk9D9AMdIR71sOUElUL6fNo6W8qS
+	RDM5IP+qCOrjRNwYybPA3+2yEN3Fj2ReLTimoDWlojKUZxAUHafMbAuM2ZuR8QerZ/ZU/B/WHoUND
+	T8qpnhAgHYn4eR95nQrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKxB-0000000Bfv6-3jDU;
-	Thu, 03 Jul 2025 14:30:21 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1uXM7g-0000000BsSA-0Rri;
+	Thu, 03 Jul 2025 15:45:16 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJXv-0000000BQ7t-2IUu
+	id 1uXKOS-0000000BYf5-3Ih6
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Jul 2025 13:00:13 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id C14A643A2D;
-	Thu,  3 Jul 2025 13:00:02 +0000 (UTC)
-Message-ID: <f7e12c6d-892e-4ca3-9ef0-fbb524d04a48@ghiti.fr>
-Date: Thu, 3 Jul 2025 15:00:02 +0200
+	Thu, 03 Jul 2025 13:54:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751550869; x=1783086869;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hkynFXqBgMDhBIacDm9GkRDPLniP47vYUeHzZhSjqPE=;
+  b=Er/doTmq+I//GgxyCwj8QJlRhDIjetHNh3HtYwB4LoNgL+GhjETmIp45
+   pOcrMYecDo0X+r5JunXyBzXlzlJJp/BGtDF9bphGfc3AfVuzRD4PGVmmK
+   snWGx5S6ooykpJ+Kjb1/ai0YjJeDLK6T3ThqlHgRPFXPbmowmeQ4H3jEb
+   vb1guWGAIC+jTvxN0lDbVsHx5KGbIiOCeO7g+UBLqSzCFgrTmpinCeWhC
+   Qduh4w+FGe5cgegHA4lq/qxtYSaue5SfQaFXL/ycsSMx6WtBDFx/nniBb
+   ZAxGYUe0H92DfThV8LUkl7vzPNjgHCFGiCnygyA2i/brtSs7tBfGX9/xT
+   w==;
+X-CSE-ConnectionGUID: nhhwajLRQwidLsgkIUWwRA==
+X-CSE-MsgGUID: q65pr7S6Q/iBCxCtl2MT6Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11483"; a="57686389"
+X-IronPort-AV: E=Sophos;i="6.16,284,1744095600"; 
+   d="scan'208";a="57686389"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2025 06:54:27 -0700
+X-CSE-ConnectionGUID: Sz8pfLTHRumN6SVidx2zkw==
+X-CSE-MsgGUID: LlSnEty4TaS4oZ+RxqLYkg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,284,1744095600"; 
+   d="scan'208";a="153790365"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2025 06:54:21 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uXKOG-0000000CDjq-1Yoc;
+	Thu, 03 Jul 2025 16:54:16 +0300
+Date: Thu, 3 Jul 2025 16:54:16 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: Anup Patel <apatel@ventanamicro.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Len Brown <lenb@kernel.org>,
+	Rahul Pathak <rpathak@ventanamicro.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 21/24] mailbox/riscv-sbi-mpxy: Add ACPI support
+Message-ID: <aGaLiK0eW8Mc1YC3@smile.fi.intel.com>
+References: <20250702051345.1460497-1-apatel@ventanamicro.com>
+ <20250702051345.1460497-22-apatel@ventanamicro.com>
+ <aGUl_S9irfhlHmy2@smile.fi.intel.com>
+ <aGZhWlxxQG0Z8awP@sunil-laptop>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: ftrace: Fix the logic issue in DYNAMIC_FTRACE
- selection
-To: ChenMiao <chenmiao.ku@gmail.com>,
- Linux RISCV <linux-riscv@vger.kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- "rostedt@goodmis.org" <rostedt@goodmis.org>
-References: <20250703084502.394406-1-chenmiao.ku@gmail.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250703084502.394406-1-chenmiao.ku@gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvtdefgecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepieffvdeiveeuhfegvddvuefhveejhfffudffhfdufeeuudegtdfguddthfetledvnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmedvugegleemhegsudelmegrsgguieemkehfiegsnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmedvugegleemhegsudelmegrsgguieemkehfiegspdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmedvugegleemhegsudelmegrsgguieemkehfiegsngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeekpdhrtghpthhtoheptghhvghnmhhirghordhkuhesghhmrghilhdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpt
- hhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhoshhtvgguthesghhoohgumhhishdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <aGZhWlxxQG0Z8awP@sunil-laptop>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_060011_734494_B7EF7858 
-X-CRM114-Status: GOOD (  20.97  )
+X-CRM114-CacheID: sfid-20250703_065428_865925_9E254005 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,56 +109,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2hlbk1pYW8sCgpPbiA3LzMvMjUgMTA6NDUsIENoZW5NaWFvIHdyb3RlOgo+IEZyb206IGNo
-ZW5taWFvIDxjaGVubWlhby5rdUBnbWFpbC5jb20+Cj4KPiBXaGVuIEkgd2FzIHJlYWRpbmcgdGhl
-IHNvdXJjZSBjb2RlIG9mIGZ0cmFjZSwgSSBsZWFybmVkIHRoYXQKPiBmdHJhY2UgaGFzIHR3byB0
-eXBlczogc3RhdGljIGFuZCBkeW5hbWljLiBJbml0aWFsbHksIEkgcGxhbm5lZAo+IHRvIHByaW9y
-aXRpemUgcmVhZGluZyB0aGUgc3RhdGljIHNvdXJjZSBjb2RlLCBzbyBJIGRpc2FibGVkCj4gdGhl
-IGVuYWJsZSBkeW5hbWljIG9wdGlvbiBpbiBSSVNDVi4KPgo+IFsqXSAgIEtlcm5lbCBGdW5jdGlv
-biBUcmFjZXIKPiBbIF0gICBLZXJuZWwgRnVuY3Rpb24gR3JhcGggVHJhY2VyCj4gWyBdICAgZW5h
-YmxlL2Rpc2FibGUgZnVuY3Rpb24gdHJhY2luZyBkeW5hbWljYWxseSAoTkVXKQo+Cj4gSG93ZXZl
-ciwgd2hlbiBJIHRyaWVkIHRvIGNvbXBpbGUgaXQsIHRoZSBidWlsZCBmYWlsZWQuCj4KPiAuL2lu
-Y2x1ZGUvbGludXgvZnRyYWNlLmg6MTkwOjE2OiBlcnJvcjogaW1wbGljaXQgZGVjbGFyYXRpb24g
-b2YKPiBmdW5jdGlvbiDigJhhcmNoX2Z0cmFjZV9nZXRfcmVnc+KAmTsgZGlkIHlvdSBtZWFuIOKA
-mGFyY2hfZnRyYWNlX3JlZ3PigJk/Cj4gWy1XaW1wbGljaXQtZnVuY3Rpb24tZGVjbGFyYXRpb25d
-Cj4gICAgMTkwIHwgICAgICAgICByZXR1cm4gYXJjaF9mdHJhY2VfZ2V0X3JlZ3MoZnJlZ3MpOwo+
-ICAgICAgICB8ICAgICAgICAgICAgICAgIF5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4gICAgICAgIHwg
-ICAgICAgICAgICAgICAgYXJjaF9mdHJhY2VfcmVncwo+Cj4gQWZ0ZXIgY29tcGFyaW5nIGl0IHdp
-dGggdGhlIEFSTTY0IGFyY2hpdGVjdHVyZSwgSSBmb3VuZCB0aGF0Cj4gQVJNNjQgYXV0b21hdGlj
-YWxseSBlbmFibGVzIERZTkFNSUNfRlRSQUNFIGJ5IGRlZmF1bHQgb25jZQo+IEZVTkNUSU9OX1RS
-QUNFUiBpcyB0dXJuZWQgb24sIGFuZCB0aGlzIGNhbm5vdCBiZSBzZXQgdG8gIm5vIi4KPiBUaGVy
-ZWZvcmUsIEkgYmVsaWV2ZSB0aGUgb3B0aW9uYWwgRFlOQU1JQ19GVFJBQ0Ugc2V0dGluZyBpbgo+
-IFJJU0MtViBoYXMgYSBsb2dpYyBmbGF34oCUaWYgRlVOQ1RJT05fVFJBQ0VSIGlzIGVuYWJsZWQs
-Cj4gRFlOQU1JQ19GVFJBQ0Ugc2hvdWxkIGFsc28gYmUgZW5hYmxlZCwgYW5kIHZpY2UgdmVyc2Eu
-IE1vcmVvdmVyLAo+IGl0J3MgY2xlYXIgdGhhdCBSSVNDLVYgbGFja3MgdGhlIG5lY2Vzc2FyeSBz
-dXBwb3J0IHRvIHN1Y2Nlc3NmdWxseQo+IGNvbXBpbGUgdGhlIGtlcm5lbCB3aGVuIERZTkFNSUNf
-RlRSQUNFIGlzIGRpc2FibGVkLgoKCldlIGNvdWxkIHN1cHBvcnQgc3RhdGljIGZ0cmFjZSwgYnV0
-IEkgZG9uJ3QgdGhpbmsgd2Ugc2hvdWxkLCBzbyBJIGFncmVlIAp3aXRoIHRoaXMgcGF0Y2guIElu
-IGZhY3QgSSBoYWQganVzdCBwcmVwYXJlZCBhIHBhdGNoIGZvciB0aGlzIGhlcmUgCmh0dHBzOi8v
-Z2l0aHViLmNvbS9saW51eC1yaXNjdi9saW51eC9wdWxsLzU1Ni9jb21taXRzLzA0ODEwOTJhNWJl
-YzM4MTg2NTg5ODFjMTFmNjI5ZTA2ZTY2MzgyYjMgCndoaWNoIGlzIGEgYml0IG1vcmUgY29tcGxl
-dGUgc2luY2UgSSBoYXZlIHJlbW92ZWQgc29tZSBkZWFkIGNvZGUuCgpMZXQncyBzZWUgd2hhdCBv
-dGhlciBwZW9wbGUgdGhpbmsgYWJvdXQgc3VwcG9ydGluZyBzdGF0aWMgZnRyYWNlLCBJIGhhdmUg
-CmFkZGVkIFN0ZXZlbiBpbiBjYyBpZiBoZSBoYXMgYW4gb3Bpbmlvbi4KClRoYW5rcywKCkFsZXgK
-Cgo+Cj4gWypdICAgS2VybmVsIEZ1bmN0aW9uIFRyYWNlcgo+IFsgXSAgIEtlcm5lbCBGdW5jdGlv
-biBHcmFwaCBUcmFjZXIKPiAtKi0gICBlbmFibGUvZGlzYWJsZSBmdW5jdGlvbiB0cmFjaW5nIGR5
-bmFtaWNhbGx5Cj4KPiBTaWduZWQtb2ZmLWJ5OiBjaGVubWlhbyA8Y2hlbm1pYW8ua3VAZ21haWwu
-Y29tPgo+IC0tLQo+ICAgYXJjaC9yaXNjdi9LY29uZmlnIHwgMSArCj4gICAxIGZpbGUgY2hhbmdl
-ZCwgMSBpbnNlcnRpb24oKykKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9h
-cmNoL3Jpc2N2L0tjb25maWcKPiBpbmRleCAzNjA2MWY0NzMuLmY3ZmM4YjQ2MCAxMDA2NDQKPiAt
-LS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBAQCAt
-OTcsNiArOTcsNyBAQCBjb25maWcgUklTQ1YKPiAgIAlzZWxlY3QgQ0xPTkVfQkFDS1dBUkRTCj4g
-ICAJc2VsZWN0IENPTU1PTl9DTEsKPiAgIAlzZWxlY3QgQ1BVX1BNIGlmIENQVV9JRExFIHx8IEhJ
-QkVSTkFUSU9OIHx8IFNVU1BFTkQKPiArCXNlbGVjdCBEWU5BTUlDX0ZUUkFDRSBpZiBGVU5DVElP
-Tl9UUkFDRVIKPiAgIAlzZWxlY3QgRURBQ19TVVBQT1JUCj4gICAJc2VsZWN0IEZSQU1FX1BPSU5U
-RVIgaWYgUEVSRl9FVkVOVFMgfHwgKEZVTkNUSU9OX1RSQUNFUiAmJiAhRFlOQU1JQ19GVFJBQ0Up
-Cj4gICAJc2VsZWN0IEZUUkFDRV9NQ09VTlRfVVNFX1BBVENIQUJMRV9GVU5DVElPTl9FTlRSWSBp
-ZiBEWU5BTUlDX0ZUUkFDRQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+On Thu, Jul 03, 2025 at 04:24:18PM +0530, Sunil V L wrote:
+> On Wed, Jul 02, 2025 at 03:28:45PM +0300, Andy Shevchenko wrote:
+> > On Wed, Jul 02, 2025 at 10:43:42AM +0530, Anup Patel wrote:
+
+...
+
+> > > -		if (dev_of_node(dev))
+> > > +		if (is_of_node(fwnode)) {
+> > >  			of_msi_configure(dev, dev_of_node(dev));
+> > > +		} else if (is_acpi_device_node(fwnode)) {
+> > > +			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
+> > > +							      DOMAIN_BUS_PLATFORM_MSI);
+> > > +			dev_set_msi_domain(dev, msi_domain);
+> > > +		}
+> > 
+> > Actually you don't need to have the if-else-if if I am not mistaken.
+> > The OF does almost the same as it's done in the second branch for ACPI case.
+> > How many MSI parents this may have?
+> > 
+> OF already has a well defined interface to configure the MSI domain. The
+> mechanisms existing today are different for DT vs ACPI to find out the
+> fwnode of the MSI controller. So, it is done differently.
+
+I don't see how. The only difference I see is that OF iterates over all listed
+parents, if any, ACPI tries only one.
+
+So, perhaps it's a time to have a common API somewhere for this to be agnostic?
+Something like fwnode_msi_configure() in somewhere of IRQ MSI core?
+
+> In RISC-V case at least, there will be only one MSI parent.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
