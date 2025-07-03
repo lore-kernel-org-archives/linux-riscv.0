@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461D3C83030
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 10:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F60C77B7C
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 10:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hP+BkC35hNSnXV8TcDRXavj/ZeNPjI2KJ2eMUjAdrdM=; b=Zf+zjll0vgXNAg
-	ZWTztEHliMcAy8tVblS2kMUvdR0sOulEKCfokz5EPYYQKcfNO9yqh+1t7i19cR6gDDP0D+ZQQ+Tph
-	N5NodKhWtLL0RTmXOV0kNz5XYgxLhPjvuYlYEvqmiWdF9xNfe9qbfC1eh5f9f7U2abC+EmVc8Xksc
-	8p5B6NoVACc66fyKLhlMgTX0Q1rGe3iT/mfcdPzYDC6EhP2QvwXM8GmY+BOUtHsRqTK2aZPL8KkB/
-	BgckgumsqRqoxETJDlS4E5bzcj+3AcdWEUKX8QZ+Ikb+TvEaSjVUjOCfFHHX1BtGaQBemVALOrhdE
-	0Zu0NLwULKsAkvfW91XQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rJQUymJYkCuoT8Tw/FZdcdD2ePVSna0V5U2BAEwuO8o=; b=zqWL9gPkOacxt2
+	D4usi/FZIdKDSLhcnFIZAgV0YsL8VhqWbqRsV6uVZQBeSL99KP8DD69bf2Obt+RpG+pLr8kM/wMjP
+	FXAkoyWvWf1rtK7IVTqt63ufCvcgEP0ifGc26PBzW5LTSH8xPzGClD9yOaLWMSM9/BQCSpcvQ28ob
+	skjXxiAdzcugdm74GZQpMD4Yc/6AlpAnFQlg2TPp0f1LDho0u9+56SqJN8cd3EaYogrJSwGJwyoXW
+	WdanxW6HqSWT6Lleg/tVTOmSYv/xnHZAq0NRwpAIzQnqrDScdHfCZlIMpC9JR6IFjyA+oOFdK3Dox
+	WkA3l3G2PEJtn8d7kSrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXH7B-0000000AyOV-117T;
-	Thu, 03 Jul 2025 10:24:25 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1uXH7A-0000000AyON-2o9K;
+	Thu, 03 Jul 2025 10:24:24 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXH4h-0000000Ay3N-3Yiz
+	id 1uXH4Y-0000000Ay36-1zqY
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Jul 2025 10:21:53 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250703102143euoutp027f7f1818aaaa170587ffe7af9ca78222~OtqATbQ_A0870508705euoutp02b
-	for <linux-riscv@lists.infradead.org>; Thu,  3 Jul 2025 10:21:43 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250703102143euoutp027f7f1818aaaa170587ffe7af9ca78222~OtqATbQ_A0870508705euoutp02b
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1751538103;
-	bh=nS7gGLPcYu431wACYDIpnQCjfgmdMYV2m+06WEOimxI=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=UMvZTPf5MFlYbVthTszDlaAh2NyGedz2J80TIqan8EPLEip18Xoe//ExhI+DzeMZ7
-	 Y414rsSATVtoYPH/HyaGIRHkKHOIJbBL0jjLdx0Ln3JoUL8WtRta+WIHlpziSIfn4m
-	 j5SnuJeiSMBtJPx9MMOL0WQSQXWRykSbsz9ilvEw=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250703102143eucas1p273c64519df9ebb05e9b3a7d9a38ad341~Otp-qSogJ1836718367eucas1p2p;
-	Thu,  3 Jul 2025 10:21:43 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250703102141eusmtip2ab7c1f9865f3ac73941aa40cc36a67b8~Otp_moHuq2747427474eusmtip20;
-	Thu,  3 Jul 2025 10:21:41 +0000 (GMT)
-Message-ID: <fa235fa1-d5ad-44b7-bf52-068ea41fc9ea@samsung.com>
-Date: Thu, 3 Jul 2025 12:21:41 +0200
+	Thu, 03 Jul 2025 10:21:44 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-742c7a52e97so7526158b3a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Jul 2025 03:21:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751538102; x=1752142902; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bf3OnllIKy74CmmPzQiN5iB51QA0QlwijmOja/0ll0Q=;
+        b=P2yfFEzCMddZoL+VPW2AOGwEffIFD7noaieZBU11hQYJhtkoy9tF5PmjXcxN807Nox
+         LuZcZBuXtXIuR7HexSG9BjoBUNmHvLExIBsbW9Xdt5ciQdmKl+LqbCxyHClE9oHodIzM
+         4NHvS0NBD3jpdymEgh0MX9CuCHUkyoJS7r446tMkO1f3o9KX7x4Eke6olHlMlfCMROqK
+         UwfbqB0H9+jjvC71rUvx+KViMuDqh2YwJ4+DJ/9qcZNlLwFXaMwDk9bLsGaRmOq0TIgE
+         pnmDL31Ki+zItRMhL6+/atoOuctsSP+8SJkerz6o0gKKvDXFUS3IDI3N4p71N/5xzjoW
+         RqzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751538102; x=1752142902;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bf3OnllIKy74CmmPzQiN5iB51QA0QlwijmOja/0ll0Q=;
+        b=hmmT+aoBJBGYJyliNWHZrNmz4M+ORQU+jOBEA+5Wbv/F7/zDMI74xa7gI8a57qtmSV
+         Cz8N9QI2WAkDZqMMspFPnrmO4oYMiB1EwqUw2q2dzCs7iW+fTUPqvBmzGZ1HD2h71FcN
+         ME1Ilf57TeJpasPer0wskD2VN8oSHlyM8NNnD+smT2OcTLJ0UtrB+GVLmV8gRkB2rAvP
+         z9Or+DwXwjxnrNhchxJC/wyocQCguT21DLj5DpY81lIVe/Xe6As4JHzhR3Koqcbj2hoS
+         K49Cl/dGQHj8xKduxZJHHLDWOkVMCcnbBADarIP0376uQoFqeAE0B+0AORasg5OygCFp
+         TI+A==
+X-Forwarded-Encrypted: i=1; AJvYcCWDY9aOTVHwgO0nsVSX+a1KyYwWUL/blMUztW93uafXRCcZaNJSXQoMb5u3FO2JmOuqiXXlG7oEjj5yZA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOXiVK3rJWkaR9wnseQU5B4y0N/yHHjgMBGJ1vS2Pz/ykIULTu
+	aieMx+CpUo4k6C7WU9G63GoMxyPkiKKhVvachlUewjkSDksx7Y83d8tG
+X-Gm-Gg: ASbGncukwpaSPWXB7o0JB3dLXtO4roOlLm7woXLdGk/yiMNVLfXHKgKPxzRRG5bPvpy
+	Xb8oN0Dxs2MqYPRimD9hOEH1l2PTBBJvDKJ6DfC3z0VlQQnLmxIioLNLs22o6kHYG9s9+vn8DbO
+	SyvEZlrMuKv7pJjdJTvwSLAhWlFp7Rcj1VH8urTBJ2JYMZVbth0BDdi1WDsmeqS/9olM9POw5zZ
+	M50Sgq0zfeRgiWXD37M7xGbP2AyMvkZMKA6oFBqPO/J56g6QkQwQvPxLGDO9zO3CJDoCR9pwZVc
+	LInaV4S+m1kvWxGLcMaH+V7cjJHCMwlk5HlDZDumRHtMO+unQaU1LXCU7sQO3A==
+X-Google-Smtp-Source: AGHT+IGq73HxNPtEVSnp5azdraH+JoXEP6E2e3ILYaUPK7FTlIC70puJ7IGvGTsd2cf9o9WMfsGxwA==
+X-Received: by 2002:a05:6a00:3cd2:b0:748:323f:ba21 with SMTP id d2e1a72fcca58-74c997fd590mr3720134b3a.1.1751538101662;
+        Thu, 03 Jul 2025 03:21:41 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-74af541b6e5sm15788469b3a.43.2025.07.03.03.21.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Jul 2025 03:21:41 -0700 (PDT)
+Date: Thu, 3 Jul 2025 18:21:38 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Junhui Liu <junhui.liu@pigmoral.tech>, 
+	Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Yuntao Dai <d1581209858@live.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Question for CV1800 mailbox users series SoC
+Message-ID: <iq36z2mqetrdhxe24w455quvqixcy25ovuxjz3rgelpgln4j3f@kjxn5z7yb6bz>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/5] drm/imagination: Use pwrseq for TH1520 GPU power
- management
-To: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, Matt Coster
-	<matt.coster@imgtec.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Drew Fustini <fustini@kernel.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, Bartosz Golaszewski
-	<bartosz.golaszewski@linaro.org>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20250626-apr_14_for_sending-v7-1-6593722e0217@samsung.com>
-X-CMS-MailID: 20250703102143eucas1p273c64519df9ebb05e9b3a7d9a38ad341
-X-Msg-Generator: CA
-X-RootMTR: 20250626093356eucas1p1adfcd565173d939f82e15252189c316f
-X-EPHeader: CA
-X-CMS-RootMailID: 20250626093356eucas1p1adfcd565173d939f82e15252189c316f
-References: <20250626-apr_14_for_sending-v7-0-6593722e0217@samsung.com>
-	<CGME20250626093356eucas1p1adfcd565173d939f82e15252189c316f@eucas1p1.samsung.com>
-	<20250626-apr_14_for_sending-v7-1-6593722e0217@samsung.com>
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_032152_146112_71FBBACC 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20250703_032142_511422_70F1C9DE 
+X-CRM114-Status: UNSURE (   5.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,53 +101,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+As I have seen you take the mailbox driver for CV1800, I wonder
+if you have developed the driver for the 8051 core on the CV1800
+system? 
 
-
-On 6/26/25 11:33, Michal Wilczynski wrote:
-> Update the Imagination PVR DRM driver to leverage the pwrseq framework
-> for managing the complex power sequence of the GPU on the T-HEAD TH1520
-> SoC.
-> 
-> To cleanly separate platform specific logic from the generic driver,
-> this patch introduces a `pwr_power_sequence_ops` struct containing
-> function pointers for power_on and power_off operations. This allows for
-> different power management strategies to be selected at probe time based
-> on the device's compatible string.
-> 
-> A `pvr_device_data` struct, associated with each compatible in the
-> of_device_id table, points to the appropriate ops table (manual or
-> pwrseq).
-> 
-> At probe time, the driver inspects the assigned ops struct. If the
-> pwrseq variant is detected, the driver calls
-> devm_pwrseq_get("gpu-power"), deferring probe if the sequencer is not
-> yet available. Otherwise, it falls back to the existing manual clock and
-> reset handling. The runtime PM callbacks now call the appropriate
-> functions via the ops table.
-> 
-> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  drivers/gpu/drm/imagination/pvr_device.c |  36 +++++++-
->  drivers/gpu/drm/imagination/pvr_device.h |  17 ++++
->  drivers/gpu/drm/imagination/pvr_drv.c    |  27 +++++-
->  drivers/gpu/drm/imagination/pvr_power.c  | 139 ++++++++++++++++++++++---------
->  drivers/gpu/drm/imagination/pvr_power.h  |  13 +++
->  5 files changed, 185 insertions(+), 47 deletions(-)
-> 
-
-Hi,
-
-I'm checking in on the status of my pwrseq patch above. Is this on track
-for the next merge window?
-
-Please let me know if there's anything else needed from my end to help
-get it ready.
-
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
