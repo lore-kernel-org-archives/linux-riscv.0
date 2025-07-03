@@ -4,100 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D90FC77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 15:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8C7C83F03
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 17:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KbG5bY7fUDbZo/7Gr3IF4tNj54x/+NRr5MufgOVfGhw=; b=YnGK1LuXzGcbdb
-	nyrwXXVoJNY9/DOC+yZgWueMiIRg0ZkmpAhJUOFenP9pqQO0pjJAG+yQYBucoQ73zUwvQsd7iYm47
-	EFmx9BRZgvnxhqhh4g55lXyGFBzawibNMENpDuW8cNTz3M98rzUfKGqJnz7FMYuOpb+CJgYXqCZLp
-	FdWhHiYKXVSlUgN0Win4YeD8NKgFKSXP6RqzskcEjpTiKkzmQCk9D9AMdIR71sOUElUL6fNo6W8qS
-	RDM5IP+qCOrjRNwYybPA3+2yEN3Fj2ReLTimoDWlojKUZxAUHafMbAuM2ZuR8QerZ/ZU/B/WHoUND
-	T8qpnhAgHYn4eR95nQrw==;
+	List-Owner; bh=9g4wakQ8oDDJeuZWjixNphKaWn2fSy2SVB+WZPTyS0M=; b=JCz2NbUNLlbgp0
+	hPMoLrkSiQ5ltyS9GgTqvPBneJzLE/fUF89FKeFJy7WGInBkbaH6M7Wx+1/Pmv4hurLT6n90L8ub3
+	kqDwjQIXhC2Znr1R6UO8st2JPVlk30/zRbXCeVd58Z6VxD6OhLKE1g3XA48yck2uTxbq7OAaEFJUU
+	+GisLPs2cwNust33U+ewTsnqaDFqzaIK3uJqXi0Xz1unRIZ9sPvBGrgPPk8WJkmXdRbOfCUs7H7bi
+	RF8JTNwDwWuaDz6dzmdWdGdFBfhhl92xkH/kLapNu2GqTUPHBtP1douS8EYzfmSH9UzLF5L7ETbKN
+	TeusHSb+EEH98eDdgfnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXM7g-0000000BsSA-0Rri;
-	Thu, 03 Jul 2025 15:45:16 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1uXNK4-0000000C4GZ-3kv5;
+	Thu, 03 Jul 2025 17:02:08 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKOS-0000000BYf5-3Ih6
+	id 1uXKu3-0000000Bf9r-29wB
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Jul 2025 13:54:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751550869; x=1783086869;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hkynFXqBgMDhBIacDm9GkRDPLniP47vYUeHzZhSjqPE=;
-  b=Er/doTmq+I//GgxyCwj8QJlRhDIjetHNh3HtYwB4LoNgL+GhjETmIp45
-   pOcrMYecDo0X+r5JunXyBzXlzlJJp/BGtDF9bphGfc3AfVuzRD4PGVmmK
-   snWGx5S6ooykpJ+Kjb1/ai0YjJeDLK6T3ThqlHgRPFXPbmowmeQ4H3jEb
-   vb1guWGAIC+jTvxN0lDbVsHx5KGbIiOCeO7g+UBLqSzCFgrTmpinCeWhC
-   Qduh4w+FGe5cgegHA4lq/qxtYSaue5SfQaFXL/ycsSMx6WtBDFx/nniBb
-   ZAxGYUe0H92DfThV8LUkl7vzPNjgHCFGiCnygyA2i/brtSs7tBfGX9/xT
-   w==;
-X-CSE-ConnectionGUID: nhhwajLRQwidLsgkIUWwRA==
-X-CSE-MsgGUID: q65pr7S6Q/iBCxCtl2MT6Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11483"; a="57686389"
-X-IronPort-AV: E=Sophos;i="6.16,284,1744095600"; 
-   d="scan'208";a="57686389"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2025 06:54:27 -0700
-X-CSE-ConnectionGUID: Sz8pfLTHRumN6SVidx2zkw==
-X-CSE-MsgGUID: LlSnEty4TaS4oZ+RxqLYkg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,284,1744095600"; 
-   d="scan'208";a="153790365"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2025 06:54:21 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uXKOG-0000000CDjq-1Yoc;
-	Thu, 03 Jul 2025 16:54:16 +0300
-Date: Thu, 3 Jul 2025 16:54:16 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Anup Patel <apatel@ventanamicro.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Len Brown <lenb@kernel.org>,
-	Rahul Pathak <rpathak@ventanamicro.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 21/24] mailbox/riscv-sbi-mpxy: Add ACPI support
-Message-ID: <aGaLiK0eW8Mc1YC3@smile.fi.intel.com>
-References: <20250702051345.1460497-1-apatel@ventanamicro.com>
- <20250702051345.1460497-22-apatel@ventanamicro.com>
- <aGUl_S9irfhlHmy2@smile.fi.intel.com>
- <aGZhWlxxQG0Z8awP@sunil-laptop>
+	Thu, 03 Jul 2025 14:27:09 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-553dceb342fso7510304e87.0
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Jul 2025 07:27:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1751552825; x=1752157625; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Uf8vdHeGId+ZnF/9F3GWDgFkWjF4VDV823qH2TyLfGg=;
+        b=c5rfWoB9PtZPEBvnGz15mz8KxoqdUtA0rtp4I2uJyQCxGffYtVzV2VJZzWTbP8d9Fn
+         +p4t4/6P60z3kdOthAJS2B0HQTP6aw6Er3zqbmIUEXoownW3FS/I1+x2ufRBf0gFm8VM
+         5b8mmkQEbCeWR6JzGYgj4m9/EVrHCdx9CtqVgpbWOClGhpmlfsODxtN3sEHS+Ygt2CVF
+         D2ohuKt+BO6xJWp29BHlFgG/VbbYjhDRsA+FTvuz3/OTuwIuGJ+aj9FF+tn+BLYVQBzi
+         VlLAy7r38mkFv8SGNvg/eon8ZsNucIsFNlPXwDkPjqVKVAOYgrK052UOyVxl09n6B3T+
+         w1Fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751552825; x=1752157625;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Uf8vdHeGId+ZnF/9F3GWDgFkWjF4VDV823qH2TyLfGg=;
+        b=M6gew7ZmGt0E2pbdhJOdxoVec93FOa7Fb2cFA0k95YO0sXaoCbygsmy5mIu/BIkOcb
+         4kk1EZ5xuUUwv926l/cMtGItyQmJQMQcHCHreZkAXVrMix2vAH9BcIa3MIYsszoAv4o+
+         htc+9TjVcnHlhnUjcMkHq/EQY7gk6Xr4+y3n21HlWS1TYmjB4kfljZUkXYk1jlLhqkg7
+         XnL4+P8xHsTbN1PEoR1isOp0BRfCLU7ids+c2i9IS4Uhuhh7IMJ+uUpVP+6rYPDtltDK
+         4pjacQBxemwytF3QL3lskQnffYWSam1ELfaEflWjTA2OkxcUHNM18WGrHpa0ybmcxhwq
+         XIWg==
+X-Forwarded-Encrypted: i=1; AJvYcCV44x8e8EAgkevELmtcrRPX+yTe1YKcqODQQzM6qzk+beMyp8VtNhGKW3oQQC1yATyk5S8d6D0OrG3+aA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIMELzLs9rF/1w2XsKxc7PLQenXm70k2/r5tV+x18y5ZPA4mrc
+	7YKt717paI2gp8UNOMADfJ2kVjSOZo5R0PILqXPqLQRIGqWo59EkACebgFQrfz2h+d/UIcu+BXZ
+	eAKJRKAT+cizFxp360xuNnlvNlri1gYyFK9AAbmdyaA==
+X-Gm-Gg: ASbGnctDp6qjMEuZSQnnX3a5z+bU8W4k8GXqUy7LNTfIFp2l2mas+51UyAx9CaYmWqV
+	fFdMTuPOAcT75mNknuualI6WqW3m4DpCeJX4SqB0f5FSomZ+QB21ikOOg9aY4ih+W2lbNuU7pfE
+	inDwB9dwArHjW4PAWDJ5UtaSSUkyRsG2PDRg+g5mPInf63
+X-Google-Smtp-Source: AGHT+IERNnk/2/Xto87XCFkohZ55sqVf4D9r7VKfYTzDKK+EnAO7K8P2L0DHhu9Is2cxcFQo4XLBsT3o8hs5IshBmu4=
+X-Received: by 2002:a05:6512:3b06:b0:554:f7ec:3b23 with SMTP id
+ 2adb3069b0e04-556282d4f26mr2545624e87.15.1751552825118; Thu, 03 Jul 2025
+ 07:27:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aGZhWlxxQG0Z8awP@sunil-laptop>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20250702051345.1460497-1-apatel@ventanamicro.com>
+ <20250702051345.1460497-22-apatel@ventanamicro.com> <aGUl_S9irfhlHmy2@smile.fi.intel.com>
+ <aGZhWlxxQG0Z8awP@sunil-laptop> <aGaLiK0eW8Mc1YC3@smile.fi.intel.com>
+In-Reply-To: <aGaLiK0eW8Mc1YC3@smile.fi.intel.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Thu, 3 Jul 2025 19:56:52 +0530
+X-Gm-Features: Ac12FXxVxoArxYNQOBIoss4C9gX0gtiDewbDa5jJ0LeiFJ8s2mrh5jukau-DksA
+Message-ID: <CAK9=C2VjrOvcu=hEfxqw8R6Bwc1W5n9m_ksQ8vx02Lo8232wqQ@mail.gmail.com>
+Subject: Re: [PATCH v7 21/24] mailbox/riscv-sbi-mpxy: Add ACPI support
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_065428_865925_9E254005 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20250703_072707_556368_F0F081A7 
+X-CRM114-Status: GOOD (  27.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,49 +89,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, linux-acpi@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Len Brown <lenb@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 03, 2025 at 04:24:18PM +0530, Sunil V L wrote:
-> On Wed, Jul 02, 2025 at 03:28:45PM +0300, Andy Shevchenko wrote:
-> > On Wed, Jul 02, 2025 at 10:43:42AM +0530, Anup Patel wrote:
-
-...
-
-> > > -		if (dev_of_node(dev))
-> > > +		if (is_of_node(fwnode)) {
-> > >  			of_msi_configure(dev, dev_of_node(dev));
-> > > +		} else if (is_acpi_device_node(fwnode)) {
-> > > +			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
-> > > +							      DOMAIN_BUS_PLATFORM_MSI);
-> > > +			dev_set_msi_domain(dev, msi_domain);
-> > > +		}
-> > 
-> > Actually you don't need to have the if-else-if if I am not mistaken.
-> > The OF does almost the same as it's done in the second branch for ACPI case.
-> > How many MSI parents this may have?
-> > 
-> OF already has a well defined interface to configure the MSI domain. The
-> mechanisms existing today are different for DT vs ACPI to find out the
-> fwnode of the MSI controller. So, it is done differently.
-
-I don't see how. The only difference I see is that OF iterates over all listed
-parents, if any, ACPI tries only one.
-
-So, perhaps it's a time to have a common API somewhere for this to be agnostic?
-Something like fwnode_msi_configure() in somewhere of IRQ MSI core?
-
-> In RISC-V case at least, there will be only one MSI parent.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdWwgMywgMjAyNSBhdCA3OjI04oCvUE0gQW5keSBTaGV2Y2hlbmtvCjxhbmRyaXku
+c2hldmNoZW5rb0BsaW51eC5pbnRlbC5jb20+IHdyb3RlOgo+Cj4gT24gVGh1LCBKdWwgMDMsIDIw
+MjUgYXQgMDQ6MjQ6MThQTSArMDUzMCwgU3VuaWwgViBMIHdyb3RlOgo+ID4gT24gV2VkLCBKdWwg
+MDIsIDIwMjUgYXQgMDM6Mjg6NDVQTSArMDMwMCwgQW5keSBTaGV2Y2hlbmtvIHdyb3RlOgo+ID4g
+PiBPbiBXZWQsIEp1bCAwMiwgMjAyNSBhdCAxMDo0Mzo0MkFNICswNTMwLCBBbnVwIFBhdGVsIHdy
+b3RlOgo+Cj4gLi4uCj4KPiA+ID4gPiAtICAgICAgICAgaWYgKGRldl9vZl9ub2RlKGRldikpCj4g
+PiA+ID4gKyAgICAgICAgIGlmIChpc19vZl9ub2RlKGZ3bm9kZSkpIHsKPiA+ID4gPiAgICAgICAg
+ICAgICAgICAgICBvZl9tc2lfY29uZmlndXJlKGRldiwgZGV2X29mX25vZGUoZGV2KSk7Cj4gPiA+
+ID4gKyAgICAgICAgIH0gZWxzZSBpZiAoaXNfYWNwaV9kZXZpY2Vfbm9kZShmd25vZGUpKSB7Cj4g
+PiA+ID4gKyAgICAgICAgICAgICAgICAgbXNpX2RvbWFpbiA9IGlycV9maW5kX21hdGNoaW5nX2Z3
+bm9kZShpbXNpY19hY3BpX2dldF9md25vZGUoZGV2KSwKPiA+ID4gPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIERPTUFJTl9CVVNfUExBVEZP
+Uk1fTVNJKTsKPiA+ID4gPiArICAgICAgICAgICAgICAgICBkZXZfc2V0X21zaV9kb21haW4oZGV2
+LCBtc2lfZG9tYWluKTsKPiA+ID4gPiArICAgICAgICAgfQo+ID4gPgo+ID4gPiBBY3R1YWxseSB5
+b3UgZG9uJ3QgbmVlZCB0byBoYXZlIHRoZSBpZi1lbHNlLWlmIGlmIEkgYW0gbm90IG1pc3Rha2Vu
+Lgo+ID4gPiBUaGUgT0YgZG9lcyBhbG1vc3QgdGhlIHNhbWUgYXMgaXQncyBkb25lIGluIHRoZSBz
+ZWNvbmQgYnJhbmNoIGZvciBBQ1BJIGNhc2UuCj4gPiA+IEhvdyBtYW55IE1TSSBwYXJlbnRzIHRo
+aXMgbWF5IGhhdmU/Cj4gPiA+Cj4gPiBPRiBhbHJlYWR5IGhhcyBhIHdlbGwgZGVmaW5lZCBpbnRl
+cmZhY2UgdG8gY29uZmlndXJlIHRoZSBNU0kgZG9tYWluLiBUaGUKPiA+IG1lY2hhbmlzbXMgZXhp
+c3RpbmcgdG9kYXkgYXJlIGRpZmZlcmVudCBmb3IgRFQgdnMgQUNQSSB0byBmaW5kIG91dCB0aGUK
+PiA+IGZ3bm9kZSBvZiB0aGUgTVNJIGNvbnRyb2xsZXIuIFNvLCBpdCBpcyBkb25lIGRpZmZlcmVu
+dGx5Lgo+Cj4gSSBkb24ndCBzZWUgaG93LiBUaGUgb25seSBkaWZmZXJlbmNlIEkgc2VlIGlzIHRo
+YXQgT0YgaXRlcmF0ZXMgb3ZlciBhbGwgbGlzdGVkCj4gcGFyZW50cywgaWYgYW55LCBBQ1BJIHRy
+aWVzIG9ubHkgb25lLgo+Cj4gU28sIHBlcmhhcHMgaXQncyBhIHRpbWUgdG8gaGF2ZSBhIGNvbW1v
+biBBUEkgc29tZXdoZXJlIGZvciB0aGlzIHRvIGJlIGFnbm9zdGljPwo+IFNvbWV0aGluZyBsaWtl
+IGZ3bm9kZV9tc2lfY29uZmlndXJlKCkgaW4gc29tZXdoZXJlIG9mIElSUSBNU0kgY29yZT8KPgoK
+VGhlcmUgaXMgYW4gaXNzdWUvZ2FwIGluIHRoZSBERCBmcmFtZXdvcmsgd2hpY2ggaXMgYmVpbmcg
+d29yay1hcm91bmQKaGVyZS4gVGhpcyBpc3N1ZSBtYW5pZmVzdCBtb3N0bHkgaW4gUklTQy1WIGxh
+bmQgYmVjYXVzZSBpbiBSSVNDLVYgYm90aApNU0kgY29udHJvbGxlciBkcml2ZXIgYW5kIGRyaXZl
+cnMgdXNpbmcgTVNJIGFyZSByZWd1bGFyIHBsYXRmb3JtIGRyaXZlcnMKd2hpbGUgdGhlIHByb2Jl
+IG9yZGVyaW5nIGlzIGVuc3VyZWQgYnkgZGV2X2xpbmsgc3VwcG9ydCBvZiBERCBmcmFtZXdvcmsK
+b3IgdGhlIGZyYW1ld29ya3MgKGxpa2UgQUNQSSkgY3JlYXRpbmcgdGhlIGRldmljZS4KCkFzLXBl
+ciB0aGlzIGlzc3VlLCB3aGVuIHBsYXRmb3JtIGRldmljZXMgKERUIG9yIEFDUEkpIGFyZSBjcmVh
+dGVkIHRoZQpNU0kgZG9tYWluIGluc3RhbmNlIGlzIG5vdCBhdmFpbGFibGUgYW5kIGhlbmNlIHNl
+dCB0byBOVUxMLiBUaGUgTVNJCmRvbWFpbiBpbnN0YW5jZSBpcyBvbmx5IGF2YWlsYWJsZSBhZnRl
+ciBNU0kgY29udHJvbGxlciBkcml2ZXIgaXMgcHJvYmVkCnNvIGN1cnJlbnRseSB3ZSBleHBsaWNp
+dGx5IGRvIG9mX21zaV9jb25maWd1cmUoKSBvciBkZXZfc2V0X21zaV9kb21haW4oKQppbiB0aGUg
+ZHJpdmVyIHVzaW5nIE1TSSBhcyBhIHdvcmstYXJvdW5kLiBBZGRpbmcgYSBjb21tb24KZndub2Rl
+X21zaV9jb25maWd1cmUoKSBpcyBvbmx5IGdvaW5nIHRvIGJlIGFuIGltcHJvdmVtZW50IHRvIHRo
+ZQpleGlzdGluZyB3b3JrLWFyb3VuZCB3aGljaCB3ZSBzaG91bGQgbm90IGhhdmUgaW4gdGhlIGZp
+cnN0IHBsYWNlCmhlbmNlIG5vdCB0aGUgcmlnaHQgYXBwcm9hY2ggSU1PLgoKSW4gdGhlIGxvbmcg
+cnVuLCB3ZSBuZWVkIGEgY2xlYW4gZml4IGZvciB0aGUgYWJvdmUgaXNzdWUgaW4gdGhlIERECmZy
+YW1ld29yayBzdWNoIHRoYXQgcGxhdGZvcm0gZHJpdmVycyB1c2luZyBNU0kgZG9uJ3QgaGF2ZSB0
+byBleHBsaWNpdGx5CmRvIG9mX21zaV9jb25maWd1cmUoKSBvciBkZXZfc2V0X21zaV9kb21haW4o
+KS4KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
