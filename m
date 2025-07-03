@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37398C77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 06:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2E2C83030
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 06:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VZQ6hbP/1WDH3EskzRYFwnOKUMT5DXLTQV0vkA7wxnU=; b=EBK5WT8mx/57gTdP7poUgGTFfu
-	lztZLEbw25b81MvoQUWBu+qoG8I1wMx1eNnV7EGVj11Rkg6dtDIXAgx17if46o+hEu+JrnTMYcl0Y
-	BXCF1xFkkGOthK0yIyz0hrvyazVxxEbUplaO3KmBpGRCIp0sjQaGx5zYYC9AsUr1GwUJPpoLQbm7j
-	NyuPgn1f0IN2eEz2vfh0qY4juDAhFrP5xqpeQyObO2hfip9hGtKJwVMiQ+7yX3mgyCkXvn71mK6Xk
-	ekVymgG5oGShKwIRbA7DB437XKYGADEj/S9Zj7EQFz3xpM7793kG8/guFN9T1m9RA0WQsIibbIj8m
-	lg//2XuA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ho4tI7f0g4OrfeCGOnW8m0b0+XHsiHf6V7EVMpt8Am8=; b=Pg4CaaRvvuN+Z0
+	mWf2d5tnAYViEdkrVYDl/SlG5lwPYUuVs80owjGgcefvPKMVIHlE99atb75GMkc1UrVFuzgNq/hG4
+	1rEDSBTKdGXKjgAvDDlfTMGShmMVu78D9IJ3t4AA3eUl8wCdJuZE1X5qlGfIjla+nnTP8P97Z890j
+	zqfGO32A+d0zVy2t6DJ9MV49vDEuqndtyMTMILgHInNXZBU06NeNG5PZS6YY0I2rLSipknUyOG9+w
+	EXUTRI70jUi/tAGxoKx/5z8AUVKyS3+qgO0sfps9c06qGhF1zRw7eShUr7XriO8hfD3tztvwXob/V
+	8lSgOkInAdNoGNbC834w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXDjS-0000000AQ9z-2r6b;
-	Thu, 03 Jul 2025 06:47:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uXDo7-0000000AQpD-46SP;
+	Thu, 03 Jul 2025 06:52:31 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXDe8-0000000APAx-0JyV
+	id 1uXDlN-0000000AQUr-3gbW
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Jul 2025 06:42:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 675A7A53673;
-	Thu,  3 Jul 2025 06:42:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84DD1C4CEEB;
-	Thu,  3 Jul 2025 06:42:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751524931;
-	bh=cj9NFtN0xsWiVmMtfQkfpbIOndV8+ifluU4LHQQxzFU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jQ4uNE78oOdm1TrK/C+9W1ZcQRpJEDoLeMh2Q891i2oZUfNuQC9x9ASxlBjBehDjV
-	 hf5grWtAx5wGkGNO12BwAsksZDxw/m/CTKBSin7i8XggvWBsnFY8jLcO/rXEKLCW/p
-	 yACAPwI7zcMvXfIw1gZ+FB3PaRJqMh/l1kiPpTTwt9fscVTyZJYgvsxAf5yTInlI8I
-	 1KkDJzQNB4DFmY5tBaASWf9VPdc902hMnxlMjcsv8RN5/gXFaleqLy1zHcLidZexXf
-	 8jm9mXqE+dAHArWZUmoi7+IUXAGPGg7iOVU+9rLgXpXecJbQTAUMS378Dhp/hmPqqf
-	 pCBxq/moUoNbQ==
-Date: Thu, 3 Jul 2025 08:42:08 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, Guo Ren <guoren@kernel.org>, 
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Benno Lossin <lossin@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v7 3/8] rust: pwm: Add core 'Device' and 'Chip' object
- wrappers
-Message-ID: <hdc4gweo5orxjzfggelvddpmhesmzkav2w3il7asewg5lswrxh@rslvwmzofedu>
-References: <20250702-rust-next-pwm-working-fan-for-sending-v7-0-67ef39ff1d29@samsung.com>
- <CGME20250702134957eucas1p1d84f2ed3014cf98ea3a077c7fae6dea6@eucas1p1.samsung.com>
- <20250702-rust-next-pwm-working-fan-for-sending-v7-3-67ef39ff1d29@samsung.com>
- <aGVMnmoepIVSS0yK@pollux>
+	Thu, 03 Jul 2025 06:49:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1751525332; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=mD8uUny1XYdpWeQP6SVaqolbEt3RDJk6TvOGlAxAVadzbU58ua9UfPewBALDrj9LYp7jYGK1+PDyQTEt18mkEMKhNXJKrTSXJHsjdFe0gSdCH563YyLSeocKbSHgcSdg+PB38ZTlCGQat5ox6UxRlDvsGNKq9840PPfmH+k3cQY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1751525332; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=JHSQpMjUPCAOTe05SvkTtkx5uWkYFZS0xHWecOXz3R4=; 
+	b=iXQOgr+YJdkGpSD4cOaIkMRqrM7MVn7EjI+s8IgbNXDk3oc3E2jImPpM7zP66LansiUnvJ22x+0pQBhf7+rRMoA0NTKtaut2QVNS8hk2e4L1VvFa3C2NcJE7AtwmPy1JEb/PaYd1iDT+kp3y59MhwTWihrr45fqVq4/hXiZedLw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751525332;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=JHSQpMjUPCAOTe05SvkTtkx5uWkYFZS0xHWecOXz3R4=;
+	b=SB08K3UpsvQeF1hLVykmZ5rpp7nw7Io/5oOUFGLAyhb5sqp5oIF8BpXHxGS42wWf
+	pTZS5fB+YK0aauSLEzaKS8xYdDrcU9wqgZESra8Y7iUPB1E5OrWxjE2YxTbKjtIA/Gy
+	UJND0pWB0MXSctpwf236kTpk5St/yU7YfyTI80KM=
+Received: by mx.zohomail.com with SMTPS id 1751525328226725.9805381687908;
+	Wed, 2 Jul 2025 23:48:48 -0700 (PDT)
+Message-ID: <a2284afb-ee61-457e-aaa8-49a9ce3838f9@pigmoral.tech>
+Date: Thu, 3 Jul 2025 14:48:27 +0800
 MIME-Version: 1.0
-In-Reply-To: <aGVMnmoepIVSS0yK@pollux>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 5/5] riscv: dts: spacemit: Add Ethernet
+ support for Jupiter
+To: Vivian Wang <wangruikang@iscas.ac.cn>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Vivian Wang <uwu@dram.page>, Lukas Bulwahn <lukas.bulwahn@redhat.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250702-net-k1-emac-v3-0-882dc55404f3@iscas.ac.cn>
+ <20250702-net-k1-emac-v3-5-882dc55404f3@iscas.ac.cn>
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+In-Reply-To: <20250702-net-k1-emac-v3-5-882dc55404f3@iscas.ac.cn>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_234212_179019_2EA26C34 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250702_234942_276229_24FF64D4 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +88,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5209489997450529482=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Vivian,
+Thanks for you work!
 
---===============5209489997450529482==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="uhbdmr5uuwnvygor"
-Content-Disposition: inline
+On 2025/7/2 14:01, Vivian Wang wrote:
+> Milk-V Jupiter uses an RGMII PHY for each port and uses GPIO for PHY
+> reset.
+>
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 
+Successfully tested with iperf3 on Milk-V Jupiter.
 
---uhbdmr5uuwnvygor
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v7 3/8] rust: pwm: Add core 'Device' and 'Chip' object
- wrappers
-MIME-Version: 1.0
+TCP Rx: 941 Mbits/sec
+TCP Tx: 943 Mbits/sec
+UDP Rx: 956 Mbits/sec
+UDP Tx: 956 Mbits/sec
 
-Hello Danilo,
+Tested-by: Junhui Liu <junhui.liu@pigmoral.tech>
 
-On Wed, Jul 02, 2025 at 05:13:34PM +0200, Danilo Krummrich wrote:
-> I assume the C API does guarantee that a struct pwm_device *always* holds a
-> valid pointer to a struct pwm_chip?
-
-Yes, a pwm_device holds a reference to the chip's dev. So until pwm_put
-is called the chip won't go away.
-
-Best regards
-Uwe
-
-
---uhbdmr5uuwnvygor
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhmJj0ACgkQj4D7WH0S
-/k4x3ggAkwamiLd6r0eMJ9/ItKu0S1EKf3GNLQ7p7k9gEWSCQwPbKAiFtWCLYWkp
-1BcEI20bHheXAOH5K2vryRS4WOaoy2lP5F8CgYseqkSnfIeWbeUIyR5RuS+Gmfj8
-UT937rxoH1bvHiu9X0PYtoN5/DwH423JsT7EhLjyL62ycXzDU6zhB/De7MoIGo05
-NSMdLALW12xCzKbAstogGf2v/WwGUvk9bynefxzU0GYpdgX+tl1U6cy7BQR+T6PD
-WH6EXgXFcZymtIZ1N1nk7Jt7REFP3vh63x7+bNFRwGJSmyj7pMDU2wR4YYKCcCdi
-HRunXxiTYVmJ5jnxMTs2zoE2fIDVNA==
-=6vvA
------END PGP SIGNATURE-----
-
---uhbdmr5uuwnvygor--
-
-
---===============5209489997450529482==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> ---
+>   arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 46 +++++++++++++++++++++++
+>   1 file changed, 46 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+> index 4483192141049caa201c093fb206b6134a064f42..c5933555c06b66f40e61fe2b9c159ba0770c2fa1 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+> @@ -20,6 +20,52 @@ chosen {
+>   	};
+>   };
+>   
+> +&eth0 {
+> +	phy-handle = <&rgmii0>;
+> +	phy-mode = "rgmii-id";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac0_cfg>;
+> +	rx-internal-delay-ps = <0>;
+> +	tx-internal-delay-ps = <0>;
+> +	status = "okay";
+> +
+> +	mdio-bus {
+> +		#address-cells = <0x1>;
+> +		#size-cells = <0x0>;
+> +
+> +		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
+> +		reset-delay-us = <10000>;
+> +		reset-post-delay-us = <100000>;
+> +
+> +		rgmii0: phy@1 {
+> +			reg = <0x1>;
+> +		};
+> +	};
+> +};
+> +
+> +&eth1 {
+> +	phy-handle = <&rgmii1>;
+> +	phy-mode = "rgmii-id";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac1_cfg>;
+> +	rx-internal-delay-ps = <0>;
+> +	tx-internal-delay-ps = <250>;
+> +	status = "okay";
+> +
+> +	mdio-bus {
+> +		#address-cells = <0x1>;
+> +		#size-cells = <0x0>;
+> +
+> +		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
+> +		reset-delay-us = <10000>;
+> +		reset-post-delay-us = <100000>;
+> +
+> +		rgmii1: phy@1 {
+> +			reg = <0x1>;
+> +		};
+> +	};
+> +};
+> +
+>   &uart0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&uart0_2_cfg>;
+>
+-- 
+Best regards,
+Junhui Liu
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5209489997450529482==--
-
