@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 892DBC77B7C
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 02:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB55C8303C
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jul 2025 02:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zb9SWCuOync1aPIWmtKNWNjb9GK29sORKjr5cg36ujU=; b=xPoFb99RZDNYVi
-	aHUXkyb7VQkO/s8YfaxJtLPqMEUxi5A91FMQ7xvhCcGN27kIG/qOWtuFUobG/KzNdQ+xA7Sqs0ZHA
-	kqhAnfcu+QX6npU2IdBLaRhJHM9w1P/vcZFgBNPdhbrMyoaUKrAujW1KjNahG6nQL9yG/EYRT/5+X
-	0oKXfitH9hraboIM6QJjYwN1LNk6AAFUJcv7xdPi/8Q7mbY4x1upgDuhbGUusYootEF5dkBETQKWX
-	lFyHGNXcnFRvghU3rCp3c1j6istm1DZzhH3VeWem5jaBA08hi0fg8V0jWsf47c3jP+EIDuSHBB2cL
-	rZS4TL8DRKn/LLlKhonA==;
+	List-Owner; bh=HpmdGLxtqB/zlmo8Li1Ghw2Vz/JV677QL/5d3eJ31eI=; b=AMnmjaqB4zAEi2
+	c0H6dp+jo1OXpvTIJojJIaX/mb70waxdz1jdWLG1yeryEnR7RsmwWBie/YK4r21Ahm7RvA52yfr/I
+	xjUhcQML0Ndstl6My4qcASi/K+YL2ubNDPQnsSb4J5CAtXDbc3LHp6QEkajc+BtHFAc00g1LL3TIp
+	F3zopF4t2yocrgnDfiPPr9WeOBzOy2lcFn8G5u5a7gZ8K1Y1P8z5Vzl9e3TqZ0rC+uIxnKv9PtuWa
+	Sstl6sE9zZ3kn00fdVnUDB5dT1bx1fYYsrmxXZZehtQuyh1zKGbsl3ZTu1rMku6y4HJORUAR/nc6F
+	9FCaegpY4NtMKQ9wSclQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX9Uz-0000000A0Ni-43UE;
-	Thu, 03 Jul 2025 02:16:29 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1uX9V2-0000000A0Ot-2JAi;
+	Thu, 03 Jul 2025 02:16:32 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX9Ux-0000000A0Mv-2U5i
+	id 1uX9V0-0000000A0O0-2aG8
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Jul 2025 02:16:28 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b321bd36a41so4516057a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Jul 2025 19:16:27 -0700 (PDT)
+	Thu, 03 Jul 2025 02:16:31 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7424ccbef4eso4603941b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Jul 2025 19:16:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751508987; x=1752113787; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1751508990; x=1752113790; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=u2YnPV5R9z5TbfIfu+epngB5XBVjG855v9YBWyemiuo=;
-        b=XBlSB4Kc4LA7973jaMHCK5UZ0O7QH8eOqgDrnU48SvRe8A8VzbYk+P89vVKdzTK5Gb
-         x9sW4IBNApHvwacRFlihrH/ToM+Z2vCxjuBmMrpA5UFVia8mf6Fr68V49605CSnzmq4J
-         B4xAPB9HuLj88R7/7xCCVXv5uE9MzmVSeJxiZh5RA5NlAda8ymGuyq4i2Dfq3KCd2KOB
-         +hIZYqJ783A1qAb7At48QpEkW5PeoA9A1nROrv+HjvDNL/M6C2lKIVPghmYsrsB73RVU
-         Tk6vGLhdzwolH2s5CHPf1TZ2vIjgDlH374XpzQvF4sRiFoV2kUgeNCy/wTaqOF62Wyge
-         95WA==
+        bh=RnJ5HyRFTLzSb90lPZ0kytxtuJ4Ps5kIpRokWvdn6qw=;
+        b=E1iNFbctTz2Zg/uY8ZJUVJ3qt/5Wjfyx5VgH10Hs0KNExZP3POw84QcSB6U+lVZG5e
+         Bc3jy1iITElEUl6Cda6uC90t4oksG4qyjcjzCv4uvfIAOjzh+1bNKoXcMIxvRR9nU2p6
+         nfJr5mcCY4l5jkz9SJ/VJRoJBgybPhj6hXE3xisPnQqpZgSyJOT4hggBAQMN8VYUTORu
+         fczHDg02OmzvUyPl4zG424iE+O4wQmnqF+cS2J2NTR5rfclsaVMbBCfkV2bLzXuTm4vx
+         SUAKFvkP7fGyYpbXXVB30m923pEwuJ2AM2DfqjEjMjmyn8zB8XywND6pnzWLERWTf/B8
+         B8Zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751508987; x=1752113787;
+        d=1e100.net; s=20230601; t=1751508990; x=1752113790;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=u2YnPV5R9z5TbfIfu+epngB5XBVjG855v9YBWyemiuo=;
-        b=ZFebcZiUrkT7vpjkkLMAvals7ht4mQEmtMc0cZCWHdg3cy2LmFTf8hUeRg1fgDJdy1
-         O6gReSI6mi+ILggoo31N5fmF9D5d0urvgFY/c4BnbV5ISivrFDyXmf3ivCx0ekQwVwG7
-         5J0YM+PDkH41jDsF0f8jwMeU/ZgwrMt2dIMzjLiRdHo3uBc37X6TMJvvSUFNeLW8GHd2
-         SnTfkYwsHxnhQZyAeICj7I1jaM5Kh6gYDsI65k+ISjc3DN1tk00HgOAMBFvA6vXH7FYK
-         5bxZoWaAEACCENCVKZaZKVvDP4NlPp/DYntLdCi8+b/HBYVbVfmTOrbjQxcVV00H19Aj
-         VQpw==
-X-Forwarded-Encrypted: i=1; AJvYcCXSSE/fVTKx2puRfnh9tHppcMY4TcvCMz5A2jeYWJ+us2S17t3oTadtL/Ek4ROFYGhFwKRJOCaRr/xkgA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyX3YKam5lUm0DGC1EjQAh5p5qPy6EDN2XERFNL6R4Kx9ArOpSJ
-	TLU/ClPqZjl3/NCwGEBUNa9OYO7cPuEdZRWKMCJvBrC2tNzg1P69ev6V
-X-Gm-Gg: ASbGnctj5HZ1t/R2OANRobqZRBER79jHQQeh/mzATzQMHX+p0ysYVq+rSU+eid0j09g
-	y+h0O6rA06kwkdGf5hNihQu/teeKo4e4/zbOwXXzkFqxKd31DoAjwf1mHZvOcp3ubLtO++nQeQG
-	JQISCYtblRs2nwTEJGSQi6MKdwpvINwKYw4shcR+3kixtJVTCGp6V+EGBpJ7AZmRrQDZDtDhFNe
-	7eLE1Z4CV9q5leAj7CtIe4EX86W0rwCOESXqD/ZMyoeD/JOVrzTZ5SkXtptr9dctYMzxQAytsoo
-	dJVBDovTBsqA42ETdGdkGKHrlfzVQpkyPvrgDOppNAUfWBw6jbz451gMCjaGuB2X789MPOE9
-X-Google-Smtp-Source: AGHT+IHSEMW9eiJM2jAiH3yvHUFxCLUuLck/E/k8l3c6BfFYTR43saftR5J6mphdwx+U28fhcLnfZA==
-X-Received: by 2002:a17:90b:4a4a:b0:313:db0b:75d7 with SMTP id 98e67ed59e1d1-31a90befeb3mr6810465a91.27.1751508986742;
-        Wed, 02 Jul 2025 19:16:26 -0700 (PDT)
+        bh=RnJ5HyRFTLzSb90lPZ0kytxtuJ4Ps5kIpRokWvdn6qw=;
+        b=an+bOM/r6kNhn4UJ02vXXjGNfXvadYxjHwAjjkR/qCsI/DLasaVU149vobeROseQig
+         CTsWRDfa7AwsHaDeLSEPT0m3rwVN1VVszQfQXGP50t6NiGGSSb9l6gmmTDXt/z+3o9OJ
+         lZjhSMP/kc2pjnKTNA1uwUBaqf2Y7Rnr2zD3lyBNvhiiYyms6BcwTNJ2RooENK6r/6IY
+         Pl76bo0AkF8Yo3CkRq4wjd5nW0CZ/gyBs555hH2ZYQsCYKw6Qm86V/CD9XBVLpBpkKvK
+         vScgoCzFkW1Svfusav4bVpb1a4P1eoX4gRbWMYNid/k0SqycVHJS1CgZbdCjMfAAaaZI
+         cnmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVyk54qayMIJamToYt9Pqm9gnhTSfi0XtAeh4ZijZXD6Fb8zzdtWH1nzZv5FRTMDCjisRvHet4W/eD9jA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzs7J/r4jLtFSFs06ZC2eYgsIEHwbiRNzeH1n+YljkTC75N/Dev
+	fg0Bqg5q+N1nQ3A4eWekpx+Jjjc2j4fhiLqidJvuAmRu1PSfen1GU0F7
+X-Gm-Gg: ASbGncshhrN3YiLmiiJJMKQzgbWdU02TWZTKIrtml2Z628W7p/BoGgQmgEcQmyCsIx2
+	ZFM3RPXI6TvXmR7fVVi0sm+qZAjbnrQVOXMwdvCAIFs2LwEZelqxEgAkmbA7YeVhSGVYloJ60v/
+	nkcvqrpA2T+dkU+Apu2NG4lQwVx4aqOvJaYzoYGX5qn8wJP+CptbahpKF3Co8CC6UgvX2/QMsPk
+	08Wz+oZN01bJyFssvfF3LyedwwsdaLOYTukvvsRxT44Z1Xdpyivw0NfgyG076N/DIQNRvHAZgqp
+	+m05vmwcHBYFIBhuAsFzCoeLgx0n+FRL5dFlmmtJchJ1BAty0McOjbyUnZ4YeqSt9SudvNOb
+X-Google-Smtp-Source: AGHT+IEpMsMQUhVEgvoZKgFsN3ulChI2nMRJELvAlPxYIYdKpwZvdxW8bpYzVJB4RTLdgFWxGCsHMQ==
+X-Received: by 2002:aa7:88cf:0:b0:749:1d18:2c74 with SMTP id d2e1a72fcca58-74b50dfa0c2mr6495116b3a.10.1751508989779;
+        Wed, 02 Jul 2025 19:16:29 -0700 (PDT)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-31a9ccf86b3sm928863a91.30.2025.07.02.19.16.26
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-74af54099ecsm15228303b3a.11.2025.07.02.19.16.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Jul 2025 19:16:26 -0700 (PDT)
+        Wed, 02 Jul 2025 19:16:29 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -89,16 +89,16 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	netdev@vger.kernel.org,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 2/3] riscv: dts: sophgo: Add mdio multiplexer device for cv18xx
-Date: Thu,  3 Jul 2025 10:15:57 +0800
-Message-ID: <20250703021600.125550-3-inochiama@gmail.com>
+Subject: [PATCH 3/3] riscv: dts: sophgo: Enable ethernet device for Huashan Pi
+Date: Thu,  3 Jul 2025 10:15:58 +0800
+Message-ID: <20250703021600.125550-4-inochiama@gmail.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250703021600.125550-1-inochiama@gmail.com>
 References: <20250703021600.125550-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_191627_625858_9940F0E7 
-X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-CacheID: sfid-20250702_191630_648428_FE58D910 
+X-CRM114-Status: UNSURE (   8.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,60 +116,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add DT device node of mdio multiplexer device for cv18xx SoC.
+Enable ethernet controller and mdio multiplexer device on Huashan Pi.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- arch/riscv/boot/dts/sophgo/cv180x.dtsi | 29 ++++++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
+ arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-index 7eecc67f896e..3a82cc40ea1a 100644
---- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-@@ -31,6 +31,33 @@ rst: reset-controller@3003000 {
- 			#reset-cells = <1>;
- 		};
+diff --git a/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts b/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
+index 26b57e15adc1..4a5835fa9e96 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
++++ b/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
+@@ -55,6 +55,14 @@ &emmc {
+ 	non-removable;
+ };
  
-+		mdio: mdio@3009800 {
-+			compatible = "mdio-mux-mmioreg", "mdio-mux";
-+			reg = <0x3009800 0x4>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			mdio-parent-bus = <&gmac0_mdio>;
-+			mux-mask = <0x80>;
-+			status = "disabled";
++&gmac0 {
++	status = "okay";
++};
 +
-+			internal_mdio: mdio@0 {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				reg = <0>;
++&mdio {
++	status = "okay";
++};
 +
-+				internal_ephy: phy@0 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <1>;
-+				};
-+			};
-+
-+			external_mdio: mdio@80 {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				reg = <0x80>;
-+			};
-+		};
-+
- 		gpio0: gpio@3020000 {
- 			compatible = "snps,dw-apb-gpio";
- 			reg = <0x3020000 0x1000>;
-@@ -196,6 +223,8 @@ gmac0: ethernet@4070000 {
- 			clock-names = "stmmaceth", "ptp_ref";
- 			interrupts = <SOC_PERIPHERAL_IRQ(15) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
-+			phy-handle = <&internal_ephy>;
-+			phy-mode = "internal";
- 			resets = <&rst RST_ETH0>;
- 			reset-names = "stmmaceth";
- 			rx-fifo-depth = <8192>;
+ &sdhci0 {
+ 	status = "okay";
+ 	bus-width = <4>;
 -- 
 2.50.0
 
