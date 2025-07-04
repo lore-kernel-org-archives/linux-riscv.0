@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E51C83F0B
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 15:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31689C8303D
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 15:40:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MKf65OIbql11f4gBO2BK/cQFtN9nCPH0CFAJ8s5RYEU=; b=2Gr7JNV8U3DZ0X
-	UoqXGGU5SdBlCL2c3KPVgTnCloZdzp0w+E1D64gUYXhJ2y8TjGBr9nNSkS0mJcan++5VGCkPVGHNu
-	NIrGT1N0BokJkdSVB0LCKbFOIXp9VfglvZyzHcJZv6gzm54P08qfcT0dwMnTunUZEsOHmbXSnZQS7
-	/t8nTRJbULr4jluFpUAc4x0qRSHSkLHytmRVNEQBSOb03oplghaftS/RVRFzZgqhvUYZknQ0fncJ9
-	hihpDaHUuHwwCMoKh+LV5PZKqbdbPHuowjj0Q/8Co/fuvWyYqDWL1B+fYJN3L7/igvbGPzF1OspxF
-	L7nk9g5CCMujcL/qqLdA==;
+	List-Owner; bh=hT8pZ8I49V6CaRBxus03WgZ4PgeboidJHqFR8zQhdIQ=; b=MMCS1UADkvh0nW
+	RhqiW3gI2NcD4TsMn+/Joxhn26AWpzh6r5aLel7GNQuEL7G/egZ1lHhoxlz9uo7u2rv8w/LONVzy3
+	YboBszEAB3aqi6wBDcpeTe9i+uBGKENj42QZF8UpD8wEMgj3EAcw1mcZ2r/rarzA/L39FTA0A2TM1
+	YctFZXKFIRiUPROOtiS62HPXfgvuhcI2NV/e34Azb479sy8v8a1hlJdmuQ6kRDfT0k4Q0JJYECbIW
+	J/xbqJga0dc6Bisrc5sQp8xM5nY3vBuihZnwzRo35A+DEtitorEx/IJG6/QXdud2xKx0mDl/8fQNt
+	pQU77jaZOjYYFEiUFsQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXiEl-0000000Eo5M-0oDR;
-	Fri, 04 Jul 2025 15:22:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uXiW5-0000000Eqru-2MLk;
+	Fri, 04 Jul 2025 15:39:57 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXi5V-0000000EmcW-148k
+	id 1uXiV6-0000000Eqcu-0UHL
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 15:12:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7F4CC5C55BE;
-	Fri,  4 Jul 2025 15:12:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA33FC4CEE3;
-	Fri,  4 Jul 2025 15:12:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751641948;
-	bh=hZ10LiY5FNP/Dp6S+DBqAzx6uQgjXZaS8IlUwEsCGJs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hhI3At/YWlFOPWeQNgWpOK/z7lt5fmnRr4cDgf1YXwCzaIRmj36teIkXdk7vE86Yt
-	 NQaVta+0qbjEWCt/cT9wzERra7juB8zjgR7V2k/ukkD63VLKuDw+9Oo6W9quS3s7Zv
-	 xO3423zNVGe9iqbpSlSXMLV+N5484Ts6ILuRp7iIiPxYpqQFjPXb3vmbOjQBHrNVWR
-	 UIl/QOTjK9iUzBsfpRaZPNscXPlIZnEuCr9Ljx7zP0JfPDSNXEF/o+dJEiqxZgOB88
-	 eRGMJOBnjk6stxn3bVpqeCjPrOeZxL2WG+MMbxUZ8EqkZsE57LfLXjv/EbQA0EGwpD
-	 uzpEujK8cHkVQ==
-Date: Fri, 4 Jul 2025 17:12:20 +0200
-From: Danilo Krummrich <dakr@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Fri, 04 Jul 2025 15:38:58 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-747fba9f962so883099b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Jul 2025 08:38:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1751643535; x=1752248335; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Zp7uD1poiW059gGzU86bprSx2F9Pa7gwCpaEXnEz8mU=;
+        b=Kwbn9sg/CqprvKLPuaPfmZvFgOmrRaex8WRCDvudqzCU52vf7PaqdrxYnG6Mp2UsX1
+         p3j+APsT0Ie70zsRZ9QqnZkhpUyXExJR2PDk6xj8QHC+qm79jY+QG3aVFBwoWg+UcHJE
+         Wf1FCF38BUiw7rL4WBIS0Wtc4VXNfWS7DJ5BSzloz5KZaY/rAjfUWd6A3LC2PU/N9AQi
+         iqPc2AiGCZPYGDSjh9f9TTeQvhmwj0Qzzcf3OPLb0aBR8zKNUr/HmnU0uABoxxi9sc0O
+         eTG80umyNX3Ld8/xqwkiIB2yaPInFZcKKzApAOGGAfOHaTo/yMpAaNGOPR4eZw3UH7Gk
+         h9ZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751643535; x=1752248335;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Zp7uD1poiW059gGzU86bprSx2F9Pa7gwCpaEXnEz8mU=;
+        b=CgCDM93eHoQhoJAxCk5zg7/1xWzUkrfXyB7FKeRsG++Waqay0PWyeuhKD2sFf+lXbh
+         4dmtAkdV7aIJqAqYIFPv3d/9OM2/B7MOr1kAO/+mlnIEnAmW59lQGdR1bDEfECcVrITA
+         aCY1sjP0gCjfX6vDimtxTepE9jmJxf5uRuIang6RZszBvtYje6eeplJo33sT1LlBXPe9
+         krcA88xmw95WcAzIEm4nZlHWXt2Li6+kl7QK7FnvocjSqQeFWWiCnBN+A66DG1SFKPk+
+         drMety6CXVaKO9QGdYCtnJFo/6pNGAe2mk1IaybbWDX1dj/5ZEs8Z0MCOCYc6cK7qNll
+         xGyA==
+X-Forwarded-Encrypted: i=1; AJvYcCXF+NiMplPqNdfT+AJJylWViuLHAT+20tRShjHG8Hm6HNsWxmyKvbAI/krwQVG4NphZoDr8hw4d8hL5UQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBOQWNK8/nAd6EOYB83mWxJD2YfL2Z0HpoM6fm5MlwSH/Gptre
+	rCoHAtR4nisZGj4yoNWDcoTqIodqQerPiFRVMI6ydJuOFGmNSfbZI8c4F9QpZrKKHnY=
+X-Gm-Gg: ASbGncuQTZZfucEUNOdbPRDycvEqucDnrTcokF9sLvAjheRPkHvojN7ZYACSDltucR5
+	+ENXGjOj3IglOn5+d+Ud5j7lI3+nMyzMSVJyuSE4wYZnfpwORODGboKkOWK+6qWAGPmk1B9vVqG
+	NaONeEf+B0u6/JNHIlRh25whfHf6Skzd22U2NWWghYO5uisjURZItfFyp/eYhcDdrZRIYoizHxu
+	bW5liLm3MZpxg9OzbhlI6AH/1jFm1ZpG0XjaJB3QLgbb0n9XKrnDfSnsF66zAGuxfzhOLBOLut7
+	TqF89rlytMVdIFMc4dobT54jn6zIZ+ad9UeRisdpg3a0ZVVvM3a88boeVWvSmHricqrLZkXo6q3
+	suN9/Xr05JoQrjOMCl4E=
+X-Google-Smtp-Source: AGHT+IGIXVrx9PSDrG3EEvpjwpw1PdozZsTf2OUe+pqrmlHyZJisYpgboZx4tCy5PCWnKNZpHdxUDw==
+X-Received: by 2002:a05:6a20:a11d:b0:220:3804:f3d6 with SMTP id adf61e73a8af0-22595173066mr5303101637.2.1751643535243;
+        Fri, 04 Jul 2025 08:38:55 -0700 (PDT)
+Received: from localhost.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b38ee63003bsm2084818a12.62.2025.07.04.08.38.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Jul 2025 08:38:54 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Atish Patra <atish.patra@linux.dev>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v8 2/7] rust: pwm: Add core 'Device' and 'Chip' object
- wrappers
-Message-ID: <aGfvVMBpNoFEJEgC@pollux>
-References: <20250704-rust-next-pwm-working-fan-for-sending-v8-0-951e5482c9fd@samsung.com>
- <CGME20250704120212eucas1p1c9ffeefa41b0ddb27db74d26174831bf@eucas1p1.samsung.com>
- <20250704-rust-next-pwm-working-fan-for-sending-v8-2-951e5482c9fd@samsung.com>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Subject: [PATCH 1/2] RISC-V: KVM: Disable vstimecmp before exiting to user-space
+Date: Fri,  4 Jul 2025 21:08:37 +0530
+Message-ID: <20250704153838.6575-2-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250704153838.6575-1-apatel@ventanamicro.com>
+References: <20250704153838.6575-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250704-rust-next-pwm-working-fan-for-sending-v8-2-951e5482c9fd@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_081229_382339_7AFDBE96 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20250704_083856_156760_8B6FA712 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,57 +109,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 02:01:12PM +0200, Michal Wilczynski wrote:
-> +impl<T: 'static + ForeignOwnable> Chip<T> {
-> +    /// Allocates and wraps a PWM chip using `bindings::pwmchip_alloc`.
-> +    ///
-> +    /// Returns an [`ARef<Chip>`] managing the chip's lifetime via refcounting
-> +    /// on its embedded `struct device`.
-> +    pub fn new(
-> +        parent_dev: &device::Device,
-> +        npwm: u32,
-> +        sizeof_priv: usize,
-> +        drvdata: T,
-> +    ) -> Result<ARef<Self>> {
-> +        // SAFETY: `parent_device_for_dev_field.as_raw()` is valid.
-> +        // `bindings::pwmchip_alloc` returns a valid `*mut bindings::pwm_chip` (refcount 1)
-> +        // or an ERR_PTR.
-> +        let c_chip_ptr_raw =
-> +            unsafe { bindings::pwmchip_alloc(parent_dev.as_raw(), npwm, sizeof_priv) };
-> +
-> +        let c_chip_ptr: *mut bindings::pwm_chip = error::from_err_ptr(c_chip_ptr_raw)?;
-> +
-> +        // Cast the `*mut bindings::pwm_chip` to `*mut Chip`. This is valid because
-> +        // `Chip` is `repr(transparent)` over `Opaque<bindings::pwm_chip>`, and
-> +        // `Opaque<T>` is `repr(transparent)` over `T`.
-> +        let chip_ptr_as_self = c_chip_ptr.cast::<Self>();
-> +
-> +        // SAFETY: The pointer is valid, so we can create a temporary ref to set data.
-> +        let chip_ref = unsafe { &*chip_ptr_as_self };
-> +        // SAFETY: `chip_ref` points to a valid chip from `pwmchip_alloc` and `drvdata` is a valid,
-> +        // owned pointer from `ForeignOwnable` to be stored in the chip's private data.
-> +        unsafe { bindings::pwmchip_set_drvdata(chip_ref.as_raw(), drvdata.into_foreign().cast()) }
+If VS-timer expires when no VCPU running on a host CPU then WFI
+executed by such host CPU will be effective NOP resulting in no
+power savings. This is as-per RISC-V Privileged specificaiton
+which says: "WFI is also required to resume execution for locally
+enabled interrupts pending at any privilege level, regardless of
+the global interrupt enable at each privilege level."
 
-I think that's great now, but you're missing one last piece: You have to ensure
-that drvdata is freed eventually. Here you call into_foreign(), but I think
-you're missing from_foreign() in pwm_ops::free.
+To address the above issue, vstimecmp CSR must be set to -1UL over
+here when VCPU is scheduled-out or exits to user space.
 
-You also have to ensure that your pwm_ops::free() callback is properly called if
-a Chip<T> is dropped *before* it has been registered.
+Fixes: 8f5cb44b1bae ("RISC-V: KVM: Support sstc extension")
+Fixes: cea8896bd936 ("RISC-V: KVM: Fix kvm_riscv_vcpu_timer_pending() for Sstc")
+Reported-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Closes: https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2112578
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/kvm/vcpu_timer.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-Note that, since Chip is now generic over T, you can easily make the
-PwmOpsVTable a const within Chip and set the vtable in Chip::new().
+diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
+index ff672fa71fcc..85a7262115e1 100644
+--- a/arch/riscv/kvm/vcpu_timer.c
++++ b/arch/riscv/kvm/vcpu_timer.c
+@@ -345,8 +345,24 @@ void kvm_riscv_vcpu_timer_save(struct kvm_vcpu *vcpu)
+ 	/*
+ 	 * The vstimecmp CSRs are saved by kvm_riscv_vcpu_timer_sync()
+ 	 * upon every VM exit so no need to save here.
++	 *
++	 * If VS-timer expires when no VCPU running on a host CPU then
++	 * WFI executed by such host CPU will be effective NOP resulting
++	 * in no power savings. This is because as-per RISC-V Privileged
++	 * specificaiton: "WFI is also required to resume execution for
++	 * locally enabled interrupts pending at any privilege level,
++	 * regardless of the global interrupt enable at each privilege
++	 * level."
++	 *
++	 * To address the above issue, vstimecmp CSR must be set to -1UL
++	 * over here when VCPU is scheduled-out or exits to user space.
+ 	 */
+ 
++	csr_write(CSR_VSTIMECMP, -1UL);
++#if defined(CONFIG_32BIT)
++	csr_write(CSR_VSTIMECMPH, -1UL);
++#endif
++
+ 	/* timer should be enabled for the remaining operations */
+ 	if (unlikely(!t->init_done))
+ 		return;
+-- 
+2.43.0
 
-See also how drm::Device does this in [1].
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/rust/kernel/drm/device.rs
-
-> +
-> +        // SAFETY: `chip_ptr_as_self` points to a valid `Chip` (layout-compatible with
-> +        // `bindings::pwm_chip`) whose embedded device has refcount 1.
-> +        // `ARef::from_raw` takes this pointer and manages it via `AlwaysRefCounted`.
-> +        Ok(unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) })
-> +    }
 
 _______________________________________________
 linux-riscv mailing list
