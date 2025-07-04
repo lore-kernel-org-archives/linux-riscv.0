@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC784C83F0F
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 12:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 687B1C83F0E
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 12:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i5KzhWxE/JEBtCoh9n7pSnk+Eju25GpeZRLdHx0tIcw=; b=yxFl+Tmrap7i3o
-	tSbL8Djmp2k7LqvDSsRORP2ELxADcC6dPJ9kH98yGkc56W5Z4Dwt1cNDuDSlpy20ZxUj71brRNt3G
-	Vzm2Xb7iThXyPgYLQ45G1hrL2zUwrzXndOiqBiVU4VFEyFXj20zmV8J2RUN2nCb7bVXTFMmlc6Y9R
-	Fo6O/Q4VU2uYFcFdl3pgrmxJSI2GUYJYaV10F94EHgYGc4kE08t2yd0pT6Y6oA3WJzJ0HsfZosPjk
-	CN99js+ddLIx2B3TYst2oQV5lRCELwHd1hFtDVzcMTHm0g/7cgh/Vztt8wLKTl7/flS8e2pLRl7Vb
-	L/Ga0ecEUiy+ZcuaGYrg==;
+	List-Owner; bh=y4lC5+fGj4Swvwx5PEVopEDJmrLxrFqx404Ika/3UVA=; b=pGAit93VwehPhe
+	pzdxk0lQx2i0YG790MakJ65NichzUAUpGTe+2+Z5bHvDGTTa6wmqaoYTRv1dfEumLRs2q4qY7PoQi
+	WhZu3L6r2ae7udIO/Je5DdDbcV+6yXUfffLVkUG+/s9kXfyu2pRaD9PyMF7h6fQUN4ncTWiieMMYZ
+	oGipSektpmmVa2/Bh7TK13cNLAzt2/pc4Y3U1fkmkOHCeWc/7fKccH5TAgHNEMQC1VotYcqETjYCx
+	YVr9DVrb5oCKA4l3uTXKdHfv1r4xjVYFAhsDKIO6RTqesYJyvbMQlkXOJhiuGvUdQ77UmR+vkADwm
+	2fsbuJrfCkxCzkB0MNjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXf7X-0000000ELcf-03gj;
-	Fri, 04 Jul 2025 12:02:23 +0000
+	id 1uXf7Z-0000000ELeI-0An6;
+	Fri, 04 Jul 2025 12:02:25 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXf7S-0000000ELZC-3Aqf
+	id 1uXf7V-0000000ELbQ-3T7m
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 12:02:20 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250704120217euoutp020805937b60cd180240444c8162f22a77~PCrGA-uMI1022110221euoutp02b
-	for <linux-riscv@lists.infradead.org>; Fri,  4 Jul 2025 12:02:17 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250704120217euoutp020805937b60cd180240444c8162f22a77~PCrGA-uMI1022110221euoutp02b
+	Fri, 04 Jul 2025 12:02:23 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250704120220euoutp02b407ab394a199e18faf1adb6e0c68fec~PCrIqbQ201558815588euoutp02H
+	for <linux-riscv@lists.infradead.org>; Fri,  4 Jul 2025 12:02:20 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250704120220euoutp02b407ab394a199e18faf1adb6e0c68fec~PCrIqbQ201558815588euoutp02H
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1751630537;
-	bh=tGc9y4qS8y5wRZhv2AKAuqTuYZtBk95xYshUQ8iiGHU=;
+	s=mail20170921; t=1751630540;
+	bh=nmhVn6OSCj5podj8kRrzheU5aifoU9hBWKaGqoQKYps=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=eeRrU6EeosK1xMCxvVbd2Wl9gHFSuHpTlKnnZK3b/WU+TZcWrbn59t7VZD0R5k3Hw
-	 qWf1H2NQrR7LnPCkf+tSzHOGeWuOHfMKdK2aJTKG3/TOyobjkyGSzuDYrEgf5NiCEh
-	 E7b3aoMMwV1tSakozgKS7EFcW9VDd0KOTpbPbRrE=
+	b=DtTPSh8lsZB3AJsQlxZqlVhiO6R6C2/zYqA+OVfPlRijzoJ3BdlmHjEoIiRR+8I+S
+	 PeVWzQ5fBBIBQd9+OPTZfciIrVuPRATVQ2VfX6IJC9Hm7xjuZA7EajBUgHdNIKBhmZ
+	 lclsRnV8vtWCDeenXNG737BoWZIfDdnQN6BYW7LI=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250704120216eucas1p24df9ce8c9f74315b265ad8117491aa1e~PCrFa11jz3068930689eucas1p23;
-	Fri,  4 Jul 2025 12:02:16 +0000 (GMT)
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250704120219eucas1p1d8160ac9692bccdbf1a41e63a875c056~PCrIFwcXZ2805128051eucas1p1f;
+	Fri,  4 Jul 2025 12:02:19 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250704120215eusmtip1d95ca58543424a705d0ac6e3cd929f91~PCrD8hfWq0550905509eusmtip1i;
-	Fri,  4 Jul 2025 12:02:15 +0000 (GMT)
+	20250704120218eusmtip154dcc24571efde3c7d5f443c0a0040fb~PCrG-28OI0505005050eusmtip1w;
+	Fri,  4 Jul 2025 12:02:18 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 04 Jul 2025 14:01:15 +0200
-Subject: [PATCH v8 5/7] dt-bindings: pwm: thead: Add T-HEAD TH1520 PWM
- controller
+Date: Fri, 04 Jul 2025 14:01:17 +0200
+Subject: [PATCH v8 7/7] riscv: dts: thead: Add PWM fan and thermal control
 MIME-Version: 1.0
-Message-Id: <20250704-rust-next-pwm-working-fan-for-sending-v8-5-951e5482c9fd@samsung.com>
+Message-Id: <20250704-rust-next-pwm-working-fan-for-sending-v8-7-951e5482c9fd@samsung.com>
 In-Reply-To: <20250704-rust-next-pwm-working-fan-for-sending-v8-0-951e5482c9fd@samsung.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
@@ -69,19 +68,18 @@ To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	Benno Lossin <lossin@kernel.org>,  Drew Fustini <fustini@kernel.org>
 Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
 	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org,  Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
+	devicetree@vger.kernel.org
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250704120216eucas1p24df9ce8c9f74315b265ad8117491aa1e
+X-CMS-MailID: 20250704120219eucas1p1d8160ac9692bccdbf1a41e63a875c056
 X-Msg-Generator: CA
-X-RootMTR: 20250704120216eucas1p24df9ce8c9f74315b265ad8117491aa1e
+X-RootMTR: 20250704120219eucas1p1d8160ac9692bccdbf1a41e63a875c056
 X-EPHeader: CA
-X-CMS-RootMailID: 20250704120216eucas1p24df9ce8c9f74315b265ad8117491aa1e
+X-CMS-RootMailID: 20250704120219eucas1p1d8160ac9692bccdbf1a41e63a875c056
 References: <20250704-rust-next-pwm-working-fan-for-sending-v8-0-951e5482c9fd@samsung.com>
-	<CGME20250704120216eucas1p24df9ce8c9f74315b265ad8117491aa1e@eucas1p2.samsung.com>
+	<CGME20250704120219eucas1p1d8160ac9692bccdbf1a41e63a875c056@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_050219_064276_254B973C 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20250704_050222_143015_D81F0222 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,83 +96,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the Device Tree binding documentation for the T-HEAD
-TH1520 SoC PWM controller.
+Add Device Tree nodes to enable a PWM controlled fan and it's associated
+thermal management for the Lichee Pi 4A board.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+This enables temperature-controlled active cooling for the Lichee Pi 4A
+board based on SoC temperature.
+
+Reviewed-by: Drew Fustini <fustini@kernel.org>
 Tested-by: Drew Fustini <fustini@kernel.org>
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- .../devicetree/bindings/pwm/thead,th1520-pwm.yaml  | 48 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 2 files changed, 49 insertions(+)
+ arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts | 67 +++++++++++++++++++++++
+ 1 file changed, 67 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml b/Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..855aec59ac53c430adc849271235686e87b10e6c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml
-@@ -0,0 +1,48 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/thead,th1520-pwm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+index 4020c727f09e8e2286fdc7fecd79dbd8eba69556..c58c2085ca92a3234f1350500cedae4157f0c35f 100644
+--- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
++++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+@@ -28,9 +28,76 @@ aliases {
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
 +
-+title: T-HEAD TH1520 PWM controller
++	thermal-zones {
++		cpu-thermal {
++			polling-delay = <1000>;
++			polling-delay-passive = <1000>;
++			thermal-sensors = <&pvt 0>;
 +
-+maintainers:
-+  - Michal Wilczynski <m.wilczynski@samsung.com>
++			trips {
++				fan_config0: fan-trip0 {
++					temperature = <39000>;
++					hysteresis = <5000>;
++					type = "active";
++				};
 +
-+allOf:
-+  - $ref: pwm.yaml#
++				fan_config1: fan-trip1 {
++					temperature = <50000>;
++					hysteresis = <5000>;
++					type = "active";
++				};
 +
-+properties:
-+  compatible:
-+    const: thead,th1520-pwm
++				fan_config2: fan-trip2 {
++					temperature = <60000>;
++					hysteresis = <5000>;
++					type = "active";
++				};
++			};
 +
-+  reg:
-+    maxItems: 1
++			cooling-maps {
++				map-active-0 {
++					cooling-device = <&fan 1 1>;
++					trip = <&fan_config0>;
++				};
 +
-+  clocks:
-+    items:
-+      - description: SoC PWM clock
++				map-active-1 {
++					cooling-device = <&fan 2 2>;
++					trip = <&fan_config1>;
++				};
 +
-+  "#pwm-cells":
-+    const: 3
++				map-active-2 {
++					cooling-device = <&fan 3 3>;
++					trip = <&fan_config2>;
++				};
++			};
++		};
++	};
 +
-+required:
-+  - compatible
-+  - reg
-+  - clocks
++	fan: pwm-fan {
++		pinctrl-names = "default";
++		pinctrl-0 = <&fan_pins>;
++		compatible = "pwm-fan";
++		#cooling-cells = <2>;
++		pwms = <&pwm 1 10000000 0>;
++		cooling-levels = <0 66 196 255>;
++	};
 +
-+unevaluatedProperties: false
+ };
+ 
+ &padctrl0_apsys {
++	fan_pins: fan-0 {
++		pwm1-pins {
++			pins = "GPIO3_3"; /* PWM1 */
++			function = "pwm";
++			bias-disable;
++			drive-strength = <25>;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
 +
-+examples:
-+  - |
-+    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+      pwm@ffec01c000 {
-+          compatible = "thead,th1520-pwm";
-+          reg = <0xff 0xec01c000 0x0 0x4000>;
-+          clocks = <&clk CLK_PWM>;
-+          #pwm-cells = <3>;
-+      };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2449178a6d7b83b5202f8209c0b38e8302bc6b15..b58853a503875f16a338274eba080f31c3442f9f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21522,6 +21522,7 @@ F:	Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
- F:	Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
- F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
- F:	Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
-+F:	Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml
- F:	Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
- F:	arch/riscv/boot/dts/thead/
- F:	drivers/clk/thead/clk-th1520-ap.c
+ 	uart0_pins: uart0-0 {
+ 		tx-pins {
+ 			pins = "UART0_TXD";
 
 -- 
 2.34.1
