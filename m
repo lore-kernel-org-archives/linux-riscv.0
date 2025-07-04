@@ -4,80 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FC1C8303D
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 04:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62EF6C83F05
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 06:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AFbpHROzrJvuwNddfyt/9OQx/D06HPfhGv0pvhpvCUw=; b=afkr7fJrMcbPAN
-	vYaVpQgfEa71DC3FeSKBGw8hf+0Rh3spjJ+YrTJ96cqS+l27qULgP1rfAAKrnilL/J/D5P0JF8+Hl
-	VDhFPBBd2GE19ljmDhNAPBxFjs5aJWnbyC9c48h5SXaxP6fn6GNRUtAJR/Ly/XDaYsESjSHDUzIVw
-	HIhEX7a5VM+KAM3zf+3CMxiQB7ol9cezOqGPP4xtct/bif3jLslKD/tF8j8fG1wKkECg4ja/aau+q
-	SUzhn0BN+EPEd/ir5fFHY2udlo0iw7MVFb5iiMMSupXMMNRsm2ORXJL9BO5HkafkNeMDsmY2UJf9T
-	hXjJMNUzb07J1pwEtf/g==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uBzAvmGAHvPJslP6Y7jzTNeZyYYYUTAKdyD/HJo3b5g=; b=T4TUw3lHZhkyGA
+	laP2qZrwgvwCySc+Q3Tc1OyzrYotpEJfBVfGtSgstkcCpY1kIr0TPZF3VAZG0pRVSf6I+V41XFHnZ
+	L2/a8NS9B7in5t2v3C7baiuBxG2OMKHB2qF0ItZUnLr0Cf04GwEAQrrwx541E9dqrJVYRVrGXWyY+
+	5lRhTjo3U9BaWj8gP6rTLCuFVnoSxv16iVjpegvMYOMsl2ipON2riOPrwoLH01NEPbzJD9+o9n7A2
+	FQFolz3wXF+D7sPwgKz3RzyeAXedaQ7mQm5KXtDHahXzvkhmtlPDk9RoANPDcXLv/zHI/50vNMXD+
+	cyOCIGxEhe6f9j7EQR0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXXqI-0000000DDBp-1TDp;
-	Fri, 04 Jul 2025 04:16:06 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1uXa0R-0000000DQiM-41Xb;
+	Fri, 04 Jul 2025 06:34:43 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXXqF-0000000DDBS-426H
+	id 1uXa0P-0000000DQh5-3mWg
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 04:16:05 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-32addf54a01so6300311fa.3
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Jul 2025 21:16:03 -0700 (PDT)
+	Fri, 04 Jul 2025 06:34:43 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-315cd33fa79so533252a91.3
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Jul 2025 23:34:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751602562; x=1752207362; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1751610881; x=1752215681; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=LNpklbxS/261KY95nbuoqcElZCVt0F33NNxENOsgANs=;
-        b=PlBzGeEP1AFGP5NY+OPfgxyc/X8aJElyNeLArKU/VadAoHaM0dh9wLJB+q+OPpYmWI
-         Rvf2eu68DzCU4oXMDUKsf8OkyIS6aV/fJrGSpSsjg53JCyBxwpLMA1hgBx4tc46NKP6D
-         SVTPiQK07gG33v2Ky7UcunJV07lz+ylXfMOF+g/73ADBP+ZEieN+DE08BT/WCoinehb4
-         IyKvtsyQeZdDhBQzGFsoZDwlN7legWITK1lMFIpCr1TLVVsl5VFJDhWHXXhJsEsInKyC
-         EsLC6ym4u1YXilqtcSs1mn3p8M5s8LcU8AtLLKGxZ2SL5NkvKS/OujuWDWdY6h3GS+Of
-         2jmQ==
+        bh=OYiCNFfJqMeO2073S6siJ3ufZ/e3IN78WfGZjIKg56I=;
+        b=j9cteF4Z46KI9m1PeZTNj9GfNozBMJo8WKtBUqp+UTdH+O6CMwwvEVeY1qwZ1Bq1r3
+         P9ZmjUFmAnijjAe+JbGoR9U/0LlhFsW+zxp39PrvUCgpZzQCX2AdyQLgTdd4uA0WhQ7U
+         4S9Qs0+gNcNsyZUh2XHfYzYx1nkP/VX5twjJHV4XwIpvHnGN9Nx6eHECAkTHXndy7lNB
+         p/gv+ghKs+7vZSx2H7bL9LPG2MCdpbnIk57QX+0j5PtgoB52/9EP4Dv83Kr757hCAjKr
+         juMvL5ypqtecC3LDcstaqPR5ZKaQbpjaaJTs5ZJ4UjjX2ODnwfNVdff1NnZLfzC0AX7F
+         4/Lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751602562; x=1752207362;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1751610881; x=1752215681;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LNpklbxS/261KY95nbuoqcElZCVt0F33NNxENOsgANs=;
-        b=IG71N+u2ThhHUgEX5/S/0Qn8dff/MIdiyFAWOH08Oc2MEUYzCBLuoXCDpKb4WD56SR
-         ekXkzMAj31Te9INoX/r379ZKvvwgN6FE1MkiKL6ngCiwhT7ux/5GKWkqbA3AwKN18I4P
-         OHazts2+jGDbsApl3Y/bR8TVw6kr8ii6yuK5re5ZJBQwf7ZwV31roCTjDyUTI7oZq+RQ
-         udSfNs/vYOfTHIWzKXetctoO7L/TtGl+YwYH5eeqk0Fl3NALPSjnYM9wha6n/6b7llef
-         3p42OhttOwUGWRXHm1TdLW18X3b0qcRsokoXe1A6vtnL7EoTdEhNkYLEHYepI4IdWgNJ
-         HUJg==
-X-Forwarded-Encrypted: i=1; AJvYcCUesSpg4ZzHMEPXJ8U39kr2L7TKrMkf5Ni5Q5We4DKYKIY7XsCbPV+CU1oim/Bss5nVclQKCn+o6e50hQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYmAO+lKssaZAjGz0sCB+LNfPT1EywheNjM23xhXAzVPN51eZY
-	sZPOicyxuOjRoeTHxMEdqLu/cQiI8c9J1HXo6+x1AIL2orTfwFUV9jxotTUxrrXH2xTSHqHWkN3
-	7aa9e2dD5qVH5BkRr8lvmr3ppX84fJjzy16PqDHRJxQ==
-X-Gm-Gg: ASbGnctB8Gw4SHCMkZclNk6+mjiNKxyjaHQTMbU4STj0qUbHyrGTVNNfmbrr5V8J0/s
-	7LR/WmyPhqMfzuQwq6Rskz5zgV8yw9rpaT/YPNkMxwpISM6+fqgwaXmI17amWPzHAtQE6KXKex9
-	cFypEqvzfEJHm04wlL/6usbIx46smUblV2MKQqbhHXfEU1
-X-Google-Smtp-Source: AGHT+IGcdpbloJSunZwHs/XaLhcDN9ntbioBpiLJkF8NXPKWTLMAoMKlItDbIAXXbqigvjFpNNf1X8SwQxnpI9ERS9s=
-X-Received: by 2002:a05:651c:33c:b0:32b:2f36:4d92 with SMTP id
- 38308e7fff4ca-32e5f5856d1mr2157481fa.12.1751602561921; Thu, 03 Jul 2025
- 21:16:01 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250702051345.1460497-1-apatel@ventanamicro.com>
- <20250702051345.1460497-11-apatel@ventanamicro.com> <aGUvOLXXwF8c_czJ@smile.fi.intel.com>
-In-Reply-To: <aGUvOLXXwF8c_czJ@smile.fi.intel.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Fri, 4 Jul 2025 09:45:49 +0530
-X-Gm-Features: Ac12FXyJ7NyM9IIDInA5TJDnv2m4UJrY1w22dfaDXM4YfjlbpVcnLOkOViGqoxk
-Message-ID: <CAK9=C2VfvsbFTjecQm0OSsssXbff7wC4fqWf3CTmnpWSiaLcBw@mail.gmail.com>
-Subject: Re: [PATCH v7 10/24] clk: Add clock driver for the RISC-V RPMI clock
- service group
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+        bh=OYiCNFfJqMeO2073S6siJ3ufZ/e3IN78WfGZjIKg56I=;
+        b=FSFw80jDGvSE16+nqYatoGEoNve5EgQCJ+6VfKY1qTthBs6xoss3WVBXviG/XE6iyv
+         UMhhX1lv06bSu1teF6pRTXSekx8o6GdaDgaJFGcP91zTaDVDH5sQTyrmOAu7mX0R35lX
+         1XBTYPTCsNQQR/U9ZKHT1kiH/HHf4zMrNOwVPxUg9cDo5YfY+tQaNEYOyiV+dopvMyZs
+         XFB4Dv0Dvp3N1OCMvAXaMjx/mKdHhRh7ByXaASAax0Db8rreg7fzfrKJuNAYijDbxdsW
+         CwA+Qgtr5uq75J9fLfCxStofalYtPu+5nAYoJbPYpurmQSQZomnlniO38tqHh8Z8HbLP
+         vHBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV7KGlfkM9Y2Pt/cKHAaYrrdH68HHeXyOkP4O8D9V1Zs8PErObSdGIN/Dg8L578VNJUz0Ar5l00KE97Jw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxZMUXUDIXiEcd3nKqcrTs4dpi5x7H1mkBqKOaLES09roOt3xL
+	qfyJzylmNN/UASrp4ci+YZ/JH/509dViizQXhvSBSnBb4HhXLJ/CyYjK
+X-Gm-Gg: ASbGncv1bb+plX9gNPX6iDldid68l0vsrgaiiphrb3wg/KNSSNmQbmrw3TNKl6ML+R1
+	qPmhpCiBUWPqNPlf3tUQCKuRGu7nI5DNzVzaaRIDsZfEIM4ow3uJm4qxVpxI4QqhmrdcrUKePNk
+	Kw5eAjLZ26tW9L+vnhswB+Ils49UxFyrfC3GykC8IPiLri70FUydlNWjrbYf1Ic3vV9UzM3d92I
+	TDuidCK54LUyuNeSRPa/zm3JF2vGJygwt7yCMnn2FW0t4uXn1TwrqxJRW5ql6P21d+elO8TApEI
+	MPJKnFu/dciJKeJS/943zqwt/KM2nINGYViiH71ngNKvsDWcdOujkTMADnDpJP1MGxV0juTdpDr
+	0bgRo
+X-Google-Smtp-Source: AGHT+IHEHJgrSAlf4QtYjnnpQojHpV64nqFJPISlrnqx4qrKwtRHYPIo6YcfJzG+LY6E90mpEFUBOA==
+X-Received: by 2002:a17:90b:1c07:b0:313:2f45:2fc8 with SMTP id 98e67ed59e1d1-31aac4cf19dmr2508356a91.18.1751610880251;
+        Thu, 03 Jul 2025 23:34:40 -0700 (PDT)
+Received: from smtpclient.apple ([206.83.106.227])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31a9cc4ca0bsm4159360a91.4.2025.07.03.23.34.35
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 03 Jul 2025 23:34:39 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.600.51.1.1\))
+Subject: Re: [PATCH] riscv: dts: sophgo: sophgo-srd3-10: reserve uart0 device
+From: "Han Gao (Revy)" <rabenda.cn@gmail.com>
+In-Reply-To: <20250703004024.85221-1-inochiama@gmail.com>
+Date: Fri, 4 Jul 2025 14:34:22 +0800
+Cc: Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ Chen Wang <unicorn_wang@outlook.com>,
+ Longbin Li <looong.bin@gmail.com>,
+ devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org,
+ sophgo@lists.linux.dev,
+ linux-kernel@vger.kernel.org,
+ Yixun Lan <dlan@gentoo.org>
+Message-Id: <C7422FE9-1DAF-405C-99B1-1838F2ECE6C1@gmail.com>
+References: <20250703004024.85221-1-inochiama@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+X-Mailer: Apple Mail (2.3826.600.51.1.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_211604_001905_80BECCB4 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20250703_233441_937244_6E9061E4 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +106,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, linux-acpi@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdWwgMiwgMjAyNSBhdCA2OjM44oCvUE0gQW5keSBTaGV2Y2hlbmtvCjxhbmRyaXku
-c2hldmNoZW5rb0BsaW51eC5pbnRlbC5jb20+IHdyb3RlOgo+Cj4gT24gV2VkLCBKdWwgMDIsIDIw
-MjUgYXQgMTA6NDM6MzFBTSArMDUzMCwgQW51cCBQYXRlbCB3cm90ZToKPiA+Cj4gPiBUaGUgUlBN
-SSBzcGVjaWZpY2F0aW9uIGRlZmluZXMgYSBjbG9jayBzZXJ2aWNlIGdyb3VwIHdoaWNoIGNhbiBi
-ZQo+ID4gYWNjZXNzZWQgdmlhIFNCSSBNUFhZIGV4dGVuc2lvbiBvciBkZWRpY2F0ZWQgUy1tb2Rl
-IFJQTUkgdHJhbnNwb3J0Lgo+ID4KPiA+IEFkZCBtYWlsYm94IGNsaWVudCBiYXNlZCBjbG9jayBk
-cml2ZXIgZm9yIHRoZSBSSVNDLVYgUlBNSSBjbG9jawo+ID4gc2VydmljZSBncm91cC4KPgo+IE5v
-dyBpdCBsb29rcyBtdWNoIGJldHRlciEKPgo+IFJldmlld2VkLWJ5OiBBbmR5IFNoZXZjaGVua28g
-PGFuZHJpeS5zaGV2Y2hlbmtvQGxpbnV4LmludGVsLmNvbT4KPiBPbmUgbml0LXBpY2sgYmVsb3cu
-Cj4KPiAuLi4KPgo+ID4gKy8qCj4gPiArICogcnBtaV9jbGtfcmF0ZXMgcmVwcmVzZW50cyB0aGUg
-cmF0ZXMgZm9ybWF0Cj4gPiArICogYXMgc3BlY2lmaWVkIGJ5IHRoZSBSUE1JIHNwZWNpZmljYXRp
-b24uCj4gPiArICogTm8gb3RoZXIgZm9ybWF0IGNvbnZlcnNpb24oZWcuIGxpbmVhcl9yYW5nZSkg
-aXMKPiA+ICsgKiByZXF1aXJlZCB0byBhdm9pZCB0byBhbmQgZnJvIGNvbnZlcnNpb24uCj4KPiBj
-b252ZXJzaW9uIGFwcGVhcnMgdHdpY2UuIEkgd291bGQgc3VnZ2VzdCB1c2UgdGhpczoKPgo+ICAq
-IE5vIG90aGVyIGRhdGEgZm9ybWF0IChlLmcuLCBzdHJ1Y3QgbGluZWFyX3JhbmdlKSBpcwo+ICAq
-IHJlcXVpcmVkIHRvIGF2b2lkIHRvIGFuZCBmcm9tIGNvbnZlcnNpb24uCj4KCkkgd2lsbCB1cGRh
-dGUgaXQgaW4gdGhlIG5leHQgcmV2aXNpb24uCgpUaGFua3MsCkFudXAKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+> On Jul 3, 2025, at 08:40, Inochi Amaoto <inochiama@gmail.com> wrote:
+> 
+> As the uart0 is already occupied by the firmware, reserve it
+> to avoid this port is used by mistake.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Tested-by: Han Gao <rabenda.cn@gmail.com>
+> ---
+> arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts | 5 +++++
+> 1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
+> index 96ccb6120114..1b506972d465 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
+> +++ b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
+> @@ -113,6 +113,11 @@ &sd {
+> 	status = "okay";
+> };
+> 
+> +&uart0 {
+> +	/* for firmware */
+> +	status = "reserved";
+> +};
+> +
+> &uart1 {
+> 	status = "okay";
+> };
+> -- 
+> 2.50.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
