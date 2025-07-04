@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8410CC8303D
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 12:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4363FC83F0D
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 12:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3ON482oxcamrYu4B+Cc9aVjcF7Xl6kIfUzuSgdCWV0I=; b=YIxEdAol/2tARR
-	QjPzvbJKhIW6edF6/mBj9bBVDTRqrCt4flAJT87UiYG7wePjmrqG3BLpocuVWTa0ZB38Wlw3xBlaf
-	h8YQllWsYsKUXTLr3A7d3s8DmRm5wgtScXackMN57/kG9muIrloGicd1QGCmtiH18HYKrXx9WLmbc
-	OKpqbrvltdFsPvI34BUqz5qyy2cTq3Iv+pESyz1FfDyzthqA92svUFsDUoZ4yLWtEe1SmKod4ovM3
-	pVl78eiQaJ1zWpSHnBxUke69MpWqrJ1U/MFojAupsSYYvYcxdSj9uFpxjx5bm+cBeHEtJ+5LL6rnk
-	GLbk3tttdbTf0+VammBA==;
+	List-Owner; bh=lqh4V0kGGHxbhpzMLvnL/G07sLrrcXGLahKzSPlGmfk=; b=Pf2pu6Io/CW+6P
+	94JmW2x8QejN6iqnLpkJNqeDwh86U5E9ADChBt2jjU9Izjpp14y2tT1VwtjGqVhcqRC0PPRzBy/Zn
+	U2bKXby9q6lywvEtVw4C9VLthW1S9qj7KMn33Qg52QUUbZHgtGMQrMYuV9GiLQoLaGBo1xnLzoHI1
+	oow/edKFBjVYGGW1D2lZDcE8ncNVCss67UOlorMZE9NuOc+1rgIkJTtrzn4pO1zL/B4t+CFNP8yIO
+	A+qW6m260BQaazpJwqtgfc3PdDRUernn6/lJQbXZaZ3Vx5GbiDKfHgXiudnHnJm5rYpwn5lugSJKQ
+	yztyZhHMYfFnw7HObavA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXf7T-0000000ELZv-1x4A;
-	Fri, 04 Jul 2025 12:02:19 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uXf7W-0000000ELc3-1Z4C;
+	Fri, 04 Jul 2025 12:02:22 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXf7O-0000000ELYE-2jos
+	id 1uXf7R-0000000ELYy-3yjQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 12:02:17 +0000
+	Fri, 04 Jul 2025 12:02:20 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250704120212euoutp01a4e0722ac6d3776050eb3c2b8f0ae372~PCrBU9cGA2175221752euoutp01S
-	for <linux-riscv@lists.infradead.org>; Fri,  4 Jul 2025 12:02:12 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250704120212euoutp01a4e0722ac6d3776050eb3c2b8f0ae372~PCrBU9cGA2175221752euoutp01S
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250704120216euoutp0219c69a4d288d471f7efe6f728aa47917~PCrEuNTz-1047910479euoutp02V
+	for <linux-riscv@lists.infradead.org>; Fri,  4 Jul 2025 12:02:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250704120216euoutp0219c69a4d288d471f7efe6f728aa47917~PCrEuNTz-1047910479euoutp02V
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1751630532;
-	bh=7IOdcpqFPt15Yboz3/CwL2I2Kh3Mg9UFi2hzSn3688A=;
+	s=mail20170921; t=1751630536;
+	bh=OLoD0sOwsXTnuQJQMarfch3gu6laEwVQBDwKzfAtcAA=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=lxowRvFaTULvhNjFEV60as3Oj2SVWb6RNBg6ZHKJ4ZyszHKPU0sZEnFA1LbBwKksF
-	 ojPP72Uvx3ZCkLzhXJvZ8UQ3JlIJlGYPZePj2JXmikYWb8zAC5zOtREJVzas585+K1
-	 S7QgDMCrc1/CKMhfTtfvXuQP1aXA+vCbzQjGtWxM=
+	b=hd80e+VLdxIlp+noBf2z9BfBBDM+wuQNM4BlLINpdoea/cP3fPo6hzqUiQnsnVS1O
+	 v8I7DnZBF30w/+Wl6JDnFjxZ8ZM+9UXq9SyujPUdzse2RWW0aIR/P+peK4Tvy7tcj7
+	 pZHddmiEomvJOaY5z2HH7lwpmOj2Xo6wUEhhvZ6A=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250704120211eucas1p19a689fa6c5d5ecc5d9527bf1021c3914~PCrAcEAy-2805128051eucas1p1a;
-	Fri,  4 Jul 2025 12:02:11 +0000 (GMT)
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250704120215eucas1p29f4872872d92a4df001539d100418688~PCrD4sreB3204832048eucas1p2A;
+	Fri,  4 Jul 2025 12:02:15 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250704120210eusmtip186fae4e946e4b516284469448700b7cd~PCq-ZKCYc2610826108eusmtip1V;
-	Fri,  4 Jul 2025 12:02:10 +0000 (GMT)
+	20250704120214eusmtip1ddca9cd11abea8c391ac25acafc52a82~PCrCx6Ri72253422534eusmtip1g;
+	Fri,  4 Jul 2025 12:02:14 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 04 Jul 2025 14:01:11 +0200
-Subject: [PATCH v8 1/7] rust: pwm: Add Kconfig and basic data structures
+Date: Fri, 04 Jul 2025 14:01:14 +0200
+Subject: [PATCH v8 4/7] pwm: Add Rust driver for T-HEAD TH1520 SoC
 MIME-Version: 1.0
-Message-Id: <20250704-rust-next-pwm-working-fan-for-sending-v8-1-951e5482c9fd@samsung.com>
+Message-Id: <20250704-rust-next-pwm-working-fan-for-sending-v8-4-951e5482c9fd@samsung.com>
 In-Reply-To: <20250704-rust-next-pwm-working-fan-for-sending-v8-0-951e5482c9fd@samsung.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
@@ -70,16 +70,16 @@ Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
 	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	devicetree@vger.kernel.org
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250704120211eucas1p19a689fa6c5d5ecc5d9527bf1021c3914
+X-CMS-MailID: 20250704120215eucas1p29f4872872d92a4df001539d100418688
 X-Msg-Generator: CA
-X-RootMTR: 20250704120211eucas1p19a689fa6c5d5ecc5d9527bf1021c3914
+X-RootMTR: 20250704120215eucas1p29f4872872d92a4df001539d100418688
 X-EPHeader: CA
-X-CMS-RootMailID: 20250704120211eucas1p19a689fa6c5d5ecc5d9527bf1021c3914
+X-CMS-RootMailID: 20250704120215eucas1p29f4872872d92a4df001539d100418688
 References: <20250704-rust-next-pwm-working-fan-for-sending-v8-0-951e5482c9fd@samsung.com>
-	<CGME20250704120211eucas1p19a689fa6c5d5ecc5d9527bf1021c3914@eucas1p1.samsung.com>
+	<CGME20250704120215eucas1p29f4872872d92a4df001539d100418688@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_050215_285736_9AC9EA45 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20250704_050218_266907_B816FDCE 
+X-CRM114-Status: GOOD (  27.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,179 +91,449 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SW50cm9kdWNlIHRoZSBmb3VuZGF0aW9uYWwgc3VwcG9ydCBmb3IgUFdNIGFic3RyYWN0aW9ucyBp
-biBSdXN0LgoKVGhpcyBjb21taXQgYWRkcyB0aGUgYFJVU1RfUFdNX0FCU1RSQUNUSU9OU2AgS2Nv
-bmZpZyBvcHRpb24gdG8gZW5hYmxlCnRoZSBmZWF0dXJlLCBhbG9uZyB3aXRoIHRoZSBuZWNlc3Nh
-cnkgYnVpbGQtc3lzdGVtIHN1cHBvcnQgYW5kIEMKaGVscGVycy4KCkl0IGFsc28gaW50cm9kdWNl
-cyB0aGUgZmlyc3Qgc2V0IG9mIHNhZmUgd3JhcHBlcnMgZm9yIHRoZSBQV00Kc3Vic3lzdGVtLCBj
-b3ZlcmluZyB0aGUgYmFzaWMgZGF0YSBjYXJyeWluZyBDIHN0cnVjdHMgYW5kIGVudW1zOgotIGBQ
-b2xhcml0eWA6IEEgc2FmZSB3cmFwcGVyIGZvciBgZW51bSBwd21fcG9sYXJpdHlgLgotIGBXYXZl
-Zm9ybWA6IEEgd3JhcHBlciBmb3IgYHN0cnVjdCBwd21fd2F2ZWZvcm1gLgotIGBBcmdzYDogQSB3
-cmFwcGVyIGZvciBgc3RydWN0IHB3bV9hcmdzYC4KLSBgU3RhdGVgOiBBIHdyYXBwZXIgZm9yIGBz
-dHJ1Y3QgcHdtX3N0YXRlYC4KClRoZXNlIHR5cGVzIHByb3ZpZGUgbWVtb3J5IHNhZmUsIGlkaW9t
-YXRpYyBSdXN0IHJlcHJlc2VudGF0aW9ucyBvZiB0aGUKY29yZSBQV00gZGF0YSBzdHJ1Y3R1cmVz
-IGFuZCBmb3JtIHRoZSBidWlsZGluZyBibG9ja3MgZm9yIHRoZQphYnN0cmFjdGlvbnMgdGhhdCB3
-aWxsIGZvbGxvdy4KClRlc3RlZC1ieTogRHJldyBGdXN0aW5pIDxmdXN0aW5pQGtlcm5lbC5vcmc+
-ClNpZ25lZC1vZmYtYnk6IE1pY2hhbCBXaWxjenluc2tpIDxtLndpbGN6eW5za2lAc2Ftc3VuZy5j
-b20+Ci0tLQogTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICB8ICAgNiArKwogZHJpdmVy
-cy9wd20vS2NvbmZpZyAgICAgICAgICAgICB8ICAxMyArKysrCiBydXN0L2JpbmRpbmdzL2JpbmRp
-bmdzX2hlbHBlci5oIHwgICAxICsKIHJ1c3QvaGVscGVycy9oZWxwZXJzLmMgICAgICAgICAgfCAg
-IDEgKwogcnVzdC9oZWxwZXJzL3B3bS5jICAgICAgICAgICAgICB8ICAyMCArKysrKysKIHJ1c3Qv
-a2VybmVsL2xpYi5ycyAgICAgICAgICAgICAgfCAgIDIgKwogcnVzdC9rZXJuZWwvcHdtLnJzICAg
-ICAgICAgICAgICB8IDEzNyArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-CiA3IGZpbGVzIGNoYW5nZWQsIDE4MCBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvTUFJTlRB
-SU5FUlMgYi9NQUlOVEFJTkVSUwppbmRleCA5MmU5ZDhjNzcwOGZmNDg3NGVmYWE5NzI3ODE0YWQ3
-ZjFjOWY2YjBjLi40OTRkZTQyY2E4YzM2YjMwZDgwZTE0YjAzZDNjOWUwZTA1NGZiMjY3IDEwMDY0
-NAotLS0gYS9NQUlOVEFJTkVSUworKysgYi9NQUlOVEFJTkVSUwpAQCAtMjAxOTYsNiArMjAxOTYs
-MTIgQEAgRjoJaW5jbHVkZS9saW51eC9wd20uaAogRjoJaW5jbHVkZS9saW51eC9wd21fYmFja2xp
-Z2h0LmgKIEs6CXB3bV8oY29uZmlnfGFwcGx5X21pZ2h0X3NsZWVwfGFwcGx5X2F0b21pY3xvcHMp
-CiAKK1BXTSBTVUJTWVNURU0gQklORElOR1MgW1JVU1RdCitNOglNaWNoYWwgV2lsY3p5bnNraSA8
-bS53aWxjenluc2tpQHNhbXN1bmcuY29tPgorUzoJTWFpbnRhaW5lZAorRjoJcnVzdC9oZWxwZXJz
-L3B3bS5jCitGOglydXN0L2tlcm5lbC9wd20ucnMKKwogUFhBIEdQSU8gRFJJVkVSCiBNOglSb2Jl
-cnQgSmFyem1payA8cm9iZXJ0LmphcnptaWtAZnJlZS5mcj4KIEw6CWxpbnV4LWdwaW9Admdlci5r
-ZXJuZWwub3JnCmRpZmYgLS1naXQgYS9kcml2ZXJzL3B3bS9LY29uZmlnIGIvZHJpdmVycy9wd20v
-S2NvbmZpZwppbmRleCAzZWYxNzU3NTAyZWJkOTJiMzA1ODRjZDEwNjExMzExYTBmYmZjMDNiLi5j
-MzI2NTU1NjZkNmFiOWVmZjlkMTBmMjllNDY5ZjlhZWY4OWNlY2ZhIDEwMDY0NAotLS0gYS9kcml2
-ZXJzL3B3bS9LY29uZmlnCisrKyBiL2RyaXZlcnMvcHdtL0tjb25maWcKQEAgLTc5OSw0ICs3OTks
-MTcgQEAgY29uZmlnIFBXTV9YSUxJTlgKIAkgIFRvIGNvbXBpbGUgdGhpcyBkcml2ZXIgYXMgYSBt
-b2R1bGUsIGNob29zZSBNIGhlcmU6IHRoZSBtb2R1bGUKIAkgIHdpbGwgYmUgY2FsbGVkIHB3bS14
-aWxpbnguCiAKKyBjb25maWcgUlVTVF9QV01fQUJTVFJBQ1RJT05TCisJYm9vbCAiUnVzdCBQV00g
-YWJzdHJhY3Rpb25zIHN1cHBvcnQiCisJZGVwZW5kcyBvbiBSVVNUCisJZGVwZW5kcyBvbiBQV009
-eQorCWhlbHAKKwkgIFRoaXMgb3B0aW9uIGVuYWJsZXMgdGhlIHNhZmUgUnVzdCBhYnN0cmFjdGlv
-biBsYXllciBmb3IgdGhlIFBXTQorCSAgc3Vic3lzdGVtLiBJdCBwcm92aWRlcyBpZGlvbWF0aWMg
-d3JhcHBlcnMgYW5kIHRyYWl0cyBuZWNlc3NhcnkgZm9yCisJICB3cml0aW5nIFBXTSBjb250cm9s
-bGVyIGRyaXZlcnMgaW4gUnVzdC4KKworCSAgVGhlIGFic3RyYWN0aW9ucyBoYW5kbGUgcmVzb3Vy
-Y2UgbWFuYWdlbWVudCAobGlrZSBtZW1vcnkgYW5kIHJlZmVyZW5jZQorCSAgY291bnRpbmcpIGFu
-ZCBwcm92aWRlIHNhZmUgaW50ZXJmYWNlcyB0byB0aGUgdW5kZXJseWluZyBDIGNvcmUsCisJICBh
-bGxvd2luZyBkcml2ZXIgbG9naWMgdG8gYmUgd3JpdHRlbiBpbiBzYWZlIFJ1c3QuCisKIGVuZGlm
-CmRpZmYgLS1naXQgYS9ydXN0L2JpbmRpbmdzL2JpbmRpbmdzX2hlbHBlci5oIGIvcnVzdC9iaW5k
-aW5ncy9iaW5kaW5nc19oZWxwZXIuaAppbmRleCA1Zjc5NWU2MGU4ODliOWZjODg3MDEzNzQzYzgx
-YjFjZjkyYTUyYWRiLi42YTZlMWIxNzM2YjM4ZjM2YzFkYmRkODc1ZGVmYjNiNTI2MzcyYjY3IDEw
-MDY0NAotLS0gYS9ydXN0L2JpbmRpbmdzL2JpbmRpbmdzX2hlbHBlci5oCisrKyBiL3J1c3QvYmlu
-ZGluZ3MvYmluZGluZ3NfaGVscGVyLmgKQEAgLTY2LDYgKzY2LDcgQEAKICNpbmNsdWRlIDxsaW51
-eC9wbV9vcHAuaD4KICNpbmNsdWRlIDxsaW51eC9wb2xsLmg+CiAjaW5jbHVkZSA8bGludXgvcHJv
-cGVydHkuaD4KKyNpbmNsdWRlIDxsaW51eC9wd20uaD4KICNpbmNsdWRlIDxsaW51eC9yZWZjb3Vu
-dC5oPgogI2luY2x1ZGUgPGxpbnV4L3NjaGVkLmg+CiAjaW5jbHVkZSA8bGludXgvc2VjdXJpdHku
-aD4KZGlmZiAtLWdpdCBhL3J1c3QvaGVscGVycy9oZWxwZXJzLmMgYi9ydXN0L2hlbHBlcnMvaGVs
-cGVycy5jCmluZGV4IDFmODAwZTc4OTIwMTQ1ZmM1MTQ5YmVmYjE1NTc5MTc5ZGZiNmUwMmUuLmM0
-NDlkNzJmYThiMTliMmFiMDg0YmU1MjA0NjZhYjkxNmM2M2NlYTcgMTAwNjQ0Ci0tLSBhL3J1c3Qv
-aGVscGVycy9oZWxwZXJzLmMKKysrIGIvcnVzdC9oZWxwZXJzL2hlbHBlcnMuYwpAQCAtMzUsNiAr
-MzUsNyBAQAogI2luY2x1ZGUgInBpZF9uYW1lc3BhY2UuYyIKICNpbmNsdWRlICJwb2xsLmMiCiAj
-aW5jbHVkZSAicHJvcGVydHkuYyIKKyNpbmNsdWRlICJwd20uYyIKICNpbmNsdWRlICJyYnRyZWUu
-YyIKICNpbmNsdWRlICJyY3UuYyIKICNpbmNsdWRlICJyZWZjb3VudC5jIgpkaWZmIC0tZ2l0IGEv
-cnVzdC9oZWxwZXJzL3B3bS5jIGIvcnVzdC9oZWxwZXJzL3B3bS5jCm5ldyBmaWxlIG1vZGUgMTAw
-NjQ0CmluZGV4IDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAuLmQ3NWM1
-ODg4NjM2ODVkMzk5MGI1MjViYjFiODRhYTRiYzM1YWMzOTcKLS0tIC9kZXYvbnVsbAorKysgYi9y
-dXN0L2hlbHBlcnMvcHdtLmMKQEAgLTAsMCArMSwyMCBAQAorLy8gU1BEWC1MaWNlbnNlLUlkZW50
-aWZpZXI6IEdQTC0yLjAKKy8vIENvcHlyaWdodCAoYykgMjAyNSBTYW1zdW5nIEVsZWN0cm9uaWNz
-IENvLiwgTHRkLgorLy8gQXV0aG9yOiBNaWNoYWwgV2lsY3p5bnNraSA8bS53aWxjenluc2tpQHNh
-bXN1bmcuY29tPgorCisjaW5jbHVkZSA8bGludXgvcHdtLmg+CisKK3N0cnVjdCBkZXZpY2UgKnJ1
-c3RfaGVscGVyX3B3bWNoaXBfcGFyZW50KGNvbnN0IHN0cnVjdCBwd21fY2hpcCAqY2hpcCkKK3sK
-KwlyZXR1cm4gcHdtY2hpcF9wYXJlbnQoY2hpcCk7Cit9CisKK3ZvaWQgKnJ1c3RfaGVscGVyX3B3
-bWNoaXBfZ2V0X2RydmRhdGEoc3RydWN0IHB3bV9jaGlwICpjaGlwKQoreworCXJldHVybiBwd21j
-aGlwX2dldF9kcnZkYXRhKGNoaXApOworfQorCit2b2lkIHJ1c3RfaGVscGVyX3B3bWNoaXBfc2V0
-X2RydmRhdGEoc3RydWN0IHB3bV9jaGlwICpjaGlwLCB2b2lkICpkYXRhKQoreworCXB3bWNoaXBf
-c2V0X2RydmRhdGEoY2hpcCwgZGF0YSk7Cit9CmRpZmYgLS1naXQgYS9ydXN0L2tlcm5lbC9saWIu
-cnMgYi9ydXN0L2tlcm5lbC9saWIucnMKaW5kZXggNWJiZjM2MjcyMTJmMGEyNmQzNGJlMGQ2YzE2
-MGEzNzBhYmYxZTk5Ni4uOWY3MDM4ZDNkNTAxOTgyYTg0M2Q2ZDg2NTcxZDIwZjEyMTNiYTllZSAx
-MDA2NDQKLS0tIGEvcnVzdC9rZXJuZWwvbGliLnJzCisrKyBiL3J1c3Qva2VybmVsL2xpYi5ycwpA
-QCAtMTA2LDYgKzEwNiw4IEBACiBwdWIgbW9kIHNlcV9maWxlOwogcHViIG1vZCBzaXplczsKIG1v
-ZCBzdGF0aWNfYXNzZXJ0OworI1tjZmcoQ09ORklHX1JVU1RfUFdNX0FCU1RSQUNUSU9OUyldCitw
-dWIgbW9kIHB3bTsKICNbZG9jKGhpZGRlbildCiBwdWIgbW9kIHN0ZF92ZW5kb3I7CiBwdWIgbW9k
-IHN0cjsKZGlmZiAtLWdpdCBhL3J1c3Qva2VybmVsL3B3bS5ycyBiL3J1c3Qva2VybmVsL3B3bS5y
-cwpuZXcgZmlsZSBtb2RlIDEwMDY0NAppbmRleCAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
-MDAwMDAwMDAwMDAwLi4zZmFkMTAxNDA2ZWFjNzI4ZDliMTIwODNmYWQ3YWJmN2I3Zjg5YjI1Ci0t
-LSAvZGV2L251bGwKKysrIGIvcnVzdC9rZXJuZWwvcHdtLnJzCkBAIC0wLDAgKzEsMTM3IEBACisv
-LyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAorLy8gQ29weXJpZ2h0IChjKSAyMDI1
-IFNhbXN1bmcgRWxlY3Ryb25pY3MgQ28uLCBMdGQuCisvLyBBdXRob3I6IE1pY2hhbCBXaWxjenlu
-c2tpIDxtLndpbGN6eW5za2lAc2Ftc3VuZy5jb20+CisKKy8vISBQV00gc3Vic3lzdGVtIGFic3Ry
-YWN0aW9ucy4KKy8vIQorLy8hIEMgaGVhZGVyOiBbYGluY2x1ZGUvbGludXgvcHdtLmhgXShzcmN0
-cmVlL2luY2x1ZGUvbGludXgvcHdtLmgpLgorCit1c2UgY3JhdGU6OnsKKyAgICBiaW5kaW5ncywK
-KyAgICBwcmVsdWRlOjoqLAorICAgIHR5cGVzOjpPcGFxdWUsCit9OwordXNlIGNvcmU6OmNvbnZl
-cnQ6OlRyeUZyb207CisKKy8vLyBQV00gcG9sYXJpdHkuIE1pcnJvcnMgW2BlbnVtIHB3bV9wb2xh
-cml0eWBdKHNyY3RyZWUvaW5jbHVkZS9saW51eC9wd20uaCkuCisjW2Rlcml2ZShDb3B5LCBDbG9u
-ZSwgRGVidWcsIFBhcnRpYWxFcSwgRXEpXQorcHViIGVudW0gUG9sYXJpdHkgeworICAgIC8vLyBO
-b3JtYWwgcG9sYXJpdHkgKGR1dHkgY3ljbGUgZGVmaW5lcyB0aGUgaGlnaCBwZXJpb2Qgb2YgdGhl
-IHNpZ25hbCkuCisgICAgTm9ybWFsLAorCisgICAgLy8vIEludmVyc2VkIHBvbGFyaXR5IChkdXR5
-IGN5Y2xlIGRlZmluZXMgdGhlIGxvdyBwZXJpb2Qgb2YgdGhlIHNpZ25hbCkuCisgICAgSW52ZXJz
-ZWQsCit9CisKK2ltcGwgVHJ5RnJvbTxiaW5kaW5nczo6cHdtX3BvbGFyaXR5PiBmb3IgUG9sYXJp
-dHkgeworICAgIHR5cGUgRXJyb3IgPSBFcnJvcjsKKworICAgIGZuIHRyeV9mcm9tKHBvbGFyaXR5
-OiBiaW5kaW5nczo6cHdtX3BvbGFyaXR5KSAtPiBSZXN1bHQ8U2VsZiwgRXJyb3I+IHsKKyAgICAg
-ICAgbWF0Y2ggcG9sYXJpdHkgeworICAgICAgICAgICAgYmluZGluZ3M6OnB3bV9wb2xhcml0eV9Q
-V01fUE9MQVJJVFlfTk9STUFMID0+IE9rKFBvbGFyaXR5OjpOb3JtYWwpLAorICAgICAgICAgICAg
-YmluZGluZ3M6OnB3bV9wb2xhcml0eV9QV01fUE9MQVJJVFlfSU5WRVJTRUQgPT4gT2soUG9sYXJp
-dHk6OkludmVyc2VkKSwKKyAgICAgICAgICAgIF8gPT4gRXJyKEVJTlZBTCksCisgICAgICAgIH0K
-KyAgICB9Cit9CisKK2ltcGwgRnJvbTxQb2xhcml0eT4gZm9yIGJpbmRpbmdzOjpwd21fcG9sYXJp
-dHkgeworICAgIGZuIGZyb20ocG9sYXJpdHk6IFBvbGFyaXR5KSAtPiBTZWxmIHsKKyAgICAgICAg
-bWF0Y2ggcG9sYXJpdHkgeworICAgICAgICAgICAgUG9sYXJpdHk6Ok5vcm1hbCA9PiBiaW5kaW5n
-czo6cHdtX3BvbGFyaXR5X1BXTV9QT0xBUklUWV9OT1JNQUwsCisgICAgICAgICAgICBQb2xhcml0
-eTo6SW52ZXJzZWQgPT4gYmluZGluZ3M6OnB3bV9wb2xhcml0eV9QV01fUE9MQVJJVFlfSU5WRVJT
-RUQsCisgICAgICAgIH0KKyAgICB9Cit9CisKKy8vLyBSZXByZXNlbnRzIGEgUFdNIHdhdmVmb3Jt
-IGNvbmZpZ3VyYXRpb24uCisvLy8gTWlycm9ycyBzdHJ1Y3QgW2BzdHJ1Y3QgcHdtX3dhdmVmb3Jt
-YF0oc3JjdHJlZS9pbmNsdWRlL2xpbnV4L3B3bS5oKS4KKyNbZGVyaXZlKENvcHksIENsb25lLCBE
-ZWJ1ZywgRGVmYXVsdCwgUGFydGlhbEVxLCBFcSldCitwdWIgc3RydWN0IFdhdmVmb3JtIHsKKyAg
-ICAvLy8gVG90YWwgZHVyYXRpb24gb2Ygb25lIGNvbXBsZXRlIFBXTSBjeWNsZSwgaW4gbmFub3Nl
-Y29uZHMuCisgICAgcHViIHBlcmlvZF9sZW5ndGhfbnM6IHU2NCwKKworICAgIC8vLyBEdXR5LWN5
-Y2xlIGFjdGl2ZSB0aW1lLCBpbiBuYW5vc2Vjb25kcy4KKyAgICAvLy8KKyAgICAvLy8gRm9yIGEg
-dHlwaWNhbCBub3JtYWwgcG9sYXJpdHkgY29uZmlndXJhdGlvbiAoYWN0aXZlLWhpZ2gpIHRoaXMg
-aXMgdGhlCisgICAgLy8vIGhpZ2ggdGltZSBvZiB0aGUgc2lnbmFsLgorICAgIHB1YiBkdXR5X2xl
-bmd0aF9uczogdTY0LAorCisgICAgLy8vIER1dHktY3ljbGUgc3RhcnQgb2Zmc2V0LCBpbiBuYW5v
-c2Vjb25kcy4KKyAgICAvLy8KKyAgICAvLy8gRGVsYXkgZnJvbSB0aGUgYmVnaW5uaW5nIG9mIHRo
-ZSBwZXJpb2QgdG8gdGhlIGZpcnN0IGFjdGl2ZSBlZGdlLgorICAgIC8vLyBJbiBtb3N0IHNpbXBs
-ZSBQV00gc2V0dXBzIHRoaXMgaXMgYDBgLCBzbyB0aGUgZHV0eSBjeWNsZSBzdGFydHMKKyAgICAv
-Ly8gaW1tZWRpYXRlbHkgYXQgZWFjaCBwZXJpb2TigJlzIHN0YXJ0LgorICAgIHB1YiBkdXR5X29m
-ZnNldF9uczogdTY0LAorfQorCitpbXBsIEZyb208YmluZGluZ3M6OnB3bV93YXZlZm9ybT4gZm9y
-IFdhdmVmb3JtIHsKKyAgICBmbiBmcm9tKHdmOiBiaW5kaW5nczo6cHdtX3dhdmVmb3JtKSAtPiBT
-ZWxmIHsKKyAgICAgICAgV2F2ZWZvcm0geworICAgICAgICAgICAgcGVyaW9kX2xlbmd0aF9uczog
-d2YucGVyaW9kX2xlbmd0aF9ucywKKyAgICAgICAgICAgIGR1dHlfbGVuZ3RoX25zOiB3Zi5kdXR5
-X2xlbmd0aF9ucywKKyAgICAgICAgICAgIGR1dHlfb2Zmc2V0X25zOiB3Zi5kdXR5X29mZnNldF9u
-cywKKyAgICAgICAgfQorICAgIH0KK30KKworaW1wbCBGcm9tPFdhdmVmb3JtPiBmb3IgYmluZGlu
-Z3M6OnB3bV93YXZlZm9ybSB7CisgICAgZm4gZnJvbSh3ZjogV2F2ZWZvcm0pIC0+IFNlbGYgewor
-ICAgICAgICBiaW5kaW5nczo6cHdtX3dhdmVmb3JtIHsKKyAgICAgICAgICAgIHBlcmlvZF9sZW5n
-dGhfbnM6IHdmLnBlcmlvZF9sZW5ndGhfbnMsCisgICAgICAgICAgICBkdXR5X2xlbmd0aF9uczog
-d2YuZHV0eV9sZW5ndGhfbnMsCisgICAgICAgICAgICBkdXR5X29mZnNldF9uczogd2YuZHV0eV9v
-ZmZzZXRfbnMsCisgICAgICAgIH0KKyAgICB9Cit9CisKKy8vLyBXcmFwcGVyIGZvciBib2FyZC1k
-ZXBlbmRlbnQgUFdNIGFyZ3VtZW50cyBbYHN0cnVjdCBwd21fYXJnc2BdKHNyY3RyZWUvaW5jbHVk
-ZS9saW51eC9wd20uaCkuCisjW3JlcHIodHJhbnNwYXJlbnQpXQorcHViIHN0cnVjdCBBcmdzKE9w
-YXF1ZTxiaW5kaW5nczo6cHdtX2FyZ3M+KTsKKworaW1wbCBBcmdzIHsKKyAgICAvLy8gQ3JlYXRl
-cyBhbiBgQXJnc2Agd3JhcHBlciBmcm9tIGEgQyBzdHJ1Y3QgcG9pbnRlci4KKyAgICAvLy8KKyAg
-ICAvLy8gIyBTYWZldHkKKyAgICAvLy8KKyAgICAvLy8gVGhlIGNhbGxlciBtdXN0IGVuc3VyZSB0
-aGF0IGBjX2FyZ3NfcHRyYCBpcyBhIHZhbGlkLCBub24tbnVsbCBwb2ludGVyCisgICAgLy8vIHRv
-IGBiaW5kaW5nczo6cHdtX2FyZ3NgIGFuZCB0aGF0IHRoZSBwb2ludGVkLXRvIGRhdGEgaXMgdmFs
-aWQKKyAgICAvLy8gZm9yIHRoZSBkdXJhdGlvbiBvZiB0aGlzIGZ1bmN0aW9uIGNhbGwgKGFzIGRh
-dGEgaXMgY29waWVkKS4KKyAgICB1bnNhZmUgZm4gZnJvbV9jX3B0cihjX2FyZ3NfcHRyOiAqY29u
-c3QgYmluZGluZ3M6OnB3bV9hcmdzKSAtPiBTZWxmIHsKKyAgICAgICAgLy8gU0FGRVRZOiBDYWxs
-ZXIgZ3VhcmFudGVlcyBgY19hcmdzX3B0cmAgaXMgdmFsaWQuIFdlIGRlcmVmZXJlbmNlIGl0IHRv
-IGNvcHkuCisgICAgICAgIEFyZ3MoT3BhcXVlOjpuZXcodW5zYWZlIHsgKmNfYXJnc19wdHIgfSkp
-CisgICAgfQorCisgICAgLy8vIFJldHVybnMgdGhlIHBlcmlvZCBvZiB0aGUgUFdNIHNpZ25hbCBp
-biBuYW5vc2Vjb25kcy4KKyAgICBwdWIgZm4gcGVyaW9kKCZzZWxmKSAtPiB1NjQgeworICAgICAg
-ICAvLyBTQUZFVFk6IGBzZWxmLjAuZ2V0KClgIHJldHVybnMgYSBwb2ludGVyIHRvIHRoZSBgYmlu
-ZGluZ3M6OnB3bV9hcmdzYAorICAgICAgICAvLyBtYW5hZ2VkIGJ5IHRoZSBgT3BhcXVlYCB3cmFw
-cGVyLiBUaGlzIHBvaW50ZXIgaXMgZ3VhcmFudGVlZCB0byBiZQorICAgICAgICAvLyB2YWxpZCBh
-bmQgYWxpZ25lZCBmb3IgdGhlIGxpZmV0aW1lIG9mIGBzZWxmYCBiZWNhdXNlIGBPcGFxdWVgIG93
-bnMgYSBjb3B5LgorICAgICAgICB1bnNhZmUgeyAoKnNlbGYuMC5nZXQoKSkucGVyaW9kIH0KKyAg
-ICB9CisKKyAgICAvLy8gUmV0dXJucyB0aGUgcG9sYXJpdHkgb2YgdGhlIFBXTSBzaWduYWwuCisg
-ICAgcHViIGZuIHBvbGFyaXR5KCZzZWxmKSAtPiBSZXN1bHQ8UG9sYXJpdHksIEVycm9yPiB7Cisg
-ICAgICAgIC8vIFNBRkVUWTogYHNlbGYuMC5nZXQoKWAgcmV0dXJucyBhIHBvaW50ZXIgdG8gdGhl
-IGBiaW5kaW5nczo6cHdtX2FyZ3NgCisgICAgICAgIC8vIG1hbmFnZWQgYnkgdGhlIGBPcGFxdWVg
-IHdyYXBwZXIuIFRoaXMgcG9pbnRlciBpcyBndWFyYW50ZWVkIHRvIGJlCisgICAgICAgIC8vIHZh
-bGlkIGFuZCBhbGlnbmVkIGZvciB0aGUgbGlmZXRpbWUgb2YgYHNlbGZgLgorICAgICAgICBsZXQg
-cmF3X3BvbGFyaXR5ID0gdW5zYWZlIHsgKCpzZWxmLjAuZ2V0KCkpLnBvbGFyaXR5IH07CisgICAg
-ICAgIFBvbGFyaXR5Ojp0cnlfZnJvbShyYXdfcG9sYXJpdHkpCisgICAgfQorfQorCisvLy8gV3Jh
-cHBlciBmb3IgUFdNIHN0YXRlIFtgc3RydWN0IHB3bV9zdGF0ZWBdKHNyY3RyZWUvaW5jbHVkZS9s
-aW51eC9wd20uaCkuCisjW3JlcHIodHJhbnNwYXJlbnQpXQorcHViIHN0cnVjdCBTdGF0ZShiaW5k
-aW5nczo6cHdtX3N0YXRlKTsKKworaW1wbCBTdGF0ZSB7CisgICAgLy8vIENyZWF0ZXMgYSBgU3Rh
-dGVgIHdyYXBwZXIgYnkgdGFraW5nIG93bmVyc2hpcCBvZiBhIEMgYHB3bV9zdGF0ZWAgdmFsdWUu
-CisgICAgcHViKGNyYXRlKSBmbiBmcm9tX2MoY19zdGF0ZTogYmluZGluZ3M6OnB3bV9zdGF0ZSkg
-LT4gU2VsZiB7CisgICAgICAgIFN0YXRlKGNfc3RhdGUpCisgICAgfQorCisgICAgLy8vIFJldHVy
-bnMgYHRydWVgIGlmIHRoZSBQV00gc2lnbmFsIGlzIGVuYWJsZWQuCisgICAgcHViIGZuIGVuYWJs
-ZWQoJnNlbGYpIC0+IGJvb2wgeworICAgICAgICBzZWxmLjAuZW5hYmxlZAorICAgIH0KK30KCi0t
-IAoyLjM0LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+Introduce a PWM driver for the T-HEAD TH1520 SoC, written in Rust and
+utilizing the safe PWM abstractions from the preceding commit.
+
+The driver implements the pwm::PwmOps trait using the modern waveform
+API (round_waveform_tohw, write_waveform, etc.) to support configuration
+of period, duty cycle, and polarity for the TH1520's PWM channels.
+
+Resource management is handled using idiomatic Rust patterns. The PWM
+chip object is allocated via pwm::Chip::new and its registration with
+the PWM core is managed by the pwm::Registration RAII guard. This
+ensures pwmchip_remove is always called when the driver unbinds,
+preventing resource leaks. Device managed resources are used for the
+MMIO region, and the clock lifecycle is correctly managed in the
+driver's private data Drop implementation.
+
+The driver's core logic is written entirely in safe Rust, with no unsafe
+blocks.
+
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ MAINTAINERS               |   1 +
+ drivers/pwm/Kconfig       |  11 ++
+ drivers/pwm/Makefile      |   1 +
+ drivers/pwm/pwm_th1520.rs | 354 ++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 367 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 494de42ca8c36b30d80e14b03d3c9e0e054fb267..2449178a6d7b83b5202f8209c0b38e8302bc6b15 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21531,6 +21531,7 @@ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+ F:	drivers/pinctrl/pinctrl-th1520.c
+ F:	drivers/pmdomain/thead/
+ F:	drivers/power/sequencing/pwrseq-thead-gpu.c
++F:	drivers/pwm/pwm_th1520.rs
+ F:	drivers/reset/reset-th1520.c
+ F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+ F:	include/dt-bindings/power/thead,th1520-power.h
+diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+index c32655566d6ab9eff9d10f29e469f9aef89cecfa..02faf93600b6464d3c02495eeb5824ea541cff35 100644
+--- a/drivers/pwm/Kconfig
++++ b/drivers/pwm/Kconfig
+@@ -728,6 +728,17 @@ config PWM_TEGRA
+ 	  To compile this driver as a module, choose M here: the module
+ 	  will be called pwm-tegra.
+ 
++config PWM_TH1520
++	tristate "TH1520 PWM support"
++	depends on RUST
++	select RUST_PWM_ABSTRACTIONS
++	help
++	  This option enables the driver for the PWM controller found on the
++	  T-HEAD TH1520 SoC.
++
++	  To compile this driver as a module, choose M here; the module
++	  will be called pwm-th1520. If you are unsure, say N.
++
+ config PWM_TIECAP
+ 	tristate "ECAP PWM support"
+ 	depends on ARCH_OMAP2PLUS || ARCH_DAVINCI_DA8XX || ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
+diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+index ff4f47e5fb7a0dbac72c12de82c3773e5582db6d..5c15c95c6e49143969389198657eed0ecf4086b2 100644
+--- a/drivers/pwm/Makefile
++++ b/drivers/pwm/Makefile
+@@ -67,6 +67,7 @@ obj-$(CONFIG_PWM_STMPE)		+= pwm-stmpe.o
+ obj-$(CONFIG_PWM_SUN4I)		+= pwm-sun4i.o
+ obj-$(CONFIG_PWM_SUNPLUS)	+= pwm-sunplus.o
+ obj-$(CONFIG_PWM_TEGRA)		+= pwm-tegra.o
++obj-$(CONFIG_PWM_TH1520)	+= pwm_th1520.o
+ obj-$(CONFIG_PWM_TIECAP)	+= pwm-tiecap.o
+ obj-$(CONFIG_PWM_TIEHRPWM)	+= pwm-tiehrpwm.o
+ obj-$(CONFIG_PWM_TWL)		+= pwm-twl.o
+diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
+new file mode 100644
+index 0000000000000000000000000000000000000000..10ecf67b263985c754ff2e0f3f4e9d22b274e10e
+--- /dev/null
++++ b/drivers/pwm/pwm_th1520.rs
+@@ -0,0 +1,354 @@
++// SPDX-License-Identifier: GPL-2.0
++// Copyright (c) 2025 Samsung Electronics Co., Ltd.
++// Author: Michal Wilczynski <m.wilczynski@samsung.com>
++
++//! Rust T-HEAD TH1520 PWM driver
++//!
++//! Limitations:
++//! - The period and duty cycle are controlled by 32-bit hardware registers,
++//!   limiting the maximum resolution.
++//! - The driver supports continuous output mode only; one-shot mode is not
++//!   implemented.
++//! - The controller hardware provides up to 6 PWM channels.
++//! - Reconfiguration is glitch free - new period and duty cycle values are
++//!   latched and take effect at the start of the next period.
++//! - Polarity is handled via a simple hardware inversion bit; arbitrary
++//!   duty cycle offsets are not supported.
++//! - Disabling a channel is achieved by configuring its duty cycle to zero to
++//!   produce a static low output. Clearing the `start` does not reliably
++//!   force the static inactive level defined by the `INACTOUT` bit. Hence
++//!   this method is not used in this driver.
++//!
++
++use core::ops::Deref;
++use kernel::{
++    c_str,
++    clk::Clk,
++    device::{Bound, Core, Device},
++    devres,
++    io::mem::IoMem,
++    of, platform,
++    prelude::*,
++    pwm, time,
++};
++
++const TH1520_MAX_PWM_NUM: u32 = 6;
++
++// Register offsets
++const fn th1520_pwm_chn_base(n: u32) -> usize {
++    (n * 0x20) as usize
++}
++
++const fn th1520_pwm_ctrl(n: u32) -> usize {
++    th1520_pwm_chn_base(n)
++}
++
++const fn th1520_pwm_per(n: u32) -> usize {
++    th1520_pwm_chn_base(n) + 0x08
++}
++
++const fn th1520_pwm_fp(n: u32) -> usize {
++    th1520_pwm_chn_base(n) + 0x0c
++}
++
++// Control register bits
++const TH1520_PWM_START: u32 = 1 << 0;
++const TH1520_PWM_CFG_UPDATE: u32 = 1 << 2;
++const TH1520_PWM_CONTINUOUS_MODE: u32 = 1 << 5;
++const TH1520_PWM_FPOUT: u32 = 1 << 8;
++
++const TH1520_PWM_REG_SIZE: usize = 0xB0;
++
++fn ns_to_cycles(ns: u64, rate_hz: u64) -> u64 {
++    const NSEC_PER_SEC_U64: u64 = time::NSEC_PER_SEC as u64;
++
++    (match ns.checked_mul(rate_hz) {
++        Some(product) => product,
++        None => u64::MAX,
++    }) / NSEC_PER_SEC_U64
++}
++
++fn cycles_to_ns(cycles: u64, rate_hz: u64) -> u64 {
++    const NSEC_PER_SEC_U64: u64 = time::NSEC_PER_SEC as u64;
++
++    // Round up
++    let Some(numerator) = cycles
++        .checked_mul(NSEC_PER_SEC_U64)
++        .and_then(|p| p.checked_add(rate_hz - 1))
++    else {
++        return u64::MAX;
++    };
++
++    numerator / rate_hz
++}
++
++/// Hardware-specific waveform representation for TH1520.
++#[derive(Copy, Clone, Debug, Default)]
++struct Th1520WfHw {
++    period_cycles: u32,
++    duty_cycles: u32,
++    ctrl_val: u32,
++    enabled: bool,
++}
++
++/// The driver's private data struct. It holds all necessary devres managed resources.
++#[pin_data(PinnedDrop)]
++struct Th1520PwmDriverData {
++    #[pin]
++    iomem: devres::Devres<IoMem<TH1520_PWM_REG_SIZE>>,
++    clk: Clk,
++}
++
++// This `unsafe` implementation is a temporary necessity because the underlying `kernel::clk::Clk`
++// type does not yet expose `Send` and `Sync` implementations. This block should be removed
++// as soon as the clock abstraction provides these guarantees directly.
++// TODO: Remove those unsafe impl's when Clk will support them itself.
++
++// SAFETY: The `devres` framework requires the driver's private data to be `Send` and `Sync`.
++// We can guarantee this because the PWM core synchronizes all callbacks, preventing concurrent
++// access to the contained `iomem` and `clk` resources.
++unsafe impl Send for Th1520PwmDriverData {}
++
++// SAFETY: The same reasoning applies as for `Send`. The PWM core's synchronization
++// guarantees that it is safe for multiple threads to have shared access (`&self`)
++// to the driver data during callbacks.
++unsafe impl Sync for Th1520PwmDriverData {}
++
++impl pwm::PwmOps for Th1520PwmDriverData {
++    type DrvData = Pin<KBox<Th1520PwmDriverData>>;
++    type WfHw = Th1520WfHw;
++
++    fn round_waveform_tohw(
++        chip: &pwm::Chip<Self::DrvData>,
++        _pwm: &pwm::Device,
++        wf: &pwm::Waveform,
++    ) -> Result<(c_int, Self::WfHw)> {
++        let data = chip.drvdata();
++
++        if wf.period_length_ns == 0 {
++            return Ok((
++                0,
++                Th1520WfHw {
++                    enabled: false,
++                    ..Default::default()
++                },
++            ));
++        }
++
++        let rate_hz = data.clk.rate().as_hz() as u64;
++
++        let period_cycles = ns_to_cycles(wf.period_length_ns, rate_hz).min(u64::from(u32::MAX));
++        let mut duty_cycles = ns_to_cycles(wf.duty_length_ns, rate_hz).min(u64::from(u32::MAX));
++
++        let mut ctrl_val = TH1520_PWM_CONTINUOUS_MODE;
++
++        let is_inversed = wf.duty_length_ns > 0
++            && wf.duty_offset_ns > 0
++            && wf.duty_length_ns + wf.duty_offset_ns >= wf.period_length_ns;
++        if is_inversed {
++            duty_cycles = period_cycles - duty_cycles;
++        } else {
++            ctrl_val |= TH1520_PWM_FPOUT;
++        }
++
++        let wfhw = Th1520WfHw {
++            period_cycles: period_cycles as u32,
++            duty_cycles: duty_cycles as u32,
++            ctrl_val,
++            enabled: true,
++        };
++
++        dev_dbg!(
++            chip.device(),
++            "clk_rate: {}Hz Requested: period {}ns, duty {}ns, offset {}ns -> HW: period {} cyc, duty {} cyc, ctrl 0x{:x}\n",
++            rate_hz,
++            wf.period_length_ns,
++            wf.duty_length_ns,
++            wf.duty_offset_ns,
++            wfhw.period_cycles,
++            wfhw.duty_cycles,
++            wfhw.ctrl_val
++        );
++
++        Ok((0, wfhw))
++    }
++
++    fn round_waveform_fromhw(
++        chip: &pwm::Chip<Self::DrvData>,
++        _pwm: &pwm::Device,
++        wfhw: &Self::WfHw,
++        wf: &mut pwm::Waveform,
++    ) -> Result<c_int> {
++        let data = chip.drvdata();
++        let rate_hz = data.clk.rate().as_hz() as u64;
++
++        wf.period_length_ns = cycles_to_ns(u64::from(wfhw.period_cycles), rate_hz);
++
++        let duty_cycles = u64::from(wfhw.duty_cycles);
++
++        if (wfhw.ctrl_val & TH1520_PWM_FPOUT) != 0 {
++            wf.duty_length_ns = cycles_to_ns(duty_cycles, rate_hz);
++            wf.duty_offset_ns = 0;
++        } else {
++            let period_cycles = u64::from(wfhw.period_cycles);
++            let original_duty_cycles = period_cycles.saturating_sub(duty_cycles);
++
++            // For an inverted signal, `duty_length_ns` is the high time (period - low_time).
++            wf.duty_length_ns = cycles_to_ns(original_duty_cycles, rate_hz);
++            // The offset is the initial low time, which is what the hardware register provides.
++            wf.duty_offset_ns = cycles_to_ns(duty_cycles, rate_hz);
++        }
++
++        Ok(0)
++    }
++
++    fn read_waveform(
++        chip: &pwm::Chip<Self::DrvData>,
++        pwm: &pwm::Device,
++        parent_dev: &Device<Bound>,
++    ) -> Result<Self::WfHw> {
++        let data = chip.drvdata();
++        let hwpwm = pwm.hwpwm();
++        let iomem_accessor = data.iomem.access(parent_dev)?;
++        let iomap = iomem_accessor.deref();
++
++        let ctrl = iomap.try_read32(th1520_pwm_ctrl(hwpwm))?;
++        let period_cycles = iomap.try_read32(th1520_pwm_per(hwpwm))?;
++        let duty_cycles = iomap.try_read32(th1520_pwm_fp(hwpwm))?;
++
++        let wfhw = Th1520WfHw {
++            period_cycles,
++            duty_cycles,
++            ctrl_val: ctrl,
++            enabled: duty_cycles != 0,
++        };
++
++        dev_dbg!(
++            chip.device(),
++            "PWM-{}: read_waveform: Read hw state - period: {}, duty: {}, ctrl: 0x{:x}, enabled: {}",
++            hwpwm,
++            wfhw.period_cycles,
++            wfhw.duty_cycles,
++            wfhw.ctrl_val,
++            wfhw.enabled
++        );
++
++        Ok(wfhw)
++    }
++
++    fn write_waveform(
++        chip: &pwm::Chip<Self::DrvData>,
++        pwm: &pwm::Device,
++        wfhw: &Self::WfHw,
++        parent_dev: &Device<Bound>,
++    ) -> Result {
++        let data = chip.drvdata();
++        let hwpwm = pwm.hwpwm();
++        let iomem_accessor = data.iomem.access(parent_dev)?;
++        let iomap = iomem_accessor.deref();
++        let was_enabled = pwm.state().enabled();
++
++        if !wfhw.enabled {
++            if was_enabled {
++                iomap.try_write32(wfhw.ctrl_val, th1520_pwm_ctrl(hwpwm))?;
++                iomap.try_write32(0, th1520_pwm_fp(hwpwm))?;
++                iomap.try_write32(wfhw.ctrl_val | TH1520_PWM_CFG_UPDATE, th1520_pwm_ctrl(hwpwm))?;
++            }
++            return Ok(());
++        }
++
++        iomap.try_write32(wfhw.ctrl_val, th1520_pwm_ctrl(hwpwm))?;
++        iomap.try_write32(wfhw.period_cycles, th1520_pwm_per(hwpwm))?;
++        iomap.try_write32(wfhw.duty_cycles, th1520_pwm_fp(hwpwm))?;
++        iomap.try_write32(wfhw.ctrl_val | TH1520_PWM_CFG_UPDATE, th1520_pwm_ctrl(hwpwm))?;
++
++        // The `TH1520_PWM_START` bit must be written in a separate, final transaction, and
++        // only when enabling the channel from a disabled state.
++        if !was_enabled {
++            iomap.try_write32(wfhw.ctrl_val | TH1520_PWM_START, th1520_pwm_ctrl(hwpwm))?;
++        }
++
++        dev_dbg!(
++            chip.device(),
++            "PWM-{}: Wrote (per: {}, duty: {})",
++            hwpwm,
++            wfhw.period_cycles,
++            wfhw.duty_cycles,
++        );
++
++        Ok(())
++    }
++}
++
++#[pinned_drop]
++impl PinnedDrop for Th1520PwmDriverData {
++    fn drop(self: Pin<&mut Self>) {
++        self.clk.disable_unprepare();
++    }
++}
++
++static TH1520_PWM_OPS: pwm::PwmOpsVTable = pwm::create_pwm_ops::<Th1520PwmDriverData>();
++
++struct Th1520PwmPlatformDriver;
++
++kernel::of_device_table!(
++    OF_TABLE,
++    MODULE_OF_TABLE,
++    <Th1520PwmPlatformDriver as platform::Driver>::IdInfo,
++    [(of::DeviceId::new(c_str!("thead,th1520-pwm")), ())]
++);
++
++impl platform::Driver for Th1520PwmPlatformDriver {
++    type IdInfo = ();
++    const OF_ID_TABLE: Option<of::IdTable<Self::IdInfo>> = Some(&OF_TABLE);
++
++    fn probe(
++        pdev: &platform::Device<Core>,
++        _id_info: Option<&Self::IdInfo>,
++    ) -> Result<Pin<KBox<Self>>> {
++        let dev = pdev.as_ref();
++        let resource = pdev.resource(0).ok_or(ENODEV)?;
++
++        let drvdata = KBox::pin_init(
++            try_pin_init!(Th1520PwmDriverData {
++                iomem <- pdev.ioremap_resource_sized::<TH1520_PWM_REG_SIZE>(resource),
++                clk <- Clk::get(dev, None),
++            }),
++            GFP_KERNEL,
++        )?;
++
++        drvdata.clk.prepare_enable()?;
++
++        // TODO: Get exclusive ownership of the clock to prevent rate changes.
++        // The Rust equivalent of `clk_rate_exclusive_get()` is not yet available.
++        // This should be updated once it is implemented.
++        let rate_hz = drvdata.clk.rate().as_hz();
++        if rate_hz == 0 {
++            dev_err!(dev, "Clock rate is zero\n");
++            return Err(EINVAL);
++        }
++
++        if rate_hz > time::NSEC_PER_SEC as usize {
++            dev_err!(
++                dev,
++                "Clock rate {} Hz is too high, not supported.\n",
++                rate_hz
++            );
++            return Err(ERANGE);
++        }
++
++        let chip = pwm::Chip::new(dev, TH1520_MAX_PWM_NUM, 0, drvdata)?;
++
++        pwm::Registration::register(dev, chip, &TH1520_PWM_OPS)?;
++
++        Ok(KBox::new(Th1520PwmPlatformDriver, GFP_KERNEL)?.into())
++    }
++}
++
++kernel::module_platform_driver! {
++    type: Th1520PwmPlatformDriver,
++    name: "pwm-th1520",
++    authors: ["Michal Wilczynski <m.wilczynski@samsung.com>"],
++    description: "T-HEAD TH1520 PWM driver",
++    license: "GPL v2",
++}
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
