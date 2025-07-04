@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B771C83F0B
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 08:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3976C83F05
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 08:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lWBpiv+x4x6Mlh8HBD1dkwrVzCLyPN0NX5O6w5qQyxU=; b=Nc3HYBqG/zKQHS
-	yKAveYxVp76HvcscVSLzd66xzGp0vWldVMvS5UzbCeuNhaooThV+454If85oGV/V2Wr7uBBFhWc1+
-	AkuxVrqDWnIyaJSwNitbdqWDWjOusCmKhEMsJ+kEzRAfyEwhvZNQveLm5OYfCEpDH6DvhO0EI1H8w
-	XUVbGEl0Rkg+B4ydOvnaGP5zCxS7Tkp8SDAINodDNfrffF8QX6GWdjtEJ5+m5SiIZoZmJrAs8PbqB
-	4EQf+pa5xsMW8FFoYhlbj5Vb1ddKsY/rcvzopkU/04yirVl1AdQpavd8ytXM+Ph0BZJksEW97msKJ
-	vTTXtFQQTJZmxzsYfopg==;
+	List-Owner; bh=vpOBTHZjHMT5e3JaiPjdgimttRug4OQn92MCAspwfhQ=; b=fikb7Xfja/8rjx
+	eMlWj+6Bvh26hoZUtjxRhJUwCK2e+YQaiawWyQXtSGb9LwJxD4D71HcKuj8ALCZhei5z94e+k3tsl
+	hDRXZxXhteHP5Q5o3dSErSdN+3LSSQqUjHhMP9zTXLeGd7UtMFPJ/iv1+ubxvs1F6mrOh9QyYVaF9
+	XQi4qNRztAHtDv+dlnz8B1wsseeTKAyFCwcL7OVdEOsPMeA/TnHBUjhcP9b/Pck5g8yEe8Go0Zvuk
+	VSLN/HkayeY56vXI4uX3MzxG5EoyGAzioBlbtUFPZnJel/INwFLGmLF5s1m9NYEdiQHfTNdw77Rza
+	EW/V1c/nF3P7ghh3cmsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXbfo-0000000DiMP-2jHm;
-	Fri, 04 Jul 2025 08:21:32 +0000
+	id 1uXbfm-0000000DiKx-2ivN;
+	Fri, 04 Jul 2025 08:21:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXaXX-0000000DWl2-3dLG
+	id 1uXaWq-0000000DWCb-2YaT
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 04 Jul 2025 07:08:56 +0000
+	Fri, 04 Jul 2025 07:08:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=t84+O6WBdBY0SCc3BtWc+Gw5ZYyMJomoxrVu9jQtsgg=; b=DKlsF24S7rn3J67OkmqJGTAehP
-	mdBXFQkhWJiw2Xir1sdt25L0HKIlb5E5Qn7tu6xONL9qWhsLLrBiqJ7JVffIRl2jRmgEaKb/0hli/
-	IQ9e/t8VTRlezBj2NTkMxkZlslDHbMwyXztrAIFx02nRca9AdP8SAhBGK+3wNMpQdhL4k1ZGOBPAL
-	FpHX5usZsH2avGjOpmdSeDmlF8rZYI0X5f1mDfRFhvvuDJau40GWH1sV31I0XRt4/G2q8pSV/skQd
-	hRmUY0BkG37+TTeTMo/Z2bie2TOS1fX/akW4Gru/QTFKgl4ALF4vMZLmCnC2dohZhnfST1+wY+kS5
-	TP+7SQ8Q==;
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	bh=qFaQ5Zs1hbK8MQOtKnNrpZ/cBeXTMcFHCuSD6j9WtSo=; b=ChRNEc68Dmx/k09HRKI+8HmAlA
+	55wjoGfk22HjXBdnyVk76PZSpMpN46+qbqLo77ekw0UOFzOhEIVd0YcJFdz5/N/jOfv8ZGM4zSBzx
+	X2pM6+mDwiuh8+/00afOA1554nVlFv0iWHB1h/xKnIpU/yKxqhVsd9AOi7ktGDM8yeREHGT/4LZqD
+	CwLEqr8sE5Xprw4vZmnVxbct8dSZe992qvwU+CpX3lPqi2Xvv1sdCtjaA38hLSDzhUaCBcQxN8nob
+	GZWkE7D5xVDi+9bm/Qd+/1ikd1KWSUV4wsz0tfEbqj8mrh+XuGF7SNFoUvhrkDywDZDGK1xyCaj+k
+	GA15MWnA==;
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXaXV-00000007ng8-0Tu8
+	id 1uXaWm-00000007nb9-2VWE
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 07:08:54 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b34a6d0c9a3so682523a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Jul 2025 00:08:52 -0700 (PDT)
+	Fri, 04 Jul 2025 07:08:10 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-3121aed2435so744214a91.2
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Jul 2025 00:08:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751612931; x=1752217731; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1751612887; x=1752217687; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=t84+O6WBdBY0SCc3BtWc+Gw5ZYyMJomoxrVu9jQtsgg=;
-        b=XIth46OenjNaOOQyCZPQ5j2DievYn7WGTWB11vz8U5n6m7pX7uhnMDPEVHCmACMGMT
-         O7gyBF5gMBFkY2H2OwRDbN163PFd00iJECYgAXkaR2Nl4WOs3GFAH635ztcU/7/I4OKe
-         Jayw7gUB1yh6JbN7VYdJQ2zWxCRAfaVK5egagIDeVTch43JCEsSQQEwzzZQl7kaPpS6m
-         QDTxyDyFo8rx0rNPJ3PXOZ1lVVWkDUpwnEgwhfrr/ll3s0G+UPUo+Upj2fdfs3OsTVeU
-         vG2Tq/SSqYGTYKuogzH+IU+vYAO0/oHxP73AMXNHvgCuoUMC6zMRH71YJgl3B4s1ys86
-         mEeQ==
+        bh=qFaQ5Zs1hbK8MQOtKnNrpZ/cBeXTMcFHCuSD6j9WtSo=;
+        b=kBp5vs83d4zuoh9cYh5kUhcql1qI6VIOa4gJmjmI+fjtqrr4LzTGDOIgPD2e13nJOu
+         IhqppYr8Y7cYsTfLd4ZIxWq/To1ru+OwMLZx0nt/OktJAwbgnEgHtiU+/t3wf9AuwmXz
+         jp4+iRGxWvLZly9Fa0nAMJYF07SuNqfgTHH0/4gIvtshQzl0Cnefsev8ub/2d/8eUtbG
+         Mmbv0F8JFwPeMhCAl2Zuq6wUaS5waWnBNi8jHwnKze9Ad4cJfQJf53mpoyN7f/90pRse
+         zOJw2dhBNBkSYbeJFlDbhSDCeI2Ya/0DRc1aBQVj5eN3BcwkKOV6uztOojZ+A90T8ZKn
+         UPLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751612931; x=1752217731;
+        d=1e100.net; s=20230601; t=1751612887; x=1752217687;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=t84+O6WBdBY0SCc3BtWc+Gw5ZYyMJomoxrVu9jQtsgg=;
-        b=oSTa26acO5YdvdvWHsfUplJMEWl+2cSdSMquE7xMMzQt52Vk34vWs2kAnduVm/z/01
-         68+xpsnOuuc7q27iCfDxzkgsgnjBeBF8qyvLtqGnSH3VO/HchSgaH7PG4KUsCHB6kulb
-         JXeiI9b9Nyd6MM8U0kJCPYeJkMFSCmcwdrqt6geT+32UGHRaAmKjFKtpBcd6TVq2ixcE
-         rybhMBFahEW/oHpbsSCTFAVNZXlcsbFGPmoDqrndV4O2vBqpL1NWR9yLdydvZm17c713
-         5QYRUspD0EdyEkD5jZHiqc55yeZ9+ROeozv/fHS/UlaKLvHCZ27ez3ZgcQvBF+eCU0zA
-         0Zuw==
-X-Forwarded-Encrypted: i=1; AJvYcCUVLB1sQ8o8qsygQNa2X+TGgp7QvYs6b+eGZt/PO2Fjg67LfPIhv511pNoMIOBmm46Q4b9azH2+3cIEMA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzeypfy4oNT9UaMMe59/LxGyHnPcOLrL5xqvlanSjzvhq5Va9nZ
-	kGzV9mFgdvBhOhVSUtp7ZoL2s8uBY55Ph2DKlh3k3j1WrblzExU5tii9a3ab8uaOE/U=
-X-Gm-Gg: ASbGnctXZKijpI/yl412SDbbkmJffPvCMmYxg8VzCua3WkAmq83uISkjE95DyaonvUA
-	DCZDHKg1DdKY1QkVF6g0fj3AcPJDvC3I5nSRLlUd3H/33JtwS9Ags9iKIOPOC3lTwD1TxmrlCtw
-	KhbasxhuKSuBhzwLBNo0V3kJZc9Nfvro2A3J1cgkUfwhy6bmrlN0pwzqkQChTcpAYnye6VnIbEk
-	aPzVWFyGE09dBHyOmkAU8ci4Cg1sdkAF09kIP4pvGocBLFL7I5y2l8DBwv/8f8oTHaXrYkpMCF9
-	VgSExHXjwIjw9sscv+MWpKty6wwKnrxugNqtf6jJlH1q88vTCyjM0HSUK/PH+PP4Echcin/DJ6I
-	MP8rSYD6BD7+thM0WlRjJkxrVmg==
-X-Google-Smtp-Source: AGHT+IG39MvNAhukPFseFzyGr10vQC+nwykVpIMjUKJlMsDap7lt+awygLPFDJM3EBPrK5lNZv4S6A==
-X-Received: by 2002:a17:90b:2647:b0:312:e51c:af67 with SMTP id 98e67ed59e1d1-31aac433b33mr2347184a91.1.1751612931087;
-        Fri, 04 Jul 2025 00:08:51 -0700 (PDT)
+        bh=qFaQ5Zs1hbK8MQOtKnNrpZ/cBeXTMcFHCuSD6j9WtSo=;
+        b=Q5PCsoUEDR06rX8ev6AK8lB2pUVb3ncltV4KvPNI/S76NDkxH0kUT0lSkMU6EsYSeQ
+         mldJ/jHIjYaaS70ocgyy7UjK5kx7lrH9vMfBPs6QG+37yxAEpqc17hG+q1inZiAOweWH
+         JHmMsEqeWw6x9MjQd9ycxBlJWxKN3LSSfHB9sVzuDltSDwIa5RMAUrFZhnq5EVMgNYPB
+         p1m22ZI4q7JY/puIaJnjvqNH0iMYpmSCp6cew8Llp9Q4K2t93g2bSl85qoQooA1WAIvS
+         FqYXWVsvl5l4D+0D1NuxP2ao6y6SfLEwMDU9ds2pUhjtvuhoyhAwmKMUamqRpRbQZZ5E
+         DO5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWDuoxxcPo4FqDi/kxF4T+KWCQq/wuz+esnCsbmtDoPFhED2KxkcU/Lb9ryYVEt/EA24YP2wSbJgYR3VQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIvD3oD/ynt7my2YE8rljgSyCmqiZk6vr/fU+A4y/W39okcUmG
+	Ozt0V/zJqD5iwtg+O8iGU1yRcJgU56N+psUvcQNQQIm7AKzxkM9aD8+TbX/zBUAYTNo=
+X-Gm-Gg: ASbGncuEhwN27GVn8rQVeyrbssHxdqanWW41G1XqGONjvbVWA0f9zgvjMzA7ZOYoY89
+	zcWK0svMkhH2ubZzCvClygtLbYLLfyAwMHh8IL567QeMTvipgvOrGPVM/0zSs1iTNNeT6EABVY/
+	L8sZzU1SF42McIONHhh7hmmNtlqA4vAATn8+cw4MyHq6hPnOzGxlsruca61VoV/XEJS3FthMCTc
+	DZdc2QuQDHORQeyta6+QfAgfLJvUXw71RsVfgotfAH6yKnksVzbSPf9AoDVMtE1m4qVW6bic3Z7
+	XhUQU/mn9E5YdSG2SSdc8ZMR9lfkOkZsncooWaDPT55p4KmxFGMyAnDYPFTmVtwgbihkMnpY3me
+	4jEyF293kDilcLGZEMmMIqz1H0LnSvqgMlu/t
+X-Google-Smtp-Source: AGHT+IF0zc2Duk30cC4boPPLQkPLExP0m0SOo91oiLUKWYjOgmAFhVPRmIXRhh+FnhO03cSYBVMJxg==
+X-Received: by 2002:a17:90b:54d0:b0:313:d6ce:6c6e with SMTP id 98e67ed59e1d1-31aac449e2bmr2377250a91.8.1751612886401;
+        Fri, 04 Jul 2025 00:08:06 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31aaae59a93sm1358697a91.12.2025.07.04.00.08.39
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31aaae59a93sm1358697a91.12.2025.07.04.00.07.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Jul 2025 00:08:50 -0700 (PDT)
+        Fri, 04 Jul 2025 00:08:05 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -98,17 +98,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v8 24/24] MAINTAINERS: Add entry for RISC-V RPMI and MPXY drivers
-Date: Fri,  4 Jul 2025 12:33:56 +0530
-Message-ID: <20250704070356.1683992-25-apatel@ventanamicro.com>
+Subject: [PATCH v8 20/24] irqchip/irq-riscv-imsic-early: Export imsic_acpi_get_fwnode()
+Date: Fri,  4 Jul 2025 12:33:52 +0530
+Message-ID: <20250704070356.1683992-21-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250704070356.1683992-1-apatel@ventanamicro.com>
 References: <20250704070356.1683992-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_080853_275118_EDBE2782 
-X-CRM114-Status: UNSURE (   8.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250704_080808_741367_5A2A4A21 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,39 +125,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Rahul and myself as maintainers for RISC-V RPMI and MPXY drivers.
+From: Sunil V L <sunilvl@ventanamicro.com>
 
+ACPI based loadable drivers which need MSIs will also need
+imsic_acpi_get_fwnode() to update the device MSI domain so
+export this function.
+
+Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
+Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- MAINTAINERS | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ drivers/irqchip/irq-riscv-imsic-early.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 4bac4ea21b64..c22434a2756b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21397,6 +21397,21 @@ F:	drivers/perf/riscv_pmu.c
- F:	drivers/perf/riscv_pmu_legacy.c
- F:	drivers/perf/riscv_pmu_sbi.c
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index d9ae87808651..1dbc41d7fe80 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -7,6 +7,7 @@
+ #define pr_fmt(fmt) "riscv-imsic: " fmt
+ #include <linux/acpi.h>
+ #include <linux/cpu.h>
++#include <linux/export.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+ #include <linux/irq.h>
+@@ -215,6 +216,7 @@ struct fwnode_handle *imsic_acpi_get_fwnode(struct device *dev)
+ {
+ 	return imsic_acpi_fwnode;
+ }
++EXPORT_SYMBOL_GPL(imsic_acpi_get_fwnode);
  
-+RISC-V RPMI AND MPXY DRIVERS
-+M:	Rahul Pathak <rahul@summations.net>
-+M:	Anup Patel <anup@brainfault.org>
-+L:	linux-riscv@lists.infradead.org
-+F:	Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
-+F:	Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
-+F:	Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
-+F:	Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
-+F:	Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
-+F:	Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
-+F:	drivers/clk/clk-rpmi.c
-+F:	drivers/irqchip/irq-riscv-rpmi-sysmsi.c
-+F:	drivers/mailbox/riscv-sbi-mpxy-mbox.c
-+F:	include/linux/mailbox/riscv-rpmi-message.h
-+
- RISC-V SPACEMIT SoC Support
- M:	Yixun Lan <dlan@gentoo.org>
- L:	linux-riscv@lists.infradead.org
+ static int __init imsic_early_acpi_init(union acpi_subtable_headers *header,
+ 					const unsigned long end)
 -- 
 2.43.0
 
