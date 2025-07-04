@@ -4,111 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A15BC83F03
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 15:06:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E51C83F0B
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 15:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=20V+HrgeVnu7xcDt3TOaQUC9wEKQQmUwhXfRh6TS8vY=; b=fQIMVIQkziV0+qXvdGZiG+is3a
-	297BE/JQRGp1YCnzT2ASpPAMbrmCgBv3zU+b6WIGJkSA+10U1rsvmhx+LSmG4Oksl1ZChyfWTH2mX
-	THyog/fL5KsbNPg3JAuycd20gorlNXTexZQo3wKYJwVHIvxMclJr/7gJeiRcIVNC5QxhdkdDbmVXj
-	uMhGfUJ3TXKJIRIVazNCxOcFvFWa78c90xqcC4KIbd3QdGeiU19VsELEQgtWyngf06o8R2TGNP/0O
-	cXzp64NRPXU/VcL/u4IEjp206kvgxa8IjGRaT718qjF9lfWucShrX2Dolwp4YXV5wASa0HfSqtZB9
-	bEdw5uxg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MKf65OIbql11f4gBO2BK/cQFtN9nCPH0CFAJ8s5RYEU=; b=2Gr7JNV8U3DZ0X
+	UoqXGGU5SdBlCL2c3KPVgTnCloZdzp0w+E1D64gUYXhJ2y8TjGBr9nNSkS0mJcan++5VGCkPVGHNu
+	NIrGT1N0BokJkdSVB0LCKbFOIXp9VfglvZyzHcJZv6gzm54P08qfcT0dwMnTunUZEsOHmbXSnZQS7
+	/t8nTRJbULr4jluFpUAc4x0qRSHSkLHytmRVNEQBSOb03oplghaftS/RVRFzZgqhvUYZknQ0fncJ9
+	hihpDaHUuHwwCMoKh+LV5PZKqbdbPHuowjj0Q/8Co/fuvWyYqDWL1B+fYJN3L7/igvbGPzF1OspxF
+	L7nk9g5CCMujcL/qqLdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhzm-0000000El5h-43J9;
-	Fri, 04 Jul 2025 15:06:34 +0000
-Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
+	id 1uXiEl-0000000Eo5M-0oDR;
+	Fri, 04 Jul 2025 15:22:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXgax-0000000EXLe-2Hkk
+	id 1uXi5V-0000000EmcW-148k
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 13:36:52 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id BC7311400239;
-	Fri,  4 Jul 2025 09:36:50 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Fri, 04 Jul 2025 09:36:50 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1751636210;
-	 x=1751722610; bh=4WAwqvw8g3t1MUCHlAIadPbHEDivdqOU5oF5ZelV4ww=; b=
-	Ierk354AvF659FFpEBGZTnHYIKg5Cftf2qg+x1+moeY0eQH0V5tIDArd0R1asTWH
-	3Ph/Zhxo4uqzR23mbt1uqpOiQFdzI4DmS2+a7Lj3VE8+rNZgSe6195p1FXRNKvT3
-	dDttZYTVyarpE7xl5fG3tnObnDl3IJZu5qn2B8wuYvLUwD4BQRazzHfETlb1e7zr
-	C/OIPEWYQNN1ZB+Un9zrdBdTZrZcx7r0loYfP3TGNZPfTdRuZUoAbeI6HhxOYX1e
-	9laI7rCkUK0SZI4cF9RKRtwO3HpZrdx2qh/m2P6L4wbIfHRWuxhppW0A2/n7bq7H
-	0h2eHRd8WRBgoPKvpdKYpA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1751636210; x=
-	1751722610; bh=4WAwqvw8g3t1MUCHlAIadPbHEDivdqOU5oF5ZelV4ww=; b=M
-	vfGxD45kzCPWcC1qgDw6pQLWiTjnNSo9fflkxfhmwu00u4MLErLDWnnQdkbMYPUO
-	ep7W9iUaPExx49n1CZGeWZnp4dSbkablwgofEldRzt8PObUUAaBB4SJROM3EZDQs
-	EeeQ3KSgbi+98NIXPg1nrjaYrS0bGMNrVeRtAhEQV0JVzlOXJs/DjBIidzK6tgEm
-	CyDVMHynVKycn07PBvZo63tH2bvSK3xQuPpyCkgFaNQNyu7fXHuWxo364m00Cqja
-	L2uRNuo1C38lM/eKZ5mJskKA7Ym+q2lR6M15+cb7BgUDN4Nls3Sdzw1BRjuPdaE/
-	SwPLNckhUFyNtlbdWSsMg==
-X-ME-Sender: <xms:8NhnaAT2fbqff4v-deXXDh6h9sFJZglSsRMzCTnlLYYXIqLcyXMNCQ>
-    <xme:8NhnaNxzTx6SQttAoJ9N7sO1iylqVB5hrKBqO2l1Gf6q9fOpwAf1pb20QJOlP30ud
-    9QSXzURHGpthyNlHo0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvfedvlecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedujedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtohepsggvnhejudejsegrnhguvghsthgvtghhrdgtohhmpdhrtghpthhtoh
-    epthhimheitdelsegrnhguvghsthgvtghhrdgtohhmpdhrtghpthhtohepphhrrggshhgr
-    khgrrhdrmhgrhhgruggvvhdqlhgrugdrrhhjsegsphdrrhgvnhgvshgrshdrtghomhdprh
-    gtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhu
-    segvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheprghlvgigsehghhhith
-    hirdhfrhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghp
-    thhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkse
-    hkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:8NhnaN1UHNjfOf7_aLGGRl33HPK20Q_iXfXrFxorL-owGRn9rW3zmQ>
-    <xmx:8NhnaEAc7p7ywTmYFbhVKVxdggyzX7XfvU1RiYBdW19WFZgvM7Ev-Q>
-    <xmx:8NhnaJhLB2CpJT0d2RainLbBsUwZub8QX27CVdSLtt9ZHwwtxI2eEw>
-    <xmx:8NhnaApcDHKDpiu1GnI_oTHKrXxpAT8Aar_UyIb5hM8NUcDqVqjbYw>
-    <xmx:8thnaIl4lmGLlojO5Dj9VTiwT59P03yJXEJ-mx7s2PP4RHLxjwbmb9qI>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id F2AFD700065; Fri,  4 Jul 2025 09:36:47 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 04 Jul 2025 15:12:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7F4CC5C55BE;
+	Fri,  4 Jul 2025 15:12:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA33FC4CEE3;
+	Fri,  4 Jul 2025 15:12:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751641948;
+	bh=hZ10LiY5FNP/Dp6S+DBqAzx6uQgjXZaS8IlUwEsCGJs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hhI3At/YWlFOPWeQNgWpOK/z7lt5fmnRr4cDgf1YXwCzaIRmj36teIkXdk7vE86Yt
+	 NQaVta+0qbjEWCt/cT9wzERra7juB8zjgR7V2k/ukkD63VLKuDw+9Oo6W9quS3s7Zv
+	 xO3423zNVGe9iqbpSlSXMLV+N5484Ts6ILuRp7iIiPxYpqQFjPXb3vmbOjQBHrNVWR
+	 UIl/QOTjK9iUzBsfpRaZPNscXPlIZnEuCr9Ljx7zP0JfPDSNXEF/o+dJEiqxZgOB88
+	 eRGMJOBnjk6stxn3bVpqeCjPrOeZxL2WG+MMbxUZ8EqkZsE57LfLXjv/EbQA0EGwpD
+	 uzpEujK8cHkVQ==
+Date: Fri, 4 Jul 2025 17:12:20 +0200
+From: Danilo Krummrich <dakr@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v8 2/7] rust: pwm: Add core 'Device' and 'Chip' object
+ wrappers
+Message-ID: <aGfvVMBpNoFEJEgC@pollux>
+References: <20250704-rust-next-pwm-working-fan-for-sending-v8-0-951e5482c9fd@samsung.com>
+ <CGME20250704120212eucas1p1c9ffeefa41b0ddb27db74d26174831bf@eucas1p1.samsung.com>
+ <20250704-rust-next-pwm-working-fan-for-sending-v8-2-951e5482c9fd@samsung.com>
 MIME-Version: 1.0
-X-ThreadId: T286e4b5afb74591b
-Date: Fri, 04 Jul 2025 15:36:17 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ben Zong-You Xie" <ben717@andestech.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Rob Herring" <robh@kernel.org>,
- krzk+dt@kernel.org, "Conor Dooley" <conor+dt@kernel.org>,
- "Thomas Gleixner" <tglx@linutronix.de>,
- "Daniel Lezcano" <daniel.lezcano@linaro.org>,
- "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, soc@lists.linux.dev, tim609@andestech.com
-Message-Id: <ebbaa7c9-156a-4205-94d9-d9e4a683840c@app.fastmail.com>
-In-Reply-To: <aGfR+Vx0dseqgmKW@atctrx.andestech.com>
-References: <20250704081451.2011407-1-ben717@andestech.com>
- <cb8891d4-de4e-493c-9914-0391b3baf212@kernel.org>
- <aGfR+Vx0dseqgmKW@atctrx.andestech.com>
-Subject: Re: [PATCH 0/8] add Voyager board support
+Content-Disposition: inline
+In-Reply-To: <20250704-rust-next-pwm-working-fan-for-sending-v8-2-951e5482c9fd@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_063651_660300_83F06EEE 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20250704_081229_382339_7AFDBE96 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +93,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 4, 2025, at 15:07, Ben Zong-You Xie wrote:
-> On Fri, Jul 04, 2025 at 11:15:43AM +0200, Krzysztof Kozlowski wrote:
->> > Also, there is a patch dependency in this patchset:
->> > Patch 2 <- Patch 4 <- Patch 5 <- Patch 6
->> 
->> How? These are bindings. How DTS can depend on the binding? Do you have
->> akcs from their subsystem maintainers that you are sending it here?
->>
->> Sorry, but no, this should go via their maintainers, unless they did not
->> want to pick it up. Is this the case here?
->
-> The dependency chain arises because each of these patches introduces a new file,
-> requiring a corresponding update to the MAINTAINERS file.
->
-> In v4 [1], Rob and Daniel attempted to merge Patch 4 and Patch 5, respectively,
-> but encountered conflicts in the MAINTAINERS file. That's why I specified the
-> patch dependencies in v5 and this patchset.
->
-> Now, I understand that binding patches are typically handled by subsystem
-> maintainers. To prevent the conflicts again, I think I should gather all
-> MAINTAINERS file changes into a single patch. Is that right?
+On Fri, Jul 04, 2025 at 02:01:12PM +0200, Michal Wilczynski wrote:
+> +impl<T: 'static + ForeignOwnable> Chip<T> {
+> +    /// Allocates and wraps a PWM chip using `bindings::pwmchip_alloc`.
+> +    ///
+> +    /// Returns an [`ARef<Chip>`] managing the chip's lifetime via refcounting
+> +    /// on its embedded `struct device`.
+> +    pub fn new(
+> +        parent_dev: &device::Device,
+> +        npwm: u32,
+> +        sizeof_priv: usize,
+> +        drvdata: T,
+> +    ) -> Result<ARef<Self>> {
+> +        // SAFETY: `parent_device_for_dev_field.as_raw()` is valid.
+> +        // `bindings::pwmchip_alloc` returns a valid `*mut bindings::pwm_chip` (refcount 1)
+> +        // or an ERR_PTR.
+> +        let c_chip_ptr_raw =
+> +            unsafe { bindings::pwmchip_alloc(parent_dev.as_raw(), npwm, sizeof_priv) };
+> +
+> +        let c_chip_ptr: *mut bindings::pwm_chip = error::from_err_ptr(c_chip_ptr_raw)?;
+> +
+> +        // Cast the `*mut bindings::pwm_chip` to `*mut Chip`. This is valid because
+> +        // `Chip` is `repr(transparent)` over `Opaque<bindings::pwm_chip>`, and
+> +        // `Opaque<T>` is `repr(transparent)` over `T`.
+> +        let chip_ptr_as_self = c_chip_ptr.cast::<Self>();
+> +
+> +        // SAFETY: The pointer is valid, so we can create a temporary ref to set data.
+> +        let chip_ref = unsafe { &*chip_ptr_as_self };
+> +        // SAFETY: `chip_ref` points to a valid chip from `pwmchip_alloc` and `drvdata` is a valid,
+> +        // owned pointer from `ForeignOwnable` to be stored in the chip's private data.
+> +        unsafe { bindings::pwmchip_set_drvdata(chip_ref.as_raw(), drvdata.into_foreign().cast()) }
 
-Don't overthink that part, the MAINTAINERS file doesn't have to cleanly
-bisect, so I'd just create the full entry there in the same patch
-that adds the arch/riscv/Kconfig entry.
+I think that's great now, but you're missing one last piece: You have to ensure
+that drvdata is freed eventually. Here you call into_foreign(), but I think
+you're missing from_foreign() in pwm_ops::free.
 
-     Arnd
+You also have to ensure that your pwm_ops::free() callback is properly called if
+a Chip<T> is dropped *before* it has been registered.
+
+Note that, since Chip is now generic over T, you can easily make the
+PwmOpsVTable a const within Chip and set the vtable in Chip::new().
+
+See also how drm::Device does this in [1].
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/rust/kernel/drm/device.rs
+
+> +
+> +        // SAFETY: `chip_ptr_as_self` points to a valid `Chip` (layout-compatible with
+> +        // `bindings::pwm_chip`) whose embedded device has refcount 1.
+> +        // `ARef::from_raw` takes this pointer and manages it via `AlwaysRefCounted`.
+> +        Ok(unsafe { ARef::from_raw(NonNull::new_unchecked(chip_ptr_as_self)) })
+> +    }
 
 _______________________________________________
 linux-riscv mailing list
