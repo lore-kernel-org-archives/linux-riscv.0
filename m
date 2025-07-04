@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948FDC83F05
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D0CC83030
 	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 09:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x1fASjSr+zLINIH0asP1NmkoqBmnbj4yyeq2sbZPfyQ=; b=KjsGPVNN2/zVDv
-	o04N39WDFrcc8fNzQDJsLPSHEQqFWqsvzocZwuDnrbi0tNdqhWXNr0/rEhfYUh4eWesuBe1gYSqpy
-	h2XvqkuGEuVu6iL5GRmIyckiOdYH1KYaiMEu7o0D0/P1pQE6cIGOpDcY+aIdz/m2H09FbokRy43Kg
-	XPF1rqbUwXoLNHNjnNQWturbnY/Bg6FPE2SPBBU0bzhHXi4zSHzSmFleIgx8LxityqmANKyW2jtej
-	D43qhJKhBX+S2uec+Pxiz7wJHJNSYR0fYeVf5FK3aJRrwZZrmjxG3EyxIQeGEe0mGnfZzjBh7BKMS
-	HGG92faED5BloSfjSxmQ==;
+	List-Owner; bh=HV38rBmCKRoTZP3uA1NFU814bWlxSovlJnj+hLbjfbI=; b=HggY7dO9RcOjTK
+	njl7Sv0DS4dnSZWbHFen3qaDXi0G7GiNa5MtPaRPhmTn6rS/tbjWbnIN11kONl6OP4Ckr+H6vOuqc
+	my+4LXvBlHQCyJK2L/z8D4hjunsR3dDprWhDb6/95uToUY2CXs+6jC+5kXMs8umOpPqmcw6Q4hIZ9
+	opf0GFKm8p80bYB4VG6cNNKaH8EIE6DMBWBfUG3muDioNSiwIEqoDCbC0vhS5X1fxSngcNcHkRj6e
+	E/mvv9U5psAUWUlDsrZyiLCbwA0ssxfhjhPPdOxXVNuUhaZjJHQIMTrem/IMrY4YlqaSKWOmQS6pF
+	gkWEKCNvs4eNy121qU/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXcI8-0000000DqhE-3Ial;
-	Fri, 04 Jul 2025 09:01:08 +0000
+	id 1uXcIA-0000000Dqi9-2MaH;
+	Fri, 04 Jul 2025 09:01:10 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXbaQ-0000000Dh1V-2QMI
+	id 1uXbaQ-0000000Dh1o-2QTx
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 08:16:00 +0000
+	Fri, 04 Jul 2025 08:16:02 +0000
 Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 5648ExEM091879
+	by Atcsqr.andestech.com with ESMTPS id 5648F1xE092102
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 4 Jul 2025 16:14:59 +0800 (+08)
+	Fri, 4 Jul 2025 16:15:01 +0800 (+08)
 	(envelope-from ben717@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
  (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Fri, 4 Jul 2025
- 16:14:59 +0800
+ 16:15:01 +0800
 From: Ben Zong-You Xie <ben717@andestech.com>
 To: 
 CC: <arnd@arndb.de>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
@@ -43,10 +43,12 @@ CC: <arnd@arndb.de>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
         <daniel.lezcano@linaro.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
         <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, <soc@lists.linux.dev>,
-        <tim609@andestech.com>, Ben Zong-You Xie <ben717@andestech.com>
-Subject: [PATCH 3/8] dt-bindings: interrupt-controller: add Andes QiLai PLIC
-Date: Fri, 4 Jul 2025 16:14:46 +0800
-Message-ID: <20250704081451.2011407-4-ben717@andestech.com>
+        <tim609@andestech.com>, Ben Zong-You Xie <ben717@andestech.com>,
+        Conor Dooley
+	<conor.dooley@microchip.com>
+Subject: [PATCH 5/8] dt-bindings: timer: add Andes machine timer
+Date: Fri, 4 Jul 2025 16:14:48 +0800
+Message-ID: <20250704081451.2011407-6-ben717@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250704081451.2011407-1-ben717@andestech.com>
 References: <20250704081451.2011407-1-ben717@andestech.com>
@@ -54,11 +56,10 @@ MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 5648ExEM091879
+X-MAIL: Atcsqr.andestech.com 5648F1xE092102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_011559_145466_8E61DE5C 
-X-CRM114-Status: UNSURE (   7.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250704_011559_173148_ECD8D07F 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +76,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a new compatible string for Andes QiLai PLIC.
+Add the DT binding documentation for Andes machine timer.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+The RISC-V architecture defines a machine timer that provides a real-time
+counter and generates timer interrupts. Andes machiner timer (PLMT0) is
+the implementation of the machine timer, and it contains memory-mapped
+registers (mtime and mtimecmp). This device supports up to 32 cores.
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
 ---
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+ .../bindings/timer/andestech,plmt0.yaml       | 53 +++++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ 2 files changed, 54 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/timer/andestech,plmt0.yaml
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index ffc4768bad06..5b827bc24301 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -53,6 +53,7 @@ properties:
-     oneOf:
-       - items:
-           - enum:
-+              - andestech,qilai-plic
-               - renesas,r9a07g043-plic
-           - const: andestech,nceplic100
-       - items:
+diff --git a/Documentation/devicetree/bindings/timer/andestech,plmt0.yaml b/Documentation/devicetree/bindings/timer/andestech,plmt0.yaml
+new file mode 100644
+index 000000000000..90b612096004
+--- /dev/null
++++ b/Documentation/devicetree/bindings/timer/andestech,plmt0.yaml
+@@ -0,0 +1,53 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/timer/andestech,plmt0.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Andes machine-level timer
++
++description:
++  The Andes machine-level timer device (PLMT0) provides machine-level timer
++  functionality for a set of HARTs on a RISC-V platform. It has a single
++  fixed-frequency monotonic time counter (MTIME) register and a time compare
++  register (MTIMECMP) for each HART connected to the PLMT0. A timer interrupt is
++  generated if MTIME >= MTIMECMP.
++
++maintainers:
++  - Ben Zong-You Xie <ben717@andestech.com>
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - andestech,qilai-plmt
++      - const: andestech,plmt0
++
++  reg:
++    maxItems: 1
++
++  interrupts-extended:
++    minItems: 1
++    maxItems: 32
++    description:
++      Specifies which harts are connected to the PLMT0. Each item must points
++      to a riscv,cpu-intc node, which has a riscv cpu node as parent. The
++      PLMT0 supports 1 hart up to 32 harts.
++
++additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts-extended
++
++examples:
++  - |
++    interrupt-controller@100000 {
++      compatible = "andestech,qilai-plmt", "andestech,plmt0";
++      reg = <0x100000 0x100000>;
++      interrupts-extended = <&cpu0intc 7>,
++                            <&cpu1intc 7>,
++                            <&cpu2intc 7>,
++                            <&cpu3intc 7>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index df309a360615..07a7abc9729c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21290,6 +21290,7 @@ M:	Ben Zong-You Xie <ben717@andestech.com>
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+ F:	Documentation/devicetree/bindings/riscv/andes.yaml
++F:	Documentation/devicetree/bindings/timer/andestech,plmt0.yaml
+ 
+ RISC-V ARCHITECTURE
+ M:	Paul Walmsley <paul.walmsley@sifive.com>
 -- 
 2.34.1
 
