@@ -4,159 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803BEC83030
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 02:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFAA2C83030
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 02:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yF834kbEAU6B+NQb+gSkdKRFrq37E3MhpzTgYknRLLo=; b=yfya5dDDHnX7FL
-	o4+w3qAUoxsnLUZ7Zndcm+UiO2Shd/rxJuNEz9EicpXat2XjzB8FKyoIJ0zhYEehmqRUBgOdnKxMc
-	narOOfp0gNwra2aL1QL1edg1JLhLGQP0fsg9MdlOGeHCTW4uiXQJ2Q5QK629qiabh/HGqQRXymTXv
-	i2Yem7vySZKDZy3VyeJht/OUeujgUZ/I6MSivMxDZIkRX2D4wl0qd655z/EWGZKOoyep+Wp58YdRT
-	NCIp6tYhJeiWd1M/lhiKt/oBgXx+FxhZ3T+lGy0iPZCFSHX+CspzFYjcFPpG4H0QlEvCME4D7TEPi
-	k+aerOE5NjB4Mcg8PvVA==;
+	List-Owner; bh=xSDGN90LI7NgZzGeNw+GtyLWx3j/oOePj7ZzrO1udmc=; b=NS0g+qHcmOuQHX
+	bwWER/1vWmhzB2Oy1fxKSrZD+sQ8OzDa1TNC/W4ZXkGn0pt3Mv+9YFl5zYU+rtZkYguTJtow6qTm3
+	woKnuozl0SdPgW99zIqNsd0iU2qMUMZsKPaAdC2PnC+bm2P41NvlmgesQX8xJW3glj3pM8G8kNf6t
+	Ek9V2sz5dI9UkqCeoSNMCdBhT1CsCvrGOjHr2kD7NXjpLP4+yLyldTr+hM1vLArIZJb8aJotbZdaJ
+	D6ogoS3tdfFox5UO3fF/YVEiGDmpq/l8FGGQFaDKZYbJE+i0EzXi8TRgYLPwJ9Q55mORDpxi1+dTC
+	oXrgkspbfXVsi6fOhCjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXVss-0000000D2pA-3Woz;
-	Fri, 04 Jul 2025 02:10:38 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uXW4s-0000000D43W-4AUn;
+	Fri, 04 Jul 2025 02:23:02 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXVsq-0000000D2op-1g4z
+	id 1uXW4q-0000000D42z-15Af
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 02:10:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vq950y51UK/Z9x5qQWkOhPLhApnODql0el6eaHUEAju5Owlrp8ymPcjStvLIrT5fjvMc4ozsvqYmNVPUBVYrhdF9ApxUp1TuowTOLNC10VFWIXxpmPOgbZhFpZJ/w9Vu3nIs4aixXMROjFtQax8iTvFHWSZJUrkskJ0eRl86MFrVKyXpvn8c/GCyU7X69hfK0h/3/xok8lxxciUr8ngUw8WRKSQC9iZwxvZF8LEWHQHQJuaIAFPyymsR/R6daPamX2nU/+k8S2c+dn4r/WulKpXY84iVtabwrujWgHL6r+AzNSlkrWRgR51clopzvCMzijfXhlsCA2FSMocKya0VJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aoHakKGpa4Dzpiy9VJwri3mF0IXFOFhe5cdQRnUrMZ8=;
- b=NjmHklKpN6rgTtp3s2M9dG9j70LwZfebkXQMhTxDAQXrSONS6Q5hpZcFPnaPjADBsiyrxPMix4f4vjUEIAeIXbh4FA570r+k9OVKEqBMI2KGBokWdMK80pdNiQmuWHKI84WLvnCJnK7LpHhMjky1Cdu0nf64xbLvnygAfa/NVu++08XoPMLnncTMORNLaELDLY1Tx16IWZ9zegjv68+W3FjypEdCkDN9c6oR8gSRXTyb8cAtidUpatdb6rZnWrXF8VAMMtU8NoQNt78AQ9H2krmTcnmX/VDe+YP+Zg0u8n7ziKA2cFPThS6FROE1DhC4QhGEtox831CU/y1wL3UzCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aoHakKGpa4Dzpiy9VJwri3mF0IXFOFhe5cdQRnUrMZ8=;
- b=VFOhmAN082plQ4jnqDg1JMROeRV/vKxdtP2FqvJpw1w88t/xdKiOQBEaEQXHsoJU0GTemvZRLECjnxZUCMY5JBuQTxvJDmVdLGasYciTNiLehKIhVo0BdUE/Q8StyUdDXQTajVDiEokLiOc8iyLk9ZB2OgifTMYlxV1QSHAh4ek+0EQrISQLobpf83iXjbIc6ZFuG4/JYf9dDfYYyseaXJe8xpAHd3o447hFY76/kLILqPvom3nQvBisszB7sB/RwqUYPF9J7b4WA5SbtV8Qbb1Q1/fa/0iERbyy6BwS/QZZ7hNHxkYINgkOh8jnGwOh1IB2sLoNEwZDyhI1deSaGg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB7926.eurprd04.prod.outlook.com (2603:10a6:20b:2ab::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.22; Fri, 4 Jul
- 2025 02:10:32 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8901.018; Fri, 4 Jul 2025
- 02:10:31 +0000
-Date: Thu, 3 Jul 2025 22:10:26 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Ze Huang <huangze@whut.edu.cn>
-Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+	Fri, 04 Jul 2025 02:23:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751595781; x=1783131781;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Heuj4A3C9IpnhfL/sGEreqQAnEu9NfzBteqR00oA0BY=;
+  b=I/LDfYZkJQFmQitABjN8z31DDR/g65tUYBuKaepajonS2svGOBPzCgSV
+   7/5aqTQdLRnG3bMxZOjAVm3jfvgB27YLEAtkvDQ9yI357VBXhBpCXsR8t
+   b3bowyN7vtHsuhQqgmn3rgs1CoihYhYh9bTqZWVBOJDqPOSCVjwReOkiA
+   JxrQrd0lxZq+y+TXvVbFeBMOLFB4gIqcY9HVOAewWyXFb8CiuMTBcCDXw
+   lAlQy7SGLZthrJ34TPBX8bxHAGGCwhdTu59OpQ/Js6387NUvvZtVjFW9o
+   pK6GSJHPMJi/kosZDrdyEzMAUXva0Xv/vhRlOUbVXjZw3yJAhVObC2cfk
+   Q==;
+X-CSE-ConnectionGUID: UrzhLJNVRbug8DzaHnhuew==
+X-CSE-MsgGUID: 3U8uY9H/Qcup6JKgUpAXpg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11483"; a="54047708"
+X-IronPort-AV: E=Sophos;i="6.16,286,1744095600"; 
+   d="scan'208";a="54047708"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2025 19:22:55 -0700
+X-CSE-ConnectionGUID: CaCjBhAARrmmXq04FuFiuQ==
+X-CSE-MsgGUID: n9d6ikfgRrqsaNx2N9fcpQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,286,1744095600"; 
+   d="scan'208";a="154610043"
+Received: from lkp-server01.sh.intel.com (HELO 0b2900756c14) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 03 Jul 2025 19:22:52 -0700
+Received: from kbuild by 0b2900756c14 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uXW4f-0003Dn-2P;
+	Fri, 04 Jul 2025 02:22:49 +0000
+Date: Fri, 4 Jul 2025 10:22:09 +0800
+From: kernel test robot <lkp@intel.com>
+To: ChenMiao <chenmiao.ku@gmail.com>,
+	Linux RISCV <linux-riscv@lists.infradead.org>
+Cc: Paul Gazzillo <paul@pgazz.com>,
+	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+	oe-kbuild-all@lists.linux.dev, chenmiao <chenmiao.ku@gmail.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"spacemit@lists.linux.dev" <spacemit@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 3/4] usb: dwc3: add generic driver to support
- flattened DT
-Message-ID: <aGc4EibLNTEj/H11@lizhi-Precision-Tower-5810>
-References: <20250526-b4-k1-dwc3-v3-v4-0-63e4e525e5cb@whut.edu.cn>
- <20250526-b4-k1-dwc3-v3-v4-3-63e4e525e5cb@whut.edu.cn>
- <20250603012029.4agja77rdoneeyrl@synopsys.com>
- <aD5jL5DK6S8ii-DT@jean.localdomain>
-Content-Disposition: inline
-In-Reply-To: <aD5jL5DK6S8ii-DT@jean.localdomain>
-X-ClientProxiedBy: AS4P195CA0008.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:5e2::13) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: ftrace: Fix the logic issue in DYNAMIC_FTRACE
+ selection
+Message-ID: <202507041001.7eWJmB1g-lkp@intel.com>
+References: <20250703084818.394491-1-chenmiao.ku@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB7926:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9550a194-d80b-4923-7c32-08ddba9ff43b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|19092799006|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hKTuCl6XEhlbHBpSaAMvcV4t/gUoiEmfcC9h0tsjm/gx3RKBfwoKttAW7pkt?=
- =?us-ascii?Q?547Lx95YNKVDHtMW1+09m8RUkoj835zSt5Zj8iooSI1GCvd4pfuTttjQ2afb?=
- =?us-ascii?Q?EfhJtcr2CQfKDGMgLfFzP7u1oW5mtXGN3JOmy/OMWVR4MMAxCdnbrNOHKKNg?=
- =?us-ascii?Q?R/6NzR4LvPgeu+oM2iRgJR6LFdCp/2QlrKSgpcb5qJvZIPcRCFhOQU2BPPdo?=
- =?us-ascii?Q?vcLynFMRSEKO23eMxy85s7m+kk97CCWrmLJx7s5GhaUrcKE3XtD0TLk6n6Ft?=
- =?us-ascii?Q?vdeKbRhzNIr+r+0F1f2F5mnjEau/BH3/Em844FFtHYQIjWlfWCY2JvHeXooL?=
- =?us-ascii?Q?7nRsd3TdVmrISmlM428km4b55s7LIZYagRQjjk42kRnVq72WISW0afVnPPAr?=
- =?us-ascii?Q?9YYs6a1AbWMqrov5VsDnZF69ml3uwT7cAeKLb2UG2e3fKbXaUO/oMnKElkeh?=
- =?us-ascii?Q?Njt4CqQbI7nu2VQr4uv627bYGyEhhmK08qF+xKznF131jg8AqnnQTUVqAsry?=
- =?us-ascii?Q?ktk4bjFVfBrbMMeip5Rj+zCX1HYVznkZpNd7RL110h2nW8eorJhgzW+l6aUu?=
- =?us-ascii?Q?pd+Q1KSAl9qG/cDFmYwZvfq5LABUw14/S49ln6FV9eemkNUt2kWVdBIfTexW?=
- =?us-ascii?Q?hJerdx0gsL/kXoQnPYYdGd0nPrLhDYTlmUoEo+EW58raE7fiiYInQkBGZtZP?=
- =?us-ascii?Q?Ex+kncry2S2TN1+8RV396iO3SCqilX9BiTUdO+UyHfoytyz2CqzAkDMZ4/ld?=
- =?us-ascii?Q?LZxMuIMZNQUu0rY/fahOmbzbUQ78TyJTnJT5SbiouK+rrm1xqSVmbfVt296I?=
- =?us-ascii?Q?O0ASQU3lX/TrZYfwV+8J2m1KCEKSmOwA8Bu1i1Q/uGiloI7TgSs6WHCG+8Xw?=
- =?us-ascii?Q?wzboTvo8XC0wrotVQOVGgcM5cPA7BB5deDOJ8F2/Ct5/EHv8PlK38rnFLNad?=
- =?us-ascii?Q?Im2aZbi0eOIqysGaqDv3DXXce+v+Lgdf5uXrdRKl6oq1jea2qdwe+MS8kB86?=
- =?us-ascii?Q?WV6GMweTSAbvKPs8okm5ixHA6BYROOpWdO7lwFO7DU5Ka/MtZzqoxJNdubXp?=
- =?us-ascii?Q?2iuJZrJ/TPJD57aLGT2FOUIbrBrfIFS/2kQOvLa65Axv+pnGaPXrKc2+Dowq?=
- =?us-ascii?Q?JbA7MCAVgcx7osbL6V4AM6H3uURBpZ0MF2qyxdITkalSbnSFfezSc3BapsLq?=
- =?us-ascii?Q?HpB44S+lt2wLMcARfQPGf/j5vk2HRGSbxkC2N34ODttCJt0wa3R3j51jP3kv?=
- =?us-ascii?Q?a/VLxtKxH8KZA/hZuPUNiVszoAlofKO/DFsddwnMaebEc5e3w2cb1/sGysCb?=
- =?us-ascii?Q?l8XIDMU6YTb/bonbkPshp5+8T/A/axEMA+/+w1pkWfT6u2/YMstmfeqRTPmZ?=
- =?us-ascii?Q?9Q/0O6Qehftn3tv/TOgOlT9bFiX2ckHU6opwjMpiZAF9t74XucEmmt3O+oGW?=
- =?us-ascii?Q?UjVVRD4p0G3faYr33PJbe3H08ElbZGEabAxrYzVkh0YKIQdCoyxT6w7ABcdo?=
- =?us-ascii?Q?FG+HikmjEVE890Y=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ScseBTHnKIEF0V6CcMXpvr1kFnOcIk/+RWt9mLwJuZXYyBfZMiV7F+eGLNLQ?=
- =?us-ascii?Q?CnV56rEh4xT0nxHxjIl0F4dsyGewVq6HLP0hocoEZfny27wvD6D82pRKeH9D?=
- =?us-ascii?Q?o7cXNrKWts4xhe4uS5+N5SopKBHGBed8ekHbL1cwRHFc1KXBxYh9Z0eE7IQe?=
- =?us-ascii?Q?u8gFWmSJYYuUmK5nmxibWkCHC4KzkZYj69hvtBUC7d0UDAUmns+SN83nNgXS?=
- =?us-ascii?Q?IhaH4SB6FCRDpYIzu5253eb2RU8GoS9CUjprvqcQU1BDqz4pcHMq462YzVsa?=
- =?us-ascii?Q?h35XTrOAN6IBJY6TbFAAOXK9O7BEkFg1U+ZAezpa6nA45jab66ZAIKTIFRpO?=
- =?us-ascii?Q?v4gXGyq0BUf9EQ1CN8lYYdxxeXxmpOycNbCNYYiHlJVVvWhhM6lI6P1FOEbE?=
- =?us-ascii?Q?sPt/CCnNfQhG4bbF1h3LxuxvDpk+j75/60LvXasGpBpnmWiTv4cHg2u4SUdQ?=
- =?us-ascii?Q?i7gofvQMc6wpxoCxb0VavuMTpwEj+LApIL8Jh0EmrR06bh7nd/KMbCXIRkCS?=
- =?us-ascii?Q?UV/ngLuUkHeVkrIxhnntAGJ/pmhTWqHhC9dP+B6Gx6Lxig2bvfrOWZYnpusB?=
- =?us-ascii?Q?9YqKT6SvU5Iu5ACvsp1GM4CAXK1BrRml3ve0KoQKPhM4i+lsbolAOKs6BCcj?=
- =?us-ascii?Q?8gOMrTh/6P0AaGFidrjmR8C3VuLSa6iZMbB9UuhDoonlG7BV0wNj7sCELBbo?=
- =?us-ascii?Q?vXTMMDSkYbJFwTE2VEqDec2qwcVZhgR22Y+zm4OjIzpzhQ8uPMsdcylMU962?=
- =?us-ascii?Q?CuXwH9taMuyDuZnDrxXnJ8xwxvSCJOQnzhexKcHfWLpTXAvQsClVVFDfQdOT?=
- =?us-ascii?Q?vGY6K6XEBgK8VSsxq2o0SH3b4yUWBbBh884Wsi7CZrICCN+v25m7DFgSBhxu?=
- =?us-ascii?Q?x/VMkCm+fJ53av2AocwnYsxfGxns3l3qfrWsgKY2KRmapKMkhf+8Pt8xSyPE?=
- =?us-ascii?Q?Uu1Ezba42N/Cz9LbwxrF3BOnXCx3cIp5NiGwKpoGr4lcoMAG/UgjZJL8ZaQ8?=
- =?us-ascii?Q?OdFEHRpus2c1cAe8rJ23dWQenQwPiVi0Di+ufEb8KpV8CW5IvgRQvOxuLvty?=
- =?us-ascii?Q?tmflTpuTQAlPvJQQgwQg4Gh5Oj7bFa76dq/7vWchFboJiXXGXfZIoFv8eHtT?=
- =?us-ascii?Q?WDiRk5MB1hJeaU2JnCoUi+TDZSbVzP58vtBjB03mvq33FUZl9+SnzI7m/7Jl?=
- =?us-ascii?Q?Q6wRXVawxwGNHZqxnKm8PQ9TqmSG47GDyf8xCnTPYSBis2TIJ7mGyrdRqKdE?=
- =?us-ascii?Q?b3M2Wr9gQLK8G7D6T0RZ58AEBURRJscugY1TDIXjAUUqJJGZKSiLU47zSB+c?=
- =?us-ascii?Q?4Qh5E2WU67EwsIg3TFmmDrZQZkU0Rbzj1ebFXxXlOPxr3tYZC8hNNEzWpPwT?=
- =?us-ascii?Q?R7OdKRn1wFtY01nI3m8MTGfYxIR8MoDgwjy92GO20TleokW/urygXZDZhrPk?=
- =?us-ascii?Q?/sPpImuMFSFke9zJqJU9pKEHTvRlGzeVtIQm79yXXGXxxwCPMMSyeM6xhdiG?=
- =?us-ascii?Q?YgZhxuxqHB5iSMpPUX/4I+sj5B/DsSwHHR5croUuSXhY7MgMLvRfoOV95tC8?=
- =?us-ascii?Q?gnTyCxwADNvAk6fmGAIYWZOBocDWz/wMfl8iRmsx?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9550a194-d80b-4923-7c32-08ddba9ff43b
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 02:10:31.7914
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jTauH6/Gd23sfaJUpOTpB+TP7ejll/ftcYbF5C+zEfHLD1c7Ytr2qXcw7aMdVzozizlDywGcnbsC1m9qvwMTfQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7926
+Content-Disposition: inline
+In-Reply-To: <20250703084818.394491-1-chenmiao.ku@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_191036_446856_E288317D 
-X-CRM114-Status: GOOD (  31.58  )
+X-CRM114-CacheID: sfid-20250703_192300_358285_4174B2B9 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,167 +96,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 10:51:27AM +0800, Ze Huang wrote:
-> On Tue, Jun 03, 2025 at 01:20:35AM +0000, Thinh Nguyen wrote:
-> > On Mon, May 26, 2025, Ze Huang wrote:
-> > > To support flattened dwc3 dt model and drop the glue layer, introduce the
-> > > `dwc3-generic` driver. This enables direct binding of the DWC3 core driver
-> > > and offers an alternative to the existing glue driver `dwc3-of-simple`.
-> > >
-> > > Signed-off-by: Ze Huang <huangze@whut.edu.cn>
-> > > ---
+Hi ChenMiao,
 
-Any progress on this patch? If you have not time, I can continue work on
-this one.
+kernel test robot noticed the following build warnings:
 
-Frank Li
+[auto build test WARNING on linus/master]
+[also build test WARNING on v6.16-rc4 next-20250703]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> > >  drivers/usb/dwc3/Kconfig             |   9 ++
-> > >  drivers/usb/dwc3/Makefile            |   1 +
-> > >  drivers/usb/dwc3/dwc3-generic-plat.c | 189 +++++++++++++++++++++++++++++++++++
-> > >  3 files changed, 199 insertions(+)
-> > >
-> > > diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-> > > index 310d182e10b50b253d7e5a51674806e6ec442a2a..082627f39c9726ee4e0c5f966c5bc454f5541c9a 100644
-> > > --- a/drivers/usb/dwc3/Kconfig
-> > > +++ b/drivers/usb/dwc3/Kconfig
-> > > @@ -118,6 +118,15 @@ config USB_DWC3_OF_SIMPLE
-> > >  	  Currently supports Xilinx and Qualcomm DWC USB3 IP.
-> > >  	  Say 'Y' or 'M' if you have one such device.
-> > >
-> > > +config USB_DWC3_GENERIC_PLAT
-> > > +       tristate "DWC3 Generic Platform Driver"
-> > > +       depends on OF && COMMON_CLK
-> > > +       default USB_DWC3
-> > > +       help
-> > > +         Support USB3 functionality in simple SoC integrations.
-> > > +         Currently supports SpacemiT DWC USB3 IP.
-> > > +         Say 'Y' or 'M' if you have one such device.
-> > > +
-> > >  config USB_DWC3_ST
-> > >  	tristate "STMicroelectronics Platforms"
-> > >  	depends on (ARCH_STI || COMPILE_TEST) && OF
-> > > diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
-> > > index 830e6c9e5fe073c1f662ce34b6a4a2da34c407a2..96469e48ff9d189cc8d0b65e65424eae2158bcfe 100644
-> > > --- a/drivers/usb/dwc3/Makefile
-> > > +++ b/drivers/usb/dwc3/Makefile
-> > > @@ -57,3 +57,4 @@ obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
-> > >  obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
-> > >  obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
-> > >  obj-$(CONFIG_USB_DWC3_RTK)		+= dwc3-rtk.o
-> > > +obj-$(CONFIG_USB_DWC3_GENERIC_PLAT)	+= dwc3-generic-plat.o
-> > > diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
-> ...
-> > > +
-> > > +static void dwc3_generic_remove(struct platform_device *pdev)
-> > > +{
-> > > +	struct dwc3_generic *dwc3 = platform_get_drvdata(pdev);
-> > > +
-> > > +	dwc3_core_remove(&dwc3->dwc);
-> > > +
-> > > +	clk_bulk_disable_unprepare(dwc3->num_clocks, dwc3->clks);
-> > > +	clk_bulk_put_all(dwc3->num_clocks, dwc3->clks);
-> > > +
-> > > +	reset_control_assert(dwc3->resets);
-> > > +}
-> > > +
-> > > +static int __maybe_unused dwc3_generic_suspend(struct device *dev)
-> >
-> > We shouldn't need __maybe_unused attr with the new PM macros.
-> >
->
-> Will drop these attr
->
-> > > +{
-> > > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > > +	int ret;
-> > > +
-> > > +	ret = dwc3_pm_suspend(&dwc3->dwc);
-> > > +	if (ret)
-> > > +		return ret;
-> > > +
-> > > +	clk_bulk_disable_unprepare(dwc3->num_clocks, dwc3->clks);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int __maybe_unused dwc3_generic_resume(struct device *dev)
-> > > +{
-> > > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > > +	int ret;
-> > > +
-> > > +	ret = clk_bulk_prepare_enable(dwc3->num_clocks, dwc3->clks);
-> > > +	if (ret)
-> > > +		return ret;
-> > > +
-> > > +	ret = dwc3_pm_resume(&dwc3->dwc);
-> > > +	if (ret)
-> > > +		return ret;
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int __maybe_unused dwc3_generic_runtime_suspend(struct device *dev)
-> > > +{
-> > > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > > +
-> > > +	return dwc3_runtime_suspend(&dwc3->dwc);
-> > > +}
-> > > +
-> > > +static int __maybe_unused dwc3_generic_runtime_resume(struct device *dev)
-> > > +{
-> > > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > > +
-> > > +	return dwc3_runtime_resume(&dwc3->dwc);
-> > > +}
-> > > +
-> > > +static int __maybe_unused dwc3_generic_runtime_idle(struct device *dev)
-> > > +{
-> > > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > > +
-> > > +	return dwc3_runtime_idle(&dwc3->dwc);
-> > > +}
-> > > +
-> > > +static const struct dev_pm_ops dwc3_generic_dev_pm_ops = {
-> > > +	SET_SYSTEM_SLEEP_PM_OPS(dwc3_generic_suspend, dwc3_generic_resume)
-> > > +	SET_RUNTIME_PM_OPS(dwc3_generic_runtime_suspend, dwc3_generic_runtime_resume,
-> > > +			   dwc3_generic_runtime_idle)
-> > > +};
-> > > +
-> > > +static const struct of_device_id dwc3_generic_of_match[] = {
-> > > +	{ .compatible = "spacemit,k1-dwc3", },
-> > > +	{ /* sentinel */ }
-> > > +};
-> > > +MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
-> > > +
-> > > +static struct platform_driver dwc3_generic_driver = {
-> > > +	.probe		= dwc3_generic_probe,
-> > > +	.remove		= dwc3_generic_remove,
-> > > +	.driver		= {
-> > > +		.name	= "dwc3-generic-plat",
-> > > +		.of_match_table = dwc3_generic_of_match,
-> > > +#ifdef CONFIG_PM_SLEEP
-> >
-> > Use the new pm_ptr/pm_sleep_ptr.
-> >
->
-> Thanks for pointing it out, I missed this part. I will fix it
->
-> > Thanks,
-> > Thinh
-> >
-> > > +		.pm	= &dwc3_generic_dev_pm_ops,
-> > > +#endif /* CONFIG_PM_SLEEP */
-> > > +	},
-> > > +};
-> > > +module_platform_driver(dwc3_generic_driver);
-> > > +
-> > > +MODULE_LICENSE("GPL");
-> > > +MODULE_DESCRIPTION("DesignWare USB3 generic platform driver");
-> > >
-> > > --
-> > > 2.49.0
-> > >
+url:    https://github.com/intel-lab-lkp/linux/commits/ChenMiao/riscv-ftrace-Fix-the-logic-issue-in-DYNAMIC_FTRACE-selection/20250703-165308
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20250703084818.394491-1-chenmiao.ku%40gmail.com
+patch subject: [PATCH] riscv: ftrace: Fix the logic issue in DYNAMIC_FTRACE selection
+config: riscv-kismet-CONFIG_DYNAMIC_FTRACE-CONFIG_RISCV-0-0 (https://download.01.org/0day-ci/archive/20250704/202507041001.7eWJmB1g-lkp@intel.com/config)
+reproduce: (https://download.01.org/0day-ci/archive/20250704/202507041001.7eWJmB1g-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507041001.7eWJmB1g-lkp@intel.com/
+
+kismet warnings: (new ones prefixed by >>)
+>> kismet: WARNING: unmet direct dependencies detected for DYNAMIC_FTRACE when selected by RISCV
+   
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
