@@ -4,68 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FEB8C8303D
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 13:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A15BC83F03
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 15:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JY9MaxSJaDLve2EJ0aHTiGgUdORgAX6p/Oe/Cg+AAcA=; b=NjAnXj0L5dFuc8
-	/nmyQyUuw0oKMeCG8Kf50xsOkdPymyoPKn+tn1zHl9grmpwLXXpHOEAt8cHqylnSWETl2Mwe4s+bn
-	KS7aiB4rBKGsWOTUEfdzeLCV8t+7yKS/esTH/owANFDWEdhLiv7oGCBleYkOtshjRRHs7zwWlgQ1J
-	Wbr/5qvjnD9x5Whh+6e42/dZCTlGKNC9N+LFtpSqq9UbEIk6SGxbcsPkp8GO56LYUyV3KgoH/iu97
-	j0tJ8uz5hUA6t0VnPDvizQAE6xXkKUggZX+SO19MxThV46JAtrUgSyBcZcX57uCM2Is+2hOym8Ez7
-	b6wJ6OlcwP3Zcmvhq02w==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=20V+HrgeVnu7xcDt3TOaQUC9wEKQQmUwhXfRh6TS8vY=; b=fQIMVIQkziV0+qXvdGZiG+is3a
+	297BE/JQRGp1YCnzT2ASpPAMbrmCgBv3zU+b6WIGJkSA+10U1rsvmhx+LSmG4Oksl1ZChyfWTH2mX
+	THyog/fL5KsbNPg3JAuycd20gorlNXTexZQo3wKYJwVHIvxMclJr/7gJeiRcIVNC5QxhdkdDbmVXj
+	uMhGfUJ3TXKJIRIVazNCxOcFvFWa78c90xqcC4KIbd3QdGeiU19VsELEQgtWyngf06o8R2TGNP/0O
+	cXzp64NRPXU/VcL/u4IEjp206kvgxa8IjGRaT718qjF9lfWucShrX2Dolwp4YXV5wASa0HfSqtZB9
+	bEdw5uxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXglL-0000000EZGq-2bTt;
-	Fri, 04 Jul 2025 13:47:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uXhzm-0000000El5h-43J9;
+	Fri, 04 Jul 2025 15:06:34 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXgRZ-0000000EVpv-1uyl;
-	Fri, 04 Jul 2025 13:27:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 793516145A;
-	Fri,  4 Jul 2025 13:27:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31645C4AF09;
-	Fri,  4 Jul 2025 13:27:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751635628;
-	bh=UmMK4vWBWCkUTxLdUKXC8/KSjdp8rccHH64kZT4FmmU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=lu0fEi+gQsq8IUwn6EEfu/eI1rogJbit7P7CqTe0KP86Hy+4bXK37MxUdwohdMj7J
-	 BIljCNK7dh5Q+/SSrlI6W10bclsGAg7d7FkAeKju8IDrpBStrpPkZnkXRG4yB7rO6+
-	 McdqYfs4MnyQ0tuim5erEKaX0MenHVTu+HbQVW6J5lRzj2AxzinKbWZG9k0qsR0/lZ
-	 7bZdRuTweHSHHVfLL/y8T0loZmktCIhTCXGmjmKvBZ1sMpdPKBNCUEcAOVg/OKR0QN
-	 0qE28/95dJUOrDVnsJuKAdTEjv1KZ57WKoL0GJxEIF4hRZDjNS2Np6UYRK2EU3VxUm
-	 sJKGqlCd7WAtA==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-553b6a349ccso1245124e87.0;
-        Fri, 04 Jul 2025 06:27:08 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVC0Jgg8KTF1qCKZgViE2Y5xGInPLJRkajCH34u3801s4cULvRx0KTh45euNeGh8/L0155ij3eKSDXTVNE=@lists.infradead.org, AJvYcCXnTQlZ3ZckDxFgi2vWZVqeqUDb4oQ6//TZDkF7ISdJZeAItRBpQP0njI9xBwFAlcDB4bOJXgHNbJiQRkH7QfK4@lists.infradead.org
-X-Gm-Message-State: AOJu0YypUiWI/LeVHhRINaHcRHVkqaaVgglD52xUAJ2Tq+h452taDoH1
-	lLZFQBKcOa+PVtac3aB05jYqwIADoOA0YSUT+CMM+SQrr7YwWAq+hAOKWJBK2PYH4dZEPFZgN5H
-	qtORYx5HpHHSan/sY7bXhYeDWbZzpyyk=
-X-Google-Smtp-Source: AGHT+IHbXsSqxiQQgTganngCHyLYaDZCz1QOmHZXPSAjSWrJrmUK1ng5PlRRa0qT4YG3miebycXJXkcbsNGhKOePUQw=
-X-Received: by 2002:a05:6512:3da6:b0:553:d8ca:4fcb with SMTP id
- 2adb3069b0e04-556dbf81a40mr784811e87.21.1751635626524; Fri, 04 Jul 2025
- 06:27:06 -0700 (PDT)
+	id 1uXgax-0000000EXLe-2Hkk
+	for linux-riscv@lists.infradead.org;
+	Fri, 04 Jul 2025 13:36:52 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id BC7311400239;
+	Fri,  4 Jul 2025 09:36:50 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Fri, 04 Jul 2025 09:36:50 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1751636210;
+	 x=1751722610; bh=4WAwqvw8g3t1MUCHlAIadPbHEDivdqOU5oF5ZelV4ww=; b=
+	Ierk354AvF659FFpEBGZTnHYIKg5Cftf2qg+x1+moeY0eQH0V5tIDArd0R1asTWH
+	3Ph/Zhxo4uqzR23mbt1uqpOiQFdzI4DmS2+a7Lj3VE8+rNZgSe6195p1FXRNKvT3
+	dDttZYTVyarpE7xl5fG3tnObnDl3IJZu5qn2B8wuYvLUwD4BQRazzHfETlb1e7zr
+	C/OIPEWYQNN1ZB+Un9zrdBdTZrZcx7r0loYfP3TGNZPfTdRuZUoAbeI6HhxOYX1e
+	9laI7rCkUK0SZI4cF9RKRtwO3HpZrdx2qh/m2P6L4wbIfHRWuxhppW0A2/n7bq7H
+	0h2eHRd8WRBgoPKvpdKYpA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1751636210; x=
+	1751722610; bh=4WAwqvw8g3t1MUCHlAIadPbHEDivdqOU5oF5ZelV4ww=; b=M
+	vfGxD45kzCPWcC1qgDw6pQLWiTjnNSo9fflkxfhmwu00u4MLErLDWnnQdkbMYPUO
+	ep7W9iUaPExx49n1CZGeWZnp4dSbkablwgofEldRzt8PObUUAaBB4SJROM3EZDQs
+	EeeQ3KSgbi+98NIXPg1nrjaYrS0bGMNrVeRtAhEQV0JVzlOXJs/DjBIidzK6tgEm
+	CyDVMHynVKycn07PBvZo63tH2bvSK3xQuPpyCkgFaNQNyu7fXHuWxo364m00Cqja
+	L2uRNuo1C38lM/eKZ5mJskKA7Ym+q2lR6M15+cb7BgUDN4Nls3Sdzw1BRjuPdaE/
+	SwPLNckhUFyNtlbdWSsMg==
+X-ME-Sender: <xms:8NhnaAT2fbqff4v-deXXDh6h9sFJZglSsRMzCTnlLYYXIqLcyXMNCQ>
+    <xme:8NhnaNxzTx6SQttAoJ9N7sO1iylqVB5hrKBqO2l1Gf6q9fOpwAf1pb20QJOlP30ud
+    9QSXzURHGpthyNlHo0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvfedvlecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedujedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtohepsggvnhejudejsegrnhguvghsthgvtghhrdgtohhmpdhrtghpthhtoh
+    epthhimheitdelsegrnhguvghsthgvtghhrdgtohhmpdhrtghpthhtohepphhrrggshhgr
+    khgrrhdrmhgrhhgruggvvhdqlhgrugdrrhhjsegsphdrrhgvnhgvshgrshdrtghomhdprh
+    gtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhu
+    segvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheprghlvgigsehghhhith
+    hirdhfrhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghp
+    thhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkse
+    hkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:8NhnaN1UHNjfOf7_aLGGRl33HPK20Q_iXfXrFxorL-owGRn9rW3zmQ>
+    <xmx:8NhnaEAc7p7ywTmYFbhVKVxdggyzX7XfvU1RiYBdW19WFZgvM7Ev-Q>
+    <xmx:8NhnaJhLB2CpJT0d2RainLbBsUwZub8QX27CVdSLtt9ZHwwtxI2eEw>
+    <xmx:8NhnaApcDHKDpiu1GnI_oTHKrXxpAT8Aar_UyIb5hM8NUcDqVqjbYw>
+    <xmx:8thnaIl4lmGLlojO5Dj9VTiwT59P03yJXEJ-mx7s2PP4RHLxjwbmb9qI>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id F2AFD700065; Fri,  4 Jul 2025 09:36:47 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20250630160645.3198-1-ebiggers@kernel.org>
-In-Reply-To: <20250630160645.3198-1-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 4 Jul 2025 15:26:54 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXGTSfgVoqpmC=5z1kuAHw_JXo=rCEEFy4tRJdwAb2ExZA@mail.gmail.com>
-X-Gm-Features: Ac12FXyPp6fnvKb4WZAS9lUDfLS7Jj9PzhxOzqBaJq_NKIJbrn4XwJZRpCZIh-c
-Message-ID: <CAMj1kXGTSfgVoqpmC=5z1kuAHw_JXo=rCEEFy4tRJdwAb2ExZA@mail.gmail.com>
-Subject: Re: [PATCH v2 00/14] SHA-256 library improvements
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org, 
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
+X-ThreadId: T286e4b5afb74591b
+Date: Fri, 04 Jul 2025 15:36:17 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ben Zong-You Xie" <ben717@andestech.com>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>
+Cc: "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Rob Herring" <robh@kernel.org>,
+ krzk+dt@kernel.org, "Conor Dooley" <conor+dt@kernel.org>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "Daniel Lezcano" <daniel.lezcano@linaro.org>,
+ "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, soc@lists.linux.dev, tim609@andestech.com
+Message-Id: <ebbaa7c9-156a-4205-94d9-d9e4a683840c@app.fastmail.com>
+In-Reply-To: <aGfR+Vx0dseqgmKW@atctrx.andestech.com>
+References: <20250704081451.2011407-1-ben717@andestech.com>
+ <cb8891d4-de4e-493c-9914-0391b3baf212@kernel.org>
+ <aGfR+Vx0dseqgmKW@atctrx.andestech.com>
+Subject: Re: [PATCH 0/8] add Voyager board support
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250704_063651_660300_83F06EEE 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,139 +125,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 30 Jun 2025 at 18:09, Eric Biggers <ebiggers@kernel.org> wrote:
+On Fri, Jul 4, 2025, at 15:07, Ben Zong-You Xie wrote:
+> On Fri, Jul 04, 2025 at 11:15:43AM +0200, Krzysztof Kozlowski wrote:
+>> > Also, there is a patch dependency in this patchset:
+>> > Patch 2 <- Patch 4 <- Patch 5 <- Patch 6
+>> 
+>> How? These are bindings. How DTS can depend on the binding? Do you have
+>> akcs from their subsystem maintainers that you are sending it here?
+>>
+>> Sorry, but no, this should go via their maintainers, unless they did not
+>> want to pick it up. Is this the case here?
 >
-> This series is also available at:
+> The dependency chain arises because each of these patches introduces a new file,
+> requiring a corresponding update to the MAINTAINERS file.
 >
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha256-lib-cleanup-v2
+> In v4 [1], Rob and Daniel attempted to merge Patch 4 and Patch 5, respectively,
+> but encountered conflicts in the MAINTAINERS file. That's why I specified the
+> patch dependencies in v5 and this patchset.
 >
-> This series improves the SHA-224 and SHA-256 library code to be
-> consistent with what I did for SHA-384 and SHA-512.  This includes:
->
-> - Use stronger typing in the SHA-224 and SHA-256 functions.
->
-> - Add support for HMAC-SHA224 and HMAC-SHA256.  (I'll send a separate
->   patch with KUnit test cases for this.)
->
-> - Make the old-school crypto API's support for sha224 and sha256 just
->   use the actual library API, instead of unsafe low-level functions.
->
-> - Consolidate the CPU-based SHA-224 and SHA-256 code into a single
->   module, with better inlining and dead code elimination.
->
-> - Properly document the SHA-224 and SHA-256 functions.
->
-> - Other changes to synchronize the code with SHA-384 and SHA-512.
->
-> Changed in v2:
-> - Dropped sha224_kunit.c changes; it will be added later in the history
-> - Dropped some patches that I folded into the SHA-512 series
-> - Removed redundant checks of IS_ENABLED(CONFIG_KERNEL_MODE_NEON)
-> - Removed obsolete setting of -DARCH for sha256.o
-> - Fixed a commit title to mention sha256 instead of sha512
-> - Excluded HMAC-SHA{224,256} code from purgatory, where it isn't needed
->
-> Eric Biggers (14):
->   libceph: Rename hmac_sha256() to ceph_hmac_sha256()
->   cxl/test: Simplify fw_buf_checksum_show()
->   lib/crypto: sha256: Reorder some code
->   lib/crypto: sha256: Remove sha256_blocks_simd()
->   lib/crypto: sha256: Add sha224() and sha224_update()
->   lib/crypto: sha256: Make library API use strongly-typed contexts
->   lib/crypto: sha256: Propagate sha256_block_state type to
->     implementations
->   lib/crypto: sha256: Add HMAC-SHA224 and HMAC-SHA256 support
->   crypto: sha256 - Wrap library and add HMAC support
->   crypto: sha256 - Use same state format as legacy drivers
->   lib/crypto: sha256: Remove sha256_is_arch_optimized()
->   lib/crypto: sha256: Consolidate into single module
->   lib/crypto: sha256: Sync sha256_update() with sha512_update()
->   lib/crypto: sha256: Document the SHA-224 and SHA-256 API
->
+> Now, I understand that binding patches are typically handled by subsystem
+> maintainers. To prevent the conflicts again, I think I should gather all
+> MAINTAINERS file changes into a single patch. Is that right?
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Don't overthink that part, the MAINTAINERS file doesn't have to cleanly
+bisect, so I'd just create the full entry there in the same patch
+that adds the arch/riscv/Kconfig entry.
 
-
->  arch/mips/cavium-octeon/Kconfig               |   6 -
->  arch/mips/cavium-octeon/crypto/Makefile       |   1 -
->  arch/riscv/purgatory/purgatory.c              |   8 +-
->  arch/s390/purgatory/purgatory.c               |   2 +-
->  arch/x86/purgatory/purgatory.c                |   2 +-
->  crypto/Kconfig                                |   4 +-
->  crypto/Makefile                               |   1 -
->  crypto/sha256.c                               | 371 +++++++++-------
->  crypto/testmgr.c                              |  12 +
->  drivers/char/tpm/tpm2-sessions.c              |  12 +-
->  drivers/crypto/img-hash.c                     |   4 +-
->  drivers/crypto/starfive/jh7110-hash.c         |   8 +-
->  include/crypto/internal/sha2.h                |  66 ---
->  include/crypto/sha2.h                         | 390 +++++++++++++++--
->  kernel/kexec_file.c                           |  10 +-
->  lib/crypto/Kconfig                            |  34 +-
->  lib/crypto/Makefile                           |  39 +-
->  lib/crypto/arm/Kconfig                        |   7 -
->  lib/crypto/arm/Makefile                       |   8 +-
->  lib/crypto/arm/sha256-armv4.pl                |  20 +-
->  lib/crypto/arm/sha256-ce.S                    |   2 +-
->  lib/crypto/arm/sha256.c                       |  64 ---
->  lib/crypto/arm/sha256.h                       |  46 ++
->  lib/crypto/arm64/Kconfig                      |   6 -
->  lib/crypto/arm64/Makefile                     |   9 +-
->  lib/crypto/arm64/sha2-armv8.pl                |   2 +-
->  lib/crypto/arm64/sha256-ce.S                  |   2 +-
->  lib/crypto/arm64/sha256.c                     |  75 ----
->  lib/crypto/arm64/sha256.h                     |  57 +++
->  lib/crypto/arm64/sha512.h                     |   6 +-
->  .../crypto/mips/sha256.h                      |  20 +-
->  lib/crypto/powerpc/Kconfig                    |   6 -
->  lib/crypto/powerpc/Makefile                   |   3 -
->  lib/crypto/powerpc/{sha256.c => sha256.h}     |  19 +-
->  lib/crypto/riscv/Kconfig                      |   8 -
->  lib/crypto/riscv/Makefile                     |   3 -
->  .../sha256-riscv64-zvknha_or_zvknhb-zvkb.S    |   2 +-
->  lib/crypto/riscv/sha256.c                     |  67 ---
->  lib/crypto/riscv/sha256.h                     |  42 ++
->  lib/crypto/s390/Kconfig                       |   6 -
->  lib/crypto/s390/Makefile                      |   3 -
->  lib/crypto/s390/sha256.c                      |  47 --
->  lib/crypto/s390/sha256.h                      |  28 ++
->  lib/crypto/sha256-generic.c                   | 138 ------
->  lib/crypto/sha256.c                           | 413 ++++++++++++++++--
->  lib/crypto/sparc/Kconfig                      |   8 -
->  lib/crypto/sparc/Makefile                     |   4 -
->  lib/crypto/sparc/{sha256.c => sha256.h}       |  37 +-
->  lib/crypto/x86/Kconfig                        |   8 -
->  lib/crypto/x86/Makefile                       |   3 -
->  lib/crypto/x86/sha256-avx-asm.S               |   2 +-
->  lib/crypto/x86/sha256-avx2-asm.S              |   2 +-
->  lib/crypto/x86/sha256-ni-asm.S                |   2 +-
->  lib/crypto/x86/sha256-ssse3-asm.S             |   2 +-
->  lib/crypto/x86/sha256.c                       |  80 ----
->  lib/crypto/x86/sha256.h                       |  55 +++
->  net/ceph/messenger_v2.c                       |  12 +-
->  tools/testing/cxl/test/mem.c                  |  21 +-
->  58 files changed, 1307 insertions(+), 1008 deletions(-)
->  delete mode 100644 include/crypto/internal/sha2.h
->  delete mode 100644 lib/crypto/arm/sha256.c
->  create mode 100644 lib/crypto/arm/sha256.h
->  delete mode 100644 lib/crypto/arm64/sha256.c
->  create mode 100644 lib/crypto/arm64/sha256.h
->  rename arch/mips/cavium-octeon/crypto/octeon-sha256.c => lib/crypto/mips/sha256.h (76%)
->  rename lib/crypto/powerpc/{sha256.c => sha256.h} (76%)
->  delete mode 100644 lib/crypto/riscv/sha256.c
->  create mode 100644 lib/crypto/riscv/sha256.h
->  delete mode 100644 lib/crypto/s390/sha256.c
->  create mode 100644 lib/crypto/s390/sha256.h
->  delete mode 100644 lib/crypto/sha256-generic.c
->  delete mode 100644 lib/crypto/sparc/Kconfig
->  delete mode 100644 lib/crypto/sparc/Makefile
->  rename lib/crypto/sparc/{sha256.c => sha256.h} (53%)
->  delete mode 100644 lib/crypto/x86/sha256.c
->  create mode 100644 lib/crypto/x86/sha256.h
->
-> --
-> 2.50.0
->
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
