@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADF1C83030
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 06:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE07C83F05
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 07:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0+U0Yeh1RYcQXUHs6GOkCOVoFog2mqx4OucErH1zE5M=; b=2Q+8mE2EbcoXRS
-	b4fkIK6UR+DfbZmyy3UTAtbVXflcZzGala81A+ZKe66UqMAijfrboajKYHKJd2cVxxfKU2uMcHNmT
-	B4Mxy1q/+AadEiwl12sQvV2rAVw4IKu3r4cxW12YDXDPQzi5Tifhv3xhIr6M7xBKTE0UBasDEyilS
-	V1t0HVcD7kZm2EjIORznvghmmAPDNN2bbmOiftNIq6mhcNNYCCFFp/mmJuMinAj3HTl0JZGBqts7C
-	DMBOdQr0s3p18fy2opuUN0zKSQMbHqW55NqVrfVG3N3UYBaU/80d8YWJum8EMNNfJc0BoLjEu116g
-	uyRpo87AmHIzHiP3Ocrg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MXZ/0j6dl2PwyZL8aBz10l+pQLp0tBqGgWgYTGnzQks=; b=CGEUu+w+EnrgKM
+	EOKv+RIgb/lkz8CEfeSKMGl1kbtVkua+sEqAeaTuG6R0Wgd4A8fwrk0gOKzPRb00HNonR2b9AH9yt
+	x7mnPMERriGxcuXgc+8luFQjgCL57EwA59A1kyDsJrURn8dnrUE0qfuF65pCgc5fOY3zT9sNItM9j
+	aLJ2Eo1nQIC/qDwzUNsorVZuA9Tcqf3UNXHlGoRB3s4IDVfMqGwUpol2zCk06nR4RvfZ1jtaYnlAa
+	cRrFvHlWdXplVV3U1hGrW54A4DbcEYbcSA4sSVqVMKUDIEm6CUPD2o9OtICY8mtGjQWv5nPqw9fq5
+	NPtHBiHW7QjjpNURy5Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXa9F-0000000DRw2-1ApV;
-	Fri, 04 Jul 2025 06:43:49 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1uXaVv-0000000DUqr-1N4k;
+	Fri, 04 Jul 2025 07:07:15 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXa5W-0000000DRRk-1gIv
+	id 1uXaTQ-0000000DUGV-3fIM
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 06:39:59 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b321bd36a41so519751a12.2
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Jul 2025 23:39:58 -0700 (PDT)
+	Fri, 04 Jul 2025 07:04:42 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b2c4e46a89fso500494a12.2
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Jul 2025 00:04:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751611197; x=1752215997; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+        d=ventanamicro.com; s=google; t=1751612680; x=1752217480; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Ymwt9R5fmPgIM//LR+Lj3Iy4Vwk081dGhvYmgoS7Ai4=;
-        b=nOJANc9OwvPIvof+mURqaLaPrS3c4y/K1o6Kbq/gSWiweBDJgd18R92sAICbFTlATI
-         dg8BitLQi2f5UHSx5ipIuwmag/wLOuZ1WqP0693sqYmoMTZTsOmmcpafNxg/dP513djN
-         vBR49P5nuGPDS7I1/lrdencOojV1Wi+Ymsr+sM1CrQGg6E/06GiDc3k8+hxu5btsM+6j
-         5qP7RQ8bVxSpfyTyDWTEzbKh24k7bTeZ9NgBQo9bGjpJfjejvG0GW18HKw8HfrJG53X2
-         nBychPi/WF6sTCoXiJqD8gaGy8AmtzPPYvmCJ9mMatRwtxcFXMPRNn8JvDhSysmz0Lr8
-         CoPw==
+        bh=EGFMyHcY75Un2ey32rj/OGQJrYLrfBUEB3tHZxTx41w=;
+        b=gwa4wPuAnKwjVcnf1a8xsru4AhOYLvK5t5Wl5CNLw8vOiUqVXfHwbT5YpoYepTKcy6
+         MbdKoAkXXwbaPsjIp8v/SZA1XFSRZXLryPaNa23YZl8qCVYc+xHne2FM0ete9zrB+zcl
+         YhWyqRYQKPZixKz2mSoQoRUoK3x4kjwUdR5hde4BDa8nfgxpEd50UFnmzW55GdiOrUAP
+         WZjx3coN9GGDFT3q+ULXGYIk2dx84Kq2YC7o12IK77Z5oBJhllNelfM5FJYgpZGy8xvI
+         yjMZ/OGPbZEQqraKHUf4YEAY9raBWDqwP/lM75pZ7ReumUHR8fpfadBlNa8c+hd54yuN
+         bXLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751611197; x=1752215997;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1751612680; x=1752217480;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Ymwt9R5fmPgIM//LR+Lj3Iy4Vwk081dGhvYmgoS7Ai4=;
-        b=GZKvwel/eSmL+tYvkQ/w52mXMnXk7+POrUkGN4yX+CwD8MeRbafs7HPdf91oK8bIGu
-         eECsk6vRdbKyZaK9egVblSXf6Lt1/JRg6M4uGFhfFKWBPWRF2U33vYtA9yu/tcIrq9Kz
-         +ORzKkj+P7DQzfTTcp3I5sA+3NWc5kMVbFHTUp+vV5eMYSfhx7EAu69KZO+7FgJCIXqa
-         xZp0MtumTbT/VNB/Ln4ci8gt/6DyDMaOnlKYV6bz3VJPPHX/K1jPVn+W+glZmOggBqN5
-         58WkioMOD0I+B8jkG83obuU/zJzBbUthFx5V5cDHjQo21XNyMJzBv5vNLWEIf+0A5hSM
-         LHFw==
-X-Forwarded-Encrypted: i=1; AJvYcCUKTUo+S3rQAWHDUMgFxLD8oJ7axg9huNmAe6TDJ2sM4oJcaMNwSKgYtKVbdm0/rR8+paOyfqXNNklVDQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjY/7gevYtTfrBEEAS4AUTw7YLTiAwKOEZkDdG6p19BNCC7w6O
-	C1UfTLF4sTdbTYmW+iqp3Yihe30atug9ZC7FGnTZ34evp7pS1FCy6QQx
-X-Gm-Gg: ASbGncufvu/o9Zke5H6dRjG/8/mvQtcWjz7aEuHaBOtmVp3jLcuMG2lu6XoiBgNBstF
-	MFSUjlgRLHvVZL773RTL5vI7Vi5pb49GRaNgHl7joXhXjKBG3vRHxtCdIUw+UFQLRISqPYuQHc0
-	+NpKJkAogMWYXFXFRzAm0uV+4iGL69lPj9zeZD8ShMrC+/yTvU6AkDU511nlAzFfbCnYJfm6FAy
-	8Yk9oUCJV7Z2BhAVl4RJkYkTnmkrtFiQ2Lh/cEm1nGOmH4XqhrHALN/EH0MMLjhKKISBV8Q4z1+
-	KkSyER5U9ApchHzADGmLzU0yvm2w/H3P0hbj6tTvyV2mnNY/jky3IwjiQnjKVBFRA8MkJw==
-X-Google-Smtp-Source: AGHT+IFOkhU+1nxlQZhAQxZXi77aM4zfexPWDU++C9eDMbXR9WmHMDnfeoJU+xJpMd5beE5eWd6dYg==
-X-Received: by 2002:a17:90b:264a:b0:313:f6fa:5bb5 with SMTP id 98e67ed59e1d1-31aadd853b5mr1776898a91.18.1751611196972;
-        Thu, 03 Jul 2025 23:39:56 -0700 (PDT)
-Received: from smtpclient.apple ([206.83.106.227])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31a9cd1be78sm4231889a91.42.2025.07.03.23.39.52
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 03 Jul 2025 23:39:56 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.600.51.1.1\))
-Subject: Re: [PATCH] riscv: dts: sophgo: sg2044: add pmu configuration
-From: "Han Gao (Revy)" <rabenda.cn@gmail.com>
-In-Reply-To: <20250703003844.84617-1-inochiama@gmail.com>
-Date: Fri, 4 Jul 2025 14:39:39 +0800
-Cc: Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- Chen Wang <unicorn_wang@outlook.com>,
- devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- sophgo@lists.linux.dev,
- linux-kernel@vger.kernel.org,
- Yixun Lan <dlan@gentoo.org>,
- Longbin Li <looong.bin@gmail.com>
-Message-Id: <58869404-7F27-4299-AB26-1B5E9F59D8ED@gmail.com>
-References: <20250703003844.84617-1-inochiama@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-X-Mailer: Apple Mail (2.3826.600.51.1.1)
+        bh=EGFMyHcY75Un2ey32rj/OGQJrYLrfBUEB3tHZxTx41w=;
+        b=hCbqPlcIH9eO6rI+GGk+bZS5NqJNvv7Yqrpmdv6fgDRy6Vk6OF3A9JMz5gz06HKei6
+         1cP9IQgLZi94vPn39Bbm9oVQ7t/vKPbxE+Y7VHT3J5nR/6Qp9GBm8bI8GVg+niT+6Tww
+         tuYIsoYqiBsyKkMHzDAogFp0W20cs2m+Hl37vvRCz9cUpIMYGv6k2XDG4yP04LIW523z
+         ExoE195ycjVFDiSmRrFDmGtBcN06wWmHCLBQyWkgncnaFEnBcp/nbiUI4FPuyhmrQ+A3
+         acUnmaKYwdQrxCDxxwJredeoXLOsqYitrjJYy4HBS8GsOjl6NMYGfsAutWFRWIQV1oQK
+         6zfw==
+X-Forwarded-Encrypted: i=1; AJvYcCUT/NoiVPqniGPnK5jQRmLshuFvEfgxODSWC5sNlfp0n4New9pi+cTRXVlmRU3AKVoZiQyqVHjyv7oAaA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtRmOftcAboC/qRRqSIE5JKKYILH7oDpvq7ggGcADTbYts1my4
+	mTJ8amhgU7XSYcxGFq6TlcqsbYtcISq/nE1nAfGhGgORpwAvWwrB0L0XGCofVit/F/4=
+X-Gm-Gg: ASbGnct5/i7ZHb2n1Cg/o52G8xOO5GriysGDvuktuVHFJPVdnxj8hUB7iIrYOIDtV1C
+	GzfntZjGfx7ckkHvWeVOFfDDB819Z11q2Adl38dJtQmRSz56DVbiqxrUxbqA0ui4kkhVOJizboS
+	RiRS9LCjVDXe4H26UqCM6V8epNyIKvGBPGzpYWPY/3rzfC7xW/MdnEIcVZR+nnmMdj5Z1/G+tBG
+	uoOLcoXENYA8KziJkcxOuwp1OoKzJ4NF1ghyC2mBHwDROS8rZ2u/KarHy8UfQr7s+MnNeEQothf
+	Gr+20B9F7AyjdxC5mOg1EkwG7QHxoPiqGuxGBGSU7eLC6B6X2+bw6BSPwqKewfxEp0i+RLxNBx+
+	HWBxcqIBrRuB5LZow5Mf9/+yeig==
+X-Google-Smtp-Source: AGHT+IH7pAY4DEaeFD0g/LqQ4vl0f8jxx2LFhaIvUOj/iUdZwYT735N07dZ29I38RmiE/z8zxFQSjA==
+X-Received: by 2002:a17:90b:48cc:b0:312:26d9:d5b2 with SMTP id 98e67ed59e1d1-31aac212971mr3321434a91.0.1751612679913;
+        Fri, 04 Jul 2025 00:04:39 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31aaae59a93sm1358697a91.12.2025.07.04.00.04.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Jul 2025 00:04:39 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Subject: [PATCH v8 02/24] dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
+Date: Fri,  4 Jul 2025 12:33:34 +0530
+Message-ID: <20250704070356.1683992-3-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250704070356.1683992-1-apatel@ventanamicro.com>
+References: <20250704070356.1683992-1-apatel@ventanamicro.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_233958_439895_B09A5928 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20250704_000440_906234_288C10C2 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,135 +104,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add device tree bindings for the RISC-V SBI Message Proxy (MPXY)
+extension as a mailbox controller.
 
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml | 51 +++++++++++++++++++
+ 1 file changed, 51 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
 
-> On Jul 3, 2025, at 08:38, Inochi Amaoto <inochiama@gmail.com> wrote:
-> 
-> Add PMU configuration for the cpu of sg2044, which is the V2
-> version of C920.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Tested-by: Han Gao <rabenda.cn@gmail.com>
-> ---
-> arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi | 91 +++++++++++++++++++++
-> 1 file changed, 91 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi b/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
-> index 6a35ed8f253c..2d21b2881ab8 100644
-> --- a/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
-> @@ -2778,6 +2778,97 @@ l3_cache: cache-controller-16 {
-> 		};
-> 	};
-> 
-> +	pmu {
-> +		compatible = "riscv,pmu";
-> +		riscv,event-to-mhpmevent =
-> +			<0x00003 0x00000000 0x00000010>,
-> +			<0x00004 0x00000000 0x00000011>,
-> +			<0x00005 0x00000000 0x00000007>,
-> +			<0x00006 0x00000000 0x00000006>,
-> +			<0x00008 0x00000000 0x00000027>,
-> +			<0x00009 0x00000000 0x00000028>,
-> +			<0x10000 0x00000000 0x0000000c>,
-> +			<0x10001 0x00000000 0x0000000d>,
-> +			<0x10002 0x00000000 0x0000000e>,
-> +			<0x10003 0x00000000 0x0000000f>,
-> +			<0x10008 0x00000000 0x00000001>,
-> +			<0x10009 0x00000000 0x00000002>,
-> +			<0x10010 0x00000000 0x00000010>,
-> +			<0x10011 0x00000000 0x00000011>,
-> +			<0x10012 0x00000000 0x00000012>,
-> +			<0x10013 0x00000000 0x00000013>,
-> +			<0x10019 0x00000000 0x00000004>,
-> +			<0x10021 0x00000000 0x00000003>,
-> +			<0x10030 0x00000000 0x0000001c>,
-> +			<0x10031 0x00000000 0x0000001b>;
-> +		riscv,event-to-mhpmcounters =
-> +			<0x00003 0x00003 0xfffffff8>,
-> +			<0x00004 0x00004 0xfffffff8>,
-> +			<0x00005 0x00005 0xfffffff8>,
-> +			<0x00006 0x00006 0xfffffff8>,
-> +			<0x00007 0x00007 0xfffffff8>,
-> +			<0x00008 0x00008 0xfffffff8>,
-> +			<0x00009 0x00009 0xfffffff8>,
-> +			<0x0000a 0x0000a 0xfffffff8>,
-> +			<0x10000 0x10000 0xfffffff8>,
-> +			<0x10001 0x10001 0xfffffff8>,
-> +			<0x10002 0x10002 0xfffffff8>,
-> +			<0x10003 0x10003 0xfffffff8>,
-> +			<0x10008 0x10008 0xfffffff8>,
-> +			<0x10009 0x10009 0xfffffff8>,
-> +			<0x10010 0x10010 0xfffffff8>,
-> +			<0x10011 0x10011 0xfffffff8>,
-> +			<0x10012 0x10012 0xfffffff8>,
-> +			<0x10013 0x10013 0xfffffff8>,
-> +			<0x10019 0x10019 0xfffffff8>,
-> +			<0x10021 0x10021 0xfffffff8>,
-> +			<0x10030 0x10030 0xfffffff8>,
-> +			<0x10031 0x10031 0xfffffff8>;
-> +		riscv,raw-event-to-mhpmcounters =
-> +			<0x00000000 0x00000001 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000002 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000003 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000004 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000005 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000006 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000007 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000008 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000009 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000000a 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000000b 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000000c 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000000d 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000000e 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000000f 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000010 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000011 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000012 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000013 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000014 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000015 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000016 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000017 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000018 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000019 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000001a 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000001b 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000001c 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000001d 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000001e 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000001f 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000020 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000021 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000022 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000023 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000024 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000025 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000026 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000027 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000028 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x00000029 0xffffffff 0xffffffff 0xfffffff8>,
-> +			<0x00000000 0x0000002a 0xffffffff 0xffffffff 0xfffffff8>;
-> +	};
-> +
-> 	soc {
-> 		intc: interrupt-controller@6d40000000 {
-> 			compatible = "sophgo,sg2044-plic", "thead,c900-plic";
-> -- 
-> 2.50.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+diff --git a/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+new file mode 100644
+index 000000000000..061437a0b45a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+@@ -0,0 +1,51 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mailbox/riscv,sbi-mpxy-mbox.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V SBI Message Proxy (MPXY) extension based mailbox
++
++maintainers:
++  - Anup Patel <anup@brainfault.org>
++
++description: |
++  The RISC-V SBI Message Proxy (MPXY) extension [1] allows supervisor
++  software to send messages through the SBI implementation (M-mode
++  firmware or HS-mode hypervisor). The underlying message protocol
++  and message format used by the supervisor software could be some
++  other standard protocol compatible with the SBI MPXY extension
++  (such as RISC-V Platform Management Interface (RPMI) [2]).
++
++  ===========================================
++  References
++  ===========================================
++
++  [1] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++
++  [2] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-rpmi/releases
++
++properties:
++  compatible:
++    const: riscv,sbi-mpxy-mbox
++
++  "#mbox-cells":
++    const: 2
++    description:
++      The first cell specifies channel_id of the SBI MPXY channel,
++      the second cell specifies MSG_PROT_ID of the SBI MPXY channel
++
++required:
++  - compatible
++  - "#mbox-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    mailbox {
++          compatible = "riscv,sbi-mpxy-mbox";
++          #mbox-cells = <2>;
++    };
+-- 
+2.43.0
 
 
 _______________________________________________
