@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F4AC83F0B
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 12:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E73C83F0C
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 12:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:MIME-Version:
-	Message-Id:Date:Subject:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:List-Owner; bh=njpP3KJ61lSRr/nxIDx0yElNIo40GcsngQGSeZlMsoY=; b=Ym
-	6bI0p5C5cKhGnN9Eo1Vz8fsqLshO6B+jWJQxutVjjHxCNxLgZ2xfsCNi8yxXvMqy4HPu6e535qRQ8
-	al/qxstv6OuuJK+NfiyK6imP7piWQmIq6p3wJCOxddVb436nBXBxFq0z6GVPH6OD9u7/3Ei9zmDsg
-	QtT19BqwnI4SkwhwcsaUmJiGWF/JUQCJsHkOPgrssuXERF3ibD83AECOVNRJGUbrIFzTS3nhb0MMj
-	51r7c0vi32ExU7rlLbYEuTPXdio/eOd1yoLcVhoO7pwRN7vkZgU1P4OS2rYYj4I6GAWX8vxS1Ntqi
-	aStlTYHM4FtTKMsNVZ0f1fqK4FezJe4Q==;
+	List-Owner; bh=/IrZZMlBuDZ7WCdqzogQc36helrJBbO5yZSADn90ANw=; b=ovwRWsuBtUNoB+
+	V0wgsdiMD29UKoTwwM5TT+CqwZILTIqEYIOZSQOskI8QW0pCGeSVUM8AuKIKPs2rKZ99rX2mS+By9
+	cnK8iFeFZBrf7zzhg2EyZMgr5SC4G3LLmwsTZrY5oBxIIIaMO4jnyt6v7w9ymij0yis0eVbiqGlpU
+	Jh9EbS9QnF8+3093QX0bLHnNeSp0/eUVx2O94obJtQfYr1Q2uLrwyAoQJHAhdOM3ybmzHw6oJFwuO
+	bUe/j/TLDm/DuycfVFahhwSwvWbSGmbAtSOdNfDPw/SFyQ8SLfPTSSUo+3L+tGCGmJn//FiblgR1h
+	UTb/x8ZSzk1TRBLBk57A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXf7U-0000000ELa3-0Bs8;
-	Fri, 04 Jul 2025 12:02:20 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uXf7X-0000000ELd8-3515;
+	Fri, 04 Jul 2025 12:02:23 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXf7O-0000000ELYC-2jp1
+	id 1uXf7R-0000000ELYH-3yir
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 12:02:17 +0000
+	Fri, 04 Jul 2025 12:02:20 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250704120211euoutp019e74fb7051bc178b3d2e344083a85317~PCq-8Pue-2175221752euoutp01O
-	for <linux-riscv@lists.infradead.org>; Fri,  4 Jul 2025 12:02:11 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250704120211euoutp019e74fb7051bc178b3d2e344083a85317~PCq-8Pue-2175221752euoutp01O
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250704120214euoutp0288ed2961d8bd346d5a13994d4673cb9c~PCrDbxVLs1137311373euoutp02G
+	for <linux-riscv@lists.infradead.org>; Fri,  4 Jul 2025 12:02:14 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250704120214euoutp0288ed2961d8bd346d5a13994d4673cb9c~PCrDbxVLs1137311373euoutp02G
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1751630531;
-	bh=XHLKJ53dAQw0fHh5ZHCuF1wmjdlXDB+Hpa2orSANCs4=;
-	h=From:Subject:Date:To:Cc:References:From;
-	b=Y9pt2H92tniajPvs608PrghvarfQZhNkRa2tMmydQUv0udIDqTcJsGhBs3p0NByHX
-	 qwPMgAE4nWyGF4JXncmuO0+6LcHqzTJJ9T6pdm/d0fMl29+BrV/rWIx3ptVDK+o4Gx
-	 eNaDfqeqMTbj58jg7pjcfgVkUmXQKdI5vLkUJH/U=
+	s=mail20170921; t=1751630534;
+	bh=0lC8UNwKQjUCle9gtS0J5+Ir+EilnRfIYbNToJD4tw0=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=YhihYnpZNkLm5Uo3D7IgSNkB/KsqZjWGCe40CyHLl9Tutfi5NV+tIAHRlXqL1Oxgg
+	 YKYm9effwHgrGGjnwhI82z1qlVwIQurLdeikiJOthaDjc/vGDjetwdZa8VEIglBbOs
+	 RbhbwNRJA7xNvhBPTA5h6dzpREy7nxwajI4WxNVc=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250704120210eucas1p20c157240ab15eb1b98ae939fda796564~PCq-U_91x2846828468eucas1p2w;
-	Fri,  4 Jul 2025 12:02:10 +0000 (GMT)
+	20250704120214eucas1p289fdeac50837379fdd59b3bc0437c2bc~PCrCt9wCl3070430704eucas1p2q;
+	Fri,  4 Jul 2025 12:02:14 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250704120209eusmtip17adb50594cad6991cd3e563584b79633~PCq_OvpAg2870728707eusmtip1g;
-	Fri,  4 Jul 2025 12:02:09 +0000 (GMT)
+	20250704120212eusmtip1e62d28773b51c4533bf0ab6db2f3b2ce~PCrBqYnrb0801408014eusmtip1k;
+	Fri,  4 Jul 2025 12:02:12 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH v8 0/7] Rust Abstractions for PWM subsystem with TH1520 PWM
- driver
-Date: Fri, 04 Jul 2025 14:01:10 +0200
-Message-Id: <20250704-rust-next-pwm-working-fan-for-sending-v8-0-951e5482c9fd@samsung.com>
+Date: Fri, 04 Jul 2025 14:01:13 +0200
+Subject: [PATCH v8 3/7] rust: pwm: Add driver operations trait and
+ registration support
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAIbCZ2gC/5XOsW7DIBDG8VeJmEsFhwGTqe9RdcDAOagKjsBxU
-	kV+9+IsceXFHb8bfv97kBJyDIUcDw+SwxRLHFId7duBuJNNfaDR102AgWQSGpqvZaQp3Ed6uZ3
-	pbcjfMfUUbaI4ZFpC8suWEqwHzztuBKnWJQeM92fn86vuUyzjkH+e2Ykv1/8WJk4Z7XyNSGYaR
-	P1R7LlcU//uhjNZGhO8XMXZXheqq6UIYKREztnWFWtX73VFdblztm20U2hw6zZrt93rNtW1ykK
-	L0Cnf2q0rVy6Iva6sLnMWhK4PgwhbV71czfheV1UXNGdGACpU3dbVaxf2urq6SgcUBpF7MH/de
-	Z5/AbtN403sAgAA
-X-Change-ID: 20250524-rust-next-pwm-working-fan-for-sending-552ad2d1b193
+Message-Id: <20250704-rust-next-pwm-working-fan-for-sending-v8-3-951e5482c9fd@samsung.com>
+In-Reply-To: <20250704-rust-next-pwm-working-fan-for-sending-v8-0-951e5482c9fd@samsung.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
 	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
@@ -75,18 +69,18 @@ To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	Benno Lossin <lossin@kernel.org>,  Drew Fustini <fustini@kernel.org>
 Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
 	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org,  Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
+	devicetree@vger.kernel.org
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250704120210eucas1p20c157240ab15eb1b98ae939fda796564
+X-CMS-MailID: 20250704120214eucas1p289fdeac50837379fdd59b3bc0437c2bc
 X-Msg-Generator: CA
-X-RootMTR: 20250704120210eucas1p20c157240ab15eb1b98ae939fda796564
+X-RootMTR: 20250704120214eucas1p289fdeac50837379fdd59b3bc0437c2bc
 X-EPHeader: CA
-X-CMS-RootMailID: 20250704120210eucas1p20c157240ab15eb1b98ae939fda796564
-References: <CGME20250704120210eucas1p20c157240ab15eb1b98ae939fda796564@eucas1p2.samsung.com>
+X-CMS-RootMailID: 20250704120214eucas1p289fdeac50837379fdd59b3bc0437c2bc
+References: <20250704-rust-next-pwm-working-fan-for-sending-v8-0-951e5482c9fd@samsung.com>
+	<CGME20250704120214eucas1p289fdeac50837379fdd59b3bc0437c2bc@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_050215_296918_4AD1FA2A 
-X-CRM114-Status: GOOD (  31.34  )
+X-CRM114-CacheID: sfid-20250704_050218_266931_D726BFB7 
+X-CRM114-Status: GOOD (  19.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,174 +97,447 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces Rust support for the T-HEAD TH1520 PWM
-controller and demonstrates its use for fan control on the Sipeed Lichee
-Pi 4A board.
+Complete the PWM abstraction layer by adding the final components
+required to implement and register a driver.
 
-The primary goal of this patch series is to introduce a basic set of
-Rust abstractions for the Linux PWM subsystem. As a first user and
-practical demonstration of these abstractions, the series also provides
-a functional PWM driver for the T-HEAD TH1520 SoC. This allows control
-of its PWM channels and ultimately enables temperature controlled fan
-support for the Lichee Pi 4A board. This work aims to explore the use of
-Rust for PWM drivers and lay a foundation for potential future
-Rust based PWM drivers.
+The main additions are:
 
-The core of this series is a new rust/kernel/pwm.rs module that provides
-abstractions for writing PWM chip provider drivers in Rust. This has
-been significantly reworked from v1 based on extensive feedback. The key
-features of the new abstraction layer include:
+ - PwmOps Trait: An interface that drivers can implement to provide
+   their hardware specific logic. It mirrors the C pwm_ops interface,
+   providing hooks for standard PWM operations like apply, request, and
+   waveform handling.
 
- - Ownership and Lifetime Management: The pwm::Chip wrapper is managed
-   by ARef, correctly tying its lifetime to its embedded struct device
-   reference counter. Chip registration is handled by a pwm::Registration
-   RAII guard, which guarantees that pwmchip_add is always paired with
-   pwmchip_remove, preventing resource leaks.
+ - FFI VTable and Adapter: The Adapter struct, PwmOpsVTable wrapper, and
+   create_pwm_ops function are introduced. This scaffolding handles the
+   unsafe FFI translation, bridging the gap between the idiomatic PwmOps
+   trait and the C kernel's function-pointer-based vtable.
 
- - Modern and Safe API: The PwmOps trait is now based on the modern
-   waveform API (round_waveform_tohw, write_waveform, etc.) as recommended
-   by the subsystem maintainer. It is generic over a driver's
-   hardware specific data structure, moving all unsafe serialization logic
-   into the abstraction layer and allowing drivers to be written in 100%
-   safe Rust.
+ - Registration Guard: A final RAII guard that uses the vtable to safely
+   register a Chip with the PWM core via pwmchip_add. Its Drop
+   implementation guarantees that pwmchip_remove is always called,
+   preventing resource leaks.
 
- - Ergonomics: The API provides safe, idiomatic wrappers for other PWM
-   types (State, Args, Device, etc.) and uses standard kernel error
-   handling patterns.
+With this patch, the PWM abstraction layer is now complete and ready to
+be used for writing PWM chip drivers in Rust.
 
-The series is structured as follows:
- - Rust PWM Abstractions: The new safe abstraction layer.
- - TH1520 PWM Driver: A new Rust driver for the TH1520 SoC, built on
-   top of the new abstractions.
- - Device Tree Bindings & Nodes: The remaining patches add the necessary
-   DT bindings and nodes for the TH1520 PWM controller, and the PWM fan
-   configuration for the Lichee Pi 4A board.
-
-Testing:
-Tested on the TH1520 SoC. The fan works correctly. The duty/period
-calculations are correct. Fan starts slow when the chip is not hot and
-gradually increases the speed when PVT reports higher temperatures.
-
-The patches are based on mainline, with some dependencies which are not
-merged yet - platform Io support [1].
-
-Reference repository with all the patches together can be found on
-github [2].
-
-[1] - https://lore.kernel.org/rust-for-linux/20250509-topics-tyr-platform_iomem-v8-0-e9f1725a40da@collabora.com/
-[2] - https://github.com/mwilczy/linux/commits/rust-next-pwm-working-fan-for-sending-v13/
-
+Reviewed-by: Danilo Krummrich <dakr@kernel.org>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
-Changes in v8:
- - Dropped already accepted commit, re-based on top of linux-next
- - Reworked the Chip and PwmOps APIs to address the drvdata() type-safety
-   comment. Chip is now generic, and PwmOps uses an associated type
-   to provide compile-time guarantees.
- - Added a parent device sanity check to Registration::register().
- - Updated drvdata() to return the idiomatic T::Borrowed<'_>.
- - added temporary unsafe blocks in the driver, as the current
-   abstraction for Clk is neiter Safe nor Sync. I think eventually
-   proper abstraction for Clk will be added as in a current state it's
-   not very useful.
+ rust/kernel/pwm.rs | 390 ++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 388 insertions(+), 2 deletions(-)
 
-- Link to v7: https://lore.kernel.org/r/20250702-rust-next-pwm-working-fan-for-sending-v7-0-67ef39ff1d29@samsung.com
+diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
+index ba2f5a0ce5b9c4ca64f2984a627324aa8ab669cc..c3865fa6fcc3d44a3c6fe80d73af8a2a4b2ea862 100644
+--- a/rust/kernel/pwm.rs
++++ b/rust/kernel/pwm.rs
+@@ -7,12 +7,14 @@
+ //! C header: [`include/linux/pwm.h`](srctree/include/linux/pwm.h).
+ 
+ use crate::{
+-    bindings, device,
++    bindings,
++    device::{self, Bound},
++    devres,
+     error::{self, to_result},
+     prelude::*,
+     types::{ARef, AlwaysRefCounted, ForeignOwnable, Opaque},
+ };
+-use core::{convert::TryFrom, ptr::NonNull};
++use core::{convert::TryFrom, marker::PhantomData, ptr::NonNull};
+ 
+ /// PWM polarity. Mirrors [`enum pwm_polarity`](srctree/include/linux/pwm.h).
+ #[derive(Copy, Clone, Debug, PartialEq, Eq)]
+@@ -395,3 +397,387 @@ unsafe impl<T: ForeignOwnable + Send> Send for Chip<T> {}
+ // kernel locks, which the C core is responsible for. Any interior mutability is
+ // handled and synchronized by the C kernel code.
+ unsafe impl<T: ForeignOwnable + Sync> Sync for Chip<T> {}
++
++/// A resource guard that ensures `pwmchip_remove` is called on drop.
++///
++/// This struct is intended to be managed by the `devres` framework by transferring its ownership
++/// via [`Devres::register`]. This ties the lifetime of the PWM chip registration
++/// to the lifetime of the underlying device.
++pub struct Registration<T: ForeignOwnable> {
++    chip: ARef<Chip<T>>,
++}
++
++impl<T: 'static + ForeignOwnable + Send + Sync> Registration<T> {
++    /// Registers a PWM chip with the PWM subsystem.
++    ///
++    /// Transfers its ownership to the `devres` framework, which ties its lifetime
++    /// to the parent device.
++    /// On unbind of the parent device, the `devres` entry will be dropped, automatically
++    /// calling `pwmchip_remove`. This function should be called from the driver's `probe`.
++    pub fn register(
++        dev: &device::Device<Bound>,
++        chip: ARef<Chip<T>>,
++        ops_vtable: &'static PwmOpsVTable,
++    ) -> Result {
++	let chip_parent = chip.device().parent().ok_or(EINVAL)?;
++        if dev.as_raw() != chip_parent.as_raw() {
++            return Err(EINVAL);
++        }
++
++        let c_chip_ptr = chip.as_raw();
++
++        // SAFETY: `c_chip_ptr` is valid because the `ARef<Chip>` that owns it exists.
++        // The vtable pointer is also valid. This sets the `.ops` field on the C struct.
++        unsafe {
++            (*c_chip_ptr).ops = ops_vtable.as_raw();
++        }
++
++        // SAFETY: `c_chip_ptr` points to a valid chip with its ops initialized.
++        // `__pwmchip_add` is the C function to register the chip with the PWM core.
++        unsafe {
++            to_result(bindings::__pwmchip_add(c_chip_ptr, core::ptr::null_mut()))?;
++        }
++
++        let registration = Registration { chip };
++
++        devres::register(dev, registration, GFP_KERNEL)
++    }
++}
++
++impl<T: ForeignOwnable> Drop for Registration<T> {
++    fn drop(&mut self) {
++        let chip_raw = self.chip.as_raw();
++
++        // SAFETY: `chip_raw` points to a chip that was successfully registered.
++        // `bindings::pwmchip_remove` is the correct C function to unregister it.
++        // This `drop` implementation is called automatically by `devres` on driver unbind.
++        unsafe {
++            bindings::pwmchip_remove(chip_raw);
++        }
++    }
++}
++
++/// Trait defining the operations for a PWM driver.
++pub trait PwmOps: 'static + Sized {
++    /// The type of the owned driver data (e.g., `Pin<KBox<...>>`).
++    type DrvData: 'static + ForeignOwnable;
++    /// The driver-specific hardware representation of a waveform.
++    ///
++    /// This type must be [`Copy`], [`Default`], and fit within `PWM_WFHWSIZE`.
++    type WfHw: Copy + Default;
++
++    /// Optional hook for when a PWM device is requested.
++    fn request(
++        _chip: &Chip<Self::DrvData>,
++        _pwm: &Device,
++        _parent_dev: &device::Device<Bound>,
++    ) -> Result {
++        Ok(())
++    }
++
++    /// Optional hook for when a PWM device is freed.
++    fn free(_chip: &Chip<Self::DrvData>, _pwm: &Device, _parent_dev: &device::Device<Bound>) {}
++
++    /// Optional hook for capturing a PWM signal.
++    fn capture(
++        _chip: &Chip<Self::DrvData>,
++        _pwm: &Device,
++        _result: &mut bindings::pwm_capture,
++        _timeout: usize,
++        _parent_dev: &device::Device<Bound>,
++    ) -> Result {
++        Err(ENOTSUPP)
++    }
++
++    /// Convert a generic waveform to the hardware-specific representation.
++    /// This is typically a pure calculation and does not perform I/O.
++    fn round_waveform_tohw(
++        _chip: &Chip<Self::DrvData>,
++        _pwm: &Device,
++        _wf: &Waveform,
++    ) -> Result<(c_int, Self::WfHw)> {
++        Err(ENOTSUPP)
++    }
++
++    /// Convert a hardware-specific representation back to a generic waveform.
++    /// This is typically a pure calculation and does not perform I/O.
++    fn round_waveform_fromhw(
++        _chip: &Chip<Self::DrvData>,
++        _pwm: &Device,
++        _wfhw: &Self::WfHw,
++        _wf: &mut Waveform,
++    ) -> Result<c_int> {
++        Err(ENOTSUPP)
++    }
++
++    /// Read the current hardware configuration into the hardware-specific representation.
++    fn read_waveform(
++        _chip: &Chip<Self::DrvData>,
++        _pwm: &Device,
++        _parent_dev: &device::Device<Bound>,
++    ) -> Result<Self::WfHw> {
++        Err(ENOTSUPP)
++    }
++
++    /// Write a hardware-specific waveform configuration to the hardware.
++    fn write_waveform(
++        _chip: &Chip<Self::DrvData>,
++        _pwm: &Device,
++        _wfhw: &Self::WfHw,
++        _parent_dev: &device::Device<Bound>,
++    ) -> Result {
++        Err(ENOTSUPP)
++    }
++}
++/// Bridges Rust `PwmOps` to the C `pwm_ops` vtable.
++struct Adapter<T: PwmOps> {
++    _p: PhantomData<T>,
++}
++
++impl<T: PwmOps> Adapter<T> {
++    /// # Safety
++    ///
++    /// `wfhw_ptr` must be valid for writes of `size_of::<T::WfHw>()` bytes.
++    unsafe fn serialize_wfhw(wfhw: &T::WfHw, wfhw_ptr: *mut c_void) -> Result {
++        let size = core::mem::size_of::<T::WfHw>();
++        if size > bindings::PWM_WFHWSIZE as usize {
++            return Err(EINVAL);
++        }
++
++        // SAFETY: The caller ensures `wfhw_ptr` is valid for `size` bytes.
++        unsafe {
++            core::ptr::copy_nonoverlapping(
++                core::ptr::from_ref::<T::WfHw>(wfhw).cast::<u8>(),
++                wfhw_ptr.cast::<u8>(),
++                size,
++            );
++        }
++
++        Ok(())
++    }
++
++    /// # Safety
++    ///
++    /// `wfhw_ptr` must be valid for reads of `size_of::<T::WfHw>()` bytes.
++    unsafe fn deserialize_wfhw(wfhw_ptr: *const c_void) -> Result<T::WfHw> {
++        let size = core::mem::size_of::<T::WfHw>();
++        if size > bindings::PWM_WFHWSIZE as usize {
++            return Err(EINVAL);
++        }
++
++        let mut wfhw = T::WfHw::default();
++        // SAFETY: The caller ensures `wfhw_ptr` is valid for `size` bytes.
++        unsafe {
++            core::ptr::copy_nonoverlapping(
++                wfhw_ptr.cast::<u8>(),
++                core::ptr::from_mut::<T::WfHw>(&mut wfhw).cast::<u8>(),
++                size,
++            );
++        }
++
++        Ok(wfhw)
++    }
++
++    /// # Safety
++    ///
++    /// Pointers from C must be valid.
++    unsafe extern "C" fn request_callback(
++        c: *mut bindings::pwm_chip,
++        p: *mut bindings::pwm_device,
++    ) -> c_int {
++        // SAFETY: PWM core guarentees `c` and `p` are valid pointers.
++        let (chip, pwm) = unsafe { (Chip::<T::DrvData>::as_ref(c), Device::as_ref(p)) };
++
++        // SAFETY: The PWM core guarantees the parent device exists and is bound during callbacks.
++        let bound_parent = unsafe { chip.bound_parent_device() };
++        match T::request(chip, pwm, bound_parent) {
++            Ok(()) => 0,
++            Err(e) => e.to_errno(),
++        }
++    }
++
++    /// # Safety
++    ///
++    /// Pointers from C must be valid.
++    unsafe extern "C" fn free_callback(c: *mut bindings::pwm_chip, p: *mut bindings::pwm_device) {
++        // SAFETY: Relies on the function's contract that `c` and `p` are valid pointers.
++        let (chip, pwm) = unsafe { (Chip::<T::DrvData>::as_ref(c), Device::as_ref(p)) };
++
++        // SAFETY: The PWM core guarantees the parent device exists and is bound during callbacks.
++        let bound_parent = unsafe { chip.bound_parent_device() };
++        T::free(chip, pwm, bound_parent);
++    }
++
++    /// # Safety
++    ///
++    /// Pointers from C must be valid.
++    unsafe extern "C" fn capture_callback(
++        c: *mut bindings::pwm_chip,
++        p: *mut bindings::pwm_device,
++        res: *mut bindings::pwm_capture,
++        timeout: usize,
++    ) -> c_int {
++        // SAFETY: Relies on the function's contract that `c` and `p` are valid pointers.
++        let (chip, pwm, result) =
++            unsafe { (Chip::<T::DrvData>::as_ref(c), Device::as_ref(p), &mut *res) };
++
++        // SAFETY: The PWM core guarantees the parent device exists and is bound during callbacks.
++        let bound_parent = unsafe { chip.bound_parent_device() };
++        match T::capture(chip, pwm, result, timeout, bound_parent) {
++            Ok(()) => 0,
++            Err(e) => e.to_errno(),
++        }
++    }
++
++    /// # Safety
++    ///
++    /// Pointers from C must be valid.
++    unsafe extern "C" fn round_waveform_tohw_callback(
++        c: *mut bindings::pwm_chip,
++        p: *mut bindings::pwm_device,
++        w: *const bindings::pwm_waveform,
++        wh: *mut c_void,
++    ) -> c_int {
++        // SAFETY: Relies on the function's contract that `c` and `p` are valid pointers.
++        let (chip, pwm, wf) = unsafe {
++            (
++                Chip::<T::DrvData>::as_ref(c),
++                Device::as_ref(p),
++                Waveform::from(*w),
++            )
++        };
++        match T::round_waveform_tohw(chip, pwm, &wf) {
++            Ok((status, wfhw)) => {
++                // SAFETY: `wh` is valid per this function's safety contract.
++                if unsafe { Self::serialize_wfhw(&wfhw, wh) }.is_err() {
++                    return EINVAL.to_errno();
++                }
++                status
++            }
++            Err(e) => e.to_errno(),
++        }
++    }
++
++    /// # Safety
++    ///
++    /// Pointers from C must be valid.
++    unsafe extern "C" fn round_waveform_fromhw_callback(
++        c: *mut bindings::pwm_chip,
++        p: *mut bindings::pwm_device,
++        wh: *const c_void,
++        w: *mut bindings::pwm_waveform,
++    ) -> c_int {
++        // SAFETY: Relies on the function's contract that `c` and `p` are valid pointers.
++        let (chip, pwm) = unsafe { (Chip::<T::DrvData>::as_ref(c), Device::as_ref(p)) };
++        // SAFETY: `deserialize_wfhw`'s safety contract is met by this function's contract.
++        let wfhw = match unsafe { Self::deserialize_wfhw(wh) } {
++            Ok(v) => v,
++            Err(e) => return e.to_errno(),
++        };
++
++        let mut rust_wf = Waveform::default();
++        match T::round_waveform_fromhw(chip, pwm, &wfhw, &mut rust_wf) {
++            Ok(ret) => {
++                // SAFETY: `w` is guaranteed valid by the C caller.
++                unsafe {
++                    *w = rust_wf.into();
++                };
++                ret
++            }
++            Err(e) => e.to_errno(),
++        }
++    }
++
++    /// # Safety
++    ///
++    /// Pointers from C must be valid.
++    unsafe extern "C" fn read_waveform_callback(
++        c: *mut bindings::pwm_chip,
++        p: *mut bindings::pwm_device,
++        wh: *mut c_void,
++    ) -> c_int {
++        // SAFETY: Relies on the function's contract that `c` and `p` are valid pointers.
++        let (chip, pwm) = unsafe { (Chip::<T::DrvData>::as_ref(c), Device::as_ref(p)) };
++
++        // SAFETY: The PWM core guarantees the parent device exists and is bound during callbacks.
++        let bound_parent = unsafe { chip.bound_parent_device() };
++        match T::read_waveform(chip, pwm, bound_parent) {
++            // SAFETY: `wh` is valid per this function's safety contract.
++            Ok(wfhw) => match unsafe { Self::serialize_wfhw(&wfhw, wh) } {
++                Ok(()) => 0,
++                Err(e) => e.to_errno(),
++            },
++            Err(e) => e.to_errno(),
++        }
++    }
++
++    /// # Safety
++    ///
++    /// Pointers from C must be valid.
++    unsafe extern "C" fn write_waveform_callback(
++        c: *mut bindings::pwm_chip,
++        p: *mut bindings::pwm_device,
++        wh: *const c_void,
++    ) -> c_int {
++        // SAFETY: Relies on the function's contract that `c` and `p` are valid pointers.
++        let (chip, pwm) = unsafe { (Chip::<T::DrvData>::as_ref(c), Device::as_ref(p)) };
++
++        // SAFETY: The PWM core guarantees the parent device exists and is bound during callbacks.
++        let bound_parent = unsafe { chip.bound_parent_device() };
++
++        // SAFETY: `wh` is valid per this function's safety contract.
++        let wfhw = match unsafe { Self::deserialize_wfhw(wh) } {
++            Ok(v) => v,
++            Err(e) => return e.to_errno(),
++        };
++        match T::write_waveform(chip, pwm, &wfhw, bound_parent) {
++            Ok(()) => 0,
++            Err(e) => e.to_errno(),
++        }
++    }
++}
++
++/// VTable structure wrapper for PWM operations.
++/// Mirrors [`struct pwm_ops`](srctree/include/linux/pwm.h).
++#[repr(transparent)]
++pub struct PwmOpsVTable(Opaque<bindings::pwm_ops>);
++
++// SAFETY: PwmOpsVTable is Send. The vtable contains only function pointers
++// and a size, which are simple data types that can be safely moved across
++// threads. The thread-safety of calling these functions is handled by the
++// kernel's locking mechanisms.
++unsafe impl Send for PwmOpsVTable {}
++
++// SAFETY: PwmOpsVTable is Sync. The vtable is immutable after it is created,
++// so it can be safely referenced and accessed concurrently by multiple threads
++// e.g. to read the function pointers.
++unsafe impl Sync for PwmOpsVTable {}
++
++impl PwmOpsVTable {
++    /// Returns a raw pointer to the underlying `pwm_ops` struct.
++    pub(crate) fn as_raw(&self) -> *const bindings::pwm_ops {
++        self.0.get()
++    }
++}
++
++/// Creates a PWM operations vtable for a type `T` that implements `PwmOps`.
++///
++/// This is used to bridge Rust trait implementations to the C `struct pwm_ops`
++/// expected by the kernel.
++pub const fn create_pwm_ops<T: PwmOps>() -> PwmOpsVTable {
++    // SAFETY: `core::mem::zeroed()` is unsafe. For `pwm_ops`, all fields are
++    // `Option<extern "C" fn(...)>` or data, so a zeroed pattern (None/0) is valid initially.
++    let mut ops: bindings::pwm_ops = unsafe { core::mem::zeroed() };
++
++    ops.request = Some(Adapter::<T>::request_callback);
++    ops.free = Some(Adapter::<T>::free_callback);
++    ops.capture = Some(Adapter::<T>::capture_callback);
++
++    ops.round_waveform_tohw = Some(Adapter::<T>::round_waveform_tohw_callback);
++    ops.round_waveform_fromhw = Some(Adapter::<T>::round_waveform_fromhw_callback);
++    ops.read_waveform = Some(Adapter::<T>::read_waveform_callback);
++    ops.write_waveform = Some(Adapter::<T>::write_waveform_callback);
++    ops.sizeof_wfhw = core::mem::size_of::<T::WfHw>();
++
++    PwmOpsVTable(Opaque::new(ops))
++}
 
-Changes in v7:
-- Made parent_device function private and moved casts to Device<Bound>
-  there as well.
-- Link to v6: https://lore.kernel.org/r/20250701-rust-next-pwm-working-fan-for-sending-v6-0-2710932f6f6b@samsung.com
-
-Changes in v6:
- - Re-based on top of linux-next, dropped two already accepted commits.
- - After re-basing the IoMem dependent patchset stopped working,
-   reworked it to use similar API like the PCI subsystem (I think it
-   will end up the same). Re-worked the driver for it as well.
- - Remove the apply and get_state callbacks, and most of the State as
-   well, as the old way of implementing drivers should not be possible
-   in Rust. Left only enabled(), since it's useful for my driver.
- - Removed the public set_drvdata() method from pwm::Chip
- - Moved WFHWSIZE to the public include/linux/pwm.h header and renamed it
-   to PWM_WFHWSIZE, allowing bindgen to create safe FFI bindings.
- - Corrected the ns_to_cycles integer calculation in the TH1520 driver to
-   handle overflow correctly.
- - Updated the Kconfig entry for the TH1520 driver to select the Rust
-   abstractions for a better user experience.
-
-- Link to v5: https://lore.kernel.org/r/20250623-rust-next-pwm-working-fan-for-sending-v5-0-0ca23747c23e@samsung.com
-
-Changes in v5:
-- Reworked `pwm::Chip` creation to take driver data directly, which
-  allowed making the `chip.drvdata()` accessor infallible
-- added missing `pwm.c` file lost during the commit split (sorry !)
-- Link to v4: https://lore.kernel.org/r/20250618-rust-next-pwm-working-fan-for-sending-v4-0-a6a28f2b6d8a@samsung.com
-
-Changes in v4:
- - Reworked the pwm::Registration API to use the devres framework,
-   addressing lifetime issue.
- - Corrected the PwmOps trait and its callbacks to use immutable references
-   (&Chip, &Device) for improved safety.
- - Applied various code style and naming cleanups based on feedback
-
-- Link to v3: https://lore.kernel.org/r/20250617-rust-next-pwm-working-fan-for-sending-v3-0-1cca847c6f9f@samsung.com
-
-Changes in v3:
- - Addressed feedback from Uwe by making multiple changes to the TH1520
-   driver and the abstraction layer.
- - Split the core PWM abstractions into three focused commits to ease
-   review per Benno request.
- - Confirmed the driver now works correctly with CONFIG_PWM_DEBUG enabled
-   by implementing the full waveform API, which correctly reads the
-   hardware state.
- - Refactored the Rust code to build cleanly with
-   CONFIG_RUST_BUILD_ASSERT_ALLOW=n, primarily by using the try_* family of
-   functions for IoMem access.
- - Included several cosmetic changes and cleanups to the abstractions
-   per Miguel review.
-
-- Link to v2: https://lore.kernel.org/r/20250610-rust-next-pwm-working-fan-for-sending-v2-0-753e2955f110@samsung.com
-
-Changes in v2:
- - Reworked the PWM abstraction layer based on extensive feedback.
- - Replaced initial devm allocation with a proper ARef<Chip> lifetime model
-   using AlwaysRefCounted.
- - Implemented a Registration RAII guard to ensure safe chip add/remove.
- - Migrated the PwmOps trait from the legacy .apply callback to the modern
-   waveform API.
- - Refactored the TH1520 driver to use the new, safer abstractions.
- - Added a patch to mark essential bus clocks as CLK_IGNORE_UNUSED to fix
-   boot hangs when the PWM and thermal sensors are enabled.
-- Link to v1: https://lore.kernel.org/r/20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com
-
----
-Michal Wilczynski (7):
-      rust: pwm: Add Kconfig and basic data structures
-      rust: pwm: Add core 'Device' and 'Chip' object wrappers
-      rust: pwm: Add driver operations trait and registration support
-      pwm: Add Rust driver for T-HEAD TH1520 SoC
-      dt-bindings: pwm: thead: Add T-HEAD TH1520 PWM controller
-      riscv: dts: thead: Add PWM controller node
-      riscv: dts: thead: Add PWM fan and thermal control
-
- .../devicetree/bindings/pwm/thead,th1520-pwm.yaml  |  48 ++
- MAINTAINERS                                        |   8 +
- arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts  |  67 ++
- arch/riscv/boot/dts/thead/th1520.dtsi              |   7 +
- drivers/pwm/Kconfig                                |  24 +
- drivers/pwm/Makefile                               |   1 +
- drivers/pwm/pwm_th1520.rs                          | 354 ++++++++++
- rust/bindings/bindings_helper.h                    |   1 +
- rust/helpers/helpers.c                             |   1 +
- rust/helpers/pwm.c                                 |  20 +
- rust/kernel/lib.rs                                 |   2 +
- rust/kernel/pwm.rs                                 | 783 +++++++++++++++++++++
- 12 files changed, 1316 insertions(+)
----
-base-commit: 47753b5a1696283930a78aae79b29371f96f5bca
-change-id: 20250524-rust-next-pwm-working-fan-for-sending-552ad2d1b193
-
-Best regards,
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+2.34.1
 
 
 _______________________________________________
