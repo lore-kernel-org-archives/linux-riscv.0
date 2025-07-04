@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC24C83F0F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B305C83F03
 	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 09:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yodMO8juQFW3KIn7y/b1pk8+zY8S9ktqlMsdr4jkRTE=; b=mTxb93kfIS6EX9
-	NdYIhR66nFvq+Svka7AiyLU18E/oeEsUW48toRZaG2qBZrBvB01WjPiVc7ed+kZLFnHiZrqga/OVg
-	DPA91RqXs8d2DTArnE9wjoQf8wcj1yrOJmoZb/+TiJXZrZxrytJEBhhFp4WNx4xWuWYS+lck2V7A/
-	yPNofpwX9tqkR44vAhogLcSOMhT+L7oaO+0xgc3X09ZKarasZDd6YOHT9DlQhMuG1bf4rHrEsyv5p
-	cq1Da1GzTR8TA+U+O1tnP8Sicw9do0yhyU0xX1uGG5sHfKpar2reZelw2g47A9H5KwXo/YLtY821A
-	cvwLedVCIouPhYexE9SQ==;
+	List-Owner; bh=FV4Kthd0ZtNH0I99TimHO+y1IWXq3sDypUuJpBNJgIw=; b=i4zzWfaXOv9B6F
+	hW+QsGq+1ZuheprNoNcZ9HHLgflVrY+4PEwj2MGonR3sFLVMrcrlvBI8PPBi5IVtzPXSYMzfqYKwf
+	iWzbj0/CTr5/+Jaklx235hMTkAc07tVRXABgalv+8bOi6+SpUH1Zv08MWB5hAWR8qa2h+iznnN0Ww
+	+evG2ma9IeAuhsfUCaTNLXcSbHOCGdrnIctrgkXGmWJm7X2TN5z5ETMcKOtvOt0z4KxmacGlYJFU2
+	bJ7AXPlNtRFHp2JpIt4lEPRtPVKwTzA2xBqHQdCaWkYiTyVP5cMib1AO4lry4H0FGLx/zFYHzFJ7W
+	OLU2Ecaw0tnLVV6UszXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXcIG-0000000DqnL-0FUm;
-	Fri, 04 Jul 2025 09:01:16 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1uXcIE-0000000Dqlz-2l9A;
+	Fri, 04 Jul 2025 09:01:14 +0000
+Received: from casper.infradead.org ([90.155.50.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXbb6-0000000DhCv-37Le
+	id 1uXbaq-0000000DhAm-3VsQ
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 04 Jul 2025 08:16:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=gPiXN08wBCaFNSCH/FfwxxF7fnuM9/XCVYhspwOl+Us=; b=JvXdjqQaEztfecxnjHi+aeAjYf
+	NAks/l8gsKHM4YxfBDQyIO4wn4f2JrVklpRRDDcwlWCNmgwPWdmDAO+Y2SwEtU30pOxwdnWHBMLlH
+	QvC0MTOur+Df0t/WdyMmF1/3LDbTIvpDGUUVbHK3i73tc/nBlSQyf1iwofHaYTSxgalLo3TMZE/KP
+	zMS7ij0/oIMYN3eOvZ3+8JM5ooghFunGoBpppmm/4fYZEV5b1ff+pdA4mAfNsngfBDsOQTc6Gpc9T
+	ZVDFyKWeUO4FQpXAt79+9K6UDF425HE9CUsfmYh+RH34oE1IuNA2S0M+lObQzkFnDfon/6W3WdoEv
+	/ew2s5Cw==;
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXbaj-0000000GA5s-2aHO
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 08:16:41 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-553d52cb80dso641775e87.1
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Jul 2025 01:16:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751616999; x=1752221799; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dGsMdWNNo7Kr4TZt6J0SFs0hAUGLXiGKCsH0gVxSZ0s=;
-        b=NMJhg71HotJpOiO4r5Vrbg+1TsyJeRn8gh2kkEDsHs7tSOAd7M+q4kKkPn70Ym+mh+
-         KSHFqTFM7uVCPFs3VblSP+Ptc928gtlwQuhZ/ATxMq1UlkQlz+cu49aqnLRnUxa9qgK4
-         yk21rnZLQDEjVg2aphCGKfshMHT0PrCAHvSLNwR5FvE5f0ne1rqHMsPTxIJyptGnUHSa
-         gegbQp3xopPr0bMuOI5cpoVIw66WDvMWZqWg6z2ZME3TKWTYaGA/ZWCUBoY83Z8wIip3
-         LawxnQ6ckmXWiwXFb+eyBQIDkarrbt/FertlLEs7DT21YnMoH0uTxRWfu+Jh+KhHiVtg
-         +yjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751616999; x=1752221799;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dGsMdWNNo7Kr4TZt6J0SFs0hAUGLXiGKCsH0gVxSZ0s=;
-        b=kpIK3EfjpPWIuyfSfGKNLkB/3naHc7pYfX22082HlSMiNbkCdmVUeARCoqSiW8BF4x
-         CFqBX8Pp9hkkRVgZfiDlwikNB2kkVOGwzegVYOaGfLJeAAb5yxQBpPvqMwWfG5dwsAmU
-         PMDU29Mo3k4peB0zXjPcM7CPPZg4JISIKBSooezkJ8KxnBeTFRa8pr/faktc2B3fae+3
-         n3bSo9ycrm4VCgPXWRvq/Y6CdfpUllYI5we4tutXEvZ6a2+/0dF53PlQAseuX3dplk9M
-         SGlfcHh3fp9ggT+y7BeuHiGdsr0yhKPO1eBp+Lxa0dOZzUFteo/jyyY/vBt1VNjPModU
-         VVXg==
-X-Forwarded-Encrypted: i=1; AJvYcCVE8gIKZG83oA15CCKnXBIaUu2h7ydqfeIpqPpz6lvtzsXaTVTqWISF1YDLRK3vkaw9wzwB8mDTBW9h7Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTd3qVh9Uy+L1TWr0eLh96EyRVIYHTfgOkv1cAZRKY0xjCfamW
-	lYlS6ObnJSXJCrqfX8MB6i0QZ5m+tebjwJc9dTr/lkUgQtqNvH/CffuyJ/qsIdKdmeDq0gzJjc3
-	1f6MRElvi1DogeqrisKq1YUrh0b4vD+YE9N++h7Clxg==
-X-Gm-Gg: ASbGncsEaRBMsPx8XAkFyYXx8clfNaEQbE+UP+2BdEoQIujBhFyUnw9YsDt2bzuoOTz
-	KsdheWhr8XT31IMYJZBKYnHRoZvDmYeMFv5yyR6d/ikBPa2Yru7wXLJIaSyZvvwK+rqhBSBsn8i
-	AGGnysSt5oZNjLwDU5c1f+htHfoa4D/PcWj7SF7AIG2n4=
-X-Google-Smtp-Source: AGHT+IEUHpxlHJAaJyUnD91z1Awdc7+mfmlcOB7ydvJEbIgyvKJk/YjEvZBui91QkwXNtGOS6lwTRVoL9chNvbUBeNA=
-X-Received: by 2002:a05:6512:32d6:b0:553:cf72:45d3 with SMTP id
- 2adb3069b0e04-5565840173fmr528205e87.3.1751616998945; Fri, 04 Jul 2025
- 01:16:38 -0700 (PDT)
+	Fri, 04 Jul 2025 08:16:20 +0000
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 5648F0GA092007
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 4 Jul 2025 16:15:00 +0800 (+08)
+	(envelope-from ben717@andestech.com)
+Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Fri, 4 Jul 2025
+ 16:15:00 +0800
+From: Ben Zong-You Xie <ben717@andestech.com>
+To: 
+CC: <arnd@arndb.de>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+        <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <tglx@linutronix.de>,
+        <daniel.lezcano@linaro.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <soc@lists.linux.dev>,
+        <tim609@andestech.com>, Ben Zong-You Xie <ben717@andestech.com>,
+        Conor Dooley
+	<conor.dooley@microchip.com>
+Subject: [PATCH 4/8] dt-bindings: interrupt-controller: add Andes machine-level software interrupt controller
+Date: Fri, 4 Jul 2025 16:14:47 +0800
+Message-ID: <20250704081451.2011407-5-ben717@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250704081451.2011407-1-ben717@andestech.com>
+References: <20250704081451.2011407-1-ben717@andestech.com>
 MIME-Version: 1.0
-References: <20250702051345.1460497-1-apatel@ventanamicro.com> <20250702051345.1460497-7-apatel@ventanamicro.com>
-In-Reply-To: <20250702051345.1460497-7-apatel@ventanamicro.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 4 Jul 2025 10:16:27 +0200
-X-Gm-Features: Ac12FXzg4WuZhSIauiG8DCqEO1Wj-Rdq7FM-OMSweMcuUZLpJE_RoU4DDONVAww
-Message-ID: <CACRpkdZc9EpUkd-Q3T__4U0XeqTQnxnmW2K=O0BBobgXiQna9Q@mail.gmail.com>
-Subject: Re: [PATCH v7 06/24] byteorder: Add memcpy_to_le32() and memcpy_from_le32()
-To: Anup Patel <apatel@ventanamicro.com>
+X-Originating-IP: [10.0.15.183]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 5648F0GA092007
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_011640_785680_051DF5E5 
-X-CRM114-Status: UNSURE (   7.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250704_091618_180339_AC40F046 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,19 +86,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, linux-acpi@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdWwgMiwgMjAyNSBhdCA3OjE04oCvQU0gQW51cCBQYXRlbCA8YXBhdGVsQHZlbnRh
-bmFtaWNyby5jb20+IHdyb3RlOgoKPiBBZGQgY29tbW9uIG1lbWNweSBBUElzIGZvciBjb3B5aW5n
-IHUzMiBhcnJheSB0by9mcm9tIF9fbGUzMiBhcnJheS4KPgo+IFN1Z2dlc3RlZC1ieTogQW5keSBT
-aGV2Y2hlbmtvIDxhbmRyaXkuc2hldmNoZW5rb0BsaW51eC5pbnRlbC5jb20+Cj4gU2lnbmVkLW9m
-Zi1ieTogQW51cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+CgpUaGF0IGxvb2tzIHVz
-ZWZ1bC4KUmV2aWV3ZWQtYnk6IExpbnVzIFdhbGxlaWogPGxpbnVzLndhbGxlaWpAbGluYXJvLm9y
-Zz4KCllvdXJzLApMaW51cyBXYWxsZWlqCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+Add the DT binding documentation for Andes machine-level software
+interrupt controller.
+
+In the Andes platform such as QiLai SoC, the PLIC module is instantiated a
+second time with all interrupt sources tied to zero as the software
+interrupt controller (PLICSW). PLICSW can generate machine-level software
+interrupts through programming its registers.
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+---
+ .../andestech,plicsw.yaml                     | 54 +++++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ 2 files changed, 55 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml b/Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+new file mode 100644
+index 000000000000..eb2eb611ac09
+--- /dev/null
++++ b/Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+@@ -0,0 +1,54 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interrupt-controller/andestech,plicsw.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Andes machine-level software interrupt controller
++
++description:
++  In the Andes platform such as QiLai SoC, the PLIC module is instantiated a
++  second time with all interrupt sources tied to zero as the software interrupt
++  controller (PLIC_SW). PLIC_SW directly connects to the machine-mode
++  inter-processor interrupt lines of CPUs, so RISC-V per-CPU local interrupt
++  controller is the parent interrupt controller for PLIC_SW. PLIC_SW can
++  generate machine-mode inter-processor interrupts through programming its
++  registers.
++
++maintainers:
++  - Ben Zong-You Xie <ben717@andestech.com>
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - andestech,qilai-plicsw
++      - const: andestech,plicsw
++
++  reg:
++    maxItems: 1
++
++  interrupts-extended:
++    minItems: 1
++    maxItems: 15872
++    description:
++      Specifies which harts are connected to the PLIC_SW. Each item must points
++      to a riscv,cpu-intc node, which has a riscv cpu node as parent.
++
++additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts-extended
++
++examples:
++  - |
++    interrupt-controller@400000 {
++      compatible = "andestech,qilai-plicsw", "andestech,plicsw";
++      reg = <0x400000 0x400000>;
++      interrupts-extended = <&cpu0intc 3>,
++                            <&cpu1intc 3>,
++                            <&cpu2intc 3>,
++                            <&cpu3intc 3>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f4b4261d3c44..df309a360615 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21288,6 +21288,7 @@ F:	include/linux/irqchip/riscv-imsic.h
+ RISC-V ANDES SoC Support
+ M:	Ben Zong-You Xie <ben717@andestech.com>
+ S:	Maintained
++F:	Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+ F:	Documentation/devicetree/bindings/riscv/andes.yaml
+ 
+ RISC-V ARCHITECTURE
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
