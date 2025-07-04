@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E787C83F03
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 12:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B779C83F03
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 12:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y1OAK0II8j5KOMFlqMDrakE4lUXBjKq0rqmRZiwB/2o=; b=N8u27slIIyM7Ev
-	aWDPwwhErorPoxb5nnScLnTGxh7Q/BfsHY/e+PT/mlKVTfTCp8Zx2oNT6rAMeM31crFgFS+T69zxN
-	MKMPlxoPMKqYtCnGOS7cJST6Mko048IuBv7PH6zW0dnRCcknk5zAIThbZ7lnLyxfYaga/7PvLcyTA
-	lqk+CaS94JG5Qj6+xvhN8nzpBPkXrxCQkaVgL6pX0z2Je24LRIM44GtTjL5HNEfD4bnAjptv2OIpg
-	92iJL9HEVQWk8tGpy2yUgFHO5FWwFdB5ty5Y66qnlzMCCq1jjqlKzx6/xRbgq+VKSP4Q9o5K+huto
-	63X8vI2gOzKSunvHf8Aw==;
+	List-Owner; bh=tHzWrT0uwl7WctEH6kyT14JSlZzVi9g+Ojtx6hbLFjk=; b=PjT1nUNMdcC8Hr
+	vuEMbevouA5F/qXRoMAm/UXGCDS7yaV8ENbXYBXyKzl2tweUnBIwZauroc5MXXaomfjiEOVhZcb/I
+	GPwm1BbdiJVM8ETEi0j7G8mmbrhO/45v/T7DKShH6KFLlOgLt9RDxejz5PfvfL2U2VLlcaXK85+rM
+	U71m1UXw1xMt/0sleA5euppKyd6kRjc6oYTVAONNxFcK6pf33krRP4W5uIYsz88XYdKZbmG/e6n0L
+	G+ZYtGp6b7xypa9l8SACSsQ5+eGkkN6H/IzWAmgyBuDbSVd/yxxGLl37xXsOO94MM61C1PEbmjMxI
+	2Kxbh+dtqEvJICK3eS6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXfX1-0000000ENyJ-1StJ;
-	Fri, 04 Jul 2025 12:28:43 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1uXfkD-0000000EPqs-3wGx;
+	Fri, 04 Jul 2025 12:42:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXfWz-0000000ENxB-1ePg
+	id 1uXfkC-0000000EPqJ-37Xy
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 04 Jul 2025 12:42:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=umaIK1M8/yYpjA+tQ4iI4mIN5efEWzCk7U4+ydrdDCM=; b=TcFhX1RzZVaIajTGFjtkwsjoM/
+	em5Nn6RbBC9mYsPU3tM+sYucQ8BQg/yKF8y0CeP1AGMPLxnyqtw2ElMA2zR9iTR6ftvdRCW9LIKLX
+	qDNaRvuw6mRw5TH3AP6ceQ+tNm60wMM+l8dIpXqlSaaqG8cqANuP6LZTSphGOB5Wkyjo9v5Foo5Dr
+	pE1TAgSJtXzMjwYRDsG7utZ+/bZTRLfT3phPnjRBNHiHuIEEgnrK35omwVChV+9pvnUUC/f8zKDkx
+	16RAHjmCA2TxquRvD2nRPAgZdrU0PN3HCeThyAznhazy2qvaEpWjp3tHWcJXsgrGk9td7gBpUl6ju
+	kSQJn7gA==;
+Received: from smtprelay0012.hostedemail.com ([216.40.44.12] helo=relay.hostedemail.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXfk7-00000007yl1-1bh0
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 12:28:42 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 263D14398D;
-	Fri,  4 Jul 2025 12:28:31 +0000 (UTC)
-Message-ID: <8160f56d-967d-4fa0-b996-0e0a2aa8be20@ghiti.fr>
-Date: Fri, 4 Jul 2025 14:28:31 +0200
+	Fri, 04 Jul 2025 12:42:19 +0000
+Received: from omf01.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay08.hostedemail.com (Postfix) with ESMTP id 5B07D140BFE;
+	Fri,  4 Jul 2025 12:41:48 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf01.hostedemail.com (Postfix) with ESMTPA id 8031960016;
+	Fri,  4 Jul 2025 12:41:46 +0000 (UTC)
+Date: Fri, 04 Jul 2025 08:41:46 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Alexandre Ghiti <alex@ghiti.fr>, Miao Chen <chenmiao.ku@gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_riscv=3A_ftrace=3A_Fix_the_lo?=
+ =?US-ASCII?Q?gic_issue_in_DYNAMIC=5FFTRACE_selection?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <8160f56d-967d-4fa0-b996-0e0a2aa8be20@ghiti.fr>
+References: <20250703084502.394406-1-chenmiao.ku@gmail.com> <f7e12c6d-892e-4ca3-9ef0-fbb524d04a48@ghiti.fr> <20250703114018.6fab0b8a@batman.local.home> <5ac2c90c-5907-40ce-a31e-05cb6d88fa52@ghiti.fr> <CAKxVwgeDcqo83ZV+xBcHwNuMk6yeU+yp7RYo22OARAVOBgrsJQ@mail.gmail.com> <8160f56d-967d-4fa0-b996-0e0a2aa8be20@ghiti.fr>
+Message-ID: <8800ABB4-8A14-46E4-90D1-7F121205AF78@goodmis.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: ftrace: Fix the logic issue in DYNAMIC_FTRACE
- selection
-To: Miao Chen <chenmiao.ku@gmail.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250703084502.394406-1-chenmiao.ku@gmail.com>
- <f7e12c6d-892e-4ca3-9ef0-fbb524d04a48@ghiti.fr>
- <20250703114018.6fab0b8a@batman.local.home>
- <5ac2c90c-5907-40ce-a31e-05cb6d88fa52@ghiti.fr>
- <CAKxVwgeDcqo83ZV+xBcHwNuMk6yeU+yp7RYo22OARAVOBgrsJQ@mail.gmail.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CAKxVwgeDcqo83ZV+xBcHwNuMk6yeU+yp7RYo22OARAVOBgrsJQ@mail.gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvfeduhecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepieffvdeiveeuhfegvddvuefhveejhfffudffhfdufeeuudegtdfguddthfetledvnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeegkegufeemvdejkegumedvrgdtmegrrgeijeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemgeekugefmedvjeekugemvdgrtdemrggrieejpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeegkegufeemvdejkegumedvrgdtmegrrgeijegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepjedprhgtphhtthhopegthhgvnhhmihgrohdrkhhusehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhoshhtvgguthesghhoohgumhhishdrohhrghdprhgtphhtthhopehprghulhdrfigrl
- hhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+X-Stat-Signature: ixmdqxxrgnhoouzhxnkw99mtnxooxira
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: 8031960016
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/MhaBri32Bw54W6u2p0Zn8VPzRsDfcHLs=
+X-HE-Tag: 1751632906-632877
+X-HE-Meta: U2FsdGVkX1/TAFbx0NIrciBh27+SNmLwVSW2k0Rv0aRarae54Ng83H3ZBUcRpjEoZ7OFy1qgKOt2bQmjv1xjwu6TlD8CQa3uCMFD/S01geJ44lasN5R1ycfd+THZNSdzUkZ923ZSvfautxhVvCn6Ihy2TAtlsZHeKWoTcwwZEfbueKSSQsVVaLuFmFvL1JiSPgLINaxZco5JMtqmmbJYqF/i0ms/FZkfSysl6WKYH+HKktV/LHSSWwD9meM2oSMiC68qBDYNLxGJLebUC6QRXFtd87mSM5SGqIk4gKPqPOJ8Y+vPxAXkSGt6opfxgR2iOfg5IUWPvqX0NEyPFHEfFgruOYegBuZ0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_052841_564012_7F4675FC 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20250704_134215_775339_1DE6A5C5 
+X-CRM114-Status: UNSURE (   5.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,43 +82,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2hlbiBNaWFvLAoKT24gNy80LzI1IDA0OjA2LCBNaWFvIENoZW4gd3JvdGU6Cj4gSGVsbG8g
-QWxleCwKPgo+IFNob3VsZCBJIHdhaXQgZm9yIFN0ZXZlbiB0byBmaW5pc2ggaGlzIHdvcmsgYmVm
-b3JlIHN0YXJ0aW5nIG1pbmU/IEhlIAo+IHNlZW1zIHRvIGJlIHJlZmFjdG9yaW5nIGEgbG90IG9m
-IENPTkZJRyBsb2dpYywgd2hpY2ggbWlnaHQgY2F1c2UgCj4gY29uZmxpY3RzLgoKCkkgd291bGQg
-c2F5IG5vLCBkb24ndCB3YWl0IGZvciBTdGV2ZW4gc2luY2UgaGlzIHdvcmsgd29uJ3QgbGFuZCBp
-biA2LjE2LCAKd2UgbmVlZCBhIGZpeCB0byBwcmV2ZW50IGJ1aWxkIGZhaWx1cmVzIGZvciB0aGlz
-IHJlbGVhc2UuCgpUaGFua3MsCgpBbGV4CgoKPgo+IFRoYW5rcywKPgo+IENoZW4gTWlhbwo+Cj4g
-QWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiDkuo4yMDI15bm0N+aciDTml6XlkajkupQg
-MDA6MDblhpnpgZPvvJoKPgo+ICAgICBIaSBTdGV2ZSwKPgo+ICAgICBPbiA3LzMvMjUgMTc6NDAs
-IFN0ZXZlbiBSb3N0ZWR0IHdyb3RlOgo+ICAgICA+IE9uIFRodSwgMyBKdWwgMjAyNSAxNTowMDow
-MiArMDIwMAo+ICAgICA+IEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0aS5mcj4gd3JvdGU6Cj4g
-ICAgID4KPiAgICAgPgo+ICAgICA+PiBXZSBjb3VsZCBzdXBwb3J0IHN0YXRpYyBmdHJhY2UsIGJ1
-dCBJIGRvbid0IHRoaW5rIHdlIHNob3VsZCwgc28KPiAgICAgSSBhZ3JlZQo+ICAgICA+PiB3aXRo
-IHRoaXMgcGF0Y2guIEluIGZhY3QgSSBoYWQganVzdCBwcmVwYXJlZCBhIHBhdGNoIGZvciB0aGlz
-IGhlcmUKPiAgICAgPj4KPiAgICAgaHR0cHM6Ly9naXRodWIuY29tL2xpbnV4LXJpc2N2L2xpbnV4
-L3B1bGwvNTU2L2NvbW1pdHMvMDQ4MTA5MmE1YmVjMzgxODY1ODk4MWMxMWY2MjllMDZlNjYzODJi
-Mwo+ICAgICA+PiB3aGljaCBpcyBhIGJpdCBtb3JlIGNvbXBsZXRlIHNpbmNlIEkgaGF2ZSByZW1v
-dmVkIHNvbWUgZGVhZCBjb2RlLgo+ICAgICA+Pgo+ICAgICA+PiBMZXQncyBzZWUgd2hhdCBvdGhl
-ciBwZW9wbGUgdGhpbmsgYWJvdXQgc3VwcG9ydGluZyBzdGF0aWMKPiAgICAgZnRyYWNlLCBJIGhh
-dmUKPiAgICAgPj4gYWRkZWQgU3RldmVuIGluIGNjIGlmIGhlIGhhcyBhbiBvcGluaW9uLgo+ICAg
-ICA+IFllcywgcGxlYXNlIG9ubHkgc3VwcG9ydCB0aGUgZHluYW1pYyBmdHJhY2UuIFRoZSBzdGF0
-aWMgaXMgdGhlcmUKPiAgICAgb25seQo+ICAgICA+IHRvIGhlbHAgYXJjaHMgdG8gZ2V0IGZ0cmFj
-ZSB1cCBhbmQgcnVubmluZy4gT25jZSBkeW5hbWljIGlzCj4gICAgIHN1cHBvcnRlZCwKPiAgICAg
-PiBzdGF0aWMgc2hvdWxkIG5vdCBiZSB1c2VkLgo+ICAgICA+Cj4gICAgID4gSG1tLCBtYXliZSBJ
-IHNob3VsZCBqdXN0IHJlbW92ZSB0aGUgcHJvbXB0IGZvciBEWU5BTUlDX0ZUUkFDRS4KPiAgICAg
-Pgo+ICAgICA+IFRoYXQgaXMsIG9uY2UgaXQgaXMgc3VwcG9ydGVkIGJ5IGFuIGFyY2hpdGVjdHVy
-ZSwgaXQgc2hvdWxkIGJlCj4gICAgIHRoZSBvbmx5Cj4gICAgID4gdGhpbmcgdXNlZC4KPiAgICAg
-Pgo+ICAgICA+IC0tIFN0ZXZlCj4KPgo+ICAgICBUaGFua3MgZm9yIHlvdXIgaW5wdXQuCj4KPiAg
-ICAgQENoZW5NaWFvOiBjYW4geW91IGNvbWUgdXAgd2l0aCBhIHYyIHRoYXQsIGluIGFkZGl0aW9u
-LCBkZWxldGVzCj4gICAgIHRoZSBkZWFkCj4gICAgIGNvZGUgYW5kIHdpdGggYSBjb21taXQgbG9n
-IHRoYXQgZXhwbGFpbnMgd2hhdCBTdGV2ZW4gc2FpZD8gSWYgbm90Cj4gICAgIHBvc3NpYmxlIGZv
-ciB5b3UsIGxldCBtZSBrbm93IGFuZCBJJ2xsIGRvIGl0Lgo+Cj4gICAgIFRoYW5rcywKPgo+ICAg
-ICBBbGV4Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On July 4, 2025 8:28:31 AM EDT, Alexandre Ghiti <alex@ghiti.fr> wrote:
+>Hi Chen Miao,
+>
+>On 7/4/25 04:06, Miao Chen wrote:
+>> Hello Alex,
+>> 
+>> Should I wait for Steven to finish his work before starting mine? He seems to be refactoring a lot of CONFIG logic, which might cause conflicts.
+>
+>
+>I would say no, don't wait for Steven since his work won't land in 6.16, we need a fix to prevent build failures for this release.
+>
+
+Agreed,
+
+-- Steve
+
+>
+>> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
