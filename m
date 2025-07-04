@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E663C83F03
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 15:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C73CDC8303D
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jul 2025 15:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XzEcL867gKkri5NFGSVDdQihjut7R0ng5yb3jlmp/IE=; b=AEz3nkyo4Oj4yV
-	Y6knkPPZJPolWictCt+zhdqnLLqtde7UnceNdq1wdz4AckW/NlARdYviils1n3hFrjQlHMko8VzyF
-	DE34t5E75euvXA3v2uML9pFtuCQjskjiWM2M1+8IsiolAibI/cV52/v3CEjzUjFe6WOQZfvJ22JxI
-	aMZ++qe6bAqc8cnzZlI7AlikEK42u9ic3VxZZlOePOD2TQa/M8uUee5g4eALTn7uIhg1zI2bsHa50
-	0dPcA9IHEeXnilSfbhU8AAv6z7XIp03LXpqb0wh9GGwYUtSl8AZ0ZRDn8oX+59ZnlXwG/i4NsmfO6
-	UCjaTCx4v7uXR8Wz8EpA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Dqd8zp8FvZw3vcmOuBKI2n48QLwaHCEJOHyOr3P8TKk=; b=vQ45PhQxpQ0k6f
+	AtLo70mMLvzj5h9pqd5DfgDJetH74QqWr6Vc2luhcAd0F6fMBDfh3pqx8HFrljzg+nGGH3Afhv9iu
+	AWJf8fU15nlJTLpjC7wIPjM3MWD8ySvfT5uigIj0T2gUmIc6aUfKKe28vLpvuh5rZydsV7MCPcQgL
+	RQiLmAglJUdI/npmGxF973AM9pIhalJpOuxxsWYn4vseNejSleYvDRGG+xr17/+OkR5KB3BcAzOrb
+	bc1ySTx5HdNUg8tFBxH51XjnBG/Wa18aqqPiTcklMbfrZOX5gt7ysQjwoYUjZ/n2Bfe4gzGN2otto
+	zINBc2tV8NURl88zz4Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXiW6-0000000Eqsd-18js;
-	Fri, 04 Jul 2025 15:39:58 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1uXiW4-0000000EqrX-2fOP;
+	Fri, 04 Jul 2025 15:39:56 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXiVB-0000000Eqe2-0xYy
+	id 1uXiV0-0000000EqbT-3Th2
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Jul 2025 15:39:02 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7481600130eso1536957b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Jul 2025 08:39:01 -0700 (PDT)
+	Fri, 04 Jul 2025 15:38:52 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-23c8a5053c2so4186185ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Jul 2025 08:38:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751643540; x=1752248340; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EGu8D5CO2g4ATuM30TaqWjSMbmUsVDtUpJDi7E1Auq4=;
-        b=GTZ78TvyKulMnId8ITYtXig3tDO981J/ZZVC2GdBj5XwpBZBddXGylvVIiA9+IojGh
-         Qr7BFrflUqkE2P4OUyD80vGoKBr4nwWa1+5YN+6BuIIBkPV2rLmje9ZWR2XkJq3KQy/0
-         v/+UzfpNf3LP0l5oO3Ofds72/kIkLTlsYlaufzuEVRFGQXiXE0p+s/O7pfgYYHPQExP0
-         QYODyqyQThrHDfH+6AmCgfGwfVNcfNiLuo1fvkUymMQEcS5NwuBHL5KKOZ2b3pheyYam
-         ec30xZZTF6j4kQ/+d9pN/FD6FtobgyWbdJkYhPaPbxCb41f+NFjTY9672Y33V0qd+Je/
-         C98w==
+        d=ventanamicro.com; s=google; t=1751643529; x=1752248329; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CcyVISN67taC6h/BgRmPM88r/wN68xhaL4uppVs0AxI=;
+        b=FarV6+HKwv0msdlvVTJJKElItXEsQd/uGFCNdyn35fWOsADGD7SJQSq/tXEMg69ZPv
+         C4FORMu5QdWi8cZClYHYwkm23WgfqoHs1g5kQHwHswYM3BYOWQHqvobteTcJWGTcaGxN
+         +oLMfai7b04hAn0oVG932d+JoCAzyD0L9liX5wgp3wNbkVHD+X6bVw8jFLw5BDiFKdDU
+         9ndA/VmaulF+DX2SsBl9LlockDDIKjhbx3c/YAkmPtMC6XOK7Y4dpD1lryv0PJ5p1gv8
+         k/CgzUw0OTEMFOjsBY8XX/3NodX0zCBWgVsRsYoKFzZAXJF9XWJgFRFrGh5NsTx8baM+
+         fwjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751643540; x=1752248340;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EGu8D5CO2g4ATuM30TaqWjSMbmUsVDtUpJDi7E1Auq4=;
-        b=Ath0PgollcttDBmwUWEj6BDxzsSAup0JHNqFilNvcCwESHMfTyLr7lvJs0G3FbOjVb
-         koIulL5mb4deDNXjp2z/SbxTcZiKt6fboc+F0GZMlSeqoqz3bCLG26moK7b7OJW6bD+0
-         w1d0g0gyRkkoGx+PzNhJdXOD9JlU6iou3eND6YXMskKmA7J+ewpnDOftyA3LdGtQjHxF
-         l8jWudOY2VMFP1utP0z5x2dnQGL7HkEbhg0Sh8tXmAKJC4SZsF68KCGmDtgSrQyhfq5h
-         UEhlHj2JR73vxdW02+ILfeZ1eZ6JEBbQVRV2o1Xr+xD5Nf1KJDbzk+eu9XMRBV6kbyec
-         p17A==
-X-Forwarded-Encrypted: i=1; AJvYcCVJhsmns5qom/CjHwiiLsUavvG1VXbPpqhVPLZ6atucyfHDBGaQroiJGr9Rry2roRU3DnYiwHqgqiP3CQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8J+4r5S83qo4O6d2efBEqKuCZ/AqxhSrpPl6on0nGEpLIEegz
-	2nl8tO692pN+AqRKHks1UevVJsiVk9B4e8gO8HJF6ONh3RrahklWQUH1EZ7Kyzku1Wk=
-X-Gm-Gg: ASbGncvvq/mQj7rOh2dmCAhQdELg4hGsgvN79+RIthbyGFoxtsxv2sbY9qv36Ws4TaE
-	AIcvj/qvvjo39krBFP/4nDVQJ05QABAfMyinPq6c0zNY3zOe1pD0CocRWuLrW4uTVJXJv2bTjU+
-	88NHP/XzHGc4V++p4YXWNYXcGUY+75ZliKDZVnUDIOmHmeFtRz2/iQzSfytBPWGqXulpXEYWEh+
-	0RUMk4LJHO9n4kyqE1d0zRvCt5FcDX0x4sj9bItALrZiLBoKnAhSLg5Hjrbu1tXY4dWGO37wzj0
-	6tp5lC1IG4OZumbgd2HXuuKLRZharhj0vQSp0cIR649C9/JsGGulJm7g+3KXH/uF2CgHH5BiU5o
-	wLcrm8N/BrLTuwDVMORE=
-X-Google-Smtp-Source: AGHT+IEy5K6TN3PEoTMk39/X767PpUlO+bEGeE+f/+6Ff0hJG+gUrinbRE67z7eLIyDgw9OeZ6XYHA==
-X-Received: by 2002:a05:6a21:a8e:b0:220:a3de:a083 with SMTP id adf61e73a8af0-225b85f3eafmr5148507637.10.1751643540342;
-        Fri, 04 Jul 2025 08:39:00 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1751643529; x=1752248329;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CcyVISN67taC6h/BgRmPM88r/wN68xhaL4uppVs0AxI=;
+        b=prmx1obZhtvW5zy8PEQ0OFfiwwC5yB2PoJ+k7zovhYY/y19geNAzapSiHuSLZ7POCx
+         rRCOPEdbV7dT9rIq+QnZa/F1sESA/YxLhJcbZa8B6uLXuV/uVkLkgHGd0nGTHw5n03C9
+         6kVGqTcLfjochVYD5fGtXpfhvqAcGsOzH5AQ1bfoDVXYQy4NZnB+8P1sYDueCV2rNcAL
+         9px9vM0KZlgORUzI5tVh9ox5jP/X93wJQmqySz9jsW0RgPEOT6BO81FzrKFYOywdyk8o
+         bmnZDHBFNADHXZmM06EY4S0cmjGf/5KxWes4V+K92Boh5Xuy0DFEbBaenMiZ6XblWVWo
+         TvRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWq0FByKYXQmnLUpcgiV52d222EupMU0SJcJUwmcYFyEkLw9R9VTBKX5LwAGu04bmL+3760FrR/cYlAvQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJ8WX1MgLvB9//wB+tt+9wRIpNfYJyHdhdk7cQxQBz/vTZyMKt
+	zDyN5EDe6MrNZ+nk16b0HUSYiDR/hIsnNmCQFfc7xuUpqiJ1Fd4YX9R1uqjISer7mFs=
+X-Gm-Gg: ASbGncufwSg9eYY5IDtgAKdKT78XpmV1oYjqHpz1au6irboV37WSzXzOptJSXsmBvqM
+	nQ0eJoQSKeVbSEA0YZirdvCleYDlJ4VMSDPWxgdQEPYpkRI4rN9fq/5TzMqlsyhY9GDyTjOo/VR
+	lnzveIxdrmr1W+L6D2NcGnX2haRU0sK49Ui9YJBlgbUdJSRGPEZ5mdQxZQ95kfOARfqJLeZKlax
+	GKXNqdoyrQOjuKuvOzwiH4Lzocr0+ZB/MzQQoFPWEP3R8+g2HuN4WTD4529RjSAXIrBRbT8IBk2
+	LKBuqmPINN6eXE6ayTgf3+pOY+pqegF3hLHKqyOs5QunSYWtCaavHTH83Zk4faCyFKzVJ1yXCvN
+	Snj5Yd4FuvrCLo7QXTCohnOMhsyms5w==
+X-Google-Smtp-Source: AGHT+IHCoNM/FN2r7kAw4r3sBqbkqR7ZPm3zgW5FYxH7kU0oFHIRlx/vujAnKCk/T1gpdC5+o539qA==
+X-Received: by 2002:a17:902:ebc6:b0:231:e331:b7df with SMTP id d9443c01a7336-23c8624cbeemr60131625ad.29.1751643529473;
+        Fri, 04 Jul 2025 08:38:49 -0700 (PDT)
 Received: from localhost.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b38ee63003bsm2084818a12.62.2025.07.04.08.38.55
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b38ee63003bsm2084818a12.62.2025.07.04.08.38.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Jul 2025 08:38:59 -0700 (PDT)
+        Fri, 04 Jul 2025 08:38:49 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Atish Patra <atish.patra@linux.dev>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -81,16 +80,15 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 2/2] RISC-V: KVM: Move HGEI[E|P] CSR access to IMSIC virtualization
-Date: Fri,  4 Jul 2025 21:08:38 +0530
-Message-ID: <20250704153838.6575-3-apatel@ventanamicro.com>
+Subject: [PATCH 0/2] Few timer and AIA fixes for KVM RISC-V
+Date: Fri,  4 Jul 2025 21:08:36 +0530
+Message-ID: <20250704153838.6575-1-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250704153838.6575-1-apatel@ventanamicro.com>
-References: <20250704153838.6575-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_083901_275261_27E3A127 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20250704_083850_871901_5FD8ED04 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,224 +105,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is one HGEI line associated with each IMSIC VS-file on a host CPU.
-The IMSIC virtualization already keeps track of the HGEI line and the
-associated IMSIC VS-file used by each VCPU.
+The RISC-V Privileged specificaiton says the following: "WFI is also
+required to resume execution for locally enabled interrupts pending
+at any privilege level, regardless of the global interrupt enable at
+each privilege level."
 
-Currently, the common AIA functions kvm_riscv_vcpu_aia_has_interrupts()
-and kvm_riscv_aia_wakeon_hgei() lookup HGEI line using an array of VCPU
-pointers before accessing HGEI[E|P] CSR which is slow. Move the HGEI[E|P]
-CSR access to IMSIC virtualization so that costly HGEI line lookup and
-potential race-conditions when updating HGEI[E|P] CSR can be avoided.
+Based on the above, if there is pending VS-timer interrupt when the
+host (aka HS-mode) executes WFI then such a WFI will simply become NOP
+and not do anything. This result in QEMU RISC-V consuming a lot of CPU
+time on the x86 machine where it is running. The PATCH1 solves this
+issue by adding appropriate cleanup in KVM RISC-V timer virtualization.
 
-Fixes: 3385339296d1 ("RISC-V: KVM: Use IMSIC guest files when available")
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
+As a result PATCH1, race conditions in updating HGEI[E|P] CSRs when a
+VCPU is moved from one host CPU to another are being observed on QEMU
+so the PATCH2 tries to minimize the chances of these race conditions.
+
+Anup Patel (2):
+  RISC-V: KVM: Disable vstimecmp before exiting to user-space
+  RISC-V: KVM: Move HGEI[E|P] CSR access to IMSIC virtualization
+
  arch/riscv/include/asm/kvm_aia.h |  4 ++-
  arch/riscv/kvm/aia.c             | 51 +++++---------------------------
  arch/riscv/kvm/aia_imsic.c       | 45 ++++++++++++++++++++++++++++
  arch/riscv/kvm/vcpu.c            |  2 --
- 4 files changed, 55 insertions(+), 47 deletions(-)
+ arch/riscv/kvm/vcpu_timer.c      | 16 ++++++++++
+ 5 files changed, 71 insertions(+), 47 deletions(-)
 
-diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
-index 0a0f12496f00..b04ecdd1a860 100644
---- a/arch/riscv/include/asm/kvm_aia.h
-+++ b/arch/riscv/include/asm/kvm_aia.h
-@@ -87,6 +87,9 @@ DECLARE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
- 
- extern struct kvm_device_ops kvm_riscv_aia_device_ops;
- 
-+bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu);
-+void kvm_riscv_vcpu_aia_imsic_load(struct kvm_vcpu *vcpu, int cpu);
-+void kvm_riscv_vcpu_aia_imsic_put(struct kvm_vcpu *vcpu);
- void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu);
- int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu);
- 
-@@ -161,7 +164,6 @@ void kvm_riscv_aia_destroy_vm(struct kvm *kvm);
- int kvm_riscv_aia_alloc_hgei(int cpu, struct kvm_vcpu *owner,
- 			     void __iomem **hgei_va, phys_addr_t *hgei_pa);
- void kvm_riscv_aia_free_hgei(int cpu, int hgei);
--void kvm_riscv_aia_wakeon_hgei(struct kvm_vcpu *owner, bool enable);
- 
- void kvm_riscv_aia_enable(void);
- void kvm_riscv_aia_disable(void);
-diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
-index 19afd1f23537..dad318185660 100644
---- a/arch/riscv/kvm/aia.c
-+++ b/arch/riscv/kvm/aia.c
-@@ -30,28 +30,6 @@ unsigned int kvm_riscv_aia_nr_hgei;
- unsigned int kvm_riscv_aia_max_ids;
- DEFINE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
- 
--static int aia_find_hgei(struct kvm_vcpu *owner)
--{
--	int i, hgei;
--	unsigned long flags;
--	struct aia_hgei_control *hgctrl = get_cpu_ptr(&aia_hgei);
--
--	raw_spin_lock_irqsave(&hgctrl->lock, flags);
--
--	hgei = -1;
--	for (i = 1; i <= kvm_riscv_aia_nr_hgei; i++) {
--		if (hgctrl->owners[i] == owner) {
--			hgei = i;
--			break;
--		}
--	}
--
--	raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
--
--	put_cpu_ptr(&aia_hgei);
--	return hgei;
--}
--
- static inline unsigned long aia_hvictl_value(bool ext_irq_pending)
- {
- 	unsigned long hvictl;
-@@ -95,7 +73,6 @@ void kvm_riscv_vcpu_aia_sync_interrupts(struct kvm_vcpu *vcpu)
- 
- bool kvm_riscv_vcpu_aia_has_interrupts(struct kvm_vcpu *vcpu, u64 mask)
- {
--	int hgei;
- 	unsigned long seip;
- 
- 	if (!kvm_riscv_aia_available())
-@@ -114,11 +91,7 @@ bool kvm_riscv_vcpu_aia_has_interrupts(struct kvm_vcpu *vcpu, u64 mask)
- 	if (!kvm_riscv_aia_initialized(vcpu->kvm) || !seip)
- 		return false;
- 
--	hgei = aia_find_hgei(vcpu);
--	if (hgei > 0)
--		return !!(ncsr_read(CSR_HGEIP) & BIT(hgei));
--
--	return false;
-+	return kvm_riscv_vcpu_aia_imsic_has_interrupt(vcpu);
- }
- 
- void kvm_riscv_vcpu_aia_update_hvip(struct kvm_vcpu *vcpu)
-@@ -164,6 +137,9 @@ void kvm_riscv_vcpu_aia_load(struct kvm_vcpu *vcpu, int cpu)
- 		csr_write(CSR_HVIPRIO2H, csr->hviprio2h);
- #endif
- 	}
-+
-+	if (kvm_riscv_aia_initialized(vcpu->kvm))
-+		kvm_riscv_vcpu_aia_imsic_load(vcpu, cpu);
- }
- 
- void kvm_riscv_vcpu_aia_put(struct kvm_vcpu *vcpu)
-@@ -174,6 +150,9 @@ void kvm_riscv_vcpu_aia_put(struct kvm_vcpu *vcpu)
- 	if (!kvm_riscv_aia_available())
- 		return;
- 
-+	if (kvm_riscv_aia_initialized(vcpu->kvm))
-+		kvm_riscv_vcpu_aia_imsic_put(vcpu);
-+
- 	if (kvm_riscv_nacl_available()) {
- 		nsh = nacl_shmem();
- 		csr->vsiselect = nacl_csr_read(nsh, CSR_VSISELECT);
-@@ -472,22 +451,6 @@ void kvm_riscv_aia_free_hgei(int cpu, int hgei)
- 	raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
- }
- 
--void kvm_riscv_aia_wakeon_hgei(struct kvm_vcpu *owner, bool enable)
--{
--	int hgei;
--
--	if (!kvm_riscv_aia_available())
--		return;
--
--	hgei = aia_find_hgei(owner);
--	if (hgei > 0) {
--		if (enable)
--			csr_set(CSR_HGEIE, BIT(hgei));
--		else
--			csr_clear(CSR_HGEIE, BIT(hgei));
--	}
--}
--
- static irqreturn_t hgei_interrupt(int irq, void *dev_id)
- {
- 	int i;
-diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index ea1a36836d9c..fda0346f0ea1 100644
---- a/arch/riscv/kvm/aia_imsic.c
-+++ b/arch/riscv/kvm/aia_imsic.c
-@@ -677,6 +677,48 @@ static void imsic_swfile_update(struct kvm_vcpu *vcpu,
- 	imsic_swfile_extirq_update(vcpu);
- }
- 
-+bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu)
-+{
-+	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
-+	unsigned long flags;
-+	bool ret = false;
-+
-+	/*
-+	 * The IMSIC SW-file directly injects interrupt via hvip so
-+	 * only check for interrupt when IMSIC VS-file is being used.
-+	 */
-+
-+	read_lock_irqsave(&imsic->vsfile_lock, flags);
-+	if (imsic->vsfile_cpu > -1)
-+		ret = !!(csr_read(CSR_HGEIP) & BIT(imsic->vsfile_hgei));
-+	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+
-+	return ret;
-+}
-+
-+void kvm_riscv_vcpu_aia_imsic_load(struct kvm_vcpu *vcpu, int cpu)
-+{
-+	/*
-+	 * No need to explicitly clear HGEIE CSR bits because the
-+	 * hgei interrupt handler (aka hgei_interrupt()) will always
-+	 * clear it for us.
-+	 */
-+}
-+
-+void kvm_riscv_vcpu_aia_imsic_put(struct kvm_vcpu *vcpu)
-+{
-+	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
-+	unsigned long flags;
-+
-+	if (!kvm_vcpu_is_blocking(vcpu))
-+		return;
-+
-+	read_lock_irqsave(&imsic->vsfile_lock, flags);
-+	if (imsic->vsfile_cpu > -1)
-+		csr_set(CSR_HGEIE, BIT(imsic->vsfile_hgei));
-+	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+}
-+
- void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
- {
- 	unsigned long flags;
-@@ -781,6 +823,9 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
- 	 * producers to the new IMSIC VS-file.
- 	 */
- 
-+	/* Ensure HGEIE CSR bit is zero before using the new IMSIC VS-file */
-+	csr_clear(CSR_HGEIE, BIT(new_vsfile_hgei));
-+
- 	/* Zero-out new IMSIC VS-file */
- 	imsic_vsfile_local_clear(new_vsfile_hgei, imsic->nr_hw_eix);
- 
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index fe028b4274df..b26bf35a0a19 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -211,12 +211,10 @@ int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
- 
- void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu)
- {
--	kvm_riscv_aia_wakeon_hgei(vcpu, true);
- }
- 
- void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu)
- {
--	kvm_riscv_aia_wakeon_hgei(vcpu, false);
- }
- 
- int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu)
 -- 
 2.43.0
 
