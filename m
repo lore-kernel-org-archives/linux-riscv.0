@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3C7C8303C
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jul 2025 15:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22575C83030
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jul 2025 18:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WHtYl+KatQEkJXVFgwrEepEcNI31bsjWlIJcQ3QyrIU=; b=Pbzvyzd0tJ2d7O
-	j5+9NexUCxwSieVTzkEUWmR87Mggis/X+GAaSuPzxqUykLYz24P/twRQKSQjlAhs9xg1wpyjAOF/s
-	nXhV4cxrD9zEuNnzavBq7qMTDb8D7bHijJgEqB4mZOVrpLdx1HIsUyf5hoZf2QCYHgBWjy10dwCPb
-	roIhaUI+amKjY6PxfzmXj3jiP/T+5DdxGFk7hhFiKe7iDEclzp2OqBEhkhy0RnYiurxhxkJ3+pGo3
-	h827mrkcEnx2SXACBOGh/1K9L0is7J7/NgjAalnMdzBrJQDxeYZA/lfjEJQxMjDRLoQkTatSs9p4P
-	xfSClPolJqQ4XrvDsbUA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=32VMp5+D1rkEArUMXNi8r0nwYUrwPtAgkOZdVJeGHwM=; b=0fsxQ2x5t0tgxv
+	ZIPWGNFYd5ihnWFcTMuQgYLsMh9O2SUnb+Mz2D2vOjYnBAYSV7zvmQG1lKW3oVmZiAIRPwVL8RvcT
+	qwu1ncRGpA8ncjJJVWXig/gmiFxX6l/dz6jGHFrCvmVLs+XUpj/Dlp+KaJU6WsVRxOrl6/O6+HgJj
+	rqdTtFPO2TQ2C9iaBe7EMIC7eNUT6OJGbHQhxNEDvo9waLHoVtOGDc75jNCJkYNx3lGVBUIW1X2Po
+	QQGx156A7Wi1pHrhi28xbVnJv1Gvj0PmPIFxtpe1ITmiUpVaIaC6z9GX9nbbTyZriTQaJQuryHqOc
+	U99X03oWjX1bTFhgLm4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY4XN-0000000GhTk-3HrN;
-	Sat, 05 Jul 2025 15:10:45 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1uY7uG-0000000Gryt-3zm2;
+	Sat, 05 Jul 2025 18:46:36 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY4XK-0000000GhTJ-1RvD
+	id 1uY7uD-0000000GryQ-23DZ
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Jul 2025 15:10:44 +0000
-Received: from dev-suse (unknown [223.72.70.63])
-	by APP-01 (Coremail) with SMTP id qwCowAAXBqplQGlo3O5BAQ--.5908S2;
-	Sat, 05 Jul 2025 23:10:30 +0800 (CST)
-From: Jingwei Wang <wangjingwei@iscas.ac.cn>
-To: linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Jesse Taube <jesse@rivosinc.com>,
-	Olof Johansson <olof@lixom.net>,
-	Yixun Lan <dlan@gentoo.org>,
-	Yanteng Si <si.yanteng@linux.dev>,
-	Tsukasa OI <research_trasio@irq.a4lg.com>,
-	stable@vger.kernel.org,
-	Jingwei Wang <wangjingwei@iscas.ac.cn>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v5] riscv: hwprobe: Fix stale vDSO data for late-initialized keys at boot
-Date: Sat,  5 Jul 2025 23:08:28 +0800
-Message-ID: <20250705150952.29461-1-wangjingwei@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.0
+	Sat, 05 Jul 2025 18:46:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751741193; x=1783277193;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Z0yzV/VPkDfvyUx/xopWYC8B14lYUePBKBtLJOQOW6U=;
+  b=JF1TQKxV5H9ZXxL3oWV3O8afVuymFkgxxcs3ijkeMJs/BWJZASQQacTQ
+   3ZUfybOdy17t/yOsAYP6K6+E8Nn+QWzeI9Vn7dMZ7kta3ldNTNp1ADewm
+   C21LzT4CWJaAglpZNM3i7horWN9VOgOmCZoVlD9xew7jPcjjAmZEma2Mc
+   wQHmDjnX4orKsemSVaL8OhwHyHeW/WX6TIP4CIeDhtZRd1UMOXHj2aQTv
+   zaxnNrxs2g9yz2n1jQNqq2jry+A1cf8NVYIOe5vo7V+BstGHk3vV2ktC6
+   16x6LAJuqaiE9qJHJzHjA7fZj876vkrmdJ+8OKl21fqzELyuzRfYA0qIA
+   A==;
+X-CSE-ConnectionGUID: dFQ0Brv/TXCZWZHTaoo/Kw==
+X-CSE-MsgGUID: bWy+x2OGTDWHIMAieegDew==
+X-IronPort-AV: E=McAfee;i="6800,10657,11485"; a="65079093"
+X-IronPort-AV: E=Sophos;i="6.16,290,1744095600"; 
+   d="scan'208";a="65079093"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jul 2025 11:46:31 -0700
+X-CSE-ConnectionGUID: YtCQ6xlMTd6QNYDFXdZszw==
+X-CSE-MsgGUID: hhfPyBMXRqeKWA/pf1pBJA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,290,1744095600"; 
+   d="scan'208";a="154988400"
+Received: from lkp-server01.sh.intel.com (HELO 0b2900756c14) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 05 Jul 2025 11:46:27 -0700
+Received: from kbuild by 0b2900756c14 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uY7u5-0004fv-0y;
+	Sat, 05 Jul 2025 18:46:25 +0000
+Date: Sun, 6 Jul 2025 02:46:11 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ze Huang <huang.ze@linux.dev>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Ze Huang <huang.ze@linux.dev>
+Subject: Re: [PATCH v5 2/2] usb: dwc3: add generic driver to support flattened
+Message-ID: <202507060206.iiBP6CQi-lkp@intel.com>
+References: <20250705-dwc3_generic-v5-2-9dbc53ea53d2@linux.dev>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAAXBqplQGlo3O5BAQ--.5908S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3AF43ury8KFyfCrykuF4rZrb_yoWxGFWxpF
-	WqkrsYqFy5JF4xWa9rKw1kZF10g3Z5Gr43GFsFk345ZryfAr13Jr9aqrsxAr1DtrZYva40
-	vF45WFWYk3y2yrJanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9j14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
-	C2KfnxnUUI43ZEXa7sRE2Q6tUUUUU==
-X-Originating-IP: [223.72.70.63]
-X-CM-SenderInfo: pzdqwy5lqj4v3l6l2u1dvotugofq/
+Content-Disposition: inline
+In-Reply-To: <20250705-dwc3_generic-v5-2-9dbc53ea53d2@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_081042_749928_956DDCC9 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20250705_114633_608375_9B395EDC 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,162 +96,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The hwprobe vDSO data for some keys, like MISALIGNED_VECTOR_PERF,
-is determined by an asynchronous kthread. This can create a race
-condition where the kthread finishes after the vDSO data has
-already been populated, causing userspace to read stale values.
+Hi Ze,
 
-To fix this, a completion-based framework is introduced to robustly
-synchronize the async probes with the vDSO data population. The
-waiting function, init_hwprobe_vdso_data(), now blocks on
-wait_for_completion() until all probes signal they are done.
+kernel test robot noticed the following build warnings:
 
-Furthermore, to prevent this potential blocking from impacting boot
-performance, the initialization is deferred to late_initcall. This
-is safe as the data is only required by userspace (which starts
-much later) and moves the synchronization delay off the critical
-boot path.
+[auto build test WARNING on d9946fe286439c2aeaa7953b8c316efe5b83d515]
 
-Reported-by: Tsukasa OI <research_trasio@irq.a4lg.com>
-Closes: https://lore.kernel.org/linux-riscv/760d637b-b13b-4518-b6bf-883d55d44e7f@irq.a4lg.com/
-Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Olof Johansson <olof@lixom.net>
-Cc: stable@vger.kernel.org
-Signed-off-by: Jingwei Wang <wangjingwei@iscas.ac.cn>
----
-Changes in v5:
-	- Reworked the synchronization logic to a robust "sentinel-count"
-	  pattern based on feedback from Alexandre.
-	- Fixed a "multiple definition" linker error for nommu builds by changing
-	  the header-file stub functions to `static inline`, as pointed out by Olof.
-	- Updated the commit message to better explain the rationale for moving
-	  the vDSO initialization to `late_initcall`.
+url:    https://github.com/intel-lab-lkp/linux/commits/Ze-Huang/dt-bindings-usb-dwc3-add-support-for-SpacemiT-K1/20250705-210419
+base:   d9946fe286439c2aeaa7953b8c316efe5b83d515
+patch link:    https://lore.kernel.org/r/20250705-dwc3_generic-v5-2-9dbc53ea53d2%40linux.dev
+patch subject: [PATCH v5 2/2] usb: dwc3: add generic driver to support flattened
+config: arc-randconfig-001-20250706 (https://download.01.org/0day-ci/archive/20250706/202507060206.iiBP6CQi-lkp@intel.com/config)
+compiler: arc-linux-gcc (GCC) 8.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250706/202507060206.iiBP6CQi-lkp@intel.com/reproduce)
 
-Changes in v4:
-	- Reworked the synchronization mechanism based on feedback from Palmer
-    	and Alexandre.
-	- Instead of a post-hoc refresh, this version introduces a robust
-	completion-based framework using an atomic counter to ensure async
-	probes are finished before populating the vDSO.
-	- Moved the vdso data initialization to a late_initcall to avoid
-	impacting boot time.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507060206.iiBP6CQi-lkp@intel.com/
 
-Changes in v3:
-	- Retained existing blank line.
+All warnings (new ones prefixed by >>):
 
-Changes in v2:
-	- Addressed feedback from Yixun's regarding #ifdef CONFIG_MMU usage.
-	- Updated commit message to provide a high-level summary.
-	- Added Fixes tag for commit e7c9d66e313b.
+>> drivers/usb/dwc3/dwc3-generic-plat.c:151:12: warning: 'dwc3_generic_runtime_idle' defined but not used [-Wunused-function]
+    static int dwc3_generic_runtime_idle(struct device *dev)
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/usb/dwc3/dwc3-generic-plat.c:144:12: warning: 'dwc3_generic_runtime_resume' defined but not used [-Wunused-function]
+    static int dwc3_generic_runtime_resume(struct device *dev)
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/usb/dwc3/dwc3-generic-plat.c:137:12: warning: 'dwc3_generic_runtime_suspend' defined but not used [-Wunused-function]
+    static int dwc3_generic_runtime_suspend(struct device *dev)
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/usb/dwc3/dwc3-generic-plat.c:121:12: warning: 'dwc3_generic_resume' defined but not used [-Wunused-function]
+    static int dwc3_generic_resume(struct device *dev)
+               ^~~~~~~~~~~~~~~~~~~
+>> drivers/usb/dwc3/dwc3-generic-plat.c:107:12: warning: 'dwc3_generic_suspend' defined but not used [-Wunused-function]
+    static int dwc3_generic_suspend(struct device *dev)
+               ^~~~~~~~~~~~~~~~~~~~
 
-v1: https://lore.kernel.org/linux-riscv/20250521052754.185231-1-wangjingwei@iscas.ac.cn/T/#u
 
- arch/riscv/include/asm/hwprobe.h           |  8 +++++++-
- arch/riscv/kernel/sys_hwprobe.c            | 20 +++++++++++++++++++-
- arch/riscv/kernel/unaligned_access_speed.c |  9 +++++++--
- 3 files changed, 33 insertions(+), 4 deletions(-)
+vim +/dwc3_generic_runtime_idle +151 drivers/usb/dwc3/dwc3-generic-plat.c
 
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 7fe0a379474ae2c6..3b2888126e659ea1 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -40,5 +40,11 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
- 
- 	return pair->value == other_pair->value;
- }
--
-+#ifdef CONFIG_MMU
-+void riscv_hwprobe_register_async_probe(void);
-+void riscv_hwprobe_complete_async_probe(void);
-+#else
-+static inline void riscv_hwprobe_register_async_probe(void) {}
-+static inline void riscv_hwprobe_complete_async_probe(void) {}
-+#endif
- #endif
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index 0b170e18a2beba57..ee02aeb03e7bd3d8 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -5,6 +5,8 @@
-  * more details.
-  */
- #include <linux/syscalls.h>
-+#include <linux/completion.h>
-+#include <linux/atomic.h>
- #include <asm/cacheflush.h>
- #include <asm/cpufeature.h>
- #include <asm/hwprobe.h>
-@@ -467,6 +469,20 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
- 
- #ifdef CONFIG_MMU
- 
-+static DECLARE_COMPLETION(boot_probes_done);
-+static atomic_t pending_boot_probes = ATOMIC_INIT(1);
-+
-+void riscv_hwprobe_register_async_probe(void)
-+{
-+	atomic_inc(&pending_boot_probes);
-+}
-+
-+void riscv_hwprobe_complete_async_probe(void)
-+{
-+	if (atomic_dec_and_test(&pending_boot_probes))
-+		complete(&boot_probes_done);
-+}
-+
- static int __init init_hwprobe_vdso_data(void)
- {
- 	struct vdso_arch_data *avd = vdso_k_arch_data;
-@@ -474,6 +490,8 @@ static int __init init_hwprobe_vdso_data(void)
- 	struct riscv_hwprobe pair;
- 	int key;
- 
-+	if (unlikely(!atomic_dec_and_test(&pending_boot_probes)))
-+		wait_for_completion(&boot_probes_done);
- 	/*
- 	 * Initialize vDSO data with the answers for the "all CPUs" case, to
- 	 * save a syscall in the common case.
-@@ -504,7 +522,7 @@ static int __init init_hwprobe_vdso_data(void)
- 	return 0;
- }
- 
--arch_initcall_sync(init_hwprobe_vdso_data);
-+late_initcall(init_hwprobe_vdso_data);
- 
- #endif /* CONFIG_MMU */
- 
-diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-index ae2068425fbcd207..4b8ad2673b0f7470 100644
---- a/arch/riscv/kernel/unaligned_access_speed.c
-+++ b/arch/riscv/kernel/unaligned_access_speed.c
-@@ -379,6 +379,7 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
- static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
- {
- 	schedule_on_each_cpu(check_vector_unaligned_access);
-+	riscv_hwprobe_complete_async_probe();
- 
- 	return 0;
- }
-@@ -473,8 +474,12 @@ static int __init check_unaligned_access_all_cpus(void)
- 			per_cpu(vector_misaligned_access, cpu) = unaligned_vector_speed_param;
- 	} else if (!check_vector_unaligned_access_emulated_all_cpus() &&
- 		   IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
--		kthread_run(vec_check_unaligned_access_speed_all_cpus,
--			    NULL, "vec_check_unaligned_access_speed_all_cpus");
-+		riscv_hwprobe_register_async_probe();
-+		if (IS_ERR(kthread_run(vec_check_unaligned_access_speed_all_cpus,
-+				NULL, "vec_check_unaligned_access_speed_all_cpus"))) {
-+			pr_warn("Failed to create vec_unalign_check kthread\n");
-+			riscv_hwprobe_complete_async_probe();
-+		}
- 	}
- 
- 	/*
+   106	
+ > 107	static int dwc3_generic_suspend(struct device *dev)
+   108	{
+   109		struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
+   110		int ret;
+   111	
+   112		ret = dwc3_pm_suspend(&dwc3->dwc);
+   113		if (ret)
+   114			return ret;
+   115	
+   116		clk_bulk_disable_unprepare(dwc3->num_clocks, dwc3->clks);
+   117	
+   118		return 0;
+   119	}
+   120	
+ > 121	static int dwc3_generic_resume(struct device *dev)
+   122	{
+   123		struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
+   124		int ret;
+   125	
+   126		ret = clk_bulk_prepare_enable(dwc3->num_clocks, dwc3->clks);
+   127		if (ret)
+   128			return ret;
+   129	
+   130		ret = dwc3_pm_resume(&dwc3->dwc);
+   131		if (ret)
+   132			return ret;
+   133	
+   134		return 0;
+   135	}
+   136	
+ > 137	static int dwc3_generic_runtime_suspend(struct device *dev)
+   138	{
+   139		struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
+   140	
+   141		return dwc3_runtime_suspend(&dwc3->dwc);
+   142	}
+   143	
+ > 144	static int dwc3_generic_runtime_resume(struct device *dev)
+   145	{
+   146		struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
+   147	
+   148		return dwc3_runtime_resume(&dwc3->dwc);
+   149	}
+   150	
+ > 151	static int dwc3_generic_runtime_idle(struct device *dev)
+   152	{
+   153		struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
+   154	
+   155		return dwc3_runtime_idle(&dwc3->dwc);
+   156	}
+   157	
+
 -- 
-2.50.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
