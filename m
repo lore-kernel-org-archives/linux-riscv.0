@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 011AEC83F09
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jul 2025 13:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D98C8303C
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jul 2025 13:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GPufy3Vil6gogINUWIDMm1Ws3mX+xfpECD1z0DQwRyQ=; b=4kiUQW7V8eYhun
-	65Nyct+pSo552cWaZayeG4la5NoTxfFZLm/0haaHF0t56Bu942smONtr8e01mcmE16bxM37ONFbWD
-	f0/ax6NLt0u+APpdBJUhp8wgKN1tWPYWt3+V+jJtUpe/2tso2iream/+2ZUxJYi3B4W16Dlbc9wtH
-	Ji+50HP8Z/011e7jB4btyGbhcm1p2kZhzjfU14qDXJzJMT/0ftZgtMUECTwNINaOGvFuZgN5f7xvH
-	1Kvf8ozNkpb+Iz3DIZ7wKIiftnbybIqR+6tRLg9tmlAsjn9cCt66aM2/k1DIIqjsjXKSIFKe9CIMa
-	tn4F+7w/7SERLnWJ111w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7Og2d+Me81grhAA/afMg/66fwRBoVhx5pfAhp2lS6tI=; b=HnYj0A7JscLoS+
+	vVyytPpZ6M40QS92Wqlkb83dWVAMbSDgXqkWFKf95NdVZaf6wp2ex7gzQx/FYZFC/hentSvrS54IK
+	qRuXI8n36ocHP+nCXLTIRI+xsgX7A00mkGetcK1Aak1wDHbZtPoIic9J42eE5AyIv/anxVikkwGMB
+	QIDe8DVPkZJcSDdMuOoo2JrtbyxCEEGW8mdOrbkGc/Kz8tNR0NIcwBHuWjra8IHZYGR0J3fHUyki9
+	JG3q63S95DMrCstvwucTKPvq25Mt7g6W+cS9Rb5z8OdWsrx0g8zPb5jBEUSyViogQ/cp2IgH6AQwS
+	+Z8brF2IEsWbbaRUc8hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY2Ww-0000000GWAD-1arc;
-	Sat, 05 Jul 2025 13:02:10 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1uY2ex-0000000GX4p-0Adf;
+	Sat, 05 Jul 2025 13:10:27 +0000
+Received: from out-174.mta0.migadu.com ([91.218.175.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY2Wt-0000000GW7L-2YLL
+	id 1uY2et-0000000GX3q-1rVc
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Jul 2025 13:02:09 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+	Sat, 05 Jul 2025 13:10:25 +0000
+Date: Sat, 5 Jul 2025 21:10:13 +0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1751720512;
+	t=1751721018;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ArYwZ5zOI/ep0laxBTgV4QIgn2lW60AWJ8gSjeJEzuA=;
-	b=L7Rntyr7+7XkBJYk80ZxGw/el13hwuQhm7+4mYXy5OI+I/fsKQD53KiqVJDj05I1mxZg45
-	s/r+n3q1JEjoi4dV6SGJZwUg3gWt7momo3k+LMaN0LcDMAo6TJE5FZqcJ6+bjw62Z1+zfk
-	wVWAHtIYZNWJyIUU2FWfXtb4dU7u3g0=
+	 in-reply-to:in-reply-to:references:references;
+	bh=4OGIJ7s7TRMTl0Xs4Ki+8/cZ1uyPe+zE5+yenLTGv2o=;
+	b=gE760dQLmmt4M1FpGuvtCjTMneBR22mOZWVOcIZ5eNf90hp4uPPBE6WmbuaR04iddZF/Ob
+	zd2bVNvkTghi3Ig+J/HMvdSiOP22aiX3dXE0voGSFTnxS/TelUvQ9PSKiPL8kzT+Mq/SFW
+	EJ8ClOjPIGy6WwA7d3x1nw9yd/fB+VM=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Ze Huang <huang.ze@linux.dev>
-Subject: [PATCH v5 0/2] Add SpacemiT K1 USB3.0 host controller support
-Date: Sat, 05 Jul 2025 21:01:24 +0800
-Message-Id: <20250705-dwc3_generic-v5-0-9dbc53ea53d2@linux.dev>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Ze Huang <huang.ze@linux.dev>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v5 1/2] dt-bindings: usb: dwc3: add support for SpacemiT
+ K1
+Message-ID: <aGkkKEMyY1JG7Z80@monica.localdomain>
+References: <20250705-dwc3_generic-v5-0-9dbc53ea53d2@linux.dev>
+ <20250705-dwc3_generic-v5-1-9dbc53ea53d2@linux.dev>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIACQiaWgC/yWMQQ6CMBAAv9Ls2TVlSQH5iiEGtyvugSItognh7
- zZynElmNkgSVRK0ZoMoqyadQgZ3MsDPPgyC6jMDWXK2tg79h8vbICFnjI231LhLTcQl5OQV5aH
- f/+7aHRxlfufrcki490mQp3HUpTVrdS4qjFxAt+8/5dkFEosAAAA=
-X-Change-ID: 20250705-dwc3_generic-8d02859722c3
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Ze Huang <huang.ze@linux.dev>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751720506; l=3183;
- i=huang.ze@linux.dev; s=20250705; h=from:subject:message-id;
- bh=SqXf6aPuODlu+xrSd3tAhGLkvfo/IFawoGpR3ecYlfo=;
- b=ov1Mzqe2SD2LFE8mEmXjqL8WIVgz5jScaTpi63H6bGdM8uqaI7LYA3CZSN+/JUOeOCZSS263I
- q4iYuHZ9WjQAya6TOcGraiGPUN9t+iuftSW+kAXgZNOR8SQzCcDMvcO
-X-Developer-Key: i=huang.ze@linux.dev; a=ed25519;
- pk=Kzc4PMu5PTo8eZZQ5xmTNL9jeXcQ9Wml0cs+vlQpBkg=
+Content-Disposition: inline
+In-Reply-To: <20250705-dwc3_generic-v5-1-9dbc53ea53d2@linux.dev>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_060207_801992_EECF73C9 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250705_061023_631456_663847F6 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,84 +77,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The USB 3.0 controller found in the SpacemiT K1 SoC[1] supports both USB3.0
-Host and USB2.0 Dual-Role Device (DRD). 
+On Sat, Jul 05, 2025 at 09:01:25PM +0800, Ze Huang wrote:
+> Add support for the USB 3.0 Dual-Role Device (DRD) controller embedded
+> in the SpacemiT K1 SoC. The controller is based on the Synopsys
+> DesignWare Core USB 3 (DWC3) IP, supporting USB3.0 host mode and USB 2.0
+> DRD mode.
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Ze Huang <huang.ze@linux.dev>
+> ---
 
-This controller is compatible with DesignWare Core USB 3 (DWC3) driver.
-However, constraints in the `snps,dwc3` bindings limit the ability to describe
-hardware-specific features in a clean and maintainable way. While
-`dwc3-of-simple` still serves as a glue layer for many platforms, it requires a
-split device tree node structure, which is less desirable in newer platforms.
+Hi Krzysztof,
 
-To promote a transition toward a flattened `dwc` node structure, this series
-introduces `dwc3-generic-plat`, building upon prior efforts that exposed the
-DWC3 core driver [2].
+I kept your Reviewed-by tag, as this version only includes minor updates:
+- Dropped the `interconnects` property
+- Updated the `resets` property to match the latest convention from Alex's patch
 
-The device tree support for SpacemiT K1 will be submitted separately when the
-associated PHY driver is ready.
+Let me know if you have any concerns.
 
-This series is based on 6.16-rc1 and has been tested on BananaPi development
-boards.
-
-Link: https://developer.spacemit.com/documentation?token=AjHDwrW78igAAEkiHracBI9HnTb [1]
-Link: https://lore.kernel.org/all/20250414-dwc3-refactor-v7-3-f015b358722d@oss.qualcomm.com [2]
-
-Signed-off-by: Ze Huang <huang.ze@linux.dev>
----
-Changes in v5:
-- drop DTS patch (will submit when PHY driver is ready)
-- drop interconnects and update resets property in dt-bindings
-- remove unnecessary __maybe_unused attribute and PM guards
-- switch to devres APIs for reset and clock management
-- Link to v4: https://lore.kernel.org/all/20250526-b4-k1-dwc3-v3-v4-0-63e4e525e5cb@whut.edu.cn/
-
-Changes in v4:
-- dt-bindings spacemit,k1-dwc:
-  - reorder properties
-  - add properties of phys & phy-names
-  - add usb hub nodes in example dt
-- add support for spacemit,k1-mbus
-- dwc3 generic plat driver:
-  - rename dwc3-common.c to dwc3-generic-plat.c
-  - use SYSTEM_SLEEP_PM_OPS macros and drop PM guards
-- dts:
-  - reorder dts properties of usb dwc3 node
-  - move "dr_mode" of dwc3 from dtsi to dts
-- Link to v3: https://lore.kernel.org/r/20250518-b4-k1-dwc3-v3-v3-0-7609c8baa2a6@whut.edu.cn
-
-Changes in v3:
-- introduce dwc3-common for generic dwc3 hardware
-- fix warnings in usb host dt-bindings
-- fix errors in dts
-- Link to v2: https://lore.kernel.org/r/20250428-b4-k1-dwc3-v2-v1-0-7cb061abd619@whut.edu.cn
-
-Changes in v2:
-- dt-bindings:
-  - add missing 'maxItems'
-  - remove 'status' property in exmaple
-  - fold dwc3 node into parent
-- drop dwc3 glue driver and use snps,dwc3 driver directly
-- rename dts nodes and reorder properties to fit coding style
-- Link to v1: https://lore.kernel.org/all/20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn
-
----
-Ze Huang (2):
-      dt-bindings: usb: dwc3: add support for SpacemiT K1
-      usb: dwc3: add generic driver to support flattened
-
- .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 107 ++++++++++++
- drivers/usb/dwc3/Kconfig                           |  11 ++
- drivers/usb/dwc3/Makefile                          |   1 +
- drivers/usb/dwc3/dwc3-generic-plat.c               | 182 +++++++++++++++++++++
- 4 files changed, 301 insertions(+)
----
-base-commit: d9946fe286439c2aeaa7953b8c316efe5b83d515
-change-id: 20250705-dwc3_generic-8d02859722c3
-
-Best regards,
--- 
-Ze Huang <huang.ze@linux.dev>
-
+>  .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 107 +++++++++++++++++++++
+>  1 file changed, 107 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..c967ad6aae50199127a4f8a17d53fc34e8d9480b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+> @@ -0,0 +1,107 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/spacemit,k1-dwc3.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: SpacemiT K1 SuperSpeed DWC3 USB SoC Controller
+> +
+> +maintainers:
+> +  - Ze Huang <huang.ze@linux.dev>
+> +
+> +description: |
+> +  The SpacemiT K1 embeds a DWC3 USB IP Core which supports Host functions
+> +  for USB 3.0 and DRD for USB 2.0.
+> +
+> +  Key features:
+> +  - USB3.0 SuperSpeed and USB2.0 High/Full/Low-Speed support
+> +  - Supports low-power modes (USB2.0 suspend, USB3.0 U1/U2/U3)
+> +  - Internal DMA controller and flexible endpoint FIFO sizing
+> +
+> +  Communication Interface:
+> +  - Use of PIPE3 (125MHz) interface for USB3.0 PHY
+> +  - Use of UTMI+ (30/60MHz) interface for USB2.0 PHY
+> +
+> +allOf:
+> +  - $ref: snps,dwc3-common.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: spacemit,k1-dwc3
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  clock-names:
+> +    const: usbdrd30
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  phys:
+> +    items:
+> +      - description: phandle to USB2/HS PHY
+> +      - description: phandle to USB3/SS PHY
+> +
+> +  phy-names:
+> +    items:
+> +      - const: usb2-phy
+> +      - const: usb3-phy
+> +
+> +  resets:
+> +    items:
+> +      - description: USB3.0 AHB reset line
+> +      - description: USB3.0 VCC reset line
+> +      - description: USB3.0 PHY reset line
+> +
+> +  vbus-supply:
+> +    description: A phandle to the regulator supplying the VBUS voltage.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - phys
+> +  - phy-names
+> +  - resets
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    usb@c0a00000 {
+> +        compatible = "spacemit,k1-dwc3";
+> +        reg = <0xc0a00000 0x10000>;
+> +        clocks = <&syscon_apmu 16>;
+> +        clock-names = "usbdrd30";
+> +        interrupts = <125>;
+> +        phys = <&usb2phy>, <&usb3phy>;
+> +        phy-names = "usb2-phy", "usb3-phy";
+> +        resets = <&syscon_apmu 8>,
+> +                 <&syscon_apmu 9>,
+> +                 <&syscon_apmu 10>;
+> +        vbus-supply = <&usb3_vbus>;
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        hub_2_0: hub@1 {
+> +            compatible = "usb2109,2817";
+> +            reg = <1>;
+> +            vdd-supply = <&usb3_vhub>;
+> +            peer-hub = <&hub_3_0>;
+> +            reset-gpios = <&gpio 3 28 1>;
+> +        };
+> +
+> +        hub_3_0: hub@2 {
+> +            compatible = "usb2109,817";
+> +            reg = <2>;
+> +            vdd-supply = <&usb3_vhub>;
+> +            peer-hub = <&hub_2_0>;
+> +            reset-gpios = <&gpio 3 28 1>;
+> +        };
+> +    };
+> 
+> -- 
+> 2.50.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
