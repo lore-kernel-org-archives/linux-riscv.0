@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD1F5C8303C
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jul 2025 11:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A25C8303C
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jul 2025 13:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hy0P4zCCyPBsHHVir2X71QvDj6Jc2V1k0/K+xjHT+IE=; b=UW6ZI9Y8JbkeKB
-	Xfty00m6Rismp5ZEBH7edNthcjgWjTCtA7czuXrDNwheqtmzjnW+mlDmT4CD+IPlGSl/QwqUjcxBZ
-	WoXqzNlr+d7JQ4OayiiIxD6GsWv3/bI1Yy5c1Ih9v0vaHzjvjYItWjXvQFIUKdsIsXO0043OJjPkJ
-	iYYVO9p7eoUTCuawkZ48/LWxfFNQLj260hi+Y/a7+QAuCfo9GLLOWtGwFTPJ1NtW75AFs7Yp8BKFS
-	DHAXhmPL614h3Tpz1iFe0TeCI/e+MevgDzc6AIKYjdXcJ1qn1Z8tNOuLuN0wcnDXDlry94V5QtWwQ
-	vNDpuW38pjb/3JZQtb4A==;
+	List-Owner; bh=o3EdGbiEynvFfLxaqzHCbvKrLMR82ZjIti3skh+c7fA=; b=GLmHKo0k2LeqmR
+	JPFp+5Icav8Hdl4zSR5D7W+FTPBayp//QCockc+ZtsPHpaLBWVffx8tw4jbyzqR3puwVRmQXy+Nqo
+	PMUyrz5xaqxmT/9a3HEW8SyKu0nqzbg/A27Ss+uT6p3ww/myIRTPYe5JvLUdsYsBneydaJR0qouZK
+	3P0c5NlBXcKIkIzTr/YZ5OCl6SLO0T0sDtxNcIIuh4s4DwGXOCQ4wPgspzrJdBiFZXvWbFjryLt07
+	SPknHq7fz5NbnnXNF21rRQKutt1tX1ouX/P6IGPaMIoIdUkBIxrnP8sCgU2dZcJMkMTRDZ52Su3bL
+	hsUDO79Y7R3nmhXlCUGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY157-0000000GRRz-3tiD;
-	Sat, 05 Jul 2025 11:29:21 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1uY2Wr-0000000GW8i-3Q0W;
+	Sat, 05 Jul 2025 13:02:05 +0000
+Received: from out-186.mta0.migadu.com ([91.218.175.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY154-0000000GRRd-2kYI
+	id 1uY2Wp-0000000GW7y-02dt
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Jul 2025 11:29:20 +0000
-Received: from localhost (unknown [223.72.70.63])
-	by APP-05 (Coremail) with SMTP id zQCowAAHYGCGDGlopD80AQ--.4990S2;
-	Sat, 05 Jul 2025 19:29:10 +0800 (CST)
-Date: Sat, 5 Jul 2025 19:29:09 +0800
-From: Jingwei Wang <wangjingwei@iscas.ac.cn>
-To: Olof Johansson <olof@lixom.net>
-Cc: linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Jesse Taube <jesse@rivosinc.com>, Yixun Lan <dlan@gentoo.org>,
-	Yanteng Si <si.yanteng@linux.dev>,
-	Tsukasa OI <research_trasio@irq.a4lg.com>, stable@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v4] riscv: hwprobe: Fix stale vDSO data for
- late-initialized keys at boot
-Message-ID: <aGkMhWtWDmQDG8IT@Jingweis-MacBook-Air.local>
-References: <20250627172814.66367-1-wangjingwei@iscas.ac.cn>
- <aGNhC3mtpT8x_Z6V@chonkvm.lixom.net>
+	Sat, 05 Jul 2025 13:02:05 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1751720518;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zbwQTtgBBjV1PrfOsd92CG44T6/rae0SpShqAS13m7Q=;
+	b=jGc9BlwXBe+isXmogOgcp3BKCMmBTbTFTV/qgavtbQN8KhNx0KLvtRAulA4p8dTjzVz+cd
+	FoXcm/9r06qUMBSHRXhu/17U6GQDw8PaPpm+Vz2HGC7bBrSIjMnJkME90gQdFoXeoGtkAa
+	bFbXBrKM9sS6x3yQOzY8jmQBzePGOMc=
+From: Ze Huang <huang.ze@linux.dev>
+Date: Sat, 05 Jul 2025 21:01:25 +0800
+Subject: [PATCH v5 1/2] dt-bindings: usb: dwc3: add support for SpacemiT K1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aGNhC3mtpT8x_Z6V@chonkvm.lixom.net>
-X-CM-TRANSID: zQCowAAHYGCGDGlopD80AQ--.4990S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGrW8JrWkWw4kKrWfGw1xXwb_yoWrAr4kpa
-	98Crs0vFy5JFWxua97Kw18Zr1Fqan5Gw1fXrnrK3yUXry7ZrnxJF9aq3y7Cr1DXFyv9w10
-	vFy5WFZIk3y7Z3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Eb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6xkF7I0En7xvr7AKxVWUJV
-	W8JwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48J
-	M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI4
-	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
-	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjx
-	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
-	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
-	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5HpBDUUUUU==
-X-Originating-IP: [223.72.70.63]
-X-CM-SenderInfo: pzdqwy5lqj4v3l6l2u1dvotugofq/
+Message-Id: <20250705-dwc3_generic-v5-1-9dbc53ea53d2@linux.dev>
+References: <20250705-dwc3_generic-v5-0-9dbc53ea53d2@linux.dev>
+In-Reply-To: <20250705-dwc3_generic-v5-0-9dbc53ea53d2@linux.dev>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Ze Huang <huang.ze@linux.dev>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751720506; l=3493;
+ i=huang.ze@linux.dev; s=20250705; h=from:subject:message-id;
+ bh=ClEZVwhmbkNN+DYn4N/u/hmThZk0uTkhPgmsjHGbk/M=;
+ b=OqKB6TRsZZ1U5MkWADMzwiSSFDdpN3tgEDaGwFid3eJwJ919oPhdDqAN5z9opFO9hJGVX+p7W
+ mqQZFsmKZnSAeii0xM+wHgIUfpYVTrSdl7Dr/MJJWr/jM11rzmpmcIP
+X-Developer-Key: i=huang.ze@linux.dev; a=ed25519;
+ pk=Kzc4PMu5PTo8eZZQ5xmTNL9jeXcQ9Wml0cs+vlQpBkg=
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_042919_060539_66A4D6CF 
-X-CRM114-Status: GOOD (  24.52  )
+X-CRM114-CacheID: sfid-20250705_060203_809038_88E81F14 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,90 +81,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Olof,
+Add support for the USB 3.0 Dual-Role Device (DRD) controller embedded
+in the SpacemiT K1 SoC. The controller is based on the Synopsys
+DesignWare Core USB 3 (DWC3) IP, supporting USB3.0 host mode and USB 2.0
+DRD mode.
 
-On Mon, Jun 30, 2025 at 09:16:11PM -0700, Olof Johansson wrote:
-> Hi,
->
-> On Sat, Jun 28, 2025 at 01:27:42AM +0800, Jingwei Wang wrote:
-> > The value for some hwprobe keys, like MISALIGNED_VECTOR_PERF, is
-> > determined by an asynchronous kthread. This kthread can finish after
-> > the hwprobe vDSO data is populated, creating a race condition where
-> > userspace can read stale values.
-> >
-> > A completion-based framework is introduced to synchronize the async
-> > probes with the vDSO population. The init_hwprobe_vdso_data()
-> > function is deferred to `late_initcall` and now blocks until all
-> > probes signal completion.
-> >
-> > Reported-by: Tsukasa OI <research_trasio@irq.a4lg.com>
-> > Closes: https://lore.kernel.org/linux-riscv/760d637b-b13b-4518-b6bf-883d55d44e7f@irq.a4lg.com/
-> > Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
-> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Jingwei Wang <wangjingwei@iscas.ac.cn>
-> > ---
-> > Changes in v4:
-> > 	- Reworked the synchronization mechanism based on feedback from Palmer
-> >     	and Alexandre.
-> > 	- Instead of a post-hoc refresh, this version introduces a robust
-> > 	completion-based framework using an atomic counter to ensure async
-> > 	probes are finished before populating the vDSO.
-> > 	- Moved the vdso data initialization to a late_initcall to avoid
-> > 	impacting boot time.
-> >
-> > Changes in v3:
-> > 	- Retained existing blank line.
-> >
-> > Changes in v2:
-> > 	- Addressed feedback from Yixun's regarding #ifdef CONFIG_MMU usage.
-> > 	- Updated commit message to provide a high-level summary.
-> > 	- Added Fixes tag for commit e7c9d66e313b.
-> >
-> > v1: https://lore.kernel.org/linux-riscv/20250521052754.185231-1-wangjingwei@iscas.ac.cn/T/#u
-> >
-> >  arch/riscv/include/asm/hwprobe.h           |  8 +++++++-
-> >  arch/riscv/kernel/sys_hwprobe.c            | 20 +++++++++++++++++++-
-> >  arch/riscv/kernel/unaligned_access_speed.c |  9 +++++++--
-> >  3 files changed, 33 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-> > index 7fe0a379474ae2c6..87af186d92e75ddb 100644
-> > --- a/arch/riscv/include/asm/hwprobe.h
-> > +++ b/arch/riscv/include/asm/hwprobe.h
-> > @@ -40,5 +40,11 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
-> >
-> >  	return pair->value == other_pair->value;
-> >  }
-> > -
-> > +#ifdef CONFIG_MMU
-> > +void riscv_hwprobe_register_async_probe(void);
-> > +void riscv_hwprobe_complete_async_probe(void);
-> > +#else
-> > +inline void riscv_hwprobe_register_async_probe(void) {}
-> > +inline void riscv_hwprobe_complete_async_probe(void) {}
->
-> These need to be:
->
-> static inline void riscv_hwprobe_register_async_probe(void) {}
-> static inline void riscv_hwprobe_complete_async_probe(void) {}
->
-> Or else you get an global instantiation of them in every file that includes
-> them, and compilation errors about duplicate symbols, as seen by
-> nommu_virt_defconfig:
->
-> riscv64-linux-gnu-ld: arch/riscv/kernel/process.o: in function `riscv_hwprobe_register_async_probe':
-> process.c:(.text+0x170): multiple definition of `riscv_hwprobe_register_async_probe'; arch/riscv/kernel/cpufeature.o:cpufeature.c:(.text+0x312): first defined here
-> riscv64-linux-gnu-ld: arch/riscv/kernel/process.o: in function `riscv_hwprobe_complete_async_probe':
-> process.c:(.text+0x17c): multiple definition of `riscv_hwprobe_complete_async_probe'; arch/riscv/kernel/cpufeature.o:cpufeature.c:(.text+0x31e): first defined here
-> riscv64-linux-gnu-ld: arch/riscv/kernel/ptrace.o: in function `riscv_hwprobe_register_async_probe':
-> ptrace.c:(.text+0x714): multiple definition of `riscv_hwprobe_register_async_probe'; arch/riscv/kernel/cpufeature.o:cpufeature.c:(.text+0x312): first defined here
->
-Thank you for spotting this. I'll apply this fix to the v5 patch.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Ze Huang <huang.ze@linux.dev>
+---
+ .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 107 +++++++++++++++++++++
+ 1 file changed, 107 insertions(+)
 
-Thanks,
-Jingwei
+diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..c967ad6aae50199127a4f8a17d53fc34e8d9480b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+@@ -0,0 +1,107 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/spacemit,k1-dwc3.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K1 SuperSpeed DWC3 USB SoC Controller
++
++maintainers:
++  - Ze Huang <huang.ze@linux.dev>
++
++description: |
++  The SpacemiT K1 embeds a DWC3 USB IP Core which supports Host functions
++  for USB 3.0 and DRD for USB 2.0.
++
++  Key features:
++  - USB3.0 SuperSpeed and USB2.0 High/Full/Low-Speed support
++  - Supports low-power modes (USB2.0 suspend, USB3.0 U1/U2/U3)
++  - Internal DMA controller and flexible endpoint FIFO sizing
++
++  Communication Interface:
++  - Use of PIPE3 (125MHz) interface for USB3.0 PHY
++  - Use of UTMI+ (30/60MHz) interface for USB2.0 PHY
++
++allOf:
++  - $ref: snps,dwc3-common.yaml#
++
++properties:
++  compatible:
++    const: spacemit,k1-dwc3
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: usbdrd30
++
++  interrupts:
++    maxItems: 1
++
++  phys:
++    items:
++      - description: phandle to USB2/HS PHY
++      - description: phandle to USB3/SS PHY
++
++  phy-names:
++    items:
++      - const: usb2-phy
++      - const: usb3-phy
++
++  resets:
++    items:
++      - description: USB3.0 AHB reset line
++      - description: USB3.0 VCC reset line
++      - description: USB3.0 PHY reset line
++
++  vbus-supply:
++    description: A phandle to the regulator supplying the VBUS voltage.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - phys
++  - phy-names
++  - resets
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    usb@c0a00000 {
++        compatible = "spacemit,k1-dwc3";
++        reg = <0xc0a00000 0x10000>;
++        clocks = <&syscon_apmu 16>;
++        clock-names = "usbdrd30";
++        interrupts = <125>;
++        phys = <&usb2phy>, <&usb3phy>;
++        phy-names = "usb2-phy", "usb3-phy";
++        resets = <&syscon_apmu 8>,
++                 <&syscon_apmu 9>,
++                 <&syscon_apmu 10>;
++        vbus-supply = <&usb3_vbus>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        hub_2_0: hub@1 {
++            compatible = "usb2109,2817";
++            reg = <1>;
++            vdd-supply = <&usb3_vhub>;
++            peer-hub = <&hub_3_0>;
++            reset-gpios = <&gpio 3 28 1>;
++        };
++
++        hub_3_0: hub@2 {
++            compatible = "usb2109,817";
++            reg = <2>;
++            vdd-supply = <&usb3_vhub>;
++            peer-hub = <&hub_2_0>;
++            reset-gpios = <&gpio 3 28 1>;
++        };
++    };
+
+-- 
+2.50.0
 
 
 _______________________________________________
