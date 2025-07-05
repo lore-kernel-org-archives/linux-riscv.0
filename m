@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F37C8303C
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jul 2025 07:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA497C8303C
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jul 2025 11:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FS8kC3sbiTH/m2M2jyShAQ/fC1w0kOgjZ6kkAQFi6KI=; b=VRnula+01/43Cj
-	JC2SX7WP835MJQNoah+pSVwnE8Yx1shwEInwu8aKO17R8gvlYa477kukEB79mCakR+blPCXkti00M
-	3ECkOtVOBS07AbWAGdiWYBd6Euu7CcweIsRs/HLv0SLyTfuCgr6o1bH7wBB/JFl/VDukaRqJUim8E
-	JDZfJweeBdIRzZhHxNXXNZ+MBYuiHdPVggU/9mm9En3A5cmp/qeuMSj+h+AThSKsZZlC66wdfZ40J
-	fCHSBQY0gWTwJHgzSgSAx0+zmr3VPk0c8IkNWzaXQuUc0fbqOypdP9zzhFcV3sKHsdU8kJFTRWseO
-	85lHN2TEaE0v/3xo4xSg==;
+	List-Owner; bh=9rn/lAwz5UleTNlQBEMun0NI+gve7I/iaFkqg/rTC+8=; b=Y+Ysshe0h0Noje
+	bYfLuTNBkR5McWKr4efWHyjopm4OdEx0xy4hFNuDDkKPWetxOtqQWHvtosUvH0VfV3YijH6kh7lNm
+	MCw/dFRO4UO9Hu/T5g4z9sfFpg+XvS8DJmVCsvxLQYA5ai1t/jdKIoWPy9l3i6X2p45oC0jr3ptsj
+	bOkuM9D9A/hdD9bOWri3XOFlWo8WGAQ1HVbAGfVM6WiIYYutUe2HMdRKS+xi2IEewqq1KSSVeW4TU
+	M05DdvIxG+npM5d9l5T+QIdbMyX97eWYkdCBc+0sUAGToGnQrnQBJOBUsK2H7JV2Z9XPee0qH7EU3
+	++bruhD6YkewBtdobvGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXxi9-0000000GFaV-00bQ;
-	Sat, 05 Jul 2025 07:53:25 +0000
-Received: from out-186.mta1.migadu.com ([95.215.58.186])
+	id 1uY10N-0000000GR94-04rt;
+	Sat, 05 Jul 2025 11:24:27 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXxXr-0000000GEny-4Bcn
+	id 1uY10J-0000000GR7x-0Vsb
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Jul 2025 07:42:49 +0000
-Message-ID: <88ef2551-edc2-416b-9399-b45ad880d52e@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1751701365;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3zrE+8OXJ3cS4paNpRcoSnhgvEgZb8sAPNGad26s/CA=;
-	b=BXMSXBgmotsWcSEE8zAJIr4/lj+mEKX1tv1Q64n4dn04UONxBx4QiCjKucVR1dnqyxeMwd
-	dQ0r4qejgKwc855GBoSbAVxZ/wdfcVgq50pPB7xcevQIirD5vfXX5hOOcgQio/iowhikW+
-	2g8yB3PsLGUEhUE2XGzNXX656fVvpw4=
-Date: Sat, 5 Jul 2025 00:42:39 -0700
+	Sat, 05 Jul 2025 11:24:25 +0000
+Received: from localhost (unknown [223.72.70.63])
+	by APP-05 (Coremail) with SMTP id zQCowADnP2BYC2loYu0zAQ--.4844S2;
+	Sat, 05 Jul 2025 19:24:08 +0800 (CST)
+Date: Sat, 5 Jul 2025 19:24:08 +0800
+From: Jingwei Wang <wangjingwei@iscas.ac.cn>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Jesse Taube <jesse@rivosinc.com>, Yixun Lan <dlan@gentoo.org>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	Tsukasa OI <research_trasio@irq.a4lg.com>, stable@vger.kernel.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v4] riscv: hwprobe: Fix stale vDSO data for
+ late-initialized keys at boot
+Message-ID: <aGkLWItEnzYkc9VJ@Jingweis-MacBook-Air.local>
+References: <20250627172814.66367-1-wangjingwei@iscas.ac.cn>
+ <a57e83be-c506-4ab4-962d-4cdbce4aaed9@ghiti.fr>
 MIME-Version: 1.0
-Subject: Re: [PATCH 2/2] RISC-V: KVM: Move HGEI[E|P] CSR access to IMSIC
- virtualization
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250704153838.6575-1-apatel@ventanamicro.com>
- <20250704153838.6575-3-apatel@ventanamicro.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20250704153838.6575-3-apatel@ventanamicro.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Disposition: inline
+In-Reply-To: <a57e83be-c506-4ab4-962d-4cdbce4aaed9@ghiti.fr>
+X-CM-TRANSID: zQCowADnP2BYC2loYu0zAQ--.4844S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJw4kGF1UArWrJFWrJr4Dtwb_yoW7Gr48pF
+	Wqkr4YyFZ5JrWxuF9rKr1IvF10qan5Gr13Jr1DKryUXryjvr13Jr93KrsrAr1DZF98K340
+	vF45Wa9Ik3y7ArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Kb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ec7CjxVAajcxG14v26r1j6r
+	4UMcIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
+	FIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr4
+	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
+	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
+	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
+	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14
+	v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUyItCDUUUU
+X-Originating-IP: [223.72.70.63]
+X-CM-SenderInfo: pzdqwy5lqj4v3l6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_004248_257115_0C450D3D 
-X-CRM114-Status: GOOD (  24.88  )
+X-CRM114-CacheID: sfid-20250705_042423_537825_0A5D0D46 
+X-CRM114-Status: GOOD (  31.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,238 +86,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Alexandre,
 
-On 7/4/25 8:38 AM, Anup Patel wrote:
-> There is one HGEI line associated with each IMSIC VS-file on a host CPU.
-> The IMSIC virtualization already keeps track of the HGEI line and the
-> associated IMSIC VS-file used by each VCPU.
+On Mon, Jun 30, 2025 at 09:34:28AM +0200, Alexandre Ghiti wrote:
+> Hi Jingwei,
 >
-> Currently, the common AIA functions kvm_riscv_vcpu_aia_has_interrupts()
-> and kvm_riscv_aia_wakeon_hgei() lookup HGEI line using an array of VCPU
-> pointers before accessing HGEI[E|P] CSR which is slow. Move the HGEI[E|P]
-> CSR access to IMSIC virtualization so that costly HGEI line lookup and
-> potential race-conditions when updating HGEI[E|P] CSR can be avoided.
-
-The patch looks good to me. It removes the redundant hgei lookup which 
-is great.
-But can you elaborate the race condition and it's effect (lost interrupt 
-because of hgei is disabled during context switch) in the commit text ?
-
-> Fixes: 3385339296d1 ("RISC-V: KVM: Use IMSIC guest files when available")
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->   arch/riscv/include/asm/kvm_aia.h |  4 ++-
->   arch/riscv/kvm/aia.c             | 51 +++++---------------------------
->   arch/riscv/kvm/aia_imsic.c       | 45 ++++++++++++++++++++++++++++
->   arch/riscv/kvm/vcpu.c            |  2 --
->   4 files changed, 55 insertions(+), 47 deletions(-)
+> On 6/27/25 19:27, Jingwei Wang wrote:
+> > The value for some hwprobe keys, like MISALIGNED_VECTOR_PERF, is
+> > determined by an asynchronous kthread. This kthread can finish after
+> > the hwprobe vDSO data is populated, creating a race condition where
+> > userspace can read stale values.
+> >
+> > A completion-based framework is introduced to synchronize the async
+> > probes with the vDSO population. The init_hwprobe_vdso_data()
+> > function is deferred to `late_initcall` and now blocks until all
+> > probes signal completion.
 >
-> diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
-> index 0a0f12496f00..b04ecdd1a860 100644
-> --- a/arch/riscv/include/asm/kvm_aia.h
-> +++ b/arch/riscv/include/asm/kvm_aia.h
-> @@ -87,6 +87,9 @@ DECLARE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
->   
->   extern struct kvm_device_ops kvm_riscv_aia_device_ops;
->   
-> +bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu);
-> +void kvm_riscv_vcpu_aia_imsic_load(struct kvm_vcpu *vcpu, int cpu);
-> +void kvm_riscv_vcpu_aia_imsic_put(struct kvm_vcpu *vcpu);
->   void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu);
->   int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu);
->   
-> @@ -161,7 +164,6 @@ void kvm_riscv_aia_destroy_vm(struct kvm *kvm);
->   int kvm_riscv_aia_alloc_hgei(int cpu, struct kvm_vcpu *owner,
->   			     void __iomem **hgei_va, phys_addr_t *hgei_pa);
->   void kvm_riscv_aia_free_hgei(int cpu, int hgei);
-> -void kvm_riscv_aia_wakeon_hgei(struct kvm_vcpu *owner, bool enable);
->   
->   void kvm_riscv_aia_enable(void);
->   void kvm_riscv_aia_disable(void);
-> diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
-> index 19afd1f23537..dad318185660 100644
-> --- a/arch/riscv/kvm/aia.c
-> +++ b/arch/riscv/kvm/aia.c
-> @@ -30,28 +30,6 @@ unsigned int kvm_riscv_aia_nr_hgei;
->   unsigned int kvm_riscv_aia_max_ids;
->   DEFINE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
->   
-> -static int aia_find_hgei(struct kvm_vcpu *owner)
-> -{
-> -	int i, hgei;
-> -	unsigned long flags;
-> -	struct aia_hgei_control *hgctrl = get_cpu_ptr(&aia_hgei);
-> -
-> -	raw_spin_lock_irqsave(&hgctrl->lock, flags);
-> -
-> -	hgei = -1;
-> -	for (i = 1; i <= kvm_riscv_aia_nr_hgei; i++) {
-> -		if (hgctrl->owners[i] == owner) {
-> -			hgei = i;
-> -			break;
-> -		}
-> -	}
-> -
-> -	raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
-> -
-> -	put_cpu_ptr(&aia_hgei);
-> -	return hgei;
-> -}
-> -
->   static inline unsigned long aia_hvictl_value(bool ext_irq_pending)
->   {
->   	unsigned long hvictl;
-> @@ -95,7 +73,6 @@ void kvm_riscv_vcpu_aia_sync_interrupts(struct kvm_vcpu *vcpu)
->   
->   bool kvm_riscv_vcpu_aia_has_interrupts(struct kvm_vcpu *vcpu, u64 mask)
->   {
-> -	int hgei;
->   	unsigned long seip;
->   
->   	if (!kvm_riscv_aia_available())
-> @@ -114,11 +91,7 @@ bool kvm_riscv_vcpu_aia_has_interrupts(struct kvm_vcpu *vcpu, u64 mask)
->   	if (!kvm_riscv_aia_initialized(vcpu->kvm) || !seip)
->   		return false;
->   
-> -	hgei = aia_find_hgei(vcpu);
-> -	if (hgei > 0)
-> -		return !!(ncsr_read(CSR_HGEIP) & BIT(hgei));
-> -
-> -	return false;
-> +	return kvm_riscv_vcpu_aia_imsic_has_interrupt(vcpu);
->   }
->   
->   void kvm_riscv_vcpu_aia_update_hvip(struct kvm_vcpu *vcpu)
-> @@ -164,6 +137,9 @@ void kvm_riscv_vcpu_aia_load(struct kvm_vcpu *vcpu, int cpu)
->   		csr_write(CSR_HVIPRIO2H, csr->hviprio2h);
->   #endif
->   	}
-> +
-> +	if (kvm_riscv_aia_initialized(vcpu->kvm))
-> +		kvm_riscv_vcpu_aia_imsic_load(vcpu, cpu);
->   }
->   
->   void kvm_riscv_vcpu_aia_put(struct kvm_vcpu *vcpu)
-> @@ -174,6 +150,9 @@ void kvm_riscv_vcpu_aia_put(struct kvm_vcpu *vcpu)
->   	if (!kvm_riscv_aia_available())
->   		return;
->   
-> +	if (kvm_riscv_aia_initialized(vcpu->kvm))
-> +		kvm_riscv_vcpu_aia_imsic_put(vcpu);
-> +
->   	if (kvm_riscv_nacl_available()) {
->   		nsh = nacl_shmem();
->   		csr->vsiselect = nacl_csr_read(nsh, CSR_VSISELECT);
-> @@ -472,22 +451,6 @@ void kvm_riscv_aia_free_hgei(int cpu, int hgei)
->   	raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
->   }
->   
-> -void kvm_riscv_aia_wakeon_hgei(struct kvm_vcpu *owner, bool enable)
-> -{
-> -	int hgei;
-> -
-> -	if (!kvm_riscv_aia_available())
-> -		return;
-> -
-> -	hgei = aia_find_hgei(owner);
-> -	if (hgei > 0) {
-> -		if (enable)
-> -			csr_set(CSR_HGEIE, BIT(hgei));
-> -		else
-> -			csr_clear(CSR_HGEIE, BIT(hgei));
-> -	}
-> -}
-> -
->   static irqreturn_t hgei_interrupt(int irq, void *dev_id)
->   {
->   	int i;
-> diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-> index ea1a36836d9c..fda0346f0ea1 100644
-> --- a/arch/riscv/kvm/aia_imsic.c
-> +++ b/arch/riscv/kvm/aia_imsic.c
-> @@ -677,6 +677,48 @@ static void imsic_swfile_update(struct kvm_vcpu *vcpu,
->   	imsic_swfile_extirq_update(vcpu);
->   }
->   
-> +bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu)
-> +{
-> +	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
-> +	unsigned long flags;
-> +	bool ret = false;
-> +
-> +	/*
-> +	 * The IMSIC SW-file directly injects interrupt via hvip so
-> +	 * only check for interrupt when IMSIC VS-file is being used.
-> +	 */
-> +
-> +	read_lock_irqsave(&imsic->vsfile_lock, flags);
-> +	if (imsic->vsfile_cpu > -1)
-> +		ret = !!(csr_read(CSR_HGEIP) & BIT(imsic->vsfile_hgei));
-> +	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
-> +
-> +	return ret;
-> +}
-> +
-> +void kvm_riscv_vcpu_aia_imsic_load(struct kvm_vcpu *vcpu, int cpu)
-> +{
-> +	/*
-> +	 * No need to explicitly clear HGEIE CSR bits because the
-> +	 * hgei interrupt handler (aka hgei_interrupt()) will always
-> +	 * clear it for us.
-> +	 */
-> +}
-> +
-> +void kvm_riscv_vcpu_aia_imsic_put(struct kvm_vcpu *vcpu)
-> +{
-> +	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
-> +	unsigned long flags;
-> +
-> +	if (!kvm_vcpu_is_blocking(vcpu))
-> +		return;
-> +
-> +	read_lock_irqsave(&imsic->vsfile_lock, flags);
-> +	if (imsic->vsfile_cpu > -1)
-> +		csr_set(CSR_HGEIE, BIT(imsic->vsfile_hgei));
-> +	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
-> +}
-> +
->   void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
->   {
->   	unsigned long flags;
-> @@ -781,6 +823,9 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
->   	 * producers to the new IMSIC VS-file.
->   	 */
->   
-> +	/* Ensure HGEIE CSR bit is zero before using the new IMSIC VS-file */
-> +	csr_clear(CSR_HGEIE, BIT(new_vsfile_hgei));
-> +
->   	/* Zero-out new IMSIC VS-file */
->   	imsic_vsfile_local_clear(new_vsfile_hgei, imsic->nr_hw_eix);
->   
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index fe028b4274df..b26bf35a0a19 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -211,12 +211,10 @@ int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
->   
->   void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu)
->   {
-> -	kvm_riscv_aia_wakeon_hgei(vcpu, true);
->   }
->   
->   void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu)
->   {
-> -	kvm_riscv_aia_wakeon_hgei(vcpu, false);
->   }
->   
->   int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu)
+>
+> Can you add an explanation of why the move to late_initcall() here?
+>
+Sure. I'll add that in the next version.
+>
+> >
+> > Reported-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+> > Closes: https://lore.kernel.org/linux-riscv/760d637b-b13b-4518-b6bf-883d55d44e7f@irq.a4lg.com/
+> > Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
+> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> > Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Jingwei Wang <wangjingwei@iscas.ac.cn>
+> > ---
+> > Changes in v4:
+> > 	- Reworked the synchronization mechanism based on feedback from Palmer
+> >      	and Alexandre.
+> > 	- Instead of a post-hoc refresh, this version introduces a robust
+> > 	completion-based framework using an atomic counter to ensure async
+> > 	probes are finished before populating the vDSO.
+> > 	- Moved the vdso data initialization to a late_initcall to avoid
+> > 	impacting boot time.
+> >
+> > Changes in v3:
+> > 	- Retained existing blank line.
+> >
+> > Changes in v2:
+> > 	- Addressed feedback from Yixun's regarding #ifdef CONFIG_MMU usage.
+> > 	- Updated commit message to provide a high-level summary.
+> > 	- Added Fixes tag for commit e7c9d66e313b.
+> >
+> > v1: https://lore.kernel.org/linux-riscv/20250521052754.185231-1-wangjingwei@iscas.ac.cn/T/#u
+> >
+> >   arch/riscv/include/asm/hwprobe.h           |  8 +++++++-
+> >   arch/riscv/kernel/sys_hwprobe.c            | 20 +++++++++++++++++++-
+> >   arch/riscv/kernel/unaligned_access_speed.c |  9 +++++++--
+> >   3 files changed, 33 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+> > index 7fe0a379474ae2c6..87af186d92e75ddb 100644
+> > --- a/arch/riscv/include/asm/hwprobe.h
+> > +++ b/arch/riscv/include/asm/hwprobe.h
+> > @@ -40,5 +40,11 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
+> >   	return pair->value == other_pair->value;
+> >   }
+> > -
+> > +#ifdef CONFIG_MMU
+> > +void riscv_hwprobe_register_async_probe(void);
+> > +void riscv_hwprobe_complete_async_probe(void);
+> > +#else
+> > +inline void riscv_hwprobe_register_async_probe(void) {}
+> > +inline void riscv_hwprobe_complete_async_probe(void) {}
+> > +#endif
+> >   #endif
+> > diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+> > index 0b170e18a2beba57..8c50dcec2b754c30 100644
+> > --- a/arch/riscv/kernel/sys_hwprobe.c
+> > +++ b/arch/riscv/kernel/sys_hwprobe.c
+> > @@ -5,6 +5,8 @@
+> >    * more details.
+> >    */
+> >   #include <linux/syscalls.h>
+> > +#include <linux/completion.h>
+> > +#include <linux/atomic.h>
+> >   #include <asm/cacheflush.h>
+> >   #include <asm/cpufeature.h>
+> >   #include <asm/hwprobe.h>
+> > @@ -467,6 +469,20 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+> >   #ifdef CONFIG_MMU
+> > +static DECLARE_COMPLETION(boot_probes_done);
+> > +static atomic_t pending_boot_probes = ATOMIC_INIT(0);
+> > +
+> > +void riscv_hwprobe_register_async_probe(void)
+> > +{
+> > +	atomic_inc(&pending_boot_probes);
+> > +}
+> > +
+> > +void riscv_hwprobe_complete_async_probe(void)
+> > +{
+> > +	if (atomic_dec_and_test(&pending_boot_probes))
+> > +		complete(&boot_probes_done);
+> > +}
+> > +
+> >   static int __init init_hwprobe_vdso_data(void)
+> >   {
+> >   	struct vdso_arch_data *avd = vdso_k_arch_data;
+> > @@ -474,6 +490,8 @@ static int __init init_hwprobe_vdso_data(void)
+> >   	struct riscv_hwprobe pair;
+> >   	int key;
+> > +	if (unlikely(atomic_read(&pending_boot_probes) > 0))
+> > +		wait_for_completion(&boot_probes_done);
+>
+>
+> To me it's not working: if a first async probe registers and completes
+> before another async probe registers, pending_boot_probes will be > 0 but
+> wait_for_completion() will proceed before the second async probe completes
+> (since the first async probe marked the completion as done).
+>
+> Let me know if I missed something,
+>
+You're right, I made a mistake here when I rewrote my patch. I will
+rework this in v5 to use the "sentinel-count" pattern (initializing the
+atomic counter to 1).Thank you so much.
 
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
+I was having some issues with my email client, and it seems my previous
+replies might not have gone through. It appears to be working now, and
+I will send out the v5 patch shortly.
+
+Thanks,
+Jingwei
 
 
 _______________________________________________
