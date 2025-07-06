@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C48C83F05
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jul 2025 07:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B023BC83F05
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jul 2025 07:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C9NEiCWc5TOWqWYD3rmEvtBwECoSy96qDV9jyl2sG6w=; b=Dre3NV0AL2Jg+z
-	QYXM0r6MUs4u0JRPejqJbz00w1lUiSp2+eBmAhI4eo3R5Vasso+lzYFkbb4jLcgP7bTJUmREAOed6
-	4Z1uX4XEmaM43GowQx71pBO+y/+xV0xQoS2kGcyChon0T6//tMVA3bAln3Q8Dvw2y45oaxmkT82pC
-	XNW/V7ftwXabg/cHZQmizHGMQHp04NnWriTg9xSf8qQ6g36YMmsVI6ubx4kzEcYcE8qhAKhi9lvuy
-	bwcMPiYuwM3F8bVFeqOlJ340pRewOrau6g77SZSFuqYc2s9RpBtxbHbbaqw/qz3ooMCfRMhWQ2HEs
-	+Bqmasj6JuUMHhYWQXoA==;
+	List-Owner; bh=h4QIgKTd7OBZRREz7daoGAv5X2/IVs7Mu5WWfBVoUfA=; b=CNuueErtk3W1K9
+	X796Lvd9gyDOsq0Nz8iQxVdvqsYfAZUBZicd6PPA8Omx9H8fn0B8ZEAMXJbe6TJ1n+UsAne/aD1J2
+	Q9zWvjEA+5QFRVs+0+6ZLRSwXc/Vy3hnFM4LClDwWUvCGp4Us9FSHAkd5SxH0KgKrdFDXugpfDQJH
+	hewnyDFSvvUvrBvrvUowYVpH/AxmQ8f7L0OLif+EUjgPjiDWwNhq9+j4Jt246gEDCQyzTa9j/lPFG
+	8FBfU87LxhEPZj8RhD7yeALqTnEsO/BspTryiaqtmsNaxPHhq82MtBjOVB1PdAIH0KXuTMlFjJccj
+	AEzLS0m/dDqsLdKgBoOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYJxS-0000000HVfv-3fJq;
-	Sun, 06 Jul 2025 07:38:42 +0000
+	id 1uYJzl-0000000HVv1-10Tg;
+	Sun, 06 Jul 2025 07:41:05 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYJuM-0000000HVRm-2lpP;
-	Sun, 06 Jul 2025 07:35:31 +0000
+	id 1uYJx1-0000000HVeI-2iPG;
+	Sun, 06 Jul 2025 07:38:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=gv1HUJnOqcclkZ4FplUtalCiTMkMRTJ+aR4w+vz1yg0=; b=V2voYMJUWgVyz6eS4ODSlICWyG
-	Pez+lVqti34ZammDtip+NLzyhbMzOY5ls7FHEAGVlLdkv3qtyCxTAOUx49Rwcvy5S1TU7+lyLqhJb
-	R6R777wfhYLIfgxJrEl4W/r6Bhk54kqp5/evaY5l1zo0yW0DrzAVnQ09HCuqspM+tcnk=;
+	bh=rw4lPHDv7nwh61n8L1sS4Kiu7H3J5SMaCQwqs6E7FAM=; b=vXxICCOaKVxlttHopdBE0sfGcq
+	12/JFRTle9Dv+ZpEGXINHHZX6ryDgAp4zfyl34IoGzAl1jraq/vO+HQvTWX+Q50znPezK8MvFliai
+	CGW6LPiGD7PH4VeBgyO2S9LvRFmjEogTXdjSAvynOQ9f0oG9yHaaaQKbLVDOaTj6BrQs=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1uYJty-000WvW-OW; Sun, 06 Jul 2025 09:35:06 +0200
-Date: Sun, 6 Jul 2025 09:35:06 +0200
+	id 1uYJwm-000WxB-Uy; Sun, 06 Jul 2025 09:38:00 +0200
+Date: Sun, 6 Jul 2025 09:38:00 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: Lukas Schmid <lukas.schmid@netcube.li>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -52,15 +52,15 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v1 5/7] ARM: dts: sunxi: add support for NetCube Systems
  Nagami SoM
-Message-ID: <4ffe4afd-6162-4756-b473-8ad0c10bb59a@lunn.ch>
+Message-ID: <b2351675-cba2-4d8c-af6c-f341f5c77ee7@lunn.ch>
 References: <20250705213900.3614963-1-lukas.schmid@netcube.li>
  <20250705213900.3614963-6-lukas.schmid@netcube.li>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20250705213900.3614963-6-lukas.schmid@netcube.li>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_003530_694404_73843B64 
-X-CRM114-Status: UNSURE (   5.80  )
+X-CRM114-CacheID: sfid-20250706_003815_683945_457CC359 
+X-CRM114-Status: UNSURE (   7.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,10 +83,14 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 > +			compatible = "ethernet-phy-ieee802.3-c22";
 > +			reg = <1>;
 > +	};
+> +};
 
-Indentation looks a bit odd. Too many tabs?
+Just for clarification: The PHY is on the SOM? I've seen systems where
+the PHY is on the SOM, and the magnetics and RJ45 on the carrier
+board. I've also seen systems where the PHY, magnetics and RJ45 are on
+the carrier.
 
-	    Andrew
+    Andrew
 
 _______________________________________________
 linux-riscv mailing list
