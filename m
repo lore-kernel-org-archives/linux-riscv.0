@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC335C8303C
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jul 2025 02:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E8AEC8303C
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jul 2025 02:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f9qXk9JIl5lT2Ya9b+x6+8gkYMJgIMRfTB+KpFiOrcA=; b=kes66/fhCUc4SO
-	81kMUWlq+wSJzt7l+ULlHAUhh1V7kt76h106ENJGX+6GDtovmwYjPbSZDadyYtoD8GvoPuJ/3LSRf
-	0uz3WP9bTbu5NnIHb0UaXwsbiqWok9kB5zj66pA7ihSybBMKncr4A9gtXR6DiZsugCAa3B3kj2mHz
-	pPinGKSR/SAJorQf1mvUiMEgIs5Yc3RcHp3NM/Y5fzkTn5FsaJt3ZppdEjgW4NZuvuPvbixPiMgbK
-	gRdA3Dj5PFlpjLtZE50Mf6iU2YFbAkH9PKh7senC3DYu4hDDMFgNi8aH82g2KLpcr+sMhp4pLKF/Y
-	/Pt0U5OhJfxUT9PqWHYw==;
+	List-Owner; bh=BlSca92HjlrZDuKuIUvZxiAQXFACzyQBGnRBIXm5Vgc=; b=Bl99xO6Eaa/ldv
+	BO1zPthWJq674YhE/LO6EkvHB5ekJbzHbSIkE5e1Ze2LQEaLuLxa/9rSM8uRkUc/NGwhwKvtvktft
+	xFcUiGpO/Zt0oso670Cgw+gvuVdBzOo6wk+0FFqvfoSw/p/JvAxy8eMGWeOk5JpfE6RIz1NnR+cm+
+	Ezzqg4YbRItxV+Xlnzgu06kCFzsdkV2Zwlxl7ZFqF1pZ8R2SUAweI1PWxAgrl6eYSkWg8RL4QxKsM
+	Hi5fnQFF1EU6bml+J5w59BriMo5eFMvKspMInwh7XNc1FIhR49f9WSHEfnfb6k3zg2/mDnERiI5nU
+	aGFZJ+xAq0lRdNV7+L/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYEng-0000000HGAO-0402;
-	Sun, 06 Jul 2025 02:08:16 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uYEsL-0000000HGQU-3ra3;
+	Sun, 06 Jul 2025 02:13:05 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYEnd-0000000HGA2-0our
+	id 1uYEsJ-0000000HGPi-3sde
 	for linux-riscv@lists.infradead.org;
-	Sun, 06 Jul 2025 02:08:15 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 5CFED2307C;
-	Sun,  6 Jul 2025 04:08:10 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id HydFQqZyg1UX; Sun,  6 Jul 2025 04:08:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1751767689; bh=qbb9qUQDN3f4Sd+pgIv8uMMRUnNZzrqkxxKE9i/HdpU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Nh6pRZBbZPbBVd6rlqgXn6VkyHqMJeBET1dH+mWBb7uE3Plod4Kf0xBby7O3n2UEm
-	 MyDBuaKcAHw8RrGdnjsjCmXLZNCw+raNm12XtTiNj/bvgF86ItZPn54KRDEZuDz7s8
-	 39D+UTmRY7mlezXftdI/JAL93Gpohpfyj+EovDfDmliH/mXnN6FVxHg7DVyBH59LUC
-	 bIIQblzD/tfr9oSgkFdJ4pDKrBn9UOGpchrrXumQ4lKsdNSsw7hDKHSp34kAVEDwb0
-	 +dUCQVhcG5viSTLTQsyqTUD6WBkZPLcleq7Nd8ubcpAn75el59BNU0ck6SyX9tm8qj
-	 xQq9Qk8U6Wvfw==
-Date: Sun, 6 Jul 2025 02:07:51 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
-	Yangtao Li <frank.li@vivo.com>, linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: thead: th1520-ap: Correctly refer the parent for
- c910 and osc_12m
-Message-ID: <aGnaZjMoWbW_FZfj@pie>
-References: <20250705052028.24611-1-ziyao@disroot.org>
- <aGm+adSNdTHyN7K1@x1>
+	Sun, 06 Jul 2025 02:13:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751767984; x=1783303984;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=cxQeL0oH+76cufx36nw7v4ljcvG3KBCpszc/4BzMYVU=;
+  b=L3odc+lPN2Tf2xMHPG/FVYnGkaHd+IHX3utR3FLKh4KOACdewfcxyQpP
+   d6/J0tKOs4+QXKlJB/cPgvM7MmxFKYLDbNZ08kJqj6icSoV5MYGfARy1z
+   SQAGfyJayCTynjdTMD0H2yv7EjQ8yOXmbf7RTNW0cE+PHx2AyGBpjCeX8
+   JbvZwsiGQXaSMimVRxUd0dnenR3Dvgmsf983B8IVcraE+sbVihiM4ga5U
+   qCxlfqEoY8VORvDnGyLusrzmnIySPw6Z5bAaXqQErwAmsN/yKLpo4LGyi
+   C2UtzMOt1ZmZF1jsi9kXReZL5SVy2Gb+3b3Q0t/oxTd/Cma+gq5vepfpq
+   A==;
+X-CSE-ConnectionGUID: RWUiEsOWR3+gsNOtqRwd8Q==
+X-CSE-MsgGUID: JD9COFcPQGSTTyET8ly1Zg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11485"; a="53953047"
+X-IronPort-AV: E=Sophos;i="6.16,291,1744095600"; 
+   d="scan'208";a="53953047"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jul 2025 19:13:01 -0700
+X-CSE-ConnectionGUID: P7AFuKtSR+WFx2ZJHWLR/g==
+X-CSE-MsgGUID: FP+xo/NgTgmmHsIN/qpxMw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,291,1744095600"; 
+   d="scan'208";a="155275019"
+Received: from lkp-server01.sh.intel.com (HELO 0b2900756c14) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 05 Jul 2025 19:12:59 -0700
+Received: from kbuild by 0b2900756c14 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uYEsC-0004p1-1k;
+	Sun, 06 Jul 2025 02:12:56 +0000
+Date: Sun, 6 Jul 2025 10:12:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: ChenMiao <chenmiao.ku@gmail.com>,
+	Linux RISCV <linux-riscv@lists.infradead.org>
+Cc: oe-kbuild-all@lists.linux.dev, chenmiao <chenmiao.ku@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: ftrace: Fix the logic issue in DYNAMIC_FTRACE
+ selection
+Message-ID: <202507060946.JDTW8TlM-lkp@intel.com>
+References: <20250703084818.394491-1-chenmiao.ku@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aGm+adSNdTHyN7K1@x1>
+In-Reply-To: <20250703084818.394491-1-chenmiao.ku@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_190813_793079_A2540ADE 
-X-CRM114-Status: GOOD (  37.39  )
+X-CRM114-CacheID: sfid-20250705_191304_016632_E0844080 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,138 +93,225 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 05, 2025 at 05:08:09PM -0700, Drew Fustini wrote:
-> On Sat, Jul 05, 2025 at 05:20:28AM +0000, Yao Zi wrote:
-> > clk_orphan_dump shows two suspicious orphan clocks on TH1520 when
-> > booting the kernel with mainline U-Boot,
-> > 
-> > 	$ cat /sys/kernel/debug/clk/clk_orphan_dump | jq 'keys'
-> > 	[
-> > 	  "c910",
-> > 	  "osc_12m"
-> > 	]
-> > 
-> > where the correct parents should be c910-i0 for c910, and osc_24m for
-> > osc_12m.
-> 
-> Thanks for sending this patch. However, I only see "osc_12m" listed in
-> clk_orphan_dump. I tried the current next, torvalds master and v6.15 but
-> I didn't ever see "c910" appear [1]. What branch are you using?
+Hi ChenMiao,
 
-I think it has something to do with the bootloader: as you could see in
-your clk_orphan_dump, the c910 clock is reparented to cpu-pll1, the
-second possible parent which could be correctly resolved by the CCF,
-thus c910 doesn't appear in the clk_orphan_dump.
+kernel test robot noticed the following build errors:
 
-But with the mainline U-Boot which doesn't reparent or reclock c910 on
-startup, c910 should remain the reset state and take c910-i0 as parent,
-and appear in the clk_orphan_dump.
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.16-rc4 next-20250704]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Another way to confirm the bug is to examine
-/sys/kernel/debug/clk/c910/clk_possible_parents: without the patch, it
-should be something like
+url:    https://github.com/intel-lab-lkp/linux/commits/ChenMiao/riscv-ftrace-Fix-the-logic-issue-in-DYNAMIC_FTRACE-selection/20250703-165308
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20250703084818.394491-1-chenmiao.ku%40gmail.com
+patch subject: [PATCH] riscv: ftrace: Fix the logic issue in DYNAMIC_FTRACE selection
+config: riscv-randconfig-001-20250706 (https://download.01.org/0day-ci/archive/20250706/202507060946.JDTW8TlM-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 11.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250706/202507060946.JDTW8TlM-lkp@intel.com/reproduce)
 
-	osc_24m cpu-pll1
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507060946.JDTW8TlM-lkp@intel.com/
 
-c910's parents are defined as
+All errors (new ones prefixed by >>):
 
-	static const struct clk_parent_data c910_parents[] = {
-		{ .hw = &c910_i0_clk.common.hw },
-		{ .hw = &cpu_pll1_clk.common.hw }
-	};
+   arch/riscv/kernel/mcount-dyn.S: Assembler messages:
+>> arch/riscv/kernel/mcount-dyn.S:85: Error: illegal operands `addi sp,sp,-FREGS_SIZE_ON_STACK'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:86: Error: illegal operands `sd t0,FREGS_EPC(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:87: Error: illegal operands `sd x1,FREGS_RA(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:91: Error: illegal operands `sd x6,FREGS_T1(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:100: Error: illegal operands `sd x10,FREGS_A0(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:101: Error: illegal operands `sd x11,FREGS_A1(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:102: Error: illegal operands `sd x12,FREGS_A2(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:103: Error: illegal operands `sd x13,FREGS_A3(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:104: Error: illegal operands `sd x14,FREGS_A4(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:105: Error: illegal operands `sd x15,FREGS_A5(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:106: Error: illegal operands `sd x16,FREGS_A6(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:107: Error: illegal operands `sd x17,FREGS_A7(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:109: Error: illegal operands `addi a0,a0,FREGS_SIZE_ON_STACK'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:110: Error: illegal operands `sd a0,FREGS_SP(sp)'
+   arch/riscv/kernel/mcount-dyn.S:185:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:114: Error: illegal operands `ld t0,FREGS_EPC(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:115: Error: illegal operands `ld x1,FREGS_RA(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:119: Error: illegal operands `ld x6,FREGS_T1(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:128: Error: illegal operands `ld x10,FREGS_A0(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:129: Error: illegal operands `ld x11,FREGS_A1(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+>> arch/riscv/kernel/mcount-dyn.S:130: Error: illegal operands `ld x12,FREGS_A2(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+   arch/riscv/kernel/mcount-dyn.S:131: Error: illegal operands `ld x13,FREGS_A3(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+   arch/riscv/kernel/mcount-dyn.S:132: Error: illegal operands `ld x14,FREGS_A4(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+   arch/riscv/kernel/mcount-dyn.S:133: Error: illegal operands `ld x15,FREGS_A5(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+   arch/riscv/kernel/mcount-dyn.S:134: Error: illegal operands `ld x16,FREGS_A6(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+   arch/riscv/kernel/mcount-dyn.S:135: Error: illegal operands `ld x17,FREGS_A7(sp)'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
+   arch/riscv/kernel/mcount-dyn.S:137: Error: illegal operands `addi sp,sp,FREGS_SIZE_ON_STACK'
+   arch/riscv/kernel/mcount-dyn.S:195:  Info: macro invoked from here
 
-and the debugfs output looks obviously wrong.
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for DYNAMIC_FTRACE
+   Depends on [n]: FTRACE [=y] && FUNCTION_TRACER [=y] && HAVE_DYNAMIC_FTRACE [=n]
+   Selected by [y]:
+   - RISCV [=y] && FUNCTION_TRACER [=y]
 
-There's another bug in CCF[1] which causes unresolvable parents are
-shown as the clock-output-names of the clock controller's first parent
-in debugfs, explaining the output.
 
-> I think it would be best for this patch to be split into separate
-> patches for osc_12m and c910.
+vim +85 arch/riscv/kernel/mcount-dyn.S
 
-Okay, I originally thought these are relatively small fixes targeting
-a single driver, hence put them together. I'll split it into two patches
-in v2.
+afc76b8b8011218 Guo Ren        2020-12-17   27  
+afc76b8b8011218 Guo Ren        2020-12-17   28  	.macro SAVE_ABI
+afc76b8b8011218 Guo Ren        2020-12-17   29  	addi	sp, sp, -ABI_SIZE_ON_STACK
+afc76b8b8011218 Guo Ren        2020-12-17   30  
+afc76b8b8011218 Guo Ren        2020-12-17   31  	REG_S	a0, ABI_A0(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   32  	REG_S	a1, ABI_A1(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   33  	REG_S	a2, ABI_A2(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   34  	REG_S	a3, ABI_A3(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   35  	REG_S	a4, ABI_A4(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   36  	REG_S	a5, ABI_A5(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   37  	REG_S	a6, ABI_A6(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   38  	REG_S	a7, ABI_A7(sp)
+6724a76cff85ee2 Guo Ren        2023-01-12   39  	REG_S	t0, ABI_T0(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   40  	REG_S	ra, ABI_RA(sp)
+c15ac4fd60d5ffd Alan Kao       2018-02-13   41  	.endm
+c15ac4fd60d5ffd Alan Kao       2018-02-13   42  
+afc76b8b8011218 Guo Ren        2020-12-17   43  	.macro RESTORE_ABI
+afc76b8b8011218 Guo Ren        2020-12-17   44  	REG_L	a0, ABI_A0(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   45  	REG_L	a1, ABI_A1(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   46  	REG_L	a2, ABI_A2(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   47  	REG_L	a3, ABI_A3(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   48  	REG_L	a4, ABI_A4(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   49  	REG_L	a5, ABI_A5(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   50  	REG_L	a6, ABI_A6(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   51  	REG_L	a7, ABI_A7(sp)
+6724a76cff85ee2 Guo Ren        2023-01-12   52  	REG_L	t0, ABI_T0(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   53  	REG_L	ra, ABI_RA(sp)
+afc76b8b8011218 Guo Ren        2020-12-17   54  
+afc76b8b8011218 Guo Ren        2020-12-17   55  	addi	sp, sp, ABI_SIZE_ON_STACK
+c15ac4fd60d5ffd Alan Kao       2018-02-13   56  	.endm
+c15ac4fd60d5ffd Alan Kao       2018-02-13   57  
+35e61e8827ee8ea Song Shuai     2023-11-30   58  /**
+7caa9765465f60b Puranjay Mohan 2024-04-05   59  * SAVE_ABI_REGS - save regs against the ftrace_regs struct
+35e61e8827ee8ea Song Shuai     2023-11-30   60  *
+35e61e8827ee8ea Song Shuai     2023-11-30   61  * After the stack is established,
+35e61e8827ee8ea Song Shuai     2023-11-30   62  *
+35e61e8827ee8ea Song Shuai     2023-11-30   63  * 0(sp) stores the PC of the traced function which can be accessed
+b2137c3b6d7a456 Andy Chiu      2025-04-08   64  * by &(fregs)->epc in tracing function.
+35e61e8827ee8ea Song Shuai     2023-11-30   65  *
+35e61e8827ee8ea Song Shuai     2023-11-30   66  * 8(sp) stores the function return address (i.e. parent IP) that
+7caa9765465f60b Puranjay Mohan 2024-04-05   67  * can be accessed by &(fregs)->ra in tracing function.
+35e61e8827ee8ea Song Shuai     2023-11-30   68  *
+35e61e8827ee8ea Song Shuai     2023-11-30   69  * The other regs are saved at the respective localtion and accessed
+7caa9765465f60b Puranjay Mohan 2024-04-05   70  * by the respective ftrace_regs member.
+35e61e8827ee8ea Song Shuai     2023-11-30   71  *
+35e61e8827ee8ea Song Shuai     2023-11-30   72  * Here is the layout of stack for your reference.
+35e61e8827ee8ea Song Shuai     2023-11-30   73  *
+35e61e8827ee8ea Song Shuai     2023-11-30   74  * PT_SIZE_ON_STACK  ->  +++++++++
+35e61e8827ee8ea Song Shuai     2023-11-30   75  *                       + ..... +
+35e61e8827ee8ea Song Shuai     2023-11-30   76  *                       + a0-a7 + --++++-> ftrace_caller saved
+7caa9765465f60b Puranjay Mohan 2024-04-05   77  *                       + t1    + --++++-> direct tramp address
+7caa9765465f60b Puranjay Mohan 2024-04-05   78  *                       + s0    + --+ // frame pointer
+35e61e8827ee8ea Song Shuai     2023-11-30   79  *                       + sp    +   +
+35e61e8827ee8ea Song Shuai     2023-11-30   80  *                       + ra    + --+ // parent IP
+35e61e8827ee8ea Song Shuai     2023-11-30   81  *               sp  ->  + epc   + --+ // PC
+35e61e8827ee8ea Song Shuai     2023-11-30   82  *                       +++++++++
+35e61e8827ee8ea Song Shuai     2023-11-30   83  **/
+7caa9765465f60b Puranjay Mohan 2024-04-05   84  	.macro SAVE_ABI_REGS
+7caa9765465f60b Puranjay Mohan 2024-04-05  @85  	addi	sp, sp, -FREGS_SIZE_ON_STACK
+7caa9765465f60b Puranjay Mohan 2024-04-05  @86  	REG_S	t0,  FREGS_EPC(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05  @87  	REG_S	x1,  FREGS_RA(sp)
+35e61e8827ee8ea Song Shuai     2023-11-30   88  #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+7caa9765465f60b Puranjay Mohan 2024-04-05   89  	REG_S	x8,  FREGS_S0(sp)
+35e61e8827ee8ea Song Shuai     2023-11-30   90  #endif
+7caa9765465f60b Puranjay Mohan 2024-04-05  @91  	REG_S	x6,  FREGS_T1(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08   92  #ifdef CONFIG_CC_IS_CLANG
+f8693f6dffcd186 Andy Chiu      2025-04-08   93  	REG_S	x7,  FREGS_T2(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08   94  	REG_S	x28, FREGS_T3(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08   95  	REG_S	x29, FREGS_T4(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08   96  	REG_S	x30, FREGS_T5(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08   97  	REG_S	x31, FREGS_T6(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08   98  #endif
+7caa9765465f60b Puranjay Mohan 2024-04-05   99  	// save the arguments
+7caa9765465f60b Puranjay Mohan 2024-04-05 @100  	REG_S	x10, FREGS_A0(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @101  	REG_S	x11, FREGS_A1(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @102  	REG_S	x12, FREGS_A2(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @103  	REG_S	x13, FREGS_A3(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @104  	REG_S	x14, FREGS_A4(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @105  	REG_S	x15, FREGS_A5(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @106  	REG_S	x16, FREGS_A6(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @107  	REG_S	x17, FREGS_A7(sp)
+b21cdb9523e5561 Andy Chiu      2025-04-08  108  	mv	a0, sp
+b21cdb9523e5561 Andy Chiu      2025-04-08 @109  	addi	a0, a0, FREGS_SIZE_ON_STACK
+b21cdb9523e5561 Andy Chiu      2025-04-08 @110  	REG_S	a0, FREGS_SP(sp)	// Put original SP on stack
+bc1a4c3a8425568 Alan Kao       2018-02-13  111  	.endm
+bc1a4c3a8425568 Alan Kao       2018-02-13  112  
+b21cdb9523e5561 Andy Chiu      2025-04-08  113  	.macro RESTORE_ABI_REGS
+7caa9765465f60b Puranjay Mohan 2024-04-05 @114  	REG_L	t0, FREGS_EPC(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @115  	REG_L	x1, FREGS_RA(sp)
+35e61e8827ee8ea Song Shuai     2023-11-30  116  #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+7caa9765465f60b Puranjay Mohan 2024-04-05  117  	REG_L	x8, FREGS_S0(sp)
+35e61e8827ee8ea Song Shuai     2023-11-30  118  #endif
+7caa9765465f60b Puranjay Mohan 2024-04-05 @119  	REG_L	x6,  FREGS_T1(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08  120  #ifdef CONFIG_CC_IS_CLANG
+f8693f6dffcd186 Andy Chiu      2025-04-08  121  	REG_L	x7,  FREGS_T2(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08  122  	REG_L	x28, FREGS_T3(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08  123  	REG_L	x29, FREGS_T4(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08  124  	REG_L	x30, FREGS_T5(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08  125  	REG_L	x31, FREGS_T6(sp)
+f8693f6dffcd186 Andy Chiu      2025-04-08  126  #endif
+7caa9765465f60b Puranjay Mohan 2024-04-05  127  	// restore the arguments
+7caa9765465f60b Puranjay Mohan 2024-04-05 @128  	REG_L	x10, FREGS_A0(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @129  	REG_L	x11, FREGS_A1(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @130  	REG_L	x12, FREGS_A2(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @131  	REG_L	x13, FREGS_A3(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @132  	REG_L	x14, FREGS_A4(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @133  	REG_L	x15, FREGS_A5(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @134  	REG_L	x16, FREGS_A6(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05 @135  	REG_L	x17, FREGS_A7(sp)
+7caa9765465f60b Puranjay Mohan 2024-04-05  136  
+7caa9765465f60b Puranjay Mohan 2024-04-05  137  	addi	sp, sp, FREGS_SIZE_ON_STACK
+afc76b8b8011218 Guo Ren        2020-12-17  138  	.endm
+35e61e8827ee8ea Song Shuai     2023-11-30  139  
+35e61e8827ee8ea Song Shuai     2023-11-30  140  	.macro PREPARE_ARGS
+b2137c3b6d7a456 Andy Chiu      2025-04-08  141  	addi	a0, t0, -MCOUNT_JALR_SIZE	// ip (callsite's jalr insn)
+b21cdb9523e5561 Andy Chiu      2025-04-08  142  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+b21cdb9523e5561 Andy Chiu      2025-04-08  143  	mv 	a1, ra				// parent_ip
+b21cdb9523e5561 Andy Chiu      2025-04-08  144  	REG_L   a2, -16(t0)			// op
+b21cdb9523e5561 Andy Chiu      2025-04-08  145  	REG_L   ra, FTRACE_OPS_FUNC(a2)		// op->func
+b21cdb9523e5561 Andy Chiu      2025-04-08  146  #else
+b21cdb9523e5561 Andy Chiu      2025-04-08  147  	la	a1, function_trace_op
+b21cdb9523e5561 Andy Chiu      2025-04-08  148  	REG_L	a2, 0(a1)			// op
+b21cdb9523e5561 Andy Chiu      2025-04-08  149  	mv	a1, ra				// parent_ip
+b21cdb9523e5561 Andy Chiu      2025-04-08  150  #endif
+b21cdb9523e5561 Andy Chiu      2025-04-08  151  	mv	a3, sp				// regs
+b21cdb9523e5561 Andy Chiu      2025-04-08  152  	.endm
+b21cdb9523e5561 Andy Chiu      2025-04-08  153  
 
-> > The correct parent of c910, c910-i0, is registered with
-> > devm_clk_hw_register_mux_parent_data_table(), which creates a clk_hw
-> > structure from scratch. But it's assigned as c910's parent by
-> > referring &c910_i0_clk.common.hw, confusing the CCF since this clk_hw
-> > structure is never registered.
-> 
-> I recall Stephen Boyd had the feedback when trying to upstream this
-> driver to avoid strings for parents and instead use clk_parent_data or
-> clk_hw pointers directly [2]. It was difficult to find alternitves to
-> parent strings in all instances.
-
-Yes, especially the predefined clock types which always allocate a new
-struct clk_hw, so one has to choose between filling the parent data
-dynamically or using the parent's name.
-
-> > Meanwhile, osc_12m refers the external oscillator by setting
-> > clk_parent_data.fw_name to osc_24m, which is obviously wrong since no
-> > clock-names property is allowed for compatible thead,th1520-clk-ap.
-> > 
-> > For c910, refer c910-i0 by its name; for osc_12m, refer the external
-> > clock input by index. This eliminates these orphan clocks.
-> > 
-> > Fixes: ae81b69fd2b1 ("clk: thead: Add support for T-Head TH1520 AP_SUBSYS clocks")
-> > Signed-off-by: Yao Zi <ziyao@disroot.org>
-> > ---
-> >  drivers/clk/thead/clk-th1520-ap.c | 11 +++++++++--
-> >  1 file changed, 9 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-> > index ebfb1d59401d..74da1a61e6f0 100644
-> > --- a/drivers/clk/thead/clk-th1520-ap.c
-> > +++ b/drivers/clk/thead/clk-th1520-ap.c
-> > @@ -427,7 +427,7 @@ static struct ccu_mux c910_i0_clk = {
-> >  };
-> >  
-> >  static const struct clk_parent_data c910_parents[] = {
-> > -	{ .hw = &c910_i0_clk.common.hw },
-> > +	{ .index = -1, .name = "c910-i0" },
-> 
-> Stephen - would this use of a parent string be acceptable?
-> 
-> >  	{ .hw = &cpu_pll1_clk.common.hw }
-> >  };
-> >  
-> > @@ -582,7 +582,14 @@ static const struct clk_parent_data peri2sys_apb_pclk_pd[] = {
-> >  	{ .hw = &peri2sys_apb_pclk.common.hw }
-> >  };
-> >  
-> > -static CLK_FIXED_FACTOR_FW_NAME(osc12m_clk, "osc_12m", "osc_24m", 2, 1, 0);
-> > +struct clk_fixed_factor osc12m_clk = {
-> > +	.div		= 2,
-> > +	.mult		= 1,
-> > +	.hw.init	= CLK_HW_INIT_PARENTS_DATA("osc_12m",
-> > +						   osc_24m_clk,
-> > +						   &clk_fixed_factor_ops,
-> > +						   0),
-> > +};
-> 
-> I think this hunk is a good fix for osc_12m. I applied the patch and
-> osc_12m no longer appears in clk_orphan_dump [3]. clk_summary now shows
-> osc_12m under osc_24m.
-
-Thanks for the confirmation!
-
-> >  
-> >  static const char * const out_parents[] = { "osc_24m", "osc_12m" };
-> >  
-> > -- 
-> > 2.49.0
-> > 
-> 
-> [1] https://gist.github.com/pdp7/d00f0f4fe3fcf368ce253d606dc7b01f
-> [2] https://lore.kernel.org/all/91c3373b5b00afc1910b704a16c1ac89.sboyd@kernel.org/
-> [3] https://gist.github.com/pdp7/30e51ed013d4bedf0c6abc5717e0b6a5
-
-Regards,
-Yao Zi
-
-[1]: https://lore.kernel.org/linux-clk/20250705095816.29480-2-ziyao@disroot.org/
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
