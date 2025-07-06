@@ -4,60 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7008FC83F05
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jul 2025 11:13:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07342C83F07
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jul 2025 11:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7v+4INivqMWy6OmnGjLm+vvXHQiTbHFpOenhqOJiKVs=; b=q3NXPFaHj+0+FrUoaMnYkWfyGg
-	lzlq5vJfa7S6gu09v32YztvHiKrRRM9arK71HNWvANZO402ehvAvGuxhW2ASdLXyujBSjCqj4KiYA
-	XtkK51PGJaXJtnvpMz86BJDrU+yErFDTA3KbRjOrMlAm80aL/5RSbhWl8o4FR1Eg7DTJ6C33mIjD0
-	nnvIAsXPTb3eZNO1ceZAqatlVdh0feN80a2QQ4th0fhw/NBvcbdi/M2jWobc09IxMrhB3zektiwdD
-	M0VnJjgaWVFGH7pErys4QLhNMUaqZZpPhXsSopCZ7io6jdVY7/oHp10ClJAN1nXHA+z71CNReZ9Vl
-	7HdDI+IQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BXN4I49HNj1X00mEPEN52Wr7ZF8/adoTBKgYK9sb2Xc=; b=0NkRT6gMo+xdzs
+	S2gnlYHlZr31WCwzfvOx2cwxaBl4ll9bOwfoB5EgJtJzNCdccT+/SYtjd9SpY1EeGcQQeDVN5uvK/
+	o2YIw87UE0vf9vWH6KMt0XHw0uIaB1Qq8wFneawikBoVpAd2hAJjUwwgcfED1Mb0R+2uKFFkLBqNr
+	d/Co25O3kHarMVgBwdYbR97KuoDfKaUdFLd31PyU0qqT/ErFz5V8qaK+XkYtvHiQ12slp8xcBnImq
+	A3a/vDLH5GJgQYC57rdNZpf7h3r9u9COaXE1W7sQ8Jm5V2i2ldopvRVsI2KJ/NPzGHf9JZmUVoMev
+	vs/2/0cUtvWbX4ZRQGGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYNJP-00000000An3-3PpF;
-	Sun, 06 Jul 2025 11:13:35 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1uYNp7-00000000CSB-012L;
+	Sun, 06 Jul 2025 11:46:21 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYM8e-000000005fp-34kO;
-	Sun, 06 Jul 2025 09:58:26 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Type:In-Reply-To:References;
-	bh=7IFUgnPQyuVFa8Jj8ChajhgVnk7mfJFWlHVz17ozesI=;
-	b=ZCYWZFzg4P9WrTsU5d6CCna4Qga4Q/aWUCSIGZfBh+srCwNdj3w3iLVSFj478A/b5BDM7qoD+wsnt06xKUKPe1UqykDHEIDUpUno2Z7hXPAO5oX2zjP1t9FJuObAGEIEFZ52iLRYxY7WTkag5WRFMS+RXWRNl3Cztg/zmMffkuI=
-Received: from lukas-hpz440workstation.localnet (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPSA
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
-	; Sun, 6 Jul 2025 11:58:17 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 3/7] dt-bindings: arm: sunxi: Add NetCube Systems Nagami Keypad
- Carrier Board
-Date: Sun, 06 Jul 2025 11:58:16 +0200
-Message-ID: <8549188.T7Z3S40VBb@lukas-hpz440workstation>
-In-Reply-To: <4648f0bf-2957-45bf-a6c1-01787e5d3e88@kernel.org>
-References: <20250705213900.3614963-1-lukas.schmid@netcube.li>
- <2998364.e9J7NaK4W3@lukas-hpz440workstation>
- <4648f0bf-2957-45bf-a6c1-01787e5d3e88@kernel.org>
+	id 1uYNox-00000000CN5-2Lt5
+	for linux-riscv@lists.infradead.org;
+	Sun, 06 Jul 2025 11:46:17 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250706114610euoutp02306cd98a678fba28debc4efc6c40bf97~Ppvlytsh71375213752euoutp02M
+	for <linux-riscv@lists.infradead.org>; Sun,  6 Jul 2025 11:46:10 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250706114610euoutp02306cd98a678fba28debc4efc6c40bf97~Ppvlytsh71375213752euoutp02M
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1751802370;
+	bh=i2ffb5TRdqcFNdp9wQmKYm6oC/yh6BrYkPG8pSNij+4=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=IkIvshtTZnSdpAWwXMGnD3B/9fLpU8poXsiO498kX5aT8jJg07ZL6Mgq6t+VesDp4
+	 u/1ycii23+4lMOGMzO/6jW5opF2PGJWQJRLyHtVUT9cT8TdJviKCNEn9oS4qbSue4S
+	 EDPJ/YldCX9z6PnsewvZD1mq0VxqIcsQiwYbl6yE=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250706114609eucas1p18598ba94ded6b6ea1664aa8deb552138~PpvktRxQ52941029410eucas1p13;
+	Sun,  6 Jul 2025 11:46:09 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250706114607eusmtip2d14944d9dd8c8eaad73ca964266b6216~Ppvjkpq1E0959209592eusmtip26;
+	Sun,  6 Jul 2025 11:46:07 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Sun, 06 Jul 2025 13:45:16 +0200
+Subject: [PATCH v9 5/6] riscv: dts: thead: Add PWM controller node
 MIME-Version: 1.0
+Message-Id: <20250706-rust-next-pwm-working-fan-for-sending-v9-5-42b5ac2101c7@samsung.com>
+In-Reply-To: <20250706-rust-next-pwm-working-fan-for-sending-v9-0-42b5ac2101c7@samsung.com>
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
+	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
+	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,  Andreas
+	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,  Trevor
+	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,  Michal
+	Wilczynski <m.wilczynski@samsung.com>, Guo Ren <guoren@kernel.org>,  Fu Wei
+	<wefu@redhat.com>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Paul Walmsley
+	<paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>,  Marek Szyprowski
+	<m.szyprowski@samsung.com>,  Benno Lossin <lossin@kernel.org>,  Michael
+	Turquette <mturquette@baylibre.com>,  Drew Fustini <fustini@kernel.org>,
+	Benno Lossin <lossin@kernel.org>,  Drew Fustini <fustini@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org
+X-Mailer: b4 0.15-dev
+X-CMS-MailID: 20250706114609eucas1p18598ba94ded6b6ea1664aa8deb552138
+X-Msg-Generator: CA
+X-RootMTR: 20250706114609eucas1p18598ba94ded6b6ea1664aa8deb552138
+X-EPHeader: CA
+X-CMS-RootMailID: 20250706114609eucas1p18598ba94ded6b6ea1664aa8deb552138
+References: <20250706-rust-next-pwm-working-fan-for-sending-v9-0-42b5ac2101c7@samsung.com>
+	<CGME20250706114609eucas1p18598ba94ded6b6ea1664aa8deb552138@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_025825_071943_0ABA8BD1 
-X-CRM114-Status: GOOD (  22.41  )
+X-CRM114-CacheID: sfid-20250706_044611_882720_FAB19B05 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,137 +92,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5123906941675181290=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5123906941675181290==
-Content-Type: multipart/signed; boundary="nextPart10685525.nUPlyArG6x";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
+Add the Device Tree node for the T-HEAD TH1520 SoC's PWM controller.
 
---nextPart10685525.nUPlyArG6x
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"; protected-headers="v1"
-From: Lukas Schmid <lukas.schmid@netcube.li>
-Date: Sun, 06 Jul 2025 11:58:16 +0200
-Message-ID: <8549188.T7Z3S40VBb@lukas-hpz440workstation>
-In-Reply-To: <4648f0bf-2957-45bf-a6c1-01787e5d3e88@kernel.org>
-MIME-Version: 1.0
+Reviewed-by: Drew Fustini <fustini@kernel.org>
+Tested-by: Drew Fustini <fustini@kernel.org>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ arch/riscv/boot/dts/thead/th1520.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-On Sonntag, 6. Juli 2025 11:46:46 CEST Krzysztof Kozlowski wrote:
-> On 06/07/2025 11:41, Lukas Schmid wrote:
-> > On Sonntag, 6. Juli 2025 11:36:34 CEST Krzysztof Kozlowski wrote:
-> >> On 06/07/2025 11:07, Lukas Schmid wrote:
-> >>> On Sonntag, 6. Juli 2025 09:49:58 CEST Krzysztof Kozlowski wrote:
-> >>>> On 05/07/2025 23:38, Lukas Schmid wrote:
-> >>>>> The NetCube Systems Nagami Keypad Carrier is a custom board intended
-> >>>>> to
-> >>>>> fit a standard Ritto Intercom enclosure and provides a Keypad,
-> >>>>> NFC-Reader
-> >>>>> and Status-LED all controllable over Ethernet with PoE support.
-> >>>>> 
-> >>>>> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-> >>>>> ---
-> >>>>> 
-> >>>>>  Documentation/devicetree/bindings/arm/sunxi.yaml | 6 ++++++
-> >>>>>  1 file changed, 6 insertions(+)
-> >>>>> 
-> >>>>> diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> >>>>> b/Documentation/devicetree/bindings/arm/sunxi.yaml index
-> >>>>> 7919b5bf5..a2f16d064 100644
-> >>>>> --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> >>>>> +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> >>>>> 
-> >>>>> @@ -610,6 +610,12 @@ properties:
-> >>>>>            - const: netcube,nagami
-> >>>>>            - const: allwinner,sun8i-t113s
-> >>>>> 
-> >>>>> +      - description: NetCube Systems Nagami Keypad Carrier Board
-> >>>>> +        items:
-> >>>>> +          - const: netcube,nagami-keypad-carrier
-> >>>> 
-> >>>> That's just enum with previous entry. Don't make it over-complicated.
-> >>>> 
-> >>>> Best regards,
-> >>>> Krzysztof
-> >>> 
-> >>> Just making sure here. The actual bindings are fine, but I should merge
-> >>> them into one patch, correct?
-> >> 
-> >> No, you got two comments what should be changed in the binding.
-> >> 
-> >> Best regards,
-> >> Krzysztof
-> > 
-> > So if I understand correctly you want me to remove the
-> > "allwinner,sun8i-t113s" from the carrier boards and keep it for the SoM?
-> 
-> No, I spoke nothing about that compatible. My comment is EXACTLY under
-> the line being incorrect. That entry should have been made enum with
-> previous board compatible. Look at other vendors, because this file
-> repeats that pattern for some reason, eh...
-> 
-> Best regards,
-> Krzysztof
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index 42724bf7e90e08fac326c464d0f080e3bd2cd59b..513dc6977b2633503515ad260913156fbe57d92f 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -493,6 +493,13 @@ uart2: serial@ffec010000 {
+ 			status = "disabled";
+ 		};
+ 
++		pwm: pwm@ffec01c000 {
++			compatible = "thead,th1520-pwm";
++			reg = <0xff 0xec01c000 0x0 0x4000>;
++			clocks = <&clk CLK_PWM>;
++			#pwm-cells = <3>;
++		};
++
+ 		clk: clock-controller@ffef010000 {
+ 			compatible = "thead,th1520-clk-ap";
+ 			reg = <0xff 0xef010000 0x0 0x1000>;
 
-Ah sorry. I think i understand now. You want the carrier boards in a single 
-entry with the different compatibles as the enum like:
+-- 
+2.34.1
 
-      - description: NetCube Systems Nagami SoM
-        items:
-          - const: netcube,nagami
-          - const: allwinner,sun8i-t113s
-
-      - description: NetCube Systems Nagami SoM based boards
-        items:
-          - enum:
-              - netcube,nagami-basic-carrier
-              - netcube,nagami-keypad-carrier
-          - const: netcube,nagami
-          - const: allwinner,sun8i-t113s
-
-Best regards,
-Lukas
-
-
---nextPart10685525.nUPlyArG6x
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEPv6dcBmn59ssZMkSJnN+drMVRtgFAmhqSLgACgkQJnN+drMV
-RtiERQgAhtJfnRb+0MWY3I9NrlK10nZqNnvJr1RrRAl3ac/hg00rMlrCjI1GWna3
-WnNjQY8ztNvMI83gXaTLDv1raTVU+6sIMcwiZcSGn8wdWSO/Cx4Rl3ziY/z3mAtc
-axXLv907yLGC62k4U/wpBJ3+wTEe49M4JaBTs868YCa1Q/vjpqZsnIun+1nWlTFR
-hH06vVJhgoV32fDePHQsGyAdn6sQoxt8bLqryu3u2aZaJLDDH/K/bcxpbSCYlSyj
-c84tM50/VIdh8/MyMXUUbas/odCS/+7Tvm6fNdlJG/BdIeWL454EJNaVlUdj+Cvp
-/4qEOroTN+xTqZNKizC7wI6uMqBkjA==
-=g2nF
------END PGP SIGNATURE-----
-
---nextPart10685525.nUPlyArG6x--
-
-
-
-
-
-
---===============5123906941675181290==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5123906941675181290==--
-
-
-
-
-
