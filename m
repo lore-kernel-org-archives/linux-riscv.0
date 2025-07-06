@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FE7C83030
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jul 2025 21:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D243C83030
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jul 2025 00:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=grnSLRkrjpTo0r/8R/9LVKih8QT1APy+i3W9q+0yUMg=; b=GWJwLa3X598Yc1
-	pYpZdP6CpQlowZSAS+EzM68jYLnTyyo8nFbNFj8FVJyQGGzNs6UJhbRUk3U/VdHrbsm+vCNFmL1aC
-	Eu0Vz0oQYjp/w4LqWSAAwYGiLfNf3IK4aJeipuj/sr6WbKTSReMz0NT9IkzuhlxW1jDrUcX003W/t
-	/MbvJtENQm7jlaEjHH0sXMwm1EF4yD0J+Jq637jIbYFCDJUZOHFG2S8LOzzcVhyWZEJhaWGErKwxh
-	ogdtMdb5hPJptYevr7/l4Lof/mf0X+01N3eZ9lJDWTiBQlvBbJ/RV3eLpeDeSi9lsCHH2PDUJLG5L
-	BjvzcTCp2AOWHxxU52Zg==;
+	List-Owner; bh=BpYT5i3/a2B9qcPHHbMA0yttKIZzn/vT+MOqETOk+ro=; b=JBgQOOQJ+XaWRQ
+	XTXLf3WKgpQZbFg+ottoZse+AhzWpCnypSVz2tC1YTYZgPis/cRg5dgVzn9ERYHyLv79V3tUl0HRy
+	HP37XJtpx6BsQapZuethxwA4qkIg/utiMktyguGtCtMlBtUE2bLKNH958UEOxM9iznubi8RUSBRPN
+	0fJQw5ofaBZmwI9CdrcMYLKURJ7VJhBVv+FKOT8WdffaZiKXZuf/MH7fQB04kN0n69o1jc4RuvAzX
+	swyRRF9uq+uWhUewq4kX87NzBDWVCdJFk+1V9xQcbjI1XzGEGdlnxkxzb5na1Lb7jRFQIolQWr5LD
+	tGoKLJTPoVbRB8n1mi1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYAuL-0000000H4me-1o5F;
-	Sat, 05 Jul 2025 21:58:53 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1uYCwj-0000000HBh3-3xg7;
+	Sun, 06 Jul 2025 00:09:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYAcL-0000000H2oL-04AU;
-	Sat, 05 Jul 2025 21:40:18 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=Bb2RFEmK0V0h0HFQUJw7WupWz35V24tDU23mVzcVDn0=;
-	b=DRHjYx6VOU/ea+rs7o0C7VXmrD1UP5yZXZRWRYq7nxzA/glkc2wRdM0AydCZt+a3lGBhTpsholqlFXVVCNzX+OCONoN1wQbV+BFoB/3+0ZweX55Cq+lb3hLKZlOkp84dcIOEwQW/SJGbULH2rzAIngax0Fz9t/+7/MXn6TTIHAc=
-Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPA
-	; Sat, 5 Jul 2025 23:39:55 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 5/7] ARM: dts: sunxi: add support for NetCube Systems Nagami SoM
-Date: Sat,  5 Jul 2025 23:38:56 +0200
-Message-Id: <20250705213900.3614963-6-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250705213900.3614963-1-lukas.schmid@netcube.li>
-References: <20250705213900.3614963-1-lukas.schmid@netcube.li>
+	id 1uYCvW-0000000HBay-2feH
+	for linux-riscv@lists.infradead.org;
+	Sun, 06 Jul 2025 00:08:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D633446432;
+	Sun,  6 Jul 2025 00:08:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 881BEC4CEE7;
+	Sun,  6 Jul 2025 00:08:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751760491;
+	bh=uC1minF/xwR/V1v5iYqpAyv3Ym5sMrGVxIQWTllzRes=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Cn5YbIGv/LWgzDD/2gs1sB4MOBgTQ9kmN/yTMO/m/ydNNvX9NXIwRYu1SIRWiFM4H
+	 R5qHXwhx9WhkvVMmiXnKlwz0oo5HX3AGuexgO5f7amECuv+gAoZ8v8TPwBza2ptSAL
+	 0azXhLyXarYVS+FlF4GtSRCskeR2XPUlZqU8TOp/U5SZ9ZkxrvKsSTd4AGd9uK/iZh
+	 RzHiDADc0DVNndkxeZuh7H0lBYaBEduxf/zu+PeP5YBcEHYmbs24QeZlQl4H4daH14
+	 f46PLwfA12gizZVkO4VwkB0YhDmWaFCQLnniDlX/ZV2Hz9Lvm1wqz2x0fqOR1jgazH
+	 lb0pUrQdtPevg==
+Date: Sat, 5 Jul 2025 17:08:09 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+	Yangtao Li <frank.li@vivo.com>, linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: thead: th1520-ap: Correctly refer the parent for
+ c910 and osc_12m
+Message-ID: <aGm+adSNdTHyN7K1@x1>
+References: <20250705052028.24611-1-ziyao@disroot.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250705052028.24611-1-ziyao@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_144017_342682_3DAB54A7 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20250705_170814_718996_3FBD2272 
+X-CRM114-Status: GOOD (  27.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,265 +76,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-NetCube Systems Nagami SoM is a module based around the Allwinner T113s
-SoC. It includes the following features and interfaces:
+On Sat, Jul 05, 2025 at 05:20:28AM +0000, Yao Zi wrote:
+> clk_orphan_dump shows two suspicious orphan clocks on TH1520 when
+> booting the kernel with mainline U-Boot,
+> 
+> 	$ cat /sys/kernel/debug/clk/clk_orphan_dump | jq 'keys'
+> 	[
+> 	  "c910",
+> 	  "osc_12m"
+> 	]
+> 
+> where the correct parents should be c910-i0 for c910, and osc_24m for
+> osc_12m.
 
-- 128MB DDR3 included in SoC
-- 10/100 Mbps Ethernet using LAN8720A phy
-- One USB-OTG interface
-- One USB-Host interface
-- One I2S interface with in and output support
-- Two CAN interfaces
-- ESP32 over SDIO
-- One SPI interface
-- I2C EEPROM for MAC address
-- One QWIIC I2C Interface with dedicated interrupt pin shared with EEPROM
-- One external I2C interface
-- SD interface for external SD-Card
+Thanks for sending this patch. However, I only see "osc_12m" listed in
+clk_orphan_dump. I tried the current next, torvalds master and v6.15 but
+I didn't ever see "c910" appear [1]. What branch are you using?
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 227 ++++++++++++++++++
- 1 file changed, 227 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
+I think it would be best for this patch to be split into separate
+patches for osc_12m and c910.
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-new file mode 100644
-index 000000000..c5fdc4192
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-@@ -0,0 +1,227 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-t113s.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	model = "NetCube Systems Nagami SoM";
-+	compatible = "netcube,nagami", "allwinner,sun8i-t113s";
-+
-+	aliases {
-+		serial1 = &uart1; // ESP32 Bootloader UART
-+		serial3 = &uart3; // Console UART on Card Edge
-+		ethernet0 = &emac;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial3:115200n8";
-+	};
-+
-+	/* module wide 3.3V supply directly from the card edge */
-+	reg_vcc3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+
-+	/* SY8008 DC/DC regulator on the board, also supplying VDD-SYS */
-+	reg_vcc_core: regulator-core {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-core";
-+		regulator-min-microvolt = <880000>;
-+		regulator-max-microvolt = <880000>;
-+		vin-supply = <&reg_vcc3v3>;
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&reg_vcc_core>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&reg_vcc_core>;
-+};
-+
-+&emac {
-+	nvmem-cells = <&eth0_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+	phy-handle = <&lan8720a>;
-+	phy-mode = "rmii";
-+	pinctrl-0 = <&rmii_pe_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Exposed as I2C on the card edge */
-+&i2c2 {
-+	pinctrl-0 = <&i2c2_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+/* Exposed as the QWIIC connector and used by the internal EEPROM */
-+&i2c3 {
-+	pinctrl-0 = <&i2c3_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	eeprom0: eeprom@50 {
-+		compatible = "atmel,24c02";		/* actually it's a 24AA02E48 */
-+		reg = <0x50>;
-+		pagesize = <16>;
-+		read-only;
-+		vcc-supply = <&reg_vcc3v3>;
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		eth0_macaddress: macaddress@fa {
-+			reg = <0xfa 0x06>;
-+		};
-+	};
-+};
-+
-+/* Exposed as I2S on the card edge */
-+&i2s1 {
-+	pinctrl-0 = <&i2s1_pins>, <&i2s1_din_pins>, <&i2s1_dout_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+&mdio {
-+	lan8720a: ethernet-phy@1 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <1>;
-+	};
-+};
-+
-+/* Exposed as SD on the card edge */
-+&mmc0 {
-+	pinctrl-0 = <&mmc0_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc3v3>;
-+	broken-cd;
-+	disable-wp;
-+	bus-width = <4>;
-+};
-+
-+/* Connected to the on-board ESP32 */
-+&mmc1 {
-+	pinctrl-0 = <&mmc1_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+/* Connected to the on-board eMMC */
-+&mmc2 {
-+	pinctrl-0 = <&mmc2_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc3v3>;
-+	vqmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_vcc3v3>;
-+	vcc-pd-supply = <&reg_vcc3v3>;
-+	vcc-pe-supply = <&reg_vcc3v3>;
-+	vcc-pf-supply = <&reg_vcc3v3>;
-+	vcc-pg-supply = <&reg_vcc3v3>;
-+
-+	gpio-line-names = "", "", "", "", // PA
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "CAN0_TX", "CAN0_RX", // PB
-+					  "CAN1_TX", "CAN1_RX", "UART3_TX", "UART3_RX",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "eMMC_CLK", "eMMC_CMD", // PC
-+					  "eMMC_D2", "eMMC_D1", "eMMC_D0", "eMMC_D3",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "", // PD
-+					  "", "", "", "",
-+					  "", "", "SPI1_CS", "SPI1_CLK",
-+					  "SPI1_MOSI", "SPI1_MISO", "SPI1_HOLD", "SPI1_WP",
-+					  "PD16", "", "", "",
-+					  "I2C2_SCL", "I2C2_SDA", "PD22", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "ETH_CRSDV", "ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
-+					  "ETH_TXD0", "ETH_TXD1", "ETH_TXEN", "",
-+					  "ETH_MDC", "ETH_MDIO", "QWIIC_nINT", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "SD_D1", "SD_D0", "SD_CLK", "SD_CLK", // PF
-+					  "SD_D3", "SD_D2", "PF6", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-+					  "ESP_D2", "ESP_D3", "UART1_TXD", "UART1_RXD",
-+					  "ESP_nBOOT", "ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-+					  "I2S1_WS", "I2S1_CLK", "I2S1_DIN0", "I2S1_DOUT0",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "";
-+};
-+
-+/* Remove the unused CK pin from the pinctl as it is unconnected */
-+&rmii_pe_pins {
-+	pins = "PE0", "PE1", "PE2", "PE3", "PE4",
-+		   "PE5", "PE6", "PE8", "PE9";
-+};
-+
-+/* Exposed as SPI on the card-edge */
-+&spi1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&spi1_pins>;
-+	pinctrl-names = "default";
-+	cs-gpios = <0>;
-+};
-+
-+/* Connected to the Bootloader/Console of the ESP32 */
-+&uart1 {
-+	pinctrl-0 = <&uart1_pg6_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Exposed as the Console/Debug UART on the card-edge */
-+&uart3 {
-+	pinctrl-0 = <&uart3_pb_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
--- 
-2.39.5
+> The correct parent of c910, c910-i0, is registered with
+> devm_clk_hw_register_mux_parent_data_table(), which creates a clk_hw
+> structure from scratch. But it's assigned as c910's parent by
+> referring &c910_i0_clk.common.hw, confusing the CCF since this clk_hw
+> structure is never registered.
 
+I recall Stephen Boyd had the feedback when trying to upstream this
+driver to avoid strings for parents and instead use clk_parent_data or
+clk_hw pointers directly [2]. It was difficult to find alternitves to
+parent strings in all instances.
 
+> Meanwhile, osc_12m refers the external oscillator by setting
+> clk_parent_data.fw_name to osc_24m, which is obviously wrong since no
+> clock-names property is allowed for compatible thead,th1520-clk-ap.
+> 
+> For c910, refer c910-i0 by its name; for osc_12m, refer the external
+> clock input by index. This eliminates these orphan clocks.
+> 
+> Fixes: ae81b69fd2b1 ("clk: thead: Add support for T-Head TH1520 AP_SUBSYS clocks")
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  drivers/clk/thead/clk-th1520-ap.c | 11 +++++++++--
+>  1 file changed, 9 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+> index ebfb1d59401d..74da1a61e6f0 100644
+> --- a/drivers/clk/thead/clk-th1520-ap.c
+> +++ b/drivers/clk/thead/clk-th1520-ap.c
+> @@ -427,7 +427,7 @@ static struct ccu_mux c910_i0_clk = {
+>  };
+>  
+>  static const struct clk_parent_data c910_parents[] = {
+> -	{ .hw = &c910_i0_clk.common.hw },
+> +	{ .index = -1, .name = "c910-i0" },
+
+Stephen - would this use of a parent string be acceptable?
+
+>  	{ .hw = &cpu_pll1_clk.common.hw }
+>  };
+>  
+> @@ -582,7 +582,14 @@ static const struct clk_parent_data peri2sys_apb_pclk_pd[] = {
+>  	{ .hw = &peri2sys_apb_pclk.common.hw }
+>  };
+>  
+> -static CLK_FIXED_FACTOR_FW_NAME(osc12m_clk, "osc_12m", "osc_24m", 2, 1, 0);
+> +struct clk_fixed_factor osc12m_clk = {
+> +	.div		= 2,
+> +	.mult		= 1,
+> +	.hw.init	= CLK_HW_INIT_PARENTS_DATA("osc_12m",
+> +						   osc_24m_clk,
+> +						   &clk_fixed_factor_ops,
+> +						   0),
+> +};
+
+I think this hunk is a good fix for osc_12m. I applied the patch and
+osc_12m no longer appears in clk_orphan_dump [3]. clk_summary now shows
+osc_12m under osc_24m.
+
+>  
+>  static const char * const out_parents[] = { "osc_24m", "osc_12m" };
+>  
+> -- 
+> 2.49.0
+> 
+
+[1] https://gist.github.com/pdp7/d00f0f4fe3fcf368ce253d606dc7b01f
+[2] https://lore.kernel.org/all/91c3373b5b00afc1910b704a16c1ac89.sboyd@kernel.org/
+[3] https://gist.github.com/pdp7/30e51ed013d4bedf0c6abc5717e0b6a5
 
 _______________________________________________
 linux-riscv mailing list
