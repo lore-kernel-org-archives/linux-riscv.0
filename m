@@ -4,96 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9187C83F07
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jul 2025 10:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3077C83F05
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jul 2025 10:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PnnOvoMggBB1NzfimtwzfObx9cSvErUIz1DEDiKQFqE=; b=J5bAmUqVFLUKG+
-	WNAUyQtaze64UAZtj/YfANUwQ6s2JW3QorvF+T6N5LkH/ZGeQFTQAJArScr41CEr/yKD+pU2tOfOx
-	I43EKgvU6oxE5xc6KSuAvzQsZ2TyoNBOVSY4tyZiv1I2lAbxjlgYlL+od1e2yHi4g8w3e2TjerBES
-	f9uEx+muiAvGolOZsOeNloAzOauQAKN5PALIFcAWxI5bBqsUx1Aii9J0ZOmWiZzieA4g607II865d
-	rk7cZi7kpKK82jAeO1m2GEGwMQA0PMo2xVzATThukjoLQtWV7Cq9OpxYLJJ/FcORD0vgsvCzoZn0h
-	/8uc/IhmY4bgM2NJNRYw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qSXppR5uWOz9k2JIrW+53r774FioDaibd7XGm8UjGYI=; b=Pl3PTdmDJ2Gx8DgUxdgOx1ihHN
+	230YAmLGFsOUljc+mOhy3GAGgQVAXmFGuTXfmcDm4eFiSzY3Q6XD/2UbDDgOxRX56cByhyXN58IGK
+	c2t/pXRFbO+dWfNKuu/EBrJUYY2YjluDIbyTCbCJiFJdrkeLl6lwmZY1tzvbuK71cq/BD7QTLp1I2
+	XtMOxpkiJyG3IXNWoZSyHlG3WnFKN4ZsS0F561vumHlYqbha9936VRQREadu+KMkxI23KJDzjOLZT
+	1KuS/6Xf0FVOMYDHluHMSM/o64AC3HbU6MXOBkGMvW0iybouTM2AUDqiZNh7luYPe9QihjSyzStcT
+	Wx+Y3ofQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYMNc-0000000079R-24iO;
-	Sun, 06 Jul 2025 10:13:52 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1uYMNb-0000000079B-3lRd;
+	Sun, 06 Jul 2025 10:13:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYMJu-000000006tK-05Ie
-	for linux-riscv@lists.infradead.org;
-	Sun, 06 Jul 2025 10:10:03 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4538bc52a8dso16045295e9.2
-        for <linux-riscv@lists.infradead.org>; Sun, 06 Jul 2025 03:10:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751796600; x=1752401400; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jV5hk2L/22TCKsTCyR4AWVhsz/bZszE20n4bChKlIP8=;
-        b=PnXnmavn66E6NMRsEbYT3/bNOKmE0LLQ/uCacCowK9vQeoo07Syg2DXIjyKggDZhhd
-         Yp7NNy3O7/57D0skmthkYN6OHIBdP3n8JGlIV3pTeCFbeLxX3MCF4/1a7VdO9/paWiPE
-         KqoOOigUVQpfrTqJGovdODGDpXHk5hG6O9rzl8oACnDIwEumYBQmF716QvQ/o4NJNZ1n
-         qw9BUTsbGZ+EybSRWHontjTqnkx9ceXm7WLRW5ZDeGlZZayVjv42UWB8yCMsRjjcUJY2
-         oPtXfJM9HFurd5tuQ5m04fNmvfllnJXynmlXj+EpGPQMAb96+TVjrg34+rarPFkbplNl
-         IbQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751796600; x=1752401400;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jV5hk2L/22TCKsTCyR4AWVhsz/bZszE20n4bChKlIP8=;
-        b=fd0WpYgoyaQoA4UOC0suAEu6qFXe5mAE1fK+Qn6qU3RG86u6P6ItLCfQ88z3/eJnDO
-         HW0slSKLnalPUaaVGBUqiEMCTLLiX1Uh4qLKg11zAZJYRPjTPkuPrZvM11J8KSX6QJ3Q
-         mukVusI32B5pRZI8l1TQNm/onGzPHmldTI+BlxFZrlYH8bLrSWcCZ90HvpeAl0GoJ5bm
-         05tfmpGy0souSCqIF4jT5Q9F9PCdDsZd1d0tVkt2FXXiWZj42mg41ELevLTBhrNpg2yL
-         wXmVbbtDgnTuW6gCwI4NYsATdCLm5fCV1r9EqY9rTN9jmZm4NhoSx6nlLnsGYbGnOfzl
-         C3+w==
-X-Forwarded-Encrypted: i=1; AJvYcCV/dg1QRKAfk45oKRvyQsEP5wq3shQadj4SSxCvZBkgRoafFNtnVOFLDLqsRwlGL9WAuVbjhVir6SY8iA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBkfFvQlrJ0y0b3zShz0cROXtgRj1wKWXWfXqWB39yCRQtpuLv
-	vA0jHP7pIhrYqu117pGhxGPNwBrWptyp3eWlE48geYxU+3F8w9udt44/
-X-Gm-Gg: ASbGncs0F+CexKnx+lkypbMwXUz6IFaX6Eha9ePj7wDU2cbMsOFEXjQMspR7BfWu1w6
-	4EBuO09aPxVHE244Prth2N7Ti2zyqQgOWkzA6qzvDsmfFUuou1PAtfwroS+OcYv+Okv4xr2e/Qs
-	1hhgaa17gb2td32jHd+nWuqrotMQPMzwlLRaaKgNsJGwbddR2kaSxXCjpQcAiOL50AsYeTbFArB
-	ayMtIsBRZNaxFRWYYoD7qtsKeEsb9BAH625NCvGdHqpFeNflrL7T0Kjlr99uFNDc+A7dfVnsmcO
-	7hEfubdrzPI8DskclKApMgOtv29Q4l67P9fxhw65ino3n+K/wb3aJk5qbvL8UpQmXIziWrbMqCv
-	zzw==
-X-Google-Smtp-Source: AGHT+IFboTpFzUmPBMceP5BQaZY52z0uD8klP61U5hlGg3Max/z1jvvjdVEPb6BxDr0QhRSMuQVpDw==
-X-Received: by 2002:a05:600c:4f16:b0:450:d367:c385 with SMTP id 5b1f17b1804b1-454c576aacfmr1072985e9.16.1751796600196;
-        Sun, 06 Jul 2025 03:10:00 -0700 (PDT)
-Received: from localhost.localdomain ([41.79.198.24])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a9be0bacsm105336185e9.32.2025.07.06.03.09.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Jul 2025 03:09:59 -0700 (PDT)
-From: Khalid Ali <khaliidcaliy@gmail.com>
-X-Google-Original-From: Khalid Ali <khaliidcaliy@gmail.com
-To: ardb@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: gargaditya08@live.com,
-	jonathan@marek.ca,
-	kees@kernel.org,
-	linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	lukas@wunner.de,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] efi/libstub: Print uefi status code on error messages
-Date: Sun,  6 Jul 2025 10:08:44 +0000
-Message-ID: <20250706100900.1481-1-khaliidcaliy@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250706094354.1282-1-khaliidcaliy@gmail.com>
-References: 
+	id 1uYMIi-000000006kX-3gZr;
+	Sun, 06 Jul 2025 10:08:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=0T5ERNEDk8sZhawQuX8JVZNNOUKlYRbaNNvCcLZi7To=; b=cJf4gUb0j4HN6Gi1YGlxiSNtg7
+	aqAUDfSFSugOQdP7/ktU7AiJg449gGSzc+RkBVSZ86fEYpMot+zVliGBZs/PbwEKT/psV4E6mberE
+	G+DpUzqgOZQYH2FhuKXnc0hsJ1UL0EfJVwd2saW//SyDrHM2H7wzda2ZgShBbWBSF3FzC6/+BEUcF
+	OYRkZm3f9iJsR13yKLTH2XvDojQmqFX73mT2N7i8CTi9HkCT1w0lc/5Ec9fnSHUo+paSmuyViwW1w
+	52cxT+Mrl5lKLOpQL0GGQAQ4NMdoyFAZSKjZ3ICqaGWnVEPsVPFnsifWjRlLACr5KT741p01tgYLa
+	Nnmhz7bw==;
+Received: from mail.netcube.li ([173.249.15.149])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYMIf-00000008IkV-2LpU;
+	Sun, 06 Jul 2025 10:08:47 +0000
+dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Type:In-Reply-To:References;
+	bh=0T5ERNEDk8sZhawQuX8JVZNNOUKlYRbaNNvCcLZi7To=;
+	b=oyYJcxdvi2HSsrtA0NRNLP07hI9ZWZIgqk6i56SdDxhuilLTawGFGOSVJC912TFRMLct63t8lLnzoG7oTvvmDgV4EQBeh92HD+Ur9BHzL4r4O2nzndjBg/jeI4je5pMqv0FgdW6s+GlBpLEj4MSjeLNSdZYVlPYau+ThN9Towh0=
+Received: from lukas-hpz440workstation.localnet (cm70-231.liwest.at [212.241.70.231])
+	by mail.netcube.li with ESMTPSA
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
+	; Sun, 6 Jul 2025 12:08:20 +0200
+From: Lukas Schmid <lukas.schmid@netcube.li>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 3/7] dt-bindings: arm: sunxi: Add NetCube Systems Nagami Keypad
+ Carrier Board
+Date: Sun, 06 Jul 2025 12:08:18 +0200
+Message-ID: <22754446.EfDdHjke4D@lukas-hpz440workstation>
+In-Reply-To: <8549188.T7Z3S40VBb@lukas-hpz440workstation>
+References: <20250705213900.3614963-1-lukas.schmid@netcube.li>
+ <4648f0bf-2957-45bf-a6c1-01787e5d3e88@kernel.org>
+ <8549188.T7Z3S40VBb@lukas-hpz440workstation>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_031002_059724_8912A8A3 
-X-CRM114-Status: UNSURE (   4.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250706_110845_820695_995483C3 
+X-CRM114-Status: GOOD (  26.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,14 +83,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0908015955965083238=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sorry, i accidentally sent this twice and broke the email thread.
+--===============0908015955965083238==
+Content-Type: multipart/signed; boundary="nextPart7824363.EvYhyI6sBW";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
+
+--nextPart7824363.EvYhyI6sBW
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"; protected-headers="v1"
+From: Lukas Schmid <lukas.schmid@netcube.li>
+Date: Sun, 06 Jul 2025 12:08:18 +0200
+Message-ID: <22754446.EfDdHjke4D@lukas-hpz440workstation>
+In-Reply-To: <8549188.T7Z3S40VBb@lukas-hpz440workstation>
+MIME-Version: 1.0
+
+On Sonntag, 6. Juli 2025 11:58:16 CEST Lukas Schmid wrote:
+> On Sonntag, 6. Juli 2025 11:46:46 CEST Krzysztof Kozlowski wrote:
+> > On 06/07/2025 11:41, Lukas Schmid wrote:
+> > > On Sonntag, 6. Juli 2025 11:36:34 CEST Krzysztof Kozlowski wrote:
+> > >> On 06/07/2025 11:07, Lukas Schmid wrote:
+> > >>> On Sonntag, 6. Juli 2025 09:49:58 CEST Krzysztof Kozlowski wrote:
+> > >>>> On 05/07/2025 23:38, Lukas Schmid wrote:
+> > >>>>> The NetCube Systems Nagami Keypad Carrier is a custom board intended
+> > >>>>> to
+> > >>>>> fit a standard Ritto Intercom enclosure and provides a Keypad,
+> > >>>>> NFC-Reader
+> > >>>>> and Status-LED all controllable over Ethernet with PoE support.
+> > >>>>> 
+> > >>>>> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+> > >>>>> ---
+> > >>>>> 
+> > >>>>>  Documentation/devicetree/bindings/arm/sunxi.yaml | 6 ++++++
+> > >>>>>  1 file changed, 6 insertions(+)
+> > >>>>> 
+> > >>>>> diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml
+> > >>>>> b/Documentation/devicetree/bindings/arm/sunxi.yaml index
+> > >>>>> 7919b5bf5..a2f16d064 100644
+> > >>>>> --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
+> > >>>>> +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+> > >>>>> 
+> > >>>>> @@ -610,6 +610,12 @@ properties:
+> > >>>>>            - const: netcube,nagami
+> > >>>>>            - const: allwinner,sun8i-t113s
+> > >>>>> 
+> > >>>>> +      - description: NetCube Systems Nagami Keypad Carrier Board
+> > >>>>> +        items:
+> > >>>>> +          - const: netcube,nagami-keypad-carrier
+> > >>>> 
+> > >>>> That's just enum with previous entry. Don't make it over-complicated.
+> > >>>> 
+> > >>>> Best regards,
+> > >>>> Krzysztof
+> > >>> 
+> > >>> Just making sure here. The actual bindings are fine, but I should
+> > >>> merge
+> > >>> them into one patch, correct?
+> > >> 
+> > >> No, you got two comments what should be changed in the binding.
+> > >> 
+> > >> Best regards,
+> > >> Krzysztof
+> > > 
+> > > So if I understand correctly you want me to remove the
+> > > "allwinner,sun8i-t113s" from the carrier boards and keep it for the SoM?
+> > 
+> > No, I spoke nothing about that compatible. My comment is EXACTLY under
+> > the line being incorrect. That entry should have been made enum with
+> > previous board compatible. Look at other vendors, because this file
+> > repeats that pattern for some reason, eh...
+> > 
+> > Best regards,
+> > Krzysztof
+> 
+> Ah sorry. I think i understand now. You want the carrier boards in a single
+> entry with the different compatibles as the enum like:
+> 
+>       - description: NetCube Systems Nagami SoM
+>         items:
+>           - const: netcube,nagami
+>           - const: allwinner,sun8i-t113s
+> 
+>       - description: NetCube Systems Nagami SoM based boards
+>         items:
+>           - enum:
+>               - netcube,nagami-basic-carrier
+>               - netcube,nagami-keypad-carrier
+>           - const: netcube,nagami
+>           - const: allwinner,sun8i-t113s
+> 
+> Best regards,
+> Lukas
+
+Oh, I will then drop the SoM's entry as well since the SoM is already defined 
+in the carrier boards then. So only
+
+      - description: NetCube Systems Nagami SoM based boards
+        items:
+          - enum:
+              - netcube,nagami-basic-carrier
+              - netcube,nagami-keypad-carrier
+          - const: netcube,nagami
+          - const: allwinner,sun8i-t113s
+
+correct?
+
+Sorry for the back-and-forth, and thanks for your patience.
+
+Best regards,
+Lukas
+--nextPart7824363.EvYhyI6sBW
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEPv6dcBmn59ssZMkSJnN+drMVRtgFAmhqSxMACgkQJnN+drMV
+RthYPgf7B7hvP/DGLODPXJ1qjUQvXaRZGtuTOiaLfm61dhyn2IsydYUhpwhhMViQ
+z6T4DAm9Eg8CcJqiTb1kckKS/dheJ+eom2IBK9LLb2JHbXaetlXlSvDfbWlTS1I2
+ofG6QKBDYHccjJiejjI2uEIAYALwCMjqxudUUCoMN2hz8euzwKx8dzEXfdWZmcRj
+OzeZsdwQkv8RvP+eiii1xdu/GbnMGKixs75n40v535LOdVWD/hptkJKMPW0fNe8A
+4Hd6uhLD7lZ3qIuEMZfvcCjOF/iCKafXpjCuK6CdFwfC5j+Sgrr3Z5zMAIJ3WRbr
+qCBfoSswKd8fkF5d6rVpVOBcBOPa5g==
+=JbSx
+-----END PGP SIGNATURE-----
+
+--nextPart7824363.EvYhyI6sBW--
+
+
+
+
+
+
+--===============0908015955965083238==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0908015955965083238==--
+
+
+
+
+
