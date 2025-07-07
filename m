@@ -4,59 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359B8C8303C
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jul 2025 11:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23C1C83F0C
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jul 2025 11:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=aw+ezhlfdhZnJYJ8l+pKcT1JUOEZYw/HV1UuR0aA6w8=; b=p+w
-	YJKhWU3wjhIUquz2db+eM5elbSnKBJ7VjmVqh/YUtDcoXusw07odpt5/yLa2hwX/69+NnYrxVVi/t
-	FSTvKswnHm+EnV0BoEiPpswhQQxBquzbqPKwf9YKNoa7JB/UUhCtVrsjk03PfPMLP3gJ9pAgY0BNH
-	IWUewzZ79dVK1LQnVlvhk7P9S1XGdhK5ej+m62hAXmLyaWSXZ4ZoCGl6c48LX7Y1z5JI4cS0AROOk
-	Z45TyTNOW5fCIamr5SzUbWBlbe7RyBmLJBc7JQSLYWXaBMcFm2mApPKvtKGcJWzEKSGPN8fazRU/+
-	ECIsHKyEZFoJXfMiJPctKkULqITvYDQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vVfDr85RqDat4KEamEAAXMu6wLyaicDXgT5emriLnVc=; b=O1AdSzgneRQ8YU
+	9V41yf2UEIBv5Nc1a95A72pLW2e0hvSgSZRJlKIeDqXIpsfOUButHlo8pDtDR5fvddg3uMEYoIns7
+	8ZjM8qHeUToCFx5BgeaO/KbQKO3oq3Ggug2NADB3gtEdTHrtPY41Y2eMQSuj9nzmsgWfXGGpeZjMy
+	jXDiolKkhReMvuR4ZBHJgOcTTsqUfk4A0owE+G0RPjSYT8hyBM6bL/bInMMnTLduACw09hizm4yfQ
+	OytRoMYKa8NPJu8w5ve6rtL7ZCL8gZjbryp09IllxKEG0gl0XBQsXs1/u18zc9VlmM5KGxZWS7it6
+	CEBlR6zX9v3jalU7wQTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkVT-00000002Mb1-0YeD;
-	Mon, 07 Jul 2025 11:59:35 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.34])
+	id 1uYkVS-00000002Mam-288f;
+	Mon, 07 Jul 2025 11:59:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYk78-00000002Hy0-3eRG
-	for linux-riscv@lists.infradead.org;
-	Mon, 07 Jul 2025 11:34:28 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4bbMZz5wxqz5F2lj;
-	Mon,  7 Jul 2025 19:34:19 +0800 (CST)
-Received: from xaxapp05.zte.com.cn ([10.99.98.109])
-	by mse-fl2.zte.com.cn with SMTP id 567BY9ui054882;
-	Mon, 7 Jul 2025 19:34:09 +0800 (+08)
-	(envelope-from liu.xuemei1@zte.com.cn)
-Received: from mapi (xaxapp05[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Mon, 7 Jul 2025 19:34:11 +0800 (CST)
-Date: Mon, 7 Jul 2025 19:34:11 +0800 (CST)
-X-Zmail-TransId: 2afc686bb0b3ffffffffd8c-e36cd
-X-Mailer: Zmail v1.0
-Message-ID: <20250707193411886Kc-TWknP0PER2_sEg-byb@zte.com.cn>
-Mime-Version: 1.0
-From: <liu.xuemei1@zte.com.cn>
-To: <paul.walmsley@sifive.com>
-Cc: <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
-        <liu.xuemei1@zte.com.cn>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: =?UTF-8?B?W1BBVENIXSByaXNjdjogbW1hcCgpOiB1c2UgdW5zaWduZWQgb2Zmc2V0IHR5cGUgaW4gcmlzY3Zfc3lzX21tYXA=?=
-X-MAIL: mse-fl2.zte.com.cn 567BY9ui054882
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 686BB0BB.003/4bbMZz5wxqz5F2lj
+	id 1uYk2M-00000002HNn-25DU;
+	Mon, 07 Jul 2025 11:29:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 98AAA46259;
+	Mon,  7 Jul 2025 11:29:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4ADBC4CEE3;
+	Mon,  7 Jul 2025 11:29:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751887769;
+	bh=pvrgPbujdZyNCnqS0MoPZy4z92NtoD/434IVrBGaRNc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nzQ9mSTlqbjPryIzU8C3XJ2bHMoEKQ4PGiXh5kPvsK61snx3Ko7sg4bDQvAmsjNyn
+	 VjBlyc7OVsGY2nwbPevisTcnOZK72lB3PDlNakMUad5FcfmPBbVvdvDypLIGh5uRc9
+	 Q0bIaDP6yBFVAoBnE5RPw0SrJ4O16orY4aRAURr38XAqFX3GWO0SokyG/y9LHLARxi
+	 hG7GbGWrC4zCJmvhUjqO8RheFBQ9GYnPogZwKq6XTG1kRXJ0oXeWcwj/OUXhvcw5+i
+	 eI4LdHoFj/fSjCgPFR2upUo2YoxS57r/w2/C75umpqC6zf9X7F5LaM4bg7gRmYrh9F
+	 /minS3KOUu35Q==
+Date: Mon, 7 Jul 2025 13:29:22 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Bjorn Helgaas <helgaas@kernel.org>,
+	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+	Oliver O'Halloran <oohall@gmail.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
+	Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Marc Zyngier <maz@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>, dingwei@marvell.com,
+	Lukas Wunner <lukas@wunner.de>,
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 4/5] PCI: host-common: Add link down handling for host
+ bridges
+Message-ID: <aGuvkkeVkezGJWXn@ryzen>
+References: <fr6orvqq62hozn5g3svpyyazdshv4kh4xszchxbmpdcpgp5pg6@mlehmlasbvrm>
+ <20250530113404.GA138859@bhelgaas>
+ <bixtbu7hzs5rwrgj22ff53souxvpd7vqysktpcnxvd66jrsizf@pelid4rjhips>
+ <aGuqA92VDLK8eRY1@ryzen>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <aGuqA92VDLK8eRY1@ryzen>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_043427_057088_94E85B20 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250707_042930_557518_8EED4D9A 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +91,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jessica Liu <liu.xuemei1@zte.com.cn>
++ Mani's kernel.org email.
 
-The variable type of offset should be consistent with the relevant
-interfaces of mmap which described in commit 295f10061af0 ("syscalls:
-mmap(): use unsigned offset type consistently). Otherwise, a user input
-with the top bit set would result in a negative page offset rather than a
-large one.
-
-Signed-off-by: Jessica Liu <liu.xuemei1@zte.com.cn>
----
- arch/riscv/kernel/sys_riscv.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index d77afe05578f..795b2e815ac9 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -10,7 +10,7 @@
-
- static long riscv_sys_mmap(unsigned long addr, unsigned long len,
- 			   unsigned long prot, unsigned long flags,
--			   unsigned long fd, off_t offset,
-+			   unsigned long fd, unsigned long offset,
- 			   unsigned long page_shift_offset)
- {
- 	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
--- 
-2.25.1
+On Mon, Jul 07, 2025 at 01:05:39PM +0200, Niklas Cassel wrote:
+> Hello Mani,
+> 
+> On Fri, May 30, 2025 at 09:39:28PM +0530, Manivannan Sadhasivam wrote:
+> > On Fri, May 30, 2025 at 06:34:04AM -0500, Bjorn Helgaas wrote:
+> > 
+> > > I think pci_host_handle_link_down() should take a Root Port, not a
+> > > host bridge, and the controller driver should figure out which port
+> > > needs to be recovered, or the controller driver can have its own loop
+> > > to recover all of them if it can't figure out which one needs it.
+> > > 
+> > 
+> > This should also work. Feel free to drop the relevant commits for v6.16, I can
+> > resubmit them (including dw-rockchip after -rc1).
+> 
+> What is the current status of this?
+> 
+> I assume that there is not much time left before 6.17 cut-off.
+> 
+> 
+> Kind regards,
+> Niklas
 
 _______________________________________________
 linux-riscv mailing list
