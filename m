@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDB1C8303C
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jul 2025 03:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07512C8303C
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jul 2025 03:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yg11kIcyYhk0tc68Lnwh0hxl+CU7ai+NtyuQOulL/2o=; b=fw5Q88hrdAVei1
-	QOrj+hDvJStsUJyNcGe75EVOcAr6K/hWr58pDUDKEABu00iUJTuc4rDgqoDIotmGOSa5B22yOZihC
-	Ql3XvGqqCRbl4D+Gdew75fLgczJu5NCgF9Is/XabuR5zkoXXDGvte4IkKeg2r64p9+0r/nT6MpF/i
-	wKAiZrnelBsLxi+NRr135SdcowSn7XESJKq/Xqql9DdDrCokaOHclNTSHmswu33FkAhU9WR2VDnT9
-	elFeCLplcoxdD2oEhUOR65pDKkZLWRJ3rxwyuZPzzRiVXhYQ7tyS8QHKfJZbnGZvK/NnpoOikOgnG
-	m7ccBnZW1mTrIaAaxK2Q==;
+	List-Owner; bh=XSk++iyKObo7gezi50WHIqaGEzIrKnLn3NIKSUHB+Uc=; b=2e0MhW+4DPEwmK
+	NpjWDzjTkFgGiuG4yee+w71LyH4d6DsAy933InYPh9vZzAyhlVPe/SkQboGgEtx7q0mp/OfCOyuWH
+	hfilGDwoLsgFnNa56t5KBSSHxOzjn4ALQGdRf79ssXW98dkH5usq72vSUv1Mx62zvwBGVvMqabGmg
+	UdVJWdUnOCYjlZZXs9+rcgvR4ZRoJzxAGjBWMrjeJJ31oA3DqHVraafcjPrjagLZE/4fR6KfhjAyv
+	maKWuB9Iudc8UGrqAwgLmb2iO4vgkEKkACsbwMCOTnqonlq94uyAVS3KG1z16fAq/CKtKnECVi0nD
+	82bC2/rZmMNfbmMnjxpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYcvb-00000001Kmh-13wp;
-	Mon, 07 Jul 2025 03:54:03 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1uYcvf-00000001Kq2-257b;
+	Mon, 07 Jul 2025 03:54:07 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYcvY-00000001Kk6-1jV0
+	id 1uYcvd-00000001Knv-0rKv
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Jul 2025 03:54:01 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-31a93a4b399so1991160a91.0
-        for <linux-riscv@lists.infradead.org>; Sun, 06 Jul 2025 20:54:00 -0700 (PDT)
+	Mon, 07 Jul 2025 03:54:06 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-234c5b57557so22521575ad.3
+        for <linux-riscv@lists.infradead.org>; Sun, 06 Jul 2025 20:54:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751860439; x=1752465239; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1751860444; x=1752465244; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OfAi3fd+E8Ej2lF9gnj/0qdp/peypswYQnHcbvVqddo=;
-        b=QWVDVSsP0EkkC4M16aB8U/E7np0g2oPSaV2k8C213rBf2RUc8JOBw3mIMNQ9RFj7m6
-         tFZR+MtZICRDeRErjNn+ABeXUaN4SZQDY1wtrVxlNmlZQAZ60FE1Mr3xvsy+jyecEEOW
-         Zx7r4O+ak+DrMeRBy5nzFci9YH9oCQI2pfWr3gLX8qtgJL+aLT743ZGgmlqdwmagM/Ff
-         5BfwK7+n3c40tirTIH3jxFgObwyaqg9nIqpEgtFHhOPfdIVcdB93win6rD0ov8dPg0TQ
-         /Ekv65MxT4sGel6Lv+ZPPVo76IuirFKQF2ma2LL0s/IHrzbsFbWYMFAzvHpFMAEyQP+e
-         ZKbg==
+        bh=fh2AJt0yoZFTrEfJ+nsZtn9P0jIR9N+wVBorJAiW1uA=;
+        b=JnTTOhGwJz63ExZXk7+1fV3HkDzMAEcEWKjf8xyly3fhVxHlIGgS7th3GvU9ivIzvw
+         BWMwZMIGAaOx5971CEUe+WlhvpYHPuxgIPATRDya7INw1Us1WtuT0iEhgG0+LFYJbHCr
+         bWW+3zurqDUHdPezjPRqOQKGiLUDtGmhw2x4VaiyEqERtQiKkIv0s7nlpVg06IIKSlIe
+         R5negROiWC3Ax97WC4/cb9rfZ6VtDoY8cRdU++Iss4JcVXxlEqc+mvgcrbZ+AS3ypGw2
+         uKlRGfnQ/6UYAwcoX4TJSxZfQSunUE/aIOXGPsYcJHs8SyFCXqLetw3U94kEILhnrG5l
+         3a6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751860439; x=1752465239;
+        d=1e100.net; s=20230601; t=1751860444; x=1752465244;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OfAi3fd+E8Ej2lF9gnj/0qdp/peypswYQnHcbvVqddo=;
-        b=ljQQzXXoLx6YvNGRwE0z8gpknz4ofTHIgrAojyjfCk6gk12k5oxVq8JMTcrH/RU1dE
-         YAxmeYKasGF+DS/m4SqCsvnu7E5e1x+Rx6b/IKTcIzl8KS0A4vi43LKMXp3OgqVnXAot
-         O++Ms9Xxu1XMx7bRx3+WrBrHc5VQjyPKkNaaxfOUpPyoBYc6D+A8s2bCtSWHRmfaQfee
-         7LjK41FRWcbvTR5V2NavA/bmM69Wg9r1+AV6iVa83V6BWXcuxMjfznr2ZhIVBAXWOq9K
-         nCHgU85iSXSdmD6PmOlZwFIcTEcijbGu1xMddq4eBIj+i+MvMdqe6I2h7r/0509ijVIj
-         vkUw==
-X-Forwarded-Encrypted: i=1; AJvYcCXMDXF9DAufYeoAjLfYsXKJAevVUVRzmoFjlmCUS7GBbPV3/YUdukXPDOTiALA1KkYe0CiL3dn0c5K+Kw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRt/fq46G9tOo107jZYe/2l0xiVUsO/t4PyGniaeFMRNKJEaj9
-	W2KnSOffp/KhzUIzXjpLrwCBPzOGa6RAD8FrFLOerkengNsH4Gh8NgYc80tGK5W+0VlHRAzrGWh
-	SQsJX
-X-Gm-Gg: ASbGnct+7fWySbNHLnIjW6b37GscI24C73mUde2+SL+/gsRX6fecbrMY5CFtFngcA6k
-	0UmrE1XyLPpEU7YnG/Ktjc7k7DqXv8FA3Ir0XeWcmPGVwLoq5b1gMihEp7CRYPD4qwvqscefeq0
-	3N97xRosglc1bbDoIcwJGXdCW1afAeK1tRzO4qpgrsYyqteSzJcitq6vs9nWeQJ2d9npy0KVUuE
-	kSJ/ho3uFnTGRgrBsX2qzztNEpE+RUKM8fJMK28bYTyyvC9WNB3KWHcA0I7Exe/ehaUb8KttNgB
-	uhcE7xO7nRwJT/4uqe1f9VfOU3viEt5z8hIMj9fXsGTVBOSRXK2d3lvycJQVYMv+HOUcAV9TOuX
-	T2UfNxAaFy4q31TNLA54=
-X-Google-Smtp-Source: AGHT+IGeNKIzrYtZHWrzPyAaXd9wmbWip0uCwcq3zrRW80YaPsp+TGeA7hn5Q+daneEYm75wjzhZiw==
-X-Received: by 2002:a17:90b:5847:b0:313:f995:91cc with SMTP id 98e67ed59e1d1-31aaaf7301bmr16967530a91.2.1751860439499;
-        Sun, 06 Jul 2025 20:53:59 -0700 (PDT)
+        bh=fh2AJt0yoZFTrEfJ+nsZtn9P0jIR9N+wVBorJAiW1uA=;
+        b=HeetRfCxknElu7kYtbGfsPMdOlJN7FJxFbPQMJDj6r/wUEGhCLp1yODSf0JmBET+OJ
+         0emUzq5x0sxDq4UuWDyGFMcMOW9bmcm+KAdCnOHDIf0qJwaByUhW/hR15HJVND+HjC/l
+         Pw42U7g794XuJi3q4ZH8WuT+WajP5q0n78R2MCpKRLKzpPdNikitOSIPrvMYxDGyqPAu
+         Vi3IIx4Iv7H4zuBJQ2uT2LnlRdT8e3JVCPzw1DvXOg3ulYWNpv8nrBpLhvv++UHLHqn6
+         O1uoynVBCMz1pd0u5HYLr7WtL9+V4HNuOpJYuMDT8B1gHP5CL+8/FmakuL5mZzzMGI6L
+         /cvg==
+X-Forwarded-Encrypted: i=1; AJvYcCXG8hnF4TqBVeMX2dKijvDEAC1a6eX2M2Dlma+sGxc6Z0Ph1jgwxD7+RxzrpRABKggxWWsCOPGH2iYHnQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDHmLGjBoASBQVllh1YF6uX5b1CiXcQuIrE/IZKX+IYNJTGOfR
+	IBWDgQhpqRTZmzeZyQ+V+a+GtDHCcnSPGA3Si22GUyumonnpePt1eLhrunkZ4tjYxi4=
+X-Gm-Gg: ASbGncuRBKK6zkb13IgTn/bVjEHisJqBZKq2i5cEf4EX1zQPzTXImU2w8SjvZDCrc3q
+	CqSuu+oVkSZQIwkSbP7b7Hf037xDwwE9YXFq7mOc5O1XHDqe67JFllCWHBNd+Ygg4aURz8H0dB5
+	HIrY3XseQ+QZ6UcWeX7Np4bVprLmzlvhIlL2jFLPLhPUbPL+e4ugkaF3/Ot9+O+OrFgJJNT71Ed
+	dGE+m+ebk6nhXcrlBpXimIE39GMKp977vV8iNJig4iaHJ+r7zmEkcje+FXAOJQ2jVdnwisnTciN
+	FO7r55vycf0v5Enxe3lXoi8oNG5cNIMITcQnC1Qz2j8XwtwbYZQHPJa41ReTxt1HjxQMF/pYaiN
+	M2QRO9bacEdHn0g6Cg0Q=
+X-Google-Smtp-Source: AGHT+IFe82d6BHmBOo2M+2ls1e4A5K/eZXQL9BtmwHX6jMWuif2aGFAVvqblJlwRZZSbrmPBr5HHVg==
+X-Received: by 2002:a17:903:27cc:b0:235:225d:30a2 with SMTP id d9443c01a7336-23c85ec7329mr136803185ad.48.1751860444304;
+        Sun, 06 Jul 2025 20:54:04 -0700 (PDT)
 Received: from localhost.localdomain ([122.171.23.152])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31aaae80ae0sm8159137a91.21.2025.07.06.20.53.55
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31aaae80ae0sm8159137a91.21.2025.07.06.20.53.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Jul 2025 20:53:59 -0700 (PDT)
+        Sun, 06 Jul 2025 20:54:03 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Atish Patra <atish.patra@linux.dev>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -84,17 +83,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Anup Patel <apatel@ventanamicro.com>,
 	Atish Patra <atishp@rivosinc.com>,
 	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Subject: [PATCH v2 1/2] RISC-V: KVM: Disable vstimecmp before exiting to user-space
-Date: Mon,  7 Jul 2025 09:23:43 +0530
-Message-ID: <20250707035345.17494-2-apatel@ventanamicro.com>
+Subject: [PATCH v2 2/2] RISC-V: KVM: Move HGEI[E|P] CSR access to IMSIC virtualization
+Date: Mon,  7 Jul 2025 09:23:44 +0530
+Message-ID: <20250707035345.17494-3-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250707035345.17494-1-apatel@ventanamicro.com>
 References: <20250707035345.17494-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_205400_455623_7D461FD7 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250706_205405_248043_13E72781 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,57 +109,233 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If VS-timer expires when no VCPU running on a host CPU then WFI
-executed by such host CPU will be effective NOP resulting in no
-power savings. This is as-per RISC-V Privileged specificaiton
-which says: "WFI is also required to resume execution for locally
-enabled interrupts pending at any privilege level, regardless of
-the global interrupt enable at each privilege level."
+Currently, the common AIA functions kvm_riscv_vcpu_aia_has_interrupts()
+and kvm_riscv_aia_wakeon_hgei() lookup HGEI line using an array of VCPU
+pointers before accessing HGEI[E|P] CSR which is slow and prone to race
+conditions because there is a separate per-hart lock for the VCPU pointer
+array and a separate per-VCPU rwlock for IMSIC VS-file (including HGEI
+line) used by the VCPU. Due to these race conditions, it is observed
+on QEMU RISC-V host that Guest VCPUs sleep in WFI and never wakeup even
+with interrupt pending in the IMSIC VS-file because VCPUs were waiting
+for HGEI wakeup on the wrong host CPU.
 
-To address the above issue, vstimecmp CSR must be set to -1UL over
-here when VCPU is scheduled-out or exits to user space.
+The IMSIC virtualization already keeps track of the HGEI line and the
+associated IMSIC VS-file used by each VCPU so move the HGEI[E|P] CSR
+access to IMSIC virtualization so that costly HGEI line lookup can be
+avoided and likelihood of race-conditions when updating HGEI[E|P] CSR
+is also reduced.
 
 Reviewed-by: Atish Patra <atishp@rivosinc.com>
 Tested-by: Atish Patra <atishp@rivosinc.com>
 Tested-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Fixes: 8f5cb44b1bae ("RISC-V: KVM: Support sstc extension")
-Fixes: cea8896bd936 ("RISC-V: KVM: Fix kvm_riscv_vcpu_timer_pending() for Sstc")
-Reported-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Closes: https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2112578
+Fixes: 3385339296d1 ("RISC-V: KVM: Use IMSIC guest files when available")
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/kvm/vcpu_timer.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/riscv/include/asm/kvm_aia.h |  4 ++-
+ arch/riscv/kvm/aia.c             | 51 +++++---------------------------
+ arch/riscv/kvm/aia_imsic.c       | 45 ++++++++++++++++++++++++++++
+ arch/riscv/kvm/vcpu.c            |  2 --
+ 4 files changed, 55 insertions(+), 47 deletions(-)
 
-diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
-index ff672fa71fcc..85a7262115e1 100644
---- a/arch/riscv/kvm/vcpu_timer.c
-+++ b/arch/riscv/kvm/vcpu_timer.c
-@@ -345,8 +345,24 @@ void kvm_riscv_vcpu_timer_save(struct kvm_vcpu *vcpu)
- 	/*
- 	 * The vstimecmp CSRs are saved by kvm_riscv_vcpu_timer_sync()
- 	 * upon every VM exit so no need to save here.
-+	 *
-+	 * If VS-timer expires when no VCPU running on a host CPU then
-+	 * WFI executed by such host CPU will be effective NOP resulting
-+	 * in no power savings. This is because as-per RISC-V Privileged
-+	 * specificaiton: "WFI is also required to resume execution for
-+	 * locally enabled interrupts pending at any privilege level,
-+	 * regardless of the global interrupt enable at each privilege
-+	 * level."
-+	 *
-+	 * To address the above issue, vstimecmp CSR must be set to -1UL
-+	 * over here when VCPU is scheduled-out or exits to user space.
+diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
+index 0a0f12496f00..b04ecdd1a860 100644
+--- a/arch/riscv/include/asm/kvm_aia.h
++++ b/arch/riscv/include/asm/kvm_aia.h
+@@ -87,6 +87,9 @@ DECLARE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
+ 
+ extern struct kvm_device_ops kvm_riscv_aia_device_ops;
+ 
++bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu);
++void kvm_riscv_vcpu_aia_imsic_load(struct kvm_vcpu *vcpu, int cpu);
++void kvm_riscv_vcpu_aia_imsic_put(struct kvm_vcpu *vcpu);
+ void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu);
+ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu);
+ 
+@@ -161,7 +164,6 @@ void kvm_riscv_aia_destroy_vm(struct kvm *kvm);
+ int kvm_riscv_aia_alloc_hgei(int cpu, struct kvm_vcpu *owner,
+ 			     void __iomem **hgei_va, phys_addr_t *hgei_pa);
+ void kvm_riscv_aia_free_hgei(int cpu, int hgei);
+-void kvm_riscv_aia_wakeon_hgei(struct kvm_vcpu *owner, bool enable);
+ 
+ void kvm_riscv_aia_enable(void);
+ void kvm_riscv_aia_disable(void);
+diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
+index 19afd1f23537..dad318185660 100644
+--- a/arch/riscv/kvm/aia.c
++++ b/arch/riscv/kvm/aia.c
+@@ -30,28 +30,6 @@ unsigned int kvm_riscv_aia_nr_hgei;
+ unsigned int kvm_riscv_aia_max_ids;
+ DEFINE_STATIC_KEY_FALSE(kvm_riscv_aia_available);
+ 
+-static int aia_find_hgei(struct kvm_vcpu *owner)
+-{
+-	int i, hgei;
+-	unsigned long flags;
+-	struct aia_hgei_control *hgctrl = get_cpu_ptr(&aia_hgei);
+-
+-	raw_spin_lock_irqsave(&hgctrl->lock, flags);
+-
+-	hgei = -1;
+-	for (i = 1; i <= kvm_riscv_aia_nr_hgei; i++) {
+-		if (hgctrl->owners[i] == owner) {
+-			hgei = i;
+-			break;
+-		}
+-	}
+-
+-	raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
+-
+-	put_cpu_ptr(&aia_hgei);
+-	return hgei;
+-}
+-
+ static inline unsigned long aia_hvictl_value(bool ext_irq_pending)
+ {
+ 	unsigned long hvictl;
+@@ -95,7 +73,6 @@ void kvm_riscv_vcpu_aia_sync_interrupts(struct kvm_vcpu *vcpu)
+ 
+ bool kvm_riscv_vcpu_aia_has_interrupts(struct kvm_vcpu *vcpu, u64 mask)
+ {
+-	int hgei;
+ 	unsigned long seip;
+ 
+ 	if (!kvm_riscv_aia_available())
+@@ -114,11 +91,7 @@ bool kvm_riscv_vcpu_aia_has_interrupts(struct kvm_vcpu *vcpu, u64 mask)
+ 	if (!kvm_riscv_aia_initialized(vcpu->kvm) || !seip)
+ 		return false;
+ 
+-	hgei = aia_find_hgei(vcpu);
+-	if (hgei > 0)
+-		return !!(ncsr_read(CSR_HGEIP) & BIT(hgei));
+-
+-	return false;
++	return kvm_riscv_vcpu_aia_imsic_has_interrupt(vcpu);
+ }
+ 
+ void kvm_riscv_vcpu_aia_update_hvip(struct kvm_vcpu *vcpu)
+@@ -164,6 +137,9 @@ void kvm_riscv_vcpu_aia_load(struct kvm_vcpu *vcpu, int cpu)
+ 		csr_write(CSR_HVIPRIO2H, csr->hviprio2h);
+ #endif
+ 	}
++
++	if (kvm_riscv_aia_initialized(vcpu->kvm))
++		kvm_riscv_vcpu_aia_imsic_load(vcpu, cpu);
+ }
+ 
+ void kvm_riscv_vcpu_aia_put(struct kvm_vcpu *vcpu)
+@@ -174,6 +150,9 @@ void kvm_riscv_vcpu_aia_put(struct kvm_vcpu *vcpu)
+ 	if (!kvm_riscv_aia_available())
+ 		return;
+ 
++	if (kvm_riscv_aia_initialized(vcpu->kvm))
++		kvm_riscv_vcpu_aia_imsic_put(vcpu);
++
+ 	if (kvm_riscv_nacl_available()) {
+ 		nsh = nacl_shmem();
+ 		csr->vsiselect = nacl_csr_read(nsh, CSR_VSISELECT);
+@@ -472,22 +451,6 @@ void kvm_riscv_aia_free_hgei(int cpu, int hgei)
+ 	raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
+ }
+ 
+-void kvm_riscv_aia_wakeon_hgei(struct kvm_vcpu *owner, bool enable)
+-{
+-	int hgei;
+-
+-	if (!kvm_riscv_aia_available())
+-		return;
+-
+-	hgei = aia_find_hgei(owner);
+-	if (hgei > 0) {
+-		if (enable)
+-			csr_set(CSR_HGEIE, BIT(hgei));
+-		else
+-			csr_clear(CSR_HGEIE, BIT(hgei));
+-	}
+-}
+-
+ static irqreturn_t hgei_interrupt(int irq, void *dev_id)
+ {
+ 	int i;
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index ea1a36836d9c..fda0346f0ea1 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -677,6 +677,48 @@ static void imsic_swfile_update(struct kvm_vcpu *vcpu,
+ 	imsic_swfile_extirq_update(vcpu);
+ }
+ 
++bool kvm_riscv_vcpu_aia_imsic_has_interrupt(struct kvm_vcpu *vcpu)
++{
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++	unsigned long flags;
++	bool ret = false;
++
++	/*
++	 * The IMSIC SW-file directly injects interrupt via hvip so
++	 * only check for interrupt when IMSIC VS-file is being used.
++	 */
++
++	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	if (imsic->vsfile_cpu > -1)
++		ret = !!(csr_read(CSR_HGEIP) & BIT(imsic->vsfile_hgei));
++	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++
++	return ret;
++}
++
++void kvm_riscv_vcpu_aia_imsic_load(struct kvm_vcpu *vcpu, int cpu)
++{
++	/*
++	 * No need to explicitly clear HGEIE CSR bits because the
++	 * hgei interrupt handler (aka hgei_interrupt()) will always
++	 * clear it for us.
++	 */
++}
++
++void kvm_riscv_vcpu_aia_imsic_put(struct kvm_vcpu *vcpu)
++{
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++	unsigned long flags;
++
++	if (!kvm_vcpu_is_blocking(vcpu))
++		return;
++
++	read_lock_irqsave(&imsic->vsfile_lock, flags);
++	if (imsic->vsfile_cpu > -1)
++		csr_set(CSR_HGEIE, BIT(imsic->vsfile_hgei));
++	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++}
++
+ void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
+ {
+ 	unsigned long flags;
+@@ -781,6 +823,9 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
+ 	 * producers to the new IMSIC VS-file.
  	 */
  
-+	csr_write(CSR_VSTIMECMP, -1UL);
-+#if defined(CONFIG_32BIT)
-+	csr_write(CSR_VSTIMECMPH, -1UL);
-+#endif
++	/* Ensure HGEIE CSR bit is zero before using the new IMSIC VS-file */
++	csr_clear(CSR_HGEIE, BIT(new_vsfile_hgei));
 +
- 	/* timer should be enabled for the remaining operations */
- 	if (unlikely(!t->init_done))
- 		return;
+ 	/* Zero-out new IMSIC VS-file */
+ 	imsic_vsfile_local_clear(new_vsfile_hgei, imsic->nr_hw_eix);
+ 
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index fe028b4274df..b26bf35a0a19 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -211,12 +211,10 @@ int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
+ 
+ void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu)
+ {
+-	kvm_riscv_aia_wakeon_hgei(vcpu, true);
+ }
+ 
+ void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu)
+ {
+-	kvm_riscv_aia_wakeon_hgei(vcpu, false);
+ }
+ 
+ int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu)
 -- 
 2.43.0
 
