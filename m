@@ -4,58 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AF47C8303C
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jul 2025 11:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44EA0C83F0C
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jul 2025 11:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yWNFgZ1EHx1UpWj10ebNEVeMF5AFM4qkcnxoeU7DWec=; b=Ac7dV+dUZuhQ0d
-	U7BwTq2ycfTErhwGAn3KDKSNDe5TqgZ959EiMFBKBTJdEShlsiL5diULiIBJeLc2H17yiQ0d4jucC
-	7Rsq9JVigvOMUcGkRdKIvlvm1vfJgzKIS6+wdBUyyIvB4XHl88Q3t6aiBKLEY4vej6eJqzGPBWq26
-	HX+zHa5ASuPD2HqpJPIl1qogsoPbxyXP8NXxRhjUiDcwfZ0J+0KG+fSFBz0uiccM2GEftK9KzfNip
-	eOKNjQ2ajyyZx/G10xfDN/UB2mU8On6UBnnvq+c3f0eMh4fTvVG+hAjax3WZ13P5g/Kq86z9BGDyw
-	Hy/gAWNjqtqVgFrnnieg==;
+	List-Owner; bh=P+rEh2pv5/16JpGheGA72eukT1K5Yss5iUTOinrrOCE=; b=lIVMfAR+QJBO5a
+	xwParuvvAEihHaVYwnDAfuCS2y6VgU7FdwOxXAXCjZuhjtc7a0Erb1pOrULOrao1Nt1E43v/cbczc
+	XAFg47TQ2+Pxd35/MDdCBLbr8viaKq8lQCri5JOs+oNQHfmIXy/1YIfpHJS5Ktzuz/Sk7wmIT1qRJ
+	tFrar36/5eQGdoIRHiXjRRyc0r0LS+luxjJHSHfvrHD3GbC0exR07OAx3pMCB9Db4sghC8XSogfEq
+	ZxFD0VHdlrX3GS1+8IyHKTUpMW56/T1dIsGjaef3cvK84Bz6yOQMg46kjLzV25JPCMUkdy4DjMxvM
+	QnwrppFhWqqK4Y0XrAtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjq5-00000002FuA-0aPP;
-	Mon, 07 Jul 2025 11:16:49 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1uYkG7-00000002JWI-0EVd;
+	Mon, 07 Jul 2025 11:43:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjO8-00000002CI0-0gZ1
+	id 1uYifE-0000000254T-06uL
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Jul 2025 10:47:57 +0000
-Received: from localhost (unknown [116.232.48.207])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id E02023413F2;
-	Mon, 07 Jul 2025 10:47:54 +0000 (UTC)
-Date: Mon, 7 Jul 2025 10:47:50 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Alex Elder <elder@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, heylenay@4d2.org, inochiama@outlook.com,
-	guodong@riscstar.com, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v12 5/6] reset: spacemit: add support for SpacemiT CCU
- resets
-Message-ID: <20250707104750-GYA474251@gentoo>
-References: <20250702113709.291748-1-elder@riscstar.com>
- <20250702113709.291748-6-elder@riscstar.com>
- <33a20f6abac7400c8b4842b99c14ea118def2780.camel@pengutronix.de>
+	Mon, 07 Jul 2025 10:01:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F07E8A53CB3;
+	Mon,  7 Jul 2025 10:01:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 181DCC4CEE3;
+	Mon,  7 Jul 2025 10:01:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751882490;
+	bh=LrbLvzvF6gmWIWOl/u5715b2a2XljRasgW9tuQ0jM6Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o6NRB7S8gi/pE+s4x+hbM9kCMnDJbR3mkeGKx8D65z8RIF9O/zQMzDaF9fKX2lZe5
+	 Nd0DpOG0gitZdCYiaqF1JNSqnOZ5KgaDUP3UqsA9MhbPpJd4J6jWznNxbPwjGew77M
+	 2+2tTI1brE2/H97GiNnLhgMhPy6DOzkvLNMZeNNdjXm9f32tnILnNwf90kIcCXoFlu
+	 VUupgU0UWvQsG9GqD9iFLY/+AbbhxD2252FQtSr1zJ8M1xYhxN0M+/jCQz30+VIqQ+
+	 jp/3pGkDcE+M9uDE4o9E+mIrIGYImdlp9Y0RI7xKh1bPXEfXNroQ1BOhfFc9e3fSvc
+	 4qCcaMf4Trtnw==
+Date: Mon, 7 Jul 2025 11:01:24 +0100
+From: Simon Horman <horms@kernel.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Vivian Wang <uwu@dram.page>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v4 2/2] net: spacemit: Add K1 Ethernet MAC
+Message-ID: <20250707100124.GC89747@horms.kernel.org>
+References: <20250703-net-k1-emac-v4-0-686d09c4cfa8@iscas.ac.cn>
+ <20250703-net-k1-emac-v4-2-686d09c4cfa8@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <33a20f6abac7400c8b4842b99c14ea118def2780.camel@pengutronix.de>
+In-Reply-To: <20250703-net-k1-emac-v4-2-686d09c4cfa8@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_034756_219691_8B54C9B6 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20250707_030132_207819_9723B6EC 
+X-CRM114-Status: GOOD (  26.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,33 +84,215 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Philipp, Stephen, Mike
+On Thu, Jul 03, 2025 at 05:42:03PM +0800, Vivian Wang wrote:
+> The Ethernet MACs found on SpacemiT K1 appears to be a custom design
+> that only superficially resembles some other embedded MACs. SpacemiT
+> refers to them as "EMAC", so let's just call the driver "k1_emac".
+> 
+> This driver is based on "k1x-emac" in the same directory in the vendor's
+> tree [1]. Some debugging tunables have been fixed to vendor-recommended
+> defaults, and PTP support is not included yet.
+> 
+> [1]: https://github.com/spacemit-com/linux-k1x
+> 
+> Tested-by: Junhui Liu <junhui.liu@pigmoral.tech>
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 
-On 11:46 Mon 07 Jul     , Philipp Zabel wrote:
-> Hi Stephen, Mike
-> 
-> On Mi, 2025-07-02 at 06:37 -0500, Alex Elder wrote:
-> > Implement reset support for SpacemiT CCUs.  A SpacemiT reset controller
-> > device is an auxiliary device associated with a clock controller (CCU).
-> > 
-> > This patch defines the reset controllers for the MPMU, APBC, and MPMU
-> > CCUs, which already define clock controllers.  It also adds RCPU, RCPU2,
-> > and ACPB2 CCUs, which only define resets.
-> > 
-> > Signed-off-by: Alex Elder <elder@riscstar.com>
-> > Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-> > Reviewed-by: Yixun Lan <dlan@gentoo.org>
-> 
-> Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
-> 
-> To be merged via the clk tree, if Stephen is ok with that.
-> 
-ok, I'll just go ahead and prepare a PR for this,
-and leave Stephen to take care of the rest..
+...
 
-thanks all!
+> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
+
+...
+
+> +/**
+> + * struct emac_desc_ring - Software-side information for one descriptor ring
+> + * Same struture used for both RX and TX
+
+nit: structure
+
+> + * @desc_addr: Virtual address to the descriptor ring memory
+> + * @desc_dma_addr: DMA address of the descriptor ring
+> + * @total_size: Size of ring in bytes
+> + * @total_cnt: Number of descriptors
+> + * @head: Next descriptor to associate a buffer with
+> + * @tail: Next descriptor to check status bit
+> + * @rx_desc_buf: Array of descriptors for RX
+> + * @tx_desc_buf: Array of descriptors for TX, with max of two buffers each
+> + */
+
+...
+
+> +static void emac_set_mac_addr(struct emac_priv *priv, const unsigned char *addr)
+> +{
+> +	emac_wr(priv, MAC_ADDRESS1_HIGH, ((addr[1] << 8) | addr[0]));
+
+nit: no need for inner parentheses here,
+     the order of operations is on your side
+
+	emac_wr(priv, MAC_ADDRESS1_HIGH, addr[1] << 8 | addr[0]);
+
+> +	emac_wr(priv, MAC_ADDRESS1_MED, ((addr[3] << 8) | addr[2]));
+> +	emac_wr(priv, MAC_ADDRESS1_LOW, ((addr[5] << 8) | addr[4]));
+> +}
+
+...
+
+> +static int emac_rx_frame_status(struct emac_priv *priv, struct emac_desc *desc)
+> +{
+> +	/* Drop if not last descriptor */
+> +	if (!(desc->desc0 & RX_DESC_0_LAST_DESCRIPTOR)) {
+> +		netdev_dbg(priv->ndev, "RX not last descriptor\n");
+
+Unless I am mistaken these logs can occur on the basis of user
+(Network packet) input. If so, I think rate limited debug
+messages are more appropriate here and below.
+
+> +		return RX_FRAME_DISCARD;
+> +	}
+> +
+> +	if (desc->desc0 & RX_DESC_0_FRAME_RUNT) {
+> +		netdev_dbg(priv->ndev, "RX runt frame\n");
+> +		return RX_FRAME_DISCARD;
+> +	}
+> +
+> +	if (desc->desc0 & RX_DESC_0_FRAME_CRC_ERR) {
+> +		netdev_dbg(priv->ndev, "RX frame CRC error\n");
+> +		return RX_FRAME_DISCARD;
+> +	}
+> +
+> +	if (desc->desc0 & RX_DESC_0_FRAME_MAX_LEN_ERR) {
+> +		netdev_dbg(priv->ndev, "RX frame exceeds max length\n");
+> +		return RX_FRAME_DISCARD;
+> +	}
+> +
+> +	if (desc->desc0 & RX_DESC_0_FRAME_JABBER_ERR) {
+> +		netdev_dbg(priv->ndev, "RX frame jabber error\n");
+> +		return RX_FRAME_DISCARD;
+> +	}
+> +
+> +	if (desc->desc0 & RX_DESC_0_FRAME_LENGTH_ERR) {
+> +		netdev_dbg(priv->ndev, "RX frame length error\n");
+> +		return RX_FRAME_DISCARD;
+> +	}
+> +
+> +	if (rx_frame_len(desc) <= ETH_FCS_LEN ||
+> +	    rx_frame_len(desc) > priv->dma_buf_sz) {
+> +		netdev_dbg(priv->ndev, "RX frame length unacceptable\n");
+> +		return RX_FRAME_DISCARD;
+> +	}
+> +	return RX_FRAME_OK;
+> +}
+
+...
+
+> +static int emac_resume(struct device *dev)
+> +{
+> +	struct emac_priv *priv = dev_get_drvdata(dev);
+> +	struct net_device *ndev = priv->ndev;
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(priv->bus_clk);
+> +	if (ret < 0) {
+> +		dev_err(dev, "Failed to enable bus clock: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	if (!netif_running(ndev))
+> +		return 0;
+> +
+> +	ret = emac_open(ndev);
+> +	if (ret)
+
+Smatch flags that priv->bus_clk resources are leaked here, and I agree.
+
+> +		return ret;
+> +
+> +	netif_device_attach(ndev);
+> +	return 0;
+> +}
+
+I would suggest addressing that like this.
+(Compile tested only!)
+
+diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
+index 6158e776bc67..ebd02ec2bb01 100644
+--- a/drivers/net/ethernet/spacemit/k1_emac.c
++++ b/drivers/net/ethernet/spacemit/k1_emac.c
+@@ -1843,10 +1843,14 @@ static int emac_resume(struct device *dev)
+ 
+ 	ret = emac_open(ndev);
+ 	if (ret)
+-		return ret;
++		goto err_clk_disable_unprepare;
+ 
+ 	netif_device_attach(ndev);
+ 	return 0;
++
++err_clk_disable_unprepare:
++	clk_disable_unprepare(priv->bus_clk);
++	return ret;
+ }
+ 
+ static int emac_suspend(struct device *dev)
+
+...
+
+> diff --git a/drivers/net/ethernet/spacemit/k1_emac.h b/drivers/net/ethernet/spacemit/k1_emac.h
+
+...
+
+> +struct emac_hw_stats {
+> +	u32 tx_ok_pkts;
+> +	u32 tx_total_pkts;
+> +	u32 tx_ok_bytes;
+> +	u32 tx_err_pkts;
+> +	u32 tx_singleclsn_pkts;
+> +	u32 tx_multiclsn_pkts;
+> +	u32 tx_lateclsn_pkts;
+> +	u32 tx_excessclsn_pkts;
+> +	u32 tx_unicast_pkts;
+> +	u32 tx_multicast_pkts;
+> +	u32 tx_broadcast_pkts;
+> +	u32 tx_pause_pkts;
+> +	u32 rx_ok_pkts;
+> +	u32 rx_total_pkts;
+> +	u32 rx_crc_err_pkts;
+> +	u32 rx_align_err_pkts;
+> +	u32 rx_err_total_pkts;
+> +	u32 rx_ok_bytes;
+> +	u32 rx_total_bytes;
+> +	u32 rx_unicast_pkts;
+> +	u32 rx_multicast_pkts;
+> +	u32 rx_broadcast_pkts;
+> +	u32 rx_pause_pkts;
+> +	u32 rx_len_err_pkts;
+> +	u32 rx_len_undersize_pkts;
+> +	u32 rx_len_oversize_pkts;
+> +	u32 rx_len_fragment_pkts;
+> +	u32 rx_len_jabber_pkts;
+> +	u32 rx_64_pkts;
+> +	u32 rx_65_127_pkts;
+> +	u32 rx_128_255_pkts;
+> +	u32 rx_256_511_pkts;
+> +	u32 rx_512_1023_pkts;
+> +	u32 rx_1024_1518_pkts;
+> +	u32 rx_1519_plus_pkts;
+> +	u32 rx_drp_fifo_full_pkts;
+> +	u32 rx_truncate_fifo_full_pkts;
+> +};
+
+Many of the stats above appear to cover stats covered by struct
+rtnl_link_stats64, ethtool_pause_stats, struct ethtool_rmon_stats, and
+possibly others standardised in ethtool.h. Please only report standard
+counters using standard mechanisms. And only use get_ethtool_stats to
+report non-standard counters.
+
+Link: https://www.kernel.org/doc/html/v6.16-rc4/networking/statistics.html#notes-for-driver-authors
+
+...
+
 -- 
-Yixun Lan (dlan)
+pw-bot: changes-requested
 
 _______________________________________________
 linux-riscv mailing list
