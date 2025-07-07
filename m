@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91191C8303C
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jul 2025 09:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017E4C83F07
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jul 2025 09:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JpaMrNhWuqQSTV81jIq64KIe1J3f3mRRe+JbzISlc/Y=; b=1VKhvtuWRdqCkW
-	rtydleJ/PcmARfjZYBGCvvpyt3bo29yy9QuZ6aKVMakW5yQYWUPpCUpqnO+IDEVYEmH2hYpDUAqpI
-	e9n+kFQQc0j60zw/2Yf/yRk1AJBWK4M7sWnWoO+424VK9dnnGMrWqe6/xwN0Vvwe2zaGW/bH09HH3
-	Ra57ai0qv+khQTrSFk7hcyojHPyRlZMOfAjZ9EXyl0V8OH7gtiIRqbQ4YPrCRz3L42ZlJWw2eL2IQ
-	tgW7TTzNDV0+na1u3QjEeh3aphFl9Cg48Vmo662bLK43LKbeImZrIVBXCYuMCzba8+SJ62v+JGRfQ
-	mLJ0Q0INkOrLEZAb9HOg==;
+	List-Owner; bh=z0L1B0kRHxouct8X0iGcg5uXwbj380z/Fjv+lT5rdLE=; b=IBVVW4ccoTRFQS
+	n/y9YXlgOafw5RaS7md8PIbbSWvZtEXLewP0aEyf4j57u2uTrwZRYiB/pb0dll0vdqpK5PSSAgneD
+	ClMIrrIBYbPcXTq+4qTAQD2FSdPRh3y6Lt6OUNxK2sX3tdd0dUfRlHQW3q72RWy4R1v0rPSmaoffb
+	jqmax0ZtWmb7IEpWRUSmVtGkVnTcm1pANf6DROko+q66rm2KPEKnS/xRdxo0Dxtxp0ssucXTg/VSP
+	C1TFoLYm6mwnSBHRm6iL9CT/C3/bH0DkiGwQIaw6GsEiGbYz0ttjsiieY/9vbU0BCRPs5AvDsdv2m
+	r3c20zUiBSeL2nuG/mOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYiQq-000000021nD-198w;
-	Mon, 07 Jul 2025 09:46:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uYiQp-000000021mz-2vZS;
+	Mon, 07 Jul 2025 09:46:39 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYhwP-00000001x1W-11Vt
+	id 1uYhvD-00000001wnJ-2t68
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Jul 2025 09:15:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 669F361130;
-	Mon,  7 Jul 2025 09:15:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFEE6C4CEEF;
-	Mon,  7 Jul 2025 09:15:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751879712;
-	bh=s5LNAqpqCTtOzeV5j3oi7jngQje+htJG71VU5WzpWQE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WDMBMGRhjhaSH4iS9+2wyp0jAQP7F9gwtbtFBmJkfmYes/iElDwBHe0qFwfq+HhEL
-	 OaxleHZlFo93WjGT4aXDJv37B10j6diALCLaAE0ETwZessChqz/lT6yvLhDT2sEDnV
-	 YwWA106nDbY3SW5gMPA8fmr6sWYOmU3HOOpur1+Lj0mY3Fmqgb/ebcPkkBZM9WMehg
-	 /MWJnFyh2ek03Vw2uprTeRq0Gdbfgr6wjF1fd3K++bN+pL4hKo0fKjfEFT91TaALpF
-	 M9Qylp4CdNrkZ/P4cpBMAjH1dqD7I95jQddwzWKaLFnYVFrZFeejyTLLxP6vQUpuSH
-	 QSzAS7uzHNBVQ==
-Message-ID: <1b0aba4d-5e4f-4f5e-9a3a-978d6fde2847@kernel.org>
-Date: Mon, 7 Jul 2025 11:15:05 +0200
+	Mon, 07 Jul 2025 09:14:01 +0000
+Message-ID: <072268ae-3dea-46f8-8c9e-203d062eab82@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1751879626;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CgyqmMgmj4RoHL2MEMeBZbWgZV9nUOOsFAtiV0PoOpY=;
+	b=ZfLbEP/vZq2o4+akgW+lc4Afrvl/00HiSK0NwhRm0A7WUXvct0BrON8rtglHmdzeq5KYSC
+	Xv/RTbWP+ZfT7gszBHH2OFBdN1XVATLskmoyuwGiwM4ktvtQnzZuftIU1kgvxkqx71qwzm
+	jpzJevRaDNfnRPuYyjDh/EXfDo5znqo=
+Date: Mon, 7 Jul 2025 17:13:24 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/6] rust: pwm: Add complete abstraction layer
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
- Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Marek Szyprowski
- <m.szyprowski@samsung.com>, Benno Lossin <lossin@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org,
- linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-References: <20250706-rust-next-pwm-working-fan-for-sending-v9-0-42b5ac2101c7@samsung.com>
- <CGME20250706114605eucas1p17d1cbd035d14d95f4ad0588c2572b3e2@eucas1p1.samsung.com>
- <20250706-rust-next-pwm-working-fan-for-sending-v9-2-42b5ac2101c7@samsung.com>
- <aGpqqGMTU3a3O8cn@pollux> <002c8275-f17d-4a4e-b6b8-4dc74c4d510d@samsung.com>
-From: Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH v4 1/1] mm/rmap: fix potential out-of-bounds page table
+ access during batched unmap
 Content-Language: en-US
-In-Reply-To: <002c8275-f17d-4a4e-b6b8-4dc74c4d510d@samsung.com>
+To: Harry Yoo <harry.yoo@oracle.com>
+Cc: akpm@linux-foundation.org, david@redhat.com, 21cnbao@gmail.com,
+ baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com,
+ x86@kernel.org, huang.ying.caritas@gmail.com, zhengtangquan@oppo.com,
+ riel@surriel.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ mingzhe.yang@ly.com, stable@vger.kernel.org, Barry Song <baohua@kernel.org>,
+ Lance Yang <ioworker0@gmail.com>
+References: <20250701143100.6970-1-lance.yang@linux.dev>
+ <aGtdwn0bLlO2FzZ6@harry>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <aGtdwn0bLlO2FzZ6@harry>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250707_021359_873240_1359BDB0 
+X-CRM114-Status: GOOD (  21.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,18 +78,92 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/7/25 9:30 AM, Michal Wilczynski wrote:
-> On 7/6/25 14:23, Danilo Krummrich wrote:
->> If you overwrite this callback (as you do below) you're leaking the memory
->> allocated by pwmchip_alloc().
->>
->> The simple way to solve this would be to call pwmchip_release() from here.
-> 
-> Thanks, a pwmchip_release() is static though, so it's either expose the
-> pwmchip_release in the header, or call kfree() here directly on pwmchip.
 
-I'd export pwmchip_release() then, if you instead replicate what it does a
-future change is pretty likely to be missed in the Rust abstraction.
+
+On 2025/7/7 13:40, Harry Yoo wrote:
+> On Tue, Jul 01, 2025 at 10:31:00PM +0800, Lance Yang wrote:
+>> From: Lance Yang <lance.yang@linux.dev>
+>>
+>> As pointed out by David[1], the batched unmap logic in try_to_unmap_one()
+>> may read past the end of a PTE table when a large folio's PTE mappings
+>> are not fully contained within a single page table.
+>>
+>> While this scenario might be rare, an issue triggerable from userspace must
+>> be fixed regardless of its likelihood. This patch fixes the out-of-bounds
+>> access by refactoring the logic into a new helper, folio_unmap_pte_batch().
+>>
+>> The new helper correctly calculates the safe batch size by capping the scan
+>> at both the VMA and PMD boundaries. To simplify the code, it also supports
+>> partial batching (i.e., any number of pages from 1 up to the calculated
+>> safe maximum), as there is no strong reason to special-case for fully
+>> mapped folios.
+>>
+>> [1] https://lore.kernel.org/linux-mm/a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com
+>>
+>> Cc: <stable@vger.kernel.org>
+>> Reported-by: David Hildenbrand <david@redhat.com>
+>> Closes: https://lore.kernel.org/linux-mm/a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com
+>> Fixes: 354dffd29575 ("mm: support batched unmap for lazyfree large folios during reclamation")
+>> Suggested-by: Barry Song <baohua@kernel.org>
+>> Acked-by: Barry Song <baohua@kernel.org>
+>> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+>> Acked-by: David Hildenbrand <david@redhat.com>
+>> Signed-off-by: Lance Yang <lance.yang@linux.dev>
+>> ---
+> 
+> LGTM,
+> Reviewed-by: Harry Yoo <harry.yoo@oracle.com>
+
+Hi Harry,
+
+Thanks for taking time to review!
+
+> 
+> With a minor comment below.
+> 
+>> diff --git a/mm/rmap.c b/mm/rmap.c
+>> index fb63d9256f09..1320b88fab74 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -2206,13 +2213,16 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>>   			hugetlb_remove_rmap(folio);
+>>   		} else {
+>>   			folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
+>> -			folio_ref_sub(folio, nr_pages - 1);
+>>   		}
+>>   		if (vma->vm_flags & VM_LOCKED)
+>>   			mlock_drain_local();
+>> -		folio_put(folio);
+>> -		/* We have already batched the entire folio */
+>> -		if (nr_pages > 1)
+>> +		folio_put_refs(folio, nr_pages);
+>> +
+>> +		/*
+>> +		 * If we are sure that we batched the entire folio and cleared
+>> +		 * all PTEs, we can just optimize and stop right here.
+>> +		 */
+>> +		if (nr_pages == folio_nr_pages(folio))
+>>   			goto walk_done;
+> 
+> Just a minor comment.
+> 
+> We should probably teach page_vma_mapped_walk() to skip nr_pages pages,
+> or just rely on next_pte: do { ... } while (pte_none(ptep_get(pvmw->pte)))
+> loop in page_vma_mapped_walk() to skip those ptes?
+
+Good point. We handle partially-mapped folios by relying on the "next_pte"
+loop to skip those ptes. The common case we expect to handle is fully-mapped
+folios.
+
+> 
+> Taking different paths depending on (nr_pages == folio_nr_pages(folio))
+> doesn't seem sensible.
+
+Adding more logic to page_vma_mapped_walk() for the rare partial-folio
+case seems like an over-optimization that would complicate the walker.
+
+So, I'd prefer to keep it as is for now ;)
+
 
 _______________________________________________
 linux-riscv mailing list
