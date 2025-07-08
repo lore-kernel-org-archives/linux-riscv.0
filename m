@@ -4,47 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40588C83030
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 03:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D6CC83030
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 03:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Mime-Version:Date:From:Cc:
-	Message-Id:In-Reply-To:Subject:To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Mime-Version:Message-Id:
+	Subject:To:In-Reply-To:Date:From:Cc:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+kgLbxZU1y8ZgN0rlYPmikP+DIZsrJdbjKvkuXyF+hk=; b=oD0UeTxEfqw2aE
-	5TR2dZlnJXyhPORYufHqGhY4wlRizvboGL52E9tkfgTYEkn9hM50FWJpa3PY5djox0JSedQr+ztqp
-	lFwZVgxmMUYPsZLz4EpR/Ok/+nEIgr6cVMtovYOK/RBAtkh+iGQJqebZTzW3npVu1N8JAc4BQzBop
-	WQBuqth5tiEKYMgFVMtz2bhErbvLip7F4FusMqkuMsvmCU8RMpgvAn/y48gGgEZetcY+FBoHCav6U
-	nW7igGe7baMH1sJqbNdb5FP2UsnaxOLkAQlIB6E4yWrqAU0FwNM2aacFoYJ5Sr1ZiL2ZuxN8gBGoL
-	+hfee+vAnDXsD27d7fqQ==;
+	List-Owner; bh=e4kNbjnsWMhg3Ib85jitYmybCWuCgGAXtbrh3wyxDAk=; b=bVD0t+cNSQZneO
+	zccj4wSW67SU9b74/MXDAyS2I44cx4BNvcJoQvY+lVcRIozg7oIVvB6EckaK/jzT5XjHoadMdY4AL
+	qfxiJznc3diXbO1XKtXzrBEbBI+mc6fyqhwAaMPqL6XtNyRnDhT3hNVlGVM9MCqC8Tsjzw5+81CyY
+	IotSJRlzl2eGFWDF2ngmqzr604gwp0WLSHpsfeHtMAA/u6dL89c2D4ZlQAd9UMR+A7lflPXn9/+fJ
+	89vTZKSfvjmduYcghGj9eVjtzl7wcoz7qRAKHOLVgONFXfNxpTvf2BWzwTLal893pNB9sYqmfv9VY
+	1ucqCCkBFF62GpOUp1GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYytH-00000004AcC-3P5l;
-	Tue, 08 Jul 2025 03:21:07 +0000
-Received: from sg-1-31.ptr.blmpb.com ([118.26.132.31])
+	id 1uYytn-00000004AkS-274b;
+	Tue, 08 Jul 2025 03:21:39 +0000
+Received: from sg-1-34.ptr.blmpb.com ([118.26.132.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYytF-00000004AZY-1COu
+	id 1uYytg-00000004Ais-3fk4
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Jul 2025 03:21:07 +0000
+	Tue, 08 Jul 2025 03:21:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1751944859;
+ s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1751944882;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=nVxAK1p5Sjn1pa+f8rh0kQXv3kG+RwEoJSIwBTfC/x8=;
- b=EzSrw4gA5uQL1GjOcnwI3cz6hkdgMmSdQDxiuXqryZ5J68k/pSVtWsPu6bxBf5ZKJc3QEF
- 616cYCTa+DDvfYG4NDEc+I+1lNISzqsLl/tn3VdCEPA1PlOIwEH767f4LharV+9jVdvuxv
- ytGFqTIKWQ56Z5ZlLLVf2xYxMZcX78ydNkMCG/eP/iyBBY7DY6erLvuKCTVGcgi5gjgt51
- YBKFedYttRkkxq/8ISHCiDHacWklSdT5V2D2b4MpRn+7xFWLSEut7jI/k3PMf6OrY+Mtkk
- 7mTDSjO4PRXkmObemFcYSrLbiYRme6MIdwTU4Jp9d95/IRQddTGN9SHbxwrylQ==
-To: "Han Gao" <rabenda.cn@gmail.com>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v3 2/3] riscv: dts: sophgo: add Sophgo SG2042_EVB_V1.X board device tree
-Content-Language: en-US
-In-Reply-To: <27091134ce1f8a6541a349afc324d6f7402ea606.1751700954.git.rabenda.cn@gmail.com>
-Message-Id: <0f5b623d-64d3-4ad8-8540-e10fb6e055a2@lanxincomputing.com>
-Received: from [127.0.0.1] ([116.237.111.137]) by smtp.feishu.cn with ESMTPS; Tue, 08 Jul 2025 11:20:56 +0800
-X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
-X-Lms-Return-Path: <lba+2686c8e99+6a1834+lists.infradead.org+liujingqi@lanxincomputing.com>
+ bh=zg/YomFgWluXbABhhcO8ioOh4E5v2C7pZz7d5544dM4=;
+ b=0XFtq1rI2Q6dFJwemZvO8QeXnbU32xXFv6jDcy/HA7WN8LrPqfRr/5VgvayB9MVCwBTMXU
+ VJj6fRqLFra308eGJDZ4M09d20AFxzEtarTuQ7rE51jfY9g5egF8QXeNVtd9U+rxIGL8Fy
+ hVVzkmv+4ZArOPqEobdrPgRiLVEF+dyFvzM6+QHDTaXGQG7Cq3sqwQ0VzFu1PUzpEQxUyB
+ kk5iFmg/t46oZzorFzJnhG67UFUi3c/W09p6CSvQHbCGEuFQJAW1okA7UfDGUcPPWQNC3Q
+ zll79zrgR83ICAtQ6IxXvLBFF2i6PzAgrIkYTGjPQ1hEx7SkNUhwD+d3QX+jOg==
 Cc: "Rob Herring" <robh@kernel.org>, 
 	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
 	"Conor Dooley" <conor+dt@kernel.org>, 
@@ -58,13 +50,21 @@ Cc: "Rob Herring" <robh@kernel.org>,
 	<linux-riscv@lists.infradead.org>, <sophgo@lists.linux.dev>, 
 	<linux-kernel@vger.kernel.org>
 From: "Nutty Liu" <liujingqi@lanxincomputing.com>
-Date: Tue, 8 Jul 2025 11:20:53 +0800
+Date: Tue, 8 Jul 2025 11:21:16 +0800
+In-Reply-To: <c1b6ccdc69af0c1457fc1486a6bc8a1e83671537.1751700954.git.rabenda.cn@gmail.com>
+To: "Han Gao" <rabenda.cn@gmail.com>, <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v3 3/3] riscv: dts: sophgo: add Sophgo SG2042_EVB_V2.0 board device tree
+Message-Id: <e48c2706-86cf-4e1d-bfad-17f662f5fb75@lanxincomputing.com>
 Mime-Version: 1.0
-References: <cover.1751700954.git.rabenda.cn@gmail.com> <27091134ce1f8a6541a349afc324d6f7402ea606.1751700954.git.rabenda.cn@gmail.com>
+Received: from [127.0.0.1] ([116.237.111.137]) by smtp.feishu.cn with ESMTPS; Tue, 08 Jul 2025 11:21:19 +0800
+X-Lms-Return-Path: <lba+2686c8eb0+606e77+lists.infradead.org+liujingqi@lanxincomputing.com>
+X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
+Content-Language: en-US
 User-Agent: Mozilla Thunderbird
+References: <cover.1751700954.git.rabenda.cn@gmail.com> <c1b6ccdc69af0c1457fc1486a6bc8a1e83671537.1751700954.git.rabenda.cn@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_202105_681203_46F1D18F 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20250707_202136_819293_AECB1FD9 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,11 +82,11 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 7/5/2025 3:39 PM, Han Gao wrote:
-> Sophgo SG2042_EVB_V1.X [1] is a prototype development board based on SG2042
+> Sophgo SG2042_EVB_V2.0 [1] is a prototype development board based on SG2042
 >
 > Currently supports serial port, sdcard/emmc, pwm, fan speed control.
 >
-> Link: https://github.com/sophgo/sophgo-hardware/tree/master/SG2042/SG2042-x8-EVB [1]
+> Link: https://github.com/sophgo/sophgo-hardware/tree/master/SG2042/SG2042-x4-EVB [1]
 >
 > Signed-off-by: Han Gao <rabenda.cn@gmail.com>
 
@@ -97,26 +97,26 @@ Nutty
 
 > ---
 >   arch/riscv/boot/dts/sophgo/Makefile          |   1 +
->   arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts | 245 +++++++++++++++++++
->   2 files changed, 246 insertions(+)
->   create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
+>   arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts | 233 +++++++++++++++++++
+>   2 files changed, 234 insertions(+)
+>   create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
 >
 > diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
-> index 85966306801e..6c9b29681cad 100644
+> index 6c9b29681cad..6f65526d4193 100644
 > --- a/arch/riscv/boot/dts/sophgo/Makefile
 > +++ b/arch/riscv/boot/dts/sophgo/Makefile
-> @@ -3,4 +3,5 @@ dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
->   dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
+> @@ -4,4 +4,5 @@ dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
 >   dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-licheerv-nano-b.dtb
 >   dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
-> +dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-evb-v1.dtb
+>   dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-evb-v1.dtb
+> +dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-evb-v2.dtb
 >   dtb-$(CONFIG_ARCH_SOPHGO) += sg2044-sophgo-srd3-10.dtb
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts b/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts b/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
 > new file mode 100644
-> index 000000000000..3320bc1dd2c6
+> index 000000000000..46980e41b886
 > --- /dev/null
-> +++ b/arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts
-> @@ -0,0 +1,245 @@
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
+> @@ -0,0 +1,233 @@
 > +// SPDX-License-Identifier: GPL-2.0 OR MIT
 > +/*
 > + * Copyright (C) 2025 Sophgo Technology Inc. All rights reserved.
@@ -128,23 +128,11 @@ Nutty
 > +#include <dt-bindings/input/input.h>
 > +
 > +/ {
-> +	model = "Sophgo SG2042 EVB V1.X";
-> +	compatible = "sophgo,sg2042-evb-v1", "sophgo,sg2042";
+> +	model = "Sophgo SG2042 EVB V2.0";
+> +	compatible = "sophgo,sg2042-evb-v2", "sophgo,sg2042";
 > +
 > +	chosen {
 > +		stdout-path = "serial0";
-> +	};
-> +
-> +	gpio-power {
-> +		compatible = "gpio-keys";
-> +
-> +		key-power {
-> +			label = "Power Key";
-> +			linux,code = <KEY_POWER>;
-> +			gpios = <&port0a 22 GPIO_ACTIVE_HIGH>;
-> +			linux,input-type = <EV_KEY>;
-> +			debounce-interval = <100>;
-> +		};
 > +	};
 > +
 > +	pwmfan: pwm-fan {
