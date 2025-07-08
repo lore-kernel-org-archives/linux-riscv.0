@@ -4,60 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36723C83F09
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 15:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704B6C83F09
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 16:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5h4vYoEhTCmgVGzehfilb3Fc/3ro9nsvdpe99YhKhh0=; b=KYOuQcYoz121klGWTGgErRVvB2
-	3I9pPs/pcwy7SHIgz7XgZ/1j/JE9977k/ZP6F0HCPUgWduqKtM4CIf4HGj6ZDv75WU1646XUkE+gb
-	5HHTF30n+SFzE6tKG3FOPAP531dP6eEavTQaSnMjUzWmEjwQ93h7H6tTjdRm44hAU++LaWsq+zNIZ
-	3AUOZaRlvWODb3q28iMGDJXD1UzHjaFFQcFB1IPKrrT0PDXrozMSa1NajCjDKhUhMtzR+YJzZd8f0
-	WImY6p2grhoSvneo2ePjNn3J32qeBJlfMwe+D10Jje41ygvtLcbF3bPgfZQXfbH8DV0kNMg14XnRw
-	k2rHVh6w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
+	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jUYaQyx4C9sFGii8oCSYt5GR2jz6lxBsmbp8XNVx6kc=; b=aCyiGJvhcwAWQu
+	eco4JIHecja4BIh1QxEtRQdRPHQuT2talRj5I7Rv2WDPeXP9VfsnLWmw0h9AXzQC4tSwfKJBN+kzL
+	AGv9bOLFf7CksYQ7IEp9idof5eUtKiM1WlFq4a5vLaUuuyfXrcxkTRx6g1GHrJemZ3jv3J2ffLCpT
+	o7ZqFBG1J+6fFkQYiCJZ9aItZYXswCW8olG1iZB0cjC25LKymSMg1JqBopnPL7/AgkijPGO0T1tqO
+	h+jVOvAIR+dTBMfiWGT4/WlC+XZ3bvTzdg88JLbLR2qdQz/EkIpd3ksDimJ94fyqygD+lsZdJrV4s
+	zNVpKTcM0KIutNSDNMGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZAZI-00000005s9b-2czw;
-	Tue, 08 Jul 2025 15:49:16 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1uZAwa-00000005w4j-3C1y;
+	Tue, 08 Jul 2025 16:13:20 +0000
+Received: from mail-lf1-f46.google.com ([209.85.167.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZA74-00000005lgA-2Dms;
-	Tue, 08 Jul 2025 15:20:08 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Type:In-Reply-To:References;
-	bh=f+AdjSpLYE0shtXAMJo1oGPvn8m5n7Wk9nMZZIV11e8=;
-	b=RgAEQUMNdPw7KMvhVYIPCsFqW062MaR+phV4UfYbXms9+KdXuV1btLi0q3k9FmAaknANDHQomYmZsL1FHgk/R/1W1mQ6U7gZXQNF0HiH4xQTg4uA4KgE5/7ivZ0f8ML+ALe+U8UTuaI6jo3oRqG5khaOz76FR1hqGaB/vj51PNM=
-Received: from lukas-hpz440workstation.localnet (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPSA
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
-	; Tue, 8 Jul 2025 17:19:33 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 3/5] ARM: dts: sunxi: add support for NetCube Systems Nagami
- SoM
-Date: Tue, 08 Jul 2025 17:19:31 +0200
-Message-ID: <3700020.R56niFO833@lukas-hpz440workstation>
-In-Reply-To: <20250708002205.70ec9097@minigeek.lan>
-References: <20250707184420.275991-1-lukas.schmid@netcube.li>
- <20250707184420.275991-4-lukas.schmid@netcube.li>
- <20250708002205.70ec9097@minigeek.lan>
+	id 1uZAMK-00000005paD-2KIQ;
+	Tue, 08 Jul 2025 15:35:53 +0000
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5561ab55c4dso4819751e87.2;
+        Tue, 08 Jul 2025 08:35:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751988949; x=1752593749;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=cET3jObhGhC9pd3hp1ldy8l2+nMGUvt7YDcBuTcsUA0=;
+        b=SVkuBOkUkBvTvZdZU4KPDQg2dyYdOCU964Fkjt8Jl0R62T+DktMPfDZtC8qOZoTMMi
+         rD1yMK+ZJE/llcFwqzAOnnXtyxIRF+tWHiyxDMcoQ+bZEgeZLh8GuIPglI9QaLiH2N9a
+         VnKw91KfWl6wOIyxcgGMu9Kyv+vzCY9wi53bxAfynvj0YRygEIvTTTXqsMUnC4T7/ofg
+         epTjvmxuW2QHZhgDDCrAI3l7TcGT4h58tgG70nf5rKRKJsagy1WsZ80D+cJFoNHJWc7r
+         8yq0VABvOAJNm6zrzyuPFW5p5bU/LYbSs9r2VzhaakyxTctAnJcy1ejusFfhBTCXTz+9
+         Gw3g==
+X-Forwarded-Encrypted: i=1; AJvYcCVmec56VOTjutN8s/edZKTzQV19mjZFzQlp+iWNvOhRLgAUa5Xfeb0V8SCfivwnc3zG7DDvo4mU2/ENpeuIhr1l@lists.infradead.org, AJvYcCVoXpNu7upG4E/OMP/GwE+bGvdLuNDfqbJroAu7kRxkxTRkiGDUm6E3RsXZSHAPnQ1vH9LLvn/a1cXEFNQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6sYqUD3QjUywk+Bypw/ZGTEKRQfNXHJn/Rp0Ic8ckoavZCnoV
+	hEFedWN63y/iym9yj/mGKXNZgWEb/oPexPsLWYzbiVywhQ53T33s4SxQi8H/+Z6EW6A=
+X-Gm-Gg: ASbGncstUrdkbd4C70vk5XlZ/3+HXBwqSfgyVxHNULFkk1IBoWM362kgmQjSAUzi4EH
+	2z5ya/okbVMTLQL/LXlqyZYvVaJg1TL+KRrJdLGzgSZ7HNjN/4UKSrDMtVQkq8OYuSF90wXmWlD
+	inRzOTbz3JO/Ck96kZCH35GmKrDhKesJoS6MmcPuTPXteOmCC/WMDZEwTWmpFXRiIGv2fHZAtnW
+	oRPUjwGkuTfTs28SF0Gem1PZv1L8hfU48Wi6EtuYWGDNb812NsHEPO0oWBNt0t6ZxXxbC0Piayc
+	JKboNoNxp5Mi076CYF2WCjD/uqmVL0CZ/ZX+f6HrV4SKVG4eCZSaL04Vf+JUZLNm7elT1dXEoil
+	qevJLIPwGbkbX4frliNs=
+X-Google-Smtp-Source: AGHT+IGxE3zRVbPqY8INek5khiab4ZRu7R/qLqwNhfQB+DSnH1x467/pjXCJwwWdsk/DybYvTTbxnA==
+X-Received: by 2002:a05:6512:a92:b0:553:2f8c:e615 with SMTP id 2adb3069b0e04-557f82ffd74mr1212896e87.11.1751988949122;
+        Tue, 08 Jul 2025 08:35:49 -0700 (PDT)
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com. [209.85.208.180])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-32e1b1844eesm14756771fa.114.2025.07.08.08.35.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Jul 2025 08:35:47 -0700 (PDT)
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-32b43846e8cso36874251fa.0;
+        Tue, 08 Jul 2025 08:35:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUs6kwzsYNDsBjhRsBvMYZkBLiPKlQmrRrqyyxkIl01rBQ0unhj1IqFoZg0Kvx0HaVKiEUGb6nG8EbfMJM=@lists.infradead.org, AJvYcCVpMcqCWlQOIcjdq8nfgC17BndLTmtsbU2sM/+CCkxQG8ENMAa97oRAyzL3nYcxkXbAoBZ2EQn0/Z4tVYmN8B79@lists.infradead.org
+X-Received: by 2002:a2e:8e3c:0:b0:32f:1c0f:fb74 with SMTP id
+ 38308e7fff4ca-32f39b2409amr12043771fa.22.1751988946848; Tue, 08 Jul 2025
+ 08:35:46 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250707184420.275991-1-lukas.schmid@netcube.li>
+ <20250707184420.275991-4-lukas.schmid@netcube.li> <20250708002205.70ec9097@minigeek.lan>
+ <3700020.R56niFO833@lukas-hpz440workstation>
+In-Reply-To: <3700020.R56niFO833@lukas-hpz440workstation>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Tue, 8 Jul 2025 23:35:33 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66U+EOtoSGnidSj99eHRuJ5cNNvyiXZgrNHRTxA9tQ31w@mail.gmail.com>
+X-Gm-Features: Ac12FXy2b3ug2Nx7hYcRFPu4coJNNKjGD_uoNgiL2GNaAFUP-Gc_JmvX8AQlazg
+Message-ID: <CAGb2v66U+EOtoSGnidSj99eHRuJ5cNNvyiXZgrNHRTxA9tQ31w@mail.gmail.com>
+Subject: Re: [PATCH v3 3/5] ARM: dts: sunxi: add support for NetCube Systems
+ Nagami SoM
+To: Lukas Schmid <lukas.schmid@netcube.li>
+Cc: Andre Przywara <andre.przywara@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_082006_863291_9DB3588D 
-X-CRM114-Status: GOOD (  41.46  )
+X-CRM114-CacheID: sfid-20250708_083552_598017_672D9433 
+X-CRM114-Status: GOOD (  45.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,408 +97,248 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7135742272133846812=="
+Reply-To: wens@csie.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7135742272133846812==
-Content-Type: multipart/signed; boundary="nextPart3829144.MHq7AAxBmi";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
-
---nextPart3829144.MHq7AAxBmi
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"; protected-headers="v1"
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Andre Przywara <andre.przywara@arm.com>
-Date: Tue, 08 Jul 2025 17:19:31 +0200
-Message-ID: <3700020.R56niFO833@lukas-hpz440workstation>
-In-Reply-To: <20250708002205.70ec9097@minigeek.lan>
-MIME-Version: 1.0
-
-On Dienstag, 8. Juli 2025 01:22:05 CEST Andre Przywara wrote:
-> On Mon,  7 Jul 2025 20:44:15 +0200
-> Lukas Schmid <lukas.schmid@netcube.li> wrote:
-> 
-Hi Andre,
-
-> Hi Lukas,
-> 
-> please try to refrain from sending subsequent patches too quickly, that
-> might just put off and confuse reviewers. To acknowledge a change
-> request, it is probably sufficient to just reply to the mail with a
-> confirmation.
-
-Sorry about that. I'm still trying to get the hang of this whole "submitting 
-patches" thing. What is a good time/reason to send the next revision/version 
-of a patchset?
-
-> 
-> > NetCube Systems Nagami SoM is a module based around the Allwinner T113s
-> > SoC. It includes the following features and interfaces:
-> > 
-> > - 128MB DDR3 included in SoC
-> > - 10/100 Mbps Ethernet using LAN8720A phy
-> > - One USB-OTG interface
-> > - One USB-Host interface
-> > - One I2S interface with in and output support
-> > - Two CAN interfaces
-> > - ESP32 over SDIO
-> > - One SPI interface
-> > - I2C EEPROM for MAC address
-> > - One QWIIC I2C Interface with dedicated interrupt pin shared with EEPROM
-> > - One external I2C interface
-> > - SD interface for external SD-Card
-> > 
-> > Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-> > ---
-> > 
-> >  .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 233 ++++++++++++++++++
-> >  1 file changed, 233 insertions(+)
-> >  create mode 100644
-> >  arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi> 
-> > diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-> > b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi new file
-> > mode 100644
-> > index 000000000..0db867b47
-> > --- /dev/null
-> > +++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-> > @@ -0,0 +1,233 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +/*
-> > + * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-> > + */
-> > +
-> > +/dts-v1/;
-> > +#include "sun8i-t113s.dtsi"
-> > +
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +#include <dt-bindings/interrupt-controller/irq.h>
-> > +
-> > +/ {
-> > +	model = "NetCube Systems Nagami SoM";
-> > +	compatible = "netcube,nagami", "allwinner,sun8i-t113s";
-> > +
-> > +	aliases {
-> > +		serial1 = &uart1; // ESP32 Bootloader UART
-> > +		serial3 = &uart3; // Console UART on Card Edge
-> > +		ethernet0 = &emac;
-> > +	};
-> > +
-> > +	chosen {
-> > +		stdout-path = "serial3:115200n8";
-> > +	};
-> > +
-> > +	/* module wide 3.3V supply directly from the card edge */
-> > +	reg_vcc3v3: regulator-3v3 {
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "vcc-3v3";
-> > +		regulator-min-microvolt = <3300000>;
-> > +		regulator-max-microvolt = <3300000>;
-> > +		regulator-always-on;
-> > +	};
-> > +
-> > +	/* SY8008 DC/DC regulator on the board, also supplying VDD-SYS */
-> > +	reg_vcc_core: regulator-core {
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "vcc-core";
-> > +		regulator-min-microvolt = <880000>;
-> > +		regulator-max-microvolt = <880000>;
-> > +		vin-supply = <&reg_vcc3v3>;
-> > +	};
-> > +};
-> > +
-> > +&cpu0 {
-> > +	cpu-supply = <&reg_vcc_core>;
-> > +};
-> > +
-> > +&cpu1 {
-> > +	cpu-supply = <&reg_vcc_core>;
-> > +};
-> > +
-> > +&dcxo {
-> > +	clock-frequency = <24000000>;
-> > +};
-> > +
-> > +&emac {
-> > +	nvmem-cells = <&eth0_macaddress>;
-> > +	nvmem-cell-names = "mac-address";
-> > +	phy-handle = <&lan8720a>;
-> > +	phy-mode = "rmii";
-> > +	pinctrl-0 = <&rmii_pe_pins>;
-> > +	pinctrl-names = "default";
-> > +	status = "okay";
-> > +};
-> > +
-> > +/* Exposed as I2C on the card edge */
-> > +&i2c2 {
-> > +	pinctrl-0 = <&i2c2_pins>;
-> > +	pinctrl-names = "default";
-> 
-> I wonder if this belongs here. In general we don't describe
-> pins/devices that are on generic connectors (like pin headers), because
-> the connection is determined by the user, not by the board.
-> In this case PD20 and PD21 could be used as generic GPIOs or as PWMs.
-> IIUC, even for the basic carrier those pins end up on headers, so even
-> there I wouldn't describe it. On the keypad carrier it's of course a
-> different story, since the MCP23008 is apparently soldered there.
-
-I get that part. However the module's description (as of yet unreleased) 
-specifies those pins for this exact function as they are meant to be available 
-on our modules using the same connector but other CPU/SoC. The Module's state 
-that this is the default option but other function's can be reconfigured or 
-they can be used as IO. 
-
-If it's an issue I can remove those here, but I would still add them into the 
-basic carrier as, even though they are only pin header, they are marked with 
-the dedicated function of said pin. For example the headers there are 
-specifically for "SPI", "I2S", "I2C" and the SD-Card slot.
-
-> 
-> > +};
-> > +
-> > +/* Exposed as the QWIIC connector and used by the internal EEPROM */
-> > +&i2c3 {
-> > +	pinctrl-0 = <&i2c3_pins>;
-> > +	pinctrl-names = "default";
-> > +	status = "okay";
-> > +
-> > +	eeprom0: eeprom@50 {
-> > +		compatible = "atmel,24c02";		/* 
-actually it's a 24AA02E48 */
-> > +		reg = <0x50>;
-> > +		pagesize = <16>;
-> > +		read-only;
-> > +		vcc-supply = <&reg_vcc3v3>;
-> > +
-> > +		#address-cells = <1>;
-> > +		#size-cells = <1>;
-> > +
-> > +		eth0_macaddress: macaddress@fa {
-> > +			reg = <0xfa 0x06>;
-> > +		};
-> > +	};
-> > +};
-> > +
-> > +/* Exposed as I2S on the card edge */
-> > +&i2s1 {
-> > +	pinctrl-0 = <&i2s1_pins>, <&i2s1_din_pins>, <&i2s1_dout_pins>;
-> > +	pinctrl-names = "default";
-> 
-> Same story here, what prevents a user from using those edge pins as
-> GPIO or PWM?
-> 
-> > +};
-> > +
-> > +/* Phy is on SoM. MDI signals pre-magentics are on the card edge */
-> > +&mdio {
-> > +	lan8720a: ethernet-phy@0 {
-> > +		compatible = "ethernet-phy-ieee802.3-c22";
-> > +		reg = <0>;
-> > +	};
-> > +};
-> > +
-> > +/* Exposed as SD on the card edge */
-> > +&mmc0 {
-> > +	pinctrl-0 = <&mmc0_pins>;
-> > +	pinctrl-names = "default";
-> > +	vmmc-supply = <&reg_vcc3v3>;
-> > +	broken-cd;
-> > +	disable-wp;
-> > +	bus-width = <4>;
-> > +};
-> 
-> I think this node doesn't belong into the SoM .dtsi, as many details
-> are not set here, but on the carrier board: card detect, write protect,
-> Vmmc supply, and even bus width (could be 1 as well). So please move
-> this node to where the SD card connector sits. You might want to keep
-> the pinctrl nodes in here.
-
-Totally agree here, I will move this definition to the basic carrier, as it's 
-currently the only one with the SD-Interface connected. However my question 
-from above about the default function still applies here.
-> 
-> > +
-> > +/* Connected to the on-board ESP32 */
-> > +&mmc1 {
-> > +	pinctrl-0 = <&mmc1_pins>;
-> > +	pinctrl-names = "default";
-> > +	vmmc-supply = <&reg_vcc3v3>;
-> > +	bus-width = <4>;
-> > +	non-removable;
-> > +	status = "okay";
-> > +};
-> > +
-> > +/* Connected to the on-board eMMC */
-> > +&mmc2 {
-> > +	pinctrl-0 = <&mmc2_pins>;
-> > +	pinctrl-names = "default";
-> > +	vmmc-supply = <&reg_vcc3v3>;
-> > +	vqmmc-supply = <&reg_vcc3v3>;
-> > +	bus-width = <4>;
-> > +	non-removable;
-> > +	status = "okay";
-> > +};
-> > +
-> > +&pio {
-> > +	vcc-pb-supply = <&reg_vcc3v3>;
-> > +	vcc-pc-supply = <&reg_vcc3v3>;
-> > +	vcc-pd-supply = <&reg_vcc3v3>;
-> > +	vcc-pe-supply = <&reg_vcc3v3>;
-> > +	vcc-pf-supply = <&reg_vcc3v3>;
-> > +	vcc-pg-supply = <&reg_vcc3v3>;
-> > +
-> > +	gpio-line-names = "", "", "", "", // PA
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "CAN0_TX", 
-"CAN0_RX", // PB
-> > +					  "CAN1_TX", 
-"CAN1_RX", "UART3_TX", "UART3_RX",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "eMMC_CLK", 
-"eMMC_CMD", // PC
-> > +					  "eMMC_D2", 
-"eMMC_D1", "eMMC_D0", "eMMC_D3",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "", // 
-PD
-> > +					  "", "", "", "",
-> > +					  "", "", "SPI1_CS", 
-"SPI1_CLK",
-> > +					  "SPI1_MOSI", 
-"SPI1_MISO", "SPI1_HOLD", "SPI1_WP",
-> > +					  "PD16", "", "", "",
-> > +					  "I2C2_SCL", 
-"I2C2_SDA", "PD22", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "ETH_CRSDV", 
-"ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
-> > +					  "ETH_TXD0", 
-"ETH_TXD1", "ETH_TXEN", "",
-> > +					  "ETH_MDC", 
-"ETH_MDIO", "QWIIC_nINT", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "SD_D1", "SD_D0", 
-"SD_CLK", "SD_CLK", // PF
-> > +					  "SD_D3", "SD_D2", 
-"PF6", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "ESP_CLK", 
-"ESP_CMD", "ESP_D0", "ESP_D1", // PG
-> > +					  "ESP_D2", "ESP_D3", 
-"UART1_TXD", "UART1_RXD",
-> > +					  "ESP_nBOOT", 
-"ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-> > +					  "I2S1_WS", 
-"I2S1_CLK", "I2S1_DIN0", "I2S1_DOUT0",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "";
-> > +};
-> > +
-> > +/* Remove the unused CK pin from the pinctl as it is unconnected */
-> > +&rmii_pe_pins {
-> > +	pins = "PE0", "PE1", "PE2", "PE3", "PE4",
-> > +		   "PE5", "PE6", "PE8", "PE9";
-> > +};
-> > +
-> > +/* Exposed as SPI on the card-edge */
-> > +&spi1 {
-> > +	#address-cells = <1>;
-> > +	#size-cells = <0>;
-> > +	pinctrl-0 = <&spi1_pins>;
-> > +	pinctrl-names = "default";
-> > +	cs-gpios = <0>;
-> > +};
-> 
-> I wonder if this belongs here as well, since it's again just generic
-> edge pins.
-
-Same here too
-> 
-> Cheers,
-> Andre
-> 
-> > +
-> > +/* Connected to the Bootloader/Console of the ESP32 */
-> > +&uart1 {
-> > +	pinctrl-0 = <&uart1_pg6_pins>;
-> > +	pinctrl-names = "default";
-> > +	status = "okay";
-> > +};
-> > +
-> > +/* Exposed as the Console/Debug UART on the card-edge */
-> > +&uart3 {
-> > +	pinctrl-0 = <&uart3_pb_pins>;
-> > +	pinctrl-names = "default";
-> > +	status = "okay";
-> > +};
-
-
---nextPart3829144.MHq7AAxBmi
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEPv6dcBmn59ssZMkSJnN+drMVRtgFAmhtNwMACgkQJnN+drMV
-Rtg3VQf9En80GmrC7Ph0W7mn6Jn1BLaNfAO917+LAH71HdBz+iT66X/JOziYZtcD
-PtHAyAVYdGgyrsC63wI3kzo0kikZc12Y7DRhwDm1RYvvEwE/EoT+4AzXHTsC5jbs
-FvAmGV8a8As7iQQXn714pq7SsoYR98bGCK2NenbKzYrnOvgjVWiAX+xn0s4ysNzQ
-ktnRDDJnQRHeguZvXlE+1IuqaMmEJk32PHo+Uuq/ZJ6u3y4gUTEbGxGYC0YzI/um
-4LeKJEWDGQwz4T1PhKqhYt08Gomutx40lsHfDGZ6vvBpmOTjNYHy081kFrKZl5GP
-LHiARQT12DxweW0YZsNfadfEElTV6g==
-=LcEn
------END PGP SIGNATURE-----
-
---nextPart3829144.MHq7AAxBmi--
-
-
-
-
-
-
---===============7135742272133846812==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7135742272133846812==--
-
-
-
-
-
+SGksCgpPbiBUdWUsIEp1bCA4LCAyMDI1IGF0IDExOjE54oCvUE0gTHVrYXMgU2NobWlkIDxsdWth
+cy5zY2htaWRAbmV0Y3ViZS5saT4gd3JvdGU6Cj4KPiBPbiBEaWVuc3RhZywgOC4gSnVsaSAyMDI1
+IDAxOjIyOjA1IENFU1QgQW5kcmUgUHJ6eXdhcmEgd3JvdGU6Cj4gPiBPbiBNb24sICA3IEp1bCAy
+MDI1IDIwOjQ0OjE1ICswMjAwCj4gPiBMdWthcyBTY2htaWQgPGx1a2FzLnNjaG1pZEBuZXRjdWJl
+LmxpPiB3cm90ZToKPiA+Cj4gSGkgQW5kcmUsCj4KPiA+IEhpIEx1a2FzLAo+ID4KPiA+IHBsZWFz
+ZSB0cnkgdG8gcmVmcmFpbiBmcm9tIHNlbmRpbmcgc3Vic2VxdWVudCBwYXRjaGVzIHRvbyBxdWlj
+a2x5LCB0aGF0Cj4gPiBtaWdodCBqdXN0IHB1dCBvZmYgYW5kIGNvbmZ1c2UgcmV2aWV3ZXJzLiBU
+byBhY2tub3dsZWRnZSBhIGNoYW5nZQo+ID4gcmVxdWVzdCwgaXQgaXMgcHJvYmFibHkgc3VmZmlj
+aWVudCB0byBqdXN0IHJlcGx5IHRvIHRoZSBtYWlsIHdpdGggYQo+ID4gY29uZmlybWF0aW9uLgo+
+Cj4gU29ycnkgYWJvdXQgdGhhdC4gSSdtIHN0aWxsIHRyeWluZyB0byBnZXQgdGhlIGhhbmcgb2Yg
+dGhpcyB3aG9sZSAic3VibWl0dGluZwo+IHBhdGNoZXMiIHRoaW5nLiBXaGF0IGlzIGEgZ29vZCB0
+aW1lL3JlYXNvbiB0byBzZW5kIHRoZSBuZXh0IHJldmlzaW9uL3ZlcnNpb24KPiBvZiBhIHBhdGNo
+c2V0Pwo+Cj4gPgo+ID4gPiBOZXRDdWJlIFN5c3RlbXMgTmFnYW1pIFNvTSBpcyBhIG1vZHVsZSBi
+YXNlZCBhcm91bmQgdGhlIEFsbHdpbm5lciBUMTEzcwo+ID4gPiBTb0MuIEl0IGluY2x1ZGVzIHRo
+ZSBmb2xsb3dpbmcgZmVhdHVyZXMgYW5kIGludGVyZmFjZXM6Cj4gPiA+Cj4gPiA+IC0gMTI4TUIg
+RERSMyBpbmNsdWRlZCBpbiBTb0MKPiA+ID4gLSAxMC8xMDAgTWJwcyBFdGhlcm5ldCB1c2luZyBM
+QU44NzIwQSBwaHkKPiA+ID4gLSBPbmUgVVNCLU9URyBpbnRlcmZhY2UKPiA+ID4gLSBPbmUgVVNC
+LUhvc3QgaW50ZXJmYWNlCj4gPiA+IC0gT25lIEkyUyBpbnRlcmZhY2Ugd2l0aCBpbiBhbmQgb3V0
+cHV0IHN1cHBvcnQKPiA+ID4gLSBUd28gQ0FOIGludGVyZmFjZXMKPiA+ID4gLSBFU1AzMiBvdmVy
+IFNESU8KPiA+ID4gLSBPbmUgU1BJIGludGVyZmFjZQo+ID4gPiAtIEkyQyBFRVBST00gZm9yIE1B
+QyBhZGRyZXNzCj4gPiA+IC0gT25lIFFXSUlDIEkyQyBJbnRlcmZhY2Ugd2l0aCBkZWRpY2F0ZWQg
+aW50ZXJydXB0IHBpbiBzaGFyZWQgd2l0aCBFRVBST00KPiA+ID4gLSBPbmUgZXh0ZXJuYWwgSTJD
+IGludGVyZmFjZQo+ID4gPiAtIFNEIGludGVyZmFjZSBmb3IgZXh0ZXJuYWwgU0QtQ2FyZAo+ID4g
+Pgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBMdWthcyBTY2htaWQgPGx1a2FzLnNjaG1pZEBuZXRjdWJl
+LmxpPgo+ID4gPiAtLS0KPiA+ID4KPiA+ID4gIC4uLi9hbGx3aW5uZXIvc3VuOGktdDExM3MtbmV0
+Y3ViZS1uYWdhbWkuZHRzaSB8IDIzMyArKysrKysrKysrKysrKysrKysKPiA+ID4gIDEgZmlsZSBj
+aGFuZ2VkLCAyMzMgaW5zZXJ0aW9ucygrKQo+ID4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0Cj4gPiA+
+ICBhcmNoL2FybS9ib290L2R0cy9hbGx3aW5uZXIvc3VuOGktdDExM3MtbmV0Y3ViZS1uYWdhbWku
+ZHRzaT4KPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtL2Jvb3QvZHRzL2FsbHdpbm5lci9zdW44
+aS10MTEzcy1uZXRjdWJlLW5hZ2FtaS5kdHNpCj4gPiA+IGIvYXJjaC9hcm0vYm9vdC9kdHMvYWxs
+d2lubmVyL3N1bjhpLXQxMTNzLW5ldGN1YmUtbmFnYW1pLmR0c2kgbmV3IGZpbGUKPiA+ID4gbW9k
+ZSAxMDA2NDQKPiA+ID4gaW5kZXggMDAwMDAwMDAwLi4wZGI4NjdiNDcKPiA+ID4gLS0tIC9kZXYv
+bnVsbAo+ID4gPiArKysgYi9hcmNoL2FybS9ib290L2R0cy9hbGx3aW5uZXIvc3VuOGktdDExM3Mt
+bmV0Y3ViZS1uYWdhbWkuZHRzaQo+ID4gPiBAQCAtMCwwICsxLDIzMyBAQAo+ID4gPiArLy8gU1BE
+WC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wKyBPUiBNSVQpCj4gPiA+ICsvKgo+ID4gPiAr
+ICogQ29weXJpZ2h0IChDKSAyMDI1IEx1a2FzIFNjaG1pZCA8bHVrYXMuc2NobWlkQG5ldGN1YmUu
+bGk+Cj4gPiA+ICsgKi8KPiA+ID4gKwo+ID4gPiArL2R0cy12MS87Cj4gPiA+ICsjaW5jbHVkZSAi
+c3VuOGktdDExM3MuZHRzaSIKPiA+ID4gKwo+ID4gPiArI2luY2x1ZGUgPGR0LWJpbmRpbmdzL2dw
+aW8vZ3Bpby5oPgo+ID4gPiArI2luY2x1ZGUgPGR0LWJpbmRpbmdzL2ludGVycnVwdC1jb250cm9s
+bGVyL2lycS5oPgo+ID4gPiArCj4gPiA+ICsvIHsKPiA+ID4gKyAgIG1vZGVsID0gIk5ldEN1YmUg
+U3lzdGVtcyBOYWdhbWkgU29NIjsKPiA+ID4gKyAgIGNvbXBhdGlibGUgPSAibmV0Y3ViZSxuYWdh
+bWkiLCAiYWxsd2lubmVyLHN1bjhpLXQxMTNzIjsKPiA+ID4gKwo+ID4gPiArICAgYWxpYXNlcyB7
+Cj4gPiA+ICsgICAgICAgICAgIHNlcmlhbDEgPSAmdWFydDE7IC8vIEVTUDMyIEJvb3Rsb2FkZXIg
+VUFSVAo+ID4gPiArICAgICAgICAgICBzZXJpYWwzID0gJnVhcnQzOyAvLyBDb25zb2xlIFVBUlQg
+b24gQ2FyZCBFZGdlCj4gPiA+ICsgICAgICAgICAgIGV0aGVybmV0MCA9ICZlbWFjOwo+ID4gPiAr
+ICAgfTsKPiA+ID4gKwo+ID4gPiArICAgY2hvc2VuIHsKPiA+ID4gKyAgICAgICAgICAgc3Rkb3V0
+LXBhdGggPSAic2VyaWFsMzoxMTUyMDBuOCI7Cj4gPiA+ICsgICB9Owo+ID4gPiArCj4gPiA+ICsg
+ICAvKiBtb2R1bGUgd2lkZSAzLjNWIHN1cHBseSBkaXJlY3RseSBmcm9tIHRoZSBjYXJkIGVkZ2Ug
+Ki8KPiA+ID4gKyAgIHJlZ192Y2MzdjM6IHJlZ3VsYXRvci0zdjMgewo+ID4gPiArICAgICAgICAg
+ICBjb21wYXRpYmxlID0gInJlZ3VsYXRvci1maXhlZCI7Cj4gPiA+ICsgICAgICAgICAgIHJlZ3Vs
+YXRvci1uYW1lID0gInZjYy0zdjMiOwo+ID4gPiArICAgICAgICAgICByZWd1bGF0b3ItbWluLW1p
+Y3Jvdm9sdCA9IDwzMzAwMDAwPjsKPiA+ID4gKyAgICAgICAgICAgcmVndWxhdG9yLW1heC1taWNy
+b3ZvbHQgPSA8MzMwMDAwMD47Cj4gPiA+ICsgICAgICAgICAgIHJlZ3VsYXRvci1hbHdheXMtb247
+Cj4gPiA+ICsgICB9Owo+ID4gPiArCj4gPiA+ICsgICAvKiBTWTgwMDggREMvREMgcmVndWxhdG9y
+IG9uIHRoZSBib2FyZCwgYWxzbyBzdXBwbHlpbmcgVkRELVNZUyAqLwo+ID4gPiArICAgcmVnX3Zj
+Y19jb3JlOiByZWd1bGF0b3ItY29yZSB7Cj4gPiA+ICsgICAgICAgICAgIGNvbXBhdGlibGUgPSAi
+cmVndWxhdG9yLWZpeGVkIjsKPiA+ID4gKyAgICAgICAgICAgcmVndWxhdG9yLW5hbWUgPSAidmNj
+LWNvcmUiOwo+ID4gPiArICAgICAgICAgICByZWd1bGF0b3ItbWluLW1pY3Jvdm9sdCA9IDw4ODAw
+MDA+Owo+ID4gPiArICAgICAgICAgICByZWd1bGF0b3ItbWF4LW1pY3Jvdm9sdCA9IDw4ODAwMDA+
+Owo+ID4gPiArICAgICAgICAgICB2aW4tc3VwcGx5ID0gPCZyZWdfdmNjM3YzPjsKPiA+ID4gKyAg
+IH07Cj4gPiA+ICt9Owo+ID4gPiArCj4gPiA+ICsmY3B1MCB7Cj4gPiA+ICsgICBjcHUtc3VwcGx5
+ID0gPCZyZWdfdmNjX2NvcmU+Owo+ID4gPiArfTsKPiA+ID4gKwo+ID4gPiArJmNwdTEgewo+ID4g
+PiArICAgY3B1LXN1cHBseSA9IDwmcmVnX3ZjY19jb3JlPjsKPiA+ID4gK307Cj4gPiA+ICsKPiA+
+ID4gKyZkY3hvIHsKPiA+ID4gKyAgIGNsb2NrLWZyZXF1ZW5jeSA9IDwyNDAwMDAwMD47Cj4gPiA+
+ICt9Owo+ID4gPiArCj4gPiA+ICsmZW1hYyB7Cj4gPiA+ICsgICBudm1lbS1jZWxscyA9IDwmZXRo
+MF9tYWNhZGRyZXNzPjsKPiA+ID4gKyAgIG52bWVtLWNlbGwtbmFtZXMgPSAibWFjLWFkZHJlc3Mi
+Owo+ID4gPiArICAgcGh5LWhhbmRsZSA9IDwmbGFuODcyMGE+Owo+ID4gPiArICAgcGh5LW1vZGUg
+PSAicm1paSI7Cj4gPiA+ICsgICBwaW5jdHJsLTAgPSA8JnJtaWlfcGVfcGlucz47Cj4gPiA+ICsg
+ICBwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+ID4gPiArICAgc3RhdHVzID0gIm9rYXkiOwo+
+ID4gPiArfTsKPiA+ID4gKwo+ID4gPiArLyogRXhwb3NlZCBhcyBJMkMgb24gdGhlIGNhcmQgZWRn
+ZSAqLwo+ID4gPiArJmkyYzIgewo+ID4gPiArICAgcGluY3RybC0wID0gPCZpMmMyX3BpbnM+Owo+
+ID4gPiArICAgcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKPiA+Cj4gPiBJIHdvbmRlciBpZiB0
+aGlzIGJlbG9uZ3MgaGVyZS4gSW4gZ2VuZXJhbCB3ZSBkb24ndCBkZXNjcmliZQo+ID4gcGlucy9k
+ZXZpY2VzIHRoYXQgYXJlIG9uIGdlbmVyaWMgY29ubmVjdG9ycyAobGlrZSBwaW4gaGVhZGVycyks
+IGJlY2F1c2UKPiA+IHRoZSBjb25uZWN0aW9uIGlzIGRldGVybWluZWQgYnkgdGhlIHVzZXIsIG5v
+dCBieSB0aGUgYm9hcmQuCj4gPiBJbiB0aGlzIGNhc2UgUEQyMCBhbmQgUEQyMSBjb3VsZCBiZSB1
+c2VkIGFzIGdlbmVyaWMgR1BJT3Mgb3IgYXMgUFdNcy4KPiA+IElJVUMsIGV2ZW4gZm9yIHRoZSBi
+YXNpYyBjYXJyaWVyIHRob3NlIHBpbnMgZW5kIHVwIG9uIGhlYWRlcnMsIHNvIGV2ZW4KPiA+IHRo
+ZXJlIEkgd291bGRuJ3QgZGVzY3JpYmUgaXQuIE9uIHRoZSBrZXlwYWQgY2FycmllciBpdCdzIG9m
+IGNvdXJzZSBhCj4gPiBkaWZmZXJlbnQgc3RvcnksIHNpbmNlIHRoZSBNQ1AyMzAwOCBpcyBhcHBh
+cmVudGx5IHNvbGRlcmVkIHRoZXJlLgo+Cj4gSSBnZXQgdGhhdCBwYXJ0LiBIb3dldmVyIHRoZSBt
+b2R1bGUncyBkZXNjcmlwdGlvbiAoYXMgb2YgeWV0IHVucmVsZWFzZWQpCj4gc3BlY2lmaWVzIHRo
+b3NlIHBpbnMgZm9yIHRoaXMgZXhhY3QgZnVuY3Rpb24gYXMgdGhleSBhcmUgbWVhbnQgdG8gYmUg
+YXZhaWxhYmxlCj4gb24gb3VyIG1vZHVsZXMgdXNpbmcgdGhlIHNhbWUgY29ubmVjdG9yIGJ1dCBv
+dGhlciBDUFUvU29DLiBUaGUgTW9kdWxlJ3Mgc3RhdGUKPiB0aGF0IHRoaXMgaXMgdGhlIGRlZmF1
+bHQgb3B0aW9uIGJ1dCBvdGhlciBmdW5jdGlvbidzIGNhbiBiZSByZWNvbmZpZ3VyZWQgb3IKPiB0
+aGV5IGNhbiBiZSB1c2VkIGFzIElPLgo+Cj4gSWYgaXQncyBhbiBpc3N1ZSBJIGNhbiByZW1vdmUg
+dGhvc2UgaGVyZSwgYnV0IEkgd291bGQgc3RpbGwgYWRkIHRoZW0gaW50byB0aGUKPiBiYXNpYyBj
+YXJyaWVyIGFzLCBldmVuIHRob3VnaCB0aGV5IGFyZSBvbmx5IHBpbiBoZWFkZXIsIHRoZXkgYXJl
+IG1hcmtlZCB3aXRoCj4gdGhlIGRlZGljYXRlZCBmdW5jdGlvbiBvZiBzYWlkIHBpbi4gRm9yIGV4
+YW1wbGUgdGhlIGhlYWRlcnMgdGhlcmUgYXJlCj4gc3BlY2lmaWNhbGx5IGZvciAiU1BJIiwgIkky
+UyIsICJJMkMiIGFuZCB0aGUgU0QtQ2FyZCBzbG90LgoKRm9yIGRlZGljYXRlZCBidXQgb3RoZXJ3
+aXNlIHVucG9wdWxhdGVkIHBpbnMsIHdlIGhhdmUgaW4gdGhlIHBhc3QgaGF2ZQpldmVyeXRoaW5n
+IGRlc2NyaWJlZCBhcyB5b3UgYWxyZWFkeSBoYXZlLCBidXQgd2l0aCBhbiBleHBsaWNpdAoKICAg
+IHN0YXR1cyA9ICJkaXNhYmxlZCI7CgphbG9uZyB3aXRoIGEgY29tbWVudCBzdGF0aW5nIHRoYXQg
+aXQgaXMgbm9ybWFsbHkgdW5wb3B1bGF0ZWQgYW5kIHVwIHRvIHRoZQplbmQgdXNlciB0byBlbmFi
+bGUgaWYgdGhleSBpbnRlbmQgdG8gdXNlIGl0LiBZb3UgY2FuIHNlZSBleGFtcGxlcyBvZiB0aGlz
+CmluIHRoZSBkdHMgZmlsZXMgb2YgdGhlIFBpbmU2NC4KCkkgd291bGRuJ3Qgc2F5IGl0J3MgYSBw
+cmVmZXJlbmNlLCBidXQgaXQncyBiZWVuIGRvbmUgZm9yIHNvbWUgZGV2ZWxvcG1lbnQKYm9hcmRz
+LgoKCkNoZW5ZdQoKPiA+Cj4gPiA+ICt9Owo+ID4gPiArCj4gPiA+ICsvKiBFeHBvc2VkIGFzIHRo
+ZSBRV0lJQyBjb25uZWN0b3IgYW5kIHVzZWQgYnkgdGhlIGludGVybmFsIEVFUFJPTSAqLwo+ID4g
+PiArJmkyYzMgewo+ID4gPiArICAgcGluY3RybC0wID0gPCZpMmMzX3BpbnM+Owo+ID4gPiArICAg
+cGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKPiA+ID4gKyAgIHN0YXR1cyA9ICJva2F5IjsKPiA+
+ID4gKwo+ID4gPiArICAgZWVwcm9tMDogZWVwcm9tQDUwIHsKPiA+ID4gKyAgICAgICAgICAgY29t
+cGF0aWJsZSA9ICJhdG1lbCwyNGMwMiI7ICAgICAgICAgICAgIC8qCj4gYWN0dWFsbHkgaXQncyBh
+IDI0QUEwMkU0OCAqLwo+ID4gPiArICAgICAgICAgICByZWcgPSA8MHg1MD47Cj4gPiA+ICsgICAg
+ICAgICAgIHBhZ2VzaXplID0gPDE2PjsKPiA+ID4gKyAgICAgICAgICAgcmVhZC1vbmx5Owo+ID4g
+PiArICAgICAgICAgICB2Y2Mtc3VwcGx5ID0gPCZyZWdfdmNjM3YzPjsKPiA+ID4gKwo+ID4gPiAr
+ICAgICAgICAgICAjYWRkcmVzcy1jZWxscyA9IDwxPjsKPiA+ID4gKyAgICAgICAgICAgI3NpemUt
+Y2VsbHMgPSA8MT47Cj4gPiA+ICsKPiA+ID4gKyAgICAgICAgICAgZXRoMF9tYWNhZGRyZXNzOiBt
+YWNhZGRyZXNzQGZhIHsKPiA+ID4gKyAgICAgICAgICAgICAgICAgICByZWcgPSA8MHhmYSAweDA2
+PjsKPiA+ID4gKyAgICAgICAgICAgfTsKPiA+ID4gKyAgIH07Cj4gPiA+ICt9Owo+ID4gPiArCj4g
+PiA+ICsvKiBFeHBvc2VkIGFzIEkyUyBvbiB0aGUgY2FyZCBlZGdlICovCj4gPiA+ICsmaTJzMSB7
+Cj4gPiA+ICsgICBwaW5jdHJsLTAgPSA8JmkyczFfcGlucz4sIDwmaTJzMV9kaW5fcGlucz4sIDwm
+aTJzMV9kb3V0X3BpbnM+Owo+ID4gPiArICAgcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKPiA+
+Cj4gPiBTYW1lIHN0b3J5IGhlcmUsIHdoYXQgcHJldmVudHMgYSB1c2VyIGZyb20gdXNpbmcgdGhv
+c2UgZWRnZSBwaW5zIGFzCj4gPiBHUElPIG9yIFBXTT8KPiA+Cj4gPiA+ICt9Owo+ID4gPiArCj4g
+PiA+ICsvKiBQaHkgaXMgb24gU29NLiBNREkgc2lnbmFscyBwcmUtbWFnZW50aWNzIGFyZSBvbiB0
+aGUgY2FyZCBlZGdlICovCj4gPiA+ICsmbWRpbyB7Cj4gPiA+ICsgICBsYW44NzIwYTogZXRoZXJu
+ZXQtcGh5QDAgewo+ID4gPiArICAgICAgICAgICBjb21wYXRpYmxlID0gImV0aGVybmV0LXBoeS1p
+ZWVlODAyLjMtYzIyIjsKPiA+ID4gKyAgICAgICAgICAgcmVnID0gPDA+Owo+ID4gPiArICAgfTsK
+PiA+ID4gK307Cj4gPiA+ICsKPiA+ID4gKy8qIEV4cG9zZWQgYXMgU0Qgb24gdGhlIGNhcmQgZWRn
+ZSAqLwo+ID4gPiArJm1tYzAgewo+ID4gPiArICAgcGluY3RybC0wID0gPCZtbWMwX3BpbnM+Owo+
+ID4gPiArICAgcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKPiA+ID4gKyAgIHZtbWMtc3VwcGx5
+ID0gPCZyZWdfdmNjM3YzPjsKPiA+ID4gKyAgIGJyb2tlbi1jZDsKPiA+ID4gKyAgIGRpc2FibGUt
+d3A7Cj4gPiA+ICsgICBidXMtd2lkdGggPSA8ND47Cj4gPiA+ICt9Owo+ID4KPiA+IEkgdGhpbmsg
+dGhpcyBub2RlIGRvZXNuJ3QgYmVsb25nIGludG8gdGhlIFNvTSAuZHRzaSwgYXMgbWFueSBkZXRh
+aWxzCj4gPiBhcmUgbm90IHNldCBoZXJlLCBidXQgb24gdGhlIGNhcnJpZXIgYm9hcmQ6IGNhcmQg
+ZGV0ZWN0LCB3cml0ZSBwcm90ZWN0LAo+ID4gVm1tYyBzdXBwbHksIGFuZCBldmVuIGJ1cyB3aWR0
+aCAoY291bGQgYmUgMSBhcyB3ZWxsKS4gU28gcGxlYXNlIG1vdmUKPiA+IHRoaXMgbm9kZSB0byB3
+aGVyZSB0aGUgU0QgY2FyZCBjb25uZWN0b3Igc2l0cy4gWW91IG1pZ2h0IHdhbnQgdG8ga2VlcAo+
+ID4gdGhlIHBpbmN0cmwgbm9kZXMgaW4gaGVyZS4KPgo+IFRvdGFsbHkgYWdyZWUgaGVyZSwgSSB3
+aWxsIG1vdmUgdGhpcyBkZWZpbml0aW9uIHRvIHRoZSBiYXNpYyBjYXJyaWVyLCBhcyBpdCdzCj4g
+Y3VycmVudGx5IHRoZSBvbmx5IG9uZSB3aXRoIHRoZSBTRC1JbnRlcmZhY2UgY29ubmVjdGVkLiBI
+b3dldmVyIG15IHF1ZXN0aW9uCj4gZnJvbSBhYm92ZSBhYm91dCB0aGUgZGVmYXVsdCBmdW5jdGlv
+biBzdGlsbCBhcHBsaWVzIGhlcmUuCj4gPgo+ID4gPiArCj4gPiA+ICsvKiBDb25uZWN0ZWQgdG8g
+dGhlIG9uLWJvYXJkIEVTUDMyICovCj4gPiA+ICsmbW1jMSB7Cj4gPiA+ICsgICBwaW5jdHJsLTAg
+PSA8Jm1tYzFfcGlucz47Cj4gPiA+ICsgICBwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+ID4g
+PiArICAgdm1tYy1zdXBwbHkgPSA8JnJlZ192Y2MzdjM+Owo+ID4gPiArICAgYnVzLXdpZHRoID0g
+PDQ+Owo+ID4gPiArICAgbm9uLXJlbW92YWJsZTsKPiA+ID4gKyAgIHN0YXR1cyA9ICJva2F5IjsK
+PiA+ID4gK307Cj4gPiA+ICsKPiA+ID4gKy8qIENvbm5lY3RlZCB0byB0aGUgb24tYm9hcmQgZU1N
+QyAqLwo+ID4gPiArJm1tYzIgewo+ID4gPiArICAgcGluY3RybC0wID0gPCZtbWMyX3BpbnM+Owo+
+ID4gPiArICAgcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKPiA+ID4gKyAgIHZtbWMtc3VwcGx5
+ID0gPCZyZWdfdmNjM3YzPjsKPiA+ID4gKyAgIHZxbW1jLXN1cHBseSA9IDwmcmVnX3ZjYzN2Mz47
+Cj4gPiA+ICsgICBidXMtd2lkdGggPSA8ND47Cj4gPiA+ICsgICBub24tcmVtb3ZhYmxlOwo+ID4g
+PiArICAgc3RhdHVzID0gIm9rYXkiOwo+ID4gPiArfTsKPiA+ID4gKwo+ID4gPiArJnBpbyB7Cj4g
+PiA+ICsgICB2Y2MtcGItc3VwcGx5ID0gPCZyZWdfdmNjM3YzPjsKPiA+ID4gKyAgIHZjYy1wYy1z
+dXBwbHkgPSA8JnJlZ192Y2MzdjM+Owo+ID4gPiArICAgdmNjLXBkLXN1cHBseSA9IDwmcmVnX3Zj
+YzN2Mz47Cj4gPiA+ICsgICB2Y2MtcGUtc3VwcGx5ID0gPCZyZWdfdmNjM3YzPjsKPiA+ID4gKyAg
+IHZjYy1wZi1zdXBwbHkgPSA8JnJlZ192Y2MzdjM+Owo+ID4gPiArICAgdmNjLXBnLXN1cHBseSA9
+IDwmcmVnX3ZjYzN2Mz47Cj4gPiA+ICsKPiA+ID4gKyAgIGdwaW8tbGluZS1uYW1lcyA9ICIiLCAi
+IiwgIiIsICIiLCAvLyBQQQo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICIiLCAiIiwgIkNBTjBfVFgiLAo+ICJDQU4wX1JYIiwg
+Ly8gUEIKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiQ0FOMV9U
+WCIsCj4gIkNBTjFfUlgiLCAiVUFSVDNfVFgiLCAiVUFSVDNfUlgiLAo+ID4gPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiAr
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4g
+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIiLCAiIiwgIiIsICIiLAo+
+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIiLCAiIiwgIiIsICIi
+LAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIiLCAiIiwgImVN
+TUNfQ0xLIiwKPiAiZU1NQ19DTUQiLCAvLyBQQwo+ID4gPiArICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICJlTU1DX0QyIiwKPiAiZU1NQ19EMSIsICJlTU1DX0QwIiwgImVNTUNf
+RDMiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIiLCAiIiwg
+IiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIiLCAi
+IiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIi
+LCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICIiLCAiIiwgIiIsICIiLCAvLwo+IFBECj4gPiA+ICsgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIiIsICIiLCAiIiwgIiIsCj4gPiA+ICsgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIiIsICIiLCAiU1BJMV9DUyIsCj4gIlNQSTFfQ0xLIiwK
+PiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiU1BJMV9NT1NJIiwK
+PiAiU1BJMV9NSVNPIiwgIlNQSTFfSE9MRCIsICJTUEkxX1dQIiwKPiA+ID4gKyAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAiUEQxNiIsICIiLCAiIiwgIiIsCj4gPiA+ICsgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIkkyQzJfU0NMIiwKPiAiSTJDMl9TREEi
+LCAiUEQyMiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICJFVEhfQ1JTRFYiLAo+ICJFVEhfUlhEMCIsICJFVEhfUlhEMSIsICJFVEhfVFhDSyIs
+IC8vIFBFCj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIkVUSF9U
+WEQwIiwKPiAiRVRIX1RYRDEiLCAiRVRIX1RYRU4iLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAiRVRIX01EQyIsCj4gIkVUSF9NRElPIiwgIlFXSUlDX25J
+TlQiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiIiwg
+IiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAi
+IiwgIiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAiIiwgIiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAiIiwgIiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAiIiwgIiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAiU0RfRDEiLCAiU0RfRDAiLAo+ICJTRF9DTEsiLCAiU0RfQ0xLIiwgLy8gUEYK
+PiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiU0RfRDMiLCAiU0Rf
+RDIiLAo+ICJQRjYiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAiIiwgIiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAiIiwgIiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAiIiwgIiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAiIiwgIiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAiIiwgIiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAiIiwgIiIsICIiLCAiIiwKPiA+ID4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAiRVNQX0NMSyIsCj4gIkVTUF9DTUQiLCAiRVNQX0QwIiwg
+IkVTUF9EMSIsIC8vIFBHCj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIkVTUF9EMiIsICJFU1BfRDMiLAo+ICJVQVJUMV9UWEQiLCAiVUFSVDFfUlhEIiwKPiA+ID4g
+KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiRVNQX25CT09UIiwKPiAiRVNQ
+X25SU1QiLCAiSTJDM19TQ0wiLCAiSTJDM19TREEiLAo+ID4gPiArICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICJJMlMxX1dTIiwKPiAiSTJTMV9DTEsiLCAiSTJTMV9ESU4wIiwg
+IkkyUzFfRE9VVDAiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICIiLCAiIiwgIiIsICIiLAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICIiLCAiIiwgIiIsICIiOwo+ID4gPiArfTsKPiA+ID4gKwo+ID4gPiArLyogUmVt
+b3ZlIHRoZSB1bnVzZWQgQ0sgcGluIGZyb20gdGhlIHBpbmN0bCBhcyBpdCBpcyB1bmNvbm5lY3Rl
+ZCAqLwo+ID4gPiArJnJtaWlfcGVfcGlucyB7Cj4gPiA+ICsgICBwaW5zID0gIlBFMCIsICJQRTEi
+LCAiUEUyIiwgIlBFMyIsICJQRTQiLAo+ID4gPiArICAgICAgICAgICAgICAiUEU1IiwgIlBFNiIs
+ICJQRTgiLCAiUEU5IjsKPiA+ID4gK307Cj4gPiA+ICsKPiA+ID4gKy8qIEV4cG9zZWQgYXMgU1BJ
+IG9uIHRoZSBjYXJkLWVkZ2UgKi8KPiA+ID4gKyZzcGkxIHsKPiA+ID4gKyAgICNhZGRyZXNzLWNl
+bGxzID0gPDE+Owo+ID4gPiArICAgI3NpemUtY2VsbHMgPSA8MD47Cj4gPiA+ICsgICBwaW5jdHJs
+LTAgPSA8JnNwaTFfcGlucz47Cj4gPiA+ICsgICBwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+
+ID4gPiArICAgY3MtZ3Bpb3MgPSA8MD47Cj4gPiA+ICt9Owo+ID4KPiA+IEkgd29uZGVyIGlmIHRo
+aXMgYmVsb25ncyBoZXJlIGFzIHdlbGwsIHNpbmNlIGl0J3MgYWdhaW4ganVzdCBnZW5lcmljCj4g
+PiBlZGdlIHBpbnMuCj4KPiBTYW1lIGhlcmUgdG9vCj4gPgo+ID4gQ2hlZXJzLAo+ID4gQW5kcmUK
+PiA+Cj4gPiA+ICsKPiA+ID4gKy8qIENvbm5lY3RlZCB0byB0aGUgQm9vdGxvYWRlci9Db25zb2xl
+IG9mIHRoZSBFU1AzMiAqLwo+ID4gPiArJnVhcnQxIHsKPiA+ID4gKyAgIHBpbmN0cmwtMCA9IDwm
+dWFydDFfcGc2X3BpbnM+Owo+ID4gPiArICAgcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKPiA+
+ID4gKyAgIHN0YXR1cyA9ICJva2F5IjsKPiA+ID4gK307Cj4gPiA+ICsKPiA+ID4gKy8qIEV4cG9z
+ZWQgYXMgdGhlIENvbnNvbGUvRGVidWcgVUFSVCBvbiB0aGUgY2FyZC1lZGdlICovCj4gPiA+ICsm
+dWFydDMgewo+ID4gPiArICAgcGluY3RybC0wID0gPCZ1YXJ0M19wYl9waW5zPjsKPiA+ID4gKyAg
+IHBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7Cj4gPiA+ICsgICBzdGF0dXMgPSAib2theSI7Cj4g
+PiA+ICt9Owo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
