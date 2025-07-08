@@ -4,58 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD384C71130
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jul 2025 23:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3624C83030
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 00:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+7kFXLXG+tDtmPhkKffK/u0+51LAiJZX8k6zj3tMmmw=; b=PNusHXC58GN4sZ
-	nzI9+8k6D/Zt7yMYlL5eoo5ho4Lwz1nHRWbZHanKqsxeTSqJTqdZBNY/Erwiz+y5YsYpaSBIPLym2
-	4gOnjMwIPUx7XZ4s/Ubzjq4F7XnyqyN0GFs0kF5yf6jAwclCVqq6Iz+wUOQoFidEkJ5nhbwUuKXRn
-	dm4oJoXs5I+M0eApuOnTpn0p2D8X/ueHmMrX91BAtiChRIT4C9QIVv23WGmaXZk1w+uJB2ZNFf8Zs
-	p2dreqznN7Gr0NqMoLT1xO0eqODtgtD2oxlSD7cwMd6cLnz++4xefL+Tv+HktL2iJn8XsiDPHvWlE
-	d1U3LO7/xCD/HExwwCWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=53Vp7A/OcKIAjrFtupDQxQ3R9zkMmXbUudBzewR448w=; b=ovKgsrS3rrDf5Jfs+U2m7Wgn1n
+	sXqsv1W4gc9b91k9koLg/1AZs8QUM+Fd7uoT6fu1CnHxpQOIb0zi9fe+PEBHAEELhovwF7q6pp5ah
+	JeMyMOtvRkukhzzIkTloZhulGdqbZBwL3TY42TxBgwY8EhrXlXxSAw7ah9c/V7M/M2qfQhWd9JGvK
+	U6g6tqnY7RS7cBr9IquCujBDWySuMtdHvZcFKVA9UeO5lyfxCAl912zLgzuBwtl8rLSjWM0hZtOSQ
+	JSI+hh8DrSbfJr82SmJcZNQI4eyLGHmJabdkzGuENTNQSqZxA8KJNKhFIc46MCta8YUHgp07GmC2e
+	v5e19ZOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYvFG-00000003mDn-3qrh;
-	Mon, 07 Jul 2025 23:27:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYvBY-00000003lqS-3dDW;
-	Mon, 07 Jul 2025 23:23:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27C431595;
-	Mon,  7 Jul 2025 16:23:32 -0700 (PDT)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 57BC63F66E;
-	Mon,  7 Jul 2025 16:23:42 -0700 (PDT)
-Date: Tue, 8 Jul 2025 00:22:05 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Lukas Schmid <lukas.schmid@netcube.li>
+	id 1uYwH6-00000003s5a-1zMl;
+	Tue, 08 Jul 2025 00:33:32 +0000
+Received: from mail-centralindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d409::] helo=PNYPR01CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYwFj-00000003rwz-3kNX
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Jul 2025 00:32:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xbMDFkwfvreXRgAD4III1s8OAakU5Hm4iiyMlFZdsCvplQfn4YvBAwFTmPyJnsYeBBeEVVL7ZGquqFDK9cz9ZZDiBYDVHe/4NEJqr3jiByFT8siSwALT9tkOpbNLkXLYf84u7G7M6B2r5/UM5gnv+YHuLkROUs9G1E4621RW9I2tn6DcHF4jlxl1oT7/WhuFCGghLjmv3KuRcV1XG37D7H+gYbXjaD8xtuFNhhGIqnCmx3hv27YyDMJ9fpLSVIg9wWOYFmzghAW5p19FriuoT+Wd9hZjX/mKJQw5jS6dyWSg3x+odgil8pYPc0qYDLlCJHvvJXs52psgYEm+6vnVQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Dalho3MdAQo3W3dE7tnYN3MD4KlkbpplhVFAbjzRk0k=;
+ b=f6JyIjMtVy22xQ+2cExllDEFjLyc9Ow1ZCGfOrJoBmj7DEZkGxOf2SOO4XB2AS74w7pOc+Zii9LoSo3HV6rx0OBv8VjnGFF4T+jOuupggi1g+N+xhXT7qNdanQXAKf5+i3b3+ZNgwa2aLb/vC/XF8mLUGMLVgoEZk8lrH3TVVfOV6vukbn+xnOHDGIBbJOHe+UvyZN91p3RswA/QAStv9oY83hugzrDy8vKInj0Jk8zm0+GmciLAFieMoIO/2DRLg7xw8JVqDRfamq0BS9z9KrRBJ2p5knw1OyxwwyaSVq/H+hY0FayYR1GiIGx7pZ5FlJyZku37HrYTGjyTOdrQXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Dalho3MdAQo3W3dE7tnYN3MD4KlkbpplhVFAbjzRk0k=;
+ b=KOhhyeHPEHusVls6ediWeb7SH0faohBeYrllV0ABYcfoavfRQeSdCdxSgOuQhjeegY0BNk13p7q3nrC6YEkeJAhzZNG8/7WOjzm2dOJFEpzQb5nYWvKznSMVFklVLWFoKgYgtMmem0zm4jr1JxPRN14asZgzpo72j2gbVlqxZmQCiQUYBJVB7LKQ+vth7aapI+Zfysg0APDHQRZZPH+rHRf4xcBho9wx/ZIQ8OjwmmZItf0/pwOTIbhM3Q9/It66tKIZPqRvAiNBe8XZAC5fX+PgPmfxSgQMORw/KeuTiBrSneeaIxOhJ0rd0b7LXszMsLHGrFDNqfvasIYDW0AqhQ==
+Received: from PNYPR01MB11171.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:2aa::8)
+ by MAUPR01MB11168.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:173::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.25; Tue, 8 Jul
+ 2025 00:31:52 +0000
+Received: from PNYPR01MB11171.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::7f30:f566:cb62:9b0c]) by PNYPR01MB11171.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::7f30:f566:cb62:9b0c%7]) with mapi id 15.20.8835.018; Tue, 8 Jul 2025
+ 00:31:51 +0000
+Message-ID: <PNYPR01MB11171DF9E9E357A585476FCF0FE4EA@PNYPR01MB11171.INDPRD01.PROD.OUTLOOK.COM>
+Date: Tue, 8 Jul 2025 08:31:46 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: riscv: add Sophgo
+ SG2042_EVB_V1.X/V2.0 bindings
+To: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 3/5] ARM: dts: sunxi: add support for NetCube Systems
- Nagami SoM
-Message-ID: <20250708002205.70ec9097@minigeek.lan>
-In-Reply-To: <20250707184420.275991-4-lukas.schmid@netcube.li>
-References: <20250707184420.275991-1-lukas.schmid@netcube.li>
-	<20250707184420.275991-4-lukas.schmid@netcube.li>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Inochi Amaoto <inochiama@gmail.com>,
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Guo Ren <guoren@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
+ linux-riscv@lists.infradead.org, sophgo@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+References: <cover.1751700954.git.rabenda.cn@gmail.com>
+ <204c8214aa084d592e8dc45d6c5ca23381937b54.1751700954.git.rabenda.cn@gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <204c8214aa084d592e8dc45d6c5ca23381937b54.1751700954.git.rabenda.cn@gmail.com>
+X-ClientProxiedBy: SG2P153CA0052.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::21)
+ To PNYPR01MB11171.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:2aa::8)
+X-Microsoft-Original-Message-ID: <a48e5a4e-fb44-4908-89a0-fad42662cff9@outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PNYPR01MB11171:EE_|MAUPR01MB11168:EE_
+X-MS-Office365-Filtering-Correlation-Id: 28a07c9c-72e1-4fd5-25b5-08ddbdb6d550
+X-MS-Exchange-SLBlob-MailProps: YfhX3sd/0TUSvyb7a5WmO4GG1jBgOC313Tf7Z2eyVE98rSUo+pRefmQ+cAsithuDhiW7W8UgmwHRkc6y0Tpcn5rHA01qogFEz2AfVWECcC/95cRq2aO207yYYENMIF6ss5zYBgkOpLjjfxpiDpgZtIuvwQrNjyrNYwO8e5CXiEs7MysuXNtRwtkE6KgBlS6cwozdFBxDOrpVbZrB5mWV1rv5H0MuQL+WRe8Vy2zoinvrP95pqMq5uV5ur+x0mGYXJRYjakPIirjBEDajnnx/YnLE0U7TKT6PnAQN33Nkhls+Z8a7y1C718ADkzcrRSpIyGHwlb7SWqYI42iImUTU4u+x7Jf4rjoUmJyxPgRN8QHasnXrqUuNPSC275QU+9c3OzD2vnAe4hLCsHZSlhMYNALek2Iy9QDE9DeD2PfWoyOrcKi7mykn5CSpsNbduQh/4/TiGkqP/M0WfSJzHlIm8R+m5yowU30d5MxXkeIq07v065f4EiRMtBXFCbQhWHo8A2Sxe0qMDXdxPgkcXmIEXcjMSXxf8Cz9ldB88H4tkvujBQh5sRKN8RWDIRM1fXidIh7+pcpLt9OWQ2vsnBn44Hqrzyhr9Wq3fYcFWDyxfGaisIqCbI0i+zaBQ/6cMhQxjDDSGrgD1c37ziuP9VIEL7VWEXbcb4R+FN6UmMnRXxkv9LkpzX2UKm4cm4x3H/NESH67f6oLpku5j48u0hNzx5V/s1MuOnrOag/230DAHMnzeBtwdsf3TRw9DbTiRAts9wFf58zUHCUR5qnnux0xkzTEZDu7SAFgCR/WqJQ9XRg=
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|5072599009|15080799012|6090799003|40105399003|3412199025|440099028|10035399007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dG51L2JSQldicjRYZmJsV1YxcTBqdjMzOUNnMW8zbk54ZS91QTk2NWNTajE0?=
+ =?utf-8?B?SDdXd0F4azg5NzdOYzUxV0F0ZE9wUUU1ZUlhM3luRWR5TW81eWFwN0ErT0ZQ?=
+ =?utf-8?B?cDBrMC95eWMyTzVSdC9nNTMxVGlKMks0cFUvUjUxcFB4clhCQ08zajdORnZk?=
+ =?utf-8?B?V1pzZEVsK0phc3VkbjdFVTk0elVQQjdjQjVmU0hYby9MZEYwd0dmaVQxQ0RR?=
+ =?utf-8?B?cHNjZkpuYkhvY3Q1VWNsTVZrMzIzbXpMWW9HazBnK1g5M01hTVVzM3hpUndn?=
+ =?utf-8?B?VFRwdVpyaldtNU5SMThnNzczcGJSZkJBMkloR2RHY3IrRFFLQ3hYUWN2czhh?=
+ =?utf-8?B?c2t6L1hTQU9sMTM4NzR5T2Nvb01nclB0RUpjUm16YktGSCtCY0ZFQzMwUFZX?=
+ =?utf-8?B?enJ4SzltTHRYNjlZZmo0NXU4aURYZVpGWFVxcDFIbzJ5SHRzSHlZdjRGMk5l?=
+ =?utf-8?B?VElObEFwU1hHTm1DeHhBOW5CQnUzOUtoWFJNalpPMXFVVUt0d2RCakRLSk4w?=
+ =?utf-8?B?SjJ1cFdONS85dCtJSnhCS011dFRRU3AxSTZTcnpGR3E3a1NXWG1ReU1YY3Rj?=
+ =?utf-8?B?RFRJT2dTMGluT21YVXV0ak5XL1pPYWx3VUZhZzZhWWFYdk1NL1hEUVZuTWJz?=
+ =?utf-8?B?enE5QVo0RWxjWEF5R3ZiMGVDWEhsU0NyM1ZGVEd1NEVLT0VtMXJNMU9uZi8x?=
+ =?utf-8?B?SGFvVXZSYTd1bGJ3cDE3VTNSaVZRa1Vydmpna0o4d1lIL3lMR0lJdHpacEl3?=
+ =?utf-8?B?Z1lLQjBFOTBwUjlxTHZvTU1RdXdGZGx6THZXS0ErNWZHT2xhNFlKYlBGQTQr?=
+ =?utf-8?B?RGx6dE80NTU4TGplakxNUUNZMTd0TlNuMzhESTR2NEFDUlVlVUdvb0NjZzlh?=
+ =?utf-8?B?a0ZCaEpLMDhYcnJQOERURTdRemtQM2oxdGRadTFOWEMxV2ZpelVrc293akZ0?=
+ =?utf-8?B?MHFSK2dMRzQyd0ZiMlFIdzFUNmRSNFM2RFBZZTVQeVgxWVpJOTZxK2JSYzQ5?=
+ =?utf-8?B?T3J1Qklxd1pYZkU2MTRXbXczWHBZTjZRQW1mYUVtc0VQL3pNNWRJejYyRFE0?=
+ =?utf-8?B?TkxTbW9PK21SMEZMZlRJd00xN0Jlbm4xU1l0TmpKMitFVER4Z3IxeDZ6Vmd5?=
+ =?utf-8?B?QVdiRkRuZVBQNVY2SkhJRTgrclZ6eDhpR0pjL2ZGaDU3THVlSVVNZEtmRk11?=
+ =?utf-8?B?WWllL0d0VHFVQWFjdnlNNkx6WmVQanlMZG5UUXZOT3RMVGozdjcvSzhxUkUv?=
+ =?utf-8?B?c2JoSHdRRHpvNUlqbzE0NU9DMVZiMkJEdnRSTCsxaUliWnVRQ3pHbDlEOUFq?=
+ =?utf-8?B?N3Z2YWVxN3Fza0dtUkhCNTF1N0VIV2loN2tnWklnVWZWanpZSnN4UkM0OHlK?=
+ =?utf-8?B?VS9TVDJiVWMvUGlQdkVBaWtjSW8xcHl3cEluQ0Q1a2R4ZEUrbTk0c0JRazlG?=
+ =?utf-8?B?R0hrUGlld3J5U0ZLM2ppd3JzKzdrZm84Q3BMQU5GNlExZENmUFR0MVVYQXVH?=
+ =?utf-8?Q?BoegXo=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dWlZWHlZL25XYUVBYk5rSHNkY1B1NEkrbzQ3ZG5tNVNoMWtWRG9XVkh3bDFw?=
+ =?utf-8?B?ajJBeWRyTnZwNE1vZzlNT2k3NGJOcjRWU0h2elJEZFNKZjFTT0tkSWFFa1Z5?=
+ =?utf-8?B?Mm1HQ3hlOUdrZHIrOSswSHJrdGpwTHBQVWp2d0Z4WlJ6MUhMcG5uR3FDMzE0?=
+ =?utf-8?B?b1QvS3pmSEI3RVh5Z1FkRGMxQ1NRMEZjNlllSVpESW5GdG1HTTVIaDRvNGxz?=
+ =?utf-8?B?NXNIYVl5RGVDWHA5MkdmdlVVOEtkTHI0T21MY1V0YjVaWFBzYys0ME5DU2FH?=
+ =?utf-8?B?THRTcHpURlNEMW9xejd4aFRTLzM1dDNNZC96dnVhR01qMHhLZ3JWNTFKMWQz?=
+ =?utf-8?B?S2NncDR5QVlzV1pZYkJINGQzR3lRNkxaMEVpd0tCOUZlV1hYa0Y4S2lxQlpo?=
+ =?utf-8?B?MVovblRVZHRDUCs2QlpvOFVHOVB2clBGMG9hNnNmUDl0N05VYVE4U1lkdzlv?=
+ =?utf-8?B?czVDRFhyVXN0cEQwTG91WWtKZEQvM2xlcmVrLzE2a2RuMFpjOHQ3NjNRWjd5?=
+ =?utf-8?B?dVIyblRZVTNOS1JwTDh4SDlhOHRybzFkYm5tR1ZncXJ2OS9aQ2hpRUx1RGZz?=
+ =?utf-8?B?bTlYU0themVoM0pQSXFVeHFzSkpENGsyZzI0OGxPV3pveThhSHpveVhYZHdo?=
+ =?utf-8?B?Z0MyVTJ6d2hXU0FKMHQwdnAyQVVya0ZkRWxtSkNoRWhEa1Y3ZzcwdUszZVRL?=
+ =?utf-8?B?VC9rM0pMWXhzZFVncXc0Y0ZpNk5TTEdoQlRLMU1XL0dLaTVHQTVwdW1xOG1a?=
+ =?utf-8?B?RXIrVnNqUUs1NkxNZW5sVmZDTnY3NFJPRElVMzJ2VS9CQk5JczVSRlFDd25I?=
+ =?utf-8?B?aFY0aUxyQTgzNmdOcUV3eWZ6dDc1ckt6OGtlNzdxanVkcUwyY0w0Y3FmbUxy?=
+ =?utf-8?B?bmdQZFJvUjk3dVdpc1hUSndyTXJ2Z2tBMUhzKzBIWXl5d1g4RjAxMG5ieWw2?=
+ =?utf-8?B?YW4zWWdLOWticnZLNld5ZGVsNnF0WVNuZVpOSnloTTRoUVJDZnJuaUtsTXBC?=
+ =?utf-8?B?RUk2aWRTWGNlamdnVlBZSjFyeHNuckRiamxibkxzVWRaMVVVU1ZNcDgvNXlu?=
+ =?utf-8?B?NzJPd2dHVGlteTloaWRrWGdhZE1ZRGh2OWVhUkM1N0hrZkJKc01mMHk2ZVVn?=
+ =?utf-8?B?cVVyOE0xQW05QnBWdk1CRDdMME5TVjdFaXhHUzNQQlA4aURvdnZwUSttUW1y?=
+ =?utf-8?B?YW0wZk45eXBGZ29UdTg2T0dwT0FmTGs5dXBac0NtekdvcEk2eTIxUUV2MGZ3?=
+ =?utf-8?B?d0hMZ2hydVV0ajNiVFJKUDFBeFdibVo2Z2hDTTdrTHdsRnlkVjdQWnJTbGxN?=
+ =?utf-8?B?MXd4clJuMGZRVXJFdHpPY0hOQlFQNXBDT3Y1SGhlREVOblJHaVpFRm1mT1Zq?=
+ =?utf-8?B?RVFMbmJlZUQ2YVNVTmtiYkdTZzFBRlppcXpOVE13cTNPZHlyc2RrSjdHbERO?=
+ =?utf-8?B?T2dyN1g0a1J1SDFPVm5YYW5SZHVodE5yOVpjRTd6d0JZeFlLYVJiclV0WDUr?=
+ =?utf-8?B?VkFuaCtxQlF6aDF1Zlo4eWFZT2c0TmpIY25HakVESWJ5VTlrNnRSTjI5eEI0?=
+ =?utf-8?B?eUJBYmNjMFNiMnhxRldMK1lNdDNIZFd4N1loM29xOEk1V09PbnI2SFBVZ3FI?=
+ =?utf-8?B?S05SK21kTWRmUFRXNHEzb0laVWVqREkxNy9sYWVHcWN3RW5GU3NrOUIzWTlT?=
+ =?utf-8?B?S3VhWGN2S2NwbFZ6dk5wdUFCU05iUUp3L3RQdWd5Q3I0ekhtQ1B4NmtFMFVa?=
+ =?utf-8?Q?/nTfiP5jFswZOEY8IBTCm2cdaSaIjD71ETHEY2n?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 28a07c9c-72e1-4fd5-25b5-08ddbdb6d550
+X-MS-Exchange-CrossTenant-AuthSource: PNYPR01MB11171.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2025 00:31:51.9059
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAUPR01MB11168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_162344_999635_D70C805B 
-X-CRM114-Status: GOOD (  29.27  )
+X-CRM114-CacheID: sfid-20250707_173207_934044_C93700BD 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,311 +161,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon,  7 Jul 2025 20:44:15 +0200
-Lukas Schmid <lukas.schmid@netcube.li> wrote:
 
-Hi Lukas,
-
-please try to refrain from sending subsequent patches too quickly, that
-might just put off and confuse reviewers. To acknowledge a change
-request, it is probably sufficient to just reply to the mail with a
-confirmation.
-
-> NetCube Systems Nagami SoM is a module based around the Allwinner T113s
-> SoC. It includes the following features and interfaces:
-> 
-> - 128MB DDR3 included in SoC
-> - 10/100 Mbps Ethernet using LAN8720A phy
-> - One USB-OTG interface
-> - One USB-Host interface
-> - One I2S interface with in and output support
-> - Two CAN interfaces
-> - ESP32 over SDIO
-> - One SPI interface
-> - I2C EEPROM for MAC address
-> - One QWIIC I2C Interface with dedicated interrupt pin shared with EEPROM
-> - One external I2C interface
-> - SD interface for external SD-Card
-> 
-> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+On 2025/7/5 15:39, Han Gao wrote:
+> Add DT binding documentation for the Sophgo SG2042_EVB_V1.X/V2.0 board [1].
+>
+> Link: https://github.com/sophgo/sophgo-hardware/tree/master/SG2042/SG2042-x8-EVB [1]
+>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Han Gao <rabenda.cn@gmail.com>
+Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
 > ---
->  .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 233 ++++++++++++++++++
->  1 file changed, 233 insertions(+)
->  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-> 
-> diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-> new file mode 100644
-> index 000000000..0db867b47
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-> @@ -0,0 +1,233 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-> + */
-> +
-> +/dts-v1/;
-> +#include "sun8i-t113s.dtsi"
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +/ {
-> +	model = "NetCube Systems Nagami SoM";
-> +	compatible = "netcube,nagami", "allwinner,sun8i-t113s";
-> +
-> +	aliases {
-> +		serial1 = &uart1; // ESP32 Bootloader UART
-> +		serial3 = &uart3; // Console UART on Card Edge
-> +		ethernet0 = &emac;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial3:115200n8";
-> +	};
-> +
-> +	/* module wide 3.3V supply directly from the card edge */
-> +	reg_vcc3v3: regulator-3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc-3v3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	/* SY8008 DC/DC regulator on the board, also supplying VDD-SYS */
-> +	reg_vcc_core: regulator-core {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc-core";
-> +		regulator-min-microvolt = <880000>;
-> +		regulator-max-microvolt = <880000>;
-> +		vin-supply = <&reg_vcc3v3>;
-> +	};
-> +};
-> +
-> +&cpu0 {
-> +	cpu-supply = <&reg_vcc_core>;
-> +};
-> +
-> +&cpu1 {
-> +	cpu-supply = <&reg_vcc_core>;
-> +};
-> +
-> +&dcxo {
-> +	clock-frequency = <24000000>;
-> +};
-> +
-> +&emac {
-> +	nvmem-cells = <&eth0_macaddress>;
-> +	nvmem-cell-names = "mac-address";
-> +	phy-handle = <&lan8720a>;
-> +	phy-mode = "rmii";
-> +	pinctrl-0 = <&rmii_pe_pins>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +};
-> +
-> +/* Exposed as I2C on the card edge */
-> +&i2c2 {
-> +	pinctrl-0 = <&i2c2_pins>;
-> +	pinctrl-names = "default";
-
-I wonder if this belongs here. In general we don't describe
-pins/devices that are on generic connectors (like pin headers), because
-the connection is determined by the user, not by the board.
-In this case PD20 and PD21 could be used as generic GPIOs or as PWMs.
-IIUC, even for the basic carrier those pins end up on headers, so even
-there I wouldn't describe it. On the keypad carrier it's of course a
-different story, since the MCP23008 is apparently soldered there.
-
-> +};
-> +
-> +/* Exposed as the QWIIC connector and used by the internal EEPROM */
-> +&i2c3 {
-> +	pinctrl-0 = <&i2c3_pins>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +
-> +	eeprom0: eeprom@50 {
-> +		compatible = "atmel,24c02";		/* actually it's a 24AA02E48 */
-> +		reg = <0x50>;
-> +		pagesize = <16>;
-> +		read-only;
-> +		vcc-supply = <&reg_vcc3v3>;
-> +
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +
-> +		eth0_macaddress: macaddress@fa {
-> +			reg = <0xfa 0x06>;
-> +		};
-> +	};
-> +};
-> +
-> +/* Exposed as I2S on the card edge */
-> +&i2s1 {
-> +	pinctrl-0 = <&i2s1_pins>, <&i2s1_din_pins>, <&i2s1_dout_pins>;
-> +	pinctrl-names = "default";
-
-Same story here, what prevents a user from using those edge pins as
-GPIO or PWM?
-
-> +};
-> +
-> +/* Phy is on SoM. MDI signals pre-magentics are on the card edge */
-> +&mdio {
-> +	lan8720a: ethernet-phy@0 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0>;
-> +	};
-> +};
-> +
-> +/* Exposed as SD on the card edge */
-> +&mmc0 {
-> +	pinctrl-0 = <&mmc0_pins>;
-> +	pinctrl-names = "default";
-> +	vmmc-supply = <&reg_vcc3v3>;
-> +	broken-cd;
-> +	disable-wp;
-> +	bus-width = <4>;
-> +};
-
-I think this node doesn't belong into the SoM .dtsi, as many details
-are not set here, but on the carrier board: card detect, write protect,
-Vmmc supply, and even bus width (could be 1 as well). So please move
-this node to where the SD card connector sits. You might want to keep
-the pinctrl nodes in here.
-
-> +
-> +/* Connected to the on-board ESP32 */
-> +&mmc1 {
-> +	pinctrl-0 = <&mmc1_pins>;
-> +	pinctrl-names = "default";
-> +	vmmc-supply = <&reg_vcc3v3>;
-> +	bus-width = <4>;
-> +	non-removable;
-> +	status = "okay";
-> +};
-> +
-> +/* Connected to the on-board eMMC */
-> +&mmc2 {
-> +	pinctrl-0 = <&mmc2_pins>;
-> +	pinctrl-names = "default";
-> +	vmmc-supply = <&reg_vcc3v3>;
-> +	vqmmc-supply = <&reg_vcc3v3>;
-> +	bus-width = <4>;
-> +	non-removable;
-> +	status = "okay";
-> +};
-> +
-> +&pio {
-> +	vcc-pb-supply = <&reg_vcc3v3>;
-> +	vcc-pc-supply = <&reg_vcc3v3>;
-> +	vcc-pd-supply = <&reg_vcc3v3>;
-> +	vcc-pe-supply = <&reg_vcc3v3>;
-> +	vcc-pf-supply = <&reg_vcc3v3>;
-> +	vcc-pg-supply = <&reg_vcc3v3>;
-> +
-> +	gpio-line-names = "", "", "", "", // PA
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "CAN0_TX", "CAN0_RX", // PB
-> +					  "CAN1_TX", "CAN1_RX", "UART3_TX", "UART3_RX",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "eMMC_CLK", "eMMC_CMD", // PC
-> +					  "eMMC_D2", "eMMC_D1", "eMMC_D0", "eMMC_D3",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "", // PD
-> +					  "", "", "", "",
-> +					  "", "", "SPI1_CS", "SPI1_CLK",
-> +					  "SPI1_MOSI", "SPI1_MISO", "SPI1_HOLD", "SPI1_WP",
-> +					  "PD16", "", "", "",
-> +					  "I2C2_SCL", "I2C2_SDA", "PD22", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "ETH_CRSDV", "ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
-> +					  "ETH_TXD0", "ETH_TXD1", "ETH_TXEN", "",
-> +					  "ETH_MDC", "ETH_MDIO", "QWIIC_nINT", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "SD_D1", "SD_D0", "SD_CLK", "SD_CLK", // PF
-> +					  "SD_D3", "SD_D2", "PF6", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-> +					  "ESP_D2", "ESP_D3", "UART1_TXD", "UART1_RXD",
-> +					  "ESP_nBOOT", "ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-> +					  "I2S1_WS", "I2S1_CLK", "I2S1_DIN0", "I2S1_DOUT0",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "",
-> +					  "", "", "", "";
-> +};
-> +
-> +/* Remove the unused CK pin from the pinctl as it is unconnected */
-> +&rmii_pe_pins {
-> +	pins = "PE0", "PE1", "PE2", "PE3", "PE4",
-> +		   "PE5", "PE6", "PE8", "PE9";
-> +};
-> +
-> +/* Exposed as SPI on the card-edge */
-> +&spi1 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	pinctrl-0 = <&spi1_pins>;
-> +	pinctrl-names = "default";
-> +	cs-gpios = <0>;
-> +};
-
-I wonder if this belongs here as well, since it's again just generic
-edge pins.
-
-Cheers,
-Andre
-
-
-> +
-> +/* Connected to the Bootloader/Console of the ESP32 */
-> +&uart1 {
-> +	pinctrl-0 = <&uart1_pg6_pins>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +};
-> +
-> +/* Exposed as the Console/Debug UART on the card-edge */
-> +&uart3 {
-> +	pinctrl-0 = <&uart3_pb_pins>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +};
-
+>   Documentation/devicetree/bindings/riscv/sophgo.yaml | 2 ++
+>   1 file changed, 2 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+> index b4c4d7a7d7ad..e21b65938a65 100644
+> --- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+> @@ -34,6 +34,8 @@ properties:
+>         - items:
+>             - enum:
+>                 - milkv,pioneer
+> +              - sophgo,sg2042-evb-v1
+> +              - sophgo,sg2042-evb-v2
+>             - const: sophgo,sg2042
+>         - items:
+>             - enum:
 
 _______________________________________________
 linux-riscv mailing list
