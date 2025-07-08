@@ -4,95 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB3CC83F0F
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 11:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC023C83F0A
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 13:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LMxO1ljybq8mxqMzI74yUcgxvEXw7zrjNxXWX3UfXbI=; b=ZkcareoixpI9CE
-	en0qmtmQ0HIbPotUx7SmPq5mILoznQf7+woNs3HYqsYy/c6Jj/vAgmWpBxL+JeXbwG6QPra/fxDS2
-	Sl0pzIFbFP+luOJCWCCeiueL8ZXCykkEP5XA9drEOVU/WmG/3aywXpEE6cjpN65pKB2lxR8nQqW/I
-	bnR62dqea7/WdsDSBu2LZIrpOaExE0SDWhxiRekc0LFyiiFp58i5MqVelVMwzKfkTLKQUFiiPJ9Q0
-	NQ8nT7brBgmchN8V+6suKg1q0qkHY9VLigYvnDsvmKfqc7nZXiaJb+/9FadtFpPWMhzlC///Jd1BN
-	DVPijUec4UDvkUrt7RTQ==;
+	List-Owner; bh=/1/iHBqlRZ379Nz+m+FpyKChCGqec84000bibRdT2ow=; b=cuCGnGJMzbrl2k
+	yBd/N9he2oniJpgVvv6Dgd5oNKMDNdKy6XrxieMQileC7ZeCu6Z5QMmv15SMTIx4FhYkmFFr0NnPn
+	P+tRZbFHUVKhXX9iSEoqSypzTOTP6x6ts3h+0M95D0PH+wTv2+GXjShVljqXIA7KKSdWYsGC5M0kJ
+	Lirh1TP0y5M/cNQ8OvlYZBUMjsv0r7zNWG/kBwmZp1DhCn7XmgOYz3eu5NMIZyROz1sHuPzCQIY99
+	F2polraitRGMS6FlT49vWihrwu3YXPevF/17Im2PnLBrZI8PnjtMYy31z92fA911JDo/Um+JLthP1
+	am3+9i8bDE4vZpIehX9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ6Qz-00000005Baq-41vX;
-	Tue, 08 Jul 2025 11:24:25 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1uZ8aH-00000005TJL-328v;
+	Tue, 08 Jul 2025 13:42:09 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ6DM-000000059dQ-1059
+	id 1uZ8M5-00000005R0c-2CHz
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Jul 2025 11:10:21 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3a4eed70f24so617474f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Jul 2025 04:10:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751973019; x=1752577819; darn=lists.infradead.org;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a6MXf+cnW7g75sWewP23Pqj+kzB/2yvPPFGN9ce4Tdo=;
-        b=CGsJeHNAjEYLMHzYcw9zu+Y+QSbZFlNEJcfbuKGFA6EH2uYxf4JFJ0Vuo8FEdD014X
-         nR7PrD6vXlp/7ZBe+fEBx+FMb3LVmR6OMmdgmRiQgy3D32bLuJOkTEsRKpIu9RFugZIH
-         N6LjWKLZlsfKyBoevzmiRj9Jte63XLoEM2DofQvzapS97Svr3EjDM2JWiflGwkUGHDnP
-         ol1gbIk3ZJUFYBIfZ8ewHZ4rLCKRh9D5bY/mcKQW0sxTM5azbD/gOAjjcfL9yMwj+Djr
-         5xPKUXv+YP4cZnROgh+wCgZVMx7m6wwJgrGl1v5THlz+ExXPhlP03gzE7O9+lU49qrW6
-         Ryvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751973019; x=1752577819;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=a6MXf+cnW7g75sWewP23Pqj+kzB/2yvPPFGN9ce4Tdo=;
-        b=EnT/souVKQEfL69PBMP/vsJPSqLTQkresTfpZn2alOMX4zpobZ44c7+DUs39OVzh1n
-         a2I07rTRI6fd/HV1kDnUyl4OdO02YKUY7IwddDl0MG+r0huRUGCGy0iIVVSbBwJ7h8cg
-         ADNgXf8MVKCJfCpwZb3aDivYjxVrqpcirpRxTonDz3yXgisRLaqH3qVuX4PwH1lVp3YY
-         F7kZbey0A8BxKilNEpAJhWmqC9mJBNITk7SLGVCE37i7gzkqniD3WhqAUBieFWSdA+R1
-         sW681sAqDmN2fCmvUWPSqo25hG5jB9IiThKIswh2QIU6IIQ2Wax5iP1AB1zbicOpEwgT
-         hZSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW+AUFlLhN/II7Dq0jXto77lbYVUXtJ0qUeiTlBhXAdqD8hyWlZFcKWyz7XNSEX7uTXqgrgG7+cozRrHw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwS7OIes4DBEfCoEtWigeWvGyjDb+n1z3TUSmehlAu+m6lNVlUb
-	KggYp4r6+cilJLGXC6rsFikcc4p2QqavAa9mWz729t6F++K3COpRq5gB+nysEs3/HWs=
-X-Gm-Gg: ASbGncsl8gb3KrNhIOe8jVL/WB9XopzXD7TOd9j0H4Z4QMe+miggWn5HbWc9rSNDYck
-	Zda/A4YZdjZja+i6oOfK18Ob3IA2hIYv+SajA1X2KoWIW/fC1PhldS3azq+Lc5m33DOkayTtlFF
-	tDqXxdbbMZMpA+US5aHx4x8sVnY164pgOq920cr8/h/5AtMsxlZj0TkEwg6ANHWpj4StqNV3ExM
-	RaP5IEv3jbAZ7ocH5RiPRRGZclU9ye+udT+Z1dVLvtcRAG6r3aabCn8LgUQpCewQu3RbwO9Kcc/
-	uqdfhU7hMSsOZBkUts/MEr8FT+AIeJWGCP8ZK6y4xqG1TMzxmmZay0ykMdVdrZeMLkGB/A==
-X-Google-Smtp-Source: AGHT+IHb7haycFhehS+DKxl9ZCTVbzrVRxhiVWGlwDogb2eAqYTCyJ2HxoLQdVlyupJK2TxFwCvY8A==
-X-Received: by 2002:a05:6000:1789:b0:3a4:e0e1:8dbd with SMTP id ffacd0b85a97d-3b4966019c8mr4853212f8f.11.1751973018480;
-        Tue, 08 Jul 2025 04:10:18 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200:f873:aafc:f154:af28])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b4708d0beesm12854474f8f.36.2025.07.08.04.10.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Jul 2025 04:10:18 -0700 (PDT)
-Mime-Version: 1.0
-Date: Tue, 08 Jul 2025 13:10:17 +0200
-Message-Id: <DB6MLPA3BJ75.2U5FP5JSJD2LO@ventanamicro.com>
-Subject: Re: [External] [PATCH] RISC-V: store percpu offset in CSR_SCRATCH
-Cc: <masahiroy@kernel.org>, <nathan@kernel.org>, <nicolas.schier@linux.dev>,
- <dennis@kernel.org>, <tj@kernel.org>, <cl@gentwo.org>,
- <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
- <alex@ghiti.fr>, <andybnac@gmail.com>, <bjorn@rivosinc.com>,
- <cyrilbur@tenstorrent.com>, <rostedt@goodmis.org>, <puranjay@kernel.org>,
- <ben.dooks@codethink.co.uk>, <zhangchunyan@iscas.ac.cn>,
- <ruanjinjie@huawei.com>, <jszhang@kernel.org>, <charlie@rivosinc.com>,
- <cleger@rivosinc.com>, <antonb@tenstorrent.com>, <ajones@ventanamicro.com>,
- <debug@rivosinc.com>, <haibo1.xu@intel.com>, <samuel.holland@sifive.com>,
- <linux-kbuild@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>, "linux-riscv"
- <linux-riscv-bounces@lists.infradead.org>, <wangziang.ok@bytedance.com>
-To: "yunhui cui" <cuiyunhui@bytedance.com>
-From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
-References: <20250704084500.62688-1-cuiyunhui@bytedance.com>
- <DB5U402ARSEO.4H4PE19LGCR7@ventanamicro.com>
- <CAEEQ3w=V6-d+YSWP=0WMt6UAZexrazq0UQjdyUmS3AnMtkdoKQ@mail.gmail.com>
-In-Reply-To: <CAEEQ3w=V6-d+YSWP=0WMt6UAZexrazq0UQjdyUmS3AnMtkdoKQ@mail.gmail.com>
+	Tue, 08 Jul 2025 13:27:31 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 27AF2441C0;
+	Tue,  8 Jul 2025 13:27:23 +0000 (UTC)
+Message-ID: <9bf5fc76-4bb2-4baf-88fe-e593b451f0ff@ghiti.fr>
+Date: Tue, 8 Jul 2025 15:27:23 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/11] riscv: kprobes: Clean up instruction simulation
+To: Nam Cao <namcao@linutronix.de>, patchwork-bot+linux-riscv@kernel.org
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+References: <cover.1747215274.git.namcao@linutronix.de>
+ <174904758698.2309006.9940004806769596353.git-patchwork-notify@kernel.org>
+ <20250708102537.VovauOQC@linutronix.de>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250708102537.VovauOQC@linutronix.de>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefgeektdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepteetuddtkeffiefgjeffffefgfekffefteffgfffveffleeiieeufffffefhtddunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmpdhinhhfrhgruggvrggurdhorhhgnecukfhppedukeehrddvudefrdduheegrddugeefnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudekhedrvddufedrudehgedrudegfedphhgvlhhopegluddtrddugedrtddruddungdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeejpdhrtghpthhtohepnhgrmhgtrghosehlihhnuhhtrhhonhhigidruggvpdhrtghpthhtohepphgrthgthhifohhrkhdqsghothdolhhinhhugidqrhhishgtvheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehprghul
+ hdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_041020_281970_6C2C3BC9 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20250708_062729_696131_71F11A97 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,54 +62,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-2025-07-08T18:07:27+08:00, yunhui cui <cuiyunhui@bytedance.com>:
-> This patch cleverly differentiates whether an exception originates
-> from user mode or kernel mode. However, there's still an issue with
-> using CSR_SCRATCH: each time handle_exception() is called, the
-> following instructions must be executed:
+Hi Nam,
+
+On 7/8/25 12:25, Nam Cao wrote:
+> On Wed, Jun 04, 2025 at 02:33:06PM +0000, patchwork-bot+linux-riscv@kernel.org wrote:
+>> Hello:
+>>
+>> This series was applied to riscv/linux.git (for-next)
+>> by Alexandre Ghiti <alexghiti@rivosinc.com>:
+>>
+>> On Wed, 14 May 2025 11:38:39 +0200 you wrote:
+>>> Hi,
+>>>
+>>> There is some instruction-processing code in kprobes simulate code. These
+>>> code should be insn.h. In fact, most of them is duplicating insn.h.
+>>>
+>>> This series remove the duplicated bits and make use of macros already
+>>> defined in insn.h. The non-duplicated bits are moved into insn.h.
+>>>
+>>> [...]
+>> Here is the summary with links:
+>>    - [v2,01/11] riscv: kprobes: Move branch_rs2_idx to insn.h
+>>      https://git.kernel.org/riscv/c/d29656bab74c
+>>    - [v2,02/11] riscv: kprobes: Move branch_funct3 to insn.h
+>>      https://git.kernel.org/riscv/c/da6de46c2eed
+>>    - [v2,03/11] riscv: kprobes: Remove duplication of RV_EXTRACT_JTYPE_IMM
+>>      https://git.kernel.org/riscv/c/6d47d903b18f
+>>    - [v2,04/11] riscv: kprobes: Remove duplication of RV_EXTRACT_RS1_REG
+>>      https://git.kernel.org/riscv/c/5cefc323f32a
+>>    - [v2,05/11] riscv: kprobes: Remove duplication of RV_EXTRACT_BTYPE_IMM
+>>      https://git.kernel.org/riscv/c/a285674909ae
+>>    - [v2,06/11] riscv: kproves: Remove duplication of RVC_EXTRACT_JTYPE_IMM
+>>      https://git.kernel.org/riscv/c/c7196c136e29
+>>    - [v2,07/11] riscv: kprobes: Remove duplication of RVC_EXTRACT_C2_RS1_REG
+>>      https://git.kernel.org/riscv/c/768007ca3fe8
+>>    - [v2,08/11] riscv: kprobes: Remove duplication of RVC_EXTRACT_BTYPE_IMM
+>>      https://git.kernel.org/riscv/c/f2c715fff676
+>>    - [v2,09/11] riscv: kprobes: Remove duplication of RV_EXTRACT_RD_REG
+>>      https://git.kernel.org/riscv/c/284ca2a100de
+>>    - [v2,10/11] riscv: kprobes: Remove duplication of RV_EXTRACT_UTYPE_IMM
+>>      https://git.kernel.org/riscv/c/a60c2933ec74
+>>    - [v2,11/11] riscv: kprobes: Remove duplication of RV_EXTRACT_ITYPE_IMM
+>>      https://git.kernel.org/riscv/c/ee4c45f5cbeb
+> This series was dropped from 6.16 due to conflict. Can it be re-applied? It
+> applies cleanly to riscv/for-next.
 >
-> REG_L s0, TASK_TI_CPU(tp)
-> slli s0, s0, 3
-> la s1, __per_cpu_offset
-> add s1, s1, s0
-> REG_L s1, 0(s1)
-> csrw CSR_SCRATCH, s1
+> The same story for:
+> https://lore.kernel.org/linux-riscv/174904758974.2309006.8809303189389627595.git-patchwork-notify@kernel.org/
 
-We can minimize the cost at exception entry by storing the precomputed
-offset in thread_info, which bloats the struct, and also incurs update
-cost on cpu migration, but should still be a net performance gain.
 
-The minimal code at exception entry would be:
+Yes, I have both in my for-next branch, sorry I did not advertise that 
+(I'm working on it).
 
-  REG_L s0, TASK_TI_PERCPU_OFFSET(tp)
-  csrw CSR_SCRATCH, s0
+FYI, I have enabled kunit tests in the upstream kernel CI: 
+https://github.com/linux-riscv/linux/actions/runs/15967114709/job/45030410210?pr=571#step:5:625
 
-> Should we consider adding a dedicated CSR (e.g., CSR_SCRATCH2) to
-> store the percpu offset instead?
-> See: https://lists.riscv.org/g/tech-privileged/topic/113437553#msg2506
+Thanks,
 
-It would be nice to gather more data on the CSR_SCRATCH approach.
-Basically, the overhead of "REG_L s0, TASK_TI_PERCPU_OFFSET(tp)".
-(Or the longer sequence if we think it is worth it.)
+Alex
 
-Can you benchmark the patch after reverting percpu.h, so we include the
-overhead of switching CSR_SCRATCH, but without any benefits provided by
-the per-cpu offset?
-The baseline would be the patch with reverted percpu.h, and reverted the
-sequence that sets the CSR_SCRATCH in handle_exception, so we roughly
-estimate the benefit of adding CSR_SCRATCH2.
 
-The CSR_SCRATCH2 does add overhead to hardware, and to domain context
-switches, and we also have to do something else for a few years anyway,
-because it's not even ratified...  It's possible we might not benefit
-enough from CSR_SCRATCH2 to make a good case for it.
-
-Thanks.
+>
+> Best regards,
+> Nam
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
