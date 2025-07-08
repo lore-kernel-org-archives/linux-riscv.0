@@ -4,49 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850E5C83030
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 03:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88B4C83030
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 03:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Message-Id:Subject:Cc:
-	Mime-Version:To:In-Reply-To:Date:From:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Snj5NAAJKAl69pdMBvIUlE1im6WbSK02ajDSl86wxD8=; b=sVLGXf6I3DIxqj
-	5GGkXKA2DoCQDcFrrWgYMvEmGHP8rjn31eY45uEzqFYspq4HZLTfddw/qAqZMoHwiQ5TxmJ9k6bkf
-	33AFy//HHbVlo9C8lP5mk3n7E85nLzd4VObjQq9zzzVT7Nn41bJ9ZrqFOtKKIE/GdrFYaHw+23O7j
-	pe2l7ZTWSbvwl04UR9nZTVCXQLWlT1Lh+qLq9Mtt5EK98oFzQOF/HZtro8Dj5dDI4ABXdrqc67QzA
-	/ct89i+ftQMP1DcfRoDSSqHBW4i/PFFOJ2fic2N9fhXGZflhkzQScYLZKCKAhTFVgocoCkCxn8FMF
-	FQvu/otlSwH58DgRoEsw==;
+	List-Archive:List-Unsubscribe:List-Id:References:To:Mime-Version:Message-Id:
+	In-Reply-To:Date:Subject:From:Cc:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aQPfSIg7ghIob8lkz9ViSbtGAEoxnq6zedm5w3VoNs8=; b=mMxTck5Fga58jT
+	ZrtjyD3fDveOtnerFgsT1IGPoVB6D+fIFfd+fq/+j7MziMSspDi8uLznTcHzX+FrzVcWp69ff7ZrQ
+	dwzW4scZMvfCA1UibBx9qXoYrl6tBH66QQpJGzXFJvxTcnBQVYqSWuEcCo6pPi9HjKg5aR44VYKPA
+	ZcW+LksIf0csnNLWaZAFWe6fDVcos42XO2kM4wDt0x334goYoCPltcg9/cNmL/rtel9FJJdVixSSH
+	Ho8xg/iY/iZEC2a1Ta8aP5wjkhoMavxNs/pcpiAOhVpfVM8cL7YeXkgxwvt8us/Wa/78kAPllV12P
+	Vy8yj7d2DVbByrr2/RZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYysS-00000004AMH-0yS0;
-	Tue, 08 Jul 2025 03:20:16 +0000
-Received: from sg-1-33.ptr.blmpb.com ([118.26.132.33])
+	id 1uYyt3-00000004AWB-0PRG;
+	Tue, 08 Jul 2025 03:20:53 +0000
+Received: from sg-1-12.ptr.blmpb.com ([118.26.132.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYysO-00000004AJ2-49vN
+	id 1uYyt0-00000004AUm-2vPx
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Jul 2025 03:20:14 +0000
+	Tue, 08 Jul 2025 03:20:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1751944806;
+ s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1751944844;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=TLZ8CnNVVNYk7z6/eI8XM8/3wLApU3IS8ygqho0AvIU=;
- b=F8l1Io3qOwowEYs/BA0IqkFaZ5N5okrZ661D2ERtWOBeHtOg9xUvisqTLiFSW+1XvEIZgU
- a547Mtg1bRUVE5KwI/n0FQZ3Ah3NG519GWbPpEyuy44MK1RvXqX8sdRh0IWa4eLaqAgP94
- v7xtpJ6ItToy84IcvYEagqE6vDeA9REbjM1xVNGp+zQ03QvJF0d0hw54tz8qAZWt/ni/vU
- 6oCZdh816l8uE1s7DVMhlBRPYl/zZ530EWWyrd6iMCBlTz9WaV10w7mt7jxsI7KSfRXLNC
- 19mmStWwpEnHYmCKSBIW78TvgjuWTp/VF9j+7QOe6QNALATi+6NMjvmOP8CMsg==
-X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
+ bh=6n3AcRO1UInIIx5xP9ytyTrFoeD+tlmMSa9ec0eVTSo=;
+ b=Ue1gy2eFuQuDVBytQP+0t6TeYW8qdUZNqN9GJpBSKoGtO2+3gaC+/qXxV8PfVpXEvf6qIe
+ yaBhMg5m05rMfjDCYx+V5lSpoSdV8s+4+FWsd3nzJhMPwZvRozcMKB4g/KICuq2Ymg/kj/
+ Tc8/ktNP0e7GM2bCosPC6N0GAfpAguOl0vExFVIDua+nBplKP+KxL0+Ucf5jErzdw90s96
+ hixFKaxJ22um9t3V6IsXmRxcBp5E2h0cEqbEl05NsjmIXTZ8wyOnHKYcadZV/ajB5ow64b
+ e6Jt4wkQe7m6fadsWvHy1ZUgmEoypFkj27HEasbY8l3dpESwTOGy4cyAcl6m5w==
+Received: from [127.0.0.1] ([116.237.111.137]) by smtp.feishu.cn with ESMTPS; Tue, 08 Jul 2025 11:20:41 +0800
 Content-Language: en-US
-From: "Nutty Liu" <liujingqi@lanxincomputing.com>
-Date: Tue, 8 Jul 2025 11:20:00 +0800
-User-Agent: Mozilla Thunderbird
-In-Reply-To: <bcaf5684c614959f49a9770bf3cd41096cee5fe6.1751698574.git.rabenda.cn@gmail.com>
-To: "Han Gao" <rabenda.cn@gmail.com>, <devicetree@vger.kernel.org>
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+2686c8e64+14b695+lists.infradead.org+liujingqi@lanxincomputing.com>
-Received: from [127.0.0.1] ([116.237.111.137]) by smtp.feishu.cn with ESMTPS; Tue, 08 Jul 2025 11:20:03 +0800
 Cc: "Rob Herring" <robh@kernel.org>, 
 	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
 	"Conor Dooley" <conor+dt@kernel.org>, 
@@ -54,14 +46,26 @@ Cc: "Rob Herring" <robh@kernel.org>,
 	"Palmer Dabbelt" <palmer@dabbelt.com>, 
 	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
 	"Chen Wang" <unicorn_wang@outlook.com>, 
-	"Inochi Amaoto" <inochiama@gmail.com>, <linux-riscv@lists.infradead.org>, 
-	<sophgo@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 3/3] riscv: dts: sophgo: add zfh for sg2042
-Message-Id: <8468f53a-6fcf-48aa-9ed9-4ccbf82759a4@lanxincomputing.com>
-References: <cover.1751698574.git.rabenda.cn@gmail.com> <bcaf5684c614959f49a9770bf3cd41096cee5fe6.1751698574.git.rabenda.cn@gmail.com>
+	"Inochi Amaoto" <inochiama@gmail.com>, 
+	"Thomas Bonnefille" <thomas.bonnefille@bootlin.com>, 
+	"Guo Ren" <guoren@kernel.org>, "Chao Wei" <chao.wei@sophgo.com>, 
+	<linux-riscv@lists.infradead.org>, <sophgo@lists.linux.dev>, 
+	<linux-kernel@vger.kernel.org>, 
+	"Conor Dooley" <conor.dooley@microchip.com>
+From: "Nutty Liu" <liujingqi@lanxincomputing.com>
+Subject: Re: [PATCH v3 1/3] dt-bindings: riscv: add Sophgo SG2042_EVB_V1.X/V2.0 bindings
+Date: Tue, 8 Jul 2025 11:20:38 +0800
+In-Reply-To: <204c8214aa084d592e8dc45d6c5ca23381937b54.1751700954.git.rabenda.cn@gmail.com>
+Message-Id: <bc047c7b-c88f-438d-8f0d-0f593dfcfbe2@lanxincomputing.com>
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+2686c8e8a+1fe456+lists.infradead.org+liujingqi@lanxincomputing.com>
+To: "Han Gao" <rabenda.cn@gmail.com>, <devicetree@vger.kernel.org>
+X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
+References: <cover.1751700954.git.rabenda.cn@gmail.com> <204c8214aa084d592e8dc45d6c5ca23381937b54.1751700954.git.rabenda.cn@gmail.com>
+User-Agent: Mozilla Thunderbird
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_202013_473967_65E43AE9 
-X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-CacheID: sfid-20250707_202050_917052_8963DFFC 
+X-CRM114-Status: UNSURE (   8.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,13 +83,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/5/2025 3:00 PM, Han Gao wrote:
-> sg2042 support Zfh ISA extension [1].
+On 7/5/2025 3:39 PM, Han Gao wrote:
+> Add DT binding documentation for the Sophgo SG2042_EVB_V1.X/V2.0 board [1].
 >
-> Link: https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1737721869472/%E7%8E%84%E9%93%81C910%E4%B8%8EC920R1S6%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C%28xrvm%29_20250124.pdf [1]
+> Link: https://github.com/sophgo/sophgo-hardware/tree/master/SG2042/SG2042-x8-EVB [1]
 >
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 > Signed-off-by: Han Gao <rabenda.cn@gmail.com>
-> Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
 
 Reviewed-by: Nutty Liu<liujingqi@lanxincomputing.com>
 
@@ -93,589 +97,22 @@ Thanks,
 Nutty
 
 > ---
->   arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi | 128 ++++++++++----------
->   1 file changed, 64 insertions(+), 64 deletions(-)
+>   Documentation/devicetree/bindings/riscv/sophgo.yaml | 2 ++
+>   1 file changed, 2 insertions(+)
 >
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi b/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
-> index f483f62ab0c4..77ded5304272 100644
-> --- a/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
-> @@ -260,7 +260,7 @@ cpu0: cpu@0 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <0>;
-> @@ -287,7 +287,7 @@ cpu1: cpu@1 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <1>;
-> @@ -314,7 +314,7 @@ cpu2: cpu@2 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <2>;
-> @@ -341,7 +341,7 @@ cpu3: cpu@3 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <3>;
-> @@ -368,7 +368,7 @@ cpu4: cpu@4 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <4>;
-> @@ -395,7 +395,7 @@ cpu5: cpu@5 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <5>;
-> @@ -422,7 +422,7 @@ cpu6: cpu@6 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <6>;
-> @@ -449,7 +449,7 @@ cpu7: cpu@7 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <7>;
-> @@ -476,7 +476,7 @@ cpu8: cpu@8 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <8>;
-> @@ -503,7 +503,7 @@ cpu9: cpu@9 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <9>;
-> @@ -530,7 +530,7 @@ cpu10: cpu@10 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <10>;
-> @@ -557,7 +557,7 @@ cpu11: cpu@11 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <11>;
-> @@ -584,7 +584,7 @@ cpu12: cpu@12 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <12>;
-> @@ -611,7 +611,7 @@ cpu13: cpu@13 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <13>;
-> @@ -638,7 +638,7 @@ cpu14: cpu@14 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <14>;
-> @@ -665,7 +665,7 @@ cpu15: cpu@15 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <15>;
-> @@ -692,7 +692,7 @@ cpu16: cpu@16 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <16>;
-> @@ -719,7 +719,7 @@ cpu17: cpu@17 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <17>;
-> @@ -746,7 +746,7 @@ cpu18: cpu@18 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <18>;
-> @@ -773,7 +773,7 @@ cpu19: cpu@19 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <19>;
-> @@ -800,7 +800,7 @@ cpu20: cpu@20 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <20>;
-> @@ -827,7 +827,7 @@ cpu21: cpu@21 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <21>;
-> @@ -854,7 +854,7 @@ cpu22: cpu@22 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <22>;
-> @@ -881,7 +881,7 @@ cpu23: cpu@23 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <23>;
-> @@ -908,7 +908,7 @@ cpu24: cpu@24 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <24>;
-> @@ -935,7 +935,7 @@ cpu25: cpu@25 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <25>;
-> @@ -962,7 +962,7 @@ cpu26: cpu@26 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <26>;
-> @@ -989,7 +989,7 @@ cpu27: cpu@27 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <27>;
-> @@ -1016,7 +1016,7 @@ cpu28: cpu@28 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <28>;
-> @@ -1043,7 +1043,7 @@ cpu29: cpu@29 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <29>;
-> @@ -1070,7 +1070,7 @@ cpu30: cpu@30 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <30>;
-> @@ -1097,7 +1097,7 @@ cpu31: cpu@31 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <31>;
-> @@ -1124,7 +1124,7 @@ cpu32: cpu@32 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <32>;
-> @@ -1151,7 +1151,7 @@ cpu33: cpu@33 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <33>;
-> @@ -1178,7 +1178,7 @@ cpu34: cpu@34 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <34>;
-> @@ -1205,7 +1205,7 @@ cpu35: cpu@35 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <35>;
-> @@ -1232,7 +1232,7 @@ cpu36: cpu@36 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <36>;
-> @@ -1259,7 +1259,7 @@ cpu37: cpu@37 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <37>;
-> @@ -1286,7 +1286,7 @@ cpu38: cpu@38 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <38>;
-> @@ -1313,7 +1313,7 @@ cpu39: cpu@39 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <39>;
-> @@ -1340,7 +1340,7 @@ cpu40: cpu@40 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <40>;
-> @@ -1367,7 +1367,7 @@ cpu41: cpu@41 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <41>;
-> @@ -1394,7 +1394,7 @@ cpu42: cpu@42 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <42>;
-> @@ -1421,7 +1421,7 @@ cpu43: cpu@43 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <43>;
-> @@ -1448,7 +1448,7 @@ cpu44: cpu@44 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <44>;
-> @@ -1475,7 +1475,7 @@ cpu45: cpu@45 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <45>;
-> @@ -1502,7 +1502,7 @@ cpu46: cpu@46 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <46>;
-> @@ -1529,7 +1529,7 @@ cpu47: cpu@47 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <47>;
-> @@ -1556,7 +1556,7 @@ cpu48: cpu@48 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <48>;
-> @@ -1583,7 +1583,7 @@ cpu49: cpu@49 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <49>;
-> @@ -1610,7 +1610,7 @@ cpu50: cpu@50 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <50>;
-> @@ -1637,7 +1637,7 @@ cpu51: cpu@51 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <51>;
-> @@ -1664,7 +1664,7 @@ cpu52: cpu@52 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <52>;
-> @@ -1691,7 +1691,7 @@ cpu53: cpu@53 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <53>;
-> @@ -1718,7 +1718,7 @@ cpu54: cpu@54 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <54>;
-> @@ -1745,7 +1745,7 @@ cpu55: cpu@55 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <55>;
-> @@ -1772,7 +1772,7 @@ cpu56: cpu@56 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <56>;
-> @@ -1799,7 +1799,7 @@ cpu57: cpu@57 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <57>;
-> @@ -1826,7 +1826,7 @@ cpu58: cpu@58 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <58>;
-> @@ -1853,7 +1853,7 @@ cpu59: cpu@59 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <59>;
-> @@ -1880,7 +1880,7 @@ cpu60: cpu@60 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <60>;
-> @@ -1907,7 +1907,7 @@ cpu61: cpu@61 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <61>;
-> @@ -1934,7 +1934,7 @@ cpu62: cpu@62 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <62>;
-> @@ -1961,7 +1961,7 @@ cpu63: cpu@63 {
->   			riscv,isa-base = "rv64i";
->   			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
->   					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->   					       "xtheadvector";
->   			thead,vlenb = <16>;
->   			reg = <63>;
+> diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+> index b4c4d7a7d7ad..e21b65938a65 100644
+> --- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+> @@ -34,6 +34,8 @@ properties:
+>         - items:
+>             - enum:
+>                 - milkv,pioneer
+> +              - sophgo,sg2042-evb-v1
+> +              - sophgo,sg2042-evb-v2
+>             - const: sophgo,sg2042
+>         - items:
+>             - enum:
 
 _______________________________________________
 linux-riscv mailing list
