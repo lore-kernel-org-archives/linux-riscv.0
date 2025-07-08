@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04216C83F09
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 17:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D607C83F0A
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jul 2025 17:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=skfiWlR26s/ksIBwmRX3q+xSq5HgDOYNKkCN5G6t/eI=; b=qlZw4AaUfaHisG503BpkWmGt7B
-	l3Y6w1KFPAMuxR81xHYsyKiCsZ/MFd5V5AEbX5kmPp4TlQINHLKZHyXbVgFAtGubOuTFWmG+PmOjI
-	pI8XRq3r4ZENjUG9biYEfKLFgDuzGkMemFXHL6N92ADp7RMt/+n49LBeL6/vifuqa7vhy7X0uZuVx
-	nzAF6HD3Ps7GNvD+emZAOb6r/WZyzQrzNz6akKgKxer+zE0YETMO0JObnxTE0mU25dGdyhc8XIo5B
-	6kDNzschEygZ3Mj+SimrZgV4DZeBW9yfFRD4KZQhdEVMMQXbin7w06bTGewP5paFYPV/tWXDOl8xy
-	yNJx3gMg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0LFpiU0Aav/GLyo3ERrNV8ectWhNN3+8CBqtpuZFO8A=; b=htFzjjYT+13C2i
+	YsdQ1YYP3tbLQ4aqS2OmtenlUwDn4WIRitZv/l1LD5InUHxpP848Wji2FFa2CcQLFs+uGUnKyFM7T
+	94s2IJgXN116LfUDzqNVpAyr9TY1fFOvrABvQrkfityPPdGA1tyetbFceAuZRsUkAM8xEDai8cAUq
+	zkCETlAM47rdd4Ce0k467VFsX4szpqCvaWyxCXTLm4Mwq9O9Ab3q9e+Njm0ZMNYwJyF5KToUFqtPT
+	k/O4ZbSPcR1JElut4jCxOfC7KUCXbPeLVnxG6Z5a+s2dMfJ9FWKDtYd2oh8uo6OzQVJOkje4ThVqs
+	om69LMidCBgPDbBX5Cjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZBtr-000000064xz-3ZWv;
-	Tue, 08 Jul 2025 17:14:35 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uZBtq-000000064x1-2eWy;
+	Tue, 08 Jul 2025 17:14:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZBWQ-0000000618t-1WeB
+	id 1uZBO9-00000005zzc-2bTh
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Jul 2025 16:50:23 +0000
+	Tue, 08 Jul 2025 16:41:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 677EFA5415A;
-	Tue,  8 Jul 2025 16:50:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A293C4CEF0;
-	Tue,  8 Jul 2025 16:50:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EAB0D6143F;
+	Tue,  8 Jul 2025 16:41:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FFA4C4CEF5;
+	Tue,  8 Jul 2025 16:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751993421;
-	bh=8A40c7RkWLHp2FPC7aBzNnB7TI99rPspv5sgH1fkE8k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u4oOoADhfoGvM18Nn3/ykD59LMcHlKHrizmm2uAARvweNBAoOGZOSVmcbNHR68RRO
-	 lti+FK/MwEGlTEPEUP67aAArp+eYz7Usn7oN6xCwv1n4Yo2hKGvfgea4982oM14o2k
-	 w48iC0Z6TEy3rTGSwSiytK/b6adEgxwyKDQsr/aZUC8sdt4EENGzwR4pJeBUnxrab3
-	 QQ/YWuHCyWcpOGrrwgN1wE1vUzvFn5XkpAW3XFbxGiHI8AWvDhGkPoQO4ouDrXSSyO
-	 6Yx5zdt2oq9VKNLj2dpYLHRH1UH3ZQUYVcDlq9LRnBMKB3HO2pQbOSa0aCpr3pVheB
-	 d4XnQZs/nmR7w==
-Date: Tue, 8 Jul 2025 17:50:14 +0100
+	s=k20201202; t=1751992908;
+	bh=rdhMhDbDsUjX5hjIU+cPezj8rvV97MeHEnix0pjd8uw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=UvoO2R1ocwBu3BcUOR6JUthSRVHALJHP3DmQaDLCBk79STEH2VyJD0xBK2AJp5A/W
+	 q0TwEC8ZFJW1veRmOMT33V5fUeqMARCvOa7aEm5nMtYvXF7reYMt7A8oEyhyU+doMe
+	 wjqdG5W1wpSlo6A3fiqMzuz2NOSIjZsLkj1Ne5hl4PUvdbMNo1dKvrG2QMw+Lqjckd
+	 aVS1vAhBB2SHXlYXXDQizdcFW1sxemkSydjJUhkzt4sHAESQ8Oj81Go54x2rI7axDJ
+	 Oa8zJ++ewGd0tFPQ/+QctMy1zZCppeQ04Y0XUSqqm+38e9W+EEhCcgGwEQAg4Fnqch
+	 VkFJXqFBOSyEw==
 From: Conor Dooley <conor@kernel.org>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Guodong Xu <guodong@riscstar.com>, ukleinek@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
-	drew@pdp7.com, inochiama@gmail.com, geert+renesas@glider.be,
-	heylenay@4d2.org, tglx@linutronix.de, hal.feng@starfivetech.com,
-	unicorn_wang@outlook.com, duje.mihanovic@skole.hr,
-	heikki.krogerus@linux.intel.com, elder@riscstar.com,
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+To: Conor Dooley <conor@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	spacemit@lists.linux.dev
-Subject: Re: [PATCH v3 6/6] riscv: defconfig: Enable PWM support for SpacemiT
- K1 SoC
-Message-ID: <20250708-wildfowl-curtly-1993ed320572@spud>
-References: <20250429085048.1310409-1-guodong@riscstar.com>
- <20250429085048.1310409-7-guodong@riscstar.com>
- <20250707222910-GYC408198@gentoo>
+Subject: Re: [PATCH] riscv: defconfig: spacemit: enable sdhci driver for K1 SoC
+Date: Tue,  8 Jul 2025 17:41:28 +0100
+Message-ID: <20250708-doily-concise-12620a7ceda5@spud>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250708-02-k1-sdhci-defconfig-v1-1-73c631717338@gentoo.org>
+References: <20250708-02-k1-sdhci-defconfig-v1-1-73c631717338@gentoo.org>
 MIME-Version: 1.0
-In-Reply-To: <20250707222910-GYC408198@gentoo>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_095022_468337_6656726A 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-Developer-Signature: v=1; a=openpgp-sha256; l=384; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=95Fz3TVw+WlzEnWMLxXYtXF67YYqJlPsPN4hDfqsBVY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDBm5XtauXyYuEzncynLKUyByqX10zN6dH3uclv1p22kvZ 5T3eIlfRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZS/YuR4Wbz3XxHiZt531Yb WYif0l6e3rffy83n9Hylj09279E468rwv6ZmTvKRBStSOw/f71O0OlW+ITjkwgMVy9c5W3O7PTZ lsAAA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,52 +73,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4649438732116871437=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============4649438732116871437==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="tqHe0xDpc9gw5L64"
-Content-Disposition: inline
+On Tue, 08 Jul 2025 09:44:56 +0800, Yixun Lan wrote:
+> Enable sdhci driver support for SpacemiT K1 SoC, so eMMC storage
+> will be probed and activated, Tested on the Banana Pi BPI-F3 board.
+> 
+> 
 
+Applied to riscv-config-for-next, thanks!
 
---tqHe0xDpc9gw5L64
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+[1/1] riscv: defconfig: spacemit: enable sdhci driver for K1 SoC
+      https://git.kernel.org/conor/c/0bb48ad676d5
 
-On Mon, Jul 07, 2025 at 10:29:10PM +0000, Yixun Lan wrote:
-> Hi Conor,
->   Can you take this patch? I've checked with riscv's tree for-next
-> branch, it's still applicable and meet the "savedefconfig" criteria.
-
-Sure, done.
-
---tqHe0xDpc9gw5L64
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaG1MRgAKCRB4tDGHoIJi
-0iMqAQCkQXOHEt1A4XzvWbSQcalLMF/bZO3zekAoxRIfbLq98QEAmuuZF9e149/a
-Dr4NUIYP7HDgky9w/jvCn45mJPQCOQM=
-=tdoU
------END PGP SIGNATURE-----
-
---tqHe0xDpc9gw5L64--
-
-
---===============4649438732116871437==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4649438732116871437==--
-
