@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60CA8C83F09
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jul 2025 06:39:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C931BC83F12
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jul 2025 06:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K11EuG2v01zqz6KllN/pPR4sZDLLa1K0vQW/qkl9vjQ=; b=PcXOzTlhmKh7Hn
-	6LA0rOMG168zm43MBWxTWyz4Dn5WOOG4x4yrdUzhj1YoWgj7H3a0r5v3uBCn0Tf/cootgy5IsUIsG
-	6GYxijmQ8g7uSHSswTAWIWc11xN+KP85b9b2h5j2GmjGDL+i8Ny0Aocf6oj4qSYoz0QynFyemGk+O
-	Ipdm27ngZTXMrHc9izQEGr5IouIKF3+ehLagQcK/5I46b32K+FKkHFzaKTH6zjOe5WBuizsdT9A+q
-	rLm5aloQCNLwrNpehVSlckca8A8alwvlVcHzCGzi7EV8r5XZY1s6YOLRBzbkrJcE7qPiHjqfUitTc
-	3FY1qlsfIZ4ndyo0hzhg==;
+	List-Owner; bh=guqyfXFxVCFBplIMgqipkYZ9+JaDRLMaMfYd1emE+gE=; b=zp/xgo+lYB96ui
+	mpcx23pmvnbTDdOPToNlC1rQm0YH5FDbLOHacihaRXYAsn3TyJbt3xbsKZykcLiu1B8Kg9/eYgABa
+	MFDh7WPvB7h/e8nhtxZZMaRHcgGHyNZ3ATyydwStbJS3eo3URO/WQDXExizEkV0SyCBAvJecuAc3b
+	/E0KRObtWgLcvQuCCsnbxiV7i7xlANZ4iPb9MJdhxMW/XwkBTnJ0LPyYCYqI3S/6ZyAYC+svvM8jF
+	J62aZT22VWhCbGkamOx1KkOQG0rB6CPEXI9NrPIScvGpaD02BqPoI9sGAprX5bsr/ilaKaFc7oS4l
+	ToyhxclEA8YaATGf1YDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOT0-00000007gaF-37TP;
-	Wed, 09 Jul 2025 06:39:42 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1uZOXe-00000007hgL-17Zi;
+	Wed, 09 Jul 2025 06:44:30 +0000
+Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOR8-00000007gSS-0myc
+	id 1uZOTY-00000007gjU-1O2M
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Jul 2025 06:37:47 +0000
+	Wed, 09 Jul 2025 06:40:18 +0000
 Received: from localhost (unknown [116.232.48.207])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 531B0342289;
-	Wed, 09 Jul 2025 06:37:43 +0000 (UTC)
-Date: Wed, 9 Jul 2025 06:37:38 +0000
+	by smtp.gentoo.org (Postfix) with ESMTPSA id D336D341FF2;
+	Wed, 09 Jul 2025 06:40:13 +0000 (UTC)
+Date: Wed, 9 Jul 2025 06:40:09 +0000
 From: Yixun Lan <dlan@gentoo.org>
-To: ukleinek@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
-	drew@pdp7.com, inochiama@gmail.com, geert+renesas@glider.be,
-	heylenay@4d2.org, tglx@linutronix.de, hal.feng@starfivetech.com,
-	unicorn_wang@outlook.com, duje.mihanovic@skole.hr,
-	heikki.krogerus@linux.intel.com, Guodong Xu <guodong@riscstar.com>
-Cc: elder@riscstar.com, linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: (subset) [PATCH v3 0/6] pwm: Update PWM_PXA driver for SpacemiT
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Guodong Xu <guodong@riscstar.com>, Ze Huang <huangze@whut.edu.cn>,
+	Alex Elder <elder@riscstar.com>, spacemit@lists.linux.dev,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Vivian Wang <uwu@dram.page>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] riscv: dts: spacemit: Add DMA translation buses for
  K1
-Message-ID: <20250709063738-GYA488894@gentoo>
-References: <20250429085048.1310409-1-guodong@riscstar.com>
- <175198458423.86859.5882458274157023095.b4-ty@gentoo.org>
+Message-ID: <20250709064009-GYB487904@gentoo>
+References: <20250623-k1-dma-buses-rfc-wip-v1-0-c0144082061f@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <175198458423.86859.5882458274157023095.b4-ty@gentoo.org>
+In-Reply-To: <20250623-k1-dma-buses-rfc-wip-v1-0-c0144082061f@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_233746_250480_3CD6D098 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20250708_234016_633869_A969757B 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,37 +73,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guodong,
 
-On 22:33 Tue 08 Jul     , Yixun Lan wrote:
+On 18:04 Mon 23 Jun     , Vivian Wang wrote:
+> The SpacemiT K1 has various static translations of DMA accesses. This
+> series adds all the DMA translation bus nodes and also moves existing
+> nodes as necessary.
 > 
-> On Tue, 29 Apr 2025 16:50:42 +0800, Guodong Xu wrote:
-> > This patchset adds support for the SpacemiT K1 SoC in the PWM_PXA driver
-> > and updates related device tree bindings. The changes enable PWM
-> > functionality on the K1 platform through driver enhancements,
-> > configuration updates, and device tree additions.
-> > 
-> > Functionality has been verified on the Banana Pi BPI-F3 board using PWM14,
-> > configured as a pwm-backlight. Per community feedback, the actual
-> > pwm-backlight node is not included in this patchset but can be found in
-> > patch 7 of the v1 series, with modification of pwms property to 4-cell
-> > format to match updated binding (#pwm-cells = <3>) since v3.
-> > 
-> > [...]
+> According to SpacemiT DT maintainer Yixun Lan [1], it's preferable from
+> a SoC DT maintainer's perspective to have this done at once instead of
+> spreading these changes into various driver series. Once this is merged,
+> life will be easier for future users of the buses.
 > 
-> Applied, thanks!
+> This series contains no bindings changes.
 > 
-> [3/6] riscv: dts: spacemit: add PWM support for K1 SoC
->       https://github.com/spacemit-com/linux/commit/9aebdfc21f755e0d2766683aa251435fb656ea47
+> Patch 3 moves the eMMC node added in [1].
+> 
+> These patches can also be pulled from:
+> 
+> https://github.com/dramforever/linux/tree/k1/dma-ranges/v1
+> 
+> [1]: https://lore.kernel.org/r/20250623070147-GYA193822@gentoo
+> [2]: https://lore.kernel.org/r/20250523-22-k1-sdhci-v1-1-6e0adddf7494@gentoo.org
+> 
 
-found have to re-arrange the nodes according to ascending order of unit address,
-so here is new version I've pushed, just FYI, please check (should have
-no functionality changes)
-       https://github.com/spacemit-com/linux/commit/66f56c7a64213948341521b5310064586a05c80e
+Hi Krzysztof,
 
-> [4/6] riscv: dts: spacemit: add pwm14_1 pinctrl setting
->       https://github.com/spacemit-com/linux/commit/8709d51024068d4c81dc785d63169d283d147cf3
+  Just want to clarify, I believe you previous concern about the
+"children of simple-bus are supposed to have unit addresses" [3] isn't
+really an issue any more.. but, please let me know if I'm wrong..
 
+
+Hi Vivian,
+
+  We'd like to push this series for v6.17, so I've queued it at
+k1/dt-for-next branch of SpacemiT SoC tree [4] for now, FYI.
+
+Link: https://lore.kernel.org/all/2dc8ab35-4f58-49d3-8e8b-3e463fa592ae@kernel.org/ [3]
+Link: https://github.com/spacemit-com/linux/tree/k1/dt-for-next [4]
+
+Thanks all
 -- 
 Yixun Lan (dlan)
 
