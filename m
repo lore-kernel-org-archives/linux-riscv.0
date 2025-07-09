@@ -4,53 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F21C3C83F0A
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jul 2025 19:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D901C83F0A
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jul 2025 19:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nKbpH/ge/8Ma/O298OPBnLH4Gbcvk1Cfh/uzzESYNYg=; b=GibGaaHMIYJiik
-	fejCU9ivnuq91epU8wBuiocL9O0yGgvhy6OmpQUoKfo6BjKVNHiBrYauojS++jartZ0QMkoYHfHPJ
-	q8ICGyfGYClpZxGckOppWSPNyrhPy5R4N/JFdiXJhI2N5hSMcSGxaktFU90ua/e4v3RAbJfVwYnaL
-	bc4NTeDesCO4dYD+fjfuv62uCIh6NpLIO58c0FrxDhPwc6+TbEGpnVmWZTPl8oq8wGTDklrGajSUD
-	vLWtL/UDGoAwL2pu3LWHd4iEoVdgIPCW7e16PHwNykcNcJ65e8JbtTtvuWmmphDhnbJegeBIE78qa
-	OwbWZz/sRNLpvyND2uzw==;
+	List-Owner; bh=ELybYPZ0frV8hzuFW0Lx5he9Tj88S1oATXU1Fb48yys=; b=S7GaFPfmiSstzA
+	1MeQA5kXVRXzXDXA7IQ+EiBZmVGbfOygk+LX2jdGE9nX/AjaXOW8syw9mkwtoGb3w1rgRvUr4E8Kv
+	HFwxL5TcwSvH+uuIYt4GTEGVauXU36wGHykZIWTRi2KLYFHz99PfSoElHeEjtBtyOr8bT4oQwHwNM
+	MmEtIqoZjwMwS9PKSe7/QO1CsxGwmGg5DjNZ6EP7hqvXNKpljNPiDtq6nKa7lRZcnzSJklDVhO5MZ
+	HDLN2snRmGUHlSwFyF6oL0GPbRdWkhO9Or16THELDE8Xq7SIi/5uMmG15RfShJHJPBrSMg8gwY4jl
+	fgsIyWsX6eUi8BM7gxIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZa5L-00000009cFD-0LPT;
-	Wed, 09 Jul 2025 19:04:03 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1uZa5w-00000009dEF-22Gp;
+	Wed, 09 Jul 2025 19:04:40 +0000
+Received: from relay15.mail.gandi.net ([217.70.178.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZWPW-000000096ct-3Qml
+	id 1uZWTf-000000097Wf-3Wpz
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Jul 2025 15:08:40 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6AB6043E9F;
-	Wed,  9 Jul 2025 15:08:31 +0000 (UTC)
-Message-ID: <203fba2f-24c0-45bd-aeac-c907297f9a6e@ghiti.fr>
-Date: Wed, 9 Jul 2025 17:08:31 +0200
+	Wed, 09 Jul 2025 15:12:57 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 565AA43136;
+	Wed,  9 Jul 2025 15:12:52 +0000 (UTC)
+Message-ID: <aae8559c-88d2-4882-92cd-7e906eb8b7d6@ghiti.fr>
+Date: Wed, 9 Jul 2025 17:12:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/3] Optimize GCD performance on RISC-V by selecting
- implementation at runtime
-To: Kuan-Wei Chiu <visitorckw@gmail.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, akpm@linux-foundation.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- jserv@ccns.ncku.edu.tw, Yu-Chun Lin <eleanor15x@gmail.com>
-References: <20250606134758.1308400-1-visitorckw@gmail.com>
-Content-Language: en-US
+Subject: Re: [PATCH v4 0/2] Implement endianess swap macros for RISC-V
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250606134758.1308400-1-visitorckw@gmail.com>
+To: Ignacio Encinas <ignacio@iencinas.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
+ skhan@linuxfoundation.org, Zhihang Shao <zhihang.shao.iscas@gmail.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ linux-arch@vger.kernel.org
+References: <20250426-riscv-swab-v4-0-64201404a68c@iencinas.com>
+ <57352cc0-420b-42e6-a493-2764794a5206@ghiti.fr>
+Content-Language: en-US
+In-Reply-To: <57352cc0-420b-42e6-a493-2764794a5206@ghiti.fr>
 X-GND-State: clean
-X-GND-Score: 0
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefjeekkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemrgejvgdvmegrugelvdemlegrsgejmeefudehsgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemrgejvgdvmegrugelvdemlegrsgejmeefudehsgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemrgejvgdvmegrugelvdemlegrsgejmeefudehsggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepledprhgtphhtthhopehvihhsihhtohhrtghkfiesghhmrghilhdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdpr
- hgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheprghkphhmsehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhsvghrvhestggtnhhsrdhntghkuhdrvgguuhdrthif
-X-GND-Sasl: alex@ghiti.fr
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefjeeklecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffhvfevfhgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepfeegvdelkeetgeehleefjeduteegtdfgtdekveevudehieejteeiudelledtveelnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmegrjegvvdemrgguledvmeelrggsjeemfeduhegsnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegrjegvvdemrgguledvmeelrggsjeemfeduhegspdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmegrjegvvdemrgguledvmeelrggsjeemfeduhegsngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeduvddprhgtphhtthhopehighhnrggtihhosehivghntghinhgrshdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhop
+ ehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtohepvggsihhgghgvrhhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlqdhmvghnthgvvghssehlihhsthhsrdhlihhnuhigrdguvghv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_080838_993656_9044F91D 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20250709_081256_007245_C9CF9569 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,75 +65,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Kuan-Wei, Andrew,
-
-@Andrew: Will you merge this one? I can do it through the riscv tree if 
-not, no problem at all.
-
-Thanks,
-
-Alex
-
-On 6/6/25 15:47, Kuan-Wei Chiu wrote:
-> The current implementation of gcd() selects between the binary GCD and
-> the odd-even GCD algorithm at compile time, depending on whether
-> CONFIG_CPU_NO_EFFICIENT_FFS is set. On platforms like RISC-V, however,
-> this compile-time decision can be misleading: even when the compiler
-> emits ctz instructions based on the assumption that they are efficient
-> (as is the case when CONFIG_RISCV_ISA_ZBB is enabled), the actual
-> hardware may lack support for the Zbb extension. In such cases, ffs()
-> falls back to a software implementation at runtime, making the binary
-> GCD algorithm significantly slower than the odd-even variant.
->
-> To address this, we introduce a static key to allow runtime selection
-> between the binary and odd-even GCD implementations. On RISC-V, the
-> kernel now checks for Zbb support during boot. If Zbb is unavailable,
-> the static key is disabled so that gcd() consistently uses the more
-> efficient odd-even algorithm in that scenario. Additionally, to further
-> reduce code size, we select CONFIG_CPU_NO_EFFICIENT_FFS automatically
-> when CONFIG_RISCV_ISA_ZBB is not enabled, avoiding compilation of the
-> unused binary GCD implementation entirely on systems where it would
-> never be executed.
->
-> This series ensures that the most efficient GCD algorithm is used in
-> practice and avoids compiling unnecessary code based on hardware
-> capabilities and kernel configuration.
->
-> Co-developed-by: Yu-Chun Lin <eleanor15x@gmail.com>
-> Signed-off-by: Yu-Chun Lin <eleanor15x@gmail.com>
-> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
->
-> ---
-> This series has been tested on QEMU to verify that the correct GCD
-> implementation is used both with and without Zbb support.
->
-> v2 -> v3:
-> - Drop if (!a || !b) check in binary_gcd()
-> - Move DECLARE_STATIC_KEY_TRUE(efficient_ffs_key) to gcd.h
-> v1 -> v2:
-> - Use a static key to select the GCD implementation at runtime.
->
-> v2: https://lore.kernel.org/lkml/20250524155519.1142570-1-visitorckw@gmail.com/
-> v1: https://lore.kernel.org/lkml/20250217013708.1932496-1-visitorckw@gmail.com/
->
-> Kuan-Wei Chiu (3):
->    lib/math/gcd: Use static key to select implementation at runtime
->    riscv: Optimize gcd() code size when CONFIG_RISCV_ISA_ZBB is disabled
->    riscv: Optimize gcd() performance on RISC-V without Zbb extension
->
->   arch/riscv/Kconfig        |  1 +
->   arch/riscv/kernel/setup.c |  5 +++++
->   include/linux/gcd.h       |  3 +++
->   lib/math/gcd.c            | 27 +++++++++++++++------------
->   4 files changed, 24 insertions(+), 12 deletions(-)
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQXJuZCwKCkdlbnRsZSBwaW5nIGFzIHdlIHdvdWxkIGxpa2UgdG8gbWVyZ2UgdGhpcyBpbiB0
+aGUgcmlzY3YgdHJlZSBidXQgd2UgbmVlZCAKeW91ciBhY2sgKG9yIG5hY2spLgoKVGhhbmtzLAoK
+QWxleAoKT24gNS8xNi8yNSAxNjozNywgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+IEhpIEFybmQs
+Cj4KPiBEbyB5b3UgdGhpbmsgd2UgY2FuIG1lcmdlIHRoYXQgZm9yIDYuMTY/IEl0IGlzIG5pY2Ug
+aW1wcm92ZW1lbnQgZm9yIHVzLgo+Cj4gVGhhbmtzLAo+Cj4gQWxleAo+Cj4gT24gMjYvMDQvMjAy
+NSAxNjo1NiwgSWduYWNpbyBFbmNpbmFzIHdyb3RlOgo+PiBNb3RpdmF0ZWQgYnkgWzFdLiBBIGNv
+dXBsZSBvZiB0aGluZ3MgdG8gbm90ZToKPj4KPj4gUklTQy1WIG5lZWRzIGEgZGVmYXVsdCBpbXBs
+ZW1lbnRhdGlvbiB0byBmYWxsIGJhY2sgb24uIFRoZXJlIGlzIG9uZQo+PiBhdmFpbGFibGUgaW4g
+aW5jbHVkZS91YXBpL2xpbnV4L3N3YWIuaCBidXQgdGhhdCBoZWFkZXIgY2FuJ3QgYmUgaW5jbHVk
+ZWQKPj4gZnJvbSBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3YWIuaC4gVGhlcmVmb3JlLCB0aGUg
+Zmlyc3QgcGF0Y2ggaW4gdGhpcwo+PiBzZXJpZXMgbW92ZXMgdGhlIGRlZmF1bHQgaW1wbGVtZW50
+YXRpb24gaW50byBhc20tZ2VuZXJpYy4KPj4KPj4gVGVzdGVkIHdpdGggY3JjX2t1bml0IGFzIHBv
+aW50ZWQgb3V0IGhlcmUgWzJdLiBJIGNhbid0IHByb3ZpZGUKPj4gcGVyZm9ybWFuY2UgbnVtYmVy
+cyBhcyBJIGRvbid0IGhhdmUgUklTQy1WIGhhcmR3YXJlIHlldC4KPj4KPj4gWzFdIGh0dHBzOi8v
+bG9yZS5rZXJuZWwub3JnL2FsbC8yMDI1MDMwMjIyMDQyNi5HQzIwNzlAcXVhcmsubG9jYWxkb21h
+aW4vCj4+IFsyXSAKPj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwMjE2MjI1NTMw
+LjMwNjk4MC0xLWViaWdnZXJzQGtlcm5lbC5vcmcvCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IElnbmFj
+aW8gRW5jaW5hcyA8aWduYWNpb0BpZW5jaW5hcy5jb20+Cj4+IC0tLQo+PiBDaGFuZ2VzIGluIHY0
+Ogo+Pgo+PiAtIEFkZCBtaXNzaW5nIGluY2x1ZGUgaW4gdGhlIDFzdCBwYXRjaCwgcmVwb3J0ZWQg
+YnkKPj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwNDA0MjMwMC5pdDlSY09TdC1s
+a3BAaW50ZWwuY29tLwo+PiAtIFJld3JpdGUgdGhlIEFSQ0hfU1dBQiBtYWNybyBhcyBzdWdnZXN0
+ZWQgYnkgQXJuZAo+PiAtIERlZmluZSBfX2FyY2hfc3dhYjY0IGZvciBDT05GSUdfMzJCSVQgKEJl
+bikKPj4gLSBMaW5rIHRvIHYzOiAKPj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI1MDQw
+My1yaXNjdi1zd2FiLXYzLTAtM2JmNzA1ZDgwZTMzQGllbmNpbmFzLmNvbQo+Pgo+PiBBcm5kLCBJ
+IGtub3cgeW91IGRvbid0IGxpa2UgUGF0Y2ggMSBidXQgSSB0cmllZCB5b3VyIHN1Z2dlc3Rpb25z
+IGFuZAo+PiBjb3VsZG4ndCBtYWtlIHRoZW0gd29yay4gUGxlYXNlIGxldCBtZSBrbm93IGlmIEkg
+bWlzc2VkIGFueXRoaW5nIFszXSBbNF0KPj4KPj4gWzNdIAo+PiBodHRwczovL2xvcmUua2VybmVs
+Lm9yZy9saW51eC1yaXNjdi9mNTQ2NGUyNi1mYWEwLTQ4ZjEtODU4NS05Y2U1MmM4YzlmNWZAaWVu
+Y2luYXMuY29tLwo+PiBbNF0gCj4+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2
+L2IzYjU5NzQ3LTA0ODQtNDA0Mi1iZGM0LWMwNjc2ODhlM2JmZUBpZW5jaW5hcy5jb20vCj4+Cj4+
+IENoYW5nZXMgaW4gdjM6Cj4+Cj4+IFBBVENIIDI6Cj4+IMKgwqAgVXNlIGlmKHJpc2N2X2hhc19l
+eHRlbnNpb25fbGlrZWx5KSBpbnN0ZWFkIG9mIGFzbSBnb3RvIChFcmljKS4gSXQKPj4gwqDCoCBs
+b29rcyBsaWtlIGJvdGggdmVyc2lvbnMgZ2VuZXJhdGUgdGhlIHNhbWUgYXNzZW1ibHkuIFBlcmhh
+cHMgd2UgCj4+IHNob3VsZAo+PiDCoMKgIGRvIHRoZSBzYW1lIGNoYW5nZSBpbiBvdGhlciBwbGFj
+ZXMgc3VjaCBhcyAKPj4gYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9iaXRvcHMuaAo+PiAtIExpbmsg
+dG8gdjI6IAo+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjUwMzE5LXJpc2N2LXN3YWIt
+djItMC1kNTNiNmQ2YWI5MTVAaWVuY2luYXMuY29tCj4+Cj4+IENoYW5nZXMgaW4gdjI6Cj4+IC0g
+SW50cm9kdWNlIGZpcnN0IHBhdGNoIGZhY3RvcmluZyBvdXQgdGhlIGRlZmF1bHQgaW1wbGVtZW50
+YXRpb24gaW50bwo+PiDCoMKgIGFzbS1nZW5lcmljCj4+IC0gUmVtb3ZlIGJsYW5rIGxpbmUgdG8g
+bWFrZSBjaGVja3BhdGNoIGhhcHB5Cj4+IC0gTGluayB0byB2MTogCj4+IGh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL3IvMjAyNTAzMTAtcmlzY3Ytc3dhYi12MS0xLTM0NjUyZWYxZWU5NkBpZW5jaW5h
+cy5jb20KPj4KPj4gLS0tCj4+IElnbmFjaW8gRW5jaW5hcyAoMik6Cj4+IMKgwqDCoMKgwqDCoCBp
+bmNsdWRlL3VhcGkvbGludXgvc3dhYi5oOiBtb3ZlIGRlZmF1bHQgaW1wbGVtZW50YXRpb24gZm9y
+IAo+PiBzd2FiIG1hY3JvcyBpbnRvIGFzbS1nZW5lcmljCj4+IMKgwqDCoMKgwqDCoCByaXNjdjog
+aW50cm9kdWNlIGFzbS9zd2FiLmgKPj4KPj4gwqAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2Fi
+LmjCoMKgIHwgNjIgCj4+ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
+Cj4+IMKgIGluY2x1ZGUvdWFwaS9hc20tZ2VuZXJpYy9zd2FiLmggfCAzMyArKysrKysrKysrKysr
+KysrKysrKysrCj4+IMKgIGluY2x1ZGUvdWFwaS9saW51eC9zd2FiLmjCoMKgwqDCoMKgwqAgfCAz
+MyArLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4+IMKgIDMgZmlsZXMgY2hhbmdlZCwgOTYgaW5zZXJ0
+aW9ucygrKSwgMzIgZGVsZXRpb25zKC0pCj4+IC0tLQo+PiBiYXNlLWNvbW1pdDogYTdmMmUxMGVj
+ZDhmMThiODM5NTFiMGJhYjQ3ZGRhZjQ4ZjkzYmY0Nwo+PiBjaGFuZ2UtaWQ6IDIwMjUwMzA3LXJp
+c2N2LXN3YWItYjgxYjk0YTlhYzFiCj4+Cj4+IEJlc3QgcmVnYXJkcywKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
