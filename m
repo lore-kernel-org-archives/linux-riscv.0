@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F27C6C83F09
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jul 2025 02:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A18B9C8303C
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jul 2025 02:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=reSan/9em1OvdxsxX6dkf9WNPiBXfZIwprO/Ur7j8Rs=; b=FdDHhxqCEMNRmx
-	Yjd4vNKHt0Xrox0RoWmsAe6FnqJQJwf10PsG70GRdsZnWL/1UZJwSILuadNbGgrI1ahtobyc7mlQ4
-	f1JB0oB89oOi3jikd3M/tztvjFSY5RfzNGYCtzta0HJza9HazhKxmNJiPPqKMjNJhr5sjbWJu+qBh
-	CKQmoQWdqgoVphTWno3M49KhhLmOt+jrAIwiMLuj9+q/NHilvXVui6eYpvMMzzkB93dBSP1wVY2Z4
-	Tt1aFh1XKjTy2AtpqPtegio4HxRMEbpeGNUPp2An3gaThIiUydYCcDEWE1hqlnCM0HWYcgNdZurHK
-	C32ppkainvDKbxYdwv1w==;
+	List-Owner; bh=kRARrjK2FwCFz3vF0TmKwaaCU6jD0DNRaQ0YwuCq1dQ=; b=wzCC543pw60m1Q
+	Q71CZn8IDtht7WFYrwTpQ02hkTAKONh+KUqLFvN7AYPZ17UStsVlYtQ9kML7ieSr4AvAUsk/Iuws3
+	cnj2KeT+L88LaXSHRuzNLm/GAb/Z7kBA5o5DJAKQIjEIolrrDaJ9ANx/cNsCP1O0cmXgkaroPsrxn
+	bsltKaNviYlyxmeN/Tp8KAWK6AW8sg3Vp0whfKCd+s5nK3oZ1+5/G21TKhGjioSYbrJ5/Rzrt9TUH
+	vkursIHT/XPyhkHvRqFAEE54B7vgmwDbMq8eoVq58VazZA/Nn/aDHMGh2gcj7CXmH1LyUHzzBSGVF
+	myVkXdAgo3FRXmEOWgGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZKz5-00000007Dbb-3OuG;
-	Wed, 09 Jul 2025 02:56:35 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1uZKz9-00000007Dcb-1cnD;
+	Wed, 09 Jul 2025 02:56:39 +0000
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZKz3-00000007Db4-1fUy
+	id 1uZKz7-00000007Dc7-0ySX
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Jul 2025 02:56:34 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7d20f79a00dso752520885a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Jul 2025 19:56:33 -0700 (PDT)
+	Wed, 09 Jul 2025 02:56:38 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-6fac7147cb8so89318476d6.1
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Jul 2025 19:56:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1752029792; x=1752634592; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1752029796; x=1752634596; darn=lists.infradead.org;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=C9U4brjiS3C32XW3bHVRt6PkxvPweR4nZGcE43NufvY=;
-        b=gDcN3O1dP2ljNNLAFTJ2qn+vfHy9vnrjbvjONQDkUYAEIsZ3OF0VQ5MICANe4tKOPS
-         dWsUIMgJG3cIjkopFMe57C83CpM+EWn5E0onB4xg3BmdhRpZbjwpjWa8s/5lyu5Xivf+
-         0NNNjYY75h3Ek8nyz3OUfh+QkJikpqi2SykNVDDPg8sJCBaDKr/lTlKP6Y3Tb1HUE/hf
-         2axJS334kbQyJi77jZEutVM+HWs5dEt3XnvEo3SJz/MsnoBi/7zE7Pu0neNb7dmDH+K0
-         HyJvCKW85IV8xA0z/fjUIab/zlcqNj4mfAR4m7/t3SqG2Lc5AvlqOGTUV7hvVSf9jm62
-         nXBw==
+        bh=Rg1PwZb/Nj9zinwW4tBBT6J6d/gy4SIm72/5Qr/32aU=;
+        b=MBSit+ACQLc3OTA9/pAHN4KEteaqb+5G8ODGwaBfWHh3anU19Da5CwaOG8pTuJn5sh
+         Uxzp/eWpfkag8lZiwy2W6aPru9N4SZ51nxbTV7+o6mR4HaOON9msv8SNeHDZubpTNCkh
+         7/vA3lCyvbxAOFja04QJWWYww1U8kXnulIAagVicUZqnca+CExDdS6hIGVHbOPwy6D7v
+         0omTSfGFPFvvSwns8eTY4Cr5YjK8jU5RrUIplpwb60lCyfu1LHuo8NshY7uMJSDmKHrI
+         5VIEf04ggko5Yln9fRkAlzAyL/ysOlCrjbQrOapi8l5MdxY2toFmquGanqvp4ORBVR1/
+         OTXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752029792; x=1752634592;
+        d=1e100.net; s=20230601; t=1752029796; x=1752634596;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=C9U4brjiS3C32XW3bHVRt6PkxvPweR4nZGcE43NufvY=;
-        b=b9G1KyVHC/V5MwVdPLPmBij479XYTrrNDZu2zgFQQvLb3eQf/5J9P6v/bBfht5xpi1
-         lsrxee42wZXwP2vyoamqhxQgSHU0x46FuFwQiWEs2EdR67nkEqUlZ2YjvdNlh1avb3ki
-         ScJSq/aP5GZaPQNpz4fhQYavrjaj9OT1A5iowDwW3VuQAy/BB3KMLwqoc2dpZu4Oe1WB
-         fCH1s7HUGdOVrfKtbCZt1UIVEZCzfZx29NUZWRgagOemDH6pUSwoWI970ZpezwTlBQEt
-         XgwxCs8eMC71NBf6d4CwiDqPEcHC8araIplNzPfxzXJti9CzVPPTaTHTIZtroLtUSa7D
-         oTNw==
-X-Forwarded-Encrypted: i=1; AJvYcCVv/3sFJCl1eg/hU2Z7KMdzIc7howJiQimKVeBTPgYf7J2CNPBAjbsgAgWih/k5KKHxteh285TuB9QGHg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsFaLOfklr9LjE8wtO1zK1CgCkTa37IvyQHIz/oPB2E8hbIFMd
-	E5cop/CZ8ucgdN2c1EtZHFn2AAOWHKIGo4M/Ia/hPUBAxGdDXe7u5d8E3HgVrYGCIpA=
-X-Gm-Gg: ASbGnctktbAPx/fEFGNUm3Pl9ZqlzQhd6TeG/TiWXBlqgJk7B5yp2892Sz8MTodffZw
-	IQLxqfMfbh8vBQIemSCUX0xm62C2yYAT7++Y5T927xBg9G04N0PJhki3bzUYYZtQ22iM5bT1GJb
-	huZU2usesVL4Hwg+hX1TG1oRRdCIdROvkWxBdv/ptiEkocf6pJixKYuY+QH9lmfYNAk6KCJhmRh
-	VL2tIC8QQi5Ha7XS2rKiNuXixBTISxI2oMeioprhPwVlBUZLo8kj4GnTC/FMFOU+Y/b2K3uYYsm
-	WjI8/TF1nhwXmuA1V/Zuvn/Q3tuAkQMqITu6uE+HDOl48TvLt3iCN4HAKSywFYsjOTxFWid+bU9
-	vjms3Dqb8
-X-Google-Smtp-Source: AGHT+IG/O/VknzhuZDlGWIkLTbeQ76zvcAaRgDp06FmEoKv7tLit+X11x+afuO2aoaIdYNQmMzC1MQ==
-X-Received: by 2002:a05:620a:4508:b0:7d4:70:908a with SMTP id af79cd13be357-7db7db70ce4mr163253085a.53.1752029792368;
-        Tue, 08 Jul 2025 19:56:32 -0700 (PDT)
+        bh=Rg1PwZb/Nj9zinwW4tBBT6J6d/gy4SIm72/5Qr/32aU=;
+        b=shv2TmVD4ATVlZe5AUf9MLKIEYNg+18B9S3//IgazThqFtg6LBTUMQmUPqBg2W/1yZ
+         ZqCUXwK30J9dqoYnT9M/d1gidqALiGUShhp2X4yyqKh1zAruHiV+WDUjKq+aPJYjawDj
+         Ob3jdBUF+Ae4ZAgy9g7Hv9U4iHTa8jMMm44q6/z1iTiSZJx5KSIvUnPig4Ri8h8ikOb9
+         QvR0HmOPghdBIRdV1CWTqKVGvUQ5yINiU0ZcVKXRzlfZ32xmH88cEFvnUCEtdD9Ryuo9
+         YPI2RrDrPFTJLzNUTaIAYjS8wPHoMAwk+Q/789AdzOBJpKpEpdrXkuRM1R2T6v0uSpuF
+         7/UA==
+X-Forwarded-Encrypted: i=1; AJvYcCVNQPdnvsRcs4TkrIbqFt8ytF1XmcQFaRpbI5JrZ62v56o4qZ0DthoX4DZMSzPR+Tew8H2IXzYOjCNygA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU1h7bdUq/ALq/bf/ALzK8i+L+m9+ySFVfx3a4/A3WLhRi7neu
+	O2P7WrqUNZyeAaezuw8wpSelkBU3owMQ709e8OMU8x4ZI0jlN+feJ1umQzuM1YInI6U=
+X-Gm-Gg: ASbGnctdw5EgOqq44zLwVdurpTX5DiNHAvIXvpx/i4izNKHFEKVeYnikurb+hilFwxw
+	/TVVxiiaLqVRWn1MJksBEJsY2YZiMzvD+RxuYy9WGyGKtVOB9pcTtR6jz9TnbodbXj9zLo6CRqE
+	CF4QImJoTWQDWpnfZcxqAh8JJ886XXWopfim3A8VPmTGYmtY5vZd/my2VJahNx1sDxOODavHLts
+	duFJY1rraWCvVEc0CjjgO/sybchvMD/wqwBuWOHdKH9pNMboQMaa4vj0nL8tosI2A/FC65gUbdI
+	rUrixGjOW3MxqFNkuOLEZ6JGhfpgefGSM6faqBguxYSZLteBqyoUS3OJazkBfY9G5y68jioag2P
+	K+23fXfJV
+X-Google-Smtp-Source: AGHT+IE2w+6pcL8ow4gEfiQsAilesspsCHatY+WU2AnhEdGzmw3Vr+kWUWblRdjFmoueDfNIhkUnFg==
+X-Received: by 2002:a05:6214:1c08:b0:702:d997:71d4 with SMTP id 6a1803df08f44-7048b94bb8cmr13576576d6.24.1752029796113;
+        Tue, 08 Jul 2025 19:56:36 -0700 (PDT)
 Received: from hsinchu26.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d5dbeb2318sm867257585a.107.2025.07.08.19.56.29
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d5dbeb2318sm867257585a.107.2025.07.08.19.56.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Jul 2025 19:56:32 -0700 (PDT)
+        Tue, 08 Jul 2025 19:56:35 -0700 (PDT)
 From: Nick Hu <nick.hu@sifive.com>
 To: Alexandre Ghiti <alex@ghiti.fr>,
 	linux-riscv@lists.infradead.org,
@@ -77,15 +77,15 @@ Cc: Nick Hu <nick.hu@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH 1/2] irqchip/riscv-imsic: Restore the IMSIC registers
-Date: Wed,  9 Jul 2025 10:55:15 +0800
-Message-Id: <20250709025516.28051-2-nick.hu@sifive.com>
+Subject: [PATCH 2/2] irqchip/riscv-aplic: Save and restore APLIC registers
+Date: Wed,  9 Jul 2025 10:55:16 +0800
+Message-Id: <20250709025516.28051-3-nick.hu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20250709025516.28051-1-nick.hu@sifive.com>
 References: <20250709025516.28051-1-nick.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_195633_438485_CAA81451 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20250708_195637_275795_D6B0A8FF 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,98 +103,293 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the system woken up from the low power state, the IMSIC might be in
-the reset state. Therefore adding the CPU PM callbacks to restore the
-IMSIC register when the cpu resume from the low power state.
+The APLIC may be powered down when the CPUs enter a deep sleep state.
+Therefore adding the APLIC save and restore functions to save and
+restore the states of APLIC.
 
 Signed-off-by: Nick Hu <nick.hu@sifive.com>
 Reviewed-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
 Reviewed-by: Cyan Yang <cyan.yang@sifive.com>
 ---
- drivers/irqchip/irq-riscv-imsic-early.c | 41 ++++++++++++++++++++-----
- 1 file changed, 33 insertions(+), 8 deletions(-)
+ drivers/irqchip/irq-riscv-aplic-direct.c |  14 ++-
+ drivers/irqchip/irq-riscv-aplic-main.c   | 143 +++++++++++++++++++++++
+ drivers/irqchip/irq-riscv-aplic-main.h   |  12 ++
+ drivers/irqchip/irq-riscv-aplic-msi.c    |   3 +-
+ 4 files changed, 170 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
-index d9ae87808651..f64d9a0642bb 100644
---- a/drivers/irqchip/irq-riscv-imsic-early.c
-+++ b/drivers/irqchip/irq-riscv-imsic-early.c
-@@ -7,6 +7,7 @@
- #define pr_fmt(fmt) "riscv-imsic: " fmt
- #include <linux/acpi.h>
+diff --git a/drivers/irqchip/irq-riscv-aplic-direct.c b/drivers/irqchip/irq-riscv-aplic-direct.c
+index 205ad61d15e4..df42f979d02c 100644
+--- a/drivers/irqchip/irq-riscv-aplic-direct.c
++++ b/drivers/irqchip/irq-riscv-aplic-direct.c
+@@ -8,6 +8,7 @@
+ #include <linux/bitfield.h>
+ #include <linux/bitops.h>
  #include <linux/cpu.h>
-+#include <linux/cpu_pm.h>
++#include <linux/cpumask.h>
  #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/irq.h>
-@@ -109,14 +110,8 @@ static void imsic_handle_irq(struct irq_desc *desc)
- 	chained_irq_exit(chip, desc);
+ #include <linux/irqchip.h>
+ #include <linux/irqchip/chained_irq.h>
+@@ -171,6 +172,16 @@ static void aplic_idc_set_delivery(struct aplic_idc *idc, bool en)
+ 	writel(de, idc->regs + APLIC_IDC_IDELIVERY);
  }
  
--static int imsic_starting_cpu(unsigned int cpu)
-+static void imsic_restore(void)
- {
--	/* Mark per-CPU IMSIC state as online */
--	imsic_state_online();
--
--	/* Enable per-CPU parent interrupt */
--	enable_percpu_irq(imsic_parent_irq, irq_get_trigger_type(imsic_parent_irq));
--
- 	/* Setup IPIs */
- 	imsic_ipi_starting_cpu();
- 
-@@ -128,6 +123,19 @@ static int imsic_starting_cpu(unsigned int cpu)
- 
- 	/* Enable local interrupt delivery */
- 	imsic_local_delivery(true);
++void aplic_direct_restore(struct aplic_priv *priv)
++{
++	struct aplic_direct *direct =
++			container_of(priv, struct aplic_direct, priv);
++	int cpu;
++
++	for_each_cpu(cpu, &direct->lmask)
++		aplic_idc_set_delivery(per_cpu_ptr(&aplic_idcs, cpu), true);
 +}
 +
-+static int imsic_starting_cpu(unsigned int cpu)
-+{
-+	/* Mark per-CPU IMSIC state as online */
-+	imsic_state_online();
-+
-+	/* Enable per-CPU parent interrupt */
-+	enable_percpu_irq(imsic_parent_irq,
-+			  irq_get_trigger_type(imsic_parent_irq));
-+
-+	/* Restore the imsic reg */
-+	imsic_restore();
+ static int aplic_direct_dying_cpu(unsigned int cpu)
+ {
+ 	if (aplic_direct_parent_irq)
+@@ -343,5 +354,6 @@ int aplic_direct_setup(struct device *dev, void __iomem *regs)
+ 	dev_info(dev, "%d interrupts directly connected to %d CPUs\n",
+ 		 priv->nr_irqs, priv->nr_idcs);
  
- 	return 0;
+-	return 0;
++	/* Add the aplic_priv to the list */
++	return aplic_add(dev, priv);
  }
-@@ -143,6 +151,23 @@ static int imsic_dying_cpu(unsigned int cpu)
- 	return 0;
- }
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+index 93e7c51f944a..9054ce7a7256 100644
+--- a/drivers/irqchip/irq-riscv-aplic-main.c
++++ b/drivers/irqchip/irq-riscv-aplic-main.c
+@@ -12,10 +12,130 @@
+ #include <linux/of.h>
+ #include <linux/of_irq.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_domain.h>
++#include <linux/pm_runtime.h>
+ #include <linux/printk.h>
++#include <linux/syscore_ops.h>
  
-+static int imsic_notifier(struct notifier_block *self, unsigned long cmd,
-+			  void *v)
+ #include "irq-riscv-aplic-main.h"
+ 
++static LIST_HEAD(aplics);
++
++static void aplic_restore(struct aplic_priv *priv)
 +{
-+	switch (cmd) {
-+	case CPU_PM_EXIT:
-+		/* Restore the imsic reg */
-+		imsic_restore();
++	int i;
++	u32 clrip;
++
++	writel(priv->saved_domaincfg, priv->regs + APLIC_DOMAINCFG);
++#ifdef CONFIG_RISCV_M_MODE
++	writel(priv->saved_msiaddr, priv->regs + APLIC_xMSICFGADDR);
++	writel(priv->saved_msiaddrh, priv->regs + APLIC_xMSICFGADDRH);
++#endif
++	for (i = 1; i <= priv->nr_irqs; i++) {
++		writel(priv->saved_sourcecfg[i - 1],
++		       priv->regs + APLIC_SOURCECFG_BASE +
++		       (i - 1) * sizeof(u32));
++		writel(priv->saved_target[i - 1],
++		       priv->regs + APLIC_TARGET_BASE +
++		       (i - 1) * sizeof(u32));
++	}
++
++	for (i = 0; i <= priv->nr_irqs; i += 32) {
++		writel(-1U, priv->regs + APLIC_CLRIE_BASE +
++			    (i / 32) * sizeof(u32));
++		writel(priv->saved_ie[i / 32],
++		       priv->regs + APLIC_SETIE_BASE +
++		       (i / 32) * sizeof(u32));
++	}
++
++	if (priv->nr_idcs) {
++		aplic_direct_restore(priv);
++	} else {
++		/* Re-trigger the interrupts */
++		for (i = 0; i <= priv->nr_irqs; i += 32) {
++			clrip = readl(priv->regs + APLIC_CLRIP_BASE +
++				      (i / 32) * sizeof(u32));
++			writel(clrip, priv->regs + APLIC_SETIP_BASE +
++				      (i / 32) * sizeof(u32));
++		}
++	}
++}
++
++static void aplic_save(struct aplic_priv *priv)
++{
++	int i;
++
++	for (i = 1; i <= priv->nr_irqs; i++) {
++		priv->saved_target[i - 1] = readl(priv->regs +
++						  APLIC_TARGET_BASE +
++						  (i - 1) * sizeof(u32));
++	}
++
++	for (i = 0; i <= priv->nr_irqs; i += 32) {
++		priv->saved_ie[i / 32] = readl(priv->regs +
++					       APLIC_SETIE_BASE +
++					       (i / 32) * sizeof(u32));
++	}
++}
++
++static int aplic_syscore_suspend(void)
++{
++	struct aplic_priv *priv;
++
++	list_for_each_entry(priv, &aplics, list) {
++		aplic_save(priv);
++	}
++
++	return 0;
++}
++
++static void aplic_syscore_resume(void)
++{
++	struct aplic_priv *priv;
++
++	list_for_each_entry(priv, &aplics, list) {
++		aplic_restore(priv);
++	}
++}
++
++static struct syscore_ops aplic_syscore_ops = {
++	.suspend = aplic_syscore_suspend,
++	.resume = aplic_syscore_resume,
++};
++
++static int aplic_notifier(struct notifier_block *nb, unsigned long action,
++			  void *data)
++{
++	struct aplic_priv *priv = container_of(nb, struct aplic_priv, genpd_nb);
++
++	switch (action) {
++	case GENPD_NOTIFY_PRE_OFF:
++		aplic_save(priv);
++		break;
++	case GENPD_NOTIFY_ON:
++		aplic_restore(priv);
++		break;
++	default:
 +		break;
 +	}
 +
-+	return NOTIFY_OK;
++	return 0;
 +}
 +
-+static struct notifier_block imsic_notifier_block = {
-+	.notifier_call = imsic_notifier,
-+};
++int aplic_add(struct device *dev, struct aplic_priv *priv)
++{
++	int ret;
 +
- static int __init imsic_early_probe(struct fwnode_handle *fwnode)
++	list_add(&priv->list, &aplics);
++	/* Add genpd notifier */
++	priv->genpd_nb.notifier_call = aplic_notifier;
++	ret = dev_pm_genpd_add_notifier(dev, &priv->genpd_nb);
++	if (!ret)
++		return devm_pm_runtime_enable(dev);
++
++	return ret == -ENODEV || ret == -EOPNOTSUPP ? 0 : ret;
++}
++
+ void aplic_irq_unmask(struct irq_data *d)
  {
- 	struct irq_domain *domain;
-@@ -180,7 +205,7 @@ static int __init imsic_early_probe(struct fwnode_handle *fwnode)
- 	cpuhp_setup_state(CPUHP_AP_IRQ_RISCV_IMSIC_STARTING, "irqchip/riscv/imsic:starting",
- 			  imsic_starting_cpu, imsic_dying_cpu);
+ 	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
+@@ -59,6 +179,7 @@ int aplic_irq_set_type(struct irq_data *d, unsigned int type)
+ 	sourcecfg = priv->regs + APLIC_SOURCECFG_BASE;
+ 	sourcecfg += (d->hwirq - 1) * sizeof(u32);
+ 	writel(val, sourcecfg);
++	priv->saved_sourcecfg[d->hwirq - 1] = val;
  
--	return 0;
-+	return cpu_pm_register_notifier(&imsic_notifier_block);
+ 	return 0;
+ }
+@@ -95,6 +216,8 @@ void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode)
+ 		valh |= FIELD_PREP(APLIC_xMSICFGADDRH_HHXS, priv->msicfg.hhxs);
+ 		writel(val, priv->regs + APLIC_xMSICFGADDR);
+ 		writel(valh, priv->regs + APLIC_xMSICFGADDRH);
++		priv->saved_msiaddr = val;
++		priv->saved_msiaddrh = valH;
+ 	}
+ #endif
+ 
+@@ -106,6 +229,7 @@ void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode)
+ 	writel(val, priv->regs + APLIC_DOMAINCFG);
+ 	if (readl(priv->regs + APLIC_DOMAINCFG) != val)
+ 		dev_warn(priv->dev, "unable to write 0x%x in domaincfg\n", val);
++	priv->saved_domaincfg = val;
  }
  
- static int __init imsic_early_dt_init(struct device_node *node, struct device_node *parent)
+ static void aplic_init_hw_irqs(struct aplic_priv *priv)
+@@ -176,6 +300,23 @@ int aplic_setup_priv(struct aplic_priv *priv, struct device *dev, void __iomem *
+ 	/* Setup initial state APLIC interrupts */
+ 	aplic_init_hw_irqs(priv);
+ 
++	/* For power management */
++	priv->saved_target = devm_kzalloc(dev, priv->nr_irqs * sizeof(u32),
++					  GFP_KERNEL);
++	if (!priv->saved_target)
++		return -ENOMEM;
++
++	priv->saved_sourcecfg = devm_kzalloc(dev, priv->nr_irqs * sizeof(u32),
++					     GFP_KERNEL);
++	if (!priv->saved_sourcecfg)
++		return -ENOMEM;
++
++	priv->saved_ie = devm_kzalloc(dev,
++				      DIV_ROUND_UP(priv->nr_irqs, 32) * sizeof(u32),
++				      GFP_KERNEL);
++	if (!priv->saved_ie)
++		return -ENOMEM;
++
+ 	return 0;
+ }
+ 
+@@ -209,6 +350,8 @@ static int aplic_probe(struct platform_device *pdev)
+ 	if (rc)
+ 		dev_err_probe(dev, rc, "failed to setup APLIC in %s mode\n",
+ 			      msi_mode ? "MSI" : "direct");
++	else
++		register_syscore_ops(&aplic_syscore_ops);
+ 
+ #ifdef CONFIG_ACPI
+ 	if (!acpi_disabled)
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.h b/drivers/irqchip/irq-riscv-aplic-main.h
+index b0ad8cde69b1..969319242dbc 100644
+--- a/drivers/irqchip/irq-riscv-aplic-main.h
++++ b/drivers/irqchip/irq-riscv-aplic-main.h
+@@ -31,6 +31,16 @@ struct aplic_priv {
+ 	u32			acpi_aplic_id;
+ 	void __iomem		*regs;
+ 	struct aplic_msicfg	msicfg;
++	struct notifier_block	genpd_nb;
++	struct list_head	list;
++	u32 *saved_target;
++	u32 *saved_sourcecfg;
++	u32 *saved_ie;
++	u32 saved_domaincfg;
++#ifdef CONFIG_RISCV_M_MODE
++	u32 saved_msiaddr;
++	u32 saved_msiaddrh;
++#endif
+ };
+ 
+ void aplic_irq_unmask(struct irq_data *d);
+@@ -39,7 +49,9 @@ int aplic_irq_set_type(struct irq_data *d, unsigned int type);
+ int aplic_irqdomain_translate(struct irq_fwspec *fwspec, u32 gsi_base,
+ 			      unsigned long *hwirq, unsigned int *type);
+ void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode);
++void aplic_direct_restore(struct aplic_priv *priv);
+ int aplic_setup_priv(struct aplic_priv *priv, struct device *dev, void __iomem *regs);
++int aplic_add(struct device *dev, struct aplic_priv *priv);
+ int aplic_direct_setup(struct device *dev, void __iomem *regs);
+ #ifdef CONFIG_RISCV_APLIC_MSI
+ int aplic_msi_setup(struct device *dev, void __iomem *regs);
+diff --git a/drivers/irqchip/irq-riscv-aplic-msi.c b/drivers/irqchip/irq-riscv-aplic-msi.c
+index fb8d1838609f..c9b4f7d5e6ea 100644
+--- a/drivers/irqchip/irq-riscv-aplic-msi.c
++++ b/drivers/irqchip/irq-riscv-aplic-msi.c
+@@ -281,5 +281,6 @@ int aplic_msi_setup(struct device *dev, void __iomem *regs)
+ 	pa = priv->msicfg.base_ppn << APLIC_xMSICFGADDR_PPN_SHIFT;
+ 	dev_info(dev, "%d interrupts forwarded to MSI base %pa\n", priv->nr_irqs, &pa);
+ 
+-	return 0;
++	/* Add the aplic_priv to the list */
++	return aplic_add(dev, priv);
+ }
 -- 
 2.17.1
 
