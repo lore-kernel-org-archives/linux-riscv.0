@@ -4,53 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A66CC83F1D
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 09:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA50C83F1F
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 09:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=IdyWQF6wGzjZvfAmXHO7u8HU+qkwLXasde2pOJBnXPM=; b=RGIvz19GKeslK/
-	j7nhrI3+frxrysWtfEfq7Qf0b51LRv3ANS1CVa/7nDNQFl9Gvc4ysncHehQ9HwOQzxtiObdnw/5cO
-	ZvMPAXueWHFTkUcVnPs9FJPLN0oc1ndDTQMOrjkW/lyDBFu0/asfgL/rJlRbFMXgqqgBHGSaO2PKp
-	THKluNDb99sWsaW908oPwGeLW6S8lbS/VapPZHKVVtCYbD2kJ3SvEINBFGsm+c0wwfvoLd4qUzdUj
-	glLo6Qm6P4leJZR4n5eunGWqKqW9mtq9A1YmUGj/cgJAt84HLPhT+a6MZzIEcrkSahdDDFFKcwWOY
-	q8q4zEEUV6/PLuJb3wow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ABwh69zxpH2SWkGsVQU0F979/yhOMm41gHa467cvLBg=; b=QazLFdctuqLBDb
+	2SjD+gT23sLZUoGFgBfn/brodo9IV3DG7G52AbPwhJrmE6ZZ0Iriy+rUVSR+aUEJUi+Ghex9YzNbf
+	Gx5vRiG8zP5IQHzJNDSPA62tb/xtQv0Ewv5JSXPF/ORz5deyfg69WTO36SgkSEozfxzrGkEDD0Ize
+	QFlGVsY0E7uPtr1W0mH9bV5h5rHlDZIEu6/Y8WRls3qrpCO2ZTL6JQu//0YYPVPucmfGYsnXnHPPK
+	3JSRBvwwY8M/5fwkjyCFelBg98fXqRfSUmrCMRImzKQyvec6LeDSJKbEAt/zfXHXyH+F48KN3L7dY
+	gGVoZqezRnBh3FyWrUZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZnCz-0000000BHQx-14Kd;
-	Thu, 10 Jul 2025 09:04:49 +0000
-Received: from mail.capitalcraft.pl ([57.129.67.144])
+	id 1uZnD2-0000000BHSl-1iQi;
+	Thu, 10 Jul 2025 09:04:52 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZluz-0000000B34I-1L27
+	id 1uZlyI-0000000B3nJ-2dVQ
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Jul 2025 07:42:10 +0000
-Received: by mail.capitalcraft.pl (Postfix, from userid 1002)
-	id DD175239F3; Thu, 10 Jul 2025 07:41:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=capitalcraft.pl;
-	s=mail; t=1752133327;
-	bh=HDVkD9F9d0LNuXby99FgApyHr5MULFRdKL2PW8Qg/Vo=;
-	h=Date:From:To:Subject:From;
-	b=nhac9TTdo4ltBHOom+pTq4AS9tBefPpi6X8bsoV3NSQZGadBbat5j66eIdrxekIUF
-	 Heu1yDWD76NuUTBHwCtgCbgTkKTzjgwxYItPrjesQ5i/sqjTRy+DpSmvbOJLb/SlaO
-	 L7Y1IcKwMVt7E6TXTjyExuwYBxm0Y/a1104Vht8SFnq+/dhj3ZCOPigsNJwkFKYWau
-	 0fknxRaZoSTgohe2C/h6CkC4eo0Bqgps1ofTeABnhjvVXzMSn8wG31Kf9NgFTkeZ2J
-	 GT9N6hSjMdRmgTJnO+/kWybqEGKoZQqbN8PYxL+cTJPZtPNHF4eJtQdS99ZG8U7Z+S
-	 hcpeNG2z4UWKA==
-Received: by mail.capitalcraft.pl for <linux-riscv@lists.infradead.org>; Thu, 10 Jul 2025 07:40:33 GMT
-Message-ID: <20250710064500-0.1.3c.g4bu.0.87wqmsvb7j@capitalcraft.pl>
-Date: Thu, 10 Jul 2025 07:40:33 GMT
-From: "Karolina Dylkiewicz" <karolina.dylkiewicz@capitalcraft.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: Ochrona pracodawcy - prawo pracy
-X-Mailer: mail.capitalcraft.pl
+	Thu, 10 Jul 2025 07:45:36 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 41E0C44362;
+	Thu, 10 Jul 2025 07:45:26 +0000 (UTC)
+Message-ID: <6d7dad19-bf05-4109-93ac-7d688b390e1c@ghiti.fr>
+Date: Thu, 10 Jul 2025 09:45:25 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Fix a segmentation fault also add raid6test for
+ RISC-V support
+To: Chunyan Zhang <zhang.lyra@gmail.com>
+Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Charlie Jenkins <charlie@rivosinc.com>, Song Liu <song@kernel.org>,
+ Yu Kuai <yukuai3@huawei.com>, linux-riscv@lists.infradead.org,
+ linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250610101234.1100660-1-zhangchunyan@iscas.ac.cn>
+ <8a1b1610-02b1-46a8-9a10-c19c1580c017@ghiti.fr>
+ <CAAfSe-s1g8h+HpYz8FmW4n7h+hhi5W0_N-jpfAD5Ldai8NjwHw@mail.gmail.com>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <CAAfSe-s1g8h+HpYz8FmW4n7h+hhi5W0_N-jpfAD5Ldai8NjwHw@mail.gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefleekjecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhephffhuddtveegleeggeefledtudfhudelvdetudfhgeffffeigffgkeethfejudejnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmegsfehfudemjegtiegrmegsheduleemrghfsgdtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegsfehfudemjegtiegrmegsheduleemrghfsgdtpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmegsfehfudemjegtiegrmegsheduleemrghfsgdtngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeduuddprhgtphhtthhopeiihhgrnhhgrdhlhihrrgesghhmrghilhdrtghomhdprhgtphhtthhopeiihhgrnhhgtghhuhhnhigrnhesihhstggrshdrrggtrdgtnhdprhgtphhtthhop
+ ehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheptghhrghrlhhivgesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepshhonhhgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeihuhhkuhgrihefsehhuhgrfigvihdrtghomh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_004209_516159_484EA22C 
-X-CRM114-Status: UNSURE (   1.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250710_004534_813887_7A78C3F7 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,21 +67,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHJvZHp5IFByemVkc2nEmWJpb3JjeSwKCncgcHJha3R5Y2UgcHJhd2EgcHJhY3kgZ3JhbmljYSBt
-acSZZHp5IGZvcm1hbG5vxZtjaWFtaSBhIHJ5enlraWVtIHBvdHJhZmkgYnnEhyBjaWVua2Eg4oCT
-IGEgamVkZW4gbmllcHJ6ZW15xZtsYW55IHphcGlzIG1vxbxlIG1pZcSHIGtvc3p0b3duZSBrb25z
-ZWt3ZW5jamUuCgrFmndpYWRjesSZIHN0YcWCxIUgb2JzxYJ1Z8SZIHByYXduxIUgdyB6YWtyZXNp
-ZSBwcmF3YSBwcmFjeSDigJMgdGFrLCBiecWbIG1pYcWCIHBld25vxZvEhywgxbxlIFR3b2plIGR6
-aWHFgmFuaWEgamFrbyBwcmFjb2Rhd2N5IHPEhSBiZXpwaWVjem5lIGkgZG9icnplIHVkb2t1bWVu
-dG93YW5lLiAKCkR6aWHFgmFtIHNwcmF3bmllLCByemVjem93byBpIGJleiBuYWRtaWFydSBmb3Jt
-YWxub8WbY2kg4oCTIHdpxJlrc3pvxZvEhyBzcHJhdyByb3p3acSFenVqZW15IHphbmltIHVyb3Nu
-xIUgZG8gcmFuZ2kgcHJvYmxlbXUuCgpDenkgbW9nxJkgcHJ6ZWRzdGF3acSHIHBlxYJlbiB6YWty
-ZXMgbmFzemVnbyB3c3BhcmNpYT8KCgpQb3pkcmF3aWFtCkthcm9saW5hIER5bGtpZXdpY3oKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 7/10/25 03:44, Chunyan Zhang wrote:
+> Hi Alex,
+>
+> On Wed, 9 Jul 2025 at 23:18, Alexandre Ghiti <alex@ghiti.fr> wrote:
+>> Hi Chunyan,
+>>
+>> Patch 2 was merged via fixes, do you plan on resending a new version for
+>> 6.17 that takes into account Palmer's remarks?
+> Yes, I'm preparing the patches these days, just haven't figured out
+> how to set NSIZE properly for user space.
+
+
+Just use hwprobe() to make sure V is supported and then csr_read(VLENB) 
+to retrieve this value, no?
+
+
+>
+> I probably should split the patchset, send out one today.
+>
+> Thanks,
+> Chunyan
+>
+>> Thanks,
+>>
+>> Alex
+>>
+>> On 6/10/25 12:12, Chunyan Zhang wrote:
+>>> The first two patches are fixes.
+>>> The last two are for userspace raid6test support on RISC-V.
+>>>
+>>> The issue fixed in patch 2/4 was probably the same which was spotted by
+>>> Charlie [1], I couldn't reproduce it at that time.
+>>>
+>>> When running raid6test in userspace on RISC-V, I saw a segmentation fault,
+>>> I used gdb command to print pointer p, it was an unaccessible address.
+>>>
+>>> With patch 2/4, the issue didn't appear anymore.
+>>>
+>>> [1] https://lore.kernel.org/lkml/Z5gJ35pXI2W41QDk@ghost/
+>>>
+>>> Chunyan Zhang (4):
+>>>     raid6: riscv: clean up unused header file inclusion
+>>>     raid6: riscv: Fix NULL pointer dereference issue
+>>>     raid6: riscv: Allow code to be compiled in userspace
+>>>     raid6: test: add support for RISC-V
+>>>
+>>>    lib/raid6/recov_rvv.c   |  9 +-----
+>>>    lib/raid6/rvv.c         | 62 +++++++++++++++++++++--------------------
+>>>    lib/raid6/rvv.h         | 15 ++++++++++
+>>>    lib/raid6/test/Makefile |  8 ++++++
+>>>    4 files changed, 56 insertions(+), 38 deletions(-)
+>>>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
