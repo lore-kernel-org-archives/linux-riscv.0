@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC1BFC83F1B
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 14:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C729CC83F17
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 14:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wGIcZRmS1BXsJNL4gsMchct4OCmEjKUZLGBfb9r5NC8=; b=oABof3wFTU4sVh
-	uxdv2tnbLMZO8ZsZnjWfqgeEnaITOitvT7B1OAduhPEMMVBypJr6Q9aBtIZLK0l8KA6xlVJTJIl7v
-	2v91cp7NQh/XjuJ4dX8AtNsz4bFUZHkwbPtM7RbVkM64S/1SiXF2Sryh4sh7XxYqwLS71RTzy/8zh
-	MRvJfwQrO2/Am8MjBGfH3eZePYEutt4qLZ4CfHRXthCWT4JpxKl0yJfr39UfLWQs412HWBztHuVLM
-	++gURz0nADwTxvfZqCRbm60QH4KQbiD53kOfpgjG0ANAIKRQUgDDTiZlwYW3Xp3PfhOKX/b7IHQtN
-	udMebcwel24YDVSlDFBA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=grhi+S41+57TBE9i0APjqTdsHrWlzeRtJO0nTKqiUns=; b=VJENWbK/Ek6k0t
+	xd8/BhDUkLvVX5QA6uH+JGvrWcBjHq9utL5H87WHRDYwwnsJc5qmGMPQnQhMJKAO+AKKLODBp6+LM
+	Msx5P5XNg5tkICNd+Tqd6KkA3TdEizHt4vavLNzZhFYrjkENYPPX3tU18IcHjvpD9rDQdI+yEmHbK
+	lS0f2CNXYFj16nfJgGnEclw2VZbowgymjLrIUBB7UTjRlfLFvoOL3xmzuLiJMb6RAB5Y+HcDkWJvd
+	9Fgw2aBAv2rrbEy63d0LQf8tGxJgIwiTOXcbgCZLMIcu6b52BaU4aICm5HhFjgZfAjBQpkb7hqCAG
+	095GW4+Liwox21+XTSKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZsUj-0000000C9Yq-1Jdx;
-	Thu, 10 Jul 2025 14:43:29 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1uZsVC-0000000C9df-37HU;
+	Thu, 10 Jul 2025 14:43:58 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqk7-0000000BpRM-0iX1;
-	Thu, 10 Jul 2025 12:51:16 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=ZzJrUL6O6v1DRyR436tCBD8z7HWtszSSl/3nnQnA8SM=;
-	b=m6SrPB5t8l/V6dpaUT0BGJN+OYRjxHWFGz7Hgtcf0dIdSzQdONvW3GgnvXGikNHkeb3P10E9jdliHJfY7kie9+5+q/Iqd3TazrGDovaf1zjzT5DZexQpE4MgtUGnjhieT+L3scdXOU666lNr5CqxN4w7FD1M3cHwKfUobo9Nc7Q=
-Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPA
-	; Thu, 10 Jul 2025 14:51:00 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 4/5] ARM: dts: sunxi: add support for NetCube Systems Nagami Basic Carrier
-Date: Thu, 10 Jul 2025 14:50:18 +0200
-Message-Id: <20250710125021.1079702-5-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250710125021.1079702-1-lukas.schmid@netcube.li>
-References: <20250710125021.1079702-1-lukas.schmid@netcube.li>
+	id 1uZqlo-0000000BpwV-48xD
+	for linux-riscv@lists.infradead.org;
+	Thu, 10 Jul 2025 12:53:02 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-236377f00a1so9060865ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Jul 2025 05:53:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1752151980; x=1752756780; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9sSolDnOeL8Qn5bsbXBGk9GdJMqX3fYqqm7e5urFgg4=;
+        b=T3xWjE8EqPt8hbvduLMVzHvbC4cgoCotgONknFqpXcpKhxb0V8bNT3qvoOlISg4pcj
+         C0fR9kJLcrMXsdc6Cbl2jZe9E8H2Mnjt6ULwQ4NrQjkGT4leM776eIvLQCivRQEVoN7S
+         z+FIPFtDBES+vyKpmigKJ/18xosD1rH9tJZ7p20xeJrQEZTX9vW2/pcitm0OAvNYXBhY
+         V7U65hzP+jzQ7EGNna+iPem5gWWFu4nNmUA5XhnoT0AXNlWSb7THxTlh/UCVgBd6upp6
+         KCR820w7PtKIKf5qBYfHMfjvP5FwRRcZbiIGLNk1EqLBrB1A/zafXJEHxYYgQ94nJSMs
+         24uA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752151980; x=1752756780;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9sSolDnOeL8Qn5bsbXBGk9GdJMqX3fYqqm7e5urFgg4=;
+        b=H5M1E2FnhlnaGfJQ0EeIlZjKrlxbb0eh8BDcnPBGcolDK+9iEoeONq5dXh2AsFrJZH
+         UUoNLtSqo86djFXUhjcs9H5qe/eCM0tUzFibWgCqLuNJclcBuLFyyYGOi/49R6TZX7m4
+         PZZ/D9kUF7B61okj98VgAsc6HWfGTCl2rgpA3GRI/8k4J94F/yoG8SPaJaLo8uzuxCy8
+         2t/UBXMKeSivHiDnoYRblvYb3rnzbPC/PY3twibsto9oDiaUI6FRx7Je+ITCBrmbznuf
+         fdrlj6zRr5XPyHC7/lYGJ0g5fsXKUd800DQEC4i/V4Mlx4A42dGuGu/OUlN1KF5H3qdL
+         lBng==
+X-Forwarded-Encrypted: i=1; AJvYcCWJ0X+CtNuEjfC/wkEo+76E9icextdMoH68kgl7mqcdKV6rA+FOiaseBgfkFTAHo3DQeVDclasA7ooVMg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpfIqkmqv4p42tVy9KR1AMPu109uSvP7eo7TQ6QjSIkay/FsLa
+	5eRrhDp5phw9x+JdXoW8g2punQ4L0IlXwmU6ofzHk4mhe1cAhUBoAuWXpneOWeYoC7s=
+X-Gm-Gg: ASbGncuS0WiLCGE2aTs0m7gK4NGNTRxRtfDM2McJnU4gB8d8jssG1e6W/BYDI5qo06K
+	8uSjqjN2Z4XgbSLxDJY+CZWgBRstwumLCKGjGTL87K04rgq7RqQHRluxXjLZ+V2pGUcUSKvqCkF
+	V544m8hgVgBxFloA+0mPXq10wejQ+6YMr0dE8qY93XeJ8vDCjSCj+R8kYZ8u2ObRwe+F9R5HrZP
+	2ZBJmhc6iRsUthECe27vwbgrMcs5Z4j+AxnHOTWa43X81NLkUycGrdIU68p8PsXVvIp6NFq8Q8X
+	GGyd9HgZ2hiGCoj+PD5okr5FWaH0kpKnMFzRLpbFhC+Flnh74a1b95FQEQiR6E+8B6ccce7mFJk
+	wwIEqZfKLKDFbyCaAcFvjG+M=
+X-Google-Smtp-Source: AGHT+IEztXrV4s36cuuPaBPR/uJ57CmW/fEKa2vBaNvpU5su8ofpXHgJ3aoe6UZWiAsKIoYYDMrzHw==
+X-Received: by 2002:a17:903:1b04:b0:234:f19a:eead with SMTP id d9443c01a7336-23ddb343a4cmr102677405ad.43.1752151979813;
+        Thu, 10 Jul 2025 05:52:59 -0700 (PDT)
+Received: from ventana-bhyve.dc1.ventanamicro.com ([49.37.251.185])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4359c68sm19230715ad.213.2025.07.10.05.52.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Jul 2025 05:52:59 -0700 (PDT)
+From: Himanshu Chauhan <hchauhan@ventanamicro.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Himanshu Chauhan <hchauhan@ventanamicro.com>
+Subject: [PATCH v1 0/2] riscv: Introduce support for hardware break/watchpoints
+Date: Thu, 10 Jul 2025 18:22:29 +0530
+Message-ID: <20250710125231.653967-1-hchauhan@ventanamicro.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_055115_490514_B7C0663A 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250710_055301_025875_2445C798 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,114 +100,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The NetCube Systems Nagami Basic Carrier is a Carrier for the Nagami SoM
-It provides an ethernet port for the phy on the SoM and some USB-Ports.
-All other interfaces and gpios are available on pinheader, except for the
-SD-Interface which is available on a micro-sd slot.
+This patchset adds support of hardware breakpoints and watchpoints in RISC-V
+architecture. The framework is built on top of perf subsystem and SBI debug
+trigger extension.
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- arch/arm/boot/dts/allwinner/Makefile          |  2 +
- ...n8i-t113s-netcube-nagami-basic-carrier.dts | 67 +++++++++++++++++++
- 2 files changed, 69 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
+Currently following features are not supported and are in works:
+ - Ptrace support
+ - Single stepping
+ - Virtualization of debug triggers
 
-diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index d799ad153..af287bb32 100644
---- a/arch/arm/boot/dts/allwinner/Makefile
-+++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -199,6 +199,7 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc := -@
- DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc-plus := -@
-+DTC_FLAGS_sun8i-t113s-netcube-nagami-basic-carrier := -@
- DTC_FLAGS_sun8i-v3s-netcube-kumquat := -@
- dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-a23-evb.dtb \
-@@ -257,6 +258,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-s3-lichee-zero-plus.dtb \
- 	sun8i-s3-pinecube.dtb \
- 	sun8i-t113s-mangopi-mq-r-t113.dtb \
-+	sun8i-t113s-netcube-nagami-basic-carrier.dtb \
- 	sun8i-t3-cqa3t-bv3.dtb \
- 	sun8i-v3-sl631-imx179.dtb \
- 	sun8i-v3s-anbernic-rg-nano.dtb \
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
-new file mode 100644
-index 000000000..5ee9a211a
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-t113s-netcube-nagami.dtsi"
-+
-+/ {
-+	model = "NetCube Systems Nagami Basic Carrier Board";
-+	compatible = "netcube,nagami-basic-carrier", "netcube,nagami",
-+				 "allwinner,sun8i-t113s";
-+};
-+
-+&can0 {
-+	status = "okay";
-+};
-+
-+&can1 {
-+	status = "okay";
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+};
-+
-+&i2s1 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	broken-cd;
-+	disable-wp;
-+	bus-width = <4>;
-+	status = "okay";
-+};
-+
-+&ohci0 {
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&spi1 {
-+	status = "okay";
-+};
-+
-+&usb_otg {
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	usb0_id_det-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
-+	status = "okay";
-+};
+The SBI debug trigger extension proposal can be found in Chapter-19 of SBI specification:
+https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/v3.0-rc8/riscv-sbi.pdf
+
+The Sdtrig ISA is part of RISC-V debug specification which can be found at:
+https://github.com/riscv/riscv-debug-spec
+
+Himanshu Chauhan (2):
+  riscv: Add SBI debug trigger extension and function ids
+  riscv: Introduce support for hardware break/watchpoints
+
+ arch/riscv/Kconfig                     |   1 +
+ arch/riscv/include/asm/hw_breakpoint.h | 320 ++++++++++++
+ arch/riscv/include/asm/kdebug.h        |   3 +-
+ arch/riscv/include/asm/sbi.h           |  29 ++
+ arch/riscv/kernel/Makefile             |   1 +
+ arch/riscv/kernel/hw_breakpoint.c      | 657 +++++++++++++++++++++++++
+ arch/riscv/kernel/traps.c              |   6 +
+ 7 files changed, 1016 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/hw_breakpoint.h
+ create mode 100644 arch/riscv/kernel/hw_breakpoint.c
+
 -- 
-2.39.5
-
+2.45.2
 
 
 _______________________________________________
