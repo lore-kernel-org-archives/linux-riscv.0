@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF776C83F17
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 13:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D97C83F1D
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 13:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/63Ua+8CkZjE1qyX3sBWkMccx5OHLqnxoUWwNziJ71I=; b=fy5oxTwGHk1VW5
-	xNyDa4MYPe6UW24hhLdnECYsulwfwWyEKLOWBEaz3Lw3KSwAG5xlcDBOxUR6vYndkqlZVCzzMHlNs
-	KQAtuTdlHQNwGF9XxpCHBCUjs7jxFCBlG5H/6lUidSPSuSW6GY/zigqFv3FA56golDWsiuxYLIURU
-	oe4z1AfQPYU501GlqhdJeY/lETrHWciNjGB1ZR15pkVXegZ2ay6eCRjkpNi4n1gm6gMnocdNCDENo
-	lxPENPqt/HJrk6P+G5cO+GRu2kfw1ULNP6mFo3dxhX4d1gi6js4AA96dkApQu+tDfiiErQXd+9pbN
-	5NjkkueIK43HfaA1/Npg==;
+	List-Owner; bh=Vr2jMy5etE9DbVbBVSBbR29fVDA+zrhXqCk4NEorygY=; b=evVqidAJIT25Kh
+	ItXHI0hyYyfApqJy5uDBnHJVFhGs0zam6JBsw2oZRIrR9OXSQ70ECKPqMSmQVo+vU9DjSH/o0oH5a
+	DjZtPsWEQOtL8Syqz+dniJMKL7ZNyNxwMSJSdyVxtQTGyusH+7ibqc6R/jvupi4e2p+9aNm9MyBe8
+	JNSR2MJ0eVgXWEoIm84lsusdEqHEYCUgluFjy4aL0DTzWSN77WxwyVm1rI3MaJR47wuioWSA7kYoA
+	+3WgOs1GRWM2EvjxBlMoxAiE/pmpgeoGb1p3NSwVcS5v+4wbxCOwA4EM5ZFtI8G5n+z2dqXEi3oH5
+	skJnmC3ldBaZablul3tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZrWY-0000000ByV3-2LhE;
-	Thu, 10 Jul 2025 13:41:18 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1uZrbB-0000000BzkW-24Jf;
+	Thu, 10 Jul 2025 13:46:05 +0000
+Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqHL-0000000BkiI-0eBN
+	id 1uZqLl-0000000BlFO-3AuT
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Jul 2025 12:21:32 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7d0a0bcd3f3so99243685a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Jul 2025 05:21:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1752150090; x=1752754890; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ykmA4VtBEf4m3I9yh9SrcV1DzXur6jCxtcYH7LJI2a0=;
-        b=f/gSFWX9egnS9DjIqB+r6T5yF5A80S3fFjguyzN4ZFzztV2HyE3bcVKuIjrPCmpV9q
-         p5P3Ml0ThUv5tyR8+IyeosklW0yd2LEmINx/Fh7UfIVAfrsZnBoXIBXtopVtiZbXemrx
-         U2nNT1yM+mnyr54CMA7z6ZC2y1r2M8iF7LiHg49qIq1uf8k56GskEOzWUx/CiP8JnC+3
-         K3Inry/IlPSX+hoWkfCx2WRzdaU54jJI4xEROHQyeVD8sH4/xwMy3vn0jZ1Ai/auVl19
-         ZkGAq087eEY/TvsHCtiIzZ9bBqukXitEQHitu26lhMwjMbn7FCC4L9CpGUMxAf0HEruQ
-         2nUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752150090; x=1752754890;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ykmA4VtBEf4m3I9yh9SrcV1DzXur6jCxtcYH7LJI2a0=;
-        b=PXVjWDK5hUQvLmAd5Db1sBVaS4v1pssvFMCgcp+ovOPKYYzaUejmcGRTIXmEe4jSIa
-         qkrhrraVIyMYVYX3qKFOdbAnz87TgYfnrx1Hs8LecxKpbcuPiKMcwgKWMDd4z6u1OUP8
-         7BMDUQPMFOORtGD7GQJyT5U5W2p7vMJ15wtxLXYhZnQ4H3WkKxV7txgtb005kdjXadaI
-         4fiH8MwKFgg3921/DojnIZzubO66citjQg3b+wdy6n8a59SfEnQbspH4UQnyBfyCvpUO
-         otGyNPLCZa27aAb1a9IQOQ3eaU8NwtUk0LRgc9jUOS3dyIXrmSOYehMNpBTqk+6BZaIV
-         KKqA==
-X-Forwarded-Encrypted: i=1; AJvYcCVP7tbxCCXalKyCrdQgw8zOnDSsaZ7GoipdDdxmPt7bapUdtQ0V4NxwCVS6H03NZGNStFJAfu5d2zDptg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxemvJshz/qC8HfGGRxE1uBZXaS0ofsp/Kct2yrvjuz3J8p7O+B
-	+qXPUgodKjz7bnUfl/euDu6z0S+yzJv86FqdZOfVvmqVr2zq/mFJBlaKLG6Y1kMVUow=
-X-Gm-Gg: ASbGnctJkmlD55/2pPABceCXtKsrSAAaSPBN0+2+KxG1w02bTSMKsCOlGP1GPlj68aa
-	u6VIZB2ySMjpT6w1xMFxojVALNVAGOb8dyF8mL6KWL7vXaqWPqFnVgj2tcTvTZ1FHbGEkJVbfBm
-	Rt445U5jBrjQylE/kySysQ/D/x0+QKsO1sTvp600Ti506AcF2s+gEXlJVTZpzKKLzTWoezNP9wr
-	80vJVI8ieUICLAVjMYcqX28YgemhUBMm/6tKHc4FqgCeTLPRccch0ubJP+wA/H/b5uko2Msf674
-	lpF0Jxt6Nu2Fs9f62cvi72I4Y7YSTuAUn/JJfrCgskfwZedN35RH/6xnsFZoCCw2OlLl4TOD+Ev
-	hgYvR2mVyKHfSAoVUbz8ZSXDVkw==
-X-Google-Smtp-Source: AGHT+IHAaGLj0dorD8TmmT+oXd6EpUTGrwAVYRSrLza6IYfI1rY0XCuwxUpREHQ/PIg/XOc23Vol9Q==
-X-Received: by 2002:a05:620a:4408:b0:7d3:d8c8:1e32 with SMTP id af79cd13be357-7dc977d8fe3mr492098085a.3.1752150089600;
-        Thu, 10 Jul 2025 05:21:29 -0700 (PDT)
-Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7dcde8fd479sm90171685a.99.2025.07.10.05.21.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Jul 2025 05:21:29 -0700 (PDT)
-Message-ID: <f68067fd-328d-496a-8b39-9d0cc6cd05d7@riscstar.com>
-Date: Thu, 10 Jul 2025 07:21:27 -0500
+	Thu, 10 Jul 2025 12:26:07 +0000
+Received: from eig-obgw-6001a.ext.cloudfilter.net ([10.0.30.140])
+	by cmsmtp with ESMTPS
+	id ZgZwu77k1bmnlZqLYu7F6s; Thu, 10 Jul 2025 12:25:52 +0000
+Received: from box5620.bluehost.com ([162.241.219.59])
+	by cmsmtp with ESMTPS
+	id ZqLWuydCIlLZyZqLXugBiq; Thu, 10 Jul 2025 12:25:51 +0000
+X-Authority-Analysis: v=2.4 cv=bNXdI++Z c=1 sm=1 tr=0 ts=686fb14f
+ a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
+ a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=7vwVE5O1G3EA:10 a=h0uksLzaAAAA:8
+ a=HaFmDPmJAAAA:8 a=GF-RUcCtsk5XG7IKrCkA:9 a=QEXdDO2ut3YA:10
+ a=MSi_79tMYmZZG2gvAgS0:22 a=nmWuMzfKamIsx3l42hEX:22 a=Wh1V8bzkS9CpCxOpQUxp:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=/EmhaQofK3G5RuwmtT2ZTkTGiMdxnAebPcNinPkshuc=; b=dsZfvv9DsCZ0cLphiEKGotRIgO
+	knyc3vtz0X6m8X8wA2lV5seag92PCqibQstlF8kYw5RjtY3PvYaFiTRSmDJrkCONQbxTW+nhL5G8l
+	qnPDIxqn6/34uUF0VAnbuGeQ6huII/XZPlrSTPTP5Mxl4EXMD5817ABLODnW5Jh3t1ekapevxDKwJ
+	dlVhyaiRHNLK9PzHwTxYOl8va0MUhJ3QLzJ5mBZPNmY790Wn1rkwtrzeQyDPlrr8Wf5KY/5dRkMRJ
+	BzDUrC0JEAEQbmnKoS9YTBEfokAuz5ARRCDAaPQYPESUWob9a7ce7lIP+TwBHgYHDj7XOUzfL5mS2
+	dMWMeN3A==;
+Received: from c-73-223-253-157.hsd1.ca.comcast.net ([73.223.253.157]:39722 helo=[10.0.1.116])
+	by box5620.bluehost.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.98.1)
+	(envelope-from <re@w6rz.net>)
+	id 1uZqLV-00000001iV4-2pER;
+	Thu, 10 Jul 2025 06:25:49 -0600
+Message-ID: <5cc4fdb6-9a4c-4937-9878-7fcd3d3f0a05@w6rz.net>
+Date: Thu, 10 Jul 2025 05:25:43 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/8] mfd: simple-mfd-i2c: specify max_register
-To: Lee Jones <lee@kernel.org>
-Cc: lgirdwood@gmail.com, broonie@kernel.org, alexandre.belloni@bootlin.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, mat.jonczyk@o2.pl,
- dlan@gentoo.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, troymitchell988@gmail.com,
- guodong@riscstar.com, linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250702213658.545163-1-elder@riscstar.com>
- <20250702213658.545163-3-elder@riscstar.com>
- <20250710092448.GA1431498@google.com>
+Subject: Re: [PATCH] riscv: Stop considering R_RISCV_NONE as bad relocations
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250710-dev-alex-riscv_none_bad_relocs_v1-v1-1-758f2fcc6e75@rivosinc.com>
 Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20250710092448.GA1431498@google.com>
+From: Ron Economos <re@w6rz.net>
+In-Reply-To: <20250710-dev-alex-riscv_none_bad_relocs_v1-v1-1-758f2fcc6e75@rivosinc.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - box5620.bluehost.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - w6rz.net
+X-BWhitelist: no
+X-Source-IP: 73.223.253.157
+X-Source-L: No
+X-Exim-ID: 1uZqLV-00000001iV4-2pER
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: c-73-223-253-157.hsd1.ca.comcast.net ([10.0.1.116]) [73.223.253.157]:39722
+X-Source-Auth: re@w6rz.net
+X-Email-Count: 2
+X-Org: HG=bhshared;ORG=bluehost;
+X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfMK65pPFJsvAIImXy4H5Ek1w1Co9jTha/aC1RBmO33wZOWfBNnviAxsnp/HKndC0jHULf/Fb2lhgZLcjzmHy9nD/dpSUiCXOwLGUqyQz8TEHk1iMk4lD
+ bsgH4SWVDirBs8Plhmw/dhCz/G8yrFNwwW06T1y2ci31LuaWvExF/kJyjOc0Arbmq61HbBGTCkiF/AWwoz7HMAZnj3k9cTzfc8w=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_052131_307758_4F99C119 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20250710_052605_929615_6AD9514A 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,103 +110,42 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/10/25 4:24 AM, Lee Jones wrote:
-> On Wed, 02 Jul 2025, Alex Elder wrote:
-> 
->> All devices supported by simple MFD use the same 8-bit register
->> 8-bit value regmap configuration.  There is an option available
->> for a device to specify a custom configuration, but no existing
->> device uses it.
->>
->> Rather than specify a "full" regmap configuration to use this
->> option, Lee Jones suggested allowing just the max_register value
->> to be specified in the simple_mfd_data structure.
->>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> Suggested-by: Lee Jones <lee@kernel.org>
->> ---
->> v2: - Allow max_register *and* regmap_config to be supplied
->>
->>   drivers/mfd/simple-mfd-i2c.c | 15 ++++++++++++---
->>   drivers/mfd/simple-mfd-i2c.h |  1 +
->>   2 files changed, 13 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
->> index 22159913bea03..3f959f4f98261 100644
->> --- a/drivers/mfd/simple-mfd-i2c.c
->> +++ b/drivers/mfd/simple-mfd-i2c.c
->> @@ -33,16 +33,25 @@ static int simple_mfd_i2c_probe(struct i2c_client *i2c)
->>   {
->>   	const struct simple_mfd_data *simple_mfd_data;
->>   	const struct regmap_config *regmap_config;
-> 
->> +	struct regmap_config config;
-> 
-> Why do we need another regmap_config?
-> 
-> Can't we just remove the const and make use of the one above?
+On 7/10/25 01:34, Alexandre Ghiti wrote:
+> Even though those relocations should not be present in the final
+> vmlinux, there are a lot of them. And since those relocations are
+> considered "bad", they flood the compilation output which may hide some
+> legitimate bad relocations.
+>
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>   arch/riscv/tools/relocs_check.sh | 4 +++-
+>   1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/tools/relocs_check.sh b/arch/riscv/tools/relocs_check.sh
+> index baeb2e7b2290558d696afbc5429d6a3c69ae49e1..742993e6a8cba72c657dd2f8f5dabc4c415e84bd 100755
+> --- a/arch/riscv/tools/relocs_check.sh
+> +++ b/arch/riscv/tools/relocs_check.sh
+> @@ -14,7 +14,9 @@ bad_relocs=$(
+>   ${srctree}/scripts/relocs_check.sh "$@" |
+>   	# These relocations are okay
+>   	#	R_RISCV_RELATIVE
+> -	grep -F -w -v 'R_RISCV_RELATIVE'
+> +	#	R_RISCV_NONE
+> +	grep -F -w -v 'R_RISCV_RELATIVE
+> +R_RISCV_NONE'
+>   )
+>   
+>   if [ -z "$bad_relocs" ]; then
+>
+> ---
+> base-commit: d7b8f8e20813f0179d8ef519541a3527e7661d3a
+> change-id: 20250710-dev-alex-riscv_none_bad_relocs_v1-ba6048681836
+>
+> Best regards,
 
-If we change the global one, it changes for all users.
+Works good.
 
-In my next version I will modify the global one temporarily and
-zero the max_register field again after the devm_regmap_init_i2c()
-call.  That doesn't protect against concurrent probes but I don't
-think that's a problem.
-
->>   	struct regmap *regmap;
->>   	int ret;
->>   
->>   	simple_mfd_data = device_get_match_data(&i2c->dev);
->>   
->>   	/* If no regmap_config is specified, use the default 8reg and 8val bits */
->> -	if (!simple_mfd_data || !simple_mfd_data->regmap_config)
->> +	if (simple_mfd_data) {
->> +		if (simple_mfd_data->regmap_config)
->> +			config = *simple_mfd_data->regmap_config;
-> 
-> 			regmap_config = simple_mfd_data->regmap_config;
-> 
->> +		else
->> +			config = regmap_config_8r_8v;
-> 
-> 			regmap_config = &regmap_config_8r_8v;
->> +
->> +		if (simple_mfd_data->max_register)
->> +			config.max_register = simple_mfd_data->max_register;
->> +		regmap_config = &config;
->> +	} else {
->>   		regmap_config = &regmap_config_8r_8v;
-> 
-> I suspect we don't need to have this line twice.
-> 
-> Either re-jig the if () above (I suspect this explains the existing
-> complexity [multiple conditions]) or pre-set regmap_config to
-> regmap_config_8r_8v and only over-write it if the conditions are met.
-
-Sure, that would work, but it won't be needed if I just use
-the (non-const) global config.
-
-Thanks for the review.
-
-					-Alex
-		
-> 
->> -	else -		regmap_config = simple_mfd_data->regmap_config;
->> +	}
->>   
->>   	regmap = devm_regmap_init_i2c(i2c, regmap_config); if
->>   	(IS_ERR(regmap)) diff --git a/drivers/mfd/simple-mfd-i2c.h
->>   	b/drivers/mfd/simple-mfd-i2c.h index
->>   	7cb2bdd347d97..706b6f53155ff 100644 ---
->>   	a/drivers/mfd/simple-mfd-i2c.h +++
->>   	b/drivers/mfd/simple-mfd-i2c.h @@ -27,6 +27,7 @@ struct
->>   	simple_mfd_data { const struct regmap_config *regmap_config;
->>   	const struct mfd_cell *mfd_cell; size_t mfd_cell_size; +
->>   	unsigned int max_register; };
->>   
->>   #endif /* __MFD_SIMPLE_MFD_I2C_H */ -- 2.45.2
->>
-> 
+Tested-by: Ron Economos <re@w6rz.net>
 
 
 _______________________________________________
