@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3038C83F10
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 00:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACCB0C83F10
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 01:35:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6kT6+vfm+TDN2/w2G03lsc+mp8/KshdU/kzGH/SItEI=; b=kSEFpufXCeQ534
-	mHQjBPtfUDDea9f3kb8Pdbvfw6FsPxYKrCAfGbQZenO1TXgHNTnRSLOVHQvMlMGLRKzmdir8SNpx/
-	mZ/yK/Oqk6ikfB16OYGtlJ/sA+fPU2EHYLMkkOloOU5vTLDsiWznbUh5uaxDq74cHzInnUBHSksLy
-	5ryaX07y6gJ1QhrXCS8BY+Jzps+vPfkZo0Vh1O56oGs1pe9Ncd8A4L/8c5QfMANwzyPr0m6Fb7X2i
-	XeV9ssJ7FDEaDj5KjWbisLUS1MZQpYTbz2Ye3j+hrHFVOxzU53pdGoQUTViP9PnVoVBXeYWMEsPIN
-	CbhOVO5GCE25PlcLKQxQ==;
+	List-Owner; bh=zKJHBYvjWXVKVLf8Y4ijDoLfzdpH8w5YmQLbeZ3ENho=; b=utMJtB+5u3yw8q
+	NcfjzHnoeDYzq7WjkqDHK82zgaRiCfXplITXuIvEjWpZBBOkvImKt6cd2uK6aSBqR+DGdk+in3d/4
+	Zo0+x90P7WYjzW6+ewlNhJSsRPrfzfEW6flYFZ9DcMPUFMDxTnh+CLvxVPWPpQqMyUoMgQr7JGepX
+	DLddkHZ0WZWlrssrox7Kgz0Ic2RBggp1NsWL4zWeGqhW39RW12MxqzghBNk4qttasnQd6A1zJSeVH
+	swYSXDcyiO+AqYlVYNcrTETqHPMyjLyTCY1PFsoRT4Txvl0rxSTXpR/CDDeCTVSrEwrV6GdxyJ41Q
+	V+RWXAP2LOLRI+5qI0sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZeo6-0000000AIQi-1teM;
-	Thu, 10 Jul 2025 00:06:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uZgCE-0000000AQXK-1pBP;
+	Thu, 10 Jul 2025 01:35:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZeo4-0000000AIQF-3HLd
+	id 1uZgCC-0000000AQX6-2OYE
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Jul 2025 00:06:34 +0000
+	Thu, 10 Jul 2025 01:35:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4765C45B06;
-	Thu, 10 Jul 2025 00:06:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CB65C4CEEF;
-	Thu, 10 Jul 2025 00:06:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A005C6144E;
+	Thu, 10 Jul 2025 01:35:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51F1EC4CEEF;
+	Thu, 10 Jul 2025 01:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752105991;
-	bh=6A1NBhselrYKFebK5UkZ4t+OQWLuowk2Z0FQ1uuVC64=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ORrp505S3OyLA/3F6Zb0Y0y8cn5Lu2zljTqBIaGRCRwYeqQtjUiF6wEtSc1mo08mX
-	 R01OKtsPlkmiarEki3GD16wHxliQRXlIyvcQDzdWSQSyYs3laLDnOTB5k+FvHsT40T
-	 M3sQyQweEj7VNaLd4zOYHV56RNTEjbe6T6W7z1v8qx7F656fzr6BqRNJCArOlXA8Dn
-	 hph5s1r8cuIp7XGNTG2W+g52NWg0PAwG56/pXF2VU7mGptLOx60UlWc6c+HiT3yQzo
-	 zypq3fds3IWGRNOI2rfI9EcNmwY48Yd4+34b/54rTC+yOO6Ma8HSb/o8fy8F3VkQvy
-	 0NhNpOFlPaECw==
-Date: Thu, 10 Jul 2025 09:06:27 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Mark Rutland
- <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Han
- Gao <rabenda.cn@gmail.com>, Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi
- <ziyao@disroot.org>
-Subject: Re: [PATCH] riscv: ftrace: Properly acquire text_mutex to fix a
- race condition
-Message-Id: <20250710090627.999979465d2c263ac2833048@kernel.org>
-In-Reply-To: <20250708-alex-fixes-v1-1-5b008d3f4d0c@rivosinc.com>
-References: <20250708-alex-fixes-v1-1-5b008d3f4d0c@rivosinc.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_170632_872219_B1C988E8 
-X-CRM114-Status: GOOD (  18.14  )
+	s=k20201202; t=1752111331;
+	bh=vuaZDssHpq/J3jA0y7OFz/bVN7cmfEs2MmNf4DnX/WM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=nelftVPXCJB7ObKBwuBT3hh6ozJyMcEuIainJ1cEzbC3iWzXTEA77rqq1z5fs2+is
+	 zs8v8bbfSTTEKZyGjVQneoFkszzLVhyQym7SZEVdSRHut8t1Hk4Y7LII/G3HvvSQJg
+	 Dds0gjg62ARS3uJJEd1yNLkjPCspikXvFfFYpxRUKS9+xDEkkW7aBVCvwedELP81Hn
+	 E7Eqig0LBWy1BdiIQP4JrqNMDWP4T6DZunrtOBuW0bqgto6EOvBdQGtW38B0ong4kI
+	 9B/KNkFiCc8ofQxLOHq8OsYrpWvgbMug6jG5r0ZF+uEaBs9lqSrPQ6YRGlXS1CmKEf
+	 lBLM0KAqMN6IQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAF61383B261;
+	Thu, 10 Jul 2025 01:35:53 +0000 (UTC)
+MIME-Version: 1.0
+Subject: Re: [PATCH net-next] dt-bindings: net: Add support for Sophgo CV1800
+ dwmac
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175211135250.897408.2127630772719110412.git-patchwork-notify@kernel.org>
+Date: Thu, 10 Jul 2025 01:35:52 +0000
+References: <20250703021220.124195-1-inochiama@gmail.com>
+In-Reply-To: <20250703021220.124195-1-inochiama@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, unicorn_wang@outlook.com, richardcochran@gmail.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, dlan@gentoo.org, looong.bin@gmail.com,
+ conor.dooley@microchip.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,99 +78,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Jul 2025 08:33:48 +0000
-Alexandre Ghiti <alexghiti@rivosinc.com> wrote:
+Hello:
 
-> As reported by lockdep, some patching was done without acquiring
-> text_mutex, so there could be a race when mapping the page to patch
-> since we use the same fixmap entry.
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu,  3 Jul 2025 10:12:19 +0800 you wrote:
+> The GMAC IP on CV1800 series SoC is a standard Synopsys
+> DesignWare MAC (version 3.70a).
 > 
-> Reported-by: Han Gao <rabenda.cn@gmail.com>
-> Reported-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> Reported-by: Yao Zi <ziyao@disroot.org>
-> Closes: https://lore.kernel.org/linux-riscv/aGODMpq7TGINddzM@pie.lan/
-> Tested-by: Yao Zi <ziyao@disroot.org>
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  arch/riscv/kernel/ftrace.c | 16 ++++++++++++----
->  1 file changed, 12 insertions(+), 4 deletions(-)
+> Add necessary compatible string for this device.
 > 
-> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-> index 4c6c24380cfd9d6c51f0e4340cd674160b83a610..22e7bdf8de2b6ca950cf2c8b734bc82ea46ba8bf 100644
-> --- a/arch/riscv/kernel/ftrace.c
-> +++ b/arch/riscv/kernel/ftrace.c
-> @@ -14,6 +14,16 @@
->  #include <asm/text-patching.h>
->  
->  #ifdef CONFIG_DYNAMIC_FTRACE
-> +void ftrace_arch_code_modify_prepare(void)
-
-To be sure this is acquire the text_mutex, add __acquires(&text_mutex) here.
-
-> +{
-> +	mutex_lock(&text_mutex);
-> +}
-> +
-> +void ftrace_arch_code_modify_post_process(void)
-
-Ditto, add __releases(&text_mutex) here.
-
-others looks good to me.
-
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-
-Thanks,
-
-> +{
-> +	mutex_unlock(&text_mutex);
-> +}
-> +
->  unsigned long ftrace_call_adjust(unsigned long addr)
->  {
->  	if (IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS))
-> @@ -29,10 +39,8 @@ unsigned long arch_ftrace_get_symaddr(unsigned long fentry_ip)
->  
->  void arch_ftrace_update_code(int command)
->  {
-> -	mutex_lock(&text_mutex);
->  	command |= FTRACE_MAY_SLEEP;
->  	ftrace_modify_all_code(command);
-> -	mutex_unlock(&text_mutex);
->  	flush_icache_all();
->  }
->  
-> @@ -149,6 +157,8 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
->  	unsigned int nops[2], offset;
->  	int ret;
->  
-> +	guard(mutex)(&text_mutex);
-> +
->  	ret = ftrace_rec_set_nop_ops(rec);
->  	if (ret)
->  		return ret;
-> @@ -157,9 +167,7 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
->  	nops[0] = to_auipc_t0(offset);
->  	nops[1] = RISCV_INSN_NOP4;
->  
-> -	mutex_lock(&text_mutex);
->  	ret = patch_insn_write((void *)pc, nops, 2 * MCOUNT_INSN_SIZE);
-> -	mutex_unlock(&text_mutex);
->  
->  	return ret;
->  }
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 > 
-> ---
-> base-commit: d7b8f8e20813f0179d8ef519541a3527e7661d3a
-> change-id: 20250708-alex-fixes-1e719b9899f3
-> 
-> Best regards,
-> -- 
-> Alexandre Ghiti <alexghiti@rivosinc.com>
-> 
+> [...]
 
+Here is the summary with links:
+  - [net-next] dt-bindings: net: Add support for Sophgo CV1800 dwmac
+    https://git.kernel.org/netdev/net-next/c/6a971e48e2d8
 
+You are awesome, thank you!
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
