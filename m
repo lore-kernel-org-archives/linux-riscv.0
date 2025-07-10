@@ -4,110 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3EE8C83F17
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 16:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60FDC83F17
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 17:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yjkAdCsBcx1za0MTaXYVacOBZ7kBSKbedLE8WjwVh+w=; b=i6n8n7TZ/Rn+uE
-	9HEKAcbOfT280M/TQ88NRA31Ns62uZgV3k/y8ta8IeiyFGnRzHPI7ixz6Z1Ob9llOZM3Et/dJxYku
-	0czEnocOsHO3KaGLChN9cKUMbmj/+Ch0TWHJTjwNs3wuivaADtHtuTi97C9vp5omGzuBFnd6NZ6El
-	P5biJOvH4NRnTYzhGaw+67gQFjtVm1g2KLvASA0iMCK2HUOrO9Mn6p0dZholPihz43v6PP64mPGAR
-	Uryc40+e3k/uBOmhF0+o8Vr97f1uyGN+e2D7CCiYpJixm9nQ4XeiG7PLBklVCxAV8ohmNrm/HDfy/
-	dxgjS5jGmgClTDlJKZcA==;
+	List-Owner; bh=ZcUoCQTMSXQ6REDv5WYvpyG2C9KfqWVPv7h30dMwDJs=; b=KZq3W4LvzsfI5v
+	owxafaYNmbzov+/jeviuYj4M7Fb09tAn/SnrkS7xZmn2FRoBG+VV/KbL4xaHyhDiepnFePRWoBJs1
+	5I8V7uHzz9+s7kBBzoBZdyQbDJnTlR+2WfWa1RnPOF7+kzxeuKUc8F7GWuJvh3DA5XQ1P8A2TF5VK
+	rEorOGsyIs4Omw9AUP0IsH5MJclRY6isdkwUuj3IPO6wfiobjhOzlHbCvK64rsob7R+a4AtE2ucxt
+	QVKZKW7ypb4M3f/ZPL2JPDSak/ZbtBPGCWPVrIa+XWy2HNbwkSFt3iyhPnoUvi50gHavB3lComTx4
+	C4eIGvx3jb9fwLQzK13Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZu8M-0000000CRNv-3ieU;
-	Thu, 10 Jul 2025 16:28:30 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1uZust-0000000CYQq-2HJk;
+	Thu, 10 Jul 2025 17:16:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZsAx-0000000C6Pp-10tt
+	id 1uZsh6-0000000CBv0-3asq
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 10 Jul 2025 14:56:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
+	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Pj4SAQIjVy3UL+SBRWSwrncs47otrM5/W1FfAs15JA4=; b=lUpoUUC8wPJFju79l2+GtaJofz
+	w1ceQJmCZIwKSFX/GKNh28cZiu+lC5RyoEqT4QVryQ/ixfpOnpzGmAGKL70Fy1iYVzK4LiYjrKhFy
+	KYOi3miQaKPH1/KzV/HL9D2vblwjLVM7t9e3Ez8s8aKVc2zEiTX0HtWKqZJsJVaAPKtSDZLF2pXa5
+	hzVcsS+jgbdnmmxiaeL5d+HD4t6RZ/dB6Qd+QB7I0jYQtNB8nuNy7U1sbU/TSBzj9lgZHHOpDz24e
+	U2tRwI6MQH6Ou0PGgsmLEKJy4nZDZ3QB+huzTlhVMqddpncPn2VNaNHte6F2lOifxAYNqbAakzs39
+	Huo+am0g==;
+Received: from smtp-out1.suse.de ([195.135.223.130])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZsh3-000000092fc-2QzH
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Jul 2025 14:23:04 +0000
+	Thu, 10 Jul 2025 14:56:15 +0000
 Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
-	by smtp-out2.suse.de (Postfix) with ESMTP id C1B9A1F79C;
-	Thu, 10 Jul 2025 14:23:01 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTP id 277AB21859;
+	Thu, 10 Jul 2025 14:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1752157381; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1752159371; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LDWy7RXo3qzq9NIKFne9faNRuPJeuvOs7IjMZhvIGf0=;
-	b=yZguuCvK7o8CKMT6IXSdpWjhpwXyK3xuV4Z7u1Ga195rHuYaO9+ahaY+73+wvRzxk0u160
-	ZQ2RoEzE7nRSSOhaDpd9GmhttkOm13lJQZxIvRUUZWr1zgXTHiZXUcDLEAqeAlaLndCSsi
-	UO04JdKh5QsLQZ3W6WWMudEVWLb4wFQ=
+	bh=Pj4SAQIjVy3UL+SBRWSwrncs47otrM5/W1FfAs15JA4=;
+	b=IGg+W8DhDh3P8MAPd8krBj1SqImQsztx7p+iKgqfpKHXA2+bJttAssYcbQ9IbT1/veiBLh
+	HHRjp+9j9K8n7m4yHeZmkt4HXwRgGO0JbUWO/2pKBw5k3HGDz7KaFKKuPVHF3SjG4rSc+V
+	fAb7g3Z7DpZQWPf9ckTqBya7chHJtiE=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1752157381;
+	s=susede2_ed25519; t=1752159371;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LDWy7RXo3qzq9NIKFne9faNRuPJeuvOs7IjMZhvIGf0=;
-	b=mn0KUQsHwDVBeaT43i5R7T+uu71W0kyfslE0Guc8C5LbgE+WlSqm1JdKU8O8VjtmE3EdNY
-	L/ReeBdVsLODZODg==
-Authentication-Results: smtp-out2.suse.de;
+	bh=Pj4SAQIjVy3UL+SBRWSwrncs47otrM5/W1FfAs15JA4=;
+	b=Xu0nE77Fl/YAyRl/Gnm8kxYq2oCh31amDCRgI9FOxHjM/hComt/2OT1WGJa4oVM9SEo0M8
+	4SJCxN9EDxT7pUAw==
+Authentication-Results: smtp-out1.suse.de;
 	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1752157381; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1752159370; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LDWy7RXo3qzq9NIKFne9faNRuPJeuvOs7IjMZhvIGf0=;
-	b=yZguuCvK7o8CKMT6IXSdpWjhpwXyK3xuV4Z7u1Ga195rHuYaO9+ahaY+73+wvRzxk0u160
-	ZQ2RoEzE7nRSSOhaDpd9GmhttkOm13lJQZxIvRUUZWr1zgXTHiZXUcDLEAqeAlaLndCSsi
-	UO04JdKh5QsLQZ3W6WWMudEVWLb4wFQ=
+	bh=Pj4SAQIjVy3UL+SBRWSwrncs47otrM5/W1FfAs15JA4=;
+	b=kH3sJJr9dvM+iUYfAXQPUBCgosQknjh4xsnA9w+qwJn2VHh/Nn8ACYRilgHJepIPkT7BLo
+	b7rov+GbuNBgOLxu0rR461hymFbXXcOjKf6gZ2UhnfebTFfplZFCPVOX0qCWYr9wWqmqmA
+	qVa4VIjlNCgJM9isMlIPOTCcls7/fZE=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1752157381;
+	s=susede2_ed25519; t=1752159370;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LDWy7RXo3qzq9NIKFne9faNRuPJeuvOs7IjMZhvIGf0=;
-	b=mn0KUQsHwDVBeaT43i5R7T+uu71W0kyfslE0Guc8C5LbgE+WlSqm1JdKU8O8VjtmE3EdNY
-	L/ReeBdVsLODZODg==
+	bh=Pj4SAQIjVy3UL+SBRWSwrncs47otrM5/W1FfAs15JA4=;
+	b=tQ1xHBwlqF2xYaPELEej3mmG9ZSvc7MzJVHUtIUjlEwQJV9oVGm3K6z5xqYsvuurcSLoDy
+	4azWII7lnXdLHrBg==
 Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id 6E53D4A0569; Thu, 10 Jul 2025 16:23:00 +0200 (CEST)
+	id 16D174A0569; Thu, 10 Jul 2025 16:56:10 +0200 (CEST)
 From: Andreas Schwab <schwab@suse.de>
-To: =?utf-8?Q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org,  linux-kselftest@vger.kernel.org,
-  linux-riscv@lists.infradead.org,  Palmer Dabbelt <palmer@dabbelt.com>,
-  Paul Walmsley <paul.walmsley@sifive.com>,  Shuah Khan <shuah@kernel.org>,
-  Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH v4] selftests: riscv: add misaligned access testing
-In-Reply-To: <5db9ec69-d0e4-4113-a989-ac75d0f1e5dd@rivosinc.com>
- (=?utf-8?Q?=22Cl=C3=A9ment=09L=C3=A9ger=22's?= message of "Thu, 10 Jul 2025
- 16:10:03 +0200")
-References: <20250710133506.994476-1-cleger@rivosinc.com>
-	<mvmecuognj7.fsf@suse.de>
-	<5db9ec69-d0e4-4113-a989-ac75d0f1e5dd@rivosinc.com>
-Date: Thu, 10 Jul 2025 16:23:00 +0200
-Message-ID: <mvma55cgm63.fsf@suse.de>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: openSBI 1.7 causes v6.16-rc boot to hang on VisionFive 2
+In-Reply-To: <4e6cab2e-c18e-4bc3-8a9f-450326324d98@ghiti.fr> (Alexandre
+	Ghiti's message of "Wed, 9 Jul 2025 08:46:24 +0200")
+References: <mvm1pqrkmoe.fsf@suse.de>
+	<4e6cab2e-c18e-4bc3-8a9f-450326324d98@ghiti.fr>
 User-Agent: Gnus/5.13 (Gnus v5.13)
+Date: Thu, 10 Jul 2025 16:56:10 +0200
+Message-ID: <mvm8qkwgkmt.fsf@suse.de>
 MIME-Version: 1.0
 X-Spamd-Result: default: False [-4.20 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
+	BAYES_HAM(-3.00)[99.99%];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.989];
-	MIME_GOOD(-0.10)[text/plain];
+	NEURAL_HAM_SHORT(-0.20)[-0.985];
 	RCVD_NO_TLS_LAST(0.10)[];
-	MIME_TRACE(0.00)[0:+];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_GOOD(-0.10)[text/plain];
 	FUZZY_RATELIMITED(0.00)[rspamd.com];
 	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWO(0.00)[2];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	FROM_HAS_DN(0.00)[];
-	RCVD_COUNT_ONE(0.00)[1];
-	FROM_EQ_ENVFROM(0.00)[];
 	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
 	MID_RHS_MATCH_FROM(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[8];
+	RCVD_COUNT_ONE(0.00)[1];
 	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_072303_425130_48B0A65A 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20250710_155613_813172_5AADC23A 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,44 +126,152 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gSnVsIDEwIDIwMjUsIENsw6ltZW50IEzDqWdlciB3cm90ZToKCj4gT24gMTAvMDcvMjAyNSAx
-NTo1MywgQW5kcmVhcyBTY2h3YWIgd3JvdGU6Cj4+IE9uIEp1bCAxMCAyMDI1LCBDbMOpbWVudCBM
-w6lnZXIgd3JvdGU6Cj4+IAo+Pj4gVGhpcyBzZWxmdGVzdCB0ZXN0cyBhbGwgdGhlIGN1cnJlbnRs
-eSBlbXVsYXRlZCBpbnN0cnVjdGlvbnMgKGV4Y2VwdCBmb3IKPj4+IHRoZSBSVjMyIGNvbXByZXNz
-ZWQgb25lcyB3aGljaCBhcmUgbGVmdCBhcyBhIGZ1dHVyZSBleGVyY2lzZSBmb3IgYSBSVjMyCj4+
-PiB1c2VyKS4gRm9yIHRoZSBGUFUgaW5zdHJ1Y3Rpb25zLCBhbGwgdGhlIEZQVSByZWdpc3RlcnMg
-YXJlIHRlc3RlZC4KPj4gCj4+IElmIHRoYXQgZGlkbid0IGNhdGNoIHRoZSBtaXNzaW5nIHNpZ24g
-ZXh0ZW5zaW9uIHRoYXQgSSBqdXN0IGZpeGVkIGluCj4+IDxodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9saW51eC1yaXNjdi9tdm1pa2swZ29pbC5mc2ZAc3VzZS5kZT4sIHlvdQo+PiBzaG91bGQgY29u
-c2lkZXIgZXh0ZW5kaW5nIHRoZSB0ZXN0cy4KPj4gCj4KPiBIaSBBbmRyZWFzLCB5b3UgbGluayBk
-b2Vzbid0IHdvcmsgYW5kIEkgZGlkbid0IGZpbmQgYW55dGhpbmcgYWJvdXQgc2lnbgo+IGV4dGVu
-c2lvbiBleGNlcHQgYSBwYXRjaCB5b3Ugd3JvdGUgZm9yIGFyY2hfY21weGcoKS4KCmxvcmUuay5v
-IGlzIGN1cnJlbnRseSBkb3duLCBoZXJlJ3MgdGhlIHBhdGNoIEkgaGF2ZSBzZW50OgoKRnJvbSA3
-N2M4MjU1ZGEyNGVlNGZhYzU0ZTIzNzE1OTRkNzIxMGQxZGRlZTE5IE1vbiBTZXAgMTcgMDA6MDA6
-MDAgMjAwMQpGcm9tOiBBbmRyZWFzIFNjaHdhYiA8c2Nod2FiQHN1c2UuZGU+CkRhdGU6IFRodSwg
-MTAgSnVsIDIwMjUgMTM6NTI6MzUgKzAyMDAKU3ViamVjdDogW1BBVENIXSByaXNjdjogdHJhcHNf
-bWlzYWxpZ25lZDogcHJvcGVybHkgc2lnbiBleHRlbmQgdmFsdWUgaW4KIG1pc2FsaWduZWQgbG9h
-ZCBoYW5kbGVyCgpBZGQgbWlzc2luZyBjYXN0IHRvIHNpZ25lZCBsb25nLgoKU2lnbmVkLW9mZi1i
-eTogQW5kcmVhcyBTY2h3YWIgPHNjaHdhYkBzdXNlLmRlPgotLS0KIGFyY2gvcmlzY3Yva2VybmVs
-L3RyYXBzX21pc2FsaWduZWQuYyB8IDIgKy0KIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigr
-KSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21p
-c2FsaWduZWQuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYwppbmRleCA5
-MzA0MzkyNGZlNmMuLmY3NjBlNGZjYzA1MiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwv
-dHJhcHNfbWlzYWxpZ25lZC5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWdu
-ZWQuYwpAQCAtNDYxLDcgKzQ2MSw3IEBAIHN0YXRpYyBpbnQgaGFuZGxlX3NjYWxhcl9taXNhbGln
-bmVkX2xvYWQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCiAJfQogCiAJaWYgKCFmcCkKLQkJU0VUX1JE
-KGluc24sIHJlZ3MsIHZhbC5kYXRhX3Vsb25nIDw8IHNoaWZ0ID4+IHNoaWZ0KTsKKwkJU0VUX1JE
-KGluc24sIHJlZ3MsIChsb25nKSh2YWwuZGF0YV91bG9uZyA8PCBzaGlmdCkgPj4gc2hpZnQpOwog
-CWVsc2UgaWYgKGxlbiA9PSA4KQogCQlzZXRfZjY0X3JkKGluc24sIHJlZ3MsIHZhbC5kYXRhX3U2
-NCk7CiAJZWxzZQotLSAKMi41MC4wCgoKLS0gCkFuZHJlYXMgU2Nod2FiLCBTVVNFIExhYnMsIHNj
-aHdhYkBzdXNlLmRlCkdQRyBLZXkgZmluZ2VycHJpbnQgPSAwMTk2IEJBRDggMUNFOSAxOTcwIEY0
-QkUgIDE3NDggRTRENCA4OEUzIDBFRUEgQjlENwoiQW5kIG5vdyBmb3Igc29tZXRoaW5nIGNvbXBs
-ZXRlbHkgZGlmZmVyZW50LiIKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+On Jul 09 2025, Alexandre Ghiti wrote:
+
+> Do you have a means to know what happens here (pc, sepc, stval etc)? I
+> don't have this board to give it a try.
+
+Apparently disabling unused clocks kills the early console, and booting
+with clk_ignore_unused reveals the real bug:
+
+[   15.362214][    C2] ------------[ cut here ]------------
+[   15.362239][    C2] kernel BUG at arch/riscv/kernel/patch.c:54!
+[   15.362265][    C2] Kernel BUG [#1]
+[   15.362279][    C2] Modules linked in: blake2b_generic xor raid6_pq dmi_sysfs
+[   15.362348][    C2] CPU: 2 UID: 0 PID: 240 Comm: modprobe Not tainted 6.16.0-rc5-113-default #1 PREEMPT(voluntary) openSUSE Tumbleweed (unreleased)  c33d66cc520b3125c763ff4496b8fbb5b54061ef
+[   15.362389][    C2] Hardware name: starfive StarFive VisionFive 2 v1.2A/StarFive VisionFive 2 v1.2A, BIOS 2025.07 07/01/2025
+[   15.362406][    C2] epc : __patch_insn_write+0x3d8/0x3e8
+[   15.362457][    C2]  ra : __patch_insn_write+0x132/0x3e8
+[   15.362487][    C2] epc : ffffffff9d61ade8 ra : ffffffff9d61ab42 sp : ffffffc6005ab920
+[   15.362506][    C2]  gp : ffffffff9fe6e900 tp : ffffffd6c0f96e40 t0 : ffffffff9d622468
+[   15.362525][    C2]  t1 : 0000000000006000 t2 : 0000000000001000 s0 : ffffffc6005ab980
+[   15.362542][    C2]  s1 : 0000000000000000 a0 : 0000000000000000 a1 : 0000000020345c44
+[   15.362558][    C2]  a2 : 0000000000000004 a3 : ffffffff9e46f388 a4 : 0000000000000000
+[   15.362574][    C2]  a5 : 0000000000000000 a6 : ffffffffa01789f8 a7 : 0000000054494d45
+[   15.362591][    C2]  s2 : 0000000020345c44 s3 : 0000000000000c44 s4 : 0000000000000c48
+[   15.362608][    C2]  s5 : 0000000000000fff s6 : 0000000000002000 s7 : ffffffff9f2358f8
+[   15.362624][    C2]  s8 : 0000000000000004 s9 : 0000000020347484 s10: 0000000000000000
+[   15.362640][    C2]  s11: ffffffff203946d8 t3 : 0000000000000001 t4 : ffffffd6c0f96f00
+[   15.362658][    C2]  t5 : 0000000000000400 t6 : 0000000000000000
+[   15.362671][    C2] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
+[   15.362690][    C2] [<ffffffff9d61ade8>] __patch_insn_write+0x3d8/0x3e8
+[   15.362726][    C2] [<ffffffff9d61afa8>] patch_text_nosync+0x48/0x80
+[   15.362760][    C2] [<ffffffff9d614f92>] riscv_cpufeature_patch_func+0xc2/0x130
+[   15.362795][    C2] [<ffffffff9d614108>] _apply_alternatives+0x90/0xb8
+[   15.362825][    C2] [<ffffffff9d61431c>] apply_module_alternatives+0x14/0x28
+[   15.362855][    C2] [<ffffffff9d62032e>] module_finalize+0x66/0xa0
+[   15.362887][    C2] [<ffffffff9d714a32>] load_module+0x151a/0x1f48
+[   15.362914][    C2] [<ffffffff9d7156a2>] init_module_from_file+0x82/0xe0
+[   15.362940][    C2] [<ffffffff9d71594a>] __riscv_sys_finit_module+0x24a/0x348
+[   15.362967][    C2] [<ffffffff9e257796>] do_trap_ecall_u+0x3be/0x498
+[   15.362997][    C2] [<ffffffff9e266414>] handle_exception+0x154/0x160
+[   15.363054][    C2] Code: 17a6 8726 97b6 7863 00d7 b683 030a 05b3 40d7 bfa9 (9002) 4605 
+[   15.363076][    C2] ---[ end trace 0000000000000000 ]---
+[   15.363092][    C2] Kernel panic - not syncing: Fatal exception in interrupt
+[   15.363107][    C2] SMP: stopping secondary CPUs
+[   15.363145][    C2] Kernel Offset: 0x1d600000 from 0xffffffff80000000
+
+So it looks like the insn decoder is broken.  Instrumenting the kernel
+shows the following insns being emulated:
+
+[    7.318366][    C0] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c5ba14a INSN=c190
+[    7.318401][    C0] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c5ba146 INSN=c190
+[    7.318459][    C0] handle_scalar_misaligned_load: PC=riscv_cpufeature_patch_func+0x32/0x138 ADDR=ffffffff0c5ba152 INSN=c4a903
+[    7.476473][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a7c3 INSN=c59023
+[    7.476519][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a7bd INSN=c190
+[    7.476538][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a7b9 INSN=c190
+[    7.476556][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a7b3 INSN=c59023
+[    7.476575][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a7ad INSN=c190
+[    7.476593][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a7a9 INSN=c190
+[    7.476612][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a79d INSN=c190
+[    7.476630][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a799 INSN=c190
+[    7.476648][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a793 INSN=c59023
+[    7.476666][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a78d INSN=c190
+[    7.476684][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a789 INSN=c190
+[    7.476703][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a77d INSN=c190
+[    7.476722][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a779 INSN=c190
+[    7.476740][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a773 INSN=c59023
+[    7.476758][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a76d INSN=c190
+[    7.476777][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a769 INSN=c190
+[    7.476795][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a75d INSN=c190
+[    7.476814][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a753 INSN=c59023
+[    7.476832][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a74d INSN=c190
+[    7.476850][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a749 INSN=c190
+[    7.476868][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a743 INSN=c59023
+[    7.476887][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a73d INSN=c190
+[    7.476906][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a733 INSN=c59023
+[    7.476924][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a72d INSN=c190
+[    7.476942][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a729 INSN=c190
+[    7.476961][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a723 INSN=c59023
+[    7.476979][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a7a3 INSN=c59023
+[    7.476998][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a713 INSN=c59023
+[    7.477018][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a70d INSN=c190
+[    7.477036][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a709 INSN=c190
+[    7.477055][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a703 INSN=c59023
+[    7.477074][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6f9 INSN=c190
+[    7.477093][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a783 INSN=c59023
+[    7.477111][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a6f3 INSN=c59023
+[    7.477130][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6ed INSN=c190
+[    7.477149][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6e9 INSN=c190
+[    7.477168][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a6e3 INSN=c59023
+[    7.477187][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6d9 INSN=c190
+[    7.477205][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a763 INSN=c59023
+[    7.477224][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a6d3 INSN=c59023
+[    7.477243][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6cd INSN=c190
+[    7.477262][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a759 INSN=c190
+[    7.477280][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6c9 INSN=c190
+[    7.477299][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a6c3 INSN=c59023
+[    7.477318][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6bd INSN=c190
+[    7.477337][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6b9 INSN=c190
+[    7.477356][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a6b3 INSN=c59023
+[    7.477374][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6ad INSN=c190
+[    7.477393][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a739 INSN=c190
+[    7.477411][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6a9 INSN=c190
+[    7.477430][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a6a3 INSN=c59023
+[    7.477449][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a69d INSN=c190
+[    8.111827][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a699 INSN=c190
+[    8.111852][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a693 INSN=c59023
+[    8.111871][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a71d INSN=c190
+[    8.111890][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a68d INSN=c190
+[    8.111909][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a719 INSN=c190
+[    8.111928][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a689 INSN=c190
+[    8.111946][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a683 INSN=c59023
+[    8.111965][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a67d INSN=c190
+[    8.111984][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a679 INSN=c190
+[    8.112003][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a673 INSN=c59023
+[    8.112022][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6fd INSN=c190
+[    8.112040][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a66d INSN=c190
+[    8.112059][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a669 INSN=c190
+[    8.112078][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a663 INSN=c59023
+[    8.112097][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a65d INSN=c190
+[    8.112116][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a659 INSN=c190
+[    8.112135][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a653 INSN=c59023
+[    8.112153][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a6dd INSN=c190
+[    8.112171][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a64d INSN=c190
+[    8.112190][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a649 INSN=c190
+[    8.112209][    C2] handle_scalar_misaligned_store: PC=apply_16_bit_accumulation+0xe/0x48 ADDR=ffffffff0c84a643 INSN=c59023
+[    8.112228][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a63d INSN=c190
+[    8.112247][    C2] handle_scalar_misaligned_store: PC=apply_32_bit_accumulation+0x10/0x48 ADDR=ffffffff0c84a639 INSN=c190
+[    8.113036][    C2] handle_scalar_misaligned_store: PC=apply_r_riscv_64_rela+0x14/0x28 ADDR=ffffffff0c71ad0c INSN=e190
+[    8.113062][    C2] handle_scalar_misaligned_store: PC=apply_r_riscv_64_rela+0x14/0x28 ADDR=ffffffff0c71ad34 INSN=e190
+[    8.113078][    C2] handle_scalar_misaligned_store: PC=apply_r_riscv_64_rela+0x14/0x28 ADDR=ffffffff0c71ad3c INSN=e190
+[    8.436515][    C2] handle_scalar_misaligned_load: PC=riscv_cpufeature_patch_func+0x32/0x138 ADDR=ffffffff0c84a645 INSN=c4a903
+[    8.436556][    C2] handle_scalar_misaligned_load: PC=riscv_cpufeature_patch_func+0x36/0x138 ADDR=ffffffff0c84a641 INSN=84d583
+[    8.436575][    C2] handle_scalar_misaligned_load: PC=riscv_cpufeature_patch_func+0x9a/0x138 ADDR=ffffffff0c84a639 INSN=4a983
+[    8.436594][    C2] handle_scalar_misaligned_load: PC=riscv_cpufeature_patch_func+0x9e/0x138 ADDR=ffffffff0c84a63d INSN=44ac83
+[    8.436627][    C2] handle_scalar_misaligned_load: PC=riscv_cpufeature_patch_func+0xb2/0x138 ADDR=ffffffff0c84a643 INSN=a4d603
+
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
