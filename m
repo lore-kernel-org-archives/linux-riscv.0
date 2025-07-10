@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E1AC83F1A
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 19:32:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D47EC83F1A
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 19:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z8+0wJsR8sm76I7kQ/A4vHNUhG0HqB1/QOOvTX2C9NM=; b=kQC4BqxPBz/kH6
-	At/8YXq0zWlrkH2ZDzH0UItgJQmlVkh67uR0pVKFuC36xoXZIg+8g0Z33pbgjY7zj3NIt0O5YZNL+
-	ReSAidc4fPCRCpv7RNuSz2LIaPA/LqhUfA/O6Pv0p0qeQXux5H+8YE68PZh5CbeeKwp/IZD75hrOQ
-	ONbhaCTeduNTSLR02DJlVK583nHEQQTuu+zG0YkQxyvEVftbFUFtZzepiDRnK5L7DiL8cddTthiDP
-	kRl7v/JmgS23ZjNTM8gUn5Nk1Fr7mSDNvmK8rGWwYDNvi8TrjKn/mQpX6LX/XNfM3do44A1S2PBUZ
-	mW586/LRdNTKeMAYT5Pg==;
+	List-Owner; bh=IW9nO1/292UYlZkDOpINJqjuJ//KytYIpZnTEUqOYpE=; b=hw3gcCrmKBETkf
+	wHm3C2mHfmbG7upU3ajNOupgA/zAPkfynzGcsCD6geRJR7yuHwmW7la7wIBKPVYpHdb0Wll9GOf1u
+	lvzLali+UU1A1IF7bFDzUJl4117QFlGGUiIX18DJkuYFcnvq2F8J+AZnO2/d4NdOKwgGc4sQ4dJMq
+	00IWI+fL+9+LXh6z9Wgn37nby18xxsrERsoV6QMIJH7+efzmhpSi19NhgbfWuuU97mu9KZxzeRTcR
+	jrMOK3neuTxWIM/gGJyssFjuTdxJhVDVKFHRAzgzdEIJG/tUQUVNLjMILx2jY7nM6VPgEONj6y1D6
+	kmEwEMRMOLtRhBZoRTeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZx0Y-0000000CoyW-3q2g;
-	Thu, 10 Jul 2025 19:32:38 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1uZx9Y-0000000CpzR-14W0;
+	Thu, 10 Jul 2025 19:41:56 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZubh-0000000CWCV-1jYP
+	id 1uZvN3-0000000Ccyy-2Jzb
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Jul 2025 16:58:53 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250710165843euoutp02f168ece871abacec87d01f5b7688c706~Q8lobauuF1945619456euoutp024
-	for <linux-riscv@lists.infradead.org>; Thu, 10 Jul 2025 16:58:43 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250710165843euoutp02f168ece871abacec87d01f5b7688c706~Q8lobauuF1945619456euoutp024
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1752166723;
-	bh=ZgLkHoYpMZXGlyM12JkaB3eUvSr6n7CdDmsdbr4Effk=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=N+iQ/IgKJDR12WkLkSHfzHnREv0EVSZqpC/v+RNieKTsC8JifH8dnuKu2sW+z6FjV
-	 OwUEFYe1Ay6A/lvzDK1ycZJdVXnFfxGk9K2gSLNhFZYzkZXoBhI7thHgygQCg6n5Ki
-	 GIc/Si12W4H0WBZcklPpbKg+MTIOitNRPdoVQKuc=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250710165843eucas1p228bef8c7cfef0151b9f27161df285873~Q8ln10Tqr0901609016eucas1p2H;
-	Thu, 10 Jul 2025 16:58:43 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250710165842eusmtip2966419c222cc783df17946c63fd3c343~Q8lmxbv6y2112221122eusmtip29;
-	Thu, 10 Jul 2025 16:58:42 +0000 (GMT)
-Message-ID: <ad17dc8a-80b7-4344-a1be-6cf780567aaa@samsung.com>
-Date: Thu, 10 Jul 2025 18:58:41 +0200
+	Thu, 10 Jul 2025 17:47:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752169665; x=1783705665;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=fYsLiKestMpek0qN0cEg0MwyFp4HDvg6ZGLxP22SxYs=;
+  b=BzE9Qa0wKEec/xY9LIVIVPxrpqeBv1OUE3VmYZ33SVuFP1RiIwUlZXB7
+   YSwphhkE9/BdoV/auUr6EieJkSJt8XiFPkNfqwKYHNX8UIfYAG8zHAtVO
+   M62is4Q+t2IcvV6WTxO7xQJN2YO3bxWJZX9VbF02kFRToix0xB5v2Xeni
+   h1KCHkrg9T6yYp51Vep05PK0r0ABMna2Op+PE/JCuXnKc5/FqwRSfKvUD
+   gt77/TWnnnkvf0AQxF0gcD19EgfvTtZvfXYp3OQiatXaTKjEmktQmWCiK
+   UodmuKawdDK6qlBK31UYTj8i6xXSt+dXlO06bT4+eUYMtk1Rd2/ZxWCRb
+   g==;
+X-CSE-ConnectionGUID: OLDt4D0uSLq9y5wbdS8zng==
+X-CSE-MsgGUID: LbPWmzGhTVant9u/WxPrfQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11490"; a="58226648"
+X-IronPort-AV: E=Sophos;i="6.16,301,1744095600"; 
+   d="scan'208";a="58226648"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2025 10:47:42 -0700
+X-CSE-ConnectionGUID: vAa6fRD7S8aIzxZuFlntBA==
+X-CSE-MsgGUID: qOPVOyJASByw8/vBIia/Mw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,301,1744095600"; 
+   d="scan'208";a="193369281"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 10 Jul 2025 10:47:40 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uZvMu-0005It-1P;
+	Thu, 10 Jul 2025 17:47:36 +0000
+Date: Fri, 11 Jul 2025 01:47:17 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nick Hu <nick.hu@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Nick Hu <nick.hu@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH 2/2] irqchip/riscv-aplic: Save and restore APLIC registers
+Message-ID: <202507110131.OzZXquiC-lkp@intel.com>
+References: <20250709025516.28051-3-nick.hu@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 0/7] Rust Abstractions for PWM subsystem with TH1520
- PWM driver
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, Andreas
-	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, Trevor
-	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Guo Ren
-	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
-	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
-	Ghiti <alex@ghiti.fr>, Marek Szyprowski <m.szyprowski@samsung.com>, Benno
-	Lossin <lossin@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
-	Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Krzysztof
-	Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <4hmb3di5x2iei43nmrykrj5wzlltrf3vrnqvexiablonbscn57@4bbsz5c76t63>
-X-CMS-MailID: 20250710165843eucas1p228bef8c7cfef0151b9f27161df285873
-X-Msg-Generator: CA
-X-RootMTR: 20250707094926eucas1p155bd967b6986c4a999776839b1aa1fc6
-X-EPHeader: CA
-X-CMS-RootMailID: 20250707094926eucas1p155bd967b6986c4a999776839b1aa1fc6
-References: <CGME20250707094926eucas1p155bd967b6986c4a999776839b1aa1fc6@eucas1p1.samsung.com>
-	<20250707-rust-next-pwm-working-fan-for-sending-v10-0-d0c5cf342004@samsung.com>
-	<e8a4a821-e7e4-4bcd-a2ac-f6b684b6ceea@samsung.com>
-	<ipvaegqlkco5qinhvn33mqvg7ev2walvs74xtzvhimxsfsfzhv@gcmpxcdtetdn>
-	<e77eab1c-446f-4620-95be-d343684d1e95@samsung.com>
-	<4hmb3di5x2iei43nmrykrj5wzlltrf3vrnqvexiablonbscn57@4bbsz5c76t63>
+Content-Disposition: inline
+In-Reply-To: <20250709025516.28051-3-nick.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_095850_039118_0EE409DC 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20250710_104745_642835_F6892B2B 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,58 +88,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA3LzEwLzI1IDE3OjI1LCBVd2UgS2xlaW5lLUvDtm5pZyB3cm90ZToKPiBIZWxsbyBNaWNo
-YWwsCj4gCj4gT24gVGh1LCBKdWwgMTAsIDIwMjUgYXQgMDM6NDg6MDhQTSArMDIwMCwgTWljaGFs
-IFdpbGN6eW5za2kgd3JvdGU6Cj4+IE9uIDcvMTAvMjUgMTU6MTAsIFV3ZSBLbGVpbmUtS8O2bmln
-IHdyb3RlOgo+Pj4gT24gVGh1LCBKdWwgMTAsIDIwMjUgYXQgMTA6NDI6MDdBTSArMDIwMCwgTWlj
-aGFsIFdpbGN6eW5za2kgd3JvdGU6Cj4+Pj4gT24gNy83LzI1IDExOjQ4LCBNaWNoYWwgV2lsY3p5
-bnNraSB3cm90ZToKPj4+Pj4gVGhlIHNlcmllcyBpcyBzdHJ1Y3R1cmVkIGFzIGZvbGxvd3M6Cj4+
-Pj4+ICAtIEV4cG9zZSBzdGF0aWMgZnVuY3Rpb24gcHdtY2hpcF9yZWxlYXNlLgo+Pj4KPj4+IElz
-IHRoaXMgcmVhbGx5IG5lY2Vzc2FyeT8gSSBkaWRuJ3QgdHJ5IHRvIHVuZGVyc3RhbmQgdGhlIHJl
-cXVpcmVtZW50cwo+Pj4geWV0LCBidXQgSSB3b25kZXIgYWJvdXQgdGhhdC4gSWYgeW91IGdldCB0
-aGUgcHdtY2hpcCBmcm9tCj4+PiBfX3B3bWNoaXBfYWRkKCkgdGhlIHJpZ2h0IHRoaW5nIHRvIGRv
-IHRvIHJlbGVhc2UgaXQgaXMgdG8gY2FsbAo+Pj4gcHdtY2hpcF9yZW1vdmUoKS4gRmVlbHMgbGlr
-ZSBhIGxheWVyIHZpb2xhdGlvbi4KPj4KPj4gSXQncyByZXF1aXJlZCB0byBwcmV2ZW50IGEgbWVt
-b3J5IGxlYWsgaW4gYSBzcGVjaWZpYywgY3JpdGljYWwgZmFpbHVyZQo+PiBzY2VuYXJpby4gVGhl
-IHNlcXVlbmNlIG9mIGV2ZW50cyBpcyBhcyBmb2xsb3dzOgo+Pgo+PiAgICAgcHdtOjpDaGlwOjpu
-ZXcoKSBzdWNjZWVkcywgYWxsb2NhdGluZyBib3RoIHRoZSBDIHN0cnVjdCBwd21fY2hpcCBhbmQK
-Pj4gICAgIHRoZSBSdXN0IGRydmRhdGEuCj4+Cj4+ICAgICBwd206OlJlZ2lzdHJhdGlvbjo6cmVn
-aXN0ZXIoKSAod2hpY2ggY2FsbHMgcHdtY2hpcF9hZGQoKSkgZmFpbHMgZm9yCj4+ICAgICBzb21l
-IHJlYXNvbi4KPiAKPiBJZiB5b3UgY2FsbGVkIHB3bWNoaXBfYWxsb2MoKSBidXQgbm90IHlldCBw
-d21jaGlwX2FkZCgpLCB0aGUgcmlnaHQKPiBmdW5jdGlvbiB0byBjYWxsIGZvciBjbGVhbnVwIGlz
-IHB3bWNoaXBfcHV0KCkuCj4gCj4+ICAgICBUaGUgQVJlZjxDaGlwPiByZXR1cm5lZCBieSBuZXco
-KSBpcyBkcm9wcGVkLCBpdHMgcmVmZXJlbmNlIGNvdW50Cj4+ICAgICBnb2VzIHRvIHplcm8sIGFu
-ZCBvdXIgY3VzdG9tIHJlbGVhc2VfY2FsbGJhY2sgaXMgY2FsbGVkLgo+Pgo+PiBbLi4uXQo+Pj4+
-PiAtLS0KPj4+Pj4gYmFzZS1jb21taXQ6IDQ3NzUzYjVhMTY5NjI4MzkzMGE3OGFhZTc5YjI5Mzcx
-Zjk2ZjViY2EKPj4+Cj4+PiBJIGhhdmUgcHJvYmxlbXMgYXBwbHlpbmcgdGhpcyBzZXJpZXMgYW5k
-IGRvbid0IGhhdmUgdGhpcyBiYXNlIGNvbW1pdCBpbgo+Pj4gbXkgcmVwby4KPj4KPj4gU29ycnkg
-Zm9yIHRoZSBjb25mdXNpb24uIEJhc2UgY29tbWl0IGRvZXNuJ3QgZXhpc3QgaW4gdGhlIG1haW5s
-aW5lCj4+IGtlcm5lbCBvciBsaW51eC1uZXh0LCBjYXVzZSBJJ3ZlIGFkZGVkIHNvbWUgZGVwZW5k
-ZWNpZXMgZm9yIGNvbXBpbGF0aW9uLAo+PiBsaWtlIElvTWVtIGZvciB0aGUgZHJpdmVyICh1cGxv
-YWRlZCBmdWxsIGJyYW5jaCBvbiBnaXRodWIgWzFdKS4gVGhlCj4+IGJpbmRpbmdzIGhvd2V2ZXIg
-ZG9lc24ndCBkZXBlbmQgb24gYW55dGhpbmcgdGhhdCdzIG5vdCBpbiBsaW51eC1uZXh0Lgo+IAo+
-IFRoZSBzZXJpZXMgZGlkbid0IGFwcGx5IHRvIG15IHB3bS9mb3ItbmV4dCBicmFuY2guCj4gCj4g
-Tm90ZSB0aGF0IHRoZSBiYXNlLWNvbW1pdCBzaG91bGQgYWx3YXlzIGJlIGEgcHVibGljYWxseSBr
-bm93biBjb21taXQuCj4gU2VlIHRoZSBjaGFwdGVyIGFib3V0ICJCYXNlIFRyZWUgSW5mb3JtYXRp
-b24iIGluIGdpdC1mb3JtYXQtcGF0Y2goMSkuCgpIZWxsbyBVd2UsCgpPa2F5LCB0aGFuayB5b3Ug
-Zm9yIHRoZSBjbGFyaWZpY2F0aW9uLiBJIHVuZGVyc3RhbmQgdGhlIHJlcXVpcmVtZW50IGZvcgph
-IHB1YmxpYyBiYXNlIGNvbW1pdC4KCk15IGludGVudGlvbiB3YXMgdG8gaW5jbHVkZSB0aGUgVEgx
-NTIwIGRyaXZlciBwcmltYXJpbHkgYXMgYSBwcmFjdGljYWwKZGVtb25zdHJhdGlvbiBvZiB0aGUg
-bmV3IGFic3RyYWN0aW9ucy4gSG93ZXZlciB0aGUgZHJpdmVyIGNhbid0IGJlCm1lcmdlZCBhcyBp
-cywgc2luY2UgaXQgZGVwZW5kcyBvbiB0aGUgdW5tZXJnZWQgSW9NZW0gc2VyaWVzIGFuZCB3b24n
-dApjb21waWxlIGFnYWluc3QgYSBwdWJsaWMgY29tbWl0LgoKSSB3aWxsIHJlYmFzZSB0aGUgc2Vy
-aWVzIG9uIHB3bS9mb3ItbmV4dCBhbmQgZHJvcCB0aGUgZHJpdmVyIGFuZCBpdHMKYXNzb2NpYXRl
-ZCBkZXZpY2UgdHJlZSBwYXRjaGVzIGZvciBub3cuIEknbGwgc2VuZCBhIG5ldyB2ZXJzaW9uCmNv
-bnRhaW5pbmcganVzdCB0aGUgY29yZSBQV00gYWJzdHJhY3Rpb24gcGF0Y2hlcywgd2hpY2ggYXBw
-bHkgY2xlYW5seS4KCkkgd2lsbCByZXN1Ym1pdCB0aGUgZHJpdmVyIHBhdGNoZXMgb25jZSB0aGVp
-ciBkZXBlbmRlbmNpZXMgYXJlIGF2YWlsYWJsZQppbiBhIHB1YmxpYyB0cmVlLgoKPiAKPiBCZXN0
-IHJlZ2FyZHMKPiBVd2UKCkJlc3QgcmVnYXJkcywKLS0gCk1pY2hhbCBXaWxjenluc2tpIDxtLndp
-bGN6eW5za2lAc2Ftc3VuZy5jb20+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+Hi Nick,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on tip/irq/core]
+[also build test ERROR on linus/master v6.16-rc5 next-20250710]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Nick-Hu/irqchip-riscv-aplic-Save-and-restore-APLIC-registers/20250709-115608
+base:   tip/irq/core
+patch link:    https://lore.kernel.org/r/20250709025516.28051-3-nick.hu%40sifive.com
+patch subject: [PATCH 2/2] irqchip/riscv-aplic: Save and restore APLIC registers
+config: riscv-randconfig-r132-20250710 (https://download.01.org/0day-ci/archive/20250711/202507110131.OzZXquiC-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 01c97b4953e87ae455bd4c41e3de3f0f0f29c61c)
+reproduce: (https://download.01.org/0day-ci/archive/20250711/202507110131.OzZXquiC-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507110131.OzZXquiC-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from drivers/irqchip/irq-riscv-aplic-main.c:13:
+   In file included from include/linux/of_irq.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:136:
+   include/asm-generic/io.h:804:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     804 |         insb(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:104:53: note: expanded from macro 'insb'
+     104 | #define insb(addr, buffer, count) __insb(PCI_IOBASE + (addr), buffer, count)
+         |                                          ~~~~~~~~~~ ^
+   In file included from drivers/irqchip/irq-riscv-aplic-main.c:13:
+   In file included from include/linux/of_irq.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:136:
+   include/asm-generic/io.h:812:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     812 |         insw(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:105:53: note: expanded from macro 'insw'
+     105 | #define insw(addr, buffer, count) __insw(PCI_IOBASE + (addr), buffer, count)
+         |                                          ~~~~~~~~~~ ^
+   In file included from drivers/irqchip/irq-riscv-aplic-main.c:13:
+   In file included from include/linux/of_irq.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:136:
+   include/asm-generic/io.h:820:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     820 |         insl(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:106:53: note: expanded from macro 'insl'
+     106 | #define insl(addr, buffer, count) __insl(PCI_IOBASE + (addr), buffer, count)
+         |                                          ~~~~~~~~~~ ^
+   In file included from drivers/irqchip/irq-riscv-aplic-main.c:13:
+   In file included from include/linux/of_irq.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:136:
+   include/asm-generic/io.h:829:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     829 |         outsb(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:118:55: note: expanded from macro 'outsb'
+     118 | #define outsb(addr, buffer, count) __outsb(PCI_IOBASE + (addr), buffer, count)
+         |                                            ~~~~~~~~~~ ^
+   In file included from drivers/irqchip/irq-riscv-aplic-main.c:13:
+   In file included from include/linux/of_irq.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:136:
+   include/asm-generic/io.h:838:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     838 |         outsw(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:119:55: note: expanded from macro 'outsw'
+     119 | #define outsw(addr, buffer, count) __outsw(PCI_IOBASE + (addr), buffer, count)
+         |                                            ~~~~~~~~~~ ^
+   In file included from drivers/irqchip/irq-riscv-aplic-main.c:13:
+   In file included from include/linux/of_irq.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:136:
+   include/asm-generic/io.h:847:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     847 |         outsl(addr, buffer, count);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:120:55: note: expanded from macro 'outsl'
+     120 | #define outsl(addr, buffer, count) __outsl(PCI_IOBASE + (addr), buffer, count)
+         |                                            ~~~~~~~~~~ ^
+   In file included from drivers/irqchip/irq-riscv-aplic-main.c:13:
+   In file included from include/linux/of_irq.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:12:
+   In file included from arch/riscv/include/asm/io.h:136:
+   include/asm-generic/io.h:1175:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+    1175 |         return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
+         |                                                   ~~~~~~~~~~ ^
+>> drivers/irqchip/irq-riscv-aplic-main.c:220:26: error: use of undeclared identifier 'valH'
+     220 |                 priv->saved_msiaddrh = valH;
+         |                                        ^~~~
+   7 warnings and 1 error generated.
+
+
+vim +/valH +220 drivers/irqchip/irq-riscv-aplic-main.c
+
+   203	
+   204	void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode)
+   205	{
+   206		u32 val;
+   207	#ifdef CONFIG_RISCV_M_MODE
+   208		u32 valh;
+   209	
+   210		if (msi_mode) {
+   211			val = lower_32_bits(priv->msicfg.base_ppn);
+   212			valh = FIELD_PREP(APLIC_xMSICFGADDRH_BAPPN, upper_32_bits(priv->msicfg.base_ppn));
+   213			valh |= FIELD_PREP(APLIC_xMSICFGADDRH_LHXW, priv->msicfg.lhxw);
+   214			valh |= FIELD_PREP(APLIC_xMSICFGADDRH_HHXW, priv->msicfg.hhxw);
+   215			valh |= FIELD_PREP(APLIC_xMSICFGADDRH_LHXS, priv->msicfg.lhxs);
+   216			valh |= FIELD_PREP(APLIC_xMSICFGADDRH_HHXS, priv->msicfg.hhxs);
+   217			writel(val, priv->regs + APLIC_xMSICFGADDR);
+   218			writel(valh, priv->regs + APLIC_xMSICFGADDRH);
+   219			priv->saved_msiaddr = val;
+ > 220			priv->saved_msiaddrh = valH;
+   221		}
+   222	#endif
+   223	
+   224		/* Setup APLIC domaincfg register */
+   225		val = readl(priv->regs + APLIC_DOMAINCFG);
+   226		val |= APLIC_DOMAINCFG_IE;
+   227		if (msi_mode)
+   228			val |= APLIC_DOMAINCFG_DM;
+   229		writel(val, priv->regs + APLIC_DOMAINCFG);
+   230		if (readl(priv->regs + APLIC_DOMAINCFG) != val)
+   231			dev_warn(priv->dev, "unable to write 0x%x in domaincfg\n", val);
+   232		priv->saved_domaincfg = val;
+   233	}
+   234	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
