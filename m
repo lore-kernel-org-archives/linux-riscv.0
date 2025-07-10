@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77955C83F1A
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 23:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E1F7C83F1A
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LGz81/vRabDkZt6Mcp78h8Tg2RN7prkc1G35eiBurGg=; b=mlgERWHhKyC9N6KOmyomj7SE8F
-	liC7RKbDVww1nztef3jIQOasNnHdJM4e19PtssCfh6NO3wcjww/eD/6q4jOw4FiMXec3iCynbDEsW
-	tXr+yzqbur/I9aW9r9HnKR8iCkFTHzwD1gyPIssMHBmdiu9ZQjbeK6YX09QYRsvxwe1j8QYKs4M5q
-	Phmb4YSd4rGikhwfe09ek9OX6iklrg9T7DAjt/DFE1cJKMA4r6Z2HhAmCPGw/q7JDyTDSdEXcJVe4
-	OVzJM1yRQvCylhJEbTmtwLkQ9qVeTEgnBKP5M428yRIDVxVnID1vrGUUMer839aMUVY+/5PuKlo0/
-	JgPwIqYg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=18/Vf9SgWzuus9RSCL2smcLFhHRZSPbLQixwJxM/+9I=; b=OzqxGncDLpOvx5
+	mYzzYKuBpf9+apdQ+7ge/vHXpHXZq3+IpRGM9ku5K+WndErJ1sUUCAkaAhSxSvCw+ttdGTGLaT+cX
+	oHdMKc0c3taxb3ffwtAU9Y09809yYW6PP8CdZnL6T7HAV+9Hj2QuqdbkwkqFEZnOijfZS4VPwfqsN
+	gs0Ev4l4G4vWwGwX+DinCFnJ9Nzkw7g8S4BiOxlpxDT+BjaksuvlxylQX2NR6M3gQ5CqdWBRnS7/t
+	e6D0OxWrqdCbRntrOX+2/tXxZnIY26fv5DhKJFMTclOlr0QQyF6KdwimTF4UOxBQmdMnIt4ghELi8
+	CPqUjPm6MtW2/Z34TkxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua0l9-0000000DHue-3dBV;
-	Thu, 10 Jul 2025 23:32:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ua2Px-0000000DPu0-2zyh;
+	Fri, 11 Jul 2025 01:19:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZyG8-0000000CyiT-3N4w
+	id 1uZyNG-0000000D19G-1Qxg
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Jul 2025 20:52:49 +0000
+	Thu, 10 Jul 2025 21:00:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86A04466B5;
-	Thu, 10 Jul 2025 20:52:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC609C4CEE3;
-	Thu, 10 Jul 2025 20:52:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A9C105C59C0;
+	Thu, 10 Jul 2025 21:00:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32A4CC4CEE3;
+	Thu, 10 Jul 2025 21:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752180768;
-	bh=Mglw2ksv6p0jmkNc6ppoxSBvG/wPI1OuhGnfRBEN8og=;
+	s=k20201202; t=1752181208;
+	bh=MewW7/+o8jjvZCCPAiXzkcATxmHODd29D85iDo4C6/Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DORON7vgn8ny5uJ0L+QkdObMERtukYD5htopGHQZ3hHzt2UVpAtAvylvK9HNubGh8
-	 lO8TkEc0vxQ1jLydCGrkdTklJgguo2YcLxyPDASsimPQoP+oYSihcdXks+cjwti4Yw
-	 S0lxYVKFH79tz84Qnnv4VCm5d4w3xFiWHR3ode/fv+wpS5NTeK+mozGPykVAuYoMzy
-	 b4U9vDkhwdXjwQVqeXjAzJW6kepyG6g2eq/Fg8jYjj4ah/4OecNk2qirhKh/EqUeFe
-	 jET2nhXRgHjQjtzRt8mOjrl3XBy+FNFrQ4EzmFGAsfrPcD45tk0ukc1sjxB7EhoNxA
-	 CcB0ybi7BPCXw==
-Date: Thu, 10 Jul 2025 22:52:45 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Benno Lossin <lossin@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v11 1/3] pwm: Export `pwmchip_release` for external use
-Message-ID: <tepvopkizn4jezpqcbhwrcsnsrjacztv6kuv53hidcjbrnrs3c@pfcp45jarcoy>
-References: <20250710-rust-next-pwm-working-fan-for-sending-v11-0-93824a16f9ec@samsung.com>
- <CGME20250710185439eucas1p2684255d83d807dfd6f8b9b3caea65df6@eucas1p2.samsung.com>
- <20250710-rust-next-pwm-working-fan-for-sending-v11-1-93824a16f9ec@samsung.com>
+	b=Cw0Po9jzlMUjPqWpMGa3JmmBs8qRn4ccQxsczXqp7qgR6aRRsHF+DE2bSDEwQQBP4
+	 I0b0G/fSn3B7wsgm9pMdPjLO/IZc1SbO2D81ch1852sxjhGtQuUK5/+8r9JvFllG0s
+	 Z7OYhhl15781l/ITp0MO26j7ZK6Sc7q5bmjdkQPM6yegffImghltyi/rJg/57P542s
+	 ABRuHxHyoWse9e/GL2hh4AjgDy0mxvD0NAd2MBekD8PfWFupXjR7Z4NRsGWVh9uGL6
+	 QxY+PWYQXib4cQNtLPsI24Hdwb1dkhsXRIZaZcmb3x67rQLmcG8v8erktQz/1oP3vs
+	 baVNbw2mfKzrw==
+Date: Thu, 10 Jul 2025 14:00:06 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+	Yangtao Li <frank.li@vivo.com>, linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] clk: thead: th1520-ap: Correctly refer the parent
+ of osc_12m
+Message-ID: <aHAp1q9tLy465gnO@x1>
+References: <20250710092135.61049-1-ziyao@disroot.org>
+ <20250710092135.61049-2-ziyao@disroot.org>
 MIME-Version: 1.0
-In-Reply-To: <20250710-rust-next-pwm-working-fan-for-sending-v11-1-93824a16f9ec@samsung.com>
+Content-Disposition: inline
+In-Reply-To: <20250710092135.61049-2-ziyao@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_135248_883003_2165C73B 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20250710_140010_424416_C6CDBC68 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,104 +72,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7392486233796979959=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 10, 2025 at 09:21:34AM +0000, Yao Zi wrote:
+> The "osc_12m" fixed factor clock refers the external oscillator by
+> setting clk_parent_data.fw_name to osc_24m, which is obviously wrong
+> since no clock-names property is allowed for compatible
+> thead,th1520-clk-ap.
+> 
+> Refer the oscillator as parent by index instead.
+> 
+> Fixes: ae81b69fd2b1 ("clk: thead: Add support for T-Head TH1520 AP_SUBSYS clocks")
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  drivers/clk/thead/clk-th1520-ap.c | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+> index ebfb1d59401d..42feb4bb6329 100644
+> --- a/drivers/clk/thead/clk-th1520-ap.c
+> +++ b/drivers/clk/thead/clk-th1520-ap.c
+> @@ -582,7 +582,14 @@ static const struct clk_parent_data peri2sys_apb_pclk_pd[] = {
+>  	{ .hw = &peri2sys_apb_pclk.common.hw }
+>  };
+>  
+> -static CLK_FIXED_FACTOR_FW_NAME(osc12m_clk, "osc_12m", "osc_24m", 2, 1, 0);
+> +static struct clk_fixed_factor osc12m_clk = {
+> +	.div		= 2,
+> +	.mult		= 1,
+> +	.hw.init	= CLK_HW_INIT_PARENTS_DATA("osc_12m",
+> +						   osc_24m_clk,
+> +						   &clk_fixed_factor_ops,
+> +						   0),
+> +};
+>  
+>  static const char * const out_parents[] = { "osc_24m", "osc_12m" };
+>  
+> -- 
+> 2.50.0
 
---===============7392486233796979959==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="52heviwukb62zeme"
-Content-Disposition: inline
+Reviewed-by: Drew Fustini <fustini@kernel.org>
 
+Thanks for fixing this. osc_12m now appears under osc_24m in
+clk_summary.
 
---52heviwukb62zeme
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v11 1/3] pwm: Export `pwmchip_release` for external use
-MIME-Version: 1.0
-
-Hello Michal,
-
-On Thu, Jul 10, 2025 at 08:54:28PM +0200, Michal Wilczynski wrote:
-> diff --git a/include/linux/pwm.h b/include/linux/pwm.h
-> index 8cafc483db53addf95591d1ac74287532c0fa0ee..8f0698c09e62b893d63fc258d=
-a3c34781183056f 100644
-> --- a/include/linux/pwm.h
-> +++ b/include/linux/pwm.h
-> @@ -478,6 +478,7 @@ static inline bool pwm_might_sleep(struct pwm_device =
-*pwm)
-> =20
->  /* PWM provider APIs */
->  void pwmchip_put(struct pwm_chip *chip);
-> +void pwmchip_release(struct device *dev);
-
-I want this in a separate section because "normal" provider don't need
-that. Please add a comment that this is only public for technical
-reasons for the Rust wrappers.
-
-I understand you are eager to get this merged, but still I'd ask you to
-slow down your patch sending frequency. Currently I tend to not apply it
-for v6.17-rc1 as I'd like to have that in next for some time.
-
-With you waiting a bit longer before v11 I would have written that in
-reply to the explanation in the v10 thread and we might have saved
-one iteration ...
-
->  struct pwm_chip *pwmchip_alloc(struct device *parent, unsigned int npwm,=
- size_t sizeof_priv);
->  struct pwm_chip *devm_pwmchip_alloc(struct device *parent, unsigned int =
-npwm, size_t sizeof_priv);
-> =20
-> @@ -551,6 +552,10 @@ static inline void pwmchip_put(struct pwm_chip *chip)
->  {
->  }
-> =20
-> +static inline void pwmchip_release(struct device *dev)
-> +{
-> +}
-> +
-
-Is this needed? There is no user of this function that doesn't depend
-on CONFIG_PWM?!
-
->  static inline struct pwm_chip *pwmchip_alloc(struct device *parent,
->  					     unsigned int npwm,
->  					     size_t sizeof_priv)
->=20
-
-Best regards
-Uwe
-
---52heviwukb62zeme
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhwKBoACgkQj4D7WH0S
-/k7Blwf+LeGyU+ZX3f7XS0pHm8zBWkJ0woOP+GYaAZLba3sufqsqBh90rQuPvYFG
-yfOmrF9i/IpGim42booPz1OZD+PGe17Wx6+iQ57RuLkXxKfIwqAGfQnBW5BunJWL
-b7xkg1vRjmnZdQgixsTRSZoE/QjqSzKYzooogPg/bAtUy92n5vzpafgxy9zqsfZ/
-6wtM1Kc/nRir2TbVMFBNlu2ZzjNd9gyTk42gxQBgXqzG7PzA+gdaN1A2n58tdzUd
-44aN7WhPOEUPT3GJwyLrkwcKulGPyGY8Do3sYujEV98E5HbRdy5K/Ctsrm3ixD+A
-X994v6aaOHQQA0XiVBE695HLVVwLCQ==
-=vBNR
------END PGP SIGNATURE-----
-
---52heviwukb62zeme--
-
-
---===============7392486233796979959==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7392486233796979959==--
-
