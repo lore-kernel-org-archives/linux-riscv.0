@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B47CC83F17
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 14:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBE1C83F17
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jul 2025 14:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CL3HYWBflU9uH/lT/0o5GDABVR9FZrFD9bBQ7myrxwc=; b=nwi1KYF6AjAHyT
-	1GzSNcgCsQ8qRwAYjqrL3KdlgpwpkTjPwMZW3edvkqNT2t1lKzdMNsjf9++HsNkF1A7DT8b4DwRG3
-	Of5W19d+Heq+nFbG0YE5uESBqqCJf2eqFJ9gsclZovWLhvYbcGXtSanKOmJoC8zs+CGThYGFZOUtL
-	jkTSgYgdKqHDRrqTjJJpQzRKqY1k45aEVbKERGd5armjTb/U2XVwJUf+OwuZt7/var3aqNA+iXmnN
-	7v5GMUBu84/H3S6aInnIYEpLM4REaW+IOsHsOHgb68x0zHaB5if1O95nycfJo770UxVbZEGWBb1AL
-	s4lZkS6nuDIgaQYSvjCQ==;
+	List-Owner; bh=EAsSID6bLlq8ruXYc2vvD0ZDTYgLvD+ck/YQQhO4+yE=; b=DPczVFJwZyXgRo
+	/b+dcSD+DJyM8fc1kT1VPvcwciiI3xMgMqKGY32oQ5Gc1nucpnwXx5r5b6viyHiJMm8Xu8TmOzUpq
+	/ZBmR+XB7byyPrhSmxQQ34q7bs3R0uFvfeR4FOvxZ5JyMfFEX6kg89r07upCIZkbxTF21r4IQFgqf
+	t67c4ImJOzLFrwWotuCD5D2MjIt32WLjhod14iozyz/+UoslaYgMstS5wjE7YYmp3EWI64SjByLLS
+	7NADmZv8O7f8s8YqP56zmLghAuKvAYYcBhIWsh9i3zmeZK6PgzMN76s5tZagLtfhkL+tKANBjuOwq
+	FBdq72DN8AUCN1VndQjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZsQ6-0000000C8n9-3G4U;
-	Thu, 10 Jul 2025 14:38:42 +0000
+	id 1uZsSR-0000000C9Cj-0NgM;
+	Thu, 10 Jul 2025 14:41:07 +0000
 Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqjx-0000000BpOU-1QIf;
-	Thu, 10 Jul 2025 12:51:06 +0000
+	id 1uZqk2-0000000BpQN-3Afd;
+	Thu, 10 Jul 2025 12:51:12 +0000
 dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
 	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=3tmnMfh6cpM9FoO9X0eT2hb+eqt7BAWlrFCxtGhwp9I=;
-	b=0gonZUyLNBxtUSk4CJEBPJfv9suDyvyPqfXrhlHEW2pPa50dmfdXAsseH7/wyhtCscWkk3fJ5ge0VFC9okTRW3gSeV+nhjcmeK+Kn7GyJQiO9u5+J9ytSX3+/Hmhv4UDPhSsveHmqYboYSTXcmG21wooy79hiuNW46VkwhKxrZg=
+	bh=RF+5MZ2PG4AyLTpU3PgkP0sgPj+kXRjh8FimrPrYjHY=;
+	b=GUinrV8Wugy8EAu6mr5q9SZzPFrYfbbi4jSb3E9ptNqBiKqYvifH/6P2ImNZhZliwSgT4uUbfoZbV5Uqheit1eUIfpwHKeqoz98CjBgRmmIrBvBepG6iNRtFRqdvHKdZ/+rHKkmz0vA8xMu8z/6Sn/e8BG8k5n+HGJkDO0+7lmY=
 Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
 	by mail.netcube.li with ESMTPA
-	; Thu, 10 Jul 2025 14:51:03 +0200
+	; Thu, 10 Jul 2025 14:50:57 +0200
 From: Lukas Schmid <lukas.schmid@netcube.li>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -51,16 +51,16 @@ Cc: Lukas Schmid <lukas.schmid@netcube.li>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 5/5] ARM: dts: sunxi: add support for NetCube Systems Nagami Keypad Carrier
-Date: Thu, 10 Jul 2025 14:50:19 +0200
-Message-Id: <20250710125021.1079702-6-lukas.schmid@netcube.li>
+Subject: [PATCH v4 3/5] ARM: dts: sunxi: add support for NetCube Systems Nagami SoM
+Date: Thu, 10 Jul 2025 14:50:17 +0200
+Message-Id: <20250710125021.1079702-4-lukas.schmid@netcube.li>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250710125021.1079702-1-lukas.schmid@netcube.li>
 References: <20250710125021.1079702-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_055105_694481_65A12D94 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20250710_055111_076586_2B1C6933 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,135 +77,179 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The NetCube Systems Nagami Keypad Carrier uses the Nagami SoM and contains
-a MCP23008 for connecting to a 4x3 matrix keypad and internal status led.
-The I2C2 interface is connected to said MCP23008 and also a header for an
-PN532 NFC-Module. It also provides a pin-header for a bi-color status led.
-Ethernet with PoE support is available on a screwterminal after magnetics.
+NetCube Systems Nagami SoM is a module based around the Allwinner T113s
+SoC. It includes the following features and interfaces:
+
+- 128MB DDR3 included in SoC
+- 10/100 Mbps Ethernet using LAN8720A phy
+- One USB-OTG interface
+- One USB-Host interface
+- One I2S interface with in and output support
+- Two CAN interfaces
+- ESP32 over SDIO
+- One SPI interface
+- I2C EEPROM for MAC address
+- One QWIIC I2C Interface with dedicated interrupt pin shared with EEPROM
+- One external I2C interface
+- SD interface for external SD-Card
 
 Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 ---
- arch/arm/boot/dts/allwinner/Makefile          |   1 +
- ...8i-t113s-netcube-nagami-keypad-carrier.dts | 164 ++++++++++++++++++
- 2 files changed, 165 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
+ .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 232 ++++++++++++++++++
+ 1 file changed, 232 insertions(+)
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
 
-diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index af287bb32..a2137bbe2 100644
---- a/arch/arm/boot/dts/allwinner/Makefile
-+++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -259,6 +259,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-s3-pinecube.dtb \
- 	sun8i-t113s-mangopi-mq-r-t113.dtb \
- 	sun8i-t113s-netcube-nagami-basic-carrier.dtb \
-+	sun8i-t113s-netcube-nagami-keypad-carrier.dtb \
- 	sun8i-t3-cqa3t-bv3.dtb \
- 	sun8i-v3-sl631-imx179.dtb \
- 	sun8i-v3s-anbernic-rg-nano.dtb \
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
 new file mode 100644
-index 000000000..02a098421
+index 000000000..58fbbd202
 --- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
-@@ -0,0 +1,164 @@
++++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
+@@ -0,0 +1,232 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
 + */
 +
 +/dts-v1/;
-+#include "sun8i-t113s-netcube-nagami.dtsi"
++#include "sun8i-t113s.dtsi"
 +
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
 +
 +/ {
-+	model = "NetCube Systems Nagami Keypad Carrier Board";
-+	compatible = "netcube,nagami-keypad-carrier", "netcube,nagami",
-+				 "allwinner,sun8i-t113s";
++	model = "NetCube Systems Nagami SoM";
++	compatible = "netcube,nagami", "allwinner,sun8i-t113s";
 +
-+	keypad: keypad {
-+		compatible = "gpio-matrix-keypad";
-+		debounce-delay-ms = <5>;
-+		col-scan-delay-us = <2>;
-+
-+		row-gpios = <&mcp23008 0 0
-+					 &mcp23008 1 0
-+					 &mcp23008 2 0
-+					 &mcp23008 3 0>;
-+
-+		col-gpios = <&mcp23008 6 0
-+					 &mcp23008 5 0
-+					 &mcp23008 4 0>;
-+
-+		linux,keymap = <0x00000201
-+						0x00010202
-+						0x00020203
-+						0x01000204
-+						0x01010205
-+						0x01020206
-+						0x02000207
-+						0x02010208
-+						0x02020209
-+						0x0300020A
-+						0x03010200
-+						0x0302020B>;
++	aliases {
++		serial1 = &uart1; // ESP32 Bootloader UART
++		serial3 = &uart3; // Console UART on Card Edge
++		ethernet0 = &emac;
 +	};
 +
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-heartbeat {
-+			gpios = <&mcp23008 7 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+			color = <LED_COLOR_ID_YELLOW>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+		};
-+
-+		led_status_red: led-status-red {
-+			gpios = <&pio 3 16 GPIO_ACTIVE_HIGH>;  /* PD16 */
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_STATUS;
-+		};
-+
-+		led_status_green: led-status-green {
-+			gpios = <&pio 3 22 GPIO_ACTIVE_HIGH>;  /* PD22 */
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_STATUS;
-+		};
++	chosen {
++		stdout-path = "serial3:115200n8";
 +	};
 +
-+	multi-led {
-+		compatible = "leds-group-multicolor";
-+		color = <LED_COLOR_ID_MULTI>;
-+		function = LED_FUNCTION_STATUS;
-+		leds = <&led_status_red &led_status_green>;
++	/* module wide 3.3V supply directly from the card edge */
++	reg_vcc3v3: regulator-3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc-3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++	};
++
++	/* SY8008 DC/DC regulator on the board, also supplying VDD-SYS */
++	reg_vcc_core: regulator-core {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc-core";
++		regulator-min-microvolt = <880000>;
++		regulator-max-microvolt = <880000>;
++		vin-supply = <&reg_vcc3v3>;
 +	};
 +};
 +
-+&ehci0 {
++&cpu0 {
++	cpu-supply = <&reg_vcc_core>;
++};
++
++&cpu1 {
++	cpu-supply = <&reg_vcc_core>;
++};
++
++&dcxo {
++	clock-frequency = <24000000>;
++};
++
++&emac {
++	nvmem-cells = <&eth0_macaddress>;
++	nvmem-cell-names = "mac-address";
++	phy-handle = <&lan8720a>;
++	phy-mode = "rmii";
++	pinctrl-0 = <&rmii_pe_pins>;
++	pinctrl-names = "default";
 +	status = "okay";
 +};
 +
++/* Default I2C Interface on Card-Edge */
 +&i2c2 {
++	pinctrl-0 = <&i2c2_pins>;
++	pinctrl-names = "default";
++	status = "disabled";
++};
++
++/* Exposed as the QWIIC connector and used by the internal EEPROM */
++&i2c3 {
++	pinctrl-0 = <&i2c3_pins>;
++	pinctrl-names = "default";
 +	status = "okay";
 +
-+	mcp23008: gpio@20 {
-+		compatible = "microchip,mcp23008";
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		reg = <0x20>;
-+		interrupts-extended = <&pio 5 6 IRQ_TYPE_LEVEL_LOW>;  /* PF6 */
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
++	eeprom0: eeprom@50 {
++		compatible = "atmel,24c02";		/* actually it's a 24AA02E48 */
++		reg = <0x50>;
++		pagesize = <16>;
++		read-only;
++		vcc-supply = <&reg_vcc3v3>;
++
++		#address-cells = <1>;
++		#size-cells = <1>;
++
++		eth0_macaddress: macaddress@fa {
++			reg = <0xfa 0x06>;
++		};
 +	};
 +};
 +
-+&ohci0 {
++/* Default I2S Interface on Card-Edge */
++&i2s1 {
++	pinctrl-0 = <&i2s1_pins>, <&i2s1_din_pins>, <&i2s1_dout_pins>;
++	pinctrl-names = "default";
++	status = "disabled";
++};
++
++/* Phy is on SoM. MDI signals pre-magentics are on the card edge */
++&mdio {
++	lan8720a: ethernet-phy@0 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0>;
++	};
++};
++
++/* Default SD Interface on Card-Edge */
++&mmc0 {
++	pinctrl-0 = <&mmc0_pins>;
++	pinctrl-names = "default";
++	status = "disabled";
++};
++
++/* Connected to the on-board ESP32 */
++&mmc1 {
++	pinctrl-0 = <&mmc1_pins>;
++	pinctrl-names = "default";
++	vmmc-supply = <&reg_vcc3v3>;
++	bus-width = <4>;
++	status = "okay";
++};
++
++/* Connected to the on-board eMMC */
++&mmc2 {
++	pinctrl-0 = <&mmc2_pins>;
++	pinctrl-names = "default";
++	vmmc-supply = <&reg_vcc3v3>;
++	vqmmc-supply = <&reg_vcc3v3>;
++	bus-width = <4>;
++	non-removable;
 +	status = "okay";
 +};
 +
 +&pio {
++	vcc-pb-supply = <&reg_vcc3v3>;
++	vcc-pc-supply = <&reg_vcc3v3>;
++	vcc-pd-supply = <&reg_vcc3v3>;
++	vcc-pe-supply = <&reg_vcc3v3>;
++	vcc-pf-supply = <&reg_vcc3v3>;
++	vcc-pg-supply = <&reg_vcc3v3>;
++
 +	gpio-line-names = "", "", "", "", // PA
 +					  "", "", "", "",
 +					  "", "", "", "",
@@ -214,8 +258,8 @@ index 000000000..02a098421
 +					  "", "", "", "",
 +					  "", "", "", "",
 +					  "", "", "", "",
-+					  "", "", "", "", // PB
-+					  "", "", "UART3_TX", "UART3_RX",
++					  "", "", "CAN0_TX", "CAN0_RX", // PB
++					  "CAN1_TX", "CAN1_RX", "UART3_TX", "UART3_RX",
 +					  "", "", "", "",
 +					  "", "", "", "",
 +					  "", "", "", "",
@@ -232,10 +276,10 @@ index 000000000..02a098421
 +					  "", "", "", "",
 +					  "", "", "", "", // PD
 +					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "LED_STATUS_RED", "", "", "",
-+					  "I2C2_SCL", "I2C2_SDA", "LED_STATUS_GREEN", "",
++					  "", "", "SPI1_CS", "SPI1_CLK",
++					  "SPI1_MOSI", "SPI1_MISO", "SPI1_HOLD", "SPI1_WP",
++					  "PD16", "", "", "",
++					  "I2C2_SCL", "I2C2_SDA", "PD22", "",
 +					  "", "", "", "",
 +					  "", "", "", "",
 +					  "ETH_CRSDV", "ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
@@ -246,8 +290,8 @@ index 000000000..02a098421
 +					  "", "", "", "",
 +					  "", "", "", "",
 +					  "", "", "", "",
-+					  "", "", "", "", // PF
-+					  "", "", "KEY_nINT", "",
++					  "SD_D1", "SD_D0", "SD_CLK", "SD_CLK", // PF
++					  "SD_D3", "SD_D2", "PF6", "",
 +					  "", "", "", "",
 +					  "", "", "", "",
 +					  "", "", "", "",
@@ -257,19 +301,40 @@ index 000000000..02a098421
 +					  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
 +					  "ESP_D2", "ESP_D3", "UART1_TXD", "UART1_RXD",
 +					  "ESP_nBOOT", "ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-+					  "", "", "", "",
++					  "I2S1_WS", "I2S1_CLK", "I2S1_DIN0", "I2S1_DOUT0",
 +					  "", "", "", "",
 +					  "", "", "", "",
 +					  "", "", "", "",
 +					  "", "", "", "";
 +};
 +
-+&usb_otg {
-+	dr_mode = "peripheral";
++/* Remove the unused CK pin from the pinctl as it is unconnected */
++&rmii_pe_pins {
++	pins = "PE0", "PE1", "PE2", "PE3", "PE4",
++		   "PE5", "PE6", "PE8", "PE9";
++};
++
++/* Default SPI Interface on Card-Edge */
++&spi1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	pinctrl-0 = <&spi1_pins>, <&spi1_hold_pin>, <&spi1_wp_pin>;
++	pinctrl-names = "default";
++	cs-gpios = <0>;
++	status = "disabled";
++};
++
++/* Connected to the Bootloader/Console of the ESP32 */
++&uart1 {
++	pinctrl-0 = <&uart1_pg6_pins>;
++	pinctrl-names = "default";
 +	status = "okay";
 +};
 +
-+&usbphy {
++/* Console/Debug UART on Card-Edge */
++&uart3 {
++	pinctrl-0 = <&uart3_pb_pins>;
++	pinctrl-names = "default";
 +	status = "okay";
 +};
 -- 
