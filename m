@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22F6C83F1A
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Jul 2025 07:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C601CC83F20
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Jul 2025 10:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MO4ZOAj1vy/BDFtIiH289J7e2L3g5HEwNwmXnejGckE=; b=nZkzmOzZYe3U3N
-	UW5wYxlRvR/ZvTL7EESrCe8a96ZVeYfOCE+5Fywkf4y+bArofRoitloNwdfC0iq7sTOg6aih+Mw9a
-	IVW+9lSDYrAVOxkOMaZd661fGXzmN9JPyOjawitq5Y3xOzUngrbpqfC/Em21DkB9PTKx3UaWL2fGp
-	vw4YMQ0lAiXVVkR72iFzpQwBoNVMuQdmniNZQEQTcgM2FZt/jm0mVZtbR0GlrBUqwPlYPmbc6psuT
-	rsBRdo+p3WXEfeLF86einedX4GCWTdg9+yc9BFUsBVFuhKYW37aLubl43iNqyAUbuVwq5GMkz5tJP
-	HPd4LZvXPn1VBSd5b9cQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=v3PxGZqThR+pv4gW4lPg6vUKfr+jA+sOWyDYYah44L8=; b=PHBpDkIYd81wMT
+	5lzNOjGxIzPmuyGegRWZyQfSPKdFVEea2YEK599+4MwXp7amDPl95XXSwlcMTw69x6X6U/DPhxrpk
+	X5o/GGRUa3ygtYEbI5nzAKIAmzML7somPdIb1lWLJNfhAxYUoANXHQ/LJOalq5tbk3gLunQHtKJiN
+	AwPOhWWeMVoLwty8Y2MLdygwA6tebkhw6j2Rs7KaS+AV+G2Fb2PPT15qlZ100FEXkCMKxyJM/Q7tt
+	bapbUTCyK35kU50+6TAk3Uts7ptlbpSOScuqW5GBfrJ1xB31ga7DJ3EXHuDX5NgYnbQUAKautBIaZ
+	FvUE9ZOW4q9lOzSanPhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaV4v-0000000GNom-432k;
-	Sat, 12 Jul 2025 07:55:25 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1uaXPg-0000000GX4h-1jl5;
+	Sat, 12 Jul 2025 10:25:00 +0000
+Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaUz3-0000000GNM4-3NZC
+	id 1uaXPd-0000000GX40-0Gnl
 	for linux-riscv@lists.infradead.org;
-	Sat, 12 Jul 2025 07:49:23 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1752306559;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wBgvW/iE1LkB7bwYAmcA+oY4+XdqZ43tYbO28WaPF5g=;
-	b=dHWLuQkfZwvzpfCJ2oQZ7lWcFc+BDa6wpvipYHllcEG4/v37broc2yfoLTSVZT37i7XTm3
-	Ni6at26DCLupV1PmlSQu3AldR4JfmuSCJw0GAABJjVcAXhheHoCbUdcOeuTSbJpR4FtA8/
-	lex5a1XCzEFs6UKhHyhLadWjc6tUtZU=
-From: Ze Huang <huang.ze@linux.dev>
-Date: Sat, 12 Jul 2025 15:49:00 +0800
-Subject: [PATCH v6 1/2] dt-bindings: usb: dwc3: add support for SpacemiT K1
+	Sat, 12 Jul 2025 10:24:58 +0000
+Received: by mail-io1-xd32.google.com with SMTP id ca18e2360f4ac-86d013c5e79so236654739f.0
+        for <linux-riscv@lists.infradead.org>; Sat, 12 Jul 2025 03:24:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1752315896; x=1752920696; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=dCU4bgUbnXvZ82jiG94+o4ASlTjyH7jDB0NCEushSNM=;
+        b=dFcBulG3ThFKljkpbN+JPd65yvPA3Z9silQzP6X/Wmpayq8789J1jkdTetETuZ7/mT
+         JwhpuqGqkVK5gRrseL3b1Nni0mDC+nqGz2RCiqUqq9bnLTz6q9qwypfR8oBJgYIfH2ZN
+         +uFkryqL+G7f0iHRIJWlz8x6CIf851eseEagkBcFrRO+rFg7WIdotMqrfgqNdooRUn6O
+         Tl7SOFG8goIPFiVopPFqwQDdYlSOnP3j4MRYr0FcCGfwAomfi22602Q/hVKccNdJn/7O
+         JZAVVeLqizhNNmkRiuE9IOWHdgFZAi/UnlPr7NeTdvvRmr47E7SaCUml3Jj02jw2F10c
+         j4Iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752315896; x=1752920696;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=dCU4bgUbnXvZ82jiG94+o4ASlTjyH7jDB0NCEushSNM=;
+        b=VsL4zWKqIiC2MjbPcP63IRQGgHTR7OUaufeD2UH6yc0cRAszepU3ouqt77iSkb4g9U
+         NLX1T66kUAYyuOMecoBzZAnaqwYrcnefd5ORBiHo/PIOKQlavGTmGm/7m5qbTIykr1C1
+         3qKBFYhCBFdfKp94jR8zQ3DyDMIKVPUxGg3rg9jtYB1RpQ/DmAiq9AQV0ztYoFH0uari
+         t905+QcRLbZ+ToJn5eZU+uEqFjySU3bCgHF+1fApk3XN0pwH5BiL3DvhGdEjshMbG6Tm
+         MddtmY9Duu5nr3r4Rid/VZQ+U1iQcSmVQfFIDaXw/TjHJ/m6CUv2Yo/4dbzfLldte3Hx
+         F9yw==
+X-Forwarded-Encrypted: i=1; AJvYcCWBikC/gbnGHvip1VX2wf13Gnvq2vUuLkJiLAjUDh6qBGHzBvnH4HHtHJE21V0VvIHfhvbesj8LhCE//w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOn9B1A8j+1JACVQgk1UCpc0wp8uoZhFvRqNKg3oLEhkTHxwGq
+	/gzS6YE7el47k9YAL0h0j406/ERmjCAyGCna7y0i6RzYSyoAcKdsBEENLHPf8kFkEh38z/Pj36K
+	IU1H5ItCIXqC13vIoi8eDl+G9HdI/+JnZ8uwNalljXw==
+X-Gm-Gg: ASbGncs8rqi+KBiJlnRxcoWHnAceYhS08dxJdVvUAV3KysmOnT4M9CxcQQG0YAMf9xF
+	kcS3x0tuXY3N4X7ggYmvs+0xj7b5Q85d6caPfB95/1HL6+oz1865qCsP9ChYwvhsamszOxyx2WC
+	LusRT4h5utmWQ/HA+rO0Jcw8dvu4avB6Dpm+joGJqSlUGrCMSJ9TvnznoUu3MpXlkZ+B6BPH5xG
+	EkX/6uG
+X-Google-Smtp-Source: AGHT+IEUvwOlNaKX67zF7XBXGRrrgd/vBWFzhk/JvZxSzB4yGZ48rpHvRk54/YtVPkl0kw3AwxxL6yqbQX3MQBck82w=
+X-Received: by 2002:a05:6602:7181:b0:85c:96a5:dc2c with SMTP id
+ ca18e2360f4ac-87977fddc7emr700617539f.14.1752315895993; Sat, 12 Jul 2025
+ 03:24:55 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20250712-dwc3_generic-v6-1-cc87737cc936@linux.dev>
-References: <20250712-dwc3_generic-v6-0-cc87737cc936@linux.dev>
-In-Reply-To: <20250712-dwc3_generic-v6-0-cc87737cc936@linux.dev>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Ze Huang <huang.ze@linux.dev>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752306549; l=3493;
- i=huang.ze@linux.dev; s=20250705; h=from:subject:message-id;
- bh=MHl3ZXBiDxD/k69wjpMLIYoelGKwJ/a8qBFovR9xt8M=;
- b=zqLX1xHbzV3Hvjmht0PfnKwg0ktJ31e8PaKGh0VBKUyqYIrD6BRltSu99sGvlX9M3CGKvgVDZ
- YRs95OnkLZLDLCW2WuqqZs47FfqSp5BXnOKVvb37rD/mHXkkoxWRY8c
-X-Developer-Key: i=huang.ze@linux.dev; a=ed25519;
- pk=Kzc4PMu5PTo8eZZQ5xmTNL9jeXcQ9Wml0cs+vlQpBkg=
-X-Migadu-Flow: FLOW_OUT
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 12 Jul 2025 15:54:45 +0530
+X-Gm-Features: Ac12FXyD4VQVIOuVbQptVP1NvX--8ikGpI-rs3w8axR1N5KmYegrjMtYEUm3Pag
+Message-ID: <CAAhSdy3_OE=R1jhF5-KBiw4mGOqHUXHdkvyeAAR18Qm8dezavQ@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv fixes for 6.16 take #2
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@rivosinc.com>, 
+	Atish Patra <atish.patra@linux.dev>, Andrew Jones <ajones@ventanamicro.com>, 
+	KVM General <kvm@vger.kernel.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_004921_994927_0D67089D 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20250712_032457_342852_D5A6A2FC 
+X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,134 +95,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for the USB 3.0 Dual-Role Device (DRD) controller embedded
-in the SpacemiT K1 SoC. The controller is based on the Synopsys
-DesignWare Core USB 3 (DWC3) IP, supporting USB3.0 host mode and USB 2.0
-DRD mode.
+Hi Paolo,
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Ze Huang <huang.ze@linux.dev>
----
- .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 107 +++++++++++++++++++++
- 1 file changed, 107 insertions(+)
+We have two more fixes for the 6.16 kernel. The first one
+fixes an issue reported by Canonical [1] which turned-out
+to be an issue related to timer cleanup when exiting to
+user-space. The second fix addresses a race-condition
+in updating HGEIE CSR when IMSIC VS-files are in-use.
 
-diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..c967ad6aae50199127a4f8a17d53fc34e8d9480b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-@@ -0,0 +1,107 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/usb/spacemit,k1-dwc3.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SpacemiT K1 SuperSpeed DWC3 USB SoC Controller
-+
-+maintainers:
-+  - Ze Huang <huang.ze@linux.dev>
-+
-+description: |
-+  The SpacemiT K1 embeds a DWC3 USB IP Core which supports Host functions
-+  for USB 3.0 and DRD for USB 2.0.
-+
-+  Key features:
-+  - USB3.0 SuperSpeed and USB2.0 High/Full/Low-Speed support
-+  - Supports low-power modes (USB2.0 suspend, USB3.0 U1/U2/U3)
-+  - Internal DMA controller and flexible endpoint FIFO sizing
-+
-+  Communication Interface:
-+  - Use of PIPE3 (125MHz) interface for USB3.0 PHY
-+  - Use of UTMI+ (30/60MHz) interface for USB2.0 PHY
-+
-+allOf:
-+  - $ref: snps,dwc3-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: spacemit,k1-dwc3
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    const: usbdrd30
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  phys:
-+    items:
-+      - description: phandle to USB2/HS PHY
-+      - description: phandle to USB3/SS PHY
-+
-+  phy-names:
-+    items:
-+      - const: usb2-phy
-+      - const: usb3-phy
-+
-+  resets:
-+    items:
-+      - description: USB3.0 AHB reset line
-+      - description: USB3.0 VCC reset line
-+      - description: USB3.0 PHY reset line
-+
-+  vbus-supply:
-+    description: A phandle to the regulator supplying the VBUS voltage.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - phys
-+  - phy-names
-+  - resets
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    usb@c0a00000 {
-+        compatible = "spacemit,k1-dwc3";
-+        reg = <0xc0a00000 0x10000>;
-+        clocks = <&syscon_apmu 16>;
-+        clock-names = "usbdrd30";
-+        interrupts = <125>;
-+        phys = <&usb2phy>, <&usb3phy>;
-+        phy-names = "usb2-phy", "usb3-phy";
-+        resets = <&syscon_apmu 8>,
-+                 <&syscon_apmu 9>,
-+                 <&syscon_apmu 10>;
-+        vbus-supply = <&usb3_vbus>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        hub_2_0: hub@1 {
-+            compatible = "usb2109,2817";
-+            reg = <1>;
-+            vdd-supply = <&usb3_vhub>;
-+            peer-hub = <&hub_3_0>;
-+            reset-gpios = <&gpio 3 28 1>;
-+        };
-+
-+        hub_3_0: hub@2 {
-+            compatible = "usb2109,817";
-+            reg = <2>;
-+            vdd-supply = <&usb3_vhub>;
-+            peer-hub = <&hub_2_0>;
-+            reset-gpios = <&gpio 3 28 1>;
-+        };
-+    };
+Please pull.
 
--- 
-2.50.1
+Regards,
+Anup
 
+[1] https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2112578Signed-off-by
+
+The following changes since commit d7b8f8e20813f0179d8ef519541a3527e7661d3a:
+
+  Linux 6.16-rc5 (2025-07-06 14:10:26 -0700)
+
+are available in the Git repository at:
+
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-6.16-2
+
+for you to fetch changes up to 4cec89db80ba81fa4524c6449c0494b8ae08eeb0:
+
+  RISC-V: KVM: Move HGEI[E|P] CSR access to IMSIC virtualization
+(2025-07-11 18:33:27 +0530)
+
+----------------------------------------------------------------
+KVM/riscv fixes for 6.16, take #2
+
+- Disable vstimecmp before exiting to user-space
+- Move HGEI[E|P] CSR access to IMSIC virtualization
+
+----------------------------------------------------------------
+Anup Patel (2):
+      RISC-V: KVM: Disable vstimecmp before exiting to user-space
+      RISC-V: KVM: Move HGEI[E|P] CSR access to IMSIC virtualization
+
+ arch/riscv/include/asm/kvm_aia.h  |  4 ++-
+ arch/riscv/include/asm/kvm_host.h |  3 +++
+ arch/riscv/kvm/aia.c              | 51 ++++++---------------------------------
+ arch/riscv/kvm/aia_imsic.c        | 45 ++++++++++++++++++++++++++++++++++
+ arch/riscv/kvm/vcpu.c             | 10 --------
+ arch/riscv/kvm/vcpu_timer.c       | 16 ++++++++++++
+ 6 files changed, 74 insertions(+), 55 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
