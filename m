@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E92EC83F1D
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jul 2025 17:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF47DC83F17
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jul 2025 19:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:Subject:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YdohvzFETzYoTINxW4vvK3RXAtJy4cjckB3KsjTnIK0=; b=ayEXBFaqdgRH0w
-	iDd90jiS3HWn4Dec4Z42UGVieo8E00HH0KeiXGWLV9LnbHsMXsQbJufHgrzVNNb5W0SheJsYqyxcO
-	oUry5dm+4jM09T1MPNX2kmAjEZmupuTJjoIGpGHsOFw0dXZ3eHyFol3ZAZVBjXx9+2HFBo/dWCgB6
-	uHrLZwsMIBTdftG4oAKM62/dxko+aWjk2c73TymKilrPZHKwm4+tYPkkPcShtpe5BvbNcPNtG7coI
-	Qz5VqyNX0D0XcJgBLeb7+klKhevuOPgIRa0jte+j0I0s0MovrTfYoNnSnD6a7goni+Ax9NAMB4aNZ
-	3dG4D8i/UrIiqDLR/FLQ==;
+	List-Owner; bh=kgV/zAmx+nEqQHWgXA0TZlIKDZlBkKR7BvjjNnQSHEk=; b=QIpPyxE8Ja2nbO
+	AFxOnVvPWI4jQI6PC2kAXheZHBF7O0PoK7K1wD5NXwnx9q5VE7qLax0A7pfwq6k//tVILJCf0OU0L
+	/gZpFdM8zlqUqEqS34ionOLl49VtzyL/X2PJZyeY2RedVJfdHaJ2YSKleHwxFw3mxL5j/oy3zMYHW
+	cqb4C5j+Q/INB0t87ms6o8H2MQohLMqHLWro0tHkVyfiuMhnjrL3rpLnMlA/xUjZyghTWvdylWaFV
+	csCnhByFIAh1ijiC4OTUzP9d/82ymebs6lczJgR8OPll82oRGMlPnNpcE5OAec8qWoIDpEmq8eEn7
+	OtD9XOeqMoW93UgF1Gaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub0AD-00000000QP1-2gsP;
-	Sun, 13 Jul 2025 17:06:57 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ub2pZ-00000000ZGb-3TtH;
+	Sun, 13 Jul 2025 19:57:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub0AB-00000000QOf-1pQU
+	id 1ub2pW-00000000ZEj-3rr8
 	for linux-riscv@lists.infradead.org;
-	Sun, 13 Jul 2025 17:06:56 +0000
+	Sun, 13 Jul 2025 19:57:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 681E6A4FD1C;
-	Sun, 13 Jul 2025 17:06:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 011A0C4CEE3;
-	Sun, 13 Jul 2025 17:06:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2E7E05C561D;
+	Sun, 13 Jul 2025 19:57:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA785C4CEE3;
+	Sun, 13 Jul 2025 19:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752426414;
-	bh=OEZ7eLIEFl1LPSh8Fr+hYgEXUccuy8XYoLUfvat4/l0=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=BLiOSK48+OPpf6pNNiM/B9DEKnRTymJhOdyHgPRpL5CQ12I5bCS1g+GSDNJMuwOhh
-	 04s0XFVwRNpQhZhaNW0eVwppGHfHgKDbPOMr5+ezfVrdicIKC1roDcPWkj2q/hGC04
-	 QIQDyRDKRjrqx++BtIlqg9Jk9unSdJH+1UyS7SWls1uwYgANaB5Q9NmVPFUl7ToigZ
-	 tP/dcYq6q38u81PTDhDuTsetaVNTY48gsA4giD91n4/MSe1n1uEhz5mEyL08mQVxSa
-	 8eXMEaH+TkU16x6n1xl3I44ENC4aAFXazlaq1Leku83ELNbYjWIDVPBYCtXNgr1W/y
-	 BnKnk9MDPk7HA==
+	s=k20201202; t=1752436663;
+	bh=7MhP7Eqd6lgawO40n7WyV/A2Nja9gmD0SILlAqtyncA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TOZ+B6YOOeI5xoYoJ9T+4exP4IdtHlNv4716nRx564DAv2sr/JZd1HhRl/qxWtvgk
+	 UgdlDMwqD6+3abg3eLTVIBLDl0jN14ndsCsMadyVryFL2oGRp4v5PYyB5Zn8moLERf
+	 zJLFhtN8BSJNINr5WbtMltmB+1pu3xXbhdKlCU585v4ilSlqGGnnysaYHBGWgBOnF9
+	 V0JFNtxg3mACUmeU1h9iF2AoqbcAs1vOMz0fwdT0vEyb38wt8ozxp+yuQEme56mes0
+	 n2IS6U0GWP9MxLMMV2jEVEpPmYYI0WVI9v8vkyKbASyOb6QHd5YNcyL6uQjA15BII2
+	 ebDM3o8W2Iqlw==
+Date: Sun, 13 Jul 2025 12:57:42 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+	Yangtao Li <frank.li@vivo.com>, linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] clk: thead: th1520-ap: Correctly refer the parent
+ of osc_12m
+Message-ID: <aHQPtjB9FjIsCYHW@x1>
+References: <20250710092135.61049-1-ziyao@disroot.org>
+ <20250710092135.61049-2-ziyao@disroot.org>
+ <aHAp1q9tLy465gnO@x1>
 MIME-Version: 1.0
-In-Reply-To: <20250709011528-GYA487904@gentoo>
-References: <20250709011528-GYA487904@gentoo>
-Subject: Re: [GIT PULL] clk: spacemit: add changes for v6.17
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Alex Elder <elder@riscstar.com>, Philipp Zabel <p.zabel@pengutronix.de>, Haylen Chu <heylenay@4d2.org>, linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-To: Yixun Lan <dlan@gentoo.org>
-Date: Sun, 13 Jul 2025 10:06:52 -0700
-Message-ID: <175242641282.1004940.6776191948188477776@lazor>
-User-Agent: alot/0.11
+Content-Disposition: inline
+In-Reply-To: <aHAp1q9tLy465gnO@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_100655_539022_CF7B1303 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250713_125746_999533_1C1CA169 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +78,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Yixun Lan (2025-07-08 18:15:28)
-> Hi Stephen,
+On Thu, Jul 10, 2025 at 02:00:06PM -0700, Drew Fustini wrote:
+> On Thu, Jul 10, 2025 at 09:21:34AM +0000, Yao Zi wrote:
+> > The "osc_12m" fixed factor clock refers the external oscillator by
+> > setting clk_parent_data.fw_name to osc_24m, which is obviously wrong
+> > since no clock-names property is allowed for compatible
+> > thead,th1520-clk-ap.
+> > 
+> > Refer the oscillator as parent by index instead.
+> > 
+> > Fixes: ae81b69fd2b1 ("clk: thead: Add support for T-Head TH1520 AP_SUBSYS clocks")
+> > Signed-off-by: Yao Zi <ziyao@disroot.org>
+> > ---
+> >  drivers/clk/thead/clk-th1520-ap.c | 9 ++++++++-
+> >  1 file changed, 8 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+> > index ebfb1d59401d..42feb4bb6329 100644
+> > --- a/drivers/clk/thead/clk-th1520-ap.c
+> > +++ b/drivers/clk/thead/clk-th1520-ap.c
+> > @@ -582,7 +582,14 @@ static const struct clk_parent_data peri2sys_apb_pclk_pd[] = {
+> >  	{ .hw = &peri2sys_apb_pclk.common.hw }
+> >  };
+> >  
+> > -static CLK_FIXED_FACTOR_FW_NAME(osc12m_clk, "osc_12m", "osc_24m", 2, 1, 0);
+> > +static struct clk_fixed_factor osc12m_clk = {
+> > +	.div		= 2,
+> > +	.mult		= 1,
+> > +	.hw.init	= CLK_HW_INIT_PARENTS_DATA("osc_12m",
+> > +						   osc_24m_clk,
+> > +						   &clk_fixed_factor_ops,
+> > +						   0),
+> > +};
+> >  
+> >  static const char * const out_parents[] = { "osc_24m", "osc_12m" };
+> >  
+> > -- 
+> > 2.50.0
 > 
->  Here is clock changes for v6.17, please pull.
+> Reviewed-by: Drew Fustini <fustini@kernel.org>
 > 
->  Basically, what we've added here are two changes:
+> Thanks for fixing this. osc_12m now appears under osc_24m in
+> clk_summary.
 > 
->   1) Mark pll1_d8 clock as critical to prevent it from being shut down
->      in the resource withdrawal path once the probe phase fails
-> 
->   2) Extend K1 clock framework to support reset auxiliary devices, and
->      also route the reset driver via clock tree to avoid shared tags,
->      please see discussion here[1] with reset maintainer for more
->      details if needed.
-> 
->   Thank you!
-> 
-> 
-> Link: https://lore.kernel.org/r/3732050b6b756868543012c1a1cebbe7cce74d61.camel@pengutronix.de [1]
-> 
-> Yixun Lan
-> 
-> The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
-> 
->   Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
-> 
-> are available in the Git repository at:
-> 
->   https://github.com/spacemit-com/linux tags/spacemit-clk-for-6.17-1
-> 
-> for you to fetch changes up to c79550f69f0f21be069385c20cd6490b862ba2a5:
-> 
->   Merge tag 'spacemit-reset-for-6.17-1' of https://github.com/spacemit-com/linux (2025-07-07 22:07:15 +0800)
-> 
-> ----------------------------------------------------------------
+> Drew
 
-Thanks. Pulled into to clk-next
+Thank you for the patch. I've now applied it to thead-clk-for-next as
+commit d274c77ffa20 [1].
+
+Drew
+
+[1] https://github.com/pdp7/linux/commit/d274c77ffa202b70ad01d579f33b73b4de123375
 
 _______________________________________________
 linux-riscv mailing list
