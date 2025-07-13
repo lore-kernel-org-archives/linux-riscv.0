@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C8D1C83F1D
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jul 2025 13:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C080C83F17
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jul 2025 15:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/kiX1QGWULBDUVutQ7+bJoCI8NZE2bqASTxjJFL7J8Y=; b=FXDRhdoQ8EV0mX
-	huAdaVvW8EOacsDDUvbgzLGIE8eJuNi8pwtVzYQ+n0Qjqsi1n34W8T52R/ho5LzcnnQ596I7pT8dM
-	o3+0s1xucKWteGXaew2Ve4DpcBJfk/F8EOH+GAvjddn7+Dmb3/FgPOFigEdecqjczct49Xs0LKAxB
-	8l3EaRSX/aTHOlwl3Ky8PyGP4tLo/OV4sf/wp2m+jq7+HPw3LiivCn8VKvwEIRg99Z1CBbtRIRVw4
-	dgA2KFuXKDmqUjqTUvKiiyutaukhgCiUQ/XpCzh09WnoAOqizj5fiSd04yZvp9WRCoQ+EuFzrWg3R
-	UtcxzxKi6qTbyWAS9Iiw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=igUN9ZBP0r8yukqHh9wBwxE2ZBgG5UiLPLRgee7B60Y=; b=fAA73f75dAAVZS
+	nw3BxeIAmvHOclF5C5YG25gIlkzqlLHGFFvrzmew34Z+9TgT2PJeICEC+L9iijUn5lmQVVFKUL588
+	e1c8I3ai2d89JyJnQw1u3uutGvwfMLFDMmJfh19VXoOBgDChiGnn/pQLduRFU+NWrJoYltseq5r3U
+	ObDZIPozTTIDyVjKc95UXW+LrPS7ofzdEAD9m/mDK6jO1JMzjancHFbUxwTBg1lD5q/5IYBv0m75H
+	r9maEIYdGUyMANEqB6zMLOGhcSwGb8wtxxy2IKc8obwLEoavYmHx/7/s6yYORC1Dm4cMLg7vrn6Jy
+	LWB6X95aMZtOwgnl9QlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uawuA-00000000CUo-0Z9B;
-	Sun, 13 Jul 2025 13:38:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uaz1L-00000000LCs-382y;
+	Sun, 13 Jul 2025 15:53:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uawql-00000000CGU-0zJh
+	id 1uaz1J-00000000LCW-07hF
 	for linux-riscv@lists.infradead.org;
-	Sun, 13 Jul 2025 13:34:40 +0000
+	Sun, 13 Jul 2025 15:53:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 28BF4A4D485;
-	Sun, 13 Jul 2025 13:34:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3888C4CEE3;
-	Sun, 13 Jul 2025 13:34:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B53FF45E99;
+	Sun, 13 Jul 2025 15:53:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A31BC4CEE3;
+	Sun, 13 Jul 2025 15:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752413677;
-	bh=M0e7BZCRHQvfdjHIlPvPxnacXc8HJ3PDKZo0Z3OiJXI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HiV9hFLr8XQeVItHWo75SPFqO5eqrOznmElvxKVepqha9jdxgmw7eTbwOWIlCH1Dp
-	 zHUlgmf2x4oJHKW97aVh4OHhpJtW0WY5tKsl/yHPCJf8WgNMzOaLejiRKz+xmdS/2Y
-	 sIyMkA1gAcoxsrke78FuWKVLJmRMuJ9LLiKNh9hI68F8NO8YL7u8S2dtvf0LFrlK4H
-	 AnZBKWlIxXev4xL6vTCTfsJ43R6ZpqlX3/4znWHtnREOr9RA6Y6zrnIVjUXCx6tyHr
-	 022ikIksXB9GmjH8RjWhlB54FqJH14XUYhmI/gGuW5ybD8I006KhhtAoPv+4fNgEfX
-	 4TH++r9lkI0jA==
-Date: Sun, 13 Jul 2025 14:34:31 +0100
-From: Will Deacon <will@kernel.org>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-acpi@vger.kernel.org, iommu@lists.linux.dev,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH v4 3/3] iommu/riscv: Add ACPI support
-Message-ID: <aHO158RO9fD6mXVh@willie-the-truck>
-References: <20250710085657.2844330-1-sunilvl@ventanamicro.com>
- <20250710085657.2844330-4-sunilvl@ventanamicro.com>
+	s=k20201202; t=1752422019;
+	bh=KW8diOD7GzEBunJn+RKzPhWkRLpgAYo3gtaKrpFxmgQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MlFbZxFf5xje9Atzw5RaEYBbqIntMtaMQQRbp2F2byiMXOo6J9syOSFc01a4I5VXp
+	 8mQuBO0E6qJLNjhgMPgtMlYdjHDAPg4fHJFmjEiEjfPHIRLkhIm6JeSLf+WBDMQyhu
+	 4FRc9xCGmVVItWx6ZVzv4TzCgYe6FdcqXwsHLJ7ofufwnjvHxA/EQCDv3cQUuICj4A
+	 AOyZWKF3+E3QDyl1kE4em8dyuDhtX6czErConFw7SNXBWbHX2UQitZoIzDA+uwbB4Y
+	 +GyGSqMfOLIRXCiEZU+ZzEfLnmJU/uJYLBawAaLkdkZX3PdjessxgydkQscQl05GxQ
+	 Px9QsLpGOpHsA==
+From: guoren@kernel.org
+To: palmer@dabbelt.com,
+	guoren@kernel.org,
+	conor@kernel.org,
+	alexghiti@rivosinc.com,
+	paul.walmsley@sifive.com,
+	bjorn@rivosinc.com,
+	eobras@redhat.com,
+	corbet@lwn.net,
+	peterlin@andestech.com,
+	rabenda.cn@gmail.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V2 0/2] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+Date: Sun, 13 Jul 2025 11:53:19 -0400
+Message-Id: <20250713155321.2064856-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250710085657.2844330-4-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_063439_339321_21840FB3 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20250713_085341_090631_102A137F 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,33 +80,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 02:26:57PM +0530, Sunil V L wrote:
-> RISC-V IO Mapping Table (RIMT) provides the information about the IOMMU
-> to the OS in ACPI. Add support for ACPI in RISC-V IOMMU drivers by using
-> RIMT data.
-> 
-> The changes at high level are,
-> 
-> a) Register the IOMMU with RIMT data structures.
-> b) Enable probing of platform IOMMU in ACPI way using the ACPIID defined
->    for the RISC-V IOMMU in the BRS spec [1]. Configure the MSI domain if
->    the platform IOMMU uses MSIs.
-> 
-> [1] - https://github.com/riscv-non-isa/riscv-brs/blob/main/acpi-id.adoc
-> 
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->  drivers/iommu/riscv/iommu-platform.c | 17 ++++++++++++++++-
->  drivers/iommu/riscv/iommu.c          | 10 ++++++++++
->  2 files changed, 26 insertions(+), 1 deletion(-)
+From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-Sorry, I missed there was a v4 of this. I'm not sure how you plan to
-merge the series, but from the IOMMU side:
+The early version of XuanTie C9xx cores has a store merge buffer
+delay problem. The store merge buffer could improve the store queue
+performance by merging multi-store requests, but when there are not
+continued store requests, the prior single store request would be
+waiting in the store queue for a long time. That would cause
+significant problems for communication between multi-cores. This
+problem was found on sg2042 & th1520 platforms with the qspinlock
+lock torture test.
 
-Acked-by: Will Deacon <will@kernel.org>
+Changelog:
+V2:
+ - Add new header file for errata_list_vendors.
+ - Rebase newest kernel version.
 
-Will
+V1:
+https://lore.kernel.org/all/20241214143039.4139398-1-guoren@kernel.org/
+
+Guo Ren (Alibaba DAMO Academy) (2):
+  riscv: Move vendor errata definitions to new header
+  riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+
+ arch/riscv/Kconfig.errata                    | 17 ++++++++++
+ arch/riscv/errata/thead/errata.c             | 20 ++++++++++++
+ arch/riscv/include/asm/errata_list.h         | 19 +----------
+ arch/riscv/include/asm/errata_list_vendors.h | 25 ++++++++++++++
+ arch/riscv/include/asm/rwonce.h              | 34 ++++++++++++++++++++
+ include/asm-generic/rwonce.h                 |  2 ++
+ 6 files changed, 99 insertions(+), 18 deletions(-)
+ create mode 100644 arch/riscv/include/asm/errata_list_vendors.h
+ create mode 100644 arch/riscv/include/asm/rwonce.h
+
+-- 
+2.40.1
+
 
 _______________________________________________
 linux-riscv mailing list
