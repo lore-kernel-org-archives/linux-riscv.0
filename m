@@ -4,64 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF47DC83F17
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jul 2025 19:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694E0C83F17
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jul 2025 00:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kgV/zAmx+nEqQHWgXA0TZlIKDZlBkKR7BvjjNnQSHEk=; b=QIpPyxE8Ja2nbO
-	AFxOnVvPWI4jQI6PC2kAXheZHBF7O0PoK7K1wD5NXwnx9q5VE7qLax0A7pfwq6k//tVILJCf0OU0L
-	/gZpFdM8zlqUqEqS34ionOLl49VtzyL/X2PJZyeY2RedVJfdHaJ2YSKleHwxFw3mxL5j/oy3zMYHW
-	cqb4C5j+Q/INB0t87ms6o8H2MQohLMqHLWro0tHkVyfiuMhnjrL3rpLnMlA/xUjZyghTWvdylWaFV
-	csCnhByFIAh1ijiC4OTUzP9d/82ymebs6lczJgR8OPll82oRGMlPnNpcE5OAec8qWoIDpEmq8eEn7
-	OtD9XOeqMoW93UgF1Gaw==;
+	List-Owner; bh=Lf35QVCcuvuloLfhi6K7Q9dUJ90aeqiG0pD/rFfVzY4=; b=WTbV3gnrn8lnvZ
+	Uh/spRYuIlY4I70W/6I8I7IeTgJd9iDaXTwoW2XUMRaqZy7R+6EGbdlathaF25gA/RL/m+VtlUc3T
+	i6+/0zxGoSfFrBWqwNZzCARS1f5TwNnK0NsKeClldB61IZ3UiifPyptkEfnjHCss1BKTfXtnl3R4z
+	rnuhZhXZMBQt8zRYZo1fIzsoaB+2DnGc91fGP2+mSQYUqQ9bV2HNGbzOnzZ5aYHhG9t4oFDmVmtYR
+	FnRdQAkf/ivsjwbOQ8QyPNWwtcHejzgzbyTHTT0y85gF625L0XloACPZ1espBp2eUW1Ntx2R29JSL
+	wL4xokKcKfdLFQMbAh7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub2pZ-00000000ZGb-3TtH;
-	Sun, 13 Jul 2025 19:57:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ub7JS-00000000qIV-1lRU;
+	Mon, 14 Jul 2025 00:44:58 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub2pW-00000000ZEj-3rr8
+	id 1ub7JP-00000000qI7-3351
 	for linux-riscv@lists.infradead.org;
-	Sun, 13 Jul 2025 19:57:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2E7E05C561D;
-	Sun, 13 Jul 2025 19:57:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA785C4CEE3;
-	Sun, 13 Jul 2025 19:57:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752436663;
-	bh=7MhP7Eqd6lgawO40n7WyV/A2Nja9gmD0SILlAqtyncA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TOZ+B6YOOeI5xoYoJ9T+4exP4IdtHlNv4716nRx564DAv2sr/JZd1HhRl/qxWtvgk
-	 UgdlDMwqD6+3abg3eLTVIBLDl0jN14ndsCsMadyVryFL2oGRp4v5PYyB5Zn8moLERf
-	 zJLFhtN8BSJNINr5WbtMltmB+1pu3xXbhdKlCU585v4ilSlqGGnnysaYHBGWgBOnF9
-	 V0JFNtxg3mACUmeU1h9iF2AoqbcAs1vOMz0fwdT0vEyb38wt8ozxp+yuQEme56mes0
-	 n2IS6U0GWP9MxLMMV2jEVEpPmYYI0WVI9v8vkyKbASyOb6QHd5YNcyL6uQjA15BII2
-	 ebDM3o8W2Iqlw==
-Date: Sun, 13 Jul 2025 12:57:42 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Yao Zi <ziyao@disroot.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
-	Yangtao Li <frank.li@vivo.com>, linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] clk: thead: th1520-ap: Correctly refer the parent
- of osc_12m
-Message-ID: <aHQPtjB9FjIsCYHW@x1>
-References: <20250710092135.61049-1-ziyao@disroot.org>
- <20250710092135.61049-2-ziyao@disroot.org>
- <aHAp1q9tLy465gnO@x1>
+	Mon, 14 Jul 2025 00:44:57 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-748f5a4a423so2231216b3a.1
+        for <linux-riscv@lists.infradead.org>; Sun, 13 Jul 2025 17:44:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752453895; x=1753058695; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZLeYUFYsbjTuUrfuMR1HqB0mRDFpmVI0gLEVlp8hfmk=;
+        b=fZqOG22Uh0Eox2InqEJZDrlMoCk2kyCgu3xPXcaBNTXZ6kbIveoCvp+Mp2INKe84yW
+         E0rzj5z1zbmwxC9hYHaWVKfo3KqwehsfevqYr7Q5d3qSLnbHWVcAfFSTZkCVncuyjM/x
+         LRkj7S366iX6VeuF+FftVso24EwLOP6HPfJ9YrHkMS91as/K/xumArDyKNyHkEXhXUSN
+         u2fED5C7qO7YvjStPegMUCSei9VHCeeAZlDNipljHFu50f1O1MKwQrgkQ7SREv1yDwaK
+         9tDFyi32ssUalWQ9APJ2hrLDyzpqenFn/jXehkuawhakjtZLnHMMO0XCEmlAkX3cm1WH
+         PtOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752453895; x=1753058695;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZLeYUFYsbjTuUrfuMR1HqB0mRDFpmVI0gLEVlp8hfmk=;
+        b=M9bfniBpx3drgX4Pnz2dAyZ9mYQRG7fabD3BDoazVvO0u7+7zWGGmXXeUiicU4mDsI
+         P/53fzmy0nw+ju31bBNzDfjuJVHgGulAbIsEedykiQEzjdbMF7uEDdOTHRS+7Lod7bsA
+         1DntdOnEUtN4JXopes9OywA6vxbY0y2WVe8fsl6D/HdBhx6GcfItGiwc+Yf0wlGYVxjS
+         BnB97gNCDIOixzZ4ocXrtkxbmgbumNvHlV+6E0F5XVIJPaxNebYeL35o+7Mjiv3ZzH4o
+         /mpEdAihh+TmHtifwJIh6lquiNHTDzkk14q946jW1Hb4uC7AMbG8lnHuPZ2vE6KGbQ3n
+         txvw==
+X-Forwarded-Encrypted: i=1; AJvYcCUAODI+cyhRT84l07ZRaHle4GBpSMPAEZ5+WHqkUICO5GXMLpEb5MucmbzHDz8UFNETJk1oeHoU/aL8cA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRX7Jf1uVOY0LU2iCyq46sN7axcrtoiPfFaKVs66dYsFTgUHdL
+	4blkL4LTNT7uNXDatXrqieifVlzgOfOgZzXSTYaEs9C1+Zf0AB3iZIII
+X-Gm-Gg: ASbGncuRGbIz0ncIAJoFZmlVTw6dNsAvHSux8H1rD3WSDjAqhpMWdAFstENHuumNqQ/
+	m2O46bleMJEjasr/GVhe2eGJsrfelXyy6RneTtfmBaMJDSxMVevqnXZNVceU+CcJMcVsU9ZvEna
+	XI5MdWPf8zaB9GA4aKuQj+/NgCf7gvmqMKvC4Dug0RsK4fGnTAUjSpCdYND84CI+VH6Bphelbzn
+	HvmLPcp0jWXLcCWDObbYBB16z/eviUALIRAVFrmLfKX0DnGDMoiZ9mbQSIT62IUB3mSMAPQ6zbb
+	ZwbIv4jHsvY+sXHT+dnYTjGJkurHgBMFST3p+P62tBFCno1NIlUCGHEojFY9xiQ3NvHwYRmOPDx
+	usKxErvSc3hjC+/Nw6OgJNQ==
+X-Google-Smtp-Source: AGHT+IE3o1PVbYcGVOeDDd2u9PBkS7qnGIBAlmbvXpp/v9MUV/Gw0EgVgPEcUGAR3AbyDFV8S3qXgg==
+X-Received: by 2002:a05:6a00:1708:b0:748:2cbb:be45 with SMTP id d2e1a72fcca58-74ee2160164mr15089737b3a.15.1752453894571;
+        Sun, 13 Jul 2025 17:44:54 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-74eb9f8f35bsm9245897b3a.169.2025.07.13.17.44.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 13 Jul 2025 17:44:54 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Richard Cochran <richardcochran@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Zixian Zeng <sycamoremoon376@gmail.com>,
+	Guo Ren <guoren@kernel.org>,
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>,
+	Han Gao <rabenda.cn@gmail.com>
+Subject: Re: [PATCH v2] riscv: dts: sophgo: add ethernet GMAC device for sg2042
+Date: Mon, 14 Jul 2025 08:44:34 +0800
+Message-ID: <175245386393.141174.1523471014566184474.b4-ty@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250708064627.509363-1-inochiama@gmail.com>
+References: <20250708064627.509363-1-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aHAp1q9tLy465gnO@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_125746_999533_1C1CA169 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20250713_174455_782615_4368428D 
+X-CRM114-Status: UNSURE (   6.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,57 +118,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 02:00:06PM -0700, Drew Fustini wrote:
-> On Thu, Jul 10, 2025 at 09:21:34AM +0000, Yao Zi wrote:
-> > The "osc_12m" fixed factor clock refers the external oscillator by
-> > setting clk_parent_data.fw_name to osc_24m, which is obviously wrong
-> > since no clock-names property is allowed for compatible
-> > thead,th1520-clk-ap.
-> > 
-> > Refer the oscillator as parent by index instead.
-> > 
-> > Fixes: ae81b69fd2b1 ("clk: thead: Add support for T-Head TH1520 AP_SUBSYS clocks")
-> > Signed-off-by: Yao Zi <ziyao@disroot.org>
-> > ---
-> >  drivers/clk/thead/clk-th1520-ap.c | 9 ++++++++-
-> >  1 file changed, 8 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-> > index ebfb1d59401d..42feb4bb6329 100644
-> > --- a/drivers/clk/thead/clk-th1520-ap.c
-> > +++ b/drivers/clk/thead/clk-th1520-ap.c
-> > @@ -582,7 +582,14 @@ static const struct clk_parent_data peri2sys_apb_pclk_pd[] = {
-> >  	{ .hw = &peri2sys_apb_pclk.common.hw }
-> >  };
-> >  
-> > -static CLK_FIXED_FACTOR_FW_NAME(osc12m_clk, "osc_12m", "osc_24m", 2, 1, 0);
-> > +static struct clk_fixed_factor osc12m_clk = {
-> > +	.div		= 2,
-> > +	.mult		= 1,
-> > +	.hw.init	= CLK_HW_INIT_PARENTS_DATA("osc_12m",
-> > +						   osc_24m_clk,
-> > +						   &clk_fixed_factor_ops,
-> > +						   0),
-> > +};
-> >  
-> >  static const char * const out_parents[] = { "osc_24m", "osc_12m" };
-> >  
-> > -- 
-> > 2.50.0
+On Tue, 08 Jul 2025 14:46:25 +0800, Inochi Amaoto wrote:
+> Add ethernet GMAC device node for the sg2042.
 > 
-> Reviewed-by: Drew Fustini <fustini@kernel.org>
 > 
-> Thanks for fixing this. osc_12m now appears under osc_24m in
-> clk_summary.
-> 
-> Drew
 
-Thank you for the patch. I've now applied it to thead-clk-for-next as
-commit d274c77ffa20 [1].
+Applied to for-next, thanks!
 
-Drew
+[1/1] riscv: dts: sophgo: add ethernet GMAC device for sg2042
+      https://github.com/sophgo/linux/commit/d099560dcbade90c9d508cb745faa786ae230d0b
 
-[1] https://github.com/pdp7/linux/commit/d274c77ffa202b70ad01d579f33b73b4de123375
+Thanks,
+Inochi
+
 
 _______________________________________________
 linux-riscv mailing list
