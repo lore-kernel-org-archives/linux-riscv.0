@@ -4,83 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64956C83F28
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jul 2025 09:59:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D796C83F1B
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jul 2025 10:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kospqMfDymLtGTI8JIFWySFsFK5TYeYjt3v4VJ3rlz0=; b=t19t5ihhpGrUhU
-	YSasZ6bRqhL0qHuAAQJQyVLCilGAM34iyMTEBQOzE7uOs31rzyAfRBtMyMhyC/NLo/eeoZuKtxcUc
-	6fBHx3Z1i23EHMe2MvYlQ9NEjyZ4O+eV7IK2VATfT6KmbAcQmD2AZv/bgzfmhcBX9JzH5eD+qXh5X
-	Fs+uPoaUBVBSPlilbATNRyTKRIqWzSGRs6N+3u/mYKpVU6qV6bRVC7e7CFe+YAqKrcsM5OMxe98nt
-	qx1aSIfiDC3yf+Bqs1FVztiZ7M2bUF+lsmZsBGBF/AqlHxS6Yy6Zhj1yvSbN+VFozLh+awRAmXuY8
-	YnhkmOXelWbEXUZG4mgA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xdjvhFj7FnqACruaqMg+Af0zLDqFihe2MMb2eZEgzV0=; b=UPFPIRV3yj5j1Q
+	T4TtMQFmGonXpCSffl575AN4/419Lx0JyhTXLB7ObneQBqqw3brD3qg+AfiqtezDHbFZdqv0/50Oj
+	KZKLEkMLDLjb4jBWcVCJ5UPyyJRzk8XH8u3KRpYtul5m7xO/LJEsNuW3qRgBYpoU27ZXj5gkBB4cX
+	vLwOb52msrYdVegBbG4qA5Xqp0ndC+EuhUezQwxC+8OrV7RJlFkQoN2+8grkjG6xA0uFF5Jep3W/D
+	6nL8kuSg9dDOjvnG60DdJZIhDNB172m54I1o7VfSsqNAaxM/z5MV0oYkQtiSNhp9xEVLi/UawrlfO
+	i6JM0v3ArNIt/5o5T3ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubFyJ-00000001rSE-3p5Z;
-	Mon, 14 Jul 2025 09:59:43 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1ubFyL-00000001rSX-0WmC;
+	Mon, 14 Jul 2025 09:59:45 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubFfT-00000001o5C-0sdq
+	id 1ubFfe-00000001o7f-2yc7
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Jul 2025 09:40:16 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-451d6ade159so29558755e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Jul 2025 02:40:14 -0700 (PDT)
+	Mon, 14 Jul 2025 09:40:27 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3a575a988f9so2304421f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Jul 2025 02:40:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1752486013; x=1753090813; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NW/McQJ6Sd6lpl1yvr5wt77YD+qYB1cLv1xJk7Xbx/U=;
-        b=E/sSKr0QdhpPfik/479eJ28C8loE+m+Sm7JqTrwQHQqff4WoBCA7lAphNSDfU2Lxfj
-         T/JsVa83hwGYEgnzfccXnmkn/rAXPICBGxuKx6M9stUD5i494dmwNOr/D0Xc7Ol9dGbH
-         XDZRLKjZLzS0QvK99jnfCp6tnJ5Y+yTnvaH4pMX6lneVHtO6MwPl1BKyBvOVuBmjGslK
-         oJ+l6/vtIkRy8oYkxifn4V+fvxZaPm2UACFNLA0xRBeTk01pvDqex+rnUnS5BSZRWAvE
-         pqTusOyKRz5U6fUODV3e53qQ58aeau7DbM/pcJSJGsYrXKLk7bmKSarJ0S22nWDVl9MQ
-         BPXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752486013; x=1753090813;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1752486025; x=1753090825; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=NW/McQJ6Sd6lpl1yvr5wt77YD+qYB1cLv1xJk7Xbx/U=;
-        b=TTAVcn/JzQ7TVLNtF/v0JmzgbOp1VyX+knbbmQSllm3bNsSHVroqW4awlxklpFgtoX
-         m5kQ1mEeZgWCjZ8BOnNwKzZFN1YjZXDnWtIl2kA0UjKmmsyVh1tjg0JhQu3/QswRwIkA
-         Y/bQ81mrc1bkXV1hfu0INEN7RaW1a1Job+HcQW2ncpxRxyiuyd3ffgWMe4CmDp5QU6ci
-         9zuED9QRntc96cMJjBVz2QkCSr0j1xqpI99g+kNtCh30ZB/OZYg0JwYgfdnezXs7f0mY
-         eTPuBjH6fvDOEs5ps7Zdkw7+FlNSS1bqo0sJQkf1fcLjdwHnT53YA91OeLCsSy5EZYdE
-         zxEw==
-X-Forwarded-Encrypted: i=1; AJvYcCUCZZu1vRBxQofY8vTqh97VOjf7l2WLtV2bDhAvwEnrg4fnbRuz3JTJFbiYbPe454BKHDHVVcix1XTwBA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4sySx8v3qBxR2HE0/mJyyS33gdeLcbmIgbT+HTLtFfEPT03AK
-	D0lxf7XTun4OA9BWX6muHLhvbAQk5jqrF3f4prkUENV4is8kZ/jppRFCGY4196TYyHw=
-X-Gm-Gg: ASbGncu9lBTHdrV6ymiVe88pQ6pVuBg4xBFj5zDiG5HQKyuiTqg1TwiTDNVceAttkw2
-	ACM/w80/GwVlmU9Bs31f4kjRWZNzuu/Yo8juRey5QSOTh93mt7RYiaIvBmyTKFUPXUP8M8BTF7B
-	Zj6PSHGDk7dXxJ7ltXayURXL7Po4D5FGHdlQTKsoB6iyscvLk/GYeyvu/7eFTEG+SrGqqAB2foe
-	I0rOamOx8AAAN5BsfDxSCAEi+6Uy90Dd37LqqFq9Vt3+GmO+cYuSt+Q6/wHmJHRre6w6tuJXCry
-	YofeuSeFsWgTChxJ1g7/fLMauNLBosLn7z+5GtzrRBfsynQyoGDkOtMKVLQVJCi6xWnRR3ACLw=
+        bh=qq1yIQl81CDUUjvpmEnXhN2Lz/OlMt3l5QjMkKHWpvM=;
+        b=tX7PKdtvIfUKmtuHovWUT8kYrfkREDhu+N4Ai6pUXdtPENMRUk0AxAZuhEdtu0dW0w
+         b6aDo5Mo0VF+7gwwh/GUSlDzcIEkOqJGqrKLyEDsmkaWxY8oRp7oUQfq8UrmyXCm4bYo
+         T+HxIp8pFNaL6+XR/Etns34lFkYWcR5Ig9NoN4KmZmSTBxdAoTnWXccb6MkTmG99qkda
+         cY0JFqBMVOANegntZYGFe3Sr49mXZnkUbCg0aQ/iZpqi/yHSOF6XPRL6UAiTH6WSOg8v
+         iTL5Q5eGo7VHRhE2dBH0ZSi4mFu+Zornv44chJj29SpK40B6XU5ixLI6LEX8rjnEtHWj
+         fN+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752486025; x=1753090825;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qq1yIQl81CDUUjvpmEnXhN2Lz/OlMt3l5QjMkKHWpvM=;
+        b=sbDdqttOQ5qcR4QlOgN1zrFAsXBTWhZzjp/V8cyk5UGwb/bmmGkZxeEbi6ujX7Yjp1
+         /TgDZOVyRFI9Yy2alKjmbEHYcP3ZdQ5awsa//xWliFGkxhDNIerJ8xKCN+Hh2KGHxQcr
+         ORZT3jHOKQtw10kUjbC9XuCG6ZqML/axxJZwyjBApjfQk+wMODvRoW29LYoBPn+Xv710
+         vA0rhs4I+jkJoiwhl9G1LH+vY9LMiS7FN/Yjtoh5E5Fkx1Nj4ZCXq4GqC5RWnDur/EB+
+         T1nxDETilTIRlw9Sz0DTCi6ihvhpwfuEu7DkXMsT9rc5Vgwj5OnmCGU+0ovRVt7sXb9R
+         SrdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXzBrBYWOJ4/uL+8pw3t6vzN4Zy6SRVPx1srtSv+LOl5LwIASZaqyiEZit9xfv6o/CGXCDdCfKuSkZLTg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwN0hqvOAOnh5ekuXU5C2i3MqYPYSo5ngnqVSnYy4vbhKRolGu2
+	KJXG4JNLyoYCVMUeIHdsRwpfa+5bIo9Bk0IIodI7paJBIP4QM0j3FEertbdS0F45C2s=
+X-Gm-Gg: ASbGncvn+eoqV94fLiQNp2/dnihxXCRLSwr35QIwKrcIngjqaAcRXzb+0oP4ax+qnmD
+	jSuVBJGLlyYftUAxtZf4xCU9JY39iZMw0HVxilG4Pfw3536OcmQeVX0AmZU8NcW8aS9Piwb/1OJ
+	pf6Fi11BoA2E2xsj7wSsyBjEybASK2j7evLn9jzazeWQxBLRFRtkqY3toFK3h3xjnAI5Tjjs01F
+	dLot8NDCK3gcx5R7/8sZgH7RJ7I6IuPecdFsuu4kzTqk6L51ZMYanQ7WuxSWWuI/x6vL6BEwYZr
+	RvNsHPrFvVNfDYdHxS1sdpaUWF4cerBuT8Kulc/cdF0Tcg1aVBa5ypi+oe/RVTEKDBD3kcOIoA=
 	=
-X-Google-Smtp-Source: AGHT+IHsiHi2b9XLYJ9fg0Rc9OaPeZG511Kxf8f41m3lSbmqbwnEUrPybpGRc4WW5jMeqOb06dRxYg==
-X-Received: by 2002:a05:600c:1c8f:b0:456:2212:46b8 with SMTP id 5b1f17b1804b1-45622124965mr5783115e9.28.1752486013224;
-        Mon, 14 Jul 2025 02:40:13 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF6lJB/75RKuYglHguDkP/WuOKNpgun14Va/8fXDBRY/jjqffgn9QMUWocm8IuxU0KZ4gL2CA==
+X-Received: by 2002:adf:cd8f:0:b0:3a4:f55a:4ae2 with SMTP id ffacd0b85a97d-3b5f18d9986mr7801135f8f.50.1752486025115;
+        Mon, 14 Jul 2025 02:40:25 -0700 (PDT)
 Received: from [127.0.1.1] ([2a09:0:1:2::3035])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4561b25a948sm24989035e9.35.2025.07.14.02.40.07
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4561b25a948sm24989035e9.35.2025.07.14.02.40.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 02:40:12 -0700 (PDT)
+        Mon, 14 Jul 2025 02:40:24 -0700 (PDT)
 From: Guodong Xu <guodong@riscstar.com>
-Subject: [PATCH v3 0/8] dmaengine: mmp_pdma: Add SpacemiT K1 SoC support
- with 64-bit addressing
-Date: Mon, 14 Jul 2025 17:39:27 +0800
-Message-Id: <20250714-working_dma_0701_v2-v3-0-8b0f5cd71595@riscstar.com>
+Date: Mon, 14 Jul 2025 17:39:29 +0800
+Subject: [PATCH v3 2/8] dmaengine: mmp_pdma: Add optional clock support
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAE/QdGgC/32Qz24CIRDGX4VwLhVYBeXU9AV66a0xZoBhl1hZC
- 7i1Mb572fXSU5M5zDd/vslvbrRgjlioITeacYoljqmJ7olQN0DqkUXfNJVcbrjmgn2P+RhTf/A
- nOMyFwySZ9tKFDVcAXtO2ec4Y4nVx/dg/dMavSzOvjyJ9hYKevSVD3g3pYyVDrediVquWDxf77
- MbTqpzB4SlWNovPmC5XEsbMEl7rfMQ2i7nVJgxRFjVsQKstQHCWay+0tl4Cdgrsdo1r5OA80r9
- chixUSgjWwHIsbmIegxtTiD3TYceD7rzcdt5Mgs4gQyx1zD/Ltya5kPz7mBacgVWIO6GFl+plv
- lIq5JmQ7u/3+y8XDclTggEAAA==
-X-Change-ID: 20250701-working_dma_0701_v2-7d2cf506aad7
+Message-Id: <20250714-working_dma_0701_v2-v3-2-8b0f5cd71595@riscstar.com>
+References: <20250714-working_dma_0701_v2-v3-0-8b0f5cd71595@riscstar.com>
+In-Reply-To: <20250714-working_dma_0701_v2-v3-0-8b0f5cd71595@riscstar.com>
 To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
@@ -95,8 +90,8 @@ Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
  spacemit@lists.linux.dev, Guodong Xu <guodong@riscstar.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_024015_502541_3DD7A56E 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20250714_024026_753472_E3881777 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,88 +108,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds support for SpacemiT K1 PDMA controller to the existing
-mmp_pdma driver. The K1 PDMA controller is compatible with Marvell MMP PDMA
-but extends it with 64-bit addressing capabilities through LPAE (Long
-Physical Address Extension) bit and higher 32-bit address registers (DDADRH,
-DSADRH and DTADRH).
-
-In v3, the major change is creating a separate yaml binding schema for
-SpacemiT K1 PDMA, per Krzysztof's suggestion. By doing this, the binding
-schema got simplified a lot. Deprecated property (ie. #dma-channels) and
-unused values for backward compatibility (#dma-cells const 2) can be
-removed.
-
-Other changes involve placing pdma0 node in k1.dtsi and in board specific
-dts files with proper ordering.
-
-The patchset has been tested on BananaPi F3 board.
-
-This patchset is based on SpacemiT linux (for-next) [1] with Patch 8
-depending on:
-- riscv: defconfig: run savedefconfig to reorder it
-    It has been merged into riscv/linux.git (for-next)
-    Link: https://git.kernel.org/riscv/c/d958097bdf88
-
-[1] https://github.com/spacemit-com/linux.git (for-next)
-
-All of these patches are available here:
-https://github.com/docularxu/linux/tree/working_dma_0714_v3
-
-Changes in v3:
-- Created separated yaml binding for Spacemit K1 PDMA controller
-- Updated pdma0 node properties according to the new yaml binding
-- Put pdma0 node in k1.dtsi according to its device address
-- Put pdma0 node in board dts files according to alphabetic order
-
-Link to v2:
-https://lore.kernel.org/r/20250701-working_dma_0701_v2-v2-0-ab6ee9171d26@riscstar.com
-
-Changes in v2:
-- Tag the series as "damengine".
-- Used more specific compatible string "spacemit,k1-pdma"
-- Enhanced DT bindings with conditional constraints:
-   - clocks/resets properties only required for SpacemiT K1
-   - #dma-cells set to 2 for marvell,pdma-1.0 and spacemit,k1-pdma
-   - #dma-cells set to 1 for other variants
-- Split mmp_pdma driver changes per maintainer feedback:
-   - First patch (4/8) adds ops abstraction layer and 32-bit support
-   - Second patch (5/8) adds K1-specific 64-bit support
-- Merged Kconfig changes into the dmaengine: mmp_pdma driver patch (5/8)
-- Enabled pdma0 on both BPI-F3 and Milk-V Jupiter
-
-Link to v1:
-https://lore.kernel.org/all/20250611125723.181711-1-guodong@riscstar.com/
+Add support for retrieving and enabling an optional clock during
+mmp_pdma_probe().
 
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
-Guodong Xu (8):
-      dt-bindings: dma: Add SpacemiT K1 PDMA controller
-      dmaengine: mmp_pdma: Add optional clock support
-      dmaengine: mmp_pdma: Add optional reset controller support
-      dmaengine: mmp_pdma: Add operations structure for controller abstraction
-      dmaengine: mmp_pdma: Add SpacemiT K1 PDMA support with 64-bit addressing
-      riscv: dts: spacemit: Add PDMA0 node for K1 SoC
-      riscv: dts: spacemit: Enable PDMA0 on Banana Pi F3 and Milkv Jupiter
-      riscv: defconfig: Enable MMP_PDMA support for SpacemiT K1 SoC
-
- .../devicetree/bindings/dma/spacemit,k1-pdma.yaml  |  68 +++++
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |   4 +
- arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts  |   4 +
- arch/riscv/boot/dts/spacemit/k1.dtsi               |  11 +
- arch/riscv/configs/defconfig                       |   1 +
- drivers/dma/Kconfig                                |   2 +-
- drivers/dma/mmp_pdma.c                             | 281 ++++++++++++++++++---
- 7 files changed, 339 insertions(+), 32 deletions(-)
+v3: No change.
+v2: No change.
 ---
-base-commit: 6be7a5a768aafcb07d177bd2ae36ab84e4e0acde
-change-id: 20250701-working_dma_0701_v2-7d2cf506aad7
-prerequisite-change-id: 20250611-01-riscv-defconfig-7f90f73d283d:v1
-prerequisite-patch-id: 53bda77e089023a09152a7d5403e1a738355c5d3
+ drivers/dma/mmp_pdma.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Best regards,
+diff --git a/drivers/dma/mmp_pdma.c b/drivers/dma/mmp_pdma.c
+index a95d31103d3063a1d11177a1a37b89ac2fd213e9..4a6dbf55823722d26cc69379d22aaa88fbe19313 100644
+--- a/drivers/dma/mmp_pdma.c
++++ b/drivers/dma/mmp_pdma.c
+@@ -15,6 +15,7 @@
+ #include <linux/device.h>
+ #include <linux/platform_data/mmp_dma.h>
+ #include <linux/dmapool.h>
++#include <linux/clk.h>
+ #include <linux/of_dma.h>
+ #include <linux/of.h>
+ 
+@@ -1019,6 +1020,7 @@ static int mmp_pdma_probe(struct platform_device *op)
+ {
+ 	struct mmp_pdma_device *pdev;
+ 	struct mmp_dma_platdata *pdata = dev_get_platdata(&op->dev);
++	struct clk *clk;
+ 	int i, ret, irq = 0;
+ 	int dma_channels = 0, irq_num = 0;
+ 	const enum dma_slave_buswidth widths =
+@@ -1037,6 +1039,10 @@ static int mmp_pdma_probe(struct platform_device *op)
+ 	if (IS_ERR(pdev->base))
+ 		return PTR_ERR(pdev->base);
+ 
++	clk = devm_clk_get_optional_enabled(pdev->dev, NULL);
++	if (IS_ERR(clk))
++		return PTR_ERR(clk);
++
+ 	if (pdev->dev->of_node) {
+ 		/* Parse new and deprecated dma-channels properties */
+ 		if (of_property_read_u32(pdev->dev->of_node, "dma-channels",
+
 -- 
-Guodong Xu <guodong@riscstar.com>
+2.43.0
 
 
 _______________________________________________
