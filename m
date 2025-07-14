@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB82C83F1A
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jul 2025 10:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D959C83F1B
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jul 2025 11:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=H77FsO3nig2o/qJnnkE9i77q7NeLBKprz307hbwn2Ss=; b=wLzyDQhKRvcKcJ
-	6z3uMc59dpgOlG1NeJOuWDVem9DqTij2N0ESRIBt6O3OURQ1B+6Q6NBIyR21daYB6IZib5SdZB+8q
-	tjsjJwFNRWg3sLO/Ogj1VoKa+SQtQrz6JzhbwLz0TBiAlkazIdHvsP8TSAZTJy2vVYGZGBZKvcKI/
-	4RQeflBV5teiOFKz4gPCHnOXkZTlJkkhyV1OlZWqcwgzo0Vaixq27Y5uwEZschrtk7Fe49kv+fSqK
-	3w7H55J+biJzRYHqyGkO1QbO37VektZTWtUUFNvA3i3QB7vIWw8dL/8tiTxwVTb/3HBEjXCCMW2mT
-	u+dDL0HK42HdYUK4lDQQ==;
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To:From:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2yKXFWxZuV/+96KvQIFLqjnDEz4qtQ1I2roTWl7C/lM=; b=MsseWuChwirYWz
+	acob0PfrURumCnQFtpPYKG1S5BuCRQ+mnVoJ1mDWKg8YKeAj1hCRAIZOxzyJXnI4wJX7WefzTqwWb
+	iZkVTqypSdPpjPWjoHm8rdM0GH9avn+aA9ISXZuIQKVFFndYmBHPtvBoR1O+xdZTKeL/9a8xX2ax2
+	MLy5dkjYo2Rpz3EaLGXBpkULjhJqpx9dP6ZgH632xyXlkyx2AXVEXYIs1jvh6kA06XgXBGKLTTlEN
+	ij8Iu5lgu7z+N9IoTyJo1yL7q7jQLPQZi+RrKqt95UFWncNDD9YqUG09E172xfrFYz31/NKUin7CV
+	RGA/4oyX8btoka24Izrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubG80-00000001suy-2i2b;
-	Mon, 14 Jul 2025 10:09:44 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1ubH3J-00000001zzZ-3S5G;
+	Mon, 14 Jul 2025 11:08:57 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubFlA-00000001pKw-32Ls
+	id 1ubH21-00000001ztu-2WaL
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Jul 2025 09:46:12 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-748e81d37a7so2366677b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Jul 2025 02:46:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1752486364; x=1753091164; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0dnf5JriQVpHQM4YNtZJFgadu2tM3f9E9KiPFuztXa0=;
-        b=bYJgKO73wDXF4e2h1oSNr2qTOEwttlDjzfZ1tqJq/bMqUGwBtDg8yzaD2nCnq/XOFr
-         g6mu9kyjRNJ9+bXYMuH8uyw8I/bKwXsE0Ow1w+k6wOQrqaqw73Vl9sYH7wgU82Z43qOI
-         YYHEFQvgdoMKwsyBU8pDAnRARxv7y8MniFh/ipOkhRDdHpPRFDnDEHqriEfvUWfS5z0u
-         FKAGCXYOPE7oBtUg8+jIXYBQYb3j1t1wvBQNm3qFYQiuRusxr+20xcYL2pAvWvzS+KeF
-         hM7CqNLynd1jHnl8LavckiEP0GZxcyiqAWEtFAOAOTfmNCNK9dEfMnyCIEAfnF3MT5ic
-         Vwiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752486364; x=1753091164;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0dnf5JriQVpHQM4YNtZJFgadu2tM3f9E9KiPFuztXa0=;
-        b=qa4RpMeaFW5EYLwOmHIxpsuONiw088VGHZsRUQ+SRUZ8FiXCG99hGgN4HOevpRL779
-         KXhTnMg45C4Nl2u7jCgtjRIaWrk5M3HGeeqWYZGh2tegdLaQVGqHYC1BTn7JnGFlJdVv
-         jwO/fazBriGQmkjhtSMfx4HTuSSKX9OnZsNLx0SYxZ+lG8noBUVAupP1oNj1UmthD3zd
-         zIxLxHiANOK23SyMpBvzmq/MHnt46hZFHny1bCvUshzccLpBmn/ENDVUWZfbOxRT1jvr
-         09SEmBQYoy2Q4wX5w/YM+RwJzO98pp5AVmnrpCnEverD/ibxox/TAMVT7bLxnvQwFQO8
-         /zbw==
-X-Forwarded-Encrypted: i=1; AJvYcCXFbaeiHMc58Q+ckeJ+qhTheejHjGKfMkNyRVzfRx0+p3JYqiQRyCIUkJp/VEd2Mi1tfNowb2mwNanKrg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVCaqW+XzDvBMrGeftpvYvbGJ9qrTlbr2O86sMFSmYFGdMKaib
-	c0xCXpiZ4WIed9PyasGEGbUzLHAZBfVAbV8/4XEPXW6N0kM9ts1CJ0HHJDqhVne/ANQ=
-X-Gm-Gg: ASbGnct7iQHYU+Lxjgq2tjPk7UPRfDyGu6XYdE7aSAl5GZ7Dn7ZZE8pHlFLtY/41uYX
-	ecbjb/jd36Dne2JAGbOInHl26AMSSo4Oxtv48AW5XoVeojfoiFUF1WxxUdbBYix8hSnupC77epK
-	qS+VvUtpYDodyc5ysJesn1m54maeGjxLRTnhBy4WvbQq1gZKdZLC+35Uyl1jspR3shIxQlLxpwZ
-	onYoRipxewzohlLoxoy9Dbtc9z3V53615z3KXv08LHv8tLBZd/lI10oWTZNLdY6CylxnmN6mJoE
-	fb8LDi4o6TLtOZ9E11ueZMVnr+cRePatCd7oiBw3PiuQDIZbTGPHY2eYlPFmSRP/QGdG1+bLonp
-	fypWBwj4gVYIYE9TGIan+Wu8A3SY4jyc7uIGP5YnigZ75hrObUtwshFqntZM7BA0e6R+rh3OW/C
-	wgBO3mFF5vrQ==
-X-Google-Smtp-Source: AGHT+IFF990cxBBIj5rcns4ua/Z9mSLbBzTWgWQcSkoafAxgEV/F4FcvyqoXGxjBchTkM6/hWtRe9Q==
-X-Received: by 2002:a05:6a00:1992:b0:747:accb:773c with SMTP id d2e1a72fcca58-74ee2c509e7mr17413857b3a.13.1752486364023;
-        Mon, 14 Jul 2025 02:46:04 -0700 (PDT)
-Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd73b7sm10201283b3a.1.2025.07.14.02.45.59
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 14 Jul 2025 02:46:03 -0700 (PDT)
-From: Xu Lu <luxu.kernel@bytedance.com>
-To: rkrcmar@ventanamicro.com,
-	cleger@rivosinc.com,
-	anup@brainfault.org,
-	atish.patra@linux.dev,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH v4] RISC-V: KVM: Delegate illegal instruction fault to VS mode
-Date: Mon, 14 Jul 2025 17:45:54 +0800
-Message-Id: <20250714094554.89151-1-luxu.kernel@bytedance.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Mon, 14 Jul 2025 11:07:39 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250714110732euoutp029ad80e791442054d5c6e3a9a0adbbec8~SGYJae6jo2265822658euoutp02e
+	for <linux-riscv@lists.infradead.org>; Mon, 14 Jul 2025 11:07:32 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250714110732euoutp029ad80e791442054d5c6e3a9a0adbbec8~SGYJae6jo2265822658euoutp02e
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1752491252;
+	bh=+cH1AagOLxRaP9OS6I3NvlMV9oNEy792Og/AFphHVSY=;
+	h=Date:Subject:From:To:Cc:In-Reply-To:References:From;
+	b=YUsSXX4X1+KjPXjsXVONyLaXQwyN7k7TEJ0nSJb9/pastTcDa8yhUvxywTSIR+1MB
+	 YtPzGs1xdcEdtWezuN0UBqH553GlvNUXRIrAX/SGWevx8EHoFZKQ044N/ShMWf9pTW
+	 0IqaplYHTNcqWq3jxrf94tPNYM68OKMXNhykKl4Y=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250714110732eucas1p1c0c47358492d6b115b74c0d702bd4a1c~SGYI6A4zX1349413494eucas1p1l;
+	Mon, 14 Jul 2025 11:07:32 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250714110730eusmtip1d440d37697b95bbfc6a074f6ce94fe19~SGYH0S8mA3118931189eusmtip1h;
+	Mon, 14 Jul 2025 11:07:30 +0000 (GMT)
+Message-ID: <1245a8c2-ca23-4faa-bceb-3354e92aca2c@samsung.com>
+Date: Mon, 14 Jul 2025 13:07:30 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/5] drm/imagination: Use pwrseq for TH1520 GPU power
+ management
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+To: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, Matt Coster
+	<matt.coster@imgtec.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Drew Fustini <fustini@kernel.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, Bartosz Golaszewski
+	<bartosz.golaszewski@linaro.org>
+Content-Language: en-US
+In-Reply-To: <fa235fa1-d5ad-44b7-bf52-068ea41fc9ea@samsung.com>
+X-CMS-MailID: 20250714110732eucas1p1c0c47358492d6b115b74c0d702bd4a1c
+X-Msg-Generator: CA
+X-RootMTR: 20250626093356eucas1p1adfcd565173d939f82e15252189c316f
+X-EPHeader: CA
+X-CMS-RootMailID: 20250626093356eucas1p1adfcd565173d939f82e15252189c316f
+References: <20250626-apr_14_for_sending-v7-0-6593722e0217@samsung.com>
+	<CGME20250626093356eucas1p1adfcd565173d939f82e15252189c316f@eucas1p1.samsung.com>
+	<20250626-apr_14_for_sending-v7-1-6593722e0217@samsung.com>
+	<fa235fa1-d5ad-44b7-bf52-068ea41fc9ea@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_024608_754903_28A1C75E 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250714_040738_207596_650D03E4 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +98,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Delegate illegal instruction fault to VS mode by default to avoid such
-exceptions being trapped to HS and redirected back to VS.
 
-The delegation of illegal instruction fault is particularly important
-to guest applications that use vector instructions frequently. In such
-cases, an illegal instruction fault will be raised when guest user thread
-uses vector instruction the first time and then guest kernel will enable
-user thread to execute following vector instructions.
 
-The fw pmu event counter remains undeleted so that guest can still query
-illegal instruction events via sbi call. Guest will only see zero count
-on illegal instruction faults and know 'firmware' has delegated it.
+On 7/3/25 12:21, Michal Wilczynski wrote:
+> 
+> 
+> On 6/26/25 11:33, Michal Wilczynski wrote:
+>> Update the Imagination PVR DRM driver to leverage the pwrseq framework
+>> for managing the complex power sequence of the GPU on the T-HEAD TH1520
+>> SoC.
+>>
+>> To cleanly separate platform specific logic from the generic driver,
+>> this patch introduces a `pwr_power_sequence_ops` struct containing
+>> function pointers for power_on and power_off operations. This allows for
+>> different power management strategies to be selected at probe time based
+>> on the device's compatible string.
+>>
+>> A `pvr_device_data` struct, associated with each compatible in the
+>> of_device_id table, points to the appropriate ops table (manual or
+>> pwrseq).
+>>
+>> At probe time, the driver inspects the assigned ops struct. If the
+>> pwrseq variant is detected, the driver calls
+>> devm_pwrseq_get("gpu-power"), deferring probe if the sequencer is not
+>> yet available. Otherwise, it falls back to the existing manual clock and
+>> reset handling. The runtime PM callbacks now call the appropriate
+>> functions via the ops table.
+>>
+>> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+>> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>> ---
+>>  drivers/gpu/drm/imagination/pvr_device.c |  36 +++++++-
+>>  drivers/gpu/drm/imagination/pvr_device.h |  17 ++++
+>>  drivers/gpu/drm/imagination/pvr_drv.c    |  27 +++++-
+>>  drivers/gpu/drm/imagination/pvr_power.c  | 139 ++++++++++++++++++++++---------
+>>  drivers/gpu/drm/imagination/pvr_power.h  |  13 +++
+>>  5 files changed, 185 insertions(+), 47 deletions(-)
+>>
+> 
+> Hi,
+> 
+> I'm checking in on the status of my pwrseq patch above. Is this on track
+> for the next merge window?
+> 
+> Please let me know if there's anything else needed from my end to help
+> get it ready.
+> 
+> Best regards,
 
-Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
----
- arch/riscv/include/asm/kvm_host.h | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 85cfebc32e4cf..3f6b9270f366a 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -44,6 +44,7 @@
- #define KVM_REQ_STEAL_UPDATE		KVM_ARCH_REQ(6)
- 
- #define KVM_HEDELEG_DEFAULT		(BIT(EXC_INST_MISALIGNED) | \
-+					 BIT(EXC_INST_ILLEGAL)     | \
- 					 BIT(EXC_BREAKPOINT)      | \
- 					 BIT(EXC_SYSCALL)         | \
- 					 BIT(EXC_INST_PAGE_FAULT) | \
+Hi Matt,
+
+I was very happy to see the recent "pvr: various enablement changes" get
+merged in Mesa [1]. Congratulations to the team on that progress.
+
+I just wanted to check in and see if you have any more requests for this
+series ?
+
+[1] - https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/33998
+
+Best regards,
 -- 
-2.20.1
-
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
