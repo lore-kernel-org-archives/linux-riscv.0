@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 767E5C83F1B
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jul 2025 10:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB82C83F1A
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jul 2025 10:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hRvUbhRvvx7tfxWV9DkYOSIXw9RU98BVCiPgvJOwxuw=; b=cTN0YLFlR9MVD0
-	yURYn1b84oJJnP/9mLzzgzMJJhcIqfQT0f+Vbghr+bosXTBhsU2snBFbfntflOP5v2egEhLOjIkEN
-	aqUQ1T1eUPkuY7yRRWxQNom+sMvwVVBwxv3gdqiXYmOoyYwN3dvKad75D/7hG7YEyq7X5TqMhk735
-	3nFxNKH0LGlF2EmNlqcGsCuS2wjqxt27GB7FMlAxABjV0Jnj3kDLIu4LQfgUD0ViG8VqSVcF6jkap
-	uJNiEz7DMceRGksOBg5tZXOOVRjwFCTOXHBEOpzCX4PPYYiTbJQwdYXmmdPzm0/7yYKBQGOeZwys7
-	VQ7kqTEQxjRPGb9LLtHQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=H77FsO3nig2o/qJnnkE9i77q7NeLBKprz307hbwn2Ss=; b=wLzyDQhKRvcKcJ
+	6z3uMc59dpgOlG1NeJOuWDVem9DqTij2N0ESRIBt6O3OURQ1B+6Q6NBIyR21daYB6IZib5SdZB+8q
+	tjsjJwFNRWg3sLO/Ogj1VoKa+SQtQrz6JzhbwLz0TBiAlkazIdHvsP8TSAZTJy2vVYGZGBZKvcKI/
+	4RQeflBV5teiOFKz4gPCHnOXkZTlJkkhyV1OlZWqcwgzo0Vaixq27Y5uwEZschrtk7Fe49kv+fSqK
+	3w7H55J+biJzRYHqyGkO1QbO37VektZTWtUUFNvA3i3QB7vIWw8dL/8tiTxwVTb/3HBEjXCCMW2mT
+	u+dDL0HK42HdYUK4lDQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubFyK-00000001rSR-29zb;
-	Mon, 14 Jul 2025 09:59:44 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1ubG80-00000001suy-2i2b;
+	Mon, 14 Jul 2025 10:09:44 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubFfY-00000001o6D-3j6A
+	id 1ubFlA-00000001pKw-32Ls
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Jul 2025 09:40:22 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-451d6ade159so29559505e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Jul 2025 02:40:20 -0700 (PDT)
+	Mon, 14 Jul 2025 09:46:12 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-748e81d37a7so2366677b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Jul 2025 02:46:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1752486019; x=1753090819; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZNWYOZeX7/6WvQlTq10OWDC/eEvu8idMvnYMiM3ozYE=;
-        b=ySKcC/P4FGdJxkbJy6LLK67MdySd8uaeaiZNXy7222U8PJkAaS0PrAwCeHa+cMSrPS
-         GvtX0NC+KsfBK3U4IyWKf7C8beAljBzfNa5+8zRSmduQtmG/ZWVSWKcQricVK5S1Hqm6
-         dUKqNWgem+8erBGm68CGql0oW5dTXb5MRQk/oruqruomcqQTLaHUuRfGOxIkl+c7h0Gh
-         Qm3EclQ3727lwuFtd9PJTHCCAHCU5iqBID6+Ed6G3cMeRhqYmbTvnnYbDXaQTrvUgOIZ
-         YTv8rT12Cnhw2jHgYS0W4O3aPbeP/pIG8eQzdTnEFqNfuDBOg3ja+5vc/NLkOHWresGe
-         xBlg==
+        d=bytedance.com; s=google; t=1752486364; x=1753091164; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0dnf5JriQVpHQM4YNtZJFgadu2tM3f9E9KiPFuztXa0=;
+        b=bYJgKO73wDXF4e2h1oSNr2qTOEwttlDjzfZ1tqJq/bMqUGwBtDg8yzaD2nCnq/XOFr
+         g6mu9kyjRNJ9+bXYMuH8uyw8I/bKwXsE0Ow1w+k6wOQrqaqw73Vl9sYH7wgU82Z43qOI
+         YYHEFQvgdoMKwsyBU8pDAnRARxv7y8MniFh/ipOkhRDdHpPRFDnDEHqriEfvUWfS5z0u
+         FKAGCXYOPE7oBtUg8+jIXYBQYb3j1t1wvBQNm3qFYQiuRusxr+20xcYL2pAvWvzS+KeF
+         hM7CqNLynd1jHnl8LavckiEP0GZxcyiqAWEtFAOAOTfmNCNK9dEfMnyCIEAfnF3MT5ic
+         Vwiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752486019; x=1753090819;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZNWYOZeX7/6WvQlTq10OWDC/eEvu8idMvnYMiM3ozYE=;
-        b=GQfx8Vykalu71WH/qC7w5QdV4PPd0apA1EMjdfMfIlTKPgRjwarxr73qYhRtTDxeaT
-         VPgsWJnAb60TKwsMkohercYY/MaIR2+0G2t/stPCGU8HvtjbwkDP8w/JXTu9to3XvTfL
-         D39yxHL6hGZnymlYixVjKAs9CRtZQWlBkMLT1946mKVRM9YzMIEwYCE3ayQ+8CbXPCPL
-         bABVVwT5G5srJltoAi5zkT2OrTbe57pp39dXYwPEEkyxgNFsv6at9wcombPBDULDz0g1
-         ROeId0SJLFUCwKl+nmROCmlOxFoIzDOsNteDFgtnmDMhQegyiW8Ehim3fFRXL3osaZM5
-         AMDw==
-X-Forwarded-Encrypted: i=1; AJvYcCXFHaWUuYtfNzAoQfvReD8ertX1k+L06gQn+Y546A/3EifZPljjbkIhnAdDCmk7Gr1fhmudsEe3rMp8iQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzhy7jymfGXab6g5m7i24EHfT67+y1X+uLWb/8efUPZcy3Pbw/7
-	+V7fFl20JpbyFmlvJLyVLVaRkv4yDb7/5iz6W7E9KEaVk6MNwvYab6dZhTFJEs1BY+g=
-X-Gm-Gg: ASbGncvnlhd6sAdbPd+mJf3gB/tJSUV5N7fJH6g52930zjNZhXfgsunr1Qz/ZjcbOhR
-	5heKZBw67lIWMRX1aZE2JovoZXVnH4ro3aKFUVpgdgVnSfKqHquk/RqmVMLYSVPAsDsjXMlVqMx
-	NnNLFu95iYiY8HQ1TrhIoRWVrwnLT+ANDxkFXuR0IDVDs/odZejBKji8myO7Ovh5PDbfQBcZbi6
-	PAkKfynyuC8o6EF3Jkiz8jVx88WQDypTlSKzOZKzRRvLHciIL407zdKmb7lhuwXufg0LlFIG9fU
-	b5dNIPOGLD56gKEXeWdu4cV+kc+epVstjetxC3KMZtvesb3FPsh5+VEzPh9SgX3mdPocGjFp9g=
-	=
-X-Google-Smtp-Source: AGHT+IH7LWrI288pfqr0DobhXiBAETFLObRARl9QHaXZq8n40/zrMI7hQXZgqc6YvjtV174ymKHG1A==
-X-Received: by 2002:a05:600c:8b55:b0:456:1204:e7e2 with SMTP id 5b1f17b1804b1-4561204eb05mr46649275e9.12.1752486019172;
-        Mon, 14 Jul 2025 02:40:19 -0700 (PDT)
-Received: from [127.0.1.1] ([2a09:0:1:2::3035])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4561b25a948sm24989035e9.35.2025.07.14.02.40.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 02:40:18 -0700 (PDT)
-From: Guodong Xu <guodong@riscstar.com>
-Date: Mon, 14 Jul 2025 17:39:28 +0800
-Subject: [PATCH v3 1/8] dt-bindings: dma: Add SpacemiT K1 PDMA controller
+        d=1e100.net; s=20230601; t=1752486364; x=1753091164;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0dnf5JriQVpHQM4YNtZJFgadu2tM3f9E9KiPFuztXa0=;
+        b=qa4RpMeaFW5EYLwOmHIxpsuONiw088VGHZsRUQ+SRUZ8FiXCG99hGgN4HOevpRL779
+         KXhTnMg45C4Nl2u7jCgtjRIaWrk5M3HGeeqWYZGh2tegdLaQVGqHYC1BTn7JnGFlJdVv
+         jwO/fazBriGQmkjhtSMfx4HTuSSKX9OnZsNLx0SYxZ+lG8noBUVAupP1oNj1UmthD3zd
+         zIxLxHiANOK23SyMpBvzmq/MHnt46hZFHny1bCvUshzccLpBmn/ENDVUWZfbOxRT1jvr
+         09SEmBQYoy2Q4wX5w/YM+RwJzO98pp5AVmnrpCnEverD/ibxox/TAMVT7bLxnvQwFQO8
+         /zbw==
+X-Forwarded-Encrypted: i=1; AJvYcCXFbaeiHMc58Q+ckeJ+qhTheejHjGKfMkNyRVzfRx0+p3JYqiQRyCIUkJp/VEd2Mi1tfNowb2mwNanKrg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVCaqW+XzDvBMrGeftpvYvbGJ9qrTlbr2O86sMFSmYFGdMKaib
+	c0xCXpiZ4WIed9PyasGEGbUzLHAZBfVAbV8/4XEPXW6N0kM9ts1CJ0HHJDqhVne/ANQ=
+X-Gm-Gg: ASbGnct7iQHYU+Lxjgq2tjPk7UPRfDyGu6XYdE7aSAl5GZ7Dn7ZZE8pHlFLtY/41uYX
+	ecbjb/jd36Dne2JAGbOInHl26AMSSo4Oxtv48AW5XoVeojfoiFUF1WxxUdbBYix8hSnupC77epK
+	qS+VvUtpYDodyc5ysJesn1m54maeGjxLRTnhBy4WvbQq1gZKdZLC+35Uyl1jspR3shIxQlLxpwZ
+	onYoRipxewzohlLoxoy9Dbtc9z3V53615z3KXv08LHv8tLBZd/lI10oWTZNLdY6CylxnmN6mJoE
+	fb8LDi4o6TLtOZ9E11ueZMVnr+cRePatCd7oiBw3PiuQDIZbTGPHY2eYlPFmSRP/QGdG1+bLonp
+	fypWBwj4gVYIYE9TGIan+Wu8A3SY4jyc7uIGP5YnigZ75hrObUtwshFqntZM7BA0e6R+rh3OW/C
+	wgBO3mFF5vrQ==
+X-Google-Smtp-Source: AGHT+IFF990cxBBIj5rcns4ua/Z9mSLbBzTWgWQcSkoafAxgEV/F4FcvyqoXGxjBchTkM6/hWtRe9Q==
+X-Received: by 2002:a05:6a00:1992:b0:747:accb:773c with SMTP id d2e1a72fcca58-74ee2c509e7mr17413857b3a.13.1752486364023;
+        Mon, 14 Jul 2025 02:46:04 -0700 (PDT)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd73b7sm10201283b3a.1.2025.07.14.02.45.59
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 14 Jul 2025 02:46:03 -0700 (PDT)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: rkrcmar@ventanamicro.com,
+	cleger@rivosinc.com,
+	anup@brainfault.org,
+	atish.patra@linux.dev,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH v4] RISC-V: KVM: Delegate illegal instruction fault to VS mode
+Date: Mon, 14 Jul 2025 17:45:54 +0800
+Message-Id: <20250714094554.89151-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Message-Id: <20250714-working_dma_0701_v2-v3-1-8b0f5cd71595@riscstar.com>
-References: <20250714-working_dma_0701_v2-v3-0-8b0f5cd71595@riscstar.com>
-In-Reply-To: <20250714-working_dma_0701_v2-v3-0-8b0f5cd71595@riscstar.com>
-To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- =?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>, 
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, Guodong Xu <guodong@riscstar.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_024020_934152_17FF7F94 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20250714_024608_754903_28A1C75E 
+X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,93 +108,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device tree binding documentation for the SpacemiT K1 PDMA
-controller.
+Delegate illegal instruction fault to VS mode by default to avoid such
+exceptions being trapped to HS and redirected back to VS.
 
-Signed-off-by: Guodong Xu <guodong@riscstar.com>
+The delegation of illegal instruction fault is particularly important
+to guest applications that use vector instructions frequently. In such
+cases, an illegal instruction fault will be raised when guest user thread
+uses vector instruction the first time and then guest kernel will enable
+user thread to execute following vector instructions.
+
+The fw pmu event counter remains undeleted so that guest can still query
+illegal instruction events via sbi call. Guest will only see zero count
+on illegal instruction faults and know 'firmware' has delegated it.
+
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
-v3: New patch.
----
- .../devicetree/bindings/dma/spacemit,k1-pdma.yaml  | 68 ++++++++++++++++++++++
- 1 file changed, 68 insertions(+)
+ arch/riscv/include/asm/kvm_host.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml b/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..ec06235baf5ca3ecffe7dba9bb425b242985660e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml
-@@ -0,0 +1,68 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/dma/spacemit,k1-pdma.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SpacemiT K1 PDMA Controller
-+
-+maintainers:
-+  - Guodong Xu <guodong@riscstar.com>
-+
-+allOf:
-+  - $ref: dma-controller.yaml#
-+
-+properties:
-+  compatible:
-+    const: spacemit,k1-pdma
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    description: Shared interrupt for all DMA channels
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+  dma-channels:
-+    maximum: 16
-+
-+  '#dma-cells':
-+    const: 1
-+    description:
-+      The DMA request number for the peripheral device.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - resets
-+  - dma-channels
-+  - '#dma-cells'
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/spacemit,k1-syscon.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        dma-controller@d4000000 {
-+            compatible = "spacemit,k1-pdma";
-+            reg = <0x0 0xd4000000 0x0 0x4000>;
-+            interrupts = <72>;
-+            clocks = <&syscon_apmu CLK_DMA>;
-+            resets = <&syscon_apmu RESET_DMA>;
-+            dma-channels = <16>;
-+            #dma-cells = <1>;
-+        };
-+    };
-
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 85cfebc32e4cf..3f6b9270f366a 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -44,6 +44,7 @@
+ #define KVM_REQ_STEAL_UPDATE		KVM_ARCH_REQ(6)
+ 
+ #define KVM_HEDELEG_DEFAULT		(BIT(EXC_INST_MISALIGNED) | \
++					 BIT(EXC_INST_ILLEGAL)     | \
+ 					 BIT(EXC_BREAKPOINT)      | \
+ 					 BIT(EXC_SYSCALL)         | \
+ 					 BIT(EXC_INST_PAGE_FAULT) | \
 -- 
-2.43.0
+2.20.1
 
 
 _______________________________________________
