@@ -4,50 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0115FC83F1A
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jul 2025 01:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB6DEC83F17
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jul 2025 03:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fKgY0NakEWUAiwuaQCGDymBNT5PHhmVq6wpkpRcoIWM=; b=VG7H6QkClsWl+g
-	8DgfNHh2F2iROlXpAY1ywdf7gMX+wTbsLvVoMgiB8mUo2ZVAcAO51NzyXz09FI9fP/6aeDpuL17vO
-	9wXJ7SjnWA/+D0qzD/Szc2ctaJvqjIML6nBeMpmLnH9NCCX9dwrtUgeEkZUibsXiJm0zmyvbkS7mZ
-	BhvsROd7g4oPMqLGzrT40I+bHBgcozucnIAdYrb7R/zLiZK9oJ94A2PTa2icVvHr31/CJS/vgiWfc
-	/D4friwOT3KELWAN4ubUVJa2LGXqQLA458AW61gT2xcEAT60PzcrSU37cC5rIxFgV3au8Jc/uTiS2
-	8Buo1m6Zo6fzfg11XBnw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gyK9muvEJ2TfYVYMoeaNkilL8vDozvMlD9xwlYGG0Gc=; b=FGMU59fSbf+phG
+	nXSGuxyUoHBurhLzAwGLD2nocVudh2SRSaXFU2T0Y6BwZGO9ttyLf4dIC0rJ385VI0b0fy+YwAwn0
+	92zzTm72TPdIqnSyN5OEVf0+I3UsH8FXDu1o/PrZeK1PfrQBtFFEwatVyxgI7VAiSl8RyUKhVDD/b
+	QU3fhottjpaWmdZP4VISGNml8JYfeJyZ3VaiqJ+bV9ZCBGfMModLbrtf/0eiOknEa7tWSCsixB5sj
+	OACEKWAqgOQyANhy+Y4HsxVED4Zjet9juspZFDvB20z1cp3ngDaUiIE+8jYC2k9UVtvfYixq1djiE
+	riLstsasokkMkR7wuK6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubUgY-00000003k7X-0nnJ;
-	Tue, 15 Jul 2025 01:42:22 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1ubVwC-00000003ptW-3xCt;
+	Tue, 15 Jul 2025 03:02:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubUgW-00000003k7C-0bIX
+	id 1ubVwA-00000003ptM-3uIn
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Jul 2025 01:42:21 +0000
-Received: from localhost (unknown [116.232.48.207])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id DEDD1340E65;
-	Tue, 15 Jul 2025 01:42:18 +0000 (UTC)
-Date: Tue, 15 Jul 2025 01:42:14 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: soc@kernel.org, Arnd Bergmann <arnd@arndb.de>
-Cc: Alex Elder <elder@riscstar.com>, Guodong Xu <guodong@riscstar.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: [GIT PULL RESEND] RISC-V SpacemiT Devicetrees for v6.17
-Message-ID: <20250715014214-GYA540030@gentoo>
+	Tue, 15 Jul 2025 03:02:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E300761483;
+	Tue, 15 Jul 2025 03:02:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14A7CC4CEED;
+	Tue, 15 Jul 2025 03:02:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752548553;
+	bh=5iBcZMnLTgHM9MfCl/SxgkXgSxL749d/lCzwTN6LZak=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pqEiUlXVD5AeZdBDRBxLaOQn+hgXov9fxSBQWT8uTYYp9vsKO8QSR/jXjgQvkuV+d
+	 fRWUiqqP0OP9IqNCtfEGF6CrMA+zwkF5xl4wKjhfrAB5Va02RH0uEEmu2EEaUdQalw
+	 y/808ihsaNg2b+792mzTtvNFN/cwUEK512qwUdWJNrwNW/rwGaKF0vZ+M3Im9bJt/T
+	 QJhp+KNq38KcN8Cod4FTuRFHV7Cp32j628ZfME0aTdzMFsUiCrx6UK2Sh+5+oZeIsL
+	 dYGGKkS3B92CI+tGPrnKxRwPeL2I7X0DGnq+Vu4pS93YxPR4aL4F6Cvw8cMRHGbFAK
+	 nSlIokg2F//yA==
+Date: Mon, 14 Jul 2025 20:02:31 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: guoren@kernel.org
+Cc: palmer@dabbelt.com, conor@kernel.org, alexghiti@rivosinc.com,
+	paul.walmsley@sifive.com, bjorn@rivosinc.com, eobras@redhat.com,
+	corbet@lwn.net, peterlin@andestech.com, rabenda.cn@gmail.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Leonardo Bras <leobras@redhat.com>
+Subject: Re: [PATCH V2 2/2] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+Message-ID: <aHXEx2a0qgiPXhBS@x1>
+References: <20250713155321.2064856-1-guoren@kernel.org>
+ <20250713155321.2064856-3-guoren@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_184220_209779_333980AA 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250713155321.2064856-3-guoren@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,63 +73,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On Sun, Jul 13, 2025 at 11:53:21AM -0400, guoren@kernel.org wrote:
+> From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
+> 
+> The early version of XuanTie C910 core has a store merge buffer
+> delay problem. The store merge buffer could improve the store queue
+> performance by merging multi-store requests, but when there are not
+> continued store requests, the prior single store request would be
+> waiting in the store queue for a long time. That would cause
+> significant problems for communication between multi-cores. This
+> problem was found on sg2042 & th1520 platforms with the qspinlock
+> lock torture test.
+> 
+> So appending a fence w.o could immediately flush the store merge
+> buffer and let other cores see the write result.
+> 
+> This will apply the WRITE_ONCE errata to handle the non-standard
+> behavior via appending a fence w.o instruction for WRITE_ONCE().
+> 
+> This problem is only observed on the sg2042 hardware platform by
+> running the lock_torture test program for half an hour. The problem
+> was not found in the user space application, because interrupt can
+> break the livelock.
 
-  Please pull SpacemiT's device tree changes for v6.17,
-Note, I've included an immutable shared tag of reset-binding
-in this PR.
+The first paragraph states the problem was found on both the SG2042 and
+TH1520, but this paragraph states it is only observed on the SG2042. Is
+worth me trying to run lock_torture on the TH1520 for many hours?
 
-  Sorry, I've missed the email title in previous PR, so resend
-to fix this ..
-
-  Thanks
-
-Yixun Lan
-
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
-
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
-
-are available in the Git repository at:
-
-  https://github.com/spacemit-com/linux spacemit-dt-for-6.17-1
-
-for you to fetch changes up to 57fa4ba6d0a4669fd8f2557e760442d684374f3c:
-
-  riscv: dts: spacemit: Move eMMC under storage-bus for K1 (2025-07-09 13:49:27 +0800)
-
-----------------------------------------------------------------
-RISC-V SpacemiT DT changes for 6.17
-
-- Add DMA translation buses
-- Add PWM support
-- Add Reset support
-- Add eMMC node
-
-----------------------------------------------------------------
-Alex Elder (2):
-      dt-bindings: soc: spacemit: define spacemit,k1-ccu resets
-      riscv: dts: spacemit: add reset support for the K1 SoC
-
-Guodong Xu (2):
-      riscv: dts: spacemit: add PWM support for K1 SoC
-      riscv: dts: spacemit: add pwm14_1 pinctrl setting
-
-Vivian Wang (3):
-      riscv: dts: spacemit: Add DMA translation buses for K1
-      riscv: dts: spacemit: Move UARTs under dma-bus for K1
-      riscv: dts: spacemit: Move eMMC under storage-bus for K1
-
-Yixun Lan (2):
-      riscv: dts: spacemit: enable eMMC for K1 SoC
-      Merge tag 'spacemit-reset-binding-for-6.17-1' of https://github.com/spacemit-com/linux
-
- .../bindings/soc/spacemit/spacemit,k1-syscon.yaml  |  27 +-
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |  10 +
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi       |   8 +
- arch/riscv/boot/dts/spacemit/k1.dtsi               | 485 ++++++++++++++++-----
- include/dt-bindings/clock/spacemit,k1-syscon.h     | 141 ++++++
- 5 files changed, 558 insertions(+), 113 deletions(-)
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
