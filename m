@@ -4,120 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 679A2C83F17
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jul 2025 05:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D2DC83F1D
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jul 2025 06:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ht/SMNdYQbghiXOUecdM8eKWU76TGT5/nKRub/rXJoU=; b=yK27gkSq8vcuOI
-	jxR48MPpnGvQOD8UqNmLqHjCfaVMW04IyuCgaMtQq33376S2UISZCEynOcevr2DgOjenWOApBC9TV
-	ZzXgDWGwUVnNs8IuyxPVhoOyIhG3EMJwcUpox+nThyzmI0PiXclE9gDLpYWf7a7Zq2ORBcQThMaKl
-	98YtdkmKJ6wcopDVBHhM+du4ioYKHPtEOJD2Kqh/Lpp/g+dTsjHQrD23qDvjC1eHldQBjvrR1ZK3b
-	eLsGoLXQZZNW7tqBcNAdIGruuw99maNkoYOepeEZvosDu1yHTkGLEmk7K1QVrDSiwFkqxmY+M4qUZ
-	edaV6KBVAUCDkoqwoIGA==;
+	List-Owner; bh=mVM8eNyYdBrtTXuhx0ebfaF02hMbUGhdCtnXPFCwZCs=; b=fjY2m3fRzJIitI
+	aQYQRh3R5P75wcudMJ2ZTmaU3PHn5YCG1vzgNKvUkATeizLXBQ2wnxLRLsY8+VZAntpNLNoASHEAT
+	fGB94Np7e1IPfpCtgLjHlZ6e4IRr2Z4NCsbnugkmxnW+EAxGOcbsWwsJY9gAg8Cd4E2D560+YqA5/
+	96EXFyi/ydwcbuLmGG5aO0MOkxB188+AbN3hvxrAgi/rE8LHW6589KOtTsthd6kZsgGnudWkljo0r
+	vwMbBAAwcCnx44UkdifySUbQrhdFKqsoatFTiojSIjF2NEPfye6XuyrIUHwhSSUop7iduh8SxMOJW
+	5K/uw2hKXA+SiSf0SAzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubYQD-0000000481u-0SPM;
-	Tue, 15 Jul 2025 05:41:45 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ubYwP-00000004BgG-3itQ;
+	Tue, 15 Jul 2025 06:15:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubYLx-000000047Y2-3pet;
-	Tue, 15 Jul 2025 05:37:23 +0000
+	id 1ubYwN-00000004BfX-0Wtg
+	for linux-riscv@lists.infradead.org;
+	Tue, 15 Jul 2025 06:15:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7C443A4C138;
-	Tue, 15 Jul 2025 05:37:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12609C4CEF4;
-	Tue, 15 Jul 2025 05:37:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C3FBC5C5932
+	for <linux-riscv@lists.infradead.org>; Tue, 15 Jul 2025 06:14:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76652C4AF09
+	for <linux-riscv@lists.infradead.org>; Tue, 15 Jul 2025 06:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752557840;
-	bh=6J3hCrPuy++HUhp2ZStrBO9vMI6jCI0BvgNUFtgBHOI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OD3WsebZ74BNCweLXWK6ZDpiy1GYCnmXu2xh27/ENvLdsLSkrLFQ6mR5l1mP+HUMG
-	 MShniYJqNM1s31wMmQw8FxDkHjit4SvfyoI6wUc1GOv+6z5AyvmnmyD6drAojuQ7np
-	 fOs0Zsj44GMv/NBf25ahV1vQZSouQi2ASuXroB6TqmINioyqTPuLu3wfF4V0KxSSjK
-	 0PR45/X7hWdpadu6p9W0SgtO5vmgSyqWPe258S/Buu2TrZcJGDDU9K/fmM8I4Uoql0
-	 Hu69E3heOIAt/PsIe2m0WLAzWWr5PZ0Gr/ihpETockVthBQZ9NoB8xkXw0f93zawy2
-	 SFMRROjblWu6w==
-From: Kees Cook <kees@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	Dave Martin <Dave.Martin@arm.com>
-Cc: Kees Cook <kees@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Akihiko Odaki <akihiko.odaki@daynix.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chris Zankel <chris@zankel.net>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonas Bonn <jonas@southpole.se>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rich Felker <dalias@libc.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Will Deacon <will@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH 00/23] binfmt_elf,arch/*: Use elf.h for coredump note names
-Date: Mon, 14 Jul 2025 22:37:11 -0700
-Message-Id: <175255782864.3413694.2008555655056311560.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250701135616.29630-1-Dave.Martin@arm.com>
-References: <20250701135616.29630-1-Dave.Martin@arm.com>
+	s=k20201202; t=1752560097;
+	bh=Owz7HM3oZ/dUFgrktnlHBz6CNj/X+oEOtmCDPMuOjT4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=cSdO84tYdLtG+FlYIuKqK7r4AwuUpv3rmu0o7TkRVMe3ikLUjOuGB6SPEp07TsJQ8
+	 KJyGYWauB+WQ/qmAMZT/IuffEp1hAUcfGd/9Wz9G/HM6uzsUo3hJ3qmtgFdpRip6Do
+	 0rdul+ZDuFAly9PEm5tUypBvXtk0mrCMXj9oiBIdyxKI8yERdPIyXiwL4sxJxsETLJ
+	 /BFMNc5C+/QTkyqUGBBhIWmO7x0zDO/15IGcAu7lSslV3Ud1cODXF7NOP8DSSjN3Av
+	 vGuPZqq4pwCw3UaN6ZEixbzwNdXQhr9qNVa4IsZGhoSAFeqEgf27aK32+kfLR3tMgK
+	 Z+YU1wBM3JUOA==
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-3a6f2c6715fso3987631f8f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Jul 2025 23:14:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXmfvWsLcd3lDQSu6Sh67qNszWaM+9NEDTkopx44L6JoJhOYzqjNWpwfIWkf063j09X2Xh0SDIwGp7hoA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywc0iSx1POmP9aW5Ye8DTr8surcNS2Ux6thj+uA5ybBdbZDHtUP
+	pCfxiuQZ0+9DcY87LJMdTzCJURFr3LyOVvSg6Q5BdB81GC7zErmgBszUJcy3jBPcxH9bvrffRnY
+	XKe1ylY9i3uFzfVmV0nZp3eeZr5Pos1Q=
+X-Google-Smtp-Source: AGHT+IHLfAgaTi5jei9UtO0v9WiiSwIuxKXHl6o/lUHfLdgZ2pE6gsJ3CXtYwTkcUEpV70z9QdrQgJYjU4F2IIogjXo=
+X-Received: by 2002:a05:6000:4010:b0:3ab:27f9:e51 with SMTP id
+ ffacd0b85a97d-3b5f2dfd9c8mr10772054f8f.31.1752560095918; Mon, 14 Jul 2025
+ 23:14:55 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250713155321.2064856-1-guoren@kernel.org> <20250713155321.2064856-3-guoren@kernel.org>
+ <aHXEx2a0qgiPXhBS@x1>
+In-Reply-To: <aHXEx2a0qgiPXhBS@x1>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 15 Jul 2025 14:14:44 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQBzX9A=AEAaH5SyxWfuNwkG6eichC1w1ryEqRMeuOokA@mail.gmail.com>
+X-Gm-Features: Ac12FXxIgjnJ02Xc-z1bd0MQw47wfc1l9w9HznRLlP-75-MHvnNs5H3wYMz37-8
+Message-ID: <CAJF2gTQBzX9A=AEAaH5SyxWfuNwkG6eichC1w1ryEqRMeuOokA@mail.gmail.com>
+Subject: Re: [PATCH V2 2/2] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+To: Drew Fustini <fustini@kernel.org>
+Cc: palmer@dabbelt.com, conor@kernel.org, alexghiti@rivosinc.com, 
+	paul.walmsley@sifive.com, bjorn@rivosinc.com, eobras@redhat.com, 
+	corbet@lwn.net, peterlin@andestech.com, rabenda.cn@gmail.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Leonardo Bras <leobras@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_223722_093416_3BF14B0D 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20250714_231459_364023_52824F0E 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,81 +82,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Jul 2025 14:55:53 +0100, Dave Martin wrote:
-> This series aims to clean up an aspect of coredump generation:
-> 
-> ELF coredumps contain a set of notes describing the state of machine
-> registers and other information about the dumped process.
-> 
-> Notes are identified by a numeric identifier n_type and a "name"
-> string, although this terminology is somewhat misleading.  Officially,
-> the "name" of a note is really an "originator" or namespace identifier
-> that indicates how to interpret n_type [1], although in practice it is
-> often used more loosely.
-> 
-> [...]
-
-Applied to for-next/execve, thanks!
-
-[01/23] regset: Fix kerneldoc for struct regset_get() in user_regset
-        https://git.kernel.org/kees/c/6fd9e1aa0784
-[02/23] regset: Add explicit core note name in struct user_regset
-        https://git.kernel.org/kees/c/85a7f9cbf8a8
-[03/23] binfmt_elf: Dump non-arch notes with strictly matching name and type
-        https://git.kernel.org/kees/c/9674a1be4dd5
-[04/23] ARC: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/237dc8d79627
-[05/23] ARM: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/49b849d11cd1
-[06/23] arm64: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/87b0d081dc98
-[07/23] csky: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/2c2fb861fc59
-[08/23] hexagon: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/55821111b1b3
-[09/23] LoongArch: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/1260e3b13584
-[10/23] m68k: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/e572168e8d2a
-[11/23] MIPS: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/18bd88faa246
-[12/23] nios2: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/8368cd0e4636
-[13/23] openrisc: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/10cd957a895f
-[14/23] parisc: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/92acdd819b5d
-[15/23] powerpc/ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/307035acefbd
-[16/23] riscv: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/c9502cc7bef5
-[17/23] s390/ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/d6a883cb40fc
-[18/23] sh: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/afe74eecd88f
-[19/23] sparc: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/c9d4cb25e94e
-[20/23] x86/ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/3de0414dec7b
-[21/23] um: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/40d3a88594b5
-[22/23] xtensa: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-        https://git.kernel.org/kees/c/cb32fb722f4b
-[23/23] binfmt_elf: Warn on missing or suspicious regset note names
-        https://git.kernel.org/kees/c/a55128d392e8
-
-Take care,
-
--- 
-Kees Cook
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdWwgMTUsIDIwMjUgYXQgMTE6MDLigK9BTSBEcmV3IEZ1c3RpbmkgPGZ1c3RpbmlA
+a2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBTdW4sIEp1bCAxMywgMjAyNSBhdCAxMTo1MzoyMUFN
+IC0wNDAwLCBndW9yZW5Aa2VybmVsLm9yZyB3cm90ZToKPiA+IEZyb206ICJHdW8gUmVuIChBbGli
+YWJhIERBTU8gQWNhZGVteSkiIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+Cj4gPiBUaGUgZWFybHkg
+dmVyc2lvbiBvZiBYdWFuVGllIEM5MTAgY29yZSBoYXMgYSBzdG9yZSBtZXJnZSBidWZmZXIKPiA+
+IGRlbGF5IHByb2JsZW0uIFRoZSBzdG9yZSBtZXJnZSBidWZmZXIgY291bGQgaW1wcm92ZSB0aGUg
+c3RvcmUgcXVldWUKPiA+IHBlcmZvcm1hbmNlIGJ5IG1lcmdpbmcgbXVsdGktc3RvcmUgcmVxdWVz
+dHMsIGJ1dCB3aGVuIHRoZXJlIGFyZSBub3QKPiA+IGNvbnRpbnVlZCBzdG9yZSByZXF1ZXN0cywg
+dGhlIHByaW9yIHNpbmdsZSBzdG9yZSByZXF1ZXN0IHdvdWxkIGJlCj4gPiB3YWl0aW5nIGluIHRo
+ZSBzdG9yZSBxdWV1ZSBmb3IgYSBsb25nIHRpbWUuIFRoYXQgd291bGQgY2F1c2UKPiA+IHNpZ25p
+ZmljYW50IHByb2JsZW1zIGZvciBjb21tdW5pY2F0aW9uIGJldHdlZW4gbXVsdGktY29yZXMuIFRo
+aXMKPiA+IHByb2JsZW0gd2FzIGZvdW5kIG9uIHNnMjA0MiAmIHRoMTUyMCBwbGF0Zm9ybXMgd2l0
+aCB0aGUgcXNwaW5sb2NrCj4gPiBsb2NrIHRvcnR1cmUgdGVzdC4KPiA+Cj4gPiBTbyBhcHBlbmRp
+bmcgYSBmZW5jZSB3Lm8gY291bGQgaW1tZWRpYXRlbHkgZmx1c2ggdGhlIHN0b3JlIG1lcmdlCj4g
+PiBidWZmZXIgYW5kIGxldCBvdGhlciBjb3JlcyBzZWUgdGhlIHdyaXRlIHJlc3VsdC4KPiA+Cj4g
+PiBUaGlzIHdpbGwgYXBwbHkgdGhlIFdSSVRFX09OQ0UgZXJyYXRhIHRvIGhhbmRsZSB0aGUgbm9u
+LXN0YW5kYXJkCj4gPiBiZWhhdmlvciB2aWEgYXBwZW5kaW5nIGEgZmVuY2Ugdy5vIGluc3RydWN0
+aW9uIGZvciBXUklURV9PTkNFKCkuCj4gPgo+ID4gVGhpcyBwcm9ibGVtIGlzIG9ubHkgb2JzZXJ2
+ZWQgb24gdGhlIHNnMjA0MiBoYXJkd2FyZSBwbGF0Zm9ybSBieQo+ID4gcnVubmluZyB0aGUgbG9j
+a190b3J0dXJlIHRlc3QgcHJvZ3JhbSBmb3IgaGFsZiBhbiBob3VyLiBUaGUgcHJvYmxlbQo+ID4g
+d2FzIG5vdCBmb3VuZCBpbiB0aGUgdXNlciBzcGFjZSBhcHBsaWNhdGlvbiwgYmVjYXVzZSBpbnRl
+cnJ1cHQgY2FuCj4gPiBicmVhayB0aGUgbGl2ZWxvY2suCj4KPiBUaGUgZmlyc3QgcGFyYWdyYXBo
+IHN0YXRlcyB0aGUgcHJvYmxlbSB3YXMgZm91bmQgb24gYm90aCB0aGUgU0cyMDQyIGFuZAo+IFRI
+MTUyMCwgYnV0IHRoaXMgcGFyYWdyYXBoIHN0YXRlcyBpdCBpcyBvbmx5IG9ic2VydmVkIG9uIHRo
+ZSBTRzIwNDIuIElzCj4gd29ydGggbWUgdHJ5aW5nIHRvIHJ1biBsb2NrX3RvcnR1cmUgb24gdGhl
+IFRIMTUyMCBmb3IgbWFueSBob3Vycz8KV2UgZGlkbid0IG9ic2VydmUgdGhhdCBwcm9ibGVtIG9u
+IHRoZSAxNTIwIGR1ZSB0byBpdHMgc21hbGwgbnVtYmVyIG9mIGNvcmVzLgpCdXQsIHdlIHN0aWxs
+IHJlY29tbWVuZCB0aGUgdGgxNTIwIGludm9sdmUgdGhpcyBwYXRjaCBmb3IgcG90ZW50aWFsIHdy
+aXRlIGRlbGF5LgoKPgo+IFRoYW5rcywKPiBEcmV3CgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBS
+ZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
