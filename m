@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB6DEC83F17
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jul 2025 03:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7758FC83F17
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jul 2025 03:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gyK9muvEJ2TfYVYMoeaNkilL8vDozvMlD9xwlYGG0Gc=; b=FGMU59fSbf+phG
-	nXSGuxyUoHBurhLzAwGLD2nocVudh2SRSaXFU2T0Y6BwZGO9ttyLf4dIC0rJ385VI0b0fy+YwAwn0
-	92zzTm72TPdIqnSyN5OEVf0+I3UsH8FXDu1o/PrZeK1PfrQBtFFEwatVyxgI7VAiSl8RyUKhVDD/b
-	QU3fhottjpaWmdZP4VISGNml8JYfeJyZ3VaiqJ+bV9ZCBGfMModLbrtf/0eiOknEa7tWSCsixB5sj
-	OACEKWAqgOQyANhy+Y4HsxVED4Zjet9juspZFDvB20z1cp3ngDaUiIE+8jYC2k9UVtvfYixq1djiE
-	riLstsasokkMkR7wuK6Q==;
+	List-Owner; bh=dMKOeRpWisqa3nFtppFRCrxpoN+4AgyTg44sohzrsBw=; b=x+Mr0HPu/kgcka
+	JdsB95TyuA7jpqLxkiJBgrMArnNY+6wpArz/O3YHg2ukg2fL3I8GU34KIlHeCfY+0QxhzSN7lrn1r
+	CigiS8MNQIIboIJsDKg5d8/Dy/ok0OVpa5T/bQUJg+iz7KRzoriGOEAvUj2hbHE3uqvwdCyqRXkMH
+	Vgrblbf91Q5xsv/rDgHFZE0WbA5aqBQ6WzbeXddSXGpWrTzM6U5IDuClMDiH9+MTis1eaCvZaUFSi
+	Qge27b3PLkORkyUGpI6JqL1CAR5YGLcxT/oHj4bs9cXdRZk3yWFPj66Pu7oTJTkV3hg7zrIfIkcG9
+	UKMDStGW6J1dG4SgILTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubVwC-00000003ptW-3xCt;
-	Tue, 15 Jul 2025 03:02:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ubWIW-00000003sJt-2Ndz;
+	Tue, 15 Jul 2025 03:25:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubVwA-00000003ptM-3uIn
+	id 1ubWIU-00000003sJR-0e7k
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Jul 2025 03:02:34 +0000
+	Tue, 15 Jul 2025 03:25:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E300761483;
-	Tue, 15 Jul 2025 03:02:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14A7CC4CEED;
-	Tue, 15 Jul 2025 03:02:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 84D604386A;
+	Tue, 15 Jul 2025 03:25:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42430C4CEED;
+	Tue, 15 Jul 2025 03:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752548553;
-	bh=5iBcZMnLTgHM9MfCl/SxgkXgSxL749d/lCzwTN6LZak=;
+	s=k20201202; t=1752549937;
+	bh=lrzxwWtwZkNCjGp2yhM/QISkZjt3HFGiOPAd5Hqt0KQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pqEiUlXVD5AeZdBDRBxLaOQn+hgXov9fxSBQWT8uTYYp9vsKO8QSR/jXjgQvkuV+d
-	 fRWUiqqP0OP9IqNCtfEGF6CrMA+zwkF5xl4wKjhfrAB5Va02RH0uEEmu2EEaUdQalw
-	 y/808ihsaNg2b+792mzTtvNFN/cwUEK512qwUdWJNrwNW/rwGaKF0vZ+M3Im9bJt/T
-	 QJhp+KNq38KcN8Cod4FTuRFHV7Cp32j628ZfME0aTdzMFsUiCrx6UK2Sh+5+oZeIsL
-	 dYGGKkS3B92CI+tGPrnKxRwPeL2I7X0DGnq+Vu4pS93YxPR4aL4F6Cvw8cMRHGbFAK
-	 nSlIokg2F//yA==
-Date: Mon, 14 Jul 2025 20:02:31 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: guoren@kernel.org
-Cc: palmer@dabbelt.com, conor@kernel.org, alexghiti@rivosinc.com,
-	paul.walmsley@sifive.com, bjorn@rivosinc.com, eobras@redhat.com,
-	corbet@lwn.net, peterlin@andestech.com, rabenda.cn@gmail.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Leonardo Bras <leobras@redhat.com>
-Subject: Re: [PATCH V2 2/2] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
-Message-ID: <aHXEx2a0qgiPXhBS@x1>
-References: <20250713155321.2064856-1-guoren@kernel.org>
- <20250713155321.2064856-3-guoren@kernel.org>
+	b=I7PuSuWTWcQFMmtXjLrtDpl0Wtf8yAEkG/+jxgWUPWVdfVewQhkYPINJWaZeJnGkL
+	 IJlfTX36KVei4CWgJEPFO5NdUlNSSP9L4bxSUpEIlXmmXPH+jkdfMPSArdC16a+eAp
+	 xMWYqKLUl7L41VtuTvD92OsktDQQ86qlL6DPGm9ZJgMV7z9SfynC3u0TN+T1VuDrLX
+	 bcyUk2yIwJAODrgjDSTwm3g8Wn6LJRVHZxJItRhHOkLTVeyXax+rUuvV0PxZNXXi9W
+	 Q6/BhBB2bP17M9NSWxohunwAX8SzzQs6Jbes5g5c1676g6CoFP5Xf2ubOwMagP7cBf
+	 eD3V9ig8YRrTg==
+Date: Mon, 14 Jul 2025 22:25:36 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+Cc: palmer@dabbelt.com, spacemit@lists.linux.dev, krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org, alex@ghiti.fr, dlan@gentoo.org,
+	skhan@linuxfoundation.org, devicetree@vger.kernel.org,
+	paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, conor+dt@kernel.org,
+	linux-kernel-mentees@lists.linux.dev
+Subject: Re: [PATCH 1/2] dt-bindings: riscv: spacemit: Add OrangePi RV2 board
+Message-ID: <175254993587.4165390.1905297422239367623.robh@kernel.org>
+References: <20250711183245.256683-1-hendrik.hamerlinck@hammernet.be>
+ <20250711183245.256683-2-hendrik.hamerlinck@hammernet.be>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250713155321.2064856-3-guoren@kernel.org>
+In-Reply-To: <20250711183245.256683-2-hendrik.hamerlinck@hammernet.be>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250714_202538_214458_2F4D20C1 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,35 +78,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 13, 2025 at 11:53:21AM -0400, guoren@kernel.org wrote:
-> From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
-> 
-> The early version of XuanTie C910 core has a store merge buffer
-> delay problem. The store merge buffer could improve the store queue
-> performance by merging multi-store requests, but when there are not
-> continued store requests, the prior single store request would be
-> waiting in the store queue for a long time. That would cause
-> significant problems for communication between multi-cores. This
-> problem was found on sg2042 & th1520 platforms with the qspinlock
-> lock torture test.
-> 
-> So appending a fence w.o could immediately flush the store merge
-> buffer and let other cores see the write result.
-> 
-> This will apply the WRITE_ONCE errata to handle the non-standard
-> behavior via appending a fence w.o instruction for WRITE_ONCE().
-> 
-> This problem is only observed on the sg2042 hardware platform by
-> running the lock_torture test program for half an hour. The problem
-> was not found in the user space application, because interrupt can
-> break the livelock.
 
-The first paragraph states the problem was found on both the SG2042 and
-TH1520, but this paragraph states it is only observed on the SG2042. Is
-worth me trying to run lock_torture on the TH1520 for many hours?
+On Fri, 11 Jul 2025 20:32:44 +0200, Hendrik Hamerlinck wrote:
+> Document the compatible string for the OrangePi RV2 board [1], which
+> is marketed as using the Ky X1 SoC but is in fact identical to
+> the SpacemiT K1 SoC [2].
+> 
+> Link: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-RV2.html [1]
+> Link: https://www.spacemit.com/en/key-stone-k1 [2]
+> Signed-off-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+> ---
+>  Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-Thanks,
-Drew
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
