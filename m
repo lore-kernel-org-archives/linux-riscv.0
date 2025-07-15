@@ -4,55 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8A5EC83F17
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jul 2025 10:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD68C83F22
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jul 2025 10:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9gMajovvHzwgHIZsHuxYBH2cUefiNJsnX3vc5DPtRxg=; b=FpVxpU6G0UuW08
-	OSG3NdxZW6Q65raNwzuZw2m+4LL3VCC41Byi7os19bJ2+nDTidnySXUinAENJDkRJcNYbrFcekzwL
-	rSNKPmFoHZ5QdvS7EXS+7MPx+MQC8hdVZsrrJQ4tAu4Etgptk7pCTcdebcbMLWdGP7oEJIKr6Zsak
-	fdRVe5FtTfgO3QndYBExJmV0bASf5WSk5pEPdzN+iVEJp4PY2gNLkhcSwvNVC2ONirvsR4PGVuF3w
-	VvyWXeBhrO50fSeREaRRZ751fYxY6+fAqYusd8u5eJrAsBiNIJfQvts0ACGtP9NbI62idP6v2td0i
-	Mi/CCN+K7uUaP1qODKBQ==;
+	List-Owner; bh=sZUKoAeuNgRixXgFMNKJLSr93wJOOXAfttDrFX4aicE=; b=h+04/uN97roVvO
+	p8tH5ZT3fSe8gS3M/jsi66qnYOxwTpASK4m6F6vBvQiy7XqU2JjgcFMuEiJlMEfdHnVO76y7DJ9k8
+	C/6SOa5ZrQEly5NGTH+wI6zOfVNXgLMigXNmt5t262Xrbrdman7AiUiM6vRZmlpjn3g4n4r/tAWHR
+	BJ00P759wq8MsjCqsok/LptXeYj2nvoUjr9KpApn45V8tKPDGQtLXZpL1nIHKjQQKc9YtF1rj0d3H
+	0lbjll2WK6fhxbCzIbcpcYwo820mbHOsHyd+fQE2pFYQNrcCm6QCKF4jlTZozEONQHSSESxONCYOG
+	+oRRCRLxJuIKSnskkoWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubcyh-00000004qTH-0hrZ;
+	id 1ubcyh-00000004qTO-3Fzj;
 	Tue, 15 Jul 2025 10:33:39 +0000
-Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubcvN-00000004q2b-38Xy
-	for linux-riscv@lists.infradead.org;
-	Tue, 15 Jul 2025 10:30:15 +0000
-Received: from localhost (unknown [116.232.48.207])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 8CB11340CE7;
-	Tue, 15 Jul 2025 10:30:12 +0000 (UTC)
-Date: Tue, 15 Jul 2025 18:30:06 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	paul.walmsley@sifive.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	palmer@dabbelt.com, skhan@linuxfoundation.org,
-	linux-kernel-mentees@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] riscv: dts: spacemit: Add initial support for
- OrangePi RV2
-Message-ID: <20250715103006-GYA540303@gentoo>
-References: <20250711183245.256683-1-hendrik.hamerlinck@hammernet.be>
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubcy8-00000004qOM-3Hii;
+	Tue, 15 Jul 2025 10:33:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8276112FC;
+	Tue, 15 Jul 2025 03:32:52 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.59])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C689E3F694;
+	Tue, 15 Jul 2025 03:32:52 -0700 (PDT)
+Date: Tue, 15 Jul 2025 11:32:47 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Kees Cook <kees@kernel.org>
+Cc: linux-kernel@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Akihiko Odaki <akihiko.odaki@daynix.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chris Zankel <chris@zankel.net>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonas Bonn <jonas@southpole.se>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rich Felker <dalias@libc.org>, Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH 00/23] binfmt_elf,arch/*: Use elf.h for coredump note
+ names
+Message-ID: <aHYuT0SxX65tAEp3@e133380.arm.com>
+References: <20250701135616.29630-1-Dave.Martin@arm.com>
+ <175255782864.3413694.2008555655056311560.b4-ty@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250711183245.256683-1-hendrik.hamerlinck@hammernet.be>
+In-Reply-To: <175255782864.3413694.2008555655056311560.b4-ty@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_033013_836828_1F14B650 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20250715_033304_908960_C2F85CD4 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,36 +111,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Hendrik,
-
-On 20:32 Fri 11 Jul     , Hendrik Hamerlinck wrote:
-> This patchset adds initial device tree support for the OrangePi RV2 board.
+On Mon, Jul 14, 2025 at 10:37:11PM -0700, Kees Cook wrote:
+> On Tue, 01 Jul 2025 14:55:53 +0100, Dave Martin wrote:
+> > This series aims to clean up an aspect of coredump generation:
+> > 
+> > ELF coredumps contain a set of notes describing the state of machine
+> > registers and other information about the dumped process.
+> > 
+> > Notes are identified by a numeric identifier n_type and a "name"
+> > string, although this terminology is somewhat misleading.  Officially,
+> > the "name" of a note is really an "originator" or namespace identifier
+> > that indicates how to interpret n_type [1], although in practice it is
+> > often used more loosely.
+> > 
+> > [...]
 > 
-> The OrangePi RV2 [1] is marketed as using the Ky X1 SoC.
-> However, after research and testing, it is in fact identical to the 
-> SpacemiT K1 [2]. My proof:
+> Applied to for-next/execve, thanks!
 > 
-> - Similar integration in the Banana Pi kernel tree [3], which uses the 
->   OrangePi RV2 and identifies it as the SpacemiT K1.
-> - Comparison of the device tree code showing a match to the OrangePi RV2 
->   Linux tree [4].
-> - Locally tested the OrangePi RV2 with the SpacemiT K1 device tree, 
->   confirming it boots and operates correctly.
+> [01/23] regset: Fix kerneldoc for struct regset_get() in user_regset
+>         https://git.kernel.org/kees/c/6fd9e1aa0784
+
+[...]
+
+> [23/23] binfmt_elf: Warn on missing or suspicious regset note names
+>         https://git.kernel.org/kees/c/a55128d392e8
 > 
-> Patch #1 documents the compatible string for the OrangePi RV2, and 
-> patch #2 adds its minimal device tree. This enables booting to a serial
-> console with UART output and blinking a LED, similar to other K1-based 
-> boards such as the Banana Pi BPI-F3 or the Milk-V Jupiter.
+> Take care,
 > 
+> -- 
+> Kees Cook
 
-The patch overall looks good, but I wouldn't pick it for this cycle,
-as I've already sent out the PR [5], so let's target at v6.18 merge window
-(Please remind me or respin a new version once v6.17-rc1 tagged)
+Thanks!
 
-Link: https://lore.kernel.org/spacemit/20250715014214-GYA540030@gentoo/ [5]
+Assuming nobody screams about things going wrong in next, I'll plan to
+water down the paranoid check in binfmt_elf.c:fill_thread_core_info().
 
--- 
-Yixun Lan (dlan)
+Anyone copy-pasting a new arch after this is in mainline shouldn't fall
+foul of this.
+
+Cheers
+---Dave
 
 _______________________________________________
 linux-riscv mailing list
