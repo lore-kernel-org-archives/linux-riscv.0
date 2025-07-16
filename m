@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54255C83F37
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A39DC83F27
 	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 15:29:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fag7MuYr8PpKht5yMrazkfzJf/8vCxcAljKD3UledxA=; b=UjHQRuThOGH8J2
-	lQtPRXyn7HGBwKljD/tcIuHbw7OzjHR22in3xbcAuToyFRm497aV4knUELmBbtOSSzRkn/Teykojl
-	OuiDmKV8F/0NT8E2LkuhBhkP8xqB0JEL+/WwJ2Gq52k6EGWRg8Ri34aN5Rb/nnQ94db8myF/07HP9
-	UZCVKl8xhcXNgblnvE2tq7ylqYx2N/gPUUoqWzUAHq/mpvHoZ7a3Wie+AVmYDENm+uIRiuo3YNr+f
-	jkVmtj6GW+d93PdUGqXnRZruG61MexZnavgz0A+WCyjM277xf1ZdYVICUPrP9qvYMUEfrljnKgUgV
-	GePfc2yuhdvspKYd/VnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=xVBkxtJ8c9pMvAmg4hNHwZtU70F/3Su0ppnqggCImMM=; b=vOFGjJ7o1/FYJUwjY2x/pf0jZy
+	zGKdrIBEb6tUzqRT/P4kKT7QouIQZQKz3uJsr9gQtJ8u0h3VI7XqzsbQ6V20hG93p5eL4Pn9QmZUN
+	xnCqwkgO8HBcKt4xoVd2s3WY+FJanZR3ftvGiYr64YCIsHRMS2g7JhuyEHbAP4gpQgvnPmTm7UA4r
+	ElpbbkQ5lTD1AL1CyJ7VxVSQzMCc22TyQvNGhGzltSllBw+XowlNfQ0PY9hj88kYiaMZTD/NgX5i3
+	L0N28OOwA/c0MtKI5ej1Mqj9KBmG4+HINA8Vah2qRui2d37fAJ/7SA2hdG3HEeFrdZrxhyJzFIznV
+	YORILFZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc444-000000083yK-3e80;
-	Wed, 16 Jul 2025 15:29:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uc446-000000083zK-3Be6;
+	Wed, 16 Jul 2025 15:29:02 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc3wm-000000082PJ-1Li2;
-	Wed, 16 Jul 2025 15:21:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D90D55C6624;
-	Wed, 16 Jul 2025 15:21:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74D37C4CEFC;
-	Wed, 16 Jul 2025 15:21:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752679287;
-	bh=+5nBuTaHK2eqj8Sbjf7jOgP+gLLgEVm3azLVcfpx7Wk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=OS9vTLlExI0ev1o7vTPmfJqaiGDqDFdXLIYU/2oNar9+GE0p2sFREnmEPM9tchhJs
-	 L1Y2aUgJ4GkDvZyEazbL1L4zjmorIK5QnLjOF5jQ53IdaQ865dzJqVFtTLE1IAo27A
-	 RvDAwYt17LRGns6LsX/cnluz58W0pJAFqXqJ7Vr/bV7i/gQg+DN7Sp0ck+1Yd2EW66
-	 KAiEFjBbdQKlsYfAto11NOc+gChFKfdj9FN85e4nGDbF2oMyRkkXd2lKBnS4GyIP7N
-	 yAaR39a7tCBwUcM5duceF2G1CYskt7SaW0TbDtgxAdJVQX0D5dotcL1wbeoKPl8FH9
-	 KBOFS1Hs7+Khg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id C64EB383BA33;
-	Wed, 16 Jul 2025 15:21:48 +0000 (UTC)
-MIME-Version: 1.0
-Subject: Re: [PATCH 0/3] PCI: host-generic: Fix driver_data overwriting bugs
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175267930756.1224517.4628176951767870692.git-patchwork-notify@kernel.org>
-Date: Wed, 16 Jul 2025 15:21:47 +0000
-References: <20250625111806.4153773-1-maz@kernel.org>
-In-Reply-To: <20250625111806.4153773-1-maz@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-riscv@lists.infradead.org, bhelgaas@google.com,
- alyssa@rosenzweig.io, robh@kernel.org, mani@kernel.org,
- lpieralisi@kernel.org, kwilczynski@kernel.org, j@jannau.net,
- geert+renesas@glider.be, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	id 1uc42L-000000083eU-0iIu
+	for linux-riscv@lists.infradead.org;
+	Wed, 16 Jul 2025 15:27:14 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7490acf57b9so42851b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Jul 2025 08:27:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1752679632; x=1753284432; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DLHXWx3e4qVyWFktNcTinbMTNqw3Gsd0ZZ2hzOlFYG4=;
+        b=TC52ErGV+xk818BflFZQA0RaxzCODTfxqsUNoh9rKomiyGFlh+wJLlg34Qret2NPlJ
+         w2cE+FrceYGSRVGRD2kC5prlfkDdyxlWmGwUwn4UGzRiBbhcGuzQ6iuogWIAs/CCZVyW
+         OLqtraciZxHVF0SEMrMpkjfe47QXsDCG09fTRegrxLKNpOpaTtAGgBrwK45HEtiOTN7Y
+         o/cAXsfWQtbOlB+s8UQRFRwUZzR1rg+QCyixKepvjwxl8JlzkNqpjk6U70eIV1lfRG/A
+         +DMBajySsLPBrkGXcsxskugRWax9DNAc+QPStiIjrqo/Kpn10nLRTr+sR2scvovcoEGT
+         qVAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752679632; x=1753284432;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DLHXWx3e4qVyWFktNcTinbMTNqw3Gsd0ZZ2hzOlFYG4=;
+        b=O0Q+YTyqJzsInYPatzsaRIT/aiWJ1COb1zBZpkRMmmAssOt8xNxmvZaLVq+DB1y8P/
+         1J9m7aGkbk4GkDDuLA+P0VB+Q5y9oHHh1PpiNCVh9VrAQWlcBSt1fn/DTzkyKQDZ2dPB
+         B5RSerM3bAoH3EleW5qqw7MNqkNjyKhQwmw9koghNJiy9Vf58UGIvAg1tIxg+A2RIH3A
+         8ms6RmRybKw9aboIBFGfu/A/uavZIr93EP5re/7eKgLWkLvJyDDOeRmjTKViObMYOqwa
+         Gowxp6bUFsZKc2KBfIkbk4qkb1UmJMN1NfaWuZnQApCj/n30RNTb+55epJugstrFlJ2e
+         iwig==
+X-Forwarded-Encrypted: i=1; AJvYcCV0y9zZl5zXIBK5XWseaqa4CqPsX3heFW2A8JQVTp8Od0IFWS+UoY+YPu58B+GC+WA/rP6QPn/DLClzsA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxNxmQ4YoCx4Jk1LiMRUAZoB7x2vW9NC3uErinlmdPOMDTORfp
+	Y9y2IIlI4VtVMyZgDcz9nhstY+Vmyf1JX1nV6cu7T5x7rzM/zTnHcnmcXfPjZs5lBFcTTnl+kBJ
+	wJ5isGmI=
+X-Gm-Gg: ASbGnctLVieCA5JKhZUA7JYihw60ejv4u5TRF2pTKtRWZXYVoa4YkBTgTDFiCnklJrM
+	6uLDQWWlHhve6jl5Mu+tIrZ5P1xvWwR+tBAXHqfzIrzKltbcmau2+9Gl+pw99Z4qGZMIqr/sBPK
+	TRovdZ57XB2aDXL1UciLvt5B98RQF4R6DBH0OfXHtWLdjz/Wz5+X79pf7fp7H1OdVgWPjsUUrew
+	IMyNuPB7x5GMTGEURdJbGQj+lwJJLBUI6hyNNdVK/A7LrDfa+MZuTRpjtm1ZMCWYBwK3uHjaDh6
+	Bz+rupQPcEHDi6gNm41Ysw3kgWl7jBacMnECqW0Vrz+rtgAIoCQqaw54IeaA9XJ7bcRfbmmmKCx
+	lo+FIMaErwDE+u9nCdrTc
+X-Google-Smtp-Source: AGHT+IH7iBG8I47ZPk3kjc8DlfJqKS+H6u2KneCpl6yYfAutQXIcMVrF/w+WWdKN0EwIATcq6Y7GTg==
+X-Received: by 2002:a05:6a00:22d0:b0:748:e0ee:dcff with SMTP id d2e1a72fcca58-75723d7d2c8mr4843826b3a.11.1752679632185;
+        Wed, 16 Jul 2025 08:27:12 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::4:b02a])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-74eb9f22c01sm14929679b3a.101.2025.07.16.08.27.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Jul 2025 08:27:11 -0700 (PDT)
+Date: Wed, 16 Jul 2025 08:27:11 -0700 (PDT)
+X-Google-Original-Date: Wed, 16 Jul 2025 08:27:09 PDT (-0700)
+Subject: Re: [PATCH v5 0/3] RISC-V: Add ACPI support for IOMMU
+In-Reply-To: <20250716104059.3539482-1-sunilvl@ventanamicro.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Message-ID: <mhng-E714E5B9-0828-46CE-B890-9AE61C2E341D@palmerdabbelt-mac>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_082128_398287_3953A87A 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250716_082713_212946_42B7D551 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,44 +92,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Cc: apatel@ventanamicro.com, tjeznach@rivosinc.com, Alexandre Ghiti <alex@ghiti.fr>, rafael@kernel.org, robin.murphy@arm.com, joro@8bytes.org, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, iommu@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, ajones@ventanamicro.com, Will Deacon <will@kernel.org>, lenb@kernel.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Wed, 16 Jul 2025 03:40:56 PDT (-0700), Sunil V L wrote:
+> This series adds support for RISC-V IOMMU on ACPI based platforms.
+> RISC-V IO Mapping Table (RIMT) is a new static ACPI table [1] introduced
+> to communicate IOMMU information to the OS.
+>
+> [1] - https://github.com/riscv-non-isa/riscv-acpi-rimt/releases/download/v1.0/rimt-spec.pdf
+>
+> Changes since v4:
+> 	1) Rebased to 6.16-rc6
+> 	2) Addressed Anup's feedback on formatting.
+> 	3) Added RB tag from Will and Anup.
+>
+> Changes since v3:
+> 	1) Rebased to 6.16-rc5
+> 	2) Addressed Drew's feedback on v3.
+> 		a) Reordered calling rimt_iommu_configure_id().
+> 		b) Removed unnecessary inline.
+> 		c) Added pr_fmt.
+> 		d) Removed redundant rimt_iommu_configure_id() stub.
+> 	3) Added Drew's RB tag in PATCH 3.
+>
+> Changes since v2:
+> 	1) Rebased to 6.16-rc4
+> 	2) Removed Anup's SOB and link tags added by mistake in v2.
+>
+> Changes since v1:
+> 	1) Rebased to v6.16-rc1.
+> 	2) Dropped ACPICA patch since it is already available in 6.16-rc1.
+> 	3) Added Rafael's ACK.
+> 	4) Fixed few issues found by bots.
+>
+> Sunil V L (3):
+>   ACPI: RISC-V: Add support for RIMT
+>   ACPI: scan: Add support for RISC-V in acpi_iommu_configure_id()
+>   iommu/riscv: Add ACPI support
+>
+>  MAINTAINERS                          |   1 +
+>  arch/riscv/Kconfig                   |   1 +
+>  drivers/acpi/Kconfig                 |   4 +
+>  drivers/acpi/riscv/Kconfig           |   7 +
+>  drivers/acpi/riscv/Makefile          |   1 +
+>  drivers/acpi/riscv/init.c            |   2 +
+>  drivers/acpi/riscv/init.h            |   1 +
+>  drivers/acpi/riscv/rimt.c            | 520 +++++++++++++++++++++++++++
+>  drivers/acpi/scan.c                  |   4 +
+>  drivers/iommu/riscv/iommu-platform.c |  17 +-
+>  drivers/iommu/riscv/iommu.c          |  10 +
+>  include/linux/acpi_rimt.h            |  28 ++
 
-This series was applied to riscv/linux.git (fixes)
-by Bjorn Helgaas <bhelgaas@google.com>:
+Thanks.  Anup came to the patchwork meeting this morning and asked me to 
+pick it up.  It only barely touches arch/riscv stuff so I'd figured it 
+was going somewhere else, but happy to do so.  I've picked it up into my 
+staging tree as
 
-On Wed, 25 Jun 2025 12:18:03 +0100 you wrote:
-> Geert reports that some drivers do rely on the device driver_data
-> field containing a pointer to the bridge structure at the point of
-> initialising the root port, while this has been recently changed to
-> contain some other data for the benefit of the Apple PCIe driver.
-> 
-> This small series builds on top of Geert previously posted (and
-> included as a prefix for reference) fix for the Microchip driver,
-> which breaks the Apple driver. This is basically swapping a regression
-> for another, which isn't a massive deal at this stage, as the
-> follow-up patch fixes things for the Apple driver by adding extra
-> tracking.
-> 
-> [...]
+    *   e5efe466d9bd - (HEAD -> for-next, palmer/for-next) Merge patch series "RISC-V: Add ACPI support for IOMMU" (2 minutes ago) <Palmer Dabbelt>
+    |\
+    | * 368ed89f7ac9 - iommu/riscv: Add ACPI support (2 minutes ago) <Sunil V L>
+    | * 0d7c16d0df92 - ACPI: scan: Add support for RISC-V in acpi_iommu_configure_id() (2 minutes ago) <Sunil V L>
+    | * ea35561bc965 - ACPI: RISC-V: Add support for RIMT (2 minutes ago) <Sunil V L>
 
-Here is the summary with links:
-  - [1/3] PCI: host-generic: Set driver_data before calling gen_pci_init()
-    https://git.kernel.org/riscv/c/bdb32a0f6780
-  - [2/3] PCI: apple: Add tracking of probed root ports
-    https://git.kernel.org/riscv/c/643c0c9d0496
-  - [3/3] Revert "PCI: ecam: Allow cfg->priv to be pre-populated from the root port device"
-    https://git.kernel.org/riscv/c/ba74278c638d
+it should show up on for-next assuming it builds and such (it's behind 
+some fixes, so might take a bit).  Happy to do a tag if someone wants, 
+just let me know...
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+>  12 files changed, 595 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/acpi/riscv/Kconfig
+>  create mode 100644 drivers/acpi/riscv/rimt.c
+>  create mode 100644 include/linux/acpi_rimt.h
 
 
 _______________________________________________
