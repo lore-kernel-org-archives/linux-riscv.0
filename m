@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531BDC83F22
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 20:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA976C83F1B
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 20:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=92oP17Q94Opv6tluP67n6WYhhIXkjVyhONCWuMMb7Xg=; b=quC3GcgAkBAHZC
-	X/BeX3Ht80CjSdVsQN2xypuFbVBLbU2sKnOnV6wPZEAv7MuuBAelFKGJxeIaKuJybkvqbc+6siXzK
-	XomLSL9OzfTVhhjvNN29tMAYng1L8Nl/dMWsXpvf3Vid0DFDIhXJ7m790Yx/+tSwQvrybmK7xwtnC
-	d3YNCB4gYSYroEBcVBbDy2M9OsjptT+95S1WXFstTF9Eg7mn7lJIeviCQiSeGysTbCO0IzVUYKxOj
-	mdbLiAGhT/d8We2k0XnjotWJVPu5RIpDiuulUHai6OCkqYcn7hZhrHaQ7c7cLeLU6lRHjp9ppQWKM
-	xNeIKc+gHolGfivQdmRw==;
+	List-Owner; bh=CEeMo9wK469COHFqsD9ypmjbuwbMMAFN4o9Hm4BX5Lg=; b=r0EsuDr03TgkDe
+	qssw2AiBEq8Q2rT6TiYBHF3czt3dmaCYjeosZsjPlUDAB+aXlLnHYJdPSKtJz6Iyk5SQDLNNRWerG
+	xpxTs0ZBhDzuhoYwokVslB3MKFM7ukIucobIfSFnqIeS0UuO36xg2y5VGRA2sl6+O3QYRQMj0grh8
+	k7Fn7n7f7lTZ/q5wP0YmLNosnbEFiRitMS/G0IQjzuDFA5vnJ3yrj0wroL6Lp3xddoPOHL8+phLuZ
+	KP4kpo6m4Iu2RLTepRgf1U/GzWw6orI0cLpwoVreukIH1Vj2lQS1Nxwv0MITWfZgE7g4GCUeHyLfd
+	xLmuaP+xfMH3j5j4bJbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc9De-00000008eX8-24aE;
-	Wed, 16 Jul 2025 20:59:14 +0000
+	id 1uc9Dd-00000008eX2-3rZH;
+	Wed, 16 Jul 2025 20:59:13 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc8I9-00000008Yxs-3tmL
+	id 1uc8I8-00000008YxY-3sXA
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Jul 2025 19:59:51 +0000
+	Wed, 16 Jul 2025 19:59:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 49783A5760D;
-	Wed, 16 Jul 2025 19:59:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3BE1C4CEE7;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 30125A575FD;
 	Wed, 16 Jul 2025 19:59:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA57BC4CEE7;
+	Wed, 16 Jul 2025 19:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752695989;
-	bh=+JAJF1XNsDiacnVLeELmyTnWm99mVDlUIfSnTj/uvjc=;
+	s=k20201202; t=1752695987;
+	bh=Qon3/JcrgcY707eTNDRNZp6SK/UyyLEnsHTNMdoXAgo=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=GFdViYkSuLoRUMTYiOFSqY8rc6UVxPIp8TgwDy0SveAt8ltXaOAtxmoxwuuX68gtx
-	 L276evSqEEuLhWXOcVzZi8z2psPD3ZG8wjzO/BIKztWW0MPmyN0jwblEc3kko+W5Q8
-	 xBCH//BDG5JUYxf1XpRI7L5WZcWJDCGzXcrdo5WH5EGFkabQct27NcOlMj3j3SOGmv
-	 P82NeJACbhD8rrw8PcNsGgUqfYVx7W26AevEsU7/iq5AhdrsQU7UwjV0PQMFzkpjM8
-	 5b7RSm2CIJx4QBw+lUjGLvVDG1qHlAPTbMsM+3Suqyd0PgFxJgEtYcu7CESV3AEni6
-	 6uToJtiiXhrMA==
+	b=TaTedlCNJd5gRZa4PoSkQqTIF/m80DrjDrbhcFv2BA1Wj4inrgv+nb0EWEIEwyZwx
+	 ljnJFFWGQ2M8zCHsYhvPwE/9DXi3sIvqdyi28YPnKWBHFr319FRqYHd4ChKQ7LwQOP
+	 RJdVbUnvIZ6Trl6XvGpi4JvZZN4j0Beu/AVyPzJw+mvPgH2ZY7LsAtuHB4puRKMA25
+	 CYxVcpw1HOQvuFQW4dSC7MsY/Hsm08gcHJ3syrjT2cQ5cYOStbEoYHhxxia7dhjtCv
+	 4nK+ev/BIP7ql2+PIoSLTKD+PgfEs/qOJA2+GeW3AmNBes3nrsMUOkDyQs+7MqLcV2
+	 sxd+ATEH/BRBA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70BC2383BA3A;
-	Wed, 16 Jul 2025 20:00:10 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 4BFAA383BA3A;
+	Wed, 16 Jul 2025 20:00:09 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] riscv: Enable interrupt during exception handling
+Subject: Re: [PATCH v2] riscv: ftrace: Properly acquire text_mutex to fix a
+ race condition
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175269600935.1308944.5530274266993935851.git-patchwork-notify@kernel.org>
-Date: Wed, 16 Jul 2025 20:00:09 +0000
-References: <20250625085630.3649485-1-namcao@linutronix.de>
-In-Reply-To: <20250625085630.3649485-1-namcao@linutronix.de>
-To: Nam Cao <namcao@linutronix.de>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- peterz@infradead.org, bigeasy@linutronix.de, clrkwllms@kernel.org,
- rostedt@goodmis.org, linux-rt-devel@lists.linux.dev,
- linux-kernel@vger.kernel.org
+Message-Id: <175269600801.1308944.13355512366921305547.git-patchwork-notify@kernel.org>
+Date: Wed, 16 Jul 2025 20:00:08 +0000
+References: <20250711-alex-fixes-v2-1-d85a5438da6c@rivosinc.com>
+In-Reply-To: <20250711-alex-fixes-v2-1-d85a5438da6c@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, rostedt@goodmis.org, mhiramat@kernel.org,
+ mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, rabenda.cn@gmail.com,
+ wangruikang@iscas.ac.cn, ziyao@disroot.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_125950_023680_FBD77C94 
-X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-CacheID: sfid-20250716_125949_035040_9237C2CF 
+X-CRM114-Status: UNSURE (   8.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,21 +84,25 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@dabbelt.com>:
 
-On Wed, 25 Jun 2025 10:56:30 +0200 you wrote:
-> force_sig_fault() takes a spinlock, which is a sleeping lock with
-> CONFIG_PREEMPT_RT=y. However, exception handling calls force_sig_fault()
-> with interrupt disabled, causing a sleeping in atomic context warning.
+On Fri, 11 Jul 2025 07:38:38 +0000 you wrote:
+> As reported by lockdep, some patching was done without acquiring
+> text_mutex, so there could be a race when mapping the page to patch
+> since we use the same fixmap entry.
 > 
-> This can be reproduced using userspace programs such as:
->     int main() { asm ("ebreak"); }
-> or
->     int main() { asm ("unimp"); }
+> Reported-by: Han Gao <rabenda.cn@gmail.com>
+> Reported-by: Vivian Wang <wangruikang@iscas.ac.cn>
+> Reported-by: Yao Zi <ziyao@disroot.org>
+> Closes: https://lore.kernel.org/linux-riscv/aGODMpq7TGINddzM@pie.lan/
+> Tested-by: Yao Zi <ziyao@disroot.org>
+> Tested-by: Han Gao <rabenda.cn@gmail.com>
+> Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] riscv: Enable interrupt during exception handling
-    https://git.kernel.org/riscv/c/969f028bf2c4
+  - [v2] riscv: ftrace: Properly acquire text_mutex to fix a race condition
+    https://git.kernel.org/riscv/c/e3f16d63d54e
 
 You are awesome, thank you!
 -- 
