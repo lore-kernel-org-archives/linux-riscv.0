@@ -4,96 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05344C83F1B
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 18:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D96FEC83F22
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 18:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pXbIPSAj8ymqJumgMT2KS2/PaHKG7CF625aZ2atAxrA=; b=yKvbMbmH0AAanw
-	Ab+8JdvPlg9+EyHKx3hGfsQ92VYjrBL05CAV5VGWRb8mem89rsKn20AyvQ2SgTSycAf5GMlCW/oSg
-	H7u5ZXzFo443SvRGreTyd53QHnyCfdsPICHUaerqu6xNXcDxmwVYhbQUbTcyrjcjcfDd1zp4cEUA1
-	9mwsJz2S8w+qr8cDX2Lv7YhN13RcSIYyzQz0lEy+JcsMAv+/o5EqwqxpssXwu8Ec6Ekqf7Dnfv2Dh
-	SEwLr0Xofmo5EbZXYPRmYtbj9I/Bt1/acFOiAHxzbGDXzWlZZ0/t9P0pnuturfKa7narFcKZcOiZC
-	mt5AjoNPRdb1+OMyu1Og==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=Bk7gmB2UJ4XPyymLV/Q0HE1TDWBTPVYJ+iKiK4gqEQU=; b=RdPAilhbGUPFsPQ3Q2k2CB/Mwh
+	qDFiToDEIjYGLYgO9TsF/nxjtEgNTzys74KS17wVvyYCLzThgWvgT9WbQUM/57oKM1ubPjllKWK5y
+	vHdNIPDe3BTMbO2BVlCue8C5T8B15o8LiQ4pB7S0Swkyknl/135PyokHu6LEysZM40WAlMXiRDW8n
+	LHhZ9oVxUO1pRlD8NvJU4YjRaHF1hLENGP0F4yhpW13PxWZSJHzBEeX4LQ3YT2+8tPHCAOlcWry8G
+	HsVOGbxen5Gxky9iz6pryVNkz1toCg1SJ5I9yZQPcV03OHaCho35yMuoMNfhU93ODKxES9j1PF28f
+	/sz4J0qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc6gL-00000008NCO-48Rx;
-	Wed, 16 Jul 2025 18:16:41 +0000
-Received: from mailgate-4.ics.forth.gr ([139.91.1.7])
+	id 1uc7An-00000008QUI-02O9;
+	Wed, 16 Jul 2025 18:48:09 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc6gI-00000008NBA-0wGh
+	id 1uc7Aj-00000008QTx-3Vwj
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Jul 2025 18:16:40 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
-	by mailgate-4.ics.forth.gr (8.16.1/ICS-FORTH/V10-1.8-GATE) with ESMTP id 56GIGLX13571809
-	for <linux-riscv@lists.infradead.org>; Wed, 16 Jul 2025 21:16:23 +0300
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
-	q=dns/txt; i=@ics.forth.gr; t=1752689781; x=1755281781;
-	h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=0ljLNE0A08ufOfVOct9leqOd9AI0knnSRTMa6TKqoGY=;
-	b=f1G+fqPDSAtrpryUUrJEZQoPz/MRDgjbNkwh5/PuAaqwn2pQATPYGq2xyES1oErE
-	VZRIToOTVHnJKcfWmbMw7q00AXqJX53N0mNvGfOx/Tk0dnQSPvUKshHKIq/QH9wE
-	Ib67ZhmNlkwAm+Eb8av7vQgO14SM19AygQVU5I0tFIJ5wC30HbbE2IWHl6pcR60R
-	A+1eVWPrrfIUhhf/2D/vlmGycPzuIF3TKEtOIJLO/TkNvig7knT0mPs6GI8H+5vC
-	0eEXFwCr5TtPY2ESbcxja8rx/sGL05P6Afptd0dyFoVlFJ5CRep08kUIGYu5w8XS
-	KLY9cJRtra2kYZkXrbQ0yg==;
-X-AuditID: 8b5b014d-ecfdd640000bbd64-b9-6877ec75c1eb
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
-	by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id 46.DC.48484.57CE7786; Wed, 16 Jul 2025 21:16:21 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user: mick at ics.forth.gr
-Message-ID: <b0fe6b34-ab18-4c29-a357-9829d6d3c740@ics.forth.gr>
-Date: Wed, 16 Jul 2025 21:16:09 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/1] Fix for riscv vmcore issue
-To: Alexandre Ghiti <alex@ghiti.fr>, Pnina Feder <PNINA.FEDER@mobileye.com>,
-        =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
-        Simon Horman <horms@kernel.org>
-Cc: Gregory Greenman <Gregory.Greenman@mobileye.com>,
-        "bjorn@rivosinc.com" <bjorn@rivosinc.com>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-        "palmer@dabbelt.com" <palmer@dabbelt.com>,
-        "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-        Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
-References: <20250409182129.634415-1-bjorn@kernel.org>
- <20250630112309.97162-2-pnina.feder@mobileye.com>
- <87jz4txsjx.fsf@all.your.base.are.belong.to.us>
- <MRWPR09MB80229B89C8D4B4865783B3D78F43A@MRWPR09MB8022.eurprd09.prod.outlook.com>
- <bd2bca3b-2b23-40be-b81b-f842b7afb10e@ghiti.fr>
- <MRWPR09MB80220E49BECD4D18E4AEC5C38F4CA@MRWPR09MB8022.eurprd09.prod.outlook.com>
- <MRWPR09MB8022F4714CF3B62DCCA683D68F54A@MRWPR09MB8022.eurprd09.prod.outlook.com>
- <7207e208-a70f-4445-9acc-d910c4da745c@ghiti.fr>
- <MRWPR09MB8022AE6B2BED3373D55E31DB8F56A@MRWPR09MB8022.eurprd09.prod.outlook.com>
- <75604cd4-65bc-4ff1-9537-92b9cbf06e77@ghiti.fr>
-Content-Language: en-US, el-en, el-GR
-From: Nick Kossifidis <mick@ics.forth.gr>
-In-Reply-To: <75604cd4-65bc-4ff1-9537-92b9cbf06e77@ghiti.fr>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrGLMWRmVeSWpSXmKPExsXSHT1dWbf0TXmGwa0pshbP7nxltdj6fhWL
-	xdsbrxgtlvx9yGTxqP8Em8XlXXPYLLZ9bmGzeHm5h9mibRa/xZGOt+wWtxe9YHPg9njz8iWL
-	x70T01g9Nq3qZPPYvKTeo23KRkaPG7MiPC41X2f3+LxJLoAjissmJTUnsyy1SN8ugSvj/5zb
-	zAXX1CpurL7A2MC4XL6LkZNDQsBEYuHZPjYQW0jgKKPEk7dxEHFLic2fXrKA2LwC9hLH775k
-	ArFZBFQlZje2sULEBSVOznwCViMqIC9x/9YMdhBbWMBYYkLvSuYuRi4OEYHNjBL3D8xjAnGY
-	BTYzS/Rv3grmCAn8Y5E4Mb8HrJ0ZaOz8Z5vAxrIJaErMv3QQKM7BwSlgI7H1WghEiZlE19Yu
-	RghbXmL72znMExgFZiE5ZBaSSbOQtMxC0rKAkWUVo0BimbFeZnKxXlp+UUmGXnrRJkZw1DD6
-	7mC8vfmt3iFGJg7GQ4wSHMxKIryTL5VlCPGmJFZWpRblxxeV5qQWH2KU5mBREuc9YbsgWUgg
-	PbEkNTs1tSC1CCbLxMEp1cAkZSDX3evvxf941pqzPt2+z9Zlt95f31a9xm1JRWmmUqeEopl9
-	xYbTOrxp/o/XxfR/ucxx3KU3Lbd12fcKhapj/Osd5/hvDpS/8+q9/2QmpdMt24uPhf25ePVc
-	1NPrNfu/OH6+9rLKfw2/2Z8ur+svg26Z/JXLnizs6hFfznB3XeSrSWrFq/vygs+wmM9caMz5
-	58I+g6ltE7InzdFmqG5y94vPf1FyUirtsZSfben3jYEX479saW8PVhXWSflgtmNbSW+Vyarv
-	xW1PepK+SfUy2myuu3LzhpLAuwYlXwnrbP87K3645x945GHy7YNe16vpO8TsN4kd5C06v4sn
-	1fbXr+QSScarl3lULybknlZiK85INDI102IuKk4EAAKoD90LAwAA
-X-Greylist: inspected by milter-greylist-4.6.2 (mailgate-4.ics.forth.gr [139.91.1.7]); Wed, 16 Jul 2025 21:16:23 +0300 (EEST) for IP:'139.91.1.77' DOMAIN:'av3in.ics.forth.gr' HELO:'av3.ics.forth.gr' FROM:'mick@ics.forth.gr' RCPT:''
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mailgate-4.ics.forth.gr [139.91.1.7]); Wed, 16 Jul 2025 21:16:23 +0300 (EEST)
+	Wed, 16 Jul 2025 18:48:07 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-74b54cead6cso196640b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Jul 2025 11:48:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1752691684; x=1753296484; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CL8wCnWle041tDe+nymHcVsSlw4BMV+tT91rzsEz124=;
+        b=LbRAR7ZaNJdppRxdZRnqbETEGU8PtOL1TD/u+0aSMUOVihnUPyxI+ugf6cLFGWYDab
+         ZKRovqbsFKCfxiq7oI7dPxdyp+dUQ0Xe7kSijvfGM37PC64j/nzmCdO89FGRBch66ybK
+         95UaE6hfBVIa4HbFknfoy/zvfd2mBQ6R1gziCwTPCXdembR05f7w2jnMyc4o5Y8M5bpQ
+         Zo5/m00tXARN1Ch0hMu9raB68okcyMopNCoxjxuO7R7Sur3PcNG1MONZMUfQKb+5mUxK
+         L88pgZ8zfRDeZ3OzNPNuajtlccVHCsq9whnt0QfmVo3j54V/z5CmGnBQ0slkxgF4HU15
+         moWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752691684; x=1753296484;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CL8wCnWle041tDe+nymHcVsSlw4BMV+tT91rzsEz124=;
+        b=q4K0VihMriz+aUaRdxxP/Kq+LDwdJDzdO9lAz6UAIbnkvp8jntOPSr/kcDzKmnQ8un
+         rNB6adSbdQY8KSNdFANdEpU0eQDYQB8XpUd3bSaRbIQU31Z8QQquuNZrItH+UDnSS9fi
+         jV50MdssffTas0fLHZstfaRTqAJ9zkWwuME2IbJkPIB9LLt/hWAhpRKvkPCrUVloUZAB
+         Y9oZD8IpRH7CYZrTgJ3Hc3Nhae+wn/GU/9+a3nSINgF83DJZLbvNjLxf2daV7pxMUTk+
+         md22v4mGHXprzUXv3AhnvPIaV3l6cfWjKE7Z0N5+LxzDGhrRFBq2BA4b9yFOPANn9MKf
+         LYhw==
+X-Gm-Message-State: AOJu0YwnO1cE3+Rsg1EXbP8FE87Lk0WIo/oof0zVVR3F5gC8Qnq5d8LS
+	H0llMTiYz7WxJSU3KZHDuMKlFU2c+FwN5JyBpQDfXhSm5KsSLRrUF3qlXE+EKX4HwzO7qHaczYr
+	azdhbvbs=
+X-Gm-Gg: ASbGncsT0vTCTPCmXBroQ5SjT5Jcuk0d5ZTPscn/3ehQxa5sZsdhe0LyDSmYwmRrY+u
+	/M3dfd6kIqH6bdxByuM5rNybS52lAwWnEL3Eq1UsicsNSLJ7SgE1ZV8qtaqfKde/UM5jgQePAc5
+	dH9S+y8ofPlT411/i5ASyovM7edq0T05uflIHfdTcfdW/hkh1QDePIdl3oFiZahwm+1H+ukfvHu
+	baf9I+sscaAcvKSbABJCWrkT5dKLXTL8XkOhHqVFaC6BP2wKlVAXFe2Cn+vY0e7B7ki4Oor3eap
+	VKGAvaJvtnFCFCvh+NnWrOLx6Xn07frZcSsGlqVvFzKuvfVddOMM8aIgOYhyTa683nXTkkb8q57
+	JdIO9PMZ1iuX+Cm/EFzOK
+X-Google-Smtp-Source: AGHT+IEemuLDfwAHPUghQhJ+Lyj5EmS9ODQzRvzhpE0+zPMFNsLF/cKxpm+aymkvDZUkWWJj7doSqA==
+X-Received: by 2002:a05:6a21:689:b0:230:3710:9aa9 with SMTP id adf61e73a8af0-23810666f3amr6252387637.4.1752691684234;
+        Wed, 16 Jul 2025 11:48:04 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::4:b02a])
+        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-b3bbe71a40csm14258071a12.64.2025.07.16.11.48.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Jul 2025 11:48:03 -0700 (PDT)
+Date: Wed, 16 Jul 2025 11:48:03 -0700 (PDT)
+X-Google-Original-Date: Wed, 16 Jul 2025 11:47:58 PDT (-0700)
+Subject: Re: [PATCH v5] riscv: hwprobe: Fix stale vDSO data for late-initialized keys at boot
+In-Reply-To: <20250705150952.29461-1-wangjingwei@iscas.ac.cn>
+CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, Alexandre Ghiti <alex@ghiti.fr>, ajones@ventanamicro.com,
+  Conor Dooley <conor.dooley@microchip.com>, cleger@rivosinc.com, Charlie Jenkins <charlie@rivosinc.com>,
+  jesse@rivosinc.com, Olof Johansson <olof@lixom.net>, dlan@gentoo.org, si.yanteng@linux.dev,
+  research_trasio@irq.a4lg.com, stable@vger.kernel.org, wangjingwei@iscas.ac.cn, alexghiti@rivosinc.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: wangjingwei@iscas.ac.cn
+Message-ID: <mhng-2F811C61-A512-4742-A00D-7D01203DAB14@palmerdabbelt-mac>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_111638_965347_F6BA2D1B 
-X-CRM114-Status: GOOD (  26.95  )
+X-CRM114-CacheID: sfid-20250716_114805_883743_FA770CAB 
+X-CRM114-Status: GOOD (  48.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,108 +101,332 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/16/25 14:47, Alexandre Ghiti wrote:
-> 
-> 
-> I'm still not in favor with this solution, that does not sound right.
-> 
-> I think we should not exclude the "Reserved" regions which lie inside 
-> "System RAM" region. The problem is that we mark "nomap" regions as 
-> "Reserved" too, I would say this is where we are wrong: "nomap" regions 
-> don't even have direct mapping, so they should be presented as a hole 
-> rather than "Reserved". And that would allow us to not exclude the 
-> "Reserved" regions.
-> 
-> @Simon, @Pnina WDYT?
-> 
-> Thanks,
-> 
-> Alex
-> 
-> 
-NOMAP means the region is reserved:
+On Sat, 05 Jul 2025 08:08:28 PDT (-0700), wangjingwei@iscas.ac.cn wrote:
+> The hwprobe vDSO data for some keys, like MISALIGNED_VECTOR_PERF,
+> is determined by an asynchronous kthread. This can create a race
+> condition where the kthread finishes after the vDSO data has
+> already been populated, causing userspace to read stale values.
+>
+> To fix this, a completion-based framework is introduced to robustly
+> synchronize the async probes with the vDSO data population. The
+> waiting function, init_hwprobe_vdso_data(), now blocks on
+> wait_for_completion() until all probes signal they are done.
+>
+> Furthermore, to prevent this potential blocking from impacting boot
+> performance, the initialization is deferred to late_initcall. This
+> is safe as the data is only required by userspace (which starts
+> much later) and moves the synchronization delay off the critical
+> boot path.
+>
+> Reported-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+> Closes: https://lore.kernel.org/linux-riscv/760d637b-b13b-4518-b6bf-883d55d44e7f@irq.a4lg.com/
+> Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Cc: Olof Johansson <olof@lixom.net>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jingwei Wang <wangjingwei@iscas.ac.cn>
+> ---
+> Changes in v5:
+> 	- Reworked the synchronization logic to a robust "sentinel-count"
+> 	  pattern based on feedback from Alexandre.
+> 	- Fixed a "multiple definition" linker error for nommu builds by changing
+> 	  the header-file stub functions to `static inline`, as pointed out by Olof.
+> 	- Updated the commit message to better explain the rationale for moving
+> 	  the vDSO initialization to `late_initcall`.
+>
+> Changes in v4:
+> 	- Reworked the synchronization mechanism based on feedback from Palmer
+>     	and Alexandre.
+> 	- Instead of a post-hoc refresh, this version introduces a robust
+> 	completion-based framework using an atomic counter to ensure async
+> 	probes are finished before populating the vDSO.
+> 	- Moved the vdso data initialization to a late_initcall to avoid
+> 	impacting boot time.
+>
+> Changes in v3:
+> 	- Retained existing blank line.
+>
+> Changes in v2:
+> 	- Addressed feedback from Yixun's regarding #ifdef CONFIG_MMU usage.
+> 	- Updated commit message to provide a high-level summary.
+> 	- Added Fixes tag for commit e7c9d66e313b.
+>
+> v1: https://lore.kernel.org/linux-riscv/20250521052754.185231-1-wangjingwei@iscas.ac.cn/T/#u
+>
+>  arch/riscv/include/asm/hwprobe.h           |  8 +++++++-
+>  arch/riscv/kernel/sys_hwprobe.c            | 20 +++++++++++++++++++-
+>  arch/riscv/kernel/unaligned_access_speed.c |  9 +++++++--
+>  3 files changed, 33 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+> index 7fe0a379474ae2c6..3b2888126e659ea1 100644
+> --- a/arch/riscv/include/asm/hwprobe.h
+> +++ b/arch/riscv/include/asm/hwprobe.h
+> @@ -40,5 +40,11 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
+>
+>  	return pair->value == other_pair->value;
+>  }
+> -
+> +#ifdef CONFIG_MMU
+> +void riscv_hwprobe_register_async_probe(void);
+> +void riscv_hwprobe_complete_async_probe(void);
+> +#else
+> +static inline void riscv_hwprobe_register_async_probe(void) {}
+> +static inline void riscv_hwprobe_complete_async_probe(void) {}
+> +#endif
+>  #endif
+> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+> index 0b170e18a2beba57..ee02aeb03e7bd3d8 100644
+> --- a/arch/riscv/kernel/sys_hwprobe.c
+> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> @@ -5,6 +5,8 @@
+>   * more details.
+>   */
+>  #include <linux/syscalls.h>
+> +#include <linux/completion.h>
+> +#include <linux/atomic.h>
+>  #include <asm/cacheflush.h>
+>  #include <asm/cpufeature.h>
+>  #include <asm/hwprobe.h>
+> @@ -467,6 +469,20 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+>
+>  #ifdef CONFIG_MMU
+>
+> +static DECLARE_COMPLETION(boot_probes_done);
+> +static atomic_t pending_boot_probes = ATOMIC_INIT(1);
+> +
+> +void riscv_hwprobe_register_async_probe(void)
+> +{
+> +	atomic_inc(&pending_boot_probes);
+> +}
+> +
+> +void riscv_hwprobe_complete_async_probe(void)
+> +{
+> +	if (atomic_dec_and_test(&pending_boot_probes))
+> +		complete(&boot_probes_done);
+> +}
+> +
+>  static int __init init_hwprobe_vdso_data(void)
+>  {
+>  	struct vdso_arch_data *avd = vdso_k_arch_data;
+> @@ -474,6 +490,8 @@ static int __init init_hwprobe_vdso_data(void)
+>  	struct riscv_hwprobe pair;
+>  	int key;
+>
+> +	if (unlikely(!atomic_dec_and_test(&pending_boot_probes)))
+> +		wait_for_completion(&boot_probes_done);
 
-https://elixir.bootlin.com/linux/v6.16-rc6/source/include/linux/memblock.h#L36
+I'm not actually sure this is safe, 
 
-* @MEMBLOCK_NOMAP: don't add to kernel direct mapping and treat as
-* reserved in the memory map; refer to memblock_mark_nomap() description
-* for further details
+That said, it will end up bringing us back to the situation where we're 
+waiting for CPUs to probe before we boot.  So even if it's safe, it's 
+not great as we're going to introduce the boot time regression again.
 
-https://elixir.bootlin.com/linux/v6.16-rc6/source/mm/memblock.c#L1060
+We'd be better off if we could defer waiting on the completion until we 
+actually need the values.  I think we could do that with something like
 
-* The memory regions marked with %MEMBLOCK_NOMAP will not be added to the
-* direct mapping of the physical memory. These regions will still be
-* covered by the memory map. The struct page representing NOMAP memory
-* frames in the memory map will be PageReserved()
-*
-* Note: if the memory being marked %MEMBLOCK_NOMAP was allocated from
-* memblock, the caller must inform kmemleak to ignore that memory
+    diff --git a/arch/riscv/include/asm/vdso/arch_data.h b/arch/riscv/include/asm/vdso/arch_data.h
+    index da57a3786f7a..88b37af55175 100644
+    --- a/arch/riscv/include/asm/vdso/arch_data.h
+    +++ b/arch/riscv/include/asm/vdso/arch_data.h
+    @@ -12,6 +12,12 @@ struct vdso_arch_data {
+    
+     	/* Boolean indicating all CPUs have the same static hwprobe values. */
+     	__u8 homogeneous_cpus;
+    +
+    +	/*
+    +	 * A gate to check and see if the hwprobe data is actually ready, as
+    +	 * probing is deferred to avoid boot slowdowns.
+    +	 */
+    +	__u8 ready;
+     };
+    
+     #endif /* __RISCV_ASM_VDSO_ARCH_DATA_H */
+    diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+    index ee02aeb03e7b..9c809c24a1d9 100644
+    --- a/arch/riscv/kernel/sys_hwprobe.c
+    +++ b/arch/riscv/kernel/sys_hwprobe.c
+    @@ -454,19 +454,6 @@ static int hwprobe_get_cpus(struct riscv_hwprobe __user *pairs,
+     	return 0;
+     }
+    
+    -static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+    -			    size_t pair_count, size_t cpusetsize,
+    -			    unsigned long __user *cpus_user,
+    -			    unsigned int flags)
+    -{
+    -	if (flags & RISCV_HWPROBE_WHICH_CPUS)
+    -		return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
+    -					cpus_user, flags);
+    -
+    -	return hwprobe_get_values(pairs, pair_count, cpusetsize,
+    -				  cpus_user, flags);
+    -}
+    -
+     #ifdef CONFIG_MMU
+    
+     static DECLARE_COMPLETION(boot_probes_done);
+    @@ -483,15 +470,20 @@ void riscv_hwprobe_complete_async_probe(void)
+     		complete(&boot_probes_done);
+     }
+    
+    -static int __init init_hwprobe_vdso_data(void)
+    +static int complete_hwprobe_vdso_data(void)
+     {
+     	struct vdso_arch_data *avd = vdso_k_arch_data;
+     	u64 id_bitsmash = 0;
+     	struct riscv_hwprobe pair;
+     	int key;
+    
+    +	/* We've probably already produced these values. */
+    +	if (likely(avd->ready))
+    +		return 0;
+    +
+     	if (unlikely(!atomic_dec_and_test(&pending_boot_probes)))
+     		wait_for_completion(&boot_probes_done);
+    +
+     	/*
+     	 * Initialize vDSO data with the answers for the "all CPUs" case, to
+     	 * save a syscall in the common case.
+    @@ -519,13 +511,50 @@ static int __init init_hwprobe_vdso_data(void)
+     	 * vDSO should defer to the kernel for exotic cpu masks.
+     	 */
+     	avd->homogeneous_cpus = id_bitsmash != 0 && id_bitsmash != -1;
+    +
+    +	/*
+    +	 * Make sure all the VDSO values are visible before we look at them.
+    +	 * This pairs with the implicit "no speculativly visible accesses"
+    +	 * barrier in the VDSO hwprobe code.
+    +	 */
+    +	smp_wmb();
+    +	avd->ready = true;
+     	return 0;
+     }
+    
+    +static int __init init_hwprobe_vdso_data(void)
+    +{
+    +	struct vdso_arch_data *avd = vdso_k_arch_data;
+    +
+    +	/*
+    +	 * Prevent the vDSO cached values from being used, as they're not ready
+    +	 * yet.
+    +	 */
+    +	avd->ready = false;
+    +}
+    +
+     late_initcall(init_hwprobe_vdso_data);
+    +#else
+    +static int complete_hwprobe_vdso_data(void) { return 0; }
+    
+     #endif /* CONFIG_MMU */
+    
+    +static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+    +			    size_t pair_count, size_t cpusetsize,
+    +			    unsigned long __user *cpus_user,
+    +			    unsigned int flags)
+    +{
+    +	complete_hwprobe_vdso_data();
+    +
+    +	if (flags & RISCV_HWPROBE_WHICH_CPUS)
+    +		return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
+    +					cpus_user, flags);
+    +
+    +	return hwprobe_get_values(pairs, pair_count, cpusetsize,
+    +				  cpus_user, flags);
+    +}
+    +
+    +
+     SYSCALL_DEFINE5(riscv_hwprobe, struct riscv_hwprobe __user *, pairs,
+     		size_t, pair_count, size_t, cpusetsize, unsigned long __user *,
+     		cpus, unsigned int, flags)
+    diff --git a/arch/riscv/kernel/vdso/hwprobe.c b/arch/riscv/kernel/vdso/hwprobe.c
+    index 2ddeba6c68dd..bf77b4c1d2d8 100644
+    --- a/arch/riscv/kernel/vdso/hwprobe.c
+    +++ b/arch/riscv/kernel/vdso/hwprobe.c
+    @@ -27,7 +27,7 @@ static int riscv_vdso_get_values(struct riscv_hwprobe *pairs, size_t pair_count,
+     	 * homogeneous, then this function can handle requests for arbitrary
+     	 * masks.
+     	 */
+    -	if ((flags != 0) || (!all_cpus && !avd->homogeneous_cpus))
+    +	if ((flags != 0) || (!all_cpus && !avd->homogeneous_cpus) || unlikely(!avd->ready))
+     		return riscv_hwprobe(pairs, pair_count, cpusetsize, cpus, flags);
+    
+     	/* This is something we can handle, fill out the pairs. */
 
-This is also what ARM64 does btw:
+(which I haven't even built yet, as I don't have a complier set up in 
+this Mac yet...).
 
-https://elixir.bootlin.com/linux/v6.16-rc6/source/arch/arm64/kernel/setup.c#L230
+There's probably a better way to do this that would require a bit more 
+work, as there's sort of a double-completion here (each probe's 
+workqueue and then the top-level completion)).  In the long run we 
+should probably fold that all together so we can just block on probing 
+the values we need, but this was quick...
 
+>  	/*
+>  	 * Initialize vDSO data with the answers for the "all CPUs" case, to
+>  	 * save a syscall in the common case.
+> @@ -504,7 +522,7 @@ static int __init init_hwprobe_vdso_data(void)
+>  	return 0;
+>  }
+>
+> -arch_initcall_sync(init_hwprobe_vdso_data);
+> +late_initcall(init_hwprobe_vdso_data);
+>
+>  #endif /* CONFIG_MMU */
+>
+> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+> index ae2068425fbcd207..4b8ad2673b0f7470 100644
+> --- a/arch/riscv/kernel/unaligned_access_speed.c
+> +++ b/arch/riscv/kernel/unaligned_access_speed.c
+> @@ -379,6 +379,7 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
+>  static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+>  {
+>  	schedule_on_each_cpu(check_vector_unaligned_access);
 
-Sorry I didn't review this earlier...
+Do we need something like
 
-* In the original kexec-tools port I added a function 
-dtb_get_memory_ranges that parsed the device tree (either through 
-/sys/firmware/fdt, or a user-provided one) for memory regions, including 
-reserved memory regions added there e.g. by OpenSBI. This works better 
-than using /proc/iomem, since /proc/iomem captures the memory layout of 
-the running system, not the system we are going to boot to, and also 
-/proc/iomem is not a standardized interface, which was yet another 
-reason I wanted to avoid using it. I can further argue why that approach 
-is better but it's a bit off topic here, and since we now have EFI in 
-play it needed review anyway (when I wrote that we didn't have ACPI/EFI 
-support, things were nice and clean). The thing is I'd prefer if there 
-was still an option to use it, the function was upstreamed but it's not 
-called anymore, please fix that, not everyone uses ACPI/EFI or cares 
-about it (actually almost all RISC-V systems I've seen in production use 
-a device tree). In our use cases where we e.g. swap accelerators on 
-FPGAs this approach is much simpler to follow and implement, than having 
-to re-generate ACPI tables for our target system everytime (that will 
-have a new accelerator in place with its own reserved regions etc, that 
-we don't want to overlap with e.g. initrd or the kernel image). Also 
-keep in mind that kexec is not there just for kdump, it's a very useful 
-feature for other use cases as well.
+    diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+    index 4b8ad2673b0f..0f4eb95072ea 100644
+    --- a/arch/riscv/kernel/unaligned_access_speed.c
+    +++ b/arch/riscv/kernel/unaligned_access_speed.c
+    @@ -370,6 +370,12 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
+     		(speed ==  RISCV_HWPROBE_MISALIGNED_VECTOR_FAST) ? "fast" : "slow");
+    
+     	per_cpu(vector_misaligned_access, cpu) = speed;
+    +	/*
+    +	 * Ensure the store that sets up the misaligned access value is
+    +	 * visible before it is used by the other CPUs.  This orders with the
+    +	 * atomic_dec_and_test() in riscv_hwprobe_complete_async_probe().
+    +	 */
+    +	smp_wmb();
+    
+     free:
+     	__free_pages(page, MISALIGNED_BUFFER_ORDER);
 
+to make sure we're ordered here?  I think we're probably safe in 
+practice because the scheduler code has orderings.  Either way it's an 
+existing bug, so I'll just send it along as another patch.
 
-* For creating the elfcorehdr for kdump (that ends up being used for 
-/proc/vmcore in the crashkernel), we obviously need runtime information 
-from the running kernel (the one we want to analyze if it crashes), so 
-the device tree couldn't obviously provide that, the standardized 
-interface was supposed to be /proc/kcore, but that's also a security 
-mess and is considered obsolete as far as I know (back when I was 
-working on that I remember it was considered for removal). Which is why 
-I used /proc/iomem and /proc/kallsyms in load_elfcorehdr like other 
-archs do on kexec-tools, to determine the address of specific symbols to 
-populate struct crash_elf_info, and also exclude the range of the 
-crashkernel allocated at runtime (which I also exported via 
-/proc/iomem). I still used the memory regions from the device tree 
-(info->memory_ranges populated via dtb_get_memory_ranges) which meant 
-that everything was there.
-
-
-* When the code changed to rely only on /proc/iomem, although 
-get_memory_ranges was changed, load_elfcorehdr and the regions exported 
-via /proc/iomem remained the same. In the device tree scenario this 
-still worked, since init_resources exposed basically the same regions as 
-in the device tree. It should also work for the EFI scenario, by the 
-time we reach init_resources we've already called efi_init -> 
-reserve_regions, so we'll add both reserved and nomap regions there. For 
-the soft-reserved regions we didn't add in efi_init, we add them later 
-on in riscv_enable_runtime_services as "Soft Reserved" resources. I 
-don't see why we need to add an arch initcall to run after that on 
-resources we already added (on init_resources btw, ignoring those added 
-by riscv_enable_runtime_services). Why do we need to do that ? Note that 
-init_resources does two passes unlike arm64's approach, so it should 
-handle overlapping regions properly.
-
-Am I missing something ?
-
-Regards,
-Nick
+> +	riscv_hwprobe_complete_async_probe();
+>
+>  	return 0;
+>  }
+> @@ -473,8 +474,12 @@ static int __init check_unaligned_access_all_cpus(void)
+>  			per_cpu(vector_misaligned_access, cpu) = unaligned_vector_speed_param;
+>  	} else if (!check_vector_unaligned_access_emulated_all_cpus() &&
+>  		   IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
+> -		kthread_run(vec_check_unaligned_access_speed_all_cpus,
+> -			    NULL, "vec_check_unaligned_access_speed_all_cpus");
+> +		riscv_hwprobe_register_async_probe();
+> +		if (IS_ERR(kthread_run(vec_check_unaligned_access_speed_all_cpus,
+> +				NULL, "vec_check_unaligned_access_speed_all_cpus"))) {
+> +			pr_warn("Failed to create vec_unalign_check kthread\n");
+> +			riscv_hwprobe_complete_async_probe();
+> +		}
+>  	}
+>
+>  	/*
 
 _______________________________________________
 linux-riscv mailing list
