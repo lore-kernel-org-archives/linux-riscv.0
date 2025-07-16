@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B952C83F34
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 15:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54255C83F37
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 15:29:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ht3gLmohGq6gf00K0LN6/r9cml3yXmUJSj6haaXmaPE=; b=MxDYY8kkjOjkB5KnNtV/fZRO+I
-	endUR59det5BW5DzAK0qxeZ7dxcP/0zNoiR4JDEswo7/pNuxKBOkcdHCUwvqiHLZS25vjI3wv9Q9b
-	Vt1Jv1PXdToQMRRciiWNUEkvmvxrQL09h+r5ox6uus3W2qllHR8W2tQgIyKA+ciCd57oh5Knmr3/Y
-	ZPDLLbI/9UI9qVyUC0MdF+k+BzkQpxT/x/yoyoYwi3sDMX6UiuB4CqoEg6qaW9dlobKNzToQGXAxh
-	I0dwEY9+/kx4U++8tsy7r0UZ2M9k5D+YQlg3fK8MvaCYPV0ZxL4gs2PfKXaYafBwFI23dslzfiwh4
-	e7rKIZ7A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fag7MuYr8PpKht5yMrazkfzJf/8vCxcAljKD3UledxA=; b=UjHQRuThOGH8J2
+	lQtPRXyn7HGBwKljD/tcIuHbw7OzjHR22in3xbcAuToyFRm497aV4knUELmBbtOSSzRkn/Teykojl
+	OuiDmKV8F/0NT8E2LkuhBhkP8xqB0JEL+/WwJ2Gq52k6EGWRg8Ri34aN5Rb/nnQ94db8myF/07HP9
+	UZCVKl8xhcXNgblnvE2tq7ylqYx2N/gPUUoqWzUAHq/mpvHoZ7a3Wie+AVmYDENm+uIRiuo3YNr+f
+	jkVmtj6GW+d93PdUGqXnRZruG61MexZnavgz0A+WCyjM277xf1ZdYVICUPrP9qvYMUEfrljnKgUgV
+	GePfc2yuhdvspKYd/VnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc445-000000083yQ-1vrH;
-	Wed, 16 Jul 2025 15:29:01 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1uc444-000000083yK-3e80;
+	Wed, 16 Jul 2025 15:29:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc3y2-000000082eb-0s2Z
-	for linux-riscv@lists.infradead.org;
-	Wed, 16 Jul 2025 15:22:47 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b31f0ef5f7aso3590933a12.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Jul 2025 08:22:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1752679365; x=1753284165; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=t4vl3Ek2bHdxNr4E5QFSQW0xOn72vkMZt86TovXCUIE=;
-        b=l2QchwTMhEbZ4lXxwWtDgzhONw38+IICatDOPDIuLYWSufUl2H5cv7vy0ffhRQssXp
-         QwLcSxzCVAIHwAi4a9wRRBb+FoAcvz0sFT4qtSL8JsZp25Tfj46gjUUXoqXR9HscEHgb
-         OjCTd5cPaFFKU4XdtyUnmZy9DE9jt+Nv39YLHa938wQdAHO6p02STOZ/oCWsvM+WVLfT
-         H1X/1b/HjS8lb5LePYolM1KEylf5Srb1xC0NmxSuo6tVbjU508nieuoi1tkIlzJiV2+U
-         PL1hT7OV6diaKNxJjqJhW4gB7l64RcDg7w/8ycl7n9NmAtyd7Fy4LKW7BoWt8KoB0IV6
-         LvnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752679365; x=1753284165;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=t4vl3Ek2bHdxNr4E5QFSQW0xOn72vkMZt86TovXCUIE=;
-        b=n/IIeH8jF6kdZegBJLVd7syTbpUTtYKz0StQr6Puawlo/iPjaVXaa4l6OELRv2bWJM
-         AnvlTUfki4x2XzlAYz0oaERuW/gnJOOQnXd0PZz1tLrK902xDvOHuSeQroB6SjSHaWPC
-         ONAF86Ihj7hg+w1xYw6xyCf0rmAXGhltBaSzuLwx69buGwEeZgnyVl7lEe5+9e5M9HbM
-         UQGBTgtujrjajQV398/FjCwFExfVBfVPMSOT0FlsXV6HyNC80HXHOjoUzYkSPdoza54I
-         JLiD67kQSg7kaanythG1Ndkkj19XRYBtSPC7eNgWrOcXDf3ixH5BFPEalfsD86IKwBHn
-         YExg==
-X-Forwarded-Encrypted: i=1; AJvYcCWiEqloha0E4jVxeMuEeNt4T65kF4Pl+YiWKe81ExDxrpoh+CVSveehl8IuIhjFuGPI852oSoUNItkHdQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxjia1/RkxbzkCKItEnjqGhx1oZ+9hC0I+Yz9fyfpG96qzFcsEi
-	F0SXW+l1KSJr/pJVyvUdXucwZaKZR8chAj+XmLkxNmyeN+2156p1yREz3FWLzPEzqt4=
-X-Gm-Gg: ASbGncuNL1jL6TUuYdehEPnnRLpOOOxR9aQAnA3sJXWMqk0mv++rgO0es+ZBV1kLodg
-	p0/lFzbFVHN/UROa/BCe6ZxAUsffu5DvRfIgeiDuEwQ326hbsL+ycIZskMuOyPkNpT4QuxhJaOj
-	27FIchHyyTaxxi/mOzNFYTWwZJenI7z392BkXZgRjFYzHjXqQdUQcF2IlG5W4r382wOAiyWfV8A
-	3QIJ8q0gy1Dm7GkfUtVDS6xK56gJY1XFZ7clKlWeK5Cfxm7r03FAKcqKOUKKc8nJi7/9LP31e+D
-	aIsu+uYEutZfrroxomPLMDUIUI1PLF9FOU5t+AiTMRvGaBN3ew6Hf4be3qtTN8cynfXyjdgPisC
-	/X9ANT3hmI4BYAqWgPT6X
-X-Google-Smtp-Source: AGHT+IEUK5YxYWi+V5YGljb21gJhlrrSTSaF6hPULhP4e3D+hleSH74OxqsThIvkIQTiAsvoJfkRVQ==
-X-Received: by 2002:a17:903:290b:b0:235:f45f:ed55 with SMTP id d9443c01a7336-23e2b44525emr13611865ad.1.1752679365284;
-        Wed, 16 Jul 2025 08:22:45 -0700 (PDT)
-Received: from localhost ([2620:10d:c090:500::4:b02a])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-23de43227acsm129073585ad.124.2025.07.16.08.22.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Jul 2025 08:22:44 -0700 (PDT)
-Date: Wed, 16 Jul 2025 08:22:44 -0700 (PDT)
-X-Google-Original-Date: Wed, 16 Jul 2025 08:22:15 PDT (-0700)
-Subject: Re: [PATCH] riscv: ftrace: Properly acquire text_mutex to fix a race condition
-In-Reply-To: <20250709124536.4ce3a90b@batman.local.home>
-CC: alexghiti@rivosinc.com, mhiramat@kernel.org, Mark Rutland <mark.rutland@arm.com>,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, Alexandre Ghiti <alex@ghiti.fr>,
-  linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-  rabenda.cn@gmail.com, wangruikang@iscas.ac.cn, ziyao@disroot.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: rostedt@goodmis.org
-Message-ID: <mhng-E799444F-E3F5-4100-B236-45026970E1A5@palmerdabbelt-mac>
-Mime-Version: 1.0 (MHng)
+	id 1uc3wm-000000082PJ-1Li2;
+	Wed, 16 Jul 2025 15:21:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D90D55C6624;
+	Wed, 16 Jul 2025 15:21:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74D37C4CEFC;
+	Wed, 16 Jul 2025 15:21:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752679287;
+	bh=+5nBuTaHK2eqj8Sbjf7jOgP+gLLgEVm3azLVcfpx7Wk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=OS9vTLlExI0ev1o7vTPmfJqaiGDqDFdXLIYU/2oNar9+GE0p2sFREnmEPM9tchhJs
+	 L1Y2aUgJ4GkDvZyEazbL1L4zjmorIK5QnLjOF5jQ53IdaQ865dzJqVFtTLE1IAo27A
+	 RvDAwYt17LRGns6LsX/cnluz58W0pJAFqXqJ7Vr/bV7i/gQg+DN7Sp0ck+1Yd2EW66
+	 KAiEFjBbdQKlsYfAto11NOc+gChFKfdj9FN85e4nGDbF2oMyRkkXd2lKBnS4GyIP7N
+	 yAaR39a7tCBwUcM5duceF2G1CYskt7SaW0TbDtgxAdJVQX0D5dotcL1wbeoKPl8FH9
+	 KBOFS1Hs7+Khg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id C64EB383BA33;
+	Wed, 16 Jul 2025 15:21:48 +0000 (UTC)
+MIME-Version: 1.0
+Subject: Re: [PATCH 0/3] PCI: host-generic: Fix driver_data overwriting bugs
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <175267930756.1224517.4628176951767870692.git-patchwork-notify@kernel.org>
+Date: Wed, 16 Jul 2025 15:21:47 +0000
+References: <20250625111806.4153773-1-maz@kernel.org>
+In-Reply-To: <20250625111806.4153773-1-maz@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-riscv@lists.infradead.org, bhelgaas@google.com,
+ alyssa@rosenzweig.io, robh@kernel.org, mani@kernel.org,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, j@jannau.net,
+ geert+renesas@glider.be, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_082246_244459_A5220A04 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20250716_082128_398287_3953A87A 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,39 +71,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Jul 2025 09:45:36 PDT (-0700), rostedt@goodmis.org wrote:
-> On Wed, 09 Jul 2025 07:12:47 -0700 (PDT)
-> Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
->> >  #ifdef CONFIG_DYNAMIC_FTRACE
->> > +void ftrace_arch_code_modify_prepare(void)
->> > +{
->> > +	mutex_lock(&text_mutex);
->> > +}
->> > +
->> > +void ftrace_arch_code_modify_post_process(void)
->> > +{
->> > +	mutex_unlock(&text_mutex);
->> > +}
->>
->> IIRC there's a reason we don't do it this way, we had (or had tried to)
->> have it before.  It's been a while, though, and I'm just having some a
->> coffee so may I'm just wrong...
->
-> Yes, because it caused issues with stop machine[1], but if you are no
-> longer using stop machine, this should be what you should do now.
->
-> [1] https://lore.kernel.org/all/20220310045454.672097-1-changbin.du@gmail.com/
+Hello:
 
-Thanks.  The v2 staged for the tester, should show up on fixes soon.
+This series was applied to riscv/linux.git (fixes)
+by Bjorn Helgaas <bhelgaas@google.com>:
 
->
-> -- Steve
+On Wed, 25 Jun 2025 12:18:03 +0100 you wrote:
+> Geert reports that some drivers do rely on the device driver_data
+> field containing a pointer to the bridge structure at the point of
+> initialising the root port, while this has been recently changed to
+> contain some other data for the benefit of the Apple PCIe driver.
+> 
+> This small series builds on top of Geert previously posted (and
+> included as a prefix for reference) fix for the Microchip driver,
+> which breaks the Apple driver. This is basically swapping a regression
+> for another, which isn't a massive deal at this stage, as the
+> follow-up patch fixes things for the Apple driver by adding extra
+> tracking.
+> 
+> [...]
+
+Here is the summary with links:
+  - [1/3] PCI: host-generic: Set driver_data before calling gen_pci_init()
+    https://git.kernel.org/riscv/c/bdb32a0f6780
+  - [2/3] PCI: apple: Add tracking of probed root ports
+    https://git.kernel.org/riscv/c/643c0c9d0496
+  - [3/3] Revert "PCI: ecam: Allow cfg->priv to be pre-populated from the root port device"
+    https://git.kernel.org/riscv/c/ba74278c638d
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
