@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA976C83F1B
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 20:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F1FC83F1B
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 20:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CEeMo9wK469COHFqsD9ypmjbuwbMMAFN4o9Hm4BX5Lg=; b=r0EsuDr03TgkDe
-	qssw2AiBEq8Q2rT6TiYBHF3czt3dmaCYjeosZsjPlUDAB+aXlLnHYJdPSKtJz6Iyk5SQDLNNRWerG
-	xpxTs0ZBhDzuhoYwokVslB3MKFM7ukIucobIfSFnqIeS0UuO36xg2y5VGRA2sl6+O3QYRQMj0grh8
-	k7Fn7n7f7lTZ/q5wP0YmLNosnbEFiRitMS/G0IQjzuDFA5vnJ3yrj0wroL6Lp3xddoPOHL8+phLuZ
-	KP4kpo6m4Iu2RLTepRgf1U/GzWw6orI0cLpwoVreukIH1Vj2lQS1Nxwv0MITWfZgE7g4GCUeHyLfd
-	xLmuaP+xfMH3j5j4bJbQ==;
+	List-Owner; bh=FrlUhoRDtUbo8/PpyFJnE8UeYDedbBZ+te+ZG0tzS2A=; b=Xp6WP6O5hpFPfu
+	O7ucoGDuAqCAA/SNhd6a7Qw4B2JZg94Fwvev+3RA3yYMmNH42zVk/cLQT/viQhH3f52zbRX8wMizF
+	zRBIlgGZFSX0uLUaq60HifxuuG/8wWYMC9RjWbD2K7avdUJNp5uVNZumISqNybZ6ECFoTIOxFy0a+
+	Sq717OhMfO/VoGIvS7W4jhHkYScSIfvsj30sBudsAEOBBhTo7KAN2dJlfOLL05V9cu4IxAziAuI7F
+	fobJDMshiB6ULY+avTnEGgImqnf1jlyZJiDhdS2tWFMDFA1RjQFbqZtB5Bko26kThgTbYMg9vvG2m
+	Q+CADSacMDMpPtaMJK7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc9Dd-00000008eX2-3rZH;
-	Wed, 16 Jul 2025 20:59:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uc9Df-00000008eXE-0LPM;
+	Wed, 16 Jul 2025 20:59:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc8I8-00000008YxY-3sXA
+	id 1uc8IA-00000008YyO-3eHv
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Jul 2025 19:59:50 +0000
+	Wed, 16 Jul 2025 19:59:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 30125A575FD;
-	Wed, 16 Jul 2025 19:59:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA57BC4CEE7;
-	Wed, 16 Jul 2025 19:59:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 47FF843AD3;
+	Wed, 16 Jul 2025 19:59:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C111C4CEE7;
+	Wed, 16 Jul 2025 19:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752695987;
-	bh=Qon3/JcrgcY707eTNDRNZp6SK/UyyLEnsHTNMdoXAgo=;
+	s=k20201202; t=1752695990;
+	bh=MMPiME+dqiMm1jd7xNXlrjdjIw1GHdU7/SfjiufmlRs=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=TaTedlCNJd5gRZa4PoSkQqTIF/m80DrjDrbhcFv2BA1Wj4inrgv+nb0EWEIEwyZwx
-	 ljnJFFWGQ2M8zCHsYhvPwE/9DXi3sIvqdyi28YPnKWBHFr319FRqYHd4ChKQ7LwQOP
-	 RJdVbUnvIZ6Trl6XvGpi4JvZZN4j0Beu/AVyPzJw+mvPgH2ZY7LsAtuHB4puRKMA25
-	 CYxVcpw1HOQvuFQW4dSC7MsY/Hsm08gcHJ3syrjT2cQ5cYOStbEoYHhxxia7dhjtCv
-	 4nK+ev/BIP7ql2+PIoSLTKD+PgfEs/qOJA2+GeW3AmNBes3nrsMUOkDyQs+7MqLcV2
-	 sxd+ATEH/BRBA==
+	b=X230jHpbNWHJI9G8s9Kks1DesiprYDMPjA8QqDPD+z+DYWvVfqhD5KvdGoRJrKl3t
+	 OfLoXbF5J/8LNVYfyQHqai6U+WiQOO0CJzYdnlic8gh12e/bYYiLUQxvTcKD5esm5A
+	 I+5+YbEfNBb9yF7MntJpj4kEFtUxC8uQNX4WMAUJkyEbVFwLDUqaq6hnHTGrNt9T4+
+	 ONqlcrzKq+k+F7jCLKJlH7dj0l3xHdYashOuw67kUQMsv/MqabTsRBN0hhrxKngP1b
+	 Ee9X1Ps3pBTKsbLnu3vA1SfBoTp7RF/m6nZsQyWDys7V63vTKik+IYjUgkd65bdS0l
+	 H16a/9gdnA5mQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 4BFAA383BA3A;
-	Wed, 16 Jul 2025 20:00:09 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id A969A383BA3A;
+	Wed, 16 Jul 2025 20:00:11 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] riscv: ftrace: Properly acquire text_mutex to fix a
- race condition
+Subject: Re: [PATCH] riscv: traps_misaligned: properly sign extend value in
+ misaligned load handler
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175269600801.1308944.13355512366921305547.git-patchwork-notify@kernel.org>
-Date: Wed, 16 Jul 2025 20:00:08 +0000
-References: <20250711-alex-fixes-v2-1-d85a5438da6c@rivosinc.com>
-In-Reply-To: <20250711-alex-fixes-v2-1-d85a5438da6c@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, rostedt@goodmis.org, mhiramat@kernel.org,
- mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, rabenda.cn@gmail.com,
- wangruikang@iscas.ac.cn, ziyao@disroot.org
+Message-Id: <175269601050.1308944.963659246484351139.git-patchwork-notify@kernel.org>
+Date: Wed, 16 Jul 2025 20:00:10 +0000
+References: <mvmikk0goil.fsf@suse.de>
+In-Reply-To: <mvmikk0goil.fsf@suse.de>
+To: Andreas Schwab <schwab@suse.de>
+Cc: linux-riscv@lists.infradead.org, damien.lemoal@wdc.com,
+ anup@brainfault.org, palmer@dabbelt.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_125949_035040_9237C2CF 
-X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-CacheID: sfid-20250716_125950_925451_EBF4CE03 
+X-CRM114-Status: UNSURE (   8.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,25 +81,17 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@dabbelt.com>:
 
-On Fri, 11 Jul 2025 07:38:38 +0000 you wrote:
-> As reported by lockdep, some patching was done without acquiring
-> text_mutex, so there could be a race when mapping the page to patch
-> since we use the same fixmap entry.
+On Thu, 10 Jul 2025 15:32:18 +0200 you wrote:
+> Add missing cast to signed long.
 > 
-> Reported-by: Han Gao <rabenda.cn@gmail.com>
-> Reported-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> Reported-by: Yao Zi <ziyao@disroot.org>
-> Closes: https://lore.kernel.org/linux-riscv/aGODMpq7TGINddzM@pie.lan/
-> Tested-by: Yao Zi <ziyao@disroot.org>
-> Tested-by: Han Gao <rabenda.cn@gmail.com>
-> Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> 
-> [...]
+> Signed-off-by: Andreas Schwab <schwab@suse.de>
+> ---
+>  arch/riscv/kernel/traps_misaligned.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 Here is the summary with links:
-  - [v2] riscv: ftrace: Properly acquire text_mutex to fix a race condition
-    https://git.kernel.org/riscv/c/e3f16d63d54e
+  - riscv: traps_misaligned: properly sign extend value in misaligned load handler
+    https://git.kernel.org/riscv/c/b3510183ab7d
 
 You are awesome, thank you!
 -- 
