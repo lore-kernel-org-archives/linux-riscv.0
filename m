@@ -4,55 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63481C83F22
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 17:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D20C83F22
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 18:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=1luxEfZJXwnEbcJVfxQcQZIwOZ0s3VphmhBzK1VnjeY=; b=JWP
-	1mjRnaRFDf+5clnRwKiRKzChsywUirRn8QOV2lNPKsiTd+QMkWKM0Kgw0U0uYfRp8XiCYwALQF9vK
-	BcFAGyAA80ejof0Fpiva6ObTdWpS5BxytnbBXwB8CHfx2jvXTBRJAfzzABiUlDs6bAX2jzdXRfD/s
-	hBMhMnE32LoYkUkVzJWeKqskb/kzkaX53tvjGgj28ij14gaUUX7w58ajysbdv1nbQ9YAhfFA/jaQB
-	Z7DltiQXQY7TNQmyJ3fwbkENVSSa+WouWXLZKKix9nnr5AmxV3QRRjqwvvF9IZ5E4hPyNdS+3q0De
-	C1Lf4DbrPe4x7V+L45/moViDByvTMOg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tFh1DD0hZaof6hZTQAKFjmru19cCizikdq85Rc0o+Us=; b=GphjR/dduMb6wl
+	VaMtfCAIEUxiX6F9zNxmfuVg0xNnSj+Kb8DH7nFPgOrHkLTqArALWnTntFlULKBccKd0AV+fpQkzh
+	6SPGnODqtUYBigMeoYY1tvHjeCetihTI8NyzaDpWEFrNPg1IGJw7krsTd0JnTsdcn5CWmbgllPoBM
+	MdDX3lJVJKyay4HY0245l/pwlZQjg9pTHxsD9C7Gwel7Wqc8pKc3nbaABvyHnfCkT4iZyllxZUzaX
+	UT1J7foLT0xlR3vj3S8IUIGRqENBd9YXdCJPBFDem2ojo3XDQRmmnosOu0SJNkcxI5TZbIEpK46MX
+	/L/1r8unH0WHZ4Wg9B/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc5it-00000008H9d-0s0U;
-	Wed, 16 Jul 2025 17:15:15 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uc6UO-00000008M0Q-3Mbi;
+	Wed, 16 Jul 2025 18:04:20 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc5iq-00000008H91-1TZb
-	for linux-riscv@lists.infradead.org;
-	Wed, 16 Jul 2025 17:15:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D9ACE5C657D
-	for <linux-riscv@lists.infradead.org>; Wed, 16 Jul 2025 17:15:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA1DEC4CEE7;
-	Wed, 16 Jul 2025 17:15:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752686110;
-	bh=irLzSsCSYV5e8jDywzJqBUzqNoElbnVbaUSxvmy/N6w=;
-	h=Date:From:To:Cc:Subject:From;
-	b=e9neS086GERdBhjjHyTrxKGkQJt08A+Y+Xr8QpxOWWjaCbS3Q70D/8M3jjOnvCn/+
-	 cvM+mutAi9N39HnOI/EGOxNW2ij6kMMgUwc/Dk5pqdPwzIYd8tmgUIOL+TD5Lhs59G
-	 jFRHOKz6rVQ9i6CAtk8cK7176H71BMo34dlD8j/8AGAAa0vGCwYWyxt8ofUIEcAxd/
-	 w+ZDCwu2FDLm2pRxLP/hY2EawHqymZhOTHEV/W14LVudalrnFv8Pkpssnhi+a80pJU
-	 dYFJ88I/2gKQ4rjawHCaSnxRPqptgSCEYJhmMr+GB3qP3ErHUOrzFo88yx+JCf4+5D
-	 S50WDPqeTfe6A==
-Date: Wed, 16 Jul 2025 18:15:07 +0100
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V SoC defconfig for v6.17
-Message-ID: <20250716-defrost-regime-20a55ed925ad@spud>
+	id 1uc6PH-00000008LQO-0Zge;
+	Wed, 16 Jul 2025 17:59:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=j/rIFur3u1rTJo3mQ89YHapN8kPR0kc82DFGfxLgJOY=; b=nRf9s6BLgyLZd19Zq0n8/XzeaT
+	LdIYLNiW4z4oi4MA3w2BCBek25oSOrhZ8XcpzyleTM/5SuM2dnCE8X2IN1fY4XF02MN0u0o/w7o+/
+	BXK5tT7Nngm6VEQKAzarLu64KjC1zHm0osARGnNBRaSOJzAQTBVqTSgVCUR5io769aa33pkqg0Klq
+	UjjCl8EoyWky+K3kmjxhwmz+159ClWBAoAk+GeDtMb/6pA/oHGkodOfSrEn4YCwUGtQ02pz9D/Oym
+	S4R+vEsvs+G9YBBJckDetnAWXJTk+T1i0vJw0SDz0Cd6j6QJIV/W8Xmfday5WtRq/NdxL7Nikft3h
+	+JKcvcMg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49400)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uc6Nh-0008HA-0J;
+	Wed, 16 Jul 2025 18:57:25 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uc6NT-0001JC-1H;
+	Wed, 16 Jul 2025 18:57:11 +0100
+Date: Wed, 16 Jul 2025 18:57:11 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.osdn.me>, Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	linux-arch@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-api@vger.kernel.org,
+	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org
+Subject: Re: [PATCH 1/1] uapi/termios: remove struct ktermios from uapi
+ headers
+Message-ID: <aHfn9z9_oIVgNGgx@shell.armlinux.org.uk>
+References: <20250716164735.170713-1-hpa@zytor.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250716164735.170713-1-hpa@zytor.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_101512_434882_F41EB3F8 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250716_105903_170377_FA78EBE3 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,91 +122,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3426831311598815217=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jul 16, 2025 at 09:47:32AM -0700, H. Peter Anvin wrote:
+> diff --git a/arch/arm/include/asm/ktermios.h b/arch/arm/include/asm/ktermios.h
+> new file mode 100644
+> index 000000000000..4320921a82a9
+> --- /dev/null
+> +++ b/arch/arm/include/asm/ktermios.h
+> @@ -0,0 +1 @@
+> +#include <asm-generic/ktermios.h>
 
---===============3426831311598815217==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jp5PSx/13vPMpdjr"
-Content-Disposition: inline
+Isn't this what arch/arm/include/asm/Kbuild's generic-y is for?
 
+Ditto for other arches.
 
---jp5PSx/13vPMpdjr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-Hey Arnd,
-
-Please pull a small defconfig pr. I may have some dts changes in a
-later PR if Linus doesn't tag v6.16 this weekend, but if he does then
-this is all I have for the v6.17 merge window.
-
-Cheers,
-Conor.
-
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
-
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-config-for-v6.17
-
-for you to fetch changes up to bd4d5d3faadcdf5d65377f14dcbaa4dbb27ee637:
-
-  riscv: defconfig: spacemit: enable sdhci driver for K1 SoC (2025-07-09 17:13:24 +0100)
-
-----------------------------------------------------------------
-RISC-V soc defconfig for v6.17
-
-spacemit:
-Enable sdhci and pwm drivers for the k1 soc in defconfig, the former as
-a builtin and the latter a module.
-
-starfive:
-Remove a no-longer required config for the starfive sound driver.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Geert Uytterhoeven (1):
-      riscv: defconfig: Remove CONFIG_SND_SOC_STARFIVE=m
-
-Guodong Xu (1):
-      riscv: defconfig: Enable PWM support for SpacemiT K1 SoC
-
-Yixun Lan (1):
-      riscv: defconfig: spacemit: enable sdhci driver for K1 SoC
-
- arch/riscv/configs/defconfig | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
---jp5PSx/13vPMpdjr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaHfeGwAKCRB4tDGHoIJi
-0pHRAQDMikO0BJTDhSxNIrTIXDf1DuNCkxOwSPqW7Ya/OuNRzQEAgXP6jhBo2kdb
-K+8FiBu1owP9PUQ2yUF9JK0QwwNs2gs=
-=Qodv
------END PGP SIGNATURE-----
-
---jp5PSx/13vPMpdjr--
-
-
---===============3426831311598815217==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3426831311598815217==--
-
