@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA89C83F22
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 15:26:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956EEC83F34
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 15:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QyFmzmO0TtYeLduA+T0McWBWjNza5nXyd7E1UH5Nb6A=; b=ImO4JON5zg8I2Z
-	rpH8dNhOj8GvQBoxmNoldpVNvwRxYXol3cJU4CGDfusI/1qEiUTEGcOrvkk/L6Eg/8u5urVmFRCfL
-	TDFZX7gk6XBPhGbKou645weUjwyW6qTyxoPfiqAqsddL6u5731jkjjDAyYWm5juoTXm5ertLAU6/M
-	nLqKluwi41d+KHkWTXWjg62lW9u31f2QQlB3cj1PEc8VYFo/qi2vVpLz8HEe/0uMTfccU8/LZuPjp
-	TFeo82HXM3M+gjzpzsrwa6VIvdjcEz3VwTWKTq0z4GhMaAFZXVmNC6b9i3ckA1N2nPCFjPiyZIGxy
-	+3JwXHskl3fP7DxTiu5A==;
+	List-Owner; bh=ssseQclKhT4w5xdhsf0OBe17aNiyldtw5vs609vlN1Y=; b=zcL+YM+t7tTCCA
+	wV24ZULBdbST3FDb93eN4CfpDBz3bixkkAV4BvP94Bw02wxvVclFIVNkVQ2DpnAR+JJVswELCU8Wf
+	2Fo7HbC09qknLhXeRYsmSRfW5pFNRM4gy325GV21SDlFQJaTd7Wsx7BhUDES02Sgyoophi/A539BU
+	R4C9r8AW8YHCgTB4HkxPp+CLdosXo1w9au0zkgev03Z2yKe5fCVW1UuYkx36wLKTtjCmJS0YUyVY4
+	jYi1yRmxnVpMHAiyQ5+eptwtZtuqdcip4/oV02aU4Y1boMHnzWr50KrqcACubwWPTa7G7mlQ0qB2v
+	EJdDTdNk0qgt30PFCywQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc41c-000000083Oi-3pY5;
-	Wed, 16 Jul 2025 15:26:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uc41d-000000083P4-25vG;
+	Wed, 16 Jul 2025 15:26:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc3wk-000000082NS-0DOk;
-	Wed, 16 Jul 2025 15:21:27 +0000
+	id 1uc3wk-000000082Nk-3ubq
+	for linux-riscv@lists.infradead.org;
+	Wed, 16 Jul 2025 15:21:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D79975C65F0;
-	Wed, 16 Jul 2025 15:21:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D866C4CEF0;
-	Wed, 16 Jul 2025 15:21:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 314E95C6606;
+	Wed, 16 Jul 2025 15:21:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0214C4CEFD;
+	Wed, 16 Jul 2025 15:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752679284;
-	bh=p2u05dLVtqQJ3foGrWJXooMdrDiQBdBaUfjuYdOfRI8=;
+	s=k20201202; t=1752679286;
+	bh=hArCQNpeer8Btwx6Mc8fEsoOKg5ua9BNHWdaLPcW2+A=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=GXNZqmiM3oopAWeII/q3vlE8pvrAug8t7A6wOb+mZy/DJcXF/RELXBzf30puyUdIf
-	 PEw3d7vZ5vmLIX2Xq09I4ZyXuSbI+5Pb8N8RV42b//+EXK/W3DbyLLQ0pOHTYanHAY
-	 JX92xf8rrx7lZTC1MHYEAbzX2ArWb5myVqPJ8Y5D5R4cukMaQcrRysKjKUP32iu5Et
-	 0ia8x2NEVTIQyrzRq0MEJ91tTnQFlcvFQ0p79hJ/naQEIGYFF6FVO33VJmuPXKLqVn
-	 Dk+2KGtpQmzs4PjxM/G+VrGjhCvYY+0TvMLLvdNb0bqZPI1fta3xN4Eas7KfSsVOMd
-	 atDjSa1cvJyqA==
+	b=cbb0VlzaNqARHun1kOkS7sIFQnweTvmyDsC6ESZA0opz9qSKNQy5OOkazAlll8AfM
+	 bEhmyZt1FCKz2RL1Y2UIiuf6+qaNv+3Q2TeyOM4OILXfJpY5+R+GCz3+EDVWKSsOiS
+	 bYJN+sSX7k9ujxo+4CXROgDKLzvNns+9A8F+nOKfdMb/WrrX+2BHV5xY0aUEvTltJD
+	 n2bjXKWWzBQUgxDesUGs2VZrlRzAwfxero0qliYHxe30OjtIq3B6seWxxrB7nMG5S+
+	 UdxqOVg0jyLHVEJEPBAnv1UFMohovCkB4iMdca4c3doPyqF9m1KdYVhZW9zy3c45PI
+	 IH2uAKY/kxihQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 2B757383BA33;
-	Wed, 16 Jul 2025 15:21:46 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 80873383BA33;
+	Wed, 16 Jul 2025 15:21:47 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 1/1] mm/rmap: fix potential out-of-bounds page table
- access
- during batched unmap
+Subject: Re: [PATCH] riscv: Stop considering R_RISCV_NONE as bad relocations
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175267930477.1224517.13373842337541537594.git-patchwork-notify@kernel.org>
-Date: Wed, 16 Jul 2025 15:21:44 +0000
-References: <20250701143100.6970-1-lance.yang@linux.dev>
-In-Reply-To: <20250701143100.6970-1-lance.yang@linux.dev>
-To: Lance Yang <ioworker0@gmail.com>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
- david@redhat.com, 21cnbao@gmail.com, baolin.wang@linux.alibaba.com,
- chrisl@kernel.org, kasong@tencent.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, lorenzo.stoakes@oracle.com,
- ryan.roberts@arm.com, v-songbaohua@oppo.com, x86@kernel.org,
- huang.ying.caritas@gmail.com, zhengtangquan@oppo.com, riel@surriel.com,
- Liam.Howlett@oracle.com, vbabka@suse.cz, harry.yoo@oracle.com,
- mingzhe.yang@ly.com, stable@vger.kernel.org, baohua@kernel.org,
- lance.yang@linux.dev
+Message-Id: <175267930621.1224517.5170044226873875267.git-patchwork-notify@kernel.org>
+Date: Wed, 16 Jul 2025 15:21:46 +0000
+References: <20250710-dev-alex-riscv_none_bad_relocs_v1-v1-1-758f2fcc6e75@rivosinc.com>
+In-Reply-To: <20250710-dev-alex-riscv_none_bad_relocs_v1-v1-1-758f2fcc6e75@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_082126_128770_D0662F76 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20250716_082127_009096_B93A0E21 
+X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,24 +79,21 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+by Palmer Dabbelt <palmer@dabbelt.com>:
 
-On Tue,  1 Jul 2025 22:31:00 +0800 you wrote:
-> From: Lance Yang <lance.yang@linux.dev>
+On Thu, 10 Jul 2025 08:34:31 +0000 you wrote:
+> Even though those relocations should not be present in the final
+> vmlinux, there are a lot of them. And since those relocations are
+> considered "bad", they flood the compilation output which may hide some
+> legitimate bad relocations.
 > 
-> As pointed out by David[1], the batched unmap logic in try_to_unmap_one()
-> may read past the end of a PTE table when a large folio's PTE mappings
-> are not fully contained within a single page table.
-> 
-> While this scenario might be rare, an issue triggerable from userspace must
-> be fixed regardless of its likelihood. This patch fixes the out-of-bounds
-> access by refactoring the logic into a new helper, folio_unmap_pte_batch().
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4,1/1] mm/rmap: fix potential out-of-bounds page table access during batched unmap
-    https://git.kernel.org/riscv/c/ddd05742b45b
+  - riscv: Stop considering R_RISCV_NONE as bad relocations
+    https://git.kernel.org/riscv/c/82d369b48a6b
 
 You are awesome, thank you!
 -- 
