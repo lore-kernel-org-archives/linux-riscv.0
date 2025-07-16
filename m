@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49B2C83F27
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 12:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326EEC83F27
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 12:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I5jAO3VYL4D1rnZstPgtJ37sFAot36//eSJ91dPFcxs=; b=BowIsfxMxqTu6/
-	PWBZUelBhDmtJdKEYHZJ/Sh9GymLUsbsElKDCFcuZd9lwKLTeQ7z0rkpiSr9JdCnVh5RhXEOKf3sx
-	YSAaLcrzMhBYwSOgQ19QLqwfKp+APVpk19kDIGM2ANU3WkZ03O5vS0Xehmnoot1PCm8H6UC08lTGL
-	sSJL4DsNYxn1nekEe2QbiS2aI1WlaqF7sC8XWqhv+vAXLVt0mYUKs7KMQJhbZ8oF7mXOb7UJxlHIc
-	l9jxUMOq9be/zOfzMC17DECfLsHQ4ZeoHvnOwZr9rFTs8rMKdrwfIbpo5oYfFt94n7kmETOEkTIlA
-	ygu6rwiPtxjl2ngZxzdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qJr/Ti3atV3k4ch7eiPTk1x1WXhCFzZ2Ig0j7ipRCrA=; b=Jp0AmgthV74lmy
+	VJTT+4isG2gukBWP6yX/XuQtE2rj58EkMYt+DWNGCVZh0qMY6JzFeRG9Koa96xnjLAjOrU8KeasJO
+	fpSX7GWh9KPkHsjwvMwgVlMUWUSynMPtJq5wJD+InmGqo5Ms0I6q3+AXUImmAceJH6l7PHsNJWyzt
+	O1c5DRxDarZCaOtPAdXqPe71T6Y7NIqFsCoc3r63xeviBrsrZw2xraX2BDrhUY8efNXX0UH3w5xIY
+	f0o6HIhRlS8GmEDA8/aYKRJW7FXNRdm1nx+V91tPc7geZVmMILyFiPe2Pbi//QWeurbM0dR/8eiJf
+	DuX7mM4U3BcdQ+TRt56Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1By-00000007eOe-2Dti;
-	Wed, 16 Jul 2025 12:24:58 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1uc1OZ-00000007fy0-2K6S;
+	Wed, 16 Jul 2025 12:37:59 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1Bv-00000007eO0-3ziC
+	id 1uc1OX-00000007fxQ-0yl3
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Jul 2025 12:24:57 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-876231b81d5so408955439f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Jul 2025 05:24:55 -0700 (PDT)
+	Wed, 16 Jul 2025 12:37:58 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-23aeac7d77aso51100175ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Jul 2025 05:37:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1752668695; x=1753273495; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6ufN3hObMca4GLsjT1dwHltCBaXf3kFOYG4s7v4Jw4M=;
-        b=KRDL265QwD83HkfMZc+8besRaw+17u2wzU93rNIR2+aU63DT5YgZZ6tPW9kJ5cJBxj
-         cbqNeD8aQBCFxh+mtkTahXeU5sQlr6Jx1FftWeqisAlDAk/ZJRSFc+KCb72ISotkfuo8
-         HpMGkPqy922e0ICHAJFnWsKBxr0hRbKa92HmPDctfnonxh6Zp4EAZQFbxNh+qE63jyF6
-         j7eVjI/+R41Sfoqpl3fO4BvdnHRmtwCfC6eYgwWgF33FseWXr1Q1BdtRhcJnTzxbf79+
-         scb+MU6d21CdTXTzUg5zOiQi1NsxaSC8vebAhILzPpOWO7mqxiOOpxJeNDGI5wyKBOmr
-         c14g==
+        d=ventanamicro.com; s=google; t=1752669476; x=1753274276; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=mRLSENgI/MGJbaGVqAa8IBYA8T+PU3c6shTbsSeztZI=;
+        b=Yzsvrjmbe7lCMNSwmwmQzhKDHqMdcj7ZjLsfRmj9DykfSFiRqzWeDUCUBUwnvrIOev
+         wr9khMGkWp1kidOVJ/5oCzsGC7+2ifaa0FBXbjjXHo/h6B7CGZB6vm2zv6A336KYUuZQ
+         jWGTw9U2e7xlIjeeyeoAAKpWBFItaArUTZWK8Q9dEq7ATlZkrjhsCCnuHddSK0aO+bBY
+         7voI2S6nOvMfmVINMP81hfJLkFrOm1lc+2g00pqCiXqoJ8BgZ9DjBZ9EV7xKAkXfg2qD
+         3d5tc/yCkXANcyIQQgkcDWK5PlBOR5Yk6Xe4ObpLTDYDYAG4//86eEiqhcg7jQWebhiI
+         vv0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752668695; x=1753273495;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6ufN3hObMca4GLsjT1dwHltCBaXf3kFOYG4s7v4Jw4M=;
-        b=G8EdQk/BHxpfaSEd67szcsSKRasLDwTOVXa1SYF3U2VRPqlLOdP00myO8F+1wfsee3
-         MVwotQrk5NdhuhTfSU4ICvHiferpk9diQc+SVL5jP9+DbJuZ8ku/ya1hVvdsKEu0RTg1
-         1KLZRrcQO0ruk4r/SOsPmcmp5/DDNcowZZH3Zg3BTSaUHWycB1Rf4A3D7yqdb3rT0tj4
-         /E/JZ5VumN8iYe/DVonGkg0xZ4TTY0j6usluyLlobUUzzV6UXA8Reqe6qQj8TT/msswJ
-         mTAFALupp9PT0EbOJbJPQT+QjsnvsOqMkjf5fDu6Gj9qcn/fo1+Jcg9ASt6Xhi7IXCwS
-         yq0w==
-X-Forwarded-Encrypted: i=1; AJvYcCU7G/ur3R/l9qdF2MUeEHXCvw0mkfwIdyctZ2NwiWl+uda0lE34pVKj44IoYyP+kD/T1ltcFFZs3PgPSA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVv6aAda3aF/XakEbJEswTSTaR9k68i/z1bdmP414RHsu1TVIl
-	ZhZRlLFQgcLJeu00eBy9O78Ok5fb4T+A+xwQb/aikZkzMyYcoKeB/PpV5hN0UGyuAI4yYAhiwmR
-	LUq6QjHz3jIMjixXlsWqXFmGtQIZQuoTjFPPc6xLA9A==
-X-Gm-Gg: ASbGncu6ofiDjD16Lat27OR/vR7y3/czEXeLml/g5mDZMXgOzXmVpMHri0rLPsrjD3C
-	P8VZDQ7h02zXB+rZ0GkFyUkuKMN7eBJetxCTn9Nf29ARgabjaVVSTFByikPUdYUig/hnu0TWg7h
-	e4o5znUfMOu89+3N+4Ceg1MG+SXTK6kBZuFajqLOAH8rJajQC6Cg/UFlnLSAiKQSbAS+R9iYz/x
-	3gLyfE=
-X-Google-Smtp-Source: AGHT+IHcBKm14IqMY2zZCku6eJ3aL9uOlgyeZlrEeJEsEb6pBAtDYAiLwB4M4psg96+hNqoIYo09iBakwOdp9w74hpw=
-X-Received: by 2002:a05:6602:154d:b0:879:572e:238c with SMTP id
- ca18e2360f4ac-879c091cc40mr370204539f.9.1752668695035; Wed, 16 Jul 2025
- 05:24:55 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1752669476; x=1753274276;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mRLSENgI/MGJbaGVqAa8IBYA8T+PU3c6shTbsSeztZI=;
+        b=gcs2edebE4weKFgI9lE+bDusMtgOwLcQf6PQfAkeLsgcosjhIJEI7abLWywFoNaV6/
+         1hCkTYpUt/uJ7PdM41AbFBZvmPLHNVaQ2qU9uNdTkpdcRH3K0jIJCEQ5wK7RDFhXcqtl
+         FYaog2mkDDDcm2M0ouFcy0YTeo3s6/cC6Bq25U7EbpiYaQ7WwO+6Xirbbi/wIvYo4hlv
+         WajUkiUpASj8BTskb8JDF9L+0wGhHHei36qlgabYYB0dllREqClvp6tcqpSV+KssI4Fo
+         7qXNUZ3GJeLDpywGVBHTk94of5X/zNnzJRhCwpjF2Q/lDAUIx5M5bSFfooC5NNpn39YA
+         3nyg==
+X-Forwarded-Encrypted: i=1; AJvYcCUXxTsxUeR8Q6+CQ53skX4AHXzoTukJlE6/ln2ey4BpLFpGhZbbZpJtkVybB/kHiaFT374O4ivdsvdZXQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8LMI7wVmjL/IxpZbf47VuOxlx8Tbr3RZgyV9Ikf78Y8I2uSJg
+	sJjhwLK9IfF2t1jlEGxYZZYYd3eD+oTruu3JAM4JQu33fgSpAHEvgSR8hI+FnqPZOgA=
+X-Gm-Gg: ASbGncsRUyOlJ7oCoDmKRJCYh3/fnZUZ0smI3OJFm6+aCCy4XoS8Tl32QY78iUjX5qz
+	MeBr7g1G4EMoj/llCvtWoTsjxl988YfUuKPdL9BCzuYIf9yLiy+MHrqzXu4RpMIdMUyyklH2LpN
+	eueM4TfBVQ89znOqT2iHJfF3SdY4LkCfwoh8vUiITgIcUlWto0kiy1Jwj/Ke7Br18JSuYSpuoj+
+	ICMk6I3XMI4/D18Ruc8OqdKI5s0bI4iaUEMVwCEl4oej+jk7pF9QyHQqdrHGt0wTlWOuJFwYfpe
+	eTfiNm+xMFUvv17Sg1crvJ6nMLw9VtqWtQoCEsPnaICewX5Gr4rsGLFwrMOXbRuwfisWZn43vqS
+	QVJdR++//P3hAA1nI+5GvzCwFsSKv/SHgqMh1NUfQn/PqVelsa9br8A==
+X-Google-Smtp-Source: AGHT+IFS0ERKXZDU/2paRwDAwj1qIE00GcJ4rlO9U8G8qiuVi07BwHIJVfO1FD2FE0d9SCuPJE4CnA==
+X-Received: by 2002:a17:902:ecd1:b0:22c:3609:97ed with SMTP id d9443c01a7336-23e24fbf7bcmr36821175ad.30.1752669475780;
+        Wed, 16 Jul 2025 05:37:55 -0700 (PDT)
+Received: from localhost.localdomain ([122.171.23.79])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23e2b31aba5sm5148085ad.0.2025.07.16.05.37.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Jul 2025 05:37:54 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v4] irqchip/riscv-imsic: Add kernel parameter to disable IPIs
+Date: Wed, 16 Jul 2025 18:07:45 +0530
+Message-ID: <20250716123745.557585-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250111004702.2813013-1-samuel.holland@sifive.com>
-In-Reply-To: <20250111004702.2813013-1-samuel.holland@sifive.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 16 Jul 2025 17:54:43 +0530
-X-Gm-Features: Ac12FXw5fRuKRk9Gh9hKxwhWqS2DR3ZACynLX0_VX_3TVKCKPIkjC2p2q_9ELUM
-Message-ID: <CAAhSdy2x+bskK2Du-ys7TCeih=QEFRkkydg2VYGZniEt3zW3=Q@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/2] RISC-V: KVM: Pointer Masking Support
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Atish Patra <atishp@atishpatra.org>, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_052456_224081_0DE9618E 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250716_053757_276554_B0F967D9 
+X-CRM114-Status: GOOD (  22.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,24 +100,173 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBKYW4gMTEsIDIwMjUgYXQgNjoxN+KAr0FNIFNhbXVlbCBIb2xsYW5kCjxzYW11ZWwu
-aG9sbGFuZEBzaWZpdmUuY29tPiB3cm90ZToKPgo+IFRoaXMgc2VyaWVzIGFkZHMgc3VwcG9ydCBm
-b3IgcG9pbnRlciBtYXNraW5nIGluIFZTLW1vZGUgaW5zaWRlIEtWTQo+IGd1ZXN0cyB1c2luZyB0
-aGUgU0JJIEZXRlQgZXh0ZW5zaW9uLiBUaGlzIHNlcmllcyBhcHBsaWVzIG9uIHRvcCBvZgo+IENs
-w6ltZW50J3MgInJpc2N2OiBhZGQgU0JJIEZXRlQgbWlzYWxpZ25lZCBleGNlcHRpb24gZGVsZWdh
-dGlvbiBzdXBwb3J0Igo+IHNlcmllc1sxXSwgd2hpY2ggYWRkcyB0aGUgbmVjZXNzYXJ5IGluZnJh
-c3RydWN0dXJlLgo+Cj4gWzFdOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8y
-MDI1MDEwNjE1NDg0Ny4xMTAwMzQ0LTEtY2xlZ2VyQHJpdm9zaW5jLmNvbS8KPgo+Cj4gU2FtdWVs
-IEhvbGxhbmQgKDIpOgo+ICAgUklTQy1WOiBLVk06IEZpeCBpbmNsdXNpb24gb2YgU21ucG0gaW4g
-dGhlIGd1ZXN0IElTQSBiaXRtYXAKPiAgIFJJU0MtVjogS1ZNOiBBZGQgc3VwcG9ydCBmb3IgU0JJ
-X0ZXRlRfUE9JTlRFUl9NQVNLSU5HX1BNTEVOCgpMR1RNLgoKUmV2aWV3ZWQtYnk6IEFudXAgUGF0
-ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CgpSZWJhc2VkIGFuZCBxdWV1ZWQgaXQgZm9yIExpbnV4
-LTYuMTcKClRoYW5rcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+When injecting IPIs to a set of harts, the IMSIC IPI support will do
+a separate MMIO write to the SETIPNUM_LE register of each target hart.
+This means on a platform where IMSIC is trap-n-emulated, there will be
+N MMIO traps when injecting IPI to N target harts hence IMSIC IPIs will
+be slow on such platform compared to the SBI IPI extension.
+
+Unfortunately, there is no DT, ACPI, or any other way of discovering
+whether the underlying IMSIC is trap-n-emulated. Using MMIO write to
+the SETIPNUM_LE register for injecting IPI is purely a software choice
+in the IMSIC driver hence add a kernel parameter to allow users disable
+IMSIC IPIs on platforms with trap-n-emulated IMSIC.
+
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+Changes since v3:
+ - Rebase upon Linux-6.16-rc4
+ - Make imsic_noipi as __ro_after_init
+Changes since v2:
+ - Skip enabling/disabling IMSIC_IPI_ID in imsic_ipi_starting_cpu()
+   and imsic_ipi_dying_cpu() when imsic_noipi is set
+ - Re-use the reserved IPI ID for devices when imsic_noipi is set
+Changes since v1:
+ - Added more details to patch description
+---
+ .../admin-guide/kernel-parameters.txt         |  7 +++++++
+ drivers/irqchip/irq-riscv-imsic-early.c       | 20 ++++++++++++++++++-
+ drivers/irqchip/irq-riscv-imsic-state.c       |  7 ++++---
+ drivers/irqchip/irq-riscv-imsic-state.h       |  1 +
+ 4 files changed, 31 insertions(+), 4 deletions(-)
+
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index f1f2c0874da9..7f0e12d0d260 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -2538,6 +2538,13 @@
+ 			requires the kernel to be built with
+ 			CONFIG_ARM64_PSEUDO_NMI.
+ 
++	irqchip.riscv_imsic_noipi
++			[RISC-V,EARLY]
++			Force the kernel to not use IMSIC software injected MSIs
++			as IPIs. Intended for system where IMSIC is trap-n-emulated,
++			and thus want to reduce MMIO traps when triggering IPIs
++			to multiple harts.
++
+ 	irqfixup	[HW]
+ 			When an interrupt is not handled search all handlers
+ 			for it. Intended to get systems with badly broken
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index d9ae87808651..2709cacf4855 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -8,6 +8,7 @@
+ #include <linux/acpi.h>
+ #include <linux/cpu.h>
+ #include <linux/interrupt.h>
++#include <linux/init.h>
+ #include <linux/io.h>
+ #include <linux/irq.h>
+ #include <linux/irqchip.h>
+@@ -21,6 +22,14 @@
+ #include "irq-riscv-imsic-state.h"
+ 
+ static int imsic_parent_irq;
++bool imsic_noipi __ro_after_init;
++
++static int __init imsic_noipi_cfg(char *buf)
++{
++	imsic_noipi = true;
++	return 0;
++}
++early_param("irqchip.riscv_imsic_noipi", imsic_noipi_cfg);
+ 
+ #ifdef CONFIG_SMP
+ static void imsic_ipi_send(unsigned int cpu)
+@@ -32,12 +41,18 @@ static void imsic_ipi_send(unsigned int cpu)
+ 
+ static void imsic_ipi_starting_cpu(void)
+ {
++	if (imsic_noipi)
++		return;
++
+ 	/* Enable IPIs for current CPU. */
+ 	__imsic_id_set_enable(IMSIC_IPI_ID);
+ }
+ 
+ static void imsic_ipi_dying_cpu(void)
+ {
++	if (imsic_noipi)
++		return;
++
+ 	/* Disable IPIs for current CPU. */
+ 	__imsic_id_clear_enable(IMSIC_IPI_ID);
+ }
+@@ -46,6 +61,9 @@ static int __init imsic_ipi_domain_init(void)
+ {
+ 	int virq;
+ 
++	if (imsic_noipi)
++		return 0;
++
+ 	/* Create IMSIC IPI multiplexing */
+ 	virq = ipi_mux_create(IMSIC_NR_IPI, imsic_ipi_send);
+ 	if (virq <= 0)
+@@ -88,7 +106,7 @@ static void imsic_handle_irq(struct irq_desc *desc)
+ 	while ((local_id = csr_swap(CSR_TOPEI, 0))) {
+ 		local_id >>= TOPEI_ID_SHIFT;
+ 
+-		if (local_id == IMSIC_IPI_ID) {
++		if (!imsic_noipi && local_id == IMSIC_IPI_ID) {
+ 			if (IS_ENABLED(CONFIG_SMP))
+ 				ipi_mux_process();
+ 			continue;
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+index 77670dd645ac..dc95ad856d80 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.c
++++ b/drivers/irqchip/irq-riscv-imsic-state.c
+@@ -134,7 +134,7 @@ static bool __imsic_local_sync(struct imsic_local_priv *lpriv)
+ 	lockdep_assert_held(&lpriv->lock);
+ 
+ 	for_each_set_bit(i, lpriv->dirty_bitmap, imsic->global.nr_ids + 1) {
+-		if (!i || i == IMSIC_IPI_ID)
++		if (!i || (!imsic_noipi && i == IMSIC_IPI_ID))
+ 			goto skip;
+ 		vec = &lpriv->vectors[i];
+ 
+@@ -419,7 +419,7 @@ void imsic_vector_debug_show(struct seq_file *m, struct imsic_vector *vec, int i
+ 	seq_printf(m, "%*starget_cpu      : %5u\n", ind, "", vec->cpu);
+ 	seq_printf(m, "%*starget_local_id : %5u\n", ind, "", vec->local_id);
+ 	seq_printf(m, "%*sis_reserved     : %5u\n", ind, "",
+-		   (vec->local_id <= IMSIC_IPI_ID) ? 1 : 0);
++		   (!imsic_noipi && vec->local_id <= IMSIC_IPI_ID) ? 1 : 0);
+ 	seq_printf(m, "%*sis_enabled      : %5u\n", ind, "", is_enabled ? 1 : 0);
+ 	seq_printf(m, "%*sis_move_pending : %5u\n", ind, "", mvec ? 1 : 0);
+ 	if (mvec) {
+@@ -583,7 +583,8 @@ static int __init imsic_matrix_init(void)
+ 	irq_matrix_assign_system(imsic->matrix, 0, false);
+ 
+ 	/* Reserve IPI ID because it is special and used internally */
+-	irq_matrix_assign_system(imsic->matrix, IMSIC_IPI_ID, false);
++	if (!imsic_noipi)
++		irq_matrix_assign_system(imsic->matrix, IMSIC_IPI_ID, false);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
+index 3202ffa4e849..57f951952b0c 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.h
++++ b/drivers/irqchip/irq-riscv-imsic-state.h
+@@ -61,6 +61,7 @@ struct imsic_priv {
+ 	struct irq_domain			*base_domain;
+ };
+ 
++extern bool imsic_noipi;
+ extern struct imsic_priv *imsic;
+ 
+ void __imsic_eix_update(unsigned long base_id, unsigned long num_id, bool pend, bool val);
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
