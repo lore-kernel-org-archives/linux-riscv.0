@@ -4,70 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 093D4C83F1B
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 16:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5943AC83F22
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 16:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l+/60hQH21ScCJ5V3seUb23tdkH82QxhbAQVKUwaaho=; b=idcLc8berh5WYl
-	gSwis4EM6EDvT27+Ap/pJaaY4otvzeIwkzpT7t9Jkvp/Se+wM7AUwF98BSQVkV9qlMluywoqCZ1TK
-	X8raVDITB9HaF1qP11c/Bmuok+EnOLMDyaOHDYkxQBo9ubnuVBsUe5bPcbqDD3jdFVu+9qfaop5GV
-	0Ai1vkzOf740yMeM9tKKPlaL0vWZoHFzACUJuwOTcxUGfp32axQQ+Ni/pXHbK4ndoLyyvlIsLnLSJ
-	dd+tMQ7lIS5pGMFROFdxeQgx2oWfuZIRnHBYPBdtwrrRgk5nYvVuu38ujuPr6tx+JI7dh4VIzFWUD
-	ahRaJHBH2VBkAcVZ2V9g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Zc23eJU8Lie76SZXZlleNFbtcniNojLtigVLtXRNKUE=; b=qa17kTrdBFhPyk
+	3BBZwvlupR6JRFto/rt39Up3Iid+3pmLd255gkraJYm0pNMh7DU2sbERSyBlM1sXx+X8i/5IR+nzc
+	g3JGP/qcxifM/jDdOeNwXqwl1hCCC3Hp/I85rJ5Qh0he6Sm6ogRHpkB2UoEPT+wsZcv1y+qU8UBnC
+	mVFiXw3F4NQ/0wZWVY2iBPwTjqRihC8NqL3CyyjGmkeDCR5VoRAiV7vj7L+Sr20/cvKqp2xtK4dXb
+	5UAJaVALCkZ4XfvopFZrvLv1I+DdLmF3m+RKx6kKLUSrMBloe/abZXFsiYCRbO1Bt+rkMW+f/w0Ve
+	tHLWOlruHPrzp5yU349Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc4gg-000000089FM-1p8y;
-	Wed, 16 Jul 2025 16:08:54 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uc5QB-00000008ERN-2D4a;
+	Wed, 16 Jul 2025 16:55:55 +0000
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc4gc-000000089Dh-20X6
-	for linux-riscv@lists.infradead.org;
-	Wed, 16 Jul 2025 16:08:52 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id DB969204E5;
-	Wed, 16 Jul 2025 18:08:45 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id zWVEH2PJBuQV; Wed, 16 Jul 2025 18:08:43 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1752682123; bh=+W09G+Txez91PG0u3dbICXsTHJsZszmOf0ugQkIaaeA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GdtmVZFDjG0lz+7Huklm4/jycmaVtH67HDQs5AJa6TZfEKTzBpnruRYP9bAtsf0EW
-	 +rDkAfYaf0HwfeMI2vlLQMKoa0PHcAZbQKmWmG/I+obofupMI1Tv8wyDciVq1FVCtS
-	 umMxZpEoGfqsYPsJKsqSXOMJmqYFtSKxR8ta97N3fwk/dwzsC+G7ylqFyeZfxsvBCT
-	 pLoDvLEf5o69RTrQX34aKiGe4D20GSLZUdeFMC39/uaFuKB31tdMctt7ARCBLQrblC
-	 1T46W4yCEc53FFQu7dpeymOgxG+Nld0G4khR9DiIJwxo7U8LW7QYqJ/fhQxosXBjL7
-	 oVKVE2hh1S63g==
-Date: Wed, 16 Jul 2025 16:08:26 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: E Shattow <e@freeshell.de>, Icenowy Zheng <uwu@icenowy.me>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Michael Zhu <michael.zhu@starfivetech.com>,
-	Drew Fustini <drew@beagleboard.org>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] riscv: dts: starfive: add DT for Orange Pi RV
-Message-ID: <aHfOeo7ZITHvg9P9@pie>
-References: <20250409091801.855083-1-uwu@icenowy.me>
- <20250409091801.855083-2-uwu@icenowy.me>
- <Z_f30vAuATR1DCWk@pie>
- <8fbd6ffdd053760b6d0980173c7f8af6c09963ba.camel@icenowy.me>
- <e2ec3809-a538-4475-ac3a-db289271fe7a@freeshell.de>
+	id 1uc5M9-00000008DwJ-3p7N;
+	Wed, 16 Jul 2025 16:51:46 +0000
+Received: from mail.zytor.com ([IPv6:2601:646:8081:9482:6dc:b955:47cb:dcbb])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 56GGlgcB1606025
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO);
+	Wed, 16 Jul 2025 09:47:44 -0700
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 56GGlgcB1606025
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2025062101; t=1752684483;
+	bh=Pi512eHi9UqcH1NIe21hPNH34+JTvpPZpIBQ9bkTpeo=;
+	h=From:To:Subject:Date:From;
+	b=iVMrVZ7wCY+XR+v+/5lGaQK0wtkobCborN8fAcNbqMDyZci7UAzAbz6/wkfvH8sml
+	 yQuQrqcZYdI4rVp7Cb4tmJF3SAB/7/Bnn45T+6/vLbmdVlw/iKcjNzcjDQZsRNADMU
+	 2uGk2Q4+1McKUub7sk1zw8j0WQNs9JUdbWdZHTymZ9oCzx42BRH9Opvt0sRdKFTnjE
+	 r5Pxq+Te1DUEUkR3blNMxL6s9Ty/LyXU/8mCYaLcEMp4eCRa6T8/O9vlNQQJ7xkwq3
+	 bWubqVadZ0JXsRMKm4thdvRgAW4s9CUjgaqkkPit8nThtZY7X+pDf6dfxDrcHy407k
+	 pQSnTF2Ke3B0A==
+From: "H. Peter Anvin" <hpa@zytor.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Jiri Slaby <jirislaby@kernel.org>,
+        Richard Henderson <richard.henderson@linaro.org>,
+        Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
+        Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+        Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+        Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+        Stafford Horne <shorne@gmail.com>,
+        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Helge Deller <deller@gmx.de>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Yoshinori Sato <ysato@users.osdn.me>, Rich Felker <dalias@libc.org>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Andreas Larsson <andreas@gaisler.com>,
+        Richard Weinberger <richard@nod.at>,
+        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+        Johannes Berg <johannes@sipsolutions.net>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin" <hpa@zytor.com>, linux-arch@vger.kernel.org,
+        linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-api@vger.kernel.org, Chris Zankel <chris@zankel.net>,
+        Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+        linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-m68k@vger.kernel.org, linux-mips@vger.kernel.org,
+        linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-um@lists.infradead.org
+Subject: [PATCH 1/1] uapi/termios: remove struct ktermios from uapi headers
+Date: Wed, 16 Jul 2025 09:47:32 -0700
+Message-ID: <20250716164735.170713-1-hpa@zytor.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <e2ec3809-a538-4475-ac3a-db289271fe7a@freeshell.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_090851_075043_5A2DC2FC 
-X-CRM114-Status: GOOD (  39.87  )
+X-CRM114-CacheID: sfid-20250716_095145_954462_73C87348 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,162 +112,471 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMTUsIDIwMjUgYXQgMDY6MzA6NTdQTSAtMDcwMCwgRSBTaGF0dG93IHdyb3Rl
-Ogo+IE9uIDQvMTAvMjUgMTg6MjksIEljZW5vd3kgWmhlbmcgd3JvdGU6Cj4gPiDlnKggMjAyNS0w
-NC0xMOaYn+acn+Wbm+eahCAxNjo1NCArMDAwMO+8jFlhbyBaaeWGmemBk++8mgo+ID4+IE9uIFdl
-ZCwgQXByIDA5LCAyMDI1IGF0IDA1OjE4OjAxUE0gKzA4MDAsIEljZW5vd3kgWmhlbmcgd3JvdGU6
-Cj4gPj4+IE9yYW5nZSBQaSBSViBpcyBhIG5ld2x5IHJlbGVhc2VkIFNCQyB3aXRoIEpINzExMCBT
-b0MsIHNpbmdsZSBHYkUKPiA+Pj4gcG9ydAo+ID4+PiAoY29ubmVjdGVkIHRvIEpINzExMCBHTUFD
-MCB2aWEgYSBZVDg1MzEgUEhZKSwgNCBVU0IgcG9ydHMgKHZpYSBhCj4gPj4+IFZMODA1Cj4gPj4+
-IFBDSWUgVVNCIGNvbnRyb2xsZXIgY29ubmVjdGVkIHRvIEpINzExMCBQQ0lFMCksIGEgTS4yIE0t
-a2V5IHNsb3QKPiA+Pj4gKGNvbm5lY3RlZCB0byBKSDcxMTAgUENJRTEpLCBhIEhETUkgdmlkZW8g
-b3V0cHV0LCBhIDMuNW1tIGF1ZGlvCj4gPj4+IG91dHB1dAo+ID4+PiBhbmQgYSBtaWNyb1NEIHNs
-b3QuCj4gPj4+Cj4gPj4+IE9uYm9hcmQgcGVyaXBoZXJhbHMgY29udGFpbiBhIFNQSSBOT1IgKHdo
-aWNoIGNvbnRhaW5zIHRoZSBVLUJvb3QKPiA+Pj4gZmlybXdhcmUpIGFuZCBhbiBBbXBhayBBUDYy
-NTYgU0RJTyBXaS1GaSBtb2R1bGUuCj4gPj4+Cj4gPj4+IEFzIHRoZSBzY2hlbWF0aWNzIGlzbid0
-IGF2YWlsYWJsZSB5ZXQsIHRoZSBTRElPIFdpLUZpIGlzIGxlZnQKPiA+Pj4gZGlzYWJsZWQKPiA+
-Pj4geWV0Lgo+ID4+Pgo+ID4+PiBTaWduZWQtb2ZmLWJ5OiBJY2Vub3d5IFpoZW5nIDx1d3VAaWNl
-bm93eS5tZT4KPiA+Pj4gLS0tCj4gPj4+IMKgYXJjaC9yaXNjdi9ib290L2R0cy9zdGFyZml2ZS9N
-YWtlZmlsZcKgwqDCoMKgwqDCoMKgwqAgfMKgIDEgKwo+ID4+PiDCoC4uLi9ib290L2R0cy9zdGFy
-Zml2ZS9qaDcxMTAtb3JhbmdlcGktcnYuZHRzwqAgfCA3Mwo+ID4+PiArKysrKysrKysrKysrKysr
-KysrCj4gPj4+IMKgMiBmaWxlcyBjaGFuZ2VkLCA3NCBpbnNlcnRpb25zKCspCj4gPj4+IMKgY3Jl
-YXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLW9yYW5n
-ZXBpLQo+ID4+PiBydi5kdHMKPiA+Pj4KPiA+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9v
-dC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUKPiA+Pj4gYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJm
-aXZlL01ha2VmaWxlCj4gPj4+IGluZGV4IGIzYmIxMmY3OGU3ZDUuLjI0ZjFhNDQ4MjgzNTAgMTAw
-NjQ0Cj4gPj4+IC0tLSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUKPiA+
-Pj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zdGFyZml2ZS9NYWtlZmlsZQo+ID4+PiBAQCAt
-MTAsNiArMTAsNyBAQCBkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkgKz0gamg3MTAwLXN0YXJm
-aXZlLQo+ID4+PiB2aXNpb25maXZlLXYxLmR0Ygo+ID4+PiDCoAo+ID4+PiDCoGR0Yi0kKENPTkZJ
-R19BUkNIX1NUQVJGSVZFKSArPSBqaDcxMTAtZGVlcGNvbXB1dGluZy1mbWwxM3YwMS5kdGIKPiA+
-Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkgKz0gamg3MTEwLW1pbGt2LW1hcnMuZHRi
-Cj4gPj4+ICtkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkgKz0gamg3MTEwLW9yYW5nZXBpLXJ2
-LmR0Ygo+ID4+PiDCoGR0Yi0kKENPTkZJR19BUkNIX1NUQVJGSVZFKSArPSBqaDcxMTAtcGluZTY0
-LXN0YXI2NC5kdGIKPiA+Pj4gwqBkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkgKz0gamg3MTEw
-LXN0YXJmaXZlLXZpc2lvbmZpdmUtMi0KPiA+Pj4gdjEuMmEuZHRiCj4gPj4+IMKgZHRiLSQoQ09O
-RklHX0FSQ0hfU1RBUkZJVkUpICs9IGpoNzExMC1zdGFyZml2ZS12aXNpb25maXZlLTItCj4gPj4+
-IHYxLjNiLmR0Ygo+ID4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9zdGFyZml2
-ZS9qaDcxMTAtb3JhbmdlcGktcnYuZHRzCj4gPj4+IGIvYXJjaC9yaXNjdi9ib290L2R0cy9zdGFy
-Zml2ZS9qaDcxMTAtb3JhbmdlcGktcnYuZHRzCj4gPj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4g
-Pj4+IGluZGV4IDAwMDAwMDAwMDAwMDAuLmJkZTAxZjExN2UwYjIKPiA+Pj4gLS0tIC9kZXYvbnVs
-bAo+ID4+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2poNzExMC1vcmFuZ2Vw
-aS1ydi5kdHMKPiA+Pj4gQEAgLTAsMCArMSw3MyBAQAo+ID4+PiArLy8gU1BEWC1MaWNlbnNlLUlk
-ZW50aWZpZXI6IEdQTC0yLjAgT1IgTUlUCj4gPj4+ICsvKgo+ID4+PiArICogQ29weXJpZ2h0IChD
-KSAyMDI1IEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5Lm1lPgo+ID4+PiArICovCj4gPj4+ICsK
-PiA+Pj4gKy9kdHMtdjEvOwo+ID4+PiArI2luY2x1ZGUgImpoNzExMC1jb21tb24uZHRzaSIKPiA+
-Pj4gKyNpbmNsdWRlIDxkdC1iaW5kaW5ncy9sZWRzL2NvbW1vbi5oPgo+ID4+PiArCj4gPj4+ICsv
-IHsKPiA+Pj4gK8KgwqDCoMKgwqDCoMKgbW9kZWwgPSAiWHVubG9uZyBPcmFuZ2UgUGkgUlYiOwo+
-ID4+PiArwqDCoMKgwqDCoMKgwqBjb21wYXRpYmxlID0gInh1bmxvbmcsb3JhbmdlcGktcnYiLCAi
-c3RhcmZpdmUsamg3MTEwIjsKPiA+Pj4gKwo+ID4+PiArwqDCoMKgwqDCoMKgwqBsZWRzIHsKPiA+
-Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGNvbXBhdGlibGUgPSAiZ3Bpby1sZWRz
-IjsKPiA+Pj4gKwo+ID4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgbGVkLWFjayB7
-Cj4gPj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZ3Bp
-b3MgPSA8JmFvbmdwaW8gMyBHUElPX0FDVElWRV9ISUdIPjsKPiA+Pj4gK8KgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBjb2xvciA9IDxMRURfQ09MT1JfSURfR1JF
-RU4+Owo+ID4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oGZ1bmN0aW9uID0gTEVEX0ZVTkNUSU9OX0hFQVJUQkVBVDsKPiA+Pj4gK8KgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBsaW51eCxkZWZhdWx0LXRyaWdnZXIgPSAi
-aGVhcnRiZWF0IjsKPiA+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqBsYWJlbCA9ICJhY2siOwo+ID4+Cj4gPj4gU2hvdWxkIHdlIHNvcnQgdGhlIHByb3Bl
-cnRpZXMgaW4gYWxwaGFiZXQgb3JkZXI/IGkuZS4gY29sb3IsCj4gPj4gZnVuY3Rpb24sCj4gPj4g
-Z3Bpb3MsIGxhYmVsIHRoZW4gbGludXgsZGVmYXVsdC10cmlnZ2VyLiBTZWUgZHRzLWNvZGluZy1z
-dHlsZS5yc3QsCj4gPiAKPiA+IFdlbGwgaW4gY2FzZSBvZiBHUElPIExFRCwgSSB0aGluayBncGlv
-cyBpcyBzb21ldGhpbmcgbGlrZSByZWc/IEFsdGhvdWdoCj4gPiB0aGlzIGlzIG9ubHkgbXkgcGVy
-c29uYWwgZmVlbCwgYW5kIGxhYmVsIHJlYWxseSBuZWVkcyB0byBiZSByZW9yZGVyZWQKPiA+IHRo
-ZW4uCj4gPiAKPiAKPiBTdGF0dXMgbGVkIGRlc2NyaXB0aW9uIGhlcmUgZG9lcyBpbnN0ZWFkIGJl
-bG9uZyBpbiBqaDcxMTAtY29tbW9uLmR0c2kKPiBzaW5jZSBhbGwgdmFyaWFudCBib2FyZHMgYXJl
-IHVzaW5nIHRoZSBzYW1lIFJHUElPMyAoZm91cnRoIEdQSU8gb24gUE1VCj4gZG9tYWluKS4KPiAK
-PiA+Pgo+ID4+PiBUaGUgZm9sbG93aW5nIG9yZGVyIG9mIHByb3BlcnRpZXMgaW4gZGV2aWNlIG5v
-ZGVzIGlzIHByZWZlcnJlZDoKPiA+Pj4KPiA+Pj4gMS4gImNvbXBhdGlibGUiCj4gPj4+IDIuICJy
-ZWciCj4gPj4+IDMuICJyYW5nZXMiCj4gPj4+IDQuIFN0YW5kYXJkL2NvbW1vbiBwcm9wZXJ0aWVz
-IChkZWZpbmVkIGJ5IGNvbW1vbiBiaW5kaW5ncywgZS5nLgo+ID4+PiB3aXRob3V0Cj4gPj4+IHZl
-bmRvci1wcmVmaXhlcykKPiA+Pj4gNS4gVmVuZG9yLXNwZWNpZmljIHByb3BlcnRpZXMKPiA+Pj4g
-Ni4gInN0YXR1cyIgKGlmIGFwcGxpY2FibGUpCj4gPj4+IDcuIENoaWxkIG5vZGVzLCB3aGVyZSBl
-YWNoIG5vZGUgaXMgcHJlY2VkZWQgd2l0aCBhIGJsYW5rIGxpbmUKPiA+Pgo+ID4+PiArwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiA+Pj4gK8KgwqDCoMKgwqDCoMKgfTsKPiA+Pj4g
-K307Cj4gPj4+ICsKPiA+Pj4gKyZnbWFjMCB7Cj4gPj4+ICvCoMKgwqDCoMKgwqDCoHN0YXJmaXZl
-LHR4LXVzZS1yZ21paS1jbGs7Cj4gPj4+ICvCoMKgwqDCoMKgwqDCoGFzc2lnbmVkLWNsb2NrcyA9
-IDwmYW9uY3JnIEpINzExMF9BT05DTEtfR01BQzBfVFg+Owo+ID4+PiArwqDCoMKgwqDCoMKgwqBh
-c3NpZ25lZC1jbG9jay1wYXJlbnRzID0gPCZhb25jcmcKPiA+Pj4gSkg3MTEwX0FPTkNMS19HTUFD
-MF9STUlJX1JUWD47Cj4gPj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJva2F5IjsKPiA+Pgo+
-ID4+IFZlbmRvciBwcm9wZXJ0eSBzdGFyZml2ZSx0eC11c2UtcmdtaWktY2xrIHNob3VsZCBnbyBh
-ZnRlciB0aGUgY29tbW9uCj4gPj4gb25lcy4KPiA+IAo+ID4gT2theSwgSSB3aWxsIGZpeCB0aGlz
-IChhbmQgdGhlIG9uZSBiZWxvdykgaW4gbmV4dCByZXZpc2lvbi4KPiA+IAo+ID4gVGhhbmtzLAo+
-ID4gSWNlbm93eQo+IAo+IFdlbGwgdGhlbiBkb2VzIHRoZSBkb2N1bWVudGF0aW9uIGZvbGxvdyBy
-ZWNvbW1lbmRlZCBzb3J0IG9yZGVyaW5nPwo+IAo+IGh0dHBzOi8vd3d3Lmtlcm5lbC5vcmcvZG9j
-L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9sZWRzL2NvbW1vbi55YW1sCgpJIGRv
-bid0IHRoaW5rIHNvLgoKPiBMb29rcyB0byBtZSBsaWtlIGl0IGlzIG5vdCBjbGVhciB3aGF0IGlz
-IGdvaW5nIG9uIHRoZXJlIHdpdGggc29ydAo+IG9yZGVyaW5nLiBUaGUgcmVjZW50bHkgYWNjZXB0
-ZWQgZHRzIGluLXRyZWUgYXJlIGEgbWl4IG9mICJ3aG8gY2FyZXM/IiwKPiBhbHBoYWJldCBzb3J0
-LCBhbmQgcHJlZmVyZW50aWFsbHkgYnV0IGFyYml0cmFyaWx5IHBsYWNpbmcgc29tZSB0aGluZ3MK
-PiBhYm92ZSBvdGhlcnMuIFRoZSBkb2N1bWVudGF0aW9uIGlzIGV2ZW4gZGlmZmVyZW50IHRoYW4g
-YWxsIHRoYXQuCj4gCj4gTWF5YmUgaWYgdGhlIGRvY3VtZW50YXRpb24gc2hvdWxkIGJlIGZvbGxv
-d2VkIHdlIHNob3VsZCBmb2xsb3cgaXQsIGVsc2UKPiBmaXggdGhlIGRvY3VtZW50YXRpb24gZmly
-c3RseS4KCkJhc2ljYWxseSBhZ3JlZSBoZXJlLCB0aGUgInNvcnQgYnkgYWxwaGFiZXRpY2FsIG9y
-ZGVyIiByZXF1aXJlbWVudAooZGVzY3JpYmVkIGhlcmVbMV0pIGRvZXNuJ3Qgc2VlbSB0byBwbGF5
-IHdlbGwgaW4gYWxsIGNhc2VzOiB3aGF0IEljZW5vd3kKY2xhaW1lZCBzb3VuZHMgcmVhc29uYWJs
-ZSB0byBtZSBhbmQgbG9va3MgbW9yZSBuYXR1cmFsIHRoYW4gdGhlIGdlbmVyYWwKcnVsZS4gU28g
-bWF5YmUgd2Ugc2hvdWxkICJvdmVycmlkZSIgdGhlIHJ1bGUgaW4gc3Vic3lzdGVtLXNwZWNpZmlj
-CmJpbmRpbmdzLiBJIHN1Z2dlc3QgcmFpc2luZyBhIGZvcm1hbCBkaXNjdXNzaW9uIGFib3V0IGxl
-ZHMvY29tbW9uLnlhbWwKYW5kIHNlZSB3aGV0aGVyIHRoaXMgY291bGQgbGFuZCBmb3JtYWxseSBp
-biB0aGUgbGVkJ3MgYmluZGluZywgYW5kIEknbQp3aWxsaW5nIHRvIGRvIHNvLgoKRnV0aGVybW9y
-ZSwgc2ltaWxhciBvcmRlciBpc3N1ZXMgZG9uJ3Qgb25seSBvY2N1ciBpbiB0aGUgTEVEIGJpbmRp
-bmcsCmJ1dCBhbHNvLCBmb3IgZXhhbXBsZSwgdGhlIHBpbmN0cmwgc3R1ZmYuIEluIHRoZSBleGFt
-cGxlIG9mCnBpbmN0cmwtYmluZGluZy50eHRbMl0sIHBpbmN0cmwtbmFtZXMgYWx3YXlzIGdvZXMg
-YmVmb3JlIHBpbmN0cmwtWzAtOV0qLAp3aGljaCBkb2Vzbid0IGZvbGxvdyB0aGUgZ2VuZXJhbCBy
-dWxlIGFzIHdlbGwsIGFuZCB3ZSBjb3VsZCBzZWUgdGhlCm9wcG9zaXRlIGlzIGFsc28gcG9wcHVs
-YXIgaW4gdGhlIGFjY2VwdGVkIGRldmljZXRyZWVzLiBUaGlzIHNob3VsZCBiZQpjbGFyaWZpZWQs
-IHRvby4KCj4gPiAKPiA+Pj4gK307Cj4gPj4+ICsKPiA+Pj4gKyZpMmMwIHsKPiA+Pj4gK8KgwqDC
-oMKgwqDCoMKgc3RhdHVzID0gIm9rYXkiOwo+ID4+PiArfTsKPiA+Pj4gKwo+ID4+PiArJm1tYzAg
-ewo+ID4+PiArwqDCoMKgwqDCoMKgwqAvKiBUT0RPOiBBbXBhayBBUDYyNTYgV2ktRmkgbW9kdWxl
-IGF0dGFjaGVkIGhlcmUgKi8KPiA+Pj4gK8KgwqDCoMKgwqDCoMKgc3RhdHVzID0gImRpc2FibGVk
-IjsKPiA+Pj4gK307Cj4gCj4gT3JhbmdlIFBpIFJWIHNjaGVtYXRpYyBpcyBwdWJsaXNoZWQgbm93
-LiBQbGVhc2UgaW1wbGVtZW50IHRoaXMKPiBkZXNjcmlwdGlvbiBoZXJlLgo+IAo+IFlvdSBtYXkg
-YWxzbyB3aXNoIHRvIHJldmlldyB0aGUgU3RhckZpdmUgSkg3MTAwIGRldmljZXRyZWUgZGVzY3Jp
-cHRpb25zCj4gKGFuZCBzY2hlbWF0aWMpLCBhbmQgYWRkaXRpb25hbGx5IHRoZSBwdWJsaXNoZWQg
-TWlsay1WIE1hcnMgQ00gLyBNYXJzIENNCj4gTGl0ZSBzY2hlbWF0aWMsIGZvciBjbHVlcyBhYm91
-dCBBUDYyNTYuIFRoZSByZXF1aXJlZCBmaXJtd2FyZSBmaWxlcycKPiBpbnRlbGxlY3R1YWwgcHJv
-cGVydHkgd2hlbiBkdXJpbmcgdGhlIGxhc3QgZGlzY3Vzc2lvbiBhYm91dAo+IGxpbnV4LWZpcm13
-YXJlIHdhcyBkZXRlcm1pbmVkIHRvIGJlIFN5bmFwdGljcyAobGFiZWxlZCBhcyBCcm9hZGNvbW0p
-IGFuZAo+IHJlamVjdGVkIGZyb20gaW5jbHVzaW9uIGR1ZSB0byBubyBjbGVhciBsaWNlbnNlZCBw
-ZXJtaXNzaW9uIGZvcgo+IGRpc3RyaWJ1dGlvbi4gTWF5YmUgaXQgaXMgdGltZSB0byByZXZpc2l0
-IHRoaXMgYW5kIGZpbmQgc29tZW9uZSB3aWxsaW5nCj4gdG8gZG8gdGhlIHdvcmsgb2YgcmVzb2x2
-aW5nIHRoZSBsaWNlbnNlIGFtYmlndWl0eT8KPiAKPiA+Pj4gKwo+ID4+PiArJm1tYzEgewo+ID4+
-PiArwqDCoMKgwqDCoMKgwqAvZGVsZXRlLXByb3BlcnR5LyBjZC1ncGlvczsKPiA+Pj4gK8KgwqDC
-oMKgwqDCoMKgYnJva2VuLWNkOwo+ID4+PiArfTsKPiA+Pj4gKwo+ID4+PiArJnBjaWUwIHsKPiA+
-Pj4gK8KgwqDCoMKgwqDCoMKgc3RhdHVzID0gIm9rYXkiOwo+ID4+PiArfTsKPiA+Pj4gKwo+ID4+
-PiArJnBjaWUxIHsKPiA+Pj4gK8KgwqDCoMKgwqDCoMKgc3RhdHVzID0gIm9rYXkiOwo+ID4+PiAr
-fTsKPiA+Pj4gKwo+ID4+PiArJnBoeTAgewo+ID4+PiArwqDCoMKgwqDCoMKgwqBtb3RvcmNvbW0s
-dHgtY2xrLWFkai1lbmFibGVkOwo+ID4+PiArwqDCoMKgwqDCoMKgwqBtb3RvcmNvbW0sdHgtY2xr
-LTEwLWludmVydGVkOwo+ID4+PiArwqDCoMKgwqDCoMKgwqBtb3RvcmNvbW0sdHgtY2xrLTEwMC1p
-bnZlcnRlZDsKPiA+Pj4gK8KgwqDCoMKgwqDCoMKgbW90b3Jjb21tLHR4LWNsay0xMDAwLWludmVy
-dGVkOwo+ID4+PiArwqDCoMKgwqDCoMKgwqBtb3RvcmNvbW0scngtY2xrLWRydi1taWNyb2FtcCA9
-IDwzOTcwPjsKPiA+Pj4gK8KgwqDCoMKgwqDCoMKgbW90b3Jjb21tLHJ4LWRhdGEtZHJ2LW1pY3Jv
-YW1wID0gPDI5MTA+Owo+ID4+PiArwqDCoMKgwqDCoMKgwqByeC1pbnRlcm5hbC1kZWxheS1wcyA9
-IDwxNTAwPjsKPiA+Pj4gK8KgwqDCoMKgwqDCoMKgdHgtaW50ZXJuYWwtZGVsYXktcHMgPSA8MTUw
-MD47Cj4gPj4+ICt9Owo+ID4+Cj4gPj4gRGl0dG8sIG1vdmUgdGhlIHZlbmRvciBwcm9wZXJ0aWVz
-IGJlbG93IHRoZSBjb21tb24gb25lcy4KPiAKPiBZZXMgYW5kLCBvbmUgb2YgdXMgbWF5IHJldmll
-dyB3aGF0IGlzIGFscmVhZHkgaW4gc3RhcmZpdmUvIGR0cyB0byBmaXgKPiBhbmQgc2VuZCBhIHBh
-dGNoIGZvciB0aGlzIG1lc3Mgb2YgZGV2aWNldHJlZSBzb3J0IG9yZGVyLiBUaGUgaXNzdWUKPiBy
-ZXBlYXRzIGV2ZXJ5IHRpbWUgd2UgbG9vayBmb3IgYW4gZXhpc3Rpbmcgc2FtcGxlIHRvIHVzZS4K
-Ck9vcHMsIEkndmUgbmV2ZXIgZXhwZWN0ZWQgdGhhdCB0aGVyZSdyZSBzbyBtYW55IHZlbmRvci1z
-cGVjaWZpYwpwcm9wZXJ0aWVzIG1peGVkIHdpdGggb3RoZXJzIGluIHN0YXJmaXZlJ3MgZGV2aWNl
-dHJlZXMuIEknbSB3aWxsaW5nIHRvCmNsZWFuIHRoZW0gdXAgd2hlbiBhdmFpbGFibGUsIGJ1dCBm
-ZWVsIGZyZWUgdG8gdGFrZSB0aGUgd29yayBzaW5jZSBJJ20gYQpsaXR0bGUgYnVzeS4KCj4gPj4K
-PiA+Pj4gKyZwd21kYWMgewo+ID4+PiArwqDCoMKgwqDCoMKgwqBzdGF0dXMgPSAib2theSI7Cj4g
-Pj4+ICt9Owo+ID4+PiArCj4gPj4+ICsmc3BpMCB7Cj4gPj4+ICvCoMKgwqDCoMKgwqDCoHN0YXR1
-cyA9ICJva2F5IjsKPiA+Pj4gK307Cj4gPj4+IC0tIAo+ID4+PiAyLjQ5LjAKPiA+Pj4KPiA+Pgo+
-ID4+IEJlc3QgcmVnYXJkcywKPiA+PiBZYW8gWmkKPiA+IAo+IAo+IEIuUi4sICAtRSBTaGF0dG93
-CgpSZWdhcmRzLApZYW8gWmkKClsxXTogaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGludXgv
-djYuMTYtcmM2L3NvdXJjZS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZHRzLWNv
-ZGluZy1zdHlsZS5yc3QjTDExNS1MMTI0ClsyXTogaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20v
-bGludXgvdjYuMTYtcmM2L3NvdXJjZS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mv
-cGluY3RybC9waW5jdHJsLWJpbmRpbmdzLnR4dCNMNzQtTDk3CgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+struct ktermios is not, nor has it ever been, a UAPI.  Remove it from
+the UAPI headers.
+
+Normally we have shadowed kernel-only headers that include the uapi
+ones; in this case this would be <asm/termbits.h>, however, I was
+unable to find a way by which *some* paths would still somehow pick up
+the UAPI header only (presumably due to the mix of arch-specific and
+asm-generic headers), so I separated out the kernel-specific parts
+into a new header <asm/ktermios.h>.
+
+<linux/termios.h> now has a kernel version, which only differs by
+including <asm/ktermios.h>.
+
+Signed-off-by: H. Peter Anvin <hpa@zytor.com>
+---
+ arch/alpha/include/asm/ktermios.h        |  2 ++
+ arch/alpha/include/uapi/asm/termbits.h   | 17 ++--------------
+ arch/arc/include/asm/ktermios.h          |  1 +
+ arch/arm/include/asm/ktermios.h          |  1 +
+ arch/arm64/include/asm/ktermios.h        |  1 +
+ arch/csky/include/asm/ktermios.h         |  1 +
+ arch/hexagon/include/asm/ktermios.h      |  1 +
+ arch/loongarch/include/asm/ktermios.h    |  1 +
+ arch/m68k/include/asm/ktermios.h         |  1 +
+ arch/microblaze/include/asm/ktermios.h   |  1 +
+ arch/mips/include/asm/ktermios.h         |  1 +
+ arch/mips/include/uapi/asm/termbits.h    | 15 ++------------
+ arch/nios2/include/asm/ktermios.h        |  1 +
+ arch/openrisc/include/asm/ktermios.h     |  1 +
+ arch/parisc/include/asm/ktermios.h       |  1 +
+ arch/parisc/include/uapi/asm/termbits.h  | 15 ++------------
+ arch/powerpc/include/asm/ktermios.h      |  2 ++
+ arch/powerpc/include/uapi/asm/termbits.h | 13 ------------
+ arch/riscv/include/asm/ktermios.h        |  1 +
+ arch/s390/include/asm/ktermios.h         |  1 +
+ arch/sh/include/asm/ktermios.h           |  1 +
+ arch/sparc/include/asm/ktermios.h        | 11 ++++++++++
+ arch/sparc/include/asm/termbits.h        |  9 --------
+ arch/um/include/asm/ktermios.h           |  1 +
+ arch/x86/include/asm/ktermios.h          |  1 +
+ arch/xtensa/include/asm/ktermios.h       |  1 +
+ include/asm-generic/ktermios.h           | 26 ++++++++++++++++++++++++
+ include/linux/termios.h                  |  7 +++++++
+ include/uapi/asm-generic/termbits.h      | 15 ++------------
+ include/uapi/linux/termios.h             |  4 ++--
+ 30 files changed, 76 insertions(+), 78 deletions(-)
+ create mode 100644 arch/alpha/include/asm/ktermios.h
+ create mode 100644 arch/arc/include/asm/ktermios.h
+ create mode 100644 arch/arm/include/asm/ktermios.h
+ create mode 100644 arch/arm64/include/asm/ktermios.h
+ create mode 100644 arch/csky/include/asm/ktermios.h
+ create mode 100644 arch/hexagon/include/asm/ktermios.h
+ create mode 100644 arch/loongarch/include/asm/ktermios.h
+ create mode 100644 arch/m68k/include/asm/ktermios.h
+ create mode 100644 arch/microblaze/include/asm/ktermios.h
+ create mode 100644 arch/mips/include/asm/ktermios.h
+ create mode 100644 arch/nios2/include/asm/ktermios.h
+ create mode 100644 arch/openrisc/include/asm/ktermios.h
+ create mode 100644 arch/parisc/include/asm/ktermios.h
+ create mode 100644 arch/powerpc/include/asm/ktermios.h
+ create mode 100644 arch/riscv/include/asm/ktermios.h
+ create mode 100644 arch/s390/include/asm/ktermios.h
+ create mode 100644 arch/sh/include/asm/ktermios.h
+ create mode 100644 arch/sparc/include/asm/ktermios.h
+ delete mode 100644 arch/sparc/include/asm/termbits.h
+ create mode 100644 arch/um/include/asm/ktermios.h
+ create mode 100644 arch/x86/include/asm/ktermios.h
+ create mode 100644 arch/xtensa/include/asm/ktermios.h
+ create mode 100644 include/asm-generic/ktermios.h
+ create mode 100644 include/linux/termios.h
+
+diff --git a/arch/alpha/include/asm/ktermios.h b/arch/alpha/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..f1e3d24b8e61
+--- /dev/null
++++ b/arch/alpha/include/asm/ktermios.h
+@@ -0,0 +1,2 @@
++#define KTERMIOS_C_CC_BEFORE_C_LINE 1
++#include <asm-generic/ktermios.h>
+diff --git a/arch/alpha/include/uapi/asm/termbits.h b/arch/alpha/include/uapi/asm/termbits.h
+index f1290b22072b..50a1b468b81c 100644
+--- a/arch/alpha/include/uapi/asm/termbits.h
++++ b/arch/alpha/include/uapi/asm/termbits.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-#ifndef _ALPHA_TERMBITS_H
+-#define _ALPHA_TERMBITS_H
++#ifndef _UAPI_ALPHA_TERMBITS_H
++#define _UAPI_ALPHA_TERMBITS_H
+ 
+ #include <asm-generic/termbits-common.h>
+ 
+@@ -37,19 +37,6 @@ struct termios2 {
+ 	speed_t c_ospeed;		/* output speed */
+ };
+ 
+-/* Alpha has matching termios and ktermios */
+-
+-struct ktermios {
+-	tcflag_t c_iflag;		/* input mode flags */
+-	tcflag_t c_oflag;		/* output mode flags */
+-	tcflag_t c_cflag;		/* control mode flags */
+-	tcflag_t c_lflag;		/* local mode flags */
+-	cc_t c_cc[NCCS];		/* control characters */
+-	cc_t c_line;			/* line discipline (== c_cc[19]) */
+-	speed_t c_ispeed;		/* input speed */
+-	speed_t c_ospeed;		/* output speed */
+-};
+-
+ /* c_cc characters */
+ #define VEOF		 0
+ #define VEOL		 1
+diff --git a/arch/arc/include/asm/ktermios.h b/arch/arc/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/arc/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/arm/include/asm/ktermios.h b/arch/arm/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/arm/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/arm64/include/asm/ktermios.h b/arch/arm64/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/arm64/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/csky/include/asm/ktermios.h b/arch/csky/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/csky/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/hexagon/include/asm/ktermios.h b/arch/hexagon/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/hexagon/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/loongarch/include/asm/ktermios.h b/arch/loongarch/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/loongarch/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/m68k/include/asm/ktermios.h b/arch/m68k/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/m68k/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/microblaze/include/asm/ktermios.h b/arch/microblaze/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/microblaze/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/mips/include/asm/ktermios.h b/arch/mips/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/mips/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/mips/include/uapi/asm/termbits.h b/arch/mips/include/uapi/asm/termbits.h
+index 1eb60903d6f0..dacefee984d6 100644
+--- a/arch/mips/include/uapi/asm/termbits.h
++++ b/arch/mips/include/uapi/asm/termbits.h
+@@ -8,8 +8,8 @@
+  * Copyright (C) 1999 Silicon Graphics, Inc.
+  * Copyright (C) 2001 MIPS Technologies, Inc.
+  */
+-#ifndef _ASM_TERMBITS_H
+-#define _ASM_TERMBITS_H
++#ifndef _UAPI_ASM_TERMBITS_H
++#define _UAPI_ASM_TERMBITS_H
+ 
+ #include <asm-generic/termbits-common.h>
+ 
+@@ -40,17 +40,6 @@ struct termios2 {
+ 	speed_t c_ospeed;		/* output speed */
+ };
+ 
+-struct ktermios {
+-	tcflag_t c_iflag;		/* input mode flags */
+-	tcflag_t c_oflag;		/* output mode flags */
+-	tcflag_t c_cflag;		/* control mode flags */
+-	tcflag_t c_lflag;		/* local mode flags */
+-	cc_t c_line;			/* line discipline */
+-	cc_t c_cc[NCCS];		/* control characters */
+-	speed_t c_ispeed;		/* input speed */
+-	speed_t c_ospeed;		/* output speed */
+-};
+-
+ /* c_cc characters */
+ #define VINTR		 0		/* Interrupt character [ISIG] */
+ #define VQUIT		 1		/* Quit character [ISIG] */
+diff --git a/arch/nios2/include/asm/ktermios.h b/arch/nios2/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/nios2/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/openrisc/include/asm/ktermios.h b/arch/openrisc/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/openrisc/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/parisc/include/asm/ktermios.h b/arch/parisc/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/parisc/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/parisc/include/uapi/asm/termbits.h b/arch/parisc/include/uapi/asm/termbits.h
+index 3a8938d26fb4..d8818b887680 100644
+--- a/arch/parisc/include/uapi/asm/termbits.h
++++ b/arch/parisc/include/uapi/asm/termbits.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-#ifndef __ARCH_PARISC_TERMBITS_H__
+-#define __ARCH_PARISC_TERMBITS_H__
++#ifndef _UAPI_PARISC_TERMBITS_H
++#define _UAPI_PARISC_TERMBITS_H
+ 
+ #include <asm-generic/termbits-common.h>
+ 
+@@ -27,17 +27,6 @@ struct termios2 {
+ 	speed_t c_ospeed;		/* output speed */
+ };
+ 
+-struct ktermios {
+-	tcflag_t c_iflag;		/* input mode flags */
+-	tcflag_t c_oflag;		/* output mode flags */
+-	tcflag_t c_cflag;		/* control mode flags */
+-	tcflag_t c_lflag;		/* local mode flags */
+-	cc_t c_line;			/* line discipline */
+-	cc_t c_cc[NCCS];		/* control characters */
+-	speed_t c_ispeed;		/* input speed */
+-	speed_t c_ospeed;		/* output speed */
+-};
+-
+ /* c_cc characters */
+ #define VINTR		 0
+ #define VQUIT		 1
+diff --git a/arch/powerpc/include/asm/ktermios.h b/arch/powerpc/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..f1e3d24b8e61
+--- /dev/null
++++ b/arch/powerpc/include/asm/ktermios.h
+@@ -0,0 +1,2 @@
++#define KTERMIOS_C_CC_BEFORE_C_LINE 1
++#include <asm-generic/ktermios.h>
+diff --git a/arch/powerpc/include/uapi/asm/termbits.h b/arch/powerpc/include/uapi/asm/termbits.h
+index 21dc86dcb2f1..f4e4d8270c8e 100644
+--- a/arch/powerpc/include/uapi/asm/termbits.h
++++ b/arch/powerpc/include/uapi/asm/termbits.h
+@@ -31,19 +31,6 @@ struct termios {
+ 	speed_t c_ospeed;		/* output speed */
+ };
+ 
+-/* For PowerPC the termios and ktermios are the same */
+-
+-struct ktermios {
+-	tcflag_t c_iflag;		/* input mode flags */
+-	tcflag_t c_oflag;		/* output mode flags */
+-	tcflag_t c_cflag;		/* control mode flags */
+-	tcflag_t c_lflag;		/* local mode flags */
+-	cc_t c_cc[NCCS];		/* control characters */
+-	cc_t c_line;			/* line discipline (== c_cc[19]) */
+-	speed_t c_ispeed;		/* input speed */
+-	speed_t c_ospeed;		/* output speed */
+-};
+-
+ /* c_cc characters */
+ #define VINTR 	         0
+ #define VQUIT 	         1
+diff --git a/arch/riscv/include/asm/ktermios.h b/arch/riscv/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/riscv/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/s390/include/asm/ktermios.h b/arch/s390/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/s390/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/sh/include/asm/ktermios.h b/arch/sh/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/sh/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/sparc/include/asm/ktermios.h b/arch/sparc/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..bdd3682eecef
+--- /dev/null
++++ b/arch/sparc/include/asm/ktermios.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _SPARC_KTERMIOS_H
++#define _SPARC_KTERMIOS_H
++
++#define VMIN     16
++#define VTIME    17
++#define KNCCS	 (NCCS+2)
++
++#include <asm-generic/ktermios.h>
++
++#endif /* !(_SPARC_KTERMIOS_H) */
+diff --git a/arch/sparc/include/asm/termbits.h b/arch/sparc/include/asm/termbits.h
+deleted file mode 100644
+index fa9de4a46d36..000000000000
+--- a/arch/sparc/include/asm/termbits.h
++++ /dev/null
+@@ -1,9 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#ifndef _SPARC_TERMBITS_H
+-#define _SPARC_TERMBITS_H
+-
+-#include <uapi/asm/termbits.h>
+-
+-#define VMIN     16
+-#define VTIME    17
+-#endif /* !(_SPARC_TERMBITS_H) */
+diff --git a/arch/um/include/asm/ktermios.h b/arch/um/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/um/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/x86/include/asm/ktermios.h b/arch/x86/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/x86/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/arch/xtensa/include/asm/ktermios.h b/arch/xtensa/include/asm/ktermios.h
+new file mode 100644
+index 000000000000..4320921a82a9
+--- /dev/null
++++ b/arch/xtensa/include/asm/ktermios.h
+@@ -0,0 +1 @@
++#include <asm-generic/ktermios.h>
+diff --git a/include/asm-generic/ktermios.h b/include/asm-generic/ktermios.h
+new file mode 100644
+index 000000000000..bf22e22d8130
+--- /dev/null
++++ b/include/asm-generic/ktermios.h
+@@ -0,0 +1,26 @@
++#ifndef _ASM_GENERIC_KTERMIOS_H
++#define _ASM_GENERIC_KTERMIOS_H
++
++#ifndef KNCCS
++# define KNCCS NCCS
++#endif
++
++struct ktermios {
++	tcflag_t c_iflag;		/* input mode flags */
++	tcflag_t c_oflag;		/* output mode flags */
++	tcflag_t c_cflag;		/* control mode flags */
++	tcflag_t c_lflag;		/* local mode flags */
++#ifndef KTERMIOS_C_CC_BEFORE_C_LINE
++	/* Most architectures */
++	cc_t c_line;			/* line discipline */
++	cc_t c_cc[KNCCS];		/* control characters */
++#else
++	/* Alpha and PowerPC */
++	cc_t c_cc[KNCCS];		/* control characters */
++	cc_t c_line;			/* line discipline */
++#endif
++	speed_t c_ispeed;		/* input speed */
++	speed_t c_ospeed;		/* output speed */
++};
++
++#endif /* _ASM_GENERIC_KTERMIOS_H */
+diff --git a/include/linux/termios.h b/include/linux/termios.h
+new file mode 100644
+index 000000000000..9d37d24cae02
+--- /dev/null
++++ b/include/linux/termios.h
+@@ -0,0 +1,7 @@
++#ifndef _LINUX_TERMIOS_H
++#define _LINUX_TERMIOS_H
++
++#include <uapi/linux/termios.h>
++#include <asm/ktermios.h>
++
++#endif
+diff --git a/include/uapi/asm-generic/termbits.h b/include/uapi/asm-generic/termbits.h
+index 890ef29053e2..df60b006657f 100644
+--- a/include/uapi/asm-generic/termbits.h
++++ b/include/uapi/asm-generic/termbits.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-#ifndef __ASM_GENERIC_TERMBITS_H
+-#define __ASM_GENERIC_TERMBITS_H
++#ifndef _UAPI_ASM_GENERIC_TERMBITS_H
++#define _UAPI_ASM_GENERIC_TERMBITS_H
+ 
+ #include <asm-generic/termbits-common.h>
+ 
+@@ -27,17 +27,6 @@ struct termios2 {
+ 	speed_t c_ospeed;		/* output speed */
+ };
+ 
+-struct ktermios {
+-	tcflag_t c_iflag;		/* input mode flags */
+-	tcflag_t c_oflag;		/* output mode flags */
+-	tcflag_t c_cflag;		/* control mode flags */
+-	tcflag_t c_lflag;		/* local mode flags */
+-	cc_t c_line;			/* line discipline */
+-	cc_t c_cc[NCCS];		/* control characters */
+-	speed_t c_ispeed;		/* input speed */
+-	speed_t c_ospeed;		/* output speed */
+-};
+-
+ /* c_cc characters */
+ #define VINTR		 0
+ #define VQUIT		 1
+diff --git a/include/uapi/linux/termios.h b/include/uapi/linux/termios.h
+index e6da9d4433d1..32ff18b0dfbc 100644
+--- a/include/uapi/linux/termios.h
++++ b/include/uapi/linux/termios.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-#ifndef _LINUX_TERMIOS_H
+-#define _LINUX_TERMIOS_H
++#ifndef _UAPI_LINUX_TERMIOS_H
++#define _UAPI_LINUX_TERMIOS_H
+ 
+ #include <linux/types.h>
+ #include <asm/termios.h>
+-- 
+2.50.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
