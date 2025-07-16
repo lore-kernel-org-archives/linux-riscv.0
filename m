@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69952C83F22
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 13:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96426C83F22
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jul 2025 13:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C9yU+hIg/F7v2yFengWQsiojQQ9Co+3sQFuiRtLAaUk=; b=ylzRzpGfdyjLQu
-	BbGhVJnmdt9NKDX0x9jluXirz9yW7wLp4imWftxM6JoFJztiDrksBgsejXSx1ltHwMf1w43/8z/Zk
-	ymbBZRyqJsCOq3Rc2q2P31l3YJDJMl+JNxHTMr1B2eDdKb56y8KUcGNxlAydkWXLMD9wEnyGI0xNb
-	o19dAyBJRdtq9bB7PMHIoT9ziI+3ljvAdS6fath7eR0wVFyqHwF+CstUgpMvS8W8CHDAsSY4OG2ab
-	/ShGcPjEAk8f9mJxtaFIxz9P6bAFyFhn77r0vFLu9fFdF7qpaJ6+5X7/dFiwYiJvlVelvjBjA+6c4
-	LHBilKrmlFZk+ohlYbZA==;
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J4UbQDT6htJ5UovJuEmsPGRXzBHqE37VuF7qPYWw0pM=; b=GcpvkDpH+04BOSisU/8gdKkPL9
+	jL95tIhSQzWj+f3pehv5RQWGe6fnQiIyNETUj5tw/s/tjq1uxc2Rgx3ist3yZCLGIXdKvYBLNo+a2
+	KHhKiV8lUYR4W8KAiE4F38GZ0rBkWg1iJ+aWG6COvg1ERAdnS7kWsh9D7p6u1DvqQU1JowVPNqSmm
+	rXXKFtGWdHE4OvYeTXPbfAYb9KLWOEuqte642EhE3mFyiKma0z8Aa1QVLg7Cu9HF7RRfIxlDjeh7Y
+	2+4q43DXpu/UJ2rBzHk1vMUK6NsppZ4tr53cRxuXXvicUY8A24iwEKe8tnu9vSUwIrZspi2JCWuOm
+	s0olDwOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1v8-00000007lSP-0Kwl;
-	Wed, 16 Jul 2025 13:11:38 +0000
-Received: from relay16.mail.gandi.net ([217.70.178.236])
+	id 1uc25y-00000007mfU-2Ow1;
+	Wed, 16 Jul 2025 13:22:50 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1tC-00000007lHr-1qsQ
+	id 1uc25w-00000007mf8-0bRe
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Jul 2025 13:09:40 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D141244984;
-	Wed, 16 Jul 2025 13:09:30 +0000 (UTC)
-Message-ID: <7e22a448-3cee-4475-b69b-3dd45b57f168@ghiti.fr>
-Date: Wed, 16 Jul 2025 15:09:30 +0200
+	Wed, 16 Jul 2025 13:22:49 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 164B743D47;
+	Wed, 16 Jul 2025 13:22:37 +0000 (UTC)
+Message-ID: <74f147f3-c671-41f0-bfe7-a59aadc73f1b@ghiti.fr>
+Date: Wed, 16 Jul 2025 15:22:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Implement endianess swap macros for RISC-V
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Ignacio Encinas <ignacio@iencinas.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
- skhan@linuxfoundation.org, Zhihang Shao <zhihang.shao.iscas@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- linux-arch@vger.kernel.org
-References: <20250426-riscv-swab-v4-0-64201404a68c@iencinas.com>
- <57352cc0-420b-42e6-a493-2764794a5206@ghiti.fr>
- <aae8559c-88d2-4882-92cd-7e906eb8b7d6@ghiti.fr>
+Subject: Re: [PATCH v8 00/24] Linux SBI MPXY and RPMI drivers
+To: Anup Patel <apatel@ventanamicro.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Thomas Gleixner <tglx@linutronix.de>, "Rafael J . Wysocki"
+ <rafael@kernel.org>, Mika Westerberg <mika.westerberg@linux.intel.com>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+References: <20250704070356.1683992-1-apatel@ventanamicro.com>
 Content-Language: en-US
-In-Reply-To: <aae8559c-88d2-4882-92cd-7e906eb8b7d6@ghiti.fr>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250704070356.1683992-1-apatel@ventanamicro.com>
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehjeejlecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffhvfevfhgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepfeelheeluddtheekudfhveduiefgueefueffvdduvdejvdekueegueetleefveegnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpihhnfhhrrgguvggrugdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeelhedtugemfhgtgeeimeejjeelvgemvdhfvgefnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeelhedtugemfhgtgeeimeejjeelvgemvdhfvgefpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeelhedtugemfhgtgeeimeejjeelvgemvdhfvgefngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeduvddprhgtphhtthhopehighhnrggtihhosehivghntghinhgrshdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfi
- hhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtohepvggsihhgghgvrhhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlqdhmvghnthgvvghssehlihhsthhsrdhlihhnuhigrdguvghv
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehjeekvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepueekjeefieeikeevvefhtddtteevgefgtdffheegieegkeffueeujefhjefftdeinecuffhomhgrihhnpehgihhthhhusgdrtghomhdpkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemleehtdgumehftgegieemjeejlegvmedvfhgvfeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemleehtdgumehftgegieemjeejlegvmedvfhgvfedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemleehtdgumehftgegieemjeejlegvmedvfhgvfegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepvdelpdhrtghpthhtoheprghprghtvghlsehvvghnthgrnhgrmhhitghrohdrtghomhdprhgtphhtthhopehmthhurhhquhgvthhtvgessggrhihlihgsr
+ hgvrdgtohhmpdhrtghpthhtohepshgsohihugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhgrshhsihhsihhnghhhsghrrghrsehgmhgrihhlrdgtohhmpdhrtghpthhtohepthhglhigsehlihhnuhhtrhhonhhigidruggv
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_060938_610083_90BA136F 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250716_062248_320253_187D9373 
+X-CRM114-Status: GOOD (  26.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,72 +67,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSWduYWNpbywKCkNhbiB5b3UgY29tZSB1cCB3aXRoIGEgbmV3IHZlcnNpb24gdGhhdCBvbmx5
-IHRvdWNoZXMgdGhlIHJpc2N2IHRyZWUgc28gCnRoYXQgd2UgY2FuIG1lcmdlIHRoaXMgaW4gNi4x
-Nz8gTm90IGlkZWFsIGJ1dCBJIGd1ZXNzIHdlIGNhbiBsaXZlIHdpdGggCmNvZGUgZHVwbGljYXRp
-b24gZm9yIG5vdy4KClRoYW5rcywKCkFsZXgKCk9uIDcvOS8yNSAxNzoxMiwgQWxleGFuZHJlIEdo
-aXRpIHdyb3RlOgo+IEhpIEFybmQsCj4KPiBHZW50bGUgcGluZyBhcyB3ZSB3b3VsZCBsaWtlIHRv
-IG1lcmdlIHRoaXMgaW4gdGhlIHJpc2N2IHRyZWUgYnV0IHdlIAo+IG5lZWQgeW91ciBhY2sgKG9y
-IG5hY2spLgo+Cj4gVGhhbmtzLAo+Cj4gQWxleAo+Cj4gT24gNS8xNi8yNSAxNjozNywgQWxleGFu
-ZHJlIEdoaXRpIHdyb3RlOgo+PiBIaSBBcm5kLAo+Pgo+PiBEbyB5b3UgdGhpbmsgd2UgY2FuIG1l
-cmdlIHRoYXQgZm9yIDYuMTY/IEl0IGlzIG5pY2UgaW1wcm92ZW1lbnQgZm9yIHVzLgo+Pgo+PiBU
-aGFua3MsCj4+Cj4+IEFsZXgKPj4KPj4gT24gMjYvMDQvMjAyNSAxNjo1NiwgSWduYWNpbyBFbmNp
-bmFzIHdyb3RlOgo+Pj4gTW90aXZhdGVkIGJ5IFsxXS4gQSBjb3VwbGUgb2YgdGhpbmdzIHRvIG5v
-dGU6Cj4+Pgo+Pj4gUklTQy1WIG5lZWRzIGEgZGVmYXVsdCBpbXBsZW1lbnRhdGlvbiB0byBmYWxs
-IGJhY2sgb24uIFRoZXJlIGlzIG9uZQo+Pj4gYXZhaWxhYmxlIGluIGluY2x1ZGUvdWFwaS9saW51
-eC9zd2FiLmggYnV0IHRoYXQgaGVhZGVyIGNhbid0IGJlIAo+Pj4gaW5jbHVkZWQKPj4+IGZyb20g
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2FiLmguIFRoZXJlZm9yZSwgdGhlIGZpcnN0IHBhdGNo
-IGluIHRoaXMKPj4+IHNlcmllcyBtb3ZlcyB0aGUgZGVmYXVsdCBpbXBsZW1lbnRhdGlvbiBpbnRv
-IGFzbS1nZW5lcmljLgo+Pj4KPj4+IFRlc3RlZCB3aXRoIGNyY19rdW5pdCBhcyBwb2ludGVkIG91
-dCBoZXJlIFsyXS4gSSBjYW4ndCBwcm92aWRlCj4+PiBwZXJmb3JtYW5jZSBudW1iZXJzIGFzIEkg
-ZG9uJ3QgaGF2ZSBSSVNDLVYgaGFyZHdhcmUgeWV0Lgo+Pj4KPj4+IFsxXSAKPj4+IGh0dHBzOi8v
-bG9yZS5rZXJuZWwub3JnL2FsbC8yMDI1MDMwMjIyMDQyNi5HQzIwNzlAcXVhcmsubG9jYWxkb21h
-aW4vCj4+PiBbMl0gCj4+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNTAyMTYyMjU1
-MzAuMzA2OTgwLTEtZWJpZ2dlcnNAa2VybmVsLm9yZy8gCj4+Pgo+Pj4KPj4+IFNpZ25lZC1vZmYt
-Ynk6IElnbmFjaW8gRW5jaW5hcyA8aWduYWNpb0BpZW5jaW5hcy5jb20+Cj4+PiAtLS0KPj4+IENo
-YW5nZXMgaW4gdjQ6Cj4+Pgo+Pj4gLSBBZGQgbWlzc2luZyBpbmNsdWRlIGluIHRoZSAxc3QgcGF0
-Y2gsIHJlcG9ydGVkIGJ5Cj4+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNTA0MDQy
-MzAwLml0OVJjT1N0LWxrcEBpbnRlbC5jb20vCj4+PiAtIFJld3JpdGUgdGhlIEFSQ0hfU1dBQiBt
-YWNybyBhcyBzdWdnZXN0ZWQgYnkgQXJuZAo+Pj4gLSBEZWZpbmUgX19hcmNoX3N3YWI2NCBmb3Ig
-Q09ORklHXzMyQklUIChCZW4pCj4+PiAtIExpbmsgdG8gdjM6IAo+Pj4gaHR0cHM6Ly9sb3JlLmtl
-cm5lbC5vcmcvci8yMDI1MDQwMy1yaXNjdi1zd2FiLXYzLTAtM2JmNzA1ZDgwZTMzQGllbmNpbmFz
-LmNvbQo+Pj4KPj4+IEFybmQsIEkga25vdyB5b3UgZG9uJ3QgbGlrZSBQYXRjaCAxIGJ1dCBJIHRy
-aWVkIHlvdXIgc3VnZ2VzdGlvbnMgYW5kCj4+PiBjb3VsZG4ndCBtYWtlIHRoZW0gd29yay4gUGxl
-YXNlIGxldCBtZSBrbm93IGlmIEkgbWlzc2VkIGFueXRoaW5nIFszXSAKPj4+IFs0XQo+Pj4KPj4+
-IFszXSAKPj4+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2L2Y1NDY0ZTI2LWZh
-YTAtNDhmMS04NTg1LTljZTUyYzhjOWY1ZkBpZW5jaW5hcy5jb20vCj4+PiBbNF0gCj4+PiBodHRw
-czovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi9iM2I1OTc0Ny0wNDg0LTQwNDItYmRjNC1j
-MDY3Njg4ZTNiZmVAaWVuY2luYXMuY29tLwo+Pj4KPj4+IENoYW5nZXMgaW4gdjM6Cj4+Pgo+Pj4g
-UEFUQ0ggMjoKPj4+IMKgwqAgVXNlIGlmKHJpc2N2X2hhc19leHRlbnNpb25fbGlrZWx5KSBpbnN0
-ZWFkIG9mIGFzbSBnb3RvIChFcmljKS4gSXQKPj4+IMKgwqAgbG9va3MgbGlrZSBib3RoIHZlcnNp
-b25zIGdlbmVyYXRlIHRoZSBzYW1lIGFzc2VtYmx5LiBQZXJoYXBzIHdlIAo+Pj4gc2hvdWxkCj4+
-PiDCoMKgIGRvIHRoZSBzYW1lIGNoYW5nZSBpbiBvdGhlciBwbGFjZXMgc3VjaCBhcyAKPj4+IGFy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vYml0b3BzLmgKPj4+IC0gTGluayB0byB2MjogCj4+PiBodHRw
-czovL2xvcmUua2VybmVsLm9yZy9yLzIwMjUwMzE5LXJpc2N2LXN3YWItdjItMC1kNTNiNmQ2YWI5
-MTVAaWVuY2luYXMuY29tCj4+Pgo+Pj4gQ2hhbmdlcyBpbiB2MjoKPj4+IC0gSW50cm9kdWNlIGZp
-cnN0IHBhdGNoIGZhY3RvcmluZyBvdXQgdGhlIGRlZmF1bHQgaW1wbGVtZW50YXRpb24gaW50bwo+
-Pj4gwqDCoCBhc20tZ2VuZXJpYwo+Pj4gLSBSZW1vdmUgYmxhbmsgbGluZSB0byBtYWtlIGNoZWNr
-cGF0Y2ggaGFwcHkKPj4+IC0gTGluayB0byB2MTogCj4+PiBodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9yLzIwMjUwMzEwLXJpc2N2LXN3YWItdjEtMS0zNDY1MmVmMWVlOTZAaWVuY2luYXMuY29tCj4+
-Pgo+Pj4gLS0tCj4+PiBJZ25hY2lvIEVuY2luYXMgKDIpOgo+Pj4gwqDCoMKgwqDCoMKgIGluY2x1
-ZGUvdWFwaS9saW51eC9zd2FiLmg6IG1vdmUgZGVmYXVsdCBpbXBsZW1lbnRhdGlvbiBmb3IgCj4+
-PiBzd2FiIG1hY3JvcyBpbnRvIGFzbS1nZW5lcmljCj4+PiDCoMKgwqDCoMKgwqAgcmlzY3Y6IGlu
-dHJvZHVjZSBhc20vc3dhYi5oCj4+Pgo+Pj4gwqAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2Fi
-LmjCoMKgIHwgNjIgCj4+PiArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-Kwo+Pj4gwqAgaW5jbHVkZS91YXBpL2FzbS1nZW5lcmljL3N3YWIuaCB8IDMzICsrKysrKysrKysr
-KysrKysrKysrKysKPj4+IMKgIGluY2x1ZGUvdWFwaS9saW51eC9zd2FiLmjCoMKgwqDCoMKgwqAg
-fCAzMyArLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4+PiDCoCAzIGZpbGVzIGNoYW5nZWQsIDk2IGlu
-c2VydGlvbnMoKyksIDMyIGRlbGV0aW9ucygtKQo+Pj4gLS0tCj4+PiBiYXNlLWNvbW1pdDogYTdm
-MmUxMGVjZDhmMThiODM5NTFiMGJhYjQ3ZGRhZjQ4ZjkzYmY0Nwo+Pj4gY2hhbmdlLWlkOiAyMDI1
-MDMwNy1yaXNjdi1zd2FiLWI4MWI5NGE5YWMxYgo+Pj4KPj4+IEJlc3QgcmVnYXJkcywKPgo+IF9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Anup,
+
+On 7/4/25 09:03, Anup Patel wrote:
+> The SBI v3.0 (MPXY extension) [1] and RPMI v1.0 [2] specifications
+> are frozen and finished public review at the RISC-V International.
+>
+> Currently, most of the RPMI and MPXY drivers are in OpenSBI whereas
+> Linux only has SBI MPXY mailbox controller driver, RPMI clock driver
+> and RPMI system MSI driver This series also includes ACPI support
+> for SBI MPXY mailbox controller and RPMI system MSI drivers.
+>
+> These patches can be found in the riscv_sbi_mpxy_mailbox_v8 branch
+> at: https://github.com/avpatel/linux.git
+>
+> To test these patches, boot Linux on "virt,rpmi=on,aia=aplic-imsic"
+> machine with OpenSBI and QEMU from the dev-upstream branch at:
+> https://github.com/ventanamicro/opensbi.git
+> https://github.com/ventanamicro/qemu.git
+>
+> [1] https://github.com/riscv-non-isa/riscv-sbi-doc/releases
+> [2] https://github.com/riscv-non-isa/riscv-rpmi/releases
+>
+> Changes since v7:
+>   - Addressed comments on PATCH3, PATCH7, PATCH10, PATCH14, and PATCH21
+>
+> Changes since v6:
+>   - Rebased the series on Linux-6.16-rc4
+>   - Added Stephen's Reviewed-by in appropriate patches
+>   - Addressed Andy's comments on PATCH5, PATCH6, PATCH9, and PATCH14
+>   - New PATCH6 in this series which is factored-out from PATCH7
+>
+> Changes since v5:
+>   - Rebased the series on Linux-6.16-rc2
+>   - Added Conor's Reviewed-by in all DT binding patches
+>   - Addressed Andy's comments on PATCH5
+>   - Addressed Tglx's comments on PATCH12 and PATCH21
+>
+> Changes since v4:
+>   - Rebased the series on Linux-6.16-rc1
+>   - Dropped PATCH1 since a similar change is already merged
+>     https://lore.kernel.org/linux-riscv/20250523101932.1594077-4-cleger@rivosinc.com/
+>   - Addressed Andy's comments on PATCH4, PATCH5, PATCH6, PATCH7,
+>     PATCH13, and PATCH17
+>   - Addressed Atish's comments on PATCH11 and PATCH12
+>   - Addressed Conor's comments on PATCH9
+>
+> Changes since v3:
+>   - Rebased the series on Linux-6.15-rc7
+>   - Updated PATCH2 DT bindings as-per Rob's suggestion
+>   - Improved request_threaded_irq() usage in PATCH7
+>   - Updated PATCH10 clk-rpmi driver as-per commments from Andy
+>   - Updated PATCH13 irq-riscv-rpmi-sysmsi driver as-per comments
+>     from Andy and Tglx
+>   - Addressed ACPI related comments in PATCH14, PATCH15, PATCH18,
+>     PATCH20 and PATCH21
+>
+> Changes since v2:
+>   - Dropped the "RFC" tag from series since the SBI v3.0 and
+>     RPMI v1.0 specifications are now frozen
+>   - Rebased the series on Linux-6.15-rc5
+>   - Split PATCH8 of v2 into two patches adding separate DT
+>     bindings for "riscv,rpmi-mpxy-clock" and "riscv,rpmi-clock"
+>   - Split PATCH10 of v2 into two patches adding separate DT
+>     bindings for "riscv,rpmi-mpxy-system-msi" and
+>     "riscv,rpmi-system-msi"
+>   - Addressed comments from TGLX on PATCH11 of v2 adding irqchip
+>     driver for RPMI system MSI
+>   - Addressed ACPI related comments in PATCH15 and PATCH16 of v2
+>   - New PATCH17 and PATCH18 in this series
+>
+> Changes since v1:
+>   - Addressed DT bindings related comments in PATCH2, PATCH3, and
+>     PATCH7 of v1 series
+>   - Addressed comments in PATCH6 and PATCH8 of v1 series
+>   - New PATCH6 in v2 series to allow fwnode based mailbox channel
+>     request
+>   - New PATCH10 and PATCH11 to add RPMI system MSI based interrupt
+>     controller driver
+>   - New PATCH12 to PATCH16 which adds ACPI support in SBI MPXY
+>     mailbox driver and RPMI system MSI driver
+>   - New PATCH17 to enable required kconfig option to allow graceful
+>     shutdown on QEMU virt machine
+>
+> Anup Patel (14):
+>    dt-bindings: mailbox: Add bindings for RPMI shared memory transport
+>    dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
+>    RISC-V: Add defines for the SBI message proxy extension
+>    mailbox: Add common header for RPMI messages sent via mailbox
+>    mailbox: Allow controller specific mapping using fwnode
+>    byteorder: Add memcpy_to_le32() and memcpy_from_le32()
+>    mailbox: Add RISC-V SBI message proxy (MPXY) based mailbox driver
+>    dt-bindings: clock: Add RPMI clock service message proxy bindings
+>    dt-bindings: clock: Add RPMI clock service controller bindings
+>    dt-bindings: Add RPMI system MSI message proxy bindings
+>    dt-bindings: Add RPMI system MSI interrupt controller bindings
+>    irqchip: Add driver for the RPMI system MSI service group
+>    RISC-V: Enable GPIO keyboard and event device in RV64 defconfig
+>    MAINTAINERS: Add entry for RISC-V RPMI and MPXY drivers
+>
+> Rahul Pathak (1):
+>    clk: Add clock driver for the RISC-V RPMI clock service group
+>
+> Sunil V L (9):
+>    ACPI: property: Refactor acpi_fwnode_get_reference_args() to support
+>      nargs_prop
+>    ACPI: Add support for nargs_prop in acpi_fwnode_get_reference_args()
+>    ACPI: scan: Update honor list for RPMI System MSI
+>    ACPI: RISC-V: Create interrupt controller list in sorted order
+>    ACPI: RISC-V: Add support to update gsi range
+>    ACPI: RISC-V: Add RPMI System MSI to GSI mapping
+>    irqchip/irq-riscv-imsic-early: Export imsic_acpi_get_fwnode()
+>    mailbox/riscv-sbi-mpxy: Add ACPI support
+>    irqchip/riscv-rpmi-sysmsi: Add ACPI support
+>
+>   .../bindings/clock/riscv,rpmi-clock.yaml      |   64 ++
+>   .../bindings/clock/riscv,rpmi-mpxy-clock.yaml |   64 ++
+>   .../riscv,rpmi-mpxy-system-msi.yaml           |   67 ++
+>   .../riscv,rpmi-system-msi.yaml                |   74 ++
+>   .../mailbox/riscv,rpmi-shmem-mbox.yaml        |  124 ++
+>   .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml |   51 +
+>   MAINTAINERS                                   |   15 +
+>   arch/riscv/configs/defconfig                  |    2 +
+>   arch/riscv/include/asm/irq.h                  |    6 +
+>   arch/riscv/include/asm/sbi.h                  |   63 +
+>   drivers/acpi/property.c                       |  128 ++-
+>   drivers/acpi/riscv/irq.c                      |   75 +-
+>   drivers/acpi/scan.c                           |    2 +
+>   drivers/base/property.c                       |    2 +-
+>   drivers/clk/Kconfig                           |    8 +
+>   drivers/clk/Makefile                          |    1 +
+>   drivers/clk/clk-rpmi.c                        |  616 ++++++++++
+>   drivers/irqchip/Kconfig                       |    7 +
+>   drivers/irqchip/Makefile                      |    1 +
+>   drivers/irqchip/irq-riscv-imsic-early.c       |    2 +
+>   drivers/irqchip/irq-riscv-rpmi-sysmsi.c       |  328 ++++++
+>   drivers/mailbox/Kconfig                       |   11 +
+>   drivers/mailbox/Makefile                      |    2 +
+>   drivers/mailbox/mailbox.c                     |   65 +-
+>   drivers/mailbox/riscv-sbi-mpxy-mbox.c         | 1017 +++++++++++++++++
+>   include/linux/byteorder/generic.h             |   16 +
+>   include/linux/mailbox/riscv-rpmi-message.h    |  243 ++++
+>   include/linux/mailbox_controller.h            |    3 +
+>   include/linux/wordpart.h                      |   16 +
+>   29 files changed, 2990 insertions(+), 83 deletions(-)
+>   create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
+>   create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
+>   create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
+>   create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
+>   create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
+>   create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+>   create mode 100644 drivers/clk/clk-rpmi.c
+>   create mode 100644 drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+>   create mode 100644 drivers/mailbox/riscv-sbi-mpxy-mbox.c
+>   create mode 100644 include/linux/mailbox/riscv-rpmi-message.h
+>
+
+Most of the patches have been AB/RB by their respective maintainers, so 
+how do you expect the patchset to be merged? Should it go through the 
+riscv tree?
+
+Let me know how you want to proceed, I'd be happy to merge it if that's 
+easier for everyone.
+
+Thanks,
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
