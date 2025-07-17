@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2EEC83F1A
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Jul 2025 08:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9093BC83F1B
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Jul 2025 08:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m7FwsHZOghXYnmISnww6nPFhAAUZE3boTBivXk6CqBw=; b=HGGtaPFWAO+OCI
-	7Kw2LLMAj0A/c+8BUhK5tDFuzphILWuqKCZxPmA1a4XETIpOqdwfSnxxcNl/ikoxpeS9b291LfaKT
-	gy1KxjVVQNAvX6KJDiIMT/PAB2EUoowC9mdLdEoH0upGWgSig5obe71stQu3AQ1VjReYVBPIkj1Xc
-	xu3x3QzKkYzOI4GVW4+voo7eyw/QvTYFSgiWXGiFdeZWRNhiIS8xDhwvkUSx0sDd9o24dLG38dndo
-	uUuW2Uwk3hSTaTxK+69d/tfjRV6OUQo4ZEPYVTS5cqXLMKQmE/WwAS5DLHSaKSPx8NJV3P9AN+fRf
-	aXIBC+l4WOtk3GHvoQ4A==;
+	List-Owner; bh=D0frfGbtUE1fyvTVqP/5VzmUqRsuQCPpVM81JoPVhwU=; b=pYjRxdud06dvW0
+	hWm2dLViMXYSidRXU9Jgl5F7caODyd3IUYuxRM9G+ggQ8GWFHEWEL92HinU8+MM3nsA/HJRnQH3wj
+	DM9u6avs2/ExcJjliV4P8Kr01/0pevKmAfc0JiQGwM2sxZFn2SQQgZlHCqS7gzddSnKWzti694g9F
+	qWySHzsj1dMA9jptd6XqnjDP4koXAUDpm7hz31fuHW5hGOf7beSAkXaU06bAmBc9/zcXe8CU/jUna
+	R5y77YjGLjT3QCT+hBL+/rU+NKZM/A/mnaP6Gco+tOh+Jta9+ZmJVPP70HpGAljJU/f4kxQvPJg+C
+	ZsflXom2OKPxzz9fnbeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucJcj-00000009X7o-3PaG;
-	Thu, 17 Jul 2025 08:05:49 +0000
-Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
+	id 1ucKHv-00000009bnE-0onI;
+	Thu, 17 Jul 2025 08:48:23 +0000
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucJ1L-00000009Rbe-2JSl
+	id 1ucJEG-00000009U3K-0QbU
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Jul 2025 07:27:12 +0000
-Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e8bbaedb460so603199276.3
-        for <linux-riscv@lists.infradead.org>; Thu, 17 Jul 2025 00:27:11 -0700 (PDT)
+	Thu, 17 Jul 2025 07:40:33 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-615a68bd0efso137949eaf.2
+        for <linux-riscv@lists.infradead.org>; Thu, 17 Jul 2025 00:40:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1752737230; x=1753342030; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SoF437zPz7dDJpJOTbArcXPJ8/LelD/eabKM5wbWdSQ=;
-        b=H2Sf3JSajEWpXB+EClDwl03sg0k5ggSJLaE2gAC3spbZffHgrwH2BJT4gZvyDmBtdh
-         DYEhz0QtylZmWUhWiN3Kfnyo1o1YlmF38ecfUVvNa2jsSV8Pq5zmgHsj6Nsuy3kX2FxF
-         6trIvjurwR75yw7BXlDexg02jEFDsn2b5/i8RvtIN6ri2o2yI9ZOiV+eZweO9sXFUyMm
-         3nCbfmI/VO0Y/cwhBulPK9zhbH15icLSW0+0Km9RKhknjb08N5ihlxTKP/Ts8az7Qi85
-         XaQbjZfw4UQGb+xCTdgygzSZoy54ucpqION3y5mroVAxV4YV3yGpcLMenxgKQcawR4jM
-         dZpg==
+        d=gmail.com; s=20230601; t=1752738031; x=1753342831; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=NVlVlJXrg0D7LxIDHnIPG4gs6GmZ4sZPsbejHoViL/0=;
+        b=A81Zhc9lhkK6i6vw5HK0fpgpgABlduSTXqzsLxhqabfigHFn/P5GkxJtHLVyNsL/62
+         QLUdpPGfu9SRIxSoKwI9KxUyoRx5lfX16iL6U3BNGeAlDj3gBC1Qi1V3eCHjGoXGArGD
+         C2tBk8O2mJy5xl+nlFYcwjzngYT0hgJo7CROaPfdAdm1Va0TuFOliWSPx8UHClH/W6bt
+         +bxF5jRl4LUzLTn7fEGZmUheDOSkVWf2WYNfo900167cCKCEpr/s+VmBxyQhWWVnPYnm
+         hJscipSxWpNSRfqtOZ94YH9FWfLT8jenYtAzsX7me1obADp9dAJJhQtwD4DEocZNCnq1
+         HTeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752737230; x=1753342030;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SoF437zPz7dDJpJOTbArcXPJ8/LelD/eabKM5wbWdSQ=;
-        b=Y30J5j38WEDinn6n+CrombFm2zp2azO6UFPdf5lW+p+M/MymnKU2QRLKUcF1XjYYoZ
-         322HGDe0nXHHKMqES5/x+InPcWYT92Ed5BZH/PZCT1Eb6p7ceinvS9eWv7syHlvBc/7u
-         WRz1xQF2/uPEFtzIvTxXojTcZhnLrqMUxaTKI7YIrmR+yDjkEJKDpsm28P8NwgClpTCf
-         2l3t9iZBZoT4LCL7PLwRKvLup+bCoAZDc+IciUcg2nVyUR9FXJJW1HDbuoPsw0JEz2H+
-         Oc+PHxIqa5NxCdbnu9sbZwE6/oVhUcdwd/s7rY9lcihnFFcIFMvMLJrTxEldWfCxQXWU
-         Jitw==
-X-Forwarded-Encrypted: i=1; AJvYcCUIJKOgE0VRoBrBMDm7lrJ/QmizMcQoFJs0PtpdWEdMFEz+Hz9cY5hT0jp/HGyd5syuYieu3soMN1VMAw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6IAO7ivm2itnzjm78mW8NiPDJrbfr7mCwDW65JPx7UsqxTQbq
-	x4GGRoSd960LjAgBTyRrgVULqofNn+U1uhzLv+DquViJcavxLeKEpbX9Wjih/4TFJb1Sdabk92T
-	+ULWUj3ta98BwKjwHNf3hAPYcczO/fWI10p4t6ynxKg==
-X-Gm-Gg: ASbGncu5RARdX+bcbfbieYyC0il1+13hOk18cGKFkUb7ipGQnbZgJNINlaLTWM0Iki/
-	TrqlMi5L85BgZ9H7Y944tYtjVqBoB/5JN+iV43kRrcfp/yEz4+blFTBzYwp3XJvDemK57mhpHjI
-	mTjYhrxPkF9RtcSMCP+9W7wsuXXkX780LgeCx5MD6ORis4IeMkENg3cz/0zCmCKeS9hItv0egV4
-	VuyheK5iziUqov+9d3C
-X-Google-Smtp-Source: AGHT+IE27ofQ4QelsPwBxrRwEs8qHXOCm0Cnd2yVAEPN6BWAF9uk+ncZYcL65WCuDmTuD7OaGLLmzGjzIqBtddete2c=
-X-Received: by 2002:a05:6902:154f:b0:e8b:520f:62b0 with SMTP id
- 3f1490d57ef6-e8bc27a868amr7407031276.44.1752737230482; Thu, 17 Jul 2025
- 00:27:10 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1752738031; x=1753342831;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NVlVlJXrg0D7LxIDHnIPG4gs6GmZ4sZPsbejHoViL/0=;
+        b=sEP6Uh+Wo52NvvStK1GQlPILUy8OvNgMG7+7fLApRGlfVsNJP6Pq0Nh5PF2nRk3Qop
+         TB3GEXXLDKyNvPmTyJbrMdcfZtzxXtS0uRWp6pIsK+leuwFmCI39Tw657DycCKFa3/ub
+         9kCGKJ77MqlH9c1izWsh8b5cx/4w5WvyUU+6cuqznWT6ivzsRbjOpqvGCj9MhPXm38i2
+         yOKQLlU05nYs3JJrJKLfmGd/dkGAgUKybhxqYCKKoz5dOJSVFBFSzEIFJ4XJ2uWuYlkZ
+         4ZOWyXbuTNf9iVTh9ouvuLY8bLqq7pzNl6HA3MBYE4y6W7/M2aP2Mb74SsJkDM//kVh/
+         ju1A==
+X-Forwarded-Encrypted: i=1; AJvYcCWbGHDCL0fs5zzofy6CyflFsfUUh/ljhRKSjgwzQ+A4UL4PVhGx/scpMvyd3AegodRBqUwX8UFKF9hxzw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9C3rqoz5dPbQHDZSpRcoLHT9XFIJbAyIOOIYS2a4qua0/SNMt
+	1kFY5rSS8vqmCYjOvojjWNAbM2/57JJhQqXhOOAKwaTlqDhtNIJy9Lx8rksBU3ATbnSc18SL8zR
+	XvEDu2TDNWCE/ojVf8b/tOYalef5lG10=
+X-Gm-Gg: ASbGncuZh79GMKAkZqMnPWBr35Aup+izGWj8HQ3FaBQf/jTBwshYXqWCMkky7W3WRfu
+	d0xgTRtHnvEHT2m6GPcDuKZ7L+v05ukJNzq75/XDNLbRxP2aPfBF2yjrBRG+zSiPMT/4Hlf/yQH
+	paMJl7VDAg7dk/i9ipj7vy5u0tBrTTuA8PHcVBUODKFd5WpkzapA5fp1AlKZlW1q+9k+2dzMme+
+	rVf7uzguOc7KHDItCVr2UeUkFW59Zzd1Ojmops=
+X-Google-Smtp-Source: AGHT+IGJWiIvJHDzaIAvnyW1Zy8HpyrJE5S9xQNCsaqrC2aEeCmKTukufvnckvLm5xisHc+dnghWjrwPWuLGt27u2/w=
+X-Received: by 2002:a05:6820:5082:b0:615:96cd:ebfc with SMTP id
+ 006d021491bc7-615a1fd1324mr3989901eaf.2.1752738030769; Thu, 17 Jul 2025
+ 00:40:30 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250709025516.28051-1-nick.hu@sifive.com> <20250709025516.28051-3-nick.hu@sifive.com>
- <CAAhSdy3SE8wcjaYmQ==HZ9B9qx826=T8dD4bJ9DDtGh_Rrsc4Q@mail.gmail.com>
-In-Reply-To: <CAAhSdy3SE8wcjaYmQ==HZ9B9qx826=T8dD4bJ9DDtGh_Rrsc4Q@mail.gmail.com>
-From: Nick Hu <nick.hu@sifive.com>
-Date: Thu, 17 Jul 2025 15:26:59 +0800
-X-Gm-Features: Ac12FXwRWyj-Gkv15XZfvSCm4Mjuk0LX17cPqZ5pTOhB6JMggBsu4ysuMw4-kN4
-Message-ID: <CAKddAkDDobykRUe=2SbQCGnyYKjahTOARsCi8dWRs9WMKgZaEQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] irqchip/riscv-aplic: Save and restore APLIC registers
-To: Anup Patel <anup@brainfault.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
+References: <20250711100930.3398336-1-zhangchunyan@iscas.ac.cn>
+ <20250711100930.3398336-5-zhangchunyan@iscas.ac.cn> <eeaae98c-31be-4773-9138-0a1ad22604ad@ghiti.fr>
+In-Reply-To: <eeaae98c-31be-4773-9138-0a1ad22604ad@ghiti.fr>
+From: Chunyan Zhang <zhang.lyra@gmail.com>
+Date: Thu, 17 Jul 2025 15:39:54 +0800
+X-Gm-Features: Ac12FXysuaOKL4PyazMs8fqwKP9ALcDhihki1QbFQ1z5W33JT56fFDZG43hJaFE
+Message-ID: <CAAfSe-ugr-AX4z6N1_uAQ32gxJ2UqxZ53KjTD7FWOZ+e0T4dtA@mail.gmail.com>
+Subject: Re: [PATCH V2 4/5] raid6: riscv: Allow code to be compiled in userspace
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Charlie Jenkins <charlie@rivosinc.com>, Song Liu <song@kernel.org>, Yu Kuai <yukuai3@huawei.com>, 
+	linux-riscv@lists.infradead.org, linux-raid@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_002711_598069_0129D378 
-X-CRM114-Status: GOOD (  30.62  )
+X-CRM114-CacheID: sfid-20250717_004032_162239_D66F5924 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,224 +93,724 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdWwgMTcsIDIwMjUgYXQgMToxNeKAr1BNIEFudXAgUGF0ZWwgPGFudXBAYnJhaW5m
-YXVsdC5vcmc+IHdyb3RlOgo+Cj4gT24gV2VkLCBKdWwgOSwgMjAyNSBhdCA4OjI24oCvQU0gTmlj
-ayBIdSA8bmljay5odUBzaWZpdmUuY29tPiB3cm90ZToKPiA+Cj4gPiBUaGUgQVBMSUMgbWF5IGJl
-IHBvd2VyZWQgZG93biB3aGVuIHRoZSBDUFVzIGVudGVyIGEgZGVlcCBzbGVlcCBzdGF0ZS4KPiA+
-IFRoZXJlZm9yZSBhZGRpbmcgdGhlIEFQTElDIHNhdmUgYW5kIHJlc3RvcmUgZnVuY3Rpb25zIHRv
-IHNhdmUgYW5kCj4gPiByZXN0b3JlIHRoZSBzdGF0ZXMgb2YgQVBMSUMuCj4gPgo+ID4gU2lnbmVk
-LW9mZi1ieTogTmljayBIdSA8bmljay5odUBzaWZpdmUuY29tPgo+ID4gUmV2aWV3ZWQtYnk6IFlv
-bmctWHVhbiBXYW5nIDx5b25neHVhbi53YW5nQHNpZml2ZS5jb20+Cj4gPiBSZXZpZXdlZC1ieTog
-Q3lhbiBZYW5nIDxjeWFuLnlhbmdAc2lmaXZlLmNvbT4KPiA+IC0tLQo+ID4gIGRyaXZlcnMvaXJx
-Y2hpcC9pcnEtcmlzY3YtYXBsaWMtZGlyZWN0LmMgfCAgMTQgKystCj4gPiAgZHJpdmVycy9pcnFj
-aGlwL2lycS1yaXNjdi1hcGxpYy1tYWluLmMgICB8IDE0MyArKysrKysrKysrKysrKysrKysrKysr
-Kwo+ID4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMtbWFpbi5oICAgfCAgMTIgKysK
-PiA+ICBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1zaS5jICAgIHwgICAzICstCj4g
-PiAgNCBmaWxlcyBjaGFuZ2VkLCAxNzAgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPiA+
-Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1kaXJlY3Qu
-YyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMtZGlyZWN0LmMKPiA+IGluZGV4IDIw
-NWFkNjFkMTVlNC4uZGY0MmY5NzlkMDJjIDEwMDY0NAo+ID4gLS0tIGEvZHJpdmVycy9pcnFjaGlw
-L2lycS1yaXNjdi1hcGxpYy1kaXJlY3QuYwo+ID4gKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1y
-aXNjdi1hcGxpYy1kaXJlY3QuYwo+ID4gQEAgLTgsNiArOCw3IEBACj4gPiAgI2luY2x1ZGUgPGxp
-bnV4L2JpdGZpZWxkLmg+Cj4gPiAgI2luY2x1ZGUgPGxpbnV4L2JpdG9wcy5oPgo+ID4gICNpbmNs
-dWRlIDxsaW51eC9jcHUuaD4KPiA+ICsjaW5jbHVkZSA8bGludXgvY3B1bWFzay5oPgo+ID4gICNp
-bmNsdWRlIDxsaW51eC9pbnRlcnJ1cHQuaD4KPiA+ICAjaW5jbHVkZSA8bGludXgvaXJxY2hpcC5o
-Pgo+ID4gICNpbmNsdWRlIDxsaW51eC9pcnFjaGlwL2NoYWluZWRfaXJxLmg+Cj4gPiBAQCAtMTcx
-LDYgKzE3MiwxNiBAQCBzdGF0aWMgdm9pZCBhcGxpY19pZGNfc2V0X2RlbGl2ZXJ5KHN0cnVjdCBh
-cGxpY19pZGMgKmlkYywgYm9vbCBlbikKPiA+ICAgICAgICAgd3JpdGVsKGRlLCBpZGMtPnJlZ3Mg
-KyBBUExJQ19JRENfSURFTElWRVJZKTsKPiA+ICB9Cj4gPgo+ID4gK3ZvaWQgYXBsaWNfZGlyZWN0
-X3Jlc3RvcmUoc3RydWN0IGFwbGljX3ByaXYgKnByaXYpCj4gPiArewo+ID4gKyAgICAgICBzdHJ1
-Y3QgYXBsaWNfZGlyZWN0ICpkaXJlY3QgPQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgY29u
-dGFpbmVyX29mKHByaXYsIHN0cnVjdCBhcGxpY19kaXJlY3QsIHByaXYpOwo+ID4gKyAgICAgICBp
-bnQgY3B1Owo+ID4gKwo+ID4gKyAgICAgICBmb3JfZWFjaF9jcHUoY3B1LCAmZGlyZWN0LT5sbWFz
-aykKPiA+ICsgICAgICAgICAgICAgICBhcGxpY19pZGNfc2V0X2RlbGl2ZXJ5KHBlcl9jcHVfcHRy
-KCZhcGxpY19pZGNzLCBjcHUpLCB0cnVlKTsKPiA+ICt9Cj4gPiArCj4gPiAgc3RhdGljIGludCBh
-cGxpY19kaXJlY3RfZHlpbmdfY3B1KHVuc2lnbmVkIGludCBjcHUpCj4gPiAgewo+ID4gICAgICAg
-ICBpZiAoYXBsaWNfZGlyZWN0X3BhcmVudF9pcnEpCj4gPiBAQCAtMzQzLDUgKzM1NCw2IEBAIGlu
-dCBhcGxpY19kaXJlY3Rfc2V0dXAoc3RydWN0IGRldmljZSAqZGV2LCB2b2lkIF9faW9tZW0gKnJl
-Z3MpCj4gPiAgICAgICAgIGRldl9pbmZvKGRldiwgIiVkIGludGVycnVwdHMgZGlyZWN0bHkgY29u
-bmVjdGVkIHRvICVkIENQVXNcbiIsCj4gPiAgICAgICAgICAgICAgICAgIHByaXYtPm5yX2lycXMs
-IHByaXYtPm5yX2lkY3MpOwo+ID4KPiA+IC0gICAgICAgcmV0dXJuIDA7Cj4gPiArICAgICAgIC8q
-IEFkZCB0aGUgYXBsaWNfcHJpdiB0byB0aGUgbGlzdCAqLwo+ID4gKyAgICAgICByZXR1cm4gYXBs
-aWNfYWRkKGRldiwgcHJpdik7Cj4gPiAgfQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaXJxY2hp
-cC9pcnEtcmlzY3YtYXBsaWMtbWFpbi5jIGIvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxp
-Yy1tYWluLmMKPiA+IGluZGV4IDkzZTdjNTFmOTQ0YS4uOTA1NGNlN2E3MjU2IDEwMDY0NAo+ID4g
-LS0tIGEvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tYWluLmMKPiA+ICsrKyBiL2Ry
-aXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMtbWFpbi5jCj4gPiBAQCAtMTIsMTAgKzEyLDEz
-MCBAQAo+ID4gICNpbmNsdWRlIDxsaW51eC9vZi5oPgo+ID4gICNpbmNsdWRlIDxsaW51eC9vZl9p
-cnEuaD4KPiA+ICAjaW5jbHVkZSA8bGludXgvcGxhdGZvcm1fZGV2aWNlLmg+Cj4gPiArI2luY2x1
-ZGUgPGxpbnV4L3BtX2RvbWFpbi5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9wbV9ydW50aW1lLmg+
-Cj4gPiAgI2luY2x1ZGUgPGxpbnV4L3ByaW50ay5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9zeXNj
-b3JlX29wcy5oPgo+ID4KPiA+ICAjaW5jbHVkZSAiaXJxLXJpc2N2LWFwbGljLW1haW4uaCIKPiA+
-Cj4gPiArc3RhdGljIExJU1RfSEVBRChhcGxpY3MpOwo+ID4gKwo+ID4gK3N0YXRpYyB2b2lkIGFw
-bGljX3Jlc3RvcmUoc3RydWN0IGFwbGljX3ByaXYgKnByaXYpCj4gPiArewo+ID4gKyAgICAgICBp
-bnQgaTsKPiA+ICsgICAgICAgdTMyIGNscmlwOwo+ID4gKwo+ID4gKyAgICAgICB3cml0ZWwocHJp
-di0+c2F2ZWRfZG9tYWluY2ZnLCBwcml2LT5yZWdzICsgQVBMSUNfRE9NQUlOQ0ZHKTsKPiA+ICsj
-aWZkZWYgQ09ORklHX1JJU0NWX01fTU9ERQo+ID4gKyAgICAgICB3cml0ZWwocHJpdi0+c2F2ZWRf
-bXNpYWRkciwgcHJpdi0+cmVncyArIEFQTElDX3hNU0lDRkdBRERSKTsKPiA+ICsgICAgICAgd3Jp
-dGVsKHByaXYtPnNhdmVkX21zaWFkZHJoLCBwcml2LT5yZWdzICsgQVBMSUNfeE1TSUNGR0FERFJI
-KTsKPiA+ICsjZW5kaWYKPiA+ICsgICAgICAgZm9yIChpID0gMTsgaSA8PSBwcml2LT5ucl9pcnFz
-OyBpKyspIHsKPiA+ICsgICAgICAgICAgICAgICB3cml0ZWwocHJpdi0+c2F2ZWRfc291cmNlY2Zn
-W2kgLSAxXSwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgcHJpdi0+cmVncyArIEFQTElDX1NP
-VVJDRUNGR19CQVNFICsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgKGkgLSAxKSAqIHNpemVv
-Zih1MzIpKTsKPiA+ICsgICAgICAgICAgICAgICB3cml0ZWwocHJpdi0+c2F2ZWRfdGFyZ2V0W2kg
-LSAxXSwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgcHJpdi0+cmVncyArIEFQTElDX1RBUkdF
-VF9CQVNFICsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgKGkgLSAxKSAqIHNpemVvZih1MzIp
-KTsKPiA+ICsgICAgICAgfQo+ID4gKwo+ID4gKyAgICAgICBmb3IgKGkgPSAwOyBpIDw9IHByaXYt
-Pm5yX2lycXM7IGkgKz0gMzIpIHsKPiA+ICsgICAgICAgICAgICAgICB3cml0ZWwoLTFVLCBwcml2
-LT5yZWdzICsgQVBMSUNfQ0xSSUVfQkFTRSArCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgKGkgLyAzMikgKiBzaXplb2YodTMyKSk7Cj4gPiArICAgICAgICAgICAgICAgd3JpdGVsKHBy
-aXYtPnNhdmVkX2llW2kgLyAzMl0sCj4gPiArICAgICAgICAgICAgICAgICAgICAgIHByaXYtPnJl
-Z3MgKyBBUExJQ19TRVRJRV9CQVNFICsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgKGkgLyAz
-MikgKiBzaXplb2YodTMyKSk7Cj4gPiArICAgICAgIH0KPiA+ICsKPiA+ICsgICAgICAgaWYgKHBy
-aXYtPm5yX2lkY3MpIHsKPiA+ICsgICAgICAgICAgICAgICBhcGxpY19kaXJlY3RfcmVzdG9yZShw
-cml2KTsKPiA+ICsgICAgICAgfSBlbHNlIHsKPiA+ICsgICAgICAgICAgICAgICAvKiBSZS10cmln
-Z2VyIHRoZSBpbnRlcnJ1cHRzICovCj4gPiArICAgICAgICAgICAgICAgZm9yIChpID0gMDsgaSA8
-PSBwcml2LT5ucl9pcnFzOyBpICs9IDMyKSB7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICBj
-bHJpcCA9IHJlYWRsKHByaXYtPnJlZ3MgKyBBUExJQ19DTFJJUF9CQVNFICsKPiA+ICsgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKGkgLyAzMikgKiBzaXplb2YodTMyKSk7Cj4g
-PiArICAgICAgICAgICAgICAgICAgICAgICB3cml0ZWwoY2xyaXAsIHByaXYtPnJlZ3MgKyBBUExJ
-Q19TRVRJUF9CQVNFICsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-KGkgLyAzMikgKiBzaXplb2YodTMyKSk7Cj4gPiArICAgICAgICAgICAgICAgfQo+ID4gKyAgICAg
-ICB9Cj4gPiArfQo+ID4gKwo+ID4gK3N0YXRpYyB2b2lkIGFwbGljX3NhdmUoc3RydWN0IGFwbGlj
-X3ByaXYgKnByaXYpCj4gPiArewo+ID4gKyAgICAgICBpbnQgaTsKPiA+ICsKPiA+ICsgICAgICAg
-Zm9yIChpID0gMTsgaSA8PSBwcml2LT5ucl9pcnFzOyBpKyspIHsKPiA+ICsgICAgICAgICAgICAg
-ICBwcml2LT5zYXZlZF90YXJnZXRbaSAtIDFdID0gcmVhZGwocHJpdi0+cmVncyArCj4gPiArICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEFQTElDX1RBUkdF
-VF9CQVNFICsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgKGkgLSAxKSAqIHNpemVvZih1MzIpKTsKPiA+ICsgICAgICAgfQo+ID4gKwo+ID4gKyAg
-ICAgICBmb3IgKGkgPSAwOyBpIDw9IHByaXYtPm5yX2lycXM7IGkgKz0gMzIpIHsKPiA+ICsgICAg
-ICAgICAgICAgICBwcml2LT5zYXZlZF9pZVtpIC8gMzJdID0gcmVhZGwocHJpdi0+cmVncyArCj4g
-PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEFQTElDX1NF
-VElFX0JBU0UgKwo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAoaSAvIDMyKSAqIHNpemVvZih1MzIpKTsKPiA+ICsgICAgICAgfQo+ID4gK30KPiA+ICsK
-PiA+ICtzdGF0aWMgaW50IGFwbGljX3N5c2NvcmVfc3VzcGVuZCh2b2lkKQo+ID4gK3sKPiA+ICsg
-ICAgICAgc3RydWN0IGFwbGljX3ByaXYgKnByaXY7Cj4gPiArCj4gPiArICAgICAgIGxpc3RfZm9y
-X2VhY2hfZW50cnkocHJpdiwgJmFwbGljcywgbGlzdCkgewo+ID4gKyAgICAgICAgICAgICAgIGFw
-bGljX3NhdmUocHJpdik7Cj4gPiArICAgICAgIH0KPiA+ICsKPiA+ICsgICAgICAgcmV0dXJuIDA7
-Cj4gPiArfQo+ID4gKwo+ID4gK3N0YXRpYyB2b2lkIGFwbGljX3N5c2NvcmVfcmVzdW1lKHZvaWQp
-Cj4gPiArewo+ID4gKyAgICAgICBzdHJ1Y3QgYXBsaWNfcHJpdiAqcHJpdjsKPiA+ICsKPiA+ICsg
-ICAgICAgbGlzdF9mb3JfZWFjaF9lbnRyeShwcml2LCAmYXBsaWNzLCBsaXN0KSB7Cj4gPiArICAg
-ICAgICAgICAgICAgYXBsaWNfcmVzdG9yZShwcml2KTsKPiA+ICsgICAgICAgfQo+ID4gK30KPiA+
-ICsKPiA+ICtzdGF0aWMgc3RydWN0IHN5c2NvcmVfb3BzIGFwbGljX3N5c2NvcmVfb3BzID0gewo+
-ID4gKyAgICAgICAuc3VzcGVuZCA9IGFwbGljX3N5c2NvcmVfc3VzcGVuZCwKPiA+ICsgICAgICAg
-LnJlc3VtZSA9IGFwbGljX3N5c2NvcmVfcmVzdW1lLAo+ID4gK307Cj4gPiArCj4gPiArc3RhdGlj
-IGludCBhcGxpY19ub3RpZmllcihzdHJ1Y3Qgbm90aWZpZXJfYmxvY2sgKm5iLCB1bnNpZ25lZCBs
-b25nIGFjdGlvbiwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgdm9pZCAqZGF0YSkKPgo+
-IHMvYXBsaWNfbm90aWZpZXIvYXBsaWNfcG1fbm90aWZpZXIvCj4KPiBUaGUgInZvaWQgKmRhdGEi
-IHBhcmFtZXRlciBjYW4gYmUgb24gdGhlIHNhbWUgbGluZSBhcyBmdW5jdGlvbiBkZWNsYXJhdGlv
-bi4KPgo+ID4gK3sKPiA+ICsgICAgICAgc3RydWN0IGFwbGljX3ByaXYgKnByaXYgPSBjb250YWlu
-ZXJfb2YobmIsIHN0cnVjdCBhcGxpY19wcml2LCBnZW5wZF9uYik7Cj4gPiArCj4gPiArICAgICAg
-IHN3aXRjaCAoYWN0aW9uKSB7Cj4gPiArICAgICAgIGNhc2UgR0VOUERfTk9USUZZX1BSRV9PRkY6
-Cj4gPiArICAgICAgICAgICAgICAgYXBsaWNfc2F2ZShwcml2KTsKPiA+ICsgICAgICAgICAgICAg
-ICBicmVhazsKPiA+ICsgICAgICAgY2FzZSBHRU5QRF9OT1RJRllfT046Cj4gPiArICAgICAgICAg
-ICAgICAgYXBsaWNfcmVzdG9yZShwcml2KTsKPiA+ICsgICAgICAgICAgICAgICBicmVhazsKPiA+
-ICsgICAgICAgZGVmYXVsdDoKPiA+ICsgICAgICAgICAgICAgICBicmVhazsKPiA+ICsgICAgICAg
-fQo+ID4gKwo+ID4gKyAgICAgICByZXR1cm4gMDsKPiA+ICt9Cj4gPiArCj4gPiAraW50IGFwbGlj
-X2FkZChzdHJ1Y3QgZGV2aWNlICpkZXYsIHN0cnVjdCBhcGxpY19wcml2ICpwcml2KQo+ID4gK3sK
-PiA+ICsgICAgICAgaW50IHJldDsKPiA+ICsKPiA+ICsgICAgICAgbGlzdF9hZGQoJnByaXYtPmxp
-c3QsICZhcGxpY3MpOwo+ID4gKyAgICAgICAvKiBBZGQgZ2VucGQgbm90aWZpZXIgKi8KPiA+ICsg
-ICAgICAgcHJpdi0+Z2VucGRfbmIubm90aWZpZXJfY2FsbCA9IGFwbGljX25vdGlmaWVyOwo+ID4g
-KyAgICAgICByZXQgPSBkZXZfcG1fZ2VucGRfYWRkX25vdGlmaWVyKGRldiwgJnByaXYtPmdlbnBk
-X25iKTsKPiA+ICsgICAgICAgaWYgKCFyZXQpCj4gPiArICAgICAgICAgICAgICAgcmV0dXJuIGRl
-dm1fcG1fcnVudGltZV9lbmFibGUoZGV2KTsKPiA+ICsKPiA+ICsgICAgICAgcmV0dXJuIHJldCA9
-PSAtRU5PREVWIHx8IHJldCA9PSAtRU9QTk9UU1VQUCA/IDAgOiByZXQ7Cj4gPiArfQo+ID4gKwo+
-Cj4gTWFrZSBhcGxpY19hZGQoKSBhcyBzdGF0aWMgYW5kIGRpcmVjdGx5IGNhbGwgaXQgZnJvbSBh
-cGxpY19zZXR1cF9wcml2KCkuCj4KPiBUbyBjbGVhbnVwIHVwb24gZGV2aWNlIHJlbW92YWwsIHVz
-ZSBkZXZtX2FkZF9hY3Rpb25fb3JfcmVzZXQoKS4KPgo+ID4gIHZvaWQgYXBsaWNfaXJxX3VubWFz
-ayhzdHJ1Y3QgaXJxX2RhdGEgKmQpCj4gPiAgewo+ID4gICAgICAgICBzdHJ1Y3QgYXBsaWNfcHJp
-diAqcHJpdiA9IGlycV9kYXRhX2dldF9pcnFfY2hpcF9kYXRhKGQpOwo+ID4gQEAgLTU5LDYgKzE3
-OSw3IEBAIGludCBhcGxpY19pcnFfc2V0X3R5cGUoc3RydWN0IGlycV9kYXRhICpkLCB1bnNpZ25l
-ZCBpbnQgdHlwZSkKPiA+ICAgICAgICAgc291cmNlY2ZnID0gcHJpdi0+cmVncyArIEFQTElDX1NP
-VVJDRUNGR19CQVNFOwo+ID4gICAgICAgICBzb3VyY2VjZmcgKz0gKGQtPmh3aXJxIC0gMSkgKiBz
-aXplb2YodTMyKTsKPiA+ICAgICAgICAgd3JpdGVsKHZhbCwgc291cmNlY2ZnKTsKPiA+ICsgICAg
-ICAgcHJpdi0+c2F2ZWRfc291cmNlY2ZnW2QtPmh3aXJxIC0gMV0gPSB2YWw7Cj4gPgo+ID4gICAg
-ICAgICByZXR1cm4gMDsKPiA+ICB9Cj4gPiBAQCAtOTUsNiArMjE2LDggQEAgdm9pZCBhcGxpY19p
-bml0X2h3X2dsb2JhbChzdHJ1Y3QgYXBsaWNfcHJpdiAqcHJpdiwgYm9vbCBtc2lfbW9kZSkKPiA+
-ICAgICAgICAgICAgICAgICB2YWxoIHw9IEZJRUxEX1BSRVAoQVBMSUNfeE1TSUNGR0FERFJIX0hI
-WFMsIHByaXYtPm1zaWNmZy5oaHhzKTsKPiA+ICAgICAgICAgICAgICAgICB3cml0ZWwodmFsLCBw
-cml2LT5yZWdzICsgQVBMSUNfeE1TSUNGR0FERFIpOwo+ID4gICAgICAgICAgICAgICAgIHdyaXRl
-bCh2YWxoLCBwcml2LT5yZWdzICsgQVBMSUNfeE1TSUNGR0FERFJIKTsKPiA+ICsgICAgICAgICAg
-ICAgICBwcml2LT5zYXZlZF9tc2lhZGRyID0gdmFsOwo+ID4gKyAgICAgICAgICAgICAgIHByaXYt
-PnNhdmVkX21zaWFkZHJoID0gdmFsSDsKPiA+ICAgICAgICAgfQo+ID4gICNlbmRpZgo+ID4KPiA+
-IEBAIC0xMDYsNiArMjI5LDcgQEAgdm9pZCBhcGxpY19pbml0X2h3X2dsb2JhbChzdHJ1Y3QgYXBs
-aWNfcHJpdiAqcHJpdiwgYm9vbCBtc2lfbW9kZSkKPiA+ICAgICAgICAgd3JpdGVsKHZhbCwgcHJp
-di0+cmVncyArIEFQTElDX0RPTUFJTkNGRyk7Cj4gPiAgICAgICAgIGlmIChyZWFkbChwcml2LT5y
-ZWdzICsgQVBMSUNfRE9NQUlOQ0ZHKSAhPSB2YWwpCj4gPiAgICAgICAgICAgICAgICAgZGV2X3dh
-cm4ocHJpdi0+ZGV2LCAidW5hYmxlIHRvIHdyaXRlIDB4JXggaW4gZG9tYWluY2ZnXG4iLCB2YWwp
-Owo+ID4gKyAgICAgICBwcml2LT5zYXZlZF9kb21haW5jZmcgPSB2YWw7Cj4gPiAgfQo+ID4KPiA+
-ICBzdGF0aWMgdm9pZCBhcGxpY19pbml0X2h3X2lycXMoc3RydWN0IGFwbGljX3ByaXYgKnByaXYp
-Cj4gPiBAQCAtMTc2LDYgKzMwMCwyMyBAQCBpbnQgYXBsaWNfc2V0dXBfcHJpdihzdHJ1Y3QgYXBs
-aWNfcHJpdiAqcHJpdiwgc3RydWN0IGRldmljZSAqZGV2LCB2b2lkIF9faW9tZW0gKgo+ID4gICAg
-ICAgICAvKiBTZXR1cCBpbml0aWFsIHN0YXRlIEFQTElDIGludGVycnVwdHMgKi8KPiA+ICAgICAg
-ICAgYXBsaWNfaW5pdF9od19pcnFzKHByaXYpOwo+ID4KPiA+ICsgICAgICAgLyogRm9yIHBvd2Vy
-IG1hbmFnZW1lbnQgKi8KPiA+ICsgICAgICAgcHJpdi0+c2F2ZWRfdGFyZ2V0ID0gZGV2bV9remFs
-bG9jKGRldiwgcHJpdi0+bnJfaXJxcyAqIHNpemVvZih1MzIpLAo+ID4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgR0ZQX0tFUk5FTCk7Cj4gPiArICAgICAgIGlmICgh
-cHJpdi0+c2F2ZWRfdGFyZ2V0KQo+ID4gKyAgICAgICAgICAgICAgIHJldHVybiAtRU5PTUVNOwo+
-ID4gKwo+ID4gKyAgICAgICBwcml2LT5zYXZlZF9zb3VyY2VjZmcgPSBkZXZtX2t6YWxsb2MoZGV2
-LCBwcml2LT5ucl9pcnFzICogc2l6ZW9mKHUzMiksCj4gPiArICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICBHRlBfS0VSTkVMKTsKPiA+ICsgICAgICAgaWYgKCFwcml2
-LT5zYXZlZF9zb3VyY2VjZmcpCj4gPiArICAgICAgICAgICAgICAgcmV0dXJuIC1FTk9NRU07Cj4g
-PiArCj4gPiArICAgICAgIHByaXYtPnNhdmVkX2llID0gZGV2bV9remFsbG9jKGRldiwKPiA+ICsg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRElWX1JPVU5EX1VQKHByaXYtPm5y
-X2lycXMsIDMyKSAqIHNpemVvZih1MzIpLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICBHRlBfS0VSTkVMKTsKPiA+ICsgICAgICAgaWYgKCFwcml2LT5zYXZlZF9pZSkK
-PiA+ICsgICAgICAgICAgICAgICByZXR1cm4gLUVOT01FTTsKPiA+ICsKPiA+ICAgICAgICAgcmV0
-dXJuIDA7Cj4gPiAgfQo+ID4KPiA+IEBAIC0yMDksNiArMzUwLDggQEAgc3RhdGljIGludCBhcGxp
-Y19wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQo+ID4gICAgICAgICBpZiAocmMp
-Cj4gPiAgICAgICAgICAgICAgICAgZGV2X2Vycl9wcm9iZShkZXYsIHJjLCAiZmFpbGVkIHRvIHNl
-dHVwIEFQTElDIGluICVzIG1vZGVcbiIsCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBtc2lfbW9kZSA/ICJNU0kiIDogImRpcmVjdCIpOwo+ID4gKyAgICAgICBlbHNlCj4gPiArICAg
-ICAgICAgICAgICAgcmVnaXN0ZXJfc3lzY29yZV9vcHMoJmFwbGljX3N5c2NvcmVfb3BzKTsKPiA+
-Cj4gPiAgI2lmZGVmIENPTkZJR19BQ1BJCj4gPiAgICAgICAgIGlmICghYWNwaV9kaXNhYmxlZCkK
-PiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1haW4uaCBi
-L2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMtbWFpbi5oCj4gPiBpbmRleCBiMGFkOGNk
-ZTY5YjEuLjk2OTMxOTI0MmRiYyAxMDA2NDQKPiA+IC0tLSBhL2RyaXZlcnMvaXJxY2hpcC9pcnEt
-cmlzY3YtYXBsaWMtbWFpbi5oCj4gPiArKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFw
-bGljLW1haW4uaAo+ID4gQEAgLTMxLDYgKzMxLDE2IEBAIHN0cnVjdCBhcGxpY19wcml2IHsKPiA+
-ICAgICAgICAgdTMyICAgICAgICAgICAgICAgICAgICAgYWNwaV9hcGxpY19pZDsKPiA+ICAgICAg
-ICAgdm9pZCBfX2lvbWVtICAgICAgICAgICAgKnJlZ3M7Cj4gPiAgICAgICAgIHN0cnVjdCBhcGxp
-Y19tc2ljZmcgICAgIG1zaWNmZzsKPiA+ICsgICAgICAgc3RydWN0IG5vdGlmaWVyX2Jsb2NrICAg
-Z2VucGRfbmI7Cj4gPiArICAgICAgIHN0cnVjdCBsaXN0X2hlYWQgICAgICAgIGxpc3Q7Cj4KPiBS
-ZW5hbWUgImxpc3QiIGFzICJoZWFkIiBhbmQgbWFrZSBpdCBmaXJzdCB2YXJpYWJsZQo+IGluICJz
-dHJ1Y3QgYXBsaWNfcHJpdiIKPgo+ID4gKyAgICAgICB1MzIgKnNhdmVkX3RhcmdldDsKPiA+ICsg
-ICAgICAgdTMyICpzYXZlZF9zb3VyY2VjZmc7Cj4gPiArICAgICAgIHUzMiAqc2F2ZWRfaWU7Cj4g
-PiArICAgICAgIHUzMiBzYXZlZF9kb21haW5jZmc7Cj4gPiArI2lmZGVmIENPTkZJR19SSVNDVl9N
-X01PREUKPiA+ICsgICAgICAgdTMyIHNhdmVkX21zaWFkZHI7Cj4gPiArICAgICAgIHUzMiBzYXZl
-ZF9tc2lhZGRyaDsKPiA+ICsjZW5kaWYKPiA+ICB9Owo+ID4KPiA+ICB2b2lkIGFwbGljX2lycV91
-bm1hc2soc3RydWN0IGlycV9kYXRhICpkKTsKPiA+IEBAIC0zOSw3ICs0OSw5IEBAIGludCBhcGxp
-Y19pcnFfc2V0X3R5cGUoc3RydWN0IGlycV9kYXRhICpkLCB1bnNpZ25lZCBpbnQgdHlwZSk7Cj4g
-PiAgaW50IGFwbGljX2lycWRvbWFpbl90cmFuc2xhdGUoc3RydWN0IGlycV9md3NwZWMgKmZ3c3Bl
-YywgdTMyIGdzaV9iYXNlLAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWdu
-ZWQgbG9uZyAqaHdpcnEsIHVuc2lnbmVkIGludCAqdHlwZSk7Cj4gPiAgdm9pZCBhcGxpY19pbml0
-X2h3X2dsb2JhbChzdHJ1Y3QgYXBsaWNfcHJpdiAqcHJpdiwgYm9vbCBtc2lfbW9kZSk7Cj4gPiAr
-dm9pZCBhcGxpY19kaXJlY3RfcmVzdG9yZShzdHJ1Y3QgYXBsaWNfcHJpdiAqcHJpdik7Cj4gPiAg
-aW50IGFwbGljX3NldHVwX3ByaXYoc3RydWN0IGFwbGljX3ByaXYgKnByaXYsIHN0cnVjdCBkZXZp
-Y2UgKmRldiwgdm9pZCBfX2lvbWVtICpyZWdzKTsKPiA+ICtpbnQgYXBsaWNfYWRkKHN0cnVjdCBk
-ZXZpY2UgKmRldiwgc3RydWN0IGFwbGljX3ByaXYgKnByaXYpOwo+ID4gIGludCBhcGxpY19kaXJl
-Y3Rfc2V0dXAoc3RydWN0IGRldmljZSAqZGV2LCB2b2lkIF9faW9tZW0gKnJlZ3MpOwo+ID4gICNp
-ZmRlZiBDT05GSUdfUklTQ1ZfQVBMSUNfTVNJCj4gPiAgaW50IGFwbGljX21zaV9zZXR1cChzdHJ1
-Y3QgZGV2aWNlICpkZXYsIHZvaWQgX19pb21lbSAqcmVncyk7Cj4gPiBkaWZmIC0tZ2l0IGEvZHJp
-dmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tc2kuYyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEt
-cmlzY3YtYXBsaWMtbXNpLmMKPiA+IGluZGV4IGZiOGQxODM4NjA5Zi4uYzliNGY3ZDVlNmVhIDEw
-MDY0NAo+ID4gLS0tIGEvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tc2kuYwo+ID4g
-KysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tc2kuYwo+ID4gQEAgLTI4MSw1
-ICsyODEsNiBAQCBpbnQgYXBsaWNfbXNpX3NldHVwKHN0cnVjdCBkZXZpY2UgKmRldiwgdm9pZCBf
-X2lvbWVtICpyZWdzKQo+ID4gICAgICAgICBwYSA9IHByaXYtPm1zaWNmZy5iYXNlX3BwbiA8PCBB
-UExJQ194TVNJQ0ZHQUREUl9QUE5fU0hJRlQ7Cj4gPiAgICAgICAgIGRldl9pbmZvKGRldiwgIiVk
-IGludGVycnVwdHMgZm9yd2FyZGVkIHRvIE1TSSBiYXNlICVwYVxuIiwgcHJpdi0+bnJfaXJxcywg
-JnBhKTsKPiA+Cj4gPiAtICAgICAgIHJldHVybiAwOwo+ID4gKyAgICAgICAvKiBBZGQgdGhlIGFw
-bGljX3ByaXYgdG8gdGhlIGxpc3QgKi8KPiA+ICsgICAgICAgcmV0dXJuIGFwbGljX2FkZChkZXYs
-IHByaXYpOwo+ID4gIH0KPiA+IC0tCj4gPiAyLjE3LjEKPiA+Cj4KPiBBbHNvLCBwbGVhc2UgYWRk
-cmVzcyB0aGUgaXNzdWUgcmVwb3J0ZWQgYnkgdGhlIGtlcm5lbCB0ZXN0IHJvYm90Lgo+CldpbGwg
-YXBwbHkgdGhlIGFib3ZlIGZlZWRiYWNrIGluIHRoZSBuZXh0IHZlcnNpb24uIFRoYW5rcyEKClJl
-Z2FyZHMsCk5pY2sKPiBSZWdhcmRzLAo+IEFudXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Alex,
+
+On Thu, 17 Jul 2025 at 15:04, Alexandre Ghiti <alex@ghiti.fr> wrote:
+>
+> On 7/11/25 12:09, Chunyan Zhang wrote:
+> > To support userspace raid6test, this patch adds __KERNEL__ ifdef for kernel
+> > header inclusions also userspace wrapper definitions to allow code to be
+> > compiled in userspace.
+> >
+> > This patch also drops the NSIZE macro, instead of using the vector length,
+> > which can work for both kernel and user space.
+> >
+> > Signed-off-by: Chunyan Zhang<zhangchunyan@iscas.ac.cn>
+> > ---
+> >   lib/raid6/recov_rvv.c |   7 +-
+> >   lib/raid6/rvv.c       | 297 +++++++++++++++++++++---------------------
+> >   lib/raid6/rvv.h       |  17 +++
+> >   3 files changed, 170 insertions(+), 151 deletions(-)
+> >
+> > diff --git a/lib/raid6/recov_rvv.c b/lib/raid6/recov_rvv.c
+> > index 500da521a806..8f2be833c015 100644
+> > --- a/lib/raid6/recov_rvv.c
+> > +++ b/lib/raid6/recov_rvv.c
+> > @@ -4,13 +4,8 @@
+> >    * Author: Chunyan Zhang<zhangchunyan@iscas.ac.cn>
+> >    */
+> >
+> > -#include <asm/vector.h>
+> >   #include <linux/raid/pq.h>
+> > -
+> > -static int rvv_has_vector(void)
+> > -{
+> > -     return has_vector();
+> > -}
+> > +#include "rvv.h"
+> >
+> >   static void __raid6_2data_recov_rvv(int bytes, u8 *p, u8 *q, u8 *dp,
+> >                                   u8 *dq, const u8 *pbmul,
+> > diff --git a/lib/raid6/rvv.c b/lib/raid6/rvv.c
+> > index 015f3ee4da25..75c9dafedb28 100644
+> > --- a/lib/raid6/rvv.c
+> > +++ b/lib/raid6/rvv.c
+> > @@ -9,17 +9,8 @@
+> >    *  Copyright 2002-2004 H. Peter Anvin
+> >    */
+> >
+> > -#include <asm/vector.h>
+> > -#include <linux/raid/pq.h>
+> >   #include "rvv.h"
+> >
+> > -#define NSIZE        (riscv_v_vsize / 32) /* NSIZE = vlenb */
+> > -
+> > -static int rvv_has_vector(void)
+> > -{
+> > -     return has_vector();
+> > -}
+> > -
+> >   #ifdef __riscv_vector
+> >   #error "This code must be built without compiler support for vector"
+> >   #endif
+> > @@ -28,7 +19,7 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >   {
+> >       u8 **dptr = (u8 **)ptrs;
+> >       u8 *p, *q;
+> > -     unsigned long vl, d;
+> > +     unsigned long vl, d, nsize;
+> >       int z, z0;
+> >
+> >       z0 = disks - 3;         /* Highest data disk */
+> > @@ -42,8 +33,10 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                     : "=&r" (vl)
+> >       );
+> >
+> > +     nsize = vl;
+> > +
+> >        /*v0:wp0,v1:wq0,v2:wd0/w20,v3:w10 */
+> > -     for (d = 0; d < bytes; d += NSIZE * 1) {
+> > +     for (d = 0; d < bytes; d += nsize * 1) {
+> >               /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
+>
+>
+> You missed a few NSIZE in comments
+
+These comments come from int.uc and neon.uc.
+I left NSIZE in the comments on purpose, my thought was that would
+make this code more readable through matching to the int.uc or neon.uc
+:)
+
+>
+>
+> >               asm volatile (".option  push\n"
+> >                             ".option  arch,+v\n"
+> > @@ -51,7 +44,7 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                             "vmv.v.v  v1, v0\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&dptr[z0][d + 0 * NSIZE])
+> > +                           [wp0]"r"(&dptr[z0][d + 0 * nsize])
+> >               );
+> >
+> >               for (z = z0 - 1 ; z >= 0 ; z--) {
+> > @@ -75,7 +68,7 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                                     "vxor.vv  v0, v0, v2\n"
+> >                                     ".option  pop\n"
+> >                                     : :
+> > -                                   [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
+> > +                                   [wd0]"r"(&dptr[z][d + 0 * nsize]),
+> >                                     [x1d]"r"(0x1d)
+> >                       );
+> >               }
+> > @@ -90,8 +83,8 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                             "vse8.v   v1, (%[wq0])\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&p[d + NSIZE * 0]),
+> > -                           [wq0]"r"(&q[d + NSIZE * 0])
+> > +                           [wp0]"r"(&p[d + nsize * 0]),
+> > +                           [wq0]"r"(&q[d + nsize * 0])
+> >               );
+> >       }
+> >   }
+> > @@ -101,7 +94,7 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
+> >   {
+> >       u8 **dptr = (u8 **)ptrs;
+> >       u8 *p, *q;
+> > -     unsigned long vl, d;
+> > +     unsigned long vl, d, nsize;
+> >       int z, z0;
+> >
+> >       z0 = stop;              /* P/Q right side optimization */
+> > @@ -115,8 +108,10 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
+> >                     : "=&r" (vl)
+> >       );
+> >
+> > +     nsize = vl;
+> > +
+> >       /*v0:wp0,v1:wq0,v2:wd0/w20,v3:w10 */
+> > -     for (d = 0 ; d < bytes ; d += NSIZE * 1) {
+> > +     for (d = 0 ; d < bytes ; d += nsize * 1) {
+> >               /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
+> >               asm volatile (".option  push\n"
+> >                             ".option  arch,+v\n"
+> > @@ -124,7 +119,7 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
+> >                             "vmv.v.v  v1, v0\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&dptr[z0][d + 0 * NSIZE])
+> > +                           [wp0]"r"(&dptr[z0][d + 0 * nsize])
+> >               );
+> >
+> >               /* P/Q data pages */
+> > @@ -149,7 +144,7 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
+> >                                     "vxor.vv  v0, v0, v2\n"
+> >                                     ".option  pop\n"
+> >                                     : :
+> > -                                   [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
+> > +                                   [wd0]"r"(&dptr[z][d + 0 * nsize]),
+> >                                     [x1d]"r"(0x1d)
+> >                       );
+> >               }
+> > @@ -189,8 +184,8 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
+> >                             "vse8.v   v3, (%[wq0])\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&p[d + NSIZE * 0]),
+> > -                           [wq0]"r"(&q[d + NSIZE * 0])
+> > +                           [wp0]"r"(&p[d + nsize * 0]),
+> > +                           [wq0]"r"(&q[d + nsize * 0])
+> >               );
+> >       }
+> >   }
+> > @@ -199,7 +194,7 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >   {
+> >       u8 **dptr = (u8 **)ptrs;
+> >       u8 *p, *q;
+> > -     unsigned long vl, d;
+> > +     unsigned long vl, d, nsize;
+> >       int z, z0;
+> >
+> >       z0 = disks - 3;         /* Highest data disk */
+> > @@ -213,11 +208,13 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                     : "=&r" (vl)
+> >       );
+> >
+> > +     nsize = vl;
+> > +
+> >       /*
+> >        *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
+> >        *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
+> >        */
+> > -     for (d = 0; d < bytes; d += NSIZE * 2) {
+> > +     for (d = 0; d < bytes; d += nsize * 2) {
+> >               /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
+> >               asm volatile (".option  push\n"
+> >                             ".option  arch,+v\n"
+> > @@ -227,8 +224,8 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                             "vmv.v.v  v5, v4\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
+> > -                           [wp1]"r"(&dptr[z0][d + 1 * NSIZE])
+> > +                           [wp0]"r"(&dptr[z0][d + 0 * nsize]),
+> > +                           [wp1]"r"(&dptr[z0][d + 1 * nsize])
+> >               );
+> >
+> >               for (z = z0 - 1; z >= 0; z--) {
+> > @@ -260,8 +257,8 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                                     "vxor.vv  v4, v4, v6\n"
+> >                                     ".option  pop\n"
+> >                                     : :
+> > -                                   [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
+> > -                                   [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
+> > +                                   [wd0]"r"(&dptr[z][d + 0 * nsize]),
+> > +                                   [wd1]"r"(&dptr[z][d + 1 * nsize]),
+> >                                     [x1d]"r"(0x1d)
+> >                       );
+> >               }
+> > @@ -278,10 +275,10 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                             "vse8.v   v5, (%[wq1])\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&p[d + NSIZE * 0]),
+> > -                           [wq0]"r"(&q[d + NSIZE * 0]),
+> > -                           [wp1]"r"(&p[d + NSIZE * 1]),
+> > -                           [wq1]"r"(&q[d + NSIZE * 1])
+> > +                           [wp0]"r"(&p[d + nsize * 0]),
+> > +                           [wq0]"r"(&q[d + nsize * 0]),
+> > +                           [wp1]"r"(&p[d + nsize * 1]),
+> > +                           [wq1]"r"(&q[d + nsize * 1])
+> >               );
+> >       }
+> >   }
+> > @@ -291,7 +288,7 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
+> >   {
+> >       u8 **dptr = (u8 **)ptrs;
+> >       u8 *p, *q;
+> > -     unsigned long vl, d;
+> > +     unsigned long vl, d, nsize;
+> >       int z, z0;
+> >
+> >       z0 = stop;              /* P/Q right side optimization */
+> > @@ -305,11 +302,13 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
+> >                     : "=&r" (vl)
+> >       );
+> >
+> > +     nsize = vl;
+> > +
+> >       /*
+> >        *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
+> >        *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
+> >        */
+> > -     for (d = 0; d < bytes; d += NSIZE * 2) {
+> > +     for (d = 0; d < bytes; d += nsize * 2) {
+> >                /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
+> >               asm volatile (".option  push\n"
+> >                             ".option  arch,+v\n"
+> > @@ -319,8 +318,8 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
+> >                             "vmv.v.v  v5, v4\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
+> > -                           [wp1]"r"(&dptr[z0][d + 1 * NSIZE])
+> > +                           [wp0]"r"(&dptr[z0][d + 0 * nsize]),
+> > +                           [wp1]"r"(&dptr[z0][d + 1 * nsize])
+> >               );
+> >
+> >               /* P/Q data pages */
+> > @@ -353,8 +352,8 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
+> >                                     "vxor.vv  v4, v4, v6\n"
+> >                                     ".option  pop\n"
+> >                                     : :
+> > -                                   [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
+> > -                                   [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
+> > +                                   [wd0]"r"(&dptr[z][d + 0 * nsize]),
+> > +                                   [wd1]"r"(&dptr[z][d + 1 * nsize]),
+> >                                     [x1d]"r"(0x1d)
+> >                       );
+> >               }
+> > @@ -407,10 +406,10 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
+> >                             "vse8.v   v7, (%[wq1])\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&p[d + NSIZE * 0]),
+> > -                           [wq0]"r"(&q[d + NSIZE * 0]),
+> > -                           [wp1]"r"(&p[d + NSIZE * 1]),
+> > -                           [wq1]"r"(&q[d + NSIZE * 1])
+> > +                           [wp0]"r"(&p[d + nsize * 0]),
+> > +                           [wq0]"r"(&q[d + nsize * 0]),
+> > +                           [wp1]"r"(&p[d + nsize * 1]),
+> > +                           [wq1]"r"(&q[d + nsize * 1])
+> >               );
+> >       }
+> >   }
+> > @@ -419,7 +418,7 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >   {
+> >       u8 **dptr = (u8 **)ptrs;
+> >       u8 *p, *q;
+> > -     unsigned long vl, d;
+> > +     unsigned long vl, d, nsize;
+> >       int z, z0;
+> >
+> >       z0 = disks - 3; /* Highest data disk */
+> > @@ -433,13 +432,15 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                     : "=&r" (vl)
+> >       );
+> >
+> > +     nsize = vl;
+> > +
+> >       /*
+> >        *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
+> >        *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
+> >        *v8:wp2,v9:wq2,v10:wd2/w22,v11:w12
+> >        *v12:wp3,v13:wq3,v14:wd3/w23,v15:w13
+> >        */
+> > -     for (d = 0; d < bytes; d += NSIZE * 4) {
+> > +     for (d = 0; d < bytes; d += nsize * 4) {
+> >               /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
+> >               asm volatile (".option  push\n"
+> >                             ".option  arch,+v\n"
+> > @@ -453,10 +454,10 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                             "vmv.v.v  v13, v12\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
+> > -                           [wp1]"r"(&dptr[z0][d + 1 * NSIZE]),
+> > -                           [wp2]"r"(&dptr[z0][d + 2 * NSIZE]),
+> > -                           [wp3]"r"(&dptr[z0][d + 3 * NSIZE])
+> > +                           [wp0]"r"(&dptr[z0][d + 0 * nsize]),
+> > +                           [wp1]"r"(&dptr[z0][d + 1 * nsize]),
+> > +                           [wp2]"r"(&dptr[z0][d + 2 * nsize]),
+> > +                           [wp3]"r"(&dptr[z0][d + 3 * nsize])
+> >               );
+> >
+> >               for (z = z0 - 1; z >= 0; z--) {
+> > @@ -504,10 +505,10 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                                     "vxor.vv  v12, v12, v14\n"
+> >                                     ".option  pop\n"
+> >                                     : :
+> > -                                   [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
+> > -                                   [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
+> > -                                   [wd2]"r"(&dptr[z][d + 2 * NSIZE]),
+> > -                                   [wd3]"r"(&dptr[z][d + 3 * NSIZE]),
+> > +                                   [wd0]"r"(&dptr[z][d + 0 * nsize]),
+> > +                                   [wd1]"r"(&dptr[z][d + 1 * nsize]),
+> > +                                   [wd2]"r"(&dptr[z][d + 2 * nsize]),
+> > +                                   [wd3]"r"(&dptr[z][d + 3 * nsize]),
+> >                                     [x1d]"r"(0x1d)
+> >                       );
+> >               }
+> > @@ -528,14 +529,14 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                             "vse8.v   v13, (%[wq3])\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&p[d + NSIZE * 0]),
+> > -                           [wq0]"r"(&q[d + NSIZE * 0]),
+> > -                           [wp1]"r"(&p[d + NSIZE * 1]),
+> > -                           [wq1]"r"(&q[d + NSIZE * 1]),
+> > -                           [wp2]"r"(&p[d + NSIZE * 2]),
+> > -                           [wq2]"r"(&q[d + NSIZE * 2]),
+> > -                           [wp3]"r"(&p[d + NSIZE * 3]),
+> > -                           [wq3]"r"(&q[d + NSIZE * 3])
+> > +                           [wp0]"r"(&p[d + nsize * 0]),
+> > +                           [wq0]"r"(&q[d + nsize * 0]),
+> > +                           [wp1]"r"(&p[d + nsize * 1]),
+> > +                           [wq1]"r"(&q[d + nsize * 1]),
+> > +                           [wp2]"r"(&p[d + nsize * 2]),
+> > +                           [wq2]"r"(&q[d + nsize * 2]),
+> > +                           [wp3]"r"(&p[d + nsize * 3]),
+> > +                           [wq3]"r"(&q[d + nsize * 3])
+> >               );
+> >       }
+> >   }
+> > @@ -545,7 +546,7 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
+> >   {
+> >       u8 **dptr = (u8 **)ptrs;
+> >       u8 *p, *q;
+> > -     unsigned long vl, d;
+> > +     unsigned long vl, d, nsize;
+> >       int z, z0;
+> >
+> >       z0 = stop;              /* P/Q right side optimization */
+> > @@ -559,13 +560,15 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
+> >                     : "=&r" (vl)
+> >       );
+> >
+> > +     nsize = vl;
+> > +
+> >       /*
+> >        *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
+> >        *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
+> >        *v8:wp2,v9:wq2,v10:wd2/w22,v11:w12
+> >        *v12:wp3,v13:wq3,v14:wd3/w23,v15:w13
+> >        */
+> > -     for (d = 0; d < bytes; d += NSIZE * 4) {
+> > +     for (d = 0; d < bytes; d += nsize * 4) {
+> >                /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
+> >               asm volatile (".option  push\n"
+> >                             ".option  arch,+v\n"
+> > @@ -579,10 +582,10 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
+> >                             "vmv.v.v  v13, v12\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
+> > -                           [wp1]"r"(&dptr[z0][d + 1 * NSIZE]),
+> > -                           [wp2]"r"(&dptr[z0][d + 2 * NSIZE]),
+> > -                           [wp3]"r"(&dptr[z0][d + 3 * NSIZE])
+> > +                           [wp0]"r"(&dptr[z0][d + 0 * nsize]),
+> > +                           [wp1]"r"(&dptr[z0][d + 1 * nsize]),
+> > +                           [wp2]"r"(&dptr[z0][d + 2 * nsize]),
+> > +                           [wp3]"r"(&dptr[z0][d + 3 * nsize])
+> >               );
+> >
+> >               /* P/Q data pages */
+> > @@ -631,10 +634,10 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
+> >                                     "vxor.vv  v12, v12, v14\n"
+> >                                     ".option  pop\n"
+> >                                     : :
+> > -                                   [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
+> > -                                   [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
+> > -                                   [wd2]"r"(&dptr[z][d + 2 * NSIZE]),
+> > -                                   [wd3]"r"(&dptr[z][d + 3 * NSIZE]),
+> > +                                   [wd0]"r"(&dptr[z][d + 0 * nsize]),
+> > +                                   [wd1]"r"(&dptr[z][d + 1 * nsize]),
+> > +                                   [wd2]"r"(&dptr[z][d + 2 * nsize]),
+> > +                                   [wd3]"r"(&dptr[z][d + 3 * nsize]),
+> >                                     [x1d]"r"(0x1d)
+> >                       );
+> >               }
+> > @@ -713,14 +716,14 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
+> >                             "vse8.v   v15, (%[wq3])\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&p[d + NSIZE * 0]),
+> > -                           [wq0]"r"(&q[d + NSIZE * 0]),
+> > -                           [wp1]"r"(&p[d + NSIZE * 1]),
+> > -                           [wq1]"r"(&q[d + NSIZE * 1]),
+> > -                           [wp2]"r"(&p[d + NSIZE * 2]),
+> > -                           [wq2]"r"(&q[d + NSIZE * 2]),
+> > -                           [wp3]"r"(&p[d + NSIZE * 3]),
+> > -                           [wq3]"r"(&q[d + NSIZE * 3])
+> > +                           [wp0]"r"(&p[d + nsize * 0]),
+> > +                           [wq0]"r"(&q[d + nsize * 0]),
+> > +                           [wp1]"r"(&p[d + nsize * 1]),
+> > +                           [wq1]"r"(&q[d + nsize * 1]),
+> > +                           [wp2]"r"(&p[d + nsize * 2]),
+> > +                           [wq2]"r"(&q[d + nsize * 2]),
+> > +                           [wp3]"r"(&p[d + nsize * 3]),
+> > +                           [wq3]"r"(&q[d + nsize * 3])
+> >               );
+> >       }
+> >   }
+> > @@ -729,7 +732,7 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >   {
+> >       u8 **dptr = (u8 **)ptrs;
+> >       u8 *p, *q;
+> > -     unsigned long vl, d;
+> > +     unsigned long vl, d, nsize;
+> >       int z, z0;
+> >
+> >       z0 = disks - 3; /* Highest data disk */
+> > @@ -743,6 +746,8 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                     : "=&r" (vl)
+> >       );
+> >
+> > +     nsize = vl;
+> > +
+> >       /*
+> >        *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
+> >        *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
+> > @@ -753,7 +758,7 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >        *v24:wp6,v25:wq6,v26:wd6/w26,v27:w16
+> >        *v28:wp7,v29:wq7,v30:wd7/w27,v31:w17
+> >        */
+> > -     for (d = 0; d < bytes; d += NSIZE * 8) {
+> > +     for (d = 0; d < bytes; d += nsize * 8) {
+> >               /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
+> >               asm volatile (".option  push\n"
+> >                             ".option  arch,+v\n"
+> > @@ -775,14 +780,14 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                             "vmv.v.v  v29, v28\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
+> > -                           [wp1]"r"(&dptr[z0][d + 1 * NSIZE]),
+> > -                           [wp2]"r"(&dptr[z0][d + 2 * NSIZE]),
+> > -                           [wp3]"r"(&dptr[z0][d + 3 * NSIZE]),
+> > -                           [wp4]"r"(&dptr[z0][d + 4 * NSIZE]),
+> > -                           [wp5]"r"(&dptr[z0][d + 5 * NSIZE]),
+> > -                           [wp6]"r"(&dptr[z0][d + 6 * NSIZE]),
+> > -                           [wp7]"r"(&dptr[z0][d + 7 * NSIZE])
+> > +                           [wp0]"r"(&dptr[z0][d + 0 * nsize]),
+> > +                           [wp1]"r"(&dptr[z0][d + 1 * nsize]),
+> > +                           [wp2]"r"(&dptr[z0][d + 2 * nsize]),
+> > +                           [wp3]"r"(&dptr[z0][d + 3 * nsize]),
+> > +                           [wp4]"r"(&dptr[z0][d + 4 * nsize]),
+> > +                           [wp5]"r"(&dptr[z0][d + 5 * nsize]),
+> > +                           [wp6]"r"(&dptr[z0][d + 6 * nsize]),
+> > +                           [wp7]"r"(&dptr[z0][d + 7 * nsize])
+> >               );
+> >
+> >               for (z = z0 - 1; z >= 0; z--) {
+> > @@ -862,14 +867,14 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                                     "vxor.vv  v28, v28, v30\n"
+> >                                     ".option  pop\n"
+> >                                     : :
+> > -                                   [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
+> > -                                   [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
+> > -                                   [wd2]"r"(&dptr[z][d + 2 * NSIZE]),
+> > -                                   [wd3]"r"(&dptr[z][d + 3 * NSIZE]),
+> > -                                   [wd4]"r"(&dptr[z][d + 4 * NSIZE]),
+> > -                                   [wd5]"r"(&dptr[z][d + 5 * NSIZE]),
+> > -                                   [wd6]"r"(&dptr[z][d + 6 * NSIZE]),
+> > -                                   [wd7]"r"(&dptr[z][d + 7 * NSIZE]),
+> > +                                   [wd0]"r"(&dptr[z][d + 0 * nsize]),
+> > +                                   [wd1]"r"(&dptr[z][d + 1 * nsize]),
+> > +                                   [wd2]"r"(&dptr[z][d + 2 * nsize]),
+> > +                                   [wd3]"r"(&dptr[z][d + 3 * nsize]),
+> > +                                   [wd4]"r"(&dptr[z][d + 4 * nsize]),
+> > +                                   [wd5]"r"(&dptr[z][d + 5 * nsize]),
+> > +                                   [wd6]"r"(&dptr[z][d + 6 * nsize]),
+> > +                                   [wd7]"r"(&dptr[z][d + 7 * nsize]),
+> >                                     [x1d]"r"(0x1d)
+> >                       );
+> >               }
+> > @@ -898,22 +903,22 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
+> >                             "vse8.v   v29, (%[wq7])\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&p[d + NSIZE * 0]),
+> > -                           [wq0]"r"(&q[d + NSIZE * 0]),
+> > -                           [wp1]"r"(&p[d + NSIZE * 1]),
+> > -                           [wq1]"r"(&q[d + NSIZE * 1]),
+> > -                           [wp2]"r"(&p[d + NSIZE * 2]),
+> > -                           [wq2]"r"(&q[d + NSIZE * 2]),
+> > -                           [wp3]"r"(&p[d + NSIZE * 3]),
+> > -                           [wq3]"r"(&q[d + NSIZE * 3]),
+> > -                           [wp4]"r"(&p[d + NSIZE * 4]),
+> > -                           [wq4]"r"(&q[d + NSIZE * 4]),
+> > -                           [wp5]"r"(&p[d + NSIZE * 5]),
+> > -                           [wq5]"r"(&q[d + NSIZE * 5]),
+> > -                           [wp6]"r"(&p[d + NSIZE * 6]),
+> > -                           [wq6]"r"(&q[d + NSIZE * 6]),
+> > -                           [wp7]"r"(&p[d + NSIZE * 7]),
+> > -                           [wq7]"r"(&q[d + NSIZE * 7])
+> > +                           [wp0]"r"(&p[d + nsize * 0]),
+> > +                           [wq0]"r"(&q[d + nsize * 0]),
+> > +                           [wp1]"r"(&p[d + nsize * 1]),
+> > +                           [wq1]"r"(&q[d + nsize * 1]),
+> > +                           [wp2]"r"(&p[d + nsize * 2]),
+> > +                           [wq2]"r"(&q[d + nsize * 2]),
+> > +                           [wp3]"r"(&p[d + nsize * 3]),
+> > +                           [wq3]"r"(&q[d + nsize * 3]),
+> > +                           [wp4]"r"(&p[d + nsize * 4]),
+> > +                           [wq4]"r"(&q[d + nsize * 4]),
+> > +                           [wp5]"r"(&p[d + nsize * 5]),
+> > +                           [wq5]"r"(&q[d + nsize * 5]),
+> > +                           [wp6]"r"(&p[d + nsize * 6]),
+> > +                           [wq6]"r"(&q[d + nsize * 6]),
+> > +                           [wp7]"r"(&p[d + nsize * 7]),
+> > +                           [wq7]"r"(&q[d + nsize * 7])
+> >               );
+> >       }
+> >   }
+> > @@ -923,7 +928,7 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
+> >   {
+> >       u8 **dptr = (u8 **)ptrs;
+> >       u8 *p, *q;
+> > -     unsigned long vl, d;
+> > +     unsigned long vl, d, nsize;
+> >       int z, z0;
+> >
+> >       z0 = stop;              /* P/Q right side optimization */
+> > @@ -937,6 +942,8 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
+> >                     : "=&r" (vl)
+> >       );
+> >
+> > +     nsize = vl;
+> > +
+> >       /*
+> >        *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
+> >        *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
+> > @@ -947,7 +954,7 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
+> >        *v24:wp6,v25:wq6,v26:wd6/w26,v27:w16
+> >        *v28:wp7,v29:wq7,v30:wd7/w27,v31:w17
+> >        */
+> > -     for (d = 0; d < bytes; d += NSIZE * 8) {
+> > +     for (d = 0; d < bytes; d += nsize * 8) {
+> >                /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
+> >               asm volatile (".option  push\n"
+> >                             ".option  arch,+v\n"
+> > @@ -969,14 +976,14 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
+> >                             "vmv.v.v  v29, v28\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
+> > -                           [wp1]"r"(&dptr[z0][d + 1 * NSIZE]),
+> > -                           [wp2]"r"(&dptr[z0][d + 2 * NSIZE]),
+> > -                           [wp3]"r"(&dptr[z0][d + 3 * NSIZE]),
+> > -                           [wp4]"r"(&dptr[z0][d + 4 * NSIZE]),
+> > -                           [wp5]"r"(&dptr[z0][d + 5 * NSIZE]),
+> > -                           [wp6]"r"(&dptr[z0][d + 6 * NSIZE]),
+> > -                           [wp7]"r"(&dptr[z0][d + 7 * NSIZE])
+> > +                           [wp0]"r"(&dptr[z0][d + 0 * nsize]),
+> > +                           [wp1]"r"(&dptr[z0][d + 1 * nsize]),
+> > +                           [wp2]"r"(&dptr[z0][d + 2 * nsize]),
+> > +                           [wp3]"r"(&dptr[z0][d + 3 * nsize]),
+> > +                           [wp4]"r"(&dptr[z0][d + 4 * nsize]),
+> > +                           [wp5]"r"(&dptr[z0][d + 5 * nsize]),
+> > +                           [wp6]"r"(&dptr[z0][d + 6 * nsize]),
+> > +                           [wp7]"r"(&dptr[z0][d + 7 * nsize])
+> >               );
+> >
+> >               /* P/Q data pages */
+> > @@ -1057,14 +1064,14 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
+> >                                     "vxor.vv  v28, v28, v30\n"
+> >                                     ".option  pop\n"
+> >                                     : :
+> > -                                   [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
+> > -                                   [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
+> > -                                   [wd2]"r"(&dptr[z][d + 2 * NSIZE]),
+> > -                                   [wd3]"r"(&dptr[z][d + 3 * NSIZE]),
+> > -                                   [wd4]"r"(&dptr[z][d + 4 * NSIZE]),
+> > -                                   [wd5]"r"(&dptr[z][d + 5 * NSIZE]),
+> > -                                   [wd6]"r"(&dptr[z][d + 6 * NSIZE]),
+> > -                                   [wd7]"r"(&dptr[z][d + 7 * NSIZE]),
+> > +                                   [wd0]"r"(&dptr[z][d + 0 * nsize]),
+> > +                                   [wd1]"r"(&dptr[z][d + 1 * nsize]),
+> > +                                   [wd2]"r"(&dptr[z][d + 2 * nsize]),
+> > +                                   [wd3]"r"(&dptr[z][d + 3 * nsize]),
+> > +                                   [wd4]"r"(&dptr[z][d + 4 * nsize]),
+> > +                                   [wd5]"r"(&dptr[z][d + 5 * nsize]),
+> > +                                   [wd6]"r"(&dptr[z][d + 6 * nsize]),
+> > +                                   [wd7]"r"(&dptr[z][d + 7 * nsize]),
+> >                                     [x1d]"r"(0x1d)
+> >                       );
+> >               }
+> > @@ -1195,22 +1202,22 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
+> >                             "vse8.v   v31, (%[wq7])\n"
+> >                             ".option  pop\n"
+> >                             : :
+> > -                           [wp0]"r"(&p[d + NSIZE * 0]),
+> > -                           [wq0]"r"(&q[d + NSIZE * 0]),
+> > -                           [wp1]"r"(&p[d + NSIZE * 1]),
+> > -                           [wq1]"r"(&q[d + NSIZE * 1]),
+> > -                           [wp2]"r"(&p[d + NSIZE * 2]),
+> > -                           [wq2]"r"(&q[d + NSIZE * 2]),
+> > -                           [wp3]"r"(&p[d + NSIZE * 3]),
+> > -                           [wq3]"r"(&q[d + NSIZE * 3]),
+> > -                           [wp4]"r"(&p[d + NSIZE * 4]),
+> > -                           [wq4]"r"(&q[d + NSIZE * 4]),
+> > -                           [wp5]"r"(&p[d + NSIZE * 5]),
+> > -                           [wq5]"r"(&q[d + NSIZE * 5]),
+> > -                           [wp6]"r"(&p[d + NSIZE * 6]),
+> > -                           [wq6]"r"(&q[d + NSIZE * 6]),
+> > -                           [wp7]"r"(&p[d + NSIZE * 7]),
+> > -                           [wq7]"r"(&q[d + NSIZE * 7])
+> > +                           [wp0]"r"(&p[d + nsize * 0]),
+> > +                           [wq0]"r"(&q[d + nsize * 0]),
+> > +                           [wp1]"r"(&p[d + nsize * 1]),
+> > +                           [wq1]"r"(&q[d + nsize * 1]),
+> > +                           [wp2]"r"(&p[d + nsize * 2]),
+> > +                           [wq2]"r"(&q[d + nsize * 2]),
+> > +                           [wp3]"r"(&p[d + nsize * 3]),
+> > +                           [wq3]"r"(&q[d + nsize * 3]),
+> > +                           [wp4]"r"(&p[d + nsize * 4]),
+> > +                           [wq4]"r"(&q[d + nsize * 4]),
+> > +                           [wp5]"r"(&p[d + nsize * 5]),
+> > +                           [wq5]"r"(&q[d + nsize * 5]),
+> > +                           [wp6]"r"(&p[d + nsize * 6]),
+> > +                           [wq6]"r"(&q[d + nsize * 6]),
+> > +                           [wp7]"r"(&p[d + nsize * 7]),
+> > +                           [wq7]"r"(&q[d + nsize * 7])
+> >               );
+> >       }
+> >   }
+> > diff --git a/lib/raid6/rvv.h b/lib/raid6/rvv.h
+> > index 94044a1b707b..6d0708a2c8a4 100644
+> > --- a/lib/raid6/rvv.h
+> > +++ b/lib/raid6/rvv.h
+> > @@ -7,6 +7,23 @@
+> >    * Definitions for RISC-V RAID-6 code
+> >    */
+> >
+> > +#ifdef __KERNEL__
+> > +#include <asm/vector.h>
+> > +#else
+> > +#define kernel_vector_begin()
+> > +#define kernel_vector_end()
+> > +#include <sys/auxv.h>
+> > +#include <asm/hwcap.h>
+> > +#define has_vector() (getauxval(AT_HWCAP) & COMPAT_HWCAP_ISA_V)
+> > +#endif
+> > +
+> > +#include <linux/raid/pq.h>
+> > +
+> > +static int rvv_has_vector(void)
+> > +{
+> > +     return has_vector();
+> > +}
+> > +
+> >   #define RAID6_RVV_WRAPPER(_n)                                               \
+> >       static void raid6_rvv ## _n ## _gen_syndrome(int disks,         \
+> >                                       size_t bytes, void **ptrs)      \
+>
+>
+> Otherwise, looks good:
+>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+Chunyan
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
