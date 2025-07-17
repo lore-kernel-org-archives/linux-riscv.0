@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166C6C83F1B
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Jul 2025 07:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C62C83F1B
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Jul 2025 07:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DLksAmkb6C69OGxLUV5Xzl+tcNZA80B5hMq/h9sP4nw=; b=HE5el/ix2QFt18
-	IU/pXpEHeUs6YkEh+lsE0qkRwNBBbNYh3vx9bS8mh93Nbgy4V+SryL5xD70NcGqMpil0w0k9okI7I
-	MnXmCdthLopWelZ98jf96W3CQ9FOqHgm5MAbG9/B+VHgFFmWhsFHY1QaLTJoFB8nILI8TGNWgQnfc
-	Lz/F+ss6FCaocRa9YzWEHmvAbBSaGdVh6E7keoS/R6QsMSUTsYcIS04jDqpOO+cBmEjSRHSsubYmP
-	J1MBaIKkT2gepqsnPZAVeux8oIyKVdvn08mhB55VJSXUPQMgJbwJkUgBSEDtiVEi7XCEx1n3Os2LW
-	3WbfrwL59gT9sqJChtUg==;
+	List-Owner; bh=EezNw0ATtX9eQgIuP9O8wyX0WMlzbov+frwWEQR8Vo0=; b=d5bz0LM7uu0h8U
+	XngxtQAzrXBt0FARK8UszlR2JboHn6n2tyo8ICOlnu7uMD06yBk+kQmbuHakLfvH7p7imkjEmB3Jr
+	32I5Gmn7LpI7/xaK1vCVatTP8YM3ehSvRyYKfaopnkrswjY8c1CTSNmNiYF98gLUekjdufOwtfxRf
+	xttsYN2J51yNR4zeZcrSVQloNEAcKMqcK4uy+ob3h7Fw4dSqyngvVkctUTdx0gOQYTJj2m8AbZiW9
+	xTVXHn/WVYdbAbhRQ5CAjJ10S3OfS9bOZgiudl3b2vg7O9hmVLj9pi1usAvzr9UOvBe4VzexE2VBl
+	ODjCyVTCLwwoCrscfaQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucIwT-00000009Q6q-1inZ;
-	Thu, 17 Jul 2025 07:22:09 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1ucIz0-00000009QqC-1a3L;
+	Thu, 17 Jul 2025 07:24:46 +0000
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucIfk-00000009NFB-0KfD
+	id 1ucIhv-00000009NcA-2DBb
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Jul 2025 07:04:54 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id BDDBF443D2;
-	Thu, 17 Jul 2025 07:04:46 +0000 (UTC)
-Message-ID: <eeaae98c-31be-4773-9138-0a1ad22604ad@ghiti.fr>
-Date: Thu, 17 Jul 2025 09:04:43 +0200
+	Thu, 17 Jul 2025 07:07:09 +0000
+Received: from [192.168.2.54] (unknown [143.105.119.108])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id E3DBBB4D0F48;
+	Thu, 17 Jul 2025 09:06:59 +0200 (CEST)
+Message-ID: <c3d8693e-f7f5-4072-bdce-2bb0778c77c3@freeshell.de>
+Date: Thu, 17 Jul 2025 00:06:57 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH V2 4/5] raid6: riscv: Allow code to be compiled in
- userspace
-To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
+Subject: Re: [PATCH] riscv: dts: starfive: jh7110-milkv-mars sort properties
+To: Conor Dooley <conor@kernel.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Charlie Jenkins <charlie@rivosinc.com>, Song Liu <song@kernel.org>,
- Yu Kuai <yukuai3@huawei.com>
-Cc: linux-riscv@lists.infradead.org, linux-raid@vger.kernel.org,
- linux-kernel@vger.kernel.org, Chunyan Zhang <zhang.lyra@gmail.com>
-References: <20250711100930.3398336-1-zhangchunyan@iscas.ac.cn>
- <20250711100930.3398336-5-zhangchunyan@iscas.ac.cn>
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250716061940.180231-1-e@freeshell.de>
+ <CAJM55Z_77aygReSPJyZMtfZWk_UPYTzYLH5E5uEw6K=GSu0LNQ@mail.gmail.com>
+ <20250716-strategy-evasive-57b400af9366@spud>
 Content-Language: en-US
-In-Reply-To: <20250711100930.3398336-5-zhangchunyan@iscas.ac.cn>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehleelgecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfhffuvfevfhgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepieetveetgfefkeeutedtuddvgeefuedtkeefiedtveeffeegveelgfevgedtudffnecukfhppedukeehrddvudefrdduheegrdduhedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudekhedrvddufedrudehgedrudehuddphhgvlhhopegluddtrddugedrtddrudefngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeduuddprhgtphhtthhopeiihhgrnhhgtghhuhhnhigrnhesihhstggrshdrrggtrdgtnhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheptghhrghrlhhivgesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepshhonhhgsehkvghrnhgvl
- hdrohhrghdprhgtphhtthhopeihuhhkuhgrihefsehhuhgrfigvihdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-X-GND-Sasl: alex@ghiti.fr
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <20250716-strategy-evasive-57b400af9366@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_000452_400678_D3EC2467 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20250717_000707_714159_D736E8E5 
+X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,714 +65,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/11/25 12:09, Chunyan Zhang wrote:
-> To support userspace raid6test, this patch adds __KERNEL__ ifdef for kernel
-> header inclusions also userspace wrapper definitions to allow code to be
-> compiled in userspace.
->
-> This patch also drops the NSIZE macro, instead of using the vector length,
-> which can work for both kernel and user space.
->
-> Signed-off-by: Chunyan Zhang<zhangchunyan@iscas.ac.cn>
-> ---
->   lib/raid6/recov_rvv.c |   7 +-
->   lib/raid6/rvv.c       | 297 +++++++++++++++++++++---------------------
->   lib/raid6/rvv.h       |  17 +++
->   3 files changed, 170 insertions(+), 151 deletions(-)
->
-> diff --git a/lib/raid6/recov_rvv.c b/lib/raid6/recov_rvv.c
-> index 500da521a806..8f2be833c015 100644
-> --- a/lib/raid6/recov_rvv.c
-> +++ b/lib/raid6/recov_rvv.c
-> @@ -4,13 +4,8 @@
->    * Author: Chunyan Zhang<zhangchunyan@iscas.ac.cn>
->    */
->   
-> -#include <asm/vector.h>
->   #include <linux/raid/pq.h>
-> -
-> -static int rvv_has_vector(void)
-> -{
-> -	return has_vector();
-> -}
-> +#include "rvv.h"
->   
->   static void __raid6_2data_recov_rvv(int bytes, u8 *p, u8 *q, u8 *dp,
->   				    u8 *dq, const u8 *pbmul,
-> diff --git a/lib/raid6/rvv.c b/lib/raid6/rvv.c
-> index 015f3ee4da25..75c9dafedb28 100644
-> --- a/lib/raid6/rvv.c
-> +++ b/lib/raid6/rvv.c
-> @@ -9,17 +9,8 @@
->    *	Copyright 2002-2004 H. Peter Anvin
->    */
->   
-> -#include <asm/vector.h>
-> -#include <linux/raid/pq.h>
->   #include "rvv.h"
->   
-> -#define NSIZE	(riscv_v_vsize / 32) /* NSIZE = vlenb */
-> -
-> -static int rvv_has_vector(void)
-> -{
-> -	return has_vector();
-> -}
-> -
->   #ifdef __riscv_vector
->   #error "This code must be built without compiler support for vector"
->   #endif
-> @@ -28,7 +19,7 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
->   {
->   	u8 **dptr = (u8 **)ptrs;
->   	u8 *p, *q;
-> -	unsigned long vl, d;
-> +	unsigned long vl, d, nsize;
->   	int z, z0;
->   
->   	z0 = disks - 3;		/* Highest data disk */
-> @@ -42,8 +33,10 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
->   		      : "=&r" (vl)
->   	);
->   
-> +	nsize = vl;
-> +
->   	 /*v0:wp0,v1:wq0,v2:wd0/w20,v3:w10 */
-> -	for (d = 0; d < bytes; d += NSIZE * 1) {
-> +	for (d = 0; d < bytes; d += nsize * 1) {
->   		/* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
 
 
-You missed a few NSIZE in comments
+On 7/16/25 08:28, Conor Dooley wrote:
+> On Wed, Jul 16, 2025 at 02:17:34AM -0700, Emil Renner Berthing wrote:
+>> E Shattow wrote:
+>>> Improve style with node property order sort of common properties before
+>>> vendor prefixes
+>>>
+>>> Signed-off-by: E Shattow <e@freeshell.de>
+>>
+>> Thanks!
+>>
+>> Acked-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> 
+> I'm going to pick this up, but it may be very late for 6.17.
 
-
->   		asm volatile (".option	push\n"
->   			      ".option	arch,+v\n"
-> @@ -51,7 +44,7 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
->   			      "vmv.v.v	v1, v0\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&dptr[z0][d + 0 * NSIZE])
-> +			      [wp0]"r"(&dptr[z0][d + 0 * nsize])
->   		);
->   
->   		for (z = z0 - 1 ; z >= 0 ; z--) {
-> @@ -75,7 +68,7 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
->   				      "vxor.vv	v0, v0, v2\n"
->   				      ".option	pop\n"
->   				      : :
-> -				      [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
-> +				      [wd0]"r"(&dptr[z][d + 0 * nsize]),
->   				      [x1d]"r"(0x1d)
->   			);
->   		}
-> @@ -90,8 +83,8 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
->   			      "vse8.v	v1, (%[wq0])\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&p[d + NSIZE * 0]),
-> -			      [wq0]"r"(&q[d + NSIZE * 0])
-> +			      [wp0]"r"(&p[d + nsize * 0]),
-> +			      [wq0]"r"(&q[d + nsize * 0])
->   		);
->   	}
->   }
-> @@ -101,7 +94,7 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
->   {
->   	u8 **dptr = (u8 **)ptrs;
->   	u8 *p, *q;
-> -	unsigned long vl, d;
-> +	unsigned long vl, d, nsize;
->   	int z, z0;
->   
->   	z0 = stop;		/* P/Q right side optimization */
-> @@ -115,8 +108,10 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
->   		      : "=&r" (vl)
->   	);
->   
-> +	nsize = vl;
-> +
->   	/*v0:wp0,v1:wq0,v2:wd0/w20,v3:w10 */
-> -	for (d = 0 ; d < bytes ; d += NSIZE * 1) {
-> +	for (d = 0 ; d < bytes ; d += nsize * 1) {
->   		/* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
->   		asm volatile (".option	push\n"
->   			      ".option	arch,+v\n"
-> @@ -124,7 +119,7 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
->   			      "vmv.v.v	v1, v0\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&dptr[z0][d + 0 * NSIZE])
-> +			      [wp0]"r"(&dptr[z0][d + 0 * nsize])
->   		);
->   
->   		/* P/Q data pages */
-> @@ -149,7 +144,7 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
->   				      "vxor.vv	v0, v0, v2\n"
->   				      ".option	pop\n"
->   				      : :
-> -				      [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
-> +				      [wd0]"r"(&dptr[z][d + 0 * nsize]),
->   				      [x1d]"r"(0x1d)
->   			);
->   		}
-> @@ -189,8 +184,8 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
->   			      "vse8.v	v3, (%[wq0])\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&p[d + NSIZE * 0]),
-> -			      [wq0]"r"(&q[d + NSIZE * 0])
-> +			      [wp0]"r"(&p[d + nsize * 0]),
-> +			      [wq0]"r"(&q[d + nsize * 0])
->   		);
->   	}
->   }
-> @@ -199,7 +194,7 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
->   {
->   	u8 **dptr = (u8 **)ptrs;
->   	u8 *p, *q;
-> -	unsigned long vl, d;
-> +	unsigned long vl, d, nsize;
->   	int z, z0;
->   
->   	z0 = disks - 3;		/* Highest data disk */
-> @@ -213,11 +208,13 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
->   		      : "=&r" (vl)
->   	);
->   
-> +	nsize = vl;
-> +
->   	/*
->   	 *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
->   	 *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
->   	 */
-> -	for (d = 0; d < bytes; d += NSIZE * 2) {
-> +	for (d = 0; d < bytes; d += nsize * 2) {
->   		/* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
->   		asm volatile (".option	push\n"
->   			      ".option	arch,+v\n"
-> @@ -227,8 +224,8 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
->   			      "vmv.v.v	v5, v4\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
-> -			      [wp1]"r"(&dptr[z0][d + 1 * NSIZE])
-> +			      [wp0]"r"(&dptr[z0][d + 0 * nsize]),
-> +			      [wp1]"r"(&dptr[z0][d + 1 * nsize])
->   		);
->   
->   		for (z = z0 - 1; z >= 0; z--) {
-> @@ -260,8 +257,8 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
->   				      "vxor.vv	v4, v4, v6\n"
->   				      ".option	pop\n"
->   				      : :
-> -				      [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
-> -				      [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
-> +				      [wd0]"r"(&dptr[z][d + 0 * nsize]),
-> +				      [wd1]"r"(&dptr[z][d + 1 * nsize]),
->   				      [x1d]"r"(0x1d)
->   			);
->   		}
-> @@ -278,10 +275,10 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
->   			      "vse8.v	v5, (%[wq1])\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&p[d + NSIZE * 0]),
-> -			      [wq0]"r"(&q[d + NSIZE * 0]),
-> -			      [wp1]"r"(&p[d + NSIZE * 1]),
-> -			      [wq1]"r"(&q[d + NSIZE * 1])
-> +			      [wp0]"r"(&p[d + nsize * 0]),
-> +			      [wq0]"r"(&q[d + nsize * 0]),
-> +			      [wp1]"r"(&p[d + nsize * 1]),
-> +			      [wq1]"r"(&q[d + nsize * 1])
->   		);
->   	}
->   }
-> @@ -291,7 +288,7 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
->   {
->   	u8 **dptr = (u8 **)ptrs;
->   	u8 *p, *q;
-> -	unsigned long vl, d;
-> +	unsigned long vl, d, nsize;
->   	int z, z0;
->   
->   	z0 = stop;		/* P/Q right side optimization */
-> @@ -305,11 +302,13 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
->   		      : "=&r" (vl)
->   	);
->   
-> +	nsize = vl;
-> +
->   	/*
->   	 *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
->   	 *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
->   	 */
-> -	for (d = 0; d < bytes; d += NSIZE * 2) {
-> +	for (d = 0; d < bytes; d += nsize * 2) {
->   		 /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
->   		asm volatile (".option	push\n"
->   			      ".option	arch,+v\n"
-> @@ -319,8 +318,8 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
->   			      "vmv.v.v	v5, v4\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
-> -			      [wp1]"r"(&dptr[z0][d + 1 * NSIZE])
-> +			      [wp0]"r"(&dptr[z0][d + 0 * nsize]),
-> +			      [wp1]"r"(&dptr[z0][d + 1 * nsize])
->   		);
->   
->   		/* P/Q data pages */
-> @@ -353,8 +352,8 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
->   				      "vxor.vv	v4, v4, v6\n"
->   				      ".option	pop\n"
->   				      : :
-> -				      [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
-> -				      [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
-> +				      [wd0]"r"(&dptr[z][d + 0 * nsize]),
-> +				      [wd1]"r"(&dptr[z][d + 1 * nsize]),
->   				      [x1d]"r"(0x1d)
->   			);
->   		}
-> @@ -407,10 +406,10 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
->   			      "vse8.v	v7, (%[wq1])\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&p[d + NSIZE * 0]),
-> -			      [wq0]"r"(&q[d + NSIZE * 0]),
-> -			      [wp1]"r"(&p[d + NSIZE * 1]),
-> -			      [wq1]"r"(&q[d + NSIZE * 1])
-> +			      [wp0]"r"(&p[d + nsize * 0]),
-> +			      [wq0]"r"(&q[d + nsize * 0]),
-> +			      [wp1]"r"(&p[d + nsize * 1]),
-> +			      [wq1]"r"(&q[d + nsize * 1])
->   		);
->   	}
->   }
-> @@ -419,7 +418,7 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
->   {
->   	u8 **dptr = (u8 **)ptrs;
->   	u8 *p, *q;
-> -	unsigned long vl, d;
-> +	unsigned long vl, d, nsize;
->   	int z, z0;
->   
->   	z0 = disks - 3;	/* Highest data disk */
-> @@ -433,13 +432,15 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
->   		      : "=&r" (vl)
->   	);
->   
-> +	nsize = vl;
-> +
->   	/*
->   	 *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
->   	 *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
->   	 *v8:wp2,v9:wq2,v10:wd2/w22,v11:w12
->   	 *v12:wp3,v13:wq3,v14:wd3/w23,v15:w13
->   	 */
-> -	for (d = 0; d < bytes; d += NSIZE * 4) {
-> +	for (d = 0; d < bytes; d += nsize * 4) {
->   		/* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
->   		asm volatile (".option	push\n"
->   			      ".option	arch,+v\n"
-> @@ -453,10 +454,10 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
->   			      "vmv.v.v	v13, v12\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
-> -			      [wp1]"r"(&dptr[z0][d + 1 * NSIZE]),
-> -			      [wp2]"r"(&dptr[z0][d + 2 * NSIZE]),
-> -			      [wp3]"r"(&dptr[z0][d + 3 * NSIZE])
-> +			      [wp0]"r"(&dptr[z0][d + 0 * nsize]),
-> +			      [wp1]"r"(&dptr[z0][d + 1 * nsize]),
-> +			      [wp2]"r"(&dptr[z0][d + 2 * nsize]),
-> +			      [wp3]"r"(&dptr[z0][d + 3 * nsize])
->   		);
->   
->   		for (z = z0 - 1; z >= 0; z--) {
-> @@ -504,10 +505,10 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
->   				      "vxor.vv	v12, v12, v14\n"
->   				      ".option	pop\n"
->   				      : :
-> -				      [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
-> -				      [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
-> -				      [wd2]"r"(&dptr[z][d + 2 * NSIZE]),
-> -				      [wd3]"r"(&dptr[z][d + 3 * NSIZE]),
-> +				      [wd0]"r"(&dptr[z][d + 0 * nsize]),
-> +				      [wd1]"r"(&dptr[z][d + 1 * nsize]),
-> +				      [wd2]"r"(&dptr[z][d + 2 * nsize]),
-> +				      [wd3]"r"(&dptr[z][d + 3 * nsize]),
->   				      [x1d]"r"(0x1d)
->   			);
->   		}
-> @@ -528,14 +529,14 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
->   			      "vse8.v	v13, (%[wq3])\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&p[d + NSIZE * 0]),
-> -			      [wq0]"r"(&q[d + NSIZE * 0]),
-> -			      [wp1]"r"(&p[d + NSIZE * 1]),
-> -			      [wq1]"r"(&q[d + NSIZE * 1]),
-> -			      [wp2]"r"(&p[d + NSIZE * 2]),
-> -			      [wq2]"r"(&q[d + NSIZE * 2]),
-> -			      [wp3]"r"(&p[d + NSIZE * 3]),
-> -			      [wq3]"r"(&q[d + NSIZE * 3])
-> +			      [wp0]"r"(&p[d + nsize * 0]),
-> +			      [wq0]"r"(&q[d + nsize * 0]),
-> +			      [wp1]"r"(&p[d + nsize * 1]),
-> +			      [wq1]"r"(&q[d + nsize * 1]),
-> +			      [wp2]"r"(&p[d + nsize * 2]),
-> +			      [wq2]"r"(&q[d + nsize * 2]),
-> +			      [wp3]"r"(&p[d + nsize * 3]),
-> +			      [wq3]"r"(&q[d + nsize * 3])
->   		);
->   	}
->   }
-> @@ -545,7 +546,7 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
->   {
->   	u8 **dptr = (u8 **)ptrs;
->   	u8 *p, *q;
-> -	unsigned long vl, d;
-> +	unsigned long vl, d, nsize;
->   	int z, z0;
->   
->   	z0 = stop;		/* P/Q right side optimization */
-> @@ -559,13 +560,15 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
->   		      : "=&r" (vl)
->   	);
->   
-> +	nsize = vl;
-> +
->   	/*
->   	 *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
->   	 *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
->   	 *v8:wp2,v9:wq2,v10:wd2/w22,v11:w12
->   	 *v12:wp3,v13:wq3,v14:wd3/w23,v15:w13
->   	 */
-> -	for (d = 0; d < bytes; d += NSIZE * 4) {
-> +	for (d = 0; d < bytes; d += nsize * 4) {
->   		 /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
->   		asm volatile (".option	push\n"
->   			      ".option	arch,+v\n"
-> @@ -579,10 +582,10 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
->   			      "vmv.v.v	v13, v12\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
-> -			      [wp1]"r"(&dptr[z0][d + 1 * NSIZE]),
-> -			      [wp2]"r"(&dptr[z0][d + 2 * NSIZE]),
-> -			      [wp3]"r"(&dptr[z0][d + 3 * NSIZE])
-> +			      [wp0]"r"(&dptr[z0][d + 0 * nsize]),
-> +			      [wp1]"r"(&dptr[z0][d + 1 * nsize]),
-> +			      [wp2]"r"(&dptr[z0][d + 2 * nsize]),
-> +			      [wp3]"r"(&dptr[z0][d + 3 * nsize])
->   		);
->   
->   		/* P/Q data pages */
-> @@ -631,10 +634,10 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
->   				      "vxor.vv	v12, v12, v14\n"
->   				      ".option	pop\n"
->   				      : :
-> -				      [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
-> -				      [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
-> -				      [wd2]"r"(&dptr[z][d + 2 * NSIZE]),
-> -				      [wd3]"r"(&dptr[z][d + 3 * NSIZE]),
-> +				      [wd0]"r"(&dptr[z][d + 0 * nsize]),
-> +				      [wd1]"r"(&dptr[z][d + 1 * nsize]),
-> +				      [wd2]"r"(&dptr[z][d + 2 * nsize]),
-> +				      [wd3]"r"(&dptr[z][d + 3 * nsize]),
->   				      [x1d]"r"(0x1d)
->   			);
->   		}
-> @@ -713,14 +716,14 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
->   			      "vse8.v	v15, (%[wq3])\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&p[d + NSIZE * 0]),
-> -			      [wq0]"r"(&q[d + NSIZE * 0]),
-> -			      [wp1]"r"(&p[d + NSIZE * 1]),
-> -			      [wq1]"r"(&q[d + NSIZE * 1]),
-> -			      [wp2]"r"(&p[d + NSIZE * 2]),
-> -			      [wq2]"r"(&q[d + NSIZE * 2]),
-> -			      [wp3]"r"(&p[d + NSIZE * 3]),
-> -			      [wq3]"r"(&q[d + NSIZE * 3])
-> +			      [wp0]"r"(&p[d + nsize * 0]),
-> +			      [wq0]"r"(&q[d + nsize * 0]),
-> +			      [wp1]"r"(&p[d + nsize * 1]),
-> +			      [wq1]"r"(&q[d + nsize * 1]),
-> +			      [wp2]"r"(&p[d + nsize * 2]),
-> +			      [wq2]"r"(&q[d + nsize * 2]),
-> +			      [wp3]"r"(&p[d + nsize * 3]),
-> +			      [wq3]"r"(&q[d + nsize * 3])
->   		);
->   	}
->   }
-> @@ -729,7 +732,7 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
->   {
->   	u8 **dptr = (u8 **)ptrs;
->   	u8 *p, *q;
-> -	unsigned long vl, d;
-> +	unsigned long vl, d, nsize;
->   	int z, z0;
->   
->   	z0 = disks - 3;	/* Highest data disk */
-> @@ -743,6 +746,8 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
->   		      : "=&r" (vl)
->   	);
->   
-> +	nsize = vl;
-> +
->   	/*
->   	 *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
->   	 *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
-> @@ -753,7 +758,7 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
->   	 *v24:wp6,v25:wq6,v26:wd6/w26,v27:w16
->   	 *v28:wp7,v29:wq7,v30:wd7/w27,v31:w17
->   	 */
-> -	for (d = 0; d < bytes; d += NSIZE * 8) {
-> +	for (d = 0; d < bytes; d += nsize * 8) {
->   		/* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
->   		asm volatile (".option	push\n"
->   			      ".option	arch,+v\n"
-> @@ -775,14 +780,14 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
->   			      "vmv.v.v	v29, v28\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
-> -			      [wp1]"r"(&dptr[z0][d + 1 * NSIZE]),
-> -			      [wp2]"r"(&dptr[z0][d + 2 * NSIZE]),
-> -			      [wp3]"r"(&dptr[z0][d + 3 * NSIZE]),
-> -			      [wp4]"r"(&dptr[z0][d + 4 * NSIZE]),
-> -			      [wp5]"r"(&dptr[z0][d + 5 * NSIZE]),
-> -			      [wp6]"r"(&dptr[z0][d + 6 * NSIZE]),
-> -			      [wp7]"r"(&dptr[z0][d + 7 * NSIZE])
-> +			      [wp0]"r"(&dptr[z0][d + 0 * nsize]),
-> +			      [wp1]"r"(&dptr[z0][d + 1 * nsize]),
-> +			      [wp2]"r"(&dptr[z0][d + 2 * nsize]),
-> +			      [wp3]"r"(&dptr[z0][d + 3 * nsize]),
-> +			      [wp4]"r"(&dptr[z0][d + 4 * nsize]),
-> +			      [wp5]"r"(&dptr[z0][d + 5 * nsize]),
-> +			      [wp6]"r"(&dptr[z0][d + 6 * nsize]),
-> +			      [wp7]"r"(&dptr[z0][d + 7 * nsize])
->   		);
->   
->   		for (z = z0 - 1; z >= 0; z--) {
-> @@ -862,14 +867,14 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
->   				      "vxor.vv	v28, v28, v30\n"
->   				      ".option	pop\n"
->   				      : :
-> -				      [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
-> -				      [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
-> -				      [wd2]"r"(&dptr[z][d + 2 * NSIZE]),
-> -				      [wd3]"r"(&dptr[z][d + 3 * NSIZE]),
-> -				      [wd4]"r"(&dptr[z][d + 4 * NSIZE]),
-> -				      [wd5]"r"(&dptr[z][d + 5 * NSIZE]),
-> -				      [wd6]"r"(&dptr[z][d + 6 * NSIZE]),
-> -				      [wd7]"r"(&dptr[z][d + 7 * NSIZE]),
-> +				      [wd0]"r"(&dptr[z][d + 0 * nsize]),
-> +				      [wd1]"r"(&dptr[z][d + 1 * nsize]),
-> +				      [wd2]"r"(&dptr[z][d + 2 * nsize]),
-> +				      [wd3]"r"(&dptr[z][d + 3 * nsize]),
-> +				      [wd4]"r"(&dptr[z][d + 4 * nsize]),
-> +				      [wd5]"r"(&dptr[z][d + 5 * nsize]),
-> +				      [wd6]"r"(&dptr[z][d + 6 * nsize]),
-> +				      [wd7]"r"(&dptr[z][d + 7 * nsize]),
->   				      [x1d]"r"(0x1d)
->   			);
->   		}
-> @@ -898,22 +903,22 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
->   			      "vse8.v	v29, (%[wq7])\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&p[d + NSIZE * 0]),
-> -			      [wq0]"r"(&q[d + NSIZE * 0]),
-> -			      [wp1]"r"(&p[d + NSIZE * 1]),
-> -			      [wq1]"r"(&q[d + NSIZE * 1]),
-> -			      [wp2]"r"(&p[d + NSIZE * 2]),
-> -			      [wq2]"r"(&q[d + NSIZE * 2]),
-> -			      [wp3]"r"(&p[d + NSIZE * 3]),
-> -			      [wq3]"r"(&q[d + NSIZE * 3]),
-> -			      [wp4]"r"(&p[d + NSIZE * 4]),
-> -			      [wq4]"r"(&q[d + NSIZE * 4]),
-> -			      [wp5]"r"(&p[d + NSIZE * 5]),
-> -			      [wq5]"r"(&q[d + NSIZE * 5]),
-> -			      [wp6]"r"(&p[d + NSIZE * 6]),
-> -			      [wq6]"r"(&q[d + NSIZE * 6]),
-> -			      [wp7]"r"(&p[d + NSIZE * 7]),
-> -			      [wq7]"r"(&q[d + NSIZE * 7])
-> +			      [wp0]"r"(&p[d + nsize * 0]),
-> +			      [wq0]"r"(&q[d + nsize * 0]),
-> +			      [wp1]"r"(&p[d + nsize * 1]),
-> +			      [wq1]"r"(&q[d + nsize * 1]),
-> +			      [wp2]"r"(&p[d + nsize * 2]),
-> +			      [wq2]"r"(&q[d + nsize * 2]),
-> +			      [wp3]"r"(&p[d + nsize * 3]),
-> +			      [wq3]"r"(&q[d + nsize * 3]),
-> +			      [wp4]"r"(&p[d + nsize * 4]),
-> +			      [wq4]"r"(&q[d + nsize * 4]),
-> +			      [wp5]"r"(&p[d + nsize * 5]),
-> +			      [wq5]"r"(&q[d + nsize * 5]),
-> +			      [wp6]"r"(&p[d + nsize * 6]),
-> +			      [wq6]"r"(&q[d + nsize * 6]),
-> +			      [wp7]"r"(&p[d + nsize * 7]),
-> +			      [wq7]"r"(&q[d + nsize * 7])
->   		);
->   	}
->   }
-> @@ -923,7 +928,7 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
->   {
->   	u8 **dptr = (u8 **)ptrs;
->   	u8 *p, *q;
-> -	unsigned long vl, d;
-> +	unsigned long vl, d, nsize;
->   	int z, z0;
->   
->   	z0 = stop;		/* P/Q right side optimization */
-> @@ -937,6 +942,8 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
->   		      : "=&r" (vl)
->   	);
->   
-> +	nsize = vl;
-> +
->   	/*
->   	 *v0:wp0,v1:wq0,v2:wd0/w20,v3:w10
->   	 *v4:wp1,v5:wq1,v6:wd1/w21,v7:w11
-> @@ -947,7 +954,7 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
->   	 *v24:wp6,v25:wq6,v26:wd6/w26,v27:w16
->   	 *v28:wp7,v29:wq7,v30:wd7/w27,v31:w17
->   	 */
-> -	for (d = 0; d < bytes; d += NSIZE * 8) {
-> +	for (d = 0; d < bytes; d += nsize * 8) {
->   		 /* wq$$ = wp$$ = *(unative_t *)&dptr[z0][d+$$*NSIZE]; */
->   		asm volatile (".option	push\n"
->   			      ".option	arch,+v\n"
-> @@ -969,14 +976,14 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
->   			      "vmv.v.v	v29, v28\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&dptr[z0][d + 0 * NSIZE]),
-> -			      [wp1]"r"(&dptr[z0][d + 1 * NSIZE]),
-> -			      [wp2]"r"(&dptr[z0][d + 2 * NSIZE]),
-> -			      [wp3]"r"(&dptr[z0][d + 3 * NSIZE]),
-> -			      [wp4]"r"(&dptr[z0][d + 4 * NSIZE]),
-> -			      [wp5]"r"(&dptr[z0][d + 5 * NSIZE]),
-> -			      [wp6]"r"(&dptr[z0][d + 6 * NSIZE]),
-> -			      [wp7]"r"(&dptr[z0][d + 7 * NSIZE])
-> +			      [wp0]"r"(&dptr[z0][d + 0 * nsize]),
-> +			      [wp1]"r"(&dptr[z0][d + 1 * nsize]),
-> +			      [wp2]"r"(&dptr[z0][d + 2 * nsize]),
-> +			      [wp3]"r"(&dptr[z0][d + 3 * nsize]),
-> +			      [wp4]"r"(&dptr[z0][d + 4 * nsize]),
-> +			      [wp5]"r"(&dptr[z0][d + 5 * nsize]),
-> +			      [wp6]"r"(&dptr[z0][d + 6 * nsize]),
-> +			      [wp7]"r"(&dptr[z0][d + 7 * nsize])
->   		);
->   
->   		/* P/Q data pages */
-> @@ -1057,14 +1064,14 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
->   				      "vxor.vv	v28, v28, v30\n"
->   				      ".option	pop\n"
->   				      : :
-> -				      [wd0]"r"(&dptr[z][d + 0 * NSIZE]),
-> -				      [wd1]"r"(&dptr[z][d + 1 * NSIZE]),
-> -				      [wd2]"r"(&dptr[z][d + 2 * NSIZE]),
-> -				      [wd3]"r"(&dptr[z][d + 3 * NSIZE]),
-> -				      [wd4]"r"(&dptr[z][d + 4 * NSIZE]),
-> -				      [wd5]"r"(&dptr[z][d + 5 * NSIZE]),
-> -				      [wd6]"r"(&dptr[z][d + 6 * NSIZE]),
-> -				      [wd7]"r"(&dptr[z][d + 7 * NSIZE]),
-> +				      [wd0]"r"(&dptr[z][d + 0 * nsize]),
-> +				      [wd1]"r"(&dptr[z][d + 1 * nsize]),
-> +				      [wd2]"r"(&dptr[z][d + 2 * nsize]),
-> +				      [wd3]"r"(&dptr[z][d + 3 * nsize]),
-> +				      [wd4]"r"(&dptr[z][d + 4 * nsize]),
-> +				      [wd5]"r"(&dptr[z][d + 5 * nsize]),
-> +				      [wd6]"r"(&dptr[z][d + 6 * nsize]),
-> +				      [wd7]"r"(&dptr[z][d + 7 * nsize]),
->   				      [x1d]"r"(0x1d)
->   			);
->   		}
-> @@ -1195,22 +1202,22 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
->   			      "vse8.v	v31, (%[wq7])\n"
->   			      ".option	pop\n"
->   			      : :
-> -			      [wp0]"r"(&p[d + NSIZE * 0]),
-> -			      [wq0]"r"(&q[d + NSIZE * 0]),
-> -			      [wp1]"r"(&p[d + NSIZE * 1]),
-> -			      [wq1]"r"(&q[d + NSIZE * 1]),
-> -			      [wp2]"r"(&p[d + NSIZE * 2]),
-> -			      [wq2]"r"(&q[d + NSIZE * 2]),
-> -			      [wp3]"r"(&p[d + NSIZE * 3]),
-> -			      [wq3]"r"(&q[d + NSIZE * 3]),
-> -			      [wp4]"r"(&p[d + NSIZE * 4]),
-> -			      [wq4]"r"(&q[d + NSIZE * 4]),
-> -			      [wp5]"r"(&p[d + NSIZE * 5]),
-> -			      [wq5]"r"(&q[d + NSIZE * 5]),
-> -			      [wp6]"r"(&p[d + NSIZE * 6]),
-> -			      [wq6]"r"(&q[d + NSIZE * 6]),
-> -			      [wp7]"r"(&p[d + NSIZE * 7]),
-> -			      [wq7]"r"(&q[d + NSIZE * 7])
-> +			      [wp0]"r"(&p[d + nsize * 0]),
-> +			      [wq0]"r"(&q[d + nsize * 0]),
-> +			      [wp1]"r"(&p[d + nsize * 1]),
-> +			      [wq1]"r"(&q[d + nsize * 1]),
-> +			      [wp2]"r"(&p[d + nsize * 2]),
-> +			      [wq2]"r"(&q[d + nsize * 2]),
-> +			      [wp3]"r"(&p[d + nsize * 3]),
-> +			      [wq3]"r"(&q[d + nsize * 3]),
-> +			      [wp4]"r"(&p[d + nsize * 4]),
-> +			      [wq4]"r"(&q[d + nsize * 4]),
-> +			      [wp5]"r"(&p[d + nsize * 5]),
-> +			      [wq5]"r"(&q[d + nsize * 5]),
-> +			      [wp6]"r"(&p[d + nsize * 6]),
-> +			      [wq6]"r"(&q[d + nsize * 6]),
-> +			      [wp7]"r"(&p[d + nsize * 7]),
-> +			      [wq7]"r"(&q[d + nsize * 7])
->   		);
->   	}
->   }
-> diff --git a/lib/raid6/rvv.h b/lib/raid6/rvv.h
-> index 94044a1b707b..6d0708a2c8a4 100644
-> --- a/lib/raid6/rvv.h
-> +++ b/lib/raid6/rvv.h
-> @@ -7,6 +7,23 @@
->    * Definitions for RISC-V RAID-6 code
->    */
->   
-> +#ifdef __KERNEL__
-> +#include <asm/vector.h>
-> +#else
-> +#define kernel_vector_begin()
-> +#define kernel_vector_end()
-> +#include <sys/auxv.h>
-> +#include <asm/hwcap.h>
-> +#define has_vector() (getauxval(AT_HWCAP) & COMPAT_HWCAP_ISA_V)
-> +#endif
-> +
-> +#include <linux/raid/pq.h>
-> +
-> +static int rvv_has_vector(void)
-> +{
-> +	return has_vector();
-> +}
-> +
->   #define RAID6_RVV_WRAPPER(_n)						\
->   	static void raid6_rvv ## _n ## _gen_syndrome(int disks,		\
->   					size_t bytes, void **ptrs)	\
-
-
-Otherwise, looks good:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Yes. The other questionable sort style in this dts I was looking at are
+whether we want "compatible" before "model" in the root '/' node?  And
+then why we have this common pattern of 'pinmux' (or pinctrl*)
+prioritized firstly in the natural sort order, also pinctrl-names before
+pinctrl-N is a common pattern that seems an arbitrary reversal of
+natural sort order?
 
 Thanks,
 
-Alex
-
+-E
 
 _______________________________________________
 linux-riscv mailing list
