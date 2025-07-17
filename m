@@ -4,50 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51409C83F1A
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Jul 2025 15:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09754C87FC3
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Jul 2025 15:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X1vj5SbYt6GMILemId7z2y997JE++h4m0gI5sGpe8ts=; b=PaKke8m6gxPRKU
-	p1Qe9r3zhkB04d268jWKEuvkhP4njHEq2fxTKP2LfSTZSskKZX/QWi/rVXdYrZwmsHUafGKNwneJk
-	fMG7dmFgxkHAeb9hr0OB9NnHHMikeMJRRxGv4KXb3EIRwopBHvsi+Z82QFvVZiqwxvUzPVHgVObdj
-	h9wNcEj/TgtqskHSkwM19I9RL6xFQ7R2q2YiVncQE1UO9IbW/lVREhbHY0Pl2smD3XH2JebKtTLvu
-	3Iz91aN0GevHToK8ywdRI4OXKNXUyqGdC6jRNS66zB8beNOkop0b9GC8+5Ot8Bgx0N+bHFhtxqurN
-	LTHsDbq8e0vKUt+KpUPQ==;
+	List-Owner; bh=dQpD/Zh/qdnM3gljb+Ro79To0y7nD8rjZK9J4SROl2E=; b=XBdU1eYzCpa57s
+	WEBSMV9vJtrLpZ2Ry6e49cQdUu2KDIH4pdFLBQj3JemK2qNYPx8lJQFDfG4X8eywXJDmlE8C4idhx
+	Ow6cHFSRDAzR695qKRKDDRAw9449LCSWUmZL0lbwIsd0kW64H8RbCu2m4G7lZdqDIzRHw8B4LP/2+
+	c7JWINDvbUvuwHhFWpijV+gzUcimqqK9f4lo7diYw1SGOIimhX987K1YiRXXbh6B0IRGvMQZDedhd
+	gYHvfolAzpCEdUTpFYKdOAqLpbcB+i7wffS9TMdimdJE/Bx11cQuz1YKhTG2spryx6Th84/lQ/TYk
+	1mpErF5yqxCRg3axNFYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucQ7v-0000000ARgl-35zj;
-	Thu, 17 Jul 2025 15:02:27 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1ucQ8x-0000000AS7F-1T5g;
+	Thu, 17 Jul 2025 15:03:31 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucP9L-0000000AJZP-1dr9
-	for linux-riscv@lists.infradead.org;
-	Thu, 17 Jul 2025 13:59:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 43A8D43A13;
-	Thu, 17 Jul 2025 13:59:48 +0000 (UTC)
-Message-ID: <92e9a9a0-2654-4a0a-9e26-ee4de998aab1@ghiti.fr>
-Date: Thu, 17 Jul 2025 15:59:47 +0200
+	id 1ucPaL-0000000AMvQ-3Dzv;
+	Thu, 17 Jul 2025 14:27:47 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-558f7fda97eso784296e87.2;
+        Thu, 17 Jul 2025 07:27:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752762464; x=1753367264; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Y3WcQqYlZ+nGmkIZO7BZjNBhDOM5R3Ju7Hd0Z8GcHCU=;
+        b=d4ySSF9xeRqaLaRDncVETPgTRqGgGIMEfP97uiBKE33p65g/REE/bUr9L8OHXSOiEx
+         o8LDHFP2ZoakJysCbJ2Mg7rOQxruAnuuOnwszhDGmfFxGBpHghlQRbWDtxNJ3iOc0yGE
+         i0eJAOpnXGq53ySUNpHpxNos7dL8yXBrT4eo4CtYnsq9cINzf4RiXiG2JB9wbKSq93Qg
+         ErWMMOG8fM66AnMDqbIK/N+/+Cae4LynZqMDWql4yq6ROFH0FwjI9l6p/4y2TWYLk+i5
+         0F9XwK2Fnw7puLXN1ungTJ8lt6pfcJAJiETiKM4xX4mWU9hkQR0zKrT/MOv9cSvQPV+3
+         ft9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752762464; x=1753367264;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Y3WcQqYlZ+nGmkIZO7BZjNBhDOM5R3Ju7Hd0Z8GcHCU=;
+        b=ep7ZIQ3cSlKZac/f4pOu8TugYk1CQ64mr8XnOCtxHlmhmqre4uaIxUO+68PA3Wc95v
+         lrJ6eOhf+Azn5lecisw+1nDcCzxqDRCJ5egzY/CbGjmxCmN1YKTB8q0dCGjseIah3Pto
+         KcC1rJxXPV+3g/gYUVTgvHBRAWZxL2eOQXMiMFl16PivqLk/nB/8bNIdZcVrlMqRcxps
+         uvBiNe7gOyZdiglTFoRsb6e78/Z+5hslM5ibHWhUUT8Y0vkEgBRHxl7YTMTvhhnvIKel
+         JazBJLJK4AMRJMGKu8ZYckidkiCUbToR9KtBe7BDL2JtMNkBfugxKxoaMXAV/WoCuRCs
+         ULsA==
+X-Forwarded-Encrypted: i=1; AJvYcCWwmqZuRALv8/KhrxnHun2/lZAN+R+0OE/Af+wRnqPuCz3/L+GdPFS+dHDnr5NiUm0dPf8Y7Q7q867i1A==@lists.infradead.org, AJvYcCXyGvRLdyjDD/r+nEAvM97P/IWPzcGmN1yU5k8XkmtpWPc/Gth8Hi2OvcsOQy2y1lLZdL7cr5cGQcw=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjjHtEfYbAuOocbFmsqajBPpcZFUUem+JAPDC1oOx7BIrRJDkF
+	XsNP8rbmqmIaBpNwUD1NdMF1e/RWu+/83Q0RaKh2OVchNgZnAApSJqbI
+X-Gm-Gg: ASbGnctiIx7mq/M14NzvDOxfRMiX+Pj2B/XbcpnUzyLpgYngTBSJHC3HiiD0gZa5cU/
+	KyfbXb45NaTqSsOYzdJyW+raRR3CtlldKY8UvrAB4x2F60t5ayM5zqY5yCxqBUGSaye/tc8rS7v
+	ZQTALzl/HAy+G6hdThQbzZFW8Gdz3fsOP8QSDElYWodaTKNNGCWd+sAm29j7564KZFZK/djYOjQ
+	H7Ml9m2hNCP3effKjNGQcIdP2bP2GV58Q5T6CfsYnnCYQ4RyqSci/BzN6LdFJvyjQNQf0Sa/Ht9
+	W8dZDdJJgdGmi/rMuJEe5WiffD8YA38tvjdIa5xJfiLqEKS1czUqBnIm4yTiKf1f4NphrAhdSR9
+	bfDRMLhsUIX0KISJ6I0ht+cm/ZD4fBdBCZeM7brZVkVTwmP1k1M4VpBVZkBHIfTdf6yEG
+X-Google-Smtp-Source: AGHT+IF/OloHnnX3mhASN203Qn491wmneqjv+U28AgmKB7HhI1lYsnMn0p3m12S3GUHmxAKLZ2vT4A==
+X-Received: by 2002:a05:6512:15a9:b0:553:2421:f5e3 with SMTP id 2adb3069b0e04-55a23f1f963mr2211249e87.19.1752762463801;
+        Thu, 17 Jul 2025 07:27:43 -0700 (PDT)
+Received: from localhost.localdomain (178.90.89.143.dynamic.telecom.kz. [178.90.89.143])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55989825fe3sm3022975e87.223.2025.07.17.07.27.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Jul 2025 07:27:42 -0700 (PDT)
+From: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+To: hca@linux.ibm.com,
+	christophe.leroy@csgroup.eu,
+	andreyknvl@gmail.com,
+	agordeev@linux.ibm.com,
+	akpm@linux-foundation.org
+Cc: ryabinin.a.a@gmail.com,
+	glider@google.com,
+	dvyukov@google.com,
+	kasan-dev@googlegroups.com,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-mm@kvack.org,
+	snovitoll@gmail.com
+Subject: [PATCH v3 01/12] lib/kasan: introduce CONFIG_ARCH_DEFER_KASAN option
+Date: Thu, 17 Jul 2025 19:27:21 +0500
+Message-Id: <20250717142732.292822-2-snovitoll@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250717142732.292822-1-snovitoll@gmail.com>
+References: <20250717142732.292822-1-snovitoll@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Question About Access Fault Handling in the Kernel
-To: Vincent Chen <vincent.chen@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Cc: Greentime Hu <greentime.hu@sifive.com>
-References: <CABvJ_xjsawGX33f1LLPeLR=OgT635GcqOSrMQpyzn6LQFqx00w@mail.gmail.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CABvJ_xjsawGX33f1LLPeLR=OgT635GcqOSrMQpyzn6LQFqx00w@mail.gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdeitdejiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepuefffedvleetleetjefhjeehudejteetvedtvddvtdfhieetffelvdffgefgieeinecuffhomhgrihhnpehinhhfrhgruggvrggurdhorhhgnecukfhppedukeehrddvudefrdduheegrdduhedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudekhedrvddufedrudehgedrudehuddphhgvlhhopegluddtrddugedrtddrudefngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeefpdhrtghpthhtohepvhhinhgtvghnthdrtghhvghnsehsihhfihhvvgdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepghhrvggvnhhtihhmvgdrhhhusehsihhfihhvvgdrtghomh
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_065951_574669_BB63B458 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20250717_072745_814904_C50B5EF1 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,47 +108,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVmluY2VudCwKCkZpcnN0IHNvcnJ5IGZvciB0aGUgdmVyeSBsYXRlIHJlcGx5LgoKT24gNi8z
-LzI1IDA2OjI1LCBWaW5jZW50IENoZW4gd3JvdGU6Cj4gSGkgYWxsLAo+IEkgaGF2ZSBhIHF1ZXN0
-aW9uIHJlZ2FyZGluZyB0aGUgY3VycmVudCBoYW5kbGluZyBmbG93IGZvciBhY2Nlc3MKPiBmYXVs
-dHMgaW4gdGhlIGtlcm5lbC4KPgo+IEluIHRoZSBjdXJyZW50IGltcGxlbWVudGF0aW9uLCB0aGUg
-a2VybmVsIGNvbnNpc3RlbnRseSByZXBvcnRzIHRhbGwKPiBhY2Nlc3MgZmF1bHRzIHVzaW5nIGEg
-U0lHU0VHViB3aXRoIGVycm9yIGNvZGUgU0VHVl9BQ0NFUlIsIHdoZXJlCj4gU0VHVl9BQ0NFUlIg
-c2lnbmlmaWVzICJJbnZhbGlkIHBlcm1pc3Npb25zIGZvciBtYXBwZWQgb2JqZWN0Igo+IGFjY29y
-ZGluZyB0byB0aGUgUE9TSVggc3BlY2lmaWNhdGlvbi4KPgo+IEhvd2V2ZXIsIGluIHRoZSBSSVND
-LVYgcHJpdmlsZWdlIHNwZWNpZmljYXRpb24sIGl0IHN0YXRlcyB0aGF0Cj4gIkltcGxlbWVudGF0
-aW9ucyBtYXkgcmFpc2UgYWNjZXNzLWZhdWx0IGV4Y2VwdGlvbnMgaW5zdGVhZCBvZgo+IGFkZHJl
-c3MtbWlzYWxpZ25lZCBleGNlcHRpb25zIGZvciBzb21lIG1pc2FsaWduZWQgYWNjZXNzZXMsIGlu
-ZGljYXRpbmcKPiB0aGUgaW5zdHJ1Y3Rpb24gc2hvdWxkIG5vdCBiZSBlbXVsYXRlZCBieSBhIHRy
-YXAgaGFuZGxlciIuIEluIG90aGVyCj4gd29yZHMsIGEgbG9hZC9zdG9yZSBhY2Nlc3MgZmF1bHQg
-bWF5IGJlIGNhdXNlZCBieSBhIG1pc2FsaWduZWQgQU1PCj4gaW5zdHJ1Y3Rpb24uIEluIHN1Y2gg
-Y2FzZXMsIGl0IHNlZW1zIG1vcmUgYXBwcm9wcmlhdGUgdG8gcmVwb3J0IHRoZQo+IGVycm9yIHVz
-aW5nIFNJR0JVUyB3aXRoIHRoZSBlcnJvciBjb2RlIEJVU19BRFJBTE4sIHdoaWNoIGluZGljYXRl
-cwo+ICJJbnZhbGlkIGFkZHJlc3MgYWxpZ25tZW50LiIKCgpJIHRoaW5rIHlvdSdyZSByaWdodCwg
-aXQgc2VlbXMgbW9yZSBhcHByb3ByaWF0ZS4gQnV0IHRoZW4gaG93IGRvIHdlIApyZWNvZ25pemUg
-YW4gYWNjZXNzIGZhdWx0IGV4Y2VwdGlvbiB0aGF0IGlzIGNhdXNlZCBieSBhIG1pc2FsaWduZWQg
-CmFjY2Vzcz8gRG8geW91IGhhdmUgYSBzb2x1dGlvbj8gSWYgdGhhdCBkb2VzIG5vdCBzbG93IGRv
-d24gdGhlICJub3JtYWwiIAphY2Nlc3MgZmF1bHQsIEkgZ3Vlc3Mgd2UgY2FuIGdpdmUgaXQgYSB0
-cnksIHdoYXQgZG8geW91IHRoaW5rPwoKRGlkIHlvdSBlbmNvdW50ZXIgdGhpcyBzaXR1YXRpb24g
-d2hlcmUgeW91IHdlcmUgcmVwb3J0ZWQgYSBTSUdTRUdWIGJ1dCAKaXQgd2FzIGFjdHVhbGx5IGEg
-U0lHQlVTPwoKU29ycnkgYWdhaW4gZm9yIHRoZSBkZWxheSwKClRoYW5rcywKCkFsZXgKCgo+Cj4g
-QXMgSSB1bmRlcnN0YW5kIGl0LCBtb3N0IGFjY2VzcyBmYXVsdHMgYXJlIHR5cGljYWxseSBjYXVz
-ZWQgYnkKPiB2aW9sYXRpb25zIG9mIGVpdGhlciBQTUEgb3IgUE1QIHNldHRpbmdzLiBJZiB0aGVz
-ZSBzZXR0aW5ncyBhcmUKPiBjb25zaWRlcmVkIGEgZm9ybSBvZiBwZXJtaXNzaW9uIGZvciBhIG1h
-cHBlZCBvYmplY3QsIHRoZW4gdGhlIGN1cnJlbnQKPiBpbXBsZW1lbnRhdGlvbiB1c2luZyBTSUdT
-RUdWIHdpdGggU0VHVl9BQ0NFUlIgbWFrZXMgc2Vuc2UgYW5kIGhlbHBzCj4gc2ltcGxpZnkgdGhl
-IGZhdWx0LWhhbmRsaW5nIGxvZ2ljLgo+Cj4gSeKAmWQgbGlrZSB0byBjb25maXJtIHdoZXRoZXIg
-dGhpcyBpbnRlcnByZXRhdGlvbiByZWZsZWN0cyB0aGUgcmVhc29uaW5nCj4gYmVoaW5kIHRoZSBj
-dXJyZW50IGltcGxlbWVudGF0aW9uLiBBbnkgY2xhcmlmaWNhdGlvbiB3b3VsZCBiZQo+IGFwcHJl
-Y2lhdGVkLiBUaGFua3MhCj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+Introduce CONFIG_ARCH_DEFER_KASAN to identify architectures that need
+to defer KASAN initialization until shadow memory is properly set up.
+
+Some architectures (like PowerPC with radix MMU) need to set up their
+shadow memory mappings before KASAN can be safely enabled, while others
+(like s390, x86, arm) can enable KASAN much earlier or even from the
+beginning.
+
+This option allows us to:
+1. Use static keys only where needed (avoiding overhead)
+2. Use compile-time constants for arch that don't need runtime checks
+3. Maintain optimal performance for both scenarios
+
+Architectures that need deferred KASAN should select this option.
+Architectures that can enable KASAN early will get compile-time
+optimizations instead of runtime checks.
+
+Closes: https://bugzilla.kernel.org/show_bug.cgi?id=217049
+Signed-off-by: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+---
+Changes in v3:
+- Introduced CONFIG_ARCH_DEFER_KASAN to control static key usage
+---
+ lib/Kconfig.kasan | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/lib/Kconfig.kasan b/lib/Kconfig.kasan
+index f82889a830f..38456560c85 100644
+--- a/lib/Kconfig.kasan
++++ b/lib/Kconfig.kasan
+@@ -19,6 +19,14 @@ config ARCH_DISABLE_KASAN_INLINE
+ 	  Disables both inline and stack instrumentation. Selected by
+ 	  architectures that do not support these instrumentation types.
+ 
++config ARCH_DEFER_KASAN
++	bool
++	help
++	  Architectures should select this if they need to defer KASAN
++	  initialization until shadow memory is properly set up. This
++	  enables runtime control via static keys. Otherwise, KASAN uses
++	  compile-time constants for better performance.
++
+ config CC_HAS_KASAN_GENERIC
+ 	def_bool $(cc-option, -fsanitize=kernel-address)
+ 
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
