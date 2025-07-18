@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ADA5C83F1A
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jul 2025 13:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C6FC83F17
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jul 2025 14:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8ElxZGeQPk0M4gzAwBv/Tq+EWSN/QfSZKdHajsRNw8I=; b=vSGI4xoAUBBgtm
-	OV+hmsa1hk9M3hOx1Fnn/ef4Zcmyfb8iPm9P3y7qpqQEZ2LjCRI4oKBY1DN8ktMsMPNm3kmJ81Q9U
-	FN/i5OrmRBjg2heDVQOnoKhp8TVpkDYnEBaLfNOumFG/C2+SuaufY684WtVTRrr6l/RprTT2sXu4U
-	lhms4S65zN4L9lKQoyF68F9sJa3Aly0Z1wHDFeyNrG9UqbF5rg2QnGsXHrLXo+pFKUjoqr5zDhqE2
-	+0o7nLZ8ZZS7Nkq5APsKwa6LL8cqgTJQOz7VmjcQdqv6xj9O7hIHbjzdVH3eKMJkFQRlZ7a6qdttH
-	H4zqk3Z0p3Pg5CarcgWQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b7C9CYVIIJyCo2ngZuJezTMxeRXJj3PZsk7L5mkPgEM=; b=Ywu92gYuD0AMQfJtHhjxcnQdcC
+	k7T0dKq+oJmOVXsR14jlioxr+ye8l+janQcArk291DEIAWKouuq9NNgwAvcK67hHB/EKCnVm4wbwB
+	K3inwrKKSM6rBFa1g/Frezks1C/zhGCNNRcgR7Mh45MP0DnPF9N4jWDwGthL0FjEFypqxXdJebeMV
+	T24TIKZlJxPqtcI3W8YTrFfMAkfc436ywoLkFzoDi0Dn/oDBbGTrUP9osHv8I3uTXWDxIaMgpPLGz
+	dlPe8BUEp1MgY+ND/ovmqkfdAPw48n8k1df3e7beWd43u8lcI2JBcm17mnufTsSulOUP5VHOEYZGb
+	V+cJwsOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucl92-0000000ChBh-2XEz;
-	Fri, 18 Jul 2025 13:29:00 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1uclfU-0000000CklT-44vc;
+	Fri, 18 Jul 2025 14:02:32 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucl8O-0000000Ch29-48dD
-	for linux-riscv@lists.infradead.org;
-	Fri, 18 Jul 2025 13:28:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1752845244;
-	bh=2nD1I4gcWDWbHuhAQnN5FTbrKFNVqNOqXhxHQM7OVgk=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=mGgjUE1i7prVU+OqI+aYMJzXNBFbP4tjVnQolZlHQfdr5lcjTZ6clHZ2xs1BBYZ1h
-	 EMin6NRTIRMnZTXQXdnuojKX8Nbl3YV0sIYSdpb7siMpkhi2xG5KG+bP++uStYeoOj
-	 Lvbr0pc5UUUV5R+uxFOtkmkXsmTWTcJ9xQSxLP3c=
-X-QQ-mid: zesmtpip4t1752845243t7ebf7d17
-X-QQ-Originating-IP: v9RxmZrMDsrlB3mUaKXda8mSEoGjws8Wt8speHauxtw=
-Received: from = ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 18 Jul 2025 21:27:22 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1174543959159516057
-EX-QQ-RecipientCnt: 8
-Date: Fri, 18 Jul 2025 21:27:06 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Yixun Lan <dlan@gentoo.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: spacemit: fix sspax_clk
-Message-ID: <CBB594905CF0674E+aHpLqh2vVhTdzbEc@troy-wujie14pro-arch>
-References: <20250718-k1-clk-i2s-v1-1-e92c10fd0f60@linux.spacemit.com>
- <20250718105120-GYB695709@gentoo>
+	id 1uclT5-0000000CjLh-1YFD;
+	Fri, 18 Jul 2025 13:49:44 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45611a6a706so10910765e9.1;
+        Fri, 18 Jul 2025 06:49:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752846581; x=1753451381; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AMgyOUgLIJ32PTJWBYJxdAEjZIylinigTisZq5Jwpk8=;
+        b=LMOvCSlMR+xVAmI60GhW1j0Vk7ImGEWjc9q5ulxeSvbhmdr0lQOcQ9vqG9YOxZjhxB
+         a1IKkUWfD4xFuHLNS8fPqWPIbG6vPO+afTwPIeY2IlqkbI2Y8XcuOqxuCIeBnjDG2jFH
+         1FLVCgQ122yUn/L4MTRPnVKZG5i1EaPcTrLe2NLOHHQqJAlzFZQpxBHcuGcK6ZX3tdMr
+         9/o0hcrqZU/mSBDsPsSqXPRMd4nnSyp7N8QYdAnfbvzdEdz9dk5uJyYojlgYc198TsTz
+         0bEfoSlNRcl2bOnSHlFdKvfQX+z34KFG++WGASwkTnQQsFYou2R0mWQCw5/oWkWgzn3t
+         br2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752846581; x=1753451381;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AMgyOUgLIJ32PTJWBYJxdAEjZIylinigTisZq5Jwpk8=;
+        b=sqg9QgKNm6sNe/z2yTSKCX0+MI/yGT3qar5XXf4PFxOD+Uf8/a/8Pj4rxXEzvpz344
+         +/Po6Hk/Esvd63gDUTGtT6ZKdH5tVA+1acVccQXjRmnBOK3cJ8tg6/EjB2LyN3pKxzoB
+         7tfXPF2y8zD0tPo0GADUXX5+HawWxiMXXG+WZOzQpFOChpmx7kTeeNE/YAIEG4cyGYF8
+         BGdeBzu3Ga4DuBdlXi30CT2ZLPmLEBrWfMn9AqA9/F3HInXGcCQI8LqIOfqnichGqpTl
+         nfz+KrlXjRm82i1h5TMVSjHNwZ3fyWurhrQKxzv/feMh4uRCTHw5hzEDs1NiQuJlBQF5
+         dDNA==
+X-Forwarded-Encrypted: i=1; AJvYcCUth8kqrEM9O7RAy1r+WWb63TksjqrYjfhRhDJoO84fqrH2lDuc4y5pZCBfmRzoQMMGMtg16A+b8jhP4dg=@lists.infradead.org, AJvYcCXNiVLEhZFmIWbfQhK669D6NuI9lGsLZ/EjudOe6kGkwvd4964Z+GLKeqoqwiqrwSEWUNJa5adyPcxTIWnqBZgU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuNzPhnlFW/RZ6kMU1PkU5cQg8f6RkN1v7mx5F1OTI0r88gmb9
+	FCgPqKSR4fPDYSK4QOA1eav4P0HSEndL3tgxdarEzV0kZrIUaae9nheT
+X-Gm-Gg: ASbGncs30y/jWI1PiNQ9ahP8GnCrBz13kUtP5cJFcUXnDH8eTNweXUvc4xfJAsPY7Xl
+	hBlMkmBNL9uuCLCUZgigPb55I8vPn/ctFKK6ya5xsfPeH1KpeT+3VqqL9qpW3zxj/jn3dRhMyHh
+	NkDiizbdQf5oWA8IfdXEukYzdvmXySFNO3s1kD2OPA5da4wX6GQYmGwDrBiSonKyolC7fegiKz4
+	AqPbD8RbIcNQcP9feMwK25tprFr+thrfEbJ7YUfFowqe4lHqRKGIPosybRwRbL/fOG6E34YkbHt
+	/Vdq0vMUTtr37ALDgfMEkX6H0TNyeGscCZNOpo6iwcX3kdKUS2G9zgSo8T9wze1S+dgcoLCKbOl
+	RPbx5IQX8+Y7bdGFTXzkYSQDoW4566zNrGJfw3jLbG1IiC4m9dWGt9u7N9Cr0t1fzGNiRHby+fh
+	4dj341WXnT
+X-Google-Smtp-Source: AGHT+IHffGdFSHvYOR3y1R1hMWHllBX1SeAON/ZoD7Ch8x5l+0sSh2Ktls2hMGgkwYE+UWSbANbmhg==
+X-Received: by 2002:a05:600c:4e02:b0:456:201a:99f with SMTP id 5b1f17b1804b1-4562e373d4fmr108407665e9.18.1752846581084;
+        Fri, 18 Jul 2025 06:49:41 -0700 (PDT)
+Received: from orome (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45626cde7aasm62335145e9.1.2025.07.18.06.49.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Jul 2025 06:49:39 -0700 (PDT)
+Date: Fri, 18 Jul 2025 15:49:37 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
+Message-ID: <rzbzah5iigz25jtxyqadnitkzkazxsaxntajhlfrfdslyioevk@pylcjkfh5n42>
+References: <20250717103241.2806798-1-thierry.reding@gmail.com>
+ <2025071716-phoney-object-1648@gregkh>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250718105120-GYB695709@gentoo>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: N2bAIxLK0elnFQwctiE//NZRI1DelTdTvzyjqZg0PtsV7uOUGZL92uJc
-	YhnfwJmI+djhRRFtFUH8rlMrSyn/2f6QHZ/LlxhCTu4nRcDHBLAUs3Xh3v+REjEApuutWVY
-	458PfGerhD+Fnow79g1o1kz6AjRK9tjqpE52f05YGSma6FKOZAnYqITXqtc0EUv0nOx8mMZ
-	HY9/NDyG0Nvk4Xqq6yHIsDqvhWfkFZV+xXrv+tOPk9Kk4tjAEDxdEA+HU1GJZmKHvJh7E2I
-	+K6XgHB0ajJAKallzXxudIJbSXTdhjqgvGh4J3OLLnGeyob8L0lCUhFWqs8GeDq5HaYEDxK
-	uaEp0tQ3RYXius8kD2u4f3gIYVl+c06JXYcxRGTSxSZy47sBCH17Te8KuMEEiuqH9CkDRQD
-	RqkQ1h4Ug6hWisr2HQH1Mo1Raw41COd6iQD4zDIMNhxSqdGNgRxW021eOhN6MTnRjK+81yP
-	MffwBGzHF35UBzWbSUIDVP4aCUALe2uLG90ipq5RayMbT9E10hOSp0UwlX3DFDqKStgECff
-	Mx/BSaWBwP1pnbOmYM2qaSOKuBh8UnScOjMRIsFImy5Hvv308Ip/8Fm2NNCn26cWmM+Ts56
-	OVdZ3arGdKfb2vlR+KlE1mQJd7+qHTjxnAirPuhLvmu0+ocVbzzvkdxPjEWlMxgV++7XRQO
-	qoFE69nRZSVzMGMhAhs3FJQznm+eYHezBgfKEw9oJTgMjsEwbiZlc+dSxAhuv07xh0gcYCk
-	UX9ld6vu/0VBVWArwS5aCiRyQeOeQ3SMPjTlBXhRSQ47/yAJVD8IIoiuEak3j5DU5EjNtvi
-	wWgdbZGictH1d9ddQDNAchjfXNjdqPolWXEHgNX3aHEP+ZlHRvsjcz55DxqHUZgxxgj5vYX
-	gj/asL1mE7xTAGdWqfjX1VgI3OGRQia9I59P7beNT0oOrKnDSEIspgs9EnHDUI9Cm9EwVVa
-	Y0AvEFuG9ZkHGkX0qrQ9cvGofymOFJ+7NMF/iGv8+pzg8vXsebQjb5U61Kkd5bCv5gjZoo+
-	+nBiWM83oK/2Wky/22GGLIwjmWjvMOn61/ERi/gbFmYM3vKZlz2C94LikXpdBTi94CT7N77
-	CXA6NWbjTrb
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-X-QQ-RECHKSPAM: 0
+In-Reply-To: <2025071716-phoney-object-1648@gregkh>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_062822_032980_1AF1BBF1 
-X-CRM114-Status: GOOD (  33.29  )
+X-CRM114-CacheID: sfid-20250718_064943_416777_C63AB43D 
+X-CRM114-Status: GOOD (  38.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,178 +95,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8162534940553965958=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 06:51:20PM +0800, Yixun Lan wrote:
-> Hi Troy,
-> 
-> On 09:54 Fri 18 Jul     , Troy Mitchell wrote:
-> > In the SpacemiT public document, when the FNCLKSEL field of
-> > the APBC_SSPAX_CLK_RST register is 7 (3'b111),
-> > which is a reserved value. And BIT3 of the same register is
-> > a reserved bit.
-> > 
-> so, if I parse above correctly, it describe current public document?
-> which value 7 of FNCLKSEL and BIT3 is wrongly marked as reserved.
-> 
-> https://developer.spacemit.com/documentation?token=LCrKwWDasiJuROkVNusc2pWTnEb#10.2.3.2-resource-reset-schemes
-> 10.2.4.3.16 SSPAX CLOCK RESET CONTROL REGISTER (APBC_SSPAX_CLK_RST)
-> 
-yes, correct summary
 
-> > But the document is wrong, the actual situation is:
-> > when FNCLKSEL is 7 (3'b111), and the purpose of bit 3 is
-> > if to select i2s_bclk as the parent clock.
-> > 
-> > And only when FNCLKSEL is 7 (3'b111), The bit 3 is not a reserved bit.
-> > 
-> so what's the difference of value 7 from other 0-6? has additional ops to
-> select i2s_bclk as parent? otherwise just say they are not reserved
-> 
-> please have more explanation for BIT3, it's quite obscure and unclear
-Bit 3 is only valid when FNCLKSEL is 7,
-indicating whether i2s_bclk is selected as the clock source.
-And when FNCLKSEL is 7, bit 3 must be 1, otherwise it will cause unknown errors.
-When FNCLKSEL is other values, bit 3 has no effect
+--===============8162534940553965958==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xzuw4l5ej7k2fa3p"
+Content-Disposition: inline
 
-I'll explain more in the next version
 
-> 
-> anyway, can you coordinate with SpacemiT internal to update the docs?
-> 
-I have already told them. I think the document will be updated ASAP.
+--xzuw4l5ej7k2fa3p
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
+MIME-Version: 1.0
 
-> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > ---
-> >  drivers/clk/spacemit/ccu-k1.c  |  4 ++--
-> >  drivers/clk/spacemit/ccu_mix.c | 29 +++++++++++++++++++++++++++++
-> >  drivers/clk/spacemit/ccu_mix.h | 14 ++++++++++++++
-> >  3 files changed, 45 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-> > index cdde37a0523537c2f436e481ae8d6ec5a581b87e..0e22f6fb2c45b68ab20a9b1563a1a6dec1a7e16c 100644
-> > --- a/drivers/clk/spacemit/ccu-k1.c
-> > +++ b/drivers/clk/spacemit/ccu-k1.c
-> > @@ -359,8 +359,8 @@ static const struct clk_parent_data sspa_parents[] = {
-> >  	CCU_PARENT_HW(pll1_d3072_0p8),
-> >  	CCU_PARENT_HW(i2s_bclk),
-> >  };
-> > -CCU_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
-> > -CCU_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-> > +CCU_SSPA_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
-> > +CCU_SSPA_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-> >  CCU_GATE_DEFINE(dro_clk, CCU_PARENT_HW(apb_clk), APBC_DRO_CLK_RST, BIT(1), 0);
-> >  CCU_GATE_DEFINE(ir_clk, CCU_PARENT_HW(apb_clk), APBC_IR_CLK_RST, BIT(1), 0);
-> >  CCU_GATE_DEFINE(tsen_clk, CCU_PARENT_HW(apb_clk), APBC_TSEN_CLK_RST, BIT(1), 0);
-> > diff --git a/drivers/clk/spacemit/ccu_mix.c b/drivers/clk/spacemit/ccu_mix.c
-> > index 9b852aa61f78aed5256bfe6fc3b01932d6db6256..bfc65fc00df67299523eb5d1d2ed479c61fc6141 100644
-> > --- a/drivers/clk/spacemit/ccu_mix.c
-> > +++ b/drivers/clk/spacemit/ccu_mix.c
-> > @@ -191,6 +191,25 @@ static int ccu_mux_set_parent(struct clk_hw *hw, u8 index)
-> >  	return ccu_mix_trigger_fc(hw);
-> >  }
-> >  
-> > +static int ccu_mux_set_sspa_parent(struct clk_hw *hw, u8 index)
-> > +{
-> > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > +	struct ccu_mux_config *mux = &mix->mux;
-> > +	u32 mask, val;
-> > +
-> > +	mask = GENMASK(mux->width + mux->shift - 1, mux->shift);
-> > +	val = index << mux->shift;
-> > +
-> > +	if (index == 7) {
-> > +		mask |= BIT(3);
-> > +		val |= BIT(3);
-> > +	}
-> it occur to me, BIT(3) is kind of a conditional BIT..
-> 
-> what's the behavior of reading/writing to BIT3 when index != 7?
-> write value will be ignored, read will return zero?
-I don't know. I haven't tested it, and I don't think it's worth testing.
-I've written a function to set the parent using BIT(3) and an index.
-Therefore, when the caller invokes get_parent, BIT(3) is not considered; only the index is.
+On Thu, Jul 17, 2025 at 02:11:41PM +0200, Greg Kroah-Hartman wrote:
+> On Thu, Jul 17, 2025 at 12:32:34PM +0200, Thierry Reding wrote:
+> > From: Thierry Reding <treding@nvidia.com>
+> >=20
+> > Hi,
+> >=20
+> > Something that's been bugging me over the years is how some drivers have
+> > had to adopt file-scoped variables to pass data into something like the
+> > syscore operations. This is often harmless, but usually leads to drivers
+> > not being able to deal with multiple instances, or additional frameworks
+> > or data structures needing to be created to handle multiple instances.
+> >=20
+> > This series proposes to "objectify" struct syscore_ops by passing a
+> > pointer to struct syscore_ops to the syscore callbacks. Implementations
+> > of these callbacks can then make use of container_of() to get access to
+> > contextual data that struct syscore_ops was embedded in. This elegantly
+> > avoids the need for file-scoped, singleton variables, by tying syscore
+> > to individual instances.
+> >=20
+> > Patch 1 contains the bulk of these changes. It's fairly intrusive
+> > because it does the conversion of the function signature all in one
+> > patch. An alternative would've been to introduce new callbacks such that
+> > these changes could be staged in. However, the amount of changes here
+> > are not quite numerous enough to justify that, in my opinion, and
+> > syscore isn't very frequently used, so the risk of another user getting
+> > added while this is merged is rather small. All in all I think merging
+> > this in one go is the simplest way.
+>=20
+> All at once is good, I like the idea, but:
+>=20
+> > Patches 2-7 are conversions of some existing drivers to take advantage
+> > of this new parameter and tie the code to per-instance data.
+>=20
+> That's great, but none of these conversions actually get rid of the
+> global structure, so what actually was helped here other than the churn
+> of this "potentially" allowing the global data variables from being
+> removed in the future?
+>=20
+> So how does this actually help?
 
-                - Troy
+Thanks for pointing this out and letting me look at it again. Most of
+these actually do get rid of the global data variables. The MIPS patch
+doesn't because I forgot, but the __alchemy_pci_ctx is no longer used
+after the patch (except where it's initialized to the ctx variable, but
+that's no longer needed now). I've updated that patch.
 
-> 
-> > +
-> > +	ccu_update(&mix->common, ctrl, mask, val);
-> > +
-> > +	return ccu_mix_trigger_fc(hw);
-> > +}
-> > +
-> >  const struct clk_ops spacemit_ccu_gate_ops = {
-> >  	.disable	= ccu_gate_disable,
-> >  	.enable		= ccu_gate_enable,
-> > @@ -235,6 +254,16 @@ const struct clk_ops spacemit_ccu_mux_gate_ops = {
-> >  	.set_parent	= ccu_mux_set_parent,
-> >  };
-> >  
-> > +const struct clk_ops spacemit_ccu_sspa_mux_gate_ops = {
-> > +	.disable	= ccu_gate_disable,
-> > +	.enable		= ccu_gate_enable,
-> > +	.is_enabled	= ccu_gate_is_enabled,
-> > +
-> > +	.determine_rate = ccu_mix_determine_rate,
-> > +	.get_parent	= ccu_mux_get_parent,
-> > +	.set_parent	= ccu_mux_set_sspa_parent,
-> > +};
-> > +
-> >  const struct clk_ops spacemit_ccu_div_gate_ops = {
-> >  	.disable	= ccu_gate_disable,
-> >  	.enable		= ccu_gate_enable,
-> > diff --git a/drivers/clk/spacemit/ccu_mix.h b/drivers/clk/spacemit/ccu_mix.h
-> > index 51d19f5d6aacb7203d1eddf96047cf3174533601..7753446386353bf849787ed4ec7c85c298238ab5 100644
-> > --- a/drivers/clk/spacemit/ccu_mix.h
-> > +++ b/drivers/clk/spacemit/ccu_mix.h
-> > @@ -124,6 +124,19 @@ static struct ccu_mix _name = {							\
-> >  	}									\
-> >  }
-> >  
-> > +#define CCU_SSPA_MUX_GATE_DEFINE(_name, _parents, _reg_ctrl,			\
-> > +				     _shift, _width, _mask_gate, _flags)	\
-> > +static struct ccu_mix _name = {							\
-> > +	.gate	= CCU_GATE_INIT(_mask_gate),					\
-> > +	.mux	= CCU_MUX_INIT(_shift, _width),					\
-> > +	.common = {								\
-> > +		.reg_ctrl	= _reg_ctrl,					\
-> > +		CCU_MIX_INITHW_PARENTS(_name, _parents,				\
-> > +				       spacemit_ccu_sspa_mux_gate_ops,		\
-> > +				       _flags),					\
-> > +	}									\
-> > +}
-> > +
-> >  #define CCU_DIV_GATE_DEFINE(_name, _parent, _reg_ctrl, _shift, _width,		\
-> >  			    _mask_gate,	_flags)					\
-> >  static struct ccu_mix _name = {							\
-> > @@ -213,6 +226,7 @@ extern const struct clk_ops spacemit_ccu_div_ops;
-> >  extern const struct clk_ops spacemit_ccu_factor_gate_ops;
-> >  extern const struct clk_ops spacemit_ccu_div_gate_ops;
-> >  extern const struct clk_ops spacemit_ccu_mux_gate_ops;
-> > +extern const struct clk_ops spacemit_ccu_sspa_mux_gate_ops;
-> >  extern const struct clk_ops spacemit_ccu_mux_div_ops;
-> >  extern const struct clk_ops spacemit_ccu_mux_div_gate_ops;
-> >  #endif /* _CCU_DIV_H_ */
-> > 
-> > ---
-> > base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
-> > change-id: 20250717-k1-clk-i2s-e4272f1f915b
-> > 
-> > Best regards,
-> > -- 
-> > Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > 
-> > 
-> 
-> -- 
-> Yixun Lan (dlan)
-> 
+The Ingenic TCU patch gets rid of it, and so do the clk/mvebu and
+irq-imx-gpcv2 patches. The two exceptions where it wasn't possible to
+get rid of the global data variables are mvebu-mbus and Tegra PMC, in
+both cases because there is other functionality that relies on the
+global variable. The bits that make it very difficult to remove these
+entirely is that they export functions that are called without context
+=66rom other parts of code.
+
+I have a fairly large series on top of this that converts the Tegra PMC
+driver to move away from this as much as possible. It's not possible to
+do on 32-bit ARM because there is some low-level CPU code that needs to
+call into this function. However, the goal is to at least make the PMC
+driver data completely instance-specific on 64-bit ARM so that we can
+support multiple instances eventually.
+
+Maybe something similar could be done for mvebu-bus, but I'm not sure
+it's worth it. Typically for these cases you need some form of context
+in order to replace the global data. On Tegra we do have that in many
+cases (via DT phandle references), but I'm not familiar enough with
+mvebu to know if something similar exists.
+
+My goal with this series is to get this a bit more established so that
+people don't use the lack of context in syscore as an excuse for not
+properly encapsulating things. These usually tend to go hand in hand,
+where people end up using a global data variable for syscore and since
+they can't get around that one, they keep using it for a bunch of other
+shortcuts.
+
+> Also, small nit, make the function pointers const please :)
+
+I originally tried that. Unfortunately, the struct syscore_ops contains
+a struct list_head to add it to the global list of structures. I suppose
+I could move the function pointers into a different structure and make
+pointers to that const, something like this:
+
+	struct syscore;
+
+	struct syscore_ops {
+		int (*suspend)(struct syscore *syscore);
+		void (*resume)(struct syscore *syscore);
+		void (*shutdown)(struct syscore *syscore);
+	};
+
+	struct syscore {
+		const struct syscore_ops *ops;
+		struct list_head node;
+	};
+
+Is that what you had in mind?
+
+Thanks,
+Thierry
+
+--xzuw4l5ej7k2fa3p
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmh6UO0ACgkQ3SOs138+
+s6HHnQ//RJDy7HyKY3QGC3LCcmt2Vfyic7ACiUP72YYAnBKVHsFoF36OZi9Jv5iG
+Bq9Go0qFfluWgOrOlsjmhHE2BEj6shRzh/+yjZWu4MpCdM2CpxnUz/bwHQryuDKL
+3TMs47m/NEVQ0IqPBmMmqHjLoSZ8q1c5URJv8kzhGFUZPif5CfeDwU5Myq7IDMd9
+yqc25SLzHS8bhHyFXDVzGc06uTrdwRbopvwS+VEFtupMNrGD/bmVo2f7HE38Vrgx
+aoX6xxuDqTeRRonB9OxU0Upm0Kv/JGXetysgOLLHml2TvQudYg1sG/xbIQqymU2K
+YopxcFWmObA5qAPRadidJChbWyaKpZXfr2rqsgvM28cnRmCjKIDRpmVzCsLpQHBb
+fJ7tbGWQBz4ZFczYLM9Z6cjZPJFFuwHjzm9dRNH/ppJKWmtr23eSYuWX44kG19CM
+644Z1OYxg9GBp5mZ7mGLu3HF8ycXWFKDoApp62SLm7TyHRTP/W0Kn90MqgHuAd4U
+0RhHg1+7MlFBE9jC/X1Ac+RsZNaZUd+biEy6QvAkOHL5VtPxlR9OCKhftZcsPRuM
+YdQVi9IgteKqzq0ul2dQbTD1LaqzrEYmFXJ1So3dTTSbOUqrb+VDt9Bqtfm7oGdG
+O1NPiukTbLVBWb9QXt5vvJ6QXxC7wn5jdhgby0kUROvSnCkM+8U=
+=McxE
+-----END PGP SIGNATURE-----
+
+--xzuw4l5ej7k2fa3p--
+
+
+--===============8162534940553965958==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8162534940553965958==--
+
