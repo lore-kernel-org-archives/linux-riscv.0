@@ -4,77 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F3FC83F34
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jul 2025 09:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E43C83F17
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jul 2025 10:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VKbyQr06jBMD3Fj8dGwNVebqfmC0IV/9s8Loa9mNlPA=; b=U1RmUXYLAcrf+S
-	+ljcYsTN+/RzFISFscvVMZ9r2LWrnQz7x+KopXKheReYHUoY5E/9N7dDE7xVABgP+52lpc8uAeJdy
-	UBwzmMFPrOkSRHspJFYmN+UW/GvhYp2TP4oY6qQDrqs34mII4mkCwjYeZeJCKaJaNcpIKYHAefHqx
-	l2cJrhgU8grFfl0FgRefwBAqI37kITbeWm3M6QhsBWh9mn/ZSLSKa6CWqwXD0uHDn7YrOBYGzRnu8
-	cCngCNjarbOfFvLjAphNJYnNFGHzooHumgBWIxkjIc1HhiKwXOdMPg4DbApOVjvKy9UjsyzsKof21
-	GIsmJrJT82dkT5LiZbvg==;
+	List-Owner; bh=pBdf2FbRfRQw9drLujhoc1/sfzf09+6FwhVWS+1PXYI=; b=k5j0vVjkIpj+PI
+	q3/2A5h7m8atOrpyN5VsPFU6AtFngCy8flEdc9R31MDL5g2vPMlF5+D5uftpkfrrHA0vqoIe7PnFn
+	B0DCQHCLSf/JwbqVU4VPUPFKdJaIpx7cyjM9VY2+pRpTRB3tTFIJje5sjogSL5G/zd5tOiiES0GK8
+	HIHEcvsGLQ19bfnt99fxo1xftwS61Tr/uZtOVm9sBvGU5CNdzPW14BISYs09JFia5N3IT/sT1Nfrd
+	ZrCP53dbcM5skcIqxFL+PiSfUg3GSvSc+mf/fMN+ElUg3RIaFoPPJXuFh5xjHUc4YYO0ZbbZN5MC6
+	TN8qxZicEkSBnB6XPU7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucha5-0000000CDKu-11wF;
-	Fri, 18 Jul 2025 09:40:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uciQM-0000000CJUE-2JxX;
+	Fri, 18 Jul 2025 10:34:42 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uchEP-0000000C9fU-1FMF;
-	Fri, 18 Jul 2025 09:18:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A821601DB;
-	Fri, 18 Jul 2025 09:18:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23016C4CEF8;
-	Fri, 18 Jul 2025 09:18:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752830296;
-	bh=iN0MjV8lG6vlPY6QKWEDWqXP3y58juMGr+peNv9I/+Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=upUCLIdrbbvEbKjUsZgTdUEGyRbXXPVKgUMJXI8oVEu7IuCo+NlAr8pZ3hP/3OpCS
-	 z+m8WoLkMvYdx42mseDFgent82TIUAOPaXDuO0MHrSBPWaortApspXcggf+7lhNmY8
-	 tOaGg0j7eaXiZqMy8OhhL3BAvuI4qqptGCOW5qdmQyljlx4c3DuNukqLAdC4airAsq
-	 nJKi0Be3SrrR2xHh9RGmjhMqPl6sRDW75QEF/7Lu21+PwIinNh5ZPzzmyUHWJMe6cp
-	 dzghcLYsnfaa3tVtbk0VeArOxbSMW6EX7TzfWbBD0ifZlVbF7q2+xGG6ugEJd7zFXx
-	 5DD1NmgbOVSgg==
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-611f74c1837so3434961a12.3;
-        Fri, 18 Jul 2025 02:18:16 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUrxZXrr/KRktGw3Em0zBTEnraFPRtGWiqkV0XW6Vckh5Q+k02PEN9qg98ydWOa7nU05/ImbvBKRCx2wBo=@lists.infradead.org, AJvYcCXHgREp5xzIsIzupY6JW8QwPUgnMM3ZhwCFDX8R9Hoy+gJFE4CNuS33bcclzQLsT9VZunftRCyVZQfnyC2455fk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyc1radSji7Y6itCKrWhpnXl6WYdKK1sarDEkzrQwbe3W1yviTg
-	wEAD+Tq17sKAlgwus9VavPtvV1zm/mShw4vnXTS2YOLa37W0uMicEFgsyfP5Sfp+ubcwlD+p0Cd
-	6ez42qM94uBCBXYfHD4oJ89+m4ENgDGw=
-X-Google-Smtp-Source: AGHT+IH+CR6kK9khsoUi4kQxVa0vWTn3qqM4Z4G6WAw+0g0YyuRvDHP3ooIXGfMWBaXJUiPtMEtFUptkHeWtXN/zID4=
-X-Received: by 2002:a05:6402:26d5:b0:60c:6a48:8047 with SMTP id
- 4fb4d7f45d1cf-612d456bb15mr803449a12.11.1752830294637; Fri, 18 Jul 2025
- 02:18:14 -0700 (PDT)
+	id 1uci0C-0000000CGcb-1xnw
+	for linux-riscv@lists.infradead.org;
+	Fri, 18 Jul 2025 10:07:41 +0000
+Received: from localhost (unknown [116.232.48.207])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 3380A340F28;
+	Fri, 18 Jul 2025 10:07:37 +0000 (UTC)
+Date: Fri, 18 Jul 2025 18:07:32 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, palmer@dabbelt.com,
+	skhan@linuxfoundation.org, linux-kernel-mentees@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] riscv: dts: spacemit: Add OrangePi RV2 board
+ device tree
+Message-ID: <20250718100732-GYA700698@gentoo>
+References: <20250718084339.471449-1-hendrik.hamerlinck@hammernet.be>
+ <20250718084339.471449-3-hendrik.hamerlinck@hammernet.be>
+ <8ade99a6-84a0-4e69-8ebf-d9dfdc9141b5@iscas.ac.cn>
 MIME-Version: 1.0
-References: <20250717231756.make.423-kees@kernel.org> <20250717232519.2984886-9-kees@kernel.org>
-In-Reply-To: <20250717232519.2984886-9-kees@kernel.org>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Fri, 18 Jul 2025 17:18:03 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H4RyZQTak5AgYj6TaXHyEefgw+wmXs9Gi8jUJWrUV5HQw@mail.gmail.com>
-X-Gm-Features: Ac12FXyrA9A9-rpLV3MB79YH2kXhj6f2Fk9F6HAlk-0emUPTHthuyPP3lR9zQXg
-Message-ID: <CAAhV-H4RyZQTak5AgYj6TaXHyEefgw+wmXs9Gi8jUJWrUV5HQw@mail.gmail.com>
-Subject: Re: [PATCH v3 09/13] mips: Handle KCOV __init vs inline mismatch
-To: Kees Cook <kees@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, 
-	Ingo Molnar <mingo@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, Christoph Hellwig <hch@lst.de>, 
-	Andrey Konovalov <andreyknvl@gmail.com>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
-	Ard Biesheuvel <ardb@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, x86@kernel.org, 
-	kasan-dev@googlegroups.com, linux-doc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-efi@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-security-module@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org, 
-	llvm@lists.linux.dev
+Content-Disposition: inline
+In-Reply-To: <8ade99a6-84a0-4e69-8ebf-d9dfdc9141b5@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250718_030740_526198_A88BBB26 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,33 +66,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UmV2aWV3ZWQtYnk6IEh1YWNhaSBDaGVuIDxjaGVuaHVhY2FpQGxvb25nc29uLmNuPgoKT24gRnJp
-LCBKdWwgMTgsIDIwMjUgYXQgNzoyNuKAr0FNIEtlZXMgQ29vayA8a2Vlc0BrZXJuZWwub3JnPiB3
-cm90ZToKPgo+IFdoZW4gS0NPViBpcyBlbmFibGVkIGFsbCBmdW5jdGlvbnMgZ2V0IGluc3RydW1l
-bnRlZCwgdW5sZXNzCj4gdGhlIF9fbm9fc2FuaXRpemVfY292ZXJhZ2UgYXR0cmlidXRlIGlzIHVz
-ZWQuIFRvIHByZXBhcmUgZm9yCj4gX19ub19zYW5pdGl6ZV9jb3ZlcmFnZSBiZWluZyBhcHBsaWVk
-IHRvIF9faW5pdCBmdW5jdGlvbnMsIHdlCj4gaGF2ZSB0byBoYW5kbGUgZGlmZmVyZW5jZXMgaW4g
-aG93IEdDQydzIGlubGluZSBvcHRpbWl6YXRpb25zIGdldAo+IHJlc29sdmVkLiBGb3IgbWlwcyB0
-aGlzIHJlcXVpcmVzIGFkZGluZyB0aGUgX19pbml0IGFubm90YXRpb24gb24KPiBpbml0X21pcHNf
-Y2xvY2tzb3VyY2UoKS4KPgo+IFNpZ25lZC1vZmYtYnk6IEtlZXMgQ29vayA8a2Vlc0BrZXJuZWwu
-b3JnPgo+IC0tLQo+IENjOiBUaG9tYXMgQm9nZW5kb2VyZmVyIDx0c2JvZ2VuZEBhbHBoYS5mcmFu
-a2VuLmRlPgo+IENjOiA8bGludXgtbWlwc0B2Z2VyLmtlcm5lbC5vcmc+Cj4gLS0tCj4gIGFyY2gv
-bWlwcy9pbmNsdWRlL2FzbS90aW1lLmggfCAyICstCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2Vy
-dGlvbigrKSwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvbWlwcy9pbmNsdWRl
-L2FzbS90aW1lLmggYi9hcmNoL21pcHMvaW5jbHVkZS9hc20vdGltZS5oCj4gaW5kZXggZTg1NWEz
-NjExZDkyLi41ZTcxOTNiNzU5ZjMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9taXBzL2luY2x1ZGUvYXNt
-L3RpbWUuaAo+ICsrKyBiL2FyY2gvbWlwcy9pbmNsdWRlL2FzbS90aW1lLmgKPiBAQCAtNTUsNyAr
-NTUsNyBAQCBzdGF0aWMgaW5saW5lIGludCBtaXBzX2Nsb2NrZXZlbnRfaW5pdCh2b2lkKQo+ICAg
-Ki8KPiAgZXh0ZXJuIGludCBpbml0X3I0a19jbG9ja3NvdXJjZSh2b2lkKTsKPgo+IC1zdGF0aWMg
-aW5saW5lIGludCBpbml0X21pcHNfY2xvY2tzb3VyY2Uodm9pZCkKPiArc3RhdGljIGlubGluZSBf
-X2luaXQgaW50IGluaXRfbWlwc19jbG9ja3NvdXJjZSh2b2lkKQo+ICB7Cj4gICNpZmRlZiBDT05G
-SUdfQ1NSQ19SNEsKPiAgICAgICAgIHJldHVybiBpbml0X3I0a19jbG9ja3NvdXJjZSgpOwo+IC0t
-Cj4gMi4zNC4xCj4KPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+Hi Vivian,
+
+On 17:10 Fri 18 Jul     , Vivian Wang wrote:
+> Hi Hendrik,
+> 
+> On 7/18/25 16:43, Hendrik Hamerlinck wrote:
+> > Add initial device tree support for the OrangePi RV2 board [1], which is
+> > marketed as using the Ky X1 SoC but has been confirmed to be 
+> > identical to the SpacemiT K1 [2].
+> >
+> > The device tree is adapted from the OrangePi vendor tree [3], and similar
+> > integration can be found in the Banana Pi kernel tree [4], confirming SoC
+> > compatibility.
+> 
+> This isn't particularly crucial, but I wonder if we can do something
+> similar to a jh7110-common.dtsi arrangement, where most of the boards
+> sharing similar designs can also share devicetree source files.
+> 
+> Easier said than done, probably, but I think it should be possible by
+> just comparing the vendor dts files.
+> 
+> Again this doesn't need to block this patch.
+> 
+Sure
+
+> Yixun: I'm assuming you'll be handling this. What do you think about a
+> k1-common.dtsi?
+> 
+
+Sharing dtsi file for similar boards is generally fine, I saw a few
+other SoC maintainers have done the same..
+
+In the practical cases, we have to evaluate and plan carefully, it
+should be manageable to support fixed number of boards for one file,
+but would be nasty if expect one common dts file to cover all boards..
+
+Anyhow, I think we can revisit this idea and having incremental patch
+later, it's not the problem for now
+
+Thanks for the suggestion
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
