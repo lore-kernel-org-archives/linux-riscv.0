@@ -4,109 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4541AC83F1A
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jul 2025 12:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19AA1C83F1A
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jul 2025 13:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1o6QKT+93o1BOX79UKgy8G7Ud3/PQN0E8PxzwgMvl1w=; b=Ih6EHYePe2wmLa
-	zXNi5oxfIr1haeUYjzTqfF3Wmolrk/u40lKjBkAgNEF6qfMaaV4Q+U8SQzJ7CXBszOJki6Ic32pZT
-	Rm1rbnVa8U4H14zwnAeH8MTUA9F2I+oneeQWWgrIIOeF840sjtP4nJjC+ZMVGIL5BBKBw/uwCwqpK
-	w1gIyUZ5yb7KboaAFXWPrL/zkhRkZiXnpK//kbVZX86zBcz+zZqf4LbUqOL3xZIz29v6aAOGDCjEb
-	CG60qHSZM8fQOVAVNf06b6afsvfh4i+pnq66KpCISNcFw4gbsytdygJGnSGWDq/ljtjEMmETBffGm
-	ZUe9BNIscaiyLP9177tA==;
+	List-Owner; bh=ajDEaGNQbcv6RAu2erVT+geUc9GjRliNXhMOlBmLDtc=; b=BvyFqq/tTpOq8/
+	J8LNH0qpxnnyDA6aVAG5OpyfuLfZTnailWj2KkJl4PJmCL6EMTsnjkzjat7gHP+AZ3lgFsmY45DTR
+	zuRrUqSBDPQz/oRA6CSqljN3C5z36n81YYntTK4mZoNeqWpqWKvgFx1se0Lfxu4MCUaNmZs0jTN7Z
+	2UDP7B4QiLSx9bYji59sJTPh/oMimb1sTz7QgTTduhgYIFg6GuG6VDjt0tAfnBuug9xnR77xHryHn
+	OjoYb49fzpRxzbeiWz99ZMnh5yzoPmI1htiQwlk9gsy0pYsQtacb5Bt/bLGFeBcRnktfSWtIlgpfg
+	f3Cc49AjKpiYEiWWjs3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uckVg-0000000Cbz5-33p8;
-	Fri, 18 Jul 2025 12:48:20 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1ucklA-0000000CeZR-0pnJ;
+	Fri, 18 Jul 2025 13:04:20 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uckM9-0000000Cayb-0W0B;
-	Fri, 18 Jul 2025 12:38:30 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56I8Vqmq024126;
-	Fri, 18 Jul 2025 12:38:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=AJ7Yc9S8ybUjsYZ6mEaq1yLAIUmrbN
-	SGYdtADWMsG68=; b=URKeXKJunyhD1+j06LLJVhu9nrCnwkh/iFkJ+KqLceutkJ
-	lH6azZ0lpfqejdykiNA3ZxSbHRAY7I1Oe2ofzfG5FzAI81cs8IAywk1t82gctF96
-	/o3jbVwuMc5cil0FbQWACOQ5ZiQG4vV2etuzyQz7URfPR/nrPJQf1DZhlXuVKOJN
-	NxJh8+4yqJ/OcK6D3BIv27rMR7G4j3h0s8vutnVnqpzJ4Q5oCFJu277PfekDn5LD
-	Ri6rCWReLXVlipONFhPvQw1CmFlhUlr0AiE4bsbADWqh1oin2aa3yJuOHm08spDj
-	aZMThCv5XUcYajgl9Ap22Ps1QEW4jLA4rijDIR9Q==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 47y07txh9t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Jul 2025 12:38:18 +0000 (GMT)
-Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 56ICcIx9012599;
-	Fri, 18 Jul 2025 12:38:18 GMT
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 47y07txh9p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Jul 2025 12:38:18 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 56I9BoEl025987;
-	Fri, 18 Jul 2025 12:38:17 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 47v31q18vh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Jul 2025 12:38:16 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 56ICcEjA53543262
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Jul 2025 12:38:15 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E2E4A2004B;
-	Fri, 18 Jul 2025 12:38:14 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B69C620043;
-	Fri, 18 Jul 2025 12:38:13 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.87.132.117])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 18 Jul 2025 12:38:13 +0000 (GMT)
-Date: Fri, 18 Jul 2025 14:38:12 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
-Cc: hca@linux.ibm.com, christophe.leroy@csgroup.eu, andreyknvl@gmail.com,
-        akpm@linux-foundation.org, ryabinin.a.a@gmail.com, glider@google.com,
-        dvyukov@google.com, kasan-dev@googlegroups.com,
-        linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
-        linux-mm@kvack.org
-Subject: Re: [PATCH v3 10/12] kasan/s390: call kasan_init_generic in
- kasan_init
-Message-ID: <8412bf39-8235-4abb-ae35-db6029a605b3-agordeev@linux.ibm.com>
-References: <20250717142732.292822-1-snovitoll@gmail.com>
- <20250717142732.292822-11-snovitoll@gmail.com>
+	id 1uckgl-0000000Cdmm-04wt;
+	Fri, 18 Jul 2025 12:59:48 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56ICwse5714132;
+	Fri, 18 Jul 2025 07:58:54 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752843534;
+	bh=yUsTOiGa3kRqTBNBK7IpA6+SLe5En1zTCsg3sQMTpbs=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=OHanrKrF/DefV8Mrb2bedfmKNAHbxsndAxEdnsJc3QfgJwi0t0OhX/DoJ34XNSKbE
+	 QG4IiVhyMWz1oJ7LSIU8MRdFM2mHXgWlPXYYQt+M5v29Vs42rIAhwdGHdOc+Yq+x8h
+	 k4rmecN1GBT/hi5iA7VJxtc+syPyT8ExdGH5x+s4=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56ICwsg43508025
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 18 Jul 2025 07:58:54 -0500
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 18
+ Jul 2025 07:58:53 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Fri, 18 Jul 2025 07:58:53 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56ICwraF3541832;
+	Fri, 18 Jul 2025 07:58:53 -0500
+Date: Fri, 18 Jul 2025 07:58:53 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Kees Cook <kees@kernel.org>
+CC: Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
+        Daniel Lezcano <daniel.lezcano@linaro.org>,
+        Thomas Gleixner
+	<tglx@linutronix.de>,
+        Santosh Shilimkar <ssantosh@kernel.org>, Lee Jones
+	<lee@kernel.org>,
+        Allison Randal <allison@lohutok.net>,
+        Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Ingo
+ Molnar <mingo@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Christoph Hellwig <hch@lst.de>,
+        Andrey Konovalov <andreyknvl@gmail.com>,
+        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+        Ard Biesheuvel <ardb@kernel.org>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Nathan Chancellor
+	<nathan@kernel.org>,
+        Nicolas Schier <nicolas.schier@linux.dev>,
+        Nick
+ Desaulniers <nick.desaulniers+lkml@gmail.com>,
+        Bill Wendling
+	<morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>, <linux-kernel@vger.kernel.org>,
+        <x86@kernel.org>, <kasan-dev@googlegroups.com>,
+        <linux-doc@vger.kernel.org>, <kvmarm@lists.linux.dev>,
+        <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+        <linux-efi@vger.kernel.org>, <linux-hardening@vger.kernel.org>,
+        <linux-kbuild@vger.kernel.org>,
+        <linux-security-module@vger.kernel.org>,
+        <linux-kselftest@vger.kernel.org>, <sparclinux@vger.kernel.org>,
+        <llvm@lists.linux.dev>
+Subject: Re: [PATCH v3 05/13] arm: Handle KCOV __init vs inline mismatches
+Message-ID: <20250718125853.75g4nv2dnbkklud6@leggings>
+References: <20250717231756.make.423-kees@kernel.org>
+ <20250717232519.2984886-5-kees@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250717142732.292822-11-snovitoll@gmail.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: mdxNuC1xCFhuxtIpSH9TZqP6KhLLlotA
-X-Proofpoint-GUID: vIORyTF4ypaBonjC46BtYf4jbJ2mxKDQ
-X-Authority-Analysis: v=2.4 cv=d/v1yQjE c=1 sm=1 tr=0 ts=687a403b cx=c_pps a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17 a=kj9zAlcOel0A:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8 a=cM5Q7b1H7_XZ2lFhe3QA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE4MDA5NSBTYWx0ZWRfXwYseivfKqS1x J8WeqMyeE4+9+fwXyYNzZbOhx8wQEU+BxVKA5pL924Piu0WwYnZ0ds8Gg6cLrfaUCEmqngt+K2h v0iQpTIsCHidE0ZLR0UHnsBWuH3UYoIGkKH5HBy3pVo4QZasuFlmAgru0z1FY/j8NsXwfkpXZxf
- P46pOLu6NzYfd/QSa1kpO8S7p+tsd29lPZD2iYUmkG34IGk5n0wysprtNon/KZ0ojmcC9eLbIuy IJZ06FnAowNYqChDKS5euUgyI5PN9bMJlP6hA85NQeYAk9U5yWGraX/LIaWr6M8JtPEGSrTaRm/ 97uHxnx4L8KCPt+hyzHTf8w8bwvZvsP8xkv54H22+2e+so4ZRLAKAvDB9IiTB51ufI4/jZQUx39
- cC7c3CC6MUmnD00YlyhwGtbDdUSPCITIRC25vIbBO7x884VH8097j8NcoFOgTL8icQ3rTJvo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-18_02,2025-07-17_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=984
- suspectscore=0 spamscore=0 adultscore=0 mlxscore=0 priorityscore=1501
- lowpriorityscore=0 impostorscore=0 bulkscore=0 malwarescore=0 phishscore=0
- clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507180095
+In-Reply-To: <20250717232519.2984886-5-kees@kernel.org>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_053829_166705_790D56D2 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20250718_055947_159412_AFD050AA 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,43 +115,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 07:27:30PM +0500, Sabyrzhan Tasbolatov wrote:
-> Call kasan_init_generic() which handles Generic KASAN initialization
-> and prints the banner. Since s390 doesn't select ARCH_DEFER_KASAN,
-> kasan_enable() will be a no-op, and kasan_enabled() will return
-> IS_ENABLED(CONFIG_KASAN) for optimal compile-time behavior.
+On 16:25-20250717, Kees Cook wrote:
+> When KCOV is enabled all functions get instrumented, unless
+> the __no_sanitize_coverage attribute is used. To prepare for
+> __no_sanitize_coverage being applied to __init functions, we have to
+> handle differences in how GCC's inline optimizations get resolved. For
+> arm this exposed several places where __init annotations were missing
+> but ended up being "accidentally correct". Fix these cases and force
+> several functions to be inline with __always_inline.
 > 
-> s390 sets up KASAN mappings in the decompressor and can run with KASAN
-> enabled from very early, so it doesn't need runtime control.
-> 
-> Closes: https://bugzilla.kernel.org/show_bug.cgi?id=217049
-> Signed-off-by: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
-> ---
->  arch/s390/kernel/early.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/s390/kernel/early.c b/arch/s390/kernel/early.c
-> index 54cf0923050..7ada1324f6a 100644
-> --- a/arch/s390/kernel/early.c
-> +++ b/arch/s390/kernel/early.c
-> @@ -21,6 +21,7 @@
->  #include <linux/kernel.h>
->  #include <asm/asm-extable.h>
->  #include <linux/memblock.h>
-> +#include <linux/kasan.h>
->  #include <asm/access-regs.h>
->  #include <asm/asm-offsets.h>
->  #include <asm/machine.h>
-> @@ -65,7 +66,7 @@ static void __init kasan_early_init(void)
->  {
->  #ifdef CONFIG_KASAN
->  	init_task.kasan_depth = 0;
-> -	pr_info("KernelAddressSanitizer initialized\n");
-> +	kasan_init_generic();
->  #endif
->  }
 
-Acked-by: Alexander Gordeev <agordeev@linux.ibm.com>
+[..]
+
+> diff --git a/drivers/soc/ti/pm33xx.c b/drivers/soc/ti/pm33xx.c
+> index dfdff186c805..dc52a2197d24 100644
+> --- a/drivers/soc/ti/pm33xx.c
+> +++ b/drivers/soc/ti/pm33xx.c
+> @@ -145,7 +145,7 @@ static int am33xx_do_sram_idle(u32 wfi_flags)
+>  	return pm_ops->cpu_suspend(am33xx_do_wfi_sram, wfi_flags);
+>  }
+>  
+> -static int __init am43xx_map_gic(void)
+> +static int am43xx_map_gic(void)
+>  {
+>  	gic_dist_base = ioremap(AM43XX_GIC_DIST_BASE, SZ_4K);
+
+Reviewed-by: Nishanth Menon <nm@ti.com>
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
 _______________________________________________
 linux-riscv mailing list
