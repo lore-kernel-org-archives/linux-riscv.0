@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96EB6C83F3D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72742C83F34
 	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jul 2025 09:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G/vvfZDbFgR0LeLCX3+TDtbUW/IaTYkZ6agFOKami08=; b=QPNy0nhSMb1Qk/
-	Nud8ZyX+4TzKQXbUunE8dFOZ2cx78TSa946cgCDzP7BGUJny7GBZUUWmiCHhgk9+GLrg8og7ybskr
-	uAMO80QGGOSjdq8+2GaaYSMeq8i88Xt2HRqYDXbj6ZxUbQMujgUnx7mN/KEwN3X4yl+FWha4xoZfW
-	b7m9IQl4vb44auDETfJhHyedIpDbGwD6zHiQ+xscioMWtf6of2HaiWXjpW01ULlnDVrTi56qPrS9g
-	f8yEAImeFDSCHOwiNR2zi6+pyZvEsRMbie7nkHCjvGyUhJLrGR8uenhmTcs4nHx98Nf+m5e9p8kC1
-	xQgaTBP4ZC7Ym+pBB7KA==;
+	List-Owner; bh=CsGVdEdtIviWAgb1Z4SCfLePn9B+TpsZm7e1GjeQWKc=; b=E3yDxhLW8/Fyk0
+	XOT7Mvatls7Vn2bn95KliCKH1j0wzOBT1HAv9pgvHzPPkIPTMvu6onko+iiALGW94yBqPaq29u7BC
+	3+gekv1zZaehmR47ZDvKKBT11gNj0dI4+kRyr+o51JERHOhg1s+n8b+HLCmMZeWKVp6WBVoVwFqW+
+	zQ+4nls1a5crsqVJIf1Q5CJUg894W7dXuxyYzJMfskTO5ryGscHxw6IkAwUBtpDC3XGnxF3ZviCzF
+	/6C96+7lBEU6zzqp7ALvHCieqXFbQf/VBGNXOC4tOsoYedDCnLUMPEHKiR+sEP+oGByZnzhbh0fDG
+	UXxx3IErKCaSxLZeI+eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud3eW-0000000E4gt-3B7e;
-	Sat, 19 Jul 2025 09:14:44 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1ud3eU-0000000E4fk-3aud;
+	Sat, 19 Jul 2025 09:14:42 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud3eQ-0000000E4Z2-0SNN
+	id 1ud3eP-0000000E4Z6-181A
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Jul 2025 09:14:39 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4bkgw11k9DzYQvFK
+	Sat, 19 Jul 2025 09:14:38 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4bkgw10RZSzKHMqH
 	for <linux-riscv@lists.infradead.org>; Sat, 19 Jul 2025 17:14:25 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id F2A5E1A17FA
+	by mail.maildlp.com (Postfix) with ESMTP id B02781A0D27
 	for <linux-riscv@lists.infradead.org>; Sat, 19 Jul 2025 17:14:23 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP4 (Coremail) with SMTP id gCh0CgCHURLuYXtopCAYAw--.54295S7;
+	by APP4 (Coremail) with SMTP id gCh0CgCHURLuYXtopCAYAw--.54295S4;
 	Sat, 19 Jul 2025 17:14:23 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
@@ -57,36 +57,35 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Hao Luo <haoluo@google.com>,
 	Jiri Olsa <jolsa@kernel.org>,
 	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next 05/10] riscv, bpf: Add rv_ext_enabled macro for runtime detection extentsion
-Date: Sat, 19 Jul 2025 09:17:25 +0000
-Message-Id: <20250719091730.2660197-6-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 02/10] riscv, bpf: Extract emit_st() helper
+Date: Sat, 19 Jul 2025 09:17:22 +0000
+Message-Id: <20250719091730.2660197-3-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250719091730.2660197-1-pulehui@huaweicloud.com>
 References: <20250719091730.2660197-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgCHURLuYXtopCAYAw--.54295S7
-X-Coremail-Antispam: 1UD129KBjvJXoWxCF4UJFyUWryUtF4kGFy7GFg_yoW5ZFykpF
-	WDCr4S93s7tFyrKFWqyr13Jr1rAr4vqr17Grn2g3yDGayfZr1DG3Z3AF1jyFy5Zry8ZFyf
-	AFW3GF1fuw4jk37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPvb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
-	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
-	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267
-	AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
-	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7
-	xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Y
-	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
-	AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
-	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6r
-	W5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
-	7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
-	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuY
-	vjxUI-eODUUUU
+X-CM-TRANSID: gCh0CgCHURLuYXtopCAYAw--.54295S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxZry5ur15urWDKrW8CF1DGFg_yoW7Jr4rpw
+	13K3yxu39aqr4Fva4kGF1UWw13AF4UCFsF9Fs3Jwn5Jw43Xr4rGF1UtrWSvFyUC34fZ3yr
+	XF1DA3sFk3W7GrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUP2b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUXw
+	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
+	Ij6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
+	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI
+	0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
+	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MI
+	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
+	14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
+	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0I3
+	85UUUUU==
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_021438_446838_14186C9C 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250719_021437_647523_1649179F 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,107 +104,180 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pu Lehui <pulehui@huawei.com>
 
-Add rv_ext_enabled macro to check whether the runtime detection
-extension is enabled.
+There's a lot of redundant code related to store from immediate
+operations, let's extract emit_st() to make code more compact.
 
 Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- arch/riscv/net/bpf_jit.h | 28 +++++++++++-----------------
- 1 file changed, 11 insertions(+), 17 deletions(-)
+ arch/riscv/net/bpf_jit_comp64.c | 135 ++++++--------------------------
+ 1 file changed, 26 insertions(+), 109 deletions(-)
 
-diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-index e7b032dfd17f..0964df48c25e 100644
---- a/arch/riscv/net/bpf_jit.h
-+++ b/arch/riscv/net/bpf_jit.h
-@@ -13,21 +13,15 @@
- #include <linux/filter.h>
- #include <asm/cacheflush.h>
- 
-+/* verify runtime detection extension status */
-+#define rv_ext_enabled(ext) \
-+	(IS_ENABLED(CONFIG_RISCV_ISA_##ext) && riscv_has_extension_likely(RISCV_ISA_EXT_##ext))
-+
- static inline bool rvc_enabled(void)
- {
- 	return IS_ENABLED(CONFIG_RISCV_ISA_C);
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index ba75ba179b26..5e354f686ea3 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -577,6 +577,24 @@ static void emit_stx_insn(u8 rd, s16 off, u8 rs, u8 size, struct rv_jit_context
+ 	}
  }
  
--static inline bool rvzba_enabled(void)
--{
--	return IS_ENABLED(CONFIG_RISCV_ISA_ZBA) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBA);
--}
++static int emit_st(u8 rd, s16 off, s32 imm, u8 size, struct rv_jit_context *ctx)
++{
++	int insns_start;
++
++	emit_imm(RV_REG_T1, imm, ctx);
++	if (is_12b_int(off)) {
++		insns_start = ctx->ninsns;
++		emit_stx_insn(rd, off, RV_REG_T1, size, ctx);
++		return ctx->ninsns - insns_start;
++	}
++
++	emit_imm(RV_REG_T2, off, ctx);
++	emit_add(RV_REG_T2, RV_REG_T2, rd, ctx);
++	insns_start = ctx->ninsns;
++	emit_stx_insn(RV_REG_T2, 0, RV_REG_T1, size, ctx);
++	return ctx->ninsns - insns_start;
++}
++
+ static int emit_stx(u8 rd, s16 off, u8 rs, u8 size, struct rv_jit_context *ctx)
+ {
+ 	int insns_start;
+@@ -1870,128 +1888,27 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 
+ 	/* ST: *(size *)(dst + off) = imm */
+ 	case BPF_ST | BPF_MEM | BPF_B:
+-		emit_imm(RV_REG_T1, imm, ctx);
+-		if (is_12b_int(off)) {
+-			emit(rv_sb(rd, off, RV_REG_T1), ctx);
+-			break;
+-		}
 -
--static inline bool rvzbb_enabled(void)
--{
--	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
--}
+-		emit_imm(RV_REG_T2, off, ctx);
+-		emit_add(RV_REG_T2, RV_REG_T2, rd, ctx);
+-		emit(rv_sb(RV_REG_T2, 0, RV_REG_T1), ctx);
+-		break;
 -
- enum {
- 	RV_REG_ZERO =	0,	/* The constant value 0 */
- 	RV_REG_RA =	1,	/* Return address */
-@@ -1123,7 +1117,7 @@ static inline void emit_sw(u8 rs1, s32 off, u8 rs2, struct rv_jit_context *ctx)
+ 	case BPF_ST | BPF_MEM | BPF_H:
+-		emit_imm(RV_REG_T1, imm, ctx);
+-		if (is_12b_int(off)) {
+-			emit(rv_sh(rd, off, RV_REG_T1), ctx);
+-			break;
+-		}
+-
+-		emit_imm(RV_REG_T2, off, ctx);
+-		emit_add(RV_REG_T2, RV_REG_T2, rd, ctx);
+-		emit(rv_sh(RV_REG_T2, 0, RV_REG_T1), ctx);
+-		break;
+ 	case BPF_ST | BPF_MEM | BPF_W:
+-		emit_imm(RV_REG_T1, imm, ctx);
+-		if (is_12b_int(off)) {
+-			emit_sw(rd, off, RV_REG_T1, ctx);
+-			break;
+-		}
+-
+-		emit_imm(RV_REG_T2, off, ctx);
+-		emit_add(RV_REG_T2, RV_REG_T2, rd, ctx);
+-		emit_sw(RV_REG_T2, 0, RV_REG_T1, ctx);
+-		break;
+ 	case BPF_ST | BPF_MEM | BPF_DW:
+-		emit_imm(RV_REG_T1, imm, ctx);
+-		if (is_12b_int(off)) {
+-			emit_sd(rd, off, RV_REG_T1, ctx);
+-			break;
+-		}
+-
+-		emit_imm(RV_REG_T2, off, ctx);
+-		emit_add(RV_REG_T2, RV_REG_T2, rd, ctx);
+-		emit_sd(RV_REG_T2, 0, RV_REG_T1, ctx);
+-		break;
+-
++	/* ST | PROBE_MEM32: *(size *)(dst + RV_REG_ARENA + off) = imm */
+ 	case BPF_ST | BPF_PROBE_MEM32 | BPF_B:
+ 	case BPF_ST | BPF_PROBE_MEM32 | BPF_H:
+ 	case BPF_ST | BPF_PROBE_MEM32 | BPF_W:
+ 	case BPF_ST | BPF_PROBE_MEM32 | BPF_DW:
+ 	{
+-		int insn_len, insns_start;
+-
+-		emit_add(RV_REG_T3, rd, RV_REG_ARENA, ctx);
+-		rd = RV_REG_T3;
+-
+-		/* Load imm to a register then store it */
+-		emit_imm(RV_REG_T1, imm, ctx);
+-
+-		switch (BPF_SIZE(code)) {
+-		case BPF_B:
+-			if (is_12b_int(off)) {
+-				insns_start = ctx->ninsns;
+-				emit(rv_sb(rd, off, RV_REG_T1), ctx);
+-				insn_len = ctx->ninsns - insns_start;
+-				break;
+-			}
+-
+-			emit_imm(RV_REG_T2, off, ctx);
+-			emit_add(RV_REG_T2, RV_REG_T2, rd, ctx);
+-			insns_start = ctx->ninsns;
+-			emit(rv_sb(RV_REG_T2, 0, RV_REG_T1), ctx);
+-			insn_len = ctx->ninsns - insns_start;
+-			break;
+-		case BPF_H:
+-			if (is_12b_int(off)) {
+-				insns_start = ctx->ninsns;
+-				emit(rv_sh(rd, off, RV_REG_T1), ctx);
+-				insn_len = ctx->ninsns - insns_start;
+-				break;
+-			}
+-
+-			emit_imm(RV_REG_T2, off, ctx);
+-			emit_add(RV_REG_T2, RV_REG_T2, rd, ctx);
+-			insns_start = ctx->ninsns;
+-			emit(rv_sh(RV_REG_T2, 0, RV_REG_T1), ctx);
+-			insn_len = ctx->ninsns - insns_start;
+-			break;
+-		case BPF_W:
+-			if (is_12b_int(off)) {
+-				insns_start = ctx->ninsns;
+-				emit_sw(rd, off, RV_REG_T1, ctx);
+-				insn_len = ctx->ninsns - insns_start;
+-				break;
+-			}
+-
+-			emit_imm(RV_REG_T2, off, ctx);
+-			emit_add(RV_REG_T2, RV_REG_T2, rd, ctx);
+-			insns_start = ctx->ninsns;
+-			emit_sw(RV_REG_T2, 0, RV_REG_T1, ctx);
+-			insn_len = ctx->ninsns - insns_start;
+-			break;
+-		case BPF_DW:
+-			if (is_12b_int(off)) {
+-				insns_start = ctx->ninsns;
+-				emit_sd(rd, off, RV_REG_T1, ctx);
+-				insn_len = ctx->ninsns - insns_start;
+-				break;
+-			}
++		int insn_len;
  
- static inline void emit_sh2add(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
- {
--	if (rvzba_enabled()) {
-+	if (rv_ext_enabled(ZBA)) {
- 		emit(rvzba_sh2add(rd, rs1, rs2), ctx);
- 		return;
+-			emit_imm(RV_REG_T2, off, ctx);
+-			emit_add(RV_REG_T2, RV_REG_T2, rd, ctx);
+-			insns_start = ctx->ninsns;
+-			emit_sd(RV_REG_T2, 0, RV_REG_T1, ctx);
+-			insn_len = ctx->ninsns - insns_start;
+-			break;
++		if (BPF_MODE(insn->code) == BPF_PROBE_MEM32) {
++			emit_add(RV_REG_T3, rd, RV_REG_ARENA, ctx);
++			rd = RV_REG_T3;
+ 		}
+ 
+-		ret = add_exception_handler(insn, ctx, REG_DONT_CLEAR_MARKER,
+-					    insn_len);
++		insn_len = emit_st(rd, off, imm, BPF_SIZE(code), ctx);
++
++		ret = add_exception_handler(insn, ctx, REG_DONT_CLEAR_MARKER, insn_len);
+ 		if (ret)
+ 			return ret;
+-
+ 		break;
  	}
-@@ -1134,7 +1128,7 @@ static inline void emit_sh2add(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx
  
- static inline void emit_sh3add(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
- {
--	if (rvzba_enabled()) {
-+	if (rv_ext_enabled(ZBA)) {
- 		emit(rvzba_sh3add(rd, rs1, rs2), ctx);
- 		return;
- 	}
-@@ -1184,7 +1178,7 @@ static inline void emit_subw(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
- 
- static inline void emit_sextb(u8 rd, u8 rs, struct rv_jit_context *ctx)
- {
--	if (rvzbb_enabled()) {
-+	if (rv_ext_enabled(ZBB)) {
- 		emit(rvzbb_sextb(rd, rs), ctx);
- 		return;
- 	}
-@@ -1195,7 +1189,7 @@ static inline void emit_sextb(u8 rd, u8 rs, struct rv_jit_context *ctx)
- 
- static inline void emit_sexth(u8 rd, u8 rs, struct rv_jit_context *ctx)
- {
--	if (rvzbb_enabled()) {
-+	if (rv_ext_enabled(ZBB)) {
- 		emit(rvzbb_sexth(rd, rs), ctx);
- 		return;
- 	}
-@@ -1211,7 +1205,7 @@ static inline void emit_sextw(u8 rd, u8 rs, struct rv_jit_context *ctx)
- 
- static inline void emit_zexth(u8 rd, u8 rs, struct rv_jit_context *ctx)
- {
--	if (rvzbb_enabled()) {
-+	if (rv_ext_enabled(ZBB)) {
- 		emit(rvzbb_zexth(rd, rs), ctx);
- 		return;
- 	}
-@@ -1222,7 +1216,7 @@ static inline void emit_zexth(u8 rd, u8 rs, struct rv_jit_context *ctx)
- 
- static inline void emit_zextw(u8 rd, u8 rs, struct rv_jit_context *ctx)
- {
--	if (rvzba_enabled()) {
-+	if (rv_ext_enabled(ZBA)) {
- 		emit(rvzba_zextw(rd, rs), ctx);
- 		return;
- 	}
-@@ -1233,7 +1227,7 @@ static inline void emit_zextw(u8 rd, u8 rs, struct rv_jit_context *ctx)
- 
- static inline void emit_bswap(u8 rd, s32 imm, struct rv_jit_context *ctx)
- {
--	if (rvzbb_enabled()) {
-+	if (rv_ext_enabled(ZBB)) {
- 		int bits = 64 - imm;
- 
- 		emit(rvzbb_rev8(rd, rd), ctx);
 -- 
 2.34.1
 
