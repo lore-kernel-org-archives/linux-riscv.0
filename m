@@ -4,71 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6D2C83F27
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jul 2025 07:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96EB6C83F3D
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jul 2025 09:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AFG9glIGrdptWycX/JcpqJDljSSlXiXSW8pv50XziKc=; b=3UHiYVXgQANwnL
-	30no+7rSDojdxxJn7AYxeBDRJZzan2EYTXN2l6mvagemhlBfjKE8wIRhmj/4eHfwDVi1BKHTiHzMY
-	4HOFL7AavcEc4kM94Stv4Huq6TMqAJ813MLbLGG+3e+Jf2HWb7PDe+3sOCMvjbDQA9o+nREQQWkA0
-	QpFGo8hc8zSvVxU9m1JnSCGQQr/OvigQ4RTOE/HVekoeg0sm0p28eBkpxOCrXcu7mhNRfrgJvL3Ey
-	bbFA3TmuS1d8h2pv7gctkvlPTQohsEQpWhR1QYMcx8xSfyxK3Qtwy/r9yGErEYC7FUFXYLhmt0NKP
-	Dbonc38qUJUQNXdwfwgA==;
+	List-Owner; bh=G/vvfZDbFgR0LeLCX3+TDtbUW/IaTYkZ6agFOKami08=; b=QPNy0nhSMb1Qk/
+	Nud8ZyX+4TzKQXbUunE8dFOZ2cx78TSa946cgCDzP7BGUJny7GBZUUWmiCHhgk9+GLrg8og7ybskr
+	uAMO80QGGOSjdq8+2GaaYSMeq8i88Xt2HRqYDXbj6ZxUbQMujgUnx7mN/KEwN3X4yl+FWha4xoZfW
+	b7m9IQl4vb44auDETfJhHyedIpDbGwD6zHiQ+xscioMWtf6of2HaiWXjpW01ULlnDVrTi56qPrS9g
+	f8yEAImeFDSCHOwiNR2zi6+pyZvEsRMbie7nkHCjvGyUhJLrGR8uenhmTcs4nHx98Nf+m5e9p8kC1
+	xQgaTBP4ZC7Ym+pBB7KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud2J6-0000000E0ON-3StH;
-	Sat, 19 Jul 2025 07:48:32 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1ud3eW-0000000E4gt-3B7e;
+	Sat, 19 Jul 2025 09:14:44 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud2J2-0000000E0Nx-3XSq
+	id 1ud3eQ-0000000E4Z2-0SNN
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Jul 2025 07:48:31 +0000
-Received: from [192.168.0.107] (unknown [114.241.87.235])
-	by APP-03 (Coremail) with SMTP id rQCowABXsIG9TXtoDCV8BQ--.10075S2;
-	Sat, 19 Jul 2025 15:48:14 +0800 (CST)
-Message-ID: <22fd8b89-b937-48db-a5bf-4e468441b206@iscas.ac.cn>
-Date: Sat, 19 Jul 2025 15:48:13 +0800
+	Sat, 19 Jul 2025 09:14:39 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.216])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4bkgw11k9DzYQvFK
+	for <linux-riscv@lists.infradead.org>; Sat, 19 Jul 2025 17:14:25 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id F2A5E1A17FA
+	for <linux-riscv@lists.infradead.org>; Sat, 19 Jul 2025 17:14:23 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP4 (Coremail) with SMTP id gCh0CgCHURLuYXtopCAYAw--.54295S7;
+	Sat, 19 Jul 2025 17:14:23 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>
+Subject: [PATCH bpf-next 05/10] riscv, bpf: Add rv_ext_enabled macro for runtime detection extentsion
+Date: Sat, 19 Jul 2025 09:17:25 +0000
+Message-Id: <20250719091730.2660197-6-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250719091730.2660197-1-pulehui@huaweicloud.com>
+References: <20250719091730.2660197-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: dts: spacemit: uart: set dummy clock to silent dt
- warning
-To: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20250718-02-k1-uart-clock-v1-1-698e884aa717@gentoo.org>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20250718-02-k1-uart-clock-v1-1-698e884aa717@gentoo.org>
-X-CM-TRANSID: rQCowABXsIG9TXtoDCV8BQ--.10075S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tF4kAFWUXF18XFWxAF4Utwb_yoW8ur1xp3
-	92g393ArZ7Zr10v3ZFgFs0gr1kG3s5WF1UKr17Wr1UAr4DWay7KFW3GrnxJFyjqrs3Z3sF
-	qanY9Fy8uF4Uuw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
-	8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IU56yI5UUUUU==
-X-Originating-IP: [114.241.87.235]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-CM-TRANSID: gCh0CgCHURLuYXtopCAYAw--.54295S7
+X-Coremail-Antispam: 1UD129KBjvJXoWxCF4UJFyUWryUtF4kGFy7GFg_yoW5ZFykpF
+	WDCr4S93s7tFyrKFWqyr13Jr1rAr4vqr17Grn2g3yDGayfZr1DG3Z3AF1jyFy5Zry8ZFyf
+	AFW3GF1fuw4jk37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPvb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
+	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
+	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267
+	AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
+	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7
+	xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Y
+	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
+	AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6r
+	W5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
+	7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuY
+	vjxUI-eODUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_004829_255543_3BD4F05A 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20250719_021438_446838_14186C9C 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,67 +103,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/18/25 23:13, Yixun Lan wrote:
-> sec_uart1 is reserved in DT, and no clock is implemented in the CCF
-> framework, thus 'make dtbs_check' will eject this warning message:
->   serial@f0612000: 'clock-names' is a required property
->
-> So, adding a dummy clock to the device tree to fulfill the clock
-> requirement, then silent this dt check warning.
+From: Pu Lehui <pulehui@huawei.com>
 
-NAK. This is definitely worse than the warning.
+Add rv_ext_enabled macro to check whether the runtime detection
+extension is enabled.
 
-Honestly, if you don't like this warning, I think we should just drop
-the node. If not...
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit.h | 28 +++++++++++-----------------
+ 1 file changed, 11 insertions(+), 17 deletions(-)
 
->
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> ---
->  arch/riscv/boot/dts/spacemit/k1.dtsi | 10 +++++++++-
->  1 file changed, 9 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> index c0f8c5fca975d73b6ea6886da13fcf55289cb16c..e9b98f2a3b1cc38f569d7de336630df846cbfbe7 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> @@ -309,6 +309,13 @@ cluster1_l2_cache: l2-cache1 {
->  	};
->  
->  	clocks {
-> +		clk_dummy: clock-dummy {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <0>;
-
-That can't be right for UART, which depends on knowing about the baud
-clock rate. If we want a fixed clock to represent whatever the "secure"
-clock controller has at least it should be set to the nominal frequency.
-
-Vivian "dramforever" Wang
-
-> +			clock-output-names = "clk_dummy";
-> +		};
-> +
->  		vctcxo_1m: clock-1m {
->  			compatible = "fixed-clock";
->  			clock-frequency = <1000000>;
-> @@ -556,8 +563,9 @@ clint: timer@e4000000 {
->  		sec_uart1: serial@f0612000 {
->  			compatible = "spacemit,k1-uart", "intel,xscale-uart";
->  			reg = <0x0 0xf0612000 0x0 0x100>;
-> +			clocks = <&clk_dummy>, <&clk_dummy>;
-> +			clock-names = "core", "bus";
->  			interrupts = <43>;
-> -			clock-frequency = <14857000>;
->  			reg-shift = <2>;
->  			reg-io-width = <4>;
->  			status = "reserved"; /* for TEE usage */
->
-> ---
-> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-> change-id: 20250718-02-k1-uart-clock-0beb9ef10fe0
->
-> Best regards,
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index e7b032dfd17f..0964df48c25e 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -13,21 +13,15 @@
+ #include <linux/filter.h>
+ #include <asm/cacheflush.h>
+ 
++/* verify runtime detection extension status */
++#define rv_ext_enabled(ext) \
++	(IS_ENABLED(CONFIG_RISCV_ISA_##ext) && riscv_has_extension_likely(RISCV_ISA_EXT_##ext))
++
+ static inline bool rvc_enabled(void)
+ {
+ 	return IS_ENABLED(CONFIG_RISCV_ISA_C);
+ }
+ 
+-static inline bool rvzba_enabled(void)
+-{
+-	return IS_ENABLED(CONFIG_RISCV_ISA_ZBA) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBA);
+-}
+-
+-static inline bool rvzbb_enabled(void)
+-{
+-	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
+-}
+-
+ enum {
+ 	RV_REG_ZERO =	0,	/* The constant value 0 */
+ 	RV_REG_RA =	1,	/* Return address */
+@@ -1123,7 +1117,7 @@ static inline void emit_sw(u8 rs1, s32 off, u8 rs2, struct rv_jit_context *ctx)
+ 
+ static inline void emit_sh2add(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
+ {
+-	if (rvzba_enabled()) {
++	if (rv_ext_enabled(ZBA)) {
+ 		emit(rvzba_sh2add(rd, rs1, rs2), ctx);
+ 		return;
+ 	}
+@@ -1134,7 +1128,7 @@ static inline void emit_sh2add(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx
+ 
+ static inline void emit_sh3add(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
+ {
+-	if (rvzba_enabled()) {
++	if (rv_ext_enabled(ZBA)) {
+ 		emit(rvzba_sh3add(rd, rs1, rs2), ctx);
+ 		return;
+ 	}
+@@ -1184,7 +1178,7 @@ static inline void emit_subw(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
+ 
+ static inline void emit_sextb(u8 rd, u8 rs, struct rv_jit_context *ctx)
+ {
+-	if (rvzbb_enabled()) {
++	if (rv_ext_enabled(ZBB)) {
+ 		emit(rvzbb_sextb(rd, rs), ctx);
+ 		return;
+ 	}
+@@ -1195,7 +1189,7 @@ static inline void emit_sextb(u8 rd, u8 rs, struct rv_jit_context *ctx)
+ 
+ static inline void emit_sexth(u8 rd, u8 rs, struct rv_jit_context *ctx)
+ {
+-	if (rvzbb_enabled()) {
++	if (rv_ext_enabled(ZBB)) {
+ 		emit(rvzbb_sexth(rd, rs), ctx);
+ 		return;
+ 	}
+@@ -1211,7 +1205,7 @@ static inline void emit_sextw(u8 rd, u8 rs, struct rv_jit_context *ctx)
+ 
+ static inline void emit_zexth(u8 rd, u8 rs, struct rv_jit_context *ctx)
+ {
+-	if (rvzbb_enabled()) {
++	if (rv_ext_enabled(ZBB)) {
+ 		emit(rvzbb_zexth(rd, rs), ctx);
+ 		return;
+ 	}
+@@ -1222,7 +1216,7 @@ static inline void emit_zexth(u8 rd, u8 rs, struct rv_jit_context *ctx)
+ 
+ static inline void emit_zextw(u8 rd, u8 rs, struct rv_jit_context *ctx)
+ {
+-	if (rvzba_enabled()) {
++	if (rv_ext_enabled(ZBA)) {
+ 		emit(rvzba_zextw(rd, rs), ctx);
+ 		return;
+ 	}
+@@ -1233,7 +1227,7 @@ static inline void emit_zextw(u8 rd, u8 rs, struct rv_jit_context *ctx)
+ 
+ static inline void emit_bswap(u8 rd, s32 imm, struct rv_jit_context *ctx)
+ {
+-	if (rvzbb_enabled()) {
++	if (rv_ext_enabled(ZBB)) {
+ 		int bits = 64 - imm;
+ 
+ 		emit(rvzbb_rev8(rd, rd), ctx);
+-- 
+2.34.1
 
 
 _______________________________________________
