@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 938F1C83F34
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jul 2025 05:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D18C83F34
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jul 2025 06:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gRzGc2AXwxcaNurLVDYwXeyw1Qwd0l1zJaMBMaLhHe0=; b=YioWYn0MupRYta
-	Vkh5TefN2IQNw2FltmPRFujP1jcxnULQYk42kdCGt4j7ypNdbC9OToUgnVytnXpGTUBRFXyFgvio0
-	9f6WOKTDKzIWaJKaBRsmt1gukw8V4F+DvxPlv5N5j9KGn7AWG7o46F2xE/xYaAxctTkWxoULY6Qdi
-	lcrBvn8xE9cYKo4Vc/wRbzbXSIH+ZGV5nIjK/9/uvWyEPylyDmd0f3idf9SU6Jz8p7UENCI4kk9XB
-	rTD+PWiobAMBZqfUh4fIye3V9eIPAihxmdbQqIdSDLsk61HoAiULhA1hAMTz7vvQiiw22kvdzCGcN
-	VSdezg/EM0bWMf8VL/8g==;
+	List-Owner; bh=N8XGMgU1xLA4D3srF5M4o+3y6X0xULD5V70aphV7P6A=; b=GpCaHHSG2Rolfb
+	seFmWSTUNjzNCJoTtnVTPVxARMjCpZEuO3TXi4JCbZJ1nLjNqaMuaLT2N9yfTGiGptKkvg+KUM64J
+	r1HoLA4SZXoPcNmvklIddZyzBrcCoo4sIx6puDESw9rWySNch7WwAQJ+eQL0Cforf89VKwWncssCT
+	rmdKDDwI+8pSjDS768W56euWGLIX4NI4ooS0J8AbxynaKI8QSL/Ql5CH2laScaPcaU+s6jQ2avPRU
+	bU0ci+WV7L1KBx91pT0QpaLgelJaQmrJePuf3zwQ5pY8Z9Fu9wo6aRSrCY1y2R6lfbxW3DO9Qrkz9
+	IXscyTD3N+FnPE27tGZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud0UZ-0000000Dvt3-0WcC;
-	Sat, 19 Jul 2025 05:52:15 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1ud1Tb-0000000Dy7v-2tww;
+	Sat, 19 Jul 2025 06:55:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud0UU-0000000Dvsf-35kV
-	for linux-riscv@lists.infradead.org;
-	Sat, 19 Jul 2025 05:52:12 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id CD3BE25CB7;
-	Sat, 19 Jul 2025 07:52:05 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 0iV7Ez6XikUP; Sat, 19 Jul 2025 07:52:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1752904321; bh=cteh37v3r96xQ7jAxpWaJ3GdLFB1B5kSQPbsAyuPGAY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cY2+o8B2n8jwslpxEtgtPxVR+hvsKrtURoaFsPfQh1P+K/Lw81m1HFjWvn+2jKPOX
-	 xkFOXqfTdXRcTobLGZMSVm76qQ+aaJ7J+ALbUrOz3CulkkC+s+WgKfT4uYUJ2grc8k
-	 cNUO4sxzAeCodEEiYjA7zUsJWyxv+CValKsHNNI1G1v27McCDcormubkuMRHeyzJSW
-	 ybvKqjqm7YyfPMg53s1JL58CYx+T7oOia0HI6cOobN+4depO04EvfF5as7gES/njOF
-	 mVUyuMJgsAG1xdVnZlnXU8vsgYdPdp7S70TDb94icgfsTlCKMMeQgsl9cqXIQq6YFZ
-	 SaQOrd/JijwkA==
-Date: Sat, 19 Jul 2025 05:51:50 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Yixun Lan <dlan@gentoo.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: spacemit: fix sspax_clk
-Message-ID: <aHswUN_p78a9JCWC@pie>
-References: <20250718-k1-clk-i2s-v1-1-e92c10fd0f60@linux.spacemit.com>
- <20250718105120-GYB695709@gentoo>
- <CBB594905CF0674E+aHpLqh2vVhTdzbEc@troy-wujie14pro-arch>
- <B4EF5817ECF41CE8+aHpQ9FFEoJj7EIwU@troy-wujie14pro-arch>
+	id 1ud1R8-0000000Dy0M-2r6r;
+	Sat, 19 Jul 2025 06:52:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 555C0457D1;
+	Sat, 19 Jul 2025 06:52:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D7EAC4CEE3;
+	Sat, 19 Jul 2025 06:52:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1752907965;
+	bh=6OH2X3Wst3e0vy94IdDlrw8pEvX7FDKjFs7Y/qkgnGA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=xKbO697jatzdRrok3rYuTBbyv8uR0uNOxEioC1xrZuTZJNDfY9ulx1P0yONafeWyS
+	 AQntVtchLzGHw9/6TbYdhlZFHgCGrMFLVe22um6xdMjrqZ5867cidTVu/m90RtpCV5
+	 ZbC3nSzJqX3/m1/V4xxVP6s321IisGi081KQRfis=
+Date: Sat, 19 Jul 2025 08:52:41 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-sh@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
+Message-ID: <2025071919-patience-cattishly-cf7c@gregkh>
+References: <20250717103241.2806798-1-thierry.reding@gmail.com>
+ <2025071716-phoney-object-1648@gregkh>
+ <rzbzah5iigz25jtxyqadnitkzkazxsaxntajhlfrfdslyioevk@pylcjkfh5n42>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <B4EF5817ECF41CE8+aHpQ9FFEoJj7EIwU@troy-wujie14pro-arch>
+In-Reply-To: <rzbzah5iigz25jtxyqadnitkzkazxsaxntajhlfrfdslyioevk@pylcjkfh5n42>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_225211_350532_A8C8ECF7 
-X-CRM114-Status: GOOD (  37.26  )
+X-CRM114-CacheID: sfid-20250718_235246_767324_E5E5F803 
+X-CRM114-Status: GOOD (  47.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,186 +73,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 09:49:40PM +0800, Troy Mitchell wrote:
-> On Fri, Jul 18, 2025 at 09:27:06PM +0800, Troy Mitchell wrote:
-> > On Fri, Jul 18, 2025 at 06:51:20PM +0800, Yixun Lan wrote:
-> > > Hi Troy,
+On Fri, Jul 18, 2025 at 03:49:37PM +0200, Thierry Reding wrote:
+> On Thu, Jul 17, 2025 at 02:11:41PM +0200, Greg Kroah-Hartman wrote:
+> > On Thu, Jul 17, 2025 at 12:32:34PM +0200, Thierry Reding wrote:
+> > > From: Thierry Reding <treding@nvidia.com>
 > > > 
-> > > On 09:54 Fri 18 Jul     , Troy Mitchell wrote:
-> > > > In the SpacemiT public document, when the FNCLKSEL field of
-> > > > the APBC_SSPAX_CLK_RST register is 7 (3'b111),
-> > > > which is a reserved value. And BIT3 of the same register is
-> > > > a reserved bit.
-> > > > 
-> > > so, if I parse above correctly, it describe current public document?
-> > > which value 7 of FNCLKSEL and BIT3 is wrongly marked as reserved.
+> > > Hi,
 > > > 
-> > > https://developer.spacemit.com/documentation?token=LCrKwWDasiJuROkVNusc2pWTnEb#10.2.3.2-resource-reset-schemes
-> > > 10.2.4.3.16 SSPAX CLOCK RESET CONTROL REGISTER (APBC_SSPAX_CLK_RST)
+> > > Something that's been bugging me over the years is how some drivers have
+> > > had to adopt file-scoped variables to pass data into something like the
+> > > syscore operations. This is often harmless, but usually leads to drivers
+> > > not being able to deal with multiple instances, or additional frameworks
+> > > or data structures needing to be created to handle multiple instances.
 > > > 
-> > yes, correct summary
+> > > This series proposes to "objectify" struct syscore_ops by passing a
+> > > pointer to struct syscore_ops to the syscore callbacks. Implementations
+> > > of these callbacks can then make use of container_of() to get access to
+> > > contextual data that struct syscore_ops was embedded in. This elegantly
+> > > avoids the need for file-scoped, singleton variables, by tying syscore
+> > > to individual instances.
+> > > 
+> > > Patch 1 contains the bulk of these changes. It's fairly intrusive
+> > > because it does the conversion of the function signature all in one
+> > > patch. An alternative would've been to introduce new callbacks such that
+> > > these changes could be staged in. However, the amount of changes here
+> > > are not quite numerous enough to justify that, in my opinion, and
+> > > syscore isn't very frequently used, so the risk of another user getting
+> > > added while this is merged is rather small. All in all I think merging
+> > > this in one go is the simplest way.
 > > 
-> > > > But the document is wrong, the actual situation is:
-> > > > when FNCLKSEL is 7 (3'b111), and the purpose of bit 3 is
-> > > > if to select i2s_bclk as the parent clock.
-> > > > 
-> > > > And only when FNCLKSEL is 7 (3'b111), The bit 3 is not a reserved bit.
-> > > > 
-> > > so what's the difference of value 7 from other 0-6? has additional ops to
-> > > select i2s_bclk as parent? otherwise just say they are not reserved
-> > > 
-> > > please have more explanation for BIT3, it's quite obscure and unclear
-> > Bit 3 is only valid when FNCLKSEL is 7,
-> > indicating whether i2s_bclk is selected as the clock source.
-> > And when FNCLKSEL is 7, bit 3 must be 1, otherwise it will cause unknown errors.
-> > When FNCLKSEL is other values, bit 3 has no effect
-
-Suggest introducing a dummy gate clock utilizing BIT(3) as the enable
-bit. Instead directly taking i2s_bclk as parent, you could change the
-eighth parent of sspaX_clk to the new dummy gate, which ensures BIT(3)
-is set when the FNCLKSEL == 7 and requires no specific handling in code.
-
-Regards,
-Yao Zi
-
-> > I'll explain more in the next version
+> > All at once is good, I like the idea, but:
 > > 
-> > > 
-> > > anyway, can you coordinate with SpacemiT internal to update the docs?
-> > > 
-> > I have already told them. I think the document will be updated ASAP.
+> > > Patches 2-7 are conversions of some existing drivers to take advantage
+> > > of this new parameter and tie the code to per-instance data.
 > > 
-> > > > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > > > ---
-> > > >  drivers/clk/spacemit/ccu-k1.c  |  4 ++--
-> > > >  drivers/clk/spacemit/ccu_mix.c | 29 +++++++++++++++++++++++++++++
-> > > >  drivers/clk/spacemit/ccu_mix.h | 14 ++++++++++++++
-> > > >  3 files changed, 45 insertions(+), 2 deletions(-)
-> > > > 
-> > > > diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-> > > > index cdde37a0523537c2f436e481ae8d6ec5a581b87e..0e22f6fb2c45b68ab20a9b1563a1a6dec1a7e16c 100644
-> > > > --- a/drivers/clk/spacemit/ccu-k1.c
-> > > > +++ b/drivers/clk/spacemit/ccu-k1.c
-> > > > @@ -359,8 +359,8 @@ static const struct clk_parent_data sspa_parents[] = {
-> > > >  	CCU_PARENT_HW(pll1_d3072_0p8),
-> > > >  	CCU_PARENT_HW(i2s_bclk),
-> > > >  };
-> > > > -CCU_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
-> > > > -CCU_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-> > > > +CCU_SSPA_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
-> > > > +CCU_SSPA_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-> > > >  CCU_GATE_DEFINE(dro_clk, CCU_PARENT_HW(apb_clk), APBC_DRO_CLK_RST, BIT(1), 0);
-> > > >  CCU_GATE_DEFINE(ir_clk, CCU_PARENT_HW(apb_clk), APBC_IR_CLK_RST, BIT(1), 0);
-> > > >  CCU_GATE_DEFINE(tsen_clk, CCU_PARENT_HW(apb_clk), APBC_TSEN_CLK_RST, BIT(1), 0);
-> > > > diff --git a/drivers/clk/spacemit/ccu_mix.c b/drivers/clk/spacemit/ccu_mix.c
-> > > > index 9b852aa61f78aed5256bfe6fc3b01932d6db6256..bfc65fc00df67299523eb5d1d2ed479c61fc6141 100644
-> > > > --- a/drivers/clk/spacemit/ccu_mix.c
-> > > > +++ b/drivers/clk/spacemit/ccu_mix.c
-> > > > @@ -191,6 +191,25 @@ static int ccu_mux_set_parent(struct clk_hw *hw, u8 index)
-> > > >  	return ccu_mix_trigger_fc(hw);
-> > > >  }
-> > > >  
-> > > > +static int ccu_mux_set_sspa_parent(struct clk_hw *hw, u8 index)
-> > > > +{
-> > > > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > > > +	struct ccu_mux_config *mux = &mix->mux;
-> > > > +	u32 mask, val;
-> > > > +
-> > > > +	mask = GENMASK(mux->width + mux->shift - 1, mux->shift);
-> > > > +	val = index << mux->shift;
-> > > > +
-> > > > +	if (index == 7) {
-> > > > +		mask |= BIT(3);
-> > > > +		val |= BIT(3);
-> > > > +	}
-> > > it occur to me, BIT(3) is kind of a conditional BIT..
-> > > 
-> > > what's the behavior of reading/writing to BIT3 when index != 7?
-> > > write value will be ignored, read will return zero?
-> > I don't know. I haven't tested it, and I don't think it's worth testing.
-> > I've written a function to set the parent using BIT(3) and an index.
-> > Therefore, when the caller invokes get_parent, BIT(3) is not considered; only the index is.
-> >
-> Sry, Yixun, We really need to test it!
-> If BIT(3) has no effct when FNCLKSEL is set to other values,
-> then we can avoid introducing a new function.
+> > That's great, but none of these conversions actually get rid of the
+> > global structure, so what actually was helped here other than the churn
+> > of this "potentially" allowing the global data variables from being
+> > removed in the future?
 > > 
-> >                 - Troy
-> > 
-> > > 
-> > > > +
-> > > > +	ccu_update(&mix->common, ctrl, mask, val);
-> > > > +
-> > > > +	return ccu_mix_trigger_fc(hw);
-> > > > +}
-> > > > +
-> > > >  const struct clk_ops spacemit_ccu_gate_ops = {
-> > > >  	.disable	= ccu_gate_disable,
-> > > >  	.enable		= ccu_gate_enable,
-> > > > @@ -235,6 +254,16 @@ const struct clk_ops spacemit_ccu_mux_gate_ops = {
-> > > >  	.set_parent	= ccu_mux_set_parent,
-> > > >  };
-> > > >  
-> > > > +const struct clk_ops spacemit_ccu_sspa_mux_gate_ops = {
-> > > > +	.disable	= ccu_gate_disable,
-> > > > +	.enable		= ccu_gate_enable,
-> > > > +	.is_enabled	= ccu_gate_is_enabled,
-> > > > +
-> > > > +	.determine_rate = ccu_mix_determine_rate,
-> > > > +	.get_parent	= ccu_mux_get_parent,
-> > > > +	.set_parent	= ccu_mux_set_sspa_parent,
-> > > > +};
-> > > > +
-> > > >  const struct clk_ops spacemit_ccu_div_gate_ops = {
-> > > >  	.disable	= ccu_gate_disable,
-> > > >  	.enable		= ccu_gate_enable,
-> > > > diff --git a/drivers/clk/spacemit/ccu_mix.h b/drivers/clk/spacemit/ccu_mix.h
-> > > > index 51d19f5d6aacb7203d1eddf96047cf3174533601..7753446386353bf849787ed4ec7c85c298238ab5 100644
-> > > > --- a/drivers/clk/spacemit/ccu_mix.h
-> > > > +++ b/drivers/clk/spacemit/ccu_mix.h
-> > > > @@ -124,6 +124,19 @@ static struct ccu_mix _name = {							\
-> > > >  	}									\
-> > > >  }
-> > > >  
-> > > > +#define CCU_SSPA_MUX_GATE_DEFINE(_name, _parents, _reg_ctrl,			\
-> > > > +				     _shift, _width, _mask_gate, _flags)	\
-> > > > +static struct ccu_mix _name = {							\
-> > > > +	.gate	= CCU_GATE_INIT(_mask_gate),					\
-> > > > +	.mux	= CCU_MUX_INIT(_shift, _width),					\
-> > > > +	.common = {								\
-> > > > +		.reg_ctrl	= _reg_ctrl,					\
-> > > > +		CCU_MIX_INITHW_PARENTS(_name, _parents,				\
-> > > > +				       spacemit_ccu_sspa_mux_gate_ops,		\
-> > > > +				       _flags),					\
-> > > > +	}									\
-> > > > +}
-> > > > +
-> > > >  #define CCU_DIV_GATE_DEFINE(_name, _parent, _reg_ctrl, _shift, _width,		\
-> > > >  			    _mask_gate,	_flags)					\
-> > > >  static struct ccu_mix _name = {							\
-> > > > @@ -213,6 +226,7 @@ extern const struct clk_ops spacemit_ccu_div_ops;
-> > > >  extern const struct clk_ops spacemit_ccu_factor_gate_ops;
-> > > >  extern const struct clk_ops spacemit_ccu_div_gate_ops;
-> > > >  extern const struct clk_ops spacemit_ccu_mux_gate_ops;
-> > > > +extern const struct clk_ops spacemit_ccu_sspa_mux_gate_ops;
-> > > >  extern const struct clk_ops spacemit_ccu_mux_div_ops;
-> > > >  extern const struct clk_ops spacemit_ccu_mux_div_gate_ops;
-> > > >  #endif /* _CCU_DIV_H_ */
-> > > > 
-> > > > ---
-> > > > base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
-> > > > change-id: 20250717-k1-clk-i2s-e4272f1f915b
-> > > > 
-> > > > Best regards,
-> > > > -- 
-> > > > Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > > > 
-> > > > 
-> > > 
-> > > -- 
-> > > Yixun Lan (dlan)
-> > > 
+> > So how does this actually help?
 > 
+> Thanks for pointing this out and letting me look at it again. Most of
+> these actually do get rid of the global data variables. The MIPS patch
+> doesn't because I forgot, but the __alchemy_pci_ctx is no longer used
+> after the patch (except where it's initialized to the ctx variable, but
+> that's no longer needed now). I've updated that patch.
+> 
+> The Ingenic TCU patch gets rid of it, and so do the clk/mvebu and
+> irq-imx-gpcv2 patches. The two exceptions where it wasn't possible to
+> get rid of the global data variables are mvebu-mbus and Tegra PMC, in
+> both cases because there is other functionality that relies on the
+> global variable. The bits that make it very difficult to remove these
+> entirely is that they export functions that are called without context
+> from other parts of code.
+
+Ah, I must have looked at the wrong examples in the patch series, sorry.
+
+> I have a fairly large series on top of this that converts the Tegra PMC
+> driver to move away from this as much as possible. It's not possible to
+> do on 32-bit ARM because there is some low-level CPU code that needs to
+> call into this function. However, the goal is to at least make the PMC
+> driver data completely instance-specific on 64-bit ARM so that we can
+> support multiple instances eventually.
+> 
+> Maybe something similar could be done for mvebu-bus, but I'm not sure
+> it's worth it. Typically for these cases you need some form of context
+> in order to replace the global data. On Tegra we do have that in many
+> cases (via DT phandle references), but I'm not familiar enough with
+> mvebu to know if something similar exists.
+> 
+> My goal with this series is to get this a bit more established so that
+> people don't use the lack of context in syscore as an excuse for not
+> properly encapsulating things. These usually tend to go hand in hand,
+> where people end up using a global data variable for syscore and since
+> they can't get around that one, they keep using it for a bunch of other
+> shortcuts.
+
+I agree, I overall like this change, just expected to see more global
+structures being able to be removed.
+
+> > Also, small nit, make the function pointers const please :)
+> 
+> I originally tried that. Unfortunately, the struct syscore_ops contains
+> a struct list_head to add it to the global list of structures. I suppose
+> I could move the function pointers into a different structure and make
+> pointers to that const, something like this:
+> 
+> 	struct syscore;
+> 
+> 	struct syscore_ops {
+> 		int (*suspend)(struct syscore *syscore);
+> 		void (*resume)(struct syscore *syscore);
+> 		void (*shutdown)(struct syscore *syscore);
+> 	};
+> 
+> 	struct syscore {
+> 		const struct syscore_ops *ops;
+> 		struct list_head node;
+> 	};
+> 
+> Is that what you had in mind?
+
+I missed the list_head, so yes, this would be better, but don't pass
+back the syscore structure, how about just a void * instead, making the
+whole container_of() stuff go away?
+
+thanks,
+
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
