@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D18C83F34
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jul 2025 06:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6D2C83F27
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jul 2025 07:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N8XGMgU1xLA4D3srF5M4o+3y6X0xULD5V70aphV7P6A=; b=GpCaHHSG2Rolfb
-	seFmWSTUNjzNCJoTtnVTPVxARMjCpZEuO3TXi4JCbZJ1nLjNqaMuaLT2N9yfTGiGptKkvg+KUM64J
-	r1HoLA4SZXoPcNmvklIddZyzBrcCoo4sIx6puDESw9rWySNch7WwAQJ+eQL0Cforf89VKwWncssCT
-	rmdKDDwI+8pSjDS768W56euWGLIX4NI4ooS0J8AbxynaKI8QSL/Ql5CH2laScaPcaU+s6jQ2avPRU
-	bU0ci+WV7L1KBx91pT0QpaLgelJaQmrJePuf3zwQ5pY8Z9Fu9wo6aRSrCY1y2R6lfbxW3DO9Qrkz9
-	IXscyTD3N+FnPE27tGZA==;
+	List-Owner; bh=AFG9glIGrdptWycX/JcpqJDljSSlXiXSW8pv50XziKc=; b=3UHiYVXgQANwnL
+	30no+7rSDojdxxJn7AYxeBDRJZzan2EYTXN2l6mvagemhlBfjKE8wIRhmj/4eHfwDVi1BKHTiHzMY
+	4HOFL7AavcEc4kM94Stv4Huq6TMqAJ813MLbLGG+3e+Jf2HWb7PDe+3sOCMvjbDQA9o+nREQQWkA0
+	QpFGo8hc8zSvVxU9m1JnSCGQQr/OvigQ4RTOE/HVekoeg0sm0p28eBkpxOCrXcu7mhNRfrgJvL3Ey
+	bbFA3TmuS1d8h2pv7gctkvlPTQohsEQpWhR1QYMcx8xSfyxK3Qtwy/r9yGErEYC7FUFXYLhmt0NKP
+	Dbonc38qUJUQNXdwfwgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud1Tb-0000000Dy7v-2tww;
-	Sat, 19 Jul 2025 06:55:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ud2J6-0000000E0ON-3StH;
+	Sat, 19 Jul 2025 07:48:32 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud1R8-0000000Dy0M-2r6r;
-	Sat, 19 Jul 2025 06:52:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 555C0457D1;
-	Sat, 19 Jul 2025 06:52:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D7EAC4CEE3;
-	Sat, 19 Jul 2025 06:52:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1752907965;
-	bh=6OH2X3Wst3e0vy94IdDlrw8pEvX7FDKjFs7Y/qkgnGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=xKbO697jatzdRrok3rYuTBbyv8uR0uNOxEioC1xrZuTZJNDfY9ulx1P0yONafeWyS
-	 AQntVtchLzGHw9/6TbYdhlZFHgCGrMFLVe22um6xdMjrqZ5867cidTVu/m90RtpCV5
-	 ZbC3nSzJqX3/m1/V4xxVP6s321IisGi081KQRfis=
-Date: Sat, 19 Jul 2025 08:52:41 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-sh@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
-Message-ID: <2025071919-patience-cattishly-cf7c@gregkh>
-References: <20250717103241.2806798-1-thierry.reding@gmail.com>
- <2025071716-phoney-object-1648@gregkh>
- <rzbzah5iigz25jtxyqadnitkzkazxsaxntajhlfrfdslyioevk@pylcjkfh5n42>
+	id 1ud2J2-0000000E0Nx-3XSq
+	for linux-riscv@lists.infradead.org;
+	Sat, 19 Jul 2025 07:48:31 +0000
+Received: from [192.168.0.107] (unknown [114.241.87.235])
+	by APP-03 (Coremail) with SMTP id rQCowABXsIG9TXtoDCV8BQ--.10075S2;
+	Sat, 19 Jul 2025 15:48:14 +0800 (CST)
+Message-ID: <22fd8b89-b937-48db-a5bf-4e468441b206@iscas.ac.cn>
+Date: Sat, 19 Jul 2025 15:48:13 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <rzbzah5iigz25jtxyqadnitkzkazxsaxntajhlfrfdslyioevk@pylcjkfh5n42>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: dts: spacemit: uart: set dummy clock to silent dt
+ warning
+To: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250718-02-k1-uart-clock-v1-1-698e884aa717@gentoo.org>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20250718-02-k1-uart-clock-v1-1-698e884aa717@gentoo.org>
+X-CM-TRANSID: rQCowABXsIG9TXtoDCV8BQ--.10075S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tF4kAFWUXF18XFWxAF4Utwb_yoW8ur1xp3
+	92g393ArZ7Zr10v3ZFgFs0gr1kG3s5WF1UKr17Wr1UAr4DWay7KFW3GrnxJFyjqrs3Z3sF
+	qanY9Fy8uF4Uuw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IU56yI5UUUUU==
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_235246_767324_E5E5F803 
-X-CRM114-Status: GOOD (  47.54  )
+X-CRM114-CacheID: sfid-20250719_004829_255543_3BD4F05A 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,115 +85,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 03:49:37PM +0200, Thierry Reding wrote:
-> On Thu, Jul 17, 2025 at 02:11:41PM +0200, Greg Kroah-Hartman wrote:
-> > On Thu, Jul 17, 2025 at 12:32:34PM +0200, Thierry Reding wrote:
-> > > From: Thierry Reding <treding@nvidia.com>
-> > > 
-> > > Hi,
-> > > 
-> > > Something that's been bugging me over the years is how some drivers have
-> > > had to adopt file-scoped variables to pass data into something like the
-> > > syscore operations. This is often harmless, but usually leads to drivers
-> > > not being able to deal with multiple instances, or additional frameworks
-> > > or data structures needing to be created to handle multiple instances.
-> > > 
-> > > This series proposes to "objectify" struct syscore_ops by passing a
-> > > pointer to struct syscore_ops to the syscore callbacks. Implementations
-> > > of these callbacks can then make use of container_of() to get access to
-> > > contextual data that struct syscore_ops was embedded in. This elegantly
-> > > avoids the need for file-scoped, singleton variables, by tying syscore
-> > > to individual instances.
-> > > 
-> > > Patch 1 contains the bulk of these changes. It's fairly intrusive
-> > > because it does the conversion of the function signature all in one
-> > > patch. An alternative would've been to introduce new callbacks such that
-> > > these changes could be staged in. However, the amount of changes here
-> > > are not quite numerous enough to justify that, in my opinion, and
-> > > syscore isn't very frequently used, so the risk of another user getting
-> > > added while this is merged is rather small. All in all I think merging
-> > > this in one go is the simplest way.
-> > 
-> > All at once is good, I like the idea, but:
-> > 
-> > > Patches 2-7 are conversions of some existing drivers to take advantage
-> > > of this new parameter and tie the code to per-instance data.
-> > 
-> > That's great, but none of these conversions actually get rid of the
-> > global structure, so what actually was helped here other than the churn
-> > of this "potentially" allowing the global data variables from being
-> > removed in the future?
-> > 
-> > So how does this actually help?
-> 
-> Thanks for pointing this out and letting me look at it again. Most of
-> these actually do get rid of the global data variables. The MIPS patch
-> doesn't because I forgot, but the __alchemy_pci_ctx is no longer used
-> after the patch (except where it's initialized to the ctx variable, but
-> that's no longer needed now). I've updated that patch.
-> 
-> The Ingenic TCU patch gets rid of it, and so do the clk/mvebu and
-> irq-imx-gpcv2 patches. The two exceptions where it wasn't possible to
-> get rid of the global data variables are mvebu-mbus and Tegra PMC, in
-> both cases because there is other functionality that relies on the
-> global variable. The bits that make it very difficult to remove these
-> entirely is that they export functions that are called without context
-> from other parts of code.
+On 7/18/25 23:13, Yixun Lan wrote:
+> sec_uart1 is reserved in DT, and no clock is implemented in the CCF
+> framework, thus 'make dtbs_check' will eject this warning message:
+>   serial@f0612000: 'clock-names' is a required property
+>
+> So, adding a dummy clock to the device tree to fulfill the clock
+> requirement, then silent this dt check warning.
 
-Ah, I must have looked at the wrong examples in the patch series, sorry.
+NAK. This is definitely worse than the warning.
 
-> I have a fairly large series on top of this that converts the Tegra PMC
-> driver to move away from this as much as possible. It's not possible to
-> do on 32-bit ARM because there is some low-level CPU code that needs to
-> call into this function. However, the goal is to at least make the PMC
-> driver data completely instance-specific on 64-bit ARM so that we can
-> support multiple instances eventually.
-> 
-> Maybe something similar could be done for mvebu-bus, but I'm not sure
-> it's worth it. Typically for these cases you need some form of context
-> in order to replace the global data. On Tegra we do have that in many
-> cases (via DT phandle references), but I'm not familiar enough with
-> mvebu to know if something similar exists.
-> 
-> My goal with this series is to get this a bit more established so that
-> people don't use the lack of context in syscore as an excuse for not
-> properly encapsulating things. These usually tend to go hand in hand,
-> where people end up using a global data variable for syscore and since
-> they can't get around that one, they keep using it for a bunch of other
-> shortcuts.
+Honestly, if you don't like this warning, I think we should just drop
+the node. If not...
 
-I agree, I overall like this change, just expected to see more global
-structures being able to be removed.
+>
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+>  arch/riscv/boot/dts/spacemit/k1.dtsi | 10 +++++++++-
+>  1 file changed, 9 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> index c0f8c5fca975d73b6ea6886da13fcf55289cb16c..e9b98f2a3b1cc38f569d7de336630df846cbfbe7 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> @@ -309,6 +309,13 @@ cluster1_l2_cache: l2-cache1 {
+>  	};
+>  
+>  	clocks {
+> +		clk_dummy: clock-dummy {
+> +			compatible = "fixed-clock";
+> +			#clock-cells = <0>;
+> +			clock-frequency = <0>;
 
-> > Also, small nit, make the function pointers const please :)
-> 
-> I originally tried that. Unfortunately, the struct syscore_ops contains
-> a struct list_head to add it to the global list of structures. I suppose
-> I could move the function pointers into a different structure and make
-> pointers to that const, something like this:
-> 
-> 	struct syscore;
-> 
-> 	struct syscore_ops {
-> 		int (*suspend)(struct syscore *syscore);
-> 		void (*resume)(struct syscore *syscore);
-> 		void (*shutdown)(struct syscore *syscore);
-> 	};
-> 
-> 	struct syscore {
-> 		const struct syscore_ops *ops;
-> 		struct list_head node;
-> 	};
-> 
-> Is that what you had in mind?
+That can't be right for UART, which depends on knowing about the baud
+clock rate. If we want a fixed clock to represent whatever the "secure"
+clock controller has at least it should be set to the nominal frequency.
 
-I missed the list_head, so yes, this would be better, but don't pass
-back the syscore structure, how about just a void * instead, making the
-whole container_of() stuff go away?
+Vivian "dramforever" Wang
 
-thanks,
+> +			clock-output-names = "clk_dummy";
+> +		};
+> +
+>  		vctcxo_1m: clock-1m {
+>  			compatible = "fixed-clock";
+>  			clock-frequency = <1000000>;
+> @@ -556,8 +563,9 @@ clint: timer@e4000000 {
+>  		sec_uart1: serial@f0612000 {
+>  			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+>  			reg = <0x0 0xf0612000 0x0 0x100>;
+> +			clocks = <&clk_dummy>, <&clk_dummy>;
+> +			clock-names = "core", "bus";
+>  			interrupts = <43>;
+> -			clock-frequency = <14857000>;
+>  			reg-shift = <2>;
+>  			reg-io-width = <4>;
+>  			status = "reserved"; /* for TEE usage */
+>
+> ---
+> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+> change-id: 20250718-02-k1-uart-clock-0beb9ef10fe0
+>
+> Best regards,
 
-greg k-h
 
 _______________________________________________
 linux-riscv mailing list
