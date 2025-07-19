@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E21BEC87FC3
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jul 2025 09:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB1CC83F27
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jul 2025 09:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u/EB4S8T0y1i4ifXBF4dDsGtQk2mHyruWVqQaZV834Y=; b=4W1/hlhf4B/j7O
-	fqUVniSmnw9s8VOsnw3zYlyqg876525tlc+T+siC50JnhAlFtkUDx5knhsVkbgmaAAKP9m/R5nW89
-	idS/SMiTwsJco/PFTElhpXyMA993n6hZuebKwGNJ2qb6/f+P7VscV0Zpu8mhzUK21PuLeNOWxfQlP
-	Ivz+lgfhe1eZ6X8khzvuaDc9HoPIvGkeiJ1zCjEwatabPp06hFq/RJCERy3JdVkMLzEc2Y8+cQDtw
-	nCoRcTV6RM+CcNVfNCFcuOvcpqHEizmXjkHJTtADjAFfFQohibjDh0DcYxOJxMDXLXXPbESCZQepa
-	j7cQ1lRW7zLjNATsDI3g==;
+	List-Owner; bh=UMwNKFSX2ISHNeAY/lKhxSIywIbM5aLJZUTAqFffzp4=; b=TCa6Zf9n/8/y5Q
+	bMvGonO/pBdLxxD+03cb1MVqb5BbQ5vQgY+yhgjl0QbCvqK/YERdnRyovM6ZCbpUTirU/Wun7ypde
+	na+Q6mGA7qamzbKXIygwlo3oM4ObNmCzn1wv4qco5JkDboEkysiS/7gTfGqiyCYEJKOWcE1xXi89n
+	vZXiq5VP3lnSVr0iihnXBD9HMw8OWcNVouHg8iY//zQrHk+gYQVjRqSmJzThtoIzz/Jj/DtXN6nQB
+	WFYIwlYT84jqWlW2BiwGx9TKRbc5gD0PxFJ1QibOfQKzcKsxaujOtnjrEQBUU/btOCZa94X7Ko/3R
+	Csxy09cdrTig1lgRNmVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud3eZ-0000000E4ik-0XO2;
-	Sat, 19 Jul 2025 09:14:47 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1ud3eT-0000000E4ev-2uXp;
+	Sat, 19 Jul 2025 09:14:41 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud3eQ-0000000E4bw-2Hnf
+	id 1ud3eO-0000000E4Z4-0ltv
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Jul 2025 09:14:40 +0000
+	Sat, 19 Jul 2025 09:14:37 +0000
 Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4bkgw15Sw7zKHMrJ
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4bkgw12MyTzYQvFK
 	for <linux-riscv@lists.infradead.org>; Sat, 19 Jul 2025 17:14:25 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 6C5401A17E5
+	by mail.maildlp.com (Postfix) with ESMTP id 16A1D1A17F7
 	for <linux-riscv@lists.infradead.org>; Sat, 19 Jul 2025 17:14:24 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP4 (Coremail) with SMTP id gCh0CgCHURLuYXtopCAYAw--.54295S11;
-	Sat, 19 Jul 2025 17:14:24 +0800 (CST)
+	by APP4 (Coremail) with SMTP id gCh0CgCHURLuYXtopCAYAw--.54295S8;
+	Sat, 19 Jul 2025 17:14:23 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -57,35 +57,36 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Hao Luo <haoluo@google.com>,
 	Jiri Olsa <jolsa@kernel.org>,
 	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next 09/10] riscv, bpf: Add support arena atomics for RV64
-Date: Sat, 19 Jul 2025 09:17:29 +0000
-Message-Id: <20250719091730.2660197-10-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 06/10] riscv, bpf: Add Zacas instructions
+Date: Sat, 19 Jul 2025 09:17:26 +0000
+Message-Id: <20250719091730.2660197-7-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250719091730.2660197-1-pulehui@huaweicloud.com>
 References: <20250719091730.2660197-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgCHURLuYXtopCAYAw--.54295S11
-X-Coremail-Antispam: 1UD129KBjvJXoWxKrW5ur17uFy7Xr43tr48Crg_yoWxXr48p3
-	sY9wn3C3yvqw4FyFnrJr47W3W5AF48GrnFqF13A348Xa1aqrnxGFyjga1ayFW5X3y8Wr10
-	gFs09a4Sk3W7CFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPvb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
-	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
-	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267
-	AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
-	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7
-	xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Y
-	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
-	AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
-	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6r
-	W5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
-	7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
-	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuY
-	vjxUI-eODUUUU
+X-CM-TRANSID: gCh0CgCHURLuYXtopCAYAw--.54295S8
+X-Coremail-Antispam: 1UD129KBjvdXoWrZFWrXrW5Jry8tw43CFWDCFg_yoWDtwb_u3
+	4Iqayaqrs8WF48Xa1DCr15JryUC395JFyrGFnagrZ0v3WFqwn2v393tF48A3y8ZF48Wryr
+	Wa4DJrZ7uwsxujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbgxYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I6I8E6xAIw20E
+	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l82xGYIkIc2x26280x7IE14v26r126s
+	0DM28IrcIa0xkI8VCY1x0267AKxVW5JVCq3wA2ocxC64kIII0Yj41l84x0c7CEw4AK67xG
+	Y2AK021l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14
+	v26r4UJVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAF
+	wI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2
+	WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkE
+	bVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7
+	AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02
+	F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_Wr
+	ylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI
+	0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x
+	07jIPfQUUUUU=
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_021438_971514_5B3BAE04 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250719_021436_554108_A0885B09 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,205 +105,37 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pu Lehui <pulehui@huawei.com>
 
-Add arena atomics support for RMW atomics and load-acquire and
-store-release instructions. Non-Zacas cmpxchg is implemented via loop,
-which is not currently supported because it requires more complex
-extable and loop logic.
+Add Zacas instructions introduced by [0] to reduce code size and
+improve performance of RV64 JIT.
 
+Link: https://github.com/riscvarchive/riscv-zacas/releases/download/v1.0/riscv-zacas.pdf [0]
 Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- arch/riscv/net/bpf_jit.h        |  2 ++
- arch/riscv/net/bpf_jit_comp64.c | 60 +++++++++++++++++++++++++++++++--
- 2 files changed, 59 insertions(+), 3 deletions(-)
+ arch/riscv/net/bpf_jit.h | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
 diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-index be2915444ce5..632ced07bca4 100644
+index 0964df48c25e..2351fba5d3e7 100644
 --- a/arch/riscv/net/bpf_jit.h
 +++ b/arch/riscv/net/bpf_jit.h
-@@ -1301,8 +1301,10 @@ static inline void emit_cmpxchg(u8 rd, u8 rs, u8 r0, bool is64, struct rv_jit_co
- 	int jmp_offset;
- 
- 	if (rv_ext_enabled(ZACAS)) {
-+		ctx->ex_insn_off = ctx->ninsns;
- 		emit(is64 ? rvzacas_amocas_d(r0, rs, rd, 1, 1) :
- 		     rvzacas_amocas_w(r0, rs, rd, 1, 1), ctx);
-+		ctx->ex_jmp_off = ctx->ninsns;
- 		if (!is64)
- 			emit_zextw(r0, r0, ctx);
- 		return;
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 56b592af53a6..549c3063c7f1 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -571,6 +571,11 @@ static int emit_atomic_ld_st(u8 rd, u8 rs, const struct bpf_insn *insn,
- 	switch (imm) {
- 	/* dst_reg = load_acquire(src_reg + off16) */
- 	case BPF_LOAD_ACQ:
-+		if (BPF_MODE(code) == BPF_PROBE_ATOMIC) {
-+			emit_add(RV_REG_T2, rs, RV_REG_ARENA, ctx);
-+			rs = RV_REG_T2;
-+		}
-+
- 		emit_ldx(rd, off, rs, BPF_SIZE(code), false, ctx);
- 		emit_fence_r_rw(ctx);
- 
-@@ -582,6 +587,11 @@ static int emit_atomic_ld_st(u8 rd, u8 rs, const struct bpf_insn *insn,
- 		break;
- 	/* store_release(dst_reg + off16, src_reg) */
- 	case BPF_STORE_REL:
-+		if (BPF_MODE(code) == BPF_PROBE_ATOMIC) {
-+			emit_add(RV_REG_T2, rd, RV_REG_ARENA, ctx);
-+			rd = RV_REG_T2;
-+		}
-+
- 		emit_fence_rw_w(ctx);
- 		emit_stx(rd, off, rs, BPF_SIZE(code), ctx);
- 		break;
-@@ -599,13 +609,12 @@ static int emit_atomic_rmw(u8 rd, u8 rs, const struct bpf_insn *insn,
- 	u8 code = insn->code;
- 	s16 off = insn->off;
- 	s32 imm = insn->imm;
--	bool is64;
-+	bool is64 = BPF_SIZE(code) == BPF_DW;
- 
- 	if (BPF_SIZE(code) != BPF_W && BPF_SIZE(code) != BPF_DW) {
- 		pr_err_once("bpf-jit: 1- and 2-byte RMW atomics are not supported\n");
- 		return -EINVAL;
- 	}
--	is64 = BPF_SIZE(code) == BPF_DW;
- 
- 	if (off) {
- 		if (is_12b_int(off)) {
-@@ -617,53 +626,76 @@ static int emit_atomic_rmw(u8 rd, u8 rs, const struct bpf_insn *insn,
- 		rd = RV_REG_T1;
- 	}
- 
-+	if (BPF_MODE(code) == BPF_PROBE_ATOMIC) {
-+		emit_add(RV_REG_T1, rd, RV_REG_ARENA, ctx);
-+		rd = RV_REG_T1;
-+	}
-+
- 	switch (imm) {
- 	/* lock *(u32/u64 *)(dst_reg + off16) <op>= src_reg */
- 	case BPF_ADD:
-+		ctx->ex_insn_off = ctx->ninsns;
- 		emit(is64 ? rv_amoadd_d(RV_REG_ZERO, rs, rd, 0, 0) :
- 		     rv_amoadd_w(RV_REG_ZERO, rs, rd, 0, 0), ctx);
-+		ctx->ex_jmp_off = ctx->ninsns;
- 		break;
- 	case BPF_AND:
-+		ctx->ex_insn_off = ctx->ninsns;
- 		emit(is64 ? rv_amoand_d(RV_REG_ZERO, rs, rd, 0, 0) :
- 		     rv_amoand_w(RV_REG_ZERO, rs, rd, 0, 0), ctx);
-+		ctx->ex_jmp_off = ctx->ninsns;
- 		break;
- 	case BPF_OR:
-+		ctx->ex_insn_off = ctx->ninsns;
- 		emit(is64 ? rv_amoor_d(RV_REG_ZERO, rs, rd, 0, 0) :
- 		     rv_amoor_w(RV_REG_ZERO, rs, rd, 0, 0), ctx);
-+		ctx->ex_jmp_off = ctx->ninsns;
- 		break;
- 	case BPF_XOR:
-+		ctx->ex_insn_off = ctx->ninsns;
- 		emit(is64 ? rv_amoxor_d(RV_REG_ZERO, rs, rd, 0, 0) :
- 		     rv_amoxor_w(RV_REG_ZERO, rs, rd, 0, 0), ctx);
-+		ctx->ex_jmp_off = ctx->ninsns;
- 		break;
- 	/* src_reg = atomic_fetch_<op>(dst_reg + off16, src_reg) */
- 	case BPF_ADD | BPF_FETCH:
-+		ctx->ex_insn_off = ctx->ninsns;
- 		emit(is64 ? rv_amoadd_d(rs, rs, rd, 1, 1) :
- 		     rv_amoadd_w(rs, rs, rd, 1, 1), ctx);
-+		ctx->ex_jmp_off = ctx->ninsns;
- 		if (!is64)
- 			emit_zextw(rs, rs, ctx);
- 		break;
- 	case BPF_AND | BPF_FETCH:
-+		ctx->ex_insn_off = ctx->ninsns;
- 		emit(is64 ? rv_amoand_d(rs, rs, rd, 1, 1) :
- 		     rv_amoand_w(rs, rs, rd, 1, 1), ctx);
-+		ctx->ex_jmp_off = ctx->ninsns;
- 		if (!is64)
- 			emit_zextw(rs, rs, ctx);
- 		break;
- 	case BPF_OR | BPF_FETCH:
-+		ctx->ex_insn_off = ctx->ninsns;
- 		emit(is64 ? rv_amoor_d(rs, rs, rd, 1, 1) :
- 		     rv_amoor_w(rs, rs, rd, 1, 1), ctx);
-+		ctx->ex_jmp_off = ctx->ninsns;
- 		if (!is64)
- 			emit_zextw(rs, rs, ctx);
- 		break;
- 	case BPF_XOR | BPF_FETCH:
-+		ctx->ex_insn_off = ctx->ninsns;
- 		emit(is64 ? rv_amoxor_d(rs, rs, rd, 1, 1) :
- 		     rv_amoxor_w(rs, rs, rd, 1, 1), ctx);
-+		ctx->ex_jmp_off = ctx->ninsns;
- 		if (!is64)
- 			emit_zextw(rs, rs, ctx);
- 		break;
- 	/* src_reg = atomic_xchg(dst_reg + off16, src_reg); */
- 	case BPF_XCHG:
-+		ctx->ex_insn_off = ctx->ninsns;
- 		emit(is64 ? rv_amoswap_d(rs, rs, rd, 1, 1) :
- 		     rv_amoswap_w(rs, rs, rd, 1, 1), ctx);
-+		ctx->ex_jmp_off = ctx->ninsns;
- 		if (!is64)
- 			emit_zextw(rs, rs, ctx);
- 		break;
-@@ -711,7 +743,8 @@ static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
- 
- 	if (BPF_MODE(insn->code) != BPF_PROBE_MEM &&
- 	    BPF_MODE(insn->code) != BPF_PROBE_MEMSX &&
--	    BPF_MODE(insn->code) != BPF_PROBE_MEM32)
-+	    BPF_MODE(insn->code) != BPF_PROBE_MEM32 &&
-+	    BPF_MODE(insn->code) != BPF_PROBE_ATOMIC)
- 		return 0;
- 
- 	if (WARN_ON_ONCE(ctx->nexentries >= ctx->prog->aux->num_exentries))
-@@ -1841,14 +1874,21 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 			return ret;
- 		break;
- 
-+	/* Atomics */
- 	case BPF_STX | BPF_ATOMIC | BPF_B:
- 	case BPF_STX | BPF_ATOMIC | BPF_H:
- 	case BPF_STX | BPF_ATOMIC | BPF_W:
- 	case BPF_STX | BPF_ATOMIC | BPF_DW:
-+	case BPF_STX | BPF_PROBE_ATOMIC | BPF_B:
-+	case BPF_STX | BPF_PROBE_ATOMIC | BPF_H:
-+	case BPF_STX | BPF_PROBE_ATOMIC | BPF_W:
-+	case BPF_STX | BPF_PROBE_ATOMIC | BPF_DW:
- 		if (bpf_atomic_is_load_store(insn))
- 			ret = emit_atomic_ld_st(rd, rs, insn, ctx);
- 		else
- 			ret = emit_atomic_rmw(rd, rs, insn, ctx);
-+
-+		ret = ret ?: add_exception_handler(insn, REG_DONT_CLEAR_MARKER, ctx);
- 		if (ret)
- 			return ret;
- 		break;
-@@ -1979,6 +2019,20 @@ bool bpf_jit_supports_arena(void)
- 	return true;
+@@ -751,6 +751,17 @@ static inline u16 rvc_swsp(u32 imm8, u8 rs2)
+ 	return rv_css_insn(0x6, imm, rs2, 0x2);
  }
  
-+bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
++/* RVZACAS instructions. */
++static inline u32 rvzacas_amocas_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
 +{
-+	if (in_arena) {
-+		switch (insn->code) {
-+		case BPF_STX | BPF_ATOMIC | BPF_W:
-+		case BPF_STX | BPF_ATOMIC | BPF_DW:
-+			if (insn->imm == BPF_CMPXCHG)
-+				return rv_ext_enabled(ZACAS);
-+		}
-+	}
-+
-+	return true;
++	return rv_amo_insn(0x5, aq, rl, rs2, rs1, 2, rd, 0x2f);
 +}
 +
- bool bpf_jit_supports_percpu_insn(void)
++static inline u32 rvzacas_amocas_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
++{
++	return rv_amo_insn(0x5, aq, rl, rs2, rs1, 3, rd, 0x2f);
++}
++
+ /* RVZBA instructions. */
+ static inline u32 rvzba_sh2add(u8 rd, u8 rs1, u8 rs2)
  {
- 	return true;
 -- 
 2.34.1
 
