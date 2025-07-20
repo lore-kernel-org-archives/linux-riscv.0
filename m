@@ -4,63 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 368CDC83F1A
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Jul 2025 06:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 911CEC83F3D
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Jul 2025 08:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p8+kBzx58/rX+BsE4o1DgUCzZSv1DpsOEuh3q/dqIQk=; b=ZV9+GKjPF1zwL7
-	wFNTuKcb8Hz3cpD1RZpDUFNMpWSR62XyPvwUEKRUzQpy2D499LYWDgvP7rRWkIUEbohCSQZyBShbj
-	ZHimk+m5WjTjaYs+vsEn/Y8D8HEoH893KEJJBxBnxar0sKYuxDhwbgTJw4BebCQccNW/0ECIUBOfA
-	Zg+dwufH6/K+oBUOa0lztUJNgXyf2Yvnx08tAC+xtLceeFvNDxHvzVQ32RsgyZ4Auxzg96EWGHK0k
-	UVX9Lwjae3UmiP2KY+G/+vWwuAN+ePN6giSmDWWW6Q0lUxinUIpmogxZwStQ+rbL0cZ9sA9F/zqE/
-	oCw+OtpZc++eucK6MN7Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iO19+x/3VOjGkhKJi6QTroueBU0+9bSn/QociVVOZWI=; b=GIxuEMb6BFAgNl
+	AJQ0v5F8AdCOBOJ/GJYTOUGK3zM8pfXE7hXaxVuXulOqawLdLUBxN7XV54RWcnq+9xAwITjv5zZkR
+	4wwkNnDRbpBsgQcIGMU0bjAfk/V6bGx9HmE0Qg9Z7fpRdj5P996dNzLaHpsfHrUDZXXzQ6Qp8dVFi
+	0ji6P+/GlOb+rjFItCk1itX25WTwk01xDoJ5u3tqCjOkyEiDh+D7bFH4Fungu3MTawPnOnMH72Gaa
+	13uBMJPiyVvVVxSTshcnFhjjFrTTOV+7vVntIEkgMnfkn/zoG/Ve2SlSIMdEyI2BwKLJeKZL/Z3mz
+	urdXzS5GOyyx1PmeDWrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udNd2-0000000ExVk-3XGD;
-	Sun, 20 Jul 2025 06:34:32 +0000
-Received: from out-172.mta0.migadu.com ([91.218.175.172])
+	id 1udPTZ-0000000F1rn-05kr;
+	Sun, 20 Jul 2025 08:32:53 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udNd0-0000000ExVL-1vY5
-	for linux-riscv@lists.infradead.org;
-	Sun, 20 Jul 2025 06:34:32 +0000
-Date: Sun, 20 Jul 2025 14:34:07 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1752993255;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4a6BlUCJFTdlEQ0RUAp02uN+GKSkSEWnLMZUJiFP/Xk=;
-	b=JngO2yWGJIX+G68ni4+M6O1sO3WqdOl9dvW1ZsxEuDyoyBlLfX5g4CLYxGldviUuuqCvOb
-	h/EoN6HmwwW/NvPOIah/8/xaWXF+/+RnoPO5OhHIuJyk6/C7cJ5UzPsTDjJSqdfvDXHXVa
-	IdkWEH/vy/bP69RebiZhRlIO29plDBk=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ze Huang <huang.ze@linux.dev>
-To: Alex Elder <elder@ieee.org>, Ze Huang <huang.ze@linux.dev>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 2/2] usb: dwc3: add generic driver to support flattened
-Message-ID: <aHyN3-uoHofF8Hg3@monica.localdomain>
-References: <20250712-dwc3_generic-v6-0-cc87737cc936@linux.dev>
- <20250712-dwc3_generic-v6-2-cc87737cc936@linux.dev>
- <d2e9a521-568e-433d-a59b-9b98138ace2b@ieee.org>
+	id 1udPTV-0000000F1rK-0nYT;
+	Sun, 20 Jul 2025 08:32:50 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-313a188174fso3302190a91.1;
+        Sun, 20 Jul 2025 01:32:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753000368; x=1753605168; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FiNF4SEuIin2EgUqWK8JFEp6BYToNAS7zW+nZhJnUmo=;
+        b=Smbp5r3lpn/ja0eFgqm6jWORjLDUl1WFm8Iyol7DwC6JjKHiA/z/8hyTnzFQotVDG1
+         bnJYDkABR28QWCaiTpFX728aPMBJQKqq/CV3ZkI0vhdOuhWw84wEnXMxJbOboub/rWnR
+         9eT37RbQGWrykC1fbVNez+L/Q5wsyAV65ZunKKI+WlcHHtOsG3y3x4gOa1yvabGTTOAJ
+         V+bnBCAKfbjnT9Gni0OFIWvcVgf9wFVgKngtr3alyNXrXYTrBghwbMvmK4lcMmRhuuwq
+         NMFsoNWkWFZ0Bs/Q5C7TtYmbhqmuyyH9fRDkeIkOK3GUVS3W9bftM4KkO1Kl61pIJwld
+         a+Ag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753000368; x=1753605168;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FiNF4SEuIin2EgUqWK8JFEp6BYToNAS7zW+nZhJnUmo=;
+        b=Kgy8FqvmGOAK6YOfil3qRXIfQBXYjxkC2UbKqEvjuSg3E3sIMzog6bWB3wTXVUn7wT
+         /mqEg0tZiH1fQfG9428BUBH/60cVI0fUe5k3+NtgKhCuftFB5/jlcqkDorGY1o3a3vc0
+         GC47aKRJ+RnHbfFXoXVNbdrBB7qcvfMrTDF3TikSgfm1RedP2ZMgRjAcpTquA+oBZ8Mh
+         c+ROE0U9Bk4nfpENvpg5hX4TGRMRqiO3ijvsGKYlAKOfHCmfvauuWBOv3zRs+9Ale7LA
+         sCtJ7qZfUqUjeqIlWAAi5lIRRCe5Egoam6RjMcIpmcd21wzojYWnHvsX1DYYpiNG3GqD
+         xxKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVpvmbuxlKmNSL+aVQuhA4fkHtfKj+b+DjTkRGpSse1N812JJy7Ktlqgd/UZnQLh3nFqLBqVuFY5uFOPQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyx0JZTYR2SSg2pWUTpOiFDk262LIJt8p0mEMRxWFnfe6fPZCok
+	wkynUdrbF/77C2nyuIDJhpH1L/Yo4FSg3GazFOxunL0B4q+T7NygXhXw
+X-Gm-Gg: ASbGncsJazJF3rNeJhK99bOgkxa0rgjaDWv6ppDNv3reD4umFE/nluou2ou/IuzVM1K
+	rVtCiJSQt+sxBE5XmLqIispKl3pmpU4dDykvcixc+s3/sO3+a7XqyLsrl/okMZXfTkiy9eS0UR8
+	LHNP2Zntf535tfBQlFgMC2MVe+LbGigJOUzxOFrLcTVRG7INw7yL5busb3rKFXhKv++1t26U4kO
+	T4LAJSaDVgceabU26LyZFCFTp9DTDtaWl3/1C5MfeJzQaU83chbhkG4hYWnRaVPzsTaUVa3dayS
+	iWVEete7WzU/3dxr2o6gHJXkvLjG6hmucqIA1zJGYr7NczB7M0/uoZq7+WHtJUZMWcBybK1jX+U
+	WzpwnBeDs5NMbAg==
+X-Google-Smtp-Source: AGHT+IGZKIIWxW0MM8M+8exnM4woxigogql9EMO/mHA038LwIs21zmM+BeC1R09FPp/G2WH28WdCag==
+X-Received: by 2002:a17:90b:288b:b0:30e:e9f1:8447 with SMTP id 98e67ed59e1d1-31cc03c01e6mr11886432a91.4.1753000367324;
+        Sun, 20 Jul 2025 01:32:47 -0700 (PDT)
+Received: from [127.0.0.1] ([2001:250:5800:1002::1d55])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31cc3f46b97sm4079721a91.41.2025.07.20.01.32.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Jul 2025 01:32:46 -0700 (PDT)
+From: Zixian Zeng <sycamoremoon376@gmail.com>
+Subject: [PATCH v4 0/4] spi: sophgo: Add SPI NOR controller for SG2042
+Date: Sun, 20 Jul 2025 16:31:42 +0800
+Message-Id: <20250720-sfg-spifmc-v4-0-033188ad801e@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <d2e9a521-568e-433d-a59b-9b98138ace2b@ieee.org>
-X-Migadu-Flow: FLOW_OUT
+X-B4-Tracking: v=1; b=H4sIAG6pfGgC/23M0Q6CIBiG4VtxHEeDH9DoqPtoHSDyK1umg8Zqz
+ nsPPUlbh9+3Pe9EogveRXIuJhJc8tEPjzzkoSC2M4/WUd/kTYCBYgoEjdjSOHrsLa2M5gw0c7q
+ UJIMxOPSvNXa95d35+BzCe20nvrx/M4lTRqVFXloU2IC5tL3x96MderJkEmyp2lHI1IhKQF2iM
+ rX8peJLS9A7KjKFU1NzhMpprbd0nucPmRjohRoBAAA=
+X-Change-ID: 20250523-sfg-spifmc-7a910290e964
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Longbin Li <looong.bin@gmail.com>
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-spi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Zixian Zeng <sycamoremoon376@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753000358; l=2195;
+ i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
+ bh=txKyTWgMnO1Ncvzz/n1aTwE0i4eSFrFSmoLYu+02pqw=;
+ b=Bty5Us+RDErqs1hsitaE/Etf77DhqRuEEm5hj9oZFE4DY2gy+5UoSPR3DZCPnKeQv+NsoG1oH
+ lSM0QtJLQBkD+90idbkhwV7YqJ/zbSn8bgnFKisClm5VChqzFIMH6T7
+X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
+ pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_233431_006267_73F56222 
-X-CRM114-Status: GOOD (  43.50  )
+X-CRM114-CacheID: sfid-20250720_013249_239464_38EC796F 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,290 +121,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 03:50:54PM -0500, Alex Elder wrote:
-> On 7/12/25 2:49 AM, Ze Huang wrote:
-> > To support flattened dwc3 dt model and drop the glue layer, introduce the
-> > `dwc3-generic` driver. This enables direct binding of the DWC3 core driver
-> > and offers an alternative to the existing glue driver `dwc3-of-simple`.
-> 
-> I'm not familiar with dwc-of-simple.c, and won't comment on
-> how this differs from that (or does not).
-> 
-> Given you're implementing an alternative though, can you explain
-> in a little more detail what's different between the two?  Why
-> would someone choose to use this driver rather than the other one?
+Add support SPI NOR flash memory controller for SG2042, using upstreamed
+SG2044 SPI NOR driver.
 
-They are basically the same.
+Tested on SG2042 Pioneer Box, read, write operations.
+Thanks Chen Wang who provided machine and guidance.
 
-dwc-generic use a plain dt node while dwc-of-simple will nest the dwc3
-node as its child.
+Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+---
+Changes in v4:
+- patch1: Explain why SG2042 is not compatible with SG2044 and add Fixes tag.
+- patch2: Explain the hardware differences between SG2042 and SG2044.
+- patch4: Remove the extra "sophgo,sg2044-spifmc-nor" compatible property.
+- Link to v3: https://lore.kernel.org/r/20250629-sfg-spifmc-v3-0-28db1f27e999@gmail.com
 
-Both will use dwc3_core_probe() to finish the probe process. But now we
-can simplify the process by just calling it, instead of calling
-of_platform_populate() and create another snps,dwc3 device driver.
+Changes in v3:
+- Drop the patch which adds additional flash_info into gigadevice.c
+- patch1: Because of the incompatibility, separate the SG2042 from the previous fallback mechanism to independent one.
+- patch2: Newly add configurable options to spi-sg2044-nor driver.
+- patch3: Fix reading bytes issue that causes the spi_nor_check_sfdp_signature() failure on SG2042.
+- Link to v2: https://lore.kernel.org/r/20250525-sfg-spifmc-v2-0-a3732b6f5ab4@gmail.com
 
-> 
-> > 
-> > Signed-off-by: Ze Huang <huang.ze@linux.dev>
-> > ---
-> >   drivers/usb/dwc3/Kconfig             |  11 +++
-> >   drivers/usb/dwc3/Makefile            |   1 +
-> >   drivers/usb/dwc3/dwc3-generic-plat.c | 182 +++++++++++++++++++++++++++++++++++
-> >   3 files changed, 194 insertions(+)
-> > 
-> > diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-> > index 310d182e10b50b253d7e5a51674806e6ec442a2a..4925d15084f816d3ff92059b476ebcc799b56b51 100644
-> > --- a/drivers/usb/dwc3/Kconfig
-> > +++ b/drivers/usb/dwc3/Kconfig
-> > @@ -189,4 +189,15 @@ config USB_DWC3_RTK
-> >   	  or dual-role mode.
-> >   	  Say 'Y' or 'M' if you have such device.
-> > +config USB_DWC3_GENERIC_PLAT
-> > +	tristate "DWC3 Generic Platform Driver"
-> > +	depends on OF && COMMON_CLK
-> > +	default USB_DWC3
-> > +	help
-> > +	  Support USB3 functionality in simple SoC integrations.
-> > +	  Currently supports SpacemiT DWC USB3. Platforms using
-> > +	  dwc3-of-simple can easily switch to dwc3-generic by flattening
-> > +	  the dwc3 child node in the device tree.
-> > +	  Say 'Y' or 'M' here if your platform integrates DWC3 in a similar way.
-> > +
-> >   endif
-> > diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
-> > index 830e6c9e5fe073c1f662ce34b6a4a2da34c407a2..96469e48ff9d189cc8d0b65e65424eae2158bcfe 100644
-> > --- a/drivers/usb/dwc3/Makefile
-> > +++ b/drivers/usb/dwc3/Makefile
-> > @@ -57,3 +57,4 @@ obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
-> >   obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
-> >   obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
-> >   obj-$(CONFIG_USB_DWC3_RTK)		+= dwc3-rtk.o
-> > +obj-$(CONFIG_USB_DWC3_GENERIC_PLAT)	+= dwc3-generic-plat.o
-> > diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..766f4cf17b6909793956f44660d3b3febad50a23
-> > --- /dev/null
-> > +++ b/drivers/usb/dwc3/dwc3-generic-plat.c
-> > @@ -0,0 +1,182 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * dwc3-generic-plat.c - DesignWare USB3 generic platform driver
-> > + *
-> > + * Copyright (C) 2025 Ze Huang <huang.ze@linux.dev>
-> > + *
-> > + * Inspired by dwc3-qcom.c and dwc3-of-simple.c
-> > + */
-> > +
-> > +#include <linux/clk.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/reset.h>
-> > +#include "glue.h"
-> > +
-> > +struct dwc3_generic {
-> > +	struct device		*dev;
-> > +	struct dwc3		dwc;
-> > +	struct clk_bulk_data	*clks;
-> > +	int			num_clocks;
-> > +	struct reset_control	*resets;
-> > +};
-> > +
-> > +static void dwc3_generic_reset_control_assert(void *data)
-> > +{
-> > +	reset_control_assert(data);
-> > +}
-> > +
-> 
-> The next function can go away.  (See below.)
-> 
+Changes in v2:
+- patch1: Accept devicetree nodes whose compatible contains only
+  "sophgo,sg2044-spifmc-nor" to avoid breaking existing devicetrees.
+- patch1: Improve the commit subject message.
+- patch2: Dump the SFDP information to commit message.
+- Link to v1: https://lore.kernel.org/r/20250523-sfg-spifmc-v1-0-4cf16cf3fd2a@gmail.com
 
-OK
+---
+Zixian Zeng (4):
+      spi: dt-bindings: spi-sg2044-nor: Change SOPHGO SG2042
+      spi: spi-sg2044-nor: Add configurable chip_info
+      spi: spi-sg2044-nor: Add SPI-NOR controller for SG2042
+      riscv: dts: sophgo: Add SPI NOR node for SG2042
 
-> > +static void dwc3_generic_clk_bulk_disable_unprepare(void *data)
-> > +{
-> > +	struct dwc3_generic *dwc3 = data;
-> > +
-> > +	clk_bulk_disable_unprepare(dwc3->num_clocks, dwc3->clks);
-> > +}
-> > +
-> > +static int dwc3_generic_probe(struct platform_device *pdev)
-> > +{
-> > +	struct dwc3_probe_data probe_data = {};
-> > +	struct device *dev = &pdev->dev;
-> > +	struct dwc3_generic *dwc3;
-> > +	struct resource *res;
-> > +	int ret;
-> > +
-> > +	dwc3 = devm_kzalloc(dev, sizeof(*dwc3), GFP_KERNEL);
-> > +	if (!dwc3)
-> > +		return -ENOMEM;
-> > +
-> > +	dwc3->dev = dev;
-> > +
-> > +	platform_set_drvdata(pdev, dwc3);
-> > +
-> > +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> > +	if (!res) {
-> > +		dev_err(&pdev->dev, "missing memory resource\n");
-> > +		return -ENODEV;
-> > +	}
-> > +
-> > +	dwc3->resets = devm_reset_control_array_get_optional_exclusive(dev);
-> > +	if (IS_ERR(dwc3->resets))
-> > +		return dev_err_probe(dev, PTR_ERR(dwc3->resets), "failed to get resets\n");
-> > +
-> 
-> It isn't enforced on exclusive resets, but I'm pretty sure
-> resets are assumed to be asserted initially.
-> 
+ .../devicetree/bindings/spi/spi-sg2044-nor.yaml    |  9 +++----
+ .../riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 24 ++++++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi             | 24 ++++++++++++++++++
+ drivers/spi/spi-sg2044-nor.c                       | 29 +++++++++++++++++++---
+ 4 files changed, 77 insertions(+), 9 deletions(-)
+---
+base-commit: 8727665368cd4af112146b650ec0ebac038b5cf5
+change-id: 20250523-sfg-spifmc-7a910290e964
 
-I'd like to keep it. We cannot guarantee what environment was passed
-in (from bootloader), right?
+Best regards,
+-- 
+Zixian Zeng <sycamoremoon376@gmail.com>
 
-> > +	ret = reset_control_assert(dwc3->resets);
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to assert resets\n");
-> > +
-> > +	ret = devm_add_action_or_reset(dev, dwc3_generic_reset_control_assert, dwc3->resets);
-> > +	if (ret)
-> > +		return ret;
-> 
-> The re-assert shouldn't be set up unless the deassert below
-> succeeds.
-> 
-
-Will move behind the deassert.
-
-> > +	usleep_range(10, 1000);
-> 
-> This seems like a large range.  You could just do msleep(1);
-> Also, can you add a comment explaining why a delay is needed,
-> and why 1 millisecond is the right amount of time to sleep?
-> 
-
-I will check the range with spacemit and reply soon.
-
-> > +	ret = reset_control_deassert(dwc3->resets);
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to deassert resets\n");
-> > +
-> > +	ret = devm_clk_bulk_get_all(dwc3->dev, &dwc3->clks);
-> > +	if (ret < 0)
-> > +		return dev_err_probe(dev, ret, "failed to get clocks\n");
-> 
-> Call devm_clk_bulk_get_all_enabled() instead of doing the two
-> steps separately here.
-> 
-
-Will do, thanks.
-
-> 					-Alex
-> 
-> > +	dwc3->num_clocks = ret;
-> > +
-> > +	ret = clk_bulk_prepare_enable(dwc3->num_clocks, dwc3->clks);
-> > +	if (ret)
-> j> +		return dev_err_probe(dev, ret, "failed to enable clocks\n");
-> > +
-> > +	ret = devm_add_action_or_reset(dev, dwc3_generic_clk_bulk_disable_unprepare, dwc3);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	dwc3->dwc.dev = dev;
-> > +	probe_data.dwc = &dwc3->dwc;
-> > +	probe_data.res = res;
-> > +	probe_data.ignore_clocks_and_resets = true;
-> > +	ret = dwc3_core_probe(&probe_data);
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to register DWC3 Core\n");
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void dwc3_generic_remove(struct platform_device *pdev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = platform_get_drvdata(pdev);
-> > +
-> > +	dwc3_core_remove(&dwc3->dwc);
-> > +}
-> > +
-> > +static int dwc3_generic_suspend(struct device *dev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > +	int ret;
-> > +
-> > +	ret = dwc3_pm_suspend(&dwc3->dwc);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	clk_bulk_disable_unprepare(dwc3->num_clocks, dwc3->clks);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int dwc3_generic_resume(struct device *dev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > +	int ret;
-> > +
-> > +	ret = clk_bulk_prepare_enable(dwc3->num_clocks, dwc3->clks);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret = dwc3_pm_resume(&dwc3->dwc);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int dwc3_generic_runtime_suspend(struct device *dev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > +
-> > +	return dwc3_runtime_suspend(&dwc3->dwc);
-> > +}
-> > +
-> > +static int dwc3_generic_runtime_resume(struct device *dev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > +
-> > +	return dwc3_runtime_resume(&dwc3->dwc);
-> > +}
-> > +
-> > +static int dwc3_generic_runtime_idle(struct device *dev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > +
-> > +	return dwc3_runtime_idle(&dwc3->dwc);
-> > +}
-> > +
-> > +static const struct dev_pm_ops dwc3_generic_dev_pm_ops = {
-> > +	SYSTEM_SLEEP_PM_OPS(dwc3_generic_suspend, dwc3_generic_resume)
-> > +	RUNTIME_PM_OPS(dwc3_generic_runtime_suspend, dwc3_generic_runtime_resume,
-> > +		       dwc3_generic_runtime_idle)
-> > +};
-> > +
-> > +static const struct of_device_id dwc3_generic_of_match[] = {
-> > +	{ .compatible = "spacemit,k1-dwc3", },
-> > +	{ /* sentinel */ }
-> > +};
-> > +MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
-> > +
-> > +static struct platform_driver dwc3_generic_driver = {
-> > +	.probe		= dwc3_generic_probe,
-> > +	.remove		= dwc3_generic_remove,
-> > +	.driver		= {
-> > +		.name	= "dwc3-generic-plat",
-> > +		.of_match_table = dwc3_generic_of_match,
-> > +		.pm	= pm_ptr(&dwc3_generic_dev_pm_ops),
-> > +	},
-> > +};
-> > +module_platform_driver(dwc3_generic_driver);
-> > +
-> > +MODULE_LICENSE("GPL");
-> > +MODULE_DESCRIPTION("DesignWare USB3 generic platform driver");
-> > 
-> 
 
 _______________________________________________
 linux-riscv mailing list
