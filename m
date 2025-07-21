@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0CCC83F1A
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Jul 2025 18:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FCDC83F25
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Jul 2025 18:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kAbfeMy+WnHOWo8iaWEoIsHljrHUhOqf3jhLowFasio=; b=UyCfqi9FtQISJZ
-	NFBlt/irpfbHwYy+yqSj2qjzYQlAUzrHgbh0U2zBAx//XnP8QSQpivzkWgFa0u1GD63Qj96skpumw
-	fHijWtw+U1dxOsRk3DOaRMPFuxvjV8rbopyCU7w2HGps/LggSxGyQDmoJHdtgensGk96VDuI0c1GJ
-	AjG7XekYvQ4NCx0yeQbt/mqwCL2ZwRA7ch+EReozg8uT8BZ6vH0Q9uVi9URghtEtRCw5wFCVxtzIg
-	6aO4FiBU1zquwmeeLVGCw7WZ71eNQKJyeKS7VqQnFN0AqSJCQgWTaRoVtZ+97n03YcF9fK/1eKwqz
-	AITLCafuIwYpvbkoBaKw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OyTP5axVn9gcj8Yu5t4n1p1pR2M9cRfHTr7bKSyzY58=; b=d2fPCDMm33ZMWB
+	3Ogv5eami/qN7oouT8DCagZrZtKzju9TJPImqqDeVbDqnnA9AyWMo1N0M2ldvk2Hn3oLFkSO0RgEP
+	6neCOreVfVEYMCC/66T0gXo8t2vcsiJSadx0D9muQ507012fVqPGuzyJ9wpL0hmHHgVJ7zzKJFmPC
+	w0JBLTBRfzcAgtS+irCIgzx5iWXcBcX0NF194Y287hjCXYMdEypnvqrjhER7qaL/fVwhpT2K/JKgf
+	lnR7CvUsA0RHLa6jVhOrupl9gpqR6gzcWvZOlFKOtd3PbFX96bMLk9wWxcgMyrWLBBrOaRxjCCJxR
+	n6m38Tpx0Qkjuas4IwQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udvho-00000000RhD-0oVA;
+	id 1udvho-00000000Rhe-3Ufg;
 	Mon, 21 Jul 2025 18:57:44 +0000
 Received: from sender4-op-o16.zoho.com ([136.143.188.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udtlq-00000000EpH-1qXC
+	id 1udtlu-00000000Epm-326s
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Jul 2025 16:53:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1753116821; cv=none; 
+	Mon, 21 Jul 2025 16:53:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753116827; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=iUvIANf/UohhbAp9WLb3mxlfflIZVgugomZL7H/7/D925ABL2YUJwBpRMW77ZNebNxlAoO48tv6HOqldadqNlujzs8Id9wZbhCYNQCS/BDKT9UeDJ2fZPwHpV7bMbmyuzMZ/2hLIoV4Yt1cWIN/VyPym8pSwFaPTK0+uRZeolDM=
+	b=e3TQyV2QFyu0BmLM2mtPTTUtOxoInEXuLRXIa3hOb5TPIP2XirJMyuhxH8OT5J5Ot+EUNTvF2ynsvKCIGim4reoKCyiKlRtQqiYKPx+4N3tbVfHnROows7rixKdnbSKgyy6YEUxWkYv7Uhm3f6cTx7pMEWJQrA0blgUfGYQnT0U=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1753116821; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=jK9MI/i332eSghzqERwT+oHGxGUIkN8gQxI+ICWuRh0=; 
-	b=jSUIsc+od0rqIuzZpO/yj5m+l60G/a0hFq3fuMHUFI6/XebZPuTU1zDn7SlrH5713vQ91Df1EMc9533Sd8j5kDyJQ1ihJKqeihYlwCjelCDaHcQEU8P9pB1EvHIA0G6hQLe9hHES2FwaJ0gNEVmxdMj3zx/tWoMlCHj/qF3T+sk=
+	t=1753116827; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=guH1gEq7EB4ma+n+Bnc8AILG5/I4uWiJdDHnSwIDV3s=; 
+	b=GxNqoq6AnN/NzSyQEPvpSwq3jtDZddeMLmq4tXGaTRTJ/RuSis3J8wHbkvyVW2k+jxgHW0aruCajPAjJXBcsp26amejXnE5YtEgbydzcTnC+8GttjB40V1A15XfY4a6cCwdv6LAc/j4ztRBUjOSl7ZlHEbOrAYNVJyjWDR9BKPY=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753116821;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753116827;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=jK9MI/i332eSghzqERwT+oHGxGUIkN8gQxI+ICWuRh0=;
-	b=ofOcuukbYdfeHUw5ctjHaiqkMjDzMog9JxCKEe6Mech40Z9eBc4a0qtVmD3D+UWX
-	8C+2f+eTw7BBaT+mkuYz6Ds1EbdK8lV4Pb03IOkBPA8fztNoHRCKHjnE/ULAu/IyS9r
-	BMNPg90PNNuejQwx948e+1zK6G5kATRhMb23uMg0=
-Received: by mx.zohomail.com with SMTPS id 1753116818500238.90791555807152;
-	Mon, 21 Jul 2025 09:53:38 -0700 (PDT)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=guH1gEq7EB4ma+n+Bnc8AILG5/I4uWiJdDHnSwIDV3s=;
+	b=U8PxSP7FtMQWyzd14INNYozqGxtJN7npBLTh2/40uHYmku+I5EVlLt0B3uiC/T1K
+	dWIdxKmKTU4TY4kVp8dI+ElNQQsco7s5MnhekDwmok45hyGjtgSsd2XXs0858HZPlRp
+	uaKkDq3HNoClimwmyXEC31WmNvXO0wCcuxEroyRA=
+Received: by mx.zohomail.com with SMTPS id 1753116825578288.23596100290104;
+	Mon, 21 Jul 2025 09:53:45 -0700 (PDT)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Subject: [PATCH 0/2] riscv: mm: Use mmu-type from FDT as SATP mode limit
-Date: Tue, 22 Jul 2025 00:53:09 +0800
-Message-Id: <20250722-satp-from-fdt-v1-0-5ba22218fa5f@pigmoral.tech>
+Date: Tue, 22 Jul 2025 00:53:10 +0800
+Subject: [PATCH 1/2] riscv: mm: Return intended SATP mode for noXlvl
+ options
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAHVwfmgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDc0Nj3eLEkgLdtKL8XN20lBLdZCOjZCMT02Qj81RLJaCegqLUtMwKsHn
- RsbW1AGANRSxfAAAA
-X-Change-ID: 20250713-satp-from-fdt-c22c245c27e9
+Message-Id: <20250722-satp-from-fdt-v1-1-5ba22218fa5f@pigmoral.tech>
+References: <20250722-satp-from-fdt-v1-0-5ba22218fa5f@pigmoral.tech>
+In-Reply-To: <20250722-satp-from-fdt-v1-0-5ba22218fa5f@pigmoral.tech>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
  Alexandre Ghiti <alex@ghiti.fr>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Junhui Liu <junhui.liu@pigmoral.tech>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753116810; l=1644;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753116810; l=1738;
  i=junhui.liu@pigmoral.tech; s=20250507; h=from:subject:message-id;
- bh=19jOsKrKtynMRfxEP0aFVCM8oG7JBgUvsydmWunvLQA=;
- b=iQ9Sejx7hOZnVqg+hrtYgFd0q5I5kI/dsYk89Xm5dNG1f1KnKUIO9Z5zHZ1cFpNQClN8aaWDx
- vfEUHXIWdxAAmmKVGaAt3RqnJisMwJhH9hxGrWEDjllNw/zV6f7YJqU
+ bh=8aa4aOgAFKMJPtQtLgebkKi8jY3Nm5PlNejqTQ4PL4w=;
+ b=0CKoQNvGa9bvXhEimcIpVL8cV2IwHutDdliaTsYcDFB2s/xG+tbXSY8Pd0rKGLSdEV9YirlAm
+ bGvKT3iLZtJARjcs6a53AKNbwmzVezo9MouD8g4mIaLqC0LNKnRhGDD
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
  pk=d3i4H2mg9LUn4SQemoLAjLRQy0nTcyknIv6zgKMwiBA=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_095346_871565_E5030120 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250721_095350_825310_935E6BCF 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,43 +88,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series improves RISC-V kernel compatibility and robustness by
-refining how the SATP mode is determined during early boot. Some RISC-V
-implementations, such as the Anlogic DR1V90 FPSoC with a UX900 RISC-V
-core designed by Nuclei, which I am currently attempting to run the
-mainline kernel on [1], may hang when attempting to write an unsupported
-SATP mode.
+Change the return value of match_noXlvl() to return the SATP mode that
+will be used, rather than the mode being disabled. This enables unified
+logic for return value judgement with the function that obtains mmu-type
+from the fdt, avoiding extra conversion. This only changes the naming,
+with no functional impact.
 
-To address this, the patch determines the SATP mode limit by taking the
-minimum of the value specified by the kernel command line option
-("noXlvl", e.g., "no4lvl" or "no5lvl") and the "mmu-type" property in
-the device tree for the first enabled CPU. If only one is specified,
-that value will be used as the limit.
-
-- If the resulting SATP mode limit is sv48 or higher, the kernel will
-  probe SATP modes from this limit down to lower modes until a supported
-  mode is found.
-- If the limit is sv39, the kernel will directly use sv39 without
-  probing lower modes.
-
-Link: https://lore.kernel.org/r/20250721-dr1v90-basic-dt-v1-0-5740c5199c47@pigmoral.tech [1]
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
-Junhui Liu (2):
-      riscv: mm: Return intended SATP mode for noXlvl options
-      riscv: mm: Use mmu-type from FDT to limit SATP mode
+ arch/riscv/kernel/pi/cmdline_early.c | 4 ++--
+ arch/riscv/mm/init.c                 | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
- arch/riscv/kernel/pi/cmdline_early.c |  4 ++--
- arch/riscv/kernel/pi/fdt_early.c     | 40 ++++++++++++++++++++++++++++++++++++
- arch/riscv/kernel/pi/pi.h            |  1 +
- arch/riscv/mm/init.c                 | 11 +++++++---
- 4 files changed, 51 insertions(+), 5 deletions(-)
----
-base-commit: 89be9a83ccf1f88522317ce02f854f30d6115c41
-change-id: 20250713-satp-from-fdt-c22c245c27e9
+diff --git a/arch/riscv/kernel/pi/cmdline_early.c b/arch/riscv/kernel/pi/cmdline_early.c
+index fbcdc9e4e14322af0cedd31343aeb9403ba2dd14..389d086a071876dde2fd57ee6f6661e65c38b7c4 100644
+--- a/arch/riscv/kernel/pi/cmdline_early.c
++++ b/arch/riscv/kernel/pi/cmdline_early.c
+@@ -41,9 +41,9 @@ static char *get_early_cmdline(uintptr_t dtb_pa)
+ static u64 match_noXlvl(char *cmdline)
+ {
+ 	if (strstr(cmdline, "no4lvl"))
+-		return SATP_MODE_48;
++		return SATP_MODE_39;
+ 	else if (strstr(cmdline, "no5lvl"))
+-		return SATP_MODE_57;
++		return SATP_MODE_48;
+ 
+ 	return 0;
+ }
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 8d0374d7ce8ed72320f58e4cea212d0e2bce8fd4..d03e02a92379f2338a4f4df0ab797a7859b83dfc 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -864,9 +864,9 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
+ 
+ 	kernel_map.page_offset = PAGE_OFFSET_L5;
+ 
+-	if (satp_mode_cmdline == SATP_MODE_57) {
++	if (satp_mode_cmdline == SATP_MODE_48) {
+ 		disable_pgtable_l5();
+-	} else if (satp_mode_cmdline == SATP_MODE_48) {
++	} else if (satp_mode_cmdline == SATP_MODE_39) {
+ 		disable_pgtable_l5();
+ 		disable_pgtable_l4();
+ 		return;
 
-Best regards,
 -- 
-Junhui Liu <junhui.liu@pigmoral.tech>
+2.50.1
 
 
 _______________________________________________
