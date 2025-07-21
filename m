@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507ECC83F1A
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Jul 2025 19:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D69C83F25
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Jul 2025 20:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EdyC1Fakw2Eg3tXte4h2gr2BnuV2vZ71pMQIG0xT8ms=; b=JBq5slG4kKPm/6
-	UPDDBjw9yPWIDOmek6f5XHVwWppVmN9L717rB9PcPdQg0FdC1jDgEHUibko034UnheWksWU6/yRxR
-	5d1w7Uz8JLI/9OQXt6nZ0HGbHFY5IObWns6NwcHILoRKdS8DkUp8owJkWD40zVXUF0evt5Keybqkr
-	BNsNk6/lg5XiEVTKV1h2K7MC9W7EvDQXwaOrOUga/l8901H+1LISLal48LaoGXPdRbqKFxMrQZKr8
-	7mMTqVMXlyyW06oMllyx6dYHrN7wtw2Lr/MqW9wQCqE1aZyLbWzhfMKYczD0goVaMoiwrLN62ZuMd
-	oUA9buyrgVrIs7Vatbpg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NpfHBKtMf97pSGBv/XP6bPc87GrbEBeIn1J4PQ2m35I=; b=S7/AeScl7MovXJdHUyCpbsmXHB
+	8wWu19xBoKIc+IY3/H1D3dNetmtZBRIfAhv90yZs1uDw3fiRiPTm68qdGNAVTxg8lIzlk6ifNJKIE
+	z6GB1sQPc5ke8C61VtX2jEL67MTWmTAmb24GBE88bXVd+8lgDVXgnVMgUuq18t8xd5O5LV2cc+9RP
+	4RVeQ7Ie2H6ZVvo7r71FQIs2uu7PbslsBVu6njihkx2FUIjJRoeTGEb5g2e5tWF7wyKH4GBTK9Y2n
+	9FefpDpExxw6J98kZlFwwwq9yrmkY/NtX5mHAQrz0ORnnAenfXNHyGDzKV8S+GiiJdJscem93U2GO
+	10gQBySg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udvrD-00000000Uib-0WEG;
-	Mon, 21 Jul 2025 19:07:27 +0000
-Received: from smtpd4.iitb.ac.in ([103.21.126.59] helo=smtp1.iitb.ac.in)
+	id 1udwio-00000000ZFh-0l3U;
+	Mon, 21 Jul 2025 20:02:50 +0000
+Received: from out-181.mta1.migadu.com ([95.215.58.181])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udvrB-00000000UiD-0reA
+	id 1udwil-00000000ZEg-1n2D
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Jul 2025 19:07:26 +0000
-Received: from ldns2.iitb.ac.in (ldns2.iitb.ac.in [10.200.12.2])
-	by smtp1.iitb.ac.in (Postfix) with SMTP id 84E7A101C931
-	for <linux-riscv@lists.infradead.org>; Tue, 22 Jul 2025 00:37:22 +0530 (IST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp1.iitb.ac.in 84E7A101C931
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=iitb.ac.in; s=mail;
-	t=1753124842; bh=NXP5NHVsGpWELSbR40KFa7hFqpvwth6rjNEAGSXfBtM=;
-	h=Date:From:To:Cc:Subject:From;
-	b=w106IHohuBxNDHiEe/p3uAP47adKaV2YYoEEHn46UDIubPNk92jqAJWg9JTfDLavx
-	 2oGR6ifvSO4SOqn1WlFqk4pGeStmY50Twyf7P1Mv0y3nDiDHs96dQNvtjqA95PsA6L
-	 phc2yE+1UoKXJBGzxCfrjaa7YkMizh8u5CUyq0uA=
-Received: (qmail 3119 invoked by uid 510); 22 Jul 2025 00:37:22 +0530
-X-Qmail-Scanner-Diagnostics: from 10.200.1.25 by ldns2 (envelope-from <akhilesh@ee.iitb.ac.in>, uid 501) with qmail-scanner-2.11
- spamassassin: 3.4.1. mhr: 1.0. {clamdscan: 0.100.0/26337} 
- Clear:RC:1(10.200.1.25):SA:0(-0.5/7.0):. Processed in 4.222403 secs; 22 Jul 2025 00:37:22 +0530
-X-Envelope-From: akhilesh@ee.iitb.ac.in
-X-Qmail-Scanner-Mime-Attachments: |
-X-Qmail-Scanner-Zip-Files: |
-Received: from unknown (HELO ldns2.iitb.ac.in) (10.200.1.25)
-  by ldns2.iitb.ac.in with SMTP; 22 Jul 2025 00:37:18 +0530
-Received: from bhairav.ee.iitb.ac.in (bhairav.ee.iitb.ac.in [10.107.1.1])
-	by ldns2.iitb.ac.in (Postfix) with ESMTP id C9E2C3414E0;
-	Tue, 22 Jul 2025 00:37:16 +0530 (IST)
-Received: from bhairav-test.ee.iitb.ac.in (bhairav.ee.iitb.ac.in [10.107.1.1])
-	(Authenticated sender: akhilesh)
-	by bhairav.ee.iitb.ac.in (Postfix) with ESMTPSA id 7C7431E812C1;
-	Tue, 22 Jul 2025 00:37:16 +0530 (IST)
-Date: Tue, 22 Jul 2025 00:37:10 +0530
-From: Akhilesh Patil <akhilesh@ee.iitb.ac.in>
-To: mturquette@baylibre.com, sboyd@kernel.org, dlan@gentoo.org,
-	heylenay@4d2.org, elder@riscstar.com, inochiama@outlook.com,
-	akhilesh@ee.iitb.ac.in, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, heylenay@outlook.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
-Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	unicornxdotw@foxmail.com, jszhang@kernel.org,
-	zhangmeng.kevin@linux.spacemit.com, akhileshpatilvnit@gmail.com,
-	skhan@linuxfoundation.org
-Subject: [PATCH] clk: spacemit: ccu_pll: fix error return value in
- recalc_rate callback
-Message-ID: <aH6P3lChCXhi3pe4@bhairav-test.ee.iitb.ac.in>
+	Mon, 21 Jul 2025 20:02:48 +0000
+Date: Mon, 21 Jul 2025 22:02:36 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1753128162;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=faRHgN5I3SJaokyooR8tND95TU4Zl2EbUy+q1BeFqEE=;
+	b=Q8Bzke5+07H93rEHZBxSdaUZQO1HcSJZZbt3Y31GkjyWATtGLr9GYplTDdMz9XA5tI1+Qt
+	Mse4e9n9h6U8ANxFWVdiKbdr9BlxJ8bvJzeTJkJQtiXhOKptSQSGIlERkBNxVvepTZrk0w
+	VZSK32PGBIQJoDgradRp6NFwqNeMUhg=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Nicolas Schier <nicolas.schier@linux.dev>
+To: Kees Cook <kees@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Ingo Molnar <mingo@kernel.org>,
+	x86@kernel.org, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, Christoph Hellwig <hch@lst.de>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com, sparclinux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v3 01/13] stackleak: Rename STACKLEAK to KSTACK_ERASE
+Message-ID: <20250721-spiked-adamant-hyrax-eea284@lindesnes>
+References: <20250717231756.make.423-kees@kernel.org>
+ <20250717232519.2984886-1-kees@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
+In-Reply-To: <20250717232519.2984886-1-kees@kernel.org>
+X-Operating-System: Debian GNU/Linux 13.0
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_120725_520666_E98392BF 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250721_130247_681119_BFC33D47 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +80,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1703258135994036071=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Return 0 instead of -EINVAL if function ccu_pll_recalc_rate() fails to
-get correct rate entry. Follow .recalc_rate callback documentation
-as mentioned in include/linux/clk-provider.h for error return value.
 
-Signed-off-by: Akhilesh Patil <akhilesh@ee.iitb.ac.in>
----
- drivers/clk/spacemit/ccu_pll.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--===============1703258135994036071==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="cgD5lPAL2MBjPn/0"
+Content-Disposition: inline
 
-diff --git a/drivers/clk/spacemit/ccu_pll.c b/drivers/clk/spacemit/ccu_pll.c
-index 4427dcfbbb97..45f540073a65 100644
---- a/drivers/clk/spacemit/ccu_pll.c
-+++ b/drivers/clk/spacemit/ccu_pll.c
-@@ -122,7 +122,7 @@ static unsigned long ccu_pll_recalc_rate(struct clk_hw *hw,
- 
- 	WARN_ON_ONCE(!entry);
- 
--	return entry ? entry->rate : -EINVAL;
-+	return entry ? entry->rate : 0;
- }
- 
- static long ccu_pll_round_rate(struct clk_hw *hw, unsigned long rate,
--- 
-2.34.1
 
+--cgD5lPAL2MBjPn/0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Jul 17, 2025 at 04:25:06PM -0700, Kees Cook wrote:
+> In preparation for adding Clang sanitizer coverage stack depth tracking
+> that can support stack depth callbacks:
+>=20
+> - Add the new top-level CONFIG_KSTACK_ERASE option which will be
+>   implemented either with the stackleak GCC plugin, or with the Clang
+>   stack depth callback support.
+> - Rename CONFIG_GCC_PLUGIN_STACKLEAK as needed to CONFIG_KSTACK_ERASE,
+>   but keep it for anything specific to the GCC plugin itself.
+> - Rename all exposed "STACKLEAK" names and files to "KSTACK_ERASE" (named
+>   for what it does rather than what it protects against), but leave as
+>   many of the internals alone as possible to avoid even more churn.
+>=20
+> While here, also split "prev_lowest_stack" into CONFIG_KSTACK_ERASE_METRI=
+CS,
+> since that's the only place it is referenced from.
+>=20
+> Suggested-by: Ingo Molnar <mingo@kernel.org>
+> Signed-off-by: Kees Cook <kees@kernel.org>
+> ---
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: <x86@kernel.org>
+> Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
+> Cc: <linux-doc@vger.kernel.org>
+> Cc: <linux-arm-kernel@lists.infradead.org>
+> Cc: <kvmarm@lists.linux.dev>
+> Cc: <linux-riscv@lists.infradead.org>
+> Cc: <linux-s390@vger.kernel.org>
+> Cc: <linux-efi@vger.kernel.org>
+> Cc: <linux-hardening@vger.kernel.org>
+> Cc: <linux-kbuild@vger.kernel.org>
+> Cc: <linux-security-module@vger.kernel.org>
+> Cc: <linux-kselftest@vger.kernel.org>
+> ---
+>  arch/Kconfig                                  |  4 +--
+>  arch/arm/Kconfig                              |  2 +-
+>  arch/arm64/Kconfig                            |  2 +-
+>  arch/riscv/Kconfig                            |  2 +-
+>  arch/s390/Kconfig                             |  2 +-
+>  arch/x86/Kconfig                              |  2 +-
+>  security/Kconfig.hardening                    | 36 ++++++++++---------
+>  arch/arm/boot/compressed/Makefile             |  2 +-
+>  arch/arm64/kernel/pi/Makefile                 |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/Makefile              |  2 +-
+>  arch/riscv/kernel/pi/Makefile                 |  2 +-
+>  arch/riscv/purgatory/Makefile                 |  2 +-
+>  arch/x86/purgatory/Makefile                   |  2 +-
+
+Did you miss arch/loongarch/Kconfig by accident?
+
+$ git grep -Hrne ARCH_STACKLEAK
+arch/loongarch/Kconfig:127:     select HAVE_ARCH_STACKLEAK
+
+Kind regards,
+Nicolas
+
+--cgD5lPAL2MBjPn/0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEh0E3p4c3JKeBvsLGB1IKcBYmEmkFAmh+nNwACgkQB1IKcBYm
+EmlaKg/+Oulyjlzl6ITiwJiV1weZc0KBlop49wW3/ilmJ9U/16ChNrQlv9S6c21O
+ytwj5NZ3lgiznFSMFUOkOxA6ctKIXVyGyNPSmJIUJ6Sqk9iHm3zMakHBxpr2uemy
+DP6Nb6zORIiNJiTd3lVcdz1XQJRGfHfoMpUoW+GRKqQMtw4NyankD/eCESFv6mKh
+T27cet3p0OMQg5S3lM/AD8uuhCxYlLXnD2LJ1XC7z5v9s2QMFnm2FKuEbwwRikgZ
+k4V5IQ6fVjZRe7AuIZpAgOC2mWYkumx3EriVPGKNQu7L0MSQfUAjDF83NE4CBwIO
+EKdR7rp9ZBpJXIQwG0SNnVDCG/xfryC0LzVorLlZOR65GUHYiONL5Eq+J2QE8zwZ
+ugfv15CDaABIA5Rc6VW655EQePy0grJb6wQRpZAQRtsg5HQQfPgWXewm+OetC6sk
+1yqSuYqUrmJ0j4usrxCxbZRrRcGzfdDuGAmg4XpUKrEJIZRxfsV5InrSJ+o2nA14
+yjqgSeDRliPvyePCLddpnDyye4RgIyNgDQSuYJoivHQryIdrYJE3LIk+EoQdw3dv
+c+5c9ea/sNADpeyyA/RAzDrLGAEXAh2qZFu/o71KZIUOwOLp6IjYtZ9MfI54KyhK
+0TTlmcFody1uFinctfOk+8zBzO/foM1hkNF9knW0vJmnEV4khOU=
+=dSeG
+-----END PGP SIGNATURE-----
+
+--cgD5lPAL2MBjPn/0--
+
+
+--===============1703258135994036071==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1703258135994036071==--
+
