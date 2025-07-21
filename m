@@ -4,103 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8168C83F1A
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Jul 2025 20:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E9BC83F1A
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Jul 2025 21:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bs3KopQZ7vQ04IJmy3gNz7BkAKG2eqs4hRuS78QDIMQ=; b=XbhQyD3gaTYIPd
-	FxfXNYUeS0Tf6kLTwLsLRF1YZtEdWNmaBNrloYIQViKcrVPL9OigJuR/OsxNJTBaARTm3D+u8MD9g
-	16y8Kq2VB6MS7JwMoffXS/33Kdv+vTWBkvy3UOtDhBjxkqzDEM778QXxMrGdYdIIIv1nFKGBEOHqc
-	KUlI1cEYMR9Hlg1i6AEd+2mduv+4ySnw5QVikI1ST4JrBYpgzbJs3VrA/yyDzIfpvCQdJuIw2EBJr
-	s0JitVOQm3tj+RANISnyZhjiSKOWXi5W7Rx6brhf0Yfzrz0UsReSlnQRiyOA5PcrTA6mUSBHzDIyX
-	jY7guhOTobzksHJXI74A==;
+	List-Owner; bh=u2hD56a2SeEe2vgvLaTTzCEr5/BQCAAy57AsC4QQD1Y=; b=YCZsUWxbJVGQ34
+	MjwONjU/3RV/GQz9f+Un90YHAsdCxHwMSpmOV7kWErplZ2xFFnvMP7RXGf5nhZRbM+EIQY60SwvkZ
+	h8kXJ5WYZneznNe89kAiJR/s44KkbQQ0Onm+Z/eGyu9bepzXohF6gXs+65DEddpFF1mazM1xabqqJ
+	Q51aencyTno946gSbfsyfAmX8JwMHpJyAuAh+l29ypO6z0SjyeoWovyVJIxqwY/zOkHwkd7IPs5t4
+	BR2nvui7KeM/B5lgNz0HYo5BjBwIsmQOzk8OYFZLq/7HJfmCa6Eg1FpI8osuLMTkO4lfcFhCD+uZu
+	2V93Ok8a/5osK4banKxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udxY1-00000000g9p-0hIR;
-	Mon, 21 Jul 2025 20:55:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1udxc3-00000000gbV-2E2u;
+	Mon, 21 Jul 2025 20:59:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udxSN-00000000fWq-2Bdd;
-	Mon, 21 Jul 2025 20:49:56 +0000
+	id 1udxbs-00000000gZf-27UZ
+	for linux-riscv@lists.infradead.org;
+	Mon, 21 Jul 2025 20:59:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A6BBA5C4B8E;
-	Mon, 21 Jul 2025 20:49:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 464E6C4CEF4;
-	Mon, 21 Jul 2025 20:49:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E85A461416;
+	Mon, 21 Jul 2025 20:59:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 800FCC4CEED;
+	Mon, 21 Jul 2025 20:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753130994;
-	bh=RGpMFousrm9JXr2aga1XoiQZq81gXpkDZQCrU7p8kG4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=USwBlGGycUbYKwRlz8H1PUciShFkTuZXfVpLM5MtEpyQ2A97ZmBOIYa0cGOwBplAM
-	 P/UloDehuLPGSIqgqNRVeLye3ZQJwvjrIvND/8XbCEE/heb6TuWjlHXRTmnHic7i+/
-	 ufyzJfA+Tj1dnxW4WNlS2ijwfnLETqFwratBaRXG4lRw2vboY071pv4Rgj4gG0uneL
-	 vJADYIT6M2Sug0BnFp+wdbmKStgy/2g++iMRLOa45PAedgg8EJByYxkT5u6rz9xzId
-	 7//OhF3fMircm2SYJfkHca/mWkXbMTQEr5KB9GUZB1xfjt2aV3YLzdWsmNabD0jVLY
-	 gzg6qfQMQz07w==
-Date: Mon, 21 Jul 2025 13:49:53 -0700
-From: Kees Cook <kees@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Mike Rapoport <rppt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	Henrique de Moraes Holschuh <hmh@hmh.eng.br>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
-	Michal Wilczynski <michal.wilczynski@intel.com>,
-	Juergen Gross <jgross@suse.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Roger Pau Monne <roger.pau@citrix.com>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	Usama Arif <usama.arif@bytedance.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Thomas Huth <thuth@redhat.com>, Brian Gerst <brgerst@gmail.com>,
-	kvm@vger.kernel.org, ibm-acpi-devel@lists.sourceforge.net,
-	platform-driver-x86@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-mm@kvack.org, Ingo Molnar <mingo@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com, linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v3 04/13] x86: Handle KCOV __init vs inline mismatches
-Message-ID: <202507211349.D93679FB25@keescook>
-References: <20250717231756.make.423-kees@kernel.org>
- <20250717232519.2984886-4-kees@kernel.org>
- <aHoHkDvvp4AHIzU1@kernel.org>
- <202507181541.B8CFAC7E@keescook>
- <CAMj1kXGAwjChyFvjQcTbL8dFXkFWnn9n47bkN7FP=+EsLNsJdg@mail.gmail.com>
- <aH42--h-ARsvX5Wk@willie-the-truck>
- <202507211311.8DAC4C7@keescook>
+	s=k20201202; t=1753131583;
+	bh=PCXzX9mRr03P4nIeOBJHP6i8R1DCS2Xu1AeHEIn4Lik=;
+	h=Date:From:To:Subject:References:In-Reply-To:From;
+	b=gPrKGkoLjrzV0Hxl9NUKSMbgI16pVII/ZZ/B4DsELC02ucKg8XXqMJaGBfe57GfJP
+	 wRfF1DUI+sgnQRxePGpQTIXFStocXxNHL/BKmYVJloyBc9BZESGTEhCcVahbrwupPf
+	 p5IYJbI+09t6WcT4dqJS85eYFUiIa0QjGNv/yFp2rIfIDmn4Y4nPbqShGP/cjZ5LL/
+	 7keD2GBRn3KCBvdi3Ad/K9THHcICLxAjjF5Ge571sm2osd1Za6RMZxP4n5wWszyq5G
+	 S/yGwelZCef9ROmrOPz6lXXMeD1jrzC6eaIGff/RFRDTB8YTefkfA7Fl2fKTm00sJW
+	 QPN681c9YJchQ==
+Date: Mon, 21 Jul 2025 13:59:39 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	Andy Chiu <andybnac@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Add sysctl to control discard of vstate during
+ syscall
+Message-ID: <aH6qO3c39gmybwEc@x1>
+References: <20250719033912.1313955-1-fustini@kernel.org>
+ <aH4u_OHqZHZtXjn3@localhost.localdomain>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <202507211311.8DAC4C7@keescook>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_134955_644444_54B7FB11 
-X-CRM114-Status: GOOD (  40.46  )
+In-Reply-To: <aH4u_OHqZHZtXjn3@localhost.localdomain>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,82 +77,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 01:14:36PM -0700, Kees Cook wrote:
-> On Mon, Jul 21, 2025 at 01:47:55PM +0100, Will Deacon wrote:
-> > On Sun, Jul 20, 2025 at 04:10:01PM +1000, Ard Biesheuvel wrote:
-> > > On Sat, 19 Jul 2025 at 08:51, Kees Cook <kees@kernel.org> wrote:
-> > > > On Fri, Jul 18, 2025 at 11:36:32AM +0300, Mike Rapoport wrote:
-> > > > > On Thu, Jul 17, 2025 at 04:25:09PM -0700, Kees Cook wrote:
-> > > > > > When KCOV is enabled all functions get instrumented, unless the
-> > > > > > __no_sanitize_coverage attribute is used. To prepare for
-> > > > > > __no_sanitize_coverage being applied to __init functions, we have to
-> > > > > > handle differences in how GCC's inline optimizations get resolved. For
-> > > > > > x86 this means forcing several functions to be inline with
-> > > > > > __always_inline.
-> > > > > >
-> > > > > > Signed-off-by: Kees Cook <kees@kernel.org>
-> > > > >
-> > > > > ...
-> > > > >
-> > > > > > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> > > > > > index bb19a2534224..b96746376e17 100644
-> > > > > > --- a/include/linux/memblock.h
-> > > > > > +++ b/include/linux/memblock.h
-> > > > > > @@ -463,7 +463,7 @@ static inline void *memblock_alloc_raw(phys_addr_t size,
-> > > > > >                                       NUMA_NO_NODE);
-> > > > > >  }
-> > > > > >
-> > > > > > -static inline void *memblock_alloc_from(phys_addr_t size,
-> > > > > > +static __always_inline void *memblock_alloc_from(phys_addr_t size,
-> > > > > >                                             phys_addr_t align,
-> > > > > >                                             phys_addr_t min_addr)
-> > > > >
-> > > > > I'm curious why from all memblock_alloc* wrappers this is the only one that
-> > > > > needs to be __always_inline?
-> > > >
-> > > > Thread-merge[1], adding Will Deacon, who was kind of asking the same
-> > > > question.
-> > > >
-> > > > Based on what I can tell, GCC has kind of fragile inlining logic, in the
-> > > > sense that it can change whether or not it inlines something based on
-> > > > optimizations. It looks like the kcov instrumentation being added (or in
-> > > > this case, removed) from a function changes the optimization results,
-> > > > and some functions marked "inline" are _not_ inlined. In that case, we end up
-> > > > with __init code calling a function not marked __init, and we get the
-> > > > build warnings I'm trying to eliminate.
+On Mon, Jul 21, 2025 at 08:13:48AM -0400, Darius Rad wrote:
+> On Fri, Jul 18, 2025 at 08:39:13PM -0700, Drew Fustini wrote:
+> > From: Drew Fustini <dfustini@tenstorrent.com>
 > > 
-> > Got it, thanks for the explanation!
+> > Clobbering the vector registers can significantly increase system call
+> > latency for some implementations. To mitigate this performance impact, a
+> > policy mechanism is provided to administrators, distro maintainers, and
+> > developers to control vector state discard in the form of a sysctl knob:
 > > 
-> > > > So, to Will's comment, yes, the problem is somewhat fragile (though
-> > > > using either __always_inline or __init will deterministically solve it).
-> > > > We've tripped over this before with GCC and the solution has usually
-> > > > been to just use __always_inline and move on.
-> > > >
-> > > 
-> > > Given that 'inline' is already a macro in the kernel, could we just
-> > > add __attribute__((__always_inline__)) to it when KCOV is enabled?
+> > /proc/sys/abi/riscv_v_vstate_discard
 > > 
-> > That sounds like a more robust approach and, by the sounds of it, we
-> > could predicate it on GCC too. That would also provide a neat place for
-> > a comment describing the problem.
+> > Valid values are:
 > > 
-> > Kees, would that work for you?
+> > 0: Do not discard vector state during syscall
+> > 1: Discard vector state during syscall
+> > 
 > 
-> That seems like an extremely large hammer for this problem, IMO. It
-> feels like it could cause new strange corner cases. I'd much prefer the
-> small fixes I've currently got since it keeps it focused. KCOV is
-> already enabled for "allmodconfig", so any new instances would be found
-> very quickly, etc. (And GCC's fragility in this regard has already been
-> exposed to these cases -- it's just that I changed one of the
-> combinations of __init vs inline vs instrumentation.
-> 
-> I could give it a try, if you really prefer the big hammer approach...
+> Is the intention for this this mean "don't guarantee vector state is
+> clobbered" or "preserve vector state"?  I suspect it is the former, but the
+> wording seems unclear.  Additionally, if that's indeed the case, maybe the
+> documentation should more clearly articulate the tradeoff (performance vs.
+> security/robustness).
 
-I gave it a try -- it fails spectacularly. ;) Let's stick to my small
-fixes instead?
+Thanks for your comment. I agree it could be worded better and the trade
+off should be explained. I believe the motivation behind clobbering in
+all syscalls was to make sure that userspace does not rely on the vector
+being preserved through a syscall. The goal of this strictness was to
+catch any programs that were misbehaving.
 
--- 
-Kees Cook
+Thus, it might be better if I described it as:
+
+0: Vector state is not strictly clobbered in all syscalls
+1: Mandatory clobbering of vector state in all syscalls
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
