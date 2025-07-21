@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAECAC83F25
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Jul 2025 21:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A2EC83F1A
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Jul 2025 22:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6Ls1kU9o2YVGosYxcbOUvHxp1W02iB3aLPY+1YHLqMo=; b=S0zhtVexmDzFX2
-	l4TlDaEXIN+G2hbTUxW5LpSnEMY4FeS9GWelPqenEUP1UH6FLbs5dgZR5QiegELkViKTxGQBG7eI1
-	KhnOXMrKhUaZHXd+8XkQwkJK98jBhDXrghePZ3CI/CE8CS9ZuO/Kg7xyX7Lpjy755QiCjfRSgEGSD
-	KSJ9j/VJO1F09ogGeqfMlh+ClEHz+pMI6pN0NCfdm4FH1wtBIyX3vUKTXFQ6C9uxmrTigSp2bP010
-	rogTCfZZL5w/to2oipX302sBECR1Ncnp3ccFi45gfTV9YQUVdKk2J6R+tnIYFsTksP68VaFsHiuI6
-	Yp4ltflG6AKXBnUoACsA==;
+	List-Owner; bh=hxNRI55lCJtKxwsy2mAidnKPjUcyyeUHjm/RQvLMRb8=; b=2izVmAmKB+tOS/
+	g2a/041CaQi1YNJ1CqRc3yuY/N2SQ+VMPREUB9VwaLh7cK7OjLaopF4vy/Yon0DfgDObNpC0erLtC
+	cjqe2HXAOZ8vpqhEy8hq4MVi6RdJaERDRbYW83CL9eWhyxaldLbOFouqY3b4Rrbli5QtUcQh+AluB
+	w70jTLQlf5QEmJC8dEhBDckuiFGC0/tnA6Tkmbmywz6Q5aa5pufxwVaCisxgWNUygolGnhbknzZl+
+	WUvdxydhVGowdFyHjfr4Se7knWZInd2a+UWZkJTeDxkY0kiE1v208eYG89Zu0/43fs1p2NrRKT/ol
+	3BmzlcrVu8fiyP+Aq6hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udy3j-00000000jPT-0p9r;
-	Mon, 21 Jul 2025 21:28:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1udzU5-00000000q3j-1wEX;
+	Mon, 21 Jul 2025 22:59:49 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udy3g-00000000jP8-2b7s
-	for linux-riscv@lists.infradead.org;
-	Mon, 21 Jul 2025 21:28:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 23CAE43F2A;
-	Mon, 21 Jul 2025 21:28:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8F59C4CEED;
-	Mon, 21 Jul 2025 21:28:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753133308;
-	bh=Z8+145n3stoZJ1eS9MsnjPvQqiSlyo+W5TQZfHtKrUU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PVOh4WwKApPd6X2J5mzxgp8A1Vofa6hw9Z+zz43nWSfXDOjtqhv/CZSMWwa/ZCdle
-	 8uHhIs130sO+bjzMOJzk54DYQObGa2jnuuAZebCAEXhInWZS9nhqT/0AwZmoGiN8c2
-	 oUt81RyYmIm731on+mES3ZJtZImksoqz2S0GLfs0iJ9xBrg5nYXFGdw2wtZ3Z930Gg
-	 hPMOdR+xIB1vlCRlRGwAqoVD2C1Qn1oTtbNdx/4rCeeE0jJLP8hbY6L7OyquJ5EPS7
-	 14lz93ETEKwT08+0zVp/ENFWEKNknwbPtVdp2k1+2vLZXFNkiR189jjKc6EXgQaMAL
-	 CimI5viN6pofQ==
-Date: Mon, 21 Jul 2025 14:28:26 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Darius Rad <darius@bluespec.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Add sysctl to control discard of vstate during
- syscall
-Message-ID: <aH6w+in5tCe42Kvc@x1>
-References: <20250719033912.1313955-1-fustini@kernel.org>
- <aH4u_OHqZHZtXjn3@localhost.localdomain>
- <aH6qO3c39gmybwEc@x1>
+	id 1udzU2-00000000q2e-3Mpg;
+	Mon, 21 Jul 2025 22:59:47 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ae0df0bb8fbso82980966b.3;
+        Mon, 21 Jul 2025 15:59:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753138785; x=1753743585; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qziS/qpONFFAWWmGEcjsGqxLtdqROLsiMhv3HQa+DVo=;
+        b=OjwEEa40+VLpqlYLZE/hfTyYXfaDdcr0f1VJOEgqerOQh3+iza2Xfwtz3KEm2yBSal
+         Iwi+3xLnOL3SVH/f5zolDHxE5AB9MmQAboTTGzFFu/vXV8eq8d5P1atp3oXpkAI5l5Ik
+         ZOoXt/PbhuRa8b8wiL9sS0v0SAyMC+10w66KZFrEPr3XKvV3D3dZcDdKtvqNE1a4zx0M
+         QVhiCm6hiJQ978yILlWNsDcB9ggZEW05BejmpHJFwNp8Tt9L+VBibz6/Lxn9rpIvKN+F
+         1CydypQ9RBo5Ci3z8q1SpQjLNkHNB4UEngZpr6kEoi8UHoBVD0ZHHYf4WFgPcihK4Z6L
+         rt/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753138785; x=1753743585;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qziS/qpONFFAWWmGEcjsGqxLtdqROLsiMhv3HQa+DVo=;
+        b=dwreNsoLL4gUOvDT3IFV7F66J/FO+85wnae84PrcpYFyiU7afPW/Fl4XuvSZ7GHyIM
+         xGfI45A3el8ftQEeYfXXbg27RGz3O/9Sp/qcKAoTDT1qmvYp4XlV8YmQqIb6tee6pJDc
+         KEnegY7RyGtZL548BSWkwfh922SqGHT3z79ZHbBQZJqurcKkioupZhr5iDUs3TlU+QEO
+         xn1NnbCz3LfwpzOcJxksweUk72ARrl/UduzpiF/2jbtkIZLlnMNr1t+e3o97njAV8Wwy
+         pRI30AWD9866hubizyrSPz6JSyTqM5vC3/p59JrFNklGb/dnqAIeThwPz7QDk1BM2gwd
+         y0Ng==
+X-Forwarded-Encrypted: i=1; AJvYcCWES7fr+/x9xh/Ys85ihO5JUCN5HNV8YoM2KPKAyhWTdKYr6ZwHnfwqOKJddHrNHp9oULaeR8prWXk=@lists.infradead.org, AJvYcCWFGEy+yYqKjfzX4moqjUJAqfRAmilaNdGr1lf6dg4PK2P/QDK9VMKHjI85nKmOPBWOweZ3qq2ejV1ppQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzhk4VRvXmIZ7jRGvckrpeaV0cvEzu2Lh6t64//RC7SP4vAf5Bd
+	P7siVkuOFpQIwoiFuxa8wfYlmyr4LagwBlfBIAOGHAy/K5T4E4rKmZy3
+X-Gm-Gg: ASbGncspcR0X2Cygv/KkNAScQybiREhSJ07nYYN7/bDM+BhgrW+7kHQtUELLrI/uypJ
+	oyYcvTBKGu3MKUHx59fD8cLVsQ9ofq/pUrlRQwaPrr+Ve+lXpsAykOcx3lXYJoieYNnWwQ1hatk
+	7Lp2DsYh/4EoChqKAvThYLe7XkS6kbn67ax2+KDYQvhWJBdlr1UWQOJV4cyIhlqePT9o3VVV33c
+	7+N3zmGSAV18sgOPBWKFXtbYf1Ikh3cfKrUTeCZ3RNqzb99ShsP1PNNX3Oozxs4a8cf8PFf0XrW
+	L72IGUpOjkCpEqwkNLOaMqXi9VRC0InArafZGAqwpdX5Sk2PR0GO9nFJ0NQECMcafyr9UTS5c5q
+	emrbkehLJNyeubNGd4i2BicBbCcyDA2BwPE2ZZKI9WWqZc75Vc8rC4GNwM2MerHQ+Lpev
+X-Google-Smtp-Source: AGHT+IFBO2iP/n38Feyyqa7ON62IpV2R/kvBKzJAAeBv02jcMXCr2o0KVEmn950sS2xc+ad0bPTgUA==
+X-Received: by 2002:a17:907:1b05:b0:ae3:bd92:e6aa with SMTP id a640c23a62f3a-ae9c99adb7amr852181266b.6.1753138784434;
+        Mon, 21 Jul 2025 15:59:44 -0700 (PDT)
+Received: from [192.168.0.18] (cable-94-189-142-142.dynamic.sbb.rs. [94.189.142.142])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6ca7d330sm755829066b.126.2025.07.21.15.59.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 21 Jul 2025 15:59:43 -0700 (PDT)
+Message-ID: <f10f3599-509d-4455-94a3-fcbeeffd8219@gmail.com>
+Date: Tue, 22 Jul 2025 00:59:23 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aH6qO3c39gmybwEc@x1>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/12] kasan: unify kasan_arch_is_ready() and remove
+ arch-specific implementations
+To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>, hca@linux.ibm.com,
+ christophe.leroy@csgroup.eu, andreyknvl@gmail.com, agordeev@linux.ibm.com,
+ akpm@linux-foundation.org
+Cc: glider@google.com, dvyukov@google.com, kasan-dev@googlegroups.com,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
+References: <20250717142732.292822-1-snovitoll@gmail.com>
+Content-Language: en-US
+From: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+In-Reply-To: <20250717142732.292822-1-snovitoll@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_142828_681547_9437F219 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20250721_155946_849720_2E951E7B 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,46 +104,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 01:59:39PM -0700, Drew Fustini wrote:
-> On Mon, Jul 21, 2025 at 08:13:48AM -0400, Darius Rad wrote:
-> > On Fri, Jul 18, 2025 at 08:39:13PM -0700, Drew Fustini wrote:
-> > > From: Drew Fustini <dfustini@tenstorrent.com>
-> > > 
-> > > Clobbering the vector registers can significantly increase system call
-> > > latency for some implementations. To mitigate this performance impact, a
-> > > policy mechanism is provided to administrators, distro maintainers, and
-> > > developers to control vector state discard in the form of a sysctl knob:
-> > > 
-> > > /proc/sys/abi/riscv_v_vstate_discard
-> > > 
-> > > Valid values are:
-> > > 
-> > > 0: Do not discard vector state during syscall
-> > > 1: Discard vector state during syscall
-> > > 
-> > 
-> > Is the intention for this this mean "don't guarantee vector state is
-> > clobbered" or "preserve vector state"?  I suspect it is the former, but the
-> > wording seems unclear.  Additionally, if that's indeed the case, maybe the
-> > documentation should more clearly articulate the tradeoff (performance vs.
-> > security/robustness).
-> 
-> Thanks for your comment. I agree it could be worded better and the trade
-> off should be explained. I believe the motivation behind clobbering in
-> all syscalls was to make sure that userspace does not rely on the vector
-> being preserved through a syscall. The goal of this strictness was to
-> catch any programs that were misbehaving.
-> 
-> Thus, it might be better if I described it as:
-> 
-> 0: Vector state is not strictly clobbered in all syscalls
-> 1: Mandatory clobbering of vector state in all syscalls
 
-Darius - sorry, I seem to have failed to put you in the To: field of my
-reply.
 
-Thanks,
-Drew
+On 7/17/25 4:27 PM, Sabyrzhan Tasbolatov wrote:
+
+> === Testing with patches
+> 
+> Testing in v3:
+> 
+> - Compiled every affected arch with no errors:
+> 
+> $ make CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm STRIP=llvm-strip \
+> 	OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf \
+> 	HOSTCC=clang HOSTCXX=clang++ HOSTAR=llvm-ar HOSTLD=ld.lld \
+> 	ARCH=$ARCH
+> 
+> $ clang --version
+> ClangBuiltLinux clang version 19.1.4
+> Target: x86_64-unknown-linux-gnu
+> Thread model: posix
+> 
+> - make ARCH=um produces the warning during compiling:
+> 	MODPOST Module.symvers
+> 	WARNING: modpost: vmlinux: section mismatch in reference: \
+> 		kasan_init+0x43 (section: .ltext) -> \
+> 		kasan_init_generic (section: .init.text)
+> 
+> AFAIU, it's due to the code in arch/um/kernel/mem.c, where kasan_init()
+> is placed in own section ".kasan_init", which calls kasan_init_generic()
+> which is marked with "__init".
+> 
+> - Booting via qemu-system- and running KUnit tests:
+> 
+> * arm64  (GENERIC, HW_TAGS, SW_TAGS): no regression, same above results.
+> * x86_64 (GENERIC): no regression, no errors
+> 
+
+It would be interesting to see whether ARCH_DEFER_KASAN=y arches work.
+These series add static key into __asan_load*()/_store*() which are called
+from everywhere, including the code patching static branches during the switch.
+
+I have suspicion that the code patching static branches during static key switch
+might not be prepared to the fact the current CPU might try to execute this static
+branch in the middle of switch.
 
 _______________________________________________
 linux-riscv mailing list
