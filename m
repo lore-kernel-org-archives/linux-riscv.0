@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9959C83F1A
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 11:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAD6C83F27
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 11:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:In-Reply-To:
 	To:From:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=pGTmnRQ+zUtl/dCj9dgxLpBKTacUtnsqBhk0AgTniwY=; b=UDNywNgyfWoiMI
-	OnugHAOHLkYZJNPf/cPwhQWz7Mrv1mAJ7NrsxQxkZd154SbUBYnUgxPZ1W0NvqGeOtCsSzib64221
-	Z/QBq8LFptcztXCNG9QhOB9Nmk6IW28mH7Bao1idnVGjdwmv6lCXYB1ZNF5xk3ObmuNFzaf5T0PRt
-	B+ciTRmV+AZMX6aiZcQzWqrBEjlCfHG32b2ZZP3CV6RID6YmYiQ8/nyXhBQ5HY/zeEf/9UAO/c/UT
-	TalGOatV/Ncx7w+wloeAVVVjj5JuvZOr/n85qKg68P8waLNy43z9DXzsO/beZOgIrS45J/fcSewVh
-	Rms7R9kkBVhqfo/gGGUQ==;
+	List-Owner; bh=o/IckaYxcTAmwfn95BaG1AHL5HMkFTSn2+AwaQ3H6dY=; b=Pwp5TEFph3ChFO
+	iPpOzNVIq7DjSF/rpf2CFuwjhXhjASZlQdoYzPPd0Tyt6hUrw91UUq1UEcipxVV3KCuhqlsFZUEyO
+	RYiqqEv9J1FVf/VAE1MyiUsimcvBsbYH/O0IZywLPoGK0M7dw2Bas5BXpgaoMtIapWuJEGDoNVXEb
+	CReTfb4rWSy7rKYEwM41dLLX9PjeyqgI01mUJ9FCFX7DQoSZm+iKXVht3zHN72/hrnp8OOvQ5rOR1
+	sYvOCk7mN2QJ4r4RsSlaRxYi3OdbWiZH4RZ5A2eObn96+djhK3HECVmXQFsEuwRjFp3eZHcNg7lBn
+	ePXZJasANZcSXFQBHPZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueBRD-00000002KL1-1u2x;
-	Tue, 22 Jul 2025 11:45:39 +0000
+	id 1ueBb7-00000002LXP-02lf;
+	Tue, 22 Jul 2025 11:55:53 +0000
 Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueB9f-00000002HZf-0hfZ
+	id 1ueBSk-00000002KX5-1AbQ
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Jul 2025 11:27:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1753183646; cv=none; 
+	Tue, 22 Jul 2025 11:47:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753184822; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=L8uXSYQxwzi6GnqOKA5+M/zFPG4YsKprlvaiueZ6tyTNaDL5JdRi7F4krtqMduJ4Ag69Rg7U4KPh8r5llGt06szaffvPBwsjPG0Le/CnRbR41qo1u8JBxhK3xiCfh25Qe6QdZrzckGLUiHvZWTJDa2Lh7TQZOFLxLKr6lu3WOQs=
+	b=DdBCLaeCsAfj/AcN99FfwGfHj8oCOHBcr24JxgrFvH7b49ZdsHVI7xw74RCbY++5eysOePiGQzNZCU5huPjEw0UBIunOaO42tf8col8GXE/ScGkF3pOFEY8jjTY3g4bKgJa0fYN1NYUnwiqTca7rwa7I8DxXUH4yS5Hg7WRmBtw=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1753183646; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=oSWzK9+1+wJc6wh6CDIQZWQCvimKKJe8O5m5BgUOpHM=; 
-	b=jrZKYr4L4LdOFAuzndQZW5Qz+Lz1wmRU490h2L4eC6Dm7C9X8bR490PUz42rHs55ViumCFNLmb3iufzWwCweDrl45bjqjmsw4JatKBu9sJKx0MY8pNkHVBJRTExu6uVWhYFPEH83ifRRTLuzU0+RPMY/hB1j8jI6sOUcSLnwtLA=
+	t=1753184822; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=iLoaiwS+Ud2yCbXeC9zL0Mtugd211TCM6YPAiCXDkGs=; 
+	b=WcNS2HjKW4KJIauGA/uu5xDWgUkHF7q+I84+DA22Stjr9UjuOQVA71A2EhiOo/L39QzJIP9ENcimPH1cLvWLs81irpd6HIBPdUspriV/OIS9Ei96uNC6lxoZ0IPSrkpSKTWANywBJ8j97nTVL4IpUgJD5BjeAc0AUEtsXcpwRbw=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753183646;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753184822;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
 	h=MIME-Version:From:From:To:To:In-Reply-To:Cc:Cc:Subject:Subject:Message-ID:Date:Date:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=oSWzK9+1+wJc6wh6CDIQZWQCvimKKJe8O5m5BgUOpHM=;
-	b=KuAvm1U7/rkniCfUxMjB0BR6KZ2ypIXEi2EuO2iqtr7dyL10XVPnZaVwSM6o14Sj
-	38SyFAnkKq7IVnSYBHIVmUJx0CNsrmkcDmyn4geRQiBGTO5bg4Vz8byXslcL198w104
-	zbn14B6zSUpYB83NsJcFigm/jWU7OkcYb3JkyYwg=
-Received: by mx.zohomail.com with SMTPS id 1753183643006882.6847732993253;
-	Tue, 22 Jul 2025 04:27:23 -0700 (PDT)
+	bh=iLoaiwS+Ud2yCbXeC9zL0Mtugd211TCM6YPAiCXDkGs=;
+	b=NgCQTdb/5h4sQYxngtfLCx56kgvIKBKfK43c0olNs8WqxaXrbI1RINvaX/npx/G4
+	kTsXKPscdSZUbIexWIJMWZaEwxmmM/1KHXfONk6/RKO0ZsNOM+304c0jH36hUA7Xkgo
+	qEBCSyt7r8DMh9gKInrUkIJdRPFzNZB3W28xJVqE=
+Received: by mx.zohomail.com with SMTPS id 1753184818692439.0197627599191;
+	Tue, 22 Jul 2025 04:46:58 -0700 (PDT)
 MIME-Version: 1.0
 From: "Junhui Liu" <junhui.liu@pigmoral.tech>
 To: "Krzysztof Kozlowski" <krzk@kernel.org>
-In-Reply-To: <20250722-berserk-octopus-of-destiny-f4475e@kuoka>
+In-Reply-To: <20250722-proud-polar-mink-12caa8@kuoka>
 Cc: "Rob Herring" <robh@kernel.org>, 
 	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
 	"Conor Dooley" <conor+dt@kernel.org>, 
@@ -66,13 +66,14 @@ Cc: "Rob Herring" <robh@kernel.org>,
 	<linux-kernel@vger.kernel.org>, "Palmer Dabbelt" <palmer@sifive.com>, 
 	"Conor Dooley" <conor@kernel.org>, <linux-riscv@lists.infradead.org>, 
 	<linux-serial@vger.kernel.org>
-Subject: Re: [PATCH RFC 07/10] riscv: Add Anlogic SoC famly Kconfig support
-Message-ID: <18548f39bd190d28.fca9acf422f7bf67.f37c65074e24e08a@Jude-Air.local>
-Date: Tue, 22 Jul 2025 11:27:13 +0000
+Subject: Re: [PATCH RFC 09/10] riscv: dts: anlogic: Add Milianke MLKPAI FS01
+	 board
+Message-ID: <1854904c2bf8d2d8.e7cd4abd4f21761b.29b7782965d4456e@Jude-Air.local>
+Date: Tue, 22 Jul 2025 11:46:51 +0000
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_042731_602646_8DD785A3 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250722_044714_726418_1DA79A57 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,33 +92,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 22/07/2025 09:29, Krzysztof Kozlowski wrote:
-> On Mon, Jul 21, 2025 at 11:46:13PM +0800, Junhui Liu wrote:
->> The first SoC in the Anlogic series is DR1V90, which contains a RISC-V
->> core from Nuclei.
+On 22/07/2025 09:31, Krzysztof Kozlowski wrote:
+> On Mon, Jul 21, 2025 at 11:46:15PM +0800, Junhui Liu wrote:
+>> Add support for the Milianke MLKPAI FS01 board based on the Anlogic
+>> DR1V90 SoC. The board features 512MB of onboard memory, with the region
+>> after 0x1fe00000 reserved for OpenSBI.
+>> 
+>> Currently, the board can boot to a console via UART1, which is connected
+>> to the onboard serial chip and routed to the Type-C interface.
 >> 
 >> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 >> ---
->>  arch/riscv/Kconfig.socs | 5 +++++
->>  1 file changed, 5 insertions(+)
->> 
->> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
->> index a9c3d2f6debca1469f4a912b3414711eb709baab..de163cdddcda1c08e7c9e98716eaf043d4c4555a 100644
->> --- a/arch/riscv/Kconfig.socs
->> +++ b/arch/riscv/Kconfig.socs
->> @@ -1,5 +1,10 @@
->>  menu "SoC selection"
->>  
->> +config ARCH_ANLOGIC
->> +	bool "Anlogic SoCs"
->> +	help
->> +		This enables support for Anlogic SoC platform hardware.
+>>  arch/riscv/boot/dts/Makefile                       |  1 +
+>>  arch/riscv/boot/dts/anlogic/Makefile               |  2 ++
+>>  arch/riscv/boot/dts/anlogic/dr1v90-mlkpai-fs01.dts | 28 ++++++++++++++++++++++
+>>  3 files changed, 31 insertions(+)
 > 
-> Wrong indentation. See everything else in this file or just read coding
-> style.
+> You need maintainers entry for your entire sub-arch. Otherwise why would
+> we want unmaintained code?
 
-Thanks for pointing this out. I overlooked it and will fix it in the
-next version.
+Thanks for your reminder, I will add the relevant information to the
+MAINTAINERS file.
 
 > 
 > Best regards,
