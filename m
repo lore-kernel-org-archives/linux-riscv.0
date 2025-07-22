@@ -4,85 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A86C83F27
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 18:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 831ACC83F1A
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 18:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LpTXKDGVRzMKone2wdnYCJ8f+4ttWowE9aROGSQKRgI=; b=eOwULbSGOpBeKs
-	yEX9wdtSvgmr3+MZ9GzzZ+CghJyFOApK38omw7Hw/0lXGfxZf/R+nO8dpzuigs/n1Koc4hCDzIbRu
-	+fDpxL4lPD4aOrImcicy2sb0rJgJHcsQ+012JRiY8nICzuSv5eo1zW7zn7cD+BQ0Wg+sLTh+c048k
-	IKT1U44hpy3tvxPoo58gDJUlALmYjDaTQfsUZvb49Lcq9Mk01qat9iB1G7yxRKn1ZTNbXa8Z1JkGh
-	Mtzo1dH8MqD0i4IcTxt0egV7TRRco2VgxuxBwRXHWRa/ozyziq50M3u4be/DDu9VMEhZXafYMsAkm
-	k1StdSLTTCMhINidbYMw==;
+	List-Owner; bh=qJMq05Y/ndvLSl7H+Pt+slXje4dUtp2Gny5uVL3ka3s=; b=c/tAQ+L2lI7kHv
+	lgARYXgYuxRVFWGL9qODkqJudR4fBTGtMYcovyA9jDPzD/+/bm8Ya+Ejm1IN0+6sXsnMVTWxqoVql
+	LMl/z6uoOPh+EtZJq32qiwBUUAnlUlCKBn/eUB4pviSyX0lb7JrCbhKfDwOePgb0Ww4/0l2V9kvfK
+	HHB8awgeN+EjMStXTQiujTGeGT2C/+wKgnGz+jDW+4yLJeM94iIVvrZzgYYuChqTXoiUk6JKemaxr
+	IXNqBOFnFksCdNIoH39Yrx/X5uTyvGBfapFz2r7ZuXa9ATsJw7+Ib9CQXAj+fD0szheqa6zP15g9p
+	JkZiTk1Q19colfQnAljg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueHcN-00000003Epx-1Hxk;
-	Tue, 22 Jul 2025 18:21:35 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueHcK-00000003EpG-3ZvJ;
-	Tue, 22 Jul 2025 18:21:33 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-553e5df44f8so5268783e87.3;
-        Tue, 22 Jul 2025 11:21:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753208491; x=1753813291; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s1bfHAcPl/XMz8xDguK3teTl09r5v0kLVciBst2DtbI=;
-        b=CcrzXKDpBy512Lu2Plaju7Q7RWggxWG7eOtFCG6YTp85DxrIAEEZ3JVuwOQjTMDX0S
-         JDpsXJZ0EfFFHefd9we7iA7/QE4o0+ONG1ereEllIscde/uEUtsI6gAWGs7pIqXTGbOb
-         cjFH/U3+0zC4VJ79+0TlJkh5KWAUhdZWvs/0/srYtTLg5DWpBaoPsymQt3GQi6Fe56Ne
-         q4h8iPZdz7SHueAU6yb9c24yDY5ryCoYnsSTG2hAw64uXhlyY+UC7AEx01OX08UdUklK
-         YViIUyMKVQHkiM9RUmNYWrDgvxCGoV7gBhJ7BxOiGlnO8wXINUHNknHetCN/dWE7br7i
-         AUvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753208491; x=1753813291;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=s1bfHAcPl/XMz8xDguK3teTl09r5v0kLVciBst2DtbI=;
-        b=tSPjdd0dSp+VJYI9+CsHIHr+lLCrpblArkSPKYmrnozrsZYiYY6Cu0LudOCY+uEJEW
-         YrYXsfor5mOvJGxCCDVx2zlmbz0WA+MYQoqI/OAMiquepWbx9oVF7zQSanZuiTYsQVHL
-         gPqosOoJXvgVZhMdJuAv8e1Rogx6uj0/dgBYLLDl3nzihc5scbknlzva4hZ4dwoWizrL
-         FpOU0RHoFnLNEyj7i7KATVTm/9eE5sqvZiQrk1XLf9cDm07edESWPzFFlEq35ID6O+jH
-         NSZgcel2GHKyiuN4jrYeVBeW/tiLM4LVWvNGvv/OLdP6B6NhcPhYtT+K3n06kzlF1nV+
-         Slpw==
-X-Forwarded-Encrypted: i=1; AJvYcCXdNo3nFrE74vgidASsV4lM9vP3/9iF4zAD5nOAUIjI6tlqvO5DY8LBKe4WWMT7ZH+Y5lvel368fzU=@lists.infradead.org, AJvYcCXsNPjhYtgnwbUNwCCjNwoarV9g3wuPMWqOCBrXtHKfDcf7pXGtX1y+CWn+X8I4ERabrT4Q3KasqgeXiw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsFMrB8PEy3Zq6B7sTiI/o1VGa2dFNCoqKgy6Qn11zo5MldXr8
-	MTT9oYD1dNNrXq1PO7pQ8Ho7lVOeMJ+zLnIuJoBom4KqD6qBIpA/6RcP3BOBkAViSZg+hwqNz74
-	QbA8Aomqm8Wsmo2ej2tUFtWm1OKbl0U8=
-X-Gm-Gg: ASbGncuuJR7x6Xm1+lB+VeKpfOkimFwg/bvxShwJ+XQ/ab1cjgpCMIbRVTPHwDvinBL
-	YPYdQGnNPto1nFRThMsz0Qqg8HscCIlgoY4vecJDQv+n/F949uVKbOJssAd3o8JHMo01BoZEbe/
-	KYvKwZj0TDtg2LKEpZSHclNcvNLyUCqQAvPvSbcBCB3MfB1/Kaxm/erQllJghZm51Iuuri6X6h3
-	VMKKy8=
-X-Google-Smtp-Source: AGHT+IHgqZRO4CHZDXwO8i4qviF6GOSHLcIqgaK9MAu32BIYgiKkWD327bPslpy0X0mdn5DHRJd+TcwlCu2XTW4y0IA=
-X-Received: by 2002:a05:6512:4021:b0:553:2190:fef8 with SMTP id
- 2adb3069b0e04-55a513998a5mr31899e87.7.1753208490745; Tue, 22 Jul 2025
- 11:21:30 -0700 (PDT)
+	id 1ueHoI-00000003FtJ-2sCY;
+	Tue, 22 Jul 2025 18:33:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueHoG-00000003FsY-0oHC;
+	Tue, 22 Jul 2025 18:33:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34B9E106F;
+	Tue, 22 Jul 2025 11:33:45 -0700 (PDT)
+Received: from [10.57.0.201] (unknown [10.57.0.201])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2F513F5A1;
+	Tue, 22 Jul 2025 11:33:46 -0700 (PDT)
+Message-ID: <f81b88df-9959-4968-a60a-b7efd3d5ea24@arm.com>
+Date: Tue, 22 Jul 2025 19:33:43 +0100
 MIME-Version: 1.0
-References: <20250717142732.292822-1-snovitoll@gmail.com> <f10f3599-509d-4455-94a3-fcbeeffd8219@gmail.com>
-In-Reply-To: <f10f3599-509d-4455-94a3-fcbeeffd8219@gmail.com>
-From: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
-Date: Tue, 22 Jul 2025 23:21:13 +0500
-X-Gm-Features: Ac12FXzOVMCIvnTEhZltt3TS4XKarYeDIkGkWcMAqG0GgJ62pPTw9Xni6fYiOgs
-Message-ID: <CACzwLxjD0oXGGm2dkDdXjX0sxoNC2asQbjigkDWGCn48bitxSw@mail.gmail.com>
-Subject: Re: [PATCH v3 00/12] kasan: unify kasan_arch_is_ready() and remove
- arch-specific implementations
-To: Andrey Ryabinin <ryabinin.a.a@gmail.com>
-Cc: hca@linux.ibm.com, christophe.leroy@csgroup.eu, andreyknvl@gmail.com, 
-	agordeev@linux.ibm.com, akpm@linux-foundation.org, glider@google.com, 
-	dvyukov@google.com, kasan-dev@googlegroups.com, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-um@lists.infradead.org, linux-mm@kvack.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/8] mmc: sdhci-of-dwcmshc: add common bulk optional
+ clocks support
+To: Chen Wang <unicornxw@gmail.com>, adrian.hunter@intel.com,
+ aou@eecs.berkeley.edu, conor+dt@kernel.org, guoren@kernel.org,
+ inochiama@outlook.com, jszhang@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
+ tingzhu.wang@sophgo.com
+Cc: Chen Wang <unicorn_wang@outlook.com>, Drew Fustini <drew@pdp7.com>,
+ Diederik de Haas <didi.debian@cknow.org>,
+ "open list:ARM/Rockchip SoC..." <linux-rockchip@lists.infradead.org>
+References: <cover.1722847198.git.unicorn_wang@outlook.com>
+ <e57e8c51da81f176b49608269a884f840903e78e.1722847198.git.unicorn_wang@outlook.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <e57e8c51da81f176b49608269a884f840903e78e.1722847198.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_112132_891736_400B73F4 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20250722_113352_330687_43AEE23D 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,70 +69,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMjIsIDIwMjUgYXQgMzo1OeKAr0FNIEFuZHJleSBSeWFiaW5pbiA8cnlhYmlu
-aW4uYS5hQGdtYWlsLmNvbT4gd3JvdGU6Cj4KPgo+Cj4gT24gNy8xNy8yNSA0OjI3IFBNLCBTYWJ5
-cnpoYW4gVGFzYm9sYXRvdiB3cm90ZToKPgo+ID4gPT09IFRlc3Rpbmcgd2l0aCBwYXRjaGVzCj4g
-Pgo+ID4gVGVzdGluZyBpbiB2MzoKPiA+Cj4gPiAtIENvbXBpbGVkIGV2ZXJ5IGFmZmVjdGVkIGFy
-Y2ggd2l0aCBubyBlcnJvcnM6Cj4gPgo+ID4gJCBtYWtlIENDPWNsYW5nIExEPWxkLmxsZCBBUj1s
-bHZtLWFyIE5NPWxsdm0tbm0gU1RSSVA9bGx2bS1zdHJpcCBcCj4gPiAgICAgICBPQkpDT1BZPWxs
-dm0tb2JqY29weSBPQkpEVU1QPWxsdm0tb2JqZHVtcCBSRUFERUxGPWxsdm0tcmVhZGVsZiBcCj4g
-PiAgICAgICBIT1NUQ0M9Y2xhbmcgSE9TVENYWD1jbGFuZysrIEhPU1RBUj1sbHZtLWFyIEhPU1RM
-RD1sZC5sbGQgXAo+ID4gICAgICAgQVJDSD0kQVJDSAo+ID4KPiA+ICQgY2xhbmcgLS12ZXJzaW9u
-Cj4gPiBDbGFuZ0J1aWx0TGludXggY2xhbmcgdmVyc2lvbiAxOS4xLjQKPiA+IFRhcmdldDogeDg2
-XzY0LXVua25vd24tbGludXgtZ251Cj4gPiBUaHJlYWQgbW9kZWw6IHBvc2l4Cj4gPgo+ID4gLSBt
-YWtlIEFSQ0g9dW0gcHJvZHVjZXMgdGhlIHdhcm5pbmcgZHVyaW5nIGNvbXBpbGluZzoKPiA+ICAg
-ICAgIE1PRFBPU1QgTW9kdWxlLnN5bXZlcnMKPiA+ICAgICAgIFdBUk5JTkc6IG1vZHBvc3Q6IHZt
-bGludXg6IHNlY3Rpb24gbWlzbWF0Y2ggaW4gcmVmZXJlbmNlOiBcCj4gPiAgICAgICAgICAgICAg
-IGthc2FuX2luaXQrMHg0MyAoc2VjdGlvbjogLmx0ZXh0KSAtPiBcCj4gPiAgICAgICAgICAgICAg
-IGthc2FuX2luaXRfZ2VuZXJpYyAoc2VjdGlvbjogLmluaXQudGV4dCkKPiA+Cj4gPiBBRkFJVSwg
-aXQncyBkdWUgdG8gdGhlIGNvZGUgaW4gYXJjaC91bS9rZXJuZWwvbWVtLmMsIHdoZXJlIGthc2Fu
-X2luaXQoKQo+ID4gaXMgcGxhY2VkIGluIG93biBzZWN0aW9uICIua2FzYW5faW5pdCIsIHdoaWNo
-IGNhbGxzIGthc2FuX2luaXRfZ2VuZXJpYygpCj4gPiB3aGljaCBpcyBtYXJrZWQgd2l0aCAiX19p
-bml0Ii4KPiA+Cj4gPiAtIEJvb3RpbmcgdmlhIHFlbXUtc3lzdGVtLSBhbmQgcnVubmluZyBLVW5p
-dCB0ZXN0czoKPiA+Cj4gPiAqIGFybTY0ICAoR0VORVJJQywgSFdfVEFHUywgU1dfVEFHUyk6IG5v
-IHJlZ3Jlc3Npb24sIHNhbWUgYWJvdmUgcmVzdWx0cy4KPiA+ICogeDg2XzY0IChHRU5FUklDKTog
-bm8gcmVncmVzc2lvbiwgbm8gZXJyb3JzCj4gPgo+Cj4gSXQgd291bGQgYmUgaW50ZXJlc3Rpbmcg
-dG8gc2VlIHdoZXRoZXIgQVJDSF9ERUZFUl9LQVNBTj15IGFyY2hlcyB3b3JrLgo+IFRoZXNlIHNl
-cmllcyBhZGQgc3RhdGljIGtleSBpbnRvIF9fYXNhbl9sb2FkKigpL19zdG9yZSooKSB3aGljaCBh
-cmUgY2FsbGVkCj4gZnJvbSBldmVyeXdoZXJlLCBpbmNsdWRpbmcgdGhlIGNvZGUgcGF0Y2hpbmcg
-c3RhdGljIGJyYW5jaGVzIGR1cmluZyB0aGUgc3dpdGNoLgo+Cj4gSSBoYXZlIHN1c3BpY2lvbiB0
-aGF0IHRoZSBjb2RlIHBhdGNoaW5nIHN0YXRpYyBicmFuY2hlcyBkdXJpbmcgc3RhdGljIGtleSBz
-d2l0Y2gKPiBtaWdodCBub3QgYmUgcHJlcGFyZWQgdG8gdGhlIGZhY3QgdGhlIGN1cnJlbnQgQ1BV
-IG1pZ2h0IHRyeSB0byBleGVjdXRlIHRoaXMgc3RhdGljCj4gYnJhbmNoIGluIHRoZSBtaWRkbGUg
-b2Ygc3dpdGNoLgoKQUZBSVUsIHlvdSdyZSByZWZlcnJpbmcgdG8gdGhpcyBmdW5jdGlvbiBpbiBt
-bS9rYXNhbi9nZW5lcmljLmM6CgpzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wgY2hlY2tfcmVn
-aW9uX2lubGluZShjb25zdCB2b2lkICphZGRyLAoKICAgICAgc2l6ZV90IHNpemUsIGJvb2wgd3Jp
-dGUsCgogICAgICB1bnNpZ25lZCBsb25nIHJldF9pcCkKewogICAgICAgIGlmICgha2FzYW5fc2hh
-ZG93X2luaXRpYWxpemVkKCkpCiAgICAgICAgICAgICAgICByZXR1cm4gdHJ1ZTsKLi4uCn0KCmFu
-ZCBwYXJ0aWN1bGFybHksIHRvIGFyY2hpdGVjdHVyZXMgdGhhdCBzZWxlY3RzIEFSQ0hfREVGRVJf
-S0FTQU49eSwgd2hpY2ggYXJlCmxvb25nYXJjaCwgcG93ZXJwYywgdW0uIFNvIHdoZW4gdGhlc2Ug
-YXJjaCB0cnkgdG8gZW5hYmxlIHRoZSBzdGF0aWMga2V5OgoKMS4gc3RhdGljX2JyYW5jaF9lbmFi
-bGUoJmthc2FuX2ZsYWdfZW5hYmxlZCkgY2FsbGVkCjIuIEtlcm5lbCBwYXRjaGVzIGNvZGUgLSBj
-aGFuZ2VzIGp1bXAgaW5zdHJ1Y3Rpb25zCjMuIENvZGUgcGF0Y2hpbmcgaW52b2x2ZXMgbWVtb3J5
-IHdyaXRlcwo0LiBNZW1vcnkgd3JpdGVzIGNhbiB0cmlnZ2VyIGFueSBLQVNBTiB3cmFwcGVyIGZ1
-bmN0aW9uCjUuIFdyYXBwZXIgY2FsbHMga2FzYW5fc2hhZG93X2luaXRpYWxpemVkKCkKNi4ga2Fz
-YW5fc2hhZG93X2luaXRpYWxpemVkKCkgY2FsbHMgc3RhdGljX2JyYW5jaF9saWtlbHkoJmthc2Fu
-X2ZsYWdfZW5hYmxlZCkKNy4gVGhpcyByZWFkcyB0aGUgc3RhdGljIGtleSBiZWluZyBwYXRjaGVk
-IC0tLSB0aGlzIGlzIHRoZSBwb3RlbnRpYWwgaXNzdWU/CgpUaGUgY3VycmVudCBydW50aW1lIGNo
-ZWNrIGlzIGZvbGxvd2luZyBpbiB0aXMgdjMgcGF0Y2ggc2VyaWVzOgoKI2lmZGVmIENPTkZJR19B
-UkNIX0RFRkVSX0tBU0FOCi4uLgpzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wga2FzYW5fc2hh
-ZG93X2luaXRpYWxpemVkKHZvaWQpCnsKICAgICAgICByZXR1cm4gc3RhdGljX2JyYW5jaF9saWtl
-bHkoJmthc2FuX2ZsYWdfZW5hYmxlZCk7Cn0KLi4uCiNlbmRpZgoKSSB3b25kZXIsIGlmIEkgc2hv
-dWxkIGFkZCBzb21lIHByb3RlY3Rpb24gb25seSBmb3IgS0FTQU5fR0VORVJJQywKd2hlcmUgY2hl
-Y2tfcmVnaW9uX2lubGluZSgpIGlzIGNhbGxlZCAob3IgZm9yIGFsbCBLQVNBTiBtb2Rlcz8pOgoK
-I2lmZGVmIENPTkZJR19BUkNIX0RFRkVSX0tBU0FOCi4uLgpzdGF0aWMgX19hbHdheXNfaW5saW5l
-IGJvb2wga2FzYW5fc2hhZG93X2luaXRpYWxpemVkKHZvaWQpCnsKICAgICAgICAvKiBBdm9pZCBy
-ZWN1cnNpb24gKD8pIGR1cmluZyBzdGF0aWMga2V5IHBhdGNoaW5nICovCiAgICAgICAgaWYgKHN0
-YXRpY19rZXlfY291bnQoJmthc2FuX2ZsYWdfZW5hYmxlZC5rZXkpIDwgMCkKICAgICAgICAgICAg
-ICAgIHJldHVybiBmYWxzZTsKICAgICAgICByZXR1cm4gc3RhdGljX2JyYW5jaF9saWtlbHkoJmth
-c2FuX2ZsYWdfZW5hYmxlZCk7Cn0KLi4uCiNlbmRpZgoKUGxlYXNlIHN1Z2dlc3Qgd2hlcmUgdGhl
-IGlzc3VlIGlzIGFuZCBpZiBJIHVuZGVyc3Rvb2QgdGhlIHByb2JsZW0uCkkgbWlnaHQgdHJ5IHRv
-IHJ1biBRRU1VIG9uIHBvd2VycGMgd2l0aCBLVW5pdHMgdG8gc2VlIGlmIEkgc2VlIGFueSBsb2dz
-LgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+A bit late for a "review", but Diederik and I have just been
+IRC-debugging a crash on RK3568 which by inspection seems to be caused
+by this patch:
+
+On 2024-08-05 10:17 am, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+> 
+> In addition to the required core clock and optional
+> bus clock, the soc will expand its own clocks, so
+> the bulk clock mechanism is abstracted.
+> 
+> Note, I call the bulk clocks as "other clocks" due
+> to the bus clock has been called as "optional".
+> 
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> Tested-by: Drew Fustini <drew@pdp7.com> # TH1520
+> Tested-by: Inochi Amaoto <inochiama@outlook.com> # Duo and Huashan Pi
+> ---
+[...]
+> +static int dwcmshc_get_enable_other_clks(struct device *dev,
+> +					 struct dwcmshc_priv *priv,
+> +					 int num_clks,
+> +					 const char * const clk_ids[])
+> +{
+> +	int err;
+> +
+> +	if (num_clks > DWCMSHC_MAX_OTHER_CLKS)
+> +		return -EINVAL;
+> +
+> +	for (int i = 0; i < num_clks; i++)
+> +		priv->other_clks[i].id = clk_ids[i];
+> +
+> +	err = devm_clk_bulk_get_optional(dev, num_clks, priv->other_clks);
+
+This leaves a pointer into "priv" in the devres list...
+
+> +	if (err) {
+> +		dev_err(dev, "failed to get clocks %d\n", err);
+> +		return err;
+> +	}
+> +
+> +	err = clk_bulk_prepare_enable(num_clks, priv->other_clks);
+> +	if (err)
+> +		dev_err(dev, "failed to enable clocks %d\n", err);
+> +
+> +	priv->num_other_clks = num_clks;
+> +
+> +	return err;
+> +}
+> +
+>   /*
+>    * If DMA addr spans 128MB boundary, we split the DMA transfer into two
+>    * so that each DMA transfer doesn't exceed the boundary.
+[...]
+> @@ -1280,9 +1300,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
+>   err_clk:
+>   	clk_disable_unprepare(pltfm_host->clk);
+>   	clk_disable_unprepare(priv->bus_clk);
+> -	if (rk_priv)
+> -		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
+> -					   rk_priv->rockchip_clks);
+> +	clk_bulk_disable_unprepare(priv->num_other_clks, priv->other_clks);
+>   free_pltfm:
+>   	sdhci_pltfm_free(pdev);
+
+...but upon, say, -EPROBE_DEFER from sdhci_setup_host() because a
+regulator isn't ready yet, that "priv" is freed here, so by the time the
+devres callbacks eventually run, that "devres->clks" pointer which used
+to represent "priv->other_clocks" points to who knows what, and this
+sort of thing happens:
+
+[   12.470827] Unable to handle kernel paging request at virtual address 002df7b378917664
+[   12.472104] Mem abort info:
+[   12.472471]   ESR = 0x0000000096000004
+[   12.475991]   EC = 0x25: DABT (current EL), IL = 32 bits
+[   12.476657]   SET = 0, FnV = 0
+[   12.477146]   EA = 0, S1PTW = 0
+[   12.477547]   FSC = 0x04: level 0 translation fault
+[   12.478127] Data abort info:
+[   12.478126] rockchip-gpio fdd60000.gpio: probed /pinctrl/gpio@fdd60000
+[   12.478413]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+[   12.479826]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+[   12.480418]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[   12.481282] [002df7b378917664] address between user and kernel address ranges
+[   12.482421] Internal error: Oops: 0000000096000004 [#1]  SMP
+[   12.482980] Modules linked in: sdhci_of_dwcmshc drm_dp_aux_bus gpio_rockchip(+) drm_display_helper dw_mmc_rockchip drm_client_lib sdhci_pltfm drm_dma_helper fwnode_mdio sdhci dw_mmc_pltf
+m libphy fixed rockchip_dfi drm_kms_helper cqhci pl330(+) phy_rockchip_naneng_combphy dw_wdt phy_rockchip_snps_pcie3 phy_rockchip_inno_usb2 dw_mmc mdio_bus dwc3 ehci_platform ohci_platform
+ehci_hcd drm ohci_hcd udc_core io_domain i2c_rk3x usbcore ulpi usb_common
+[   12.486871] CPU: 0 UID: 0 PID: 64 Comm: kworker/u16:3 Not tainted 6.16-rc7-arm64-cknow #1 PREEMPTLAZY  Debian 6.16~rc7-1
+[   12.487901] Hardware name: FriendlyElec NanoPi R5S (DT)
+[   12.488412] Workqueue: async async_run_entry_fn
+[   12.488879] pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[   12.489539] pc : __clk_put+0x2c/0x138
+[   12.489913] lr : __clk_put+0x2c/0x138
+[   12.490281] sp : ffff800080713b10
+[   12.490607] x29: ffff800080713b10 x28: ffff0001f001a120 x27: 0000000000000000
+[   12.491302] x26: ffff0001f98e01a0 x25: 0000000000000000 x24: ffff0001f0f35408
+[   12.491995] x23: ffffa8da199b4b40 x22: ffff800080713bb0 x21: ffff0001f0f35010
+[   12.492689] x20: ffff0001f94aafd0 x19: 0a2df7b378917634 x18: 00000000ffffffff
+[   12.493381] x17: 3d4d455453595342 x16: 555300307075656b x15: ffff0001f4885650
+[   12.494075] x14: 0000000000000000 x13: ffff0001f025b810 x12: 0000000000008000
+[   12.494765] x11: ffffa8da1a73ef98 x10: ffffa8da1a460000 x9 : 0000000000000078
+[   12.495454] x8 : 0000000000000049 x7 : ffffa8da18c2fbe0 x6 : 0000000000000001
+[   12.496145] x5 : 0000000000000004 x4 : 000000006cb6bb63 x3 : 0000000000000000
+[   12.496833] x2 : 0000000000000000 x1 : ffff0001f1365ac0 x0 : 0000000000000001
+[   12.497524] Call trace:
+[   12.497776]  __clk_put+0x2c/0x138 (P)
+[   12.498154]  clk_put+0x18/0x30
+[   12.498471]  clk_bulk_put+0x40/0x68
+[   12.498825]  devm_clk_bulk_release+0x24/0x40
+[   12.499248]  release_nodes+0x64/0xa0
+[   12.499608]  devres_release_all+0x98/0xf8
+[   12.500004]  device_unbind_cleanup+0x20/0x70
+[   12.500426]  really_probe+0x1e8/0x3a0
+[   12.500793]  __driver_probe_device+0x84/0x160
+[   12.501225]  driver_probe_device+0x44/0x128
+[   12.501640]  __driver_attach_async_helper+0x5c/0x108
+[   12.502125]  async_run_entry_fn+0x40/0x180
+[   12.502535]  process_one_work+0x23c/0x640
+[   12.502939]  worker_thread+0x1b4/0x360
+[   12.503315]  kthread+0x150/0x250
+[   12.503646]  ret_from_fork+0x10/0x20
+[   12.504015] Code: aa0003f3 b140041f 540006c8 97ffd9c4 (b9403260)
+[   12.504598] ---[ end trace 0000000000000000 ]---
+
+
+TBH I'm not sure what to do as a straight revert seems impractical by
+now, so we hope someone else might have a good idea.
+
+Thanks,
+Robin.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
