@@ -4,60 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 831ACC83F1A
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 18:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C6CC83F1A
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 20:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qJMq05Y/ndvLSl7H+Pt+slXje4dUtp2Gny5uVL3ka3s=; b=c/tAQ+L2lI7kHv
-	lgARYXgYuxRVFWGL9qODkqJudR4fBTGtMYcovyA9jDPzD/+/bm8Ya+Ejm1IN0+6sXsnMVTWxqoVql
-	LMl/z6uoOPh+EtZJq32qiwBUUAnlUlCKBn/eUB4pviSyX0lb7JrCbhKfDwOePgb0Ww4/0l2V9kvfK
-	HHB8awgeN+EjMStXTQiujTGeGT2C/+wKgnGz+jDW+4yLJeM94iIVvrZzgYYuChqTXoiUk6JKemaxr
-	IXNqBOFnFksCdNIoH39Yrx/X5uTyvGBfapFz2r7ZuXa9ATsJw7+Ib9CQXAj+fD0szheqa6zP15g9p
-	JkZiTk1Q19colfQnAljg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=e/UnMg6f2gxRpk/O/X7svE/TKiSjO6H3pxPLMAYoA4k=; b=xKEZtlyZOHA1oaYFrVeu84BKW/
+	YnkO3yP3jp4UYa+2XgzVwAkXSUCHT4znhiTfset5UnMvy7mfVVejS50YIFz0dTeR25Pttn8T0DZwF
+	T/qEYj6CfOMI0xawJx/2UrpGlvgZOGqX+lgqesDEpeXWO98YTM6nvbhTUpyjtZwFujgVPVwrSAW7q
+	9bCHjFNDtecC3ctiHDqx/LADliOGB1abneKNhZ/QAm5WVSA9yUvflRgfZPJCIVbRBkBLWD6RIMQPN
+	ldkTXzb5rzLy6Vo22kkPXhXPwrAjnboB/ccTr537qgqTqt8nv1grq7ogxZ8Hc8QC6gTqbawf76Bfz
+	rXUVUjpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueHoI-00000003FtJ-2sCY;
-	Tue, 22 Jul 2025 18:33:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueHoG-00000003FsY-0oHC;
-	Tue, 22 Jul 2025 18:33:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34B9E106F;
-	Tue, 22 Jul 2025 11:33:45 -0700 (PDT)
-Received: from [10.57.0.201] (unknown [10.57.0.201])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2F513F5A1;
-	Tue, 22 Jul 2025 11:33:46 -0700 (PDT)
-Message-ID: <f81b88df-9959-4968-a60a-b7efd3d5ea24@arm.com>
-Date: Tue, 22 Jul 2025 19:33:43 +0100
+	id 1ueJm4-00000003Rr1-2BWk;
+	Tue, 22 Jul 2025 20:39:44 +0000
+Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueJRZ-00000003PoU-3Koc
+	for linux-riscv@lists.infradead.org;
+	Tue, 22 Jul 2025 20:18:35 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfout.phl.internal (Postfix) with ESMTP id 69C67EC057F;
+	Tue, 22 Jul 2025 16:18:30 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Tue, 22 Jul 2025 16:18:30 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1753215510;
+	 x=1753301910; bh=Ue3hOiZOTBwNx3gp3nlcLSOvWzsJyJAf9xZ1igy2wnM=; b=
+	RD14oLRqFXYooq1HxJfFoI4GadRvd/tfyliOB62bB/tqyoOgqFAvCT1PngexCDcj
+	vL0ztESxc35WTtHCgAoqURyN6rSlWV6UBD4jB7NVk9hwGdg+mYi7UTHOOC3tiddr
+	MTY0qmuqTt/t2yDvuXVv1xtF6Hzj+ESYY36W5YVjecXFJD2Y9qtCePj1UUdnbq8r
+	xtWaoVu6wNVKuvI1Vs9IlD+Ls3lDv4/YNptJPS7svS2HcHdDP+6tWDaVPNwn6B2P
+	1+4aeyDSgi1pFD4dttKHz5B1vG0CgzckSRaexlKHKVeNKWJ5lZU8z0Vlu/DQIJwP
+	t0ILxhlN4uciikNa9dmuag==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1753215510; x=
+	1753301910; bh=Ue3hOiZOTBwNx3gp3nlcLSOvWzsJyJAf9xZ1igy2wnM=; b=Y
+	p8M1S4UUSF+b7g0C3Ej0shzc4n816mtxBVGbrDZi56JW9EasHbufvReMTv0Iz57V
+	vxNfLzkzG1iMmGq74lYyz/cx+w4qmvP6Jn8evdUlnkPM6fbPByfLYMeCHhedDzW6
+	AXWGoKLJeSmNVzd5FELjsu2lHuVBXrIf0GJsSr57uORe1bOV33y8o6yzjx9+/7cm
+	SNf8/qylJEmXMTDLRtnriZcJfSinm0KhM8sfy/FG4ArlJStdos/b4LvvEFrxOs9w
+	tJyw1WL7t63PxqPilksHpFFRPNP6Uq7q0xHB70lVdv/WV7AMVUZPFqzoDG/bomXn
+	c3ANuy422wxKy0GcERxGQ==
+X-ME-Sender: <xms:FfJ_aHq1oXerL_j49jUbU7ITWARIc_x-M4Gyo-cUHuokCO5OmDPStA>
+    <xme:FfJ_aBr9U5mgFibdRadpW6zZZPSnYycTpeGA4O4dtMzRBzUuDRkaOtHHoQe4GhIKF
+    1OR4_tnkXfz1Cd1LPE>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdejheekfecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpeetfeduheevuddtuefgueevffeludehheefheffueejudelvdehiedvffelffejtden
+    ucffohhmrghinhepghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenuc
+    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghp
+    thhtohepledpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghlvgigrghnuggvrh
+    drshhvvghrughlihhnsehgmhgrihhlrdgtohhmpdhrtghpthhtohepihhnohgthhhirghm
+    rgesghhmrghilhdrtghomhdprhgtphhtthhopehlohhoohhnghdrsghinhesghhmrghilh
+    drtghomhdprhgtphhtthhopehrrggsvghnuggrrdgtnhesghhmrghilhdrtghomhdprhgt
+    phhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhotg
+    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishht
+    shdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehsohhphhhgoheslhhishhtsh
+    drlhhinhhugidruggvvhdprhgtphhtthhopehunhhitghorhhnpgifrghnghesohhuthhl
+    ohhokhdrtghomh
+X-ME-Proxy: <xmx:FvJ_aAiwYjrHcNNTfmKV2tv-dDBHob2hPztuW0vyr22F9uGyaouhIw>
+    <xmx:FvJ_aKkfk4b_CJdAnhr1mnU5CZoEniDJ2ciK89GnwfNGAF4sY_OXLw>
+    <xmx:FvJ_aOY3rrCY6HHa5Qtl7y2wvOWILQBoGsagw7S5QvF5DnGtEeml2g>
+    <xmx:FvJ_aNGpFDCdakfFael6fJDf8ojRtvLd-mB3CVH20qxxthD9pVW0OA>
+    <xmx:FvJ_aIODzRhOYzF843q6AJgK0Gaj5TAyxFsnGaQewSVO4xtlo5kYNnD0>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id E675A700065; Tue, 22 Jul 2025 16:18:29 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/8] mmc: sdhci-of-dwcmshc: add common bulk optional
- clocks support
-To: Chen Wang <unicornxw@gmail.com>, adrian.hunter@intel.com,
- aou@eecs.berkeley.edu, conor+dt@kernel.org, guoren@kernel.org,
- inochiama@outlook.com, jszhang@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, robh@kernel.org, ulf.hansson@linaro.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
- chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
- tingzhu.wang@sophgo.com
-Cc: Chen Wang <unicorn_wang@outlook.com>, Drew Fustini <drew@pdp7.com>,
- Diederik de Haas <didi.debian@cknow.org>,
- "open list:ARM/Rockchip SoC..." <linux-rockchip@lists.infradead.org>
-References: <cover.1722847198.git.unicorn_wang@outlook.com>
- <e57e8c51da81f176b49608269a884f840903e78e.1722847198.git.unicorn_wang@outlook.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <e57e8c51da81f176b49608269a884f840903e78e.1722847198.git.unicorn_wang@outlook.com>
+X-ThreadId: T807ab912e45cbdf6
+Date: Tue, 22 Jul 2025 22:17:59 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Chen Wang" <unicorn_wang@outlook.com>, soc@kernel.org
+Cc: "Conor Dooley" <conor+dt@kernel.org>,
+ "Inochi Amaoto" <inochiama@gmail.com>,
+ "sophgo@lists.linux.dev" <sophgo@lists.linux.dev>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ "Alexander Sverdlin" <alexander.sverdlin@gmail.com>,
+ "Han Gao" <rabenda.cn@gmail.com>, "Longbin Li" <looong.bin@gmail.com>
+Message-Id: <217fec10-55f4-4a1b-a4a5-d498c42073a2@app.fastmail.com>
+In-Reply-To: <MAUPR01MB11072115B8D6E3F2354840F5EFE56A@MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM>
+References: <MAUPR01MB11072115B8D6E3F2354840F5EFE56A@MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM>
+Subject: Re: [GIT PULL] RISC-V Sophgo Devicetrees for v6.17 (v2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_113352_330687_43AEE23D 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20250722_131834_186889_5F91515B 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,144 +115,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A bit late for a "review", but Diederik and I have just been
-IRC-debugging a crash on RK3568 which by inspection seems to be caused
-by this patch:
-
-On 2024-08-05 10:17 am, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> In addition to the required core clock and optional
-> bus clock, the soc will expand its own clocks, so
-> the bulk clock mechanism is abstracted.
-> 
-> Note, I call the bulk clocks as "other clocks" due
-> to the bus clock has been called as "optional".
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> Tested-by: Drew Fustini <drew@pdp7.com> # TH1520
-> Tested-by: Inochi Amaoto <inochiama@outlook.com> # Duo and Huashan Pi
-> ---
-[...]
-> +static int dwcmshc_get_enable_other_clks(struct device *dev,
-> +					 struct dwcmshc_priv *priv,
-> +					 int num_clks,
-> +					 const char * const clk_ids[])
-> +{
-> +	int err;
-> +
-> +	if (num_clks > DWCMSHC_MAX_OTHER_CLKS)
-> +		return -EINVAL;
-> +
-> +	for (int i = 0; i < num_clks; i++)
-> +		priv->other_clks[i].id = clk_ids[i];
-> +
-> +	err = devm_clk_bulk_get_optional(dev, num_clks, priv->other_clks);
-
-This leaves a pointer into "priv" in the devres list...
-
-> +	if (err) {
-> +		dev_err(dev, "failed to get clocks %d\n", err);
-> +		return err;
-> +	}
-> +
-> +	err = clk_bulk_prepare_enable(num_clks, priv->other_clks);
-> +	if (err)
-> +		dev_err(dev, "failed to enable clocks %d\n", err);
-> +
-> +	priv->num_other_clks = num_clks;
-> +
-> +	return err;
-> +}
-> +
->   /*
->    * If DMA addr spans 128MB boundary, we split the DMA transfer into two
->    * so that each DMA transfer doesn't exceed the boundary.
-[...]
-> @@ -1280,9 +1300,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
->   err_clk:
->   	clk_disable_unprepare(pltfm_host->clk);
->   	clk_disable_unprepare(priv->bus_clk);
-> -	if (rk_priv)
-> -		clk_bulk_disable_unprepare(RK35xx_MAX_CLKS,
-> -					   rk_priv->rockchip_clks);
-> +	clk_bulk_disable_unprepare(priv->num_other_clks, priv->other_clks);
->   free_pltfm:
->   	sdhci_pltfm_free(pdev);
-
-...but upon, say, -EPROBE_DEFER from sdhci_setup_host() because a
-regulator isn't ready yet, that "priv" is freed here, so by the time the
-devres callbacks eventually run, that "devres->clks" pointer which used
-to represent "priv->other_clocks" points to who knows what, and this
-sort of thing happens:
-
-[   12.470827] Unable to handle kernel paging request at virtual address 002df7b378917664
-[   12.472104] Mem abort info:
-[   12.472471]   ESR = 0x0000000096000004
-[   12.475991]   EC = 0x25: DABT (current EL), IL = 32 bits
-[   12.476657]   SET = 0, FnV = 0
-[   12.477146]   EA = 0, S1PTW = 0
-[   12.477547]   FSC = 0x04: level 0 translation fault
-[   12.478127] Data abort info:
-[   12.478126] rockchip-gpio fdd60000.gpio: probed /pinctrl/gpio@fdd60000
-[   12.478413]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-[   12.479826]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[   12.480418]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[   12.481282] [002df7b378917664] address between user and kernel address ranges
-[   12.482421] Internal error: Oops: 0000000096000004 [#1]  SMP
-[   12.482980] Modules linked in: sdhci_of_dwcmshc drm_dp_aux_bus gpio_rockchip(+) drm_display_helper dw_mmc_rockchip drm_client_lib sdhci_pltfm drm_dma_helper fwnode_mdio sdhci dw_mmc_pltf
-m libphy fixed rockchip_dfi drm_kms_helper cqhci pl330(+) phy_rockchip_naneng_combphy dw_wdt phy_rockchip_snps_pcie3 phy_rockchip_inno_usb2 dw_mmc mdio_bus dwc3 ehci_platform ohci_platform
-ehci_hcd drm ohci_hcd udc_core io_domain i2c_rk3x usbcore ulpi usb_common
-[   12.486871] CPU: 0 UID: 0 PID: 64 Comm: kworker/u16:3 Not tainted 6.16-rc7-arm64-cknow #1 PREEMPTLAZY  Debian 6.16~rc7-1
-[   12.487901] Hardware name: FriendlyElec NanoPi R5S (DT)
-[   12.488412] Workqueue: async async_run_entry_fn
-[   12.488879] pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[   12.489539] pc : __clk_put+0x2c/0x138
-[   12.489913] lr : __clk_put+0x2c/0x138
-[   12.490281] sp : ffff800080713b10
-[   12.490607] x29: ffff800080713b10 x28: ffff0001f001a120 x27: 0000000000000000
-[   12.491302] x26: ffff0001f98e01a0 x25: 0000000000000000 x24: ffff0001f0f35408
-[   12.491995] x23: ffffa8da199b4b40 x22: ffff800080713bb0 x21: ffff0001f0f35010
-[   12.492689] x20: ffff0001f94aafd0 x19: 0a2df7b378917634 x18: 00000000ffffffff
-[   12.493381] x17: 3d4d455453595342 x16: 555300307075656b x15: ffff0001f4885650
-[   12.494075] x14: 0000000000000000 x13: ffff0001f025b810 x12: 0000000000008000
-[   12.494765] x11: ffffa8da1a73ef98 x10: ffffa8da1a460000 x9 : 0000000000000078
-[   12.495454] x8 : 0000000000000049 x7 : ffffa8da18c2fbe0 x6 : 0000000000000001
-[   12.496145] x5 : 0000000000000004 x4 : 000000006cb6bb63 x3 : 0000000000000000
-[   12.496833] x2 : 0000000000000000 x1 : ffff0001f1365ac0 x0 : 0000000000000001
-[   12.497524] Call trace:
-[   12.497776]  __clk_put+0x2c/0x138 (P)
-[   12.498154]  clk_put+0x18/0x30
-[   12.498471]  clk_bulk_put+0x40/0x68
-[   12.498825]  devm_clk_bulk_release+0x24/0x40
-[   12.499248]  release_nodes+0x64/0xa0
-[   12.499608]  devres_release_all+0x98/0xf8
-[   12.500004]  device_unbind_cleanup+0x20/0x70
-[   12.500426]  really_probe+0x1e8/0x3a0
-[   12.500793]  __driver_probe_device+0x84/0x160
-[   12.501225]  driver_probe_device+0x44/0x128
-[   12.501640]  __driver_attach_async_helper+0x5c/0x108
-[   12.502125]  async_run_entry_fn+0x40/0x180
-[   12.502535]  process_one_work+0x23c/0x640
-[   12.502939]  worker_thread+0x1b4/0x360
-[   12.503315]  kthread+0x150/0x250
-[   12.503646]  ret_from_fork+0x10/0x20
-[   12.504015] Code: aa0003f3 b140041f 540006c8 97ffd9c4 (b9403260)
-[   12.504598] ---[ end trace 0000000000000000 ]---
-
-
-TBH I'm not sure what to do as a straight revert seems impractical by
-now, so we hope someone else might have a good idea.
-
-Thanks,
-Robin.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdWwgMTYsIDIwMjUsIGF0IDAyOjMxLCBDaGVuIFdhbmcgd3JvdGU6Cj4gSGV5IEFy
+bmQsCj4KPiBQbGVhc2UgcHVsbCB0aGlzIGR0IGNoYW5nZXMgZm9yIFJJU0MtVi9Tb3BoZ28uIFRo
+aXMgUFIgaXMgdGhlIAo+IHJlcGxhY2VtZW50IG9mIHRoZSBvbGQgb25lIFsxXS4KPgoKSGkgQ2hl
+biwKCkkganVzdCB0cmllZCB0byBwdWxsIHRoaXMgYnV0IHN0aWxsIHNlZSBhIGZldyBpc3N1ZXMg
+dGhhdCBJIGhvcGUKeW91IGNhbiBpbXByb3ZlIGZpcnN0OgoKPiBUaGUgZm9sbG93aW5nIGNoYW5n
+ZXMgc2luY2UgY29tbWl0IDM0N2U5ZjUwNDNjODk2OTViMDFlNjZiM2VkMTExNzU1YWZjZjE5MTE6
+Cj4KPiAgwqAgTGludXggNi4xNi1yYzYgKDIwMjUtMDctMTMgMTQ6MjU6NTggLTA3MDApCj4KPiBh
+cmUgYXZhaWxhYmxlIGluIHRoZSBHaXQgcmVwb3NpdG9yeSBhdDoKPgo+ICDCoCBodHRwczovL2dp
+dGh1Yi5jb20vc29waGdvL2xpbnV4LmdpdCB0YWdzL3Jpc2N2LXNvcGhnby1kdC1mb3ItdjYuMTcK
+CllvdSBoYXZlIGJhc2VkIHRoZSBicmFuY2ggb24gbGludXgtNi4xNi1yYzYsIGJ1dCBteSBvd24g
+YnJhbmNoIGlzCmJhc2VkIG9uIC1yYzMsIHNvIHB1bGxpbmcgdGhpcyBpbnRyb2R1Y2VzIGEgYmFj
+a21lcmdlIG9mIGh1bmRyZWRzCm9mIHVwc3RyZWFtIGNvbW1pdHMsIHdoaWNoIEkgd291bGQgbGlr
+ZSB0byBhdm9pZC4KClBsZWFzZSByZWJhc2Ugb24gdG9wIG9mIC1yYzEgaWYgcG9zc2libGUuCgo+
+IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0KPiBSSVNDLVYgRGV2aWNldHJlZXMgZm9yIHY2LjE3Cj4KPiBTb3BoZ286Cj4KPiBG
+b3IgQ1YxOHh4IHNlcmlhbHM6Cj4gLSBBZGQgcnRjc3lzIGRldmljZSBub2RlLgo+IC0gQWRkIHJl
+c2V0IGRldmljZSBub2RlLgo+IC0gQWRkIGV0aGVybmV0IGRldmljZSBub2RlLgo+IC0gQWRkIHN1
+cHBvcnQgZm9yIER1byBNb2R1bGUgMDEgRXZhbHVhdGlvbiBCb2FyZC4KPiAgwqAgVGhpcyBib2Fy
+ZCB1c2VzIFNHMjAwMChvbGQgY29kZW5hbWUgQ1YxODF4SCksCj4gIMKgIHdoaWNoIGlzIGR1YWwt
+YXJjaCwgUklTQy1WIGFuZCBBUk02NC4gVGhpcwo+ICDCoCBwYXRjaCBhZGQgdGhlIHN1cHBvcnQg
+Zm9yIEFSTTY0Lgo+IC0gRW5hYmxlIGV0aGVybmV0IGRldmljZSBmb3IgSHVhc2hhbiBQaS4KPiAt
+IFJlbW92ZSB3YXJuaW5nIGZvciBtZGlvIG5vZGUuCgpGb3IgdGhlIGNvbW1pdCBsb2csIEkgZG9u
+J3QgbGlrZSBsaXN0cyB0aGF0IHNpbXBseSByZXBlYXQKdGhlIG9uZS1saW5lIG1lc3NhZ2VzIGZy
+b20gdGhlIHNob3J0bG9nLiBZb3UgY2FuIGxlYXZlIHRoaXMKcGFydCBmb3Igbm93IGlmIGl0IHRh
+a2VzIHRvbyBsb25nIHRvIHJld3JpdGUsIGJ1dCBuZXh0IHRpbWUKdHJ5IHRvIHdyaXRlIGZ1bGwg
+c2VudGVuY2VzIGRlc2NyaWJpbmcgdGhlIGNvbnRlbnRzIG92ZXJhbGwKYXMgeW91IGRpZCB3aXRo
+IHRoZSBEdW8gTW9kdWxlLCBidXQgZG9uJ3QgbGlzdCBlYWNoCmFkZGVkIGRldmljZSBub2RlIHNl
+cGFyYXRlbHkuCgo+IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0KPiBBbGV4YW5kZXIgU3ZlcmRsaW4gKDcpOgo+ICDCoMKgwqDC
+oMKgIHJpc2N2OiBkdHM6IHNvcGhnbzogY3YxOHh4OiBBZGQgUlRDU1lTIGRldmljZSBub2RlCj4g
+IMKgwqDCoMKgwqAgZHQtYmluZGluZ3M6IHNvYzogc29waGdvOiBNb3ZlIFNvQ3MvYm9hcmRzIGZy
+b20gcmlzY3YgaW50byBzb2MsIAo+IGFkZCBTRzIwMDAKPiAgwqDCoMKgwqDCoCBhcm02NDogZHRz
+OiBzb3BoZ286IEFkZCBpbml0aWFsIFNHMjAwMCBTb0MgZGV2aWNlIHRyZWUKPiAgwqDCoMKgwqDC
+oCBhcm02NDogZHRzOiBzb3BoZ286IEFkZCBEdW8gTW9kdWxlIDAxCj4gIMKgwqDCoMKgwqAgYXJt
+NjQ6IGR0czogc29waGdvOiBBZGQgRHVvIE1vZHVsZSAwMSBFdmFsdWF0aW9uIEJvYXJkCj4gIMKg
+wqDCoMKgwqAgYXJtNjQ6IEFkZCBTT1BIR08gU09DIGZhbWlseSBLY29uZmlnIHN1cHBvcnQKPiAg
+wqDCoMKgwqDCoCBhcm02NDogZGVmY29uZmlnOiBFbmFibGUgcnVkaW1lbnRhcnkgU29waGdvIFNH
+MjAwMCBzdXBwb3J0CgpJdCdzIG9rIHRvIG1peCByaXNjdiBhbmQgYXJtNjQgY29tbWl0cyBpbiBv
+bmUgYnJhbmNoLCBidXQgdGhlIFNHMjAwMApzZXJpZXMgZnJvbSBBbGV4YW5kZXIgc2hvdWxkIHJl
+YWxseSBiZSBhIHNlcGFyYXRlIGJyYW5jaC4gVGhlIHdheQpJIG9yZ2FuaXplIHRoZSBzb2MgdHJl
+ZSwgSSBoYXZlIG9uZSBicmFuY2ggZm9yIGR0cyAoYW5kIGJpbmRpbmcpCmNoYW5nZXMgb24gZXhp
+c3RpbmcgU29DcywgYnV0IHNlcGFyYXRlIGJyYW5jaGVzIGZvciBkZWZjb25maWcgY2hhbmdlcywK
+ZHJpdmVycy97c29jLGZpcm13YXJlLHJlc2V0LC4uLn0gZXRjLgoKU2luY2UgdGhlIGFybTY0IGNv
+bnRlbnRzIHRvdWNoIGJvdGggS2NvbmZpZyBhbmQgZGVmY29uZmlnIGZpbGVzLApJIHdvdWxkIGxp
+a2UgdG8gc2VlIHRoZW0gaW4gb25lIGJyYW5jaCB0aGF0IGNvbWJpbmVzIHRoZSBzZzIwMDAKZHRz
+L2RlZmNvbmZpZy9LY29uZmlnIGNoYW5nZXMgYW5kIHRoZWlyIHByZXJlcXVpc2l0ZXMsIHNvIEkK
+Y2FuIGFkZCB0aGF0IHRvIG15IHNwZWNpYWwgIm5ld3NvYyIgYnJhbmNoIHRoYXQgY29udGFpbnMg
+c2ltaWxhcgpjb21taXRzIGZvciB0aGUgbmV3bHkgYWRkZWQgcHhhMTkwOCwgY2l4LXAxIGFuZCBh
+bmRlcy1xaWxhaSBTb0NzLgoKICAgICAgQXJuZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
