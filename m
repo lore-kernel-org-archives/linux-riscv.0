@@ -4,64 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37831C83F25
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 08:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0032EC83F27
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 08:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DQmPjmvKygISFeZsAQAzrDsbBNM30msbsb7mgmndaGY=; b=obYoja0m0IlduM
-	KR51rBULmvKM5hTS6L7A9TmWa5VC4jrN3X9PQSgiEsMXe6E/4VbfrU2Hxx94fCRQbXG9+DzLawLyo
-	k2bBPMaXAiAZMZLGX3rTeLP7zTpWe8DyK2TqiIk6+UXZHpEMT/OwyK5vLnabGt2782SQRSD1grmzT
-	kSn/T7uWGg0ywONN5SKCit4dFUPteUVpZVZ1aceskEOdftb0DC5eNb14wJBf89fm4ucKuZzQMsCCY
-	WcvPTWNq/2iAnXPo2E5T26wZiaWHJ/ExAytvZ+WpqDSSTW+zng6L/RY48lHonDDPfX088gYHaC/gu
-	RSUA6eby/BCfxnZPQFvg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kuuTJENQGq/Zz+2Fmj2uqyE+Z7pIgJqUmUnrGJSBurU=; b=N7DGLKhpZ6Flu9
+	ZMaEQhY4xJ/MT0COuAqxDWmApbJeMiBAJgrLNPX5Bz9ZEDGntj1BZGmJ8Y2MVhtqSvqRdQfgJvEpA
+	UbXol/p4fTwSLv6tKgNbIe5NDe67Ei+IAxXk9fTOlKMkpoAMLYivzcZ3RxvL77JiZmE6AsoHcBqvV
+	S37pjdjG5edDpRirCkKNqAzFE7ews1thL6L4q16ii7KPZ/kHlBSuWHHmIVbrQRigp0SdvvEM1UEFm
+	N7PV8uhqMKGe//xV30uRJQxAeXNyOGGJMNDMIeWC0e1xOqmpz7IrwxDiFXC+7yWEOvR1SotsLvCBa
+	s6gDyKs2rTKb3pKme5GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue81a-00000001lhn-00cd;
-	Tue, 22 Jul 2025 08:06:58 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1ue8ST-00000001qQV-1he7;
+	Tue, 22 Jul 2025 08:34:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue81W-00000001lgL-1gjn
-	for linux-riscv@lists.infradead.org;
-	Tue, 22 Jul 2025 08:06:56 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 846932000A;
-	Tue, 22 Jul 2025 10:06:51 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id NSkwosCWrUf5; Tue, 22 Jul 2025 10:06:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1753171609; bh=hVGzWh4Vvx6CSvwzllIJGxjDisw7/fzLjSvjtPvZXg4=;
-	h=From:To:Cc:Subject:Date;
-	b=FmwpoXPTomLG7E+ru7ZPJ4rQaH8ipe8Zzlm9sgucYGXveZW6SxBMqfJfqmWOBys2V
-	 LfISEBCIlmFxH1K6dvIBGmnhSmCN2qwEMfCHIIVkY62W9Nq1N/ZNj6LzK+v3Gz4D6c
-	 wuP0tQePpFjHt42066+rluAn1ehkwHmQq2hxkJBMW1q0wIsWi2iXrQVRm/Kcd5obJb
-	 ep/4hQK3tQZRgfi7dfXVQZ8Bmqo/6SLgat/zjkPmLWYAyKdUxzQuDb2cSKO7wY3r9x
-	 2ES10eSAX/IzxtbhW5eEfVTfEFZgkeR0conowNalcl1Hecn31Fecuxm5zMcpbZuEE0
-	 AGEEKAva0DgbA==
-From: Yao Zi <ziyao@disroot.org>
-To: Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Yangtao Li <frank.li@vivo.com>
-Cc: linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH v3] clk: thead: th1520-ap: Describe mux clocks with clk_mux
-Date: Tue, 22 Jul 2025 08:05:36 +0000
-Message-ID: <20250722080535.60027-2-ziyao@disroot.org>
+	id 1ue8L4-00000001pVA-2fZW;
+	Tue, 22 Jul 2025 08:27:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 017F7600AC;
+	Tue, 22 Jul 2025 08:27:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A537C4CEF5;
+	Tue, 22 Jul 2025 08:26:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753172825;
+	bh=yGkRA/6qnjLPhMkWmaVYag52FJSXvc8HTUW6Y3Xuzs4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ftIKtFsS+75DjkESBKR4C/0fTfhjTO5EAQaosz6bDp0SBtC0xu6jrbFmvS+RKsdrx
+	 f4dMY3bCIrRdjzyHRTqQ2IS3DbC0aaJA20FDQXMOHNRYWFh4FtQSBKE6qcpYZfqwwn
+	 EBlY5p7lMzTdcc4tj5YJJGVzamw8NuZS2DY35/I8OtpLoIXd1OL5/ZeHJymCJvh1YO
+	 fQNqEpJ2tIsXeilrIIv/4unMX0gRI4A5tYLUiPoiE/g7dGzpTCnD1Qfrv0OCm/INtf
+	 +6BTjWwe4qdBcxVcEwQyD1qD72/jVzjC0CRHbF2sbB7CBVIvfoxl37x9XjTdsKkyQI
+	 517UWQRiFJG/g==
+Date: Tue, 22 Jul 2025 11:26:46 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Kees Cook <kees@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Henrique de Moraes Holschuh <hmh@hmh.eng.br>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Michal Wilczynski <michal.wilczynski@intel.com>,
+	Juergen Gross <jgross@suse.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Roger Pau Monne <roger.pau@citrix.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Usama Arif <usama.arif@bytedance.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Thomas Huth <thuth@redhat.com>, Brian Gerst <brgerst@gmail.com>,
+	kvm@vger.kernel.org, ibm-acpi-devel@lists.sourceforge.net,
+	platform-driver-x86@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-mm@kvack.org, Ingo Molnar <mingo@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com, linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v3 04/13] x86: Handle KCOV __init vs inline mismatches
+Message-ID: <aH9LRgiiXQdABrd6@kernel.org>
+References: <20250717231756.make.423-kees@kernel.org>
+ <20250717232519.2984886-4-kees@kernel.org>
+ <aHoHkDvvp4AHIzU1@kernel.org>
+ <202507181541.B8CFAC7E@keescook>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_010654_982045_C37624D0 
-X-CRM114-Status: GOOD (  15.83  )
+Content-Disposition: inline
+In-Reply-To: <202507181541.B8CFAC7E@keescook>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,218 +112,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Mux clocks are now described with a customized ccu_mux structure
-consisting of ccu_internal and ccu_common substructures, and registered
-later with devm_clk_hw_register_mux_parent_data_table(). As this helper
-always allocates a new clk_hw structure, it's extremely hard to use mux
-clocks as parents statically by clk_hw pointers, since CCF has no
-knowledge about the clk_hw structure embedded in ccu_mux.
+On Fri, Jul 18, 2025 at 03:51:28PM -0700, Kees Cook wrote:
+> On Fri, Jul 18, 2025 at 11:36:32AM +0300, Mike Rapoport wrote:
+> > Hi Kees,
+> > 
+> > On Thu, Jul 17, 2025 at 04:25:09PM -0700, Kees Cook wrote:
+> > > When KCOV is enabled all functions get instrumented, unless the
+> > > __no_sanitize_coverage attribute is used. To prepare for
+> > > __no_sanitize_coverage being applied to __init functions, we have to
+> > > handle differences in how GCC's inline optimizations get resolved. For
+> > > x86 this means forcing several functions to be inline with
+> > > __always_inline.
+> > > 
+> > > Signed-off-by: Kees Cook <kees@kernel.org>
+> > 
+> > ...
+> > 
+> > > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> > > index bb19a2534224..b96746376e17 100644
+> > > --- a/include/linux/memblock.h
+> > > +++ b/include/linux/memblock.h
+> > > @@ -463,7 +463,7 @@ static inline void *memblock_alloc_raw(phys_addr_t size,
+> > >  					  NUMA_NO_NODE);
+> > >  }
+> > >  
+> > > -static inline void *memblock_alloc_from(phys_addr_t size,
+> > > +static __always_inline void *memblock_alloc_from(phys_addr_t size,
+> > >  						phys_addr_t align,
+> > >  						phys_addr_t min_addr)
+> > 
+> > I'm curious why from all memblock_alloc* wrappers this is the only one that
+> > needs to be __always_inline?
+> 
+> Thread-merge[1], adding Will Deacon, who was kind of asking the same
+> question.
+> 
+> Based on what I can tell, GCC has kind of fragile inlining logic, in the
+> sense that it can change whether or not it inlines something based on
+> optimizations. It looks like the kcov instrumentation being added (or in
+> this case, removed) from a function changes the optimization results,
+> and some functions marked "inline" are _not_ inlined. In that case, we end up
+> with __init code calling a function not marked __init, and we get the
+> build warnings I'm trying to eliminate.
+> 
+> So, to Will's comment, yes, the problem is somewhat fragile (though
+> using either __always_inline or __init will deterministically solve it).
+> We've tripped over this before with GCC and the solution has usually
+> been to just use __always_inline and move on.
+> 
+> For memblock_alloc*, it appears to be that the heuristic GCC uses
+> resulted in only memblock_alloc_from() being a problem in this case. I
+> can certainly mark them all as __always_inline if that is preferred.
 
-This scheme already causes issues for clock c910, which takes a mux
-clock, c910-i0, as a possible parent. With mainline U-Boot that
-reparents c910 to c910-i0 at boottime, c910 is considered as an orphan
-by CCF.
+We had a few of those already converted to __always_inline, so I'm ok with
+continuing to fix them one at at time. Gives a feeling of job security ;-)
 
-This patch refactors handling of mux clocks, embeds a clk_mux structure
-in ccu_mux directly. Instead of calling devm_clk_hw_register_mux_*(),
-we could register mux clocks on our own without allocating any new
-clk_hw pointer, fixing c910 clock's issue.
+> -- 
+> Kees Cook
 
-Fixes: ae81b69fd2b1 ("clk: thead: Add support for T-Head TH1520 AP_SUBSYS clocks")
-Signed-off-by: Yao Zi <ziyao@disroot.org>
----
-
-This replaces the second patch in v2 of series "Fix orphan clocks in
-clk-th1520-ap driver".
-
-Note that the c910's issue cannot be reproduced with vendor U-Boot,
-which always reparents c910 to its second parent, cpu-pll1. Another way
-to confirm the bug is to examine
-/sys/kernel/debug/clk/c910/clk_possible_parents, which obviously doesn't
-match c910's definition. There's another patch[1] explaining and fixing
-the issue that the unknown parent isn't shown as "(missing)" in debugfs.
-
-[1]: https://lore.kernel.org/linux-clk/20250705095816.29480-2-ziyao@disroot.org/
-
-Changed from v2:
-- Avoid referring c910-i0 as parent for c910 with global names. Instead,
-  refactor mux clock handling to make referring to mux clocks by clk_hw
-  pointers possible
-- Link to v2: https://lore.kernel.org/linux-riscv/20250710092135.61049-1-ziyao@disroot.org/
-
-Changed from v1:
-- Split the two fixes into separate patches
-- Link to v1: https://lore.kernel.org/all/20250705052028.24611-1-ziyao@disroot.org/
-
- drivers/clk/thead/clk-th1520-ap.c | 95 ++++++++++++-------------------
- 1 file changed, 37 insertions(+), 58 deletions(-)
-
-diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-index 5a102beb6ac1..cf1bba58f641 100644
---- a/drivers/clk/thead/clk-th1520-ap.c
-+++ b/drivers/clk/thead/clk-th1520-ap.c
-@@ -42,8 +42,9 @@ struct ccu_common {
- };
- 
- struct ccu_mux {
--	struct ccu_internal	mux;
--	struct ccu_common	common;
-+	int			clkid;
-+	u32			reg;
-+	struct clk_mux		mux;
- };
- 
- struct ccu_gate {
-@@ -75,6 +76,17 @@ struct ccu_pll {
- 		.flags	= _flags,					\
- 	}
- 
-+#define TH_CCU_MUX(_name, _parents, _shift, _width)			\
-+	{								\
-+		.mask		= GENMASK(_width - 1, 0),		\
-+		.shift		= _shift,				\
-+		.hw.init	= CLK_HW_INIT_PARENTS_DATA(		\
-+					_name,				\
-+					_parents,			\
-+					&clk_mux_ops,			\
-+					0),				\
-+	}
-+
- #define CCU_GATE(_clkid, _struct, _name, _parent, _reg, _gate, _flags)	\
- 	struct ccu_gate _struct = {					\
- 		.enable	= _gate,					\
-@@ -94,13 +106,6 @@ static inline struct ccu_common *hw_to_ccu_common(struct clk_hw *hw)
- 	return container_of(hw, struct ccu_common, hw);
- }
- 
--static inline struct ccu_mux *hw_to_ccu_mux(struct clk_hw *hw)
--{
--	struct ccu_common *common = hw_to_ccu_common(hw);
--
--	return container_of(common, struct ccu_mux, common);
--}
--
- static inline struct ccu_pll *hw_to_ccu_pll(struct clk_hw *hw)
- {
- 	struct ccu_common *common = hw_to_ccu_common(hw);
-@@ -415,32 +420,20 @@ static const struct clk_parent_data c910_i0_parents[] = {
- };
- 
- static struct ccu_mux c910_i0_clk = {
--	.mux	= TH_CCU_ARG(1, 1),
--	.common	= {
--		.clkid		= CLK_C910_I0,
--		.cfg0		= 0x100,
--		.hw.init	= CLK_HW_INIT_PARENTS_DATA("c910-i0",
--					      c910_i0_parents,
--					      &clk_mux_ops,
--					      0),
--	}
-+	.clkid	= CLK_C910_I0,
-+	.reg	= 0x100,
-+	.mux	= TH_CCU_MUX("c910-i0", c910_i0_parents, 1, 1),
- };
- 
- static const struct clk_parent_data c910_parents[] = {
--	{ .hw = &c910_i0_clk.common.hw },
-+	{ .hw = &c910_i0_clk.mux.hw },
- 	{ .hw = &cpu_pll1_clk.common.hw }
- };
- 
- static struct ccu_mux c910_clk = {
--	.mux	= TH_CCU_ARG(0, 1),
--	.common	= {
--		.clkid		= CLK_C910,
--		.cfg0		= 0x100,
--		.hw.init	= CLK_HW_INIT_PARENTS_DATA("c910",
--					      c910_parents,
--					      &clk_mux_ops,
--					      0),
--	}
-+	.clkid	= CLK_C910,
-+	.reg	= 0x100,
-+	.mux	= TH_CCU_MUX("c910", c910_parents, 0, 1),
- };
- 
- static const struct clk_parent_data ahb2_cpusys_parents[] = {
-@@ -925,15 +918,9 @@ static const struct clk_parent_data uart_sclk_parents[] = {
- };
- 
- static struct ccu_mux uart_sclk = {
--	.mux	= TH_CCU_ARG(0, 1),
--	.common	= {
--		.clkid          = CLK_UART_SCLK,
--		.cfg0		= 0x210,
--		.hw.init	= CLK_HW_INIT_PARENTS_DATA("uart-sclk",
--					      uart_sclk_parents,
--					      &clk_mux_ops,
--					      0),
--	}
-+	.clkid	= CLK_UART_SCLK,
-+	.reg	= 0x210,
-+	.mux	= TH_CCU_MUX("uart-sclk", uart_sclk_parents, 0, 1),
- };
- 
- static struct ccu_common *th1520_pll_clks[] = {
-@@ -970,10 +957,10 @@ static struct ccu_common *th1520_div_clks[] = {
- 	&dpu1_clk.common,
- };
- 
--static struct ccu_common *th1520_mux_clks[] = {
--	&c910_i0_clk.common,
--	&c910_clk.common,
--	&uart_sclk.common,
-+static struct ccu_mux *th1520_mux_clks[] = {
-+	&c910_i0_clk,
-+	&c910_clk,
-+	&uart_sclk,
- };
- 
- static struct ccu_common *th1520_gate_clks[] = {
-@@ -1075,7 +1062,7 @@ static const struct regmap_config th1520_clk_regmap_config = {
- struct th1520_plat_data {
- 	struct ccu_common **th1520_pll_clks;
- 	struct ccu_common **th1520_div_clks;
--	struct ccu_common **th1520_mux_clks;
-+	struct ccu_mux	  **th1520_mux_clks;
- 	struct ccu_common **th1520_gate_clks;
- 
- 	int nr_clks;
-@@ -1162,23 +1149,15 @@ static int th1520_clk_probe(struct platform_device *pdev)
- 	}
- 
- 	for (i = 0; i < plat_data->nr_mux_clks; i++) {
--		struct ccu_mux *cm = hw_to_ccu_mux(&plat_data->th1520_mux_clks[i]->hw);
--		const struct clk_init_data *init = cm->common.hw.init;
--
--		plat_data->th1520_mux_clks[i]->map = map;
--		hw = devm_clk_hw_register_mux_parent_data_table(dev,
--								init->name,
--								init->parent_data,
--								init->num_parents,
--								0,
--								base + cm->common.cfg0,
--								cm->mux.shift,
--								cm->mux.width,
--								0, NULL, NULL);
--		if (IS_ERR(hw))
--			return PTR_ERR(hw);
-+		struct ccu_mux *cm = plat_data->th1520_mux_clks[i];
-+
-+		cm->mux.reg = base + cm->reg;
-+
-+		ret = devm_clk_hw_register(dev, &cm->mux.hw);
-+		if (ret)
-+			return ret;
- 
--		priv->hws[cm->common.clkid] = hw;
-+		priv->hws[cm->clkid] = &cm->mux.hw;
- 	}
- 
- 	for (i = 0; i < plat_data->nr_gate_clks; i++) {
 -- 
-2.50.1
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
