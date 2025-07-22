@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0032EC83F27
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 08:34:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57016C83F27
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 08:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kuuTJENQGq/Zz+2Fmj2uqyE+Z7pIgJqUmUnrGJSBurU=; b=N7DGLKhpZ6Flu9
-	ZMaEQhY4xJ/MT0COuAqxDWmApbJeMiBAJgrLNPX5Bz9ZEDGntj1BZGmJ8Y2MVhtqSvqRdQfgJvEpA
-	UbXol/p4fTwSLv6tKgNbIe5NDe67Ei+IAxXk9fTOlKMkpoAMLYivzcZ3RxvL77JiZmE6AsoHcBqvV
-	S37pjdjG5edDpRirCkKNqAzFE7ews1thL6L4q16ii7KPZ/kHlBSuWHHmIVbrQRigp0SdvvEM1UEFm
-	N7PV8uhqMKGe//xV30uRJQxAeXNyOGGJMNDMIeWC0e1xOqmpz7IrwxDiFXC+7yWEOvR1SotsLvCBa
-	s6gDyKs2rTKb3pKme5GA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=B4WPZ0ovi0Pd2x1Znr6Kd7MbkbXuNapVYDTKQCekLQk=; b=r3m9hoHDn9x3MX
+	EeV67iN1d0kI2zU7U9vMR/TGCOQSGobuaSSFm4TBdO1JcPI3HOjV0R7Q90xGlxWq1BsVyQRe448QS
+	pJXFYHjrLoJTIMbP/uE8z4Hg7pS2+dUEP8jBHBSztCUW+R5caHTBJH+Now3Jf92duirodj3oPc8UU
+	XFWnbjcfgM/HQVPP4BTS96IbZqNeA4Gg/YUiXNCZZE+aFKgc/GVM7I4vtpmCHu1kj4BtCKQ1/XKo0
+	RskySwVLPI3ECtchHvx8oAJ8p45ZGU8/HuzCVrPxsgz1AROQCxHSqzEl5DN4jauGELYOdlGgNJjKq
+	9mavofBQQ9ie3uCcce/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue8ST-00000001qQV-1he7;
-	Tue, 22 Jul 2025 08:34:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ue8gb-00000001t0V-3XT1;
+	Tue, 22 Jul 2025 08:49:21 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue8L4-00000001pVA-2fZW;
-	Tue, 22 Jul 2025 08:27:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 017F7600AC;
-	Tue, 22 Jul 2025 08:27:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A537C4CEF5;
-	Tue, 22 Jul 2025 08:26:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753172825;
-	bh=yGkRA/6qnjLPhMkWmaVYag52FJSXvc8HTUW6Y3Xuzs4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ftIKtFsS+75DjkESBKR4C/0fTfhjTO5EAQaosz6bDp0SBtC0xu6jrbFmvS+RKsdrx
-	 f4dMY3bCIrRdjzyHRTqQ2IS3DbC0aaJA20FDQXMOHNRYWFh4FtQSBKE6qcpYZfqwwn
-	 EBlY5p7lMzTdcc4tj5YJJGVzamw8NuZS2DY35/I8OtpLoIXd1OL5/ZeHJymCJvh1YO
-	 fQNqEpJ2tIsXeilrIIv/4unMX0gRI4A5tYLUiPoiE/g7dGzpTCnD1Qfrv0OCm/INtf
-	 +6BTjWwe4qdBcxVcEwQyD1qD72/jVzjC0CRHbF2sbB7CBVIvfoxl37x9XjTdsKkyQI
-	 517UWQRiFJG/g==
-Date: Tue, 22 Jul 2025 11:26:46 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	Henrique de Moraes Holschuh <hmh@hmh.eng.br>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Michal Wilczynski <michal.wilczynski@intel.com>,
-	Juergen Gross <jgross@suse.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Roger Pau Monne <roger.pau@citrix.com>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	Usama Arif <usama.arif@bytedance.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Thomas Huth <thuth@redhat.com>, Brian Gerst <brgerst@gmail.com>,
-	kvm@vger.kernel.org, ibm-acpi-devel@lists.sourceforge.net,
-	platform-driver-x86@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-mm@kvack.org, Ingo Molnar <mingo@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com, linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v3 04/13] x86: Handle KCOV __init vs inline mismatches
-Message-ID: <aH9LRgiiXQdABrd6@kernel.org>
-References: <20250717231756.make.423-kees@kernel.org>
- <20250717232519.2984886-4-kees@kernel.org>
- <aHoHkDvvp4AHIzU1@kernel.org>
- <202507181541.B8CFAC7E@keescook>
+	id 1ue7a1-00000001hI9-3Slo
+	for linux-riscv@lists.infradead.org;
+	Tue, 22 Jul 2025 07:38:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1753169832;
+	bh=pQ0rrp8kQpeiLV2GXPkNYYVhyLLgxjuHpx2u2oAf54o=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=QqIcQcroOZTMKAHy7RDR9tRVZZOMqNgk4SXU6RIQLa5v2LooUY6pVe7kw1mKEZoPz
+	 BbmuuPzwU/qA40WdC//4Q4PRXHZgtV49DIBjwnXwX9xV1cp4sbUqKna23oWSFvnSUf
+	 KJtx/Tr+Awk1b2wYdX7ng5icGsfOmRI4v0+mUUcg=
+X-QQ-mid: esmtpsz20t1753169822t9cc06cca
+X-QQ-Originating-IP: o/6alvnXRlytoxVwMjxbpu188hGl4Y8IZ2m7pvs1yY8=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 22 Jul 2025 15:36:59 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3472028324407458743
+EX-QQ-RecipientCnt: 16
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: [PATCH v2 0/2] clk: spacemit: fix sspax_clk
+Date: Tue, 22 Jul 2025 15:36:29 +0800
+Message-Id: <20250722-k1-clk-i2s-v2-0-2f8edfe3dab4@linux.spacemit.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <202507181541.B8CFAC7E@keescook>
+X-B4-Tracking: v=1; b=H4sIAH0/f2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDI1MDc0Nz3WxD3eScbN1Mo2LdVBMjc6M0wzRLQ9MkJaCGgqLUtMwKsGHRsbW
+ 1ADGwC4pcAAAA
+X-Change-ID: 20250717-k1-clk-i2s-e4272f1f915b
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>, 
+ Inochi Amaoto <inochiama@outlook.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Yao Zi <ziyao@disroot.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753169819; l=1511;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=1EK2TQsFCA6A4Rh5b5WVVEqCK3IkUuA1s0DimdzqhBc=;
+ b=CTQULKaJ7/EjE652+6Wzwt9+vLnkF0x+lT+4hZ+GRPFNvj6L07fYzAjrjnWRajGOzpU/Xx05C
+ VFmJL1uAPltA3TPbGZ8DBw0dpsEJhVQKGmbHAqDsmGLU0W7P6pUmkXa
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NTQ66HfZcHliPHrfIBKRpK7F2dihCzcQtXunHgRUvb3k2Z07MQwYgWLd
+	j9PnaTDTBDO2+74vGbbeQPsXDc4FtNLO9FtLIQxK9JLTv4YVRt+IkCxXw7H5fZmikT4hx0u
+	gQKylacha4f55CKxtUzfElbra/WSSaITRzXwYVO8lpihryqlrXxrn/bp1QUaOMX/QP2ds9f
+	E3aGGzfmn/+sNrCFiRaV3ddWqQy+arGWsAe+mbHeU+1IWEKoDeiWLWVqMEgqf4wjzCgqW9u
+	ZA9IYoo2aYqi0EonbDhK7HwRxaTfmYJlKbNg1TUHtoml9+rsnNMAdYeHpMftq+JeY+2941u
+	/pJso5ctLPL1s//45ICUr/AGJVwNN+mb7AZBzWOpwN4ilzF8JSFIIig6YVp8kUekROog9b5
+	kfzY5urBp/p2oFXirUmDtEU8qo2aRDTILZFKBQ3n7NbpHZogF+vVeNPmWI5E/B16GIVVH/6
+	Wt+yAYmMTNVFBNLMow/ZTQsOXM6CABBa9p1GBq6p/dQxCCg4obpR+xqwFTqM33jVsqA7YgO
+	qy3ZdkfCVzcl5Vgh3XVyJ5G7LE9w2f0iTY6/CJO79IbGYQDbrCjgyJqMGX7gNR/y0iiMoRN
+	ikIFCdTLapJothtm5SOVCm6GphbOpoV46AlB6DkQlaSCRCs3wczkXg9csoiUb1jTJzODBny
+	c9JFAB/Zsk186Sd5pGkUEN8OkQvUDP79xph6h8txBsPTsbFCoMRGgVy7h1DZNDUVOY67yFj
+	DZu6olkaG1g3C4DIPfoGH2nBXEYygpvrgtPULHR2y8oL/qLFCM/6sMsBIsby5Th3uO52PeI
+	nJ5v4IhuiZg73X0m4dMw8SwQR/xs9WbveGA0dPWemUB4VJ5k6+INTN5KLmGUywdb42NCxt9
+	fUwZe2hakSSt7dPVLLMvj9yR0ucNZcsFIliXqvjtCgpEv6+QJidlyQUZwpKUKXKQYXINE8M
+	E744lO8ZdbC2+Y/L/p2BRxlIHvKjOEWnpPTQUT3bfotV+5O08/K5pgXOBqhi/1/GqLYcHhY
+	y0t8rKAmMmDgMKZnn+2B6HLVZA0wbNRj0fmdAtngIhsSf7uX+hoBPQ0dr7ERDVheWWGoYmw
+	db6wiF2/Lb1vtR0mUlriSvVXSMVTsym2+BmsiPkNyQW
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250722_003830_246721_BD13999D 
+X-CRM114-Status: UNSURE (   6.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,67 +112,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 03:51:28PM -0700, Kees Cook wrote:
-> On Fri, Jul 18, 2025 at 11:36:32AM +0300, Mike Rapoport wrote:
-> > Hi Kees,
-> > 
-> > On Thu, Jul 17, 2025 at 04:25:09PM -0700, Kees Cook wrote:
-> > > When KCOV is enabled all functions get instrumented, unless the
-> > > __no_sanitize_coverage attribute is used. To prepare for
-> > > __no_sanitize_coverage being applied to __init functions, we have to
-> > > handle differences in how GCC's inline optimizations get resolved. For
-> > > x86 this means forcing several functions to be inline with
-> > > __always_inline.
-> > > 
-> > > Signed-off-by: Kees Cook <kees@kernel.org>
-> > 
-> > ...
-> > 
-> > > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> > > index bb19a2534224..b96746376e17 100644
-> > > --- a/include/linux/memblock.h
-> > > +++ b/include/linux/memblock.h
-> > > @@ -463,7 +463,7 @@ static inline void *memblock_alloc_raw(phys_addr_t size,
-> > >  					  NUMA_NO_NODE);
-> > >  }
-> > >  
-> > > -static inline void *memblock_alloc_from(phys_addr_t size,
-> > > +static __always_inline void *memblock_alloc_from(phys_addr_t size,
-> > >  						phys_addr_t align,
-> > >  						phys_addr_t min_addr)
-> > 
-> > I'm curious why from all memblock_alloc* wrappers this is the only one that
-> > needs to be __always_inline?
-> 
-> Thread-merge[1], adding Will Deacon, who was kind of asking the same
-> question.
-> 
-> Based on what I can tell, GCC has kind of fragile inlining logic, in the
-> sense that it can change whether or not it inlines something based on
-> optimizations. It looks like the kcov instrumentation being added (or in
-> this case, removed) from a function changes the optimization results,
-> and some functions marked "inline" are _not_ inlined. In that case, we end up
-> with __init code calling a function not marked __init, and we get the
-> build warnings I'm trying to eliminate.
-> 
-> So, to Will's comment, yes, the problem is somewhat fragile (though
-> using either __always_inline or __init will deterministically solve it).
-> We've tripped over this before with GCC and the solution has usually
-> been to just use __always_inline and move on.
-> 
-> For memblock_alloc*, it appears to be that the heuristic GCC uses
-> resulted in only memblock_alloc_from() being a problem in this case. I
-> can certainly mark them all as __always_inline if that is preferred.
+In the SpacemiT public document, when the FNCLKSEL field of
+the APBC_SSPAX_CLK_RST register is 7 (3'b111),
+which is a reserved value. And BIT3 of the same register is
+a reserved bit.
 
-We had a few of those already converted to __always_inline, so I'm ok with
-continuing to fix them one at at time. Gives a feeling of job security ;-)
+But the documentation is incorrect. In reality, the value 7 (3'b111)
+of FNCLKSEL is not reserved. Instead, it indicates that i2s_bclk is
+selected as the parent clock. Similarly, bit 3 is not reserved either.
+When FNCLKSEL is set to 7, bit 3 determines whether i2s_bclk is actually
+enabled as the parent clock.
 
-> -- 
-> Kees Cook
+In all other cases (i.e., when FNCLKSEL is not 7), bit 3 has no effect.
 
+Importantly, whenever FNCLKSEL is set to 7, bit 3 must also be set to 1,
+otherwise the selection of i2s_bclk becomes invalid.
+
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+Change log in v2:
+  - Use dummy gate instead of new function for sspa
+  - Add Suggested-by tag: Yao Zi
+  - Add Fixes tag
+  - Link to v1: https://lore.kernel.org/all/20250718-k1-clk-i2s-v1-1-e92c10fd0f60@linux.spacemit.com/
+
+---
+Troy Mitchell (2):
+      clk: spacemit: fix sspax_clk
+      dt-bindings: clock: spacemit: CLK_SSPA_I2S_BCLK for SSPA
+
+ drivers/clk/spacemit/ccu-k1.c                  |  25 +++++-
+ include/dt-bindings/clock/spacemit,k1-syscon.h | 114 +++++++++++++------------
+ 2 files changed, 79 insertions(+), 60 deletions(-)
+---
+base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
+change-id: 20250717-k1-clk-i2s-e4272f1f915b
+
+Best regards,
 -- 
-Sincerely yours,
-Mike.
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
+
 
 _______________________________________________
 linux-riscv mailing list
