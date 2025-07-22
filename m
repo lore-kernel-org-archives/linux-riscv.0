@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8383EC83F1A
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 16:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A0ABC83F27
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 16:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PxqLFw9TvGf64ar/naE/6HgySoqBjDX5rg/x/46xQek=; b=IMyPnRgB4r51beo20ozaOx8pTk
-	1qTeLFtyN9H6F3PAhUOPtmFqkwNyA6V5Xd8J2WUa9ScOr1KDhBECb6ppN79lja0CXRSswDLMTo2VO
-	t8+4fwfSrbAzuYwTLLPpYnzqAsZ9AtXWyXCox4B1KXFgDj3KiO77b6VO3f6MMBFAxX0qR+jS6aSRd
-	cxB6Khw//k8Ys+41GaMugB9qMa0kVpitZ8uBIQy0XGyEgLHSLY8Vy7UMyrMt3MRs+56M42NWPcVKv
-	LQXt3YW05RRM1nPflyAh/Y0q8FG6/fpPrqL+Fs4AF+2PJ8a4LeUaWrHWXMaAxVJ+5N84UHnD87tx7
-	TvijRO3w==;
+	bh=/H42hooCId8H0jK7CvUSTUE4CfsRrVa8lWKZflkvj70=; b=skfO+Nb6HgPqdk2Zz3yfzkE2Pr
+	b7uLRFR0va19rIzCofzhAWVS7SlD+/Hv4cf5guCJ0PfqEyWMgGwv4q2yaNjLALek2dvym+YBrbzLx
+	KKi+npHPYZwtYtLrahoK6S5soHQLhL8C/pI8JGPU/pmle+vzFowh0p2CBbfqV4QghE4FT2p5netLs
+	TnWv21NsKAvMt7gIHVIcGQid32xA5FvTqqn1ssg96kpf2c/oNn2lGF7MdgvAo0XpwzII8nuiz8uc6
+	gy/Ii+uNf+JI6e8D0wD/5YvwpERJfFp1VsN14HKWBDn6pp6hXpYcbEIdt3kffex8KPz6lEEhhA9bZ
+	3sbLqneQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFQV-00000002xOX-2twJ;
-	Tue, 22 Jul 2025 16:01:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ueFSz-00000002xnM-2PRF;
+	Tue, 22 Jul 2025 16:03:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueEl0-00000002qXh-2dvt
+	id 1ueEo4-00000002r09-28Dl
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Jul 2025 15:18:18 +0000
+	Tue, 22 Jul 2025 15:21:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AC9AF61360;
-	Tue, 22 Jul 2025 15:18:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBA2BC4CEEB;
-	Tue, 22 Jul 2025 15:18:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DD3A446209;
+	Tue, 22 Jul 2025 15:21:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50A82C4CEEB;
+	Tue, 22 Jul 2025 15:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753197497;
-	bh=fGAsWfNt/z2iWfbEh9n7rz2FAHRGTRMDGKrGQIo3ivc=;
+	s=k20201202; t=1753197687;
+	bh=cf0wdr1CvohXeEFUICFRM8xLV372zGAy0zsKMtrFMXQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QANBn87iMG9qnMcejys0/rBOp/MPEBt2RfiqQ4Z3kAl0CdUwvRsnjmpobqFpfXitG
-	 0xQ9+/qwCPyAs+3UlRxho4xxG/kua6Xc9t9TIOUOXu9DQ5EKZEIkxPQbCvmX6IVsL/
-	 ZjHCsp73PPQZEpbAa/OpjLkHQcZ0rurpFcALk1i1r1JgVH1GXHvsr+oBw2zDe/6z8d
-	 2L8LVv8/1vEX6TE3xmt53Jt3rhMNDqbwhHPjqfFJr70a1AYEc7r3r0z3Ru+cHXKkcE
-	 H4Y2cd72e4TUodbeB/hSNHKlQeiUx1UiLgGpsGeU4gaPnFyzgNannH2XsESjxEDowC
-	 XyLigMYiK+y/Q==
-Date: Tue, 22 Jul 2025 16:18:12 +0100
+	b=dGWPeere1LxvDxtuOVyK02QKkMZdY/fVcf3E5EfkgtyPVXEpfIZetiJTqIPg6s6j9
+	 YJByTAcP1O7AxFqkFRYruTsfur3tgCok95h9i1AiVWwtTy8a7Hcs24Q50fvvoybvt4
+	 cYShSTzeVcdZZf5MkEgnSj/SWHw+I6njph+UnSvxkVAhPGJ2B0NlJE+q0MGlwXWtrF
+	 fZzVc3HoTb1KeDQediGCl/TFQtgf1d5g3kLFLIHbup9dx8+haFDDAJdtms4o/EOmrH
+	 3AOJ7RjTgegP+cTvP4CWvn4pwGiPFMFNP8CQ4j/rYnMTEdnAVH0AhROTlfa9taabHM
+	 EKu8+sih1BI1w==
+Date: Tue, 22 Jul 2025 16:21:21 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Michal Simek <michal.simek@amd.com>
-Cc: linux-kernel@vger.kernel.org, monstr@monstr.eu, michal.simek@xilinx.com,
-	git@xilinx.com, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh@kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH] dt-bindings: riscv: cpus: Add AMD MicroBlaze V 64bit
- compatible
-Message-ID: <20250722-glitzy-worshiper-7574af025084@spud>
-References: <adf316c097ae416eb8565f2f1d67a98c413a71d2.1753169138.git.michal.simek@amd.com>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
+	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
+Subject: Re: [PATCH RFC 08/10] riscv: dts: Add initial Anlogic DR1V90 SoC
+ device tree
+Message-ID: <20250722-proposal-gothic-e0c3725e0874@spud>
+References: <20250721-dr1v90-basic-dt-v1-0-5740c5199c47@pigmoral.tech>
+ <20250721-dr1v90-basic-dt-v1-8-5740c5199c47@pigmoral.tech>
 MIME-Version: 1.0
-In-Reply-To: <adf316c097ae416eb8565f2f1d67a98c413a71d2.1753169138.git.michal.simek@amd.com>
+In-Reply-To: <20250721-dr1v90-basic-dt-v1-8-5740c5199c47@pigmoral.tech>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250722_082128_567280_88B0F899 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,49 +79,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2092487643453727081=="
+Content-Type: multipart/mixed; boundary="===============2715435275526635388=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2092487643453727081==
+--===============2715435275526635388==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="r+Au2k4XYYAgwXda"
+	protocol="application/pgp-signature"; boundary="afRjLr3VfY6LSQZo"
 Content-Disposition: inline
 
 
---r+Au2k4XYYAgwXda
+--afRjLr3VfY6LSQZo
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jul 22, 2025 at 09:25:40AM +0200, Michal Simek wrote:
-> 32bit version has been added by commit 4a6b93f56296 ("dt-bindings: riscv:
-> cpus: Add AMD MicroBlaze V compatible") but 64bit version also exists and
-> should be covered by binding too.
->=20
-> Signed-off-by: Michal Simek <michal.simek@amd.com>
+On Mon, Jul 21, 2025 at 11:46:14PM +0800, Junhui Liu wrote:
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		timebase-frequency = <800000000>;
+> +
+> +		cpu@0 {
+> +			compatible = "nuclei,ux900", "riscv";
+> +			device_type = "cpu";
+> +			reg = <0>;
+> +			riscv,isa = "rv64imafdc";
+> +			riscv,isa-base = "rv64i";
+> +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zba", "zbb", "zbc",
+> +					       "zbkc", "zbs", "zicntr", "zicsr", "zifencei",
+> +					       "zihintpause", "zihpm";
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Why do riscv,isa and riscv,isa-extensions differ?
+If riscv,isa is not even accurate, why not just remove it entirely?
 
-Although maybe I should pick this up myself? LMK if you want me to,
-rather than it going via the xilinx tree.
+> +			i-cache-block-size = <64>;
+> +			i-cache-size = <32768>;
+> +			i-cache-sets = <256>;
+> +			d-cache-block-size = <64>;
+> +			d-cache-size = <32768>;
+> +			d-cache-sets = <256>;
+> +			mmu-type = "riscv,sv39";
+> +
+> +			cpu0_intc: interrupt-controller {
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +				#interrupt-cells = <1>;
+> +			};
+> +		};
+> +	};
 
---r+Au2k4XYYAgwXda
+--afRjLr3VfY6LSQZo
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaH+rtAAKCRB4tDGHoIJi
-0vacAP4zbN3Fu+D/dt7INleDrr3nJ9mrPD2r+G3p5CicM2ALCAEA08iTkS686xJY
-Uu4OrgvMrLyDB2t1mClhYrqsyJcw0wM=
-=Lceo
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaH+scQAKCRB4tDGHoIJi
+0kcxAQC07OuxpRCZ8Q37NhGJuCtcTQZB2khVWHrIO4eTpF1rigD9EGK+eM/M4tcx
+h1x5Hhtr6tSWm89moTRnYqNzdGKdzAw=
+=q4nA
 -----END PGP SIGNATURE-----
 
---r+Au2k4XYYAgwXda--
+--afRjLr3VfY6LSQZo--
 
 
---===============2092487643453727081==
+--===============2715435275526635388==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -124,5 +154,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2092487643453727081==--
+--===============2715435275526635388==--
 
