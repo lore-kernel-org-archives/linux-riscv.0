@@ -4,59 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E412C83F1A
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 04:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6A8C83F25
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 06:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:Mime-Version
-	:Subject:From:In-Reply-To:Cc:To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XsfVSuSa+nV44bN1D0alnN2CQnpUND1cstEOqrIb7vA=; b=X5M3MpgsGQIC3x
-	nuJe0BR7jDz+OXZdwy3hQ2LbiOVpPLiur5H1j4j1gg3BS6nXFfzf61f8Eg9hphp4ZaWGPmLlyKuXg
-	3eCVMBKkiWrosOLijw/3OIQlqhfEbFDDyyY0CswMwrav5VpYGyTCYgThfHL2iNHF3x4+9cNHHjOJn
-	FN79++x0zF1ZrKwWwUp2dqh4u6sDzDQXo2LkfxDXJ29CrahguaqDfUJLJ2qsjBJuLuUr5radzCvv0
-	XadnnqQbJpNb1mWypmJOGVoBbBytkAIzLk3h8n8+FsX9ME7B9v/k6uSc5zgfIP8DXIAlM57r0bhwY
-	Q7TdUiFt2k8lb5YXxqJg==;
+	List-Owner; bh=j2tehVWmCyx1vj6LlvjYkoAmsJ+HxA6I8dysYQ8wj+s=; b=dH6Fglv/gxoSyV
+	5Tje3yiAsj5V5gUrExebCFmThNSeaGL+eSOaDz2YXsNby1xFrchSDRq3yzZoevNiYB4HPhQ7ojwif
+	+fZBMCDcActL+CfWXEepzOIoSEyyqONnKr+s7Y+nqb1Tt1BLHcMx8931AY5FWgkZRxY2lrAMLQw37
+	JHhpe7HzV9J++r4W6SWZZJerKt2YC2kIeKfG4uaQbCpiTBUNjoD2r1XsIQyPkNo1nyQMVIJJlzaAS
+	RvanZLPGotVRNtEoXVGgYMJpoKlB3bMqK7LUuYYIFtjeFGow62uLAhIeBHvlp9dC6mdRDss6OAJ8h
+	lYRr027zCA3g58T2Ccug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue4k5-00000001G6F-0lpa;
-	Tue, 22 Jul 2025 04:36:41 +0000
-Received: from sg-1-22.ptr.blmpb.com ([118.26.132.22])
+	id 1ue6xK-00000001Wvb-0jAc;
+	Tue, 22 Jul 2025 06:58:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue4k2-00000001G5r-1l5u
-	for linux-riscv@lists.infradead.org;
-	Tue, 22 Jul 2025 04:36:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1753158986;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=+9bctTJiffn2opVe6FpoBhDjVwlWXbhmCqBuDxg7YuU=;
- b=eBPi1HEK4Y0OTs29Ex/2n2ev1I78/pmbpCll0MI1g2xHErWui1Ud/JTCpDtQnrIWfVTuNT
- HRmpc8W9WkHNKa8N5SWk2U+jz5/l4jGuQ+U2kKM3MnEPMpGuyoLcPPy4nipWRlnn8Po1BT
- qz5dQUWfLiL0oNlCweRaDLc6K4b0Dk9KDh5wbULEd6Cpd+h2hJZNyvD2npIRW99xVHy5Si
- r86Caiy0NaroPZeJ0gV70T8ze3OdwdbbjVZ8tEXMTlPV/wSrGNOBNznpSt+oVdeXHCoInN
- igdEk52X3hRwiDw2mI1b8EPIWPxpHbLUSPfNvl49arnjA7aFrEPWX4Wr0Dw+mg==
-To: "Junhui Liu" <junhui.liu@pigmoral.tech>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Original-From: Nutty Liu <liujingqi@lanxincomputing.com>
-In-Reply-To: <20250722-satp-from-fdt-v1-2-5ba22218fa5f@pigmoral.tech>
-From: "Nutty Liu" <liujingqi@lanxincomputing.com>
-Subject: Re: [PATCH 2/2] riscv: mm: Use mmu-type from FDT to limit SATP mode
-User-Agent: Mozilla Thunderbird
-Received: from [127.0.0.1] ([116.237.111.137]) by smtp.feishu.cn with ESMTPS; Tue, 22 Jul 2025 12:36:23 +0800
-Mime-Version: 1.0
-References: <20250722-satp-from-fdt-v1-0-5ba22218fa5f@pigmoral.tech> <20250722-satp-from-fdt-v1-2-5ba22218fa5f@pigmoral.tech>
-Date: Tue, 22 Jul 2025 12:36:20 +0800
-Message-Id: <590ddc94-afce-412f-911d-2cc67d4a7e4a@lanxincomputing.com>
-Content-Language: en-US
-X-Lms-Return-Path: <lba+2687f1548+9fc9b1+lists.infradead.org+liujingqi@lanxincomputing.com>
+	id 1ue6uv-00000001WTH-2Ysv;
+	Tue, 22 Jul 2025 06:56:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F1D2545623;
+	Tue, 22 Jul 2025 06:56:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9481FC4CEFE;
+	Tue, 22 Jul 2025 06:56:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753167360;
+	bh=DqE2r+jnLUTL7QjlcN7tboq45VqA22jH4eIVD8o4Gmo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=CpfcgUnuDL0Vl921O+6i/yShR++00pNLOKABN64TGoQv08s4JWDaq5R787TzRwPYd
+	 SOxP3mvcTg3o5UodLqlybzcfO2KW0UIPKod6tyjXn4Q6f0Jg20Bo4EcbVyst6PFIeD
+	 9wwLag5HZhkuEkGdG4rGL0/xDa1dd1XF4wE0tl/b+CrzT64kGYr4RZg1sRlNLV6OW9
+	 D1EcUuEM2t8ys5AutC5biwDJeSbkbVn8adA+/943wMPAxGJivryo7aGbp+SI8Q2V02
+	 kg6rNPNzOZNNl41J5VZzJI8EAO2Ut8rnz8gAHCFuXdd0jodm+XgB+V+DD74LOgNTj5
+	 FmJF7Vu5xhdxg==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-32b7f41d3e6so48641681fa.1;
+        Mon, 21 Jul 2025 23:56:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVf9st3g8mrTfLl0bu9hb9apvdAETnnvoWgwF2ksxNfYfrr3Mec9TfchBR2qVd3tN++QhOhT2rV5pdelD3ZAcRv@lists.infradead.org, AJvYcCWaTms7rtyroNw26b0/E1U3yoJ8kZQh34cqmK7Xv0uMTuscUISR2ARSwcPciJW5ZASOHmufXkXYJWUlgq8=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgfEe/7YSVgcL6gLqgPmWiXMAyEd0vWkvinlzT8Tlcr853Oekx
+	4x0W5ECKx8LlfjPPG32YyCbh7ZAgC3aBMAQ7NRwvHL5Uosts90vzq8936w3iour9MiHmZEKcDXZ
+	MMhtKB1mJRYgsfUh/u5MSrWwNOkhd3ww=
+X-Google-Smtp-Source: AGHT+IHafl72rt/goLHslFsPSeMLrUwjaR0SoHeFAxURGVfbf4gcV3AlCo9M3FCJzrvPSuMBFqrA7K/+xkn2H/6KxwI=
+X-Received: by 2002:a05:651c:b11:b0:32b:952f:3e0 with SMTP id
+ 38308e7fff4ca-330d25506d3mr8241951fa.7.1753167358762; Mon, 21 Jul 2025
+ 23:55:58 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250717231756.make.423-kees@kernel.org> <20250717232519.2984886-4-kees@kernel.org>
+ <aHoHkDvvp4AHIzU1@kernel.org> <202507181541.B8CFAC7E@keescook>
+ <CAMj1kXGAwjChyFvjQcTbL8dFXkFWnn9n47bkN7FP=+EsLNsJdg@mail.gmail.com>
+ <aH42--h-ARsvX5Wk@willie-the-truck> <202507211311.8DAC4C7@keescook> <202507211349.D93679FB25@keescook>
+In-Reply-To: <202507211349.D93679FB25@keescook>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 22 Jul 2025 16:55:47 +1000
+X-Gmail-Original-Message-ID: <CAMj1kXGoy7D+_hKyQrT_uXdjuFMYGUEMDYdRf6mx69PLeuBQQg@mail.gmail.com>
+X-Gm-Features: Ac12FXxN7NYW1J5gsbL-uJ8eWKShqoH6QBvGfux9lCX9EcW_ZhNmDxq92IzpXG0
+Message-ID: <CAMj1kXGoy7D+_hKyQrT_uXdjuFMYGUEMDYdRf6mx69PLeuBQQg@mail.gmail.com>
+Subject: Re: [PATCH v3 04/13] x86: Handle KCOV __init vs inline mismatches
+To: Kees Cook <kees@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mike Rapoport <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Vitaly Kuznetsov <vkuznets@redhat.com>, Henrique de Moraes Holschuh <hmh@hmh.eng.br>, 
+	Hans de Goede <hdegoede@redhat.com>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Michal Wilczynski <michal.wilczynski@intel.com>, 
+	Juergen Gross <jgross@suse.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Roger Pau Monne <roger.pau@citrix.com>, 
+	David Woodhouse <dwmw@amazon.co.uk>, Usama Arif <usama.arif@bytedance.com>, 
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, Thomas Huth <thuth@redhat.com>, Brian Gerst <brgerst@gmail.com>, 
+	kvm@vger.kernel.org, ibm-acpi-devel@lists.sourceforge.net, 
+	platform-driver-x86@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, linux-efi@vger.kernel.org, 
+	linux-mm@kvack.org, Ingo Molnar <mingo@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Christoph Hellwig <hch@lst.de>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nicolas Schier <nicolas.schier@linux.dev>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, 
+	kasan-dev@googlegroups.com, linux-doc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	sparclinux@vger.kernel.org, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_213638_889370_26B203AD 
-X-CRM114-Status: GOOD (  28.18  )
+X-CRM114-CacheID: sfid-20250721_235601_719595_08AF2B62 
+X-CRM114-Status: GOOD (  41.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,140 +111,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/22/2025 12:53 AM, Junhui Liu wrote:
-> Some RISC-V implementations may hang when attempting to write an
-> unsupported SATP mode, even though the latest RISC-V specification
-> states such writes should have no effect. To avoid this issue, the
-> logic for selecting SATP mode has been refined:
+On Tue, 22 Jul 2025 at 06:49, Kees Cook <kees@kernel.org> wrote:
 >
-> The kernel now determines the SATP mode limit by taking the minimum of
-> the value specified by the kernel command line (noXlvl) and the
-> "mmu-type" property in the device tree (FDT). If only one is specified,
-> use that.
-> - If the resulting limit is sv48 or higher, the kernel will probe SATP
->    modes from this limit downward until a supported mode is found.
-> - If the limit is sv39, the kernel will directly use sv39 without
->    probing.
+> On Mon, Jul 21, 2025 at 01:14:36PM -0700, Kees Cook wrote:
+> > On Mon, Jul 21, 2025 at 01:47:55PM +0100, Will Deacon wrote:
+> > > On Sun, Jul 20, 2025 at 04:10:01PM +1000, Ard Biesheuvel wrote:
+> > > > On Sat, 19 Jul 2025 at 08:51, Kees Cook <kees@kernel.org> wrote:
+> > > > > On Fri, Jul 18, 2025 at 11:36:32AM +0300, Mike Rapoport wrote:
+> > > > > > On Thu, Jul 17, 2025 at 04:25:09PM -0700, Kees Cook wrote:
+> > > > > > > When KCOV is enabled all functions get instrumented, unless the
+> > > > > > > __no_sanitize_coverage attribute is used. To prepare for
+> > > > > > > __no_sanitize_coverage being applied to __init functions, we have to
+> > > > > > > handle differences in how GCC's inline optimizations get resolved. For
+> > > > > > > x86 this means forcing several functions to be inline with
+> > > > > > > __always_inline.
+> > > > > > >
+> > > > > > > Signed-off-by: Kees Cook <kees@kernel.org>
+> > > > > >
+> > > > > > ...
+> > > > > >
+> > > > > > > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> > > > > > > index bb19a2534224..b96746376e17 100644
+> > > > > > > --- a/include/linux/memblock.h
+> > > > > > > +++ b/include/linux/memblock.h
+> > > > > > > @@ -463,7 +463,7 @@ static inline void *memblock_alloc_raw(phys_addr_t size,
+> > > > > > >                                       NUMA_NO_NODE);
+> > > > > > >  }
+> > > > > > >
+> > > > > > > -static inline void *memblock_alloc_from(phys_addr_t size,
+> > > > > > > +static __always_inline void *memblock_alloc_from(phys_addr_t size,
+> > > > > > >                                             phys_addr_t align,
+> > > > > > >                                             phys_addr_t min_addr)
+> > > > > >
+> > > > > > I'm curious why from all memblock_alloc* wrappers this is the only one that
+> > > > > > needs to be __always_inline?
+> > > > >
+> > > > > Thread-merge[1], adding Will Deacon, who was kind of asking the same
+> > > > > question.
+> > > > >
+> > > > > Based on what I can tell, GCC has kind of fragile inlining logic, in the
+> > > > > sense that it can change whether or not it inlines something based on
+> > > > > optimizations. It looks like the kcov instrumentation being added (or in
+> > > > > this case, removed) from a function changes the optimization results,
+> > > > > and some functions marked "inline" are _not_ inlined. In that case, we end up
+> > > > > with __init code calling a function not marked __init, and we get the
+> > > > > build warnings I'm trying to eliminate.
+> > >
+> > > Got it, thanks for the explanation!
+> > >
+> > > > > So, to Will's comment, yes, the problem is somewhat fragile (though
+> > > > > using either __always_inline or __init will deterministically solve it).
+> > > > > We've tripped over this before with GCC and the solution has usually
+> > > > > been to just use __always_inline and move on.
+> > > > >
+> > > >
+> > > > Given that 'inline' is already a macro in the kernel, could we just
+> > > > add __attribute__((__always_inline__)) to it when KCOV is enabled?
+> > >
+> > > That sounds like a more robust approach and, by the sounds of it, we
+> > > could predicate it on GCC too. That would also provide a neat place for
+> > > a comment describing the problem.
+> > >
+> > > Kees, would that work for you?
+> >
+> > That seems like an extremely large hammer for this problem, IMO. It
+> > feels like it could cause new strange corner cases. I'd much prefer the
+> > small fixes I've currently got since it keeps it focused. KCOV is
+> > already enabled for "allmodconfig", so any new instances would be found
+> > very quickly, etc. (And GCC's fragility in this regard has already been
+> > exposed to these cases -- it's just that I changed one of the
+> > combinations of __init vs inline vs instrumentation.
+> >
+> > I could give it a try, if you really prefer the big hammer approach...
 >
-> This ensures SATP mode selection is safe and compatible with both
-> hardware and user configuration, minimizing the risk of hangs.
+> I gave it a try -- it fails spectacularly. ;) Let's stick to my small
+> fixes instead?
 >
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->   arch/riscv/kernel/pi/fdt_early.c | 40 ++++++++++++++++++++++++++++++++++++++++
->   arch/riscv/kernel/pi/pi.h        |  1 +
->   arch/riscv/mm/init.c             | 11 ++++++++---
->   3 files changed, 49 insertions(+), 3 deletions(-)
-Reviewed-by: Nutty Liu <liujingqi@lanxincomputing.com>
 
-Thanks,
-Nutty
->
-> diff --git a/arch/riscv/kernel/pi/fdt_early.c b/arch/riscv/kernel/pi/fdt_early.c
-> index 9bdee2fafe47e4a889132ebe2d0d360717c464e9..a12ff8090f190331f555d9e22ce4d1b3e940bceb 100644
-> --- a/arch/riscv/kernel/pi/fdt_early.c
-> +++ b/arch/riscv/kernel/pi/fdt_early.c
-> @@ -3,6 +3,7 @@
->   #include <linux/init.h>
->   #include <linux/libfdt.h>
->   #include <linux/ctype.h>
-> +#include <asm/csr.h>
->   
->   #include "pi.h"
->   
-> @@ -183,3 +184,42 @@ bool fdt_early_match_extension_isa(const void *fdt, const char *ext_name)
->   
->   	return ret;
->   }
-> +
-> +/**
-> + *  set_satp_mode_from_fdt - determine SATP mode based on the MMU type in fdt
-> + *
-> + * @dtb_pa: physical address of the device tree blob
-> + *
-> + *  Returns the SATP mode corresponding to the MMU type of the first enabled CPU,
-> + *  0 otherwise
-> + */
-> +u64 set_satp_mode_from_fdt(uintptr_t dtb_pa)
-> +{
-> +	const void *fdt = (const void *)dtb_pa;
-> +	const char *mmu_type;
-> +	int node, parent;
-> +
-> +	parent = fdt_path_offset(fdt, "/cpus");
-> +	if (parent < 0)
-> +		return 0;
-> +
-> +	fdt_for_each_subnode(node, fdt, parent) {
-> +		if (!fdt_node_name_eq(fdt, node, "cpu"))
-> +			continue;
-> +
-> +		if (!fdt_device_is_available(fdt, node))
-> +			continue;
-> +
-> +		mmu_type = fdt_getprop(fdt, node, "mmu-type", NULL);
-> +		if (!mmu_type)
-> +			break;
-> +
-> +		if (!strcmp(mmu_type, "riscv,sv39"))
-> +			return SATP_MODE_39;
-> +		else if (!strcmp(mmu_type, "riscv,sv48"))
-> +			return SATP_MODE_48;
-> +		break;
-> +	}
-> +
-> +	return 0;
-> +}
-> diff --git a/arch/riscv/kernel/pi/pi.h b/arch/riscv/kernel/pi/pi.h
-> index 21141d84fea603fdfc439e12a8c3216f1527c65f..3fee2cfddf7cfb8179af6f2d9b69a0d5e412fad7 100644
-> --- a/arch/riscv/kernel/pi/pi.h
-> +++ b/arch/riscv/kernel/pi/pi.h
-> @@ -14,6 +14,7 @@ u64 get_kaslr_seed(uintptr_t dtb_pa);
->   u64 get_kaslr_seed_zkr(const uintptr_t dtb_pa);
->   bool set_nokaslr_from_cmdline(uintptr_t dtb_pa);
->   u64 set_satp_mode_from_cmdline(uintptr_t dtb_pa);
-> +u64 set_satp_mode_from_fdt(uintptr_t dtb_pa);
->   
->   bool fdt_early_match_extension_isa(const void *fdt, const char *ext_name);
->   
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index d03e02a92379f2338a4f4df0ab797a7859b83dfc..0f30fa875abf92a201579ac6469958b0d95b5a58 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -816,6 +816,7 @@ static __meminit pgprot_t pgprot_from_va(uintptr_t va)
->   
->   #if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
->   u64 __pi_set_satp_mode_from_cmdline(uintptr_t dtb_pa);
-> +u64 __pi_set_satp_mode_from_fdt(uintptr_t dtb_pa);
->   
->   static void __init disable_pgtable_l5(void)
->   {
-> @@ -855,18 +856,22 @@ static void __init set_mmap_rnd_bits_max(void)
->    * underlying hardware: establish 1:1 mapping in 4-level page table mode
->    * then read SATP to see if the configuration was taken into account
->    * meaning sv48 is supported.
-> + * The maximum SATP mode is limited by both the command line and the "mmu-type"
-> + * property in the device tree, since some platforms may hang if an unsupported
-> + * SATP mode is attempted.
->    */
->   static __init void set_satp_mode(uintptr_t dtb_pa)
->   {
->   	u64 identity_satp, hw_satp;
->   	uintptr_t set_satp_mode_pmd = ((unsigned long)set_satp_mode) & PMD_MASK;
-> -	u64 satp_mode_cmdline = __pi_set_satp_mode_from_cmdline(dtb_pa);
-> +	u64 satp_mode_limit = min_not_zero(__pi_set_satp_mode_from_cmdline(dtb_pa),
-> +					   __pi_set_satp_mode_from_fdt(dtb_pa));
->   
->   	kernel_map.page_offset = PAGE_OFFSET_L5;
->   
-> -	if (satp_mode_cmdline == SATP_MODE_48) {
-> +	if (satp_mode_limit == SATP_MODE_48) {
->   		disable_pgtable_l5();
-> -	} else if (satp_mode_cmdline == SATP_MODE_39) {
-> +	} else if (satp_mode_limit == SATP_MODE_39) {
->   		disable_pgtable_l5();
->   		disable_pgtable_l4();
->   		return;
+Fair enough :-)
 
 _______________________________________________
 linux-riscv mailing list
