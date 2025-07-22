@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 362E1C83F25
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 11:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9959C83F1A
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 11:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ry/erk99y03p4xgvj8Kc/zcqmW5wNOxy5tHuQcHxgP0=; b=eRqea1qE/7x7xH
-	2+kwanOK+zkN2gFDxrhPDPCU+04S0skYpkgT39jvA1/hwXlJrk2VEHTdK+nGKxEEfpTr+Ut4tZ/85
-	evw5+bvLkyZ/qsQMKGJ5Qa6+d6enYxZQd/F8+c3ByZVOXffeA3LVwDDO93OvW0D2CZgvKot8uP03s
-	atDDt60H9cP3vuXeBDHyx20EPEQtANi/CTm81KQzC0GW1NLUE1eiReziXhpd5C19xp2xSmwYm/di8
-	BKUtLLkrWxzRszaO6RxAeck/c570wSC3wkTliwLmHcEnhP/AewT9oSexuDrsA6YrRqqId6yykwgUs
-	Rhm8t+8e7OOV4gU5UaYw==;
+	List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:In-Reply-To:
+	To:From:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=pGTmnRQ+zUtl/dCj9dgxLpBKTacUtnsqBhk0AgTniwY=; b=UDNywNgyfWoiMI
+	OnugHAOHLkYZJNPf/cPwhQWz7Mrv1mAJ7NrsxQxkZd154SbUBYnUgxPZ1W0NvqGeOtCsSzib64221
+	Z/QBq8LFptcztXCNG9QhOB9Nmk6IW28mH7Bao1idnVGjdwmv6lCXYB1ZNF5xk3ObmuNFzaf5T0PRt
+	B+ciTRmV+AZMX6aiZcQzWqrBEjlCfHG32b2ZZP3CV6RID6YmYiQ8/nyXhBQ5HY/zeEf/9UAO/c/UT
+	TalGOatV/Ncx7w+wloeAVVVjj5JuvZOr/n85qKg68P8waLNy43z9DXzsO/beZOgIrS45J/fcSewVh
+	Rms7R9kkBVhqfo/gGGUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueBCM-00000002Hyd-2x1Y;
-	Tue, 22 Jul 2025 11:30:18 +0000
-Received: from mail-ua1-x92c.google.com ([2607:f8b0:4864:20::92c])
+	id 1ueBRD-00000002KL1-1u2x;
+	Tue, 22 Jul 2025 11:45:39 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueB7q-00000002HBu-3iZS
+	id 1ueB9f-00000002HZf-0hfZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Jul 2025 11:25:40 +0000
-Received: by mail-ua1-x92c.google.com with SMTP id a1e0cc1a2514c-884f7d29b85so2789932241.1
-        for <linux-riscv@lists.infradead.org>; Tue, 22 Jul 2025 04:25:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753183537; x=1753788337; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=crTrKK7Fv8oEkT7Vw14WQxZmxE8sWQSgGRs4hNZ3Hf8=;
-        b=Md874S7nUikBt1Z7OkfisomjOvZMO/CzDUuggBbXVBJym1I3fyagG7zcROQwICyKtG
-         nIMU3lGkEeyMcA5+Ud7EcyOJ0L4AJqOR5ZeUBeG/Rg3u7CJPYyZ74OfwFs/PNhuPENXh
-         wSPEK4KX48miZp4QtKN01Yo3oRz1qb2FqgRltmBcnJzH8rC0MDW632mXGRTCKYmKIusp
-         zUcGp4pfBVNb8T9cOrWHnxYvLQmUjkV4WqfPAXiLmQmrrRQqFR+G6PSDKHa/byg/Zpd9
-         OgT8LQC9hhSfVuPgINBxGgybsZWOUkdeqCDQI1f8UVvti/BkAeuvP4OLhxPfoQjlATPL
-         XhVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753183537; x=1753788337;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=crTrKK7Fv8oEkT7Vw14WQxZmxE8sWQSgGRs4hNZ3Hf8=;
-        b=qyz50glNOAOQ5WJQ75vx0kDDm5waAa4LiH6e7gyD9Kery4nBsnqFrfbQUds8ZVXw+U
-         Yq5ksRex1S4mF9ImWyW2nh9kgfpTiutI0MPyxlwkEVmDfIIgh6/RyLHoMWUQBgA9nwVL
-         dlVynqDrySy1ma92v4wSaK/A9ob5MV4nS/Qi7mz5Yjx2R7d2z2knokTLJWM3F7fwOrlT
-         pEteHz17FhX3/0Tvxa5E51wTcKHxS45whctevreH6qtqn0CMVWMttLrGKaIRN01MWcUs
-         tTNxPgtCDVfpc6gg13eJXfSTbv7KCQs3FU3+VPsleABCe/7BZM2S2hUHPwM/kfTxrBda
-         Dbcg==
-X-Forwarded-Encrypted: i=1; AJvYcCXhyIK5BqkqEiu41DqwgKos7uYjCNnzFOKBle5Q+jRkCkHeZuDYuU7BX9WkWBzVXfv7xgChCCGVJJNAMQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuD0KCiEVhnpHarM56Jt50kmrWBzr5lj3zdkz7iDfTgBNs1epe
-	bXcSvU60shhcS71jHuu4NUm+nwzaykBlgZEs++nmVsQq84g7eOp0wx2GtlaQKhirvgj5fx8vQud
-	mmcXumXG7Sd0XlBbCaMiXbYZHl4jdWM4=
-X-Gm-Gg: ASbGncsPxQdTch8wYOrmZ44RM/m2R5SFvFpW/bh+IE65ZJLaTRAqZ97Y3LlQ9SF1VN6
-	vaLl3Wna5CqxwDTsdZxYCqUOY0glH9TRzbHPhTsqFRHGTnSMpaHnhxKeNMtYid5lr7tBE/S/Cu8
-	3GHqYf7wRLeQKrcB48vRVy5jgw/nbKDV5iysUgAvN7fUnlycDnFvadWJ4cZyKasLG1PRQ65L7VE
-	sCw
-X-Google-Smtp-Source: AGHT+IGBGW1NdHmoHUfa8aAEY3c8SNcPSI/VawRsJ44yRxDkRqQovc+wfZlxzFhug4UAYnDAuP0fvet8e45XcgOHBIs=
-X-Received: by 2002:a05:6102:d94:b0:4de:d08f:6727 with SMTP id
- ada2fe7eead31-4f9980fc7f4mr9967163137.13.1753183536999; Tue, 22 Jul 2025
- 04:25:36 -0700 (PDT)
+	Tue, 22 Jul 2025 11:27:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753183646; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=L8uXSYQxwzi6GnqOKA5+M/zFPG4YsKprlvaiueZ6tyTNaDL5JdRi7F4krtqMduJ4Ag69Rg7U4KPh8r5llGt06szaffvPBwsjPG0Le/CnRbR41qo1u8JBxhK3xiCfh25Qe6QdZrzckGLUiHvZWTJDa2Lh7TQZOFLxLKr6lu3WOQs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1753183646; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=oSWzK9+1+wJc6wh6CDIQZWQCvimKKJe8O5m5BgUOpHM=; 
+	b=jrZKYr4L4LdOFAuzndQZW5Qz+Lz1wmRU490h2L4eC6Dm7C9X8bR490PUz42rHs55ViumCFNLmb3iufzWwCweDrl45bjqjmsw4JatKBu9sJKx0MY8pNkHVBJRTExu6uVWhYFPEH83ifRRTLuzU0+RPMY/hB1j8jI6sOUcSLnwtLA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753183646;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=MIME-Version:From:From:To:To:In-Reply-To:Cc:Cc:Subject:Subject:Message-ID:Date:Date:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=oSWzK9+1+wJc6wh6CDIQZWQCvimKKJe8O5m5BgUOpHM=;
+	b=KuAvm1U7/rkniCfUxMjB0BR6KZ2ypIXEi2EuO2iqtr7dyL10XVPnZaVwSM6o14Sj
+	38SyFAnkKq7IVnSYBHIVmUJx0CNsrmkcDmyn4geRQiBGTO5bg4Vz8byXslcL198w104
+	zbn14B6zSUpYB83NsJcFigm/jWU7OkcYb3JkyYwg=
+Received: by mx.zohomail.com with SMTPS id 1753183643006882.6847732993253;
+	Tue, 22 Jul 2025 04:27:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250722112050.909616-1-uwu@icenowy.me>
-In-Reply-To: <20250722112050.909616-1-uwu@icenowy.me>
-From: Han Gao <rabenda.cn@gmail.com>
-Date: Tue, 22 Jul 2025 19:25:25 +0800
-X-Gm-Features: Ac12FXxLmNaOOyB0s5JDwxeuilIksRxnGlyAFtVocFnRD_Uc6fPCEhU9HDxosSQ
-Message-ID: <CAAT7Ki9DUJhZgqW7e4ggcgHM9K21ExAEMbK=WjOiVged0+=fCA@mail.gmail.com>
-Subject: Re: [PATCH] drm/ttm: add pgprot handling for RISC-V
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Christian Koenig <christian.koenig@amd.com>, Huang Rui <ray.huang@amd.com>, 
-	Matthew Auld <matthew.auld@intel.com>, Matthew Brost <matthew.brost@intel.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Vivian Wang <wangruikang@iscas.ac.cn>, Inochi Amaoto <inochiama@gmail.com>, 
-	Yao Zi <ziyao@disroot.org>
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>
+In-Reply-To: <20250722-berserk-octopus-of-destiny-f4475e@kuoka>
+Cc: "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>, 
+	"Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, 
+	"Alexandre Ghiti" <alex@ghiti.fr>, 
+	"Daniel Lezcano" <daniel.lezcano@linaro.org>, 
+	"Thomas Gleixner" <tglx@linutronix.de>, 
+	"Samuel Holland" <samuel.holland@sifive.com>, 
+	"Anup Patel" <anup@brainfault.org>, 
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, 
+	"Jiri Slaby" <jirislaby@kernel.org>, <devicetree@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>, "Palmer Dabbelt" <palmer@sifive.com>, 
+	"Conor Dooley" <conor@kernel.org>, <linux-riscv@lists.infradead.org>, 
+	<linux-serial@vger.kernel.org>
+Subject: Re: [PATCH RFC 07/10] riscv: Add Anlogic SoC famly Kconfig support
+Message-ID: <18548f39bd190d28.fca9acf422f7bf67.f37c65074e24e08a@Jude-Air.local>
+Date: Tue, 22 Jul 2025 11:27:13 +0000
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_042538_948127_A4900500 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20250722_042731_602646_8DD785A3 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,36 +84,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMjIsIDIwMjUgYXQgNzoyMeKAr1BNIEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vu
-b3d5Lm1lPiB3cm90ZToKPgo+IFRoZSBSSVNDLVYgU3ZwYm10IHByaXZpbGVnZWQgZXh0ZW5zaW9u
-IHByb3ZpZGVzIHN1cHBvcnQgZm9yIG92ZXJyaWRpbmcKPiBwYWdlIG1lbW9yeSBjb2hlcmVuY3kg
-YXR0cmlidXRlcywgYW5kLCBhbG9uZyB3aXRoIHZlbmRvciBleHRlbnNpb25zIGxpa2UKPiBYdGhl
-YWRtYWUsIHN1cHBvcnRzIHBncHJvdF97d3JpdGVjb21iaW5lLG5vbmNhY2hlZH0gb24gUklTQy1W
-Lgo+Cj4gQWRhcHQgdGhlIGNvZGVwYXRoIHRoYXQgbWFwcyB0dG1fd3JpdGVfY29tYmluZWQgdG8g
-cGdwcm90X3dyaXRlY29tYmluZQo+IGFuZCB0dG1fbm9uY2FjaGVkIHRvIHBncHJvdF9ub25jYWNo
-ZWQgdG8gUklTQy1WLCB0byBhbGxvdyBwcm9wZXIgcGFnZQo+IGFjY2VzcyBhdHRyaWJ1dGVzLgo+
-Cj4gU2lnbmVkLW9mZi1ieTogSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4gLS0tCj4g
-IGRyaXZlcnMvZ3B1L2RybS90dG0vdHRtX21vZHVsZS5jIHwgMyArKy0KPiAgMSBmaWxlIGNoYW5n
-ZWQsIDIgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2RyaXZl
-cnMvZ3B1L2RybS90dG0vdHRtX21vZHVsZS5jIGIvZHJpdmVycy9ncHUvZHJtL3R0bS90dG1fbW9k
-dWxlLmMKPiBpbmRleCBiM2ZmZmU3YjUwNjIuLmFhMTM3ZWFkNWNjNSAxMDA2NDQKPiAtLS0gYS9k
-cml2ZXJzL2dwdS9kcm0vdHRtL3R0bV9tb2R1bGUuYwo+ICsrKyBiL2RyaXZlcnMvZ3B1L2RybS90
-dG0vdHRtX21vZHVsZS5jCj4gQEAgLTc0LDcgKzc0LDggQEAgcGdwcm90X3QgdHRtX3Byb3RfZnJv
-bV9jYWNoaW5nKGVudW0gdHRtX2NhY2hpbmcgY2FjaGluZywgcGdwcm90X3QgdG1wKQo+ICAjZW5k
-aWYgLyogQ09ORklHX1VNTCAqLwo+ICAjZW5kaWYgLyogX19pMzg2X18gfHwgX194ODZfNjRfXyAq
-Lwo+ICAjaWYgZGVmaW5lZChfX2lhNjRfXykgfHwgZGVmaW5lZChfX2FybV9fKSB8fCBkZWZpbmVk
-KF9fYWFyY2g2NF9fKSB8fCBcCj4gLSAgICAgICBkZWZpbmVkKF9fcG93ZXJwY19fKSB8fCBkZWZp
-bmVkKF9fbWlwc19fKSB8fCBkZWZpbmVkKF9fbG9vbmdhcmNoX18pCj4gKyAgICAgICBkZWZpbmVk
-KF9fcG93ZXJwY19fKSB8fCBkZWZpbmVkKF9fbWlwc19fKSB8fCBkZWZpbmVkKF9fbG9vbmdhcmNo
-X18pIHx8IFwKPiArICAgICAgIGRlZmluZWQoX19yaXNjdikKPiAgICAgICAgIGlmIChjYWNoaW5n
-ID09IHR0bV93cml0ZV9jb21iaW5lZCkKPiAgICAgICAgICAgICAgICAgdG1wID0gcGdwcm90X3dy
-aXRlY29tYmluZSh0bXApOwo+ICAgICAgICAgZWxzZQo+IC0tCj4gMi41MC4xCj4KClRlc3RlZC1i
-eTogSGFuIEdhbyA8cmFiZW5kYS5jbkBnbWFpbC5jb20+CgpUaGFua3MuCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+On 22/07/2025 09:29, Krzysztof Kozlowski wrote:
+> On Mon, Jul 21, 2025 at 11:46:13PM +0800, Junhui Liu wrote:
+>> The first SoC in the Anlogic series is DR1V90, which contains a RISC-V
+>> core from Nuclei.
+>> 
+>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+>> ---
+>>  arch/riscv/Kconfig.socs | 5 +++++
+>>  1 file changed, 5 insertions(+)
+>> 
+>> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+>> index a9c3d2f6debca1469f4a912b3414711eb709baab..de163cdddcda1c08e7c9e98716eaf043d4c4555a 100644
+>> --- a/arch/riscv/Kconfig.socs
+>> +++ b/arch/riscv/Kconfig.socs
+>> @@ -1,5 +1,10 @@
+>>  menu "SoC selection"
+>>  
+>> +config ARCH_ANLOGIC
+>> +	bool "Anlogic SoCs"
+>> +	help
+>> +		This enables support for Anlogic SoC platform hardware.
+> 
+> Wrong indentation. See everything else in this file or just read coding
+> style.
+
+Thanks for pointing this out. I overlooked it and will fix it in the
+next version.
+
+> 
+> Best regards,
+> Krzysztof
+
+-- 
+Best regards,
+Junhui Liu
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
