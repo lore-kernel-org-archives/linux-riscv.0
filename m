@@ -4,64 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B106EC83F1A
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 14:00:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3345C83F27
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jul 2025 14:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RbcHFKrSNffQo62cv2lF/9wfKQRxiqqLbnrrykvuPOM=; b=IAylQwJ5utHe96
-	eTPhW1gKZjM1jl28L0oQMLVMiVs3wT2xlDe4dEuMqr2695TTHctdg4DzazxwMtQjfIZNVkfyZjdo4
-	hxidt7oMhEEtHSDr3d4CuXC6ZlOq/ehqRyTwt+5z0cfFwjrCgk3OYfFFgWg/u5FvOG7nOZRUc/ZKN
-	/J9/KWlbN3nECrF+o0k+Uk0N3yBEk+1TWHnZJcYUIGbtEgpHR+2r9aEqpSq808rMsSiKAiPczIc7B
-	+KDXyMDBPASCxThuj7W4uxAdx2nwS3mhzx5OYnOQHeJu/AVbBGDRn0JFg4E3GYwbaAuN4x+lzWvLh
-	cGjp1qdTtrXLvfkpRI0w==;
+	List-Owner; bh=VIHebU4n65xmusLFIHMPXtzJvT3LA69fj/TWpZa1f0s=; b=XKBdsUiYvi0/9I
+	Z8OHXA8VDBI4qGymWa92LiMsLiCPTVFT2nV/TmCbBM8wcdJlbmIADUFE+bn9VKrV/PpLpk3hMwIA2
+	GEN51YR5CFdfvYbi0SIvc11IlxD7ZtudrvxBhyzLU9ZqX2CfLIlyxMryeyGqmucl4cq8meSHb3rie
+	JO5LByL3E4cyF6wOAzWJMybgPXvrIc11xcfbg6OIq5nsC1bY4wDN8yVs12tUpIfOpNdC4nzUSQwMP
+	Kj9Ptx6FmDiMyGB3YBSRxEqW7ZhBB4DfbP1s7+iAZHfnNHAvv1fdvtOjMXuzlA+lwOlXzWdY9XniF
+	+sUNa9WCtcsgstA0MBqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueDX7-00000002cjW-2AKJ;
-	Tue, 22 Jul 2025 13:59:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ueDjU-00000002edr-1LGB;
+	Tue, 22 Jul 2025 14:12:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueCsD-00000002WxT-0f88;
-	Tue, 22 Jul 2025 13:17:38 +0000
+	id 1ueD3l-00000002YEY-1e1k;
+	Tue, 22 Jul 2025 13:29:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87BDA419DF;
-	Tue, 22 Jul 2025 13:17:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68EE0C4CEEB;
-	Tue, 22 Jul 2025 13:17:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EB0C9439BA;
+	Tue, 22 Jul 2025 13:29:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B00BC4CEEB;
+	Tue, 22 Jul 2025 13:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753190255;
-	bh=3leS8riuCJe+lnyQnQIcRHprkIXpvrMzyIhcjLqEY1w=;
+	s=k20201202; t=1753190972;
+	bh=v5BLSIwd7srHi/OWA5ndIBkdalmEzmLEQmrp+RewTTQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZJNhgn6qehAH7M6iwdt46ZSRtnpNN7QCYzYCFtpxyCOf9hD4MrstgMo6XRuzOF91c
-	 sjv8RgAd4UifKt4aPajQt1uLJIdA0CTSwNfFbDlcF8QJmy0M1E/dH6Wnj4IbwqUdGe
-	 ykJV6IdS8vz+9K5Gck9anM2yCECJ0V9cL76ZDvhaL3VsgFphEVvk35vu854JJEIwlA
-	 mZWzP7DiEysaVcb+3NYpPiKRGR79NaQI9mdGR3PpkUTqTS0UDACcR/srpvBKQCaSpU
-	 pNXOiIOJ9CTniD++dcKH1fM5/oz7ADMNXTsOBMNvN1K4Jc/tbgBPJI1VGCJ8Pig1kl
-	 UZQ70MIhMgvQg==
-Date: Tue, 22 Jul 2025 14:17:30 +0100
+	b=icCzbYE3Gw4FMkjzZQGdd5PRl3DLgwJi4XEJMOcR2bhXW2g1yFhd+T0X/aqMi3/BP
+	 CibFuID4nbj6OAYkc1NMOYpqf8N3QkVei13FupO8PIGWwd7LMLFew2Gjxu4KdVUg1O
+	 DkTKaYgXxxbbsiX0+w7BLz0w/qJZtmL94y+JVE7CzC9ZZx6kQNyfp3ET4nPZ9scvga
+	 Dn2CpPG5UqY1IGli6LRySAYz4YmMRdxPp1TJllyeOcCWdL2WRYt94l/h9D04DE4+Uc
+	 MGgZG1jWvtMVVXZVVriPuhmhhcn2IesGNkPl/Ho6XBcy/wvha6uvWcQ0AKEDdQ4Ukm
+	 HjjZtlQLlu8FQ==
+Date: Tue, 22 Jul 2025 14:29:19 +0100
 From: Will Deacon <will@kernel.org>
-To: Anup Patel <anup@brainfault.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v4 0/9] Add SBI v3.0 PMU enhancements
-Message-ID: <aH-PanNcaHsbSlOd@willie-the-truck>
-References: <20250721-pmu_event_info-v4-0-ac76758a4269@rivosinc.com>
- <CAAhSdy2XM+3UQD0FZehJnmCbjwRMCZQpt1cEkb4gmJu+LFsaKQ@mail.gmail.com>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Henrique de Moraes Holschuh <hmh@hmh.eng.br>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Michal Wilczynski <michal.wilczynski@intel.com>,
+	Juergen Gross <jgross@suse.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Roger Pau Monne <roger.pau@citrix.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Usama Arif <usama.arif@bytedance.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Thomas Huth <thuth@redhat.com>, Brian Gerst <brgerst@gmail.com>,
+	kvm@vger.kernel.org, ibm-acpi-devel@lists.sourceforge.net,
+	platform-driver-x86@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-mm@kvack.org, Ingo Molnar <mingo@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com, linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v3 04/13] x86: Handle KCOV __init vs inline mismatches
+Message-ID: <aH-SL2V2bSPkJ18o@willie-the-truck>
+References: <20250717231756.make.423-kees@kernel.org>
+ <20250717232519.2984886-4-kees@kernel.org>
+ <aHoHkDvvp4AHIzU1@kernel.org>
+ <202507181541.B8CFAC7E@keescook>
+ <CAMj1kXGAwjChyFvjQcTbL8dFXkFWnn9n47bkN7FP=+EsLNsJdg@mail.gmail.com>
+ <aH42--h-ARsvX5Wk@willie-the-truck>
+ <202507211311.8DAC4C7@keescook>
+ <202507211349.D93679FB25@keescook>
+ <CAMj1kXGoy7D+_hKyQrT_uXdjuFMYGUEMDYdRf6mx69PLeuBQQg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAAhSdy2XM+3UQD0FZehJnmCbjwRMCZQpt1cEkb4gmJu+LFsaKQ@mail.gmail.com>
+In-Reply-To: <CAMj1kXGoy7D+_hKyQrT_uXdjuFMYGUEMDYdRf6mx69PLeuBQQg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_061737_237056_10F23E1B 
-X-CRM114-Status: GOOD (  24.00  )
+X-CRM114-CacheID: sfid-20250722_062933_483128_4D0F5B28 
+X-CRM114-Status: GOOD (  42.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,69 +114,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMjIsIDIwMjUgYXQgMDk6Mjk6NDBBTSArMDUzMCwgQW51cCBQYXRlbCB3cm90
-ZToKPiBPbiBUdWUsIEp1bCAyMiwgMjAyNSBhdCA4OjQ14oCvQU0gQXRpc2ggUGF0cmEgPGF0aXNo
-cEByaXZvc2luYy5jb20+IHdyb3RlOgo+ID4KPiA+IFNCSSB2My4wIHNwZWNpZmljYXRpb25bMV0g
-YWRkZWQgdHdvIG5ldyBpbXByb3ZlbWVudHMgdG8gdGhlIFBNVSBjaGFwZXIuCj4gPiBUaGUgU0JJ
-IHYzLjAgc3BlY2lmaWNhdGlvbiBpcyBmcm96ZW4gYW5kIHVuZGVyIHB1YmxpYyByZXZpZXcgcGhh
-c2UgYXMKPiA+IHBlciB0aGUgUklTQy1WIEludGVybmF0aW9uYWwgZ3VpZGVsaW5lcy4KPiA+Cj4g
-PiAxLiBBZGRlZCBhbiBhZGRpdGlvbmFsIGdldF9ldmVudF9pbmZvIGZ1bmN0aW9uIHRvIHF1ZXJ5
-IGV2ZW50IGF2YWlsYWJsaXR5Cj4gPiBpbiBidWxrIGluc3RlYWQgb2YgaW5kaXZpZHVhbCBTQkkg
-Y2FsbHMgZm9yIGVhY2ggZXZlbnQuIFRoaXMgaGVscHMgaW4KPiA+IGltcHJvdmluZyB0aGUgYm9v
-dCB0aW1lLgo+ID4KPiA+IDIuIFJhdyBldmVudCB3aWR0aCBhbGxvd2VkIGJ5IHRoZSBwbGF0Zm9y
-bSBpcyB3aWRlbmVkIHRvIGhhdmUgNTYgYml0cwo+ID4gd2l0aCBSQVcgZXZlbnQgdjIgYXMgcGVy
-IG5ldyBjbGFyaWZpY2F0aW9uIGluIHRoZSBwcml2IElTQVsyXS4KPiA+Cj4gPiBBcGFydCBmcm9t
-IGltcGxlbWVudGluZyB0aGVzZSBuZXcgZmVhdHVyZXMsIHRoaXMgc2VyaWVzIGltcHJvdmVzIHRo
-ZSBncGEKPiA+IHJhbmdlIGNoZWNrIGluIEtWTSBhbmQgdXBkYXRlcyB0aGUga3ZtIFNCSSBpbXBs
-ZW1lbnRhdGlvbiB0byBTQkkgdjMuMC4KPiA+Cj4gPiBUaGUgb3BlbnNiaSBwYXRjaGVzIGhhdmUg
-YmVlbiBtZXJnZWQuIFRoaXMgc2VyaWVzIGNhbiBiZSBmb3VuZCBhdCBbM10uCj4gPgo+ID4gWzFd
-IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi1ub24taXNhL3Jpc2N2LXNiaS1kb2MvcmVsZWFzZXMv
-ZG93bmxvYWQvdjMuMC1yYzcvcmlzY3Ytc2JpLnBkZgo+ID4gWzJdIGh0dHBzOi8vZ2l0aHViLmNv
-bS9yaXNjdi9yaXNjdi1pc2EtbWFudWFsL2lzc3Vlcy8xNTc4Cj4gPiBbM10gaHR0cHM6Ly9naXRo
-dWIuY29tL2F0aXNocDA0L2xpbnV4L3RyZWUvYjQvcG11X2V2ZW50X2luZm9fdjQKPiA+Cj4gPiBT
-aWduZWQtb2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT4KPiA+IC0tLQo+
-ID4gQ2hhbmdlcyBpbiB2NDoKPiA+IC0gUmViYXNlZCBvbiB0b3Agb2YgdjYuMTYtcmM3Cj4gPiAt
-IEZpeGVkIGEgcG90ZW50aWFsIGNvbXBpbGF0aW9uIGlzc3VlIGluIFBBVENINS4KPiA+IC0gTWlu
-b3IgdHlwb3MgZml4ZWQgUEFUQ0gyIGFuZCBQQVRDSDMuCj4gPiAtIEZpeGVkIHZhcmlhYmxlIG9y
-ZGVyaW5nIGluIFBBVENINgo+ID4gLSBMaW5rIHRvIHYzOiBodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9yLzIwMjUwNTIyLXBtdV9ldmVudF9pbmZvLXYzLTAtZjdiYmE3ZmQ5Y2ZlQHJpdm9zaW5jLmNv
-bQo+ID4KPiA+IENoYW5nZXMgaW4gdjM6Cj4gPiAtIFJlYmFzZWQgb24gdG9wIG9mIHY2LjE1LXJj
-Nwo+ID4gLSBMaW5rIHRvIHYyOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjUwMTE1LXBt
-dV9ldmVudF9pbmZvLXYyLTAtODQ4MTViNzAzODNiQHJpdm9zaW5jLmNvbQo+ID4KPiA+IENoYW5n
-ZXMgaW4gdjI6Cj4gPiAtIERyb3BwZWQgUEFUQ0ggMiB0byBiZSB0YWtlbiBkdXJpbmcgcmNYLgo+
-ID4gLSBJbXByb3ZlZCBncGEgcmFuZ2UgY2hlY2sgdmFsaWRhdGlvbiBieSBpbnRyb2R1Y2luZyBh
-IGhlbHBlciBmdW5jdGlvbgo+ID4gICBhbmQgY2hlY2tpbmcgdGhlIGVudGlyZSByYW5nZS4KPiA+
-IC0gTGluayB0byB2MTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI0MTExOS1wbXVfZXZl
-bnRfaW5mby12MS0wLWE0Zjk2OTE0MjFmOEByaXZvc2luYy5jb20KPiA+Cj4gPiAtLS0KPiA+IEF0
-aXNoIFBhdHJhICg5KToKPiA+ICAgICAgIGRyaXZlcnMvcGVyZjogcmlzY3Y6IEFkZCBTQkkgdjMu
-MCBmbGFnCj4gPiAgICAgICBkcml2ZXJzL3BlcmY6IHJpc2N2OiBBZGQgcmF3IGV2ZW50IHYyIHN1
-cHBvcnQKPiA+ICAgICAgIFJJU0MtVjogS1ZNOiBBZGQgc3VwcG9ydCBmb3IgUmF3IGV2ZW50IHYy
-Cj4gPiAgICAgICBkcml2ZXJzL3BlcmY6IHJpc2N2OiBJbXBsZW1lbnQgUE1VIGV2ZW50IGluZm8g
-ZnVuY3Rpb24KPiA+ICAgICAgIGRyaXZlcnMvcGVyZjogcmlzY3Y6IEV4cG9ydCBQTVUgZXZlbnQg
-aW5mbyBmdW5jdGlvbgo+ID4gICAgICAgS1ZNOiBBZGQgYSBoZWxwZXIgZnVuY3Rpb24gdG8gdmFs
-aWRhdGUgdmNwdSBncGEgcmFuZ2UKPiA+ICAgICAgIFJJU0MtVjogS1ZNOiBVc2UgdGhlIG5ldyBn
-cGEgcmFuZ2UgdmFsaWRhdGUgaGVscGVyIGZ1bmN0aW9uCj4gPiAgICAgICBSSVNDLVY6IEtWTTog
-SW1wbGVtZW50IGdldCBldmVudCBpbmZvIGZ1bmN0aW9uCj4gPiAgICAgICBSSVNDLVY6IEtWTTog
-VXBncmFkZSB0aGUgc3VwcG9ydGVkIFNCSSB2ZXJzaW9uIHRvIDMuMAo+ID4KPiA+ICBhcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3BtdS5oIHwgICAzICsKPiA+ICBhcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5oIHwgICAyICstCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9zYmkuaCAgICAgICAgICB8ICAxMyArKysKPiA+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1X3Bt
-dS5jICAgICAgICAgICAgIHwgIDc1ICsrKysrKysrKysrKy0KPiA+ICBhcmNoL3Jpc2N2L2t2bS92
-Y3B1X3NiaV9wbXUuYyAgICAgICAgIHwgICAzICsKPiA+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1X3Ni
-aV9zdGEuYyAgICAgICAgIHwgICA2ICstCj4gPiAgZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmku
-YyAgICAgICAgICB8IDE5MSArKysrKysrKysrKysrKysrKysrKysrKysrLS0tLS0tLS0tCj4gPiAg
-aW5jbHVkZS9saW51eC9rdm1faG9zdC5oICAgICAgICAgICAgICB8ICAgMiArCj4gPiAgaW5jbHVk
-ZS9saW51eC9wZXJmL3Jpc2N2X3BtdS5oICAgICAgICB8ICAgMSArCj4gPiAgdmlydC9rdm0va3Zt
-X21haW4uYyAgICAgICAgICAgICAgICAgICB8ICAyMSArKysrCj4gPiAgMTAgZmlsZXMgY2hhbmdl
-ZCwgMjU4IGluc2VydGlvbnMoKyksIDU5IGRlbGV0aW9ucygtKQo+IAo+IEFyZSB5b3Ugb2theSB3
-aXRoIHRoaXMgc2VyaWVzIGdvaW5nIHRocm91Z2ggdGhlIEtWTSBSSVNDLVYgdHJlZSA/CgpUaGUg
-UmlzYy1WIFBNVSBzdHVmZiB1c3VhbGx5IGdvZXMgdmlhIFBhbG1lciwgc28gd2hhdGV2ZXIgaGUg
-cmVja29ucy4KCldpbGwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On Tue, Jul 22, 2025 at 04:55:47PM +1000, Ard Biesheuvel wrote:
+> On Tue, 22 Jul 2025 at 06:49, Kees Cook <kees@kernel.org> wrote:
+> >
+> > On Mon, Jul 21, 2025 at 01:14:36PM -0700, Kees Cook wrote:
+> > > On Mon, Jul 21, 2025 at 01:47:55PM +0100, Will Deacon wrote:
+> > > > On Sun, Jul 20, 2025 at 04:10:01PM +1000, Ard Biesheuvel wrote:
+> > > > > On Sat, 19 Jul 2025 at 08:51, Kees Cook <kees@kernel.org> wrote:
+> > > > > > On Fri, Jul 18, 2025 at 11:36:32AM +0300, Mike Rapoport wrote:
+> > > > > > > On Thu, Jul 17, 2025 at 04:25:09PM -0700, Kees Cook wrote:
+> > > > > > > > When KCOV is enabled all functions get instrumented, unless the
+> > > > > > > > __no_sanitize_coverage attribute is used. To prepare for
+> > > > > > > > __no_sanitize_coverage being applied to __init functions, we have to
+> > > > > > > > handle differences in how GCC's inline optimizations get resolved. For
+> > > > > > > > x86 this means forcing several functions to be inline with
+> > > > > > > > __always_inline.
+> > > > > > > >
+> > > > > > > > Signed-off-by: Kees Cook <kees@kernel.org>
+> > > > > > >
+> > > > > > > ...
+> > > > > > >
+> > > > > > > > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> > > > > > > > index bb19a2534224..b96746376e17 100644
+> > > > > > > > --- a/include/linux/memblock.h
+> > > > > > > > +++ b/include/linux/memblock.h
+> > > > > > > > @@ -463,7 +463,7 @@ static inline void *memblock_alloc_raw(phys_addr_t size,
+> > > > > > > >                                       NUMA_NO_NODE);
+> > > > > > > >  }
+> > > > > > > >
+> > > > > > > > -static inline void *memblock_alloc_from(phys_addr_t size,
+> > > > > > > > +static __always_inline void *memblock_alloc_from(phys_addr_t size,
+> > > > > > > >                                             phys_addr_t align,
+> > > > > > > >                                             phys_addr_t min_addr)
+> > > > > > >
+> > > > > > > I'm curious why from all memblock_alloc* wrappers this is the only one that
+> > > > > > > needs to be __always_inline?
+> > > > > >
+> > > > > > Thread-merge[1], adding Will Deacon, who was kind of asking the same
+> > > > > > question.
+> > > > > >
+> > > > > > Based on what I can tell, GCC has kind of fragile inlining logic, in the
+> > > > > > sense that it can change whether or not it inlines something based on
+> > > > > > optimizations. It looks like the kcov instrumentation being added (or in
+> > > > > > this case, removed) from a function changes the optimization results,
+> > > > > > and some functions marked "inline" are _not_ inlined. In that case, we end up
+> > > > > > with __init code calling a function not marked __init, and we get the
+> > > > > > build warnings I'm trying to eliminate.
+> > > >
+> > > > Got it, thanks for the explanation!
+> > > >
+> > > > > > So, to Will's comment, yes, the problem is somewhat fragile (though
+> > > > > > using either __always_inline or __init will deterministically solve it).
+> > > > > > We've tripped over this before with GCC and the solution has usually
+> > > > > > been to just use __always_inline and move on.
+> > > > > >
+> > > > >
+> > > > > Given that 'inline' is already a macro in the kernel, could we just
+> > > > > add __attribute__((__always_inline__)) to it when KCOV is enabled?
+> > > >
+> > > > That sounds like a more robust approach and, by the sounds of it, we
+> > > > could predicate it on GCC too. That would also provide a neat place for
+> > > > a comment describing the problem.
+> > > >
+> > > > Kees, would that work for you?
+> > >
+> > > That seems like an extremely large hammer for this problem, IMO. It
+> > > feels like it could cause new strange corner cases. I'd much prefer the
+> > > small fixes I've currently got since it keeps it focused. KCOV is
+> > > already enabled for "allmodconfig", so any new instances would be found
+> > > very quickly, etc. (And GCC's fragility in this regard has already been
+> > > exposed to these cases -- it's just that I changed one of the
+> > > combinations of __init vs inline vs instrumentation.
+> > >
+> > > I could give it a try, if you really prefer the big hammer approach...
+> >
+> > I gave it a try -- it fails spectacularly. ;) Let's stick to my small
+> > fixes instead?
+> >
+> 
+> Fair enough :-)
+
+(but please add the helpful explanation you provided to the commit message!)
+
+Will
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
