@@ -4,71 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC124C83F1A
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 21:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6EBC83F1A
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 00:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cgft4U5VQaHGEFMOF4vnEtj63ZaRufiVzSyt4lHAEMs=; b=SgjG90fXRQfdzu
-	H31CV/VaCOmSpDpbhOLjfJ85w8dGe9KCd5ORlCJa+M/jB8A5UEyscuXJnJlrWkQQuiht2J2CbZAdh
-	PUYrFT5Gu+4LwrTLCTJqRdLWLtj8U2dly3kra81v0/1Sm5oddrCzh2cZuooMWPQreFKZW3XeOiIdm
-	Q1qy+OPuKUTX98SJmUKnvqg9kyPCSx+7Np+pW4gmCyIZ2DGbIHuFCYq4dhXIl3DzMR1QN//1GYBEZ
-	pt+6pqEdvJn+tx3jSPpUkJfV3WX6rcpjYitqfNwPvI78sewGX9ZB7DBbQJKCD5xCvg9jv1LylJQwy
-	TcMZ1HKQDros3i3qEbOA==;
+	List-Owner; bh=TvHGCCION1LxYuWFz4vqJhLbY5aYqHzP1UuDWb6suvo=; b=yCPMrdRa8hw6WE
+	lQ8x9ngh88m2IAuQg0D/PcuDSwWsbUAq9FUsKi3J6HQjo1af3/1v/nZ5WtukYKDbB1HQFGH0cP9DE
+	aAbIiry14cWWIoH9AYOInbmeYVnv2Y15P+XSBuC29mzXzEvY1htOydW/sfDOqeRmiTZB1LGLyMi3e
+	GeyXO/TnsP/aaNgycGMTrdghFI5tqoS9+lg7uirIbnug0QK5NRUp2bqzmdBOLcR6lPzU0KfY7g26H
+	rvuC20XpsxWJGdgEoNmMrkopBAz/M8xdA6ZwAOTa/DesHyio/kDdip+PhEPmQUo9ZNfYt8HCLmilk
+	9b574LLH60vgAxsYcEKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uehRd-000000060VD-0K2G;
-	Wed, 23 Jul 2025 21:56:13 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1uejSV-00000006Ckc-0CL9;
+	Thu, 24 Jul 2025 00:05:15 +0000
+Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uehRW-000000060Tr-3hZ6
+	id 1uej1D-00000006AEg-3k6l
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Jul 2025 21:56:11 +0000
-Received: from [192.168.0.110] (unknown [114.241.87.235])
-	by APP-05 (Coremail) with SMTP id zQCowABHn19pWoFo4_WXBg--.21325S2;
-	Thu, 24 Jul 2025 05:55:55 +0800 (CST)
-Message-ID: <cc82c938-def3-4df6-9fc9-fc321af7d54a@iscas.ac.cn>
-Date: Thu, 24 Jul 2025 05:55:54 +0800
+	Wed, 23 Jul 2025 23:37:05 +0000
+Received: by mail-io1-xd33.google.com with SMTP id ca18e2360f4ac-87c11fd5364so17507939f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 23 Jul 2025 16:37:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1753313823; x=1753918623; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DbymwJT8wdKqXZ17BAMdeDqv5d1KXToHThDYCoTXr1s=;
+        b=2ZgOmlD9NzRy0SzkcKIiEcGzFS2+6Sy/8PA6qurXcmmsEpBY4cwlwgx4mIiKbKeNGm
+         AAIxC/tQ3nY9mccgjCsOM/umgNgF6qPgtaFWv3zaXGLNVYJaUBYK4eYftwAFXcMFO2Ks
+         IGfGghdfYDbXIstEcEmFzy/Z/CtjNdehQAa5Bn1Z+Adz4eHgnR93B/zQghEGNscSjlno
+         ACAhkvbzNMsH1NY8XshxFtr8OvWZm6s21oV0XwakkrGIFW47VgWigk5uU5PeAb9ZwOaH
+         U5aP/CNMVKWveKAGram+EKA1qLkrXSpEWJgAJ2/a/koB5hLY/BF3o3VAlFdUEWm6lusW
+         4CTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753313823; x=1753918623;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DbymwJT8wdKqXZ17BAMdeDqv5d1KXToHThDYCoTXr1s=;
+        b=p/AaVQj1tY0OXyV3NelaM7wDvotJnqmVH1c2cWGOxhOh2FTxK7T16Sb/eSHn9C8GQX
+         PtiHpOJZ2E0K6yJqCgPA66cLiTpV/0cOO9jtIyZtgYqsXXPp2ddZcJnsiWgwUWy782qh
+         57CPYmTbxHkEAWfLPllf98EGMJAbf0RKosyHGWtEI5Vgj54znixaBjKEHb6g4LO41yTf
+         jfrENbYXGJ/kAJ6MxvF9eaSNhfwZZhO7RRxn2A7QG5mSyi9pxB3TjQDJypZSCGRMBCgd
+         6njeQs9JUyBqBJIQ+MqBbVmH9KuHO5qUcEWF4T41qqVNnuQ87tFu2VGceCU9DJHgZkfV
+         Jbog==
+X-Forwarded-Encrypted: i=1; AJvYcCVM69btOR37c1rqJfZHvYaynKcVErnTEd5Plg8F9S7LKgVbyZSWgCiSHBujEYv+dVwSAIMTZuGffiFfUw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwanPmYtEkl7UvoMT/2/rJUNyJqrZN/f56vQm4g2EOolJdDIhuV
+	ry5Pzyr3GimcRbfTbyVtXrMrDONEiuYQAQcm24aXkIbBf3QJVnFqasLDsSIahg7hF38=
+X-Gm-Gg: ASbGncuRVXUjXM2yWh+SAkeg3a/8N+j9n04Pt0dw1qQomSSS+PLzu7IRv93riFMUGrH
+	cHUJU/E4EmRAaoS+gUk4/LaZecXsmFdi1Q6Eynzv9r8qvIGdaKUsgkz3zjApa//jpu673rnzsD4
+	QjbVwuR+on6rqCoUhVjWcbWOX47j4IzmU4dGWACsxsUl9y8E4lMulnAxqdcWLUOjXi/RCUa099R
+	S2ZwzSWYA9o/jVlRM5zts4+byFdUYh9RtNSTj9GeL5DIj/iRgb8WpDploGLLRmewCS8iI33qA49
+	UoHFJNeD51rfwOGRLG1RCercFIFhuDZUtKCThE4/UBs3sHa5NZsDCH0vt0HEoTjyCj+OxOKskyQ
+	oPv0MroUT59if10eQNbHqPVpeqU9D0XIwqA==
+X-Google-Smtp-Source: AGHT+IHNF5SD1Use82nEBRXm82QeoUFWLLGUU4rIloi5Cn7oMv86TpUYK3QDrbLvOOiD/JUxKOqJog==
+X-Received: by 2002:a05:6602:6403:b0:873:1a0e:a496 with SMTP id ca18e2360f4ac-87c6505de5dmr798601539f.10.1753313822955;
+        Wed, 23 Jul 2025 16:37:02 -0700 (PDT)
+Received: from [10.211.55.5] ([199.59.116.160])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-508aea8da22sm65011173.38.2025.07.23.16.37.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Jul 2025 16:37:02 -0700 (PDT)
+Message-ID: <6df61594-9a0c-4c18-8754-43fdff8474ca@riscstar.com>
+Date: Wed, 23 Jul 2025 18:37:00 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Add sysctl to control discard of vstate during
- syscall
-To: Drew Fustini <fustini@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Drew Fustini <dfustini@tenstorrent.com>, Andy Chiu <andybnac@gmail.com>,
- Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
+Subject: Re: [PATCH v8 5/8] rtc: spacemit: support the SpacemiT P1 RTC
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: lee@kernel.org, lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, mat.jonczyk@o2.pl, dlan@gentoo.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, troymitchell988@gmail.com, guodong@riscstar.com,
+ linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
  linux-kernel@vger.kernel.org
-References: <20250719033912.1313955-1-fustini@kernel.org>
+References: <20250710175107.1280221-1-elder@riscstar.com>
+ <20250710175107.1280221-6-elder@riscstar.com>
+ <20250723213956570da462@mail.local>
 Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20250719033912.1313955-1-fustini@kernel.org>
-X-CM-TRANSID: zQCowABHn19pWoFo4_WXBg--.21325S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tr17CF1fJr15Zr4DGr4fGrg_yoW8Ww13pF
-	sFgrsIkw1rZr4fAwnIqw4xuw4rKrZ5G3y5JFy3Kw42yayUGF90yrs8JayjqFy7Jry5GrW0
-	vF4ru348Cw1UJrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
-	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
-	wI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjxUqiFxDUUUU
-X-Originating-IP: [114.241.87.235]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250723213956570da462@mail.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_145607_287849_A71B4829 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250723_163704_181029_825B82F1 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +102,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNy8xOS8yNSAxMTozOSwgRHJldyBGdXN0aW5pIHdyb3RlOgoKPiBGcm9tOiBEcmV3IEZ1c3Rp
-bmkgPGRmdXN0aW5pQHRlbnN0b3JyZW50LmNvbT4KPgo+IENsb2JiZXJpbmcgdGhlIHZlY3RvciBy
-ZWdpc3RlcnMgY2FuIHNpZ25pZmljYW50bHkgaW5jcmVhc2Ugc3lzdGVtIGNhbGwKPiBsYXRlbmN5
-IGZvciBzb21lIGltcGxlbWVudGF0aW9ucy4gVG8gbWl0aWdhdGUgdGhpcyBwZXJmb3JtYW5jZSBp
-bXBhY3QsIGEKPiBwb2xpY3kgbWVjaGFuaXNtIGlzIHByb3ZpZGVkIHRvIGFkbWluaXN0cmF0b3Jz
-LCBkaXN0cm8gbWFpbnRhaW5lcnMsIGFuZAo+IGRldmVsb3BlcnMgdG8gY29udHJvbCB2ZWN0b3Ig
-c3RhdGUgZGlzY2FyZCBpbiB0aGUgZm9ybSBvZiBhIHN5c2N0bCBrbm9iOgoKU28gSSBoYWQgYW4g
-aWRlYTogSXMgaXQgcG9zc2libGUgdG8gYXZvaWQgcmVwZWF0ZWRseSBkaXNjYXJkaW5nIHRoZQpz
-dGF0ZSBvbiBldmVyeSBzeXNjYWxsIGJ5IHNldHRpbmcgVlMgdG8gSW5pdGlhbCBhZnRlciBkaXNj
-YXJkaW5nLCBhbmQKYXZvaWRpbmcgZGlzY2FyZGluZyB3aGVuIFZTIGlzIEluaXRpYWw/IFNvOgoK
-aWYgKFZTID09IENsZWFuIHx8IFZTID09IERpcnR5KSB7CsKgIMKgIGNsb2JiZXI7CsKgIMKgIFZT
-ID0gSW5pdGlhbDsKfQoKVGhpcyB3b3VsZCBhdm9pZCB0aGlzIHByb2JsZW0gd2l0aCBzeXNjYWxs
-LWhlYXZ5IHVzZXIgcHJvZ3JhbXMgd2hpbGUKYWRkaW5nIG1pbmltdW0gb3ZlcmhlYWQgZm9yIGV2
-ZXJ5dGhpbmcgZWxzZS4KCk5vdGUgdGhhdCBJIGhhdmVuJ3QgY2hlY2tlZCBjbG9zZWx5IG9uIGhv
-dyBWUyA9IEluaXRpYWwgaXMgY3VycmVudGx5CnVzZWQgaW4gTGludXguIFRoaXMgbWlnaHQgcmVx
-dWlyZSBjaGFuZ2VzIHRvIHZlY3RvciBpbml0IG1ha2UgdGhlIHJlYWxseQpmaXJzdC10aW1lIGlu
-aXRpYWwgc3RhdGUgYW5kIHRoZSBhZnRlci1zeXNjYWxsIGluaXRpYWwgc3RhdGUgdGhlIHNhbWUu
-Ck9yIG1heWJlIEkgbWlzdW5kZXJzdG9vZCBlbnRpcmVseS4KClZpdmlhbiAiZHJhbWZvcmV2ZXIi
-IFdhbmcKCj4gL3Byb2Mvc3lzL2FiaS9yaXNjdl92X3ZzdGF0ZV9kaXNjYXJkCj4KPiBWYWxpZCB2
-YWx1ZXMgYXJlOgo+Cj4gMDogRG8gbm90IGRpc2NhcmQgdmVjdG9yIHN0YXRlIGR1cmluZyBzeXNj
-YWxsCj4gMTogRGlzY2FyZCB2ZWN0b3Igc3RhdGUgZHVyaW5nIHN5c2NhbGwKPgo+IFRoZSBpbml0
-aWFsIHN0YXRlIGlzIGNvbnRyb2xsZWQgYnkgQ09ORklHX1JJU0NWX0lTQV9WX1ZTVEFURV9ESVND
-QVJELgo+Cj4gRml4ZXM6IDk2NTdlOWI3ZDI1MyAoInJpc2N2OiBEaXNjYXJkIHZlY3RvciBzdGF0
-ZSBvbiBzeXNjYWxscyIpCj4gU2lnbmVkLW9mZi1ieTogRHJldyBGdXN0aW5pIDxkZnVzdGluaUB0
-ZW5zdG9ycmVudC5jb20+Cj4gLS0tCj4gIERvY3VtZW50YXRpb24vYXJjaC9yaXNjdi92ZWN0b3Iu
-cnN0IHwgMTUgKysrKysrKysrKysrKysrCj4gIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAg
-ICAgICAgIHwgMTAgKysrKysrKysrKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5o
-ICAgICB8ICA0ICsrKysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvdmVjdG9yLmMgICAgICAgICAgfCAx
-NiArKysrKysrKysrKysrKystCj4gIDQgZmlsZXMgY2hhbmdlZCwgNDQgaW5zZXJ0aW9ucygrKSwg
-MSBkZWxldGlvbigtKQo+Cj4gWy4uLl0KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+On 7/23/25 4:39 PM, Alexandre Belloni wrote:
+> On 10/07/2025 12:51:03-0500, Alex Elder wrote:
+>> +static int p1_rtc_read_time(struct device *dev, struct rtc_time *t)
+>> +{
+>> +	struct p1_rtc *p1 = dev_get_drvdata(dev);
+>> +	struct regmap *regmap = p1->regmap;
+>> +	u32 count = RTC_READ_TRIES;
+>> +	u8 seconds;
+>> +	u8 time[6];
+>> +	int ret;
+>> +
+>> +	if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
+>> +		return -ENODEV;		/* RTC is disabled */
+> 
+> That should be -EINVAL, as all the other drivers have standardized this.
+> 
+> With this fixed,
+> Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+
+OK thank you.  I'll plan to send v9 with this change included.
+
+					-Alex
+
+> 
+> 
+>> +
+>> +	ret = regmap_bulk_read(regmap, RTC_TIME, time, sizeof(time));
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	do {
+>> +		seconds = time[0];
+>> +		ret = regmap_bulk_read(regmap, RTC_TIME, time, sizeof(time));
+>> +		if (ret)
+>> +			return ret;
+>> +	} while (time[0] != seconds && --count);
+>> +
+>> +	if (!count)
+>> +		return -EIO;		/* Unable to get a consistent result */
+>> +
+>> +	t->tm_sec = time[0] & GENMASK(5, 0);
+>> +	t->tm_min = time[1] & GENMASK(5, 0);
+>> +	t->tm_hour = time[2] & GENMASK(4, 0);
+>> +	t->tm_mday = (time[3] & GENMASK(4, 0)) + 1;
+>> +	t->tm_mon = time[4] & GENMASK(3, 0);
+>> +	t->tm_year = (time[5] & GENMASK(5, 0)) + 100;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +/*
+>> + * The P1 hardware documentation states that values in the registers are
+>> + * latched so when written they represent a consistent time snapshot.
+>> + * Nevertheless, this is not guaranteed by the implementation, so we must
+>> + * disable the RTC while updating it.
+>> + */
+>> +static int p1_rtc_set_time(struct device *dev, struct rtc_time *t)
+>> +{
+>> +	struct p1_rtc *p1 = dev_get_drvdata(dev);
+>> +	struct regmap *regmap = p1->regmap;
+>> +	u8 time[6];
+>> +	int ret;
+>> +
+>> +	time[0] = t->tm_sec;
+>> +	time[1] = t->tm_min;
+>> +	time[2] = t->tm_hour;
+>> +	time[3] = t->tm_mday - 1;
+>> +	time[4] = t->tm_mon;
+>> +	time[5] = t->tm_year - 100;
+>> +
+>> +	/* Disable the RTC to update; re-enable again when done */
+>> +	ret = regmap_clear_bits(regmap, RTC_CTRL, RTC_EN);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/* If something goes wrong, leave the RTC disabled */
+>> +	ret = regmap_bulk_write(regmap, RTC_TIME, time, sizeof(time));
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return regmap_set_bits(regmap, RTC_CTRL, RTC_EN);
+>> +}
+>> +
+>> +static const struct rtc_class_ops p1_rtc_class_ops = {
+>> +	.read_time = p1_rtc_read_time,
+>> +	.set_time = p1_rtc_set_time,
+>> +};
+>> +
+>> +static int p1_rtc_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct rtc_device *rtc;
+>> +	struct p1_rtc *p1;
+>> +
+>> +	p1 = devm_kzalloc(dev, sizeof(*p1), GFP_KERNEL);
+>> +	if (!p1)
+>> +		return -ENOMEM;
+>> +	dev_set_drvdata(dev, p1);
+>> +
+>> +	p1->regmap = dev_get_regmap(dev->parent, NULL);
+>> +	if (!p1->regmap)
+>> +		return dev_err_probe(dev, -ENODEV, "failed to get regmap\n");
+>> +
+>> +	rtc = devm_rtc_allocate_device(dev);
+>> +	if (IS_ERR(rtc))
+>> +		return dev_err_probe(dev, PTR_ERR(rtc),
+>> +				     "error allocating device\n");
+>> +	p1->rtc = rtc;
+>> +
+>> +	rtc->ops = &p1_rtc_class_ops;
+>> +	rtc->range_min = RTC_TIMESTAMP_BEGIN_2000;
+>> +	rtc->range_max = RTC_TIMESTAMP_END_2063;
+>> +
+>> +	clear_bit(RTC_FEATURE_ALARM, rtc->features);
+>> +	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, rtc->features);
+>> +
+>> +	return devm_rtc_register_device(rtc);
+>> +}
+>> +
+>> +static struct platform_driver p1_rtc_driver = {
+>> +	.probe = p1_rtc_probe,
+>> +	.driver = {
+>> +		.name = MOD_NAME,
+>> +	},
+>> +};
+>> +
+>> +module_platform_driver(p1_rtc_driver);
+>> +
+>> +MODULE_DESCRIPTION("SpacemiT P1 RTC driver");
+>> +MODULE_LICENSE("GPL");
+>> +MODULE_ALIAS("platform:" MOD_NAME);
+>> -- 
+>> 2.45.2
+>>
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
