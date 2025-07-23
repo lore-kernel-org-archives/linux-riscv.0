@@ -4,72 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8870AC83F1A
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 11:30:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F64C83F17
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 13:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pvK2PnVicjoJrffdTuByuBal981aEP+Lr81oBLH897M=; b=mixZYpRFMPIQXn
-	4o1ktgyz6St6fxY/0ySUSYfCbCU6l9FGX7ttrCgo5+rVCy+v46ChtWqOneAjqIka98TyIA/VGd9Lv
-	rs+JEekDMpBDk4cXbllMtrTML33inUp9fyKFswFxxLYUtpe/p3j1ixV1+p6KKDVNvMPnxcjkk1DQG
-	wMPRk0FaCo/IZBRqagUjc7+pckRFeHhPu67zeyPNPLKLtKLFKdKDBsvl+YaAwW8p4tgnN4rATQHxt
-	Q0s18pbrcHfeTie/5z3uZj4fcY4n/3crmV2Rn8imzp8rOJ7fs7oYLTII6GRH/WmMabuvQmKk0XRH6
-	ePNXdmdwDYlPoU2JBMVg==;
+	List-Owner; bh=gZqsKAKQPDvKSN2IHpy+q96kqe4u/mak80hLD2T5saM=; b=o3iFTuND+Rbrbr
+	7NUawl1DAXfCccYEzw6LIapOY3vC8GAXjyWFjGHP4mO1eTOaoa24gYnsfz1E8UEbJgrIeCobXAyya
+	MYBkVZyLZB5gwD/HUfj3F2pSJVcv2REGWRYsM28+Zw0FjTBOflwyzPSC8yRw2KeO779mUb8yOyvxl
+	ow8EE9Ks0H9rmekFEBKg2LanWyWAhoJPyiB+2y3A1KfvsTUdqq/+E6BPOWoxbfEnSFB5k8QD1m5Th
+	s+yFPAUCE//DrotCDbEb49cwVxre9eqneRWVPhA5bPaYAeTgPQUF8wiTilA1elBKqflB2/vkonaKg
+	lnlY5rV7FSXl7kdjQfBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXfX-00000004o8Y-2a4a;
-	Wed, 23 Jul 2025 11:29:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ueZDf-00000004zjz-1104;
+	Wed, 23 Jul 2025 13:09:15 +0000
+Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXd7-00000004nxX-00fT;
-	Wed, 23 Jul 2025 11:27:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E1A46000A;
-	Wed, 23 Jul 2025 11:27:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6568C4CEF5;
-	Wed, 23 Jul 2025 11:27:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753270043;
-	bh=hD86L6FsrlkjppEeAolQw2+wF9G9eL2p4jeufpqBKxk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=SUdVHNc/aWpcFyqi0c/ImfOYjRQUiFP+rK1f80HK+AmhVgduX5msiRWhEhg1s+hiW
-	 s7V5fsU/uhIBFeKySwzuXQ9BfdxVoYhid9ufOAKrdUj+5KF33m3lRUe8oxf0Cwfa3G
-	 PAj6KQ4HGDysGEzUeqbGoXcEsGrTE+WGU8uiIskXtyhHc5ZVmHBzSVzbhah+PdKtkJ
-	 B6bYI7NyCgjopp5nxtJIfyi2MQl9rYFcv0L6MFftn+yL2G/Azg205ACyhpuudVcnZK
-	 Tw9kNx5J4K7v3JXj2/qR5a6ofMcynO7+qNQVdxzBIuF42MddOCjUhYN2cf+cvhsSyT
-	 WFbNCzvSwVVDA==
-Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-615df2e8c27so1827056eaf.2;
-        Wed, 23 Jul 2025 04:27:23 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWdCmIcWioTq1EB+1IsWHMigfIVMOiQhe7XsdI9RpBxHh9C2lw3FIVAomO/cHZwPhcNAH987mAHGnK6QwE=@lists.infradead.org, AJvYcCXCGicThOq/26DLdKOgogVq8eD2S3SzJjFedyGBoyBcL7G5h4NbUJvF7aoATMwpckMPZ3ijGYa1D4doxhN8s7Fn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+4FxfqPRex3Aa7zFs9t3XkidYA3XmAsAWhFkUi9MYPooARZQM
-	xzEFHmeh3cGcMZeUWFBvFo1uSAF1m4TZU0c9hN46zzWq5k9ll5VbYuYL81LfvhrECo1bHrYrfhB
-	hJMvX64vefDdbONMxf+mEPaNI1QQxMQg=
-X-Google-Smtp-Source: AGHT+IFBBrTSzcKsgRsjEmVEi3AQj37BeFlkMYzSpLg5VvEYvowlyBOnql/yOqAWuu2WwDYjxLgaMwyjRGbr4TyyCQA=
-X-Received: by 2002:a05:6820:1792:b0:615:d742:6672 with SMTP id
- 006d021491bc7-6187d90ed5dmr1918110eaf.8.1753270043105; Wed, 23 Jul 2025
- 04:27:23 -0700 (PDT)
+	id 1ueYo5-00000004w2X-31uZ
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Jul 2025 12:42:51 +0000
+Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3e057f2c8d8so50940425ab.1
+        for <linux-riscv@lists.infradead.org>; Wed, 23 Jul 2025 05:42:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1753274568; x=1753879368; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=G0Ew/UlImyFN4HlGy+L8fhyDF3AVGX/UG84SYw3xHZQ=;
+        b=eiXrVqeAIcAXqVn8dy9iTvZUy2wz7FBX87/C76V0pcFNB1lXgitSNX5dKTDWD1Irbf
+         mDoLZlhHqFPsFcUWO/0YtoigN6E8sffCwSsBotXPxCOHMpjqkHyo+1x3j7tqh/YGyJXM
+         eyg7vvhDf38SaGzeqaD04zMpXplScHM9Pz3tfLfRagtUnWp4UvG5LwWB4cneuYaHqnIJ
+         dsCZeE3wXbe2XOC0QgXXx+xapFuTAwUG1TjMbdWW8SxV/Wvs5kb0ldhbXHp+cJHRs5UY
+         qDqzWvyoOqO0cKtiSFPelrOCtqWLIw3Ma6fq5DAMCtIvId29e6lGZiUP/YmvCZI9Re8Y
+         W54g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753274568; x=1753879368;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=G0Ew/UlImyFN4HlGy+L8fhyDF3AVGX/UG84SYw3xHZQ=;
+        b=FgUT6IBBhSHCtfqrQisms7jVnSWg3yVLCSfgL8Zqdvzc+h3yqlDZg/IgqxtI4fkhCc
+         IwymcMkPw0gSGHaqI1P2CM385RaPTpkh7qwYrRrssDI7FpY3Rg/kbTskWTUViF6KV4p9
+         GHIeZmXGTsLhuWuvyyxTEv63IE5ExmcyB4U9WMzLUTV/3W9KJwB3bptJorlfIIZaNBtP
+         vXwGr0BKnduNwOBxbZZYqAN+QxFWh7m5B0c1mGW9s+Dnwcx1JAZx97kLpvr8M+/pWFz8
+         TafxszXDscQZt2mNwSYPCUzZqlja6g304hf/+QxCvddgb2xHlSPWKrr0OBzuT7M+orhl
+         yQPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX0PFp++2Ecg1UhmtElxzYStGeLV76K1YhV4fAcfNKz0WmOdgx5hf5JPV8u4jxhqDS3Ng1mXlOz7jWMCQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQk+Wr8/7Csv2ZhwUoPdCCzuT6EJK2iHE3L6OMVPyztqnUSfyB
+	ppNPpPxTYtgDHyAmxT5YKLPPZ9QFVlFcGhktwnTd/6DVrNsoyUXBgDCVcWYQE72/4Jo=
+X-Gm-Gg: ASbGnctluBfprEZQUpEGXbKCj+cznQ7iN84sXq5XyPET4tCR7WmHSWwC8ecg3KJX4u+
+	v+jZZsJBpCicCviLjf7KSVneIFMo1L01cuKwSd/YkYrXDfXasc+RdTzrzk2ZrqXsiBjbdKS+E7g
+	Nvimw65YgYCQan1wpp6kzSzjW1teT2+iIJ+wEnFW3HjF0MX29TKPMbJ01e01igIDRAHIN9sjQpq
+	eNv3aH8N6NAf1ZACOkqdiiOla5vAdPlY21AFFNFqQLvQy+J7IIda2PfY0qF8ydgIt6O+wDtnRUs
+	FChaHjCwLDdsb3QAIhUlQZcc+3Ppr5823Ukps3d4ZBN9VqzeMRlhLzcOg/X6BuWG7P+kfPV+ShE
+	+kOEN0do4TfzzvoOzk0s8xygrCIbSOIk57Q==
+X-Google-Smtp-Source: AGHT+IEqaLJWveuGtuwL6xUVomxEyO/I/mq75BNTRkLodb+q0fudHO2/No8ZaCo9o8H/kGbU5GpHqw==
+X-Received: by 2002:a05:6e02:1f82:b0:3df:3d1a:2e76 with SMTP id e9e14a558f8ab-3e32fc22705mr56940445ab.1.1753274568312;
+        Wed, 23 Jul 2025 05:42:48 -0700 (PDT)
+Received: from [10.211.55.5] ([199.59.116.160])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3e2982aff75sm38954785ab.54.2025.07.23.05.42.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Jul 2025 05:42:47 -0700 (PDT)
+Message-ID: <877dcf99-107e-4d96-8790-6608976d13ca@riscstar.com>
+Date: Wed, 23 Jul 2025 07:42:45 -0500
 MIME-Version: 1.0
-References: <20250717103241.2806798-1-thierry.reding@gmail.com>
- <2025071716-phoney-object-1648@gregkh> <rzbzah5iigz25jtxyqadnitkzkazxsaxntajhlfrfdslyioevk@pylcjkfh5n42>
- <2025071919-patience-cattishly-cf7c@gregkh> <l54i36uk33je744w4f47tehdopk5dsjotvozfv5b2hehmxrwpq@eins7awyq4dy>
- <2025072218-decipher-spree-327d@gregkh> <awvdox3bgabbc42aamezlg33k4cje6y75qoxn7ruh3nhd4qv5n@u3spdahehad4>
-In-Reply-To: <awvdox3bgabbc42aamezlg33k4cje6y75qoxn7ruh3nhd4qv5n@u3spdahehad4>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Wed, 23 Jul 2025 13:27:09 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0iYBOephv29sj0DSKZVyF3JLBsoUCckhTbGcbYHUUhYyQ@mail.gmail.com>
-X-Gm-Features: Ac12FXzC6e4YCoK78tnnsrW1OvCOkcpvLKri7HC2f5clbN5j5h64RJlwkH_QRPE
-Message-ID: <CAJZ5v0iYBOephv29sj0DSKZVyF3JLBsoUCckhTbGcbYHUUhYyQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/8] mfd: simple-mfd-i2c: specify max_register
+To: Lee Jones <lee@kernel.org>
+Cc: lgirdwood@gmail.com, broonie@kernel.org, alexandre.belloni@bootlin.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, mat.jonczyk@o2.pl,
+ dlan@gentoo.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, troymitchell988@gmail.com,
+ guodong@riscstar.com, linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250710175107.1280221-1-elder@riscstar.com>
+ <20250710175107.1280221-3-elder@riscstar.com>
+ <20250723095125.GR11056@google.com>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250723095125.GR11056@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250723_054249_855019_11F7DCD0 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,90 +102,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdWwgMjMsIDIwMjUgYXQgMTE6MDHigK9BTSBUaGllcnJ5IFJlZGluZwo8dGhpZXJy
-eS5yZWRpbmdAZ21haWwuY29tPiB3cm90ZToKPgo+IE9uIFR1ZSwgSnVsIDIyLCAyMDI1IGF0IDA0
-OjA4OjA5UE0gKzAyMDAsIEdyZWcgS3JvYWgtSGFydG1hbiB3cm90ZToKPiA+IE9uIFR1ZSwgSnVs
-IDIyLCAyMDI1IGF0IDAzOjU2OjQwUE0gKzAyMDAsIFRoaWVycnkgUmVkaW5nIHdyb3RlOgo+ID4g
-PiBPbiBTYXQsIEp1bCAxOSwgMjAyNSBhdCAwODo1Mjo0MUFNICswMjAwLCBHcmVnIEtyb2FoLUhh
-cnRtYW4gd3JvdGU6Cj4gPiA+ID4gT24gRnJpLCBKdWwgMTgsIDIwMjUgYXQgMDM6NDk6MzdQTSAr
-MDIwMCwgVGhpZXJyeSBSZWRpbmcgd3JvdGU6Cj4gPiA+ID4gPiBPbiBUaHUsIEp1bCAxNywgMjAy
-NSBhdCAwMjoxMTo0MVBNICswMjAwLCBHcmVnIEtyb2FoLUhhcnRtYW4gd3JvdGU6Cj4gPiA+ID4g
-PiA+IE9uIFRodSwgSnVsIDE3LCAyMDI1IGF0IDEyOjMyOjM0UE0gKzAyMDAsIFRoaWVycnkgUmVk
-aW5nIHdyb3RlOgo+ID4gPiBbLi4uXQo+ID4gPiA+ID4gICAgICAgICBzdHJ1Y3Qgc3lzY29yZTsK
-PiA+ID4gPiA+Cj4gPiA+ID4gPiAgICAgICAgIHN0cnVjdCBzeXNjb3JlX29wcyB7Cj4gPiA+ID4g
-PiAgICAgICAgICAgICAgICAgaW50ICgqc3VzcGVuZCkoc3RydWN0IHN5c2NvcmUgKnN5c2NvcmUp
-Owo+ID4gPiA+ID4gICAgICAgICAgICAgICAgIHZvaWQgKCpyZXN1bWUpKHN0cnVjdCBzeXNjb3Jl
-ICpzeXNjb3JlKTsKPiA+ID4gPiA+ICAgICAgICAgICAgICAgICB2b2lkICgqc2h1dGRvd24pKHN0
-cnVjdCBzeXNjb3JlICpzeXNjb3JlKTsKPiA+ID4gPiA+ICAgICAgICAgfTsKPiA+ID4gPiA+Cj4g
-PiA+ID4gPiAgICAgICAgIHN0cnVjdCBzeXNjb3JlIHsKPiA+ID4gPiA+ICAgICAgICAgICAgICAg
-ICBjb25zdCBzdHJ1Y3Qgc3lzY29yZV9vcHMgKm9wczsKPiA+ID4gPiA+ICAgICAgICAgICAgICAg
-ICBzdHJ1Y3QgbGlzdF9oZWFkIG5vZGU7Cj4gPiA+ID4gPiAgICAgICAgIH07Cj4gPiA+ID4gPgo+
-ID4gPiA+ID4gSXMgdGhhdCB3aGF0IHlvdSBoYWQgaW4gbWluZD8KPiA+ID4gPgo+ID4gPiA+IEkg
-bWlzc2VkIHRoZSBsaXN0X2hlYWQsIHNvIHllcywgdGhpcyB3b3VsZCBiZSBiZXR0ZXIsIGJ1dCBk
-b24ndCBwYXNzCj4gPiA+ID4gYmFjayB0aGUgc3lzY29yZSBzdHJ1Y3R1cmUsIGhvdyBhYm91dCBq
-dXN0IGEgdm9pZCAqIGluc3RlYWQsIG1ha2luZyB0aGUKPiA+ID4gPiB3aG9sZSBjb250YWluZXJf
-b2YoKSBzdHVmZiBnbyBhd2F5Pwo+ID4gPgo+ID4gPiBZZWFoLCB0aGF0J3MgYSBwb3NzaWJpbGl0
-eS4gSSBwZXJzb25hbGx5IGRvbid0IGxpa2UgcGFzc2luZyB0aGUgdm9pZCAqCj4gPiA+IGFyb3Vu
-ZCBiZWNhdXNlIGl0J3MgZWFzaWVyIHRvIG1ha2UgbWlzdGFrZXMgdGhhdCB3YXkuIEkgYWxzbyBm
-aW5kIGl0Cj4gPiA+IHVuaW50dWl0aXZlIGJlY2F1c2UgaXQgZG9lc24ndCBpbW1lZGlhdGVseSBz
-aG93IHlvdSB3aGF0IHRoZSBmdW5jdGlvbnMKPiA+ID4gZXhwZWN0Lgo+ID4gPgo+ID4gPiBNeSB1
-bmRlcnN0YW5kaW5nIGlzIHRoYXQgdGhlIGNvbnRhaW5lcl9vZigpIHNob3VsZCBnZXQgb3B0aW1p
-emVkIGF3YXkKPiA+ID4gbW9zdCBvZiB0aGUgdGltZSwgc28gdGhlcmUgYXJlbid0IGFueSBvYnZp
-b3VzIGRvd25zaWRlcyB0aGF0IEkgY2FuIHNlZS4KPiA+Cj4gPiBjb250YWluZXJfb2YoKSBpcyBq
-dXN0IHBvaW50ZXIgbWF0aCwgYnV0IGEgY2FzdCBpcyBldmVuIGZhc3RlciA6KQo+ID4KPiA+ID4g
-QnV0IEkgZG9uJ3QgZmVlbCB2ZXJ5IHN0cm9uZ2x5LCBzbyBpZiB5b3UgaGF2ZSBhIHN0cm9uZyBw
-cmVmZXJlbmNlIGZvcgo+ID4gPiB2b2lkIHBvaW50ZXJzLCBJIGNhbiBkbyB0aGF0Lgo+ID4KPiA+
-IFRoYXQncyB3aGF0IHlvdSByZWFsbHkgd2FudCB0byBoYXZlIGhlcmUsIGl0J3MgYSBzeXNjb3Jl
-IGRhdGEgdHlwZQo+ID4gdGhpbmcsIHRoYXQgdGhlIGNhbGxiYWNrIHdhbnRzIHRvIHJlZmVyZW5j
-ZS4gIEp1c3QgbGlrZSBhIGlycXJlcXVlc3RfdAo+ID4gZnVuY3Rpb24gcGFzc2VzIGJhY2sgYSB2
-b2lkICogdGhhdCB0aGUgaGFuZGxlciAia25vd3MiIGhvdyB0byBkZWFsIHdpdGgKPiA+IHByb3Bl
-cmx5Lgo+Cj4gSVJRIGhhbmRsZXJzIGFyZSBkaWZmZXJlbnQsIHRob3VnaCwgYmVjYXVzZSB5b3Ug
-cGFzcyB0aGUgdm9pZCAqIGRhdGEKPiB3aGVuIHlvdSByZWdpc3RlciB0aGUgaW50ZXJydXB0LiBU
-aGF0IHZvaWQgKiB0aGVuIGdldHMgc3RvcmVkIGFuZCBwYXNzZWQKPiB0byB0aGUgaGFuZGxlciB3
-aGVuIHRoZSBpbnRlcnJ1cHQgaXMgcHJvY2Vzc2VkLgo+Cj4gV2UnZCBoYXZlIHRvIGNoYW5nZSBp
-dCB0byBzb21ldGhpbmcgbGlrZSB0aGlzOgo+Cj4gICAgICAgICBzdHJ1Y3Qgc3lzY29yZV9vcHMg
-ewo+ICAgICAgICAgICAgICAgICAvKiBwYXJhbWV0ZXJzIG5vdyBjaGFuZ2VkIHRvIGRyaXZlci1z
-cGVjaWZpYyBkYXRhICovCj4gICAgICAgICAgICAgICAgIGludCAoKnN1c3BlbmQpKHZvaWQgKmRh
-dGEpOwo+ICAgICAgICAgICAgICAgICB2b2lkICgqcmVzdW1lKSh2b2lkICpkYXRhKTsKPiAgICAg
-ICAgICAgICAgICAgdm9pZCAoKnNodXRkb3duKSh2b2lkICpkYXRhKTsKPiAgICAgICAgIH07Cj4K
-PiAgICAgICAgIHN0cnVjdCBzeXNjb3JlIHsKPiAgICAgICAgICAgICAgICAgY29uc3Qgc3RydWN0
-IHN5c2NvcmVfb3BzICpvcHM7Cj4gICAgICAgICAgICAgICAgIHN0cnVjdCBsaXN0X2hlYWQgbm9k
-ZTsKPiAgICAgICAgICAgICAgICAgLyogTkVXIGRyaXZlci1zcGVjaWZpYyBkYXRhICovCj4gICAg
-ICAgICAgICAgICAgIHZvaWQgKmRhdGE7Cj4gICAgICAgICB9OwoKSSBsaWtlIHRoaXMgbW9yZSB0
-aGFuIHRoZSBvcmlnaW5hbCwgYnV0IEkgd291bGQgZG8KCnN0cnVjdCBzeXNjb3JlX29wc19vcHMg
-ewogICAgICAgICAgICAgICAgIGludCAoKnN1c3BlbmQpKHZvaWQgKmRhdGEpOwogICAgICAgICAg
-ICAgICAgIHZvaWQgKCpyZXN1bWUpKHZvaWQgKmRhdGEpOwogICAgICAgICAgICAgICAgIHZvaWQg
-KCpzaHV0ZG93bikodm9pZCAqZGF0YSk7Cn07CgpzdHJ1Y3Qgc3lzY29yZV9vcHMgewogICAgICAg
-ICAgICAgICAgIHN0cnVjdCBsaXN0X2hlYWQgbm9kZTsKICAgICAgICAgICAgICAgICBjb25zdCBz
-dHJ1Y3Qgc3lzY29yZV9vcHNfb3BzICpvcHM7CiAgICAgICAgICAgICAgICAgdm9pZCAqZGF0YTsK
-fTsKCmFuZCBjaGFuZ2UgcmVnaXN0ZXJfc3lzY29yZV9vcHMoKSB0byB0YWtlIHRocmVlIGFyZ3Vt
-ZW50cywgdGhlIHN0cnVjdApzeXNjb3JlX29wcyBwb2ludGVyLCB0aGUgKGNvbnN0aWZpZWQpIHN0
-cnVjdCBzeXNjb3JlX29wc19vcHMgb25lLCBhbmQKdGhlICh2b2lkICopIGRhdGEgb25lLgoKTm90
-ZSB0aGF0IGl0IGlzIG5vdCBuZWNlc3NhcnkgdG8gY2hhbmdlIHRoZSBzaWduYXR1cmUgb2YKdW5y
-ZWdpc3Rlcl9zeXNjb3JlX29wcygpIGluIHRoaXMgY2FzZS4KCj4gSXQgZW5kcyB1cCBpbmNyZWFz
-aW5nIHRoZSBzeXNjb3JlIHN0cnVjdHVyZSdzIHNpemUsIGFib3V0IDMzJSwgdGhvdWdoCj4gZ2l2
-ZW4gdGhhdCB0aGVyZSBhcmVuJ3QgYSBsb3Qgb2YgdGhlc2UgdGhhdCdzIHByb2JhYmx5IG5lZ2xp
-Z2libGUuCgpUaGF0J3Mgbm90IGEgcHJvYmxlbSBJTVYuCgo+IFdoYXQgSSB0aGluayBpcyBhIGJp
-dCBtb3JlIHVubmF0dXJhbCBhYm91dCBpdCBpbiB0aGlzIGNhc2UgaXMgdGhhdCB3ZQo+IGVtYmVk
-IHRoZSBzdHJ1Y3Qgc3lzY29yZSBpbnRvIHNvbWUgZHJpdmVyLXByaXZhdGUgZGF0YSBhbnl3YXkg
-c28gdGhhdAo+IGl0IGJlY29tZXMgcGVyIGluc3RhbmNlLCBhbmQgdGhlbiB3ZSBoYXZlIGEgY2ly
-Y3VsYXIgcmVmZXJlbmNlOgo+Cj4gICAgICAgICBmb28tPnN5c2NvcmUub3BzID0gJmZvb19zeXNj
-b3JlX29wczsKPiAgICAgICAgIGZvby0+c3lzY29yZS5kYXRhID0gZm9vOwoKVGhhdCBkZXBlbmRz
-IGJlY2F1c2UgImRhdGEiIG5lZWQgbm90IGJlICJmb28iIGluIGFsbCBjYXNlcywgYnV0IGFsc28K
-c2VlIGFib3ZlLiAgSWYgdGhlIGluaXRpYWxpemF0aW9uIG9mIHN0cnVjdCBzeXNjb3JlX29wcyBp
-cyBhbGwgZG9uZSBieQpyZWdpc3Rlcl9zeXNjb3JlX29wcygpLCBpdCBkb2Vzbid0IGxvb2sgY2ly
-Y3VsYXIgYW55IG1vcmUuCgo+IFdoaWNoIGxvb2tzIGtpbmQgb2Ygd2VpcmQuIEFsdGVybmF0aXZl
-bHkgSSBzdXBwb3NlIHdlIGNvdWxkIGNvbXBsZXRlbHkKPiByZXdvcmsgaXQgYW5kIG1ha2UgcmVn
-aXN0ZXJfc3lzY29yZV9vcHMoKSBhbGxvY2F0ZSBzdHJ1Y3Qgc3lzY29yZSwgYW5kCj4gaGlkZSB0
-aGUgaW50ZXJuYWxzIGZyb20gZHJpdmVycyBjb21wbGV0ZWx5Ogo+Cj4gICAgICAgICBlcnIgPSBy
-ZWdpc3Rlcl9zeXNjb3JlKCZmb29fc3lzY29yZV9vcHMsIGZvbyk7Cj4KPiBXaXRoIHRoYXQgaXQg
-bWF5IGJlIHByb2JsZW1hdGljIHRoYXQgcmVnaXN0ZXJfc3lzY29yZSgpIGNhbiBub3cgZmFpbC4K
-ClllcywgdGhhdCBtaWdodCBiZSBhIHByb2JsZW0uCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 7/23/25 4:51 AM, Lee Jones wrote:
+> On Thu, 10 Jul 2025, Alex Elder wrote:
+> 
+>> All devices supported by simple MFD use the same 8-bit register 8-bit
+>> value regmap configuration.  There is an option available for a device
+>> to specify a custom configuration, but no existing device uses it.
+>>
+>> Rather than specify a "full" regmap configuration to change only
+>> the max_register value, Lee Jones suggested allowing max_register
+>> to be specified in the simple_mfd_data structure.  If regmap_config
+>> and max_register are both supplied, the max_register field is ignored.
+>>
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>> Suggested-by: Lee Jones <lee@kernel.org>
+>> ---
+>> v8: - Use regmap_config_8r_8v, modifying it if max_register supplied
+>>
+>>   drivers/mfd/simple-mfd-i2c.c | 8 ++++++--
+>>   drivers/mfd/simple-mfd-i2c.h | 3 ++-
+>>   2 files changed, 8 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
+>> index 22159913bea03..5138aa72140b5 100644
+>> --- a/drivers/mfd/simple-mfd-i2c.c
+>> +++ b/drivers/mfd/simple-mfd-i2c.c
+>> @@ -24,15 +24,16 @@
+>>   
+>>   #include "simple-mfd-i2c.h"
+>>   
+>> -static const struct regmap_config regmap_config_8r_8v = {
+>> +static struct regmap_config regmap_config_8r_8v = {
+>>   	.reg_bits = 8,
+>>   	.val_bits = 8,
+>> +	/* .max_register can be specified in simple_mfd_data */
+> 
+> Drop this comment please.
+> 
+>>   };
+>>   
+>>   static int simple_mfd_i2c_probe(struct i2c_client *i2c)
+>>   {
+>>   	const struct simple_mfd_data *simple_mfd_data;
+>> -	const struct regmap_config *regmap_config;
+>> +	struct regmap_config *regmap_config;
+>>   	struct regmap *regmap;
+>>   	int ret;
+>>   
+>> @@ -43,8 +44,11 @@ static int simple_mfd_i2c_probe(struct i2c_client *i2c)
+>>   		regmap_config = &regmap_config_8r_8v;
+>>   	else
+>>   		regmap_config = simple_mfd_data->regmap_config;
+>> +	if (simple_mfd_data && !simple_mfd_data->regmap_config)
+>> +		regmap_config->max_register = simple_mfd_data->max_register;
+> 
+> If max_register is set in simple_mfd_data, it should take precedence.
+
+I don't really agree with that.  If simple_mfd_data->regmap_config
+is provided, why not use the max_register field already available
+there?
+
+This is why I said above that I think this feature doesn't add
+much value.  It provides a second way to specify something, but
+in the end it complicates the code more than it's worth.
+
+The only time this new simple_mfd_data->max_register field seems
+to make sense is if it were the only thing provided (without
+simple_mfd_data->regmap_config being supplied).  In that case,
+I see the benefit--a null simple_mfd_data->regmap_config means
+use regmap_config_8r_8v, and overlay it with the max_register
+value.  The new max_register field avoids defining another huge
+but mostly empty regmap_config structure.
+
+Anyway, back to your original point:  I said in v7 "If both
+are specified, the max_register value is ignored" and I think
+that's the simplest.  Specify one or the other--if you want
+to define things in regmap_config, then that's where you add
+your max_register.  If you like regmap_config_8r_8v but want
+to define a max_register value, just provide max_register.
+
+If you insist, I'll do what you say but before I sent another
+version I wanted to explain my reasoning.
+
+
+> if (simple_mfd_data && simple_mfd_data->max_register)
+> 	regmap_config->max_register = simple_mfd_data->max_register;
+> 
+>>   	regmap = devm_regmap_init_i2c(i2c, regmap_config);
+>> +	regmap_config->max_register = 0;
+> 
+> Does max_register definitely have persistence over subsequent calls?
+
+It is a global variable.  Isn't that how they work?  When
+it was read-only there was no concern about that, nor about
+any possible concurrent access (though I don't think multiple
+probes can be using this code at once).
+
+We could allocate a new one each time instead.
+
+I think what I offered in v5 was acceptable.  If you're
+willing to accept that I will be happy to keep discussing
+(and implementing) the max_register feature.
+
+					-Alex
+
+> 
+>>   	if (IS_ERR(regmap))
+>>   		return PTR_ERR(regmap);
+>>   
+>> diff --git a/drivers/mfd/simple-mfd-i2c.h b/drivers/mfd/simple-mfd-i2c.h
+>> index 7cb2bdd347d97..ea2a96af8bce4 100644
+>> --- a/drivers/mfd/simple-mfd-i2c.h
+>> +++ b/drivers/mfd/simple-mfd-i2c.h
+>> @@ -24,7 +24,8 @@
+>>   #include <linux/regmap.h>
+>>   
+>>   struct simple_mfd_data {
+>> -	const struct regmap_config *regmap_config;
+>> +	struct regmap_config *regmap_config;
+>> +	unsigned int max_register;	/* Ignored if regmap_config supplied */
+>>   	const struct mfd_cell *mfd_cell;
+>>   	size_t mfd_cell_size;
+>>   };
+>> -- 
+>> 2.45.2
+>>
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
