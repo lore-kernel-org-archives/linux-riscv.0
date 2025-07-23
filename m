@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5F8C83F1A
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 02:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BAE3C83F27
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 02:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G8hqEYQf4m/3VqMuwOpOzmGHpMDuSlasmFW/ofOYtLE=; b=fU3tcRXZhIQOrz
-	oEnSXuoVhThtlBprJUM0U7z5+UxZpP/yPdF3zhT+gbia6GhiA9OX7rreBsMgzfoN+9wNzEIxgzpik
-	HJIUqqcv3VoJzaM1lw94LdUevTPeozMBAmpGhqtXNFB5cl07QYBuIgfkm2e423YIHTPcADvOsna75
-	SafoKwMSpW+5pHUnl2affWTOQr47txSWgmG8rTD01aBSaMUbIoC2/IQ0CkXosKWzlQZc4slxk5uU1
-	BdVyLKUXDheN+ZF0wVcn43SuNaSuYCuaPt6OVOdYy8MdvuiUcW7x1he6ZrCjxac8k99r35b3yPhts
-	Eq5Z4JxjBkcLT0AWlR4A==;
+	List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:In-Reply-To:
+	To:From:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=qwszCHOcD+hoOUl8W6hLioq1qMAaFlKysP28kuktlK8=; b=i+RbdReXh3P1fp
+	df8/Tazw9rqVc4Awzb5sQDmv7D0Tegc+9iHEmD9OW52T3RZ0o/mbzDXPrueY0dIOeT/isDVaUtppO
+	bsbiWsxnsuKFSuziB81vU7+sgScG2APmeM/lJnE2gVSaQFLhUTGA8INU0UkAgq/iUjS3PE+ls3o9+
+	VpP6IpaPP3rBGjvpKA5C+lAK5p+EoGgNp9VXkBdJnC6GziLjSzLpTFD5VrDSaHBgRDBBspzGqEMr0
+	w5XsHAYjaHmYunU0+SlMcJrEhySFF0ZLoL8UhNnAi3Jufiu1dfzoXS29WRgbBfGeMeuAr6o2olH2v
+	TYgJoBjdiPQG/qrFN3Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uePI0-00000003rBm-1feL;
-	Wed, 23 Jul 2025 02:33:04 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1uePMa-00000003rYs-1cwu;
+	Wed, 23 Jul 2025 02:37:48 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uePHv-00000003r66-49RU
+	id 1uePMX-00000003rYY-2hXn
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Jul 2025 02:33:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1753237892;
-	bh=Bnp2BUKVCzXylStMV6W/TL+x0ZAeLVKUXfGzHGOGBss=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=JJ5QfJNb8bycE1FlkwbZjOvwRpaDorT+MfLk+veYFp8ximC2O/PpbUExqYUtN59q9
-	 9rtnrVmNkfffpQjJdZLuCwdhnqTyfidS8GgJbtmuUI4ZlRomYYFTLQwzCCRB00p8cN
-	 66Zr9XxdciJW9KGvNhQK+/LKi9t/Jlb2fJZ3YwJM=
-X-QQ-mid: zesmtpgz8t1753237884t3e8b57a8
-X-QQ-Originating-IP: 46uxbKdLiWrhnfUPVJqnTu6FVuy3GBQSZ/edRE17lwY=
-Received: from = ( [61.145.255.150])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 23 Jul 2025 10:31:22 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12801568592757599976
-EX-QQ-RecipientCnt: 16
-Date: Wed, 23 Jul 2025 10:31:22 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Yao Zi <ziyao@disroot.org>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Yixun Lan <dlan@gentoo.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Alex Elder <elder@riscstar.com>,
-	Haylen Chu <heylenay@4d2.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] dt-bindings: clock: spacemit: CLK_SSPA_I2S_BCLK
- for SSPA
-Message-ID: <C0DC185A2866E4E2+aIBJeguvlpvCWDrI@LT-Guozexi>
-References: <20250722-k1-clk-i2s-v2-0-2f8edfe3dab4@linux.spacemit.com>
- <20250722-k1-clk-i2s-v2-2-2f8edfe3dab4@linux.spacemit.com>
- <20250722092101-GYB724801@gentoo>
- <B79CAF56E128A7B3+aH9Zb9zNm6y_ovvW@LT-Guozexi>
- <aH9jUyzGb53B-aOu@pie>
+	Wed, 23 Jul 2025 02:37:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753238256; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=nXNlbIJ2gBelqjEBEVD2ZZqHhYpHfqLNhyRL02/HrWePPrbBVzn9UFlpWLLQQqMgFkVOHgI7EPs11uxDJT2hAD3HxsnglyiqNvXHhO2Rh1o7CKVO9e2P7f9kJ1aPsC003SbwyrEkydGjlmMb2sEMdR1SO8Aw2Ums9FF/CqIAILk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1753238256; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=jHHlBhF2vPEqFOO6kTk6KJpYRHF8+DAv7zaVRV3Y9Vc=; 
+	b=iYfXamsvsiKsG75/ndrpRp1zxp5gBp37UyESssCCFbcHYBxAjRGCXTX3cWLDK5FMl7iYfEkAFwVZK+Gj5fuwxDKK5QTNuuNCMtui3MilTN6mzPrwa+B8CnTNZPVvv/xCFFTIiBlE0+DDcDIlzSaUif03wrRLmEkOIqh9XXl4ITM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753238256;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=MIME-Version:From:From:To:To:In-Reply-To:Cc:Cc:Subject:Subject:Message-ID:Date:Date:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=jHHlBhF2vPEqFOO6kTk6KJpYRHF8+DAv7zaVRV3Y9Vc=;
+	b=LJSC674veqzVU7kyyZ0gi5lDSLjcElD+OaUS/4BfyPH46K1FfJodeapXXZVhFXCB
+	/r+z4lqTFUSDMeeukCcmEEap8Jat18rKa/sj9mu4ads9dqs4MAiMFDBWQISGKzfATUh
+	KpX2Qb0Aeeg5RvkQkDXIBaNMggYP33lbFLTSYZpc=
+Received: by mx.zohomail.com with SMTPS id 175323825315690.31617852682825;
+	Tue, 22 Jul 2025 19:37:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aH9jUyzGb53B-aOu@pie>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: MWsoaJIuuiAXRBhiK3H0+/x7ckwPvH1EOfK9qYh/1Rctus3wgU7Z3P4w
-	AYvaQik0swl+SdtAgBAHoMWIezilb3J9BGGoTFxNUBfJmDCO3ZpvNzztFVDbEafuAvz3t2O
-	S69zHDQ6uMhbyxgJkeiIYvA8dNvBpze+hNgmJfT5FSux61ke0DEionXzR9PNUmbu37WrPSg
-	wa6zrR7HvWsU7jrI5SZALgzvHuN0JpFbUBhdqhA6NaZMSuoHmvd5f9Z4RqXuZ5qrFGfe0ax
-	fekr515IgtDLgnTAWw8BJiV3r5YWlFacoHWuG536OaF+tTV1b1dX5hH3VRWWnhv2WzZ2X5N
-	nc3REwNdX2K/a6r4Aac+D/CrzgsEgxaG2ZHazm+wlbvELceZNmJdJtDHo4/WJjc/xFmKwjD
-	Qf1z926OyJzAD/gSuMfqX1VrxDNVnt2/4iQ+/m4rGyKNaC61ISWK2tgAfBXG/THWn944Rob
-	THeSGinfVpJcX3rfv2bg09g1v4C3+PyCM0iJNHGP3MwR61QnH5hNS8ivhZRQ92OMgGu6drH
-	m57Yqjh60mthSbhYbwzZVynODNNrTvgFjlgXcwgwGah/jBSr0ImH7tSAGQQ0FEcbCvsm1Th
-	9QiM3pAuSWXAvZG6jTXq00eBh5+xWHe2XHfyywkTTpvHW5zBsTthB1WHUqEriFw3OMV4A9T
-	1vV1FVtUsCIwfwFRrtZkTCfMzJXMjFcGTqw/RqiNoV/09EjlWtnyQ0XMTiSSTrcMLXP7BuP
-	mgwHkuaS0Gy30wBMdpIbXNdhm9Ihhdyul5tF+N8lACFZn/Me/pIAFDu+FcCfyBpyroVP1NI
-	cP9yRzmp/ADULrowPBygsN9PzMtD2JwCBKOfrPKZ53ljJL0NALr57XAc6maQACi77VnAFtq
-	WNerdvXJu9Bx89Ttaoxgraez1wOf5jGW9/ry8n6uu/XJZ7Zdp/V3TRmXwTuJ413sbNqR/2m
-	AyY14zbiHWgyil0ifgFwR7TvHscvvZz/KtX7dSID//gyhKCdQTczQnTWrT8h6aUCNXOylPR
-	Lh+OInuQHuSQLLn1ri
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
-X-QQ-RECHKSPAM: 0
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Conor Dooley" <conor@kernel.org>
+In-Reply-To: <20250722-proposal-gothic-e0c3725e0874@spud>
+Cc: "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>, 
+	"Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, 
+	"Alexandre Ghiti" <alex@ghiti.fr>, 
+	"Daniel Lezcano" <daniel.lezcano@linaro.org>, 
+	"Thomas Gleixner" <tglx@linutronix.de>, 
+	"Samuel Holland" <samuel.holland@sifive.com>, 
+	"Anup Patel" <anup@brainfault.org>, 
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, 
+	"Jiri Slaby" <jirislaby@kernel.org>, <devicetree@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>, "Palmer Dabbelt" <palmer@sifive.com>, 
+	<linux-riscv@lists.infradead.org>, <linux-serial@vger.kernel.org>
+Subject: Re: [PATCH RFC 08/10] riscv: dts: Add initial Anlogic DR1V90 SoC device
+	 tree
+Message-ID: <1854c0e4c92fe7d0.4d402317a33bdba0.106dbab4984c351f@Jude-Air.local>
+Date: Wed, 23 Jul 2025 02:37:23 +0000
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_193300_593390_6645A39A 
-X-CRM114-Status: GOOD (  28.32  )
+X-CRM114-CacheID: sfid-20250722_193746_099136_DE7C0F20 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,119 +90,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 10:09:23AM +0000, Yao Zi wrote:
-> On Tue, Jul 22, 2025 at 05:27:11PM +0800, Troy Mitchell wrote:
-> > On Tue, Jul 22, 2025 at 05:21:01PM +0800, Yixun Lan wrote:
-> > > Hi Troy,
-> > > 
-> > > On 15:36 Tue 22 Jul     , Troy Mitchell wrote:
-> > > > This patch adds macro definitions: SSPAx_I2S_BCLK,
-> > > this is obvious, so no need to repeat, please add something useful
-> > > 
-> > > > to introduce a dummy gate for i2s_bclk.
-> > >                 ~~~~~~ 'virtual'? if it isn't a real gate clock,
-> > > 	but I'm not sure it's a good approach to introduce such
-> > > 	virtual clock if underlying hw doesn't comply with this
-> > I'll leave this question to others.
-> > 
-> > > 
-> > > > 
-> > > > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > > > ---
-> > > >  include/dt-bindings/clock/spacemit,k1-syscon.h | 114 +++++++++++++------------
-> > > >  1 file changed, 58 insertions(+), 56 deletions(-)
-> > > dt-binding patch should always go first
-> > get it
-> > 
-> > > 
-> > > > 
-> > > > diff --git a/include/dt-bindings/clock/spacemit,k1-syscon.h b/include/dt-bindings/clock/spacemit,k1-syscon.h
-> > > > index 35968ae98246609c889eb4a7d08b4ff7360de53b..6914ccf5be45a1071d5b6eac354cacb67888e00c 100644
-> > > > --- a/include/dt-bindings/clock/spacemit,k1-syscon.h
-> > > > +++ b/include/dt-bindings/clock/spacemit,k1-syscon.h
-> > > > @@ -123,62 +123,64 @@
-> > > >  #define CLK_TIMERS2		41
-> > > >  #define CLK_AIB			42
-> > > >  #define CLK_ONEWIRE		43
-> > > > -#define CLK_SSPA0		44
-> > > > -#define CLK_SSPA1		45
-> > > > -#define CLK_DRO			46
-> > > > -#define CLK_IR			47
-> > > > -#define CLK_TSEN		48
-> > > > -#define CLK_IPC_AP2AUD		49
-> > > > -#define CLK_CAN0		50
-> > > > -#define CLK_CAN0_BUS		51
-> > > > -#define CLK_UART0_BUS		52
-> > > > -#define CLK_UART2_BUS		53
-> > > > -#define CLK_UART3_BUS		54
-> > > > -#define CLK_UART4_BUS		55
-> > > > -#define CLK_UART5_BUS		56
-> > > > -#define CLK_UART6_BUS		57
-> > > > -#define CLK_UART7_BUS		58
-> > > > -#define CLK_UART8_BUS		59
-> > > > -#define CLK_UART9_BUS		60
-> > > > -#define CLK_GPIO_BUS		61
-> > > > -#define CLK_PWM0_BUS		62
-> > > > -#define CLK_PWM1_BUS		63
-> > > > -#define CLK_PWM2_BUS		64
-> > > > -#define CLK_PWM3_BUS		65
-> > > > -#define CLK_PWM4_BUS		66
-> > > > -#define CLK_PWM5_BUS		67
-> > > > -#define CLK_PWM6_BUS		68
-> > > > -#define CLK_PWM7_BUS		69
-> > > > -#define CLK_PWM8_BUS		70
-> > > > -#define CLK_PWM9_BUS		71
-> > > > -#define CLK_PWM10_BUS		72
-> > > > -#define CLK_PWM11_BUS		73
-> > > > -#define CLK_PWM12_BUS		74
-> > > > -#define CLK_PWM13_BUS		75
-> > > > -#define CLK_PWM14_BUS		76
-> > > > -#define CLK_PWM15_BUS		77
-> > > > -#define CLK_PWM16_BUS		78
-> > > > -#define CLK_PWM17_BUS		79
-> > > > -#define CLK_PWM18_BUS		80
-> > > > -#define CLK_PWM19_BUS		81
-> > > > -#define CLK_SSP3_BUS		82
-> > > > -#define CLK_RTC_BUS		83
-> > > > -#define CLK_TWSI0_BUS		84
-> > > > -#define CLK_TWSI1_BUS		85
-> > > > -#define CLK_TWSI2_BUS		86
-> > > > -#define CLK_TWSI4_BUS		87
-> > > > -#define CLK_TWSI5_BUS		88
-> > > > -#define CLK_TWSI6_BUS		89
-> > > > -#define CLK_TWSI7_BUS		90
-> > > > -#define CLK_TWSI8_BUS		91
-> > > > -#define CLK_TIMERS1_BUS		92
-> > > > -#define CLK_TIMERS2_BUS		93
-> > > > -#define CLK_AIB_BUS		94
-> > > > -#define CLK_ONEWIRE_BUS		95
-> > > > -#define CLK_SSPA0_BUS		96
-> > > > -#define CLK_SSPA1_BUS		97
-> > > > -#define CLK_TSEN_BUS		98
-> > > > -#define CLK_IPC_AP2AUD_BUS	99
-> > > > +#define CLK_SSPA0_I2S_BCLK	44
-> > > > +#define CLK_SSPA1_I2S_BCLK	45
-> > > just append the clock at the end, instead of doing massive renaming
-> > The c file is written in the same order as the h file,
-> > and I don't want to disrupt this order..
-> > 
-> > So should I keep this style or just append at the end?
+
+
+On 22/07/2025 16:21, Conor Dooley wrote:
+> On Mon, Jul 21, 2025 at 11:46:14PM +0800, Junhui Liu wrote:
+>> +	cpus {
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +		timebase-frequency = <800000000>;
+>> +
+>> +		cpu@0 {
+>> +			compatible = "nuclei,ux900", "riscv";
+>> +			device_type = "cpu";
+>> +			reg = <0>;
+>> +			riscv,isa = "rv64imafdc";
+>> +			riscv,isa-base = "rv64i";
+>> +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zba", "zbb", "zbc",
+>> +					       "zbkc", "zbs", "zicntr", "zicsr", "zifencei",
+>> +					       "zihintpause", "zihpm";
 > 
-> This isn't only a style issue. This patch breaks devicetree ABI, old
-> devicetree won't work with the change. Please don't modify existing
-> definitions but only add new ones.
-Tnx!
-And if I append it at the end, should I also need to change the current c file?
+> Why do riscv,isa and riscv,isa-extensions differ?
+> If riscv,isa is not even accurate, why not just remove it entirely?
+
+You're right, they should be the same. I will remove "riscv,isa" and
+keep only "riscv,isa-base" and "riscv,isa-extensions".
+Thanks for pointing it out, I will fix this in the next version.
+
 > 
-> >                 - Troy
-> > > 
-> > > > +#define CLK_SSPA0		46
-> > > > +#define CLK_SSPA1		47
-> > > > +#define CLK_DRO			48
-> 
-> Regards,
-> Yao Zi
-> 
+>> +			i-cache-block-size = <64>;
+>> +			i-cache-size = <32768>;
+>> +			i-cache-sets = <256>;
+>> +			d-cache-block-size = <64>;
+>> +			d-cache-size = <32768>;
+>> +			d-cache-sets = <256>;
+>> +			mmu-type = "riscv,sv39";
+>> +
+>> +			cpu0_intc: interrupt-controller {
+>> +				compatible = "riscv,cpu-intc";
+>> +				interrupt-controller;
+>> +				#interrupt-cells = <1>;
+>> +			};
+>> +		};
+>> +	};
+
+-- 
+Best regards,
+Junhui Liu
 
 
 _______________________________________________
