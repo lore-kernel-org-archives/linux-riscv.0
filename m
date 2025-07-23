@@ -4,92 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F55C83F1A
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 14:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD00FC83F17
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 14:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	From:Subject:Cc:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dDDSSpNThbD7BHVVvU1YMpYt08k6f2ygzALwSbWIH8s=; b=rX97N3WxR+4h26
-	kL7KdWo/bvO7vkL8WTL6ZStYpFPU+fumV+LEA1ztib2LrYsisVOVrPFQkHK8vnaCRQvDBFI4IRz2t
-	dKDhKkJJv9MlpPXoGPQLMGOChMithe97QV4z4iOr0KMY30q0XxndW2b+vaUy3uT3yFlTziz6ApZqd
-	kRH/Eon9zrTcdS+6q+6R4sx5qEBpw/Kdnl8dvo4+TrrKaIZXb7lO9qYVFBaw2PyVfvuPQrmtsesFf
-	h/7g+I5YS/jXbT3MNiIyI592+q3FWayZENq5TD1ZAvvJ+obcDl6iqB4VmzIR2Sn7NfhPy/Z0Q65l4
-	SzAdoAhND593SsNDAquQ==;
+	List-Owner; bh=6vNOVSpgCcu0YVrKgWTSawcmw+3GoxVdTJ3aqLjn/1c=; b=34pg58btoz9K+j
+	ajzl6t1ZCA6B47TrxhPqfT4l7K39JovTFeZ4iQdA0HyMscFQd2S+LUsRIOHQcCs7vMnZzpPR6a+Qr
+	4jmf+fQPzQ4KxiHdomy3VL/AeO9f9TcC/K+lujScLCLoedWmmsLzV0k8iDeNOzJgKlEOM+Iufhz68
+	XTPJfC5TaqvvegetKiH+bsR63kYAQclg9va3hwc7zBKXnSpNadJLJlk8QvXDCnqsjCABWzFmIHkhV
+	4t40WHO1ew7hbsxht6J8KhCDZMeeM0WF8t9Pr+gZ5j4IGAVzo0ID9Qss/Zc5/b+bJyxOqEEDsxzuz
+	2/iiPaUJDaOrpKSkKISQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueaCv-000000059fT-3CAr;
-	Wed, 23 Jul 2025 14:12:33 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1ueaKN-00000005BB3-0izm;
+	Wed, 23 Jul 2025 14:20:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZEn-0000000506Z-3i3j
-	for linux-riscv@lists.infradead.org;
-	Wed, 23 Jul 2025 13:10:27 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3a51481a598so3561092f8f.3
-        for <linux-riscv@lists.infradead.org>; Wed, 23 Jul 2025 06:10:25 -0700 (PDT)
+	id 1ueZS4-000000052v2-2uM0;
+	Wed, 23 Jul 2025 13:24:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:Message-Id:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=AxSF6lnsSAWsI4yFBGjBR+eKMGMyYNRUTfnKAxfWQFc=; b=njepFn1zH3m52U/cv+ACYqBanu
+	hxxF8miSoc7+j54fpSGNZKr4tSEWVlo07EYGkzpMl2LDFH3IS2okedL/ySfCNVNKh4VzC1ZBUxKkF
+	/vERYGMDcWGDVS8LZvxKd9WJUe5SlLYj/tH6Q3no1l1dcT7y5KKzC4ZeD5npmfoVP7V/YV8xEnPfO
+	T0q1Y6VMpKMX2AzrZ3l7l7aVANziFXkANAs0UDQNynaN8T/4AG3cMEWudaVoNdVIyu1feKFrXvmqy
+	lM55ppaBimIX/Cl0j/HFKoT4fua/Uq7J/4gPfauu5YzoerAPdAXzIst+XMnEbr7qNW01HmI/+cfXF
+	/yaSP/VA==;
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueZS1-0000000BTCW-0Buz;
+	Wed, 23 Jul 2025 13:24:07 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-23636167afeso63977315ad.3;
+        Wed, 23 Jul 2025 06:24:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=hammernet-be.20230601.gappssmtp.com; s=20230601; t=1753276224; x=1753881024; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vhBAalWa5gqDwmnSu/rBsFgFjTeJbqxDSovXVqBa20A=;
-        b=L5BL9D1ZyuM24o7zfl37zBs6WS797HH5o7PI6HOP2c0oSjxsPk+yzpnnBzb/qZe3ch
-         jl3ljKrJ+Sk53ynEmBfCZbWGMNmSajqQdJlNZ2JVsNSZSpWvL+d2R+mbrcqo6uKqpenM
-         BnKrpSChbJIWjW4Aay2ubEac63/EZ3U5xlTu6AtIqQe1dmTpRGbLjxY4uM06hxJjYrYP
-         igCkmPv0zPZiHFa7ZItFEZ/E2hzvQg0HSod5PopNx0wGhN267Up64/400mlCV+r+omos
-         vZtZYnrVJsS2HnaQlDHD0pk+TccPcgxJokYOU2iwjtArbX4aTasiMyrRAlIj7KETzilz
-         Z2Xg==
+        d=gmail.com; s=20230601; t=1753277042; x=1753881842; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AxSF6lnsSAWsI4yFBGjBR+eKMGMyYNRUTfnKAxfWQFc=;
+        b=BKpO5+RwOgoX8BaYVrntZmPCOBRZ1VAavzEWTxuAK4q2AF2nR7ewSpZ6NiK4R7D7xE
+         LuyGxB4LBZS0AjcnfAJouVy4/VGxx3VqNrsw0NSoxW0xppBTMVy/kZscJ/xM3m88Mplj
+         CGF1KvSk9w/L8o1FTW2vvwD0B1hqSEgWpxwRxyWlQqTavhwg7iYklfTukGzb8dNzazC+
+         k3YLYaSWcsKn9V0IkdakNgqp9FuTwoHrYUhJy5K4aTeWAyIst5/d2AYfltud9t2hRUaT
+         9kAS2Se70k5VG56KcepaLUu+fIw8WIoWwuTWzM0YL2mLGC82hn2sAUYizAyBM2NYbPDX
+         uHmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753276224; x=1753881024;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vhBAalWa5gqDwmnSu/rBsFgFjTeJbqxDSovXVqBa20A=;
-        b=A/5bzmG8Nqr2TOMizzVsvyDGmm46fbu6wmqsa0ezE2alMl6lBOLD3611745am0J3zY
-         Dw2XWZ5iWrJr+M8uHlIVkOS7ENC61oTNjbcHqlr6fYV7s9h+dRwt1ub82fsCjsulPoOf
-         RMnMbzgdSppCzyu+X4JNrfEEY4kwZRNKFWckmGWtVTmRXPLH16Hd+6vBc7eBSPBTogpN
-         upTsjmeQTWf/gmVutE1oqeye4W3YpqUznF0dH/SHeWRxgJbjV4cAC32/dJ4NfNnW7dOM
-         qrc6bm5+aK5C5SiZt1Da+CQXto3hlePvneJZ4ldP3UprjOzqvSarwve/tctH2pu/i02g
-         2AEA==
-X-Forwarded-Encrypted: i=1; AJvYcCWhwo68lOX76IJx7YHbnjGZ1pxVOoPKHOPShGkqY7dbN8IaDvS7SpCywttV1JwMVEdFctdbHTejquDxlA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzT+Mx+cNl62dJKw94SZsIaiOvgozX2cPTgTykF5WvYdrGdetF
-	4nADc21sTGeLZNWCGFOXsdfdNowgpyW+OoXH+NbXr6Oi82+C0XY7O1RImjPJN3X/V/U=
-X-Gm-Gg: ASbGnctqhiScYKVtf+Utwpi3A3cpD3efnQIArs973tbHwknymick7yeGtFquIn1Pouu
-	B4NzYh80Jr5r9R5USkxMOZxQH3bBskZnN9KxfrU7IN3v7ZHiT+2CR5rHiudZy5RB81zmLlUXysF
-	XE27jcli4aveWm0Aco7BTV3FyK42LBp+riU3BKHtzcnzK9bl1PSqGf6F0Z76BA30KO78TdcxPRu
-	FWwiVEWYvnQlyjA9W7hdR9sbS8pekHJZMC3nZP3xptthaeMVg/U7N9N8sbq87Vzsi9pIE7CEEgP
-	JgJ0FbC0/EjMrnx22/rO1CuHDyZa/2lYK5b5jtKJifUAWsujGtjQQ5QSYcO0iyqJP4yIvt7GbiH
-	wmRejv+Jggwb6XFU0m7QtKth21qiqRq+mqVhwv3b6DYq5PZxkRSphdpB5JpRq2ZXumBL8NPvTYn
-	Cqd4C8lFr/91Z4
-X-Google-Smtp-Source: AGHT+IHaikAjtXSOK7TzkgieFuqf48w0q0zzAkHwiGU+rMcHAorrKzxT8fl3tGpNBEzEAzrmfTi+OA==
-X-Received: by 2002:a05:6000:40da:b0:3a4:eae1:a79f with SMTP id ffacd0b85a97d-3b768ef3c90mr2447676f8f.33.1753276224129;
-        Wed, 23 Jul 2025 06:10:24 -0700 (PDT)
-Received: from ?IPV6:2a02:1807:2a00:3400:7fcb:5e01:8f11:1009? ([2a02:1807:2a00:3400:7fcb:5e01:8f11:1009])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b61ca5c813sm16511400f8f.84.2025.07.23.06.10.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Jul 2025 06:10:23 -0700 (PDT)
-Message-ID: <fd4eba94-50f5-46c9-8675-cc0aaa4601c6@hammernet.be>
-Date: Wed, 23 Jul 2025 15:10:22 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: spacemit: fix resource leak in
- spacemit_ccu_reset_register
-To: Yixun Lan <dlan@gentoo.org>
-Cc: sboyd@kernel.org, skhan@linuxfoundation.org,
- linux-kernel-mentees@lists.linux.dev, linux-clk@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250723124020.60897-1-hendrik.hamerlinck@hammernet.be>
- <20250723125416-GYA738759@gentoo>
-Content-Language: en-US
-From: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-In-Reply-To: <20250723125416-GYA738759@gentoo>
+        d=1e100.net; s=20230601; t=1753277042; x=1753881842;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=AxSF6lnsSAWsI4yFBGjBR+eKMGMyYNRUTfnKAxfWQFc=;
+        b=icgheahhnQC3Gi/Y+XI5gZ8HZ+7QL+hMRGQG8O7cAkAEqOxePO6AhcRovq4O5B8I7g
+         sODty5GjtcFWbNwWl+TzIN7QN30UaMyLB3s9gG12oscKUTx+vp/BXwKJTjxWhqve1NcR
+         MnyL1NlSFZIgJog6F4a37uIB4yO58h0FpdzkkJzRhNDuUvMkSl8rSDNlrmmlrF5M7JHM
+         XPwX0MjBBEC7DeF0aV7qEO2LCJy/g2rKbtDW8DUUxhuyLJsW5zRN52KSGzrpMV2V7Bz8
+         dcUqc7rCMCZBEuJYzsxsV0VTJTwZ6E/r/ZxkzyZAAfnywYCuwstD+kJrrIQ6Sewvx5sz
+         XkHA==
+X-Forwarded-Encrypted: i=1; AJvYcCV5t4XaYEoxMutXLjsM4ku8uBNa9HcnbeblBulWKXeIRBRrhy3RnYdj4a5N4mA2c6UWlgSxLBYZGA07YTFt4OJf@lists.infradead.org, AJvYcCW8KilFOSDWa2fwXARcFrpaH+sT/foRzsMZcFDK0NZ13k2SHRLk5jWdr5hMdwKwFfcF7WZi08FeW2UY7K0=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrWUy2FwFXjpDddp/2LkaP51aRdn8nrLHtTlx+P5PjEhTRQtuY
+	dB6444VCkNeU3Zmmhe5rEdTenKpgUHathKOvCRXIeZqSRNMiBkIJdX4j
+X-Gm-Gg: ASbGncsBrq5hMwz0LfDJydrSIRF4cwGvEV3gwE6Ti2Vrr+04n1icqavyzG30Oc01vX9
+	QVCmHNAIYeLUzOHgshfqi2joI7pIAhHu90DD5bucu0sf7RQmz5+jj4wCxKYNitZ+rU0r7+h41Jw
+	Jn0hCz68f3UO99i/AWE/7Yf4QG0T36sHJQ4WKDsFMsV1P2zqsxBkwNiCaKrnDw0hYaRW+zvXwdj
+	vFBZaOC6QO7SrxJVRr9ql5LTJINKTs7xuiupOEb2n4+EzN79Xfmbr1f0sZH5nlG0WKHqTSMsAhe
+	AcdanIAO9eRxSK2RAGpH0WwQ1GLrIfQRSA9wIg0tU/KkcnM9iqYLq0GAuYK6huEXv7wfx1N5XKc
+	YifdoLH96MlWccxh9V1wqiNADIGYZp3wbBTQs/YOUw+BwIpYV/VGGWKjdAcbgsb4nV0J2Z+rueo
+	vp
+X-Google-Smtp-Source: AGHT+IHeJqmBBFuJxJuYzYQrFS3o4VgCeV81DU3JpPQ+6NIF4D1yK+R8kibmHclHfqnrmsxDYjwysQ==
+X-Received: by 2002:a17:902:e887:b0:234:bca7:2920 with SMTP id d9443c01a7336-23f981b42c1mr48016245ad.24.1753277042029;
+        Wed, 23 Jul 2025 06:24:02 -0700 (PDT)
+Received: from localhost (p5332007-ipxg23901hodogaya.kanagawa.ocn.ne.jp. [180.34.120.7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23e3b5e4750sm97384825ad.6.2025.07.23.06.23.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Jul 2025 06:24:01 -0700 (PDT)
+Date: Wed, 23 Jul 2025 22:23:43 +0900 (JST)
+Message-Id: <20250723.222343.803840555288624865.fujita.tomonori@gmail.com>
+To: miguel.ojeda.sandonis@gmail.com
+Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, x86@kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
+ hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
+ chenhuacai@kernel.org, kernel@xen0n.name, tangyouling@loongson.cn,
+ hejinyang@loongson.cn, yangtiezhu@loongson.cn, ojeda@kernel.org,
+ alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
+ aliceryhl@google.com, tmgross@umich.edu, dakr@kernel.org
+Subject: Re: [PATCH v6 0/4] rust: Add bug/warn abstractions
+From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+In-Reply-To: <CANiq72nLQkJo8voGONJBEgE8st7=A4RW7VP+W++SVCWse49n=Q@mail.gmail.com>
+References: <CANiq72=Hr5rg7tYta8aUoxt8hOPjR2ik5_-xMWZwacr63=-7KA@mail.gmail.com>
+	<20250723.152042.1300024463910400.fujita.tomonori@gmail.com>
+	<CANiq72nLQkJo8voGONJBEgE8st7=A4RW7VP+W++SVCWse49n=Q@mail.gmail.com>
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_061025_926103_A392EDF9 
-X-CRM114-Status: UNSURE (   7.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250723_142405_396252_5C3BF5B2 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,24 +124,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Yixun,
+On Wed, 23 Jul 2025 11:52:04 +0200
+Miguel Ojeda <miguel.ojeda.sandonis@gmail.com> wrote:
 
-Thank you for the review.
+>> The patch for arm64? I tried to minimize changes to the original code
+>> so not intentional.
+> 
+> The riscv one, i.e. from the range diff:
+> 
+>     @@ arch/riscv/include/asm/bug.h: typedef u32 bug_insn_t;
+>                 "2:\n\t"                                        \
+>      -                  __BUG_ENTRY "\n\t"                      \
+>      -                  ".org 2b + %3\n\t"                      \
+>     --                  ".popsection"                           \
+>      +          __BUG_ENTRY(file, line, flags) "\n\t"           \
+>      +                  ".org 2b + " size "\n\t"                \
+>     -+                  ".popsection\n"                         \
+>     +                   ".popsection"                           \
+>      +
+>      +#define __BUG_FLAGS(flags)                                        \
+>      +do {                                                              \
+> 
+> If you look into the `.popsection` line, your patch adds a newline,
+> but I guess it was not intentional. In x86 there is a newline after
+> the directive, but there we have `extra` afterwards.
 
-On 7/23/25 14:54, Yixun Lan wrote:
->> Signed-off-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
->> Fixes: 988543522ebd ("clk: spacemit: set up reset auxiliary devices")
-> Can you put Fixes tag before SoB? I'd suggest to follow tip tree's docs
->
-> https://docs.kernel.org/process/maintainer-tip.html
-> 4.2.6. Ordering of commit tags
->
-> otherwise, looks good
-Thanks for pointing that out. I'll send the corrected version in the v2
-and make sure to follow the guidelines in the future.
->
-> Reviewed-by: Yixun Lan <dlan@gentoo.org>
+Oops, indeed it's not intentional.
 
+> (I noticed since I went to expand the macros in a dummy file, given it
+> can be something tricky to spot differences in the normal diff, but it
+> is visible in the normal diff.)
+> 
+>> Yeah, I followed the original code style.
+> 
+> And here I meant (i.e. the first part of that paragraph) that:
+> 
+>     -                    "\t.org 2b+%c1\n"                                  \
+> 
+> now generated those two spaces around it:
+> 
+>     +       "\t.org 2b + " size "\n"                                        \
+> 
+
+Ah, not intentional again.
 
 _______________________________________________
 linux-riscv mailing list
