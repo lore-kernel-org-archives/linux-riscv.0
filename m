@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C01C83F27
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 02:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0D3C83F17
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 04:18:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3QZ/n+jWnU/u14QOvdF8SPojuOcekX/2oNKx+nrfDJ4=; b=1OiSry6nFGiVszHnUxQGWJCk4x
-	kzb21cptAsXnDYnVRWim6ivEAUM1WAl4gXQ9fSm9DyPlsocJajlzQvONzKXJIqopQavnRp1bkhSAl
-	N3lbeneCPZRqBuG/EU6a3UfFN4ZrUeYfs9Xm4J8iWfOk+TiInW87DaXiJnyoT1NXUC/OItFTYogil
-	erwS6T6KSeWifi4c2uZiUgPLS6SfTBlrCSVJi9b35T2wwTbFRJkwK27FuuAdIBlDA6viv3AADeAhT
-	XgVqXy1MnXfhosCdNyWr1H9CATXUrZTfhxA89S2uxA/0DcQSJjtUdV88SbvhqooaMQMCOcEOX4ccq
-	YSXHCKcQ==;
+	bh=e1oMDXm54Fp9UgAj5F3Sdi4yQRh4UpLzbqTbeR96cFo=; b=Uod6DNRHlmJ0EuOAP9KDtaDXhY
+	fcBbHy2t1U2qgYIBwqsjLDnV2XHZVMHbj/WY8gk/9Z74mGsltJa08YQ/B+80Sci3KGdYWZypejezJ
+	5KfZQ3JEwxYjpAyAR704KRONX1PTUuYvjdkslA0mUG1tinGoxhShPCw/PbVX771/9+hX+2pNzJLJl
+	qJIalbu8oqvu22b5otOM0VJN16Ruq2Al1RuIoa8Pe0jdyw02hpikxpLTp+kQRqM5qvTDJ066RoF95
+	Utgk7JPUgV1G8BjmpJ7rZApV0lzBA8+LMFjD02iFJiXE2RxkyZtZ1HTeDS44ElwCDPeucinsOOISI
+	+lc3i6JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uePXX-00000003sDp-1UXH;
-	Wed, 23 Jul 2025 02:49:07 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1ueQw2-00000003yg7-15kY;
+	Wed, 23 Jul 2025 04:18:30 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uePXV-00000003sDP-0TBZ
+	id 1ueQvz-00000003yfj-0gTH
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Jul 2025 02:49:06 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b350704f506so390915a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 22 Jul 2025 19:49:04 -0700 (PDT)
+	Wed, 23 Jul 2025 04:18:28 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7425bd5a83aso5399911b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Jul 2025 21:18:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1753238944; x=1753843744; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1753244306; x=1753849106; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=AjUWdlUsRYHpTaBZ2BIkXzxPKTsg2qf+TMLwlGgI/Ug=;
-        b=H4VQqJUXuyNTOIL41uy+x0syXeY1lK9VK7Lz9sZcwYksXvT1wFGDlOQXNpxhn+VdK/
-         UjzWjTTDIz5KWt47z9ymvv70+/auRQFhW54feBNDQC5wKLbZx7y4N16+eNqsAuPzzyXH
-         vKpX70wpSLZsQNoZrrqSFZKbsfMpnTp7Pq3gM8wxjv0l5uRFl4JnQfchxqrhCbGUu5Wa
-         7hBAqE4I8EHxMrhkOcYJO2cmxHfwhR3gOebJ6lB3TiiBaZyaujXx/icQvq2NvMt7jWpY
-         YW9LnTyEJbElD/AOQ9H796za7/Y2qr08H3qqSgtOFuS+6uBrZ+dMaCGsOrFT8LhBGHrF
-         GnKA==
+        bh=1TaPjoUJwv9Etp1fT/nKK3BG4ePkhHW+sFnAWEuxVio=;
+        b=IGOWx1AQRXweu2yDRJi99+v8ZN4reLwKoenQxIZKMaUdVYMqs7PrQXHmnX6hqcP8JU
+         ss0MqucSG1w9NKTnvgeDR6bZ8Ii/GYsyJ3xcNtNQtyvpScRicy+RBVaubyxM0BbMPdOo
+         WQw28WSCyfVyE4qqvCY8++TNVgR8JxFwO5UajjkspiIOKEGlkERiPpUQXB8cJ6ygx1MU
+         xrFEAdLze/OMLNWgUriSaf0+BWgMebHQAuZc+n2xUqPXxBMOeLY8sJPrIrQGfYvzzCia
+         O/RFUWWl6m8RI4M61RoyscW5VQ4rEo6AyVI7h7hgFnMa5wKTn6geiJVLHbiVwvDw57x6
+         l+IA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753238944; x=1753843744;
+        d=1e100.net; s=20230601; t=1753244306; x=1753849106;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AjUWdlUsRYHpTaBZ2BIkXzxPKTsg2qf+TMLwlGgI/Ug=;
-        b=WxOTSQhB7DFYJ/MzcGPt/ruKc4hwfzGnbipMplkAhEJUZzsABTF9qxF0N6cmbYJP0W
-         NzblacZaV7EQOfuhUu/rqdVsG5cpcybLdRW7mIfRQPdLBR9FZNNuSAKOXvNiplRJk3ii
-         sGjhft+dki+MVmRTdoGpCDNH1KNpzcKvyEEjgxj57AtfQvcGH27BRO5Kn6kqqY1aZKj7
-         xl0hpqcXcDyuiuX47xUOf+GN0T/Ry3Jxsa8+zzPWErW9dJO7NTJ2WkADXTqkLjIKkUH0
-         EDw5XjUtqgyRELDSYCKvPOhJoGOQoAIOz9UMnvLj1kN0245GnhNX5ecVs7GNya09ApQT
-         lN/w==
-X-Gm-Message-State: AOJu0YxI/fAzpJBW2dY/zl93EAxZT1BgPPr6lcvYEB3RgegA4GPVxlw1
-	gZeGedjLJd8QifD+AMxwiCUDjNPon/ExDrklOOpOHEJUXfax7+LSitT+awae+8vf4CA=
-X-Gm-Gg: ASbGncs5xVprfa0NzMQYW1f5i8ZjmhCd1lIF7fq7qAN8n8oWgxlYIOQzxjsesfinwbr
-	WV61Qp8NcH0drWUWaFz1uUp3wPJbJyxGJCXjx9zbjOUEXetSjBSKDO9JL0opDA8wiq9fUzeKswV
-	eKe020h0m7ZIKYI9bmx0c8aenBr/H7WWh4Lr+3dsIi8k+rnxyWOfY//xdrivANA3A2csZbwyDwC
-	tX/9B0EMg0ioulyarg4fect6ME/RLCiVTZk94B+LE62Hmtz/CIz+i05JgEDZ1M0pwrP51YxwvC/
-	IVHYh52bzeoesvsKBH36kDMu/bBPL9OIBNT1YOHwzqUTogKNLSE4c4eCkYgRznxkKkstGodmFCF
-	kOhfPjKM9CetClxmOSKZIjeA5fIyf+/2W
-X-Google-Smtp-Source: AGHT+IFatcyhy+mcw5EEQP4K9Oe1Kb5DUdkqmT0jTE4NeqkvThclwLV3O7YKj6kMTpIWSVm2nMCV5Q==
-X-Received: by 2002:a17:903:3c30:b0:237:f757:9ad8 with SMTP id d9443c01a7336-23f8abef92cmr85400385ad.1.1753238943718;
-        Tue, 22 Jul 2025 19:49:03 -0700 (PDT)
+        bh=1TaPjoUJwv9Etp1fT/nKK3BG4ePkhHW+sFnAWEuxVio=;
+        b=HjBjCUuKRE385mzZz7bEgc/ZbMKTqRaoTrYroC2qQWCO4nNRmJ0xKQMfKt5rxTO7Vi
+         NaHW35yqMxIpSOSBuH3+HcPhVSOj6rfHTcH04U+PC0j7/Izfr10gSXKaRJZ+LCYzjvPD
+         ++G0qJdfdiIvKxCJdDHEZzH3QXuPrnbcS3wPC53uLg77AWOgp+RSmdgLQcU79MSqk0rS
+         WMK1XYhkwI+ThAJamWOpwOjzGRQzVdrZUWRJz87DrS9yjvdwz51aQ9KPcOWohhqBgs4r
+         0tPJ502+GjUM0uL8qISW8sQnv1LVNZxRYBkASa//g1CquyUEGGSbJ42fs33xPelvnVHn
+         HDag==
+X-Gm-Message-State: AOJu0YxuPpAQjOePdsvtPH4Z8cDRwY1BrkLBRG1jkwBwsmXkam2hzmu0
+	eU7Af350v6RFqREwtKOK+ZtZdChIkL5IDgO9gTnOFm25z4cSTaQXCX4ik8nkcvjLzqo=
+X-Gm-Gg: ASbGnctMfUtFwdaQ5r+CMltlBvQvBQmv+qTwmz5gG0HoLrtdE6RQfFrYN4E8v4IL1IA
+	cvuczZ6U8XPYWOV3SfibLT2CgfkKlGyXyuyhcwKtK3hSIUq7UIpDx4xff/USq+E/RFbYMg1MgrA
+	x0j8FVJxUW74R6a1g3HeTyVCx544yd7x/QVj61bow5Sqgiyl9Q1dSO1j/kvARny8ODjUW28DnwL
+	kw199jmy7HdjY04L/OWwYxZKOpfWxHfSruNY8j5SpwASh15wo0L4rr5lnzvDgww8KATOjgjQndF
+	DhMqds88mSkkzlrlK1jhWMze/VUBaWL5J90W3IMVMAvuyVExTWwL+bYeRHiKSCCz1FY9Dsc21lQ
+	g+kI3EPcAV1IzzzZFfLnJqCfoNYwHF98C
+X-Google-Smtp-Source: AGHT+IFA0YBcJMnJhHP3FPjc3REPEkZAG5QXhqFnyh6OJFA1c0QUKVHohKaPiDE95kjr2eXjEimzkQ==
+X-Received: by 2002:a05:6a00:4614:b0:740:a023:5d60 with SMTP id d2e1a72fcca58-760353db72fmr2543842b3a.19.1753244306301;
+        Tue, 22 Jul 2025 21:18:26 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23f90e48eddsm15616655ad.139.2025.07.22.19.49.01
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-759c84e2a88sm8770962b3a.23.2025.07.22.21.18.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Jul 2025 19:49:03 -0700 (PDT)
-Date: Tue, 22 Jul 2025 19:49:00 -0700
+        Tue, 22 Jul 2025 21:18:25 -0700 (PDT)
+Date: Tue, 22 Jul 2025 21:18:23 -0700
 From: Deepak Gupta <debug@rivosinc.com>
 To: Jesse Taube <jesse@rivosinc.com>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -93,17 +93,16 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
 	Celeste Liu <coelacanthushex@gmail.com>,
 	Evan Green <evan@rivosinc.com>, Nylon Chen <nylon.chen@sifive.com>
-Subject: Re: [RFC PATCH 4/6] riscv: Introduce support for hardware
- break/watchpoints
-Message-ID: <aIBNnP2IZiUkU1uS@debug.ba.rivosinc.com>
+Subject: Re: [RFC PATCH 6/6] riscv: ptrace: Add hw breakpoint support
+Message-ID: <aIBij4hr3Jna8OjV@debug.ba.rivosinc.com>
 References: <20250722173829.984082-1-jesse@rivosinc.com>
- <20250722173829.984082-5-jesse@rivosinc.com>
+ <20250722173829.984082-7-jesse@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250722173829.984082-5-jesse@rivosinc.com>
+In-Reply-To: <20250722173829.984082-7-jesse@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_194905_279478_FCDC0B77 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250722_211827_445256_87412532 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,802 +119,247 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 10:38:27AM -0700, Jesse Taube wrote:
->From: Himanshu Chauhan <hchauhan@ventanamicro.com>
+On Tue, Jul 22, 2025 at 10:38:29AM -0700, Jesse Taube wrote:
+>Add ability to setup hw breakpoints to ptrace. Call defines a new
+>structure of (ulong[3]){bp_addr, bp_len, bp_type} with
+>bp_type being one of HW_BREAKPOINT_LEN_X and
+>bp_len being one of HW_BREAKPOINT_X with a value of
+>zero dissabling the breakpoint.
 >
->RISC-V hardware breakpoint framework is built on top of perf subsystem and uses
->SBI debug trigger extension to install/uninstall/update/enable/disable hardware
->triggers as specified in Sdtrig ISA extension.
->
->Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
 >Signed-off-by: Jesse Taube <jesse@rivosinc.com>
 >---
-> arch/riscv/Kconfig                     |   1 +
-> arch/riscv/include/asm/hw_breakpoint.h |  60 +++
-> arch/riscv/include/asm/kdebug.h        |   3 +-
-> arch/riscv/include/asm/sbi.h           |   4 +-
-> arch/riscv/kernel/Makefile             |   1 +
-> arch/riscv/kernel/hw_breakpoint.c      | 620 +++++++++++++++++++++++++
-> arch/riscv/kernel/traps.c              |   6 +
-> 7 files changed, 693 insertions(+), 2 deletions(-)
-> create mode 100644 arch/riscv/include/asm/hw_breakpoint.h
-> create mode 100644 arch/riscv/kernel/hw_breakpoint.c
+> arch/riscv/include/asm/processor.h   |  4 ++
+> arch/riscv/include/uapi/asm/ptrace.h |  3 +-
+> arch/riscv/kernel/hw_breakpoint.c    | 14 ++++-
+> arch/riscv/kernel/process.c          |  4 ++
+> arch/riscv/kernel/ptrace.c           | 93 ++++++++++++++++++++++++++++
+> 5 files changed, 116 insertions(+), 2 deletions(-)
 >
->diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->index bbec87b79309..95d3047cab10 100644
->--- a/arch/riscv/Kconfig
->+++ b/arch/riscv/Kconfig
->@@ -163,6 +163,7 @@ config RISCV
-> 	select HAVE_FUNCTION_ERROR_INJECTION
-> 	select HAVE_GCC_PLUGINS
-> 	select HAVE_GENERIC_VDSO if MMU && 64BIT
->+	select HAVE_HW_BREAKPOINT if PERF_EVENTS && RISCV_SBI
-> 	select HAVE_IRQ_TIME_ACCOUNTING
-> 	select HAVE_KERNEL_BZIP2 if !XIP_KERNEL && !EFI_ZBOOT
-> 	select HAVE_KERNEL_GZIP if !XIP_KERNEL && !EFI_ZBOOT
->diff --git a/arch/riscv/include/asm/hw_breakpoint.h b/arch/riscv/include/asm/hw_breakpoint.h
->new file mode 100644
->index 000000000000..8efa3921c535
->--- /dev/null
->+++ b/arch/riscv/include/asm/hw_breakpoint.h
->@@ -0,0 +1,60 @@
->+/* SPDX-License-Identifier: GPL-2.0-only */
->+/*
->+ * Copyright (C) 2024 Ventana Micro Systems Inc.
->+ */
->+
->+#ifndef __RISCV_HW_BREAKPOINT_H
->+#define __RISCV_HW_BREAKPOINT_H
->+
->+struct task_struct;
->+
+>diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+>index 5f56eb9d114a..488d956a951f 100644
+>--- a/arch/riscv/include/asm/processor.h
+>+++ b/arch/riscv/include/asm/processor.h
+>@@ -12,6 +12,7 @@
+>
+> #include <vdso/processor.h>
+>
+>+#include <asm/hw_breakpoint.h>
+> #include <asm/ptrace.h>
+>
+> #define arch_get_mmap_end(addr, len, flags)			\
+>@@ -108,6 +109,9 @@ struct thread_struct {
+> 	struct __riscv_v_ext_state vstate;
+> 	unsigned long align_ctl;
+> 	struct __riscv_v_ext_state kernel_vstate;
 >+#ifdef CONFIG_HAVE_HW_BREAKPOINT
->+
->+#include <uapi/linux/hw_breakpoint.h>
->+
->+#if __riscv_xlen == 64
->+#define cpu_to_le cpu_to_le64
->+#define le_to_cpu le64_to_cpu
->+#elif __riscv_xlen == 32
->+#define cpu_to_le cpu_to_le32
->+#define le_to_cpu le32_to_cpu
->+#else
->+#error "Unexpected __riscv_xlen"
+>+	struct perf_event *ptrace_bps[RV_MAX_TRIGGERS];
 >+#endif
->+
->+struct arch_hw_breakpoint {
->+	unsigned long address;
->+	unsigned long len;
->+
->+	/* Callback info */
->+	unsigned long next_addr;
->+	bool in_callback;
->+
->+
->+	/* Trigger configuration data */
->+	unsigned long tdata1;
->+	unsigned long tdata2;
->+	unsigned long tdata3;
->+};
->+
->+/* Maximum number of hardware breakpoints supported */
->+#define RV_MAX_TRIGGERS 32
->+
->+struct perf_event_attr;
->+struct notifier_block;
->+struct perf_event;
->+struct pt_regs;
->+
->+int hw_breakpoint_slots(int type);
->+int arch_check_bp_in_kernelspace(struct arch_hw_breakpoint *hw);
->+int hw_breakpoint_arch_parse(struct perf_event *bp,
->+			     const struct perf_event_attr *attr,
->+			     struct arch_hw_breakpoint *hw);
->+int hw_breakpoint_exceptions_notify(struct notifier_block *unused,
->+				    unsigned long val, void *data);
->+int arch_install_hw_breakpoint(struct perf_event *bp);
->+void arch_uninstall_hw_breakpoint(struct perf_event *bp);
->+void hw_breakpoint_pmu_read(struct perf_event *bp);
->+
->+#endif /* CONFIG_HAVE_HW_BREAKPOINT */
->+#endif /* __RISCV_HW_BREAKPOINT_H */
->diff --git a/arch/riscv/include/asm/kdebug.h b/arch/riscv/include/asm/kdebug.h
->index 85ac00411f6e..53e989781aa1 100644
->--- a/arch/riscv/include/asm/kdebug.h
->+++ b/arch/riscv/include/asm/kdebug.h
->@@ -6,7 +6,8 @@
-> enum die_val {
-> 	DIE_UNUSED,
-> 	DIE_TRAP,
->-	DIE_OOPS
->+	DIE_OOPS,
->+	DIE_DEBUG
-> };
+> #ifdef CONFIG_SMP
+> 	/* Flush the icache on migration */
+> 	bool force_icache_flush;
+>diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
+>index a38268b19c3d..a7998ed41913 100644
+>--- a/arch/riscv/include/uapi/asm/ptrace.h
+>+++ b/arch/riscv/include/uapi/asm/ptrace.h
+>@@ -14,7 +14,8 @@
 >
-> #endif
->diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
->index be2ca8e8a49e..64fa7a82aa45 100644
->--- a/arch/riscv/include/asm/sbi.h
->+++ b/arch/riscv/include/asm/sbi.h
->@@ -282,7 +282,9 @@ struct sbi_sta_struct {
-> 	u8 pad[47];
-> } __packed;
->
->-#define SBI_SHMEM_DISABLE		-1
->+#define SBI_SHMEM_DISABLE	(-1UL)
->+#define SBI_SHMEM_LO(pa)	((unsigned long)lower_32_bits(pa))
->+#define SBI_SHMEM_HI(pa)	((unsigned long)upper_32_bits(pa))
->
-> enum sbi_ext_nacl_fid {
-> 	SBI_EXT_NACL_PROBE_FEATURE = 0x0,
->diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
->index 4f719b09e5ad..3e72505734bd 100644
->--- a/arch/riscv/kernel/Makefile
->+++ b/arch/riscv/kernel/Makefile
->@@ -99,6 +99,7 @@ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
->
-> obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
-> obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
->+obj-$(CONFIG_HAVE_HW_BREAKPOINT)	+= hw_breakpoint.o
-> obj-$(CONFIG_RISCV_SBI)		+= sbi.o sbi_ecall.o
-> ifeq ($(CONFIG_RISCV_SBI), y)
-> obj-$(CONFIG_SMP)		+= sbi-ipi.o
+> #define PTRACE_GETFDPIC_EXEC	0
+> #define PTRACE_GETFDPIC_INTERP	1
+>-
+>+#define PTRACE_GETHBPREGS	2
+>+#define PTRACE_SETHBPREGS	3
+
+Why not use `PTRACE_GETREGSET` `PTRACE_SETREGSET` ?
+
+> /*
+>  * User-mode register state for core dumps, ptrace, sigcontext
+>  *
 >diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
->new file mode 100644
->index 000000000000..9e3a3b82d300
->--- /dev/null
+>index 437fd82b9590..c58145464539 100644
+>--- a/arch/riscv/kernel/hw_breakpoint.c
 >+++ b/arch/riscv/kernel/hw_breakpoint.c
->@@ -0,0 +1,620 @@
->+// SPDX-License-Identifier: GPL-2.0-only
+>@@ -633,7 +633,19 @@ void arch_uninstall_hw_breakpoint(struct perf_event *event)
+> 		pr_warn("%s: Failed to uninstall trigger %d. error: %ld\n", __func__, i, ret.error);
+> }
+>
+>-void flush_ptrace_hw_breakpoint(struct task_struct *tsk) { }
 >+/*
->+ * Copyright (C) 2024 Ventana Micro Systems Inc.
+>+ * Release the user breakpoints used by ptrace
 >+ */
->+
->+#include <linux/hw_breakpoint.h>
->+#include <linux/perf_event.h>
->+#include <linux/spinlock.h>
->+#include <linux/percpu.h>
->+#include <linux/kdebug.h>
->+#include <linux/bitops.h>
->+#include <linux/bitfield.h>
->+#include <linux/cpu.h>
->+#include <linux/cpuhotplug.h>
->+
->+#include <asm/insn.h>
->+#include <asm/sbi.h>
->+
->+#define DBTR_TDATA1_TYPE_SHIFT		(__riscv_xlen - 4)
->+#define DBTR_TDATA1_DMODE		BIT_UL(__riscv_xlen - 5)
->+
->+#define DBTR_TDATA1_TYPE_MCONTROL	(2UL << DBTR_TDATA1_TYPE_SHIFT)
->+#define DBTR_TDATA1_TYPE_MCONTROL6	(6UL << DBTR_TDATA1_TYPE_SHIFT)
->+
->+#define DBTR_TDATA1_MCONTROL6_LOAD		BIT(0)
->+#define DBTR_TDATA1_MCONTROL6_STORE		BIT(1)
->+#define DBTR_TDATA1_MCONTROL6_EXECUTE		BIT(2)
->+#define DBTR_TDATA1_MCONTROL6_U			BIT(3)
->+#define DBTR_TDATA1_MCONTROL6_S			BIT(4)
->+#define DBTR_TDATA1_MCONTROL6_M			BIT(6)
->+#define DBTR_TDATA1_MCONTROL6_SIZE_FIELD	GENMASK(18, 16)
->+#define DBTR_TDATA1_MCONTROL6_SELECT		BIT(21)
->+#define DBTR_TDATA1_MCONTROL6_VU		BIT(23)
->+#define DBTR_TDATA1_MCONTROL6_VS		BIT(24)
->+
->+#define DBTR_TDATA1_MCONTROL6_SIZE_8BIT		1
->+#define DBTR_TDATA1_MCONTROL6_SIZE_16BIT	2
->+#define DBTR_TDATA1_MCONTROL6_SIZE_32BIT	3
->+#define DBTR_TDATA1_MCONTROL6_SIZE_64BIT	5
->+
->+#define DBTR_TDATA1_MCONTROL_LOAD		BIT(0)
->+#define DBTR_TDATA1_MCONTROL_STORE		BIT(1)
->+#define DBTR_TDATA1_MCONTROL_EXECUTE		BIT(2)
->+#define DBTR_TDATA1_MCONTROL_U			BIT(3)
->+#define DBTR_TDATA1_MCONTROL_S			BIT(4)
->+#define DBTR_TDATA1_MCONTROL_M			BIT(6)
->+#define DBTR_TDATA1_MCONTROL_SIZELO_FIELD	GENMASK(17, 16)
->+#define DBTR_TDATA1_MCONTROL_SELECT		BIT(19)
->+#define DBTR_TDATA1_MCONTROL_SIZEHI_FIELD	GENMASK(22, 21)
->+
->+#define DBTR_TDATA1_MCONTROL_SIZELO_8BIT	1
->+#define DBTR_TDATA1_MCONTROL_SIZELO_16BIT	2
->+#define DBTR_TDATA1_MCONTROL_SIZELO_32BIT	3
->+/* value of 5 split across HI and LO */
->+#define DBTR_TDATA1_MCONTROL_SIZELO_64BIT	1
->+#define DBTR_TDATA1_MCONTROL_SIZEHI_64BIT	1
->+
->+/* Registered per-cpu bp/wp */
->+static DEFINE_PER_CPU(struct perf_event *, pcpu_hw_bp_events[RV_MAX_TRIGGERS]);
->+static DEFINE_PER_CPU(unsigned long, ecall_lock_flags);
->+static DEFINE_PER_CPU(raw_spinlock_t, ecall_lock);
->+
->+/* Per-cpu shared memory between S and M mode */
->+static DEFINE_PER_CPU(union sbi_dbtr_shmem_entry, sbi_dbtr_shmem);
->+
->+/* number of debug triggers on this cpu . */
->+static int dbtr_total_num __ro_after_init;
->+static unsigned long dbtr_type __ro_after_init;
->+static unsigned long dbtr_init __ro_after_init;
->+
->+static int arch_smp_setup_sbi_shmem(unsigned int cpu)
+>+void flush_ptrace_hw_breakpoint(struct task_struct *tsk)
 >+{
->+	union sbi_dbtr_shmem_entry *dbtr_shmem;
->+	unsigned long shmem_pa;
->+	struct sbiret ret;
->+	int rc;
->+
->+	dbtr_shmem = per_cpu_ptr(&sbi_dbtr_shmem, cpu);
->+	if (!dbtr_shmem) {
->+		pr_err("Invalid per-cpu shared memory for debug triggers\n");
->+		return -ENODEV;
->+	}
->+
->+	shmem_pa = virt_to_phys(dbtr_shmem);
->+
->+	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_SETUP_SHMEM,
->+			SBI_SHMEM_LO(shmem_pa), SBI_SHMEM_HI(shmem_pa), 0, 0, 0, 0);
->+
->+	if (ret.error) {
->+		switch (ret.error) {
->+		case SBI_ERR_DENIED:
->+			pr_warn("%s: Access denied for shared memory at %lx\n",
->+				__func__, shmem_pa);
->+			rc = -EPERM;
->+			break;
->+
->+		case SBI_ERR_INVALID_PARAM:
->+		case SBI_ERR_INVALID_ADDRESS:
->+			pr_warn("%s: Invalid address parameter (%ld)\n",
->+				__func__, ret.error);
->+			rc = -EINVAL;
->+			break;
->+
->+		case SBI_ERR_ALREADY_AVAILABLE:
->+			pr_warn("%s: Shared memory is already set\n",
->+				__func__);
->+			rc = -EADDRINUSE;
->+			break;
->+
->+		case SBI_ERR_FAILURE:
->+			pr_err("%s: Internal sdtrig state error\n",
->+			       __func__);
->+			rc = -ENXIO;
->+			break;
->+
->+		default:
->+			pr_warn("%s: Unknown error %lu\n", __func__, ret.error);
->+			rc = -ENXIO;
->+			break;
->+		}
->+	}
->+
->+	pr_debug("CPU %d: HW Breakpoint shared memory registered.\n", cpu);
->+
->+	return rc;
->+}
->+
->+static int arch_smp_teardown_sbi_shmem(unsigned int cpu)
->+{
->+	struct sbiret ret;
->+
->+	/* Disable shared memory */
->+	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_SETUP_SHMEM,
->+			SBI_SHMEM_DISABLE, SBI_SHMEM_DISABLE, 0, 0, 0, 0);
->+
->+	if (ret.error) {
->+		switch (ret.error) {
->+		case SBI_ERR_DENIED:
->+			pr_err("%s: Access denied for shared memory.\n",
->+			       __func__);
->+			break;
->+
->+		case SBI_ERR_INVALID_PARAM:
->+		case SBI_ERR_INVALID_ADDRESS:
->+			pr_err("%s: Invalid address parameter (%lu)\n",
->+			       __func__, ret.error);
->+			break;
->+
->+		case SBI_ERR_ALREADY_AVAILABLE:
->+			pr_err("%s: Shared memory is already set\n",
->+			       __func__);
->+			break;
->+		case SBI_ERR_FAILURE:
->+			pr_err("%s: Internal sdtrig state error\n",
->+			       __func__);
->+			break;
->+		default:
->+			pr_err("%s: Unknown error %lu\n", __func__, ret.error);
->+			break;
->+		}
->+	}
->+
->+	pr_debug("CPU %d: HW Breakpoint shared memory disabled.\n", cpu);
->+
->+	return 0;
->+}
->+
->+static void init_sbi_dbtr(void)
->+{
->+	struct sbiret ret;
->+
->+	/*
->+	 * Called by hw_breakpoint_slots and arch_hw_breakpoint_init.
->+	 * Only proceed if this is the first CPU to reach this code.
->+	 */
->+	if (test_and_set_bit(0, &dbtr_init))
->+		return;
->+
->+	if (sbi_probe_extension(SBI_EXT_DBTR) <= 0) {
->+		pr_debug("%s: SBI_EXT_DBTR is not supported\n", __func__);
->+		dbtr_total_num = 0;
->+		return;
->+	}
->+
->+	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
->+			DBTR_TDATA1_TYPE_MCONTROL6, 0, 0, 0, 0, 0);
->+	if (ret.error) {
->+		pr_warn("%s: failed to detect mcontrol6 triggers. error: %ld.\n",
->+			__func__, ret.error);
->+	} else if (!ret.value) {
->+		pr_warn("%s: No mcontrol6 triggers available.\n", __func__);
->+	} else {
->+		dbtr_total_num = ret.value;
->+		dbtr_type = DBTR_TDATA1_TYPE_MCONTROL6;
->+		return;
->+	}
->+
->+	/* fallback to legacy mcontrol triggers if mcontrol6 is not available */
->+	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
->+			DBTR_TDATA1_TYPE_MCONTROL, 0, 0, 0, 0, 0);
->+	if (ret.error) {
->+		pr_warn("%s: failed to detect mcontrol triggers. error: %ld.\n",
->+			__func__, ret.error);
->+	} else if (!ret.value) {
->+		pr_err("%s: No mcontrol triggers available.\n", __func__);
->+		dbtr_total_num = 0;
->+	} else {
->+		dbtr_total_num = ret.value;
->+		dbtr_type = DBTR_TDATA1_TYPE_MCONTROL;
->+	}
->+}
-
-`dbtr_total_num` is static and thus would be initialized to zero.
-Although above code is setting it to zero in some error conditions.
-And not setting to zero in other error conditions.
-
-It'll be better if function starts out setting `dbtr_total_num` as setting to 0.
-Then set correct value in success conditions.
-
->+
->+int hw_breakpoint_slots(int type)
->+{
->+	/*
->+	 * We can be called early, so don't rely on
->+	 * static variables being initialised.
->+	 */
->+	init_sbi_dbtr();
->+
->+	return dbtr_total_num;
->+}
->+
->+int arch_check_bp_in_kernelspace(struct arch_hw_breakpoint *hw)
->+{
->+	unsigned int len;
->+	unsigned long va;
->+
->+	va = hw->address;
->+	len = hw->len;
->+
->+	return (va >= TASK_SIZE) && ((va + len - 1) >= TASK_SIZE);
->+}
->+
->+static int rv_init_mcontrol_trigger(const struct perf_event_attr *attr,
->+				    struct arch_hw_breakpoint *hw)
->+{
->+	unsigned long tdata1 = DBTR_TDATA1_TYPE_MCONTROL;
->+
->+	switch (attr->bp_type) {
->+	case HW_BREAKPOINT_X:
->+		tdata1 |= DBTR_TDATA1_MCONTROL_EXECUTE;
->+		break;
->+	case HW_BREAKPOINT_R:
->+		tdata1 |= DBTR_TDATA1_MCONTROL_LOAD;
->+		break;
->+	case HW_BREAKPOINT_W:
->+		tdata1 |= DBTR_TDATA1_MCONTROL_STORE;
->+		break;
->+	case HW_BREAKPOINT_RW:
->+		tdata1 |= DBTR_TDATA1_MCONTROL_STORE | DBTR_TDATA1_MCONTROL_LOAD;
->+		break;
->+	default:
->+		return -EINVAL;
->+	}
->+
->+	switch (attr->bp_len) {
->+	case HW_BREAKPOINT_LEN_1:
->+		hw->len = 1;
->+		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZELO_FIELD,
->+				     DBTR_TDATA1_MCONTROL_SIZELO_8BIT);
->+		break;
->+	case HW_BREAKPOINT_LEN_2:
->+		hw->len = 2;
->+		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZELO_FIELD,
->+				     DBTR_TDATA1_MCONTROL_SIZELO_16BIT);
->+		break;
->+	case HW_BREAKPOINT_LEN_4:
->+		hw->len = 4;
->+		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZELO_FIELD,
->+				     DBTR_TDATA1_MCONTROL_SIZELO_32BIT);
->+		break;
->+#if __riscv_xlen >= 64
->+	case HW_BREAKPOINT_LEN_8:
->+		hw->len = 8;
->+		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZELO_FIELD,
->+				     DBTR_TDATA1_MCONTROL_SIZELO_64BIT) |
->+			  FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZEHI_FIELD,
->+				     DBTR_TDATA1_MCONTROL_SIZEHI_64BIT);
->+		break;
->+#endif
->+	default:
->+		return -EINVAL;
->+	}
->+
->+	tdata1 |= DBTR_TDATA1_MCONTROL_U;
-
-Assuming this function could be re-used for kernel data breakpoints too
-Shouldn't this be based on some flag to select U v/s S.
-Same comment for setting up tdata1 with mcontrol6.
-
->+
->+	hw->tdata1 = tdata1;
->+
->+	return 0;
->+}
->+
->+static int rv_init_mcontrol6_trigger(const struct perf_event_attr *attr,
->+				     struct arch_hw_breakpoint *hw)
->+{
->+	unsigned long tdata1 = DBTR_TDATA1_TYPE_MCONTROL;
->+
->+	switch (attr->bp_type) {
->+	case HW_BREAKPOINT_X:
->+		tdata1 |= DBTR_TDATA1_MCONTROL6_EXECUTE;
->+		break;
->+	case HW_BREAKPOINT_R:
->+		tdata1 |= DBTR_TDATA1_MCONTROL6_LOAD;
->+		break;
->+	case HW_BREAKPOINT_W:
->+		tdata1 |= DBTR_TDATA1_MCONTROL6_STORE;
->+		break;
->+	case HW_BREAKPOINT_RW:
->+		tdata1 |= DBTR_TDATA1_MCONTROL6_STORE | DBTR_TDATA1_MCONTROL6_LOAD;
->+		break;
->+	default:
->+		return -EINVAL;
->+	}
->+
->+	switch (attr->bp_len) {
->+	case HW_BREAKPOINT_LEN_1:
->+		hw->len = 1;
->+		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL6_SIZE_FIELD,
->+				     DBTR_TDATA1_MCONTROL6_SIZE_8BIT);
->+		break;
->+	case HW_BREAKPOINT_LEN_2:
->+		hw->len = 2;
->+		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL6_SIZE_FIELD,
->+				     DBTR_TDATA1_MCONTROL6_SIZE_16BIT);
->+		break;
->+	case HW_BREAKPOINT_LEN_4:
->+		hw->len = 4;
->+		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL6_SIZE_FIELD,
->+				     DBTR_TDATA1_MCONTROL6_SIZE_32BIT);
->+		break;
->+	case HW_BREAKPOINT_LEN_8:
->+		hw->len = 8;
->+		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL6_SIZE_FIELD,
->+				     DBTR_TDATA1_MCONTROL6_SIZE_64BIT);
->+		break;
->+	default:
->+		return -EINVAL;
->+	}
->+
->+	tdata1 |= DBTR_TDATA1_MCONTROL6_U;
->+
->+	hw->tdata1 = tdata1;
->+
->+	return 0;
->+}
->+
->+int hw_breakpoint_arch_parse(struct perf_event *bp,
->+			     const struct perf_event_attr *attr,
->+			     struct arch_hw_breakpoint *hw)
->+{
->+	int ret;
->+
->+	/* Breakpoint address */
->+	hw->address = attr->bp_addr;
->+	hw->tdata2 = attr->bp_addr;
->+	hw->tdata3 = 0x0;
->+	hw->next_addr = 0x0;
->+	hw->in_callback = false;
->+
->+	switch (dbtr_type) {
->+	case DBTR_TDATA1_TYPE_MCONTROL:
->+		ret = rv_init_mcontrol_trigger(attr, hw);
->+		break;
->+	case DBTR_TDATA1_TYPE_MCONTROL6:
->+		ret = rv_init_mcontrol6_trigger(attr, hw);
->+		break;
->+	default:
->+		pr_warn("Unsupported trigger type %lu.\n", dbtr_type >> DBTR_TDATA1_TYPE_SHIFT);
->+		ret = -EOPNOTSUPP;
->+		break;
->+	}
->+
->+	return ret;
->+}
->+
->+/*
->+ * Set breakpoint to next insruction after breakpoint.
->+ * Returns 0 if success
->+ * Returns < 0 on error
->+ */
->+static int setup_singlestep(struct perf_event *event, struct pt_regs *regs)
->+{
->+	struct arch_hw_breakpoint *bp = counter_arch_bp(event);
->+	struct arch_hw_breakpoint old_hw_bp;
->+	struct perf_event_attr bp_insn;
->+	unsigned long next_addr, insn;
->+	int ret;
->+
->+	/* Remove breakpoint even if return error as not to loop */
->+	arch_uninstall_hw_breakpoint(event);
->+
->+	ret = get_insn(regs, regs->epc, &insn);
->+	if (ret < 0)
->+		return ret;
->+
->+	next_addr = get_step_address(regs, insn);
->+
->+	ret = get_insn(regs, next_addr, &insn);
->+	if (ret < 0)
->+		return ret;
->+
->+	bp_insn.bp_type = HW_BREAKPOINT_X;
->+	bp_insn.bp_addr = next_addr;
->+	/* Get the size of the intruction */
->+	bp_insn.bp_len = GET_INSN_LENGTH(insn);
->+
->+	ret = hw_breakpoint_arch_parse(NULL, &bp_insn, bp);
->+	if (ret)
->+		return ret;
->+
->+	ret = arch_install_hw_breakpoint(event);
->+	if (ret)
->+		return ret;
->+
->+	bp->in_callback = true;
->+	bp->next_addr = next_addr;
->+	return 0;
->+}
->+
->+/*
->+ * HW Breakpoint/watchpoint handler
->+ */
->+static int hw_breakpoint_handler(struct pt_regs *regs)
->+{
->+	struct perf_event *event;
->+	struct arch_hw_breakpoint *bp;
->+	int ret, i;
->+
->+	for (i = 0; i < dbtr_total_num; i++) {
->+		event = this_cpu_read(pcpu_hw_bp_events[i]);
->+		if (!event)
->+			continue;
->+
->+		bp = counter_arch_bp(event);
->+		if (bp->in_callback) {
->+			/* Reset changed breakpoint data */
->+			bp->in_callback = false;
->+			if (regs->epc == bp->next_addr) {
->+				arch_uninstall_hw_breakpoint(event);
->+				/* Restore original breakpoint */
->+				if (hw_breakpoint_arch_parse(NULL, &event->attr, bp))
->+					return NOTIFY_DONE;
->+				if (arch_install_hw_breakpoint(event))
->+					return NOTIFY_DONE;
->+				return NOTIFY_STOP;
->+			}
->+
->+			pr_err("%s: in_callback was set, but epc(%lx) was not next "
->+				 "address(%lx).\n", __func__, regs->epc, bp->next_addr);
->+			bp->next_addr = 0x0;
->+			return NOTIFY_DONE;
->+		}
->+
->+		switch (event->attr.bp_type) {
->+		/* Breakpoint */
->+		case HW_BREAKPOINT_X:
->+			if (event->attr.bp_addr == regs->epc) {
->+				ret = setup_singlestep(event, regs);
->+				if (ret < 0) {
->+					pr_err("%s: setup_singlestep failed %d.\n", __func__, ret);
->+					return NOTIFY_DONE;
->+				}
->+
->+				perf_bp_event(event, regs);
->+				return NOTIFY_STOP;
->+			}
->+			break;
->+
->+		/* Watchpoint */
->+		case HW_BREAKPOINT_W:
->+		case HW_BREAKPOINT_R:
->+		case HW_BREAKPOINT_RW:
->+			if (event->attr.bp_addr == regs->badaddr) {
->+				ret = setup_singlestep(event, regs);
->+				if (ret < 0) {
->+					pr_err("%s: setup_singlestep failed %d.\n", __func__, ret);
->+					return NOTIFY_DONE;
->+				}
->+
->+				perf_bp_event(event, regs);
->+				return NOTIFY_STOP;
->+			}
->+			break;
->+
->+		default:
->+			pr_warn("%s: Unknown type: %u\n", __func__, event->attr.bp_type);
->+			break;
->+		}
->+	}
->+
->+	return NOTIFY_DONE;
->+}
->+
->+int hw_breakpoint_exceptions_notify(struct notifier_block *unused,
->+				    unsigned long val, void *data)
->+{
->+	struct die_args *args = data;
->+
->+	if (val != DIE_DEBUG)
->+		return NOTIFY_DONE;
->+
->+	return hw_breakpoint_handler(args->regs);
->+}
->+
->+/* atomic: counter->ctx->lock is held */
->+int arch_install_hw_breakpoint(struct perf_event *event)
->+{
->+	struct arch_hw_breakpoint *bp = counter_arch_bp(event);
->+	union sbi_dbtr_shmem_entry *shmem = this_cpu_ptr(&sbi_dbtr_shmem);
->+	struct sbi_dbtr_data_msg *xmit;
->+	struct sbi_dbtr_id_msg *recv;
->+	struct perf_event **slot;
->+	unsigned long idx;
->+	struct sbiret ret;
->+	int err = 0;
->+
->+	raw_spin_lock_irqsave(this_cpu_ptr(&ecall_lock),
->+			      *this_cpu_ptr(&ecall_lock_flags));
->+
->+	xmit = &shmem->data;
->+	recv = &shmem->id;
->+	xmit->tdata1 = cpu_to_le(bp->tdata1);
->+	xmit->tdata2 = cpu_to_le(bp->tdata2);
->+	xmit->tdata3 = cpu_to_le(bp->tdata3);
->+
->+	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIG_INSTALL,
->+			1, 0, 0, 0, 0, 0);
->+
->+	if (ret.error) {
->+		pr_warn("%s: failed to install trigger. error: %ld\n", __func__, ret.error);
->+		err = sbi_err_map_linux_errno(ret.error);
->+		goto done;
->+	}
->+
->+	idx = le_to_cpu(recv->idx);
->+	if (idx >= dbtr_total_num) {
->+		pr_warn("%s: invalid trigger index %lu\n", __func__, idx);
->+		err = -EINVAL;
->+		goto done;
->+	}
->+
->+	slot = this_cpu_ptr(&pcpu_hw_bp_events[idx]);
->+	if (*slot) {
->+		pr_warn("%s: slot %lu is in use\n", __func__, idx);
->+		err = -EBUSY;
->+		goto done;
->+	}
->+
->+	pr_debug("Trigger 0x%lx installed at index 0x%lx\n", bp->tdata2, idx);
->+
->+	/* Save the event - to be looked up in handler */
->+	*slot = event;
->+
->+done:
->+	raw_spin_unlock_irqrestore(this_cpu_ptr(&ecall_lock),
->+				   *this_cpu_ptr(&ecall_lock_flags));
->+	return err;
->+}
->+
->+/* atomic: counter->ctx->lock is held */
->+void arch_uninstall_hw_breakpoint(struct perf_event *event)
->+{
->+	struct sbiret ret;
 >+	int i;
+>+	struct thread_struct *t = &tsk->thread;
 >+
 >+	for (i = 0; i < dbtr_total_num; i++) {
->+		struct perf_event **slot = this_cpu_ptr(&pcpu_hw_bp_events[i]);
->+
->+		if (*slot == event) {
->+			*slot = NULL;
->+			break;
->+		}
+>+		unregister_hw_breakpoint(t->ptrace_bps[i]);
+>+		t->ptrace_bps[i] = NULL;
 >+	}
->+
->+
->+	if (i == dbtr_total_num) {
->+		pr_warn("%s: Breakpoint not installed.\n", __func__);
->+		return;
->+	}
->+
->+	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIG_UNINSTALL,
->+			i, 1, 0, 0, 0, 0);
->+	if (ret.error)
->+		pr_warn("%s: Failed to uninstall trigger %d. error: %ld\n", __func__, i, ret.error);
 >+}
->+
->+void flush_ptrace_hw_breakpoint(struct task_struct *tsk) { }
->+
->+void hw_breakpoint_pmu_read(struct perf_event *bp) { }
->+
->+static int __init arch_hw_breakpoint_init(void)
->+{
->+	unsigned int cpu;
->+	int rc = 0;
->+
->+	for_each_possible_cpu(cpu)
->+		raw_spin_lock_init(&per_cpu(ecall_lock, cpu));
->+
->+	init_sbi_dbtr();
->+
->+	if (dbtr_total_num) {
->+		pr_debug("%s: total number of type %lu triggers: %u\n",
->+			__func__, dbtr_type >> DBTR_TDATA1_TYPE_SHIFT, dbtr_total_num);
->+	} else {
->+		pr_debug("%s: No hardware triggers available\n", __func__);
->+		return rc;
->+	}
->+
->+	/* Hotplug handler to register/unregister shared memory with SBI */
->+	rc = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
->+			       "riscv/hw_breakpoint:prepare",
->+			       arch_smp_setup_sbi_shmem,
->+			       arch_smp_teardown_sbi_shmem);
->+
->+	if (rc < 0)
->+		pr_warn("%s: Failed to setup CPU hotplug state\n", __func__);
->+
->+	return rc;
->+}
->+arch_initcall(arch_hw_breakpoint_init);
->diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
->index 938a8b841f94..2ac471ec79a8 100644
->--- a/arch/riscv/kernel/traps.c
->+++ b/arch/riscv/kernel/traps.c
->@@ -289,6 +289,12 @@ void handle_break(struct pt_regs *regs)
-> 	if (probe_breakpoint_handler(regs))
-> 		return;
+>
+> void hw_breakpoint_pmu_read(struct perf_event *bp) { }
+>
+>diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+>index 15d8f75902f8..9cf07ecfb523 100644
+>--- a/arch/riscv/kernel/process.c
+>+++ b/arch/riscv/kernel/process.c
+>@@ -9,6 +9,7 @@
+>
+> #include <linux/bitfield.h>
+> #include <linux/cpu.h>
+>+#include <linux/hw_breakpoint.h>
+> #include <linux/kernel.h>
+> #include <linux/sched.h>
+> #include <linux/sched/debug.h>
+>@@ -164,6 +165,7 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
+>
+> void flush_thread(void)
+> {
+>+	flush_ptrace_hw_breakpoint(current);
+> #ifdef CONFIG_FPU
+> 	/*
+> 	 * Reset FPU state and context
+>@@ -218,6 +220,8 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+> 		set_bit(MM_CONTEXT_LOCK_PMLEN, &p->mm->context.flags);
+>
+> 	memset(&p->thread.s, 0, sizeof(p->thread.s));
+>+	if (IS_ENABLED(CONFIG_HAVE_HW_BREAKPOINT))
+>+		memset(p->thread.ptrace_bps, 0, sizeof(p->thread.ptrace_bps));
+>
+> 	/* p->thread holds context to be restored by __switch_to() */
+> 	if (unlikely(args->fn)) {
+>diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+>index ea67e9fb7a58..b78cfb0f1c0e 100644
+>--- a/arch/riscv/kernel/ptrace.c
+>+++ b/arch/riscv/kernel/ptrace.c
+>@@ -9,11 +9,13 @@
+>
+> #include <asm/vector.h>
+> #include <asm/ptrace.h>
+>+#include <asm/hw_breakpoint.h>
+> #include <asm/syscall.h>
+> #include <asm/thread_info.h>
+> #include <asm/switch_to.h>
+> #include <linux/audit.h>
+> #include <linux/compat.h>
+>+#include <linux/hw_breakpoint.h>
+> #include <linux/ptrace.h>
+> #include <linux/elf.h>
+> #include <linux/regset.h>
+>@@ -336,12 +338,103 @@ void ptrace_disable(struct task_struct *child)
+> {
+> }
 >
 >+#ifdef CONFIG_HAVE_HW_BREAKPOINT
->+	if (notify_die(DIE_DEBUG, "EBREAK", regs, 0, regs->cause, SIGTRAP)
->+	    == NOTIFY_STOP)
->+		return;
+>+static void ptrace_hbptriggered(struct perf_event *bp,
+>+				struct perf_sample_data *data,
+>+				struct pt_regs *regs)
+>+{
+>+	struct arch_hw_breakpoint *bkpt = counter_arch_bp(bp);
+>+	int num = 0;
+>+
+>+	force_sig_ptrace_errno_trap(num, (void __user *)bkpt->address);
+>+}
+>+
+>+/*
+>+ * idx selects the breakpoint index.
+>+ * Both PTRACE_GETHBPREGS and PTRACE_SETHBPREGS transfer three 32-bit words:
+>+ * address (0), length (1), type (2).
+>+ * Instruction breakpoint length is one of HW_BREAKPOINT_LEN_X or 0. 0 will
+>+ * disable the breakpoint.
+>+ * Instruction breakpoint type is one of HW_BREAKPOINT_X.
+>+ */
+>+
+>+static long ptrace_gethbpregs(struct task_struct *child, unsigned long idx,
+>+			      unsigned long __user *datap)
+>+{
+>+	struct perf_event *bp;
+>+	unsigned long user_data[3] = {0};
+>+
+>+	if (idx >= RV_MAX_TRIGGERS)
+>+		return -EINVAL;
+>+
+>+	bp = child->thread.ptrace_bps[idx];
+>+
+>+	if (!IS_ERR_OR_NULL(bp)) {
+>+		user_data[0] = bp->attr.bp_addr;
+>+		user_data[1] = bp->attr.disabled ? 0 : bp->attr.bp_len;
+>+		user_data[2] = bp->attr.bp_type;
+>+	}
+>+
+>+	if (copy_to_user(datap, user_data, sizeof(user_data)))
+>+		return -EFAULT;
+>+
+>+	return 0;
+>+}
+>+
+>+static long ptrace_sethbpregs(struct task_struct *child, unsigned long idx,
+>+			      unsigned long __user *datap)
+>+{
+>+	struct perf_event *bp;
+>+	struct perf_event_attr attr;
+>+	unsigned long user_data[3];
+>+
+>+	if (idx >= RV_MAX_TRIGGERS)
+>+		return -EINVAL;
+>+
+>+	if (copy_from_user(user_data, datap, sizeof(user_data)))
+>+		return -EFAULT;
+>+
+>+	bp = child->thread.ptrace_bps[idx];
+>+	if (IS_ERR_OR_NULL(bp))
+
+Why not only check for NULL?
+IS_ERR_VALUE will always expand to be true. right?
+
+>+		attr = bp->attr;
+>+	else
+>+		ptrace_breakpoint_init(&attr);
+>+
+>+	attr.bp_addr = user_data[0];
+>+	attr.bp_len = user_data[1];
+>+	attr.bp_type = user_data[2];
+>+	attr.disabled = !attr.bp_len;
+
+Is it okay to not have any sanitization on inputs?
+
+Can these inputs be controlled by user to give kernel address and kernel
+breakpoint?
+
+>+
+>+	if (IS_ERR_OR_NULL(bp)) {
+>+		bp = register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL,
+>+					   child);
+>+		if (IS_ERR(bp))
+>+			return PTR_ERR(bp);
+>+
+>+		child->thread.ptrace_bps[idx] = bp;
+>+		return 0;
+>+	} else {
+>+		return modify_user_hw_breakpoint(bp, &attr);
+>+	}
+>+}
 >+#endif
 >+
-> 	current->thread.bad_cause = regs->cause;
+> long arch_ptrace(struct task_struct *child, long request,
+> 		 unsigned long addr, unsigned long data)
+> {
+> 	long ret = -EIO;
+>+	unsigned long __user *datap = (unsigned long __user *) data;
 >
-> 	if (user_mode(regs))
+> 	switch (request) {
+>+#ifdef CONFIG_HAVE_HW_BREAKPOINT
+>+	case PTRACE_GETHBPREGS:
+>+		ret = ptrace_gethbpregs(child, addr, datap);
+>+		break;
+>+
+>+	case PTRACE_SETHBPREGS:
+>+		ret = ptrace_sethbpregs(child, addr, datap);
+>+		break;
+>+#endif
+> 	default:
+> 		ret = ptrace_request(child, request, addr, data);
+> 		break;
 >-- 
 >2.43.0
 >
