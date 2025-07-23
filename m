@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C55D3C83F17
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 09:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715E1C87FCA
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Jul 2025 10:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dhf2zWKHcS8KW7n2hpQ3CAyP2jN0C7NieKvHcAqcV2U=; b=JKyifCXfhQj9fdj3cygmfACE/c
-	HFSpX2zdcmTE49gP/gouVe1fYNjMYC8QnV4zrvZmDtyHIb6rHsLuFe1FpeQdNZXOu1XteekIjSCNK
-	sz9Q6wcTBcaJ3l8Z6nY9dDEvWAl5dnYQ5yss+tXqsLwXq0pkRA1ryehco+uTURgt5bRLFPdq55+q9
-	fRt7LcSEAdQLDdgVjz6zQdEE+LWE13vaZwTpUURBaGJbXMEVOAPYlSU72poXIwViS1zB0QbUngA87
-	vDLAvNSFyHwVL8MHogE2AVCH2lM+9MpHzXjOCoM7WJ/izAXoOtchBfzs32yK5PQ7ycq+uYrC0HC3j
-	foYAe54w==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ingwu9fHcZhq7N28e2NobT1ygWjk+/6Ql/nS+vgJnXA=; b=w5CAr7S7XuPcl4
+	AJEHLsL2RzemCOEEP4wyTs5UjQgd4dQZHCre5LAZrBFXPHgNLbtdv3GHaeJfciasduK/Lie0aMdcm
+	5q4/tE9A8zr2a2uJWziN34EoYakISjBPXgp5NukDtdIjL9nU/yly4/X2VoWQDL8ggKdC6mHOWt6d5
+	NPz+CFs0W3FyFcPG5Oy1p+0vpIg5PrcKziuv6xN3+SzjtbUsVccb9UWcDzTMF53cBrSPyUrN1NJPv
+	pXybJVlo7057quwRM62iIoRy5iM11C/VExPIWBIxdSn7VM0VNEmVGsZC+w1Ko39z+ZVNJy+sEUtRR
+	xma2VMyGzOoO6XnQ85Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVww-00000004XDI-1BRy;
-	Wed, 23 Jul 2025 09:39:46 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1ueWQG-00000004dEO-15M3;
+	Wed, 23 Jul 2025 10:10:04 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVLc-00000004Rv8-2Du1;
-	Wed, 23 Jul 2025 09:01:13 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-456108bf94bso45465795e9.0;
-        Wed, 23 Jul 2025 02:01:12 -0700 (PDT)
+	id 1ueW4s-00000004ZCl-3VIL
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Jul 2025 09:48:00 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5561d41fc96so7486743e87.1
+        for <linux-riscv@lists.infradead.org>; Wed, 23 Jul 2025 02:47:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753261271; x=1753866071; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vfi+7jzS+QroB9ovq5xCDmfLCYDKNlqIdXI2M9FMRkQ=;
-        b=AolbBUsb40mX2cJsj5VgF1DNHt5BvNaL64qWToY94ikZdJri4sduccw4h6QbwqhJHL
-         oZMV8p8U/AW5KbDKq2VOxWSCoaN8V7qgO1ikj38jT7Vhpqpjum1ra0Z98qq4m/aaE8d7
-         M0o0lX0hlxYJ+9oPUAJMU7te9orihBLCpsmyZXFLlBm5fl4ulIvAlS8MCZ5T20teLWOR
-         pCVD24tc5XBO3ztzXtoJyg9TNpdM+ScKlsKmgKcT0D3h1HSDJKGSbVepDyUkhARrUF8W
-         VhE22sC8SayjGdk+JC2kCCD7SgH4IWi8kEHJ5syJqZldwA0qGwLq3N4zu5Pd955i2r7L
-         mX4w==
+        d=cryptogams.org; s=gmail; t=1753264077; x=1753868877; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/iHsnb+QFDGFQGoh/DAKzy9Zy3rl6+YGRpc9K7e/1bo=;
+        b=RH5tQ4LE2rDgdVVqOfo0SkrxxqpnttOQDCogyPIjiLhG7wRNhgk33JaatzRYWdTRGe
+         4He+i352CdNwyXX+gYSj9SWVRX3xlgfUgCmWGyqEKwyhf8JonZW6yD9wRhacuroYDQ5p
+         t5NQgvJL5frOvOfKeovHSzQButwy7+8l8HzY3HfJRGWVH2SkMEOL3IGuLqJKB7/blkfF
+         l4ZykSeNFKAra/1ZHyQRFcdJQI2OxSelTYycpl0M6HCatYHYnScWcLTDkWrX3QLLitk5
+         7oAMiRtr/MY8VBnIY/CL4PVcLbrncIKFZLJEZ6ITTp6WUlAQ97e0lnYBJkd4KkLt1a39
+         etQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753261271; x=1753866071;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vfi+7jzS+QroB9ovq5xCDmfLCYDKNlqIdXI2M9FMRkQ=;
-        b=lYItXBArugPolO8ypiHgN1LQIFusqgpXKp9Sbay8sceH8XYGbntpw1xHX+4XsfiYJs
-         sFH/qI95lnDasc55S/VsOMJGjrC6GOBnvgsQNevhFmFBNXuzrifutZohhqftuLSqJlWK
-         76s7qqG8d2wJefJKDqHDQkPi4e4rOCvDas28iLgXS2vE52hnuwi2KoTkTA6tpvTTfnkB
-         RtAA+6hTtlcLbvVZuqC/Tht8UeuMe+ZpNmNmJQU/taWk3X6+R+YsJjb9j06fr4DfO680
-         huCzPkDWPvP7BPyOe7d0wWkb1pzQq/XJXs/JqbUCzONFUEfqIuDWHZ/NKycd9nSAPdcK
-         j0xQ==
-X-Forwarded-Encrypted: i=1; AJvYcCURtO3cAks9apBTQwMFgm78PQZMXchqRIpkbRpC7CNdmPrm0I8b9ci7AYHfE14TPclT1YJqYSe8FQwzVkOBS5Ok@lists.infradead.org, AJvYcCWxWDWlRTjYZR4r4izLeVSaLRZgd/Wd6knO5eT/Uk5+butJcIGKpxx+hdYlygIsQ+iHIT81xOiJ9kGNZPY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZdDFjx6CK8BqmefK9qlpXj8fX36c6TAjyEjxN5A2wwNXrXxIK
-	pm+x0yB9e+wfAAcKM2fqxR8cf+1rOcmI1lQn9FF3K/IdnnKeQkLy3Rr0
-X-Gm-Gg: ASbGnctZZ8fHjdmQmZfxSS5BthUBsRf65poGAQym9sREX+xk+WvU2/UhiV+Av4es6X8
-	u2aRy5RAnlLC1erhbv5q26f1xAoaNV1o41X/7JJBHchLCSi45Vql1RW7s3gUtU1oQ8gcffC07e1
-	yVleecv0DcoF7cYsi+XUtSQ39HY7HDLPdqC+g/o/QloMmQzCrT5NRKWhTFdnPT/v7j6j6QxZcCp
-	09qYrv8QaPzGm/lCmV7pNZonNvCUsGs2VG5UOgdApJ9D6lsZ8C26QlqYHkmOQ1HEtE1+oxunoGX
-	8rf/ZAapCBnK4khuUgi1yJooh4cSiMvhhb/LIxhLlk6BD2YZ/AJffc9g0u7uH1xhJ9UEBTIvLQQ
-	uZi8FLOcO5e1kFGfz8S2YLUMUclFltrBUNyX8f5wtW2Cx1CZbZ0JMisVrCwrl5s+ePtDoafPzbS
-	0KIKbu7vnh
-X-Google-Smtp-Source: AGHT+IEknrstHg6cUD/SgoHhNho7BNCTRJA/GS5vJOJzPvYI6zayldv/5uJL7C58FRXa6VpYJz8Fmg==
-X-Received: by 2002:a05:600c:8b08:b0:456:1b93:76b with SMTP id 5b1f17b1804b1-45868c79052mr16967605e9.4.1753261270574;
-        Wed, 23 Jul 2025 02:01:10 -0700 (PDT)
-Received: from orome (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b61ca25533sm15448303f8f.11.2025.07.23.02.01.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Jul 2025 02:01:09 -0700 (PDT)
-Date: Wed, 23 Jul 2025 11:01:07 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
-Message-ID: <awvdox3bgabbc42aamezlg33k4cje6y75qoxn7ruh3nhd4qv5n@u3spdahehad4>
-References: <20250717103241.2806798-1-thierry.reding@gmail.com>
- <2025071716-phoney-object-1648@gregkh>
- <rzbzah5iigz25jtxyqadnitkzkazxsaxntajhlfrfdslyioevk@pylcjkfh5n42>
- <2025071919-patience-cattishly-cf7c@gregkh>
- <l54i36uk33je744w4f47tehdopk5dsjotvozfv5b2hehmxrwpq@eins7awyq4dy>
- <2025072218-decipher-spree-327d@gregkh>
+        d=1e100.net; s=20230601; t=1753264077; x=1753868877;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/iHsnb+QFDGFQGoh/DAKzy9Zy3rl6+YGRpc9K7e/1bo=;
+        b=d3GY70zPigcFdT2jjVl/ICGzXfBnfMFSTLmYjBivFJqJrxj2HvmFYaGUiuNKgXVGwR
+         aaTiTGac0/4ICUV5pf03U9rB4WaKV3j548T936jld7YuiC46EZHxiU3wnYx+e5CUwkqk
+         8q+LPVnm5QBNU2/yVgtPmklYYoYKIvuyYKUNvC44ysm4fv4hclobN2xYUiIqm7b3QebU
+         jazCCfCXHlG/qmQkNeSLUqXmo4tRI+MGtvZ9C0i60bsz0mL+vfvHb43fRqgxLB2qkuvL
+         ejSFr0pbTDLS3xAAFEshEAO+N0ofhP/QmEih9T3Cig8L1HDcVHoMXbna7E/dADw/lmWK
+         wavA==
+X-Forwarded-Encrypted: i=1; AJvYcCXku46Wr5HFO7qeneraKZEZwecU71iykmYgNBh0uckJ6tqxAEIjwOe7H+rDLBS1LeUDVj3am3/2wMPYxQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9esMFt45ahOJW99ZYIGDNVTyiyjg2jIMZLmMel98eBRND1ia2
+	c0lq0AZ4+SeVuUoG54tsuVQlbnjfXSpkQVj59UDgTWHqlLiE3tdsWdCMsQGcxFzMbMs=
+X-Gm-Gg: ASbGncsdV+QXnKdtcJoLixwdkpB9vITowk7A9RpYyVPDkd4vjF8OweRAEWHnuTvjaIU
+	cj2dfw6Ojj/llNqFUeo7b6+B5AZOOGr1VY5YubBtzhGcdOFuG3g1dzo/jGYUV9KnxsG6ThGkOga
+	5SGIDi2mi4Yq2NyM7CoiWHQuTDjwNCXoGY4KvdSEzHN78MlYv2+t1twHNPeiBtQHIJDVWOL8HTx
+	KNvsp9fAZV180Z05gosRAYBk0vsa5xmGSkvS+jBpys+iYFUWPoFDb08FWnKgKEUy+Sn31etS4jp
+	9PUmJGPr0sLN5XKN4qznO6Ef6BruXworJ7iYvmy1d/DkyQMC7E0ohiz3ZOZ+EaeiGAmCMsMc+kk
+	QdNxzcerBYcEOVmnfO0Ie6Jj+5C6w4iK5vNV5GGwkEAziSkJQMpzmm28ghhipAty+Cw==
+X-Google-Smtp-Source: AGHT+IFq48/8ENzanpaDeHxcIDxOJRvTnxQr9W0HfRdR24SiPdB2l8+HzzLMqoVluoTBHOfXgRfW2g==
+X-Received: by 2002:ac2:4c54:0:b0:55a:4c3a:b11e with SMTP id 2adb3069b0e04-55a513ff603mr711109e87.30.1753264076401;
+        Wed, 23 Jul 2025 02:47:56 -0700 (PDT)
+Received: from [10.0.1.129] (c-92-32-247-84.bbcust.telenor.se. [92.32.247.84])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55a31d915c5sm2261332e87.157.2025.07.23.02.47.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Jul 2025 02:47:56 -0700 (PDT)
+Message-ID: <bfb6c88c-4dce-4e52-81dd-a8b696e07aea@cryptogams.org>
+Date: Wed, 23 Jul 2025 11:47:55 +0200
 MIME-Version: 1.0
-In-Reply-To: <2025072218-decipher-spree-327d@gregkh>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] crypto: riscv/poly1305 - import OpenSSL/CRYPTOGAMS
+ implementation
+To: Zhihang Shao <zhihang.shao.iscas@gmail.com>,
+ Eric Biggers <ebiggers@kernel.org>
+Cc: alex@ghiti.fr, herbert@gondor.apana.org.au, linux-crypto@vger.kernel.org,
+ linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ zhang.lyra@gmail.com
+References: <CACGDn=Rn079JhB7dwqbC-3GNiydJs=dGEXtcw+cC8z2Yjp2Qbg@mail.gmail.com>
+Content-Language: en-US
+From: Andy Polyakov <appro@cryptogams.org>
+In-Reply-To: <CACGDn=Rn079JhB7dwqbC-3GNiydJs=dGEXtcw+cC8z2Yjp2Qbg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_020112_571627_B04FC3B0 
-X-CRM114-Status: GOOD (  28.44  )
+X-CRM114-CacheID: sfid-20250723_024758_887288_C327DA8D 
+X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,142 +99,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6966112196499162995=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---===============6966112196499162995==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="t3b24mrvydogtoje"
-Content-Disposition: inline
+> Next, I plan to validate this performance gain on actual RISC-V
+> hardware.
 
+I've rerun my benchmarks, the cycles-per-byte results quoted in the 
+poly1305-riscv.pl commentary section, and it appears that my U74 results 
+were off. I must have made wrong assumptions about clock frequency or I 
+failed to note that the [shared] system was busy. Either way, U74 
+delivers 1.8 cpb, be it the initial processor version or one with 
+additional ISA capabilities such as Zbb, JH7100 vs. JH7110. For 
+reference, the cpb is calculated by dividing the clock frequency by the 
+measured MBps rate.
 
---t3b24mrvydogtoje
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
-MIME-Version: 1.0
+I also have vector implementation cooking. It's not ready to be 
+released, because it doesn't yet scale with vlenb and works only on a 
+256-bit vector unit. It achieves 1.3 cpb on Spacemit X60, 2.5x 
+improvement over scalar code. Just in case, one can't expect the 
+coefficient to be the same on other processors.
 
-On Tue, Jul 22, 2025 at 04:08:09PM +0200, Greg Kroah-Hartman wrote:
-> On Tue, Jul 22, 2025 at 03:56:40PM +0200, Thierry Reding wrote:
-> > On Sat, Jul 19, 2025 at 08:52:41AM +0200, Greg Kroah-Hartman wrote:
-> > > On Fri, Jul 18, 2025 at 03:49:37PM +0200, Thierry Reding wrote:
-> > > > On Thu, Jul 17, 2025 at 02:11:41PM +0200, Greg Kroah-Hartman wrote:
-> > > > > On Thu, Jul 17, 2025 at 12:32:34PM +0200, Thierry Reding wrote:
-> > [...]
-> > > > 	struct syscore;
-> > > >=20
-> > > > 	struct syscore_ops {
-> > > > 		int (*suspend)(struct syscore *syscore);
-> > > > 		void (*resume)(struct syscore *syscore);
-> > > > 		void (*shutdown)(struct syscore *syscore);
-> > > > 	};
-> > > >=20
-> > > > 	struct syscore {
-> > > > 		const struct syscore_ops *ops;
-> > > > 		struct list_head node;
-> > > > 	};
-> > > >=20
-> > > > Is that what you had in mind?
-> > >=20
-> > > I missed the list_head, so yes, this would be better, but don't pass
-> > > back the syscore structure, how about just a void * instead, making t=
-he
-> > > whole container_of() stuff go away?
-> >=20
-> > Yeah, that's a possibility. I personally don't like passing the void *
-> > around because it's easier to make mistakes that way. I also find it
-> > unintuitive because it doesn't immediately show you what the functions
-> > expect.
-> >=20
-> > My understanding is that the container_of() should get optimized away
-> > most of the time, so there aren't any obvious downsides that I can see.
->=20
-> container_of() is just pointer math, but a cast is even faster :)
->=20
-> > But I don't feel very strongly, so if you have a strong preference for
-> > void pointers, I can do that.
->=20
-> That's what you really want to have here, it's a syscore data type
-> thing, that the callback wants to reference.  Just like a irqrequest_t
-> function passes back a void * that the handler "knows" how to deal with
-> properly.
+Cheers.
 
-IRQ handlers are different, though, because you pass the void * data
-when you register the interrupt. That void * then gets stored and passed
-to the handler when the interrupt is processed.
-
-We'd have to change it to something like this:
-
-	struct syscore_ops {
-		/* parameters now changed to driver-specific data */
-		int (*suspend)(void *data);
-		void (*resume)(void *data);
-		void (*shutdown)(void *data);
-	};
-
-	struct syscore {
-		const struct syscore_ops *ops;
-		struct list_head node;
-		/* NEW driver-specific data */
-		void *data;
-	};
-
-It ends up increasing the syscore structure's size, about 33%, though
-given that there aren't a lot of these that's probably negligible.
-
-What I think is a bit more unnatural about it in this case is that we
-embed the struct syscore into some driver-private data anyway so that
-it becomes per instance, and then we have a circular reference:
-
-	foo->syscore.ops =3D &foo_syscore_ops;
-	foo->syscore.data =3D foo;
-
-Which looks kind of weird. Alternatively I suppose we could completely
-rework it and make register_syscore_ops() allocate struct syscore, and
-hide the internals from drivers completely:
-
-	err =3D register_syscore(&foo_syscore_ops, foo);
-
-With that it may be problematic that register_syscore() can now fail.
-
-Thierry
-
---t3b24mrvydogtoje
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmiApM8ACgkQ3SOs138+
-s6G76RAAlyjbBOBTf8eNokhrwb69GbuFv4iEunTnd/Xy91IhOncqHjdYHN3rqTn9
-GZWy+L9VFYLaEmLV5W1ChOD3rYHCxZ3gep+jdE5ThLQvJaK4IBB4oGZ0OGXLHmVy
-TqNy+Tq/dQi2jM2o7MW1DUDM8EunrbLmjBWZZONJzH18GqJPn3LWazuC7tBBL6vu
-bmowzEXxm+4NWx5Ow3IvFnLzDa05JLaBKtVREPuf/UdRHcjzrra1RyYLyaYUI9Gy
-pWZHkgUA+1gAO2hutK8eyL98cZlnl8zrArmduJZsyZQhcNe1ltwPTzUq9wejYOr+
-Vywgy/CxznLtvKd0e27hP/I7zCx64ktofCb6l0SwueraLWYTcpJLQ23T93g1bDwY
-02o6cq0874YQdndJytU7t3cKETe5uXF0AGmepX/+GKvcQN6lBqo04OL+Ge6yRMyy
-G9gv6P2nxqY+RWkDrFtqO6RwFB+lJSwc2J3RfxHC/2ygMy2Zr2AJ5oeeAKOtTZ/0
-smpK40Y2FB6y4ohGq3UK3uPyBvOJi/jw6sMuRyv2Ou7tJIFE2EtSpA5+m5DcwUcR
-gRcfO6O0V9Y6qWBx2Tt+i6Fzekj/0xBzlQdyvCom8xrhRZ9VGbZBfpIaXDs/Anp6
-ovlk/rkbo8DsYQQxINnmSBx2uQcWSCYAU53leg5fnr4EoSGPCsg=
-=l8CI
------END PGP SIGNATURE-----
-
---t3b24mrvydogtoje--
-
-
---===============6966112196499162995==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6966112196499162995==--
-
