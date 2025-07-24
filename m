@@ -4,82 +4,214 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE89C87FCC
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DA0C87FC5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uMjtGkYfvDZA0s+EC1SgtvLNtRJcKmzBZvfHDcPkCNc=; b=cXKqrSUfNKWPup
-	qG9zO0onr9/3ncLjcCAw6R5QPUK9N8qv/Qn8gPyF273l9BucpJNVWca1roP0gpjw46LJyX1ZkVr3g
-	LNW1TgoAMW1Pzs+VCLkjGRxZKP33s4k5ohbub44Jb42FKAwx7Bv29Wg2Kaw5SmhaO4OUg+B56yKau
-	nBkKAt/3/pYRTVfVoS1lnRMXFON6tbTFmlBb4h6SzPs8EURVqPOTFruP2Js05cEXYX5qje3lDJLn2
-	UyJVN0jVRkQiC6ei92wAZ4fXzj2R7lJhoS94pIzNS2w7+r9Rj9llfqKcl3irzqODWi9bcqOq68kkq
-	Oolf69ssqx+ULy0MbSnQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=o0PKsAexS50BIa6vjvji+78LiAXv0Z1O3JRz8mSNTp8=; b=IjrjZbB84VZ8Dk8sOIhcCrDJ74
+	MA7VufSwY8rpE/DAR/dtbYgEnLn4lxkrz8T41dQM+VG5uzVses2ukqtArlfIOvgsYaTL49F5YMDYY
+	M6DwFBcD0uvmed66n9Cynu2cWkt66TIofXNsG6rCP/YWzdz/sbr0p5RWkIZxnktboXk1WwUuLsetK
+	Oh+xRcwJ3och+KRMuW5c4QtnYHFpNYk9UFw4odUqHUT8jcR3Cy/zvCbxnGRhsMCxUXNi5QmJUt5WY
+	rUelSOcMZKVpdQLYhozoX414TCkx7OUQOT/DxuSALtLywWZF3PJfDlusr2FfTlsbVpDsXSmaQXAxs
+	zY6yd5Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uezNa-000000082yk-3AZX;
-	Thu, 24 Jul 2025 17:05:14 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uezNt-000000083VS-19rb;
+	Thu, 24 Jul 2025 17:05:33 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewn0-00000007j8F-0qcQ
-	for linux-riscv@lists.infradead.org;
-	Thu, 24 Jul 2025 14:19:21 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250724141911euoutp010a3b40af9c07dfacfe42f0db36905d10~VNcU61z0D0920709207euoutp01V
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Jul 2025 14:19:11 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250724141911euoutp010a3b40af9c07dfacfe42f0db36905d10~VNcU61z0D0920709207euoutp01V
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1753366751;
-	bh=9FQsDl22hlLu1oEEGJx445+J1D4UYkVyHLmFU6CdvL0=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=evR7P6PCRhtwNZZKN4SxXx27q6p8Qp5hSQ+uJFC3NzXBAeOMFssW623AarBPR2h9E
-	 YddqZ1ZW9eaUp77IcfaDkG+tKFOBYKOYGmH5Y2xV+j9NW3Sej+wjyAoPOiBsf3ONc9
-	 dXGcUy2esMhsyuA674N5Y2TXy8NpNDML2qWEGZ7U=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250724141910eucas1p2b17dfc391e4d26ea7e4e896e1f6c46be~VNcUQvlis1712417124eucas1p2d;
-	Thu, 24 Jul 2025 14:19:10 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250724141909eusmtip2a9fcad4e11e0f025a9f52a613b36530e~VNcTNWkYe0466804668eusmtip2i;
-	Thu, 24 Jul 2025 14:19:09 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Thu, 24 Jul 2025 16:18:58 +0200
-Subject: [PATCH v8 1/4] drm/imagination: Use pwrseq for TH1520 GPU power
- management
+	id 1uexOu-00000007nY9-1NMd;
+	Thu, 24 Jul 2025 14:58:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753369108; x=1784905108;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=+0MgedeWyXFgOBizMvFn6d7htbEgMXoLkwmKmGFg/a8=;
+  b=VOl7R0f0FFSn4Q70/28Tl1BWJrR6ynk89ZqlS+bE/FuC4QW/zrZdwCrV
+   BStuzQv0Z6wOKDzxhCM+iiJn6RnLnt+3olEUBIAFFOezjW8YrNCywMSpZ
+   Nmh8etDqhzhglnduYInCJ1A/AmSdIVprcD4EgHuxJvm7L4QBf9sGXQ6JA
+   zv1YR2XPLwDI85F8X3FYqz8BLe/Y1pYqPpXxJdpa7NVoW0f6RWCRuPyiD
+   HOjl6QXxsSlpXL9U+Wv405JGZ4HiwCoZQ/BDhMer4PGox+Eo9UM8w84/e
+   kJPzoEdXvhvFP4YS2zIuPuB8o4pkV6iqLTN3MKWMIy5dIma+/H5yUDWuI
+   Q==;
+X-CSE-ConnectionGUID: MnwjQ4PCQjeZUdYUOKxBVQ==
+X-CSE-MsgGUID: 7mKTUic0TMe9xstFYSxmCg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11501"; a="81132255"
+X-IronPort-AV: E=Sophos;i="6.16,337,1744095600"; 
+   d="scan'208";a="81132255"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2025 07:58:16 -0700
+X-CSE-ConnectionGUID: R8lT8YreReyiJSN10Y9qxg==
+X-CSE-MsgGUID: D6IRg2uHR6qoAU74ub41ww==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,337,1744095600"; 
+   d="scan'208";a="164337252"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2025 07:58:15 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Thu, 24 Jul 2025 07:58:14 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26 via Frontend Transport; Thu, 24 Jul 2025 07:58:14 -0700
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (40.107.220.59)
+ by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Thu, 24 Jul 2025 07:58:14 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pHgbQ03IxVe0gTti3c6mSnK6OCanAEyCw0SpK1Vxf82AeSrVRSHj8b03xw9K0x9abbLSIIunVne57hn8FhY8TC4HUeyJZh/J322yHlNvkaeVCDGcD+m4Tr3UVJe3c+LSWiSxFmdocc8hnh1W3CI8jeFvtPVd71fTDe38qtzW3rCVVp0s63qEO+KRZk45De1JAPQKMlVyCXmoKPMeI8jERIi+R6VnOGktUPQDJ+1F++k54lvHyms23H+Fy+//4CCTHbU4wa4V5S0DPRz0f6SQnGD/mVTbrWxhI+9E7br3ZtM4vK4fBnRY9NFtJbu/pL1e+JVLRu2Sh4QAKhwLJY8HkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8lHe/7yfjUc5LaBBCZvq1ERSzzXHStX4S/5XDpNrbHE=;
+ b=kLzauAI/xF2qUaO7APZ4uFhEWSO5u45ykQKEKw89S82TM1UdCkS1crnaKT9l0Kkh4DKD9giMXCi04acN1kCPcYv5c2uyc5dKAsDvgVV9kctDlTZsz7N1Jc9lFZaS9JrZ0WJGGmQD4WgHM/nZdEdHwoToDyJ7OXa6+bu6l9PmWknYK8/Eug3wT/QsDyB2nIVz5Vt0dA3i0Q7w7b4Qf2AaJqZs9/3nNplBclBWXBoh5OGiohth+YCF6S1hBwkEXBkI4v+lhZ/+tdzO4UFN5XsIk0Ren3NjYNAIruzcRHEbASe+yV8H/++K2Y4BICFDuoDgnJhoVYGz6UTz4pTg2xcLJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by MN0PR11MB6159.namprd11.prod.outlook.com (2603:10b6:208:3c9::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Thu, 24 Jul
+ 2025 14:57:44 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::eeac:69b0:1990:4905]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::eeac:69b0:1990:4905%5]) with mapi id 15.20.8964.021; Thu, 24 Jul 2025
+ 14:57:44 +0000
+Message-ID: <30cb2e71-5e0b-4fa0-b0e0-3263d9aa8712@intel.com>
+Date: Thu, 24 Jul 2025 17:57:38 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/8] mmc: sdhci-of-dwcmshc: add common bulk optional
+ clocks support
+To: Diederik de Haas <didi.debian@cknow.org>, Robin Murphy
+	<robin.murphy@arm.com>, Chen Wang <unicornxw@gmail.com>,
+	<aou@eecs.berkeley.edu>, <conor+dt@kernel.org>, <guoren@kernel.org>,
+	<inochiama@outlook.com>, <jszhang@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <robh@kernel.org>, <ulf.hansson@linaro.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mmc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<chao.wei@sophgo.com>, <haijiao.liu@sophgo.com>, <xiaoguang.xing@sophgo.com>,
+	<tingzhu.wang@sophgo.com>
+CC: Chen Wang <unicorn_wang@outlook.com>, Drew Fustini <drew@pdp7.com>,
+	<linux-rockchip@lists.infradead.org>
+References: <cover.1722847198.git.unicorn_wang@outlook.com>
+ <e57e8c51da81f176b49608269a884f840903e78e.1722847198.git.unicorn_wang@outlook.com>
+ <f81b88df-9959-4968-a60a-b7efd3d5ea24@arm.com>
+ <99899915-2730-41c7-b71a-f8d97bb6e59c@intel.com>
+ <DBKCYCNRNTMZ.1XJU81M6EE2D0@cknow.org>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <DBKCYCNRNTMZ.1XJU81M6EE2D0@cknow.org>
+X-ClientProxiedBy: LO4P123CA0085.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:190::18) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
 MIME-Version: 1.0
-Message-Id: <20250724-apr_14_for_sending-v8-1-0714bef83c59@samsung.com>
-In-Reply-To: <20250724-apr_14_for_sending-v8-0-0714bef83c59@samsung.com>
-To: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
-	<conor+dt@kernel.org>,  Michal Wilczynski <m.wilczynski@samsung.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Frank Binns <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Paul Walmsley
-	<paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson
-	<ulf.hansson@linaro.org>,  Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Drew Fustini <fustini@kernel.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org,  Bartosz Golaszewski
-	<bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250724141910eucas1p2b17dfc391e4d26ea7e4e896e1f6c46be
-X-Msg-Generator: CA
-X-RootMTR: 20250724141910eucas1p2b17dfc391e4d26ea7e4e896e1f6c46be
-X-EPHeader: CA
-X-CMS-RootMailID: 20250724141910eucas1p2b17dfc391e4d26ea7e4e896e1f6c46be
-References: <20250724-apr_14_for_sending-v8-0-0714bef83c59@samsung.com>
-	<CGME20250724141910eucas1p2b17dfc391e4d26ea7e4e896e1f6c46be@eucas1p2.samsung.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|MN0PR11MB6159:EE_
+X-MS-Office365-Filtering-Correlation-Id: 72f06635-7da2-43e4-f9d0-08ddcac2721c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VHA2NTRYV1o2TGdtVTJ3eXJXOTRoUGZ6T2JHOGNML25EZ2tEckZRVVhWZC9W?=
+ =?utf-8?B?a3lRQ0JRZEk2Ky9hTFJIeThpTFpTcytBUzJpTGl0WkgzQkhqL1dzUklWRUx2?=
+ =?utf-8?B?TERvV2pEdGZIS3NCenBIOG1zb01NaVJXMGJHQmV3TEQvZ2JjZmF0T25JVm9z?=
+ =?utf-8?B?MGlaOXVRWmFkN3BDMEluZmJrNkNTaWpYZG9KbXhCVmpjVUt2M1dERzY5WUx6?=
+ =?utf-8?B?c0thUzdpUjFVRDM2Y1RzekNvMmMwMkptWnZSeWJaemQwRHJPUkE5bmRZL2Vu?=
+ =?utf-8?B?RGVnNWdWZTZmdW44b1hqUGJGUjlkLzBlWllZTzJIa2MyV1R1Q3U2NTk0d2tD?=
+ =?utf-8?B?aFB1c3dNSkwxYmdXam94MlZxbzN6NXZqVWNNaDFkTUFxOEJjNlRicXFJbEVZ?=
+ =?utf-8?B?L05jdDZyN1BKMlVsL2R2cFhhaFJrcVNUc0VHbGM4amtKN0VTdTRLVkNlUHN5?=
+ =?utf-8?B?ZGJ1UnA2MU5ENGFRTEpVRlo3YjVYYVpwWTlwQ29vcjl0N2ZTK0NuTjhvWGc0?=
+ =?utf-8?B?Y2xNN3RyaGwyVDAwZnNHQjdicnYvSTl4Z3hrZU54T256dC93dlNtUngySFlD?=
+ =?utf-8?B?WGNucnpXK2VtTjFJeCsrVFlJRWVXN3lPNEh6bGp4eGExL2VTKy9uUENEMFZi?=
+ =?utf-8?B?cE9UOXFqeTk4T2FzQVJMcERYeWNzYzVpWCt6V21EZXZROFhtcHNITjF3VkhG?=
+ =?utf-8?B?aldpUktzNXZteE5ZSk1IbTJKQzh4anZaODF3SmtIRHU2eEdNMEFLUmRGTWFE?=
+ =?utf-8?B?MlRLNnpYZ1oyQnY0b0VzY25wSTdpRmdqUm9iczJ5SGtnUnNMSE1YUmNMTlky?=
+ =?utf-8?B?dzRrZUQxeDlwYUdtd2k2ejhFaklCWWZYL3I2NElYbXdxc1FzazJZd2wyRXYv?=
+ =?utf-8?B?eDZ3RUloQU1qdzNDK3BTeVF2V0NUVGNrMFF0dmJ0SjczZCtCWURScFZXT0w5?=
+ =?utf-8?B?T1RleHBpQzBpc3RGUXd5U3N4VmZYZGQ5dVQvYzdSVVRINkdDVkcrZERtd205?=
+ =?utf-8?B?WDZUZDhyUnpYbzFpSmlON3k2ZEk2V1YyWFpISjRmT0xDNjR2RzRwQzJoL3RY?=
+ =?utf-8?B?bWIvZUo3Zm5rQWxad3hwR0ZQbnVpeis5TktHSzFSNjluMVZiNjlCMU5qaEt4?=
+ =?utf-8?B?Vi9qUDN5ZXpnZWZXQS9LcCtYbmNoWTRqamZxZHFJWGQrMXl5VjROZ3UxRXF1?=
+ =?utf-8?B?SEpVd2VaZm5tbEpBS0xFUkl4NStONytKaVdnNzhSRzJxK09YZDdabExEVEVv?=
+ =?utf-8?B?NWlPSDVzdUtPN3J2cEdEemowQTdBcDFhZFg3RTNGVERkWW4vY083Q3VMaEJX?=
+ =?utf-8?B?T20xdGFXUnZjWHVwaktRQ3Z0OGsyKzhJaktKWSs3bmZJMzBUdGVMRWd4ZnhY?=
+ =?utf-8?B?SFVKR2N1UlBxQnJObW1WeUM4Rkw2ZXNFaXg4dHYvMjBxRFdTbUpJQUxOOGZi?=
+ =?utf-8?B?cDJBNFlkb3k3cFQrODRDYmNSQnFFMTFhdGl5UVpxYzg2VklwMVNXNm12ZWhT?=
+ =?utf-8?B?ZHZLUHlwS25hVTZjNG8zWEYzc1YzdXVET2xnaE5UZlRUdk5lTHo3SWFmMEdE?=
+ =?utf-8?B?TmR2TXhSWE1MWHpRWE54YVhhSERRWG9UKy9WYUZoMEFSOGNyaGp5d3BGWjlm?=
+ =?utf-8?B?b2xwaTBPaW5qb1BZaVVZTGIrWXdTeWkxUTh2Y1RDQW5OOEFqcnJlbUNFOXEv?=
+ =?utf-8?B?ZHEyU2ljenZJaDA2ODI0djBrei9zYzFIQTlvVExQSlp2NU1FbnIzbVk0S0VE?=
+ =?utf-8?B?WGNPV2JWdnhBbUs1V1AwQklkcWdaVncyQW5hL05JNDkwYXNDemNZdzE4TzVs?=
+ =?utf-8?B?eDdmVEpoRnp1TVg5S085eXlhckFxNnlKV3BqNXhaOGxOQk5KTDdIb0IyY2Jh?=
+ =?utf-8?B?N0RzL0h4ZjJNZ3QrRVJnTTM3eWMvNkhUYVM1d2lPY1htV1hEYWV6bEc4eDl3?=
+ =?utf-8?B?YjhnK2FhOFNFWDcwcWNyamFWdWV2Rys3aVA1NzBzcDFmWFh4aE9LeXFsVHMx?=
+ =?utf-8?B?ck8xSHFtWGV3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QzB1Um9LbThSdHpHNXY3ZEJHQmhXT1JCK2RDb3E0aGFaWVhhcWZ0aklLeXZx?=
+ =?utf-8?B?NHcyUitZME45RGI0QXlyWjFueXdobXdDdXNZbUJMTjF3enYwSWpnLzUweW9Q?=
+ =?utf-8?B?U3duYVVCRG02MkpTWi84Q3cwNGRzSkwvcGMxcWZFTERQWkE3VlE5N21RVDcv?=
+ =?utf-8?B?UHpIM1Y5QVpUVk9FY2IxSkFSUzFmWFdHNVJ0dlFXWWIzSVM3YllUSVFTejJ4?=
+ =?utf-8?B?YjllZnFLN005Z0loZGN2Y0kvYTNvVi83NjdUUCtscWp1Q3A1Mnl1N0k0cVB6?=
+ =?utf-8?B?UlRJSEhrdG1CZ0tCYlZEL3RKOEEyeXNLYzk5OHhnT1g5RGtiRG0zRkR1TXJF?=
+ =?utf-8?B?aUFMSkRHQXVsTGRBT0xmYjhkeFVTbUJrMHZWeE12eVJiMlpUSXFGSUt4SzFj?=
+ =?utf-8?B?L0pQeTVDWUM0RjhpcHNaNmVUZU5ZR2JiblRWdWJXTVVoNTdpSWFkcTB6bjdF?=
+ =?utf-8?B?NTRzeDZyY0ZQRW85VE4zekRDNlFmVDV1UTVwc29TQ0lvWjNsWTNlaVYzZnRJ?=
+ =?utf-8?B?MU1WQ1lZUFo2ektsbXlCR21va2ppbVdWVXN3M001d2l3Rk1SaS9naldlSHVT?=
+ =?utf-8?B?MmovYVlGcUZWemNOWGpNWnpQQ21jRXA5RVRnOUhDa0dSU0s5NEo2b2dhNDdw?=
+ =?utf-8?B?ZUlCQXFQWm1aeHJVc3VOZmlRbFQzWHRoMko1OTZqcVRzNVAyVVBscFRsQitR?=
+ =?utf-8?B?cElOdW9XTWlHa2diTngvNXVkdS9PU3pRMk5JTGtaencwQXNtUkh6M1ZvTW1q?=
+ =?utf-8?B?WXN3QUpWbXNPZFBUa202d1ZnOEZwMC9mV3ZpcWhqbEF0RTBnNERQdmpHcHFZ?=
+ =?utf-8?B?OTl0QTE0NDNjU2FXZEdSVkUxdFNHYkxqd3IxNEJWc3pQN0hxS3R5RU5VRkdz?=
+ =?utf-8?B?ZW5oVm10eWdvVjlneU85UFdRdENsRmo3ZzV1VnJsUkh1VUpOWWRLNlFwc3Fj?=
+ =?utf-8?B?MFRBTzhXdkhBOEdWQ3BwdmpqY2VYTzY4dUpCdTFwOGZBTVdLMUl2TnBTRDJm?=
+ =?utf-8?B?TlZiRHNLWEJMYlg3YUFuUlN1VXE0blhDeXFNbHZtbmFqR1lCK25XZCtwTTBT?=
+ =?utf-8?B?dXdzdEZVYmZmK2dBMlFNaGJEQ0U3NGRXbjVXOHRRM2JSR2hqUE1rTVJYbmpj?=
+ =?utf-8?B?M3lKd3BZUlJMOXpOa0ptQ0psai9oczBTd2pmS0s4WXBYcDgzNzNrRDdPeThq?=
+ =?utf-8?B?aG9aa3QyaEl2OFJFSjU4RFRQM01ERkx6UlNpWWs4ajNMSXcya0xOanc5RlJp?=
+ =?utf-8?B?dmpXU2NZa0FSd2I4TlI2bGV3Uk1ScW1mNjZqQlpJd0NqQk9vME10dHI0Yjh5?=
+ =?utf-8?B?cFFWYk1PTjlmUnhmczBXQWtiQWRFeWVUZnYwc0FtWkEvNSt4S1l5cUNKMG44?=
+ =?utf-8?B?TVV3YXMzMHE2Y0traFNQUkNudm1MbmZPS2RqUXBHYkRxMjdOWlBpdDZObXNR?=
+ =?utf-8?B?N2g0dkxZN2FQZXc5a2oyV0dwRThBY3lOUmtaRlltS1B2RmtPMS9XVVRPbzBt?=
+ =?utf-8?B?ZHhRZ05SSThhcXk5QWoxWm5SWTlyTU5TdkN4SFB2RlA5TXh4RFJUVHRSbkh5?=
+ =?utf-8?B?a1lJV1d1TEE2aHNIZVJLSDNoMFpPUndhbUErMU5McHE0a2dKWFpGMy9ISVN4?=
+ =?utf-8?B?ZVhXbS9nYktZMmVCUFA0SlhEeHlXRDQvcEZMalBmNk14N3ZYaTFsQnJYZU82?=
+ =?utf-8?B?ZHFHVWkrd2l0RkV1UkNLNDhHZ2MvZHd0R1ptbHJLN1VGcVgvK3hIemhmcENx?=
+ =?utf-8?B?V1FxZ21pYlZBb05NT0tpTEhCQmhDS0RlYm9ORU9uanN6VjZiRWZwVEtsRytT?=
+ =?utf-8?B?OHdDanpodFNlbWJHZCthZnVyOXpsclBUUS9vVkdKZ1gyVklCeVhNSkNqN2du?=
+ =?utf-8?B?VkcyRXNRNXhtYTFtTGc0VTAySERxdjFtV0twVVVhVlhoY08vYitwN1pEdFFP?=
+ =?utf-8?B?eUEwY1JJUk9kanlxb2ZOM0lIOXF1MDFlRWRoajJ0NFRHa3dscFRiWW8yV0Nx?=
+ =?utf-8?B?YXl3RXJuQUNybVc4U210MnFpTDhwT3ZjMzlncmxscHBueHlVWkFpdGVDdFFt?=
+ =?utf-8?B?eExDcEFhSmxvVnNsalJ1aExIYXQxZ2hxdnhjelNrSWM1SEZSeHNtdVU2SFJV?=
+ =?utf-8?B?dDZ0SGtrNTl1OGdPUUlraXkwYnhrejRPcStBL1lqalphcXNoS2h4MkxHaEhJ?=
+ =?utf-8?B?Unc9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 72f06635-7da2-43e4-f9d0-08ddcac2721c
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2025 14:57:44.5680
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ITRxTeO/OgmfznpjQgrzHrVrXiMdmtsJYAm1J4BchfxNswsrW2vaqH/yS436+2fttRbdvNpEVjqORgEkCvX2GQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR11MB6159
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_071918_586669_D1F70488 
-X-CRM114-Status: GOOD (  31.63  )
+X-CRM114-CacheID: sfid-20250724_075828_415919_2DAECF7C 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,462 +223,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update the Imagination PVR DRM driver to leverage the pwrseq framework
-for managing the complex power sequence of the GPU on the T-HEAD TH1520
-SoC.
-
-To cleanly separate platform-specific logic from the generic driver,
-this patch introduces an `init` callback to the `pwr_power_sequence_ops`
-struct. This allows for different power management strategies to be
-selected at probe time based on the device's compatible string.
-
-A `pvr_device_data` struct, associated with each compatible in the
-of_device_id table, points to the appropriate ops table (manual or
-pwrseq).
-
-At probe time, the driver now calls the `->init()` op. For pwrseq-based
-platforms, this callback calls `devm_pwrseq_get("gpu-power")`, deferring
-probe if the sequencer is not yet available. For other platforms, it
-falls back to the existing manual clock and reset handling. The runtime
-PM callbacks continue to call the appropriate functions via the ops
-table.
-
-Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- drivers/gpu/drm/imagination/pvr_device.c |  22 +---
- drivers/gpu/drm/imagination/pvr_device.h |  22 ++++
- drivers/gpu/drm/imagination/pvr_drv.c    |  27 ++++-
- drivers/gpu/drm/imagination/pvr_power.c  | 174 ++++++++++++++++++++++++-------
- drivers/gpu/drm/imagination/pvr_power.h  |  19 +++-
- 5 files changed, 203 insertions(+), 61 deletions(-)
-
-diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
-index 8b9ba4983c4cb5bc40342fcafc4259078bc70547..294b6019b4155bb7fdb7de73ccf7fa8ad867811f 100644
---- a/drivers/gpu/drm/imagination/pvr_device.c
-+++ b/drivers/gpu/drm/imagination/pvr_device.c
-@@ -23,6 +23,7 @@
- #include <linux/firmware.h>
- #include <linux/gfp.h>
- #include <linux/interrupt.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/reset.h>
-@@ -121,21 +122,6 @@ static int pvr_device_clk_init(struct pvr_device *pvr_dev)
- 	return 0;
- }
- 
--static int pvr_device_reset_init(struct pvr_device *pvr_dev)
--{
--	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
--	struct reset_control *reset;
--
--	reset = devm_reset_control_get_optional_exclusive(drm_dev->dev, NULL);
--	if (IS_ERR(reset))
--		return dev_err_probe(drm_dev->dev, PTR_ERR(reset),
--				     "failed to get gpu reset line\n");
--
--	pvr_dev->reset = reset;
--
--	return 0;
--}
--
- /**
-  * pvr_device_process_active_queues() - Process all queue related events.
-  * @pvr_dev: PowerVR device to check
-@@ -618,6 +604,9 @@ pvr_device_init(struct pvr_device *pvr_dev)
- 	struct device *dev = drm_dev->dev;
- 	int err;
- 
-+	/* Get the platform-specific data based on the compatible string. */
-+	pvr_dev->device_data = of_device_get_match_data(dev);
-+
- 	/*
- 	 * Setup device parameters. We do this first in case other steps
- 	 * depend on them.
-@@ -631,8 +620,7 @@ pvr_device_init(struct pvr_device *pvr_dev)
- 	if (err)
- 		return err;
- 
--	/* Get the reset line for the GPU */
--	err = pvr_device_reset_init(pvr_dev);
-+	err = pvr_dev->device_data->pwr_ops->init(pvr_dev);
- 	if (err)
- 		return err;
- 
-diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
-index 7cb01c38d2a9c3fc71effe789d4dfe54eddd93ee..0c970255f90805a569d7d19e35ec5f4ca7f02f7a 100644
---- a/drivers/gpu/drm/imagination/pvr_device.h
-+++ b/drivers/gpu/drm/imagination/pvr_device.h
-@@ -37,6 +37,9 @@ struct clk;
- /* Forward declaration from <linux/firmware.h>. */
- struct firmware;
- 
-+/* Forward declaration from <linux/pwrseq/consumer.h> */
-+struct pwrseq_desc;
-+
- /**
-  * struct pvr_gpu_id - Hardware GPU ID information for a PowerVR device
-  * @b: Branch ID.
-@@ -57,6 +60,14 @@ struct pvr_fw_version {
- 	u16 major, minor;
- };
- 
-+/**
-+ * struct pvr_device_data - Platform specific data associated with a compatible string.
-+ * @pwr_ops: Pointer to a structure with platform-specific power functions.
-+ */
-+struct pvr_device_data {
-+	const struct pvr_power_sequence_ops *pwr_ops;
-+};
-+
- /**
-  * struct pvr_device - powervr-specific wrapper for &struct drm_device
-  */
-@@ -98,6 +109,9 @@ struct pvr_device {
- 	/** @fw_version: Firmware version detected at runtime. */
- 	struct pvr_fw_version fw_version;
- 
-+	/** @device_data: Pointer to platform-specific data. */
-+	const struct pvr_device_data *device_data;
-+
- 	/** @regs_resource: Resource representing device control registers. */
- 	struct resource *regs_resource;
- 
-@@ -148,6 +162,14 @@ struct pvr_device {
- 	 */
- 	struct reset_control *reset;
- 
-+	/**
-+	 * @pwrseq: Pointer to a power sequencer, if one is used.
-+	 *
-+	 * Note: This member should only be accessed when
-+	 * IS_ENABLED(CONFIG_POWER_SEQUENCING) is true.
-+	 */
-+	struct pwrseq_desc *pwrseq;
-+
- 	/** @irq: IRQ number. */
- 	int irq;
- 
-diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
-index b058ec183bb30ab5c3db17ebaadf2754520a2a1f..af830e565646daf19555197df492438ef48d5e44 100644
---- a/drivers/gpu/drm/imagination/pvr_drv.c
-+++ b/drivers/gpu/drm/imagination/pvr_drv.c
-@@ -1480,15 +1480,37 @@ static void pvr_remove(struct platform_device *plat_dev)
- 	pvr_power_domains_fini(pvr_dev);
- }
- 
-+static const struct pvr_device_data pvr_device_data_manual = {
-+	.pwr_ops = &pvr_power_sequence_ops_manual,
-+};
-+
-+#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-+static const struct pvr_device_data pvr_device_data_pwrseq = {
-+	.pwr_ops = &pvr_power_sequence_ops_pwrseq,
-+};
-+#endif
-+
- static const struct of_device_id dt_match[] = {
--	{ .compatible = "img,img-rogue", .data = NULL },
-+#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-+	{
-+		.compatible = "thead,th1520-gpu",
-+		.data = &pvr_device_data_pwrseq,
-+	},
-+#endif
-+	{
-+		.compatible = "img,img-rogue",
-+		.data = &pvr_device_data_manual,
-+	},
- 
- 	/*
- 	 * This legacy compatible string was introduced early on before the more generic
- 	 * "img,img-rogue" was added. Keep it around here for compatibility, but never use
- 	 * "img,img-axe" in new devicetrees.
- 	 */
--	{ .compatible = "img,img-axe", .data = NULL },
-+	{
-+		.compatible = "img,img-axe",
-+		.data = &pvr_device_data_manual,
-+	},
- 	{}
- };
- MODULE_DEVICE_TABLE(of, dt_match);
-@@ -1513,4 +1535,5 @@ MODULE_DESCRIPTION(PVR_DRIVER_DESC);
- MODULE_LICENSE("Dual MIT/GPL");
- MODULE_IMPORT_NS("DMA_BUF");
- MODULE_FIRMWARE("powervr/rogue_33.15.11.3_v1.fw");
-+MODULE_FIRMWARE("powervr/rogue_36.52.104.182_v1.fw");
- MODULE_FIRMWARE("powervr/rogue_36.53.104.796_v1.fw");
-diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
-index 187a07e0bd9adb2f0713ac2c8e091229f4027354..58e0e812894de19c834e1dfca427208b343eaa1c 100644
---- a/drivers/gpu/drm/imagination/pvr_power.c
-+++ b/drivers/gpu/drm/imagination/pvr_power.c
-@@ -18,6 +18,9 @@
- #include <linux/platform_device.h>
- #include <linux/pm_domain.h>
- #include <linux/pm_runtime.h>
-+#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-+#include <linux/pwrseq/consumer.h>
-+#endif
- #include <linux/reset.h>
- #include <linux/timer.h>
- #include <linux/types.h>
-@@ -234,6 +237,132 @@ pvr_watchdog_init(struct pvr_device *pvr_dev)
- 	return 0;
- }
- 
-+static int pvr_power_init_manual(struct pvr_device *pvr_dev)
-+{
-+	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
-+	struct reset_control *reset;
-+
-+	reset = devm_reset_control_get_optional_exclusive(drm_dev->dev, NULL);
-+	if (IS_ERR(reset))
-+		return dev_err_probe(drm_dev->dev, PTR_ERR(reset),
-+				     "failed to get gpu reset line\n");
-+
-+	pvr_dev->reset = reset;
-+
-+	return 0;
-+}
-+
-+static int pvr_power_on_sequence_manual(struct pvr_device *pvr_dev)
-+{
-+	int err;
-+
-+	err = clk_prepare_enable(pvr_dev->core_clk);
-+	if (err)
-+		return err;
-+
-+	err = clk_prepare_enable(pvr_dev->sys_clk);
-+	if (err)
-+		goto err_core_clk_disable;
-+
-+	err = clk_prepare_enable(pvr_dev->mem_clk);
-+	if (err)
-+		goto err_sys_clk_disable;
-+
-+	/*
-+	 * According to the hardware manual, a delay of at least 32 clock
-+	 * cycles is required between de-asserting the clkgen reset and
-+	 * de-asserting the GPU reset. Assuming a worst-case scenario with
-+	 * a very high GPU clock frequency, a delay of 1 microsecond is
-+	 * sufficient to ensure this requirement is met across all
-+	 * feasible GPU clock speeds.
-+	 */
-+	udelay(1);
-+
-+	err = reset_control_deassert(pvr_dev->reset);
-+	if (err)
-+		goto err_mem_clk_disable;
-+
-+	return 0;
-+
-+err_mem_clk_disable:
-+	clk_disable_unprepare(pvr_dev->mem_clk);
-+
-+err_sys_clk_disable:
-+	clk_disable_unprepare(pvr_dev->sys_clk);
-+
-+err_core_clk_disable:
-+	clk_disable_unprepare(pvr_dev->core_clk);
-+
-+	return err;
-+}
-+
-+static int pvr_power_off_sequence_manual(struct pvr_device *pvr_dev)
-+{
-+	int err;
-+
-+	err = reset_control_assert(pvr_dev->reset);
-+
-+	clk_disable_unprepare(pvr_dev->mem_clk);
-+	clk_disable_unprepare(pvr_dev->sys_clk);
-+	clk_disable_unprepare(pvr_dev->core_clk);
-+
-+	return err;
-+}
-+
-+const struct pvr_power_sequence_ops pvr_power_sequence_ops_manual = {
-+	.init = pvr_power_init_manual,
-+	.power_on = pvr_power_on_sequence_manual,
-+	.power_off = pvr_power_off_sequence_manual,
-+};
-+
-+#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-+static int pvr_power_init_pwrseq(struct pvr_device *pvr_dev)
-+{
-+	struct device *dev = from_pvr_device(pvr_dev)->dev;
-+
-+	pvr_dev->pwrseq = devm_pwrseq_get(dev, "gpu-power");
-+	if (IS_ERR(pvr_dev->pwrseq)) {
-+		/*
-+		 * This platform requires a sequencer. If we can't get it, we
-+		 * must return the error (including -EPROBE_DEFER to wait for
-+		 * the provider to appear)
-+		 */
-+		return dev_err_probe(dev, PTR_ERR(pvr_dev->pwrseq),
-+				     "Failed to get required power sequencer\n");
-+	}
-+
-+	return 0;
-+}
-+
-+static int pvr_power_on_sequence_pwrseq(struct pvr_device *pvr_dev)
-+{
-+	return pwrseq_power_on(pvr_dev->pwrseq);
-+}
-+
-+static int pvr_power_off_sequence_pwrseq(struct pvr_device *pvr_dev)
-+{
-+	return pwrseq_power_off(pvr_dev->pwrseq);
-+}
-+
-+const struct pvr_power_sequence_ops pvr_power_sequence_ops_pwrseq = {
-+	.init = pvr_power_init_pwrseq,
-+	.power_on = pvr_power_on_sequence_pwrseq,
-+	.power_off = pvr_power_off_sequence_pwrseq,
-+};
-+#else /* IS_ENABLED(CONFIG_POWER_SEQUENCING) */
-+static int pvr_power_sequence_stub(struct pvr_device *pvr_dev)
-+{
-+	WARN_ONCE(1, "pwrseq support not enabled in kernel config\n");
-+	return -EOPNOTSUPP;
-+}
-+
-+const struct pvr_power_sequence_ops pvr_power_sequence_ops_pwrseq = {
-+	.init = pvr_power_sequence_stub,
-+	.power_on = pvr_power_sequence_stub,
-+	.power_off = pvr_power_sequence_stub,
-+};
-+#endif /* IS_ENABLED(CONFIG_POWER_SEQUENCING) */
-+
- int
- pvr_power_device_suspend(struct device *dev)
- {
-@@ -252,11 +381,7 @@ pvr_power_device_suspend(struct device *dev)
- 			goto err_drm_dev_exit;
- 	}
- 
--	clk_disable_unprepare(pvr_dev->mem_clk);
--	clk_disable_unprepare(pvr_dev->sys_clk);
--	clk_disable_unprepare(pvr_dev->core_clk);
--
--	err = reset_control_assert(pvr_dev->reset);
-+	err = pvr_dev->device_data->pwr_ops->power_off(pvr_dev);
- 
- err_drm_dev_exit:
- 	drm_dev_exit(idx);
-@@ -276,53 +401,22 @@ pvr_power_device_resume(struct device *dev)
- 	if (!drm_dev_enter(drm_dev, &idx))
- 		return -EIO;
- 
--	err = clk_prepare_enable(pvr_dev->core_clk);
-+	err = pvr_dev->device_data->pwr_ops->power_on(pvr_dev);
- 	if (err)
- 		goto err_drm_dev_exit;
- 
--	err = clk_prepare_enable(pvr_dev->sys_clk);
--	if (err)
--		goto err_core_clk_disable;
--
--	err = clk_prepare_enable(pvr_dev->mem_clk);
--	if (err)
--		goto err_sys_clk_disable;
--
--	/*
--	 * According to the hardware manual, a delay of at least 32 clock
--	 * cycles is required between de-asserting the clkgen reset and
--	 * de-asserting the GPU reset. Assuming a worst-case scenario with
--	 * a very high GPU clock frequency, a delay of 1 microsecond is
--	 * sufficient to ensure this requirement is met across all
--	 * feasible GPU clock speeds.
--	 */
--	udelay(1);
--
--	err = reset_control_deassert(pvr_dev->reset);
--	if (err)
--		goto err_mem_clk_disable;
--
- 	if (pvr_dev->fw_dev.booted) {
- 		err = pvr_power_fw_enable(pvr_dev);
- 		if (err)
--			goto err_reset_assert;
-+			goto err_power_off;
- 	}
- 
- 	drm_dev_exit(idx);
- 
- 	return 0;
- 
--err_reset_assert:
--	reset_control_assert(pvr_dev->reset);
--
--err_mem_clk_disable:
--	clk_disable_unprepare(pvr_dev->mem_clk);
--
--err_sys_clk_disable:
--	clk_disable_unprepare(pvr_dev->sys_clk);
--
--err_core_clk_disable:
--	clk_disable_unprepare(pvr_dev->core_clk);
-+err_power_off:
-+	pvr_dev->device_data->pwr_ops->power_off(pvr_dev);
- 
- err_drm_dev_exit:
- 	drm_dev_exit(idx);
-diff --git a/drivers/gpu/drm/imagination/pvr_power.h b/drivers/gpu/drm/imagination/pvr_power.h
-index ada85674a7ca762dcf92df40424230e1c3910342..f7848f106fb97111a82a6727bb2c860deb64fc56 100644
---- a/drivers/gpu/drm/imagination/pvr_power.h
-+++ b/drivers/gpu/drm/imagination/pvr_power.h
-@@ -4,11 +4,11 @@
- #ifndef PVR_POWER_H
- #define PVR_POWER_H
- 
--#include "pvr_device.h"
--
- #include <linux/mutex.h>
- #include <linux/pm_runtime.h>
- 
-+struct pvr_device;
-+
- int pvr_watchdog_init(struct pvr_device *pvr_dev);
- void pvr_watchdog_fini(struct pvr_device *pvr_dev);
- 
-@@ -41,4 +41,19 @@ pvr_power_put(struct pvr_device *pvr_dev)
- int pvr_power_domains_init(struct pvr_device *pvr_dev);
- void pvr_power_domains_fini(struct pvr_device *pvr_dev);
- 
-+/**
-+ * struct pvr_power_sequence_ops - Platform specific power sequence operations.
-+ * @init: Pointer to the platform-specific initialization function.
-+ * @power_on: Pointer to the platform-specific power on function.
-+ * @power_off: Pointer to the platform-specific power off function.
-+ */
-+struct pvr_power_sequence_ops {
-+	int (*init)(struct pvr_device *pvr_dev);
-+	int (*power_on)(struct pvr_device *pvr_dev);
-+	int (*power_off)(struct pvr_device *pvr_dev);
-+};
-+
-+extern const struct pvr_power_sequence_ops pvr_power_sequence_ops_manual;
-+extern const struct pvr_power_sequence_ops pvr_power_sequence_ops_pwrseq;
-+
- #endif /* PVR_POWER_H */
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjQvMDcvMjAyNSAxNzozMywgRGllZGVyaWsgZGUgSGFhcyB3cm90ZToKPiBIaSBBZHJpYW4s
+Cj4gCj4gT24gV2VkIEp1bCAyMywgMjAyNSBhdCA3OjMzIEFNIENFU1QsIEFkcmlhbiBIdW50ZXIg
+d3JvdGU6Cj4+IE9uIDIyLzA3LzIwMjUgMjE6MzMsIFJvYmluIE11cnBoeSB3cm90ZToKPj4+IEEg
+Yml0IGxhdGUgZm9yIGEgInJldmlldyIsIGJ1dCBEaWVkZXJpayBhbmQgSSBoYXZlIGp1c3QgYmVl
+bgo+Pj4gSVJDLWRlYnVnZ2luZyBhIGNyYXNoIG9uIFJLMzU2OCB3aGljaCBieSBpbnNwZWN0aW9u
+IHNlZW1zIHRvIGJlIGNhdXNlZAo+Pj4gYnkgdGhpcyBwYXRjaDoKPj4+Cj4+PiBPbiAyMDI0LTA4
+LTA1IDEwOjE3IGFtLCBDaGVuIFdhbmcgd3JvdGU6Cj4+Pj4gRnJvbTogQ2hlbiBXYW5nIDx1bmlj
+b3JuX3dhbmdAb3V0bG9vay5jb20+Cj4+Pj4KPj4+PiBJbiBhZGRpdGlvbiB0byB0aGUgcmVxdWly
+ZWQgY29yZSBjbG9jayBhbmQgb3B0aW9uYWwKPj4+PiBidXMgY2xvY2ssIHRoZSBzb2Mgd2lsbCBl
+eHBhbmQgaXRzIG93biBjbG9ja3MsIHNvCj4+Pj4gdGhlIGJ1bGsgY2xvY2sgbWVjaGFuaXNtIGlz
+IGFic3RyYWN0ZWQuCj4+Pj4KPj4+PiBOb3RlLCBJIGNhbGwgdGhlIGJ1bGsgY2xvY2tzIGFzICJv
+dGhlciBjbG9ja3MiIGR1ZQo+Pj4+IHRvIHRoZSBidXMgY2xvY2sgaGFzIGJlZW4gY2FsbGVkIGFz
+ICJvcHRpb25hbCIuCj4+Pj4KPj4+PiBTaWduZWQtb2ZmLWJ5OiBDaGVuIFdhbmcgPHVuaWNvcm5f
+d2FuZ0BvdXRsb29rLmNvbT4KPj4+PiBUZXN0ZWQtYnk6IERyZXcgRnVzdGluaSA8ZHJld0BwZHA3
+LmNvbT4gIyBUSDE1MjAKPj4+PiBUZXN0ZWQtYnk6IElub2NoaSBBbWFvdG8gPGlub2NoaWFtYUBv
+dXRsb29rLmNvbT4gIyBEdW8gYW5kIEh1YXNoYW4gUGkKPj4+PiAtLS0KPj4+IFsuLi5dCj4+Pj4g
+K3N0YXRpYyBpbnQgZHdjbXNoY19nZXRfZW5hYmxlX290aGVyX2Nsa3Moc3RydWN0IGRldmljZSAq
+ZGV2LAo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0cnVj
+dCBkd2Ntc2hjX3ByaXYgKnByaXYsCj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgaW50IG51bV9jbGtzLAo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIGNvbnN0IGNoYXIgKiBjb25zdCBjbGtfaWRzW10pCj4+Pj4gK3sKPj4+
+PiArwqDCoMKgIGludCBlcnI7Cj4+Pj4gKwo+Pj4+ICvCoMKgwqAgaWYgKG51bV9jbGtzID4gRFdD
+TVNIQ19NQVhfT1RIRVJfQ0xLUykKPj4+PiArwqDCoMKgwqDCoMKgwqAgcmV0dXJuIC1FSU5WQUw7
+Cj4+Pj4gKwo+Pj4+ICvCoMKgwqAgZm9yIChpbnQgaSA9IDA7IGkgPCBudW1fY2xrczsgaSsrKQo+
+Pj4+ICvCoMKgwqDCoMKgwqDCoCBwcml2LT5vdGhlcl9jbGtzW2ldLmlkID0gY2xrX2lkc1tpXTsK
+Pj4+PiArCj4+Pj4gK8KgwqDCoCBlcnIgPSBkZXZtX2Nsa19idWxrX2dldF9vcHRpb25hbChkZXYs
+IG51bV9jbGtzLCBwcml2LT5vdGhlcl9jbGtzKTsKPj4+Cj4+PiBUaGlzIGxlYXZlcyBhIHBvaW50
+ZXIgaW50byAicHJpdiIgaW4gdGhlIGRldnJlcyBsaXN0Li4uCj4+Pgo+Pj4+ICvCoMKgwqAgaWYg
+KGVycikgewo+Pj4+ICvCoMKgwqDCoMKgwqDCoCBkZXZfZXJyKGRldiwgImZhaWxlZCB0byBnZXQg
+Y2xvY2tzICVkXG4iLCBlcnIpOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoCByZXR1cm4gZXJyOwo+Pj4+
+ICvCoMKgwqAgfQo+Pj4+ICsKPj4+PiArwqDCoMKgIGVyciA9IGNsa19idWxrX3ByZXBhcmVfZW5h
+YmxlKG51bV9jbGtzLCBwcml2LT5vdGhlcl9jbGtzKTsKPj4+PiArwqDCoMKgIGlmIChlcnIpCj4+
+Pj4gK8KgwqDCoMKgwqDCoMKgIGRldl9lcnIoZGV2LCAiZmFpbGVkIHRvIGVuYWJsZSBjbG9ja3Mg
+JWRcbiIsIGVycik7Cj4+Pj4gKwo+Pj4+ICvCoMKgwqAgcHJpdi0+bnVtX290aGVyX2Nsa3MgPSBu
+dW1fY2xrczsKPj4+PiArCj4+Pj4gK8KgwqDCoCByZXR1cm4gZXJyOwo+Pj4+ICt9Cj4+Pj4gKwo+
+Pj4+IMKgIC8qCj4+Pj4gwqDCoCAqIElmIERNQSBhZGRyIHNwYW5zIDEyOE1CIGJvdW5kYXJ5LCB3
+ZSBzcGxpdCB0aGUgRE1BIHRyYW5zZmVyIGludG8gdHdvCj4+Pj4gwqDCoCAqIHNvIHRoYXQgZWFj
+aCBETUEgdHJhbnNmZXIgZG9lc24ndCBleGNlZWQgdGhlIGJvdW5kYXJ5Lgo+Pj4gWy4uLl0KPj4+
+PiBAQCAtMTI4MCw5ICsxMzAwLDcgQEAgc3RhdGljIGludCBkd2Ntc2hjX3Byb2JlKHN0cnVjdCBw
+bGF0Zm9ybV9kZXZpY2UgKnBkZXYpCj4+Pj4gwqAgZXJyX2NsazoKPj4+PiDCoMKgwqDCoMKgIGNs
+a19kaXNhYmxlX3VucHJlcGFyZShwbHRmbV9ob3N0LT5jbGspOwo+Pj4+IMKgwqDCoMKgwqAgY2xr
+X2Rpc2FibGVfdW5wcmVwYXJlKHByaXYtPmJ1c19jbGspOwo+Pj4+IC3CoMKgwqAgaWYgKHJrX3By
+aXYpCj4+Pj4gLcKgwqDCoMKgwqDCoMKgIGNsa19idWxrX2Rpc2FibGVfdW5wcmVwYXJlKFJLMzV4
+eF9NQVhfQ0xLUywKPj4+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgcmtfcHJpdi0+cm9ja2NoaXBfY2xrcyk7Cj4+Pj4gK8KgwqDCoCBjbGtfYnVsa19kaXNh
+YmxlX3VucHJlcGFyZShwcml2LT5udW1fb3RoZXJfY2xrcywgcHJpdi0+b3RoZXJfY2xrcyk7Cj4+
+Pj4gwqAgZnJlZV9wbHRmbToKPj4+PiDCoMKgwqDCoMKgIHNkaGNpX3BsdGZtX2ZyZWUocGRldik7
+Cj4+Pgo+Pj4gLi4uYnV0IHVwb24sIHNheSwgLUVQUk9CRV9ERUZFUiBmcm9tIHNkaGNpX3NldHVw
+X2hvc3QoKSBiZWNhdXNlIGEKPj4+IHJlZ3VsYXRvciBpc24ndCByZWFkeSB5ZXQsIHRoYXQgInBy
+aXYiIGlzIGZyZWVkIGhlcmUsIHNvIGJ5IHRoZSB0aW1lIHRoZQo+Pj4gZGV2cmVzIGNhbGxiYWNr
+cyBldmVudHVhbGx5IHJ1biwgdGhhdCAiZGV2cmVzLT5jbGtzIiBwb2ludGVyIHdoaWNoIHVzZWQK
+Pj4+IHRvIHJlcHJlc2VudCAicHJpdi0+b3RoZXJfY2xvY2tzIiBwb2ludHMgdG8gd2hvIGtub3dz
+IHdoYXQsIGFuZCB0aGlzCj4+PiBzb3J0IG9mIHRoaW5nIGhhcHBlbnM6Cj4+Pgo+Pj4gW8KgwqAg
+MTIuNDcwODI3XSBVbmFibGUgdG8gaGFuZGxlIGtlcm5lbCBwYWdpbmcgcmVxdWVzdCBhdCB2aXJ0
+dWFsIGFkZHJlc3MgMDAyZGY3YjM3ODkxNzY2NAo+Pj4gW8KgwqAgMTIuNDcyMTA0XSBNZW0gYWJv
+cnQgaW5mbzoKPj4+IFvCoMKgIDEyLjQ3MjQ3MV3CoMKgIEVTUiA9IDB4MDAwMDAwMDA5NjAwMDAw
+NAo+Pj4gW8KgwqAgMTIuNDc1OTkxXcKgwqAgRUMgPSAweDI1OiBEQUJUIChjdXJyZW50IEVMKSwg
+SUwgPSAzMiBiaXRzCj4+PiBbwqDCoCAxMi40NzY2NTddwqDCoCBTRVQgPSAwLCBGblYgPSAwCj4+
+PiBbwqDCoCAxMi40NzcxNDZdwqDCoCBFQSA9IDAsIFMxUFRXID0gMAo+Pj4gW8KgwqAgMTIuNDc3
+NTQ3XcKgwqAgRlNDID0gMHgwNDogbGV2ZWwgMCB0cmFuc2xhdGlvbiBmYXVsdAo+Pj4gW8KgwqAg
+MTIuNDc4MTI3XSBEYXRhIGFib3J0IGluZm86Cj4+PiBbwqDCoCAxMi40NzgxMjZdIHJvY2tjaGlw
+LWdwaW8gZmRkNjAwMDAuZ3BpbzogcHJvYmVkIC9waW5jdHJsL2dwaW9AZmRkNjAwMDAKPj4+IFvC
+oMKgIDEyLjQ3ODQxM13CoMKgIElTViA9IDAsIElTUyA9IDB4MDAwMDAwMDQsIElTUzIgPSAweDAw
+MDAwMDAwCj4+PiBbwqDCoCAxMi40Nzk4MjZdwqDCoCBDTSA9IDAsIFduUiA9IDAsIFRuRCA9IDAs
+IFRhZ0FjY2VzcyA9IDAKPj4+IFvCoMKgIDEyLjQ4MDQxOF3CoMKgIEdDUyA9IDAsIE92ZXJsYXkg
+PSAwLCBEaXJ0eUJpdCA9IDAsIFhzID0gMAo+Pj4gW8KgwqAgMTIuNDgxMjgyXSBbMDAyZGY3YjM3
+ODkxNzY2NF0gYWRkcmVzcyBiZXR3ZWVuIHVzZXIgYW5kIGtlcm5lbCBhZGRyZXNzIHJhbmdlcwo+
+Pj4gW8KgwqAgMTIuNDgyNDIxXSBJbnRlcm5hbCBlcnJvcjogT29wczogMDAwMDAwMDA5NjAwMDAw
+NCBbIzFdwqAgU01QCj4+PiBbwqDCoCAxMi40ODI5ODBdIE1vZHVsZXMgbGlua2VkIGluOiBzZGhj
+aV9vZl9kd2Ntc2hjIGRybV9kcF9hdXhfYnVzIGdwaW9fcm9ja2NoaXAoKykgZHJtX2Rpc3BsYXlf
+aGVscGVyIGR3X21tY19yb2NrY2hpcCBkcm1fY2xpZW50X2xpYiBzZGhjaV9wbHRmbSBkcm1fZG1h
+X2hlbHBlciBmd25vZGVfbWRpbyBzZGhjaSBkd19tbWNfcGx0Zgo+Pj4gbSBsaWJwaHkgZml4ZWQg
+cm9ja2NoaXBfZGZpIGRybV9rbXNfaGVscGVyIGNxaGNpIHBsMzMwKCspIHBoeV9yb2NrY2hpcF9u
+YW5lbmdfY29tYnBoeSBkd193ZHQgcGh5X3JvY2tjaGlwX3NucHNfcGNpZTMgcGh5X3JvY2tjaGlw
+X2lubm9fdXNiMiBkd19tbWMgbWRpb19idXMgZHdjMyBlaGNpX3BsYXRmb3JtIG9oY2lfcGxhdGZv
+cm0KPj4+IGVoY2lfaGNkIGRybSBvaGNpX2hjZCB1ZGNfY29yZSBpb19kb21haW4gaTJjX3JrM3gg
+dXNiY29yZSB1bHBpIHVzYl9jb21tb24KPj4+IFvCoMKgIDEyLjQ4Njg3MV0gQ1BVOiAwIFVJRDog
+MCBQSUQ6IDY0IENvbW06IGt3b3JrZXIvdTE2OjMgTm90IHRhaW50ZWQgNi4xNi1yYzctYXJtNjQt
+Y2tub3cgIzEgUFJFRU1QVExBWlnCoCBEZWJpYW4gNi4xNn5yYzctMQo+Pj4gW8KgwqAgMTIuNDg3
+OTAxXSBIYXJkd2FyZSBuYW1lOiBGcmllbmRseUVsZWMgTmFub1BpIFI1UyAoRFQpCj4+PiBbwqDC
+oCAxMi40ODg0MTJdIFdvcmtxdWV1ZTogYXN5bmMgYXN5bmNfcnVuX2VudHJ5X2ZuCj4+PiBbwqDC
+oCAxMi40ODg4NzldIHBzdGF0ZTogNjA0MDAwMDkgKG5aQ3YgZGFpZiArUEFOIC1VQU8gLVRDTyAt
+RElUIC1TU0JTIEJUWVBFPS0tKQo+Pj4gW8KgwqAgMTIuNDg5NTM5XSBwYyA6IF9fY2xrX3B1dCsw
+eDJjLzB4MTM4Cj4+PiBbwqDCoCAxMi40ODk5MTNdIGxyIDogX19jbGtfcHV0KzB4MmMvMHgxMzgK
+Pj4+IFvCoMKgIDEyLjQ5MDI4MV0gc3AgOiBmZmZmODAwMDgwNzEzYjEwCj4+PiBbwqDCoCAxMi40
+OTA2MDddIHgyOTogZmZmZjgwMDA4MDcxM2IxMCB4Mjg6IGZmZmYwMDAxZjAwMWExMjAgeDI3OiAw
+MDAwMDAwMDAwMDAwMDAwCj4+PiBbwqDCoCAxMi40OTEzMDJdIHgyNjogZmZmZjAwMDFmOThlMDFh
+MCB4MjU6IDAwMDAwMDAwMDAwMDAwMDAgeDI0OiBmZmZmMDAwMWYwZjM1NDA4Cj4+PiBbwqDCoCAx
+Mi40OTE5OTVdIHgyMzogZmZmZmE4ZGExOTliNGI0MCB4MjI6IGZmZmY4MDAwODA3MTNiYjAgeDIx
+OiBmZmZmMDAwMWYwZjM1MDEwCj4+PiBbwqDCoCAxMi40OTI2ODldIHgyMDogZmZmZjAwMDFmOTRh
+YWZkMCB4MTk6IDBhMmRmN2IzNzg5MTc2MzQgeDE4OiAwMDAwMDAwMGZmZmZmZmZmCj4+PiBbwqDC
+oCAxMi40OTMzODFdIHgxNzogM2Q0ZDQ1NTQ1MzU5NTM0MiB4MTY6IDU1NTMwMDMwNzA3NTY1NmIg
+eDE1OiBmZmZmMDAwMWY0ODg1NjUwCj4+PiBbwqDCoCAxMi40OTQwNzVdIHgxNDogMDAwMDAwMDAw
+MDAwMDAwMCB4MTM6IGZmZmYwMDAxZjAyNWI4MTAgeDEyOiAwMDAwMDAwMDAwMDA4MDAwCj4+PiBb
+wqDCoCAxMi40OTQ3NjVdIHgxMTogZmZmZmE4ZGExYTczZWY5OCB4MTA6IGZmZmZhOGRhMWE0NjAw
+MDAgeDkgOiAwMDAwMDAwMDAwMDAwMDc4Cj4+PiBbwqDCoCAxMi40OTU0NTRdIHg4IDogMDAwMDAw
+MDAwMDAwMDA0OSB4NyA6IGZmZmZhOGRhMThjMmZiZTAgeDYgOiAwMDAwMDAwMDAwMDAwMDAxCj4+
+PiBbwqDCoCAxMi40OTYxNDVdIHg1IDogMDAwMDAwMDAwMDAwMDAwNCB4NCA6IDAwMDAwMDAwNmNi
+NmJiNjMgeDMgOiAwMDAwMDAwMDAwMDAwMDAwCj4+PiBbwqDCoCAxMi40OTY4MzNdIHgyIDogMDAw
+MDAwMDAwMDAwMDAwMCB4MSA6IGZmZmYwMDAxZjEzNjVhYzAgeDAgOiAwMDAwMDAwMDAwMDAwMDAx
+Cj4+PiBbwqDCoCAxMi40OTc1MjRdIENhbGwgdHJhY2U6Cj4+PiBbwqDCoCAxMi40OTc3NzZdwqAg
+X19jbGtfcHV0KzB4MmMvMHgxMzggKFApCj4+PiBbwqDCoCAxMi40OTgxNTRdwqAgY2xrX3B1dCsw
+eDE4LzB4MzAKPj4+IFvCoMKgIDEyLjQ5ODQ3MV3CoCBjbGtfYnVsa19wdXQrMHg0MC8weDY4Cj4+
+PiBbwqDCoCAxMi40OTg4MjVdwqAgZGV2bV9jbGtfYnVsa19yZWxlYXNlKzB4MjQvMHg0MAo+Pj4g
+W8KgwqAgMTIuNDk5MjQ4XcKgIHJlbGVhc2Vfbm9kZXMrMHg2NC8weGEwCj4+PiBbwqDCoCAxMi40
+OTk2MDhdwqAgZGV2cmVzX3JlbGVhc2VfYWxsKzB4OTgvMHhmOAo+Pj4gW8KgwqAgMTIuNTAwMDA0
+XcKgIGRldmljZV91bmJpbmRfY2xlYW51cCsweDIwLzB4NzAKPj4+IFvCoMKgIDEyLjUwMDQyNl3C
+oCByZWFsbHlfcHJvYmUrMHgxZTgvMHgzYTAKPj4+IFvCoMKgIDEyLjUwMDc5M13CoCBfX2RyaXZl
+cl9wcm9iZV9kZXZpY2UrMHg4NC8weDE2MAo+Pj4gW8KgwqAgMTIuNTAxMjI1XcKgIGRyaXZlcl9w
+cm9iZV9kZXZpY2UrMHg0NC8weDEyOAo+Pj4gW8KgwqAgMTIuNTAxNjQwXcKgIF9fZHJpdmVyX2F0
+dGFjaF9hc3luY19oZWxwZXIrMHg1Yy8weDEwOAo+Pj4gW8KgwqAgMTIuNTAyMTI1XcKgIGFzeW5j
+X3J1bl9lbnRyeV9mbisweDQwLzB4MTgwCj4+PiBbwqDCoCAxMi41MDI1MzVdwqAgcHJvY2Vzc19v
+bmVfd29yaysweDIzYy8weDY0MAo+Pj4gW8KgwqAgMTIuNTAyOTM5XcKgIHdvcmtlcl90aHJlYWQr
+MHgxYjQvMHgzNjAKPj4+IFvCoMKgIDEyLjUwMzMxNV3CoCBrdGhyZWFkKzB4MTUwLzB4MjUwCj4+
+PiBbwqDCoCAxMi41MDM2NDZdwqAgcmV0X2Zyb21fZm9yaysweDEwLzB4MjAKPj4+IFvCoMKgIDEy
+LjUwNDAxNV0gQ29kZTogYWEwMDAzZjMgYjE0MDA0MWYgNTQwMDA2YzggOTdmZmQ5YzQgKGI5NDAz
+MjYwKQo+Pj4gW8KgwqAgMTIuNTA0NTk4XSAtLS1bIGVuZCB0cmFjZSAwMDAwMDAwMDAwMDAwMDAw
+IF0tLS0KPj4+Cj4+Pgo+Pj4gVEJIIEknbSBub3Qgc3VyZSB3aGF0IHRvIGRvIGFzIGEgc3RyYWln
+aHQgcmV2ZXJ0IHNlZW1zIGltcHJhY3RpY2FsIGJ5Cj4+PiBub3csIHNvIHdlIGhvcGUgc29tZW9u
+ZSBlbHNlIG1pZ2h0IGhhdmUgYSBnb29kIGlkZWEuCj4+Cj4+IFByZXN1bWFibHkgdGhlIHByb2Js
+ZW0gaGFzIGdvbmUgYXdheSB3aXRoOgo+Pgo+PiAJY29tbWl0IDkxYTAwMWExYTA3NDllNWQyNDYw
+NmQ0NmFjNWRmZDQ0MzNjMDA5NTYKPj4gCUF1dGhvcjogQmluYmluIFpob3UgPHpob3ViaW5iaW5A
+bG9vbmdzb24uY24+Cj4+IAlEYXRlOiAgIFNhdCBKdW4gNyAxNTozOTowMSAyMDI1ICswODAwCj4+
+Cj4+IAkgICAgbW1jOiBzZGhjaS1vZi1kd2Ntc2hjOiBEcm9wIHRoZSB1c2Ugb2Ygc2RoY2lfcGx0
+Zm1fZnJlZSgpCj4+Cj4+IHdoaWNoIGlzIGluIG5leHQuCj4+Cj4+IEluIHdoaWNoIGNhc2UgYSBz
+ZXBhcmF0ZSBmaXggaXMgbmVlZGVkIGZvciBzdGFibGUuCj4gCj4gQWRkaW5nIHRoYXQgcGF0Y2gg
+dG8gbXkgNi4xNi1yYzcga2VybmVsIGluZGVlZCBzdG9wcGVkIHRoZSBPT1BTaWVzLgo+IFRoYW5r
+cyEKCllvdSBuZWVkIHRoZSBvdGhlciBwYXRjaGVzIHRoYXQgaXQgZGVwZW5kcyBvbiwgb3RoZXJ3
+aXNlIHlvdSBhcmUKanVzdCBsZWFraW5nIHRoZSBtZW1vcnkuICBSZWZlcjoKCglodHRwczovL2xv
+cmUua2VybmVsLm9yZy9hbGwvY292ZXIuMTc0OTEyNzc5Ni5naXQuemhvdWJpbmJpbkBsb29uZ3Nv
+bi5jbi8KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
