@@ -4,62 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B9EC87FC5
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 22:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E4EC87FC5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 22:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TqGFlJOhZP+Wf9OcVHiU30WET7NsBx0fXOq9GnKRhS8=; b=PZ/bRJxEUaM62Z
-	JQwKyzkB6FyuwrQoMOHPV9pogRtjiUxcGPkleCXj3VAv5XacgwTev3FufbXnLAHKg5vEguX5nPB1s
-	TcsOo4Kwk6avQ3ymOAw6P9eVnTmbZRhGAKmatcQwLAe1K4T4ProKnxub3w+xRvMjCjUajPYcavxz0
-	0dGUVUjPfY9lQSPJ4helEuEXDFz/NTZgK0A7jbHUcXh1hBmbc5+su71BVblQbJtbazN12flP0sjth
-	KkaB+xY506DL0PhX6b8OweLuclH+BZkFw3k6ODPDqhZrPKLaKB9l4Rmx6VoxU1fpIPsprKwskb50h
-	Wh/R7JDGs5ZaX5+62bGA==;
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:Subject:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cOET9uL1nz3IuMKuMeA4MB53hP0zCFOToLDoj0pcan8=; b=j88vs81+bLLukB
+	/pHoVvBzFN7RyPxYCLCQ7hWNACfPBYtVtKEPmiuu5Nd2+gEnAre/bRZm1mbTieDGGIEjj9EYP2YCf
+	FI5HpJJwtxrdhtN+nYtgD3V0H4I30UHkXIaujyxM0hQ10TfUC4aQsfGYA8bKjMA73dNXXoGEzrczJ
+	55uR7bFToG2ZnTnw4u5wR/9U4GVWsdnSDNb24PxmmGk3K25LiC2m6tzDaT6/BJTCQczDbarU4EsHt
+	An1qh7zz+rY0Jp4h6X/y4l1kfP2EebtHr1S20szEnMrMkHIWVeQN1QbHMapxRy6yg5YGcOMIlmzEb
+	jgtlvxhGr3s5MhJkW+4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf47k-00000008YiH-2LRY;
-	Thu, 24 Jul 2025 22:09:12 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1uf4SS-00000008b1p-3C20;
+	Thu, 24 Jul 2025 22:30:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf47g-00000008Yhf-3mLe
+	id 1uf4Bh-00000008ZD4-1eUS
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Jul 2025 22:09:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
-	Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
-	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
-	bh=G1GIx/bTld7i3jsye2tQQaAkpBwO5F07jwxGvhnvPvo=; b=KJMRc2suV9oemaajHLxPMMOGLm
-	qnIexYONwqIsa7DrXH7k3JRaSL3025hxN4tyP+8IUyAc6L7Mdomr11tbdcrM7tdtSDmHH/Mo8HMHk
-	V655wS7asI5KIYt5TLhhCnrdypwarOK37XBFPywJaFArChP4uieK9W7OlSle+zyjdDTFJkCwjc8Cw
-	vpVEyznQ3bnqTFTMBNu5TmtyDwrkQkUugxLLk47zYTn6mlf8/f+dIs+rvQQekljKpFxzy6GZQ/oS2
-	suLq6bvms6guIufwl49pKPD/GLkzCwRs5i8kxcfQt9vI2LCzmzq6fFpeMe4fhsAZX4AItpgG7vAAM
-	dxm1usuw==;
-Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
-	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1uf47U-00DlP2-0d;
-	Fri, 25 Jul 2025 00:08:56 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
-Cc: Aurelien Jarno <aurelien@aurel32.net>
-Subject: [PATCH] riscv: uaccess: fix __put_user_nocheck for unaligned accesses
-Date: Fri, 25 Jul 2025 00:08:52 +0200
-Message-ID: <20250724220853.1969954-1-aurelien@aurel32.net>
-X-Mailer: git-send-email 2.47.2
+	Thu, 24 Jul 2025 22:13:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 798F060008;
+	Thu, 24 Jul 2025 22:13:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23B84C4CEED;
+	Thu, 24 Jul 2025 22:13:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753395196;
+	bh=+6PqI7wk8F+44CmUhhhxedAyzpbRRvtFWn62OQCLp1w=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=DY7//GDAoJpj2q4lePqWYrSLlldprUf9tIydinsX4uqwx73bzmlS0cV1xbN0hexUs
+	 IvynkqCBPFhApYmOSbovmvcEAoQycfDjN4O8YrGLVzA0f03hLWQXO9z1kA6wPm1LEj
+	 GT7yXWMFxZ//rGYBIhqa6URfEiN4P3eyqmszAVIknnAcD6cxKr4a+XajFjoysUf/sj
+	 BPrw4NAnnHpu9G8NEUCQ4/8f8SjP3QpokNsgljANb/M0i2FGWvTfY/AmWz6tFQjaVk
+	 lVS0XcnrZabaZTJJLEdqvYEUOwQZN7su3T8oIHZo2jQKl6Tr4+RLrp9qdzgQ9zMbE4
+	 hFA7vU/PbEyVQ==
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_150909_391995_7962FF74 
-X-CRM114-Status: GOOD (  12.00  )
+In-Reply-To: <776638cc-cbd9-4747-82eb-e11bcc6c8bdd@zohomail.com>
+References: <20250415-b4-k230-clk-v6-0-7fd89f427250@zohomail.com> <776638cc-cbd9-4747-82eb-e11bcc6c8bdd@zohomail.com>
+Subject: Re: [PATCH v6 0/3] riscv: canaan: Add support for K230-Canmv clock
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Samuel Holland <samuel.holland@sifive.com>, Troy Mitchell <TroyMitchell988@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>, Xukai Wang <kingxukai@zohomail.com>
+Date: Thu, 24 Jul 2025 15:13:15 -0700
+Message-ID: <175339519523.3513.2798631977806639092@lazor>
+User-Agent: alot/0.11
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,44 +63,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The type of the value to write should be determined by the size of the
-destination, not by the value itself, which may be a constant. This
-aligns the behavior with x86_64, where __typeof__(*(__gu_ptr)) is used
-to infer the correct type.
-
-This fixes an issue in put_cmsg, which was only writing 4 out of 8
-bytes to the cmsg_len field, causing the glibc tst-socket-timestamp test
-to fail.
-
-Fixes: ca1a66cdd685 ("riscv: uaccess: do not do misaligned accesses in get/put_user()")
-Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
----
- arch/riscv/include/asm/uaccess.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index b88a6218b7f24..22e3f52a763d1 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -311,7 +311,7 @@ do {								\
- do {								\
- 	if (!IS_ENABLED(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS) &&	\
- 	    !IS_ALIGNED((uintptr_t)__gu_ptr, sizeof(*__gu_ptr))) {	\
--		__inttype(x) ___val = (__inttype(x))x;			\
-+		__typeof__(*(__gu_ptr)) ___val = (x);		\
- 		if (__asm_copy_to_user_sum_enabled(__gu_ptr, &(___val), sizeof(*__gu_ptr))) \
- 			goto label;				\
- 		break;						\
--- 
-2.47.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UXVvdGluZyBYdWthaSBXYW5nICgyMDI1LTA3LTEzIDA5OjQ4OjQ0KQo+IAo+IEknbSB3b3JraW5n
+IG9uIGEgTGludXggY2xvY2sgZHJpdmVyIGFuZCBoYXZlIGVuY291bnRlcmVkIGEgcXVlc3Rpb24K
+PiByZWdhcmRpbmcgaG93IHRvIHByb3Blcmx5IHJlcHJlc2VudCBhIHBhcnRpY3VsYXIgdHlwZSBv
+ZiBjbG9jayBzb3VyY2UuCj4gCj4gSW4gSzIzMCBTb0MsIHRoZXJlJ3MgYSBtdXggY2xvY2sgd2hv
+c2UgcGFyZW50IGNhbiBvcHRpb25hbGx5IGJlIGFuCj4gZXh0ZXJuYWwgcHVsc2Ugc2lnbmFsLCB3
+aGljaCBpcyBjb3VudGVkIHZpYSBhIHBpbiAodGhlIGlucHV0IGlzIG5vdAo+IGdlbmVyYXRlZCBp
+bnRlcm5hbGx5IGJ1dCBjb21lcyBmcm9tIGFuIGV4dGVybmFsIHNvdXJjZSkuIEnigJltIHdvbmRl
+cmluZzoKPiAKPiBTaG91bGQgdGhpcyBleHRlcm5hbCBwdWxzZSBzaWduYWwgYmUgbW9kZWxlZCBh
+cyBhIGNsb2NrIHdpdGhpbiB0aGUKPiBDb21tb24gQ2xvY2sgRnJhbWV3b3JrIChDQ0YpPwoKTGlr
+ZWx5LCB5ZXMuCgo+IAo+IElmIHNvLCB3aGF0IHdvdWxkIGJlIHRoZSBjb3JyZWN0IHdheSB0byBy
+ZWdpc3RlciBvciBkZXNjcmliZSBzdWNoIGEKPiBjbG9jayBpbiB0aGUgZHJpdmVyPwoKSWYgaXQg
+aXMgYSBmaXhlZCByYXRlIHB1bHNlIHNpZ25hbCBJIHdvdWxkIHVzZSBhIGZpeGVkIHJhdGUgY2xr
+IG5vZGUgYXQKdGhlIHJvb3Qgb2YgdGhlIERUIHRyZWU6CgoJY2xvY2stNTAwMDAgewoJCWNvbXBh
+dGlibGUgPSAiZml4ZWQtY2xvY2siOwoJCSNjbG9jay1jZWxscyA9IDwwPjsKCQljbG9jay1mcmVx
+dWVuY3kgPSA8NTAwMDA+OwoJfQoKSWYgeW91IG5lZWQgcGluY3RybCBzZXR0aW5ncyB0byBtYWtl
+IHRoYXQgY2xrIHdvcmsgeW91IGNhbiBhc3NpZ24gdGhlbQppbiB0aGF0IG5vZGUsIGFsdGhvdWdo
+IEkgZG9uJ3Qga25vdyBpZiBJJ3ZlIGV2ZXIgc2VlbiBzdWNoIGEgY2FzZQpiZWZvcmUuIElmIHRo
+ZSBleHRlcm5hbCBwYXJlbnQgY2xrIG5lZWRzIHRvIGJlIGdhdGVkIHlvdSdsbCBuZWVkIHRvCndy
+aXRlIGEgbW9yZSBmZWF0dXJlZCBkcml2ZXIsIHVubGVzcyBpdCBjYW4gYmUgY29udHJvbGxlZCB3
+aXRoIGEgZ3BpbyBvcgpzb21ldGhpbmcgbGlrZSB0aGF0LgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
