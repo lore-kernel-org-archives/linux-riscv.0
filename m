@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DA6C83F26
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 20:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA127C87FC5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 21:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=loaKQiRXbdP8DQXgP8U4vUnxo06mPCvlWzF3mhOGuvs=; b=Sf+HLgK32CzAwK
-	pIVfQYpVjtSllpQRRtWOdsSQI6JauYRuygNy8PIprHuhCEkyCYoasmx3dIuWtBPP3KIEIhPJfLDiR
-	zkzRb17MP5LLMFMApJNQgD4jqI9VddRwRQ7OauB1ACLojLrfPAPx+kefNEfgBN0WYWhICNaLIA1h7
-	iX8OvyoHKczOdWGVCkPkTPAC+Qb5KLD7uTKXkZSpyMpkWEjO9n5heYj6OY1CbFYIHpLzcPL0wsons
-	++iKEiaLTLQgytIMyY9IDyveiT+822xvgdKu7cQuFAE+L7STCdDuwyEstcXjkoK1MRxVYd6rE7Qmy
-	ej1Kj5W7pluO2r4yH9Jw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=h3IhFU4xNU5o/Vk0iQVWgvL+e3h5TILuKJ1zxCmfTeo=; b=DE5L58mT3GxQmm
+	Hk9G6UcjYShiU13YyJ103ZEEwtgRgE+Qb/KemazUzUiWhFQZzQvEM95FVvAQb5gbeUX5RA5Npb6Ew
+	2//pbDDDGTxUOxmG1cQ6VPGNnd/SY8bF6abqJSgRXHEynC1w0M4K2WOThcK2lzXqWWpKJW9RWBOmi
+	cn8aJrvTxnjFxVPrtOCaSSp3RNC4y7R94vhR8L9/CuRdstyROaeA8Fad0WZtaRXYFlG0PhEgNhyXi
+	B6nAi6WgB0pMnU3J24/mNDjoTBysMYI22ZP0pXhEw3XNqlYqGc98r9b3wpxFPaNOmRNYQZHHDN1oD
+	uQt24IdXfCurdbGCxZfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf2rc-00000008QUX-206v;
-	Thu, 24 Jul 2025 20:48:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uf3Iu-00000008SzZ-2ndK;
+	Thu, 24 Jul 2025 21:16:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf2ra-00000008QUD-0Spf
+	id 1uf3Dt-00000008SRx-27Bb
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Jul 2025 20:48:27 +0000
+	Thu, 24 Jul 2025 21:11:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F7C344C0C;
-	Thu, 24 Jul 2025 20:48:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A826C4CEF4;
-	Thu, 24 Jul 2025 20:48:25 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CD2BCA4597A;
+	Thu, 24 Jul 2025 21:11:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B4CAC4CEED;
+	Thu, 24 Jul 2025 21:11:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753390105;
-	bh=u9xpcw4a/you+H+16oHVm0t5GKpLjwCxq499Db9OVZ0=;
-	h=Date:From:To:Cc:Subject:From;
-	b=YIgzGMvfEc+lkJ8wrYWgj602zUqjOv6Z2PyOOr7zj6nijfTkbZF8AwVpxaYPraXEl
-	 U6oHIMWujPUSsMyRvplQfdalvqHNAX0NSYKQAcBlmsNYXing7cwyt12AFQo4E4h74p
-	 psd5zlOYDi1TM7gXRWb8jVyCZd+d/s1C61Palh2+EzTqYnrJChUOfJJhshK2utetgQ
-	 18d4BbXaw/I0pcjPOgc5DA92E5WcsyKKs5rNXQde6cdLk+ZRfwpOqEfHvM34LGx6rB
-	 0fivqvnZsKoApGCqHsQUizC6k/vK59cIW73An1GFVkJPoLUCIESFgwg6KJDlasiLf0
-	 9ev5DGMy3o7GQ==
-Date: Thu, 24 Jul 2025 13:48:23 -0700
+	s=k20201202; t=1753391488;
+	bh=FcG103BTDIRwcd06zh7pGj3Lo6KRz/c3RYa3jUnalm4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eIHUfffSFpfVhsn6XRx65By98JfdoAUdY2+BouZju7v/aUex4CSumVwnDH4c6jpJE
+	 cysKnX8kzBv5ElkWh17v14zihdGntSyu/beSFCRhOMwgt45NdkUTx938++Wi5V6APC
+	 fTnrSTAfIVbo537nEvGtZ/BESvUJEHrM0efEQACTIHH0q/Lo73iMmj2hQ/+njYrIN5
+	 VkvejTZG4W9aJnT5JIgqLIse4PzNIQKFDcE+TqR9aKxEvsXNg7XZaA/+tKBRu/pGle
+	 /UPvNUyib+xVvyjpdHnpwKHFDn3ZQByrzwzO1ShsqJAX7uEItoPlfioN4BEyCoGaiP
+	 foUgYouTCj/lw==
+Date: Thu, 24 Jul 2025 14:11:27 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: Stephen Boyd <sboyd@kernel.org>
 Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, Yao Zi <ziyao@disroot.org>
-Subject: [GIT PULL] clk: thead: Updates for v6.17, part 2
-Message-ID: <aIKcFzsCvvz0PCBW@x1>
+Subject: Re: [GIT PULL] clk: thead: Updates for v6.17, part 2
+Message-ID: <aIKhf41ky1gzdOIV@x1>
+References: <aIKcFzsCvvz0PCBW@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
+In-Reply-To: <aIKcFzsCvvz0PCBW@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_134826_170280_C6C70D30 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250724_141129_626224_3C089A86 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,18 +72,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Stephen,
+On Thu, Jul 24, 2025 at 01:48:23PM -0700, Drew Fustini wrote:
+> Hi Stephen,
+> 
+> I'm sending this followup PR in case there is still time to include it
+> for your 6.17 PR. Yao Zi refactored mux clk registration which fixes an
+> orphan mux clk issue which would occur when booting with mainline uboot.
+[snip]
+> Michal Wilczynski (1):
+>       clk: thead: Mark essential bus clocks as CLK_IGNORE_UNUSED
+> 
+> Yao Zi (2):
+>       clk: thead: th1520-ap: Correctly refer the parent of osc_12m
+>       clk: thead: th1520-ap: Describe mux clocks with clk_mux
+> 
+>  drivers/clk/thead/clk-th1520-ap.c | 109 +++++++++++++++++---------------------
+>  1 file changed, 48 insertions(+), 61 deletions(-)
 
-I'm sending this followup PR in case there is still time to include it
-for your 6.17 PR. Yao Zi refactored mux clk registration which fixes an
-orphan mux clk issue which would occur when booting with mainline uboot.
+My apologies, I failed to just send the delta between thead-clk-for-v6.17 and
+thead-clk-for-v6.17-p2.
+
+The following is the correct text of the pull request. Hopefull this is
+acceptable?
 
 Thanks,
 Drew
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+--
+The following changes since commit d274c77ffa202b70ad01d579f33b73b4de123375:
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+  clk: thead: th1520-ap: Correctly refer the parent of osc_12m (2025-07-13 12:46:58 -0700)
 
 are available in the Git repository at:
 
@@ -113,15 +132,12 @@ Link: https://lore.kernel.org/linux-riscv/20250722080535.60027-2-ziyao@disroot.o
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 
 ----------------------------------------------------------------
-Michal Wilczynski (1):
-      clk: thead: Mark essential bus clocks as CLK_IGNORE_UNUSED
-
-Yao Zi (2):
-      clk: thead: th1520-ap: Correctly refer the parent of osc_12m
+Yao Zi (1):
       clk: thead: th1520-ap: Describe mux clocks with clk_mux
 
- drivers/clk/thead/clk-th1520-ap.c | 109 +++++++++++++++++---------------------
- 1 file changed, 48 insertions(+), 61 deletions(-)
+ drivers/clk/thead/clk-th1520-ap.c | 95 +++++++++++++++------------------------
+ 1 file changed, 37 insertions(+), 58 deletions(-)
+
 
 _______________________________________________
 linux-riscv mailing list
