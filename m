@@ -4,104 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F7D4C87FCF
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 23:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7487C87FC5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 23:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1VToAfIagmcKDO1rNHAkjTFirYD4X79cDM85nYCq6jM=; b=QkchvdPj2Fsfad
-	E5LNStNqGHcwQEl/CnAdDhKtbiaxDZwaN90iwpmGk226YM9M0UvtUZLEdiw08/njdPdJPqrJA1uND
-	OQ/BDUt1gtblxW8wDhe65ZYm//l+kHi2xQbfUTKfsWxDojM3g2nnlNBr9bzAL0b4ckAIUI9SSNi0P
-	eqLO6vfuGbcOcxtSNHBqoNR828QQC9zvvTZ+kWoKcwwDz6qJ0EBfxPnohtY+57xerYYdJkaECaR3I
-	hWz1XFRcXgNhj9svD1gL3Yu7+1GCD7uebWlf6uLgSo5tfb7BoQKFRubp8TSR2zVzZ54/TYMXY1Sku
-	f0IOfKIqw0XJd06E8Haw==;
+	List-Owner; bh=F5gmt7ohB2ayOqFN0DGdpg511reUqC2vWPEez+X7oQI=; b=ASz59ssuzZRk5V
+	+40O3JKCVQl9lyT/PwDF6w9pfJPXkxU/wQc6uo3lS+aJFjgx1mzqJ9pj2TP/XbiSkmSco8AINhNHh
+	xH8LAUyrBGhJQKaEJGuflZE/KdXgV3ZZCSjx8lZ6e224sSknRnHb7SsEyUz4L45lsoyyqn+IXZdCQ
+	fjUtwla5msmwpbP06dEviY7GTfsq11XEmHUvN2BUqsI49WBvU7IOHaO6XZwxrxD8whWbPdAl+qJxc
+	JMRfNHdNoIx+eFQa/h8j3NovW1/BohAS0Q23EO3mrTHGFEZlwppwfYLwKal4mwVro5aX5vPlIhoYT
+	zvcr5ICu/srYb0zP0Okg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf5fA-00000008iFi-22b2;
-	Thu, 24 Jul 2025 23:47:48 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1uf5f1-00000008i9S-0oRh;
+	Thu, 24 Jul 2025 23:47:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf5VD-00000008h6a-2PIh
-	for linux-riscv@lists.infradead.org;
-	Thu, 24 Jul 2025 23:37:32 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b39011e5f8eso1474563a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Jul 2025 16:37:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1753400251; x=1754005051; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=peHOF2kFTCg4ZjEHfH+NsYT+T4LY9ghqoCHBPY5quO0=;
-        b=J8u5zLAC8nd2s9N06GObhkQJrUsdnMT4sqdM4JFV+hQHki70i79uHJ41ZNZN3aBGFh
-         y75TmnMiVsC2fP0iiN7nUWWITAMwu0JGjtSXZ4HX0h+wuJaR84ho7206BenayJn1HamE
-         G81Luu7JHSILB++9UGaX9zWK+PIWzaHeDFGLEVCsvr5ZEskbXoIvDEj3LTICCSV2JrF1
-         FoPGOLnVdU9bmpXgubkzub8aI0qdjz3zmXHaQhZOS8eKtYJWGMQB0fuvXxSTVksttH3z
-         BHAlD0mnaQ5DT2w/3ilsvi/txKKkUsi+qY9KL9++cBXrT9QHes4q4BIO8qBG6VbPePZd
-         wm5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753400251; x=1754005051;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=peHOF2kFTCg4ZjEHfH+NsYT+T4LY9ghqoCHBPY5quO0=;
-        b=wZysXaoRVrw2mB/Rdxj8Cgohfen17RSz+srH2RhciAQITIgKHSfcvAqDh4bGBqkFdt
-         KR2EuO9YSdcwcztdqRfT9lvFa9B8TgIc0dbkuI7/N96+9G4bZS7r00lWF0JY9/ZGamQL
-         cy9SsetOWZB8MT+POFbONNp5xWiiYCv4Sil6OnyWcIOtIq2enNRSKBH3UYktyWNRyCdZ
-         wgq1DwYjGnnu0HBclQTdAshpi2AVJUltLgtqADd6mRakm+bKdKJO4vpp6Mja3WgLpoIT
-         lAoXPvT6NydSVfmzQ34NFnHCM8xLr2z9WJbW+ZrIMN7rX4lbCJbUYQouv79IuWKsPbZw
-         40Yw==
-X-Gm-Message-State: AOJu0YyRQVkZjegz1fdxcKkwHLPtmyAEEbs+W6nz+h08yATebSD2vBAY
-	zdmuIpoMKaJsB8auq7CGpbt3cMHt8prvajUzX85LkydQuqACteIwe/pGXjwqX6YWVcI=
-X-Gm-Gg: ASbGnct0BrrmAdE94b/kF7cl+9Xfuzwwx8/ZsbBfK4uZfa3GfYIkLPTkHYT0thMGsB8
-	agiLk7cgxqK0Qv99LH6yYt+qzHLNuER+uTUvCsX21VYkBWhSd9ptCwxqGMyVnjeZcvXKE0sfCP1
-	I/RVKsYbgQQadpMJS7cU3c9PXxdYaDb0dMLXkan/sqdgU6q5rQctxUdrTzlDOXPwmpco2T6jefr
-	5uXN1gMmA8SZywkFRwPJLtTYaiugqcNUfegTBJOvbl8367USdiHKNDM0M5bxG6mn6KUBGIf2Atp
-	nbSYt09o6klTSFHMfaKV/RZ4NoYptnHl24Uz+tjXxhnQGTKM4PbmCkEOrpjH+f3A3gspkOYzXTT
-	8e1AnjWmAHlqGnulPMCIDbkSWzoJNjqZLFxtxhFR0aIU=
-X-Google-Smtp-Source: AGHT+IHWiexaVwmMrfCesAYQvzzDEjUSkMZA8bOmNgM6tMD5UpaI8v8Bzd/POThkVi6Pt2HxfwQt4Q==
-X-Received: by 2002:a17:902:cece:b0:234:d431:ec6e with SMTP id d9443c01a7336-23f9813a90emr143907835ad.3.1753400250715;
-        Thu, 24 Jul 2025 16:37:30 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48bc706sm23598685ad.106.2025.07.24.16.37.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 16:37:30 -0700 (PDT)
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Thu, 24 Jul 2025 16:37:04 -0700
-Subject: [PATCH 11/11] riscv: Kconfig & Makefile for riscv kernel control
- flow integrity
-MIME-Version: 1.0
-Message-Id: <20250724-riscv_kcfi-v1-11-04b8fa44c98c@rivosinc.com>
-References: <20250724-riscv_kcfi-v1-0-04b8fa44c98c@rivosinc.com>
-In-Reply-To: <20250724-riscv_kcfi-v1-0-04b8fa44c98c@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
+	id 1uf5Rz-00000008gYc-3R9C;
+	Thu, 24 Jul 2025 23:34:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 24A695C5EB9;
+	Thu, 24 Jul 2025 23:34:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86D46C4CEEF;
+	Thu, 24 Jul 2025 23:34:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753400050;
+	bh=V/nVDfUDu3zSIVPxQrgq0fLEk+npFlmaZe5/m6YKPSc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Ypv9ArK+bgmMc8teMUqXtnSAPN0MNSo+G0YqQESAZ/g8tiixTe3dRHOOdLQZf3AUi
+	 PaAebzgijsBynRI4Ii33DPDe0mT+d7eJn9KVTuP1BEnMcV/LSxamLMPXfNDy0bkr1h
+	 I7Gmmkia+LNw4kXBZu/7wu3ZYOg+R2QC1U+2rA9GTq0d4iqdlrWzszngmQYQCoiX6E
+	 OOpDoH24aknAi5Nl9yzeOCH1EVY5U9+DcFHtenrlAYgxO5SqANqpBcktfWgkxOPaOn
+	 DwQ2438D5NC8W7RFOJpS6Dc/MxZxx7HyHJm8XGAAvy2+PtBxq/WZODctPMgD9dSwad
+	 PzzSFFZ48DSDw==
+From: Mark Brown <broonie@kernel.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Masahiro Yamada <masahiroy@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nicolas Schier <nicolas.schier@linux.dev>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@redhat.com>, 
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Monk Chiang <monk.chiang@sifive.com>, 
- Kito Cheng <kito.cheng@sifive.com>, Justin Stitt <justinstitt@google.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kbuild@vger.kernel.org, linux-mm@kvack.org, llvm@lists.linux.dev, 
- rick.p.edgecombe@intel.com, broonie@kernel.org, cleger@rivosinc.com, 
- samitolvanen@google.com, apatel@ventanamicro.com, ajones@ventanamicro.com, 
- conor.dooley@microchip.com, charlie@rivosinc.com, samuel.holland@sifive.com, 
- bjorn@rivosinc.com, fweimer@redhat.com, jeffreyalaw@gmail.com, 
- heinrich.schuchardt@canonical.com, andrew@sifive.com, ved@rivosinc.com, 
- Deepak Gupta <debug@rivosinc.com>
-X-Mailer: b4 0.13.0
+ Alexandre Ghiti <alex@ghiti.fr>, Longbin Li <looong.bin@gmail.com>, 
+ Zixian Zeng <sycamoremoon376@gmail.com>
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-spi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20250720-sfg-spifmc-v4-0-033188ad801e@gmail.com>
+References: <20250720-sfg-spifmc-v4-0-033188ad801e@gmail.com>
+Subject: Re: (subset) [PATCH v4 0/4] spi: sophgo: Add SPI NOR controller
+ for SG2042
+Message-Id: <175340004627.192002.3302155786508203444.b4-ty@kernel.org>
+Date: Fri, 25 Jul 2025 00:34:06 +0100
+MIME-Version: 1.0
+X-Mailer: b4 0.15-dev-cff91
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_163731_617176_0D4720B1 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20250724_163411_901979_F4282521 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,140 +84,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Defines `CONFIG_RISCV_KERNEL_CFI` and selects SHADOW_CALL_STACK
-and ARCH_HAS_KERNEL_SHADOW_STACK both so that zicfiss can be wired up.
+On Sun, 20 Jul 2025 16:31:42 +0800, Zixian Zeng wrote:
+> Add support SPI NOR flash memory controller for SG2042, using upstreamed
+> SG2044 SPI NOR driver.
+> 
+> Tested on SG2042 Pioneer Box, read, write operations.
+> Thanks Chen Wang who provided machine and guidance.
+> 
+> 
+> [...]
 
-Makefile checks if CONFIG_RISCV_KERNEL_CFI is enabled, then light
-up zicfiss and zicfilp compiler flags. CONFIG_RISCV_KERNEL_CFI is
-dependent on CONFIG_RISCV_USER_CFI. There is no reason for user to
-not select support for user cfi while enabling for kernel.
+Applied to
 
-compat vdso don't need fcf-protection (toolchain lacks support).
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-Signed-off-by: Deepak Gupta <debug@rivosinc.com>
----
- arch/riscv/Kconfig                     | 37 +++++++++++++++++++++++++++++++++-
- arch/riscv/Makefile                    |  8 ++++++++
- arch/riscv/kernel/compat_vdso/Makefile |  2 +-
- arch/riscv/kernel/vdso/Makefile        |  2 +-
- 4 files changed, 46 insertions(+), 3 deletions(-)
+Thanks!
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 385c3d93e378..305ba5787f74 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -245,7 +245,7 @@ config GCC_SUPPORTS_DYNAMIC_FTRACE
- 	depends on CC_HAS_MIN_FUNCTION_ALIGNMENT || !RISCV_ISA_C
- 
- config HAVE_SHADOW_CALL_STACK
--	def_bool $(cc-option,-fsanitize=shadow-call-stack)
-+	def_bool $(cc-option,-fsanitize=shadow-call-stack) || $(cc-option,-mabi=lp64 -march=rv64ima_zicfilp_zicfiss)
- 	# https://github.com/riscv-non-isa/riscv-elf-psabi-doc/commit/a484e843e6eeb51f0cb7b8819e50da6d2444d769
- 	depends on $(ld-option,--no-relax-gp)
- 
-@@ -864,6 +864,16 @@ config RISCV_ISA_ZICBOP
- 
- 	  If you don't know what to do here, say Y.
- 
-+config TOOLCHAIN_HAS_ZICFILP
-+	bool
-+	default y
-+	depends on 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicfilp)
-+
-+config TOOLCHAIN_HAS_ZICFISS
-+	bool
-+	default y
-+	depends on 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicfiss)
-+
- config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
- 	def_bool y
- 	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
-@@ -1182,6 +1192,31 @@ config RISCV_USER_CFI
- 	  space does not get protection "for free".
- 	  default n.
- 
-+config RISCV_KERNEL_CFI
-+	def_bool n
-+	bool "hw assisted riscv kernel control flow integrity (kcfi)"
-+	depends on 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicfilp_zicfiss)
-+	depends on RISCV_USER_CFI
-+	select ARCH_SUPPORTS_SHADOW_CALL_STACK
-+	select SHADOW_CALL_STACK
-+	select ARCH_HAS_KERNEL_SHADOW_STACK
-+	help
-+	  Provides CPU assisted control flow integrity to for riscv kernel.
-+	  Control flow integrity is provided by implementing shadow stack for
-+	  backward edge and indirect branch tracking for forward edge. Shadow
-+	  stack protection is a hardware feature that detects function return
-+	  address corruption. This helps mitigate ROP attacks. RISCV_KERNEL_CFI
-+	  selects CONFIG_SHADOW_CALL_STACK which uses software based shadow
-+	  stack but is unprotected against stray writes. Selecting RISCV_KERNEL_CFI
-+	  will select CONFIG_DYNAMIC_SCS and will enable hardware assisted shadow
-+	  stack protection against stray writes.
-+	  Indirect branch tracking enforces that all indirect branches must land
-+	  on a landing pad instruction else CPU will fault. This enables forward
-+	  control flow (call/jmp) protection in kernel and restricts all indirect
-+	  call or jump in kernel to a landing pad instruction which mostly likely
-+	  will be start of the function.
-+	  default n
-+
- endmenu # "Kernel features"
- 
- menu "Boot options"
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 7128df832b28..6ef30a3d2bc4 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -61,8 +61,10 @@ else ifeq ($(CONFIG_LTO_CLANG),y)
- endif
- 
- ifeq ($(CONFIG_SHADOW_CALL_STACK),y)
-+ifndef CONFIG_ARCH_HAS_KERNEL_SHADOW_STACK
- 	KBUILD_LDFLAGS += --no-relax-gp
- endif
-+endif
- 
- # ISA string setting
- riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
-@@ -91,6 +93,12 @@ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZABHA) := $(riscv-march-y)_zabha
- KBUILD_BASE_ISA = -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
- export KBUILD_BASE_ISA
- 
-+ifeq ($(CONFIG_RISCV_KERNEL_CFI),y)
-+riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICFILP) := $(riscv-march-y)_zicfilp
-+riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICFISS) := $(riscv-march-y)_zicfiss
-+KBUILD_CFLAGS += -fcf-protection=full
-+KBUILD_AFLAGS += -fcf-protection=full
-+endif
- # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
- # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
- KBUILD_CFLAGS += $(KBUILD_BASE_ISA)
-diff --git a/arch/riscv/kernel/compat_vdso/Makefile b/arch/riscv/kernel/compat_vdso/Makefile
-index 24e37d1ef7ec..552131bc34d7 100644
---- a/arch/riscv/kernel/compat_vdso/Makefile
-+++ b/arch/riscv/kernel/compat_vdso/Makefile
-@@ -69,4 +69,4 @@ quiet_cmd_compat_vdsold = VDSOLD  $@
- 
- # actual build commands
- quiet_cmd_compat_vdsoas = VDSOAS  $@
--      cmd_compat_vdsoas = $(COMPAT_CC) $(a_flags) $(COMPAT_CC_FLAGS) -c -o $@ $<
-+      cmd_compat_vdsoas = $(COMPAT_CC) $(filter-out -fcf-protection=full, $(a_flags)) $(COMPAT_CC_FLAGS) -c -o $@ $<
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 2b528d82fa7d..7b1446b63ebc 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -17,7 +17,7 @@ ifdef CONFIG_VDSO_GETRANDOM
- vdso-syms += getrandom
- endif
- 
--ifdef CONFIG_RISCV_USER_CFI
-+ifneq ($(CONFIG_RISCV_USER_CFI), $(CONFIG_RISCV_KERNEL_CFI))
- CFI_MARCH = _zicfilp_zicfiss
- CFI_FULL = -fcf-protection=full
- endif
+[1/4] spi: dt-bindings: spi-sg2044-nor: Change SOPHGO SG2042
+      commit: 7438379cfc47046f7507dfdb54906acf56288b9f
+[2/4] spi: spi-sg2044-nor: Add configurable chip_info
+      commit: 5653b4f8840801d9d141ba6a6c10e7cc15040c5b
+[3/4] spi: spi-sg2044-nor: Add SPI-NOR controller for SG2042
+      commit: f6b159431697c903da1418e70c825faa0cddbdae
 
--- 
-2.43.0
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
 _______________________________________________
