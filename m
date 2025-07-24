@@ -4,54 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E4EC87FC5
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 22:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4777C83F26
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 23:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:Subject:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cOET9uL1nz3IuMKuMeA4MB53hP0zCFOToLDoj0pcan8=; b=j88vs81+bLLukB
-	/pHoVvBzFN7RyPxYCLCQ7hWNACfPBYtVtKEPmiuu5Nd2+gEnAre/bRZm1mbTieDGGIEjj9EYP2YCf
-	FI5HpJJwtxrdhtN+nYtgD3V0H4I30UHkXIaujyxM0hQ10TfUC4aQsfGYA8bKjMA73dNXXoGEzrczJ
-	55uR7bFToG2ZnTnw4u5wR/9U4GVWsdnSDNb24PxmmGk3K25LiC2m6tzDaT6/BJTCQczDbarU4EsHt
-	An1qh7zz+rY0Jp4h6X/y4l1kfP2EebtHr1S20szEnMrMkHIWVeQN1QbHMapxRy6yg5YGcOMIlmzEb
-	jgtlvxhGr3s5MhJkW+4A==;
+	List-Owner; bh=ilV3MDTnTXs8lEzhsxUrNB5ma+3wYGl+EdFQTsPSMmA=; b=a7anUCyV0BHej3
+	V6ubuw7xCWHWke5jOvKJV6Yq57N73eFD1kpATn9CZ6dd34Y8lDCcqY1674DaCZUuG6gcwWrEyGmm0
+	+EyyeaJ4MFBZ+c11ZPEIC0I3yhV5gbIg2TJnN2O98IRd4sJtEUMuInKtH7yIOGbKLLIPOkmRYgkw2
+	6R2w1QkNMy7dVGLs+p4ZkcZWOgsrd9YUDCtAK5R5/OhNGK8Uje36ovziSSr+bP0NSQqWt9EWpTPBq
+	k37F7uYBpffPpcW0KqzSCRNbTOeo1i7Aywsj5SDEzOnEGZFU/2jcd6B3EoMuryJCTd72KAYdWfihe
+	f7pO3AFgwHhq/jzkFAGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf4SS-00000008b1p-3C20;
-	Thu, 24 Jul 2025 22:30:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uf5f4-00000008iBA-1dVX;
+	Thu, 24 Jul 2025 23:47:42 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf4Bh-00000008ZD4-1eUS
+	id 1uf5Uz-00000008h0d-21H5
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Jul 2025 22:13:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 798F060008;
-	Thu, 24 Jul 2025 22:13:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23B84C4CEED;
-	Thu, 24 Jul 2025 22:13:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753395196;
-	bh=+6PqI7wk8F+44CmUhhhxedAyzpbRRvtFWn62OQCLp1w=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=DY7//GDAoJpj2q4lePqWYrSLlldprUf9tIydinsX4uqwx73bzmlS0cV1xbN0hexUs
-	 IvynkqCBPFhApYmOSbovmvcEAoQycfDjN4O8YrGLVzA0f03hLWQXO9z1kA6wPm1LEj
-	 GT7yXWMFxZ//rGYBIhqa6URfEiN4P3eyqmszAVIknnAcD6cxKr4a+XajFjoysUf/sj
-	 BPrw4NAnnHpu9G8NEUCQ4/8f8SjP3QpokNsgljANb/M0i2FGWvTfY/AmWz6tFQjaVk
-	 lVS0XcnrZabaZTJJLEdqvYEUOwQZN7su3T8oIHZo2jQKl6Tr4+RLrp9qdzgQ9zMbE4
-	 hFA7vU/PbEyVQ==
+	Thu, 24 Jul 2025 23:37:19 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2349f096605so17992455ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Jul 2025 16:37:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1753400236; x=1754005036; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Gkm+U+Z8JovOoe8ArAZBSUqCVEx3YFZYKLxHXbXYTzk=;
+        b=QtDrIzZW1BLqHaTEkTDZ4IehRQMzv8OwsWYrk3zOTVSNSuCfVZkmbuzm7VMijtwwo4
+         ZGHKpBbtoXK2+E86whArQZdR3wNZD+CNZtrjay39tkeTbMrveNwWUotq7Zfjf3B3vvp9
+         g3lGkaXQ/JZVzEVsd0SUG7IgRVqWBHbfSj/s9ua2tvCegUVW8ZfgGfeulX+RMR9ttRTG
+         qRvRQ3Ljri41DRa5eyBsNcSBRAH3rPuJuW13dMAyoPFnqYPbk5AQuBJJWad6WYhtu9Yu
+         PLHLGGh+sPqfePe4fUSjQHi2grhT68M/o19FPY9p1ZebFhbNXE2ceVDnFrWoF8/uacUI
+         gtaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753400236; x=1754005036;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Gkm+U+Z8JovOoe8ArAZBSUqCVEx3YFZYKLxHXbXYTzk=;
+        b=CGad6Cc2/3DLLOZCr7tesbOj1LuAuliqxtt+xt1KTbqzM66o6pN0b1gwo4MPwGDF5d
+         so3YBXUUiRvQKM3u7S6zlLDe7DTUg+nJphM+5o+MD4+wrA8e2twsjl6RqbQLucvv8ihn
+         gEgk1ENZV3ihua3PaKx5EM6scGivalkoI26EjLY+Rr+lWrFaJdxIu2oF7ULhqG7+edIf
+         Vo6SB35+PPy0Yp6IKvlcVRj2xVRWaZbiAvG5s5hqOjowO4nmFXw6ARv0DaVOgQLNsv1J
+         gWZeZkghn3H6Q2k57vBs3YGi0JQ4dgTDo56q8Knc54jvlNODjJ1q3GXcQA753cRFIohF
+         NqYg==
+X-Gm-Message-State: AOJu0Yz1Gb6z5qw5j5a33vgtK6qr/FvtnpEfkt8hjHOosiTotY1WwJXp
+	lSmiwYbMXlLn9ngA6g3bS5Cu+GJ5GJjeYYqi41rYN7Nt/EwJipu6Z4RCB/ArvVCj7eo=
+X-Gm-Gg: ASbGncuq/GChmVTfvS563iG+nPGbycBanZSwPnWe0z8rUQwOzNrN9qgOZH6qYsSvCSk
+	6cypAwixZgrvCmgl113QiJNrn/NGhguJ/QxdUZ4JA4UeoDgNvSgQ/XkI+P7Tmuz7wGPm/nqf0aA
+	f+RAr+tRtaou0aivxdFE2eR6TYhWT1yNM6DpNu9CYR9W2b3vVtGjgUI/ueqv3YP2UlWUDzOLOpY
+	7hAT5i+Jxt0E8FZVLNElS734hO7FQ4gYhE996/o2qoC/cPriqIywO7kF0OTACOWfKwWdXaK9E+I
+	6Yr/KpvLhKT/80xW6W1TNR0vA1iueLlPo/99/+5KpcUKeIzsH+BeamDJVIj2TvetVjztn/qAt3Y
+	KKQrP64Q/Hd0whWNTVMnyybB955uy5Pxm
+X-Google-Smtp-Source: AGHT+IH5SBpkVu16UrwUXGB277v+OXuJbFLj21IH8FU8jVfnMFq+cBM3PPB90wB16oPa9iIZanRWnA==
+X-Received: by 2002:a17:903:24c:b0:234:9094:3fb1 with SMTP id d9443c01a7336-23f981afcb2mr126281075ad.35.1753400236613;
+        Thu, 24 Jul 2025 16:37:16 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48bc706sm23598685ad.106.2025.07.24.16.37.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 16:37:16 -0700 (PDT)
+From: Deepak Gupta <debug@rivosinc.com>
+Date: Thu, 24 Jul 2025 16:36:58 -0700
+Subject: [PATCH 05/11] riscv: enable landing pad enforcement
 MIME-Version: 1.0
-In-Reply-To: <776638cc-cbd9-4747-82eb-e11bcc6c8bdd@zohomail.com>
-References: <20250415-b4-k230-clk-v6-0-7fd89f427250@zohomail.com> <776638cc-cbd9-4747-82eb-e11bcc6c8bdd@zohomail.com>
-Subject: Re: [PATCH v6 0/3] riscv: canaan: Add support for K230-Canmv clock
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Samuel Holland <samuel.holland@sifive.com>, Troy Mitchell <TroyMitchell988@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>, Xukai Wang <kingxukai@zohomail.com>
-Date: Thu, 24 Jul 2025 15:13:15 -0700
-Message-ID: <175339519523.3513.2798631977806639092@lazor>
-User-Agent: alot/0.11
+Message-Id: <20250724-riscv_kcfi-v1-5-04b8fa44c98c@rivosinc.com>
+References: <20250724-riscv_kcfi-v1-0-04b8fa44c98c@rivosinc.com>
+In-Reply-To: <20250724-riscv_kcfi-v1-0-04b8fa44c98c@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Masahiro Yamada <masahiroy@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nicolas Schier <nicolas.schier@linux.dev>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@redhat.com>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Monk Chiang <monk.chiang@sifive.com>, 
+ Kito Cheng <kito.cheng@sifive.com>, Justin Stitt <justinstitt@google.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-kbuild@vger.kernel.org, linux-mm@kvack.org, llvm@lists.linux.dev, 
+ rick.p.edgecombe@intel.com, broonie@kernel.org, cleger@rivosinc.com, 
+ samitolvanen@google.com, apatel@ventanamicro.com, ajones@ventanamicro.com, 
+ conor.dooley@microchip.com, charlie@rivosinc.com, samuel.holland@sifive.com, 
+ bjorn@rivosinc.com, fweimer@redhat.com, jeffreyalaw@gmail.com, 
+ heinrich.schuchardt@canonical.com, andrew@sifive.com, ved@rivosinc.com, 
+ Deepak Gupta <debug@rivosinc.com>
+X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250724_163717_522588_D71950EE 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,31 +113,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UXVvdGluZyBYdWthaSBXYW5nICgyMDI1LTA3LTEzIDA5OjQ4OjQ0KQo+IAo+IEknbSB3b3JraW5n
-IG9uIGEgTGludXggY2xvY2sgZHJpdmVyIGFuZCBoYXZlIGVuY291bnRlcmVkIGEgcXVlc3Rpb24K
-PiByZWdhcmRpbmcgaG93IHRvIHByb3Blcmx5IHJlcHJlc2VudCBhIHBhcnRpY3VsYXIgdHlwZSBv
-ZiBjbG9jayBzb3VyY2UuCj4gCj4gSW4gSzIzMCBTb0MsIHRoZXJlJ3MgYSBtdXggY2xvY2sgd2hv
-c2UgcGFyZW50IGNhbiBvcHRpb25hbGx5IGJlIGFuCj4gZXh0ZXJuYWwgcHVsc2Ugc2lnbmFsLCB3
-aGljaCBpcyBjb3VudGVkIHZpYSBhIHBpbiAodGhlIGlucHV0IGlzIG5vdAo+IGdlbmVyYXRlZCBp
-bnRlcm5hbGx5IGJ1dCBjb21lcyBmcm9tIGFuIGV4dGVybmFsIHNvdXJjZSkuIEnigJltIHdvbmRl
-cmluZzoKPiAKPiBTaG91bGQgdGhpcyBleHRlcm5hbCBwdWxzZSBzaWduYWwgYmUgbW9kZWxlZCBh
-cyBhIGNsb2NrIHdpdGhpbiB0aGUKPiBDb21tb24gQ2xvY2sgRnJhbWV3b3JrIChDQ0YpPwoKTGlr
-ZWx5LCB5ZXMuCgo+IAo+IElmIHNvLCB3aGF0IHdvdWxkIGJlIHRoZSBjb3JyZWN0IHdheSB0byBy
-ZWdpc3RlciBvciBkZXNjcmliZSBzdWNoIGEKPiBjbG9jayBpbiB0aGUgZHJpdmVyPwoKSWYgaXQg
-aXMgYSBmaXhlZCByYXRlIHB1bHNlIHNpZ25hbCBJIHdvdWxkIHVzZSBhIGZpeGVkIHJhdGUgY2xr
-IG5vZGUgYXQKdGhlIHJvb3Qgb2YgdGhlIERUIHRyZWU6CgoJY2xvY2stNTAwMDAgewoJCWNvbXBh
-dGlibGUgPSAiZml4ZWQtY2xvY2siOwoJCSNjbG9jay1jZWxscyA9IDwwPjsKCQljbG9jay1mcmVx
-dWVuY3kgPSA8NTAwMDA+OwoJfQoKSWYgeW91IG5lZWQgcGluY3RybCBzZXR0aW5ncyB0byBtYWtl
-IHRoYXQgY2xrIHdvcmsgeW91IGNhbiBhc3NpZ24gdGhlbQppbiB0aGF0IG5vZGUsIGFsdGhvdWdo
-IEkgZG9uJ3Qga25vdyBpZiBJJ3ZlIGV2ZXIgc2VlbiBzdWNoIGEgY2FzZQpiZWZvcmUuIElmIHRo
-ZSBleHRlcm5hbCBwYXJlbnQgY2xrIG5lZWRzIHRvIGJlIGdhdGVkIHlvdSdsbCBuZWVkIHRvCndy
-aXRlIGEgbW9yZSBmZWF0dXJlZCBkcml2ZXIsIHVubGVzcyBpdCBjYW4gYmUgY29udHJvbGxlZCB3
-aXRoIGEgZ3BpbyBvcgpzb21ldGhpbmcgbGlrZSB0aGF0LgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Enables landing pad enforcement by invoking a SBI FWFT call.
+
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+---
+ arch/riscv/kernel/asm-offsets.c |  1 +
+ arch/riscv/kernel/head.S        | 19 +++++++++++++++++++
+ 2 files changed, 20 insertions(+)
+
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index e4d55126dc3e..e6a9fad86fae 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -536,6 +536,7 @@ void asm_offsets(void)
+ 	DEFINE(SBI_EXT_FWFT, SBI_EXT_FWFT);
+ 	DEFINE(SBI_EXT_FWFT_SET, SBI_EXT_FWFT_SET);
+ 	DEFINE(SBI_FWFT_SHADOW_STACK, SBI_FWFT_SHADOW_STACK);
++	DEFINE(SBI_FWFT_LANDING_PAD, SBI_FWFT_LANDING_PAD);
+ 	DEFINE(SBI_FWFT_SET_FLAG_LOCK, SBI_FWFT_SET_FLAG_LOCK);
+ #endif
+ }
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 9c99c5ad6fe8..59af044bf85c 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -185,6 +185,16 @@ secondary_start_sbi:
+ 1:
+ #endif
+ 	scs_load_current
++
++#if defined(CONFIG_RISCV_SBI) && defined(CONFIG_RISCV_KERNEL_CFI)
++	li a7, SBI_EXT_FWFT
++	li a6, SBI_EXT_FWFT_SET
++	li a0, SBI_FWFT_LANDING_PAD
++	li a1, 1 /* enable landing pad for supervisor */
++	li a2, SBI_FWFT_SET_FLAG_LOCK
++	ecall	/* check for error condition and take appropriate action */
++#endif
++
+ 	call smp_callin
+ #endif /* CONFIG_SMP */
+ 
+@@ -359,6 +369,15 @@ SYM_CODE_START(_start_kernel)
+ #endif
+ 	scs_load_current
+ 
++#if defined(CONFIG_RISCV_SBI) && defined(CONFIG_RISCV_KERNEL_CFI)
++	li a7, SBI_EXT_FWFT
++	li a6, SBI_EXT_FWFT_SET
++	li a0, SBI_FWFT_LANDING_PAD
++	li a1, 1 /* enable landing pad for supervisor */
++	li a2, SBI_FWFT_SET_FLAG_LOCK
++	ecall	/* check for error condition and take appropriate action */
++#endif
++
+ #ifdef CONFIG_KASAN
+ 	call kasan_early_init
+ #endif
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
