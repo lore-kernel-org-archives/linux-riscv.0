@@ -4,54 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 171E4C87FCA
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 22:07:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B9EC87FC5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 22:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:Subject:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3FJY8a0wfCSj99FS8wZjA80Nc2DkdemdP2XdnwG3JXM=; b=47hodH//f0G69b
-	NNvXNDReWHDEiJMXyyNsg8I91Ac2IwW4iBm3SwiNLcOqzFvEPLTBbMAqA/AyH90exMhT01/aKu0cK
-	viHh4YXRlJxniQevpqyXsV2+XNeR2du2n6mptL1XWwpndAyFTFYkiJ8XG/Jt2wzk07hddqpcmveJl
-	bLpGp+0zj5kL1yrTiQrDopLWpnbd6NL45ljcS12iEvtYdRCxmSInI2nveXbdbstX6xFnHJLZJQKVa
-	LrGPpOUUYo5yQENEuzym6hlN3kGxlEBNhmvwdOYU2ZtOh398+rjD6MD90R9f7F5Q0Zwm0AJhMGh2R
-	8R8rOCsZIU0vlSgu9dGw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TqGFlJOhZP+Wf9OcVHiU30WET7NsBx0fXOq9GnKRhS8=; b=PZ/bRJxEUaM62Z
+	JQwKyzkB6FyuwrQoMOHPV9pogRtjiUxcGPkleCXj3VAv5XacgwTev3FufbXnLAHKg5vEguX5nPB1s
+	TcsOo4Kwk6avQ3ymOAw6P9eVnTmbZRhGAKmatcQwLAe1K4T4ProKnxub3w+xRvMjCjUajPYcavxz0
+	0dGUVUjPfY9lQSPJ4helEuEXDFz/NTZgK0A7jbHUcXh1hBmbc5+su71BVblQbJtbazN12flP0sjth
+	KkaB+xY506DL0PhX6b8OweLuclH+BZkFw3k6ODPDqhZrPKLaKB9l4Rmx6VoxU1fpIPsprKwskb50h
+	Wh/R7JDGs5ZaX5+62bGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf45e-00000008YYK-3gZO;
-	Thu, 24 Jul 2025 22:07:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uf47k-00000008YiH-2LRY;
+	Thu, 24 Jul 2025 22:09:12 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf45d-00000008YY9-29D2
+	id 1uf47g-00000008Yhf-3mLe
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Jul 2025 22:07:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A02EB60008;
-	Thu, 24 Jul 2025 22:07:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AEF4C4CEED;
-	Thu, 24 Jul 2025 22:07:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753394820;
-	bh=H4bI8MigaMkypNpkii9+xYRtzoc4ShGUP1lY8l1HJE4=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=ksI732Z46/mkBky8OU6QC/3H2CN751lTILAbTuLw6NiZGamBTd1OUolE0tXAR4/6C
-	 fw059+tkbgkFjNHv5H7qVTdtJSD2udS2vVY5LeJr75oeUtESTg82jCFe/KLzIACpnR
-	 w56OsBpfZs41hMG4VbdTc1SIPCjVmsnmLgYJTcZmGBKyHsF05KaZWELHF43jOeYfuw
-	 ezlp3wsvZ7x/ceRFeX5ZLyDWGPF9wQuwfLhjMnMnZfTe/GmHkyi8YpSETZVXnnq2nl
-	 McadAsd+WCHeHnE6RkNIzDYll06qorlWxiklF7dOnNZpHMGXFNPAhYz6QlmTF1J+mw
-	 U1ajbwJndOmoQ==
+	Thu, 24 Jul 2025 22:09:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
+	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
+	bh=G1GIx/bTld7i3jsye2tQQaAkpBwO5F07jwxGvhnvPvo=; b=KJMRc2suV9oemaajHLxPMMOGLm
+	qnIexYONwqIsa7DrXH7k3JRaSL3025hxN4tyP+8IUyAc6L7Mdomr11tbdcrM7tdtSDmHH/Mo8HMHk
+	V655wS7asI5KIYt5TLhhCnrdypwarOK37XBFPywJaFArChP4uieK9W7OlSle+zyjdDTFJkCwjc8Cw
+	vpVEyznQ3bnqTFTMBNu5TmtyDwrkQkUugxLLk47zYTn6mlf8/f+dIs+rvQQekljKpFxzy6GZQ/oS2
+	suLq6bvms6guIufwl49pKPD/GLkzCwRs5i8kxcfQt9vI2LCzmzq6fFpeMe4fhsAZX4AItpgG7vAAM
+	dxm1usuw==;
+Received: from [2a01:e34:ec5d:a741:1ee1:92ff:feb4:5ec0] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1uf47U-00DlP2-0d;
+	Fri, 25 Jul 2025 00:08:56 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
+Cc: Aurelien Jarno <aurelien@aurel32.net>
+Subject: [PATCH] riscv: uaccess: fix __put_user_nocheck for unaligned accesses
+Date: Fri, 25 Jul 2025 00:08:52 +0200
+Message-ID: <20250724220853.1969954-1-aurelien@aurel32.net>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-In-Reply-To: <aIKcFzsCvvz0PCBW@x1>
-References: <aIKcFzsCvvz0PCBW@x1>
-Subject: Re: [GIT PULL] clk: thead: Updates for v6.17, part 2
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Yao Zi <ziyao@disroot.org>
-To: Drew Fustini <fustini@kernel.org>
-Date: Thu, 24 Jul 2025 15:06:58 -0700
-Message-ID: <175339481888.3513.6668397032978631593@lazor>
-User-Agent: alot/0.11
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250724_150909_391995_7962FF74 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,31 +76,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Drew Fustini (2025-07-24 13:48:23)
-> Hi Stephen,
-> 
-> I'm sending this followup PR in case there is still time to include it
-> for your 6.17 PR. Yao Zi refactored mux clk registration which fixes an
-> orphan mux clk issue which would occur when booting with mainline uboot.
-> 
-> Thanks,
-> Drew
-> 
-> The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
-> 
->   Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git tags/thead-clk-for-v6.17-p2
-> 
-> for you to fetch changes up to 54edba916e2913b0893b0f6404b73155d48374ea:
-> 
->   clk: thead: th1520-ap: Describe mux clocks with clk_mux (2025-07-22 15:40:54 -0700)
-> 
-> ----------------------------------------------------------------
+The type of the value to write should be determined by the size of the
+destination, not by the value itself, which may be a constant. This
+aligns the behavior with x86_64, where __typeof__(*(__gu_ptr)) is used
+to infer the correct type.
 
-Thanks. Pulled into to clk-next
+This fixes an issue in put_cmsg, which was only writing 4 out of 8
+bytes to the cmsg_len field, causing the glibc tst-socket-timestamp test
+to fail.
+
+Fixes: ca1a66cdd685 ("riscv: uaccess: do not do misaligned accesses in get/put_user()")
+Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+---
+ arch/riscv/include/asm/uaccess.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index b88a6218b7f24..22e3f52a763d1 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -311,7 +311,7 @@ do {								\
+ do {								\
+ 	if (!IS_ENABLED(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS) &&	\
+ 	    !IS_ALIGNED((uintptr_t)__gu_ptr, sizeof(*__gu_ptr))) {	\
+-		__inttype(x) ___val = (__inttype(x))x;			\
++		__typeof__(*(__gu_ptr)) ___val = (x);		\
+ 		if (__asm_copy_to_user_sum_enabled(__gu_ptr, &(___val), sizeof(*__gu_ptr))) \
+ 			goto label;				\
+ 		break;						\
+-- 
+2.47.2
+
 
 _______________________________________________
 linux-riscv mailing list
