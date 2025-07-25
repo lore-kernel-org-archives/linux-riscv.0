@@ -4,55 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD98C83F26
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 05:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5ADC87FCA
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 06:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qD/gGWE10466qULy2mGaFJswi4M0N05qW8j5lKImxjM=; b=mjC84Ypbxn6gyT
-	Q6Pnxg+JSiM1JBXXozCItSwQZst0ZWJY9gWbekIcVhJQjMNLJnzWyEw3rH8HSg5/kRNskffF5qqsh
-	Krs2cGQZzrGgsCvxtY6dbDsar5VyDSWBdB1Fo4FD+McQCrFx9/xnmiEHCyXj8E6idi/w7LbUeNbn1
-	iGRCcXfEey20aToFRfbxRAwBZdFvDnjghYpdaObFipbDlhG56czCIsd8oTc1aSU5BN5zsTNnC75i0
-	rOFCv47f7zZOxUnC1R59ZLiW4oRWrOjF+JMQ1NVRLD+Oi7N2EU44k1OoQyZhxwLQ3vSnk6Wsi/OHf
-	owXsDWJlu67/pSQONcVA==;
+	List-Owner; bh=m0Ui2akRqRlozLq7fHxXwf0LoHn/WSpZMVjfRb2HCgI=; b=J8O3ATXiA5YyIi
+	RE1u4Gno6k4GNE0u7T/c876cSHLaBa4JQ9A03rnoHu4R4IkmeCRDdHSe0TRY0H86v3h8u0j2FBjIE
+	9JHnkPUO8k/FihiFXa3kkztfX/COdnV4rGVk3qdeHU7Bmss2yIdtPnPvMKupjrSjFCVIuyrkYQwoF
+	E2oyD08GbFJhTVB9Kl8W3SkdUNB6NejngzZkVuoS6G0DMT4dmBuT04J28rIFtDt9SkfrX1H8nwCP0
+	yavWlL6VC1cgGlPnSn2qvO7ohy9YSxTpiX/uPlvNm8Re3KHErlKQ0Mk2ywcaJm9e9GEyE9wzyHt3o
+	quvTjQCHnmxpHg7qPEIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufAko-000000094UP-0xxa;
-	Fri, 25 Jul 2025 05:13:58 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1ufBgb-000000098Sm-0cFN;
+	Fri, 25 Jul 2025 06:13:41 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufAkk-000000094TY-30Ab
+	id 1ufBgX-000000098SO-2KN5
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Jul 2025 05:13:56 +0000
-Received: from [192.168.2.54] (unknown [98.97.27.28])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 655D2B4D0045;
-	Fri, 25 Jul 2025 07:13:49 +0200 (CEST)
-Message-ID: <43c5908c-c478-4e00-b1e5-955296e4ec24@freeshell.de>
-Date: Thu, 24 Jul 2025 22:13:47 -0700
+	Fri, 25 Jul 2025 06:13:39 +0000
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com [209.85.128.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 87E303F45D
+	for <linux-riscv@lists.infradead.org>; Fri, 25 Jul 2025 06:13:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1753424013;
+	bh=TzyPAUEa1ra9f+Fo595oVFYE4lltInSXTAdJNreFcWM=;
+	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type;
+	b=udnJZhBpxpDYrlvsjoKrIlUlnlOSrYLmKnyfTuRYEjeGcdE8l8H+LsRPXEj8czvm/
+	 170y6V27Umlvfy+2O2fnOGGXW+AIYVlR3xVR7I5+yu8xVceauTgXOCaHEVZvEyXH2R
+	 RX00dXdxYHqrz4bLOa/yLEWgI2jnJX0zi37mWU2F1vHmBIB5VEeCLERFWIaAYujofy
+	 Kom+bdiGREwvMXBbgYQk7e5LbWc2x0xeyjNM9hFu/Wb5ae5FN/lZM8amAPRZ5CgFwf
+	 5S1GiI3e00RO/rtKj+H/4EmkfDyLkuaLhnwhq8BAZ1pP16BA8rzNbHMqxLA/zDV4HO
+	 XkFX8W3sD246w==
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4563f15f226so4626795e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Jul 2025 23:13:33 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753424013; x=1754028813;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TzyPAUEa1ra9f+Fo595oVFYE4lltInSXTAdJNreFcWM=;
+        b=bSRPgksJ25rBil+/6W0a3OrYkOw+V8RbkJ8neHy2QV0giaQiCJIv3AGulbbVqkutVG
+         NrzYiTs00blFtFyTplJh7LVa3+LiAZ4XTT2Le8rECGt04yEw1MRu2STdcJaT3UrjmTwQ
+         +4cWhSO8BJT4po2XzU+8tzvsyhDIZBdvIu/qLnF4WeFpiD7euq4+taI2XDTqhIL3zLX9
+         A5lb6p58HvID/iJH2fk1ZjzXL6Bm4f0itmoekQlJyx/xcakJzeBb2cGwyatC0gR1z5an
+         TW4lobwHl2f+O+KtAGpvYEnWsQwZS9ItCbsU1ceDQTHfZR2qkYj12XxopH9342zdIRQl
+         ODrg==
+X-Gm-Message-State: AOJu0Yxb1dhpMExawnRaQ9Hcu8pYxd0KxbAcgH7Ae2k8Sj3LW/DjyBHW
+	j9ISO/68InRZxW+3rv2JIWGOi186t3QgE3nszk9/nOx2loZqulNX5XmJFRqAcGX7+kc1Hcl7VQR
+	/USOjZQ3lbsnf3aDxHACGuPEvjIUpH5WKLGUDmjJBHezoylWtzhkK/nJaWBHh6qPrWoNvbosUqt
+	vpSt4Bv3O0tA==
+X-Gm-Gg: ASbGnctrIl184ccvVSAkEvTiBNslaOSJ5GGDzO4QtfOg7HXrimxcFLOa1vjUUpE7A8i
+	tTNRT3WPyVu3wE/CzB4Jb7adFTzYbDUqfk83rgazfdC3tO3k4JuaFEhc1Pql3Bnq7DWgNvpF3X6
+	idv4nyfXes8vqKZ+Pzsol913gvvlXehTAtMAcAYoEv11AgwcOTh1EkfSdXdXHrRqp7C4i5K5psw
+	u7ZIVC/54VDr0xuMJfSM8U1SHTge0nqPEIK83mnpCeAF75rNjkI5wKGptiM6xUP4+E3FhY6unuk
+	0tA+fbSsOfxG8sxpmYl9nWmZncfhMXxKqMiq4MJM76uv1IveaKcPfmlCXAcWyJ60hF7TMjIpaC/
+	5MHhNlgfQLKMTznAhEnwhkJpa2eD4JMHPVQZA
+X-Received: by 2002:a05:600c:861a:b0:456:1bae:5470 with SMTP id 5b1f17b1804b1-45876b12ab6mr2569975e9.8.1753424013108;
+        Thu, 24 Jul 2025 23:13:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFnuDATio1q8lhm2BzVtYuo6oTtxWHR46flKXtmOHWUTwYg4EBDhbjT8wj0HyskkwGEINn1ow==
+X-Received: by 2002:a05:600c:861a:b0:456:1bae:5470 with SMTP id 5b1f17b1804b1-45876b12ab6mr2569725e9.8.1753424012699;
+        Thu, 24 Jul 2025 23:13:32 -0700 (PDT)
+Received: from [192.168.123.154] (ip-005-147-080-091.um06.pools.vodafone-ip.de. [5.147.80.91])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-458705bcb61sm41269355e9.20.2025.07.24.23.13.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Jul 2025 23:13:31 -0700 (PDT)
+Message-ID: <2ba0c09d-2783-4dce-a889-06e16abbde61@canonical.com>
+Date: Fri, 25 Jul 2025 08:13:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: dts: starfive: jh7110-common: drop no-sdio
- property from mmc1
-To: Conor Dooley <conor@kernel.org>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, William Qiu <william.qiu@starfivetech.com>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250724075600.239522-1-e@freeshell.de>
- <20250724-equal-limb-2922f240961e@spud>
+Subject: Re: [PATCH 01/11] riscv: add landing pad for asm routines.
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, linux-mm@kvack.org, llvm@lists.linux.dev,
+ rick.p.edgecombe@intel.com, broonie@kernel.org, cleger@rivosinc.com,
+ samitolvanen@google.com, apatel@ventanamicro.com, ajones@ventanamicro.com,
+ conor.dooley@microchip.com, charlie@rivosinc.com, samuel.holland@sifive.com,
+ bjorn@rivosinc.com, fweimer@redhat.com, jeffreyalaw@gmail.com,
+ andrew@sifive.com, ved@rivosinc.com, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor
+ <nathan@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Monk Chiang <monk.chiang@sifive.com>,
+ Kito Cheng <kito.cheng@sifive.com>, Justin Stitt <justinstitt@google.com>
+References: <20250724-riscv_kcfi-v1-0-04b8fa44c98c@rivosinc.com>
+ <20250724-riscv_kcfi-v1-1-04b8fa44c98c@rivosinc.com>
 Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <20250724-equal-limb-2922f240961e@spud>
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+In-Reply-To: <20250724-riscv_kcfi-v1-1-04b8fa44c98c@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_221354_941386_A21AD3D4 
-X-CRM114-Status: GOOD (  28.72  )
+X-CRM114-CacheID: sfid-20250724_231337_982345_00EE180C 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,103 +122,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On 7/24/25 09:51, Conor Dooley wrote:
-> On Thu, Jul 24, 2025 at 12:55:53AM -0700, E Shattow wrote:
->> Drop no-sdio property avoids a delete-property on variant board dts
->> having an SDIO wireless module connected to mmc1.
+On 25.07.25 01:36, Deepak Gupta wrote:
+> SYM_* macros are used to define assembly routines. In this patch series,
+> re-define those macros in risc-v arch specific include file to include
+> a landing pad instruction at the beginning. This is done only when the
+> compiler flag for landing pad is enabled (i.e. __riscv_zicfilp).
 > 
-> I'm struggling to understand why this change is correct.
+> TODO: Update `lpad 0` with `lpad %lpad_hash(name)` after toolchain
+> support.
 > 
-> If there are specific boards that have wireless modules connected
-> instead of using sdcards, how come the no-sdio property isn't moved to the
-> the boards that do have sdcard slots?
-
-Why is 'no-sdio' property there to begin with...
-
-> The property was added for the visionfive 2, and only on mmc1, so should
-> it be retained for boards that match the visionfive 2 in terms of how
-> they use mmc?
-
-Ref.:
-https://lore.kernel.org/lkml/20221207131731.1291517-4-william.qiu@starfivetech.com/
-
-My theory is VisionFive2 board hardware can support connecting up some
-SDIO module there with ready-made available adapters, it may be possible
-(if unusual) that would work? SDIO is 4-wide and some voltage
-requirements, and a couple of GPIO, so I'm aware that's a stretch of a
-statement but it could be done without soldering. I wouldn't expect it,
-but why restrict this everywhere inheriting from jh7110-common.dtsi with
-'no-sdio' and then (needs testing!) if it doesn't matter one way or the
-other for VisionFive2 just drop it I think as being inaccurate/unnecessary?
-
-JH7110 CPU supports two interfaces of SDIO3.0/eMMC so it's not clear to
-me if there's some reason for 'no-sdio' property to be there. Does
-allowing SDIO (?) break eMMC and SD Card devices, is it destructive?
-
-Not knowing what 'no-sdio' does technically I dropped the property and
-tested with the hardware I do have. The 'no-sdio' property
-present/absent does not appear to do anything user-impactful on Pine64
-Star64 that has SD Card slot on mmc1, and as would be expected on Milk-V
-Mars CM Lite WiFi when there's an SDIO module at mmc1 it then fails to
-initialize if 'no-sdio' property is present.
-
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>   arch/riscv/include/asm/linkage.h | 42 ++++++++++++++++++++++++++++++++++++++++
+>   1 file changed, 42 insertions(+)
 > 
-> Could you add an explanation for why removing this entirely is the right
-> thing to do, rather than only removing it for these variant boards?
+> diff --git a/arch/riscv/include/asm/linkage.h b/arch/riscv/include/asm/linkage.h
+> index 9e88ba23cd2b..162774b81158 100644
+> --- a/arch/riscv/include/asm/linkage.h
+> +++ b/arch/riscv/include/asm/linkage.h
+> @@ -6,7 +6,49 @@
+>   #ifndef _ASM_RISCV_LINKAGE_H
+>   #define _ASM_RISCV_LINKAGE_H
+>   
+> +#ifdef __ASSEMBLY__
+> +#include <asm/assembler.h>
+> +#endif
+> +
+>   #define __ALIGN		.balign 4
+>   #define __ALIGN_STR	".balign 4"
+>   
+> +#ifdef __riscv_zicfilp
+> +/*
+> + * A landing pad instruction is needed at start of asm routines
+> + * re-define macros for asm routines to have a landing pad at
+> + * the beginning of function. Currently use label value of 0x1.
 
-Yes, I can rephrase a bit like "relax no-sdio restriction on mmc1 for
-jh7110 boards", or else reconsider the approach. I was going to approach
-with `/delete-property/ no-sdio;` later elsewhere but after testing on
-Pine64 Star64 with similar configuration to VisionFive2 mmc interfaces,
-and knowing that Milk-V Mars CM Lite WiFi detects AP6256 SDIO peripheral
-at mmc1 when this property is dropped (and with a few additional
-things)... I prefer to reduce the problems that would need to be avoided.
+Your code below uses label value 0 which disables tag checking. As long 
+as we don't have tool support for calculating function hashes that is an 
+appropriate approach.
 
-I have done all the testing I can do with hardware I have. As-is it's
-just like I wrote, we'll have to solicit some testing feedback on that
-and wait to learn what this does for the other boards.
+%s/Currently use label value of 0x1./Label value 0x0 disables tag checking./
 
-Aside, anyone want to chime in what is the utility of 'no-sdio'
-property, how do you know from a schematic if it is appropriate, can it
-be simply dropped as I suggest for JH7110 boards?
+Best regards
 
+Heinrich
+
+> + * Eventually, label should be calculated as a hash over function
+> + * signature.
+> + */
+> +#define SYM_FUNC_START(name)				\
+> +	SYM_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
+> +	lpad 0;
+> +
+> +#define SYM_FUNC_START_NOALIGN(name)			\
+> +	SYM_START(name, SYM_L_GLOBAL, SYM_A_NONE)	\
+> +	lpad 0;
+> +
+> +#define SYM_FUNC_START_LOCAL(name)			\
+> +	SYM_START(name, SYM_L_LOCAL, SYM_A_ALIGN)	\
+> +	lpad 0;
+> +
+> +#define SYM_FUNC_START_LOCAL_NOALIGN(name)		\
+> +	SYM_START(name, SYM_L_LOCAL, SYM_A_NONE)	\
+> +	lpad 0;
+> +
+> +#define SYM_FUNC_START_WEAK(name)			\
+> +	SYM_START(name, SYM_L_WEAK, SYM_A_ALIGN)	\
+> +	lpad 0;
+> +
+> +#define SYM_FUNC_START_WEAK_NOALIGN(name)		\
+> +	SYM_START(name, SYM_L_WEAK, SYM_A_NONE)		\
+> +	lpad 0;
+> +
+> +#define SYM_TYPED_FUNC_START(name)				\
+> +	SYM_TYPED_START(name, SYM_L_GLOBAL, SYM_A_ALIGN)	\
+> +	lpad 0;
+> +
+> +#endif
+> +
+>   #endif /* _ASM_RISCV_LINKAGE_H */
 > 
-> Cheers,
-> Conor.
-
-Thank you for reviewing! -E
-
-> 
->>
->> Signed-off-by: E Shattow <e@freeshell.de>
->> ---
->>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 1 -
->>  1 file changed, 1 deletion(-)
->>
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->> index 2eaf01775ef5..a315113840e5 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->> @@ -299,7 +299,6 @@ &mmc1 {
->>  	assigned-clock-rates = <50000000>;
->>  	bus-width = <4>;
->>  	bootph-pre-ram;
->> -	no-sdio;
->>  	no-mmc;
->>  	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
->>  	disable-wp;
->>
->> base-commit: 28fa0dcb571ab8f3be4d919f0e20e01d4e44bcb1
->> -- 
->> 2.50.0
->>
 
 
 _______________________________________________
