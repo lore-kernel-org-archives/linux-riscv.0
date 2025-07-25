@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BB5C87FCE
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 16:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D156C87FCE
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 16:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zvYawqXi3gHiw/+BlewcLp/Sb3SckIaf8DI+/NqVC0Q=; b=PKxMzC4aBe7ZBn
-	P90W2xF2vltB7ImRWdy8XLZBoQuUFh9vd5fpuSji4dmJDTpUjxN4FcMCp/kYWUJ2ii6eli2Gz6WGr
-	9koAtctCcc/iV3rsYo5y0POKG3ynodTx3PWojzyh8/2NcDtP1xBuOipxa3lYk49xKEFfF3RcsUP97
-	3mkpjJIK0fsCJB4eGpxW4UM/DV+Bmw/y34yzmkTbpA7x1bewkpdLVDBFm18OZ27bBM+DGlppDfnFO
-	+s1rTr4zPpWf/27nnN1dAcRcNyGjh4NHtp/3PGmuNHP+Xz5VMjVpUX2Sv6Hcg5kmfaaXycgD75qKh
-	10/PSk9ZT4vs28vOtjOg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:In-Reply-To:
+	To:From:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=1vjUER+gjL4DrjrZkX/GzBPqwo6jJMli794Y/fo5fsE=; b=Ao1dQj3TW8NvPk
+	FElgWNXyCPuLgECsOq7zEdxsQ9wHea5qBBC5s6QfoVVirZ2Y/Rb19SdTRixCAmiGyG5DnK2rLzDQo
+	vD9QPLcAJXXnNaowWPF011vtewEE9SOohZrunNxrv21wItPYOxpTT02O66fxoOPi6LLVtXCHRsows
+	dhDWx7f779pLBTWWJ8QcnZGoEcZ2RuH9S8qcPKGznPAMrBtmspHEMPzgdRqAE/U2fZFS4skBRL3eP
+	zLsFjG3e2Dkbgxr6mIuS1xw58n7Ww6LE/OoMqelBV3RCwn0FOfhbqEqXyG29oaJLx9qVIphCTRwk2
+	Z1sN4V4de59iCMlkeieA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufL9f-0000000ACoU-1WbH;
-	Fri, 25 Jul 2025 16:20:19 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1ufLJf-0000000AEM6-0Yg0;
+	Fri, 25 Jul 2025 16:30:39 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufL5u-0000000AC45-3lR0
+	id 1ufLJ6-0000000AEIG-48eG
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Jul 2025 16:16:28 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-32e14cf205cso22264061fa.1
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Jul 2025 09:16:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1753460184; x=1754064984; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VOo595UD81PW4Cz1UFmTlajy9wRb7dyhybVVNSTeWD4=;
-        b=HqTPqEksDjQDSYgjKBlljj6/8N6O446A6Xiu6DQ3Un+tGOIDMLnb7oIJNhopgAFxkp
-         UNjFDp+8LRrwMb29XgIU0GkIkPvpES+WBqdLqo8Fevp8w3JIwSOZyr0kB3yQgxxnB02M
-         UIRz7gQoBTsRbNZatUhotZvDVliAyirPUmyn8e78VOYNm+3Fx2xukTVSuD/vP/Eb4Rb+
-         YZ/kk6fdTjrEowuYhmFdsJhcjiOO/zPobGeZJxWqaJU1dIHkQNe6pzkxfauYbu2N52G4
-         KbzM3ySYaC+1l/g/kMDvcqyxNv+6eM8c3Qp40HgYLrN5GqopW/8VqOvNMBrcAnyyjsm3
-         hnZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753460184; x=1754064984;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VOo595UD81PW4Cz1UFmTlajy9wRb7dyhybVVNSTeWD4=;
-        b=MC+2PUS7c36SugzLRS4SrSYRbAIvl/M6H4P/gkhYbonTv+r5mb6llsB17qniAlGFEm
-         GjzPMZ6N0EzTBUZ4rH25cxqRxERLz4cejkO3bMp8OqampxVJHTiIje9GqxrJYuAFRIqU
-         NSPglFeKcNkR4zuDa8SX1IrbA2vnImgmL7eOOX0mPftRjfWzq6Qn/noFcf8VA6xJyoD0
-         W2yqAjZyWJ2pA5spi+Y4/mWKLFnDLfJjyrjP+VeF3OMU3VD7A4KbzVH/ysE7Y5JQwGEE
-         /j+aj/LCTyGJmExLh5f5xzf0oit7neThrnfVwt1+UQiDB6Qv6AvC7VEVaqv/Y7EE9zwQ
-         3q2w==
-X-Forwarded-Encrypted: i=1; AJvYcCW91hYIdyAYhjwYI3fskl+4QdgXmTDLZ6bda+KfvkTpOoaa32kYtgQMCHumcTrDtcf9UesnYsLWnX81Lw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7dfmZMLuoFDM2WHBrU/6gl2rAILq7S7PpIlGKQu3ngEtq9giB
-	m+uiiLj/DZ2lOsebaU8ETPy+NW9ZeXTap3aUsARZczqHRCQKTumcBaDX53znm60Nyr9NEPvUHdb
-	CoPPX0YG0j3auka5YJ1dA7PN3bHVUoYRsEmTjuew5Vg==
-X-Gm-Gg: ASbGncvAhMIXslUhNa26hqz+8yIuqge3pRGKRqtgz7+07Lu7IsKFjFuiUcC7ZYXJekn
-	Uw6qYoc1I4mv1pv9dlAsb1zA0HRxB7QRVL3/LRz97a2hKXCyFnGkkb93zJ8ro2CAEB84x9O5KQ9
-	SPiK9SlMu34Q6mQu7jOFHioaN+SVmDFsxf1VHtxNiondLlXvSOVitUsRbltmVvbokp3NxUrHZEH
-	4VVAUc=
-X-Google-Smtp-Source: AGHT+IFIuUIEQS0zyr6rBam/nD3H+hqGiiProGvcAqPkV/NrJ9CSjPmlKsQWWtSCr8nBHng2+tmatocM0hZ4PbG8CJs=
-X-Received: by 2002:a05:651c:1503:b0:32b:5672:41fb with SMTP id
- 38308e7fff4ca-331ee74cc42mr12092821fa.19.1753460184460; Fri, 25 Jul 2025
- 09:16:24 -0700 (PDT)
+	Fri, 25 Jul 2025 16:30:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753461001; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=aEUfV3gZVITtA1V4+T10FU6Zp2cRgW/Vw5mIpQxxGoDgll87FQIaTDiIXFo5ZVo4vzQzc/qnq5oLr6gI9nJSvkDMs3NCtiKVnSWKzD6AchL1uKpJpgr0F8VVDPEMhoif9W7vuvqQfP9NKwaKyiMlUZT1D3Wk1NBPAS77+YxQjs8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1753461001; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=V7UB6j/9y8mHrSKKCeR3NkchjsE3+xKogIfJfdZ88s0=; 
+	b=GFU9/Ul0PVlcWPc8Ahil1Rsp5NWpbSGc+r5+ZPzm5Y5yMqTHz3BY/oac4k3LAsb0Ox3FVqtp8pQv3nSve8M/0sNt4yvw1j3TiuV+fipIYkNZucGgLUPG1RIbti9Ds7Js0M1PPEXDF7Qdz+IMAX2YTKClak8orVT1a1qzOgrjPtI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753461001;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=MIME-Version:From:From:To:To:In-Reply-To:Cc:Cc:Subject:Subject:Message-ID:Date:Date:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=V7UB6j/9y8mHrSKKCeR3NkchjsE3+xKogIfJfdZ88s0=;
+	b=pE4Yj3S2YyEqZb3A5ZEkjA2Va9iGhnyexrnASyMU0nA9Zqz/hPDuOFX7ocJMDxTV
+	lB3Q9O0vvF/ug/RyVl7uEk7CXR+qcSBj6rIjR9HtW0VZQj332/Q29s48VDEBOMb9Ixm
+	3wAyQIQE65qqK25mrV2+n1P/XI3XiMNWZqdACOXU=
+Received: by mx.zohomail.com with SMTPS id 1753460998721142.7352358306208;
+	Fri, 25 Jul 2025 09:29:58 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250704070356.1683992-1-apatel@ventanamicro.com>
- <20250704070356.1683992-9-apatel@ventanamicro.com> <175341132347.3513.7184287611040628050@lazor>
-In-Reply-To: <175341132347.3513.7184287611040628050@lazor>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Fri, 25 Jul 2025 21:46:12 +0530
-X-Gm-Features: Ac12FXyJjR2ZAcC8iSDmp338bf2ZOm1s9QD7gpAd84fmChTRX_UPxaRyR5VVtyQ
-Message-ID: <CAK9=C2UDV3xCpKxZmT4NsRvN=hCcQrcx0fr-QFD2fuOrqmXmHA@mail.gmail.com>
-Subject: Re: [PATCH v8 08/24] dt-bindings: clock: Add RPMI clock service
- message proxy bindings
-To: Stephen Boyd <sboyd@kernel.org>
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Alexandre Ghiti" <alex@ghiti.fr>, 
+	"Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>
+In-Reply-To: <e7499ddb-04f6-4891-bbce-38bb80a87401@ghiti.fr>
+Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] riscv: mm: Use mmu-type from FDT to limit SATP mode
+Message-ID: <18558b7c6df10da0.2100f58a3d0fe250.7de105a1ea2dd0f@Mac>
+Date: Fri, 25 Jul 2025 16:29:56 +0000
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_091626_937074_04DEE5B2 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20250725_093005_422717_5AC09CEA 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +72,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Conor Dooley <conor.dooley@microchip.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, linux-acpi@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, Rahul Pathak <rpathak@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdWwgMjUsIDIwMjUgYXQgODoxMuKAr0FNIFN0ZXBoZW4gQm95ZCA8c2JveWRAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBRdW90aW5nIEFudXAgUGF0ZWwgKDIwMjUtMDctMDQgMDA6MDM6
-NDApCj4gPiBBZGQgZGV2aWNlIHRyZWUgYmluZGluZ3MgZm9yIHRoZSBSUE1JIGNsb2NrIHNlcnZp
-Y2UgZ3JvdXAgYmFzZWQKPiA+IG1lc3NhZ2UgcHJveHkgaW1wbGVtZW50ZWQgYnkgdGhlIFNCSSBp
-bXBsZW1lbnRhdGlvbiAobWFjaGluZSBtb2RlCj4gPiBmaXJtd2FyZSBvciBoeXBlcnZpc29yKS4K
-PiA+Cj4gPiBUaGUgUlBNSSBjbG9jayBzZXJ2aWNlIGdyb3VwIGlzIGRlZmluZWQgYnkgdGhlIFJJ
-U0MtViBwbGF0Zm9ybQo+ID4gbWFuYWdlbWVudCBpbnRlcmZhY2UgKFJQTUkpIHNwZWNpZmljYXRp
-b24uCj4gPgo+ID4gUmV2aWV3ZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3Jv
-Y2hpcC5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVudGFuYW1p
-Y3JvLmNvbT4KPiBbLi4uXQo+ID4gK2FkZGl0aW9uYWxQcm9wZXJ0aWVzOiBmYWxzZQo+ID4gKwo+
-ID4gK2V4YW1wbGVzOgo+ID4gKyAgLSB8Cj4gPiArICAgIGNsb2NrLWNvbnRyb2xsZXIgewo+Cj4g
-TWF5YmUgdGhlIG5hbWUgc2hvdWxkIGJlICdjbG9jay1zZXJ2aWNlJyB0aGVuPyBJIGRvbid0IHVu
-ZGVyc3RhbmQgU0JJIHNvCj4gbm90IHN1cmUgd2h5IHRoaXMgaXMgaW4gRFQgdG8gYmVnaW4gd2l0
-aC4gSXMgc29tZXRoaW5nIGNvbnN1bWluZyB0aGlzCj4gbm9kZT8gT3IgYSBkcml2ZXIgaXMgYmlu
-ZGluZyB0byBpdD8KClNCSSBpcyBhIHN5c2NhbGwgc3R5bGUgaW50ZXJmYWNlIGJldHdlZW4gU0JJ
-IGltcGxlbWVudGF0aW9uIChha2EKTS1tb2RlIGZpcm13YXJlIG9yIGh5cGVydmlzb3IpIGFuZCBz
-dXBlcnZpc29yIHNvZnR3YXJlIChha2EKTGludXgga2VybmVsKS4KCldlIGhhdmUgRFQgYmFzZWQg
-ZHJpdmVycyBpbiBPcGVuU0JJIChNLW1vZGUgZmlybXdhcmUpLiBUaGlzCmJpbmRpbmcgYWxsb3dz
-IENsb2NrIG1lc3NhZ2UgcHJveHkgZHJpdmVyIHRvIGJlIHByb2JlZCBvbiB0aGUKT3BlblNCSSBz
-aWRlLiBUaGUgY2xvY2sgbWVzc2FnZSBwcm94eSBkcml2ZXIgYWxsb3dzIExpbnV4ClJQTUkgY2xv
-Y2sgZHJpdmVyIHRvIHNlbmQgUlBNSSBtZXNzYWdlcyB2aWEgT3BlblNCSSBhcwpwcm94eSB0aGVy
-ZWJ5IHNoYXJpbmcgdGhlIFJQTUkgdHJhbnNwb3J0IGJldHdlZW4gT3BlblNCSQphbmQgTGludXgg
-a2VybmVsLgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+On 25/07/2025 16:04, Alexandre Ghiti wrote:
+> On 7/21/25 18:53, Junhui Liu wrote:
+>> Some RISC-V implementations may hang when attempting to write an
+>> unsupported SATP mode, even though the latest RISC-V specification
+>> states such writes should have no effect. To avoid this issue, the
+>> logic for selecting SATP mode has been refined:
+>>
+>> The kernel now determines the SATP mode limit by taking the minimum of
+>> the value specified by the kernel command line (noXlvl) and the
+>> "mmu-type" property in the device tree (FDT). If only one is specified,
+>> use that.
+>> - If the resulting limit is sv48 or higher, the kernel will probe SATP
+>>    modes from this limit downward until a supported mode is found.
+>> - If the limit is sv39, the kernel will directly use sv39 without
+>>    probing.
+>>
+>> This ensures SATP mode selection is safe and compatible with both
+>> hardware and user configuration, minimizing the risk of hangs.
+>>
+>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+>> ---
+>>   arch/riscv/kernel/pi/fdt_early.c | 40 ++++++++++++++++++++++++++++++++++++++++
+>>   arch/riscv/kernel/pi/pi.h        |  1 +
+>>   arch/riscv/mm/init.c             | 11 ++++++++---
+>>   3 files changed, 49 insertions(+), 3 deletions(-)
+>>
+
+[...]
+
+> 
+> I guess it's more convenient to use the 'mmu-type' property on this core 
+> rather than using no4lvl right?
+
+Yes, It's hard to ensure that all the users are aware of the need to use
+the 'no4lvl', and the cmdline args can easily be overridden by the
+bootloader or users if a `bootargs = "no4lvl"` is defined in the device
+tree. Therefore, relying on the 'mmu-type' property is more robust and
+user-friendly.
+
+> 
+> Anyway, what you implemented matches the description of the 'mmu-type' 
+> binding, so:
+> 
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> 
+> I'll take that for 6.17.
+
+Thanks!
+
+> 
+> Thanks,
+> 
+> Alex
+
+-- 
+Best regards,
+Junhui Liu
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
