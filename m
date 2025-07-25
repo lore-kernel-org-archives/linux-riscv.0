@@ -4,154 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7378BC87FCF
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 11:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C92C87FCE
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 12:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DXu7kJCRXy2/FVmaF8yiHXn4tm4VZfheQ2pLSX3Gy2g=; b=YKWKCLsFtY2uYv
-	4bBb4bIiehNk2DrIVk7g7yM3Ex3MyqiJPnU2rqfVf40xQVp/bv6BJuvCJkJeIDM44usYeFVJpkl1l
-	2WPDsF9gqd6+R8TnZIpejOdczbqDLdEjjUoIFnPnHeXv4uKkd9ACtKjmZuuLW3KaZknP3bog331KF
-	R3zYzBxRY4NTtlx4uTdQ6ebBPuQYGHyAbnAlNDgmXFOTDwi4uZxBiaOkux9DgogC7nNu8tFYlnubN
-	u3GBWbWGbhRxDbA+ySpm+Fx3MHnW+knzzMtSV1FnyEM/EJDVXFKiVLjGgVEFOpC9t2mqQ5P5blurP
-	eKQhH9PgCtJrSn/XXUWQ==;
+	List-Owner; bh=+0cuHuCs3WTt56zytfEbzaupsu311ljqLlvYNJ24sik=; b=J0zOaKu32pWWqm
+	VQZvTS1KpYWEDGoubzzZKyDg5jLDJ6JFWhEfeCitVvyKgVJ/WCEX6FH4hiLz8vYSz8zhSun8jobuu
+	pZh2SAzabkW2ihDHZGZzVsSyDVCBqrKBFuw7fLQVlYc5+XHvLmV92R3Qj/FriwalrsBZSdzTPMuuD
+	42Oz+TGZs3Oy6uqtPKk7Z0mWvqA+OIcJBWhCQyk0PsgLJTJEaCsqsxPOvkKphUj73H8jnk/a0QpTy
+	EUEYoQtx5n8EV4mUr9H73SQBKWmKqHQmrM3EQwFyN3kTaN4VCY2JHh9/hhoYzXzTbWUSSSQSdbKDv
+	9Ok1M+yS8R90i5WorE4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufGkQ-00000009jc0-0RE6;
-	Fri, 25 Jul 2025 11:37:58 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1ufH6M-00000009loM-3rEK;
+	Fri, 25 Jul 2025 12:00:38 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufGHs-00000009fnj-0ag5
+	id 1ufGZh-00000009hxY-4Bke
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Jul 2025 11:08:29 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-adb2bd27d8bso12653666b.1
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Jul 2025 04:08:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753441706; x=1754046506; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Uw5xYz9ljVloUXuYhdtWs7nMIXFU+Uc/d7Zb4IlFZdg=;
-        b=U5CqOdwBQM27EWg2r94M97EY45FYJfJgE9txXkXEhMnWsUPYaZRAaSnphyh++mFc8E
-         g0OeFTBTtiAaL6xXuUqWOt5bGWQq7a7QKk6w0KEKBfJFFKNvu3RmoPHCHi0Gl0hDp4CI
-         K9hH4yFELzhCTGav2CBOlFkORJNd+3rh1Qm8lSw7F7Gciv9p7O/01g0FPzUoZBQ7PeUu
-         VbA33/OIvWKR1DC0ia2BfQja3YrOCGF58KKa883P/K3COKMEp/iztlahtVQJc+LCQ39/
-         nOfV6zzIKnPJ56w0AMSKgxoIttU+KmZeIKdEVMVqZqqQhG1pVlV78OCBnTQkNg5W/cv2
-         qDgg==
+	Fri, 25 Jul 2025 11:26:55 +0000
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com [209.85.218.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 862313FCE1
+	for <linux-riscv@lists.infradead.org>; Fri, 25 Jul 2025 11:26:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1753442810;
+	bh=/9lBchv8Xl3/zU+kUSWuOOJSWBoJGBapA/sirJQnK+E=;
+	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type;
+	b=IoQJOh4sNZovBP8WnVd0cx64alEswS+yTOFmW8EY5WbjHv10LpzDS5t9otczGpnSP
+	 pDnRVj6g9xbR3iDtuRXV5289FqGdHlkLGICTUh52SbhYRfJFwZa+taHzrMANcp4dSN
+	 V9ve2ciXnsA7nqo0JMQRHlVHg9518igys0Mg9MOhL9JNstiwIcZ226iNqxRw48g5l0
+	 BMHJLL/tk+RTaHqF1B4GKXA+LfpVT9FZBZJJ82xWgDSAC0dkQGl5SyjPkrr0FlmKc/
+	 gfleo7wH7i+OKHSpWQTjVUsU9saPKqzwFrbz4k0oI76PBGqvU5Bn/gLJb7D1qwE3SO
+	 Lyem+tgQmpKsg==
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-ae3c5ca46f2so159139366b.2
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Jul 2025 04:26:50 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753441706; x=1754046506;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Uw5xYz9ljVloUXuYhdtWs7nMIXFU+Uc/d7Zb4IlFZdg=;
-        b=lv9gxnzmd+h9Sno/Fj4FwTXpyVK6rpym+B/pPltSD5JvsKyGBD8jfxtclvkr3bxYVA
-         AVcCZNfN5ExshyWV5lCaReJikSCfM8bTEtgx8EEXBH60Mg23/9Tne0LTQy3szOsH7jkQ
-         YidIGYjZ94VxFinrt8q4AB3cWwZIiCtcVxk6nb9/UVDAZwS9rKNCl6xcoB7El9FN/Nz8
-         qFM3pWmGNR58EjwU2szwtzZJMAa08F2QAvIDe3vixMQkYGW0oQkSFHQSDce1jN9o0Z2R
-         p4vXqzYp823XIALaAV1qwFAqMPe/pZeUf62t1Bu7k1v0WWNsIxX9Bhs4xFc2I6Wx01Ds
-         eD8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXMjuGdjduIVjWIk6Pj43w4KiglC//pv455jr1C9a2tmQNXaRCUaxj2XgaxGSz8CIlk8OocIrmarV/ETQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzU0ZZSRstZq+mfaLWnAFUzL+Dn8EVN7YjgKWyPDbiKb17rpeiJ
-	Dp7F6d7s2SGECPqJiN5AXX/wP3V5RE9IcqGhp9xBbQe1wO01+li95zMiIW8WmnKsyic=
-X-Gm-Gg: ASbGncuCh730GyTsuOeN5DjOkMFLSx9OPedMpytHqMaznxvjDZ6EQ+Q8cyoWVEW+TIM
-	WsD8a4P9oRmm5NaF4jHP8mo4bFkX/740+55KEQA/QwPtn6k2/HV7rqL/MtCW2KORCga9eyTaeFk
-	1v3fkiphG2V/xp7nQJuSnLD8806xnic+jTtiPlZRYb/fSYmLLczfiRmSvk5KNf24AasO2yTGB+L
-	Lodvq0bXvdvgjP9J0M3D0L7wjSqTDjauo+bkrf5Awldj6uFPAEgD5irCsU8PJQgCSfzJcnYNoCY
-	1q1wA87kcSdwKfLF7iiNK80LiOiigV1RIXJobhns46e+xgZRD8u1WVIHwGUV20avxMImq3lO+TH
-	8E1XU3086ks16ROv12KIdgVKOeEY9I20TFIh9ciJYjsLYk6eSZ7Oo
-X-Google-Smtp-Source: AGHT+IGPX2ebFd1G1UY4hjy4nK32/r3TZiGosjelo1wUHJ7aU9RYrlPYLD6uyjWm58/GD1RzAlB50w==
-X-Received: by 2002:a17:906:b894:b0:af6:32b3:2674 with SMTP id a640c23a62f3a-af632b331e2mr3687066b.0.1753441706435;
-        Fri, 25 Jul 2025 04:08:26 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.203.90])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af47f44eaf5sm253765966b.80.2025.07.25.04.08.23
+        d=1e100.net; s=20230601; t=1753442809; x=1754047609;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/9lBchv8Xl3/zU+kUSWuOOJSWBoJGBapA/sirJQnK+E=;
+        b=cpQSCMFpvVmGZ/yFWhT6f7JBjKpFkCD9fcFDCv4MEGJgDCFX8KUY2KywPqEablPHWS
+         ZejzdyrM0IZJrKaeSnaBs4jOc7pDfiTO85OJbFpRjn+5dw1sm03fJ6FCEqkScGCjoCck
+         s+q3YI+GnMSIxlMlLGFkSHDdRsBV21XLh2/lwQimkr8cLp7M5u8pJlAtUamiJyCJhgzy
+         4mLYuyd3OmIURi0mgQjv4WYu+2/iu3Vmq5awG6PM6BpRK2jfBuoVv2uoqQCYxa6y/BG7
+         6ppQnI60Nfce80d/tyAoKQ5vphyTLDfYw5VJEAKg/QN42xFOWdXquztYhMCDEPr9Hbvr
+         H83A==
+X-Gm-Message-State: AOJu0Yz0Ou5ZQ1HPcNtXeX8junk8EbCTGKUsd4sH8Tha6mSGo+Vxkm4o
+	9x/ODJ/NMSwX/GWP+fQqbOBAQ3gRyZoQP1pKRJafRb4lGtMnSux8EcPlHdhXio6ng2y0eOiG7Ru
+	NxnFyi3HA1gBu4x+5SlPolw3icqdxVIoeIlfqzGCIaZzS8Wg0P4ch47iHNXywkdKu2uKC+uVSy8
+	JvkstG+7TWCw==
+X-Gm-Gg: ASbGncurYtH0nxl8ia5skdRwwunkYeYYnqGM4ZG2dni4ltYpcMwWMpuLSPzJD/ZUNKA
+	zchTWYqNQRvSNJxu/ulEPQh3/Zzlbh4VVaCW4j1QIxwkpEVvXD2D6dnteX/ccIYlszJMHEmwrIS
+	GSZIUjs2nPVh+vUVi/K2udJzaGF7AdbYtwPnSp4u8wkBSylqdoeSWAA1g/vRS/3oxaUsfyWmQjv
+	rMmBe0S75Tt6HsNbEMFIRsFs9gwGnTIKlV5UVV9idnkmSLWXdNn6U+CnKewyLHmvd8FMgoYfHyQ
+	QsYg3cCTXQdqeZO4iqXKXLRjhTF7KmMEtJTMXk3f+MftjKi0nWoZ+wKrkx7kVfc+I3e+gYX4s12
+	o5WxOwU27DUrPc7gs46AN1kEXiKq8mnkiucHS
+X-Received: by 2002:a17:907:868b:b0:ae0:dd95:1991 with SMTP id a640c23a62f3a-af619efda7fmr218779366b.51.1753442808347;
+        Fri, 25 Jul 2025 04:26:48 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF62wP3IqAMJ1/E1mQqpiMFCO0fY8T1aVjgbgNEGN4i3p5BpL7PdyFIzDt2eRf4SEXlVdUVvQ==
+X-Received: by 2002:a17:907:868b:b0:ae0:dd95:1991 with SMTP id a640c23a62f3a-af619efda7fmr218773366b.51.1753442807745;
+        Fri, 25 Jul 2025 04:26:47 -0700 (PDT)
+Received: from [192.168.103.102] (ip-005-147-080-091.um06.pools.vodafone-ip.de. [5.147.80.91])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-614cd31ac41sm1898416a12.54.2025.07.25.04.26.45
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Jul 2025 04:08:25 -0700 (PDT)
-Message-ID: <4d79c8dd-c5fb-442c-ac65-37e7176b0cdd@linaro.org>
-Date: Fri, 25 Jul 2025 13:08:22 +0200
+        Fri, 25 Jul 2025 04:26:47 -0700 (PDT)
+Message-ID: <b50da4ef-53ca-4edf-bd74-f5e037a14f99@canonical.com>
+Date: Fri, 25 Jul 2025 13:26:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/4] dt-bindings: gpu: img,powervr-rogue: Add TH1520
- GPU compatible
-To: Matt Coster <Matt.Coster@imgtec.com>,
- Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns
- <Frank.Binns@imgtec.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Drew Fustini <fustini@kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250724-apr_14_for_sending-v8-0-0714bef83c59@samsung.com>
- <CGME20250724141911eucas1p17071ea620f183faff7ca00cad25cf824@eucas1p1.samsung.com>
- <20250724-apr_14_for_sending-v8-2-0714bef83c59@samsung.com>
- <20250725-gainful-saluki-of-mathematics-3c0dd0@kuoka>
- <4461a785-b593-429e-b436-44cd2f1c96eb@imgtec.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH 11/11] riscv: Kconfig & Makefile for riscv kernel control
+ flow integrity
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, linux-mm@kvack.org, llvm@lists.linux.dev,
+ rick.p.edgecombe@intel.com, broonie@kernel.org, cleger@rivosinc.com,
+ samitolvanen@google.com, apatel@ventanamicro.com, ajones@ventanamicro.com,
+ conor.dooley@microchip.com, charlie@rivosinc.com, samuel.holland@sifive.com,
+ bjorn@rivosinc.com, fweimer@redhat.com, jeffreyalaw@gmail.com,
+ andrew@sifive.com, ved@rivosinc.com, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor
+ <nathan@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Monk Chiang <monk.chiang@sifive.com>,
+ Kito Cheng <kito.cheng@sifive.com>, Justin Stitt <justinstitt@google.com>
+References: <20250724-riscv_kcfi-v1-0-04b8fa44c98c@rivosinc.com>
+ <20250724-riscv_kcfi-v1-11-04b8fa44c98c@rivosinc.com>
 Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <4461a785-b593-429e-b436-44cd2f1c96eb@imgtec.com>
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+In-Reply-To: <20250724-riscv_kcfi-v1-11-04b8fa44c98c@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_040828_192950_FEF9A659 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20250725_042654_433193_80074A05 
+X-CRM114-Status: GOOD (  27.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,55 +123,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25/07/2025 11:00, Matt Coster wrote:
-> On 25/07/2025 07:59, Krzysztof Kozlowski wrote:
->> On Thu, Jul 24, 2025 at 04:18:59PM +0200, Michal Wilczynski wrote:
->>> Update the img,powervr-rogue.yaml to include the T-HEAD TH1520 SoC's
->>> specific GPU compatible string.
->>>
->>> The thead,th1520-gpu compatible, along with its full chain
->>> img,img-bxm-4-64, and img,img-rogue, is added to the
->>> list of recognized GPU types.
->>>
->>> While the BXM-4-64 GPU IP is designed with two distinct power domains,
->>> the TH1520 SoC integrates it with only a single, unified power gate that
->>> is controllable by the kernel.
->>>
->>> To model this reality correctly while keeping the binding accurate for
->>> other devices, add conditional constraints to the `allOf` section:
->>>  - An if block for thead,th1520-gpu enforces a maximum of one
->>>    power domain and disallows the power-domain-names property.
->>
->> Why?
->>
->> This solves nothing, because you did not change the meaning of power
->> domain entry.
+On 25.07.25 01:37, Deepak Gupta wrote:
+> Defines `CONFIG_RISCV_KERNEL_CFI` and selects SHADOW_CALL_STACK
+> and ARCH_HAS_KERNEL_SHADOW_STACK both so that zicfiss can be wired up.
 > 
-> Hi Krzysztof,
+> Makefile checks if CONFIG_RISCV_KERNEL_CFI is enabled, then light
+> up zicfiss and zicfilp compiler flags. CONFIG_RISCV_KERNEL_CFI is
+> dependent on CONFIG_RISCV_USER_CFI. There is no reason for user to
+> not select support for user cfi while enabling for kernel.
 > 
-> Just to clarify, is this an issue that can be resolved by documenting
-> the semantics of ">=1 power domains with names" vs "1 unnamed power
-> domain" in the binding file? Or are you suggesting an alternative method
-> of encoding this information in devicetree?
+> compat vdso don't need fcf-protection (toolchain lacks support).
+> 
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>   arch/riscv/Kconfig                     | 37 +++++++++++++++++++++++++++++++++-
+>   arch/riscv/Makefile                    |  8 ++++++++
+>   arch/riscv/kernel/compat_vdso/Makefile |  2 +-
+>   arch/riscv/kernel/vdso/Makefile        |  2 +-
+>   4 files changed, 46 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 385c3d93e378..305ba5787f74 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -245,7 +245,7 @@ config GCC_SUPPORTS_DYNAMIC_FTRACE
+>   	depends on CC_HAS_MIN_FUNCTION_ALIGNMENT || !RISCV_ISA_C
+>   
+>   config HAVE_SHADOW_CALL_STACK
+> -	def_bool $(cc-option,-fsanitize=shadow-call-stack)
+> +	def_bool $(cc-option,-fsanitize=shadow-call-stack) || $(cc-option,-mabi=lp64 -march=rv64ima_zicfilp_zicfiss)
+>   	# https://github.com/riscv-non-isa/riscv-elf-psabi-doc/commit/a484e843e6eeb51f0cb7b8819e50da6d2444d769
+>   	depends on $(ld-option,--no-relax-gp)
+>   
+> @@ -864,6 +864,16 @@ config RISCV_ISA_ZICBOP
+>   
+>   	  If you don't know what to do here, say Y.
+>   
+> +config TOOLCHAIN_HAS_ZICFILP
+> +	bool
+> +	default y
+> +	depends on 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicfilp)
+> +
+> +config TOOLCHAIN_HAS_ZICFISS
+> +	bool
+> +	default y
+> +	depends on 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicfiss)
+> +
+>   config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
+>   	def_bool y
+>   	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
+> @@ -1182,6 +1192,31 @@ config RISCV_USER_CFI
+>   	  space does not get protection "for free".
+>   	  default n.
+>   
+> +config RISCV_KERNEL_CFI
+> +	def_bool n
+> +	bool "hw assisted riscv kernel control flow integrity (kcfi)"
+> +	depends on 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicfilp_zicfiss)
+> +	depends on RISCV_USER_CFI
+> +	select ARCH_SUPPORTS_SHADOW_CALL_STACK
+> +	select SHADOW_CALL_STACK
+> +	select ARCH_HAS_KERNEL_SHADOW_STACK
+> +	help
+> +	  Provides CPU assisted control flow integrity to for riscv kernel.
+> +	  Control flow integrity is provided by implementing shadow stack for
+> +	  backward edge and indirect branch tracking for forward edge. Shadow
+> +	  stack protection is a hardware feature that detects function return
+> +	  address corruption. This helps mitigate ROP attacks. RISCV_KERNEL_CFI
+> +	  selects CONFIG_SHADOW_CALL_STACK which uses software based shadow
+> +	  stack but is unprotected against stray writes. Selecting RISCV_KERNEL_CFI
+> +	  will select CONFIG_DYNAMIC_SCS and will enable hardware assisted shadow
+> +	  stack protection against stray writes.
 
-Currently, through power-domain names, the first entry in power domains
-is the 'a' domain. We usually prefer this to be explicit - listing items
-- but here, probably due to obviousness of names A and B, it did not happen.
+Please, consider adding a blank line for better readability.
 
-Disallowing power-domain names does magically change existing binding.
+> +	  Indirect branch tracking enforces that all indirect branches must land
+> +	  on a landing pad instruction else CPU will fault. This enables forward
+> +	  control flow (call/jmp) protection in kernel and restricts all indirect
+> +	  call or jump in kernel to a landing pad instruction which mostly likely
+> +	  will be start of the function.
+> +	  default n
 
-I think you should list the power-domains items explicitly for each
-variant (see any of my other standard examples how this is done, e.g.
-clock controllers).
+For Linux distributions it is important that the same kernel can run 
+both on hardware both with and without CFI support. The description 
+provided does not help to understand if RISCV_KERNEL_CFI=y will result 
+in such a kernel. Please, enumerate the minimum set of extensions needed 
+for supporting a kernel built with RISCV_KERNEL_CFI=y. I guess this will 
+at least include Zimop.
 
+Best regards
 
-Best regards,
-Krzysztof
+Heinrich
+
+> +
+>   endmenu # "Kernel features"
+>   
+>   menu "Boot options"
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 7128df832b28..6ef30a3d2bc4 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -61,8 +61,10 @@ else ifeq ($(CONFIG_LTO_CLANG),y)
+>   endif
+>   
+>   ifeq ($(CONFIG_SHADOW_CALL_STACK),y)
+> +ifndef CONFIG_ARCH_HAS_KERNEL_SHADOW_STACK
+>   	KBUILD_LDFLAGS += --no-relax-gp
+>   endif
+> +endif
+>   
+>   # ISA string setting
+>   riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
+> @@ -91,6 +93,12 @@ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZABHA) := $(riscv-march-y)_zabha
+>   KBUILD_BASE_ISA = -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+>   export KBUILD_BASE_ISA
+>   
+> +ifeq ($(CONFIG_RISCV_KERNEL_CFI),y)
+> +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICFILP) := $(riscv-march-y)_zicfilp
+> +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICFISS) := $(riscv-march-y)_zicfiss
+> +KBUILD_CFLAGS += -fcf-protection=full
+> +KBUILD_AFLAGS += -fcf-protection=full
+> +endif
+>   # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
+>   # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
+>   KBUILD_CFLAGS += $(KBUILD_BASE_ISA)
+> diff --git a/arch/riscv/kernel/compat_vdso/Makefile b/arch/riscv/kernel/compat_vdso/Makefile
+> index 24e37d1ef7ec..552131bc34d7 100644
+> --- a/arch/riscv/kernel/compat_vdso/Makefile
+> +++ b/arch/riscv/kernel/compat_vdso/Makefile
+> @@ -69,4 +69,4 @@ quiet_cmd_compat_vdsold = VDSOLD  $@
+>   
+>   # actual build commands
+>   quiet_cmd_compat_vdsoas = VDSOAS  $@
+> -      cmd_compat_vdsoas = $(COMPAT_CC) $(a_flags) $(COMPAT_CC_FLAGS) -c -o $@ $<
+> +      cmd_compat_vdsoas = $(COMPAT_CC) $(filter-out -fcf-protection=full, $(a_flags)) $(COMPAT_CC_FLAGS) -c -o $@ $<
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+> index 2b528d82fa7d..7b1446b63ebc 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -17,7 +17,7 @@ ifdef CONFIG_VDSO_GETRANDOM
+>   vdso-syms += getrandom
+>   endif
+>   
+> -ifdef CONFIG_RISCV_USER_CFI
+> +ifneq ($(CONFIG_RISCV_USER_CFI), $(CONFIG_RISCV_KERNEL_CFI))
+>   CFI_MARCH = _zicfilp_zicfiss
+>   CFI_FULL = -fcf-protection=full
+>   endif
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
