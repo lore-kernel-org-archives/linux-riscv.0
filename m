@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBDF1C83F26
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 02:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CFCC87FCD
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 03:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=lDgHXjD62AatH9PondzKl+khrCNSRdkqE/9Gl4eywxs=; b=kvM
-	KTW92XIZkM0VoSrLiHOjfVuEUv1IyGB1fsqwjoMkmfh88cUfOPhDUr95gSt4e/5tXOCPDf2/z4ona
-	TVoImIhpfk7d32pjkr6j72b8eT/aSt1UuyQgzbs/xS7PeGBhhf5X40mBE5wR2FALVbdjHl++ENPLW
-	iODiYOXOXe7Rlm+kUOtWeRorWZDnKgW9vUi5bgyb8Ng2lDXkhO8GDvrgHWpVbqQitjiyvT8Ay4pvq
-	/5NdAONeGT1cu9uFONAZoOWSW+zAAMT18ODTJraON8+FAOvFRmIo1BCzSfP1DkVqBH/nivVu64a62
-	Z7h/K4LLC0vUC00mR3NVBgMSUp8Vvhg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aIvMqEm6oeMJjitEGWoifVTSm4CxXEcDV9jXb0CDkEA=; b=HWnG5DyeMerMjj
+	F5Zb4r91qnG9bd3J/kcPvZFcpjhcBUS1nh9pup7dZcpHRC1V2an3Vii6dUOfOMqpqKWVNjq1uqnYk
+	KaHY2NaxB7Xnsc42DUC+5KajgbDt/eNBX2Q+eUQTgOj+o/R7LHgp3Tld+rjLG6VP5vY5ecytq7QXE
+	36GcT8q2/JvmobqVpnbNIaCL1zUppUTrk9gHvlpa43ypIA6D4mbYAEfayQfj5Fo2CArzWsGHMVe1w
+	ZlaBLJaxKlOsBGTOJbZM7nY7E4KILHbf3iD9OY3Sw+7jgfbwYJHb2t4u7OHhxaCobicRNMxMP6qug
+	SreYiZbv7/h0+l0i07BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf8QW-00000008vAQ-1XXx;
-	Fri, 25 Jul 2025 02:44:52 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.35])
+	id 1uf8uA-00000008xBl-0D5t;
+	Fri, 25 Jul 2025 03:15:30 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf8QT-00000008v9x-2aC1
+	id 1uf8u5-00000008xBL-3iX9
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Jul 2025 02:44:51 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4bpBzT2rZZz8Xs6y;
-	Fri, 25 Jul 2025 10:44:37 +0800 (CST)
-Received: from xaxapp01.zte.com.cn ([10.88.99.176])
-	by mse-fl1.zte.com.cn with SMTP id 56P2iOXW045879;
-	Fri, 25 Jul 2025 10:44:24 +0800 (+08)
-	(envelope-from liu.xuemei1@zte.com.cn)
-Received: from mapi (xaxapp02[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Fri, 25 Jul 2025 10:44:25 +0800 (CST)
-Date: Fri, 25 Jul 2025 10:44:25 +0800 (CST)
-X-Zmail-TransId: 2afa6882ef89ffffffff99d-eb6b4
-X-Mailer: Zmail v1.0
-Message-ID: <20250725104425229ArF_W-F7CmscLJKs0yoiQ@zte.com.cn>
-Mime-Version: 1.0
-From: <liu.xuemei1@zte.com.cn>
-To: <paul.walmsley@sifive.com>
-Cc: <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
-        <spersvold@gmail.com>, <sudeep.holla@arm.com>, <mikisabate@gmail.com>,
-        <robh@kernel.org>, <liu.xuemei1@zte.com.cn>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: =?UTF-8?B?wqBbUEFUQ0hdIHJpc2N2OiBjYWNoZWluZm86IGluaXQgY2FjaGUgbGV2ZWxzIHZpYSBmZXRjaF9jYWNoZV9pbmZvIHdoZW4KCiBTTVAgZGlzYWJsZWQ=?=
-X-MAIL: mse-fl1.zte.com.cn 56P2iOXW045879
-X-TLS: YES
-X-SPF-DOMAIN: zte.com.cn
-X-ENVELOPE-SENDER: liu.xuemei1@zte.com.cn
-X-SPF: None
-X-SOURCE-IP: 10.5.228.132 unknown Fri, 25 Jul 2025 10:44:37 +0800
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6882EF95.000/4bpBzT2rZZz8Xs6y
+	Fri, 25 Jul 2025 03:15:28 +0000
+Received: from localhost (unknown [210.73.43.2])
+	by APP-05 (Coremail) with SMTP id zQCowAA3y1u79oJo6DXkBg--.35476S2;
+	Fri, 25 Jul 2025 11:15:09 +0800 (CST)
+Date: Fri, 25 Jul 2025 11:15:07 +0800
+From: Jingwei Wang <wangjingwei@iscas.ac.cn>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	Alexandre Ghiti <alex@ghiti.fr>, ajones@ventanamicro.com,
+	Conor Dooley <conor.dooley@microchip.com>, cleger@rivosinc.com,
+	Charlie Jenkins <charlie@rivosinc.com>, jesse@rivosinc.com,
+	Olof Johansson <olof@lixom.net>, dlan@gentoo.org,
+	si.yanteng@linux.dev, research_trasio@irq.a4lg.com,
+	stable@vger.kernel.org, alexghiti@rivosinc.com
+Subject: Re: [PATCH v5] riscv: hwprobe: Fix stale vDSO data for
+ late-initialized keys at boot
+Message-ID: <20250725031507.GA29618@iscas.ac.cn>
+References: <20250705150952.29461-1-wangjingwei@iscas.ac.cn>
+ <mhng-2F811C61-A512-4742-A00D-7D01203DAB14@palmerdabbelt-mac>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-2F811C61-A512-4742-A00D-7D01203DAB14@palmerdabbelt-mac>
+User-Agent: Mutt/2.2.14
+X-CM-TRANSID: zQCowAA3y1u79oJo6DXkBg--.35476S2
+X-Coremail-Antispam: 1UD129KBjvAXoW3uF1xuFWfZw15ur1UXF4ktFb_yoW8JrW8to
+	WftF40gFWSgr13CFsxAw4DtFy7G3s2gr4DZw17tw45XF1YyF4UZr1Y93y0qFy3Jw45Kanr
+	Ga4IqrWrZanYy3Wrn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UjIYCTnIWjp_UUUYa7k0a2IF6w4kM7kC6x804xWl14x267AKxVW8JVW5JwAFc2x0
+	x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj4
+	1l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0
+	I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IU5QZ2DUUUUU==
+X-Originating-IP: [210.73.43.2]
+X-CM-SenderInfo: pzdqwy5lqj4v3l6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_194449_811687_CFE5F548 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250724_201526_481187_7216E648 
+X-CRM114-Status: GOOD (  57.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +88,317 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jessica Liu <liu.xuemei1@zte.com.cn>
+Hi Palmer,
 
-As described in commit 1845d381f280 ("riscv: cacheinfo: Add back
-init_cache_level() function"), when CONFIG_SMP is undefined, the cache
-hierarchy detection needs to be performed through the init_cache_level(),
-whereas when CONFIG_SMP is defined, this detection is handled during the
-init_cpu_topology() process.
+On Wed, Jul 16, 2025 at 11:48:03AM -0700, Palmer Dabbelt wrote:
+> On Sat, 05 Jul 2025 08:08:28 PDT (-0700), wangjingwei@iscas.ac.cn wrote:
+> > The hwprobe vDSO data for some keys, like MISALIGNED_VECTOR_PERF,
+> > is determined by an asynchronous kthread. This can create a race
+> > condition where the kthread finishes after the vDSO data has
+> > already been populated, causing userspace to read stale values.
+> >
+> > To fix this, a completion-based framework is introduced to robustly
+> > synchronize the async probes with the vDSO data population. The
+> > waiting function, init_hwprobe_vdso_data(), now blocks on
+> > wait_for_completion() until all probes signal they are done.
+> >
+> > Furthermore, to prevent this potential blocking from impacting boot
+> > performance, the initialization is deferred to late_initcall. This
+> > is safe as the data is only required by userspace (which starts
+> > much later) and moves the synchronization delay off the critical
+> > boot path.
+> >
+> > Reported-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+> > Closes: https://lore.kernel.org/linux-riscv/760d637b-b13b-4518-b6bf-883d55d44e7f@irq.a4lg.com/
+> > Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
+> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> > Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+> > Cc: Olof Johansson <olof@lixom.net>
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Jingwei Wang <wangjingwei@iscas.ac.cn>
+> > ---
+> > Changes in v5:
+> > 	- Reworked the synchronization logic to a robust "sentinel-count"
+> > 	  pattern based on feedback from Alexandre.
+> > 	- Fixed a "multiple definition" linker error for nommu builds by changing
+> > 	  the header-file stub functions to `static inline`, as pointed out by Olof.
+> > 	- Updated the commit message to better explain the rationale for moving
+> > 	  the vDSO initialization to `late_initcall`.
+> >
+> > Changes in v4:
+> > 	- Reworked the synchronization mechanism based on feedback from Palmer
+> >     	and Alexandre.
+> > 	- Instead of a post-hoc refresh, this version introduces a robust
+> > 	completion-based framework using an atomic counter to ensure async
+> > 	probes are finished before populating the vDSO.
+> > 	- Moved the vdso data initialization to a late_initcall to avoid
+> > 	impacting boot time.
+> >
+> > Changes in v3:
+> > 	- Retained existing blank line.
+> >
+> > Changes in v2:
+> > 	- Addressed feedback from Yixun's regarding #ifdef CONFIG_MMU usage.
+> > 	- Updated commit message to provide a high-level summary.
+> > 	- Added Fixes tag for commit e7c9d66e313b.
+> >
+> > v1: https://lore.kernel.org/linux-riscv/20250521052754.185231-1-wangjingwei@iscas.ac.cn/T/#u
+> >
+> >  arch/riscv/include/asm/hwprobe.h           |  8 +++++++-
+> >  arch/riscv/kernel/sys_hwprobe.c            | 20 +++++++++++++++++++-
+> >  arch/riscv/kernel/unaligned_access_speed.c |  9 +++++++--
+> >  3 files changed, 33 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+> > index 7fe0a379474ae2c6..3b2888126e659ea1 100644
+> > --- a/arch/riscv/include/asm/hwprobe.h
+> > +++ b/arch/riscv/include/asm/hwprobe.h
+> > @@ -40,5 +40,11 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
+> >
+> >  	return pair->value == other_pair->value;
+> >  }
+> > -
+> > +#ifdef CONFIG_MMU
+> > +void riscv_hwprobe_register_async_probe(void);
+> > +void riscv_hwprobe_complete_async_probe(void);
+> > +#else
+> > +static inline void riscv_hwprobe_register_async_probe(void) {}
+> > +static inline void riscv_hwprobe_complete_async_probe(void) {}
+> > +#endif
+> >  #endif
+> > diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+> > index 0b170e18a2beba57..ee02aeb03e7bd3d8 100644
+> > --- a/arch/riscv/kernel/sys_hwprobe.c
+> > +++ b/arch/riscv/kernel/sys_hwprobe.c
+> > @@ -5,6 +5,8 @@
+> >   * more details.
+> >   */
+> >  #include <linux/syscalls.h>
+> > +#include <linux/completion.h>
+> > +#include <linux/atomic.h>
+> >  #include <asm/cacheflush.h>
+> >  #include <asm/cpufeature.h>
+> >  #include <asm/hwprobe.h>
+> > @@ -467,6 +469,20 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+> >
+> >  #ifdef CONFIG_MMU
+> >
+> > +static DECLARE_COMPLETION(boot_probes_done);
+> > +static atomic_t pending_boot_probes = ATOMIC_INIT(1);
+> > +
+> > +void riscv_hwprobe_register_async_probe(void)
+> > +{
+> > +	atomic_inc(&pending_boot_probes);
+> > +}
+> > +
+> > +void riscv_hwprobe_complete_async_probe(void)
+> > +{
+> > +	if (atomic_dec_and_test(&pending_boot_probes))
+> > +		complete(&boot_probes_done);
+> > +}
+> > +
+> >  static int __init init_hwprobe_vdso_data(void)
+> >  {
+> >  	struct vdso_arch_data *avd = vdso_k_arch_data;
+> > @@ -474,6 +490,8 @@ static int __init init_hwprobe_vdso_data(void)
+> >  	struct riscv_hwprobe pair;
+> >  	int key;
+> >
+> > +	if (unlikely(!atomic_dec_and_test(&pending_boot_probes)))
+> > +		wait_for_completion(&boot_probes_done);
+>
+> I'm not actually sure this is safe,
+>
+> That said, it will end up bringing us back to the situation where we're
+> waiting for CPUs to probe before we boot.  So even if it's safe, it's not
+> great as we're going to introduce the boot time regression again.
+>
+> We'd be better off if we could defer waiting on the completion until we
+> actually need the values.  I think we could do that with something like
+>
+Thanks for pointing out the boot-time delay. I had my own doubts about
+that approach in v5, and I really like your on-demand solution.
+>    diff --git a/arch/riscv/include/asm/vdso/arch_data.h b/arch/riscv/include/asm/vdso/arch_data.h
+>    index da57a3786f7a..88b37af55175 100644
+>    --- a/arch/riscv/include/asm/vdso/arch_data.h
+>    +++ b/arch/riscv/include/asm/vdso/arch_data.h
+>    @@ -12,6 +12,12 @@ struct vdso_arch_data {
+>     	/* Boolean indicating all CPUs have the same static hwprobe values. */
+>     	__u8 homogeneous_cpus;
+>    +
+>    +	/*
+>    +	 * A gate to check and see if the hwprobe data is actually ready, as
+>    +	 * probing is deferred to avoid boot slowdowns.
+>    +	 */
+>    +	__u8 ready;
+>     };
+>     #endif /* __RISCV_ASM_VDSO_ARCH_DATA_H */
+>    diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+>    index ee02aeb03e7b..9c809c24a1d9 100644
+>    --- a/arch/riscv/kernel/sys_hwprobe.c
+>    +++ b/arch/riscv/kernel/sys_hwprobe.c
+>    @@ -454,19 +454,6 @@ static int hwprobe_get_cpus(struct riscv_hwprobe __user *pairs,
+>     	return 0;
+>     }
+>    -static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+>    -			    size_t pair_count, size_t cpusetsize,
+>    -			    unsigned long __user *cpus_user,
+>    -			    unsigned int flags)
+>    -{
+>    -	if (flags & RISCV_HWPROBE_WHICH_CPUS)
+>    -		return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
+>    -					cpus_user, flags);
+>    -
+>    -	return hwprobe_get_values(pairs, pair_count, cpusetsize,
+>    -				  cpus_user, flags);
+>    -}
+>    -
+>     #ifdef CONFIG_MMU
+>     static DECLARE_COMPLETION(boot_probes_done);
+>    @@ -483,15 +470,20 @@ void riscv_hwprobe_complete_async_probe(void)
+>     		complete(&boot_probes_done);
+>     }
+>    -static int __init init_hwprobe_vdso_data(void)
+>    +static int complete_hwprobe_vdso_data(void)
+>     {
+>     	struct vdso_arch_data *avd = vdso_k_arch_data;
+>     	u64 id_bitsmash = 0;
+>     	struct riscv_hwprobe pair;
+>     	int key;
+>    +	/* We've probably already produced these values. */
+>    +	if (likely(avd->ready))
+>    +		return 0;
+>    +
+>     	if (unlikely(!atomic_dec_and_test(&pending_boot_probes)))
+>     		wait_for_completion(&boot_probes_done);
+>    +
+>     	/*
+>     	 * Initialize vDSO data with the answers for the "all CPUs" case, to
+>     	 * save a syscall in the common case.
+>    @@ -519,13 +511,50 @@ static int __init init_hwprobe_vdso_data(void)
+>     	 * vDSO should defer to the kernel for exotic cpu masks.
+>     	 */
+>     	avd->homogeneous_cpus = id_bitsmash != 0 && id_bitsmash != -1;
+>    +
+>    +	/*
+>    +	 * Make sure all the VDSO values are visible before we look at them.
+>    +	 * This pairs with the implicit "no speculativly visible accesses"
+>    +	 * barrier in the VDSO hwprobe code.
+>    +	 */
+>    +	smp_wmb();
+>    +	avd->ready = true;
+>     	return 0;
+>     }
+>    +static int __init init_hwprobe_vdso_data(void)
+>    +{
+>    +	struct vdso_arch_data *avd = vdso_k_arch_data;
+>    +
+>    +	/*
+>    +	 * Prevent the vDSO cached values from being used, as they're not ready
+>    +	 * yet.
+>    +	 */
+>    +	avd->ready = false;
+>    +}
+>    +
+>     late_initcall(init_hwprobe_vdso_data);
+>    +#else
+>    +static int complete_hwprobe_vdso_data(void) { return 0; }
+>     #endif /* CONFIG_MMU */
+>    +static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+>    +			    size_t pair_count, size_t cpusetsize,
+>    +			    unsigned long __user *cpus_user,
+>    +			    unsigned int flags)
+>    +{
+>    +	complete_hwprobe_vdso_data();
+>    +
+>    +	if (flags & RISCV_HWPROBE_WHICH_CPUS)
+>    +		return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
+>    +					cpus_user, flags);
+>    +
+>    +	return hwprobe_get_values(pairs, pair_count, cpusetsize,
+>    +				  cpus_user, flags);
+>    +}
+>    +
+>    +
+>     SYSCALL_DEFINE5(riscv_hwprobe, struct riscv_hwprobe __user *, pairs,
+>     		size_t, pair_count, size_t, cpusetsize, unsigned long __user *,
+>     		cpus, unsigned int, flags)
+>    diff --git a/arch/riscv/kernel/vdso/hwprobe.c b/arch/riscv/kernel/vdso/hwprobe.c
+>    index 2ddeba6c68dd..bf77b4c1d2d8 100644
+>    --- a/arch/riscv/kernel/vdso/hwprobe.c
+>    +++ b/arch/riscv/kernel/vdso/hwprobe.c
+>    @@ -27,7 +27,7 @@ static int riscv_vdso_get_values(struct riscv_hwprobe *pairs, size_t pair_count,
+>     	 * homogeneous, then this function can handle requests for arbitrary
+>     	 * masks.
+>     	 */
+>    -	if ((flags != 0) || (!all_cpus && !avd->homogeneous_cpus))
+>    +	if ((flags != 0) || (!all_cpus && !avd->homogeneous_cpus) || unlikely(!avd->ready))
+>     		return riscv_hwprobe(pairs, pair_count, cpusetsize, cpus, flags);
+>     	/* This is something we can handle, fill out the pairs. */
+>
+> (which I haven't even built yet, as I don't have a complier set up in this
+> Mac yet...).
+>
+I've tested your proposed implementation, and it works well.
+> There's probably a better way to do this that would require a bit more work,
+> as there's sort of a double-completion here (each probe's workqueue and then
+> the top-level completion)).  In the long run we should probably fold that
+> all together so we can just block on probing the values we need, but this
+> was quick...
+>
+I agree with your point on the double-completion. And I think it would
+be better solved when adding hotplug support later on.
+> >  	/*
+> >  	 * Initialize vDSO data with the answers for the "all CPUs" case, to
+> >  	 * save a syscall in the common case.
+> > @@ -504,7 +522,7 @@ static int __init init_hwprobe_vdso_data(void)
+> >  	return 0;
+> >  }
+> >
+> > -arch_initcall_sync(init_hwprobe_vdso_data);
+> > +late_initcall(init_hwprobe_vdso_data);
+> >
+> >  #endif /* CONFIG_MMU */
+> >
+> > diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+> > index ae2068425fbcd207..4b8ad2673b0f7470 100644
+> > --- a/arch/riscv/kernel/unaligned_access_speed.c
+> > +++ b/arch/riscv/kernel/unaligned_access_speed.c
+> > @@ -379,6 +379,7 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
+> >  static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+> >  {
+> >  	schedule_on_each_cpu(check_vector_unaligned_access);
+>
+> Do we need something like
+>
+>    diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+>    index 4b8ad2673b0f..0f4eb95072ea 100644
+>    --- a/arch/riscv/kernel/unaligned_access_speed.c
+>    +++ b/arch/riscv/kernel/unaligned_access_speed.c
+>    @@ -370,6 +370,12 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
+>     		(speed ==  RISCV_HWPROBE_MISALIGNED_VECTOR_FAST) ? "fast" : "slow");
+>     	per_cpu(vector_misaligned_access, cpu) = speed;
+>    +	/*
+>    +	 * Ensure the store that sets up the misaligned access value is
+>    +	 * visible before it is used by the other CPUs.  This orders with the
+>    +	 * atomic_dec_and_test() in riscv_hwprobe_complete_async_probe().
+>    +	 */
+>    +	smp_wmb();
+>     free:
+>     	__free_pages(page, MISALIGNED_BUFFER_ORDER);
+>
+> to make sure we're ordered here?  I think we're probably safe in practice
+> because the scheduler code has orderings.  Either way it's an existing bug,
+> so I'll just send it along as another patch.
+>
+Thanks a lot. As you suggested, I'll keep this series focused on the
+main synchronization issue.
 
-Furthermore, while commit 66381d36771e ("RISC-V: Select ACPI PPTT drivers")
-enables cache information retrieval through the ACPI PPTT table, the
-init_of_cache_level() called within init_cache_level() cannot support cache
-hierarchy detection through ACPI PPTT. Therefore, when CONFIG_SMP is
-undefined, we directly invoke the fetch_cache_info function to initialize
-the cache levels.
+I will send a new version soon.
 
-Signed-off-by: Jessica Liu <liu.xuemei1@zte.com.cn>
----
- arch/riscv/kernel/cacheinfo.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Best,
+Jingwei
 
-diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-index 26b085dbdd07..f81ca963d177 100644
---- a/arch/riscv/kernel/cacheinfo.c
-+++ b/arch/riscv/kernel/cacheinfo.c
-@@ -73,7 +73,11 @@ static void ci_leaf_init(struct cacheinfo *this_leaf,
-
- int init_cache_level(unsigned int cpu)
- {
--	return init_of_cache_level(cpu);
-+#ifdef CONFIG_SMP
-+	return 0;
-+#endif
-+
-+	return fetch_cache_info(cpu);
- }
-
- int populate_cache_leaves(unsigned int cpu)
--- 
-2.25.1
 
 _______________________________________________
 linux-riscv mailing list
