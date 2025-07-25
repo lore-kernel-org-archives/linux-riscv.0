@@ -4,73 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BD0C87FCE
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 13:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 494CAC87FCE
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 13:42:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=68QoG1eKg21dzNOWW8jcXYs9iEmWCMNF+XafLjD9ERw=; b=kn59uVEP+nXtAt
-	h56QfHpgrtvVwPHNDk9ZgVt3DjkSRDz1HzB+LyUzAkVZME1RePtzGDFWRM0tgaKJUtZENXZnm85Hd
-	cEjSg2+8IMWawO9LgZZvz5+6CBqB3W38yqzfEQMcbP+ZPvE8cFkYLYhZ/kQQNbsBPsh/iCHllTl5B
-	PnHlUK9VcEh6z+94hfmVAGPR97/inPoqUN7rmPJta8B94Zrv2YzVf05140a4XW0mJhig+g4oDERDF
-	AeI/wuXLCKFarqO5r8G0dGdIUmPRFkRZYG9mokd6LNo08f3zDeS7y1IumDRuCS7P8Ac9jJM4kpU/C
-	Y69Xtp0yCzbzZxagyEyQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aA6brEasIgjG158Hq6x305GfBm0Azjuc1KiXVEDq4pY=; b=WVLEuDsM2/XHomVwuafF/lkZN5
+	x/y8lLbDivI4iJoPw9spXkIhi9HfffsSsGgtWEf/fMneebCHKMo69FXD/vvCoT5VB8PXpS60M31QA
+	LjvahsS1YmkS9cy8r2L/buSSbxrIZlPRF1WAWtEj4YjGecPviFhWdVbfjkFbaJvJ3jvIQt5/HTGkr
+	DM2RMcQPck5ue4W8Truj6tYVNK47yNQ3CqQcIkIPtAiey5ePSekjGzKG8Vifi4w/AfchrRSqUsY2a
+	vpe4mNjaoufU5C//Kx6jzrjoQg84FOvS34C0sOERY51vBWLZMS5GFgSp1zmgaHVDMh6RM69x2QmUj
+	H++1iF6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufI43-00000009sk3-1XJi;
-	Fri, 25 Jul 2025 13:02:19 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1ufIgr-00000009vm3-42hI;
+	Fri, 25 Jul 2025 13:42:25 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufI3z-00000009sjG-1q1u
+	id 1ufIgo-00000009vlN-2Aje
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Jul 2025 13:02:17 +0000
-Received: from localhost (unknown [223.72.91.65])
-	by APP-05 (Coremail) with SMTP id zQCowACH3l5KgINoNwX+Bg--.20513S2;
-	Fri, 25 Jul 2025 21:02:03 +0800 (CST)
-Date: Fri, 25 Jul 2025 21:02:02 +0800
-From: Jingwei Wang <wangjingwei@iscas.ac.cn>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	Alexandre Ghiti <alex@ghiti.fr>, ajones@ventanamicro.com,
-	Conor Dooley <conor.dooley@microchip.com>, cleger@rivosinc.com,
-	Charlie Jenkins <charlie@rivosinc.com>, jesse@rivosinc.com,
-	Olof Johansson <olof@lixom.net>, dlan@gentoo.org,
-	si.yanteng@linux.dev, research_trasio@irq.a4lg.com,
-	stable@vger.kernel.org, alexghiti@rivosinc.com
-Subject: Re: [PATCH v5] riscv: hwprobe: Fix stale vDSO data for
- late-initialized keys at boot
-Message-ID: <20250725130202.GA53568@iscas.ac.cn>
-References: <20250705150952.29461-1-wangjingwei@iscas.ac.cn>
- <mhng-2F811C61-A512-4742-A00D-7D01203DAB14@palmerdabbelt-mac>
+	Fri, 25 Jul 2025 13:42:24 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B94D143173;
+	Fri, 25 Jul 2025 13:42:15 +0000 (UTC)
+Message-ID: <fa6f5e3c-3452-41ff-ab81-60f5f31ff797@ghiti.fr>
+Date: Fri, 25 Jul 2025 15:42:15 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-2F811C61-A512-4742-A00D-7D01203DAB14@palmerdabbelt-mac>
-User-Agent: Mutt/2.2.14
-X-CM-TRANSID: zQCowACH3l5KgINoNwX+Bg--.20513S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYh7k0a2IF6FyUM7kC6x804xWl14x267AK
-	xVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGw
-	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r4j
-	6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Gc
-	CE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxI
-	r21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87
-	Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7Cj
-	xVA2Y2ka0xkIwI1l42xK82IYc2Ij64vIr41l4c8EcI0Ec7CjxVAaw2AFwI0_Jw0_GFyl4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU2JKsUUUUU
-X-Originating-IP: [223.72.91.65]
-X-CM-SenderInfo: pzdqwy5lqj4v3l6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: uaccess: fix __put_user_nocheck for unaligned
+ accesses
+To: Aurelien Jarno <aurelien@aurel32.net>, linux-kernel@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>
+References: <20250724220853.1969954-1-aurelien@aurel32.net>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250724220853.1969954-1-aurelien@aurel32.net>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdekfeeikecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhefgvdetjeeigfdvveekgfduheekkeehgfekvddtueegtdevffefjeehkedtgfenucfkphepleehrddugedurddutddvrddukeeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepleehrddugedurddutddvrddukeeipdhhvghloheplgdutddruddtrddugeeirddvudejngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeejpdhrtghpthhtoheprghurhgvlhhivghnsegruhhrvghlfedvrdhnvghtpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopegtlhgvghgvrhesr
+ hhivhhoshhinhgtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_060215_837133_9540AAE2 
-X-CRM114-Status: UNSURE (   4.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250725_064222_701931_13E329B3 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +63,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I plan on adding your Co-developed-by tag to the new patch. Thanks again
-for the help.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQXVyw6lsaWVuLAoKT24gNy8yNS8yNSAwMDowOCwgQXVyZWxpZW4gSmFybm8gd3JvdGU6Cj4g
+VGhlIHR5cGUgb2YgdGhlIHZhbHVlIHRvIHdyaXRlIHNob3VsZCBiZSBkZXRlcm1pbmVkIGJ5IHRo
+ZSBzaXplIG9mIHRoZQo+IGRlc3RpbmF0aW9uLCBub3QgYnkgdGhlIHZhbHVlIGl0c2VsZiwgd2hp
+Y2ggbWF5IGJlIGEgY29uc3RhbnQuIFRoaXMKPiBhbGlnbnMgdGhlIGJlaGF2aW9yIHdpdGggeDg2
+XzY0LCB3aGVyZSBfX3R5cGVvZl9fKCooX19ndV9wdHIpKSBpcyB1c2VkCj4gdG8gaW5mZXIgdGhl
+IGNvcnJlY3QgdHlwZS4KPgo+IFRoaXMgZml4ZXMgYW4gaXNzdWUgaW4gcHV0X2Ntc2csIHdoaWNo
+IHdhcyBvbmx5IHdyaXRpbmcgNCBvdXQgb2YgOAo+IGJ5dGVzIHRvIHRoZSBjbXNnX2xlbiBmaWVs
+ZCwgY2F1c2luZyB0aGUgZ2xpYmMgdHN0LXNvY2tldC10aW1lc3RhbXAgdGVzdAo+IHRvIGZhaWwu
+Cj4KPiBGaXhlczogY2ExYTY2Y2RkNjg1ICgicmlzY3Y6IHVhY2Nlc3M6IGRvIG5vdCBkbyBtaXNh
+bGlnbmVkIGFjY2Vzc2VzIGluIGdldC9wdXRfdXNlcigpIikKPiBTaWduZWQtb2ZmLWJ5OiBBdXJl
+bGllbiBKYXJubyA8YXVyZWxpZW5AYXVyZWwzMi5uZXQ+Cj4gLS0tCj4gICBhcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL3VhY2Nlc3MuaCB8IDIgKy0KPiAgIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlv
+bigrKSwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vdWFjY2Vzcy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS91YWNjZXNzLmgKPiBpbmRleCBi
+ODhhNjIxOGI3ZjI0Li4yMmUzZjUyYTc2M2QxIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vdWFjY2Vzcy5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS91YWNjZXNz
+LmgKPiBAQCAtMzExLDcgKzMxMSw3IEBAIGRvIHsJCQkJCQkJCVwKPiAgIGRvIHsJCQkJCQkJCVwK
+PiAgIAlpZiAoIUlTX0VOQUJMRUQoQ09ORklHX0hBVkVfRUZGSUNJRU5UX1VOQUxJR05FRF9BQ0NF
+U1MpICYmCVwKPiAgIAkgICAgIUlTX0FMSUdORUQoKHVpbnRwdHJfdClfX2d1X3B0ciwgc2l6ZW9m
+KCpfX2d1X3B0cikpKSB7CVwKPiAtCQlfX2ludHR5cGUoeCkgX19fdmFsID0gKF9faW50dHlwZSh4
+KSl4OwkJCVwKPiArCQlfX3R5cGVvZl9fKCooX19ndV9wdHIpKSBfX192YWwgPSAoeCk7CQlcCj4g
+ICAJCWlmIChfX2FzbV9jb3B5X3RvX3VzZXJfc3VtX2VuYWJsZWQoX19ndV9wdHIsICYoX19fdmFs
+KSwgc2l6ZW9mKCpfX2d1X3B0cikpKSBcCj4gICAJCQlnb3RvIGxhYmVsOwkJCQlcCj4gICAJCWJy
+ZWFrOwkJCQkJCVwKCgpUaGFua3MgZm9yIGNhdGNoaW5nIHRoaXMgKEkgd2lsbCBhZGQgdGhlIGds
+aWJjIHRlc3RzdWl0ZSB0byBvdXIgQ0kpLgoKUmV2aWV3ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8
+YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KClRoYW5rcywKCkFsZXgKCgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
