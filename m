@@ -4,120 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D05FFC87FCA
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Jul 2025 23:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C47FCC87FCC
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 01:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:Subject:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c8Vcyrz2XjWvUxlgRvygqlS/KFcJOljS8EvQKont2u8=; b=mdPF9T9y+y9qY/
-	4wT7dfA67P4zxF5hWKp/K6zcX6zZfRAtFo7qjOAKfmV0YxO9l1SGJTpl4T7ef+q4LNUSCrJ10Ggv+
-	voFylOCHi5BQoWu1CdK5j19ova1DFkzJQMaHvPH347OKVxPjuihDkQoX4dYq1W/X2zwMDlnqdUgXs
-	7wHPaATIS6K54hwiEW5cPrwE+1kaWVufQhhPaWD4Ngqcq4pnq5U48TN0JfWYzmsUtP1THvdL7U32v
-	1P8084uCYTcUPyVUPBwTWqCl455Ddf6MT77pxaTHd6lYiRPEuYBglnnT7rh6VZq24v11e4ALvRl1t
-	6izXwa0B01B+UjCPqiSw==;
+	List-Owner; bh=65lV2sfUpIiPbofd01FlWU7uHybHs5sNk21yXRz9PCY=; b=sGMhhknXSjZpK+
+	bpgxlX0tsPjhDQHjcqsoX3j858FvTWiaM/dS85egsLVvs+B8ch8gXQX8xZO7KBonAWkSHfy3tWhPI
+	tClUXdtNoaGVt9wlq/gnoO6neuUOvsUhOHQMLF/LT85wCZvhuZd9J2vyZGLVZTMIEdCMMVE3RTjpx
+	O1puWanfqAytuOWFfYRFY2nKRiSA/lgiOOKQ8vezjl/ZKwwvgNKc8pKs2Qe+kJeyVV3oKv1WU6rtJ
+	MWYs6XXBx93c684f+iNWtAtSbxkjPnCutRhiVZ3fLYslp9uVzHGRNuA6Fzn5MfNu1KcmZ9V5Qh1ps
+	T0Un3LOr9jbm+l/PleWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf5f5-00000008iCA-0luF;
-	Thu, 24 Jul 2025 23:47:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uf74f-00000008oK1-3itl;
+	Fri, 25 Jul 2025 01:18:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf5V2-00000008h1X-1kEZ
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 24 Jul 2025 23:37:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=YAeHR6jMoeNreT1rLi4tkifNH7GwHO7F0FWeni164mI=; b=meqOQmDpY17fJeAsxHmAzYtBxz
-	9+kxhsl6NUPm3rt4d9hTNaOGfr2zPGUSwwqKFaX+rNPH4NGLM23ELdf0RpmJg3VS7XVvoKAvjeTfE
-	clf8ynfaGN2cZbFEHiweVn0PYcpjNuXLrihaCvt+p2P6rV75qBqHtqcChBY7Kxu9iSe6/e7QjGTX6
-	jbv+mSC888Il/24/Te9VzVEvxUlkRKiY5k/4zaPcBsEwkneQBmaMIl5mrsn6OVUVBySKMszSIRkj0
-	UV3dE/WRZpambY0ORPQPcI6Tr3XIczukje3IKdsIpTeoLK7+RtAa+1Rhpkdx1zAq0B+1DTW+amfBl
-	SDw/FWoA==;
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf5Uz-0000000Binx-0ffM
+	id 1uf73m-00000008oED-1tMP
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Jul 2025 23:37:19 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-23649faf69fso12757885ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Jul 2025 16:37:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1753400234; x=1754005034; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YAeHR6jMoeNreT1rLi4tkifNH7GwHO7F0FWeni164mI=;
-        b=oxiRIqqGBt+kEepL9jgY4Psqc9J1V875F0wvHW9ADX+RuGxiffakv94SAANXrst7IT
-         o0UAr7BagM4ZD5NUCTcGQg8QGfQDexH7N77ZZmBpaJiu61O5QnFg8iFV0xuHNOiWio1l
-         Skjdy0VB1C02eoDZ/OL2+QF+vaOO/RjYlAK1OwuAvxrxAvXqcYAe1LaDQCEg2xtztpy+
-         gdD9lXO9DBaNHIKp9YgxXb0JpYOwo87s7RzxwOUJNC/5iJdXWrwfU0iOlGr0afwFKIyR
-         UBNbWoxIX5A0ccA8fXy5YRJWqhyE9nrcHSozm+2q2bEdsFNjkgLwxPrSdBlewJbL7ACg
-         nprA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753400234; x=1754005034;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YAeHR6jMoeNreT1rLi4tkifNH7GwHO7F0FWeni164mI=;
-        b=CekXth5rtMAH7gTO53EdqsbGUdVk83bUlUwtnnRWKyG56C1+6pLHWGzq5VafAlU/Us
-         SA970TeZqfGjYPzLafVo5dNYm/+TOaySEV8+/ZXf4NHfyvINlaB2HMY5NEDotl3VEZ7h
-         +G5NoMuYR2T4ta+m/oMCc0m0beidahgBmuJsnkRt+lhVXjjL0yNivSJ+uM7Qt4giIZt7
-         0fIApYCtVqpzsYQyxi3s8dSwjS6KS2L2Gx58a4avgvbOuxBCYiHH3MVLxUvY10+C0OX4
-         c3ctFMXgVILfYptyn61z3PJ+uCyplnkI6oZjywZQDg6//PCKAAjcPg9zUEkh8ocjxovA
-         MYSw==
-X-Gm-Message-State: AOJu0YzCWg1uNrZKXNkti6ez5W4OdND0AvMdt5W878FJe0VK/t5meWpr
-	JJ6K9YMhTHN7hOV/UhOeYZLSRr50NyE4Igv4GKyhG/8rqGZlak85ur9PZLCjl/Licik=
-X-Gm-Gg: ASbGnctQzxmieIE8OsV4wPcWv01CK9UqgqY7UHyA5V7g2lDd9/eOi2XyTYfRy4BssII
-	FcapCcSgR8BiJpwuHxNEexLfLh6kO70kXcxzjKm6ORZPvGJaXywYJylXFlg0Mi2rwY8NTNM2cCq
-	VoAJBFNRQSXlOLqAR7/rqowkSuCI4j1RnHvYBm5I73VPaLP42uxaI3gY14eUCLsdHmhQQCAgxcO
-	/KQNq1RXjUpIY5j9Ai1Jpt5FEMu4j3TCccQQ6fmglw2sSbRT1Mrsrk/fiuDZDCZyQdXqnQfdv0I
-	UTc9sbHGQiS+l+SihuZXs9kxzWvyFm/tG/N1BLVAzU4EYp8rN27yW2A9RpRTPGILk8iJ9xBzmxy
-	iJyG5zqPdIcUNieoR1kCaBGpVunTmHgxskFahPiRw0qc=
-X-Google-Smtp-Source: AGHT+IEC6umj6Lj/bljHcGk8ktP/FZKxktXm+XIJAAVaqHXn4oZH20sfm15h9uxx49Sr7WC6JzXzDg==
-X-Received: by 2002:a17:903:3c2b:b0:234:adce:3ece with SMTP id d9443c01a7336-23f9813ab07mr115991405ad.11.1753400234285;
-        Thu, 24 Jul 2025 16:37:14 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48bc706sm23598685ad.106.2025.07.24.16.37.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 16:37:13 -0700 (PDT)
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Thu, 24 Jul 2025 16:36:57 -0700
-Subject: [PATCH 04/11] riscv: exception handlers can be software guarded
- transfers
+	Fri, 25 Jul 2025 01:17:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9091A601EA;
+	Fri, 25 Jul 2025 01:17:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35A8CC4CEED;
+	Fri, 25 Jul 2025 01:17:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753406236;
+	bh=MnFJ7F8dY8RvB8dXoNRYk2Dv6tZAdeeE7q2scZZoEqo=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=o+aJSYfpF5TboYnl9G/eoK+bTmhLeJ66iWVe6BHwQs3bR/2tvsw9pQxqOpyt0EOw2
+	 TR+gdWEvAmJfeENxYksaR7BmiI4XrAvoEULKXdbWDm2dxTG46REvQdPhjgS4S3qaiu
+	 0j9I2mS9GM//n0dGFnc+7f3FMdJ+u1Bc7g9v7KAbQCRDP8KD0RrIJD+IBXF5NqQFI1
+	 EXfKIEqY1uQMhAUY1IdgJO95MPT+5mwsfTHzxNbM6DN7n/QHnOFz7+s+mOt20WEbQE
+	 0vxfdpXeVLCMFrNzaKs8lLosT4jCFDObiDSRtGeW6R35BG9oAD3iEj581vNe6K8GyH
+	 BM0yjnIR2/5mg==
 MIME-Version: 1.0
-Message-Id: <20250724-riscv_kcfi-v1-4-04b8fa44c98c@rivosinc.com>
-References: <20250724-riscv_kcfi-v1-0-04b8fa44c98c@rivosinc.com>
-In-Reply-To: <20250724-riscv_kcfi-v1-0-04b8fa44c98c@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Masahiro Yamada <masahiroy@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nicolas Schier <nicolas.schier@linux.dev>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@redhat.com>, 
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Monk Chiang <monk.chiang@sifive.com>, 
- Kito Cheng <kito.cheng@sifive.com>, Justin Stitt <justinstitt@google.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kbuild@vger.kernel.org, linux-mm@kvack.org, llvm@lists.linux.dev, 
- rick.p.edgecombe@intel.com, broonie@kernel.org, cleger@rivosinc.com, 
- samitolvanen@google.com, apatel@ventanamicro.com, ajones@ventanamicro.com, 
- conor.dooley@microchip.com, charlie@rivosinc.com, samuel.holland@sifive.com, 
- bjorn@rivosinc.com, fweimer@redhat.com, jeffreyalaw@gmail.com, 
- heinrich.schuchardt@canonical.com, andrew@sifive.com, ved@rivosinc.com, 
- Deepak Gupta <debug@rivosinc.com>
-X-Mailer: b4 0.13.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_003717_528189_C0121023 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250623-rust-next-pwm-working-fan-for-sending-v5-8-0ca23747c23e@samsung.com>
+References: <20250623-rust-next-pwm-working-fan-for-sending-v5-0-0ca23747c23e@samsung.com> <CGME20250623180907eucas1p10c0ca6b667debcc8139402d97e4ef800@eucas1p1.samsung.com> <20250623-rust-next-pwm-working-fan-for-sending-v5-8-0ca23747c23e@samsung.com>
+Subject: Re: [PATCH v5 8/9] riscv: dts: thead: Add PVT node
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-clk@vger.kernel.org
+To: Albert Ou <aou@eecs.berkeley.edu>, Alex Gaynor <alex.gaynor@gmail.com>, Alexandre Ghiti <alex@ghiti.fr>, Alice Ryhl <aliceryhl@google.com>, Andreas Hindborg <a.hindborg@kernel.org>, Benno Lossin <lossin@kernel.org>, =?utf-8?q?Bj=C3=B6rn?= Roy Baron <bjorn3_gh@protonmail.com>, Boqun Feng <boqun.feng@gmail.com>, Conor Dooley <conor+dt@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Drew Fustini <drew@pdp7.com>, Fu Wei <wefu@redhat.com>, Gary Guo <gary@garyguo.net>, Guo Ren <guoren@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, Michael Turquette <mturquette@baylibre.com>, Michal Wilczynski <m.wilczynski@samsung.com>, Miguel Ojeda <ojeda@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>, Trevor Gross <tmgross@umich.edu>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Date: Thu, 24 Jul 2025 18:17:15 -0700
+Message-ID: <175340623531.3513.5896709502242556676@lazor>
+User-Agent: alot/0.11
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,38 +68,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Exception handlers are static and loaded from readonly memory. Control
-transfers can be software guarded and not requiring lpad on target.
+Quoting Michal Wilczynski (2025-06-23 11:08:56)
+> Add PVT DT node for thermal sensor.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> index 26996422e1efe5d2dde68819c2cec1c3fa782a23..bef30780034e06b07aa29b27b0225ea891a4b531 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -669,6 +669,17 @@ padctrl_aosys: pinctrl@fffff4a000 {
+>                         thead,pad-group = <1>;
+>                 };
+>  
+> +               pvt: pvt@fffff4e000 {
 
-Signed-off-by: Deepak Gupta <debug@rivosinc.com>
----
- arch/riscv/kernel/entry.S | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 598e17e800ae..3f0890b9c0b9 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -224,12 +224,12 @@ SYM_CODE_START(handle_exception)
- 	add t0, t1, t0
- 	/* Check if exception code lies within bounds */
- 	bgeu t0, t2, 3f
--	REG_L t1, 0(t0)
--2:	jalr t1
-+	REG_L t2, 0(t0)
-+2:	jalr t2
- 	j ret_from_exception
- 3:
- 
--	la t1, do_trap_unknown
-+	la t2, do_trap_unknown
- 	j 2b
- SYM_CODE_END(handle_exception)
- ASM_NOKPROBE(handle_exception)
-
--- 
-2.43.0
-
+Node name should probably be 'thermal-sensor@fffff4e000' then.
 
 _______________________________________________
 linux-riscv mailing list
