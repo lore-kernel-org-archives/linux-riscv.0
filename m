@@ -4,93 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 844A7C87FCA
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 15:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 366CFC87FCE
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jul 2025 15:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2uzEgcRK/mTfeL5rReR+rzDnBvl3s6o/YfnLdnQ3uFk=; b=raCxgdiCTM34Tq
-	HiUocNFVg52vvgrl50JSAHKI4KXi6k/SRuOmwveYerztHTx/IfWO8hwFSU4IeAdrxUb9Q5jL89vFt
-	lzi3Ovt2I9OH0iIwuCDaO6k2rFXY9Pnud3YPqTtqPX+1h2p4kNAnZTMmAPtehZYHuAFmnNmjBCwBJ
-	gO8CkD8gvc40q+fjSUES0gNnPACNksdbNsgza87fYBIDNUi2cvXHlnXy8FZCdmUNC8VG3SWUS2uiu
-	Lq/VZ/oN1fK5PfbR5SEcIlWXbzvLbHGJmkPGNZ+PL3uZFIOZKHMB3WPiQMWPWUUMaFpbs9Oa3aI8N
-	JkxRy2GxCiA3LO+Z/Nsw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ORORa4oTpk521Yhzn2wl5lyvmx/7vj3adHJ0VcOnApA=; b=F1NpMdx0GaPLet
+	8Qzk9GVuY44qOlL5JqetHYpQJMW0/4HKR+vjNGgBiAYET/ZmPyBEzjdTAK+lTjh/yFLfffODaQYlp
+	J/v8CRv/BLuPRxV/rpezB0aKptnalPB/JFde5BgDkGcjAfjJ+ymD/P2R7Q6jcI7EZx6nPQUnRdKda
+	bxNenXDDtokdgJ05yaGAEnqkL7z8JRenR0PAc3Jim+gSv5X+HqaCeLESOsGu8QB8Y+eOGqIKbGsRF
+	akD++FKw0gSweKs/lqA+aq7Tw0Sp3xX7qKsIfmyc86wcxuSfBwVt/K6Slaqs3texFauix9Q0ihnbQ
+	Ne4xm73ilLGprBseEfzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufK2x-0000000A4sT-2IMY;
-	Fri, 25 Jul 2025 15:09:19 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1ufKKy-0000000A6TY-2ZE9;
+	Fri, 25 Jul 2025 15:27:56 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufK2v-0000000A4rh-1GZu
+	id 1ufKKv-0000000A6RL-03CR
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Jul 2025 15:09:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1753456138; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=aJXR6a8q6dZxYmYb1+KpOaP5xjOrgMxKHNYdECzRR5QJmek/cfTFOY75qbIYgguq6ARPq9qJmb4qaVK8pgt56olCg9P/pqUuniPaONawvKK66N7hsTTwOEIHsNHxjIBA8rQspIl0b8ONPMWbP6wXwTvkXFCMWQ8dBMsLg2++llg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1753456138; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ke+lVtmoyenH47nCVRy+b5168mhUwVX/VKLxEBmQcBw=; 
-	b=QxcP3Cyfe1YTERLmahTy1qE1Yv4Xjan2hUkUenNpoutdyqp4cAoW6L76BBES14kDNwdUjXGXwZr+fNjVGJl84aSIw9N0vv5aTeQy/GBdaLVKvHmwyPNSECka0mhKzRfaIMNedBqxlm4SM+gEfTyDWwufP6tZdiyTttdThprB1ds=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753456138;
-	s=zohomail; d=collabora.com; i=daniel.almeida@collabora.com;
-	h=Content-Type:Mime-Version:Subject:Subject:From:From:In-Reply-To:Date:Date:Cc:Cc:Content-Transfer-Encoding:Message-Id:Message-Id:References:To:To:Reply-To;
-	bh=ke+lVtmoyenH47nCVRy+b5168mhUwVX/VKLxEBmQcBw=;
-	b=QE+1rzc3QP2OK2xyvj5KS8T65DhKXFXbPAOd74SKmC+dyFRz0auClItJ9wuXkDUY
-	nh15gCgocCehYaQqSfIphi/TeIlZG9E4O/sVW2pHDUIGpc4Yc3ZpTfkiJrkIDhcIf/1
-	gqN9XK+Sqhqgzt2jjQj1SKo4jpWAqzT6a/mzbruw=
-Received: by mx.zohomail.com with SMTPS id 1753456135651361.47805588339804;
-	Fri, 25 Jul 2025 08:08:55 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.600.51.1.1\))
-Subject: Re: [PATCH v12 2/3] rust: pwm: Add Kconfig and basic data structures
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <20250717-rust-next-pwm-working-fan-for-sending-v12-2-40f73defae0c@samsung.com>
-Date: Fri, 25 Jul 2025 12:08:37 -0300
-Cc: =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>,
- Alex Gaynor <alex.gaynor@gmail.com>,
- Boqun Feng <boqun.feng@gmail.com>,
- Gary Guo <gary@garyguo.net>,
- =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>,
- Danilo Krummrich <dakr@kernel.org>,
- Drew Fustini <drew@pdp7.com>,
- Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Benno Lossin <lossin@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Drew Fustini <fustini@kernel.org>,
- linux-kernel@vger.kernel.org,
- linux-pwm@vger.kernel.org,
- rust-for-linux@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org
-Message-Id: <437DA583-95FF-4ADF-9947-1F39D242E157@collabora.com>
-References: <20250717-rust-next-pwm-working-fan-for-sending-v12-0-40f73defae0c@samsung.com>
- <CGME20250717090831eucas1p282ac3df2e2f1fc2a46e12c440abfbba1@eucas1p2.samsung.com>
- <20250717-rust-next-pwm-working-fan-for-sending-v12-2-40f73defae0c@samsung.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-X-Mailer: Apple Mail (2.3826.600.51.1.1)
-X-ZohoMailClient: External
+	Fri, 25 Jul 2025 15:27:54 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2357c61cda7so139715ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Jul 2025 08:27:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753457271; x=1754062071; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rYghJYglv5xycj6lEIeN8UVfDvdCip7qw6RMPEir5D4=;
+        b=DgqRtSvercuZwEmG6ctFVHjJmujflsS1XHRjWzmQ9z19/qTs7Qvnk/xd/ItYA3KUX7
+         XRsWPbiegiC1aHIBEbnwArt7tkqahIRdeJZkcAQURo4/EHLG0TEijPgAbEoH2JYLibUg
+         R9zHUr4tYiffgMXwxXiOMM2quz86R+iXCtbOAAnvs5dfJ7KKFkTPLRbJ3MQuhLooCgc4
+         FwGAPTL6aWe9Y328wJwG6C9mUmyA+zHZh75AVLniLXpg7/z3pRv8kl0I2Jl+J4PGhChH
+         CnaQn2XiLh+56WGDs4ZmmrAb6cW1wIwNiiLY5WCubLA4pAoUBRyxnZowBzqbzy8X5E7i
+         V0gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753457271; x=1754062071;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rYghJYglv5xycj6lEIeN8UVfDvdCip7qw6RMPEir5D4=;
+        b=HMQLeL/FDgIea2lYdBkbD/t7RoeUnOYk37PBTwjczP7fmak7mRzSDBBDrN7qL/kWML
+         PVLIeHFqjO7DR4/SNqWA++uY6mV6Xpzxem8HpGCDIXot7rBdf/NpMU6krfP2cLuVpxfD
+         ycsmrC0td065l2Gz6qUBhp/xjY72+Cm0St+qUF4XtBVv/F5H4lwRvlJ//nHzU2JL8CH1
+         IlcrcW/kZL1BbR8Jbu9AhVlKq54wbH06oPo24ERkuiSozLrL/OlU2xBbQ65hn+OOIj4e
+         gznsEFvZwwyfQNAgSqq+/xeejeguKfF0i6Rog0f7VW1zNx9EnY2dLntONTn7wJfSJOAk
+         9+Rw==
+X-Forwarded-Encrypted: i=1; AJvYcCULKbm+LHMT2rVwT2Uok7n3YwSB7eueQRjFaTk1PCEOj1DJCemPplECJAk6BCpcJ7fp+y2SFsVejQoDEQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywq8drwTQ0Th8urgX8JMlyMQhzEHJF4G5cv+SHFkt2WKo1TRqV4
+	UFbqcHSZynmvMLThobVQbb4jQqDaLmKPx7PffqskFmJgVYLxAEYmxlM9imWvkXhlsg==
+X-Gm-Gg: ASbGncu/XZoRsQ0JQL+dP4AE74e1sTH4OoyY1rT2wbsDqq730cwfG/GfPN0mNvGo90c
+	2fEgk+wTuCzVgb0ljtgBQQK9He1Z7xrMnq09I4Wmq6f2kTHwDGXEX3cFFVDe9haIVEjPXNWEnBJ
+	3A48qOl1qSAVK11Q3k2yXFxgx8508gCINt+qrZDnIOT1qS1Isr3o+/+n8akWfDnw/yj2TxS+QqN
+	7rM5/Vo8Sn2QIs13gSuGd35xknoOTos+PAtfhptphv/Mrjjy9w5VzpgZ88qol+pq19X6+Fk7H1w
+	vvm+WnuhfxGlkKkVwnr3ZGLysf9aU7lgQmv5JalMEDCSVMc0gbPr6c4HJdnjf6cPGjzmmJO2TGm
+	9G32uPXoZOv8CoPxFFrfAMiN4DzZaB/vWm7OScj1+3TtwQ+FuDrDPJs7RfhwoJvEUpEyATnZsOv
+	hqtc1wyg==
+X-Google-Smtp-Source: AGHT+IECUS4ICPT72rez061zYucyKAEQSZl/Vqzwhl1r3oHDO13mDG6PFiHjVXy9pYhZCAlwaMGg8w==
+X-Received: by 2002:a17:903:1a2b:b0:215:7152:36e4 with SMTP id d9443c01a7336-23fb044e610mr2864835ad.27.1753457271064;
+        Fri, 25 Jul 2025 08:27:51 -0700 (PDT)
+Received: from google.com (106.81.125.34.bc.googleusercontent.com. [34.125.81.106])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fbe30ae0bsm225725ad.18.2025.07.25.08.27.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Jul 2025 08:27:50 -0700 (PDT)
+Date: Fri, 25 Jul 2025 15:27:45 +0000
+From: Sami Tolvanen <samitolvanen@google.com>
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Monk Chiang <monk.chiang@sifive.com>,
+	Kito Cheng <kito.cheng@sifive.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linux-mm@kvack.org,
+	llvm@lists.linux.dev, rick.p.edgecombe@intel.com,
+	broonie@kernel.org, cleger@rivosinc.com, apatel@ventanamicro.com,
+	ajones@ventanamicro.com, conor.dooley@microchip.com,
+	charlie@rivosinc.com, samuel.holland@sifive.com, bjorn@rivosinc.com,
+	fweimer@redhat.com, jeffreyalaw@gmail.com,
+	heinrich.schuchardt@canonical.com, andrew@sifive.com,
+	ved@rivosinc.com
+Subject: Re: [PATCH 01/11] riscv: add landing pad for asm routines.
+Message-ID: <20250725152745.GA1724026@google.com>
+References: <20250724-riscv_kcfi-v1-0-04b8fa44c98c@rivosinc.com>
+ <20250724-riscv_kcfi-v1-1-04b8fa44c98c@rivosinc.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250724-riscv_kcfi-v1-1-04b8fa44c98c@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_080917_382084_1147E59D 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20250725_082753_049165_4A5D24AB 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +120,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTWljaGFsLAoKCk92ZXJhbGwgbG9va3MgZ29vZCwgYSBmZXcgbWlub3IgY29tbWVudHM6Cgpb
-4oCmXQoKPiArCj4gKy8vLyBXcmFwcGVyIGZvciBib2FyZC1kZXBlbmRlbnQgUFdNIGFyZ3VtZW50
-cyBbYHN0cnVjdCBwd21fYXJnc2BdKHNyY3RyZWUvaW5jbHVkZS9saW51eC9wd20uaCkuCj4gKyNb
-cmVwcih0cmFuc3BhcmVudCldCj4gK3B1YiBzdHJ1Y3QgQXJncyhPcGFxdWU8YmluZGluZ3M6OnB3
-bV9hcmdzPik7Cj4gKwo+ICtpbXBsIEFyZ3Mgewo+ICsgICAgLy8vIENyZWF0ZXMgYW4gYEFyZ3Ng
-IHdyYXBwZXIgZnJvbSBhIEMgc3RydWN0IHBvaW50ZXIuCj4gKyAgICAvLy8KPiArICAgIC8vLyAj
-IFNhZmV0eQo+ICsgICAgLy8vCj4gKyAgICAvLy8gVGhlIGNhbGxlciBtdXN0IGVuc3VyZSB0aGF0
-IGBjX2FyZ3NfcHRyYCBpcyBhIHZhbGlkLCBub24tbnVsbCBwb2ludGVyCj4gKyAgICAvLy8gdG8g
-YGJpbmRpbmdzOjpwd21fYXJnc2AgYW5kIHRoYXQgdGhlIHBvaW50ZWQtdG8gZGF0YSBpcyB2YWxp
-ZAo+ICsgICAgLy8vIGZvciB0aGUgZHVyYXRpb24gb2YgdGhpcyBmdW5jdGlvbiBjYWxsIChhcyBk
-YXRhIGlzIGNvcGllZCkuCj4gKyAgICB1bnNhZmUgZm4gZnJvbV9jX3B0cihjX2FyZ3NfcHRyOiAq
-Y29uc3QgYmluZGluZ3M6OnB3bV9hcmdzKSAtPiBTZWxmIHsKPiArICAgICAgICAvLyBTQUZFVFk6
-IENhbGxlciBndWFyYW50ZWVzIGBjX2FyZ3NfcHRyYCBpcyB2YWxpZC4gV2UgZGVyZWZlcmVuY2Ug
-aXQgdG8gY29weS4KPiArICAgICAgICBBcmdzKE9wYXF1ZTo6bmV3KHVuc2FmZSB7ICpjX2FyZ3Nf
-cHRyIH0pKQo+ICsgICAgfQoKZnJvbV9yYXcoKQoKCj4gKwo+ICsgICAgLy8vIFJldHVybnMgdGhl
-IHBlcmlvZCBvZiB0aGUgUFdNIHNpZ25hbCBpbiBuYW5vc2Vjb25kcy4KPiArICAgIHB1YiBmbiBw
-ZXJpb2QoJnNlbGYpIC0+IHU2NCB7Cj4gKyAgICAgICAgLy8gU0FGRVRZOiBgc2VsZi4wLmdldCgp
-YCByZXR1cm5zIGEgcG9pbnRlciB0byB0aGUgYGJpbmRpbmdzOjpwd21fYXJnc2AKPiArICAgICAg
-ICAvLyBtYW5hZ2VkIGJ5IHRoZSBgT3BhcXVlYCB3cmFwcGVyLiBUaGlzIHBvaW50ZXIgaXMgZ3Vh
-cmFudGVlZCB0byBiZQo+ICsgICAgICAgIC8vIHZhbGlkIGFuZCBhbGlnbmVkIGZvciB0aGUgbGlm
-ZXRpbWUgb2YgYHNlbGZgIGJlY2F1c2UgYE9wYXF1ZWAgb3ducyBhIGNvcHkuCj4gKyAgICAgICAg
-dW5zYWZlIHsgKCpzZWxmLjAuZ2V0KCkpLnBlcmlvZCB9Cj4gKyAgICB9Cj4gKwo+ICsgICAgLy8v
-IFJldHVybnMgdGhlIHBvbGFyaXR5IG9mIHRoZSBQV00gc2lnbmFsLgo+ICsgICAgcHViIGZuIHBv
-bGFyaXR5KCZzZWxmKSAtPiBSZXN1bHQ8UG9sYXJpdHksIEVycm9yPiB7Cj4gKyAgICAgICAgLy8g
-U0FGRVRZOiBgc2VsZi4wLmdldCgpYCByZXR1cm5zIGEgcG9pbnRlciB0byB0aGUgYGJpbmRpbmdz
-Ojpwd21fYXJnc2AKPiArICAgICAgICAvLyBtYW5hZ2VkIGJ5IHRoZSBgT3BhcXVlYCB3cmFwcGVy
-LiBUaGlzIHBvaW50ZXIgaXMgZ3VhcmFudGVlZCB0byBiZQo+ICsgICAgICAgIC8vIHZhbGlkIGFu
-ZCBhbGlnbmVkIGZvciB0aGUgbGlmZXRpbWUgb2YgYHNlbGZgLgo+ICsgICAgICAgIGxldCByYXdf
-cG9sYXJpdHkgPSB1bnNhZmUgeyAoKnNlbGYuMC5nZXQoKSkucG9sYXJpdHkgfTsKPiArICAgICAg
-ICBQb2xhcml0eTo6dHJ5X2Zyb20ocmF3X3BvbGFyaXR5KQo+ICsgICAgfQo+ICt9Cj4gKwo+ICsv
-Ly8gV3JhcHBlciBmb3IgUFdNIHN0YXRlIFtgc3RydWN0IHB3bV9zdGF0ZWBdKHNyY3RyZWUvaW5j
-bHVkZS9saW51eC9wd20uaCkuCj4gKyNbcmVwcih0cmFuc3BhcmVudCldCj4gK3B1YiBzdHJ1Y3Qg
-U3RhdGUoYmluZGluZ3M6OnB3bV9zdGF0ZSk7CgpObyBPcGFxdWU8VD4/Cgo+ICsKPiAraW1wbCBT
-dGF0ZSB7Cj4gKyAgICAvLy8gQ3JlYXRlcyBhIGBTdGF0ZWAgd3JhcHBlciBieSB0YWtpbmcgb3du
-ZXJzaGlwIG9mIGEgQyBgcHdtX3N0YXRlYCB2YWx1ZS4KPiArICAgIHB1YihjcmF0ZSkgZm4gZnJv
-bV9jKGNfc3RhdGU6IGJpbmRpbmdzOjpwd21fc3RhdGUpIC0+IFNlbGYgewo+ICsgICAgICAgIFN0
-YXRlKGNfc3RhdGUpCj4gKyAgICB9Cj4gKwo+ICsgICAgLy8vIFJldHVybnMgYHRydWVgIGlmIHRo
-ZSBQV00gc2lnbmFsIGlzIGVuYWJsZWQuCj4gKyAgICBwdWIgZm4gZW5hYmxlZCgmc2VsZikgLT4g
-Ym9vbCB7Cj4gKyAgICAgICAgc2VsZi4wLmVuYWJsZWQKPiArICAgIH0KPiArfQo+IAo+IC0tIAo+
-IDIuMzQuMQo+IAo+IAoKSWYgdGhlIGxhY2sgb2YgT3BhcXVlPFQ+IGlzIG5vdCBhIHByb2JsZW0g
-Zm9yIHdoYXRldmVyIHJlYXNvbjoKClJldmlld2VkLWJ5OiBEYW5pZWwgQWxtZWlkYSA8ZGFuaWVs
-LmFsbWVpZGFAY29sbGFib3JhLmNvbT4KCuKAlCBEYW5pZWwKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Jul 24, 2025 at 04:36:54PM -0700, Deepak Gupta wrote:
+> SYM_* macros are used to define assembly routines. In this patch series,
+> re-define those macros in risc-v arch specific include file to include
+> a landing pad instruction at the beginning. This is done only when the
+> compiler flag for landing pad is enabled (i.e. __riscv_zicfilp).
+> 
+> TODO: Update `lpad 0` with `lpad %lpad_hash(name)` after toolchain
+> support.
+
+I glanced through the proposed signature based landing pad labeling
+scheme, but didn't see any mentions of lpad_hash for labeling assembly
+functions. Is there more information somewhere about how this is going
+to be implemented?
+
+Sami
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
