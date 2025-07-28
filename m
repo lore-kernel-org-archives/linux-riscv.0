@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0CEC83F17
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 11:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A30C87FD2
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 11:05:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A26M7/wsNC0xOcjrT2iQVVEasUpTOmfXHuhy+Jtidl8=; b=kRklsm/BRChFX5
-	Cu/QKtUWy+SI163EsH9cvpyPUGs74h2ah5dayj+pur8rzHNTVFjKhabVqvjJvryrJc+zuqwDZBG6N
-	+6m1+yQ7W2pTKuwNxnZ6gV1ZjR5KLa2oFYTbn0pEdJpMc6RqZ7U3/WeBhE3gFPXPj9OrpdFfvl7Uo
-	bZuZHpg2BSs0oUyKrbTL12TYGsH9tQJNFYZ/WM7iUIGybGUKqjOG/D9t6JOYckKUkWmxAtGp5d6Wh
-	lQAhbAEk5eTq06LCaEnuuTNDQ4jHZlkwO2J8Jz1CJcdYgrGHCgsryd20R2WYjrrbK/ikgk2oDezqD
-	JDGhOHPRAvWyls4jCjqg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=esb5POmZC25Aewa71Xu/GTnDF0VUexfrUTVSB9AtACo=; b=c/uyoOKyApfqjX
+	KXCyFMTBo/mrMmGwuKe03neB2eBuJZ49/jcZ7VZA4wV5Q8l8Gj1Tz9MWELHOndXDPuBscyLuckWXc
+	tAO1Ib7W+Bz6afxFPHJgIM2LDik6XdiJuGIq/dXq/n8gVirEUWxOAwf/sL3vCJzK8X+VaOya922IX
+	7i7q+0BdSsIQbbrfygtF7rrvEZIHCEMCqkRR6lfPkf035487Ez1MOQvuFrzYSByIUXl+7bA9hdrPC
+	iBvnEJX3fpDdO+Xw2eCXmvsnKQFwfre9ZULM6FSyF3z/A5tT9VSwQL3ikqyuhXXRoPtsAbftr31Zh
+	KzmAeK62vkuq4JlQEKdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugLfn-0000000EJXf-2IRK;
-	Mon, 28 Jul 2025 11:05:39 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1ugLfl-0000000EJW2-3njs;
+	Mon, 28 Jul 2025 11:05:37 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugLfg-0000000EJU4-2Z9j
+	id 1ugLfE-0000000EJP1-3OBm
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Jul 2025 11:05:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1753700722; cv=none; 
+	Mon, 28 Jul 2025 11:05:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753700692; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=TAdnTek80YZMJQ6wfgsCfrNoF0Mm940TxXlFhBHd5jxIPC/Fbp7AzC7GGhYs40hRdIRhDXsr4zhYQHNZ3o2CJUf26HryrHbMGcQp0bXijaa1kMvbgwtDHwunjPLM9ecW3YkuEHxdsB9F+tArfdgiTYOPoqrqdqo8FcyzDTtEyY0=
+	b=Blp1LA3zwmqGaYw8vMpLucHMeouRMIjw9DulmkBAHKrp+k6Lf7ULbuikM5r96LiNhipf6Mj/Js8oJI0CDVVJFwMGsXc/wovc/rO3YM8G7wo4fq2+2AXvlvTQzZCALYxHsMv3frWVMW8LaX1W1/DGIe0bkIhDmFBpQG9y1w0Vk/g=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1753700722; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=aGEK0VFsHWn9e7xnt7My80DCH2NqCud6DcKtuAl72OA=; 
-	b=V4GLRR5dDlyEkEAI0yP8rk2WafTNJ3BkNzqHbhhAuEBdjle3HVD1qlcHianSzkXN6tBRpooG5S5yFWUoAw7BGECsEayXqRy7KiklXeZU/aJmTPuwkC4vzo5GFIuioICgs9EtmRAFJUjcUX+J/XHkwWgYdAUleAvF0JoujMXeXHU=
+	t=1753700692; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=jCizZ02zFYgFTJVgQnn9HjMW4JFU9RDiqu1R7dpUS1M=; 
+	b=Jy3f+Wc8X9W/l9eGEoWqCMBSrnSj/NjrfQMTZr4Tj8G/bZdKBZYk+gz5WeEnFch3ganwSKmbBoPWAhKuGMBFVrEwF7cCCv+HXQH+VaksdeDpBdRk4b8c3LNFjQ7Z4Y5cfH8ppkNKU+VqFbSR6uBEuHWKFm0zKxh0BvZApdXJtHY=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753700722;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753700691;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=aGEK0VFsHWn9e7xnt7My80DCH2NqCud6DcKtuAl72OA=;
-	b=ZM4lNchlHQESs7KV4tu9kc5LVEZpLsGh+KXleTMy1bklv/rXmbOrT31zUrCazOod
-	yd+RxhvTWRP6Rdplo5wJBi+GqBav2oUwPh6oFTwOp8YBCfgq7evX43G3nZ7BlqwK6y1
-	0vmOZt4fWWAg52J5SzzyCDMmtH6Ox8SRJs4iruWA=
-Received: by mx.zohomail.com with SMTPS id 1753700720190597.2224235280107;
-	Mon, 28 Jul 2025 04:05:20 -0700 (PDT)
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=jCizZ02zFYgFTJVgQnn9HjMW4JFU9RDiqu1R7dpUS1M=;
+	b=rfkEPk3gV7BigRvAAzzRz+yFbIyXNKbUPabXlpz5LkwH8Ywjat1R13dsDyvWE8Ov
+	f/MtbUvMo98bAXBQhqcKHAWSPVnQzSv6j29mw3dmpT4HSmLCk5UimDmsWnKVp9ywyzN
+	Pqe/hHT9Ep/aFyo/F2xqGTJl+DgkKRcNsN7o0ZHc=
+Received: by mx.zohomail.com with SMTPS id 1753700688350626.8599402973831;
+	Mon, 28 Jul 2025 04:04:48 -0700 (PDT)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Mon, 28 Jul 2025 19:03:24 +0800
-Subject: [PATCH v2 2/2] drivers: remoteproc: Add C906L controller for
- Sophgo CV1800B SoC
+Subject: [PATCH v2 0/2] remoteproc: cv1800b: Add initial support for C906L
+ processor
+Date: Mon, 28 Jul 2025 19:03:22 +0800
+Message-Id: <20250728-cv1800-rproc-v2-0-5bbee4abe9dc@pigmoral.tech>
 MIME-Version: 1.0
-Message-Id: <20250728-cv1800-rproc-v2-2-5bbee4abe9dc@pigmoral.tech>
-References: <20250728-cv1800-rproc-v2-0-5bbee4abe9dc@pigmoral.tech>
-In-Reply-To: <20250728-cv1800-rproc-v2-0-5bbee4abe9dc@pigmoral.tech>
+X-B4-Tracking: v=1; b=H4sIAPpYh2gC/1XMQQ6CMBCF4auQWVszLVLQlfcwLGoZYBKlZEoaD
+ eHuVly5/F/yvhUiCVOES7GCUOLIYcphDgX40U0DKe5yg0FTYWVq5ZNuEJXMErzC5l66c2foZDX
+ kyyzU82vnbm3ukeMS5L3rSX/XH2Sx+YeSVqiq2vfW+q63rrzOPDyDuMdxIT9Cu23bB99d02isA
+ AAA
+X-Change-ID: 20250527-cv1800-rproc-08b3a9d2e461
 To: Bjorn Andersson <andersson@kernel.org>, 
  Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -68,17 +71,18 @@ Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
  sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753700654; l=8698;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753700654; l=2103;
  i=junhui.liu@pigmoral.tech; s=20250507; h=from:subject:message-id;
- bh=ftOCu4I31uTeV3GmgwyxMbQ7mFD+/Wg+AhZG68BHTyY=;
- b=rkPcClmsLMkK4LyP5X95ews8HXkYamJUtBT3dGsHjVwCbWKQ3xCQGxfa6xD38t54wa0so9sav
- h5osz4LzXHZAhNJf4nF6xn+Lv9qLIdoK20idLF/m3N2tMXP+mGjzKnm
+ bh=o3o6Hwd7R+P+io2nAG+W+ynXaWMGpWl6Lp7cQJ24jBg=;
+ b=2WgzAeLnoD8k1XxEY7PFQ3ylOvW0DtHOhoyd5UxMdEnmrwJX9ZgR0Yjra546NediC2SVFNIv2
+ 2fxv/A4Fme9DssmoChq7d+u5hFxe1gPl+2stA3rvhkoSxcEKLss35ep
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
  pk=d3i4H2mg9LUn4SQemoLAjLRQy0nTcyknIv6zgKMwiBA=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_040532_722256_E1221196 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20250728_040505_246509_38C61948 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,302 +99,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add initial support for the C906L remote processor found in the Sophgo
-CV1800B SoC. The C906L is an asymmetric core typically used to run an
-RTOS. This driver enables firmware loading and start/stop control of the
-C906L processor via the remoteproc framework.
+This patch series introduces initial support for the C906L remote
+processor in the Sophgo CV1800B SoC. The CV1800B SoC integrates multiple
+cores, including a main application core running Linux, a C906L core
+typically running RTOS, and an 8051 MCU.
 
-The C906L and the main application processor can communicate through
-mailboxes. Support for mailbox-based functionality will be added in
-a separate patch.
+The C906L is an asymmetric processor designed to typically run RTOS.
+This patch adds the basic infrastructure to support remoteproc
+management of the C906L processor, including firmware loading and basic
+control (start/stop) from the main Linux core. Mailbox-related
+functionality will be added in a separate patch, after Zephyr mainline
+support for the C906L is ready [1].
 
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+The C906L remoteproc relies on the reset controller [1] to function
+correctly [2].
+
+A branch for testing is available at [3].
+
+Link: https://github.com/zephyrproject-rtos/zephyr/pull/69594 [1]
+Link: https://lore.kernel.org/linux-riscv/20250617070144.1149926-1-inochiama@gmail.com [2]
+Link: https://github.com/pigmoral/linux/tree/cv1800b/rproc-test [3]
+
 ---
- drivers/remoteproc/Kconfig                |   9 ++
- drivers/remoteproc/Makefile               |   1 +
- drivers/remoteproc/sophgo_cv1800b_c906l.c | 239 ++++++++++++++++++++++++++++++
- 3 files changed, 249 insertions(+)
+Changes in v2:
+- Add mbox-related properties in dt-bindings
+- Remove reserved-memory node in dt examples
+- Fix warnings in driver by handling conversions of `void *` and `void
+  __iomem *` correctly
+- Add missing <linux/bits.h> header
+- Use `rproc_of_resm_mem_entry_init()` for vdev0buffer region
+- Remove redundant rproc_shutdown in remove() function
+- Link to v1: https://lore.kernel.org/r/20250608-cv1800-rproc-v1-0-57cf66cdf6a3@pigmoral.tech
 
-diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
-index 83962a114dc9fdb3260e6e922602f2da53106265..7b09a8f00332605ee528ff7c21c31091c10c2bf5 100644
---- a/drivers/remoteproc/Kconfig
-+++ b/drivers/remoteproc/Kconfig
-@@ -299,6 +299,15 @@ config RCAR_REMOTEPROC
- 	  This can be either built-in or a loadable module.
- 	  If compiled as module (M), the module name is rcar_rproc.
- 
-+config SOPHGO_CV1800B_C906L
-+	tristate "Sophgo CV1800B C906L remoteproc support"
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	help
-+	  Say y here to support CV1800B C906L remote processor via the remote
-+	  processor framework.
-+
-+	  It's safe to say N here.
-+
- config ST_REMOTEPROC
- 	tristate "ST remoteproc support"
- 	depends on ARCH_STI
-diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
-index 1c7598b8475d6057a3e044b41e3515103b7aa9f1..3c1e9387491cedc9dda8219f1e9130a84538156f 100644
---- a/drivers/remoteproc/Makefile
-+++ b/drivers/remoteproc/Makefile
-@@ -33,6 +33,7 @@ obj-$(CONFIG_QCOM_WCNSS_PIL)		+= qcom_wcnss_pil.o
- qcom_wcnss_pil-y			+= qcom_wcnss.o
- qcom_wcnss_pil-y			+= qcom_wcnss_iris.o
- obj-$(CONFIG_RCAR_REMOTEPROC)		+= rcar_rproc.o
-+obj-$(CONFIG_SOPHGO_CV1800B_C906L)	+= sophgo_cv1800b_c906l.o
- obj-$(CONFIG_ST_REMOTEPROC)		+= st_remoteproc.o
- obj-$(CONFIG_ST_SLIM_REMOTEPROC)	+= st_slim_rproc.o
- obj-$(CONFIG_STM32_RPROC)		+= stm32_rproc.o
-diff --git a/drivers/remoteproc/sophgo_cv1800b_c906l.c b/drivers/remoteproc/sophgo_cv1800b_c906l.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..42258f072619bed25d307300135d04cf26d54e44
---- /dev/null
-+++ b/drivers/remoteproc/sophgo_cv1800b_c906l.c
-@@ -0,0 +1,239 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2025 Junhui Liu <junhui.liu@pigmoral.tech>
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/of_reserved_mem.h>
-+#include <linux/platform_device.h>
-+#include <linux/remoteproc.h>
-+#include <linux/reset.h>
-+#include <linux/regmap.h>
-+
-+#include "remoteproc_internal.h"
-+
-+#define CV1800B_SYS_C906L_CTRL_REG	0x04
-+#define CV1800B_SYS_C906L_CTRL_EN	BIT(13)
-+
-+#define CV1800B_SYS_C906L_BOOTADDR_REG	0x20
-+
-+/**
-+ * struct cv1800b_c906l - C906L remoteproc structure
-+ * @dev: private pointer to the device
-+ * @reset: reset control handle
-+ * @rproc: the remote processor handle
-+ * @syscon: regmap for accessing security system registers
-+ */
-+struct cv1800b_c906l {
-+	struct device *dev;
-+	struct reset_control *reset;
-+	struct rproc *rproc;
-+	struct regmap *syscon;
-+};
-+
-+static int cv1800b_c906l_mem_alloc(struct rproc *rproc,
-+				   struct rproc_mem_entry *mem)
-+{
-+	void __iomem *va;
-+
-+	va = ioremap_wc(mem->dma, mem->len);
-+	if (!va)
-+		return -ENOMEM;
-+
-+	/* Update memory entry va */
-+	mem->va = (void *)va;
-+
-+	return 0;
-+}
-+
-+static int cv1800b_c906l_mem_release(struct rproc *rproc,
-+				     struct rproc_mem_entry *mem)
-+{
-+	iounmap((void __iomem *)mem->va);
-+	return 0;
-+}
-+
-+static int cv1800b_c906l_add_carveout(struct rproc *rproc)
-+{
-+	struct device *dev = rproc->dev.parent;
-+	struct device_node *np = dev->of_node;
-+	struct of_phandle_iterator it;
-+	struct rproc_mem_entry *mem;
-+	struct reserved_mem *rmem;
-+	int i = 0;
-+
-+	/* Register associated reserved memory regions */
-+	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
-+	while (of_phandle_iterator_next(&it) == 0) {
-+		rmem = of_reserved_mem_lookup(it.node);
-+		if (!rmem) {
-+			of_node_put(it.node);
-+			return -EINVAL;
-+		}
-+
-+		if (!strcmp(it.node->name, "vdev0buffer")) {
-+			mem = rproc_of_resm_mem_entry_init(&rproc->dev, i,
-+							   rmem->size,
-+							   rmem->base,
-+							   it.node->name);
-+		} else {
-+			mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)rmem->base,
-+						   rmem->size, rmem->base,
-+						   cv1800b_c906l_mem_alloc,
-+						   cv1800b_c906l_mem_release,
-+						   it.node->name);
-+		}
-+
-+		if (!mem) {
-+			of_node_put(it.node);
-+			return -ENOMEM;
-+		}
-+
-+		rproc_add_carveout(rproc, mem);
-+		i++;
-+	}
-+
-+	return 0;
-+}
-+
-+static int cv1800b_c906l_prepare(struct rproc *rproc)
-+{
-+	struct cv1800b_c906l *priv = rproc->priv;
-+	int ret;
-+
-+	ret = cv1800b_c906l_add_carveout(rproc);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * This control bit must be set to enable the C906L remote processor.
-+	 * Note that once the remote processor is running, merely clearing
-+	 * this bit will not stop its execution.
-+	 */
-+	return regmap_update_bits(priv->syscon, CV1800B_SYS_C906L_CTRL_REG,
-+				  CV1800B_SYS_C906L_CTRL_EN,
-+				  CV1800B_SYS_C906L_CTRL_EN);
-+}
-+
-+static int cv1800b_c906l_start(struct rproc *rproc)
-+{
-+	struct cv1800b_c906l *priv = rproc->priv;
-+	u32 bootaddr[2];
-+	int ret;
-+
-+	bootaddr[0] = lower_32_bits(rproc->bootaddr);
-+	bootaddr[1] = upper_32_bits(rproc->bootaddr);
-+
-+	ret = regmap_bulk_write(priv->syscon, CV1800B_SYS_C906L_BOOTADDR_REG,
-+				bootaddr, ARRAY_SIZE(bootaddr));
-+	if (ret)
-+		return ret;
-+
-+	return reset_control_deassert(priv->reset);
-+}
-+
-+static int cv1800b_c906l_stop(struct rproc *rproc)
-+{
-+	struct cv1800b_c906l *priv = rproc->priv;
-+
-+	return reset_control_assert(priv->reset);
-+}
-+
-+static int cv1800b_c906l_parse_fw(struct rproc *rproc,
-+				  const struct firmware *fw)
-+{
-+	int ret;
-+
-+	ret = rproc_elf_load_rsc_table(rproc, fw);
-+	if (ret == -EINVAL) {
-+		dev_info(&rproc->dev, "No resource table in elf\n");
-+		ret = 0;
-+	}
-+
-+	return ret;
-+}
-+
-+static const struct rproc_ops cv1800b_c906l_ops = {
-+	.prepare = cv1800b_c906l_prepare,
-+	.start = cv1800b_c906l_start,
-+	.stop = cv1800b_c906l_stop,
-+	.load = rproc_elf_load_segments,
-+	.parse_fw = cv1800b_c906l_parse_fw,
-+	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
-+	.sanity_check = rproc_elf_sanity_check,
-+	.get_boot_addr = rproc_elf_get_boot_addr,
-+};
-+
-+static int cv1800b_c906l_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct cv1800b_c906l *priv;
-+	struct rproc *rproc;
-+	const char *fw_name;
-+	int ret;
-+
-+	ret = rproc_of_parse_firmware(dev, 0, &fw_name);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "No firmware filename given\n");
-+
-+	rproc = devm_rproc_alloc(dev, dev_name(dev), &cv1800b_c906l_ops,
-+				 fw_name, sizeof(*priv));
-+	if (!rproc)
-+		return dev_err_probe(dev, -ENOMEM,
-+				     "unable to allocate remoteproc\n");
-+
-+	rproc->has_iommu = false;
-+
-+	priv = rproc->priv;
-+	priv->dev = dev;
-+	priv->rproc = rproc;
-+
-+	priv->syscon = syscon_regmap_lookup_by_phandle(np, "sophgo,syscon");
-+	if (IS_ERR(priv->syscon))
-+		return PTR_ERR(priv->syscon);
-+
-+	priv->reset = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(priv->reset))
-+		return dev_err_probe(dev, PTR_ERR(priv->reset),
-+				     "failed to get reset control handle\n");
-+
-+	platform_set_drvdata(pdev, rproc);
-+
-+	ret = devm_rproc_add(dev, rproc);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "rproc_add failed\n");
-+
-+	return 0;
-+}
-+
-+static void cv1800b_c906l_remove(struct platform_device *pdev)
-+{
-+	struct rproc *rproc = platform_get_drvdata(pdev);
-+
-+	rproc_del(rproc);
-+}
-+
-+static const struct of_device_id cv1800b_c906l_of_match[] = {
-+	{ .compatible = "sophgo,cv1800b-c906l" },
-+	{ /* sentinel */ },
-+};
-+MODULE_DEVICE_TABLE(of, cv1800b_c906l_of_match);
-+
-+static struct platform_driver cv1800b_c906l_driver = {
-+	.probe = cv1800b_c906l_probe,
-+	.remove = cv1800b_c906l_remove,
-+	.driver = {
-+		.name = "cv1800b-c906l",
-+		.of_match_table = cv1800b_c906l_of_match,
-+	},
-+};
-+
-+module_platform_driver(cv1800b_c906l_driver);
-+
-+MODULE_AUTHOR("Junhui Liu <junhui.liu@pigmoral.tech>");
-+MODULE_DESCRIPTION("Sophgo CV1800B C906L remote processor control driver");
-+MODULE_LICENSE("GPL");
+---
+Junhui Liu (2):
+      dt-bindings: remoteproc: Add C906L rproc for Sophgo CV1800B SoC
+      drivers: remoteproc: Add C906L controller for Sophgo CV1800B SoC
 
+ .../bindings/remoteproc/sophgo,cv1800b-c906l.yaml  |  79 +++++++
+ drivers/remoteproc/Kconfig                         |   9 +
+ drivers/remoteproc/Makefile                        |   1 +
+ drivers/remoteproc/sophgo_cv1800b_c906l.c          | 239 +++++++++++++++++++++
+ 4 files changed, 328 insertions(+)
+---
+base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
+change-id: 20250527-cv1800-rproc-08b3a9d2e461
+
+Best regards,
 -- 
-2.50.1
+Junhui Liu <junhui.liu@pigmoral.tech>
 
 
 _______________________________________________
