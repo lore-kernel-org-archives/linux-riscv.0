@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFFFC87FD2
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 10:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0CEC83F17
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 11:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tNZnuvmGBAC2Fr/wH8nNlOCYbjGeBs7XMHcb+hvrPBs=; b=ERStYHUwJLNEDO
-	I+apcsmGlS3K1BZqshLUQxWl7BTe+CcV7jpozPiKrAVSXa2RZvNANczMU0AcBktvA2mp7vtAQJVAp
-	ko0amiX3bWeIoc9m3UIxppY4lDwunwFjUe+Cq4972wHkXGeTGcyt+mlffFXloj93i1Rqc8d10i2+d
-	aNd4J4mfCDr3udBXsdvCCIC1yYamixD4qBxua2976bdYthP3EBtT/wZf9dJ9BEtSiz0WRpduPJl1b
-	D/MFH/JlVh67aEvqvk4MA87Qg8vdqrwfifIx6F0gstNOPVKgU0y1UkQ5iUrmIT3fcmL01E7cEZn7O
-	mC7gAfvO/Oe1iOZadFNw==;
+	List-Owner; bh=A26M7/wsNC0xOcjrT2iQVVEasUpTOmfXHuhy+Jtidl8=; b=kRklsm/BRChFX5
+	Cu/QKtUWy+SI163EsH9cvpyPUGs74h2ah5dayj+pur8rzHNTVFjKhabVqvjJvryrJc+zuqwDZBG6N
+	+6m1+yQ7W2pTKuwNxnZ6gV1ZjR5KLa2oFYTbn0pEdJpMc6RqZ7U3/WeBhE3gFPXPj9OrpdFfvl7Uo
+	bZuZHpg2BSs0oUyKrbTL12TYGsH9tQJNFYZ/WM7iUIGybGUKqjOG/D9t6JOYckKUkWmxAtGp5d6Wh
+	lQAhbAEk5eTq06LCaEnuuTNDQ4jHZlkwO2J8Jz1CJcdYgrGHCgsryd20R2WYjrrbK/ikgk2oDezqD
+	JDGhOHPRAvWyls4jCjqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugLY6-0000000EI2T-1ras;
-	Mon, 28 Jul 2025 10:57:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ugLfn-0000000EJXf-2IRK;
+	Mon, 28 Jul 2025 11:05:39 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKNv-0000000E8aQ-14zs
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 28 Jul 2025 09:43:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=XIoG0/2CSPJ7QI1BAwRn3+gvtI7NC6tH67IoLVRWsu8=; b=kY4uUiDt2MSRFBGBRS0r5ZbWfJ
-	YpieS48frSoNao6lToS/Bs8edNNuu3OYnw3tkiNnlr4AL8k927mLYDpG1eRAjvglnsOkNy4EGrdkn
-	A2VePyY9geqLXKo+6TtySsfyVYJymDV6GN/RLfKNqvOhgydzVCgGK3Ew4dhNkBFhu32HuTvPPN4fP
-	E4e5uiOELicy4Rtydc03PPJiQ0mZ+mHrlStnKVeheZuBDVgs3he560oQRYESwkV6uyAJF7QPfNdS6
-	U7FFMQm6UKaUv4EANJKw/pY0rlbEerWN7OqJQSOdBTdwWIzCp3SW7aj+ATS7h/hwfj2LY//2IbwCX
-	S5+Qx1jg==;
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKNn-0000000CPcS-019O
+	id 1ugLfg-0000000EJU4-2Z9j
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Jul 2025 09:43:03 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b1fd59851baso3024419a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Jul 2025 02:42:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1753695776; x=1754300576; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XIoG0/2CSPJ7QI1BAwRn3+gvtI7NC6tH67IoLVRWsu8=;
-        b=fwjRFuj3VPzknKNPl1rwciHhamI5DFKchZrDMycixeF+MgXaaXpZZhahNhLM8bquVT
-         h/9G/FC11aBrjmtJZ4msJvdVbSfLoVZGqeIIYcTQfbFAi1smSn6LaS7xOj6EkVHbcZ10
-         9m57pfv2iKC0hfgZMWw5XkKyCic1DmhKY4Ubzo8Y20+OLJQKahNPewiughOSSMHEbx74
-         /i9Yinu9Q7rJmH0yDN53gTyNO++NsF1txrNnJOstkI8iwsnxivVEt/KqbYNHrvOrGy4B
-         qPlSkX+7jSMWmwR8Mbrz7jFFCVByU7F1Qj35cWOEq1pXxUNM9Z7oQIF9cSRw1HRB962Y
-         kEkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753695776; x=1754300576;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XIoG0/2CSPJ7QI1BAwRn3+gvtI7NC6tH67IoLVRWsu8=;
-        b=BYtC9bRMQIDbK6MstNvUeaflxufBYofdZeBEHo+DiiwaMUlUN5lX5zQlZU3hXI5RuA
-         HdHKkrTJRFuu5r+em7A7p8Y8ADPGY/v93VLBGfx7kqrbqavQLhoFrBpE/MmepTq48Fny
-         QJ3uaG5eJaUTGspvytVg5lmQhnYe2o+f3jV+ppTfSLRQGABIk4g8N1Bx21VckOZOYNld
-         JBmAGYBwc91m6EAuQWQP/USgyc3hf91ffbNoSga7E4ndF8HIUaqaeDxOWfXAmpqd1VAK
-         MVDUhrQvQu2PC16H1Zt4OZq2UjGpn+RhIjsqJPFX4CWMMlti/BsBF8/1Fl1WROPt2d1F
-         +XiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXxndeBRKZxyXrIgnm+0F+fGLLMIYLdenjL31CliPI4CjT6lvC2hV/w+MDFw2TeSvt8hBeOucOpO8a6lg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWq1KX7PQuwqjafXh3naMYnjdy2gYe+XNzJlvSBTTuT1Po3n7i
-	4zVXQKNQq71GArenlnphZJs+xQWYV/QAz7FiLnk9ZL0trsUOeppekBpjMOSXIUeyjDM=
-X-Gm-Gg: ASbGncsG2B+afQ44CpLdZahz6qUif3BblCIMiOAS4xScJETxmZ0IiTqoVWZPG8CJ9cN
-	YnCLiHP7AJ5azSpjN0MqNdKZ78EzYe38r7Bu7d5koRj6mX96QMWg3t7VN5aV6s7m/vy4qUSsx4z
-	hFM89MS29dEY/7Y6E0YmAJOsNEpfWddAkV8aIMHMTHycBMxKLREMTc1R9Y08n86RYgUayKta4Gn
-	KUt7g2ikBCnKE2PYAQ5zBMiS6iWXqScBL+3DL97PGYzQuAlLMjbUit2YANw/3xOnIKoipmGwYYG
-	iMTUP6h+nv2se4tvLoSE0BV0lcT6ZTqdC1iRErKVvWQGKly+ME++U37sqEDzVnMeJBRmQAf/st9
-	QLw+A9gqIdOSUnHdUjT4U6/4VzofCgW8ubf94gJsWbyjma6wwDQvO28Szc4kIRyXoeJZxlcA=
-X-Google-Smtp-Source: AGHT+IE55WnQ+0hhA7deATb8trRi0xgCBfiD8wcO0VoqZffzpD+pSQGytlvo6enrgswNtFBESe1LjA==
-X-Received: by 2002:a17:90b:35cb:b0:312:da0d:3d85 with SMTP id 98e67ed59e1d1-31e7773626amr16294249a91.6.1753695776305;
-        Mon, 28 Jul 2025 02:42:56 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([122.171.19.28])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e832fbf99sm5396230a91.1.2025.07.28.02.42.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Jul 2025 02:42:55 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v9 12/24] dt-bindings: Add RPMI system MSI interrupt controller bindings
-Date: Mon, 28 Jul 2025 15:10:20 +0530
-Message-ID: <20250728094032.63545-13-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250728094032.63545-1-apatel@ventanamicro.com>
-References: <20250728094032.63545-1-apatel@ventanamicro.com>
+	Mon, 28 Jul 2025 11:05:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753700722; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=TAdnTek80YZMJQ6wfgsCfrNoF0Mm940TxXlFhBHd5jxIPC/Fbp7AzC7GGhYs40hRdIRhDXsr4zhYQHNZ3o2CJUf26HryrHbMGcQp0bXijaa1kMvbgwtDHwunjPLM9ecW3YkuEHxdsB9F+tArfdgiTYOPoqrqdqo8FcyzDTtEyY0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1753700722; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=aGEK0VFsHWn9e7xnt7My80DCH2NqCud6DcKtuAl72OA=; 
+	b=V4GLRR5dDlyEkEAI0yP8rk2WafTNJ3BkNzqHbhhAuEBdjle3HVD1qlcHianSzkXN6tBRpooG5S5yFWUoAw7BGECsEayXqRy7KiklXeZU/aJmTPuwkC4vzo5GFIuioICgs9EtmRAFJUjcUX+J/XHkwWgYdAUleAvF0JoujMXeXHU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753700722;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=aGEK0VFsHWn9e7xnt7My80DCH2NqCud6DcKtuAl72OA=;
+	b=ZM4lNchlHQESs7KV4tu9kc5LVEZpLsGh+KXleTMy1bklv/rXmbOrT31zUrCazOod
+	yd+RxhvTWRP6Rdplo5wJBi+GqBav2oUwPh6oFTwOp8YBCfgq7evX43G3nZ7BlqwK6y1
+	0vmOZt4fWWAg52J5SzzyCDMmtH6Ox8SRJs4iruWA=
+Received: by mx.zohomail.com with SMTPS id 1753700720190597.2224235280107;
+	Mon, 28 Jul 2025 04:05:20 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Date: Mon, 28 Jul 2025 19:03:24 +0800
+Subject: [PATCH v2 2/2] drivers: remoteproc: Add C906L controller for
+ Sophgo CV1800B SoC
 MIME-Version: 1.0
+Message-Id: <20250728-cv1800-rproc-v2-2-5bbee4abe9dc@pigmoral.tech>
+References: <20250728-cv1800-rproc-v2-0-5bbee4abe9dc@pigmoral.tech>
+In-Reply-To: <20250728-cv1800-rproc-v2-0-5bbee4abe9dc@pigmoral.tech>
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+ Inochi Amaoto <inochiama@gmail.com>, Junhui Liu <junhui.liu@pigmoral.tech>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753700654; l=8698;
+ i=junhui.liu@pigmoral.tech; s=20250507; h=from:subject:message-id;
+ bh=ftOCu4I31uTeV3GmgwyxMbQ7mFD+/Wg+AhZG68BHTyY=;
+ b=rkPcClmsLMkK4LyP5X95ews8HXkYamJUtBT3dGsHjVwCbWKQ3xCQGxfa6xD38t54wa0so9sav
+ h5osz4LzXHZAhNJf4nF6xn+Lv9qLIdoK20idLF/m3N2tMXP+mGjzKnm
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=d3i4H2mg9LUn4SQemoLAjLRQy0nTcyknIv6zgKMwiBA=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_104259_629219_7E06AF40 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20250728_040532_722256_E1221196 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,108 +90,307 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the RPMI system MSI service group
-based interrupt controller for the supervisor software.
+Add initial support for the C906L remote processor found in the Sophgo
+CV1800B SoC. The C906L is an asymmetric core typically used to run an
+RTOS. This driver enables firmware loading and start/stop control of the
+C906L processor via the remoteproc framework.
 
-The RPMI system MSI service group is defined by the RISC-V
-platform management interface (RPMI) specification.
+The C906L and the main application processor can communicate through
+mailboxes. Support for mailbox-based functionality will be added in
+a separate patch.
 
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
- .../riscv,rpmi-system-msi.yaml                | 74 +++++++++++++++++++
- 1 file changed, 74 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
+ drivers/remoteproc/Kconfig                |   9 ++
+ drivers/remoteproc/Makefile               |   1 +
+ drivers/remoteproc/sophgo_cv1800b_c906l.c | 239 ++++++++++++++++++++++++++++++
+ 3 files changed, 249 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
+diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
+index 83962a114dc9fdb3260e6e922602f2da53106265..7b09a8f00332605ee528ff7c21c31091c10c2bf5 100644
+--- a/drivers/remoteproc/Kconfig
++++ b/drivers/remoteproc/Kconfig
+@@ -299,6 +299,15 @@ config RCAR_REMOTEPROC
+ 	  This can be either built-in or a loadable module.
+ 	  If compiled as module (M), the module name is rcar_rproc.
+ 
++config SOPHGO_CV1800B_C906L
++	tristate "Sophgo CV1800B C906L remoteproc support"
++	depends on ARCH_SOPHGO || COMPILE_TEST
++	help
++	  Say y here to support CV1800B C906L remote processor via the remote
++	  processor framework.
++
++	  It's safe to say N here.
++
+ config ST_REMOTEPROC
+ 	tristate "ST remoteproc support"
+ 	depends on ARCH_STI
+diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
+index 1c7598b8475d6057a3e044b41e3515103b7aa9f1..3c1e9387491cedc9dda8219f1e9130a84538156f 100644
+--- a/drivers/remoteproc/Makefile
++++ b/drivers/remoteproc/Makefile
+@@ -33,6 +33,7 @@ obj-$(CONFIG_QCOM_WCNSS_PIL)		+= qcom_wcnss_pil.o
+ qcom_wcnss_pil-y			+= qcom_wcnss.o
+ qcom_wcnss_pil-y			+= qcom_wcnss_iris.o
+ obj-$(CONFIG_RCAR_REMOTEPROC)		+= rcar_rproc.o
++obj-$(CONFIG_SOPHGO_CV1800B_C906L)	+= sophgo_cv1800b_c906l.o
+ obj-$(CONFIG_ST_REMOTEPROC)		+= st_remoteproc.o
+ obj-$(CONFIG_ST_SLIM_REMOTEPROC)	+= st_slim_rproc.o
+ obj-$(CONFIG_STM32_RPROC)		+= stm32_rproc.o
+diff --git a/drivers/remoteproc/sophgo_cv1800b_c906l.c b/drivers/remoteproc/sophgo_cv1800b_c906l.c
 new file mode 100644
-index 000000000000..b10a0532e586
+index 0000000000000000000000000000000000000000..42258f072619bed25d307300135d04cf26d54e44
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
-@@ -0,0 +1,74 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/riscv,rpmi-system-msi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/remoteproc/sophgo_cv1800b_c906l.c
+@@ -0,0 +1,239 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2025 Junhui Liu <junhui.liu@pigmoral.tech>
++ */
 +
-+title: RISC-V RPMI system MSI service group based interrupt controller
++#include <linux/bits.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of_device.h>
++#include <linux/of_reserved_mem.h>
++#include <linux/platform_device.h>
++#include <linux/remoteproc.h>
++#include <linux/reset.h>
++#include <linux/regmap.h>
 +
-+maintainers:
-+  - Anup Patel <anup@brainfault.org>
++#include "remoteproc_internal.h"
 +
-+description: |
-+  The RISC-V Platform Management Interface (RPMI) [1] defines a
-+  messaging protocol which is modular and extensible. The supervisor
-+  software can send/receive RPMI messages via SBI MPXY extension [2]
-+  or some dedicated supervisor-mode RPMI transport.
++#define CV1800B_SYS_C906L_CTRL_REG	0x04
++#define CV1800B_SYS_C906L_CTRL_EN	BIT(13)
 +
-+  The RPMI specification [1] defines system MSI service group which
-+  allow application processors to receive MSIs upon system events
-+  such as P2A doorbell, graceful shutdown/reboot request, CPU hotplug
-+  event, memory hotplug event, etc from the platform microcontroller.
-+  The supervisor software can access RPMI system MSI service group via
-+  SBI MPXY channel or some dedicated supervisor-mode RPMI transport.
++#define CV1800B_SYS_C906L_BOOTADDR_REG	0x20
 +
-+  ===========================================
-+  References
-+  ===========================================
++/**
++ * struct cv1800b_c906l - C906L remoteproc structure
++ * @dev: private pointer to the device
++ * @reset: reset control handle
++ * @rproc: the remote processor handle
++ * @syscon: regmap for accessing security system registers
++ */
++struct cv1800b_c906l {
++	struct device *dev;
++	struct reset_control *reset;
++	struct rproc *rproc;
++	struct regmap *syscon;
++};
 +
-+  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
-+      https://github.com/riscv-non-isa/riscv-rpmi/releases
++static int cv1800b_c906l_mem_alloc(struct rproc *rproc,
++				   struct rproc_mem_entry *mem)
++{
++	void __iomem *va;
 +
-+  [2] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
-+      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++	va = ioremap_wc(mem->dma, mem->len);
++	if (!va)
++		return -ENOMEM;
 +
-+allOf:
-+  - $ref: /schemas/interrupt-controller.yaml#
++	/* Update memory entry va */
++	mem->va = (void *)va;
 +
-+properties:
-+  compatible:
-+    description:
-+      Intended for use by the supervisor software.
-+    const: riscv,rpmi-system-msi
++	return 0;
++}
 +
-+  mboxes:
-+    maxItems: 1
-+    description:
-+      Mailbox channel of the underlying RPMI transport or SBI message proxy channel.
++static int cv1800b_c906l_mem_release(struct rproc *rproc,
++				     struct rproc_mem_entry *mem)
++{
++	iounmap((void __iomem *)mem->va);
++	return 0;
++}
 +
-+  msi-parent: true
++static int cv1800b_c906l_add_carveout(struct rproc *rproc)
++{
++	struct device *dev = rproc->dev.parent;
++	struct device_node *np = dev->of_node;
++	struct of_phandle_iterator it;
++	struct rproc_mem_entry *mem;
++	struct reserved_mem *rmem;
++	int i = 0;
 +
-+  interrupt-controller: true
++	/* Register associated reserved memory regions */
++	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
++	while (of_phandle_iterator_next(&it) == 0) {
++		rmem = of_reserved_mem_lookup(it.node);
++		if (!rmem) {
++			of_node_put(it.node);
++			return -EINVAL;
++		}
 +
-+  "#interrupt-cells":
-+    const: 1
++		if (!strcmp(it.node->name, "vdev0buffer")) {
++			mem = rproc_of_resm_mem_entry_init(&rproc->dev, i,
++							   rmem->size,
++							   rmem->base,
++							   it.node->name);
++		} else {
++			mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)rmem->base,
++						   rmem->size, rmem->base,
++						   cv1800b_c906l_mem_alloc,
++						   cv1800b_c906l_mem_release,
++						   it.node->name);
++		}
 +
-+required:
-+  - compatible
-+  - mboxes
-+  - msi-parent
-+  - interrupt-controller
-+  - "#interrupt-cells"
++		if (!mem) {
++			of_node_put(it.node);
++			return -ENOMEM;
++		}
 +
-+additionalProperties: false
++		rproc_add_carveout(rproc, mem);
++		i++;
++	}
 +
-+examples:
-+  - |
-+    interrupt-controller {
-+        compatible = "riscv,rpmi-system-msi";
-+        mboxes = <&mpxy_mbox 0x2000 0x0>;
-+        msi-parent = <&imsic_slevel>;
-+        interrupt-controller;
-+        #interrupt-cells = <1>;
-+    };
-+...
++	return 0;
++}
++
++static int cv1800b_c906l_prepare(struct rproc *rproc)
++{
++	struct cv1800b_c906l *priv = rproc->priv;
++	int ret;
++
++	ret = cv1800b_c906l_add_carveout(rproc);
++	if (ret)
++		return ret;
++
++	/*
++	 * This control bit must be set to enable the C906L remote processor.
++	 * Note that once the remote processor is running, merely clearing
++	 * this bit will not stop its execution.
++	 */
++	return regmap_update_bits(priv->syscon, CV1800B_SYS_C906L_CTRL_REG,
++				  CV1800B_SYS_C906L_CTRL_EN,
++				  CV1800B_SYS_C906L_CTRL_EN);
++}
++
++static int cv1800b_c906l_start(struct rproc *rproc)
++{
++	struct cv1800b_c906l *priv = rproc->priv;
++	u32 bootaddr[2];
++	int ret;
++
++	bootaddr[0] = lower_32_bits(rproc->bootaddr);
++	bootaddr[1] = upper_32_bits(rproc->bootaddr);
++
++	ret = regmap_bulk_write(priv->syscon, CV1800B_SYS_C906L_BOOTADDR_REG,
++				bootaddr, ARRAY_SIZE(bootaddr));
++	if (ret)
++		return ret;
++
++	return reset_control_deassert(priv->reset);
++}
++
++static int cv1800b_c906l_stop(struct rproc *rproc)
++{
++	struct cv1800b_c906l *priv = rproc->priv;
++
++	return reset_control_assert(priv->reset);
++}
++
++static int cv1800b_c906l_parse_fw(struct rproc *rproc,
++				  const struct firmware *fw)
++{
++	int ret;
++
++	ret = rproc_elf_load_rsc_table(rproc, fw);
++	if (ret == -EINVAL) {
++		dev_info(&rproc->dev, "No resource table in elf\n");
++		ret = 0;
++	}
++
++	return ret;
++}
++
++static const struct rproc_ops cv1800b_c906l_ops = {
++	.prepare = cv1800b_c906l_prepare,
++	.start = cv1800b_c906l_start,
++	.stop = cv1800b_c906l_stop,
++	.load = rproc_elf_load_segments,
++	.parse_fw = cv1800b_c906l_parse_fw,
++	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
++	.sanity_check = rproc_elf_sanity_check,
++	.get_boot_addr = rproc_elf_get_boot_addr,
++};
++
++static int cv1800b_c906l_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *np = dev->of_node;
++	struct cv1800b_c906l *priv;
++	struct rproc *rproc;
++	const char *fw_name;
++	int ret;
++
++	ret = rproc_of_parse_firmware(dev, 0, &fw_name);
++	if (ret)
++		return dev_err_probe(dev, ret, "No firmware filename given\n");
++
++	rproc = devm_rproc_alloc(dev, dev_name(dev), &cv1800b_c906l_ops,
++				 fw_name, sizeof(*priv));
++	if (!rproc)
++		return dev_err_probe(dev, -ENOMEM,
++				     "unable to allocate remoteproc\n");
++
++	rproc->has_iommu = false;
++
++	priv = rproc->priv;
++	priv->dev = dev;
++	priv->rproc = rproc;
++
++	priv->syscon = syscon_regmap_lookup_by_phandle(np, "sophgo,syscon");
++	if (IS_ERR(priv->syscon))
++		return PTR_ERR(priv->syscon);
++
++	priv->reset = devm_reset_control_get_exclusive(dev, NULL);
++	if (IS_ERR(priv->reset))
++		return dev_err_probe(dev, PTR_ERR(priv->reset),
++				     "failed to get reset control handle\n");
++
++	platform_set_drvdata(pdev, rproc);
++
++	ret = devm_rproc_add(dev, rproc);
++	if (ret)
++		return dev_err_probe(dev, ret, "rproc_add failed\n");
++
++	return 0;
++}
++
++static void cv1800b_c906l_remove(struct platform_device *pdev)
++{
++	struct rproc *rproc = platform_get_drvdata(pdev);
++
++	rproc_del(rproc);
++}
++
++static const struct of_device_id cv1800b_c906l_of_match[] = {
++	{ .compatible = "sophgo,cv1800b-c906l" },
++	{ /* sentinel */ },
++};
++MODULE_DEVICE_TABLE(of, cv1800b_c906l_of_match);
++
++static struct platform_driver cv1800b_c906l_driver = {
++	.probe = cv1800b_c906l_probe,
++	.remove = cv1800b_c906l_remove,
++	.driver = {
++		.name = "cv1800b-c906l",
++		.of_match_table = cv1800b_c906l_of_match,
++	},
++};
++
++module_platform_driver(cv1800b_c906l_driver);
++
++MODULE_AUTHOR("Junhui Liu <junhui.liu@pigmoral.tech>");
++MODULE_DESCRIPTION("Sophgo CV1800B C906L remote processor control driver");
++MODULE_LICENSE("GPL");
+
 -- 
-2.43.0
+2.50.1
 
 
 _______________________________________________
