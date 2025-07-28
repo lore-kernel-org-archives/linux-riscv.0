@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F22C87FC9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ECBCC83F17
 	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 14:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7ratYZZbu5uG/m/sBriBo6QuadvMOs8Nap8PAY35Vnk=; b=g94YZcctbAjjjb
-	2verfMvL0wqxnEXvLbHK7JdmulE/6mVw24GKSTGkcKSLI/RCMuWIrtgnmvgabxO8PWGnFbRPdn501
-	afGgXi1lL/Qan5+7rK0HmrU0srN8ZnF9wNI6AmJYsEqlQ1LLVOwAUD7AP1G3yEmR8DanJI3LEYbaH
-	1nNhE++bMUtxFhWEdw5w4KRIP9Tnu5GitVb+q0LGAOP5/4RFaOZHHiLzI0H1X4ARCzxaGeI+8AKTa
-	8S3xsIelJnCWKKSA/RMFO369WhkTHDIF83pj0Io4iw78zJ1lusRfkOT3kU3TZNIuxFT+edn3VsfpV
-	iY4xNAWJ8jvxWKFzuaPQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TB0QY2KavSGDPkws1xahK860cD5cgbvFrflJZtpZjzA=; b=qTtb4vlhqLBzAN
+	tXvnVdfU2JlxcAJPZVlDQcA1izFA9ihxLsfIbCbNJ6i4LQPsVoyrHElB/orgp6r4VjpzeKKZvLD1x
+	82/AT2nJpvqpIZlM8J06T6dHGbhlCtU8EnayVVsf7fxSruQw4KeyZ/lLr0bXkLQzRt4vnJyK53tKR
+	eWIjkdzohuL3LEQk0+DN0AG8wk4uWIrNM9iqufQxHGEpevOa8fC558Qcxr8hCQhpnOyTB3Ffp8dTU
+	bbP8pu+z5nBaPeaW2sLwp41hOTaVSqQLK3MKihwxfEqxQ9+rqu4p2oW4WzHBWCAo9DTf5XraRZykM
+	pfgiPVJ+pmxdxmSXQb6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugOpQ-0000000Efrz-3MB4;
-	Mon, 28 Jul 2025 14:27:48 +0000
-Received: from mail-qt1-x843.google.com ([2607:f8b0:4864:20::843])
+	id 1ugOpP-0000000EfrF-27tE;
+	Mon, 28 Jul 2025 14:27:47 +0000
+Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugOik-0000000Eexf-1hRa
+	id 1ugOiG-0000000Eepb-2sAh
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Jul 2025 14:20:55 +0000
-Received: by mail-qt1-x843.google.com with SMTP id d75a77b69052e-4ab82eb33f9so75875161cf.3
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Jul 2025 07:20:54 -0700 (PDT)
+	Mon, 28 Jul 2025 14:20:25 +0000
+Received: by mail-pg1-x542.google.com with SMTP id 41be03b00d2f7-b3bdab4bf19so3785030a12.2
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Jul 2025 07:20:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753712453; x=1754317253; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kwpHZPpXI0p0rDKtDHDqYa7tblu6wTfxnrUTp9ZaScY=;
-        b=ZsQ1eLzsPYy5UEVITpAPk+y8PqcRCMdogsHEOSn1KOB9leA5zmkqBh4sQoHnWCIDR2
-         mIOmwaC9tqnt6oYNGTTccg0WU2GrDCtVTGUVp8ueg7mOJHaTjhIcn3ns9jg7GzMq3vq9
-         HdUlUqpULC53ot1H8PopTPnZDrZQNHHHQw2nWctjjN7S9OPKuzMe9Z15/ln8jWvS+EFD
-         97Yboiwk9VldlU7cIql8tffsiaO+f2y1BkjAFBVu/zOdMg2TT+nW1KO07GUaqHFQuLvZ
-         WHhEpSM5NKrVBlI83wt7CSUTi9x9ef8d+og5ykW1qskx0jOPQ/VzKzjiV6yVd/Dc+QjO
-         473Q==
+        d=gmail.com; s=20230601; t=1753712423; x=1754317223; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bZbPgCBxEfjAABl7BFhrPe8nrXtS6lUGZ8fQixqxipg=;
+        b=fI60dUOYY+bIfnnZ1rzAIT3D9rlwswyauVzhnjeyFTS4zwY48U6IXIcj38sRqgpPga
+         usIOfD4tbHk9+WEZ34yh4UxsKFrvSgZKcSY9DOeJz8dX8Tq+T3QmBRZbdVT2bDQpZu0J
+         T3EG/kcrSjjCVMzBn2ib5wXYTL+1MFl/x5czBz0wRql8eseuolkWi6zeUKL14wVQuiBC
+         RAGsb5l/xQK8kxgcCqoqTljGXFfORCYHLF5564YSK/5v4CjJHE3okIWdNlgR0nPBUv7U
+         TxoxPHM8FQXrpqimSMsHUaKt8sZLEpQYcXb7/X/NVBNtMEAhXtAv6OfSDVNsBMs9ukBI
+         KwZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753712453; x=1754317253;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kwpHZPpXI0p0rDKtDHDqYa7tblu6wTfxnrUTp9ZaScY=;
-        b=DPFcAm8W+BO1GNQkaAmS6ecWkZIM17nbOVGHQs+ooqcPBqmXCjyCtA9BS0B3w/okYD
-         jV8txdaHWbDFnsvARVi6VAel77U9ereM6JEULsaR1+vMeVEZUmm+rYq7R2scRx+u9bT4
-         6rMMvZ4Vf/QSsiLQ+qJiDllW6jDCKdXK0dxCzU/9/wRP2armUS8kob8RyR8JyY67HIJS
-         iJA3MwQYAwtYyYR2HJWvN2BIJS98fxpwrYawfTpx+MAfFBl5+mSUo5of/BA1bBU2mvYk
-         21lO991gEhP8rem6p91n4U5nyDoKQCrK2awESwwPjJl5samoiIck8on8SJXqPUbyK6PH
-         re5g==
-X-Forwarded-Encrypted: i=1; AJvYcCWtaaRDql2/tp1kMMOUt6XHQzpod8Q/rCYJELn6dfSKQSzwX3JwH4Gq4agxM76J9ElR6yVU+QzAiO2gEQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTs2W3wHOg7mFSKPAEMEFpL6uQHP+DnEvuS9BVbyYYlEelxLap
-	b+hNcpNO/J1bXoP8zASrkc8bi2i4z9pY6E2x5BkZGVfrKpT8Bc3+DeocK6c91R/nnF6p0w==
-X-Gm-Gg: ASbGnct+/kHRAlODkbVU+66tt8v248KWNJv+mIwN9VE5qOrJAUgrRzzu9IPFWyatgVO
-	8b02cPLa/VXn3gIeMuBferdIokv2SR6Fd1MJLRYpir0y0G6ce6nzEv6QOIY1CzFQ3mgXUUf/0Zc
-	OAgubPoAMx9bTThvJpAKSRPWbiWUWnuiI//SED5WlVRxqAnnOJtejSn6V0AWx0PWYhBE5LdZk2x
-	OJA88SpZZp4JUQrWPAKnD0NcXjeMtLQyKuvW+a5XNi+FbUTb1mgkfMLitu9tI41zTrdypVd/om4
-	bN9kmuFgf/lpOPmKcjiJWcvNjkKmrXXchKmw7M9dNpSTig1Dv+gVlr9TfbM66h0+XS1AHEGbpOP
-	GKfNxeDsLssJfcEuRkENUDUBYYiLIZtWJ
-X-Google-Smtp-Source: AGHT+IGNkNTYdf6BLasYK8+uoS65PqFGHaWC/DpiGuyNp2KNVMbN6+x1bh6pNoVy9S9XOmC8dksPIw==
-X-Received: by 2002:a05:6a00:1a8c:b0:746:24c9:c92e with SMTP id d2e1a72fcca58-76332b4ffe8mr20182948b3a.8.1753712440665;
-        Mon, 28 Jul 2025 07:20:40 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1753712423; x=1754317223;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bZbPgCBxEfjAABl7BFhrPe8nrXtS6lUGZ8fQixqxipg=;
+        b=SqyKiPghchZoERVHff4r+mfldIhsZIUq4w3WLeSICjYL/MrxGCDc32vsgHxp4fLHBQ
+         NH61okLrci+DOyBlF4Q8yiFL5Cqnv/gi2oCqE9UFKNJ6CAjxVMRyLwJ89Hjti1pQ9VrW
+         7XxhsEZUXXipT0exypluKFJ213Lb3FXPWi2vcFubttq19DrTg3vQYbs0ZayT0rP4N1/S
+         N8I15gHlIYyx1QTyrSacC3/5q8Mhwy1iPRSnB+TC6NmRvuspIi/BWhE2BHU6HWHrTo6t
+         yIhQ9LjT05LFd/A7mIqJIpBVEzBkUE5igWJmRU5BZqckSbzPY+AJR7zW+MeJEpihrowM
+         gWtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU/q6g6M4bkn+MFrFzV1LPmlJuYNiNCS8jy6yxwHAh1INGU42QmSOQvZkdC138ovCOFeG19UipbFclgaA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU0PmqPd+wQGeg6xeRAVqdwfpv+KL18S3jPhJLPrgleghvYyP7
+	m0jr7dcMoDmOOVhjBqj14oWlC832yQw2BTB1nZ7mrR7MmvGAaGZk8dLe
+X-Gm-Gg: ASbGncvaGFF3q2p0ZkuTvoSXT6eZuAtCQtu86iVgvwAgfJm36cKP9ywPklEzG8EUhIn
+	Xp4xnDOWUBprXQTgmiMrhi/Ze8QaIlK/RuhqxVkRo0b8OrWeqyk4+7tyCqTa/gaMrX1NyHQaLYQ
+	NUvbBXMghruOZSjerO0/FEP23dTM0ItZB5FaffA4fjaVh3FHyCyBQDbc4WYiHU8f0efywrPIdH5
+	7Uwo1OE0G1e3cgSD8t/p9eFG16givk9xCzeU0FD09P4+gZ74g6IXcXTI8Sqa+pvKSWTfWTWo5SW
+	x3iXH59hqmbUuMVoLDIdtRML1S9S6jwxK6uXHK4+gZhP4+Y4jx0LsSXYBc+fmsZkcaYIdR8TyJ+
+	KOPeLTnf0YocU5f90cdOHHhkfH0AZ2ebB
+X-Google-Smtp-Source: AGHT+IHtegYM4BlLYXwS9tWAhPo7ODJPuXBsbqpjo4lyceFKEN4p/yLS5sVZ/sven5XQoNC9rK1+NA==
+X-Received: by 2002:a17:903:2054:b0:23f:f68b:fa0b with SMTP id d9443c01a7336-23ff68bfc5cmr57909205ad.37.1753712423167;
+        Mon, 28 Jul 2025 07:20:23 -0700 (PDT)
 Received: from localhost ([2408:8256:2284:4127:de49:6dc9:a446:157a])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-768faf4bb9asm893691b3a.132.2025.07.28.07.20.38
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-23ffa4bc557sm36791405ad.116.2025.07.28.07.20.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Jul 2025 07:20:40 -0700 (PDT)
+        Mon, 28 Jul 2025 07:20:22 -0700 (PDT)
 From: Troy Mitchell <troymitchell988@gmail.com>
 X-Google-Original-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Mon, 28 Jul 2025 22:20:16 +0800
-Subject: [PATCH v3 2/2] clk: spacemit: fix sspax_clk
+Subject: [PATCH v3 0/2] clk: spacemit: fix sspax_clk
+Date: Mon, 28 Jul 2025 22:20:14 +0800
+Message-Id: <20250728-k1-clk-i2s-v3-0-5d7579f02227@linux.spacemit.com>
 MIME-Version: 1.0
-Message-Id: <20250728-k1-clk-i2s-v3-2-5d7579f02227@linux.spacemit.com>
-References: <20250728-k1-clk-i2s-v3-0-5d7579f02227@linux.spacemit.com>
-In-Reply-To: <20250728-k1-clk-i2s-v3-0-5d7579f02227@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIAB6Hh2gC/03Myw6CMBCF4Vchs3YIHSCoK97DsIAylQmXkhYJh
+ vDuVuLC5X+S8+3g2Ql7uEc7OF7Fi51CpJcIdFdPT0ZpQwMllCeFKrBXqIcehTxyRgUZZW4qbyA
+ cZsdGthN7VKE78Yt179Ne6bv+GKJ/ZiVMkMyVW8NpWzdZOcj02mI/15pHWWJtR6iO4/gAm3zi8
+ 60AAAA=
+X-Change-ID: 20250717-k1-clk-i2s-e4272f1f915b
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
  Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>, 
@@ -89,16 +91,17 @@ Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
  Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
  Yao Zi <ziyao@disroot.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753712415; l=2875;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753712415; l=1761;
  i=troy.mitchell@linux.spacemit.com; s=20250712; h=from:subject:message-id;
- bh=uvU3LuSqoqO9vOKX5HTH0ipYicugJ67Oj+k5+VRnS3M=;
- b=RwJKdnLixQKy07JYdGH7iFd0nnjBb6RbhYTaUrhC1Qraje6WyuilaOhHmgkWSnYvZDzbRCoeZ
- d8+uAlhTgKBAJoi9L54Y7Y3XNDmjaIt5i8vUIYspoyyyo0431qObHps
+ bh=1PggnwSVufJ15eLoLiPtMJonLerZeCTUUrMLHt/MvWE=;
+ b=8/rLwSFmfnZFKcqahbV5wIBUuymvjJZLulCrEK4AJqVN8GYHfpSpUo+qbM/Du5QUrTG29NJ8b
+ ggVx5UlgBWuDTyPGviJ3GCGDdxHb5d8QjCYF9Y8HM990Ykcu7Pyhy3q
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
  pk=zhRP1xE0bftrurqSWI+SzcSdJGIZ0BTTY9Id0ESzqlI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_072054_448553_10A8E3CE 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20250728_072024_730347_A2538E64 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,72 +118,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hardware Requirement:
-When FNCLKSEL in APBC_SSPAX_CLK_RST is set to 7 (3'b111),
-BIT3 must be set to 1 for the SSPAx parent clock to be I2S_BCLK.
+In the SpacemiT public document, when the FNCLKSEL field of
+the APBC_SSPAX_CLK_RST register is 7 (3'b111),
+which is a reserved value. And BIT3 of the same register is
+a reserved bit.
 
-This patch introduces SSPAx_I2S_BCLK as a virtual gate to enable BIT3.
+But the documentation is incorrect. In reality, the value 7 (3'b111)
+of FNCLKSEL is not reserved. Instead, it indicates that i2s_bclk is
+selected as the parent clock. Similarly, bit 3 is not reserved either.
+When FNCLKSEL is set to 7, bit 3 determines whether i2s_bclk is actually
+enabled as the parent clock.
 
+In all other cases (i.e., when FNCLKSEL is not 7), bit 3 has no effect.
+
+Importantly, whenever FNCLKSEL is set to 7, bit 3 must also be set to 1,
+otherwise the selection of i2s_bclk becomes invalid.
+
+Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Suggested-by: Yao Zi <ziyao@disroot.org>
 ---
- drivers/clk/spacemit/ccu-k1.c | 25 +++++++++++++++++++++----
- 1 file changed, 21 insertions(+), 4 deletions(-)
+Changes in v3:
+  - Fixing ABI-breaking behavior
+  - Modify commit msgs
+  - Link to v2: https://lore.kernel.org/r/20250722-k1-clk-i2s-v2-0-2f8edfe3dab4@linux.spacemit.com
+---
+Changes in v2:
+  - Use virtual gate instead of new function for sspa
+  - Add Suggested-by tag: Yao Zi
+  - Add Fixes tag
+  - Link to v1: https://lore.kernel.org/all/20250718-k1-clk-i2s-v1-1-e92c10fd0f60@linux.spacemit.com/
 
-diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-index cdde37a0523537c2f436e481ae8d6ec5a581b87e..24a561499a7c11b6a661c026f0bd2fac28fe7b04 100644
---- a/drivers/clk/spacemit/ccu-k1.c
-+++ b/drivers/clk/spacemit/ccu-k1.c
-@@ -349,7 +349,10 @@ CCU_GATE_DEFINE(aib_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_AIB_CLK_RST, BIT(1),
- 
- CCU_GATE_DEFINE(onewire_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_ONEWIRE_CLK_RST, BIT(1), 0);
- 
--static const struct clk_parent_data sspa_parents[] = {
-+CCU_GATE_DEFINE(sspa0_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA0_CLK_RST, BIT(3), 0);
-+CCU_GATE_DEFINE(sspa1_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA1_CLK_RST, BIT(3), 0);
-+
-+static const struct clk_parent_data sspa0_parents[] = {
- 	CCU_PARENT_HW(pll1_d384_6p4),
- 	CCU_PARENT_HW(pll1_d192_12p8),
- 	CCU_PARENT_HW(pll1_d96_25p6),
-@@ -357,10 +360,22 @@ static const struct clk_parent_data sspa_parents[] = {
- 	CCU_PARENT_HW(pll1_d768_3p2),
- 	CCU_PARENT_HW(pll1_d1536_1p6),
- 	CCU_PARENT_HW(pll1_d3072_0p8),
--	CCU_PARENT_HW(i2s_bclk),
-+	CCU_PARENT_HW(sspa0_i2s_bclk),
- };
--CCU_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
--CCU_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-+CCU_MUX_GATE_DEFINE(sspa0_clk, sspa0_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
-+
-+static const struct clk_parent_data sspa1_parents[] = {
-+	CCU_PARENT_HW(pll1_d384_6p4),
-+	CCU_PARENT_HW(pll1_d192_12p8),
-+	CCU_PARENT_HW(pll1_d96_25p6),
-+	CCU_PARENT_HW(pll1_d48_51p2),
-+	CCU_PARENT_HW(pll1_d768_3p2),
-+	CCU_PARENT_HW(pll1_d1536_1p6),
-+	CCU_PARENT_HW(pll1_d3072_0p8),
-+	CCU_PARENT_HW(sspa1_i2s_bclk),
-+};
-+CCU_MUX_GATE_DEFINE(sspa1_clk, sspa1_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-+
- CCU_GATE_DEFINE(dro_clk, CCU_PARENT_HW(apb_clk), APBC_DRO_CLK_RST, BIT(1), 0);
- CCU_GATE_DEFINE(ir_clk, CCU_PARENT_HW(apb_clk), APBC_IR_CLK_RST, BIT(1), 0);
- CCU_GATE_DEFINE(tsen_clk, CCU_PARENT_HW(apb_clk), APBC_TSEN_CLK_RST, BIT(1), 0);
-@@ -965,6 +980,8 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
- 	[CLK_SSPA1_BUS]		= &sspa1_bus_clk.common.hw,
- 	[CLK_TSEN_BUS]		= &tsen_bus_clk.common.hw,
- 	[CLK_IPC_AP2AUD_BUS]	= &ipc_ap2aud_bus_clk.common.hw,
-+	[CLK_SSPA0_I2S_BCLK]	= &sspa0_i2s_bclk.common.hw,
-+	[CLK_SSPA1_I2S_BCLK]	= &sspa1_i2s_bclk.common.hw,
- };
- 
- static const struct spacemit_ccu_data k1_ccu_apbc_data = {
+---
+Troy Mitchell (2):
+      dt-bindings: clock: spacemit: CLK_SSPA_I2S_BCLK for SSPA
+      clk: spacemit: fix sspax_clk
 
+ drivers/clk/spacemit/ccu-k1.c                  | 25 +++++++++++++++++++++----
+ include/dt-bindings/clock/spacemit,k1-syscon.h |  2 ++
+ 2 files changed, 23 insertions(+), 4 deletions(-)
+---
+base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
+change-id: 20250717-k1-clk-i2s-e4272f1f915b
+
+Best regards,
 -- 
-2.50.0
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 
 _______________________________________________
