@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 532B3C83F26
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 17:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987DEC83F17
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 17:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yfPhQOOrmb/qJllidJb480VQYmdXAtAyz0ZuRSYsMbk=; b=ZVVnM9ATlb85yf
-	2N36hoLk77kz+t9yhDCi4auyECn8+/iJGePf728+7VQiP0dHLIKExuFEmSyl38jU+r3gUf4sw1EG4
-	7YcaOnwegT/4rz0rbIGPXN5HGBifQsAjSDZRm8uF4iD1xCUElw0fSEhBDilGZPbxPqW8Tv/QhYolG
-	ClqSQen9MoayRQcf7h/Xx17lJBap3qeOXdkYRYGSfa/OcqFdBdSI+7VWQhLe0LyWmEcLgjJ43Yjaj
-	ajTzi6+pyQEQ7wCf8zaAnD0uvQhKOP7ehPwoDtpqhJZ5wiUQC7SZLCVPSrRv4riAfC9EQAxmVqviT
-	SBGCRkXYGGBApduRVnWw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BdMaFcIV0ZSb0dpqOvB9qX98J2ffAVnBT8fzzLbEe3Y=; b=O2bRyPgLUat0WT
+	uglbFz8n8Eor+PgV0yFGBlvDyt96NH4GOvrT+rFh21Dkj5kWcLG2wg8SyqeVzst7Gvs6t7AAW2JmQ
+	tOaoq/3ZF+TYAj+smA1EYWd2khmgnVFhqdpYeoW3IadwiIuER2D4PUG6NS6JbV81TdWd4edrNFSJn
+	t4giHRiJvwRRa7qENnSM1tVXUBjoMT3dseMhDrnG3tOF7EExl4PuvfT4h6JKngFSwhIAEzyuS9MZR
+	xvHy3Nih+M1TPubXbrhAhiQ3rn29/LTZeJu5cs0fWuyrJTJ4jhCyeQxr/hnPMnftC09d1WlAURLs2
+	vf9qU/Tq5IMeDT6A9jiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugRaA-0000000F5ph-0Gmi;
-	Mon, 28 Jul 2025 17:24:14 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1ugRaK-0000000F5u4-3zVe;
+	Mon, 28 Jul 2025 17:24:24 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQb5-0000000Expa-2Z0A
+	id 1ugQnw-0000000EzTG-3YFK
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Jul 2025 16:21:08 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-55b50590cb2so4871251e87.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Jul 2025 09:21:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1753719666; x=1754324466; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BdcfVN+MxsrGTHCCym31hzeoZnEEz01BYzSO86n5f30=;
-        b=I8o0p7Xu4B7w4q8OR5Ivvg2bHXp9DHpCzPkDKWImDDVhMLHobEAJMz3DJ+5tqLTSFz
-         cSvm37ACp4e+y6K8AfpXye7r8vLWIKAIjvstGvf46HAuL574kkQ5GM9rgVieBdFSF0Sr
-         gsgq3a8TA3quQblpDch9oYPix8PPkd9Fundy3U1cmvzQ/boNL1Aql9UEIbQ0cSroHScd
-         Xm05Ax9K3SslookE5c6FEOcoRmSh52R7lIy2uoVDGFyTqSYTf2GjvN4tRdMpq7+ISVJp
-         MxeSqZEnGAA4Y6DMq9jVOEkf4svDd2xCHV8QgqWeLWbFgARGC15ExaPmWjB5OBjL3Vxp
-         TV7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753719666; x=1754324466;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BdcfVN+MxsrGTHCCym31hzeoZnEEz01BYzSO86n5f30=;
-        b=kl2HZ7hoaBe7ZX7nwDKx6xC+l4ymIW1v/u1n4SK3LDdEYB3ZKwlbfY3lFYImhB6EVC
-         ftomMhx3Tt4zu47D2L+tDG2/BjXYcaJcI8BmRiWIO02kZvrnK4MSnDUu9N9WNfwjbgfe
-         bjKNfzlxksIOskA2wGga0cNQe7jSgbMf+ft9MhkoNGonDkbsd1swEwvelpudEE1UaV4l
-         XCxAF1vMwVJyY8mtUBOWZeP0ScnHxd6dQb42iIzQh+rnZl7PiNyJsw/HUS8iQPxArXVf
-         WzX10N6QYxtdKzGIOwfUMFw7CgE9C3Lbm73uDGuRKkRay9+Vbrab+pZRsLRIslozkL1j
-         4ETQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV9XJ6885pdNQRVuaC5syl8/IE8rZwqbIOP/I5P2mzavkvPuUh3rJkQddXt1Mw4/kNOLQm7xe7ujcVl6Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YydJ/WwJYWsRopFipIRhG/q+mFRxRkQZp+JVndm82A7DTriUsnG
-	jJRbUC4T3KmFAai7pnTg/jZp9sTCM1k2NpX2IIYEiY8LTOba3BuOqmipmwqZqxwBytWbuoemdcW
-	SbR8PpBykz77iic34oNjwKTYSylU3EcxDEWGyMmcFXQ==
-X-Gm-Gg: ASbGncuSNXBe34FqFq6Nn0XjEesfg/OwbriZzYW+kp1UDiOqYnkQAJ8VISpU5QEpoP2
-	m+gNUUGiLFRwQGuIcnB0chkCC2LTs9cg1FaZQ+T7gROUfQTy6HYU+nGoGNIehAy2OhMqVLCqURv
-	0xWmuCZjVabLer7GsIVfPpG8ORLKUMvRuEFIk3F0PthZGh12TNaPR5t7qk22vYS4xNIiERb93e9
-	McRA80HVdHTb2Fh8Q==
-X-Google-Smtp-Source: AGHT+IHPLWkIq2Hzkwnhy9Ql1/JeVtlbcWB5zYvVu9QjQS7I5BuWgmz/R499rplid2VZ9bWvtdvBHjhnVq21Gaelowo=
-X-Received: by 2002:a05:6512:3c88:b0:556:2764:d1f7 with SMTP id
- 2adb3069b0e04-55b5f3d5c4dmr3655639e87.12.1753719665845; Mon, 28 Jul 2025
- 09:21:05 -0700 (PDT)
+	Mon, 28 Jul 2025 16:34:26 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1753720450;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=9DZ40mw5f4r8qDEbAiC1FxPXibecmQivptnjSUPtpzU=;
+	b=Cm49YhQNTV7t24fD6GzOYYX+7LnjWluptGbxRCgZm+zs9k4oY/VKp5YMynnm+DzsoJtDqv
+	+lXll7c8zzPw2z5MJ5dbXbcmibZcdrAsMh0tjAnSvQCsoxkjDydWzK4t6haVs/82FIAqIf
+	9aUxqx3nyadNxaeFv8HATVFJRMJgNwQ=
+From: Ze Huang <huang.ze@linux.dev>
+Subject: [PATCH v7 0/2] Add SpacemiT K1 USB3.0 host controller support
+Date: Tue, 29 Jul 2025 00:33:54 +0800
+Message-Id: <20250729-dwc3_generic-v7-0-5c791bba826f@linux.dev>
 MIME-Version: 1.0
-References: <CAAhSdy12xtRRem-AybfymGHh+sj4qSDDG0XL6M6as=cD5Y2tkA@mail.gmail.com>
- <CABgObfYEgf9mTLWByDJeqDT+2PukVn3x2S0gu4TZQP6u5dCtoQ@mail.gmail.com>
- <CAAhSdy3Jr1-8TVcEhiCUrc-DHQSTPE1RjF--marQPtcV6FPjJA@mail.gmail.com> <CABgObfaDkfUa+=Dthqx_ZFy418KLFkqy2+tKLaGEZmbZ6SbhBA@mail.gmail.com>
-In-Reply-To: <CABgObfaDkfUa+=Dthqx_ZFy418KLFkqy2+tKLaGEZmbZ6SbhBA@mail.gmail.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Mon, 28 Jul 2025 21:50:53 +0530
-X-Gm-Features: Ac12FXxd7LAtATGvK2Wpz-J7Et8u7nnsl8CdfP7VqiT2IgK5SUBwlBJP0RG-15Q
-Message-ID: <CAK9=C2VamSz4ySKc6JKjrLv9ugcTOONAL4+NmKAexoUgw7kP6w@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/riscv changes for 6.17
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>, 
-	Atish Patra <atish.patra@linux.dev>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+X-B4-Tracking: v=1; b=H4sIAHKmh2gC/22OQQ6CMBBFr0K6tqS0aQuuvIcxBqYjNBHQFiqGc
+ HcrbIhx+X/+ezMz8egsenJMZuIwWG/7LgZ9SAg0ZVcjtSZmwhmXTDNJzQvEtcYuYkBzw3guC80
+ 5CBKRh8ObnVbd+bJlh88xWoetJFXpkULftnY4JkGlmaIOMvIdN9YPvXuvrwS5rv9fDZIyWpgKp
+ MBSCsNPd9uNU2owrKKgdnDGf2AVYYBca6EBCqH28LIsH5IGkwwSAQAA
+X-Change-ID: 20250705-dwc3_generic-8d02859722c3
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Ze Huang <huang.ze@linux.dev>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753720444; l=3766;
+ i=huang.ze@linux.dev; s=20250705; h=from:subject:message-id;
+ bh=U5M21v1xG5FatHMRggmCXqdyme5ZWIYSo7u2Mcsyysg=;
+ b=yNi8pS+gywCkt85wg+CIQaRCAGH3hRRiVoWx6CF5ivOiZJB9F+ZG/8R3OSi9iKwCNw/8ymgeg
+ F26UoMwZAhgD4CV5BzOS8kj38Oe/vHaWUKj+vaxesTv33wUx8KqsNZI
+X-Developer-Key: i=huang.ze@linux.dev; a=ed25519;
+ pk=Kzc4PMu5PTo8eZZQ5xmTNL9jeXcQ9Wml0cs+vlQpBkg=
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_092107_651224_BDAC5BD4 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20250728_093425_181907_DFC3293D 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +78,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdWwgMjgsIDIwMjUgYXQgOTo0M+KAr1BNIFBhb2xvIEJvbnppbmkgPHBib256aW5p
-QHJlZGhhdC5jb20+IHdyb3RlOgo+Cj4gT24gTW9uLCBKdWwgMjgsIDIwMjUgYXQgNTo1NeKAr1BN
-IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+IHdyb3RlOgo+ID4KPiA+IE9uIE1vbiwg
-SnVsIDI4LCAyMDI1IGF0IDk6MjLigK9QTSBQYW9sbyBCb256aW5pIDxwYm9uemluaUByZWRoYXQu
-Y29tPiB3cm90ZToKPiA+ID4KPiA+ID4gT24gRnJpLCBKdWwgMjUsIDIwMjUgYXQgMjowNuKAr1BN
-IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+IHdyb3RlOgo+ID4gPiA+ICAgICAgIFJJ
-U0MtVjogcGVyZi9rdm06IEFkZCByZXBvcnRpbmcgb2YgaW50ZXJydXB0IGV2ZW50cwo+ID4gPgo+
-ID4gPiBTb21ldGhpbmcgaGVyZSBhdGUgUXVhbiBaaG91J3MgU2lnbmVkLW9mZi1ieSBsaW5lLCB3
-aGljaCBpcyBwcmVzZW50IGF0Cj4gPiA+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvOTY5MzEz
-MmRmNGQwZjg1N2I4YmUzYTc1NzUwYzM2YjQwMjEzZmNjMC4xNzI2MjExNjMyLmdpdC56aG91cXVh
-bkBpc2Nhcy5hYy5jbgo+ID4gPiBidXQgbm90IGluIHlvdXIgYnJhbmNoLgo+ID4KPiA+IFRoZXJl
-IHdlcmUgY291cGxlIG9mICItLS0iIGxpbmVzIGluIHBhdGNoIGRlc2NyaXB0aW9uIHdoaWNoCj4g
-PiBjcmVhdGVkIHByb2JsZW1zIGZvciBtZSBzbyBJIHRyaWVkIGZpeGluZyBtYW51YWxseSBhbmQK
-PiA+IGFjY2lkZW50YWxseSBhdGUgU2lnbmVkLW9mZi1ieS4KPiA+Cj4gPiBTb3JyeSBhYm91dCB0
-aGF0Lgo+Cj4gTm8gcHJvYmxlbS4gQW5vdGhlciAoYW5kIG1vcmUgaW1wb3J0YW50KSBxdWVzdGlv
-biwgZm9yIFNCSSBGV0ZUIEkKPiBkb24ndCBzZWUgYW55IHdheSBmb3IgdXNlcnNwYWNlIHRvIDEp
-IHBpY2sgd2hpY2ggZmVhdHVyZXMgYXJlCj4gYXZhaWxhYmxlIDIpIHJldHJpZXZlIHRoZSBzdGF0
-ZSBhbmQgcHV0IGl0IGJhY2sgaW50byBLVk0uIEFtIEkgbWlzc2luZwo+IHNvbWV0aGluZz8KCkN1
-cnJlbnRseSwgdXNlcnNwYWNlIG9ubHkgaGFzIGEgd2F5IHRvIGVuYWJsZS9kaXNhYmxlIHRoZSBl
-bnRpcmUKU0JJIEZXRlQgZXh0ZW5zaW9uLiBXZSBkZWZpbml0ZWx5IG5lZWQgdG8gZXh0ZW5kIE9O
-RV9SRUcKaW50ZXJmYWNlIHRvIGFsbG93IHVzZXJzcGFjZSBzYXZlL3Jlc3RvcmUgU0JJIEZXRlQg
-c3RhdGUuIEkgYW0Kc3VyZSB0aGlzIHdpbGwgaGFwcGVuIHByZXR0eSBzb29uIChwcm9iYWJseSBu
-ZXh0IG1lcmdlIHdpbmRvdykuCgpBdCB0aGUgbW9tZW50LCBJIGFtIG5vdCBzdXJlIHdoZXRoZXIg
-dXNlcnNwYWNlIGFsc28gbmVlZHMgYQp3YXkgdG8gZW5hYmxlL2Rpc2FibGUgaW5kaXZpZHVhbCBm
-ZWF0dXJlcyBvZiBTQkkgRldGVCBleHRlbnNpb24uCldoYXQgZG8geW91IHRoaW5rID8KClJlZ2Fy
-ZHMsCkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The USB 3.0 controller found in the SpacemiT K1 SoC[1] supports both USB3.0
+Host and USB2.0 Dual-Role Device (DRD). 
+
+This controller is compatible with DesignWare Core USB 3 (DWC3) driver.
+However, constraints in the `snps,dwc3` bindings limit the ability to describe
+hardware-specific features in a clean and maintainable way. While
+`dwc3-of-simple` still serves as a glue layer for many platforms, it requires a
+split device tree node structure, which is less desirable in newer platforms.
+
+To promote a transition toward a flattened `dwc` node structure, this series
+introduces `dwc3-generic-plat`, building upon prior efforts that exposed the
+DWC3 core driver [2].
+
+The device tree support for SpacemiT K1 will be submitted separately when the
+associated PHY driver is ready.
+
+This series is based on 6.16-rc1 and has been tested on BananaPi development
+boards.
+
+Link: https://developer.spacemit.com/documentation?token=AjHDwrW78igAAEkiHracBI9HnTb [1]
+Link: https://lore.kernel.org/all/20250414-dwc3-refactor-v7-3-f015b358722d@oss.qualcomm.com [2]
+
+Signed-off-by: Ze Huang <huang.ze@linux.dev>
+---
+Changes in v7:
+- dt-bindings:
+  - add reset-names and reset-delay properties
+  - add pcie0 entry in resets for combphy init
+- dwc3 generic plat driver:
+  - drop clock cleanup and handle with devm_clk_bulk_get_all_enabled()
+  - move devm reset action after successful de-assert
+- Link to v6: https://lore.kernel.org/r/20250712-dwc3_generic-v6-0-cc87737cc936@linux.dev
+
+Changes in v6:
+- replace SET_RUNTIME_PM_OPS/SET_SYSTEM_SLEEP_PM_OPS with RUNTIME_PM_OPS/SYSTEM_SLEEP_PM_OPS
+- Link to v5: https://lore.kernel.org/r/20250705-dwc3_generic-v5-0-9dbc53ea53d2@linux.dev
+
+Changes in v5:
+- drop DTS patch (will submit when PHY driver is ready)
+- drop interconnects and update resets property in dt-bindings
+- remove unnecessary __maybe_unused attribute and PM guards
+- switch to devres APIs for reset and clock management
+- Link to v4: https://lore.kernel.org/all/20250526-b4-k1-dwc3-v3-v4-0-63e4e525e5cb@whut.edu.cn/
+
+Changes in v4:
+- dt-bindings spacemit,k1-dwc:
+  - reorder properties
+  - add properties of phys & phy-names
+  - add usb hub nodes in example dt
+- add support for spacemit,k1-mbus
+- dwc3 generic plat driver:
+  - rename dwc3-common.c to dwc3-generic-plat.c
+  - use SYSTEM_SLEEP_PM_OPS macros and drop PM guards
+- dts:
+  - reorder dts properties of usb dwc3 node
+  - move "dr_mode" of dwc3 from dtsi to dts
+- Link to v3: https://lore.kernel.org/r/20250518-b4-k1-dwc3-v3-v3-0-7609c8baa2a6@whut.edu.cn
+
+Changes in v3:
+- introduce dwc3-common for generic dwc3 hardware
+- fix warnings in usb host dt-bindings
+- fix errors in dts
+- Link to v2: https://lore.kernel.org/r/20250428-b4-k1-dwc3-v2-v1-0-7cb061abd619@whut.edu.cn
+
+Changes in v2:
+- dt-bindings:
+  - add missing 'maxItems'
+  - remove 'status' property in exmaple
+  - fold dwc3 node into parent
+- drop dwc3 glue driver and use snps,dwc3 driver directly
+- rename dts nodes and reorder properties to fit coding style
+- Link to v1: https://lore.kernel.org/all/20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn
+
+---
+Ze Huang (2):
+      dt-bindings: usb: dwc3: add support for SpacemiT K1
+      usb: dwc3: add generic driver to support flattened
+
+ .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 124 +++++++++++++++
+ drivers/usb/dwc3/Kconfig                           |  11 ++
+ drivers/usb/dwc3/Makefile                          |   1 +
+ drivers/usb/dwc3/dwc3-generic-plat.c               | 167 +++++++++++++++++++++
+ 4 files changed, 303 insertions(+)
+---
+base-commit: d9946fe286439c2aeaa7953b8c316efe5b83d515
+change-id: 20250705-dwc3_generic-8d02859722c3
+
+Best regards,
+-- 
+Ze Huang <huang.ze@linux.dev>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
