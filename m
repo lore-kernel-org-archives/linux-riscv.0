@@ -4,113 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1408BC83F17
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 13:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B045C87FCB
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 14:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oOp4nrdz+f4fK99MLZklHroBsDE4oK89zq13lLE6r7U=; b=rl//CiipOtr28r
-	ZV+dxsKTKmz/VVuiU6G7SYRi54wvVbD7QybdO7BgULxOgiUCW1l+SrK0CsOiEbuouXpjf8P0mquQA
-	0F4mX+6zy/6Uh7q8DNcwfqGsa9DF1eAcxxljLsMWkuV5hWNyREZrbXVTuEP2O2+sZepJXYVAs/HjA
-	lyY8Az3NVLSy9W+HprgHIDstBGzWpTzQ8b2QT8dGTQ/8AojuBuXsTYg4xMW3ak2+0ZmnI+yQFFSab
-	xGWikR3Cy6F5kjMzHM+eupC+SSWR3VoIuvF47FY3971+NSMTw+BqaXAMBfRutS1F7WocP+TwwNxZC
-	cP3ZLQqlMlmwyhKX4+lQ==;
+	List-Owner; bh=ZvZ46h5X8hE16pRWYyYIGOCsGCORXnD8nZWWzq9pgjg=; b=n7sECGrUfnd2eR
+	KJhVvVBvNqObF57/Et/ntnJkvq532eoORkflu9sEWruqb9VFN5P8wWuP/bSyVRvIAnbdPe8QRVyoH
+	riXf3mTUNJdoGZxMube0Myn2SYlqHsZ6jqgU8qYllzP9jejapvjeaN3OVA+9akMEVnJqygRHlbCCN
+	pIsLMiicI34JYeD2dUObhxf6Mk8hRsKJ7h+zN2zSMsNZCJxDRG7EoysYkq/zBbCLdA+gAufNoYvcu
+	9iiLGCSOr7+3Zycqhn8/gWxfIf/TAE1qAMD55BMMzFCZTSLAXz3Ml11h0PVWW4TQSvH0qzmLhsSg9
+	zoPapgbNpOzk/CT5FsEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugNe7-0000000EUoM-1bST;
-	Mon, 28 Jul 2025 13:12:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ugOpQ-0000000EfrN-0b9y;
+	Mon, 28 Jul 2025 14:27:48 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugNe4-0000000EUny-3tiI
+	id 1ugOiO-0000000Eerm-3FtR
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Jul 2025 13:12:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 41D5F40BE5;
-	Mon, 28 Jul 2025 13:12:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 037ECC4CEE7;
-	Mon, 28 Jul 2025 13:11:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753708320;
-	bh=8QWAdeHIt9M2n7ruuCEiOLK67C47ocnzQTIsLBKfIww=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rNF7/bxt5n1URYAUxKyo7pKgEav0xCj90A3q1M3Emob6/sejttWgqoFwrv9DtdHmo
-	 hRHcQd347bxQG0uXGoJJEcoW2SfbOdeV3WcL34e20sZXUBWLbRhzo2qY2ISXOq/KDr
-	 NPDVJumpVI8+ClU80NQlO8CfJKzWPr/QQGOzuPFA3sEdzkcyF/UgXKli9RHxEX78WZ
-	 CQlPOSizJi6ZMRyHEmMDihy+1kyVEberbO3eJTkoRXK+VI1I9nwgh723zZ82n5oFKG
-	 ajZ8jMWifKoUmoK1BzT25Gq7KC/goEiz9nXXxM3tcewSNzQXt4i9YcfNJDRKeHHLmP
-	 jTQZoAOVjoY2Q==
-Message-ID: <3864e374-b045-4317-85bf-ec3a2d3d7940@kernel.org>
-Date: Mon, 28 Jul 2025 15:11:54 +0200
+	Mon, 28 Jul 2025 14:20:33 +0000
+Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-75ce8f8a3a1so2588143b3a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Jul 2025 07:20:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753712432; x=1754317232; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9fCuuegqOgh7yiTp50CPz7MDoO4s4zlMG+vfGbQq2dc=;
+        b=jZtq5NUYWXtlc2ZeTs57slzKin/70KUVnJdQBuJ0QkuinDje+PlyeWaALsBz3wUkJM
+         t2pNsxI3SKrCeBnLhzwp4lxHoFgdf96VU/BGAa/pQ2cBQ1BWe2jVtFcYgZjXTx/TCndM
+         EsRPZf6MCVOl9F4RkHtaBL6qiPsavjhyIgpR6M7XCAUwNO3ocwv5vW7p/Rh7s/eYsGsP
+         AJ5Jt+/LCKrJm9E0VbpWhbU5fLi+Ta1QEVSFkBaxs87F1lWQsZfz/wn/YBlvnCZuMsPh
+         y0eXjdnFDP1qDr2zCJhWP6SGCP0ENy+0u9nWPKGu8K7Y1vqZnCHPvfSf7tJL+79Ss8DA
+         mjBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753712432; x=1754317232;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9fCuuegqOgh7yiTp50CPz7MDoO4s4zlMG+vfGbQq2dc=;
+        b=SRyJr4MwQ9CZ7CcWA0iWG5s12sKHmUbkmKAH54325jihdXHLlbP2DpvSBpeajqpyuT
+         yrH9NH5rFA3XkYEaC71fPm9VpC9DblXiOi5cXr8J5DBZQyuKtHcE0ww0Lt/+RuhLeyya
+         dgMAXq8/zZwhU8Xt5D5gcqYTkthKB7sKUWkKLOP7qXCDSeE/0KSEnrca+hc6jzbh4HV7
+         nk5RMpQ5S2uEswlfuZeqHoMBRPnBOZIftuqhOBDVdOHQyrMGlfT9lenw06wFzqcRHfDC
+         BKXNyW8F6o36GupUBGz9cgTBGK5flk+EWgWRA8uksJRI6Oh3aDCS6rolqiSOSHQMUf2H
+         4TJw==
+X-Forwarded-Encrypted: i=1; AJvYcCWYVcWkNpNWjf0fGf0tl1s8HxFHGI3qvMR9xvrKiKjpWwB1G4T48hP6Mr87kIdVHaXXijPMNIQlG0WIPg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxgb6ekYgeoG/19K6ceYE9g1yRJtEc3XwiM2BNhJQP/GCdHEa7a
+	ECPU2bHoLf0Auz1TiMS3xcF9ARLDGqghdDmru6dZk4N6kx8czySp7EP0
+X-Gm-Gg: ASbGncvE4mDH5CrdChHzRKYAd0uNZ9iLE+QkwfNXo/t7fdKUCNPtVJrdGIgsBZXqxXd
+	uC8EiUosO1EtmVdSRosOMgQ0y+h+YIw+V7exPI0168Y0FlK+kwhmL48L62hPHW7nUwaJdca8S3o
+	P/RKSPd6ELU9T+WyEVVSzfz0LQdz7OyAGzNHc7xqTH348A8P5qdmtAz/jP6aWe9wp+aohJS0Ril
+	/YUmnI83geee/S7tpR4Yn07AePS5cfwGnp+jtyWahSAFlmhgd8OHWTxEjWWvpjd/HAwIhY4St+7
+	MhlFkSqwKLn/krnO2AV59YBcQ2rABzXPX7Vog0YHk8htaIBxMY32llBzPjfLHkLktItnaJhv1xY
+	uJE51Kol47wzbyzL+GsYhqb+MHKHNqtVi
+X-Google-Smtp-Source: AGHT+IEObfYk/Wz6SuT7jPbvRWcLuE1W9sEClVf+JDsYA2szDPxZRsKWqL3+hYUXv4qBE7HxdUFs+g==
+X-Received: by 2002:a05:6a00:4fcf:b0:749:4fd7:3513 with SMTP id d2e1a72fcca58-763389ac8ddmr17218955b3a.16.1753712431742;
+        Mon, 28 Jul 2025 07:20:31 -0700 (PDT)
+Received: from localhost ([2408:8256:2284:4127:de49:6dc9:a446:157a])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-76408feb725sm5638582b3a.60.2025.07.28.07.20.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Jul 2025 07:20:31 -0700 (PDT)
+From: Troy Mitchell <troymitchell988@gmail.com>
+X-Google-Original-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Mon, 28 Jul 2025 22:20:15 +0800
+Subject: [PATCH v3 1/2] dt-bindings: clock: spacemit: CLK_SSPA_I2S_BCLK for
+ SSPA
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: remoteproc: Add C906L rproc for
- Sophgo CV1800B SoC
-To: Junhui Liu <junhui.liu@pigmoral.tech>,
- Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto <inochiama@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
- sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20250728-cv1800-rproc-v2-0-5bbee4abe9dc@pigmoral.tech>
- <20250728-cv1800-rproc-v2-1-5bbee4abe9dc@pigmoral.tech>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250728-cv1800-rproc-v2-1-5bbee4abe9dc@pigmoral.tech>
+Message-Id: <20250728-k1-clk-i2s-v3-1-5d7579f02227@linux.spacemit.com>
+References: <20250728-k1-clk-i2s-v3-0-5d7579f02227@linux.spacemit.com>
+In-Reply-To: <20250728-k1-clk-i2s-v3-0-5d7579f02227@linux.spacemit.com>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>, 
+ Inochi Amaoto <inochiama@outlook.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753712415; l=860;
+ i=troy.mitchell@linux.spacemit.com; s=20250712; h=from:subject:message-id;
+ bh=PxJJD5BdYiecz3+HAlAUv0mqXDsb9508pUsTSJAhu14=;
+ b=AR0VW6KLcEEQ1zKFa+FXIaRCpIsXGTDIiSgdsPRiKOVyzjaJvdb7zMJtedM2MZ2oc3qcz5rlq
+ kuoNFsP3bN4DgKsQQIamO7iA44EY3wLztWmhbxcN0QtEPsV+5GMDkBb
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=zhRP1xE0bftrurqSWI+SzcSdJGIZ0BTTY9Id0ESzqlI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_061201_013898_25E38B8D 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20250728_072032_820003_FE9784E6 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,80 +116,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28/07/2025 13:03, Junhui Liu wrote:
-> +
-> +  firmware-name:
-> +    maxItems: 1
-> +
-> +  mbox-names:
-> +    items:
-> +      - const: tx
-> +      - const: rx
-> +
-> +  mboxes:
+In order to use the virtual clock SSPAx_I2S_BCLK in the device tree and
+register it in the driver, this patch introduces the macro definition.
 
-First go mboxes, then mboxes-names. ALWAYS.
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+ include/dt-bindings/clock/spacemit,k1-syscon.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> +    description:
-> +      This property is required only if the rpmsg/virtio functionality is used.
-> +      (see mailbox/sophgo,cv1800b-mailbox.yaml)
-> +    items:
-> +      - description: mailbox channel to send data to C906L
-> +      - description: mailbox channel to receive data from C906L
-> +
-> +  memory-region:
-> +    description:
-> +      List of phandles to reserved memory regions used by the remote processor.
-> +      The first region is required and provides the firmware region for the
-> +      remote processor. The following regions (vdev buffer, vrings) are optional
-> +      and are only required if rpmsg/virtio functionality is used.
-> +    minItems: 1
+diff --git a/include/dt-bindings/clock/spacemit,k1-syscon.h b/include/dt-bindings/clock/spacemit,k1-syscon.h
+index 35968ae98246609c889eb4a7d08b4ff7360de53b..9be578953d71e79e93eb10eaa35b47b97812e826 100644
+--- a/include/dt-bindings/clock/spacemit,k1-syscon.h
++++ b/include/dt-bindings/clock/spacemit,k1-syscon.h
+@@ -179,6 +179,8 @@
+ #define CLK_SSPA1_BUS		97
+ #define CLK_TSEN_BUS		98
+ #define CLK_IPC_AP2AUD_BUS	99
++#define CLK_SSPA0_I2S_BCLK	100
++#define CLK_SSPA1_I2S_BCLK	101
+ 
+ /* APMU clocks */
+ #define CLK_CCI550		0
 
-Why isn't this constrained?
+-- 
+2.50.0
 
-> +    items:
-> +      - description: firmware region
-> +      - description: vdev buffer
-> +      - description: vring0
-> +      - description: vring1
-> +    additionalItems: true
-
-No, drop. This needs to be constrained.
-
-
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  sophgo,syscon:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      A phandle to the SEC_SYS region, used for configuration of the remote
-> +      processor.
-> +
-> +required:
-> +  - compatible
-> +  - firmware-name
-> +  - memory-region
-> +  - resets
-> +  - sophgo,syscon
-
-Why mboxes are not required?
-
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    c906l-rproc {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
