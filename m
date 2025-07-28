@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852E1C83F17
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 09:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14815C87FCE
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 09:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1+/7n2Oz4l3An3R23NNYONJVQv7tTIr3roLhxP9cuxY=; b=mwsfpYmXlC/pFs
-	3lhAky3FTTgRKRkKtgchYa8TunlXAUBplYRKQTEUBtO64dLCj2cTtQ346yLCoQUOSbKG9IVIdDQdG
-	V/wtQEIrfAZIJMojtspS91/RbfDTCtCk+bzZmX3x09NZSDEKPZW1e6/YefutevkQ6/EpFzyuz6EfF
-	Qv1AUNAUI3BquiTiAgY1vkuKopg3StkrS6B6c2tawquPFbckmge9L9Z+85IIANSrtEMmLbAWll29F
-	T/7Rk4odtR1LgVVg1wd+anolSXS1kPbdLJP6PpoEEsSzsGWY3lmErhdI3qicHWCICJ+fRVJuGZLkR
-	fDSchuI7EeS7sb0n7PcA==;
+	List-Owner; bh=vpOBTHZjHMT5e3JaiPjdgimttRug4OQn92MCAspwfhQ=; b=P8PazPJ8fyrsJ5
+	6AYOsRHccV0oJqKSNK+8RS7G1tf6t5UUUyWEsvo2+/i9YYgX2i/rnZSwi5CJSmk+ZmNzog/vwyFyx
+	gjOJFV0Y+tsvGX9Axi0rXwc7Tp26SkSmWPJQeaYBF9KulzxsaL5n2dZV/uSDXgjAk5u2Vg0O6fV56
+	wT3KdthItrJEvauVTeqhKavikgLEyexEM0dRseA3ElPat63/EBQswk3GnSR6gda7o7+wbMHqObD/h
+	Ovxo37NPoDkTYrs61D3V821czKrmTq3+ABFALtlJO8UG9aA/87f0oziPNZZmgzn6/f49KDSeil8DL
+	vSjmCE3aWoMcfwtmrO1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKOf-0000000E8n8-2WWd;
-	Mon, 28 Jul 2025 09:43:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ugKP3-0000000E8vb-1MwD;
+	Mon, 28 Jul 2025 09:44:17 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKOe-0000000E8mr-0msB
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 28 Jul 2025 09:43:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=yiu9LW4OQPcl48oQrH2DU+mLfm2FHbXqcRasNtW9C8A=; b=CBquAO8VXd1mSKAG/7kvRCWwYQ
-	pT8w3l6dRs9tS3xKTZaavrz142oahoWs1lE8K6NegpOiCCauj0TnwKgvfDlNQGZLGBposvWHjKgLW
-	nALb42keOC4cn1WCcCeMm4yRqukOm0RDJU6b+zdEOAotsPi/Eh6HFWL+G6O4Wm8iLLSRlGTE0PD5a
-	FFN6AX/M1AiSfgSX4wzqIsONG9J848uAce+Mw3fIQ7lyuoRznijUkJVci2ELCwP4NtbFq+2tSYhjD
-	G4y/neEJa5Zk9c8RQ4lQasMpicREYTaSLEvG018W7gvUDUbU1mKvG+SkOP3JxB1OWKAwKvFrPBent
-	VTu+D2Gg==;
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKOZ-0000000CPlS-1K6d
+	id 1ugKP1-0000000E8uQ-0JCI
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Jul 2025 09:43:50 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2403df11a2aso3730475ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Jul 2025 02:43:46 -0700 (PDT)
+	Mon, 28 Jul 2025 09:44:16 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-31ecd40352fso760423a91.2
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Jul 2025 02:44:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1753695825; x=1754300625; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1753695854; x=1754300654; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yiu9LW4OQPcl48oQrH2DU+mLfm2FHbXqcRasNtW9C8A=;
-        b=HBD975W3uPJJDwZYkUuzG17EFz2cEdPcu+xcciuVygFLDon4Lm+qVV955f7Z3yfMdg
-         Mmbucj+L++XrVwfN8nQSfrAHdllNPmWjUYwpFBAt+Zc0M9n99ko/mX3LnihvxCNFUJu8
-         np1ss+cGUcid6d0PnWPprQhrqw0F5SCBIa2bwXVOdUON9Sjo46PQbfbjjXVVTkJQG/4B
-         7Z6Un0HTDIb71lqXsk5KqJQDdGgRqbj2ICwS/pHDoIpB0iRTf6fC04PG1Z55yDkyLU34
-         0GwapHJJfJnxMgJC4H0XzUKYrMwSFQXXUZ6T6/XBGmhyvioCVmW92rURf8qEOe/wsPEC
-         eeAw==
+        bh=qFaQ5Zs1hbK8MQOtKnNrpZ/cBeXTMcFHCuSD6j9WtSo=;
+        b=b6FUvwBozlENLgaDCO2dbb4Bt2Kuwuv/o3MdsUGEXu/xTY4inqCz2hjovSf8JcwzyC
+         VgIFJMb0zBemHvxK4aYH92uEZDaAnXausIOaRHlwjUAWwRU5QZ3VqRsMY7BZBLcT0W+q
+         pNQUoOaRJfC+msUk8wXX4CkMC5jdhj8tgEjdvo7NKuScweeMV1f2I0nSOlBf5c79B/ep
+         DXY/hveeDsQoOu8slXZGKl9ZPZQdxLwT/EdApujn46/qykfnHhAv55GircM/jkHSs9Ci
+         ++34RMYqEcVuCQ7kFOuyZ8WiAvI508u+ufPdL026PM/ijwo/c5g6gjMHh6RPsA04qPyY
+         dHsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753695825; x=1754300625;
+        d=1e100.net; s=20230601; t=1753695854; x=1754300654;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yiu9LW4OQPcl48oQrH2DU+mLfm2FHbXqcRasNtW9C8A=;
-        b=T7mrH0x84ldrgsHCUNf2Xm+/icrpLDsY0clwvIaAGraSnoOpdxF+7ucjIaHbq6dwiJ
-         vArlVCNHiAsbxUQduGYBM74bZWcVuDk4jkod4tA742wOe4KnNc/c34ayJlD2N7OE4o3l
-         DY6ijPvEPUTwn8OFtjnaKdJ9mnJoHaT85L0UGV4kRJWGWGMLkdVoTgoRpa6BMWhfdqhC
-         +mFMCOo3bR9p5xvjgkyYw5x3EMW+7xdEMJ2xEib5X+IgCwlFzu6e5/BU4hXwVO7T/IJ0
-         B7nfg5brt63stxZN4P5PI+9EmcdeVc4HRlEf9BU2D4HQmfOJWf6gN1mxJjZYZlWqy+Dg
-         1YDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUruuFAcqTybDlhk8dUzEVTfEVgI0tA0Vcqf5oW6WqQlpND0OpkVmUXDj/Q2DJ2ouJas1Pfoa+Oufz3jA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqtIbqJ1MSZ+jdy564pJkJRh/j7U6kvfxpFSLgKoYi/E0nFFC9
-	eg55CdPPevWRWjgW+lMYvkO/IFk+fqj7jTvTCErHdpWitILyhOv3eQNrzGA9lghnbJE=
-X-Gm-Gg: ASbGncsxrXszEYzDL7bUsJGJokFG8Lyg/JP+o9JM1IkwlqN703PC1Do03052BV+rHDD
-	xzDutKaaL45JC/D3Jhf84ztGhZMsPg4FzpUEe3OpZnG+BVSVyCtIi3lgAx1RUu/gnzyidwwV9EH
-	wbfmQT12+fOfeodwWMawXzXKVP6DvpTNhyyqFN+UyIbB8tHjC7ENsfIAT+cpWReQTxYtCgf1Y+k
-	2GIsOY1LkfZX4ct/zsedMMkfXM+9c4GjD/FR3gXij+md7nhXpOENurs8mySYOEcz06j0TAAGnxc
-	IWndC+uO1w3o0uNDMNGa+Ot37Uo7Sm/ed9/tUY8YZsIeUe7B88Au1K60CmINh83ZHsfWITDKQu4
-	slMaCCeaYAc5lqLZ6ZLhmyvW+AlgleA+9kdbskCbZw1L4fe+t+NMsldYOr33j
-X-Google-Smtp-Source: AGHT+IFS53uLoHppmjznOMdJcZkAmiTSfCzfdzzbbuX7HdvnQYvfyEZtYQl8EZXF/rrU4jEX1LYO1A==
-X-Received: by 2002:a17:902:e887:b0:234:bfcb:5bfa with SMTP id d9443c01a7336-23fb302a71amr154565295ad.15.1753695825111;
-        Mon, 28 Jul 2025 02:43:45 -0700 (PDT)
+        bh=qFaQ5Zs1hbK8MQOtKnNrpZ/cBeXTMcFHCuSD6j9WtSo=;
+        b=DtJ5mzU71qfUxE1DT+JtfNi3dnGaUuaEIdlo0wqc2k+pvzKejIT0EwcIHbPgAVabYo
+         X6DHR0a9x5LBBdrESqns9vOLRKWtVeJBql90PI7U4lL1Q0SvxY+Q3HNTqG9ceFsYO6UZ
+         fmKWRp9KN7SvmFnoXgC7NnktntgER7w9VMxo9HaFGAfEq1sB6RNMs6eEyfKLvUD4W09X
+         MVyR6ftz08xlr0tfSW1dHssv76tqNKBNwxOFY98inuzvE96m+kvrn/mi3btU7KeE8Qgu
+         76T2teLppsXXyWcH2g37abksorWVLXftSYfxAoOk4veK+9JOvVJ8Lxe1hZ6hFRQw4Ptw
+         drBg==
+X-Forwarded-Encrypted: i=1; AJvYcCUnkd5msAYz9029ZB5ACJWzzRwvph+Ug2kteLvwJ2M83spgf+EeaXEnnsVA/fEV1PEBtCgRUX1wPxMyDw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSh+32a+VQN2KgcAlEP37DYDNg32YMN37dRQZ2IJQeVUUhaRT0
+	QAt6vv308PeAKItlSmZ6SCzPubTzJa7hRRiBoR5Wsu9SYT/mYJAB48K9uebRPbsEnVc=
+X-Gm-Gg: ASbGncsFJQCUvnvjzGIBr6VTiewxr6LTDLK2/L11L7gZQ4b18DI7p8v+UBILY9RgWkc
+	LlgcUdPcknWrQdbMZxgJ67kSu9st1DnmcrfpQcGu7/7thBWDyqxV2R5dt1Yh0kaRA6WiuMosAM9
+	pKn+Nu1KVtsDj54mMy+ms7mpDUff0Vv7etpw9aVx56px0+WA+boAE53KedDVeKDlZFYD8O96sAW
+	sqroQM+DJU2S7F9befy2bEB0c7y2+d4D9Pr7sObf8+L2UJ74eaTUGPSArb6Bcz67/CyzPXizs9c
+	nibjH7VUyEiaCv43/k7rXZ71q5580ZxfQk4QTODvd+gRDd8sbJuO3ayKKITGz6g7Cu68SpXnA8O
+	8joOMjYN4HEhaU2aMbSWuzG59m7tJxKc61Lo1XS1esiYy5hrigwu9L0s5LloO
+X-Google-Smtp-Source: AGHT+IEfvIXwwRB8WyRBePKuANG8ztg+Nz4wcFNvlvu8SORbpxtGlBUAzzVaiaDoPOX1mWYxV1I/1Q==
+X-Received: by 2002:a17:90b:35cb:b0:313:283e:e881 with SMTP id 98e67ed59e1d1-31e7785efe2mr17685144a91.11.1753695854107;
+        Mon, 28 Jul 2025 02:44:14 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([122.171.19.28])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e832fbf99sm5396230a91.1.2025.07.28.02.43.35
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e832fbf99sm5396230a91.1.2025.07.28.02.44.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Jul 2025 02:43:44 -0700 (PDT)
+        Mon, 28 Jul 2025 02:44:13 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -98,16 +83,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v9 17/24] ACPI: RISC-V: Create interrupt controller list in sorted order
-Date: Mon, 28 Jul 2025 15:10:25 +0530
-Message-ID: <20250728094032.63545-18-apatel@ventanamicro.com>
+Subject: [PATCH v9 20/24] irqchip/irq-riscv-imsic-early: Export imsic_acpi_get_fwnode()
+Date: Mon, 28 Jul 2025 15:10:28 +0530
+Message-ID: <20250728094032.63545-21-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250728094032.63545-1-apatel@ventanamicro.com>
 References: <20250728094032.63545-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_104348_412916_390E4DD6 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20250728_024415_113131_0604D532 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,42 +112,37 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Sunil V L <sunilvl@ventanamicro.com>
 
-Currently, the interrupt controller list is created without any order.
-Create the list sorted with the GSI base of the interrupt controllers.
+ACPI based loadable drivers which need MSIs will also need
+imsic_acpi_get_fwnode() to update the device MSI domain so
+export this function.
 
+Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/acpi/riscv/irq.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/irqchip/irq-riscv-imsic-early.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
-index cced960c2aef..33c073e2e71d 100644
---- a/drivers/acpi/riscv/irq.c
-+++ b/drivers/acpi/riscv/irq.c
-@@ -115,7 +115,7 @@ struct fwnode_handle *riscv_acpi_get_gsi_domain_id(u32 gsi)
- static int __init riscv_acpi_register_ext_intc(u32 gsi_base, u32 nr_irqs, u32 nr_idcs,
- 					       u32 id, u32 type)
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index d9ae87808651..1dbc41d7fe80 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -7,6 +7,7 @@
+ #define pr_fmt(fmt) "riscv-imsic: " fmt
+ #include <linux/acpi.h>
+ #include <linux/cpu.h>
++#include <linux/export.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+ #include <linux/irq.h>
+@@ -215,6 +216,7 @@ struct fwnode_handle *imsic_acpi_get_fwnode(struct device *dev)
  {
--	struct riscv_ext_intc_list *ext_intc_element;
-+	struct riscv_ext_intc_list *ext_intc_element, *node;
- 
- 	ext_intc_element = kzalloc(sizeof(*ext_intc_element), GFP_KERNEL);
- 	if (!ext_intc_element)
-@@ -125,7 +125,12 @@ static int __init riscv_acpi_register_ext_intc(u32 gsi_base, u32 nr_irqs, u32 nr
- 	ext_intc_element->nr_irqs = nr_irqs;
- 	ext_intc_element->nr_idcs = nr_idcs;
- 	ext_intc_element->id = id;
--	list_add_tail(&ext_intc_element->list, &ext_intc_list);
-+	list_for_each_entry(node, &ext_intc_list, list) {
-+		if (node->gsi_base < ext_intc_element->gsi_base)
-+			break;
-+	}
-+
-+	list_add_tail(&ext_intc_element->list, &node->list);
- 	return 0;
+ 	return imsic_acpi_fwnode;
  }
++EXPORT_SYMBOL_GPL(imsic_acpi_get_fwnode);
  
+ static int __init imsic_early_acpi_init(union acpi_subtable_headers *header,
+ 					const unsigned long end)
 -- 
 2.43.0
 
