@@ -4,67 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B96DC87FCB
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 17:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9908C83F17
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 17:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VxWSb6JazDiPHOlmpCuoe4PCZCEXvKQehmgfaTnzFAY=; b=yctgUb3hHpbWB5
-	v2+DRZZGyZ8m9W409LBL5jdICkHYtOFyLxOy/EIGlMtDeKOi7XtM+/lXCMV/oKvYegfgi11eOIqGI
-	ttjsS45Lv6rLDBGuFDJnHrh+cSqTqVT3WEMUU2IOfUwm4330IUkiCs67QG1p7WT8OH2/5TuSPZA+P
-	q34IMZ+pwA4YlBrsfSRH6GDH89C/7vl/br1ailE6KGK+dW/BFMcVWBupyxFMCWKeJSpHiwLjSIQsv
-	Q86l3/GSCuMX9kUMtJjQ6Nzsy3DxdY0aG992ub9BGGVeGDcSsWN+UQQOKBq9gZMjbS1szZMURtrtQ
-	QwI4QL2Pv7rD8WF9jn6A==;
+	List-Owner; bh=pIRtnn3xI05oUc2d67R4J5IsOD3PSBBF7wOqQ3vwhVg=; b=k8Fb+dL5ok5845
+	gBwoMcObFdw8NECysM177LBxVbH1kxm7Hswa1z5narrJdpAov3mSnr/OEz6R7fLNYFNZYuySfEoeG
+	Xqanl73Ucqmek0VJw/z34vALtQpbfb9CP7AN7w9J8b+7NIj3+tEyBZivgWpGIqddqeQWCGkMAhQ2c
+	30efCszLi/YypopW+5rWZ6abdhkjFi2Dvgh+M5tUgERnOZbOVE4dm1vfa9A/8bQQcjn1tNWWAn/kI
+	BSGQhjBBF4HnTQoM7lzqDf8e6ZCDxpz2eAUdLmCUT4wdo3Thf2/XoTXdO09ElzLW3HMnCBUSP2VlB
+	Ye2NK5UmYOF/54FOoKCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugRaL-0000000F5ue-2KWD;
-	Mon, 28 Jul 2025 17:24:25 +0000
-Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	id 1ugRaO-0000000F5xb-08KB;
+	Mon, 28 Jul 2025 17:24:28 +0000
+Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQo1-0000000EzTl-0WVJ
+	id 1ugQwq-0000000F0ov-1ZEX
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Jul 2025 16:34:30 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1753720455;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=q/bA8zx8G8bDFi/MxNJ7Ov3mrgTcKbsbqEdpvpbD35Q=;
-	b=V2Hr9x4qwzXO2ax8nR9B5N6+YpMgMp1iNimglDT7JeRX2VNRKM+yqcbRH/7szBMMHOYkkZ
-	y2vU56XDSUCxrtjVN5hzLupWpRAax0k1ireFlhL3vqlnEPEl05Utw/un8hN+aDDBVjRK9Q
-	u35+2g2hXHYD62RHtQFuS4s2EazkFf0=
-From: Ze Huang <huang.ze@linux.dev>
-Date: Tue, 29 Jul 2025 00:33:55 +0800
-Subject: [PATCH v7 1/2] dt-bindings: usb: dwc3: add support for SpacemiT K1
+	Mon, 28 Jul 2025 16:43:37 +0000
+Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-87c09672708so81200639f.3
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Jul 2025 09:43:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1753721015; x=1754325815; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ldQSwkThGxTZIExSscNpx1zCzTVrhc9kUZXUJm0UXLk=;
+        b=YSAZ6+Us4zH+phTi6V74c5oEICicp4aTTDdnk+Tixk9glQAKIhxYv7evfxp7WOmaw4
+         qLya2s64X7lqt4L5do2x0d1Z/ELlwwsHjM/LXe7ql0GqPRhN+KynOfvltwAUT8oOF+v4
+         coKmUvXFs0qzssYpWsPlkARuqh7afNG8Mxo10NDkGxk8zucKlAlXIuiGviIXRdD22JID
+         Fd/MOkYbu6DLus1G9SEu/HMExF7P9Ty1FIDmar766lCk3LOd02l3DWN/mOBcDrpY37il
+         aSMymn3HRmvEKWder8vHrp3gb1jVmp4WouE9cVEMd70VHptQkfey7l/OOOTdLyDNO840
+         P03Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753721015; x=1754325815;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ldQSwkThGxTZIExSscNpx1zCzTVrhc9kUZXUJm0UXLk=;
+        b=GB1H3wQW5G1VG5SKxAqGHsEmbHQEPerksZr0AaeS12zojMIdyF3l/iG0SQhYL9v2kg
+         41JSjtj0e23eyRLnWwEQJqcTfWY8NMiH2HkOTLfybow8nVPz0yfQ4xjntr8ABXqUVVvI
+         yKxf9f1E61pJKaVupo2Nj970Q/QcUgb3cAVW8m6y37jdrStYVqSj09oJRVU9eRZj9W3f
+         N3+Iy/4cU7jxNyPAM+HJ4VKribGmCYx052rXiu8I8zc0oST1b7j/ZYMcuDWu3ZZrguky
+         8tH8Rfjezf9WREOvrsfit0sra1HKhjwGemOU2yvHEBDFmiFqRv5OEVBxfeXaK7sBhoVw
+         CJ2g==
+X-Forwarded-Encrypted: i=1; AJvYcCVKld7XrI6u+jGQuftWGlr/uQnUEpLVpqFyXpzSYoRlvkre/5xBO5TZBF9+jGUlJ71N2KQMZI+IqcG0eA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdUST+B3aGfQIV3LKB0vc4rgJgFHrAQjv4AtgA8P2e6+5gVnWf
+	G9EW3U5pf42JD3gj1lX5THz0svPLxrH0stwcf6X90CqBInKpWBOpamgq9YNuJf9qvfM=
+X-Gm-Gg: ASbGncv+afr7nXGvvoDym6Xkz5oKJJk4X0yikTHv7hNVDDGwz5FOZ2ESofm9cx3mmFd
+	D5QWg/gUWZeuMDMvBgP/2sOiC7APjs+9Zf5KGscR+aBsSeH+l44EfC00aCP013J/fIk+N/iv19n
+	0x+qlsRjR7VgBUQnx2V4fi1pvf26ll8LQ3i4WoLy8dGxUorDsZfckA6aXe9IG22GJv5KYANCxhz
+	cgRhHeXm8VuNEfibuxnONUOhrJNTelxEufkZ0EwVmo8n93K8ESBzYE3AwoaND6Bh1vUiqmJkE2L
+	lYpMB84+kqjKK3nn5E7kNFWnWt2iz60+SaOfA7RkBLH0/31XRfl8Yz4jyBdimCBcXHlM5tu6kze
+	F+MoO+LF8THitKvLaUnnzJFZmqLjewRncJJy0fZv1Nj3jhir5MMWay97kqinL7sc=
+X-Google-Smtp-Source: AGHT+IEKf13G5VVtKix2Gq667g//FiBaGINonaogdX3yn8hZwcFv6711Pe8N6gMwP+Vbi5i7MjtaZg==
+X-Received: by 2002:a05:6e02:1805:b0:3e2:9f1e:e291 with SMTP id e9e14a558f8ab-3e3c53125b1mr209554715ab.21.1753721014595;
+        Mon, 28 Jul 2025 09:43:34 -0700 (PDT)
+Received: from [172.22.22.234] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3e3cad13c7csm25861755ab.61.2025.07.28.09.43.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Jul 2025 09:43:34 -0700 (PDT)
+Message-ID: <ef2b4526-3725-4a25-9118-ab77a1d91362@riscstar.com>
+Date: Mon, 28 Jul 2025 11:43:32 -0500
 MIME-Version: 1.0
-Message-Id: <20250729-dwc3_generic-v7-1-5c791bba826f@linux.dev>
-References: <20250729-dwc3_generic-v7-0-5c791bba826f@linux.dev>
-In-Reply-To: <20250729-dwc3_generic-v7-0-5c791bba826f@linux.dev>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Ze Huang <huang.ze@linux.dev>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753720444; l=3934;
- i=huang.ze@linux.dev; s=20250705; h=from:subject:message-id;
- bh=56b477HTi/JnnBO4UZ++wyePO0KWgefWWXdJmSrSRh4=;
- b=RJFcX8htMJf5ce6ZXcmextd+rlPShoSVzUi0TWdKkslPVUgjdnc3l9iM2Y5F5W+K7Yfs1wLiI
- cdtOUDveRjqCw3cxv20FVjqDWw/mqCtxXdvu1/G36k/jU7eYPK25FmA
-X-Developer-Key: i=huang.ze@linux.dev; a=ed25519;
- pk=Kzc4PMu5PTo8eZZQ5xmTNL9jeXcQ9Wml0cs+vlQpBkg=
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 4/8] regulator: spacemit: support SpacemiT P1
+ regulators
+To: kernel test robot <lkp@intel.com>, lee@kernel.org, lgirdwood@gmail.com,
+ broonie@kernel.org, alexandre.belloni@bootlin.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: Paul Gazzillo <paul@pgazz.com>,
+ Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+ oe-kbuild-all@lists.linux.dev, mat.jonczyk@o2.pl, dlan@gentoo.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, linux.amoon@gmail.com, troymitchell988@gmail.com,
+ guodong@riscstar.com, linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250726131003.3137282-5-elder@riscstar.com>
+ <202507281558.lZ0NYtth-lkp@intel.com>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <202507281558.lZ0NYtth-lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_093429_437826_95D95F5B 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250728_094336_526898_B4BD1217 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,155 +105,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for the USB 3.0 Dual-Role Device (DRD) controller embedded
-in the SpacemiT K1 SoC. The controller is based on the Synopsys
-DesignWare Core USB 3 (DWC3) IP, supporting USB3.0 host mode and USB 2.0
-DRD mode.
+On 7/28/25 2:37 AM, kernel test robot wrote:
+> Hi Alex,
+> 
+> kernel test robot noticed the following build warnings:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Ze Huang <huang.ze@linux.dev>
----
- .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 124 +++++++++++++++++++++
- 1 file changed, 124 insertions(+)
+I have a fix for this, and will include it in v11 of this series
+when I publish it.  I will wait to do that until I get additional
+feedback.
 
-diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..7007e2bd42016ae0e50c4007e75d26bada34d983
---- /dev/null
-+++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-@@ -0,0 +1,124 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/usb/spacemit,k1-dwc3.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SpacemiT K1 SuperSpeed DWC3 USB SoC Controller
-+
-+maintainers:
-+  - Ze Huang <huang.ze@linux.dev>
-+
-+description: |
-+  The SpacemiT K1 embeds a DWC3 USB IP Core which supports Host functions
-+  for USB 3.0 and DRD for USB 2.0.
-+
-+  Key features:
-+  - USB3.0 SuperSpeed and USB2.0 High/Full/Low-Speed support
-+  - Supports low-power modes (USB2.0 suspend, USB3.0 U1/U2/U3)
-+  - Internal DMA controller and flexible endpoint FIFO sizing
-+
-+  Communication Interface:
-+  - Use of PIPE3 (125MHz) interface for USB3.0 PHY
-+  - Use of UTMI+ (30/60MHz) interface for USB2.0 PHY
-+
-+allOf:
-+  - $ref: snps,dwc3-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: spacemit,k1-dwc3
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    const: usbdrd30
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  phys:
-+    items:
-+      - description: phandle to USB2/HS PHY
-+      - description: phandle to USB3/SS PHY
-+
-+  phy-names:
-+    items:
-+      - const: usb2-phy
-+      - const: usb3-phy
-+
-+  resets:
-+    items:
-+      - description: USB3.0 AHB reset
-+      - description: USB3.0 VCC reset
-+      - description: USB3.0 PHY reset
-+      - description: PCIE0 global reset (for combo phy)
-+
-+  reset-names:
-+    items:
-+      - const: ahb
-+      - const: vcc
-+      - const: phy
-+      - const: pcie0
-+
-+  reset-delay:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    default: 2
-+    description: delay after reset sequence [us]
-+
-+  vbus-supply:
-+    description: A phandle to the regulator supplying the VBUS voltage.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - phys
-+  - phy-names
-+  - resets
-+  - reset-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    usb@c0a00000 {
-+        compatible = "spacemit,k1-dwc3";
-+        reg = <0xc0a00000 0x10000>;
-+        clocks = <&syscon_apmu 16>;
-+        clock-names = "usbdrd30";
-+        interrupts = <125>;
-+        phys = <&usb2phy>, <&usb3phy>;
-+        phy-names = "usb2-phy", "usb3-phy";
-+        resets = <&syscon_apmu 8>,
-+                 <&syscon_apmu 9>,
-+                 <&syscon_apmu 10>,
-+                 <&syscon_apmu 26>;
-+        reset-names = "ahb", "vcc", "phy", "pcie0";
-+        reset-delay = <2>;
-+        vbus-supply = <&usb3_vbus>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        hub_2_0: hub@1 {
-+            compatible = "usb2109,2817";
-+            reg = <1>;
-+            vdd-supply = <&usb3_vhub>;
-+            peer-hub = <&hub_3_0>;
-+            reset-gpios = <&gpio 3 28 1>;
-+        };
-+
-+        hub_3_0: hub@2 {
-+            compatible = "usb2109,817";
-+            reg = <2>;
-+            vdd-supply = <&usb3_vhub>;
-+            peer-hub = <&hub_2_0>;
-+            reset-gpios = <&gpio 3 28 1>;
-+        };
-+    };
+The fix is to make REGULATOR_SPACEMIT_P1 depend on I2C, in addition
+to ARCH_SPACEMIT || COMPILE_TEST.
 
--- 
-2.50.1
+					-Alex
+
+> 
+> [auto build test WARNING on d7af19298454ed155f5cf67201a70f5cf836c842]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Alex-Elder/dt-bindings-mfd-add-support-the-SpacemiT-P1-PMIC/20250726-211530
+> base:   d7af19298454ed155f5cf67201a70f5cf836c842
+> patch link:    https://lore.kernel.org/r/20250726131003.3137282-5-elder%40riscstar.com
+> patch subject: [PATCH v10 4/8] regulator: spacemit: support SpacemiT P1 regulators
+> config: alpha-kismet-CONFIG_MFD_SPACEMIT_P1-CONFIG_REGULATOR_SPACEMIT_P1-0-0 (https://download.01.org/0day-ci/archive/20250728/202507281558.lZ0NYtth-lkp@intel.com/config)
+> reproduce: (https://download.01.org/0day-ci/archive/20250728/202507281558.lZ0NYtth-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202507281558.lZ0NYtth-lkp@intel.com/
+> 
+> kismet warnings: (new ones prefixed by >>)
+>>> kismet: WARNING: unmet direct dependencies detected for MFD_SPACEMIT_P1 when selected by REGULATOR_SPACEMIT_P1
+>     WARNING: unmet direct dependencies detected for MFD_SPACEMIT_P1
+>       Depends on [n]: HAS_IOMEM [=y] && I2C [=n]
+>       Selected by [y]:
+>       - REGULATOR_SPACEMIT_P1 [=y] && REGULATOR [=y] && (ARCH_SPACEMIT || COMPILE_TEST [=y])
+> 
 
 
 _______________________________________________
