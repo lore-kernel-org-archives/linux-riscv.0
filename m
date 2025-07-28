@@ -4,87 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFC6C87FC9
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 12:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1408BC83F17
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Jul 2025 13:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m+eeX9NmS+ggEQBU0g6JC/c6AfkCmwvUk+T/mDG9KbI=; b=yWvY6S1b319gXT
-	K2AIaETusua9hxW6CbQH7rfCUUDpUWQeNHp4Ey+NKbBhzR3MvqwscbKw5BOuB0YnASQdaGBu6F4Q4
-	rKLmUhT+RIAhNJcEnc4JcXd/HZT84gJjfER034ZDeYffrFhSEeeR+qr0CCYD9u+d6wlj20zdRHMBN
-	QD0QslK5pYIpmGrA4tPuyIKY1RZ26DpTi7W597I7s0ipjOWwiY39rIbI/XLrjjPnbDhPT8qpJk2KP
-	4kSYMoQ3ureIMRyDRT9qacys2F7x6yQz+1FF0zT4IMNWuaQz7OsDZ8M5JtrvH0nugYmjfQlYFyKdP
-	iM3Km/WGOy/y8iVIE3bQ==;
+	List-Owner; bh=oOp4nrdz+f4fK99MLZklHroBsDE4oK89zq13lLE6r7U=; b=rl//CiipOtr28r
+	ZV+dxsKTKmz/VVuiU6G7SYRi54wvVbD7QybdO7BgULxOgiUCW1l+SrK0CsOiEbuouXpjf8P0mquQA
+	0F4mX+6zy/6Uh7q8DNcwfqGsa9DF1eAcxxljLsMWkuV5hWNyREZrbXVTuEP2O2+sZepJXYVAs/HjA
+	lyY8Az3NVLSy9W+HprgHIDstBGzWpTzQ8b2QT8dGTQ/8AojuBuXsTYg4xMW3ak2+0ZmnI+yQFFSab
+	xGWikR3Cy6F5kjMzHM+eupC+SSWR3VoIuvF47FY3971+NSMTw+BqaXAMBfRutS1F7WocP+TwwNxZC
+	cP3ZLQqlMlmwyhKX4+lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugNGK-0000000ESOX-1oWq;
-	Mon, 28 Jul 2025 12:47:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ugNe7-0000000EUoM-1bST;
+	Mon, 28 Jul 2025 13:12:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugNGH-0000000ESO0-37s4
+	id 1ugNe4-0000000EUny-3tiI
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Jul 2025 12:47:26 +0000
+	Mon, 28 Jul 2025 13:12:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8EFD75C414C;
-	Mon, 28 Jul 2025 12:47:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6A14C4CEE7;
-	Mon, 28 Jul 2025 12:47:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 41D5F40BE5;
+	Mon, 28 Jul 2025 13:12:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 037ECC4CEE7;
+	Mon, 28 Jul 2025 13:11:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753706844;
-	bh=8erufKMpAOmnBQJD5AQN3zyqiuSStzu2grxssP0lTyk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fVrLDUF6ALvU1+rw08l0PQQfJJ7diMMEUvcuQzJIilzrRSpYwOlOYK2n15xwoyML4
-	 D4v1V5ouoPMP5Uz79ByW5/BerCfgE3utI4NZmRpjthPrhH6zfjhuvxxdwBw/nduyx5
-	 BrLlHsjfIfQLUwiEsrKJ7Z00EUM59kWy8WUBrjuxruXI8VGjRYFATJyEOBskkNPuBj
-	 cOwpUVMCLcgqoD5XxSL62JtvLUxMBr1zB0b3M8fPyxY2JnP4ebqJETtie1/WquwywI
-	 lFApDm1CkeeTMlruPIC1tMlq6jstGhB1R7LebnE8eV6IkSurORWhWXOaOc/cTwOFqR
-	 53bl3DIV1aZJA==
-Date: Mon, 28 Jul 2025 13:47:14 +0100
-From: Will Deacon <will@kernel.org>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Deepak Gupta <debug@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Monk Chiang <monk.chiang@sifive.com>,
-	Kito Cheng <kito.cheng@sifive.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, linux-mm@kvack.org,
-	llvm@lists.linux.dev, rick.p.edgecombe@intel.com,
-	broonie@kernel.org, cleger@rivosinc.com, apatel@ventanamicro.com,
-	ajones@ventanamicro.com, conor.dooley@microchip.com,
-	charlie@rivosinc.com, samuel.holland@sifive.com, bjorn@rivosinc.com,
-	fweimer@redhat.com, jeffreyalaw@gmail.com,
-	heinrich.schuchardt@canonical.com, andrew@sifive.com,
-	ved@rivosinc.com
-Subject: Re: [PATCH 10/11] scs: generic scs code updated to leverage hw
- assisted shadow stack
-Message-ID: <aIdxUpSc-Co8wLYE@willie-the-truck>
-References: <20250724-riscv_kcfi-v1-0-04b8fa44c98c@rivosinc.com>
- <20250724-riscv_kcfi-v1-10-04b8fa44c98c@rivosinc.com>
- <20250725161327.GC1724026@google.com>
+	s=k20201202; t=1753708320;
+	bh=8QWAdeHIt9M2n7ruuCEiOLK67C47ocnzQTIsLBKfIww=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rNF7/bxt5n1URYAUxKyo7pKgEav0xCj90A3q1M3Emob6/sejttWgqoFwrv9DtdHmo
+	 hRHcQd347bxQG0uXGoJJEcoW2SfbOdeV3WcL34e20sZXUBWLbRhzo2qY2ISXOq/KDr
+	 NPDVJumpVI8+ClU80NQlO8CfJKzWPr/QQGOzuPFA3sEdzkcyF/UgXKli9RHxEX78WZ
+	 CQlPOSizJi6ZMRyHEmMDihy+1kyVEberbO3eJTkoRXK+VI1I9nwgh723zZ82n5oFKG
+	 ajZ8jMWifKoUmoK1BzT25Gq7KC/goEiz9nXXxM3tcewSNzQXt4i9YcfNJDRKeHHLmP
+	 jTQZoAOVjoY2Q==
+Message-ID: <3864e374-b045-4317-85bf-ec3a2d3d7940@kernel.org>
+Date: Mon, 28 Jul 2025 15:11:54 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250725161327.GC1724026@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: remoteproc: Add C906L rproc for
+ Sophgo CV1800B SoC
+To: Junhui Liu <junhui.liu@pigmoral.tech>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20250728-cv1800-rproc-v2-0-5bbee4abe9dc@pigmoral.tech>
+ <20250728-cv1800-rproc-v2-1-5bbee4abe9dc@pigmoral.tech>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250728-cv1800-rproc-v2-1-5bbee4abe9dc@pigmoral.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_054725_863099_937549B0 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20250728_061201_013898_25E38B8D 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,77 +127,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 25, 2025 at 04:13:27PM +0000, Sami Tolvanen wrote:
-> On Thu, Jul 24, 2025 at 04:37:03PM -0700, Deepak Gupta wrote:
-> > diff --git a/include/linux/scs.h b/include/linux/scs.h
-> > index 4ab5bdc898cf..6ceee07c2d1a 100644
-> > --- a/include/linux/scs.h
-> > +++ b/include/linux/scs.h
-> > @@ -12,6 +12,7 @@
-> >  #include <linux/poison.h>
-> >  #include <linux/sched.h>
-> >  #include <linux/sizes.h>
-> > +#include <asm/scs.h>
-> >  
-> >  #ifdef CONFIG_SHADOW_CALL_STACK
-> >  
-> > @@ -37,22 +38,45 @@ static inline void scs_task_reset(struct task_struct *tsk)
-> >  	 * Reset the shadow stack to the base address in case the task
-> >  	 * is reused.
-> >  	 */
-> > +#ifdef CONFIG_ARCH_HAS_KERNEL_SHADOW_STACK
-> > +	task_scs_sp(tsk) = task_scs(tsk) + SCS_SIZE;
-> > +#else
-> >  	task_scs_sp(tsk) = task_scs(tsk);
-> > +#endif
-> >  }
-> >
-> >  static inline unsigned long *__scs_magic(void *s)
-> >  {
-> > +#ifdef CONFIG_ARCH_HAS_KERNEL_SHADOW_STACK
-> > +	return (unsigned long *)(s);
-> > +#else
-> >  	return (unsigned long *)(s + SCS_SIZE) - 1;
-> > +#endif
-> >  }
-> >  
-> >  static inline bool task_scs_end_corrupted(struct task_struct *tsk)
-> >  {
-> >  	unsigned long *magic = __scs_magic(task_scs(tsk));
-> > -	unsigned long sz = task_scs_sp(tsk) - task_scs(tsk);
-> > +	unsigned long sz;
-> > +
-> > +#ifdef CONFIG_ARCH_HAS_KERNEL_SHADOW_STACK
-> > +	sz = (task_scs(tsk) + SCS_SIZE) - task_scs_sp(tsk);
-> > +#else
-> > +	sz = task_scs_sp(tsk) - task_scs(tsk);
-> > +#endif
-> >  
-> >  	return sz >= SCS_SIZE - 1 || READ_ONCE_NOCHECK(*magic) != SCS_END_MAGIC;
-> >  }
-> >  
-> > +static inline void __scs_store_magic(unsigned long *s, unsigned long magic_val)
-> > +{
-> > +#ifdef CONFIG_ARCH_HAS_KERNEL_SHADOW_STACK
-> > +	arch_scs_store(s, magic_val);
-> > +#else
-> > +	*__scs_magic(s) = magic_val;
-> > +#endif
-> > +}
-> > +
-> 
-> I'm not a huge fan of all the ifdefs. We could clean this up by
-> allowing architectures to simply override some these functions, or at
-> least use if (IS_ENABLED(CONFIG...)) instead. Will, any thoughts about
-> this?
+On 28/07/2025 13:03, Junhui Liu wrote:
+> +
+> +  firmware-name:
+> +    maxItems: 1
+> +
+> +  mbox-names:
+> +    items:
+> +      - const: tx
+> +      - const: rx
+> +
+> +  mboxes:
 
-Yeah, I agree that allowing architectures to provide overrides makes
-sense, however I also suspect that some of this needs to be a runtime
-decision because not all CPUs will support the hardware-accelerated
-feature and will presumably want to fall back on the software
-implementation.
+First go mboxes, then mboxes-names. ALWAYS.
 
-Will
+> +    description:
+> +      This property is required only if the rpmsg/virtio functionality is used.
+> +      (see mailbox/sophgo,cv1800b-mailbox.yaml)
+> +    items:
+> +      - description: mailbox channel to send data to C906L
+> +      - description: mailbox channel to receive data from C906L
+> +
+> +  memory-region:
+> +    description:
+> +      List of phandles to reserved memory regions used by the remote processor.
+> +      The first region is required and provides the firmware region for the
+> +      remote processor. The following regions (vdev buffer, vrings) are optional
+> +      and are only required if rpmsg/virtio functionality is used.
+> +    minItems: 1
+
+Why isn't this constrained?
+
+> +    items:
+> +      - description: firmware region
+> +      - description: vdev buffer
+> +      - description: vring0
+> +      - description: vring1
+> +    additionalItems: true
+
+No, drop. This needs to be constrained.
+
+
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  sophgo,syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      A phandle to the SEC_SYS region, used for configuration of the remote
+> +      processor.
+> +
+> +required:
+> +  - compatible
+> +  - firmware-name
+> +  - memory-region
+> +  - resets
+> +  - sophgo,syscon
+
+Why mboxes are not required?
+
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    c906l-rproc {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
