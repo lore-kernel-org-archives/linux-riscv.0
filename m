@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D781AC83F26
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 09:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B4E3C87FCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 09:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KgPOY5tciKJpeR50k2BM8Ih/fGlOs4JsE4XdJ+dvq+M=; b=w0MnxKhOGFg8Ur
-	ASIolqib0VvloOZTMitb+NFezeo88YFIF88EVk+zo+zHl4gXAibHSYF0VGZ+qmNok3YLyD4m3y8Tr
-	Y1iYemnguyc4HjEFVwioDjyWg8L7T7UTcVaSj695p2FjUWe9mqNrrIqILD8G8Vc2ddVofeBS4nVZy
-	Run/NETXacpz9ryV/pjf6fvqp7oYRN/7Kl5CMrMe9G0yXt8QkcdJZphbmcpR+scTtiVKs8o+1ZmC4
-	26YBaawEAwCZ+H+As/bhVk+seu8Uu44UrpUeD3z8t1vb4QP7JQXrONkUkb+343RQdd/xhcCDs3A/G
-	rFXYKeGEAQctVm78lTuQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6UD9/+5oM6+LuQNZfh7cVWfy9MBfzrOiSQPPwpxl5Xs=; b=ioN7R1eYNze9U2
+	olmjDV1XzkLNqi08/EFXrF8o1KSG0ZLCcdo2BfmqDk185kWKEv8rtPnpG93h+uLbg6BTtDcRjqFQ7
+	+rGzw4pWbft4wf40GJQzHNFROiuIkqHrBoS9gM+k/0DCYjHbLz05XR0RqIAQ1midN0IkApuuOH6HU
+	yAFyDSdLoTn/4MT26iQl4wIS+VU/mrP7TqDmMZ8jMTjISataZVnOmwpLZd4aKE6EzfreX2RFSZmYG
+	dc9MFbOZuFxm+EhcqpCSobsmd1jSwAnCTh+RqMJYfPviHsvcar8VoZbAngYLRzE7tUlKrPs4bMwsl
+	053hT/jfy125fsi7xYHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugh36-0000000GS9l-264S;
-	Tue, 29 Jul 2025 09:55:08 +0000
+	id 1ugh33-0000000GS7R-0Tf2;
+	Tue, 29 Jul 2025 09:55:05 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uggt9-0000000GQoX-48KU
+	id 1uggmb-0000000GPmZ-1d3e
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Jul 2025 09:44:53 +0000
+	Tue, 29 Jul 2025 09:38:08 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id AB7BE22E3A;
-	Tue, 29 Jul 2025 11:44:50 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id D4DA620075;
+	Tue, 29 Jul 2025 11:38:00 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id VG1y5xU0OrVJ; Tue, 29 Jul 2025 11:44:49 +0200 (CEST)
+ id sPFN6c7Zk2KY; Tue, 29 Jul 2025 11:38:00 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1753782289; bh=wwhfdEjKk3TD0g/+LXfOKPPQJZrSqxYsRtEHez2gGEs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=b+ta6P8GfdeL2XpBmv4IbvF6ca52Tkf9nYHzCEKOcEZ6dxiQC87AOb7dmQjNI0kW+
-	 dTmcsSrR8iTyN4+UCJ6j+A7yJAppQu/CXkc4pasuuAOjgPgWYt+9b9X1RD74kJDDpj
-	 RDYBe8llF+zGEvpP5UnCvPWjMzh3GiB6jUItGfm0MnZ5agxWAWKXOXxjI30y+K/lDo
-	 mJ5W+SDybRsXe3znDYxeRfwjVe1zYkiTpA9+kJSO6rIX3bwyizEtYpQKXe9/lTXJMe
-	 2wDyg7Hue6mL32UTbdQJMQktsth6Jj9Mt8UUzZOHzQSOKslVwfguWhlPTYh3+K1LRD
-	 HYMUPj1/I7W1w==
-Date: Tue, 29 Jul 2025 09:44:37 +0000
+	t=1753781880; bh=idYgMwrXAP8bE9FQUXKFBglumUQ+kyKP5QsLbZJGvcs=;
+	h=From:To:Cc:Subject:Date;
+	b=YKOV7A+CQgSsnr3Lkw7fjDaarr85dBIoXgyhmipyOE/N6lHiDjQjiS4lX3Z414s3X
+	 0tmUBBgpkNXMkoW2o0i9yiRhdYHcSyriUYlSumAZ033qD8TBQOHl6Mos11XwgTQuGt
+	 vuveUfpsoB3GDsNmJ8+kGP9UbupOShyogZWe7ZrzU5Ri3nMtPYHVdCAhJJG8ihSAfr
+	 yp+UqBfJOD9iiPvl5Acl1M12hdSWWIxG7KPMtaMn6bcvXMPvCZqvyWMO3K0avwgPWz
+	 1ohH0cyoRHhme71uOrhYKoEAWZxbVVLokmW8Icw0fmh2cqbvOUBxmgjTWofAS6LhSy
+	 GSW+/24Pyxzmw==
 From: Yao Zi <ziyao@disroot.org>
-To: Ze Huang <huangze@whut.edu.cn>, Ze Huang <huang.ze@linux.dev>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v7 1/2] dt-bindings: usb: dwc3: add support for SpacemiT
- K1
-Message-ID: <aIiYBaEMNWg20f8-@pie>
-References: <20250729-dwc3_generic-v7-0-5c791bba826f@linux.dev>
- <20250729-dwc3_generic-v7-1-5c791bba826f@linux.dev>
- <aIgmrQ7afSO5sjB_@pie>
- <aIhi9JKZvuYh2Rz_@cse-cd03-lnx.ap.qualcomm.com>
+	Yao Zi <ziyao@disroot.org>
+Subject: [PATCH net 0/3] Fix broken link with TH1520 GMAC when linkspeed changes
+Date: Tue, 29 Jul 2025 09:37:31 +0000
+Message-ID: <20250729093734.40132-1-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aIhi9JKZvuYh2Rz_@cse-cd03-lnx.ap.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_024452_154913_69D67B85 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20250729_023805_845066_1D2BF409 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,62 +90,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 29, 2025 at 01:58:12PM +0800, Ze Huang wrote:
-> On Tue, Jul 29, 2025 at 01:41:01AM +0000, Yao Zi wrote:
-> > On Tue, Jul 29, 2025 at 12:33:55AM +0800, Ze Huang wrote:
-> > > Add support for the USB 3.0 Dual-Role Device (DRD) controller embedded
-> > > in the SpacemiT K1 SoC. The controller is based on the Synopsys
-> > > DesignWare Core USB 3 (DWC3) IP, supporting USB3.0 host mode and USB 2.0
-> > > DRD mode.
-> > > 
-> > > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> > > Signed-off-by: Ze Huang <huang.ze@linux.dev>
-> > > ---
-> > >  .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 124 +++++++++++++++++++++
-> > >  1 file changed, 124 insertions(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-> > > new file mode 100644
-> > > index 0000000000000000000000000000000000000000..7007e2bd42016ae0e50c4007e75d26bada34d983
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-> > > @@ -0,0 +1,124 @@
-> > 
-> > ...
-> > 
-> > > +  resets:
-> > > +    items:
-> > > +      - description: USB3.0 AHB reset
-> > > +      - description: USB3.0 VCC reset
-> > > +      - description: USB3.0 PHY reset
-> > > +      - description: PCIE0 global reset (for combo phy)
-> > 
-> > Why should the USB driver takes care of the PCIe stuff? This sounds
-> > strange to me.
-> > 
-> 
-> On K1, PHY depends on the clocks and resets it shares with the controller,
-> and the controller driver is guarantees that any needed clocks are enabled,
-> and any resets that affect the PHY are de-asserted before using the PHY.
+It's noted that on TH1520 SoC, the GMAC's link becomes broken after
+the link speed is changed (for example, running ethtool -s eth0 speed
+100 on the peer when negotiated to 1Gbps), but the GMAC could function
+normally if the speed is brought back to the initial.
 
-So does the "PCIe0 global reset" make effects to both USB3 and PCIe
-**controllers**? If not, this is something wrong in the devicetree side.
+Just like many other SoCs utilizing STMMAC IP, we need to adjust the TX
+clock supplying TH1520's GMAC through some SoC-specific glue registers
+when linkspeed changes. But it's found that after the full kernel
+startup, reading from them results in garbage and writing to them makes
+no effect, which is the cause of broken link.
 
-> RESET_PCIE0_GLOBAL reset is necessary during, and only, the calibration stage
-> of combo phy.
+Further testing shows perisys-apb4-hclk must be ungated for normal
+access to Th1520 GMAC APB glue registers, which is neither described in
+dt-binding nor acquired by the driver.
 
-If it's only used by PHY, why couldn't it be a property of the PHY?
-Sorry, but I still cannot get the point.
+This series expands the dt-binding of TH1520's GMAC to allow an extra
+"APB glue registers interface clock", instructs the driver to acquire
+and enable the clock, and finally supplies CLK_PERISYS_APB4_HCLK for
+TH1520's GMACs in SoC devicetree.
 
-Regards,
-Yao Zi
+Yao Zi (3):
+  dt-bindings: net: thead,th1520-gmac: Describe APB interface clock
+  net: stmmac: thead: Get and enable APB clock on initialization
+  riscv: dts: thead: Add APB clocks for TH1520 GMACs
 
-> To simplify both the driver architecture and the device tree files,
-> RESET_PCIE0_GLOBAL (and some other clk/reset) are now managed by the
-> relevant controller driver (either USB3 or PCIe0) instead of PHY driver.
-> 
-> Only one of USB3.0 SuperSpeed and PCIe-0 will be activated in a boot.
-> PCIe-0 will not be affected when it's working.
+ .../devicetree/bindings/net/thead,th1520-gmac.yaml     |  8 ++++++--
+ arch/riscv/boot/dts/thead/th1520.dtsi                  | 10 ++++++----
+ drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c      |  6 ++++++
+ 3 files changed, 18 insertions(+), 6 deletions(-)
+
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
