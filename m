@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C5CC83F26
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 13:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E86C87FCA
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 13:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6Sa7nugl1xYZhaRNuu/gUSCK7xqzBvPC9/vKyLPTxHM=; b=lEMDb2569wIRu8
-	sFTOXbGedO+1vQ/EcmGZ4KTUBzH77kCK4eQD0u4qoL+xwszmItHyFB7D7A1aUtnPrVGpUKyVH+2CB
-	qnzTvqr8n6WHbpT633YfYCvN8e2QtxcznbyDyXLLvT/V8GHsyjk4SZBgqMXNIntdKTQNhZN12lAMM
-	05Ao2SmMBtyCKwopQvT7MTIBTgFSeCy+lD7TgSUyWJLkIYvDMQYWU10ff2ED9mHg8vA3IhejcJsfI
-	cOYF+1sjHhpgVjAktlKEUgLAXhEKo6IvWvpmc/H/1j3LBjplQX7vXIb1Gkg97NC4+Rj/0QkuYPOMK
-	j0XxWnoVgMTlHtX/QEbg==;
+	List-Owner; bh=lMh7jDGj7mLXziaGmFfM8jqh+MJkaM/mg2VVmYNAbe8=; b=ol8HxaQ4a16Oa9
+	FlCecqleEn3c3vuxoWjXvyj7M+2iYFyNmSNuJ2WgQkGDrZkOv/mdu5d1xo6afRz8lxsnyEeEQb0kf
+	xnxQsh7zZJZrS+Sp+GZCFLxQCEblxrQmQ25XbyVaMYcagQIVXO3PXkk8FpraQiw8BM0YrhAXVzQxK
+	RQtUvc9f2zzPClhvuKdJnzpbjvRw2mDesH7ds2evgG1QfV2Ij5HEL0XbYT6HcoSKwEr6tTIKNa/FJ
+	tGZpw/h8D2l+gSd6oOoF+LpDQ4EaW222bZD79hkXJALLmfGHOdG3Eq14WDue44PbnN/WGI9YKqQwC
+	ngg1j/OzwGXp67O0IT6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugkDS-0000000GnOC-1mOr;
-	Tue, 29 Jul 2025 13:18:02 +0000
+	id 1ugkDT-0000000GnOL-08dx;
+	Tue, 29 Jul 2025 13:18:03 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugkBN-0000000GnDL-1Tkx
+	id 1ugkBa-0000000GnEL-2ey3
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Jul 2025 13:15:54 +0000
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	Tue, 29 Jul 2025 13:16:07 +0000
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com [209.85.128.71])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id D90EE3FCE5
-	for <linux-riscv@lists.infradead.org>; Tue, 29 Jul 2025 13:15:46 +0000 (UTC)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 43D3B3FCEE
+	for <linux-riscv@lists.infradead.org>; Tue, 29 Jul 2025 13:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1753794946;
-	bh=0675nP1c4f7LfG6VM+ssWqBgKXw69YZUUaqh2DpxFLE=;
+	s=20210705; t=1753794949;
+	bh=8mHLBuTzC98LIzgNpd9Kf1f74WAo1lI4NdQKyG/FFBE=;
 	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version;
-	b=pd8qSbToHWh95mouu98j3LTMDVLzrlDgi8DvXDK4UNMCyrdP0FSvAlw57BFFhEPeW
-	 cpHVvnXeuY20ROPmnwPe04REcqRX3WJ/fPA5lMrrSjAzeB5a2xA7NeLBgZHIJlqrPG
-	 +9NJeJyaulGEyhgRB9jYdjVfZ3eieDU5c4469fEPt/QKtMUEG1j6D0k3hF03ccxQJ/
-	 DdXC5iP30VZO/mRGuV84hlitLk1KFUQSvDoh8HGFMId6TUEEkHeK4yExYXF9KaSPqS
-	 WzowYAhf2NGdqIbWUtC8d5P/NtrjHjii0W/dgW7rJaoTl5+/hDVXVAdZY+/KpiELNw
-	 ne3Uz3cPdNk5A==
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-455e9e09afeso19896885e9.2
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Jul 2025 06:15:46 -0700 (PDT)
+	b=doXRXmb71EiVOPLPG/qU+djR45uvivnmqxiGgnvA/kS9jH8ZYBiebAhEaAlA3xBQ4
+	 gRTgXKV/2lvKqDoLIO20pUAl8ZKTcILHrlqPjmVVeyH5wQx4SN+oKDPeq3Vkvu2SxY
+	 JSw3pjoW7vdkq0ShTebgpFyRhDEyMydgTFTwY0GeSUGl/YWMY1e0rqSveItMTYCqGA
+	 kC8iByAEDggo5a8lgB+eYetmBr5YCaWcd/amla4woJYqO3yLwFARxXuNrqXizDJhHF
+	 6v+H/6SGcCX3UDup96/UAzVjhdiI0EAg/fg5KeuyEzdMnqp9QR+9J0ovhBPPMv4Yrh
+	 f/3UJ7yu/t0LQ==
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4560a30a793so19052425e9.3
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Jul 2025 06:15:49 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753794942; x=1754399742;
+        d=1e100.net; s=20230601; t=1753794943; x=1754399743;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0675nP1c4f7LfG6VM+ssWqBgKXw69YZUUaqh2DpxFLE=;
-        b=HtQB47RGWaQscBizqe9NWXrW+tlLhd7EQYIs9PbmEqcScMGN4aKQUAVwdY5XPTuBRS
-         tsbmWc8zwLkXdzlRgPKtkX7ygHN68de4zeLjtTNYxq4jmRr6aZCWVTpWp5PKiW9hsQ0l
-         3tXRbXz+DvYQOuRKrOh5ACOJiUGbWfcG/MNC68LXLuQ76V63x0jqUzWs+PfqmcghDVZ+
-         ACeq4jsjrpfEHF15Gt+BzJZhiyiN6ysIa+DStzjXktN4LlOT/Op+XevKLh1kgAgztuFi
-         GKQu5n3NMF1TwK3uONRE+XT6TYdtKvRxHk1sn0iNTLoQlUCXj4dEt6ieGoK0p0QP+xaR
-         oU8g==
-X-Forwarded-Encrypted: i=1; AJvYcCVc8emQEQJeayiWS/tNxC0E03FPgMgeJWa4HhexvHtd0hPZjZxjYVubH3qA29kKcwPrmu6ajvGvM7ScnQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqFNZ6wAGR+RLYtmhjg6J9C2/ckuxDpkCeZQbaqzV68mnNcJGe
-	tyZgBNsSx5z5FG1NTm0C7BQ9scELSCeq5uB89hJ91w1W4KipNAPQbdNSab03MtB7a0IAQ8ppTyg
-	cRsY9pObivqnUjIQeedNrxy+Dlk2jX9fwTuN0Y4csvwQ1XuC58nJtnMESoAUzqIu0qYzOXokcpj
-	JXprczvkNDeg==
-X-Gm-Gg: ASbGncs4atiMaR0AxI4SNzdn5bx+bLDlCvohJjQPgjZLpSc7gx6qq5iGJeIyrZ2v7h/
-	1hBkPmHmri8x28ZcEa9bA8HsvBgPgyJgnA/uNaW5WxNlVlWNsjnPPwXvLDvZDMBX73xcWp4D7O2
-	TCxfqnndHvL9TBPx8v2c+m3Fn5UiTCnUANzuPSiUq4ndAm27+d461eZmA2faBk26qL7eaBXLnL0
-	siJOevKHdGFSjb3dDxNHfvD6NgqyE2MBL1gSWir8iYg6a7LuYklmMXistaELjzCVTJZiyuMMrhd
-	vU+e8IRVXJOaSx3Ywp29nWXt1YLD6FTMlmHTkO0BTl1dgd1GWQx/WpkojhrduzzBJEytV6oA6Yp
-	iz9arxBXmNg6T3Iln/YKSuW91i9+7ZA==
-X-Received: by 2002:a05:600c:3510:b0:456:2698:d4d9 with SMTP id 5b1f17b1804b1-458762fd2acmr137350695e9.3.1753794941860;
-        Tue, 29 Jul 2025 06:15:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFZvwVRiKsT7wS30tgGHiJnVmDKGNcXlgxTTqdd4YwYAyoY3NMdFL5ZkFUfhAD5/m/bpZyuMQ==
-X-Received: by 2002:a05:600c:3510:b0:456:2698:d4d9 with SMTP id 5b1f17b1804b1-458762fd2acmr137350395e9.3.1753794941456;
-        Tue, 29 Jul 2025 06:15:41 -0700 (PDT)
+        bh=8mHLBuTzC98LIzgNpd9Kf1f74WAo1lI4NdQKyG/FFBE=;
+        b=N7jcS5POrjEUd9bQ+iXB6jZUBDNqsrF8bBjW/RfE1WO/twjYIlCyw5ZmsMtkYiRiLs
+         GSeakH1yPOStMaosKzllVKPRNaU4SKuPLafOn2grZ/vquT1Lsn5uOXRONvi7XyIQnrG/
+         IDCzOTftwLdeN/+QqtH6ZWLJnk+cGxegIzZz2UvgoLxzdKh/etSWoxS2V0jEACYYzjTJ
+         qMyoV6Kw6Aatwd3Dt+n8ZTs8sgWHVje/y8qOSZ1MILb9ehABSqavSNwV9p+zKIVlF2+R
+         pSGyMcYqX+PbZfiV86OUTcDV8wlbvKmuVgB5ZXeL5Momr0G4W9jMaCqYeZTGNqNDHqE+
+         Nb+A==
+X-Forwarded-Encrypted: i=1; AJvYcCXDBavjBz5LuzmuhibfRWb8QkILpn52AHy8Ja8EYvXuzk87VQrpwiX6IfgYnuEhJskQX+fPbZbOvtZ0NA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTJV1ilXFZGrrOcQztTOqA4HB6t8mZAesExLj5asjvhkkUbKSK
+	pUB+llx2aYmUZ3kNnP/pt1M4pEx6yiM99mbgHkGKLmMACRLvA6xFjcjfD2K0ACHe+RrBp49vnwY
+	Oudv28pTeX0olFFMhdxmPbqr+ZojSCdqLYq6M1yf0rJPTE4nVdb1W8j1T49qrhZTxD6SyZIOLQC
+	qebQlT5kiw5w==
+X-Gm-Gg: ASbGncuUG0gth2bDNOgPsn3Y298I48Pfz12LK2+XOz4mN9RVM02LPJ7G0Kk0JIeNGAC
+	I2+yl5HnOaTm+KQPSGfDz+hq0yTOXyVJ2ZJDVuV/44rgmgjOVoHEqdw4Omwjyum0S5RKQqfq5b9
+	fsXVCAIqhhbSBjX4u3fzP/oMeG1gr6V+uX50O69gQly17cEKl/E3tXPt+8uWfrM67hA/ZV/ogKW
+	23ukfXCxY/CO4Qg0VeIZDOksfsCWfMK40P+ksRY8eEOYG2eoOfBF3weHGuABySyqDJRotKEXS+9
+	n9XNiqJNq+Foej8GB4j3PZ7Z1huqOnzpnJGJz9sQ4ahIosMPXHSr0uNky4qdU5yeFFpS3kzqVYx
+	TAbmZxle58sYPOGXIM9d/Zeb23W4obQ==
+X-Received: by 2002:a05:600c:358d:b0:456:19be:5e8 with SMTP id 5b1f17b1804b1-458827c18a4mr74278665e9.20.1753794943019;
+        Tue, 29 Jul 2025 06:15:43 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFFEgKXSP/cqBIEsBU5ORHg/b6zfhpLYR1Wb0W3l+PyFvCX+IqPWXeYXBbojnUcAC31L/JA5g==
+X-Received: by 2002:a05:600c:358d:b0:456:19be:5e8 with SMTP id 5b1f17b1804b1-458827c18a4mr74278385e9.20.1753794942609;
+        Tue, 29 Jul 2025 06:15:42 -0700 (PDT)
 Received: from workstation5 (ip-005-147-080-091.um06.pools.vodafone-ip.de. [5.147.80.91])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b778eb9bdfsm12024338f8f.20.2025.07.29.06.15.40
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b778eb9bdfsm12024338f8f.20.2025.07.29.06.15.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Jul 2025 06:15:40 -0700 (PDT)
+        Tue, 29 Jul 2025 06:15:42 -0700 (PDT)
 From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH 1/2] RISC-V: ACPI: enable parsing the BGRT table
-Date: Tue, 29 Jul 2025 15:15:34 +0200
-Message-ID: <20250729131535.522205-2-heinrich.schuchardt@canonical.com>
+Subject: [PATCH 2/2] ACPI: support BGRT table on RISC-V
+Date: Tue, 29 Jul 2025 15:15:35 +0200
+Message-ID: <20250729131535.522205-3-heinrich.schuchardt@canonical.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250729131535.522205-1-heinrich.schuchardt@canonical.com>
 References: <20250729131535.522205-1-heinrich.schuchardt@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_061553_517253_44B8057F 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20250729_061606_797668_2BBE3760 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,35 +109,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The BGRT table is used to display a vendor logo during the boot process.
-Add the code for parsing it.
+The BGRT table is used to display a vendor logo in the boot process.
+There is no good reason why RISC-V should not support it.
+
+Remove the architecture constraint.
 
 Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
 ---
- arch/riscv/kernel/acpi.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/acpi/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-index 3f6d5a6789e87..71698ee11621a 100644
---- a/arch/riscv/kernel/acpi.c
-+++ b/arch/riscv/kernel/acpi.c
-@@ -14,6 +14,7 @@
-  */
+diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+index 7bc40c2735ac0..2b83c91bb1a78 100644
+--- a/drivers/acpi/Kconfig
++++ b/drivers/acpi/Kconfig
+@@ -460,7 +460,7 @@ config ACPI_HED
  
- #include <linux/acpi.h>
-+#include <linux/efi-bgrt.h>
- #include <linux/efi.h>
- #include <linux/io.h>
- #include <linux/memblock.h>
-@@ -160,6 +161,8 @@ void __init acpi_boot_table_init(void)
- 			early_init_dt_scan_chosen_stdout();
- 	} else {
- 		acpi_parse_spcr(earlycon_acpi_spcr_enable, true);
-+		if (IS_ENABLED(CONFIG_ACPI_BGRT))
-+			acpi_table_parse(ACPI_SIG_BGRT, acpi_parse_bgrt);
- 	}
- }
- 
+ config ACPI_BGRT
+ 	bool "Boottime Graphics Resource Table support"
+-	depends on EFI && (X86 || ARM64 || LOONGARCH)
++	depends on EFI
+ 	help
+ 	  This driver adds support for exposing the ACPI Boottime Graphics
+ 	  Resource Table, which allows the operating system to obtain
 -- 
 2.50.0
 
