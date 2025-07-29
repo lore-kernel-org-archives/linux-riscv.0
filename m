@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46F8DC87FCA
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 09:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 809EFC87FC9
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 09:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AL4VlMjCYC3t0QivAl8xVvQsDCZCjYEu3wPk+KSeUvQ=; b=Ts9tcc/UInEtJJ
-	NzIbbC6LsAD/IMBn229s21iIO1Hg57K56T1g2ctY2H7KEhq1vgBxlm+R2nMycsyLhEqwLQJ5vpu1P
-	1IncCQiXALtD3sLJAvyqLU5+XF7Mg5gKZQU+YMj4BPjkkr878Zay4E19kWFE6aORJ3tUdXK2rjOVp
-	bAweK9Ktx0mBcSmpnXXBV7dZ46z5I0WbpE8yCwCPVZvKDVIQ2pkZJjiL/P3c/6hRjxYpIfwrA0Dy8
-	JCF09Zr5TmCMgsjgy/nVjW6WZM0PdsjkrsSatLmcDOIOE+1r71K/BnaXg33IjHy/yYl0r+wBo/rDP
-	7r+yiGTdaEYoAA+RBpTQ==;
+	List-Owner; bh=OT6mJw0kg+/g/yiccQ9Kmmtdua/7QzYma2+4S4JrJ2I=; b=Sx4M5yjeGYKEW5
+	T2yC4VanxWadnYCdLrkHc0Pwq02Ge2Nbv00Uqgk1NnXIJpxex2enYjyn/IBXCxFurdw8ZWbaU28hq
+	+jVA1dmizrsBzT21UqTNorGbuZkABf5WwUibxWkRyKyLxZchqK4r4ueD4EstMayqC5XiimkwH7/dG
+	wf+oviWBWpqk7MuactR1cXsD+kLXASedIVsfYOCpOhs7gz0zECjPCK/YUT1zPnaJ48vWxyY+fvCRi
+	TwWCFCuXACHicBGGpqj/U0dPMeRKPqNtt2t9xlMQUBs16ixK1RP2NlkPH57ZXwpwwQzsfSeN4kXoK
+	5dg+gny++taVbrfLavAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugh35-0000000GS8l-2g0E;
-	Tue, 29 Jul 2025 09:55:07 +0000
+	id 1ugh33-0000000GS7j-2vA5;
+	Tue, 29 Jul 2025 09:55:05 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uggqA-0000000GQQo-3Q3T
+	id 1uggmg-0000000GPnJ-1gm5
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Jul 2025 09:41:49 +0000
+	Tue, 29 Jul 2025 09:38:11 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 70F4925A96;
-	Tue, 29 Jul 2025 11:41:45 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 0EF442047B;
+	Tue, 29 Jul 2025 11:38:09 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id riiRElZg150v; Tue, 29 Jul 2025 11:41:44 +0200 (CEST)
+ id msMHQLLUizam; Tue, 29 Jul 2025 11:38:08 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1753782104; bh=/DRfirf/6tX1d3cecrOUoT/ylGXL16bxkleWN8hcOpM=;
+	t=1753781888; bh=KckubxbZ+pvtLSm9LYRkKrPsFoinp6cu370w3zIGmtk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=W/GF8vNkmIErBK6sNeP1dkzNGNz1GXJ8rYaze11Iva9WDsfxpW0VE+1kVfhtV/od9
-	 bFK4e1+SVowr9gbTsPvOWatMDY2TASbql5gRmaEOj3B3gzLGgMpWgkBxqvu0Uo+Afn
-	 H1PWUWpt3RL//shv3FdAq5J62l4yw4VdJpaPAfBr8VjMu5Y05lxnH+vIFvyRskCgQz
-	 C83oz2ZSB4O6rFJ4lpz4iweHwdjP20efmRXcTj2+XaDBHKqN+UoN/Ti9N/a2B4om3C
-	 M9eAZMyVlvDouPSsMeZZuTRSiL1Z+Yz1wUNZmPe5CYaiB3Nett3VHYdN+ahzJm/fps
-	 gw/td2DGWSM5A==
+	b=YXLWxqz/tf0VbrkuyE6TpM6Wc6BNMKRNLm//4y/sVJGdvwV4giddqf94ptF4lG07a
+	 yVCMtn86CcTdR06cI3HgX1u5w4uNHWW8SErTcEymAhRkb18KLGD8/HB2Pt4yVCB/aW
+	 40hWtan3L5szusC0X8X1TFYzgtFT9vnee6UvE7vzMqqi02sGMh4dN+ye0OyP3YlZb+
+	 3jhBFgFHXq7lbtRhveJY2Qrnms/odgyc57B4FjrbfPNd8yBKUQ9wrtPJSIll5P3AA4
+	 l9ykh3o7FozLnzmFNRitHCmCjdq0xW9USV3ssvre2Ri8nE7c7Qa+699SdYUJUuDKL9
+	 bA0uNDHwjwTDA==
 From: Yao Zi <ziyao@disroot.org>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -66,15 +66,15 @@ Cc: linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH net 3/3] riscv: dts: thead: Add APB clocks for TH1520 GMACs
-Date: Tue, 29 Jul 2025 09:37:34 +0000
-Message-ID: <20250729093734.40132-4-ziyao@disroot.org>
+Subject: [PATCH net 1/3] dt-bindings: net: thead,th1520-gmac: Describe APB interface clock
+Date: Tue, 29 Jul 2025 09:37:32 +0000
+Message-ID: <20250729093734.40132-2-ziyao@disroot.org>
 In-Reply-To: <20250729093734.40132-1-ziyao@disroot.org>
 References: <20250729093734.40132-1-ziyao@disroot.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_024146_986527_740EC08C 
-X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-CacheID: sfid-20250729_023810_572878_9AB480D6 
+X-CRM114-Status: UNSURE (   8.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,43 +92,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Describe perisys-apb4-hclk as the APB clock for TH1520 SoC, which is
-essential for accessing GMAC glue registers.
+Besides ones for GMAC core and peripheral registers, the TH1520 GMAC
+requires one more clock for configuring APB glue registers. Describe
+it in the binding.
 
-Fixes: 7e756671a664 ("riscv: dts: thead: Add TH1520 ethernet nodes")
+Though the clock is essential for operation, it's not marked as required
+for now to avoid introducing new dt-binding warnings to existing dts.
+
+Fixes: f920ce04c399 ("dt-bindings: net: Add T-HEAD dwmac support")
 Signed-off-by: Yao Zi <ziyao@disroot.org>
 ---
- arch/riscv/boot/dts/thead/th1520.dtsi | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ .../devicetree/bindings/net/thead,th1520-gmac.yaml        | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index 42724bf7e90e..03f1d7319049 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -297,8 +297,9 @@ gmac1: ethernet@ffe7060000 {
- 			reg-names = "dwmac", "apb";
- 			interrupts = <67 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
--			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC1>;
--			clock-names = "stmmaceth", "pclk";
-+			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC1>,
-+				 <&clk CLK_PERISYS_APB4_HCLK>;
-+			clock-names = "stmmaceth", "pclk", "apb";
- 			snps,pbl = <32>;
- 			snps,fixed-burst;
- 			snps,multicast-filter-bins = <64>;
-@@ -319,8 +320,9 @@ gmac0: ethernet@ffe7070000 {
- 			reg-names = "dwmac", "apb";
- 			interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
--			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC0>;
--			clock-names = "stmmaceth", "pclk";
-+			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC0>,
-+				 <&clk CLK_PERISYS_APB4_HCLK>;
-+			clock-names = "stmmaceth", "pclk", "apb";
- 			snps,pbl = <32>;
- 			snps,fixed-burst;
- 			snps,multicast-filter-bins = <64>;
+diff --git a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+index 6d9de3303762..fea9fbc1d006 100644
+--- a/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
++++ b/Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+@@ -59,14 +59,18 @@ properties:
+       - const: apb
+ 
+   clocks:
++    minItems: 2
+     items:
+       - description: GMAC main clock
+       - description: Peripheral registers interface clock
++      - description: APB glue registers interface clock
+ 
+   clock-names:
++    minItems: 2
+     items:
+       - const: stmmaceth
+       - const: pclk
++      - const: apb
+ 
+   interrupts:
+     items:
+@@ -88,8 +92,8 @@ examples:
+         compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
+         reg = <0xe7070000 0x2000>, <0xec003000 0x1000>;
+         reg-names = "dwmac", "apb";
+-        clocks = <&clk 1>, <&clk 2>;
+-        clock-names = "stmmaceth", "pclk";
++        clocks = <&clk 1>, <&clk 2>, <&clk 3>;
++        clock-names = "stmmaceth", "pclk", "apb";
+         interrupts = <66>;
+         interrupt-names = "macirq";
+         phy-mode = "rgmii-id";
 -- 
 2.50.1
 
