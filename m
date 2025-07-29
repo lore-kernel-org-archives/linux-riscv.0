@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B4E3C87FCA
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 09:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12ADBC83F26
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 09:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6UD9/+5oM6+LuQNZfh7cVWfy9MBfzrOiSQPPwpxl5Xs=; b=ioN7R1eYNze9U2
-	olmjDV1XzkLNqi08/EFXrF8o1KSG0ZLCcdo2BfmqDk185kWKEv8rtPnpG93h+uLbg6BTtDcRjqFQ7
-	+rGzw4pWbft4wf40GJQzHNFROiuIkqHrBoS9gM+k/0DCYjHbLz05XR0RqIAQ1midN0IkApuuOH6HU
-	yAFyDSdLoTn/4MT26iQl4wIS+VU/mrP7TqDmMZ8jMTjISataZVnOmwpLZd4aKE6EzfreX2RFSZmYG
-	dc9MFbOZuFxm+EhcqpCSobsmd1jSwAnCTh+RqMJYfPviHsvcar8VoZbAngYLRzE7tUlKrPs4bMwsl
-	053hT/jfy125fsi7xYHw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iiidaqrJLtVhgsozBpd77/dzfibaBXSTlwe63wnyESE=; b=cBo0Y2LzskiGdh
+	bL71fTCFLbdDzC4vIsxazlfAWoRK+iUA8848RreIwNHAdEh1WDY5ndtbuGH1QEbSSH44Aw8CXG4a6
+	WNPXwyLh2Wrf5xj92gI/ebnvHY/jAMF94iIiCBz7FcZ1Byw+FsgVkEb7UGDV3zRKYCwB9wI8BHGuP
+	kRnqhmH9fkgivgff9cdaWIwE/d244Z4wCqLKpcsNLLeT1j3j2u3ADdTCIVWidDYAO8bb0xuA2doZC
+	LDrclngMlxKbotmUJ2/a0fip+Ls8lIjPs+XL/zMXNLaqqA9rtGSoV8uFZ9r31MMiM7CyDk5JwMn9D
+	TZY0dAalzU5BizTehH0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugh33-0000000GS7R-0Tf2;
-	Tue, 29 Jul 2025 09:55:05 +0000
+	id 1ugh34-0000000GS81-1K7r;
+	Tue, 29 Jul 2025 09:55:06 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uggmb-0000000GPmZ-1d3e
+	id 1uggmn-0000000GPnx-1vf7
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Jul 2025 09:38:08 +0000
+	Tue, 29 Jul 2025 09:38:19 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id D4DA620075;
-	Tue, 29 Jul 2025 11:38:00 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 344BE206BD;
+	Tue, 29 Jul 2025 11:38:16 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id sPFN6c7Zk2KY; Tue, 29 Jul 2025 11:38:00 +0200 (CEST)
+ id C6Wu41bWfsYT; Tue, 29 Jul 2025 11:38:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1753781880; bh=idYgMwrXAP8bE9FQUXKFBglumUQ+kyKP5QsLbZJGvcs=;
-	h=From:To:Cc:Subject:Date;
-	b=YKOV7A+CQgSsnr3Lkw7fjDaarr85dBIoXgyhmipyOE/N6lHiDjQjiS4lX3Z414s3X
-	 0tmUBBgpkNXMkoW2o0i9yiRhdYHcSyriUYlSumAZ033qD8TBQOHl6Mos11XwgTQuGt
-	 vuveUfpsoB3GDsNmJ8+kGP9UbupOShyogZWe7ZrzU5Ri3nMtPYHVdCAhJJG8ihSAfr
-	 yp+UqBfJOD9iiPvl5Acl1M12hdSWWIxG7KPMtaMn6bcvXMPvCZqvyWMO3K0avwgPWz
-	 1ohH0cyoRHhme71uOrhYKoEAWZxbVVLokmW8Icw0fmh2cqbvOUBxmgjTWofAS6LhSy
-	 GSW+/24Pyxzmw==
+	t=1753781895; bh=dbCvNaqSs+EE66nSXH0s8xd+C/Lm0/TvIxSmIJpIbVk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Ok1BP9fTsD9JNInYx6Trjr+Cazv/2Waple+MjsYgwP3J2cheZRtcdWsAEVUU4rD4o
+	 ZHmsgJNA4rxK7qK/Fqk1coz34H5/kC+CtfFrLG77xCxAvHGtBabX4GqshUNtqjGU2g
+	 +kFWuVnExZDqa2E2E2HB+TZcP9qUeiyOue3nZwhQZzyU8ox9QnkUSUXW0nVLAQnOYd
+	 JrPFnw8mYGj5SuBQnZD8RNp50KKWP1PMn395U8PGUctd2TF3lumIeSxaEmGaNo8DXH
+	 4vH/+QsXs8cCUUDzgLd6eHWoKegXy6AOXpNyCQhxNmsGAOIoFVVbY4WWTpvksC7jJh
+	 8+luIuwzUdeIg==
 From: Yao Zi <ziyao@disroot.org>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -66,13 +66,15 @@ Cc: linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH net 0/3] Fix broken link with TH1520 GMAC when linkspeed changes
-Date: Tue, 29 Jul 2025 09:37:31 +0000
-Message-ID: <20250729093734.40132-1-ziyao@disroot.org>
+Subject: [PATCH net 2/3] net: stmmac: thead: Get and enable APB clock on initialization
+Date: Tue, 29 Jul 2025 09:37:33 +0000
+Message-ID: <20250729093734.40132-3-ziyao@disroot.org>
+In-Reply-To: <20250729093734.40132-1-ziyao@disroot.org>
+References: <20250729093734.40132-1-ziyao@disroot.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_023805_845066_1D2BF409 
-X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-CacheID: sfid-20250729_023817_631038_EAF6CDD5 
+X-CRM114-Status: UNSURE (   9.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,36 +92,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It's noted that on TH1520 SoC, the GMAC's link becomes broken after
-the link speed is changed (for example, running ethtool -s eth0 speed
-100 on the peer when negotiated to 1Gbps), but the GMAC could function
-normally if the speed is brought back to the initial.
+It's necessary to adjust the MAC TX clock when the linkspeed changes,
+but it's noted such adjustment always fails on TH1520 SoC, and reading
+back from APB glue registers that control clock generation results in
+garbage, causing broken link.
 
-Just like many other SoCs utilizing STMMAC IP, we need to adjust the TX
-clock supplying TH1520's GMAC through some SoC-specific glue registers
-when linkspeed changes. But it's found that after the full kernel
-startup, reading from them results in garbage and writing to them makes
-no effect, which is the cause of broken link.
+With some testing, it's found a clock must be ungated for access to APB
+glue registers. Without any consumer, the clock is automatically
+disabled during late kernel startup. Let's get and enable it if it's
+described in devicetree.
 
-Further testing shows perisys-apb4-hclk must be ungated for normal
-access to Th1520 GMAC APB glue registers, which is neither described in
-dt-binding nor acquired by the driver.
+Fixes: 33a1a01e3afa ("net: stmmac: Add glue layer for T-HEAD TH1520 SoC")
+Signed-off-by: Yao Zi <ziyao@disroot.org>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-This series expands the dt-binding of TH1520's GMAC to allow an extra
-"APB glue registers interface clock", instructs the driver to acquire
-and enable the clock, and finally supplies CLK_PERISYS_APB4_HCLK for
-TH1520's GMACs in SoC devicetree.
-
-Yao Zi (3):
-  dt-bindings: net: thead,th1520-gmac: Describe APB interface clock
-  net: stmmac: thead: Get and enable APB clock on initialization
-  riscv: dts: thead: Add APB clocks for TH1520 GMACs
-
- .../devicetree/bindings/net/thead,th1520-gmac.yaml     |  8 ++++++--
- arch/riscv/boot/dts/thead/th1520.dtsi                  | 10 ++++++----
- drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c      |  6 ++++++
- 3 files changed, 18 insertions(+), 6 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+index c72ee759aae5..95096244a846 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+@@ -211,6 +211,7 @@ static int thead_dwmac_probe(struct platform_device *pdev)
+ 	struct stmmac_resources stmmac_res;
+ 	struct plat_stmmacenet_data *plat;
+ 	struct thead_dwmac *dwmac;
++	struct clk *apb_clk;
+ 	void __iomem *apb;
+ 	int ret;
+ 
+@@ -224,6 +225,11 @@ static int thead_dwmac_probe(struct platform_device *pdev)
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(plat),
+ 				     "dt configuration failed\n");
+ 
++	apb_clk = devm_clk_get_optional_enabled(&pdev->dev, "apb");
++	if (IS_ERR(apb_clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(apb_clk),
++				     "failed to get apb clock\n");
++
+ 	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+ 	if (!dwmac)
+ 		return -ENOMEM;
 -- 
 2.50.1
 
