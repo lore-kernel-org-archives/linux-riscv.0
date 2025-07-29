@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A98EC83F26
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 06:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEFEC87FC9
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 06:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SYEDV00P3t0QjQCLESt3eBQPShw080fYMQ7qYe9NKgE=; b=vnoiyhY4LRYOxh
-	iVc8+2Etu6tZ2Yr+FCVETf+3N/4WD236s+aouY4WaTE/2wi7W0gP0EpgWmosVynOKrQM170rIiiJE
-	D6fn2CRJrCtX2bkrloIuSzW7i8qB4q6ubiJlOX6LunX/PlGdKJs+DYjSYi+l4SVeRDMzocALudhKo
-	XIdBuCxKaL+I69LWNqPALxTUZi69dpybofO/RERjUu6hcoctqvlr1ClZiWCGCq0uyLEkXAERAGIw6
-	v3rieoehydwO1DPUsbMQgnxnSpC2483TxrNsm6LHIVgpVTRojHdl3mMzkf3JY41vkH+uXvCoiuTL/
-	PNjj0MKcyC43N1L2pWEQ==;
+	List-Owner; bh=7C2Iqmw2Z7cz11zbR3c0wfRCWhuWwXtWDJo4m6wpEBc=; b=CkmwxWw3eMIt+r
+	p4H2GuCDCGxVEaPYuF338YH8UvyLGDmvg6oKBS2O9Wu7+Hrsw/81+XMXxRkUG/3hUg97qUJphRXMV
+	O2cHn2BC7hnvIpZHJWZL4cMVa5omEdlTF3vAmtE48Lwd5sIa0w8+iC2VTbPQC8q+d2Fb7bTxGsx54
+	E1rUFijx4XLmS17pf8WFtJ36sPfHvhlYUgtghrMxsQl7z/4f62360NriWFyd6PQYYzb5Enmxz6TnR
+	tfOfOXvZCsj4qxZ60HK4+3UvpCTGLXpCYU8a0mItv+F6lnsk4lN3My9dQehDK+HFxvByAKtkqyfbE
+	9thVN6SiW1LzP45ZlFhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugdfL-0000000G0Xk-13Ym;
-	Tue, 29 Jul 2025 06:18:23 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1ugdoi-0000000G1Jz-35gQ;
+	Tue, 29 Jul 2025 06:28:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugdfH-0000000G0X6-2Vqa
+	id 1ugdof-0000000G1JL-1maS
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Jul 2025 06:18:21 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3b780e4fb03so158873f8f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Jul 2025 23:18:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753769898; x=1754374698; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=iojwzruvvVhAQ7wvF6ZE60oEZ08ONaB5lYxNaGGz2NQ=;
-        b=vr/kRcoTg5oMZ+HY/0vqVS6bz933vE7umxQLD/0Q2J+8y4pzTxOX/rc+dFojZ6DcSK
-         ONWFSWzqr0f+pwfQlNFlQeKPvpoCDzc8e/DB/uFLb7wz32cJBoe5jQMx8X4CvMbKMDrA
-         IPQXk3TbdQJP+d0FacLLzzIyvBy1sc2R7dETOOgnSkEPBl/iZMKqbxhE/v6LojcJrtNl
-         CtZz+NF77sZQJfSc8LPPABWUEuP96LBki75icl/8OpOtD3XBk+e9LuG6Aeq02doj/EZM
-         c5Xm9yQQVoZdAXOKN55R5pMReZhQGnB9NwD0Yk9+bmQHkMkbu0iHoWPHQ/MlqYLOTEMG
-         g8gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753769898; x=1754374698;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iojwzruvvVhAQ7wvF6ZE60oEZ08ONaB5lYxNaGGz2NQ=;
-        b=L1sJZNFKRsNYbg8nCPieNHwJccTqammkLVXrBYEP3/auC3M6j2W9yhv4AXubogETeR
-         uxNyFJ5UtixlkFCf6HS+Eb8BXmB01dz6JdzOOnETYqcHUQvA4GcbehGjG28acFobTRLM
-         B21QN4Logby7xaHXUDuS4JOuD1HoW30LxAEKqVwhBa9skcXGw0Z0IInlLvQmuPUg4og8
-         r0+0eJaTatRPQXiEZqzEdwgxGYNkZ+8zinFL7FFekN0ZNIkfruJLdqbESpL6IPEkB6Vy
-         caPMrQKCj+O1NIgiP/B6g5Ib1kXo6vF8JuNJD/ROtzF/eJgzTyNRq5LL88/NAoxfhSy4
-         DfVg==
-X-Forwarded-Encrypted: i=1; AJvYcCXsrRa9tB+WEdCM+CblHeUtyhSfuXzhxNO77x+og09l8rpyeE4yEEvmKShc7f96RIqMFeVlpm73mX9baQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8H0phf1ghettQxuZnGAlCk6jb+XhQY+ugr/Tis3BjfzJFQ5j2
-	9tt3qGd3q9idXbuXJNxZyeAuxl+EdWrK3Zu7FJyjJ3oaN7y06KwDRLiijfC2kE69Ecs=
-X-Gm-Gg: ASbGncu0BYSPwLobdmwY7lw4v4EBpFc7Sh7D6Mw4BMFwEnojqzKWUByg6pW1M3jpBFM
-	iFEkZDEnhnIN2X2b2b4ml7b3QG+8qU99y8Ai41knpwD4JAVAeW4/pcvK7tpF64XvP1reBEoDUH+
-	gnN667OvYD/MNv8C9urzkh3S/TitIPcgTUPJ76KH+psIip54m8hAOPFezIo5CO9S5zM3cuGNRV7
-	FgTZaCiDneiZKa2f59Ce7VyEjBQpxgHncYyQ8PasjIT+tJXkWYdgRoNC9fEQpJYLj0W+l34Y6dP
-	wxFO9sXPcPtlyDNjPD4Qg8uL6GZtuTlIiiM+jmeuf3rpnElzdtZtDI/tpAjkzdbs9PjTgM9mPS5
-	jVMhKxXhsqj1SP/RegNFDvE47MkMq+e70mv7TGnc8TX0=
-X-Google-Smtp-Source: AGHT+IFKMbXWi0CwmnHyn3tgyLCZQgSOUQBMZIij8kI76/pdZpcK3Rh2CaXNNCukSuKoaxDWztBswQ==
-X-Received: by 2002:a05:6000:40cc:b0:3b7:8b43:ac7d with SMTP id ffacd0b85a97d-3b78b43add2mr1376216f8f.3.1753769897578;
-        Mon, 28 Jul 2025 23:18:17 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.218.223])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b778eba0e6sm11065009f8f.25.2025.07.28.23.18.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Jul 2025 23:18:16 -0700 (PDT)
-Message-ID: <6479ef96-b7d3-40f6-aafc-a7a8a4177c41@linaro.org>
-Date: Tue, 29 Jul 2025 08:18:15 +0200
+	Tue, 29 Jul 2025 06:28:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 80790A54826;
+	Tue, 29 Jul 2025 06:28:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABE0EC4CEEF;
+	Tue, 29 Jul 2025 06:27:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753770480;
+	bh=h2wtlypehd5qSOqophm6kVznrIreQIBZea/Obo1g670=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=D9wjyNFqSSxtaBea0a2Ym1hDdepeD0XA/E3qQbfa0/w3RIQwK9NxysOsyxQ79Je/m
+	 7y24CrmMy/U/aB2E4bTLMpTTK79eowAvOARhZv+xjvSeTwLPPEngEFpRHqMeIz5TyH
+	 S6Ll4ZIqYMSqBJssQVt63eENT87W7rzjoIlPTahbjryyzq6usmz00sKxENtUK2UEMx
+	 8aaA7t5amb7/nyB3+HCXsHSzrMkMU1iJNmXgUKy6GuEd3FQ0NAox5NC2zebSUjUbUJ
+	 o7+DO4SEop7SfMrSCN+jd2rzjJNhzFSUH+PQVkpAFUDfiYT6InisUgGD9S0MvXHLtn
+	 gz6LWFlxlk7Ow==
+Message-ID: <f1b90b0f-f7a7-4117-9d36-046c4ca9c19a@kernel.org>
+Date: Tue, 29 Jul 2025 08:27:53 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/2] dt-bindings: usb: dwc3: add support for SpacemiT
- K1
-To: Ze Huang <huangze@whut.edu.cn>, Yao Zi <ziyao@disroot.org>,
- Ze Huang <huang.ze@linux.dev>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250729-dwc3_generic-v7-0-5c791bba826f@linux.dev>
- <20250729-dwc3_generic-v7-1-5c791bba826f@linux.dev> <aIgmrQ7afSO5sjB_@pie>
- <aIhi9JKZvuYh2Rz_@cse-cd03-lnx.ap.qualcomm.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 1/2] dt-bindings: remoteproc: Add C906L rproc for
+ Sophgo CV1800B SoC
+To: Junhui Liu <junhui.liu@pigmoral.tech>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <185679960f220550.906528684e28f712.ba6c1f3fdd9df549@Mac>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
  JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
@@ -101,44 +73,43 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  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
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzTRLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+wsGUBBMBCgA+AhsD
- BQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmgXUEoF
- CRaWdJoACgkQG5NDfTtBYpudig/+Inb3Kjx1B7w2IpPKmpCT20QQQstx14Wi+rh2FcnV6+/9
- tyHtYwdirraBGGerrNY1c14MX0Tsmzqu9NyZ43heQB2uJuQb35rmI4dn1G+ZH0BD7cwR+M9m
- lSV9YlF7z3Ycz2zHjxL1QXBVvwJRyE0sCIoe+0O9AW9Xj8L/dmvmRfDdtRhYVGyU7fze+lsH
- 1pXaq9fdef8QsAETCg5q0zxD+VS+OoZFx4ZtFqvzmhCs0eFvM7gNqiyczeVGUciVlO3+1ZUn
- eqQnxTXnqfJHptZTtK05uXGBwxjTHJrlSKnDslhZNkzv4JfTQhmERyx8BPHDkzpuPjfZ5Jp3
- INcYsxgttyeDS4prv+XWlT7DUjIzcKih0tFDoW5/k6OZeFPba5PATHO78rcWFcduN8xB23B4
- WFQAt5jpsP7/ngKQR9drMXfQGcEmqBq+aoVHobwOfEJTErdku05zjFmm1VnD55CzFJvG7Ll9
- OsRfZD/1MKbl0k39NiRuf8IYFOxVCKrMSgnqED1eacLgj3AWnmfPlyB3Xka0FimVu5Q7r1H/
- 9CCfHiOjjPsTAjE+Woh+/8Q0IyHzr+2sCe4g9w2tlsMQJhixykXC1KvzqMdUYKuE00CT+wdK
- nXj0hlNnThRfcA9VPYzKlx3W6GLlyB6umd6WBGGKyiOmOcPqUK3GIvnLzfTXR5DOwU0EVUNc
- NAEQAM2StBhJERQvgPcbCzjokShn0cRA4q2SvCOvOXD+0KapXMRFE+/PZeDyfv4dEKuCqeh0
- hihSHlaxTzg3TcqUu54w2xYskG8Fq5tg3gm4kh1Gvh1LijIXX99ABA8eHxOGmLPRIBkXHqJY
- oHtCvPc6sYKNM9xbp6I4yF56xVLmHGJ61KaWKf5KKWYgA9kfHufbja7qR0c6H79LIsiYqf92
- H1HNq1WlQpu/fh4/XAAaV1axHFt/dY/2kU05tLMj8GjeQDz1fHas7augL4argt4e+jum3Nwt
- yupodQBxncKAUbzwKcDrPqUFmfRbJ7ARw8491xQHZDsP82JRj4cOJX32sBg8nO2N5OsFJOcd
- 5IE9v6qfllkZDAh1Rb1h6DFYq9dcdPAHl4zOj9EHq99/CpyccOh7SrtWDNFFknCmLpowhct9
- 5ZnlavBrDbOV0W47gO33WkXMFI4il4y1+Bv89979rVYn8aBohEgET41SpyQz7fMkcaZU+ok/
- +HYjC/qfDxT7tjKXqBQEscVODaFicsUkjheOD4BfWEcVUqa+XdUEciwG/SgNyxBZepj41oVq
- FPSVE+Ni2tNrW/e16b8mgXNngHSnbsr6pAIXZH3qFW+4TKPMGZ2rZ6zITrMip+12jgw4mGjy
- 5y06JZvA02rZT2k9aa7i9dUUFggaanI09jNGbRA/ABEBAAHCwXwEGAEKACYCGwwWIQSb0H4O
- DFH41ZZ3t1Qbk0N9O0FimwUCaBdQXwUJFpZbKgAKCRAbk0N9O0Fim07TD/92Vcmzn/jaEBcq
- yT48ODfDIQVvg2nIDW+qbHtJ8DOT0d/qVbBTU7oBuo0xuHo+MTBp0pSTWbThLsSN1AuyP8wF
- KChC0JPcwOZZRS0dl3lFgg+c+rdZUHjsa247r+7fvm2zGG1/u+33lBJgnAIH5lSCjhP4VXiG
- q5ngCxGRuBq+0jNCKyAOC/vq2cS/dgdXwmf2aL8G7QVREX7mSl0x+CjWyrpFc1D/9NV/zIWB
- G1NR1fFb+oeOVhRGubYfiS62htUQjGLK7qbTmrd715kH9Noww1U5HH7WQzePt/SvC0RhQXNj
- XKBB+lwwM+XulFigmMF1KybRm7MNoLBrGDa3yGpAkHMkJ7NM4iSMdSxYAr60RtThnhKc2kLI
- zd8GqyBh0nGPIL+1ZVMBDXw1Eu0/Du0rWt1zAKXQYVAfBLCTmkOnPU0fjR7qVT41xdJ6KqQM
- NGQeV+0o9X91X6VBeK6Na3zt5y4eWkve65DRlk1aoeBmhAteioLZlXkqu0pZv+PKIVf+zFKu
- h0At/TN/618e/QVlZPbMeNSp3S3ieMP9Q6y4gw5CfgiDRJ2K9g99m6Rvlx1qwom6QbU06ltb
- vJE2K9oKd9nPp1NrBfBdEhX8oOwdCLJXEq83vdtOEqE42RxfYta4P3by0BHpcwzYbmi/Et7T
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <aIhi9JKZvuYh2Rz_@cse-cd03-lnx.ap.qualcomm.com>
+ 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 a/A=
+In-Reply-To: <185679960f220550.906528684e28f712.ba6c1f3fdd9df549@Mac>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_231819_680087_A61FF016 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20250728_232801_742523_BA260753 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,50 +126,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/07/2025 07:58, Ze Huang wrote:
-> On Tue, Jul 29, 2025 at 01:41:01AM +0000, Yao Zi wrote:
->> On Tue, Jul 29, 2025 at 12:33:55AM +0800, Ze Huang wrote:
->>> Add support for the USB 3.0 Dual-Role Device (DRD) controller embedded
->>> in the SpacemiT K1 SoC. The controller is based on the Synopsys
->>> DesignWare Core USB 3 (DWC3) IP, supporting USB3.0 host mode and USB 2.0
->>> DRD mode.
->>>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>> Signed-off-by: Ze Huang <huang.ze@linux.dev>
->>> ---
->>>  .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 124 +++++++++++++++++++++
->>>  1 file changed, 124 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
->>> new file mode 100644
->>> index 0000000000000000000000000000000000000000..7007e2bd42016ae0e50c4007e75d26bada34d983
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
->>> @@ -0,0 +1,124 @@
+On 28/07/2025 19:13, Junhui Liu wrote:
 >>
->> ...
->>
->>> +  resets:
+>>> +    description:
+>>> +      This property is required only if the rpmsg/virtio functionality is used.
+>>> +      (see mailbox/sophgo,cv1800b-mailbox.yaml)
 >>> +    items:
->>> +      - description: USB3.0 AHB reset
->>> +      - description: USB3.0 VCC reset
->>> +      - description: USB3.0 PHY reset
->>> +      - description: PCIE0 global reset (for combo phy)
+>>> +      - description: mailbox channel to send data to C906L
+>>> +      - description: mailbox channel to receive data from C906L
+>>> +
+>>> +  memory-region:
+>>> +    description:
+>>> +      List of phandles to reserved memory regions used by the remote processor.
+>>> +      The first region is required and provides the firmware region for the
+>>> +      remote processor. The following regions (vdev buffer, vrings) are optional
+>>> +      and are only required if rpmsg/virtio functionality is used.
+>>> +    minItems: 1
 >>
->> Why should the USB driver takes care of the PCIe stuff? This sounds
->> strange to me.
+>> Why isn't this constrained?
+> 
+> Do you mean a maxItems should be added here?
+> >>
+>>> +    items:
+>>> +      - description: firmware region
+>>> +      - description: vdev buffer
+>>> +      - description: vring0
+>>> +      - description: vring1
+>>> +    additionalItems: true
 >>
+>> No, drop. This needs to be constrained.
 > 
-> On K1, PHY depends on the clocks and resets it shares with the controller,
-> and the controller driver is guarantees that any needed clocks are enabled,
-> and any resets that affect the PHY are de-asserted before using the PHY.
+> My intention is that RPMsg/OpenAMP is not the only use case for
+
+We don't allow such syntax, that's not negotiable. Why 322 redundant
+memory regions are fine now?
+
+> remoteproc. There are scenarios where the remoteproc is just used for
+> booting the remote processor without any communication with Linux. In
+> such case, only the firmware region is needed, and the other regions may
+> not be necessary.
 > 
-> RESET_PCIE0_GLOBAL reset is necessary during, and only, the calibration stage
-> of combo phy.
+> Additionally, the remote processor might reserve extra memory for custom
+> buffers or other firmware-specific purposes beyond virtio/rpmsg.
+> Therefore, I think only the firmware region should be required and
+> constrained, while allowing flexibility for additional/custom memory
+> regions as needed.
 
+So how does this work exactly without the rest? Remote processor boots
+and works fine? How do you communicate with it?
 
-But this is not PCI! Why would you call it "I need to reset PCI" while
-you describe the USB device?
+Please describe exactly the usecase.
 
 
 Best regards,
