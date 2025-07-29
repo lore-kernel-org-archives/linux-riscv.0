@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A443C83F26
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 17:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB144C83F26
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jul 2025 17:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nK0dJwBPkEegNYy1xpkdMaHpDSdcaOJeyuc1YmQ3jQY=; b=Ow50ctVC7dZUUj
-	qJB9p2suK0OLXr0as0z19/8wrxRyyalLvCdF+/p1CE0GYLvcOXNCi5yfXuplmMGaHZpB/eqy3553C
-	puntzGwu1AbsA0oV6G+8xoiEF1ic1+R3NUjW3SIjlnUZbGnPCcJOVufSmDw8usLfbJUAejags+LR/
-	AKr5N1/ziWBaapBhQdVOi5ceInE5uwoDcCHgm39BP1QuDH3pP3U9pI4iZhidcYU+oY90pkna1J8rB
-	pwPK1YXq11xk5ZbJI8PhXM/gngc3dHR8ABekh5Xi8xYFgRt4Y524bcpIEzNnzQSaIddgigFWCs2gL
-	GIcN0hNlvbvl05o7YuIw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GTJfkjN3ZqN7xMJVaItrfO5mFefsaAmu+oziHCQSYEg=; b=hX0F2o9s+QiWa4j2Ec5Ii6+3YQ
+	l9xsX1gEqT/8BDt5lIV7uZGPJCTkH9iT/YENMgqmmnZKeB443QxkqD0YHYAHA7eWkAxrbERb5axGb
+	d30aUiWA+dTTG6pshkexpe8WWPiNwW3Ejq64V+SKWN92Hdl1kENhNnIPkLP4QI0kNqJhJl5DtkAEw
+	FNTY2o3wiUk0QYDrjjJZF9VC5zQfoQ3cPiy2/EggbqPEQBW8G14HI/tmiFuQnRvSIFD8g3Xpx2qYh
+	+r80+4wGgK/gGZ4Fwq/v2lF4Blf1TihGX+dCxCgpVA4U6F3fTuSr7w/HtBb7lhBHXjjzvEC89Od0c
+	+jTFr93g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugoQj-0000000HOQm-3U40;
-	Tue, 29 Jul 2025 17:48:01 +0000
+	id 1ugoZE-0000000HP6i-2IfR;
+	Tue, 29 Jul 2025 17:56:48 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugoOj-0000000HOG6-3QoV
-	for linux-riscv@lists.infradead.org;
-	Tue, 29 Jul 2025 17:45:58 +0000
+	id 1ugoWk-0000000HOtX-1jKH;
+	Tue, 29 Jul 2025 17:54:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E404C5C6533;
-	Tue, 29 Jul 2025 17:45:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DEF0C4CEF4;
-	Tue, 29 Jul 2025 17:45:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C1D015C36EB;
+	Tue, 29 Jul 2025 17:54:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFCFBC4CEEF;
+	Tue, 29 Jul 2025 17:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753811156;
-	bh=6qjTRlNG6mWLFC8VSGcpPLF+CAKlIypJQcDcbXR/Otw=;
+	s=k20201202; t=1753811653;
+	bh=Iwuu7Y+7MX/mR2K6h/H9itzDgZzQD+SpABNB9DHk9R4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c3SvszjaScYVH2cxvcbjgFbZsEdyFYQ5VRKpfVXyjtjpt0htJIN4mtK1PpeCjDaTh
-	 /46k3styG6mmy/i/SG4QDXuWKob0spuXN4wa2XligKXGNHgB96bSxGvYpmq6t8R4lQ
-	 3LGJp2bUsAMQnQP3EpveRTed/HN+jVc+RK5Axje7AwxBXFws9gYtiLeuLNzj5ly+gV
-	 uF3n3MzkE5o6wlBHY3SHVPJTNsIdjDQ7x+AOQ6MLwrKSSv6sRiRAOhiPeIHS6WkQRB
-	 e9BWt/aD9VViGsaHwERb/lX7n67N7yX90TBLYrc9+y6SYEJx8Lmceif5xxNW4b++Vj
-	 0fP4QaRafx0fg==
-Date: Tue, 29 Jul 2025 10:45:54 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Yao Zi <ziyao@disroot.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net 3/3] riscv: dts: thead: Add APB clocks for TH1520
- GMACs
-Message-ID: <aIkI0vHDD1CfxAkl@x1>
-References: <20250729093734.40132-1-ziyao@disroot.org>
- <20250729093734.40132-4-ziyao@disroot.org>
+	b=hkddaFw0w8n5PeSLmPokQCXVbPWkUNv/qFzM8HUmsD4Ls4zM0dlU5USFutiWoKcmK
+	 XkQMCf738wBF+ouzYx1L/8DxqiSfZdCxyjVuyDpVcApKovpMI3iwRQoO4QpNnEx4YU
+	 rEWP5zzTfhnR5laJT3sN6/N0p2s1NLocO6kt2hNkh7kjShvylztPPRnaeKpv9DTPSr
+	 P1SxWuITUk5iDytvQCkInAGP7N4K47c2JGqjd0YvcEmPWzZTMuCE8BoW5R1mbx13c1
+	 hb8a8h3I6eewofsiFPOhGhbqHDdYmgCDjW1jwZG2S2fAfo4qPIHPCbclUfq7U2hEfV
+	 qncPTyh9JLgxA==
+Date: Tue, 29 Jul 2025 18:54:07 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Alex Elder <elder@riscstar.com>, gregkh@linuxfoundation.org,
+	jirislaby@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, lkundrak@v3.sk,
+	devicetree@vger.kernel.org, linux-serial@vger.kernel.org,
+	spacemit@lists.linux.dev, linux-mediatek@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] dt-bindings: serial: 8250: allow "main" and "uart" as
+ clock names
+Message-ID: <20250729-reshuffle-contented-e6def76b540b@spud>
+References: <20250728220002.599554-1-elder@riscstar.com>
+ <20250728225319-GYA900803@gentoo>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250729093734.40132-4-ziyao@disroot.org>
+In-Reply-To: <20250728225319-GYA900803@gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_104557_899058_F3F6B735 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250729_105414_540018_DB40F8A7 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,58 +74,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6855004582814987981=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 29, 2025 at 09:37:34AM +0000, Yao Zi wrote:
-> Describe perisys-apb4-hclk as the APB clock for TH1520 SoC, which is
-> essential for accessing GMAC glue registers.
-> 
-> Fixes: 7e756671a664 ("riscv: dts: thead: Add TH1520 ethernet nodes")
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> ---
->  arch/riscv/boot/dts/thead/th1520.dtsi | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index 42724bf7e90e..03f1d7319049 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -297,8 +297,9 @@ gmac1: ethernet@ffe7060000 {
->  			reg-names = "dwmac", "apb";
->  			interrupts = <67 IRQ_TYPE_LEVEL_HIGH>;
->  			interrupt-names = "macirq";
-> -			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC1>;
-> -			clock-names = "stmmaceth", "pclk";
-> +			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC1>,
-> +				 <&clk CLK_PERISYS_APB4_HCLK>;
-> +			clock-names = "stmmaceth", "pclk", "apb";
->  			snps,pbl = <32>;
->  			snps,fixed-burst;
->  			snps,multicast-filter-bins = <64>;
-> @@ -319,8 +320,9 @@ gmac0: ethernet@ffe7070000 {
->  			reg-names = "dwmac", "apb";
->  			interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
->  			interrupt-names = "macirq";
-> -			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC0>;
-> -			clock-names = "stmmaceth", "pclk";
-> +			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC0>,
-> +				 <&clk CLK_PERISYS_APB4_HCLK>;
-> +			clock-names = "stmmaceth", "pclk", "apb";
->  			snps,pbl = <32>;
->  			snps,fixed-burst;
->  			snps,multicast-filter-bins = <64>;
-> -- 
-> 2.50.1
-> 
 
-Thank you for determining that this clock is needed for the GMAC.
+--===============6855004582814987981==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="sAUlFocIDHyTEwNs"
+Content-Disposition: inline
 
-Reviewed-by: Drew Fustini <fustini@kernel.org>
+
+--sAUlFocIDHyTEwNs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jul 29, 2025 at 06:53:19AM +0800, Yixun Lan wrote:
+> Hi Alex,
+>=20
+> On 17:00 Mon 28 Jul     , Alex Elder wrote:
+> > There are two compatible strings defined in "8250.yaml" that require
+> > two clocks to be specified, along with their names:
+> >   - "spacemit,k1-uart", used in "spacemit/k1.dtsi"
+> >   - "nxp,lpc1850-uart", used in "lpc/lpc18xx.dtsi"
+> >=20
+> > When only one clock is used, the name is not required.  However there
+> > are two places that do specify a name:
+> >   - In "mediatek/mt7623.dtsi", the clock for the "mediatek,mtk-btif"
+> >     compatible serial device is named "main"
+> >   - In "qca/ar9132.dtsi", the clock for the "ns8250" compatible
+> >     serial device is named "uart"
+> >=20
+> > In commit d2db0d7815444 ("dt-bindings: serial: 8250: allow clock 'uartc=
+lk'
+> > and 'reg' for nxp,lpc1850-uart"), Frank Li added the restriction that t=
+wo
+> > named clocks be used for the NXP platform mentioned above.  Extend that
+> > so that the two named clocks used by the SpacemiT platform are similarly
+> > restricted.
+> >=20
+> > Add "main" and "uart" as allowed names when a single clock is specified.
+> >=20
+> > Fixes: 2c0594f9f0629 ("dt-bindings: serial: 8250: support an optional s=
+econd clock")
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Closes: https://lore.kernel.org/oe-kbuild-all/202507160314.wrC51lXX-lkp=
+@intel.com/
+> > Signed-off-by: Alex Elder <elder@riscstar.com>
+> > ---
+> >  .../devicetree/bindings/serial/8250.yaml      | 19 ++++++++++++++-----
+> >  1 file changed, 14 insertions(+), 5 deletions(-)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Docum=
+entation/devicetree/bindings/serial/8250.yaml
+> > index e46bee8d25bf0..cef52ebd8f7da 100644
+> > --- a/Documentation/devicetree/bindings/serial/8250.yaml
+> > +++ b/Documentation/devicetree/bindings/serial/8250.yaml
+> > @@ -61,11 +61,17 @@ allOf:
+> >              - const: uartclk
+> >              - const: reg
+> ..
+> >      else:
+> would it be better to drop this 'else', and moving following 'if' block
+> to the same level with "nxp,lpc1850-uart"?
+>=20
+> the reason here would avoid too many indentions if add more constraint in
+> the future if other SoC uart need different clock-names..
+
+I agree, it's more typical to do it that way I think to boot.
+
+Also, why is there a k1/lpc conditional bit that is not part of the
+allOf in addition to the bits in the allOf? Can that get merged with the
+allOf please?
+
+--sAUlFocIDHyTEwNs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaIkKvwAKCRB4tDGHoIJi
+0pONAP9z4KxzBZNfA6xqUmrszss49y0ubUoa2zcWYPh1PRgK0QEA5wD3A3FO0a+r
+lTA/zPRsDFuxU4vdnLj7IcL94dKEXAM=
+=6Rl4
+-----END PGP SIGNATURE-----
+
+--sAUlFocIDHyTEwNs--
+
+
+--===============6855004582814987981==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6855004582814987981==--
+
