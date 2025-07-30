@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A59C87FCB
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Jul 2025 03:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 844A3C87FCB
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Jul 2025 03:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:In-Reply-To:
 	To:From:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=dqN3PWpnSSCqeTV5iM/gFwoaXMjhk5mQPqBvEFJouAc=; b=H6mx0eR9g/PrqG
-	nLC8UY83Erbzpj9Tmj3CF0sJtFwaEphdzxagaS2YS6nFF5EsCPPI0sj6kBYrSTeJ6Kc6Z9hNDPJ1z
-	POcAaFcVtSISxj6ojzn7ke1IH6h+p1gTOFNyKnGsgmpJLCbBMnVjSibz4nhV7upUVLDM6QeDKTgzL
-	t/kxnoge9Nbry5oKy+WdntYOfZ0qiEMgkbc6EfpEsRj/7xc/VtIcyNv4WLKcK5C0vCxubeWhNxlEc
-	7bsBuudl8NDmnq1++w/xJTKsOVrJBUJPiGtcWO/GbO273IceZ3oDDyOjyP0bGxfk7wJeqLeWlQtlP
-	HzUx4PITgKBTAyZ2HdJQ==;
+	List-Owner; bh=NFA/H7jV18eOPtc3W1dPyfldpIvDkUE7lTmDbW24AFY=; b=0vnNqONlPXLqJq
+	b++awcAjB8H1+frSWqsZRTqeBI2q3gPblVZl1sN2/34PUt4kfnT9Ey1gpPj2OqFssmipHoMx3YsgK
+	OeojJlBVPSYxzvN0sjx1NBp2qnPjh9FYSA2BoSVeShXPcDTgwv6Ol2QRe1wLJvoew5Me2bzcjwdyM
+	KGN6YoUZo/PEpiQv7yK6QxZmaGRC+aS+RXch9SbrUbj8+Ei8CMVV+SQe12p/XEOnBNJb/LXc1RtDd
+	7Ht/42Kj/XWD8pn8kdayYe6j530+Nn7xLGuoFTPWGHDzP2+yCp+tvvjo+9DBaf3ibrreo47N8UKxh
+	GcE1/dxMaV8+T3PFmshQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugxXm-00000000cGI-3Str;
-	Wed, 30 Jul 2025 03:31:54 +0000
+	id 1ugxwc-00000000eNO-33Un;
+	Wed, 30 Jul 2025 03:57:34 +0000
 Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugxXi-00000000cFo-3wzp
+	id 1ugxwZ-00000000eN1-1qQU
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Jul 2025 03:31:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1753846298; cv=none; 
+	Wed, 30 Jul 2025 03:57:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753847840; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=ezBzqJB56c1miHFXcMTWwIQnARYDgvONAST09HSTlXIdTc5Oyuwbece6Q6hbRu19qzxpXQyP+Ri8d4HmC8T0TzjsSVuuFn3W5IoKFG5ZJjTlXM+xKpqoSUyDs5RsKpx6ZpjVuzUAnh60Uk8dT2x+V46NU0ESTv9mRB3w00VvNPQ=
+	b=NCuR8+FsGRD+jtnwdfMXS57jZARc++6hqANo5M4wHJXIuSmXFNDZJA+aAe8jF9nHRkYNMTGYOZbkoklz/QH+MYNAaJ9YSS4a/Hn7Jf6QsQzdJKGKcd3iM2w6sLxmYLioTyQYs6PESJsrHMezF7G2Gb9nnJ0UZz1v2SjTHqKXJVM=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1753846298; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=0iSJ3Kr1iquFsEaFYZYQunG3FhEI8rJM6UK4xjhKbMo=; 
-	b=laocn2/YpsMzSuK4/HJD3XQbkTjgCDnYQbkYgdDSEqiQg5bs3ggxrpue5V0qtTl49tiJx8WX4odNOEAoB09qAn6D/FUbN8VTDB9PGHNP0JAKZTVCTbw0xWd8jzHpCeMEdxcgjp2FNSCuYbPT32zZ5dHv1GZctaG0IH17VOlKlsw=
+	t=1753847840; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ASOku5JSU5RCbAivVDsH/TwJN9/qPsflUf5UEdZY4Mo=; 
+	b=B5qiUKAGkt8yrocZXi+vDyEzG1JGHCwYFheflZLFOUJeDlSnJfkaTTHN1HwG0UmJ2uaauj3iYN0DwG2uyrQmB8MBxifdMnU8pE1jKJXf8raCNLdSOxHn0ktF+SXW8FaMU6Rrtk8V6jb4MCcgRa6Sg2CblZAYIDqtvmJd7EFt/K8=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753846298;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753847840;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
 	h=MIME-Version:From:From:To:To:In-Reply-To:Cc:Cc:Subject:Subject:Message-ID:Date:Date:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=0iSJ3Kr1iquFsEaFYZYQunG3FhEI8rJM6UK4xjhKbMo=;
-	b=anpXcqJ7jz1fCyVmJQqEwO4uGzIAJAiI6kljdDFlpHkpMQxAdUXzHh1xk1MHCjz5
-	u9ZSDGcNFQGowrt9ieLYx9YPwiRnEBYMyQAPjmv39JtD/kWZyYj3RveK762QmuPhRwX
-	QSPODxowaRR76HgP8cBd648UVYPNL+d0Naz8k8H4=
-Received: by mx.zohomail.com with SMTPS id 1753846295024259.9063222071202;
-	Tue, 29 Jul 2025 20:31:35 -0700 (PDT)
+	bh=ASOku5JSU5RCbAivVDsH/TwJN9/qPsflUf5UEdZY4Mo=;
+	b=AdgxG56RP5DB/CKLfrO5XyJbqz+zw8NrzBq8JzcUEIJFwpTCI6B6ZoS3fLYSrjAG
+	c9VhF2R7O4V9hQMgZSxHo7M19jJZbvSC2fMUElK4xT8F9ok5nbm7bJ6dsp2B4OslD35
+	BJ7iJ02bePpUDvz1N2STaW0/s0AsKa39PVAtWMrE=
+Received: by mx.zohomail.com with SMTPS id 1753847836673828.946911370315;
+	Tue, 29 Jul 2025 20:57:16 -0700 (PDT)
 MIME-Version: 1.0
 From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, 
+To: "Inochi Amaoto" <inochiama@gmail.com>, 
 	"Bjorn Andersson" <andersson@kernel.org>, 
 	"Mathieu Poirier" <mathieu.poirier@linaro.org>, 
 	"Rob Herring" <robh@kernel.org>, 
 	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
 	"Conor Dooley" <conor+dt@kernel.org>, 
 	"Chen Wang" <unicorn_wang@outlook.com>, 
-	"Inochi Amaoto" <inochiama@gmail.com>, 
 	"Philipp Zabel" <p.zabel@pengutronix.de>, 
 	"Paul Walmsley" <paul.walmsley@sifive.com>, 
 	"Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, 
 	"Alexandre Ghiti" <alex@ghiti.fr>
-In-Reply-To: <f1b90b0f-f7a7-4117-9d36-046c4ca9c19a@kernel.org>
+In-Reply-To: <jcpr5tg7jyyyqmaujegeuq5j3dqz4rrgxfz73rl55l3jibtq63@3w7bzux2b2je>
 Cc: <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>, 
 	<sophgo@lists.linux.dev>, <linux-kernel@vger.kernel.org>, 
 	<linux-riscv@lists.infradead.org>
 Subject: Re: [PATCH v2 1/2] dt-bindings: remoteproc: Add C906L rproc for Sophgo
 	 CV1800B SoC
-Message-ID: <1856e9e7bfdcb6a8.1f73e6be0161d31f.3ad0845628cf3b62@Jude-Air.local>
-Date: Wed, 30 Jul 2025 03:31:26 +0000
+Message-ID: <1856eb4ef9c9b448.51cf78412ad49c56.737f9c77b35de27d@Jude-Air.local>
+Date: Wed, 30 Jul 2025 03:57:09 +0000
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_203151_363316_FC568F64 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20250729_205731_833085_F8ED797D 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,82 +88,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/07/2025 08:27, Krzysztof Kozlowski wrote:
-> On 28/07/2025 19:13, Junhui Liu wrote:
->>>
->>>> +    description:
->>>> +      This property is required only if the rpmsg/virtio functionality is used.
->>>> +      (see mailbox/sophgo,cv1800b-mailbox.yaml)
->>>> +    items:
->>>> +      - description: mailbox channel to send data to C906L
->>>> +      - description: mailbox channel to receive data from C906L
->>>> +
->>>> +  memory-region:
->>>> +    description:
->>>> +      List of phandles to reserved memory regions used by the remote processor.
->>>> +      The first region is required and provides the firmware region for the
->>>> +      remote processor. The following regions (vdev buffer, vrings) are optional
->>>> +      and are only required if rpmsg/virtio functionality is used.
->>>> +    minItems: 1
->>>
->>> Why isn't this constrained?
+On 29/07/2025 16:31, Inochi Amaoto wrote:
+> On Mon, Jul 28, 2025 at 07:03:23PM +0800, Junhui Liu wrote:
+>> Add C906L remote processor for CV1800B SoC, which is an asymmetric
+>> processor typically running RTOS.
 >> 
->> Do you mean a maxItems should be added here?
->> >>
->>>> +    items:
->>>> +      - description: firmware region
->>>> +      - description: vdev buffer
->>>> +      - description: vring0
->>>> +      - description: vring1
->>>> +    additionalItems: true
->>>
->>> No, drop. This needs to be constrained.
+>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+>> ---
+>>  .../bindings/remoteproc/sophgo,cv1800b-c906l.yaml  | 79 ++++++++++++++++++++++
+>>  1 file changed, 79 insertions(+)
 >> 
->> My intention is that RPMsg/OpenAMP is not the only use case for
+>> diff --git a/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml b/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..2061c2fd6ba343c09b1a91700ea4a695d2b57f81
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/remoteproc/sophgo,cv1800b-c906l.yaml
+>> @@ -0,0 +1,79 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/remoteproc/sophgo,cv1800b-c906l.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Sophgo C906L remote processor controller for CV1800B SoC
+>> +
+>> +maintainers:
+>> +  - Junhui Liu <junhui.liu@pigmoral.tech>
+>> +
+>> +description:
+>> +  Document the bindings for the C906L remoteproc component that loads and boots
+>> +  firmwares on the CV1800B SoC.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: sophgo,cv1800b-c906l
+>> +
+>> +  firmware-name:
+>> +    maxItems: 1
+>> +
+>> +  mbox-names:
+>> +    items:
+>> +      - const: tx
+>> +      - const: rx
+>> +
+>> +  mboxes:
+>> +    description:
+>> +      This property is required only if the rpmsg/virtio functionality is used.
+>> +      (see mailbox/sophgo,cv1800b-mailbox.yaml)
+>> +    items:
+>> +      - description: mailbox channel to send data to C906L
+>> +      - description: mailbox channel to receive data from C906L
+>> +
+>> +  memory-region:
+>> +    description:
+>> +      List of phandles to reserved memory regions used by the remote processor.
+>> +      The first region is required and provides the firmware region for the
+>> +      remote processor. The following regions (vdev buffer, vrings) are optional
+>> +      and are only required if rpmsg/virtio functionality is used.
+>> +    minItems: 1
+>> +    items:
+>> +      - description: firmware region
+>> +      - description: vdev buffer
+>> +      - description: vring0
+>> +      - description: vring1
+>> +    additionalItems: true
+>> +
 > 
-> We don't allow such syntax, that's not negotiable. Why 322 redundant
-> memory regions are fine now?
-> 
->> remoteproc. There are scenarios where the remoteproc is just used for
->> booting the remote processor without any communication with Linux. In
->> such case, only the firmware region is needed, and the other regions may
->> not be necessary.
->> 
->> Additionally, the remote processor might reserve extra memory for custom
->> buffers or other firmware-specific purposes beyond virtio/rpmsg.
->> Therefore, I think only the firmware region should be required and
->> constrained, while allowing flexibility for additional/custom memory
->> regions as needed.
-> 
-> So how does this work exactly without the rest? Remote processor boots
-> and works fine? How do you communicate with it?
-> 
-> Please describe exactly the usecase.
+> Why not allocating these region dynamicly? I do not think firware is
+> always avaible before staring. Allowing dynamic firmware give us max
+> flexiblity.
 
-Thank you for your clarification.
+I'm afraid it's not easy to do this.
 
-The C906L remoteproc can run at two use cases:
-1. Standalone mode: Only the firmware region is used. In this case, the
-   remoteproc driver loads the firmware into the firmware region and
-   boots the C906L. The C906L runs independently, without communication
-   with Linux, and the mailbox is not used.
-2. OpenAMP/RPMsg mode: The firmware region, vdev buffer, and vrings are
-   used. In this scenario, the C906L runs firmware with OpenAMP support
-   and communicates with Linux via the virtio memory regions and mailbox.
+For firmware region, the RTOS firmware usually needs a physical address
+to link to, and I have researched and tested two RTOS (RT-Thread and
+Zephyr) on the C906L, both of them do not support position-independent
+execution or runtime relocation. Therefore, a reserved memory region is
+needed to provide a fixed physical address for the RTOS firmware.
+(In fact, there is already a reserved memory region for the C906L in
+cv1800b-milkv-duo.dts)
 
-To summarize:
-- Required: firmware region
-- Optional: vdev buffer, vrings, mailbox
+For virtio-related regions, the RTOS firmware also needs to know the
+shared memory regions for communications at compile time.
 
-Then I can add a "maxItems: 4" to the memory-region property and remove
-the "additionalItems: true" line.
-
-Is this approach acceptable for you?
+So, reserving memory through DT is necessary for now.
 
 > 
-> 
-> Best regards,
-> Krzysztof
+> Regards,
+> Inochi
 
 -- 
 Best regards,
