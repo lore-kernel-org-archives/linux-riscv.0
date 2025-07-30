@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C84C87FC9
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Jul 2025 10:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2674DC87FCB
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Jul 2025 12:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:In-Reply-To:
-	To:From:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=9JKSUIs7nbMLRKNxnfKBqIJWYhf3NdDWoG4ItnP7QJU=; b=qgQ5tcjo7p8J3u
-	dgsNGOBSxkqhp6IiKc1nNHFnGcsmxjFxn5MBZTzER1XhgdaQjLuTIoUi5phN0/0xyQSO3ZcLzFQ9v
-	zwhLRHno3WFjSlUTP9RM2DLn4oM6YKwRxxrpNLA/6bPHGxcjoAFKtB2YTquRKBzQG0eXhcc205Q8S
-	4ph/kBEMlG8FUgL6M+bcQbG4DA2A03IGBcmrbxLU1VO00wg/04/mUJ2n3fHFAZVIV+U+UMHQTLybR
-	7N/FqkJr6Log5BizO2NdWzB8ArzPzmSjxDoHiMTJv5GC1PGCPMlzyA01BknDBT8GmadwJqrLdUATE
-	u06yW3hciPqMZlyGt1DA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SVFpGs8STuEK5SSP9Y8RURC9Qdffo83bAz+qq+phC8Q=; b=G8t56MHchTDCas
+	XHeklRt2W16T0ax+4NM0zpx5KejdEJ3VFhcHzFz1I3ywJFWFqpJ9Ze5Tr3x0lba7qGE7ymTVgtBfi
+	z77dQ6c/dMY8Yv21LNMZu56ihwsuNuH5Us5CirFArjDXQIykoBbLC+EYvcjmwetvmlf2hz1/gJE7I
+	EIFucobrmn2wYuSqvfMH1cjgqiri0Q9YNsRGNkPAVtfiinr9JiGrXJEIHN3w1YCsYVIC/tEaokRdL
+	KPaSA6m4V/ZFuFSJv62AyWIQXKx5jPdJsk9b2wetEiw0I8d/JXPrBeD1D9GIwjymVMGlzIGdEd0Z/
+	+OsE82y5BfmD3yKMefLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh3c6-00000001Bmw-2CvF;
-	Wed, 30 Jul 2025 10:00:46 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1uh5oV-00000001RyP-0d0P;
+	Wed, 30 Jul 2025 12:21:43 +0000
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh3c3-00000001Bm8-37Ow
+	id 1uh4rr-00000001Kqp-3fWZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Jul 2025 10:00:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1753869630; cv=none; 
+	Wed, 30 Jul 2025 11:21:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753874463; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=mVHba9e1imXwc9oD9l4XIa6BmxmDyMn1i5zBQhdL1EHhgFhOCoBjMS6p+Xu6+AkQKrV+UiyEtdDfxgKxFhbhJuAJ07U4rSgoxmkmTPKKt/AuJ0hLKaJF4t2L7K4AOvfdp5EFnu3Mj78fsV//6cDdVQ/R+0zfY2aSIcJWLNPg064=
+	b=E8r8UTppfiLYDUKk0iKnk8G8/FN1FpODiWadA9FBObOHIUyt4+/SAyHoGwfo46HIndDDoFteDSt1WMnutOaImJhOmy+rQexDY3RzHypvTD6CR4BlGxZNGMEIgYrgO2F6rarDQveFgOiDgzhHzMXaWl2D8yADnrykjQeU7q9sx38=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1753869630; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=dJCJxzbcOMXSmaYqhU1ZQU8GEIkWpngcSTaDLY085mc=; 
-	b=a7B0WqvQuQRZzbOpb3be2Pa+L+PzdEu8xYwPWcO6HkgCKYmILU3RZp45NltHPZawUXfOoiVL2gGFbfIGBOuRQyqp/8nDcjzKKujEF3/WCYOSRDyjdyTuE+QykeXoPO7sWkXinJFG4qWslKA+/ID9pfd8F8cNK04TUMyk5iNHLtc=
+	t=1753874463; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=8Oz8gEKqQKUEqMecwoAV5BMdQ44ozr0nc/GN/7ECVkk=; 
+	b=oLz/jflwJpTuDqk1ujOH9BxpbpSMpgfmSH7gOuadElCB9kWs8VIybTG09k0yq+6VJs52fLk0fsVrBU+KEkH5e/2n6higSulN2zYW6lzyGSTrelZtiNiW4994efaEu/9KlrFKMjKaIguaCHe8iuXE7G93+PP0XDDYYb6rvGJRcG4=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753869630;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=MIME-Version:From:From:To:To:In-Reply-To:Cc:Cc:Subject:Subject:Message-ID:Date:Date:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=dJCJxzbcOMXSmaYqhU1ZQU8GEIkWpngcSTaDLY085mc=;
-	b=RNigQPZElgWg3b6atXoHhURBwH86YwWzXDl8JABOLq9JHNgbWcJ2FaPCBqfDiCvw
-	zg6hxEpoZubFOrlUmDDlsKGESC3cp2rK7SMFWwf+lqONIOk4DwGwOsroZryDclFHl/o
-	+ASps9v37kbVzoihpWNMHbSJR2M3FX147xXFh/58=
-Received: by mx.zohomail.com with SMTPS id 17538696277121019.2099092907802;
-	Wed, 30 Jul 2025 03:00:27 -0700 (PDT)
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753874463;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=8Oz8gEKqQKUEqMecwoAV5BMdQ44ozr0nc/GN/7ECVkk=;
+	b=SVMEXXGoydW4JlJFuYIzvP8ubzv4KonrfST271YiBRYjVfVmTtVUBq/+vew0kFIs
+	whQiqqJAHtHrWijhCPSgNfM4ccbpugxt1vpMG9IXkf8BiNIb2LgN0PxkQ7judxfFcf3
+	qfIXHt/kQufJpoDDlvE4Hxt/2/QlizuLHJ/63xi4=
+Received: by mx.zohomail.com with SMTPS id 175387445597336.57491374987171;
+	Wed, 30 Jul 2025 04:20:55 -0700 (PDT)
+Message-ID: <122a51eb-21e1-4cb4-b42b-fcb7e01cf64e@zohomail.com>
+Date: Wed, 30 Jul 2025 19:20:50 +0800
 MIME-Version: 1.0
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, 
-	"Bjorn Andersson" <andersson@kernel.org>, 
-	"Mathieu Poirier" <mathieu.poirier@linaro.org>, 
-	"Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Conor Dooley" <conor+dt@kernel.org>, 
-	"Chen Wang" <unicorn_wang@outlook.com>, 
-	"Inochi Amaoto" <inochiama@gmail.com>, 
-	"Philipp Zabel" <p.zabel@pengutronix.de>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, 
-	"Alexandre Ghiti" <alex@ghiti.fr>
-In-Reply-To: <9dd2af04-5109-43e4-b097-d6b1b4c45dbd@kernel.org>
-Cc: <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>, 
-	<sophgo@lists.linux.dev>, <linux-kernel@vger.kernel.org>, 
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v2 2/2] drivers: remoteproc: Add C906L controller for Sophgo
-	 CV1800B SoC
-Message-ID: <1856ff20ba2bf450.56ed58d65d21d4ef.5a222480fa1019f2@Jude-Air.local>
-Date: Wed, 30 Jul 2025 10:00:20 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/3] dt-bindings: clock: Add bindings for Canaan K230
+ clock controller
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Samuel Holland <samuel.holland@sifive.com>,
+ Troy Mitchell <TroyMitchell988@gmail.com>
+References: <20250730-b4-k230-clk-v7-0-c57d3bb593d3@zohomail.com>
+ <20250730-b4-k230-clk-v7-1-c57d3bb593d3@zohomail.com>
+ <20250730-cobalt-salmon-of-charisma-aea028@kuoka>
+From: Xukai Wang <kingxukai@zohomail.com>
+Content-Language: en-US
+In-Reply-To: <20250730-cobalt-salmon-of-charisma-aea028@kuoka>
+Feedback-ID: rr0801122705379e726ccbd43f37e10cb6000094e63ed90cacde45cdbc9d713d3e27ea8ff19fee53717ce07d:zu080112272a964b8e78150ea41f6bca3600003d8e0fa10c7b72419c2cccc5a40a808f82a51dfb38244fb1a8:rf0801122c10cdd9d1176d37f07bf07f420000feac9293e220c0d9b6cd3327d2d7bf3d02e2af548a215b4f7b53805f1cdd:ZohoMail
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_030043_841981_6F44B49C 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20250730_042108_002414_D927FB12 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,88 +90,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/07/2025 11:35, Krzysztof Kozlowski wrote:
-> On 30/07/2025 11:27, Junhui Liu wrote:
->> On 30/07/2025 08:46, Krzysztof Kozlowski wrote:
->>> On 28/07/2025 13:03, Junhui Liu wrote:
->>>> +
->>>> +static int cv1800b_c906l_mem_alloc(struct rproc *rproc,
->>>> +				   struct rproc_mem_entry *mem)
->>>> +{
->>>> +	void __iomem *va;
->>>> +
->>>> +	va = ioremap_wc(mem->dma, mem->len);
->>>> +	if (!va)
->>>> +		return -ENOMEM;
->>>> +
->>>> +	/* Update memory entry va */
->>>> +	mem->va = (void *)va;
->>>> +
->>>> +	return 0;
->>>> +}
->>>> +
->>>> +static int cv1800b_c906l_mem_release(struct rproc *rproc,
->>>> +				     struct rproc_mem_entry *mem)
->>>> +{
->>>> +	iounmap((void __iomem *)mem->va);
->>>> +	return 0;
->>>> +}
->>>> +
->>>> +static int cv1800b_c906l_add_carveout(struct rproc *rproc)
->>>> +{
->>>> +	struct device *dev = rproc->dev.parent;
->>>> +	struct device_node *np = dev->of_node;
->>>> +	struct of_phandle_iterator it;
->>>> +	struct rproc_mem_entry *mem;
->>>> +	struct reserved_mem *rmem;
->>>> +	int i = 0;
->>>> +
->>>> +	/* Register associated reserved memory regions */
->>>> +	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
->>>> +	while (of_phandle_iterator_next(&it) == 0) {
->>>> +		rmem = of_reserved_mem_lookup(it.node);
->>>> +		if (!rmem) {
->>>> +			of_node_put(it.node);
->>>> +			return -EINVAL;
->>>> +		}
->>>> +
->>>> +		if (!strcmp(it.node->name, "vdev0buffer")) {
->>>
->>> Why are you adding undocumented ABI? And so hidden, not even using
->>> standard OF API!
->>>
->>> How does this behaves when I change your DTS to call it
->>> "whateverbuffer"? Does it work? Obviously not.
->>>
->>> No, stop doing that.
->> 
->> Yes, you're right. I will consider introducing a "memory-region-names"
->> property in the bindings, instead of relying on the node labels directly.
-> 
-> 
-> You don't need it. First, you use some old code as template, but you
-> should look how or re-use Rob's code rewriting this completely.
 
-Sorry, I didn't catch up with that patch. I will look into it and update
-my implementation accordingly.
-
-> 
-> Second, list has strict order, so you know exactly where the vdev0
-> buffer is. It cannot be on any other position of the list.
-
-Thanks for the advice, I will use the order in the list to identify the
-memory region.
-
-> 
-> This is why you define the ABI. Use then the ABI.
-> 
-
-Understood, I will reconsider this.
-
--- 
-Best regards,
-Junhui Liu
-
+On 2025/7/30 15:05, Krzysztof Kozlowski wrote:
+> On Wed, Jul 30, 2025 at 02:43:51AM +0800, Xukai Wang wrote:
+>> This patch adds the Device Tree binding for the clock controller
+>> on Canaan k230. The binding defines the clocks and the required
+>> properties to configure them correctly.
+>>
+>> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+>> ---
+>>  .../devicetree/bindings/clock/canaan,k230-clk.yaml |  61 ++++++
+>>  include/dt-bindings/clock/canaan,k230-clk.h        | 223 +++++++++++++++++++++
+>>  2 files changed, 284 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml b/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..f2aa509b12bce1a69679f6d7e2853273233266d5
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml
+>> @@ -0,0 +1,61 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/clock/canaan,k230-clk.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Canaan Kendryte K230 Clock
+>> +
+>> +maintainers:
+>> +  - Xukai Wang <kingxukai@zohomail.com>
+>> +
+>> +description:
+>> +  The Canaan K230 clock controller generates various clocks for SoC
+>> +  peripherals. See include/dt-bindings/clock/canaan,k230-clk.h for
+>> +  valid clock IDs.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: canaan,k230-clk
+>> +
+>> +  reg:
+>> +    items:
+>> +      - description: PLL control registers
+>> +      - description: Sysclk control registers
+>> +
+>> +  clocks:
+>> +    minItems: 1
+> No, drop. Hardware is not flexible.
+OK.
+>
+>> +    items:
+>> +      - description: Main external reference clock
+>> +      - description:
+>> +          External clock which used as the pulse input
+>> +          for the timer to provide timing signals.
+> So what is the difference that you removed my Rb? Only this? I do not
+> see any differences (and don't tell me, you claim some random indice
+> numbers as change DT maintainer would need to re-review...)
+Sorry about that. Since canaan/k230-clk.yaml was updated with new
+clocks, I thought it might require a re-review. I didn't mean to cause
+unnecessary noise.
+>
+>> +
+>> +  clock-names:
+>> +    minItems: 1
+> No, drop. Hardware is not flexible.
+OK.
+>
+>> +    items:
+>> +      - const: osc24m
+>> +      - const: timer-pulse-in
+>> +
+>> +  '#clock-cells':
+>> +    const: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
+>> +  - '#clock-cells'
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    clock-controller@91102000 {
+>> +        compatible = "canaan,k230-clk";
+>> +        reg = <0x91102000 0x40>,
+>> +              <0x91100000 0x108>;
+>> +        clocks = <&osc24m>;
+>> +        clock-names = "osc24m";
+> Incomplete. Post complete hardware.
+OK.
+>
+>> +        #clock-cells = <1>;
+>> +    };
+>> diff --git a/include/dt-bindings/clock/canaan,k230-clk.h b/include/dt-bindings/clock/canaan,k230-clk.h
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..9eee9440a4f14583eac845b649e5685d623132e1
+>> --- /dev/null
+>> +++ b/include/dt-bindings/clock/canaan,k230-clk.h
+>> @@ -0,0 +1,223 @@
+>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+>> +/*
+>> + * Kendryte Canaan K230 Clock Drivers
+>> + *
+>> + * Author: Xukai Wang <kingxukai@zohomail.com>
+>> + */
+>> +
+>> +#ifndef __DT_BINDINGS_CANAAN_K230_CLOCK_H__
+>> +#define __DT_BINDINGS_CANAAN_K230_CLOCK_H__
+>> +
+>> +/* Kendryte K230 SoC clock identifiers (arbitrary values) */
+> Drop comment, redundant and obvious.
+OK, I'll drop it.
+>
+> Best regards,
+> Krzysztof
+>
 
 _______________________________________________
 linux-riscv mailing list
