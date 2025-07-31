@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF6CC87FD3
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 23:21:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60977C87FD2
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 23:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pNPWFlvWm+ggCxw4cI2UQFh9Amo7uN15xroUlUB9joI=; b=A/9cQgJa7d3UFg
-	Z7KKj1dGY5QH9uxDCh5L45dt0H7qg8qZSI2qHeE1lFPll4O4SGnqXMxwzJF8tphELfHNE4XyOlBhK
-	sJsXNf2700OLLa52XYMmioEBglY9jS2C9jWMaqwpWzHl5mRbMj6T+We0pMzQh6j6RHCWnqeNnqvQf
-	nuyp/pwMeY3nwG178wQ7F550mbqhzxt0xw/h0tRHywYkX7zQ54qhGrXkVwR3VNmzgp8kZfyDs+02y
-	Ff7jyNPxCzHWPtCPDL+VGeNbGzggNSFfLYLClHUFRug++g5l/RaD3zdi+28jr0HvOpAQStRLjUv8w
-	FyJhq7AE8e9oNGlAg5uw==;
+	List-Owner; bh=9Z9gEq2kGnN8fbd2ajoJgOVKdrbSEcxZdLrdahDP4Lw=; b=S5gtjG9jWMKgSQ
+	wqIIBE2MCLmMCpVzav5lT0EjP+c6Xo7ZVTDWdxntAKkAnKzWzv8VZxH187Ge0WhWqHQRBgOkTelLO
+	zR6Rc79H1Rjr/yZBNLFQvwvPgM/G/aw/nP+Ff/XeinKHGqvPLNDgKR864ITMDybAMof90ValPL62T
+	NfpdD5L/49R8pGkIj74bS3MWcSmHoR6EZodJ0VhabSwH3TOjmN4gjie+/AaNldz6r/d1BEhBpDBbg
+	Sb5hY7JVbZ5M7PdZmu620tGOAbQK176TY5z4VPIg7Fs4AHP1HKdxfZ3tmycGf498y+kfA1PEXDGuH
+	vg6Vg9HZ68xfwbYpAx7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhca1-00000004cId-3EJA;
-	Thu, 31 Jul 2025 23:20:57 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1uhca4-00000004cMb-2684;
+	Thu, 31 Jul 2025 23:21:00 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhcZH-00000004bYE-0YK9
+	id 1uhcZJ-00000004ba5-42kO
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Jul 2025 23:20:12 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-31ecd1f0e71so260314a91.3
-        for <linux-riscv@lists.infradead.org>; Thu, 31 Jul 2025 16:20:11 -0700 (PDT)
+	Thu, 31 Jul 2025 23:20:15 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-24049d1643aso7997215ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 31 Jul 2025 16:20:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1754004010; x=1754608810; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1754004013; x=1754608813; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=NiyUtsRc4plmi7vohRqdQjzwfkHQI38tOt31f5L5qaY=;
-        b=HRiO5gYrVh0z9fdZck4QSQroDlmuNcp6VdtmJPWoNSmwG/jhuXadij3S4MCZVQLQ1D
-         rZFEbjzs0eJMSylUw3z+KUpYzHByms+c1bAyCsb5F43fJzawBs+B5w5kJQQ04GKT0D+D
-         q5/Eix9QrVY3m5LKcddqYCmTfjvoh2f6j/eNSs2ZM3YrcI+p99ABzfS7m2NyHsZPaaGg
-         0m1GCXNPa1QtOQsdkzAhX+B6YXaFGCuKPVLAZeg06cBkNG28eYNRh2CsfCCkkHyCJdyq
-         Sq35Y8BXcqdmORqsBCpAG5F3IwBqB161RZOorXqklKoKgka/AzR9lWLrUW7CqcUboTqu
-         H5Kw==
+        bh=aaOhr4B8UIBnpyYSF4WgF0h84c6zm8BnVR368xQHyas=;
+        b=r2aHeDz6vU1Gwns7CDQe05tzGhLJ+GNBBqBODpx+idcp6F/9I1qjPnsICp1xYODm7Y
+         2QEdd7zUPYgiJlddGQceBOKZPrZhkAb40p/o8csHuxpreygvZBhX/y8kNzj3ODgCtlSm
+         Psgm+ZI1Y26cV60QNxXQw1X4lk6YaH0But44JWnZWYLavkxEDiDQBXlk5AMtfere7Vf4
+         mKljiAzJxqHz/yyczX/qobuQLrkNRWQrerE2nSS5eqjvWLrTvywcMI1TdpJd/1HEKo2N
+         ATLbMDyWzuykbCgw5W53AFNNcgKf9pAxQL2ea/V3XgxsnByvWDudEoU/hOSJnTmI57KP
+         X6TA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754004010; x=1754608810;
+        d=1e100.net; s=20230601; t=1754004013; x=1754608813;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NiyUtsRc4plmi7vohRqdQjzwfkHQI38tOt31f5L5qaY=;
-        b=eqMC2KUsFw/lUpkazNkXE+unykto+jKt1SynK/FDZqdKc7ch1qnteSn3Bz8jsSF1gd
-         NaQHrR6y89cGizhB7mfLuxLTpfJx60Ons8tH8nphsEmRiVmKGJXyWiT0r2ekMDaUguIu
-         undVGaC0tV+p/c+NFi4kqeHt5rtBivDymEfIWTDZbDuD9gJsZTqCiDZPyMQ/qvE85Dm7
-         /k2DJ7KvTIC94JdUM2a+r84EuNQ6rCPmF+ZeQJFREKO1Ep/GX7aAFeXSUYcyn+uLLvUy
-         taeLLVKa/iv0nyTLSefsLaKcYB3V6uLrWYQbNvjUeiYvooadjhskaUuQtnZA9DSzhQO3
-         dehQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV3N8/sBEqXaYFYSlTf8oJRaXfJ0KdGQjRgEVDAbLqQWOPf95BHhONgXKmxpEDIcWVhgODdaOZenrcJUQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCuuFedjduQqmRNdiX1ySPSXLKU5dljPctcurVrXSzZv+RVjvC
-	60Fb7xPpBS/ZBC1oxzEOJiw11+2ny1tx3pRHoCy5+JB6ELyKF+/nelDmIbXdi9z16Es=
-X-Gm-Gg: ASbGncs1K07ky84rjx1j40p3rFsjkjzqISbcN3xmDQa8EyAOsXN1b0hUh6BNjVjI/Rm
-	nEAg/98httpKaKwLfKVQsFGTLoXaVOSB7fzGRGdPeWHX1VtzxD/Cai/V5n7LGD8zj6n0ltFyXUt
-	xmmbvmi3UV6jaqDXozJWjttagn8TGn2r2QCgvmAPkyfbCTAL507ChjaOaMcSFCckLHxUEmA8wJy
-	/yRFlTbXyLHMYLodk86txbhch4PZjAUjdQ+sBSYDc+/r6hns1/FD+Jj2ls5cBQM84s8ap+x2/7f
-	uE6i0rYqQZBbMDICn4QVmiDKhGJUDyP5uaGRzGDPkfzCVxds+ChvNIz2Xu3GjVGRjWKwrKR40/E
-	WntIEURHZofQQ4L/mdifZByNbqQwj4VP8qSS7yOxkSm8=
-X-Google-Smtp-Source: AGHT+IGsQ+Yskv/y5MNpAgASidKsFYh3eb6ZHby3u9rd3zq4em3ovN9Nd2iiF66hyV/9mYpjFM4iHQ==
-X-Received: by 2002:a17:90b:3ec5:b0:313:bf67:b354 with SMTP id 98e67ed59e1d1-31f5dd124c2mr13479817a91.0.1754004010362;
-        Thu, 31 Jul 2025 16:20:10 -0700 (PDT)
+        bh=aaOhr4B8UIBnpyYSF4WgF0h84c6zm8BnVR368xQHyas=;
+        b=Kswb/5btjGCj9AJ5MpLEdKgkN6nhGYUhjuwCVk0UdJSyOO5dDqPSDSuDy17it74ft0
+         kpXk9ZBobDkdoAhTrB5hpS3jJAVKFjT9bGS5yoXFA1QnysMgdmBy8D6GafQfHmPZxCba
+         N2JO8izWf3l10dVObFeR9p7M14ewQ0DEd+dF3anpeZeQxIFhVAyceHKGxN1kcuCV2rAr
+         oVRb+tWVdnqHT8ZlefE4KLUpIxcICuivl/bOSpIxxeD9Bd+gb4k7D57ju1zc4vr1cazT
+         3RarEo/ZtzaSf2TRFu7OomAR7ziQSgcbznQvZsWW6La4fDD6wFrKvN7mfRThpnlPcoOT
+         2MrA==
+X-Forwarded-Encrypted: i=1; AJvYcCXFCnHlt7LZS0eh0mKctQ4OuxnzblLBubxqJTthWJV50/j1qnji1xiGqXrEt7jTbiVL6e0wFKUx+eXnlg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUBPuAY+7gPxo2Wi95ZL/L4Fgwd6jpe99WlVd0YSzKBg4enKZI
+	4SGMOJNoyn/N9wi5ZdlcVAxx+YdcN04weYy4NQMOA0ha4zPL8eH8VDqufxDdATHKqTM=
+X-Gm-Gg: ASbGncsv/PYzXxo2yKSwMPELAK9ypPl4CyOoapbhPzoMjdUNRCjoTeHDkqILaXj/1t3
+	bMGkjosM1qwjK8kYbn6kui5XPl3k8dPwiEbIHrG7GwhRUS+yQnlBl1XVZYcYal+nHpMlOd0mEN+
+	PbrB3bCWfoH3993ryo5pufLO/0jXT+ZnyInmHswSL44Fun2jRJGU2iTnxTOXHVjFcRW+eFIPb6S
+	JO5b9cPus+JDAbI1li6pi/IS+zjFOvze1Oh1Sko2Nx/W/fNqIZvaNSx55cVuYIR4+FKiGl0QmHv
+	a6kB6VUEe8eSYZL5WOq28i+/MJJFSGfuhCdROAd2chtuRuGmlQibWSACK2CxfjenMi357XwopoC
+	QKN5YSWK8qK+3lSh3kxSXEREezNvFWMbb
+X-Google-Smtp-Source: AGHT+IEOx2kNK4TLWda5A9GHVV0DV0Tzu98/FGzwUAzzSt+lpD57+aAlabnlaZr4ia9ZMoripanr5A==
+X-Received: by 2002:a17:902:d48d:b0:242:1a:1710 with SMTP id d9443c01a7336-2422a3397e4mr5432705ad.6.1754004013350;
+        Thu, 31 Jul 2025 16:20:13 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31f63da8fcfsm5773085a91.7.2025.07.31.16.20.07
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31f63da8fcfsm5773085a91.7.2025.07.31.16.20.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Jul 2025 16:20:09 -0700 (PDT)
+        Thu, 31 Jul 2025 16:20:12 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Thu, 31 Jul 2025 16:19:27 -0700
-Subject: [PATCH v19 17/27] riscv/signal: save and restore of shadow stack
- for signal
+Date: Thu, 31 Jul 2025 16:19:28 -0700
+Subject: [PATCH v19 18/27] riscv/kernel: update __show_regs to print shadow
+ stack register
 MIME-Version: 1.0
-Message-Id: <20250731-v5_user_cfi_series-v19-17-09b468d7beab@rivosinc.com>
+Message-Id: <20250731-v5_user_cfi_series-v19-18-09b468d7beab@rivosinc.com>
 References: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
 In-Reply-To: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -107,11 +107,11 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
  rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
- Deepak Gupta <debug@rivosinc.com>, Andy Chiu <andybnac@gmail.com>
+ Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_162011_213315_15E6662E 
-X-CRM114-Status: GOOD (  24.88  )
+X-CRM114-CacheID: sfid-20250731_162014_010560_BB18AE53 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,314 +128,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Save shadow stack pointer in sigcontext structure while delivering signal.
-Restore shadow stack pointer from sigcontext on sigreturn.
+Updating __show_regs to print captured shadow stack pointer as well.
+On tasks where shadow stack is disabled, it'll simply print 0.
 
-As part of save operation, kernel uses `ssamoswap` to save snapshot of
-current shadow stack on shadow stack itself (can be called as a save
-token). During restore on sigreturn, kernel retrieves token from top of
-shadow stack and validates it. This allows that user mode can't arbitrary
-pivot to any shadow stack address without having a token and thus provide
-strong security assurance between signaly delivery and sigreturn window.
-
-Use ABI compatible way of saving/restoring shadow stack pointer into
-signal stack. This follows what Vector extension, where extra registers
-are placed in a form of extension header + extension body in the stack.
-The extension header indicates the size of the extra architectural
-states plus the size of header itself, and a magic identifier of the
-extension. Then, the extensions body contains the new architectural
-states in the form defined by uapi.
-
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/include/asm/usercfi.h         | 10 ++++
- arch/riscv/include/uapi/asm/ptrace.h     |  4 ++
- arch/riscv/include/uapi/asm/sigcontext.h |  1 +
- arch/riscv/kernel/signal.c               | 86 ++++++++++++++++++++++++++++++++
- arch/riscv/kernel/usercfi.c              | 56 +++++++++++++++++++++
- 5 files changed, 157 insertions(+)
+ arch/riscv/kernel/process.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/usercfi.h b/arch/riscv/include/asm/usercfi.h
-index 98820d93c6e1..54add512a4dc 100644
---- a/arch/riscv/include/asm/usercfi.h
-+++ b/arch/riscv/include/asm/usercfi.h
-@@ -8,6 +8,7 @@
- #ifndef __ASSEMBLY__
- #include <linux/types.h>
- #include <linux/prctl.h>
-+#include <linux/errno.h>
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 91db51413fab..a88b06ad2f9a 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -93,8 +93,8 @@ void __show_regs(struct pt_regs *regs)
+ 		regs->s8, regs->s9, regs->s10);
+ 	pr_cont(" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
+ 		regs->s11, regs->t3, regs->t4);
+-	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT "\n",
+-		regs->t5, regs->t6);
++	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT " ssp : " REG_FMT "\n",
++		regs->t5, regs->t6, get_active_shstk(current));
  
- struct task_struct;
- struct kernel_clone_args;
-@@ -34,6 +35,9 @@ bool is_shstk_locked(struct task_struct *task);
- bool is_shstk_allocated(struct task_struct *task);
- void set_shstk_lock(struct task_struct *task);
- void set_shstk_status(struct task_struct *task, bool enable);
-+unsigned long get_active_shstk(struct task_struct *task);
-+int restore_user_shstk(struct task_struct *tsk, unsigned long shstk_ptr);
-+int save_user_shstk(struct task_struct *tsk, unsigned long *saved_shstk_ptr);
- bool is_indir_lp_enabled(struct task_struct *task);
- bool is_indir_lp_locked(struct task_struct *task);
- void set_indir_lp_status(struct task_struct *task, bool enable);
-@@ -71,6 +75,12 @@ void set_indir_lp_lock(struct task_struct *task);
- 
- #define set_indir_lp_lock(task) do {} while (0)
- 
-+#define restore_user_shstk(tsk, shstk_ptr) -EINVAL
-+
-+#define save_user_shstk(tsk, saved_shstk_ptr) -EINVAL
-+
-+#define get_active_shstk(task) 0UL
-+
- #endif /* CONFIG_RISCV_USER_CFI */
- 
- #endif /* __ASSEMBLY__ */
-diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
-index a38268b19c3d..659ea3af5680 100644
---- a/arch/riscv/include/uapi/asm/ptrace.h
-+++ b/arch/riscv/include/uapi/asm/ptrace.h
-@@ -127,6 +127,10 @@ struct __riscv_v_regset_state {
-  */
- #define RISCV_MAX_VLENB (8192)
- 
-+struct __sc_riscv_cfi_state {
-+	unsigned long ss_ptr;   /* shadow stack pointer */
-+};
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _UAPI_ASM_RISCV_PTRACE_H */
-diff --git a/arch/riscv/include/uapi/asm/sigcontext.h b/arch/riscv/include/uapi/asm/sigcontext.h
-index cd4f175dc837..f37e4beffe03 100644
---- a/arch/riscv/include/uapi/asm/sigcontext.h
-+++ b/arch/riscv/include/uapi/asm/sigcontext.h
-@@ -10,6 +10,7 @@
- 
- /* The Magic number for signal context frame header. */
- #define RISCV_V_MAGIC	0x53465457
-+#define RISCV_ZICFISS_MAGIC		0x9487
- #define END_MAGIC	0x0
- 
- /* The size of END signal context header. */
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index a5e3d54fe54b..1bcda11e0680 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -22,11 +22,13 @@
- #include <asm/vector.h>
- #include <asm/csr.h>
- #include <asm/cacheflush.h>
-+#include <asm/usercfi.h>
- 
- unsigned long signal_minsigstksz __ro_after_init;
- 
- extern u32 __user_rt_sigreturn[2];
- static size_t riscv_v_sc_size __ro_after_init;
-+static size_t riscv_zicfiss_sc_size __ro_after_init;
- 
- #define DEBUG_SIG 0
- 
-@@ -140,6 +142,62 @@ static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
- 	return copy_from_user(current->thread.vstate.datap, datap, riscv_v_vsize);
- }
- 
-+static long save_cfiss_state(struct pt_regs *regs, void __user *sc_cfi)
-+{
-+	struct __sc_riscv_cfi_state __user *state = sc_cfi;
-+	unsigned long ss_ptr = 0;
-+	long err = 0;
-+
-+	if (!is_shstk_enabled(current))
-+		return 0;
-+
-+	/*
-+	 * Save a pointer to shadow stack itself on shadow stack as a form of token.
-+	 * A token on shadow gives following properties
-+	 * - Safe save and restore for shadow stack switching. Any save of shadow stack
-+	 *   must have had saved a token on shadow stack. Similarly any restore of shadow
-+	 *   stack must check the token before restore. Since writing to shadow stack with
-+	 *   address of shadow stack itself is not easily allowed. A restore without a save
-+	 *   is quite difficult for an attacker to perform.
-+	 * - A natural break. A token in shadow stack provides a natural break in shadow stack
-+	 *   So a single linear range can be bucketed into different shadow stack segments. Any
-+	 *   sspopchk will detect the condition and fault to kernel as sw check exception.
-+	 */
-+	err |= save_user_shstk(current, &ss_ptr);
-+	err |= __put_user(ss_ptr, &state->ss_ptr);
-+	if (unlikely(err))
-+		return -EFAULT;
-+
-+	return riscv_zicfiss_sc_size;
-+}
-+
-+static long __restore_cfiss_state(struct pt_regs *regs, void __user *sc_cfi)
-+{
-+	struct __sc_riscv_cfi_state __user *state = sc_cfi;
-+	unsigned long ss_ptr = 0;
-+	long err;
-+
-+	/*
-+	 * Restore shadow stack as a form of token stored on shadow stack itself as a safe
-+	 * way to restore.
-+	 * A token on shadow gives following properties
-+	 * - Safe save and restore for shadow stack switching. Any save of shadow stack
-+	 *   must have had saved a token on shadow stack. Similarly any restore of shadow
-+	 *   stack must check the token before restore. Since writing to shadow stack with
-+	 *   address of shadow stack itself is not easily allowed. A restore without a save
-+	 *   is quite difficult for an attacker to perform.
-+	 * - A natural break. A token in shadow stack provides a natural break in shadow stack
-+	 *   So a single linear range can be bucketed into different shadow stack segments.
-+	 *   sspopchk will detect the condition and fault to kernel as sw check exception.
-+	 */
-+	err = __copy_from_user(&ss_ptr, &state->ss_ptr, sizeof(unsigned long));
-+
-+	if (unlikely(err))
-+		return err;
-+
-+	return restore_user_shstk(current, ss_ptr);
-+}
-+
- struct arch_ext_priv {
- 	__u32 magic;
- 	long (*save)(struct pt_regs *regs, void __user *sc_vec);
-@@ -150,6 +208,10 @@ struct arch_ext_priv arch_ext_list[] = {
- 		.magic = RISCV_V_MAGIC,
- 		.save = &save_v_state,
- 	},
-+	{
-+		.magic = RISCV_ZICFISS_MAGIC,
-+		.save = &save_cfiss_state,
-+	},
- };
- 
- const size_t nr_arch_exts = ARRAY_SIZE(arch_ext_list);
-@@ -202,6 +264,12 @@ static long restore_sigcontext(struct pt_regs *regs,
- 
- 			err = __restore_v_state(regs, sc_ext_ptr);
- 			break;
-+		case RISCV_ZICFISS_MAGIC:
-+			if (!is_shstk_enabled(current) || size != riscv_zicfiss_sc_size)
-+				return -EINVAL;
-+
-+			err = __restore_cfiss_state(regs, sc_ext_ptr);
-+			break;
- 		default:
- 			return -EINVAL;
- 		}
-@@ -223,6 +291,16 @@ static size_t get_rt_frame_size(bool cal_all)
- 			total_context_size += riscv_v_sc_size;
- 	}
- 
-+	if (is_shstk_enabled(current))
-+		total_context_size += riscv_zicfiss_sc_size;
-+
-+	/*
-+	 * Preserved a __riscv_ctx_hdr for END signal context header if an
-+	 * extension uses __riscv_extra_ext_header
-+	 */
-+	if (total_context_size)
-+		total_context_size += sizeof(struct __riscv_ctx_hdr);
-+
- 	frame_size += total_context_size;
- 
- 	frame_size = round_up(frame_size, 16);
-@@ -359,6 +437,11 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
- #ifdef CONFIG_MMU
- 	regs->ra = (unsigned long)VDSO_SYMBOL(
- 		current->mm->context.vdso, rt_sigreturn);
-+
-+	/* if bcfi is enabled x1 (ra) and x5 (t0) must match. not sure if we need this? */
-+	if (is_shstk_enabled(current))
-+		regs->t0 = regs->ra;
-+
- #else
- 	/*
- 	 * For the nommu case we don't have a VDSO.  Instead we push two
-@@ -487,6 +570,9 @@ void __init init_rt_signal_env(void)
- {
- 	riscv_v_sc_size = sizeof(struct __riscv_ctx_hdr) +
- 			  sizeof(struct __sc_riscv_v_state) + riscv_v_vsize;
-+
-+	riscv_zicfiss_sc_size = sizeof(struct __riscv_ctx_hdr) +
-+			  sizeof(struct __sc_riscv_cfi_state);
- 	/*
- 	 * Determine the stack space required for guaranteed signal delivery.
- 	 * The signal_minsigstksz will be populated into the AT_MINSIGSTKSZ entry
-diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-index 2ebe789caa6b..8bc3e1e3f712 100644
---- a/arch/riscv/kernel/usercfi.c
-+++ b/arch/riscv/kernel/usercfi.c
-@@ -52,6 +52,11 @@ void set_active_shstk(struct task_struct *task, unsigned long shstk_addr)
- 	task->thread_info.user_cfi_state.user_shdw_stk = shstk_addr;
- }
- 
-+unsigned long get_active_shstk(struct task_struct *task)
-+{
-+	return task->thread_info.user_cfi_state.user_shdw_stk;
-+}
-+
- void set_shstk_status(struct task_struct *task, bool enable)
- {
- 	if (!cpu_supports_shadow_stack())
-@@ -169,6 +174,57 @@ static int create_rstor_token(unsigned long ssp, unsigned long *token_addr)
- 	return 0;
- }
- 
-+/*
-+ * Save user shadow stack pointer on shadow stack itself and return pointer to saved location
-+ * returns -EFAULT if operation was unsuccessful
-+ */
-+int save_user_shstk(struct task_struct *tsk, unsigned long *saved_shstk_ptr)
-+{
-+	unsigned long ss_ptr = 0;
-+	unsigned long token_loc = 0;
-+	int ret = 0;
-+
-+	if (saved_shstk_ptr == NULL)
-+		return -EINVAL;
-+
-+	ss_ptr = get_active_shstk(tsk);
-+	ret = create_rstor_token(ss_ptr, &token_loc);
-+
-+	if (!ret) {
-+		*saved_shstk_ptr = token_loc;
-+		set_active_shstk(tsk, token_loc);
-+	}
-+
-+	return ret;
-+}
-+
-+/*
-+ * Restores user shadow stack pointer from token on shadow stack for task `tsk`
-+ * returns -EFAULT if operation was unsuccessful
-+ */
-+int restore_user_shstk(struct task_struct *tsk, unsigned long shstk_ptr)
-+{
-+	unsigned long token = 0;
-+
-+	token = amo_user_shstk((unsigned long __user *)shstk_ptr, 0);
-+
-+	if (token == -1)
-+		return -EFAULT;
-+
-+	/* invalid token, return EINVAL */
-+	if ((token - shstk_ptr) != SHSTK_ENTRY_SIZE) {
-+		pr_info_ratelimited(
-+			"%s[%d]: bad restore token in %s: pc=%p sp=%p, token=%p, shstk_ptr=%p\n",
-+			tsk->comm, task_pid_nr(tsk), __func__, (void *)(task_pt_regs(tsk)->epc),
-+			(void *)(task_pt_regs(tsk)->sp), (void *)token, (void *)shstk_ptr);
-+		return -EINVAL;
-+	}
-+
-+	/* all checks passed, set active shstk and return success */
-+	set_active_shstk(tsk, token);
-+	return 0;
-+}
-+
- static unsigned long allocate_shadow_stack(unsigned long addr, unsigned long size,
- 					   unsigned long token_offset, bool set_tok)
- {
+ 	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
+ 		regs->status, regs->badaddr, regs->cause);
 
 -- 
 2.43.0
