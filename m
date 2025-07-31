@@ -4,116 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 032C3C87FCC
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 16:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E544C87FCA
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 16:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hfG6b8lTkcyVct76Lut0Gh63NnWC1ZZh4h2Ykw9viJk=; b=B6VoCqB6oyCuNp
-	5nU4IKhedT7HswKGCCLctggpvmKhfoaGmrOxd+YHD0qVHRCBXXG9QrEcDs8Za494RkumBhtwzwa/o
-	sTMwEoPyhdEMgPsf9+tIlju3UWuBUR0lj/9NrAjLCz/XA1YTYivGFEpnQ8GmGGnvcDQKje3ROG49j
-	aZZtSohJmjPk8ZdGlMsQ3V+lWWuCCixbGPzYc/P0YuOqlZF3Z7slN+JhrCeOHuOiLEm/hUe8vttn1
-	pKI6QoyfBqHNAPDNrq9ntV/XgIvdPj7yea+8lV96fezXZTaVi+OgOUqE8A8O1IPaRpt9j1cOmA/y2
-	02HVEFM2uiIdRE+KbmAg==;
+	List-Owner; bh=kMPYT53jiHAdYoTtmCMWy4zHJZpzwk2otreLc5i/DqM=; b=lmOsllpKX7Y0bx
+	m91rAjyw1XrZAfuxPkAgY+rYsQrZKXqId6p30GmVab6wdaoFSwhGsAzXznLEAfilFN7UqZT/HiS8J
+	kJepKZ+Cdtkf4E5dyv6qTfI+lgoi6+q6wcVPGNybVtbcdL5Rh1i+hYbcf+EUagj47TsdCvtaoGoU9
+	3Wez8wm8pLqw5/RbtQFZZbNB+VKshwKGgGO0xZSSvBGf2k5SDX7DF9UoowLBaCn+e/KyA6fs0Yw5N
+	XY/pdUGrn5D72N0rn4w/f2GycQngPULnb9Foamy9TbcdxQAXSJuc6/NXbafdyE5UBu6R7+QlnGkg4
+	wsMpAezCrw5e80aV9dvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhWN0-0000000460s-0wp6;
-	Thu, 31 Jul 2025 16:43:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uhWUD-000000046js-0sWo;
+	Thu, 31 Jul 2025 16:50:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhVCn-00000003yJ2-2z7v
+	id 1uhWUB-000000046jB-0wdN
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Jul 2025 15:28:29 +0000
+	Thu, 31 Jul 2025 16:50:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B87960205;
-	Thu, 31 Jul 2025 15:28:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E930C4CEF6;
-	Thu, 31 Jul 2025 15:28:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A166044C26;
+	Thu, 31 Jul 2025 16:50:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6497EC4CEEF;
+	Thu, 31 Jul 2025 16:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753975706;
-	bh=qxfnXXWeaVOCUelIn6+ZGC8f/+ytl31N9N1rR7TsrTc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pouDA+xsslD3GuTAf2Nng5+he6p61GI6mtuaYV/gKjrmCW36LmAlg74rOV/5eru8A
-	 szG+YmLZGaIoLO0ufr+hiJeZUfa/l6abNXt+Rwrn3zelRibepG4BbFC8TF4hRGUrDZ
-	 BVR8cV89+k3nURlsNJL8ZH7mBZEBkwBQ1TWabizuSRdRYaEARfVGxSrxljg+8aQNrp
-	 ULPApV/aNLnpNcBvfHBcgy+Ce6b1kZzEKTRAo9sRbNDM3cQqd6aL77L+W4v/Y83E4G
-	 aUz3mvjY5mjKt8zNr1ihPJZKmyVmSC6xjXdjVXrBcwtaIBgEqB6swgx2tdJRWlKbrm
-	 gYawInK3r3MNQ==
-Message-ID: <90baea21-6e0a-4274-bda0-43ccad796f2a@kernel.org>
-Date: Thu, 31 Jul 2025 17:28:18 +0200
+	s=k20201202; t=1753980630;
+	bh=TnKnojD8pZKJi4gCb3oaHc/q/bUH6sldEJl1RFC71Ic=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=pvI/b5aF6F/b4g9tlhY8oUo1Ig1H8yGtRHeHW3f/o1UWV40cD4BBGkAcOsk+fUUkq
+	 t5915J68JfcApQqbtP7tR0W/6pfx7X2brVDHan+cFlUMGlGYS1EDpW1vHH86KCcVNI
+	 0W8HHYbOqwrdqKMpEuVecdsMfGxlnMH5glU+li8srCZvckxSP59NreNrdTZIp57S+L
+	 P6Vc+XQgYK/sdnIXSOx+3agXDHQFeVTAMeQhUQC5YUUhRbhWZvD3cBtWK8t6rsGeko
+	 ETHFk6uY0xrNO8dYQmayv5GVyh9xR+LLrVXeJFmHcWxOpv6/pIRrccu90K0pK7GsCN
+	 2pSj/vtBWAgvQ==
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 3/5] dt-bindings: gpu: img,powervr-rogue: Add TH1520
- GPU compatible
-To: Michal Wilczynski <m.wilczynski@samsung.com>, Guo Ren
- <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns
- <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Drew Fustini <fustini@kernel.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- dri-devel@lists.freedesktop.org
-References: <20250731-apr_14_for_sending-v9-0-c242dc1ffc14@samsung.com>
- <CGME20250731135020eucas1p1e8f286222a03ec9b63a7409ff66c3238@eucas1p1.samsung.com>
- <20250731-apr_14_for_sending-v9-3-c242dc1ffc14@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250731-apr_14_for_sending-v9-3-c242dc1ffc14@samsung.com>
+In-Reply-To: <CAK9=C2WRVHZ4FdoW0fKRRFg6qAC5asn03dHj_NXkMKfBXKkXdA@mail.gmail.com>
+References: <20250704070356.1683992-1-apatel@ventanamicro.com> <20250704070356.1683992-9-apatel@ventanamicro.com> <175341132347.3513.7184287611040628050@lazor> <CAK9=C2UDV3xCpKxZmT4NsRvN=hCcQrcx0fr-QFD2fuOrqmXmHA@mail.gmail.com> <175359739515.3513.8664828076215459722@lazor> <CAK9=C2WRVHZ4FdoW0fKRRFg6qAC5asn03dHj_NXkMKfBXKkXdA@mail.gmail.com>
+Subject: Re: [PATCH v8 08/24] dt-bindings: clock: Add RPMI clock service message proxy bindings
+From: Stephen Boyd <sboyd@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Date: Thu, 31 Jul 2025 09:50:29 -0700
+Message-ID: <175398062959.3513.15195554063633980579@lazor>
+User-Agent: alot/0.11
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250731_095031_285611_6FC79005 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,86 +65,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-acp <i@vger.kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Conor Dooley <conor.dooley@microchip.com>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Rahul Pathak <rpathak@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 31/07/2025 15:50, Michal Wilczynski wrote:
-> Update the img,powervr-rogue.yaml to include the T-HEAD TH1520 SoC's
-> specific GPU compatible string.
-> 
-> The thead,th1520-gpu compatible, along with its full chain
-> img,img-bxm-4-64, and img,img-rogue, is added to the
-> list of recognized GPU types.
-> 
-> While the BXM-4-64 GPU IP is designed with two distinct power domains,
-> the TH1520 SoC integrates it with only a single, unified power gate that
-> is controllable by the kernel.
-> 
-> The binding enforces this with a specific if block for the
-> thead,th1520-gpu compatible that requires a single power-domains entry
-> and disallows power-domain-names.
-> 
-> The B-series GPU rule is also updated to include img,img-bxm-4-64
-> and to explicitly exclude the TH1520.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 29 +++++++++++++++++++++-
->  1 file changed, 28 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> index 24ce46ba0b7015fca799f045ee2ccdd258088068..e47e0f3d1b5078b3050e26f6c1ac175edec528ec 100644
-> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -21,6 +21,11 @@ properties:
->            # work with newer dts.
->            - const: img,img-axe
->            - const: img,img-rogue
-> +      - items:
-> +          - enum:
-> +              - thead,th1520-gpu
-> +          - const: img,img-bxm-4-64
-> +          - const: img,img-rogue
->        - items:
->            - enum:
->                - ti,j721s2-gpu
-> @@ -96,7 +101,29 @@ allOf:
->        properties:
->          compatible:
->            contains:
-> -            const: img,img-bxs-4-64
-> +            const: thead,th1520-gpu
-> +    then:
-> +      properties:
-> +        power-domains:
-> +          items:
-> +            - description: The single, unified power domain for the GPU on the
-> +                TH1520 SoC, integrating all internal IP power domains.
-> +        power-domain-names: false
-> +      required:
-> +        - power-domains
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - img,img-bxm-4-64
-
-
-I don't understand this. There is no such variant like not thead and
-img,img-bxm-4-64.
-
-So same comment as last time: this is overcomplicated. Use simple
-clauses covering all possible variants. Do not add clauses for
-impossible combinations.
-
-Best regards,
-Krzysztof
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UXVvdGluZyBBbnVwIFBhdGVsICgyMDI1LTA3LTI4IDAyOjE5OjIzKQo+IE9uIFN1biwgSnVsIDI3
+LCAyMDI1IGF0IDExOjUz4oCvQU0gU3RlcGhlbiBCb3lkIDxzYm95ZEBrZXJuZWwub3JnPiB3cm90
+ZToKPiA+Cj4gPiBJdCdzIG5vdCBwcm92aWRpbmcgY2xrcz8gVGhlIFNCSSBmaXJtd2FyZSBpcyBu
+b3QgZGlzY292ZXJhYmxlPyBEbyB5b3UKPiA+IGhhdmUgYSBwb2ludGVyIHRvIHRoZSBEVFMgZm9y
+IHRoaXMgbm9kZSBhbmQgdGhlIGNsb2NrIGNvbnRyb2xsZXIgbm9kZSBpbgo+ID4gdGhlIG5leHQg
+cGF0Y2g/IEknZCBsaWtlIHRvIHVuZGVyc3RhbmQgd2h5IHRoaXMgaXMgbmFtZWQgYSBjbG9jawo+
+ID4gY29udHJvbGxlciB3aGVuIGl0IGRvZXNuJ3QgcHJvdmlkZSBjbGtzLgo+IAo+IFRoZSBmaXJt
+d2FyZSBkcml2ZXIgaXMgbm90IHByb3ZpZGluZyBjbGtzLiBBbHNvLCB0aGUgU0JJIGZpcm13YXJl
+IGFuZAo+IHZhcmlvdXMgU0JJIGV4dGVuc2lvbnMgYXJlIGluZGVlZCBkaXNjb3ZlcmFibGUgZnJv
+bSBzdXBlcnZpc29yIHNvZnR3YXJlLgoKSWYgU0JJIGV4dGVuc2lvbnMgYXJlIGRpc2NvdmVyYWJs
+ZSBmcm9tIHNvZnR3YXJlIHdoeSBkbyB3ZSBuZWVkIGEgRFQKYmluZGluZz8KCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
