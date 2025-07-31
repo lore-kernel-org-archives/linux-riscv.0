@@ -4,97 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72450C87FD2
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 14:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC1EBC87FD2
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 15:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7ratYZZbu5uG/m/sBriBo6QuadvMOs8Nap8PAY35Vnk=; b=NY2ZTmvs20rsys
-	NBZpWm48HZiJJTGSrtj32lIsC+Uz0Xj9OmISmRdmKxw7fUfgTWZIsMxjLAKIj4ImKMfjW9PCYAnp2
-	HaE64foU0C2Zv9eE/8GwH0Puar7T+rR6c+R42sXKdqLcIr8sxZ3ZOwxfFVfAd3VuzJHgCfnxv7Fch
-	sPZoa3LsCJhLRwjwcuPHp4+p3Pg5VVbyZfV8tHie5Pws7tF9UnybS7T2IJW2HIm2ioyTsj7bst1Yy
-	e95iSxyZMkpJQUC1wa7tLn2vyEC3uZP5rxFFcbusUlUuCl72yANDhv1Jf6EaJ5VQ8wDyA6deyy4rW
-	egmTYVqjSXkii17T2pQA==;
+	List-Owner; bh=+I9jlKAuQv24ONCMxgb6XL7t3IBuFWWd9PVBhhhY+Cg=; b=C1MLATv9Z2w0JJ
+	RMokEASGPhl7U1QvDX6+tM/T4RiK6e2Qx4hehqVVwoM7GEsEMezjUKB4l1miDumpz64KemsRMTqqO
+	OsC207pQkQFofteDaGmbRkIRjd62FAnQU+LQDWdG3Pj2BpinaOyxocGcI2yyHP/AAtmA4ipvcmsqE
+	oc+WAENoBpMLapRyRum7bvgGAI6r4uIJcUsjJOfZQSNZxXS3MPfiJ3sfJyG7IjibO0mepTDY27slX
+	L/X1+ajjxyKq58uIpBBPeRcj1PaSDfrryHfKAlM5x701K2yCN9PAwDIVlhO+vivTQTDRbR6nL2yKe
+	5DuoUr14kPOUOipiGkSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhUgJ-00000003tWD-2bw5;
-	Thu, 31 Jul 2025 14:54:55 +0000
-Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	id 1uhUyE-00000003vql-3a8R;
+	Thu, 31 Jul 2025 15:13:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhU4Y-00000003nrJ-0uCq
+	id 1uhURH-00000003s9L-2B5z
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 31 Jul 2025 14:39:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=QwbZwluq+bc4CMrjQ6T2Yt+kthw/FEwTPVVWZ2qZDiY=; b=j/uN+e7RMVuxAyg0KrOmMhaWFD
+	lnf9ymtmCwp+Gz9RxH2ZPu7LIvpNOatu77f1YOtrIfP4U4nEeIntp/aOnFJvO7/1dQCT4LCy9QgrE
+	BbJ7hyBzll8aLIaIcDivjBOqw3wAJV98L6ratXTckACo3NIb2T0szHrg6l38wWCRHVe/AyYJjFtCK
+	xhflxTG/Nb5bRJd6HjaibWsLRK4gGknsP4uPMvO6gRevfFVwhKH0N6vqJ5v87cMLm3w/WAvIfHRwg
+	uMQ4JhPmz7vBGReTaP0I8zp74aUZp9Y11Of4bRUZSmYp0uLOkEkWWdP1e8F7ObZn77bSfe8+vuDhV
+	ZfqvU3Cw==;
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uhURE-0000000D4Bt-062H
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Jul 2025 14:15:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1753971271;
-	bh=kwpHZPpXI0p0rDKtDHDqYa7tblu6wTfxnrUTp9ZaScY=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=Rb+VBMrp8Fg7ghD1rdcWB+9xUM4AX0InATigGa3re32I+dC1rbO4x2qyInIeIgNAj
-	 ObenpdekMtyRDgiEZZORu49umJDOOKTu6JT2bxfUtR8DQUxbMpmq8/pTri8kWNcZTW
-	 qa06YetxIxoOJMVxg64TlteA7rWLk5d7TCgPNmsg=
-X-QQ-mid: zesmtpip2t1753971263tce60f3fd
-X-QQ-Originating-IP: gnNPd1aSkP2AdkgB8BLPeffI5/XcgeNT52Y3+ZsaTQ8=
-Received: from = ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 31 Jul 2025 22:14:21 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 9338058772431844133
-EX-QQ-RecipientCnt: 16
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Thu, 31 Jul 2025 22:14:07 +0800
-Subject: [PATCH RESEND v3 2/2] clk: spacemit: fix sspax_clk
+	Thu, 31 Jul 2025 14:39:22 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 45A87442A1;
+	Thu, 31 Jul 2025 14:39:09 +0000 (UTC)
+Message-ID: <4a887fce-a04a-4c85-8051-50afe88fd098@ghiti.fr>
+Date: Thu, 31 Jul 2025 16:39:08 +0200
 MIME-Version: 1.0
-Message-Id: <20250731-k1-clk-i2s-v3-2-2f655ddb0c6f@linux.spacemit.com>
-References: <20250731-k1-clk-i2s-v3-0-2f655ddb0c6f@linux.spacemit.com>
-In-Reply-To: <20250731-k1-clk-i2s-v3-0-2f655ddb0c6f@linux.spacemit.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>, 
- Inochi Amaoto <inochiama@outlook.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Yao Zi <ziyao@disroot.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753971252; l=2875;
- i=troy.mitchell@linux.spacemit.com; s=20250712; h=from:subject:message-id;
- bh=uvU3LuSqoqO9vOKX5HTH0ipYicugJ67Oj+k5+VRnS3M=;
- b=Hs6I00fFkfEOYEfv/6jaE3m7Rz5lshC/OlJ0gChrnQaIqc3WnAp49ascaBRDqReYBhqqqx7nO
- qOW46P5t3BbDHV/QbytBEZAkcd7U4/2bwss/iRzYr7bGKtOcc4amtuM
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
- pk=zhRP1xE0bftrurqSWI+SzcSdJGIZ0BTTY9Id0ESzqlI=
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: OJftjPC664kmGSvVbjwMXdR/m8HSHiQS9Tg7J64FEta2itPhShcz56VS
-	EThD2AomRcJJiMfD8IveTwbXtGsU4dtBgxqJ4N+AzV0F5sf+wIA5edNWLU92MhhlgqwSTLd
-	UbHxab+UoDCuwGqj9sasSB/yP1O9yhhG0aVz/Sz05vOdBkv8Gs9mFblVSDyXoqrqExcSH1/
-	PqsERaWjJToUVlYA6qPXaAlPZBEXj0e9U3Ym7Ip6SZVgzOZWqahaRVyXSHU4GYINiKYaxcj
-	/yUz6iBgsCAktlkByRmmTsKEe47vLKhvhgQIfD1rXGH3P3Dl6q1K1ix/FMy6l3aek5EqynA
-	5bQNcTSxE/yNLwDk0/hdZwElxDPkWg+2STh2ohVYk/KLP6VpIs10scWXHaWaYp2kC2AwlB5
-	BKJamB2uRoPeB73HbgDFJ5t1BFDL9fu5rOzC2p+S0Bbz4T3eyOExZzip4j//61h2PiL9ufH
-	F3SJuxAWnJgGYs63jwG9KMEM1FRCww3FwiP+XmYWdb0h4Qzai6azugztniuwTYfrsZ4EMRu
-	VH/VXNvyIYFlX5kEh72DO+Z1Ym+dzbSN0lAEM1nTz7eFpUYj73FyF2Q6C7z3QK8ebfJADmX
-	Q00Xu/q2c3FY7wo3sfI7esarlnNsWUERWGIFGkHsUPT2psLMNrmaEqsaxEOkWcAauFXioLS
-	wuKL3sFX8ag8iMwJb9tMN7NUSoSdiGgYqrSRm0ZSrRXGrh6zU6DNmj7DQ2kcEXdjLhqdFBC
-	yRsqnN3RPjZMCbZu69v1dDzSIiotSK+kNx1KYQo2KqaXTEpQYU08UUZiMiyjc4KwTGA8+HT
-	Q5SKmnux5HQDnd0/IzLGaZ6QgBW9VVu4KK5IsO+ZBHcWRtx5kzgCnDBSLDTfQE4HmNvWJUU
-	uAAmGlvgNwBlYTcR97pqMbauTqUepj82w8mG19/y/8cTv4/K8B6xRgQLBZKqlU6wpb17VRr
-	ECd0X1A+V5j+OWdlIFbfHLFH3ZKJ3/IsIpK1/u8O5uP6qX70/xPq+tSsJgfT7IzwkvI7aSZ
-	8zglL8oO8gD7h3gAFDEkny4JBJOs6Q9AG5+H5wTotxPtCJCseF2Jx3f6Pg8PV7qbkU63Zxm
-	J24sdQ70HcATgQayFIOW7/IJa3kBGJJkgltQp86g0LRqEUI8MWYA9WhO8zUNR9z5DvxvMpc
-	8ZSA
-X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] riscv: introduce ioremap_wc()
+To: Yunhui Cui <cuiyunhui@bytedance.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, anshuman.khandual@arm.com, kas@kernel.org,
+ ryan.roberts@arm.com, samuel.holland@sifive.com, namcao@linutronix.de,
+ willy@infradead.org, abrestic@rivosinc.com, yongxuan.wang@sifive.com,
+ apopple@nvidia.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Qingfang Deng <qingfang.deng@siflower.com.cn>
+References: <20250722091504.45974-1-cuiyunhui@bytedance.com>
+ <20250722091504.45974-2-cuiyunhui@bytedance.com>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250722091504.45974-2-cuiyunhui@bytedance.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutddutdejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepvdgrtdegmegtvggttdemuddtjeefmegslegsgeemugejhegvmegtsgefjeemfeekudeimehfkeejvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtgeemtggvtgdtmedutdejfeemsgelsgegmegujeehvgemtggsfeejmeefkeduieemfhekjegvpdhhvghloheplgfkrfggieemvdgrtdegmegtvggttdemuddtjeefmegslegsgeemugejhegvmegtsgefjeemfeekudeimehfkeejvggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepudekpdhrtghpthhtoheptghuihihuhhnhhhuihessgihthgvuggrnhgtvgdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsv
+ ghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheprghkphhmsehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtoheprghnshhhuhhmrghnrdhkhhgrnhguuhgrlhesrghrmhdrtghomhdprhgtphhtthhopehkrghssehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_071554_613475_13F36474 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250731_153920_324710_3D66EAEE 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,77 +81,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hardware Requirement:
-When FNCLKSEL in APBC_SSPAX_CLK_RST is set to 7 (3'b111),
-BIT3 must be set to 1 for the SSPAx parent clock to be I2S_BCLK.
+Hi Yunhui,
 
-This patch introduces SSPAx_I2S_BCLK as a virtual gate to enable BIT3.
+On 7/22/25 11:15, Yunhui Cui wrote:
+> Compared with IO attributes, NC attributes can improve performance,
+> specifically in these aspects: Relaxed Order, Gathering, Supports Read
+> Speculation, Supports Unaligned Access.
+>
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> Signed-off-by: Qingfang Deng <qingfang.deng@siflower.com.cn>
+> ---
+>   arch/riscv/include/asm/io.h      | 4 ++++
+>   arch/riscv/include/asm/pgtable.h | 1 +
+>   2 files changed, 5 insertions(+)
+>
+> diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+> index a0e51840b9db4..09bb5f57a9d34 100644
+> --- a/arch/riscv/include/asm/io.h
+> +++ b/arch/riscv/include/asm/io.h
+> @@ -28,6 +28,10 @@
+>   #ifdef CONFIG_MMU
+>   #define IO_SPACE_LIMIT		(PCI_IO_SIZE - 1)
+>   #define PCI_IOBASE		((void __iomem *)PCI_IO_START)
+> +
+> +#define ioremap_wc(addr, size)	\
+> +	ioremap_prot((addr), (size), __pgprot(_PAGE_KERNEL_NC))
+> +
+>   #endif /* CONFIG_MMU */
+>   
+>   /*
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 91697fbf1f901..3d17399a06c77 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -203,6 +203,7 @@ extern struct pt_alloc_ops pt_ops __meminitdata;
+>   
+>   #define PAGE_TABLE		__pgprot(_PAGE_TABLE)
+>   
+> +#define _PAGE_KERNEL_NC ((_PAGE_KERNEL & ~_PAGE_MTMASK) | _PAGE_NOCACHE)
+>   #define _PAGE_IOREMAP	((_PAGE_KERNEL & ~_PAGE_MTMASK) | _PAGE_IO)
+>   #define PAGE_KERNEL_IO		__pgprot(_PAGE_IOREMAP)
+>   
 
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Suggested-by: Yao Zi <ziyao@disroot.org>
----
- drivers/clk/spacemit/ccu-k1.c | 25 +++++++++++++++++++++----
- 1 file changed, 21 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-index cdde37a0523537c2f436e481ae8d6ec5a581b87e..24a561499a7c11b6a661c026f0bd2fac28fe7b04 100644
---- a/drivers/clk/spacemit/ccu-k1.c
-+++ b/drivers/clk/spacemit/ccu-k1.c
-@@ -349,7 +349,10 @@ CCU_GATE_DEFINE(aib_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_AIB_CLK_RST, BIT(1),
- 
- CCU_GATE_DEFINE(onewire_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_ONEWIRE_CLK_RST, BIT(1), 0);
- 
--static const struct clk_parent_data sspa_parents[] = {
-+CCU_GATE_DEFINE(sspa0_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA0_CLK_RST, BIT(3), 0);
-+CCU_GATE_DEFINE(sspa1_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA1_CLK_RST, BIT(3), 0);
-+
-+static const struct clk_parent_data sspa0_parents[] = {
- 	CCU_PARENT_HW(pll1_d384_6p4),
- 	CCU_PARENT_HW(pll1_d192_12p8),
- 	CCU_PARENT_HW(pll1_d96_25p6),
-@@ -357,10 +360,22 @@ static const struct clk_parent_data sspa_parents[] = {
- 	CCU_PARENT_HW(pll1_d768_3p2),
- 	CCU_PARENT_HW(pll1_d1536_1p6),
- 	CCU_PARENT_HW(pll1_d3072_0p8),
--	CCU_PARENT_HW(i2s_bclk),
-+	CCU_PARENT_HW(sspa0_i2s_bclk),
- };
--CCU_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
--CCU_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-+CCU_MUX_GATE_DEFINE(sspa0_clk, sspa0_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
-+
-+static const struct clk_parent_data sspa1_parents[] = {
-+	CCU_PARENT_HW(pll1_d384_6p4),
-+	CCU_PARENT_HW(pll1_d192_12p8),
-+	CCU_PARENT_HW(pll1_d96_25p6),
-+	CCU_PARENT_HW(pll1_d48_51p2),
-+	CCU_PARENT_HW(pll1_d768_3p2),
-+	CCU_PARENT_HW(pll1_d1536_1p6),
-+	CCU_PARENT_HW(pll1_d3072_0p8),
-+	CCU_PARENT_HW(sspa1_i2s_bclk),
-+};
-+CCU_MUX_GATE_DEFINE(sspa1_clk, sspa1_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-+
- CCU_GATE_DEFINE(dro_clk, CCU_PARENT_HW(apb_clk), APBC_DRO_CLK_RST, BIT(1), 0);
- CCU_GATE_DEFINE(ir_clk, CCU_PARENT_HW(apb_clk), APBC_IR_CLK_RST, BIT(1), 0);
- CCU_GATE_DEFINE(tsen_clk, CCU_PARENT_HW(apb_clk), APBC_TSEN_CLK_RST, BIT(1), 0);
-@@ -965,6 +980,8 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
- 	[CLK_SSPA1_BUS]		= &sspa1_bus_clk.common.hw,
- 	[CLK_TSEN_BUS]		= &tsen_bus_clk.common.hw,
- 	[CLK_IPC_AP2AUD_BUS]	= &ipc_ap2aud_bus_clk.common.hw,
-+	[CLK_SSPA0_I2S_BCLK]	= &sspa0_i2s_bclk.common.hw,
-+	[CLK_SSPA1_I2S_BCLK]	= &sspa1_i2s_bclk.common.hw,
- };
- 
- static const struct spacemit_ccu_data k1_ccu_apbc_data = {
+I have just confirmed with Ved that mapping WC to NC is the correct 
+thing to do, so:
 
--- 
-2.50.0
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+And I'll take that for 6.17.
+
+Thanks,
+
+Alex
 
 
 _______________________________________________
