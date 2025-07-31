@@ -4,49 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8972AC87FCC
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 16:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5352AC87FCC
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 16:04:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TLPP3PQB0RzX9SQZFf3hdOsGid+HgeZpWsDO9UGgfEo=; b=rl3saC38juGXGP
-	REZiAo+HVuQvuK9+het+bA3F03DFHtm75m8/CRoHW6I/NsczCA7V/hRY3qGf+CS/7xgj3tmS6NT7r
-	PtjfUAOyWSOAJzLzXSpu7L6s9VUMTqo0ZYlL6Hy+cYFWQtIXM6slECAcw4CJvvUcB00UT4o0qdUNj
-	aU6h+XMXmVebHTpsOpd3q8lIO7VI9iRpmAgcRmbGprEYugc8ipm4q/OFxCBx5r7TKOqjPp0uIY0WY
-	hvMbnvBXBYBzpMJ59xJDhGraYlqo+JwgrQkUKOOMWf33CyzcDiRwFsptRqURIWabPWlH59HSDJ1Z5
-	mce/y5AzqLhRuyno4jfQ==;
+	List-Owner; bh=XDBjRn84dEqHUmgklikLHR3x7GOAvVD8Zl3pUZtXjZI=; b=y/4B98k/kTiFm/
+	ePWH6q4rZSkmBzWeHj0kxwr6QDUC26/0WvBQFm98V5LiS3BdXoxjj2SH0gEWCnuH6+X3i8LLwoDpl
+	XskHBNwd7Xawk/CruUq/9uyBiZMz126BV0pSahJdjREvNkrWX8qEfB/QMz2z1P8E5Qx3fY/+I+kMa
+	tJ2Ne+wZEuD/4F2Xx0tlxhIFBtBIqva3x444VxfzI6NgFQ6i6eLp4xWJTRr5viSVMk5J4TPZ7Ehmu
+	dsP+U4CP5U4VefR5yamKddF1le5eG/vbhbyMq7HCF6o5p9CbpnPzz1SXQnXizcBYe9RS+BhzLxbpW
+	yqY6wypqJe7aknGvx35w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhVl5-000000042GN-08PG;
-	Thu, 31 Jul 2025 16:03:55 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uhVlM-000000042P9-39Y4;
+	Thu, 31 Jul 2025 16:04:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhVl2-000000042Ev-1asj
+	id 1uhVlL-000000042OG-2jdv
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 31 Jul 2025 16:04:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=tFRUod1LETsg74Qkt/8QptMDoryWw/7mPsDdQJpyJMA=; b=YWr9rjYxKysHshX8pRpkSrVHnv
+	rF/bQber47GQmbOjiDuoF9AvN9n4sVzzan324XNHi+Wx1hByGOK3AWMhfL58ilVWBJt2SK+0Yr9SP
+	TWGzBkvbV37EUifCDrQINCxFzKdmpFQEl7vxeDblhrhjfedCIWvZMsa8kVam2IAFtQLa/wA0rSZGM
+	7onpcJ4wCRi67Z6iAMR+9vTc4nKPD8SpDhtU8q+9NJ9UOmAzxoMzvvejfel/KpP1bNpjn28SgKPIB
+	HNIQQxFL2n7+fEUJyl4zxiM3+0iXF+nX8FKNaS+hDDUNs6L6FEVX2aRo2oibKEZC8SKluv7wLXiGD
+	Acd0JbdA==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uhVlI-0000000D5lC-13dG
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Jul 2025 16:03:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1753977804; cv=none; 
+	Thu, 31 Jul 2025 16:04:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753977814; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=iEVfjkrhIlNGAugbgFyCabDELVet8GzqTY2X6nWM90rubx0LHgFlnh6/IohJGrywKzD8VKMl/eXABP/+cUP1q3imNAwURRm6jAD3NkwpZn53TWIuO7b1+dh23V2P+K3nxYE1rXOrIBQD9DK/V2jsbTX5J7b6wFebmCZBrz+bYxE=
+	b=C8v46k7DZVPWHrtdnDxx+B1H9e3oTQQKoEUlihOcuoykiizMGZ2DuqpH3we2WhGi7B06TVkV+KxBAn0Bf8Fj+ir6MoKr2VVwLoP0nh4MQoHE+4wSRmwlYaf0FZdGEAkWIks+x82voM8CpPcilzent9OSDf09xaBaOLXtx8D/AaE=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1753977804; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=nNsfnv5oOEoHrVu8M1Ul0UCXOUQx26YVPJa+Wwgspps=; 
-	b=cz37pqdSHlICiZWOPkv6Gy+lqmKdFmOvcy3i7ESUm4jWnfebkMT9ajcGt8HxnvpXbnnlfxzgrQyls0vYbT4cujWpiZLa0zEk1bK07/blkK++6WN3TgxftRDAKQNvcZfpqKJbdQYSGmLSob1tm3mw46U9WAQc3BkxFtA1M6sVDSg=
+	t=1753977814; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=tFRUod1LETsg74Qkt/8QptMDoryWw/7mPsDdQJpyJMA=; 
+	b=MSsRQc1CLGXH5lgzPf8W7exC2qpS0QWtdYvRRMzl9SAI2NYNP7n03MbgtFNyauldv7AD4ZhneCPEuAmAvo3lzb/I1Ffxzwq0uT+wJ5a8oWEPLS//I6jfg4xDJ8NndXxRJZMWZNjzy1uUcAzKeTW/2BeUuoVk97WBXCZBImcLqk8=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=usama.anjum@collabora.com;
 	dmarc=pass header.from=<usama.anjum@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753977804;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753977814;
 	s=zohomail; d=collabora.com; i=usama.anjum@collabora.com;
 	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-Id:Message-Id:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Reply-To;
-	bh=nNsfnv5oOEoHrVu8M1Ul0UCXOUQx26YVPJa+Wwgspps=;
-	b=XTlO2AfhdGBuUf01q109R44FA2Ye3p1dZraw5yjGh/xsp6aWi43kSFycH9CpGIw8
-	SKuV5dyfAL9vvs1ffJHq4uPgaNxrj8OG1G2lZ3c3kn1rmchCIHjQcC9QOWsFcoiDUhP
-	eO3qd+etbhxquw7LjvNK+rJ3TXTN21JvijGgJO24=
-Received: by mx.zohomail.com with SMTPS id 1753977802350358.12218677283863;
-	Thu, 31 Jul 2025 09:03:22 -0700 (PDT)
+	bh=tFRUod1LETsg74Qkt/8QptMDoryWw/7mPsDdQJpyJMA=;
+	b=ZsmT9zUa5eWfbbvDyMVVzPqiFsPJdSkNGak9DUUGi7MDW7luOQuACxcj91V2ZB10
+	mcRtFG1ppOtRtNPjOd2+lfUbSqHSBT6vuXujVItCwKkDrSEy3NuoVgBpcfSL8v/ncVG
+	HfPcQj2c8TIlbrD+kWPj1ezLf3vtU13lfwmTy0hg=
+Received: by mx.zohomail.com with SMTPS id 1753977811994182.64658106567913;
+	Thu, 31 Jul 2025 09:03:31 -0700 (PDT)
 From: Muhammad Usama Anjum <usama.anjum@collabora.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	David Hildenbrand <david@redhat.com>,
@@ -77,17 +92,17 @@ To: Andrew Morton <akpm@linux-foundation.org>,
 	Shuah Khan <shuah@kernel.org>
 Cc: Muhammad Usama Anjum <usama.anjum@collabora.com>,
 	kernel@collabora.com
-Subject: [PATCH v2 7/8] selftests/mm: Mark unused arguments with __unused
-Date: Thu, 31 Jul 2025 21:01:31 +0500
-Message-Id: <20250731160132.1795351-8-usama.anjum@collabora.com>
+Subject: [PATCH v2 8/8] selftests/mm: Fix unused parameter warnings for different architectures
+Date: Thu, 31 Jul 2025 21:01:32 +0500
+Message-Id: <20250731160132.1795351-9-usama.anjum@collabora.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250731160132.1795351-1-usama.anjum@collabora.com>
 References: <20250731160132.1795351-1-usama.anjum@collabora.com>
 MIME-Version: 1.0
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_090352_475261_9E09E50E 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20250731_170408_730322_B0772F92 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,252 +119,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Mark the arguments which cannot be removed with __unused attribute.
+There are functions which have unused arguments for different
+architectures. Separate the code for each architecture and move #ifdef
+arch outside these functions.
 
 Signed-off-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
 ---
- .../selftests/mm/hugetlb_fault_after_madv.c    |  4 ++--
- .../testing/selftests/mm/hugetlb_madv_vs_map.c |  6 +++---
- tools/testing/selftests/mm/pkey-arm64.h        |  5 +++--
- tools/testing/selftests/mm/pkey-powerpc.h      |  2 +-
- tools/testing/selftests/mm/pkey-x86.h          |  3 ++-
- .../selftests/mm/pkey_sighandler_tests.c       | 10 +++++-----
- tools/testing/selftests/mm/protection_keys.c   | 18 +++++++++---------
- 7 files changed, 25 insertions(+), 23 deletions(-)
+ tools/testing/selftests/mm/mseal_test.c       |  8 +++++--
+ .../selftests/mm/pkey_sighandler_tests.c      | 21 ++++++++++++++++---
+ 2 files changed, 24 insertions(+), 5 deletions(-)
 
-diff --git a/tools/testing/selftests/mm/hugetlb_fault_after_madv.c b/tools/testing/selftests/mm/hugetlb_fault_after_madv.c
-index e2640529dbb29..72706c64fe57c 100644
---- a/tools/testing/selftests/mm/hugetlb_fault_after_madv.c
-+++ b/tools/testing/selftests/mm/hugetlb_fault_after_madv.c
-@@ -28,7 +28,7 @@ static void signal_handler(int signal)
+diff --git a/tools/testing/selftests/mm/mseal_test.c b/tools/testing/selftests/mm/mseal_test.c
+index 34c042da4de27..af49f72e1f465 100644
+--- a/tools/testing/selftests/mm/mseal_test.c
++++ b/tools/testing/selftests/mm/mseal_test.c
+@@ -131,17 +131,21 @@ static unsigned int __read_pkey_reg(void)
+ 	return pkey_reg;
  }
  
- /* Touch the memory while it is being madvised() */
--void *touch(void *unused)
-+void *touch(void __unused *unused)
++#if defined(__i386__) || defined(__x86_64__) /* arch */
+ static void __write_pkey_reg(u64 pkey_reg)
  {
- 	char *ptr = (char *)huge_ptr;
+-#if defined(__i386__) || defined(__x86_64__) /* arch */
+ 	unsigned int eax = pkey_reg;
+ 	unsigned int ecx = 0;
+ 	unsigned int edx = 0;
  
-@@ -41,7 +41,7 @@ void *touch(void *unused)
- 	return NULL;
+ 	asm volatile(".byte 0x0f,0x01,0xef\n\t"
+ 			: : "a" (eax), "c" (ecx), "d" (edx));
+-#endif
  }
++#else
++static void __write_pkey_reg(u64 __unused pkey_reg)
++{
++}
++#endif
  
--void *madv(void *unused)
-+void *madv(void __unused *unused)
+ static unsigned long pkey_bit_position(int pkey)
  {
- 	usleep(rand() % 10);
- 
-diff --git a/tools/testing/selftests/mm/hugetlb_madv_vs_map.c b/tools/testing/selftests/mm/hugetlb_madv_vs_map.c
-index 8f122a0f08281..64a1455940394 100644
---- a/tools/testing/selftests/mm/hugetlb_madv_vs_map.c
-+++ b/tools/testing/selftests/mm/hugetlb_madv_vs_map.c
-@@ -33,7 +33,7 @@ size_t mmap_size;
- char *huge_ptr;
- 
- /* Touch the memory while it is being madvised() */
--void *touch(void *unused)
-+void *touch(void __unused *unused)
- {
- 	for (int i = 0; i < INLOOP_ITER; i++)
- 		huge_ptr[0] = '.';
-@@ -41,7 +41,7 @@ void *touch(void *unused)
- 	return NULL;
- }
- 
--void *madv(void *unused)
-+void *madv(void __unused *unused)
- {
- 	for (int i = 0; i < INLOOP_ITER; i++)
- 		madvise(huge_ptr, mmap_size, MADV_DONTNEED);
-@@ -54,7 +54,7 @@ void *madv(void *unused)
-  * The other hugepage should be flipping from used <-> reserved, because
-  * of madvise(DONTNEED).
-  */
--void *map_extra(void *unused)
-+void *map_extra(void __unused *unused)
- {
- 	void *ptr;
- 
-diff --git a/tools/testing/selftests/mm/pkey-arm64.h b/tools/testing/selftests/mm/pkey-arm64.h
-index 8e9685e03c441..a9cacf3732f60 100644
---- a/tools/testing/selftests/mm/pkey-arm64.h
-+++ b/tools/testing/selftests/mm/pkey-arm64.h
-@@ -81,11 +81,12 @@ static inline int get_arch_reserved_keys(void)
- 	return NR_RESERVED_PKEYS;
- }
- 
--static inline void expect_fault_on_read_execonly_key(void *p1, int pkey)
-+static inline void expect_fault_on_read_execonly_key(void __unused *p1, int __unused pkey)
- {
- }
- 
--static inline void *malloc_pkey_with_mprotect_subpage(long size, int prot, u16 pkey)
-+static inline void *malloc_pkey_with_mprotect_subpage(long __unused size, int __unused prot,
-+						      u16 __unused pkey)
- {
- 	return PTR_ERR_ENOTSUP;
- }
-diff --git a/tools/testing/selftests/mm/pkey-powerpc.h b/tools/testing/selftests/mm/pkey-powerpc.h
-index 17bf2d1b0192e..8a367c32a9dd6 100644
---- a/tools/testing/selftests/mm/pkey-powerpc.h
-+++ b/tools/testing/selftests/mm/pkey-powerpc.h
-@@ -93,7 +93,7 @@ static inline int get_arch_reserved_keys(void)
- 			return NR_RESERVED_PKEYS_64K_3KEYS;
- }
- 
--static inline void expect_fault_on_read_execonly_key(void *p1, int pkey)
-+static inline void expect_fault_on_read_execonly_key(void __unused *p1, int __unused pkey)
- {
- 	/*
- 	 * powerpc does not allow userspace to change permissions of exec-only
-diff --git a/tools/testing/selftests/mm/pkey-x86.h b/tools/testing/selftests/mm/pkey-x86.h
-index f7ecd335df1e6..27688c04abd35 100644
---- a/tools/testing/selftests/mm/pkey-x86.h
-+++ b/tools/testing/selftests/mm/pkey-x86.h
-@@ -157,7 +157,8 @@ static inline void expect_fault_on_read_execonly_key(void *p1, int pkey)
- 	expected_pkey_fault(pkey);
- }
- 
--static inline void *malloc_pkey_with_mprotect_subpage(long size, int prot, u16 pkey)
-+static inline void *malloc_pkey_with_mprotect_subpage(long __unused size, int __unused prot,
-+						      u16 __unused pkey)
- {
- 	return PTR_ERR_ENOTSUP;
- }
 diff --git a/tools/testing/selftests/mm/pkey_sighandler_tests.c b/tools/testing/selftests/mm/pkey_sighandler_tests.c
-index eb4ef8532c0bf..638477494ff3a 100644
+index 638477494ff3a..68f106d0876a7 100644
 --- a/tools/testing/selftests/mm/pkey_sighandler_tests.c
 +++ b/tools/testing/selftests/mm/pkey_sighandler_tests.c
-@@ -110,7 +110,7 @@ static inline u64 pkey_reg_restrictive_default(void)
- 	return set_pkey_bits(PKEY_REG_ALLOW_NONE, 0, PKEY_DISABLE_ACCESS);
- }
- 
--static void sigsegv_handler(int signo, siginfo_t *info, void *ucontext)
-+static void sigsegv_handler(int __unused signo, siginfo_t *info, void __unused *ucontext)
- {
- 	pthread_mutex_lock(&mutex);
- 
-@@ -122,7 +122,7 @@ static void sigsegv_handler(int signo, siginfo_t *info, void *ucontext)
- 	syscall_raw(SYS_exit, 0, 0, 0, 0, 0, 0);
- }
- 
--static void sigusr1_handler(int signo, siginfo_t *info, void *ucontext)
-+static void sigusr1_handler(int __unused signo, siginfo_t *info, void __unused *ucontext)
- {
- 	pthread_mutex_lock(&mutex);
- 
-@@ -132,7 +132,7 @@ static void sigusr1_handler(int signo, siginfo_t *info, void *ucontext)
- 	pthread_mutex_unlock(&mutex);
- }
- 
--static void sigusr2_handler(int signo, siginfo_t *info, void *ucontext)
-+static void sigusr2_handler(int __unused signo, siginfo_t __unused *info, void __unused *ucontext)
- {
- 	/*
- 	 * pkru should be the init_pkru value which enabled MPK 0 so
-@@ -155,7 +155,7 @@ static void raise_sigusr2(void)
- 	 */
- }
- 
--static void *thread_segv_with_pkey0_disabled(void *ptr)
-+static void *thread_segv_with_pkey0_disabled(void __unused *ptr)
- {
- 	/* Disable MPK 0 (and all others too) */
- 	__write_pkey_reg(pkey_reg_restrictive_default());
-@@ -165,7 +165,7 @@ static void *thread_segv_with_pkey0_disabled(void *ptr)
- 	return NULL;
- }
- 
--static void *thread_segv_pkuerr_stack(void *ptr)
-+static void *thread_segv_pkuerr_stack(void __unused *ptr)
- {
- 	/* Disable MPK 0 (and all others too) */
- 	__write_pkey_reg(pkey_reg_restrictive_default());
-diff --git a/tools/testing/selftests/mm/protection_keys.c b/tools/testing/selftests/mm/protection_keys.c
-index 6281d4c61b50e..65bc9ba59f72b 100644
---- a/tools/testing/selftests/mm/protection_keys.c
-+++ b/tools/testing/selftests/mm/protection_keys.c
-@@ -309,7 +309,7 @@ static char *si_code_str(int si_code)
- 
- static int pkey_faults;
- static int last_si_pkey = -1;
--static void signal_handler(int signum, siginfo_t *si, void *vucontext)
-+static void signal_handler(int __unused signum, siginfo_t *si, void *vucontext)
- {
- 	ucontext_t *uctxt = vucontext;
- 	int trapno;
-@@ -889,7 +889,7 @@ static void close_test_fds(void)
- 	nr_test_fds = 0;
- }
- 
--static void test_pkey_alloc_free_attach_pkey0(int *ptr, u16 pkey)
-+static void test_pkey_alloc_free_attach_pkey0(int *ptr, u16 __unused pkey)
- {
- 	int i, err;
- 	int max_nr_pkey_allocs;
-@@ -1106,7 +1106,7 @@ static void test_pkey_syscalls_on_non_allocated_pkey(int *ptr, u16 pkey)
- }
- 
- /* Assumes that all pkeys other than 'pkey' are unallocated */
--static void test_pkey_syscalls_bad_args(int *ptr, u16 pkey)
-+static void test_pkey_syscalls_bad_args(int *ptr, u16 __unused pkey)
- {
- 	int err;
- 	int bad_pkey = NR_PKEYS+99;
-@@ -1132,7 +1132,7 @@ static void become_child(void)
- }
- 
- /* Assumes that all pkeys other than 'pkey' are unallocated */
--static void test_pkey_alloc_exhaust(int *ptr, u16 pkey)
-+static void test_pkey_alloc_exhaust(int __unused *ptr, u16 __unused pkey)
- {
- 	int err;
- 	int allocated_pkeys[NR_PKEYS] = {0};
-@@ -1238,7 +1238,7 @@ static void arch_force_pkey_reg_init(void)
-  * a long-running test that continually checks the pkey
-  * register.
+@@ -41,11 +41,12 @@ static siginfo_t siginfo = {0};
+  * syscall will attempt to access the PLT in order to call a library function
+  * which is protected by MPK 0 which we don't have access to.
   */
--static void test_pkey_init_state(int *ptr, u16 pkey)
-+static void test_pkey_init_state(int __unused *ptr, u16 __unused pkey)
++#ifdef __x86_64__
+ static __always_inline
+ long syscall_raw(long n, long a1, long a2, long a3, long a4, long a5, long a6)
  {
- 	int err;
- 	int allocated_pkeys[NR_PKEYS] = {0};
-@@ -1397,7 +1397,7 @@ static void *get_pointer_to_instructions(void)
- 	return p1;
- }
- 
--static void test_executing_on_unreadable_memory(int *ptr, u16 pkey)
-+static void test_executing_on_unreadable_memory(int __unused *ptr, u16 pkey)
- {
- 	void *p1;
- 	int scratch;
-@@ -1429,7 +1429,7 @@ static void test_executing_on_unreadable_memory(int *ptr, u16 pkey)
- 	pkey_assert(!ret);
- }
- 
--static void test_implicit_mprotect_exec_only_memory(int *ptr, u16 pkey)
-+static void test_implicit_mprotect_exec_only_memory(int __unused *ptr, u16 __unused pkey)
- {
- 	void *p1;
- 	int scratch;
-@@ -1478,7 +1478,7 @@ static void test_implicit_mprotect_exec_only_memory(int *ptr, u16 pkey)
- }
- 
- #if defined(__i386__) || defined(__x86_64__)
--static void test_ptrace_modifies_pkru(int *ptr, u16 pkey)
-+static void test_ptrace_modifies_pkru(int __unused *ptr, u16 __unused pkey)
- {
- 	u32 new_pkru;
- 	pid_t child;
-@@ -1601,7 +1601,7 @@ static void test_ptrace_modifies_pkru(int *ptr, u16 pkey)
+ 	unsigned long ret;
+-#ifdef __x86_64__
++
+ 	register long r10 asm("r10") = a4;
+ 	register long r8 asm("r8") = a5;
+ 	register long r9 asm("r9") = a6;
+@@ -53,12 +54,26 @@ long syscall_raw(long n, long a1, long a2, long a3, long a4, long a5, long a6)
+ 		      : "=a"(ret)
+ 		      : "a"(n), "D"(a1), "S"(a2), "d"(a3), "r"(r10), "r"(r8), "r"(r9)
+ 		      : "rcx", "r11", "memory");
++	return ret;
++}
+ #elif defined __i386__
++static __always_inline
++long syscall_raw(long n, long a1, long a2, long a3, long a4, long a5, long __unused a6)
++{
++	unsigned long ret;
++
+ 	asm volatile ("int $0x80"
+ 		      : "=a"(ret)
+ 		      : "a"(n), "b"(a1), "c"(a2), "d"(a3), "S"(a4), "D"(a5)
+ 		      : "memory");
++	return ret;
++}
+ #elif defined __aarch64__
++static __always_inline
++long syscall_raw(long n, long a1, long a2, long a3, long a4, long a5, long a6)
++{
++	unsigned long ret;
++
+ 	register long x0 asm("x0") = a1;
+ 	register long x1 asm("x1") = a2;
+ 	register long x2 asm("x2") = a3;
+@@ -71,11 +86,11 @@ long syscall_raw(long n, long a1, long a2, long a3, long a4, long a5, long a6)
+ 		      : "r"(x0), "r"(x1), "r"(x2), "r"(x3), "r"(x4), "r"(x5), "r"(x8)
+ 		      : "memory");
+ 	ret = x0;
++	return ret;
++}
+ #else
+ # error syscall_raw() not implemented
  #endif
+-	return ret;
+-}
  
- #if defined(__aarch64__)
--static void test_ptrace_modifies_pkru(int *ptr, u16 pkey)
-+static void test_ptrace_modifies_pkru(int __unused *ptr, u16 __unused pkey)
- {
- 	pid_t child;
- 	int status, ret;
+ static inline long clone_raw(unsigned long flags, void *stack,
+ 			     int *parent_tid, int *child_tid)
 -- 
 2.39.5
 
