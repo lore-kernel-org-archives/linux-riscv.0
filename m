@@ -4,60 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 381ACC87FCC
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 19:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C417BC87FDA
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 23:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RqrGcY6W75z10ZhieE8rDhKc+OMRwFsFMPKMyt0T0DY=; b=LhqELDkxcpOd82
-	waRIE2K0i5f7JVIDoT+hPhKtPYoXnCGThT1HRYZfM26GHaYCx33A2fNWQR8R82+EsEYMQREJ1Jvb1
-	mAb5ReK4SnZ1Kk+AhB8S26otqERMVYjvCKJgUhE401cpewf+h8QDLZGpE4dRvy1gUBM7iM6NtOg3j
-	oYiRZKpmnb/iBT2hQWdH+eTDokONnZgp73vM7dxTuCyMqboZ0SOjXZuEsX2aMeI255GWR9Hc4jQm9
-	duksE13k8yi14CTZevHZzdXXUvCcP+t1lGAyS191h25EaDByt9DLyaRDOXHM/TrS+JRaVmpWx5GHd
-	eAQ3gp/53GRyxofzxuxw==;
+	List-Owner; bh=yjmfLAyXP+13R4fYtCVLhSxhildOHDo82TfsOgaYcfQ=; b=frGbxAN/qrX9/Z
+	dKlthV6VHoIrmDrWMkP03WGmIvGu6WgEJAR6B5K1UNc7hDfw7rvB/Ty+1bpcW2538vtJQf+Qp7WQj
+	gnXfrJj0IVjQCmVX/MlHhgqz9XLU2gP6KmW1LRPJD+peY1W6PZ8ADWZOfmT5icUEWkT20+bENftSm
+	DQvxz7/v4gj2KTdbPSlroHYNre2bEkjbOMyKiJjmXFVOp/jjW5OVIIxlf8vPTuc9EjmFECqqXvMLK
+	zsYbstlzaRr9sopDogYbXYWuv2OhE9ilwV8euRJVptZeK3c9Ua3cnptxvP9r3kbYLdsfNWeBWXpMl
+	mBtVk4kt0bXBDEBj3SEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhZJn-00000004Kqw-2nUh;
-	Thu, 31 Jul 2025 19:51:59 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1uhcZe-00000004bpJ-4BUv;
+	Thu, 31 Jul 2025 23:20:35 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhZJk-00000004Kq7-2qQl
+	id 1uhcYW-00000004b0s-3gOk
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Jul 2025 19:51:58 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 5DC53441BF;
-	Thu, 31 Jul 2025 19:51:50 +0000 (UTC)
-Message-ID: <8b933393-e9cf-4192-9e69-ef5c2a699c5b@ghiti.fr>
-Date: Thu, 31 Jul 2025 21:51:48 +0200
+	Thu, 31 Jul 2025 23:19:26 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-76bc61152d8so1526928b3a.2
+        for <linux-riscv@lists.infradead.org>; Thu, 31 Jul 2025 16:19:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1754003964; x=1754608764; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AetdkWsxzLbheuZJ3kb+4mhEhv1uz8fN4NCKhkFj5X4=;
+        b=xYvdu1J36D8twpuam7ho6e9h03E018gUwhP+lK4sQHT6Q5HAQGG5JhrrbvMeAiKvI/
+         h5+ovKGXNh24ivS2+P7a7F0JtMoIfpRMbyKnR7tNKfuwfhrj1xp8N/h1yzwJLKMkjB/f
+         BEbFfSztfIObdWw2GXvzCxIptklYyFcFV0csZeama5ucZNIWpMaIlB2kUEYZnxImrWuR
+         1fUKeg/YVfTQLvGPqio+b7ZsLOipiPNvmykm1dXMmJZk3KaDAovSTx4iBLaD6ztaxHJ7
+         Sg8TLSOAjcbHMRn5d34jTcmSQu6ZCvgshNXkXqezIL8JSz/kuxfqBAyIWI5vpC5rpQ9U
+         0QGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754003964; x=1754608764;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AetdkWsxzLbheuZJ3kb+4mhEhv1uz8fN4NCKhkFj5X4=;
+        b=ULIKVGP5kfY5rqYARwEqk/KcerAzy0tXfR8Z4rHsyXjUm8xoZFSoIeU1ZpkpmESZ6B
+         NSC5k8if1HMFp4p6xXh/UV5uoh8TY0dJ1dJNKK+MaDdxtALz7Q5ZWznTqZh+vxS7xMPd
+         ONunDJJVw0sB4USmmkSZ2SmszUj82N1QeAB2GRSygtr2NJaQyXv1KfJaxF2JNevnFGhX
+         wmZR8BCpZWWNeGTiI6FrZVoZL/2Syk2AyZG61BCL2OLJglcyrAX+gu8oE3Yf8wrhsqed
+         0CfrsLWu14vEFi0Mab3RQep4AZ5YXzeP7nymAICOEwNsrfJgLoEbuMXcjNHS36ZFfxT4
+         trDA==
+X-Forwarded-Encrypted: i=1; AJvYcCXHzwGb0lLY89dMSyjC13p5DDQDyfMon120+DFo/JtG/7HR9Z0p3xZMXfoNvrC9MaDqOKIBKbe7YNhFOw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjU2BRxXXxpeaUEm2gI/w3UcKFGCH44iwIK0E7ijLwe2Vz5JrK
+	ua1RYksvbD5o4+ToEWrIaid/j/z1vs3xbZRw3JAOVZnLwu4wJqt0Sb2bkdIDdo7gz0I=
+X-Gm-Gg: ASbGncuOv3H1stStG0EMkaOaaQY/QgZ/YmpbnuPCHun7WLpSA7YBT380zUjVPsORjHI
+	Q8vWs9thcWPshYl7BlYoTvcuR7hsos0MM5BLXpDKGMzSjdV7K6pxZnk0h+VMr7iMpPXlYlNrhLY
+	4z21ydzKyPOSZwIcTqPdu2SNSOYkyxw9oV0uy7b/Y42oywqN/SA/nfTQuDdZnvjDJtiui8uxk9g
+	W44Xt7lt5V6quu9edgEr+Jkev7h8+0j2EsLJKgvXEIOHg3pQAxdfFTlF2suEX4NGJIfty1SPFlc
+	9gnHajw/zcF979ETSL2/63s5YT9qxI5zIgsmrLa7iA6bR8Fs5PtBMVz68Q/291DEhZlxad14C19
+	Tz7187VN0qL05QbxzjUzYQjuv6igaGqad+6yZIokQ1o4=
+X-Google-Smtp-Source: AGHT+IHQbINJSIJX3DRCY7VWQRNn4wGJVllkshwYu6z4COruD7/LM4Lj3NJ+5unK+IoBRvria/ND6w==
+X-Received: by 2002:a17:903:1aee:b0:235:eb8d:7fff with SMTP id d9443c01a7336-24096b0404cmr123206725ad.28.1754003964051;
+        Thu, 31 Jul 2025 16:19:24 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31f63da8fcfsm5773085a91.7.2025.07.31.16.19.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Jul 2025 16:19:23 -0700 (PDT)
+From: Deepak Gupta <debug@rivosinc.com>
+Date: Thu, 31 Jul 2025 16:19:12 -0700
+Subject: [PATCH v19 02/27] dt-bindings: riscv: zicfilp and zicfiss in
+ dt-bindings (extensions.yaml)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] ACPI: support BGRT table on RISC-V
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, kernel@vger.kernel.org,
- Yunhui Cui <cuiyunhui@bytedance.com>, linux-acpi@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, linux-riscv@lists.infradead.org,
- Len Brown <lenb@kernel.org>
-References: <20250729131535.522205-1-heinrich.schuchardt@canonical.com>
- <20250729131535.522205-3-heinrich.schuchardt@canonical.com>
- <84a22949-88e7-4a6c-b14e-e8448724b034@ghiti.fr>
- <CAJZ5v0hvaw=m8zPDJn0vPvw5RBxUsRzyvjHPiganPkxHGCisRw@mail.gmail.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CAJZ5v0hvaw=m8zPDJn0vPvw5RBxUsRzyvjHPiganPkxHGCisRw@mail.gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutddujedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeeuffefvdelteelteejhfejhedujeetteevtddvvddthfeiteffledvffeggfeiieenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeeftdehfeemjegrtdgvmeeifhhfgeemiedvsggvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeeftdehfeemjegrtdgvmeeifhhfgeemiedvsggvpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeeftdehfeemjegrtdgvmeeifhhfgeemiedvsggvngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedufedprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephhgvihhnrhhitghhrdhstghhuhgthhgrrhguthestggrnhhonhhitggrlhdrt
- ghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhmrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+Message-Id: <20250731-v5_user_cfi_series-v19-2-09b468d7beab@rivosinc.com>
+References: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
+In-Reply-To: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+ Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>, Benno Lossin <lossin@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
+ rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
+ Deepak Gupta <debug@rivosinc.com>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_125156_846898_EDCEB946 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20250731_161924_924365_301BE54C 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,37 +124,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNy8zMS8yNSAyMDoxNywgUmFmYWVsIEouIFd5c29ja2kgd3JvdGU6Cj4gT24gVGh1LCBKdWwg
-MzEsIDIwMjUgYXQgMzoxM+KAr1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0aS5mcj4gd3Jv
-dGU6Cj4+IEhpIEhlaW5yaWNoLAo+Pgo+PiBPbiA3LzI5LzI1IDE1OjE1LCBIZWlucmljaCBTY2h1
-Y2hhcmR0IHdyb3RlOgo+Pj4gVGhlIEJHUlQgdGFibGUgaXMgdXNlZCB0byBkaXNwbGF5IGEgdmVu
-ZG9yIGxvZ28gaW4gdGhlIGJvb3QgcHJvY2Vzcy4KPj4+IFRoZXJlIGlzIG5vIGdvb2QgcmVhc29u
-IHdoeSBSSVNDLVYgc2hvdWxkIG5vdCBzdXBwb3J0IGl0Lgo+Pj4KPj4+IFJlbW92ZSB0aGUgYXJj
-aGl0ZWN0dXJlIGNvbnN0cmFpbnQuCj4+Pgo+Pj4gU2lnbmVkLW9mZi1ieTogSGVpbnJpY2ggU2No
-dWNoYXJkdCA8aGVpbnJpY2guc2NodWNoYXJkdEBjYW5vbmljYWwuY29tPgo+Pj4gLS0tCj4+PiAg
-ICBkcml2ZXJzL2FjcGkvS2NvbmZpZyB8IDIgKy0KPj4+ICAgIDEgZmlsZSBjaGFuZ2VkLCAxIGlu
-c2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Fj
-cGkvS2NvbmZpZyBiL2RyaXZlcnMvYWNwaS9LY29uZmlnCj4+PiBpbmRleCA3YmM0MGMyNzM1YWMw
-Li4yYjgzYzkxYmIxYTc4IDEwMDY0NAo+Pj4gLS0tIGEvZHJpdmVycy9hY3BpL0tjb25maWcKPj4+
-ICsrKyBiL2RyaXZlcnMvYWNwaS9LY29uZmlnCj4+PiBAQCAtNDYwLDcgKzQ2MCw3IEBAIGNvbmZp
-ZyBBQ1BJX0hFRAo+Pj4KPj4+ICAgIGNvbmZpZyBBQ1BJX0JHUlQKPj4+ICAgICAgICBib29sICJC
-b290dGltZSBHcmFwaGljcyBSZXNvdXJjZSBUYWJsZSBzdXBwb3J0Igo+Pj4gLSAgICAgZGVwZW5k
-cyBvbiBFRkkgJiYgKFg4NiB8fCBBUk02NCB8fCBMT09OR0FSQ0gpCj4+PiArICAgICBkZXBlbmRz
-IG9uIEVGSQo+Pj4gICAgICAgIGhlbHAKPj4+ICAgICAgICAgIFRoaXMgZHJpdmVyIGFkZHMgc3Vw
-cG9ydCBmb3IgZXhwb3NpbmcgdGhlIEFDUEkgQm9vdHRpbWUgR3JhcGhpY3MKPj4+ICAgICAgICAg
-IFJlc291cmNlIFRhYmxlLCB3aGljaCBhbGxvd3MgdGhlIG9wZXJhdGluZyBzeXN0ZW0gdG8gb2J0
-YWluCj4+Cj4+IEBSYWZhZWw6IElmIHlvdSBhY2sgdGhpcyBwYXRjaCwgSSBjYW4gbWVyZ2UgdGhh
-dCBmb3IgNi4xNyBhcyBJIGhhdmVuJ3QKPj4gc2VudCBteSBQUiB5ZXQsIGp1c3QgbGV0IG1lIGtu
-b3chCj4gVGhlcmUgeW91IGdvOgo+Cj4gQWNrZWQtYnk6IFJhZmFlbCBKLiBXeXNvY2tpIDxyYWZh
-ZWxAa2VybmVsLm9yZz4KCgpHcmVhdCwgdGhhbmtzIQoKCj4KPiBfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+
-IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Make an entry for cfi extensions in extensions.yaml.
+
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index ede6a58ccf53..9cfe4381f3cf 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -444,6 +444,20 @@ properties:
+             The standard Zicboz extension for cache-block zeroing as ratified
+             in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
+ 
++        - const: zicfilp
++          description: |
++            The standard Zicfilp extension for enforcing forward edge
++            control-flow integrity as ratified in commit 3f8e450 ("merge
++            pull request #227 from ved-rivos/0709") of riscv-cfi
++            github repo.
++
++        - const: zicfiss
++          description: |
++            The standard Zicfiss extension for enforcing backward edge
++            control-flow integrity as ratified in commit 3f8e450 ("merge
++            pull request #227 from ved-rivos/0709") of riscv-cfi
++            github repo.
++
+         - const: zicntr
+           description:
+             The standard Zicntr extension for base counters and timers, as
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
