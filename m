@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4908C87FCB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0D27C87FC9
 	for <linux-riscv@archiver.kernel.org>; Thu, 31 Jul 2025 00:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,19 +12,19 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Date:Subject:Mime-Version:From:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=IMKdxX/GtZXnMCLbi7Bu+VpPwDNH99X5C+3Ylghy5Bw=; b=wzdbbuQ6bwswXZ
-	cuNDVEKKoquqB0J+SxfIP/qb3f3jsSfsHBFglbXeJN9sQTV/bk/skm3imS8+k/fEz9C4pyLihqgWP
-	YgAJNyz9I3/X2DrtW9u7eNjJqGhdu8RDHg9/ygJ5Lpb+pHWzSr8v/AS6NRqzCRt+WXxSyFRZB9ZaE
-	1qfrv76Npusch17os8stQWz3jBYdsn0x2LMEHzXr16OXuWPbPxWmQ7vMF7d/Mqx5XYwhvdMZvsQbW
-	3Vyg7AgvcYJLchQcuYVrjTIsOJYXFtQSXmW6edlz0E9O89iRa3wqMY8jebG00NCEv9HNu7amBRp8O
-	h5ZqgXvv6TUJI2jV2nRA==;
+	List-Owner; bh=IMKdxX/GtZXnMCLbi7Bu+VpPwDNH99X5C+3Ylghy5Bw=; b=MJqnXONa6hvsHS
+	N5NPi1+QaeqbTUULg9wGccjAVMA/n03iXf4J+YsWruop69X3rcILc+FQl//DTuPom7f/NlHiclnIe
+	1agItHWgNFVoTFg9b2l3M6rR+fFIQCvqJMCDxcyh3YFlnAi4QifYGQipR30/JX6RQTAJ5MWI6EiYO
+	Mr6FIyrI6DlRGV9zDFfkA9iZHndjA3E7t37b5U0ZBsX5rw6t1FZw898ksVBnTnnmhjUDwnm2S8fYU
+	H3B2FPSkZl52w0RbhOgh7MlJZwtts4Px8n5GnLiF4mlg67yLhsMxrcXzZ50zdC454uTbToNiFZDeN
+	yNdQPNkT/JMUt6o7He8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhHcu-00000002gf4-0ayI;
+	id 1uhHcu-00000002gf9-2zPR;
 	Thu, 31 Jul 2025 00:58:32 +0000
-Received: from out203-205-221-242.mail.qq.com ([203.205.221.242])
+Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhHcq-00000002gdq-200e
+	id 1uhHcr-00000002gdp-0yuk
 	for linux-riscv@lists.infradead.org;
 	Thu, 31 Jul 2025 00:58:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
@@ -35,26 +35,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
 	 awx5xaQhru4kOjnLkTM08yhTTSRb3rgdfAp7/0+e4dBhomRrq1FIpMBa1zvb2N3Y5h
 	 W+I9JeYttKCKXBwqz/PltaONS1KhDIjIeAx4R3ZM=
 Received: from smtpclient.apple ([115.223.173.142])
-	by newxmesmtplogicsvrszc13-1.qq.com (NewEsmtp) with SMTP
-	id E95296C9; Thu, 31 Jul 2025 08:58:21 +0800
-X-QQ-mid: xmsmtpt1753923501t3f25iywz
-Message-ID: <tencent_73BC0FE5F091AC2E4AFDAB8055DB2007C409@qq.com>
-X-QQ-XMAILINFO: NT7dO8ok7FP2mzS7pZRqUOT/PzZnd6OMsngefRs1RqEbDUh0+FbmCLqX63Lhl6
-	 LHXdK6DaeGkmkrnEMe4t2CT7NiIw5WUkjGYrfAbl0osPAmc0TNUI4QZClO7iUb2saJE/LR4QraOV
-	 GZ1P2hZrn4fPoESog2AhWhj4L4lZh4zUgT3OuXewngiY7YUPoCivkmucjbarzR0zsZAdX/sqTV4O
-	 RsG19xWUNGiiDezrYJbcJCSF/LBdhLmzJv0E/yqNWHiKbQxfwM7bIS9QWVQyjPvcA2alyTW7d6fS
-	 Ph6iNTbN523kM7Nu1ZKzdzu4uL2KGQVnCblYzsIGCpRnTm69QRXfzrCPxFhNBKAJyBSpIGcZlnZf
-	 M75NQjpQb2/7P8U0QE0LW4ObMejzwkagdmSCb17GPNzn13Nnm71tT/k91V0gUht5sTwFx8l/S9+R
-	 lq5M8rN18GxFIg2Fm0+IYJVM+tHgkufHYoL0bQTC8CET3XeBkbVS6ntV+MFaUQv2JNEXZ+E7xGhx
-	 L4WBaxWwG6lnsrVYL4+GjSkDCd1GxpBtNMRmyqTgZeYwJ/4jREdIMajOeRmIjMBoQLrh/Fd1tiKJ
-	 uU0CjM901QnReDIRibtL2hzA+1evPQz/sE2MkQCTewNAb3LHTgpbm576YIEHoHf02rnfxBDu3BxQ
-	 +V9vy46a2rVMjrqDjGuQLUzo3OmJeh7helqmU0YjAaKOYV3exe732izWu2tKGKSlt6hJAvZfmt/H
-	 nsOlmixLAB9TYbTRYeVA0y9j0JmkQH253+Y4xyJwbtIN13S/+kuryK5qQUWj3GFuBj5EgbUwBCJO
-	 79xzPtf1i32zDqk1kvm5Xx2qkevrFFlnpagMnSgSoa+g/sCiWnaJrNac8qIFZAeB77v94LsSzJq5
-	 9wfMy4O5bUzVDUxvz8RGt0780qvK103Ck5FoKScOc5jUUd+RwjkR/4pDZeeAhWF4eWCPPC+R1Pg2
-	 T89fNAJn5RUjUHxxpTmNqIAMRFDcCAW7dZIVsqQgO+XRxGHAJLwholCHGWs0jkhfh/CY+2JzFG1C
-	 BNGoM+k76u+Iww0A/HP0bmBdzO8KAidMH1QPwqt+tvuT5lC7DM0pOVqRa9HSsRQdI74qW//A==
-X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+	by newxmesmtplogicsvrsza29-0.qq.com (NewEsmtp) with SMTP
+	id E94A38B6; Thu, 31 Jul 2025 08:58:20 +0800
+X-QQ-mid: xmsmtpt1753923500tbx45rngq
+Message-ID: <tencent_4331B2435AFC202B9D529EAA195549C84907@qq.com>
+X-QQ-XMAILINFO: M1rD3f8svNznYnOKhj64+WWSN6YdP5bk06efsUpO0SCJ5fHeiSHvHr3if1yABY
+	 rlFOej4uV8QGH1MMcyNlK2Uvc3gCEm8cbujlHhYR/r/kYv3k4h0jyvmDvQm8ygOz6/QQtYTEDOBx
+	 pphEp6gwgVw6egNUTVgfhXHil5whLq42DRbQp7yp5WcFIhatua080bpSpoRUzccUqGvzlGJE+wJJ
+	 kMKYd9cglgXSbwOfuiIb6mr2kT+/5fvtcVPwWoTjkWKHGB4Zj5IHsZ8M31XEKk0UazRZ6jtGEEAk
+	 cFEjJrDf0nGjQH+UMjRk8ZXfP4DMZ85s0I+W60luHGQGV7D9xkxxBA7bBcB7wDeuUiWxQYEBdr17
+	 tQVmxfvrJpmL1QmWoV4wcMtYNkKcse+OcZenUACop+yKGXxmTUtBfapU2dNHaW2AgRW3+RzoX+YW
+	 qntadY68UbLdNKLfWX94ivwEBoW8UVRmMKrxmoJpGWAI4OxBiK1fP1/qoApSQqiUi4pYagiwT0q9
+	 Q/B7UKfYbGTHURGCv7PkRoGG8+rsYmPj5dZ+GDT2GnImykb1cu5EUnXyu16E9KHfQHtmGh7/cP+P
+	 UpnlhPTeMIemQAIp1kkgr+JJBdSJBUkUdNs4ns8mRSQ9e2HFkhQFPdLfdZa2xd1aWF8SmYVDQmRi
+	 ujshKFeQ51UFhxysfTwJo4eqgdOi3swapCW2s7K7HUNc30QqtwRpCjncfqFRtJmYQNnyeyVn1icy
+	 TK4TdWHSwIMgO5BXtPGwnOqGwFXcq0vppwD/jfNLsnFyCJCWwVnySswoRFPVkUAuiOR9mzSEYdob
+	 KzOzV8CaAIbRKuBzBWoSnG+umOc7y8UUYwQYeo1RQXn6edMX4szAX9noCchpr2z1X1tuX+ydkXt7
+	 xFGR+x2WkyuKwR+EYTglyl+DiR0gjtaqgbhdUr1fl5FFG+bpn2t1GvAc7uX3dVd12pYBLV978aX9
+	 uUjhsYCGGcafhEVoalf7dr+A/7mkgIWkCOBUAsMhtdrgMEeINpEQ0Rvr9rfCdkb//n1jrdQSdJdX
+	 B2QcyeAWAe/Kop80fq4sUAOxpowkg=
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
 From: Juhan Jin <juhan.jin@foxmail.com>
 Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3776.700.51.11.1\))
 Subject: Question about earlier dynamic ftrace implementation with interrupt
@@ -63,7 +63,7 @@ Date: Thu, 31 Jul 2025 08:57:58 +0800
 To: linux-riscv@lists.infradead.org
 X-Mailer: Apple Mail (2.3776.700.51.11.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_175828_883931_7CE3B0A9 
+X-CRM114-CacheID: sfid-20250730_175829_563385_A970809C 
 X-CRM114-Status: UNSURE (   8.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
