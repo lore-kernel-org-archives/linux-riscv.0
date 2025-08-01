@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF76C87FCB
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Aug 2025 08:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F33CC87FD2
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Aug 2025 09:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HEcWBCZU6rQI62HJyU5k0iQYWAFZYLTGPsLsmkT6hCo=; b=gkDefBGo2QOnHD
-	SB/2c6FzH/q2jCM7cIz0FVTsHaBMnO/s1otFH+Q0L/6IvllukXBsZyOUdV1xKaLMl7Qkhgz6h/w9x
-	fxsfROMLBZnKrioIA5XvwmrdGvH45Mi9QDtsvo8TfmKdoxxFc96xl+Ipk29mrJZr3xpcTERy8IjWW
-	NXObXHw4cPraf1h/z0YVTgIcunPzfsYB2Xtl58XhEkhjvmNuGPcNfiOui1xCr15xDqR2FN6mhQiqo
-	SrnxNSx3w6rcc/Oz/q2PHbaSPqAM+lihZWzoF0T+XikLaBNiGmMSqgNdr1NRAJfN5VE3KciSintVA
-	1aihMiLARk7G3kndxTYw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UaiAY5l6XOgr+H27m0TM0+fhoDS7KgQwrp6aavmmipQ=; b=HTjupUeXEutfFz
+	8ZKalDkds2ovSOklyY2pSED2/adz3zVdEzDziVHY+UXNxMACjPQMNK1MkKLfbRKZbubHSV87cNjvO
+	ISid9F8ECNN/Bpf2SuEY31gONtqR4JzWpkFcfjXUr565jOQ1XLyPselltcp8v8jMOWfutYWVyRCyZ
+	jL9Q5RfBJvwBetaD8APBVzjMyci/I04Qd4fosJWf056DVD/Bwkze/8dfkSb8CNxGhGO+IlfI058vK
+	jfFm/5ZSjkAUvyngmWwsuNj7zuknp09MAOkzv0BEz+i22mIkh0OC3aaDp6tQEgxdHrj00KlJkSvgD
+	J+RmlqhQhZ6JG+LQ6Abw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlRb-00000005Hs2-2V0H;
-	Fri, 01 Aug 2025 08:48:51 +0000
-Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	id 1uhlpB-00000005KOJ-3TtK;
+	Fri, 01 Aug 2025 09:13:13 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlMw-00000005HA6-0UOe
+	id 1uhlp7-00000005KMu-3wUp
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Aug 2025 08:44:03 +0000
-Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-88109d54abdso46712439f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Aug 2025 01:44:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1754037841; x=1754642641; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oLyL9cAx6BfgxcO7E+1dWaZ7Plp09nvga7blXTlglSc=;
-        b=HX7hskwtMsXjNl9r0tYyHsPthkNDqCLShvSzPaNWU2gzi2Q0iM91QcSldh+gQFSZYo
-         nHuo3B2+HVjrJHAWFK533t9WFmyoRATnVn/KpXckI928aApYrggFLBkH7Mfu1x3JXHXK
-         MOR08O2bCprwC2ma8IjEnUzTFhpHr8nxda+X+SLGeWBQ9tlJsPJh5ca9dCyx1JjzOWEJ
-         HlJV5ZhzifgFbrIhvDnBbMThXR5nlC53Z+gxiSIKZvodLUXQqBDr9o8WDYZhSou6YlCp
-         +xASHbYc9CZrpwCYJJUrGGVr5roNRIqUkBC8Owpm7W8lM08yRI4IWzbQ6tB4zRiLq7Om
-         lOYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754037841; x=1754642641;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oLyL9cAx6BfgxcO7E+1dWaZ7Plp09nvga7blXTlglSc=;
-        b=hMrNidoQMkAweOGdFz3flB9SQ0Bs5a8rmht+0jOWCB4ocsPbJ6CYGY/LH6g2BxOfvO
-         XqfqNP+KAtx2XTwi1mcPokioZ2+GpDS7diDAvL/YpHPEjsSGmLWdSZVzf8lVClBQxQ6v
-         vD0j9xgPtGZvejDvBhU5LyG7KCaf59kH28MRoRu5WGQEv1UaYATPysAWYVf4ZfNaBFZd
-         yNMTll4aCt7lY5BeK3npQ5tcfdM06AP1TGPGukVe3ZrH3yHDhYXzybkIyYG3bwHTnrWW
-         ++2uamfNGUFwRUlU+5t4uKjWrw580lkO2/HqZpaLthTd2LBg91Tr+09noUtotKyjPCXg
-         66Tw==
-X-Forwarded-Encrypted: i=1; AJvYcCVE2NWonV4QXhOgiqTcvnd0x6ZeocsD3lstcVVT5mjLYNm1bnmv6UCzhAAKFbFf0JHD37ufX3SRr/EODQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzNrU9bmReHoNyl+xdusff/KUDVipsEs68luOZypV2vnQCDTW8
-	5XWJAqHa52NT87Zps3ayVxluQyTCuWX1/z9Cw/kmGi+VTqbs/NHQdR5vslE3fqsjWxAw2fC8ZxE
-	RhPZYZYJZNgBG5M6PtI6WbfIMlnL8jhekVKCyaiga3Q==
-X-Gm-Gg: ASbGncvc+6M+33RnGJCDJFWPUY8zitOyTzUvkHZsWA24tlPt/jQb2Ujhz2ucKaBSMq9
-	RWKL7abhVU28lkhqbC3kjNAdzjaqEfWIuwzusvYehLQEO9JWklCZkFMnD4we0XF+jLG3QaogOQL
-	+OlmZJ90KO47ye33mybmkiBSVz4OzSUD7/dMZ88oVsH0zHgsz77v/zbQPMWL/11esANBawP/Gmm
-	R8RpaJSOpXROi8=
-X-Google-Smtp-Source: AGHT+IHmDGSj8nBVu2UdqL0jDDjl4m5SMVZpNB5EGI45FpC4Q2VdKsJNxym9Ty834wUMcEEJgUTipp1SECn/mOC0qB8=
-X-Received: by 2002:a92:d447:0:b0:3e2:9eac:dc01 with SMTP id
- e9e14a558f8ab-3e3f628ea39mr174094325ab.18.1754037840628; Fri, 01 Aug 2025
- 01:44:00 -0700 (PDT)
+	Fri, 01 Aug 2025 09:13:11 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 864F925DDA;
+	Fri,  1 Aug 2025 11:13:05 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id zh-OSYwXA6vo; Fri,  1 Aug 2025 11:13:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1754039584; bh=xPvJxuK/PBmyVvnt/ErP5uEKdZ5kX2qWNjIgNy0PW0E=;
+	h=From:To:Cc:Subject:Date;
+	b=LqSjgKsOjo4AMSSRXfragXwK70JyXgtsFbKFcJQhbLaKQR993L2JPqYOdNntEEX5G
+	 dd5tmYAMtqbzd3H7pfUsuut80Zpq5rh0slJ1xNGd9ikw3hqBNIhac335qog7LI7385
+	 KyiNA/0PEN7QJuhHzungsu5HeN+8nqh77nXdV3aBPT4Y4M0mWsZ9G8y1VJ/UViQ2G5
+	 PAct65VfEAPQ8eqt4xf9LTfl8dOygzP/Z64hY2NtSs3vjHVCm6TgdCSG8XnZ8U3KTZ
+	 ni0gJC6G9jlLSMHdh7LzZIveL7ChzAGu9UDo9TibbFsqpZZnOVksVEDG1oohv8Egzh
+	 +EWMYjEL5lCVg==
+From: Yao Zi <ziyao@disroot.org>
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yao Zi <ziyao@disroot.org>
+Subject: [PATCH net v2 0/3] Fix broken link with TH1520 GMAC when linkspeed changes
+Date: Fri,  1 Aug 2025 09:12:37 +0000
+Message-ID: <20250801091240.46114-1-ziyao@disroot.org>
 MIME-Version: 1.0
-References: <20250704070356.1683992-1-apatel@ventanamicro.com>
- <20250704070356.1683992-9-apatel@ventanamicro.com> <175341132347.3513.7184287611040628050@lazor>
- <CAK9=C2UDV3xCpKxZmT4NsRvN=hCcQrcx0fr-QFD2fuOrqmXmHA@mail.gmail.com>
- <175359739515.3513.8664828076215459722@lazor> <CAK9=C2WRVHZ4FdoW0fKRRFg6qAC5asn03dHj_NXkMKfBXKkXdA@mail.gmail.com>
- <175398062959.3513.15195554063633980579@lazor>
-In-Reply-To: <175398062959.3513.15195554063633980579@lazor>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 1 Aug 2025 14:13:49 +0530
-X-Gm-Features: Ac12FXz23n5I2gUDW1GUPhVBv6qqLgn5liXl8qbTORMXLg42e8K813D_AmSmA3A
-Message-ID: <CAAhSdy31yTWn2zXO+rVH0ziQ9YSc-tMV4g65Wso+3s=p_h2cGA@mail.gmail.com>
-Subject: Re: [PATCH v8 08/24] dt-bindings: clock: Add RPMI clock service
- message proxy bindings
-To: Stephen Boyd <sboyd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_014402_271200_FE530735 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20250801_021310_394085_56C1F05A 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,50 +85,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-acp <i@vger.kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Conor Dooley <conor.dooley@microchip.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Rahul Pathak <rpathak@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdWwgMzEsIDIwMjUgYXQgMTA6MjDigK9QTSBTdGVwaGVuIEJveWQgPHNib3lkQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gUXVvdGluZyBBbnVwIFBhdGVsICgyMDI1LTA3LTI4IDAyOjE5
-OjIzKQo+ID4gT24gU3VuLCBKdWwgMjcsIDIwMjUgYXQgMTE6NTPigK9BTSBTdGVwaGVuIEJveWQg
-PHNib3lkQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPgo+ID4gPiBJdCdzIG5vdCBwcm92aWRpbmcg
-Y2xrcz8gVGhlIFNCSSBmaXJtd2FyZSBpcyBub3QgZGlzY292ZXJhYmxlPyBEbyB5b3UKPiA+ID4g
-aGF2ZSBhIHBvaW50ZXIgdG8gdGhlIERUUyBmb3IgdGhpcyBub2RlIGFuZCB0aGUgY2xvY2sgY29u
-dHJvbGxlciBub2RlIGluCj4gPiA+IHRoZSBuZXh0IHBhdGNoPyBJJ2QgbGlrZSB0byB1bmRlcnN0
-YW5kIHdoeSB0aGlzIGlzIG5hbWVkIGEgY2xvY2sKPiA+ID4gY29udHJvbGxlciB3aGVuIGl0IGRv
-ZXNuJ3QgcHJvdmlkZSBjbGtzLgo+ID4KPiA+IFRoZSBmaXJtd2FyZSBkcml2ZXIgaXMgbm90IHBy
-b3ZpZGluZyBjbGtzLiBBbHNvLCB0aGUgU0JJIGZpcm13YXJlIGFuZAo+ID4gdmFyaW91cyBTQkkg
-ZXh0ZW5zaW9ucyBhcmUgaW5kZWVkIGRpc2NvdmVyYWJsZSBmcm9tIHN1cGVydmlzb3Igc29mdHdh
-cmUuCj4KPiBJZiBTQkkgZXh0ZW5zaW9ucyBhcmUgZGlzY292ZXJhYmxlIGZyb20gc29mdHdhcmUg
-d2h5IGRvIHdlIG5lZWQgYSBEVAo+IGJpbmRpbmc/CgpUaGUgZmlybXdhcmUgd2hpY2ggaW1wbGVt
-ZW50cyB0aGUgU0JJIE1QWFkgY2hhbm5lbCBuZWVkcyB0bwpkaXNjb3ZlciB0aGUgdW5kZXJseWlu
-ZyBSUE1JIHNlcnZpY2UgZ3JvdXAgZnJvbSBEVC4KCkxldCdzIHNheSB3ZSBoYXZlIG9ubHkgb25l
-IFJQTUkgc2hhcmVkIG1lbW9yeSB0cmFuc3BvcnQgYmV0d2VlbgphcHBsaWNhdGlvbiBwcm9jZXNz
-b3JzIGFuZCBwbGF0Zm9ybSBtaWNyb2NvbnRyb2xsZXIuIFRoaXMgUlBNSSB0cmFuc3BvcnQKd2ls
-bCBiZSBzaGFyZWQgYmV0d2VlbiBNLW1vZGUgZmlybXdhcmUgKE9wZW5TQkkpIGFuZCBTLW1vZGUg
-KExpbnV4KS4KClRoZSBPcGVuU0JJIHdpbGwgdXNlIHRoZSBmb2xsb3dpbmcgZXhhbXBsZSBEVCBu
-b2RlcyB0byBwcm9iZSB0aGUKbWFpbGJveCBkcml2ZXIgYW5kIE1QWFkgZHJpdmVyIHRvIGV4cG9z
-ZSBNUFhZIGNoYW5uZWwgdG8gUy1tb2RlLgoKbWI6IG1haWxib3hAMTAwODAwMDAgewogICAgY29t
-cGF0aWJsZSA9ICJyaXNjdixycG1pLXNobWVtLW1ib3giOwogICAgcmVnID0gPDB4MDAgMHgxMDA4
-MDAwMCAweDAwIDB4MTAwMDA+LAogICAgICAgICA8MHgwMCAweDEwMDkwMDAwIDB4MDAgMHgxMDAw
-MD4sCiAgICAgICAgIDwweDAwIDB4MTAwYTAwMDAgMHgwMCAweDEwMDAwPjsKICAgIHJlZy1uYW1l
-cyA9ICJhMnAtcmVxIiwgInAyYS1hY2siLCAiYTJwLWRvb3JiZWxsIjsKICAgICNtYm94LWNlbGxz
-ID0gPDB4MDE+OwogICAgcmlzY3Ysc2xvdC1zaXplID0gPDB4NDA+OwogICAgcmlzY3YscDJhLWRv
-b3JiZWxsLXN5c21zaS1pbmRleCA9IDwzPjsKfTsKCmNsb2NrLXNlcnZpY2UgewogICAgY29tcGF0
-aWJsZSA9ICJyaXNjdixycG1pLW1weHktY2xvY2siOwogICAgbWJveGVzID0gPCZtYiAweDA4PjsK
-ICAgIHJpc2N2LHNiaS1tcHh5LWNoYW5uZWwtaWQgPSA8MHgxMDAxPjsKfTsKCkJhc2VkIG9uIHRo
-ZSBhYm92ZSwgTGludXggd2lsbCB1c2UgdGhlIGZvbGxvd2luZyBleGFtcGxlIERUIG5vZGVzCnRv
-IHByb2JlIHRoZSBMaW51eCBNUFhZIG1haWxib3ggZHJpdmVyIGFuZCBSUE1JIGNsb2NrIGRyaXZl
-ci4KCm1weHlfbWJveDogc2JpLW1weHktbWJveCB7CiAgICBjb21wYXRpYmxlID0gInJpc2N2LHNi
-aS1tcHh5LW1ib3giOwogICAgI21ib3gtY2VsbHMgPSA8Mj47CiAgICBtc2ktcGFyZW50ID0gPCZp
-bXNpY19zbGV2ZWw+Owp9OwoKcnBtaS1jbGsgewogICAgY29tcGF0aWJsZSA9ICJyaXNjdixycG1p
-LWNsb2NrIjsKICAgICNjbG9jay1jZWxscyA9IDwxPjsKICAgIG1ib3hlcyA9IDwmbXB4eV9tYm94
-IDB4MTAwMSAweDA+Owp9OwoKSSBob3BlIHRoZSBhYm92ZSBleGFtcGxlIERUIG5vZGUgcHJvdmlk
-ZXMgYSBiZXR0ZXIgcGljdHVyZQphYm91dCBob3cgRFQgYmluZGluZ3MgYXJlIHVzZWQgaW4gZmly
-bXdhcmUgYW5kIExpbnV4LgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+It's noted that on TH1520 SoC, the GMAC's link becomes broken after
+the link speed is changed (for example, running ethtool -s eth0 speed
+100 on the peer when negotiated to 1Gbps), but the GMAC could function
+normally if the speed is brought back to the initial.
+
+Just like many other SoCs utilizing STMMAC IP, we need to adjust the TX
+clock supplying TH1520's GMAC through some SoC-specific glue registers
+when linkspeed changes. But it's found that after the full kernel
+startup, reading from them results in garbage and writing to them makes
+no effect, which is the cause of broken link.
+
+Further testing shows perisys-apb4-hclk must be ungated for normal
+access to Th1520 GMAC APB glue registers, which is neither described in
+dt-binding nor acquired by the driver.
+
+This series expands the dt-binding of TH1520's GMAC to allow an extra
+"APB glue registers interface clock", instructs the driver to acquire
+and enable the clock, and finally supplies CLK_PERISYS_APB4_HCLK for
+TH1520's GMACs in SoC devicetree.
+
+Changed from v1
+- Make apb clock essential in dt-binding
+- Collect review tags
+- Link to v1: https://lore.kernel.org/all/20250729093734.40132-1-ziyao@disroot.org/
+
+Yao Zi (3):
+  dt-bindings: net: thead,th1520-gmac: Describe APB interface clock
+  net: stmmac: thead: Get and enable APB clock on initialization
+  riscv: dts: thead: Add APB clocks for TH1520 GMACs
+
+ .../devicetree/bindings/net/thead,th1520-gmac.yaml     |  6 ++++--
+ arch/riscv/boot/dts/thead/th1520.dtsi                  | 10 ++++++----
+ drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c      |  6 ++++++
+ 3 files changed, 16 insertions(+), 6 deletions(-)
+
+-- 
+2.50.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
