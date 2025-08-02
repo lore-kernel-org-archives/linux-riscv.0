@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F40C87FCA
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Aug 2025 21:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1FB3C87FD2
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Aug 2025 04:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f2wZxUbDzWmee+/X4K2bkt/+DFhEJ7RD/O8BKhmtX4Y=; b=I0E+3SjA8QKIoE
-	ifG4IlsLuexkvJ1dKjcBtBXMQtrSCYSAAkQBcEq7Ipzf51ZDazboIZBjN7Rs4BKsMZFagvtQ+8kyD
-	3/ATZ6K/zzauqSW+ARmxyIKnvvccEKMzVvOuSLx26R2/O/vBg1q6or56iQko+0NyQqqaPqhqdpPTn
-	EW6ZBcSLBLIzktleNjBXbE7SMwSPFSR12QG9RW1AgegAOhwRquTnJw5R0bNnVifCV9Bj6WGx2R/sM
-	r7OmZi65W+msjuHQe/D1K8T2AwFQTPO4+JJvwNZ1BXI+UGj+5djNMs2QgKWNE9g9KCsg10Ws7QdKh
-	/Rv+FR8r4jS15lZOEd/A==;
+	List-Owner; bh=92a6doHskH/hacA7RrzF53cjWoIB+ncUVxvb664UrnM=; b=y/GXG4lcCA3x5B
+	EXEkv5AMhfPz/JlEMLH7N6ZdBJm4a7DpXMid8QPZGwIQiLO81AS2BnEujOQMRpfalnTJlJk/Cx4kv
+	50P4MxyNHov5vg0tHBx4VECC+A7sjONcI7TSfzCMyO8szYTuXIO7qT11UGjen9nzmpbxu+EoqckY7
+	X8pR5DPY6OT9TuqE0P6zfMwuYYY9pAEESgx4iSGXNPsXDtD2nb6PwcSXXswx12kWA3wYCeTEXKY8x
+	jLNGj0nsTZYSOiUXazs0AjiTqqNuNrvuyI+CVUgLMlqzPT+0ea3jAucuFxp29SZ/HI9gU7IjV7UF4
+	R/YfgxPvc4iJFELImIcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhxVm-00000006qPv-48DW;
-	Fri, 01 Aug 2025 21:41:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ui3dn-00000007A2A-0UOH;
+	Sat, 02 Aug 2025 04:14:39 +0000
+Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhxVk-00000006qPR-3oG0;
-	Fri, 01 Aug 2025 21:41:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A6B215C5C02;
-	Fri,  1 Aug 2025 21:41:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30201C4CEE7;
-	Fri,  1 Aug 2025 21:41:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754084513;
-	bh=i625gcnny+wSz3HQOlwjTnzLTAmeo9OEca0WJzZ3RE8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NDxdDNhjmTyerZebxCxtEP3yEL5CswFVc7TqX3DCv0J1EugdAqUxff1lQ9CLWBVLm
-	 Spv5eniCRCnkjqZ4pPq8ERtfBnlNctbuqucOYNZzhtp5BMCE9+5NKMwR17wfLyLhpK
-	 l0vVybyjEwweTDjzyDT5S3TJFAKKROBibRT3avqYrCWpE8NHaIUfL/uU9f/VjYoyL/
-	 bq8gZNgZzF47H+1W4GYIMW5+ohw760kJ5R8zZmryzFU2QZKaVYEGG30H+f6ZbRhlfG
-	 s9iFcrr+YZlkkfAjLE8b62Tc2z1jlCLk8ftvzFw3zktVtC2hG+Yb00X5cjnCmkv3tM
-	 kOSmsPB3+gIQA==
-Date: Fri, 1 Aug 2025 14:41:51 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: rkrcmar@ventanamicro.com, Bjorn Topel <bjorn@rivosinc.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Paul Walmsley <paul.walmsley@sifive.com>, samuel.holland@sifive.com,
-	dfustini@tenstorrent.com, andybnac@gmail.com,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv-bounces@lists.infradead.org
-Subject: Re: [PATCH] riscv: Add sysctl to control discard of vstate during
- syscall
-Message-ID: <aI00nzzma4gXrmh/@x1>
-References: <DBHTIDY0HRM0.2B8L1WG7IBCXM@ventanamicro.com>
- <mhng-E49DDC7D-A330-4626-A122-4146AADDBB33@Palmers-Mini.rwc.dabbelt.com>
+	id 1ui3bj-000000079uZ-4BvD
+	for linux-riscv@lists.infradead.org;
+	Sat, 02 Aug 2025 04:12:33 +0000
+Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3e3dbda56a5so6754355ab.2
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Aug 2025 21:12:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1754107951; x=1754712751; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ip2rHPlCiGFGcr5YGyF7kmeRLuJtKeayor/PNig1fgE=;
+        b=ge3FQk+tyGHqayXt6xbatUoXS6RegsZ8Z5I/OPCvgFhYdartSm5f6f6mkDKjG8Et4w
+         rbdi24Ieeaq1r9xEJmbghwewf5cDB7KLk2RVUC08C29zRzmJJyqWoNUDnA0oUzvLfusD
+         h1CxXfMJPU0W1lPuL+GeaqTbAwnpHjWcpRNrUd+oigTODXfnr0c9mF9QApB/xTLRTElL
+         yhAYTjeJ1yF/XYmstMOScxQwIV/XUFYQ1SVfpZaUs4aQly6PH0aXja8QlkCB6Eaabup9
+         zsG63L9GNhEwUhYr2n7yboDr1CxTyckMZw3RyOtoNR913P/gRcSrDLhLTFUsjzU8/fRp
+         iwNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754107951; x=1754712751;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ip2rHPlCiGFGcr5YGyF7kmeRLuJtKeayor/PNig1fgE=;
+        b=Bu/vMkqGx8m99MniC/uWjG8s1005RPP+NbJq4J/iFF1EWamXsk+CTzitEK3PJzll7a
+         bbgH/4rsuJHTLx9WDjyPbTDHaogYC2mckle5vvrJvcpYMIfy2Hpw0CBoN6CM+OcuucmP
+         OmiJ9akDmJmyVfGHZPOTfPtmrm3+ipLy+4pcmRNkSiAdwSbw9SqNl6Wd+scUpJvM0kz4
+         K6IO1hQprozkbeXNjFLpdRWDTXb2R9311Ef0owihFhH/ttF1v6vDkUJlLobs/w72WxUq
+         F/jiHtnZiPMgiRPBpR0ce6ro3KjYyl3QRwuBAz+Rj2/eTzTTs9HvUN5SIYyquN4nl6X5
+         qqlw==
+X-Forwarded-Encrypted: i=1; AJvYcCXubk/CJM+U1uChvvZFZcZ2VIWwf2zICuXAlkL/AlyCnZ6jBNlnQB32yYpysFdWGHLXI1TnP4J1YA8gWw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdLQu8nPCZiEqcf/tBgn4mm1BPhilRWeU36UkfqUCMI4Rkv4bB
+	kL8i+NWGQu77D0GBay3wpWFEGSvEhPXs+zcBSbsqvfHXvBrjxsQBz75eh9o1iKZQNVY=
+X-Gm-Gg: ASbGncvYAs2lIECzU/402NQ/ZhDNRWvs9/vsCZp77AMXTLnNU/DFZd2dT47h2IMOPvc
+	sREzXhpEiHUHzVujIxL1qx1Xp7vZa33a+Aof9v44+M8PNvlMuD4Te0ntix509BBikhDLbzkMpBQ
+	e9BOE152pVE388k5FYIxuHOq2c2r18bijRyJBHIVrsPcjHzI2hJoV25EgEnFPeLyUw5U5ReOyUQ
+	avEjiCqVS+W/xvk+hxGnuaevA+jr7xFZ85NNgMnXuDQq3y8FYdGGD7imMXYlKcOPMFYm0D8K5rR
+	1dwQDgEN5e5XAUIp1r2kwE+4zdR2am+/GJINIfs3ice6bOKWnr0TVFDnD4AeZ1k0lILuii7uG4F
+	kLK7xnf5WqpB/E2uKZLTvBEWqGN2x9FmeygAGppnYpqBWZX9R
+X-Google-Smtp-Source: AGHT+IFWXv/meUt6qnzrJTilZJBXyZAntv/HisFVx8CQALlAxTer9z3pL9Su5iQx9S/dGPdOHi5YGA==
+X-Received: by 2002:a05:6e02:2487:b0:3e3:b6ab:f869 with SMTP id e9e14a558f8ab-3e416191ba5mr36293525ab.13.1754107950776;
+        Fri, 01 Aug 2025 21:12:30 -0700 (PDT)
+Received: from [100.64.0.1] ([170.85.11.2])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50a55d5da1csm1652544173.65.2025.08.01.21.12.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 01 Aug 2025 21:12:30 -0700 (PDT)
+Message-ID: <612a13d3-d3a6-460b-90fd-c26e47b80711@sifive.com>
+Date: Fri, 1 Aug 2025 23:12:28 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-E49DDC7D-A330-4626-A122-4146AADDBB33@Palmers-Mini.rwc.dabbelt.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 02/24] dt-bindings: mailbox: Add bindings for RISC-V
+ SBI MPXY extension
+To: Anup Patel <apatel@ventanamicro.com>
+References: <20250728094032.63545-1-apatel@ventanamicro.com>
+ <20250728094032.63545-3-apatel@ventanamicro.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <20250728094032.63545-3-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_144157_027258_775B67A5 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20250801_211232_131975_A9D52DC9 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,72 +95,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Conor Dooley <conor.dooley@microchip.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Jassi Brar <jassisinghbrar@gmail.com>, linux-acpi@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J . Wysocki" <rafael@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 30, 2025 at 06:05:59PM -0700, Palmer Dabbelt wrote:
-> My first guess here would be that trashing the V register state is still
-> faster on the machines that triggered this patch, it's just that the way
-> we're trashing it is slow.  We're doing some wacky things in there (VILL,
-> LMUL, clearing to -1), so it's not surprising that some implementations are
-> slow on these routines.
+Hi Anup,
+
+On 2025-07-28 4:40 AM, Anup Patel wrote:
+> Add device tree bindings for the RISC-V SBI Message Proxy (MPXY)
+> extension as a mailbox controller.
 > 
-> This came up during the original patch and we decided to just go with this
-> way (which is recommended by the ISA) until someone could demonstrate it's
-> slow, so sounds like it's time to go revisit those.
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml | 51 +++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
 > 
-> So I'd start with something like
-> 
->    diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
->    index b61786d43c20..1fba33e62d2b 100644
->    --- a/arch/riscv/include/asm/vector.h
->    +++ b/arch/riscv/include/asm/vector.h
->    @@ -287,7 +287,6 @@ static inline void __riscv_v_vstate_discard(void)
->                    "vmv.v.i        v8, -1\n\t"
->                    "vmv.v.i        v16, -1\n\t"
->                    "vmv.v.i        v24, -1\n\t"
->    -               "vsetvl         %0, x0, %1\n\t"
->                    ".option pop\n\t"
->                    : "=&r" (vl) : "r" (vtype_inval));
-> 
-> to try and see if we're tripping over bad implementation behavior, in which
-> case we can just hide this all in the kernel.  Then we can split out these
-> performance issues from other things like lazy save/restore and a
-> V-preserving uABI, as it stands this is all sort of getting mixed up.
+> diff --git a/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+> new file mode 100644
+> index 000000000000..061437a0b45a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+> @@ -0,0 +1,51 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mailbox/riscv,sbi-mpxy-mbox.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: RISC-V SBI Message Proxy (MPXY) extension based mailbox
+> +
+> +maintainers:
+> +  - Anup Patel <anup@brainfault.org>
+> +
+> +description: |
+> +  The RISC-V SBI Message Proxy (MPXY) extension [1] allows supervisor
+> +  software to send messages through the SBI implementation (M-mode
+> +  firmware or HS-mode hypervisor). The underlying message protocol
+> +  and message format used by the supervisor software could be some
+> +  other standard protocol compatible with the SBI MPXY extension
+> +  (such as RISC-V Platform Management Interface (RPMI) [2]).
+> +
+> +  ===========================================
+> +  References
+> +  ===========================================
+> +
+> +  [1] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
+> +      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
+> +
+> +  [2] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
+> +      https://github.com/riscv-non-isa/riscv-rpmi/releases
+> +
+> +properties:
+> +  compatible:
+> +    const: riscv,sbi-mpxy-mbox
+> +
+> +  "#mbox-cells":
+> +    const: 2
+> +    description:
+> +      The first cell specifies channel_id of the SBI MPXY channel,
+> +      the second cell specifies MSG_PROT_ID of the SBI MPXY channel
 
-Thank you for your insights and the suggestion of removing vsetvl.
+What is the purpose of the second mailbox cell?
 
-Using our v6.16-rc1 branch [1], the avg duration of getppid() is 198 ns
-with the existing upstream behavior in __riscv_v_vstate_discard():
+The client can probe the message protocol using a SBI call, if it doesn't just
+assume a protocol based on the kind of node that references this mailbox. The
+SBI implementation knows the message protocol from the kind of node that
+instantiates the channel (for example riscv,rpmi-mpxy-clock has
+riscv,sbi-mpxy-channel-id). So this cell looks redundant.
 
-debian@tt-blackhole:~$ ./null_syscall --vsetvli
-vsetvli complete
- iterations: 1000000000
-   duration: 198 seconds
-avg latency: 198.10 ns
+Regards,
+Samuel
 
-I removed 'vsetvl' as you suggested but the average duration only
-decreased a very small amount to 197.5 ns, so it seems that the other
-instructions are what is taking a lot of time on the X280 cores:
+> +
+> +required:
+> +  - compatible
+> +  - "#mbox-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    mailbox {
+> +          compatible = "riscv,sbi-mpxy-mbox";
+> +          #mbox-cells = <2>;
+> +    };
 
-debian@tt-blackhole:~$ ./null_syscall --vsetvli
-vsetvli complete
- iterations: 1000000000
-   duration: 197 seconds
-avg latency: 197.53 ns
-
-This is compared to a duration of 150 ns when using this patch with
-abi.riscv_v_vstate_discard=0 which skips all the clobbering assembly.
-
-Do you have any other suggestions for the __riscv_v_vstate_discard()
-inline assembly that might be worth me testing on the X280 cores?
-
-Thanks,
-Drew
-
-[1] https://github.com/tenstorrent/linux/tree/tt-blackhole-v6.16-rc1
 
 _______________________________________________
 linux-riscv mailing list
