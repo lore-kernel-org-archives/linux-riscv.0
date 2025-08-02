@@ -4,86 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1FB3C87FD2
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Aug 2025 04:14:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C94C87FD2
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Aug 2025 08:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=92a6doHskH/hacA7RrzF53cjWoIB+ncUVxvb664UrnM=; b=y/GXG4lcCA3x5B
-	EXEkv5AMhfPz/JlEMLH7N6ZdBJm4a7DpXMid8QPZGwIQiLO81AS2BnEujOQMRpfalnTJlJk/Cx4kv
-	50P4MxyNHov5vg0tHBx4VECC+A7sjONcI7TSfzCMyO8szYTuXIO7qT11UGjen9nzmpbxu+EoqckY7
-	X8pR5DPY6OT9TuqE0P6zfMwuYYY9pAEESgx4iSGXNPsXDtD2nb6PwcSXXswx12kWA3wYCeTEXKY8x
-	jLNGj0nsTZYSOiUXazs0AjiTqqNuNrvuyI+CVUgLMlqzPT+0ea3jAucuFxp29SZ/HI9gU7IjV7UF4
-	R/YfgxPvc4iJFELImIcw==;
+	List-Owner; bh=Ls7qAl2/pnAvH/IhV2RYpZ6JPLrAQaJ4V1ZO1IN40S8=; b=IgRwQSRZXCXVOn
+	8oDd8HVU4wyMcABv0xbRu4ywwN/JXUNacnru311rLMlujq9Dj7+Hh5ZOyj4Wq8cdeN5qCVMywzkAr
+	6BvhpIjywPijadehp/lutfsryVmfjtAVlLvaIUTcl36JtswVfiyCCFI0w4Ia8qwqOW8rMdwcFNQSv
+	3ocMLFvSn2EOV6K15OoSG4/Ebx1zYf1SYdNG3cySqlbEX8Uw1D/NJayHuS4H7ucfDRmUXEPfZy1ri
+	hNsz1R5J3YyPtCec1s6wJIMYU85kMXw/vcAhjzbe5KaTjbgg98A08Kl7X32QqdsdvVozLNvijScrh
+	nAj0gIqZEKNTIrqKWr+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ui3dn-00000007A2A-0UOH;
-	Sat, 02 Aug 2025 04:14:39 +0000
-Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
+	id 1ui7i5-00000007LBy-21fa;
+	Sat, 02 Aug 2025 08:35:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ui3bj-000000079uZ-4BvD
+	id 1ui7hO-00000007L8H-2ful
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Aug 2025 04:12:33 +0000
-Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3e3dbda56a5so6754355ab.2
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Aug 2025 21:12:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1754107951; x=1754712751; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ip2rHPlCiGFGcr5YGyF7kmeRLuJtKeayor/PNig1fgE=;
-        b=ge3FQk+tyGHqayXt6xbatUoXS6RegsZ8Z5I/OPCvgFhYdartSm5f6f6mkDKjG8Et4w
-         rbdi24Ieeaq1r9xEJmbghwewf5cDB7KLk2RVUC08C29zRzmJJyqWoNUDnA0oUzvLfusD
-         h1CxXfMJPU0W1lPuL+GeaqTbAwnpHjWcpRNrUd+oigTODXfnr0c9mF9QApB/xTLRTElL
-         yhAYTjeJ1yF/XYmstMOScxQwIV/XUFYQ1SVfpZaUs4aQly6PH0aXja8QlkCB6Eaabup9
-         zsG63L9GNhEwUhYr2n7yboDr1CxTyckMZw3RyOtoNR913P/gRcSrDLhLTFUsjzU8/fRp
-         iwNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754107951; x=1754712751;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ip2rHPlCiGFGcr5YGyF7kmeRLuJtKeayor/PNig1fgE=;
-        b=Bu/vMkqGx8m99MniC/uWjG8s1005RPP+NbJq4J/iFF1EWamXsk+CTzitEK3PJzll7a
-         bbgH/4rsuJHTLx9WDjyPbTDHaogYC2mckle5vvrJvcpYMIfy2Hpw0CBoN6CM+OcuucmP
-         OmiJ9akDmJmyVfGHZPOTfPtmrm3+ipLy+4pcmRNkSiAdwSbw9SqNl6Wd+scUpJvM0kz4
-         K6IO1hQprozkbeXNjFLpdRWDTXb2R9311Ef0owihFhH/ttF1v6vDkUJlLobs/w72WxUq
-         F/jiHtnZiPMgiRPBpR0ce6ro3KjYyl3QRwuBAz+Rj2/eTzTTs9HvUN5SIYyquN4nl6X5
-         qqlw==
-X-Forwarded-Encrypted: i=1; AJvYcCXubk/CJM+U1uChvvZFZcZ2VIWwf2zICuXAlkL/AlyCnZ6jBNlnQB32yYpysFdWGHLXI1TnP4J1YA8gWw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdLQu8nPCZiEqcf/tBgn4mm1BPhilRWeU36UkfqUCMI4Rkv4bB
-	kL8i+NWGQu77D0GBay3wpWFEGSvEhPXs+zcBSbsqvfHXvBrjxsQBz75eh9o1iKZQNVY=
-X-Gm-Gg: ASbGncvYAs2lIECzU/402NQ/ZhDNRWvs9/vsCZp77AMXTLnNU/DFZd2dT47h2IMOPvc
-	sREzXhpEiHUHzVujIxL1qx1Xp7vZa33a+Aof9v44+M8PNvlMuD4Te0ntix509BBikhDLbzkMpBQ
-	e9BOE152pVE388k5FYIxuHOq2c2r18bijRyJBHIVrsPcjHzI2hJoV25EgEnFPeLyUw5U5ReOyUQ
-	avEjiCqVS+W/xvk+hxGnuaevA+jr7xFZ85NNgMnXuDQq3y8FYdGGD7imMXYlKcOPMFYm0D8K5rR
-	1dwQDgEN5e5XAUIp1r2kwE+4zdR2am+/GJINIfs3ice6bOKWnr0TVFDnD4AeZ1k0lILuii7uG4F
-	kLK7xnf5WqpB/E2uKZLTvBEWqGN2x9FmeygAGppnYpqBWZX9R
-X-Google-Smtp-Source: AGHT+IFWXv/meUt6qnzrJTilZJBXyZAntv/HisFVx8CQALlAxTer9z3pL9Su5iQx9S/dGPdOHi5YGA==
-X-Received: by 2002:a05:6e02:2487:b0:3e3:b6ab:f869 with SMTP id e9e14a558f8ab-3e416191ba5mr36293525ab.13.1754107950776;
-        Fri, 01 Aug 2025 21:12:30 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.11.2])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50a55d5da1csm1652544173.65.2025.08.01.21.12.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 01 Aug 2025 21:12:30 -0700 (PDT)
-Message-ID: <612a13d3-d3a6-460b-90fd-c26e47b80711@sifive.com>
-Date: Fri, 1 Aug 2025 23:12:28 -0500
+	Sat, 02 Aug 2025 08:34:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D87465C4964;
+	Sat,  2 Aug 2025 08:34:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFEDAC4CEEF;
+	Sat,  2 Aug 2025 08:34:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754123677;
+	bh=8n5+AqdUdY28X8CznmUJ0fAyb/8u1IojLNaux0FcXus=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=npFom48ET+TO0bqEq3CeFG2yTKLO7ABfItt4n7nNfL3Pe9m7WARvlLvFS6o0l+rLD
+	 yNYETYpDzosdKpD5yH7apH2jhBgyouSjiB9FVvSmBUO/GeftFzBu0u/epgEcGA1SD0
+	 GqS0F/fpDuIDHrhj2aGMSMRimYeVmPBghLJZ/jUCyJ9tV2mb8tsz0saQZsWWocQ+rO
+	 wX5jhSAFM2STfvaN50JqiGnQ/Ws/cwnrBbiTYPmBRRHaU1/tTqf94wLnn9LKdlxdfq
+	 I2czUCqcNAPYyT8oF6MHk7j8WXtjHmdTy/yHCNoK/xjTtgS7HrMsqh0vhvHoL5Zhwa
+	 29YWAmKw1gK9w==
+Message-ID: <2ed69301-f787-4257-8d44-a8544c1a43c9@kernel.org>
+Date: Sat, 2 Aug 2025 10:34:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 02/24] dt-bindings: mailbox: Add bindings for RISC-V
- SBI MPXY extension
-To: Anup Patel <apatel@ventanamicro.com>
-References: <20250728094032.63545-1-apatel@ventanamicro.com>
- <20250728094032.63545-3-apatel@ventanamicro.com>
-From: Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH v4 0/7] Basic device tree support for ESWIN EIC7700 RISC-V
+ SoC
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Min Lin <linmin@eswincomputing.com>,
+ Pritesh Patel <pritesh.patel@einfochips.com>, Yangyu Chen
+ <cyy@cyyself.name>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Yu Chien Peter Lin <peterlin@andestech.com>,
+ Charlie Jenkins <charlie@rivosinc.com>,
+ Kanak Shilledar <kanakshilledar@gmail.com>,
+ Darshan Prajapati <darshan.prajapati@einfochips.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
+ <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
+ "rafal@milecki.pl" <rafal@milecki.pl>, Anup Patel <anup@brainfault.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250616112316.3833343-1-pinkesh.vaghela@einfochips.com>
+ <SA3PR04MB8931098CC4A73E8FDD481DA78326A@SA3PR04MB8931.namprd04.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20250728094032.63545-3-apatel@ventanamicro.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <SA3PR04MB8931098CC4A73E8FDD481DA78326A@SA3PR04MB8931.namprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_211232_131975_A9D52DC9 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20250802_013438_756869_FF0DC46F 
+X-CRM114-Status: UNSURE (   6.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,95 +132,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Conor Dooley <conor.dooley@microchip.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Jassi Brar <jassisinghbrar@gmail.com>, linux-acpi@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, "Rafael J . Wysocki" <rafael@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anup,
-
-On 2025-07-28 4:40 AM, Anup Patel wrote:
-> Add device tree bindings for the RISC-V SBI Message Proxy (MPXY)
-> extension as a mailbox controller.
+On 01/08/2025 12:34, Pinkesh Vaghela wrote:
+> Hello All,
 > 
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml | 51 +++++++++++++++++++
->  1 file changed, 51 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
-> new file mode 100644
-> index 000000000000..061437a0b45a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
-> @@ -0,0 +1,51 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mailbox/riscv,sbi-mpxy-mbox.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V SBI Message Proxy (MPXY) extension based mailbox
-> +
-> +maintainers:
-> +  - Anup Patel <anup@brainfault.org>
-> +
-> +description: |
-> +  The RISC-V SBI Message Proxy (MPXY) extension [1] allows supervisor
-> +  software to send messages through the SBI implementation (M-mode
-> +  firmware or HS-mode hypervisor). The underlying message protocol
-> +  and message format used by the supervisor software could be some
-> +  other standard protocol compatible with the SBI MPXY extension
-> +  (such as RISC-V Platform Management Interface (RPMI) [2]).
-> +
-> +  ===========================================
-> +  References
-> +  ===========================================
-> +
-> +  [1] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
-> +      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
-> +
-> +  [2] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
-> +      https://github.com/riscv-non-isa/riscv-rpmi/releases
-> +
-> +properties:
-> +  compatible:
-> +    const: riscv,sbi-mpxy-mbox
-> +
-> +  "#mbox-cells":
-> +    const: 2
-> +    description:
-> +      The first cell specifies channel_id of the SBI MPXY channel,
-> +      the second cell specifies MSG_PROT_ID of the SBI MPXY channel
+> Gentle reminder to review DT patches.
 
-What is the purpose of the second mailbox cell?
 
-The client can probe the message protocol using a SBI call, if it doesn't just
-assume a protocol based on the kind of node that references this mailbox. The
-SBI implementation knows the message protocol from the kind of node that
-instantiates the channel (for example riscv,rpmi-mpxy-clock has
-riscv,sbi-mpxy-channel-id). So this cell looks redundant.
+You already received review. Don't ping needlessly. Otherwise it feels
+like our review was worthless and you ask for some other.
 
-Regards,
-Samuel
-
-> +
-> +required:
-> +  - compatible
-> +  - "#mbox-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    mailbox {
-> +          compatible = "riscv,sbi-mpxy-mbox";
-> +          #mbox-cells = <2>;
-> +    };
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
