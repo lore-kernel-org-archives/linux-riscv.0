@@ -4,103 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991C4C87FDA
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 Aug 2025 02:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2643AC87FD2
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 Aug 2025 02:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eTbEOXtQ8yFK06eoivRanqPLBHsJes6BbFK1zRmpwoA=; b=zvXLgHT14syBYU
-	xECkB1c4Bud9SMECxFiY6GBj15qOcbpt88rpc88LYEfOHo3R/+I306aZfnuHRudNoSj9Thz9LQkAP
-	6AcK9HeysSFGCRWPufhA+NGFDnuaL20qk5yFUYDfkxDs0pRVO8NbsrUfcsEl+w8iTmsSmfEa2Sf3i
-	KvMBR6yBP/N8RHod9k7xmnOZLjdG6DhkXtF9Ka0gdQ518LSaaAi29HUTTX9bxVH7vSEJpGaKWLzcy
-	qRNaWSWj8HSmZVRrO4yZLBuBo56IQPDtq4PwCGnm3MA9e7rsjLSRu0OktqtickJSskJT7xnZmH9Rd
-	IQhFITPsB2g8IjqNx/Cg==;
+	List-Owner; bh=UQz7UFNVqMxcU/5wzbWCBCSdez1ED0RNttAD9LAniAE=; b=XZ1MfkBIUHm7NE
+	qywn4X3ehDrw3zZBsP7DwkloPyfBfzk9m0q+pJ1MLBZAWOeHeNDAx7puW+HflLWtHTcMk41gdXuMM
+	u3ssRw+nTjD1/cMfcZlazgAeIMbk9KVf1gFbyVoqU/sGGaESc+JjwawKw223l62HapwAXqHNECkRX
+	M1s6+V3+l/CxqIl+ZzsjJj2qn5l33ly6LWaDfopFLRsoqdzBVzBnnasncosnLRMUY5qsn6MmZ+W61
+	Yc+NiVD4Kj/z4SROMEcR35c8WR9UaTM0Wz/craldSgEc4SmZCwl0/+dBYbjicNP7XQiSZutGcIV8b
+	9I/hcglnQxGTAZ4iKgRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiOvb-000000085Ud-2bnA;
-	Sun, 03 Aug 2025 02:58:27 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1uiOvP-000000085Pw-2aeb;
+	Sun, 03 Aug 2025 02:58:15 +0000
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiOvY-000000085Sq-46tq
+	id 1uiOvN-000000085PZ-0TAU
 	for linux-riscv@lists.infradead.org;
-	Sun, 03 Aug 2025 02:58:26 +0000
-Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-3da73df6b6bso8908775ab.3
-        for <linux-riscv@lists.infradead.org>; Sat, 02 Aug 2025 19:58:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1754189904; x=1754794704; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=skQxKpPrKNdpCm7T4rAP4k9qKdZRbQN/uiLC1I5fUpk=;
-        b=MG8Cq5qxMMitnO+GRMqU3dhJN3qqJ5uBEQTNsTjly6zbwucB4cWEgBMDiT5+3cXFcb
-         pp8uq6lgQYM/K0CYs895KnjS1HCSSvTFovX6qM5tvLQtNYjSXaCfHcAxGm+XzM0wdtUS
-         xYNYczbfYXy+O0ihFMEoezT1pyFaeb4X52pX+Qmxy0OlJiPiVXLferOc9JLOUDazKv3Y
-         2RUyY0zId8bdJbR+g4Ofid22/MlF007QLhuLS1R9UwwyqPILT+PeS8LqXqnQPXhUWRjZ
-         Big6jBfDGKuWs6xesZfb+cIJEGSM39sXbc5Rd2/WyscNDT3po92e6P7wKheygVJvXCM9
-         q0rQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754189904; x=1754794704;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=skQxKpPrKNdpCm7T4rAP4k9qKdZRbQN/uiLC1I5fUpk=;
-        b=XqV+TPSSzQtJY7bbu3zYqV6lEfhdlJj4yegTXYfp8UE8bX6g1wqQ1IOb5jP3AAmoaK
-         BQfhMcKOkAtpCAlv4KSjN+Z26bVbjfK6Kr1UvrYLpGZclniovnVbltx2u8rt2MWBwMzt
-         kdGkteB2d7WSm/oWU/wOsueeVeVZE/JHfEAxKstVzKH+a3Sq253rLEMqA+eUq0Xin7++
-         Yh+uv8OVtGHRrJmbFO9S0kIQccKYVg8VItoQHgvOeXLXQLzfik8TYtZzV66NtGoiEugi
-         dD9IWdfgSGWMsAfcx4EAFmhHACMssteJR21cllYKfbRfj2XCgXbFiRvUJJoBOuq7yis5
-         wwig==
-X-Forwarded-Encrypted: i=1; AJvYcCXGbig/9A3avvshHim/fXBimjtj+p+9QD1P+16VzwHbSEHl40PdnGzbyJ/PCNM8k4B0BsuXzoBcrKX2CA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTHDKRC77DftjJ83K1ox48byo7buMjk/dJ1C3JdsWGmVG9Ih0b
-	5MGmAHIKz+TpsfEXb2bz+M/hIs/c92sM4Rktlzx/rJiWBSs8vmE2cn6DtyiRdsMZKHo=
-X-Gm-Gg: ASbGncsEFYYVUSP/YZ++WdT4DMyEnEDUrlbq+kIRN91iW8wR9RZvPhh45L+4iWxshI+
-	ELHYtmmSMb9rCFR6u4hONpyNEQfQLmRprsoSwDUaONCdO88c82w6bHo/4ZBMhLiNMp40ZYKtVzM
-	bG6fw8uDFSeA1dRQ/JsZMXOq2eVF5NJisVbjSktlQ7/wdVtsNfcyUMPsojZs0LM2gouP9k9ciNd
-	5RtfWuvlcMLiF7FIk+MHwuzC99JW9E+jJqLAdInmDkkj/vjrrxCv1uM2+A69Y0GbMZHEbgx0SJj
-	T8WHuBMqur0W0D2JkVvy0GnDFJleacPiR7OmZG48NUVzn7LW6Oi9QLEqmzspObnatLgH4yXoHmr
-	FZHXIHqKvwkXp2GWgDWTHNp/AfB3rgL0yRkVHIWCdOtwRRbr8EHZsl7cyZqGbopCHdw==
-X-Google-Smtp-Source: AGHT+IFHXs41xj9WymLFkH4fpxM33+yVrOViIGtmM/27AzAk1BYfjuQgbtZJ2viqFpupoVB5LnKAWw==
-X-Received: by 2002:a05:6e02:1fec:b0:3e3:d5f1:9019 with SMTP id e9e14a558f8ab-3e4161b1ed2mr89216405ab.16.1754189904139;
-        Sat, 02 Aug 2025 19:58:24 -0700 (PDT)
-Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50a55b1ac2esm2251906173.1.2025.08.02.19.58.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 19:58:23 -0700 (PDT)
-From: Alex Elder <elder@riscstar.com>
-To: lee@kernel.org,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	alexandre.belloni@bootlin.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: mat.jonczyk@o2.pl,
-	dlan@gentoo.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux.amoon@gmail.com,
-	troymitchell988@gmail.com,
-	guodong@riscstar.com,
-	linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v11 4/7] rtc: spacemit: support the SpacemiT P1 RTC
-Date: Sat,  2 Aug 2025 21:58:08 -0500
-Message-ID: <20250803025812.373029-5-elder@riscstar.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250803025812.373029-1-elder@riscstar.com>
-References: <20250803025812.373029-1-elder@riscstar.com>
+	Sun, 03 Aug 2025 02:58:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1754189887; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=LkVdGpsewSq7EUoNkwSZFDq48TcI9YZ9dASr5aKolIkup9zpqRImu/LWAePVcXK1JheZfAtDHSRNNlMEQZGzxAqR4y3j+yaRPTlvhf0Zl0au3tKquKtQ+Sf1Rv5v5noeCI3CCJMe7e+GKIrqHPOs3aWBVNtLnqWrI03PtnDPyzY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1754189887; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=i0Jx5wsPXVzHcNKwvNaiczllxlJAA25jxDOq/uaaaSM=; 
+	b=kToYBY8sLrcxmNM+NeoNfHuK5XmkaeElmo60w+600pWaLxADpC3vG3BLOvPTM7zD89+Z13C03f1eEJNBXHo6iNS9SzWtOrY9e+Yq1D9itN/wkqZ3kSOlKAlC43eUu/OEedOGCdvVN//t8eZF+osIAx1Se62ZuYdrZoEkGtYh9l4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1754189887;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=i0Jx5wsPXVzHcNKwvNaiczllxlJAA25jxDOq/uaaaSM=;
+	b=f3oaib0sr5t8khGJjviKaV+9fuUvEnxpxVlM7HTtYPOHT0yoi2mD2j7aZdwd7OFA
+	3/sTyG5wQ8t9o1QU4epqE+HJzZzjHTx613da8X9x6NRHY8rAkXUh30QLNAxohmvuBJG
+	0C2JvkINc/i6YyIF3bli6UZEpd3wrJ7iJYwiuORQ=
+Received: by mx.zohomail.com with SMTPS id 1754189881012449.99415784449957;
+	Sat, 2 Aug 2025 19:58:01 -0700 (PDT)
+Message-ID: <757cf40c-a48f-4980-b638-35a29a91ecb3@zohomail.com>
+Date: Sun, 3 Aug 2025 10:57:55 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 3/3] riscv: dts: canaan: Add clock definition for K230
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Samuel Holland <samuel.holland@sifive.com>,
+ Troy Mitchell <TroyMitchell988@gmail.com>
+References: <20250730-b4-k230-clk-v7-0-c57d3bb593d3@zohomail.com>
+ <20250730-b4-k230-clk-v7-3-c57d3bb593d3@zohomail.com>
+ <20250730-laughing-dancing-emu-5540d6@kuoka>
+From: Xukai Wang <kingxukai@zohomail.com>
+Content-Language: en-US
+In-Reply-To: <20250730-laughing-dancing-emu-5540d6@kuoka>
+Feedback-ID: rr08011227eed8815bf276c5c4b75ffa5600006591fb6f11eb539136822dedc845eb4f784c06394fc0181388:zu080112278cb6ca04e82c2e93804d320600000b8ddb55721fc1512e19cc5620ff577603d30229fcb367ab14:rf0801122c266281f77e22f90ba2a807280000940c7b3693dc9be470390b6e4b350d435e079e35d9802a6494db8e13fbcf:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_195825_025130_CB2B9CCF 
-X-CRM114-Status: GOOD (  26.32  )
+X-CRM114-CacheID: sfid-20250802_195813_219854_E63232AC 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,231 +89,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for the RTC found in the SpacemiT P1 PMIC.  Initially
-only setting and reading the time are supported.
 
-The PMIC is implemented as a multi-function device.  This RTC is
-probed based on this driver being named in a MFD cell in the simple
-MFD I2C driver.
+On 2025/7/30 15:06, Krzysztof Kozlowski wrote:
+> On Wed, Jul 30, 2025 at 02:43:53AM +0800, Xukai Wang wrote:
+>> This patch describes the clock controller integrated in K230 SoC
+>> and replace dummy clocks with the real ones for UARTs.
+>>
+>> For k230-canmv and k230-evb, they provide an additional external
+>> pulse input through a pin to serve as clock source.
+>>
+>> Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
+>> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
+>> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+>> ---
+>>  arch/riscv/boot/dts/canaan/k230-canmv.dts | 11 +++++++++++
+>>  arch/riscv/boot/dts/canaan/k230-evb.dts   | 11 +++++++++++
+>>  arch/riscv/boot/dts/canaan/k230.dtsi      | 26 ++++++++++++++++++--------
+>>  3 files changed, 40 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/arch/riscv/boot/dts/canaan/k230-canmv.dts b/arch/riscv/boot/dts/canaan/k230-canmv.dts
+>> index 9565915cead6ad2381ea8249b616e79575feb896..6579d39e2c1690d9e9c2b9c884db528c37473204 100644
+>> --- a/arch/riscv/boot/dts/canaan/k230-canmv.dts
+>> +++ b/arch/riscv/boot/dts/canaan/k230-canmv.dts
+>> @@ -17,8 +17,19 @@ ddr: memory@0 {
+>>  		device_type = "memory";
+>>  		reg = <0x0 0x0 0x0 0x20000000>;
+>>  	};
+>> +
+>> +	timerx_pulse_in: timer_pulse_in {
+> Follow DTS coding style.
+>
+> Please use name for all fixed clocks which matches current format
+> recommendation: 'clock-<freq>' (see also the pattern in the binding for
+> any other options).
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml?h=v6.11-rc1
 
-Signed-off-by: Alex Elder <elder@riscstar.com>
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
----
- drivers/rtc/Kconfig           |  10 ++
- drivers/rtc/Makefile          |   1 +
- drivers/rtc/rtc-spacemit-p1.c | 167 ++++++++++++++++++++++++++++++++++
- 3 files changed, 178 insertions(+)
- create mode 100644 drivers/rtc/rtc-spacemit-p1.c
+Got it, I'll update it to clock-50m as recommended.
 
-diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-index 64f6e9756aff4..31d355b103d43 100644
---- a/drivers/rtc/Kconfig
-+++ b/drivers/rtc/Kconfig
-@@ -406,6 +406,16 @@ config RTC_DRV_MAX77686
- 	  This driver can also be built as a module. If so, the module
- 	  will be called rtc-max77686.
- 
-+config RTC_DRV_SPACEMIT_P1
-+	tristate "SpacemiT P1 RTC"
-+	depends on ARCH_SPACEMIT || COMPILE_TEST
-+	select MFD_SPACEMIT_P1
-+	default ARCH_SPACEMIT
-+	help
-+	  Enable support for the RTC function in the SpacemiT P1 PMIC.
-+	  This driver can also be built as a module, which will be called
-+	  "spacemit-p1-rtc".
-+
- config RTC_DRV_NCT3018Y
- 	tristate "Nuvoton NCT3018Y"
- 	depends on OF
-diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-index 789bddfea99d8..f41fdb4fabae9 100644
---- a/drivers/rtc/Makefile
-+++ b/drivers/rtc/Makefile
-@@ -171,6 +171,7 @@ obj-$(CONFIG_RTC_DRV_SD2405AL)	+= rtc-sd2405al.o
- obj-$(CONFIG_RTC_DRV_SD3078)	+= rtc-sd3078.o
- obj-$(CONFIG_RTC_DRV_SH)	+= rtc-sh.o
- obj-$(CONFIG_RTC_DRV_SNVS)	+= rtc-snvs.o
-+obj-$(CONFIG_RTC_DRV_SPACEMIT_P1)	+= rtc-spacemit-p1.o
- obj-$(CONFIG_RTC_DRV_SPEAR)	+= rtc-spear.o
- obj-$(CONFIG_RTC_DRV_STARFIRE)	+= rtc-starfire.o
- obj-$(CONFIG_RTC_DRV_STK17TA8)	+= rtc-stk17ta8.o
-diff --git a/drivers/rtc/rtc-spacemit-p1.c b/drivers/rtc/rtc-spacemit-p1.c
-new file mode 100644
-index 0000000000000..43ab62494bb4b
---- /dev/null
-+++ b/drivers/rtc/rtc-spacemit-p1.c
-@@ -0,0 +1,167 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for the RTC found in the SpacemiT P1 PMIC
-+ *
-+ * Copyright (C) 2025 by RISCstar Solutions Corporation.  All rights reserved.
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/device.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/rtc.h>
-+
-+#define MOD_NAME	"spacemit-p1-rtc"
-+
-+/*
-+ * Six consecutive 1-byte registers hold the seconds, minutes, hours,
-+ * day-of-month, month, and year (respectively).
-+ *
-+ * The range of values in these registers is:
-+ *    seconds	0-59
-+ *    minutes	0-59
-+ *    hours	0-59
-+ *    day	0-30 (struct tm is 1-31)
-+ *    month	0-11
-+ *    year	years since 2000 (struct tm is since 1900)
-+ *
-+ * Note that the day and month must be converted after reading and
-+ * before writing.
-+ */
-+#define RTC_TIME		0x0d	/* Offset of the seconds register */
-+
-+#define RTC_CTRL		0x1d
-+#define RTC_EN		BIT(2)
-+
-+/* Number of attempts to read a consistent time stamp before giving up */
-+#define RTC_READ_TRIES		20	/* At least 1 */
-+
-+struct p1_rtc {
-+	struct regmap *regmap;
-+	struct rtc_device *rtc;
-+};
-+
-+/*
-+ * The P1 hardware documentation states that the register values are
-+ * latched to ensure a consistent time snapshot within the registers,
-+ * but these are in fact unstable due to a bug in the hardware design.
-+ * So we loop until we get two identical readings.
-+ */
-+static int p1_rtc_read_time(struct device *dev, struct rtc_time *t)
-+{
-+	struct p1_rtc *p1 = dev_get_drvdata(dev);
-+	struct regmap *regmap = p1->regmap;
-+	u32 count = RTC_READ_TRIES;
-+	u8 seconds;
-+	u8 time[6];
-+	int ret;
-+
-+	if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
-+		return -EINVAL;		/* RTC is disabled */
-+
-+	ret = regmap_bulk_read(regmap, RTC_TIME, time, sizeof(time));
-+	if (ret)
-+		return ret;
-+
-+	do {
-+		seconds = time[0];
-+		ret = regmap_bulk_read(regmap, RTC_TIME, time, sizeof(time));
-+		if (ret)
-+			return ret;
-+	} while (time[0] != seconds && --count);
-+
-+	if (!count)
-+		return -EIO;		/* Unable to get a consistent result */
-+
-+	t->tm_sec = time[0] & GENMASK(5, 0);
-+	t->tm_min = time[1] & GENMASK(5, 0);
-+	t->tm_hour = time[2] & GENMASK(4, 0);
-+	t->tm_mday = (time[3] & GENMASK(4, 0)) + 1;
-+	t->tm_mon = time[4] & GENMASK(3, 0);
-+	t->tm_year = (time[5] & GENMASK(5, 0)) + 100;
-+
-+	return 0;
-+}
-+
-+/*
-+ * The P1 hardware documentation states that values in the registers are
-+ * latched so when written they represent a consistent time snapshot.
-+ * Nevertheless, this is not guaranteed by the implementation, so we must
-+ * disable the RTC while updating it.
-+ */
-+static int p1_rtc_set_time(struct device *dev, struct rtc_time *t)
-+{
-+	struct p1_rtc *p1 = dev_get_drvdata(dev);
-+	struct regmap *regmap = p1->regmap;
-+	u8 time[6];
-+	int ret;
-+
-+	time[0] = t->tm_sec;
-+	time[1] = t->tm_min;
-+	time[2] = t->tm_hour;
-+	time[3] = t->tm_mday - 1;
-+	time[4] = t->tm_mon;
-+	time[5] = t->tm_year - 100;
-+
-+	/* Disable the RTC to update; re-enable again when done */
-+	ret = regmap_clear_bits(regmap, RTC_CTRL, RTC_EN);
-+	if (ret)
-+		return ret;
-+
-+	/* If something goes wrong, leave the RTC disabled */
-+	ret = regmap_bulk_write(regmap, RTC_TIME, time, sizeof(time));
-+	if (ret)
-+		return ret;
-+
-+	return regmap_set_bits(regmap, RTC_CTRL, RTC_EN);
-+}
-+
-+static const struct rtc_class_ops p1_rtc_class_ops = {
-+	.read_time = p1_rtc_read_time,
-+	.set_time = p1_rtc_set_time,
-+};
-+
-+static int p1_rtc_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct rtc_device *rtc;
-+	struct p1_rtc *p1;
-+
-+	p1 = devm_kzalloc(dev, sizeof(*p1), GFP_KERNEL);
-+	if (!p1)
-+		return -ENOMEM;
-+	dev_set_drvdata(dev, p1);
-+
-+	p1->regmap = dev_get_regmap(dev->parent, NULL);
-+	if (!p1->regmap)
-+		return dev_err_probe(dev, -ENODEV, "failed to get regmap\n");
-+
-+	rtc = devm_rtc_allocate_device(dev);
-+	if (IS_ERR(rtc))
-+		return dev_err_probe(dev, PTR_ERR(rtc),
-+				     "error allocating device\n");
-+	p1->rtc = rtc;
-+
-+	rtc->ops = &p1_rtc_class_ops;
-+	rtc->range_min = RTC_TIMESTAMP_BEGIN_2000;
-+	rtc->range_max = RTC_TIMESTAMP_END_2063;
-+
-+	clear_bit(RTC_FEATURE_ALARM, rtc->features);
-+	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, rtc->features);
-+
-+	return devm_rtc_register_device(rtc);
-+}
-+
-+static struct platform_driver p1_rtc_driver = {
-+	.probe = p1_rtc_probe,
-+	.driver = {
-+		.name = MOD_NAME,
-+	},
-+};
-+
-+module_platform_driver(p1_rtc_driver);
-+
-+MODULE_DESCRIPTION("SpacemiT P1 RTC driver");
-+MODULE_LICENSE("GPL");
-+MODULE_ALIAS("platform:" MOD_NAME);
--- 
-2.48.1
+Thanks for pointing it out.
 
+>
+> Best regards,
+> Krzysztof
+>
 
 _______________________________________________
 linux-riscv mailing list
