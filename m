@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6792FCA0EC1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 840DCCA0EC2
 	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 16:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VB7B5SSc40N8HY+Mj+cs9Mk/+P+uBB7Y5TnceraGaQM=; b=qXAOhRicwl0rZ4
-	CHSWNzqljWVFHscmRwpmyBF8+Vl8gE+E7TKqkZ92kYEYyaGtA3sVV6gX8IJG1rtGK1oCxFo/DcvCd
-	udUllJlE0ph2qwFXxiWFTFn+RUUDt9q9fKbByHREJmgPoCsRA7BgTKO8Vy1vzBnk03c9F2gpCHge0
-	L3Tj7qxSz5c8bnQfYoBfmKHaQrxFxWZ3Nr1PWL1ViVlTaTm0FF2GD3KA5GV0OL4PCTKhD4qJAYjMy
-	Ef/jwHd/YPqZGjezxtcwCEsaUFB9rIUbhYisTvemJ9YLqic9sQWCHWemrgZqZawz/FYxY0tkqMAqX
-	ZanFpRB3+yCELpz85XYw==;
+	List-Owner; bh=wIG4tmYPQOqAJLiwKpSHbYfZJ2SQHchBYPHbowPqSdg=; b=pvpKtZQ9zkZL52
+	EuGUl5CaIC4C7aVvsYro9BAdIaLJR2odegtA7dMLuP0AsM9ihs8Y44UJ79CH7r0QBVvsuBZxYJdQZ
+	2BWHJ/DOcS5GlZM6Hs8GcMyg1zIHuJB+xD+ycz31cDbXunILmkAYQX0GhJ82Wk3pdk4pAMTOLkY4F
+	mhkZfQQP58ELevYcav2G+OQeRHgKxyQodjH8IQPcFv9tE+yg5mhCIInjxUmEJXbJnWSSsW/K+ARbw
+	64aMh8mVu55NbPoAEaTVONHny7EAKWX5XI5yN9p2mjbRxaj9z0d+dJ1NzpnRvqNXtVBAqjLQ4JFEM
+	MGG1dvzv9Ukb7yKrWWKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiyKV-0000000B0uO-0fgh;
-	Mon, 04 Aug 2025 16:46:31 +0000
+	id 1uiyKT-0000000B0t7-3Hrm;
+	Mon, 04 Aug 2025 16:46:29 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiyIM-0000000Azxy-45Tq
+	id 1uiyIM-0000000Azx6-2vpB
 	for linux-riscv@lists.infradead.org;
 	Mon, 04 Aug 2025 16:44:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6774745E60;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3517F45D64;
 	Mon,  4 Aug 2025 16:44:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41AB4C113CF;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03BABC4CEFC;
 	Mon,  4 Aug 2025 16:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1754325858;
-	bh=752sQmjr+WkEQIQTz2YsThA0XswYRbPSJznITLPZ8n0=;
+	bh=f1BJyviPYJxx8kFp/yukIUneK3tevM8t3j60E+6mJ1Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DFYJDn3iT6d1HFBeZ+4JC6ama4tupJDc2NxZKYp8ACnJ1iL3GmdJ4nU9J6Gxpz6zV
-	 ggkLZE5g33xSNghuW+/4AldAgkpmoHzVtp05Mm0Tk77p9FwqmOTo5KhNYbg7IGPo42
-	 Zaxz1NYG/MDOHO+D0u6LkCfsfIaxlPUFpaI3es/IGEblVRHWsEmsmx5qlouLXGxOO/
-	 jZURCEO+cG1tK5otFXKDXMarJRlXurVor/Uk6n4hK/Tfhs4SPDSIBIKjGx1Re9Gru2
-	 RayDn4/9xO/y4REx1nhEGhNAedTHIr/vlsv5X97wp/q8FQQMD03LxVviKNDFWQcU2I
-	 jhO6Ld2SN/XqA==
+	b=iCRKQ61mm01MZTvc3CPPe2Ki/UrPAJKulntT266Ebe8TeWDAN/PSv0m32mZuiBkpN
+	 lk/deOYVzRLtSp7i6p4G7JOZzGDwuaAryUY11pGGbT30Ubny4bRA9VoK9foPrUhkFy
+	 5Kdb9YBAUZfg0XipfrZDkRGYNiY8gnoYygkru433UuRkZYLKddHKgD3V1i3NRUr65E
+	 jI3qDVxgAjgs0faGOdEZKxTlRUMVWRKKtbD/zPFJkkQmhZoOks1gC8mF1Wrrb6/rxq
+	 Brmye/Z8DZwW8aMN1Lsr/FFUXXIYCbg+wC0d/XKLVlJHJdrQIxU0buKqimdXSNKiTB
+	 sP5NLdQ1qXfMw==
 From: Kees Cook <kees@kernel.org>
 To: linux-arch@vger.kernel.org
 Cc: Kees Cook <kees@kernel.org>,
@@ -61,18 +61,18 @@ Cc: Kees Cook <kees@kernel.org>,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH 07/17] alpha: Add __attribute_const__ to ffs()-family implementations
-Date: Mon,  4 Aug 2025 09:44:03 -0700
-Message-Id: <20250804164417.1612371-7-kees@kernel.org>
+Subject: [PATCH 03/17] csky: Add __attribute_const__ to ffs()-family implementations
+Date: Mon,  4 Aug 2025 09:43:59 -0700
+Message-Id: <20250804164417.1612371-3-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250804163910.work.929-kees@kernel.org>
 References: <20250804163910.work.929-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3242; i=kees@kernel.org; h=from:subject; bh=752sQmjr+WkEQIQTz2YsThA0XswYRbPSJznITLPZ8n0=; b=owGbwMvMwCVmps19z/KJym7G02pJDBkTHkeW55xweCLlqOjVdbHHOVIuePb3nVd3fpROS5YTs nc5WMrUUcrCIMbFICumyBJk5x7n4vG2Pdx9riLMHFYmkCEMXJwCMJEFFxkZZtwvav769fajq9di vywovGGe9+SBsdj3hDVaNi73rnRVSzAy/N3mv2O7ocl6bb0KjjvftqjJnWeQndM4JzZ/d2XXEZZ 33AA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2307; i=kees@kernel.org; h=from:subject; bh=f1BJyviPYJxx8kFp/yukIUneK3tevM8t3j60E+6mJ1Y=; b=owGbwMvMwCVmps19z/KJym7G02pJDBkTHkf4pKfxelzOuX/uzqPPOxs0l05ZFhCiyao9Jeqci 3ziSXXxjlIWBjEuBlkxRZYgO/c4F4+37eHucxVh5rAygQxh4OIUgIks2MXIsEItKTpFNdpgi2AC T4VsWqPxkidZFV7pHLJyKvtDK1pbGBmmVyyW697n81XsnYVwT1DQGWaXqglTVk1a8WJH3VlBbyE GAA==
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_094419_108086_13E1CDEE 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20250804_094418_873790_B0B1F841 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,82 +98,58 @@ __attribute__const__, the compiler had to assume the function might
 change variable states as a side-effect (which is not true for ffs(),
 which provides deterministic math results).
 
-Add missing __attribute_const__ annotations to Alpha's implementations
-of __ffs(), ffs(), fls64(), __fls(), fls(), and ffz() functions. These
-are pure mathematical functions that always return the same result for
-the same input with no side effects, making them eligible for compiler
-optimization.
+Add missing __attribute_const__ annotations to C-SKY's implementations of
+ffs(), __ffs(), fls(), and __fls() functions. These are pure mathematical
+functions that always return the same result for the same input with no
+side effects, making them eligible for compiler optimization.
 
-Build tested ARCH=alpha defconfig with GCC alpha-linux-gnu 14.2.0.
+Build tested ARCH=csky defconfig with GCC csky-linux 15.1.0.
 
 Link: https://github.com/KSPP/linux/issues/364 [1]
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
- arch/alpha/include/asm/bitops.h | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ arch/csky/include/asm/bitops.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/alpha/include/asm/bitops.h b/arch/alpha/include/asm/bitops.h
-index 3e33621922c3..76e4343c090f 100644
---- a/arch/alpha/include/asm/bitops.h
-+++ b/arch/alpha/include/asm/bitops.h
-@@ -328,7 +328,7 @@ static inline unsigned long ffz_b(unsigned long x)
- 	return sum;
- }
- 
--static inline unsigned long ffz(unsigned long word)
-+static inline unsigned long __attribute_const__ ffz(unsigned long word)
- {
- #if defined(CONFIG_ALPHA_EV6) && defined(CONFIG_ALPHA_EV67)
- 	/* Whee.  EV67 can calculate it directly.  */
-@@ -348,7 +348,7 @@ static inline unsigned long ffz(unsigned long word)
+diff --git a/arch/csky/include/asm/bitops.h b/arch/csky/include/asm/bitops.h
+index 72e1b2aa29a0..80d67eee6e86 100644
+--- a/arch/csky/include/asm/bitops.h
++++ b/arch/csky/include/asm/bitops.h
+@@ -9,7 +9,7 @@
  /*
-  * __ffs = Find First set bit in word.  Undefined if no set bit exists.
+  * asm-generic/bitops/ffs.h
   */
--static inline unsigned long __ffs(unsigned long word)
-+static inline __attribute_const__ unsigned long __ffs(unsigned long word)
+-static inline int ffs(int x)
++static inline __attribute_const__ int ffs(int x)
  {
- #if defined(CONFIG_ALPHA_EV6) && defined(CONFIG_ALPHA_EV67)
- 	/* Whee.  EV67 can calculate it directly.  */
-@@ -373,7 +373,7 @@ static inline unsigned long __ffs(unsigned long word)
-  * differs in spirit from the above __ffs.
+ 	if (!x)
+ 		return 0;
+@@ -26,7 +26,7 @@ static inline int ffs(int x)
+ /*
+  * asm-generic/bitops/__ffs.h
   */
- 
--static inline int ffs(int word)
-+static inline __attribute_const__ int ffs(int word)
+-static __always_inline unsigned long __ffs(unsigned long x)
++static __always_inline __attribute_const__ unsigned long __ffs(unsigned long x)
  {
- 	int result = __ffs(word) + 1;
- 	return word ? result : 0;
-@@ -383,14 +383,14 @@ static inline int ffs(int word)
-  * fls: find last bit set.
+ 	asm volatile (
+ 		"brev %0\n"
+@@ -39,7 +39,7 @@ static __always_inline unsigned long __ffs(unsigned long x)
+ /*
+  * asm-generic/bitops/fls.h
   */
- #if defined(CONFIG_ALPHA_EV6) && defined(CONFIG_ALPHA_EV67)
--static inline int fls64(unsigned long word)
-+static inline __attribute_const__ int fls64(unsigned long word)
+-static __always_inline int fls(unsigned int x)
++static __always_inline __attribute_const__ int fls(unsigned int x)
  {
- 	return 64 - __kernel_ctlz(word);
- }
- #else
- extern const unsigned char __flsm1_tab[256];
- 
--static inline int fls64(unsigned long x)
-+static inline __attribute_const__ int fls64(unsigned long x)
+ 	asm volatile(
+ 		"ff1 %0\n"
+@@ -52,7 +52,7 @@ static __always_inline int fls(unsigned int x)
+ /*
+  * asm-generic/bitops/__fls.h
+  */
+-static __always_inline unsigned long __fls(unsigned long x)
++static __always_inline __attribute_const__ unsigned long __fls(unsigned long x)
  {
- 	unsigned long t, a, r;
- 
-@@ -403,12 +403,12 @@ static inline int fls64(unsigned long x)
- }
- #endif
- 
--static inline unsigned long __fls(unsigned long x)
-+static inline __attribute_const__ unsigned long __fls(unsigned long x)
- {
- 	return fls64(x) - 1;
- }
- 
--static inline int fls(unsigned int x)
-+static inline __attribute_const__ int fls(unsigned int x)
- {
- 	return fls64(x);
+ 	return fls(x) - 1;
  }
 -- 
 2.34.1
