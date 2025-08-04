@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4CA9C87FCB
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 16:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00007C87FCF
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 16:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BP+DFdx3zm48Ff+FuLdCKl7/OSKpEvHQsIzYTse5JPY=; b=mYQRylLECGiptl
-	/96ceDa2luFVwy51u2NYCAvAqZorwKyforFF1sCRQurHWaEFEn0JDHwjQBFFk9kr47VX0psNgHFH/
-	nFRAeJgcGple8Cy+0V9jQ3nAS0H/ehtFRg+kAoCQIm0gIFc2jYU9R96fnUERein+WNnbzitOWuvjA
-	zgXU2K0gL7OJ5YDRY0oWl2pIt3RULAClMTvAqF8O+WwPesrOaFTVFxGrL3zs7cAlzs90vfyGI0D1U
-	Y/6FPMME2nj0j4u1e2eaNTUjtZDvKSOft7XeqqrpoFVtCsZEFiq7z0bTq1avi+50fk6o7/9ghAsev
-	oatAOw9LwWfokOTsBavQ==;
+	List-Owner; bh=Lr9DMHEmjvtgAeM1Gke7WJ8gQZaoBW3cQrZScDMWkaE=; b=Fh77vh9JIjb2bR
+	IzkJewyY6w3VpxHvGFrP8jk9yUoXUt6qyQtcs7Ok3aI+TSVBulHVIvUnQTtdHgue9Cy68FHn4lWgk
+	Axz4pwrOi5F/Uo+srPubjaRM4gzKCNjSfejjuVDoadvQbWoebSIwYd5gh8QkTxr4md6DDtWWyN4UM
+	a3dpXgWGEDzEo3+FeFoV6NjGuUeHOpAac4nVMCST5acdbQXg/Suoua+KM3flyShP1zruDn8xfRfhv
+	JAdM26A4ISpM0UycKcRhctOSZCbTT8/RuSsr8VVt0dqPXZrdgN6tUzvuWu3PtG0JIpnAWthNkPUWx
+	Gnt5MVCoHCjOn4GkT2lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiyKX-0000000B0xf-44EP;
-	Mon, 04 Aug 2025 16:46:33 +0000
+	id 1uiyKY-0000000B0z1-3E9h;
+	Mon, 04 Aug 2025 16:46:34 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiyIO-0000000B00q-0wFd
+	id 1uiyIO-0000000B00p-11yr
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 16:44:23 +0000
+	Mon, 04 Aug 2025 16:44:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7AFEA45E85;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7FCA145E89;
 	Mon,  4 Aug 2025 16:44:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54FE0C116C6;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 557BFC19422;
 	Mon,  4 Aug 2025 16:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1754325858;
-	bh=WqXHH+IfirIk9LkIKK7Nl4nbWfgsz7d0eW6zTgrbVtU=;
+	bh=3HtYht3o5b53HlW3hmmaVS1l68Fq+Byhwo7/QFnsV8I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Uoz8nJLpEg7RJxFDS0SaUDuM3JC3++G29Vs6O3SIq0AlyDw/PtKWwF1Ek74YZtizN
-	 ekkMeDZWxmiNkJ5aPmGW7zltBAJVWret0M3QxnUJdR3SxNof1VjZ4TmJar71HRDHcq
-	 B+zcU7Vys78NH8p6reQ5SGIWBT2pUfK39dgXZLf/Ay+nfJf8ARpm2byEo1d/BEtLra
-	 cRvm5KLXsLdsqhKT3FSA6mH91RMS9AEoSb+vpfE2AY0ZiMOdTviO7cCLtBrLdWkl3F
-	 1gHFyE6a5/HGEDwdrlrj5ZEst307NwD/hZQKvss84KcsXukQxuTCU7N4W3s7jh1DJ+
-	 UJV5giwhSkI8g==
+	b=V8su36dz8wLeATBiw+fLXUhOrWYvB0J2NFju0ulT3yX9bH3I4brsk1bfIPOwMtl4M
+	 eUdlQo6ZAufcuJ508hVz4gfoq3F3K0NaNBhUI39fozig9HtwiVIhUGFAxBVlIHjavx
+	 dlf5V9cU0uGCk2uQOYlzN0s30pv/X2w1LMbTVx6rbh/tujJoBv2E/x6rjwgPDf4RAL
+	 WgADCxDgFlafZg+p0CJETlCNY4boSlI5JQCzG5Rc0pHbrftG9aN/2N2mn7r2AzIlix
+	 US1fliCniVnKsIeSvSJNltImuRoFdZvNSuevHgga/082pXz8xl7Spx/2XIW3pDNRLi
+	 Tj/NQpbrTOeCw==
 From: Kees Cook <kees@kernel.org>
 To: linux-arch@vger.kernel.org
 Cc: Kees Cook <kees@kernel.org>,
@@ -61,18 +61,18 @@ Cc: Kees Cook <kees@kernel.org>,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH 10/17] openrisc: Add __attribute_const__ to ffs()-family implementations
-Date: Mon,  4 Aug 2025 09:44:06 -0700
-Message-Id: <20250804164417.1612371-10-kees@kernel.org>
+Subject: [PATCH 12/17] mips: Add __attribute_const__ to ffs()-family implementations
+Date: Mon,  4 Aug 2025 09:44:08 -0700
+Message-Id: <20250804164417.1612371-12-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250804163910.work.929-kees@kernel.org>
 References: <20250804163910.work.929-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2965; i=kees@kernel.org; h=from:subject; bh=WqXHH+IfirIk9LkIKK7Nl4nbWfgsz7d0eW6zTgrbVtU=; b=owGbwMvMwCVmps19z/KJym7G02pJDBkTHkflff/nrZrjf/rkzv6m+Qd3bffrennIcv+d+/X3C wSz1gr/6ShlYRDjYpAVU2QJsnOPc/F42x7uPlcRZg4rE8gQBi5OAZiImC7DP/OJ8fypE74U3uRN eLGrj6P1bbxeg8jxiBUOnz7942gyYmH473XulIbBzg0OV94+C85feW9dXFGt1vywDWGtj4yvTa+ O4gMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2679; i=kees@kernel.org; h=from:subject; bh=3HtYht3o5b53HlW3hmmaVS1l68Fq+Byhwo7/QFnsV8I=; b=owGbwMvMwCVmps19z/KJym7G02pJDBkTHkd9Czh7JOPuiXLZd7+tXh0+UvAmMXjmUpsPrqFNd emffkyY2FHKwiDGxSArpsgSZOce5+Lxtj3cfa4izBxWJpAhDFycAjCR0IeMDKtMbV93TbymIV3y RUjmeV9k6+Ycm98bV/GzP/x1wf6SQwEjw9LvUaanzu14nd9/YYIdr+mme3uzdviENGY4hmxRS95 ymhcA
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_094420_327481_BB39A933 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20250804_094420_365949_CFBCDCEE 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,74 +98,59 @@ __attribute__const__, the compiler had to assume the function might
 change variable states as a side-effect (which is not true for ffs(),
 which provides deterministic math results).
 
-Add missing __attribute_const__ annotations to OpenRISC's implementations of
+Add missing __attribute_const__ annotations to MIPS's implementations of
 ffs(), __ffs(), fls(), and __fls() functions. These are pure mathematical
 functions that always return the same result for the same input with no
 side effects, making them eligible for compiler optimization.
 
-Build tested ARCH=openrisc defconfig with GCC or1k-linux 15.1.0.
+Build tested ARCH=mips defconfig with GCC mipsel-linux-gnu 14.2.0.
 
 Link: https://github.com/KSPP/linux/issues/364 [1]
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
- arch/openrisc/include/asm/bitops/__ffs.h | 2 +-
- arch/openrisc/include/asm/bitops/__fls.h | 2 +-
- arch/openrisc/include/asm/bitops/ffs.h   | 2 +-
- arch/openrisc/include/asm/bitops/fls.h   | 2 +-
- 4 files changed, 4 insertions(+), 4 deletions(-)
+ arch/mips/include/asm/bitops.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/openrisc/include/asm/bitops/__ffs.h b/arch/openrisc/include/asm/bitops/__ffs.h
-index 1e224b616fdf..4827b66530b2 100644
---- a/arch/openrisc/include/asm/bitops/__ffs.h
-+++ b/arch/openrisc/include/asm/bitops/__ffs.h
-@@ -11,7 +11,7 @@
- 
- #ifdef CONFIG_OPENRISC_HAVE_INST_FF1
- 
--static inline unsigned long __ffs(unsigned long x)
-+static inline __attribute_const__ unsigned long __ffs(unsigned long x)
+diff --git a/arch/mips/include/asm/bitops.h b/arch/mips/include/asm/bitops.h
+index 89f73d1a4ea4..42f88452c920 100644
+--- a/arch/mips/include/asm/bitops.h
++++ b/arch/mips/include/asm/bitops.h
+@@ -327,7 +327,7 @@ static inline void __clear_bit_unlock(unsigned long nr, volatile unsigned long *
+  * Return the bit position (0..63) of the most significant 1 bit in a word
+  * Returns -1 if no 1 bit exists
+  */
+-static __always_inline unsigned long __fls(unsigned long word)
++static __always_inline __attribute_const__ unsigned long __fls(unsigned long word)
  {
- 	int ret;
+ 	int num;
  
-diff --git a/arch/openrisc/include/asm/bitops/__fls.h b/arch/openrisc/include/asm/bitops/__fls.h
-index 9658446ad141..637cc76fe4b7 100644
---- a/arch/openrisc/include/asm/bitops/__fls.h
-+++ b/arch/openrisc/include/asm/bitops/__fls.h
-@@ -11,7 +11,7 @@
- 
- #ifdef CONFIG_OPENRISC_HAVE_INST_FL1
- 
--static inline unsigned long __fls(unsigned long x)
-+static inline __attribute_const__ unsigned long __fls(unsigned long x)
+@@ -393,7 +393,7 @@ static __always_inline unsigned long __fls(unsigned long word)
+  * Returns 0..SZLONG-1
+  * Undefined if no bit exists, so code should check against 0 first.
+  */
+-static __always_inline unsigned long __ffs(unsigned long word)
++static __always_inline __attribute_const__ unsigned long __ffs(unsigned long word)
  {
- 	int ret;
- 
-diff --git a/arch/openrisc/include/asm/bitops/ffs.h b/arch/openrisc/include/asm/bitops/ffs.h
-index b4c835d6bc84..536a60ab9cc3 100644
---- a/arch/openrisc/include/asm/bitops/ffs.h
-+++ b/arch/openrisc/include/asm/bitops/ffs.h
-@@ -10,7 +10,7 @@
- 
- #ifdef CONFIG_OPENRISC_HAVE_INST_FF1
- 
--static inline int ffs(int x)
-+static inline __attribute_const__ int ffs(int x)
- {
- 	int ret;
- 
-diff --git a/arch/openrisc/include/asm/bitops/fls.h b/arch/openrisc/include/asm/bitops/fls.h
-index 6b77f6556fb9..77da7639bb3e 100644
---- a/arch/openrisc/include/asm/bitops/fls.h
-+++ b/arch/openrisc/include/asm/bitops/fls.h
-@@ -11,7 +11,7 @@
- 
- #ifdef CONFIG_OPENRISC_HAVE_INST_FL1
- 
+ 	return __fls(word & -word);
+ }
+@@ -405,7 +405,7 @@ static __always_inline unsigned long __ffs(unsigned long word)
+  * This is defined the same way as ffs.
+  * Note fls(0) = 0, fls(1) = 1, fls(0x80000000) = 32.
+  */
 -static inline int fls(unsigned int x)
 +static inline __attribute_const__ int fls(unsigned int x)
  {
- 	int ret;
+ 	int r;
  
+@@ -458,7 +458,7 @@ static inline int fls(unsigned int x)
+  * the libc and compiler builtin ffs routines, therefore
+  * differs in spirit from the below ffz (man ffs).
+  */
+-static inline int ffs(int word)
++static inline __attribute_const__ int ffs(int word)
+ {
+ 	if (!word)
+ 		return 0;
 -- 
 2.34.1
 
