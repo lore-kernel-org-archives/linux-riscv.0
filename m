@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AF0EC87FD1
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 16:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6792FCA0EC1
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 16:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gyazZz32Q7H6Sh3hYs1Hki2c65656ZiVVn5Nbivx8Kw=; b=dJ1eoQHcdozMv3
-	qCHuI1eujJlwD9rfBKEM6pk6cir64y6h2e23+XH9jjUFqCBceNymxZCMj/ZrMUFdlDhGtXQrHgsIo
-	ARdvfwD6FTkP/jH1x6ZP4zNvfTDWyRYkZjxV162bos7AOu9PtTEErdzZsjsGI+yRCPWhVUfUlhDTg
-	X7XAmsm6xtQ9/MrouepinZB6GcqEhm9qGH+e85YWH/574e0jrGBqkOJcaeEgvhubZq0CqHPjyMxFH
-	OkQXkZJiVJAQAUgBgeRBdc1SstXj6NgpuQT3WOPPPo+nU83Nys7g/l0XlG/NSwtMtxMKMCcHgTnW0
-	3/hdm5Y97BLGkmgA32CQ==;
+	List-Owner; bh=VB7B5SSc40N8HY+Mj+cs9Mk/+P+uBB7Y5TnceraGaQM=; b=qXAOhRicwl0rZ4
+	CHSWNzqljWVFHscmRwpmyBF8+Vl8gE+E7TKqkZ92kYEYyaGtA3sVV6gX8IJG1rtGK1oCxFo/DcvCd
+	udUllJlE0ph2qwFXxiWFTFn+RUUDt9q9fKbByHREJmgPoCsRA7BgTKO8Vy1vzBnk03c9F2gpCHge0
+	L3Tj7qxSz5c8bnQfYoBfmKHaQrxFxWZ3Nr1PWL1ViVlTaTm0FF2GD3KA5GV0OL4PCTKhD4qJAYjMy
+	Ef/jwHd/YPqZGjezxtcwCEsaUFB9rIUbhYisTvemJ9YLqic9sQWCHWemrgZqZawz/FYxY0tkqMAqX
+	ZanFpRB3+yCELpz85XYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiyKQ-0000000B0p3-0i30;
-	Mon, 04 Aug 2025 16:46:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uiyKV-0000000B0uO-0fgh;
+	Mon, 04 Aug 2025 16:46:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiyIN-0000000Azxi-0iSK
+	id 1uiyIM-0000000Azxy-45Tq
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 16:44:19 +0000
+	Mon, 04 Aug 2025 16:44:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8F99D6111C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6774745E60;
 	Mon,  4 Aug 2025 16:44:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B6F4C16AAE;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41AB4C113CF;
 	Mon,  4 Aug 2025 16:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1754325858;
-	bh=nxTQvOzC/JSvvXmGiwbBm389+tS3ydnEWu5ZjeE7uO8=;
+	bh=752sQmjr+WkEQIQTz2YsThA0XswYRbPSJznITLPZ8n0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iWE8VRfr3OxYP3UO+d3IFdSlRFDUjVi2yt4abZfHzx8WHNZlmjZv+iW6tbZ1hMSed
-	 GMUdeyWXa93Rj3Q0kqxys9JnrtcHbS7zYtwpkZQRdwxgfGOKtH22uDHP/aPOYqk0zt
-	 gx8OrUhDzIOeYz/3ozZ66IT6SxVrbTOHmxAgWe1j9r7DVA49oSHPmCapszzzdVlvT5
-	 0rVKK5k/1PP3orjyxoddlYJAHhNu+cSVguk1WJNaR/vlpIK6zkQ5yksGOZcLTjvx5d
-	 +wES39FcF9VH0Zhaow4jkVDyWjetCNzprRgTQ6VOL3WnhLNsY4nqYgtVeNxI1xrh5K
-	 6EfQRLAP2s92A==
+	b=DFYJDn3iT6d1HFBeZ+4JC6ama4tupJDc2NxZKYp8ACnJ1iL3GmdJ4nU9J6Gxpz6zV
+	 ggkLZE5g33xSNghuW+/4AldAgkpmoHzVtp05Mm0Tk77p9FwqmOTo5KhNYbg7IGPo42
+	 Zaxz1NYG/MDOHO+D0u6LkCfsfIaxlPUFpaI3es/IGEblVRHWsEmsmx5qlouLXGxOO/
+	 jZURCEO+cG1tK5otFXKDXMarJRlXurVor/Uk6n4hK/Tfhs4SPDSIBIKjGx1Re9Gru2
+	 RayDn4/9xO/y4REx1nhEGhNAedTHIr/vlsv5X97wp/q8FQQMD03LxVviKNDFWQcU2I
+	 jhO6Ld2SN/XqA==
 From: Kees Cook <kees@kernel.org>
 To: linux-arch@vger.kernel.org
 Cc: Kees Cook <kees@kernel.org>,
@@ -61,15 +61,18 @@ Cc: Kees Cook <kees@kernel.org>,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH 08/17] hexagon: Add __attribute_const__ to ffs()-family implementations
-Date: Mon,  4 Aug 2025 09:44:04 -0700
-Message-Id: <20250804164417.1612371-8-kees@kernel.org>
+Subject: [PATCH 07/17] alpha: Add __attribute_const__ to ffs()-family implementations
+Date: Mon,  4 Aug 2025 09:44:03 -0700
+Message-Id: <20250804164417.1612371-7-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250804163910.work.929-kees@kernel.org>
 References: <20250804163910.work.929-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2819; i=kees@kernel.org; h=from:subject; bh=nxTQvOzC/JSvvXmGiwbBm389+tS3ydnEWu5ZjeE7uO8=; b=owGbwMvMwCVmps19z/KJym7G02pJDBkTHkdOvim1XYmPabvy37zFTXdO+twPi7p8b1vSfFm/q OnG5olrO0pZGMS4GGTFFFmC7NzjXDzetoe7z1WEmcPKBDKEgYtTACZiJ8/wv6jRWDiHOXGy6K77 d0Jm7Hwj/e9RpO9Ez+OX9qfOXmB1yp7hr+z2vC+XouyPGE0/r/25u2hG61q+7x8rzLzfsxpPfBd xmwEA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3242; i=kees@kernel.org; h=from:subject; bh=752sQmjr+WkEQIQTz2YsThA0XswYRbPSJznITLPZ8n0=; b=owGbwMvMwCVmps19z/KJym7G02pJDBkTHkeW55xweCLlqOjVdbHHOVIuePb3nVd3fpROS5YTs nc5WMrUUcrCIMbFICumyBJk5x7n4vG2Pdx9riLMHFYmkCEMXJwCMJEFFxkZZtwvav769fajq9di vywovGGe9+SBsdj3hDVaNi73rnRVSzAy/N3mv2O7ocl6bb0KjjvftqjJnWeQndM4JzZ/d2XXEZZ 33AA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250804_094419_108086_13E1CDEE 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,69 +98,83 @@ __attribute__const__, the compiler had to assume the function might
 change variable states as a side-effect (which is not true for ffs(),
 which provides deterministic math results).
 
-Add missing __attribute_const__ annotations to Hexagon's implementations
-of fls(), ffs(), __ffs(), __fls(), and ffz() functions. These are
-pure mathematical functions that always return the same result for
+Add missing __attribute_const__ annotations to Alpha's implementations
+of __ffs(), ffs(), fls64(), __fls(), fls(), and ffz() functions. These
+are pure mathematical functions that always return the same result for
 the same input with no side effects, making them eligible for compiler
 optimization.
 
-Build tested ARCH=hexagon defconfig with Clang 21.0.0git (LLVM=1).
+Build tested ARCH=alpha defconfig with GCC alpha-linux-gnu 14.2.0.
 
 Link: https://github.com/KSPP/linux/issues/364 [1]
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
- arch/hexagon/include/asm/bitops.h | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ arch/alpha/include/asm/bitops.h | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/arch/hexagon/include/asm/bitops.h b/arch/hexagon/include/asm/bitops.h
-index 160d8f37fa1a..b23cb13833af 100644
---- a/arch/hexagon/include/asm/bitops.h
-+++ b/arch/hexagon/include/asm/bitops.h
-@@ -200,7 +200,7 @@ arch_test_bit_acquire(unsigned long nr, const volatile unsigned long *addr)
-  *
-  * Undefined if no zero exists, so code should check against ~0UL first.
-  */
--static inline long ffz(int x)
-+static inline long __attribute_const__ ffz(int x)
- {
- 	int r;
+diff --git a/arch/alpha/include/asm/bitops.h b/arch/alpha/include/asm/bitops.h
+index 3e33621922c3..76e4343c090f 100644
+--- a/arch/alpha/include/asm/bitops.h
++++ b/arch/alpha/include/asm/bitops.h
+@@ -328,7 +328,7 @@ static inline unsigned long ffz_b(unsigned long x)
+ 	return sum;
+ }
  
-@@ -217,7 +217,7 @@ static inline long ffz(int x)
-  * This is defined the same way as ffs.
-  * Note fls(0) = 0, fls(1) = 1, fls(0x80000000) = 32.
-  */
--static inline int fls(unsigned int x)
-+static inline __attribute_const__ int fls(unsigned int x)
+-static inline unsigned long ffz(unsigned long word)
++static inline unsigned long __attribute_const__ ffz(unsigned long word)
  {
- 	int r;
- 
-@@ -238,7 +238,7 @@ static inline int fls(unsigned int x)
-  * the libc and compiler builtin ffs routines, therefore
-  * differs in spirit from the above ffz (man ffs).
-  */
--static inline int ffs(int x)
-+static inline __attribute_const__ int ffs(int x)
- {
- 	int r;
- 
-@@ -260,7 +260,7 @@ static inline int ffs(int x)
-  * bits_per_long assumed to be 32
-  * numbering starts at 0 I think (instead of 1 like ffs)
+ #if defined(CONFIG_ALPHA_EV6) && defined(CONFIG_ALPHA_EV67)
+ 	/* Whee.  EV67 can calculate it directly.  */
+@@ -348,7 +348,7 @@ static inline unsigned long ffz(unsigned long word)
+ /*
+  * __ffs = Find First set bit in word.  Undefined if no set bit exists.
   */
 -static inline unsigned long __ffs(unsigned long word)
 +static inline __attribute_const__ unsigned long __ffs(unsigned long word)
  {
- 	int num;
- 
-@@ -278,7 +278,7 @@ static inline unsigned long __ffs(unsigned long word)
-  * Undefined if no set bit exists, so code should check against 0 first.
-  * bits_per_long assumed to be 32
+ #if defined(CONFIG_ALPHA_EV6) && defined(CONFIG_ALPHA_EV67)
+ 	/* Whee.  EV67 can calculate it directly.  */
+@@ -373,7 +373,7 @@ static inline unsigned long __ffs(unsigned long word)
+  * differs in spirit from the above __ffs.
   */
--static inline unsigned long __fls(unsigned long word)
-+static inline __attribute_const__ unsigned long __fls(unsigned long word)
- {
- 	int num;
  
+-static inline int ffs(int word)
++static inline __attribute_const__ int ffs(int word)
+ {
+ 	int result = __ffs(word) + 1;
+ 	return word ? result : 0;
+@@ -383,14 +383,14 @@ static inline int ffs(int word)
+  * fls: find last bit set.
+  */
+ #if defined(CONFIG_ALPHA_EV6) && defined(CONFIG_ALPHA_EV67)
+-static inline int fls64(unsigned long word)
++static inline __attribute_const__ int fls64(unsigned long word)
+ {
+ 	return 64 - __kernel_ctlz(word);
+ }
+ #else
+ extern const unsigned char __flsm1_tab[256];
+ 
+-static inline int fls64(unsigned long x)
++static inline __attribute_const__ int fls64(unsigned long x)
+ {
+ 	unsigned long t, a, r;
+ 
+@@ -403,12 +403,12 @@ static inline int fls64(unsigned long x)
+ }
+ #endif
+ 
+-static inline unsigned long __fls(unsigned long x)
++static inline __attribute_const__ unsigned long __fls(unsigned long x)
+ {
+ 	return fls64(x) - 1;
+ }
+ 
+-static inline int fls(unsigned int x)
++static inline __attribute_const__ int fls(unsigned int x)
+ {
+ 	return fls64(x);
+ }
 -- 
 2.34.1
 
