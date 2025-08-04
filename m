@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F76C87FCB
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 01:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8420C87FCB
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 02:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MoLHRYVwW+t5eEWoLNATcPE1dWNUHrUNKb9MzPyT8Io=; b=4uIsl2IWt820JB
-	DguQN+Dg3VyquIhdpagpMsHvJICMUznjBXBbJAsfR5vNBPCc8eBb3+9bhj7MegiR6r9OXjqVZuoLc
-	dmVJs9CiLkG2nlvhurYeFxHWZfWQe2f02gonbEsK7TQZUolaZZoGIOJsQVoYQBj3/Cv4flX1ixEEi
-	25fAuGE0boRW/PvWgx8punWEIwXP+pYG4ZumNFtYKVN/EoeaEaO/BI5bhEpyThV0LEBV7trwmSbw8
-	tUmlYfr6tY/4IQPMAN6kfQm26CNLAFSCfYc8TERPZuQZB74xaJFEX8pY5TLj7/YCJwPCsiFjwQgFH
-	9UMHBqH6bb/stZKWMi9Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PoxcXr44drmxFUTEyhC15XWYm5q9k+uJ3fFbtYh4DQM=; b=fe2S7OoW818OyC
+	p/p5Yr6gIBiPWLdraC+kIcfwSEDLliuqBKUQ5uRt7eDl0q3D4DNzsiL8NuSDWiZ+Y2jrMqs99ynzr
+	Qp0ogdegH+kY8VC/uAqEE4IPPOwW3xlFdTZbHPNvSxkv4G+8znBf5brkZ2u1th9Rih+eH7AaJZx9J
+	y7uxGsRGokwD0qs5TY7CuA6cLFCHSchu6neAs4upvvQUZt42IiRyI8TrkyPhhklquZQnbBOx6OrZo
+	aTupKR+4eKzm1CsRmwBR9jAOTbBzcF3uH6ppr/2D0TATU9kfF2IeQ1YE7+ozOb4jTXMQc4YGfzEDg
+	VfunoYUFjpTU6Aii8z/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uikR1-00000009T0S-2lzr;
-	Mon, 04 Aug 2025 01:56:19 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uilIg-00000009W30-1149;
+	Mon, 04 Aug 2025 02:51:46 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijHh-00000009Mms-1pGi
+	id 1uilId-00000009W1j-094b
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 00:42:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B7D3CA54F36;
-	Mon,  4 Aug 2025 00:42:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0A5AC4CEEB;
-	Mon,  4 Aug 2025 00:42:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754268156;
-	bh=1KUE5bxIJPdQBz/e5JfdWEef4SoYwPSb7HUyr5wZdBM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bVgtKc50g6sk0KGC0dJI9Nh0Wc1jCx7aj34Ou4sRSrcca1TEaj7max9V2Lo9w8Dv3
-	 JJ3dPwl5sLfxSm7Sc+yqVlfEcnWgZ0K8/lcZfon75UdiP4AluXAL+wPW804lfu3agl
-	 wycAM2oWUq+nkEb27p40K3priNmrbHG624rLcphdbc3gdwU6ox3yRV8eb0O27FnjQz
-	 rVk3SRYL847bMP7rtWIzYmLLM1H/+IfSUIDhXCPr0LgSqun2k6PbgVxPrNZMdmcZxn
-	 cPRP/8CaHYf0E2WK12LqC6GkNTJ0jA8HMVjzWmO03uDp+J95HEX1I2urf+Yu7QQ8PC
-	 fmiiAcwY+1Izw==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Cynthia Huang <cynthia@andestech.com>,
-	Ben Zong-You Xie <ben717@andestech.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Muhammad Usama Anjum <usama.anjum@collabora.com>,
-	Sasha Levin <sashal@kernel.org>,
+	Mon, 04 Aug 2025 02:51:44 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-76b36e6b9ddso3131072b3a.1
+        for <linux-riscv@lists.infradead.org>; Sun, 03 Aug 2025 19:51:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1754275898; x=1754880698; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Kppyljle9MoC1RO3HWHQlYBE2gQj+CD/61kPvhIKZUU=;
+        b=Nhk2bpHzGKP0pwcFLYFwajof0HZX0YQRLVi6LyEm0sdy8WnCTHwDmGF9EamRsdh6g7
+         vo7e2/OouTHhyx3ZKS6mKXaM9FWsfGNbY6/NEbBoUO/ytb7KUHuOfIAN0VeZA3IeM//s
+         N2WSzZjZpDPlscoDrtNbBO7JOhONPFbPREPJQdATjG+qL4bKmj5l3slphEJBN00hhacS
+         VHlMvTnISyA1MpRolSTerx6MmjOdNUIPV1L+f1CTFExoFH4rRWcEnYFS7KlUcVxdwFmX
+         tYsaBolns60ct2+yq5I7H/QWICPlRERNo+sre4Hcc5I3FIwAnakmlxvLiZtwYcZRPIHE
+         PxLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754275898; x=1754880698;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Kppyljle9MoC1RO3HWHQlYBE2gQj+CD/61kPvhIKZUU=;
+        b=WxG2kotXFA0Z6q2a47NjGEK+pd7FiGuDypPnkqHbQ4tkUlMEvjZv1aOGjNzS/ZDPUl
+         yFL557MzlFM/oP+r1xcqMC7JA33fBALeW2igwrYPgClO8RcTZqd2YWiEGrsM3XjBdAg7
+         BkmGFp6aPlAs4VlOs7k6tDZaWHLmIOOGnxxkwBEACfEj/r3eoSm8WqqbEpC5pupdcbSN
+         WaHq8zGbg7ykqloiLRuvdhL9L7z41cp2ZaEQ7QqQoTS/2fA8JWIUuaFIX9ciQwCC2+Mp
+         QZ8tHB64BZBb0eZvtmrR4C3Noo0EFUt5QBpw+Ibyp3obbRtFTn75XLofj0zaoLg0Nmi7
+         T9ZA==
+X-Forwarded-Encrypted: i=1; AJvYcCVtHumFPjjm00qoqhRgQzNsrQx/004l0vV5BFhqcXtqjFOSsLKOaSKE83x3yAOTOCyRpRN2W8ED5Ayo9Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6jaVxl/g/Mp7B5RHqVGtfu6GP52V5s/8+hgFrP0SeqJ7hJhc1
+	0qkuJf8n4bIQPH3bkeADHOG9S2xkGw4R4us+kxv0qLzSy4EvHDxSO0EVWmVOvD3tCPI=
+X-Gm-Gg: ASbGnctpIQoPGTr9WMq0rZ9jxcs/x5BrPGRjeC4DWoEtNDNY87sjB+pVcwVDLo+2PqW
+	H1hYue+1joUEgUAWvwuHRChsn9ZG/5Tld+tV0Bdt6c4u4zcA0h30IvAtDR05juMQmflvu30LgcB
+	SV3WuadZJWUS1ndA62D3b9/5NTFJSbWw3XXjywUKRIGZDBzac21O5+VvnCBTQ+bxfXzWanwrTXv
+	Z+rOq46VZWGJogHs3VAkjUI2b9Rc6vxo2BkDmbT/i1+oHn3lPBtPORzUBrP+0FZUIvjEHU7Vkuc
+	2LVBKHMdQUXomyNUu5/FQclSJfr9UYi9uLtUjfzyxPAMKj5wGg19jOJVfE1AM1kRbVMcEXSeTim
+	NW0e15dnDRNTkf1Jh5nFiXm7g0lq4C4nYCBYg52rAPuJkUX+dVho4lqWfanjh8A==
+X-Google-Smtp-Source: AGHT+IGnAJTT+IrbnsWZCRCk+YCd+3FYDN3fJPd3vuAU12BnpRFJPFCkmur1SehfCljyn2rk7N6/hA==
+X-Received: by 2002:a05:6a00:9a5:b0:76b:c882:e0a with SMTP id d2e1a72fcca58-76bec30d23dmr8835977b3a.5.1754275898337;
+        Sun, 03 Aug 2025 19:51:38 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([139.177.225.246])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76be9143983sm5181960b3a.1.2025.08.03.19.51.33
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 03 Aug 2025 19:51:37 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: atish.patra@linux.dev,
+	anup@brainfault.org,
+	will@kernel.org,
+	mark.rutland@arm.com,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.4 03/28] selftests/futex: Define SYS_futex on 32-bit architectures with 64-bit time_t
-Date: Sun,  3 Aug 2025 20:42:02 -0400
-Message-Id: <20250804004227.3630243-3-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250804004227.3630243-1-sashal@kernel.org>
-References: <20250804004227.3630243-1-sashal@kernel.org>
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: [PATCH] perf: riscv: skip empty batches in counter start
+Date: Mon,  4 Aug 2025 10:51:10 +0800
+Message-Id: <20250804025110.11088-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.4.296
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_174237_602818_DDF988E2 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250803_195143_229155_325FA26E 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,100 +107,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Cynthia Huang <cynthia@andestech.com>
+Avoid unnecessary SBI calls when starting non-overflowed counters
+in pmu_sbi_start_ovf_ctrs_sbi() by checking ctr_start_mask.
 
-[ Upstream commit 04850819c65c8242072818655d4341e70ae998b5 ]
-
-The kernel does not provide sys_futex() on 32-bit architectures that do not
-support 32-bit time representations, such as riscv32.
-
-As a result, glibc cannot define SYS_futex, causing compilation failures in
-tests that rely on this syscall. Define SYS_futex as SYS_futex_time64 in
-such cases to ensure successful compilation and compatibility.
-
-Signed-off-by: Cynthia Huang <cynthia@andestech.com>
-Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
-Link: https://lore.kernel.org/all/20250710103630.3156130-1-ben717@andestech.com
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
+ drivers/perf/riscv_pmu_sbi.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-LLM Generated explanations, may be completely bogus:
-
-**Backport Status: YES**
-
-This commit should be backported to stable kernel trees for the
-following reasons:
-
-1. **Fixes a real compilation failure bug**: The commit addresses a
-   build failure in kernel selftests on 32-bit architectures with 64-bit
-   time_t, specifically riscv32. This prevents the futex selftests from
-   compiling on these architectures, which is a functional bug that
-   affects testing infrastructure.
-
-2. **Simple and contained fix**: The change is minimal - it only adds a
-   conditional preprocessor definition that maps `SYS_futex` to
-   `SYS_futex_time64` when the former is not defined but the latter is.
-   The fix is:
-  ```c
-  #if !defined(SYS_futex) && defined(SYS_futex_time64)
-  #define SYS_futex SYS_futex_time64
-  #endif
-  ```
-
-3. **No risk of regression**: The change is guarded by preprocessor
-   conditionals that only activate when `SYS_futex` is not defined AND
-   `SYS_futex_time64` is defined. This means it has zero impact on
-   architectures where `SYS_futex` is already defined, ensuring no
-   regressions on existing systems.
-
-4. **Affects kernel testing infrastructure**: While this is in the
-   selftests directory and not core kernel code, having working
-   selftests is critical for kernel stability and quality assurance. The
-   futex selftests are important for validating futex functionality
-   across different architectures.
-
-5. **Addresses Y2038 compatibility**: This fix is part of the broader
-   Y2038 compatibility effort where 32-bit architectures are
-   transitioning to 64-bit time_t. As more 32-bit architectures adopt
-   64-bit time_t, this fix becomes increasingly important.
-
-6. **Clear problem and solution**: The commit message clearly explains
-   the issue (glibc cannot define SYS_futex on certain architectures)
-   and provides a clean solution that maintains compatibility.
-
-The fix follows stable kernel rules by being a minimal change that fixes
-an important bug without introducing new features or architectural
-changes. It's confined to the testing infrastructure and has clear
-boundaries with no side effects beyond enabling compilation of the futex
-selftests on affected architectures.
-
- tools/testing/selftests/futex/include/futextest.h | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/tools/testing/selftests/futex/include/futextest.h b/tools/testing/selftests/futex/include/futextest.h
-index ddbcfc9b7bac..7a5fd1d5355e 100644
---- a/tools/testing/selftests/futex/include/futextest.h
-+++ b/tools/testing/selftests/futex/include/futextest.h
-@@ -47,6 +47,17 @@ typedef volatile u_int32_t futex_t;
- 					 FUTEX_PRIVATE_FLAG)
- #endif
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 698de8ddf895b..3977f7488e4ef 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -877,8 +877,10 @@ static inline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt,
+ 	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
+ 		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~ctr_ovf_mask;
+ 		/* Start all the counters that did not overflow in a single shot */
+-		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG, ctr_start_mask,
+-			0, 0, 0, 0);
++		if (ctr_start_mask) {
++			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
++				  ctr_start_mask, 0, 0, 0, 0);
++		}
+ 	}
  
-+/*
-+ * SYS_futex is expected from system C library, in glibc some 32-bit
-+ * architectures (e.g. RV32) are using 64-bit time_t, therefore it doesn't have
-+ * SYS_futex defined but just SYS_futex_time64. Define SYS_futex as
-+ * SYS_futex_time64 in this situation to ensure the compilation and the
-+ * compatibility.
-+ */
-+#if !defined(SYS_futex) && defined(SYS_futex_time64)
-+#define SYS_futex SYS_futex_time64
-+#endif
-+
- /**
-  * futex() - SYS_futex syscall wrapper
-  * @uaddr:	address of first futex
+ 	/* Reinitialize and start all the counter that overflowed */
 -- 
 2.39.5
 
