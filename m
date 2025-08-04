@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF41C87FDA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C892DC87FCB
 	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 16:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tteqV6O9hFjH7tXastyL5gDyXyabto9V1ZoZs3Cx/xA=; b=1fOXA+vLCf9Gw2
-	V597HXtqfcheeGKJTjThtqi0ovG48uFBYFviriKiqgoKHg7vA55DJt9n7UiqiHNS6Nnm6WxYqmOIc
-	zR72tkwBqjAn+hJvutTPI+67sSLpNSaWxbn6y3YYqoYfptdZqlUy9BSg1+gw24asF9Pow7OYJjQ74
-	EW1ueiup1S2mZ9khWZRynn9g/9v/j554LYhbBxIZiUBVOdFzKr6lKVO0RUyEsJ25rermrnIoatN4T
-	6j6tfdP+hjO9/BLHLpA72rzsFNlC0ER5uye3/vw8mRXdoPomK2N/+z9opdvlwGjTsA3m6u+1anPjh
-	3OV4CsAF3rY2nvNek/dw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+R5gYqp/bgaRdhPDJU7R+2y36E91uHnI3oR+Z5l8BtM=; b=Y9Ph6txAafqwIH
+	UzfsloNwZS0wpqYP6FiZ88xxeg9oRAPzxONs6paWWgDqs/YU/BK748+H3euksN65lta03Rhafbegi
+	8RexT+DALXcEHhRSVZ7eeD2qEZmR2RShCVlBtQKFsS5h14qb6uWadcQ52xARjrE6wqmjyqyYLlqPu
+	XqgerWmalyQjee7PDmirsrR8YXvXhQXUpdHHXSPoDvVM+W9QQu7NIhetpJr+zpvw2C7jaMMytot/R
+	q+Bb5soL1MkZ78WUiEbS7amu/a+s61cQ9F73Sn8OHc6PfYRZ4X0KtJdY4GM8XFZTsBPZkSpfxmTlK
+	rgOr0H9hhCoox+kFenmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiyKP-0000000B0ol-21Ls;
-	Mon, 04 Aug 2025 16:46:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uiyKR-0000000B0r0-3IJc;
+	Mon, 04 Aug 2025 16:46:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiyIN-0000000Azx8-0REz
+	id 1uiyIN-0000000B006-2qqB
 	for linux-riscv@lists.infradead.org;
 	Mon, 04 Aug 2025 16:44:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3799560200;
+	by tor.source.kernel.org (Postfix) with ESMTP id BD5A761139;
 	Mon,  4 Aug 2025 16:44:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDE13C4CEE7;
-	Mon,  4 Aug 2025 16:44:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8802DC4CEFE;
+	Mon,  4 Aug 2025 16:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754325857;
-	bh=r2v62d4bVt9owj808SKHRzdSx9oLY8KjiUCy34x/12Y=;
-	h=From:To:Cc:Subject:Date:From;
-	b=qoDkY9It5/lqR9fbX6g8iGg/nmmtCv14BOgAwhkb5uNiClyFaMkiukY7Oc+J1MaKh
-	 dZnz4X/S3ajFCt76duYJHDx0quVZH6oSu/c0vStSRzaSzbCcMKFV4L18ye0ZTJoXPN
-	 i3oURUhH5BvGFLUiBhUMaVt9LAqwPNrH4pyC8RyKbvz3yMn0pqcXcQS+g91j40QHjM
-	 lNQCmlS8pNR7LcsmFHjuc2AbEWdFGnRvWbhlC/VB8DAo2fUatOIF7DscYokL7FpXgy
-	 l5z39sJCmL4o5lHPcQDJdF9jtn/jsrC9WDmDQnvKWCYKZ26XpAxSx9TjSBv7Ns52lt
-	 j7UHemkdNe4Mg==
+	s=k20201202; t=1754325858;
+	bh=bi83DBSxTax3RYBhak54pajUvhtkEYIGQUxIvC9PE+I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Bgcltgsyxoyf/pKF+Tj3hy+i0p+Uv1aCtnom71lmu6zgJmQHg1dJf8V/XnIlHC6pd
+	 hAwD0iPYUVHXShTacAvArdMfxY2rrIc7kzQgBeVWZ45s4XF8e2w/jVyaR5nvULRC5+
+	 sUciGGOA+pFzVwTxE0KvHX4IhxnVx3dJs4Wnd4ORleV95p6qSQhhsHcakorPshOjz5
+	 iOP3HSpjTYkxiRvo64dk+KgzJK3zbqgu/qopxOBJFcbPZR48Q3Yi9RzBKlPO9/3p14
+	 ix2M4vSFeoehIGIXuzlmpvsGAPVuJjjrj6bN9GUItM/Rzeuwwb8T1+GYCAcKq1BlZh
+	 VR8QPX6SL2SsQ==
 From: Kees Cook <kees@kernel.org>
 To: linux-arch@vger.kernel.org
 Cc: Kees Cook <kees@kernel.org>,
@@ -61,12 +61,14 @@ Cc: Kees Cook <kees@kernel.org>,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH 00/17] Add __attribute_const__ to ffs()-family implementations
-Date: Mon,  4 Aug 2025 09:43:56 -0700
-Message-Id: <20250804163910.work.929-kees@kernel.org>
+Subject: [PATCH 15/17] xtensa: Add __attribute_const__ to ffs()-family implementations
+Date: Mon,  4 Aug 2025 09:44:11 -0700
+Message-Id: <20250804164417.1612371-15-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250804163910.work.929-kees@kernel.org>
+References: <20250804163910.work.929-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3619; i=kees@kernel.org; h=from:subject:message-id; bh=r2v62d4bVt9owj808SKHRzdSx9oLY8KjiUCy34x/12Y=; b=owGbwMvMwCVmps19z/KJym7G02pJDBkTHofFXgjp7KzykhVPcF48Q+LLy7qNn3Wc38x5WLbt/ 44z4VPWdZSyMIhxMciKKbIE2bnHuXi8bQ93n6sIM4eVCWQIAxenAEzERo7hf8kiKe0FSd8l7Cv7 We7uUrdPYDs+m0lg/c5Dkx57tW49XMrwT2vS53lTDZ/v/XEnZcFFsaM9CXKfOL49eCxys3TZx5i tytwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2758; i=kees@kernel.org; h=from:subject; bh=bi83DBSxTax3RYBhak54pajUvhtkEYIGQUxIvC9PE+I=; b=owGbwMvMwCVmps19z/KJym7G02pJDBkTHkeb9bDx/Nw2R6PD5fZFAdkDyyrPvD+T8PfQGlEXi 7KDPivPdJSyMIhxMciKKbIE2bnHuXi8bQ93n6sIM4eVCWQIAxenAEyklofhr0z6rA9SgTnRLP1d iyVVkrKvHem4/UN/SuIUQe4VwRMSyxn+6bhFap9w6BJ9Zbqp022VpEZv9/UHv08EpmQaNBTd/8H NBQA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,77 +86,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
 While tracking down a problem where constant expressions used by
 BUILD_BUG_ON() suddenly stopped working[1], we found that an added static
 initializer was convincing the compiler that it couldn't track the state
 of the prior statically initialized value. Tracing this down found that
 ffs() was used in the initializer macro, but since it wasn't marked with
-__attribute_const__, the compiler had to assume the function might
+__attribute__const__, the compiler had to assume the function might
 change variable states as a side-effect (which is not true for ffs(),
 which provides deterministic math results).
 
-Add KUnit tests for the family of functions and then add __attribute_const__
-to all architecture implementations and wrappers.
+Add missing __attribute_const__ annotations to Xtensa's implementations
+of ffs(), __ffs(), fls(), __fls(), ffz() functions. These are pure
+mathematical functions that always return the same result for the
+same input with no side effects, making them eligible for compiler
+optimization.
 
--Kees
+Build tested ARCH=xtensa defconfig with GCC xtensa-linux 15.1.0.
 
-[1] https://github.com/KSPP/linux/issues/364
+Link: https://github.com/KSPP/linux/issues/364 [1]
+Signed-off-by: Kees Cook <kees@kernel.org>
+---
+ arch/xtensa/include/asm/bitops.h | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-Kees Cook (17):
-  KUnit: Introduce ffs()-family tests
-  bitops: Add __attribute_const__ to generic ffs()-family
-    implementations
-  csky: Add __attribute_const__ to ffs()-family implementations
-  x86: Add __attribute_const__ to ffs()-family implementations
-  powerpc: Add __attribute_const__ to ffs()-family implementations
-  sh: Add __attribute_const__ to ffs()-family implementations
-  alpha: Add __attribute_const__ to ffs()-family implementations
-  hexagon: Add __attribute_const__ to ffs()-family implementations
-  riscv: Add __attribute_const__ to ffs()-family implementations
-  openrisc: Add __attribute_const__ to ffs()-family implementations
-  m68k: Add __attribute_const__ to ffs()-family implementations
-  mips: Add __attribute_const__ to ffs()-family implementations
-  parisc: Add __attribute_const__ to ffs()-family implementations
-  s390: Add __attribute_const__ to ffs()-family implementations
-  xtensa: Add __attribute_const__ to ffs()-family implementations
-  sparc: Add __attribute_const__ to ffs()-family implementations
-  KUnit: ffs: Validate all the __attribute_const__ annotations
-
- lib/Kconfig.debug                          |  14 +
- lib/tests/Makefile                         |   1 +
- arch/alpha/include/asm/bitops.h            |  14 +-
- arch/csky/include/asm/bitops.h             |   8 +-
- arch/hexagon/include/asm/bitops.h          |  10 +-
- arch/m68k/include/asm/bitops.h             |  14 +-
- arch/mips/include/asm/bitops.h             |   8 +-
- arch/openrisc/include/asm/bitops/__ffs.h   |   2 +-
- arch/openrisc/include/asm/bitops/__fls.h   |   2 +-
- arch/openrisc/include/asm/bitops/ffs.h     |   2 +-
- arch/openrisc/include/asm/bitops/fls.h     |   2 +-
- arch/parisc/include/asm/bitops.h           |   6 +-
- arch/powerpc/include/asm/bitops.h          |   4 +-
- arch/riscv/include/asm/bitops.h            |   6 +-
- arch/s390/include/asm/bitops.h             |  10 +-
- arch/sh/include/asm/bitops.h               |   4 +-
- arch/sparc/include/asm/bitops_64.h         |   8 +-
- arch/x86/include/asm/bitops.h              |  12 +-
- arch/xtensa/include/asm/bitops.h           |  10 +-
- include/asm-generic/bitops/__ffs.h         |   2 +-
- include/asm-generic/bitops/__fls.h         |   2 +-
- include/asm-generic/bitops/builtin-__ffs.h |   2 +-
- include/asm-generic/bitops/builtin-__fls.h |   2 +-
- include/asm-generic/bitops/builtin-fls.h   |   2 +-
- include/asm-generic/bitops/ffs.h           |   2 +-
- include/asm-generic/bitops/fls.h           |   2 +-
- include/asm-generic/bitops/fls64.h         |   4 +-
- include/linux/bitops.h                     |   2 +-
- lib/clz_ctz.c                              |   8 +-
- lib/tests/ffs_kunit.c                      | 566 +++++++++++++++++++++
- 30 files changed, 656 insertions(+), 75 deletions(-)
- create mode 100644 lib/tests/ffs_kunit.c
-
+diff --git a/arch/xtensa/include/asm/bitops.h b/arch/xtensa/include/asm/bitops.h
+index e02ec5833389..f7390b6761e1 100644
+--- a/arch/xtensa/include/asm/bitops.h
++++ b/arch/xtensa/include/asm/bitops.h
+@@ -37,7 +37,7 @@ static inline unsigned long __cntlz (unsigned long x)
+  * bit 0 is the LSB of addr; bit 32 is the LSB of (addr+1).
+  */
+ 
+-static inline int ffz(unsigned long x)
++static inline int __attribute_const__ ffz(unsigned long x)
+ {
+ 	return 31 - __cntlz(~x & -~x);
+ }
+@@ -46,7 +46,7 @@ static inline int ffz(unsigned long x)
+  * __ffs: Find first bit set in word. Return 0 for bit 0
+  */
+ 
+-static inline unsigned long __ffs(unsigned long x)
++static inline __attribute_const__ unsigned long __ffs(unsigned long x)
+ {
+ 	return 31 - __cntlz(x & -x);
+ }
+@@ -57,7 +57,7 @@ static inline unsigned long __ffs(unsigned long x)
+  * differs in spirit from the above ffz (man ffs).
+  */
+ 
+-static inline int ffs(unsigned long x)
++static inline __attribute_const__ int ffs(unsigned long x)
+ {
+ 	return 32 - __cntlz(x & -x);
+ }
+@@ -67,7 +67,7 @@ static inline int ffs(unsigned long x)
+  * Note fls(0) = 0, fls(1) = 1, fls(0x80000000) = 32.
+  */
+ 
+-static inline int fls (unsigned int x)
++static inline __attribute_const__ int fls (unsigned int x)
+ {
+ 	return 32 - __cntlz(x);
+ }
+@@ -78,7 +78,7 @@ static inline int fls (unsigned int x)
+  *
+  * Undefined if no set bit exists, so code should check against 0 first.
+  */
+-static inline unsigned long __fls(unsigned long word)
++static inline __attribute_const__ unsigned long __fls(unsigned long word)
+ {
+ 	return 31 - __cntlz(word);
+ }
 -- 
 2.34.1
 
