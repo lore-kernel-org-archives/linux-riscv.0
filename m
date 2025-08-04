@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B50D1C87FCF
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 20:29:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B90BC87FCB
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 20:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r7R4Kvbk/9L2Ypaah4YtcuD70pePydjjn/HxgD2pzQY=; b=aA1zaFc9IzyhL1
-	4N6MYsS5CiL5EEPKzCWZJURfflzjGT8JJL4H3oCvs+SFr0P5gyQJJzMG637okpuIHjYeLSe2kB1r+
-	LKM68iMxtPK1m90pXtSMWfvzEV4FxkaIK6qEl5+GIg1xRenQHccxs2BMjlVAws/IR59pI0+jXDNGo
-	lZFuou/UWUa/IFlfMNyHetvhbIFNwtroEZSoZx+7Z4HkY9fhRmH1QW4AzGR7QIXTK0pG22/nkUzrE
-	esxEJw5HUQeC59AhNqgosLJVHvQjzBOT+b5t6RvXJQPXTDRkdg26O4rRnXqtrVoXEyzmgWGfCMhlk
-	mnXSj9+mdOBP/K5UagkA==;
+	List-Owner; bh=VURZJbW1O35IeI5wgG8vWDu9Lz5Kq5BGMop/joR5Img=; b=CfCaEqewsKBQT5
+	SM+1N6aRtbGI910hKwcitVS0f6juhV0Kk4SseAtKKN1aiFu4Hi6xBJ4we3Wzl/Jz1iDZTA9oswkht
+	MW+eiRMLbFlvD2v6WbxlIU8DuLJjlAhChK7EhNn4b2kOSCcoUpwPXR15A6f7Fom67lAWyrPhggOgc
+	XVFxxQ1fFCU/ph/imYGptOFE+r0TvyD1pJxoCC+VHSUnISvUCWta9qq7+qn2e+oP3h0v7hGh1nrOF
+	gRVvxjIMUkzBZO1RGTeRmbuhW8O38z/OugLYBG1UW+sMDeuJ2X0Tdv0qzErlDx4ylFBm0gcU47Uhd
+	5Tp9sFzVCdGbRT6JA7Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj1oL-0000000BIMr-36xh;
-	Mon, 04 Aug 2025 20:29:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uj1qt-0000000BIWw-25e1;
+	Mon, 04 Aug 2025 20:32:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj1oJ-0000000BIMX-0GJr
+	id 1uj1qs-0000000BIWp-3Jxe
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 20:29:32 +0000
+	Mon, 04 Aug 2025 20:32:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8782B5C5461;
-	Mon,  4 Aug 2025 20:29:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFD6FC4CEE7;
-	Mon,  4 Aug 2025 20:29:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BC6A2601E4;
+	Mon,  4 Aug 2025 20:32:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7F95C4CEE7;
+	Mon,  4 Aug 2025 20:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754339370;
-	bh=4BPsES3b5klXzdk6RpmOqf1VgsIU8ZAY8khzKwSwfwk=;
+	s=k20201202; t=1754339529;
+	bh=40RPmmhgenS++dUjxETl8DxV/XFXspYQo4HXXmsrhls=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=iJjfFllp9A5t0b3evqDJ86gBmdgbLw5CO5nbxRfYOF6T6zvYvTJplqmOZMF4ThZIo
-	 rfobGezjJOtX/4wBS1Vk8pP70muPLRhZvC7BSpdi9LBXuciPN6JVp4ZmbxfnGxAPlt
-	 F2pr/W0FtNniSZnsJ2+qO5E4eRlppbsRuZougnurPEQoriP4vL/c6WS6GDjE/0waXr
-	 KygzMNkPN6s9HyzUlxoVkon6bRUzRG3pIVdGKQYfE2IItRdcVRlP4mbp3Dc1o43HHX
-	 1TGjSl/9ZjSU37FkaDT1TDUea1L8WdHxiUVUbvp/8tAE1RHZ8f6iRV1eS0AptBRwS1
-	 ohcd9/z6+3Gnw==
+	b=JQXUKdMwFWEh72JN1E6XzW9gB6pcSUBn7mgP4hBUHV2TpolWdTSfQw4mCxYy4Zy3E
+	 lUtaIyYa44cze8FqCym9EpaeMrWsTATwoH27xF95eprgUJJmuX8DtRZ/QiocXQ8aIA
+	 jc4t2gY8jGLgkj3U/lrseTF3ovLDIfeRF/v10YguErQe6smk0ksBMrsbOIRzb55XFY
+	 28W/sTdccRNJl6jdGHkTr0BO8ndO2VYz/Ani6KoevoXAVgowgiDbhXZFgVj5gAS4iR
+	 Enk6figXDmKEHpnxpASTpbq88kekHHfDpVfBD7xWDRHwvW+N9ywUM1E/OOSiU10oIJ
+	 LNeyo9+ssoqnQ==
 From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
@@ -54,18 +54,14 @@ Cc: Puranjay Mohan <puranjay@kernel.org>, Palmer Dabbelt
  Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo
  <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Pu Lehui
  <pulehui@huawei.com>
-Subject: Re: [PATCH bpf-next 04/10] riscv: Separate toolchain support
- dependency from RISCV_ISA_ZACAS
-In-Reply-To: <20250719091730.2660197-5-pulehui@huaweicloud.com>
+Subject: Re: [PATCH bpf-next 05/10] riscv, bpf: Add rv_ext_enabled macro for
+ runtime detection extentsion
+In-Reply-To: <20250719091730.2660197-6-pulehui@huaweicloud.com>
 References: <20250719091730.2660197-1-pulehui@huaweicloud.com>
- <20250719091730.2660197-5-pulehui@huaweicloud.com>
-Date: Mon, 04 Aug 2025 22:29:27 +0200
-Message-ID: <87qzxq3k60.fsf@all.your.base.are.belong.to.us>
+ <20250719091730.2660197-6-pulehui@huaweicloud.com>
+Date: Mon, 04 Aug 2025 22:32:06 +0200
+Message-ID: <87ms8e3k1l.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_132931_139684_A5A35C60 
-X-CRM114-Status: UNSURE (   3.76  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,12 +78,12 @@ Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEZyb206IFB1IExl
-aHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4KPiBSVjY0IGJwZiBpcyBnb2luZyB0byBzdXBwb3J0
-IFpBQ0FTIGluc3RydWN0aW9ucy4gTGV0J3Mgc2VwYXJhdGUKPiB0b29sY2hhaW4gc3VwcG9ydCBk
-ZXBlbmRlbmN5IGZyb20gUklTQ1ZfSVNBX1pBQ0FTLgo+Cj4gU2lnbmVkLW9mZi1ieTogUHUgTGVo
-dWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KClJldmlld2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9y
-bkByaXZvc2luYy5jb20+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+Tml0OiBTdWJqZWN0OiBzL2V4dGVudHNpb24vZXh0ZW5zaW9uLwoKUHUgTGVodWkgPHB1bGVodWlA
+aHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEZyb206IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdl
+aS5jb20+Cj4KPiBBZGQgcnZfZXh0X2VuYWJsZWQgbWFjcm8gdG8gY2hlY2sgd2hldGhlciB0aGUg
+cnVudGltZSBkZXRlY3Rpb24KPiBleHRlbnNpb24gaXMgZW5hYmxlZC4KPgo+IFNpZ25lZC1vZmYt
+Ynk6IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+CgpSZXZpZXdlZC1ieTogQmrDtnJuIFTD
+tnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
