@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3FB3C87FCB
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 01:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247BEC87FCA
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 01:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MoLHRYVwW+t5eEWoLNATcPE1dWNUHrUNKb9MzPyT8Io=; b=AVuijlMHT2dNG8
-	eCYOD7iKaNrDLDTPguC71BvlPKix0wg4xwWw/l63CiEN6ge9jaxyy6GAeP8vnb4xp2NQWDFbswYqj
-	Dpc99H6ojHfuYTz7dWW0vnVJr/cXyvlqVY4qv4Tlagr/UMCrvYyM45TTLh9WD04KDZuHLQgeo7W8t
-	+ycxmFuvQ7t0VAmcICRQAtRaarZnMtSqLWPiFeT2WsbLXmj+d/mNSGwozz5PbIlrcQECqCwvAydqH
-	oT3X/XZX6YBFUaXSl75nZ8uL5HxsUJaVtIQL2XWtXI2WnzYHcqECv8ttvOExXsuV+TAzMywFfERNw
-	dvEdaDsCKtbnYctxvVuA==;
+	List-Owner; bh=ptnfODGDimtqsgsRSPj27Ka4dezvXZwklYts/E9ctIE=; b=esVyEnEJTqBCPM
+	juGKvO0QUL3RhJK4/c0wSoGHgNyx+IcTsqvn8Yn9/NdTVU32TDi5yz614Y4Cz23RO1j38s85c0r5v
+	agov64771av1p5HxtsXG6frW14Sm/GkvyJrANvyv+YljyXoypppebCO9jV/u4MePfcTN7at/EItJ3
+	SLAhKo+3xR6h0OtpS8JuQ/W0JuydOMQQ+Dhc+tQEUHHmI8VKpknaIkGaDPSjl5BilrsPBdScVprCl
+	QYM7+IqKeW2Jh3yJfeTE3MOibDfc53Ap7tGlVEnF/daRn8SRTA/c8T2i8nTkcgsqldvM23mrDYvvA
+	+PkE8YeEdX3dL+kCW9+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijbL-00000009OIN-1fIc;
-	Mon, 04 Aug 2025 01:02:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uijnc-00000009PGf-0mPm;
+	Mon, 04 Aug 2025 01:15:36 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uij6x-00000009LW2-3vbg
+	id 1uij88-00000009Ldu-185D
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 00:31:32 +0000
+	Mon, 04 Aug 2025 00:32:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B354A601E0;
-	Mon,  4 Aug 2025 00:31:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E100C4CEEB;
-	Mon,  4 Aug 2025 00:31:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5D071A4278E;
+	Mon,  4 Aug 2025 00:32:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A97DC4CEEB;
+	Mon,  4 Aug 2025 00:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754267490;
-	bh=1KUE5bxIJPdQBz/e5JfdWEef4SoYwPSb7HUyr5wZdBM=;
+	s=k20201202; t=1754267563;
+	bh=Bs4/OINydRglnxEUwlgHZgeJZiSHvx3ERL02s0xacnY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SHC+OPwYzZIA6Igy0NwQZA6iN501MVMBPD0fYt25B9NtmrGtD7Yj7k10Nfbty8Q10
-	 SOh82vXXuVmz3uyttfrDsGDcp3VjyjhR5lzi3jAK8uRATBl2rm7uVZBU3Ooddmhtx8
-	 TZ1FGElC1b/7hlZwlWRv/r7od4RZESMP6oliaFQpdu2Jo/KF/nwmWKFQ10Hc9sN89x
-	 sHEXYZu7HNFf3+li3ncgGkfC1L74ZVKwzbZ8m3Y9ufJLouz20ySs+lS49WcMabwLQn
-	 Mb89mLXt7ge11WPjcLRpr8wjXzuWCCXGkZyTwDCZPpQDgIxlm20xTg39smnbdjBLF8
-	 Hg3f4K7fCO3AQ==
+	b=iYfeumTuxr0kDBT4LD8s1ht4yevttZSZ5ZAklTr659uVaWVMIvinVgLnAOdJryvH+
+	 Ey836D8ecWPfcJMa4fRzNrIz6yIjJ5DHTwSF2ztkO1USYAmqSF9ovbtBk/KQkaWSaC
+	 v2kqV8CjUclkV1vrVUvDOoSVAXCS7YRd0AJfCKV9GpyCxzhNx/ummU1yPCiQcjM5ZJ
+	 SE76vostJS7twleap4v5GN5Q1MaRj+XYxdVsDrfsOwkg5qRLiKaMCz9OBJO4HC0GZD
+	 oGwxkWqYHmsSeScLxNBsQcrMI/ZpXUG9PnwEDYyElnZlBTlEi3DusxbqamwioasotQ
+	 XtU5hAq33lkRg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Cynthia Huang <cynthia@andestech.com>,
-	Ben Zong-You Xie <ben717@andestech.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Muhammad Usama Anjum <usama.anjum@collabora.com>,
+Cc: Nylon Chen <nylon.chen@sifive.com>,
+	Zong Li <zong.li@sifive.com>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
 	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
+	samuel.holland@sifive.com,
+	linux-pwm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 04/69] selftests/futex: Define SYS_futex on 32-bit architectures with 64-bit time_t
-Date: Sun,  3 Aug 2025 20:30:14 -0400
-Message-Id: <20250804003119.3620476-4-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.12 34/69] pwm: sifive: Fix PWM algorithm and clarify inverted compare behavior
+Date: Sun,  3 Aug 2025 20:30:44 -0400
+Message-Id: <20250804003119.3620476-34-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250804003119.3620476-1-sashal@kernel.org>
 References: <20250804003119.3620476-1-sashal@kernel.org>
@@ -64,6 +64,9 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.41
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250803_173244_430989_56D2BB2A 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,110 +78,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Cynthia Huang <cynthia@andestech.com>
-
-[ Upstream commit 04850819c65c8242072818655d4341e70ae998b5 ]
-
-The kernel does not provide sys_futex() on 32-bit architectures that do not
-support 32-bit time representations, such as riscv32.
-
-As a result, glibc cannot define SYS_futex, causing compilation failures in
-tests that rely on this syscall. Define SYS_futex as SYS_futex_time64 in
-such cases to ensure successful compilation and compatibility.
-
-Signed-off-by: Cynthia Huang <cynthia@andestech.com>
-Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
-Link: https://lore.kernel.org/all/20250710103630.3156130-1-ben717@andestech.com
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-**Backport Status: YES**
-
-This commit should be backported to stable kernel trees for the
-following reasons:
-
-1. **Fixes a real compilation failure bug**: The commit addresses a
-   build failure in kernel selftests on 32-bit architectures with 64-bit
-   time_t, specifically riscv32. This prevents the futex selftests from
-   compiling on these architectures, which is a functional bug that
-   affects testing infrastructure.
-
-2. **Simple and contained fix**: The change is minimal - it only adds a
-   conditional preprocessor definition that maps `SYS_futex` to
-   `SYS_futex_time64` when the former is not defined but the latter is.
-   The fix is:
-  ```c
-  #if !defined(SYS_futex) && defined(SYS_futex_time64)
-  #define SYS_futex SYS_futex_time64
-  #endif
-  ```
-
-3. **No risk of regression**: The change is guarded by preprocessor
-   conditionals that only activate when `SYS_futex` is not defined AND
-   `SYS_futex_time64` is defined. This means it has zero impact on
-   architectures where `SYS_futex` is already defined, ensuring no
-   regressions on existing systems.
-
-4. **Affects kernel testing infrastructure**: While this is in the
-   selftests directory and not core kernel code, having working
-   selftests is critical for kernel stability and quality assurance. The
-   futex selftests are important for validating futex functionality
-   across different architectures.
-
-5. **Addresses Y2038 compatibility**: This fix is part of the broader
-   Y2038 compatibility effort where 32-bit architectures are
-   transitioning to 64-bit time_t. As more 32-bit architectures adopt
-   64-bit time_t, this fix becomes increasingly important.
-
-6. **Clear problem and solution**: The commit message clearly explains
-   the issue (glibc cannot define SYS_futex on certain architectures)
-   and provides a clean solution that maintains compatibility.
-
-The fix follows stable kernel rules by being a minimal change that fixes
-an important bug without introducing new features or architectural
-changes. It's confined to the testing infrastructure and has clear
-boundaries with no side effects beyond enabling compilation of the futex
-selftests on affected architectures.
-
- tools/testing/selftests/futex/include/futextest.h | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/tools/testing/selftests/futex/include/futextest.h b/tools/testing/selftests/futex/include/futextest.h
-index ddbcfc9b7bac..7a5fd1d5355e 100644
---- a/tools/testing/selftests/futex/include/futextest.h
-+++ b/tools/testing/selftests/futex/include/futextest.h
-@@ -47,6 +47,17 @@ typedef volatile u_int32_t futex_t;
- 					 FUTEX_PRIVATE_FLAG)
- #endif
- 
-+/*
-+ * SYS_futex is expected from system C library, in glibc some 32-bit
-+ * architectures (e.g. RV32) are using 64-bit time_t, therefore it doesn't have
-+ * SYS_futex defined but just SYS_futex_time64. Define SYS_futex as
-+ * SYS_futex_time64 in this situation to ensure the compilation and the
-+ * compatibility.
-+ */
-+#if !defined(SYS_futex) && defined(SYS_futex_time64)
-+#define SYS_futex SYS_futex_time64
-+#endif
-+
- /**
-  * futex() - SYS_futex syscall wrapper
-  * @uaddr:	address of first futex
--- 
-2.39.5
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogTnlsb24gQ2hlbiA8bnlsb24uY2hlbkBzaWZpdmUuY29tPgoKWyBVcHN0cmVhbSBjb21t
+aXQgN2RiYzQ0MzJlYTZiZjlkNzA5MzkxZWI1N2YxZTlmYjQ0ZTk5ODQ1YSBdCgpUaGUgYGZyYWNg
+IHZhcmlhYmxlIHJlcHJlc2VudHMgdGhlIHB1bHNlIGluYWN0aXZlIHRpbWUsIGFuZCB0aGUgcmVz
+dWx0Cm9mIHRoaXMgYWxnb3JpdGhtIGlzIHRoZSBwdWxzZSBhY3RpdmUgdGltZS4gVGhlcmVmb3Jl
+LCB3ZSBtdXN0IHJldmVyc2UKdGhlIHJlc3VsdC4KCkFsdGhvdWdoIHRoZSBTaUZpdmUgUmVmZXJl
+bmNlIE1hbnVhbCBzdGF0ZXMgInB3bXMgPj0gcHdtY21wWCAtPiBISUdIIiwKdGhlIGhhcmR3YXJl
+IGJlaGF2aW9yIGlzIGludmVydGVkIGR1ZSB0byBhIGZpeGVkIFhOT1Igd2l0aCAwLiBBcyBhIHJl
+c3VsdCwKdGhlIHB3bWNtcCByZWdpc3RlciBhY3R1YWxseSBkZWZpbmVzIHRoZSBsb3cgKGluYWN0
+aXZlKSBwb3J0aW9uIG9mIHRoZSBwdWxzZS4KClRoZSByZWZlcmVuY2UgaXMgU2lGaXZlIEZVNzQw
+LUMwMDAgTWFudWFsWzBdCgpMaW5rOiBodHRwczovL3NpZml2ZS5jZG4ucHJpc21pYy5pby9zaWZp
+dmUvMWE4MmU2MDAtMWY5My00ZjQxLWIyZDgtODZlZDhiMTZhY2JhX2Z1NzQwLWMwMDAtbWFudWFs
+LXYxcDYucGRmIFswXQoKQ28tZGV2ZWxvcGVkLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5j
+b20+ClNpZ25lZC1vZmYtYnk6IFpvbmcgTGkgPHpvbmcubGlAc2lmaXZlLmNvbT4KQ28tZGV2ZWxv
+cGVkLWJ5OiBWaW5jZW50IENoZW4gPHZpbmNlbnQuY2hlbkBzaWZpdmUuY29tPgpTaWduZWQtb2Zm
+LWJ5OiBWaW5jZW50IENoZW4gPHZpbmNlbnQuY2hlbkBzaWZpdmUuY29tPgpTaWduZWQtb2ZmLWJ5
+OiBOeWxvbiBDaGVuIDxueWxvbi5jaGVuQHNpZml2ZS5jb20+Ckxpbms6IGh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL3IvMjAyNTA1MjkwMzUzNDEuNTE3MzYtMy1ueWxvbi5jaGVuQHNpZml2ZS5jb20K
+U2lnbmVkLW9mZi1ieTogVXdlIEtsZWluZS1Lw7ZuaWcgPHVrbGVpbmVrQGtlcm5lbC5vcmc+ClNp
+Z25lZC1vZmYtYnk6IFNhc2hhIExldmluIDxzYXNoYWxAa2VybmVsLm9yZz4KLS0tCgpMTE0gR2Vu
+ZXJhdGVkIGV4cGxhbmF0aW9ucywgbWF5IGJlIGNvbXBsZXRlbHkgYm9ndXM6CgoqKkJhY2twb3J0
+IFN0YXR1czogWUVTKioKClRoaXMgY29tbWl0IHNob3VsZCBiZSBiYWNrcG9ydGVkIHRvIHN0YWJs
+ZSBrZXJuZWwgdHJlZXMuIEhlcmUncyBteQpleHRlbnNpdmUgYW5hbHlzaXM6CgojIyBDcml0aWNh
+bCBCdWcgRml4IEFuYWx5c2lzCgoxLiAqKlRoZSBjb21taXQgZml4ZXMgYSBzaWduaWZpY2FudCBm
+dW5jdGlvbmFsIGJ1ZyoqIC0gVGhlIFBXTSBhbGdvcml0aG0KICAgd2FzIGZ1bmRhbWVudGFsbHkg
+YnJva2VuOgogICAtIFRoZSBgZnJhY2AgdmFyaWFibGUgd2FzIGluY29ycmVjdGx5IHVzZWQgKGxp
+bmVzIDE1OC0xNjEgaW4KICAgICBvcmlnaW5hbCwgbm93IDE2OC0xNzEpCiAgIC0gVGhlIGRyaXZl
+ciB3YXMgd3JpdGluZyB0aGUgZHV0eSBjeWNsZSB2YWx1ZSBkaXJlY3RseSB0byBQV01DTVAKICAg
+ICByZWdpc3RlciAobGluZSAxOTMpLCBidXQgdGhlIGhhcmR3YXJlIGFjdHVhbGx5IGV4cGVjdHMg
+dGhlCiAgICAgKippbmFjdGl2ZSoqIChsb3cpIHRpbWUKICAgLSBUaGlzIHJlc3VsdHMgaW4gaW52
+ZXJ0ZWQgUFdNIG91dHB1dCBiZWhhdmlvciB3aGVyZSB1c2VycyBnZXQgdGhlCiAgICAgb3Bwb3Np
+dGUgZHV0eSBjeWNsZSBmcm9tIHdoYXQgdGhleSByZXF1ZXN0CgoyLiAqKkhhcmR3YXJlIGJlaGF2
+aW9yIGRpc2NyZXBhbmN5KiogLSBUaGUgY29tbWl0IHJldmVhbHMgYW5kIGZpeGVzIGEKICAgY3Jp
+dGljYWwgbWlzbWF0Y2ggYmV0d2VlbiBkb2N1bWVudGF0aW9uIGFuZCBhY3R1YWwgaGFyZHdhcmU6
+CiAgIC0gVGhlIGRvY3VtZW50YXRpb24gc3RhdGVzICJwd21zID49IHB3bWNtcFggLT4gSElHSCIK
+ICAgLSBCdXQgdGhlIGhhcmR3YXJlIGhhcyBhIGhhcmQtdGllZCBYTk9SIHdpdGggMCB0aGF0IGlu
+dmVydHMgdGhpcwogICAgIGJlaGF2aW9yCiAgIC0gVGhlIGRyaXZlciBub3cgY29ycmVjdGx5IGNv
+bXBlbnNhdGVzIGZvciB0aGlzIGhhcmR3YXJlIHF1aXJrCgozLiAqKlVzZXItdmlzaWJsZSBpbXBh
+Y3QqKjoKICAgLSAqKkluIGBwd21fc2lmaXZlX2dldF9zdGF0ZSgpYCoqOiBUaGUgZHJpdmVyIG5v
+dyBjb3JyZWN0bHkgaW52ZXJ0cwogICAgIHRoZSB2YWx1ZSByZWFkIGZyb20gaGFyZHdhcmUgKGxp
+bmVzIDExNS0+MTIyLTEyNikKICAgLSAqKkluIGBwd21fc2lmaXZlX2FwcGx5KClgKio6IFRoZSBk
+cml2ZXIgbm93IGludmVydHMgdGhlIGR1dHkgY3ljbGUKICAgICBiZWZvcmUgd3JpdGluZyB0byBo
+YXJkd2FyZSAobGluZXMgMTYyLT4xNzEpCiAgIC0gKipQb2xhcml0eSBjaGFuZ2UqKjogQ2hhbmdl
+ZCBmcm9tIGBQV01fUE9MQVJJVFlfSU5WRVJTRURgIHRvCiAgICAgYFBXTV9QT0xBUklUWV9OT1JN
+QUxgIChsaW5lcyAxMjYtPjEzNywgMTQyLT4xNTIpCiAgIC0gKipEb2N1bWVudGF0aW9uIGZpeCoq
+OiBVcGRhdGVkIGNvbW1lbnQgZnJvbSAiY2Fubm90IGdlbmVyYXRlIDEwMCUKICAgICBkdXR5IiB0
+byAiY2Fubm90IGdlbmVyYXRlIDAlIGR1dHkiIChsaW5lcyAxMS0+MjcsIDE2MC0+MTcwKQoKNC4g
+KipUaGUgZml4IGlzIHJlbGF0aXZlbHkgc21hbGwgYW5kIGNvbnRhaW5lZCoqOgogICAtIENoYW5n
+ZXMgYXJlIGlzb2xhdGVkIHRvIHRoZSBQV00gYWxnb3JpdGhtIGxvZ2ljCiAgIC0gTm8gYXJjaGl0
+ZWN0dXJhbCBjaGFuZ2VzIG9yIG5ldyBmZWF0dXJlcwogICAtIFNpbXBsZSBtYXRoZW1hdGljYWwg
+aW52ZXJzaW9uOiBgZHV0eSA9ICgxVSA8PCBQV01fU0lGSVZFX0NNUFdJRFRIKQogICAgIC0gMSAt
+IGluYWN0aXZlYAoKNS4gKipObyByaXNreSBzaWRlIGVmZmVjdHMqKjoKICAgLSBUaGUgY2hhbmdl
+IGlzIHN0cmFpZ2h0Zm9yd2FyZCBhbmQgbWF0aGVtYXRpY2FsbHkgY29ycmVjdAogICAtIERvZXNu
+J3QgYWZmZWN0IG90aGVyIHN1YnN5c3RlbXMKICAgLSBNYWludGFpbnMgdGhlIHNhbWUgcmVnaXN0
+ZXIgaW50ZXJmYWNlCgo2LiAqKkFmZmVjdHMgYWxsIFNpRml2ZSBQV00gdXNlcnMqKjoKICAgLSBB
+bnkgc3lzdGVtIHVzaW5nIFNpRml2ZSBGVTU0MCBvciBGVTc0MCBTb0NzIHdvdWxkIGhhdmUgaW5j
+b3JyZWN0CiAgICAgUFdNIG91dHB1dAogICAtIFRoaXMgaW5jbHVkZXMgdmFyaW91cyBSSVNDLVYg
+ZGV2ZWxvcG1lbnQgYm9hcmRzIGFuZCBlbWJlZGRlZAogICAgIHN5c3RlbXMKICAgLSBVc2VycyB3
+b3VsZCBnZXQgaW52ZXJ0ZWQgZHV0eSBjeWNsZXMsIHBvdGVudGlhbGx5IGJyZWFraW5nIG1vdG9y
+CiAgICAgY29udHJvbHMsIExFRCBkaW1taW5nLCBldGMuCgo3LiAqKkNsZWFyIGRvY3VtZW50YXRp
+b24gcmVmZXJlbmNlKio6CiAgIC0gVGhlIGNvbW1pdCByZWZlcmVuY2VzIHRoZSBvZmZpY2lhbCBT
+aUZpdmUgRlU3NDAtQzAwMCBNYW51YWwKICAgLSBQcm92aWRlcyBjbGVhciBleHBsYW5hdGlvbiBv
+ZiB0aGUgaGFyZHdhcmUgYmVoYXZpb3IgbWlzbWF0Y2gKClRoZSBidWcgY2F1c2VzIFBXTSBvdXRw
+dXRzIHRvIGJlIGludmVydGVkIGZyb20gdXNlciBleHBlY3RhdGlvbnMsIHdoaWNoCmlzIGEgc2ln
+bmlmaWNhbnQgZnVuY3Rpb25hbCBpc3N1ZSB0aGF0IHdvdWxkIGFmZmVjdCBhbnkgc3lzdGVtIHJl
+bHlpbmcKb24gcHJvcGVyIFBXTSBiZWhhdmlvciBmb3IgbW90b3IgY29udHJvbCwgTEVEIGRpbW1p
+bmcsIG9yIG90aGVyIFBXTS0KZGVwZW5kZW50IGZ1bmN0aW9uYWxpdHkuIFRoZSBmaXggaXMgY2xl
+YW4sIG1pbmltYWwsIGFuZCBhZGRyZXNzZXMgYQpjbGVhciBoYXJkd2FyZS9zb2Z0d2FyZSBtaXNt
+YXRjaCB0aGF0IGV4aXN0cyBpbiBwcm9kdWN0aW9uIHN5c3RlbXMuCgogZHJpdmVycy9wd20vcHdt
+LXNpZml2ZS5jIHwgMzkgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKy0tLS0tLS0tCiAx
+IGZpbGUgY2hhbmdlZCwgMzEgaW5zZXJ0aW9ucygrKSwgOCBkZWxldGlvbnMoLSkKCmRpZmYgLS1n
+aXQgYS9kcml2ZXJzL3B3bS9wd20tc2lmaXZlLmMgYi9kcml2ZXJzL3B3bS9wd20tc2lmaXZlLmMK
+aW5kZXggZDViNjQ3ZTZiZTc4Li5mMzY5NDgwMWQzZWUgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvcHdt
+L3B3bS1zaWZpdmUuYworKysgYi9kcml2ZXJzL3B3bS9wd20tc2lmaXZlLmMKQEAgLTQsMTEgKzQs
+MjggQEAKICAqIEZvciBTaUZpdmUncyBQV00gSVAgYmxvY2sgZG9jdW1lbnRhdGlvbiBwbGVhc2Ug
+cmVmZXIgQ2hhcHRlciAxNCBvZgogICogUmVmZXJlbmNlIE1hbnVhbCA6IGh0dHBzOi8vc3RhdGlj
+LmRldi5zaWZpdmUuY29tL0ZVNTQwLUMwMDAtdjEuMC5wZGYKICAqCisgKiBQV00gb3V0cHV0IGlu
+dmVyc2lvbjogQWNjb3JkaW5nIHRvIHRoZSBTaUZpdmUgUmVmZXJlbmNlIG1hbnVhbAorICogdGhl
+IG91dHB1dCBvZiBlYWNoIGNvbXBhcmF0b3IgaXMgaGlnaCB3aGVuZXZlciB0aGUgdmFsdWUgb2Yg
+cHdtcyBpcworICogZ3JlYXRlciB0aGFuIG9yIGVxdWFsIHRvIHRoZSBjb3JyZXNwb25kaW5nIHB3
+bWNtcFhbUmVmZXJlbmNlIE1hbnVhbF0uCisgKgorICogRmlndXJlIDI5IGluIHRoZSBzYW1lIG1h
+bnVhbCBzaG93cyB0aGF0IHRoZSBwd21jbXBYY2VudGVyIGJpdCBpcworICogaGFyZC10aWVkIHRv
+IDAgKFhOT1IpLCB3aGljaCBlZmZlY3RpdmVseSBpbnZlcnRzIHRoZSBjb21wYXJpc29uIHNvIHRo
+YXQKKyAqIHRoZSBvdXRwdXQgZ29lcyBISUdIIHdoZW4gIGBwd21zIDwgcHdtY21wWGAuCisgKgor
+ICogSW4gb3RoZXIgd29yZHMsIGVhY2ggcHdtY21wIHJlZ2lzdGVyIGFjdHVhbGx5IGRlZmluZXMg
+dGhlICoqaW5hY3RpdmUqKgorICogKGxvdykgcGVyaW9kIG9mIHRoZSBwdWxzZSwgbm90IHRoZSBh
+Y3RpdmUgdGltZSBleGFjdGx5IG9wcG9zaXRlIHRvIHdoYXQKKyAqIHRoZSBkb2N1bWVudGF0aW9u
+IHRleHQgaW1wbGllcy4KKyAqCisgKiBUbyBjb21wZW5zYXRlLCB0aGlzIGRyaXZlciBhbHdheXMg
+KippbnZlcnRzKiogdGhlIGR1dHkgdmFsdWUgd2hlbiByZWFkaW5nCisgKiBvciB3cml0aW5nIHB3
+bWNtcCByZWdpc3RlcnMgLCBzbyB0aGF0IHVzZXJzIGludGVyYWN0IHdpdGggYSBjb252ZW50aW9u
+YWwKKyAqICoqYWN0aXZlLWhpZ2gqKiBQV00gaW50ZXJmYWNlLgorICoKKyAqCiAgKiBMaW1pdGF0
+aW9uczoKICAqIC0gV2hlbiBjaGFuZ2luZyBib3RoIGR1dHkgY3ljbGUgYW5kIHBlcmlvZCwgd2Ug
+Y2Fubm90IHByZXZlbnQgaW4KICAqICAgc29mdHdhcmUgdGhhdCB0aGUgb3V0cHV0IG1pZ2h0IHBy
+b2R1Y2UgYSBwZXJpb2Qgd2l0aCBtaXhlZAogICogICBzZXR0aW5ncyAobmV3IHBlcmlvZCBsZW5n
+dGggYW5kIG9sZCBkdXR5IGN5Y2xlKS4KLSAqIC0gVGhlIGhhcmR3YXJlIGNhbm5vdCBnZW5lcmF0
+ZSBhIDEwMCUgZHV0eSBjeWNsZS4KKyAqIC0gVGhlIGhhcmR3YXJlIGNhbm5vdCBnZW5lcmF0ZSBh
+IDAlIGR1dHkgY3ljbGUuCiAgKiAtIFRoZSBoYXJkd2FyZSBnZW5lcmF0ZXMgb25seSBpbnZlcnRl
+ZCBvdXRwdXQuCiAgKi8KICNpbmNsdWRlIDxsaW51eC9jbGsuaD4KQEAgLTExMCw5ICsxMjcsMTQg
+QEAgc3RhdGljIGludCBwd21fc2lmaXZlX2dldF9zdGF0ZShzdHJ1Y3QgcHdtX2NoaXAgKmNoaXAs
+IHN0cnVjdCBwd21fZGV2aWNlICpwd20sCiAJCQkJc3RydWN0IHB3bV9zdGF0ZSAqc3RhdGUpCiB7
+CiAJc3RydWN0IHB3bV9zaWZpdmVfZGRhdGEgKmRkYXRhID0gcHdtX3NpZml2ZV9jaGlwX3RvX2Rk
+YXRhKGNoaXApOwotCXUzMiBkdXR5LCB2YWw7CisJdTMyIGR1dHksIHZhbCwgaW5hY3RpdmU7CiAK
+LQlkdXR5ID0gcmVhZGwoZGRhdGEtPnJlZ3MgKyBQV01fU0lGSVZFX1BXTUNNUChwd20tPmh3cHdt
+KSk7CisJaW5hY3RpdmUgPSByZWFkbChkZGF0YS0+cmVncyArIFBXTV9TSUZJVkVfUFdNQ01QKHB3
+bS0+aHdwd20pKTsKKwkvKgorCSAqIFBXTSBoYXJkd2FyZSB1c2VzICdpbmFjdGl2ZScgY291bnRz
+IGluIHB3bWNtcCwgc28gaW52ZXJ0IHRvIGdldCBhY3R1YWwgZHV0eS4KKwkgKiBIZXJlLCAnaW5h
+Y3RpdmUnIGlzIHRoZSBsb3cgdGltZSBhbmQgd2UgY29tcHV0ZSBkdXR5IGFzIG1heF9jb3VudCAt
+IGluYWN0aXZlLgorCSAqLworCWR1dHkgPSAoMVUgPDwgUFdNX1NJRklWRV9DTVBXSURUSCkgLSAx
+IC0gaW5hY3RpdmU7CiAKIAlzdGF0ZS0+ZW5hYmxlZCA9IGR1dHkgPiAwOwogCkBAIC0xMjMsNyAr
+MTQ1LDcgQEAgc3RhdGljIGludCBwd21fc2lmaXZlX2dldF9zdGF0ZShzdHJ1Y3QgcHdtX2NoaXAg
+KmNoaXAsIHN0cnVjdCBwd21fZGV2aWNlICpwd20sCiAJc3RhdGUtPnBlcmlvZCA9IGRkYXRhLT5y
+ZWFsX3BlcmlvZDsKIAlzdGF0ZS0+ZHV0eV9jeWNsZSA9CiAJCSh1NjQpZHV0eSAqIGRkYXRhLT5y
+ZWFsX3BlcmlvZCA+PiBQV01fU0lGSVZFX0NNUFdJRFRIOwotCXN0YXRlLT5wb2xhcml0eSA9IFBX
+TV9QT0xBUklUWV9JTlZFUlNFRDsKKwlzdGF0ZS0+cG9sYXJpdHkgPSBQV01fUE9MQVJJVFlfTk9S
+TUFMOwogCiAJcmV0dXJuIDA7CiB9CkBAIC0xMzcsOSArMTU5LDkgQEAgc3RhdGljIGludCBwd21f
+c2lmaXZlX2FwcGx5KHN0cnVjdCBwd21fY2hpcCAqY2hpcCwgc3RydWN0IHB3bV9kZXZpY2UgKnB3
+bSwKIAl1bnNpZ25lZCBsb25nIGxvbmcgbnVtOwogCWJvb2wgZW5hYmxlZDsKIAlpbnQgcmV0ID0g
+MDsKLQl1MzIgZnJhYzsKKwl1MzIgZnJhYywgaW5hY3RpdmU7CiAKLQlpZiAoc3RhdGUtPnBvbGFy
+aXR5ICE9IFBXTV9QT0xBUklUWV9JTlZFUlNFRCkKKwlpZiAoc3RhdGUtPnBvbGFyaXR5ICE9IFBX
+TV9QT0xBUklUWV9OT1JNQUwpCiAJCXJldHVybiAtRUlOVkFMOwogCiAJY3VyX3N0YXRlID0gcHdt
+LT5zdGF0ZTsKQEAgLTE1Nyw4ICsxNzksOSBAQCBzdGF0aWMgaW50IHB3bV9zaWZpdmVfYXBwbHko
+c3RydWN0IHB3bV9jaGlwICpjaGlwLCBzdHJ1Y3QgcHdtX2RldmljZSAqcHdtLAogCSAqLwogCW51
+bSA9ICh1NjQpZHV0eV9jeWNsZSAqICgxVSA8PCBQV01fU0lGSVZFX0NNUFdJRFRIKTsKIAlmcmFj
+ID0gRElWNjRfVTY0X1JPVU5EX0NMT1NFU1QobnVtLCBzdGF0ZS0+cGVyaW9kKTsKLQkvKiBUaGUg
+aGFyZHdhcmUgY2Fubm90IGdlbmVyYXRlIGEgMTAwJSBkdXR5IGN5Y2xlICovCisJLyogVGhlIGhh
+cmR3YXJlIGNhbm5vdCBnZW5lcmF0ZSBhIDAlIGR1dHkgY3ljbGUgKi8KIAlmcmFjID0gbWluKGZy
+YWMsICgxVSA8PCBQV01fU0lGSVZFX0NNUFdJRFRIKSAtIDEpOworCWluYWN0aXZlID0gKDFVIDw8
+IFBXTV9TSUZJVkVfQ01QV0lEVEgpIC0gMSAtIGZyYWM7CiAKIAltdXRleF9sb2NrKCZkZGF0YS0+
+bG9jayk7CiAJaWYgKHN0YXRlLT5wZXJpb2QgIT0gZGRhdGEtPmFwcHJveF9wZXJpb2QpIHsKQEAg
+LTE5MCw3ICsyMTMsNyBAQCBzdGF0aWMgaW50IHB3bV9zaWZpdmVfYXBwbHkoc3RydWN0IHB3bV9j
+aGlwICpjaGlwLCBzdHJ1Y3QgcHdtX2RldmljZSAqcHdtLAogCQl9CiAJfQogCi0Jd3JpdGVsKGZy
+YWMsIGRkYXRhLT5yZWdzICsgUFdNX1NJRklWRV9QV01DTVAocHdtLT5od3B3bSkpOworCXdyaXRl
+bChpbmFjdGl2ZSwgZGRhdGEtPnJlZ3MgKyBQV01fU0lGSVZFX1BXTUNNUChwd20tPmh3cHdtKSk7
+CiAKIAlpZiAoIXN0YXRlLT5lbmFibGVkKQogCQljbGtfZGlzYWJsZShkZGF0YS0+Y2xrKTsKLS0g
+CjIuMzkuNQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
