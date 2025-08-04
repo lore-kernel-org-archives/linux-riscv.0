@@ -4,61 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E329C87FCF
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 13:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B4DC87FCF
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 15:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oCYAePKpPjUOYMPGaZUjgXMsr7pK52CdYkWhhaq0IPc=; b=lqDuV+6JATCzDSmL8nrTfuU7/L
-	yiTbq/sIE8gLbcjsPTOIkiThdUwF3vwclGa+eyWkOqowFhVcmP1dv5QQTO812TSBeItby1dokbjlx
-	v1XUTUSNMRbQp4xuXFxu10bPnoo+cb1G5uFz3x4eZIuh6zZ4aOCn2co1M1N8dTWci9WXyP4e+Izgb
-	23ChBPDFM6V3fV1ZkRBORwQSqSD86+eZhewG3i1m5mDEWMXVxDhWIDMs722AZ4ppFwlLs3gVRcMnu
-	NnVafxeQRuN584KaOLJDBQXl8xD2f/ICIi7lQahU5TCzjROdS30D6JQGXU/tKahzKMnIon7w4UO/F
-	0xyYp4Aw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+JhAMR4a92NmSlDd6T3wzBMgTuKgZyOko23EmMOXGSw=; b=nb5UfFcao0iJlM
+	VxRwI6e/ROPOMpiPvXG5pQ1l1rhMkAZZ2JZH9SD7k3PpEixuQEmnP9Irg4e+mZHDa2rlcjeDAnDdp
+	YKALtpSnw96rFzMbo2mx+RMnhgKj4L2/FgijvKxtgTxAxS2bodQKlxd6ip6LhRVs3ehWRXHBgrbXm
+	s2RJza+RH9V2J7+kLY9FcLdDbGkQ5kJch/jkHYmMbrf0SttCAvqkb9Vu15ur6/O5K5PqVHQcCz/TL
+	bLvAeLIgKt0/9UYkpLTTzgIrkLiT9TN2TsFpcZdnry/Kgamxu1EhxYiiRvlPiMDl9Cl9+VB7oR5+R
+	4pjzMzeucTJojjdp9FZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uivgD-0000000Ab5h-2HUK;
-	Mon, 04 Aug 2025 13:56:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uixCS-0000000Apo0-2lKy;
+	Mon, 04 Aug 2025 15:34:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uivDm-0000000AX3s-3HuA
+	id 1uiwRD-0000000Ahid-1OmZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 13:27:22 +0000
+	Mon, 04 Aug 2025 14:45:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E915460200;
-	Mon,  4 Aug 2025 13:27:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E1FBC4CEE7;
-	Mon,  4 Aug 2025 13:27:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 718FA5C6241;
+	Mon,  4 Aug 2025 14:45:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA1DBC4CEE7;
+	Mon,  4 Aug 2025 14:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754314041;
-	bh=0HpcXxVZIlcEaVB1NIukOwjT1SSDL2dg2xYzNVFQc9w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b4B75eB+imckBwOM7aVBIuKE25ep/01n0T6A9iHBEI1lGT/k1tOQAiro/SUYXTNOf
-	 gF57RRMZmybPQDkZ5zp2UvBQhkwhkOYRdZw490b7RzSCG7Fdr/bOqwZFOVFTNMFs+j
-	 H6QJxcKN4tyRNKmqpNBMM2tjUrDPMaQCrnmvNMn1QnBgD4Z9Mh6EP7YSbHRVZ20cyG
-	 NYxYtSN8ZlGCat07jXLIhHEJGSZaZgHggmxBGI1ZV1slvsQc8Q6UaKy80RgKrNPsJn
-	 snSzkDiBA3lPt4HGaVRkM1HmW+pCwWfB2pXj4TD68CHICZtWRJUmN3sANzvznt4nLZ
-	 oIcDJhLyHCc1A==
-Date: Mon, 4 Aug 2025 09:27:19 -0400
-From: Sasha Levin <sashal@kernel.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
-Cc: patches@lists.linux.dev, stable@vger.kernel.org,
-	Nylon Chen <nylon.chen@sifive.com>, Zong Li <zong.li@sifive.com>,
-	Vincent Chen <vincent.chen@sifive.com>, paul.walmsley@sifive.com,
-	samuel.holland@sifive.com, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH AUTOSEL 6.6 28/59] pwm: sifive: Fix PWM algorithm and
- clarify inverted compare behavior
-Message-ID: <aJC1N93BVEVZjnWp@lappy>
-References: <20250804003413.3622950-1-sashal@kernel.org>
- <20250804003413.3622950-28-sashal@kernel.org>
- <xgy4dio2oqwqow7k5nlbf2vgrx63ptmtsi533wad7pfa3v23tk@nzrkhb2nytpb>
+	s=k20201202; t=1754318718;
+	bh=Be30OiusCaeSqddavkiEXv3LWsIde8jXsUpqcxomgog=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HhpJ0cuDFRnvowJFe7JndP7Y0pfAU5nNOJRiV4C+Gk7aIpMC3E4eZTU6eJ+Gdb1Jx
+	 xR5dwk/ZZejBTcdsCxQDzLlztUoIOuG4hVm+NM0cGDmeHhMkTln2JKe35DQ7z8nt5o
+	 xN5GyVorXS7O+SyV0/HL504qqulDEvJZZpjt/s2IYN4W+I6OYv/U3QP3d0rJor4CMS
+	 YG7ucgIDHVn2Dg60dnA6lzwpEHc6naaAECMBhCFBN4JkypKZRcK+LbkzwBcAYNi9xD
+	 ugw59fveCjII1sW5xaYWXg3XMaA1zlBlUWp1l8BEI05JxVPe17vjV9flheOOkGAvCQ
+	 4XAg0k4BCSujg==
+Message-ID: <72354ec9-7dc8-4192-9c25-d37abf33b5f0@kernel.org>
+Date: Mon, 4 Aug 2025 16:45:10 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <xgy4dio2oqwqow7k5nlbf2vgrx63ptmtsi533wad7pfa3v23tk@nzrkhb2nytpb>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [External] Re: [PATCH v4 0/7] Basic device tree support for ESWIN
+ EIC7700 RISC-V SoC
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Min Lin <linmin@eswincomputing.com>,
+ Pritesh Patel <pritesh.patel@einfochips.com>, Yangyu Chen
+ <cyy@cyyself.name>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Yu Chien Peter Lin <peterlin@andestech.com>,
+ Charlie Jenkins <charlie@rivosinc.com>,
+ Kanak Shilledar <kanakshilledar@gmail.com>,
+ Darshan Prajapati <darshan.prajapati@einfochips.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
+ <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
+ "rafal@milecki.pl" <rafal@milecki.pl>, Anup Patel <anup@brainfault.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250616112316.3833343-1-pinkesh.vaghela@einfochips.com>
+ <SA3PR04MB8931098CC4A73E8FDD481DA78326A@SA3PR04MB8931.namprd04.prod.outlook.com>
+ <2ed69301-f787-4257-8d44-a8544c1a43c9@kernel.org>
+ <SA3PR04MB89312063FB96E85ABB6F3D3E8323A@SA3PR04MB8931.namprd04.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <SA3PR04MB89312063FB96E85ABB6F3D3E8323A@SA3PR04MB8931.namprd04.prod.outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250804_074519_474188_1552EC59 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,64 +133,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 04, 2025 at 12:45:24PM +0200, Uwe Kleine-K=F6nig wrote:
->Hello,
->
->On Sun, Aug 03, 2025 at 08:33:42PM -0400, Sasha Levin wrote:
->> From: Nylon Chen <nylon.chen@sifive.com>
->>
->> [ Upstream commit 7dbc4432ea6bf9d709391eb57f1e9fb44e99845a ]
->>
->> The `frac` variable represents the pulse inactive time, and the result
->> of this algorithm is the pulse active time. Therefore, we must reverse
->> the result.
->>
->> Although the SiFive Reference Manual states "pwms >=3D pwmcmpX -> HIGH",
->> the hardware behavior is inverted due to a fixed XNOR with 0. As a resul=
-t,
->> the pwmcmp register actually defines the low (inactive) portion of the p=
-ulse.
->>
->> The reference is SiFive FU740-C000 Manual[0]
->>
->> Link: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8=
-b16acba_fu740-c000-manual-v1p6.pdf [0]
->>
->> Co-developed-by: Zong Li <zong.li@sifive.com>
->> Signed-off-by: Zong Li <zong.li@sifive.com>
->> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
->> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
->> Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
->> Link: https://lore.kernel.org/r/20250529035341.51736-3-nylon.chen@sifive=
-.com
->> Signed-off-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org>
->> Signed-off-by: Sasha Levin <sashal@kernel.org>
->> ---
->
->Please drop this patch from your queue, see
->https://lore.kernel.org/all/52ycm5nf2jrxdmdmcijz57xhm2twspjmmiign6zq6rp3d5=
-wt6t@tq5w47fmiwgg/
->for the rationale.
+On 04/08/2025 15:10, Pinkesh Vaghela wrote:
+> Hello Krzysztof,
+> 
+> Sorry to bother you. I pinged because we addressed all the review comments of V3 in V4. But on V4 we have not received any comments since last 6 weeks.
+> Could you please let us know what should be the further steps?
 
-Will do.
+Please don't top post.
 
->This is the fourth mail of this type I'm writing. For the future: Is it
->enough to raise these concerns once only and maybe even make it easier
->on your end, too? If so, should I better pick the oldest or the newest
->base version series to reply?
+That is a bit different question than you asked before: "Gentle reminder
+to review DT patches.".
 
-Sorry about that. Just replying to just one of the mails (really doesn't
-matter which) would work.
+Please read SoC subsystem maintainer profile document. For ARM platforms
+you would send now pull request or patches to soc. For RISC-V - not sure
+some trees are handled by Conor, but rest go directly to soc tree.
 
--- =
+I would suggest following standard SoC way, same as for every other new
+SoC (but carefully observe the kernel process cycle). You can easily
+check archives to see how people also did it...
 
-Thanks,
-Sasha
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
