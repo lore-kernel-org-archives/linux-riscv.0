@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83507C87FCB
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 01:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E907BC87FCB
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 01:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MoLHRYVwW+t5eEWoLNATcPE1dWNUHrUNKb9MzPyT8Io=; b=JsZgtnYqaBi0sF
-	0QkoX0CHJliVxYLMDPTjBa6qVLchRL+74eiTp6B5NKi9y1eSn6OUwyWCVMgZFwmXIv7+8OPjNCnIV
-	utldwEqUngF0Yt2LXottiEYqb3pCNPDMC/r/DE5zzTjK3IZtMe9hmytZFN12nS/TkbTMX4gmi6huT
-	uy9yO5jUuFACIZNk5Rsh9HTatAYy+b/jgzjYHE3C42Ha+6RNYBG2GGBtyECGbGd/2W/n4CJADy5dW
-	DykhhWvpJPLw2jUgDdYgYmXyzoxqoAnK8DRmtFF/I52bKVeuz57k93iepbu5faTitLYt67+hV536a
-	4yNnpgOXWvTyBwEgZihw==;
+	List-Owner; bh=MoLHRYVwW+t5eEWoLNATcPE1dWNUHrUNKb9MzPyT8Io=; b=CHpsoUNIVq7zuF
+	Jz4QVWcdr9GytyT8t8AJKelY+tzgQSm47kQ+LUA1shsalu4RFixTRM8cPigWwRsEARzOXBUZWe/n1
+	XDGFbWRXJyOondvHSSM+S8BT3+uUn4SBNi80pJldKRdzpX6cx2P1zu7w4uuMl6mnoobFItcENdQTW
+	lrH2w3Bu6XkFLZueac45fPedYSHMhwuD9qsuSlZrFozVwXrgA/5YER8kiy3pRvSyO7NSYBXNo4tYx
+	g+YLvo/0jVbJ/YABQi7ky0BIzt4ey32nbXYAD1yKPAjXuALC0Z7m62XzR9dcerwtqKZhl7jPGm+i1
+	sXi+wSweLY8D6jAjWqhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uik4p-00000009R2f-0Jqf;
-	Mon, 04 Aug 2025 01:33:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uikEi-00000009Rwi-2rMX;
+	Mon, 04 Aug 2025 01:43:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijC8-00000009M4N-2fOX
+	id 1uijEA-00000009MOs-41Hu
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 00:36:52 +0000
+	Mon, 04 Aug 2025 00:39:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0763601EC;
-	Mon,  4 Aug 2025 00:36:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5DD5C4CEEB;
-	Mon,  4 Aug 2025 00:36:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 83131416BD;
+	Mon,  4 Aug 2025 00:38:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99AEDC4CEEB;
+	Mon,  4 Aug 2025 00:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754267811;
+	s=k20201202; t=1754267938;
 	bh=1KUE5bxIJPdQBz/e5JfdWEef4SoYwPSb7HUyr5wZdBM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Yh8mEwhnbUl9yhBmDTJrcd7v0ziogTOgXJ/5k4G+1fcViT3dR8o1bessKQAIAWxcP
-	 FlMWPwzCTPTl9XWIYxL255JuYJDW4yPRJyRboMeqjbXZznjffOuXEfxAU2oGveWOu6
-	 HuW2JsZSAcnWakf8pXSb7QsRdJe10Af33a+KoeR4lREb5U7f/ItDcjZ9XRRVsHnASw
-	 Ns19E0k8Ps+IsM4ahv8AqaObhAAr/dx1m/78/BZSM1ABWI6dwXgfd9SDA7gA/t6enH
-	 A2KHqQUfSXYqpmzsB9BZZT5QqZ2cN6V+KcEre3U6Ye4Ep5MwtFkPSR4VkLepoggzrc
-	 oRdukZRgm5uww==
+	b=Y3pKr1jJBhXxbQ3LTscFDAW6iuT0xHYNqJ/zeteYOY1KSqVkkU5eKoJ06tpr4fIzL
+	 wr1grOOJWy7GzixMZUmeq2HClkJ72RLDCH4FVnSkJP8sA8VAEIYfGfU1niMGKX/7XL
+	 sqpD84zhP6i4lvoMNK71GHPsUWvlXuRq0OOvkT6SaHN4jKpm0TYVX0b/M6b8KB2ML3
+	 0x+qS4afcwILV+Hi8yG+CweGDDTDoKThAF6fpJzzuJOHUEvvfzoDY3VV8IcAb+juu5
+	 VV+h1QEXVdnyHbw5XrXKPKcbpwIyWWtu/fAtLkuSN1wwA4unBTAlwKdsy1Zbi5VvDm
+	 NhcxzGYdM9DJQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -54,16 +54,19 @@ Cc: Cynthia Huang <cynthia@andestech.com>,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.1 03/51] selftests/futex: Define SYS_futex on 32-bit architectures with 64-bit time_t
-Date: Sun,  3 Aug 2025 20:35:55 -0400
-Message-Id: <20250804003643.3625204-3-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 03/44] selftests/futex: Define SYS_futex on 32-bit architectures with 64-bit time_t
+Date: Sun,  3 Aug 2025 20:38:08 -0400
+Message-Id: <20250804003849.3627024-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250804003643.3625204-1-sashal@kernel.org>
-References: <20250804003643.3625204-1-sashal@kernel.org>
+In-Reply-To: <20250804003849.3627024-1-sashal@kernel.org>
+References: <20250804003849.3627024-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.147
+X-stable-base: Linux 5.15.189
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250803_173859_027843_1A69D56F 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
