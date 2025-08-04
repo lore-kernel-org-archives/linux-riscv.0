@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF91C87FCF
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 10:52:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D88C87FCB
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 10:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bQG4LzuMlwFAMpJIkKLfMtoW44ozJA20TAUmAN2eRDg=; b=g/75lsiKKMQZ0WO+yYNDbxThL7
-	pak141hCtjPBjxvUEBPN03w70SfrtJAx/kBjz4136kyu5eKC8y+NGezuUNYeaeEksjqzfOKNYR5lx
-	RhgAV0ZYx5KGO1auxbeNbXMPuyNS0I3rRYWNMevzfHbgfjP4q6xLU0u3LRyXAlAkeqLNd0ub+C8QJ
-	xfiHLCWFb9dMJDrDhG1e0+6iMSpUZ8EuMrsqDuU8kJBRfBZ9j8zKKJye8+jzXBpKPHGD3frOJfV8a
-	GzpfFoHqWiIuawxdHwL0ag2xppHtpTfg8xv0mIzLgTyQIoRGYtAHzYw/TlzR9mxkXO/wL7QxMuujZ
-	+2sc3Whg==;
+	bh=Ev1a+b8kb3gQ13hTJdkruWaB1mFa91a+QM8eknnILAI=; b=028lOf+9dMBHberX5gqO8ZVHd2
+	KBK1lIs78BCVoy6otTbCG613hWiitzHYEZrK3hOEWaRecMFcekRtFphrgz+Afv4v0d7Wc3arNKX2Z
+	rpHJLndouZ1dQ3XRNdRZl69KZ/RSSAMFLzAj1rdmhXRA9q1fkCs470pcNA4tV1wb7vW2uzrPB5nw5
+	EY4yIBZ5DTEMu7B7o4T9CG6LoaoAi3Nan90cFCR9lCDQuATZXNEBtQX7BlbaiM5rr4p73XfSYw00M
+	aD+uoWk+hFWdP/fPI+K/LDwjME4DJVkf14UE1Q17RZhFZBayQ6G8kTQ9O4bm4NhuDFmnSQMaUC/9z
+	/ISuZU9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiso5-0000000AE2w-25G2;
-	Mon, 04 Aug 2025 10:52:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uisqf-0000000AEd3-23Nv;
+	Mon, 04 Aug 2025 10:55:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uisaB-0000000ACRd-2zXw
+	id 1uish7-0000000ADI5-1vTO
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 10:38:21 +0000
+	Mon, 04 Aug 2025 10:45:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9CA075C5C93;
-	Mon,  4 Aug 2025 10:38:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB150C4CEE7;
-	Mon,  4 Aug 2025 10:38:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 31C2B45CFC;
+	Mon,  4 Aug 2025 10:45:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CC83C4CEF7;
+	Mon,  4 Aug 2025 10:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754303898;
-	bh=IqtOYEY67cnFw38l0aA60iFvDRXwR+z0X41m7vP9EjM=;
+	s=k20201202; t=1754304328;
+	bh=rtsaWUajhwl7HqaJuXOdQM8ui9VtQUKyeIYR+6mQOEo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UW1lm50mSYKT/tfvcbbBAGCiwc7WntZMM20TZIi2BpApiFiYIECaat6VZTV8PBehB
-	 lDGFW9un4oJ3hiVRKwkxOYsFbX0WiG8EGTJb38+1mOVrzC0qAKndC8t7RtPkH1a7dP
-	 vJB8TKC0Q7Tb5htbHp3n1mxS60SwBCBrkHD4isWRS4pIYpXDQfR/bMteWtQXgSmwiG
-	 wMu46Eiwg08TX024ixGM97h3Huga/IBIqExpFvSqwD+PVQyVHyjulpXH7FQgBSyuJ7
-	 BLp3MAtF/z8F+njhr0f6P3ycEez6WIciYGBxGftQOdmQYuVKNvr0/YPTNf/DUYicr1
-	 tY3sTcp1XEm8g==
-Date: Mon, 4 Aug 2025 12:38:15 +0200
+	b=Am8XXDsLutdMj01Ypv1GK768KA8uqK/DoqQSrS7fr5DnWfuDN0aCM5dvh4IngJLXM
+	 Cz85uQ8RWlAEvIAgJZ0cIqDURNrdgAh8DFO9IC6S28aNzXjFcwMRnFYVr4bN5PLmLy
+	 rBDzM9KgA3g+ELGnFH9XGIQfGI/UwXxni1yDu28O04nVTj8XQWVVzhQLQz3v6xbfeu
+	 7nbDXwyA9po5SXQwfbCQFHgeWrzfDWGuNgZ6DR/htCbZkgc+Jfb5/wKzicydYuTm4l
+	 V3nglhJA0LBX4ts2K1cQJoC3BrtgG2mTwv+8OdPP27bA/fo2Giw8w6xCblG7LhVpQz
+	 emmoyQ7lMobaA==
+Date: Mon, 4 Aug 2025 12:45:24 +0200
 From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
 To: Sasha Levin <sashal@kernel.org>
 Cc: patches@lists.linux.dev, stable@vger.kernel.org, 
 	Nylon Chen <nylon.chen@sifive.com>, Zong Li <zong.li@sifive.com>, 
 	Vincent Chen <vincent.chen@sifive.com>, paul.walmsley@sifive.com, samuel.holland@sifive.com, 
 	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH AUTOSEL 6.1 24/51] pwm: sifive: Fix PWM algorithm and
+Subject: Re: [PATCH AUTOSEL 6.6 28/59] pwm: sifive: Fix PWM algorithm and
  clarify inverted compare behavior
-Message-ID: <52ycm5nf2jrxdmdmcijz57xhm2twspjmmiign6zq6rp3d5wt6t@tq5w47fmiwgg>
-References: <20250804003643.3625204-1-sashal@kernel.org>
- <20250804003643.3625204-24-sashal@kernel.org>
+Message-ID: <xgy4dio2oqwqow7k5nlbf2vgrx63ptmtsi533wad7pfa3v23tk@nzrkhb2nytpb>
+References: <20250804003413.3622950-1-sashal@kernel.org>
+ <20250804003413.3622950-28-sashal@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20250804003643.3625204-24-sashal@kernel.org>
+In-Reply-To: <20250804003413.3622950-28-sashal@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_033819_831547_B2C685D7 
-X-CRM114-Status: GOOD (  25.79  )
+X-CRM114-CacheID: sfid-20250804_034529_539527_1C463824 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,28 +70,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3445302608200938777=="
+Content-Type: multipart/mixed; boundary="===============8299859328143895187=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3445302608200938777==
+--===============8299859328143895187==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qfo5vfkivwrbc725"
+	protocol="application/pgp-signature"; boundary="ffr2hu7lxjke47gh"
 Content-Disposition: inline
 
 
---qfo5vfkivwrbc725
+--ffr2hu7lxjke47gh
 Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH AUTOSEL 6.1 24/51] pwm: sifive: Fix PWM algorithm and
+Subject: Re: [PATCH AUTOSEL 6.6 28/59] pwm: sifive: Fix PWM algorithm and
  clarify inverted compare behavior
 MIME-Version: 1.0
 
 Hello,
 
-On Sun, Aug 03, 2025 at 08:36:16PM -0400, Sasha Levin wrote:
+On Sun, Aug 03, 2025 at 08:33:42PM -0400, Sasha Levin wrote:
 > From: Nylon Chen <nylon.chen@sifive.com>
 >=20
 > [ Upstream commit 7dbc4432ea6bf9d709391eb57f1e9fb44e99845a ]
@@ -120,103 +120,39 @@ com
 > Signed-off-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org>
 > Signed-off-by: Sasha Levin <sashal@kernel.org>
 > ---
->=20
-> LLM Generated explanations, may be completely bogus:
->=20
-> **Backport Status: YES**
->=20
-> This commit should be backported to stable kernel trees. Here's my
-> extensive analysis:
->=20
-> ## Critical Bug Fix Analysis
->=20
-> 1. **The commit fixes a significant functional bug** - The PWM algorithm
->    was fundamentally broken:
->    - The `frac` variable was incorrectly used (lines 158-161 in
->      original, now 168-171)
->    - The driver was writing the duty cycle value directly to PWMCMP
->      register (line 193), but the hardware actually expects the
->      **inactive** (low) time
->    - This results in inverted PWM output behavior where users get the
->      opposite duty cycle from what they request
->=20
-> 2. **Hardware behavior discrepancy** - The commit reveals and fixes a
->    critical mismatch between documentation and actual hardware:
->    - The documentation states "pwms >=3D pwmcmpX -> HIGH"
->    - But the hardware has a hard-tied XNOR with 0 that inverts this
->      behavior
->    - The driver now correctly compensates for this hardware quirk
->=20
-> 3. **User-visible impact**:
->    - **In `pwm_sifive_get_state()`**: The driver now correctly inverts
->      the value read from hardware (lines 115->122-126)
->    - **In `pwm_sifive_apply()`**: The driver now inverts the duty cycle
->      before writing to hardware (lines 162->171)
->    - **Polarity change**: Changed from `PWM_POLARITY_INVERSED` to
->      `PWM_POLARITY_NORMAL` (lines 126->137, 142->152)
->    - **Documentation fix**: Updated comment from "cannot generate 100%
->      duty" to "cannot generate 0% duty" (lines 11->27, 160->170)
->=20
-> 4. **The fix is relatively small and contained**:
->    - Changes are isolated to the PWM algorithm logic
->    - No architectural changes or new features
->    - Simple mathematical inversion: `duty =3D (1U << PWM_SIFIVE_CMPWIDTH)
->      - 1 - inactive`
->=20
-> 5. **No risky side effects**:
->    - The change is straightforward and mathematically correct
->    - Doesn't affect other subsystems
->    - Maintains the same register interface
->=20
-> 6. **Affects all SiFive PWM users**:
->    - Any system using SiFive FU540 or FU740 SoCs would have incorrect
->      PWM output
->    - This includes various RISC-V development boards and embedded
->      systems
->    - Users would get inverted duty cycles, potentially breaking motor
->      controls, LED dimming, etc.
->=20
-> 7. **Clear documentation reference**:
->    - The commit references the official SiFive FU740-C000 Manual
->    - Provides clear explanation of the hardware behavior mismatch
->=20
-> The bug causes PWM outputs to be inverted from user expectations, which
-> is a significant functional issue that would affect any system relying
-> on proper PWM behavior for motor control, LED dimming, or other PWM-
-> dependent functionality. The fix is clean, minimal, and addresses a
-> clear hardware/software mismatch that exists in production systems.
 
-What your LLM missed is that the device trees using this PWM relied on
-this "bug" and so this commit should be applied either together with
-f4bcf818e5d6 ("riscv: dts: sifive: unleashed/unmatched: Remove PWM
-controlled LED's active-low properties") or not at all.
+Please drop this patch from your queue, see
+https://lore.kernel.org/all/52ycm5nf2jrxdmdmcijz57xhm2twspjmmiign6zq6rp3d5w=
+t6t@tq5w47fmiwgg/
+for the rationale.
 
-Given that there might be device trees in use that are not in mainline
-and that break in the same way without a possiblity for us to fix that I
-tend to prefer not to backport this breaking change to stable.
+This is the fourth mail of this type I'm writing. For the future: Is it
+enough to raise these concerns once only and maybe even make it easier
+on your end, too? If so, should I better pick the oldest or the newest
+base version series to reply?
 
 Best regards
 Uwe
 
---qfo5vfkivwrbc725
+--ffr2hu7lxjke47gh
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmiQjZQACgkQj4D7WH0S
-/k4P/Af9Es0+24qpGdgkAMPcr7a3SUM2X2+zjV+eo73yCNLcWS5ouW1qTVL+nVL8
-HlvFVt1Haf4FecuV3O4WuR00mJfnYsG1W6Nrf0+PGHUnlO+j5XBwdf9TmxWC018g
-BXrW8UDgMotiE5ybc7ySZtRVkCd8oCf0BkJNrS+wl40nTN2NZHZggQ9Q72P2slNY
-X6NObEAaJkZLoST2Wn70e1A5MarBNfTmmZUsURdrsCXdTx/rxncC7yxfYloKYxzr
-iC91hksP/r24EGgHS8x5s3E5KvKrqYfg+jvpQMlj2N33T4DohSKJarQDue5+YBr8
-7gTU73kN36h9lunrIfPfqQYJNBjqbQ==
-=TUM5
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmiQj0EACgkQj4D7WH0S
+/k6oMQf+O4wdYC4RKeBWaggB5ZX3bh1tCXkDhGIpvm2OyM/W3MrVOVzUXSMjrNtm
+ecvkwgDbn/USVwyOzHklS9m9/LfSY26y5XFh+XY6rArW8lb2OAVMjTWSrWLN2P5n
+hkUTREkNNNJ0tj1/iFKGubbLPKw8pbjPe9QSEkcXvniQZKdvsd1VO2vwKIxWcgur
+TQrdn+/UPXa+DW3LfinaeVPG9g5qMPhAV2esa0/DmrZ/RRikYxLu8HCWcrtTCGYw
+nAfXXztH7v33LxjLcqta7zsG3f2QDBBhBZsodu1D11vjMkL2RvcwCAU/10ABDSXe
+2XiXiVcXGexyUzBZdzMpcJxS0WETXw==
+=ICmB
 -----END PGP SIGNATURE-----
 
---qfo5vfkivwrbc725--
+--ffr2hu7lxjke47gh--
 
 
---===============3445302608200938777==
+--===============8299859328143895187==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -227,5 +163,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3445302608200938777==--
+--===============8299859328143895187==--
 
