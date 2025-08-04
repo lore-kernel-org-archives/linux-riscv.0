@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67984CA0EC3
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 16:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BA9CA0EC4
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 16:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zqc9Ka7ovC+FIcqhThRQvnW5wMCqdXZZgRgXMxjIbEo=; b=0saM/JMp1QJAP0
-	kxdjZi43Fu6wYDBrnPOUPwyJEVVrx36vAlML08pCa7qxjQGarS8G3UBRRZn8dkf8qwtKKnr1QM7HM
-	Tanl3uaJ2gBBKBhCWEHxYVxF+lSa5GaSjFLn/7A+vsQMvISr7tHb7sP7UtZcid2tdk7ttRFDJpyyh
-	Gr2s5rrz+6A+dGUwazmLE3lkACzDGXj7tbOg1QZhCQT39oj534CFBQbxVxGjD/wVB1E4haeCLntSX
-	98DuD4VIn0pxGGbf/pY2gqBLrJmdo86/ZtWTtxgnN16263VSyO17qbJVwaczB/vth9XJ9Li8xz4oA
-	83fRwpwln04eFYXk1vEA==;
+	List-Owner; bh=0GjhuID79wXUhjwmLmSLLSN/AaTvOl1QF/TxFWk4ckQ=; b=1OHYIksh3Pxby9
+	9uB2XzM6VdazE+ZrNeo3ELzD7CJwU8/MyiLYEOqIeVMDv4dR5kbdbv8sBrDbm2FBb7Yc2MG7mmt5U
+	38vyvBjoGPaThV61ojDCuHhFPIKSjiQqwnv+MaynSPL6yyBmzqiO9YuifSnnIaRB/I2mRCyCgwLMu
+	T4xVj+A2cCusaz5lp7m6OSlehtJAUD6WcXRCQSHOBUX70odunsN61UkZ36FsnGonCFhjfp+USwIK/
+	HKrcnAaVDmtzvVLn6vD1wKqJalumKfNUNo/iR1aQAxozA1kXF3Vyx+KWen/MisYSB6z95FmMZg00t
+	blp3m8MuU5/ozPqjrgtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiyKS-0000000B0rk-2B4B;
-	Mon, 04 Aug 2025 16:46:28 +0000
+	id 1uiyKU-0000000B0tc-1guo;
+	Mon, 04 Aug 2025 16:46:30 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiyIM-0000000AzxA-2mKe
+	id 1uiyIM-0000000AzxX-3yee
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 16:44:19 +0000
+	Mon, 04 Aug 2025 16:44:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F16845DAE;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5C1BC45E3C;
 	Mon,  4 Aug 2025 16:44:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E879C4CEFF;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B233C116D0;
 	Mon,  4 Aug 2025 16:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1754325858;
-	bh=adGs1kuuk4zPQI9OS9eVOvJux65kSL76tPiJyL+ncj8=;
+	bh=guvy9CFz34iD95VNx9U+nwzbEodayv2bp++BoAV7Co8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZNX2f+ukbjZ1j6eu9fz/+prTtT0vGsnjndcPXpFpG7P0Ia1Ril8Zf05ioP7FLpyo+
-	 Mm2+aQHENVj0SHKpUPkPNDfgX5KBmrxkUcMnELWwkSRO5YI2iFCS8V36kFAf3sXzwz
-	 zIvsdeC0pDzY9IKgCqH+xjQqPw2s+/XGMq9xJey9eoC5Sun/SfxY85adcWU/9qVD5I
-	 Eh9+V8XR+/ZCwx0FSYMbTtEWnpevQ2WhcEQ/mvJoIbxn3Y2oVc+jESY8sptZ+6Y1E7
-	 hXKnvnLGQgbuK3ouTYEW2vnpMJujCrVf4XcvM08Nb1q67D1mup4HnPed6XG6GGawWY
-	 izdWDqT9JS+RA==
+	b=m7b8ufEvWKC7zComlRM7+u4PtyfPEWo/yjTdeYkDlJsbVyvwHAovh35m4D3uuSVye
+	 gHJqZVdqWNTwtanGfltzgxGVOtOstQHMiweKxm56tiOvOzLvR44JZYdUL8B5L1htI+
+	 DGDKHooxzEKRzUaDUXP7yWLGj/TWeVyVHYMQzEghCsXqPhdeduMIDPn11gl9swH7a+
+	 HEINXXtYK9TpmhXZNMHyNCftjjwDDURfQsMuyzWDTs0oBX4SY+zy7mK7Jgke/vDeg3
+	 U7w0bqTMAqEajLuIcJFHYSbSneQKkmY/yNhbGerF4hTMOq3OpZ4VDdx/o1lJJPBczx
+	 s7evE8jRDh0cw==
 From: Kees Cook <kees@kernel.org>
 To: linux-arch@vger.kernel.org
 Cc: Kees Cook <kees@kernel.org>,
@@ -61,18 +61,18 @@ Cc: Kees Cook <kees@kernel.org>,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH 04/17] x86: Add __attribute_const__ to ffs()-family implementations
-Date: Mon,  4 Aug 2025 09:44:00 -0700
-Message-Id: <20250804164417.1612371-4-kees@kernel.org>
+Subject: [PATCH 06/17] sh: Add __attribute_const__ to ffs()-family implementations
+Date: Mon,  4 Aug 2025 09:44:02 -0700
+Message-Id: <20250804164417.1612371-6-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250804163910.work.929-kees@kernel.org>
 References: <20250804163910.work.929-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3280; i=kees@kernel.org; h=from:subject; bh=adGs1kuuk4zPQI9OS9eVOvJux65kSL76tPiJyL+ncj8=; b=owGbwMvMwCVmps19z/KJym7G02pJDBkTHkdcn9HKVsXGsIr7AKdfgqSU+aeIrz0tzpYr9wkum fXBvsyko5SFQYyLQVZMkSXIzj3OxeNte7j7XEWYOaxMIEMYuDgF4CbnMTJ099c09f3590OhLee3 kxnL/7s7bxwLjPFLUap6/mJdAGsII8MONcmt6pUnOeTOCVhKzbgjGJmr7T41n6lg2nSB8PZMR24 A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1828; i=kees@kernel.org; h=from:subject; bh=guvy9CFz34iD95VNx9U+nwzbEodayv2bp++BoAV7Co8=; b=owGbwMvMwCVmps19z/KJym7G02pJDBkTHkfmP9t48PLcGkVp7XKfZ3/uTi7Rm+jids/QLcX+v ovoKoOHHaUsDGJcDLJiiixBdu5xLh5v28Pd5yrCzGFlAhnCwMUpABNRZ2T4Z1zh+zj++LvqmA3l LWq5U/2rD36e5VuY8uHfOu9mze9iixn+5z/fPemPk/mc5Lc7HA/9vMSTdJhT49XaZfdm+L/0SFt yjQUA
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_094418_755346_BF342B6F 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250804_094419_081288_BB5EC66C 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,76 +98,40 @@ __attribute__const__, the compiler had to assume the function might
 change variable states as a side-effect (which is not true for ffs(),
 which provides deterministic math results).
 
-Add missing __attribute_const__ annotations to x86's implementations of
-variable__ffs(), variable_ffz(), __fls(), variable_ffs(), and fls() functions.
-These are pure mathematical functions that always return the same result for the same
-input with no side effects, making them eligible for compiler optimization.
+Add missing __attribute_const__ annotations to SH's implementations of
+__ffs() and ffz() functions. These are pure mathematical functions that
+always return the same result for the same input with no side effects,
+making them eligible for compiler optimization.
 
-Build tested ARCH=x86_64 defconfig with GCC gcc 14.2.0.
+Build tested ARCH=sh defconfig with GCC sh4-linux-gnu 14.2.0.
 
 Link: https://github.com/KSPP/linux/issues/364 [1]
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
- arch/x86/include/asm/bitops.h | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/sh/include/asm/bitops.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/include/asm/bitops.h b/arch/x86/include/asm/bitops.h
-index eebbc8889e70..a835f891164d 100644
---- a/arch/x86/include/asm/bitops.h
-+++ b/arch/x86/include/asm/bitops.h
-@@ -246,7 +246,7 @@ arch_test_bit_acquire(unsigned long nr, const volatile unsigned long *addr)
- 					  variable_test_bit(nr, addr);
- }
+diff --git a/arch/sh/include/asm/bitops.h b/arch/sh/include/asm/bitops.h
+index 10ceb0d6b5a9..aba3aa96a50e 100644
+--- a/arch/sh/include/asm/bitops.h
++++ b/arch/sh/include/asm/bitops.h
+@@ -24,7 +24,7 @@
+ #include <asm-generic/bitops/non-atomic.h>
+ #endif
  
--static __always_inline unsigned long variable__ffs(unsigned long word)
-+static __always_inline __attribute_const__ unsigned long variable__ffs(unsigned long word)
+-static inline unsigned long ffz(unsigned long word)
++static inline unsigned long __attribute_const__ ffz(unsigned long word)
  {
- 	asm("tzcnt %1,%0"
- 		: "=r" (word)
-@@ -265,7 +265,7 @@ static __always_inline unsigned long variable__ffs(unsigned long word)
- 	 (unsigned long)__builtin_ctzl(word) :	\
- 	 variable__ffs(word))
+ 	unsigned long result;
  
--static __always_inline unsigned long variable_ffz(unsigned long word)
-+static __always_inline __attribute_const__ unsigned long variable_ffz(unsigned long word)
- {
- 	return variable__ffs(~word);
- }
-@@ -287,7 +287,7 @@ static __always_inline unsigned long variable_ffz(unsigned long word)
+@@ -44,7 +44,7 @@ static inline unsigned long ffz(unsigned long word)
   *
-  * Undefined if no set bit exists, so code should check against 0 first.
+  * Undefined if no bit exists, so code should check against 0 first.
   */
--static __always_inline unsigned long __fls(unsigned long word)
-+static __always_inline __attribute_const__ unsigned long __fls(unsigned long word)
+-static inline unsigned long __ffs(unsigned long word)
++static inline __attribute_const__ unsigned long __ffs(unsigned long word)
  {
- 	if (__builtin_constant_p(word))
- 		return BITS_PER_LONG - 1 - __builtin_clzl(word);
-@@ -301,7 +301,7 @@ static __always_inline unsigned long __fls(unsigned long word)
- #undef ADDR
- 
- #ifdef __KERNEL__
--static __always_inline int variable_ffs(int x)
-+static __always_inline __attribute_const__ int variable_ffs(int x)
- {
- 	int r;
- 
-@@ -355,7 +355,7 @@ static __always_inline int variable_ffs(int x)
-  * set bit if value is nonzero. The last (most significant) bit is
-  * at position 32.
-  */
--static __always_inline int fls(unsigned int x)
-+static __always_inline __attribute_const__ int fls(unsigned int x)
- {
- 	int r;
- 
-@@ -400,7 +400,7 @@ static __always_inline int fls(unsigned int x)
-  * at position 64.
-  */
- #ifdef CONFIG_X86_64
--static __always_inline int fls64(__u64 x)
-+static __always_inline __attribute_const__ int fls64(__u64 x)
- {
- 	int bitpos = -1;
+ 	unsigned long result;
  
 -- 
 2.34.1
