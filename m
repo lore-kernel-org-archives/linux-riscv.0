@@ -4,105 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C7DBC87FCB
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 08:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD41EC88CB9
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 08:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+tNgC26j/61x0jvpyJjvr68UlyByYmDH0W3SV63k2YE=; b=jGUA2kOyT7nx2S
-	B905U/KnzHW/SFFfMnpYBmbkSzZCXA9spy4jNH1vsehB4ESL+0i8bi/Ng6KpMpOgpJekeRlxhUylR
-	LsVmje55Eq5ZTByMzTgscHJjCC78aq8Dw5+XxzBGpM6brOY738heGSiVh4GIobz60ULQjzwvJ1OYh
-	Nz2zbl9VWNCeC1/9Y/tHeH5WI+2+uG5RS8earyKQdWaQnyMlWsVulEuhR7/5jCh+9wJ+ScvquGHkr
-	H+yOl1HezCd9rOdjpguXqztvGMCwpg1xrG5xITtkYFOxmiOa5lJ3hN6vQcpntyGthEMpbeaK9p4We
-	jIUdG9/lp6fDNdrQbzoA==;
+	List-Owner; bh=mxVj4vfeJxwVQ+l3TTs5nLJlDb3nCn4ZceCyTrjk4p4=; b=mhQDQKxZ0baFg8
+	FGGtKYmGeIOAmn+EW0CulhKa0S4nieDTlD/v3urxVh2YyhciENshqcJ/Vv+m15H5LcaKijngJP3L9
+	c9HMdcyYBkBM1+BXhdv635I3HHqQ1nsuFLOKLcxrgGfl4fatDyQr6K2cpxfJr2eZzNXPk4VgZiRV2
+	12Wn/hQbtXQyd8WzZn0exgUWN2xpSHSrP/l1fQzkQTyPEmelXl2KgWfBDbE+NwVdQ6PU78puEx9z/
+	D2fCsCSRNqR0PCE9mF5r4kzaBheJlUq1/P5+1JLLF48okIFgJHBqh5b5Bd9wrTrcXb/D3e5z+x2NL
+	39Gam1G/BZ7ddU9P5+8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiqTQ-00000009vxC-456v;
-	Mon, 04 Aug 2025 08:23:12 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uiqlC-00000009yg4-2avw;
+	Mon, 04 Aug 2025 08:41:34 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiq8Q-00000009suv-0NeK
+	id 1uiqJA-00000009ubT-1VRO
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 08:01:31 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4561ed868b5so26519045e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Aug 2025 01:01:29 -0700 (PDT)
+	Mon, 04 Aug 2025 08:12:38 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-459ddf83023so1599815e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Aug 2025 01:12:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1754294488; x=1754899288; darn=lists.infradead.org;
+        d=rivosinc.com; s=google; t=1754295155; x=1754899955; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=8G6SdAq33xZMMM/rI205allMoBUdvN/RkDayt2kSpHg=;
-        b=EGKpxhAoP4poNgvQez+ipvT3mKrrDc2Lr4qc5c6s1pYCg4VpYbuuLO7B6SUztLPL3L
-         Q1d5BXBd0e3RAvvkPO4fw+tDUezN/5bflk+jwIoNRzd3lsB6nNmmzIxZOCdS2+GwLwvT
-         5uy8ACzSrWRYmFDNA5ge/fzl3sjuTpOEWqw45RJxELIXMc4wJ8qA1ZHf6uJG2FSxOjev
-         +WOPP6cBex0liEHdTnGxSMvqVv0mY1yI9NJuJFlbHzqzt2nl+6ys9+D30P09YQFL+YoQ
-         qVLKkRcOnCz9ca1zsausXPjp9ZMlYOU7Ec841qR9KV9IUv5o1Cp6InllloHIb+D8jA+Q
-         zQSQ==
+        bh=5YWX1EAOoOHJi8vMtJH0oIBKBvx6srlJh1t9rUpQB80=;
+        b=IkoFnrq/Hm+qPpJgI0RgKmSKKbjI4Cx3l/7EVbfmCEr22J+0N+mpBIyOu/f4Kj3Y3g
+         gynlh4pv23zBGwT5XKFSJ973tnilidpJhvTHdGjx0odNMKtgXCRPBX5yLTJvk9JWD4ml
+         udluUPa8kBcw8qlqBeJ8d2PMBrpC4B8+I7bNdIge1cv57JhJGJHjQUP11ROyD7wRAlkN
+         viQD0h3F1cvbmbbMXbhBl15bPhvntI0cdWiFtzjZ2UnNf08N5K9fqnIKQLNSYcRjZsu2
+         2a/Wi1t7VIukhqWohT2wsMRJ3xvepkAiHyB68e/gu/OfpIu1LzM4TvME1XWfYtmFDG5Y
+         WVjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754294488; x=1754899288;
+        d=1e100.net; s=20230601; t=1754295155; x=1754899955;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8G6SdAq33xZMMM/rI205allMoBUdvN/RkDayt2kSpHg=;
-        b=IoAFkw+wW/b7hVifSqkLCeC7e961SCAVY42ZxFwtf8CUw/ezEqoMDg407BfaWw9bkU
-         sEnhqsO7/85gRaLkx9isgSWTwukddQgbDw6FOO2Bvk7313hG7l3gWbmpbttApoO3aqGr
-         KU+0q+g4sPQ+tKgYWNLWUKhkUWLIUvSIkrwrJVwbfiHanLOYlUuIlrx6C4gA0doqDLrg
-         pjmJet9RGTBGMqi4c8sBy+0qNPzPdjgM1QxfvZpZbrrNBuqn+5a+Gcnh+3/i/MRUiCvp
-         N5725ylSrWchEMY/kZM54SF9Zt6s/rMsp/dFks0yQtiZq9UXkX0DvyU/G88PLZteQiX7
-         MB+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUydWWUK0CsLnXsj1CovI3JGRyKAYoNAhcYiXRpL6eyBjdJCmx/zsH8HXyKkPkYRuc8Q4iNbS4keGx8GA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfjQ04MNGAAblRNWYiMdocn/G96AUPj4Fql7DIxNXOmqKAk8EX
-	hhd65Hj4BrCEXBWVf+2jhvAZRtwydg7Gj/Td18JnBe1LTuU2LAwke1g2CTg6WgTT8ls=
-X-Gm-Gg: ASbGncsUzz7xzfAC/Z43FJqnQwbqU+UmcVpogFK2Qmi94fen7mRMCsbkpsmCNY4zvt5
-	dLCEQn1uaKkw1+9L5tm7CZnAeRQ90w9E8glnFxftXtYQG+zMtY0gHCjLSDFqCWlTUErCcMf1zFd
-	et4rP+E1niuf1WPg0m+qPVCnPmKmHyeXgDXXSeJV+i2UwFdYrBsZCuTnR5/YF/M/hPtzIAs+S0E
-	lhUrLuxm8MIpYwd/sppjSum8FxTaUBLX2QAAujYL4PSf1DUm2T9Rqyoldpj01dk89z1fyVCN69w
-	hEvPOdthH0uUAFSePRdvyZYZHF9737W7raurhb/Hd/+YMF1idWddyKgBZBi4y+WevUshnW6/EzQ
-	U7iV3IOXxsoqES/zTC0poCHndPRUl+BEHCxP9XybRqkIxuJvaq1r1MlYbjXFHxzhA1n/dGu/DIi
-	/qpQ==
-X-Google-Smtp-Source: AGHT+IHGTL2p73OZAkR6Zhl82VsFts4qTEomO3hhVxV4oe1lEGQWPlGnVyYDEipdtaPueV9FcCrmNA==
-X-Received: by 2002:a05:600c:a43:b0:456:173c:8a53 with SMTP id 5b1f17b1804b1-458b69c8300mr69087015e9.2.1754294488307;
-        Mon, 04 Aug 2025 01:01:28 -0700 (PDT)
+        bh=5YWX1EAOoOHJi8vMtJH0oIBKBvx6srlJh1t9rUpQB80=;
+        b=l9+BqxOtYZx0cjZu7+8jHhmSTsZ73zoeRgBZtAOcdH4Y94tnPfnj92e3tOmiUF5MmX
+         s5dpgbc1WGy+nqCSLV7sLBk5nXzDwevQCempPcrZMYPHVx0hj6r0o1TUas7jTRojvZ3p
+         ORBeZbfQgQuPXz5P+/6P6dEbdt2ZF63HqMss5yXc6/XMRwaFddRDWiTpWLBwea5vbAeg
+         Kbt0Zz/4IEU3DHmbSfGxSNjY9TGeYM0pn5RTkq7Ziyu5TTKR04SNObfNgQRraCQ/ROcr
+         xKItydWNR4UYXJX7uJN5YcFpcaOe1YKpLebJfFE3DDX41i3qO1PloE3ifa535D4lQ3vW
+         0rsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXEDc/EnYK1SZFsPOjKtEcq+aN7UTgrWD+6Jv0H2AHXITHwpz4i9xGYpc6injevl7cCj8spiYvCMTn+Pw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMSb0rlPFM0OqgvBnAOPziAxF6kyjOS1LHaAbxApsVjcifjl8R
+	kLYD5Ntgirv123SV33HLSrStucMTMsteLQIDBLJ+6RJdDWSsT8wOImm2IZv4b3Ii9fmI9l6Xk+k
+	nEOYa39U=
+X-Gm-Gg: ASbGncuEpmm7CmXytRUQ5KiC9LPmPs2VgidQ40jHNvwMWsrZ2LLCHHu59VQv1VB6sny
+	EXnEKjBvPv1LEjt8l3m/NyNiYQpMWnEzRj5OKGfKYQcXqwxIMIV7edf/MBGrBYmEsUflzimNaad
+	kajILXBt76C/BCGFkmMk50/43fcS91tCI7f0zYyCnzRE20t6Ioe4ALfLdIIPRr0xvxltiF2Uh/1
+	6XSkrU686zgdJrpKZNxuxnCUqKNGceOLEx5JuQQMx6Okvle6Yb2yW1P3DzRZpljsGaf0ims8ZHY
+	sYroM5dfSy/OL/a7+okm/zNODcw9i6oh22A79/HpRepRDUyT0NLewsecU/uTLV+r9AvriH/ahY2
+	zfDDCTqIR038/Q8XmrKs3QbrTOeHcDGrrLCUN/tKJnlTwNjKrcw3EnbmYKavk3UAkLt8=
+X-Google-Smtp-Source: AGHT+IFfulHEU4i5ZqtWeJV0rbVTF8HwVdqWaWZfFWus9OsgWoiF7Rskd29Bz99kF/5hDBKCiLD+9Q==
+X-Received: by 2002:a05:600c:3b93:b0:459:94a7:220f with SMTP id 5b1f17b1804b1-45994a72576mr36054585e9.26.1754295154538;
+        Mon, 04 Aug 2025 01:12:34 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c4a6f62sm14381510f8f.73.2025.08.04.01.01.27
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c3c51e2sm14357054f8f.32.2025.08.04.01.12.33
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Aug 2025 01:01:27 -0700 (PDT)
-Message-ID: <6bbecd00-8c47-44fc-aaa0-eb5607d4ca53@rivosinc.com>
-Date: Mon, 4 Aug 2025 10:01:26 +0200
+        Mon, 04 Aug 2025 01:12:33 -0700 (PDT)
+Message-ID: <9b8848c3-f1c8-458e-9ff1-99f356b95e8d@rivosinc.com>
+Date: Mon, 4 Aug 2025 10:12:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 4/6] riscv: Introduce support for hardware
- break/watchpoints
-To: Jesse Taube <jesse@rivosinc.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Subject: Re: [External] [PATCH v5 2/5] riscv: add support for SBI Supervisor
+ Software Events extension
+To: yunhui cui <cuiyunhui@bytedance.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Oleg Nesterov <oleg@redhat.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Himanshu Chauhan <hchauhan@ventanamicro.com>,
- Charlie Jenkins <charlie@rivosinc.com>,
- Samuel Holland <samuel.holland@sifive.com>, Deepak Gupta
- <debug@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>,
- Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>,
- Mayuresh Chitale <mchitale@ventanamicro.com>,
- Conor Dooley <conor.dooley@microchip.com>, WangYuli
- <wangyuli@uniontech.com>, Huacai Chen <chenhuacai@kernel.org>,
- Nam Cao <namcao@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>,
- "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Luis Chamberlain <mcgrof@kernel.org>, Yunhui Cui <cuiyunhui@bytedance.com>,
- Joel Granados <joel.granados@kernel.org>,
- Celeste Liu <coelacanthushex@gmail.com>, Evan Green <evan@rivosinc.com>,
- Nylon Chen <nylon.chen@sifive.com>
-References: <20250722173829.984082-1-jesse@rivosinc.com>
- <20250722173829.984082-5-jesse@rivosinc.com>
+ Anup Patel <apatel@ventanamicro.com>, Xu Lu <luxu.kernel@bytedance.com>,
+ Atish Patra <atishp@atishpatra.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>
+References: <20250715160234.454848-1-cleger@rivosinc.com>
+ <20250715160234.454848-3-cleger@rivosinc.com>
+ <CAEEQ3wkQr6dWPJOkowNO5f9QWdkQ3r2v4cZENuHp_YyBbhS0fg@mail.gmail.com>
 Content-Language: en-US
 From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20250722173829.984082-5-jesse@rivosinc.com>
+In-Reply-To: <CAEEQ3wkQr6dWPJOkowNO5f9QWdkQ3r2v4cZENuHp_YyBbhS0fg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_010130_159332_FAE44CC6 
-X-CRM114-Status: GOOD (  27.92  )
+X-CRM114-CacheID: sfid-20250804_011236_412995_D2FF56F3 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,840 +104,372 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 22/07/2025 19:38, Jesse Taube wrote:
-> From: Himanshu Chauhan <hchauhan@ventanamicro.com>
-> 
-> RISC-V hardware breakpoint framework is built on top of perf subsystem and uses
-> SBI debug trigger extension to install/uninstall/update/enable/disable hardware
-> triggers as specified in Sdtrig ISA extension.
-> 
-> Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
-> Signed-off-by: Jesse Taube <jesse@rivosinc.com>
-> ---
->  arch/riscv/Kconfig                     |   1 +
->  arch/riscv/include/asm/hw_breakpoint.h |  60 +++
->  arch/riscv/include/asm/kdebug.h        |   3 +-
->  arch/riscv/include/asm/sbi.h           |   4 +-
->  arch/riscv/kernel/Makefile             |   1 +
->  arch/riscv/kernel/hw_breakpoint.c      | 620 +++++++++++++++++++++++++
->  arch/riscv/kernel/traps.c              |   6 +
->  7 files changed, 693 insertions(+), 2 deletions(-)
->  create mode 100644 arch/riscv/include/asm/hw_breakpoint.h
->  create mode 100644 arch/riscv/kernel/hw_breakpoint.c
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index bbec87b79309..95d3047cab10 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -163,6 +163,7 @@ config RISCV
->  	select HAVE_FUNCTION_ERROR_INJECTION
->  	select HAVE_GCC_PLUGINS
->  	select HAVE_GENERIC_VDSO if MMU && 64BIT
-> +	select HAVE_HW_BREAKPOINT if PERF_EVENTS && RISCV_SBI
->  	select HAVE_IRQ_TIME_ACCOUNTING
->  	select HAVE_KERNEL_BZIP2 if !XIP_KERNEL && !EFI_ZBOOT
->  	select HAVE_KERNEL_GZIP if !XIP_KERNEL && !EFI_ZBOOT
-> diff --git a/arch/riscv/include/asm/hw_breakpoint.h b/arch/riscv/include/asm/hw_breakpoint.h
-> new file mode 100644
-> index 000000000000..8efa3921c535
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/hw_breakpoint.h
-> @@ -0,0 +1,60 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2024 Ventana Micro Systems Inc.
-> + */
-> +
-> +#ifndef __RISCV_HW_BREAKPOINT_H
-> +#define __RISCV_HW_BREAKPOINT_H
-> +
-> +struct task_struct;
-> +
-> +#ifdef CONFIG_HAVE_HW_BREAKPOINT
-> +
-> +#include <uapi/linux/hw_breakpoint.h>
-> +
-> +#if __riscv_xlen == 64
-> +#define cpu_to_le cpu_to_le64
-> +#define le_to_cpu le64_to_cpu
-> +#elif __riscv_xlen == 32
-> +#define cpu_to_le cpu_to_le32
-> +#define le_to_cpu le32_to_cpu
-> +#else
-> +#error "Unexpected __riscv_xlen"
-> +#endif
-> +
-> +struct arch_hw_breakpoint {
-> +	unsigned long address;
-> +	unsigned long len;
-> +
-> +	/* Callback info */
-> +	unsigned long next_addr;
-> +	bool in_callback;
-> +
-> +
-> +	/* Trigger configuration data */
-> +	unsigned long tdata1;
-> +	unsigned long tdata2;
-> +	unsigned long tdata3;
-> +};
-> +
-> +/* Maximum number of hardware breakpoints supported */
-> +#define RV_MAX_TRIGGERS 32
-> +
-> +struct perf_event_attr;
-> +struct notifier_block;
-> +struct perf_event;
-> +struct pt_regs;
-> +
-> +int hw_breakpoint_slots(int type);
-> +int arch_check_bp_in_kernelspace(struct arch_hw_breakpoint *hw);
-> +int hw_breakpoint_arch_parse(struct perf_event *bp,
-> +			     const struct perf_event_attr *attr,
-> +			     struct arch_hw_breakpoint *hw);
-> +int hw_breakpoint_exceptions_notify(struct notifier_block *unused,
-> +				    unsigned long val, void *data);
-> +int arch_install_hw_breakpoint(struct perf_event *bp);
-> +void arch_uninstall_hw_breakpoint(struct perf_event *bp);
-> +void hw_breakpoint_pmu_read(struct perf_event *bp);
-> +
-> +#endif /* CONFIG_HAVE_HW_BREAKPOINT */
-> +#endif /* __RISCV_HW_BREAKPOINT_H */
-> diff --git a/arch/riscv/include/asm/kdebug.h b/arch/riscv/include/asm/kdebug.h
-> index 85ac00411f6e..53e989781aa1 100644
-> --- a/arch/riscv/include/asm/kdebug.h
-> +++ b/arch/riscv/include/asm/kdebug.h
-> @@ -6,7 +6,8 @@
->  enum die_val {
->  	DIE_UNUSED,
->  	DIE_TRAP,
-> -	DIE_OOPS
-> +	DIE_OOPS,
-> +	DIE_DEBUG
->  };
->  
->  #endif
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index be2ca8e8a49e..64fa7a82aa45 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -282,7 +282,9 @@ struct sbi_sta_struct {
->  	u8 pad[47];
->  } __packed;
->  
-> -#define SBI_SHMEM_DISABLE		-1
-> +#define SBI_SHMEM_DISABLE	(-1UL)
-> +#define SBI_SHMEM_LO(pa)	((unsigned long)lower_32_bits(pa))
-> +#define SBI_SHMEM_HI(pa)	((unsigned long)upper_32_bits(pa))
->  
->  enum sbi_ext_nacl_fid {
->  	SBI_EXT_NACL_PROBE_FEATURE = 0x0,
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index 4f719b09e5ad..3e72505734bd 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -99,6 +99,7 @@ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
->  
->  obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
->  obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
-> +obj-$(CONFIG_HAVE_HW_BREAKPOINT)	+= hw_breakpoint.o
->  obj-$(CONFIG_RISCV_SBI)		+= sbi.o sbi_ecall.o
->  ifeq ($(CONFIG_RISCV_SBI), y)
->  obj-$(CONFIG_SMP)		+= sbi-ipi.o
-> diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
-> new file mode 100644
-> index 000000000000..9e3a3b82d300
-> --- /dev/null
-> +++ b/arch/riscv/kernel/hw_breakpoint.c
-> @@ -0,0 +1,620 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2024 Ventana Micro Systems Inc.
-> + */
-> +
-> +#include <linux/hw_breakpoint.h>
-> +#include <linux/perf_event.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/percpu.h>
-> +#include <linux/kdebug.h>
-> +#include <linux/bitops.h>
-> +#include <linux/bitfield.h>
-> +#include <linux/cpu.h>
-> +#include <linux/cpuhotplug.h>
-> +
-> +#include <asm/insn.h>
-> +#include <asm/sbi.h>
-> +
-> +#define DBTR_TDATA1_TYPE_SHIFT		(__riscv_xlen - 4)
-> +#define DBTR_TDATA1_DMODE		BIT_UL(__riscv_xlen - 5)
-> +
-> +#define DBTR_TDATA1_TYPE_MCONTROL	(2UL << DBTR_TDATA1_TYPE_SHIFT)
-> +#define DBTR_TDATA1_TYPE_MCONTROL6	(6UL << DBTR_TDATA1_TYPE_SHIFT)
-> +
-> +#define DBTR_TDATA1_MCONTROL6_LOAD		BIT(0)
-> +#define DBTR_TDATA1_MCONTROL6_STORE		BIT(1)
-> +#define DBTR_TDATA1_MCONTROL6_EXECUTE		BIT(2)
-> +#define DBTR_TDATA1_MCONTROL6_U			BIT(3)
-> +#define DBTR_TDATA1_MCONTROL6_S			BIT(4)
-> +#define DBTR_TDATA1_MCONTROL6_M			BIT(6)
-> +#define DBTR_TDATA1_MCONTROL6_SIZE_FIELD	GENMASK(18, 16)
-> +#define DBTR_TDATA1_MCONTROL6_SELECT		BIT(21)
-> +#define DBTR_TDATA1_MCONTROL6_VU		BIT(23)
-> +#define DBTR_TDATA1_MCONTROL6_VS		BIT(24)
-> +
-> +#define DBTR_TDATA1_MCONTROL6_SIZE_8BIT		1
-> +#define DBTR_TDATA1_MCONTROL6_SIZE_16BIT	2
-> +#define DBTR_TDATA1_MCONTROL6_SIZE_32BIT	3
-> +#define DBTR_TDATA1_MCONTROL6_SIZE_64BIT	5
-> +
-> +#define DBTR_TDATA1_MCONTROL_LOAD		BIT(0)
-> +#define DBTR_TDATA1_MCONTROL_STORE		BIT(1)
-> +#define DBTR_TDATA1_MCONTROL_EXECUTE		BIT(2)
-> +#define DBTR_TDATA1_MCONTROL_U			BIT(3)
-> +#define DBTR_TDATA1_MCONTROL_S			BIT(4)
-> +#define DBTR_TDATA1_MCONTROL_M			BIT(6)
-> +#define DBTR_TDATA1_MCONTROL_SIZELO_FIELD	GENMASK(17, 16)
-> +#define DBTR_TDATA1_MCONTROL_SELECT		BIT(19)
-> +#define DBTR_TDATA1_MCONTROL_SIZEHI_FIELD	GENMASK(22, 21)
-> +
-> +#define DBTR_TDATA1_MCONTROL_SIZELO_8BIT	1
-> +#define DBTR_TDATA1_MCONTROL_SIZELO_16BIT	2
-> +#define DBTR_TDATA1_MCONTROL_SIZELO_32BIT	3
-> +/* value of 5 split across HI and LO */
-> +#define DBTR_TDATA1_MCONTROL_SIZELO_64BIT	1
-> +#define DBTR_TDATA1_MCONTROL_SIZEHI_64BIT	1
-> +
-> +/* Registered per-cpu bp/wp */
-> +static DEFINE_PER_CPU(struct perf_event *, pcpu_hw_bp_events[RV_MAX_TRIGGERS]);
-> +static DEFINE_PER_CPU(unsigned long, ecall_lock_flags);
-> +static DEFINE_PER_CPU(raw_spinlock_t, ecall_lock);
-> +
-> +/* Per-cpu shared memory between S and M mode */
-> +static DEFINE_PER_CPU(union sbi_dbtr_shmem_entry, sbi_dbtr_shmem);
-> +
-> +/* number of debug triggers on this cpu . */
-> +static int dbtr_total_num __ro_after_init;
-> +static unsigned long dbtr_type __ro_after_init;
-> +static unsigned long dbtr_init __ro_after_init;
-> +
-> +static int arch_smp_setup_sbi_shmem(unsigned int cpu)
-> +{
-> +	union sbi_dbtr_shmem_entry *dbtr_shmem;
-> +	unsigned long shmem_pa;
-> +	struct sbiret ret;
-> +	int rc;
-> +
-> +	dbtr_shmem = per_cpu_ptr(&sbi_dbtr_shmem, cpu);
-> +	if (!dbtr_shmem) {
-> +		pr_err("Invalid per-cpu shared memory for debug triggers\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	shmem_pa = virt_to_phys(dbtr_shmem);
-> +
-> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_SETUP_SHMEM,
-> +			SBI_SHMEM_LO(shmem_pa), SBI_SHMEM_HI(shmem_pa), 0, 0, 0, 0);
-> +
-> +	if (ret.error) {
-> +		switch (ret.error) {
-> +		case SBI_ERR_DENIED:
-> +			pr_warn("%s: Access denied for shared memory at %lx\n",
-> +				__func__, shmem_pa);
-> +			rc = -EPERM;
-> +			break;
-> +
-> +		case SBI_ERR_INVALID_PARAM:
-> +		case SBI_ERR_INVALID_ADDRESS:
-> +			pr_warn("%s: Invalid address parameter (%ld)\n",
-> +				__func__, ret.error);
-> +			rc = -EINVAL;
-> +			break;
-> +
-> +		case SBI_ERR_ALREADY_AVAILABLE:
-> +			pr_warn("%s: Shared memory is already set\n",
-> +				__func__);
-> +			rc = -EADDRINUSE;
-> +			break;
-> +
-> +		case SBI_ERR_FAILURE:
-> +			pr_err("%s: Internal sdtrig state error\n",
-> +			       __func__);
-> +			rc = -ENXIO;
-> +			break;
-> +
-> +		default:
-> +			pr_warn("%s: Unknown error %lu\n", __func__, ret.error);
-> +			rc = -ENXIO;
-> +			break;
-> +		}
-> +	}
-
-Hi Jesse,
-
-Is there a reason not to use sbi_err_map_linux_errno() ?
-
-> +
-> +	pr_debug("CPU %d: HW Breakpoint shared memory registered.\n", cpu);
-> +
-> +	return rc;
-> +}
-> +
-> +static int arch_smp_teardown_sbi_shmem(unsigned int cpu)
-> +{
-> +	struct sbiret ret;
-> +
-> +	/* Disable shared memory */
-> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_SETUP_SHMEM,
-> +			SBI_SHMEM_DISABLE, SBI_SHMEM_DISABLE, 0, 0, 0, 0);
-> +
-> +	if (ret.error) {
-> +		switch (ret.error) {
-> +		case SBI_ERR_DENIED:
-> +			pr_err("%s: Access denied for shared memory.\n",
-> +			       __func__);
-> +			break;
-> +
-> +		case SBI_ERR_INVALID_PARAM:
-> +		case SBI_ERR_INVALID_ADDRESS:
-> +			pr_err("%s: Invalid address parameter (%lu)\n",
-> +			       __func__, ret.error);
-> +			break;
-> +
-> +		case SBI_ERR_ALREADY_AVAILABLE:
-> +			pr_err("%s: Shared memory is already set\n",
-> +			       __func__);
-> +			break;
-> +		case SBI_ERR_FAILURE:
-> +			pr_err("%s: Internal sdtrig state error\n",
-> +			       __func__);
-> +			break;
-> +		default:
-> +			pr_err("%s: Unknown error %lu\n", __func__, ret.error);
-> +			break;
-> +		}
-> +	}
-
-Ditto
-
-> +
-> +	pr_debug("CPU %d: HW Breakpoint shared memory disabled.\n", cpu);
-> +
-> +	return 0;
-> +}
-> +
-> +static void init_sbi_dbtr(void)
-> +{
-> +	struct sbiret ret;
-> +
-> +	/*
-> +	 * Called by hw_breakpoint_slots and arch_hw_breakpoint_init.
-> +	 * Only proceed if this is the first CPU to reach this code.
-> +	 */
-> +	if (test_and_set_bit(0, &dbtr_init))
-> +		return;
-> +
-> +	if (sbi_probe_extension(SBI_EXT_DBTR) <= 0) {
-> +		pr_debug("%s: SBI_EXT_DBTR is not supported\n", __func__);
-> +		dbtr_total_num = 0;
-> +		return;
-> +	}
-> +
-> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> +			DBTR_TDATA1_TYPE_MCONTROL6, 0, 0, 0, 0, 0);
-> +	if (ret.error) {
-> +		pr_warn("%s: failed to detect mcontrol6 triggers. error: %ld.\n",
-> +			__func__, ret.error);
-> +	} else if (!ret.value) {
-> +		pr_warn("%s: No mcontrol6 triggers available.\n", __func__);
-> +	} else {
-> +		dbtr_total_num = ret.value;
-> +		dbtr_type = DBTR_TDATA1_TYPE_MCONTROL6;
-> +		return;
-> +	}
-> +
-> +	/* fallback to legacy mcontrol triggers if mcontrol6 is not available */
-
-Nit: Since all other comments starts with a capital letter, I'd suggest
-using a capital F (Fallback).
-
-> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> +			DBTR_TDATA1_TYPE_MCONTROL, 0, 0, 0, 0, 0);
-> +	if (ret.error) {
-> +		pr_warn("%s: failed to detect mcontrol triggers. error: %ld.\n",
-> +			__func__, ret.error);
-> +	} else if (!ret.value) {
-> +		pr_err("%s: No mcontrol triggers available.\n", __func__);
-> +		dbtr_total_num = 0;
-> +	} else {
-> +		dbtr_total_num = ret.value;
-> +		dbtr_type = DBTR_TDATA1_TYPE_MCONTROL;
-> +	}
-> +}
-> +
-> +int hw_breakpoint_slots(int type)
-> +{
-> +	/*
-> +	 * We can be called early, so don't rely on
-> +	 * static variables being initialised.
-> +	 */
-> +	init_sbi_dbtr();
-> +
-> +	return dbtr_total_num;
-> +}
-> +
-> +int arch_check_bp_in_kernelspace(struct arch_hw_breakpoint *hw)
-> +{
-> +	unsigned int len;
-> +	unsigned long va;
-> +
-> +	va = hw->address;
-> +	len = hw->len;
-> +
-> +	return (va >= TASK_SIZE) && ((va + len - 1) >= TASK_SIZE);
-> +}
-> +
-> +static int rv_init_mcontrol_trigger(const struct perf_event_attr *attr,
-> +				    struct arch_hw_breakpoint *hw)
-> +{
-> +	unsigned long tdata1 = DBTR_TDATA1_TYPE_MCONTROL;
-> +
-> +	switch (attr->bp_type) {
-> +	case HW_BREAKPOINT_X:
-> +		tdata1 |= DBTR_TDATA1_MCONTROL_EXECUTE;
-> +		break;
-> +	case HW_BREAKPOINT_R:
-> +		tdata1 |= DBTR_TDATA1_MCONTROL_LOAD;
-> +		break;
-> +	case HW_BREAKPOINT_W:
-> +		tdata1 |= DBTR_TDATA1_MCONTROL_STORE;
-> +		break;
-> +	case HW_BREAKPOINT_RW:
-> +		tdata1 |= DBTR_TDATA1_MCONTROL_STORE | DBTR_TDATA1_MCONTROL_LOAD;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	switch (attr->bp_len) {
-> +	case HW_BREAKPOINT_LEN_1:
-> +		hw->len = 1;
-You can probably add a define for that to avoid
-
-#define TDATA1(lo, hi) \
-	FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZELO_FIELD, \
-		   DBTR_TDATA1_MCONTROL_SIZELO_64BIT) | \
-	FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZEHI_FIELD, \
-		   DBTR_TDATA1_MCONTROL_SIZEHI_64BIT);
-
-> +		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZELO_FIELD,
-> +				     DBTR_TDATA1_MCONTROL_SIZELO_8BIT);
-
-		tdata1 |= TDATA1(DBTR_TDATA1_MCONTROL_SIZELO_8BIT, 0);
-
-> +		break;
-> +	case HW_BREAKPOINT_LEN_2:
-> +		hw->len = 2;
-> +		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZELO_FIELD,
-> +				     DBTR_TDATA1_MCONTROL_SIZELO_16BIT);
-
-		tdata1 |= TDATA1(DBTR_TDATA1_MCONTROL_SIZELO_16BIT, 0);
-
-> +		break;
-> +	case HW_BREAKPOINT_LEN_4:
-> +		hw->len = 4;
-> +		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZELO_FIELD,
-> +				     DBTR_TDATA1_MCONTROL_SIZELO_32BIT);
-
-		tdata1 |= TDATA1(DBTR_TDATA1_MCONTROL_SIZELO_32BIT, 0);
-
-> +		break;
-> +#if __riscv_xlen >= 64
-> +	case HW_BREAKPOINT_LEN_8:
-> +		hw->len = 8;
-> +		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZELO_FIELD,
-> +				     DBTR_TDATA1_MCONTROL_SIZELO_64BIT) |
-> +			  FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZEHI_FIELD,
-> +				     DBTR_TDATA1_MCONTROL_SIZEHI_64BIT);
-
-
-		tdata1 |= TDATA1(DBTR_TDATA1_MCONTROL_SIZELO_64BIT,
-DBTR_TDATA1_MCONTROL_SIZEHI_64BIT);
-
-> +		break;
-> +#endif
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	tdata1 |= DBTR_TDATA1_MCONTROL_U;
-> +
-> +	hw->tdata1 = tdata1;
-> +
-> +	return 0;
-> +}
-> +
-> +static int rv_init_mcontrol6_trigger(const struct perf_event_attr *attr,
-> +				     struct arch_hw_breakpoint *hw)
-> +{
-> +	unsigned long tdata1 = DBTR_TDATA1_TYPE_MCONTROL;
-> +
-> +	switch (attr->bp_type) {
-> +	case HW_BREAKPOINT_X:
-> +		tdata1 |= DBTR_TDATA1_MCONTROL6_EXECUTE;
-> +		break;
-> +	case HW_BREAKPOINT_R:
-> +		tdata1 |= DBTR_TDATA1_MCONTROL6_LOAD;
-> +		break;
-> +	case HW_BREAKPOINT_W:
-> +		tdata1 |= DBTR_TDATA1_MCONTROL6_STORE;
-> +		break;
-> +	case HW_BREAKPOINT_RW:
-> +		tdata1 |= DBTR_TDATA1_MCONTROL6_STORE | DBTR_TDATA1_MCONTROL6_LOAD;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	switch (attr->bp_len) {
-> +	case HW_BREAKPOINT_LEN_1:
-> +		hw->len = 1;
-> +		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL6_SIZE_FIELD,
-> +				     DBTR_TDATA1_MCONTROL6_SIZE_8BIT);
-> +		break;
-> +	case HW_BREAKPOINT_LEN_2:
-> +		hw->len = 2;
-> +		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL6_SIZE_FIELD,
-> +				     DBTR_TDATA1_MCONTROL6_SIZE_16BIT);
-> +		break;
-> +	case HW_BREAKPOINT_LEN_4:
-> +		hw->len = 4;
-> +		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL6_SIZE_FIELD,
-> +				     DBTR_TDATA1_MCONTROL6_SIZE_32BIT);
-> +		break;
-> +	case HW_BREAKPOINT_LEN_8:
-> +		hw->len = 8;
-> +		tdata1 |= FIELD_PREP(DBTR_TDATA1_MCONTROL6_SIZE_FIELD,
-> +				     DBTR_TDATA1_MCONTROL6_SIZE_64BIT);
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	tdata1 |= DBTR_TDATA1_MCONTROL6_U;
-> +
-> +	hw->tdata1 = tdata1;
-> +
-> +	return 0;
-> +}
-> +
-> +int hw_breakpoint_arch_parse(struct perf_event *bp,
-> +			     const struct perf_event_attr *attr,
-> +			     struct arch_hw_breakpoint *hw)
-> +{
-> +	int ret;
-> +
-> +	/* Breakpoint address */
-> +	hw->address = attr->bp_addr;
-> +	hw->tdata2 = attr->bp_addr;
-> +	hw->tdata3 = 0x0;
-> +	hw->next_addr = 0x0;
-> +	hw->in_callback = false;
-> +
-> +	switch (dbtr_type) {
-> +	case DBTR_TDATA1_TYPE_MCONTROL:
-> +		ret = rv_init_mcontrol_trigger(attr, hw);
-> +		break;
-> +	case DBTR_TDATA1_TYPE_MCONTROL6:
-> +		ret = rv_init_mcontrol6_trigger(attr, hw);
-> +		break;
-> +	default:
-> +		pr_warn("Unsupported trigger type %lu.\n", dbtr_type >> DBTR_TDATA1_TYPE_SHIFT);
-> +		ret = -EOPNOTSUPP;
-> +		break;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +/*
-> + * Set breakpoint to next insruction after breakpoint.
-
-Typo: instruction
-
-> + * Returns 0 if success
-> + * Returns < 0 on error
-> + */
-> +static int setup_singlestep(struct perf_event *event, struct pt_regs *regs)
-> +{
-> +	struct arch_hw_breakpoint *bp = counter_arch_bp(event);
-> +	struct arch_hw_breakpoint old_hw_bp;
-> +	struct perf_event_attr bp_insn;
-> +	unsigned long next_addr, insn;
-> +	int ret;
-> +
-> +	/* Remove breakpoint even if return error as not to loop */
-> +	arch_uninstall_hw_breakpoint(event);
-> +
-> +	ret = get_insn(regs, regs->epc, &insn);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	next_addr = get_step_address(regs, insn);
-> +
-> +	ret = get_insn(regs, next_addr, &insn);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	bp_insn.bp_type = HW_BREAKPOINT_X;
-> +	bp_insn.bp_addr = next_addr;
-> +	/* Get the size of the intruction */
-> +	bp_insn.bp_len = GET_INSN_LENGTH(insn);
-> +
-> +	ret = hw_breakpoint_arch_parse(NULL, &bp_insn, bp);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = arch_install_hw_breakpoint(event);
-> +	if (ret)
-> +		return ret;
-> +
-> +	bp->in_callback = true;
-> +	bp->next_addr = next_addr;
-> +	return 0;
-> +}
-> +
-> +/*
-> + * HW Breakpoint/watchpoint handler
-> + */
-> +static int hw_breakpoint_handler(struct pt_regs *regs)
-> +{
-> +	struct perf_event *event;
-> +	struct arch_hw_breakpoint *bp;
-> +	int ret, i;
-> +
-> +	for (i = 0; i < dbtr_total_num; i++) {
-> +		event = this_cpu_read(pcpu_hw_bp_events[i]);
-> +		if (!event)
-> +			continue;
-> +
-> +		bp = counter_arch_bp(event);
-> +		if (bp->in_callback) {
-> +			/* Reset changed breakpoint data */
-> +			bp->in_callback = false;
-> +			if (regs->epc == bp->next_addr) {
-> +				arch_uninstall_hw_breakpoint(event);
-> +				/* Restore original breakpoint */
-> +				if (hw_breakpoint_arch_parse(NULL, &event->attr, bp))
-> +					return NOTIFY_DONE;
-> +				if (arch_install_hw_breakpoint(event))
-> +					return NOTIFY_DONE;
-> +				return NOTIFY_STOP;
-> +			}
-> +
-> +			pr_err("%s: in_callback was set, but epc(%lx) was not next "
-> +				 "address(%lx).\n", __func__, regs->epc, bp->next_addr);
-> +			bp->next_addr = 0x0;
-> +			return NOTIFY_DONE;
-> +		}
-> +
-> +		switch (event->attr.bp_type) {
-> +		/* Breakpoint */
-> +		case HW_BREAKPOINT_X:
-> +			if (event->attr.bp_addr == regs->epc) {
-> +				ret = setup_singlestep(event, regs);
-> +				if (ret < 0) {
-> +					pr_err("%s: setup_singlestep failed %d.\n", __func__, ret);
-> +					return NOTIFY_DONE;
-> +				}
-> +
-> +				perf_bp_event(event, regs);
-> +				return NOTIFY_STOP;
-> +			}
-> +			break;
-> +
-> +		/* Watchpoint */
-> +		case HW_BREAKPOINT_W:
-> +		case HW_BREAKPOINT_R:
-> +		case HW_BREAKPOINT_RW:
-> +			if (event->attr.bp_addr == regs->badaddr) {
-> +				ret = setup_singlestep(event, regs);
-> +				if (ret < 0) {
-> +					pr_err("%s: setup_singlestep failed %d.\n", __func__, ret);
-> +					return NOTIFY_DONE;
-> +				}
-> +
-> +				perf_bp_event(event, regs);
-> +				return NOTIFY_STOP;
-> +			}
-> +			break;
-> +
-> +		default:
-> +			pr_warn("%s: Unknown type: %u\n", __func__, event->attr.bp_type);
-> +			break;
-> +		}
-> +	}
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +int hw_breakpoint_exceptions_notify(struct notifier_block *unused,
-> +				    unsigned long val, void *data)
-> +{
-> +	struct die_args *args = data;
-> +
-> +	if (val != DIE_DEBUG)
-> +		return NOTIFY_DONE;
-> +
-> +	return hw_breakpoint_handler(args->regs);
-> +}
-> +
-> +/* atomic: counter->ctx->lock is held */
-> +int arch_install_hw_breakpoint(struct perf_event *event)
-> +{
-> +	struct arch_hw_breakpoint *bp = counter_arch_bp(event);
-> +	union sbi_dbtr_shmem_entry *shmem = this_cpu_ptr(&sbi_dbtr_shmem);
-> +	struct sbi_dbtr_data_msg *xmit;
-> +	struct sbi_dbtr_id_msg *recv;
-> +	struct perf_event **slot;
-> +	unsigned long idx;
-> +	struct sbiret ret;
-> +	int err = 0;
-> +
-> +	raw_spin_lock_irqsave(this_cpu_ptr(&ecall_lock),
-> +			      *this_cpu_ptr(&ecall_lock_flags));
-> +
-> +	xmit = &shmem->data;
-> +	recv = &shmem->id;
-> +	xmit->tdata1 = cpu_to_le(bp->tdata1);
-> +	xmit->tdata2 = cpu_to_le(bp->tdata2);
-> +	xmit->tdata3 = cpu_to_le(bp->tdata3);
-> +
-> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIG_INSTALL,
-> +			1, 0, 0, 0, 0, 0);
-> +
-> +	if (ret.error) {
-> +		pr_warn("%s: failed to install trigger. error: %ld\n", __func__, ret.error);
-> +		err = sbi_err_map_linux_errno(ret.error);
-> +		goto done;
-> +	}
-> +
-> +	idx = le_to_cpu(recv->idx);
-> +	if (idx >= dbtr_total_num) {
-> +		pr_warn("%s: invalid trigger index %lu\n", __func__, idx);
-> +		err = -EINVAL;
-> +		goto done;
-> +	}
-> +
-> +	slot = this_cpu_ptr(&pcpu_hw_bp_events[idx]);
-> +	if (*slot) {
-> +		pr_warn("%s: slot %lu is in use\n", __func__, idx);
-> +		err = -EBUSY;
-> +		goto done;
-> +	}
-> +
-> +	pr_debug("Trigger 0x%lx installed at index 0x%lx\n", bp->tdata2, idx);
-> +
-> +	/* Save the event - to be looked up in handler */
-> +	*slot = event;
-> +
-> +done:
-> +	raw_spin_unlock_irqrestore(this_cpu_ptr(&ecall_lock),
-> +				   *this_cpu_ptr(&ecall_lock_flags));
-> +	return err;
-> +}
-> +
-> +/* atomic: counter->ctx->lock is held */
-> +void arch_uninstall_hw_breakpoint(struct perf_event *event)
-> +{
-> +	struct sbiret ret;
-> +	int i;
-> +
-> +	for (i = 0; i < dbtr_total_num; i++) {
-> +		struct perf_event **slot = this_cpu_ptr(&pcpu_hw_bp_events[i]);
-> +
-> +		if (*slot == event) {
-> +			*slot = NULL;
-> +			break;
-> +		}
-> +	}
-> +
-> +
-> +	if (i == dbtr_total_num) {
-> +		pr_warn("%s: Breakpoint not installed.\n", __func__);
-> +		return;
-> +	}
-> +
-> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIG_UNINSTALL,
-> +			i, 1, 0, 0, 0, 0);
-> +	if (ret.error)
-> +		pr_warn("%s: Failed to uninstall trigger %d. error: %ld\n", __func__, i, ret.error);
-> +}
-> +
-> +void flush_ptrace_hw_breakpoint(struct task_struct *tsk) { }
-
-Is there nothing to do to remove the registered breakpoints ? All other
-architecture seems to implement it.
-
-> +
-> +void hw_breakpoint_pmu_read(struct perf_event *bp) { }
-> +
-> +static int __init arch_hw_breakpoint_init(void)
-> +{
-> +	unsigned int cpu;
-> +	int rc = 0;
-> +
-> +	for_each_possible_cpu(cpu)
-> +		raw_spin_lock_init(&per_cpu(ecall_lock, cpu));
-> +
-> +	init_sbi_dbtr();
-> +
-> +	if (dbtr_total_num) {
-> +		pr_debug("%s: total number of type %lu triggers: %u\n",
-> +			__func__, dbtr_type >> DBTR_TDATA1_TYPE_SHIFT, dbtr_total_num);
-> +	} else {
-> +		pr_debug("%s: No hardware triggers available\n", __func__);
-> +		return rc;
-> +	}
-> +
-> +	/* Hotplug handler to register/unregister shared memory with SBI */
-> +	rc = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-> +			       "riscv/hw_breakpoint:prepare",
-> +			       arch_smp_setup_sbi_shmem,
-> +			       arch_smp_teardown_sbi_shmem);
-> +
-> +	if (rc < 0)
-> +		pr_warn("%s: Failed to setup CPU hotplug state\n", __func__);
-> +
-> +	return rc;
-> +}
-> +arch_initcall(arch_hw_breakpoint_init);
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index 938a8b841f94..2ac471ec79a8 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -289,6 +289,12 @@ void handle_break(struct pt_regs *regs)
->  	if (probe_breakpoint_handler(regs))
->  		return;
->  
-> +#ifdef CONFIG_HAVE_HW_BREAKPOINT
-> +	if (notify_die(DIE_DEBUG, "EBREAK", regs, 0, regs->cause, SIGTRAP)
-> +	    == NOTIFY_STOP)
-> +		return;
-> +#endif
-> +
->  	current->thread.bad_cause = regs->cause;
->  
->  	if (user_mode(regs))
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMi8wNy8yMDI1IDA5OjI5LCB5dW5odWkgY3VpIHdyb3RlOgo+IEhpIENsw6ltZW50LAo+
+IAo+IE9uIFdlZCwgSnVsIDE2LCAyMDI1IGF0IDEyOjA04oCvQU0gQ2zDqW1lbnQgTMOpZ2VyIDxj
+bGVnZXJAcml2b3NpbmMuY29tPiB3cm90ZToKPj4KPj4gVGhlIFNCSSBTU0UgZXh0ZW5zaW9uIGFs
+bG93cyB0aGUgc3VwZXJ2aXNvciBzb2Z0d2FyZSB0byBiZSBub3RpZmllZCBieQo+PiB0aGUgU0JJ
+IG9mIHNwZWNpZmljIGV2ZW50cyB0aGF0IGFyZSBub3QgbWFza2FibGUuIFRoZSBjb250ZXh0IHN3
+aXRjaCBpcwo+PiBoYW5kbGVkIHBhcnRpYWxseSBieSB0aGUgZmlybXdhcmUgd2hpY2ggd2lsbCBz
+YXZlIHJlZ2lzdGVycyBhNiBhbmQgYTcuCj4+IFdoZW4gZW50ZXJpbmcga2VybmVsIHdlIGNhbiBy
+ZWx5IG9uIHRoZXNlIDIgcmVnaXN0ZXJzIHRvIHNldHVwIHRoZSBzdGFjawo+PiBhbmQgc2F2ZSBh
+bGwgdGhlIHJlZ2lzdGVycy4KPj4KPj4gU2luY2UgU1NFIGV2ZW50cyBjYW4gYmUgZGVsaXZlcmVk
+IGF0IGFueSB0aW1lIHRvIHRoZSBrZXJuZWwgKGluY2x1ZGluZwo+PiBkdXJpbmcgZXhjZXB0aW9u
+IGhhbmRsaW5nLCB3ZSBuZWVkIGEgd2F5IHRvIGxvY2F0ZSB0aGUgY3VycmVudF90YXNrIGZvcgo+
+PiBjb250ZXh0IHRyYWNraW5nLiBPbiBSSVNDLVYsIGl0IGlzIHNvdHJlZCBpbiBzY3JhdGNoIHdo
+ZW4gaW4gdXNlciBzcGFjZQo+PiBvciB0cCB3aGVuIGluIGtlcm5lbCBzcGFjZSAoaW4gd2hpY2gg
+Y2FzZSBTU0NSQVRDSCBpcyB6ZXJvKS4gQnV0IGF0IGEKPj4gYXQgdGhlIGJlZ2lubmluZyBvZiBl
+eGNlcHRpb24gaGFuZGxpbmcsIFNTQ1JBVENIIGlzIHVzZWQgdG8gc3dhcCB0cCBhbmQKPj4gY2hl
+Y2sgdGhlIG9yaWdpbiBvZiB0aGUgZXhjZXB0aW9uLiBJZiBpbnRlcnJ1cHRlZCBhdCB0aGF0IHBv
+aW50LCB0aGVuLAo+PiB0aGVyZSBpcyBubyB3YXkgdG8gcmVsaWFibHkga25vdyB3ZXJlIGlzIGxv
+Y2F0ZWQgdGhlIGN1cnJlbnQKPj4gdGFza19zdHJ1Y3QuIEV2ZW4gY2hlY2tpbmcgdGhlIGludGVy
+cnVwdGlvbiBsb2NhdGlvbiB3b24ndCB3b3JrIGFzIFNTRQo+PiBldmVudCBjYW4gYmUgbmVzdGVk
+IG9uIHRvcCBvZiBlYWNoIG90aGVyIHNvIHRoZSBvcmlnaW5hbCBpbnRlcnJ1cHRpb24KPj4gc2l0
+ZSBtaWdodCBiZSBsb3N0IGF0IHNvbWUgcG9pbnQuIEluIG9yZGVyIHRvIHJldHJpZXZlIGl0IHJl
+bGlhYmx5LAo+PiBzdG9yZSB0aGUgY3VycmVudCB0YXNrIGluIGFuIGFkZGl0aW9uYWwgX19zc2Vf
+ZW50cnlfdGFzayBwZXJfY3B1IGFycmF5Lgo+PiBUaGlzIGFycmF5IGlzIHRoZW4gdXNlZCB0byBy
+ZXRyaWV2ZSB0aGUgY3VycmVudCB0YXNrIGJhc2VkIG9uIHRoZQo+PiBoYXJ0IElEIHRoYXQgaXMg
+cGFzc2VkIHRvIHRoZSBTU0UgZXZlbnQgaGFuZGxlciBpbiBhNi4KPj4KPj4gVGhhdCBiZWluZyBz
+YWlkLCB0aGUgd2F5IHRoZSBjdXJyZW50IHRhc2sgc3RydWN0IGlzIHN0b3JlZCBzaG91bGQKPj4g
+cHJvYmFibHkgYmUgcmV3b3JrZWQgdG8gZmluZCBhIGJldHRlciByZWxpYWJsZSBhbHRlcm5hdGl2
+ZS4KPj4KPj4gU2luY2UgZWFjaCBldmVudHMgKGFuZCBlYWNoIENQVSBmb3IgbG9jYWwgZXZlbnRz
+KSBoYXZlIHRoZWlyIG93bgo+PiBjb250ZXh0IGFuZCBjYW4gcHJlZW1wdCBlYWNoIG90aGVyLCBh
+bGxvY2F0ZSBhIHN0YWNrIChhbmQgYSBzaGFkb3cgc3RhY2sKPj4gaWYgbmVlZGVkIGZvciBlYWNo
+IG9mIHRoZW0gKGFuZCBmb3IgZWFjaCBjcHUgZm9yIGxvY2FsIGV2ZW50cykuCj4+Cj4+IFdoZW4g
+Y29tcGxldGluZyB0aGUgZXZlbnQsIGlmIHdlIHdlcmUgY29taW5nIGZyb20ga2VybmVsIHdpdGgg
+aW50ZXJydXB0cwo+PiBkaXNhYmxlZCwgc2ltcGx5IHJldHVybiB0aGVyZS4gSWYgY29taW5nIGZy
+b20gdXNlcnNwYWNlIG9yIGtlcm5lbCB3aXRoCj4+IGludGVycnVwdHMgZW5hYmxlZCwgc2ltdWxh
+dGUgYW4gaW50ZXJydXB0IGV4Y2VwdGlvbiBieSBzZXR0aW5nIElFX1NJRSBpbgo+PiBDU1JfSVAg
+dG8gYWxsb3cgZGVsaXZlcnkgb2Ygc2lnbmFscyB0byB1c2VyIHRhc2suIEZvciBpbnN0YW5jZSB0
+aGlzIGNhbgo+PiBoYXBwZW4sIHdoZW4gYSBSQVMgZXZlbnQgaGFzIGJlZW4gZ2VuZXJhdGVkIGJ5
+IGEgdXNlciBhcHBsaWNhdGlvbiBhbmQgYQo+PiBTSUdCVVMgaGFzIGJlZW4gc2VudCB0byBhIHRh
+c2suCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5j
+LmNvbT4KPj4gLS0tCj4+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FzbS5oICAgICAgICAgfCAg
+MTQgKystCj4+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Njcy5oICAgICAgICAgfCAgIDcgKysK
+Pj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3NlLmggICAgICAgICB8ICA0NCArKysrKysrCj4+
+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5oICAgfCAgMTQgKysrCj4+ICBhcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3RocmVhZF9pbmZvLmggfCAgIDEgKwo+PiAgYXJjaC9yaXNjdi9r
+ZXJuZWwvTWFrZWZpbGUgICAgICAgICAgIHwgICAxICsKPj4gIGFyY2gvcmlzY3Yva2VybmVsL2Fz
+bS1vZmZzZXRzLmMgICAgICB8ICAxMiArKwo+PiAgYXJjaC9yaXNjdi9rZXJuZWwvc3NlLmMgICAg
+ICAgICAgICAgIHwgMTQ2ICsrKysrKysrKysrKysrKysrKysrKysrCj4+ICBhcmNoL3Jpc2N2L2tl
+cm5lbC9zc2VfZW50cnkuUyAgICAgICAgfCAxNjkgKysrKysrKysrKysrKysrKysrKysrKysrKysr
+Cj4+ICA5IGZpbGVzIGNoYW5nZWQsIDQwNSBpbnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQo+
+PiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3NlLmgKPj4gIGNy
+ZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9zc2UuYwo+PiAgY3JlYXRlIG1vZGUg
+MTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL3NzZV9lbnRyeS5TCj4+Cj4+IGRpZmYgLS1naXQgYS9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FzbS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hc20u
+aAo+PiBpbmRleCBhOGEyYWY2ZGZlOWQuLjk4MmM0YmU5YTljMyAxMDA2NDQKPj4gLS0tIGEvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9hc20uaAo+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L2FzbS5oCj4+IEBAIC05MCwxNiArOTAsMjQgQEAKPj4gICNkZWZpbmUgUEVSX0NQVV9PRkZTRVRf
+U0hJRlQgMwo+PiAgI2VuZGlmCj4+Cj4+IC0ubWFjcm8gYXNtX3Blcl9jcHUgZHN0IHN5bSB0bXAK
+Pj4gLSAgICAgICBSRUdfTCBcdG1wLCBUQVNLX1RJX0NQVV9OVU0odHApCj4+IC0gICAgICAgc2xs
+aSAgXHRtcCwgXHRtcCwgUEVSX0NQVV9PRkZTRVRfU0hJRlQKPj4gKy5tYWNybyBhc21fcGVyX2Nw
+dV93aXRoX2NwdSBkc3Qgc3ltIHRtcCBjcHUKPj4gKyAgICAgICBzbGxpICBcdG1wLCBcY3B1LCBQ
+RVJfQ1BVX09GRlNFVF9TSElGVAo+PiAgICAgICAgIGxhICAgIFxkc3QsIF9fcGVyX2NwdV9vZmZz
+ZXQKPj4gICAgICAgICBhZGQgICBcZHN0LCBcZHN0LCBcdG1wCj4+ICAgICAgICAgUkVHX0wgXHRt
+cCwgMChcZHN0KQo+PiAgICAgICAgIGxhICAgIFxkc3QsIFxzeW0KPj4gICAgICAgICBhZGQgICBc
+ZHN0LCBcZHN0LCBcdG1wCj4+ICAuZW5kbQo+PiArCj4+ICsubWFjcm8gYXNtX3Blcl9jcHUgZHN0
+IHN5bSB0bXAKPj4gKyAgICAgICBSRUdfTCBcdG1wLCBUQVNLX1RJX0NQVV9OVU0odHApCj4+ICsg
+ICAgICAgYXNtX3Blcl9jcHVfd2l0aF9jcHUgXGRzdCBcc3ltIFx0bXAgXHRtcAo+PiArLmVuZG0K
+Pj4gICNlbHNlIC8qIENPTkZJR19TTVAgKi8KPj4gKy5tYWNybyBhc21fcGVyX2NwdV93aXRoX2Nw
+dSBkc3Qgc3ltIHRtcCBjcHUKPj4gKyAgICAgICBsYSAgICBcZHN0LCBcc3ltCj4+ICsuZW5kbQo+
+PiArCj4+ICAubWFjcm8gYXNtX3Blcl9jcHUgZHN0IHN5bSB0bXAKPj4gICAgICAgICBsYSAgICBc
+ZHN0LCBcc3ltCj4+ICAuZW5kbQo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9zY3MuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2NzLmgKPj4gaW5kZXggMGU0NWRiNzhi
+MjRiLi42MjM0NGRhYWQ3M2QgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+c2NzLmgKPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zY3MuaAo+PiBAQCAtMTgsNiAr
+MTgsMTEgQEAKPj4gICAgICAgICBsb2FkX3Blcl9jcHUgZ3AsIGlycV9zaGFkb3dfY2FsbF9zdGFj
+a19wdHIsIFx0bXAKPj4gIC5lbmRtCj4+Cj4+ICsvKiBMb2FkIHRoZSBwZXItQ1BVIElSUSBzaGFk
+b3cgY2FsbCBzdGFjayB0byBncC4gKi8KPj4gKy5tYWNybyBzY3NfbG9hZF9zc2Vfc3RhY2sgcmVn
+X2V2dAo+PiArICAgICAgIFJFR19MIGdwLCBTU0VfUkVHX0VWVF9TSEFET1dfU1RBQ0soXHJlZ19l
+dnQpCj4+ICsuZW5kbQo+PiArCj4+ICAvKiBMb2FkIHRhc2tfc2NzX3NwKGN1cnJlbnQpIHRvIGdw
+LiAqLwo+PiAgLm1hY3JvIHNjc19sb2FkX2N1cnJlbnQKPj4gICAgICAgICBSRUdfTCAgIGdwLCBU
+QVNLX1RJX1NDU19TUCh0cCkKPj4gQEAgLTQxLDYgKzQ2LDggQEAKPj4gIC5lbmRtCj4+ICAubWFj
+cm8gc2NzX2xvYWRfaXJxX3N0YWNrIHRtcAo+PiAgLmVuZG0KPj4gKy5tYWNybyBzY3NfbG9hZF9z
+c2Vfc3RhY2sgcmVnX2V2dAo+PiArLmVuZG0KPj4gIC5tYWNybyBzY3NfbG9hZF9jdXJyZW50Cj4+
+ICAuZW5kbQo+PiAgLm1hY3JvIHNjc19sb2FkX2N1cnJlbnRfaWZfdGFza19jaGFuZ2VkIHByZXYK
+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3NlLmggYi9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL3NzZS5oCj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAwMDAw
+MDAwMDAwMC4uZmY5MzhiZDkwMDdkCj4+IC0tLSAvZGV2L251bGwKPj4gKysrIGIvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9zc2UuaAo+PiBAQCAtMCwwICsxLDQ0IEBACj4+ICsvKiBTUERYLUxpY2Vu
+c2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5ICovCj4+ICsvKgo+PiArICogQ29weXJpZ2h0IChD
+KSAyMDI0IFJpdm9zIEluYy4KPj4gKyAqLwo+PiArI2lmbmRlZiBfX0FTTV9TU0VfSAo+PiArI2Rl
+ZmluZSBfX0FTTV9TU0VfSAo+PiArCj4+ICsjaW5jbHVkZSA8YXNtL3NiaS5oPgo+PiArCj4+ICsj
+aWZkZWYgQ09ORklHX1JJU0NWX1NTRQo+PiArCj4+ICtzdHJ1Y3Qgc3NlX2V2ZW50X2ludGVycnVw
+dGVkX3N0YXRlIHsKPj4gKyAgICAgICB1bnNpZ25lZCBsb25nIGE2Owo+PiArICAgICAgIHVuc2ln
+bmVkIGxvbmcgYTc7Cj4+ICt9Owo+PiArCj4+ICtzdHJ1Y3Qgc3NlX2V2ZW50X2FyY2hfZGF0YSB7
+Cj4+ICsgICAgICAgdm9pZCAqc3RhY2s7Cj4+ICsgICAgICAgdm9pZCAqc2hhZG93X3N0YWNrOwo+
+PiArICAgICAgIHVuc2lnbmVkIGxvbmcgdG1wOwo+PiArICAgICAgIHN0cnVjdCBzc2VfZXZlbnRf
+aW50ZXJydXB0ZWRfc3RhdGUgaW50ZXJydXB0ZWQ7Cj4+ICsgICAgICAgdW5zaWduZWQgbG9uZyBp
+bnRlcnJ1cHRlZF9waHlzOwo+PiArICAgICAgIHUzMiBldnRfaWQ7Cj4+ICt9Owo+PiArCj4+ICtz
+dGF0aWMgaW5saW5lIGJvb2wgc3NlX2V2ZW50X2lzX2dsb2JhbCh1MzIgZXZ0KQo+PiArewo+PiAr
+ICAgICAgIHJldHVybiAhIShldnQgJiBTQklfU1NFX0VWRU5UX0dMT0JBTCk7Cj4+ICt9Cj4+ICsK
+Pj4gK2ludCBhcmNoX3NzZV9pbml0X2V2ZW50KHN0cnVjdCBzc2VfZXZlbnRfYXJjaF9kYXRhICph
+cmNoX2V2dCwgdTMyIGV2dF9pZCwKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgaW50IGNwdSk7
+Cj4+ICt2b2lkIGFyY2hfc3NlX2ZyZWVfZXZlbnQoc3RydWN0IHNzZV9ldmVudF9hcmNoX2RhdGEg
+KmFyY2hfZXZ0KTsKPj4gK2ludCBhcmNoX3NzZV9yZWdpc3Rlcl9ldmVudChzdHJ1Y3Qgc3NlX2V2
+ZW50X2FyY2hfZGF0YSAqYXJjaF9ldnQpOwo+PiArCj4+ICt2b2lkIHNzZV9oYW5kbGVfZXZlbnQo
+c3RydWN0IHNzZV9ldmVudF9hcmNoX2RhdGEgKmFyY2hfZXZ0LAo+PiArICAgICAgICAgICAgICAg
+ICAgICAgc3RydWN0IHB0X3JlZ3MgKnJlZ3MpOwo+PiArYXNtbGlua2FnZSB2b2lkIGhhbmRsZV9z
+c2Uodm9pZCk7Cj4+ICthc21saW5rYWdlIHZvaWQgZG9fc3NlKHN0cnVjdCBzc2VfZXZlbnRfYXJj
+aF9kYXRhICphcmNoX2V2dCwKPj4gKyAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgcHRfcmVn
+cyAqcmVnKTsKPj4gKwo+PiArI2VuZGlmCj4+ICsKPj4gKyNlbmRpZgo+PiBkaWZmIC0tZ2l0IGEv
+YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vc3dpdGNoX3RvLmgKPj4gaW5kZXggMGU3MWViODJmOTIwLi5jZDFjZWFkMGM2ODIgMTAwNjQ0
+Cj4+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmgKPj4gKysrIGIvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaAo+PiBAQCAtODgsNiArODgsMTkgQEAgc3Rh
+dGljIGlubGluZSB2b2lkIF9fc3dpdGNoX3RvX2VudmNmZyhzdHJ1Y3QgdGFza19zdHJ1Y3QgKm5l
+eHQpCj4+ICAgICAgICAgICAgICAgICAgICAgICAgIDo6ICJyIiAobmV4dC0+dGhyZWFkLmVudmNm
+ZykgOiAibWVtb3J5Iik7Cj4+ICB9Cj4+Cj4+ICsjaWZkZWYgQ09ORklHX1JJU0NWX1NTRQo+PiAr
+REVDTEFSRV9QRVJfQ1BVKHN0cnVjdCB0YXNrX3N0cnVjdCAqLCBfX3NzZV9lbnRyeV90YXNrKTsK
+Pj4gKwo+PiArc3RhdGljIGlubGluZSB2b2lkIF9fc3dpdGNoX3NzZV9lbnRyeV90YXNrKHN0cnVj
+dCB0YXNrX3N0cnVjdCAqbmV4dCkKPj4gK3sKPj4gKyAgICAgICBfX3RoaXNfY3B1X3dyaXRlKF9f
+c3NlX2VudHJ5X3Rhc2ssIG5leHQpOwo+PiArfQo+PiArI2Vsc2UKPj4gK3N0YXRpYyBpbmxpbmUg
+dm9pZCBfX3N3aXRjaF9zc2VfZW50cnlfdGFzayhzdHJ1Y3QgdGFza19zdHJ1Y3QgKm5leHQpCj4+
+ICt7Cj4+ICt9Cj4+ICsjZW5kaWYKPj4gKwo+PiAgZXh0ZXJuIHN0cnVjdCB0YXNrX3N0cnVjdCAq
+X19zd2l0Y2hfdG8oc3RydWN0IHRhc2tfc3RydWN0ICosCj4+ICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHN0cnVjdCB0YXNrX3N0cnVjdCAqKTsKPj4KPj4gQEAgLTEyMiw2
+ICsxMzUsNyBAQCBkbyB7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBcCj4+ICAgICAgICAgaWYgKHN3aXRjaF90b19zaG91bGRfZmx1c2hfaWNh
+Y2hlKF9fbmV4dCkpICAgICAgXAo+PiAgICAgICAgICAgICAgICAgbG9jYWxfZmx1c2hfaWNhY2hl
+X2FsbCgpOyAgICAgICAgICAgICAgIFwKPj4gICAgICAgICBfX3N3aXRjaF90b19lbnZjZmcoX19u
+ZXh0KTsgICAgICAgICAgICAgICAgICAgICBcCj4+ICsgICAgICAgX19zd2l0Y2hfc3NlX2VudHJ5
+X3Rhc2soX19uZXh0KTsgICAgICAgICAgICAgICAgICAgICAgICBcCj4+ICAgICAgICAgKChsYXN0
+KSA9IF9fc3dpdGNoX3RvKF9fcHJldiwgX19uZXh0KSk7ICAgICAgICAgXAo+PiAgfSB3aGlsZSAo
+MCkKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8u
+aCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaAo+PiBpbmRleCBmNTkxNmE3
+MDg3OWEuLjI4ZTk4MDVlNjFmYyAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS90aHJlYWRfaW5mby5oCj4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2lu
+Zm8uaAo+PiBAQCAtMzYsNiArMzYsNyBAQAo+PiAgI2RlZmluZSBPVkVSRkxPV19TVEFDS19TSVpF
+ICAgICBTWl80Swo+Pgo+PiAgI2RlZmluZSBJUlFfU1RBQ0tfU0laRSAgICAgICAgIFRIUkVBRF9T
+SVpFCj4+ICsjZGVmaW5lIFNTRV9TVEFDS19TSVpFICAgICAgICAgVEhSRUFEX1NJWkUKPj4KPj4g
+ICNpZm5kZWYgX19BU1NFTUJMWV9fCj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9NYWtlZmlsZSBiL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCj4+IGluZGV4IGM3YjU0MjU3
+MzQwNy4uNjJlNDQ5MGIzNGVlIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtl
+ZmlsZQo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQo+PiBAQCAtOTksNiArOTks
+NyBAQCBvYmotJChDT05GSUdfRFlOQU1JQ19GVFJBQ0UpICArPSBtY291bnQtZHluLm8KPj4gIG9i
+ai0kKENPTkZJR19QRVJGX0VWRU5UUykgICAgICArPSBwZXJmX2NhbGxjaGFpbi5vCj4+ICBvYmot
+JChDT05GSUdfSEFWRV9QRVJGX1JFR1MpICAgKz0gcGVyZl9yZWdzLm8KPj4gIG9iai0kKENPTkZJ
+R19SSVNDVl9TQkkpICAgICAgICAgICAgICAgICs9IHNiaS5vIHNiaV9lY2FsbC5vCj4+ICtvYmot
+JChDT05GSUdfUklTQ1ZfU1NFKSAgICAgICAgICAgICAgICArPSBzc2UubyBzc2VfZW50cnkubwo+
+PiAgaWZlcSAoJChDT05GSUdfUklTQ1ZfU0JJKSwgeSkKPj4gIG9iai0kKENPTkZJR19TTVApICAg
+ICAgICAgICAgICArPSBzYmktaXBpLm8KPj4gIG9iai0kKENPTkZJR19TTVApICs9IGNwdV9vcHNf
+c2JpLm8KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRzLmMgYi9h
+cmNoL3Jpc2N2L2tlcm5lbC9hc20tb2Zmc2V0cy5jCj4+IGluZGV4IDZlOGMwZDZmZWFlOS4uNjUx
+Nzc5NjQ3Y2RkIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9hc20tb2Zmc2V0cy5j
+Cj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRzLmMKPj4gQEAgLTE0LDYgKzE0
+LDggQEAKPj4gICNpbmNsdWRlIDxhc20vcHRyYWNlLmg+Cj4+ICAjaW5jbHVkZSA8YXNtL2NwdV9v
+cHNfc2JpLmg+Cj4+ICAjaW5jbHVkZSA8YXNtL3N0YWNrdHJhY2UuaD4KPj4gKyNpbmNsdWRlIDxh
+c20vc2JpLmg+Cj4+ICsjaW5jbHVkZSA8YXNtL3NzZS5oPgo+PiAgI2luY2x1ZGUgPGFzbS9zdXNw
+ZW5kLmg+Cj4+Cj4+ICB2b2lkIGFzbV9vZmZzZXRzKHZvaWQpOwo+PiBAQCAtNTI4LDQgKzUzMCwx
+NCBAQCB2b2lkIGFzbV9vZmZzZXRzKHZvaWQpCj4+ICAgICAgICAgREVGSU5FKEZSRUdTX0E2LCAg
+ICAgICAgICAgIG9mZnNldG9mKHN0cnVjdCBfX2FyY2hfZnRyYWNlX3JlZ3MsIGE2KSk7Cj4+ICAg
+ICAgICAgREVGSU5FKEZSRUdTX0E3LCAgICAgICAgICAgIG9mZnNldG9mKHN0cnVjdCBfX2FyY2hf
+ZnRyYWNlX3JlZ3MsIGE3KSk7Cj4+ICAjZW5kaWYKPj4gKwo+PiArI2lmZGVmIENPTkZJR19SSVND
+Vl9TU0UKPj4gKyAgICAgICBPRkZTRVQoU1NFX1JFR19FVlRfU1RBQ0ssIHNzZV9ldmVudF9hcmNo
+X2RhdGEsIHN0YWNrKTsKPj4gKyAgICAgICBPRkZTRVQoU1NFX1JFR19FVlRfU0hBRE9XX1NUQUNL
+LCBzc2VfZXZlbnRfYXJjaF9kYXRhLCBzaGFkb3dfc3RhY2spOwo+PiArICAgICAgIE9GRlNFVChT
+U0VfUkVHX0VWVF9UTVAsIHNzZV9ldmVudF9hcmNoX2RhdGEsIHRtcCk7Cj4+ICsKPj4gKyAgICAg
+ICBERUZJTkUoU0JJX0VYVF9TU0UsIFNCSV9FWFRfU1NFKTsKPj4gKyAgICAgICBERUZJTkUoU0JJ
+X1NTRV9FVkVOVF9DT01QTEVURSwgU0JJX1NTRV9FVkVOVF9DT01QTEVURSk7Cj4+ICsgICAgICAg
+REVGSU5FKEFTTV9OUl9DUFVTLCBOUl9DUFVTKTsKPj4gKyNlbmRpZgo+PiAgfQo+PiBkaWZmIC0t
+Z2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc3NlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zc2UuYwo+
+PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+PiBpbmRleCAwMDAwMDAwMDAwMDAuLjQ5ZDU5ZjlmZmEw
+OQo+PiAtLS0gL2Rldi9udWxsCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3NzZS5jCj4+IEBA
+IC0wLDAgKzEsMTQ2IEBACj4+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1v
+ci1sYXRlcgo+PiArLyoKPj4gKyAqIENvcHlyaWdodCAoQykgMjAyNCBSaXZvcyBJbmMuCj4+ICsg
+Ki8KPj4gKyNpbmNsdWRlIDxsaW51eC9ubWkuaD4KPj4gKyNpbmNsdWRlIDxsaW51eC9zY3MuaD4K
+Pj4gKyNpbmNsdWRlIDxsaW51eC9iaXRmaWVsZC5oPgo+PiArI2luY2x1ZGUgPGxpbnV4L3Jpc2N2
+X3NzZS5oPgo+PiArI2luY2x1ZGUgPGxpbnV4L3BlcmNwdS1kZWZzLmg+Cj4+ICsKPj4gKyNpbmNs
+dWRlIDxhc20vYXNtLXByb3RvdHlwZXMuaD4KPj4gKyNpbmNsdWRlIDxhc20vc3dpdGNoX3RvLmg+
+Cj4+ICsjaW5jbHVkZSA8YXNtL2lycV9zdGFjay5oPgo+PiArI2luY2x1ZGUgPGFzbS9zYmkuaD4K
+Pj4gKyNpbmNsdWRlIDxhc20vc3NlLmg+Cj4+ICsKPj4gK0RFRklORV9QRVJfQ1BVKHN0cnVjdCB0
+YXNrX3N0cnVjdCAqLCBfX3NzZV9lbnRyeV90YXNrKTsKPj4gKwo+PiArdm9pZCBfX3dlYWsgc3Nl
+X2hhbmRsZV9ldmVudChzdHJ1Y3Qgc3NlX2V2ZW50X2FyY2hfZGF0YSAqYXJjaF9ldnQsIHN0cnVj
+dCBwdF9yZWdzICpyZWdzKQo+PiArewo+PiArfQo+PiArCj4+ICt2b2lkIGRvX3NzZShzdHJ1Y3Qg
+c3NlX2V2ZW50X2FyY2hfZGF0YSAqYXJjaF9ldnQsIHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+PiAr
+ewo+PiArICAgICAgIG5taV9lbnRlcigpOwo+PiArCj4+ICsgICAgICAgLyogUmV0cmlldmUgbWlz
+c2luZyBHUFJzIGZyb20gU0JJICovCj4+ICsgICAgICAgc2JpX2VjYWxsKFNCSV9FWFRfU1NFLCBT
+QklfU1NFX0VWRU5UX0FUVFJfUkVBRCwgYXJjaF9ldnQtPmV2dF9pZCwKPj4gKyAgICAgICAgICAg
+ICAgICAgU0JJX1NTRV9BVFRSX0lOVEVSUlVQVEVEX0E2LAo+PiArICAgICAgICAgICAgICAgICAo
+U0JJX1NTRV9BVFRSX0lOVEVSUlVQVEVEX0E3IC0gU0JJX1NTRV9BVFRSX0lOVEVSUlVQVEVEX0E2
+KSArIDEsCj4+ICsgICAgICAgICAgICAgICAgIGFyY2hfZXZ0LT5pbnRlcnJ1cHRlZF9waHlzLCAw
+LCAwKTsKPj4gKwo+PiArICAgICAgIG1lbWNweSgmcmVncy0+YTYsICZhcmNoX2V2dC0+aW50ZXJy
+dXB0ZWQsIHNpemVvZihhcmNoX2V2dC0+aW50ZXJydXB0ZWQpKTsKPj4gKwo+PiArICAgICAgIHNz
+ZV9oYW5kbGVfZXZlbnQoYXJjaF9ldnQsIHJlZ3MpOwo+PiArCj4+ICsgICAgICAgLyoKPj4gKyAg
+ICAgICAgKiBUaGUgU1NFIGRlbGl2ZXJ5IHBhdGggZG9lcyBub3QgdXNlcyB0aGUgInN0YW5kYXJk
+IiBleGNlcHRpb24gcGF0aAo+PiArICAgICAgICAqIChzZWUgc3NlX2VudHJ5LlMpIGFuZCBkb2Vz
+IG5vdCBwcm9jZXNzIGFueSBwZW5kaW5nIHNpZ25hbC9zb2Z0aXJxcwo+PiArICAgICAgICAqIGR1
+ZSB0byBiZWluZyBzaW1pbGFyIHRvIGEgTk1JLgo+PiArICAgICAgICAqIFNvbWUgZHJpdmVycyAo
+UE1VLCBSQVMpIGVucXVldWUgcGVuZGluZyB3b3JrIHRoYXQgbmVlZHMgdG8gYmUgaGFuZGxlZAo+
+PiArICAgICAgICAqIGFzIHNvb24gYXMgcG9zc2libGUgYnkgYm90dG9tIGhhbHZlcy4gRm9yIHRo
+YXQgcHVycG9zZSwgc2V0IHRoZSBTSVAKPj4gKyAgICAgICAgKiBzb2Z0d2FyZSBpbnRlcnJ1cHQg
+cGVuZGluZyBiaXQgd2hpY2ggd2lsbCBmb3JjZSBhIHNvZnR3YXJlIGludGVycnVwdAo+PiArICAg
+ICAgICAqIHRvIGJlIHNlcnZpY2VkIG9uY2UgaW50ZXJydXB0cyBhcmUgcmVlbmFibGVkIGluIHRo
+ZSBpbnRlcnJ1cHRlZAo+PiArICAgICAgICAqIGNvbnRleHQgaWYgdGhleSB3ZXJlIG1hc2tlZCBv
+ciBkaXJlY3RseSBpZiB1bm1hc2tlZC4KPj4gKyAgICAgICAgKi8KPj4gKyAgICAgICBjc3Jfc2V0
+KENTUl9JUCwgSUVfU0lFKTsKPj4gKwo+PiArICAgICAgIG5taV9leGl0KCk7Cj4+ICt9Cj4+ICsK
+Pj4gK3N0YXRpYyB2b2lkICphbGxvY190b19zdGFja19wb2ludGVyKHZvaWQgKmFsbG9jKQo+PiAr
+ewo+PiArICAgICAgIHJldHVybiBhbGxvYyA/IGFsbG9jICsgU1NFX1NUQUNLX1NJWkUgOiBOVUxM
+Owo+PiArfQo+PiArCj4+ICtzdGF0aWMgdm9pZCAqc3RhY2tfcG9pbnRlcl90b19hbGxvYyh2b2lk
+ICpzdGFjaykKPj4gK3sKPj4gKyAgICAgICByZXR1cm4gc3RhY2sgLSBTU0VfU1RBQ0tfU0laRTsK
+Pj4gK30KPj4gKwo+PiArI2lmZGVmIENPTkZJR19WTUFQX1NUQUNLCj4+ICtzdGF0aWMgdm9pZCAq
+c3NlX3N0YWNrX2FsbG9jKHVuc2lnbmVkIGludCBjcHUpCj4+ICt7Cj4+ICsgICAgICAgdm9pZCAq
+c3RhY2sgPSBhcmNoX2FsbG9jX3ZtYXBfc3RhY2soU1NFX1NUQUNLX1NJWkUsIGNwdV90b19ub2Rl
+KGNwdSkpOwo+PiArCj4+ICsgICAgICAgcmV0dXJuIGFsbG9jX3RvX3N0YWNrX3BvaW50ZXIoc3Rh
+Y2spOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgdm9pZCBzc2Vfc3RhY2tfZnJlZSh2b2lkICpzdGFj
+aykKPj4gK3sKPj4gKyAgICAgICB2ZnJlZShzdGFja19wb2ludGVyX3RvX2FsbG9jKHN0YWNrKSk7
+Cj4+ICt9Cj4+ICsjZWxzZSAvKiBDT05GSUdfVk1BUF9TVEFDSyAqLwo+PiArc3RhdGljIHZvaWQg
+KnNzZV9zdGFja19hbGxvYyh1bnNpZ25lZCBpbnQgY3B1KQo+PiArewo+PiArICAgICAgIHZvaWQg
+KnN0YWNrID0ga21hbGxvYyhTU0VfU1RBQ0tfU0laRSwgR0ZQX0tFUk5FTCk7Cj4+ICsKPj4gKyAg
+ICAgICByZXR1cm4gYWxsb2NfdG9fc3RhY2tfcG9pbnRlcihzdGFjayk7Cj4+ICt9Cj4+ICsKPj4g
+K3N0YXRpYyB2b2lkIHNzZV9zdGFja19mcmVlKHZvaWQgKnN0YWNrKQo+PiArewo+PiArICAgICAg
+IGtmcmVlKHN0YWNrX3BvaW50ZXJfdG9fYWxsb2Moc3RhY2spKTsKPj4gK30KPj4gKyNlbmRpZiAv
+KiBDT05GSUdfVk1BUF9TVEFDSyAqLwo+PiArCj4+ICtzdGF0aWMgaW50IHNzZV9pbml0X3Njcyhp
+bnQgY3B1LCBzdHJ1Y3Qgc3NlX2V2ZW50X2FyY2hfZGF0YSAqYXJjaF9ldnQpCj4+ICt7Cj4+ICsg
+ICAgICAgdm9pZCAqc3RhY2s7Cj4+ICsKPj4gKyAgICAgICBpZiAoIXNjc19pc19lbmFibGVkKCkp
+Cj4+ICsgICAgICAgICAgICAgICByZXR1cm4gMDsKPj4gKwo+PiArICAgICAgIHN0YWNrID0gc2Nz
+X2FsbG9jKGNwdV90b19ub2RlKGNwdSkpOwo+PiArICAgICAgIGlmICghc3RhY2spCj4+ICsgICAg
+ICAgICAgICAgICByZXR1cm4gLUVOT01FTTsKPj4gKwo+PiArICAgICAgIGFyY2hfZXZ0LT5zaGFk
+b3dfc3RhY2sgPSBzdGFjazsKPj4gKwo+PiArICAgICAgIHJldHVybiAwOwo+PiArfQo+PiArCj4+
+ICtpbnQgYXJjaF9zc2VfaW5pdF9ldmVudChzdHJ1Y3Qgc3NlX2V2ZW50X2FyY2hfZGF0YSAqYXJj
+aF9ldnQsIHUzMiBldnRfaWQsIGludCBjcHUpCj4+ICt7Cj4+ICsgICAgICAgdm9pZCAqc3RhY2s7
+Cj4+ICsKPj4gKyAgICAgICBhcmNoX2V2dC0+ZXZ0X2lkID0gZXZ0X2lkOwo+PiArICAgICAgIHN0
+YWNrID0gc3NlX3N0YWNrX2FsbG9jKGNwdSk7Cj4+ICsgICAgICAgaWYgKCFzdGFjaykKPj4gKyAg
+ICAgICAgICAgICAgIHJldHVybiAtRU5PTUVNOwo+PiArCj4+ICsgICAgICAgYXJjaF9ldnQtPnN0
+YWNrID0gc3RhY2s7Cj4+ICsKPj4gKyAgICAgICBpZiAoc3NlX2luaXRfc2NzKGNwdSwgYXJjaF9l
+dnQpKSB7Cj4+ICsgICAgICAgICAgICAgICBzc2Vfc3RhY2tfZnJlZShhcmNoX2V2dC0+c3RhY2sp
+Owo+PiArICAgICAgICAgICAgICAgcmV0dXJuIC1FTk9NRU07Cj4+ICsgICAgICAgfQo+PiArCj4+
+ICsgICAgICAgaWYgKHNzZV9ldmVudF9pc19nbG9iYWwoZXZ0X2lkKSkgewo+PiArICAgICAgICAg
+ICAgICAgYXJjaF9ldnQtPmludGVycnVwdGVkX3BoeXMgPQo+PiArICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgdmlydF90b19waHlzKCZhcmNoX2V2dC0+aW50ZXJydXB0ZWQp
+Owo+PiArICAgICAgIH0gZWxzZSB7Cj4+ICsgICAgICAgICAgICAgICBhcmNoX2V2dC0+aW50ZXJy
+dXB0ZWRfcGh5cyA9Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGVyX2NwdV9w
+dHJfdG9fcGh5cygmYXJjaF9ldnQtPmludGVycnVwdGVkKTsKPj4gKyAgICAgICB9Cj4+ICsKPj4g
+KyAgICAgICByZXR1cm4gMDsKPj4gK30KPj4gKwo+PiArdm9pZCBhcmNoX3NzZV9mcmVlX2V2ZW50
+KHN0cnVjdCBzc2VfZXZlbnRfYXJjaF9kYXRhICphcmNoX2V2dCkKPj4gK3sKPj4gKyAgICAgICBz
+Y3NfZnJlZShhcmNoX2V2dC0+c2hhZG93X3N0YWNrKTsKPj4gKyAgICAgICBzc2Vfc3RhY2tfZnJl
+ZShhcmNoX2V2dC0+c3RhY2spOwo+PiArfQo+PiArCj4+ICtpbnQgYXJjaF9zc2VfcmVnaXN0ZXJf
+ZXZlbnQoc3RydWN0IHNzZV9ldmVudF9hcmNoX2RhdGEgKmFyY2hfZXZ0KQo+PiArewo+PiArICAg
+ICAgIHN0cnVjdCBzYmlyZXQgc3JldDsKPj4gKwo+PiArICAgICAgIHNyZXQgPSBzYmlfZWNhbGwo
+U0JJX0VYVF9TU0UsIFNCSV9TU0VfRVZFTlRfUkVHSVNURVIsIGFyY2hfZXZ0LT5ldnRfaWQsCj4+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAodW5zaWduZWQgbG9uZyloYW5kbGVfc3NlLCAodW5z
+aWduZWQgbG9uZylhcmNoX2V2dCwgMCwKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgIDAsIDAp
+Owo+PiArCj4+ICsgICAgICAgcmV0dXJuIHNiaV9lcnJfbWFwX2xpbnV4X2Vycm5vKHNyZXQuZXJy
+b3IpOwo+PiArfQo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc3NlX2VudHJ5LlMg
+Yi9hcmNoL3Jpc2N2L2tlcm5lbC9zc2VfZW50cnkuUwo+PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+
+PiBpbmRleCAwMDAwMDAwMDAwMDAuLmMyMmViZmMwZTA2Mwo+PiAtLS0gL2Rldi9udWxsCj4+ICsr
+KyBiL2FyY2gvcmlzY3Yva2VybmVsL3NzZV9lbnRyeS5TCj4+IEBAIC0wLDAgKzEsMTY5IEBACj4+
+ICsvKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5ICovCj4+ICsvKgo+PiAr
+ICogQ29weXJpZ2h0IChDKSAyMDI0IFJpdm9zIEluYy4KPj4gKyAqLwo+PiArCj4+ICsjaW5jbHVk
+ZSA8bGludXgvaW5pdC5oPgo+PiArI2luY2x1ZGUgPGxpbnV4L2xpbmthZ2UuaD4KPj4gKwo+PiAr
+I2luY2x1ZGUgPGFzbS9hc20uaD4KPj4gKyNpbmNsdWRlIDxhc20vY3NyLmg+Cj4+ICsjaW5jbHVk
+ZSA8YXNtL3Njcy5oPgo+PiArCj4+ICsvKiBXaGVuIGVudGVyaW5nIGhhbmRsZV9zc2UsIHRoZSBm
+b2xsb3dpbmcgcmVnaXN0ZXJzIGFyZSBzZXQ6Cj4+ICsgKiBhNjogY29udGFpbnMgdGhlIGhhcnRp
+ZAo+PiArICogYTc6IGNvbnRhaW5zIHN0cnVjdCBzc2VfcmVnaXN0ZXJlZF9ldmVudCBwb2ludGVy
+Cj4gCj4gQ2FuIGl0IGJlIHdyaXR0ZW4gYXMgc3RydWN0IHNzZV9ldmVudF9hcmNoX2RhdGE/CgpI
+aSBZdW5odWksCgpZb3UgYXJlIHJpZ2h0LCB0aGlzIGlzIGEgdHlwbywgaXQgc2hvdWxkIGJlIHNz
+ZV9ldmVudF9hcmNoX2RhdGEgcmF0aGVyCnRoYW4gc3NlX3JlZ2lzdGVyZWRfZXZlbnQuCgo+IAo+
+PiArICovCj4+ICtTWU1fQ09ERV9TVEFSVChoYW5kbGVfc3NlKQo+PiArICAgICAgIC8qIFNhdmUg
+c3RhY2sgdGVtcG9yYXJpbHkgKi8KPj4gKyAgICAgICBSRUdfUyBzcCwgU1NFX1JFR19FVlRfVE1Q
+KGE3KQo+PiArICAgICAgIC8qIFNldCBlbnRyeSBzdGFjayAqLwo+PiArICAgICAgIFJFR19MIHNw
+LCBTU0VfUkVHX0VWVF9TVEFDSyhhNykKPj4gKwo+PiArICAgICAgIGFkZGkgc3AsIHNwLCAtKFBU
+X1NJWkVfT05fU1RBQ0spCj4+ICsgICAgICAgUkVHX1MgcmEsIFBUX1JBKHNwKQo+PiArICAgICAg
+IFJFR19TIHMwLCBQVF9TMChzcCkKPj4gKyAgICAgICBSRUdfUyBzMSwgUFRfUzEoc3ApCj4+ICsg
+ICAgICAgUkVHX1MgczIsIFBUX1MyKHNwKQo+PiArICAgICAgIFJFR19TIHMzLCBQVF9TMyhzcCkK
+Pj4gKyAgICAgICBSRUdfUyBzNCwgUFRfUzQoc3ApCj4+ICsgICAgICAgUkVHX1MgczUsIFBUX1M1
+KHNwKQo+PiArICAgICAgIFJFR19TIHM2LCBQVF9TNihzcCkKPj4gKyAgICAgICBSRUdfUyBzNywg
+UFRfUzcoc3ApCj4+ICsgICAgICAgUkVHX1MgczgsIFBUX1M4KHNwKQo+PiArICAgICAgIFJFR19T
+IHM5LCBQVF9TOShzcCkKPj4gKyAgICAgICBSRUdfUyBzMTAsIFBUX1MxMChzcCkKPj4gKyAgICAg
+ICBSRUdfUyBzMTEsIFBUX1MxMShzcCkKPj4gKyAgICAgICBSRUdfUyB0cCwgUFRfVFAoc3ApCj4+
+ICsgICAgICAgUkVHX1MgdDAsIFBUX1QwKHNwKQo+PiArICAgICAgIFJFR19TIHQxLCBQVF9UMShz
+cCkKPj4gKyAgICAgICBSRUdfUyB0MiwgUFRfVDIoc3ApCj4+ICsgICAgICAgUkVHX1MgdDMsIFBU
+X1QzKHNwKQo+PiArICAgICAgIFJFR19TIHQ0LCBQVF9UNChzcCkKPj4gKyAgICAgICBSRUdfUyB0
+NSwgUFRfVDUoc3ApCj4+ICsgICAgICAgUkVHX1MgdDYsIFBUX1Q2KHNwKQo+PiArICAgICAgIFJF
+R19TIGdwLCBQVF9HUChzcCkKPj4gKyAgICAgICBSRUdfUyBhMCwgUFRfQTAoc3ApCj4+ICsgICAg
+ICAgUkVHX1MgYTEsIFBUX0ExKHNwKQo+PiArICAgICAgIFJFR19TIGEyLCBQVF9BMihzcCkKPj4g
+KyAgICAgICBSRUdfUyBhMywgUFRfQTMoc3ApCj4+ICsgICAgICAgUkVHX1MgYTQsIFBUX0E0KHNw
+KQo+PiArICAgICAgIFJFR19TIGE1LCBQVF9BNShzcCkKPj4gKwo+PiArICAgICAgIC8qIFJldHJp
+ZXZlIGVudHJ5IHNwICovCj4+ICsgICAgICAgUkVHX0wgYTQsIFNTRV9SRUdfRVZUX1RNUChhNykK
+Pj4gKyAgICAgICAvKiBTYXZlIENTUnMgKi8KPj4gKyAgICAgICBjc3JyIGEwLCBDU1JfRVBDCj4+
+ICsgICAgICAgY3NyciBhMSwgQ1NSX1NTVEFUVVMKPj4gKyAgICAgICBjc3JyIGEyLCBDU1JfU1RW
+QUwKPj4gKyAgICAgICBjc3JyIGEzLCBDU1JfU0NBVVNFCj4+ICsKPj4gKyAgICAgICBSRUdfUyBh
+MCwgUFRfRVBDKHNwKQo+PiArICAgICAgIFJFR19TIGExLCBQVF9TVEFUVVMoc3ApCj4+ICsgICAg
+ICAgUkVHX1MgYTIsIFBUX0JBREFERFIoc3ApCj4+ICsgICAgICAgUkVHX1MgYTMsIFBUX0NBVVNF
+KHNwKQo+PiArICAgICAgIFJFR19TIGE0LCBQVF9TUChzcCkKPj4gKwo+PiArICAgICAgIC8qIERp
+c2FibGUgdXNlciBtZW1vcnkgYWNjZXNzIGFuZCBmbG9hdGluZy92ZWN0b3IgY29tcHV0aW5nICov
+Cj4+ICsgICAgICAgbGkgdDAsIFNSX1NVTSB8IFNSX0ZTX1ZTCj4+ICsgICAgICAgY3NyYyBDU1Jf
+U1RBVFVTLCB0MAo+PiArCj4+ICsgICAgICAgbG9hZF9nbG9iYWxfcG9pbnRlcgo+PiArICAgICAg
+IHNjc19sb2FkX3NzZV9zdGFjayBhNwo+PiArCj4+ICsgICAgICAgLyogUmVzdG9yZSBjdXJyZW50
+IHRhc2sgc3RydWN0IGZyb20gX19zc2VfZW50cnlfdGFzayAqLwo+PiArICAgICAgIGxpIHQxLCBB
+U01fTlJfQ1BVUwo+PiArICAgICAgIG12IHQzLCB6ZXJvCj4+ICsKPj4gKyNpZmRlZiBDT05GSUdf
+U01QCj4+ICsgICAgICAgLyogRmluZCB0aGUgQ1BVIGlkIGFzc29jaWF0ZWQgdG8gdGhlIGhhcnQg
+aWQgKi8KPj4gKyAgICAgICBsYSB0MCwgX19jcHVpZF90b19oYXJ0aWRfbWFwCj4+ICsuTGhhcnRf
+aWRfbG9vcDoKPj4gKyAgICAgICBSRUdfTCB0MiwgMCh0MCkKPj4gKyAgICAgICBiZXEgdDIsIGE2
+LCAuTGNwdV9pZF9mb3VuZAo+PiArCj4+ICsgICAgICAgLyogSW5jcmVtZW50IHBvaW50ZXIgYW5k
+IENQVSBudW1iZXIgKi8KPj4gKyAgICAgICBhZGRpIHQzLCB0MywgMQo+PiArICAgICAgIGFkZGkg
+dDAsIHQwLCBSSVNDVl9TWlBUUgo+PiArICAgICAgIGJsdHUgdDMsIHQxLCAuTGhhcnRfaWRfbG9v
+cAo+PiArCj4gCj4gQ2FuIHdlIGdldCB0aGUgQ1BVIG51bWJlciBkaXJlY3RseSBoZXJlPyBFLmcu
+LCBwYXNzIGl0IGR1cmluZwo+IFNCSV9TU0VfRVZFTlRfUkVHSVNURVIsIG9yIGNyZWF0ZSBhIHJl
+dmVyc2UgYXJyYXkgb2YKPiBfX2NwdWlkX3RvX2hhcnRpZF9tYXBbXT8KClVuZm9ydHVuYXRlbHks
+IHdlIGNhbid0IGdldCB0aGUgQ1BVIG51bWJlciBkaXJlY3RseSBzaW5jZSB0aGUgU0JJIGlzIG5v
+dApmb3JjZWQgdG8gaGFuZGxlIHRoZSBldmVudCBvbiB0aGUgcHJlZmVycmVkIGhhcnQuIFRoZSBT
+Qkkgc3BlYyBzYXlzOgoKUFJFRkVSUkVEX0hBUlQKCkhhcnQgaWQgb2YgdGhlICpwcmVmZXJyZWQq
+IGhhcnQgdGhhdAoqc2hvdWxkKiBoYW5kbGUgdGhlIGdsb2JhbCBzb2Z0d2FyZQpldmVudC4KCkEg
+cmV2ZXJzZSBhcnJheSB3b3VsZCBsZWFkIHRvIHRoZSBzYW1lIGtpbmQgb2YgbG9vcCBzaW5jZSB0
+aGUgSVNBIHNwZWMKc3RhdGVzIHRoYXQ6CgoiCkhhcnQgSURzIG1pZ2h0IG5vdCBuZWNlc3Nhcmls
+eSBiZSBudW1iZXJlZCBjb250aWd1b3VzbHkgaW4gYQptdWx0aXByb2Nlc3NvciBzeXN0ZW0sIGJ1
+dCBhdCBsZWFzdCBvbmUgaGFydCBtdXN0IGhhdmUgYSBoYXJ0IElEIG9mCnplcm8uIEhhcnQgSURz
+IG11c3QgYmUgdW5pcXVlIHdpdGhpbiB0aGUgZXhlY3V0aW9uIGVudmlyb25tZW50LgoiCgpXZSBj
+b3VsZCBvcHRpbWl6ZSBpdCBieSBzZXR0aW5nIHRoZSBoYXJ0L2NwdSBtYXRjaCBpbiB0aGUKc3Nl
+X2V2ZW50X2FyY2hfZGF0YSBhbmQgY2hlY2sgaWYgdGhlIGhhcnQgaXMgdGhlIHNhbWUuIElmIHNv
+LCB3ZSBjYW4Kc2tpcCB0aGUgQ1BVIGlkIHJldHJpZXZhbCBsb29wLiBJJ2xsIGltcGxlbWVudCB0
+aGF0LgoKVGhhbmtzLAoKQ2zDqW1lbnQKCj4gCj4+ICsgICAgICAgLyoKPj4gKyAgICAgICAgKiBU
+aGlzIHNob3VsZCBuZXZlciBoYXBwZW4gc2luY2Ugd2UgZXhwZWN0IHRoZSBoYXJ0X2lkIHRvIG1h
+dGNoIG9uZQo+PiArICAgICAgICAqIG9mIG91ciBDUFUsIGJ1dCBiZXR0ZXIgYmUgc2FmZSB0aGFu
+IHNvcnJ5Cj4+ICsgICAgICAgICovCj4+ICsgICAgICAgbGEgdHAsIGluaXRfdGFzawo+PiArICAg
+ICAgIGxhIGEwLCBzc2VfaGFydF9pZF9wYW5pY19zdHJpbmcKPj4gKyAgICAgICBsYSB0MCwgcGFu
+aWMKPj4gKyAgICAgICBqYWxyIHQwCj4+ICsKPj4gKy5MY3B1X2lkX2ZvdW5kOgo+PiArI2VuZGlm
+Cj4+ICsgICAgICAgYXNtX3Blcl9jcHVfd2l0aF9jcHUgdDIgX19zc2VfZW50cnlfdGFzayB0MSB0
+Mwo+PiArICAgICAgIFJFR19MIHRwLCAwKHQyKQo+PiArCj4+ICsgICAgICAgbXYgYTEsIHNwIC8q
+IHB0X3JlZ3Mgb24gc3RhY2sgKi8KPj4gKwo+PiArICAgICAgIC8qCj4+ICsgICAgICAgICogU2F2
+ZSBzc2NyYXRjaCBmb3IgcmVzdG9yYXRpb24gc2luY2Ugd2UgbWlnaHQgaGF2ZSBpbnRlcnJ1cHRl
+ZCB0aGUKPj4gKyAgICAgICAgKiBrZXJuZWwgaW4gZWFybHkgZXhjZXB0aW9uIHBhdGggYW5kIHRo
+dXMsIHdlIGRvbid0IGtub3cgdGhlIGNvbnRlbnQgb2YKPj4gKyAgICAgICAgKiBzc2NyYXRjaC4K
+Pj4gKyAgICAgICAgKi8KPj4gKyAgICAgICBjc3JyIHM0LCBDU1JfU1NDUkFUQ0gKPj4gKyAgICAg
+ICAvKiBJbi1rZXJuZWwgc2NyYXRjaCBpcyAwICovCj4+ICsgICAgICAgY3NydyBDU1JfU0NSQVRD
+SCwgeDAKPj4gKwo+PiArICAgICAgIG12IGEwLCBhNwo+PiArCj4+ICsgICAgICAgY2FsbCBkb19z
+c2UKPj4gKwo+PiArICAgICAgIGNzcncgQ1NSX1NTQ1JBVENILCBzNAo+PiArCj4+ICsgICAgICAg
+UkVHX0wgYTAsIFBUX1NUQVRVUyhzcCkKPj4gKyAgICAgICBSRUdfTCBhMSwgUFRfRVBDKHNwKQo+
+PiArICAgICAgIFJFR19MIGEyLCBQVF9CQURBRERSKHNwKQo+PiArICAgICAgIFJFR19MIGEzLCBQ
+VF9DQVVTRShzcCkKPj4gKyAgICAgICBjc3J3IENTUl9TU1RBVFVTLCBhMAo+PiArICAgICAgIGNz
+cncgQ1NSX0VQQywgYTEKPj4gKyAgICAgICBjc3J3IENTUl9TVFZBTCwgYTIKPj4gKyAgICAgICBj
+c3J3IENTUl9TQ0FVU0UsIGEzCj4+ICsKPj4gKyAgICAgICBSRUdfTCByYSwgUFRfUkEoc3ApCj4+
+ICsgICAgICAgUkVHX0wgczAsIFBUX1MwKHNwKQo+PiArICAgICAgIFJFR19MIHMxLCBQVF9TMShz
+cCkKPj4gKyAgICAgICBSRUdfTCBzMiwgUFRfUzIoc3ApCj4+ICsgICAgICAgUkVHX0wgczMsIFBU
+X1MzKHNwKQo+PiArICAgICAgIFJFR19MIHM0LCBQVF9TNChzcCkKPj4gKyAgICAgICBSRUdfTCBz
+NSwgUFRfUzUoc3ApCj4+ICsgICAgICAgUkVHX0wgczYsIFBUX1M2KHNwKQo+PiArICAgICAgIFJF
+R19MIHM3LCBQVF9TNyhzcCkKPj4gKyAgICAgICBSRUdfTCBzOCwgUFRfUzgoc3ApCj4+ICsgICAg
+ICAgUkVHX0wgczksIFBUX1M5KHNwKQo+PiArICAgICAgIFJFR19MIHMxMCwgUFRfUzEwKHNwKQo+
+PiArICAgICAgIFJFR19MIHMxMSwgUFRfUzExKHNwKQo+PiArICAgICAgIFJFR19MIHRwLCBQVF9U
+UChzcCkKPj4gKyAgICAgICBSRUdfTCB0MCwgUFRfVDAoc3ApCj4+ICsgICAgICAgUkVHX0wgdDEs
+IFBUX1QxKHNwKQo+PiArICAgICAgIFJFR19MIHQyLCBQVF9UMihzcCkKPj4gKyAgICAgICBSRUdf
+TCB0MywgUFRfVDMoc3ApCj4+ICsgICAgICAgUkVHX0wgdDQsIFBUX1Q0KHNwKQo+PiArICAgICAg
+IFJFR19MIHQ1LCBQVF9UNShzcCkKPj4gKyAgICAgICBSRUdfTCB0NiwgUFRfVDYoc3ApCj4+ICsg
+ICAgICAgUkVHX0wgZ3AsIFBUX0dQKHNwKQo+PiArICAgICAgIFJFR19MIGEwLCBQVF9BMChzcCkK
+Pj4gKyAgICAgICBSRUdfTCBhMSwgUFRfQTEoc3ApCj4+ICsgICAgICAgUkVHX0wgYTIsIFBUX0Ey
+KHNwKQo+PiArICAgICAgIFJFR19MIGEzLCBQVF9BMyhzcCkKPj4gKyAgICAgICBSRUdfTCBhNCwg
+UFRfQTQoc3ApCj4+ICsgICAgICAgUkVHX0wgYTUsIFBUX0E1KHNwKQo+PiArCj4+ICsgICAgICAg
+UkVHX0wgc3AsIFBUX1NQKHNwKQo+PiArCj4+ICsgICAgICAgbGkgYTcsIFNCSV9FWFRfU1NFCj4+
+ICsgICAgICAgbGkgYTYsIFNCSV9TU0VfRVZFTlRfQ09NUExFVEUKPj4gKyAgICAgICBlY2FsbAo+
+PiArCj4+ICtTWU1fQ09ERV9FTkQoaGFuZGxlX3NzZSkKPj4gKwo+PiArU1lNX0RBVEFfU1RBUlRf
+TE9DQUwoc3NlX2hhcnRfaWRfcGFuaWNfc3RyaW5nKQo+PiArICAgIC5hc2NpaSAiVW5hYmxlIHRv
+IG1hdGNoIGhhcnRfaWQgd2l0aCBjcHVcMCIKPj4gK1NZTV9EQVRBX0VORChzc2VfaGFydF9pZF9w
+YW5pY19zdHJpbmcpCj4+IC0tCj4+IDIuNDMuMAo+Pgo+Pgo+IAo+IFRoYW5rcywKPiBZdW5odWkK
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
