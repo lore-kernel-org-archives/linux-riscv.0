@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B90BC87FCB
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 20:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135E0C87FCB
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Aug 2025 20:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VURZJbW1O35IeI5wgG8vWDu9Lz5Kq5BGMop/joR5Img=; b=CfCaEqewsKBQT5
-	SM+1N6aRtbGI910hKwcitVS0f6juhV0Kk4SseAtKKN1aiFu4Hi6xBJ4we3Wzl/Jz1iDZTA9oswkht
-	MW+eiRMLbFlvD2v6WbxlIU8DuLJjlAhChK7EhNn4b2kOSCcoUpwPXR15A6f7Fom67lAWyrPhggOgc
-	XVFxxQ1fFCU/ph/imYGptOFE+r0TvyD1pJxoCC+VHSUnISvUCWta9qq7+qn2e+oP3h0v7hGh1nrOF
-	gRVvxjIMUkzBZO1RGTeRmbuhW8O38z/OugLYBG1UW+sMDeuJ2X0Tdv0qzErlDx4ylFBm0gcU47Uhd
-	5Tp9sFzVCdGbRT6JA7Nw==;
+	List-Owner; bh=WkZ21ZD01NM7LXcE8yAxstMPkskmgv7GyicAzYOL6kg=; b=z5X0G4mRkdwJss
+	MVE2yoJAAuFImi/S/bg0Y+f7c24+aD+0E1WWqou0nVR9oPoishkSMo5/8ZDRjmV8gAhQhKIw9E99J
+	3zqamLUt9QJo+3Ni0e0PcxNzxW9qgQHYY1jYEDJyzohURvw2Vse3F+ogQiYSSnHDHdAXGKFzybQY1
+	QcdCmz4LKeXvBzRnb/bkrLaC8tWFUpUavwjYkmnWg1JjXTAuyXcfjyMn+q2rOMHZoOpNg+aPOSK/2
+	ODFZ7Sof5BknwUJfDkExqBO/IINZ3HptelP1WYz3OEgTAkMojf+dleki8FDUCtn1kGGFoDPMrrr3w
+	Qqvm01nnDUytkSNs0qxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj1qt-0000000BIWw-25e1;
-	Mon, 04 Aug 2025 20:32:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uj1rc-0000000BIcg-0TK4;
+	Mon, 04 Aug 2025 20:32:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj1qs-0000000BIWp-3Jxe
+	id 1uj1rZ-0000000BIc9-0AcQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Aug 2025 20:32:10 +0000
+	Mon, 04 Aug 2025 20:32:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC6A2601E4;
-	Mon,  4 Aug 2025 20:32:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7F95C4CEE7;
-	Mon,  4 Aug 2025 20:32:08 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C2E96A55AF4;
+	Mon,  4 Aug 2025 20:32:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4675C4CEF0;
+	Mon,  4 Aug 2025 20:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754339529;
-	bh=40RPmmhgenS++dUjxETl8DxV/XFXspYQo4HXXmsrhls=;
+	s=k20201202; t=1754339571;
+	bh=Oz3qdUQptaVyyIeecrQbI/P2BVjPtce/YqRDIENIsn4=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=JQXUKdMwFWEh72JN1E6XzW9gB6pcSUBn7mgP4hBUHV2TpolWdTSfQw4mCxYy4Zy3E
-	 lUtaIyYa44cze8FqCym9EpaeMrWsTATwoH27xF95eprgUJJmuX8DtRZ/QiocXQ8aIA
-	 jc4t2gY8jGLgkj3U/lrseTF3ovLDIfeRF/v10YguErQe6smk0ksBMrsbOIRzb55XFY
-	 28W/sTdccRNJl6jdGHkTr0BO8ndO2VYz/Ani6KoevoXAVgowgiDbhXZFgVj5gAS4iR
-	 Enk6figXDmKEHpnxpASTpbq88kekHHfDpVfBD7xWDRHwvW+N9ywUM1E/OOSiU10oIJ
-	 LNeyo9+ssoqnQ==
+	b=poAF1fWYETD5JZJ5G3g6mEJv/elwzab8VawLlayZjSMUerd5gLQ+8Y1fj1r0PEGkO
+	 9LYL75KrXjcAk7jLr1wuMuhNTzy+NR+D3cTYjQanlmG3xOd8M0QMielTy4ILBgkzpO
+	 CiHZzot+4rXhnbgxYIzZCNHwYhzV764yPJUj+R3P4wPpaEA53uDropOJ98TqD8NAYh
+	 jwnlyMBlTdotRtbn406xtAOHgARV+kWYRFcYykGMf0YlaUt9/d24BPv4QQ7BP5+htz
+	 r0fFSo2gAN50OhZdMM8cQC0vlc0cv8XY/VbPn2HXLBFrQYXD+KuuDQJa4fRkqw85iO
+	 HyLpYYSQljhiw==
 From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
@@ -54,14 +54,17 @@ Cc: Puranjay Mohan <puranjay@kernel.org>, Palmer Dabbelt
  Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo
  <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Pu Lehui
  <pulehui@huawei.com>
-Subject: Re: [PATCH bpf-next 05/10] riscv, bpf: Add rv_ext_enabled macro for
- runtime detection extentsion
-In-Reply-To: <20250719091730.2660197-6-pulehui@huaweicloud.com>
+Subject: Re: [PATCH bpf-next 06/10] riscv, bpf: Add Zacas instructions
+In-Reply-To: <20250719091730.2660197-7-pulehui@huaweicloud.com>
 References: <20250719091730.2660197-1-pulehui@huaweicloud.com>
- <20250719091730.2660197-6-pulehui@huaweicloud.com>
-Date: Mon, 04 Aug 2025 22:32:06 +0200
-Message-ID: <87ms8e3k1l.fsf@all.your.base.are.belong.to.us>
+ <20250719091730.2660197-7-pulehui@huaweicloud.com>
+Date: Mon, 04 Aug 2025 22:32:48 +0200
+Message-ID: <87ikj23k0f.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250804_133253_146014_0C859977 
+X-CRM114-Status: UNSURE (   3.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,12 +81,13 @@ Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Tml0OiBTdWJqZWN0OiBzL2V4dGVudHNpb24vZXh0ZW5zaW9uLwoKUHUgTGVodWkgPHB1bGVodWlA
-aHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEZyb206IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdl
-aS5jb20+Cj4KPiBBZGQgcnZfZXh0X2VuYWJsZWQgbWFjcm8gdG8gY2hlY2sgd2hldGhlciB0aGUg
-cnVudGltZSBkZXRlY3Rpb24KPiBleHRlbnNpb24gaXMgZW5hYmxlZC4KPgo+IFNpZ25lZC1vZmYt
-Ynk6IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+CgpSZXZpZXdlZC1ieTogQmrDtnJuIFTD
-tnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEZyb206IFB1IExl
+aHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4KPiBBZGQgWmFjYXMgaW5zdHJ1Y3Rpb25zIGludHJv
+ZHVjZWQgYnkgWzBdIHRvIHJlZHVjZSBjb2RlIHNpemUgYW5kCj4gaW1wcm92ZSBwZXJmb3JtYW5j
+ZSBvZiBSVjY0IEpJVC4KPgo+IExpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdmFyY2hpdmUv
+cmlzY3YtemFjYXMvcmVsZWFzZXMvZG93bmxvYWQvdjEuMC9yaXNjdi16YWNhcy5wZGYgWzBdCj4g
+U2lnbmVkLW9mZi1ieTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KClJldmlld2VkLWJ5
+OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+CgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
