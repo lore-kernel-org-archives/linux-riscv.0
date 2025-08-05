@@ -4,84 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EB44C87FD2
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 15:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA727C87FCB
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 15:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtsSVyrac3utEwSTSozU8O1c6DKIA9KvUtneRHXK4lI=; b=khOFUTLQvNFWgITS8lp2uYiAFX
-	4Mj/mAxXsqya/yb4b1pwhpxiwY6jvVsm7NEsI1zr3LEGgW2an65y93ADhXXB/iCvSfEmXmzSao+gf
-	aieQUQ3Ci7bnukynMkJEqzlCdv0zd63g26YXwPygwFyqICH0a1ckmCDOxpiJmZy7HBaSv7cywOAaZ
-	P0FLKdCGg7zhIZz1jc9Y10iAqTWGJKaEZpiI2UflRn9p8kZfVumsE8lPWO/6PCHTjFX8YbD47IqYb
-	IPwy7wSNhTEhkWCA7WRVC3QhYFP5n5kq4EKnEKYWmAE5EgOwtZm5EYffBHrQwze6j0cNat564WL/0
-	ShksAMLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XWFCJfl7/r41wMUmxM4amT3XFYRVy1KEBZH+7+2ZRrU=; b=AWIbqRMd9rAxg1
+	YdnLd7P4pFCxVMuZ5oRvmJd7gKrCx8vZ32OdfKGO2Y/m6Fjak0dVIwL/ChXpRwjV5yx0MkifT7JnM
+	TefMTPQ+F/jhDiLx28eQR7WvwYkU6LOotj0Be/w6vCtilGLMOCsAVdatecwkTubaOyORWlv8kddLF
+	RJ4cyyoSZxpgaIahY/BFdhwTFm+8P1W+sdIC2k342BKMmOYfl1Do3+7T71GntlwsHWWIXz89CpPkb
+	v9x7Irva7A2xgbG3Io4C19PlSjzI/JinP3wAMILYfqwEIZazUeohBCIVXHu+N8gV2gyb6Cg4LbW73
+	JT1ph+7VNk/vMiD+DLxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujJhs-0000000D9sZ-21mr;
-	Tue, 05 Aug 2025 15:36:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ujJkU-0000000DAVf-3stN;
+	Tue, 05 Aug 2025 15:38:46 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujIXX-0000000CzZS-1OA6
-	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 14:21:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C165BA564BE;
-	Tue,  5 Aug 2025 14:21:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 449B1C4CEF0;
-	Tue,  5 Aug 2025 14:21:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754403677;
-	bh=whNVERXr8/AN2Vvfa653Gd5vcbSu7aoK+Gs6t3i+W5E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hkNCQekXfQ5zz7SFOm1X7LU/T8JpA9F6gAsS3c6+9y+qglrwIbLwFIyBWP0D7ry9L
-	 GNhbEPDSTXig2ETCkjlyEQjsdVC+Esbhv/Mb6sC4EIXYY6JR+pDMVBPqqMyLZbPmV7
-	 zCXEyHeM3myKgWKd3MxjVBE8NTyWb7P0zROsiSR2Ao8hISoyvyhrvyXOgF3UaB+Klv
-	 nppZ4E0Y9K/XyXaSW7LqmDdDoxSCWK+Fgvj0t1nTVbxwcdQp5c/QjtjWZvjgaTOo29
-	 +Qi5Lyikzld4at0TH6QtlFDyU5soOqU4XCrww1smX/qa1O+f2NrdrUwYW5PN9JBJ3u
-	 OORGr+Kr6H51w==
-Date: Tue, 5 Aug 2025 15:21:09 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Min Lin <linmin@eswincomputing.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Yu Chien Peter Lin <peterlin@andestech.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Kanak Shilledar <kanakshilledar@gmail.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
-	"rafal@milecki.pl" <rafal@milecki.pl>,
-	Anup Patel <anup@brainfault.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [External] Re: [PATCH v4 0/7] Basic device tree support for
- ESWIN EIC7700 RISC-V SoC
-Message-ID: <20250805-equinox-setup-cd37520d2586@spud>
-References: <20250616112316.3833343-1-pinkesh.vaghela@einfochips.com>
- <SA3PR04MB8931098CC4A73E8FDD481DA78326A@SA3PR04MB8931.namprd04.prod.outlook.com>
- <2ed69301-f787-4257-8d44-a8544c1a43c9@kernel.org>
- <SA3PR04MB89312063FB96E85ABB6F3D3E8323A@SA3PR04MB8931.namprd04.prod.outlook.com>
- <72354ec9-7dc8-4192-9c25-d37abf33b5f0@kernel.org>
+	id 1ujIcY-0000000D0Ou-2Y04;
+	Tue, 05 Aug 2025 14:26:32 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-55b8b8e00caso5505669e87.3;
+        Tue, 05 Aug 2025 07:26:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754403988; x=1755008788; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pksKKRBtO31JVCyUig2REP3M3oI0Y/m5ILEfob1JeTo=;
+        b=NFUVvT+knnC0U6UHhaH42ZabqDCjVS1bidUuXFgze8Ei/VKzUO2XnL2k+qbvx7YPFT
+         tPNJi0AIHYUFlitje6YnmmgHeCRsDadSDW3HvAhxQwrj7zQfZuo4D4N8pgZRp/bZmLlJ
+         nkACakz4Am5+cJdK7iNavHtgK/lLauk934/6EI11AYB8FDhJ7Gri9Ukan2m1hN00r/UW
+         SNiVo4F2qXI7OrRyzIOMpWZBGNbm8A6TB8BRfJrnvN7Z4kDDTSlv3R8HM24bed5zJ733
+         H4/zdnb3QqJOEv1Ia6mCm+0lEMr9vzr3vQTtUvW2//rxNyQ0ZPqU8bfQtV5Z5b4AG/XT
+         GnDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754403988; x=1755008788;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pksKKRBtO31JVCyUig2REP3M3oI0Y/m5ILEfob1JeTo=;
+        b=b8qPoCdHED+0XvEMz7eqTJDJuaWH/n8OG8Oc6evpKcUqgXQYiFCtjCFSRVVkVrKYHx
+         4R8a89fW2/Au4xQIkNpJ/+xmTsbYEbTeTH4fy3vR4vv5qxeG6jCny/spuPGvxIPAu0lH
+         6BOLI8s4gM3Ao1iR6DB5t4GbrlAAL2p5cadp8C87t60kLchIkdDVnWSLgxhmeiwfx4IE
+         BjBKYd3lYixW4whYs5CyuHu2lSRCeaCnGexjK3bwuEHVLysSX4U00x2fJrNbp4PCEriZ
+         KS18qmFuY3JHObqZGYT0pXWz7XY94TXR9S0dDTmDIuDNCevbkOmP9iyeexXWYsEc2q+4
+         +CTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVKjh4yOuO5BI1oUSIVVFj8VsDdntY97DGN5G+Ih7IaO34xVJetJQrMGWCQtj3N5a+Z7w4k6p58cs/KCQ==@lists.infradead.org, AJvYcCXpbGsC6dMhdGjw+4HZXYMSr5SCKsv0jID1O35gQmABF6VJIyxhXn/2JDyST9gptDSbZdGsxl54GVw=@lists.infradead.org
+X-Gm-Message-State: AOJu0YynzpIRzr246hQQUGDzGnPbSbnh9DqKpHfxUREFLvWd5TD49F3T
+	yATysGc4ZdxNERN4CIoXmitwskEq0GN2PicJJgcyNMIWclA9PuD8IEO/
+X-Gm-Gg: ASbGncskJHLaEFgRDk56dmmA29nbDBrjX0LQLH7Mo1jH/nkmqFaRsFaS5SwJO+Y8r3E
+	1st4rOs5Jns3dsT4aw2pAJS422Obbjb34VFJEwWzcu+Q02VoEszSnK5QcmTwl6/Xki82NXl3nod
+	raZNLYRoo1qPMDAAj2N78o98qJM4DBZYlOY+NiX3nwmziLNR1J31ChUoVLmdsTTPMqmKlW8k3Ru
+	0f+pSOeQY0phgzVh0bcjhDfnM/ECN6lb0C0ZazmKndPqRMsiNBgkP7HokJi7eYFNwHIQeA3EzMW
+	mpSbqTtV9oTaVoARlD5PMux4QBfB2SbWbGReCfIjrGryYhldt0BrnxHNuPxm5c/7ciQZrYjnEB6
+	PzBE8eFDycEZmvc1yPeaOu9tY1U0q/PNAyzwC/vMIYfnBoXN2h1JTaHW260nihAh2TXKt6w==
+X-Google-Smtp-Source: AGHT+IGy1WhFbslChqIwW3zDEXwo6CDb6xK1zgNUQQFWNlekigvy4oRcbBK1ihRZGuO8OayIKRf+qA==
+X-Received: by 2002:a05:6512:39cc:b0:55b:9647:8e7b with SMTP id 2adb3069b0e04-55b97b75a15mr4601956e87.43.1754403988090;
+        Tue, 05 Aug 2025 07:26:28 -0700 (PDT)
+Received: from localhost.localdomain (178.90.89.143.dynamic.telecom.kz. [178.90.89.143])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b889a290fsm1976379e87.54.2025.08.05.07.26.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 Aug 2025 07:26:27 -0700 (PDT)
+From: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+To: ryabinin.a.a@gmail.com,
+	hca@linux.ibm.com,
+	christophe.leroy@csgroup.eu,
+	andreyknvl@gmail.com,
+	agordeev@linux.ibm.com,
+	akpm@linux-foundation.org,
+	zhangqing@loongson.cn,
+	chenhuacai@loongson.cn,
+	trishalfonso@google.com,
+	davidgow@google.com
+Cc: glider@google.com,
+	dvyukov@google.com,
+	kasan-dev@googlegroups.com,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-mm@kvack.org,
+	snovitoll@gmail.com
+Subject: [PATCH v4 0/9] kasan: unify kasan_arch_is_ready() and remove arch-specific implementations
+Date: Tue,  5 Aug 2025 19:26:13 +0500
+Message-Id: <20250805142622.560992-1-snovitoll@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <72354ec9-7dc8-4192-9c25-d37abf33b5f0@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_072119_509059_771AF987 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20250805_072630_656116_8117A443 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,81 +108,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7367352542692163191=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patch series addresses the fragmentation in KASAN initialization
+across architectures by introducing a unified approach that eliminates
+duplicate static keys and arch-specific kasan_arch_is_ready()
+implementations.
 
---===============7367352542692163191==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="90osRGvCEAKF0z/s"
-Content-Disposition: inline
+The core issue is that different architectures have inconsistent approaches
+to KASAN readiness tracking:
+- PowerPC, LoongArch, and UML arch, each implement own kasan_arch_is_ready()
+- Only HW_TAGS mode had a unified static key (kasan_flag_enabled)
+- Generic and SW_TAGS modes relied on arch-specific solutions
+  or always-on behavior
 
+This series implements two-level approach:
+1. kasan_enabled() - compile-time check for KASAN configuration
+2. kasan_shadow_initialized() - runtime check for shadow memory readiness
 
---90osRGvCEAKF0z/s
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Changes in v4:
+- Unified patches where ARCH_DEFER_KASAN is introduced and used
+  in the KASAN code (Andrey Ryabinin)
+- Fixed kasan_enable() for HW_TAGS mode (Andrey Ryabinin)
+- Replaced !kasan_enabled() with !kasan_shadow_initialized() in
+  loongarch which selects ARCH_DEFER_KASAN (Andrey Ryabinin)
+- Addressed the issue in UML arch, where kasan_init_generic() is
+  called before jump_label_init() (Andrey Ryabinin)
 
-On Mon, Aug 04, 2025 at 04:45:10PM +0200, Krzysztof Kozlowski wrote:
-> On 04/08/2025 15:10, Pinkesh Vaghela wrote:
-> > Hello Krzysztof,
-> >=20
-> > Sorry to bother you. I pinged because we addressed all the review comme=
-nts of V3 in V4. But on V4 we have not received any comments since last 6 w=
-eeks.
-> > Could you please let us know what should be the further steps?
->=20
-> Please don't top post.
->=20
-> That is a bit different question than you asked before: "Gentle reminder
-> to review DT patches.".
->=20
-> Please read SoC subsystem maintainer profile document. For ARM platforms
-> you would send now pull request or patches to soc.
->=20
-> I would suggest following standard SoC way, same as for every other new
-> SoC (but carefully observe the kernel process cycle). You can easily
-> check archives to see how people also did it...
+Adding in TO additional recipients who developed KASAN in LoongArch, UML.
 
-Yes, standard SoC way please. Arnd expressed recently a preference for
-the initial series for a new SoC vendor to go as a patchset to
-soc@lists.linux.dev rather than as a pull-request.
+Tested on:
+- powerpc - selects ARCH_DEFER_KASAN
+Built ppc64_defconfig (PPC_BOOK3S_64) - OK
+Booted via qemu-system-ppc64 - OK
 
-> For RISC-V - not sure
-> some trees are handled by Conor, but rest go directly to soc tree.
+- um - selects ARCH_DEFER_KASAN
+Built defconfig with KASAN_INLINE - OK
+Built defconfig with STATIC_LINK && KASAN_OUTLINE - OK
+Booted ./linux - OK
 
-I'm only doing the canaan/sifive/microchip/starfive ones that were there
-when I started, all the "new" platforms have dedicated maintainers that
-send direct to Arnd.
+- loongarch - selects ARCH_DEFER_KASAN
+Built defconfig with KASAN_GENERIC - OK
+Haven't tested the boot. Asking Loongarch developers to verify - N/A
+But should be good, since Loongarch does not have specific "kasan_init()"
+call like UML does. It selects ARCH_DEFER_KASAN and calls kasan_init()
+in the end of setup_arch() after jump_label_init().
 
-Cheers,
-Conor.
+- arm64
+Built defconfig, kvm_guest.config with HW_TAGS, SW_TAGS, GENERIC - OK
+KASAN_KUNIT_TEST - OK
+Booted via qemu-system-arm64 - OK
 
---90osRGvCEAKF0z/s
-Content-Type: application/pgp-signature; name="signature.asc"
+- x86_64
+Built defconfig, kvm_guest.config with KASAN_GENERIC - OK
+KASAN_KUNIT_TEST - OK
+Booted via qemu-system-x86 - OK
 
------BEGIN PGP SIGNATURE-----
+- s390, riscv, xtensa, arm
+Built defconfig with KASAN_GENERIC - OK
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaJITVQAKCRB4tDGHoIJi
-0rfRAPsE27O+0eBI7GpGuWCrShsC8OmvPSMg1HZpeLJfBi4P4QD/dHgMhoqf1QeQ
-1euvTqb8q7cSCtui9wi8PvuYBEqxoAQ=
-=0EsT
------END PGP SIGNATURE-----
+Previous v3 thread: https://lore.kernel.org/all/20250717142732.292822-1-snovitoll@gmail.com/
+Previous v2 thread: https://lore.kernel.org/all/20250626153147.145312-1-snovitoll@gmail.com/
 
---90osRGvCEAKF0z/s--
+Closes: https://bugzilla.kernel.org/show_bug.cgi?id=217049
 
+Sabyrzhan Tasbolatov (9):
+  kasan: introduce ARCH_DEFER_KASAN and unify static key across modes
+  kasan/powerpc: select ARCH_DEFER_KASAN and call kasan_init_generic
+  kasan/arm,arm64: call kasan_init_generic in kasan_init
+  kasan/xtensa: call kasan_init_generic in kasan_init
+  kasan/loongarch: select ARCH_DEFER_KASAN and call kasan_init_generic
+  kasan/um: select ARCH_DEFER_KASAN and call kasan_init_generic
+  kasan/x86: call kasan_init_generic in kasan_init
+  kasan/s390: call kasan_init_generic in kasan_init
+  kasan/riscv: call kasan_init_generic in kasan_init
 
---===============7367352542692163191==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+ arch/arm/mm/kasan_init.c               |  2 +-
+ arch/arm64/mm/kasan_init.c             |  4 +--
+ arch/loongarch/Kconfig                 |  1 +
+ arch/loongarch/include/asm/kasan.h     |  7 -----
+ arch/loongarch/mm/kasan_init.c         |  8 ++---
+ arch/powerpc/Kconfig                   |  1 +
+ arch/powerpc/include/asm/kasan.h       | 12 --------
+ arch/powerpc/mm/kasan/init_32.c        |  2 +-
+ arch/powerpc/mm/kasan/init_book3e_64.c |  2 +-
+ arch/powerpc/mm/kasan/init_book3s_64.c |  6 +---
+ arch/riscv/mm/kasan_init.c             |  1 +
+ arch/s390/kernel/early.c               |  3 +-
+ arch/um/Kconfig                        |  1 +
+ arch/um/include/asm/kasan.h            |  5 ---
+ arch/um/kernel/mem.c                   | 12 ++++++--
+ arch/x86/mm/kasan_init_64.c            |  2 +-
+ arch/xtensa/mm/kasan_init.c            |  2 +-
+ include/linux/kasan-enabled.h          | 36 +++++++++++++++++-----
+ include/linux/kasan.h                  | 42 ++++++++++++++++++++------
+ lib/Kconfig.kasan                      |  8 +++++
+ mm/kasan/common.c                      | 18 +++++++----
+ mm/kasan/generic.c                     | 23 ++++++++------
+ mm/kasan/hw_tags.c                     |  9 +-----
+ mm/kasan/kasan.h                       | 36 ++++++++++++++++------
+ mm/kasan/shadow.c                      | 32 +++++---------------
+ mm/kasan/sw_tags.c                     |  4 ++-
+ mm/kasan/tags.c                        |  2 +-
+ 27 files changed, 157 insertions(+), 124 deletions(-)
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7367352542692163191==--
-
