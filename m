@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E2DC87FCB
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 13:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EB44C87FD2
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 15:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e4n0mK+eox+Zn0TX5dhyeKcJFZxW3mKmTS8YDqEEh8c=; b=2T2lRzHV32DQur
-	/Qwo4Fxm8OZ7K4axMsmvvyPMjqGpXetU/IPrA2P/7K1fLwCBNLLUrb1Qtmk0OJ7eCiUfIVgKGcO8g
-	6bQiUDfAsLkePgxNcsbWRdk7ooNtLLtw2kIXCkFAhcWHCpN3PGopxCtVMYCeuZhiVQHPVPvfLTpUv
-	du1M+A04NwmFUKznrhFZQ9ZheH6RafQG0FAVUOeXIoMC7UAEVAyXRlKpVKylPOSrVkRAsN6cEieUW
-	HmE1m/Lm0obxaMFgITIY0rVg2UIaA5d00IGuaS2Om1Y6GV9rg3EHVzQfw+lxzmEZivNY82t1SnAjA
-	6Bw3X5Xn+gY/96BL3b3A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gtsSVyrac3utEwSTSozU8O1c6DKIA9KvUtneRHXK4lI=; b=khOFUTLQvNFWgITS8lp2uYiAFX
+	4Mj/mAxXsqya/yb4b1pwhpxiwY6jvVsm7NEsI1zr3LEGgW2an65y93ADhXXB/iCvSfEmXmzSao+gf
+	aieQUQ3Ci7bnukynMkJEqzlCdv0zd63g26YXwPygwFyqICH0a1ckmCDOxpiJmZy7HBaSv7cywOAaZ
+	P0FLKdCGg7zhIZz1jc9Y10iAqTWGJKaEZpiI2UflRn9p8kZfVumsE8lPWO/6PCHTjFX8YbD47IqYb
+	IPwy7wSNhTEhkWCA7WRVC3QhYFP5n5kq4EKnEKYWmAE5EgOwtZm5EYffBHrQwze6j0cNat564WL/0
+	ShksAMLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHnV-0000000Cr2Z-2kB4;
-	Tue, 05 Aug 2025 13:33:45 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1ujJhs-0000000D9sZ-21mr;
+	Tue, 05 Aug 2025 15:36:04 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHYp-0000000Corr-2YvI
+	id 1ujIXX-0000000CzZS-1OA6
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 13:18:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1754399820;
-	bh=uKRpwftHd76ByzGCZwStgONS7ug7yWYWivbpDDIKLDM=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=iHrcESA46HWHQvWuWs+uS8NP5R2DXeSeqPeyMpokGzWgKAB2u+Kq4wAQKUtDUEGVT
-	 j4y0X7s67YiuxVtaoVTvoCVN7r0h5LrewyFcUz4y1SsVufZ0YNqMcDV4K55ib+AXlA
-	 hTXd8PvY4EoU+4vdJYJYvV8403PajM75P6icoLhQ=
-X-QQ-mid: zesmtpip2t1754399812tfdd1d4e4
-X-QQ-Originating-IP: v37YLt7kMBXvE8kdPSfrSPPwxyTY26MVd1UE+ZktKOw=
-Received: from = ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 05 Aug 2025 21:16:49 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11721054069434364327
-EX-QQ-RecipientCnt: 16
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: troy.mitchell@linux.spacemit.com
-Cc: conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dlan@gentoo.org,
-	elder@riscstar.com,
-	heylenay@4d2.org,
-	inochiama@outlook.com,
-	krzk+dt@kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	mturquette@baylibre.com,
-	robh@kernel.org,
-	sboyd@kernel.org,
-	spacemit@lists.linux.dev,
-	ziyao@disroot.org
-Subject: [PATCH v4 2/2] clk: spacemit: fix sspax_clk
-Date: Tue,  5 Aug 2025 21:16:46 +0800
-Message-ID: <E801E7AF425E08C7+20250805131646.2216375-1-troy.mitchell@linux.spacemit.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250805-k1-clk-i2s-v4-0-038181284dd4@linux.spacemit.com>
-References: <20250805-k1-clk-i2s-v4-0-038181284dd4@linux.spacemit.com>
+	Tue, 05 Aug 2025 14:21:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C165BA564BE;
+	Tue,  5 Aug 2025 14:21:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 449B1C4CEF0;
+	Tue,  5 Aug 2025 14:21:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754403677;
+	bh=whNVERXr8/AN2Vvfa653Gd5vcbSu7aoK+Gs6t3i+W5E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hkNCQekXfQ5zz7SFOm1X7LU/T8JpA9F6gAsS3c6+9y+qglrwIbLwFIyBWP0D7ry9L
+	 GNhbEPDSTXig2ETCkjlyEQjsdVC+Esbhv/Mb6sC4EIXYY6JR+pDMVBPqqMyLZbPmV7
+	 zCXEyHeM3myKgWKd3MxjVBE8NTyWb7P0zROsiSR2Ao8hISoyvyhrvyXOgF3UaB+Klv
+	 nppZ4E0Y9K/XyXaSW7LqmDdDoxSCWK+Fgvj0t1nTVbxwcdQp5c/QjtjWZvjgaTOo29
+	 +Qi5Lyikzld4at0TH6QtlFDyU5soOqU4XCrww1smX/qa1O+f2NrdrUwYW5PN9JBJ3u
+	 OORGr+Kr6H51w==
+Date: Tue, 5 Aug 2025 15:21:09 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Min Lin <linmin@eswincomputing.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Yu Chien Peter Lin <peterlin@andestech.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Kanak Shilledar <kanakshilledar@gmail.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
+	"rafal@milecki.pl" <rafal@milecki.pl>,
+	Anup Patel <anup@brainfault.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [External] Re: [PATCH v4 0/7] Basic device tree support for
+ ESWIN EIC7700 RISC-V SoC
+Message-ID: <20250805-equinox-setup-cd37520d2586@spud>
+References: <20250616112316.3833343-1-pinkesh.vaghela@einfochips.com>
+ <SA3PR04MB8931098CC4A73E8FDD481DA78326A@SA3PR04MB8931.namprd04.prod.outlook.com>
+ <2ed69301-f787-4257-8d44-a8544c1a43c9@kernel.org>
+ <SA3PR04MB89312063FB96E85ABB6F3D3E8323A@SA3PR04MB8931.namprd04.prod.outlook.com>
+ <72354ec9-7dc8-4192-9c25-d37abf33b5f0@kernel.org>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: OW4JKxETGMY2ika1YSmcCMBRvpexh30OCOY7ynTPH8cFLJh4SaZtE9uc
-	eZ58mp8B64uSkR6+OJQ4lTZEie3KgzHeHcKWHMdraJnRB72kI0veI7j0GUfDRbhfIbzrFQo
-	UwvZu1RCOx4Vvompxw9slUaTZjmCs7pRnqBIZ81I0IrmegGRSzVb1hMsvs00T+1Jh+QinB8
-	Sdo5lumiD3JOwM5WjC0qFw8ghIw8AsCGb7Q2nYE/+UZuLgfhsAlIsWiiPI+ox0TOIFzKjfE
-	gscIMAYiDypj9WL0p+r6ULbsVPhVL1z5CeBWEbi9jM03nwo489KuD8dGWCLh4LFk8OWn8va
-	pzMWoeCU1gZVJskJDr2pd7/CjpH+TMXQJsYWHbimvxIukNkdEAr45EBbndN7kRlIiZJVysd
-	KuIFSpSO0xxQHka+vBOkJLYNZHDfYHtf86b7leFzvwmMra84mu5Z0lVupJ7qZCOP3ud95/7
-	61U2zbfeLJz914Maigj9VYJiEWP5XuOTsc5hVWMgy9oCud/5nA5QRaZffuahMCv8wLN73V1
-	CXAdPiZFpmFz2GdXngCYqjXQfis9gYaLSoZFXxd7DJyvTV+J6uNNX4lN0wTQ8GFQETkFfXi
-	sNILsX3HtNF9pSZCjh7scg3OGTN7+IZAJLKi+3C2kgaZs6dtAjyRL0lXSrXz6lBa1WiOwGe
-	nzoti3+crPUisnyPaoYUsvqFOUGKZ5045DWpkV0YrK+Y2IghNGNfGHSmwGWpqv6llsnThuy
-	5kZaqs4dAq561l25Tj37g6QE2bTp5xupcUsCOm45umbL1KlXoGgZ+N5/aokfq7nX/6guVUX
-	2rrREAYm97mi+Ook2V3Boc6r3r1MUxvydrT3+fSbUmOW/l9jRlJKYtjkv85FCHXbw6imf2k
-	IgM8cX2AZ1xMKWhm5ixhWBTOWvuZ6sshJ+GSEG08MvYS7sTdNmNDzIqhLGiJoBcixwhiYHc
-	kaJxyMIhrEUFKAf++R1rgPFXG0NbK9mFaaX9FjI+JlewT/o8yXHUYyiBvzw+/RWgvI9U0Dr
-	0h8tKaJMiGgbNIb0jApi7ZQYaZxVFccbEfHuVWvfPIz+P6UsSjERudbCkUCOhRbAyVLz0bJ
-	rMx0dYh7OTV
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
-X-QQ-RECHKSPAM: 0
+In-Reply-To: <72354ec9-7dc8-4192-9c25-d37abf33b5f0@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_061836_187254_43D45634 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250805_072119_509059_771AF987 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,84 +93,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7367352542692163191=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hardware Requirement:
-When FNCLKSEL in APBC_SSPAX_CLK_RST is set to 7 (3'b111),
-BIT3 must be set to 1 for the SSPAx parent clock to be I2S_BCLK.
 
-This patch introduces SSPAx_I2S_BCLK as a virtual gate to enable BIT3.
+--===============7367352542692163191==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="90osRGvCEAKF0z/s"
+Content-Disposition: inline
 
-Suggested-by: Yao Zi <ziyao@disroot.org>
-Reviewed-by: Haylen Chu <heylenay@4d2.org>
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
- drivers/clk/spacemit/ccu-k1.c | 29 +++++++++++++++++++++++++----
- 1 file changed, 25 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-index cdde37a05235..4a91d28da2fb 100644
---- a/drivers/clk/spacemit/ccu-k1.c
-+++ b/drivers/clk/spacemit/ccu-k1.c
-@@ -349,7 +349,14 @@ CCU_GATE_DEFINE(aib_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_AIB_CLK_RST, BIT(1),
- 
- CCU_GATE_DEFINE(onewire_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_ONEWIRE_CLK_RST, BIT(1), 0);
- 
--static const struct clk_parent_data sspa_parents[] = {
-+/*
-+ * When i2s_bclk is selected as the parent clock of sspa,
-+ * the hardware requires bit3 to be set
-+ */
-+CCU_GATE_DEFINE(sspa0_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA0_CLK_RST, BIT(3), 0);
-+CCU_GATE_DEFINE(sspa1_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA1_CLK_RST, BIT(3), 0);
-+
-+static const struct clk_parent_data sspa0_parents[] = {
- 	CCU_PARENT_HW(pll1_d384_6p4),
- 	CCU_PARENT_HW(pll1_d192_12p8),
- 	CCU_PARENT_HW(pll1_d96_25p6),
-@@ -357,10 +364,22 @@ static const struct clk_parent_data sspa_parents[] = {
- 	CCU_PARENT_HW(pll1_d768_3p2),
- 	CCU_PARENT_HW(pll1_d1536_1p6),
- 	CCU_PARENT_HW(pll1_d3072_0p8),
--	CCU_PARENT_HW(i2s_bclk),
-+	CCU_PARENT_HW(sspa0_i2s_bclk),
- };
--CCU_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
--CCU_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-+CCU_MUX_GATE_DEFINE(sspa0_clk, sspa0_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
-+
-+static const struct clk_parent_data sspa1_parents[] = {
-+	CCU_PARENT_HW(pll1_d384_6p4),
-+	CCU_PARENT_HW(pll1_d192_12p8),
-+	CCU_PARENT_HW(pll1_d96_25p6),
-+	CCU_PARENT_HW(pll1_d48_51p2),
-+	CCU_PARENT_HW(pll1_d768_3p2),
-+	CCU_PARENT_HW(pll1_d1536_1p6),
-+	CCU_PARENT_HW(pll1_d3072_0p8),
-+	CCU_PARENT_HW(sspa1_i2s_bclk),
-+};
-+CCU_MUX_GATE_DEFINE(sspa1_clk, sspa1_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-+
- CCU_GATE_DEFINE(dro_clk, CCU_PARENT_HW(apb_clk), APBC_DRO_CLK_RST, BIT(1), 0);
- CCU_GATE_DEFINE(ir_clk, CCU_PARENT_HW(apb_clk), APBC_IR_CLK_RST, BIT(1), 0);
- CCU_GATE_DEFINE(tsen_clk, CCU_PARENT_HW(apb_clk), APBC_TSEN_CLK_RST, BIT(1), 0);
-@@ -965,6 +984,8 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
- 	[CLK_SSPA1_BUS]		= &sspa1_bus_clk.common.hw,
- 	[CLK_TSEN_BUS]		= &tsen_bus_clk.common.hw,
- 	[CLK_IPC_AP2AUD_BUS]	= &ipc_ap2aud_bus_clk.common.hw,
-+	[CLK_SSPA0_I2S_BCLK]	= &sspa0_i2s_bclk.common.hw,
-+	[CLK_SSPA1_I2S_BCLK]	= &sspa1_i2s_bclk.common.hw,
- };
- 
- static const struct spacemit_ccu_data k1_ccu_apbc_data = {
--- 
-2.50.0
+--90osRGvCEAKF0z/s
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Mon, Aug 04, 2025 at 04:45:10PM +0200, Krzysztof Kozlowski wrote:
+> On 04/08/2025 15:10, Pinkesh Vaghela wrote:
+> > Hello Krzysztof,
+> >=20
+> > Sorry to bother you. I pinged because we addressed all the review comme=
+nts of V3 in V4. But on V4 we have not received any comments since last 6 w=
+eeks.
+> > Could you please let us know what should be the further steps?
+>=20
+> Please don't top post.
+>=20
+> That is a bit different question than you asked before: "Gentle reminder
+> to review DT patches.".
+>=20
+> Please read SoC subsystem maintainer profile document. For ARM platforms
+> you would send now pull request or patches to soc.
+>=20
+> I would suggest following standard SoC way, same as for every other new
+> SoC (but carefully observe the kernel process cycle). You can easily
+> check archives to see how people also did it...
+
+Yes, standard SoC way please. Arnd expressed recently a preference for
+the initial series for a new SoC vendor to go as a patchset to
+soc@lists.linux.dev rather than as a pull-request.
+
+> For RISC-V - not sure
+> some trees are handled by Conor, but rest go directly to soc tree.
+
+I'm only doing the canaan/sifive/microchip/starfive ones that were there
+when I started, all the "new" platforms have dedicated maintainers that
+send direct to Arnd.
+
+Cheers,
+Conor.
+
+--90osRGvCEAKF0z/s
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaJITVQAKCRB4tDGHoIJi
+0rfRAPsE27O+0eBI7GpGuWCrShsC8OmvPSMg1HZpeLJfBi4P4QD/dHgMhoqf1QeQ
+1euvTqb8q7cSCtui9wi8PvuYBEqxoAQ=
+=0EsT
+-----END PGP SIGNATURE-----
+
+--90osRGvCEAKF0z/s--
+
+
+--===============7367352542692163191==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7367352542692163191==--
+
