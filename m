@@ -4,61 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 624B6C87FCB
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 09:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F5BC87FD2
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 09:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XyPSkq+dPaPdl2HXZX2N2XXXlWMC6blQDlhX/j5HZQ8=; b=nP+V6S13KdjCIN
-	XPX+ANwUEUiimFTZ8IGlqeC5oVUjolq+NjrI9eunUOf9sWM3N/Sh5IftN8ItNiEyb/1wq7sfDoBxh
-	XSV08Q/a7b/zlz/4veKsdy/qY7zCcBMLQ9DTPQnptyx5ET1icnGhn71bEfl+PIyO2ooUAAFu/0fps
-	MGvwbq4Cz3xo6Wi71IzGJ8uZST6sEpHGKLn2/3X1YnLKwXSP2GpsBuAaemuCVcnC1LKw2cNMLk/S8
-	nr9IYlNoJjsmjI/ygGSxWgb7HSjtO19/eAyXaGPL64mxyx0bwhZWQSQt5iAZZJls68jj57rcbfbct
-	KZAPbCS5T28BPnXQH2jg==;
+	List-Owner; bh=+cZ+ABCkUR6zAk5F7XwBLVnSHJtVze2tOfev5KlQjwA=; b=f2a+jSzZqvruuW
+	N+lQPOUiiTwXfq6aMGlmWoNaDemQXHlgdbrVP0RnF2rBQHajupTPNp9O0VP1oBPp8DRlpgTYxAbIT
+	hX2ZWlDiV9Cq6sMIrW0AC9xbtFCZUPhIvPOPnzVGb4+Pmyc+jMfIP+MYrdI0ZVX6LqoJBPoKZo1+r
+	vGriYEvFR9YS/mNbZNQ69gP2TezQaXsFDVcCTYriq/5+ATbdNU/9X2/SruE2s60kvK9Hxa/pAwTA/
+	uaMKm14rjR+nhbbsiqSuHQgTvjlSIrae/YrAdxdSfaljEWnwbPjecS3YeoWSFfgvIc3sqEAy8n2Hv
+	Crxq2nEq2zfheMeCug0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujDXk-0000000CHwN-46e0;
-	Tue, 05 Aug 2025 09:01:13 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1ujDiP-0000000CJqn-3pS6;
+	Tue, 05 Aug 2025 09:12:13 +0000
+Received: from relay16.mail.gandi.net ([2001:4b98:dc4:8::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujCsG-0000000C8G2-3Tgw
+	id 1ujDNd-0000000CFsP-3EBk
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 08:18:23 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 325B74336C;
-	Tue,  5 Aug 2025 08:18:10 +0000 (UTC)
-Message-ID: <16e3ea78-d005-44d8-8082-6ae26c3bee0d@ghiti.fr>
-Date: Tue, 5 Aug 2025 10:18:10 +0200
+	Tue, 05 Aug 2025 08:50:47 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9A8EC4388A;
+	Tue,  5 Aug 2025 08:50:40 +0000 (UTC)
+Message-ID: <b6fc0e5f-beff-45fb-9f93-822b72094c17@ghiti.fr>
+Date: Tue, 5 Aug 2025 10:50:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7] riscv: hwprobe: Fix stale vDSO data for
- late-initialized keys at boot
-To: Jingwei Wang <wangjingwei@iscas.ac.cn>, linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Jones <ajones@ventanamicro.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Charlie Jenkins <charlie@rivosinc.com>, Jesse Taube <jesse@rivosinc.com>,
- Olof Johansson <olof@lixom.net>, Yixun Lan <dlan@gentoo.org>,
- Yanteng Si <si.yanteng@linux.dev>, Tsukasa OI
- <research_trasio@irq.a4lg.com>, stable@vger.kernel.org,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-References: <20250726181931.39019-1-wangjingwei@iscas.ac.cn>
- <20250728004826.66356-1-wangjingwei@iscas.ac.cn>
-Content-Language: en-US
+Subject: Re: [PATCH] riscv: cacheinfo: init cache levels via fetch_cache_info
+ when SMP disabled
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250728004826.66356-1-wangjingwei@iscas.ac.cn>
+To: liu.xuemei1@zte.com.cn, paul.walmsley@sifive.com
+Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, spersvold@gmail.com,
+ sudeep.holla@arm.com, mikisabate@gmail.com, robh@kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250801093201232CYacRrFIHaDJWsjc3rbNz@zte.com.cn>
+ <ffb83627-bd28-4bf9-8051-57dfca407f87@ghiti.fr>
+Content-Language: en-US
+In-Reply-To: <ffb83627-bd28-4bf9-8051-57dfca407f87@ghiti.fr>
 X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduudegieejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppeduleefrdeffedrheejrdduleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudelfedrfeefrdehjedrudelledphhgvlhhopegludelvddrudeikedrvddvrddutddungdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeduiedprhgtphhtthhopeifrghnghhjihhnghifvghisehishgtrghsrdgrtgdrtghnpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrs
- ggvrhhkvghlvgihrdgvughupdhrtghpthhtoheprghjohhnvghssehvvghnthgrnhgrmhhitghrohdrtghomhdprhgtphhtthhopegtohhnohhrrdguohholhgvhiesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopegtlhgvghgvrhesrhhivhhoshhinhgtrdgtohhm
-X-GND-Sasl: alex@ghiti.fr
+X-GND-Score: 0
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduudegjeefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecunecujfgurhepkfffgggfuffhvfevfhgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepledtffekgeffleehkedvgfelleefffetjeegueffgeeilefgvdfhteetueejgeeknecuffhomhgrihhnpehinhhfrhgruggvrggurdhorhhgnecukfhppeduleefrdeffedrheejrdduleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudelfedrfeefrdehjedrudelledphhgvlhhopegludelvddrudeikedrvddvrddutddungdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedutddprhgtphhtthhopehlihhurdiguhgvmhgvihduseiithgvrdgtohhmrdgtnhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtohepshhpvghrshhvohhlugesghhmrghilhdrtghomhdprhgtphhtthhopehsuhguvggvphdrhhhol
+ hhlrgesrghrmhdrtghomhdprhgtphhtthhopehmihhkihhsrggsrghtvgesghhmrghilhdrtghomhdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_011821_188274_85CF2DAF 
-X-CRM114-Status: GOOD (  41.35  )
+X-CRM114-CacheID: sfid-20250805_015045_959511_DA485659 
+X-CRM114-Status: GOOD (  27.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,298 +62,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jengwei
-
-On 7/28/25 02:47, Jingwei Wang wrote:
-> The hwprobe vDSO data for some keys, like MISALIGNED_VECTOR_PERF,
-> is determined by an asynchronous kthread. This can create a race
-> condition where the kthread finishes after the vDSO data has
-> already been populated, causing userspace to read stale values.
->
-> To fix this race, a new 'ready' flag is added to the vDSO data,
-> initialized to 'false' during late_initcall. This flag is checked
-> by both the vDSO's user-space code and the riscv_hwprobe syscall.
-> The syscall serves as a one-time gate, using a completion to wait
-> for any pending probes before populating the data and setting the
-> flag to 'true', thus ensuring userspace reads fresh values on its
-> first request.
->
-> Reported-by: Tsukasa OI <research_trasio@irq.a4lg.com>
-> Closes: https://lore.kernel.org/linux-riscv/760d637b-b13b-4518-b6bf-883d55d44e7f@irq.a4lg.com/
-> Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Cc: Olof Johansson <olof@lixom.net>
-> Cc: stable@vger.kernel.org
->
-
-^ Can you remove this empty line?
-
-
-> Co-developed-by: Palmer Dabbelt <palmer@dabbelt.com>
-
-
-This needs to be followed by a "Signed-off-by: Palmer Dabbelt 
-<palmer@dabbelt.com>"
-
-
-> Signed-off-by: Jingwei Wang <wangjingwei@iscas.ac.cn>
-> ---
-> Changes in v7:
-> 	- Refined the on-demand synchronization by using the DO_ONCE_SLEEPABLE
-> 	  macro.
-> 	- Fixed a build error for nommu configs and addressed several coding
-> 	  style issues reported by the CI.
->
-> Changes in v6:
-> 	- Based on Palmer's feedback, reworked the synchronization to be on-demand,
-> 	  deferring the wait until the first hwprobe syscall via a 'ready' flag.
-> 	  This avoids the boot-time regression from v5's approach.
->
-> Changes in v5:
-> 	- Reworked the synchronization logic to a robust "sentinel-count"
-> 	  pattern based on feedback from Alexandre.
-> 	- Fixed a "multiple definition" linker error for nommu builds by changing
-> 	  the header-file stub functions to `static inline`, as pointed out by Olof.
-> 	- Updated the commit message to better explain the rationale for moving
-> 	  the vDSO initialization to `late_initcall`.
->
-> Changes in v4:
-> 	- Reworked the synchronization mechanism based on feedback from Palmer
-> 	  and Alexandre.
-> 	- Instead of a post-hoc refresh, this version introduces a robust
-> 	  completion-based framework using an atomic counter to ensure async
-> 	  probes are finished before populating the vDSO.
-> 	- Moved the vdso data initialization to a late_initcall to avoid
-> 	  impacting boot time.
->
-> Changes in v3:
-> 	- Retained existing blank line.
->
-> Changes in v2:
-> 	- Addressed feedback from Yixun's regarding #ifdef CONFIG_MMU usage.
-> 	- Updated commit message to provide a high-level summary.
-> 	- Added Fixes tag for commit e7c9d66e313b.
->
-> v1: https://lore.kernel.org/linux-riscv/20250521052754.185231-1-wangjingwei@iscas.ac.cn/T/#u
->
->   arch/riscv/include/asm/hwprobe.h           |  7 +++
->   arch/riscv/include/asm/vdso/arch_data.h    |  6 ++
->   arch/riscv/kernel/sys_hwprobe.c            | 72 ++++++++++++++++++----
->   arch/riscv/kernel/unaligned_access_speed.c |  9 ++-
->   arch/riscv/kernel/vdso/hwprobe.c           |  2 +-
->   5 files changed, 80 insertions(+), 16 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-> index 7fe0a379474ae2c6..5fe10724d307dc99 100644
-> --- a/arch/riscv/include/asm/hwprobe.h
-> +++ b/arch/riscv/include/asm/hwprobe.h
-> @@ -41,4 +41,11 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
->   	return pair->value == other_pair->value;
->   }
->
-> +#ifdef CONFIG_MMU
-> +void riscv_hwprobe_register_async_probe(void);
-> +void riscv_hwprobe_complete_async_probe(void);
-> +#else
-> +static inline void riscv_hwprobe_register_async_probe(void) {}
-> +static inline void riscv_hwprobe_complete_async_probe(void) {}
-> +#endif
->   #endif
-> diff --git a/arch/riscv/include/asm/vdso/arch_data.h b/arch/riscv/include/asm/vdso/arch_data.h
-> index da57a3786f7a53c8..88b37af55175129b 100644
-> --- a/arch/riscv/include/asm/vdso/arch_data.h
-> +++ b/arch/riscv/include/asm/vdso/arch_data.h
-> @@ -12,6 +12,12 @@ struct vdso_arch_data {
->
->   	/* Boolean indicating all CPUs have the same static hwprobe values. */
->   	__u8 homogeneous_cpus;
-> +
-> +	/*
-> +	 * A gate to check and see if the hwprobe data is actually ready, as
-> +	 * probing is deferred to avoid boot slowdowns.
-> +	 */
-> +	__u8 ready;
->   };
->
->   #endif /* __RISCV_ASM_VDSO_ARCH_DATA_H */
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> index 0b170e18a2beba57..95146bb10e796765 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -5,6 +5,9 @@
->    * more details.
->    */
->   #include <linux/syscalls.h>
-> +#include <linux/completion.h>
-> +#include <linux/atomic.h>
-> +#include <linux/once.h>
->   #include <asm/cacheflush.h>
->   #include <asm/cpufeature.h>
->   #include <asm/hwprobe.h>
-> @@ -452,28 +455,32 @@ static int hwprobe_get_cpus(struct riscv_hwprobe __user *pairs,
->   	return 0;
->   }
->
-> -static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
-> -			    size_t pair_count, size_t cpusetsize,
-> -			    unsigned long __user *cpus_user,
-> -			    unsigned int flags)
-> -{
-> -	if (flags & RISCV_HWPROBE_WHICH_CPUS)
-> -		return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
-> -					cpus_user, flags);
-> +#ifdef CONFIG_MMU
->
-> -	return hwprobe_get_values(pairs, pair_count, cpusetsize,
-> -				  cpus_user, flags);
-> +static DECLARE_COMPLETION(boot_probes_done);
-> +static atomic_t pending_boot_probes = ATOMIC_INIT(1);
-> +
-> +void riscv_hwprobe_register_async_probe(void)
-> +{
-> +	atomic_inc(&pending_boot_probes);
->   }
->
-> -#ifdef CONFIG_MMU
-> +void riscv_hwprobe_complete_async_probe(void)
-> +{
-> +	if (atomic_dec_and_test(&pending_boot_probes))
-> +		complete(&boot_probes_done);
-> +}
->
-> -static int __init init_hwprobe_vdso_data(void)
-> +static int complete_hwprobe_vdso_data(void)
->   {
->   	struct vdso_arch_data *avd = vdso_k_arch_data;
->   	u64 id_bitsmash = 0;
->   	struct riscv_hwprobe pair;
->   	int key;
->
-> +	if (unlikely(!atomic_dec_and_test(&pending_boot_probes)))
-> +		wait_for_completion(&boot_probes_done);
-> +
->   	/*
->   	 * Initialize vDSO data with the answers for the "all CPUs" case, to
->   	 * save a syscall in the common case.
-> @@ -501,13 +508,52 @@ static int __init init_hwprobe_vdso_data(void)
->   	 * vDSO should defer to the kernel for exotic cpu masks.
->   	 */
->   	avd->homogeneous_cpus = id_bitsmash != 0 && id_bitsmash != -1;
-> +
-> +	/*
-> +	 * Make sure all the VDSO values are visible before we look at them.
-> +	 * This pairs with the implicit "no speculativly visible accesses"
-> +	 * barrier in the VDSO hwprobe code.
-> +	 */
-> +	smp_wmb();
-> +	avd->ready = true;
->   	return 0;
->   }
->
-> -arch_initcall_sync(init_hwprobe_vdso_data);
-> +static int __init init_hwprobe_vdso_data(void)
-> +{
-> +	struct vdso_arch_data *avd = vdso_k_arch_data;
-> +
-> +	/*
-> +	 * Prevent the vDSO cached values from being used, as they're not ready
-> +	 * yet.
-> +	 */
-> +	avd->ready = false;
-> +	return 0;
-> +}
-> +
-> +late_initcall(init_hwprobe_vdso_data);
-
-
-I don't think we need to move the initcall anymore right?
-
-
-> +
-> +#else
-> +
-> +static int complete_hwprobe_vdso_data(void) { return 0; }
->
->   #endif /* CONFIG_MMU */
->
-> +static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
-> +			     size_t pair_count, size_t cpusetsize,
-> +			     unsigned long __user *cpus_user,
-> +			     unsigned int flags)
-> +{
-> +	DO_ONCE_SLEEPABLE(complete_hwprobe_vdso_data);
-> +
-> +	if (flags & RISCV_HWPROBE_WHICH_CPUS)
-> +		return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
-> +					cpus_user, flags);
-> +
-> +	return hwprobe_get_values(pairs, pair_count, cpusetsize,
-> +				cpus_user, flags);
-> +}
-> +
->   SYSCALL_DEFINE5(riscv_hwprobe, struct riscv_hwprobe __user *, pairs,
->   		size_t, pair_count, size_t, cpusetsize, unsigned long __user *,
->   		cpus, unsigned int, flags)
-> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> index ae2068425fbcd207..aa912c62fb70ba0e 100644
-> --- a/arch/riscv/kernel/unaligned_access_speed.c
-> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> @@ -379,6 +379,7 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
->   static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
->   {
->   	schedule_on_each_cpu(check_vector_unaligned_access);
-> +	riscv_hwprobe_complete_async_probe();
->
->   	return 0;
->   }
-> @@ -473,8 +474,12 @@ static int __init check_unaligned_access_all_cpus(void)
->   			per_cpu(vector_misaligned_access, cpu) = unaligned_vector_speed_param;
->   	} else if (!check_vector_unaligned_access_emulated_all_cpus() &&
->   		   IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
-> -		kthread_run(vec_check_unaligned_access_speed_all_cpus,
-> -			    NULL, "vec_check_unaligned_access_speed_all_cpus");
-> +		riscv_hwprobe_register_async_probe();
-> +		if (IS_ERR(kthread_run(vec_check_unaligned_access_speed_all_cpus,
-> +			   NULL, "vec_check_unaligned_access_speed_all_cpus"))) {
-> +			pr_warn("Failed to create vec_unalign_check kthread\n");
-> +			riscv_hwprobe_complete_async_probe();
-> +		}
->   	}
->
->   	/*
-> diff --git a/arch/riscv/kernel/vdso/hwprobe.c b/arch/riscv/kernel/vdso/hwprobe.c
-> index 2ddeba6c68dda09b..bf77b4c1d2d8e803 100644
-> --- a/arch/riscv/kernel/vdso/hwprobe.c
-> +++ b/arch/riscv/kernel/vdso/hwprobe.c
-> @@ -27,7 +27,7 @@ static int riscv_vdso_get_values(struct riscv_hwprobe *pairs, size_t pair_count,
->   	 * homogeneous, then this function can handle requests for arbitrary
->   	 * masks.
->   	 */
-> -	if ((flags != 0) || (!all_cpus && !avd->homogeneous_cpus))
-> +	if ((flags != 0) || (!all_cpus && !avd->homogeneous_cpus) || unlikely(!avd->ready))
->   		return riscv_hwprobe(pairs, pair_count, cpusetsize, cpus, flags);
->
->   	/* This is something we can handle, fill out the pairs. */
-> --
-> 2.50.1
->
-
-With the nits above fixed, you can add:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSmVzc2ljYSwKCk9uIDgvMS8yNSAxMzo0NSwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+IEhp
+IEplc3NpY2EsCj4KPiBPbiA4LzEvMjUgMDM6MzIsIGxpdS54dWVtZWkxQHp0ZS5jb20uY24gd3Jv
+dGU6Cj4+Cj4+IE9uIDcvMzEvMjUgMjE6MjksIGFsZXhAZ2hpdGkuZnIgd3JvdGU6Cj4+Cj4+ID4g
+PiBGcm9tOiBKZXNzaWNhIExpdSA8bGl1Lnh1ZW1laTFAenRlLmNvbS5jbj4KPj4KPj4gPiA+Cj4+
+Cj4+ID4gPiBBcyBkZXNjcmliZWQgaW4gY29tbWl0IDE4NDVkMzgxZjI4MCAoInJpc2N2OiBjYWNo
+ZWluZm86IEFkZCBiYWNrCj4+Cj4+ID4gPiBpbml0X2NhY2hlX2xldmVsKCkgZnVuY3Rpb24iKSwg
+d2hlbiBDT05GSUdfU01QIGlzIHVuZGVmaW5lZCwgdGhlIAo+PiBjYWNoZQo+Pgo+PiA+ID4gaGll
+cmFyY2h5IGRldGVjdGlvbiBuZWVkcyB0byBiZSBwZXJmb3JtZWQgdGhyb3VnaCB0aGUgCj4+IGlu
+aXRfY2FjaGVfbGV2ZWwoKSwKPj4KPj4gPiA+IHdoZXJlYXMgd2hlbiBDT05GSUdfU01QIGlzIGRl
+ZmluZWQsIHRoaXMgZGV0ZWN0aW9uIGlzIGhhbmRsZWQgCj4+IGR1cmluZyB0aGUKPj4KPj4gPiA+
+IGluaXRfY3B1X3RvcG9sb2d5KCkgcHJvY2Vzcy4KPj4KPj4gPiA+Cj4+Cj4+ID4gPiBGdXJ0aGVy
+bW9yZSwgd2hpbGUgY29tbWl0IDY2MzgxZDM2NzcxZSAoIlJJU0MtVjogU2VsZWN0IEFDUEkgUFBU
+VCAKPj4gZHJpdmVycyIpCj4+Cj4+ID4gPiBlbmFibGVzIGNhY2hlIGluZm9ybWF0aW9uIHJldHJp
+ZXZhbCB0aHJvdWdoIHRoZSBBQ1BJIFBQVFQgdGFibGUsIHRoZQo+Pgo+PiA+ID4gaW5pdF9vZl9j
+YWNoZV9sZXZlbCgpIGNhbGxlZCB3aXRoaW4gaW5pdF9jYWNoZV9sZXZlbCgpIGNhbm5vdCAKPj4g
+c3VwcG9ydCBjYWNoZQo+Pgo+PiA+ID4gaGllcmFyY2h5IGRldGVjdGlvbiB0aHJvdWdoIEFDUEkg
+UFBUVC4gVGhlcmVmb3JlLCB3aGVuIENPTkZJR19TTVAgaXMKPj4KPj4gPiA+IHVuZGVmaW5lZCwg
+d2UgZGlyZWN0bHkgaW52b2tlIHRoZSBmZXRjaF9jYWNoZV9pbmZvIGZ1bmN0aW9uIHRvIAo+PiBp
+bml0aWFsaXplCj4+Cj4+ID4gPiB0aGUgY2FjaGUgbGV2ZWxzLgo+Pgo+PiA+ID4KPj4KPj4gPiA+
+IFNpZ25lZC1vZmYtYnk6IEplc3NpY2EgTGl1IDxsaXUueHVlbWVpMUB6dGUuY29tLmNuPgo+Pgo+
+PiA+ID4gLS0tCj4+Cj4+ID4gPsKgIMKgYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVpbmZvLmMgfCA2
+ICsrKysrLQo+Pgo+PiA+ID7CoCDCoDEgZmlsZSBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDEg
+ZGVsZXRpb24oLSkKPj4KPj4gPiA+Cj4+Cj4+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9r
+ZXJuZWwvY2FjaGVpbmZvLmMgCj4+IGIvYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVpbmZvLmMKPj4K
+Pj4gPiA+IGluZGV4IDI2YjA4NWRiZGQwNy4uZjgxY2E5NjNkMTc3IDEwMDY0NAo+Pgo+PiA+ID4g
+LS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVpbmZvLmMKPj4KPj4gPiA+ICsrKyBiL2FyY2gv
+cmlzY3Yva2VybmVsL2NhY2hlaW5mby5jCj4+Cj4+ID4gPiBAQCAtNzMsNyArNzMsMTEgQEAgc3Rh
+dGljIHZvaWQgY2lfbGVhZl9pbml0KHN0cnVjdCBjYWNoZWluZm8gCj4+ICp0aGlzX2xlYWYsCj4+
+Cj4+ID4gPgo+Pgo+PiA+ID7CoCDCoGludCBpbml0X2NhY2hlX2xldmVsKHVuc2lnbmVkIGludCBj
+cHUpCj4+Cj4+ID4gPsKgIMKgewo+Pgo+PiA+ID4gLcKgIMKgIHJldHVybiBpbml0X29mX2NhY2hl
+X2xldmVsKGNwdSk7Cj4+Cj4+ID4gPiArI2lmZGVmIENPTkZJR19TTVAKPj4KPj4gPiA+ICvCoCDC
+oCByZXR1cm4gMDsKPj4KPj4gPiA+ICsjZW5kaWYKPj4KPj4gPiA+ICsKPj4KPj4gPiA+ICvCoCDC
+oCByZXR1cm4gZmV0Y2hfY2FjaGVfaW5mbyhjcHUpOwo+Pgo+PiA+ID7CoCDCoH0KPj4KPj4gPiA+
+Cj4+Cj4+ID4gPsKgIMKgaW50IHBvcHVsYXRlX2NhY2hlX2xlYXZlcyh1bnNpZ25lZCBpbnQgY3B1
+KQo+Pgo+PiA+Cj4+Cj4+ID4KPj4KPj4gPiBJcyB0aGUgY3VycmVudCBiZWhhdmlvdXIgd3Jvbmcg
+b3IganVzdCByZWR1bmRhbnQ/IElmIHdyb25nLCBJJ2xsIGFkZCBhCj4+Cj4+ID4gRml4ZXMgdGFn
+IHRvIGJhY2twb3J0LCBvdGhlcndpc2UgSSB3b24ndC4KPj4KPj4gPgo+Pgo+PiA+IFRoYW5rcywK
+Pj4KPj4gPgo+Pgo+PiA+IEFsZXgKPj4KPj4KPj4gSGkgQWxleCwKPj4KPj4KPj4gVGhlIGN1cnJl
+bnQgYmVoYXZpb3IgaXMgYWN0dWFsbHkgd3Jvbmcgd2hlbiB1c2luZyBBQ1BJIG9uICFDT05GSUdf
+U01QCj4+Cj4+IHN5c3RlbXMuIFRoZSBvcmlnaW5hbCBpbml0X29mX2NhY2hlX2xldmVsKCkgY2Fu
+bm90IGRldGVjdCBjYWNoZSAKPj4gaGllcmFyY2h5Cj4+Cj4+IHRocm91Z2ggQUNQSSBQUFRUIHRh
+YmxlLCB3aGljaCBtZWFucyBjYWNoZSBpbmZvcm1hdGlvbiB3b3VsZCBiZSBtaXNzaW5nCj4+Cj4+
+IGluIHRoaXMgY29uZmlndXJhdGlvbi4KPj4KPj4KPj4gVGhlIHBhdGNoIGZpeGVzIHRoaXMgYnkg
+ZGlyZWN0bHkgY2FsbGluZyBmZXRjaF9jYWNoZV9pbmZvKCkgd2hlbgo+Pgo+PiBDT05GSUdfU01Q
+IGlzIHVuZGVmaW5lZCwgd2hpY2ggcHJvcGVybHkgaGFuZGxlcyBib3RoIERUIGFuZCBBQ1BJIGNh
+c2VzLgo+Pgo+Pgo+PiBTbyB5ZXMsIGl0IHdvdWxkIGJlIGFwcHJvcHJpYXRlIHRvIGFkZCBhIEZp
+eGVzIHRhZy4gVGhlIGNvbW1pdCBiZWluZwo+Pgo+PiBmaXhlZCBpcyAxODQ1ZDM4MWYyODAgKCJy
+aXNjdjogY2FjaGVpbmZvOiBBZGQgYmFjayBpbml0X2NhY2hlX2xldmVsKCkgCj4+IGZ1bmN0aW9u
+IikuCj4+Cj4+Cj4+IFBsZWFzZSBsZXQgbWUga25vdyBpZiB5b3UgbmVlZCBhbnkgYWRkaXRpb25h
+bCBpbmZvcm1hdGlvbi4KPj4KPgo+IEknbSBhYm91dCB0byBzZW5kIG15IGZpcnN0IFBSIGZvciA2
+LjE3IHNvIEknbGwgZGVsYXkgbWVyZ2luZyB0aGlzIG9uZSAKPiBmb3IgdGhlIGZpcnN0IHJjLgoK
+ClNvIEkgdG9vayB0aGUgdGltZSB0aGlzIG1vcm5pbmcgdG8gbG9vayBpbnRvIHRoaXMsIGFuZCBJ
+IGRvbid0IHJlYWxseSAKbGlrZSB0aGUgZGlmZmVyZW50IHRyZWF0bWVudCBmb3Igc21wLCBjYW4n
+dCB3ZSBqdXN0IG1vdmUgCmluaXRfY3B1X3RvcG9sb2d5KCkgY2FsbCB0byBzZXR1cF9hcmNoKCkg
+KG9yIGVsc2UpIGZvciBib3RoICFzbXAgYW5kIHNtcD8KClRoYW5rcywKCkFsZXgKCgo+Cj4gVGhh
+bmtzIGZvciB0aGUgZXhwbGFuYXRpb24sCj4KPiBBbGV4Cj4KPgo+Pgo+PiBCZXN0IHJlZ2FyZHMs
+Cj4+Cj4+IEplc3NpY2EKPj4KPj4KPj4KPj4KPj4KPj4KPgo+IF9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4g
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
