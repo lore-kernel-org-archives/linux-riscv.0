@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7C3C87FCB
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 13:03:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A200C87FD2
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 13:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=oKB+J73wMBBjlHOmC8PKHUK/LCqcp+/+KayL3Xyacco=; b=X0BCtd5aIdjFoH
-	OO3oLNufqPYXOUN5p1KySpqtyzbSEr63ZL04/QREB869MxsxOSR1b4UFHIrItlwLMhXKjDBzTOKjQ
-	xyxFB3bHoDPtVvmSSzMNtZ/bChNjt6dwNJNX7+joFqMVkucPwFVanLwEbkI2sUvyPk6ciXWsYQdrw
-	Vh5ydMZSnwhO3z0m/C0VwOf13WGF4ixCLPa4gakaNWlYlMLp8MwmSIpt5LCx4QeS/lDme/o+wLx21
-	LDGzoubcxhafzTdrKGUXqKkBEfATKBKQDX0jx5sypj5gtnoza0qRw/boeYD3+XLxnKhkoowF7ZBZy
-	DA9ebRYaYKrYLqJgkmsA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9rrhkwZaqzPpuudxMOu04wPBsOlyWD/TWJfNUDX56Y4=; b=X19TpyxDH8kZH9
+	d4x8vpqZEWcVmfuKZl1u1UwUVDY8EQiFjotpls1KTcKs2vagED/5G6gNcybJmS6WcFrfpE1fJFKMw
+	MEiHSJpIufoHIt21K2D8BxCYmBgo98NcmlHKF1tyB/WQEe8t8qCKu33LezZTLmqnJTCHFxsS2OMLb
+	VYiLU48BYAaGt+xdFfwKlUfFwJp+13/aZwQRt/kx7HcNosFnqYACqXMxyP2jBAHymCrDQEzDYpzsh
+	gyuezI6s2syNIfnILZLWq7meTJzVsoL2pncGXR3gvKT44hTRgK7wGEum4RQ6ajlEv1QfhwQr3JS6N
+	qIYASgu85GNLllPK7Jgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHJv-0000000CmaD-37CT;
-	Tue, 05 Aug 2025 13:03:11 +0000
-Received: from smtpbgsg1.qq.com ([54.254.200.92])
+	id 1ujHKO-0000000CmcY-1Qnb;
+	Tue, 05 Aug 2025 13:03:40 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHJq-0000000CmU0-2676
+	id 1ujHKL-0000000CmUM-3fR6
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 13:03:09 +0000
+	Tue, 05 Aug 2025 13:03:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1754398893;
-	bh=2k7eM+qFUJaAUiL35OCQZ3NGlJIOhG5UcTKZAFRYQc8=;
-	h=From:Subject:Date:Message-Id:MIME-Version:To;
-	b=we9Yg2JDHhYW1mMObXvpo25zpkaeKeYaNpNm+KGa1fOg89uu4MYZ9wATrURiiYOOy
-	 +zilDFA6TTZn+Ku6QcSBf7uiOgM2SNZSsRLfCX107wgT00aU0WyDUZ/9k8qAbXD1vX
-	 gSApb48pLnOsDQ01axhmJv9tqwn92NsV/7+T4/FY=
-X-QQ-mid: zesmtpip3t1754398884tc0db81a6
-X-QQ-Originating-IP: Ak9NAqBwWS0g1NX2QCrCb7EK5+lEsm3U1YdqNdNuPnc=
+	s=mxsw2412; t=1754398897;
+	bh=FVBPVEeUd1bxjQJhz//RpBXorx7jPTLOEKGvJHJaQ6I=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=GKqVW8RllaaWhyxzlswADaKZNrK6QXCLKcNW5vbwzBY1KJhPygIiiRfYlu1c3Q9AK
+	 1gHDTrTZaXRiaYFI24Vyg4FLEa/+PJoDpvvjFoWR9I/4axB2Fu0QE6xHnZEIAL8WF0
+	 m3PVVkGYVrmBR54CV1ikMWtAAMNtM4rMuxk34AOo=
+X-QQ-mid: zesmtpip2t1754398895tfe7aa0dd
+X-QQ-Originating-IP: CPpRJvHoFk9wwvAZxLC1CoM7Jc+eYsDtqwv2sfJO/dA=
 Received: from = ( [localhost])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 05 Aug 2025 21:01:23 +0800 (CST)
+	id ; Tue, 05 Aug 2025 21:01:33 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1081721539837443634
-EX-QQ-RecipientCnt: 16
+X-BIZMAIL-ID: 9963814642751996560
+EX-QQ-RecipientCnt: 15
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: [PATCH v4 0/2] clk: spacemit: fix sspax_clk
-Date: Tue, 05 Aug 2025 21:01:08 +0800
-Message-Id: <20250805-k1-clk-i2s-v4-0-038181284dd4@linux.spacemit.com>
+Date: Tue, 05 Aug 2025 21:01:09 +0800
+Subject: [PATCH v4 1/2] dt-bindings: clock: spacemit: CLK_SSPA_I2S_BCLK for
+ SSPA
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAJQAkmgC/23PTQ6CMBAF4KuQri1pB0rBlfcwLqCdykR+DFWCI
- dzdajTByPJN8r6XmZnHgdCzfTSzAUfy1HchpLuImbrszsjJhsxAgBJaan6R3DQXTuA5pqDBSVd
- IVbFQuA7oaHpjx1PINflbPzze9giv64cBWDMjcMHB5WgdJras0kND3X2K/bU02NItNn3LXt6Yr
- I38x0iCoaxWunACAPSWsfu+kci/LrhMKWsrYTK3ub8syxNN/6CXLQEAAA==
-X-Change-ID: 20250717-k1-clk-i2s-e4272f1f915b
+Message-Id: <20250805-k1-clk-i2s-v4-1-038181284dd4@linux.spacemit.com>
+References: <20250805-k1-clk-i2s-v4-0-038181284dd4@linux.spacemit.com>
+In-Reply-To: <20250805-k1-clk-i2s-v4-0-038181284dd4@linux.spacemit.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
  Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>, 
@@ -62,41 +60,39 @@ To: Michael Turquette <mturquette@baylibre.com>,
 Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Yao Zi <ziyao@disroot.org>
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754398873; l=1952;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754398873; l=907;
  i=troy.mitchell@linux.spacemit.com; s=20250712; h=from:subject:message-id;
- bh=VIogLUVb+B9m33ED7b0OC4lYwaKwU3CoXfrEw+uoTVI=;
- b=lAgY2AmtKu9ClVpMR+5mFhfE5JbN6kb2NJ1/Xg/uQrvsXysInoA5aNHxVmfBnNPLjXWnnN0Za
- wNmNDgfWny+BVjOw4/r98A4rCALssgEEbJSwIwO4bKpPosZAyOd8/Tx
+ bh=5BkvHDYGZxcrey1OnIOFiDWh/mlgsN57huK66iChlDA=;
+ b=SxTtW4MUMwC7dLisiqic3znXA6OPJqUWvrb5W5Pn6+JFG8K/Yh3eUkw2+FCEHT/mEu4vhreEc
+ rAhO0DskONhChyvl0uXygnVqsvgGn/ntlTHpow6ebqltPYLSEQ4B0QC
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
  pk=zhRP1xE0bftrurqSWI+SzcSdJGIZ0BTTY9Id0ESzqlI=
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: McAU6u1o6JqZq+NzFtX3o/sI5WAEwZI62D7TSsOAae06aw063aHmfBkp
-	9TW0+XPP2zcPPNyd8Nr1NTRFMj73KTNA1/wQXo/dDni9AUY2sX5yPg0InQz3UWUz3f7Hi7P
-	Sgm70tYAoNigvYRD9U2iCdR4gcq/JpGKrSX0mAFEROJBUW4wjeWxBIo9W0PtRZf49boTGy6
-	Y9aeqGrHDD6hERbvIcCN9ovXtL7F+DyAEj8jQBriXMMZGx+fuACyCfaEiyb5zYKdFA3xWNl
-	P1u5IGwtFBicKhHnmOgP5tKXQ8PxUnr69ZmANQqfTOYdjCXWLXaNBvTNy7gefBxLoRAw4uB
-	e2GnrCkSXUW87+KcXBbRTMvmDECTqih+uMseq25uetxkXO8yf1Z0dwE8qOlLVar5N2+htrK
-	pQm+JESY1lHnEFoA25CtHivNd6kWm+7vN2GIItx+Xtpz5xs7IviWccJE+qIeAG4CE9Pr7Ld
-	5QkUcVuboDa9fNcmdjVWPW2qcw0uieAeejMwFJrdHcHBVCl/rWZIX0b1Szv45abFsxwuI/J
-	C6G8dU9HZTG+C76bCLFfKj0Z0MSj8cYgGaaoxYT3jfmLcYzgqrv2yWt9XhE+ENID5VEOkYx
-	gLLDbIPkApovnNWuwLHtKQWnbgkn2jp7pR1RVh6V6TNvN8IhXPQSF8t8vZmqYoSOx041puj
-	7eQX9j2lSgu+yIytb7TkEsJNEYJqbNDhfGwh414pn2mCbwL1Ku7opJPvLW/1El/OY5ePlOi
-	Rt1GquXtiaVvG1ZG1SsuCFasJSqkU0xhpE4h+QSpYJCTefbliTj50H615nVeZibjZUqSeOo
-	MPZIA5SZIjm3JRK31fsCL4ymFwHdpp5ixegeR91ZAuFJV9WyQMPcuzFDCfo+EUd7oCuME0U
-	btKZTnrtYgK5rospLvUZ2d3LPmBm91wKAlkeojgV2c+jLoXdCjgVXFypxA5RapEMxI0DBn6
-	dWUTctf063Nvv/G9h4X07sI/EpoHpibaS4a/aJelx736M4wPbZiI6FwBnoKjl+ndQk4KM++
-	eWhee4LaujceYnlpe1kGcda32CvK7SfBxQ7ciAdQFxGMGApPQwGQO09IZMQWXKj2DlbHIVz
-	4z7NEv81fUxxQ3qPkiYQtEYunIdvwQD41swYoZ4/U3sBUuXWnoS4t9sIhf7hG+Kz85AlZxT
-	nTq3SfvswvUINzdhlkHy8yJedQ==
+X-QQ-XMAILINFO: M/XjN/ZJ8p367ZHiom7Cv7mua4kjbEkWh6RWDcrdzzvcifHUXn6L7z64
+	lMnrMVcOIVumqRHN9CRBfmH25UmbjBby2YPvKHiyTi+2Bcn+iv2BZdzFmHkp8YsZfhSbb6f
+	atxS4zQu0P10VClCdiBJlmOuMYi1g7dEA3v3o+iy7QHRA8RdPX7YJEcrnggHyRcoFgA3PE5
+	YJCs8LweoxIp7BOVACcDWNhGQf4J/FFW2nwwb/30+Pp0HaY5N0gpw0mSosj74upGhrBLmOn
+	o04AREv0yWtjJf+SWcywAk4MQudzBPWAO9EdkZ8oyUtaQaJPTsEVuArorakFx13fR2TqRUX
+	C1hVeWgLqJeGmtFdV+qbLTRkvGwOQJiaS0rLWD4j05HqsRUXjXFTjXkHESMBtBNnz4MQqn4
+	sPBtt7+i/pbCSYXg3o3ZpQ+2Ytch0H/kK7azePXjra5645EVYuFOYGTiEDCvlJdTedpGZ9m
+	zTlNOjyo61bGGX3CtBcd2Ze8OwrHq0GMyvYkgr80uQdsEkQyUO9tF6e+q075UrCJxHfF6mx
+	1od9KznOOcI4vwrY+00wkRMjyhcE1rUTvkbgifvfMAL/8Koj6/qWd6E5jmgtRzXi75Tjp85
+	RNXE/a1lRQcDlWX8YqqfGjmhXtxNxiY3QC6APw692j/dXoQZX41xXK9wNHwPzmpDB2DfwXd
+	qr2rcWiwqp7cdcqWfj4FzvM2SATqUVI2OyDP350l168fmJgtYxRc8JDmyvYN6iRWnKTi+nJ
+	0Bb39N8FqYQJSkTPyjsY8bA8yy+j/K09fbSW5TruMnSq1uvgp5z+dnK1NYc9lG5lds1q/C3
+	IPkstVyylWxTAmONO1KXheeO8S4Ee8JMsnDukkaz5ez5uiJojBMePqTUqigqF/L/YruZ1lZ
+	tbHLM/vaWJw1DeUVi0JsXiYY7XJPOztG87TCCNJL0omwF+8nH8BY91S0BWqFFbeiskKL86v
+	x3MM69imvXYmTMuYFGYAmpssnT+kILkoiX97qM0iu1FW3Ws00ed1wU6JMVk7q+BB7zomgfj
+	w+rO/2p6yHECyrjo2tMwDM7SBEZSkl+fMws0MJzqbt/8TJWF5UTcExHEmwZiniPMb/GNvPX
+	gZ9YFBZlz9cLJb18SPnzwhF/gNaODrt3kvvUhRfmKKzIT0/g0zBnQxSDYMxpQeRmw==
 X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_060306_882002_2E0651CC 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20250805_060338_324327_51BB4592 
+X-CRM114-Status: UNSURE (   8.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,58 +110,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the SpacemiT public document, when the FNCLKSEL field of
-the APBC_SSPAX_CLK_RST register is 7 (3'b111),
-which is a reserved value. And BIT3 of the same register is
-a reserved bit.
+In order to use the virtual clock SSPAx_I2S_BCLK in the device tree and
+register it in the driver, this patch introduces the macro definition.
 
-But the documentation is incorrect. In reality, the value 7 (3'b111)
-of FNCLKSEL is not reserved. Instead, it indicates that i2s_bclk is
-selected as the parent clock. Similarly, bit 3 is not reserved either.
-When FNCLKSEL is set to 7, bit 3 determines whether i2s_bclk is actually
-enabled as the parent clock.
-
-In all other cases (i.e., when FNCLKSEL is not 7), bit 3 has no effect.
-
-Importantly, whenever FNCLKSEL is set to 7, bit 3 must also be set to 1,
-otherwise the selection of i2s_bclk becomes invalid.
-
-Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
-I sent with a wrong email so resend.
----
-Changes in v4:
-  - add comments
-  - add tags
-  - Link to v3: https://lore.kernel.org/r/20250731-k1-clk-i2s-v3-0-2f655ddb0c6f@linux.spacemit.com
+ include/dt-bindings/clock/spacemit,k1-syscon.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Changes in v3:
-  - Fixing ABI-breaking behavior
-  - Modify commit msgs
-  - Link to v2: https://lore.kernel.org/r/20250722-k1-clk-i2s-v2-0-2f8edfe3dab4@linux.spacemit.com
+diff --git a/include/dt-bindings/clock/spacemit,k1-syscon.h b/include/dt-bindings/clock/spacemit,k1-syscon.h
+index 35968ae98246609c889eb4a7d08b4ff7360de53b..9be578953d71e79e93eb10eaa35b47b97812e826 100644
+--- a/include/dt-bindings/clock/spacemit,k1-syscon.h
++++ b/include/dt-bindings/clock/spacemit,k1-syscon.h
+@@ -179,6 +179,8 @@
+ #define CLK_SSPA1_BUS		97
+ #define CLK_TSEN_BUS		98
+ #define CLK_IPC_AP2AUD_BUS	99
++#define CLK_SSPA0_I2S_BCLK	100
++#define CLK_SSPA1_I2S_BCLK	101
+ 
+ /* APMU clocks */
+ #define CLK_CCI550		0
 
-Changes in v2:
-  - Use virtual gate instead of new function for sspa
-  - Add Suggested-by tag: Yao Zi
-  - Add Fixes tag
-  - Link to v1: https://lore.kernel.org/all/20250718-k1-clk-i2s-v1-1-e92c10fd0f60@linux.spacemit.com/
-
----
-Troy Mitchell (2):
-      dt-bindings: clock: spacemit: CLK_SSPA_I2S_BCLK for SSPA
-      clk: spacemit: fix sspax_clk
-
- drivers/clk/spacemit/ccu-k1.c                  | 29 ++++++++++++++++++++++----
- include/dt-bindings/clock/spacemit,k1-syscon.h |  2 ++
- 2 files changed, 27 insertions(+), 4 deletions(-)
----
-base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
-change-id: 20250717-k1-clk-i2s-e4272f1f915b
-
-Best regards,
 -- 
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
+2.50.0
 
 
 _______________________________________________
