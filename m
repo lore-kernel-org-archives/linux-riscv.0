@@ -4,53 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F5BC87FD2
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 09:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FF7C87FD1
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 10:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+cZ+ABCkUR6zAk5F7XwBLVnSHJtVze2tOfev5KlQjwA=; b=f2a+jSzZqvruuW
-	N+lQPOUiiTwXfq6aMGlmWoNaDemQXHlgdbrVP0RnF2rBQHajupTPNp9O0VP1oBPp8DRlpgTYxAbIT
-	hX2ZWlDiV9Cq6sMIrW0AC9xbtFCZUPhIvPOPnzVGb4+Pmyc+jMfIP+MYrdI0ZVX6LqoJBPoKZo1+r
-	vGriYEvFR9YS/mNbZNQ69gP2TezQaXsFDVcCTYriq/5+ATbdNU/9X2/SruE2s60kvK9Hxa/pAwTA/
-	uaMKm14rjR+nhbbsiqSuHQgTvjlSIrae/YrAdxdSfaljEWnwbPjecS3YeoWSFfgvIc3sqEAy8n2Hv
-	Crxq2nEq2zfheMeCug0g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:From:Mime-Version:Date:
+	Subject:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RFsxyRCPV6edm857C4ELBLOJfhQLLq/y/ZkDyeLDxgs=; b=KrmIaOEiAs70qy
+	wHvzyM4F+nRu1hREyDGsg6HbtFJuJET1yccG41CibHQ1bBRZHz+r6Lub9dvtLC6A7VHWXqgNGu/Wo
+	xsOfxW2Q1Bc6g3e6hWvNHq3+X4IJUCu1fvDmPPJS92cWNPVG8t8Nk9nIEePwboBy3q5muhZ6nggUP
+	wHt9lFZ3W80zMt7IWKUBe8q9ve6VPBiCM6DLrJ4y2zpuGVoUyvlSFiYAH5VUfclGJrHtug2UjnR/7
+	CL9zRcobeGaj+uz0xwFp1JI3ewliAY3RhQPeUREjEXexUdR3RHRBB3xH0hiLLrMI5DqPJuCgJdxgv
+	HkIoOGUY2Y6sIBv/Z2fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujDiP-0000000CJqn-3pS6;
-	Tue, 05 Aug 2025 09:12:13 +0000
-Received: from relay16.mail.gandi.net ([2001:4b98:dc4:8::236])
+	id 1ujF3x-0000000CVZG-3vEw;
+	Tue, 05 Aug 2025 10:38:33 +0000
+Received: from sg-1-36.ptr.blmpb.com ([118.26.132.36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujDNd-0000000CFsP-3EBk
+	id 1ujEk8-0000000CT4D-3f4v
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 08:50:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 9A8EC4388A;
-	Tue,  5 Aug 2025 08:50:40 +0000 (UTC)
-Message-ID: <b6fc0e5f-beff-45fb-9f93-822b72094c17@ghiti.fr>
-Date: Tue, 5 Aug 2025 10:50:39 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: cacheinfo: init cache levels via fetch_cache_info
- when SMP disabled
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: liu.xuemei1@zte.com.cn, paul.walmsley@sifive.com
-Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, spersvold@gmail.com,
- sudeep.holla@arm.com, mikisabate@gmail.com, robh@kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250801093201232CYacRrFIHaDJWsjc3rbNz@zte.com.cn>
- <ffb83627-bd28-4bf9-8051-57dfca407f87@ghiti.fr>
-Content-Language: en-US
-In-Reply-To: <ffb83627-bd28-4bf9-8051-57dfca407f87@ghiti.fr>
-X-GND-State: clean
-X-GND-Score: 0
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduudegjeefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecunecujfgurhepkfffgggfuffhvfevfhgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepledtffekgeffleehkedvgfelleefffetjeegueffgeeilefgvdfhteetueejgeeknecuffhomhgrihhnpehinhhfrhgruggvrggurdhorhhgnecukfhppeduleefrdeffedrheejrdduleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudelfedrfeefrdehjedrudelledphhgvlhhopegludelvddrudeikedrvddvrddutddungdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedutddprhgtphhtthhopehlihhurdiguhgvmhgvihduseiithgvrdgtohhmrdgtnhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtohepshhpvghrshhvohhlugesghhmrghilhdrtghomhdprhgtphhtthhopehsuhguvggvphdrhhhol
- hhlrgesrghrmhdrtghomhdprhgtphhtthhopehmihhkihhsrggsrghtvgesghhmrghilhdrtghomhdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhg
+	Tue, 05 Aug 2025 10:18:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1754389072;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=EWKh/6dZIglI4fJ1iIweOgozO4ucjLIZAOOQ2PsOGzc=;
+ b=eOlhwhHoPO5IBQyQIFRLTkXvGQ8+90am7CYZ4hRhF4gb+JMOZiKFAXZd9bg8Yj0jWvm5xm
+ dQh8TT2HIDJaAQhCDDM9O/NDajYGAaGelIOHr3dOEtvh65zx3NUROsivz/KWZZ3srKQIrc
+ X9OitQ4KVBUbLzu+zQMGNQl58kv8mvwVPjToDam1oOxs1JS+Rje1VNuMWh9fVFT5tmq8tg
+ 8I4QPMTEiVe3kDelIb1V/Jyxaa6PaUz0q1aubsQ+ATOkQxaMhBYRskBenoPHJmBVgpdRYW
+ 6niNcqsoUT55E7wx9DBh7pJThYWYbUqMyaICA/PHQ/FOf6AvrBTVOMmtbUQshQ==
+To: <tjeznach@rivosinc.com>
+Cc: <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>, 
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <iommu@lists.linux.dev>, 
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
+	<huangxianliang@lanxincomputing.com>
+Subject: [PATCH] iommu/riscv: check pte null pointer before use
+Date: Tue,  5 Aug 2025 18:17:41 +0800
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.34.1
+X-Lms-Return-Path: <lba+26891da4e+14045f+lists.infradead.org+huangxianliang@lanxincomputing.com>
+From: "Huang XianLiang" <huangxianliang@lanxincomputing.com>
+Message-Id: <20250805101741.30819-1-huangxianliang@lanxincomputing.com>
+Received: from LeonHXL.localdomain ([116.237.111.137]) by smtp.feishu.cn with ESMTPS; Tue, 05 Aug 2025 18:17:49 +0800
+X-Original-From: Huang XianLiang <huangxianliang@lanxincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_015045_959511_DA485659 
-X-CRM114-Status: GOOD (  27.45  )
+X-CRM114-CacheID: sfid-20250805_031805_744300_67DD330D 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,71 +66,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSmVzc2ljYSwKCk9uIDgvMS8yNSAxMzo0NSwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+IEhp
-IEplc3NpY2EsCj4KPiBPbiA4LzEvMjUgMDM6MzIsIGxpdS54dWVtZWkxQHp0ZS5jb20uY24gd3Jv
-dGU6Cj4+Cj4+IE9uIDcvMzEvMjUgMjE6MjksIGFsZXhAZ2hpdGkuZnIgd3JvdGU6Cj4+Cj4+ID4g
-PiBGcm9tOiBKZXNzaWNhIExpdSA8bGl1Lnh1ZW1laTFAenRlLmNvbS5jbj4KPj4KPj4gPiA+Cj4+
-Cj4+ID4gPiBBcyBkZXNjcmliZWQgaW4gY29tbWl0IDE4NDVkMzgxZjI4MCAoInJpc2N2OiBjYWNo
-ZWluZm86IEFkZCBiYWNrCj4+Cj4+ID4gPiBpbml0X2NhY2hlX2xldmVsKCkgZnVuY3Rpb24iKSwg
-d2hlbiBDT05GSUdfU01QIGlzIHVuZGVmaW5lZCwgdGhlIAo+PiBjYWNoZQo+Pgo+PiA+ID4gaGll
-cmFyY2h5IGRldGVjdGlvbiBuZWVkcyB0byBiZSBwZXJmb3JtZWQgdGhyb3VnaCB0aGUgCj4+IGlu
-aXRfY2FjaGVfbGV2ZWwoKSwKPj4KPj4gPiA+IHdoZXJlYXMgd2hlbiBDT05GSUdfU01QIGlzIGRl
-ZmluZWQsIHRoaXMgZGV0ZWN0aW9uIGlzIGhhbmRsZWQgCj4+IGR1cmluZyB0aGUKPj4KPj4gPiA+
-IGluaXRfY3B1X3RvcG9sb2d5KCkgcHJvY2Vzcy4KPj4KPj4gPiA+Cj4+Cj4+ID4gPiBGdXJ0aGVy
-bW9yZSwgd2hpbGUgY29tbWl0IDY2MzgxZDM2NzcxZSAoIlJJU0MtVjogU2VsZWN0IEFDUEkgUFBU
-VCAKPj4gZHJpdmVycyIpCj4+Cj4+ID4gPiBlbmFibGVzIGNhY2hlIGluZm9ybWF0aW9uIHJldHJp
-ZXZhbCB0aHJvdWdoIHRoZSBBQ1BJIFBQVFQgdGFibGUsIHRoZQo+Pgo+PiA+ID4gaW5pdF9vZl9j
-YWNoZV9sZXZlbCgpIGNhbGxlZCB3aXRoaW4gaW5pdF9jYWNoZV9sZXZlbCgpIGNhbm5vdCAKPj4g
-c3VwcG9ydCBjYWNoZQo+Pgo+PiA+ID4gaGllcmFyY2h5IGRldGVjdGlvbiB0aHJvdWdoIEFDUEkg
-UFBUVC4gVGhlcmVmb3JlLCB3aGVuIENPTkZJR19TTVAgaXMKPj4KPj4gPiA+IHVuZGVmaW5lZCwg
-d2UgZGlyZWN0bHkgaW52b2tlIHRoZSBmZXRjaF9jYWNoZV9pbmZvIGZ1bmN0aW9uIHRvIAo+PiBp
-bml0aWFsaXplCj4+Cj4+ID4gPiB0aGUgY2FjaGUgbGV2ZWxzLgo+Pgo+PiA+ID4KPj4KPj4gPiA+
-IFNpZ25lZC1vZmYtYnk6IEplc3NpY2EgTGl1IDxsaXUueHVlbWVpMUB6dGUuY29tLmNuPgo+Pgo+
-PiA+ID4gLS0tCj4+Cj4+ID4gPsKgIMKgYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVpbmZvLmMgfCA2
-ICsrKysrLQo+Pgo+PiA+ID7CoCDCoDEgZmlsZSBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDEg
-ZGVsZXRpb24oLSkKPj4KPj4gPiA+Cj4+Cj4+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9r
-ZXJuZWwvY2FjaGVpbmZvLmMgCj4+IGIvYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVpbmZvLmMKPj4K
-Pj4gPiA+IGluZGV4IDI2YjA4NWRiZGQwNy4uZjgxY2E5NjNkMTc3IDEwMDY0NAo+Pgo+PiA+ID4g
-LS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvY2FjaGVpbmZvLmMKPj4KPj4gPiA+ICsrKyBiL2FyY2gv
-cmlzY3Yva2VybmVsL2NhY2hlaW5mby5jCj4+Cj4+ID4gPiBAQCAtNzMsNyArNzMsMTEgQEAgc3Rh
-dGljIHZvaWQgY2lfbGVhZl9pbml0KHN0cnVjdCBjYWNoZWluZm8gCj4+ICp0aGlzX2xlYWYsCj4+
-Cj4+ID4gPgo+Pgo+PiA+ID7CoCDCoGludCBpbml0X2NhY2hlX2xldmVsKHVuc2lnbmVkIGludCBj
-cHUpCj4+Cj4+ID4gPsKgIMKgewo+Pgo+PiA+ID4gLcKgIMKgIHJldHVybiBpbml0X29mX2NhY2hl
-X2xldmVsKGNwdSk7Cj4+Cj4+ID4gPiArI2lmZGVmIENPTkZJR19TTVAKPj4KPj4gPiA+ICvCoCDC
-oCByZXR1cm4gMDsKPj4KPj4gPiA+ICsjZW5kaWYKPj4KPj4gPiA+ICsKPj4KPj4gPiA+ICvCoCDC
-oCByZXR1cm4gZmV0Y2hfY2FjaGVfaW5mbyhjcHUpOwo+Pgo+PiA+ID7CoCDCoH0KPj4KPj4gPiA+
-Cj4+Cj4+ID4gPsKgIMKgaW50IHBvcHVsYXRlX2NhY2hlX2xlYXZlcyh1bnNpZ25lZCBpbnQgY3B1
-KQo+Pgo+PiA+Cj4+Cj4+ID4KPj4KPj4gPiBJcyB0aGUgY3VycmVudCBiZWhhdmlvdXIgd3Jvbmcg
-b3IganVzdCByZWR1bmRhbnQ/IElmIHdyb25nLCBJJ2xsIGFkZCBhCj4+Cj4+ID4gRml4ZXMgdGFn
-IHRvIGJhY2twb3J0LCBvdGhlcndpc2UgSSB3b24ndC4KPj4KPj4gPgo+Pgo+PiA+IFRoYW5rcywK
-Pj4KPj4gPgo+Pgo+PiA+IEFsZXgKPj4KPj4KPj4gSGkgQWxleCwKPj4KPj4KPj4gVGhlIGN1cnJl
-bnQgYmVoYXZpb3IgaXMgYWN0dWFsbHkgd3Jvbmcgd2hlbiB1c2luZyBBQ1BJIG9uICFDT05GSUdf
-U01QCj4+Cj4+IHN5c3RlbXMuIFRoZSBvcmlnaW5hbCBpbml0X29mX2NhY2hlX2xldmVsKCkgY2Fu
-bm90IGRldGVjdCBjYWNoZSAKPj4gaGllcmFyY2h5Cj4+Cj4+IHRocm91Z2ggQUNQSSBQUFRUIHRh
-YmxlLCB3aGljaCBtZWFucyBjYWNoZSBpbmZvcm1hdGlvbiB3b3VsZCBiZSBtaXNzaW5nCj4+Cj4+
-IGluIHRoaXMgY29uZmlndXJhdGlvbi4KPj4KPj4KPj4gVGhlIHBhdGNoIGZpeGVzIHRoaXMgYnkg
-ZGlyZWN0bHkgY2FsbGluZyBmZXRjaF9jYWNoZV9pbmZvKCkgd2hlbgo+Pgo+PiBDT05GSUdfU01Q
-IGlzIHVuZGVmaW5lZCwgd2hpY2ggcHJvcGVybHkgaGFuZGxlcyBib3RoIERUIGFuZCBBQ1BJIGNh
-c2VzLgo+Pgo+Pgo+PiBTbyB5ZXMsIGl0IHdvdWxkIGJlIGFwcHJvcHJpYXRlIHRvIGFkZCBhIEZp
-eGVzIHRhZy4gVGhlIGNvbW1pdCBiZWluZwo+Pgo+PiBmaXhlZCBpcyAxODQ1ZDM4MWYyODAgKCJy
-aXNjdjogY2FjaGVpbmZvOiBBZGQgYmFjayBpbml0X2NhY2hlX2xldmVsKCkgCj4+IGZ1bmN0aW9u
-IikuCj4+Cj4+Cj4+IFBsZWFzZSBsZXQgbWUga25vdyBpZiB5b3UgbmVlZCBhbnkgYWRkaXRpb25h
-bCBpbmZvcm1hdGlvbi4KPj4KPgo+IEknbSBhYm91dCB0byBzZW5kIG15IGZpcnN0IFBSIGZvciA2
-LjE3IHNvIEknbGwgZGVsYXkgbWVyZ2luZyB0aGlzIG9uZSAKPiBmb3IgdGhlIGZpcnN0IHJjLgoK
-ClNvIEkgdG9vayB0aGUgdGltZSB0aGlzIG1vcm5pbmcgdG8gbG9vayBpbnRvIHRoaXMsIGFuZCBJ
-IGRvbid0IHJlYWxseSAKbGlrZSB0aGUgZGlmZmVyZW50IHRyZWF0bWVudCBmb3Igc21wLCBjYW4n
-dCB3ZSBqdXN0IG1vdmUgCmluaXRfY3B1X3RvcG9sb2d5KCkgY2FsbCB0byBzZXR1cF9hcmNoKCkg
-KG9yIGVsc2UpIGZvciBib3RoICFzbXAgYW5kIHNtcD8KClRoYW5rcywKCkFsZXgKCgo+Cj4gVGhh
-bmtzIGZvciB0aGUgZXhwbGFuYXRpb24sCj4KPiBBbGV4Cj4KPgo+Pgo+PiBCZXN0IHJlZ2FyZHMs
-Cj4+Cj4+IEplc3NpY2EKPj4KPj4KPj4KPj4KPj4KPj4KPgo+IF9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4g
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The riscv_iommu_pte_fetch can return NULL when the provided iova is not
+yet mapped, the caller should check if the returned pointer is NULL or
+not, but riscv_iommu_iova_to_phys missed this, which will then lead to
+a kernel panic.
+
+This commit just check the pointer before using it to avoid the bug.
+Now, when iova_to_phys is called with an unmapped iova, the kernel will
+not crash here.
+
+Signed-off-by: Huang XianLiang <huangxianliang@lanxincomputing.com>
+---
+ drivers/iommu/riscv/iommu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index 2d0d31ba2886..b0186faa0300 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1283,7 +1283,7 @@ static phys_addr_t riscv_iommu_iova_to_phys(struct iommu_domain *iommu_domain,
+ 	unsigned long *ptr;
+ 
+ 	ptr = riscv_iommu_pte_fetch(domain, iova, &pte_size);
+-	if (_io_pte_none(*ptr) || !_io_pte_present(*ptr))
++	if (!ptr || _io_pte_none(*ptr) || !_io_pte_present(*ptr))
+ 		return 0;
+ 
+ 	return pfn_to_phys(__page_val_to_pfn(*ptr)) | (iova & (pte_size - 1));
+-- 
+2.34.1
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
