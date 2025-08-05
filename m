@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB15C87FDA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DDDCC87FD1
 	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 19:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bUoMxMlGK74iJEMjcAHAzPifA/gZdVZeZIkkDgOA1+I=; b=JQZQoikeXBNeTQ
-	HgombTDQPX4VerXkZT8jL6juAXoVtu63osRVR3dZS5xr4iRDYtnZLb4OJ4S3ukNs+2aDx8yzljuKF
-	o9sW81TKiePPjdFRESS28/MHnHirNXBJIaNF4qjiPLOk8W5YF0LfcgeDOMcy3dZjxmtvJno+2wA+E
-	vu6fntfgBV/nOWCCczc40KHcz7kprGdSl3B4rx/fq2XdJoQhnVzqQFO3+34NH49FTZk+v6w6bOXYl
-	cVe1uFodqfESrF+/V9ZcDuCZ6Q1bJf2Y9b//6Tt4JcNoCFwAFj+pviFc6Ax3o6sL30sBWsDnT+YmR
-	r2FiHWyRkAHTosgtkW0g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H7XEAGRj7TG8ySmZ+ecVk16pZZSxU+5Y42dipVc9tdg=; b=FBHjbbpCl+QrCs
+	7tX1IXrjwmx9uPw94AgubkfVqiEL9YGGl496iC5LS7EC8o6A3PO9tMRKIY0Y2pK4nkNCJRGFsuN4i
+	CTkU7LkJEMdBPBkYEawm9+FqCudUjwBgFoSKGkQXGsPTUXjXWxAdz5TYwt7DdLM0wj97WwpqghqdN
+	3IJaWJYDcWuEq/jud3Eyi3yBMBcQUXh18lVdzn/GcML+kKjbr7rmVfPmO7w/FsY3e2Zru2VcdBAUS
+	WzCfuo8MVJAZAifqx6cCS6C/c5n0SLgCAnNDL3DUe9ZLuMExGlGBzWn1Odp1UvHtvB1PEeQ56RrkX
+	M4jA1lzYEWRSmDCQ0Q6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujNVx-0000000DgUm-3mnF;
-	Tue, 05 Aug 2025 19:40:01 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1ujNW9-0000000DgfP-33g9;
+	Tue, 05 Aug 2025 19:40:13 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujNVv-0000000DgTQ-2Tbg
+	id 1ujNW6-0000000Dgc3-25fB
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 19:40:01 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7e806613af8so229452585a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Aug 2025 12:39:59 -0700 (PDT)
+	Tue, 05 Aug 2025 19:40:12 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7d45f5fde50so523723585a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Aug 2025 12:40:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1754422798; x=1755027598; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Av9ulXUYq8yypH92LgefCWXE0SBG4q/HDQdjt7nKwbs=;
-        b=C4IY97tf5t7THUaIA2AaMQEUaR4Dd+Ep9MUn5+RDoSXZWwTanhlEEjdosMq3fHil72
-         G3MmgQB4A/hQHSlLNYwpi8teS6ABCIGmq+54OBM7EHmG+ffuC+cQunh1xgJLRt9B9xis
-         QuHw/+AzU7rxX7miHNSfbGlZZ+EsS46oGQOXeBhNHGXBr7uajbPwId1dsgPReUvHbodv
-         8SnZmqO8JeHt8kCWQOn+8V+Xg8bMuH+ZeYpuEcPNnXkvewji1O0Fh+M89spgDFqCaV+H
-         ko4uXYwws68TlZwm73GKBnm3Sns/G+zbOCNTdc5Y358m5NYpjoi1K3oTiyksAwmS7vaI
-         XfTw==
+        d=rivosinc.com; s=google; t=1754422809; x=1755027609; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=thXWESjgb/asehL5NdNra0dnr/Mi+exiNBPp9wa9z9w=;
+        b=YS5I4FlnJO3v6R33mkJklq8PtC4PIdH450XTTPylIc0mgJVt5CpJhYc8rHaiiQrvhV
+         AuGwu/dlS7gPMb1SzP9xkCb03hCBJqtn+qu2nqJMXxugSmBuDwCPUpDcOUyggF4RAlWg
+         nclIk6LwTNoPxi+JyQBJgyVCm3lW0hX/R/S7FUPznMqCU/CfyvHjVjQzBA2Gwd+zOw02
+         UYY3CbmBabmikZ3WRcH3n+7ePbzY6XaHr+uEmE1Hdi8y3SIqCQhjiv3ZY4t/xYc6fFxD
+         kblGpAgUseyiYcTOqwKDHQpPxrKzjpLmmQ1tKjRKlYIAqYbuJqfm5njIEXcV2HK8Flpd
+         9U4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754422798; x=1755027598;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Av9ulXUYq8yypH92LgefCWXE0SBG4q/HDQdjt7nKwbs=;
-        b=b9KJRa0zfw87qLcgI2nfBJLti8YYXy1Wwg+/9c207Yivd5qhz63kYLeHE+dmOX3Gb0
-         45yWzTwmxGroTiDdNBZcbdIf3qCxikR+9deCpa9AtZsUxb7un1EI6dpdJeZzpAgRPI9W
-         x97HXwd755HmkBAKI0W3x9uaCCVA8Or9N+c8285e3yPn9L4IYCdMBw6/mczieDGlKYO7
-         cJBHRlTeHxMDmzxUpUKHUC9atgi92lxcm+EUw/3njpSIIN0RRafQxlqA3hreKE9Xz4rk
-         bUdl3qpd6081LPxJzvgHwrkcOOMZlat533uYjCiVPjUP0lRmVDIsGW4+0lEBfu2sY8uv
-         RZDg==
-X-Gm-Message-State: AOJu0YyYM5vo8mBAMS+ZqxyK7xj/y/YTLc7JY082A+PhLE6zcuTz0Ttt
-	YMpEyx5icPNLr7Os+qeAfurJ7CHls4hM0G8jDsnWa9XWASyvNUJ9AtObX1jVAN9bcM41kp1k5QD
-	04sUO
-X-Gm-Gg: ASbGncsvlGO/1se+nDTJuKLRClA/JwGYg/QLlwIDfW36G4Ay/ii3zUNIJpm5lhNgRZA
-	IOk3Is0Ab3t9XIDf/Hkhb0Ux2CamDayvwJZv6ysx8WfWlNkKfb4xXxvUVe0jyUK9xoIFstPjcEU
-	ZEks7Cg3XJM7TzMt4FBcnn7/gNujKw48+phsv4i7TJ0hHBPfGJtdDwlFExZYn06hcBD84u7lREK
-	1W2k/JYEqDd5n0PQbnX1RL0Jeuu/ZyRkOz208f4FHj+C5oibmjT2A93YiNklFUK+yVpwAccAGdg
-	AmhcR64m0lDspzaAwuxQNp1IOgDsatYK/PRwNnfN013vaHSdT1V2lu67CmftCbqNzlJmHoZtk2/
-	6cgOMbBPM6Jc8P2/Xq5QL5s6btKCZ4GH5pw6x99qvO2m3p8R9FSXitBLsgR6ac0MWr599grxT8u
-	z2D1qumA==
-X-Google-Smtp-Source: AGHT+IGaYz9rbHDaluNVvJAMepELkYucyj+ueO/efwJAG+Ld5Sktyl2JYCmbLDUiGqnvS0NmhNn2LQ==
-X-Received: by 2002:a05:620a:370f:b0:7e6:67b3:ebf2 with SMTP id af79cd13be357-7e814d1a1e2mr85393985a.27.1754422798022;
-        Tue, 05 Aug 2025 12:39:58 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1754422809; x=1755027609;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=thXWESjgb/asehL5NdNra0dnr/Mi+exiNBPp9wa9z9w=;
+        b=TfnXMGRBJWv0mHDJWJItADobi98KcYIUIe88t8+rqWj3KuyG7oD6nqCj7zIWVw9Kem
+         vbylIJA/E+MOd5kAKi7ExOGVo+cGprZGKv0zeq2+TBzl/5fEsJEwPIXx1guF45sg+YUO
+         6x29kY3JBzgcYoPEXH0XVSORDDK8dSaTtxGYrQaZCeT0/D83bdPlWL9sLHMoG1cVOr8s
+         W/U70EldYN3MhWURPKh/orRFGeScuNjCweG4JHzE1YnU3Fa4kxZKTp0VlceBRZCMdzMc
+         vwhkCqnciYkZggpIA7lBr2RSdBmLEpk99CMCeH71cOcW7BhTuMJxL9ahYtcBCRSI6oVN
+         SxNw==
+X-Gm-Message-State: AOJu0YyG85podr2Iy7NEgm6yuunlHP1A899CtpxwzrSeN/hFNQpWQrAK
+	365AbDibygplult1qQL9rfGpZVyyyzs5ZLDMF6IFJzCKnbBJUjnC25X7JlJRVEwJuY9y/jYyzee
+	e+sNs
+X-Gm-Gg: ASbGncvfJCgAWZYvjbQOVt7gGWZBxu1vXDQgeimkmBxWNPGXcl2KGTnnCHZ09W+1KHG
+	YI/8tU4i62A5H0UBSJEgP3il8WI/qkANl3ACNz24tZisSmvdsylda+cclK4N1wr52kUPZa/qUvf
+	q3ly7lMaQ1Qt10vVXYuijqtr4iHn6wsUdQakqA3x+0vh3zw7Nl5vihin6w+4sIkS0XGtsAaR/4k
+	1aJbokV0jRH9z55Z4BBeOBOKK/iQf5XE57KPHcb8UhyGTIs2W9zvmh9gMfxbCzdt1aqPQRkcz92
+	HXBDVV9L3HuLktOuOYY/IB8ofVt2EqXlQOL/CMFLkyp/vZW4qxXnLZ5MYwmdZMZhAGNdaElNdYl
+	bsE1RIDR2PPy89UoQKMLmlnFW4GJ1S3+a5IsB162ArUZGVbGw+Lh/evUUAv/UawshtMUgCs8F5T
+	qyv0h3KQ2YXtl7MybF
+X-Google-Smtp-Source: AGHT+IHrWQTDjfjzvi15pRX0IO+g2I3D2NOE+Jn4xNMsUSUmEfPtUaNSg147K8LghQ8X7ApzfEv/sg==
+X-Received: by 2002:a05:620a:15a5:b0:7e6:8147:e683 with SMTP id af79cd13be357-7e814e1cd24mr62137585a.47.1754422809200;
+        Tue, 05 Aug 2025 12:40:09 -0700 (PDT)
 Received: from jesse-lt.jtp-bos.lab (pool-108-26-215-125.bstnma.fios.verizon.net. [108.26.215.125])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e67f7064b0sm717855685a.54.2025.08.05.12.39.56
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e67f7064b0sm717855685a.54.2025.08.05.12.40.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Aug 2025 12:39:57 -0700 (PDT)
+        Tue, 05 Aug 2025 12:40:08 -0700 (PDT)
 From: Jesse Taube <jesse@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -123,14 +124,16 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-mm@kvack.org,
 	linux-perf-users@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH 0/8] riscv: add initial support for hardware breakpoints
-Date: Tue,  5 Aug 2025 12:39:47 -0700
-Message-ID: <20250805193955.798277-1-jesse@rivosinc.com>
+Subject: [PATCH 5/8] riscv: hw_breakpoint: Use icount for single stepping
+Date: Tue,  5 Aug 2025 12:39:52 -0700
+Message-ID: <20250805193955.798277-6-jesse@rivosinc.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250805193955.798277-1-jesse@rivosinc.com>
+References: <20250805193955.798277-1-jesse@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_123959_734433_EA8E69D5 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20250805_124010_596195_5E5B98E4 
+X-CRM114-Status: GOOD (  31.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,72 +150,326 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds initial support for hardware breakpoints and
-watchpoints to the  RISC-V architecture. The framework is built on
-top of perf subsystem and SBI debug trigger extension.
+The Sdtrig RISC-V ISA extension does not have a resume flag for
+returning to and executing the instruction at the breakpoint.
+To avoid skipping the instruction or looping, it is necessary to remove
+the hardware breakpoint and single step. Use the icount feature of
+Sdtrig to accomplish this. Use icount as default with an option to allow
+software-based single stepping when hardware or SBI does not have
+icount functionality, as it may cause unwanted side effects when reading
+the instruction from memory.
 
-Currently following features are not supported and are in works:
- - icount for single stepping
- - Virtualization of debug triggers
- - kernel space debug triggers
+Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+---
+OpenSBI implementation of sbi_debug_read_triggers does not return the
+updated CSR values. There needs to be a check for working
+sbi_debug_read_triggers before this works.
 
-The SBI debug trigger extension can be found at:
-https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/src/ext-debug-triggers.adoc
+https://lists.riscv.org/g/tech-prs/message/1476
 
-The Sdtrig ISA is part of RISC-V debug specification which can be
-found at:
-https://github.com/riscv/riscv-debug-spec
+RFC -> V1:
+ - Add dbtr_mode to rv_init_icount_trigger
+ - Add icount_triggered to check which breakpoint was triggered
+ - Fix typo: s/affects/effects
+ - Move HW_BREAKPOINT_COMPUTE_STEP to Platform type
+---
+ arch/riscv/Kconfig                |  11 ++
+ arch/riscv/kernel/hw_breakpoint.c | 179 +++++++++++++++++++++++++++---
+ 2 files changed, 172 insertions(+), 18 deletions(-)
 
-based off the original RFC by Himanshu Chauhan here:
-https://lore.kernel.org/lkml/20240222125059.13331-1-hchauhan@ventanamicro.com/
-
-Second RFC by Jesse Taube here:
-https://lore.kernel.org/lkml/20250722173829.984082-1-jesse@rivosinc.com/
-
-Himanshu Chauhan (2):
-  riscv: Add SBI debug trigger extension and function ids
-  riscv: Introduce support for hardware break/watchpoints
-
-Jesse Taube (6):
-  riscv: Add insn.c, consolidate instruction decoding
-  riscv: insn: Add get_insn_nofault
-  riscv: hw_breakpoint: Use icount for single stepping
-  riscv: ptrace: Add hw breakpoint support
-  riscv: ptrace: Add hw breakpoint regset
-  selftests: riscv: Add test for hardware breakpoints
-
- arch/riscv/Kconfig                            |  13 +
- arch/riscv/include/asm/bug.h                  |  12 -
- arch/riscv/include/asm/hw_breakpoint.h        |  59 ++
- arch/riscv/include/asm/insn.h                 | 132 ++-
- arch/riscv/include/asm/kdebug.h               |   3 +-
- arch/riscv/include/asm/processor.h            |   4 +
- arch/riscv/include/asm/sbi.h                  |  33 +-
- arch/riscv/include/uapi/asm/ptrace.h          |   9 +
- arch/riscv/kernel/Makefile                    |   2 +
- arch/riscv/kernel/hw_breakpoint.c             | 769 ++++++++++++++++++
- arch/riscv/kernel/insn.c                      | 165 ++++
- arch/riscv/kernel/kgdb.c                      | 102 +--
- arch/riscv/kernel/probes/kprobes.c            |   1 +
- arch/riscv/kernel/process.c                   |   4 +
- arch/riscv/kernel/ptrace.c                    | 169 ++++
- arch/riscv/kernel/traps.c                     |  11 +-
- arch/riscv/kernel/traps_misaligned.c          |  93 +--
- include/uapi/linux/elf.h                      |   2 +
- tools/include/uapi/linux/elf.h                |   1 +
- tools/perf/tests/tests.h                      |   3 +-
- tools/testing/selftests/riscv/Makefile        |   2 +-
- .../selftests/riscv/breakpoints/.gitignore    |   1 +
- .../selftests/riscv/breakpoints/Makefile      |  12 +
- .../riscv/breakpoints/breakpoint_test.c       | 246 ++++++
- 24 files changed, 1657 insertions(+), 191 deletions(-)
- create mode 100644 arch/riscv/include/asm/hw_breakpoint.h
- create mode 100644 arch/riscv/kernel/hw_breakpoint.c
- create mode 100644 arch/riscv/kernel/insn.c
- create mode 100644 tools/testing/selftests/riscv/breakpoints/.gitignore
- create mode 100644 tools/testing/selftests/riscv/breakpoints/Makefile
- create mode 100644 tools/testing/selftests/riscv/breakpoints/breakpoint_test.c
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index fd8b62cdc6f5..37f01ed199f3 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -546,6 +546,17 @@ config RISCV_COMBO_SPINLOCKS
+ 
+ endchoice
+ 
++config HW_BREAKPOINT_COMPUTE_STEP
++	bool "Allow computing hardware breakpoint step address"
++	default n
++	depends on HAVE_HW_BREAKPOINT
++	help
++	  Select this option if hardware breakpoints are desired, but
++	  hardware or SBI does not have icount functionality. This may cause
++	  unwanted side effects when reading the instruction from memory.
++
++	  If unsure, say N.
++
+ config RISCV_ALTERNATIVE
+ 	bool
+ 	depends on !XIP_KERNEL
+diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
+index 3f96e744a711..1e70ef9e6867 100644
+--- a/arch/riscv/kernel/hw_breakpoint.c
++++ b/arch/riscv/kernel/hw_breakpoint.c
+@@ -20,6 +20,7 @@
+ #define DBTR_TDATA1_DMODE		BIT_UL(__riscv_xlen - 5)
+ 
+ #define DBTR_TDATA1_TYPE_MCONTROL	(2UL << DBTR_TDATA1_TYPE_SHIFT)
++#define DBTR_TDATA1_TYPE_ICOUNT		(3UL << DBTR_TDATA1_TYPE_SHIFT)
+ #define DBTR_TDATA1_TYPE_MCONTROL6	(6UL << DBTR_TDATA1_TYPE_SHIFT)
+ 
+ #define DBTR_TDATA1_MCONTROL6_LOAD		BIT(0)
+@@ -62,6 +63,14 @@
+ 	(FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZELO_FIELD, lo) | \
+ 	 FIELD_PREP(DBTR_TDATA1_MCONTROL_SIZEHI_FIELD, hi))
+ 
++#define DBTR_TDATA1_ICOUNT_U			BIT(6)
++#define DBTR_TDATA1_ICOUNT_S			BIT(7)
++#define DBTR_TDATA1_ICOUNT_PENDING		BIT(8)
++#define DBTR_TDATA1_ICOUNT_M			BIT(9)
++#define DBTR_TDATA1_ICOUNT_COUNT_FIELD		GENMASK(23, 10)
++#define DBTR_TDATA1_ICOUNT_VU			BIT(25)
++#define DBTR_TDATA1_ICOUNT_VS			BIT(26)
++
+ enum dbtr_mode {
+ 	DBTR_MODE_U = 0,
+ 	DBTR_MODE_S,
+@@ -79,6 +88,7 @@ static DEFINE_PER_CPU(union sbi_dbtr_shmem_entry, sbi_dbtr_shmem);
+ 
+ /* number of debug triggers on this cpu . */
+ static int dbtr_total_num __ro_after_init;
++static bool have_icount __ro_after_init;
+ static unsigned long dbtr_type __ro_after_init;
+ static unsigned long dbtr_init __ro_after_init;
+ 
+@@ -129,6 +139,7 @@ static int arch_smp_teardown_sbi_shmem(unsigned int cpu)
+ static void init_sbi_dbtr(void)
+ {
+ 	struct sbiret ret;
++	unsigned long dbtr_count = 0;
+ 
+ 	/*
+ 	 * Called by hw_breakpoint_slots and arch_hw_breakpoint_init.
+@@ -143,6 +154,25 @@ static void init_sbi_dbtr(void)
+ 		return;
+ 	}
+ 
++	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
++		DBTR_TDATA1_TYPE_ICOUNT, 0, 0, 0, 0, 0);
++	if (ret.error) {
++		pr_warn("%s: failed to detect icount triggers. error: %ld.\n",
++			__func__, ret.error);
++	} else if (!ret.value) {
++		if (IS_ENABLED(CONFIG_HW_BREAKPOINT_COMPUTE_STEP)) {
++			pr_warn("%s: No icount triggers available. "
++				"Falling-back to computing single step address.\n", __func__);
++		} else {
++			pr_err("%s: No icount triggers available.\n", __func__);
++			dbtr_total_num = 0;
++			return;
++		}
++	} else {
++		dbtr_count = ret.value;
++		have_icount = true;
++	}
++
+ 	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
+ 			DBTR_TDATA1_TYPE_MCONTROL6, 0, 0, 0, 0, 0);
+ 	if (ret.error) {
+@@ -151,7 +181,7 @@ static void init_sbi_dbtr(void)
+ 	} else if (!ret.value) {
+ 		pr_warn("%s: No mcontrol6 triggers available.\n", __func__);
+ 	} else {
+-		dbtr_total_num = ret.value;
++		dbtr_total_num = min_not_zero((unsigned long)ret.value, dbtr_count);
+ 		dbtr_type = DBTR_TDATA1_TYPE_MCONTROL6;
+ 		return;
+ 	}
+@@ -166,7 +196,7 @@ static void init_sbi_dbtr(void)
+ 		pr_err("%s: No mcontrol triggers available.\n", __func__);
+ 		dbtr_total_num = 0;
+ 	} else {
+-		dbtr_total_num = ret.value;
++		dbtr_total_num = min_not_zero((unsigned long)ret.value, dbtr_count);
+ 		dbtr_type = DBTR_TDATA1_TYPE_MCONTROL;
+ 	}
+ }
+@@ -320,6 +350,36 @@ static int rv_init_mcontrol6_trigger(const struct perf_event_attr *attr,
+ 	return 0;
+ }
+ 
++static int rv_init_icount_trigger(struct arch_hw_breakpoint *hw, enum dbtr_mode mode)
++{
++	unsigned long tdata1 = DBTR_TDATA1_TYPE_ICOUNT;
++
++	/* Step one instruction */
++	tdata1 |= FIELD_PREP(DBTR_TDATA1_ICOUNT_COUNT_FIELD, 1);
++
++	switch (mode) {
++	case DBTR_MODE_U:
++		tdata1 |= DBTR_TDATA1_ICOUNT_U;
++		break;
++	case DBTR_MODE_S:
++		tdata1 |= DBTR_TDATA1_ICOUNT_S;
++		break;
++	case DBTR_MODE_VS:
++		tdata1 |= DBTR_TDATA1_ICOUNT_VS;
++		break;
++	case DBTR_MODE_VU:
++		tdata1 |= DBTR_TDATA1_ICOUNT_VU;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	hw->tdata1 = tdata1;
++	hw->tdata2 = 0;
++
++	return 0;
++}
++
+ int hw_breakpoint_arch_parse(struct perf_event *bp,
+ 			     const struct perf_event_attr *attr,
+ 			     struct arch_hw_breakpoint *hw)
+@@ -372,24 +432,28 @@ static int setup_singlestep(struct perf_event *event, struct pt_regs *regs)
+ 	/* Remove breakpoint even if return error as not to loop */
+ 	arch_uninstall_hw_breakpoint(event);
+ 
+-	ret = get_insn_nofault(regs, regs->epc, &insn);
+-	if (ret < 0)
+-		return ret;
++	if (have_icount) {
++		rv_init_icount_trigger(bp, DBTR_MODE_U);
++	} else {
++		ret = get_insn_nofault(regs, regs->epc, &insn);
++		if (ret < 0)
++			return ret;
+ 
+-	next_addr = get_step_address(regs, insn);
++		next_addr = get_step_address(regs, insn);
+ 
+-	ret = get_insn_nofault(regs, next_addr, &insn);
+-	if (ret < 0)
+-		return ret;
++		ret = get_insn_nofault(regs, next_addr, &insn);
++		if (ret < 0)
++			return ret;
+ 
+-	bp_insn.bp_type = HW_BREAKPOINT_X;
+-	bp_insn.bp_addr = next_addr;
+-	/* Get the size of the intruction */
+-	bp_insn.bp_len = GET_INSN_LENGTH(insn);
++		bp_insn.bp_type = HW_BREAKPOINT_X;
++		bp_insn.bp_addr = next_addr;
++		/* Get the size of the intruction */
++		bp_insn.bp_len = GET_INSN_LENGTH(insn);
+ 
+-	ret = hw_breakpoint_arch_parse(NULL, &bp_insn, bp);
+-	if (ret)
+-		return ret;
++		ret = hw_breakpoint_arch_parse(NULL, &bp_insn, bp);
++		if (ret)
++			return ret;
++	}
+ 
+ 	ret = arch_install_hw_breakpoint(event);
+ 	if (ret)
+@@ -400,6 +464,79 @@ static int setup_singlestep(struct perf_event *event, struct pt_regs *regs)
+ 	return 0;
+ }
+ 
++/**
++ * icount_triggered - Check if event's icount was triggered.
++ * @event: Perf event to check
++ *
++ * Check the given perf event's icount breakpoint was triggered.
++ *
++ * Returns:	1 if icount was triggered.
++ *		0 if icount was not triggered.
++ *		negative on failure.
++ */
++static int icount_triggered(struct perf_event *event)
++{
++	union sbi_dbtr_shmem_entry *shmem = this_cpu_ptr(&sbi_dbtr_shmem);
++	struct sbiret ret;
++	struct perf_event **slot;
++	unsigned long tdata1;
++	int i;
++
++	for (i = 0; i < dbtr_total_num; i++) {
++		slot = this_cpu_ptr(&pcpu_hw_bp_events[i]);
++
++		if (*slot == event)
++			break;
++	}
++
++	if (i == dbtr_total_num) {
++		pr_warn("%s: Breakpoint not installed.\n", __func__);
++		return -ENOENT;
++	}
++
++	raw_spin_lock_irqsave(this_cpu_ptr(&ecall_lock),
++			      *this_cpu_ptr(&ecall_lock_flags));
++
++	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIG_READ,
++			i, 1, 0, 0, 0, 0);
++	tdata1 = shmem->data.tdata1;
++
++	raw_spin_unlock_irqrestore(this_cpu_ptr(&ecall_lock),
++				   *this_cpu_ptr(&ecall_lock_flags));
++	if (ret.error) {
++		pr_warn("%s: failed to read trigger. error: %ld\n", __func__, ret.error);
++		return sbi_err_map_linux_errno(ret.error);
++	}
++
++	/*
++	 * The RISC-V Debug Specification
++	 * Tim Newsome, Paul Donahue (Ventana Micro Systems)
++	 * Version 1.0, Revised 2025-02-21: Ratified
++	 * 5.7.13. Instruction Count (icount, at 0x7a1)
++	 * When count is 1 and the trigger matches, then pending becomes set.
++	 * In addition count will become 0 unless it is hard-wired to 1.
++	 * When pending is set, the trigger fires just before any further
++	 * instructions are executed in a mode where the trigger is enabled.
++	 * As the trigger fires, pending is cleared. In addition, if count is
++	 * hard-wired to 1 then m, s, u, vs, and vu are all cleared.
++	 */
++	if (FIELD_GET(DBTR_TDATA1_ICOUNT_COUNT_FIELD, tdata1) == 0)
++		return 1;
++
++	if (FIELD_GET(DBTR_TDATA1_ICOUNT_COUNT_FIELD, tdata1) != 1)
++		return 0;
++
++	if (tdata1 & DBTR_TDATA1_ICOUNT_U)
++		return 0;
++	if (tdata1 & DBTR_TDATA1_ICOUNT_S)
++		return 0;
++	if (tdata1 & DBTR_TDATA1_ICOUNT_VU)
++		return 0;
++	if (tdata1 & DBTR_TDATA1_ICOUNT_VU)
++		return 0;
++	return 1;
++}
++
+ /*
+  * HW Breakpoint/watchpoint handler
+  */
+@@ -460,7 +597,10 @@ static int hw_breakpoint_handler(struct pt_regs *regs)
+ 
+ 		if (bp->in_callback) {
+ 			expecting_callback = true;
+-			if (regs->epc != bp->next_addr) {
++			if (have_icount) {
++				if (icount_triggered(event) != 1)
++					continue;
++			} else if (regs->epc != bp->next_addr) {
+ 				continue;
+ 			}
+ 
+@@ -477,7 +617,10 @@ static int hw_breakpoint_handler(struct pt_regs *regs)
+ 
+ 	}
+ 
+-	if (expecting_callback) {
++	if (expecting_callback && have_icount) {
++		pr_err("%s: in_callback was set, but icount was not triggered, epc (%lx).\n",
++		       __func__, regs->epc);
++	} else if (expecting_callback) {
+ 		pr_err("%s: in_callback was set, but epc (%lx) was not at next address(%lx).\n",
+ 		       __func__, regs->epc, bp->next_addr);
+ 	}
 -- 
 2.43.0
 
