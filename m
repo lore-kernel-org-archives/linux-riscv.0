@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86101C87FD1
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 13:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E2DC87FCB
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 13:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nOZzXGJ48t7AlJY/7INgEtoYiKcfyKNiO7G2BD+8b8o=; b=QsbwEn7zDhxr+H
-	JaSzP5VLYvqUeYPcZWY8yavhii+XT/YVB5twASWraemKwtIUnT+eJwS06to6Xgd2XQkNM9L1gcA+I
-	1XbLSkg53ZG3pmXkxcSuRM83QWcEHjscN3NSroBci629aHg5H26k4jr6nOOLn6I5gL3vsgEuwAbXY
-	mZnNOD0xltYHPemEQuGpp/B+dBkox+yz4BrS6nCKU3ipGQHw3vVDrKvDd8UuOCq8rHoz7QKvdZKBI
-	7zFn1pOLUwk5bwpfAkdDMRigWtsqJdD+5S3KWiHJ3LinAiqm06O4KzZiz3Rp9UEbg8VLi+zg1TWoq
-	7jsejY3saiYYWkJqBW0A==;
+	List-Owner; bh=e4n0mK+eox+Zn0TX5dhyeKcJFZxW3mKmTS8YDqEEh8c=; b=2T2lRzHV32DQur
+	/Qwo4Fxm8OZ7K4axMsmvvyPMjqGpXetU/IPrA2P/7K1fLwCBNLLUrb1Qtmk0OJ7eCiUfIVgKGcO8g
+	6bQiUDfAsLkePgxNcsbWRdk7ooNtLLtw2kIXCkFAhcWHCpN3PGopxCtVMYCeuZhiVQHPVPvfLTpUv
+	du1M+A04NwmFUKznrhFZQ9ZheH6RafQG0FAVUOeXIoMC7UAEVAyXRlKpVKylPOSrVkRAsN6cEieUW
+	HmE1m/Lm0obxaMFgITIY0rVg2UIaA5d00IGuaS2Om1Y6GV9rg3EHVzQfw+lxzmEZivNY82t1SnAjA
+	6Bw3X5Xn+gY/96BL3b3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHkt-0000000Cqhm-1doC;
-	Tue, 05 Aug 2025 13:31:03 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ujHnV-0000000Cr2Z-2kB4;
+	Tue, 05 Aug 2025 13:33:45 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHSo-0000000Cnpx-1Azh
+	id 1ujHYp-0000000Corr-2YvI
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 13:12:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 93DC7A56396;
-	Tue,  5 Aug 2025 13:12:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9AB8C4CEF4;
-	Tue,  5 Aug 2025 13:12:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754399541;
-	bh=xofx+KMLIBQGqB1MOViKVV4hJQlyQWhXr0UmZzMSNsU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GVVdoJHRW/7edtJGu0+Z1z8K670CQuimUxzTsRxztjkEbrRgbVvU3aPnSoZHtYCAg
-	 wHcYY2599odYQxWYZbKPbWr1mAJwHFIURkrCf8AmAViZ64eS97VMT/L2qewJp7kVAb
-	 5pj/s8thgX8F3uZpgHvt2QZdtkhzabBv/AXVYdDsSrt1/FhcLCRU8L3kT7KWeGCVBW
-	 qOhacEbEc01W3kiUFTNAJIFfG9MG3Jg14Hf1g1du+Bg6dBKui2LWLylOfnPM75CBsb
-	 pmvpoNUN44balnXOJZfbq1Xq4pcTrNHQBuQns9VDZZNY2hxaQJqnnckgo4lui0QpMM
-	 QNiC99uUVOjBQ==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
-	Drew Fustini <drew@pdp7.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	fustini@kernel.org,
-	guoren@kernel.org,
-	wefu@redhat.com,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.16-6.12] clk: thead: Mark essential bus clocks as CLK_IGNORE_UNUSED
-Date: Tue,  5 Aug 2025 09:09:42 -0400
-Message-Id: <20250805130945.471732-67-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250805130945.471732-1-sashal@kernel.org>
-References: <20250805130945.471732-1-sashal@kernel.org>
+	Tue, 05 Aug 2025 13:18:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1754399820;
+	bh=uKRpwftHd76ByzGCZwStgONS7ug7yWYWivbpDDIKLDM=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=iHrcESA46HWHQvWuWs+uS8NP5R2DXeSeqPeyMpokGzWgKAB2u+Kq4wAQKUtDUEGVT
+	 j4y0X7s67YiuxVtaoVTvoCVN7r0h5LrewyFcUz4y1SsVufZ0YNqMcDV4K55ib+AXlA
+	 hTXd8PvY4EoU+4vdJYJYvV8403PajM75P6icoLhQ=
+X-QQ-mid: zesmtpip2t1754399812tfdd1d4e4
+X-QQ-Originating-IP: v37YLt7kMBXvE8kdPSfrSPPwxyTY26MVd1UE+ZktKOw=
+Received: from = ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 05 Aug 2025 21:16:49 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11721054069434364327
+EX-QQ-RecipientCnt: 16
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: troy.mitchell@linux.spacemit.com
+Cc: conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dlan@gentoo.org,
+	elder@riscstar.com,
+	heylenay@4d2.org,
+	inochiama@outlook.com,
+	krzk+dt@kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	mturquette@baylibre.com,
+	robh@kernel.org,
+	sboyd@kernel.org,
+	spacemit@lists.linux.dev,
+	ziyao@disroot.org
+Subject: [PATCH v4 2/2] clk: spacemit: fix sspax_clk
+Date: Tue,  5 Aug 2025 21:16:46 +0800
+Message-ID: <E801E7AF425E08C7+20250805131646.2216375-1-troy.mitchell@linux.spacemit.com>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250805-k1-clk-i2s-v4-0-038181284dd4@linux.spacemit.com>
+References: <20250805-k1-clk-i2s-v4-0-038181284dd4@linux.spacemit.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.16
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: OW4JKxETGMY2ika1YSmcCMBRvpexh30OCOY7ynTPH8cFLJh4SaZtE9uc
+	eZ58mp8B64uSkR6+OJQ4lTZEie3KgzHeHcKWHMdraJnRB72kI0veI7j0GUfDRbhfIbzrFQo
+	UwvZu1RCOx4Vvompxw9slUaTZjmCs7pRnqBIZ81I0IrmegGRSzVb1hMsvs00T+1Jh+QinB8
+	Sdo5lumiD3JOwM5WjC0qFw8ghIw8AsCGb7Q2nYE/+UZuLgfhsAlIsWiiPI+ox0TOIFzKjfE
+	gscIMAYiDypj9WL0p+r6ULbsVPhVL1z5CeBWEbi9jM03nwo489KuD8dGWCLh4LFk8OWn8va
+	pzMWoeCU1gZVJskJDr2pd7/CjpH+TMXQJsYWHbimvxIukNkdEAr45EBbndN7kRlIiZJVysd
+	KuIFSpSO0xxQHka+vBOkJLYNZHDfYHtf86b7leFzvwmMra84mu5Z0lVupJ7qZCOP3ud95/7
+	61U2zbfeLJz914Maigj9VYJiEWP5XuOTsc5hVWMgy9oCud/5nA5QRaZffuahMCv8wLN73V1
+	CXAdPiZFpmFz2GdXngCYqjXQfis9gYaLSoZFXxd7DJyvTV+J6uNNX4lN0wTQ8GFQETkFfXi
+	sNILsX3HtNF9pSZCjh7scg3OGTN7+IZAJLKi+3C2kgaZs6dtAjyRL0lXSrXz6lBa1WiOwGe
+	nzoti3+crPUisnyPaoYUsvqFOUGKZ5045DWpkV0YrK+Y2IghNGNfGHSmwGWpqv6llsnThuy
+	5kZaqs4dAq561l25Tj37g6QE2bTp5xupcUsCOm45umbL1KlXoGgZ+N5/aokfq7nX/6guVUX
+	2rrREAYm97mi+Ook2V3Boc6r3r1MUxvydrT3+fSbUmOW/l9jRlJKYtjkv85FCHXbw6imf2k
+	IgM8cX2AZ1xMKWhm5ixhWBTOWvuZ6sshJ+GSEG08MvYS7sTdNmNDzIqhLGiJoBcixwhiYHc
+	kaJxyMIhrEUFKAf++R1rgPFXG0NbK9mFaaX9FjI+JlewT/o8yXHUYyiBvzw+/RWgvI9U0Dr
+	0h8tKaJMiGgbNIb0jApi7ZQYaZxVFccbEfHuVWvfPIz+P6UsSjERudbCkUCOhRbAyVLz0bJ
+	rMx0dYh7OTV
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_061222_456367_110D109B 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20250805_061836_187254_43D45634 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,128 +108,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Michal Wilczynski <m.wilczynski@samsung.com>
+Hardware Requirement:
+When FNCLKSEL in APBC_SSPAX_CLK_RST is set to 7 (3'b111),
+BIT3 must be set to 1 for the SSPAx parent clock to be I2S_BCLK.
 
-[ Upstream commit 0370395d45ca6dd53bb931978f0e91ac8dd6f1c5 ]
+This patch introduces SSPAx_I2S_BCLK as a virtual gate to enable BIT3.
 
-Probing peripherals in the AON and PERI domains, such as the PVT thermal
-sensor and the PWM controller, can lead to boot hangs or unresponsive
-devices on the LPi4A board. The root cause is that their parent bus
-clocks ('CLK_CPU2AON_X2H' and the 'CLK_PERISYS_APB' clocks) are
-automatically gated by the kernel's power-saving mechanisms when the bus
-is perceived as idle.
-
-Alternative solutions were investigated, including modeling the parent
-bus in the Device Tree with 'simple-pm-bus' or refactoring the clock
-driver's parentage. The 'simple-pm-bus' approach is not viable due to
-the lack of defined bus address ranges in the hardware manual and its
-creation of improper dependencies on the 'pm_runtime' API for consumer
-drivers.
-
-Therefore, applying the'`CLK_IGNORE_UNUSED' flag directly to the
-essential bus clocks is the most direct and targeted fix. This prevents
-the kernel from auto-gating these buses and ensures peripherals remain
-accessible.
-
-This change fixes the boot hang associated with the PVT sensor and
-resolves the functional issues with the PWM controller.
-
-Link: https://lore.kernel.org/all/9e8a12db-236d-474c-b110-b3be96edf057@samsung.com/ [1]
-
-Reviewed-by: Drew Fustini <drew@pdp7.com>
-Acked-by: Stephen Boyd <sboyd@kernel.org>
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-Signed-off-by: Drew Fustini <drew@pdp7.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Suggested-by: Yao Zi <ziyao@disroot.org>
+Reviewed-by: Haylen Chu <heylenay@4d2.org>
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
+ drivers/clk/spacemit/ccu-k1.c | 29 +++++++++++++++++++++++++----
+ 1 file changed, 25 insertions(+), 4 deletions(-)
 
-LLM Generated explanations, may be completely bogus:
-
-**Backport Status: YES**
-
-This commit should be backported to stable kernel trees for the
-following reasons:
-
-## Analysis of the Commit
-
-### 1. **Fixes a Real Bug Affecting Users**
-The commit explicitly states it fixes:
-- **Boot hangs** when probing peripherals in AON and PERI domains
-- **Unresponsive devices** on the LPi4A board
-- Functional issues with the PWM controller
-
-These are critical user-facing issues that meet the stable tree criteria
-under rule #15: "It fixes a problem like an oops, a hang, data
-corruption..."
-
-### 2. **Small and Contained Change**
-The code change is minimal - only 4 lines modified:
-- Line 795: Adds `CLK_IGNORE_UNUSED` flag to `cpu2aon_x2h_clk`
-- Line 799: Adds `CLK_IGNORE_UNUSED` flag to `perisys_apb1_hclk`
-
-This is well under the 100-line limit for stable patches.
-
-### 3. **Clear Root Cause and Targeted Fix**
-The commit message provides excellent technical justification:
-- Parent bus clocks are being auto-gated when perceived as idle
-- This causes peripherals (PVT sensor, PWM controller) to become
-  inaccessible
-- Alternative solutions were investigated but deemed unsuitable
-- The `CLK_IGNORE_UNUSED` flag is the most direct and targeted solution
-
-### 4. **Builds on Previous Stable Fix**
-Looking at commit 037705e94bf6 ("clk: thead: Add CLK_IGNORE_UNUSED to
-fix TH1520 boot"), there's already precedent for applying
-`CLK_IGNORE_UNUSED` flags to this driver to fix boot issues. That commit
-added the flag to 4 other clocks with a `Fixes:` tag, indicating it was
-considered stable-worthy.
-
-### 5. **Hardware-Specific Quirk**
-This is addressing a hardware-specific issue with the T-Head TH1520 SoC
-where essential bus clocks cannot be safely gated. This falls under the
-stable rule for "hardware quirk" fixes.
-
-### 6. **Low Risk of Regression**
-The change only affects two specific clocks on a specific SoC (TH1520).
-The flag simply prevents the kernel from disabling these clocks - it
-doesn't change clock rates, parentage, or any other behavior. This
-minimizes regression risk for users of this hardware.
-
-### 7. **Reviewed and Acked**
-The commit has been:
-- Reviewed-by: Drew Fustini (maintainer familiar with the hardware)
-- Acked-by: Stephen Boyd (clock subsystem maintainer)
-
-This indicates proper review from domain experts.
-
-The commit meets all stable kernel criteria: it fixes real bugs (boot
-hangs), is minimal in scope (4 lines), addresses a hardware quirk, has
-low regression risk, and has been properly reviewed by maintainers.
-
- drivers/clk/thead/clk-th1520-ap.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-index ebfb1d59401d..cf7f6bd428a0 100644
---- a/drivers/clk/thead/clk-th1520-ap.c
-+++ b/drivers/clk/thead/clk-th1520-ap.c
-@@ -792,11 +792,12 @@ static CCU_GATE(CLK_AON2CPU_A2X, aon2cpu_a2x_clk, "aon2cpu-a2x", axi4_cpusys2_ac
- 		0x134, BIT(8), 0);
- static CCU_GATE(CLK_X2X_CPUSYS, x2x_cpusys_clk, "x2x-cpusys", axi4_cpusys2_aclk_pd,
- 		0x134, BIT(7), 0);
--static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd, 0x138, BIT(8), 0);
-+static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd,
-+		0x138, BIT(8), CLK_IGNORE_UNUSED);
- static CCU_GATE(CLK_CPU2PERI_X2H, cpu2peri_x2h_clk, "cpu2peri-x2h", axi4_cpusys2_aclk_pd,
- 		0x140, BIT(9), CLK_IGNORE_UNUSED);
- static CCU_GATE(CLK_PERISYS_APB1_HCLK, perisys_apb1_hclk, "perisys-apb1-hclk", perisys_ahb_hclk_pd,
--		0x150, BIT(9), 0);
-+		0x150, BIT(9), CLK_IGNORE_UNUSED);
- static CCU_GATE(CLK_PERISYS_APB2_HCLK, perisys_apb2_hclk, "perisys-apb2-hclk", perisys_ahb_hclk_pd,
- 		0x150, BIT(10), CLK_IGNORE_UNUSED);
- static CCU_GATE(CLK_PERISYS_APB3_HCLK, perisys_apb3_hclk, "perisys-apb3-hclk", perisys_ahb_hclk_pd,
+diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+index cdde37a05235..4a91d28da2fb 100644
+--- a/drivers/clk/spacemit/ccu-k1.c
++++ b/drivers/clk/spacemit/ccu-k1.c
+@@ -349,7 +349,14 @@ CCU_GATE_DEFINE(aib_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_AIB_CLK_RST, BIT(1),
+ 
+ CCU_GATE_DEFINE(onewire_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_ONEWIRE_CLK_RST, BIT(1), 0);
+ 
+-static const struct clk_parent_data sspa_parents[] = {
++/*
++ * When i2s_bclk is selected as the parent clock of sspa,
++ * the hardware requires bit3 to be set
++ */
++CCU_GATE_DEFINE(sspa0_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA0_CLK_RST, BIT(3), 0);
++CCU_GATE_DEFINE(sspa1_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA1_CLK_RST, BIT(3), 0);
++
++static const struct clk_parent_data sspa0_parents[] = {
+ 	CCU_PARENT_HW(pll1_d384_6p4),
+ 	CCU_PARENT_HW(pll1_d192_12p8),
+ 	CCU_PARENT_HW(pll1_d96_25p6),
+@@ -357,10 +364,22 @@ static const struct clk_parent_data sspa_parents[] = {
+ 	CCU_PARENT_HW(pll1_d768_3p2),
+ 	CCU_PARENT_HW(pll1_d1536_1p6),
+ 	CCU_PARENT_HW(pll1_d3072_0p8),
+-	CCU_PARENT_HW(i2s_bclk),
++	CCU_PARENT_HW(sspa0_i2s_bclk),
+ };
+-CCU_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
+-CCU_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
++CCU_MUX_GATE_DEFINE(sspa0_clk, sspa0_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
++
++static const struct clk_parent_data sspa1_parents[] = {
++	CCU_PARENT_HW(pll1_d384_6p4),
++	CCU_PARENT_HW(pll1_d192_12p8),
++	CCU_PARENT_HW(pll1_d96_25p6),
++	CCU_PARENT_HW(pll1_d48_51p2),
++	CCU_PARENT_HW(pll1_d768_3p2),
++	CCU_PARENT_HW(pll1_d1536_1p6),
++	CCU_PARENT_HW(pll1_d3072_0p8),
++	CCU_PARENT_HW(sspa1_i2s_bclk),
++};
++CCU_MUX_GATE_DEFINE(sspa1_clk, sspa1_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
++
+ CCU_GATE_DEFINE(dro_clk, CCU_PARENT_HW(apb_clk), APBC_DRO_CLK_RST, BIT(1), 0);
+ CCU_GATE_DEFINE(ir_clk, CCU_PARENT_HW(apb_clk), APBC_IR_CLK_RST, BIT(1), 0);
+ CCU_GATE_DEFINE(tsen_clk, CCU_PARENT_HW(apb_clk), APBC_TSEN_CLK_RST, BIT(1), 0);
+@@ -965,6 +984,8 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
+ 	[CLK_SSPA1_BUS]		= &sspa1_bus_clk.common.hw,
+ 	[CLK_TSEN_BUS]		= &tsen_bus_clk.common.hw,
+ 	[CLK_IPC_AP2AUD_BUS]	= &ipc_ap2aud_bus_clk.common.hw,
++	[CLK_SSPA0_I2S_BCLK]	= &sspa0_i2s_bclk.common.hw,
++	[CLK_SSPA1_I2S_BCLK]	= &sspa1_i2s_bclk.common.hw,
+ };
+ 
+ static const struct spacemit_ccu_data k1_ccu_apbc_data = {
 -- 
-2.39.5
+2.50.0
 
 
 _______________________________________________
