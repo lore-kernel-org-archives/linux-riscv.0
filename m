@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2690C87FCB
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 17:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D991CC87FD1
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 17:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CBS9j5WTEHyG/j8/ZBUTcpUg0PbtiboT5D5v4k1pjlI=; b=QxrCYUh1MsYuBs
-	lNlo4ZqtyCqpNOlctkiqoKwYVzYYVIf2AF9OhltKYYCC1CJx6WsxH/5JUT917Nv1f1vh2yIvSgUde
-	lYDKZS1P6PEcQk8G/X268hrXALjzwfEOiT0MZrsJOLR9R1Z0VFEDL4xbVXyiCyS7JNVb3CNMC03Bo
-	8qREFcKA4nTIOsxkKx/Jh771/ehdVzpgJQaiM7kYF29/N+v3rvzsyhkhSaxig5ElTIdug/CfEwmHJ
-	C25LDUQpcNoICJy+7JwACfyulFSE7IWO+AxbbZpVm74YSxsZPfTNTgIXdfy3D54BPQ/pkbStbUMlo
-	JK/WKnsVa0Y8vrbaaGxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=omq4n5eHwvVuA9kH3g1Gm7kVnWKFI8jBZhVbhXM9hBQ=; b=lm8JbEa4sAyACeC/ahoz52dZkf
+	+87yR1vkb3Q7vv6uX50KniUAOHGdrEVYqwWiAaLV2aDAywCqcD0M8DWw48bhgcvcwJxYDboo+fyto
+	bj6Ca32oLURT40cZ0OMi8EVdYNYBL3xTwz+YvX72yuCp/i2RLAPaGQe9MhMKK2ZeWxvIoUBRaQco2
+	+FEtGOBG70sk1CjuGzngGBNANfMLiOUNA9DM4EIALw//1eTyvQHfy2X/y9inFFsUndIr8vhxfWWid
+	JG88OZTK+bG44RwbHRVWuYAuV0JXfFIzmq0YzJQOo7K/KyGzEzNA9+nSEKVB5GtltVu8btGhndRhq
+	Fzcc3Nsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujLLu-0000000DPpK-1S8p;
-	Tue, 05 Aug 2025 17:21:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ujLj9-0000000DSbR-1oN5;
+	Tue, 05 Aug 2025 17:45:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujL0H-0000000DMLh-2fhg
+	id 1ujLEY-0000000DOnN-1zGZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 16:59:10 +0000
+	Tue, 05 Aug 2025 17:13:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ACDDC5C656E;
-	Tue,  5 Aug 2025 16:59:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13A10C4CEF6;
-	Tue,  5 Aug 2025 16:59:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B838A44C45;
+	Tue,  5 Aug 2025 17:13:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFFE6C4CEF0;
+	Tue,  5 Aug 2025 17:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754413148;
-	bh=MzHn4PwFNsPUQzIyRmZAIovqpKUpUowJ7E/2uYiGNa8=;
+	s=k20201202; t=1754414033;
+	bh=kFLtP7kLi6TZXaFEe1UXPz9zTqnkNWTqbzGcM1j1sPw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eRXBUwJTBUuDu7ysnWSTbhDmoC2ydPzwS0mRrz1R5+vCmwIS/hnRoOAlvgj5L9CLT
-	 7S84UBIOeuUVMygMLcDycTWnszyvCMly2AscPtmLlQnLsOnnsSrCkGfWfYkpU49D4p
-	 30kaHW5ZxIMrP3smVIob2b73cBGxYg0PGgCJe0jY/Gk6KNrZF24yHEjtCyerYWXwdI
-	 vYtgsGRG2mx/bekg+6CubBNn9Ry5tN5Ig56p1fLqdRUIXKoyjq/8OL9mdR6rLfAQX7
-	 uaY+EO6K+ShrBC/AGz0S9V30xltg94Eq+sCVRCx3mFVKUCZHDKNviX/JnT103TqV0f
-	 GYJCbLlVBxvPw==
-Date: Tue, 5 Aug 2025 09:59:06 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Yao Zi <ziyao@disroot.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	b=mzsjP5ciz19VA8OYXPXGI3ps14D5SxS7bD9pxYQPAycE7Y4pHpSw4SS0UcE7MZLJK
+	 T0nkWr8PsG/9TjOF1GRpxVkvzT7db4zoXaZdRtioihy15x5sVlSB8Bs7VFkS4USG+H
+	 Jh8TXTGLuuhc2eWztbTmwYGT/92FpvmiC7XnpNWVLkRkIATERWrsm+4LumZ0x/SisN
+	 2Gugtnz8V8UuBGzMQgNBJ2r7eA4Qo27++wMMC4E07nPsGl+UN4J0Ds/hvhUs0pb2M1
+	 GPJCs5jNFr05si0U+WdLxZcTfZde5GzbWAjEOalxyRTUAQY34FeGxmnKczRm4z5JzF
+	 8oifLKq6fY5+w==
+Date: Tue, 5 Aug 2025 18:13:47 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Gabriel FERNANDEZ <gabriel.fernandez@foss.st.com>
+Cc: sboyd@kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2 1/3] dt-bindings: net: thead,th1520-gmac: Describe
- APB interface clock
-Message-ID: <aJI4WiigJFoYPXU1@x1>
-References: <20250801091240.46114-1-ziyao@disroot.org>
- <20250801091240.46114-2-ziyao@disroot.org>
- <20250805-portable-jasmine-marmoset-e34026@kuoka>
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 8/9] clk: divider, gate: create regmap-backed copies
+ of gate and divider clocks
+Message-ID: <20250805-slit-scrunch-e19f8afec16d@spud>
+References: <20250623-levitate-nugget-08c9a01f401d@spud>
+ <20250623-spleen-rambling-8bd898f2788e@spud>
+ <f059ef8e-1834-4d21-bb17-8670cf7cd90f@foss.st.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250805-portable-jasmine-marmoset-e34026@kuoka>
+In-Reply-To: <f059ef8e-1834-4d21-bb17-8670cf7cd90f@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_095909_715514_59501203 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20250805_101354_535504_78BF8B42 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +80,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7501828835193955285=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 08:39:59AM +0200, Krzysztof Kozlowski wrote:
-> On Fri, Aug 01, 2025 at 09:12:38AM +0000, Yao Zi wrote:
-> > Besides ones for GMAC core and peripheral registers, the TH1520 GMAC
-> > requires one more clock for configuring APB glue registers. Describe
-> > it in the binding.
-> > 
-> > Fixes: f920ce04c399 ("dt-bindings: net: Add T-HEAD dwmac support")
-> > Signed-off-by: Yao Zi <ziyao@disroot.org>
-> > Tested-by: Drew Fustini <fustini@kernel.org>
-> 
-> You cannoy really test the binding, except part of build process and we
-> do not consider building something equal to testing.
 
-Good point. I've since provided my Reviewed-by: in this v2 thread so the
-Tested-by: should be dropped if there or is another series or when
-applying this v2.
+--===============7501828835193955285==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="M9zeZAJc7XAA2HBY"
+Content-Disposition: inline
 
-Thanks,
-Drew
+
+--M9zeZAJc7XAA2HBY
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Jul 31, 2025 at 01:23:49PM +0200, Gabriel FERNANDEZ wrote:
+>=20
+> On 6/23/25 14:56, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > Implement regmap-backed copies of gate and divider clocks by replacing
+> > the iomem pointer to the clock registers with a regmap and offset
+> > within.
+> >=20
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Hi Conor,
+>=20
+> Excellent patch, thank you! I really needed this and will be using it.
+>=20
+> I would also be interested in having a similar regmap-backed implementati=
+on
+> for the multiplexer clock.=C2=A0 Do you have any plans to work on this as=
+ well?
+> If not, I=E2=80=99d be happy to propose a patch for it, with your agreeme=
+nt.
+
+The only types of clock my driver needed were gate and divider, so those
+were all I focused on. I don't really have a plan to implement more,
+particular given the lack of feedback here means that I don't even know
+if what I have done is what Stephen wants. The rest of your comments
+seem reasonable, and I'll try to implement them in a new version.
+
+--M9zeZAJc7XAA2HBY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaJI7ywAKCRB4tDGHoIJi
+0sR1AP4zQnrLebu8U863VAtOFHm+6M8gEW/WnUp3VMypOqgoIAEA6d9iEeY01BHW
+S8o+uJeKAfF5/WvpbXoU0kZQT2osNwQ=
+=urpw
+-----END PGP SIGNATURE-----
+
+--M9zeZAJc7XAA2HBY--
+
+
+--===============7501828835193955285==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7501828835193955285==--
+
