@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80C49CA0EC1
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 19:40:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9391C87FCB
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 19:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eCFXBbdEFALaVzMZ+dZOhhLIp72T9hGNJOQFREXIrOs=; b=mN9sZIy8/DR684
-	lX6qBzGLBr0PclfOO0y5yQLyM8yZDY21M2FTXPTYIZu3Wz6OG1n7fbo1p/OYAWb3yqzMlnhW1QCH+
-	2z10o8VV7fB5P5St1mJ4CS0HhpN/k3YyjoYWrRM94S8me9RdGiPQNrjKtg+c7I77TDI6540xLDAZN
-	xSkxqNGNtsieN7oViljIHTig2sBv6dMer8/5anEGVgXGDrqCjGQyel3NJGTMZP9UTdxPqDVZr1dDC
-	AlRVBpbrcN4gQP0yq5i3/Fx0K1YQ0nAgVmzDLlGq+w8ONWIfDmhDaSMlY7gLBXVUSH+pYmhVsGp9p
-	2SG0RClOSnoisuobbpgQ==;
+	List-Owner; bh=ZgSEqDta55INLhNcwSyBJ/GWvI8V1FqXC2KOGkCuRPo=; b=RXZy8ddgM3oUhy
+	WvQi5G6ikqEf+2aXToYE6a3lFnaIAoHDxAr7/9fGIMsYRdni08OleH8UddVL0DCmO6Fy5Za1OGU76
+	9tAgXZsZ375AZHW0i4n+bWwm3bOnRJIGes5A5qBaK6WAs/OyyJdmhay6V62NVs4eqkrrP45RBbMBc
+	GAJd3oJNs0XF1JdVOqRg2DujGmyKuIZ5GjJ2ynpwI5p8F3a4/RxYYzLSzwqosHNVgOjyYG36Wh84D
+	lWTJj+OhmP1JFXhsAFnCs1anM7esZomfDjMba9qp/hWmrJx03D5hjTcAri52IpzSXFU/zlXm/HCRz
+	YB4LsW9hZXbpzb7prI2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujNWB-0000000Dgi2-2IHl;
-	Tue, 05 Aug 2025 19:40:15 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1ujNWD-0000000DgkL-1XNJ;
+	Tue, 05 Aug 2025 19:40:17 +0000
+Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujNW8-0000000Dgds-2erz
+	id 1ujNWA-0000000Dgg1-2O1L
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 19:40:13 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7e699d1179cso451810385a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Aug 2025 12:40:12 -0700 (PDT)
+	Tue, 05 Aug 2025 19:40:15 +0000
+Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-7e32cf22fdfso540790185a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Aug 2025 12:40:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1754422812; x=1755027612; darn=lists.infradead.org;
+        d=rivosinc.com; s=google; t=1754422813; x=1755027613; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5NaF/ZBQxTUv12deyQ9gwmEo84+EIUJjfCF9ZC+Wrs8=;
-        b=NsC5NhUn61A4rHLpk8AAuvN+rRWSXSNn87ifbi7QvhQFivJa4qFIrLDtes+nzeEgg3
-         gg8gN5KtO6yoJwfuzstUoRXoZkyokuI0STn0TohxiSwylnHikRGcYAIz2RI6nNYni/vG
-         X8MEzoE1YqZTzjm9s8xw+3SK6E9AubJ8nYUesVtOeSYMBcTyNwzaj+IOnUiR0bn4h9PH
-         k1CXhZZC4OmNMIuTg33ZOZqs1qUp/N5EgtcidS/ACd6p/+0qpfE/Uop/oyILo+/YO6W7
-         uCECPCRxPnA2GctnfsKGMhh7++2zHfLldugoLI+Xwf+Ly0QcKvkfvgqZCU6j7Tn7SFC5
-         Dg6g==
+        bh=sy5rnGanwjtyLCbaD47CPjt7MxkuRZTNweHSGmibXvc=;
+        b=fpSn0M9YYgzDzzk4vpYbinZFo6SDqCSqdbzaHj/GiVs380NnakscxXVyEvP5fsdffM
+         KP6t3D2fDU5JkDwTLb/fqz8HESOi5M3ND0OsE3crG+y1hFc07Fyp//iNK78UetH8Uas8
+         1mwy5cRAd2PZEo0mx0nE/Y/RcLKP4rhuI1+EQtFLV/pYK/un26IJd3UEu0mBbspZJMRT
+         b9XH+NqR9/Cad6gnHGUme0aqhExSmUZY03GcaUe4D1iix9AnDwPJ0bS+y7j7SZXszALq
+         SB17z1KRfGTvzqOs8Dd2a8S63m8bCPX4w4lEJtedAwZ2EnIdsDs5VLzcPCrhPIFGqU/O
+         23/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754422812; x=1755027612;
+        d=1e100.net; s=20230601; t=1754422813; x=1755027613;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5NaF/ZBQxTUv12deyQ9gwmEo84+EIUJjfCF9ZC+Wrs8=;
-        b=HnbGnAZMwmdU8Cwgg29RjXL9Ete01akZr9eRwHwaat0+NPo92w//lbFINEvPwhfnyo
-         BomwQz2aHAOMVF8YjA4oh9jyXX4H0E6Y6fq0myXfX2NnB6jJPUc3IRZwtCbzAf3iGS+E
-         CpkGWMw5oD5MTWUmKXmp7JR7mi1j0kkCNDT1JdT5NivdAo4Y88WkG/WGoRDltov5SzYO
-         GexYEz/xbbXS5+ludrwYdM2Uy2w1R5QrQRZ/3vgFOUMY94mYJk5kvWsOtng2XmZuRWmk
-         XiN3AZC4xw8xz1RlSNXz+rwJn++unmijjylFBlFMjYZFlBbAGINavbiw3q7z2rKqHs5q
-         06kw==
-X-Gm-Message-State: AOJu0Yx/pQOIw6np9XkXrxOU3+Gu+i5k9AFHMljgn/GHNKID15ipf1Ni
-	XLTT9i7LWK9eUBNZAhiHlQ2Jc8UC+6ZGFtxxfbiZssRxCu93xGZqJsNigMc6ROp4QJFPr+M7gVA
-	fuzDj
-X-Gm-Gg: ASbGncuBKh4GjHyKnjnAAfuxmdSLoa4wjfcZ/w6/15i7INTM2+1hmE/f1f6aEEZPFHi
-	EmAUVOjusnMSwXqUucbq+TAHKOtuGxyV9ig5H/Sr0SA2gQzjfM4X1fodivsWsa8Z9a3gCooxjxC
-	l+6fdrxS7epoEH3LFzCe2f8sjFsGSCkYsAcLOvhLgyl9K/g7BHIPwDhK/wEnvyQHB2DmS5Rp24f
-	dlt76+9nm1WuORWxPiEH+D9+cZL21MU7QV3IaPWGIfCuXEFLy5NvV8NcDXeU0IXTckpMiu5PE1b
-	aN/YV0kZX5VBBy0JEdjK9RiP/hecJNQMcSPGN073pX+ITEqWZl2+UN5fU6U2CQxmbJ+H7EjfKPK
-	1mNfHaPyqlfJjMcR+v018oUE/fJG/oVSrHIzSflbGCw0xtbBp+jLhpXyS6f9PlkwgYH5tdbS3KN
-	p52wcD7A==
-X-Google-Smtp-Source: AGHT+IEiw5qn5MBLjumC4Tao3Un++oIx9bSGZnVNfPEZCF9kraUYTZzvHsq8Xt6WwLTbl66stoXsIA==
-X-Received: by 2002:a05:620a:4410:b0:7e6:2f06:aca5 with SMTP id af79cd13be357-7e814ef34d2mr82086785a.61.1754422811237;
-        Tue, 05 Aug 2025 12:40:11 -0700 (PDT)
+        bh=sy5rnGanwjtyLCbaD47CPjt7MxkuRZTNweHSGmibXvc=;
+        b=Olok44dJ4cwc2WQZZX9K0vXj3lnrpwpcR8kg2vbkbW5OvpUw8CgYKWDcq8h/3d0F5v
+         xCmoE2iU3LqWckT9KdbGK/ZTZO5c7duSPHUoqrII9aoBKhPCGdXscsNmXRuws2yBtLl0
+         vTDdfBfiVrf028nzfEO3i0gSPCMNSws951/Iz3u31CuRpfvLlO17hDpqjGgYv1CGjcOU
+         cjTqskWz2jeaA9u+w+xwm1y6d957exKJsHQnwiqCF8Uv69RGGyOCYWDnSkLZwcrziB35
+         dcl7lK+ICKcT0KPAUpLATkIgFcG8O/+NhibjMHk6jK3zaBTidFWX1U5vwc/35qeE+icz
+         fXcw==
+X-Gm-Message-State: AOJu0YyjfIyF0TBPyygTBowh+TO1M3LUcF7XIKVdtOCns4qOVjejzSB7
+	605eBEMUxvdRENldwkV42yTUiLguVnzjBcNgK3f2YFjoZ4UCfdzbHWPk45Sry3sI7aPRXtImmGM
+	BaA35
+X-Gm-Gg: ASbGncvYSETbmMblkEtphl2ymtG0dMstvG7ls4xeIBzvXHlX8+QUqPp94yGAc5sT5bD
+	Gt+QIBf6yZEuDMYaqbcNSbVgF6Yl2G1b2ue/KLRN7eiNOgZBxYVoStVNSAo5cuy4/v1ffY+A5b8
+	OQ/JhKWcF0qjLfByaENRk7X6e2qNiYsvsYfjHKKhncKGtgJ2hfQqoLz8c3n+zRQcXaMFrLl+jxJ
+	xxD1Y3je+n4u1RWnobpbn2LqKb4xThuatox4niCZZotB+W4olx9flXBcHqPs8yyox0Hfqqja9Cu
+	cOVewU5vIT3yu0FAq4RCCPjA8Z7PcD+8GeYKuXoYyDJNVLcyuncRmPO2BnKDJ4sUAEe1hqbORoV
+	YMFl7vFg0dLS4yAPSbORmj8qF7FZ2BpjWQU9YzhK7tN1lNbMQHr75ENqWQY1IZ1mHGd+STE9LhJ
+	4SkhFv0g==
+X-Google-Smtp-Source: AGHT+IG6XA8VhHC/9Z5t7TyajoGN/5DDGuOO01JZMGKppPhvnVQsp/F8STKyDdgm3AlZG+FdD4n6KA==
+X-Received: by 2002:a05:620a:1707:b0:7e8:15b2:3f20 with SMTP id af79cd13be357-7e815b24106mr5235285a.1.1754422813351;
+        Tue, 05 Aug 2025 12:40:13 -0700 (PDT)
 Received: from jesse-lt.jtp-bos.lab (pool-108-26-215-125.bstnma.fios.verizon.net. [108.26.215.125])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e67f7064b0sm717855685a.54.2025.08.05.12.40.09
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e67f7064b0sm717855685a.54.2025.08.05.12.40.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Aug 2025 12:40:10 -0700 (PDT)
+        Tue, 05 Aug 2025 12:40:13 -0700 (PDT)
 From: Jesse Taube <jesse@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -124,16 +124,16 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-mm@kvack.org,
 	linux-perf-users@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH 6/8] riscv: ptrace: Add hw breakpoint support
-Date: Tue,  5 Aug 2025 12:39:53 -0700
-Message-ID: <20250805193955.798277-7-jesse@rivosinc.com>
+Subject: [PATCH 7/8] riscv: ptrace: Add hw breakpoint regset
+Date: Tue,  5 Aug 2025 12:39:54 -0700
+Message-ID: <20250805193955.798277-8-jesse@rivosinc.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250805193955.798277-1-jesse@rivosinc.com>
 References: <20250805193955.798277-1-jesse@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_124012_669323_60788135 
-X-CRM114-Status: GOOD (  25.85  )
+X-CRM114-CacheID: sfid-20250805_124014_612206_09591C99 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,269 +150,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add ability to setup hw breakpoints to ptrace. Call defines a new
-structure of __riscv_hwdebug_state which will be passed to ptrace.
+Add ability to setup hw breakpoints using REGSET use the
+__riscv_hwdebug_state structure to configure breakpoints.
 
 Signed-off-by: Jesse Taube <jesse@rivosinc.com>
 ---
 RFC -> V1:
- - Add struct __riscv_hwdebug_state for ptrace_hbp_set/get
- - Break out ptrace_hbp_set/get so regset can use them
- - Check for NULL instead of IS_ERR_OR_NULL
- - Move	ptrace_get/sethbpregs above user_regset
+ - New commit
 ---
- arch/riscv/include/asm/processor.h   |   4 +
- arch/riscv/include/uapi/asm/ptrace.h |   9 +++
- arch/riscv/kernel/hw_breakpoint.c    |  14 +++-
- arch/riscv/kernel/process.c          |   4 +
- arch/riscv/kernel/ptrace.c           | 110 +++++++++++++++++++++++++++
- 5 files changed, 140 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/ptrace.c     | 59 ++++++++++++++++++++++++++++++++++
+ include/uapi/linux/elf.h       |  2 ++
+ tools/include/uapi/linux/elf.h |  1 +
+ 3 files changed, 62 insertions(+)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 5f56eb9d114a..488d956a951f 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -12,6 +12,7 @@
- 
- #include <vdso/processor.h>
- 
-+#include <asm/hw_breakpoint.h>
- #include <asm/ptrace.h>
- 
- #define arch_get_mmap_end(addr, len, flags)			\
-@@ -108,6 +109,9 @@ struct thread_struct {
- 	struct __riscv_v_ext_state vstate;
- 	unsigned long align_ctl;
- 	struct __riscv_v_ext_state kernel_vstate;
-+#ifdef CONFIG_HAVE_HW_BREAKPOINT
-+	struct perf_event *ptrace_bps[RV_MAX_TRIGGERS];
-+#endif
- #ifdef CONFIG_SMP
- 	/* Flush the icache on migration */
- 	bool force_icache_flush;
-diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
-index a38268b19c3d..20d1aa595cbd 100644
---- a/arch/riscv/include/uapi/asm/ptrace.h
-+++ b/arch/riscv/include/uapi/asm/ptrace.h
-@@ -14,6 +14,8 @@
- 
- #define PTRACE_GETFDPIC_EXEC	0
- #define PTRACE_GETFDPIC_INTERP	1
-+#define PTRACE_GETHBPREGS	2
-+#define PTRACE_SETHBPREGS	3
- 
- /*
-  * User-mode register state for core dumps, ptrace, sigcontext
-@@ -120,6 +122,13 @@ struct __riscv_v_regset_state {
- 	char vreg[];
- };
- 
-+struct __riscv_hwdebug_state {
-+	unsigned long addr;
-+	unsigned long type;
-+	unsigned long len;
-+	unsigned long ctrl;
-+} __packed;
-+
- /*
-  * According to spec: The number of bits in a single vector register,
-  * VLEN >= ELEN, which must be a power of 2, and must be no greater than
-diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
-index 1e70ef9e6867..b1c9c40f5fde 100644
---- a/arch/riscv/kernel/hw_breakpoint.c
-+++ b/arch/riscv/kernel/hw_breakpoint.c
-@@ -721,7 +721,19 @@ void arch_uninstall_hw_breakpoint(struct perf_event *event)
- 		pr_warn("%s: Failed to uninstall trigger %d. error: %ld\n", __func__, i, ret.error);
- }
- 
--void flush_ptrace_hw_breakpoint(struct task_struct *tsk) { }
-+/*
-+ * Release the user breakpoints used by ptrace
-+ */
-+void flush_ptrace_hw_breakpoint(struct task_struct *tsk)
-+{
-+	int i;
-+	struct thread_struct *t = &tsk->thread;
-+
-+	for (i = 0; i < dbtr_total_num; i++) {
-+		unregister_hw_breakpoint(t->ptrace_bps[i]);
-+		t->ptrace_bps[i] = NULL;
-+	}
-+}
- 
- void hw_breakpoint_pmu_read(struct perf_event *bp) { }
- 
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 15d8f75902f8..9cf07ecfb523 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -9,6 +9,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/cpu.h>
-+#include <linux/hw_breakpoint.h>
- #include <linux/kernel.h>
- #include <linux/sched.h>
- #include <linux/sched/debug.h>
-@@ -164,6 +165,7 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
- 
- void flush_thread(void)
- {
-+	flush_ptrace_hw_breakpoint(current);
- #ifdef CONFIG_FPU
- 	/*
- 	 * Reset FPU state and context
-@@ -218,6 +220,8 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 		set_bit(MM_CONTEXT_LOCK_PMLEN, &p->mm->context.flags);
- 
- 	memset(&p->thread.s, 0, sizeof(p->thread.s));
-+	if (IS_ENABLED(CONFIG_HAVE_HW_BREAKPOINT))
-+		memset(p->thread.ptrace_bps, 0, sizeof(p->thread.ptrace_bps));
- 
- 	/* p->thread holds context to be restored by __switch_to() */
- 	if (unlikely(args->fn)) {
 diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index ea67e9fb7a58..e097e6a61910 100644
+index e097e6a61910..fbd0097ec168 100644
 --- a/arch/riscv/kernel/ptrace.c
 +++ b/arch/riscv/kernel/ptrace.c
-@@ -9,11 +9,13 @@
+@@ -33,6 +33,9 @@ enum riscv_regset {
+ #ifdef CONFIG_RISCV_ISA_SUPM
+ 	REGSET_TAGGED_ADDR_CTRL,
+ #endif
++#ifdef CONFIG_HAVE_HW_BREAKPOINT
++	REGSET_HW_BREAK
++#endif
+ };
  
- #include <asm/vector.h>
- #include <asm/ptrace.h>
-+#include <asm/hw_breakpoint.h>
- #include <asm/syscall.h>
- #include <asm/thread_info.h>
- #include <asm/switch_to.h>
- #include <linux/audit.h>
- #include <linux/compat.h>
-+#include <linux/hw_breakpoint.h>
- #include <linux/ptrace.h>
- #include <linux/elf.h>
- #include <linux/regset.h>
-@@ -184,6 +186,104 @@ static int tagged_addr_ctrl_set(struct task_struct *target,
+ static int riscv_gpr_get(struct task_struct *target,
+@@ -280,7 +283,53 @@ static long ptrace_sethbpregs(struct task_struct *child, unsigned long idx,
+ 		return -EFAULT;
+ 
+ 	return ptrace_hbp_set(child, idx, &state);
++}
+ 
++static int hw_break_set(struct task_struct *target,
++			const struct user_regset *regset,
++			unsigned int pos, unsigned int count,
++			const void *kbuf, const void __user *ubuf)
++{
++	struct __riscv_hwdebug_state state;
++	int ret, idx, offset, limit;
++
++	idx = offset = 0;
++	limit = regset->n * regset->size;
++	while (count && offset < limit) {
++		if (count < sizeof(state))
++			return -EINVAL;
++
++		ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &state,
++					 offset, offset + sizeof(state));
++		if (ret)
++			return ret;
++		ret = ptrace_hbp_set(target, idx, &state);
++		if (ret)
++			return ret;
++		offset += sizeof(state);
++		idx++;
++	}
++
++	return 0;
++}
++
++static int hw_break_get(struct task_struct *target,
++			const struct user_regset *regset,
++			struct membuf to)
++{
++	int ret, idx = 0;
++	struct __riscv_hwdebug_state state;
++
++	while (to.left) {
++		ret = ptrace_hbp_get(target, idx, &state);
++		if (ret)
++			return ret;
++
++		membuf_write(&to, &state, sizeof(state));
++		idx++;
++	}
++
++	return 0;
  }
  #endif
  
+@@ -324,6 +373,16 @@ static const struct user_regset riscv_user_regset[] = {
+ 		.set = tagged_addr_ctrl_set,
+ 	},
+ #endif
 +#ifdef CONFIG_HAVE_HW_BREAKPOINT
-+static void ptrace_hbptriggered(struct perf_event *bp,
-+				struct perf_sample_data *data,
-+				struct pt_regs *regs)
-+{
-+	struct arch_hw_breakpoint *bkpt = counter_arch_bp(bp);
-+	int num = 0;
-+
-+	force_sig_ptrace_errno_trap(num, (void __user *)bkpt->address);
-+}
-+
-+static int ptrace_hbp_get(struct task_struct *child, unsigned long idx,
-+			  struct __riscv_hwdebug_state *state)
-+{
-+	struct perf_event *bp;
-+
-+	if (idx >= RV_MAX_TRIGGERS)
-+		return -EINVAL;
-+
-+	bp = child->thread.ptrace_bps[idx];
-+
-+	if (!bp)
-+		return -ENOENT;
-+
-+	state->addr = bp->attr.bp_addr;
-+	state->len = bp->attr.bp_len;
-+	state->type = bp->attr.bp_type;
-+	state->ctrl = bp->attr.disabled == 1;
-+
-+	return 0;
-+}
-+
-+static int ptrace_hbp_set(struct task_struct *child, unsigned long idx,
-+			  struct __riscv_hwdebug_state *state)
-+{
-+	struct perf_event *bp;
-+	struct perf_event_attr attr;
-+
-+	if (idx >= RV_MAX_TRIGGERS)
-+		return -EINVAL;
-+
-+	bp = child->thread.ptrace_bps[idx];
-+	if (bp)
-+		attr = bp->attr;
-+	else
-+		ptrace_breakpoint_init(&attr);
-+
-+	attr.bp_addr = state->addr;
-+	attr.bp_len = state->len;
-+	attr.bp_type = state->type;
-+	attr.disabled = state->ctrl == 1;
-+
-+	if (!bp) {
-+		bp = register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL,
-+					   child);
-+		if (IS_ERR(bp))
-+			return PTR_ERR(bp);
-+
-+		child->thread.ptrace_bps[idx] = bp;
-+		return 0;
-+	}
-+
-+	return modify_user_hw_breakpoint(bp, &attr);
-+}
-+
-+/*
-+ * idx selects the breakpoint index.
-+ * Both PTRACE_GETHBPREGS and PTRACE_SETHBPREGS transfer __riscv_hwdebug_state
-+ */
-+
-+static long ptrace_gethbpregs(struct task_struct *child, unsigned long idx,
-+			      unsigned long __user *datap)
-+{
-+	struct __riscv_hwdebug_state state;
-+	long ret;
-+
-+	ret = ptrace_hbp_get(child, idx, &state);
-+	if (ret)
-+		return ret;
-+	if (copy_to_user(datap, &state, sizeof(state)))
-+		return -EFAULT;
-+
-+	return 0;
-+}
-+
-+static long ptrace_sethbpregs(struct task_struct *child, unsigned long idx,
-+			      unsigned long __user *datap)
-+{
-+	struct __riscv_hwdebug_state state;
-+
-+	if (copy_from_user(&state, datap, sizeof(state)))
-+		return -EFAULT;
-+
-+	return ptrace_hbp_set(child, idx, &state);
-+
-+}
++	[REGSET_HW_BREAK] = {
++		.core_note_type = NT_RISCV_HW_BREAK,
++		.n = sizeof(struct __riscv_hwdebug_state) / sizeof(unsigned long),
++		.size = sizeof(unsigned long),
++		.align = sizeof(unsigned long),
++		.regset_get = hw_break_get,
++		.set = hw_break_set,
++	},
 +#endif
-+
- static const struct user_regset riscv_user_regset[] = {
- 	[REGSET_X] = {
- 		.core_note_type = NT_PRSTATUS,
-@@ -340,8 +440,18 @@ long arch_ptrace(struct task_struct *child, long request,
- 		 unsigned long addr, unsigned long data)
- {
- 	long ret = -EIO;
-+	unsigned long __user *datap = (unsigned long __user *) data;
+ };
  
- 	switch (request) {
-+#ifdef CONFIG_HAVE_HW_BREAKPOINT
-+	case PTRACE_GETHBPREGS:
-+		ret = ptrace_gethbpregs(child, addr, datap);
-+		break;
-+
-+	case PTRACE_SETHBPREGS:
-+		ret = ptrace_sethbpregs(child, addr, datap);
-+		break;
-+#endif
- 	default:
- 		ret = ptrace_request(child, request, addr, data);
- 		break;
+ static const struct user_regset_view riscv_user_native_view = {
+diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
+index 819ded2d39de..7a32073e0d68 100644
+--- a/include/uapi/linux/elf.h
++++ b/include/uapi/linux/elf.h
+@@ -545,6 +545,8 @@ typedef struct elf64_shdr {
+ #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
+ #define NN_RISCV_TAGGED_ADDR_CTRL "LINUX"
+ #define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
++#define NN_RISCV_HW_BREAK	"LINUX"
++#define NT_RISCV_HW_BREAK	0x903	/* RISC-V hardware breakpoint registers */
+ #define NN_LOONGARCH_CPUCFG	"LINUX"
+ #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
+ #define NN_LOONGARCH_CSR	"LINUX"
+diff --git a/tools/include/uapi/linux/elf.h b/tools/include/uapi/linux/elf.h
+index 5834b83d7f9a..b5f35df1de7a 100644
+--- a/tools/include/uapi/linux/elf.h
++++ b/tools/include/uapi/linux/elf.h
+@@ -460,6 +460,7 @@ typedef struct elf64_shdr {
+ #define NT_RISCV_CSR	0x900		/* RISC-V Control and Status Registers */
+ #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
+ #define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
++#define NT_RISCV_HW_BREAK	0x903	/* RISC-V hardware breakpoint registers */
+ #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
+ #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
+ #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
 -- 
 2.43.0
 
