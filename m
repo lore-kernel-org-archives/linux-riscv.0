@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF68C87FD1
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 23:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD3CC87FCB
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 23:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AS0/ikUMyeg+x80IA93nM4nxBqd7QGdbKCXoCB7aR7M=; b=srhNj7a0p5tJpw
-	pnLlxUXS/scqo9Iqt3MOkJC6RVrEOMQcbT/RqD7KcTvcgAqzcE1lUKJSfnUERmxGhms86txEz8k4N
-	thssm3UWBxkt2glASe8IDyFCm6CIfwQE3LLN+lu1gUan8AAbVCAkhXPk7wF8peTjUS9TBL6wJ3wIf
-	AoU95IBp46CNcW+FoHw0ZVal51GneohqpT9lkholaWy7JXoYhnP5oxYDs63yGWbi/0mCB+5jeEt7P
-	hnWzq7DeHaunD+Bveupg9f+gSGKVL21FFDRxlccDh95flYuD3HtmDPz37asSyAyG6teiC23M8MbUl
-	xx10M068uieoO1Fx6bZw==;
+	List-Owner; bh=EpIbmdgHFVCyUlb6q/fEdD8Ft87PcAoFdUxcRIgQQr4=; b=kErNvenS2l7bWq
+	qmVDugXpYsXzfbLHUn1org7v3/XZz+vX/ZAIVwkVaCSJlzgY/bAANfzHCUmRNdoYAAziA/F/QiiLq
+	0zGlsGrmB0S/wgEaCQnX8l1AFKEt/u/VaAKnMav1/dg4q4+5S5B17YG/xexKcuRen7cDko+XFA3gR
+	G74/iEnN3xir9PSRzZxjFPGnATfmiu/GwD5jRXuIp3FioG0fyU5r6aq3EVwIOXHw5XAwFu9PSsMds
+	al4gFN1Bl3GmVOdbx54LpKDQzdSqxKEc0VdcHUPTkBQ8/XNpH7yzThZGPUpXLutvT6HEzsI84rPl0
+	eI1R9mQhEhyAnxhQBK0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujRK9-0000000E0bY-0tly;
-	Tue, 05 Aug 2025 23:44:05 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1ujRMf-0000000E0ov-0Hmw;
+	Tue, 05 Aug 2025 23:46:41 +0000
+Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujRK5-0000000E0a0-2DVD
+	id 1ujRMc-0000000E0oa-3P4t
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 23:44:03 +0000
+	Tue, 05 Aug 2025 23:46:40 +0000
 Received: from localhost (unknown [116.232.147.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id DAEC43406F2;
-	Tue, 05 Aug 2025 23:43:59 +0000 (UTC)
-Date: Wed, 6 Aug 2025 07:43:55 +0800
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 7517F34072E;
+	Tue, 05 Aug 2025 23:46:34 +0000 (UTC)
+Date: Wed, 6 Aug 2025 07:46:30 +0800
 From: Yixun Lan <dlan@gentoo.org>
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, elder@riscstar.com,
-	heylenay@4d2.org, inochiama@outlook.com, krzk+dt@kernel.org,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, mturquette@baylibre.com,
-	robh@kernel.org, sboyd@kernel.org, spacemit@lists.linux.dev,
-	ziyao@disroot.org
-Subject: Re: [PATCH v4 2/2] clk: spacemit: fix sspax_clk
-Message-ID: <20250805234355-GYA958398@gentoo>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Alex Elder <elder@riscstar.com>,
+	Haylen Chu <heylenay@4d2.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Yao Zi <ziyao@disroot.org>
+Subject: Re: [PATCH v4 0/2] clk: spacemit: fix sspax_clk
+Message-ID: <20250805234630-GYC937575@gentoo>
 References: <20250805-k1-clk-i2s-v4-0-038181284dd4@linux.spacemit.com>
- <E801E7AF425E08C7+20250805131646.2216375-1-troy.mitchell@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <E801E7AF425E08C7+20250805131646.2216375-1-troy.mitchell@linux.spacemit.com>
+In-Reply-To: <20250805-k1-clk-i2s-v4-0-038181284dd4@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_164401_594586_B851562F 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20250805_164638_890218_2E085685 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,88 +73,67 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Hi Troy,
-  to make the title more clear and explicit, how about:
 
-"clk: spacemit: introduce SSPAx_I2S_BCLK clock for SSPA"
-
-On 21:16 Tue 05 Aug     , Troy Mitchell wrote:
-> Hardware Requirement:
-> When FNCLKSEL in APBC_SSPAX_CLK_RST is set to 7 (3'b111),
-..
-> BIT3 must be set to 1 for the SSPAx parent clock to be I2S_BCLK.
+On 21:01 Tue 05 Aug     , Troy Mitchell wrote:
+> In the SpacemiT public document, when the FNCLKSEL field of
+> the APBC_SSPAX_CLK_RST register is 7 (3'b111),
+> which is a reserved value. And BIT3 of the same register is
+> a reserved bit.
 > 
-> This patch introduces SSPAx_I2S_BCLK as a virtual gate to enable BIT3.
+> But the documentation is incorrect. In reality, the value 7 (3'b111)
+> of FNCLKSEL is not reserved. Instead, it indicates that i2s_bclk is
+> selected as the parent clock. Similarly, bit 3 is not reserved either.
+> When FNCLKSEL is set to 7, bit 3 determines whether i2s_bclk is actually
+> enabled as the parent clock.
 > 
-slightly improve the wording, and check if it's accurate:
+> In all other cases (i.e., when FNCLKSEL is not 7), bit 3 has no effect.
+> 
+> Importantly, whenever FNCLKSEL is set to 7, bit 3 must also be set to 1,
+> otherwise the selection of i2s_bclk becomes invalid.
+> 
+> Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
+Fixes tag get lost when applying this series, please move to patch [2/2]
+or apply to both of the two patches? (I think it doesn't hurt)
 
-BIT[3] of this register must be set if need to select i2s_bclk as
-SSPA parent clock, to solve this, introduces a new SSPAx_I2S_BCLK
-clock as the virtual gate clock.
+also, please rebase this series once 6.17-rc1 tagged as currently patch [1/2]
+can't be applied cleanly
 
-> Suggested-by: Yao Zi <ziyao@disroot.org>
-> Reviewed-by: Haylen Chu <heylenay@4d2.org>
 > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > ---
->  drivers/clk/spacemit/ccu-k1.c | 29 +++++++++++++++++++++++++----
->  1 file changed, 25 insertions(+), 4 deletions(-)
+> I sent with a wrong email so resend.
+> ---
+> Changes in v4:
+>   - add comments
+>   - add tags
+>   - Link to v3: https://lore.kernel.org/r/20250731-k1-clk-i2s-v3-0-2f655ddb0c6f@linux.spacemit.com
 > 
-> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-> index cdde37a05235..4a91d28da2fb 100644
-> --- a/drivers/clk/spacemit/ccu-k1.c
-> +++ b/drivers/clk/spacemit/ccu-k1.c
-> @@ -349,7 +349,14 @@ CCU_GATE_DEFINE(aib_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_AIB_CLK_RST, BIT(1),
->  
->  CCU_GATE_DEFINE(onewire_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_ONEWIRE_CLK_RST, BIT(1), 0);
->  
-> -static const struct clk_parent_data sspa_parents[] = {
-> +/*
-> + * When i2s_bclk is selected as the parent clock of sspa,
-> + * the hardware requires bit3 to be set
-> + */
-> +CCU_GATE_DEFINE(sspa0_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA0_CLK_RST, BIT(3), 0);
-> +CCU_GATE_DEFINE(sspa1_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA1_CLK_RST, BIT(3), 0);
-> +
-> +static const struct clk_parent_data sspa0_parents[] = {
->  	CCU_PARENT_HW(pll1_d384_6p4),
->  	CCU_PARENT_HW(pll1_d192_12p8),
->  	CCU_PARENT_HW(pll1_d96_25p6),
-> @@ -357,10 +364,22 @@ static const struct clk_parent_data sspa_parents[] = {
->  	CCU_PARENT_HW(pll1_d768_3p2),
->  	CCU_PARENT_HW(pll1_d1536_1p6),
->  	CCU_PARENT_HW(pll1_d3072_0p8),
-> -	CCU_PARENT_HW(i2s_bclk),
-> +	CCU_PARENT_HW(sspa0_i2s_bclk),
->  };
-> -CCU_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
-> -CCU_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-> +CCU_MUX_GATE_DEFINE(sspa0_clk, sspa0_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
-> +
-> +static const struct clk_parent_data sspa1_parents[] = {
-> +	CCU_PARENT_HW(pll1_d384_6p4),
-> +	CCU_PARENT_HW(pll1_d192_12p8),
-> +	CCU_PARENT_HW(pll1_d96_25p6),
-> +	CCU_PARENT_HW(pll1_d48_51p2),
-> +	CCU_PARENT_HW(pll1_d768_3p2),
-> +	CCU_PARENT_HW(pll1_d1536_1p6),
-> +	CCU_PARENT_HW(pll1_d3072_0p8),
-> +	CCU_PARENT_HW(sspa1_i2s_bclk),
-> +};
-> +CCU_MUX_GATE_DEFINE(sspa1_clk, sspa1_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-> +
->  CCU_GATE_DEFINE(dro_clk, CCU_PARENT_HW(apb_clk), APBC_DRO_CLK_RST, BIT(1), 0);
->  CCU_GATE_DEFINE(ir_clk, CCU_PARENT_HW(apb_clk), APBC_IR_CLK_RST, BIT(1), 0);
->  CCU_GATE_DEFINE(tsen_clk, CCU_PARENT_HW(apb_clk), APBC_TSEN_CLK_RST, BIT(1), 0);
-> @@ -965,6 +984,8 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
->  	[CLK_SSPA1_BUS]		= &sspa1_bus_clk.common.hw,
->  	[CLK_TSEN_BUS]		= &tsen_bus_clk.common.hw,
->  	[CLK_IPC_AP2AUD_BUS]	= &ipc_ap2aud_bus_clk.common.hw,
-> +	[CLK_SSPA0_I2S_BCLK]	= &sspa0_i2s_bclk.common.hw,
-> +	[CLK_SSPA1_I2S_BCLK]	= &sspa1_i2s_bclk.common.hw,
->  };
->  
->  static const struct spacemit_ccu_data k1_ccu_apbc_data = {
+> Changes in v3:
+>   - Fixing ABI-breaking behavior
+>   - Modify commit msgs
+>   - Link to v2: https://lore.kernel.org/r/20250722-k1-clk-i2s-v2-0-2f8edfe3dab4@linux.spacemit.com
+> 
+> Changes in v2:
+>   - Use virtual gate instead of new function for sspa
+>   - Add Suggested-by tag: Yao Zi
+>   - Add Fixes tag
+>   - Link to v1: https://lore.kernel.org/all/20250718-k1-clk-i2s-v1-1-e92c10fd0f60@linux.spacemit.com/
+> 
+> ---
+> Troy Mitchell (2):
+>       dt-bindings: clock: spacemit: CLK_SSPA_I2S_BCLK for SSPA
+>       clk: spacemit: fix sspax_clk
+> 
+>  drivers/clk/spacemit/ccu-k1.c                  | 29 ++++++++++++++++++++++----
+>  include/dt-bindings/clock/spacemit,k1-syscon.h |  2 ++
+>  2 files changed, 27 insertions(+), 4 deletions(-)
+> ---
+> base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
+> change-id: 20250717-k1-clk-i2s-e4272f1f915b
+> 
+> Best regards,
 > -- 
-> 2.50.0
+> Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> 
 > 
 
 -- 
