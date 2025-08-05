@@ -4,52 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E06FC87FCB
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 22:42:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF68C87FD1
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Aug 2025 23:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qWmaoqvnvSw7XlHMQZ0fEmwbzxtgzPLlMZZRa/BReM4=; b=0OodL7tJaXGKkm
-	TpYmOcu5twkMwuQ1icsBLtMULYjnc2JyrLXQeeftVMTbN+EZ24mh9iggvUqjy4FriyfERK/6sQ08S
-	4cxV4wJDQn6k3GjNuXCBfDuGRgXNx5JkOJ45blOGyuUfYPPDbwfLKjnACXiPaeEypLV70WK6FDOAv
-	RY8Haxm58MWeV+0Wo32FFS+XJM8jMBIdCeice0yub4l4awMy9EgtU187/qdMQ6QeeMuTsZ50hhWVc
-	DsG3BK/aN65bZ0XVHcgoIhowZhlT0CDRndWEhLKOBovMgC/cn6KDTAEbnbhRBR7bWSovjJoMmzzHG
-	DfH1oWhMI/ZetO27tRxg==;
+	List-Owner; bh=AS0/ikUMyeg+x80IA93nM4nxBqd7QGdbKCXoCB7aR7M=; b=srhNj7a0p5tJpw
+	pnLlxUXS/scqo9Iqt3MOkJC6RVrEOMQcbT/RqD7KcTvcgAqzcE1lUKJSfnUERmxGhms86txEz8k4N
+	thssm3UWBxkt2glASe8IDyFCm6CIfwQE3LLN+lu1gUan8AAbVCAkhXPk7wF8peTjUS9TBL6wJ3wIf
+	AoU95IBp46CNcW+FoHw0ZVal51GneohqpT9lkholaWy7JXoYhnP5oxYDs63yGWbi/0mCB+5jeEt7P
+	hnWzq7DeHaunD+Bveupg9f+gSGKVL21FFDRxlccDh95flYuD3HtmDPz37asSyAyG6teiC23M8MbUl
+	xx10M068uieoO1Fx6bZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujQM7-0000000Dve2-06sh;
-	Tue, 05 Aug 2025 22:42:03 +0000
-Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1ujRK9-0000000E0bY-0tly;
+	Tue, 05 Aug 2025 23:44:05 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujQM5-0000000Dvde-11zo
+	id 1ujRK5-0000000E0a0-2DVD
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Aug 2025 22:42:02 +0000
+	Tue, 05 Aug 2025 23:44:03 +0000
 Received: from localhost (unknown [116.232.147.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id CFE16335DB1;
-	Tue, 05 Aug 2025 22:41:58 +0000 (UTC)
-Date: Wed, 6 Aug 2025 06:41:49 +0800
+	by smtp.gentoo.org (Postfix) with ESMTPSA id DAEC43406F2;
+	Tue, 05 Aug 2025 23:43:59 +0000 (UTC)
+Date: Wed, 6 Aug 2025 07:43:55 +0800
 From: Yixun Lan <dlan@gentoo.org>
-To: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-Cc: linus.walleij@linaro.org, skhan@linuxfoundation.org,
-	linux-kernel-mentees@lists.linux.dev, linux-gpio@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pinctrl: spacemit: remove extra line in debug output
-Message-ID: <20250805224149-GYA950625@gentoo>
-References: <20250805150701.129113-1-hendrik.hamerlinck@hammernet.be>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, elder@riscstar.com,
+	heylenay@4d2.org, inochiama@outlook.com, krzk+dt@kernel.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, mturquette@baylibre.com,
+	robh@kernel.org, sboyd@kernel.org, spacemit@lists.linux.dev,
+	ziyao@disroot.org
+Subject: Re: [PATCH v4 2/2] clk: spacemit: fix sspax_clk
+Message-ID: <20250805234355-GYA958398@gentoo>
+References: <20250805-k1-clk-i2s-v4-0-038181284dd4@linux.spacemit.com>
+ <E801E7AF425E08C7+20250805131646.2216375-1-troy.mitchell@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250805150701.129113-1-hendrik.hamerlinck@hammernet.be>
+In-Reply-To: <E801E7AF425E08C7+20250805131646.2216375-1-troy.mitchell@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_154201_320014_A2EE0259 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20250805_164401_594586_B851562F 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,47 +69,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Hendrik, 
-On 17:07 Tue 05 Aug     , Hendrik Hamerlinck wrote:
-> The debug output for spacemit_pinconf_dbg_show() prints an extra newline
-> at the end. This is redundant as pinconf_pins_show() in pinconf.c already
-> adds a newline in its for loop.
+Hi Troy,
+  to make the title more clear and explicit, how about:
+
+"clk: spacemit: introduce SSPAx_I2S_BCLK clock for SSPA"
+
+On 21:16 Tue 05 Aug     , Troy Mitchell wrote:
+> Hardware Requirement:
+> When FNCLKSEL in APBC_SSPAX_CLK_RST is set to 7 (3'b111),
+..
+> BIT3 must be set to 1 for the SSPAx parent clock to be I2S_BCLK.
 > 
-> Remove the newline to avoid the extra line in the output.
+> This patch introduces SSPAx_I2S_BCLK as a virtual gate to enable BIT3.
 > 
-> Example current output:
-> $ cat /sys/kernel/debug/pinctrl/d401e000.pinctrl/pinconf-pins
-> Pin config settings per pin
-> Format: pin (name): configs
-> pin 0 (GPIO_00): , bias pull disabled, io type (Fixed/1V8), drive strength (32 mA), register (0x1041)
-> 
-> pin 1 (GPIO_01): slew rate (0x0), bias pull disabled, io type (Fixed/1V8), drive strength (32 mA), register (0x1041)
-> 
-> pin 2 (GPIO_02): slew rate (0x0), bias pull disabled, io type (Fixed/1V8), drive strength (32 mA), register (0x1041)
-> 
-> ...
-> 
-> Signed-off-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-Reviewed-by: Yixun Lan <dlan@gentoo.org>
+slightly improve the wording, and check if it's accurate:
+
+BIT[3] of this register must be set if need to select i2s_bclk as
+SSPA parent clock, to solve this, introduces a new SSPAx_I2S_BCLK
+clock as the virtual gate clock.
+
+> Suggested-by: Yao Zi <ziyao@disroot.org>
+> Reviewed-by: Haylen Chu <heylenay@4d2.org>
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > ---
->  drivers/pinctrl/spacemit/pinctrl-k1.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/clk/spacemit/ccu-k1.c | 29 +++++++++++++++++++++++++----
+>  1 file changed, 25 insertions(+), 4 deletions(-)
 > 
-> diff --git a/drivers/pinctrl/spacemit/pinctrl-k1.c b/drivers/pinctrl/spacemit/pinctrl-k1.c
-> index 9996b1c4a07e..fb361f2acb54 100644
-> --- a/drivers/pinctrl/spacemit/pinctrl-k1.c
-> +++ b/drivers/pinctrl/spacemit/pinctrl-k1.c
-> @@ -707,7 +707,7 @@ static void spacemit_pinconf_dbg_show(struct pinctrl_dev *pctldev,
->  			   spacemit_get_drive_strength_mA(IO_TYPE_1V8, tmp),
->  			   spacemit_get_drive_strength_mA(IO_TYPE_3V3, tmp));
+> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+> index cdde37a05235..4a91d28da2fb 100644
+> --- a/drivers/clk/spacemit/ccu-k1.c
+> +++ b/drivers/clk/spacemit/ccu-k1.c
+> @@ -349,7 +349,14 @@ CCU_GATE_DEFINE(aib_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_AIB_CLK_RST, BIT(1),
 >  
-> -	seq_printf(seq, ", register (0x%04x)\n", value);
-> +	seq_printf(seq, ", register (0x%04x)", value);
->  }
+>  CCU_GATE_DEFINE(onewire_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_ONEWIRE_CLK_RST, BIT(1), 0);
 >  
->  static const struct pinconf_ops spacemit_pinconf_ops = {
+> -static const struct clk_parent_data sspa_parents[] = {
+> +/*
+> + * When i2s_bclk is selected as the parent clock of sspa,
+> + * the hardware requires bit3 to be set
+> + */
+> +CCU_GATE_DEFINE(sspa0_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA0_CLK_RST, BIT(3), 0);
+> +CCU_GATE_DEFINE(sspa1_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA1_CLK_RST, BIT(3), 0);
+> +
+> +static const struct clk_parent_data sspa0_parents[] = {
+>  	CCU_PARENT_HW(pll1_d384_6p4),
+>  	CCU_PARENT_HW(pll1_d192_12p8),
+>  	CCU_PARENT_HW(pll1_d96_25p6),
+> @@ -357,10 +364,22 @@ static const struct clk_parent_data sspa_parents[] = {
+>  	CCU_PARENT_HW(pll1_d768_3p2),
+>  	CCU_PARENT_HW(pll1_d1536_1p6),
+>  	CCU_PARENT_HW(pll1_d3072_0p8),
+> -	CCU_PARENT_HW(i2s_bclk),
+> +	CCU_PARENT_HW(sspa0_i2s_bclk),
+>  };
+> -CCU_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
+> -CCU_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
+> +CCU_MUX_GATE_DEFINE(sspa0_clk, sspa0_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
+> +
+> +static const struct clk_parent_data sspa1_parents[] = {
+> +	CCU_PARENT_HW(pll1_d384_6p4),
+> +	CCU_PARENT_HW(pll1_d192_12p8),
+> +	CCU_PARENT_HW(pll1_d96_25p6),
+> +	CCU_PARENT_HW(pll1_d48_51p2),
+> +	CCU_PARENT_HW(pll1_d768_3p2),
+> +	CCU_PARENT_HW(pll1_d1536_1p6),
+> +	CCU_PARENT_HW(pll1_d3072_0p8),
+> +	CCU_PARENT_HW(sspa1_i2s_bclk),
+> +};
+> +CCU_MUX_GATE_DEFINE(sspa1_clk, sspa1_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
+> +
+>  CCU_GATE_DEFINE(dro_clk, CCU_PARENT_HW(apb_clk), APBC_DRO_CLK_RST, BIT(1), 0);
+>  CCU_GATE_DEFINE(ir_clk, CCU_PARENT_HW(apb_clk), APBC_IR_CLK_RST, BIT(1), 0);
+>  CCU_GATE_DEFINE(tsen_clk, CCU_PARENT_HW(apb_clk), APBC_TSEN_CLK_RST, BIT(1), 0);
+> @@ -965,6 +984,8 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
+>  	[CLK_SSPA1_BUS]		= &sspa1_bus_clk.common.hw,
+>  	[CLK_TSEN_BUS]		= &tsen_bus_clk.common.hw,
+>  	[CLK_IPC_AP2AUD_BUS]	= &ipc_ap2aud_bus_clk.common.hw,
+> +	[CLK_SSPA0_I2S_BCLK]	= &sspa0_i2s_bclk.common.hw,
+> +	[CLK_SSPA1_I2S_BCLK]	= &sspa1_i2s_bclk.common.hw,
+>  };
+>  
+>  static const struct spacemit_ccu_data k1_ccu_apbc_data = {
 > -- 
-> 2.43.0
+> 2.50.0
 > 
 
 -- 
