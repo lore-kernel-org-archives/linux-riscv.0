@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F9FAC87FD3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2664DCA0EC0
 	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 17:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,67 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U+lkcEvO/YrwpM/BgONcFU4RGuFVeT6vmMSSlItP90A=; b=1KhIyKg1G7idvL
-	4qa0T6SfFZi8tARnyErJEPPBztRO/A/596m42xMOgUB6IgGgPNLUvwLi6v5Hi7i+srr90v1ImUS/i
-	dJVmhhgInL6jXbp+V/InrOfWnvg2/GfWa5FgINFEw2phxSxHTR9RBezY/uH/eU+IWY8agoep8ENWm
-	lr/O7slNkKG3M+apFUrxt6pCUhWP1Sl/tM6MC5OPxH8cFCEv5+2M8nTrGiXHG684FN6YXQo3fUIv8
-	DkyUwJhDFFjo6oS4D7+kpQR4Bxpv4/pI/EP0IVxXMV8QI90/zE+y4yzUzc/9hnUMEhw00J2V0t4Pi
-	eG8a3qonDkrpZAwS9XMw==;
+	List-Owner; bh=TK/3OlCEQ150XBcZWwzlX7XSffPvbJ9sVxxwWIWokjY=; b=qA6A5Ob+JprHRv
+	dadCHXwXQewApIc+Wn6wfDpycPAxe0sj6x0PK6iogGiwWvVXL/6Ac1cuOqdp4+G7x/acWvPJLzS7G
+	iB/jDEShQ6f9vH8kxH1GYM23UdYdCiy1X8x0WDms7L5627ps7l3jOjB5WFwrbc60MIn+dpv+ohvSM
+	H3XyJhd57WAvqfTJQPLPlGH9An69zk9RJIc/JvHU8m/O2fwg36C0RcPRMcBalSZeQck4n7aExDVId
+	h1f/g1Gojs28h/sjWsRu9geHLw8CpjFWWBCpMthl85HOHOF/aRokhl/huZuCpOcmCqGxvLU80UO+R
+	75VWGZcZa3R9Y4rODDtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhno-0000000FtGW-2KIR;
-	Wed, 06 Aug 2025 17:19:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ujhnp-0000000FtH3-399M;
+	Wed, 06 Aug 2025 17:19:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhjZ-0000000Fs51-1CFO
+	id 1ujhjZ-0000000Fs5G-3j0g
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 17:15:25 +0000
+	Wed, 06 Aug 2025 17:15:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 61D65601DC;
-	Wed,  6 Aug 2025 17:15:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 283FFC4CEE7;
-	Wed,  6 Aug 2025 17:15:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9234D45EE7;
+	Wed,  6 Aug 2025 17:15:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63EBBC4CEF7;
+	Wed,  6 Aug 2025 17:15:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754500524;
-	bh=iP1Vp96AUt0/1/dByJQwxu90FSDRv7L6wCxaXLDltks=;
+	s=k20201202; t=1754500525;
+	bh=9gHLl9tgdN6m1xyHwJYn8Gcm+hsXzo1alXOLXcT0Rmc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Vw1aN0hNtZowJgcCAWQjQrvy1CggQwRgv1AmfnF9BoNdbhKbl20bmLNFFEinlAXHV
-	 +w4BhSV/iS5VpXCOXMfVC2oib1f4+cK4iU7lMkZEEuSYSsXQwhmIdfXIRMLMtdLxW6
-	 1KnFFSB4y9bLqDKwrY6nypuQDbyPsoApw+aSreNqSOIMJO1YmARi/cvjsO8onAay8V
-	 3XHxzDEvk/SD9mXgpLU2s2lQtZBsUaTRQ3dxYTNcVGbq6wDyDapPIA5HrbwYZl6fkH
-	 NAa/SFX/I0dxSzNBYT1szqKceE/kuRjMhUic9aZIibRYVGurAM2E1C6y9jEaDfnJUq
-	 YZcwSJ3tFPqFQ==
+	b=uGo5p72z/YSNwZ1I6UbTVcz27GhocJbrNBWOLq4Q/oXPYdFdGMaJPh9zdmagyrPcj
+	 N6CmkPqP3I2MZA7GgMPF8S4OHbWMvuQYgpnIqZ517XA6nWpyacgW111JLoI00BaQxm
+	 55j57tW4ccBXx9IiifkbRVf2/74FGgvvheKWQ0G6pWk49X4v+IXeNe7PWIdICv9JVZ
+	 KBJyNkxFSz7xrKfV+0Q4NNf6fThrnnyTNeOPxClUtZbEcDAv+E0HzMnkguwGoheZXE
+	 uuMMUGGf1UnQkry94v/jE2f1+4/i5qpJ+tSWJ3P9TGssXz8QNYIOejMyBcwbo0UIv8
+	 R+8m1sljJFHtA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33C94383BF63;
-	Wed,  6 Aug 2025 17:15:39 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70F97383BF63;
+	Wed,  6 Aug 2025 17:15:40 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
+Subject: Re: [PATCH 0/2] riscv: mm: Use mmu-type from FDT as SATP mode limit
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175450053775.2863135.11568399057706626223.git-patchwork-notify@kernel.org>
-Date: Wed, 06 Aug 2025 17:15:37 +0000
-References: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
-In-Reply-To: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- akpm@linux-foundation.org, Liam.Howlett@oracle.com, vbabka@suse.cz,
- lorenzo.stoakes@oracle.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, conor@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- arnd@arndb.de, brauner@kernel.org, peterz@infradead.org, oleg@redhat.com,
- ebiederm@xmission.com, kees@kernel.org, corbet@lwn.net, shuah@kernel.org,
- jannh@google.com, conor+dt@kernel.org, ojeda@kernel.org,
- alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
- bjorn3_gh@protonmail.com, a.hindborg@kernel.org, aliceryhl@google.com,
- tmgross@umich.edu, lossin@kernel.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com,
- andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
- atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
- alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
- rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org,
- zong.li@sifive.com, david@redhat.com
+Message-Id: <175450053927.2863135.18156029900049802152.git-patchwork-notify@kernel.org>
+Date: Wed, 06 Aug 2025 17:15:39 +0000
+References: <20250722-satp-from-fdt-v1-0-5ba22218fa5f@pigmoral.tech>
+In-Reply-To: <20250722-satp-from-fdt-v1-0-5ba22218fa5f@pigmoral.tech>
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250806_101525_943981_4029A26B 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,74 +81,21 @@ Hello:
 This series was applied to riscv/linux.git (for-next)
 by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Thu, 31 Jul 2025 16:19:10 -0700 you wrote:
-> Basics and overview
-> ===================
-> 
-> Software with larger attack surfaces (e.g. network facing apps like databases,
-> browsers or apps relying on browser runtimes) suffer from memory corruption
-> issues which can be utilized by attackers to bend control flow of the program
-> to eventually gain control (by making their payload executable). Attackers are
-> able to perform such attacks by leveraging call-sites which rely on indirect
-> calls or return sites which rely on obtaining return address from stack memory.
+On Tue, 22 Jul 2025 00:53:09 +0800 you wrote:
+> This patch series improves RISC-V kernel compatibility and robustness by
+> refining how the SATP mode is determined during early boot. Some RISC-V
+> implementations, such as the Anlogic DR1V90 FPSoC with a UX900 RISC-V
+> core designed by Nuclei, which I am currently attempting to run the
+> mainline kernel on [1], may hang when attempting to write an unsupported
+> SATP mode.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v19,01/27] mm: VM_SHADOW_STACK definition for riscv
-    https://git.kernel.org/riscv/c/cbac1921f599
-  - [v19,02/27] dt-bindings: riscv: zicfilp and zicfiss in dt-bindings (extensions.yaml)
-    https://git.kernel.org/riscv/c/529ea23b9724
-  - [v19,03/27] riscv: zicfiss / zicfilp enumeration
-    https://git.kernel.org/riscv/c/2672fcca7d45
-  - [v19,04/27] riscv: zicfiss / zicfilp extension csr and bit definitions
-    https://git.kernel.org/riscv/c/9c6a894fd8b3
-  - [v19,05/27] riscv: usercfi state for task and save/restore of CSR_SSP on trap entry/exit
-    https://git.kernel.org/riscv/c/b01f6537153c
-  - [v19,06/27] riscv/mm : ensure PROT_WRITE leads to VM_READ | VM_WRITE
-    https://git.kernel.org/riscv/c/c13b2d7c1365
-  - [v19,07/27] riscv/mm: manufacture shadow stack pte
-    https://git.kernel.org/riscv/c/68cd7334a8d2
-  - [v19,08/27] riscv/mm: teach pte_mkwrite to manufacture shadow stack PTEs
-    https://git.kernel.org/riscv/c/50c9b9607c89
-  - [v19,09/27] riscv/mm: write protect and shadow stack
-    https://git.kernel.org/riscv/c/cbcccac1eddc
-  - [v19,10/27] riscv/mm: Implement map_shadow_stack() syscall
-    https://git.kernel.org/riscv/c/26e35e774a64
-  - [v19,11/27] riscv/shstk: If needed allocate a new shadow stack on clone
-    https://git.kernel.org/riscv/c/9c72a71321a6
-  - [v19,12/27] riscv: Implements arch agnostic shadow stack prctls
-    https://git.kernel.org/riscv/c/52eff0ab5f8e
-  - [v19,13/27] prctl: arch-agnostic prctl for indirect branch tracking
-    https://git.kernel.org/riscv/c/157690650241
-  - [v19,14/27] riscv: Implements arch agnostic indirect branch tracking prctls
-    https://git.kernel.org/riscv/c/e97ca201e919
-  - [v19,15/27] riscv/traps: Introduce software check exception and uprobe handling
-    https://git.kernel.org/riscv/c/d88b76756b34
-  - [v19,16/27] riscv: signal: abstract header saving for setup_sigcontext
-    https://git.kernel.org/riscv/c/63e713f29efe
-  - [v19,17/27] riscv/signal: save and restore of shadow stack for signal
-    https://git.kernel.org/riscv/c/5b04bbd448a5
-  - [v19,18/27] riscv/kernel: update __show_regs to print shadow stack register
-    https://git.kernel.org/riscv/c/1400341403b3
-  - [v19,19/27] riscv/ptrace: riscv cfi status and state via ptrace and in core files
-    https://git.kernel.org/riscv/c/982c862820b8
-  - [v19,20/27] riscv/hwprobe: zicfilp / zicfiss enumeration in hwprobe
-    https://git.kernel.org/riscv/c/07b1d75233e4
-  - [v19,21/27] riscv: kernel command line option to opt out of user cfi
-    https://git.kernel.org/riscv/c/2c268d3d21f9
-  - [v19,22/27] riscv: enable kernel access to shadow stack memory via FWFT sbi call
-    https://git.kernel.org/riscv/c/4ff7e8937f22
-  - [v19,23/27] arch/riscv: compile vdso with landing pad and shadow stack note
-    https://git.kernel.org/riscv/c/a82422297e63
-  - [v19,24/27] riscv: create a config for shadow stack and landing pad instr support
-    https://git.kernel.org/riscv/c/5bb36633ee56
-  - [v19,25/27] riscv: Documentation for landing pad / indirect branch tracking
-    https://git.kernel.org/riscv/c/9868b87525d9
-  - [v19,26/27] riscv: Documentation for shadow stack on riscv
-    https://git.kernel.org/riscv/c/a56a53730eb6
-  - [v19,27/27] kselftest/riscv: kselftest for user mode cfi
-    https://git.kernel.org/riscv/c/fd40e4a14f45
+  - [1/2] riscv: mm: Return intended SATP mode for noXlvl options
+    https://git.kernel.org/riscv/c/75ede0a8e07b
+  - [2/2] riscv: mm: Use mmu-type from FDT to limit SATP mode
+    https://git.kernel.org/riscv/c/a870d4f78f11
 
 You are awesome, thank you!
 -- 
