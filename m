@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFCFC87FCB
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 21:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC884C87FCB
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 21:30:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0w5FL0yK8+Kran7pxi9Pn9sbcvijt8eLfnD1S67bA+A=; b=BBupUEyrx+ST6b
-	k9MLI3ZEqd7nQg7D9uEu49sot8wXlVSzAO2YGx0X5FvOwB0Eqs3ggCOM8LLSqp36wCdpF/7lxPKN0
-	UsqZW5P8xO2IVVv6VeAwHtBPTs9DDo3iNGNevSJD9kvWVY89Fa7zl0RA0ul19dSdSE4ItejI9H23K
-	8gKf4oqj5S+6Ooq8oE5Dt0cmiuqbjLzhSYMXmdWGRfuyM5WZASHn1UztL5CC0pCVTCdWYrSmucFww
-	gNVLsI83iRY0LZdUFlv/V1FCHucYxx7ouSpfb74+idM9VtDvswLTn/vnhMvwoDEFs1K14w6MCyQo4
-	7wZPuaze85T71dtINN1w==;
+	List-Owner; bh=aLk56qzNBl7pvb9lWm47Rre2eCKZIkKq/TzWHDPhR9c=; b=2MErJLskfJ+kf2
+	XyWt5ntaCAJg0RSdyFsOEUHQIqOKPiBBO2bwHFaX5shTI0lnxZiGgA44BXPxcLH7LfqdgG7GI5zQ0
+	T0N77+V7ewuiomF/5Po/XLYpGlf9OFGJAWR7gEoEToGmYB76uSoItAnxxigh4wGL4uL0apyAwpjX5
+	nEuNwkGAha+ccOUJGezVO2FD9P/q+fAXcZ6ZZiW9ubrNw0hcrOqDYxp+ReQ9La5y7A1i9apY/UGk9
+	15uC62FBBEpQUBC1s9DbvngB76oSJfLDHEloql5iARMCNTo9060RQqng9SZwIDddnMnGG0IqSHybJ
+	II+7p5gxKPXoFwSChoDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujlhq-0000000GZl9-0GVb;
-	Wed, 06 Aug 2025 21:29:54 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1ujlhp-0000000GZl7-3NIT;
+	Wed, 06 Aug 2025 21:29:53 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkGf-0000000GGFg-2wgh
+	id 1ujkGe-0000000GGE5-1Vi3
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 19:57:46 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b1ffc678adfso135601a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:57:45 -0700 (PDT)
+	Wed, 06 Aug 2025 19:57:45 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-74b29ee4f8bso275033b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:57:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754510265; x=1755115065; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1754510263; x=1755115063; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=jWazn7LbEKToZVBXfT81sYQ79Zs+usROHmWn+qgVcAw=;
-        b=He2FMoYhHl7cHOxSWp71tbdUVppprSXNxeOQ5Uza7H54veAeuv9QlYi1py/e2Rw7Nr
-         be2BQpGiCgc148rRWb7mS+0eMa8xorsJgxTKDNfZx8mSEfvbOnxZYoBias3a3GASMqln
-         0Bow5riO2qCh9/vAPzU74Ik4uejIkJTovmhxueCW+Hb+HDLnKSUPU1SOC5XqUUqYsAWS
-         OmEAorq+J+dHKGgFk2AuPnrJsFupV0qaFqndtZsztNAV6TAjKFYA5qb4WMCxC1/I7Oi+
-         VEWPHz4r4YsFwTNbet5G17ReU9o/w848KhokG/gqofbzEcr+4E5jye6aN/9jI9PV/rMQ
-         bt+A==
+        bh=Uj/oFQFNyss4LK4I6PYkReCFuQkjKCIa3E/WRuXwHJ0=;
+        b=v/UhlPlaiceErMeIETmHJ2bHCnz6KkHfHNwvzgOAepE2KfvYhXRbK4JK74th3Ljkho
+         STk8ohkoz+y3PT70BFzvPK6Y2LMCiFBRklKvvTW/x2qBFtEJTJ+QKjKLFqhBxSCbqc5t
+         FKNW4trM80TeMJ3UIUSVNK/IP8UoGD/0sOd2fSS906Np24NPK77IT6auZiprd2gw3yuJ
+         44ojM6tx9htPjxBtl41pniN6wu3fBQMUnM/ijsOAxD3lehPZxRy1Dnq0QZxNCwBtVXL2
+         xkWrZB8kimTmLE0JM255JfcfhRNtxb3FLk5IGopt2D9ZbfsgQHzQKHuOL0jXUBQHaZ8L
+         0MKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754510265; x=1755115065;
+        d=1e100.net; s=20230601; t=1754510263; x=1755115063;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=jWazn7LbEKToZVBXfT81sYQ79Zs+usROHmWn+qgVcAw=;
-        b=r1ptsSBZLgZin/Syj+JnshkGFQp/43ENqRdE5X10/wlktj/GIFyu3fDwFPiqrgLHGj
-         D8rc9P4WJGly6B+QqYDnrRFnSTy3HDckdkFpjIvPcBv9Cf3sief8seXO9ovDAoh2cWrj
-         kWWDw37kR+hOXiMfbGg69+GNbMUvl1+TnZW+NJ1JGtsc1uZy7Uzfqopa9tcwZB5gEmjY
-         Jrf2ZQVn38ef5ggGPux4ufN7YbTDkN/AYyu9cfQnxhJZWd0Z1AnLRYchNq2aVd2iNzir
-         O8Imynd9/stmUpb+ebLC3xmy2PKfx82qxDKbeIdSimaMAQ+hxH3uwUOh00hnFqqw1LY2
-         bhgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXdVQjwseN1P109fTVrK042vKVovOYtWm3jgYIY2FuEXnRTEOEDakeAsyFvV6WeIYyviBqYNEOI6A0gww==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjtoZz4yl7NI3i+Pi3F7BvdpVW3Cbs2tF859im6Oexp7qrE7vo
-	SJ5BWyi8jQr02x2baRxBIg+wg2Il4MNKF9Bk39QYWHk92sT+r+2hWyQo2Rx10BFyxve4pRoGkfR
-	k8DjVMQ==
-X-Google-Smtp-Source: AGHT+IEOZHdE2/PbxBEmSs9IzcnvpAQDGgoykrCqSet5dWYTZm1GHUavvsVGL1zycY+fmJU68DVHh19KP/o=
-X-Received: from pgbcs10.prod.google.com ([2002:a05:6a02:418a:b0:b42:2ab5:b109])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6300:218d:b0:23d:f987:b033
- with SMTP id adf61e73a8af0-240314c22f5mr6625238637.40.1754510264630; Wed, 06
- Aug 2025 12:57:44 -0700 (PDT)
-Date: Wed,  6 Aug 2025 12:56:31 -0700
+        bh=Uj/oFQFNyss4LK4I6PYkReCFuQkjKCIa3E/WRuXwHJ0=;
+        b=TQh1vUAhALWvYAd+5Msu3h0J6LV1bJUzOXdTyjiSpVHUc9cz220RMzxniHmPegVZKm
+         kQOxxo1XuTmSpqkMf0xXfvh1fNB4gT3MzwsoBFGrGmnuAQftIzOMsrctv7UhokMouNeo
+         6aG1wYdiltzvOK6+mLMwJY6MtwJ+B80LgBk5xeSXkCmFMcgiH1qP0xZKeFwqXbxphYnG
+         UAlRFBq/5d7t7VMA1DlbfJQj29I7LdpkhEsoNJpMyS5FJf+ARhb1PUgy1eefqsU9I9AU
+         efgCqufGnBIh6U17W7/YzAWlF+5D07uJMGkE1UYMh80VsOuSf39jbvI/SY28qsvTzMnh
+         1b3w==
+X-Forwarded-Encrypted: i=1; AJvYcCU3JnSRtgqQnFrR1PLMXkVLqq80Jwrv5VPeiwZlwZ0L4Ci6u0ATJDdPCRLm3InWDMQfGe5cH5/xQp1FEA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywlb45jbd4paJlFsjPLPl2Efd6trmGrcOOWq67wyvFy/mjLVodQ
+	gDGcwwOLmEQhhChIsGLe6uCWA6nUFHhKh1zUpbJNtMkRj0xsuzx1wYBPcvBrl5ZwActAx7L4lE2
+	cH8mTwg==
+X-Google-Smtp-Source: AGHT+IGQB+bLhnxiIawVNn7HfRXPwF1XDhXBfLBplnIbWM9gXArdsZ1WUOqr9MNOZqSoFpP4ppFPeoHjojo=
+X-Received: from pfhh8.prod.google.com ([2002:a05:6a00:2308:b0:76b:c5af:cd3d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:2293:b0:76b:d363:4a3f
+ with SMTP id d2e1a72fcca58-76c2af6ace2mr5675237b3a.3.1754510263031; Wed, 06
+ Aug 2025 12:57:43 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:30 -0700
 In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250806195706.1650976-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250806195706.1650976-10-seanjc@google.com>
-Subject: [PATCH v5 09/44] perf/x86: Switch LVTPC to/from mediated PMI vector
- on guest load/put context
+Message-ID: <20250806195706.1650976-9-seanjc@google.com>
+Subject: [PATCH v5 08/44] perf: core/x86: Register a new vector for handling
+ mediated guest PMIs
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -86,8 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
 	Dapeng Mi <dapeng1.mi@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_125745_763122_D9DC6601 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20250806_125744_405509_5A85E31D 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,115 +105,257 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add arch hooks to the mediated vPMU load/put APIs, and use the hooks to
-switch PMIs to the dedicated mediated PMU IRQ vector on load, and back to
-perf's standard NMI when the guest context is put.  I.e. route PMIs to
-PERF_GUEST_MEDIATED_PMI_VECTOR when the guest context is active, and to
-NMIs while the host context is active.
+Wire up system vector 0xf5 for handling PMIs (i.e. interrupts delivered
+through the LVTPC) while running KVM guests with a mediated PMU.  Perf
+currently delivers all PMIs as NMIs, e.g. so that events that trigger while
+IRQs are disabled aren't delayed and generate useless records, but due to
+the multiplexing of NMIs throughout the system, correctly identifying NMIs
+for a mediated PMU is practically infeasible.
 
-While running with guest context loaded, ignore all NMIs (in perf).  Any
-NMI that arrives while the LVTPC points at the mediated PMU IRQ vector
-can't possibly be due to a host perf event.
+To (greatly) simplify identifying guest mediated PMU PMIs, perf will
+switch the CPU's LVTPC between PERF_GUEST_MEDIATED_PMI_VECTOR and NMI when
+guest PMU context is loaded/put.  I.e. PMIs that are generated by the CPU
+while the guest is active will be identified purely based on the IRQ
+vector.
 
-Signed-off-by: Xiong Zhang <xiong.y.zhang@linux.intel.com>
-Signed-off-by: Kan Liang <kan.liang@linux.intel.com>
-Signed-off-by: Mingwei Zhang <mizhang@google.com>
-[sean: use arch hook instead of per-PMU callback]
+Route the vector through perf, e.g. as opposed to letting KVM attach a
+handler directly a la posted interrupt notification vectors, as perf owns
+the LVTPC and thus is the rightful owner of PERF_GUEST_MEDIATED_PMI_VECTOR.
+Functionally, having KVM directly own the vector would be fine (both KVM
+and perf will be completely aware of when a mediated PMU is active), but
+would lead to an undesirable split in ownership: perf would be responsible
+for installing the vector, but not handling the resulting IRQs.
+
+Add a new perf_guest_info_callbacks hook (and static call) to allow KVM to
+register its handler with perf when running guests with mediated PMUs.
+
+Note, because KVM always runs guests with host IRQs enabled, there is no
+danger of a PMI being delayed from the guest's perspective due to using a
+regular IRQ instead of an NMI.
+
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/events/core.c     | 27 +++++++++++++++++++++++++++
- include/linux/perf_event.h |  3 +++
- kernel/events/core.c       |  4 ++++
- 3 files changed, 34 insertions(+)
+ arch/x86/entry/entry_fred.c                   |  1 +
+ arch/x86/include/asm/hardirq.h                |  3 +++
+ arch/x86/include/asm/idtentry.h               |  6 ++++++
+ arch/x86/include/asm/irq_vectors.h            |  4 +++-
+ arch/x86/kernel/idt.c                         |  3 +++
+ arch/x86/kernel/irq.c                         | 19 +++++++++++++++++++
+ include/linux/perf_event.h                    |  8 ++++++++
+ kernel/events/core.c                          |  9 +++++++--
+ .../beauty/arch/x86/include/asm/irq_vectors.h |  3 ++-
+ virt/kvm/kvm_main.c                           |  3 +++
+ 10 files changed, 55 insertions(+), 4 deletions(-)
 
-diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-index 7610f26dfbd9..9b0525b252f1 100644
---- a/arch/x86/events/core.c
-+++ b/arch/x86/events/core.c
-@@ -55,6 +55,8 @@ DEFINE_PER_CPU(struct cpu_hw_events, cpu_hw_events) = {
- 	.pmu = &pmu,
- };
+diff --git a/arch/x86/entry/entry_fred.c b/arch/x86/entry/entry_fred.c
+index f004a4dc74c2..d80861a4cd00 100644
+--- a/arch/x86/entry/entry_fred.c
++++ b/arch/x86/entry/entry_fred.c
+@@ -114,6 +114,7 @@ static idtentry_t sysvec_table[NR_SYSTEM_VECTORS] __ro_after_init = {
  
-+static DEFINE_PER_CPU(bool, x86_guest_ctx_loaded);
-+
- DEFINE_STATIC_KEY_FALSE(rdpmc_never_available_key);
- DEFINE_STATIC_KEY_FALSE(rdpmc_always_available_key);
- DEFINE_STATIC_KEY_FALSE(perf_is_hybrid);
-@@ -1756,6 +1758,16 @@ perf_event_nmi_handler(unsigned int cmd, struct pt_regs *regs)
- 	u64 finish_clock;
- 	int ret;
+ 	SYSVEC(IRQ_WORK_VECTOR,			irq_work),
  
-+	/*
-+	 * Ignore all NMIs when a guest's mediated PMU context is loaded.  Any
-+	 * such NMI can't be due to a PMI as the CPU's LVTPC is switched to/from
-+	 * the dedicated mediated PMI IRQ vector while host events are quiesced.
-+	 * Attempting to handle a PMI while the guest's context is loaded will
-+	 * generate false positives and clobber guest state.
-+	 */
-+	if (this_cpu_read(x86_guest_ctx_loaded))
-+		return NMI_DONE;
-+
- 	/*
- 	 * All PMUs/events that share this PMI handler should make sure to
- 	 * increment active_events for their events.
-@@ -2727,6 +2739,21 @@ static struct pmu pmu = {
- 	.filter			= x86_pmu_filter,
- };
- 
-+void arch_perf_load_guest_context(unsigned long data)
-+{
-+	u32 masked = data & APIC_LVT_MASKED;
-+
-+	apic_write(APIC_LVTPC,
-+		   APIC_DM_FIXED | PERF_GUEST_MEDIATED_PMI_VECTOR | masked);
-+	this_cpu_write(x86_guest_ctx_loaded, true);
-+}
-+
-+void arch_perf_put_guest_context(void)
-+{
-+	this_cpu_write(x86_guest_ctx_loaded, false);
-+	apic_write(APIC_LVTPC, APIC_DM_NMI);
-+}
-+
- void arch_perf_update_userpage(struct perf_event *event,
- 			       struct perf_event_mmap_page *userpg, u64 now)
- {
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 0c529fbd97e6..3a9bd9c4c90e 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -1846,6 +1846,9 @@ static inline unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
- # define perf_arch_guest_misc_flags(regs)	perf_arch_guest_misc_flags(regs)
++	SYSVEC(PERF_GUEST_MEDIATED_PMI_VECTOR,	perf_guest_mediated_pmi_handler),
+ 	SYSVEC(POSTED_INTR_VECTOR,		kvm_posted_intr_ipi),
+ 	SYSVEC(POSTED_INTR_WAKEUP_VECTOR,	kvm_posted_intr_wakeup_ipi),
+ 	SYSVEC(POSTED_INTR_NESTED_VECTOR,	kvm_posted_intr_nested_ipi),
+diff --git a/arch/x86/include/asm/hardirq.h b/arch/x86/include/asm/hardirq.h
+index f00c09ffe6a9..f221d001e4ed 100644
+--- a/arch/x86/include/asm/hardirq.h
++++ b/arch/x86/include/asm/hardirq.h
+@@ -18,6 +18,9 @@ typedef struct {
+ 	unsigned int kvm_posted_intr_ipis;
+ 	unsigned int kvm_posted_intr_wakeup_ipis;
+ 	unsigned int kvm_posted_intr_nested_ipis;
++#endif
++#ifdef CONFIG_GUEST_PERF_EVENTS
++	unsigned int perf_guest_mediated_pmis;
+ #endif
+ 	unsigned int x86_platform_ipis;	/* arch dependent */
+ 	unsigned int apic_perf_irqs;
+diff --git a/arch/x86/include/asm/idtentry.h b/arch/x86/include/asm/idtentry.h
+index a4ec27c67988..5109c24b3c1c 100644
+--- a/arch/x86/include/asm/idtentry.h
++++ b/arch/x86/include/asm/idtentry.h
+@@ -751,6 +751,12 @@ DECLARE_IDTENTRY_SYSVEC(POSTED_INTR_NESTED_VECTOR,	sysvec_kvm_posted_intr_nested
+ # define fred_sysvec_kvm_posted_intr_nested_ipi		NULL
  #endif
  
-+extern void arch_perf_load_guest_context(unsigned long data);
-+extern void arch_perf_put_guest_context(void);
++# ifdef CONFIG_GUEST_PERF_EVENTS
++DECLARE_IDTENTRY_SYSVEC(PERF_GUEST_MEDIATED_PMI_VECTOR,	sysvec_perf_guest_mediated_pmi_handler);
++#else
++# define fred_sysvec_perf_guest_mediated_pmi_handler	NULL
++#endif
 +
- static inline bool needs_branch_stack(struct perf_event *event)
+ # ifdef CONFIG_X86_POSTED_MSI
+ DECLARE_IDTENTRY_SYSVEC(POSTED_MSI_NOTIFICATION_VECTOR,	sysvec_posted_msi_notification);
+ #else
+diff --git a/arch/x86/include/asm/irq_vectors.h b/arch/x86/include/asm/irq_vectors.h
+index 47051871b436..85253fc8e384 100644
+--- a/arch/x86/include/asm/irq_vectors.h
++++ b/arch/x86/include/asm/irq_vectors.h
+@@ -77,7 +77,9 @@
+  */
+ #define IRQ_WORK_VECTOR			0xf6
+ 
+-/* 0xf5 - unused, was UV_BAU_MESSAGE */
++/* IRQ vector for PMIs when running a guest with a mediated PMU. */
++#define PERF_GUEST_MEDIATED_PMI_VECTOR	0xf5
++
+ #define DEFERRED_ERROR_VECTOR		0xf4
+ 
+ /* Vector on which hypervisor callbacks will be delivered */
+diff --git a/arch/x86/kernel/idt.c b/arch/x86/kernel/idt.c
+index f445bec516a0..260456588756 100644
+--- a/arch/x86/kernel/idt.c
++++ b/arch/x86/kernel/idt.c
+@@ -158,6 +158,9 @@ static const __initconst struct idt_data apic_idts[] = {
+ 	INTG(POSTED_INTR_WAKEUP_VECTOR,		asm_sysvec_kvm_posted_intr_wakeup_ipi),
+ 	INTG(POSTED_INTR_NESTED_VECTOR,		asm_sysvec_kvm_posted_intr_nested_ipi),
+ # endif
++#ifdef CONFIG_GUEST_PERF_EVENTS
++	INTG(PERF_GUEST_MEDIATED_PMI_VECTOR,	asm_sysvec_perf_guest_mediated_pmi_handler),
++#endif
+ # ifdef CONFIG_IRQ_WORK
+ 	INTG(IRQ_WORK_VECTOR,			asm_sysvec_irq_work),
+ # endif
+diff --git a/arch/x86/kernel/irq.c b/arch/x86/kernel/irq.c
+index 9ed29ff10e59..70ab066aa4cb 100644
+--- a/arch/x86/kernel/irq.c
++++ b/arch/x86/kernel/irq.c
+@@ -191,6 +191,13 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 			   irq_stats(j)->kvm_posted_intr_wakeup_ipis);
+ 	seq_puts(p, "  Posted-interrupt wakeup event\n");
+ #endif
++#ifdef CONFIG_GUEST_PERF_EVENTS
++	seq_printf(p, "%*s: ", prec, "VPMI");
++	for_each_online_cpu(j)
++		seq_printf(p, "%10u ",
++			   irq_stats(j)->perf_guest_mediated_pmis);
++	seq_puts(p, " Perf Guest Mediated PMI\n");
++#endif
+ #ifdef CONFIG_X86_POSTED_MSI
+ 	seq_printf(p, "%*s: ", prec, "PMN");
+ 	for_each_online_cpu(j)
+@@ -315,6 +322,18 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_x86_platform_ipi)
+ }
+ #endif
+ 
++#ifdef CONFIG_GUEST_PERF_EVENTS
++/*
++ * Handler for PERF_GUEST_MEDIATED_PMI_VECTOR.
++ */
++DEFINE_IDTENTRY_SYSVEC(sysvec_perf_guest_mediated_pmi_handler)
++{
++	 apic_eoi();
++	 inc_irq_stat(perf_guest_mediated_pmis);
++	 perf_guest_handle_mediated_pmi();
++}
++#endif
++
+ #if IS_ENABLED(CONFIG_KVM)
+ static void dummy_handler(void) {}
+ static void (*kvm_posted_intr_wakeup_handler)(void) = dummy_handler;
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index 42d019d70b42..0c529fbd97e6 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -1677,6 +1677,8 @@ struct perf_guest_info_callbacks {
+ 	unsigned int			(*state)(void);
+ 	unsigned long			(*get_ip)(void);
+ 	unsigned int			(*handle_intel_pt_intr)(void);
++
++	void				(*handle_mediated_pmi)(void);
+ };
+ 
+ #ifdef CONFIG_GUEST_PERF_EVENTS
+@@ -1686,6 +1688,7 @@ extern struct perf_guest_info_callbacks __rcu *perf_guest_cbs;
+ DECLARE_STATIC_CALL(__perf_guest_state, *perf_guest_cbs->state);
+ DECLARE_STATIC_CALL(__perf_guest_get_ip, *perf_guest_cbs->get_ip);
+ DECLARE_STATIC_CALL(__perf_guest_handle_intel_pt_intr, *perf_guest_cbs->handle_intel_pt_intr);
++DECLARE_STATIC_CALL(__perf_guest_handle_mediated_pmi, *perf_guest_cbs->handle_mediated_pmi);
+ 
+ static inline unsigned int perf_guest_state(void)
  {
- 	return event->attr.branch_sample_type != 0;
+@@ -1702,6 +1705,11 @@ static inline unsigned int perf_guest_handle_intel_pt_intr(void)
+ 	return static_call(__perf_guest_handle_intel_pt_intr)();
+ }
+ 
++static inline void perf_guest_handle_mediated_pmi(void)
++{
++	static_call(__perf_guest_handle_mediated_pmi)();
++}
++
+ extern void perf_register_guest_info_callbacks(struct perf_guest_info_callbacks *cbs);
+ extern void perf_unregister_guest_info_callbacks(struct perf_guest_info_callbacks *cbs);
+ 
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index e1df3c3bfc0d..ad22b182762e 100644
+index 77398b1ad4c5..e1df3c3bfc0d 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
-@@ -6408,6 +6408,8 @@ void perf_load_guest_context(unsigned long data)
- 		task_ctx_sched_out(cpuctx->task_ctx, NULL, EVENT_GUEST);
- 	}
+@@ -7607,6 +7607,7 @@ struct perf_guest_info_callbacks __rcu *perf_guest_cbs;
+ DEFINE_STATIC_CALL_RET0(__perf_guest_state, *perf_guest_cbs->state);
+ DEFINE_STATIC_CALL_RET0(__perf_guest_get_ip, *perf_guest_cbs->get_ip);
+ DEFINE_STATIC_CALL_RET0(__perf_guest_handle_intel_pt_intr, *perf_guest_cbs->handle_intel_pt_intr);
++DEFINE_STATIC_CALL_RET0(__perf_guest_handle_mediated_pmi, *perf_guest_cbs->handle_mediated_pmi);
  
-+	arch_perf_load_guest_context(data);
+ void perf_register_guest_info_callbacks(struct perf_guest_info_callbacks *cbs)
+ {
+@@ -7621,6 +7622,10 @@ void perf_register_guest_info_callbacks(struct perf_guest_info_callbacks *cbs)
+ 	if (cbs->handle_intel_pt_intr)
+ 		static_call_update(__perf_guest_handle_intel_pt_intr,
+ 				   cbs->handle_intel_pt_intr);
 +
- 	perf_ctx_enable(&cpuctx->ctx, EVENT_GUEST);
- 	if (cpuctx->task_ctx)
- 		perf_ctx_enable(cpuctx->task_ctx, EVENT_GUEST);
-@@ -6433,6 +6435,8 @@ void perf_put_guest_context(void)
++	if (cbs->handle_mediated_pmi)
++		static_call_update(__perf_guest_handle_mediated_pmi,
++				   cbs->handle_mediated_pmi);
+ }
+ EXPORT_SYMBOL_GPL(perf_register_guest_info_callbacks);
  
- 	perf_event_sched_in(cpuctx, cpuctx->task_ctx, NULL, EVENT_GUEST);
+@@ -7632,8 +7637,8 @@ void perf_unregister_guest_info_callbacks(struct perf_guest_info_callbacks *cbs)
+ 	rcu_assign_pointer(perf_guest_cbs, NULL);
+ 	static_call_update(__perf_guest_state, (void *)&__static_call_return0);
+ 	static_call_update(__perf_guest_get_ip, (void *)&__static_call_return0);
+-	static_call_update(__perf_guest_handle_intel_pt_intr,
+-			   (void *)&__static_call_return0);
++	static_call_update(__perf_guest_handle_intel_pt_intr, (void *)&__static_call_return0);
++	static_call_update(__perf_guest_handle_mediated_pmi, (void *)&__static_call_return0);
+ 	synchronize_rcu();
+ }
+ EXPORT_SYMBOL_GPL(perf_unregister_guest_info_callbacks);
+diff --git a/tools/perf/trace/beauty/arch/x86/include/asm/irq_vectors.h b/tools/perf/trace/beauty/arch/x86/include/asm/irq_vectors.h
+index 47051871b436..6e1d5b955aae 100644
+--- a/tools/perf/trace/beauty/arch/x86/include/asm/irq_vectors.h
++++ b/tools/perf/trace/beauty/arch/x86/include/asm/irq_vectors.h
+@@ -77,7 +77,8 @@
+  */
+ #define IRQ_WORK_VECTOR			0xf6
  
-+	arch_perf_put_guest_context();
+-/* 0xf5 - unused, was UV_BAU_MESSAGE */
++#define PERF_GUEST_MEDIATED_PMI_VECTOR	0xf5
 +
- 	if (cpuctx->task_ctx)
- 		perf_ctx_enable(cpuctx->task_ctx, EVENT_GUEST);
- 	perf_ctx_enable(&cpuctx->ctx, EVENT_GUEST);
+ #define DEFERRED_ERROR_VECTOR		0xf4
+ 
+ /* Vector on which hypervisor callbacks will be delivered */
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 6c07dd423458..ecafab2e17d9 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -6426,11 +6426,14 @@ static struct perf_guest_info_callbacks kvm_guest_cbs = {
+ 	.state			= kvm_guest_state,
+ 	.get_ip			= kvm_guest_get_ip,
+ 	.handle_intel_pt_intr	= NULL,
++	.handle_mediated_pmi	= NULL,
+ };
+ 
+ void kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void))
+ {
+ 	kvm_guest_cbs.handle_intel_pt_intr = pt_intr_handler;
++	kvm_guest_cbs.handle_mediated_pmi = NULL;
++
+ 	perf_register_guest_info_callbacks(&kvm_guest_cbs);
+ }
+ void kvm_unregister_perf_callbacks(void)
 -- 
 2.50.1.565.gc32cd1483b-goog
 
