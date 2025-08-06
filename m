@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE9BC87FD1
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 10:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B4CC87FCB
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 10:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Date:From:To:In-Reply-To:
-	Subject:Mime-Version:Message-Id:Cc:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h/G90f4EZcLN4aL1dL0fk1hLgBhrJgxXYzOF862I2Q4=; b=qvStino/ORvDIt
-	3vXUlI5FMjRIBR1Nz4vaZ4zQY8hw6tiR3sU5AmkKQd4Mbi2IYlrFBDhzS5kpEi4jDDPf2l4Pilo7R
-	GOLUHUO9WS73xVKXZdjOwVczaxVauWyP32mIjJeh5GfV3+ttm1/tFdmsuB4hrMpBimgquSWuuYus7
-	hPj8N/l5GCUZ6z51YWoPLIBh4BUeBgnumbiErNOVeR8KroqfrVyOw9MYf9ClG3gLjgmOu4Km0VFom
-	ecG4dEP46vmpKioH8pEicJl4DEy6Sn+9DxXMoTmFQ0ppzECgTcTKGlO8FQyzgci62m2iwY49mcAK6
-	LJZ68VlvI9zomEoLNhBQ==;
+	List-Owner; bh=fgHcwLLWKgLZH1UmpN0cDauG18pylsjazTxmRfuQU7Y=; b=cXQGBiFUQ+ZRij
+	5/3hcaO2D3CbM1L84FmXgjKsB+5af5V8Fo2dTY4L2dTBrdNfSRBwWmIL53EzFS0SsKjA5l+xGFehQ
+	Q02e3x0e4eexX15eDujHnpgSZ4zC1uJueWoTQZGozyCP3Vb2jbaomE+rpz3U58/o4TIMNocpeGchR
+	wbUgppY+M4MTgwOK8u482fXJP9U1TLleflTjmz4vbBmVNZioy9QDbDfYsW85DlMQVGSldHCsh9XLU
+	hZTv4smHFF8+wpuGX16tBl+oSVlDf5A9pc0QzSiuQzlI1KfspVNkSSsGQkd9PFaZIsjnF74fP28Dw
+	7u08mPOgivnRUGL6nvvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujbCT-0000000Es2O-005a;
-	Wed, 06 Aug 2025 10:16:49 +0000
-Received: from sg-1-17.ptr.blmpb.com ([118.26.132.17])
+	id 1ujbWS-0000000EueG-3IjR;
+	Wed, 06 Aug 2025 10:37:28 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujb9d-0000000ErlL-1hsm
+	id 1ujbSG-0000000Eu1u-3DeT
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 10:13:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1754475226;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=N6l+1yHhMqXCPPSV577+GHyz1ZJez474BAHAo4bn/W0=;
- b=PBnTemmGDtL8WKUAg4buc23CSkgO2ucFQD5y3zZ2aM+7kiOoyfsiKt5TuyfEfbmRsH9r3V
- M4/rV30WLymf1TX1b1z7A/kB9vN+hCX4e1w4+EJo2Rsp1c5udE7h6KWW9xkw84QbIUOwre
- YDY5g13myROwr+OLymIqYWp7YG0iLzEJql/ckASP+hmQyMcj8z0EDUyPSSbrEveYrZm0cV
- ouovMlgCksGzDUsVpG9E0WmoKfHxHiQB2AmMx+VrnZozTPkUDO2omfcjBOSNtcKqyGxAE4
- 7OGhdRAzmioLO9NhRNqe9Iqtsb/T/J7AFAC1bmiBRDDi8m32m/1OegA0DudRwA==
-Cc: <alex@ghiti.fr>, <aou@eecs.berkeley.edu>, 
-	<huangxianliang@lanxincomputing.com>, <iommu@lists.linux.dev>, 
-	<joro@8bytes.org>, <linux-kernel@vger.kernel.org>, 
-	<linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>, 
-	<paul.walmsley@sifive.com>, <robin.murphy@arm.com>, 
-	<tjeznach@rivosinc.com>, <will@kernel.org>
-Message-Id: <20250806101337.3350-1-huangxianliang@lanxincomputing.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.34.1
-Subject: Re: Re: [PATCH] iommu/riscv: check pte null pointer before use
-In-Reply-To: <1f419739-4233-474d-b00a-4e1237352691@web.de>
-Received: from LeonHXL.localdomain ([116.237.111.137]) by smtp.feishu.cn with ESMTPS; Wed, 06 Aug 2025 18:13:44 +0800
-To: <markus.elfring@web.de>
-From: "XianLiang Huang" <huangxianliang@lanxincomputing.com>
-Date: Wed,  6 Aug 2025 18:13:37 +0800
-X-Original-From: XianLiang Huang <huangxianliang@lanxincomputing.com>
-X-Lms-Return-Path: <lba+268932ad8+938cba+lists.infradead.org+huangxianliang@lanxincomputing.com>
-References: <1f419739-4233-474d-b00a-4e1237352691@web.de>
+	Wed, 06 Aug 2025 10:33:10 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57692NPP018065;
+	Wed, 6 Aug 2025 10:33:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=3wBoqQwRkSBaQEVLP0xWuNtEXTupVT
+	vuJMqQFfbbBMk=; b=bXCsUiIUGuNdsnpstSK7KJ+EHWCL6u+flAEgHfLhazaMGZ
+	A2cOEBmYWln1FbP2qTEczCBjdPo+RtNzcIMRJ19xPazntSu2S12gUFaaHfuo/nQU
+	jHyAcBmYwm3yQi2lpywOWKhy9UgshrQmFDKiqSYdN0lvR6LteIeMno5fOYwy2N+1
+	SS8FrDWGFapdZMQYu8BDyoEf+invbVP0dQ13P+dm0meAwlmfJ5hGZ1W3Ffuv22RH
+	rVF7zho8Jk2fTvPROq5h3F2/8QA/aNNZQNOFLxnMzJDGjimVoQCGH45+KR3bmLfS
+	0wlyA9YB8dI+vXNZ7cjWcVN308jpV5LOdVcXGSzA==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48bq633jar-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 06 Aug 2025 10:33:04 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 57683Fvx020612;
+	Wed, 6 Aug 2025 10:33:04 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 48bpwmu5p9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 06 Aug 2025 10:33:03 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 576AX2qq32703150
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 6 Aug 2025 10:33:02 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0C7912005A;
+	Wed,  6 Aug 2025 10:33:02 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C7A652004B;
+	Wed,  6 Aug 2025 10:33:01 +0000 (GMT)
+Received: from osiris (unknown [9.152.212.133])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed,  6 Aug 2025 10:33:01 +0000 (GMT)
+Date: Wed, 6 Aug 2025 12:33:00 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Kees Cook <kees@kernel.org>
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
+        linux-alpha@vger.kernel.org, linux-csky@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+        llvm@lists.linux.dev, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH 14/17] s390: Add __attribute_const__ to ffs()-family
+ implementations
+Message-ID: <20250806103300.11925Cbe-hca@linux.ibm.com>
+References: <20250804163910.work.929-kees@kernel.org>
+ <20250804164417.1612371-14-kees@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250804164417.1612371-14-kees@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA2MDA2NCBTYWx0ZWRfX1ElbkHLwop5M
+ nPtrgbB752LU1pfAwNBDgIAJaBFi6LdxUXlVN+CUECGityjOLd34EGE9Toa3cseKpijmOYkbMrT
+ aNwZhYK7iA/bCymHo9U7IaM/O7Xot0VGlpwnnhV1aXHyUVrek/1n8npVMb07MiX+K+TDGIg0AO4
+ ihzZswvna0t8psGTcbnxJracRM2oTHbAzHtGyMCKd3aNtNi66J9AADNlixjxITc6ZJ7TjnULCHk
+ P4T4ObjAhkO8s+SveY8dJN1qu9r4TUmsgwFAOb96zQD69cH4RtCGyQz1GCIcyhMWlhz5kn2Ucc+
+ LWbDbC/Jrwgoq+v6/0pZM6yn2Dx13ovRiSUZITmIvPptutFSJZ1mNsE00D5CNG/6vkJ4UDgYu3T
+ wIBBzpQWWdbv/iQCNo1U4G1hbBeBXZZlCO1Mqsl7bXq7JJnmf6ZyHAANHSil8agH6h4bvtmd
+X-Proofpoint-GUID: eM8kqSdm0FroOEI9WgdEMMtevU6pWRX4
+X-Authority-Analysis: v=2.4 cv=PoCTbxM3 c=1 sm=1 tr=0 ts=68932f60 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=2OwXVqhp2XgA:10 a=NEAV23lmAAAA:8 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=La76t7K_3jgqz9qSpcQA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: eM8kqSdm0FroOEI9WgdEMMtevU6pWRX4
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-06_02,2025-08-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0 adultscore=0 clxscore=1011 bulkscore=0
+ priorityscore=1501 impostorscore=0 mlxlogscore=896 mlxscore=0 phishscore=0
+ lowpriorityscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2507300000
+ definitions=main-2508060064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_031353_628258_46F5686B 
-X-CRM114-Status: UNSURE (   2.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250806_033309_264406_721C97B3 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,10 +124,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sure, will change to "Check the pointer before..." in a new version, thanks.
+On Mon, Aug 04, 2025 at 09:44:10AM -0700, Kees Cook wrote:
+> While tracking down a problem where constant expressions used by
+> BUILD_BUG_ON() suddenly stopped working[1], we found that an added static
+> initializer was convincing the compiler that it couldn't track the state
+> of the prior statically initialized value. Tracing this down found that
+> ffs() was used in the initializer macro, but since it wasn't marked with
+> __attribute__const__, the compiler had to assume the function might
+> change variable states as a side-effect (which is not true for ffs(),
+> which provides deterministic math results).
+> 
+> Add missing __attribute_const__ annotations to S390's implementations of
+> ffs(), __ffs(), fls(), and __fls() functions. These are pure mathematical
+> functions that always return the same result for the same input with no
+> side effects, making them eligible for compiler optimization.
+> 
+> Build tested ARCH=s390 defconfig with GCC s390x-linux-gnu 14.2.0.
+> 
+> Link: https://github.com/KSPP/linux/issues/364 [1]
+> Signed-off-by: Kees Cook <kees@kernel.org>
+> ---
+>  arch/s390/include/asm/bitops.h | 10 +++++-----
+>  1 file changed, 5 insertions(+), 5 deletions(-)
 
-Regards,
-XianLiang
+Acked-by: Heiko Carstens <hca@linux.ibm.com>
 
 _______________________________________________
 linux-riscv mailing list
