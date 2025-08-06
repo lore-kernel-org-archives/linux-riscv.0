@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF94C87FD3
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 20:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF98C87FDA
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 20:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F+dVXoQE+YCYf/aR5vwfuQGTN+Od+e+KmCdPKym0yAE=; b=kI9vffi4sZos6s
-	FVP/2TrvUArI79/QdD/aQrE6gxPgSkaWaXmataEV4MSeG4ghUKw6nLrQT5VMfxe0JeCl35qaAHL3c
-	MU12PnhqO45fgQdYVKWOAQL2NHGjk81ESE30tIkWZ+UOd46ap9SvtWjpEu+jXtx6CWmMJpc4olXRf
-	Gfza3N9CoFs6ChqguU/UrHt5iqXc+Gx4uAz+btysrMGYC96ma3Mb56xMf0CWpKSi+vg4t8w0Wed7H
-	Baou0u/GajOP88sW93yAS81W/oOk9pBz6lfrHMsd4i66nMRSD2kuHyQF7jk2F8Q67fgEo70gNigr4
-	rOB/kjhZgM8aCA4oOvzA==;
+	List-Owner; bh=B0uL6y3/V4L9N455O33bYBBMyBgDEnsaYAbmRBw7dOg=; b=P905l9SNEt9cuV
+	WHC68t6OugCECK7SgWlpLfGxoEX1HFUYXhOHMco4TWk8J8oN9ncwZ/Hh8YWqIola2WKAVKON0lrNK
+	b08KrlbR2Fyxs8XYebl3+f5fBNNozRraReREuORfpgYsNzvjAyP9eKbDSNc8u819s/CRNgFJYkxSQ
+	meuRBbOKef4Rt/vMlpgt6vfhLr71DABw72U8Kcyr+UhgQHnVE9kwiaqwv93KX30O1FwasTrKvRRZ0
+	PtZ3fBriwRuxRjdBGuqms5oUHnCTgKvsVEh8yjA4jqfFinRitNvIJXi6NrsI1PCN6tTzWSrDUtBB0
+	gOoglaDRthSvSEkxHR6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujl83-0000000GTzY-3KxP;
+	id 1ujl83-0000000GTzK-0iGt;
 	Wed, 06 Aug 2025 20:52:55 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkH2-0000000GGZf-2mVy
+	id 1ujkH1-0000000GGYC-099B
 	for linux-riscv@lists.infradead.org;
 	Wed, 06 Aug 2025 19:58:09 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-31eec17b5acso271633a91.2
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:58:08 -0700 (PDT)
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-24011ceafc8so1594765ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:58:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754510288; x=1755115088; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1754510286; x=1755115086; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=x5qdlfMt7f/v/zSfpvn0pZJb5j/BJcw1RvQoZStHDYU=;
-        b=TevjD8t2+KKYQb9OPR69V/gDazez5+MRFYSBwLQgMdkBQSVvxoLVHYjCbqkPq08XVd
-         /8U106JqhQNA4GArG7/e2zfh006/WGqM8D2bgcjLIJvWes+5U/yIE7VnNLnCASYvg2Ry
-         km/WHpwMfIlP+P6e5x1pMlzuAAX7ZMSr5AT5DeFHrx7dOdh+fW8/kKWJD+hK6cNI7gtT
-         ej4iwbKzig6BXwDohl2Rerwz6iq/7noOFvd+edgOpeNoykHSmMrWqzxyPta0xhZnjlvl
-         ZzJxRLVozX85MBnsNslM5IqzLnl8RJ5vanKiPUePydSkpvRRIIoD+Vy9fcsFpQihEcfK
-         Xlag==
+        bh=UYs6XLsbq3wmUfEBezJ9021CIzqcfmK4yWnl0Vk41Lo=;
+        b=K4IBHmVbrYwQZpT3RXIcvLMl8ttF8ueCio1bKb3sDtQGN0j2Z61DdjyWVVIjA65grz
+         xeTIt2DEhGnNxbSyX1Pq3bdJbrf4+ynLHvO1nKJfgKZj8Q0g8K7Uqi80iMUyc2Hu6r1V
+         ndfzSVrIEY74HiU6AQOFw7fsX4q4orokfTvaeRIYB2EPtnuqSjv0i8qk4TSJtgX/9oTu
+         i+ekMEbYmrOdmkkcUUEN4Qxn5IVfjgPselUSV2t7pnI7bZqUk6Af6gMf82k1EFnS2mHR
+         Ms1MdlXBRSHPzEhavfea1IIaj9g1feJy+xcLMzb3wF9ViZPZ75DYHUJPjxQHOZ5mYVbH
+         3+yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754510288; x=1755115088;
+        d=1e100.net; s=20230601; t=1754510286; x=1755115086;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=x5qdlfMt7f/v/zSfpvn0pZJb5j/BJcw1RvQoZStHDYU=;
-        b=BicEahgL7NmbH5qLruEjZCDqoEnruCBY7AvtDOHT9P20vJKBJClegjgboGpCjBaN0c
-         RVwP4VA/3KauNxqIjd3gjARhhEBSy8pMtxPmec0jZHXhBBDRowqgRdukZOdvxPWaQfG9
-         MQ8v8ZqGPPjnKoE5XUvo7RrN9/m5nRzDSDzUP8OxDeZhdqlmhotAMgvpS6OiEBk+N5dK
-         W7Tixy8ZolxBMw7oZ2st9JBm9FV3wTBf5FToP1Wk8mVrfsCXRQFBAWwRzRBhUlq4fk7U
-         X4aPFyA7iKRHynOlNtrCtoHOO7C/uVSf2p8EFwkjBEpaRZeyep7TLRni2XOxNBZIH1vc
-         RQwA==
-X-Forwarded-Encrypted: i=1; AJvYcCXyep6gr9NEJc6vOHCpQi+/cQGL2vIXnSZQgApWso86WrkJ8kfxnYQjQ7ew12iNMVFngyCHMjYEKOGSCw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZ2dX6cfoPHkIGKHevHqMeWqKGLfAZqINqGB6dTdoGBKsvfb/U
-	oAriB8JBAoDOSWhppjtsD9jOCGbwyCJv8KaH6dWyM6vVHUgarLZiEWGC6d/j7YKyo6fzQgTJLG2
-	YSyQtwA==
-X-Google-Smtp-Source: AGHT+IFfF+d9RBweWfYhERWBY7pftrU4yG2unJrGI6enSH3CQtm8m01r3mZaRpes0DVZoNbRLzozGADRUKg=
-X-Received: from pjbeu16.prod.google.com ([2002:a17:90a:f950:b0:31e:dd67:e98])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4ac1:b0:31e:f193:1822
- with SMTP id 98e67ed59e1d1-32166ccac82mr5178351a91.28.1754510287763; Wed, 06
- Aug 2025 12:58:07 -0700 (PDT)
-Date: Wed,  6 Aug 2025 12:56:43 -0700
+        bh=UYs6XLsbq3wmUfEBezJ9021CIzqcfmK4yWnl0Vk41Lo=;
+        b=dk9Yb7jThoyfHz0CcNmdKle1Pr7jGilSBy5eO45ybskEVqOah2thf1cBa9t7JShm4y
+         kj3bc464HZ8tEf+kwo6tPSxcFyec1X2OVTKKu4YEbCzaq7RrD/ghA4jO//x3HeFSBKAf
+         3vfDo7ZOGQB8D0MkF0Le0P7Ilkwp9XOJ5c5AT4O/maXgdi60PfbQqgJfY6uL1d/fGPdt
+         uVI0Cg5uvatbqrrIBJU7qzMbWtSJ4zVFCVHbuBg/LhB3lQmxB/DtsJDFFJLIsliNAZJ0
+         X3/lNNuCdw6n9m2wfHCCn2FxOxjYtOB0l+paiPN9Z9h+bknlva5NyfSjqjrWIDLZkklI
+         ndtg==
+X-Forwarded-Encrypted: i=1; AJvYcCVITl8qRGi06HVquO9bCj9x3wGmqqLkwVd5O5zA/pXKzOpoXp2qVs42Hmb3A5zuAXrDgRFjLkWFVyVOFQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwL7yvXL1iphTsAHpgghskF4CVioWClBhq5nGPGYoKed0wxrMBt
+	ynAy+NtxDzbW5hx8mDIAhXtoU4E2lITm636zGS7oEMqJsZ1HNtl6dMxbUe1hD0ohenfMnF9hEYD
+	iKxJh3g==
+X-Google-Smtp-Source: AGHT+IEjtNNsSzvoH0/VB3MvaueTobKjhNGxenKGyVkg+/CWGpyESmYfNsRK9kQsugEnvTMUeRjISaSTO8s=
+X-Received: from pjov3.prod.google.com ([2002:a17:90a:9603:b0:31c:2fe4:33b6])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:1b44:b0:240:b28:22a3
+ with SMTP id d9443c01a7336-242b1a687dfmr5147985ad.29.1754510285965; Wed, 06
+ Aug 2025 12:58:05 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:42 -0700
 In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250806195706.1650976-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250806195706.1650976-22-seanjc@google.com>
-Subject: [PATCH v5 21/44] KVM: x86/pmu: Register PMI handler for mediated vPMU
+Message-ID: <20250806195706.1650976-21-seanjc@google.com>
+Subject: [PATCH v5 20/44] KVM: x86/pmu: Implement AMD mediated PMU requirements
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,8 +85,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
 	Dapeng Mi <dapeng1.mi@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_125808_707180_9578ECA6 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250806_125807_078601_9B251C90 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,78 +104,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Xiong Zhang <xiong.y.zhang@linux.intel.com>
+Require host PMU version 2+ for AMD mediated PMU support, as
+PERF_GLOBAL_CTRL and friends are hard requirements for the mediated PMU.
 
-Register a dedicated PMI handler with perf's callback when mediated PMU
-support is enabled.  Perf routes PMIs that arrive while guest context is
-loaded to the provided callback, by modifying the CPU's LVTPC to point at
-a dedicated mediated PMI IRQ vector.
-
-WARN upon receipt of a mediated PMI if there is no active vCPU, or if the
-vCPU doesn't have a mediated PMU.  Even if a PMI manages to skid past
-VM-Exit, it should never be delayed all the way beyond unloading the vCPU.
-And while running vCPUs without a mediated PMU, the LVTPC should never be
-wired up to the mediated PMI IRQ vector, i.e. should always be routed
-through perf's NMI handler.
-
-Signed-off-by: Xiong Zhang <xiong.y.zhang@linux.intel.com>
+Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Co-developed-by: Mingwei Zhang <mizhang@google.com>
 Signed-off-by: Mingwei Zhang <mizhang@google.com>
-Co-developed-by: Sean Christopherson <seanjc@google.com>
+[sean: extract to separate patch, write changelog]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/pmu.c | 10 ++++++++++
- arch/x86/kvm/pmu.h |  2 ++
- arch/x86/kvm/x86.c |  3 ++-
- 3 files changed, 14 insertions(+), 1 deletion(-)
+ arch/x86/kvm/svm/pmu.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-index 4d4bb9b17412..680523e9d11e 100644
---- a/arch/x86/kvm/pmu.c
-+++ b/arch/x86/kvm/pmu.c
-@@ -155,6 +155,16 @@ void kvm_init_pmu_capability(const struct kvm_pmu_ops *pmu_ops)
- 		perf_get_hw_event_config(PERF_COUNT_HW_BRANCH_INSTRUCTIONS);
+diff --git a/arch/x86/kvm/svm/pmu.c b/arch/x86/kvm/svm/pmu.c
+index 7b8577f3c57a..96be2c3e0d65 100644
+--- a/arch/x86/kvm/svm/pmu.c
++++ b/arch/x86/kvm/svm/pmu.c
+@@ -227,6 +227,11 @@ static void amd_pmu_init(struct kvm_vcpu *vcpu)
+ 	}
  }
  
-+void kvm_handle_guest_mediated_pmi(void)
++static bool amd_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_pmu)
 +{
-+	struct kvm_vcpu *vcpu = kvm_get_running_vcpu();
-+
-+	if (WARN_ON_ONCE(!vcpu || !kvm_vcpu_has_mediated_pmu(vcpu)))
-+		return;
-+
-+	kvm_make_request(KVM_REQ_PMI, vcpu);
++	return host_pmu->version >= 2;
 +}
 +
- static inline void __kvm_perf_overflow(struct kvm_pmc *pmc, bool in_pmi)
- {
- 	struct kvm_pmu *pmu = pmc_to_pmu(pmc);
-diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
-index f5b6181b772c..e038bce76b9e 100644
---- a/arch/x86/kvm/pmu.h
-+++ b/arch/x86/kvm/pmu.h
-@@ -46,6 +46,8 @@ struct kvm_pmu_ops {
- 
- void kvm_pmu_ops_update(const struct kvm_pmu_ops *pmu_ops);
- 
-+void kvm_handle_guest_mediated_pmi(void);
+ struct kvm_pmu_ops amd_pmu_ops __initdata = {
+ 	.rdpmc_ecx_to_pmc = amd_rdpmc_ecx_to_pmc,
+ 	.msr_idx_to_pmc = amd_msr_idx_to_pmc,
+@@ -236,6 +241,9 @@ struct kvm_pmu_ops amd_pmu_ops __initdata = {
+ 	.set_msr = amd_pmu_set_msr,
+ 	.refresh = amd_pmu_refresh,
+ 	.init = amd_pmu_init,
 +
- static inline bool kvm_pmu_has_perf_global_ctrl(struct kvm_pmu *pmu)
- {
- 	/*
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 396d1aa81732..2c34dd3f0222 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -9693,7 +9693,8 @@ int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
- 		set_hv_tscchange_cb(kvm_hyperv_tsc_notifier);
- #endif
- 
--	__kvm_register_perf_callbacks(ops->handle_intel_pt_intr, NULL);
-+	__kvm_register_perf_callbacks(ops->handle_intel_pt_intr,
-+				      enable_mediated_pmu ? kvm_handle_guest_mediated_pmi : NULL);
- 
- 	if (IS_ENABLED(CONFIG_KVM_SW_PROTECTED_VM) && tdp_mmu_enabled)
- 		kvm_caps.supported_vm_types |= BIT(KVM_X86_SW_PROTECTED_VM);
++	.is_mediated_pmu_supported = amd_pmu_is_mediated_pmu_supported,
++
+ 	.EVENTSEL_EVENT = AMD64_EVENTSEL_EVENT,
+ 	.MAX_NR_GP_COUNTERS = KVM_MAX_NR_AMD_GP_COUNTERS,
+ 	.MIN_NR_GP_COUNTERS = AMD64_NUM_COUNTERS,
 -- 
 2.50.1.565.gc32cd1483b-goog
 
