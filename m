@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF98C87FDA
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 20:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E385CC87FD3
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 20:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B0uL6y3/V4L9N455O33bYBBMyBgDEnsaYAbmRBw7dOg=; b=P905l9SNEt9cuV
-	WHC68t6OugCECK7SgWlpLfGxoEX1HFUYXhOHMco4TWk8J8oN9ncwZ/Hh8YWqIola2WKAVKON0lrNK
-	b08KrlbR2Fyxs8XYebl3+f5fBNNozRraReREuORfpgYsNzvjAyP9eKbDSNc8u819s/CRNgFJYkxSQ
-	meuRBbOKef4Rt/vMlpgt6vfhLr71DABw72U8Kcyr+UhgQHnVE9kwiaqwv93KX30O1FwasTrKvRRZ0
-	PtZ3fBriwRuxRjdBGuqms5oUHnCTgKvsVEh8yjA4jqfFinRitNvIJXi6NrsI1PCN6tTzWSrDUtBB0
-	gOoglaDRthSvSEkxHR6g==;
+	List-Owner; bh=W3+OZJb6SNv6/m5aKaPbklrf2Wr1uG+vM84RWiYmUdE=; b=ZUiE3LgaolypyX
+	3tAF8JPz+XU7zAwq0anDeEwMlW8Dkv/mbK/H2i81bKaZ4Q+p+H1p8h5PNBjmJy5FTsMGz6JAf3OfG
+	ZokerPTWsY07sfChL6hh7EVEcRagzGtlGU1Fsf1NlI9Vqv88THr3cmwo6c69+iRzhNwPPT557ydW+
+	esF3gIW4VsfnsYRchveFEq9QXsghw7Sgw8bkP0vrEDfD/84MGAxnIlmulzHH+BLdFTAiapmS82fhG
+	Jp4vsagOy45m8BjtH/eEIJnZATLciA/Ron2jrOa5I+EiByJlsBuE+Dy5l9mNBnJOQEG3VbHjNE7/W
+	Ykv5ms0zTjhB3Gi3oUzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujl83-0000000GTzK-0iGt;
-	Wed, 06 Aug 2025 20:52:55 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1ujlAZ-0000000GUTu-0L3e;
+	Wed, 06 Aug 2025 20:55:31 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkH1-0000000GGYC-099B
+	id 1ujkH4-0000000GGbE-2iEc
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 19:58:09 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-24011ceafc8so1594765ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:58:06 -0700 (PDT)
+	Wed, 06 Aug 2025 19:58:11 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-315af0857f2so334476a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:58:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754510286; x=1755115086; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1754510289; x=1755115089; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=UYs6XLsbq3wmUfEBezJ9021CIzqcfmK4yWnl0Vk41Lo=;
-        b=K4IBHmVbrYwQZpT3RXIcvLMl8ttF8ueCio1bKb3sDtQGN0j2Z61DdjyWVVIjA65grz
-         xeTIt2DEhGnNxbSyX1Pq3bdJbrf4+ynLHvO1nKJfgKZj8Q0g8K7Uqi80iMUyc2Hu6r1V
-         ndfzSVrIEY74HiU6AQOFw7fsX4q4orokfTvaeRIYB2EPtnuqSjv0i8qk4TSJtgX/9oTu
-         i+ekMEbYmrOdmkkcUUEN4Qxn5IVfjgPselUSV2t7pnI7bZqUk6Af6gMf82k1EFnS2mHR
-         Ms1MdlXBRSHPzEhavfea1IIaj9g1feJy+xcLMzb3wF9ViZPZ75DYHUJPjxQHOZ5mYVbH
-         3+yw==
+        bh=ThGb/1cQlCkxXgvsmi9By0m3uFp5vZO1mPp34NlVQTI=;
+        b=LRdS3zqUTGvp4geKhQbb5djL+KK8jkuRnyuL6Iadfwb6UIQv8fMr3b3iBTpq3U3RUa
+         JI/9pSfz0IFOllN4GbuXVHJ9QpdWzyyJoFHrUcQwF5MnJWbXx9JtClPzM+Yn7Lf6NsdD
+         +XRRjH27UMZP/RBPshpW+8TJIfMl1kLOwr8DBbSIv43O8i+sgRVS1QvVoQbBovKgz9EI
+         eXjGhTYA0vO6e9aMw4UR8aIFjyL5qgpRFGTaV+3bt6GYu/Zb2bteV4mOopFjRTbKFhKc
+         kbfU7GDH3CrQhG6zLNDRkY8jR+nXPjda+Zbos3LxpYwnMgcIvQLLfUEX0g5K1mRlye5i
+         4siA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754510286; x=1755115086;
+        d=1e100.net; s=20230601; t=1754510289; x=1755115089;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=UYs6XLsbq3wmUfEBezJ9021CIzqcfmK4yWnl0Vk41Lo=;
-        b=dk9Yb7jThoyfHz0CcNmdKle1Pr7jGilSBy5eO45ybskEVqOah2thf1cBa9t7JShm4y
-         kj3bc464HZ8tEf+kwo6tPSxcFyec1X2OVTKKu4YEbCzaq7RrD/ghA4jO//x3HeFSBKAf
-         3vfDo7ZOGQB8D0MkF0Le0P7Ilkwp9XOJ5c5AT4O/maXgdi60PfbQqgJfY6uL1d/fGPdt
-         uVI0Cg5uvatbqrrIBJU7qzMbWtSJ4zVFCVHbuBg/LhB3lQmxB/DtsJDFFJLIsliNAZJ0
-         X3/lNNuCdw6n9m2wfHCCn2FxOxjYtOB0l+paiPN9Z9h+bknlva5NyfSjqjrWIDLZkklI
-         ndtg==
-X-Forwarded-Encrypted: i=1; AJvYcCVITl8qRGi06HVquO9bCj9x3wGmqqLkwVd5O5zA/pXKzOpoXp2qVs42Hmb3A5zuAXrDgRFjLkWFVyVOFQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwL7yvXL1iphTsAHpgghskF4CVioWClBhq5nGPGYoKed0wxrMBt
-	ynAy+NtxDzbW5hx8mDIAhXtoU4E2lITm636zGS7oEMqJsZ1HNtl6dMxbUe1hD0ohenfMnF9hEYD
-	iKxJh3g==
-X-Google-Smtp-Source: AGHT+IEjtNNsSzvoH0/VB3MvaueTobKjhNGxenKGyVkg+/CWGpyESmYfNsRK9kQsugEnvTMUeRjISaSTO8s=
-X-Received: from pjov3.prod.google.com ([2002:a17:90a:9603:b0:31c:2fe4:33b6])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:1b44:b0:240:b28:22a3
- with SMTP id d9443c01a7336-242b1a687dfmr5147985ad.29.1754510285965; Wed, 06
- Aug 2025 12:58:05 -0700 (PDT)
-Date: Wed,  6 Aug 2025 12:56:42 -0700
+        bh=ThGb/1cQlCkxXgvsmi9By0m3uFp5vZO1mPp34NlVQTI=;
+        b=utTzldOAPn/ZsXgnIS+CiQ6aYWV8Ig8t/bw07lg4vBDFNwluCLFCj8FpMeMIvd0fWI
+         Qg0UnXMh0d2MlxMpqjjyuOBRurQ3dKDCjyhAZjPcVm652Zxi9pR210y//Ck0OXbFWtF2
+         30MgbJuKg26+m19iht4BaMFNPZ+8kORABXhxupPS8Ck2zSsezaZdcDzd9OXUL4R9puLk
+         qQwuFYJpTRmZxAosc03KFqLINdWwWY+Qte/7dtVYXFVOGXH8M5Ls8NVBzJKnff7LMWXh
+         EKXDHHWG7JpKRh6JZDFWsfELjWJkQSynEtXPLE0fh510QzPk5IDqERXC6w7fEZCeoWvL
+         Iluw==
+X-Forwarded-Encrypted: i=1; AJvYcCXnRPqGiYi58kkCm9grkqgtoR3brOVrDPseEbnDnpgxmAOdBZIoqkUEYSECYg8aEe52/pz+70SP1m68YA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDEvLpzjG5elvxzpFgU7Gi3mJfDCwPKSnBTWv5e6TszSUsnkb0
+	Sa686Y6sDCefvvZ5w8N6RNUu3mbaYH9drRBRKl1/7w3XsT72Q2KteNy8jMEcx/UWpAOQbdICE/6
+	DQrrCnA==
+X-Google-Smtp-Source: AGHT+IEDX7osU0iIbko+P3lNad2rdh21UdoQ7zV3q9ejnGRLDtg0+KAFySIgmFRbYCqEx1sz5hOKZCwZh1w=
+X-Received: from pjbci4.prod.google.com ([2002:a17:90a:fc84:b0:313:242b:1773])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1dce:b0:31f:5ebe:fa1c
+ with SMTP id 98e67ed59e1d1-32166d77ff2mr6724469a91.0.1754510289629; Wed, 06
+ Aug 2025 12:58:09 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:44 -0700
 In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250806195706.1650976-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250806195706.1650976-21-seanjc@google.com>
-Subject: [PATCH v5 20/44] KVM: x86/pmu: Implement AMD mediated PMU requirements
+Message-ID: <20250806195706.1650976-23-seanjc@google.com>
+Subject: [PATCH v5 22/44] KVM: x86: Rename vmx_vmentry/vmexit_ctrl() helpers
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,8 +85,9 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
 	Dapeng Mi <dapeng1.mi@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_125807_078601_9B251C90 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20250806_125810_679991_1EE30649 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +105,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Require host PMU version 2+ for AMD mediated PMU support, as
-PERF_GLOBAL_CTRL and friends are hard requirements for the mediated PMU.
+From: Dapeng Mi <dapeng1.mi@linux.intel.com>
 
+Rename the two helpers vmx_vmentry/vmexit_ctrl() to
+vmx_get_initial_vmentry/vmexit_ctrl() to represent their real meaning.
+
+No functional change intended.
+
+Suggested-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
-Co-developed-by: Mingwei Zhang <mizhang@google.com>
 Signed-off-by: Mingwei Zhang <mizhang@google.com>
-[sean: extract to separate patch, write changelog]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/svm/pmu.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/x86/kvm/vmx/vmx.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/x86/kvm/svm/pmu.c b/arch/x86/kvm/svm/pmu.c
-index 7b8577f3c57a..96be2c3e0d65 100644
---- a/arch/x86/kvm/svm/pmu.c
-+++ b/arch/x86/kvm/svm/pmu.c
-@@ -227,6 +227,11 @@ static void amd_pmu_init(struct kvm_vcpu *vcpu)
- 	}
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 8c6343494e62..7b0b51809f0e 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -4304,7 +4304,7 @@ static u32 vmx_pin_based_exec_ctrl(struct vcpu_vmx *vmx)
+ 	return pin_based_exec_ctrl;
  }
  
-+static bool amd_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_pmu)
-+{
-+	return host_pmu->version >= 2;
-+}
-+
- struct kvm_pmu_ops amd_pmu_ops __initdata = {
- 	.rdpmc_ecx_to_pmc = amd_rdpmc_ecx_to_pmc,
- 	.msr_idx_to_pmc = amd_msr_idx_to_pmc,
-@@ -236,6 +241,9 @@ struct kvm_pmu_ops amd_pmu_ops __initdata = {
- 	.set_msr = amd_pmu_set_msr,
- 	.refresh = amd_pmu_refresh,
- 	.init = amd_pmu_init,
-+
-+	.is_mediated_pmu_supported = amd_pmu_is_mediated_pmu_supported,
-+
- 	.EVENTSEL_EVENT = AMD64_EVENTSEL_EVENT,
- 	.MAX_NR_GP_COUNTERS = KVM_MAX_NR_AMD_GP_COUNTERS,
- 	.MIN_NR_GP_COUNTERS = AMD64_NUM_COUNTERS,
+-static u32 vmx_vmentry_ctrl(void)
++static u32 vmx_get_initial_vmentry_ctrl(void)
+ {
+ 	u32 vmentry_ctrl = vmcs_config.vmentry_ctrl;
+ 
+@@ -4321,7 +4321,7 @@ static u32 vmx_vmentry_ctrl(void)
+ 	return vmentry_ctrl;
+ }
+ 
+-static u32 vmx_vmexit_ctrl(void)
++static u32 vmx_get_initial_vmexit_ctrl(void)
+ {
+ 	u32 vmexit_ctrl = vmcs_config.vmexit_ctrl;
+ 
+@@ -4686,10 +4686,10 @@ static void init_vmcs(struct vcpu_vmx *vmx)
+ 	if (vmcs_config.vmentry_ctrl & VM_ENTRY_LOAD_IA32_PAT)
+ 		vmcs_write64(GUEST_IA32_PAT, vmx->vcpu.arch.pat);
+ 
+-	vm_exit_controls_set(vmx, vmx_vmexit_ctrl());
++	vm_exit_controls_set(vmx, vmx_get_initial_vmexit_ctrl());
+ 
+ 	/* 22.2.1, 20.8.1 */
+-	vm_entry_controls_set(vmx, vmx_vmentry_ctrl());
++	vm_entry_controls_set(vmx, vmx_get_initial_vmentry_ctrl());
+ 
+ 	vmx->vcpu.arch.cr0_guest_owned_bits = vmx_l1_guest_owned_cr0_bits();
+ 	vmcs_writel(CR0_GUEST_HOST_MASK, ~vmx->vcpu.arch.cr0_guest_owned_bits);
 -- 
 2.50.1.565.gc32cd1483b-goog
 
