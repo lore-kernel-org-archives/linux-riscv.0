@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EEA0CA0EC1
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 17:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A03C87FD3
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 17:20:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u4/kdU2r83HqCYSGHUbsM7urcFhEhRooQs8syQJtDfg=; b=ctzQkvgfz0tkf6
-	xYCRYmME/z4A9FHy7uW1mJdr2jCeidVgFWjewDumYUtql3YZWJoSc/VVwj9tb0BSQFpupRIMwWEPS
-	L3WohAcqGBtPzwSLGAIKYmBi1/qMqpe4/zYjw2oFxMxOGUOpOQXXkMqjcfMqTttIHl5Ebhi5i1qmX
-	VWoMEZGy8mU7SXk6S0Cx7XTjX3dLtCqOKHy49Bsr/qwvydr4qqB+VRXuCugyV89QlZCg7KMyCfdYz
-	BMHlNZ06JUIp+2saERklpFxrsXkl7RsPLTSYScgK4HPcCEz9qmub6vvN1+chxHYz6cf+PkOsKMI3u
-	1SGy14EdEh51MVjY/A1Q==;
+	List-Owner; bh=0lhO+XLopp/1qPg6Xju+fZRuqxEDiFQWLK6u4gvcxlI=; b=oHWwuLH4RK+M7t
+	LXdJRGKAWF4x7EWP5OooSgSgzuICfGdPBk+oyeaGQSSgHLScgHb6b8cx7iPeJSoUE7dXuPz4lqmbf
+	EkiH7J3bCOFJNk9/KeR9+cjp3wU8wJPWqF9Vcl5Tv8TdHma5eNcmL1tKg3+ni8wvEIL/EltBHRF9q
+	emr4GwKCq2pIfX8hf5D0bBPqxAP2cHHFt3LJ0jY1h1xnAf8gWanltjuI0YnetCM7Eus5Aa63lh8e9
+	TFkwguXt2iyDXEguSu5tFNcWT4l5cUQ+MKD9jNU4E8Gg7cSlVCpmZRwQadxhXMfUnguDeHaf3jJiC
+	3d1PBQWL3RIV8heXIVRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhnu-0000000FtLj-3gfd;
-	Wed, 06 Aug 2025 17:19:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ujhnw-0000000FtMp-0xnZ;
+	Wed, 06 Aug 2025 17:19:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhjk-0000000FsAn-20Kj
+	id 1ujhjo-0000000FsDy-32Sa
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 17:15:37 +0000
+	Wed, 06 Aug 2025 17:15:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 056705C6A5E;
-	Wed,  6 Aug 2025 17:15:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7509C4CEE7;
-	Wed,  6 Aug 2025 17:15:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C94860207;
+	Wed,  6 Aug 2025 17:15:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D89B7C4CEE7;
+	Wed,  6 Aug 2025 17:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754500535;
-	bh=t5RvC/jgYvIhqsTqBesHXP99CEex0zEa1a7guj9tKQ8=;
+	s=k20201202; t=1754500539;
+	bh=1pzAwtko3ANAmVm5KUzMtQcMCt+mGjENUOKMCtnNxi4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=AtBUrMtmuj4L6QFpBIYTQk4BdT/sDoh/9oy8svXGi0MR8prP3/zlvK0c0XEXczvbT
-	 by/HFAIiwNGd32K2qe4Z+70g6YyzKQbvz7IOQUUH/MlKlkPlBebk2VWiAWLmpFXJvV
-	 wuOCZDT7Mq8IB4MSTungC6JEvbayqkIQsPGmDvJKKOc2iAkwDDqQwSS3lsiDlA2li2
-	 TFvsvV5/YuYRfEzOBdJym75s8878QYlP6UFf2EsuOHWAzvvBAjE/N/FKcPQZ0snSdf
-	 BWXuuiHL38f9RIBw9Fbv9rW5eqkg8sw05P2j9FfBd/yMSkIIpj2ksz+gRycFx37CNN
-	 +WCYWoXPsZ7Bw==
+	b=SIzCJjq906ULp9OXMPNow3K5PuZFIXcIgTMXdEaAfzYM81Vcq1T7xmQThk3Gtm+uc
+	 qnIutpV3hA8J/tw65iThqeV2AaOW8mVltJZ5OSKrZ0ehzYwvuDyYCdMBKaHkd5MnrU
+	 ZTLG1gR40HeX3CONton6HzdLzO8XPAlG8e4rFH4Ii4P4evtv3a6I+XmpaElVg5TWza
+	 pOGCOkm4TwBvSdYEgVlFpKgW5yMtJmeFMat5GTyI6NcrorO1HupkRr9RMAV4KF+ydv
+	 otPq9KO3VfnCgFlNIEOvlXhpaexNZuetdphgFNEdwB2ZF1xpK9FPb2PtrG++O47Ka6
+	 HQSTWV+guhMZA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE69383BF63;
-	Wed,  6 Aug 2025 17:15:50 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE79383BF63;
+	Wed,  6 Aug 2025 17:15:54 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: uaccess: fix __put_user_nocheck for unaligned
- accesses
+Subject: Re: [PATCH v6] riscv: introduce asm/swab.h
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175450054925.2863135.866620119887163563.git-patchwork-notify@kernel.org>
-Date: Wed, 06 Aug 2025 17:15:49 +0000
-References: <20250724220853.1969954-1-aurelien@aurel32.net>
-In-Reply-To: <20250724220853.1969954-1-aurelien@aurel32.net>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, cleger@rivosinc.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_101536_571040_8B037253 
-X-CRM114-Status: GOOD (  11.46  )
+Message-Id: <175450055349.2863135.5871727403840388182.git-patchwork-notify@kernel.org>
+Date: Wed, 06 Aug 2025 17:15:53 +0000
+References: <20250723-riscv-swab-v6-1-fc11e9a2efc9@iencinas.com>
+In-Reply-To: <20250723-riscv-swab-v6-1-fc11e9a2efc9@iencinas.com>
+To: Ignacio Encinas <ignacio@iencinas.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, alex@ghiti.fr, linux-kernel-mentees@lists.linux.dev,
+ skhan@linuxfoundation.org, linux-kernel@vger.kernel.org, palmer@rivosinc.com,
+ alexghiti@rivosinc.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,21 +78,22 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Fri, 25 Jul 2025 00:08:52 +0200 you wrote:
-> The type of the value to write should be determined by the size of the
-> destination, not by the value itself, which may be a constant. This
-> aligns the behavior with x86_64, where __typeof__(*(__gu_ptr)) is used
-> to infer the correct type.
+On Wed, 23 Jul 2025 20:47:29 +0100 you wrote:
+> Implement endianness swap macros for RISC-V.
 > 
-> This fixes an issue in put_cmsg, which was only writing 4 out of 8
-> bytes to the cmsg_len field, causing the glibc tst-socket-timestamp test
-> to fail.
+> Use the rev8 instruction when Zbb is available. Otherwise, rely on the
+> default mask-and-shift implementation.
+> 
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: uaccess: fix __put_user_nocheck for unaligned accesses
-    https://git.kernel.org/riscv/c/a10ce19d93c9
+  - [v6] riscv: introduce asm/swab.h
+    https://git.kernel.org/riscv/c/16b0622e2f6b
 
 You are awesome, thank you!
 -- 
