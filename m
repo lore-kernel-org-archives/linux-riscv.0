@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00BB6CA0EC1
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 17:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0ACBC87FD3
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 17:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2/ak2A9S3Q5/EV++eAzaVN8jMWRMTMjhytWoqrXhqDw=; b=EGMqfSuXAL3ATi
-	n+9pNBqcSA2ItV92TndtLYxcSzivAGZX25+vzZCg6PwBt1lHaOcxQOIX5OdA7MIQKDmYVogl0jqoA
-	BTa65tZarDX7SpZulqqRK8+n9Cxz9qCXtZeVrgJIUYNJp7/0wO/F4OkMQ9UwckSI1LLFX1oSlo5KY
-	hYLyBbeK0XxhORSE//5Y2wdqqKP6nqoHVwqGqi/a+mzbkVDAaphHuZL/oPju9D3MXPXSCd1fhpBtR
-	qtyjv+3DRm9O3ycBxUKErv9MqsIe5V/sKJaD8ZNYRSTonvsczOi9FyF9YhDHGo8/eq0574W2McDZZ
-	qRN92ZtpHpCjfNzBOsBA==;
+	List-Owner; bh=UIn2D6yfg62phZOzHXpBK/vHAsa1XDGLxCg8lwe1aFQ=; b=P/EV5UpuFGTpEd
+	8KvIbbUaMXhwGIlUGFSNvwgizqbVuccdimNlhK2V4JXlrWOGiUVIteIvQsYZ7DZckbM//4FIoKKZG
+	noC57qdYYy9zpAkNytM5Y4oJpOS9cn+/yCcpSxjpT0Qr/0XKxxm9ih77cHuuHCu+JcXihF99zCBmR
+	sZe7f+M1LBAlc+SryyCu3KrJ2oMsvVAtIowNK2JqWNRIzh+GZOxjvzjDnwhnT8rApIRHzIxxZSYsM
+	SEs0uRCCCsvUOtXWRm+KH8+cC6BS4oNajBdMxnzUwGcAGkW0kJYCTsaZzQ13uVpFW0TWbMk35xghX
+	pUsGJwl0qQ44xiseCbHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhnq-0000000FtIK-37c7;
-	Wed, 06 Aug 2025 17:19:50 +0000
+	id 1ujhnr-0000000FtIn-23NY;
+	Wed, 06 Aug 2025 17:19:51 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhjb-0000000Fs5u-16ec;
-	Wed, 06 Aug 2025 17:15:28 +0000
+	id 1ujhjc-0000000Fs7A-2BXj
+	for linux-riscv@lists.infradead.org;
+	Wed, 06 Aug 2025 17:15:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 05D3C45EDC;
-	Wed,  6 Aug 2025 17:15:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD6EEC4CEF7;
-	Wed,  6 Aug 2025 17:15:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4451F43DAC;
+	Wed,  6 Aug 2025 17:15:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A7D8C4CEF1;
+	Wed,  6 Aug 2025 17:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754500526;
-	bh=4O0lpFS2A9Ol5YCPqBXxI2WeTeZTQ0FHJZhde9pVFxY=;
+	s=k20201202; t=1754500528;
+	bh=Ff2V9hy6utcP0CCY2uNq0RzaFNn4ugm5oNFnC12dD1E=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Ua+YVdetR6avGAde1rm4P69RtWpZrn3naIzqZLCt7YA4lFX3NtNGCM860Wb8Nuybh
-	 O2zmBGVlXQjcfqy4Jr8bn7oK0FCRC4oUjLQHFaGY21TpdrBNZKE2eExTRIp4iOt4uW
-	 ImA1sS5tqs/GByK9CyiXaaB1wwi0wMaXUrjIQ/et8yvJgdGcFSk2pzzfuy3g3pUQu0
-	 iB16CLr60MtF1xWHRhGIJjNS8O0x/7un/8iEaZ850e4ZBuvOuyszhlcKppX6mnvjAR
-	 6jUpi5NFr2QSVMAO44hI8sQR+yCyg5VJ2uYjNBRFw6OxmMjeFxmvws3WVX3+RoX9Wh
-	 ONbYZvSauIbfQ==
+	b=S+6+RClezduuYHOrMuwc5cHo83I4YylhhQOHQFrZopB8tYgZvc0fuBHgjLTVg1o+J
+	 qT9GcoseKGxuscYoE/KJmR0w1Cg0Cezb5JongGISFGRTKvrTs3Q+qq8FrONH/pOc7g
+	 oX2HW5de53IC9aH5GuZafVVBGx4g/aB1xXklIv1exxKsmbNap4tE9gYRtBJXBgBJJK
+	 5pG1HsYrxYSU4k1Udh6ZJM93gSHZFP71kTUt8j1p6298DtitU95taXPq43Gjjgdk50
+	 9Fn6m5rTyzYNCOiw2/RHWP85y3UOUFOm5/Vz/kyShu2eIFB8llK9aLL9ub3rQ22fhu
+	 e/RjVLy6SQOsg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAD6E383BF63;
-	Wed,  6 Aug 2025 17:15:41 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33CAB383BF63;
+	Wed,  6 Aug 2025 17:15:43 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/2] Few timer and AIA fixes for KVM RISC-V
+Subject: Re: [PATCH v2 0/4] riscv: minor thread_info.cpu improvements
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175450054049.2863135.4614852920454002653.git-patchwork-notify@kernel.org>
-Date: Wed, 06 Aug 2025 17:15:40 +0000
-References: <20250707035345.17494-1-apatel@ventanamicro.com>
-In-Reply-To: <20250707035345.17494-1-apatel@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, atish.patra@linux.dev,
- palmer@dabbelt.com, paul.walmsley@sifive.com, alex@ghiti.fr,
- ajones@ventanamicro.com, anup@brainfault.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <175450054199.2863135.9619865736779982038.git-patchwork-notify@kernel.org>
+Date: Wed, 06 Aug 2025 17:15:41 +0000
+References: <20250725165410.2896641-3-rkrcmar@ventanamicro.com>
+In-Reply-To: <20250725165410.2896641-3-rkrcmar@ventanamicro.com>
+To: =?utf-8?b?UmFkaW0gS3LEjW3DocWZIDxya3JjbWFyQHZlbnRhbmFtaWNyby5jb20+?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, debug@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_101527_323390_D630E2B3 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20250806_101528_594401_253C34C4 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +79,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (for-next)
-by Anup Patel <anup@brainfault.org>:
+by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Mon,  7 Jul 2025 09:23:42 +0530 you wrote:
-> The RISC-V Privileged specificaiton says the following: "WFI is also
-> required to resume execution for locally enabled interrupts pending
-> at any privilege level, regardless of the global interrupt enable at
-> each privilege level."
+On Fri, 25 Jul 2025 18:54:08 +0200 you wrote:
+> Hello,
 > 
-> Based on the above, if there is pending VS-timer interrupt when the
-> host (aka HS-mode) executes WFI then such a WFI will simply become NOP
-> and not do anything. This result in QEMU RISC-V consuming a lot of CPU
-> time on the x86 machine where it is running. The PATCH1 solves this
-> issue by adding appropriate cleanup in KVM RISC-V timer virtualization.
+> I noticed that we give thread_info.cpu two different names in the
+> assembly, load it as a wider type, and store it suboptimally.
+> 
+> v2 is split for easy backporting.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/2] RISC-V: KVM: Disable vstimecmp before exiting to user-space
-    https://git.kernel.org/riscv/c/57f576e860d3
-  - [v2,2/2] RISC-V: KVM: Move HGEI[E|P] CSR access to IMSIC virtualization
-    (no matching commit)
+  - [v2,1/4] riscv: use lw when reading int cpu in new_vmalloc_check
+    https://git.kernel.org/riscv/c/5fcea028d8b8
+  - [v2,2/4] riscv: use lw when reading int cpu in asm_per_cpu
+    https://git.kernel.org/riscv/c/47e006cf9789
+  - [v2,3/4] riscv: use TASK_TI_CPU instead of TASK_TI_CPU_NUM
+    https://git.kernel.org/riscv/c/a1984b2541b0
+  - [v2,4/4] riscv: pack rv64 thread_info better
+    https://git.kernel.org/riscv/c/9b3a86b7b14c
 
 You are awesome, thank you!
 -- 
