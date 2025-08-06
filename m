@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E385CC87FD3
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 20:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5517C87FDA
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 20:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W3+OZJb6SNv6/m5aKaPbklrf2Wr1uG+vM84RWiYmUdE=; b=ZUiE3LgaolypyX
-	3tAF8JPz+XU7zAwq0anDeEwMlW8Dkv/mbK/H2i81bKaZ4Q+p+H1p8h5PNBjmJy5FTsMGz6JAf3OfG
-	ZokerPTWsY07sfChL6hh7EVEcRagzGtlGU1Fsf1NlI9Vqv88THr3cmwo6c69+iRzhNwPPT557ydW+
-	esF3gIW4VsfnsYRchveFEq9QXsghw7Sgw8bkP0vrEDfD/84MGAxnIlmulzHH+BLdFTAiapmS82fhG
-	Jp4vsagOy45m8BjtH/eEIJnZATLciA/Ron2jrOa5I+EiByJlsBuE+Dy5l9mNBnJOQEG3VbHjNE7/W
-	Ykv5ms0zTjhB3Gi3oUzw==;
+	List-Owner; bh=BBeiJiyNqPr6fuG8C7wUpU5xJib7t8Rzo5zKuNZvMms=; b=Ei25mpJvbYJ5nm
+	zPn28Q6NLoLDy8rt90jFeVw11kIA2bCdddudgzUXf9KRO4UIi59QbH7nURbjWSNp964/x73iLpkOE
+	mumchovAnvrVrLIvSGrgx7wv/JBq3GWjCTNbOGOI8py06838qTT5vZ53YfNhQ9F3ogNkqxASIsuBF
+	X6x+Ii6IVPbtd2LPswyfiWYsW1dptg8AqHDqVUtJS5yBEmHT/h6O0+xij/fWT81p4ChPutrrtg9aK
+	/za5rL9Svxo+kbKrAHFou3AmtH+oKnhP6Sbs/e+FIHGxi3kJG2dFouOBCc6+CmVCXdz5/fXCGPh14
+	fbSvZdF1ocxJ+zsGkXQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujlAZ-0000000GUTu-0L3e;
-	Wed, 06 Aug 2025 20:55:31 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1ujlD4-0000000GUtC-2ij6;
+	Wed, 06 Aug 2025 20:58:06 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkH4-0000000GGbE-2iEc
+	id 1ujkH6-0000000GGcd-2Ku1
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 19:58:11 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-315af0857f2so334476a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:58:10 -0700 (PDT)
+	Wed, 06 Aug 2025 19:58:13 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2400499ab2fso1563875ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:58:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754510289; x=1755115089; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1754510291; x=1755115091; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=ThGb/1cQlCkxXgvsmi9By0m3uFp5vZO1mPp34NlVQTI=;
-        b=LRdS3zqUTGvp4geKhQbb5djL+KK8jkuRnyuL6Iadfwb6UIQv8fMr3b3iBTpq3U3RUa
-         JI/9pSfz0IFOllN4GbuXVHJ9QpdWzyyJoFHrUcQwF5MnJWbXx9JtClPzM+Yn7Lf6NsdD
-         +XRRjH27UMZP/RBPshpW+8TJIfMl1kLOwr8DBbSIv43O8i+sgRVS1QvVoQbBovKgz9EI
-         eXjGhTYA0vO6e9aMw4UR8aIFjyL5qgpRFGTaV+3bt6GYu/Zb2bteV4mOopFjRTbKFhKc
-         kbfU7GDH3CrQhG6zLNDRkY8jR+nXPjda+Zbos3LxpYwnMgcIvQLLfUEX0g5K1mRlye5i
-         4siA==
+        bh=/FX2+DfXNwgRGe/WbgJvV/8z8g7IlIB9y4b49oQ5nSU=;
+        b=Cs0+UtiRBaHmOOY+TUXKR3PwUadN491yr8K0iMriMZsjuxlPKZEWNKFXbXE4nkKV8i
+         tlh9xhYRaA/aqF6q8OF25UujfdrDwtI7HnHyjSSWiOIMdUfBxkJIHnUKjeovviIYckhS
+         ynrY1vzEIEamHkSWfs3MQgOoTB68yNIf1cAg6esM1mEgCsulpyc1fknu+/8oy0NRkKkk
+         xnwKXFYlmNUeZHwysoGBw+ZZLM3Qqjl2WOuQBMplx9+92H0Yg5iG8srt0zYiLrLoqOnC
+         ksjWrsDtq9VLjKeCEWrfwGKX6rqSEh/44BDeX7+NfmnSi+w1z2Wz60gO0kT38cyfB47X
+         sLwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754510289; x=1755115089;
+        d=1e100.net; s=20230601; t=1754510291; x=1755115091;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ThGb/1cQlCkxXgvsmi9By0m3uFp5vZO1mPp34NlVQTI=;
-        b=utTzldOAPn/ZsXgnIS+CiQ6aYWV8Ig8t/bw07lg4vBDFNwluCLFCj8FpMeMIvd0fWI
-         Qg0UnXMh0d2MlxMpqjjyuOBRurQ3dKDCjyhAZjPcVm652Zxi9pR210y//Ck0OXbFWtF2
-         30MgbJuKg26+m19iht4BaMFNPZ+8kORABXhxupPS8Ck2zSsezaZdcDzd9OXUL4R9puLk
-         qQwuFYJpTRmZxAosc03KFqLINdWwWY+Qte/7dtVYXFVOGXH8M5Ls8NVBzJKnff7LMWXh
-         EKXDHHWG7JpKRh6JZDFWsfELjWJkQSynEtXPLE0fh510QzPk5IDqERXC6w7fEZCeoWvL
-         Iluw==
-X-Forwarded-Encrypted: i=1; AJvYcCXnRPqGiYi58kkCm9grkqgtoR3brOVrDPseEbnDnpgxmAOdBZIoqkUEYSECYg8aEe52/pz+70SP1m68YA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDEvLpzjG5elvxzpFgU7Gi3mJfDCwPKSnBTWv5e6TszSUsnkb0
-	Sa686Y6sDCefvvZ5w8N6RNUu3mbaYH9drRBRKl1/7w3XsT72Q2KteNy8jMEcx/UWpAOQbdICE/6
-	DQrrCnA==
-X-Google-Smtp-Source: AGHT+IEDX7osU0iIbko+P3lNad2rdh21UdoQ7zV3q9ejnGRLDtg0+KAFySIgmFRbYCqEx1sz5hOKZCwZh1w=
-X-Received: from pjbci4.prod.google.com ([2002:a17:90a:fc84:b0:313:242b:1773])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1dce:b0:31f:5ebe:fa1c
- with SMTP id 98e67ed59e1d1-32166d77ff2mr6724469a91.0.1754510289629; Wed, 06
- Aug 2025 12:58:09 -0700 (PDT)
-Date: Wed,  6 Aug 2025 12:56:44 -0700
+        bh=/FX2+DfXNwgRGe/WbgJvV/8z8g7IlIB9y4b49oQ5nSU=;
+        b=gl7DqAnR4lBLXhcuZUQbeyYUjH/CYGUVvbo1Gzn5hfMuwf7zIOJvWfTV8KkYxKGrUl
+         N8PP96L+ENgNXCe3aWs17NxiWs0yligyMkSozlZ+L1aCDPiI7iIVPFKBJ3ze5taL24iM
+         EVWHmHhgJlMls/PogTeEcRTnB3qSU9XqpXb7xB9mFoNd4xWRLQeGOHZgwTYxhbMYQSiI
+         qKD2QNlUpi99kep9N+H+XbrIOQOpw2ftlLnG83yjqQdDqLFBlf25bryo3if3PHbObDuQ
+         CjlFhjI320TtWtsnDt3qTjkuXcpdR4MdrP9V+Wxz+BwKc9tJKVJMjlOost7pCVWkPQYi
+         zmkg==
+X-Forwarded-Encrypted: i=1; AJvYcCUpl/PuOajGtZs/ngx4Ng1nJg2iGt/XZIqyng+8lkxzDN91ViPqu716+JwwL9jg2erab+QRGPJj74LRmA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvU7Pqw4s7LyR6npXXEF8CQj3QUhD7ynFyCSm8wVXairFUqihI
+	HM+wWdT9HNiULAbtqWsGMQjTFLUpYPU7yOEvEDRNiNmTPK5vmo4IvAVZuhTt0Nnn1QvGr5jNFXI
+	spJl3Xw==
+X-Google-Smtp-Source: AGHT+IGe4jBR2KHz8e2goINgF4EUoH0wWvJHG6ysYfktepmzpkGXYfj1vM33eEgiesUpU8kg3lcTp4Ph7gE=
+X-Received: from plbmv16.prod.google.com ([2002:a17:903:b90:b0:231:de34:f9f6])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:98d:b0:240:417d:8115
+ with SMTP id d9443c01a7336-2429ee89eb4mr58062565ad.16.1754510291288; Wed, 06
+ Aug 2025 12:58:11 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:45 -0700
 In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250806195706.1650976-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250806195706.1650976-23-seanjc@google.com>
-Subject: [PATCH v5 22/44] KVM: x86: Rename vmx_vmentry/vmexit_ctrl() helpers
+Message-ID: <20250806195706.1650976-24-seanjc@google.com>
+Subject: [PATCH v5 23/44] KVM: x86/pmu: Move PMU_CAP_{FW_WRITES,LBR_FMT} into
+ msr-index.h header
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,9 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
 	Dapeng Mi <dapeng1.mi@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_125810_679991_1EE30649 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250806_125812_596996_E02C8363 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,54 +107,136 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Dapeng Mi <dapeng1.mi@linux.intel.com>
 
-Rename the two helpers vmx_vmentry/vmexit_ctrl() to
-vmx_get_initial_vmentry/vmexit_ctrl() to represent their real meaning.
+Move PMU_CAP_{FW_WRITES,LBR_FMT} into msr-index.h and rename them with
+PERF_CAP prefix to keep consistent with other perf capabilities macros.
 
 No functional change intended.
 
-Suggested-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
 Signed-off-by: Mingwei Zhang <mizhang@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/vmx.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/x86/include/asm/msr-index.h | 15 +++++++++------
+ arch/x86/kvm/vmx/capabilities.h  |  3 ---
+ arch/x86/kvm/vmx/pmu_intel.c     |  6 +++---
+ arch/x86/kvm/vmx/vmx.c           | 12 ++++++------
+ 4 files changed, 18 insertions(+), 18 deletions(-)
 
+diff --git a/arch/x86/include/asm/msr-index.h b/arch/x86/include/asm/msr-index.h
+index c29127ac626a..f19d1ee9a396 100644
+--- a/arch/x86/include/asm/msr-index.h
++++ b/arch/x86/include/asm/msr-index.h
+@@ -315,12 +315,15 @@
+ #define PERF_CAP_PT_IDX			16
+ 
+ #define MSR_PEBS_LD_LAT_THRESHOLD	0x000003f6
+-#define PERF_CAP_PEBS_TRAP             BIT_ULL(6)
+-#define PERF_CAP_ARCH_REG              BIT_ULL(7)
+-#define PERF_CAP_PEBS_FORMAT           0xf00
+-#define PERF_CAP_PEBS_BASELINE         BIT_ULL(14)
+-#define PERF_CAP_PEBS_MASK	(PERF_CAP_PEBS_TRAP | PERF_CAP_ARCH_REG | \
+-				 PERF_CAP_PEBS_FORMAT | PERF_CAP_PEBS_BASELINE)
++
++#define PERF_CAP_LBR_FMT		0x3f
++#define PERF_CAP_PEBS_TRAP		BIT_ULL(6)
++#define PERF_CAP_ARCH_REG		BIT_ULL(7)
++#define PERF_CAP_PEBS_FORMAT		0xf00
++#define PERF_CAP_FW_WRITES		BIT_ULL(13)
++#define PERF_CAP_PEBS_BASELINE		BIT_ULL(14)
++#define PERF_CAP_PEBS_MASK		(PERF_CAP_PEBS_TRAP | PERF_CAP_ARCH_REG | \
++					 PERF_CAP_PEBS_FORMAT | PERF_CAP_PEBS_BASELINE)
+ 
+ #define MSR_IA32_RTIT_CTL		0x00000570
+ #define RTIT_CTL_TRACEEN		BIT(0)
+diff --git a/arch/x86/kvm/vmx/capabilities.h b/arch/x86/kvm/vmx/capabilities.h
+index 854e54c352f8..26ff606ff139 100644
+--- a/arch/x86/kvm/vmx/capabilities.h
++++ b/arch/x86/kvm/vmx/capabilities.h
+@@ -20,9 +20,6 @@ extern int __read_mostly pt_mode;
+ #define PT_MODE_SYSTEM		0
+ #define PT_MODE_HOST_GUEST	1
+ 
+-#define PMU_CAP_FW_WRITES	(1ULL << 13)
+-#define PMU_CAP_LBR_FMT		0x3f
+-
+ struct nested_vmx_msrs {
+ 	/*
+ 	 * We only store the "true" versions of the VMX capability MSRs. We
+diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
+index 8df8d7b4f212..7ab35ef4a3b1 100644
+--- a/arch/x86/kvm/vmx/pmu_intel.c
++++ b/arch/x86/kvm/vmx/pmu_intel.c
+@@ -138,7 +138,7 @@ static inline u64 vcpu_get_perf_capabilities(struct kvm_vcpu *vcpu)
+ 
+ static inline bool fw_writes_is_enabled(struct kvm_vcpu *vcpu)
+ {
+-	return (vcpu_get_perf_capabilities(vcpu) & PMU_CAP_FW_WRITES) != 0;
++	return (vcpu_get_perf_capabilities(vcpu) & PERF_CAP_FW_WRITES) != 0;
+ }
+ 
+ static inline struct kvm_pmc *get_fw_gp_pmc(struct kvm_pmu *pmu, u32 msr)
+@@ -588,7 +588,7 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+ 
+ 	perf_capabilities = vcpu_get_perf_capabilities(vcpu);
+ 	if (intel_pmu_lbr_is_compatible(vcpu) &&
+-	    (perf_capabilities & PMU_CAP_LBR_FMT))
++	    (perf_capabilities & PERF_CAP_LBR_FMT))
+ 		memcpy(&lbr_desc->records, &vmx_lbr_caps, sizeof(vmx_lbr_caps));
+ 	else
+ 		lbr_desc->records.nr = 0;
+@@ -787,7 +787,7 @@ static bool intel_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_
+ 	 * Require v4+ for MSR_CORE_PERF_GLOBAL_STATUS_SET, and full-width
+ 	 * writes so that KVM can precisely load guest counter values.
+ 	 */
+-	return host_pmu->version >= 4 && host_perf_cap & PMU_CAP_FW_WRITES;
++	return host_pmu->version >= 4 && host_perf_cap & PERF_CAP_FW_WRITES;
+ }
+ 
+ struct kvm_pmu_ops intel_pmu_ops __initdata = {
 diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index 8c6343494e62..7b0b51809f0e 100644
+index 7b0b51809f0e..93b87f9e6dfd 100644
 --- a/arch/x86/kvm/vmx/vmx.c
 +++ b/arch/x86/kvm/vmx/vmx.c
-@@ -4304,7 +4304,7 @@ static u32 vmx_pin_based_exec_ctrl(struct vcpu_vmx *vmx)
- 	return pin_based_exec_ctrl;
- }
+@@ -2127,7 +2127,7 @@ u64 vmx_get_supported_debugctl(struct kvm_vcpu *vcpu, bool host_initiated)
+ 	    (host_initiated || guest_cpu_cap_has(vcpu, X86_FEATURE_BUS_LOCK_DETECT)))
+ 		debugctl |= DEBUGCTLMSR_BUS_LOCK_DETECT;
  
--static u32 vmx_vmentry_ctrl(void)
-+static u32 vmx_get_initial_vmentry_ctrl(void)
+-	if ((kvm_caps.supported_perf_cap & PMU_CAP_LBR_FMT) &&
++	if ((kvm_caps.supported_perf_cap & PERF_CAP_LBR_FMT) &&
+ 	    (host_initiated || intel_pmu_lbr_is_enabled(vcpu)))
+ 		debugctl |= DEBUGCTLMSR_LBR | DEBUGCTLMSR_FREEZE_LBRS_ON_PMI;
+ 
+@@ -2412,9 +2412,9 @@ int vmx_set_msr(struct kvm_vcpu *vcpu, struct msr_data *msr_info)
+ 			vmx->pt_desc.guest.addr_a[index / 2] = data;
+ 		break;
+ 	case MSR_IA32_PERF_CAPABILITIES:
+-		if (data & PMU_CAP_LBR_FMT) {
+-			if ((data & PMU_CAP_LBR_FMT) !=
+-			    (kvm_caps.supported_perf_cap & PMU_CAP_LBR_FMT))
++		if (data & PERF_CAP_LBR_FMT) {
++			if ((data & PERF_CAP_LBR_FMT) !=
++			    (kvm_caps.supported_perf_cap & PERF_CAP_LBR_FMT))
+ 				return 1;
+ 			if (!cpuid_model_is_consistent(vcpu))
+ 				return 1;
+@@ -7786,7 +7786,7 @@ void vmx_vcpu_after_set_cpuid(struct kvm_vcpu *vcpu)
+ 
+ static __init u64 vmx_get_perf_capabilities(void)
  {
- 	u32 vmentry_ctrl = vmcs_config.vmentry_ctrl;
+-	u64 perf_cap = PMU_CAP_FW_WRITES;
++	u64 perf_cap = PERF_CAP_FW_WRITES;
+ 	u64 host_perf_cap = 0;
  
-@@ -4321,7 +4321,7 @@ static u32 vmx_vmentry_ctrl(void)
- 	return vmentry_ctrl;
- }
+ 	if (!enable_pmu)
+@@ -7807,7 +7807,7 @@ static __init u64 vmx_get_perf_capabilities(void)
+ 		if (!vmx_lbr_caps.has_callstack)
+ 			memset(&vmx_lbr_caps, 0, sizeof(vmx_lbr_caps));
+ 		else if (vmx_lbr_caps.nr)
+-			perf_cap |= host_perf_cap & PMU_CAP_LBR_FMT;
++			perf_cap |= host_perf_cap & PERF_CAP_LBR_FMT;
+ 	}
  
--static u32 vmx_vmexit_ctrl(void)
-+static u32 vmx_get_initial_vmexit_ctrl(void)
- {
- 	u32 vmexit_ctrl = vmcs_config.vmexit_ctrl;
- 
-@@ -4686,10 +4686,10 @@ static void init_vmcs(struct vcpu_vmx *vmx)
- 	if (vmcs_config.vmentry_ctrl & VM_ENTRY_LOAD_IA32_PAT)
- 		vmcs_write64(GUEST_IA32_PAT, vmx->vcpu.arch.pat);
- 
--	vm_exit_controls_set(vmx, vmx_vmexit_ctrl());
-+	vm_exit_controls_set(vmx, vmx_get_initial_vmexit_ctrl());
- 
- 	/* 22.2.1, 20.8.1 */
--	vm_entry_controls_set(vmx, vmx_vmentry_ctrl());
-+	vm_entry_controls_set(vmx, vmx_get_initial_vmentry_ctrl());
- 
- 	vmx->vcpu.arch.cr0_guest_owned_bits = vmx_l1_guest_owned_cr0_bits();
- 	vmcs_writel(CR0_GUEST_HOST_MASK, ~vmx->vcpu.arch.cr0_guest_owned_bits);
+ 	if (vmx_pebs_supported()) {
 -- 
 2.50.1.565.gc32cd1483b-goog
 
