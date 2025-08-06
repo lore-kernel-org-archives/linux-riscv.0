@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFC2C87FD3
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 12:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752AFC87FCB
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 13:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=awKRaiGOvGYRw9qVKyHH+5WocC6BjqjfIHy0jigkwGc=; b=JwMnkh+TzE4tg8
-	jVJ74LdfodjVmswy2Mfi/kRtE0Y2R/+IRUOU4crBz6qN+9K3O93bdII1eMy/R6KR44R0upKgVNP1K
-	WLIcude8SzrD7XQrAQeHM7mJFJ8L4e+e912+ZwbHaQmyag1RWMYir+g0upPvNpRofStTB69B0SUhD
-	UZCG5348Y4bW04hmcbeurIUIw/bzP02NHyp8SfOPHtoJ2z41bXN/f3uLfQeOlIIMEH27dPcNGZFua
-	X2pnad7+GdyBnM37IWHfkLs9n9KIIO0oNY6gSP3tqK7u5DxNjtqSzNx6ndBN2b588Lkm99OCDZvf2
-	okXNL5fB2kkIolT3m6QA==;
+	List-Owner; bh=jsKroY3tN+/P4GRPYLy53t1l3SnI7Ms/WgEGgDngU1Q=; b=aWGPIqVrnXqYIu
+	5/+To0TR86TdDZq3dwNmzWkEaZoLoo//psPX34MRCoO7X3lwLO2/5aO4SHvBBXQyrWqpoOdVNTulg
+	EDgVk0/yXtWhVzpkB5O2a1ojQAoqTmlKHvtNITylaQQ4r8PuriIQBWFjD/7vyRjur+DeR05zn3FmJ
+	0OeJJz+pKGmAEo4kyBhVtSHT196p6HnxvLYHh1byUkaHWJhD1uGOODwCs1/V7lvzppY2+Z2FjcDsZ
+	5gD5uulbCc8BPzOoQYJfZd5rpI3wMtPSQCSy+o7g2zRyFJfCEHevhqi6cXzjnLYL9dyn0W8eiybbF
+	NFsW1kUHjxeS7CoNTCAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujdd6-0000000FDjr-2Q2H;
-	Wed, 06 Aug 2025 12:52:28 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1ujeIP-0000000FJIR-07o4;
+	Wed, 06 Aug 2025 13:35:09 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujdd3-0000000FDjO-1zGj
-	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 12:52:26 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1754484743;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0CKuWwc8CcpCiwTOGLaSnMeZDqSZ/wmtXkBLoQP2sYc=;
-	b=sseoPFcmkbJ2G8RRqBxtnK8D3MNOOdYheUVEPitt71mNv+Qx2K3wdNqjCv9xC2hM+ADLN5
-	mVS4Vd1MCKKy5F24+qeSGqIc/Dl3Mu9vJP8QAS91fl7XGInqoVF1H3AKnqopDJz+E49Nxp
-	x1KrE0BP+8VfiNiBjEJs7oSf3v6VaA0FUXikYoDKXg3s28N4zPagKILNz+8ersDLlZtxGq
-	3IQy30EMEWtN4AarHuFGhPMdsZbFysaFx+6SYjzMbZQ16p+f2s9gu1715ycreGUwJD8X5O
-	D+r3LlP0POjQThXJ/Q6AYNWgM5iU1oyLGOV+6NbfjxgR803AOSf0MTZyf/3/XQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1754484743;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0CKuWwc8CcpCiwTOGLaSnMeZDqSZ/wmtXkBLoQP2sYc=;
-	b=ri+P72jvs7QNehwNlK37VH6ihStxWlQgEN4D+EAxsflPMoQPYJjVe/iTOuNTyxUzH9Plet
-	rUsSeLXXlQ+D2iAw==
-To: Nick Hu <nick.hu@sifive.com>, anup@brainfault.org, Alexandre Ghiti
- <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Nick Hu <nick.hu@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v2 2/2] irqchip/riscv-aplic: Save and restore APLIC
- registers
-In-Reply-To: <20250806082726.8835-3-nick.hu@sifive.com>
-References: <20250806082726.8835-1-nick.hu@sifive.com>
- <20250806082726.8835-3-nick.hu@sifive.com>
-Date: Wed, 06 Aug 2025 14:52:23 +0200
-Message-ID: <875xf0eho8.ffs@tglx>
+	id 1ujeIM-0000000FJGv-1VCl;
+	Wed, 06 Aug 2025 13:35:07 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-55ba2644bdaso562220e87.0;
+        Wed, 06 Aug 2025 06:35:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754487304; x=1755092104; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=GkBywKSK+jarcaDEWkMpZ6690o3qyLvHV2Ljs5N+BnY=;
+        b=NySPrReumcUTFpj2gIhNZIrCLf9kmaczdgsd739sLBEfxwZkEFn8jUXkmb4UWPyJyB
+         9+sw4i1whFqOC+Uo5+G1Jk6PGTkRT82OXnasQ67vdWI72rPFKN3pD5Vn6PA7riox0GPZ
+         RvEGuuzG40so72SbBsm85NLHs4lcatADkQXgRhEkFHDk+GdxwEOjELtZ/on3AEFCX24F
+         IncXKh3JUsEgIp81y1PZkHfZ5zB1pXX/6fQ79OKcXDw53MMyxbGIx5WJCqMAGBRI281f
+         sI9swj9K98Gw4KaCIFSG+RD0wCMOnEvudZhxMRpcqzsce4PuAQccg2Uu1d6U+F4DfCUA
+         4LDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754487304; x=1755092104;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=GkBywKSK+jarcaDEWkMpZ6690o3qyLvHV2Ljs5N+BnY=;
+        b=jcFsYF1kqDM3e8lnt7/XfLtEwO823/5U2v9pMNqXjFsV4OSF+CF7/e4UF1EZ8MOMLy
+         138NT48ZND8HChzR/FmiJR0ACdOr5iBe5ige1HU7/22YfbaCyg4h1iWRVj57oq1+lzYS
+         FR6N/vr796V0xLxnnsI3ZjvqkFcRH9ejE6kT0Io8H2MmuzwFcUe7PYbfR2gG5rijnnM3
+         HJqZFHWjxiPSlXm+w2q3vDooUERv4jM1drfj80B1RrP2GXosn4fJ+G2nl+wx+aejReoy
+         zXdkjgZQfYZtbCFjaefyf2/NtOxFs4MRRIw5MeICeag0wVryq3ig+4FMsc/D8b28EQpm
+         nB/A==
+X-Forwarded-Encrypted: i=1; AJvYcCVvV+fLqOprsdPwvW0AOYYOOjsKAc3PKEqEMPEpIpR5GIiadXqJvZApToxYMGeO4hW84owh0b3dyTDZmQ==@lists.infradead.org, AJvYcCXNK9D+Xuspch52tJvsrMBdx5RcvnKCz1d9jLNNiCuvoMpeeNAq6a5h7WbJTGZUJZcs67vKhXepTSc=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrcELAzi2U2ZJ3hYwC33YpOiLvHSoRdC2f3F+FXrTLcO1UuCFA
+	ntGzWJyRsj41TG6aRNG2aXKAZNWAweCznGkk3LhINUNhZK/nR9RJpWMC
+X-Gm-Gg: ASbGncuaBnl2k6yVJmvuWb8a1dOfDBPQMLLaBdmvu0BzlnPfAZkQxOcWR7q9grziSCf
+	6RYQcvRZ39kH1A9T/11x3Ka2HgC2k7yAfVTpXxZfHV+NvsLjKzaucu2XOnWKN2rvnzgY+4j92bM
+	McANfMGx6TAsZ3ueKLHP9OZvO2LJAbi+GRG11G4AlR6TbFccMYW73lSvQB7VFYzM0gdqlrVByiJ
+	KMuV5CdKIEBrk/cxr00Wb1+YObPz44elAzyvQ3V3bdvesHN+bA9QwZCI9hw34RXjc51IOpXupA4
+	d3iVI+e/OuPJPWDQu4HCHdtaXgv1Wwqzi8XhCbHXsNwzUkeESsyrx0nMunHz77Zg1f+8s0yDP9m
+	K8O3MIE0thAr5cd5n5x6RhvSA1j5V
+X-Google-Smtp-Source: AGHT+IG/+xV14jPScIlu8zUGGDD+ajQ7/dFSreWgfNZ5pS9U8lvRiqBw989XNjNOSP9y7GWZ8ScIMA==
+X-Received: by 2002:a05:6512:ad1:b0:55a:4d9e:6536 with SMTP id 2adb3069b0e04-55caf2f956dmr417291e87.2.1754487304191;
+        Wed, 06 Aug 2025 06:35:04 -0700 (PDT)
+Received: from [10.214.35.248] ([80.93.240.68])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b8899ebd2sm2302283e87.42.2025.08.06.06.35.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 Aug 2025 06:35:03 -0700 (PDT)
+Message-ID: <5a73e633-a374-47f2-a1e1-680e24d9f260@gmail.com>
+Date: Wed, 6 Aug 2025 15:34:15 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/9] kasan: introduce ARCH_DEFER_KASAN and unify static
+ key across modes
+To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>, hca@linux.ibm.com,
+ christophe.leroy@csgroup.eu, andreyknvl@gmail.com, agordeev@linux.ibm.com,
+ akpm@linux-foundation.org, zhangqing@loongson.cn, chenhuacai@loongson.cn,
+ trishalfonso@google.com, davidgow@google.com
+Cc: glider@google.com, dvyukov@google.com, kasan-dev@googlegroups.com,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
+References: <20250805142622.560992-1-snovitoll@gmail.com>
+ <20250805142622.560992-2-snovitoll@gmail.com>
+Content-Language: en-US
+From: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+In-Reply-To: <20250805142622.560992-2-snovitoll@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_055225_658377_4B4EDDD4 
-X-CRM114-Status: GOOD (  25.42  )
+X-CRM114-CacheID: sfid-20250806_063506_406130_BCCBD263 
+X-CRM114-Status: GOOD (  25.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,286 +106,189 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 06 2025 at 16:27, Nick Hu wrote:
-> The APLIC may be powered down when the CPUs enter a deep sleep state.
-> Therefore adding the APLIC save and restore functions to save and
-> restore the states of APLIC.
 
-Same comments vs. subject and change log.
 
+On 8/5/25 4:26 PM, Sabyrzhan Tasbolatov wrote:
+> Introduce CONFIG_ARCH_DEFER_KASAN to identify architectures that need
+> to defer KASAN initialization until shadow memory is properly set up,
+> and unify the static key infrastructure across all KASAN modes.
+> 
+> Some architectures (like PowerPC with radix MMU) need to set up their
+> shadow memory mappings before KASAN can be safely enabled, while others
+> (like s390, x86, arm) can enable KASAN much earlier or even from the
+> beginning.
+> 
+> Historically, the runtime static key kasan_flag_enabled existed only for
+> CONFIG_KASAN_HW_TAGS mode. Generic and SW_TAGS modes either relied on
+> architecture-specific kasan_arch_is_ready() implementations or evaluated
+> KASAN checks unconditionally, leading to code duplication.
+> 
+> Closes: https://bugzilla.kernel.org/show_bug.cgi?id=217049
+> Signed-off-by: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+> ---
+> Changes in v4:
+> - Fixed HW_TAGS static key functionality (was broken in v3)
+
+I don't think it fixed. Before you patch kasan_enabled() esentially
+worked like this:
+
+ if (IS_ENABLED(CONFIG_KASAN_HW_TAGS))
+        return static_branch_likely(&kasan_flag_enabled);
+ else
+        return IS_ENABLED(CONFIG_KASAN);
+
+Now it's just IS_ENABLED(CONFIG_KASAN);
+
+And there are bunch of kasan_enabled() calls left whose behavior changed for
+no reason.
+
+
+> - Merged configuration and implementation for atomicity
+> ---
+>  include/linux/kasan-enabled.h | 36 +++++++++++++++++++++++-------
+>  include/linux/kasan.h         | 42 +++++++++++++++++++++++++++--------
+>  lib/Kconfig.kasan             |  8 +++++++
+>  mm/kasan/common.c             | 18 ++++++++++-----
+>  mm/kasan/generic.c            | 23 +++++++++++--------
+>  mm/kasan/hw_tags.c            |  9 +-------
+>  mm/kasan/kasan.h              | 36 +++++++++++++++++++++---------
+>  mm/kasan/shadow.c             | 32 ++++++--------------------
+>  mm/kasan/sw_tags.c            |  4 +++-
+>  mm/kasan/tags.c               |  2 +-
+>  10 files changed, 133 insertions(+), 77 deletions(-)
+> 
+> diff --git a/include/linux/kasan-enabled.h b/include/linux/kasan-enabled.h
+> index 6f612d69ea0..52a3909f032 100644
+> --- a/include/linux/kasan-enabled.h
+> +++ b/include/linux/kasan-enabled.h
+> @@ -4,32 +4,52 @@
 >  
-> +void aplic_direct_restore(struct aplic_priv *priv)
+>  #include <linux/static_key.h>
+>  
+> -#ifdef CONFIG_KASAN_HW_TAGS
+> +/* Controls whether KASAN is enabled at all (compile-time check). */
+> +static __always_inline bool kasan_enabled(void)
 > +{
-> +	struct aplic_direct *direct =
-> +			container_of(priv, struct aplic_direct, priv);
-
-No line break required.
-
-> +	int cpu;
-> +
-> +	for_each_cpu(cpu, &direct->lmask)
-> +		aplic_idc_set_delivery(per_cpu_ptr(&aplic_idcs, cpu), true);
-> +static LIST_HEAD(aplics);
-> +
-> +static void aplic_restore(struct aplic_priv *priv)
-> +{
-> +	int i;
-> +	u32 clrip;
-
-See the documentation I linked you to and look for the chapter about
-variable declarations.
-
-> +	writel(priv->saved_domaincfg, priv->regs + APLIC_DOMAINCFG);
-> +#ifdef CONFIG_RISCV_M_MODE
-> +	writel(priv->saved_msiaddr, priv->regs + APLIC_xMSICFGADDR);
-> +	writel(priv->saved_msiaddrh, priv->regs + APLIC_xMSICFGADDRH);
-> +#endif
-> +	for (i = 1; i <= priv->nr_irqs; i++) {
-> +		writel(priv->saved_sourcecfg[i - 1],
-> +		       priv->regs + APLIC_SOURCECFG_BASE +
-> +		       (i - 1) * sizeof(u32));
-> +		writel(priv->saved_target[i - 1],
-> +		       priv->regs + APLIC_TARGET_BASE +
-> +		       (i - 1) * sizeof(u32));
-
-Sorry, but this is incomprehensible garbage.
-
-Why are you starting with i = 1 when you subtract 1 from i at every
-usage site?
-
-        u32 __iomem *regs = priv->regs;
-        for (i = 0; i < priv->nr_irqs; i++, regs++) {
-        	writel(priv->saved_sourcecfg[i], regs + APLIC_SOURCECFG_BASE);        
-        	writel(priv->saved_target[i], regs + APLIC_TARGET_BASE);        
-	}
-
-See?
-
-> +	}
-> +
-> +	for (i = 0; i <= priv->nr_irqs; i += 32) {
-
-Off by one. This needs to be i < priv->nr_irqs, no?
-
-> +		writel(-1U, priv->regs + APLIC_CLRIE_BASE +
-> +			    (i / 32) * sizeof(u32));
-> +		writel(priv->saved_ie[i / 32],
-> +		       priv->regs + APLIC_SETIE_BASE +
-> +		       (i / 32) * sizeof(u32));
-> +	}
-> +
-> +	if (priv->nr_idcs) {
-> +		aplic_direct_restore(priv);
-> +	} else {
-> +		/* Re-trigger the interrupts */
-> +		for (i = 0; i <= priv->nr_irqs; i += 32) {
-
-Same here
-
-> +			clrip = readl(priv->regs + APLIC_CLRIP_BASE +
-> +				      (i / 32) * sizeof(u32));
-> +			writel(clrip, priv->regs + APLIC_SETIP_BASE +
-> +				      (i / 32) * sizeof(u32));
-> +		}
-
-And this can properly be combined into:
-
-        u32 __iomem *regs = priv->regs;
-
-        for (i = 0; i < priv->nr_irqs; i += 32, regs++) {
-		writel(-1U, regs + APLIC_CLRIE_BASE);
-                writel(priv->saved_ie[i / 32], regs + APLIC_SETIE_BASE);
-
-                if (!priv->nr_idcs)
-                        writel(readl(regs + APLOC_CLRIP_BASE), regs + APLIC_SETIP_BASE);
-	}
-
-        if (priv->nr_idcs)
-		aplic_direct_restore(priv);
-
-No?
-
+> +	return IS_ENABLED(CONFIG_KASAN);
 > +}
-> +
-> +static void aplic_save(struct aplic_priv *priv)
+>  
+> +#if defined(CONFIG_ARCH_DEFER_KASAN) || defined(CONFIG_KASAN_HW_TAGS)
+> +/*
+> + * Global runtime flag for KASAN modes that need runtime control.
+> + * Used by ARCH_DEFER_KASAN architectures and HW_TAGS mode.
+> + */
+>  DECLARE_STATIC_KEY_FALSE(kasan_flag_enabled);
+>  
+> -static __always_inline bool kasan_enabled(void)
+> +/*
+> + * Runtime control for shadow memory initialization or HW_TAGS mode.
+> + * Uses static key for architectures that need deferred KASAN or HW_TAGS.
+> + */
+> +static __always_inline bool kasan_shadow_initialized(void)
+
+Don't rename it, just leave as is - kasan_enabled().
+It's better name, shorter and you don't need to convert call sites, so
+there is less chance of mistakes due to unchanged kasan_enabled() -> kasan_shadow_initialized().
+
+
+>  {
+>  	return static_branch_likely(&kasan_flag_enabled);
+>  }
+>  
+> -static inline bool kasan_hw_tags_enabled(void)
+> +static inline void kasan_enable(void)
 > +{
-> +	int i;
-> +
-> +	for (i = 1; i <= priv->nr_irqs; i++) {
-> +		priv->saved_target[i - 1] = readl(priv->regs +
-> +						  APLIC_TARGET_BASE +
-> +						  (i - 1) * sizeof(u32));
-> +	}
-
-Oh well...
-
-> +
-> +	for (i = 0; i <= priv->nr_irqs; i += 32) {
-
-Off by one again ...
-
-> +		priv->saved_ie[i / 32] = readl(priv->regs +
-> +					       APLIC_SETIE_BASE +
-> +					       (i / 32) * sizeof(u32));
-> +	}
+> +	static_branch_enable(&kasan_flag_enabled);
 > +}
-> +
-> +static int aplic_syscore_suspend(void)
-> +{
-> +	struct aplic_priv *priv;
-> +
-> +	list_for_each_entry(priv, &aplics, head) {
-> +		aplic_save(priv);
-> +	}
-
-Superflous brackets
-
-> +
-> +	return 0;
-> +}
-> +
-> +static void aplic_syscore_resume(void)
-> +{
-> +	struct aplic_priv *priv;
-> +
-> +	list_for_each_entry(priv, &aplics, head) {
-> +		aplic_restore(priv);
-> +	}
-
-Ditto
-
-> +}
-> +
-> +static struct syscore_ops aplic_syscore_ops = {
-> +	.suspend = aplic_syscore_suspend,
-> +	.resume = aplic_syscore_resume,
-
-See documentation about struct definitions and initializers
-
-> +};
-> +
-> +static int aplic_pm_notifier(struct notifier_block *nb, unsigned long action, void *data)
-> +{
-> +	struct aplic_priv *priv = container_of(nb, struct aplic_priv, genpd_nb);
-> +
-> +	switch (action) {
-> +	case GENPD_NOTIFY_PRE_OFF:
-> +		aplic_save(priv);
-> +		break;
-> +	case GENPD_NOTIFY_ON:
-> +		aplic_restore(priv);
-> +		break;
-> +	default:
-> +		break;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void aplic_remove(void *data)
-> +{
-> +	struct aplic_priv *priv = data;
-> +
-> +	list_del(&priv->head);
-
-How is this list operation serialized?
-
-> +	dev_pm_genpd_remove_notifier(priv->dev);
-> +}
-> +
-> +static int aplic_add(struct device *dev, struct aplic_priv *priv)
-> +{
-> +	int ret;
-> +
-> +	list_add(&priv->head, &aplics);
-> +	/* Add genpd notifier */
-> +	priv->genpd_nb.notifier_call = aplic_pm_notifier;
-> +	ret = dev_pm_genpd_add_notifier(dev, &priv->genpd_nb);
-> +	if (ret && ret != -ENODEV && ret != -EOPNOTSUPP) {
-
-What is this magic about? Lacks explanation and rationale.
-
-> +		list_del(&priv->head);
-> +		return ret;
+> +#else
+> +/* For architectures that can enable KASAN early, use compile-time check. */
+> +static __always_inline bool kasan_shadow_initialized(void)
+>  {
+>  	return kasan_enabled();
+>  }
+>  
 
 ...
 
-> +	/* For power management */
-> +	priv->saved_target = devm_kzalloc(dev, priv->nr_irqs * sizeof(u32),
-> +					  GFP_KERNEL);
-> +	if (!priv->saved_target)
-> +		return -ENOMEM;
+>  
+>  void kasan_populate_early_vm_area_shadow(void *start, unsigned long size);
+> -int kasan_populate_vmalloc(unsigned long addr, unsigned long size);
+> -void kasan_release_vmalloc(unsigned long start, unsigned long end,
 > +
-> +	priv->saved_sourcecfg = devm_kzalloc(dev, priv->nr_irqs * sizeof(u32),
-> +					     GFP_KERNEL);
-> +	if (!priv->saved_sourcecfg)
-> +		return -ENOMEM;
+> +int __kasan_populate_vmalloc(unsigned long addr, unsigned long size);
+> +static inline int kasan_populate_vmalloc(unsigned long addr, unsigned long size)
+> +{
+> +	if (!kasan_shadow_initialized())
+> +		return 0;
+
+
+What's the point of moving these checks to header?
+Leave it in C, it's easier to grep and navigate code this way.
+
+
+> +	return __kasan_populate_vmalloc(addr, size);
+> +}
 > +
-> +	priv->saved_ie = devm_kzalloc(dev,
-> +				      DIV_ROUND_UP(priv->nr_irqs, 32) * sizeof(u32),
-> +				      GFP_KERNEL);
-> +	if (!priv->saved_ie)
-> +		return -ENOMEM;
+> +void __kasan_release_vmalloc(unsigned long start, unsigned long end,
+>  			   unsigned long free_region_start,
+>  			   unsigned long free_region_end,
+>  			   unsigned long flags);
+> +static inline void kasan_release_vmalloc(unsigned long start,
+> +			   unsigned long end,
+> +			   unsigned long free_region_start,
+> +			   unsigned long free_region_end,
+> +			   unsigned long flags)
+> +{
+> +	if (kasan_shadow_initialized())
+> +		__kasan_release_vmalloc(start, end, free_region_start,
+> +			   free_region_end, flags);
+> +}
+>  
 
-Seriously? You allocate all of this seperately? Ever heard about the
-concept of data structures?
+...> @@ -250,7 +259,7 @@ static inline void poison_slab_object(struct kmem_cache *cache, void *object,
+>  bool __kasan_slab_pre_free(struct kmem_cache *cache, void *object,
+>  				unsigned long ip)
+>  {
+> -	if (!kasan_arch_is_ready() || is_kfence_address(object))
+> +	if (is_kfence_address(object))
+>  		return false;
+>  	return check_slab_allocation(cache, object, ip);
+>  }
+> @@ -258,7 +267,7 @@ bool __kasan_slab_pre_free(struct kmem_cache *cache, void *object,
+>  bool __kasan_slab_free(struct kmem_cache *cache, void *object, bool init,
+>  		       bool still_accessible)
+>  {
+> -	if (!kasan_arch_is_ready() || is_kfence_address(object))
+> +	if (is_kfence_address(object))
+>  		return false;
+>  
+>  	poison_slab_object(cache, object, init, still_accessible);
+> @@ -282,9 +291,6 @@ bool __kasan_slab_free(struct kmem_cache *cache, void *object, bool init,
+>  
+>  static inline bool check_page_allocation(void *ptr, unsigned long ip)
+>  {
+> -	if (!kasan_arch_is_ready())
+> -		return false;
+> -
 
-struct savedregs {
-	u32	target;
-        u32	source;
-        u32	ie;
-};
 
-        priv->savedregs = devm_kcalloc(dev, priv->nr_irqs, sizeof(*priv->savedregs, GFP_KERNEL);
-    
-Yes, I know you don't need as many ie registers, but that's not a
-problem at all. You just need to write/read to/from index 0, 32, 64 ...
+Well, you can't do this yet, because no arch using ARCH_DEFER_KASAN yet, so this breaks
+bisectability.
+Leave it, and remove with separate patch only when there are no users left.
 
-And your restore muck boils down to a single loop:
+>  	if (ptr != page_address(virt_to_head_page(ptr))) {
+>  		kasan_report_invalid_free(ptr, ip, KASAN_REPORT_INVALID_FREE);
+>  		return true;
+> @@ -511,7 +517,7 @@ bool __kasan_mempool_poison_object(void *ptr, unsigned long ip)
+>  		return true;
+>  	}
+>  
+> -	if (is_kfence_address(ptr) || !kasan_arch_is_ready())
+> +	if (is_kfence_address(ptr))
+>  		return true;
+>  
+>  	slab = folio_slab(folio);
 
-        u32 __iomem *regs = priv->regs;
-        for (i = 0; i < priv->nr_irqs; i++, regs++) {
-        	writel(priv->savedregs->source[i], regs + APLIC_SOURCECFG_BASE);        
-        	writel(priv->savedregs->target[i], regs + APLIC_TARGET_BASE);
-
-                if (i % 32)
-                	continue;
-
-		writel(-1U, regs + APLIC_CLRIE_BASE);
-                writel(priv->saved_ie[i], regs + APLIC_SETIE_BASE);
-                if (!priv->nr_idcs)
-                        writel(readl(regs + APLOC_CLRIP_BASE), regs + APLIC_SETIP_BASE);
-	}
-
-That's too comprehensible, right?
-
->  struct aplic_priv {
-> +	struct list_head	head;
-
-Why needs this to be at the top?
-
-There is no reason at all. Not that it matters much as this data
-structure is a trainwreck vs. cacheline efficiency anyway.
-
->  	struct device		*dev;
->  	u32			gsi_base;
->  	u32			nr_irqs;
-> @@ -31,6 +32,15 @@ struct aplic_priv {
->  	u32			acpi_aplic_id;
->  	void __iomem		*regs;
->  	struct aplic_msicfg	msicfg;
-> +	struct notifier_block	genpd_nb;
-> +	u32 *saved_target;
-
-So you aligned @head and @genpd_nb, but then you use random formatting
-to turn this into visual clutter.
-
-I'm amazed that this lot has received three Reviewed-by tags and nobody
-found even the slightest issue with it. Oh well.
-
-Thanks,
-
-        tglx
 
 
 _______________________________________________
