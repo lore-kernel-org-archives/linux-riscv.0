@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BCCCA0EC0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C84C87FD3
 	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 17:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,55 +12,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t/WP8mvbjRBdYNCRSNf28G0IEuiKgJbe5hdZA926/Y0=; b=TLRPFuLKoqNHnI
-	Rpjur1Tt6R7fcbnK9++zA/zCdIQS5b8pL/VnavMc8rSfSNdUvNy11jaC3yWf0uHAI1nXcAn1YTUjN
-	KjvWGtPehxmz1OxmqHoOM0/SIXV4YWz4r7ldKLMRaLInfrvubnbevV414HT+kAll74hlRjArnu8Xg
-	ErL2lnfXdOVxTKwdm0tkKIWKrFB1CTI7lvC2Je+6jt0NlnMfQ/7xUi7ZJniXgZ6LmXFXaOEGowAfJ
-	YcPCwWLycq2F1PY79yH8EUXcydmMLKJqpvmzPCFdqBBs7hfXDP5Z0XkoSj9loVSyMOezKOxRqhuDw
-	VFYu/4X+PiySmVdtkEmA==;
+	List-Owner; bh=8VHaEMe2llEFdFoBKnpxEg5BzT6CrhPGRHL2EkzG3jk=; b=1M74wB8h68Kp2I
+	ZOZz7rpq5cJMz3QFhDYlMDAcp5i1pl8jl0Kgu21fNppxcXqhqckazGliURR883JWYhsZcfoxtscNf
+	C/TDVDsft8l2I8UeXeChqAADuyMc8CBbw/5mp0QG0JpeCY8zTvIVNxZor0lCUrluaPzvl+UlCSMSs
+	qbuM3BU2xYydXDhWIqgaQp7RER8MNvVRDx/53qVV05ArTXUzefPtrWQCh3rS83f+NEJRNj/CepRNT
+	Tzs2vdGT+PYkRGXSCs+dkKwmR9jPzencjO4F/cTxfulZ1DDdA1ZYJvP6OQxaXkS6ABO7wW7NerbZr
+	suQUAlngv+W8OlCZzd+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhnx-0000000FtO9-2nLc;
-	Wed, 06 Aug 2025 17:19:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ujhny-0000000FtOp-2832;
+	Wed, 06 Aug 2025 17:19:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhjp-0000000FsEb-3JKU
+	id 1ujhjs-0000000FsFu-0q0f
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 17:15:43 +0000
+	Wed, 06 Aug 2025 17:15:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8021E44C2C;
-	Wed,  6 Aug 2025 17:15:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 617BEC4CEE7;
-	Wed,  6 Aug 2025 17:15:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9F9C06112C;
+	Wed,  6 Aug 2025 17:15:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F65EC4CEF1;
+	Wed,  6 Aug 2025 17:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754500541;
-	bh=5gTmnwipvuK0mCh6kDXIbQ1cXlp5XEVZRIIYS+AQmMk=;
+	s=k20201202; t=1754500543;
+	bh=n4+mBmrM2PXhRcMevexmYO4o9PH4fP3pZStIuAV55rc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=mQYaaw+jAz5cAeOhBO8a8FUFLCV9+yIzqsyAzWoqvsdoffIkqXEcKroIlbw/5QEbk
-	 ngHrwY7j77qzA9Wa+drhLApd5kswPJ2JeUfQUUO+xVrUHO5A3Amb1qF1me+736R7Y0
-	 dfY2Nc0tZnjgxHDDyro+jZJrzgBgPGBNdbdmrX2+8v4c/C++/PrA6OBkQB+2PM5qd8
-	 n9hIhlgHNFJLmHe5pSoZl05hgvLWaSDl7TDbWZ2CVKmtB3HzyQVtBCECS36m6Wi3yd
-	 1GTo4W7Rd5rx0NbNxUSQFaxOFSN4zsPyp2Qc0ffL3PaCeGe1g1jrQ61fZ/RDeS9KAT
-	 3A6a/qpfRX7mA==
+	b=icnaqOJdzQTMO/kFFBnE2vk1OzKlWqDAD1c+GNsy3zvLHBprU5WWiD5sWUvI8lJoE
+	 zK8aVccyma1F5btkyyx6/97UR6HLNH2AHk5E/1YW9AfgB9M2BVVCYnr+r3NWeR2M3I
+	 EVrzV0AgRsmSJKCI5hGOsQHwLg4XFYWHhTKYih0zDkipC90tMv5oQXnffO3KUUaKk4
+	 IZds+s9kBZ2VHYzCPziDNywtDDQF9cYVR3OL6L1dEgHhjSUxd1aVKuHj5C/+HgsGvD
+	 J8sB8AQeFdIkq4R0gEem8521skbb/U0RLD4yEVTZbJUZC6y1hLZOTix3lEDGqlLPjL
+	 lSNUGeL36Q+IQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70EEC383BF63;
-	Wed,  6 Aug 2025 17:15:56 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33D33383BF63;
+	Wed,  6 Aug 2025 17:15:58 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/2] riscv: Replace __ASSEMBLY__ with __ASSEMBLER__ in
- header files
+Subject: Re: [PATCH] riscv: cpufeature: add validation for zfa, zfh and zfhmin
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175450055499.2863135.2738368758577957268.git-patchwork-notify@kernel.org>
-Date: Wed, 06 Aug 2025 17:15:54 +0000
-References: <20250606070952.498274-1-thuth@redhat.com>
-In-Reply-To: <20250606070952.498274-1-thuth@redhat.com>
-To: Thomas Huth <thuth@redhat.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- atish.patra@linux.dev, anup@brainfault.org, linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_101541_849186_EC8F26C5 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <175450055687.2863135.4984020591537860914.git-patchwork-notify@kernel.org>
+Date: Wed, 06 Aug 2025 17:15:56 +0000
+References: <20250527100001.33284-1-cleger@rivosinc.com>
+In-Reply-To: <20250527100001.33284-1-cleger@rivosinc.com>
+To: =?utf-8?b?Q2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPg==?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,41 +67,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (for-next)
-by Alexandre Ghiti <alexghiti@rivosinc.com>:
-
-On Fri,  6 Jun 2025 09:09:50 +0200 you wrote:
-> The kernel Makefiles define the __ASSEMBLY__ macro to provide
-> a way to use headers in both, assembly and C source code.
-> However, all the supported versions of the GCC and Clang compilers
-> also define the macro __ASSEMBLER__ automatically already when compiling
-> assembly code, so some kernel headers are using __ASSEMBLER__ instead.
-> With regards to userspace code, this seems also to be constant source
-> of confusion, see for example these links here:
-> 
-> [...]
-
-Here is the summary with links:
-  - [v2,1/2] riscv: Replace __ASSEMBLY__ with __ASSEMBLER__ in uapi headers
-    https://git.kernel.org/riscv/c/c47963980ba6
-  - [v2,2/2] riscv: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi headers
-    https://git.kernel.org/riscv/c/b5eb1f12a416
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZm9yLW5l
+eHQpCmJ5IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT46CgpPbiBUdWUs
+IDI3IE1heSAyMDI1IDEyOjAwOjAwICswMjAwIHlvdSB3cm90ZToKPiBUaGVzZSBleHRlbnNpb25z
+IGRlcGVuZHMgb24gdGhlIEYgb25lLiBBZGQgYSB2YWxpZGF0aW9uIGNhbGxiYWNrCj4gY2hlY2tp
+bmcgZm9yIHRoZSBGIGV4dGVuc2lvbiB0byBiZSBwcmVzZW50LiBOb3cgdGhhdCBleHRlbnNpb25z
+IGFyZQo+IGNvcnJlY3RseSByZXBvcnRlZCB1c2luZyB0aGUgRi9EIHByZXNlbmNlLCB3ZSBjYW4g
+cmVtb3ZlIHRoZQo+IGhhc19mcHUoKSBjaGVjayBpbiBod3Byb2JlX2lzYV9leHQwKCkuCj4gCj4g
+U2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgo+IAo+
+IFsuLi5dCgpIZXJlIGlzIHRoZSBzdW1tYXJ5IHdpdGggbGlua3M6CiAgLSByaXNjdjogY3B1ZmVh
+dHVyZTogYWRkIHZhbGlkYXRpb24gZm9yIHpmYSwgemZoIGFuZCB6ZmhtaW4KICAgIGh0dHBzOi8v
+Z2l0Lmtlcm5lbC5vcmcvcmlzY3YvYy8zZGUyOTM1MmFhZWIKCllvdSBhcmUgYXdlc29tZSwgdGhh
+bmsgeW91IQotLSAKRGVldC1kb290LWRvdCwgSSBhbSBhIGJvdC4KaHR0cHM6Ly9rb3JnLmRvY3Mu
+a2VybmVsLm9yZy9wYXRjaHdvcmsvcHdib3QuaHRtbAoKCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
