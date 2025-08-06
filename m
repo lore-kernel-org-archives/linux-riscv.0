@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 521DEC87FD3
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 22:00:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D52C8C87FD3
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 22:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5i21Qy0Kg7U+GXQu+mrEWWNo/YIZ8W/TnAfJh1chFdY=; b=mmfL/lQGpiUrFK
-	sVuaniwW9ZNln5gniFlzK2jcjHCGsSI3YX2G2uZth131QJxYTdzX+d1yeNW+TRQ2qvCqbrxA/sHQZ
-	9BLKi47dDMJm+GOzgr6qp772RMpFWg1B8ZAoILC3E/C68n6AcHsyppNLx4fiib0pN4GnJS9e520ky
-	8q58g2F32V7vm2znMn24R5Ue3hNSZ4QXkyYjYPHcO3aXXbywLrH9/DuPtt6AznjT/i2+Njhzl+43V
-	JYsxks/0EHqe+zTCXZrACWhRUWJQw8S17eRShuGHEg818xZODGvxOaAXwmy/mbJjMcKETbmeBTDzt
-	/lIVPQim3nskRk5qgrzQ==;
+	List-Owner; bh=/OJavnrlduhhSYyLysvwP8mKK6YOw6y8apK1bQaKRxY=; b=ID+Jh0JW32WRfu
+	Bnze0qptGyj0RlokY1gEmZwrNycei+G8ndijC6xr9KVoR5cvoQgPrGl6pcX8wCWrsFePBaBa1ohSg
+	QkppyHmx0hWppknaS5CU6KZ9foBnpQywqtB2LvrzcqhGqCF/Zn4StK/AFRBZGz9HWGFFjNjaJq9Re
+	vFLKOAYssf8Z/3pmsKReS1T+tRmXce9mZ499IHDoAL9JYNa5QO1wv8/Wwz5c1uHYt1WI4R8J5et6/
+	f65bhHCGR+4AFjfcE5qHWD0sb2yEv1azBh+IsJaJr0hQjJmjtw1UxYYkE65EuSQ2TGtWYR6B9SLAc
+	3nsmjoC3u51cEwNSltbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujmAs-0000000GfBp-38hL;
-	Wed, 06 Aug 2025 21:59:54 +0000
+	id 1ujmPQ-0000000GhSc-2GwI;
+	Wed, 06 Aug 2025 22:14:56 +0000
 Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkGw-0000000GGUy-47Ry
+	id 1ujkHE-0000000GGjg-0Kab
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 19:58:05 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-31ecb3a3d0aso274562a91.3
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:58:02 -0700 (PDT)
+	Wed, 06 Aug 2025 19:58:22 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-31f32271a1fso373202a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:58:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754510282; x=1755115082; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1754510299; x=1755115099; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=+6JQFfV5PUy/GrVBLvUiN2dICAbUeOItkyPrKIFKW8s=;
-        b=fn4Q0xpBEPAgxADwo6X6vCtqbJir+ScbpTJeKYzJt5lwnzBhzyho/6wvXca8UIdKSt
-         PCNlC4TPExWz30Q+6gJ0F66P9r+CQJubN5O5mE1qY885NRNkcj6QeUJHzPR0Xth4hRSH
-         ywTZ0KLI/OMXG0ot6ympikKNl3FzpIIPfSIEIOIKKTop67hULNx5jPWV+k2KgD0PZW/R
-         aRWrij2YYwoA6uH5Gp+6Ndp2xKXJ90xRJi6A1Z+szc/sZVGRoxLSloBhpeRSlL80UCqD
-         cW12QUkVHSwHYRX1Oz7aQzY8svr+wXhLfIJcKEWWfiVRT0lKkdXTyFMhdjTaHKa/B66l
-         kRPA==
+        bh=YQRjFPIG4PmR+HjiezlmfcX2mvV34MtTdW3Bam7UEwE=;
+        b=YQIU7O5zoaaHxBFgN6aRRZiFO68lmh5H/1hvjjLbaXKZZbquoSPlDkcKW7lJeOSM67
+         pUuC9mzlst/pW9cvcbltj1BRNyjx4LaZfQuw45Y2NUxNjR+Qg5x+/Arir10xQeOJLuOr
+         5sKxwguEj7UqIk9nDtBYGDygn9CyxKpmUFvDFhHSyrjBaCuNnmqpX4eRztLYs1KtzQMr
+         pbAKxE7u8woU39WQrnoXTDR6afYLkVX7YWnIHUtx12R66+XB3TTDRhvpeHncCwbfHjtJ
+         ZKD3l3aMhmXmLHUyolhN4GBYrvUukGFiYyrooiGltvNPnsthWRjXkCWFOB9Fc9B+XsqU
+         ivsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754510282; x=1755115082;
+        d=1e100.net; s=20230601; t=1754510299; x=1755115099;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=+6JQFfV5PUy/GrVBLvUiN2dICAbUeOItkyPrKIFKW8s=;
-        b=XkRfUV3I1s520nruySDQ7ExJ0Jdxt361cw8IRXN7S8A2TA+ydqJYCG4zgiAVuPnlZA
-         8dGBIoI5OZUasboICRomQ/qL2MWUW2Ne/EvUllUBRY4D4QiGc2oAzM8tKpPbecIW3XKe
-         vj1GanrTUmeKLI6h8N8isjLwusGsAbi+BV9D+c7O/U0SZGzZTIGFO0IHg7G5873Cw29G
-         3Nzci/TJ2zyEydP9WVh1LZK0ebEH/xEVsnqueazObIGrRVBSCzv82B7NbuZnv4IW9x4D
-         zhqEWVgXkIG/Dr7lI0lPiokDduKs0q6891DDwhShm0RZqyP6aZ2lB1i7UAKFceA2hKjo
-         ehkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVBtk0TdG0dP7XXWZ5wc8k2CEDsGWTYvvFsy1UnwrVNS5peQBJZRRlEsaJaTzFKusxWv3+vo9PgWoaKmQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHBXz2kMoZ4IC1Zc/byYXo/eLvfX3cW2NgjC+1eSR+Wbj6bY7S
-	fpRuAOC9WF/pQzZ+4jEma1sQLIBNYh3bwkmjDSXzv2sT0TDQsG0/uG7C/vbovw1kKyMjYhSlwTw
-	nk2DN1Q==
-X-Google-Smtp-Source: AGHT+IGZ7oKb0jL8lhNyyp9dHD+Kz4ijKlmhkeksSN6TGP0ouV8c6R8BFKEuTTGgS97308bG3SsY+cafJuk=
-X-Received: from pjbqi10.prod.google.com ([2002:a17:90b:274a:b0:311:c5d3:c7d0])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1812:b0:318:f0cb:5a50
- with SMTP id 98e67ed59e1d1-32166cc88e8mr4877815a91.26.1754510281698; Wed, 06
- Aug 2025 12:58:01 -0700 (PDT)
-Date: Wed,  6 Aug 2025 12:56:40 -0700
+        bh=YQRjFPIG4PmR+HjiezlmfcX2mvV34MtTdW3Bam7UEwE=;
+        b=Vlom3GVIqklwYCduibK/ubuWD4vQdlLHgAT1g0YeDQnO9hD+mD20Gmou0yxlewsxHE
+         V7LWEstYKKYH9uS85jXS7vGRsyOxFSsJIOW2THxMTml1EeVAiTJmnIJy5iKQNYiQUNZ1
+         zXGiko6FRticrGRq9erf+TbK7bZMpedYWej5rlYM9uD/ZjuqWiH2+8u4TJEOucARXFt5
+         +5gns6VvP6+g08Fl+UJl6vL5jPYVzoZijKEUuHY0V0Zld/5xcYFN9lA64sPKsZrggvt3
+         F1mcd2TS0gXappu/Vb6qZip1TTpV/vaSR2S3efQ/xlRz/wxNn8+WtUP5qoUTpR9RO2on
+         K1+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVfnHxsaFuLV/ZQzB2w0IJKAM9p3wOXL5R2A9LATbPiHDG06KoSHpMdAtMBBrTagHbyj7fQ8CRYiS2mNw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3wBXO3T67pslFYh8UwXeRpghTtLyYbsVFxWERi7oVdD3ad+3I
+	JLy9pMQoYwso+E92Z934JVYmVJxBljxdWzAie7unFrKmYqiyZLC25+kuHQuSxFjvrK3RvKZqdpt
+	dC83U9g==
+X-Google-Smtp-Source: AGHT+IEEL8MMMXuPjd0UTQ7B+xCdzayxBbFfQWod4bTn8hh+ljNhk+I3PdaJAFaKAxfSi5B+qkz2qkDbG+c=
+X-Received: from pjbqb13.prod.google.com ([2002:a17:90b:280d:b0:31f:61fc:b283])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:390f:b0:314:2cd2:595d
+ with SMTP id 98e67ed59e1d1-321755de480mr997552a91.8.1754510298596; Wed, 06
+ Aug 2025 12:58:18 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:49 -0700
 In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250806195706.1650976-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250806195706.1650976-19-seanjc@google.com>
-Subject: [PATCH v5 18/44] KVM: x86/pmu: Start stubbing in mediated PMU support
+Message-ID: <20250806195706.1650976-28-seanjc@google.com>
+Subject: [PATCH v5 27/44] KVM: x86/pmu: Disable RDPMC interception for
+ compatible mediated vPMU
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,8 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
 	Dapeng Mi <dapeng1.mi@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_125803_044334_0A7252A4 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20250806_125820_153867_2A0DEBBB 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,200 +107,127 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Dapeng Mi <dapeng1.mi@linux.intel.com>
 
-Introduce enable_mediated_pmu as a global variable, with the intent of
-exposing it to userspace a vendor module parameter, to control and reflect
-mediated vPMU support.  Wire up the perf plumbing to create+release a
-mediated PMU, but defer exposing the parameter to userspace until KVM
-support for a mediated PMUs is fully landed.
+Disable RDPMC interception for vCPUs with a mediated vPMU that is
+compatible with the host PMU, i.e. that doesn't require KVM emulation of
+RDPMC to honor the guest's vCPU model.  With a mediated vPMU, all guest
+state accessible via RDPMC is loaded into hardware while the guest is
+running.
 
-To (a) minimize compatibility issues, (b) to give userspace a chance to
-opt out of the restrictive side-effects of perf_create_mediated_pmu(),
-and (c) to avoid adding new dependencies between enabling an in-kernel
-irqchip and a mediated vPMU, defer "creating" a mediated PMU in perf
-until the first vCPU is created.
+Adust RDPMC interception only for non-TDX guests, as the TDX module is
+responsible for managing RDPMC intercepts based on the TD configuration.
 
-Regarding userspace compatibility, an alternative solution would be to
-make the mediated PMU fully opt-in, e.g. to avoid unexpected failure due
-to perf_create_mediated_pmu() failing.  Ironically, that approach creates
-an even bigger compatibility issue, as turning on enable_mediated_pmu
-would silently break VMMs that don't utilize KVM_CAP_PMU_CAPABILITY (well,
-silently until the guest tried to access PMU assets).
-
-Regarding an in-kernel irqchip, create a mediated PMU if and only if the
-VM has an in-kernel local APIC, as the mediated PMU will take a hard
-dependency on forwarding PMIs to the guest without bouncing through host
-userspace.  Silently "drop" the PMU instead of rejecting KVM_CREATE_VCPU,
-as KVM's existing vPMU support doesn't function correctly if the local
-APIC is emulated by userspace, e.g. PMIs will never be delivered.  I.e.
-it's far, far more likely that rejecting KVM_CREATE_VCPU would cause
-problems, e.g. for tests or userspace daemons that just want to probe
-basic KVM functionality.
-
-Note!  Deliberately make mediated PMU creation "sticky", i.e. don't unwind
-it on failure to create a vCPU.  Practically speaking, there's no harm to
-having a VM with a mediated PMU and no vCPUs.  To avoid an "impossible" VM
-setup, reject KVM_CAP_PMU_CAPABILITY if a mediated PMU has been created,
-i.e. don't let userspace disable PMU support after failed vCPU creation
-(with PMU support enabled).
-
-Defer vendor specific requirements and constraints to the future.
-
-Suggested-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
 Co-developed-by: Mingwei Zhang <mizhang@google.com>
 Signed-off-by: Mingwei Zhang <mizhang@google.com>
+Co-developed-by: Sandipan Das <sandipan.das@amd.com>
+Signed-off-by: Sandipan Das <sandipan.das@amd.com>
+Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
 Co-developed-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/include/asm/kvm_host.h |  1 +
- arch/x86/kvm/pmu.c              |  4 ++++
- arch/x86/kvm/pmu.h              |  7 +++++++
- arch/x86/kvm/x86.c              | 37 +++++++++++++++++++++++++++++++--
- arch/x86/kvm/x86.h              |  1 +
- 5 files changed, 48 insertions(+), 2 deletions(-)
+ arch/x86/kvm/pmu.c     | 26 ++++++++++++++++++++++++++
+ arch/x86/kvm/pmu.h     |  1 +
+ arch/x86/kvm/svm/svm.c |  5 +++++
+ arch/x86/kvm/vmx/vmx.c |  7 +++++++
+ arch/x86/kvm/x86.c     |  1 +
+ 5 files changed, 40 insertions(+)
 
-diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-index d7680612ba1e..ff0d753e2b07 100644
---- a/arch/x86/include/asm/kvm_host.h
-+++ b/arch/x86/include/asm/kvm_host.h
-@@ -1471,6 +1471,7 @@ struct kvm_arch {
- 
- 	bool bus_lock_detection_enabled;
- 	bool enable_pmu;
-+	bool created_mediated_pmu;
- 
- 	u32 notify_window;
- 	u32 notify_vmexit_flags;
 diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-index 0f3e011824ed..4d4bb9b17412 100644
+index 680523e9d11e..674f42d083a9 100644
 --- a/arch/x86/kvm/pmu.c
 +++ b/arch/x86/kvm/pmu.c
-@@ -133,6 +133,10 @@ void kvm_init_pmu_capability(const struct kvm_pmu_ops *pmu_ops)
- 			enable_pmu = false;
- 	}
- 
-+	if (!enable_pmu || !enable_mediated_pmu || !kvm_host_pmu.mediated ||
-+	    !pmu_ops->is_mediated_pmu_supported(&kvm_host_pmu))
-+		enable_mediated_pmu = false;
-+
- 	if (!enable_pmu) {
- 		memset(&kvm_pmu_cap, 0, sizeof(kvm_pmu_cap));
- 		return;
-diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
-index 08ae644db00e..f5b6181b772c 100644
---- a/arch/x86/kvm/pmu.h
-+++ b/arch/x86/kvm/pmu.h
-@@ -37,6 +37,8 @@ struct kvm_pmu_ops {
- 	void (*deliver_pmi)(struct kvm_vcpu *vcpu);
- 	void (*cleanup)(struct kvm_vcpu *vcpu);
- 
-+	bool (*is_mediated_pmu_supported)(struct x86_pmu_capability *host_pmu);
-+
- 	const u64 EVENTSEL_EVENT;
- 	const int MAX_NR_GP_COUNTERS;
- 	const int MIN_NR_GP_COUNTERS;
-@@ -58,6 +60,11 @@ static inline bool kvm_pmu_has_perf_global_ctrl(struct kvm_pmu *pmu)
- 	return pmu->version > 1;
- }
- 
-+static inline bool kvm_vcpu_has_mediated_pmu(struct kvm_vcpu *vcpu)
-+{
-+	return enable_mediated_pmu && vcpu_to_pmu(vcpu)->version;
-+}
-+
- /*
-  * KVM tracks all counters in 64-bit bitmaps, with general purpose counters
-  * mapped to bits 31:0 and fixed counters mapped to 63:32, e.g. fixed counter 0
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index d80bbd5e0859..396d1aa81732 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -187,6 +187,10 @@ bool __read_mostly enable_pmu = true;
- EXPORT_SYMBOL_GPL(enable_pmu);
- module_param(enable_pmu, bool, 0444);
- 
-+/* Enable/disabled mediated PMU virtualization. */
-+bool __read_mostly enable_mediated_pmu;
-+EXPORT_SYMBOL_GPL(enable_mediated_pmu);
-+
- bool __read_mostly eager_page_split = true;
- module_param(eager_page_split, bool, 0644);
- 
-@@ -6542,7 +6546,7 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
- 			break;
- 
- 		mutex_lock(&kvm->lock);
--		if (!kvm->created_vcpus) {
-+		if (!kvm->created_vcpus && !kvm->arch.created_mediated_pmu) {
- 			kvm->arch.enable_pmu = !(cap->args[0] & KVM_PMU_CAP_DISABLE);
- 			r = 0;
- 		}
-@@ -12174,8 +12178,13 @@ static int sync_regs(struct kvm_vcpu *vcpu)
+@@ -712,6 +712,32 @@ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned idx, u64 *data)
  	return 0;
  }
  
-+#define PERF_MEDIATED_PMU_MSG \
-+	"Failed to enable mediated vPMU, try disabling system wide perf events and nmi_watchdog.\n"
++bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
++{
++	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
 +
- int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
- {
-+	int r;
++	if (!kvm_vcpu_has_mediated_pmu(vcpu))
++		return true;
 +
- 	if (kvm_check_tsc_unstable() && kvm->created_vcpus)
- 		pr_warn_once("SMP vm created on host with unstable TSC; "
- 			     "guest TSC will not be reliable\n");
-@@ -12186,7 +12195,29 @@ int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
- 	if (id >= kvm->arch.max_vcpu_ids)
- 		return -EINVAL;
- 
--	return kvm_x86_call(vcpu_precreate)(kvm);
 +	/*
-+	 * Note, any actions done by .vcpu_create() must be idempotent with
-+	 * respect to creating multiple vCPUs, and therefore are not undone if
-+	 * creating a vCPU fails (including failure during pre-create).
++	 * VMware allows access to these Pseduo-PMCs even when read via RDPMC
++	 * in Ring3 when CR4.PCE=0.
 +	 */
-+	r = kvm_x86_call(vcpu_precreate)(kvm);
-+	if (r)
-+		return r;
++	if (enable_vmware_backdoor)
++		return true;
 +
-+	if (enable_mediated_pmu && kvm->arch.enable_pmu &&
-+	    !kvm->arch.created_mediated_pmu) {
-+		if (irqchip_in_kernel(kvm)) {
-+			r = perf_create_mediated_pmu();
-+			if (r) {
-+				pr_warn_ratelimited(PERF_MEDIATED_PMU_MSG);
-+				return r;
-+			}
-+			kvm->arch.created_mediated_pmu = true;
-+		} else {
-+			kvm->arch.enable_pmu = false;
-+		}
-+	}
-+	return 0;
++	/*
++	 * Note!  Check *host* PMU capabilities, not KVM's PMU capabilities, as
++	 * KVM's capabilities are constrained based on KVM support, i.e. KVM's
++	 * capabilities themselves may be a subset of hardware capabilities.
++	 */
++	return pmu->nr_arch_gp_counters != kvm_host_pmu.num_counters_gp ||
++	       pmu->nr_arch_fixed_counters != kvm_host_pmu.num_counters_fixed ||
++	       pmu->counter_bitmask[KVM_PMC_GP] != (BIT_ULL(kvm_host_pmu.bit_width_gp) - 1) ||
++	       pmu->counter_bitmask[KVM_PMC_FIXED] != (BIT_ULL(kvm_host_pmu.bit_width_fixed) - 1);
++}
++EXPORT_SYMBOL_GPL(kvm_need_rdpmc_intercept);
++
+ void kvm_pmu_deliver_pmi(struct kvm_vcpu *vcpu)
+ {
+ 	if (lapic_in_kernel(vcpu)) {
+diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
+index e038bce76b9e..6b95e81c078c 100644
+--- a/arch/x86/kvm/pmu.h
++++ b/arch/x86/kvm/pmu.h
+@@ -238,6 +238,7 @@ void kvm_pmu_instruction_retired(struct kvm_vcpu *vcpu);
+ void kvm_pmu_branch_retired(struct kvm_vcpu *vcpu);
+ 
+ bool is_vmware_backdoor_pmc(u32 pmc_idx);
++bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu);
+ 
+ extern struct kvm_pmu_ops intel_pmu_ops;
+ extern struct kvm_pmu_ops amd_pmu_ops;
+diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
+index ef7dffc54dca..2d42962b47aa 100644
+--- a/arch/x86/kvm/svm/svm.c
++++ b/arch/x86/kvm/svm/svm.c
+@@ -1075,6 +1075,11 @@ static void svm_recalc_instruction_intercepts(struct kvm_vcpu *vcpu)
+ 			svm->vmcb->control.virt_ext |= VIRTUAL_VMLOAD_VMSAVE_ENABLE_MASK;
+ 		}
+ 	}
++
++	if (kvm_need_rdpmc_intercept(vcpu))
++		svm_set_intercept(svm, INTERCEPT_RDPMC);
++	else
++		svm_clr_intercept(svm, INTERCEPT_RDPMC);
  }
  
- int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
-@@ -12818,6 +12849,8 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
- 		__x86_set_memory_region(kvm, TSS_PRIVATE_MEMSLOT, 0, 0);
- 		mutex_unlock(&kvm->slots_lock);
- 	}
-+	if (kvm->arch.created_mediated_pmu)
-+		perf_release_mediated_pmu();
- 	kvm_destroy_vcpus(kvm);
- 	kvm_free_msr_filter(srcu_dereference_check(kvm->arch.msr_filter, &kvm->srcu, 1));
- #ifdef CONFIG_KVM_IOAPIC
-diff --git a/arch/x86/kvm/x86.h b/arch/x86/kvm/x86.h
-index 46220b04cdf2..bd1149768acc 100644
---- a/arch/x86/kvm/x86.h
-+++ b/arch/x86/kvm/x86.h
-@@ -445,6 +445,7 @@ extern struct kvm_caps kvm_caps;
- extern struct kvm_host_values kvm_host;
+ static void svm_recalc_intercepts(struct kvm_vcpu *vcpu)
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index baea4a9cf74f..2f7db32710e3 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -4121,8 +4121,15 @@ static void vmx_recalc_msr_intercepts(struct kvm_vcpu *vcpu)
+ 	 */
+ }
  
- extern bool enable_pmu;
-+extern bool enable_mediated_pmu;
++static void vmx_recalc_instruction_intercepts(struct kvm_vcpu *vcpu)
++{
++	exec_controls_changebit(to_vmx(vcpu), CPU_BASED_RDPMC_EXITING,
++				kvm_need_rdpmc_intercept(vcpu));
++}
++
+ void vmx_recalc_intercepts(struct kvm_vcpu *vcpu)
+ {
++	vmx_recalc_instruction_intercepts(vcpu);
+ 	vmx_recalc_msr_intercepts(vcpu);
+ }
  
- /*
-  * Get a filtered version of KVM's supported XCR0 that strips out dynamic
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 69f5d9deb75f..b8014435c988 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -3793,6 +3793,7 @@ int kvm_set_msr_common(struct kvm_vcpu *vcpu, struct msr_data *msr_info)
+ 
+ 		vcpu->arch.perf_capabilities = data;
+ 		kvm_pmu_refresh(vcpu);
++		kvm_make_request(KVM_REQ_RECALC_INTERCEPTS, vcpu);
+ 		break;
+ 	case MSR_IA32_PRED_CMD: {
+ 		u64 reserved_bits = ~(PRED_CMD_IBPB | PRED_CMD_SBPB);
 -- 
 2.50.1.565.gc32cd1483b-goog
 
