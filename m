@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C67CCA0EC1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184AAC87FD1
 	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 07:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,46 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vH7PBrm18TjZ1HS/n02bGiMo05/dm9JQgC2mUfDTRII=; b=QMz+lq+T5KTBjg
-	vFKfaxwYs4ujMDTHieCbtuppuLQo6nsuI+AKxjiqPMm8r7c9jL4viilbLSO0PJ271t9eEBfOh6FU8
-	Wps8S8JkPrYxGAAcAJn/+GS2EInYcxy+VLq5KsnJ+41/LD8L22OE+AKdeVhn/zplVk35cvMAnJinr
-	Di6HEMnsPjuYKy2BhuHdB2xvh70ncciLPfW/GZ2ISQw0xLlsYeu7Om6/9MGFxIG4Mx5c8kiQ5IMu+
-	Ut4VXWQdMV7iNR2x9tQMSuJwCIiaDlJaydCrQraYDHcXWCIq64Z5tVtZPz2d7eepPSSFhL5CQDFYe
-	m3I+FA3KvgNETs7/pIag==;
+	List-Owner; bh=BXN4I49HNj1X00mEPEN52Wr7ZF8/adoTBKgYK9sb2Xc=; b=WCcKwWPRayN0kJ
+	Roq5OCEyUEeGF+jhX8dwlPYoYTYMqNfIKSHDjVFEvVdmBpDbe/bk1KevNv5I33Qic5Ze3l5cIsGIH
+	DJhoxpcnOhaLz3zraQrbbhToktN+knVntjEkW0k4XanJ7jNesD+p3orUeYJOnkIPQMsEcsqfmXe9t
+	a2LV/nNOsDaZuwAHaG6S7JMSaMqmAzvm32SR2CJQWOb+EoKmVJVWlwgtoKPJYsVFa+HqJojTO5B08
+	m0hqQjbnMqdbv16Bi3AZnv90bv7f4YTMBgz7VGl451SJhGVtRwpWr04zglEoPqvpsekmTG7VD1dfV
+	p1oQBR2M8JuDacNd2L0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujYni-0000000EXmb-0pvZ;
-	Wed, 06 Aug 2025 07:43:06 +0000
+	id 1ujYnh-0000000EXm3-2T75;
+	Wed, 06 Aug 2025 07:43:05 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujYnc-0000000EXhx-3pSJ
+	id 1ujYnd-0000000EXiP-3MDf
 	for linux-riscv@lists.infradead.org;
 	Wed, 06 Aug 2025 07:43:04 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250806074259euoutp02509ee170b507c174f8ae5ff938c00a7c~ZHbHaxbhI1385513855euoutp02d
-	for <linux-riscv@lists.infradead.org>; Wed,  6 Aug 2025 07:42:59 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250806074259euoutp02509ee170b507c174f8ae5ff938c00a7c~ZHbHaxbhI1385513855euoutp02d
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250806074300euoutp020ca64efd82adec102c656ff4d4131ea8~ZHbIX29b71207212072euoutp02E
+	for <linux-riscv@lists.infradead.org>; Wed,  6 Aug 2025 07:43:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250806074300euoutp020ca64efd82adec102c656ff4d4131ea8~ZHbIX29b71207212072euoutp02E
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1754466179;
-	bh=q2udXAqNPgrdyMOy7GXl2F6vbyrcToTWFKHsnI3BpjI=;
+	s=mail20170921; t=1754466180;
+	bh=i2ffb5TRdqcFNdp9wQmKYm6oC/yh6BrYkPG8pSNij+4=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=TgPrb9VScAT0YNpQCAXcDowGKe7oZE2n5RBTagJ1796cJjR99/U1aoIpvV9eRi4yI
-	 d1j3zthrHPPeDXj/K/mdJH53YoCOjEQNY3pecnjKY9n158klVHT7IqfWrghahcL70k
-	 WzVKtluYB9S7k/p+WJdOnsri8gvwlWWBG9eqr4lk=
+	b=pONKi1y0q2d5P8Ijpjqvpp5a16L5zMXfxwzq8WaFgEko66tXBFHMSwuoxQO6cx98m
+	 YXaeq1GhleerbuRIXcQvpq+0jdaiLPtuFrpEBCOdTugcYgsxuNZchMlFWhuda2MoCB
+	 TocJNDzSRZl9MqkCm9BcoBZm1KoFjIjLocug9cAM=
 Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250806074258eucas1p1e0d3410d9ab52d6d35cae08268a76389~ZHbG3UIQC0086600866eucas1p1X;
-	Wed,  6 Aug 2025 07:42:58 +0000 (GMT)
+	20250806074300eucas1p13e8773275da587232ef72dcb1f7706a3~ZHbH2BBTr0085500855eucas1p1o;
+	Wed,  6 Aug 2025 07:43:00 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250806074257eusmtip27f6e726d2075ae083960782fdf047806~ZHbFpMAZX1964419644eusmtip2F;
-	Wed,  6 Aug 2025 07:42:57 +0000 (GMT)
+	20250806074258eusmtip2bd98effedb80b6f7c0cb0acd9a7fcd7a~ZHbGx7nZN1336513365eusmtip2E;
+	Wed,  6 Aug 2025 07:42:58 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Wed, 06 Aug 2025 09:42:50 +0200
-Subject: [PATCH v13 5/7] dt-bindings: pwm: thead: Add T-HEAD TH1520 PWM
- controller
+Date: Wed, 06 Aug 2025 09:42:51 +0200
+Subject: [PATCH v13 6/7] riscv: dts: thead: Add PWM controller node
 MIME-Version: 1.0
-Message-Id: <20250806-rust-next-pwm-working-fan-for-sending-v13-5-690b669295b6@samsung.com>
+Message-Id: <20250806-rust-next-pwm-working-fan-for-sending-v13-6-690b669295b6@samsung.com>
 In-Reply-To: <20250806-rust-next-pwm-working-fan-for-sending-v13-0-690b669295b6@samsung.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
@@ -69,19 +68,19 @@ To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	Benno Lossin <lossin@kernel.org>,  Drew Fustini <fustini@kernel.org>
 Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
 	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org,  Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
+	devicetree@vger.kernel.org
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250806074258eucas1p1e0d3410d9ab52d6d35cae08268a76389
+X-CMS-MailID: 20250806074300eucas1p13e8773275da587232ef72dcb1f7706a3
 X-Msg-Generator: CA
-X-RootMTR: 20250806074258eucas1p1e0d3410d9ab52d6d35cae08268a76389
+X-RootMTR: 20250806074300eucas1p13e8773275da587232ef72dcb1f7706a3
 X-EPHeader: CA
-X-CMS-RootMailID: 20250806074258eucas1p1e0d3410d9ab52d6d35cae08268a76389
+X-CMS-RootMailID: 20250806074300eucas1p13e8773275da587232ef72dcb1f7706a3
 References: <20250806-rust-next-pwm-working-fan-for-sending-v13-0-690b669295b6@samsung.com>
-	<CGME20250806074258eucas1p1e0d3410d9ab52d6d35cae08268a76389@eucas1p1.samsung.com>
+	<CGME20250806074300eucas1p13e8773275da587232ef72dcb1f7706a3@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_004301_319932_2F200ABA 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20250806_004302_346499_5B7C42C4 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,83 +97,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the Device Tree binding documentation for the T-HEAD
-TH1520 SoC PWM controller.
+Add the Device Tree node for the T-HEAD TH1520 SoC's PWM controller.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Drew Fustini <fustini@kernel.org>
 Tested-by: Drew Fustini <fustini@kernel.org>
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- .../devicetree/bindings/pwm/thead,th1520-pwm.yaml  | 48 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 2 files changed, 49 insertions(+)
+ arch/riscv/boot/dts/thead/th1520.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml b/Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..855aec59ac53c430adc849271235686e87b10e6c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml
-@@ -0,0 +1,48 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/thead,th1520-pwm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index 42724bf7e90e08fac326c464d0f080e3bd2cd59b..513dc6977b2633503515ad260913156fbe57d92f 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -493,6 +493,13 @@ uart2: serial@ffec010000 {
+ 			status = "disabled";
+ 		};
+ 
++		pwm: pwm@ffec01c000 {
++			compatible = "thead,th1520-pwm";
++			reg = <0xff 0xec01c000 0x0 0x4000>;
++			clocks = <&clk CLK_PWM>;
++			#pwm-cells = <3>;
++		};
 +
-+title: T-HEAD TH1520 PWM controller
-+
-+maintainers:
-+  - Michal Wilczynski <m.wilczynski@samsung.com>
-+
-+allOf:
-+  - $ref: pwm.yaml#
-+
-+properties:
-+  compatible:
-+    const: thead,th1520-pwm
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: SoC PWM clock
-+
-+  "#pwm-cells":
-+    const: 3
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+      pwm@ffec01c000 {
-+          compatible = "thead,th1520-pwm";
-+          reg = <0xff 0xec01c000 0x0 0x4000>;
-+          clocks = <&clk CLK_PWM>;
-+          #pwm-cells = <3>;
-+      };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e6fe51161ea9b2646d252315dacfe9f17420192d..17d44567fe479c5db697c8f7604b423a95a341d0 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21708,6 +21708,7 @@ F:	Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
- F:	Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
- F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
- F:	Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
-+F:	Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml
- F:	Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
- F:	arch/riscv/boot/dts/thead/
- F:	drivers/clk/thead/clk-th1520-ap.c
+ 		clk: clock-controller@ffef010000 {
+ 			compatible = "thead,th1520-clk-ap";
+ 			reg = <0xff 0xef010000 0x0 0x1000>;
 
 -- 
 2.34.1
