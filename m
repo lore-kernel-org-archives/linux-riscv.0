@@ -4,65 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58848CA0EC1
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 17:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028CBC87FDA
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 17:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6lDSYELA3m8vi6qKHQ0N6foGRdZ9iOqTxcZoiG7V59A=; b=4o/rEFRWBYO3vR
-	X87oQ9jcF9RElwRMe34Gv7ACEK21O89yDLB1FDxWdb8cTj//lxlo4GVZrXlCX50T7zGnOTPTsUGz+
-	9YVbwUEnM5u/BBXkg6xHdQsRFP3jo09jCh+1DSjxBKzXc6V4A1TWywQVqu1cafoKg5ch3JgwOhH8e
-	cfdJObLrTzPki56mNM8l2sQTYgoo/W8ynCXUhe7W23b7FA4pSgKH1bKo3iKSBPcTs6mPSk0dXO40X
-	Ydqp2jCCLhYROzvYGBFfh/g6P07PpIZVDIBpyl9ZlZmXvDzxyUvVXQlnjURH9pFw9rk8aICcC8qsx
-	x2stLjWO5h2UFcvdzVIg==;
+	List-Owner; bh=F3cPxRMBrHuXKzvZTONUnpR4HpBqu+7XjiQ3oYgpmGw=; b=jppzCpUJGHi0po
+	i2UMJVlGyAyOg9fs1M5IuLbZsGX32cNZ2QGPIspxioqK3OANlO9O+Lulbpd8RaVi9I7DLzT+gknpW
+	72jqfmiyh9/EkL3LPENGR0XFJZb2JwyVz+HtK/NPvarLic3xph/h2BtXgCu2qaDWmg+kCNTswvCF5
+	Ui5crTxFqNuaQP7T/+qTqVB/rxmmIyyVCIJhmkll3a+hBHY2zRiv3r/fAopoaHuqOwStyScXMWyjP
+	rRwoau1tCyoaeIWk4nWHytMQaPiKi80ru0fHySSp9DW/guCQFj/dKjisNaziIMTIEBwWYSyidxcha
+	YGFezsi6yZ1wuQg6H9Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhnp-0000000FtGb-0bij;
-	Wed, 06 Aug 2025 17:19:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ujhnz-0000000FtQe-1Jbd;
+	Wed, 06 Aug 2025 17:19:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhjX-0000000Fs3i-2fJx
+	id 1ujhjt-0000000FsGR-0z8p
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 17:15:25 +0000
+	Wed, 06 Aug 2025 17:15:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CC29943574;
-	Wed,  6 Aug 2025 17:15:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4CE8C4CEE7;
-	Wed,  6 Aug 2025 17:15:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AA24F6111F;
+	Wed,  6 Aug 2025 17:15:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62678C4CEED;
+	Wed,  6 Aug 2025 17:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754500522;
-	bh=I3R0ZZuPVZjnQiFgtmFRVCZ2r5++kREGhtzLYMxzees=;
+	s=k20201202; t=1754500544;
+	bh=0y/Nm6OPi0T0mjCjHKEi+zNnjN7+zHKI3+/zxOa4BNQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=WJ0K6HTZEfT8BNH+os9kpt9pf57Ww0MKKW5Q7tRMASQtIpPlQvkgZtJGsw3KeEdBK
-	 BaretPZGh8nFdv8U5zaWt1OzwhKxoJ/IkUeZPYDzwBy08EJGVTNbKkcbH2X8J81Bl+
-	 21pdP1RoBJTIjViiGoDvOqsFOk0J250MYa855KdnLPkSAN5fW+l5PCNRAocBooOQJd
-	 ijz9vEfwOt0CurH2++NyCsU+zuubaqSiZDz6GiTYBAV/K4DmuHSOdm9A0yC3KXDUwt
-	 DdIvUQUmIwjvd/OCQc5uEfiC6otmfcVZXBuEDT9eCIYmSOCPwtX8P6YDl4Km+UYygT
-	 xfKN+B9hO+jeg==
+	b=Ck2OCxI6BjI9uTatbmETmredUXJrzeLGhnJINfc4ya0VvzRJJjQUflcV5e7y63D8w
+	 g2lh8LsP0haKJ1ySItsFihxcczBH5MPZcSsbstTLS4qhArfeVI+sxPgoRaggDSLZla
+	 zCc4FD0o5RtRwBYC/V/gBC9pvEVQFHZ+Gs/RKvNPJaY1lzNEEWWdSA9r+IVPDi/i2e
+	 cOwf/ymkzEO0HT4tOQKwfAS5/KLNRSctkeyzOVgH6hErzbw4ScOnlhyznOPgIy1PFT
+	 zyDofaaBckeaHRXzT9JkMuH4d6wTKE11wfp87Wi49rjyIgmhlfgwfM+m8qfLKm8Kcu
+	 nC4MDRjA8R7fA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADDD6383BF63;
-	Wed,  6 Aug 2025 17:15:37 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70BA1383BF63;
+	Wed,  6 Aug 2025 17:15:59 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 0/3] RISC-V: Add ACPI support for IOMMU
+Subject: Re: [PATCH] riscv: pi: use 'targets' instead of extra-y in Makefile
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175450053651.2863135.8588545093021909171.git-patchwork-notify@kernel.org>
-Date: Wed, 06 Aug 2025 17:15:36 +0000
-References: <20250716104059.3539482-1-sunilvl@ventanamicro.com>
-In-Reply-To: <20250716104059.3539482-1-sunilvl@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-acpi@vger.kernel.org, iommu@lists.linux.dev, apatel@ventanamicro.com,
- tjeznach@rivosinc.com, alex@ghiti.fr, rafael@kernel.org,
- robin.murphy@arm.com, joro@8bytes.org, atishp@rivosinc.com,
- palmer@dabbelt.com, paul.walmsley@sifive.com, ajones@ventanamicro.com,
- will@kernel.org, lenb@kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_101523_699447_D02A9038 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <175450055825.2863135.14397675555943058251.git-patchwork-notify@kernel.org>
+Date: Wed, 06 Aug 2025 17:15:58 +0000
+References: <20250602181023.528550-1-masahiroy@kernel.org>
+In-Reply-To: <20250602181023.528550-1-masahiroy@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +74,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@dabbelt.com>:
+This patch was applied to riscv/linux.git (for-next)
+by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Wed, 16 Jul 2025 16:10:56 +0530 you wrote:
-> This series adds support for RISC-V IOMMU on ACPI based platforms.
-> RISC-V IO Mapping Table (RIMT) is a new static ACPI table [1] introduced
-> to communicate IOMMU information to the OS.
+On Tue,  3 Jun 2025 03:10:18 +0900 you wrote:
+> %.pi.o files are built as prerequisites of other objects.
+> There is no need to use extra-y, which is planned for deprecation.
 > 
-> [1] - https://github.com/riscv-non-isa/riscv-acpi-rimt/releases/download/v1.0/rimt-spec.pdf
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> ---
 > 
-> Changes since v4:
-> 	1) Rebased to 6.16-rc6
-> 	2) Addressed Anup's feedback on formatting.
-> 	3) Added RB tag from Will and Anup.
-> 
-> [...]
+>  arch/riscv/kernel/pi/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 Here is the summary with links:
-  - [v5,1/3] ACPI: RISC-V: Add support for RIMT
-    https://git.kernel.org/riscv/c/ea35561bc965
-  - [v5,2/3] ACPI: scan: Add support for RISC-V in acpi_iommu_configure_id()
-    https://git.kernel.org/riscv/c/0d7c16d0df92
-  - [v5,3/3] iommu/riscv: Add ACPI support
-    https://git.kernel.org/riscv/c/368ed89f7ac9
+  - riscv: pi: use 'targets' instead of extra-y in Makefile
+    https://git.kernel.org/riscv/c/cc750fa93b5a
 
 You are awesome, thank you!
 -- 
