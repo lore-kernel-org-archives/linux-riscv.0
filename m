@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE80C87FCB
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 07:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C67CCA0EC1
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 07:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/TDXAPGlqbLJyoAxEP4ISjlUq5dNqS1txnOVXALL2tk=; b=wUeA6/J4RoaZhm
-	ZlaMr3CgrWNOxXmo5YFfokUHQ1KUXef7UFABrCgzmgneuG7F9mLKDaYqaykIiHwtMOGV9tYLLU5Ar
-	bDSnOuZQHlUVWnxm5vekEUvAOHi7wblFQikLO2iNWmxXFabiBfWFvP+WL/N1UVn0YYHf+eLL7l0+g
-	We7Shw43vNmg3Lu6qoBaM+NFV0IXfKwFnW3ih1/Dl4pAV2jdTWt5P/Mv+4H3eN/2jkXkjKFdFnRNW
-	f/+jX/80GydxdWbWWDN7lWxvki1VQN/zJ91ih0qDHXlUWqvoypqNs0Pd5JuyZ5XzQtAKfRtX0gqpN
-	47ODeB1BOQJFWIPfMsaQ==;
+	List-Owner; bh=vH7PBrm18TjZ1HS/n02bGiMo05/dm9JQgC2mUfDTRII=; b=QMz+lq+T5KTBjg
+	vFKfaxwYs4ujMDTHieCbtuppuLQo6nsuI+AKxjiqPMm8r7c9jL4viilbLSO0PJ271t9eEBfOh6FU8
+	Wps8S8JkPrYxGAAcAJn/+GS2EInYcxy+VLq5KsnJ+41/LD8L22OE+AKdeVhn/zplVk35cvMAnJinr
+	Di6HEMnsPjuYKy2BhuHdB2xvh70ncciLPfW/GZ2ISQw0xLlsYeu7Om6/9MGFxIG4Mx5c8kiQ5IMu+
+	Ut4VXWQdMV7iNR2x9tQMSuJwCIiaDlJaydCrQraYDHcXWCIq64Z5tVtZPz2d7eepPSSFhL5CQDFYe
+	m3I+FA3KvgNETs7/pIag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujYnf-0000000EXjy-0PUF;
-	Wed, 06 Aug 2025 07:43:03 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1ujYni-0000000EXmb-0pvZ;
+	Wed, 06 Aug 2025 07:43:06 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujYna-0000000EXgI-0wXk
+	id 1ujYnc-0000000EXhx-3pSJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 07:43:00 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250806074254euoutp01c37b27c9235f6dd6a29a7be1aafe5194~ZHbCdArTi2813528135euoutp01R
-	for <linux-riscv@lists.infradead.org>; Wed,  6 Aug 2025 07:42:54 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250806074254euoutp01c37b27c9235f6dd6a29a7be1aafe5194~ZHbCdArTi2813528135euoutp01R
+	Wed, 06 Aug 2025 07:43:04 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250806074259euoutp02509ee170b507c174f8ae5ff938c00a7c~ZHbHaxbhI1385513855euoutp02d
+	for <linux-riscv@lists.infradead.org>; Wed,  6 Aug 2025 07:42:59 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250806074259euoutp02509ee170b507c174f8ae5ff938c00a7c~ZHbHaxbhI1385513855euoutp02d
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1754466174;
-	bh=6iiEvUCRFtFK7DqM8g315/TTGl9FgUVC8GFQ/o9G3Hk=;
+	s=mail20170921; t=1754466179;
+	bh=q2udXAqNPgrdyMOy7GXl2F6vbyrcToTWFKHsnI3BpjI=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=ar8cr/ryAdurcdxe7nvbuPeW92CsIbJEqFR4wRrG/Tg57IBvlQ+7DlwEbn7XqOGhR
-	 kto4iQVQUXiT4xSYj/yZ1dkH4JBJvR9BtjNxe8XouwYz0E2kv0drq+PzWp76Saqd2X
-	 HbCgoJPjI8KZXdJeIwgg3KYVgFf99eV1cGowTgq4=
+	b=TgPrb9VScAT0YNpQCAXcDowGKe7oZE2n5RBTagJ1796cJjR99/U1aoIpvV9eRi4yI
+	 d1j3zthrHPPeDXj/K/mdJH53YoCOjEQNY3pecnjKY9n158klVHT7IqfWrghahcL70k
+	 WzVKtluYB9S7k/p+WJdOnsri8gvwlWWBG9eqr4lk=
 Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250806074253eucas1p2d523f76d1e7498c029aaa0869a1b948f~ZHbB3w0m90236602366eucas1p2K;
-	Wed,  6 Aug 2025 07:42:53 +0000 (GMT)
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250806074258eucas1p1e0d3410d9ab52d6d35cae08268a76389~ZHbG3UIQC0086600866eucas1p1X;
+	Wed,  6 Aug 2025 07:42:58 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250806074252eusmtip2f6db0a256d15e7e753d7b354671b343c~ZHbAy6PjR1936819368eusmtip2W;
-	Wed,  6 Aug 2025 07:42:52 +0000 (GMT)
+	20250806074257eusmtip27f6e726d2075ae083960782fdf047806~ZHbFpMAZX1964419644eusmtip2F;
+	Wed,  6 Aug 2025 07:42:57 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Wed, 06 Aug 2025 09:42:46 +0200
-Subject: [PATCH v13 1/7] pwm: Export `pwmchip_release` for external use
+Date: Wed, 06 Aug 2025 09:42:50 +0200
+Subject: [PATCH v13 5/7] dt-bindings: pwm: thead: Add T-HEAD TH1520 PWM
+ controller
 MIME-Version: 1.0
-Message-Id: <20250806-rust-next-pwm-working-fan-for-sending-v13-1-690b669295b6@samsung.com>
+Message-Id: <20250806-rust-next-pwm-working-fan-for-sending-v13-5-690b669295b6@samsung.com>
 In-Reply-To: <20250806-rust-next-pwm-working-fan-for-sending-v13-0-690b669295b6@samsung.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
@@ -68,18 +69,19 @@ To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	Benno Lossin <lossin@kernel.org>,  Drew Fustini <fustini@kernel.org>
 Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
 	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org
+	devicetree@vger.kernel.org,  Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250806074253eucas1p2d523f76d1e7498c029aaa0869a1b948f
+X-CMS-MailID: 20250806074258eucas1p1e0d3410d9ab52d6d35cae08268a76389
 X-Msg-Generator: CA
-X-RootMTR: 20250806074253eucas1p2d523f76d1e7498c029aaa0869a1b948f
+X-RootMTR: 20250806074258eucas1p1e0d3410d9ab52d6d35cae08268a76389
 X-EPHeader: CA
-X-CMS-RootMailID: 20250806074253eucas1p2d523f76d1e7498c029aaa0869a1b948f
+X-CMS-RootMailID: 20250806074258eucas1p1e0d3410d9ab52d6d35cae08268a76389
 References: <20250806-rust-next-pwm-working-fan-for-sending-v13-0-690b669295b6@samsung.com>
-	<CGME20250806074253eucas1p2d523f76d1e7498c029aaa0869a1b948f@eucas1p2.samsung.com>
+	<CGME20250806074258eucas1p1e0d3410d9ab52d6d35cae08268a76389@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_004258_532673_D17996DF 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250806_004301_319932_2F200ABA 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,61 +98,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The upcoming Rust abstraction layer for the PWM subsystem uses a custom
-`dev->release` handler to safely manage the lifetime of its driver
-data.
+Add the Device Tree binding documentation for the T-HEAD
+TH1520 SoC PWM controller.
 
-To prevent leaking the memory of the `struct pwm_chip` (allocated by
-`pwmchip_alloc`), this custom handler must also call the original
-`pwmchip_release` function to complete the cleanup.
-
-Make `pwmchip_release` a global, exported function so that it can be
-called from the Rust FFI bridge. This involves removing the `static`
-keyword, adding a prototype to the public header, and exporting the
-symbol.
-
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Tested-by: Drew Fustini <fustini@kernel.org>
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- drivers/pwm/core.c  | 3 ++-
- include/linux/pwm.h | 6 ++++++
- 2 files changed, 8 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/pwm/thead,th1520-pwm.yaml  | 48 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ 2 files changed, 49 insertions(+)
 
-diff --git a/drivers/pwm/core.c b/drivers/pwm/core.c
-index 0d66376a83ec350e0c3718959f4d794efd71595a..a33da3dff608fdff91251e5fd07b0dbd295be022 100644
---- a/drivers/pwm/core.c
-+++ b/drivers/pwm/core.c
-@@ -1600,12 +1600,13 @@ void pwmchip_put(struct pwm_chip *chip)
- }
- EXPORT_SYMBOL_GPL(pwmchip_put);
- 
--static void pwmchip_release(struct device *pwmchip_dev)
-+void pwmchip_release(struct device *pwmchip_dev)
- {
- 	struct pwm_chip *chip = pwmchip_from_dev(pwmchip_dev);
- 
- 	kfree(chip);
- }
-+EXPORT_SYMBOL_GPL(pwmchip_release);
- 
- struct pwm_chip *pwmchip_alloc(struct device *parent, unsigned int npwm, size_t sizeof_priv)
- {
-diff --git a/include/linux/pwm.h b/include/linux/pwm.h
-index 8cafc483db53addf95591d1ac74287532c0fa0ee..d86061024b52172edf3845bf9252a966f120e365 100644
---- a/include/linux/pwm.h
-+++ b/include/linux/pwm.h
-@@ -485,6 +485,12 @@ int __pwmchip_add(struct pwm_chip *chip, struct module *owner);
- #define pwmchip_add(chip) __pwmchip_add(chip, THIS_MODULE)
- void pwmchip_remove(struct pwm_chip *chip);
- 
-+/*
-+ * For FFI wrapper use only:
-+ * The Rust PWM abstraction needs this to properly free the pwm_chip.
-+ */
-+void pwmchip_release(struct device *dev);
+diff --git a/Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml b/Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..855aec59ac53c430adc849271235686e87b10e6c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml
+@@ -0,0 +1,48 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/thead,th1520-pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- int __devm_pwmchip_add(struct device *dev, struct pwm_chip *chip, struct module *owner);
- #define devm_pwmchip_add(dev, chip) __devm_pwmchip_add(dev, chip, THIS_MODULE)
- 
++title: T-HEAD TH1520 PWM controller
++
++maintainers:
++  - Michal Wilczynski <m.wilczynski@samsung.com>
++
++allOf:
++  - $ref: pwm.yaml#
++
++properties:
++  compatible:
++    const: thead,th1520-pwm
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: SoC PWM clock
++
++  "#pwm-cells":
++    const: 3
++
++required:
++  - compatible
++  - reg
++  - clocks
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++      pwm@ffec01c000 {
++          compatible = "thead,th1520-pwm";
++          reg = <0xff 0xec01c000 0x0 0x4000>;
++          clocks = <&clk CLK_PWM>;
++          #pwm-cells = <3>;
++      };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index e6fe51161ea9b2646d252315dacfe9f17420192d..17d44567fe479c5db697c8f7604b423a95a341d0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21708,6 +21708,7 @@ F:	Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+ F:	Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
+ F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
++F:	Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml
+ F:	Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+ F:	arch/riscv/boot/dts/thead/
+ F:	drivers/clk/thead/clk-th1520-ap.c
 
 -- 
 2.34.1
