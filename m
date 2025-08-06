@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB850C87FCB
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 20:06:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181E0C87FD3
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 20:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=29j3ulMTK64l9bD2KZBJrfYCb1APNMUSOcvuXMCgN3w=; b=pPXDT5pxMVdbV4
-	VIkNeP0Pf1oW3Ama9OxmGBGUElKpHrzVM6i3K99dX0YUQZs8zJFwGNw8BW6nk+Rn4lADQuvNLzcD4
-	tbwIqCp7BtsL+jQ8IkPtnqzEvtFiLUti1rPD5iP0ty/N7DPMZN0s/j3L668qhHDC8/HjT9xvKNTUQ
-	TdLRKqbrgKLfKcdQxkM0qJ0X0tnbnRy1n4s8jG2Jfaos0CJcP2GnNsS+N950UEpzrWsWMw+berwS4
-	TSPMFthJC3BDMmHSZK6soVTnz9lbsLCj2bCqhJlv1nIy/aNEjozW3TiCUTRWwh1q7dnnWmG7iP+Kh
-	qIzQG185SkuBwlBh0tKw==;
+	List-Owner; bh=n6JOC22Qx4BsjMjHg+IFFKMNJ7gQBZ9J7uomyRnep+s=; b=D9nYxRtHqPaA+l
+	JWVUz2wQlx0iSx7aHhircBXVtsO21DfBGn47wcy7L7vUCZjRTTagDlka2fGlUH403k74u16zjofGy
+	MLHYtv4bJKQ1U3nER8JHi2J0xMcEdVZoVnr3NVuUHKkE5Wtbb+4f28lXSR4lF7Mef6cuwhLztYNSK
+	R0vSyRtScDGg95psbOltU0aJ+vTbDxQ1jvASyyQwpOtZB+n8IKITyP4n5Y1s/SfMf+JHfSjlch3Hv
+	cvDOOv6YX7oUZ42RUsa/QcLNrKuAdOFSNNWaEOdxo2UPBupmKbIH8pELjo+BbjR19S+n8CgCBl69Y
+	ek9nfNNyzijGOuRsbszQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkOn-0000000GJlX-4BCE;
-	Wed, 06 Aug 2025 20:06:09 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1ujkRI-0000000GKXG-1yXd;
+	Wed, 06 Aug 2025 20:08:44 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkGT-0000000GG48-37B6
+	id 1ujkGV-0000000GG5V-1VXL
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 19:57:35 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-76bec81c902so267778b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:57:32 -0700 (PDT)
+	Wed, 06 Aug 2025 19:57:37 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b3f33295703so236408a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:57:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754510252; x=1755115052; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1754510254; x=1755115054; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=3IAofGMjgJOHx6SdMcFjG4jFgSxJevKv5cJ/ErNkHsk=;
-        b=0kBDNjO2l/MhjLai8n+OgvbjIryHlv/Fje5XIBx2zNCZRnsvjxo2HUHYfzyV4yL+Dx
-         TcqxVLapweuHdq9PZPD9EqvoXae3l9FjGqA5aTwNWFUgLmMVmvmC/H9MTW89Hja8KsW2
-         I5hs3FdIz0Hbt4y0R/jvj8D5+0bZb6YRK6iaiRGzD05fU8gWAo7+0Eh0cmjRjDynxqwP
-         QFaKtyt0vf3mO8dBY0hgCFjw5XY6nqSXVcMHEUx9jcYYPY6+hE3gvQDHpjjobiwbqXYy
-         AUK/cJtTN0GtZkdbdJmTN4+RDDUez1C3UtxnsnuDcJemN5q5U/QsrL5m55hlHI41v8kN
-         MYzA==
+        bh=tP9GWyHDKyhyNham1AJeXmzoVBEhNFAEzN5Uklpk9I0=;
+        b=VmByWW2FsMtZOhK366pwG9UV6CLu82P0XWQvhu7+9QRESrLZrY5XsCF2YCWfqk3Uz5
+         MeEI3bJFl6Ozs8ogutd1MDB6eVjvn+Ka6iv1chhC7GSA1zXaxqb8Hxw6T+NfGicbvRmH
+         NrBxYz6Zgajx/fcWGJYW0nL3gkrX34Bl39v4jwHyEkv/FnxkeQg16vtoNa8/MIOjgzgy
+         x63gCjAQh2Kjx5bBuhRbEM3djTx9zXG9uGfbb/ss2dF90PD0tpESUTcuIP+mq7MyOc0l
+         yLel0tlOX05zhHMxIxXCIdkb2JVOtasRKaIoV4vHDBYk78598USbDM+OSUJA+Gx1nwvX
+         Hmgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754510252; x=1755115052;
+        d=1e100.net; s=20230601; t=1754510254; x=1755115054;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3IAofGMjgJOHx6SdMcFjG4jFgSxJevKv5cJ/ErNkHsk=;
-        b=iTm92aubJAdgjpGRFF+HLExlEs6B66PHYzvhZMkbUBdqQRKP2tFUSCQEuqoic5LV+2
-         XoiDfVzLoW3vN7Zx+V4HHmwOvHj8LtyG0CJtF7Upu0kzHqnDwaX+/lkIJfq5FgPLuYrh
-         0KR62+iri3ymwG/GZ3QSei1Zi2LiqikT8DXfq+68tfzGJOUpZgR26NGv8lVvHwZp0VoG
-         Y6WbuQnSSxreMa0YdewoPVqPGQ1JIG/2jeoRwYVutVtUUbS3Q8w4JiYbPB975c42XaBS
-         fdDV38M7fEIt/lkCDKHYkwt+LKF1QHAfjD43siakI445TnCWm0XdUP7rJhGR2axJo4Zm
-         KDqA==
-X-Forwarded-Encrypted: i=1; AJvYcCVob9C7Gr3izRr9ZrrWTCN3623GytSHpMqrZufKQw6/t4yuPUr3Ow0BunfUngTuPtgzVwCPo+lPdeEM7g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzP6NWk4ZKJtLX3K0YnBSvrIcdKB6r8835HLzJFE0LsNelmUWV7
-	DlETcTzPRKFF/CDofoMwGvHoQN5ac9ao8jw923s3sZJ9+o3lNlwy8Fkjzfk/XffiO1aiVdk8DIj
-	zm2vaiw==
-X-Google-Smtp-Source: AGHT+IGg8m1AYQ1T/bkneerdDiI2IWHPXHDhUcioTumR7faJkpYOSLNXQVSuuMxt1I5dkPrSi8WAHfNQ8i8=
-X-Received: from pgc3.prod.google.com ([2002:a05:6a02:2f83:b0:b42:2da2:8848])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:a103:b0:23f:f712:4103
- with SMTP id adf61e73a8af0-24041364f38mr1167741637.18.1754510252085; Wed, 06
- Aug 2025 12:57:32 -0700 (PDT)
-Date: Wed,  6 Aug 2025 12:56:24 -0700
+        bh=tP9GWyHDKyhyNham1AJeXmzoVBEhNFAEzN5Uklpk9I0=;
+        b=F4U/eKGXdT1+NugLDcryEWKkwGfmu7ufmozFGApCMDJRO30BqCEmtjMzBj2w4E/Fsn
+         yrr3Ml7u1x/vHSG8aJo9WBlZbhZwtNgd7NtHZEab7LxWGihIAzd4QIC+JXeeXtW8aTGZ
+         bvyVf4vphZnlETE85y3TY3+2UzmkEhYVurwlWrWhUNUReBm2+HZeCH4Y/eq3VfBv/bDe
+         m5csND6LgKAf6X4suMYGDvImirBeg1Q8Emqh/bqQp6LQwOjwOXEwKAd5M57GQpaY1F/U
+         LDuFaeJuqnQ+3AwI5BsdldSMo3+gUhNOMcjqrjVrVIHonplOfT5N26RXyDQREKXz09EC
+         LfkA==
+X-Forwarded-Encrypted: i=1; AJvYcCXLxBLGD0RQHQC0kG+QSk/z8T+QRCUKYK8Gq/wBAVR5Q/b9WJmNCXKn4nhuKvrsQ3983u12KkrfrS8ZjQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvumdeZZ5H3Gdw9YaMJVyY48MF4813y1qFaYPBfF6x3yxD4WL8
+	+qAW7/lViGuhi24uG82f/no/25CtDQeg9SyoTZbJE0MrK3HWreDeChx5Czqj93yIMwT/L6I0RMZ
+	sK46RXg==
+X-Google-Smtp-Source: AGHT+IE0CEB3xtAs9hI54+H7B1IyMBLcepknW0FCY+2mxv/eXxKsKgLhnBmg0Z6EMAhWWlTkD97yQMZQQo8=
+X-Received: from pgg21.prod.google.com ([2002:a05:6a02:4d95:b0:b42:3ec5:d919])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:5493:b0:220:aea6:2154
+ with SMTP id adf61e73a8af0-2403125bcacmr7040722637.17.1754510253905; Wed, 06
+ Aug 2025 12:57:33 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:25 -0700
 In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250806195706.1650976-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250806195706.1650976-3-seanjc@google.com>
-Subject: [PATCH v5 02/44] perf: Add generic exclude_guest support
+Message-ID: <20250806195706.1650976-4-seanjc@google.com>
+Subject: [PATCH v5 03/44] perf: Move security_perf_event_free() call to __free_event()
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,8 +85,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
 	Dapeng Mi <dapeng1.mi@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_125733_779537_C47C54B7 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250806_125735_447118_3682D4BE 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,64 +104,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Kan Liang <kan.liang@linux.intel.com>
+Move the freeing of any security state associated with a perf event from
+_free_event() to __free_event(), i.e. invoke security_perf_event_free() in
+the error paths for perf_event_alloc().  This will allow adding potential
+error paths in perf_event_alloc() that can occur after allocating security
+state.
 
-Only KVM knows the exact time when a guest is entering/exiting. Expose
-two interfaces to KVM to switch the ownership of the PMU resources.
+Note, kfree() and thus security_perf_event_free() is a nop if
+event->security is NULL, i.e. calling security_perf_event_free() even if
+security_perf_event_alloc() fails or is never reached is functionality ok.
 
-All the pinned events must be scheduled in first. Extend the
-perf_event_sched_in() helper to support extra flag, e.g., EVENT_GUEST.
-
-Signed-off-by: Kan Liang <kan.liang@linux.intel.com>
-Signed-off-by: Mingwei Zhang <mizhang@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- kernel/events/core.c | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+ kernel/events/core.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index d4528554528d..3a98e11d8efc 100644
+index 3a98e11d8efc..1753a97638a3 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
-@@ -2866,14 +2866,15 @@ static void task_ctx_sched_out(struct perf_event_context *ctx,
- 
- static void perf_event_sched_in(struct perf_cpu_context *cpuctx,
- 				struct perf_event_context *ctx,
--				struct pmu *pmu)
-+				struct pmu *pmu,
-+				enum event_type_t event_type)
+@@ -5596,6 +5596,8 @@ static void __free_event(struct perf_event *event)
  {
--	ctx_sched_in(&cpuctx->ctx, pmu, EVENT_PINNED);
-+	ctx_sched_in(&cpuctx->ctx, pmu, EVENT_PINNED | event_type);
- 	if (ctx)
--		 ctx_sched_in(ctx, pmu, EVENT_PINNED);
--	ctx_sched_in(&cpuctx->ctx, pmu, EVENT_FLEXIBLE);
-+		ctx_sched_in(ctx, pmu, EVENT_PINNED | event_type);
-+	ctx_sched_in(&cpuctx->ctx, pmu, EVENT_FLEXIBLE | event_type);
- 	if (ctx)
--		 ctx_sched_in(ctx, pmu, EVENT_FLEXIBLE);
-+		ctx_sched_in(ctx, pmu, EVENT_FLEXIBLE | event_type);
- }
+ 	struct pmu *pmu = event->pmu;
  
- /*
-@@ -2929,7 +2930,7 @@ static void ctx_resched(struct perf_cpu_context *cpuctx,
- 	else if (event_type & EVENT_PINNED)
- 		ctx_sched_out(&cpuctx->ctx, pmu, EVENT_FLEXIBLE);
++	security_perf_event_free(event);
++
+ 	if (event->attach_state & PERF_ATTACH_CALLCHAIN)
+ 		put_callchain_buffers();
  
--	perf_event_sched_in(cpuctx, task_ctx, pmu);
-+	perf_event_sched_in(cpuctx, task_ctx, pmu, 0);
+@@ -5659,8 +5661,6 @@ static void _free_event(struct perf_event *event)
  
- 	for_each_epc(epc, &cpuctx->ctx, pmu, 0)
- 		perf_pmu_enable(epc->pmu);
-@@ -4147,7 +4148,7 @@ static void perf_event_context_sched_in(struct task_struct *task)
- 		ctx_sched_out(&cpuctx->ctx, NULL, EVENT_FLEXIBLE);
- 	}
+ 	unaccount_event(event);
  
--	perf_event_sched_in(cpuctx, ctx, NULL);
-+	perf_event_sched_in(cpuctx, ctx, NULL, 0);
- 
- 	perf_ctx_sched_task_cb(cpuctx->task_ctx, task, true);
- 
+-	security_perf_event_free(event);
+-
+ 	if (event->rb) {
+ 		/*
+ 		 * Can happen when we close an event with re-directed output.
 -- 
 2.50.1.565.gc32cd1483b-goog
 
