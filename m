@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0325C87FCB
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 20:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA3CC87FCB
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Aug 2025 20:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zUX7ZOxDXlkCJLJTs3vM7rMZAYJWoWCrv6eLyl0NWmM=; b=u4TISeSNkXNZZ0
-	+vmtGX8hkWtrGNQz1h2Pb8dCJlCirM5RGThPlCgo98PrNRjFzUBmA+6kphvBAZXuXea02YBAOdBeb
-	8a2VkwFHHzrlEcidKLCCAVf+wt+a06kEXYgmVhAtjPbQcAtrexZ7uJ2vQ3nKBCafwqeiO0hL73hZI
-	7NVEJKJaiR0rDdYwTZLQFrjEIK4tE+2bJsZOBcr3DCSnN6qNNflZtvXPz9XT51FP4OHOa74n7BNbY
-	157sv02Fc+KGC4HgFW9L3SR5A7U70SWhLQmmiC0R+ahvmNoAEE9cc/gkYfC1n3xb9DqN5zkd7jf9N
-	2Cknt3Jg/5PC6/SuPJtA==;
+	List-Owner; bh=xt0dgNLCLAGkdRuwaxk4Y4ZZ/g6LFAljycUvBb9cpTs=; b=BEFV0/OkqP2J8m
+	5UIINQ7GGV/+6vEKGnp67JijJAGMDn9aacdDy5c4MwatQpzUnKae4iVbH3fZLRyPSWMKiIuaOljFO
+	+Aep6Jt8bUBT9zyKb9TNdCdv3FCig0Nylkz8NdyVX3U7zIVdAAn9Fe673hbfWOrwdairwB5r101hL
+	FPvxFI+FLxTdCaIGHwBsuC2iybe3C/ebLMKM1oo2L2/tyITYvXbC8wXNxg8IG51QFs/P2fVJuzPup
+	aqXaaoQqhoX0jpMz5vU1185fp8PHvbEa09YaJDC3XTwaWgFrVsjFY3UDBqPcLpa3WMY30MGlmDiWw
+	uO7EBZrkJ8DDNsN5TBsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkvR-0000000GQm4-2rst;
-	Wed, 06 Aug 2025 20:39:53 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1ujl5X-0000000GTPz-1slV;
+	Wed, 06 Aug 2025 20:50:19 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkGs-0000000GGSF-3jUC
+	id 1ujkGz-0000000GGWl-1Ji7
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Aug 2025 19:58:00 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-31ea430d543so310827a91.3
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:57:58 -0700 (PDT)
+	Wed, 06 Aug 2025 19:58:06 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-76bb73b63d2so286243b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Aug 2025 12:58:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754510278; x=1755115078; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1754510284; x=1755115084; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=JPhdbzRHNYwbPflarjN5FFRR+xgGKTfGx/VQdQ/Orqk=;
-        b=SkU0Opx2GhAb0OftuW8BJXj7Rb/4nzHtf3AkA77o4058VL+WdLag+s8/cTDd5mndEL
-         IOyyyFIqQQiZF/ZAdocIhG9qixpnpy+6DGC1/DxSJPhaq9Jo/85+HYyYhi497I+2t9da
-         xvlD33PIK67p5RGWqBioYb4ZY5aHvSACUeE9UsU8k0hNHIqgy7d9zUbQ64LQ4f3n8JNU
-         aSKTCGIQG6+oiiBBKB0QHBVg0z9tpDDWkp3WFt7G8Ka02JFJcq3q29yGhBWMPYQiMuB+
-         eMK90LuJdVVT7hGn1YAtBymsyfsIw2VgNLZk9ufKpPZtCX+JkxWcmeEP1kxZcfnKSRnx
-         aMGw==
+        bh=GWdUZrt+U2ZtCbYKTsMlrHRvg1+poTmQboTMZxCN7ww=;
+        b=gxciG2OOinCL/+QP371/5D3kEDJ7+SBd/HnUJOStTQ1ZBKhdN+5vbPMQIiGdqU6ZXI
+         BvRWd+6rW/MviTOptiGDiwAMpLZdLaTOrHi/pfaKhNY/XrCTtzcxr5sD5dyfuOxIFy5s
+         dU148aIhdmafowk/KW8Uvz3jY53yC0W43Ai9fZ8cQEiH2AYcI7LruHDysQkNKzBx8XzL
+         Zh+KAFu4c5BaHgUuNsnGCo0Synl8nl2s/rPClOfVX5HXZMVZE2Zp+IcUWRmgr89wm4jD
+         kVS5dZHbKgRkGbdQugMCFdztWN+UclsIXo/VV1w/pZSOOj875zjISEDK+6b3LBtDls/i
+         R2Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754510278; x=1755115078;
+        d=1e100.net; s=20230601; t=1754510284; x=1755115084;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JPhdbzRHNYwbPflarjN5FFRR+xgGKTfGx/VQdQ/Orqk=;
-        b=j5rJXCUx5u1ONUAUCKmwC3YU/ZdhMsJcUsHUZ3zL8EJ8JCPq7wm3cxBzMlKYhgeawl
-         CnLKrJS+tmjfMLM3PkkMNp+vTB6CtyAey/G8FIhq/xy+IN2Lge5XZZeFvIYnemzbhtVu
-         uQ0YmqLESswKwMdru2CpYk0gg6p/pe44WJa+UvBYpGtj7l4aiBJcuOpZN4yRpg9uRr05
-         W1sm7nznF+hNsF8aSDQTgqrg/Xyyik3jLKawPD37U885zaILq+dx4MFFZ0V4+wCcFrLk
-         /n/iFSXinQs1aEbu9MtCmchm3Xw9r+1bzEKVtaCFXQ7DVHbGrsb6tPvdSaXQ+rrGirD1
-         8lCg==
-X-Forwarded-Encrypted: i=1; AJvYcCXE3a0Tvu7eZUZ+6e351tfxJMDo0W3Jq22h/i3abylzRO7P3APIhFdYVp2ytU7wxn696cMK5E7oX8PMBw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdoNNSnsXzZZL3T1euVQUZBUusOkGwV00yd1i0M9nvBfbu6uqy
-	jd8R+IUnPRyJthNYUftPZS00IAG/5tgfnMDLIOoR1m3G3nn+pEO7GMqjnHtALWENbYhR5n99C8l
-	wgY4FrQ==
-X-Google-Smtp-Source: AGHT+IFSe1FbjsND/XiMAlJbwSv08tGHE8p8b2tGPxUBNGb/T59D+jgsyqvY56UbSdKD1Cfbmzp8QhdLT3k=
-X-Received: from pjzj16.prod.google.com ([2002:a17:90a:eb10:b0:313:274d:3007])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2c86:b0:312:ffdc:42b2
- with SMTP id 98e67ed59e1d1-32167541295mr4635514a91.23.1754510278028; Wed, 06
- Aug 2025 12:57:58 -0700 (PDT)
-Date: Wed,  6 Aug 2025 12:56:38 -0700
+        bh=GWdUZrt+U2ZtCbYKTsMlrHRvg1+poTmQboTMZxCN7ww=;
+        b=AOAPm1yn4wD7j8gn+ndfbBEpaRJacH+Sz6IsZ33OtdfXYMKM1lttodptbWRC+cfhO0
+         imvBIoJ6HqWLZFnkYcU2uA/haPKwk3FdjNjR/ae5aJZ+eJo9BU/Y/xSJ9X6v3mtZZ8qZ
+         8z6P0ZfUb5VZyE1b9Z4/BY5XcdNotwqJ3zKPJpoox4mVyeAzjmaFRaYLHOUW8J14lt4C
+         H/lvFVF0wrvCvrNLQ2C1KcUYhmDP7Qm+L7gxFU3VCHff5z4Fyfv0cXqyISyrS1QytOZ/
+         Y7hOeZBXMURbXdohWTXf7gOzbkNOpHobiQ0ERQeZTdz9570oeHrTWFy32/rEh7eZi+zc
+         WUzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXcg73L8JtSZbXOGjgYpjM7CuYjnrf5KU+Tn2/B7iyhpM/7WQrCib31ncV7kR742CMzPMAqPoTE7WQ6Aw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYz6O+FqSypzxGkQE1ik2IwRvyjIQleCgCDFeE8XiGfSoJJvwd
+	mBiL7CFLA96LghrhMbxr+rE+qomOPU5iOy5uX/ZjjV61MN3t0uxKiVWZgG0UaNCep7KXzYvHDbp
+	v+5raXA==
+X-Google-Smtp-Source: AGHT+IGuU+RWQRwCAfzWML148fgqdvdKW6alxUtwh3XwkGhhvD7y/3BjKg8jOpNbCUSNYHrZUCLfYMHRL8Y=
+X-Received: from pghd12.prod.google.com ([2002:a63:fd0c:0:b0:b42:2d66:cdc])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6300:8045:b0:240:43e9:6cb7
+ with SMTP id adf61e73a8af0-24043e97001mr56266637.45.1754510284410; Wed, 06
+ Aug 2025 12:58:04 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:41 -0700
 In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250806195706.1650976-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250806195706.1650976-17-seanjc@google.com>
-Subject: [PATCH v5 16/44] KVM: Add a simplified wrapper for registering perf callbacks
+Message-ID: <20250806195706.1650976-20-seanjc@google.com>
+Subject: [PATCH v5 19/44] KVM: x86/pmu: Implement Intel mediated PMU
+ requirements and constraints
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,8 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
 	Dapeng Mi <dapeng1.mi@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_125758_929291_3B96B73B 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20250806_125805_361520_01D45238 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,115 +105,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a parameter-less API for registering perf callbacks in anticipation of
-introducing another x86-only parameter for handling mediated PMU PMIs.
+From: Dapeng Mi <dapeng1.mi@linux.intel.com>
 
-No functional change intended.
+Implement Intel PMU requirements and constraints for mediated PMU support.
+Require host PMU version 4+ so that PERF_GLOBAL_STATUS_SET can be used to
+precisely load the guest's status value into hardware, and require full-
+width writes so that KVM can precisely load guest counter values.
 
+Disable PEBS and LBRs if mediated PMU support is enabled, as they won't be
+supported in the initial implementation.
+
+Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Co-developed-by: Mingwei Zhang <mizhang@google.com>
+Signed-off-by: Mingwei Zhang <mizhang@google.com>
+[sean: split to separate patch, add full-width writes dependency]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/kvm/arm.c      |  2 +-
- arch/loongarch/kvm/main.c |  2 +-
- arch/riscv/kvm/main.c     |  2 +-
- arch/x86/kvm/x86.c        |  2 +-
- include/linux/kvm_host.h  | 11 +++++++++--
- virt/kvm/kvm_main.c       |  5 +++--
- 6 files changed, 16 insertions(+), 8 deletions(-)
+ arch/x86/kvm/vmx/capabilities.h |  3 ++-
+ arch/x86/kvm/vmx/pmu_intel.c    | 17 +++++++++++++++++
+ arch/x86/kvm/vmx/vmx.c          |  3 ++-
+ 3 files changed, 21 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 888f7c7abf54..6c604b5214f2 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2328,7 +2328,7 @@ static int __init init_subsystems(void)
- 	if (err)
- 		goto out;
+diff --git a/arch/x86/kvm/vmx/capabilities.h b/arch/x86/kvm/vmx/capabilities.h
+index 5316c27f6099..854e54c352f8 100644
+--- a/arch/x86/kvm/vmx/capabilities.h
++++ b/arch/x86/kvm/vmx/capabilities.h
+@@ -389,7 +389,8 @@ static inline bool vmx_pt_mode_is_host_guest(void)
  
--	kvm_register_perf_callbacks(NULL);
-+	kvm_register_perf_callbacks();
+ static inline bool vmx_pebs_supported(void)
+ {
+-	return boot_cpu_has(X86_FEATURE_PEBS) && kvm_pmu_cap.pebs_ept;
++	return boot_cpu_has(X86_FEATURE_PEBS) && kvm_pmu_cap.pebs_ept &&
++	       !enable_mediated_pmu;
+ }
  
- out:
- 	if (err)
-diff --git a/arch/loongarch/kvm/main.c b/arch/loongarch/kvm/main.c
-index 80ea63d465b8..f62326fe29fa 100644
---- a/arch/loongarch/kvm/main.c
-+++ b/arch/loongarch/kvm/main.c
-@@ -394,7 +394,7 @@ static int kvm_loongarch_env_init(void)
+ static inline bool cpu_has_notify_vmexit(void)
+diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
+index 07baff96300f..8df8d7b4f212 100644
+--- a/arch/x86/kvm/vmx/pmu_intel.c
++++ b/arch/x86/kvm/vmx/pmu_intel.c
+@@ -776,6 +776,20 @@ void intel_pmu_cross_mapped_check(struct kvm_pmu *pmu)
  	}
+ }
  
- 	kvm_init_gcsr_flag();
--	kvm_register_perf_callbacks(NULL);
-+	kvm_register_perf_callbacks();
- 
- 	/* Register LoongArch IPI interrupt controller interface. */
- 	ret = kvm_loongarch_register_ipi_device();
-diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-index 67c876de74ef..cbe842c2f615 100644
---- a/arch/riscv/kvm/main.c
-+++ b/arch/riscv/kvm/main.c
-@@ -159,7 +159,7 @@ static int __init riscv_kvm_init(void)
- 		kvm_info("AIA available with %d guest external interrupts\n",
- 			 kvm_riscv_aia_nr_hgei);
- 
--	kvm_register_perf_callbacks(NULL);
-+	kvm_register_perf_callbacks();
- 
- 	rc = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
- 	if (rc) {
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 5af2c5aed0f2..d80bbd5e0859 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -9689,7 +9689,7 @@ int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
- 		set_hv_tscchange_cb(kvm_hyperv_tsc_notifier);
- #endif
- 
--	kvm_register_perf_callbacks(ops->handle_intel_pt_intr);
-+	__kvm_register_perf_callbacks(ops->handle_intel_pt_intr, NULL);
- 
- 	if (IS_ENABLED(CONFIG_KVM_SW_PROTECTED_VM) && tdp_mmu_enabled)
- 		kvm_caps.supported_vm_types |= BIT(KVM_X86_SW_PROTECTED_VM);
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 15656b7fba6c..20c50eaa0089 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1731,10 +1731,17 @@ static inline bool kvm_arch_intc_initialized(struct kvm *kvm)
- #ifdef CONFIG_GUEST_PERF_EVENTS
- unsigned long kvm_arch_vcpu_get_ip(struct kvm_vcpu *vcpu);
- 
--void kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void));
-+void __kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void),
-+				   void (*mediated_pmi_handler)(void));
-+
-+static inline void kvm_register_perf_callbacks(void)
++static bool intel_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_pmu)
 +{
-+	__kvm_register_perf_callbacks(NULL, NULL);
++	u64 host_perf_cap = 0;
++
++	if (boot_cpu_has(X86_FEATURE_PDCM))
++		rdmsrq(MSR_IA32_PERF_CAPABILITIES, host_perf_cap);
++
++	/*
++	 * Require v4+ for MSR_CORE_PERF_GLOBAL_STATUS_SET, and full-width
++	 * writes so that KVM can precisely load guest counter values.
++	 */
++	return host_pmu->version >= 4 && host_perf_cap & PMU_CAP_FW_WRITES;
 +}
 +
- void kvm_unregister_perf_callbacks(void);
- #else
--static inline void kvm_register_perf_callbacks(void *ign) {}
-+static inline void kvm_register_perf_callbacks(void) {}
- static inline void kvm_unregister_perf_callbacks(void) {}
- #endif /* CONFIG_GUEST_PERF_EVENTS */
+ struct kvm_pmu_ops intel_pmu_ops __initdata = {
+ 	.rdpmc_ecx_to_pmc = intel_rdpmc_ecx_to_pmc,
+ 	.msr_idx_to_pmc = intel_msr_idx_to_pmc,
+@@ -787,6 +801,9 @@ struct kvm_pmu_ops intel_pmu_ops __initdata = {
+ 	.reset = intel_pmu_reset,
+ 	.deliver_pmi = intel_pmu_deliver_pmi,
+ 	.cleanup = intel_pmu_cleanup,
++
++	.is_mediated_pmu_supported = intel_pmu_is_mediated_pmu_supported,
++
+ 	.EVENTSEL_EVENT = ARCH_PERFMON_EVENTSEL_EVENT,
+ 	.MAX_NR_GP_COUNTERS = KVM_MAX_NR_INTEL_GP_COUNTERS,
+ 	.MIN_NR_GP_COUNTERS = 1,
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index ed10013dac95..8c6343494e62 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -7795,7 +7795,8 @@ static __init u64 vmx_get_perf_capabilities(void)
+ 	if (boot_cpu_has(X86_FEATURE_PDCM))
+ 		rdmsrq(MSR_IA32_PERF_CAPABILITIES, host_perf_cap);
  
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index ecafab2e17d9..d477a7fda0ae 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -6429,10 +6429,11 @@ static struct perf_guest_info_callbacks kvm_guest_cbs = {
- 	.handle_mediated_pmi	= NULL,
- };
+-	if (!cpu_feature_enabled(X86_FEATURE_ARCH_LBR)) {
++	if (!cpu_feature_enabled(X86_FEATURE_ARCH_LBR) &&
++	    !enable_mediated_pmu) {
+ 		x86_perf_get_lbr(&vmx_lbr_caps);
  
--void kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void))
-+void __kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void),
-+				   void (*mediated_pmi_handler)(void))
- {
- 	kvm_guest_cbs.handle_intel_pt_intr = pt_intr_handler;
--	kvm_guest_cbs.handle_mediated_pmi = NULL;
-+	kvm_guest_cbs.handle_mediated_pmi = mediated_pmi_handler;
- 
- 	perf_register_guest_info_callbacks(&kvm_guest_cbs);
- }
+ 		/*
 -- 
 2.50.1.565.gc32cd1483b-goog
 
