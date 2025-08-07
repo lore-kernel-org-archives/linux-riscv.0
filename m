@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 409ECC87FCF
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Aug 2025 11:36:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B057EC87FCA
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Aug 2025 11:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ts21uG/kiHyNzCBKxBlJTWdUR9htBAUNgS2EWdo/xuA=; b=0DZJn0PS7sgDNr
-	yx0FcTDHadTchqlJ3SaggbKLIDDfxKcSTuVyWkMIMSea5YrvNCxwM7K82laCAkEZPXYW07l+hsRgU
-	DY7J1ovXOVNHDvIHDLG7QzNiHajOBITTPnJ9/M4+6ohSE6yZdiKpTph4GNuNUiwcn1JXyuyvw061t
-	UmiFtHGHDhnYWKQL78w18z8+nlJlBSsBXw8d+kAIWEWXN+8g2onyZ/EtOKX5J8PwK7rIYwyHUjkaj
-	lSp1PBShthFRgISqZMyJRk0C8FD5fqIeM04zIE2NT0Ja7ugHcXIZY8l8Dgb8MugMm2AHtRimzG3x9
-	EtJVYpbNCb1gD8jrT96w==;
+	List-Owner; bh=QhTWfxJQMc2yH8p9EU6jI1A87YRun/EqiNVQZxqvtzo=; b=lxGk+O9WAlRjnq
+	pNjemBO5nc7UNkC8UXzwThlizMf4nz8cZ7xkbHBAvIWQzk9JShJwLeiRu3p/2shs3I4kekPfpNDY/
+	JMeXRKxTlN3ChtXYbzlYWfqOXU/Mb7vX+Aa84RYxrF0TRklbGa6l/Xr19tEmq3Mckp44nOmnyqNCI
+	rSUwNk5tQkLKwdO81Bmcy+CWePYi9tXW8360museDahp959X4d3sr0pRk1M+G4VvYUBJEcg84XvEc
+	Wupnjyb6BIMfoYPKqdkuef2bw9+ZDbQZSSq6geLu8T5sJ8GH7gNPYXjKXG+PFNENrLoNXANEi3mVT
+	HgILrHO/Wa0lUnrS2e8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujyvM-00000000OSR-174M;
-	Thu, 07 Aug 2025 11:36:44 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujye5-00000000Lo0-06tQ
-	for linux-riscv@lists.infradead.org;
-	Thu, 07 Aug 2025 11:18:54 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-23dc5bcf49eso9297845ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Aug 2025 04:18:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754565532; x=1755170332; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=O9fqVws7kYAGGue9oqTxhEM0PSSeHuhdnXBXm7y4cLU=;
-        b=cpZKrVDnWQ8G69Z6uYAYeDDTtZ7GM22lNQH1RyM5Id46MGAXQkkcm/URbh5vqrIJG8
-         vZVDOEp2SP4791iqUoWlLgd5wLdYLSreNG5zXqdrNHS9jfy8Qvm5eE5DvRIF6cMsa2NR
-         tuJxXNt+6/b1GtU05r8MOyXQt+cyfVhdfslNRDyra7eknnXDhZwXfDdA86KwUq/R4nao
-         KbC9bX3s28oB0svLHSMqWiYgXPSBbP4vuSxWSyPR82HKmQayQ72Kd3c4fZ+esgiBEbIL
-         z5jxK2GUQLgcdK++6AbDOyhcfWobkvd9n1U99tcBHs8eflE0E8BBhScidELqc93e0xl2
-         Ilpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754565532; x=1755170332;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=O9fqVws7kYAGGue9oqTxhEM0PSSeHuhdnXBXm7y4cLU=;
-        b=UP8EO6MSjXdC+ppUb0wMgmMw7ISgg7q+UPUE+jMcQQY0i04XPnS/Rezt0er7osEOiE
-         qJtin4bi2PnV24CuhBj+x6fK/7o3J/nX/42BlTCHqdnHBMbrOCkTjGwAFkyjZ6FySasp
-         ZLXUVH35J48eBGv8oxjRDuagQHsL3Bh8nlVjZCbYmAAou5NspuFZ649kifPn8TWzZqdR
-         Dj4quT/UAVBpeqV4MT2oiGVtQCK986T6OM0XbVPuEA1uqmtI/mwxYIpcx8KlLEjlDQk+
-         0pgxZRxszGY2YrhOvlgvHaRvzBInya/YIh3JfLrQy6P8ukTYdU3vPGSIX1m6ijSupx01
-         FJSA==
-X-Forwarded-Encrypted: i=1; AJvYcCXwSJso3oF8z6U3phTuww8ECJCFCnb2x0Ls975yNCqJ5AKmF/lCJaw6qU4tEGlaxpfpnFl98Ld0q4L69w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqRPIzcI5gGqwIWATbShew/DcSTLZD7V1u5Z1z9qem2SfED+Ww
-	DvaxM8OEr0eHkMF5lTcSbFujk5AJEx9h34xc8JqutfvP9tcjBq71bTy1
-X-Gm-Gg: ASbGncte/qnT2sVlhMdRpAjyXNeSE1HOYZ93b1nHAhmKKI4Mrwe7cXJdgV1GgvfO0tD
-	CAQOdQz040M9qud/UejYxcdN01cqhYtqKBExRXBy0jn2jo57A/HVgjJTI+5S+iy/QCbXVik+dKI
-	pKXdLLYecO68BoxwSZu3cOt8c+qnn6aiTBTxL0PMbmpTTuZRhI408oKB0VQ89QPlUZfQS/dEOsJ
-	40fFjmtoE6LLW3DuVeLqbPY9W4id2BceqbXeT2eQZeCsMsXeuJa7RtXVuJrAFVaZhRvJoB89XQ2
-	iSahyzL3lfl3zQr2opYalP/Y4p3xkZPtmHN+W6M8YqigEAlt7e1CgnQBOtjvi7Iy4EaaeSGo2d/
-	hNWNtVR0pQX+s63ymB5VJig==
-X-Google-Smtp-Source: AGHT+IErv77YOCqmS6FGmRY3sGQkXE7mtA5sIwlC5bAnNvn7C+qMr+bU53xyTNSftnTRbE0oMel6Xg==
-X-Received: by 2002:a17:902:fc8f:b0:240:6d9b:59ff with SMTP id d9443c01a7336-2429f5339b5mr86838225ad.33.1754565531954;
-        Thu, 07 Aug 2025 04:18:51 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-241d1f0f576sm181751225ad.47.2025.08.07.04.18.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Aug 2025 04:18:51 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	linux-kernel@vger.kernel.org,
+	id 1ujz1E-00000000Pk2-1Ttj;
+	Thu, 07 Aug 2025 11:42:48 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ujz1B-00000000PiJ-18Sj;
+	Thu, 07 Aug 2025 11:42:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=PW
+	fzr+zJFrTN7MTaKivF+UZ6XkZSxRB/9DJOS9UoMB8=; b=JwujuNOMcl4UvRSpqf
+	3eT61Q+mXki1B9CRP4j2VycuCRGagDiQWtfVEk0WCi3LLiuqs9S4kBVG2OKbC+iZ
+	G7kibZ4Fv8TVKgPF/EdfamOadLKVcL5si4EMeC8AonvhnOnT+Q996MHLGQsxcoSp
+	8gR5Xqv8D5GwCw2qFihwq6I5A=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3H0cfkZRojzptAQ--.275S2;
+	Thu, 07 Aug 2025 19:42:24 +0800 (CST)
+From: Jinyu Tang <tjytimi@163.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Cc: kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH] irqchip/sifive-plic: Respect mask state when setting affinity
-Date: Thu,  7 Aug 2025 19:18:05 +0800
-Message-ID: <20250807111806.741706-1-inochiama@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	linux-kernel@vger.kernel.org,
+	Jinyu Tang <tjytimi@163.com>
+Subject: [PATCH] riscv: skip csr restore if vcpu preempted reload
+Date: Thu,  7 Aug 2025 19:42:20 +0800
+Message-ID: <20250807114220.559098-1-tjytimi@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+X-CM-TRANSID: _____wD3H0cfkZRojzptAQ--.275S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7KFy8XF47Gr18ZF43Jw17Awb_yoW8tF15pF
+	W7urs09w48JrW7G342qrs5uF4FvrsYgrn3Xr9rXrWfAr15tryFyF4kKa47AFW5GrWrZF1S
+	yF1ktFyxC3Z5ZwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piSdgJUUUUU=
+X-Originating-IP: [2408:823d:2011:2cd5:d0cd:157d:75c9:b2da]
+X-CM-SenderInfo: xwm13xlpl6il2tof0z/1tbiZRKieGiUfiGXWQABsB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_041853_064710_8153CE07 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250807_044245_666568_00691988 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,50 +77,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The plic_set_affinity always call plic_irq_enable(), which clears up
-the priority setting even the irq is only masked. This make the irq
-unmasked unexpectly.
+The kvm_arch_vcpu_load() function is called in two cases for riscv:
+1. When entering KVM_RUN from userspace ioctl.
+2. When a preempted VCPU is scheduled back.
 
-Replace the plic_irq_enable/disable() with plic_irq_toggle() to
-avoid changing priority setting.
+In the second case, if no other KVM VCPU has run on this CPU since the
+current VCPU was preempted, the guest CSR values are still valid in
+the hardware and do not need to be restored.
 
-Suggested-by: Thomas Gleixner <tglx@linutronix.de>
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+This patch is to skip the CSR write path when:
+1. The VCPU was previously preempted
+(vcpu->scheduled_out == 1).
+2. It is being reloaded on the same physical CPU
+(vcpu->arch.last_exit_cpu == cpu).
+3. No other KVM VCPU has used this CPU in the meantime
+(vcpu == __this_cpu_read(kvm_former_vcpu)).
+
+This reduces many CSR writes with frequent preemption on the same CPU.
+
+Signed-off-by: Jinyu Tang <tjytimi@163.com>
 ---
- drivers/irqchip/irq-sifive-plic.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ arch/riscv/kvm/vcpu.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index bf69a4802b71..5bf5050996da 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -148,6 +148,7 @@ static void plic_irq_enable(struct irq_data *d)
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index f001e5640..1c6c55ee1 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -25,6 +25,8 @@
+ #define CREATE_TRACE_POINTS
+ #include "trace.h"
  
- static void plic_irq_disable(struct irq_data *d)
- {
-+	plic_irq_mask(d);
- 	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
- }
++static DEFINE_PER_CPU(struct kvm_vcpu *, kvm_former_vcpu);
++
+ const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, ecall_exit_stat),
+@@ -581,6 +583,10 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+ 	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
  
-@@ -179,12 +180,14 @@ static int plic_set_affinity(struct irq_data *d,
- 	if (cpu >= nr_cpu_ids)
- 		return -EINVAL;
++	if (vcpu->scheduled_out && vcpu == __this_cpu_read(kvm_former_vcpu) &&
++		vcpu->arch.last_exit_cpu == cpu)
++		goto csr_restore_done;
++
+ 	if (kvm_riscv_nacl_sync_csr_available()) {
+ 		nsh = nacl_shmem();
+ 		nacl_csr_write(nsh, CSR_VSSTATUS, csr->vsstatus);
+@@ -624,6 +630,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
  
--	plic_irq_disable(d);
-+	/* Invalidate the original routing entry */
-+	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
+ 	kvm_riscv_mmu_update_hgatp(vcpu);
  
- 	irq_data_update_effective_affinity(d, cpumask_of(cpu));
++csr_restore_done:
+ 	kvm_riscv_vcpu_timer_restore(vcpu);
  
-+	/* Setting the new routing entry if irq is enabled */
- 	if (!irqd_irq_disabled(d))
--		plic_irq_enable(d);
-+		plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 1);
+ 	kvm_riscv_vcpu_host_fp_save(&vcpu->arch.host_context);
+@@ -645,6 +652,8 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	void *nsh;
+ 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
  
- 	return IRQ_SET_MASK_OK_DONE;
- }
++	__this_cpu_write(kvm_former_vcpu, vcpu);
++
+ 	vcpu->cpu = -1;
+ 
+ 	kvm_riscv_vcpu_aia_put(vcpu);
 -- 
-2.50.1
+2.43.0
 
 
 _______________________________________________
