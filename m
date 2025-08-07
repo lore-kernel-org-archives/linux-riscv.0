@@ -4,52 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0910C87FCA
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Aug 2025 11:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B086FC87FCA
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Aug 2025 12:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TNpDAXtscc5jn8Q4+FBTetQztDu5H3rEgQfnwVA0hy4=; b=E1bkhMgybi2flr
-	8pJ9qblpsdOxZfhjAV7FvuSl3MKuopyjsCCoa5ggLStX9outwRc+Tw01uQsTnoDDxlHKnGxUE0Ib1
-	4TpvcGRKcqI+zMkeiDV2/n49Qm2gD4Rz0CHtQFOtbzV0ZKZ4nNlnVdLvl6Pfo3AD3o6nTIbehOQ9X
-	fUF+UId0G2s4FlAKRT6MU1nIHxo8fq8YtcAhfWJAhJys5xKEx90VoCSpSRzm+7NEG1333Hc8tl9U9
-	nkTlimo19TV5oEkZ/DKRXyjnZFMCQrxXF2sVo20Vl55zgn2Ag2n82T4sYmAddbT6qeqNdQlx09Hld
-	EgjAExz1L8IZ5TNKlArg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IqWqtY5GeC7j50rn3/b/p5rI/VcCI2gHCx+6Jq9sVfY=; b=LxC1kWXvkDQ1yElq0bk/G5j6Zr
+	kWXoz15IDLLYG6YsGJSo316TW33xTa/zLTIuJvSzByd6TgLY/rylODZUYTRwSuphAP6A3qeSNeUHL
+	tpJomo5Kizy4Yz7a/nck58pZGZ/tPjXsBpzARhcWpv+aFKn8Wx9Re9WGGFL3lfuTFOKTewymjf58C
+	LOi9axrNRd8PopIytEUsWgDcStqs7W04xoW9s/HPMl8PqhLHTvvVWW0qChB5cnge60pkmhuukbo0v
+	DdZ0/Leaipu56Q9C5gZpm0a9v0siSTH/g7bvFhyxtaj5Mf/ctXhNy0HHaUqozXQaSUs6yBVSZE3yU
+	5fX/Ks4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujz8m-00000000Qsb-1UQx;
-	Thu, 07 Aug 2025 11:50:36 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1ujzx6-00000000a0D-3Jpm;
+	Thu, 07 Aug 2025 12:42:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujz6k-00000000QUx-0Sed
+	id 1ujzjm-00000000XcC-1ATN
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 Aug 2025 11:48:31 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 27D4D4318D;
-	Thu,  7 Aug 2025 11:48:25 +0000 (UTC)
-Message-ID: <d5e49344-e0c2-4095-bd1f-d2d23a8e6534@ghiti.fr>
-Date: Thu, 7 Aug 2025 13:48:25 +0200
+	Thu, 07 Aug 2025 12:28:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E2F4B4130B;
+	Thu,  7 Aug 2025 12:28:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB578C4CEEB;
+	Thu,  7 Aug 2025 12:28:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754569729;
+	bh=kUH5cN8R6K2VxLTJzE/eGBwS7eFdgy3gZa8/khg7FMc=;
+	h=Date:From:List-Id:To:Cc:Subject:References:In-Reply-To:From;
+	b=QfRz8/lokPQVbrBLQdFUg7Zb/pO83LwtQj6QWEu50ZIIRiNZFCedBiyH1vPKdZCmn
+	 sd6EpNnPi3l2PXkuxCii2LHjBXBHhb8dMe7F02R3uXDPg+W0NEArdn2LzuNZWk4n4C
+	 /Sx0iu7o5KWBtcGI3LpmP5Ug+gPg6/SSSMluaZMDVq7o8iEupbbo1t+inLw6H7xOEs
+	 jqbuylhW2q93qMf3JwvCe+wxRi2FEEeMt64N6gLqFXR4huwOVfenuJMDp6TjvScCLC
+	 7UWGcPsoYmI5swp1B3/noAXrQ9FI+wP3dI6JCb6TOGkWKhf2Oy8Cic2ZCTYFeNZEkL
+	 7GwpI5SHcfNkg==
+Date: Thu, 7 Aug 2025 13:28:36 +0100
+From: Mark Brown <broonie@kernel.org>
+To: patchwork-bot+linux-riscv@kernel.org
+Cc: Deepak Gupta <debug@rivosinc.com>, linux-riscv@lists.infradead.org,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	akpm@linux-foundation.org, Liam.Howlett@oracle.com, vbabka@suse.cz,
+	lorenzo.stoakes@oracle.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, arnd@arndb.de,
+	brauner@kernel.org, peterz@infradead.org, oleg@redhat.com,
+	ebiederm@xmission.com, kees@kernel.org, corbet@lwn.net,
+	shuah@kernel.org, jannh@google.com, conor+dt@kernel.org,
+	ojeda@kernel.org, alex.gaynor@gmail.com, boqun.feng@gmail.com,
+	gary@garyguo.net, bjorn3_gh@protonmail.com, a.hindborg@kernel.org,
+	aliceryhl@google.com, tmgross@umich.edu, lossin@kernel.org,
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org, devicetree@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com,
+	richard.henderson@linaro.org, jim.shu@sifive.com,
+	andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
+	atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
+	alexghiti@rivosinc.com, samitolvanen@google.com,
+	rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org,
+	zong.li@sifive.com, david@redhat.com
+Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
+Message-ID: <db4eb976-693c-426c-a867-66cadd3dd7d8@sirena.org.uk>
+References: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
+ <175450053775.2863135.11568399057706626223.git-patchwork-notify@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [tip:irq/urgent] BUILD REGRESSION
- 9f7488f24c7571d349d938061e0ede7a39b65d6b
-To: Thomas Gleixner <tglx@linutronix.de>, kernel test robot <lkp@intel.com>,
- x86-ml <x86@kernel.org>, Marco Bonelli <marco@mebeim.net>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <202508071514.CFNi6mo5-lkp@intel.com> <87h5yjcxqh.ffs@tglx>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <87h5yjcxqh.ffs@tglx>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduvddtkeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeejkeeugfdthefhveelffdvgeetgeelteeijeekheehfeevtdduvdfgteevgfehffenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhinhhfrhgruggvrggurdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemlehftghfmeeksghfleemleeludgumeekrggrfhenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemlehftghfmeeksghfleemleeludgumeekrggrfhdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemlehftghfmeeksghfleemleeludgumeekrggrfhgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepiedprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehlkhhpsehinhhtvghlrdgtohhmpdhrtghpthhto
- hepgiekieeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhgtohesmhgvsggvihhmrdhnvghtpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <175450053775.2863135.11568399057706626223.git-patchwork-notify@kernel.org>
+X-Cookie: Real Users hate Real Programmers.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_044830_300741_DB1F44BE 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20250807_052850_357925_91CDFAAF 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,67 +90,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============7750357942593679244=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/7/25 11:00, Thomas Gleixner wrote:
-> On Thu, Aug 07 2025 at 15:10, kernel test robot wrote:
->> tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git irq/urgent
->> branch HEAD: 9f7488f24c7571d349d938061e0ede7a39b65d6b  irqchip/mvebu-gicp: Use resource_size() for ioremap()
->>
->> Error/Warning (recently discovered and may have been fixed):
->>
->>      https://lore.kernel.org/oe-kbuild-all/202508070607.QKVa8DiU-lkp@intel.com
->>
->>      ERROR: modpost: __ex_table+0x1584 references non-executable section '.rodata.__func__.103779'
->>
->> Error/Warning ids grouped by kconfigs:
->>
->> recent_errors
->> `-- riscv-randconfig-002-20250807
->>      `-- ERROR:__ex_table-references-non-executable-section-.rodata.__func__.
-> This has nothing to do with the above commit. That's just a new one
-> of the same type as the ones which existed before:
->
-> WARNING: modpost: vmlinux: section mismatch in reference: xp_fill_cb+0x46 (section: .text.xp_fill_cb) -> .L62 (section: .init.text)
-> ...
-> WARNING: modpost: vmlinux: section mismatch in reference: 0x19e4 (section: __ex_table) -> .LASF400 (section: .debug_str)
->
-> There are gazillions of them and that's a purely riscv specific related
-> problem.
+
+--===============7750357942593679244==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8Jovl+rM+g+rY2Z6"
+Content-Disposition: inline
 
 
-Yes that's a riscv issue that was already reported by Marco [1] who also 
-found the underlying issue [2]. The problem is that we emit too many 
-relocations which overflow the number of possible relocations in 32-bit. 
-After discussion with some riscv gcc folks, it appears to be caused by 
-relaxations which, according to the ABI, require the emission of local 
-symbol. We don't have a workaround for now and we'll discuss this issue 
-with the ABI authors.
+--8Jovl+rM+g+rY2Z6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-[1] 
-https://lore.kernel.org/linux-riscv/960240908.630790.1748641210849@privateemail.com/
-[2] 
-https://lore.kernel.org/all/1714337938.319508.1750244108368@privateemail.com/
+On Wed, Aug 06, 2025 at 05:15:37PM +0000, patchwork-bot+linux-riscv@kernel.org wrote:
 
-Sorry for the noise,
+> This series was applied to riscv/linux.git (for-next)
+> by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-Alex
+>   - [v19,11/27] riscv/shstk: If needed allocate a new shadow stack on clone
+>     https://git.kernel.org/riscv/c/9c72a71321a6
+>   - [v19,12/27] riscv: Implements arch agnostic shadow stack prctls
+>     https://git.kernel.org/riscv/c/52eff0ab5f8e
+
+Congratulations Deepak!  Do you have an update for my clone3() shadow
+stack series that I could roll in for when I repost that after the merge
+window, and/or instructions for how to run this stuff for RISC-V on some
+emulated platform?
+
+--8Jovl+rM+g+rY2Z6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiUm/QACgkQJNaLcl1U
+h9BDYgf/Ty4Hzzi0OZOuIjqMAO+hAw56Z5Cp+NT+3TWGYWAJtxuukMORT3mrkWI4
++lKrRIDqhecWHSZ3jeKvFjPvxTcPu/kwjG7GsseqGj7HJGoOufVlruKUj79xtdKS
+4V/WwyvqakZ4h3F0zy+bCyIrkBkQNbC3TTJVey1+4t0WNSj2uK4ZXespwXt+omY7
+MOsfSOj3AY1ueunPYkofK1g6VWYe4HSldfLRvwJMeUadPJ49XFhfpi41NsqdfhBB
+I8rdBWPSCS47tFoalL0R2oB+Dp78k8LmZhqKIRpPwAhMHIg3sI/kBMK4neka58L2
+d0MPk00RRPiLdsDKGHuaAWzwtLHXaA==
+=viF/
+-----END PGP SIGNATURE-----
+
+--8Jovl+rM+g+rY2Z6--
 
 
->
-> Thanks,
->
->          tglx
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+--===============7750357942593679244==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7750357942593679244==--
+
