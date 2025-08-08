@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB471C87FD3
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 10:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB038C87FDA
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 10:47:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B0y+VjOrUdANXal+PHXDOimoBpH7R50/CpV2Lsy8bWk=; b=zL6qAFI0F0VTZI
-	UV7ndPOeR9q8MFngGmLERaW+JUbtcdt7weK/zyFcm9gJlz7HQtIOK6Ef24uQXEsgptB6fBZ9/n8WM
-	4MMaSVLRPMEkxab7GuRYOlIetvnovL8Uhm2CWi3HkoIGmhQo5LqcmzCCqBm9M83cVrK/FuMs7lBek
-	bQSentacSUdBM6hcyJlL3CBPMg5PFyDDslAdlsOjdQSyigppMBE6QIzYzOkqmW+PyDOCeYVhQVXDL
-	JTYBWQ+IILlTigEHW1tLV67HhwoCku/92VfnprOXtTGrC7mId/6GKwVQGqzeMDlyEcoO8JpuMODUD
-	Q0cRyQrbgGwLDfk1QBdw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+WZkalcy512q59rCOfbTYqNQ3G93BNcuyZV+YzW0fr8=; b=fDaXuQztZECnS7
+	vV1c+8owwcGhX5sqCaVNiVP+f1dHAeqbux5i8/L7SMCfxPY6tA290pAgqblYkJ9HzngAwKCnTaNNW
+	OHmSyEn7Ebi3YMiRgTRlbuASdN0uzFliVbLJBMryl+Kx002P7srJUT+OYfN7UrWEQm0hjD27qnUDh
+	o1nTmTHDMAQ3gmm7VPOMzbQ6LOzDbISCpQI+B2ep3jQlt1ETnM5yS6SJu3ZOZTjiJQsFKyPMOiGG1
+	1krOrAt775eOYc8QU+EPrtR7RnEl8CHt4q2HLEOHXL6LAhiWuhZw6HLnxsk/p1SIZQqYTeHZ4BA9X
+	duyGFkSrsgOjCFb55gsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukKcZ-00000002auy-1ZYJ;
-	Fri, 08 Aug 2025 10:46:47 +0000
+	id 1ukKcX-00000002atm-2EUH;
+	Fri, 08 Aug 2025 10:46:45 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukKMy-00000002Z58-1Mva;
-	Fri, 08 Aug 2025 10:30:41 +0000
+	id 1ukKMi-00000002Z3v-1CTg;
+	Fri, 08 Aug 2025 10:30:26 +0000
 Received: from zq-Legion-Y7000.. (unknown [121.237.92.164])
-	by APP-03 (Coremail) with SMTP id rQCowAB3DH6s0ZVo1RpQCg--.7060S2;
-	Fri, 08 Aug 2025 18:30:04 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAA3zH2U0ZVoWhVQCg--.7250S2;
+	Fri, 08 Aug 2025 18:29:41 +0800 (CST)
 From: zhouquan@iscas.ac.cn
 To: anup@brainfault.org,
 	ajones@ventanamicro.com,
@@ -40,35 +40,34 @@ Cc: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org,
 	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH v2 2/6] RISC-V: KVM: Provide UAPI for Zicbop block size
-Date: Fri,  8 Aug 2025 18:18:34 +0800
-Message-Id: <befd8403cd76d7adb97231ac993eaeb86bf2582c.1754646071.git.zhouquan@iscas.ac.cn>
+Subject: [PATCH v2 0/6] RISC-V: KVM: Allow zicbop/bfloat16 exts for guests
+Date: Fri,  8 Aug 2025 18:18:10 +0800
+Message-Id: <cover.1754646071.git.zhouquan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1754646071.git.zhouquan@iscas.ac.cn>
-References: <cover.1754646071.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAB3DH6s0ZVo1RpQCg--.7060S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw1DtryUXr45ZFy3XFyxZrb_yoW5GrWDpF
-	sxCrsY9r409ryS9rZ7ArykWr4Ygwn8Gws3trZ293y8JF9rtFWrGr4kKr9xAFW0qFW8XF4I
-	93Z5Gry09an8tw7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBG14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8tw
-	CF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j
-	6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64
-	vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0x
-	vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUDcTdUUUUU=
+X-CM-TRANSID: rQCowAA3zH2U0ZVoWhVQCg--.7250S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7XF1kZrWrtFW3Kw1xAr4rGrg_yoWDKFX_CF
+	WrXrZ7J343Xayj9ayfAFs5JFykt390kr1xJF4jvr17WFnrurWUZw1xG3yYkr17uw45XFnI
+	vrn5uFZ29w1a9jkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbhAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7M4kE6xkIj40Ew7xC0wCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_Gw1l42
+	xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWU
+	GwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI4
+	8JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4U
+	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
+	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOrcfUUUUU
 X-Originating-IP: [121.237.92.164]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiCQ4IBmiVopSTXQABsN
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBgwIBmiVokWI1gABsB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_033040_723266_E136F0E0 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20250808_033024_687995_2C4325A1 
+X-CRM114-Status: UNSURE (   6.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,69 +86,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-We're about to allow guests to use the Zicbop extension.
-KVM userspace needs to know the cache block size in order to
-properly advertise it to the guest. Provide a virtual config
-register for userspace to get it with the GET_ONE_REG API, but
-setting it cannot be supported, so disallow SET_ONE_REG.
+Advertise zicbop/bfloat16 extensions to KVM guest when underlying
+host supports it, and add them to get-reg-list test.
 
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
 ---
- arch/riscv/include/uapi/asm/kvm.h |  1 +
- arch/riscv/kvm/vcpu_onereg.c      | 14 ++++++++++++++
- 2 files changed, 15 insertions(+)
+Change since v1:
+- update zicbom/zicboz/zicbop block size registers to depend on the host isa.
+- update the reg list filtering in copy_config_reg_indices() to use the host isa.
+- add reg list filtering for zicbop.
+v1: https://lore.kernel.org/all/cover.1750164414.git.zhouquan@iscas.ac.cn/
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index ef27d4289da1..bb200f82d08e 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -56,6 +56,7 @@ struct kvm_riscv_config {
- 	unsigned long mimpid;
- 	unsigned long zicboz_block_size;
- 	unsigned long satp_mode;
-+	unsigned long zicbop_block_size;
- };
- 
- /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index 6bd64ae17b80..cf5003eb2e41 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -286,6 +286,11 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
- 			return -ENOENT;
- 		reg_val = riscv_cboz_block_size;
- 		break;
-+	case KVM_REG_RISCV_CONFIG_REG(zicbop_block_size):
-+		if (!riscv_isa_extension_available(NULL, ZICBOP))
-+			return -ENOENT;
-+		reg_val = riscv_cbop_block_size;
-+		break;
- 	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
- 		reg_val = vcpu->arch.mvendorid;
- 		break;
-@@ -377,6 +382,12 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
- 		if (reg_val != riscv_cboz_block_size)
- 			return -EINVAL;
- 		break;
-+	case KVM_REG_RISCV_CONFIG_REG(zicbop_block_size):
-+		if (!riscv_isa_extension_available(NULL, ZICBOP))
-+			return -ENOENT;
-+		if (reg_val != riscv_cbop_block_size)
-+			return -EINVAL;
-+		break;
- 	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
- 		if (reg_val == vcpu->arch.mvendorid)
- 			break;
-@@ -822,6 +833,9 @@ static int copy_config_reg_indices(const struct kvm_vcpu *vcpu,
- 		else if (i == KVM_REG_RISCV_CONFIG_REG(zicboz_block_size) &&
- 			!riscv_isa_extension_available(NULL, ZICBOZ))
- 			continue;
-+		else if (i == KVM_REG_RISCV_CONFIG_REG(zicbop_block_size) &&
-+			!riscv_isa_extension_available(NULL, ZICBOP))
-+			continue;
- 
- 		size = IS_ENABLED(CONFIG_32BIT) ? KVM_REG_SIZE_U32 : KVM_REG_SIZE_U64;
- 		reg = KVM_REG_RISCV | size | KVM_REG_RISCV_CONFIG | i;
+Quan Zhou (6):
+  RISC-V: KVM: Change zicbom/zicboz block size to depend on the host isa
+  RISC-V: KVM: Provide UAPI for Zicbop block size
+  RISC-V: KVM: Allow Zicbop extension for Guest/VM
+  RISC-V: KVM: Allow bfloat16 extension for Guest/VM
+  KVM: riscv: selftests: Add Zicbop extension to get-reg-list test
+  KVM: riscv: selftests: Add bfloat16 extension to get-reg-list test
+
+ arch/riscv/include/uapi/asm/kvm.h             |  5 +++
+ arch/riscv/kvm/vcpu_onereg.c                  | 34 +++++++++++++++----
+ .../selftests/kvm/riscv/get-reg-list.c        | 25 ++++++++++++++
+ 3 files changed, 58 insertions(+), 6 deletions(-)
+
 -- 
 2.34.1
 
