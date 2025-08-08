@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E14C87FD3
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 09:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF86CA0EC3
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 10:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4WTtZ3bezoQuyxclEeq7f1RUieU1onHkDUqP3PbCLDw=; b=kurys1Piqsira7
-	d+bKrMoJ0ksNB41HDB5uSeSgH4Ov3a5/w38KnwLGMv9iMx8bhmk8hKrAkxhe8UGtpLgdet4mJaDgp
-	iXxvpkYEfT0DnRsL/YWYqunqgL4cfyn/jcVa6cHLOEUSAKqHGVmXfdbh1lgW0txSj7grE1mWaGzHS
-	EKwdQpYkLr2GgeUI7u2TDBdhZoN4ysoghGoOhT41k2FTB3Jd+Kn735MF3QuPLUovBJsAGfZCeAheq
-	Q53uY9hNcxVL7ij2uhkcOTZaNhNhl45w7sdm5hK/7Y4/Ke3z590wdLi31G9s0cc1HSYX5vGhPnpx2
-	HScjhHXw0dSiSQWdkwdg==;
+	List-Owner; bh=kVJR61sQvX1ihWH/dKX1U7PXN90TZ8c8ZtSDQRbm53Q=; b=nlpGe1tJCw+BNX
+	8+5o4/f6aDYiTOUXDQB8mgG/C0WbzVefu29WF8Ob8oSmu0EOibc4P0ZwhR14DZeQK9elW4PdvGQ0j
+	muatIwasBJjHgmWyxB+hLM2jhFdHZk7oX7LkJII7rMZnQvy8WrodV3zSpaMUkL5l1OMQsMy6liWx/
+	nzUeLnwNhz2Efhc/rrkZWUr8i2YoPocn7ouxz5PNnUxKIppZ3U6uk98f2rNlpzihtM+HBxtzZISSs
+	yF7lTlMCN0K4WTMoPh9QFAlejUGnXlvJqJaggwh70e3trbisfDoUsps5JP4FJgAz6D05s/k2eeE+N
+	FmndhLHj8xUruP9HYDww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukJfI-00000002U5D-25pe;
-	Fri, 08 Aug 2025 09:45:32 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1ukKca-00000002ave-1NKd;
+	Fri, 08 Aug 2025 10:46:48 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukJfF-00000002U3t-43W6
-	for linux-riscv@lists.infradead.org;
-	Fri, 08 Aug 2025 09:45:31 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id A633123CB7;
-	Fri,  8 Aug 2025 11:45:28 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id aQEZZtQOrJMo; Fri,  8 Aug 2025 11:45:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1754646328; bh=gJCswTbeSm0cfVQDYDQlFj9ENNDHXqLsDS5p8UVfsgY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JuWdI/22rnTfj2+JDLe2ZFyQkwJTP7HMjmbYqFkH//AlUH3gEJbC7WqnExmM4Essq
-	 UxFUpesshFjjPOcR5Mq6H1pkI3xd/GbzIrdN4sDqaZDMwuOq85mMIdKH+FE/Tptx9y
-	 8zW68LQa3IynfDKWmRaT0BHQ2QIvMocS22ZqActTwLrUY1AJmaLsAp4/HWUBWM/p8y
-	 xO27gMxq/Dj7JDyb4W+Sd5L4Ku1xsdvep3P87J0rKgxGqDBdOeueMhJaeil7Oje/I3
-	 X0IjEMhbCU/yX3cSoOf9DekyJnke9GH9qBhZkK7bn1E92EGrVt4PuTrIfKOU2dnA1y
-	 eGYyHIeZPGm0w==
-From: Yao Zi <ziyao@disroot.org>
-To: Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Jisheng Zhang <jszhang@kernel.org>
-Cc: linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH net v3 3/3] riscv: dts: thead: Add APB clocks for TH1520 GMACs
-Date: Fri,  8 Aug 2025 09:36:56 +0000
-Message-ID: <20250808093655.48074-5-ziyao@disroot.org>
-In-Reply-To: <20250808093655.48074-2-ziyao@disroot.org>
-References: <20250808093655.48074-2-ziyao@disroot.org>
+	id 1ukKN9-00000002Z5b-14M3;
+	Fri, 08 Aug 2025 10:30:52 +0000
+Received: from zq-Legion-Y7000.. (unknown [121.237.92.164])
+	by APP-03 (Coremail) with SMTP id rQCowABX6Hm20ZVoWR1QCg--.7174S2;
+	Fri, 08 Aug 2025 18:30:15 +0800 (CST)
+From: zhouquan@iscas.ac.cn
+To: anup@brainfault.org,
+	ajones@ventanamicro.com,
+	atishp@atishpatra.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	Quan Zhou <zhouquan@iscas.ac.cn>
+Subject: [PATCH v2 3/6] RISC-V: KVM: Allow Zicbop extension for Guest/VM
+Date: Fri,  8 Aug 2025 18:18:44 +0800
+Message-Id: <db4a9b679cc653bb6f5f5574e4196de7a980e458.1754646071.git.zhouquan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1754646071.git.zhouquan@iscas.ac.cn>
+References: <cover.1754646071.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
+X-CM-TRANSID: rQCowABX6Hm20ZVoWR1QCg--.7174S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Aw4kAF45Gw1xtF4rKrW7Jwb_yoW8WFy3pr
+	s5CFZxCr4rA3s3uws7t34DWr48W3y5WwnIk3y7ur1xJFyjkry8JF1qya47JF4DJay09r1k
+	uF1Sgr1rZw4Yyr7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBG14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8tw
+	CF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j
+	6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64
+	vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0x
+	vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUDcTdUUUUU=
+X-Originating-IP: [121.237.92.164]
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBg0IBmiVokWUqQAAsi
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_024530_137017_371AC790 
-X-CRM114-Status: UNSURE (   6.89  )
+X-CRM114-CacheID: sfid-20250808_033051_655579_1A4769D6 
+X-CRM114-Status: UNSURE (   6.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,47 +86,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Describe perisys-apb4-hclk as the APB clock for TH1520 SoC, which is
-essential for accessing GMAC glue registers.
+From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-Fixes: 7e756671a664 ("riscv: dts: thead: Add TH1520 ethernet nodes")
-Signed-off-by: Yao Zi <ziyao@disroot.org>
-Reviewed-by: Drew Fustini <fustini@kernel.org>
-Tested-by: Drew Fustini <fustini@kernel.org>
+Extend the KVM ISA extension ONE_REG interface to allow KVM user space
+to detect and enable Zicbop extension for Guest/VM.
+
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/boot/dts/thead/th1520.dtsi | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ arch/riscv/include/uapi/asm/kvm.h | 1 +
+ arch/riscv/kvm/vcpu_onereg.c      | 2 ++
+ 2 files changed, 3 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index 42724bf7e90e..03f1d7319049 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -297,8 +297,9 @@ gmac1: ethernet@ffe7060000 {
- 			reg-names = "dwmac", "apb";
- 			interrupts = <67 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
--			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC1>;
--			clock-names = "stmmaceth", "pclk";
-+			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC1>,
-+				 <&clk CLK_PERISYS_APB4_HCLK>;
-+			clock-names = "stmmaceth", "pclk", "apb";
- 			snps,pbl = <32>;
- 			snps,fixed-burst;
- 			snps,multicast-filter-bins = <64>;
-@@ -319,8 +320,9 @@ gmac0: ethernet@ffe7070000 {
- 			reg-names = "dwmac", "apb";
- 			interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
--			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC0>;
--			clock-names = "stmmaceth", "pclk";
-+			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC0>,
-+				 <&clk CLK_PERISYS_APB4_HCLK>;
-+			clock-names = "stmmaceth", "pclk", "apb";
- 			snps,pbl = <32>;
- 			snps,fixed-burst;
- 			snps,multicast-filter-bins = <64>;
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index bb200f82d08e..ddaa5c1ecb84 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -186,6 +186,7 @@ enum KVM_RISCV_ISA_EXT_ID {
+ 	KVM_RISCV_ISA_EXT_ZICCRSE,
+ 	KVM_RISCV_ISA_EXT_ZAAMO,
+ 	KVM_RISCV_ISA_EXT_ZALRSC,
++	KVM_RISCV_ISA_EXT_ZICBOP,
+ 	KVM_RISCV_ISA_EXT_MAX,
+ };
+ 
+diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+index cf5003eb2e41..73ce35c776df 100644
+--- a/arch/riscv/kvm/vcpu_onereg.c
++++ b/arch/riscv/kvm/vcpu_onereg.c
+@@ -68,6 +68,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
+ 	KVM_ISA_EXT_ARR(ZFH),
+ 	KVM_ISA_EXT_ARR(ZFHMIN),
+ 	KVM_ISA_EXT_ARR(ZICBOM),
++	KVM_ISA_EXT_ARR(ZICBOP),
+ 	KVM_ISA_EXT_ARR(ZICBOZ),
+ 	KVM_ISA_EXT_ARR(ZICCRSE),
+ 	KVM_ISA_EXT_ARR(ZICNTR),
+@@ -201,6 +202,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
+ 	case KVM_RISCV_ISA_EXT_ZFA:
+ 	case KVM_RISCV_ISA_EXT_ZFH:
+ 	case KVM_RISCV_ISA_EXT_ZFHMIN:
++	case KVM_RISCV_ISA_EXT_ZICBOP:
+ 	case KVM_RISCV_ISA_EXT_ZICCRSE:
+ 	case KVM_RISCV_ISA_EXT_ZICNTR:
+ 	case KVM_RISCV_ISA_EXT_ZICOND:
 -- 
-2.50.1
+2.34.1
 
 
 _______________________________________________
