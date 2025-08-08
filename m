@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B17C87FCB
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 17:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52587C87FCB
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 18:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iI5egDwZPclWDcwllFyif6k/ePy+ARPFBFnflJkNPns=; b=DPXi45NyHhbFDJ
-	1QB1/aGKQF/8cnpUssDzB1QbWkKiCvPifIjK5B0hmAPL6drGrTZ5F8LAbpJlqFw17TQt4WnMPAWpx
-	1SMt4vj8JVD0JdZPAU4hPjnjS5K3osPdlVGCROuioR+wHW380cqAKCu1WN/2m7wCFLARuI75khbAo
-	KBhWZNLE50EymlXOnzl/d3/nH/TrA/coveeoUyRElzUz93OcQEO6cFNfLZu8C/GwVpu5Juqa8zW2b
-	IXebSI+cY6WRp73ZyxdaWZNSSa3hU/tKH3B1osZC8IYOzbv1KMfQw2++jPTqpRk4rlDjLR6FANS8O
-	XmBcaSty8xh+Pg37UC6g==;
+	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=XJI11dHwxk/d0BRN5sjg1PEykXfnQNhMkFUajKRuURc=; b=JZv
+	LuSb80cE4lrIRT9aWf7aTaRSqhHNR36pBGVotDwrKQMi+By0kosImJ+nFKfAZd72XISDtXSgTkaJW
+	U1PRxQG3fxRbsZ2Mac9IFZVkuvTKltYIGs7OJ7QIEA9DJMnpyVxvURoiVdoyYpLNwdP8fasQ0MY7S
+	XdumlFe3VV4qMwXPidkPxMs3rI4mwbbW4qlTIPx33GNQB50/VaSPVPka/ziGGvm4RMX+4y3qbNbLn
+	pNII+YAZy/M8jpNpDYT/OAF2XpnID++S4AIMqPpeRBnBgAsQbi9Td3AD03ECdCwMaOarmcHsj/DaP
+	iVS3nOB/i2fDA9hVY5U17iCkevwAT9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukQoG-00000003OlK-1R09;
-	Fri, 08 Aug 2025 17:23:16 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukQlf-00000003OL7-1l8d;
-	Fri, 08 Aug 2025 17:20:37 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4bz9NX4Hmyz9sSb;
-	Fri,  8 Aug 2025 19:03:56 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 4LtEzBBocysS; Fri,  8 Aug 2025 19:03:56 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4bz9NX36z3z9sSZ;
-	Fri,  8 Aug 2025 19:03:56 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 55AF68B770;
-	Fri,  8 Aug 2025 19:03:56 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id Z2c0fwWGRIPg; Fri,  8 Aug 2025 19:03:56 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 20F878B763;
-	Fri,  8 Aug 2025 19:03:55 +0200 (CEST)
-Message-ID: <af677847-e625-43d7-8750-b2ce4ba9626c@csgroup.eu>
-Date: Fri, 8 Aug 2025 19:03:54 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] kasan: introduce ARCH_DEFER_KASAN and unify static
- key across modes
-To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
-Cc: ryabinin.a.a@gmail.com, bhe@redhat.com, hca@linux.ibm.com,
- andreyknvl@gmail.com, akpm@linux-foundation.org, zhangqing@loongson.cn,
- chenhuacai@loongson.cn, davidgow@google.co, glider@google.com,
- dvyukov@google.com, alex@ghiti.fr, agordeev@linux.ibm.com,
- vincenzo.frascino@arm.com, elver@google.com, kasan-dev@googlegroups.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-um@lists.infradead.org, linux-mm@kvack.org
-References: <20250807194012.631367-1-snovitoll@gmail.com>
- <20250807194012.631367-2-snovitoll@gmail.com>
- <22872a3f-85dc-4740-b605-ba80b5a3b1bc@csgroup.eu>
- <CACzwLxjnofD0EsxrtgbG3svXHL+TpYcio4B67SCY9Mi3C-jdsQ@mail.gmail.com>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <CACzwLxjnofD0EsxrtgbG3svXHL+TpYcio4B67SCY9Mi3C-jdsQ@mail.gmail.com>
+	id 1ukRgO-00000003T6Y-2BOR;
+	Fri, 08 Aug 2025 18:19:12 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ukRgL-00000003T68-25do
+	for linux-riscv@lists.infradead.org;
+	Fri, 08 Aug 2025 18:19:11 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-76bd6e84eddso3262251b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Aug 2025 11:19:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1754677148; x=1755281948; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TZ5+c29dU5b9O6qsUfKFbzu0LdrZfAtgF3Lb4XYiV98=;
+        b=3bWa8KGpgiDCusJNaJaoHhvR9Bxz2SjKBF8J60ZQVipQECIAyw7ncVltsrxiPf1/hi
+         9EaUozRZYADcJTLi9D1xOtUXDuZvUKXWfackan30HzFDsGUdzRRUSqvd1A/qkYYPB2YO
+         IZBZC5P89vFcZoKMi6jg0vBprUfwint++J2nJ/gkhLzFp5ZfA9R4H2awvlplV7vu0JcL
+         Iijnte7+X/HkToF/OSVjmuTTyvbRLouoRxvgAO1htfP+4gI3fXXXxkDcL+TCFuwF9UNx
+         7SzoWuxsbzCahTjne3Xzu93C/NvYuX++qj5mz8C9AJ+ovhGO6BuuExhEYXPwMAhKSySL
+         TUHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754677148; x=1755281948;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TZ5+c29dU5b9O6qsUfKFbzu0LdrZfAtgF3Lb4XYiV98=;
+        b=FQ3G7Yyr4/j7gvDH6MhqqGflWMA+MGks4y+qxOvw3kB8JXI9D8b+XX+zgj+U5IXPJP
+         i8E0eEmdbaTyuy6xcZ2RD6SZFvRTGTrgetJo+dCN3Bdk3Iidk84Qs9y1kQTcJpUjjLTz
+         956j4rnxZJf7+tCO/Wr0z2PXQdWf7iq0GFqY3b1k0I42cH9ecX+58sJRtpv9I18tFNg5
+         g1gkSBXyWMwUiCykSLJ7ji53xQ4EClponFWbovailINDXHSO2JwwdTFgVz1yBr0GdoyZ
+         AuLiFx53Gdz8AbvKnCBIuVZdRVek4U912rXZQj8IB09aGIAzZvrotIZC7hOs6PQofRya
+         oZkQ==
+X-Gm-Message-State: AOJu0YydJUYonClA+1LC9Mw9rfO/ovF1Au725vSUq1XfzHhcfSZYWc1q
+	SiCRgXgtbcwK6io8QnVvidQve4IfvXMZBJp576rWteDy9XKiCOCVNiPaeWhGqzcTU5ejcsK41C/
+	MsvzX5Yk=
+X-Gm-Gg: ASbGnctoibTlCMeE59ayq+d1s19iWBf4uBFyD2ECjC+JQ8zR4A4L3yOI727x4zxmXM+
+	MUp8KfCjw32AeVIVvrwh+w+yFlRMDnwHDogK3w3m0/+jJTmrsUNegAysbaCDOa6q0+nqO2jpVwu
+	BBLtTpU0EBvnoGEsmoZU88NGFVl9xzbnaKUcgsKrtlUwXkwaWjbnzOBbtzxKWDZe1zRhKUwsmNp
+	P1xEXoBH91DN7LsN0it37lrps+Q14VGA4nPW6ARWwqIOMXyvR7NHJDEGc0UWb2a/X9fUjbDaVto
+	PbVEFUSAHvL9vikefP597wKRtxOHnnwNiAboecGErRwzNFNMuGNPSIILoD86MhOLCBzrTgd56FI
+	1XU3rHUB5zGIL+yrB8neiqsPjs8huRUumk2YN
+X-Google-Smtp-Source: AGHT+IFznI6jIeHELjqpkJA+jE2hApI+4SYig7h6psAZUpuWjO79NHZG/LqKPcTcxzxSgB2sCuSrJg==
+X-Received: by 2002:a05:6a00:4fca:b0:749:472:d3a7 with SMTP id d2e1a72fcca58-76c461a68e1mr6512775b3a.18.1754677147776;
+        Fri, 08 Aug 2025 11:19:07 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::5:6f48])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-76bcce8f800sm20948582b3a.42.2025.08.08.11.19.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Aug 2025 11:19:05 -0700 (PDT)
+Date: Fri, 08 Aug 2025 11:19:05 -0700 (PDT)
+X-Google-Original-Date: Fri, 08 Aug 2025 11:18:21 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 6.17 Merge Window, Part 1
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-7755CB81-B0C6-42D3-82B5-CE37669F176C@palmerdabbelt-mac>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_102035_710783_E458557A 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20250808_111909_543875_235ACBDC 
+X-CRM114-Status: GOOD (  20.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,97 +88,457 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============5455743076420406636=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpMZSAwOC8wOC8yMDI1IMOgIDE3OjMzLCBTYWJ5cnpoYW4gVGFzYm9sYXRvdiBhIMOpY3JpdMKg
-Ogo+IE9uIEZyaSwgQXVnIDgsIDIwMjUgYXQgMTA6MDPigK9BTSBDaHJpc3RvcGhlIExlcm95Cj4g
-PGNocmlzdG9waGUubGVyb3lAY3Nncm91cC5ldT4gd3JvdGU6Cj4+Cj4+Cj4+Cj4+IExlIDA3LzA4
-LzIwMjUgw6AgMjE6NDAsIFNhYnlyemhhbiBUYXNib2xhdG92IGEgw6ljcml0IDoKPj4+IEludHJv
-ZHVjZSBDT05GSUdfQVJDSF9ERUZFUl9LQVNBTiB0byBpZGVudGlmeSBhcmNoaXRlY3R1cmVzIFsx
-XSB0aGF0IG5lZWQKPj4+IHRvIGRlZmVyIEtBU0FOIGluaXRpYWxpemF0aW9uIHVudGlsIHNoYWRv
-dyBtZW1vcnkgaXMgcHJvcGVybHkgc2V0IHVwLAo+Pj4gYW5kIHVuaWZ5IHRoZSBzdGF0aWMga2V5
-IGluZnJhc3RydWN0dXJlIGFjcm9zcyBhbGwgS0FTQU4gbW9kZXMuCj4+Cj4+IFRoYXQgcHJvYmFi
-bHkgZGVzc2VydmVzIG1vcmUgZGV0YWlscywgbWF5YmUgY29weSBpbiBpbmZvcm1hdGlvbnMgZnJv
-bQo+PiB0aGUgdG9wIG9mIGNvdmVyIGxldHRlci4KPj4KPj4gSSB0aGluayB0aGVyZSBzaG91bGQg
-YWxzbyBiZSBzb21lIGV4ZXBsYW5hdGlvbnMgYWJvdXQKPj4ga2FzYW5fYXJjaF9pc19yZWFkeSgp
-IGJlY29taW5nIGthc2FuX2VuYWJsZWQoKSwgYW5kIGFsc28gd2h5Cj4+IGthc2FuX2FyY2hfaXNf
-cmVhZHkoKSBjb21wbGV0ZWx5IGRpc2FwcGVhciBmcm9tIG1tL2thc2FuL2NvbW1vbi5jCj4+IHdp
-dGhvdXQgYmVpbmcgcmVwbGFjZWQgYnkga2FzYW5fZW5hYmxlZCgpLgo+Pgo+Pj4KPj4+IFsxXSBQ
-b3dlclBDLCBVTUwsIExvb25nQXJjaCBzZWxlY3RzIEFSQ0hfREVGRVJfS0FTQU4uCj4+Pgo+Pj4g
-Q2xvc2VzOiBodHRwczovL2V1cjAxLnNhZmVsaW5rcy5wcm90ZWN0aW9uLm91dGxvb2suY29tLz91
-cmw9aHR0cHMlM0ElMkYlMkZidWd6aWxsYS5rZXJuZWwub3JnJTJGc2hvd19idWcuY2dpJTNGaWQl
-M0QyMTcwNDkmZGF0YT0wNSU3QzAyJTdDY2hyaXN0b3BoZS5sZXJveSU0MGNzZ3JvdXAuZXUlN0Nm
-ZTRmNWE3NTlhZDY0NTJiMDQ3NDA4ZGRkNjkxMDI0YSU3QzhiODdhZjdkODY0NzRkYzc4ZGY0NWY2
-OWEyMDExYmI1JTdDMCU3QzAlN0M2Mzg5MDI2NDA1MDMyNTkxNzYlN0NVbmtub3duJTdDVFdGcGJH
-WnNiM2Q4ZXlKRmJYQjBlVTFoY0draU9uUnlkV1VzSWxZaU9pSXdMakF1TURBd01DSXNJbEFpT2lK
-WGFXNHpNaUlzSWtGT0lqb2lUV0ZwYkNJc0lsZFVJam95ZlElM0QlM0QlN0MwJTdDJTdDJTdDJnNk
-YXRhPVVNNHV2UWloSmRlV3djQzZESWlKWGJuNHdHc3JpampSY0hjNTV1Q01FckklM0QmcmVzZXJ2
-ZWQ9MAo+Pj4gU2lnbmVkLW9mZi1ieTogU2FieXJ6aGFuIFRhc2JvbGF0b3YgPHNub3ZpdG9sbEBn
-bWFpbC5jb20+Cj4+PiAtLS0KPj4+IENoYW5nZXMgaW4gdjU6Cj4+PiAtIFVuaWZpZWQgcGF0Y2hl
-cyB3aGVyZSBhcmNoIChwb3dlcnBjLCBVTUwsIGxvb25nYXJjaCkgc2VsZWN0cwo+Pj4gICAgIEFS
-Q0hfREVGRVJfS0FTQU4gaW4gdGhlIGZpcnN0IHBhdGNoIG5vdCB0byBicmVhawo+Pj4gICAgIGJp
-c2VjdGFiaWxpdHkKPj4+IC0gUmVtb3ZlZCBrYXNhbl9hcmNoX2lzX3JlYWR5IGNvbXBsZXRlbHkg
-YXMgdGhlcmUgaXMgbm8gdXNlcgo+Pj4gLSBSZW1vdmVkIF9fd3JhcHBlcnMgaW4gdjQsIGxlZnQg
-b25seSB0aG9zZSB3aGVyZSBpdCdzIG5lY2Vzc2FyeQo+Pj4gICAgIGR1ZSB0byBkaWZmZXJlbnQg
-aW1wbGVtZW50YXRpb25zCj4+Pgo+Pj4gQ2hhbmdlcyBpbiB2NDoKPj4+IC0gRml4ZWQgSFdfVEFH
-UyBzdGF0aWMga2V5IGZ1bmN0aW9uYWxpdHkgKHdhcyBicm9rZW4gaW4gdjMpCj4+PiAtIE1lcmdl
-ZCBjb25maWd1cmF0aW9uIGFuZCBpbXBsZW1lbnRhdGlvbiBmb3IgYXRvbWljaXR5Cj4+PiAtLS0K
-Pj4+ICAgIGFyY2gvbG9vbmdhcmNoL0tjb25maWcgICAgICAgICAgICAgICAgIHwgIDEgKwo+Pj4g
-ICAgYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9hc20va2FzYW4uaCAgICAgfCAgNyAtLS0tLS0KPj4+
-ICAgIGFyY2gvbG9vbmdhcmNoL21tL2thc2FuX2luaXQuYyAgICAgICAgIHwgIDggKysrLS0tLQo+
-Pj4gICAgYXJjaC9wb3dlcnBjL0tjb25maWcgICAgICAgICAgICAgICAgICAgfCAgMSArCj4+PiAg
-ICBhcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20va2FzYW4uaCAgICAgICB8IDEyIC0tLS0tLS0tLS0K
-Pj4+ICAgIGFyY2gvcG93ZXJwYy9tbS9rYXNhbi9pbml0XzMyLmMgICAgICAgIHwgIDIgKy0KPj4+
-ICAgIGFyY2gvcG93ZXJwYy9tbS9rYXNhbi9pbml0X2Jvb2szZV82NC5jIHwgIDIgKy0KPj4+ICAg
-IGFyY2gvcG93ZXJwYy9tbS9rYXNhbi9pbml0X2Jvb2szc182NC5jIHwgIDYgKy0tLS0KPj4+ICAg
-IGFyY2gvdW0vS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgIHwgIDEgKwo+Pj4gICAgYXJj
-aC91bS9pbmNsdWRlL2FzbS9rYXNhbi5oICAgICAgICAgICAgfCAgNSArKy0tCj4+PiAgICBhcmNo
-L3VtL2tlcm5lbC9tZW0uYyAgICAgICAgICAgICAgICAgICB8IDEwICsrKysrKy0tCj4+PiAgICBp
-bmNsdWRlL2xpbnV4L2thc2FuLWVuYWJsZWQuaCAgICAgICAgICB8IDMyICsrKysrKysrKysrKysr
-KysrKy0tLS0tLS0tCj4+PiAgICBpbmNsdWRlL2xpbnV4L2thc2FuLmggICAgICAgICAgICAgICAg
-ICB8ICA2ICsrKysrCj4+PiAgICBsaWIvS2NvbmZpZy5rYXNhbiAgICAgICAgICAgICAgICAgICAg
-ICB8ICA4ICsrKysrKysKPj4+ICAgIG1tL2thc2FuL2NvbW1vbi5jICAgICAgICAgICAgICAgICAg
-ICAgIHwgMTcgKysrKysrKysrKy0tLS0KPj4+ICAgIG1tL2thc2FuL2dlbmVyaWMuYyAgICAgICAg
-ICAgICAgICAgICAgIHwgMTkgKysrKysrKysrKystLS0tCj4+PiAgICBtbS9rYXNhbi9od190YWdz
-LmMgICAgICAgICAgICAgICAgICAgICB8ICA5ICstLS0tLS0tCj4+PiAgICBtbS9rYXNhbi9rYXNh
-bi5oICAgICAgICAgICAgICAgICAgICAgICB8ICA4ICsrKysrKy0KPj4+ICAgIG1tL2thc2FuL3No
-YWRvdy5jICAgICAgICAgICAgICAgICAgICAgIHwgMTIgKysrKystLS0tLQo+Pj4gICAgbW0va2Fz
-YW4vc3dfdGFncy5jICAgICAgICAgICAgICAgICAgICAgfCAgMSArCj4+PiAgICBtbS9rYXNhbi90
-YWdzLmMgICAgICAgICAgICAgICAgICAgICAgICB8ICAyICstCj4+PiAgICAyMSBmaWxlcyBjaGFu
-Z2VkLCAxMDAgaW5zZXJ0aW9ucygrKSwgNjkgZGVsZXRpb25zKC0pCj4+Pgo+Pj4gZGlmZiAtLWdp
-dCBhL2FyY2gvbG9vbmdhcmNoL0tjb25maWcgYi9hcmNoL2xvb25nYXJjaC9LY29uZmlnCj4+PiBp
-bmRleCBmMGFiYzM4YzQwYS4uY2Q2NGIyYmMxMmQgMTAwNjQ0Cj4+PiAtLS0gYS9hcmNoL2xvb25n
-YXJjaC9LY29uZmlnCj4+PiArKysgYi9hcmNoL2xvb25nYXJjaC9LY29uZmlnCj4+PiBAQCAtOSw2
-ICs5LDcgQEAgY29uZmlnIExPT05HQVJDSAo+Pj4gICAgICAgIHNlbGVjdCBBQ1BJX1BQVFQgaWYg
-QUNQSQo+Pj4gICAgICAgIHNlbGVjdCBBQ1BJX1NZU1RFTV9QT1dFUl9TVEFURVNfU1VQUE9SVCBp
-ZiBBQ1BJCj4+PiAgICAgICAgc2VsZWN0IEFSQ0hfQklORk1UX0VMRl9TVEFURQo+Pj4gKyAgICAg
-c2VsZWN0IEFSQ0hfREVGRVJfS0FTQU4gaWYgS0FTQU4KPj4KPj4gSW5zdGVhZCBvZiBhZGRpbmcg
-J2lmIEtBU0FOJyBpbiBhbGwgdXNlcnMsIHlvdSBjb3VsZCBkbyBpbiB0d28gc3RlcHM6Cj4+Cj4+
-IEFkZCBhIHN5bWJvbCBBUkNIX05FRURTX0RFRkVSX0tBU0FOLgo+Pgo+PiArY29uZmlnIEFSQ0hf
-TkVFRFNfREVGRVJfS0FTQU4KPj4gKyAgICAgICBib29sCj4+Cj4+IEFuZCB0aGVuOgo+Pgo+PiAr
-Y29uZmlnIEFSQ0hfREVGRVJfS0FTQU4KPj4gKyAgICAgICBkZWZfYm9vbAo+PiArICAgICAgIGRl
-cGVuZHMgb24gS0FTQU4KPj4gKyAgICAgICBkZXBlbmRzIG9uIEFSQ0hfREVGRVJfS0FTQU4KPj4g
-KyAgICAgICBoZWxwCj4+ICsgICAgICAgICBBcmNoaXRlY3R1cmVzIHNob3VsZCBzZWxlY3QgdGhp
-cyBpZiB0aGV5IG5lZWQgdG8gZGVmZXIgS0FTQU4KPj4gKyAgICAgICAgIGluaXRpYWxpemF0aW9u
-IHVudGlsIHNoYWRvdyBtZW1vcnkgaXMgcHJvcGVybHkgc2V0IHVwLiBUaGlzCj4+ICsgICAgICAg
-ICBlbmFibGVzIHJ1bnRpbWUgY29udHJvbCB2aWEgc3RhdGljIGtleXMuIE90aGVyd2lzZSwgS0FT
-QU4gdXNlcwo+PiArICAgICAgICAgY29tcGlsZS10aW1lIGNvbnN0YW50cyBmb3IgYmV0dGVyIHBl
-cmZvcm1hbmNlLgo+Pgo+IAo+IEFjdHVhbGx5LCBJIGRvbid0IHNlZSB0aGUgYmVuZWZpdHMgZnJv
-bSB0aGlzIG9wdGlvbi4gU29ycnksIGhhdmUganVzdAo+IHJldmlzaXRlZCB0aGlzIGFnYWluLgo+
-IFdpdGggdGhlIG5ldyBzeW1ib2wsIGFyY2ggKFBvd2VyUEMsIFVNTCwgTG9vbmdBcmNoKSBzdGls
-bCBuZWVkcyBzZWxlY3QKPiAyIG9wdGlvbnM6Cj4gCj4gc2VsZWN0IEFSQ0hfTkVFRFNfREVGRVJf
-S0FTQU4KPiBzZWxlY3QgQVJDSF9ERUZFUl9LQVNBTgoKU29ycnksIG15IG1pc3Rha2UsIEFSQ0hf
-REVGRVJfS0FTQU4gaGFzIHRvIGJlICdkZWZfYm9vbCB5Jy4gTWlzc2luZyB0aGUgCid5Jy4gVGhh
-dCB3YXkgaXQgaXMgYXV0b21hdGljYWxseSBzZXQgdG8gJ3knIGFzIGxvbmcgYXMgS0FTQU4gYW5k
-IApBUkNIX05FRURTX0RFRkVSX0tBU0FOIGFyZSBzZWxlY3RlZC4gU2hvdWxkIGJlOgoKY29uZmln
-IEFSQ0hfREVGRVJfS0FTQU4KCWRlZl9ib29sIHkKCWRlcGVuZHMgb24gS0FTQU4KCWRlcGVuZHMg
-b24gQVJDSF9ORUVEU19ERUZFUl9LQVNBTgoKCj4gCj4gYW5kIHRoZSBvbmVsaW5lIHdpdGggYGlm
-YCBjb25kaXRpb24gaXMgY2xlYW5lci4KPiBzZWxlY3QgQVJDSF9ERUZFUl9LQVNBTiBpZiBLQVNB
-Tgo+IAoKSSBkb24ndCB0aGluayBzbyBiZWNhdXNlIGl0IHJlcXVpcmVzIGFsbCBhcmNoaXRlY3R1
-cmVzIHRvIGFkZCAnaWYgS0FTQU4nIAp3aGljaCBpcyBub3QgY29udmVuaWVudC4KCkNocmlzdG9w
-aGUKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+--===============5455743076420406636==
+Content-Type: text/plain
+
+The following changes since commit 89be9a83ccf1f88522317ce02f854f30d6115c41:
+
+  Linux 6.16-rc7 (2025-07-20 15:18:33 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.17-mw1
+
+for you to fetch changes up to 7b388bf7a9d9fe528559f896ab6c215e0194361e:
+
+  Merge patch series "Linux SBI MPXY and RPMI drivers" (2025-08-06 09:46:31 -0700)
+
+----------------------------------------------------------------
+RISC-V Patches for the 6.17 Merge Window, Part 1
+
+* Support for the RISC-V IOMMU in ACPI-based systems.
+* Support for the ACPI BGRT table, to show vendor logos.
+* An errata workaround for a store buffer merging issue that manifests
+  on some T-Head based systems, including the Sophgo SG2042 and the
+  T-Head TH1520.
+* The MMU type can now be read from device tree.  This avoids issues
+  on systems where probing the MMU width via CSR writes hangs, including
+  the Nuclei UX900.
+* Support for the Xmipsexectl extension, which is the MIPS flavor of
+  Zihintpause.
+* Performance improvements for the endianness swap routines on systems
+  with Zbb, and raid6 on systems with V.
+* Support for kprobetrace.
+* Support for CFI (control-flow integrity) in userspace processes.
+* Support for the MPXY and RPMI SBI extensions.
+
+----------------------------------------------------------------
+This is very late, so I don't plan on having a part 2 unless something goes off
+the rails.  There's a few trivial merge conflicts with the SBI drivers, just
+from having multiple drivers in flight.  Maybe it'd be better to have these
+drivers in other trees, but the SBI stuff is pretty tied to RISC-V and they
+seemed stuck.
+
+Aside from that thinks look clean on my end.
+
+----------------------------------------------------------------
+Aleksa Paunovic (6):
+      dt-bindings: riscv: Add xmipsexectl ISA extension description
+      riscv: Add xmipsexectl as a vendor extension
+      riscv: Add xmipsexectl instructions
+      riscv: hwprobe: Add MIPS vendor extension probing
+      riscv: hwprobe: Document MIPS xmipsexectl vendor extension
+      riscv: Add tools support for xmipsexectl
+
+Alexandre Ghiti (16):
+      riscv: Fix typo EXRACT -> EXTRACT
+      riscv: Strengthen duplicate and inconsistent definition of RV_X()
+      riscv: Move all duplicate insn parsing macros into asm/insn.h
+      Merge patch series "riscv: Replace __ASSEMBLY__ with __ASSEMBLER__ in header files"
+      riscv: Fix typo EXRACT -> EXTRACT
+      riscv: Strengthen duplicate and inconsistent definition of RV_X()
+      riscv: Move all duplicate insn parsing macros into asm/insn.h
+      Merge patch series "Move duplicated instructions macros into asm/insn.h"
+      Merge patch series "riscv: kprobes: Clean up instruction simulation"
+      Merge patch series "riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup"
+      Merge patch series "Add an optimization also raid6test for RISC-V support"
+      Merge patch series "riscv: mm: Use mmu-type from FDT as SATP mode limit"
+      Merge patch series "riscv: minor thread_info.cpu improvements"
+      Merge patch series "riscv: Add support for xmipsexectl"
+      Merge patch series "ACPI: support BGRT table on RISC-V"
+      Merge patch series "riscv control-flow integrity for usermode"
+
+Andy Chiu (1):
+      riscv: signal: abstract header saving for setup_sigcontext
+
+Anup Patel (14):
+      dt-bindings: mailbox: Add bindings for RPMI shared memory transport
+      dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
+      RISC-V: Add defines for the SBI message proxy extension
+      mailbox: Add common header for RPMI messages sent via mailbox
+      mailbox: Allow controller specific mapping using fwnode
+      byteorder: Add memcpy_to_le32() and memcpy_from_le32()
+      mailbox: Add RISC-V SBI message proxy (MPXY) based mailbox driver
+      dt-bindings: clock: Add RPMI clock service message proxy bindings
+      dt-bindings: clock: Add RPMI clock service controller bindings
+      dt-bindings: Add RPMI system MSI message proxy bindings
+      dt-bindings: Add RPMI system MSI interrupt controller bindings
+      irqchip: Add driver for the RPMI system MSI service group
+      RISC-V: Enable GPIO keyboard and event device in RV64 defconfig
+      MAINTAINERS: Add entry for RISC-V RPMI and MPXY drivers
+
+Aurelien Jarno (1):
+      riscv: uaccess: fix __put_user_nocheck for unaligned accesses
+
+Chunyan Zhang (5):
+      raid6: riscv: Clean up unused header file inclusion
+      raid6: riscv: replace one load with a move to speed up the caculation
+      raid6: riscv: Prevent compiler with vector support to build already vectorized code
+      raid6: riscv: Allow code to be compiled in userspace
+      raid6: test: Add support for RISC-V
+
+Clément Léger (2):
+      riscv: cpufeature: add validation for zfa, zfh and zfhmin
+      selftests: riscv: add misaligned access testing
+
+Deepak Gupta (25):
+      mm: VM_SHADOW_STACK definition for riscv
+      dt-bindings: riscv: zicfilp and zicfiss in dt-bindings (extensions.yaml)
+      riscv: zicfiss / zicfilp enumeration
+      riscv: zicfiss / zicfilp extension csr and bit definitions
+      riscv: usercfi state for task and save/restore of CSR_SSP on trap entry/exit
+      riscv/mm : ensure PROT_WRITE leads to VM_READ | VM_WRITE
+      riscv/mm: manufacture shadow stack pte
+      riscv/mm: teach pte_mkwrite to manufacture shadow stack PTEs
+      riscv/mm: write protect and shadow stack
+      riscv/mm: Implement map_shadow_stack() syscall
+      riscv/shstk: If needed allocate a new shadow stack on clone
+      riscv: Implements arch agnostic shadow stack prctls
+      prctl: arch-agnostic prctl for indirect branch tracking
+      riscv: Implements arch agnostic indirect branch tracking prctls
+      riscv/traps: Introduce software check exception and uprobe handling
+      riscv/signal: save and restore of shadow stack for signal
+      riscv/kernel: update __show_regs to print shadow stack register
+      riscv/ptrace: riscv cfi status and state via ptrace and in core files
+      riscv/hwprobe: zicfilp / zicfiss enumeration in hwprobe
+      riscv: kernel command line option to opt out of user cfi
+      riscv: enable kernel access to shadow stack memory via FWFT sbi call
+      riscv: create a config for shadow stack and landing pad instr support
+      riscv: Documentation for landing pad / indirect branch tracking
+      riscv: Documentation for shadow stack on riscv
+      kselftest/riscv: kselftest for user mode cfi
+
+Djordje Todorovic (1):
+      riscv: errata: Fix the PAUSE Opcode for MIPS P8700
+
+Guo Ren (Alibaba DAMO Academy) (2):
+      riscv: Move vendor errata definitions to new header
+      riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+
+Heinrich Schuchardt (2):
+      RISC-V: ACPI: enable parsing the BGRT table
+      ACPI: support BGRT table on RISC-V
+
+Ignacio Encinas (1):
+      riscv: introduce asm/swab.h
+
+Jessica Liu (1):
+      riscv: mmap(): use unsigned offset type in riscv_sys_mmap
+
+Jim Shu (1):
+      arch/riscv: compile vdso with landing pad and shadow stack note
+
+Junhui Liu (2):
+      riscv: mm: Return intended SATP mode for noXlvl options
+      riscv: mm: Use mmu-type from FDT to limit SATP mode
+
+Masahiro Yamada (1):
+      riscv: pi: use 'targets' instead of extra-y in Makefile
+
+Nam Cao (12):
+      riscv: kprobes: Move branch_rs2_idx to insn.h
+      riscv: kprobes: Move branch_funct3 to insn.h
+      riscv: kprobes: Remove duplication of RV_EXTRACT_JTYPE_IMM
+      riscv: kprobes: Remove duplication of RV_EXTRACT_RS1_REG
+      riscv: kprobes: Remove duplication of RV_EXTRACT_BTYPE_IMM
+      riscv: kproves: Remove duplication of RVC_EXTRACT_JTYPE_IMM
+      riscv: kprobes: Remove duplication of RVC_EXTRACT_C2_RS1_REG
+      riscv: kprobes: Remove duplication of RVC_EXTRACT_BTYPE_IMM
+      riscv: kprobes: Remove duplication of RV_EXTRACT_RD_REG
+      riscv: kprobes: Remove duplication of RV_EXTRACT_UTYPE_IMM
+      riscv: kprobes: Remove duplication of RV_EXTRACT_ITYPE_IMM
+      riscv: Add kprobes KUnit test
+
+Palmer Dabbelt (6):
+      Merge patch "riscv: defconfig: run savedefconfig to reorder it"
+      Merge patch series "Move duplicated instructions macros into asm/insn.h"
+      Merge patch series "RISC-V: Add ACPI support for IOMMU"
+      Merge tag 'riscv-mw1-6.17' of git://git.kernel.org/pub/scm/linux/kernel/git/alexghiti/linux into for-next
+      Merge tag 'riscv-mw2-6.17' of git://git.kernel.org/pub/scm/linux/kernel/git/alexghiti/linux into for-next
+      Merge patch series "Linux SBI MPXY and RPMI drivers"
+
+Pu Lehui (1):
+      riscv: Enable ARCH_HAVE_NMI_SAFE_CMPXCHG
+
+Radim Krčmář (4):
+      riscv: use lw when reading int cpu in new_vmalloc_check
+      riscv: use lw when reading int cpu in asm_per_cpu
+      riscv: use TASK_TI_CPU instead of TASK_TI_CPU_NUM
+      riscv: pack rv64 thread_info better
+
+Rahul Pathak (1):
+      clk: Add clock driver for the RISC-V RPMI clock service group
+
+Sunil V L (12):
+      ACPI: RISC-V: Add support for RIMT
+      ACPI: scan: Add support for RISC-V in acpi_iommu_configure_id()
+      iommu/riscv: Add ACPI support
+      ACPI: property: Refactor acpi_fwnode_get_reference_args() to support nargs_prop
+      ACPI: Add support for nargs_prop in acpi_fwnode_get_reference_args()
+      ACPI: scan: Update honor list for RPMI System MSI
+      ACPI: RISC-V: Create interrupt controller list in sorted order
+      ACPI: RISC-V: Add support to update gsi range
+      ACPI: RISC-V: Add RPMI System MSI to GSI mapping
+      irqchip/irq-riscv-imsic-early: Export imsic_acpi_get_fwnode()
+      mailbox/riscv-sbi-mpxy: Add ACPI support
+      irqchip/riscv-rpmi-sysmsi: Add ACPI support
+
+Thomas Huth (2):
+      riscv: Replace __ASSEMBLY__ with __ASSEMBLER__ in uapi headers
+      riscv: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi headers
+
+Yixun Lan (1):
+      riscv: defconfig: run savedefconfig to reorder it
+
+Yunhui Cui (1):
+      riscv: introduce ioremap_wc()
+
+ Documentation/admin-guide/kernel-parameters.txt    |    8 +
+ Documentation/arch/riscv/hwprobe.rst               |    9 +
+ Documentation/arch/riscv/index.rst                 |    2 +
+ Documentation/arch/riscv/zicfilp.rst               |  115 +++
+ Documentation/arch/riscv/zicfiss.rst               |  179 ++++
+ .../bindings/clock/riscv,rpmi-clock.yaml           |   64 ++
+ .../bindings/clock/riscv,rpmi-mpxy-clock.yaml      |   64 ++
+ .../riscv,rpmi-mpxy-system-msi.yaml                |   67 ++
+ .../riscv,rpmi-system-msi.yaml                     |   74 ++
+ .../bindings/mailbox/riscv,rpmi-shmem-mbox.yaml    |  124 +++
+ .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml      |   51 +
+ .../devicetree/bindings/riscv/extensions.yaml      |   20 +
+ MAINTAINERS                                        |   16 +
+ arch/riscv/Kconfig                                 |   23 +
+ arch/riscv/Kconfig.errata                          |   40 +
+ arch/riscv/Kconfig.vendor                          |   13 +
+ arch/riscv/Makefile                                |    5 +-
+ arch/riscv/configs/defconfig                       |    7 +-
+ arch/riscv/configs/hardening.config                |    4 +
+ arch/riscv/errata/Makefile                         |    1 +
+ arch/riscv/errata/mips/Makefile                    |    5 +
+ arch/riscv/errata/mips/errata.c                    |   67 ++
+ arch/riscv/errata/thead/errata.c                   |   20 +
+ arch/riscv/include/asm/alternative-macros.h        |   12 +-
+ arch/riscv/include/asm/alternative.h               |    5 +-
+ arch/riscv/include/asm/asm-extable.h               |    6 +-
+ arch/riscv/include/asm/asm-prototypes.h            |    1 +
+ arch/riscv/include/asm/asm.h                       |   12 +-
+ arch/riscv/include/asm/assembler.h                 |   46 +-
+ arch/riscv/include/asm/barrier.h                   |    4 +-
+ arch/riscv/include/asm/cache.h                     |    4 +-
+ arch/riscv/include/asm/cmpxchg.h                   |    3 +-
+ arch/riscv/include/asm/cpu_ops_sbi.h               |    2 +-
+ arch/riscv/include/asm/cpufeature.h                |   12 +
+ arch/riscv/include/asm/csr.h                       |   20 +-
+ arch/riscv/include/asm/current.h                   |    4 +-
+ arch/riscv/include/asm/entry-common.h              |    2 +
+ arch/riscv/include/asm/errata_list.h               |   38 +-
+ arch/riscv/include/asm/errata_list_vendors.h       |   30 +
+ arch/riscv/include/asm/ftrace.h                    |    6 +-
+ arch/riscv/include/asm/gpr-num.h                   |    6 +-
+ arch/riscv/include/asm/hwcap.h                     |    2 +
+ arch/riscv/include/asm/hwprobe.h                   |    3 +-
+ arch/riscv/include/asm/image.h                     |    4 +-
+ arch/riscv/include/asm/insn-def.h                  |    8 +-
+ arch/riscv/include/asm/insn.h                      |  215 ++++-
+ arch/riscv/include/asm/io.h                        |    4 +
+ arch/riscv/include/asm/irq.h                       |    6 +
+ arch/riscv/include/asm/jump_label.h                |    4 +-
+ arch/riscv/include/asm/kasan.h                     |    2 +-
+ arch/riscv/include/asm/kgdb.h                      |    4 +-
+ arch/riscv/include/asm/mman.h                      |   26 +
+ arch/riscv/include/asm/mmu.h                       |    4 +-
+ arch/riscv/include/asm/mmu_context.h               |    7 +
+ arch/riscv/include/asm/page.h                      |    4 +-
+ arch/riscv/include/asm/pgtable.h                   |   35 +-
+ arch/riscv/include/asm/processor.h                 |    5 +-
+ arch/riscv/include/asm/ptrace.h                    |    4 +-
+ arch/riscv/include/asm/rwonce.h                    |   34 +
+ arch/riscv/include/asm/sbi.h                       |   63 ++
+ arch/riscv/include/asm/scs.h                       |    4 +-
+ arch/riscv/include/asm/set_memory.h                |    4 +-
+ arch/riscv/include/asm/swab.h                      |   87 ++
+ arch/riscv/include/asm/thread_info.h               |    9 +-
+ arch/riscv/include/asm/uaccess.h                   |    2 +-
+ arch/riscv/include/asm/usercfi.h                   |   95 ++
+ arch/riscv/include/asm/vdso.h                      |    4 +-
+ arch/riscv/include/asm/vdso/getrandom.h            |    4 +-
+ arch/riscv/include/asm/vdso/gettimeofday.h         |    4 +-
+ arch/riscv/include/asm/vdso/processor.h            |    7 +-
+ arch/riscv/include/asm/vdso/vsyscall.h             |    4 +-
+ arch/riscv/include/asm/vector.h                    |    3 +
+ arch/riscv/include/asm/vendor_extensions/mips.h    |   37 +
+ .../include/asm/vendor_extensions/mips_hwprobe.h   |   22 +
+ arch/riscv/include/asm/vendorid_list.h             |    1 +
+ arch/riscv/include/uapi/asm/hwprobe.h              |    3 +
+ arch/riscv/include/uapi/asm/kvm.h                  |    2 +-
+ arch/riscv/include/uapi/asm/ptrace.h               |   38 +-
+ arch/riscv/include/uapi/asm/sigcontext.h           |    5 +-
+ arch/riscv/include/uapi/asm/vendor/mips.h          |    3 +
+ arch/riscv/kernel/Makefile                         |    1 +
+ arch/riscv/kernel/acpi.c                           |    3 +
+ arch/riscv/kernel/alternative.c                    |    5 +
+ arch/riscv/kernel/asm-offsets.c                    |   11 +-
+ arch/riscv/kernel/cpufeature.c                     |   33 +-
+ arch/riscv/kernel/entry.S                          |   40 +-
+ arch/riscv/kernel/head.S                           |   27 +
+ arch/riscv/kernel/machine_kexec_file.c             |    2 +-
+ arch/riscv/kernel/pi/Makefile                      |    2 +-
+ arch/riscv/kernel/pi/cmdline_early.c               |    4 +-
+ arch/riscv/kernel/pi/fdt_early.c                   |   40 +
+ arch/riscv/kernel/pi/pi.h                          |    1 +
+ arch/riscv/kernel/probes/simulate-insn.c           |   94 +-
+ arch/riscv/kernel/process.c                        |   27 +-
+ arch/riscv/kernel/ptrace.c                         |   95 ++
+ arch/riscv/kernel/signal.c                         |  148 ++-
+ arch/riscv/kernel/sys_hwprobe.c                    |   20 +-
+ arch/riscv/kernel/sys_riscv.c                      |   12 +-
+ arch/riscv/kernel/tests/Kconfig.debug              |   12 +
+ arch/riscv/kernel/tests/Makefile                   |    1 +
+ arch/riscv/kernel/tests/kprobes/Makefile           |    1 +
+ arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S |  229 +++++
+ arch/riscv/kernel/tests/kprobes/test-kprobes.c     |   56 ++
+ arch/riscv/kernel/tests/kprobes/test-kprobes.h     |   24 +
+ arch/riscv/kernel/traps.c                          |   54 ++
+ arch/riscv/kernel/traps_misaligned.c               |  144 +--
+ arch/riscv/kernel/usercfi.c                        |  545 +++++++++++
+ arch/riscv/kernel/vdso/Makefile                    |   11 +-
+ arch/riscv/kernel/vdso/flush_icache.S              |    4 +
+ arch/riscv/kernel/vdso/getcpu.S                    |    4 +
+ arch/riscv/kernel/vdso/rt_sigreturn.S              |    4 +
+ arch/riscv/kernel/vdso/sys_hwprobe.S               |    4 +
+ arch/riscv/kernel/vdso/vgetrandom-chacha.S         |    5 +-
+ arch/riscv/kernel/vector.c                         |    2 +-
+ arch/riscv/kernel/vendor_extensions.c              |   10 +
+ arch/riscv/kernel/vendor_extensions/Makefile       |    2 +
+ arch/riscv/kernel/vendor_extensions/mips.c         |   22 +
+ arch/riscv/kernel/vendor_extensions/mips_hwprobe.c |   23 +
+ arch/riscv/kvm/vcpu_insn.c                         |  128 +--
+ arch/riscv/mm/init.c                               |   14 +-
+ arch/riscv/mm/pgtable.c                            |   16 +
+ drivers/acpi/Kconfig                               |    6 +-
+ drivers/acpi/property.c                            |  128 +--
+ drivers/acpi/riscv/Kconfig                         |    7 +
+ drivers/acpi/riscv/Makefile                        |    1 +
+ drivers/acpi/riscv/init.c                          |    2 +
+ drivers/acpi/riscv/init.h                          |    1 +
+ drivers/acpi/riscv/irq.c                           |   75 +-
+ drivers/acpi/riscv/rimt.c                          |  520 ++++++++++
+ drivers/acpi/scan.c                                |    6 +
+ drivers/base/property.c                            |    2 +-
+ drivers/clk/Kconfig                                |    8 +
+ drivers/clk/Makefile                               |    1 +
+ drivers/clk/clk-rpmi.c                             |  616 ++++++++++++
+ drivers/iommu/riscv/iommu-platform.c               |   17 +-
+ drivers/iommu/riscv/iommu.c                        |   10 +
+ drivers/irqchip/Kconfig                            |    7 +
+ drivers/irqchip/Makefile                           |    1 +
+ drivers/irqchip/irq-riscv-imsic-early.c            |    2 +
+ drivers/irqchip/irq-riscv-rpmi-sysmsi.c            |  328 +++++++
+ drivers/mailbox/Kconfig                            |   11 +
+ drivers/mailbox/Makefile                           |    2 +
+ drivers/mailbox/mailbox.c                          |   65 +-
+ drivers/mailbox/riscv-sbi-mpxy-mbox.c              | 1017 ++++++++++++++++++++
+ include/asm-generic/rwonce.h                       |    2 +
+ include/linux/acpi_rimt.h                          |   28 +
+ include/linux/byteorder/generic.h                  |   16 +
+ include/linux/cpu.h                                |    4 +
+ include/linux/mailbox/riscv-rpmi-message.h         |  243 +++++
+ include/linux/mailbox_controller.h                 |    3 +
+ include/linux/mm.h                                 |    7 +
+ include/linux/wordpart.h                           |   16 +
+ include/uapi/linux/elf.h                           |    2 +
+ include/uapi/linux/prctl.h                         |   27 +
+ kernel/sys.c                                       |   30 +
+ lib/raid6/recov_rvv.c                              |    9 +-
+ lib/raid6/rvv.c                                    |  362 +++----
+ lib/raid6/rvv.h                                    |   17 +
+ lib/raid6/test/Makefile                            |    8 +
+ tools/arch/riscv/include/asm/csr.h                 |    6 +-
+ tools/arch/riscv/include/asm/vdso/processor.h      |   31 +-
+ tools/testing/selftests/riscv/Makefile             |    2 +-
+ tools/testing/selftests/riscv/cfi/.gitignore       |    3 +
+ tools/testing/selftests/riscv/cfi/Makefile         |   16 +
+ tools/testing/selftests/riscv/cfi/cfi_rv_test.h    |   82 ++
+ tools/testing/selftests/riscv/cfi/riscv_cfi_test.c |  173 ++++
+ tools/testing/selftests/riscv/cfi/shadowstack.c    |  385 ++++++++
+ tools/testing/selftests/riscv/cfi/shadowstack.h    |   27 +
+ .../testing/selftests/riscv/misaligned/.gitignore  |    1 +
+ tools/testing/selftests/riscv/misaligned/Makefile  |   12 +
+ tools/testing/selftests/riscv/misaligned/common.S  |   33 +
+ tools/testing/selftests/riscv/misaligned/fpu.S     |  180 ++++
+ tools/testing/selftests/riscv/misaligned/gp.S      |  113 +++
+ .../selftests/riscv/misaligned/misaligned.c        |  288 ++++++
+ 174 files changed, 7994 insertions(+), 808 deletions(-)
+ create mode 100644 Documentation/arch/riscv/zicfilp.rst
+ create mode 100644 Documentation/arch/riscv/zicfiss.rst
+ create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+ create mode 100644 arch/riscv/configs/hardening.config
+ create mode 100644 arch/riscv/errata/mips/Makefile
+ create mode 100644 arch/riscv/errata/mips/errata.c
+ create mode 100644 arch/riscv/include/asm/errata_list_vendors.h
+ create mode 100644 arch/riscv/include/asm/mman.h
+ create mode 100644 arch/riscv/include/asm/rwonce.h
+ create mode 100644 arch/riscv/include/asm/swab.h
+ create mode 100644 arch/riscv/include/asm/usercfi.h
+ create mode 100644 arch/riscv/include/asm/vendor_extensions/mips.h
+ create mode 100644 arch/riscv/include/asm/vendor_extensions/mips_hwprobe.h
+ create mode 100644 arch/riscv/include/uapi/asm/vendor/mips.h
+ create mode 100644 arch/riscv/kernel/tests/kprobes/Makefile
+ create mode 100644 arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
+ create mode 100644 arch/riscv/kernel/tests/kprobes/test-kprobes.c
+ create mode 100644 arch/riscv/kernel/tests/kprobes/test-kprobes.h
+ create mode 100644 arch/riscv/kernel/usercfi.c
+ create mode 100644 arch/riscv/kernel/vendor_extensions/mips.c
+ create mode 100644 arch/riscv/kernel/vendor_extensions/mips_hwprobe.c
+ create mode 100644 drivers/acpi/riscv/Kconfig
+ create mode 100644 drivers/acpi/riscv/rimt.c
+ create mode 100644 drivers/clk/clk-rpmi.c
+ create mode 100644 drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+ create mode 100644 drivers/mailbox/riscv-sbi-mpxy-mbox.c
+ create mode 100644 include/linux/acpi_rimt.h
+ create mode 100644 include/linux/mailbox/riscv-rpmi-message.h
+ create mode 100644 tools/testing/selftests/riscv/cfi/.gitignore
+ create mode 100644 tools/testing/selftests/riscv/cfi/Makefile
+ create mode 100644 tools/testing/selftests/riscv/cfi/cfi_rv_test.h
+ create mode 100644 tools/testing/selftests/riscv/cfi/riscv_cfi_test.c
+ create mode 100644 tools/testing/selftests/riscv/cfi/shadowstack.c
+ create mode 100644 tools/testing/selftests/riscv/cfi/shadowstack.h
+ create mode 100644 tools/testing/selftests/riscv/misaligned/.gitignore
+ create mode 100644 tools/testing/selftests/riscv/misaligned/Makefile
+ create mode 100644 tools/testing/selftests/riscv/misaligned/common.S
+ create mode 100644 tools/testing/selftests/riscv/misaligned/fpu.S
+ create mode 100644 tools/testing/selftests/riscv/misaligned/gp.S
+ create mode 100644 tools/testing/selftests/riscv/misaligned/misaligned.c
+
+
+--===============5455743076420406636==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5455743076420406636==--
