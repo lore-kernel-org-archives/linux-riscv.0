@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F815C87FDA
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 21:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF56C87FDA
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 23:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C3vPxtybjFhTzxm9ngNA+siWkBRI5RSYeRzzWRmTGkE=; b=0acY2pQ/MiN+Cq
-	43PqkgKPFxwWgMsuFdS1zRe9iZkrEjqr2uLO37NL3/bkHPcedbPH6+YYJyZbW5Gz0UiKKLAi1E8FZ
-	5PSaGuW5x90hyz2JZ4XbnJAtYyegJ80EwQphioWUlNbqMCwRmzAT7Qtyb7EmMWHhjsrOXN4A71AX7
-	+hyshXSIzExBMKKDimGkjTUDg5tnd1UtDhNhd/08KOGF4PDKsdebZpjXnnYvT9WQ+KQQ+Eh2/tRkT
-	N8N0nYlx0FZpgnX8pDzFu4tgHSJvpTaoY5Un3ABS3LA6Svft5TGTZbW6FsiWsfahbBeVFXWzTk5hE
-	5bewdIIvMZ022m3ugGAg==;
+	List-Owner; bh=Jqi5bdgNs2AX9eoY1oTYfwwxfE0BgwmbLz8d7dSIuLc=; b=ULAVv4Y4cOj71y
+	+3d//SIfuKBxzZRo9UbvkADEdymVVH+EtIGFCVNWVA0S6sYHiFecBLcIs3uxjYUOqpxRz7M8TzJxj
+	NSd2QbOIudeTgsjYBTPho8VajmJa3tARjtQAAAZRkILajhwpC8sppAd65ka61GShdSJoYc42vJlS/
+	Dn51pALt/Tgd+3v4QMldo5Ji8Y+GSwozeYlWjXU8iP+8Hx8t0kG3yr3UTfG22FkoB1+dHdMSBWwsp
+	HVQjvIPlFuJWE/eDS83SygkiXwkRGai06fgSauyv3U9fnB4WLjiuyDaAOmifdmprOT10q5DOF8nMN
+	iw312ClZN9iVCAVgiv9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukV1b-00000003ksz-2kvw;
-	Fri, 08 Aug 2025 21:53:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ukWie-00000003svn-0MOE;
+	Fri, 08 Aug 2025 23:41:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukV1a-00000003ksZ-4A1u
+	id 1ukVn3-00000003nmC-1z4q
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Aug 2025 21:53:19 +0000
+	Fri, 08 Aug 2025 22:42:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F18566144C;
-	Fri,  8 Aug 2025 21:53:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1511FC4CEED;
-	Fri,  8 Aug 2025 21:53:14 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 541D2A56AEE;
+	Fri,  8 Aug 2025 22:42:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5B58C4CEF1;
+	Fri,  8 Aug 2025 22:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754689997;
-	bh=Zod0TsMHtgwPaKwYE+/U4AqQ+FNkV4HBXTB6f91BvZU=;
+	s=k20201202; t=1754692940;
+	bh=rLZBj+I02MJoP2e/2GvebvvCShxDWxP7isVZ958jGIQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lYbLg4GiGw07oF2xFiGEtFahtPNaTguxQZTnzCPsaP33Ps1Sd5dpiW8Hyd5/tH5fz
-	 mNwQTkVnoHd8KUZjNIK+Yrud4qzng0tU9T6Z2/wF6XCUipfQzAz+oqGlla7oRVuQKu
-	 4DMlU/Mjyav39rR+6LZEtDFHTv8GCIC7FRQ6VPqWN1Y0lk9mV3Uyn4N+758nnMgSQq
-	 TAfj/Ivzh7mUG6hOvUxB117SjPt3roQe5TQM7xa2+gU+P+ltdgxpem4MCU77zInFJB
-	 2lVBwI+71nkOi9dtIpA/QEJjRO6cgrmZsSBJjEKfTzXiSiEzoAH4NgpaVDxE9rMWGf
-	 ctO+yy1/jYC6g==
-Date: Fri, 8 Aug 2025 14:53:12 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Pedro Falcato <pfalcato@suse.de>
-Cc: kernel test robot <lkp@intel.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Kees Cook <kees@kernel.org>, Vlastimil Babka <vbabka@suse.cz>,
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: ld.lld: error: Function Import: link error: linking module flags
- 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at
- 1229286), and 'i32 1' from vmlinux.a(vma_exec.o at 1246866)
-Message-ID: <20250808215312.GA3625764@ax162>
-References: <202508082339.sjRnzZrX-lkp@intel.com>
- <j6pxm4n2n3tnan22x73ff3ku6dwr6e65mi4tafjmlyoicbpygi@vbjbioh7p5fx>
+	b=egzCnQltzQI4eH2ac1xfMp6bl4YDwg8TXYPhGh3XBShjOXHzkgVs04NeR+H+B4Yyy
+	 PWMyRAw2yEDAtUxSXyr22tWISRoJquWCQ3NhwdOsfsqR2KD5wbj5wdd44bvmbixNCc
+	 R3F7hu4zpJjEjb9swk1tbOH1jiu00afLtLVelssrkxLwlM7M5HY8nUD8qmc8ECbLKP
+	 lvi4Ml/nTabT/U934nBBPQtdeZ+C8HwOZhIHS3ofZYMPB+nCnolUXAAWa3g7jHdFIl
+	 06DLY2RrMv+gsYiapzFkFfQac/FiqnlKoopi87aLq6TM8BkluxTsmeXdFrw6vdb8hJ
+	 KKuHLTsFYoWtg==
+Date: Fri, 8 Aug 2025 15:42:18 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 2/3] net: stmmac: thead: Get and enable APB clock
+ on initialization
+Message-ID: <aJZ9SkeT56LFzIS2@x1>
+References: <20250808093655.48074-2-ziyao@disroot.org>
+ <20250808093655.48074-4-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <j6pxm4n2n3tnan22x73ff3ku6dwr6e65mi4tafjmlyoicbpygi@vbjbioh7p5fx>
+In-Reply-To: <20250808093655.48074-4-ziyao@disroot.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250808_154221_636567_7FAD95E1 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,59 +87,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 08, 2025 at 10:32:01PM +0100, Pedro Falcato wrote:
-> This doesn't look particularly mm related, CC'd riscv and kernel llvm lists.
-
-Indeed, this should be avoided with [1], I just need someone in the
-RISC-V space to pick it up.
-
-https://lore.kernel.org/20250710-riscv-restrict-lto-to-medany-v1-1-b1dac9871ecf@kernel.org/
-
-> On Sat, Aug 09, 2025 at 12:09:05AM +0800, kernel test robot wrote:
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> > head:   37816488247ddddbc3de113c78c83572274b1e2e
-> > commit: dd7a6246f4fd6e8a6dcb08f1f51c899f3e0d3b83 mm: abstract initial stack setup to mm subsystem
-> > date:   3 months ago
-> > config: riscv-randconfig-r071-20250729 (https://download.01.org/0day-ci/archive/20250808/202508082339.sjRnzZrX-lkp@intel.com/config)
-> > compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 1b4db78d2eaa070b3f364a2d2b2b826a5439b892)
-> > reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250808/202508082339.sjRnzZrX-lkp@intel.com/reproduce)
-> > 
-> > If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> > the same patch/commit), kindly add following tags
-> > | Reported-by: kernel test robot <lkp@intel.com>
-> > | Closes: https://lore.kernel.org/oe-kbuild-all/202508082339.sjRnzZrX-lkp@intel.com/
-> > 
-> > All errors (new ones prefixed by >>):
-> > 
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(core.o at 1243626)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(ring_buffer.o at 1239546)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(vmalloc.o at 1246746)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(memory.o at 1246026)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(main.o at 1225686)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(output.o at 1404306)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(mmap.o at 1246206)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(vma.o at 1246806)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(drm_gem.o at 1315866)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(drm_gem_shmem_helper.o at 1317846)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(virtgpu_vram.o at 1327806)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 1' from vmlinux.a(alternative.o at 1226286), and 'i32 3' from vmlinux.a(init.o at 1229286)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(direct-io.o at 1251666)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(debug_vm_pgtable.o at 1247886)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(drm_gem_dma_helper.o at 1317726)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(blk-lib.o at 1282566)
-> > >> ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(vma_exec.o at 1246866)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(context.o at 1229706)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(setup.o at 1226826)
-> >    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 1229286), and 'i32 1' from vmlinux.a(physaddr.o at 1229886)
-> >    ld.lld: error: too many errors emitted, stopping now (use --error-limit=0 to see all errors)
-> > 
-> > -- 
-> > 0-DAY CI Kernel Test Service
-> > https://github.com/intel/lkp-tests/wiki
+On Fri, Aug 08, 2025 at 09:36:55AM +0000, Yao Zi wrote:
+> It's necessary to adjust the MAC TX clock when the linkspeed changes,
+> but it's noted such adjustment always fails on TH1520 SoC, and reading
+> back from APB glue registers that control clock generation results in
+> garbage, causing broken link.
 > 
+> With some testing, it's found a clock must be ungated for access to APB
+> glue registers. Without any consumer, the clock is automatically
+> disabled during late kernel startup. Let's get and enable it if it's
+> described in devicetree.
+> 
+> For backward compatibility with older devicetrees, probing won't fail if
+> the APB clock isn't found. In this case, we emit a warning since the
+> link will break if the speed changes.
+> 
+> Fixes: 33a1a01e3afa ("net: stmmac: Add glue layer for T-HEAD TH1520 SoC")
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> Tested-by: Drew Fustini <fustini@kernel.org>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+> index c72ee759aae5..f2946bea0bc2 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+> @@ -211,6 +211,7 @@ static int thead_dwmac_probe(struct platform_device *pdev)
+>  	struct stmmac_resources stmmac_res;
+>  	struct plat_stmmacenet_data *plat;
+>  	struct thead_dwmac *dwmac;
+> +	struct clk *apb_clk;
+>  	void __iomem *apb;
+>  	int ret;
+>  
+> @@ -224,6 +225,19 @@ static int thead_dwmac_probe(struct platform_device *pdev)
+>  		return dev_err_probe(&pdev->dev, PTR_ERR(plat),
+>  				     "dt configuration failed\n");
+>  
+> +	/*
+> +	 * The APB clock is essential for accessing glue registers. However,
+> +	 * old devicetrees don't describe it correctly. We continue to probe
+> +	 * and emit a warning if it isn't present.
+> +	 */
+> +	apb_clk = devm_clk_get_enabled(&pdev->dev, "apb");
+> +	if (PTR_ERR(apb_clk) == -ENOENT)
+> +		dev_warn(&pdev->dev,
+> +			 "cannot get apb clock, link may break after speed changes\n");
+> +	else if (IS_ERR(apb_clk))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(apb_clk),
+> +				     "failed to get apb clock\n");
+> +
+>  	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+>  	if (!dwmac)
+>  		return -ENOMEM;
 > -- 
-> Pedro
+> 2.50.1
 > 
+
+Reviewed-by: Drew Fustini <fustini@kernel.org>
+
+Thanks for improving the commit description and adding the warning.
+
+Drew
 
 _______________________________________________
 linux-riscv mailing list
