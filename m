@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A37C87FDA
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 10:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB48C87FD2
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 10:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qp3P4KnpPlvmTA9ptUXjmOmpSvA7tBRO6ViUlDIdUFw=; b=TNXGa22Gfp5m6a
-	ZP4Qb4mZtrnKB+0nhoymboIm7s/YtCSXPw/sZaPyaGQebEktqMUd9ISX7uYEN5tKpzyZ/yOZnNqFe
-	VtwH3Psrt8Ie3BQznbFTjLjYsSkH2Jf+fQLUj4C4MoFaR/kB8WGsWSThU2xUUjUFkVzoRHWspblQx
-	2iwMBJ++zTYhExNj5WzjPixcghx9sXd2GWDVN1vvyQ49IPuUtrXe3TilIbK8pcC7CdoppUrewEugA
-	toDvM8vCk26m8yybWMKhVIh7LC3xzyJqdnnDaeCTqrO64mZxrsdB4UNkQ/Skj6fB2yQdP3oEECfRM
-	DyjhT/9DFPpvbvwthJow==;
+	List-Owner; bh=NBwcrlFWy5Ku9h1dGqenD4RkzfwSeVs7N6voew7KaEU=; b=tAilKRJtubB6ZZ
+	X+jOrshlvEf44dg9Wt2yJ001d2yyfVifdz5lwTTMJ49WUR0v/dYJcqKP1piFLoWrLyXzLcV1KWyfX
+	IgaLgIkVLi+UHq4bSz1J7fQeTRIE5rXyTRCwaXzKf+EPuBzBwbNIFc3Y+l/wJFfz3GsbQrP6tW9NA
+	x9C34K3XmT/UWpXNOrehcWm/uEgUAjEWDdAYLtgheULM0hctFSLSi1TiflyfVGG8+ewtt5s6HfuVx
+	Z+vgfOm5FbjMj4NmjH/gEANCThIYK6GBcfIeLTzw+Ui8p18pNDDDCGyZJTYm0/s7dXOwodldbDia8
+	UMRjJ0ea1d4UGNxrqjaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukKcb-00000002ax6-1SBl;
-	Fri, 08 Aug 2025 10:46:49 +0000
+	id 1ukKcd-00000002b0Z-2Aeg;
+	Fri, 08 Aug 2025 10:46:51 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukKNC-00000002Z6r-2Usl;
-	Fri, 08 Aug 2025 10:30:55 +0000
+	id 1ukKNP-00000002ZAb-1UXF;
+	Fri, 08 Aug 2025 10:31:08 +0000
 Received: from zq-Legion-Y7000.. (unknown [121.237.92.164])
-	by APP-03 (Coremail) with SMTP id rQCowADHH4HY0ZVo5CNQCg--.60359S2;
-	Fri, 08 Aug 2025 18:30:48 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowACH4YLG0ZVoPyBQCg--.7105S2;
+	Fri, 08 Aug 2025 18:30:31 +0800 (CST)
 From: zhouquan@iscas.ac.cn
 To: anup@brainfault.org,
 	ajones@ventanamicro.com,
@@ -40,17 +40,17 @@ Cc: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org,
 	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH v2 6/6] KVM: riscv: selftests: Add bfloat16 extension to get-reg-list test
-Date: Fri,  8 Aug 2025 18:19:18 +0800
-Message-Id: <40e52ff7053401a2fcb206e75f45ebc8557fc28b.1754646071.git.zhouquan@iscas.ac.cn>
+Subject: [PATCH v2 5/6] KVM: riscv: selftests: Add Zicbop extension to get-reg-list test
+Date: Fri,  8 Aug 2025 18:19:00 +0800
+Message-Id: <076908690c15070f907f43d2ff81ba7e95582ec7.1754646071.git.zhouquan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1754646071.git.zhouquan@iscas.ac.cn>
 References: <cover.1754646071.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowADHH4HY0ZVo5CNQCg--.60359S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAw48KryxGF1rZFWUur45Wrg_yoWrXw1Dpr
-	10ya9xGr48J3s3Zws2yF98Gw48Xws8Jw4kCw47ur1fJFyjyryxJF1qy3W3Jw1qya4Fqr1S
-	vFyfXr4Iyw40yrUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: rQCowACH4YLG0ZVoPyBQCg--.7105S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXF1DAF15Jw47Aw1fGw1rWFg_yoWrWw45pr
+	1kAanxGr18Z3s3Z392kF98Gw4xXr4UJw4kCw4xur1fZFyjy34xJw1qya43Gr4Dta4Fqr4S
+	vF4rWr42ya1FyrUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUBC14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
@@ -65,10 +65,10 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxAw48KryxGF1rZFWUur45Wrg_yoWrXw1Dpr
 	Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42
 	IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUeXo2DUUUU
 X-Originating-IP: [121.237.92.164]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAUIBmiVo6aROgAAsU
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiCREIBmiVopSTyQAAsH
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_033054_989686_2D929622 
-X-CRM114-Status: UNSURE (   6.46  )
+X-CRM114-CacheID: sfid-20250808_033107_754884_5593C253 
+X-CRM114-Status: UNSURE (   8.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,87 +88,81 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-The KVM RISC-V allows Zfbfmin/Zvfbfmin/Zvfbfwma extensions for Guest/VM
+The KVM RISC-V allows Zicbop extension for Guest/VM
 so add them to get-reg-list test.
 
 Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ tools/testing/selftests/kvm/riscv/get-reg-list.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
 diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index e60e1975095b..5e461c83a4aa 100644
+index a0b7dabb5040..e60e1975095b 100644
 --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
 +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -80,6 +80,7 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZCF:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZCMOP:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZFA:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZFBFMIN:
+@@ -83,6 +83,7 @@ bool filter_reg(__u64 reg)
  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZFH:
  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZFHMIN:
  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOM:
-@@ -104,6 +105,8 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZTSO:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVBB:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVBC:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVFBFMIN:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVFBFWMA:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVFH:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVFHMIN:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZVKB:
++	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOP:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOZ:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICCRSE:
+ 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICNTR:
+@@ -255,6 +256,8 @@ static const char *config_id_to_str(const char *prefix, __u64 id)
+ 		return "KVM_REG_RISCV_CONFIG_REG(zicbom_block_size)";
+ 	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
+ 		return "KVM_REG_RISCV_CONFIG_REG(zicboz_block_size)";
++	case KVM_REG_RISCV_CONFIG_REG(zicbop_block_size):
++		return "KVM_REG_RISCV_CONFIG_REG(zicbop_block_size)";
+ 	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
+ 		return "KVM_REG_RISCV_CONFIG_REG(mvendorid)";
+ 	case KVM_REG_RISCV_CONFIG_REG(marchid):
 @@ -535,6 +538,7 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
- 		KVM_ISA_EXT_ARR(ZCF),
- 		KVM_ISA_EXT_ARR(ZCMOP),
- 		KVM_ISA_EXT_ARR(ZFA),
-+		KVM_ISA_EXT_ARR(ZFBFMIN),
  		KVM_ISA_EXT_ARR(ZFH),
  		KVM_ISA_EXT_ARR(ZFHMIN),
  		KVM_ISA_EXT_ARR(ZICBOM),
-@@ -559,6 +563,8 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
- 		KVM_ISA_EXT_ARR(ZTSO),
- 		KVM_ISA_EXT_ARR(ZVBB),
- 		KVM_ISA_EXT_ARR(ZVBC),
-+		KVM_ISA_EXT_ARR(ZVFBFMIN),
-+		KVM_ISA_EXT_ARR(ZVFBFWMA),
- 		KVM_ISA_EXT_ARR(ZVFH),
- 		KVM_ISA_EXT_ARR(ZVFHMIN),
- 		KVM_ISA_EXT_ARR(ZVKB),
-@@ -1138,6 +1144,7 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zcd, ZCD);
- KVM_ISA_EXT_SIMPLE_CONFIG(zcf, ZCF);
- KVM_ISA_EXT_SIMPLE_CONFIG(zcmop, ZCMOP);
- KVM_ISA_EXT_SIMPLE_CONFIG(zfa, ZFA);
-+KVM_ISA_EXT_SIMPLE_CONFIG(zfbfmin, ZFBFMIN);
++		KVM_ISA_EXT_ARR(ZICBOP),
+ 		KVM_ISA_EXT_ARR(ZICBOZ),
+ 		KVM_ISA_EXT_ARR(ZICCRSE),
+ 		KVM_ISA_EXT_ARR(ZICNTR),
+@@ -864,6 +868,11 @@ static __u64 zicbom_regs[] = {
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOM,
+ };
+ 
++static __u64 zicbop_regs[] = {
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicbop_block_size),
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOP,
++};
++
+ static __u64 zicboz_regs[] = {
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicboz_block_size),
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOZ,
+@@ -1012,6 +1021,8 @@ static __u64 vector_regs[] = {
+ 	 .regs = sbi_sta_regs, .regs_n = ARRAY_SIZE(sbi_sta_regs),}
+ #define SUBLIST_ZICBOM \
+ 	{"zicbom", .feature = KVM_RISCV_ISA_EXT_ZICBOM, .regs = zicbom_regs, .regs_n = ARRAY_SIZE(zicbom_regs),}
++#define SUBLIST_ZICBOP \
++	{"zicbop", .feature = KVM_RISCV_ISA_EXT_ZICBOP, .regs = zicbop_regs, .regs_n = ARRAY_SIZE(zicbop_regs),}
+ #define SUBLIST_ZICBOZ \
+ 	{"zicboz", .feature = KVM_RISCV_ISA_EXT_ZICBOZ, .regs = zicboz_regs, .regs_n = ARRAY_SIZE(zicboz_regs),}
+ #define SUBLIST_AIA \
+@@ -1130,6 +1141,7 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zfa, ZFA);
  KVM_ISA_EXT_SIMPLE_CONFIG(zfh, ZFH);
  KVM_ISA_EXT_SIMPLE_CONFIG(zfhmin, ZFHMIN);
  KVM_ISA_EXT_SUBLIST_CONFIG(zicbom, ZICBOM);
-@@ -1162,6 +1169,8 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zkt, ZKT);
- KVM_ISA_EXT_SIMPLE_CONFIG(ztso, ZTSO);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvbb, ZVBB);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvbc, ZVBC);
-+KVM_ISA_EXT_SIMPLE_CONFIG(zvfbfmin, ZVFBFMIN);
-+KVM_ISA_EXT_SIMPLE_CONFIG(zvfbfwma, ZVFBFWMA);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvfh, ZVFH);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvfhmin, ZVFHMIN);
- KVM_ISA_EXT_SIMPLE_CONFIG(zvkb, ZVKB);
-@@ -1213,6 +1222,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_zcf,
- 	&config_zcmop,
- 	&config_zfa,
-+	&config_zfbfmin,
++KVM_ISA_EXT_SUBLIST_CONFIG(zicbop, ZICBOP);
+ KVM_ISA_EXT_SUBLIST_CONFIG(zicboz, ZICBOZ);
+ KVM_ISA_EXT_SIMPLE_CONFIG(ziccrse, ZICCRSE);
+ KVM_ISA_EXT_SIMPLE_CONFIG(zicntr, ZICNTR);
+@@ -1204,6 +1216,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
  	&config_zfh,
  	&config_zfhmin,
  	&config_zicbom,
-@@ -1237,6 +1247,8 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_ztso,
- 	&config_zvbb,
- 	&config_zvbc,
-+	&config_zvfbfmin,
-+	&config_zvfbfwma,
- 	&config_zvfh,
- 	&config_zvfhmin,
- 	&config_zvkb,
++	&config_zicbop,
+ 	&config_zicboz,
+ 	&config_ziccrse,
+ 	&config_zicntr,
 -- 
 2.34.1
 
