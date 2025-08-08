@@ -4,179 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C921CC87FCA
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 01:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A04C87FCA
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 02:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PUHLjFNePZ8c+tMAxOBZrAz9pcGh0maVWZCrcSsdCXM=; b=p6PCZjoPdehrJ0
-	wwyC885tvCajRYSzn+VasIfL+PXGLZnMfpe6Tbj6AIpoTZxWYMAaLpjW1+xUU2eb8jhnge17Bim+V
-	IKHz0F6PIf6hGohuwC42wKC+m6vEmGOlL+Jiyua8q4lfod+MkhUBb14BDgSpWX0cDw5+FSlrqaaU5
-	rNuTd+wI//9fz5WBikKmY9hRnIoQkC3Y+1nFCyy2R1SBhXSf0hyMo/hq7u82iGwWFC7RAExGMokYz
-	JTZ9kBJeljAS0KVRJFUVMm92TNkdw0d2vCgipmAoh7Or5KPyYksxvf0pawf44qZrc+HnAzLEcpLiT
-	AN2ZzpPLGh0M98tJCNZA==;
+	List-Owner; bh=+Q8lBU6pxzSzG1Ne6EpSBY+tSRoDVosu+rCqBTCfk5Q=; b=rv+1A0Zgi3Dja4
+	/SfkpB1SKCEytNPTpFRMBeaAXEJSaj8lPkmRNRopNTIcOvC5v/mX5fuEXF9XtirBDl0l4RkoPkjnZ
+	8C6IVa43tuure0JpOJbfFvrW1V/MGJu9A2aUZMGH+3G2C/mO4TVzgH6mGwYPwDBdX+xoOKYEiX/1+
+	QOT5mjaZ+JnihfouBQ2KcQsPv7EXAEPpteuIT7FfOE3C0eIBGxczYebkBqK7egDFNnVovzxvsdMc0
+	WUkxYdcoMScC+uk8uaFyv+/BvvrYyR0yu9c24A4jRAR+vNIp+3ETCQk3Q36D/N4TzGO0h2Z+jHXsi
+	+eLXREuIi+spbTav4Tww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukBvy-00000001nHG-07De;
-	Fri, 08 Aug 2025 01:30:14 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1ukCak-00000001qNJ-3uiS;
+	Fri, 08 Aug 2025 02:12:22 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukBvw-00000001nGq-02s5
+	id 1ukCag-00000001qMB-3f79
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Aug 2025 01:30:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754616612; x=1786152612;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=n/Edi1faz+FgAe8lZttXzeyHX8RFz8s1p4USwSfuaxA=;
-  b=fjKngPVrAyl1xj5sH8EDr0+uUK/2Rg0m2rageVur+0wkYFGROpLEBzQr
-   HxaFeesJywY595USNPVXcU3emWSf8jagnFzYDnHT5qFFNXmIJQ0O0qbf1
-   KAVw3z7RouG09PHx5CnuPGNwA6dk+2N12MlI3QsCl9bzJqR0knZCDmJH4
-   PVIxBdR9KR8kuiuTsEc0oSI1tbaynEao0yPu++i+/uRDRwh7d6vFNGrbN
-   dAXWmh1lN4vBoAQZfkQccpn2VNazuvQ3NOGh59ZMZoX4NTCEhH+NgovMy
-   iDHs/ZoXzMm22pwaWSseDK8L6K9IW/Qkd9lgjSXZBSFFUoi46sLkZB7/I
-   w==;
-X-CSE-ConnectionGUID: bZjOTrehQce7EyN5EkXkoA==
-X-CSE-MsgGUID: X1fwPPjhR5+1LumqY5vazA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="82409193"
-X-IronPort-AV: E=Sophos;i="6.17,274,1747724400"; 
-   d="scan'208";a="82409193"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2025 18:26:28 -0700
-X-CSE-ConnectionGUID: UDjLp3UFR/Ko0Pzn1gfAPA==
-X-CSE-MsgGUID: DNeJskSwTnKksaxvv0sLzg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,274,1747724400"; 
-   d="scan'208";a="202370235"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2025 18:26:26 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Thu, 7 Aug 2025 18:26:25 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26 via Frontend Transport; Thu, 7 Aug 2025 18:26:25 -0700
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (40.107.220.70)
- by edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Thu, 7 Aug 2025 18:26:25 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k6vzNoz5ZCgIDDa+h4bY62LcQS+4BjqCpUOSaLgjas06RBvjCBdvF12vJi0rEaQWqLaohqjkEAMkPt1RWnYeoNUsXCCLQjyANbNBvWWt6SWxOZ8EiEWzXV5kvsM3zyqec1RLGRM6ZQbynqp4yAj2Fb6eOZ7A9QsugPgf9tvJehSBPixSlZkZTkySnywVglF8kSYwHMXt43aivkU8kxEWyIDEDHvKICippjQjBNoMVNuiRWpIXWDTgSlhALUkZpysy2D+WmMjsBMB+eiGMRtb19/A9gi2rD2dNxt/KVQjLJUPULTlVbxvjq3a4VkUUXDBOWRUAEMIXX15pGZdf66P7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=akM3sa7UyxhjLpdE06C9/aHqRnV5uPtLP6dxAqDU1cU=;
- b=WCAF4VJ8Ur5xP57nVRnlSdd04jctHChrby/qPs5XN1TVjNUFjVzfK0cE279KN0dgYbvuemPJkQK7IpW6ziq7synXvAQVtNksjF/AP8rJQ9GNxXn5mzlLnBu4ecyXupLke1HFgHry/8rMg+1Ts+XF15k8OvLkuzaVHKOg0wGerswKXLw+H9giR4/dgMmnNIJKoFSobNHQyeRqKqF9K8zcXnmDCUBIEpxYLfQd/N9oFvMPI6cxgCbmgkcTB5SpGJ95QIWEubB/kDNi2rfh4lIXrwZLO8pWneVDONhnaaSWxq3PGuoFIqqSlo9G8KfgRBmOwDWaS5shdUc+5psxll+pJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH0PR11MB5674.namprd11.prod.outlook.com (2603:10b6:510:ec::10)
- by PH7PR11MB5818.namprd11.prod.outlook.com (2603:10b6:510:132::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.13; Fri, 8 Aug
- 2025 01:26:23 +0000
-Received: from PH0PR11MB5674.namprd11.prod.outlook.com
- ([fe80::77d3:dfb2:3bd:e02a]) by PH0PR11MB5674.namprd11.prod.outlook.com
- ([fe80::77d3:dfb2:3bd:e02a%3]) with mapi id 15.20.9009.017; Fri, 8 Aug 2025
- 01:26:23 +0000
-Date: Fri, 8 Aug 2025 09:26:15 +0800
-From: Philip Li <philip.li@intel.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-CC: Matthew Wilcox <willy@infradead.org>, kernel test robot <lkp@intel.com>,
-	<oe-kbuild-all@lists.linux.dev>, <linux-riscv@lists.infradead.org>
-Subject: Re: [linux-next:master 13554/13560] ERROR: modpost:
- __ex_table+0x1560 references non-executable section
- '.data.rel.local.f2fs_attr_sb_encryption'
-Message-ID: <aJVSN6pfxW5MxoQ0@rli9-mobl>
-References: <202508071840.SzIzxq5q-lkp@intel.com>
- <aJSeL1pF3Qleih6D@casper.infradead.org>
- <4298b995-52c0-4587-b098-3f8824dbfedf@ghiti.fr>
-Content-Disposition: inline
-In-Reply-To: <4298b995-52c0-4587-b098-3f8824dbfedf@ghiti.fr>
-X-ClientProxiedBy: SG2PR04CA0169.apcprd04.prod.outlook.com (2603:1096:4::31)
- To PH0PR11MB5674.namprd11.prod.outlook.com (2603:10b6:510:ec::10)
+	Fri, 08 Aug 2025 02:12:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1754619052;
+	bh=XruLpPGKKhIAXV5GiyK/wgZqZKwAzbK6bCViQs/BVy0=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=bbCjJ+MGt+AS7mnhKGwiwrFfxPOcH4ok5PZ6ZV+tuI4Qg6AJA2fVigsmkZAT3miPv
+	 O2oNKYyL5VjmC/rmPFyQ87Nv9kNL2YjmiF6BCbeqTGA4B+Qje0Ld+6MQkN+42UxpRP
+	 TkwbvnhXjFbu8IGUsacuRiXN0Qi2NEI3sWQeUKAE=
+X-QQ-mid: esmtpgz10t1754619050t37e96f67
+X-QQ-Originating-IP: r9yuw17eteziLvplyQDL5/oFpwlod3gjP0a44mCWCbs=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 08 Aug 2025 10:10:48 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4317720997078926859
+EX-QQ-RecipientCnt: 16
+Date: Fri, 8 Aug 2025 10:10:48 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Haylen Chu <heylenay@4d2.org>
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>,
+	Inochi Amaoto <inochiama@outlook.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Jinmei Wei <weijinmei@linux.spacemit.com>
+Subject: Re: [PATCH 2/2] clk: spacemit: introduce i2s pre-clock and fix i2s
+ clock
+Message-ID: <C7EA7A1D0F9884EB+aJVcqFqix0GF_RnX@LT-Guozexi>
+References: <20250807-k1-clk-i2s-generation-v1-0-7dc25eb4e4d3@linux.spacemit.com>
+ <20250807-k1-clk-i2s-generation-v1-2-7dc25eb4e4d3@linux.spacemit.com>
+ <aJQXKN_ccpWVJ5oZ@ketchup>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR11MB5674:EE_|PH7PR11MB5818:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb608d71-29c5-475a-c07f-08ddd61a95e9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pNNinY/zEQDIKIvBLErzQ7EocbOXq8+1kITb06LGncipBxL3vSpVGtfIoGVb?=
- =?us-ascii?Q?IWokJ6EJztj/NBKUTYTkw42DsFjVUnTxQo1ctgnjf3rsT6zx0ZJ4iwx9zneS?=
- =?us-ascii?Q?SfqYAJH738pVUk1xkX7C2SIbQ1Z8E0skDzSuj6MxbBENHDSqEJ1bwpJCJ7Aj?=
- =?us-ascii?Q?BdClYqItn5yMIqjc1uv7YjDZaNzF2pT1z0lJfYA4mTt0kuKGh8dfpjAjBwoR?=
- =?us-ascii?Q?g0m5ZwBmwLXjHIujsrtjRCobqU3BGa8bPkzcGTacoj3tsHLzyUBM+f3fw5Me?=
- =?us-ascii?Q?AK2yS04SKyhwfsNL3wcpFCeYebFjCJT3rA4vecV62csdUy50W6s6jKsRMnxE?=
- =?us-ascii?Q?TSNMS49Vo5HwIgtIAYvEoQb9AxyaU2iJoXnZuHr6s/Wp962whs1AdPzSc4EQ?=
- =?us-ascii?Q?9/9feZLWI+tFJ8Q2aRHSqIMmun8m0u2bSO9K8KWhel/915evIRG3CbeMISXI?=
- =?us-ascii?Q?x1Ibxz/dObCAfjiQ1g4xHLlkDnY3WjvgxCQqsAIykAgK284+vBAFAKs+ZKdW?=
- =?us-ascii?Q?Kcf1xV8PLwOG2Cb48dhVSyHzAWS915mCRMsF3JZAN6xHnZS/HvmI5jTDQITV?=
- =?us-ascii?Q?3IZ6d4MEKCbgKYXe0yaTQcfekg8uAbVbhLeczvQbNEOEABM+9yYizKbasBEO?=
- =?us-ascii?Q?iztUP0viRhMpzQaIlPE8JtCbk1/rCy5SNSAz3c7kHqlkIQU7oLflai0C8IQL?=
- =?us-ascii?Q?tI2P80k7Y1hWtaNKE26eJLsh4D4yof4s7C6y8OQL5z4h6CkHQW+j5Ekn7bVP?=
- =?us-ascii?Q?nwYL60cMm6bXjw2I75PCN3HM716r0x08q7SJmfRXgQDVVF3Z+vbfhDPLpb7n?=
- =?us-ascii?Q?YPbpAgtcvgDjCyUXNWBiA5f9Eb+k4zWXvuMFVCqMt4IDEwtTRYZSvlI1zXfn?=
- =?us-ascii?Q?eGwJtOoCcm/6jNzbueOfqwW6O6E/tqIOjxM5rrZQaHHvwrE1nuwL29FlnzQ9?=
- =?us-ascii?Q?gSI/m1yxgGLi+ooKjHtDi2qFXAoBGDpKanjDmoTnecEpG4OBgRJqu2Mt+m0U?=
- =?us-ascii?Q?sas9vctqwK2au7Rn7uCyE+xPK95Y0wmPCIxLwQV8jr5LRv3QGrxqsezBzGMe?=
- =?us-ascii?Q?AillFKkUSs+s9wj13n7G7MhndK9I/qXdF1roVXhCNo72oyPsy+AgEdLOmYLE?=
- =?us-ascii?Q?Nwpk5tIBO7jSx8Ub6Cqut69JK0FwQIVegmvKpQYM2R2gIwmUOf+BNopG8h3G?=
- =?us-ascii?Q?haNncUe7zIo59DOsdGoShrtDQIkArBhYcnnooCLnXRbBDIKAJkP0vSKaTpAj?=
- =?us-ascii?Q?oGPVj3Q4j36kWgdoeOfN2PSIKJ1Enf4Dcapaa8mbDpjij60PT0Agk/NgfQoy?=
- =?us-ascii?Q?S5Sgv2VDz+3c+meZlkDW1oqcViItalwKJWQpgMPpFT3LdLWmAqO8ipoHa5iS?=
- =?us-ascii?Q?tKtLHvAYP7HA2Wnx8d+yQujFEVgL?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR11MB5674.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aXi6/Agn8AhflVMA/Uh+3Be1aSznpWyGn91eg8e6EbaQxGkwvxLCgHIo2Y0F?=
- =?us-ascii?Q?gnbQE4eW+oumeH5GQ1rcefVwR8qi2bRvCYzowqeqb+d/mua1OSAr3sPzrL1+?=
- =?us-ascii?Q?byT87bB1Sbbz/OPzPnm3LKN3aKKw/g4s/YOWIDhyjMAKjfroLgIA9RwHkv1y?=
- =?us-ascii?Q?vLC8yYtkudGIF08DzpAQtzHVQyxYV/bvSiFsUZr5D1FlEpegxsdUXgD/+nMH?=
- =?us-ascii?Q?u2yfvyLeO/hk2tfoTXsGviCl4KaGOn3+rxr9xDch4Qt3/NJpJWlK/PLtJWBz?=
- =?us-ascii?Q?xZjukp4xpGuG+YV3C1y2302iocJ+r2fCCoHa98UuNRvP+ygH5qr18XqAhFDP?=
- =?us-ascii?Q?LxxszJM1Sth/QaaKsuqUV5bWoLAbYCngiUAYMd01kFSmQB7A7eP1yNPSuw5j?=
- =?us-ascii?Q?8NByqis+Fy2KKgtuOk9TFdAjHmX4ahXn+lVM6wp8rCnp7iThJMhgsHHm2oty?=
- =?us-ascii?Q?udYMxgu1jhlYtC6R3EBt9rFOypDyxAzAaYd8IgypOMpBiPb9Ss5CWTlID0ue?=
- =?us-ascii?Q?vjM9A7t8NkYY/B1QCfsj4EF+3q6A7yDLVBuUymDjLnZ05wlyJHOAGvhB4jEr?=
- =?us-ascii?Q?GGMxcs6Z+Dg/qNJiB7Qvn+es1sT72pJ7PGNGgdwyua77kIx73B53y3siK7Ej?=
- =?us-ascii?Q?y8lzRorq9yZdwwMtfiyRkFdMMdMKvefBmYao1P4fAJ4Y9IULugD48jbTeToa?=
- =?us-ascii?Q?iwMf5YVthBWIUvaGecze90opOW8IqPi5OZ6RGmiVJfIQqqzRdZj8xjpPZDTk?=
- =?us-ascii?Q?fkG7/NWfPtUqGgbOTutU/m/24IKy5JtRZ/YhLUIAyCkkOxw3cOBdN4i6Y42j?=
- =?us-ascii?Q?TvwuW8MXVNlI6mThxosMg98DIj1BTt0/7SAzi03OAzZ+Yv7aPJITiSXObkNm?=
- =?us-ascii?Q?Yye1PAjEwjWklDDYfBw8x1ae4vgyN4XFPS0WNiUjCcxy4cLQpCYFVDEneKFT?=
- =?us-ascii?Q?WxcKVFoX5vPjUSFOnGgNQ/mDpVs/U0+jEvRz+1mn9HzL2+RsmLzowYk+6cyb?=
- =?us-ascii?Q?xvycGlI/wvIdhz6tfWPXSw5wsbo1Axy89reHQzMgeCzlrRIreN7YF534R6aX?=
- =?us-ascii?Q?ZG95MIzlbi6tPGF5ygYCnyEIJ8AwQXHozTMvOThyrQ+XiKFi3dSgOU7OqNcC?=
- =?us-ascii?Q?kHtSUGBL+lSEhNqXmQiEvXOxubgF0dzHa1GXrUrs3i4NwiAz6e6TUEpon6gW?=
- =?us-ascii?Q?GszZnDzGdXy7xccDtQaHWo97+y+ZdMlanYYI7mkdAhho/eUYY77jjRBEOgR+?=
- =?us-ascii?Q?QGux9IMXNfvjvyfbqzAh0batPTXGqIgDAL2Io9lm0OGlISPvL3svYSI0vmkc?=
- =?us-ascii?Q?W7ch9farPaGXb0QJjYccnTnS+2fWsh9BHUGS6ZMasflal70QE0jQWcJDsSTI?=
- =?us-ascii?Q?iph83ZZta3Eh3eMoY0aRYStK/kzx+IzAUo2UeHFNADKQIeED6fiAAIYba1TS?=
- =?us-ascii?Q?8SVzgV+CiF99LCt+91AeU0vTLgezRLj/AEjkdUEM/5W78XQdetdGBLmRj+j8?=
- =?us-ascii?Q?zUNCnHpztuhIp8dO9+9ybZCLENL3lpa4eLisR1LecloRjlV4xeAn5Uqq9IVc?=
- =?us-ascii?Q?ktPgj7MJBsX7EoYH/BCX3EsRwcZ+LnYOs2Ox4uGL?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb608d71-29c5-475a-c07f-08ddd61a95e9
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR11MB5674.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2025 01:26:23.2809
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pMDj7S1P+6ql4Ago2Ij5DElSVhlw2aVxLyc+jMGhPtyXGHorFXWW1ReraVLPkhAcKZx5F3+9I+Qbl/0Ju+ka/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB5818
-X-OriginatorOrg: intel.com
+Content-Disposition: inline
+In-Reply-To: <aJQXKN_ccpWVJ5oZ@ketchup>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: N8tT1W7MFzrwFp9BT63vKlCb+S+S1bPCkznHmwkFIErQrR8ilBAwxIel
+	e+e85YXK8CJQaMp1BdZc1FgHf9riGqUMC1GwVIunxHD7AKQ8AiUyd/oTQQQx9POERrtYV82
+	XGQdzqTL7DmodHxe8wbFVbUveH5Ks3GDR1GfCvW5qlwYP2jkhSTxJreeSxzqn7IIPzoK5cd
+	bzZI+4iRP4X9LQTR/z66yAq6/TZ7FNopMW/SdVWnxhuEFrvWyATrUfOD5yK2RVAJ9E7tZqK
+	//v665N1BtEExewCo/3RSgZLcrgzvhyeJjW1ViPpzxYpbN/+/5UN3e2aSNN8CF93gHjAKuj
+	FiT25I3JTdHcGZ6rnsEpH696yaqSLNRrGb1ay30w9gzyg8TlWFqo+VfIpa6jlZe6KLv6a8+
+	GxkzJzKZioQ+Efs2yIGU5lMFfgKVMPQYrCEvP1xdPo8CH49tEvg2bWJb9V9tnzPrLbUg6uQ
+	E7r09PH89CaLZ/EQXpSOKOxFVKaCIF+pztb5vA49ITgLh8i7ZmbBvnYAqUtQnzX9ViQ0o6O
+	8TznlyrWiplya1q2lr23Yr4RtYsCZ2kOwVqQGVvgIhvYhYdRo/4wtCMWwa3CuuUm0V2LIKT
+	TV/ZYnnX1R7Kv6np0jpm2kci0rOv/0YEiqEFqqPeogQStSN0icFTz3PR97LkdTu/ex2UthS
+	nuG0X/i+zIpF6jckcs5yH/cnY4x/5wHIkxyw/XW2yqDBgj2SJDfcY8YigPCMb70wHsLPjuh
+	rRXySCprMN8lsQUfzbreL8VbfnOxxduGajmJ58Okq8GjB1+mieXEdGBTCKN3SooDowGkbhr
+	XnsU2ddqjPjwJr91kEfsPozsl+PsEjqYctB+M1juDc1K5PZjX6EXgeWuWfa/LcY9w80kGZy
+	YDwtPmxsrwighzrDQnP89ndzevMhnm0SCIpoCGsTkFIUgBMUo0TEjFeMnHw7EwMqZt+Hgxd
+	XgJjssHN4dxFA9eijx8RbhgqmwwAFfTUyPpDsbaUPq2pxubsuCZFNXGO7ton2TBy2v91zLj
+	dQ3bw8yitLTBX7TzzxzI4SmeM2d3J+jNUW48/c7vNfu31c6QdclMGamkeHCz8=
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_183012_093051_948BCF9D 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250807_191219_734769_707486DA 
+X-CRM114-Status: GOOD (  32.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,252 +104,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 07, 2025 at 03:07:52PM +0200, Alexandre Ghiti wrote:
-> On 8/7/25 14:38, Matthew Wilcox wrote:
-> > This looks like a bug in the riscv toolchain.  forwarding.
-> 
-> 
-> Thanks for the forward, we are aware of the problem, it's been reported
-> multiple times now [1].
+Hi, Haylen!
 
-Sorry for the duplicated reports, i will update the bot to ignore the further
-report of this issue.
+On Thu, Aug 07, 2025 at 03:02:00AM +0000, Haylen Chu wrote:
+> On Thu, Aug 07, 2025 at 09:30:11AM +0800, Troy Mitchell wrote:
+> > Defining i2s_bclk and i2s_sysclk as fixed-rate clocks is insufficient
+> > for real I2S use cases.
+> 
+> This is a little misleading: they're modeled as gates with fixed-factor
+> for now whose rate is calculated from their parents instead of defined
+> statically. You could avoid possible confusion by replacing "fixed-rate"
+> with "fixed-factor".
+>
+I'll change it in next version.
 
 > 
-> [1] https://lore.kernel.org/linux-riscv/d5e49344-e0c2-4095-bd1f-d2d23a8e6534@ghiti.fr/
-> 
-> 
+> > Moreover, the current I2S clock configuration does not work as expected
+> > due to missing parent clocks.
 > > 
-> > On Thu, Aug 07, 2025 at 06:14:29PM +0800, kernel test robot wrote:
-> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > > head:   442d93313caebc8ccd6d53f4572c50732a95bc48
-> > > commit: 495bbad443e5d730527ea3dd232e4aaec3462dc6 [13554/13560] Merge branch 'main' of git://git.infradead.org/users/willy/xarray.git
-> > > config: riscv-randconfig-002-20250807 (https://download.01.org/0day-ci/archive/20250807/202508071840.SzIzxq5q-lkp@intel.com/config)
-> > > compiler: riscv32-linux-gcc (GCC) 8.5.0
-> > > reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250807/202508071840.SzIzxq5q-lkp@intel.com/reproduce)
-> > > 
-> > > If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> > > the same patch/commit), kindly add following tags
-> > > | Reported-by: kernel test robot <lkp@intel.com>
-> > > | Closes: https://lore.kernel.org/oe-kbuild-all/202508071840.SzIzxq5q-lkp@intel.com/
-> > > 
-> > > All errors (new ones prefixed by >>, old ones prefixed by <<):
-> > > 
-> > > WARNING: modpost: vmlinux: section mismatch in reference: ___ratelimit+0x108 (section: .text.___ratelimit) -> tps6594_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: ___ratelimit+0x18a (section: .text.___ratelimit) -> tps6594_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x10e (section: .text.vsnprintf) -> bd9571mwv_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x164 (section: .text.vsnprintf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x16c (section: .text.vsnprintf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x18a (section: .text.vsnprintf) -> bd9571mwv_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x18e (section: .text.vsnprintf) -> cs42l43_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x1a6 (section: .text.vsnprintf) -> cs42l43_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x1b2 (section: .text.vsnprintf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x1d0 (section: .text.vsnprintf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x1e0 (section: .text.vsnprintf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x216 (section: .text.vsnprintf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x24c (section: .text.vsnprintf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x262 (section: .text.vsnprintf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: vsnprintf+0x2ee (section: .text.vsnprintf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: bstr_printf+0xb6 (section: .text.bstr_printf) -> bd9571mwv_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: bstr_printf+0xe0 (section: .text.bstr_printf) -> bd9571mwv_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: bstr_printf+0x106 (section: .text.bstr_printf) -> bd9571mwv_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: bstr_printf+0x138 (section: .text.bstr_printf) -> bd9571mwv_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: bstr_printf+0x17e (section: .text.bstr_printf) -> cs42l43_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: bstr_printf+0x186 (section: .text.bstr_printf) -> bd9571mwv_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: bstr_printf+0x1be (section: .text.bstr_printf) -> bd9571mwv_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: bstr_printf+0x1c6 (section: .text.bstr_printf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: bstr_printf+0x33a (section: .text.bstr_printf) -> cs42l43_i2c_driver_exit (section: .exit.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: xas_destroy+0x16 (section: .text.xas_destroy) -> tps65912_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: __xas_nomem+0x20 (section: .text.__xas_nomem) -> tps65912_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: xas_nomem+0x20 (section: .text.xas_nomem) -> tps65912_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: xas_free_nodes+0x2a (section: .text.xas_free_nodes) -> tps65912_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: xas_store+0x2f2 (section: .text.xas_store) -> tps65912_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: xas_store+0x4ba (section: .text.xas_store) -> tps65912_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: xas_store+0x54c (section: .text.xas_store) -> tps65912_i2c_driver_init (section: .init.text)
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1494 (section: __ex_table) -> f2fs_attr_gc_idle (section: .data.rel.local.f2fs_attr_gc_idle)
-> > > ERROR: modpost: __ex_table+0x1494 references non-executable section '.data.rel.local.f2fs_attr_gc_idle'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1498 (section: __ex_table) -> f2fs_attr_gc_max_sleep_time (section: .data.rel.local.f2fs_attr_gc_max_sleep_time)
-> > > ERROR: modpost: __ex_table+0x1498 references non-executable section '.data.rel.local.f2fs_attr_gc_max_sleep_time'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14a0 (section: __ex_table) -> f2fs_attr_gc_mode (section: .data.rel.local.f2fs_attr_gc_mode)
-> > > ERROR: modpost: __ex_table+0x14a0 references non-executable section '.data.rel.local.f2fs_attr_gc_mode'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14a4 (section: __ex_table) -> f2fs_attr_gc_no_zoned_gc_percent (section: .data.rel.local.f2fs_attr_gc_no_zoned_gc_percent)
-> > > ERROR: modpost: __ex_table+0x14a4 references non-executable section '.data.rel.local.f2fs_attr_gc_no_zoned_gc_percent'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14ac (section: __ex_table) -> f2fs_attr_gc_reclaimed_segments (section: .data.rel.local.f2fs_attr_gc_reclaimed_segments)
-> > > ERROR: modpost: __ex_table+0x14ac references non-executable section '.data.rel.local.f2fs_attr_gc_reclaimed_segments'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14b0 (section: __ex_table) -> f2fs_attr_gc_segment_mode (section: .data.rel.local.f2fs_attr_gc_segment_mode)
-> > > ERROR: modpost: __ex_table+0x14b0 references non-executable section '.data.rel.local.f2fs_attr_gc_segment_mode'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14b8 (section: __ex_table) -> f2fs_attr_gc_urgent_sleep_time (section: .data.rel.local.f2fs_attr_gc_urgent_sleep_time)
-> > > ERROR: modpost: __ex_table+0x14b8 references non-executable section '.data.rel.local.f2fs_attr_gc_urgent_sleep_time'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14bc (section: __ex_table) -> f2fs_attr_hot_data_age_threshold (section: .data.rel.local.f2fs_attr_hot_data_age_threshold)
-> > > ERROR: modpost: __ex_table+0x14bc references non-executable section '.data.rel.local.f2fs_attr_hot_data_age_threshold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14c4 (section: __ex_table) -> f2fs_attr_ipu_policy (section: .data.rel.local.f2fs_attr_ipu_policy)
-> > > ERROR: modpost: __ex_table+0x14c4 references non-executable section '.data.rel.local.f2fs_attr_ipu_policy'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14c8 (section: __ex_table) -> f2fs_attr_hot_data_age_threshold (section: .data.rel.local.f2fs_attr_hot_data_age_threshold)
-> > > ERROR: modpost: __ex_table+0x14c8 references non-executable section '.data.rel.local.f2fs_attr_hot_data_age_threshold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14d0 (section: __ex_table) -> f2fs_attr_lifetime_write_kbytes (section: .data.rel.local.f2fs_attr_lifetime_write_kbytes)
-> > > ERROR: modpost: __ex_table+0x14d0 references non-executable section '.data.rel.local.f2fs_attr_lifetime_write_kbytes'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14d4 (section: __ex_table) -> f2fs_attr_hot_data_age_threshold (section: .data.rel.local.f2fs_attr_hot_data_age_threshold)
-> > > ERROR: modpost: __ex_table+0x14d4 references non-executable section '.data.rel.local.f2fs_attr_hot_data_age_threshold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14dc (section: __ex_table) -> f2fs_attr_max_discard_request (section: .data.rel.local.f2fs_attr_max_discard_request)
-> > > ERROR: modpost: __ex_table+0x14dc references non-executable section '.data.rel.local.f2fs_attr_max_discard_request'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14e0 (section: __ex_table) -> f2fs_attr_hot_data_age_threshold (section: .data.rel.local.f2fs_attr_hot_data_age_threshold)
-> > > ERROR: modpost: __ex_table+0x14e0 references non-executable section '.data.rel.local.f2fs_attr_hot_data_age_threshold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14e8 (section: __ex_table) -> f2fs_attr_max_io_bytes (section: .data.rel.local.f2fs_attr_max_io_bytes)
-> > > ERROR: modpost: __ex_table+0x14e8 references non-executable section '.data.rel.local.f2fs_attr_max_io_bytes'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14ec (section: __ex_table) -> f2fs_attr_max_read_extent_count (section: .data.rel.local.f2fs_attr_max_read_extent_count)
-> > > ERROR: modpost: __ex_table+0x14ec references non-executable section '.data.rel.local.f2fs_attr_max_read_extent_count'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14f4 (section: __ex_table) -> f2fs_attr_max_small_discards (section: .data.rel.local.f2fs_attr_max_small_discards)
-> > > ERROR: modpost: __ex_table+0x14f4 references non-executable section '.data.rel.local.f2fs_attr_max_small_discards'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x14f8 (section: __ex_table) -> f2fs_attr_hot_data_age_threshold (section: .data.rel.local.f2fs_attr_hot_data_age_threshold)
-> > > ERROR: modpost: __ex_table+0x14f8 references non-executable section '.data.rel.local.f2fs_attr_hot_data_age_threshold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1500 (section: __ex_table) -> f2fs_attr_migration_granularity (section: .data.rel.local.f2fs_attr_migration_granularity)
-> > > ERROR: modpost: __ex_table+0x1500 references non-executable section '.data.rel.local.f2fs_attr_migration_granularity'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1504 (section: __ex_table) -> f2fs_attr_hot_data_age_threshold (section: .data.rel.local.f2fs_attr_hot_data_age_threshold)
-> > > ERROR: modpost: __ex_table+0x1504 references non-executable section '.data.rel.local.f2fs_attr_hot_data_age_threshold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x150c (section: __ex_table) -> f2fs_attr_min_fsync_blocks (section: .data.rel.local.f2fs_attr_min_fsync_blocks)
-> > > ERROR: modpost: __ex_table+0x150c references non-executable section '.data.rel.local.f2fs_attr_min_fsync_blocks'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1510 (section: __ex_table) -> f2fs_attr_hot_data_age_threshold (section: .data.rel.local.f2fs_attr_hot_data_age_threshold)
-> > > ERROR: modpost: __ex_table+0x1510 references non-executable section '.data.rel.local.f2fs_attr_hot_data_age_threshold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1518 (section: __ex_table) -> f2fs_attr_min_seq_blocks (section: .data.rel.local.f2fs_attr_min_seq_blocks)
-> > > ERROR: modpost: __ex_table+0x1518 references non-executable section '.data.rel.local.f2fs_attr_min_seq_blocks'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x151c (section: __ex_table) -> f2fs_attr_mounted_time_sec (section: .data.rel.local.f2fs_attr_mounted_time_sec)
-> > > ERROR: modpost: __ex_table+0x151c references non-executable section '.data.rel.local.f2fs_attr_mounted_time_sec'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1524 (section: __ex_table) -> f2fs_attr_moved_blocks_foreground (section: .data.rel.local.f2fs_attr_moved_blocks_foreground)
-> > > ERROR: modpost: __ex_table+0x1524 references non-executable section '.data.rel.local.f2fs_attr_moved_blocks_foreground'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1528 (section: __ex_table) -> f2fs_attr_ovp_segments (section: .data.rel.local.f2fs_attr_ovp_segments)
-> > > ERROR: modpost: __ex_table+0x1528 references non-executable section '.data.rel.local.f2fs_attr_ovp_segments'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1530 (section: __ex_table) -> f2fs_attr_pending_discard (section: .data.rel.local.f2fs_attr_pending_discard)
-> > > ERROR: modpost: __ex_table+0x1530 references non-executable section '.data.rel.local.f2fs_attr_pending_discard'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1534 (section: __ex_table) -> f2fs_attr_hot_data_age_threshold (section: .data.rel.local.f2fs_attr_hot_data_age_threshold)
-> > > ERROR: modpost: __ex_table+0x1534 references non-executable section '.data.rel.local.f2fs_attr_hot_data_age_threshold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x153c (section: __ex_table) -> f2fs_attr_ram_thresh (section: .data.rel.local.f2fs_attr_ram_thresh)
-> > > ERROR: modpost: __ex_table+0x153c references non-executable section '.data.rel.local.f2fs_attr_ram_thresh'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1540 (section: __ex_table) -> f2fs_attr_reclaim_segments (section: .data.rel.local.f2fs_attr_reclaim_segments)
-> > > ERROR: modpost: __ex_table+0x1540 references non-executable section '.data.rel.local.f2fs_attr_reclaim_segments'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1548 (section: __ex_table) -> f2fs_attr_reserved_pin_section (section: .data.rel.local.f2fs_attr_reserved_pin_section)
-> > > ERROR: modpost: __ex_table+0x1548 references non-executable section '.data.rel.local.f2fs_attr_reserved_pin_section'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x154c (section: __ex_table) -> f2fs_attr_revoked_atomic_block (section: .data.rel.local.f2fs_attr_revoked_atomic_block)
-> > > ERROR: modpost: __ex_table+0x154c references non-executable section '.data.rel.local.f2fs_attr_revoked_atomic_block'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1554 (section: __ex_table) -> f2fs_attr_sb_casefold (section: .data.rel.local.f2fs_attr_sb_casefold)
-> > > ERROR: modpost: __ex_table+0x1554 references non-executable section '.data.rel.local.f2fs_attr_sb_casefold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1558 (section: __ex_table) -> f2fs_attr_hot_data_age_threshold (section: .data.rel.local.f2fs_attr_hot_data_age_threshold)
-> > > ERROR: modpost: __ex_table+0x1558 references non-executable section '.data.rel.local.f2fs_attr_hot_data_age_threshold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1560 (section: __ex_table) -> f2fs_attr_sb_encryption (section: .data.rel.local.f2fs_attr_sb_encryption)
-> > > > > ERROR: modpost: __ex_table+0x1560 references non-executable section '.data.rel.local.f2fs_attr_sb_encryption'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1564 (section: __ex_table) -> f2fs_attr_sb_flexible_inline_xattr (section: .data.rel.local.f2fs_attr_sb_flexible_inline_xattr)
-> > > > > ERROR: modpost: __ex_table+0x1564 references non-executable section '.data.rel.local.f2fs_attr_sb_flexible_inline_xattr'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x156c (section: __ex_table) -> f2fs_attr_sb_inode_crtime (section: .data.rel.local.f2fs_attr_sb_inode_crtime)
-> > > > > ERROR: modpost: __ex_table+0x156c references non-executable section '.data.rel.local.f2fs_attr_sb_inode_crtime'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1570 (section: __ex_table) -> f2fs_attr_sb_project_quota (section: .data.rel.local.f2fs_attr_sb_project_quota)
-> > > > > ERROR: modpost: __ex_table+0x1570 references non-executable section '.data.rel.local.f2fs_attr_sb_project_quota'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1578 (section: __ex_table) -> f2fs_attr_sb_readonly (section: .data.rel.local.f2fs_attr_sb_readonly)
-> > > ERROR: modpost: __ex_table+0x1578 references non-executable section '.data.rel.local.f2fs_attr_sb_readonly'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x157c (section: __ex_table) -> f2fs_attr_hot_data_age_threshold (section: .data.rel.local.f2fs_attr_hot_data_age_threshold)
-> > > ERROR: modpost: __ex_table+0x157c references non-executable section '.data.rel.local.f2fs_attr_hot_data_age_threshold'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1584 (section: __ex_table) -> f2fs_attr_sb_verity (section: .data.rel.local.f2fs_attr_sb_verity)
-> > > ERROR: modpost: __ex_table+0x1584 references non-executable section '.data.rel.local.f2fs_attr_sb_verity'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1588 (section: __ex_table) -> f2fs_attr_umount_discard_timeout (section: .data.rel.local.f2fs_attr_umount_discard_timeout)
-> > > ERROR: modpost: __ex_table+0x1588 references non-executable section '.data.rel.local.f2fs_attr_umount_discard_timeout'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1590 (section: __ex_table) -> __text (section: .data.rel.ro.local.__text.41490)
-> > > ERROR: modpost: __ex_table+0x1590 references non-executable section '.data.rel.ro.local.__text.41490'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1594 (section: __ex_table) -> __text (section: .data.rel.ro.local.__text.41514)
-> > > ERROR: modpost: __ex_table+0x1594 references non-executable section '.data.rel.ro.local.__text.41514'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x15fc (section: __ex_table) -> .LASF965 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x15fc references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1600 (section: __ex_table) -> .LASF967 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1600 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1608 (section: __ex_table) -> .LASF969 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1608 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x160c (section: __ex_table) -> .LASF971 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x160c references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1614 (section: __ex_table) -> .LASF973 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1614 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1618 (section: __ex_table) -> .LASF975 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1618 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1620 (section: __ex_table) -> .LASF977 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1620 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1624 (section: __ex_table) -> .LASF979 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1624 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x162c (section: __ex_table) -> .LASF981 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x162c references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1630 (section: __ex_table) -> .LASF983 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1630 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1638 (section: __ex_table) -> .LASF985 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1638 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x163c (section: __ex_table) -> .LASF987 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x163c references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1644 (section: __ex_table) -> .LASF989 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1644 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1648 (section: __ex_table) -> .LASF991 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1648 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1650 (section: __ex_table) -> .LASF993 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1650 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1654 (section: __ex_table) -> .LASF991 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1654 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x165c (section: __ex_table) -> .LASF996 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x165c references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1660 (section: __ex_table) -> .LASF991 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1660 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1668 (section: __ex_table) -> .LASF999 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1668 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x166c (section: __ex_table) -> .LASF1001 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x166c references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1674 (section: __ex_table) -> .LASF1003 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1674 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1678 (section: __ex_table) -> .LASF1005 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1678 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x16ec (section: __ex_table) -> .LASF1510 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x16ec references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x16f0 (section: __ex_table) -> .LASF1512 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x16f0 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x16f8 (section: __ex_table) -> .LASF1514 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x16f8 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x16fc (section: __ex_table) -> .LASF1512 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x16fc references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1704 (section: __ex_table) -> .LASF1517 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1704 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1708 (section: __ex_table) -> .LASF1512 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1708 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1710 (section: __ex_table) -> .LASF1520 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1710 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1714 (section: __ex_table) -> .LASF1512 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1714 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x171c (section: __ex_table) -> .LASF1523 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x171c references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1720 (section: __ex_table) -> .LASF1512 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1720 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1728 (section: __ex_table) -> .LASF1526 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1728 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x172c (section: __ex_table) -> .LASF1512 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x172c references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1734 (section: __ex_table) -> .LASF1529 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1734 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1738 (section: __ex_table) -> .LASF1531 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1738 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1740 (section: __ex_table) -> .LASF1533 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1740 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1744 (section: __ex_table) -> .LASF1535 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1744 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x174c (section: __ex_table) -> .LASF1537 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x174c references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1750 (section: __ex_table) -> .LASF1539 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1750 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1758 (section: __ex_table) -> .LASF1541 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1758 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x175c (section: __ex_table) -> .LASF2868 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x175c references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1764 (section: __ex_table) -> .LASF1544 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1764 references non-executable section '.debug_str'
-> > > WARNING: modpost: vmlinux: section mismatch in reference: 0x1768 (section: __ex_table) -> .LASF1546 (section: .debug_str)
-> > > ERROR: modpost: __ex_table+0x1768 references non-executable section '.debug_str'
-> > > 
-> > > -- 
-> > > 0-DAY CI Kernel Test Service
-> > > https://github.com/intel/lkp-tests/wiki
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> > This patch adds the missing parent clocks, defines i2s_sysclk as
+> > a DDN clock, and i2s_bclk as a DIV clock.
+> > 
+> > The i2s_sysclk behaves as an M/N fractional divider in hardware,
+> > with an additional gate control.
+> > 
+> > To properly model this, CCU_DDN_GATE_DEFINE is introduced.
+> 
+> Could it be represented as a DDN clock taking a gate as parent? Just
+> like what is described in the published clock diagram. Generally I'd
+> like to avoid introducing more clock types, there're already a lot.
+Uh, our new chip(K3) may uses this macro that I introduced..
+so I don't wanna take a gate as parent everywhere..
+how about we leave it? ;)
+
+> 
+> > The original DDN operations applied an implicit divide-by-2, which should
+> > not be a default behavior.
+> > 
+> > This patch removes that assumption, letting each clock define its
+> > actual behavior explicitly.
+> > 
+> > The i2s_bclk is a non-linear, discrete divider clock.
+> > The previous macro only supported linear dividers,
+> > so CCU_DIV_TABLE_GATE_DEFINE is introduced to support
+> > the hardware accurately.
+> 
+> The divider IS linear, from the perspective of functionality, it just
+> implies a 1/2 factor. Could it be represented as an usual divider and a
+> 1/2 fixed factor?
+ditto.
+
+I know you don't wanna introduce new macro..
+But K3 requires this, so whether it is introduced now or future,
+the final result is the same.
+
+Please leave it..
+> 
+> > The I2S-related clock registers can be found here [1].
+> 
+> So this patch actually does four separate things,
+> 
+> - Introduce a gate-capable variant of DDN clocks
+> - Make the pre-divider of DDN clocks flexible
+> - Support looking up mappings between register values and divisors
+>   through a table when calculating rates of dividers
+> - Fix the definition of i2s_bclk and i2s_sysclk
+> 
+> IMHO it's better to split them into separate patches for clearness.
+Ok, I will split them into separate patches.
+
+...
+> 
+> ...
+> 
+> > diff --git a/include/soc/spacemit/k1-syscon.h b/include/soc/spacemit/k1-syscon.h
+> > index c59bd7a38e5b4219121341b9c0d9ffda13a9c3e2..253db8a602fe43a1109e2ba248af11109c7baa22 100644
+> > --- a/include/soc/spacemit/k1-syscon.h
+> > +++ b/include/soc/spacemit/k1-syscon.h
+> > @@ -29,10 +29,11 @@ to_spacemit_ccu_adev(struct auxiliary_device *adev)
+> >  #define APBS_PLL3_SWCR3			0x12c
+> >  
+> >  /* MPMU register offset */
+> > +#define MPMU_FCCR			0x0008
+> >  #define MPMU_POSR			0x0010
+> > -#define  POSR_PLL1_LOCK			BIT(27)
+> > -#define  POSR_PLL2_LOCK			BIT(28)
+> > -#define  POSR_PLL3_LOCK			BIT(29)
+> > +#define POSR_PLL1_LOCK			BIT(27)
+> > +#define POSR_PLL2_LOCK			BIT(28)
+> > +#define POSR_PLL3_LOCK			BIT(29)
+> 
+> This reformatting doesn't seem related to the patch.
+It's worth that create a new commit to reformatting it?
+
+                - Troy
+> 
+> >  #define MPMU_SUCCR			0x0014
+> >  #define MPMU_ISCCR			0x0044
+> >  #define MPMU_WDTPCR			0x0200
+> > 
+> > -- 
+> > 2.50.1
+> > 
+> 
+> Best regards,
+> Haylen Chu
 > 
 
 _______________________________________________
