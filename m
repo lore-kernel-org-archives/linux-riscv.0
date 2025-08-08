@@ -4,82 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CCAC87FD3
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 12:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46870C87FD3
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 12:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dy3wvzoRuWoiF0iYubALk1Wr47rbTYDh3WuQk5v6d+8=; b=wZg+vBynIEv06xzzZYMAw2ZFdP
-	hFYitJurQFGJ6SDoJSZtMnKksh+wUifi7ZWB6rDx617C26tk54absyNHj65jUxsJsWI89LnzJNOsQ
-	X8kOZcZfRRC6NVKhKU6PGuP4Fj6s1Btf8bc0nXUQkOLSwYRnEEcxHiEBVenARoC8GUbiJWHVcaBE4
-	ZY2+sozeFDy+YDb4/8Qh+1KA85Z43HQh1xjBXx72VcTMa+RIKovHkIqnqd6AxNh2vXo/JuQh7CUl+
-	913uTFWnDMXbG/wYM1qoJu0Q4bsunIe0K5neZNX0VsE3vsewm34xovPFgZuVXsfHH2fuLjEhwoNIc
-	NYPmTK5g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N1tC+uoSbwrQPh/DLuZkITOQduw1u/dZOA/XewWEL0o=; b=O78ZZiJBf4i+PU
+	pB/+Xc9ImnvYTOOxpLVyWPIIH/gZHRZeRrprs20IecSHop8+w6rodTpJIBuLE16C88f0/VpfLJufT
+	svQhX4c/XrRJDhiza1nMcFN6t8umoY8FlW/NwxECiAZjWTbPTd4dCqel/pswYTup8wuBZCXW8jIgc
+	yEe0XHLh4EFBSAB9NZEdvCPOhiHTsBAo+K90vbsbCOrIgTfCS+dchihTLQlclo2BmVOGnOxS4i5y0
+	Ul3JIPGBDJNJPAlw2NNtm4i1wzEkSr+TIewAGbZTUTz51FI0S/b9INr66a+aDDjiojDg+c5kVokYE
+	9j8w3JpKggBaTBFudW9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukM6n-00000002n8U-0uXI;
-	Fri, 08 Aug 2025 12:22:05 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ukMQN-00000002pb3-2ApV;
+	Fri, 08 Aug 2025 12:42:19 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukLaY-00000002ikO-0ajP
+	id 1ukML0-00000002oxc-11T9
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Aug 2025 11:48:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 20276A567DF;
-	Fri,  8 Aug 2025 11:48:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EFFEC4CEF1;
-	Fri,  8 Aug 2025 11:48:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754653724;
-	bh=FUx4gUgdyZ2ZZBXuzAMKD50bvkFnEcWtdMYMuJy1cVM=;
-	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
-	b=KlH2z2/SRGW4K4fN/lCfwfHAWCLsioLuNXYi0U8bGmXfTGaqjSCRwOhCs4s6TOA0J
-	 7X5PzrzWTGmySfiKXxgGxB0TXo1/sEh2IwxOimdqCIM5itio7QuZye5qUFhTiowsro
-	 g9QGixSNwxKrLcq5ITi3jqk67TuJhrezSoeLBNFz3QMy7WAmsXR3PnPszSWAp/YNRf
-	 EpX42Uy/odYqRyAa1Gq9Pu3xMZtrRg9Wroqn8PxqGIn7GoY01TQOQU0yKZO8i1uzel
-	 dv/TdTFEOVjWt68sUn36VVGp+5yBeS/m5Bp5b7ElzfFVkSOFUCDepl9vRLQpiKGtKo
-	 ASrYLKLOSRMsg==
-Date: Fri, 8 Aug 2025 12:48:31 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: patchwork-bot+linux-riscv@kernel.org, linux-riscv@lists.infradead.org,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	akpm@linux-foundation.org, Liam.Howlett@oracle.com, vbabka@suse.cz,
-	lorenzo.stoakes@oracle.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, arnd@arndb.de,
-	brauner@kernel.org, peterz@infradead.org, oleg@redhat.com,
-	ebiederm@xmission.com, kees@kernel.org, corbet@lwn.net,
-	shuah@kernel.org, jannh@google.com, conor+dt@kernel.org,
-	ojeda@kernel.org, alex.gaynor@gmail.com, boqun.feng@gmail.com,
-	gary@garyguo.net, bjorn3_gh@protonmail.com, a.hindborg@kernel.org,
-	aliceryhl@google.com, tmgross@umich.edu, lossin@kernel.org,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org, devicetree@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com,
-	richard.henderson@linaro.org, jim.shu@sifive.com,
-	andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
-	atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
-	alexghiti@rivosinc.com, samitolvanen@google.com,
-	rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org,
-	zong.li@sifive.com, david@redhat.com
-Subject: Re: [PATCH v19 00/27] riscv control-flow integrity for usermode
-Message-ID: <09081487-89ac-4f8d-b9fc-e563f09726d2@sirena.org.uk>
-References: <20250731-v5_user_cfi_series-v19-0-09b468d7beab@rivosinc.com>
- <175450053775.2863135.11568399057706626223.git-patchwork-notify@kernel.org>
- <db4eb976-693c-426c-a867-66cadd3dd7d8@sirena.org.uk>
- <aJWz82F21pVTSVJi@debug.ba.rivosinc.com>
+	Fri, 08 Aug 2025 12:36:47 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7e809baeef7so240802585a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Aug 2025 05:36:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bluespec-com.20230601.gappssmtp.com; s=20230601; t=1754656604; x=1755261404; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=So5R9ZlnKJJ4obt5mEmMc4Ho0dKfaA3unsl38Yws8b8=;
+        b=g6/1rDQaAt7RRgW5hFO/K0Xp86UdAxRmv7ecLXv8qVY0ocpuoAKXZjsR1gSeBx4EIw
+         0pzCJtWPiA1D117Pk9MtXKeS4VhZvTwxiV3Cu41Oj42nX/VxUZlYONyN1SneVTZVBfSF
+         ZeMM5HyB1pqX1ZNsbB3eEL0waTDaMQgQ6Cxw1QuT3Y/oi4xQiTc7V4tFEZ9nsam65nMc
+         CslQme6yZoTbO/rU7621cIc18cKC3Dw9EsF9SnwHcFu3cv+Dr11+LyNCkeYIRX2mcxct
+         DFys1uYFULUoriJh7FPWcnoxoeg/QVDoFpAxJqkTdgMKH0VgDzkAaqjOOUN1sWKCBrYU
+         6Lmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754656604; x=1755261404;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=So5R9ZlnKJJ4obt5mEmMc4Ho0dKfaA3unsl38Yws8b8=;
+        b=iCCEguNBe6Q+nRup0U9SB8vwhT3huTZQj30+4K5Puc7/S/k7diyb6M1S1eRovs6fti
+         DejYD/jhnVRtxnJAGmOaXWmrsF+R/3Qm8GAdXn+2sVRklGuEPxdVcJksY+d5B26wrI4y
+         ywnhaJYy4pX8BU4YPC4ib/u/a4aokM74vqJkWT1ZVKaWEfZvUr5leLNAhLSf5D0lY7HA
+         40S4vNEqrnvItVmPH7uFWAL4kqZXmqNhZi7fdYR5ahBp1Hw4sKCqFRS36Z7fFd8IJgi0
+         kCWNiSszI9Dkg6CRFQGPOIVWLjxykl6D4Vidf9SQ7JsK7HIW44W3kF11selL/uObtkvc
+         M9rg==
+X-Forwarded-Encrypted: i=1; AJvYcCVmReswJx3sOGEzxHkzdntzEtDBqBluCdu7mG+n4aqlFOqACFSc+XvbU0Wt9sgqqxb+iNZXnUl9vtJlxw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxerTyEz/TrYwCagxiuSHZ6GjDwNK/kVYkcty3X/F3Fx2J2Q641
+	JotpATURRte6iaugkQLvQe7p9xFagJH4RqgHWxt4z2hVWfULxIcXl6TySSz/uSd6
+X-Gm-Gg: ASbGncvN9FkwnchaaU5Z0w8zewqSj9BBeuSQyP6XrrK+1alN4YlY59oMvIO8X9YoPz/
+	kadTx9JgPoLmOkeXdOA370xAPF6kDzp6xbsfkdZSIe5RyiJoXdGdqEaTSjlzY/3gXGmYOaN2b3r
+	sqgnjErbj5/+I23OqWrRwYu73PGoqhqjsH7JUvJqJKv4+Yo/y1b4HLBGMOMLyhu+SFcaGXL4jmK
+	KLkK8RtOz6edJuNAiUu2u0J1dwQKT40v65V4bNZUpikFC9YUYjeLyegIVYWepYxWkvMTkb9sTcS
+	vYEc1kJVcztOhbeAEahvuXhrbJuCznbN+P4YsnZFXqmxwvGSJUYMnyB5OiZG+xIpnVNH2OBX1Wr
+	oxGIUXeTjBUE7lMwC8XJbTQ0ilxuJUSM3APpSmH09AQ==
+X-Google-Smtp-Source: AGHT+IH2lbmFHZqNHJVGHjy4ogO2VYhO6V47Bv3oIaip42J0xoV/NzCukHATaOzfImBWGhmprpzXeQ==
+X-Received: by 2002:a05:620a:2910:b0:7e6:67b3:ebf2 with SMTP id af79cd13be357-7e82c68965dmr374630785a.27.1754656604365;
+        Fri, 08 Aug 2025 05:36:44 -0700 (PDT)
+Received: from localhost.localdomain ([37.19.220.61])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e67f72b045sm1102877685a.60.2025.08.08.05.36.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Aug 2025 05:36:43 -0700 (PDT)
+Date: Fri, 8 Aug 2025 08:36:42 -0400
+From: Darius Rad <darius@bluespec.com>
+To: Drew Fustini <fustini@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+	Andy Chiu <andybnac@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Drew Fustini <dfustini@tenstorrent.com>
+Subject: Re: [PATCH v2] riscv: Add sysctl to control discard of vstate during
+ syscall
+Message-ID: <aJXvWuPKIc2lCSX3@localhost.localdomain>
+Mail-Followup-To: Drew Fustini <fustini@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+	Andy Chiu <andybnac@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Drew Fustini <dfustini@tenstorrent.com>
+References: <20250806-riscv_v_vstate_discard-v2-1-6bfd61b2c23b@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <aJWz82F21pVTSVJi@debug.ba.rivosinc.com>
-X-Cookie: What an artist dies with me!
+Content-Disposition: inline
+In-Reply-To: <20250806-riscv_v_vstate_discard-v2-1-6bfd61b2c23b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_044846_310422_730F927C 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250808_053646_373270_AF501D40 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,69 +112,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8949012447068687679=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Aug 06, 2025 at 07:03:28AM -0700, Drew Fustini wrote:
+[...]
+> 
+> diff --git a/Documentation/arch/riscv/vector.rst b/Documentation/arch/riscv/vector.rst
+> index 3987f5f76a9deb0824e53a72df4c3bf90ac2bee1..b702c00351617165a4d8897c7df68eadcd2d562e 100644
+> --- a/Documentation/arch/riscv/vector.rst
+> +++ b/Documentation/arch/riscv/vector.rst
+> @@ -134,7 +134,25 @@ processes in form of sysctl knob:
+>  3.  Vector Register State Across System Calls
+>  ---------------------------------------------
+>  
+> -As indicated by version 1.0 of the V extension [1], vector registers are
+> -clobbered by system calls.
+> +Linux adopts the syscall ABI proposed by version 1.0 of the V extension [1],
+> +where vector registers are clobbered by system calls. Specifically:
+> +
+> +    Executing a system call causes all caller-saved vector registers
+> +    (v0-v31, vl, vtype) and vstart to become unspecied.
+> +
 
---===============8949012447068687679==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="D45dRbRxMwDeSA/W"
-Content-Disposition: inline
+Perhaps:
+
+Clobbering the vector registers may prevent leaking information to user
+space and aid in debugging, but can significantly increase system call
+latency for some implementations.  [...]
+
+> +However, clobbering the vector registers can significantly increase system call
+> +latency for some implementations. To mitigate this performance impact, a sysctl
+> +knob is provided that controls whether vector state is always discarded in the
+> +syscall path:
+> +
+> +* /proc/sys/abi/riscv_v_vstate_discard
+> +
+> +    Valid values are:
+> +
+> +    * 0: Vector state is not always clobbered in all syscalls
+> +    * 1: Mandatory clobbering of vector state in all syscalls
+> +
+> +    Reading this file returns the current discard behavior. The initial state is
+> +    controlled by CONFIG_RISCV_ISA_V_VSTATE_DISCARD.
+>  
+>  1: https://github.com/riscv/riscv-v-spec/blob/master/calling-convention.adoc
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 36061f4732b7496a9c68a9a10f9959849dc2a95c..7bb8a8513135cbc105bd94d273012486a886f724 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -656,6 +656,16 @@ config RISCV_ISA_V_DEFAULT_ENABLE
+>  
+>  	  If you don't know what to do here, say Y.
+>  
+> +config RISCV_ISA_V_VSTATE_DISCARD
+> +	bool "Enable Vector state discard by default"
+> +	depends on RISCV_ISA_V
+> +	default n
+> +	help
+
+Perhaps add the following paragraph:
+
+Discarding vector state is more robust, but has negative performance
+implications in certain implementations.
 
 
---D45dRbRxMwDeSA/W
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Fri, Aug 08, 2025 at 01:23:15AM -0700, Deepak Gupta wrote:
-> On Thu, Aug 07, 2025 at 01:28:36PM +0100, Mark Brown wrote:
-
-> > Do you have an update for my clone3() shadow
-
-> No I don't.
-
-> > stack series that I could roll in for when I repost that after the merge
-> > window, and/or instructions for how to run this stuff for RISC-V on some
-> > emulated platform?
-
-> I would want to write-up instructions. But I don't want you to go through
-> a lot of hassle of building toolchain and bunch of other stuff.
-> Let me see how I can make it easy for you. Will report back.
-
-Thanks.  FWIW I should already be sorted for the kernel build, unless
-there's a super new or specialist toolchain required for this feature
-(I'd guess I should be fine for the shadow stacks bit?) - it's userspace
-and emulation for the extension I'm missing.
-
---D45dRbRxMwDeSA/W
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiV5A4ACgkQJNaLcl1U
-h9BR4gf/Yvc9us1uldFqSA9g7p+0bzU3IY/RfdDdME4qVGVWWXybW7b1P+6OdvKr
-lRLLeAJQkpEzhtLNeXXTVgRijmaDgccqM2d2Vkehw9qrW1+pwA56PX8PQPBtJsGL
-riODDRX0jZSrSVAPE/mwrQRc97vY83Tme2w2Psah2FzICcRcLdsC9vz3BIsquWgp
-5LbvWFyIS7PraLBoSkO76qBYDtRwjw3LzoANXm5rYo9QKsT48UPgjfvmzxLqTSxT
-oDMob4PjC2+1FU6Q1yzo5CUyK+aX58BM0OGwWEq4DDOCu5kd0ltVJen8HWszpfVz
-YgUpgySyAiGsfZTi1JBRv158syBsdQ==
-=5/MC
------END PGP SIGNATURE-----
-
---D45dRbRxMwDeSA/W--
-
-
---===============8949012447068687679==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +	  Say Y here if you want to always discard vector state in syscalls.
+> +	  Otherwise, userspace has to enable it via the sysctl interface.
+> +
+> +	  If you don't know what to do here, say N.
+> +
+>  config RISCV_ISA_V_UCOPY_THRESHOLD
+>  	int "Threshold size for vectorized user copies"
+>  	depends on RISCV_ISA_V
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8949012447068687679==--
-
