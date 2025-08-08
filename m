@@ -4,147 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D12C87FCF
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 03:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFF8C87FCB
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 03:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PzbIRu6HRxoSVcmvgduBW1mQaipK5dSNwS8oWuJ8jBY=; b=S6xf5FspaEvx25CBUOTPk+hcED
-	WbP1Voz6+k7SxbBthoKHFx/MkPMTBBWqDvuwvHQkL/Th08OrBpQ34F3QV8XdE8yY8zKuFgBpHtgEh
-	eDaLJkftwRYx2afpzyEexMvK20fSnJ0bxuQyOjXp6ztk3JYdeS7O4HijeRMvM/XkGXd0nlFRHPDdh
-	JsTpkWM7legRWtIj8TRtxSmYXcTSN/RfoWh2NK/Cqi7kpdS9LjrymrcPB/ayn+pinki/JjUKp7NY8
-	hZc9IafzqOsBGVEy1oE3wOijROxxXAFqeiG7jUw2Zq0a6s+Sj3lueNS/uMSicMJzQZXOR83h9zVXi
-	mTGOnv+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VRIT5GxWAOJcH0VhFTw0IiMIjn6RrhOb6/kuBJKZ1b4=; b=x1Bh//mD0ODNwz
+	U6WECCOyZLwwQ0VpUdi/xkvvuB+6ClW6Hq2USqoWHI08PTw5gEoMOtAZCyy7BVLB64E0Mty/Y7PL6
+	ZChjzQXVAFb/xsqLWMAYJp8vsrQx/4di6Czx9ezXZDK4BeVQ4P4kInF7NZv4WKpYF7X5Ev95snSVx
+	jY/0FabrRJ6bddd8rfqWcUbE/baHTyVCmJMdC/kLx/r/WpuwIO4oz0RihQ0oi5425bwFhkRmR7PH/
+	xcy2TkePD0M3nsOIQez7jMCB6Lt9Dy5NIee/yfETobX/R+z2pcg5VjGzj1RCdDgklGWZS4nL+g/Ul
+	HPPwu6kk9YopurFb1IVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukDUn-00000001u4K-3rZW;
-	Fri, 08 Aug 2025 03:10:17 +0000
-Received: from mail-japanwestazolkn190120001.outbound.protection.outlook.com ([2a01:111:f403:d406::1] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1ukEGQ-00000001wWo-44Kd;
+	Fri, 08 Aug 2025 03:59:30 +0000
+Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukDUk-00000001u2f-442E;
-	Fri, 08 Aug 2025 03:10:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WLdbQO+SkLzl3zPf4+BDyJmlv/lMNHGUDLWqe4o9e++pvJELYB1h+Ud+zfb+FxPWb0LcGf9/Uh3g3nLQvhpSDGMxzGTUKI2fne7XfkbQ33hKVtbx6Ot2iJunTkJoDrp71kHBhQI2vUOiggc8n12zgjHfiPlegraeF7l2cQWdtzlvRVs8CvmTjQF/pNAN4eBrU5LUBTKn7caBcWNurPMor6QlOCZRqRfyYEbNuc+B6x7WLy0zCE43DyCDz1FZ1dNr+Ktl3MD/Hq2E+xD6D0nBrimQqYc8JpuuhmyN7Poj+/X4PHoJnZL3b6nwMa7aqVKzRmK57e8Wzt/AoUmlfrkYCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QHvCSPwQ0Z3z4AcVW+4YSIvsCo1xx2o6/L6gwmKltso=;
- b=cKVbVGHTbOZbij9U13dmyWkBHAfnKnpFAWyJjLDBWXuNAQOUUvb3E12Doqb49oQ0ksCN1qZKDRhhZLgvaNkJHB5TJel9fY5pzUWRRfLNtw0l3YXrbzgfwxSROf/fKBsUH7WMdelaBj0ZwiD+LINUivg1VSJPIX67p183bOcNPyY31VqYRK9WqVylFwHdEzNv2E3MeJsWWk7wJbxUmsFrOgd+dar7rs6SV4xbdjIM3VfmutYeW80j+x7s1PZnKEJJkbEvgrHvjlKb6/8NHK2AoujoxAFOo9q2iOWjcWenYy0wcx0gNickbBLD3SOwl4NujkfxKauKceeh48LOW3oaTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QHvCSPwQ0Z3z4AcVW+4YSIvsCo1xx2o6/L6gwmKltso=;
- b=M1A8AjoIH0E+EWUE5/EzfCyY1KTtORPn3dISHhlnNzbQb5w7km5zPBBBdzeOJemVNmGSFHsw6yCStbDV8GPxKi6zLL08LLtQcI9Cg4XI6+vSdeYrMehL8cjJZtLNeVVHrE0nZwBaU6R0WxawgnV6f3/TkclJ3HEzhPQJ87gV1gTVIlHx09B0QlHhE+12Vve+J4xI9sknsYmq7Xk8UkkvNn3oThPq09UxUvhpWvGxFy8oFrw1Z92VJpzRTd1lJq+qVTI4Yz9aQupNf9Shga2tfXQnY6jlPnh1T+Y6ev5RHxTzJR57Cq+49xRA3mtojFXUfczgYi7ujfWhtyAVvV00Uw==
-Received: from KU2PPFB98B58DA6.apcprd02.prod.outlook.com (2603:1096:d18::466)
- by KL1PR02MB7407.apcprd02.prod.outlook.com (2603:1096:820:118::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.18; Fri, 8 Aug
- 2025 03:09:58 +0000
-Received: from KU2PPFB98B58DA6.apcprd02.prod.outlook.com
- ([fe80::a44d:d17e:c1f1:2eda]) by KU2PPFB98B58DA6.apcprd02.prod.outlook.com
- ([fe80::a44d:d17e:c1f1:2eda%4]) with mapi id 15.20.8989.018; Fri, 8 Aug 2025
- 03:09:58 +0000
-Message-ID: <KU2PPFB98B58DA6DD6E50BA60CE58174011F32FA@KU2PPFB98B58DA6.apcprd02.prod.outlook.com>
-Date: Fri, 8 Aug 2025 11:09:52 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] RISC-V: KVM: Using user-mode pte within
- kvm_riscv_gstage_ioremap
-To: fangyu.yu@linux.alibaba.com, anup@brainfault.org, atish.patra@linux.dev,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr
-Cc: guoren@linux.alibaba.com, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250807070729.89701-1-fangyu.yu@linux.alibaba.com>
-Content-Language: en-US
-From: "Nutty.Liu" <nutty.liu@hotmail.com>
-In-Reply-To: <20250807070729.89701-1-fangyu.yu@linux.alibaba.com>
-X-ClientProxiedBy: SG2PR01CA0136.apcprd01.prod.exchangelabs.com
- (2603:1096:4:8f::16) To KU2PPFB98B58DA6.apcprd02.prod.outlook.com
- (2603:1096:d18::466)
-X-Microsoft-Original-Message-ID: <3280c608-24ae-4ea5-aba3-a401c39f4ad6@hotmail.com>
+	id 1ukEGO-00000001wVn-1wjX
+	for linux-riscv@lists.infradead.org;
+	Fri, 08 Aug 2025 03:59:30 +0000
+Received: from localhost (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id 26EDC12FB44A;
+	Thu, 07 Aug 2025 20:59:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1754625565; bh=wtMbvb7F9YleOMpn+fsVw/m1posEl67MokbxgopQZdc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YE39mL1ow/vlMUHMkucfPFRjWqe0Q5hIXKsVLj00CB+GSNLycwHDAAW+Kjr7SQNBV
+	 MmgjAs408I3PJNtyfG+fEldw4visd+IIYSZ/LVf8cRDrtcTdwHTjNacmGEiVvo4S61
+	 ek/psqJ/L8LnrryL3cJ43nXMH4zdpTtQIzW36ms/D2lfrVmrrDavBe2vrV/i9253Ah
+	 h0wmizUgRCgUaeHRcTJu1MW+Aj/ULKmaP24KFols9jD/0wDY5+OSA2AZEuwTNTHpHY
+	 xjBdoQDdX3oH81Ru89frUQRS5mSAcBEAPPZiz6EyuQb9DUWph5w9+2pFVSvSwHGyW4
+	 U886mM7VtQu8w==
+X-Virus-Scanned: amavis at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by localhost (bayard.4d2.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id DHoPHkzHj3rG; Thu,  7 Aug 2025 20:59:23 -0700 (PDT)
+Received: from ketchup (unknown [117.171.65.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id C432012FB405;
+	Thu, 07 Aug 2025 20:59:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1754625563; bh=wtMbvb7F9YleOMpn+fsVw/m1posEl67MokbxgopQZdc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mH+nuok18zbDE1z0KZvWKhix4d/OV9noQQo+K64HR1eDxG3v4mU+Z9wCrEC/xag1a
+	 /dvGKZ6bAUKfD3IxUurD35YGod4DGuLFdpuzlWmVGjwnb+s6WVJ5pc8vQBi7gFv0OP
+	 j42ZCULMVHZ5s7T4/QtA3Hb+/aBhqhd8fyzJMPj38qcgRoDHFLRDFvBVUophhYN5/C
+	 NPgVXeWmqJd5W18rN9n19/io39fmCy6iQrBDar0NCSH+Dzf6MtYJLxikU2jHQE9cJW
+	 Y6+jA1++nHer4eFVDgQdJDhwEj/ZHW4lpTfclzWYvwNsRUSjyCFCvTi2R4WGv44oy2
+	 HlJLm1bvMhldw==
+Date: Fri, 8 Aug 2025 03:59:12 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>,
+	Inochi Amaoto <inochiama@outlook.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Jinmei Wei <weijinmei@linux.spacemit.com>
+Subject: Re: [PATCH 2/2] clk: spacemit: introduce i2s pre-clock and fix i2s
+ clock
+Message-ID: <aJV2EIC_0E1FQX7L@ketchup>
+References: <20250807-k1-clk-i2s-generation-v1-0-7dc25eb4e4d3@linux.spacemit.com>
+ <20250807-k1-clk-i2s-generation-v1-2-7dc25eb4e4d3@linux.spacemit.com>
+ <aJQXKN_ccpWVJ5oZ@ketchup>
+ <C7EA7A1D0F9884EB+aJVcqFqix0GF_RnX@LT-Guozexi>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KU2PPFB98B58DA6:EE_|KL1PR02MB7407:EE_
-X-MS-Office365-Filtering-Correlation-Id: d587020e-a77b-4bca-2b77-08ddd6290dc3
-X-Microsoft-Antispam: BCL:0;ARA:14566002|6090799003|15080799012|41001999006|10112599003|8060799015|19110799012|5072599009|461199028|3412199025|440099028|53005399003|40105399003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Wkl3TEIvQXlKN21IaUtGOTE4Z3BVZWhBRjE2SzBYSU5YdStNZHZJM0FQeVFV?=
- =?utf-8?B?MUdyWngwVHBCTSthM1d3UHRJS1FGUmMyQkZ6WkxDSjNuWWZyTkN0cVNPb2Fj?=
- =?utf-8?B?UVlwL0ZSNkZxeUwwNzc5QnZTZjNJZXRzdmdmZUEzSXZRbEF2UDJZQ1lRaVBx?=
- =?utf-8?B?WkdrMWdRS2F4SXdkeUNRVWQ1WHJ5OE5vRXJwUHFyVytUUlB0aXZud3d5Mldw?=
- =?utf-8?B?aEd1Sk5HaUNWZXhzRlh4UmJ3ZUh2aWZ6UjgrRmY3L1JLNG9lQnI4MkhEcktv?=
- =?utf-8?B?LzVsWUVhZkZxVTcybEsrVmpRZSsyNHhSblEzNlhVR1pjK1BRTms5Nk9QVlBS?=
- =?utf-8?B?L291SnRxNFF6eVNjcTZudGVHVTJaVUV5NHNwdkM4UGN3dlpUdzQ3bDZRaTBP?=
- =?utf-8?B?UlpXUXF5Qy9LY3ZHRHBEQSsxUHNSQm14Z09oQmhTaytJSnpxZ2thYVlqdHN3?=
- =?utf-8?B?amFJQmVSOGJrMXNkWmpRUno3T2w2L1hvTkxYTkZXT3lrSEtZcHo5cTlyTWZ0?=
- =?utf-8?B?dmlUaG9VSk52amFBNlBFcERJZzMzb3VleHFiVDRTeUVCbUtEMmlmTmxNK2g5?=
- =?utf-8?B?MFlMM2NDN05LemFFK1lvUDdLY0FqZE5JdWo2STBGQWtkSEJvYlB6WG1wZ0V1?=
- =?utf-8?B?U3dLdTJLaFd6djlPaUFpWjhQVFY5N3h4RW1meDFwclp6ZUs0YzlLc3kwUWFX?=
- =?utf-8?B?MDhRVHdPR3ErdSs4Q01Gc21LbEE3VmU5MHJmbi9aMzhMb0tkcEtsUlMyZG5j?=
- =?utf-8?B?aGFLMVNQZWVNaFI1K3duRkYyb0tBTHJyd2NSeGlWSVM3dnpiMXBkMGg4akwx?=
- =?utf-8?B?WlY0a2U2NHNGMkxrWjFpSkxDc2ZqK0pXU0RjaCt0UmQxSVdiUFVCL3ljMEg5?=
- =?utf-8?B?Rm16d2NDdmoxN3g5ZXkxc0ZZbjRibVRxWDF4ZldKOWsrVU5qd09DVWROSUhT?=
- =?utf-8?B?ZmltTlp0dFpiZ2p0VTNxSmlzTkRUZFM0QXREWVJ1aDlyQ0dmdmJaalRBWTk1?=
- =?utf-8?B?NFduL0o4ZUNPVW42RlR4b0s3czMwM0pCdk5nL3NIUVh3ZE52RXZmUnlsNDQ5?=
- =?utf-8?B?OHBFR2EzVGNRbTNiSlBmV0hhNk4yMTRxdzhjUDRLTUNBQUdKOUlxQzJ4NHhP?=
- =?utf-8?B?aGJFelkzcHh0MnJ5VDVxdjBiUFJxZUsvb09xOGRuMkRqUTF3eWl4eStWOCsr?=
- =?utf-8?B?YVppYlIrckFIR3YwWll4L1RaakRRc3VTTEdLeU5uekRiY21MdXRqaFZoZ1Bh?=
- =?utf-8?B?czBiUFc2MlE2OGlxb1Brb0VxL2Fzdjh6SmducE1hRU1lR05UV1VEVGdXeUl3?=
- =?utf-8?B?WVVjOXQ1RVppeGszWkZnN3FnV0dVbFBvWGljTXhjSlZqVXhobEt2azdUNmlS?=
- =?utf-8?B?WThSUVFjVUxYOHpsUDRjOVpMczN0ZFY0L0F5NWcxaDNWZGNVeFZqUDIvSHRp?=
- =?utf-8?B?YU5yREhiUm1QS0Z6YUxLU1NmTnpYRHZCb1dVdXNVdjRsZHloWTducW1TZVFt?=
- =?utf-8?B?WFVaZFdyMEtpWXh1RlFrNitYeU9pK05ZRFlTaDVBYTdKc3ZVUFBYMlkrbXJi?=
- =?utf-8?B?OXVMUWJ3d0lGd3VoN1gzOEx2NEFNWUpSZi96SndycVZLdGthY2tVbWE0ckV2?=
- =?utf-8?Q?8/oxt1bBKKWdOje4Os3Ym7gRTIw6BgK1x/QStAw4DEhE=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dEdTMVRPUFpScWpjTDcvZklKRURldEtMalYycXNMVjBiUWxZMitYVWVHSGZQ?=
- =?utf-8?B?WWxndXJVeXJnMUhLSUNSZ2hHRUUwTmJJUUJBVm8yMzFrUGFpdjhRSGdkTE1E?=
- =?utf-8?B?L2ZZRUw1blFuby9nclVGbVJDTllYRnNlK2orbkV6VVg5Ui9iNk9jUjY0UlRM?=
- =?utf-8?B?SzFnVE9UQmZDS3BPNWx4SmNtMFhUdldpUUdtcXcyZjJOcUk4eFoyMmVCR0s3?=
- =?utf-8?B?S0FCM3lzZzNNb0pveUhaU3IyZUNFNldEdmZ3bnNJR3dRZWFkdUFVSTBaWGhn?=
- =?utf-8?B?MHdzUk1velZpUEcrbWszb3lIMEkrd1ExbXRsNWI2YXJjVm9PSkFBeHljQVZB?=
- =?utf-8?B?TGdWS09uVSs2SVcxa054SVIxdDNSRERBL3hzY3RMZEJRS0thMnhGRW9MalFQ?=
- =?utf-8?B?RWdURFNEUmdWTWdXblJpODE2ZjVYNUZJZWl3M3creDF5c3ppVklRTlJQS29k?=
- =?utf-8?B?ZWhMTjlRSFB2d0JsTitwekx4bFowYXYrNGdSc3JpWVArWFVHMllhMll4MlJC?=
- =?utf-8?B?V2RxN0NUM1FNVFNzbDc5d0UxRWdaMytBbXhBSlIxS2ZSTm01clQvWFpGOUtL?=
- =?utf-8?B?RGNZNmJtUFpQMVVXWTNlaDNHaU1oeS84dE5YSENIZ0k1ckdqbUZyWGZkOWJ6?=
- =?utf-8?B?NEVUNUc5K3BISGtlQ0t2MEk1dXVPN0ZacExhS2tnT3pKVjVJb2RIa0dqUGE2?=
- =?utf-8?B?L0pleG1UUURWSmUvbE9lSFVCanFlYW5FVUJRNjRaWTJNemtZVythcE90UXV2?=
- =?utf-8?B?QmVPK092QUg4TFZNZlRKaU42NVE4TmRZQ0c1SHpmb2ljcG1kVGtxYUZYdTFx?=
- =?utf-8?B?MjR1TWdoSHJxS1pGa3NESC9kRG9nS1NTdGRWT2pteENtRjF6ZlpPQ0J2Tkdq?=
- =?utf-8?B?VmIrV2c1Sk90M09RLzlXdjdEelRCWmk1K1Z2QXg3RGJRWWpXZDVyWjBySHVJ?=
- =?utf-8?B?eE85QzI4ZzR3QUlvaGc0M2JyVkFjRDRHY3o2MjQ4M0taNVZoVkpPV21yanFZ?=
- =?utf-8?B?UE1SeHdqUys1K1Zab3pIUlQ1UXp0emxVOVZSNW5IcVRkQVlKRzhsQ2g5NVpN?=
- =?utf-8?B?SWFua0Q1MGpuWjE2N2g1ZUZnV1NuYWJ1Y0Y4bGN4QVQzbnp6WkM4RlVJdWR4?=
- =?utf-8?B?ZTN4WVRGMjhUT1BPL0ZmbkJWZE9OalBOZ3JLekJPb2ZhSC9vQldGRmo1OGd4?=
- =?utf-8?B?cWtWZU40ckgwOWFzREYycmZsUEZUbDZqQ21RRnJCT0NKZENmOXNiNUo5NUlK?=
- =?utf-8?B?d3Y0cVN2WDFUR1NTb0hmZFhTZGpEbTdJWVdWSDJqNS9zKzFrNHM0cStqOFlK?=
- =?utf-8?B?Y09VRTFqdmRvRmczcmYyL1J1bmNnME56TFhMVUNnVkM5bWt0SFNRRUxXMlFW?=
- =?utf-8?B?UmVvejVIbzZkbWNMaUdRaTVIbDgxWG91aGY0WUY1WlN5MWNSOWtGWTQyNVJp?=
- =?utf-8?B?R0MxZFlHSFVLUW55RWQvMjFyVXBBeHRJUjNjMnBnRWZHN2d3N1k2YktmREJT?=
- =?utf-8?B?S24rSnV0RW5DVlk2WlJjS2dUOG5mc2IzbkNuUEVteEVXcGtQa0xVQ3ArZVFn?=
- =?utf-8?B?VHlIUmx4Sm5FOWJadWd4aW1RWEpVWThLRzl6ajFjT0Jxb0F3Zld0WG5IOXVt?=
- =?utf-8?B?TFZPVlc0Vi8yVkdrVE1Vc2Q2ME1LQmo1VVloSHcwZnBCd1F3ZU95ZDhkV1Vm?=
- =?utf-8?Q?uNAjMRDIeSizI4mklqMk?=
-X-OriginatorOrg: sct-15-20-8534-15-msonline-outlook-c9a3c.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: d587020e-a77b-4bca-2b77-08ddd6290dc3
-X-MS-Exchange-CrossTenant-AuthSource: KU2PPFB98B58DA6.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2025 03:09:57.1991
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR02MB7407
+Content-Disposition: inline
+In-Reply-To: <C7EA7A1D0F9884EB+aJVcqFqix0GF_RnX@LT-Guozexi>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_201015_007747_FC64AA1C 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20250807_205928_818855_5B5C3BF4 
+X-CRM114-Status: GOOD (  39.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,59 +95,142 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Aug 08, 2025 at 10:10:48AM +0800, Troy Mitchell wrote:
+> Hi, Haylen!
+> 
+> On Thu, Aug 07, 2025 at 03:02:00AM +0000, Haylen Chu wrote:
+> > On Thu, Aug 07, 2025 at 09:30:11AM +0800, Troy Mitchell wrote:
+> > > Defining i2s_bclk and i2s_sysclk as fixed-rate clocks is insufficient
+> > > for real I2S use cases.
+> > 
+> > This is a little misleading: they're modeled as gates with fixed-factor
+> > for now whose rate is calculated from their parents instead of defined
+> > statically. You could avoid possible confusion by replacing "fixed-rate"
+> > with "fixed-factor".
+> >
+> I'll change it in next version.
+> 
+> > 
+> > > Moreover, the current I2S clock configuration does not work as expected
+> > > due to missing parent clocks.
+> > > 
+> > > This patch adds the missing parent clocks, defines i2s_sysclk as
+> > > a DDN clock, and i2s_bclk as a DIV clock.
+> > > 
+> > > The i2s_sysclk behaves as an M/N fractional divider in hardware,
+> > > with an additional gate control.
+> > > 
+> > > To properly model this, CCU_DDN_GATE_DEFINE is introduced.
+> > 
+> > Could it be represented as a DDN clock taking a gate as parent? Just
+> > like what is described in the published clock diagram. Generally I'd
+> > like to avoid introducing more clock types, there're already a lot.
+> Uh, our new chip(K3) may uses this macro that I introduced..
+> so I don't wanna take a gate as parent everywhere..
+> how about we leave it? ;)
 
-On 8/7/2025 3:07 PM, fangyu.yu@linux.alibaba.com wrote:
-> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
->
-> Currently we use kvm_riscv_gstage_ioremap to map IMSIC gpa to the spa of
-> guest interrupt file within IMSIC.
->
-> The PAGE_KERNEL_IO property does not include user mode settings, so when
-> accessing the IMSIC address in the virtual machine,  a  guest page fault
-> will occur, this is not expected.
->
-> According to the RISC-V Privileged Architecture Spec, for G-stage address
-> translation, all memory accesses are considered to be user-level accesses
-> as though executed in Umode.
->
-> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-> ---
->   arch/riscv/kvm/mmu.c | 6 +++++-
->   1 file changed, 5 insertions(+), 1 deletion(-)
-Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+I wasn't proposing a workaround. What will go wrong if a gate is taken
+as parent of DDN everywhere? Not to mention this DDN variant actually
+duplicates the code in ccu_mix.c.
 
-Thanks,
-Nutty
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index 1087ea74567b..800064e96ef6 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -351,6 +351,7 @@ int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
->   	int ret = 0;
->   	unsigned long pfn;
->   	phys_addr_t addr, end;
-> +	pgprot_t prot;
->   	struct kvm_mmu_memory_cache pcache = {
->   		.gfp_custom = (in_atomic) ? GFP_ATOMIC | __GFP_ACCOUNT : 0,
->   		.gfp_zero = __GFP_ZERO,
-> @@ -359,8 +360,11 @@ int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
->   	end = (gpa + size + PAGE_SIZE - 1) & PAGE_MASK;
->   	pfn = __phys_to_pfn(hpa);
->   
-> +	prot = pgprot_noncached(PAGE_WRITE);
-> +
->   	for (addr = gpa; addr < end; addr += PAGE_SIZE) {
-> -		pte = pfn_pte(pfn, PAGE_KERNEL_IO);
-> +		pte = pfn_pte(pfn, prot);
-> +		pte = pte_mkdirty(pte);
->   
->   		if (!writable)
->   			pte = pte_wrprotect(pte);
+> > 
+> > > The original DDN operations applied an implicit divide-by-2, which should
+> > > not be a default behavior.
+> > > 
+> > > This patch removes that assumption, letting each clock define its
+> > > actual behavior explicitly.
+> > > 
+> > > The i2s_bclk is a non-linear, discrete divider clock.
+> > > The previous macro only supported linear dividers,
+> > > so CCU_DIV_TABLE_GATE_DEFINE is introduced to support
+> > > the hardware accurately.
+> > 
+> > The divider IS linear, from the perspective of functionality, it just
+> > implies a 1/2 factor. Could it be represented as an usual divider and a
+> > 1/2 fixed factor?
+> ditto.
+> 
+> I know you don't wanna introduce new macro..
+
+It's not about new macros. It's about new clock types. And the solution
+I proposed for the divider with a factor isn't meant to be a workaround.
+
+For the divider's case, I think combining a fixed-factor and a normal
+divider looks more clean than introducing a new LUT. It solves the
+problem for K1, right?
+
+> But K3 requires this, so whether it is introduced now or future,
+> the final result is the same.
+
+Could you please confirm whether K3's dividers requiring this patch are
+really non-linear or just imply a fixed-factor?
+
+> Please leave it..
+> > 
+> > > The I2S-related clock registers can be found here [1].
+> > 
+> > So this patch actually does four separate things,
+> > 
+> > - Introduce a gate-capable variant of DDN clocks
+> > - Make the pre-divider of DDN clocks flexible
+> > - Support looking up mappings between register values and divisors
+> >   through a table when calculating rates of dividers
+> > - Fix the definition of i2s_bclk and i2s_sysclk
+> > 
+> > IMHO it's better to split them into separate patches for clearness.
+> Ok, I will split them into separate patches.
+
+Thanks, that'll be easier to review.
+
+> ...
+> > 
+> > ...
+> > 
+> > > diff --git a/include/soc/spacemit/k1-syscon.h b/include/soc/spacemit/k1-syscon.h
+> > > index c59bd7a38e5b4219121341b9c0d9ffda13a9c3e2..253db8a602fe43a1109e2ba248af11109c7baa22 100644
+> > > --- a/include/soc/spacemit/k1-syscon.h
+> > > +++ b/include/soc/spacemit/k1-syscon.h
+> > > @@ -29,10 +29,11 @@ to_spacemit_ccu_adev(struct auxiliary_device *adev)
+> > >  #define APBS_PLL3_SWCR3			0x12c
+> > >  
+> > >  /* MPMU register offset */
+> > > +#define MPMU_FCCR			0x0008
+> > >  #define MPMU_POSR			0x0010
+> > > -#define  POSR_PLL1_LOCK			BIT(27)
+> > > -#define  POSR_PLL2_LOCK			BIT(28)
+> > > -#define  POSR_PLL3_LOCK			BIT(29)
+> > > +#define POSR_PLL1_LOCK			BIT(27)
+> > > +#define POSR_PLL2_LOCK			BIT(28)
+> > > +#define POSR_PLL3_LOCK			BIT(29)
+> > 
+> > This reformatting doesn't seem related to the patch.
+> It's worth that create a new commit to reformatting it?
+
+IIRC, the indentation is intended to show the relationship between
+register bits and offsets, which seems easier to read for me. Do you
+have a good reason to change it?
+
+>                 - Troy
+> > 
+> > >  #define MPMU_SUCCR			0x0014
+> > >  #define MPMU_ISCCR			0x0044
+> > >  #define MPMU_WDTPCR			0x0200
+> > > 
+> > > -- 
+> > > 2.50.1
+> > > 
+> > 
+> > Best regards,
+> > Haylen Chu
+> > 
+
+Best regards,
+Haylen Chu
 
 _______________________________________________
 linux-riscv mailing list
