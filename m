@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7474EC87FCF
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 00:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B57C87FDA
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 01:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pckHHIrY5zDq8YielljFK6xGJXxI/nTj+K7ENEO5Goc=; b=K2Kxu5rrLC6jxN
-	E5TArwtUMdNu++5Yq1LDQsa98KgxZANkBT1CG8wANLWhPxZQDE+ExH5h3Xv/PYRIPWL0JYEW4J0ZI
-	G0tYW3GdMPIIUOLVVRNzhFuto3+8QBS81jD4abSggVOGOltXapl6XptlolqA+NjpirQGP0UFVzkfL
-	rSJWFkUdgxuF1hvJXD+MrCoonBrhQ9yhJRp2j6eyXlMJQy9Lly6lLwH4jSaB2+wkIpDUC88L68tXJ
-	+eyF4apou1lcqen6RW6K6ybgTL8YTlkO+GnczCjPtDRwc0Lov3uWOWU1BQbLEnfNJEsVYuIQc5wql
-	8gGrmBUVcy/3avDm8jMg==;
+	List-Owner; bh=M2hDEQdm+Ed9AcvnD21zViSWbD1hAgWgt6gNmDmlaY4=; b=IjPTzi+K92KZNY
+	Jr79yzrOVE/fYn3R4t/RE4QJvS5DfjKv1aG86kvHmCu/iPq9Xz964WRvzGQ4NGXdHdG4QC7PmVB2d
+	GzDxNhO6O6iqFk1d57Z1szcWasn5ZiNb/ObVlXGVkZXIETAnxV0XfNm2chQvsmx4Qj6ilYnjygwUS
+	bHg6Ci6rM86qzelf0LAZNE9RqbhGO1Q0e1gApURK6zVOOWj3SZCqdH29JsNyAefOh++Y7NpDsS5Jw
+	aSYgcEY0l0hJ3UMmse8Qzgbu9L5NuoeuVLXiUp48N6zm/ELkPRBSFqoqUf9yH31rnS7E98hzUYXiK
+	V5VKNrsdgkS7S93AYjmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukAfh-00000001iw7-32ym;
-	Fri, 08 Aug 2025 00:09:21 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1ukBpN-00000001mi0-17tl;
+	Fri, 08 Aug 2025 01:23:25 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukAff-00000001ivL-0U9s
+	id 1ukBoD-00000001mcP-3cqK
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Aug 2025 00:09:20 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2407235722bso15776475ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Aug 2025 17:09:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754611758; x=1755216558; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xXd2+hikVHn0DCUK47UPFJHxdRXV/eWo/6UJdSdmyyg=;
-        b=PqzI67BWMxcgPSqmqjHcRZvbHXiwf36BOb7qMtEw3P+/WboNKYADkgb5lfRcY48foG
-         U71WSaicJn53HiAravM0NBI5x4tQ/YHZvw6Um63m0ggYv6ukP8NDWk9kq158aBnjOW0V
-         JsaLz4zM2PhSry1ziMthBwyU/cNMwnPifs80nc3CcD24blIP4wJRxCp2qEVutwtP5qBD
-         kCwWQWuBgY8cwOsBjGLBle8dX7pvuxbemy76ImTCagbj/40IXAa2BQCcfrrv9Tv+jMY8
-         JkC9FvWstG+fXKVLlO3AF3uWu1qUPXSIyCEORwSnZon4czSOksIF3cOZq4f049vwOX/k
-         Q8Kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754611758; x=1755216558;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xXd2+hikVHn0DCUK47UPFJHxdRXV/eWo/6UJdSdmyyg=;
-        b=isrLSVc8R4JNe1ONtfLPBSTyUYcZxo1qlmxl6J27DriFq3H9CBSzf5ggly+Rev55D+
-         8mt89odr30Y0E5q3g33T5p6u1aT1W6l7wBk2Ut2MDFF4OhVY9Iisvzrn7ICYNT9OUo/t
-         UnGMXOxV14MDttXxFaWNNsX6VCP+5fds6psnED0h72+LBz0HlwGv0PjQFE6G7CiyVP0J
-         kByvr7NL/080smzXyodYy16ZsF8GNgUqbtz96wkYulPbJtuKqVc2G3Cfy6jse65ZVTDw
-         rRqwhybeHblEvon7/CjbNKFAX/P2nmVNrL49GQ7+jNGufAa4y9KqfStrRkM0VzZUSQGw
-         zSHA==
-X-Forwarded-Encrypted: i=1; AJvYcCWxTJiNhUFYoEJCBAwA8/xvStK6ycCF3qBZVrKL7NhJ5eAKz3wzUttVN/rZbaACvQgwyA79tgjrcCIEBQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOeXPKKmBO2gwOQcy9jrF3HlmHC1O89ANg+JpW3xqxzu23syJB
-	/oiG5rYKC2XRy5RXcGQHzf82RxCfSqykv8mkd4mbP9ZZP0CCUWAaZPBO
-X-Gm-Gg: ASbGncs4+y8Gawu2eInEdOJ8umAPspD9f/M1R+/kOn6GSjqDDw5ooYzIn1xNUvMfDS+
-	daH/OVvlO5sRnTQF5hRDjVL76mV3lfx2hHAOeKCUDA7zbZOZrAJTdtpYymH9qXPMpSM9C5Bm9AZ
-	4s4MjXzZYLMUsnFM3wEXZh8cptYH1BivdsobwFU9X6a54rK3M8sxDMceACW2RMWwS0Bd+7tqVpj
-	KTQ7t4rDuK3+FrOdZFUdldCFpwelVGzISXi4QypvfKr481ubuNuy2WsHR0A8G7rlYlLPDoiX2aa
-	23s/xQdVEnxrcQlEbVDrFOF+iFMrtW3kdOcD0MENdmFui45/jWuoXWOgVapbidUPD1b1Wk2pMKf
-	2fAOIXg3ruA59T6UFcUQ0qg==
-X-Google-Smtp-Source: AGHT+IEYZa7c6DgRkIA/IyVY7kXZKzb4NOGAiFrm0H6w/sJuK+opnTwKBJhZcOZBLBQYwP9x2EHNqA==
-X-Received: by 2002:a17:903:1103:b0:240:3ed3:13e7 with SMTP id d9443c01a7336-242c2228d0bmr13612495ad.42.1754611758173;
-        Thu, 07 Aug 2025 17:09:18 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-241d1f1ececsm194004595ad.68.2025.08.07.17.09.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Aug 2025 17:09:17 -0700 (PDT)
-Date: Fri, 8 Aug 2025 08:08:34 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Nam Cao <namcao@linutronix.de>, Inochi Amaoto <inochiama@gmail.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH] irqchip/sifive-plic: Respect mask state when setting
- affinity
-Message-ID: <prnjyu7ev5scocf4jh5jikox3niftje364lf3bjvizppxamdov@hbizpiazqual>
-References: <20250807111806.741706-1-inochiama@gmail.com>
- <87fre3mhkh.fsf@yellow.woof>
- <nowqjgxmomniw624avrizohwzzq7ebkznb64m25qim3zgxjacn@oizd7ngxjd6a>
+	Fri, 08 Aug 2025 01:22:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1754616070;
+	bh=YONhLCtVxAOKYtMTLs/xNzYwEhqj7k/VVs38rD2tJdw=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=lsDK6tj0XcLj81IS8zesmH8q0f7Yj/HxKSjE9DgACZxuTXiR/vyVGtqlUSJNIkNx0
+	 10eD5Hqdc7oOTsTUoeFbFrBlI0CKXXnQXf1q1twNsaIv9JsmNZ2XxUHwqMEKxDmUUt
+	 +dzHReEEz6eEw2eoXeSHAmDo454iXqueuLQm5ziw=
+X-QQ-mid: zesmtpsz6t1754616061tbef0d426
+X-QQ-Originating-IP: zQHRZWbedkVaYFV1bT3lY2wArHNnLUL6AKgzsJCZB+0=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 08 Aug 2025 09:20:59 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11874263861845849413
+EX-QQ-RecipientCnt: 17
+Date: Fri, 8 Aug 2025 09:20:59 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>,
+	Inochi Amaoto <inochiama@outlook.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Jinmei Wei <weijinmei@linux.spacemit.com>
+Subject: Re: [PATCH 1/2] dt-bindings: clock: spacemit: introduce i2s pre-clock
+Message-ID: <D09A72E63AAF75B3+aJVQ-75A7NL4CJtb@LT-Guozexi>
+References: <20250807-k1-clk-i2s-generation-v1-0-7dc25eb4e4d3@linux.spacemit.com>
+ <20250807-k1-clk-i2s-generation-v1-1-7dc25eb4e4d3@linux.spacemit.com>
+ <20250807-untrained-anthology-bcf760fe73cb@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <nowqjgxmomniw624avrizohwzzq7ebkznb64m25qim3zgxjacn@oizd7ngxjd6a>
+In-Reply-To: <20250807-untrained-anthology-bcf760fe73cb@spud>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NcfXIs+Ms1qHW+EWzFkp+YwK1QMm0Pb5MzCCoE3/bx3D6ijFeraKHM/g
+	okxeqsR9noXfcvP9XHOUcmYiQxGPYB6dE3/MX2LPYdCFzj+6owSPJ/3MXKJUt7/2b+QBbZL
+	H8uiZQ2cmDkW8IuI0eEi+Fe1K8qRkb8Uh9J9jNsrcpt6V0QKRG5J74a79fC8/0JG+6qa1KM
+	HpC8f1wycQtl9CyN1e6EvkNKluKeGflkUHCstixrJ/L+BgiYRJDxxD9dmswot/QRIpBVYla
+	/+MxMl53qsytoeuQ6TQk7eVNJQOTM4PH9REhFmcU5MPHCYgOXojzgWrAuW/48uHzknuRD4P
+	cXuQ1LXJ1vWXlQuE9PqWTaK6JF3o3QX1y2LZddcXTCjCCJplQZHCnfx+6plJh7/h8osRy4L
+	cGpuGD2jO++0/4pFnIgctGEVZhHd7KR+qy5/xY4d0GhNCaW/WJX8PJYewuy+waRuZFXyQdM
+	XLsHvBd739p61LtS3qsqnEYOKfL2NMk0lPAxvCvAe6V0aiTVnO4bh1x+Y0O30/89WtekhFK
+	RkJGGuTmaE56UpCMCX3+s1sRhl1ZHnBrrlTXVZFSrqREwG/h9s580SMfK/LQBDjugNjLE7J
+	KiTfww5a44r/Re00yIqj9JdPP0zYCdG9aD+4t4w0YPoJp98odlVJ0sUmXnPFFKmVy0qJ+vq
+	iX72LdT2bvf9skczfvWmfvZ17BdKDw29/vra8LP6pkEi9bHPbZzGfMEBXsHjRiEq+Ca5m9v
+	8A8f//5KcJHWrCdilMZ7jA/352NJvPw2RApoMmEY6BPpa7IRto36mCAwNrJO3+Bbqtp9xuS
+	jRKIvHsV15uxUqtXJDU/8/Ooa0Zn+QZHWCjT6k7VyE54RBZXNfmGn3SN4ufcAGt8mF+Md/Y
+	lz3kZGhp7xwBgZ6Oy9y9IRi6B7POWJxvi3E1TZ5kzGBmBejEuUyHPKXywurJon9SDHjuSm9
+	zOeeyLAm6Sh4kQVY79NDbABUS8i1BUyTAgy54yPzyzENVaoF59DfpPM8fB7lnU5oB5sSNYs
+	FzrsLjxcmvnPW6q5+n0DtiIrQrRSk=
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_170919_174734_405DC92B 
-X-CRM114-Status: GOOD (  23.96  )
+X-CRM114-CacheID: sfid-20250807_182214_438342_DDDE384D 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,55 +103,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 08, 2025 at 06:01:39AM +0800, Inochi Amaoto wrote:
-> On Thu, Aug 07, 2025 at 02:39:42PM +0200, Nam Cao wrote:
-> > Inochi Amaoto <inochiama@gmail.com> writes:
+On Thu, Aug 07, 2025 at 05:19:51PM +0100, Conor Dooley wrote:
+> On Thu, Aug 07, 2025 at 09:30:10AM +0800, Troy Mitchell wrote:
+> > Previously, the K1 clock driver did not include the parent clocks of
+> > the I2S sysclk.
 > > 
-> > > The plic_set_affinity always call plic_irq_enable(), which clears up
-> > > the priority setting even the irq is only masked. This make the irq
-> > > unmasked unexpectly.
-> > >
-> > > Replace the plic_irq_enable/disable() with plic_irq_toggle() to
-> > > avoid changing priority setting.
-> > >
-> > > Suggested-by: Thomas Gleixner <tglx@linutronix.de>
-> > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > ---
-> > >  drivers/irqchip/irq-sifive-plic.c | 7 +++++--
-> > >  1 file changed, 5 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> > > index bf69a4802b71..5bf5050996da 100644
-> > > --- a/drivers/irqchip/irq-sifive-plic.c
-> > > +++ b/drivers/irqchip/irq-sifive-plic.c
-> > > @@ -148,6 +148,7 @@ static void plic_irq_enable(struct irq_data *d)
-> > >  
-> > >  static void plic_irq_disable(struct irq_data *d)
-> > >  {
-> > > +	plic_irq_mask(d);
-> > >  	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
-> > >  }
+> > This patch adds their definitions to allow proper registration
+> > in the driver and usage in the device tree.
 > > 
-> > This part is not required for the problem you are addressing, right?
-> > 
-> > I do not oppose the change, I'm just curious if I miss something here.
-> > 
+> > Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
 > 
-> It is true, this is added because it is needed to follow
-> the disable required of the irqchip. I think it is better
-> to split to a separate one.
+> I'm not sure that a fixes tag is suitable here, seems to be some new
+> feature/development. The driver change seems to talk about how modelling
+> as a fixed-clock is incorrect, but this change mentions none of that.
+> Without whatever context that provides, it's hard to see how this can be
+> justified as a fix rather than a new feature being added.
+
+Introduce pre-clock to fix I2S clock; otherwise, the I2S clock may not work as expected.
+
+I'll explain it in next version.
 > 
+> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > ---
+> >  include/dt-bindings/clock/spacemit,k1-syscon.h | 3 +++
+> >  1 file changed, 3 insertions(+)
+> > 
+> > diff --git a/include/dt-bindings/clock/spacemit,k1-syscon.h b/include/dt-bindings/clock/spacemit,k1-syscon.h
+> > index 2714c3fe66cd5b49e12c8b20689f5b01da36b774..524268246fedd3f1238320f35244baf32354fbd2 100644
+> > --- a/include/dt-bindings/clock/spacemit,k1-syscon.h
+> > +++ b/include/dt-bindings/clock/spacemit,k1-syscon.h
+> > @@ -77,6 +77,9 @@
+> >  #define CLK_I2S_BCLK		30
+> >  #define CLK_APB			31
+> >  #define CLK_WDT_BUS		32
+> > +#define CLK_I2S_153P6		33
+> > +#define CLK_I2S_153P6_BASE	34
+> > +#define CLK_I2S_SYSCLK_SRC	35
+> >  
+> >  /* MPMU resets */
+> >  #define RESET_WDT		0
+> > 
+> > -- 
+> > 2.50.1
+> > 
+> > 
 
-After some dig in, I found it is not very necessary to add this,
-When all enable bit is clear, the PRIORIT register of irq is
-not functional, so only umask the irq does not make sense. Only
-calling irq_enable does enable the irq.
 
-I prefer to add a comment to describe this behavior, instead of
-adding this change in a separate patch.
-
-Regards,
-Inochi
 
 _______________________________________________
 linux-riscv mailing list
