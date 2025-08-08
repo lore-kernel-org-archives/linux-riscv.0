@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC568C87FDA
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 08:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F621CA0EC3
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 08:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cL9NedoVyXhq8VpU47ymxdivRbPpoIAliBwR+yturPw=; b=z8PH0WBi+VjsUT
-	1uJXd2W/SCBiGHpiwwuObRuTjO0+0P+U++BjuzXq2Tj7ZBN36HQRhlOkBut2X1NqgqEbVEcylsGBj
-	oPw3z5xtst8b2tJ4C3DsvbGtLexpKVmnKfmPPrwy43Td6fzpd9wSHtpyXwDEBmApEfg4YDGA6hZw/
-	PvEP+zECxdmYPkDzh0otIFQ+UNc/Ghrjg233qohclYDoFAyS87cAep4VqeNppyr4rrdUOWiTCY9d3
-	gb+2TQ7UoWCZnpkKCxbNAw44YhCViQNBA89QZjGqwDW0A5L+EhIzSkIFYLlTfMJb18coT5JzZrVPf
-	CUtX5e0Z/f4XQC6rRfrw==;
+	List-Owner; bh=E52Vc3OHgI8Cy9iTnrbVYzb6EUkAjqkF442hP3HoGVY=; b=HuhZlMt/d+ySnT
+	bH8gZK67sl2Jc+PaEeJNixO0z6089ScLo5gX1STqUz2em/SxV3UwOdU0yhrZq6QlMwixKV8iNbALb
+	iBo8/tGI7TZSsEG8Wn7ZjhWsNnIV5+nGT3qPECToEaJ4bgsWF5GdM8asmaoCF5yUs+CPiP5eOx5a4
+	6POc3RTiQdsbT5qqwMKbpLsZNF4CbKG0cik8biuA8uMrwYGNCTH3Gu/mnXZjsjkdJKh1IYPbKTMHW
+	q/gfPS6hd3aEm10Srnrl7X1B8qT/a6eWU1jc3GaX7wRiQsPjevPhDgZXqHEIQ1jP2/OEo0EWtXyb/
+	jmRz8p9SbgmcmQmUgvmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukIjB-00000002Lv9-2mRX;
-	Fri, 08 Aug 2025 08:45:29 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1ukIjA-00000002Lu0-0XhE;
+	Fri, 08 Aug 2025 08:45:28 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukIUn-00000002KN6-1OVz
-	for linux-riscv@lists.infradead.org;
-	Fri, 08 Aug 2025 08:30:38 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55b797ad392so2207265e87.3
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Aug 2025 01:30:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754641835; x=1755246635; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xieBTMobclIdMCJXbvNoXqflE8aUGbCt52N/S4Zk4e8=;
-        b=eGtRQH6yYZwk0IzTiHjYkG6T+vdFBsGZOqXT6i+NTokpzxt70GRMySLgestxKqj4Gv
-         x2PKzWSrkWfbs1uhfEntsKeQSQIsw1kNeLBHmiZJzP748Bu32FprZHflNnwhCRhxFzbH
-         ZakqzSRX2n0ikzdvcV8eJX3l6u5zckqwb6JHrKF7rnlywp4JtROMtm29ykkwtr4o26o5
-         bvIb+NVm3wzzd482yLChpPsbEveoBHfy7bJVI69/yC2+EI7w/eqcvRNJMx/tylV26HMN
-         lOuLZxBraAW07W4Dx8UN/rBuU3qtaAkxEDycu9uRQPX9dc9z3H0eXudDf6PtXPShmvY2
-         rT7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754641835; x=1755246635;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xieBTMobclIdMCJXbvNoXqflE8aUGbCt52N/S4Zk4e8=;
-        b=lFKrpfFpSpxgCDZ7xJRgzCp1Tz4YpcjfJPvRTdg6L8aB3fE+Uq/0siK+CK985OwFKk
-         BVG2wKeIJmmFghfMXOpmPlOCWiMYiF0Pn4zKZZ/R5HuF2onqx/k0b3SuhM7/g1L08B1i
-         AFHJIDtQk3wfK5306jJVg7YvnbJ2YCayQE0XAim0qvstRof/6W5SAUK2mSJgM5xU2cD9
-         XqmuR/O59HKYv+Ljn0ZxeUImWEZFrff8L9SbrHMoQvZwbzp2iNxLJOM1k+foCbz32pKk
-         dL3f6sYmGQ4cK7dt2BhjID1AjvbgKZNbPsVgWgAG/QvyqQxJ4Gx0iv9oj0GdQ51XzPqd
-         v6sw==
-X-Forwarded-Encrypted: i=1; AJvYcCXwXcmG8Tu0Wm1b1RBdQEYOiGBv25SD9T3W+XUOWeA66TPzUPwLtoWouFqzXrfjQdgfRjYDLTEuBj7h8g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMZkqR7/6mqKoE6m+CRkBSwPprvKVmcDb2pmMRUtBUJ4jku9yR
-	9Of6XNrL5HNP5oYnPafcF275SnrB2MC+4pwcGDfurLjbLZz0EO6siYw8
-X-Gm-Gg: ASbGnctczK/uVp3Win2Xqkxwu/Uh8aw0RBnfwBARWSjo3A3NZWwnT0g6/tH4KayvWaH
-	uiMrgY1rOqKoJLQVeHLCw3BLMPjNKuvC9J0qMBtmsDTgg0pRAwhgRX0wJADD5obxDO0Yhzb0sah
-	+ZZuRGJAWMfU3JHUUj0idORNZ1l8a2ZAXUNXrGnFQkhL3v+TWbz79Dou9qftrgHSJTQEfPtVab+
-	QkiBzis79w8Oc5t4WjZmkIHxRBAsXNqyEwIfw8Q2wSQgDfycSSNWEdyWahQltN9fe6jbkLgbgvh
-	AUd3Z5NyIUSyst2+Fa7u5xYqKwk9AKBR4tgy7kbaeo9IsK28kPMrjhMjp/oCNqKyFA7oDCdDAWX
-	VDYpGundEOXMfivheRDDYZFeORGji6ykd
-X-Google-Smtp-Source: AGHT+IEYXg7vtZbnJ2DYBddME/aAvQldI4kwG2TiNueAkrB9UxcNGaNQeqMSkd8yhFm80/f1+RGHQw==
-X-Received: by 2002:ac2:4c47:0:b0:55b:87a8:6014 with SMTP id 2adb3069b0e04-55cc00ea733mr536665e87.25.1754641835099;
-        Fri, 08 Aug 2025 01:30:35 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id 38308e7fff4ca-332388d87f6sm31610381fa.44.2025.08.08.01.30.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Aug 2025 01:30:34 -0700 (PDT)
-Date: Fri, 8 Aug 2025 16:29:50 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Nam Cao <namcao@linutronix.de>, Inochi Amaoto <inochiama@gmail.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH] irqchip/sifive-plic: Respect mask state when setting
- affinity
-Message-ID: <cxiav5ufadstautkkf2hlwkl2erspl36nvlmditinftxhxktcm@3yweuuj3q4kl>
-References: <20250807111806.741706-1-inochiama@gmail.com>
- <87fre3mhkh.fsf@yellow.woof>
- <nowqjgxmomniw624avrizohwzzq7ebkznb64m25qim3zgxjacn@oizd7ngxjd6a>
- <prnjyu7ev5scocf4jh5jikox3niftje364lf3bjvizppxamdov@hbizpiazqual>
- <87qzxmpg85.fsf@yellow.woof>
+	id 1ukISi-00000002KCA-1oMG;
+	Fri, 08 Aug 2025 08:28:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1754641708; x=1786177708;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=sj2aTF6JLHy6OycM13D6rge/0kDEvjaNy/fuxr8a0Jo=;
+  b=GogtrHvo99s7GB8B7yhhRsQ1nOWAmG/x0kgtt1G1C/BXvdyjv3lqWQ1O
+   IL3fUmKeVVJukysipuP2qF0MVA67hF8SoLWJdnMFr40zXGralyi2HndOX
+   +prtDjG+izBH5lDK+4XEDLTVqN528Q53j1sYM+1ZZyUPZ7Eav/5+yUNlA
+   tCEuuuC4kS0rhIAoSmNHY1eTMPgcO411gwHUSYOfOoztGgUKSC8ECCPKx
+   c1qucv9pd5ZJszM4Mz48xUtFh0UJ+efTZsF0bylfAcjxtswOrk9K/et6B
+   npimzTO+MYCDGO/RduA5eclf4QqgLO5xFiH9EUhdvPi7sHLCo2O0x5XJa
+   A==;
+X-CSE-ConnectionGUID: 6+WJFEw+RAaAuXl0V9FEbQ==
+X-CSE-MsgGUID: AK5KkPC4Q8CF4qTlIyC/cg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="56909532"
+X-IronPort-AV: E=Sophos;i="6.17,274,1747724400"; 
+   d="scan'208";a="56909532"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2025 01:28:23 -0700
+X-CSE-ConnectionGUID: PLV5jg/LTAaBQobxhkELDg==
+X-CSE-MsgGUID: x/hrRFn9TF+73sglobyoAg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,274,1747724400"; 
+   d="scan'208";a="169505717"
+Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.106]) ([10.124.240.106])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2025 01:28:14 -0700
+Message-ID: <a1df40e4-ae97-4b88-ad08-28b11d19c00a@linux.intel.com>
+Date: Fri, 8 Aug 2025 16:28:11 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87qzxmpg85.fsf@yellow.woof>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 00/44] KVM: x86: Add support for mediated vPMUs
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
+ <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
+ Mingwei Zhang <mizhang@google.com>,
+ Xiong Zhang <xiong.y.zhang@linux.intel.com>,
+ Sandipan Das <sandipan.das@amd.com>
+References: <20250806195706.1650976-1-seanjc@google.com>
+Content-Language: en-US
+From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_013037_367139_4C9BF832 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20250808_012828_485373_040844EF 
+X-CRM114-Status: GOOD (  41.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +99,229 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 08, 2025 at 06:52:42AM +0200, Nam Cao wrote:
-> Inochi Amaoto <inochiama@gmail.com> writes:
-> 
-> > On Fri, Aug 08, 2025 at 06:01:39AM +0800, Inochi Amaoto wrote:
-> > After some dig in, I found it is not very necessary to add this,
-> > When all enable bit is clear, the PRIORIT register of irq is
-> > not functional, so only umask the irq does not make sense. Only
-> > calling irq_enable does enable the irq.
-> 
-> Yeah, I contemplated doing this myself when I added the unmask to
-> plic_irq_enable(), because it looks more natural that plic_irq_enable()
-> and plic_irq_disable() are opposite. But I don't think it is necessary.
-> 
-> > I prefer to add a comment to describe this behavior, instead of
-> > adding this change in a separate patch.
-> 
-> No preference from me.
-> 
 
-OK, I will just remove this mask function.
+On 8/7/2025 3:56 AM, Sean Christopherson wrote:
+> This series is based on the fastpath+PMU cleanups series[*] (which is based on
+> kvm/queue), but the non-KVM changes apply cleanly on v6.16 or Linus' tree.
+> I.e. if you only care about the perf changes, I would just apply on whatever
+> branch is convenient and stop when you hit the KVM changes.
+>
+> My hope/plan is that the perf changes will go through the tip tree with a
+> stable tag/branch, and the KVM changes will go the kvm-x86 tree.
+>
+> Non-x86 KVM folks, y'all are getting Cc'd due to minor changes in "KVM: Add a
+> simplified wrapper for registering perf callbacks".
+>
+> The full set is also available at:
+>
+>   https://github.com/sean-jc/linux.git tags/mediated-vpmu-v5
+>
+> Add support for mediated vPMUs in KVM x86, where "mediated" aligns with the
+> standard definition of intercepting control operations (e.g. event selectors),
+> while allowing the guest to perform data operations (e.g. read PMCs, toggle
+> counters on/off) without KVM getting involed.
+>
+> For an in-depth description of the what and why, please see the cover letter
+> from the original RFC:
+>
+>   https://lore.kernel.org/all/20240126085444.324918-1-xiong.y.zhang@linux.intel.com
+>
+> All KVM tests pass (or fail the same before and after), and I've manually
+> verified MSR/PMC are passed through as expected, but I haven't done much at all
+> to actually utilize the PMU in a guest.  I'll be amazed if I didn't make at
+> least one major goof.
+>
+> Similarly, I tried to address all feedback, but there are many, many changes
+> relative to v4.  If I missed something, I apologize in advance.
+>
+> In other words, please thoroughly review and test.
 
-Regards,
-Inochi
+Went through the whole patchset, it looks good to me.
+
+Run all PMU related kselftests and KUT tests on Intel Sapphire Rapids, no
+issue is found. We would run broader tests on more Intel platforms. Thanks.
+
+
+>
+> [*] https://lore.kernel.org/all/20250805190526.1453366-1-seanjc@google.com
+>
+> v5:
+>  - Add a patch to call security_perf_event_free() from __free_event()
+>    instead of _free_event() (necessitated by the __cleanup() changes).
+>  - Add CONFIG_PERF_GUEST_MEDIATED_PMU to guard the new perf functionality.
+>  - Ensure the PMU is fully disabled in perf_{load,put}_guest_context() when
+>    when switching between guest and host context. [Kan, Namhyung]
+>  - Route the new system IRQ, PERF_GUEST_MEDIATED_PMI_VECTOR, through perf,
+>    not KVM, and play nice with FRED.
+>  - Rename and combine perf_{guest,host}_{enter,exit}() to a single set of
+>    APIs, perf_{load,put}_guest_context().
+>  - Rename perf_{get,put}_mediated_pmu() to perf_{create,release}_mediated_pmu()
+>    to (hopefully) better differentiate them from perf_{load,put}_guest_context().
+>  - Change the param to the load/put APIs from "u32 guest_lvtpc" to
+>    "unsigned long data" to decouple arch code as much as possible.  E.g. if
+>    a non-x86 arch were to ever support a mediated vPMU, @data could be used
+>    to pass a pointer to a struct.
+>  - Use pmu->version to detect if a vCPU has a mediated PMU.
+>  - Use a kvm_x86_ops hook to check for mediated PMU support.
+>  - Cull "passthrough" from as many places as I could find.
+>  - Improve the changelog/documentation related to RDPMC interception.
+>  - Check harware capabilities, not KVM capabilities, when calculating
+>    MSR and RDPMC intercepts.
+>  - Rework intercept (re)calculation to use a request and the existing (well,
+>    will be existing as of 6.17-rc1) vendor hooks for recalculating intercepts.
+>  - Always read PERF_GLOBAL_CTRL on VM-Exit if writes weren't intercepted while
+>    running the vCPU.
+>  - Call setup_vmcs_config() before kvm_x86_vendor_init() so that the golden
+>    VMCS configuration is known before kvm_init_pmu_capability() is called.
+>  - Keep as much refresh/init code in common x86 as possible.
+>  - Context switch PMCs and event selectors in common x86, not vendor code.
+>  - Bail from the VM-Exit fastpath if the guest is counting instructions
+>    retired and the mediated PMU is enabled (because guest state hasn't yet
+>    been synchronized with hardware).
+>  - Don't require an userspace to opt-in via KVM_CAP_PMU_CAPABILITY, and instead
+>    automatically "create" a mediated PMU on the first KVM_CREATE_VCPU call if
+>    the VM has an in-kernel local APIC.
+>  - Add entries in kernel-parameters.txt for the PMU params.
+>  - Add a patch to elide PMC writes when possible.
+>  - Many more fixups and tweaks...
+>
+> v4:
+>  - https://lore.kernel.org/all/20250324173121.1275209-1-mizhang@google.com
+>  - Rebase whole patchset on 6.14-rc3 base.
+>  - Address Peter's comments on Perf part.
+>  - Address Sean's comments on KVM part.
+>    * Change key word "passthrough" to "mediated" in all patches
+>    * Change static enabling to user space dynamic enabling via KVM_CAP_PMU_CAPABILITY.
+>    * Only support GLOBAL_CTRL save/restore with VMCS exec_ctrl, drop the MSR
+>      save/retore list support for GLOBAL_CTRL, thus the support of mediated
+>      vPMU is constrained to SapphireRapids and later CPUs on Intel side.
+>    * Merge some small changes into a single patch.
+>  - Address Sandipan's comment on invalid pmu pointer.
+>  - Add back "eventsel_hw" and "fixed_ctr_ctrl_hw" to avoid to directly
+>    manipulate pmc->eventsel and pmu->fixed_ctr_ctrl.
+>
+> v3: https://lore.kernel.org/all/20240801045907.4010984-1-mizhang@google.com
+> v2: https://lore.kernel.org/all/20240506053020.3911940-1-mizhang@google.com
+> v1: https://lore.kernel.org/all/20240126085444.324918-1-xiong.y.zhang@linux.intel.com
+>
+> Dapeng Mi (15):
+>   KVM: x86/pmu: Start stubbing in mediated PMU support
+>   KVM: x86/pmu: Implement Intel mediated PMU requirements and
+>     constraints
+>   KVM: x86: Rename vmx_vmentry/vmexit_ctrl() helpers
+>   KVM: x86/pmu: Move PMU_CAP_{FW_WRITES,LBR_FMT} into msr-index.h header
+>   KVM: VMX: Add helpers to toggle/change a bit in VMCS execution
+>     controls
+>   KVM: x86/pmu: Disable RDPMC interception for compatible mediated vPMU
+>   KVM: x86/pmu: Load/save GLOBAL_CTRL via entry/exit fields for mediated
+>     PMU
+>   KVM: x86/pmu: Use BIT_ULL() instead of open coded equivalents
+>   KVM: x86/pmu: Disable interception of select PMU MSRs for mediated
+>     vPMUs
+>   KVM: x86/pmu: Bypass perf checks when emulating mediated PMU counter
+>     accesses
+>   KVM: x86/pmu: Reprogram mediated PMU event selectors on event filter
+>     updates
+>   KVM: x86/pmu: Load/put mediated PMU context when entering/exiting
+>     guest
+>   KVM: x86/pmu: Handle emulated instruction for mediated vPMU
+>   KVM: nVMX: Add macros to simplify nested MSR interception setting
+>   KVM: x86/pmu: Expose enable_mediated_pmu parameter to user space
+>
+> Kan Liang (7):
+>   perf: Skip pmu_ctx based on event_type
+>   perf: Add generic exclude_guest support
+>   perf: Add APIs to create/release mediated guest vPMUs
+>   perf: Clean up perf ctx time
+>   perf: Add a EVENT_GUEST flag
+>   perf: Add APIs to load/put guest mediated PMU context
+>   perf/x86/intel: Support PERF_PMU_CAP_MEDIATED_VPMU
+>
+> Mingwei Zhang (3):
+>   perf/x86/core: Plumb mediated PMU capability from x86_pmu to
+>     x86_pmu_cap
+>   KVM: x86/pmu: Introduce eventsel_hw to prepare for pmu event filtering
+>   KVM: nVMX: Disable PMU MSR interception as appropriate while running
+>     L2
+>
+> Sandipan Das (3):
+>   perf/x86/core: Do not set bit width for unavailable counters
+>   perf/x86/amd: Support PERF_PMU_CAP_MEDIATED_VPMU for AMD host
+>   KVM: x86/pmu: Always stuff GuestOnly=1,HostOnly=0 for mediated PMCs on
+>     AMD
+>
+> Sean Christopherson (15):
+>   perf: Move security_perf_event_free() call to __free_event()
+>   perf: core/x86: Register a new vector for handling mediated guest PMIs
+>   perf/x86: Switch LVTPC to/from mediated PMI vector on guest load/put
+>     context
+>   KVM: VMX: Setup canonical VMCS config prior to kvm_x86_vendor_init()
+>   KVM: SVM: Check pmu->version, not enable_pmu, when getting PMC MSRs
+>   KVM: Add a simplified wrapper for registering perf callbacks
+>   KVM: x86/pmu: Snapshot host (i.e. perf's) reported PMU capabilities
+>   KVM: x86/pmu: Implement AMD mediated PMU requirements
+>   KVM: x86: Rework KVM_REQ_MSR_FILTER_CHANGED into a generic
+>     RECALC_INTERCEPTS
+>   KVM: x86: Use KVM_REQ_RECALC_INTERCEPTS to react to CPUID updates
+>   KVM: x86/pmu: Move initialization of valid PMCs bitmask to common x86
+>   KVM: x86/pmu: Restrict GLOBAL_{CTRL,STATUS}, fixed PMCs, and PEBS to
+>     PMU v2+
+>   KVM: x86/pmu: Disallow emulation in the fastpath if mediated PMCs are
+>     active
+>   KVM: nSVM: Disable PMU MSR interception as appropriate while running
+>     L2
+>   KVM: x86/pmu: Elide WRMSRs when loading guest PMCs if values already
+>     match
+>
+> Xiong Zhang (1):
+>   KVM: x86/pmu: Register PMI handler for mediated vPMU
+>
+>  .../admin-guide/kernel-parameters.txt         |  49 ++
+>  arch/arm64/kvm/arm.c                          |   2 +-
+>  arch/loongarch/kvm/main.c                     |   2 +-
+>  arch/riscv/kvm/main.c                         |   2 +-
+>  arch/x86/entry/entry_fred.c                   |   1 +
+>  arch/x86/events/amd/core.c                    |   2 +
+>  arch/x86/events/core.c                        |  32 +-
+>  arch/x86/events/intel/core.c                  |   5 +
+>  arch/x86/include/asm/hardirq.h                |   3 +
+>  arch/x86/include/asm/idtentry.h               |   6 +
+>  arch/x86/include/asm/irq_vectors.h            |   4 +-
+>  arch/x86/include/asm/kvm-x86-ops.h            |   2 +-
+>  arch/x86/include/asm/kvm-x86-pmu-ops.h        |   4 +
+>  arch/x86/include/asm/kvm_host.h               |   7 +-
+>  arch/x86/include/asm/msr-index.h              |  17 +-
+>  arch/x86/include/asm/perf_event.h             |   1 +
+>  arch/x86/include/asm/vmx.h                    |   1 +
+>  arch/x86/kernel/idt.c                         |   3 +
+>  arch/x86/kernel/irq.c                         |  19 +
+>  arch/x86/kvm/Kconfig                          |   1 +
+>  arch/x86/kvm/cpuid.c                          |   2 +
+>  arch/x86/kvm/pmu.c                            | 272 ++++++++-
+>  arch/x86/kvm/pmu.h                            |  37 +-
+>  arch/x86/kvm/svm/nested.c                     |  18 +-
+>  arch/x86/kvm/svm/pmu.c                        |  51 +-
+>  arch/x86/kvm/svm/svm.c                        |  54 +-
+>  arch/x86/kvm/vmx/capabilities.h               |  11 +-
+>  arch/x86/kvm/vmx/main.c                       |  14 +-
+>  arch/x86/kvm/vmx/nested.c                     |  65 ++-
+>  arch/x86/kvm/vmx/pmu_intel.c                  | 169 ++++--
+>  arch/x86/kvm/vmx/pmu_intel.h                  |  15 +
+>  arch/x86/kvm/vmx/vmx.c                        | 143 +++--
+>  arch/x86/kvm/vmx/vmx.h                        |  11 +-
+>  arch/x86/kvm/vmx/x86_ops.h                    |   2 +-
+>  arch/x86/kvm/x86.c                            |  69 ++-
+>  arch/x86/kvm/x86.h                            |   1 +
+>  include/linux/kvm_host.h                      |  11 +-
+>  include/linux/perf_event.h                    |  38 +-
+>  init/Kconfig                                  |   4 +
+>  kernel/events/core.c                          | 521 ++++++++++++++----
+>  .../beauty/arch/x86/include/asm/irq_vectors.h |   3 +-
+>  virt/kvm/kvm_main.c                           |   6 +-
+>  42 files changed, 1385 insertions(+), 295 deletions(-)
+>
+>
+> base-commit: 53d61a43a7973f812caa08fa922b607574befef4
 
 _______________________________________________
 linux-riscv mailing list
