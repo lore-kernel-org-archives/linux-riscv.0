@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF86CA0EC3
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 10:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE875C87FD3
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 10:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kVJR61sQvX1ihWH/dKX1U7PXN90TZ8c8ZtSDQRbm53Q=; b=nlpGe1tJCw+BNX
-	8+5o4/f6aDYiTOUXDQB8mgG/C0WbzVefu29WF8Ob8oSmu0EOibc4P0ZwhR14DZeQK9elW4PdvGQ0j
-	muatIwasBJjHgmWyxB+hLM2jhFdHZk7oX7LkJII7rMZnQvy8WrodV3zSpaMUkL5l1OMQsMy6liWx/
-	nzUeLnwNhz2Efhc/rrkZWUr8i2YoPocn7ouxz5PNnUxKIppZ3U6uk98f2rNlpzihtM+HBxtzZISSs
-	yF7lTlMCN0K4WTMoPh9QFAlejUGnXlvJqJaggwh70e3trbisfDoUsps5JP4FJgAz6D05s/k2eeE+N
-	FmndhLHj8xUruP9HYDww==;
+	List-Owner; bh=M6qyNA8DEjLn9b26ejtLzSvubDDKHIn/JyOIxrre0uo=; b=PQC0iyw198QIin
+	XCkRiESt665iqnJhHDbeNKBbaL345jDGh+eN8E+luqBHaUKQOSNc0mnBojI7+iUb4c98K0rAn4wfJ
+	pRA31jhpVV++lhyEw4C05pNPRcsZzNXsYJDo0Jx6xcHN8DTw3GyZ+Lq1ivHaAy64nbIVoLnqatigm
+	VOnrdR8K55oxsMdcN3LLwkClWtvfraXKKh8NkSeZGrWMlvsBXTn71xjDnF7carwN70zMENzyOKePC
+	0Zybf8LS1FSSDNGYSgJ7JPuUfkbsdSzVUkyY0mrYNHxq9vNHz0wdXPbx0e7f4wCWj0ix/HPiz2MTb
+	y5hURqailMHRNtkE3e2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukKca-00000002ave-1NKd;
-	Fri, 08 Aug 2025 10:46:48 +0000
+	id 1ukKcY-00000002auL-1rnt;
+	Fri, 08 Aug 2025 10:46:46 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukKN9-00000002Z5b-14M3;
-	Fri, 08 Aug 2025 10:30:52 +0000
+	id 1ukKMm-00000002Z4A-1XJ4;
+	Fri, 08 Aug 2025 10:30:29 +0000
 Received: from zq-Legion-Y7000.. (unknown [121.237.92.164])
-	by APP-03 (Coremail) with SMTP id rQCowABX6Hm20ZVoWR1QCg--.7174S2;
-	Fri, 08 Aug 2025 18:30:15 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowACnPX+f0ZVo0RdQCg--.29185S2;
+	Fri, 08 Aug 2025 18:29:52 +0800 (CST)
 From: zhouquan@iscas.ac.cn
 To: anup@brainfault.org,
 	ajones@ventanamicro.com,
@@ -40,35 +40,35 @@ Cc: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org,
 	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH v2 3/6] RISC-V: KVM: Allow Zicbop extension for Guest/VM
-Date: Fri,  8 Aug 2025 18:18:44 +0800
-Message-Id: <db4a9b679cc653bb6f5f5574e4196de7a980e458.1754646071.git.zhouquan@iscas.ac.cn>
+Subject: [PATCH v2 1/6] RISC-V: KVM: Change zicbom/zicboz block size to depend on the host isa
+Date: Fri,  8 Aug 2025 18:18:21 +0800
+Message-Id: <fef5907425455ecd41b224e0093f1b6bc4067138.1754646071.git.zhouquan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1754646071.git.zhouquan@iscas.ac.cn>
 References: <cover.1754646071.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABX6Hm20ZVoWR1QCg--.7174S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Aw4kAF45Gw1xtF4rKrW7Jwb_yoW8WFy3pr
-	s5CFZxCr4rA3s3uws7t34DWr48W3y5WwnIk3y7ur1xJFyjkry8JF1qya47JF4DJay09r1k
-	uF1Sgr1rZw4Yyr7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBG14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: rQCowACnPX+f0ZVo0RdQCg--.29185S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uFy8Wr13Xr13Ar13KF4DJwb_yoW5Jr43pr
+	43CrWF9Fy8AFy2qrZ7JrWkWFn5uw1qgrs5Gw4kWa48Zry7trWrGrnYkryUAFn2yFyfZrs2
+	93Wvkryj9Fs8Ka7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBl14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8tw
-	CF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j
-	6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64
-	vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0x
-	vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUDcTdUUUUU=
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwAKzVCY07xG64k0F24lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r4DMx
+	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
+	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwI
+	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
+	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
+	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbfWFUUUUUU==
 X-Originating-IP: [121.237.92.164]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBg0IBmiVokWUqQAAsi
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiBg0IBmiVokWUdwAAs8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_033051_655579_1A4769D6 
-X-CRM114-Status: UNSURE (   6.84  )
+X-CRM114-CacheID: sfid-20250808_033028_773942_F09DB611 
+X-CRM114-Status: UNSURE (   9.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,48 +88,62 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-Extend the KVM ISA extension ONE_REG interface to allow KVM user space
-to detect and enable Zicbop extension for Guest/VM.
+The zicbom/zicboz block size registers should depend on the host's isa,
+the reason is that we otherwise create an ioctl order dependency on the VMM.
 
 Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/include/uapi/asm/kvm.h | 1 +
- arch/riscv/kvm/vcpu_onereg.c      | 2 ++
- 2 files changed, 3 insertions(+)
+ arch/riscv/kvm/vcpu_onereg.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index bb200f82d08e..ddaa5c1ecb84 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -186,6 +186,7 @@ enum KVM_RISCV_ISA_EXT_ID {
- 	KVM_RISCV_ISA_EXT_ZICCRSE,
- 	KVM_RISCV_ISA_EXT_ZAAMO,
- 	KVM_RISCV_ISA_EXT_ZALRSC,
-+	KVM_RISCV_ISA_EXT_ZICBOP,
- 	KVM_RISCV_ISA_EXT_MAX,
- };
- 
 diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index cf5003eb2e41..73ce35c776df 100644
+index cce6a38ea54f..6bd64ae17b80 100644
 --- a/arch/riscv/kvm/vcpu_onereg.c
 +++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -68,6 +68,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
- 	KVM_ISA_EXT_ARR(ZFH),
- 	KVM_ISA_EXT_ARR(ZFHMIN),
- 	KVM_ISA_EXT_ARR(ZICBOM),
-+	KVM_ISA_EXT_ARR(ZICBOP),
- 	KVM_ISA_EXT_ARR(ZICBOZ),
- 	KVM_ISA_EXT_ARR(ZICCRSE),
- 	KVM_ISA_EXT_ARR(ZICNTR),
-@@ -201,6 +202,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
- 	case KVM_RISCV_ISA_EXT_ZFA:
- 	case KVM_RISCV_ISA_EXT_ZFH:
- 	case KVM_RISCV_ISA_EXT_ZFHMIN:
-+	case KVM_RISCV_ISA_EXT_ZICBOP:
- 	case KVM_RISCV_ISA_EXT_ZICCRSE:
- 	case KVM_RISCV_ISA_EXT_ZICNTR:
- 	case KVM_RISCV_ISA_EXT_ZICOND:
+@@ -277,12 +277,12 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+ 		reg_val = vcpu->arch.isa[0] & KVM_RISCV_BASE_ISA_MASK;
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+-		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOM))
++		if (!riscv_isa_extension_available(NULL, ZICBOM))
+ 			return -ENOENT;
+ 		reg_val = riscv_cbom_block_size;
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
+-		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOZ))
++		if (!riscv_isa_extension_available(NULL, ZICBOZ))
+ 			return -ENOENT;
+ 		reg_val = riscv_cboz_block_size;
+ 		break;
+@@ -366,13 +366,13 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+ 		}
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+-		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOM))
++		if (!riscv_isa_extension_available(NULL, ZICBOM))
+ 			return -ENOENT;
+ 		if (reg_val != riscv_cbom_block_size)
+ 			return -EINVAL;
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
+-		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOZ))
++		if (!riscv_isa_extension_available(NULL, ZICBOZ))
+ 			return -ENOENT;
+ 		if (reg_val != riscv_cboz_block_size)
+ 			return -EINVAL;
+@@ -817,10 +817,10 @@ static int copy_config_reg_indices(const struct kvm_vcpu *vcpu,
+ 		 * was not available.
+ 		 */
+ 		if (i == KVM_REG_RISCV_CONFIG_REG(zicbom_block_size) &&
+-			!riscv_isa_extension_available(vcpu->arch.isa, ZICBOM))
++			!riscv_isa_extension_available(NULL, ZICBOM))
+ 			continue;
+ 		else if (i == KVM_REG_RISCV_CONFIG_REG(zicboz_block_size) &&
+-			!riscv_isa_extension_available(vcpu->arch.isa, ZICBOZ))
++			!riscv_isa_extension_available(NULL, ZICBOZ))
+ 			continue;
+ 
+ 		size = IS_ENABLED(CONFIG_32BIT) ? KVM_REG_SIZE_U32 : KVM_REG_SIZE_U64;
 -- 
 2.34.1
 
