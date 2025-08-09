@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF56C87FDA
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Aug 2025 23:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25D88C87FCF
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Aug 2025 03:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jqi5bdgNs2AX9eoY1oTYfwwxfE0BgwmbLz8d7dSIuLc=; b=ULAVv4Y4cOj71y
-	+3d//SIfuKBxzZRo9UbvkADEdymVVH+EtIGFCVNWVA0S6sYHiFecBLcIs3uxjYUOqpxRz7M8TzJxj
-	NSd2QbOIudeTgsjYBTPho8VajmJa3tARjtQAAAZRkILajhwpC8sppAd65ka61GShdSJoYc42vJlS/
-	Dn51pALt/Tgd+3v4QMldo5Ji8Y+GSwozeYlWjXU8iP+8Hx8t0kG3yr3UTfG22FkoB1+dHdMSBWwsp
-	HVQjvIPlFuJWE/eDS83SygkiXwkRGai06fgSauyv3U9fnB4WLjiuyDaAOmifdmprOT10q5DOF8nMN
-	iw312ClZN9iVCAVgiv9w==;
+	List-Owner; bh=tdHrIMCFkqEGqJzHHKMHzDOAy34Wy1H47RAFTv//Jts=; b=Q5ubccSCZSSpj2
+	a6GN+Y3y5b7OyP8v6+fI6Gsm28NhwIZ1ah7Mtu96tFjMrueflFOf70NMKGhXKr0WBM7LbYk9/bnmY
+	igZ8xwWgNnMSTNJVnh1T1lyDFioT+CpL1fKvotY06BF4m1p9jzIl2MnxhSWnWFRIRHpOtF4YPdjea
+	D4fj2jRJARo8X6IeyuU/0A9ocXgO4uk1SgHKYVqWWGKx98Dg8mNm3xxL1Z4nn8JzWeQn45Ba6S9iy
+	KWpXpEybhPxAW9GNLca2IH0A4kLGgECxcuw7p8KhWszPwqwEuiIdJPiw8JaW0uL3SF62sCoXYrl2+
+	IONm+0XiBWbjBOHV98JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukWie-00000003svn-0MOE;
-	Fri, 08 Aug 2025 23:41:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uka8O-000000042om-1Hme;
+	Sat, 09 Aug 2025 03:20:40 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukVn3-00000003nmC-1z4q
-	for linux-riscv@lists.infradead.org;
-	Fri, 08 Aug 2025 22:42:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 541D2A56AEE;
-	Fri,  8 Aug 2025 22:42:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5B58C4CEF1;
-	Fri,  8 Aug 2025 22:42:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754692940;
-	bh=rLZBj+I02MJoP2e/2GvebvvCShxDWxP7isVZ958jGIQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=egzCnQltzQI4eH2ac1xfMp6bl4YDwg8TXYPhGh3XBShjOXHzkgVs04NeR+H+B4Yyy
-	 PWMyRAw2yEDAtUxSXyr22tWISRoJquWCQ3NhwdOsfsqR2KD5wbj5wdd44bvmbixNCc
-	 R3F7hu4zpJjEjb9swk1tbOH1jiu00afLtLVelssrkxLwlM7M5HY8nUD8qmc8ECbLKP
-	 lvi4Ml/nTabT/U934nBBPQtdeZ+C8HwOZhIHS3ofZYMPB+nCnolUXAAWa3g7jHdFIl
-	 06DLY2RrMv+gsYiapzFkFfQac/FiqnlKoopi87aLq6TM8BkluxTsmeXdFrw6vdb8hJ
-	 KKuHLTsFYoWtg==
-Date: Fri, 8 Aug 2025 15:42:18 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Yao Zi <ziyao@disroot.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v3 2/3] net: stmmac: thead: Get and enable APB clock
- on initialization
-Message-ID: <aJZ9SkeT56LFzIS2@x1>
-References: <20250808093655.48074-2-ziyao@disroot.org>
- <20250808093655.48074-4-ziyao@disroot.org>
+	id 1uka8K-000000042o7-2N0F;
+	Sat, 09 Aug 2025 03:20:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1754709628; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=XH3EkbdWVrqttexIEF23qR/7W6J8fXZ+aOIZNR/WZ4k=;
+	b=AlXDr7C2LBugKgGd3dfh3VJdNxZlPkXpfokrg4alyQ9ch3hbzK8I2JeT42/ICTmWubqtOtXemA2NBZVo0txQcm1HcbLfQTQujh4JE64nS3gyahnS59oOI2F12VaCm2s5n/fBsFazJmAT0Zwv+E/tCIwDrdIhVSw/MEJ3e2AR5ag=
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WlItg7x_1754709625 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 09 Aug 2025 11:20:27 +0800
+From: fangyu.yu@linux.alibaba.com
+To: rkrcmar@ventanamicro.com
+Cc: alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	fangyu.yu@linux.alibaba.com,
+	guoren@linux.alibaba.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv-bounces@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Subject: Re: [PATCH] RISC-V: KVM: Using user-mode pte within kvm_riscv_gstage_ioremap
+Date: Sat,  9 Aug 2025 11:20:20 +0800
+Message-Id: <20250809032020.51380-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <DBX0JNR61UNM.Z42YERAKRFR8@ventanamicro.com>
+References: <DBX0JNR61UNM.Z42YERAKRFR8@ventanamicro.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250808093655.48074-4-ziyao@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_154221_636567_7FAD95E1 
-X-CRM114-Status: GOOD (  24.23  )
+X-CRM114-CacheID: sfid-20250808_202037_219679_3BED1880 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,76 +70,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 08, 2025 at 09:36:55AM +0000, Yao Zi wrote:
-> It's necessary to adjust the MAC TX clock when the linkspeed changes,
-> but it's noted such adjustment always fails on TH1520 SoC, and reading
-> back from APB glue registers that control clock generation results in
-> garbage, causing broken link.
-> 
-> With some testing, it's found a clock must be ungated for access to APB
-> glue registers. Without any consumer, the clock is automatically
-> disabled during late kernel startup. Let's get and enable it if it's
-> described in devicetree.
-> 
-> For backward compatibility with older devicetrees, probing won't fail if
-> the APB clock isn't found. In this case, we emit a warning since the
-> link will break if the speed changes.
-> 
-> Fixes: 33a1a01e3afa ("net: stmmac: Add glue layer for T-HEAD TH1520 SoC")
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> Tested-by: Drew Fustini <fustini@kernel.org>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-> index c72ee759aae5..f2946bea0bc2 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-> @@ -211,6 +211,7 @@ static int thead_dwmac_probe(struct platform_device *pdev)
->  	struct stmmac_resources stmmac_res;
->  	struct plat_stmmacenet_data *plat;
->  	struct thead_dwmac *dwmac;
-> +	struct clk *apb_clk;
->  	void __iomem *apb;
->  	int ret;
->  
-> @@ -224,6 +225,19 @@ static int thead_dwmac_probe(struct platform_device *pdev)
->  		return dev_err_probe(&pdev->dev, PTR_ERR(plat),
->  				     "dt configuration failed\n");
->  
-> +	/*
-> +	 * The APB clock is essential for accessing glue registers. However,
-> +	 * old devicetrees don't describe it correctly. We continue to probe
-> +	 * and emit a warning if it isn't present.
-> +	 */
-> +	apb_clk = devm_clk_get_enabled(&pdev->dev, "apb");
-> +	if (PTR_ERR(apb_clk) == -ENOENT)
-> +		dev_warn(&pdev->dev,
-> +			 "cannot get apb clock, link may break after speed changes\n");
-> +	else if (IS_ERR(apb_clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(apb_clk),
-> +				     "failed to get apb clock\n");
-> +
->  	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
->  	if (!dwmac)
->  		return -ENOMEM;
-> -- 
-> 2.50.1
-> 
-
-Reviewed-by: Drew Fustini <fustini@kernel.org>
-
-Thanks for improving the commit description and adding the warning.
-
-Drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Pj4gRnJvbTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+Cj4+Cj4+IEN1
+cnJlbnRseSB3ZSB1c2Uga3ZtX3Jpc2N2X2dzdGFnZV9pb3JlbWFwIHRvIG1hcCBJTVNJQyBncGEg
+dG8gdGhlIHNwYSBvZgo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBeXl4KPiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaHBhPwo+CgpZZXMsIEkg
+dGhpbmsgdGhleSBtZWFuIHRoZSBzYW1lIHRoaW5nLCBSSVNDLVYgSU9NTVUgU3BlYyBkZWZpbmVz
+IHNwYQooU3VwZXJ2aXNvciBQaHlzaWNhbCBBZGRyZXNzKS4KCj4+IGd1ZXN0IGludGVycnVwdCBm
+aWxlIHdpdGhpbiBJTVNJQy4KPj4KPj4gVGhlIFBBR0VfS0VSTkVMX0lPIHByb3BlcnR5IGRvZXMg
+bm90IGluY2x1ZGUgdXNlciBtb2RlIHNldHRpbmdzLCBzbyB3aGVuCj4+IGFjY2Vzc2luZyB0aGUg
+SU1TSUMgYWRkcmVzcyBpbiB0aGUgdmlydHVhbCBtYWNoaW5lLCAgYSAgZ3Vlc3QgcGFnZSBmYXVs
+dAo+PiB3aWxsIG9jY3VyLCB0aGlzIGlzIG5vdCBleHBlY3RlZC4KPgo+UEFHRV9LRVJORUxfSU8g
+YWxzbyBzZXQgdGhlIHJlc2VydmVkIEcgYml0LCBzbyB5b3UncmUgZml4aW5nIHR3byBpc3N1ZXMK
+PndpdGggYSBzaW5nbGUgY2hhbmdlLiA6KQo+CgpSaWdodCwgVGhlIEcgYml0IGluIGFsbCBHLXN0
+YWdlIFBURXMgaXMgcmVzZXJ2ZWQgZm9yIGZ1dHVyZSBzdGFuZGFyZCB1c2UuCgo+PiBBY2NvcmRp
+bmcgdG8gdGhlIFJJU0MtViBQcml2aWxlZ2VkIEFyY2hpdGVjdHVyZSBTcGVjLCBmb3IgRy1zdGFn
+ZSBhZGRyZXNzCj4+IHRyYW5zbGF0aW9uLCBhbGwgbWVtb3J5IGFjY2Vzc2VzIGFyZSBjb25zaWRl
+cmVkIHRvIGJlIHVzZXItbGV2ZWwgYWNjZXNzZXMKPj4gYXMgdGhvdWdoIGV4ZWN1dGVkIGluIFVt
+b2RlLgo+Cj5XaGF0IGltcGxlbWVudGF0aW9uIGFyZSB5b3UgdXNpbmc/ICBJIHdvdWxkIGhhdmUg
+YXNzdW1lIHRoYXQgdGhlCj5vcmlnaW5hbCBjb2RlIHdhcyB0ZXN0ZWQgb24gUUVNVSwgc28gd2Ug
+bWlnaHQgaGF2ZSBhIGJ1ZyB0aGVyZS4KPgoKVGhpcyBpc3N1ZSBjYW4gYmUgcmVwcm9kdWNlZCB1
+c2luZyBRRU1VLgpTaW5jZSBrdm0gaGFzIHJlZ2lzdGVyZWQgdGhlIE1NSU8gQnVzIGZvciBJTVNJ
+QyBncGEsIHdoZW4gYSBndWVzdApwYWdlIGZhdWx0IG9jY3VycywgaXQgd2lsbCBjYWxsIHRoZSBp
+bXNpY19tbWlvX3dyaXRlIGZ1bmN0aW9uLHRoZQpndWVzdCBpcnEgd2lsbCBiZSB3cml0dGVuIHRv
+IHRoZSBndWVzdCBpbnRlcnJ1cHQgZmlsZSBieSBrdm0uCgo+PiBTaWduZWQtb2ZmLWJ5OiBGYW5n
+eXUgWXUgPGZhbmd5dS55dUBsaW51eC5hbGliYWJhLmNvbT4KPj4gLS0tCj4+IGRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L2t2bS9tbXUuYyBiL2FyY2gvcmlzY3Yva3ZtL21tdS5jCj4+IEBAIC0zNTks
+OCArMzYwLDExIEBAIGludCBrdm1fcmlzY3ZfZ3N0YWdlX2lvcmVtYXAoc3RydWN0IGt2bSAqa3Zt
+LCBncGFfdCBncGEsCj4+ICAJZW5kID0gKGdwYSArIHNpemUgKyBQQUdFX1NJWkUgLSAxKSAmIFBB
+R0VfTUFTSzsKPj4gIAlwZm4gPSBfX3BoeXNfdG9fcGZuKGhwYSk7Cj4+ICAKPj4gKwlwcm90ID0g
+cGdwcm90X25vbmNhY2hlZChQQUdFX1dSSVRFKTsKPj4gKwo+PiAgCWZvciAoYWRkciA9IGdwYTsg
+YWRkciA8IGVuZDsgYWRkciArPSBQQUdFX1NJWkUpIHsKPj4gLQkJcHRlID0gcGZuX3B0ZShwZm4s
+IFBBR0VfS0VSTkVMX0lPKTsKPj4gKwkJcHRlID0gcGZuX3B0ZShwZm4sIHByb3QpOwo+PiArCQlw
+dGUgPSBwdGVfbWtkaXJ0eShwdGUpOwo+Cj5JcyBpdCBuZWNlc3NhcnkgdG8gZGlydHkgdGhlIHB0
+ZT8KPgo+SXQgd2FzIGRpcnRpZWQgYmVmb3JlLCBzbyBpdCBkZWZpbml0ZWx5IGRvZXNuJ3QgaHVy
+dCwKPgoKTWFrZSBwdGUgZGlydHkgaXMgbmVjZXNzYXJ5KGZvciBoYXJkd2FyZSB3aXRob3V0IFN2
+YWR1KSwgYW5kIGhlcmUgaXMKdGhlIGZpcnN0IHRpbWUgdG8gbWFrZSB0aGlzIHB0ZSBkaXJ0eS4K
+Cj5SZXZpZXdlZC1ieTogUmFkaW0gS3LEjW3DocWZIDxya3JjbWFyQHZlbnRhbmFtaWNyby5jb20+
+Cj4KPlRoYW5rcy4KClRoYW5rcywKZmFuZ3l1CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
