@@ -4,107 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1B6C87FCB
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Aug 2025 13:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81EE6C87FCF
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Aug 2025 16:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oiHpzqkIYpWL0ASK5ltqD8n9hGCF8FyCoMlxRxZmFc8=; b=388ol1PHC+bO1I
-	UvvknIHjoUcMm0LoNRLXEjXn7GoWrUm86xUJ2Fd9HZ0u7Noj9Q0Ju+WTkmE5HyqPIW8Ae9yfipGuQ
-	YeVEIncZDUQQ1W8DKB1DhlGgl/YPVCimw8SmdIbvelolSimHlrTVFZmFCyAjc+NNj112isp2RvIid
-	92ZCkWpT5Pw+/7/Py3k+g+bFryA+FQoUMmBrWvPEVuVoXE2M0QyTy1jTgON+EKBGor557r9qX4DbD
-	06R3W3/UZXc+nwnD0+8q9xcZsJ99dzSZw8kFotBnyMFy5p/RecQpkf20SW/nA69ZA96A5vZlEEi24
-	whXokkc+JrE3/SgW+IDA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=GKF4mVRp7F+xk91zdwZEdaPjLghu7lW+vi4spFhfMMU=; b=ZElSUUBaduW1O4cACB9tmXDo+z
+	58+bK47xRYoGnYfTxyNcQJcjNyOmYPnx0OeO7vqP1PSNKCvBqvtY0bcX411tArnY2UjVarKYvXT4j
+	6TYq4zZkF20dvYPGO27MBfs7BxbZq3ApXto2HLKo1i/b17mNdmfj8LaKVMINhRji1uPtK/CRGQvKd
+	MEzPVmvTwe0bsAZjp5MLcbxKF9JBr2H/qZpaqNoSDxt2NYLdap5vZCANvXEDhhy6rNNUaV/iDIuhM
+	JyuwcrdC3Dkbse79Y8mC1fAoZNzitw9QjaIHi3jjV1jwExhp1CozLA7NZ8NNxuglOzNSp+/NyBU76
+	HP4Lwrag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukjXP-00000004VrU-2Cwq;
-	Sat, 09 Aug 2025 13:23:07 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1ukm91-00000004faU-1VVv;
+	Sat, 09 Aug 2025 16:10:07 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukjXM-00000004Vr8-1loM
+	id 1ukm8y-00000004fa5-1qAt
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 Aug 2025 13:23:05 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-7076b55460eso31279436d6.0
-        for <linux-riscv@lists.infradead.org>; Sat, 09 Aug 2025 06:23:03 -0700 (PDT)
+	Sat, 09 Aug 2025 16:10:06 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-76c3607d960so3354520b3a.1
+        for <linux-riscv@lists.infradead.org>; Sat, 09 Aug 2025 09:10:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bluespec-com.20230601.gappssmtp.com; s=20230601; t=1754745783; x=1755350583; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=m1HWAIl/l6Jo/icoJcFI/eQvHLHYv3eOCzqgLsh2+qQ=;
-        b=lGNgMFnGB7nKldQGQpMHd6YycR8HWOLSrU8jhRH/8RUHnXx0AleFkGd+tQi312RNov
-         7aWDMDletBqBNn8KWOdgXPyMIgTXWSr+y7cFCZAms7cO+KieplJ3jCg2qZ+/EWMdqKyq
-         u9k90kw5s16qHltpiVXmvRaOkZe1/0BEiDijWY/x7LTXtSIOaDgYBOmTZClJQJcvFu57
-         pS/3Gwp73BzFhcmjdFkTBvvRkRKvEV8+45EinNzRzq1P3HZHe6A+83K4bkLZ8mkcE213
-         0oApI1TkhxVxxLuAaYgN7FGkunx8J45OZBlV95bV4wwjuXDbSrABfEaj43OJyUVsHQOz
-         8RQA==
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1754755803; x=1755360603; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Vm111q7HEdqrlcr65H+xqM79ZO22buScjk8C2vfUtAU=;
+        b=MKawuxKqqheTXDNL+icHbOhyb0XYaisMndGST6Mvs8DhCctjmcAGfuK305IwB0qqUK
+         hD5dYPzDazhOnqXzSXasXEyKjFz3wlCf8Bwq9KrZ4YxHKJpvmzvlry7i8wlJrUxdLZNA
+         tXIdh3aI6k4JPp1EjYZlgiVQ8cFAAyqXzbrEVjKnbPRuvMyHCHUCRNuYAV9mTzfLoiia
+         ZT5Q/vFsvm8QFy+KwsiQI3Akoem/mrvpGuPkYD3S1QDAgQcITTttbg49juN+9qhWniNl
+         WSMBWfdjQBRxyWaDPpku+E9r8VUBayh++s+icHFoeFoCNQFJrnDCehzKUfCXZmwpQcmQ
+         1nAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754745783; x=1755350583;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=m1HWAIl/l6Jo/icoJcFI/eQvHLHYv3eOCzqgLsh2+qQ=;
-        b=h5TDUj97mhOIUS6rXbnYf9O9rBMmNqxePisoXmCD7BadEru+wX15yNHVxH2eMcHdSh
-         8moCPAxRRqualpK+GIe5xMST0WD77v2NLKaBfxAPILSIJpmrIyl8oygN4OQfLq5Gfx9D
-         tNBjjYWqcPg7qe2NvFDZWnJ3ZRpBivo98pGx8QB9lJobCfNUUMt/xA4Kce2llXQab9dH
-         rVdQTa4mOoKjJwtjvMCQoZs3OmEDTzBVrOhZIyk5eg29vZHcQkYTqGaOqbFdcVv0m3bM
-         Av5pvgW/Lz5EcXtbJCKNcPCzhISvsQpksQcP8Gk0HbB7wlnebZbn8k4w9KlJw3TLrYxA
-         CNjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU9AOeU2OQ7Emr9ucm1M6SGXutcyLioHaqG+cozyvH7fSHLvGa31bptseIdaJfJUWNvKCS6OCHTGi43ZQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9wjo7tsHD/GjJuPMoT1SNtAdwFu6ZNY5TeAlySPRrLfXJ5yGL
-	39gj0+Z29JuQRS3e54bTGs4x+G7r9+vq9PepvUyuHeRijzSfhcDbSnLzhyN0BTqD
-X-Gm-Gg: ASbGncvDsi5yB16WQD6UgSMjTJ1NTWCg2i5Adeu37vJjUjCumI6FxD85aV7RakH0yDH
-	Owy+m4BoaTiIp5WZ1jxx3wfKqxfCvXKkAI1XeRF4XZyUXycr+Lezm5ucRGGYRFRQbnV+poCi02L
-	cB39efuMAkGtWIS3DfvB1asKDyYOsEy1Q1vlbMAF9Wh2Id+7enbK7U7eKMxWmrjNhBiFTqlEzn3
-	d6yDrmdtIMTFFcOyNVDQ01ljPWOeDrulPbTi4QKDVFmkHyqbvpQmJ4OKsX7sb9FaOfVY/X+KuIH
-	L7L3HBkvRNpvLU53lcyBpOcBcU9APDhzAfH0yaFaPVXqzR8nskMHKK95tsRZvAdjjWgvQsXFnyr
-	T9hMoC1oc0amun5GXgsyLvO6VrweAo+g=
-X-Google-Smtp-Source: AGHT+IHnkjLCl6BuRx0vZJ+XlCeUb46kGhdYSIkBrOOBdb1kcWB7KRzOq298Msvi9tw1zh6I7RJfNw==
-X-Received: by 2002:a05:6214:1d0a:b0:701:77a:88b with SMTP id 6a1803df08f44-7099a30586fmr77763936d6.21.1754745782762;
-        Sat, 09 Aug 2025 06:23:02 -0700 (PDT)
-Received: from localhost.localdomain ([37.19.220.12])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-7094e245309sm88739056d6.1.2025.08.09.06.23.01
+        d=1e100.net; s=20230601; t=1754755803; x=1755360603;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Vm111q7HEdqrlcr65H+xqM79ZO22buScjk8C2vfUtAU=;
+        b=V9QvL/x3krlIvCofCSiv1CYi8Gj0/NZB91vXYd76gihTzi5CMRcGk2sG4Rmy9VlDvd
+         TDWmJtQKCdk/AUYi+6XD90/jJ8e1CaG86gzQuK23J9AYdjgkVRe4j8ukGbW/XtPmG08C
+         3PLRhMaaceQx0DkQ8rHjDOS/5bi8HE1USeqnPQDNcw34bFlo3JmygoslAKkKKaXwsVWN
+         7gl+ImdVEGDRXdRsuPkQn1/7xdjvHDuAE5qLLo0Z1Dd0w23GLVt0ruJwucF/JXo6q7rd
+         ZEll3FDZAFPN/I5gktzBW+4BxMihRs8IdFzID5shXYNaTWqcEV7FLwrZUs8PYd4/lJo7
+         aT4g==
+X-Gm-Message-State: AOJu0Yy1KEcusdSfCoSQTD4/eAIKcWMRcYi64856OmKR7DC0NYKS6VfY
+	qG9C71L9kkYHzPlFkJR104OPpMnp5HgsxLJNll5x1l0ZnGWUi7po1wBKrbaBhM+A+dl+iBjUXw0
+	XJGInH8E=
+X-Gm-Gg: ASbGncvq57GOzgBKCSGcmSAUCTnu0gy59Z0CvN1rKKZ0Oz/gSM0P0SNaKZtAXii7TNL
+	PB2+h9LNqpdsGexsxi7vEhSQXim2JVcwE3wn67/t3GhyOGI2WKXPrt2sFlMGCQj6YX9Q+DQNAyC
+	labPmkDMcn1VKfL+wqkzvZeJ2ZF8UvSOf8Ozkq2w9EcL/NKszoEectcsUpmH8O5fMgtoGpbl3u+
+	F8CGww9hJnN+/SWkCasmTLtwb7MBpOm51ZS1lBeac5NSCbRF/pqXoLeAAhiZkTKt1iTlYDH5wj0
+	Lc8pVW3varjb270jP0MTdFAAFtBfZEVBAMZ/29ceTJACQj2KUz9Bqt4hiYS45lYY9Nfy+auBdWx
+	poiIogJIhPwhZ5M2azMYFwp3QWSYx6JRnuIA=
+X-Google-Smtp-Source: AGHT+IHIz6p0J1AiyXsleLuls77tX/jAJ92HSf9ZGsUP8iZXambPb+8il8tsfWkoH0Y+WW/deM2Rhw==
+X-Received: by 2002:a05:6a21:329f:b0:224:c067:66f8 with SMTP id adf61e73a8af0-240551d6a9cmr10697755637.37.1754755803063;
+        Sat, 09 Aug 2025 09:10:03 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-31f63da6249sm27246362a91.3.2025.08.09.09.10.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 Aug 2025 06:23:02 -0700 (PDT)
-Date: Sat, 9 Aug 2025 09:23:00 -0400
-From: Darius Rad <darius@bluespec.com>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Drew Fustini <fustini@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Drew Fustini <dfustini@tenstorrent.com>
-Subject: Re: [PATCH v2] riscv: Add sysctl to control discard of vstate during
- syscall
-Message-ID: <aJdLtG8jcAxT8idC@localhost.localdomain>
-Mail-Followup-To: Vivian Wang <wangruikang@iscas.ac.cn>,
-	Drew Fustini <fustini@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Drew Fustini <dfustini@tenstorrent.com>
-References: <20250806-riscv_v_vstate_discard-v2-1-6bfd61b2c23b@kernel.org>
- <aJXvWuPKIc2lCSX3@localhost.localdomain>
- <e4d21516-23b5-404b-a7da-cf6ebfd02dbc@iscas.ac.cn>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <e4d21516-23b5-404b-a7da-cf6ebfd02dbc@iscas.ac.cn>
+        Sat, 09 Aug 2025 09:10:02 -0700 (PDT)
+Date: Sat, 09 Aug 2025 09:10:02 -0700 (PDT)
+X-Google-Original-Date: Sat, 09 Aug 2025 09:09:59 PDT (-0700)
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.17 Merge Window, Part 1
+In-Reply-To: <CAHk-=wjLCqUUWd8DzG+xsOn-yVL0Q=O35U9D6j6=2DUWX52ghQ@mail.gmail.com>
+CC: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-655602B8-F102-4B0F-AF4A-4AB94A9F231F@Palmers-Mini.rwc.dabbelt.com>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_062304_703205_3AFCD16E 
-X-CRM114-Status: GOOD (  26.80  )
+X-CRM114-CacheID: sfid-20250809_091004_723794_F0E70007 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,103 +92,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 09, 2025 at 11:58:24AM +0800, Vivian Wang wrote:
-> My previous comment on v1 on prefering clobbering with VS = Initial
-> handling aside...
-> 
-> On 8/8/25 20:36, Darius Rad wrote:
-> > On Wed, Aug 06, 2025 at 07:03:28AM -0700, Drew Fustini wrote:
-> > [...]
-> >> diff --git a/Documentation/arch/riscv/vector.rst b/Documentation/arch/riscv/vector.rst
-> >> index 3987f5f76a9deb0824e53a72df4c3bf90ac2bee1..b702c00351617165a4d8897c7df68eadcd2d562e 100644
-> >> --- a/Documentation/arch/riscv/vector.rst
-> >> +++ b/Documentation/arch/riscv/vector.rst
-> >> @@ -134,7 +134,25 @@ processes in form of sysctl knob:
-> >>  3.  Vector Register State Across System Calls
-> >>  ---------------------------------------------
-> >>  
-> >> -As indicated by version 1.0 of the V extension [1], vector registers are
-> >> -clobbered by system calls.
-> >> +Linux adopts the syscall ABI proposed by version 1.0 of the V extension [1],
-> >> +where vector registers are clobbered by system calls. Specifically:
-> >> +
-> >> +    Executing a system call causes all caller-saved vector registers
-> >> +    (v0-v31, vl, vtype) and vstart to become unspecied.
-> >> +
-> > Perhaps:
-> >
-> > Clobbering the vector registers may prevent leaking information to user
-> 
-> No... Not clobbering does not "leak" anything. If you find that it leaks
-> information, please report - that's a bug.
-> 
+On Fri, 08 Aug 2025 21:58:32 PDT (-0700), Linus Torvalds wrote:
+> On Fri, 8 Aug 2025 at 21:19, Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>>
+>> RISC-V Patches for the 6.17 Merge Window, Part 1
+>
+> No. This is garbage and it came in too late. I asked for early pull
+> requests because I'm traveling, and if you can't follow that rule, at
+> least make the pull requests *good*.
+>
+> This adds various garbage that isn't RISC-V specific to generic header files.
+>
+> And by "garbage" I really mean it. This is stuff that nobody should
+> ever send me, never mind late in a merge window.
+>
+> Like this crazy and pointless make_u32_from_two_u16() "helper".
+>
+> That thing makes the world actively a worse place to live. It's
+> useless garbage that makes any user incomprehensible, and actively
+> *WORSE* than not using that stupid "helper".
+>
+> If you write the code out as "(a << 16) + b", you know what it does
+> and which is the high word. Maybe you need to add a cast to make sure
+> that 'b' doesn't have high bits that pollutes the end result, so maybe
+> it's not going to be exactly _pretty_, but it's not going to be wrong
+> and incomprehensible either.
+>
+> In contrast, if you write make_u32_from_two_u16(a,b) you have not a
+> f%^5ing clue what the word order is. IOW, you just made things
+> *WORSE*, and you added that "helper" to a generic non-RISC-V file
+> where people are apparently supposed to use it to make *other* code
+> worse too.
+>
+> So no. Things like this need to get bent. It does not go into generic
+> header files, and it damn well does not happen late in the merge
+> window.
+>
+> You're on notice: no more late pull requests, and no more garbage
+> outside the RISC-V tree.
+>
+> Now, I would *hope* there's no garbage inside the RISC-V parts, but
+> that's your choice. But things in generic headers do not get polluted
+> by crazy stuff. And sending a big pull request the day before the
+> merge window closes in the hope that I'm too busy to care is not a
+> winning strategy.
+>
+> So you get to try again in 6.18. EARLY in the that merge window. And
+> without the garbage.
 
-That's why I wrote "may".  If such a bug existed, either now or in the
-future, clobbering here would limit the scope of it.  But this may not be
-important enough to mention.
+OK, sorry.  I've been dropping the ball lately and it kind of piled up 
+as taking a bunch of stuff late, but that just leads to me making 
+mistakes.  So I'll stop being late, and hopefully that helps with the 
+quality issues.
 
-> > space and aid in debugging, but can significantly increase system call
-> > latency for some implementations.  [...]
-> >
-> >> +However, clobbering the vector registers can significantly increase system call
-> >> +latency for some implementations. To mitigate this performance impact, a sysctl
-> >> +knob is provided that controls whether vector state is always discarded in the
-> >> +syscall path:
-> >> +
-> >> +* /proc/sys/abi/riscv_v_vstate_discard
-> >> +
-> >> +    Valid values are:
-> >> +
-> >> +    * 0: Vector state is not always clobbered in all syscalls
-> >> +    * 1: Mandatory clobbering of vector state in all syscalls
-> >> +
-> >> +    Reading this file returns the current discard behavior. The initial state is
-> >> +    controlled by CONFIG_RISCV_ISA_V_VSTATE_DISCARD.
-> >>  
-> >>  1: https://github.com/riscv/riscv-v-spec/blob/master/calling-convention.adoc
-> >> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> >> index 36061f4732b7496a9c68a9a10f9959849dc2a95c..7bb8a8513135cbc105bd94d273012486a886f724 100644
-> >> --- a/arch/riscv/Kconfig
-> >> +++ b/arch/riscv/Kconfig
-> >> @@ -656,6 +656,16 @@ config RISCV_ISA_V_DEFAULT_ENABLE
-> >>  
-> >>  	  If you don't know what to do here, say Y.
-> >>  
-> >> +config RISCV_ISA_V_VSTATE_DISCARD
-> >> +	bool "Enable Vector state discard by default"
-> >> +	depends on RISCV_ISA_V
-> >> +	default n
-> >> +	help
-> > Perhaps add the following paragraph:
-> >
-> > Discarding vector state is more robust, but has negative performance
-> > implications in certain implementations.
-> 
-> "Robust" is too vague... I don't think this word is helpful for anyone
-> trying to understand what this does.
-> 
-> Vivian "dramforever" Wang
-> 
-> >
-> >> +	  Say Y here if you want to always discard vector state in syscalls.
-> >> +	  Otherwise, userspace has to enable it via the sysctl interface.
-> >> +
-> >> +	  If you don't know what to do here, say N.
-> >> +
-> >>  config RISCV_ISA_V_UCOPY_THRESHOLD
-> >>  	int "Threshold size for vectorized user copies"
-> >>  	depends on RISCV_ISA_V
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>                 Linus
 
 _______________________________________________
 linux-riscv mailing list
