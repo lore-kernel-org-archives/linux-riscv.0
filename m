@@ -4,76 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE67C87FCF
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Aug 2025 08:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9069AC87FCF
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Aug 2025 10:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KwTwfavs8MHNn+8+z4MA6ZUP9HFL1U7C+I7nESMzzpg=; b=iEZUowoo49A7Tk
-	203AeFtvPlG6P6r0iIEfxnii+jDmOOqnc6llBb/hthSBmgOFYVbO8exzgEUBGzsjuuMHraqR0y4Ri
-	oz2Pp3mEFIgwBq7nWL3xzZ377TVcAgQCGGjOoAGSRVPX12MBkWsM3MGxABuumGrW72Eei4kcYBSCt
-	t+IKdyXjTQWzIopm6n0T4OB645cbpo2dX3MTW6F0dzglEcSu6m9qP5r1SCqa9Dzj/El8vkmiunjpZ
-	JiMVJKpoDz8IQYpaHn8Vcef9g85e7yLIkg70/Y5ck/klXs6CntuyqZf2rlQ9497IqbIYV37W43KV1
-	7QmEBTuYxTM4Wu74vTsQ==;
+	List-Owner; bh=+lGEuCBm1gKvOt7N90AGfhN/tEniuZlNghMd054BsmA=; b=Ds83A3bGzVtti8
+	YumL1zFMV0tKz72iuSYPB3Od71UE8VGMnuO06sdoTx9i/RyTW49jmtCWuA1lKGisnq3cQKJxdo9QJ
+	HUuYzmXO8mj0jEhKMgMiANdQdeTAmV3EfkJ/IiHUssymFvnN/lusVSDXpZlw81CRjiDFAc0Dn4vc7
+	R1f1q0jAeKoNOc3b5hAlWLmPgUmG00kJX3NYjgHIUfBrNGFd43O2EAEQIQCkOn6EWubgzDCR1PeZc
+	D7KelcRm6ghCzzHJsHfZdPNajkH5a/qIVp8D/S/+9Cajlt4j6sLBuPbsv3b3ktzyR85tB0wLvMWHv
+	3zSdtBMO1i//fwi/xgGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukfAU-00000004HKf-1uk2;
-	Sat, 09 Aug 2025 08:43:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ukh5Y-00000004NuM-3Hgt;
+	Sat, 09 Aug 2025 10:46:12 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukfAR-00000004HKJ-2E8x
+	id 1ukh5V-00000004NtY-0s1k
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 Aug 2025 08:43:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754728985;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z+vP3eh5eUjP7Lq+gTWgW1fmf2ENVDRoJb0qh1Cws54=;
-	b=XmY88VkuwzWK+9uCC7j+JfXClyIdg7AVsjun0sv45m7jqBihwPkns1NLPU3HApk9k3n/33
-	ZvubgtZluTgvk6legPMeFv7egMgEhda72ALJR9U7JnUXr/0x6nZc9ClKJurxK5sT2cC4Et
-	gmZO4DmRDt6ud/bSVoa/3I+WT+X7+PY=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-132-cCaGX3YIMmO3w5FJf_xLRA-1; Sat,
- 09 Aug 2025 04:40:36 -0400
-X-MC-Unique: cCaGX3YIMmO3w5FJf_xLRA-1
-X-Mimecast-MFC-AGG-ID: cCaGX3YIMmO3w5FJf_xLRA_1754728834
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 330E4180048E;
-	Sat,  9 Aug 2025 08:40:34 +0000 (UTC)
-Received: from fweimer-oldenburg.csb.redhat.com (unknown [10.45.224.52])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E76E919560AD;
-	Sat,  9 Aug 2025 08:40:29 +0000 (UTC)
-From: Florian Weimer <fweimer@redhat.com>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt
- <palmer@dabbelt.com>,  Alexandre Ghiti <alex@ghiti.fr>,  Samuel Holland
- <samuel.holland@sifive.com>,  =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>,  Andy Chiu
- <andybnac@gmail.com>,  Conor Dooley <conor.dooley@microchip.com>,
-  linux-riscv@lists.infradead.org,  linux-kernel@vger.kernel.org,  Drew
- Fustini <dfustini@tenstorrent.com>
-Subject: Re: [PATCH v2] riscv: Add sysctl to control discard of vstate
- during syscall
-In-Reply-To: <20250806-riscv_v_vstate_discard-v2-1-6bfd61b2c23b@kernel.org>
-	(Drew Fustini's message of "Wed, 06 Aug 2025 07:03:28 -0700")
-References: <20250806-riscv_v_vstate_discard-v2-1-6bfd61b2c23b@kernel.org>
-Date: Sat, 09 Aug 2025 10:40:46 +0200
-Message-ID: <lhuo6so7ur5.fsf@oldenburg.str.redhat.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Sat, 09 Aug 2025 10:46:11 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2C28143A1C;
+	Sat,  9 Aug 2025 10:46:00 +0000 (UTC)
+Message-ID: <b0fdcb23-4d68-4d0f-a8ac-2b389a0ce856@ghiti.fr>
+Date: Sat, 9 Aug 2025 12:45:59 +0200
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: Only allow LTO with CMODEL_MEDANY
+To: Nathan Chancellor <nathan@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
+ llvm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ kernel test robot <lkp@intel.com>
+References: <20250710-riscv-restrict-lto-to-medany-v1-1-b1dac9871ecf@kernel.org>
+ <20250808215303.GA3695089@ax162>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250808215303.GA3695089@ax162>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduvdeigeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeettedutdekffeigfejfffffefgkefffeetfffgffevffelieeiueffffefhfdtudenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhgihhthhhusgdrtghomhdpihhnfhhrrgguvggrugdrohhrghenucfkphepudekhedrvddufedrudehgedrudegfeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedukeehrddvudefrdduheegrddugeefpdhhvghloheplgdutddrudegrddtrddufegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepkedprhgtphhtthhopehnrghthhgrnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheptghonhhorheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhop
+ ehllhhvmheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehsthgrsghlvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlkhhpsehinhhtvghlrdgtohhm
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_014307_694146_935F9EC0 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20250809_034609_404763_CCC92F71 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,40 +62,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-* Drew Fustini:
+Hi Nathan,
 
-> From: Drew Fustini <dfustini@tenstorrent.com>
->
-> Clobbering the vector registers can significantly increase system call
-> latency for some implementations. To mitigate this performance impact, a
-> sysctl knob is provided that controls whether the vector state is
-> discarded in the syscall path:
->
-> /proc/sys/abi/riscv_v_vstate_discard
->
-> Valid values are:
->
-> 0: Vector state is not always clobbered in all syscalls
-> 1: Mandatory clobbering of vector state in all syscalls
->
-> The initial state is controlled by CONFIG_RISCV_ISA_V_VSTATE_DISCARD.
+On 8/8/25 23:53, Nathan Chancellor wrote:
+> Ping? This is still getting hit.
 
-Can this be put into the system call number instead, or make it specific
-to some system calls in other ways?
 
-I think C libraries can use this optimization for their system calls
-(after adjusting the assembler clobbers) because the vector state is
-caller-saved in the standard calling convention.  But there is backwards
-compatibility impact for turning this on for the entire process.
+This is the second time your patches do not reach the linux-riscv 
+mailing list [1] [2], not even my personal mailbox.
+
+[1] 
+https://lore.kernel.org/linux-riscv/?q=riscv%3A+Only+allow+LTO+with+CMODEL_MEDANY 
+
+[2] 
+https://lore.kernel.org/linux-riscv/?q=riscv%3A+uaccess%3A+Fix+-Wuninitialized+and+-Wshadow+in+__put_user_nocheck
+
+I don't know what's going on, do you have any idea?
+
+I'll pick this up in my fixes branch.
 
 Thanks,
-Florian
 
+Alex
+
+
+>
+> On Thu, Jul 10, 2025 at 01:25:26PM -0700, Nathan Chancellor wrote:
+>> When building with CONFIG_CMODEL_MEDLOW and CONFIG_LTO_CLANG, there is a
+>> series of errors due to some files being unconditionally compiled with
+>> '-mcmodel=medany', mismatching with the rest of the kernel built with
+>> '-mcmodel=medlow':
+>>
+>>    ld.lld: error: Function Import: link error: linking module flags 'Code Model': IDs have conflicting values: 'i32 3' from vmlinux.a(init.o at 899908), and 'i32 1' from vmlinux.a(net-traces.o at 1014628)
+>>
+>> Only allow LTO to be performed when CONFIG_CMODEL_MEDANY is enabled to
+>> ensure there will be no code model mismatch errors. An alternative
+>> solution would be disabling LTO for the files with a different code
+>> model than the main kernel like some specialized areas of the kernel do
+>> but doing that for individual files is not as sustainable than
+>> forbidding the combination altogether.
+>>
+>> Cc: stable@vger.kernel.org
+>> Fixes: 021d23428bdb ("RISC-V: build: Allow LTO to be selected")
+>> Reported-by: kernel test robot <lkp@intel.com>
+>> Closes: https://lore.kernel.org/oe-kbuild-all/202506290255.KBVM83vZ-lkp@intel.com/
+>> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+>> ---
+>>   arch/riscv/Kconfig | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index 36061f4732b7..4eee737a050f 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -68,7 +68,7 @@ config RISCV
+>>   	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
+>>   	select ARCH_SUPPORTS_HUGETLBFS if MMU
+>>   	# LLD >= 14: https://github.com/llvm/llvm-project/issues/50505
+>> -	select ARCH_SUPPORTS_LTO_CLANG if LLD_VERSION >= 140000
+>> +	select ARCH_SUPPORTS_LTO_CLANG if LLD_VERSION >= 140000 && CMODEL_MEDANY
+>>   	select ARCH_SUPPORTS_LTO_CLANG_THIN if LLD_VERSION >= 140000
+>>   	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS if 64BIT && MMU
+>>   	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
+>>
+>> ---
+>> base-commit: fda589c286040d9ba2d72a0eaf0a13945fc48026
+>> change-id: 20250710-riscv-restrict-lto-to-medany-f1b7dd5c9bba
+>>
+>> Best regards,
+>> --
+>> Nathan Chancellor <nathan@kernel.org>
+>>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
