@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25980C87FCF
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E582C87FCF
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4mAxCiPwD5Tos84HoFl6bB9gyEKTqWK9FE7xT2D3Pm0=; b=uKWcK1gtqH5JMn
-	Qc/dn5okErgf24SvubFLktF+r+byMnnRGG3/psSzhFhqVo6pPYluVN5nDmbW8CuzOid98FcHWYV/g
-	K66K7HPId/ZM7jt/HDUVDzPAB1Ikojyi+OD+vxFHKdvU8KyFcjk+yPv5f9FdlCzb8S2GCZRJzOzXy
-	gPL9SoWfotx8keSmB2DD58atjM7x9o7jQVYS2bWAFbOv0EO5kepNdwsDrUz9FshXtBctp+mGmFv/0
-	MVWBA/xU6aXNzDOUG0h4+1ZRIFiiB7mXGkwbC4GmrKFiz8fjcO55LR5Agc8UkviUHYsQCCIx+tJO4
-	gC3lhO6Vf/xG6WrW1d/Q==;
+	List-Owner; bh=bK2tJQRvroT9l4E8s9tRGlldB/P+X5B0f2SgE2W8wJ0=; b=NV2wg7XM5/C2En
+	/AcQqWz/Zr+rhzBPpOruHzMuic/n/ct8qhCU5MYZhBqMJRg5+bdMCUxG4g4ic3GcyNsP3/9z0f4rJ
+	pJK8m/vW7YxM+NaToVwpS9kZM/sGO283dLf1jHdctkkPHuVNUpkFzsXfsDChZczBfpFMhSon7d4AT
+	pveFwLdcdr7H4fjzQ2ajOcgg4o5GpCxaOi9CPY+j+WcOrVwurZ8xehVDD3BGZzGtCUZtWL0J1iGxA
+	u2Kq744rggE+TkP/dYhqdSc2CKuuyd1voNAzsUEe8Dp/5pq9OJbNR8DDKC6driqkeiqfPYCgrWK2H
+	3A/8XEj3Yv7IR0O1qCpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDNS-000000060MG-35ix;
-	Sun, 10 Aug 2025 21:14:50 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ulDQ0-0000000617s-083R;
+	Sun, 10 Aug 2025 21:17:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDKr-00000005zXP-2cWw;
-	Sun, 10 Aug 2025 21:12:10 +0000
+	id 1ulDKt-00000005zYn-2lcd
+	for linux-riscv@lists.infradead.org;
+	Sun, 10 Aug 2025 21:12:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F1916A5687F;
-	Sun, 10 Aug 2025 21:12:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DCEBC4CEEB;
-	Sun, 10 Aug 2025 21:12:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A65143DD2;
+	Sun, 10 Aug 2025 21:12:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50CC3C4CEEB;
+	Sun, 10 Aug 2025 21:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754860328;
-	bh=ZK22F6C/xwxn3px53k7HK2LnPgcM6+IW6mZjmVw4kFw=;
+	s=k20201202; t=1754860331;
+	bh=4I9I7RuWJ60qaM2pPz9O6+4tlk0mUd5Zz6Z6dLSxXgg=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=fyWQ5oooRC6wI8X6P+yvMFj5P/hHuuEVXFYqiAdDrROsJheOK+FCl0ax8qRBG0MH4
-	 wTrPfy9PBKTT7rnR1tiCIf5OOSsKxtMA0op0F4VLfQaXvJRDoyfgB0+0jdrEVkk3N+
-	 Uwi0TrWouz0jNcmgr8YcfIOnnLQ4IkGuLZo1gAbYetV+005FVY9eAFmDmerFVEb2RO
-	 71OS0WbF/mxSum4TUKSSGI/49849ZjfpsYtQimD7ozCY6NF4+DosiaTC22axlmheAD
-	 1q2CjvngKZUm3HTxftih68jHazWm2QfgTnFoBmDCTO0octJRac1ZYnAgW6vFQZqbbQ
-	 Z07Y65Rmub+Qg==
+	b=Mn1cEHXxgSXuqRhGUpKlOJIVubu5qDnDP2LXRFGtMut7PRd5GdakEucMEf2DqeYz7
+	 RDqBvR+31AhfprLTEEka2QILFje+l3sZecwbxKK5zs3DH4M1n4tjB0WAkXeJGpa+SK
+	 lhmnD+RLaJg8O53Gp4GVRqJrv7/gkCfUe1SD81TxH44DyfG1R6lJqvqznEpwwXRYan
+	 e32YP63mu72RdBxv3Gl2OWkn//HUMWNX8M2J015KYr50kdqrIgAHjw+iOJ2auygygV
+	 /jnjfpJAw1aCSOvKT5rLaJGcj1kUdTTgglpOTXFUEBEh0mO5qo4bGz8yegvUJqKjcJ
+	 O+seXdQcM/rOg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70C3939D0C2B;
-	Sun, 10 Aug 2025 21:12:22 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33BA139D0C2B;
+	Sun, 10 Aug 2025 21:12:25 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [GIT PULL v2] KVM/riscv changes for 6.17
+Subject: Re: [PATCH v3 0/3] Optimize GCD performance on RISC-V by selecting
+ implementation at runtime
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175486034099.1221929.4746664358148231967.git-patchwork-notify@kernel.org>
-Date: Sun, 10 Aug 2025 21:12:20 +0000
-References: <CAAhSdy1084USuM+k9T-AP7X_=s7x+WFv++U0PkjVojbPbjRCrw@mail.gmail.com>
-In-Reply-To: <CAAhSdy1084USuM+k9T-AP7X_=s7x+WFv++U0PkjVojbPbjRCrw@mail.gmail.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: linux-riscv@lists.infradead.org, pbonzini@redhat.com, palmer@dabbelt.com,
- ajones@ventanamicro.com, atishp@rivosinc.com, atish.patra@linux.dev,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
+Message-Id: <175486034374.1221929.15171575812600532444.git-patchwork-notify@kernel.org>
+Date: Sun, 10 Aug 2025 21:12:23 +0000
+References: <20250606134758.1308400-1-visitorckw@gmail.com>
+In-Reply-To: <20250606134758.1308400-1-visitorckw@gmail.com>
+To: Kuan-Wei Chiu <visitorckw@gmail.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ akpm@linux-foundation.org, linux-kernel@vger.kernel.org,
+ jserv@ccns.ncku.edu.tw, eleanor15x@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_141209_729371_BDE758FC 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250810_141211_725429_E7D43C78 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,24 +79,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This pull request was applied to riscv/linux.git (fixes)
-by Paolo Bonzini <pbonzini@redhat.com>:
+This series was applied to riscv/linux.git (fixes)
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Tue, 29 Jul 2025 17:04:22 +0530 you wrote:
-> Hi Paolo,
-> 
-> We have the following KVM RISC-V changes for 6.17:
-> 1) Enabled ring-based dirty memory tracking
-> 2) Improved "perf kvm stat" to report interrupt events
-> 3) Delegate illegal instruction trap to VS-mode
-> 4) MMU related improvements for KVM RISC-V for the
->     upcoming nested virtualization support
+On Fri,  6 Jun 2025 21:47:55 +0800 you wrote:
+> The current implementation of gcd() selects between the binary GCD and
+> the odd-even GCD algorithm at compile time, depending on whether
+> CONFIG_CPU_NO_EFFICIENT_FFS is set. On platforms like RISC-V, however,
+> this compile-time decision can be misleading: even when the compiler
+> emits ctz instructions based on the assumption that they are efficient
+> (as is the case when CONFIG_RISCV_ISA_ZBB is enabled), the actual
+> hardware may lack support for the Zbb extension. In such cases, ffs()
+> falls back to a software implementation at runtime, making the binary
+> GCD algorithm significantly slower than the odd-even variant.
 > 
 > [...]
 
 Here is the summary with links:
-  - [GIT,PULL,v2] KVM/riscv changes for 6.17
-    https://git.kernel.org/riscv/c/65164fd0f6b5
+  - [v3,1/3] lib/math/gcd: Use static key to select implementation at runtime
+    https://git.kernel.org/riscv/c/b3d5fd6f82dd
+  - [v3,2/3] riscv: Optimize gcd() code size when CONFIG_RISCV_ISA_ZBB is disabled
+    https://git.kernel.org/riscv/c/26b537edc533
+  - [v3,3/3] riscv: Optimize gcd() performance on RISC-V without Zbb extension
+    https://git.kernel.org/riscv/c/36e224168721
 
 You are awesome, thank you!
 -- 
