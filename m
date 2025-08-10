@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3940C87FCF
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41475C87FCF
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x0ZttAGzyNx2de3m5bWyL9hJ65HpPo4DQQ+f1jUzhgo=; b=fyoGHIHNBZepzT
-	QPFV9N9afzrE1LsuDPBpfaqre+iDv4Vo5h8lepF8arvGH0VdNA+oBw1enI9mcwX80ppIjgH2EfTBt
-	/FzS+47+Fqr2xtbmZ5HxdsFaxrGxbLgF/u4tpHrfwma7qVdhpVOIeK3vDmblTpp0wXhAM9ntiigKj
-	t+ZAs+NbBBgmP2CnyDqycLbhxX3zGVOOMkkhdYpElae/a0zTaINzVLiMBwWI9ee6gOR/etHczIMYm
-	I0hWCAGo+3fTAUtNZGHYxzBbb7Yj6/z0d7TYcX9s01FnNK91CSzeLMwHx1SSI0Vk87BaPjQ85lVnA
-	Bu9kosSHccoVBxMmBClg==;
+	List-Owner; bh=R7VraAEC878jkwaod2vcrxbzn7qO73nnVYsi4kMpNDA=; b=e90PSXXAXFc3wk
+	txC+0tjgmSDIeEWJgtXObHkMPmjI6kNAdWPT3tpAr4v8jdvpZu1576dUi04QUwffxi2CSfUVujotG
+	UuSuqPk5LxroCBBKxbAEWKfVtEJe02+pC7zeOqi7l2KWmiR2kKzAMB+hSPmJAuOzQGtzEQLslsPer
+	ga8mrU83Mqg3if0yQ+dVopfdPCcX4qmyA2cg2goyg6cRRn0uVyuvHQXyWG+fklqmQ3JFNd7OEw/Si
+	JbL2L2xn3IIaR6WjcIaaDARZxLfb8+8ZS1vlJYB8Am6LN2SFsp5F4bs5/WBgG1z2ZGZJbo6/4l4PZ
+	LdYI8IclxviutYVIHo5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDKq-00000005zXI-3JUm;
-	Sun, 10 Aug 2025 21:12:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ulDNQ-000000060Jh-0VME;
+	Sun, 10 Aug 2025 21:14:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDKn-00000005zVf-1IcV
-	for linux-riscv@lists.infradead.org;
+	id 1ulDKn-00000005zVe-25TN;
 	Sun, 10 Aug 2025 21:12:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38C9F45967;
-	Sun, 10 Aug 2025 21:12:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CE1BC4CEEB;
-	Sun, 10 Aug 2025 21:12:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 148D14186C;
+	Sun, 10 Aug 2025 21:12:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DED3CC4CEEB;
+	Sun, 10 Aug 2025 21:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754860324;
-	bh=BQP2wrXvpvE0OkhTHqKiJnJxJCBhEsJDRIlvbTbLikQ=;
+	s=k20201202; t=1754860322;
+	bh=XrfQgl5l4McAsqhy747liDQB2Wk7PKkiU9eU9e0wRRM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=NeloW0E7hGjIA3yR9ZXXKj3hjEdgWXGZL4XVmFahhuMH0lydRU7ex9OqRoMjCiHbc
-	 aJcrXN5NB5fmsrBCIWi0Z+KAaLfgEkClOzZmOB0QHPYfuVBPRomoVmCCy0NKhOEoYc
-	 c5enY2K9iKuvCrzMZuXdriDKlA0aCjfUYWZhO3em1hSW/rwlVOeZS0cJ5XzCkpKG2W
-	 ekmXLR6pjY4W0r8NA82tvLDW/sfFudo7L47lmiUD8Olk5cXPwhIrj0PtHoE12Bi9LU
-	 DnlAgHP3yelTJ4e+R4kvJ8MO41fIA1C4oo0NPHgEx9TMl0fTetvPX7O6voVbgLWfTb
-	 IoZ3UveYGt/4A==
+	b=Gwjn8bTbzGhzzolmVUPo9n7gcBleM2ZVFGDflhWOkdwNBJ0e6wotBLuXD0buvnF7g
+	 aXoNaKfXoEDoNj4lZ/8pa6odo8DFWObVF3OfZG3lrpWmvwF9AJmOUqEzkaWzOeq7Yd
+	 DpcJnBQo9Z4JNU1FE++ilb7nhN/t2KWXk7okkwr6WQvrfPpvZrLhMXDkZ6HQcXTy6q
+	 oJdFW6I2y1cQ+XGdnxUPHqxnZ8SZfN7pdNeHUDKckOniwED43a0ZbSyUveH+xY3V9p
+	 M3Gg6vutVvVco0CLG4wUKYmINApUE8HUs9Uyk6Lbw9URsrzxtpmDb+/V1rKT1fuakD
+	 n8BmE1Qp9O4Dg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADC439D0C2B;
-	Sun, 10 Aug 2025 21:12:17 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE7439D0C2B;
+	Sun, 10 Aug 2025 21:12:16 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4] irqchip/riscv-imsic: Add kernel parameter to disable
- IPIs
+Subject: Re: [PATCH 00/12] irqchip: MSI cleanup and conversion to MSI parent
+ domain
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175486033674.1221929.9986171280702761593.git-patchwork-notify@kernel.org>
-Date: Sun, 10 Aug 2025 21:12:16 +0000
-References: <20250716123745.557585-1-apatel@ventanamicro.com>
-In-Reply-To: <20250716123745.557585-1-apatel@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, corbet@lwn.net, tglx@linutronix.de,
- anup@brainfault.org, atish.patra@linux.dev, palmer@dabbelt.com,
- paul.walmsley@sifive.com, alex@ghiti.fr, ajones@ventanamicro.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <175486033550.1221929.7725164280675452092.git-patchwork-notify@kernel.org>
+Date: Sun, 10 Aug 2025 21:12:15 +0000
+References: <cover.1750860131.git.namcao@linutronix.de>
+In-Reply-To: <cover.1750860131.git.namcao@linutronix.de>
+To: Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, maz@kernel.org, tglx@linutronix.de,
+ atenart@kernel.org, andrew@lunn.ch, gregory.clement@bootlin.com,
+ sebastian.hesselbarth@gmail.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, chenhuacai@kernel.org,
+ jiaxun.yang@flygoat.com, anup@brainfault.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, linux-mips@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_141205_373323_C7437625 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20250810_141205_575064_45C3BE52 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,27 +82,46 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
+This series was applied to riscv/linux.git (fixes)
 by Thomas Gleixner <tglx@linutronix.de>:
 
-On Wed, 16 Jul 2025 18:07:45 +0530 you wrote:
-> When injecting IPIs to a set of harts, the IMSIC IPI support will do
-> a separate MMIO write to the SETIPNUM_LE register of each target hart.
-> This means on a platform where IMSIC is trap-n-emulated, there will be
-> N MMIO traps when injecting IPI to N target harts hence IMSIC IPIs will
-> be slow on such platform compared to the SBI IPI extension.
+On Thu, 26 Jun 2025 16:48:57 +0200 you wrote:
+> The initial implementation of PCI/MSI interrupt domains in the hierarchical
+> interrupt domain model used a shortcut by providing a global PCI/MSI
+> domain.
 > 
-> Unfortunately, there is no DT, ACPI, or any other way of discovering
-> whether the underlying IMSIC is trap-n-emulated. Using MMIO write to
-> the SETIPNUM_LE register for injecting IPI is purely a software choice
-> in the IMSIC driver hence add a kernel parameter to allow users disable
-> IMSIC IPIs on platforms with trap-n-emulated IMSIC.
+> This works because the PCI/MSI[X] hardware is standardized and uniform, but
+> it violates the basic design principle of hierarchical interrupt domains:
+> Each hardware block involved in the interrupt delivery chain should have a
+> separate interrupt domain.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4] irqchip/riscv-imsic: Add kernel parameter to disable IPIs
-    https://git.kernel.org/riscv/c/ea92b6046d35
+  - [01/12] irqdomain: Add device pointer to irq_domain_info and msi_domain_info
+    https://git.kernel.org/riscv/c/858e65af9135
+  - [02/12] irqchip/bcm2712-mip: Switch to msi_create_parent_irq_domain()
+    https://git.kernel.org/riscv/c/91650ca5efcf
+  - [03/12] irqchip/riscv-imsic: Convert to msi_create_parent_irq_domain() helper
+    https://git.kernel.org/riscv/c/59422904dd98
+  - [04/12] irqchip/imx-mu-msi: Convert to msi_create_parent_irq_domain() helper
+    https://git.kernel.org/riscv/c/c7cc7b122a4c
+  - [05/12] irqchip/loongson-pch-msi.c: Switch to msi_create_parent_irq_domain()
+    https://git.kernel.org/riscv/c/7f91d608cc43
+  - [06/12] irqchip/sg2042-msi: Switch to msi_create_parent_irq_domain()
+    https://git.kernel.org/riscv/c/7c0dbd80de03
+  - [07/12] irqchip/alpine-msi: Clean up whitespace style
+    https://git.kernel.org/riscv/c/6e44ac411255
+  - [08/12] irqchip/alpine-msi: Convert to lock guards
+    https://git.kernel.org/riscv/c/71476f915f92
+  - [09/12] irqchip/alpine-msi: Convert to __free
+    https://git.kernel.org/riscv/c/f7c2dd9f4c2d
+  - [10/12] irqchip/alpine-msi: Switch to msi_create_parent_irq_domain()
+    https://git.kernel.org/riscv/c/7a91ad7ebd61
+  - [11/12] irqchip/armada-370-xp: Switch to msi_create_parent_irq_domain()
+    https://git.kernel.org/riscv/c/bafb2901317f
+  - [12/12] irqchip/ls-scfg-msi: Switch to use msi_create_parent_irq_domain()
+    https://git.kernel.org/riscv/c/94b59d5f567a
 
 You are awesome, thank you!
 -- 
