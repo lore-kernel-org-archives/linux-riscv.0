@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75BFEC87FCF
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF336C87FCF
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jr4nTylAV8FkIVKEDNVYP/I0i1Yazefzju35KqatfpA=; b=b+O1ZjU/uYRa0M
-	8opCtP9ujNTsLPVWIfrlAvgKeIU2tvCOkE4EAU3kqOAJNSSUtvo/w6gj51FmDMyyMHwdVMRme70pS
-	DNq/uRs4W3pqpz1dxkeEfxWqo2tvfZwurGne4cQYIrsmyZiktjC4yMaKlYaXTmkbOhusDTPOpYApl
-	+oQn18uxjiquJNI65cIulchhAQaUTuml30eVlY/HJ9mPY9V9mw/2DC/fu6dK8yLuVpfIBKr/ita9T
-	q14gJV/ldiEtBdjEWw5tjywJkv9Y9gtTuSjIRHjUkWw4FVsXx7f1t8872z9f70rCCPXZZw51P/lER
-	SnKDnBSb23qj8DHkT9og==;
+	List-Owner; bh=nK73rETQN/JH46RK94+nrZfxXGgwVyP0X+P5u6WzXRk=; b=KV1cvG7Cr9umwj
+	8tikCgTP2fw1mYTO2mLQXQ7sBKVmGRDZ12en40v1URu2KGl/QGIwhyLn5YaZSLDLnZi59sQEStvVs
+	4DycJHAQ4whNb+Ikm6vpa9QD32qWY5J+xFQIj4mO+0Bz4QP7NPMvDuynX+CFNqGHjeyDSryDkCuHL
+	GpbDH2zX9Qz4yKKw4OQGdda3bZ7i1aeBlzf3rS7SozYLVZp/egiapbw90HqHGVBCgiQ5A2y9te9Jo
+	w6cHiThR9Bo2VQxU7q9yYAY0LlGfkEc7TJtiMIv1ookAlRvZGWf5OtBLcnogqErgSsq9TZv2XfKaH
+	sHw3hotEQbor+k95wmwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDXd-000000061za-455p;
-	Sun, 10 Aug 2025 21:25:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ulDci-000000062Ve-3FxZ;
+	Sun, 10 Aug 2025 21:30:36 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDKz-00000005zcb-46bn;
-	Sun, 10 Aug 2025 21:12:19 +0000
+	id 1ulDL2-00000005zeG-2j0o;
+	Sun, 10 Aug 2025 21:12:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3ACC4A568DE;
-	Sun, 10 Aug 2025 21:12:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAEF6C4CEEB;
-	Sun, 10 Aug 2025 21:12:16 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EF740A568DD;
+	Sun, 10 Aug 2025 21:12:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B0B3C4CEF1;
+	Sun, 10 Aug 2025 21:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754860336;
-	bh=9MmiwSbOpn9sJ3k+9vBWQv8oVw1RiwTCpsRy+r+Y3B8=;
+	s=k20201202; t=1754860339;
+	bh=5yjMJ5pYAU7roQm0SoETZ1MID+Ix01DRdk2i+IefPp4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=rMEJ8Gq22UebkrmVDbiKKeRUjqO/BW93ToXRYdfhGef1rLm5v/DuIs+VOmVha52Ua
-	 9BqJE4gioTZ7AojQDm04GlNgy5Ux+iDN7tQWmeq5mlfjfFHf66ecZyi8j8MrgHO3mP
-	 r9P60YJAIb8m6DeUXFcpWqx7KfojCPpESsduM6p+DwoC3AGuvpVd3muUBsBkK+D7pO
-	 67m4Mw9G7jlYvkOrg8CycH89yy9R0nhoBgGvkS/GRnexFMxOcmo6VhXoyF+NfZD6ZU
-	 9zOkMONCwi7Tyy277v2z5aOeU8Mny/cEbjQ6xXEa8fW9kqlk2MZuVkIHF729qu1J6u
-	 uqTqY/JUOOHVQ==
+	b=p8+vBwuHbPOX3zWA5AdVdow0dXcpX5lWYUZFlKh7zH9B128VrbY+ROT0gFzs5QfXx
+	 BV0kQURmNwLVseCIgn2iBj9UYh1II/3xL9CVa8qHV6XFFLaJYw5n3+2A2kdY5ZY89c
+	 wz6jgq5LjTcLQHEauf7gbm7pOgnd2j3+L6OkZ78x1JL9q4wXwanUFQ9KS72+CTpG3D
+	 N9PFtwBE40VDKi8WWiUia+dRvn28fqHhu5PrVdqmo4hVL7D4ZdeqveMFfUBes9uU89
+	 1hI4AwCdP0An5a5lSs3vgBR/OhzlE02FOlwoKp85o0Ko61E5ETJDB85G2T1NE2+/A6
+	 B1A+nE1puMYpQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADD2139D0C2B;
-	Sun, 10 Aug 2025 21:12:30 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70C7339D0C2B;
+	Sun, 10 Aug 2025 21:12:33 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 11/24] cpuidle: riscv-sbi: Opt-out from genpd's common
- ->sync_state() support
+Subject: Re: [PATCH v4 00/22] RV: Linear temporal logic monitors for RT
+ application
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175486034925.1221929.6715963825149639363.git-patchwork-notify@kernel.org>
-Date: Sun, 10 Aug 2025 21:12:29 +0000
-References: <20250701114733.636510-12-ulf.hansson@linaro.org>
-In-Reply-To: <20250701114733.636510-12-ulf.hansson@linaro.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: linux-riscv@lists.infradead.org, saravanak@google.com, sboyd@kernel.org,
- linux-pm@vger.kernel.org, rafael@kernel.org, gregkh@linuxfoundation.org,
- m.grzeschik@pengutronix.de, andersson@kernel.org, abel.vesa@linaro.org,
- peng.fan@oss.nxp.com, tomi.valkeinen@ideasonboard.com, johan@kernel.org,
- maulik.shah@oss.qualcomm.com, michal.simek@amd.com, konradybcio@kernel.org,
- thierry.reding@gmail.com, jonathanh@nvidia.com, hiago.franco@toradex.com,
- geert@linux-m68k.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, anup@brainfault.org
+Message-Id: <175486035199.1221929.9917218333770390161.git-patchwork-notify@kernel.org>
+Date: Sun, 10 Aug 2025 21:12:31 +0000
+References: <cover.1745390829.git.namcao@linutronix.de>
+In-Reply-To: <cover.1745390829.git.namcao@linutronix.de>
+To: Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, rostedt@goodmis.org, gmonaco@redhat.com,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ john.ogness@linutronix.de, pmladek@suse.com, senozhatsky@chromium.org,
+ mingo@redhat.com, tglx@linutronix.de, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, luto@kernel.org,
+ peterz@infradead.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_141218_080711_3BF97077 
-X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-CacheID: sfid-20250810_141220_780614_1C44F6D2 
+X-CRM114-Status: UNSURE (   9.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,29 +83,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Ulf Hansson <ulf.hansson@linaro.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Steven Rostedt (Google) <rostedt@goodmis.org>:
 
-On Tue,  1 Jul 2025 13:47:13 +0200 you wrote:
-> The riscv-sbi-domain implements its own specific ->sync_state() callback.
-> Let's set the GENPD_FLAG_NO_SYNC_STATE to inform genpd about it.
+On Wed, 23 Apr 2025 08:49:55 +0200 you wrote:
+> Real-time applications may have design flaws causing them to have
+> unexpected latency. For example, the applications may raise page faults, or
+> may be blocked trying to take a mutex without priority inheritance.
 > 
-> Moreover, let's call of_genpd_sync_state() to make sure genpd tries to
-> power off unused PM domains.
-> 
-> Cc: Anup Patel <anup@brainfault.org>
-> Cc: linux-riscv@lists.infradead.org
-> Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
-> Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xilinx ZynqMP ZCU106
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> However, while attempting to implement DA monitors for these real-time
+> rules, deterministic automaton is found to be inappropriate as the
+> specification language. The automaton is complicated, hard to understand,
+> and error-prone.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,11/24] cpuidle: riscv-sbi: Opt-out from genpd's common ->sync_state() support
-    https://git.kernel.org/riscv/c/ee766b017586
-  - [v3,24/24] cpuidle: riscv-sbi: Drop redundant sync_state support
-    https://git.kernel.org/riscv/c/eb34a0b5fee7
+  - [v4,18/22] riscv: mm: Add page fault trace points
+    https://git.kernel.org/riscv/c/a37c71ca412d
 
 You are awesome, thank you!
 -- 
