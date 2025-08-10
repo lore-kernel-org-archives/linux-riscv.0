@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0438C87FCF
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1930C87FDA
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 22:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MU6IRHlZl4Q9trANNf6ydXApMUuQieWPWuSj95deNms=; b=kpkMKJELeEQOqo
-	XANKvug8a6w1nfq/B9+bY7CNz7nE4GJ789escJibidS9KJl5M4Enasmb1ixoeIuVDSvpUovb3lAbz
-	bTqJFrbsERy7PtYrSIpPiTwd9JXYxlaT+fPOAommjjetmzeDAiHHx7NnOVFdXjifs/wqQeGTXqY+U
-	jMQwaF8lepxPR+N7HzX07bluwSE/i+jzV1Ojfnm4I6a3yo3EAG1WGp6snbTAK+I6IUvGz0pIFwVsB
-	BB+FDORTPmiX2+Ux6g+mmzfmwA6Dv2Q3kKqWsJGReKO1w6gt7VsOnNJftjN3koJEVz4j15FqloPSX
-	LgUmYfmPde/wCXAOf+nA==;
+	List-Owner; bh=Vcq2EHoCuZmrgEfccRbR5W6yN7g29Rus8yt03Buu7lE=; b=XepFho3yfTHw5N
+	kXuHslJRYJCavmN9Sy8ymArO3fX4lUrtrMWhOnGENLa8PIAH8lMhPS6HRO2LSz/SAwPiljOAqLc8r
+	hPn6ta3JLFErUI+wk7XhMxebb9NJh1dRZEXuCuvvcSEe5NoT7Mpy2O05bzkPW9xiBDYMKouGbXe5I
+	rkeeu4YhfKHmzTNNnQkJ3cgk4rLLYffUH5xIhzWWYg2IYRLeDN2tiDBV7VEhKGVEdA6DrCB8/vyBd
+	OurtF7dOa7bAmfdX1LDmofWmunVvALSCnAV7tDV4hCP1fVLYyccrEU9ysLOz9o/gDISAo730RGuLe
+	AlxHRLkZ4W+QjORn1g5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDpU-0000000641p-2ZpA;
-	Sun, 10 Aug 2025 21:43:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ulEYR-000000066xh-3Ffd;
+	Sun, 10 Aug 2025 22:30:15 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDmP-000000063PB-0hZD;
-	Sun, 10 Aug 2025 21:40:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=XMHVf/CZyz5eXVzs+1kxU50uJMZZqDPie91mH2VeSS8=; b=Rf2zDA0vlh0qq5AwYdSm8P6PiM
-	1CAHE6qjCRR2Mg9asGy5h9obgryVWONyqTycv6/EjZDhIAG7Q/OoMK2ahbh/XXvv5Zib2K0RyY9CP
-	H+wKCpxReK5BEWrq9dcWMMyjc6GpaQOcUtvLkwcB/iKBbOvOTrbnn8zXVD5WpDUEnQi/xMJYKP8oo
-	ngQZ4kShubyvCd+3AB9kCVojEQF4NXwPYWW9shO9pufTJP0Qlqgsj+c8nQx+0ejZKBfjPX4FReRVy
-	fWn3cWJ3R3wJpNKinI59A8CjO1MhQq54Ad209LvX7NuNnUDXaDXB43kqVinfjjHZ61O2qGJmdAe50
-	Y7trKZ5A==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDmL-0000000FIR7-3fnk;
-	Sun, 10 Aug 2025 21:40:35 +0000
+	id 1ulDL1-00000005zd6-0vJD;
+	Sun, 10 Aug 2025 21:12:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0FE6D449A6;
-	Sun, 10 Aug 2025 21:40:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB85EC4CEEB;
-	Sun, 10 Aug 2025 21:40:29 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 714B7A54008;
+	Sun, 10 Aug 2025 21:12:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B3FCC4CEEB;
+	Sun, 10 Aug 2025 21:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754862029;
-	bh=Fijcsa/lBkF0yn2nOI1I1ALk4S3Ym5/9LXKLrjvgt4M=;
+	s=k20201202; t=1754860338;
+	bh=+4dnmCmzsqfJqzogK3BsIrwmBCpep0C6Bjw/+YBBuRM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Uv6lCp66svp6z1/9IMgCByLzV5cnx+AfDqNGD1mYntQilkGFkXGWkPo8bcuhuT6t9
-	 Wl4NHBITEOhqOY8omlGfspSMbQXkhLm8VnaWSNLsMe3BzTv9SeoOxqHtMMHztIbKM9
-	 CiftrrHFRkJm2dqb+XlcF54SDDl9bjK2pwcqvec/i+jmUthJFd8W+T2/NXzXa2z02c
-	 +f93TpkJNjjDhRxrBbo97SJFs0xiyeOua9gPrbO7pGJcRlaNYKSUdz+FmlnsbC5x78
-	 BJDEF9ZKqpEauUnibMWf9E6fCOMmBcxbZUimUDvdjMzmzPumuN44gzxelt5RJ1+u7e
-	 aFPPfjZNHuCvg==
+	b=jwlDPXEycbVxBriw0lhEvzExieU29/OWPjrCEOUv2WqxJVCo7k8qLQNd/23hKV6Id
+	 kiLaOV4YOtJcGgxElQjSaCgtWjuxF1TZo4tREA179TeZXdS3lvUfSUPodCgRW5+oXI
+	 BCFW1ZUGDUOY0dS0F6zuygKhlBAKehYFNuxADUZB/wNi3lRPG0mDkehuTAMO5r9Gc8
+	 37hr0J36RdpHnefSpObuD3L+Tlh1Fkezo6HnNDheo5ggM1beQv0n1jA1HqFn7bWV3N
+	 Kt0hHbfjy0QEiUyYkW8gtXP6ZDCpEIB8+gtBCrPbjCcJ7HLqTMTALoRVNr67Pgkjiz
+	 1vu91j4EtReHw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADCDE39D0C2B;
-	Sun, 10 Aug 2025 21:40:43 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAF1939D0C2B;
+	Sun, 10 Aug 2025 21:12:31 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [GIT PULL v2] KVM/riscv changes for 6.17
+Subject: Re: [PATCH v3 00/22] RV: Linear temporal logic monitors for RT
+ application
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175486204250.1221929.3641072096313977215.git-patchwork-notify@kernel.org>
-Date: Sun, 10 Aug 2025 21:40:42 +0000
-References: <CAAhSdy1084USuM+k9T-AP7X_=s7x+WFv++U0PkjVojbPbjRCrw@mail.gmail.com>
-In-Reply-To: <CAAhSdy1084USuM+k9T-AP7X_=s7x+WFv++U0PkjVojbPbjRCrw@mail.gmail.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: linux-riscv@lists.infradead.org, pbonzini@redhat.com, palmer@dabbelt.com,
- ajones@ventanamicro.com, atishp@rivosinc.com, atish.patra@linux.dev,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
+Message-Id: <175486035074.1221929.14771271313243309912.git-patchwork-notify@kernel.org>
+Date: Sun, 10 Aug 2025 21:12:30 +0000
+References: <cover.1744785335.git.namcao@linutronix.de>
+In-Reply-To: <cover.1744785335.git.namcao@linutronix.de>
+To: Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, rostedt@goodmis.org, gmonaco@redhat.com,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ john.ogness@linutronix.de, pmladek@suse.com, senozhatsky@chromium.org,
+ mingo@redhat.com, boqun.feng@gmail.com, longman@redhat.com,
+ tglx@linutronix.de, bp@alien8.de, dave.hansen@linux.intel.com,
+ x86@kernel.org, hpa@zytor.com, luto@kernel.org, peterz@infradead.org,
+ catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_224034_212410_FC666490 
-X-CRM114-Status: UNSURE (   7.33  )
+X-CRM114-CacheID: sfid-20250810_141219_331961_B13DE6A9 
+X-CRM114-Status: UNSURE (   9.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,24 +84,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This pull request was applied to riscv/linux.git (for-next)
-by Paolo Bonzini <pbonzini@redhat.com>:
+This patch was applied to riscv/linux.git (fixes)
+by Steven Rostedt (Google) <rostedt@goodmis.org>:
 
-On Tue, 29 Jul 2025 17:04:22 +0530 you wrote:
-> Hi Paolo,
+On Wed, 16 Apr 2025 08:51:06 +0200 you wrote:
+> Real-time applications may have design flaws causing them to have
+> unexpected latency. For example, the applications may raise page faults, or
+> may be blocked trying to take a mutex without priority inheritance.
 > 
-> We have the following KVM RISC-V changes for 6.17:
-> 1) Enabled ring-based dirty memory tracking
-> 2) Improved "perf kvm stat" to report interrupt events
-> 3) Delegate illegal instruction trap to VS-mode
-> 4) MMU related improvements for KVM RISC-V for the
->     upcoming nested virtualization support
+> However, while attempting to implement DA monitors for these real-time
+> rules, deterministic automaton is found to be inappropriate as the
+> specification language. The automaton is complicated, hard to understand,
+> and error-prone.
 > 
 > [...]
 
 Here is the summary with links:
-  - [GIT,PULL,v2] KVM/riscv changes for 6.17
-    https://git.kernel.org/riscv/c/65164fd0f6b5
+  - [v3,18/22] riscv: mm: Add page fault trace points
+    https://git.kernel.org/riscv/c/a37c71ca412d
 
 You are awesome, thank you!
 -- 
