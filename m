@@ -4,73 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B787C87FCA
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 09:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BFA9C87FCF
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 13:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZIGiF8i4bUPgw/FgWKNIbNwYeSpx/qoxDAD91Y78KMI=; b=GGPM6kXkjUUWbS
-	ovtwoDmJ25n3lFQlf9sK5uZ3NzPU5ot7wvdeE9IQN13MmVyxMFtJMcKfP21TtyKH6UXxchiX4Y4M8
-	TWQs1gP/ij7Ss4xMgAWKbNWqcryKmd7aHToKVKaH7c1vAYcwu4XWcwaXyGfD2qGC0vCBLd1lvCEWf
-	/JcVCycY6tc21CdoLHK+BfFiZYuhV/opMZMgO8q+SIURAucIsVYgyvnGNBLSIp18hXevzvNDF+Ovp
-	VakeT+1+j6Kh9Z2qFkO2H/DjTQScD2jX6UD789KL143lVG7ZWQg8IZH5zub4sOuEz7AW8FwIoq7cg
-	bVzOyClUUIGFSH+TvLzg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Albpb0hM9l/qJH1Dqb4Jbjs8XpmQVIqhd3LGEnB/MYg=; b=zgrIXdwsgGZ2+d
+	leZseCwo8y9YVaILdswM2gnwzYxYQmKy6uKOASEHg7JzcOlm1t6ocdrIyF4yq2J4/crnnvwFMsPCz
+	JzID+xTnTYAen81f0Y8xqsQSbQcCLMrs9UmA3eqq8xCIM0cVoz+V/3YiFs8NGI/mCZKnTDUlu2z/6
+	mICkrMREEnLwU9wpnx33FpSp5eCmRw12cDQLUUy+3xAGS5+0kUNniL/TksyvM/iHw6CaJLXOuUZ7Q
+	rmkgDAGC8jBwAhnTQdlvnzcGDBbQ4pETA/v0gl92x/jjViLkL6pI7WuqEtW26zDdIBl9lLeJF0UQr
+	8WD3kzLDc+U/YKj4NXlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ul2jp-00000005VN7-1Bdg;
-	Sun, 10 Aug 2025 09:53:13 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1ul5fD-00000005cCI-3bJ7;
+	Sun, 10 Aug 2025 13:00:39 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ul2jl-00000005VMh-3aEX
-	for linux-riscv@lists.infradead.org;
-	Sun, 10 Aug 2025 09:53:12 +0000
-Received: from [192.168.23.20] (unknown [119.78.253.22])
-	by APP-05 (Coremail) with SMTP id zQCowABHn1_2a5ho0jOfCg--.37321S2;
-	Sun, 10 Aug 2025 17:52:55 +0800 (CST)
-Message-ID: <5a96d08e-0714-4925-a9c4-ea66549623d1@iscas.ac.cn>
-Date: Sun, 10 Aug 2025 17:52:54 +0800
+	id 1ul5cf-00000005bpZ-2oIq;
+	Sun, 10 Aug 2025 12:58:02 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-3322a34e84fso31114311fa.0;
+        Sun, 10 Aug 2025 05:58:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754830680; x=1755435480; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fLpTR6tAuSk7MmdRr1bx3cY7Ji1Fi9DhOlpvPdNYklM=;
+        b=ATFz32WbzUsoQ06slxk9Hk6UHv1BHW9BDNnSsOgJax7R02MWtTGRkUTNs+Ufzn17Sd
+         sV9FOWFI5nPSemMr/xMi6g5UAnoMZElWv3MXzeqsD0BXZYF+Nxnma4EcKVc7l2CjDH5r
+         7WdQRRLXN1BWDdIQgmcii5fCmauKH7J6kJIn7fNaeLmQMeJGAr90PuuEWTRgG6uASXoQ
+         oCGGw/oDZqRFnhQ0AaO4hEQqJ/USeNn2eJbFWbee6RECAdsHUEowSV8ydOVjnqIFq7xU
+         f7m/sWqHkOy6mPDOHX+aQ9e5I4fubaU+NMtDaWboVQF1zV1Ax2BUMKTsQ73u8G+0eEhw
+         NuNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754830680; x=1755435480;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fLpTR6tAuSk7MmdRr1bx3cY7Ji1Fi9DhOlpvPdNYklM=;
+        b=IxpckORTgV5kWZQ4vvZt5cPNnVjIwOnfZmPWODvGrBynjDESHFUbG7jV4Sw0OLazPw
+         ifytpVtB++81qbu+D/gdxPrgntJXyO+4F+hW1m0mNwmKEnJ31wCcpPYZh3gC31Y4QvRr
+         Zm1/p0/5WbGmRFKzLRhylS4FUBObjMM23SGQWnPzTb2jEtTyGRUf2C/4shZqlr1ivTv4
+         HlYAyeF4PuFfIRLj95m4Rrd8qt7OyZBZB9xBN2P1Z0GqaKdR56KIBgQV32hIKjwyoQ4r
+         mZHnewfoypodFSIx8u6bfhdaFZtVewLeAZ1jqdVTVDDwMO3FY1QEfiwyd4yRRy4Lth/G
+         4Siw==
+X-Forwarded-Encrypted: i=1; AJvYcCVICUmO1V1XUODCZMEQOc5kMyaPTtJuviaaREMRYIadmyla5G+gBGRZcInzv/PJrmNx+ujNseL2dws=@lists.infradead.org, AJvYcCWRvYkWwwpO82J+6TcuZNoZy6tFsth5R4zZ0WsU4Qa/LCirOQEiAGATWNtyKBEjg1uLmjYW+24zjLcC77A=@lists.infradead.org, AJvYcCXgKm3U4dVkVw0t/Nu9L/OWDa+esjSGVJWsSDMPut/GwOxXUtnvVuE5GPPSwf+bje7QxgDe/l1dcdsnzyN2Pk6l@lists.infradead.org
+X-Gm-Message-State: AOJu0YzomYYOtpvC9nIKEGxrvJp3lVXuvSZOfvnjLqyCkHG0qMz7WxKu
+	9PLocixrywDfCXEKLypLZ+aP/tDbT+r5SQkrEl89Lj0rkl1t43od15Tp
+X-Gm-Gg: ASbGncsNQAAXU9IJamjGfu6KTHGZvNtD0RMxMyRcXHzNclv3pKaMwx0k+MjE/1qGr74
+	vkVIEx0u1J1p7o8NfLXYSJLi9H+iUTO6BywtG3bjfoA9taY1CLBvmIPoMuVzjmpHmrBASmX3QpZ
+	A9gDYn7cU3PK7QAYEmstJUp0A0txOFUx/Z7hmdiHKIWuW5PchwUJFIsIDzMBZ1CpcYUmObKzwqm
+	/R//NJz21YdDd5WYSYfA4MDj3nwvynxU/ViGcLLPFKhF6o4D4JSHWIiYw1srziUmW4txoMzXxqm
+	FlZ6STqJD25r/CpyjcIICN7ISMwCCX4I2AVQVJ6QAqYNpCqxIBc5DJVvJyXN9Ov/V0dbmG9Jgvr
+	VP9ZwL2Bl/7OpDih4v13uZTO5DYWpAe82idAXOA==
+X-Google-Smtp-Source: AGHT+IGP/4+VH4qZJqmI6pqOQcdamwMMjmUjwyAr9JTcQGvwe1pb2iGdV8kKhr91VYx69eEOJbHKcQ==
+X-Received: by 2002:a05:6512:2313:b0:55b:8397:cffd with SMTP id 2adb3069b0e04-55cc00ada77mr2589766e87.9.1754830679327;
+        Sun, 10 Aug 2025 05:57:59 -0700 (PDT)
+Received: from localhost.localdomain ([2a03:32c0:2e:37dd:bfc4:9fdc:ddc6:5962])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b88c9908esm3804561e87.76.2025.08.10.05.57.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 10 Aug 2025 05:57:58 -0700 (PDT)
+From: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+To: ryabinin.a.a@gmail.com,
+	christophe.leroy@csgroup.eu,
+	bhe@redhat.com,
+	hca@linux.ibm.com,
+	andreyknvl@gmail.com,
+	akpm@linux-foundation.org,
+	zhangqing@loongson.cn,
+	chenhuacai@loongson.cn,
+	davidgow@google.com,
+	glider@google.com,
+	dvyukov@google.com,
+	alexghiti@rivosinc.com
+Cc: alex@ghiti.fr,
+	agordeev@linux.ibm.com,
+	vincenzo.frascino@arm.com,
+	elver@google.com,
+	kasan-dev@googlegroups.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-mm@kvack.org,
+	snovitoll@gmail.com
+Subject: [PATCH v6 0/2] kasan: unify kasan_enabled() and remove arch-specific implementations
+Date: Sun, 10 Aug 2025 17:57:44 +0500
+Message-Id: <20250810125746.1105476-1-snovitoll@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] riscv: Add sysctl to control discard of vstate during
- syscall
-To: Drew Fustini <fustini@kernel.org>, Darius Rad <darius@bluespec.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Samuel Holland <samuel.holland@sifive.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Andy Chiu <andybnac@gmail.com>,
- Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Drew Fustini <dfustini@tenstorrent.com>
-References: <20250806-riscv_v_vstate_discard-v2-1-6bfd61b2c23b@kernel.org>
- <aJXvWuPKIc2lCSX3@localhost.localdomain>
- <e4d21516-23b5-404b-a7da-cf6ebfd02dbc@iscas.ac.cn> <aJb+wifbIAsit+me@x1>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <aJb+wifbIAsit+me@x1>
-X-CM-TRANSID: zQCowABHn1_2a5ho0jOfCg--.37321S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Jry5WFW7tFWrAF47Ww47twb_yoWxJr18pr
-	W3GFsrKr1DZw1xZwn2qw48XFWxKFZ3Gw45Wr15G348ZF98ur9xtrn3tayruF97XrW8Cryj
-	qw4F9a4xZ3yUAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvqb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
-	ZFpf9x07betCcUUUUU=
-X-Originating-IP: [119.78.253.22]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_025310_258363_E5F7F5D0 
-X-CRM114-Status: GOOD (  31.35  )
+X-CRM114-CacheID: sfid-20250810_055801_712076_1FE5F340 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,144 +118,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patch series addresses the fragmentation in KASAN initialization
+across architectures by introducing a unified approach that eliminates
+duplicate static keys and arch-specific kasan_arch_is_ready()
+implementations.
 
-On 8/9/25 15:54, Drew Fustini wrote:
-> On Sat, Aug 09, 2025 at 11:58:24AM +0800, Vivian Wang wrote:
->> My previous comment on v1 on prefering clobbering with VS = Initial
->> handling aside...
-> I found that in the discard vector state patch discussion 2 years ago
-> that Andy and Bjorn discussed how Initial could cause a problem [1]:
->
->   It's not a racy, but you're correct that setting the state to Initial,
->   will cause issues. When get/set_regs is called, the tracee will be
->   stopped, and a schedule() has been done.
->
-> In the v3 series, Bjorn notes [2]:
->
->   Set state to Dirty after discard, for proper ptrace() handling (Andy)
+The core issue is that different architectures have inconsistent approaches
+to KASAN readiness tracking:
+- PowerPC, LoongArch, and UML arch, each implement own kasan_arch_is_ready()
+- Only HW_TAGS mode had a unified static key (kasan_flag_enabled)
+- Generic and SW_TAGS modes relied on arch-specific solutions
+  or always-on behavior
 
-Ahh... That's more complicated than I thought.
+Changes in v6:
+- Call kasan_init_generic() in arch/riscv _after_ local_flush_tlb_all()
+- Added more details in git commit message
+- Fixed commenting format per coding style in UML (Christophe Leroy)
+- Changed exporting to GPL for kasan_flag_enabled (Christophe Leroy)
+- Converted ARCH_DEFER_KASAN to def_bool depending on KASAN to avoid
+        arch users to have `if KASAN` condition (Christophe Leroy)
+- Forgot to add __init for kasan_init in UML
 
-I have some rough ideas on fixing ptrace handling, and I personally
-still vastly prefer VS=Initial, but given the complexity, I think it
-makes sense to defer this work until later and just get this performance
-fix in first. And also...
+Changes in v5:
+- Unified patches where arch (powerpc, UML, loongarch) selects
+  ARCH_DEFER_KASAN in the first patch not to break
+  bisectability. So in v5 we have 2 patches now in the series instead of 9.
+- Removed kasan_arch_is_ready completely as there is no user
+- Removed __wrappers in v4, left only those where it's necessary
+  due to different implementations
 
-> Also, I would like the ability to have the ability to switch off
-> __riscv_v_vstate_discard() and not loose any cycles to it, so I think
-> this sysctl is a good fit for that.
+Tested on:
+- powerpc - selects ARCH_DEFER_KASAN
+Built ppc64_defconfig (PPC_BOOK3S_64) - OK
+Booted via qemu-system-ppc64 - OK
 
-I was initially (ha!) worried about the sysctl knob getting in, and
-immediately going away after we implement VS=Initial (correctly), but if
-you think the right thing is to have this knob always, that wouldn't be
-a problem.
+I have not tested in v4 powerpc without KASAN enabled.
 
->> On 8/8/25 20:36, Darius Rad wrote:
->>> On Wed, Aug 06, 2025 at 07:03:28AM -0700, Drew Fustini wrote:
->>> [...]
->>>> diff --git a/Documentation/arch/riscv/vector.rst b/Documentation/arch/riscv/vector.rst
->>>> index 3987f5f76a9deb0824e53a72df4c3bf90ac2bee1..b702c00351617165a4d8897c7df68eadcd2d562e 100644
->>>> --- a/Documentation/arch/riscv/vector.rst
->>>> +++ b/Documentation/arch/riscv/vector.rst
->>>> @@ -134,7 +134,25 @@ processes in form of sysctl knob:
->>>>  3.  Vector Register State Across System Calls
->>>>  ---------------------------------------------
->>>>  
->>>> -As indicated by version 1.0 of the V extension [1], vector registers are
->>>> -clobbered by system calls.
->>>> +Linux adopts the syscall ABI proposed by version 1.0 of the V extension [1],
->>>> +where vector registers are clobbered by system calls. Specifically:
->>>> +
->>>> +    Executing a system call causes all caller-saved vector registers
->>>> +    (v0-v31, vl, vtype) and vstart to become unspecied.
->>>> +
->>> Perhaps:
->>>
->>> Clobbering the vector registers may prevent leaking information to user
->> No... Not clobbering does not "leak" anything. If you find that it leaks
->> information, please report - that's a bug.
-> Thanks Darius and Vivian for your comments. I think it is a good idea
-> for me to write about the possible advantages of mandatory clobbering on
-> syscall entry. However, I am also uncertain how clobbering on syscall
-> entry helps prevent leaking information.
->
->>> space and aid in debugging, but can significantly increase system call
->>> latency for some implementations.  [...]
-> I think that is a good idea for me to call out that this is can be
-> useful for debugging and testing.
->
-Yeah, I agree that this second part of the description is good.
+In v4 arch/powerpc/Kconfig it was:
+	select ARCH_DEFER_KASAN			if PPC_RADIX_MMU
 
->>>> +However, clobbering the vector registers can significantly increase system call
->>>> +latency for some implementations. To mitigate this performance impact, a sysctl
->>>> +knob is provided that controls whether vector state is always discarded in the
->>>> +syscall path:
->>>> +
->>>> +* /proc/sys/abi/riscv_v_vstate_discard
->>>> +
->>>> +    Valid values are:
->>>> +
->>>> +    * 0: Vector state is not always clobbered in all syscalls
->>>> +    * 1: Mandatory clobbering of vector state in all syscalls
->>>> +
->>>> +    Reading this file returns the current discard behavior. The initial state is
->>>> +    controlled by CONFIG_RISCV_ISA_V_VSTATE_DISCARD.
->>>>  
->>>>  1: https://github.com/riscv/riscv-v-spec/blob/master/calling-convention.adoc
->>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->>>> index 36061f4732b7496a9c68a9a10f9959849dc2a95c..7bb8a8513135cbc105bd94d273012486a886f724 100644
->>>> --- a/arch/riscv/Kconfig
->>>> +++ b/arch/riscv/Kconfig
->>>> @@ -656,6 +656,16 @@ config RISCV_ISA_V_DEFAULT_ENABLE
->>>>  
->>>>  	  If you don't know what to do here, say Y.
->>>>  
->>>> +config RISCV_ISA_V_VSTATE_DISCARD
->>>> +	bool "Enable Vector state discard by default"
->>>> +	depends on RISCV_ISA_V
->>>> +	default n
->>>> +	help
->>> Perhaps add the following paragraph:
->>>
->>> Discarding vector state is more robust, but has negative performance
->>> implications in certain implementations.
->> "Robust" is too vague... I don't think this word is helpful for anyone
->> trying to understand what this does.
-> I agree that I should add more description to the Kconfig option as I
-> think what I wrote assumes too much prior knowledge of the code. Maybe
-> something like this:
->
->   Discarding vector state on syscall entry can help identify userpace
->   programs that are mistakenly relying on vector state being preserved
->   across syscalls. This can be useful for debugging and test suites.
->   However, this behavior can negatively impact performance on some
->   RISC-V implementations.
->
->   Say Y here if you want mandatory clobbering of vector state before
->   entering all syscalls. If you select N, then userspace can still
->   eanble it via the abi.riscv_v_vstate_discard sysctl knob.
+and compiling with ppc64_defconfig caused:
+  lib/stackdepot.o:(__jump_table+0x8): undefined reference to `kasan_flag_enabled'
 
-Typo: eanble -> enable
+I have fixed it in v5 via adding KASAN condition:
+	select ARCH_DEFER_KASAN			if KASAN && PPC_RADIX_MMU
 
-Also, I think it kinda makes the false impression that the sysctl knob
-is only available with this set to N? I think this should be structured
-to say something like this being the default value, and also say that
-userspace can override this behavior system-wide via the sysctl knob.
+- um - selects ARCH_DEFER_KASAN
 
-Otherwise mostly looks good to me, assuming that this matches the
-intentions of the original design.
+KASAN_GENERIC && KASAN_INLINE && STATIC_LINK
+	Before:
+		In file included from mm/kasan/common.c:32:
+		mm/kasan/kasan.h:550:2: error: #error kasan_arch_is_ready only works in KASAN generic outline mode!
+		550 | #error kasan_arch_is_ready only works in KASAN generic outline mode
 
-Thanks,
-Vivian "dramforever" Wang
+	After (with auto-selected ARCH_DEFER_KASAN):
+		./arch/um/include/asm/kasan.h:29:2: error: #error UML does not work in KASAN_INLINE mode with STATIC_LINK enabled!
+		29 | #error UML does not work in KASAN_INLINE mode with STATIC_LINK enabled!
 
->   If you don't know what to do here, then select N.
->
-> Thanks,
-> Drew
->
->
-> [1] https://lore.kernel.org/linux-riscv/87r0pug6hb.fsf@all.your.base.are.belong.to.us/
-> [2] https://lore.kernel.org/linux-riscv/20230629062730.985184-1-bjorn@kernel.org/
+KASAN_GENERIC && KASAN_OUTLINE && STATIC_LINK && 
+	Before:
+		./linux boots.
+
+	After (with auto-selected ARCH_DEFER_KASAN):
+		./linux boots.
+
+KASAN_GENERIC && KASAN_OUTLINE && !STATIC_LINK
+	Before:
+		./linux boots
+
+	After (with auto-disabled !ARCH_DEFER_KASAN):
+		./linux boots
+
+- loongarch - selects ARCH_DEFER_KASAN
+Built defconfig with KASAN_GENERIC - OK
+Haven't tested the boot. Asking Loongarch developers to verify - N/A
+But should be good, since Loongarch does not have specific "kasan_init()"
+call like UML does. It selects ARCH_DEFER_KASAN and calls kasan_init()
+in the end of setup_arch() after jump_label_init().
+
+Previous v5 thread: https://lore.kernel.org/all/20250807194012.631367-1-snovitoll@gmail.com/
+Previous v4 thread: https://lore.kernel.org/all/20250805142622.560992-1-snovitoll@gmail.com/
+Previous v3 thread: https://lore.kernel.org/all/20250717142732.292822-1-snovitoll@gmail.com/
+Previous v2 thread: https://lore.kernel.org/all/20250626153147.145312-1-snovitoll@gmail.com/
+
+Sabyrzhan Tasbolatov (2):
+  kasan: introduce ARCH_DEFER_KASAN and unify static key across modes
+  kasan: call kasan_init_generic in kasan_init
+
+ arch/arm/mm/kasan_init.c               |  2 +-
+ arch/arm64/mm/kasan_init.c             |  4 +---
+ arch/loongarch/Kconfig                 |  1 +
+ arch/loongarch/include/asm/kasan.h     |  7 ------
+ arch/loongarch/mm/kasan_init.c         |  8 +++----
+ arch/powerpc/Kconfig                   |  1 +
+ arch/powerpc/include/asm/kasan.h       | 12 ----------
+ arch/powerpc/mm/kasan/init_32.c        |  2 +-
+ arch/powerpc/mm/kasan/init_book3e_64.c |  2 +-
+ arch/powerpc/mm/kasan/init_book3s_64.c |  6 +----
+ arch/riscv/mm/kasan_init.c             |  1 +
+ arch/s390/kernel/early.c               |  3 ++-
+ arch/um/Kconfig                        |  1 +
+ arch/um/include/asm/kasan.h            |  5 ++--
+ arch/um/kernel/mem.c                   | 13 ++++++++---
+ arch/x86/mm/kasan_init_64.c            |  2 +-
+ arch/xtensa/mm/kasan_init.c            |  2 +-
+ include/linux/kasan-enabled.h          | 32 ++++++++++++++++++--------
+ include/linux/kasan.h                  |  6 +++++
+ lib/Kconfig.kasan                      | 12 ++++++++++
+ mm/kasan/common.c                      | 17 ++++++++++----
+ mm/kasan/generic.c                     | 19 +++++++++++----
+ mm/kasan/hw_tags.c                     |  9 +-------
+ mm/kasan/kasan.h                       |  8 ++++++-
+ mm/kasan/shadow.c                      | 12 +++++-----
+ mm/kasan/sw_tags.c                     |  1 +
+ mm/kasan/tags.c                        |  2 +-
+ 27 files changed, 113 insertions(+), 77 deletions(-)
+
+-- 
+2.34.1
 
 
 _______________________________________________
