@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89817C87FDA
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7C8C87FDA
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OHDadBLu4cFz3m8P1EdyuEKdjCzSfMue+KcTHI0w4nU=; b=1iMnuAr/y9VWlL
-	4eF8hi9a67ehqDNnoxYZzk1BvwZkfFEDt53532MnB/Bv0S/X5nRv+/xmTT9dkvtAUV9WYu4wp6ti4
-	w3d6F9zbTpBNJerqvdgbGTEcGubdAYS6FrOfL3MDz6vJQPxHIMxmeLRUqjwvD+7onU8fiZcMQGjrk
-	9oDVruj9jhAnYnrdZX80U2cVJon+2iMSCgNDIsv+lLU0IeiXQp1qTNdLqi08Dxj91Zmd+tE7N6wIq
-	OymCX/b+4fuWFlEJpZ4VWlhpikgVwJyIg+hqkkIP23RytaFvKNHq3sL2R2Q6Yxn0qZCC5EcoF5TUH
-	HUp2bA/r2rz3YuxuRSdg==;
+	List-Owner; bh=Wuc2eZ/NIKo/3PunXumgWVKVrsGM2rqvppAUp6+wJjA=; b=cM7JfnbGyW+I37
+	NXqyJ8+Ifl1zstxtEFVivYQQ0Nb95lSD4o2Ul8L3Ch3nL1ISpHmF2fmEbHXDm2EtNdQ1U+UX16htL
+	LJ23lMOcfGrq9jmuG+RY3caxyOeOJSRl+LpS3JpYyDdx3jc1CgGWDjJ0URVWVCiXcet8rEBDRbW92
+	IL43hEeOhJ+TlIUiuk2++fEaO4YEIJTAEnhO6Xpzd8l6QYc8u24EG4kQivlPwE1ciZRh1jPlR/kOg
+	rF8fX04IipDxWUKJXgbh2y+DfoEFzX3c2T01EspDD2POuLY4ZyipifeXK46u/vKR6fOvFZUe2jS9T
+	4uEru6vVq93GZAbo3NBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDPz-0000000617X-1vOM;
-	Sun, 10 Aug 2025 21:17:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ulDSY-000000061RS-0dor;
+	Sun, 10 Aug 2025 21:20:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDKs-00000005zY2-1EUk;
-	Sun, 10 Aug 2025 21:12:12 +0000
+	id 1ulDKz-00000005zcC-0Qwp
+	for linux-riscv@lists.infradead.org;
+	Sun, 10 Aug 2025 21:12:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F149F45AF0;
-	Sun, 10 Aug 2025 21:12:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF676C4CEEB;
-	Sun, 10 Aug 2025 21:12:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E992761410;
+	Sun, 10 Aug 2025 21:12:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DDC6C4CEEB;
+	Sun, 10 Aug 2025 21:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754860329;
-	bh=PTB+y1bea+X0pwle+Qsb0krCZI4wJwkr28qnyuTl7j4=;
+	s=k20201202; t=1754860332;
+	bh=Nk+nlMj8RvGrT4DnRJpYaYLBYV46+pgSfSCrnwqmvis=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=HCOBV3tU+ctjdX3pY3Zg/0pvMsfqNnXGmHLBwd4NcMVjVEH7cvRnVceivTVzUTBgz
-	 iBywCPbd901UmslM78Hnuk/eTpHS6/f3sLyf9xPRghxH/2C+4EPHmKaK3TU1y8G/SD
-	 2LZGbg4pzBNtyw7wRgsvYlW0+yX8/zcykqfhKvNIWp878PjsojxBNWCh5PKt5A4KoZ
-	 LQ8F53gT97pNeIvGJtMveQduZsLP39bJ9M6pBSMzg1LErA9A75yivHXsm8MZHlMgbc
-	 tG9XSvaRQ5XBE9KczEQP5WOF5MlpsjN04vNY4GNEFA7Y6xVuMV9vlzvKe/2lUu0GBk
-	 cXiQT6eCpZTTg==
+	b=ivL7QVkhykah8Omp/xFVgPDQSPoT8cIdd4Im4ynihPf2YbWyPmaNvPTw0HMhYUz/a
+	 pbal64NXxrXhpFBa03AfI5GX9PNQZZ5idrrx+g3S9/abi0O35bASo20zdfJOSEz/7j
+	 3TfcwH7JtDCjBLWvI8/J20EHVLISYGk425x8i6JKPo/4Y9mE/nNbM4k6np6jNUm1tA
+	 cIr3bixLpGp6psNrTIIqq/DJAd3euWqY0AAOCYGfTeZwMGpEbdkAdH5DV4DGN4Wv89
+	 dNWT3b5gLlN/kP/B5Dc7Uijo4Yw7caeoFU8JThW+R05PMi5Vde3d1h/ni+jDxcT5ya
+	 U2QfoCm9jPNwQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADD1539D0C2B;
-	Sun, 10 Aug 2025 21:12:23 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D2039D0C2B;
+	Sun, 10 Aug 2025 21:12:26 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 00/13] stackleak: Support Clang stack depth tracking
+Subject: Re: [PATCH 0/6] docs: Remove false positives from check-sysctl-docs
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175486034248.1221929.3658503475425874388.git-patchwork-notify@kernel.org>
-Date: Sun, 10 Aug 2025 21:12:22 +0000
-References: <20250717231756.make.423-kees@kernel.org>
-In-Reply-To: <20250717231756.make.423-kees@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: linux-riscv@lists.infradead.org, arnd@arndb.de, mingo@kernel.org,
- gustavoars@kernel.org, hch@lst.de, andreyknvl@gmail.com,
- ryabinin.a.a@gmail.com, ardb@kernel.org, masahiroy@kernel.org,
- nathan@kernel.org, nicolas.schier@linux.dev, nick.desaulniers+lkml@gmail.com,
- morbo@google.com, justinstitt@google.com, linux-kernel@vger.kernel.org,
- x86@kernel.org, kasan-dev@googlegroups.com, linux-doc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-s390@vger.kernel.org, linux-efi@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org,
- sparclinux@vger.kernel.org, llvm@lists.linux.dev
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_141210_386634_21C0928B 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <175486034524.1221929.1694480113579330478.git-patchwork-notify@kernel.org>
+Date: Sun, 10 Aug 2025 21:12:25 +0000
+References: <20250701-jag-sysctldoc-v1-0-936912553f58@kernel.org>
+In-Reply-To: <20250701-jag-sysctldoc-v1-0-936912553f58@kernel.org>
+To: Joel Granados <joel.granados@kernel.org>
+Cc: linux-riscv@lists.infradead.org, kees@kernel.org, corbet@lwn.net,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-doc@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +76,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Kees Cook <kees@kernel.org>:
+by Joel Granados <joel.granados@kernel.org>:
 
-On Thu, 17 Jul 2025 16:25:05 -0700 you wrote:
-> v3:
->   - split up and drop __init vs inline patches that went via arch trees
->   - apply feedback about preferring __init to __always_inline
->   - incorporate Ritesh Harjani's patch for __init cleanups in powerpc
->   - wider build testing on older compilers
->  v2: https://lore.kernel.org/lkml/20250523043251.it.550-kees@kernel.org/
->  v1: https://lore.kernel.org/lkml/20250507180852.work.231-kees@kernel.org/
+On Tue, 01 Jul 2025 10:56:41 +0200 you wrote:
+> Removed false positives from check-sysctl-docs where there where
+> ctl_tables that were implemented and had documentation but were being
+> marked as undocumented or unimplemented.
+> 
+> Besides adjusting the patterns in the check-sysctl-docs script, I also
+> corrected formatting in the kernel.rst and vm.rst doc files (no wording
+> changes!)
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,01/13] stackleak: Rename STACKLEAK to KSTACK_ERASE
-    (no matching commit)
-  - [v3,02/13] stackleak: Rename stackleak_track_stack to __sanitizer_cov_stack_depth
-    (no matching commit)
-  - [v3,03/13] stackleak: Split KSTACK_ERASE_CFLAGS from GCC_PLUGINS_CFLAGS
-    (no matching commit)
-  - [v3,04/13] x86: Handle KCOV __init vs inline mismatches
-    (no matching commit)
-  - [v3,05/13] arm: Handle KCOV __init vs inline mismatches
-    (no matching commit)
-  - [v3,06/13] arm64: Handle KCOV __init vs inline mismatches
-    https://git.kernel.org/riscv/c/65c430906eff
-  - [v3,07/13] s390: Handle KCOV __init vs inline mismatches
-    https://git.kernel.org/riscv/c/c64d6be1a6f8
-  - [v3,08/13] powerpc/mm/book3s64: Move kfence and debug_pagealloc related calls to __init section
-    https://git.kernel.org/riscv/c/645d1b666498
-  - [v3,09/13] mips: Handle KCOV __init vs inline mismatch
-    https://git.kernel.org/riscv/c/d01daf9d95c9
-  - [v3,10/13] init.h: Disable sanitizer coverage for __init and __head
-    https://git.kernel.org/riscv/c/381a38ea53d2
-  - [v3,11/13] kstack_erase: Support Clang stack depth tracking
-    (no matching commit)
-  - [v3,12/13] configs/hardening: Enable CONFIG_KSTACK_ERASE
-    https://git.kernel.org/riscv/c/4c56d9f7e75e
-  - [v3,13/13] configs/hardening: Enable CONFIG_INIT_ON_FREE_DEFAULT_ON
-    https://git.kernel.org/riscv/c/437641a72d0a
+  - [1/6] docs: nixify check-sysctl-docs
+    https://git.kernel.org/riscv/c/89b491bcf2d1
+  - [2/6] docs: Use skiplist when checking sysctl admin-guide
+    https://git.kernel.org/riscv/c/be0aef10dca8
+  - [3/6] docs: Add awk section for ucount sysctl entries
+    https://git.kernel.org/riscv/c/e97a96baa527
+  - [4/6] docs: Remove colon from ctltable title in vm.rst
+    https://git.kernel.org/riscv/c/30ec9fde45b5
+  - [5/6] docs: Replace spaces with tabs in check-sysctl-docs
+    https://git.kernel.org/riscv/c/999aab7f5645
+  - [6/6] docs: Downgrade arm64 & riscv from titles to comment
+    https://git.kernel.org/riscv/c/ffc137c5c195
 
 You are awesome, thank you!
 -- 
