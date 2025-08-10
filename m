@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 032CBC87FCF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F24C87FDA
 	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:38:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1FsrHmIQjaeA7cNv5hXqqYa9ffRsU/2d7mmJ3k3VGtw=; b=t1t1V6+g/DUBQY
-	Sm3FRuQQ0n6iaN9xZ/rN8hJExEL2/IRuNTCVYjhn0bLxZyiFYT4IFAlSoA8TJV1XS9C7H0IeJqjWL
-	fuD+9Mgw64g+fcYFmKkmOpEl3nMWeDUkhnrl/AveNaxEpBtrqOgXN4qQv2/vlrT0L9nz2GvcB4FlM
-	QhZ6Kxq3p6IZZ/XWhwOTQNr9WUV/g5RNDelCJtxdFOjEzRrgiQVte2JuJCCdDNRUvbhTJTwB7ZdJk
-	76BIp1WJay/oztafmZ92i8RLVkP6B+tMtzOh1aYy2tiiYl2CiOMK7DB//YpB6WZbnMSgjWTsIiWLJ
-	/avvNBaAQDbS+BcKdiFA==;
+	List-Owner; bh=ucVl3kQdu7VbLKLBIzOaP7ZwsxUM6/Z3aZoBDHRacdQ=; b=SjAEgShYnDSyTQ
+	WSv5S1J9BzYqDChUqf3Ygx3B6zrwlO0xQSxYLb8Bv/MUVo1MgWPsEm00iEEe62QT4+Gzh8H/+q0Xj
+	DgwecKdUc1N/UOwYJjW8PtiKNefCPQWGLutNyPCSdgXCIMfJJexMoa68OVAjK1hVlyKhnZtFHmv+N
+	nSjspuJ9rZCZT/rs3xP7OILj9WfaKP5M101qU9w8FMewZQ1CacbnmcyzT+ErqX0tb/rcsmVxK0gyh
+	QLmAjugapRE8JK5kbOucDBegxR/14dW6VHcep1WgNZMMoY1fSq+VA7XTsVMoNjNOrfw0WeEJ+FA8z
+	DnE+lnkBoBD70gDGKVJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDkL-0000000638N-3LON;
-	Sun, 10 Aug 2025 21:38:29 +0000
+	id 1ulDkM-0000000638k-1eKp;
+	Sun, 10 Aug 2025 21:38:30 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDL6-00000005ziW-3PhC;
-	Sun, 10 Aug 2025 21:12:24 +0000
+	id 1ulDL9-00000005zkB-2Qgm
+	for linux-riscv@lists.infradead.org;
+	Sun, 10 Aug 2025 21:12:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 200236140D;
-	Sun, 10 Aug 2025 21:12:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBF3DC4CEEB;
-	Sun, 10 Aug 2025 21:12:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0719361425;
+	Sun, 10 Aug 2025 21:12:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE972C4CEEB;
+	Sun, 10 Aug 2025 21:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754860343;
-	bh=yRbP+oFQvp5Mj7FrKsFdMK9infUY9PonnL86PYiVBnw=;
+	s=k20201202; t=1754860346;
+	bh=O1kZXURGOmtyyxsHhriJ95yieEZ3eBnv/EWQAjiQF7o=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Kj+bgK+NikRS6j+5KuqA5m32GVrOSHFpxkDD3zr8z2LuYDbuouFghXO0QaIqmvfuT
-	 DBrT5xS1Xesv7U9O+l7hcHJHhp8zE84+TBUvPjVN9Me74E+oySfW5OX+O8wKLcBqs5
-	 KL+IlE8PNvp738oizwmJUBZ7GZaXRWXQFTba+nqylbVAw+Th9d3CNneSaUjMygUyf5
-	 d4e8nZX+5c0+ICauxy3GuwAKz6JfbWugwImFesV4AU7uqJk1YwfUKvBvFqC5lN9p8e
-	 Gyd1ZhM/3295gyxRhOQbCoczZZfZS+eCZkO6FbvyXWi6MUwLbAL4hE03JVB8Vh/7OZ
-	 RVA6hwk6jrSIQ==
+	b=DrGbRrf95ZFILwdpK6hYgQB5HzXOiWAkxA1NmLyY52qfyUbgDHEoxjwKc5aAnmGJB
+	 Zagnu+OlyksR3JHcQS3OrpJk32sFdAPnAWAh3o6dPC11iUrqW4RCphhzNl3pfvjc+l
+	 n5URwaI5RxQPNILn/UInUssIvoUafeNM1X3kA41DRdFK2f6Z0NpudpwSs9dC/hdXNo
+	 aEy2qRw8hVZDfb7Tz1xHS1PEvb1QwWCTvEZ/MiJZfiKkkutTYxWOp+yTTqNJHO36r7
+	 tAgpl1yZ7CPqXfuwnqRxYW9iKlZwOtIfrkGXOZwUyCoCrPQ1kDQixq1NcH9z6X/MAp
+	 MW158JLNioO9g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADC4F39D0C2B;
-	Sun, 10 Aug 2025 21:12:37 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADBE639D0C2B;
+	Sun, 10 Aug 2025 21:12:40 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v7 00/22] RV: Linear temporal logic monitors for RT
+Subject: Re: [PATCH v11 00/21] RV: Linear temporal logic monitors for RT
  application
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175486035649.1221929.6695545562552022137.git-patchwork-notify@kernel.org>
-Date: Sun, 10 Aug 2025 21:12:36 +0000
-References: <cover.1746776116.git.namcao@linutronix.de>
-In-Reply-To: <cover.1746776116.git.namcao@linutronix.de>
+Message-Id: <175486035924.1221929.13550140016096885653.git-patchwork-notify@kernel.org>
+Date: Sun, 10 Aug 2025 21:12:39 +0000
+References: <cover.1751634289.git.namcao@linutronix.de>
+In-Reply-To: <cover.1751634289.git.namcao@linutronix.de>
 To: Nam Cao <namcao@linutronix.de>
-Cc: linux-riscv@lists.infradead.org, rostedt@goodmis.org, gmonaco@redhat.com,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
- john.ogness@linutronix.de, pmladek@suse.com, senozhatsky@chromium.org,
- mingo@redhat.com, tglx@linutronix.de, bp@alien8.de,
- dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, luto@kernel.org,
- peterz@infradead.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, paul.walmsley@sifive.com,
+Cc: linux-riscv@lists.infradead.org, rostedt@goodmis.org, mhiramat@kernel.org,
+ mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, gmonaco@redhat.com, john.ogness@linutronix.de,
+ pmladek@suse.com, senozhatsky@chromium.org, paul.walmsley@sifive.com,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,7 +80,7 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Steven Rostedt (Google) <rostedt@goodmis.org>:
 
-On Fri,  9 May 2025 10:11:59 +0200 you wrote:
+On Fri,  4 Jul 2025 15:19:52 +0200 you wrote:
 > Real-time applications may have design flaws causing them to have
 > unexpected latency. For example, the applications may raise page faults, or
 > may be blocked trying to take a mutex without priority inheritance.
@@ -95,7 +93,7 @@ On Fri,  9 May 2025 10:11:59 +0200 you wrote:
 > [...]
 
 Here is the summary with links:
-  - [v7,18/22] riscv: mm: Add page fault trace points
+  - [v11,17/21] riscv: mm: Add page fault trace points
     https://git.kernel.org/riscv/c/a37c71ca412d
 
 You are awesome, thank you!
