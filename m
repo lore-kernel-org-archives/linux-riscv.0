@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37FE6C87FDA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24B8CA0EC1
 	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 21:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,59 +12,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u9KTys9FA0DvXwISpv6uu5rUd4HdNG6u1nefXb7O8zk=; b=Gp5adHlEiTcpzM
-	+vIDijRmaM1DxbddC7UzHHonPtdrlDRYVthvyPSQ+OF+LMrVriX+QEkmj+Wr3r0ULxeVH78Opq6I2
-	Z4A9m+7aCFN8hNLyvbvKC8twX3KsV2KX5vWsA0IYb/T5yjoxifs+bqu4bPyeHJt0F8RKSwT9PLNqy
-	87krtVh6ITwlE5OCOT1/2+0EfWzJnK6Dfv53KT2mCc+cpjPOxn41E0J0mf7mjbRMmL+EaN/84FfoT
-	qU39yvT9xiz7ScSwonNysaOyjZUDBVsv7lLhTUTFngeXT0AGaFCjeQAjcR5o890u5IPsYrz4BLS37
-	jaQ0zpe3jTkgb63OKUNA==;
+	List-Owner; bh=qPC4dMz3xmnVDqgr/KUYw3bIvIT178aRhmn0elBv5Qs=; b=icFhT7MXaEeUnp
+	QWmSPPpmuoQh3GH4cwwHk0XFUrQJPSuaeyrDCG45q3DX9PCQzNfXj7yeLgyyrmg7bX5t82N6Ytjry
+	eAXlBL0bRowyG71nBJRdUh0J89JQNhNSx8BdzEmZpod+ZfJrYv7dR759sW8fXpxP5LAug7T9u9Ni5
+	M+rfKXKTfF8A1Cjp8rc3XF/3IixQXzJkag8ybfNACcDe38W/usyPmsoBw/OBPB7+n2uvdwjgmay+z
+	M0rUMTx3TvsN+6wnDko7Zg4QluMYxLPwFa/hc+8uA9Aq8PJaoZzAYim4c6XB+4AmvB5QHYYPshwRy
+	bjLSMNB9komRRShuBUiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDmu-000000063R8-3Wbe;
-	Sun, 10 Aug 2025 21:41:08 +0000
+	id 1ulDmw-000000063Rz-2YED;
+	Sun, 10 Aug 2025 21:41:10 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDL8-00000005zjW-1Jyn;
-	Sun, 10 Aug 2025 21:12:27 +0000
+	id 1ulDLE-00000005zmd-1ze8;
+	Sun, 10 Aug 2025 21:12:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A3AFAA568C8;
-	Sun, 10 Aug 2025 21:12:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51578C4CEEB;
-	Sun, 10 Aug 2025 21:12:25 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B3E0DA568E7;
+	Sun, 10 Aug 2025 21:12:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B60AC4CEEB;
+	Sun, 10 Aug 2025 21:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754860345;
-	bh=xViFvDPQc1cyLyFxFjlh0Pd2JS6XyL/kGzPxiW6LrnY=;
+	s=k20201202; t=1754860351;
+	bh=+EPDIqigYF0dLwDVKm4n7P07Soa8UCdwgsSbIhQglhg=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Qb9avz3T8nhcxxOzyZ5dZfHWwvEPJqQa5COovnRKRZPOm7d94jIfh7nWDVYnT2j6I
-	 fzeOi40lOQz6w3U7TRiS0JBezpPlGv/FonX2w2kF1IBqMcyJkTPG6ZrZVCUbKw/iVb
-	 L+nDJ5s01P9/LfLIHMjn+PKSUYHatPrSjP9bSt+YRmUOEgXkgd/yZESB/L+WkdK6UW
-	 AyZteBHDWYI8dss2mv6G4xdNbv+jdrOBlFuInQYbyLMttKFyEs1aFS/QcjJZlT5O+U
-	 s7gSjsYYOsgBDUOV/HzZG0sRUOkln3An15YbiNRYW3jXIiONIyYpNy4zN9sAU62/tq
-	 2jWggxKDCj0ng==
+	b=PRWX9qbyv9u6FbnKrFjePyfsaZ737MOhr4mO7TsZ7R+GzU8zlYvZAYf8JD/OXtEUT
+	 hA9ZGe4MgMB70B1Zw0njMIw4A2/fhOmu8/xlsiHxmIUZJvNyZW6a8uiunB9JTjc62k
+	 WQvCcnsGvL3edUrU5mU3msfwtOhFXOborJRekZFipn3fdTQKLp1K+FdaZrtWvHMoCG
+	 BjGMfqHcgkkIzLtrpEo6cyj4t26pG93hr2845rzETZe270MpglUmq+wxcG1OLi+DB/
+	 81Kg/BR1SiRTfzYt5r1OrTvGUw8lrqFdyiU9Eqy8LtRG2Wu0knKnUQq5VbApAR7XFV
+	 wpBAVMLGZQIKw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33BBC39D0C2B;
-	Sun, 10 Aug 2025 21:12:39 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33BB739D0C2B;
+	Sun, 10 Aug 2025 21:12:45 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v8 00/22] RV: Linear temporal logic monitors for RT
- application
+Subject: Re: [PATCH 00/23] binfmt_elf,arch/*: Use elf.h for coredump note
+ names
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175486035774.1221929.10309183570543138134.git-patchwork-notify@kernel.org>
-Date: Sun, 10 Aug 2025 21:12:37 +0000
-References: <cover.1747046848.git.namcao@linutronix.de>
-In-Reply-To: <cover.1747046848.git.namcao@linutronix.de>
-To: Nam Cao <namcao@linutronix.de>
-Cc: linux-riscv@lists.infradead.org, rostedt@goodmis.org, gmonaco@redhat.com,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
- john.ogness@linutronix.de, pmladek@suse.com, senozhatsky@chromium.org,
- mingo@redhat.com, tglx@linutronix.de, bp@alien8.de,
- dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, luto@kernel.org,
- peterz@infradead.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
+Message-Id: <175486036374.1221929.319441619761028585.git-patchwork-notify@kernel.org>
+Date: Sun, 10 Aug 2025 21:12:43 +0000
+References: <20250701135616.29630-1-Dave.Martin@arm.com>
+In-Reply-To: <20250701135616.29630-1-Dave.Martin@arm.com>
+To: Dave Martin <Dave.Martin@arm.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ davem@davemloft.net, hpa@zytor.com, James.Bottomley@HansenPartnership.com,
+ akihiko.odaki@daynix.com, aou@eecs.berkeley.edu, agordeev@linux.ibm.com,
+ alex@ghiti.fr, andreas@gaisler.com, anton.ivanov@cambridgegreys.com,
+ bp@alien8.de, bcain@kernel.org, catalin.marinas@arm.com, chris@zankel.net,
+ borntraeger@linux.ibm.com, christophe.leroy@csgroup.eu,
+ dave.hansen@linux.intel.com, dinguyen@kernel.org, geert@linux-m68k.org,
+ guoren@kernel.org, hca@linux.ibm.com, deller@gmx.de, chenhuacai@kernel.org,
+ mingo@redhat.com, johannes@sipsolutions.net, glaubitz@physik.fu-berlin.de,
+ jonas@southpole.se, kees@kernel.org, maddy@linux.ibm.com, jcmvbkbc@gmail.com,
+ mpe@ellerman.id.au, npiggin@gmail.com, oleg@redhat.com, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, dalias@libc.org, richard@nod.at,
+ linux@armlinux.org.uk, shorne@gmail.com, stefan.kristiansson@saunalahti.fi,
+ svens@linux.ibm.com, tsbogend@alpha.franken.de, tglx@linutronix.de,
+ gor@linux.ibm.com, vgupta@kernel.org, kernel@xen0n.name, will@kernel.org,
+ ysato@users.sourceforge.jp, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_141226_423402_31C8CCB1 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250810_141232_640362_3F48BAFF 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,23 +98,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Steven Rostedt (Google) <rostedt@goodmis.org>:
+by Kees Cook <kees@kernel.org>:
 
-On Mon, 12 May 2025 12:50:43 +0200 you wrote:
-> Real-time applications may have design flaws causing them to have
-> unexpected latency. For example, the applications may raise page faults, or
-> may be blocked trying to take a mutex without priority inheritance.
+On Tue,  1 Jul 2025 14:55:53 +0100 you wrote:
+> This series aims to clean up an aspect of coredump generation:
 > 
-> However, while attempting to implement DA monitors for these real-time
-> rules, deterministic automaton is found to be inappropriate as the
-> specification language. The automaton is complicated, hard to understand,
-> and error-prone.
+> ELF coredumps contain a set of notes describing the state of machine
+> registers and other information about the dumped process.
+> 
+> Notes are identified by a numeric identifier n_type and a "name"
+> string, although this terminology is somewhat misleading.  Officially,
+> the "name" of a note is really an "originator" or namespace identifier
+> that indicates how to interpret n_type [1], although in practice it is
+> often used more loosely.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v8,18/22] riscv: mm: Add page fault trace points
-    https://git.kernel.org/riscv/c/a37c71ca412d
+  - [16/23] riscv: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
+    https://git.kernel.org/riscv/c/c9502cc7bef5
 
 You are awesome, thank you!
 -- 
