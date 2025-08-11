@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51A5CA0EC4
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 06:11:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C23C5C87FDA
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 06:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+a1VnHQZhaS2TX7ukiaYhnhKdsAgeU1hg+zfm0HFWoQ=; b=kH3vIF81XsuG38
-	WP7HDQAKLaSrPktuVIXizPkC75xJGfNl5ZEqf53UkkzLMotmfy1DxHSFSru0MXAEzT8G2w+6+KE4+
-	EgAKJ3h6MHmHCnJJygRtRlVeek7L35uwynSEjwuOpYeWBWkHEyr/wV9Yvv6PqxUWvygutEcFexS4N
-	ijFCYQSN+93KSQYL9yfQF6PSqkUR9hBfjGR1ieVxQLBFkSsK5na/2QwgM8FpvgiTVPcn23whAzzos
-	r6aXeBFprpcO5gcXu607GbthdBa9Na7p1MeYhZHTgLBVlCj9PqEPpjgPZAD0rARCOqm0I8JES86lA
-	lUXb2cV9nuNSoABrzYGA==;
+	List-Owner; bh=lMJraJVsRgqkHuyA0V35VT98bKkRgSrwDzI3ZDZmF70=; b=YDW9celIFUeI8D
+	PrLsRzLRsdIPrCcUT45ins6hi+IXNH2dWOY34vQ98O3BZOGLCj8fAUqFapTIRY2nz+p/4dTyb3K8o
+	jVU9uQTvt6uKZsXoUYfBGRyy1RFivWt5JiiWf0CwlzD5Rynz/biRfifz1RcLzk12Vk05Z6KCfGK7K
+	hNRWsTvBthKZk4ePWi+UXHJDbmBkTFCM9elo4CRtSdGdknfaXsAQrsJ5S4yWiBI3ClOxwJo5LBZIi
+	2lDhME9H7eVsnhrWqOVA6BgPKILuXsAa6jkICfybHDMOTWejs04XOP0zwYLH/8M1ESSg9o31f64+5
+	mkQeOCPEutMlIFYBQLyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulLkj-00000006ZO8-3wmG;
-	Mon, 11 Aug 2025 06:11:25 +0000
-Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
+	id 1ulLkm-00000006ZRI-0sY9;
+	Mon, 11 Aug 2025 06:11:28 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulLkd-00000006ZIa-1Aj1;
-	Mon, 11 Aug 2025 06:11:21 +0000
+	id 1ulLkf-00000006ZIh-0i9x;
+	Mon, 11 Aug 2025 06:11:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1754892676; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=whyJDouuAuGf1j7b/5M2xWcx/VsvP58NxkP1IN3I0Kg=;
-	b=m+NSBNAbwvEI6hnCGbFnB/zClgX0akO+BxXSVAx/lNc/W8GltP6athl7XNo9ABZ7RKf1zRw53v2fQGEPTXNfWko8U2u8JucBwt43mFiPVXm9e1w2IojH04eAfvvsZ9NKOaB6sjI+/cFmLQ/oOgs6jl9UorqPDcxgalX6n3FiQtg=
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WlP-v9-_1754892672 cluster:ay36)
+	t=1754892679; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=oqEUcnbYtVuGUfumL17PGMuD/BWybgobKSLXaGVbfnQ=;
+	b=CVU63bzhoCjguL1aIMaQ16vCAvtQexs0LenWYOc761qKYJh+GBm8o20ESSUZelvjYPJ64aqJUKW1nyrxmfvQLYVbQsmX52+ar+kdnS+GTNEwSqVvUu0DS/h4ag4QYgI/akRQxusHPcSbms+7waErFTx3M4j5/J070t2MESAVj3s=
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0WlP-vAP_1754892675 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 11 Aug 2025 14:11:13 +0800
+          Mon, 11 Aug 2025 14:11:16 +0800
 From: fangyu.yu@linux.alibaba.com
 To: anup@brainfault.org,
 	paul.walmsley@sifive.com,
@@ -57,16 +57,17 @@ Cc: guoren@linux.alibaba.com,
 	linux-kernel@vger.kernel.org,
 	iommu@lists.linux.dev,
 	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [RFC PATCH 2/6] RISC-V: KVM: Transfer the physical address of MRIF to iommu-ir
-Date: Mon, 11 Aug 2025 14:11:00 +0800
-Message-Id: <20250811061104.10326-3-fangyu.yu@linux.alibaba.com>
+Subject: [RFC PATCH 4/6] iommu/riscv: Add irq_mask and irq_ack configure for iommu-ir
+Date: Mon, 11 Aug 2025 14:11:02 +0800
+Message-Id: <20250811061104.10326-5-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20250811061104.10326-1-fangyu.yu@linux.alibaba.com>
 References: <20250811061104.10326-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_231119_688182_4556CC2C 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20250810_231121_363916_C5B70B66 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,75 +86,37 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-According to the RISC-V IOMMU Spec, an IOMMU may optionally
-support memory-resident interrupt files (MRIFs).
-
-When the guest interrupt files are used up, we transfer the
-physical address of MRIF to iommu-ir, and enable MRIF  mode
-if the iommu-ir supports.
+The irq_mask and irq_ack are required for host irq to be triggered
+under the host system.
 
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
- arch/riscv/kvm/aia_imsic.c | 23 +++++++++++++++++------
- 1 file changed, 17 insertions(+), 6 deletions(-)
+ drivers/iommu/riscv/iommu-ir.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index 8f5703d9112a..e91164742fd0 100644
---- a/arch/riscv/kvm/aia_imsic.c
-+++ b/arch/riscv/kvm/aia_imsic.c
-@@ -21,6 +21,8 @@
+diff --git a/drivers/iommu/riscv/iommu-ir.c b/drivers/iommu/riscv/iommu-ir.c
+index 5461dbe18159..73f552ed5b65 100644
+--- a/drivers/iommu/riscv/iommu-ir.c
++++ b/drivers/iommu/riscv/iommu-ir.c
+@@ -208,6 +208,7 @@ static struct irq_chip riscv_iommu_irq_chip = {
+ 	.irq_unmask		= irq_chip_unmask_parent,
+ 	.irq_set_affinity	= irq_chip_set_affinity_parent,
+ 	.irq_set_vcpu_affinity	= riscv_iommu_irq_set_vcpu_affinity,
++	.irq_ack		= irq_chip_ack_parent,
+ };
  
- #define IMSIC_MAX_EIX	(IMSIC_MAX_ID / BITS_PER_TYPE(u64))
+ static int riscv_iommu_irq_domain_alloc_irqs(struct irq_domain *irqdomain,
+@@ -239,7 +240,9 @@ static const struct msi_parent_ops riscv_iommu_msi_parent_ops = {
+ 	.supported_flags	= MSI_GENERIC_FLAGS_MASK |
+ 				  MSI_FLAG_PCI_MSIX,
+ 	.required_flags		= MSI_FLAG_USE_DEF_DOM_OPS |
+-				  MSI_FLAG_USE_DEF_CHIP_OPS,
++				  MSI_FLAG_USE_DEF_CHIP_OPS |
++				  MSI_FLAG_PCI_MSI_MASK_PARENT,
++	.chip_flags		= MSI_CHIP_FLAG_SET_ACK,
+ 	.init_dev_msi_info	= msi_parent_init_dev_msi_info,
+ };
  
-+static int kvm_riscv_vcpu_irq_update(struct kvm_vcpu *vcpu);
-+
- struct imsic_mrif_eix {
- 	unsigned long eip[BITS_PER_TYPE(u64) / BITS_PER_LONG];
- 	unsigned long eie[BITS_PER_TYPE(u64) / BITS_PER_LONG];
-@@ -717,7 +719,8 @@ void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
- 				 vcpu->arch.aia_context.imsic_addr,
- 				 IMSIC_MMIO_PAGE_SZ);
- 
--	/* TODO: Purge the IOMMU mapping ??? */
-+	/* Update the IOMMU mapping */
-+	kvm_riscv_vcpu_irq_update(vcpu);
- 
- 	/*
- 	 * At this point, all interrupt producers have been re-directed
-@@ -795,13 +798,14 @@ int kvm_arch_update_irqfd_routing(struct kvm *kvm, unsigned int host_irq,
- 
- 			read_lock_irqsave(&imsic->vsfile_lock, flags);
- 
--			if (WARN_ON_ONCE(imsic->vsfile_cpu < 0)) {
--				read_unlock_irqrestore(&imsic->vsfile_lock, flags);
--				goto out;
-+			if (imsic->vsfile_cpu < 0) {
-+				vcpu_info.hpa = imsic->swfile_pa;
-+				vcpu_info.mrif = true;
-+			} else {
-+				vcpu_info.hpa = imsic->vsfile_pa;
-+				vcpu_info.mrif = false;
- 			}
- 
--			vcpu_info.hpa = imsic->vsfile_pa;
--
- 			ret = irq_set_vcpu_affinity(host_irq, &vcpu_info);
- 			if (ret) {
- 				read_unlock_irqrestore(&imsic->vsfile_lock, flags);
-@@ -844,6 +848,13 @@ static int kvm_riscv_vcpu_irq_update(struct kvm_vcpu *vcpu)
- 		if (!irqfd->producer)
- 			continue;
- 		host_irq = irqfd->producer->irq;
-+
-+		if (imsic->vsfile_cpu < 0) {
-+			vcpu_info.hpa = imsic->swfile_pa;
-+			vcpu_info.mrif = true;
-+		} else {
-+			vcpu_info.mrif = false;
-+		}
- 		ret = irq_set_vcpu_affinity(host_irq, &vcpu_info);
- 		if (ret) {
- 			spin_unlock_irq(&kvm->irqfds.lock);
 -- 
 2.49.0
 
