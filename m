@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A870BCA0EE1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFDB1CA0ED1
 	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 19:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xPmEFEQELO4ItM/tMt4HNZS4DwgQ/lFTFiFGJnhXXfc=; b=jNoxMNdJFAGLF2
-	f5JDZ0lQQ283OsaFbkisMTIGmgtRSv8lpG4d0meD2seCU45KueRNFPw9klZPMvcE/zN5lCejb8i4O
-	CJavN42Jk4A2Nx/YXy0WqOSM6CONBKuNIikpyMHczPS3y+Ti1wE205lNdZXikXiJG8iVP07UNF5Bu
-	6/Y4uEZJJ4+SmFCoJW9IN6To8cHMhy/S8+HUC5OKjcDJFS22VMQDRCLkSKqKokbJ6ivMVT0kntnyu
-	EXxR/klkp9QeHaPPnVHTU1ve9cpy/lUNJAmmBfQaXiNXcvPmqV081cpzQR3rhtxlLxDOnyEj47ZlX
-	L7g4HUKN0Xp+Bf7Vu7wA==;
+	List-Owner; bh=kK9Mf1VWtnbxlZaxX+/scxz5hTiE4KcY7G82L6UoKaY=; b=iIl1l7wEW3QWpl
+	jz+kzUvPqjR4mWtgghmtqnSPFKsqyU+K0zMUciQHXXnke74WaW7/9W8NxoqLD47nuSFtI6u1W8mW5
+	ehr2H8vzkaaRXkJqTQbI47eJZ3Xatm2eEqSgcEyfcFCKqqQIUYE6aXiMEkGtdbL6sF3kXBb6dlzV3
+	dChEXFtfRh4lh4KZgDkoT/3AQMe2zN5aX/1xguVN5sT6JvnU2hlCZbjDrRw+ESPREPVXR/3DdLeYO
+	IQdU8cjXR7l/8/gHM1gdcis3uCOUkQ1rlngm5+OaMv1X549llUgO1myhYPvrDhc+XQg+Fc3O2juNF
+	itzi37SWnjdW7jXRsGaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulXzd-00000008sZG-49AL;
+	id 1ulXzd-00000008sXz-0oVA;
 	Mon, 11 Aug 2025 19:15:37 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUI9-00000008AZY-3NpZ;
+	id 1ulUI9-00000008AYk-01CF;
 	Mon, 11 Aug 2025 15:18:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E64D7A57286;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 97B58A57275;
 	Mon, 11 Aug 2025 15:18:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8DB40C19422;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 03ACFC4CEF8;
 	Mon, 11 Aug 2025 15:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1754925507;
-	bh=GDBbCi4sx3Kp5l+kvCcvvvRUo/IgUsYvJ6NwMWxGsEY=;
+	bh=pMSzs+LLQG/nV8KzlANIdjdPWA+TqzqMKv3U3QB7ebM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=FVUssxftST2dek6Q4r8S+rCTHEQ9Ye8zXXzlvb46vwIlliWJaorntnALS98Vw2QWP
-	 czJ6+8c5LJTYu7GAxLe9OBU8WIJI/HPQmJ4iNSSlasp7SXHlap+YG7soM6b58lkkzw
-	 yvzn4CeDwWI9De235yQCHSIDG3WoGKxE4Mw9HjR8mcrOgxhEy7FRPDoYmjLCwxHxsV
-	 mU+ufZindzchcF8/3+nzA7kZbs9No4mjc/CFVGDcOA2kp3rbic2WRUg9aMdVMlXbBX
-	 tprIX7ANLq79NJkgI5nFWi/abs4noR5BZdKwqlCnMQuAvjJBrSs/eERbjxFISN5/Kn
-	 vH1UKgLoShcKg==
+	b=plhY4fja1ygSEJLSTJG8dQiEYHuFNFBe4XitmxVdlN7Ea1SuHiLQ69WnavKsQJ17V
+	 oRz+pZtQZyJ3ejlPs/TLItv9IDYszXPdXxvG+N/ebx470Ps3J+xuJmcjf5I4xNWWc/
+	 Y2Kuz/5C7Aaz2wVTfkTeB/Lbirhp90Y53kVE17p3ie7YryF4BQcPdgdfGHKQ85D3/p
+	 q8hKOKXeismBM7HQT1kZBfc2BkgmrzcI0wWIck82/rRtq30qKXnGRZ0bfCKH7hqUYj
+	 lU/Ew8qxiTgMOXcEhRpD1C+m/5hGGcZWgaEKcmyjB8O3XIJd3TbsR1T3toNrrwmkmC
+	 It0oL8UEH64Fw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C2C7C87FD2;
-	Mon, 11 Aug 2025 15:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E66AEC87FD2;
+	Mon, 11 Aug 2025 15:18:26 +0000 (UTC)
 From: Brian Masney via B4 Relay <devnull+bmasney.redhat.com@kernel.org>
-Date: Mon, 11 Aug 2025 11:18:16 -0400
-Subject: [PATCH 024/114] clk: ingenic: x1000-cgu: convert from round_rate()
- to determine_rate()
+Date: Mon, 11 Aug 2025 11:18:11 -0400
+Subject: [PATCH 019/114] clk: hisilicon: hi3660-stub: move comma from
+ declaration of DEFINE_CLK_STUB()
 MIME-Version: 1.0
-Message-Id: <20250811-clk-for-stephen-round-rate-v1-24-b3bf97b038dc@redhat.com>
+Message-Id: <20250811-clk-for-stephen-round-rate-v1-19-b3bf97b038dc@redhat.com>
 References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -115,19 +115,19 @@ Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev, 
  Brian Masney <bmasney@redhat.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754925497; l=1676;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754925497; l=1857;
  i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=U9vNul5ctFRsJ+cg3HiYsqW7zeu8fHnWHIvus1lAqJo=;
- b=d7U0ETgjsmdWey22Vpt1SZg964FylYIIqQWd52fV8C7GbHEHlAksiEr9OO5lDEBzVGpXGdf5S
- WTS+Gp0J5zlB0kAltAWUMtwk3JfACKSaxxwSHfVNUKq6Yvqgw9opAEq
+ bh=pA5mClIAqWRD8xr23+LW8paHRk4bx6Ip6j+lR6gsEH4=;
+ b=/4xa+9ZPbf1YpEA8q63RlWiisStSIhIqYd5eTHQrEvH3tDR3ww5drLjmHYBPoDFxS5vVEOwzG
+ iA8xPx+82hLBFeEgQKvF4kjQtv0Kp39kEqcfrO9GEkgnniXf6kRNkKx
 X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
  pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
 X-Endpoint-Received: by B4 Relay for bmasney@redhat.com/20250528 with
  auth_id=472
 X-Original-From: Brian Masney <bmasney@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_081830_061005_E14F33E7 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20250811_081829_341278_74F76011 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,54 +147,46 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Brian Masney <bmasney@redhat.com>
 
-The round_rate() clk ops is deprecated, so migrate this driver from
-round_rate() to determine_rate() using the Coccinelle semantic patch
-on the cover letter of this series.
+When trying to use Coccinelle to make changes inside drivers/clk/, it
+really does not like the trailing comma at the end of the declaration
+of DEFINE_CLK_STUB, and fails to process this file. It also looks weird
+to not have commas to separate the various array members of
+hi3660_stub_clks. Let's move the trailing comma out of the define so
+that Coccinelle can be ran against this source file.
 
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
- drivers/clk/ingenic/x1000-cgu.c | 19 ++++++++++---------
- 1 file changed, 10 insertions(+), 9 deletions(-)
+ drivers/clk/hisilicon/clk-hi3660-stub.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/clk/ingenic/x1000-cgu.c b/drivers/clk/ingenic/x1000-cgu.c
-index feb03eed4fe8c8f617ef98254a522d72d452ac17..d80886caf393309a0c908c06fb5aa8b59aced127 100644
---- a/drivers/clk/ingenic/x1000-cgu.c
-+++ b/drivers/clk/ingenic/x1000-cgu.c
-@@ -84,16 +84,17 @@ static unsigned long x1000_otg_phy_recalc_rate(struct clk_hw *hw,
- 	return parent_rate;
- }
+diff --git a/drivers/clk/hisilicon/clk-hi3660-stub.c b/drivers/clk/hisilicon/clk-hi3660-stub.c
+index 3a653d54bee0562d26d0de1dd31525786d05d40d..b0a996385301af7bcce231be9e7d5092dd21c3ac 100644
+--- a/drivers/clk/hisilicon/clk-hi3660-stub.c
++++ b/drivers/clk/hisilicon/clk-hi3660-stub.c
+@@ -34,7 +34,7 @@
+ 			.num_parents = 0,			\
+ 			.flags = CLK_GET_RATE_NOCACHE,		\
+ 		},						\
+-	},
++	}
  
--static long x1000_otg_phy_round_rate(struct clk_hw *hw, unsigned long req_rate,
--				      unsigned long *parent_rate)
-+static int x1000_otg_phy_determine_rate(struct clk_hw *hw,
-+					struct clk_rate_request *req)
- {
--	if (req_rate < 18000000)
--		return 12000000;
--
--	if (req_rate < 36000000)
--		return 24000000;
-+	if (req->rate < 18000000)
-+		req->rate = 12000000;
-+	else if (req->rate < 36000000)
-+		req->rate = 24000000;
-+	else
-+		req->rate = 48000000;
+ #define to_stub_clk(_hw) container_of(_hw, struct hi3660_stub_clk, hw)
  
--	return 48000000;
-+	return 0;
- }
+@@ -102,10 +102,10 @@ static const struct clk_ops hi3660_stub_clk_ops = {
+ };
  
- static int x1000_otg_phy_set_rate(struct clk_hw *hw, unsigned long req_rate,
-@@ -161,7 +162,7 @@ static int x1000_usb_phy_is_enabled(struct clk_hw *hw)
+ static struct hi3660_stub_clk hi3660_stub_clks[HI3660_CLK_STUB_NUM] = {
+-	DEFINE_CLK_STUB(HI3660_CLK_STUB_CLUSTER0, 0x0001030A, "cpu-cluster.0")
+-	DEFINE_CLK_STUB(HI3660_CLK_STUB_CLUSTER1, 0x0002030A, "cpu-cluster.1")
+-	DEFINE_CLK_STUB(HI3660_CLK_STUB_GPU, 0x0003030A, "clk-g3d")
+-	DEFINE_CLK_STUB(HI3660_CLK_STUB_DDR, 0x00040309, "clk-ddrc")
++	DEFINE_CLK_STUB(HI3660_CLK_STUB_CLUSTER0, 0x0001030A, "cpu-cluster.0"),
++	DEFINE_CLK_STUB(HI3660_CLK_STUB_CLUSTER1, 0x0002030A, "cpu-cluster.1"),
++	DEFINE_CLK_STUB(HI3660_CLK_STUB_GPU, 0x0003030A, "clk-g3d"),
++	DEFINE_CLK_STUB(HI3660_CLK_STUB_DDR, 0x00040309, "clk-ddrc"),
+ };
  
- static const struct clk_ops x1000_otg_phy_ops = {
- 	.recalc_rate = x1000_otg_phy_recalc_rate,
--	.round_rate = x1000_otg_phy_round_rate,
-+	.determine_rate = x1000_otg_phy_determine_rate,
- 	.set_rate = x1000_otg_phy_set_rate,
- 
- 	.enable		= x1000_usb_phy_enable,
+ static struct clk_hw *hi3660_stub_clk_hw_get(struct of_phandle_args *clkspec,
 
 -- 
 2.50.1
