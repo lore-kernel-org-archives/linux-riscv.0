@@ -4,112 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9788AC87FDA
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Aug 2025 23:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56180C87FDA
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 00:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pSno/WdKfKQvk8gf0pUHaBeBCCWT3rQSy8yZUxc+F9o=; b=nZQKz3kSr3I72g
-	sFj3xo2wq4C0XoxRbxG7i69jVs+XMAuIX5rNoVqQr23QY9JchsTfZeVgrpkbvQ735pgZU7v30+WGE
-	O0L5rsnDPh/EJQLq/SlmyasnFkmnzQlBQ1TRlDZjDObX6QZTZAas5HDXguG8qR9xJQ9GacHiFk8+q
-	AiDPeonXhbzQImlrIEJ4/gGrfpWdsPCPpllYegGHws38K8y2h1PBZtWBvhz1qfJAgEw78QreQJBqF
-	uscCKY8gaicLnyQsF2ld82ifJFBACuCmIodbI/WkX2NK9rph48gNEVR5qNx6inV5Za7AN6oVSx6d3
-	Io3vBi18x3yO2GMQKtPQ==;
+	List-Owner; bh=dFn2uuBOOmJVQtDS7TAalPxtSyMon+TvuJ8ViCZ+fEA=; b=vyCECSJ8UoLxVr
+	RfEDwls5vwhZQ0hcTSzbLP3kDmhSpNQ3BGqwlLoh2q3LPbK2kSpkWMwRPxza0GwFUFkOA20CKA8KE
+	nAVXTo3wUy9x3KDGwgs3ptUoQejAfsl1SLEA3zeaMzXRynZs/208NchwqNRBknz7MU6YmWqpPE0sw
+	OB+1+T77+oww6TqZEwSmMEjmzbzqKH2KiKmzOm5bWMCB0RPbsQfr48zkTEecn0uRItuzhE71Vp6L+
+	n9cX0WEDjg8LVmoUrUoZ8zSJVZpfcvd7o6Pl2yURCUlCIRb4y+3Jt4ZUpbJ0quRI32rKm3cmciisK
+	T2mulKwO3FnUbmaYMQLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulFj2-00000006CFB-1O0N;
-	Sun, 10 Aug 2025 23:45:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ulGSV-00000006EOT-1CYv;
+	Mon, 11 Aug 2025 00:32:15 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulESu-000000066Uy-3bJ1
+	id 1ulGNq-00000006E7c-2kji
 	for linux-riscv@lists.infradead.org;
-	Sun, 10 Aug 2025 22:24:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754864671;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=DsLJnbX2CWZtNzZ1OcDHZ6+zw0frPO9S9vsrOrlu7po=;
-	b=cBHQE+mWZinraGt/J9C+cKuf9u7E9alcwLe+Mh2Uqrz+1B59k3FVADd62gY9YZmLfQs5si
-	D0Ml1aePgfj+16buYXo335QBoyB4YP3OK29/3Z8+3ojxC6FiqJDkUdFwcrY3MA0wGlgp8V
-	QKVR8AwMDmZoboP6H8PqI+cTmx2r0E4=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-607-Da1IZXmDMhCfs6xeycnogg-1; Sun, 10 Aug 2025 18:24:30 -0400
-X-MC-Unique: Da1IZXmDMhCfs6xeycnogg-1
-X-Mimecast-MFC-AGG-ID: Da1IZXmDMhCfs6xeycnogg_1754864670
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7e826e0d7abso804801685a.0
-        for <linux-riscv@lists.infradead.org>; Sun, 10 Aug 2025 15:24:30 -0700 (PDT)
+	Mon, 11 Aug 2025 00:27:27 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5561ab55c4dso3920957e87.2
+        for <linux-riscv@lists.infradead.org>; Sun, 10 Aug 2025 17:27:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754872045; x=1755476845; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=le03LPNNHn04eLr4/u77ZQYFIPVReUnHNpLLeRwxm3s=;
+        b=fdVcF+n/S+fas+QcMR8HSVPvKD8xsEZVEmebjcIuFhd1l50HBek5KmokdaWZ3bkOZf
+         zhLibfdqpZHyhiiEfx5cQfuxLfpq6RswKVLQGQl0co4GCRXwcA9zQoLUU3NTV9oK+xz2
+         dD8hofn6ELZwQGpqPjIE91uBDAX5f+GUnVcqAKJhja4aLdJmQte+YEFylabiRac7MBzp
+         MIxwttz+Go2ZIt8Bhr/YZ/i8NDrtnUpTjo1KPt4zlyNJiBc9qyMg9eJpl8yfpkyTvjZR
+         y7jCEYyGRBuwJlVyWrhdB54ivXcXJPfA/lbHrAmLD09F9eK7rvr7/mlQ7B9tEx+11nz5
+         LfZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754864670; x=1755469470;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1754872045; x=1755476845;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DsLJnbX2CWZtNzZ1OcDHZ6+zw0frPO9S9vsrOrlu7po=;
-        b=oQgTcLjvx/7ql+NTLIp07mR5mBs3J8gRZDkyFxudMHqOkYAwdin4bAWaeVxE2ZAGQV
-         Z5awtwXvgkebNiTFHp6aTiYiyPfbLUB/IyspnLri1mQh3hdWclMOBCUwmVpKyBQ2TIae
-         Xj7QSUzydTtADsOqj+Ux2bN8qnlQPDd8Wnh1CfW6B8Hjqs87AlzfzIpzn5c7x6DHPDN9
-         u8E1qNOKJ9/vJtTPfzJXjWRxrvHPGYzJycE3CeEVaKGXXm2pRtEO6LPJdQ2mCyP2Lkcr
-         nrQzOHF+A6mq7gt/1SMgp2H3qzOUCloRCgZzVOUXzWEqn2PEYU+oJ4qyhUbGwJQus2Om
-         +RxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXnbmEQQry+atD/0fGNmnHniPYVkshaQ/Wn3OHu/+n2H5Jxj3Rn5GmtGhp1d3SnxjdDSWZHC3OnQ0wWUQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbkpPWFvp5OwIH3RkSVfD7S+KaET2JUKZzgVe5uk/O4zdbwVNh
-	Tdowa8eg89+D5YV5l4YtKKpIs2HUKRcuLtH1szRRgH+ErUc+T8L9Sb1+C2toCC6JkX6eEK/PTK/
-	Weg654t+NCSCjDhDFQe3m6PgiAgv8sxJajfHaRA2NxPZ4+D3DFb5Uxkj2ngDiFPUwCoq/JA==
-X-Gm-Gg: ASbGncsJI1L49iPq9kVtRfziT7wYbNgIpYYtD45zdrevGvj2TEgmalHVVIsN6SmECjQ
-	kSeweBwpbrLP4DVdaUggCUkR9o2NomgjyOANjMYa+dMKhumEJIQRhiS6iL2yBd1vR2KDf8bTLM0
-	kvhtGnf5QgCryB7ZAeAVQgjCXTxyxa8VkkiX4nnpgizFDOXLw+YQZKoNk65HyT+mjx6bRDmjzo0
-	bB4eaVwheZ1rTKp7gKQTU/BGxUYprklj/76mfl+CyQK5Tb8TBPNlplKZVE0z5rd5swQVBzRz1oT
-	xZc71LYqN8kG4iv/15iQLNuKF7ZnQLuGtFqb0VdzZWKlxJgbPjvj7enareWR8lyS3qcsmj/U/UE
-	tR5Ob8g==
-X-Received: by 2002:a05:620a:7202:b0:7e8:2998:51e9 with SMTP id af79cd13be357-7e82c75fcbcmr921979285a.32.1754864670035;
-        Sun, 10 Aug 2025 15:24:30 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGfZ1YzRY3j+zDzQiBRzGaCbAkWEl6UfwFm1tYgoAJVmJujnBFCV7yyaVBd09br3SkByw4KDA==
-X-Received: by 2002:a05:620a:7202:b0:7e8:2998:51e9 with SMTP id af79cd13be357-7e82c75fcbcmr921977585a.32.1754864669639;
-        Sun, 10 Aug 2025 15:24:29 -0700 (PDT)
-Received: from [10.144.145.224] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b0867b7b70sm74050441cf.9.2025.08.10.15.24.26
+        bh=le03LPNNHn04eLr4/u77ZQYFIPVReUnHNpLLeRwxm3s=;
+        b=hbOPFccnyFsDvf3G5MrQU+NhUB4K8s9EOCTzluanzNQlvmrPidqokvexwr4I5PNqx7
+         MJiFj7H487mt+X8atshYxneg+fsYXrLwFGnw9iaXoKzwo0+GU77rKQyi3k3naD8aXV+t
+         q1qKgOli+Ibpn8t5nweZIzNQgBtH7aGDJPKM7MwmFKYocA+IBWmVuFwN02UVj7brEAED
+         ISVtdOHei6dYaCZVtkuJGRLo9xE7V2iVUFNSWfq2McT7EtmArJpaA4ar3ymPr5W6BDHT
+         XbltupZLB7w3zvCJsTLlUYB25e9KwI3btem7rkQTmqIbxqFMDjPxUS4g9P1948R/mDXu
+         +7sw==
+X-Forwarded-Encrypted: i=1; AJvYcCU9iAFlBJHa4D7/CFyKE1ngP8k+aJizNmaSgthsjSNItAQBcBQycYoGsTtgB/hmOqvUDZ2JipoAZJx9VA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YydPW4ipKqtHThRJT/3KqFreCysGcEAr3O9qcYxyk50Oi/B7WU4
+	ygRjUcuH94EYUKhdtcb50ZGB91AgyYDzIv+OAlkNRjyTuvg5wFGnRLWf
+X-Gm-Gg: ASbGnctTOQecvFYH77/mEawimLZXNtAsrfHHbiSKTQDp4Wf77VZl3pYRabe9it2hMj9
+	lPXt77OkX/zvTN1nvgHTBNE3qVYEopE6/NxCm89bKQwr9iXaDuMOFOYnOsRQ5GefIbrhyc5F+bt
+	FngKMvQ7lvhJvINZfQ20aJ/3qgn9b66sbRh9m+ImuuS5vLAOOIwToem0vR2aFD10yorNSn0GoRL
+	iqyXcyIUSzJ8Z6vmM2+5ORaWwiwy//ikjh/VaS87qglMoAjNlyULsvaBQwvSDi1NKwBcskHi60s
+	G7PNGm9cpZmXXjng+uja2dKeey5zHR5l8tXLDW8xT9gdoVTxLQl3v241FUR+m51ctD2CaPvg9pj
+	PAsCGnoJNRlaeP+nCSy8evw==
+X-Google-Smtp-Source: AGHT+IEYuqYxc29rjtoFT0RdJhS3Q9V5ytjnZYdUQkNqH7yOCrCWU+IPPq3TvkF9B3Eda73OdjdnLQ==
+X-Received: by 2002:a05:6512:b82:b0:553:37da:2bad with SMTP id 2adb3069b0e04-55cc0127ed4mr2807412e87.38.1754872044364;
+        Sun, 10 Aug 2025 17:27:24 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with UTF8SMTPSA id 2adb3069b0e04-55cd02686e3sm472957e87.29.2025.08.10.17.27.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Aug 2025 15:24:29 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-Date: Sun, 10 Aug 2025 18:24:14 -0400
-Subject: [PATCH] net: cadence: macb: convert from round_rate() to
- determine_rate()
+        Sun, 10 Aug 2025 17:27:23 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>,
+	Nam Cao <namcao@linutronix.de>
+Subject: [PATCH v2] irqchip/sifive-plic: Respect mask state when setting affinity
+Date: Mon, 11 Aug 2025 08:26:32 +0800
+Message-ID: <20250811002633.55275-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Message-Id: <20250810-net-round-rate-v1-1-dbb237c9fe5c@redhat.com>
-X-B4-Tracking: v=1; b=H4sIAA0cmWgC/x3MMQqAMAxA0auUzAbaooheRRyCTTVLlbSKIN7d4
- viG/x/IrMIZRvOA8iVZ9lThGgPLRmlllFAN3vrO9n7AxAV1P1NApcJonWv7yIEGilCjQznK/Q+
- n+X0/6Gb5/WAAAAA=
-X-Change-ID: 20250729-net-round-rate-01147feda9af
-To: Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Brian Masney <bmasney@redhat.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754864666; l=3055;
- i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=SGSec+EQWjKUsfxRcIYsyrxplqR++XYwLaxooXSSvvw=;
- b=VlXqvJ2j2K8T7qZ6gDnZKdk0xvGKLfpw0ErL2SsM89sdyKwSzDeTzqTfmr4nlHao+o7kILkOl
- 2kuTkv2p1lLBQHzyzOLh+NSk3F84nKm10XJn38FozI5LJMvotkmqP07
-X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
- pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: JtfYjPiwKhFKSNXk7o9PJjN4EAzf36Zk4gqEhok1gEk_1754864670
-X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_152432_976612_8856C5FE 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20250810_172726_697269_572ADB72 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,106 +102,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The round_rate() clk ops is deprecated, so migrate this driver from
-round_rate() to determine_rate().
+The plic_set_affinity always call plic_irq_enable(), which clears up
+the priority setting even the irq is only masked. This make the irq
+unmasked unexpectly.
 
-Signed-off-by: Brian Masney <bmasney@redhat.com>
+Replace the plic_irq_enable/disable() with plic_irq_toggle() to
+avoid changing priority setting.
+
+Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Reviewed-by: Nam Cao <namcao@linutronix.de>
+Tested-by: Nam Cao <namcao@linutronix.de> # VisionFive 2
 ---
- drivers/net/ethernet/cadence/macb_main.c | 61 ++++++++++++++++++--------------
- 1 file changed, 35 insertions(+), 26 deletions(-)
-
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index ce95fad8cedd7331d4818ba9f73fb6970249e85c..ce55a1f59b50dd85fa92bf139d06e6120d109e89 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -4822,36 +4822,45 @@ static unsigned long fu540_macb_tx_recalc_rate(struct clk_hw *hw,
- 	return mgmt->rate;
- }
- 
--static long fu540_macb_tx_round_rate(struct clk_hw *hw, unsigned long rate,
--				     unsigned long *parent_rate)
--{
--	if (WARN_ON(rate < 2500000))
--		return 2500000;
--	else if (rate == 2500000)
--		return 2500000;
--	else if (WARN_ON(rate < 13750000))
--		return 2500000;
--	else if (WARN_ON(rate < 25000000))
--		return 25000000;
--	else if (rate == 25000000)
--		return 25000000;
--	else if (WARN_ON(rate < 75000000))
--		return 25000000;
--	else if (WARN_ON(rate < 125000000))
--		return 125000000;
--	else if (rate == 125000000)
--		return 125000000;
--
--	WARN_ON(rate > 125000000);
--
--	return 125000000;
-+static int fu540_macb_tx_determine_rate(struct clk_hw *hw,
-+					struct clk_rate_request *req)
-+{
-+	if (WARN_ON(req->rate < 2500000))
-+		req->rate = 2500000;
-+	else if (req->rate == 2500000)
-+		req->rate = 2500000;
-+	else if (WARN_ON(req->rate < 13750000))
-+		req->rate = 2500000;
-+	else if (WARN_ON(req->rate < 25000000))
-+		req->rate = 25000000;
-+	else if (req->rate == 25000000)
-+		req->rate = 25000000;
-+	else if (WARN_ON(req->rate < 75000000))
-+		req->rate = 25000000;
-+	else if (WARN_ON(req->rate < 125000000))
-+		req->rate = 125000000;
-+	else if (req->rate == 125000000)
-+		req->rate = 125000000;
-+	else if (WARN_ON(req->rate > 125000000))
-+		req->rate = 125000000;
-+	else
-+		req->rate = 125000000;
-+
-+	return 0;
- }
- 
- static int fu540_macb_tx_set_rate(struct clk_hw *hw, unsigned long rate,
- 				  unsigned long parent_rate)
- {
--	rate = fu540_macb_tx_round_rate(hw, rate, &parent_rate);
--	if (rate != 125000000)
-+	struct clk_rate_request req;
-+	int ret;
-+
-+	clk_hw_init_rate_request(hw, &req, rate);
-+	ret = fu540_macb_tx_determine_rate(hw, &req);
-+	if (ret != 0)
-+		return ret;
-+
-+	if (req.rate != 125000000)
- 		iowrite32(1, mgmt->reg);
- 	else
- 		iowrite32(0, mgmt->reg);
-@@ -4862,7 +4871,7 @@ static int fu540_macb_tx_set_rate(struct clk_hw *hw, unsigned long rate,
- 
- static const struct clk_ops fu540_c000_ops = {
- 	.recalc_rate = fu540_macb_tx_recalc_rate,
--	.round_rate = fu540_macb_tx_round_rate,
-+	.determine_rate = fu540_macb_tx_determine_rate,
- 	.set_rate = fu540_macb_tx_set_rate,
- };
- 
-
+Change from v1:
+1. apply Nam's tag
+2. remove unnecessary off-topic change in plic_irq_disable()
 ---
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250729-net-round-rate-01147feda9af
+ drivers/irqchip/irq-sifive-plic.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Best regards,
--- 
-Brian Masney <bmasney@redhat.com>
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index bf69a4802b71..866e38612b94 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -179,12 +179,14 @@ static int plic_set_affinity(struct irq_data *d,
+ 	if (cpu >= nr_cpu_ids)
+ 		return -EINVAL;
+
+-	plic_irq_disable(d);
++	/* Invalidate the original routing entry */
++	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
+
+ 	irq_data_update_effective_affinity(d, cpumask_of(cpu));
+
++	/* Setting the new routing entry if irq is enabled */
+ 	if (!irqd_irq_disabled(d))
+-		plic_irq_enable(d);
++		plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 1);
+
+ 	return IRQ_SET_MASK_OK_DONE;
+ }
+--
+2.50.1
 
 
 _______________________________________________
