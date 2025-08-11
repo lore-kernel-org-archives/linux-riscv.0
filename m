@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0339CA0EC4
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 18:09:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66719CA0ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 18:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gxmj6/eCfGQBd+zIS85wEqgZF8B3ig3KNgKS63cO5IQ=; b=eaHo4ajQiDrl7N
-	Z+z9wEu1cwvgu3ZOhj0ZNSYx/Pb6WnJvf7dE09g28Af9IbEoo2+dHqFY+vP/HisKZvYXppwZbo00w
-	2GY0+Ip/G/Y+O/lEA3xgqFXpaDYoz983+4c+uUWLzftOeraFtwgq22yj/Vou7qtEYgaTcAjPsYebT
-	Ugvxru2JCKz2Rgw4/cJgF5PYo1rHJ16358oum7m1Ih8BQiHjVbp3bww2F2+zlh8S0x532kLqT3KYu
-	0+GxZ7JGiSumq7J7bi6owbjgOfPqE+F3EHzcSkfAM8XAuodC32y2cBsIyEYjivxaguleRPY7Fh3xk
-	Ocor4aNk2eOHetYpwRGw==;
+	List-Owner; bh=i3aKo6NUtTjGjVV1t+QFE9YYWBgq19UxRl/6kmEWUZg=; b=x5uY+tzf8qQwQc
+	nv0CSc8nkHC1K/UOhB1NoX/LMzGPiW+7cRLD60G0eE2qVigjKEsp3JH19Hpheh91uagPpcMwHT3NJ
+	WdfdL40MAjlE+dxEUsMKdSS5+9mKpmzNXuUxjsrctbqu5BOBVBvmaC7O632gmCpBlrpnvOnMD2iHT
+	d5Gr97NkuWC/f/qTYHtPqptxL87dHUIrGnDeg7twxoBkewn8mHYL2sHWPr/vJ2MNcKolnSHzBeO3/
+	xX9RkINQVkQeeyvvDUA+zHhBG3V4uCvBrZp8kOU4n7+U0ctnNWShLmNmG3OnPi9sW/CM2+Zl5idew
+	jDBh6eDq27FCLIJpQMxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulWxg-00000008hgr-2oNO;
-	Mon, 11 Aug 2025 18:09:32 +0000
+	id 1ulWxk-00000008hnJ-2yJB;
+	Mon, 11 Aug 2025 18:09:38 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUIX-00000008B4e-2w8X;
-	Mon, 11 Aug 2025 15:18:53 +0000
+	id 1ulUIY-00000008B3V-241i;
+	Mon, 11 Aug 2025 15:18:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B4BA966958;
-	Mon, 11 Aug 2025 15:18:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id AAED5C567C4;
-	Mon, 11 Aug 2025 15:18:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 26F1B66963;
+	Mon, 11 Aug 2025 15:18:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4CBAAC567D1;
+	Mon, 11 Aug 2025 15:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754925514;
-	bh=rms1xtlsadqT0awQHjctVrlANVA+fIB3QPcLnfCSi6g=;
+	s=k20201202; t=1754925515;
+	bh=HuIn4Ga+8SS6ztxFD4gVOCgnhND6VnRr7SuOoks1eEo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=rjdaF+UKmFgXPDzdOJnQVOXnJ4lwVcLtXfrCgAsF3FzFwfCN8w01KtqpnrF9asqDC
-	 Joi/yE6EzfxU77AiEyzjM5XoOCpF60AJkleUNZ79P7/bPfoIiL7GpYtytaAjK1TMcG
-	 Gb8k5hwuqpb6D9uEExMD/Elk2FDsi+2DINskSkxnX3Ejl/YR/es+68NTWI2iFY4Qr2
-	 wX6q3KGLRHRxz4z7SZi/lsCmfWX4d2HIm0w37HnWWuWHZZx3axvApUHri64LyptFBo
-	 jOuEo/GJ4a//e9wtp/zTRsF/tkkwizcd5RapkT+iFFuY0yzBP23qJ2AdrHJsIPlfpI
-	 JoP6/WiB/FV8w==
+	b=kZsBPD5yJ8i+lKeYnrYLhcOVmRAYoyJYMXjrxILxi4E/NlBi7q5PUuNBlkpjH5y0K
+	 TKxTZE3baOFiB+23Kc43O3IUq4OJO4OWqJWEAzfzVmS8ubkDTspjYUh0FN1bF0EMEf
+	 yWGvQUm1q0ig8R3n8pHRUG7sMCENstOxHxZgT8qCJg0/AZ7wWEdGszoHRAfl/q9vuR
+	 OvYveWdLX70BNNheEeVFuTSvk6/96Lb7SvlmVKlhqMj+vbkADLiTAG9xvmjAixygeD
+	 udL+k7lqljELkQtEHVNjHvDhq0LxNO9TS4xMQg70i0cwnxWZRWRUqchPZDy5JTAguh
+	 MNrEfHxtml+JQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8968DCA0ED1;
-	Mon, 11 Aug 2025 15:18:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 378A2CA0ED1;
+	Mon, 11 Aug 2025 15:18:35 +0000 (UTC)
 From: Brian Masney via B4 Relay <devnull+bmasney.redhat.com@kernel.org>
-Date: Mon, 11 Aug 2025 11:19:25 -0400
-Subject: [PATCH 093/114] clk: renesas: rzv2h-cpg: remove round_rate() in
- favor of determine_rate()
+Date: Mon, 11 Aug 2025 11:19:31 -0400
+Subject: [PATCH 099/114] clk: samsung: pll: convert from round_rate() to
+ determine_rate()
 MIME-Version: 1.0
-Message-Id: <20250811-clk-for-stephen-round-rate-v1-93-b3bf97b038dc@redhat.com>
+Message-Id: <20250811-clk-for-stephen-round-rate-v1-99-b3bf97b038dc@redhat.com>
 References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -115,11 +115,11 @@ Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev, 
  Brian Masney <bmasney@redhat.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754925498; l=1554;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754925498; l=5057;
  i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=APn7O7zMPX6aeEUA+RAPdR2wRd1vkjrFD49a6YMzPV4=;
- b=MJL8aeF4D/4kz5WhunkiOL7Dpp+qwONXwdncq6aBmbuXWI5Y1ZAcFa/06fJpmb/J1uLFTyqxP
- 35qRmO9rw8SC/cRzaiV+HbjMDrXRZhTRH6uyk5C+6oN1t64dqODhpxJ
+ bh=bsJ0S2YlN+Q/3g0XO5U/IhgIQBKwRSKYutlWFigyhKE=;
+ b=Dc7hWjrwwirMj+0PVv/AthEP5h1ngg3LCNMH4rzmIwx/MdalTpUcgn92sAhNZIgEX2Ou/KxkM
+ jil/8agAwA1AA03jfTcJFoX70STKB/VREbbUbizxQMNqNxV15RLiKoY
 X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
  pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
 X-Endpoint-Received: by B4 Relay for bmasney@redhat.com/20250528 with
@@ -144,45 +144,132 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Brian Masney <bmasney@redhat.com>
 
-This driver implements both the determine_rate() and round_rate() clk
-ops, and the round_rate() clk ops is deprecated. When both are defined,
-clk_core_determine_round_nolock() from the clk core will only use the
-determine_rate() clk ops, so let's remove the round_rate() clk ops since
-it's unused.
+The round_rate() clk ops is deprecated, so migrate this driver from
+round_rate() to determine_rate() using the Coccinelle semantic patch
+on the cover letter of this series.
 
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
- drivers/clk/renesas/rzv2h-cpg.c | 10 ----------
- 1 file changed, 10 deletions(-)
+ drivers/clk/samsung/clk-pll.c | 33 +++++++++++++++++++--------------
+ 1 file changed, 19 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/clk/renesas/rzv2h-cpg.c b/drivers/clk/renesas/rzv2h-cpg.c
-index f468afbb54e2d192c094e0048a698664ae99bd00..58ccbae0f9046388e568f7da0b8a890dfa001c47 100644
---- a/drivers/clk/renesas/rzv2h-cpg.c
-+++ b/drivers/clk/renesas/rzv2h-cpg.c
-@@ -294,15 +294,6 @@ static unsigned long rzv2h_ddiv_recalc_rate(struct clk_hw *hw,
- 				   divider->flags, divider->width);
+diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
+index e4faf02b631e07dea69be0bb7d141f52fa9900ae..3c04a0388ff9c6cec5b9b5779ad0c3be2b11cf07 100644
+--- a/drivers/clk/samsung/clk-pll.c
++++ b/drivers/clk/samsung/clk-pll.c
+@@ -49,8 +49,8 @@ static const struct samsung_pll_rate_table *samsung_get_pll_settings(
+ 	return NULL;
  }
  
--static long rzv2h_ddiv_round_rate(struct clk_hw *hw, unsigned long rate,
--				  unsigned long *prate)
--{
--	struct clk_divider *divider = to_clk_divider(hw);
--
--	return divider_round_rate(hw, rate, prate, divider->table,
--				  divider->width, divider->flags);
--}
--
- static int rzv2h_ddiv_determine_rate(struct clk_hw *hw,
- 				     struct clk_rate_request *req)
+-static long samsung_pll_round_rate(struct clk_hw *hw,
+-			unsigned long drate, unsigned long *prate)
++static int samsung_pll_determine_rate(struct clk_hw *hw,
++				      struct clk_rate_request *req)
  {
-@@ -359,7 +350,6 @@ static int rzv2h_ddiv_set_rate(struct clk_hw *hw, unsigned long rate,
+ 	struct samsung_clk_pll *pll = to_clk_pll(hw);
+ 	const struct samsung_pll_rate_table *rate_table = pll->rate_table;
+@@ -58,12 +58,17 @@ static long samsung_pll_round_rate(struct clk_hw *hw,
  
- static const struct clk_ops rzv2h_ddiv_clk_divider_ops = {
- 	.recalc_rate = rzv2h_ddiv_recalc_rate,
--	.round_rate = rzv2h_ddiv_round_rate,
- 	.determine_rate = rzv2h_ddiv_determine_rate,
- 	.set_rate = rzv2h_ddiv_set_rate,
+ 	/* Assuming rate_table is in descending order */
+ 	for (i = 0; i < pll->rate_count; i++) {
+-		if (drate >= rate_table[i].rate)
+-			return rate_table[i].rate;
++		if (req->rate >= rate_table[i].rate) {
++			req->rate = rate_table[i].rate;
++
++			return 0;
++		}
+ 	}
+ 
+ 	/* return minimum supported value */
+-	return rate_table[i - 1].rate;
++	req->rate = rate_table[i - 1].rate;
++
++	return 0;
+ }
+ 
+ static bool pll_early_timeout = true;
+@@ -298,7 +303,7 @@ static int samsung_pll35xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 
+ static const struct clk_ops samsung_pll35xx_clk_ops = {
+ 	.recalc_rate = samsung_pll35xx_recalc_rate,
+-	.round_rate = samsung_pll_round_rate,
++	.determine_rate = samsung_pll_determine_rate,
+ 	.set_rate = samsung_pll35xx_set_rate,
+ 	.enable = samsung_pll3xxx_enable,
+ 	.disable = samsung_pll3xxx_disable,
+@@ -411,7 +416,7 @@ static int samsung_pll36xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ static const struct clk_ops samsung_pll36xx_clk_ops = {
+ 	.recalc_rate = samsung_pll36xx_recalc_rate,
+ 	.set_rate = samsung_pll36xx_set_rate,
+-	.round_rate = samsung_pll_round_rate,
++	.determine_rate = samsung_pll_determine_rate,
+ 	.enable = samsung_pll3xxx_enable,
+ 	.disable = samsung_pll3xxx_disable,
  };
+@@ -514,7 +519,7 @@ static int samsung_pll0822x_set_rate(struct clk_hw *hw, unsigned long drate,
+ 
+ static const struct clk_ops samsung_pll0822x_clk_ops = {
+ 	.recalc_rate = samsung_pll0822x_recalc_rate,
+-	.round_rate = samsung_pll_round_rate,
++	.determine_rate = samsung_pll_determine_rate,
+ 	.set_rate = samsung_pll0822x_set_rate,
+ 	.enable = samsung_pll3xxx_enable,
+ 	.disable = samsung_pll3xxx_disable,
+@@ -612,7 +617,7 @@ static int samsung_pll0831x_set_rate(struct clk_hw *hw, unsigned long drate,
+ static const struct clk_ops samsung_pll0831x_clk_ops = {
+ 	.recalc_rate = samsung_pll0831x_recalc_rate,
+ 	.set_rate = samsung_pll0831x_set_rate,
+-	.round_rate = samsung_pll_round_rate,
++	.determine_rate = samsung_pll_determine_rate,
+ 	.enable = samsung_pll3xxx_enable,
+ 	.disable = samsung_pll3xxx_disable,
+ };
+@@ -735,7 +740,7 @@ static int samsung_pll45xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 
+ static const struct clk_ops samsung_pll45xx_clk_ops = {
+ 	.recalc_rate = samsung_pll45xx_recalc_rate,
+-	.round_rate = samsung_pll_round_rate,
++	.determine_rate = samsung_pll_determine_rate,
+ 	.set_rate = samsung_pll45xx_set_rate,
+ };
+ 
+@@ -880,7 +885,7 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 
+ static const struct clk_ops samsung_pll46xx_clk_ops = {
+ 	.recalc_rate = samsung_pll46xx_recalc_rate,
+-	.round_rate = samsung_pll_round_rate,
++	.determine_rate = samsung_pll_determine_rate,
+ 	.set_rate = samsung_pll46xx_set_rate,
+ };
+ 
+@@ -1093,7 +1098,7 @@ static int samsung_pll2550xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 
+ static const struct clk_ops samsung_pll2550xx_clk_ops = {
+ 	.recalc_rate = samsung_pll2550xx_recalc_rate,
+-	.round_rate = samsung_pll_round_rate,
++	.determine_rate = samsung_pll_determine_rate,
+ 	.set_rate = samsung_pll2550xx_set_rate,
+ };
+ 
+@@ -1185,7 +1190,7 @@ static int samsung_pll2650x_set_rate(struct clk_hw *hw, unsigned long drate,
+ 
+ static const struct clk_ops samsung_pll2650x_clk_ops = {
+ 	.recalc_rate = samsung_pll2650x_recalc_rate,
+-	.round_rate = samsung_pll_round_rate,
++	.determine_rate = samsung_pll_determine_rate,
+ 	.set_rate = samsung_pll2650x_set_rate,
+ };
+ 
+@@ -1277,7 +1282,7 @@ static int samsung_pll2650xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ static const struct clk_ops samsung_pll2650xx_clk_ops = {
+ 	.recalc_rate = samsung_pll2650xx_recalc_rate,
+ 	.set_rate = samsung_pll2650xx_set_rate,
+-	.round_rate = samsung_pll_round_rate,
++	.determine_rate = samsung_pll_determine_rate,
+ };
+ 
+ static const struct clk_ops samsung_pll2650xx_clk_min_ops = {
 
 -- 
 2.50.1
