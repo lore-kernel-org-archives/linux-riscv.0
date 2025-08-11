@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D3FCA0EDB
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 22:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 904A1CA0ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 22:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PGjL+NGOYi5aValkbzDhqBENzzwQmXniCm2HlFlC7h8=; b=RJKBwbZtiw3pUf
-	Pv11j8s3y6LVvQApBYoqDL8qPEtDBSUB75ylvyCVie9tAKAuGkWSHuhYbyKToScDC5SMvEHLFes4z
-	qknk6O6EwexbEkzDHMvEx9Cs5HHx+vQGE/eiAVKdSGq4Bs9RSEeckm8WcEkrnjR2lGzUXIR61B4h2
-	w5EDZEb5Wz9sG3kO5yeg2ZCjBsF6jdHqZblZgLfn0f2fJIPZeCAysaztuIfsLxpP9lkgm+qysfGt9
-	ZmcZ0RZOgPEy9WjgLImDzN5JbI+bkFT7YYjhp5eNEi8wkzmYeSInAF2WC7eXn6g2joU4+IjIzmzgK
-	YlQKYRBfW1ZYLlMSEnCw==;
+	List-Owner; bh=ujhX8NdhPzUag9zXODRobHsReev2itNNh2mn76I5mWI=; b=0UxemFsJt8YYPz
+	VDeMjunn4iQ0H8h7NQBe0rU6JHRSXS6DjfMV+i5yefr9hVJ/WWrRYRln4blz8Ow4qveHYK9WHqZnF
+	hCi/+cxJ9dgEUeFtHUXYZxIUi1aWVB5CqdOkhVkmfmt6OgwKStFOO5hQmIFlR6/RB9ufhvV9vEa1k
+	yMx2nQ9PH2e4xrKgKdV/nlFtd7GSi5myzFYOnpOP8br7tXBZPSBYdHX+38g7W+IisIb2i5M+iUoZP
+	zPHDWdVHzyjAYNWjga/5vyYofTwBh9xPy+JYVU56FpzXolhxfRbjCQWbg0OxHgSz6WWdSZxoyHNVp
+	RqE1L0kuL/OZcwPF8aOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulacv-00000009D4U-2VOK;
-	Mon, 11 Aug 2025 22:04:21 +0000
-Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	id 1uladb-00000009EUA-0KkL;
+	Mon, 11 Aug 2025 22:05:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulXeD-00000008qS4-2mOV
+	id 1ulZGG-000000091oC-1poo
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 11 Aug 2025 20:36:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=OvilSks8eMHNqA+xiQJDTV7r7oo0XPipLHjlxqh7g1k=; b=q/yDbM6rU7DtF1vm7yNKqpI3DV
+	Jhcw09k1mHSJJloY/dvHe6Ng+mIHPjoJ2Obc1fA02OiWoTBkdzJVxK4vz/Z7n/blVVxWrWJGpgy1i
+	D5ehxLx7xTJIHMQ/c05lplK32zeEIh1hlERtsIZUA1Kq/IjVx9xrLaCLPTmPWnwtkCHB5nOQ39MUM
+	BxKPto8vMI0pqVDhsuxe0RHK0lywq05M8Flac4muVXXRI7ynlTiSGT+euPUrviF2a8hOu4zKMABbG
+	4fm4c7yoUY8LP2vdppeKOB4sgonOPVYcH1oIxfdBBRVhWESebOQBXEyz4XpyodNB3VF6WBUR1hqrT
+	4SJphpjA==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulZGD-0000000FWdJ-1WTn
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Aug 2025 18:53:31 +0000
-Message-ID: <d4bead1c-697a-46d8-ba9c-64292fccb19f@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1754938405;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0R2bnIhPyR3QQbpGsQ2ZiExRLQ4FHglk5+SDpIvYRfw=;
-	b=u136D40HAZRm2Ns4PIkj7lNjk9GpEzIDA0c6PL4vfZunBpXOL+T8bK9eSHezE+/ErbtzoA
-	LFQBQRUjQbRcJ1FXpHpS4eMH3GHZTlm1PKk0cvRkbUEl1ubAtZ3EEn0ylwCcFNanSmEGhi
-	3Gh+X8fqy4yk5tSREu0rhyEpC/kmjMI=
-Date: Mon, 11 Aug 2025 14:53:19 -0400
+	Mon, 11 Aug 2025 20:36:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 88F7A5C4FF8;
+	Mon, 11 Aug 2025 20:36:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14339C4CEED;
+	Mon, 11 Aug 2025 20:36:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754944605;
+	bh=ANNBkkYI6TT0Omdxh17jItclatemB8sLwNiNbq4exXE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AAf/o18YcMfvfiWpgenxbCd6N5M/0xSY91v0f/FH65nR50nuaFRoRWXq84uGEnbAw
+	 Y8AXhP9OMJ7jcEd8EJZA7zH3+uafAemxVJV1D1Vhq05KR49Qi7bUWgbOwKmmNkS5NS
+	 hVokol/W0r3PRECkzODjYRRYAUjzCRwDTF79ZjbVkDEoLsYCDxLjl1NgoWJwdgbCYQ
+	 RQLXzOxh7GwZ793VflwAvOb5WA+2IY8/TBS64733SnWpwkUZFtMBLLz2ow34LuQPow
+	 xiYB7SLn7JMcMMAgtCj9CC9g42BYqTroltfs5pKqX3Ra1dQmCWcCK4iUCItlWuNwWE
+	 6x2W+BTN5VQ8g==
+Date: Mon, 11 Aug 2025 13:36:42 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Florian Weimer <fweimer@redhat.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Andy Chiu <andybnac@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Drew Fustini <dfustini@tenstorrent.com>
+Subject: Re: [PATCH v2] riscv: Add sysctl to control discard of vstate during
+ syscall
+Message-ID: <aJpUWnYEL18dk4aC@x1>
+References: <20250806-riscv_v_vstate_discard-v2-1-6bfd61b2c23b@kernel.org>
+ <lhuo6so7ur5.fsf@oldenburg.str.redhat.com>
+ <aJe8ZW5LEtBK7Jmj@x1>
+ <lhuqzxjy5zq.fsf@oldenburg.str.redhat.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next v2 12/18] net: macb: match skb_reserve(skb,
- NET_IP_ALIGN) with HW alignment
-To: =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland <samuel.holland@sifive.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Russell King <linux@armlinux.org.uk>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
- Gregory CLEMENT <gregory.clement@bootlin.com>,
- Cyrille Pitchen <cyrille.pitchen@atmel.com>,
- Harini Katakam <harini.katakam@xilinx.com>,
- Rafal Ozieblo <rafalo@cadence.com>,
- Haavard Skinnemoen <hskinnemoen@atmel.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-mips@vger.kernel.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Tawfik Bayouk <tawfik.bayouk@mobileye.com>
-References: <20250627-macb-v2-0-ff8207d0bb77@bootlin.com>
- <20250627-macb-v2-12-ff8207d0bb77@bootlin.com>
- <1a4fe95a-f029-43b2-aed1-594365254b6a@linux.dev>
- <DBWASGS8U4LN.1GMHL8A61VWU8@bootlin.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <DBWASGS8U4LN.1GMHL8A61VWU8@bootlin.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Disposition: inline
+In-Reply-To: <lhuqzxjy5zq.fsf@oldenburg.str.redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_115329_916740_E6B3DE6E 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20250811_213649_841160_FAC30415 
+X-CRM114-Status: GOOD (  37.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,39 +93,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOC83LzI1IDExOjI0LCBUaMOpbyBMZWJydW4gd3JvdGU6Cj4gT24gVHVlIEp1bCAxLCAyMDI1
-IGF0IDY6NDAgUE0gQ0VTVCwgU2VhbiBBbmRlcnNvbiB3cm90ZToKPj4gT24gNi8yNy8yNSAwNTow
-OCwgVGjDqW8gTGVicnVuIHdyb3RlOgo+Pj4gSWYgSFcgaXMgUlNDIGNhcGFibGUsIGl0IGNhbm5v
-dCBhZGQgZHVtbXkgYnl0ZXMgYXQgdGhlIHN0YXJ0IG9mIElQCj4+Cj4+IFJlY2VpdmUtc2lkZSBj
-b2FsZXNjaW5nPyBDYW4geW91IGFkZCBhIGJyaWVmIGRlc2NyaXB0aW9uIG9mIHRoaXMKPj4gZmVh
-dHVyZSB0byB5b3VyIGNvbW1pdCBtZXNzYWdlPwo+IAo+IFllcyB0aGF0IGlzIFJlY2VpdmUgU2lk
-ZSBDb2FsZXNjaW5nLiBDbGVhcmx5IGl0IG5lZWRzIHRvIGJlIG1lbnRpb25lZAo+IG91dCBsb3Vk
-LCBhbmQgYnJpZWZseSBkZXNjcmliZWQuCj4gCj4+PiBwYWNrZXRzLiBBbGlnbm1lbnQgKGllIG51
-bWJlciBvZiBkdW1teSBieXRlcykgaXMgY29uZmlndXJlZCB1c2luZyB0aGUKPj4+IFJCT0YgZmll
-bGQgaW5zaWRlIHRoZSBOQ0ZHUiByZWdpc3Rlci4KPj4+IAo+Pj4gT24gdGhlIHNvZnR3YXJlIHNp
-ZGUsIHRoZSBza2JfcmVzZXJ2ZShza2IsIE5FVF9JUF9BTElHTikgY2FsbCBtdXN0IG9ubHkKPj4+
-IGJlIGRvbmUgaWYgdGhvc2UgZHVtbXkgYnl0ZXMgYXJlIGFkZGVkIGJ5IHRoZSBoYXJkd2FyZTsg
-bm90aWNlIHRoZQo+Pj4gc2tiX3Jlc2VydmUoKSBpcyBkb25lIEFGVEVSIHdyaXRpbmcgdGhlIGFk
-ZHJlc3MgdG8gdGhlIGRldmljZS4KPj4+IAo+Pj4gV2UgY2Fubm90IGRvIHRoZSBza2JfcmVzZXJ2
-ZSgpIGNhbGwgQkVGT1JFIHdyaXRpbmcgdGhlIGFkZHJlc3MgYmVjYXVzZQo+Pj4gdGhlIGFkZHJl
-c3MgZmllbGQgaWdub3JlcyB0aGUgbG93IDIvMyBiaXRzLiBDb25jbHVzaW9uOiBpbiBzb21lIGNh
-c2VzLAo+Pj4gd2UgcmlzayBub3QgYmVpbmcgYWJsZSB0byByZXNwZWN0IHRoZSBORVRfSVBfQUxJ
-R04gdmFsdWUgKHdoaWNoIGlzCj4+PiBwaWNrZWQgYmFzZWQgb24gdW5hbGlnbmVkIENQVSBhY2Nl
-c3MgcGVyZm9ybWFuY2UpLgo+Pj4gCj4+PiBGaXhlczogNGRmOTUxMzFlYTgwICgibmV0L21hY2I6
-IGNoYW5nZSBSWCBwYXRoIGZvciBHRU0iKQo+Pgo+PiBEbyBhbnkgZXhpc3RpbmcgTUFDQnMgc3Vw
-cG9ydCBSU0M/IElzIHRoaXMgYSBmaXg/IAo+IAo+IEkgaGF2ZSBubyBpZGVhLiBJZiBhbnkgTUFD
-QiBzdXBwb3J0cyBSU0MsIGl0IG11c3QgYmUgdGhvc2UgcnVubmluZyB3aXRoCj4gTkVUX0lQX0FM
-SUdOPTAsIHNvIGFybTY0L3Bvd2VycGMveDg2Lgo+IAo+IElzIGl0IGEgZml4PyBXZSBjYW4gZ3Vl
-c3MgdGhhdCBhbGwgYm9hcmRzIGZhbGwgaW4gZWl0aGVyIGNhdGVnb3J5Ogo+ICAtIERvbid0IHN1
-cHBvcnQgUlNDICg9PiBSQk9GIHdvcmtzIGZpbmUpLgo+ICAtIFN1cHBvcnQgUlNDICg9PiBSQk9G
-IG5vdCB3b3JraW5nKSBBTkQgTkVUX0lQX0FMSUdOPTAuCj4gCj4gQm90aCBvZiB0aG9zZSBhcmUg
-bm90IGltcGFjdGVkLCBzbyB3ZSB0ZWNobmljYWxseSBkb24ndCBmaXggYW55dGhpbmcgZm9yCj4g
-Y3VycmVudCB1c2Vycy4KCk9LLCB0aGVuIHBsZWFzZSBkcm9wIHRoZSBmaXhlcyB0YWcgdGhlbi4K
-Ci0tU2VhbgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sun, Aug 10, 2025 at 09:45:45AM +0200, Florian Weimer wrote:
+> * Drew Fustini:
+> 
+> > On Sat, Aug 09, 2025 at 10:40:46AM +0200, Florian Weimer wrote:
+> >> * Drew Fustini:
+> >> 
+> >> > From: Drew Fustini <dfustini@tenstorrent.com>
+> >> >
+> >> > Clobbering the vector registers can significantly increase system call
+> >> > latency for some implementations. To mitigate this performance impact, a
+> >> > sysctl knob is provided that controls whether the vector state is
+> >> > discarded in the syscall path:
+> >> >
+> >> > /proc/sys/abi/riscv_v_vstate_discard
+> >> >
+> >> > Valid values are:
+> >> >
+> >> > 0: Vector state is not always clobbered in all syscalls
+> >> > 1: Mandatory clobbering of vector state in all syscalls
+> >> >
+> >> > The initial state is controlled by CONFIG_RISCV_ISA_V_VSTATE_DISCARD.
+> >> 
+> >> Can this be put into the system call number instead, or make it specific
+> >> to some system calls in other ways?
+> >
+> > Do you mean the control the initial state of the sysctl, or not having a
+> > sysctl for discard behavior at all?
+> 
+> It's seems rather strange to have a sysctl for such an ABI change
+> because it really has to be a per-process property.
+
+The reason for sysctl is that I want a means to let a system to opt out 
+of clobbering vector state on the syscall entry path. This is because it
+adds significant overhead for some implementations. For example, it
+results in a 25% longer syscall duration on the X280 core.
+
+I would be in favor of reverting the mandatory clobbering behavior, but
+Palmer says that it is useful for test suites. Since revert isn't an
+option, I want a system wide policy control like this sysctl. It does
+seem like there could be some advantages to per-process control but I
+think that delves into ABI changes which I feel is a separate issue from
+a system wide knob for "always clobber"/"do not always clobber".
+
+> 
+> >> I think C libraries can use this optimization for their system calls
+> >> (after adjusting the assembler clobbers) because the vector state is
+> >> caller-saved in the standard calling convention.  But there is backwards
+> >> compatibility impact for turning this on for the entire process.
+> >
+> > The focus I have right now is allowing users to avoid the delay in
+> > syscall entry on implementations where clobbering is slow. Palmer had
+> > mentioned in my v1 [1] that he has 'a patch out for GCC that enables a
+> > system-wide vector ABI, but I don't have time to test/benchmark it so 
+> > it's kind of hard to justify'. It seems like creating a new ABI where
+> > the vector registers are preserved across syscalls could be useful, but
+> > I think it would be best to handle that possiblity later on.
+> 
+> I'm confused.  Current glibc assumes that vector registers are preserved
+> across system calls because the assembler clobbers do not mention them.
+> Similar inline assembly probably has ended up in other projects, too.
+> It works by accident if glibc is compiled for a non-vector target, or if
+> it so happens that GCC never keeps vector registers alive across system
+> calls.
+
+I wasn't trying to make any ABI changes with this sysctl patch. The
+riscv kernel documentation states vector state is not preserved across
+syscalls. I am not trying to change that policy.
+
+Around the same time that Palmer added that statement to the vector
+documentation, Bjorn added the code that always clobbers the vector
+registers on syscall entry. This was done in order to ensure programs
+were not relying on vector state being preserved. 
+
+At the time 2 years ago, Palmer and Bjorn talked about how this could
+be revisted if it turns out the clobbering process ended up being slow
+on real hardware. This patch is my attempt to allow platforms with slow
+vstate clobbering to opt out this strict mandatory clobbering on syscall
+entry.
+
+Thanks,
+Drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
