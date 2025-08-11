@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0E7CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 22:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA78ACA0EDB
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 22:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aejIL7vxrS6pxe+sb160qnvqPq25jDnY2sc7hrbpRuk=; b=2xjdwcPk3Yh4wf
-	gnmX4kdH2gGeYlaRhKsqM9Yj2D7ayt1cAHIKxYvhPFdcF9nE3JLGoLhGpy1axtyqorsWJec+yPni6
-	9qMlRUatoMmV8I69rLYSAt1+1wIOiUMbTrL4Ly3nty00CfvAGax/QYKd8qyWuqEi+l73MiNQGLxxF
-	QM9QZjo4ogsMiOiXi2tDF/OnsXSNA8UkPL/tCZyCgR6Ty4BU7yovKFJCvdp1nmAupPGP9Fv/QyLN8
-	uFD7d2Vf1v21H8WrLZBae99qs0N1MAWqGh7ZsTyaF4sQK1E4BqrLmgiJsNV3DO1q3lnJmmeEt1Wf5
-	bRheF8gG02HTBk/tG6mw==;
+	List-Owner; bh=JdsiT6fcrIUyXaEjUf3JkQ2mHZrBjh4sinkpYnnm/P8=; b=zXOoFhBwdHXpuh
+	+VF2rggyIt3druRSJPsR7545ZiViUXUfZBH3DkFHsUOolkkYqw+Is7Qsbksl+OAnLIQLgU/8TGQw7
+	YYGaHSCEpRzfgFcGqD1tNGmYLjcT0Anys67ofOz3e7AJJ1u6tK2CQD4fxjXg5e6kpeQXWe+CRmqMd
+	QbJLL5aYyZOJTR0v+3iRC1vEPfGPg+FHTqcvxsKtrT6Afmtw8scnTDmbV8L21xdAURQ9PcngYIGUi
+	3arb1itu0YecUcASNXtPpyu5olPXga27X58bryl0MGBA/ARAeE87LwSkDKc4AXJiI78vkKhMcz0hD
+	DuY9m9gbsd1dk88j5nkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulaZc-000000097Jd-26Fm;
-	Mon, 11 Aug 2025 22:00:56 +0000
+	id 1ulaZn-000000097eb-48pF;
+	Mon, 11 Aug 2025 22:01:07 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUIF-00000008AYp-0Oof;
-	Mon, 11 Aug 2025 15:18:35 +0000
+	id 1ulUIN-00000008Apz-1UTh;
+	Mon, 11 Aug 2025 15:18:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 41D1466891;
-	Mon, 11 Aug 2025 15:18:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DB4B3C4AF18;
-	Mon, 11 Aug 2025 15:18:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B2C261448;
+	Mon, 11 Aug 2025 15:18:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 26652C4AF48;
+	Mon, 11 Aug 2025 15:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754925509;
-	bh=EceAz0gkP06guCu7njtkRh0Rlxv1sGIen5KvFDr5Yhc=;
+	s=k20201202; t=1754925511;
+	bh=0vVbP8b53yX1PNbA+T6Py+fKP7hScno000OMFrpLy80=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=e2+sT3jCLfFDNrYn6ybFIJ5KkC3h3gqiISOhZnh9TDNZhPn2nNdah7hpAZXttpbYD
-	 CU2DnPPKp0htHnlNVBlWdixZ77UYWjnDp/O0cfuDDl2Q1YhEa2xKPmRg25SnjBeUXX
-	 T+baM8WQAWN2IBXN/hyvNuIeaN88BKimYcjSogjAHbHmvhSxriTcG6o4zBpYh2YO+I
-	 ICrrosJwrAHm2qc4ZAuQ8imcC2u+HVI6nOeVn2dyrAji573ngzzH9S3zBG54YECUKg
-	 n0pr1wNpAHOutbw69Hr/d21ufbavSMhWwRdwtHc0/UQYYZ2uxtkVWQNjZJecf5w5Fj
-	 vmZIyDv19xDFw==
+	b=tpk4/iJ1oqQxhIZWKepBmG99dwh/e1CqmEGrzkhggX+cXA17RnNlT54xyl44nBDXS
+	 9bte5Ib2Tz+lejdG52gfGnHey9TFYBnxONvEfhL5+bg7YXSIXMJk43uk9OkHfIJSEe
+	 8Ls/bGu4evKw+yBhgw21zp3vhQRCYWbLthbk8hjgyUmsFYv3SyAjFMIPlhIrobXEr8
+	 y2sOBg1c2i7QkAChIPIS7HyAVuH6oGWWIpbZ6KfUHDx7toa44B+fZ5FsK7buotcRuG
+	 z0KdmsFJ+J6sSRDPPZrUb2MhX+ZDszQs79OvSc6rliih4g71yNxPLk0tBs+9nwZ6TP
+	 uOlOowQy7BC1A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C0DBCC87FD2;
-	Mon, 11 Aug 2025 15:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 10DCFC87FD2;
+	Mon, 11 Aug 2025 15:18:31 +0000 (UTC)
 From: Brian Masney via B4 Relay <devnull+bmasney.redhat.com@kernel.org>
-Date: Mon, 11 Aug 2025 11:18:27 -0400
-Subject: [PATCH 035/114] clk: nuvoton: ma35d1-divider: convert from
- round_rate() to determine_rate()
+Date: Mon, 11 Aug 2025 11:18:50 -0400
+Subject: [PATCH 058/114] clk: stm32: stm32-core: convert from round_rate()
+ to determine_rate()
 MIME-Version: 1.0
-Message-Id: <20250811-clk-for-stephen-round-rate-v1-35-b3bf97b038dc@redhat.com>
+Message-Id: <20250811-clk-for-stephen-round-rate-v1-58-b3bf97b038dc@redhat.com>
 References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -115,11 +115,11 @@ Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev, 
  Brian Masney <bmasney@redhat.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754925497; l=1810;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754925498; l=2520;
  i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=kg08atohLFewl0jOxOzsnjF5Gymt0yX/f+cIJ8dXOXA=;
- b=qFmcgAGLaBbDRycLB4coxbfj8Y/JJhKjcTMkrnwQ8lSeQqTuZDivXIMPyNJd/3F4h55Wx4ELW
- JJMgwNs4wUQDxH29+4RDewAMGj/vwO0jCE2Qaw/XbgNoLrraUg/Jg5i
+ bh=EFl/g1nawDK+Bbrvg/8BWvf13GhRuLxKvqfdomWdmoo=;
+ b=2CfVOIfyHzTw3vT1nnMx4ETPsUuwtAyMl1XtZV19VqeNnfwLnyed0EAk4QKOgkd0A6hZdlq7z
+ HelA6LLBmSWA2ODCNYFlWd4dnlESc3c0qOPT98BZyMKhm0X+45f0/+J
 X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
  pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
 X-Endpoint-Received: by B4 Relay for bmasney@redhat.com/20250528 with
@@ -150,40 +150,67 @@ on the cover letter of this series.
 
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
- drivers/clk/nuvoton/clk-ma35d1-divider.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+ drivers/clk/stm32/clk-stm32-core.c | 28 ++++++++++++++++++----------
+ 1 file changed, 18 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/clk/nuvoton/clk-ma35d1-divider.c b/drivers/clk/nuvoton/clk-ma35d1-divider.c
-index bb8c23d2b895ff1975165443b4bd2541e9d6e272..e39f53d5bf4578c628d34b05233c8e8da317c4d4 100644
---- a/drivers/clk/nuvoton/clk-ma35d1-divider.c
-+++ b/drivers/clk/nuvoton/clk-ma35d1-divider.c
-@@ -39,12 +39,16 @@ static unsigned long ma35d1_clkdiv_recalc_rate(struct clk_hw *hw, unsigned long
- 				   CLK_DIVIDER_ROUND_CLOSEST, dclk->width);
+diff --git a/drivers/clk/stm32/clk-stm32-core.c b/drivers/clk/stm32/clk-stm32-core.c
+index 933e3cde0795386c3e5e6902aa0989cf3dffc01e..72825b9c36a4d3b8ba3f7615b9026c09ffaf88d1 100644
+--- a/drivers/clk/stm32/clk-stm32-core.c
++++ b/drivers/clk/stm32/clk-stm32-core.c
+@@ -351,14 +351,14 @@ static int clk_stm32_divider_set_rate(struct clk_hw *hw, unsigned long rate,
+ 	return ret;
  }
  
--static long ma35d1_clkdiv_round_rate(struct clk_hw *hw, unsigned long rate, unsigned long *prate)
-+static int ma35d1_clkdiv_determine_rate(struct clk_hw *hw,
-+					struct clk_rate_request *req)
+-static long clk_stm32_divider_round_rate(struct clk_hw *hw, unsigned long rate,
+-					 unsigned long *prate)
++static int clk_stm32_divider_determine_rate(struct clk_hw *hw,
++					    struct clk_rate_request *req)
  {
- 	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
+ 	struct clk_stm32_div *div = to_clk_stm32_divider(hw);
+ 	const struct stm32_div_cfg *divider;
  
--	return divider_round_rate(hw, rate, prate, dclk->table,
--				  dclk->width, CLK_DIVIDER_ROUND_CLOSEST);
-+	req->rate = divider_round_rate(hw, req->rate, &req->best_parent_rate,
-+				       dclk->table, dclk->width,
-+				       CLK_DIVIDER_ROUND_CLOSEST);
+ 	if (div->div_id == NO_STM32_DIV)
+-		return rate;
++		return 0;
+ 
+ 	divider = &div->clock_data->dividers[div->div_id];
+ 
+@@ -369,14 +369,22 @@ static long clk_stm32_divider_round_rate(struct clk_hw *hw, unsigned long rate,
+ 		val =  readl(div->base + divider->offset) >> divider->shift;
+ 		val &= clk_div_mask(divider->width);
+ 
+-		return divider_ro_round_rate(hw, rate, prate, divider->table,
+-				divider->width, divider->flags,
+-				val);
++		req->rate = divider_ro_round_rate(hw, req->rate,
++						  &req->best_parent_rate,
++						  divider->table,
++						  divider->width,
++						  divider->flags, val);
++
++		return 0;
+ 	}
+ 
+-	return divider_round_rate_parent(hw, clk_hw_get_parent(hw),
+-					 rate, prate, divider->table,
+-					 divider->width, divider->flags);
++	req->rate = divider_round_rate_parent(hw, clk_hw_get_parent(hw),
++					      req->rate,
++					      &req->best_parent_rate,
++					      divider->table,
++					      divider->width, divider->flags);
 +
 +	return 0;
  }
  
- static int ma35d1_clkdiv_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long parent_rate)
-@@ -71,7 +75,7 @@ static int ma35d1_clkdiv_set_rate(struct clk_hw *hw, unsigned long rate, unsigne
+ static unsigned long clk_stm32_divider_recalc_rate(struct clk_hw *hw,
+@@ -392,7 +400,7 @@ static unsigned long clk_stm32_divider_recalc_rate(struct clk_hw *hw,
  
- static const struct clk_ops ma35d1_adc_clkdiv_ops = {
- 	.recalc_rate = ma35d1_clkdiv_recalc_rate,
--	.round_rate = ma35d1_clkdiv_round_rate,
-+	.determine_rate = ma35d1_clkdiv_determine_rate,
- 	.set_rate = ma35d1_clkdiv_set_rate,
+ const struct clk_ops clk_stm32_divider_ops = {
+ 	.recalc_rate	= clk_stm32_divider_recalc_rate,
+-	.round_rate	= clk_stm32_divider_round_rate,
++	.determine_rate = clk_stm32_divider_determine_rate,
+ 	.set_rate	= clk_stm32_divider_set_rate,
  };
  
 
