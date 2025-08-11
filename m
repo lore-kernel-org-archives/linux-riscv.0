@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0ADFCA0ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 22:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24B8DCA0ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 22:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iCOUqPvVkEHn+zNSPgRcbX87UY72QUjLwU8GQKl8OzY=; b=t10xrLzSmQZXxu
-	QBLsN15HIAn+pq0+/CxqVROKkA3yOC1vfjLeCtVBwXBMa64KutBjhZzza68TkSSDWL+jqt5JEAGPB
-	nOKg2voeHu/ADKrcuwFxIcgRdCkqVxLm0V1PCfL1l5rIescnssKbAS1JuXyEFbEWXi3sRNpGUA/ge
-	AgPBk1srnP/4MkCOjZyp8lDUiyw8C2p1R5JrBOoDW6iN+y4Wv0dyqxwafCiDOetxTBPuQfQqO4UK0
-	+24J8T3n4yuv5wuCKEuZE93yN6IYEDEZOGlY3mKHFrFiP285f0G4m2ZvyGCL9rCsWGzlkHq3XohmF
-	UXbPcl66+iccyIcXy5yQ==;
+	List-Owner; bh=ujI07o9Vhp7C7gCxtQjdM6wmVcB8flASpUzX3mveR6M=; b=iCje4Eg87kAsSk
+	5vPUf1otg6Gp1P4/JrrZ6brXBQ5Miv6sIp2N2QrSTE273QWARbTF5nr4/jlddMLDsizhdf7u+Sz44
+	8qgKzO5o6RKTdF8bbVTeQswTcsfOz1gsmrE9LswOcmgy0WKiZvO1mlIoU2mqZ5B3EH2XZANeWPAMI
+	kIRDu9N362aohJ78V2SnjSgFMpi5rRGgH4odg1Mdxw4Lb1oWR8NHD5W0GSjRpK7obbsbdJPMXY6uk
+	+eGZMMTuWwuwTDX1AJVafsOSZqkyvZWOOSoitGbvTJJwXN45cRqEnzItFkTDLS2QkOoaId9nhXcwQ
+	neR1o5wL2Xj0kcF4QdeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulaa4-00000009875-42UD;
-	Mon, 11 Aug 2025 22:01:24 +0000
+	id 1ulaa6-0000000989n-2bwN;
+	Mon, 11 Aug 2025 22:01:26 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUIT-00000008AeW-1qlP;
-	Mon, 11 Aug 2025 15:18:49 +0000
+	id 1ulUIL-00000008Apz-3sOb;
+	Mon, 11 Aug 2025 15:18:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 12DF6668A5;
-	Mon, 11 Aug 2025 15:18:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A4E4FC4FE0E;
+	by tor.source.kernel.org (Postfix) with ESMTP id 229C162A37;
 	Mon, 11 Aug 2025 15:18:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BD360C4FDF5;
+	Mon, 11 Aug 2025 15:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754925512;
-	bh=MPc+Yv4nYsTTGgc67HPtmd0NQ7USJuEoSTM6T5YfHfg=;
+	s=k20201202; t=1754925510;
+	bh=vYA80ZelHu2ZuRxqrvuEPthKFA7gwtWe5SoG73umt/A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=qEqu94T34FL0UgNJJGh2kI0lluY4sY5/IkXb+1IA9mPTksq4h6eUc79ch+7Rio+5c
-	 vi4JnPEVZuSReQ4YLyTy4rRbaA1LU4thtt8qTITY14a1sf+RzKO4xGL3XcJ5SWJ3d8
-	 qvzkKFtoxXosnyBzxILeKuypVv26fg3SMFArKN3AqbnVJcTpTfMCLRDFaVAjHx9VAo
-	 ufeTSmsMayyuUDQME1zcQHvnoaXzzBVTEjOZQMoSoxNgsIiRE8q8T6l9pwgLktNTEn
-	 ptttOgrrFgYA6lWvvX78o0MEWQMzR5XwhEtdP0Pr2/rJ4O71EhzzXj46yQAawj5pyU
-	 hZRBteq2BcU6A==
+	b=VgIUQqf+Qd7taIQZQMW26jfUke6DJqv4FIHCOhEifXcAltqki2SHIaoMq2rwL2bC6
+	 q06tiudYjR3WLdLAcgcByhPQ9/Q/NG46wMvR7f2c2H5DcomcAkqH19nyfgCqHMxB/v
+	 PWARrw7MPw5xTEhSQwMc6Vgm3Se8m4tmyaZLkHhHHJjf/KEKEqbWp5rwTVVao9gXpB
+	 qR5H/w4aL3FIAv3O1xe6EBwnVn6L4kPXGfQIhdOqeAaHmpVVvdjfyRVzFb6PgPr83K
+	 akZ/WCSnmQzrX101fLZ6GAEDGoLTX3gOJOQUsX2ADnZqt91HU2HB2kSsrs9ENQA70G
+	 wcLiatpmpLTZg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FF9ACA0ED3;
-	Mon, 11 Aug 2025 15:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E9B7CA0EC4;
+	Mon, 11 Aug 2025 15:18:30 +0000 (UTC)
 From: Brian Masney via B4 Relay <devnull+bmasney.redhat.com@kernel.org>
-Date: Mon, 11 Aug 2025 11:19:05 -0400
-Subject: [PATCH 073/114] clk: actions: owl-factor: convert from
- round_rate() to determine_rate()
+Date: Mon, 11 Aug 2025 11:18:45 -0400
+Subject: [PATCH 053/114] clk: sprd: div: convert from round_rate() to
+ determine_rate()
 MIME-Version: 1.0
-Message-Id: <20250811-clk-for-stephen-round-rate-v1-73-b3bf97b038dc@redhat.com>
+Message-Id: <20250811-clk-for-stephen-round-rate-v1-53-b3bf97b038dc@redhat.com>
 References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -115,11 +115,11 @@ Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev, 
  Brian Masney <bmasney@redhat.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754925498; l=1689;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754925498; l=1521;
  i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=6PNa8WpcC6mwv4TEYVw3W71jmOw2oyJa+wUKGlL4bJg=;
- b=3YAQ+lVynoDRQ3P56dl8a0kTnOGOKAsNQGcchZluvQmI5w/V10cLszFMgYXmfJ6duxXbwit8e
- 0pDVwHELrBICutrQ3LGeMRmMZAqZwgcoZTqzU7XOkXSBtj3Z7tdrk1s
+ bh=k3pms/XRU1mNa9tg+/+IC7mp+Tyl74X/Bc0zkHgzvtw=;
+ b=drK9ZeTSL+Vu3bHNx/1pSM4otvnZZYtWL6bsGu4xhHMdQqdlnpChUHORtZCT/l06o2OkC7d0u
+ OMP27NgZZU9AoN8xV+PrHOmeH5vox/A6KvfYR2l5Gc4hlWJ2WzxVxk3
 X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
  pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
 X-Endpoint-Received: by B4 Relay for bmasney@redhat.com/20250528 with
@@ -150,43 +150,43 @@ on the cover letter of this series.
 
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
- drivers/clk/actions/owl-factor.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ drivers/clk/sprd/div.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/clk/actions/owl-factor.c b/drivers/clk/actions/owl-factor.c
-index 64f316cf7cfcc3d05d59522b347cf4e17f80e9e2..12f41f6bacd66d9b31323b1fe41236fb4655b24f 100644
---- a/drivers/clk/actions/owl-factor.c
-+++ b/drivers/clk/actions/owl-factor.c
-@@ -130,14 +130,16 @@ long owl_factor_helper_round_rate(struct owl_clk_common *common,
- 	return *parent_rate * mul / div;
- }
+diff --git a/drivers/clk/sprd/div.c b/drivers/clk/sprd/div.c
+index 936782c241271832c0a1957c99cbecc287351d1b..013423881968002d29c4e9536e7cd7b944779196 100644
+--- a/drivers/clk/sprd/div.c
++++ b/drivers/clk/sprd/div.c
+@@ -9,13 +9,16 @@
  
--static long owl_factor_round_rate(struct clk_hw *hw, unsigned long rate,
--			unsigned long *parent_rate)
-+static int owl_factor_determine_rate(struct clk_hw *hw,
-+				     struct clk_rate_request *req)
+ #include "div.h"
+ 
+-static long sprd_div_round_rate(struct clk_hw *hw, unsigned long rate,
+-				unsigned long *parent_rate)
++static int sprd_div_determine_rate(struct clk_hw *hw,
++				   struct clk_rate_request *req)
  {
- 	struct owl_factor *factor = hw_to_owl_factor(hw);
- 	struct owl_factor_hw *factor_hw = &factor->factor_hw;
+ 	struct sprd_div *cd = hw_to_sprd_div(hw);
  
--	return owl_factor_helper_round_rate(&factor->common, factor_hw,
--					rate, parent_rate);
-+	req->rate = owl_factor_helper_round_rate(&factor->common, factor_hw,
-+						 req->rate, &req->best_parent_rate);
+-	return divider_round_rate(&cd->common.hw, rate, parent_rate, NULL,
+-				  cd->div.width, 0);
++	req->rate = divider_round_rate(&cd->common.hw, req->rate,
++				       &req->best_parent_rate,
++				       NULL, cd->div.width, 0);
 +
 +	return 0;
  }
  
- unsigned long owl_factor_helper_recalc_rate(struct owl_clk_common *common,
-@@ -214,7 +216,7 @@ static int owl_factor_set_rate(struct clk_hw *hw, unsigned long rate,
- }
+ unsigned long sprd_div_helper_recalc_rate(struct sprd_clk_common *common,
+@@ -75,7 +78,7 @@ static int sprd_div_set_rate(struct clk_hw *hw, unsigned long rate,
  
- const struct clk_ops owl_factor_ops = {
--	.round_rate	= owl_factor_round_rate,
-+	.determine_rate = owl_factor_determine_rate,
- 	.recalc_rate	= owl_factor_recalc_rate,
- 	.set_rate	= owl_factor_set_rate,
+ const struct clk_ops sprd_div_ops = {
+ 	.recalc_rate = sprd_div_recalc_rate,
+-	.round_rate = sprd_div_round_rate,
++	.determine_rate = sprd_div_determine_rate,
+ 	.set_rate = sprd_div_set_rate,
  };
+ EXPORT_SYMBOL_GPL(sprd_div_ops);
 
 -- 
 2.50.1
