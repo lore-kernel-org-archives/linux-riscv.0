@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D71CA0EC4
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 22:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4873CA0EDA
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Aug 2025 22:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OY/BNku3DD5YteO44g9Yh0httNzoKLKY1iiswmuNp/M=; b=02Ogy14eWdHi9D
-	rcM4MQzJJlbToxMS2aj0lyNsBvX3lvfDFex1ZOD5cMCjMIL/Xu0+SqRyWN9+qRl8JjcOsvSEl3k7K
-	VvHUtYeO8QltZlARIex9DMO/Kpao8vq50Ih+xd07lFSqRSFMcnDQRMv/4x7ho0hdct9uilcStsIQp
-	m8V+5bku81wHgQlr99JC8YzVYWJE2jBJDAbS3jZxWN0xPDJUIGpDfbod15apIY11ZmzTfODlF2P/h
-	m6pgCvyxfHIue/YleB++1FlKTCTnWAGuB5w+XC7jngOjYovlrTDJOy5cwLLIzfyQaPfYiad8O3Nhn
-	XX3pr2kju35ZDnz2+VVw==;
+	List-Owner; bh=mKR2o12EazUhRMy+vhbIv9bA5jlnD5BcUvQkGJk+5ac=; b=h6pAy7IV/+UuvN
+	PGvt7tKeibdyZu+HXosd/NfeZZLVbHVaqK/6HMSHeECZFC2QMmJ9XwrP84oE54UXxQWef2fV4d6cP
+	jroJB1gQTisMrMaBKPKvvAgRANJM4tXrzC5+pGy/fuzXL/SUnUqOM0GJW88BLpTkRAL+16yY/v3bO
+	K0lKflWXFsIZe+koLXCcSmzhFioEXoTpOQvSB/xoApfEI4xzBlyXKgSH0TcQyyHYx/kaP+WD04Dkr
+	U6Yg1LIwcusIQjO4CXfmvFV8LdMU9FSObQZfJUlhlAimtBL/UYTxbCjR8ZJGBw4szWsxvpGy5XG9K
+	gUbsiuQMxlAd0625XfWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulaaQ-000000098lv-2rRa;
-	Mon, 11 Aug 2025 22:01:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ulaaV-000000098tc-0vtr;
+	Mon, 11 Aug 2025 22:01:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUIW-00000008B3V-3imJ;
+	id 1ulUIX-00000008Apz-1wKh;
 	Mon, 11 Aug 2025 15:18:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B38D966957;
-	Mon, 11 Aug 2025 15:18:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 15324C5383C;
-	Mon, 11 Aug 2025 15:18:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 13E9A61489;
+	Mon, 11 Aug 2025 15:18:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 07AC0C2BC86;
+	Mon, 11 Aug 2025 15:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754925513;
-	bh=NuJCEAEh3idUr6pU5F77ik+B6H4UWsdyl59LYOYF++w=;
+	s=k20201202; t=1754925515;
+	bh=YVvs3bG2bTHITrJ/ai/lFZ/Z9DsBljL7Dypd8sAs9lw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=d8SazZ9w82FFuZtrLd5bErX8sLaWibRYAywfZlG5TFVPJAlSe3CirHFTR9KVdtT6p
-	 9XdaQspHo0t8a4/cco0NnRtdFVFGVq6PMPpkRxknLFCroJYJ6mhsXEOG/9H+v+Wi50
-	 FG7fThVD7djnv98bmvUfm+KaI3koTcYvTZnnjXSPxpnChm7k8KaS6igfWHjcuCkJfT
-	 beeE2dMsI+r6FSHTUeIoSaKOqULgaIQnBVOI8XdNIXaXPylzoMv/zR7Zd6qxCD7B30
-	 rEaEzIO7/2A84Gj6nBzgmQ2LgP6w2uPTGHpjaVXdPRPdue2t+PLWuZ3Yoz668+xWvo
-	 iAdrkLMRdQ9lQ==
+	b=E8JD9ywziiTZmy0pYAW4uoTJdCtLc8UQ1NXE/K2Za/KlhHjgaqqlbjt8bEmVJ2HUp
+	 qK2QEyIz/MyLdbkSh3atugUzBurmSmItBJEcL6PpDfty4sZd7ANf33+Gms0HOe11A3
+	 qJPGsmTK0sszjufqhosLCLBYd0PS5e14zHY9004HgBSfGliPO3+pQGa1fTvzsILwph
+	 6leypFwQdD7J0ENaCzFJeBFfWChk3fmssCKsngWFjDjMmbIQIJoDowHTU/6ZUKFZDr
+	 7tXXF9xEQf4jzwltMkcfSUVQYKGnsSAkjsEbMFVHNhXmqB8gHyN6tp5+hacLyT0uiY
+	 5k12JToa0GcQw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F133ACA0EC4;
-	Mon, 11 Aug 2025 15:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D0E12CA0ED3;
+	Mon, 11 Aug 2025 15:18:34 +0000 (UTC)
 From: Brian Masney via B4 Relay <devnull+bmasney.redhat.com@kernel.org>
-Date: Mon, 11 Aug 2025 11:19:09 -0400
-Subject: [PATCH 077/114] clk: axs10x: pll_clock: convert from round_rate()
- to determine_rate()
+Date: Mon, 11 Aug 2025 11:19:28 -0400
+Subject: [PATCH 096/114] clk: rockchip: pll: convert from round_rate() to
+ determine_rate()
 MIME-Version: 1.0
-Message-Id: <20250811-clk-for-stephen-round-rate-v1-77-b3bf97b038dc@redhat.com>
+Message-Id: <20250811-clk-for-stephen-round-rate-v1-96-b3bf97b038dc@redhat.com>
 References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -115,11 +115,11 @@ Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev, 
  Brian Masney <bmasney@redhat.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754925498; l=1754;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754925498; l=3272;
  i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=tJrefzaCIDHByIhDmSEbTFNo+MefLj7nMaGKSK6K6Kw=;
- b=m/812GTBmvOl/yXEoIRoY72Q2sCPGjSyIZ0zetPLMAujCyyipwCyUqF8+bQbyT504uREIcJX6
- Iy59Ks71TLEAws3xxupdrOq2zkLiYBEYQNSKs0r9amPdTNJKylARqU3
+ bh=ozLcWHNUlN5cz95mC8kyE0nFxgESg5zBVnr4Uv4HoiI=;
+ b=1VudDsoEbAYTazTrlleaAasjo4cGf70uuPQ168XfNmrz6GbLa819j6V8dhAxLadWHvB5C9mgf
+ NvwT5p8PJV8C3UtgF4lj1b1oLNKXkn/4gwXC8Xkf4rHdbcmkDEvbHNf
 X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
  pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
 X-Endpoint-Received: by B4 Relay for bmasney@redhat.com/20250528 with
@@ -150,49 +150,81 @@ on the cover letter of this series.
 
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
- drivers/clk/axs10x/pll_clock.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ drivers/clk/rockchip/clk-pll.c | 23 ++++++++++++++---------
+ 1 file changed, 14 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/clk/axs10x/pll_clock.c b/drivers/clk/axs10x/pll_clock.c
-index 6c7a2b62b406379279b1aab71ac0759f3c5fc64a..c7ca473ee76c83a52e924651046414f60736d542 100644
---- a/drivers/clk/axs10x/pll_clock.c
-+++ b/drivers/clk/axs10x/pll_clock.c
-@@ -149,8 +149,8 @@ static unsigned long axs10x_pll_recalc_rate(struct clk_hw *hw,
- 	return rate;
+diff --git a/drivers/clk/rockchip/clk-pll.c b/drivers/clk/rockchip/clk-pll.c
+index c9d599c31923fc6a7f6a25a2296cd5853c881c60..86dba3826a77ef303c18c5a7b1ea1a54531786be 100644
+--- a/drivers/clk/rockchip/clk-pll.c
++++ b/drivers/clk/rockchip/clk-pll.c
+@@ -61,8 +61,8 @@ static const struct rockchip_pll_rate_table *rockchip_get_pll_settings(
+ 	return NULL;
  }
  
--static long axs10x_pll_round_rate(struct clk_hw *hw, unsigned long rate,
--				  unsigned long *prate)
-+static int axs10x_pll_determine_rate(struct clk_hw *hw,
-+				     struct clk_rate_request *req)
+-static long rockchip_pll_round_rate(struct clk_hw *hw,
+-			    unsigned long drate, unsigned long *prate)
++static int rockchip_pll_determine_rate(struct clk_hw *hw,
++				       struct clk_rate_request *req)
  {
- 	int i;
- 	long best_rate;
-@@ -163,11 +163,13 @@ static long axs10x_pll_round_rate(struct clk_hw *hw, unsigned long rate,
- 	best_rate = pll_cfg[0].rate;
+ 	struct rockchip_clk_pll *pll = to_rockchip_clk_pll(hw);
+ 	const struct rockchip_pll_rate_table *rate_table = pll->rate_table;
+@@ -70,12 +70,17 @@ static long rockchip_pll_round_rate(struct clk_hw *hw,
  
- 	for (i = 1; pll_cfg[i].rate != 0; i++) {
--		if (abs(rate - pll_cfg[i].rate) < abs(rate - best_rate))
-+		if (abs(req->rate - pll_cfg[i].rate) < abs(req->rate - best_rate))
- 			best_rate = pll_cfg[i].rate;
+ 	/* Assuming rate_table is in descending order */
+ 	for (i = 0; i < pll->rate_count; i++) {
+-		if (drate >= rate_table[i].rate)
+-			return rate_table[i].rate;
++		if (req->rate >= rate_table[i].rate) {
++			req->rate = rate_table[i].rate;
++
++			return 0;
++		}
  	}
  
--	return best_rate;
-+	req->rate = best_rate;
+ 	/* return minimum supported value */
+-	return rate_table[i - 1].rate;
++	req->rate = rate_table[i - 1].rate;
 +
 +	return 0;
  }
  
- static int axs10x_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-@@ -208,7 +210,7 @@ static int axs10x_pll_set_rate(struct clk_hw *hw, unsigned long rate,
+ /*
+@@ -352,7 +357,7 @@ static const struct clk_ops rockchip_rk3036_pll_clk_norate_ops = {
  
- static const struct clk_ops axs10x_pll_ops = {
- 	.recalc_rate = axs10x_pll_recalc_rate,
--	.round_rate = axs10x_pll_round_rate,
-+	.determine_rate = axs10x_pll_determine_rate,
- 	.set_rate = axs10x_pll_set_rate,
- };
+ static const struct clk_ops rockchip_rk3036_pll_clk_ops = {
+ 	.recalc_rate = rockchip_rk3036_pll_recalc_rate,
+-	.round_rate = rockchip_pll_round_rate,
++	.determine_rate = rockchip_pll_determine_rate,
+ 	.set_rate = rockchip_rk3036_pll_set_rate,
+ 	.enable = rockchip_rk3036_pll_enable,
+ 	.disable = rockchip_rk3036_pll_disable,
+@@ -571,7 +576,7 @@ static const struct clk_ops rockchip_rk3066_pll_clk_norate_ops = {
  
+ static const struct clk_ops rockchip_rk3066_pll_clk_ops = {
+ 	.recalc_rate = rockchip_rk3066_pll_recalc_rate,
+-	.round_rate = rockchip_pll_round_rate,
++	.determine_rate = rockchip_pll_determine_rate,
+ 	.set_rate = rockchip_rk3066_pll_set_rate,
+ 	.enable = rockchip_rk3066_pll_enable,
+ 	.disable = rockchip_rk3066_pll_disable,
+@@ -836,7 +841,7 @@ static const struct clk_ops rockchip_rk3399_pll_clk_norate_ops = {
+ 
+ static const struct clk_ops rockchip_rk3399_pll_clk_ops = {
+ 	.recalc_rate = rockchip_rk3399_pll_recalc_rate,
+-	.round_rate = rockchip_pll_round_rate,
++	.determine_rate = rockchip_pll_determine_rate,
+ 	.set_rate = rockchip_rk3399_pll_set_rate,
+ 	.enable = rockchip_rk3399_pll_enable,
+ 	.disable = rockchip_rk3399_pll_disable,
+@@ -1036,7 +1041,7 @@ static const struct clk_ops rockchip_rk3588_pll_clk_norate_ops = {
+ 
+ static const struct clk_ops rockchip_rk3588_pll_clk_ops = {
+ 	.recalc_rate = rockchip_rk3588_pll_recalc_rate,
+-	.round_rate = rockchip_pll_round_rate,
++	.determine_rate = rockchip_pll_determine_rate,
+ 	.set_rate = rockchip_rk3588_pll_set_rate,
+ 	.enable = rockchip_rk3588_pll_enable,
+ 	.disable = rockchip_rk3588_pll_disable,
 
 -- 
 2.50.1
