@@ -4,86 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB476CA0EDA
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 09:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A514ACA0EDB
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 09:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MeHuWwEI7HCQcep/vXsdsKPdEXnECTkuUc51Rm2ZLso=; b=4gCNqM8ohvTHQ4
-	vaWM3an27aKKnK4R/0hmV/9jkY6iBgZb6fzWiu/ecp5QRli6P2J1ohSEG3i2+y6XGeqztJgKkgv8Q
-	q0yiEeqeC+cV25HfmtLkQrCmQJHtBeH+eW7rzEv3A9quVQGLHBXgVYc45/e/sgVrkQNVHnjHgG0Xv
-	tDfjS4BhLBoCmkAmNHNkeDER2A0R84EBTz8XzMZqJiE052FhRmraIKTZ/IZys0U5HnG8IjDVvrZ0U
-	zDkfeXuSzQk/gSLKaE7O7E6tN3hOVTWfpcdusojnkjE+nfLC444loEy/E+Mpd1BJOGIfwTHsZ+s+6
-	IQUsAr7RX7fnNZPYxrDw==;
+	List-Owner; bh=2TdTXra5nDKKUrlvAnEY62ctoF78h8atjl3ott3HuCA=; b=tRABZ6GVM9SGIG
+	rrsrCSNOoj5q7NFNYJ1D/a7IGm6ZblhofeEegXnLArUkGIVXr1Gj1vNsgPfmxabgw4hM80sIyxa4p
+	TtmFuB0ZlEByRNdSuJQ/MTZI4NBdNtsLh0Mr2bQK4iT9aosKhDn5gMWxyvPtS/ql0BFBos7NDkGml
+	WNrQcCOutTq+hQI4TZClhP+sLpkLzxyy0x0GivDPRkTmT8xJrU6UuQAGckl1aOLrDQnfqUPpc2Vqb
+	ywAUEjzX0K7x9XyjiypVuxpQcHjxcIJFiPEMlurVMdtiA+yLSC7PDxv+PvqzFutrjn3DH6PN2pQqo
+	7nB2Axx9Ui8rrMNEq3Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ullWr-0000000APg4-0gUB;
-	Tue, 12 Aug 2025 09:42:49 +0000
+	id 1ullWs-0000000APgk-0LZJ;
+	Tue, 12 Aug 2025 09:42:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhpq-00000009wQu-3jBI
+	id 1uli82-00000009zLe-0zJB
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 12 Aug 2025 05:46:10 +0000
+	Tue, 12 Aug 2025 06:04:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=emT7OGVf8qADB77VZW2wfXK77ogLhNB615LiAihipYI=; b=lSAuvUVT5WcevpB1F5usIrtLYk
-	smen9em30MaOZSgmcVrPHtXq3Ey0Nwafdd7l2cvGEfsnQ5BQ3GtdkC1+odMz0dQYan8iXDigGbRF6
-	J8IziwnkYOwhmkzV0/oeJJObRwkqDNBXCr8NVbUhHHBrdRL6L5ChB2mqEPmgxfNjtvNBgnmRKHrZ3
-	m8/AB59zEA5SXFP0SLCkYuWuJXxCy3PGwN+G5BYIeVCO4Atkagy1DvjLO6QzY8tuUmhCkygwfRk+o
-	LpyLQdWlzDqfn96jUEj2cyZMsQ1ghd+6sH84oXbG5gPkVodpL2R4Xi3h8Gx8oZ2/jA2CC3fsLnmqK
-	NbqsfKig==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=6N05Gi0z8r9iMMzOAx3PYV4MnXawFgktXAzKcF+UKt0=; b=GpVQFSaKQYTvEqaEN7KVxdu765
+	m49NrRirNrNxaiGanvb1PS4CTW81fQffO8K8mSD3DfQqizL3OkmJmOgduLvGuOCTvsSf3jVHMRVgS
+	zPdg4hZvgw8QAVqHJLon7UMjl6pcfR2aXOank0by6cDTip9F/ccGudAsKyLJb5gJlNr3zhB3TypH3
+	59AYYeEAC9FxtxzW6g3wi7yOXptnyQdRuNA3EKPwQxinALmoyeNuOhaC+PIfgrFPcO6N6aSdwv1il
+	D5k5rBeckTnKOoWwoJ+qnoAx7ixiKBER7fgcyx7/fa6TmLGcHX45k/3mp2HzYxMxMxEO9wJxWyexp
+	3aRE90aQ==;
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhpo-0000000FgVj-0Ofu
+	id 1uli7y-0000000FhF1-2bjx
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Aug 2025 05:46:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D006044A2F;
-	Tue, 12 Aug 2025 05:46:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DEA5C4CEF0;
-	Tue, 12 Aug 2025 05:46:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754977566;
-	bh=FMFubZzw5IsK4kYuUJoxjkzx4VzJv3nuhFsuIBFsRLU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=codgUbls4Jz8D1XxnqnT/EyunZJUa9myWZ6KM6clwyGUJ6WEPqJZaW8dW1l6LmCR6
-	 HV764gnLlxlkLNykXx4JDVpET2TYITdaH6XLQSdaxoN/nW1/dBEDf8XR19kQ2cukyZ
-	 ekOySjByBeQxpGA8jVU8pZ6CH/0uA35Z18MUh1rPKSolwbKqfkaMH41MxfC/sPnvOS
-	 BiJBfrVSHpa8b1UFS7xtaTGxczxvZuio7abrv2I8I/sLZdocmAgK1vBX09PB8nT6ZA
-	 JCQT9BhD4zK5vNhtkK5VRbofDm9VltutqHmoe4zOsUMZ79btNRR9OV42jsnmEXM6Ce
-	 C8dhIXrTcWyJw==
-Date: Mon, 11 Aug 2025 22:46:05 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Darius Rad <darius@bluespec.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Drew Fustini <dfustini@tenstorrent.com>
-Subject: Re: [PATCH v2] riscv: Add sysctl to control discard of vstate during
- syscall
-Message-ID: <aJrVHenvkMTRYcsS@x1>
-References: <20250806-riscv_v_vstate_discard-v2-1-6bfd61b2c23b@kernel.org>
- <aJXvWuPKIc2lCSX3@localhost.localdomain>
- <e4d21516-23b5-404b-a7da-cf6ebfd02dbc@iscas.ac.cn>
- <aJb+wifbIAsit+me@x1>
- <5a96d08e-0714-4925-a9c4-ea66549623d1@iscas.ac.cn>
+	Tue, 12 Aug 2025 06:04:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1754978687; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lhEHMyl/snY8uIxfzQJiI8041IfgDLHDzB4JRZDC3NkJ8okt2jsPCvVFgc82v+IRRNHsjOk3T4IS7ebvea5K79ZgT3t+lBgcF4FTPagxvDUC6vyw5t6KolkVaj/h9edan4X0KM+LslV1F/63Bp/GYh+GrGadvdJdfZA9UMuTshY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1754978687; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=6N05Gi0z8r9iMMzOAx3PYV4MnXawFgktXAzKcF+UKt0=; 
+	b=HidNwNw+PoHLUrp/RZYAji1z+bmsK0+JuBs5Fus64UC1fAANu8bi//sv0CpzOnTjVoxAFIYB+IYmFgmvimgAFEjo+Oqf0S2Lu4+E7OOaZ8Xw3b1YDzsoBwNyYLEM6rbGWvmby8DuDnFlfPsdc7mPtsmVl2Nblq7dGDnMNcceCV4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1754978687;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=6N05Gi0z8r9iMMzOAx3PYV4MnXawFgktXAzKcF+UKt0=;
+	b=MMVZjRPw/PBiqhXAdqaKcYF+3RNhDrrJtOkHjJD+1WCvNA/V30KXvZ9KPO4Ei40/
+	jrEP+iqGiZISJLD3MNejGiVWTfp77O7gk49YLSvis9x5lhiGXysWyePSj57eiodGzGE
+	Fe/Jevo8rBaxgFMfAU7it5RKDH7W2AC8zSKubGevyEhX90f153xB29ezufKfAJYuvBV
+	xKXbyrPo9Hcpe/8YHwBBs1yWwc6KSRIUBA99U18jY6i9rRy69ExCXAHreq/XIKiXbHt
+	jH09BxHAwgGydKG30Cnfs2NZFaMPYXAO3k2h32Oxo8Is58/2VD9ilm51w4HU77DnrP4
+	xrvcRFvI2w==
+Received: by mx.zohomail.com with SMTPS id 1754978686237125.18407234908796;
+	Mon, 11 Aug 2025 23:04:46 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH 4/4 FIXED] clk: thead: th1520-ap: fix parent of padctrl0 clock
+Date: Tue, 12 Aug 2025 14:04:33 +0800
+Message-ID: <20250812060433.1979587-1-uwu@icenowy.me>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250812054258.1968351-5-uwu@icenowy.me>
+References: <20250812054258.1968351-5-uwu@icenowy.me>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5a96d08e-0714-4925-a9c4-ea66549623d1@iscas.ac.cn>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_064608_395209_DEE3FDD0 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20250812_070455_116850_67319FFB 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,29 +104,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10, 2025 at 05:52:54PM +0800, Vivian Wang wrote:
-> >   Discarding vector state on syscall entry can help identify userpace
-> >   programs that are mistakenly relying on vector state being preserved
-> >   across syscalls. This can be useful for debugging and test suites.
-> >   However, this behavior can negatively impact performance on some
-> >   RISC-V implementations.
-> >
-> >   Say Y here if you want mandatory clobbering of vector state before
-> >   entering all syscalls. If you select N, then userspace can still
-> >   eanble it via the abi.riscv_v_vstate_discard sysctl knob.
-> 
-> Typo: eanble -> enable
-> 
-> Also, I think it kinda makes the false impression that the sysctl knob
-> is only available with this set to N? I think this should be structured
-> to say something like this being the default value, and also say that
-> userspace can override this behavior system-wide via the sysctl knob.
+The padctrl0 clock seems to be a child of the perisys_apb4_hclk clock,
+gating the later makes padctrl0 registers stuck.
 
-Thanks, that is a good point that I should clarify that the user can
-still override via the sysctl knob regardless of whether choosing Y or N
-for this Kconfig option.
+Fix this relationship.
 
--Drew
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+---
+This is the consequence of fixing 3/4, because these two patches are at
+nearly the same position, and unfortunately get dependent by the
+algorithm of diff.
+
+Ignore the original 4/4 and look at this too.
+
+ drivers/clk/thead/clk-th1520-ap.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+index 75ea1705cc08f..0ecedac50d6cb 100644
+--- a/drivers/clk/thead/clk-th1520-ap.c
++++ b/drivers/clk/thead/clk-th1520-ap.c
+@@ -917,13 +917,18 @@ static CCU_GATE(CLK_PERISYS_APB3_HCLK, perisys_apb3_hclk, "perisys-apb3-hclk", p
+ 		0x150, BIT(11), CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_PERISYS_APB4_HCLK, perisys_apb4_hclk, "perisys-apb4-hclk", perisys_ahb_hclk_pd,
+ 		0x150, BIT(12), 0);
++
++static const struct clk_parent_data perisys_apb4_hclk_pd[] = {
++	{ .hw = &perisys_apb4_hclk.common.hw },
++};
++
+ static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, BIT(5), CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, BIT(13), CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_EMMC_SDIO, emmc_sdio_clk, "emmc-sdio", emmc_sdio_ref_clk_pd, 0x204, BIT(30), 0);
+ static CCU_GATE(CLK_GMAC1, gmac1_clk, "gmac1", gmac_pll_clk_pd, 0x204, BIT(26), 0);
+ static CCU_GATE(CLK_PADCTRL1, padctrl1_clk, "padctrl1", perisys_apb_pclk_pd, 0x204, BIT(24), 0);
+ static CCU_GATE(CLK_DSMART, dsmart_clk, "dsmart", perisys_apb_pclk_pd, 0x204, BIT(23), 0);
+-static CCU_GATE(CLK_PADCTRL0, padctrl0_clk, "padctrl0", perisys_apb_pclk_pd, 0x204, BIT(22), 0);
++static CCU_GATE(CLK_PADCTRL0, padctrl0_clk, "padctrl0", perisys_apb4_hclk_pd, 0x204, BIT(22), 0);
+ static CCU_GATE(CLK_GMAC_AXI, gmac_axi_clk, "gmac-axi", axi4_cpusys2_aclk_pd, 0x204, BIT(21), 0);
+ static CCU_GATE(CLK_GPIO3, gpio3_clk, "gpio3-clk", peri2sys_apb_pclk_pd, 0x204, BIT(20), 0);
+ static CCU_GATE(CLK_GMAC0, gmac0_clk, "gmac0", gmac_pll_clk_pd, 0x204, BIT(19), 0);
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
