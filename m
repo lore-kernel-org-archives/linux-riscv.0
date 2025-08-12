@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 585CBCA0EC4
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 06:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 511DCCA0EC4
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 06:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C7BHap3Ef5Gg0Q86WIjH884Xg40G/wVck0bXiHMabx0=; b=TwAVXEf5wMaNbG
-	Hay0q0VTX5xq4j4RVwUriMcQDPak+9LnHworK4ReYhrC79LE7VMjbwI7y+vN9Kl9XIDSfiwXaqrKD
-	VK3TQXhQylkYf484vgdDgXZwquciVbtDhBTZJ2+yX0bK2WJX7YAoDT6prFgauqhiv9wOOaLqwOgOu
-	dMxMINznARXtAiD+NL/XIbCiz982yxReO1JyXpVtMU70uV+ktQWotG+xiih4KEyr85f0l4++NGM1H
-	RL0MaljoJbcv7jhckDcyC71Cf+yh2kinYdisu2gNN5SanfZue+GzOPo/Ib5PB2Z0qqWhoGeLR351J
-	fbP0SbKUsAzZt5WcEM7Q==;
+	List-Owner; bh=EnDKbpgUurYP9JaNVQIeRp17pMInxRv9hRE+hnDyBdE=; b=e52HuBgXF4Al/8
+	q/L0G+vufYzZunwZ6jXC0Ly7s43ogv1Rs8I2PLkqgnPQow1xEoAEb20PVMAAynvbubftLoicHqnQ8
+	+Y9RO0zkPRoh9mUV9JAr/IHwynJRV68Ffl9WCoT05kQeiqQ/I6OwCAfetlRPvUy0QYKVoAOhWmZh4
+	lJjddHa3vh2IU3UG4dCUs55/SIojMOIJOlPhJZVAk52HGqDqhJhNR2digTU5kyG4iphfrnK9Y1IdK
+	iLxjFVqjCbAFOvStSQgyH6KgNit/b9uazPV7aE2ew48d96ta/MmIwThbpr0yac8Ra2sifJwYGMR8N
+	BA6eBdlW4VZAEdyu+GNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliQ4-0000000A1ES-3EoU;
-	Tue, 12 Aug 2025 06:23:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uliT4-0000000A1aq-3DFO;
+	Tue, 12 Aug 2025 06:26:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliQ2-0000000A1E4-3HEr
+	id 1uliT3-0000000A1a3-0RHM
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Aug 2025 06:23:35 +0000
+	Tue, 12 Aug 2025 06:26:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 42445461E5;
-	Tue, 12 Aug 2025 06:23:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 075A0C4CEF9;
-	Tue, 12 Aug 2025 06:23:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 88413613B0;
+	Tue, 12 Aug 2025 06:26:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08F5DC4CEF0;
+	Tue, 12 Aug 2025 06:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754979814;
-	bh=+k1CSGuOSQu6VaDbQe3Z/6qqFzAm2XnBn6VGpEr2LGI=;
+	s=k20201202; t=1754980000;
+	bh=DW4caqAaUAFiJnppjj7GSSRY5w1nJcdZe58Eqb/GHPk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DbR/eZ0+RhRtHn0wn4PERYKfBeN0hr5I6DGe7Q9aXpRR6LF9/Uuu15H6A1PG7YNEH
-	 LrZnYys28OD/oGh0vXAD7vjr5AbxcYD2jlswFbFWUeH2Jatvunt3Rk2UTJAyPpIrt+
-	 a1WhzZ/DU2rZ4kSa02BJXh3FnBYXX7aRLhyylpFpdj7HqXT6z5xckESqxur8qgpDdV
-	 ONFLjHTe/Oan6a39MJkc7Q9LUP9vUtck2qkNGQMoGGvyK/DsnYIATWASWqFtJ83rx4
-	 j0uyg9pkYVB2lB2pJb9ioa3Ules/l6OEZ2Cp7j+o3FuaJ6rWkBvzwtU5pfaS5uxysl
-	 Te2p0G24SbSrg==
-Date: Mon, 11 Aug 2025 23:23:32 -0700
+	b=d9IVLmyTqRl/js9PJE7kEmyGdv2/ri+Q6qzrTzHrcv9aTuZ80RmQwDtmovA4g9Ogt
+	 nJG2XqL+Vb9m/FJk1+GzFtKK1kVKKl5OdsxsM2V8j/4TJ1TR/5SavbGHACdrJws4FC
+	 sz3yI46Gxu50x3LiYtj0KutJin3umWc4fiAIDv6e7nXI2DLNpHrDUaBMQbYIfP/sUt
+	 idLp7MyLjFlhLXRGvHqW2XEFVHoAkKPRIXlZqqfeyu+xqtTUE8JkO2nLcgrWdH3ZzL
+	 fPsNI7UcO8a1r6MLTEYgaACXuWBPbW63CAMpJiRTme1mU4r1uWd0xHN40ejoaEcpdA
+	 IGN8Gw8eEzzWQ==
+Date: Mon, 11 Aug 2025 23:26:38 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: Icenowy Zheng <uwu@icenowy.me>
 Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
@@ -51,17 +51,14 @@ Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
 	Michal Wilczynski <m.wilczynski@samsung.com>,
 	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] clk: thead: th1520-ap: set all AXI clocks to
+Subject: Re: [PATCH 3/4 FIXED] clk: thead: th1520-ap: set all AXI clocks to
  CLK_IS_CRITICAL
-Message-ID: <aJrd5EaI9pdSvD5/@x1>
-References: <20250812054258.1968351-1-uwu@icenowy.me>
- <20250812054258.1968351-4-uwu@icenowy.me>
+Message-ID: <aJrenvdlWd2mxzGB@x1>
+References: <20250812054258.1968351-4-uwu@icenowy.me>
+ <20250812060408.1979487-1-uwu@icenowy.me>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250812054258.1968351-4-uwu@icenowy.me>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_232334_838779_EA416F86 
-X-CRM114-Status: GOOD (  13.10  )
+In-Reply-To: <20250812060408.1979487-1-uwu@icenowy.me>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,7 +75,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 01:42:57PM +0800, Icenowy Zheng wrote:
+On Tue, Aug 12, 2025 at 02:04:08PM +0800, Icenowy Zheng wrote:
 > The AXI crossbar of TH1520 has no proper timeout handling, which means
 > gating AXI clocks can easily lead to bus timeout and thus system hang.
 > 
@@ -90,23 +87,15 @@ On Tue, Aug 12, 2025 at 01:42:57PM +0800, Icenowy Zheng wrote:
 > 
 > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 > ---
->  drivers/clk/thead/clk-th1520-ap.c | 42 ++++++++++++++++---------------
->  1 file changed, 22 insertions(+), 20 deletions(-)
+> This is for fixing my unfortunate rebasing error when tweaking the
+> sequence of the patchset.
+> 
+> Please ignore the original 3/4, which created a build failure because of
+> forgetting to remove extra definition of npu-axi and cpu2vp.
 
-Thanks for working on the display controller. I'll review the series but
-I wanted to point out a simple error first:
+Thanks for fixing. I'll review the rest.
 
->  static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, BIT(5), 0);
->  static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, BIT(13), 0);
-> +static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, BIT(5), CLK_IS_CRITICAL);
-> +static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, BIT(13), CLK_IS_CRITICAL);
-
-The compiler complains about redefinition of npu_axi_clk and cpu2vp_clk.
-I've fixed it up by removing the old lines with '0' flags, but I'm
-noting in case there is another revision.
-
-Thanks,
-Drew
+-Drew
 
 _______________________________________________
 linux-riscv mailing list
