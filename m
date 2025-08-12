@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E659CA0EC4
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 05:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C48FCA0EC4
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 05:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RiL0ThBWuc3bNH6eibTQJsP6jicWgE9GIgmdV/0uyrc=; b=BSeUkwzuZbomZQ
-	ex833B6fSqeiol2yuY4MWGsJCmiZWaE52m74m1KjfoDuN5a9YMhe2JdqsN+gZ+TaxGymQyVjUoLjT
-	ysVteY7pfcWuKER/REH4Ig4ygXLySHQ6oMXxr7ljbfmHCwvJRp9mDlwuqdvUoiupjtiSVNVxK+EdG
-	Xj76UYLAjfuD8DS0dfLuQJJrLRiaBhmmXvscSDAcyUh/P02k3Q0iv4RRGuweDnS1cRqYiAvnstKvj
-	7q1KVP5FDQIOAAhGR3N76En7tlTohdjlW6kQnKfkL87knxXHFs/K5hgXJYLApFvIxCbaWv009SK1T
-	DrzXP4aXEA3pSKuZ3pfA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=C7ZRgRg6KngabxTHwB1b6f3Z2OMvcMQ1jmajnI3FJHg=; b=lYSpxZ4lYGk8Co
+	RYyL6/zXdcxKfachdSnCe0Qy+7A5wZCUlvqKPIGJhlHfpAKo4xBC5zQkU/Syan3qKk6f0bRYTURJg
+	j/xoEZvtADqWZ2HQmAksvb54qn3s3sg66yLoCSScAR6d6TOtSyGAsOOQe34x4iNbpjGBP76kX+jw/
+	isxe6vcYUUdaXqqPcd7BqQEqNBcU5GG5OlLso/yhrbr+Kb4OHgk9qcZXNl2e9/Q2uXIGvbXqO8q6P
+	90l97Z18pMx7Y6RDvMeGe6lz3YudBGTSElvqjMyJoyb3mZRRspfqyhO0bZogtZL7GskBBHS/2VHVM
+	Ut0jr80dnCQJjD0XtNjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhjt-00000009trl-0DRb;
-	Tue, 12 Aug 2025 05:40:01 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ulhnC-00000009uP5-40fJ;
+	Tue, 12 Aug 2025 05:43:26 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhjq-00000009tqc-3BuW
+	id 1ulhnA-00000009uOj-1KPY
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Aug 2025 05:40:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C6427A55382;
-	Tue, 12 Aug 2025 05:39:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A546C4CEF0;
-	Tue, 12 Aug 2025 05:39:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754977197;
-	bh=8Ka0sd8FxkjIz00jjTcMx5oRTqQPN4HlysV+S/vVdgc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GE8wz8IMlrQ5frhZwhslxoZ05i34brKKZumRyQwF689QOSgTaFZ4QOtiuRFdLkKFo
-	 T8FdEaLYiDtcdg0jBvfLspbmGk3B0Yvqb7JT8CYbJtUfaRLpE2UKWKHbihYErODUOt
-	 BmPxM+qVmzdAwUiAch8OuSyRWgCO22dYFAbTPgOokj78zRc+EgY2yNpJkv90wiMYqu
-	 /T6uG+wHR/R6gjdsAA8gftXTQmDlP8R+2BICsqJFlhtZfJVid+ODeHsFKviFyG0/Ud
-	 HGDQkXVlBYcqGDPh8zSyl8U1T0opdAmMP1VLxRSuluHHibY1+mNyteI4yg644FX8XU
-	 i9FhMfDk8ObzA==
-Date: Mon, 11 Aug 2025 22:39:55 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: Re: [PATCH] reset: thead: Scope TH1520 reset driver to VO subsystem
-Message-ID: <aJrTq775sXTrsepl@x1>
-References: <CGME20250810211419eucas1p173e5fefcfaae437d8b5531d1406ff6a6@eucas1p1.samsung.com>
- <20250810-fix_reset_2-v1-1-b0d1900ba578@samsung.com>
+	Tue, 12 Aug 2025 05:43:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1754977396; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=BrBGm/vA4NzG7o7uj5qjFNzDvDw74Kmterqa2XgiiCV2Ho1W4tlrgiERdmGuXls+AGbR3V5UvXGfhBJvKRTeR5MbzO5ga/i2pdmMfVUhwDObPf56Ez0c6cswE1THgC03TP0dAEW4ZwGKaOxoYYQFcULrBh/9BWsd9dVpZTq101w=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1754977396; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=pA524d/aKpZyY20fSlZrDb9/G4WDB7CsquWn7adUTYc=; 
+	b=n/mdmUFuumwC68cdBL2WocQOVOfclfkDGDV6WA359thzGSWpzsGKzzVyPTvleumAoCRcxomhopVpgN5v+p0pQq/o8IaYfL98zy2rfx6V1ugD28IEqko1UniZ8PCoQFduBVj/iX8+1PQRYG7ZorbJnIOGHsw8hui6CdodAjFES6k=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1754977396;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=pA524d/aKpZyY20fSlZrDb9/G4WDB7CsquWn7adUTYc=;
+	b=A+1wIpONbt6KdAeW2suguNZ5G+FXc24a7PTbFjOCPIcrWTLFv+mVKK8fS67ydlzw
+	CMvwCoQQbyJDfbG6IqK6IGdDzMlN6OS5YKNqCMz2pZGAjHpbjLE+N35W5MDq2iK2/04
+	YsdaInTGFCsVzYZusnD/J2Q8A4mNoK2nQHfMeEloQUCQ5WYw6V8jZI+/dufXBp1RKPG
+	UaG3DJmLDoCPcJpQokWD7C1b3E14JlOcBoDNtoi8P5FSgj38m6YXlbjwj+BzUaqhtCt
+	fyW3mmA3sh3nSIiiRsUeIKEWla6e3WJ5N44qgLthSL5brQookr/cDAkTUfbKZzogmhv
+	xlsNMVxKTQ==
+Received: by mx.zohomail.com with SMTPS id 1754977393951539.500568194191;
+	Mon, 11 Aug 2025 22:43:13 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH 0/4] clk: thead: Misc changes to TH1520 clock driver
+Date: Tue, 12 Aug 2025 13:42:54 +0800
+Message-ID: <20250812054258.1968351-1-uwu@icenowy.me>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250810-fix_reset_2-v1-1-b0d1900ba578@samsung.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_223958_879827_28D740A9 
-X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-CacheID: sfid-20250811_224324_541932_937EE8A2 
+X-CRM114-Status: UNSURE (   7.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,40 +82,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Guo Ren <guoren@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10, 2025 at 11:14:19PM +0200, Michal Wilczynski wrote:
-> The reset controller driver for the TH1520 was using the generic
-> compatible string "thead,th1520-reset". However, the current
-> implementation only manages the resets for the Video Output (VO)
-> subsystem.
+This patchset is my changes to the TH1520 clock driver, mainly for
+supporting the display controller (the first 3).
 
-Looking at Section 5.4 on Page 451 of the TH1520 System User Manual [1],
-it does seem like we would ultimately need 6 separate nodes for reset
-controllers:
+The first two are functionality additions, with the first one adding
+support for enabling/disabling PLLs (for DPU PLL) and the second one
+adding support for changing DPU dividers.
 
- 0xFF_EF01_4000: AP_SUBSYS
- 0xFF_EC02_C000: MISC_SUBSYS
- 0xFF_E404_0000: VI_SUBSYS
- 0xFF_EF52_8000: VO_SUBSYS
- 0xFF_ECC3_0000: VP_SUBSYS
- 0xFF_EF04_0000: DSP_SUBSYS
+The 3rd one is to address hang issues met when testing the DPU driver
+w/o clk_ignore_unused command line option.
 
-Maybe we should take this opportunity to document the bindings for all
-the resets that the REE (e.g. Linux) can control?
+The 4th one has no relationship to display, and only exists for my need
+to change an arbitrary GPIO (well, GPIO3_3, the one controlling the fan
+on Lichee Pi 4A) with gpioset.
 
-It seemed like that was overkill for the 2 resets needed for the GPU,
-but, as Krzysztof noted in this thread, problems arise when bindings are
-introduced that are not complete.
+This patchset has a dependency (a 0th one) [1].
 
-Thanks,
-Drew
+[1] https://lore.kernel.org/linux-riscv/20250809-fix_clocks_thead_aug_9-v1-1-299c33d7a593@samsung.com/
 
-[1] https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
+Icenowy Zheng (4):
+  clk: thead: add support for enabling/disabling PLLs
+  clk: thead: support changing DPU pixel clock rate
+  clk: thead: th1520-ap: set all AXI clocks to CLK_IS_CRITICAL
+  clk: thead: th1520-ap: fix parent of padctrl0 clock
+
+ drivers/clk/thead/clk-th1520-ap.c | 174 ++++++++++++++++++++++++------
+ 1 file changed, 143 insertions(+), 31 deletions(-)
+
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
