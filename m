@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D5E4CA0EC4
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 01:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABA3CA0EC4
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 02:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7+DmvOBrOwdBHKuxPURAt/t7Ygj12552Foyagg5c0+s=; b=OMbpdeAaL0OlwAWCGKy+U+7/3U
-	U/Vki51pENAF9g6TqM+Xb7HY+4VIDCExC6tasr70zNIW6Czc1ZQ+7mFMdmgbRGhXWPyW04FepPx8+
-	2XdCVO8vg7lhYtOOivPTn0VU+SWYeYwv3pM6twJtZ1hU49jgSedPMwwsw1UEIeVQ/44wStLgmTHb1
-	0HqnHF8Mtw6MQ/rDU+vTZoiX0hF1WIicZDYUgxnbsJ0YcJ3z1DJc7yAWtroMQA1Gh3yGdjzhIPMoM
-	JWEUtcZaHvX7HAqazK1eDA12Gzu+GWc6O0G4zwFDjmIxpgi9eeh44oUTQmjWjRS7iboaE8Oil8FrK
-	fcS2gItQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qsJN7CqLJ2HwbxLfVIP2WT/81c86I1WVWBnsbc+RioM=; b=nuG7GKwFgOy4/Y
+	FFqwTVZQva+ZURyRXiNgxNTHwTHCXjNtO2axr4DVsCri7XZ9w1gOPSUue9oPveXPssZXVFdpfdV3h
+	64jm4cR3Jdb0J7nR1WZVz52vBPi/jv57JYeLQRcHLBxFbgXZxwOjrwRUVYT9bLTwHHRy4VQjGs5AZ
+	g3oK5IHUmY/11AZ4UNZiNGZX9FvHyYf96+u6gKCpA9IYadilNC+U4nW05EKBSKC5rqXx7yeqkYwXU
+	gehep82XCoKBATy2rHvR2ZjWGKmG1/fSsTDs3nf0evxNQ7y13k7+IsBl52hzKcsZNNeLZpjPvrTrl
+	DSV3gwfkpLX0H0ImV8aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ule5I-00000009XTi-2ybe;
-	Tue, 12 Aug 2025 01:45:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uleM5-00000009ZTy-0dPX;
+	Tue, 12 Aug 2025 02:03:13 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulXmi-00000008rBQ-3Sp1
+	id 1uleM1-00000009ZSG-36Ji
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Aug 2025 19:02:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E3769A57614;
-	Mon, 11 Aug 2025 19:02:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1882DC4CEED;
-	Mon, 11 Aug 2025 19:02:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754938935;
-	bh=EuHdKiXutHB5yCcWa/HyoBa738jpXyt09EwqvOg7gbo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z9fmZlHNga6bWyg6CnIOo1gp7IQCRH5dWaiEV7mY1R+K+VhcuxldmtHC4I1nRoJJ9
-	 lIe8TYW64z1QH3iefJojxZzNd/qZZZjXwLX5X9shFGSQCHbOPixQvOdybTlcpSDE8H
-	 n4FfADLtHrLMSWTokWq9GXrhpvE83a184wgAMokm4Ls86nwN1LLyBBNxn5JpUGv8rN
-	 dgom3tHM/avsNxExvmE8pIUZ6jfrj1UoGvw+tW8/tLaOb2AkzBHP54mJB52qvjZ9g3
-	 WrH/uLw2kXV3w5udkBDV3nKeLIudl6YOcZjoNH0vDjOKCMdiIF5IS4eLRfvzxJxks7
-	 MbLBoNoUkPfCA==
-Date: Mon, 11 Aug 2025 20:02:10 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Nick Hu <nick.hu@sifive.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH v2] dt-bindings: riscv: Add SiFive vendor extensions
- description
-Message-ID: <20250811-darwinism-punch-8eaffc197cb4@spud>
-References: <20250801070112.12071-1-nick.hu@sifive.com>
- <20250801-lunar-stream-0fdb3f0febec@spud>
- <CAKddAkDMd27icz6sa5xONAiWGcb8Un8CddHKyX1=jQzH7DCvZA@mail.gmail.com>
+	Tue, 12 Aug 2025 02:03:12 +0000
+Received: from [127.0.0.2] (unknown [114.241.87.235])
+	by APP-03 (Coremail) with SMTP id rQCowAB3DH7LoJpoRIQaCw--.31870S7;
+	Tue, 12 Aug 2025 10:02:54 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Tue, 12 Aug 2025 10:02:21 +0800
+Subject: [PATCH net-next v5 5/5] riscv: dts: spacemit: Add Ethernet support
+ for Jupiter
 MIME-Version: 1.0
-In-Reply-To: <CAKddAkDMd27icz6sa5xONAiWGcb8Un8CddHKyX1=jQzH7DCvZA@mail.gmail.com>
+Message-Id: <20250812-net-k1-emac-v5-5-dd17c4905f49@iscas.ac.cn>
+References: <20250812-net-k1-emac-v5-0-dd17c4905f49@iscas.ac.cn>
+In-Reply-To: <20250812-net-k1-emac-v5-0-dd17c4905f49@iscas.ac.cn>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Vivian Wang <uwu@dram.page>, 
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Simon Horman <horms@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-CM-TRANSID: rQCowAB3DH7LoJpoRIQaCw--.31870S7
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw43Gw1ftrWfAF43Cr45Jrb_yoW8WrW7pa
+	y3CFsaqFZrCr1fKw43Zr9F9r13Ga95GrWkC3y3uF1rJ3yIvFZ0vw1rtw17tr1DGrW5X34Y
+	vr10yFyxurnFkw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmq14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE
+	3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2I
+	x0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8
+	JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2
+	ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Y
+	z7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zV
+	AF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1l
+	IxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r
+	1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIY
+	CTnIWIevJa73UjIFyTuYvjTRNdb1DUUUU
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_120216_931515_01F95ADA 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250811_190310_142620_9F930E3D 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,72 +89,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9128340888164144258=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Milk-V Jupiter uses an RGMII PHY for each port and uses GPIO for PHY
+reset.
 
---===============9128340888164144258==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4OtjcrCPRSA3bkmJ"
-Content-Disposition: inline
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+---
+ arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 46 +++++++++++++++++++++++
+ 1 file changed, 46 insertions(+)
 
+diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+index 4483192141049caa201c093fb206b6134a064f42..c5933555c06b66f40e61fe2b9c159ba0770c2fa1 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+@@ -20,6 +20,52 @@ chosen {
+ 	};
+ };
+ 
++&eth0 {
++	phy-handle = <&rgmii0>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac0_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <0>;
++	status = "okay";
++
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++
++		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
++
++		rgmii0: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
++
++&eth1 {
++	phy-handle = <&rgmii1>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac1_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <250>;
++	status = "okay";
++
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++
++		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
++
++		rgmii1: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_2_cfg>;
 
---4OtjcrCPRSA3bkmJ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+-- 
+2.50.1
 
-On Tue, Aug 05, 2025 at 11:38:34AM +0800, Nick Hu wrote:
-> On Sat, Aug 2, 2025 at 3:31=E2=80=AFAM Conor Dooley <conor@kernel.org> wr=
-ote:
-> >
-> > On Fri, Aug 01, 2025 at 03:01:12PM +0800, Nick Hu wrote:
-> > > Add description for SiFive vendor extensions "xsfcflushdlone",
-> > > "xsfpgflushdlone" and "xsfcease". This is used in the SBI
-> > > implementation [1].
-> > >
-> > > [1] https://lore.kernel.org/opensbi/20250708074940.10904-1-nick.hu@si=
-five.com/
-> > >
-> >
-> > > Changes in v2:
-> > > - Update the message to indicate the user of the extensions.
-> >
-> > This should be below the --- line.
-> > With that,
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > although I suppose it'll be me taking this and I can fix it up on
-> > application?
-> >
-> Thanks! That would be really helpful.
-
-Done, applied for 6.18 material.
-
---4OtjcrCPRSA3bkmJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaJo+MgAKCRB4tDGHoIJi
-0n5qAPsG0vDUej4A1/tAPPvzmlAg+1iAGhdOffqUAqvFfV+VYwD/dz/DCllAxpE1
-Uz0QYaCyQA2a9FBfGhnPm6F9Jrv0WQQ=
-=v+qd
------END PGP SIGNATURE-----
-
---4OtjcrCPRSA3bkmJ--
-
-
---===============9128340888164144258==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9128340888164144258==--
-
