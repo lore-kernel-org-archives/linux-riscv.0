@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA487CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 03:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF54DCA0ED1
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 03:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=83cOEJufc0dWP1lr7TnHMIBItSmRSdyqv2yANL5Pk6s=; b=PivAYUL6RCLHY2
-	vS1sZerCSlg+J1tT6HiWjNdm2L2pVRQSGY2XEXuVwxAaWWCzPlg1A2OyyUOJK9Ie6HFuaiRc6wnyN
-	oMR5JvElDOQ1pWEuxCLcWpuo3Y7VQRgruRLrcRs3bdwf4S5eDL8iAB68nYUmQLtqBTkXqoNipCDr3
-	IthYWDzzKUdoDBw9sagSfuL3Qru+mAv0IHo5Z1YgFpdDEYYHo7Wfmx0nD3lS+uVdX9ftOozZRd3yL
-	SZ8M2Km2kMpjd7cWxNzfv4oWZRY6jrm+YjzmsYlY41f9oQwtkp2MUKanXlxFaVSd7iUD9a1buiA8L
-	GFudEFJx7XJJarqI14aw==;
+	List-Owner; bh=OSSSF6mmvl6NlsMDWGwgZ2L8URLlHHPuH5eevhM8pdU=; b=HLA1fQT15ZYBv0
+	C4vAbVSfgY01bE4MzSPpLoVjm1YEAZaAvqoJicNifBu98C8lDxWTXmqgshC2l4gnZZtxMtPkAyTL5
+	KGyuoJzSWbYd/EYZEPx9zijmhl6HisxGPuztG3fu4rp7V/qgev9xSCnt0J50iBn4NrPNgDe68pDsh
+	GWyMnb8YVzgLKu6ztF6YkQc091JNQNyNxrU3djwvyhKGtYnkCJA7LzfEZdFbAsdwrsznYq8M5x9rJ
+	D9zOCVfE7gXx6/hKqKA0u5vWGLXq62/t8n3+zUFUdNqQKD1mFxKe8k274Cyc+4qY7jsZoqVberMBX
+	LP2ia0Lps2D7Q3HiWrjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulfQF-00000009gvV-4A3i;
-	Tue, 12 Aug 2025 03:11:35 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1ulfys-00000009jrg-1nJq;
+	Tue, 12 Aug 2025 03:47:22 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulfQD-00000009gv4-0Gwg
+	id 1ulfxZ-00000009jft-16U2
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Aug 2025 03:11:34 +0000
-Received: from [192.168.0.111] (unknown [114.241.87.235])
-	by APP-05 (Coremail) with SMTP id zQCowADnPl+_sJpoQFIJCw--.51801S2;
-	Tue, 12 Aug 2025 11:10:56 +0800 (CST)
-Message-ID: <86b99a5f-02a0-43cc-9f7b-4ed3a260b4df@iscas.ac.cn>
-Date: Tue, 12 Aug 2025 11:10:55 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v5 2/5] net: spacemit: Add K1 Ethernet MAC
-To: Andrew Lunn <andrew@lunn.ch>
+	Tue, 12 Aug 2025 03:46:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=NIC/wkT8xDaIY7MD6UsDmD8NMUh6b3J8xBtXrNsXYKo=; b=NbYqq15F+k0PaYhFy5Hc5uGO1C
+	F7j6cSoP/whS4817YNAeQ66fdIUeTNQC5RhDl3Pn2Jkb/dJBC2qkppaK48DJ9uxXASz28fYUHgXWy
+	gKaqh24ZdeiIwvrmcSyoigBz47PTJ39VEZOCcGj6Fe050vKSBFjjU3uGdFI1pW5XiSuY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1ulfxA-004PNl-P9; Tue, 12 Aug 2025 05:45:36 +0200
+Date: Tue, 12 Aug 2025 05:45:36 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Vivian Wang <uwu@dram.page>,
- Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Junhui Liu <junhui.liu@pigmoral.tech>, Simon Horman <horms@kernel.org>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Vivian Wang <uwu@dram.page>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v5 2/5] net: spacemit: Add K1 Ethernet MAC
+Message-ID: <ac9cce0b-d29e-499b-8a86-28979cd12fb5@lunn.ch>
 References: <20250812-net-k1-emac-v5-0-dd17c4905f49@iscas.ac.cn>
  <20250812-net-k1-emac-v5-2-dd17c4905f49@iscas.ac.cn>
- <5c32fde3-0478-4029-9b71-e46a60edf06b@lunn.ch>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <5c32fde3-0478-4029-9b71-e46a60edf06b@lunn.ch>
-X-CM-TRANSID: zQCowADnPl+_sJpoQFIJCw--.51801S2
-X-Coremail-Antispam: 1UD129KBjvdXoW5Kry3GFyDKrWxXFy7JF1rCrg_yoWxWwc_Gw
-	1Fk3yFkFs0yrs0y34Sgw15Ar1fKa95XF9xZw1v9r4xCF9xtFW29ryDuFnIq3WxWrZxGr95
-	trnI9w4UWrn7AjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbV8YjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07jDsqXUUUUU=
-X-Originating-IP: [114.241.87.235]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250812-net-k1-emac-v5-2-dd17c4905f49@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_201133_474565_7521455E 
-X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-CacheID: sfid-20250811_204601_370218_D99CF1A7 
+X-CRM114-Status: UNSURE (   8.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,31 +86,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+> +static void emac_get_pause_stats(struct net_device *dev,
+> +				 struct ethtool_pause_stats *pause_stats)
+> +{
+> +	struct emac_priv *priv = netdev_priv(dev);
+> +	struct emac_hw_tx_stats *tx_stats;
+> +	struct emac_hw_rx_stats *rx_stats;
+> +
+> +	tx_stats = &priv->tx_stats;
+> +	rx_stats = &priv->rx_stats;
+> +
+> +	scoped_guard(spinlock_irqsave, &priv->stats_lock) {
+> +		emac_stats_update(priv);
+> +
+> +		pause_stats->tx_pause_frames = tx_stats->tx_pause_pkts;
+> +		pause_stats->rx_pause_frames = rx_stats->rx_pause_pkts;
+> +	}
+> +}
 
-On 8/12/25 10:17, Andrew Lunn wrote:
->> +/* Caller must hold stats_lock */
->> +static void emac_stats_update(struct emac_priv *priv)
->> +{
->> +	u64 *tx_stats_off = (u64 *)&priv->tx_stats_off;
->> +	u64 *rx_stats_off = (u64 *)&priv->rx_stats_off;
->> +	u64 *tx_stats = (u64 *)&priv->tx_stats;
->> +	u64 *rx_stats = (u64 *)&priv->rx_stats;
->> +	u32 i, res;
-> Rather than the comment, you could do:
->
-> 	assert_spin_locked(priv->stats_lock);
+You have pause statistics, but not actual configuration of pause.
 
-Thanks, I'll use assert_spin_locked.
+> +static void emac_adjust_link(struct net_device *dev)
+> +{
+> +	struct emac_priv *priv = netdev_priv(dev);
+> +	struct phy_device *phydev = dev->phydev;
+> +	u32 ctrl;
 
-I don't think there's anything else that needs a similar assertion, but
-I'll check for sure and update next version.
+Normally the adjust_link callback you configure the hardware with the
+result of pause negotiation.
 
-Vivian "dramforever" Wang
+> +/* Called when net interface is brought up. */
+> +static int emac_open(struct net_device *ndev)
+> +{
+> +	struct emac_priv *priv = netdev_priv(ndev);
+> +	struct device *dev = &priv->pdev->dev;
+> +
+> +	int ret;
+
+Extra blank line.
 
 
-> 	Andrew
+    Andrew
 
+---
+pw-bot: cr
 
 _______________________________________________
 linux-riscv mailing list
