@@ -4,123 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0768C87FCB
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 12:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B8E1CA0EC4
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 12:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TWfRV4eTFCDSbHI3iT4sD8wUcfdApLFE+X1lXP0K6pM=; b=q10B4jdQzbbyaZ
-	awmV3XKBalZiZLr6Va89NU8oygU4DD2GVyxLkB5lvoEurT01bFM0oqx51/sJRxs5BkE2vSqEMsLp9
-	u8WZaRsE6hLEfCuwwbzqkGAonPDpr3XeYtoiIXDFw+3tDveSso/JG+fp/XcWJSobhiy6a9eby9Gg0
-	a8wQqkY0pjNWdwUWEETOYKzyYS990pkl1FryWzgHU48wbjHZtKZcuVdMp3qobIoSedjvcC1GH/WHP
-	62D7lW8AavQN+V8A0uYbccvvHEhIcHAxfq7ymPX0BcLX96fo8wPSd8NfYM62uonjORBA8Zm+afCA3
-	jw/HGvJ16Me7kPNLfYrA==;
+	List-Owner; bh=CcJhx1aI240LvQ8qmzG3abuKF3T+f9PFIWZ6vs99Akk=; b=GG58T+R7YNofZA
+	mA+JEBguncfmvJwCGjTb36jBtD5kvbFHOAJUoo7EPY4mN3fSm00v2vICfOREH8uWuhy4+0fxx3U3L
+	MfB2Mse7u9eFGmdd2ev9zqruSRQt5A6DGCjA+LBnb47TWCTrsnsZY1gBV77IprCtf2+XVi7cdFLxf
+	btQ3UZl83bdKgMctLz3oddby8d1xydqzTnQ1+rqoeCb3kGqWNdgNkf5IHGFUgl2BxvWXeUp/OLQvH
+	AZ6gTswG4AUAzJpRXs56AK6OVCbndotq0faz5a6YmjpueJxukSVfM/rwUBwqflz0cqGx5HV3HGLeV
+	FRpxf1mBr1VKsPz03TDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloIo-0000000AnHj-48zh;
-	Tue, 12 Aug 2025 12:40:30 +0000
-Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
+	id 1uloIr-0000000AnLz-24YK;
+	Tue, 12 Aug 2025 12:40:33 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ull8U-0000000ALzR-2OV1;
-	Tue, 12 Aug 2025 09:17:39 +0000
-Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-433fa926c9eso3134380b6e.0;
-        Tue, 12 Aug 2025 02:17:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754990258; x=1755595058; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=OsZfh7jnCZM1qIdbyzshEpg7lU806F0f1eIeVxq5DZ4=;
-        b=J/EnFQ0tAZ3Gbh75D96y9oZlKuzqhFAR3w9Oti+hzrOjCYzI9bs3t8tAWEGjc7C2CT
-         ZoNfHusOKrz2Wd4NgClseT/dH1g8di6wPoeuSKq3YGsh3JT4qjN21DsZ1i7PfiflQhin
-         VzweSuDzYiIpHcdkl3LkKNd1VpZtqs8Fe9pnilqdNK/VUkpVGiY6+MQCBVCgzF29u2kz
-         3sAW5C2FHoDRTHZkSzt60dQyPcz8pYBt+Iyxbiii1bSdS91GvztDStQVTHj/3jRZ5xK4
-         iUAi0tFemdixV/SNz34aHl9hjoQ6srDAf+hg1yoIKxiAbnX+ShzinT9lOg0fmLwEYU5e
-         ZIuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754990258; x=1755595058;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OsZfh7jnCZM1qIdbyzshEpg7lU806F0f1eIeVxq5DZ4=;
-        b=YCEWyEfY/uZS+i4N4L97N6wLqvLlJJCRX0vnzhK0jWMyq/MPgDgoZQIEzJ5kb6ILVu
-         XDjo0AM9jSEGulQk9v5PxyidStrRFAqd6IeWgxwW4tqgWJSTHRMoLpGlPkfw4G6M7S8S
-         o+9vueZ+l7nykVKwupMIY9o0LrJlmgDlos7sGCIsYNelDEDD5v/cXggCJtXpOed2ggR9
-         cumuWYfqru4Te8jLNae9JQX8JgaQJaULHqRXBM2f/7dktYCLc7Akfo7Fa326x+ELapf9
-         +sRo3MQmgAb6SIMVro5oc910rLSZCPajRFJXZJuG/DKKuGB2Ui53jz4FGHZ5mA6nvJug
-         ORcg==
-X-Forwarded-Encrypted: i=1; AJvYcCU8DFrcQ+aASdEIQ7l0+4BkiNSkmnjAXsTe80r5YAPdMSIlPf5FJoFiLTAHv24IOSASgVR/czaboszy7Jyc@lists.infradead.org, AJvYcCUW6IurOHOMz77Q/Se2M6GFNWdACr6rn0xscqzegMZof/t8ee+R5YisxI2WKz3xDryE+Z5DmSu3mujnBrs=@lists.infradead.org, AJvYcCWVWB7KvrO5XlS5Y6oOtWzyfxfkq+odrJuwU9UesDTE4mdHkiU5ls7/LbfYr7JxcHNZHEO8E5dnThze4pcPenU=@lists.infradead.org, AJvYcCWmT0/YJ0D3grFbS/B/dbLsrl8hMU11shq1qR9wGq/S1fwrP+pa5TBaSpodGbvQ6lqBGekg8lUKbK2nhEQESb4=@lists.infradead.org, AJvYcCX+0f3U0LPXPJlpjVuAcnLvwPlcfHxJbSDSqiallHwqRCIrpPADA/IQP2qRaxPjwhETod8/n311rwoYMN4uSpcvuA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC09Cr2cU3pYB+Sfw5gITE13N2BfmJuhN+xh+OOuiJGwI6E1Uk
-	qLGB6vnkJDinaM8Ia1uOnlg9jigE6XmyMPFqxEQd/Hr2qbTz38hy0qM1Xw9VOgC4qSDseUO2Ckg
-	n1xKQKJgEtaNSVoSqbKUnil1rAHH+xgk=
-X-Gm-Gg: ASbGncuWrjv0BIo782V2rocfumoMnkW0RrEuKdEaV7QdKmJ0tC9g3+1Eyp91RJ2Mbds
-	/V+/K5zY6z/6de8TUDwiUepDEyi7Ibo9ghEG+boXCmm2/bdIGuswLPamdvkbw1AWH1L4eG05f45
-	HuB/WgJJFmmmuOe2zCKskfo0IuPQbN4L1cLoSnbnESUZ5uNYw2vJztjt2RnLVDwH1iXuMxxdlGM
-	2jsMMp7YAGIBUljnjE/+g==
-X-Google-Smtp-Source: AGHT+IGeKg+1AsHT8OzWJRaAIn4nQ5un+51PPsEFZqXXG7zkpSAAOASU4iUV34U5Po600E/i/8biPwPW0aGpB8iXi3U=
-X-Received: by 2002:a05:6808:30a4:b0:433:fd1b:73f3 with SMTP id
- 5614622812f47-43597b3b9d0mr10072751b6e.5.1754990257436; Tue, 12 Aug 2025
- 02:17:37 -0700 (PDT)
+	id 1ull8u-0000000AM4G-1BiR
+	for linux-riscv@lists.infradead.org;
+	Tue, 12 Aug 2025 09:18:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1754990274; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=VGoHwuknbXdy2ikBZ1vGU0AWjSXzzg0mbeI+XAGjv3lI6bjWhYJe+W6PZpzvf8HkjK3FEkG0hbzKbj9V3ywie1c1s9+mF/rWWDDltZbfjZJIUwCWE+bS8HX80iAfnyPcTBj6Xx104uWUbmV+Oa3ioxqF0K7pS3vibr9TIfMQdq8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1754990274; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1+hInyaCbxnzsVD/At0u5EtgvJbYvgUqxLbC8ItIg3Y=; 
+	b=iROwg3CKcXXrofcmrd3Pz9aX8GMpSIOt+9JzonuH/ivzcEkUiZeTrHVWLhHOhh6ptgtWQc9DD+5D6dnEQCIKh32AZIYC4RI/zLvfmvFRFXEBgR1Pkd2lpOcBsGt1pX+Vn/TsJAiPd8JgpTzVH2WUmMAAo/FR/21H+8uYHOofBkI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1754990274;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=1+hInyaCbxnzsVD/At0u5EtgvJbYvgUqxLbC8ItIg3Y=;
+	b=AOHW2uepCwbOHaGmfXrIOS7xN5xZ7vXbAwjyRc/gFEbvSb0cBIkHga3zU+BlcgKz
+	3BvH+dgbFSBKdx7pivNHiOOdj2vL57zp2EjeRssbmNuOWeT14zFq6PzBkLGjmT27dsH
+	N2vailR+WOvTebM2bc0/ovf0YYJF4pKgh5PKfr2aVhP9/p31pZhjtpJw7utukub7JaO
+	owUadTOQY0NQwwKH/F8eQM3sujQxBj1euXhd7A+7RkKjYuPbx0xiYfunfRa9qkkf3Ap
+	xMKkSAgQ6bbvHvxwCrIK5dMfxFeP7rFq8PZYmXiIPDEx6mtPV5UWSr90dbaV97z+rZK
+	e1i/ZXUZ9A==
+Received: by mx.zohomail.com with SMTPS id 1754990271194111.10728242341895;
+	Tue, 12 Aug 2025 02:17:51 -0700 (PDT)
+Message-ID: <6d21521067409c483a8d7af39e43a6d579c98dc4.camel@icenowy.me>
+Subject: Re: [PATCH 4/4 FIXED] clk: thead: th1520-ap: fix parent of padctrl0
+ clock
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
+ <wefu@redhat.com>, Michael Turquette <mturquette@baylibre.com>, Stephen
+ Boyd <sboyd@kernel.org>, Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Tue, 12 Aug 2025 17:17:45 +0800
+In-Reply-To: <20250812060433.1979587-1-uwu@icenowy.me>
+References: <20250812054258.1968351-5-uwu@icenowy.me>
+	 <20250812060433.1979587-1-uwu@icenowy.me>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com> <20250811-clk-for-stephen-round-rate-v1-53-b3bf97b038dc@redhat.com>
-In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-53-b3bf97b038dc@redhat.com>
-From: Chunyan Zhang <zhang.lyra@gmail.com>
-Date: Tue, 12 Aug 2025 17:17:01 +0800
-X-Gm-Features: Ac12FXwWvkLhtiiPhiHwQqmN1cgPTqDfCjN_x0Nmsu9rzni9NmKJK-aaPD6k1MI
-Message-ID: <CAAfSe-spVF480JyBwxFN=KH82CdKNR0oY87oR6fsR+-CUH356Q@mail.gmail.com>
-Subject: Re: [PATCH 053/114] clk: sprd: div: convert from round_rate() to determine_rate()
-To: bmasney@redhat.com
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Paul Cercueil <paul@crapouillou.net>, Keguang Zhang <keguang.zhang@gmail.com>, 
-	Taichi Sugaya <sugaya.taichi@socionext.com>, Takao Orito <orito.takao@socionext.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Yixun Lan <dlan@gentoo.org>, Steen Hegelund <Steen.Hegelund@microchip.com>, 
-	Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com, 
-	Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Michal Simek <michal.simek@amd.com>, Maxime Ripard <mripard@kernel.org>, 
-	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Max Filippov <jcmvbkbc@gmail.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Daniel Palmer <daniel@thingy.jp>, 
-	Romain Perier <romain.perier@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Heiko Stuebner <heiko@sntech.de>, 
-	Andrea della Porta <andrea.porta@suse.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Qin Jian <qinjian@cqplus1.com>, 
-	Viresh Kumar <vireshk@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Alex Helms <alexander.helms.jy@renesas.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, sophgo@lists.linux.dev, 
-	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com, patches@opensource.cirrus.com, 
-	linux-actions@lists.infradead.org, asahi@lists.linux.dev, 
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_021738_621616_604645AB 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20250812_021804_409597_C1518170 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,69 +81,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Aug 2025 at 23:18, Brian Masney via B4 Relay
-<devnull+bmasney.redhat.com@kernel.org> wrote:
->
-> From: Brian Masney <bmasney@redhat.com>
->
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
->
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-
-Reviewed-by: Chunyan Zhang <zhang.lyra@gmail.com>
-
-> ---
->  drivers/clk/sprd/div.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/clk/sprd/div.c b/drivers/clk/sprd/div.c
-> index 936782c241271832c0a1957c99cbecc287351d1b..013423881968002d29c4e9536e7cd7b944779196 100644
-> --- a/drivers/clk/sprd/div.c
-> +++ b/drivers/clk/sprd/div.c
-> @@ -9,13 +9,16 @@
->
->  #include "div.h"
->
-> -static long sprd_div_round_rate(struct clk_hw *hw, unsigned long rate,
-> -                               unsigned long *parent_rate)
-> +static int sprd_div_determine_rate(struct clk_hw *hw,
-> +                                  struct clk_rate_request *req)
->  {
->         struct sprd_div *cd = hw_to_sprd_div(hw);
->
-> -       return divider_round_rate(&cd->common.hw, rate, parent_rate, NULL,
-> -                                 cd->div.width, 0);
-> +       req->rate = divider_round_rate(&cd->common.hw, req->rate,
-> +                                      &req->best_parent_rate,
-> +                                      NULL, cd->div.width, 0);
-> +
-> +       return 0;
->  }
->
->  unsigned long sprd_div_helper_recalc_rate(struct sprd_clk_common *common,
-> @@ -75,7 +78,7 @@ static int sprd_div_set_rate(struct clk_hw *hw, unsigned long rate,
->
->  const struct clk_ops sprd_div_ops = {
->         .recalc_rate = sprd_div_recalc_rate,
-> -       .round_rate = sprd_div_round_rate,
-> +       .determine_rate = sprd_div_determine_rate,
->         .set_rate = sprd_div_set_rate,
->  };
->  EXPORT_SYMBOL_GPL(sprd_div_ops);
->
-> --
-> 2.50.1
->
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjUtMDgtMTLmmJ/mnJ/kuoznmoQgMTQ6MDQgKzA4MDDvvIxJY2Vub3d5IFpoZW5n5YaZ
+6YGT77yaCj4gVGhlIHBhZGN0cmwwIGNsb2NrIHNlZW1zIHRvIGJlIGEgY2hpbGQgb2YgdGhlIHBl
+cmlzeXNfYXBiNF9oY2xrCj4gY2xvY2ssCj4gZ2F0aW5nIHRoZSBsYXRlciBtYWtlcyBwYWRjdHJs
+MCByZWdpc3RlcnMgc3R1Y2suCj4gCj4gRml4IHRoaXMgcmVsYXRpb25zaGlwLgo+IAo+IFNpZ25l
+ZC1vZmYtYnk6IEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5Lm1lPgo+IC0tLQo+IFRoaXMgaXMg
+dGhlIGNvbnNlcXVlbmNlIG9mIGZpeGluZyAzLzQsIGJlY2F1c2UgdGhlc2UgdHdvIHBhdGNoZXMg
+YXJlCj4gYXQKPiBuZWFybHkgdGhlIHNhbWUgcG9zaXRpb24sIGFuZCB1bmZvcnR1bmF0ZWx5IGdl
+dCBkZXBlbmRlbnQgYnkgdGhlCj4gYWxnb3JpdGhtIG9mIGRpZmYuCj4gCj4gSWdub3JlIHRoZSBv
+cmlnaW5hbCA0LzQgYW5kIGxvb2sgYXQgdGhpcyB0b28uCj4gCj4gwqBkcml2ZXJzL2Nsay90aGVh
+ZC9jbGstdGgxNTIwLWFwLmMgfCA3ICsrKysrKy0KPiDCoDEgZmlsZSBjaGFuZ2VkLCA2IGluc2Vy
+dGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiAKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsvdGhl
+YWQvY2xrLXRoMTUyMC1hcC5jCj4gYi9kcml2ZXJzL2Nsay90aGVhZC9jbGstdGgxNTIwLWFwLmMK
+PiBpbmRleCA3NWVhMTcwNWNjMDhmLi4wZWNlZGFjNTBkNmNiIDEwMDY0NAo+IC0tLSBhL2RyaXZl
+cnMvY2xrL3RoZWFkL2Nsay10aDE1MjAtYXAuYwo+ICsrKyBiL2RyaXZlcnMvY2xrL3RoZWFkL2Ns
+ay10aDE1MjAtYXAuYwo+IEBAIC05MTcsMTMgKzkxNywxOCBAQCBzdGF0aWMgQ0NVX0dBVEUoQ0xL
+X1BFUklTWVNfQVBCM19IQ0xLLAo+IHBlcmlzeXNfYXBiM19oY2xrLCAicGVyaXN5cy1hcGIzLWhj
+bGsiLCBwCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAweDE1MCwgQklUKDExKSwg
+Q0xLX0lTX0NSSVRJQ0FMKTsKPiDCoHN0YXRpYyBDQ1VfR0FURShDTEtfUEVSSVNZU19BUEI0X0hD
+TEssIHBlcmlzeXNfYXBiNF9oY2xrLCAicGVyaXN5cy0KPiBhcGI0LWhjbGsiLCBwZXJpc3lzX2Fo
+Yl9oY2xrX3BkLAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgMHgxNTAsIEJJVCgx
+MiksIDApOwo+ICsKPiArc3RhdGljIGNvbnN0IHN0cnVjdCBjbGtfcGFyZW50X2RhdGEgcGVyaXN5
+c19hcGI0X2hjbGtfcGRbXSA9IHsKPiArwqDCoMKgwqDCoMKgwqB7IC5odyA9ICZwZXJpc3lzX2Fw
+YjRfaGNsay5jb21tb24uaHcgfSwKPiArfTsKPiArCj4gwqBzdGF0aWMgQ0NVX0dBVEUoQ0xLX05Q
+VV9BWEksIG5wdV9heGlfY2xrLCAibnB1LWF4aSIsIGF4aV9hY2xrX3BkLAo+IDB4MWM4LCBCSVQo
+NSksIENMS19JU19DUklUSUNBTCk7Cj4gwqBzdGF0aWMgQ0NVX0dBVEUoQ0xLX0NQVTJWUCwgY3B1
+MnZwX2NsaywgImNwdTJ2cCIsIGF4aV9hY2xrX3BkLAo+IDB4MWUwLCBCSVQoMTMpLCBDTEtfSVNf
+Q1JJVElDQUwpOwo+IMKgc3RhdGljIENDVV9HQVRFKENMS19FTU1DX1NESU8sIGVtbWNfc2Rpb19j
+bGssICJlbW1jLXNkaW8iLAo+IGVtbWNfc2Rpb19yZWZfY2xrX3BkLCAweDIwNCwgQklUKDMwKSwg
+MCk7Cj4gwqBzdGF0aWMgQ0NVX0dBVEUoQ0xLX0dNQUMxLCBnbWFjMV9jbGssICJnbWFjMSIsIGdt
+YWNfcGxsX2Nsa19wZCwKPiAweDIwNCwgQklUKDI2KSwgMCk7Cj4gwqBzdGF0aWMgQ0NVX0dBVEUo
+Q0xLX1BBRENUUkwxLCBwYWRjdHJsMV9jbGssICJwYWRjdHJsMSIsCj4gcGVyaXN5c19hcGJfcGNs
+a19wZCwgMHgyMDQsIEJJVCgyNCksIDApOwo+IMKgc3RhdGljIENDVV9HQVRFKENMS19EU01BUlQs
+IGRzbWFydF9jbGssICJkc21hcnQiLAo+IHBlcmlzeXNfYXBiX3BjbGtfcGQsIDB4MjA0LCBCSVQo
+MjMpLCAwKTsKPiAtc3RhdGljIENDVV9HQVRFKENMS19QQURDVFJMMCwgcGFkY3RybDBfY2xrLCAi
+cGFkY3RybDAiLAo+IHBlcmlzeXNfYXBiX3BjbGtfcGQsIDB4MjA0LCBCSVQoMjIpLCAwKTsKPiAr
+c3RhdGljIENDVV9HQVRFKENMS19QQURDVFJMMCwgcGFkY3RybDBfY2xrLCAicGFkY3RybDAiLAo+
+IHBlcmlzeXNfYXBiNF9oY2xrX3BkLCAweDIwNCwgQklUKDIyKSwgMCk7CgpPb3BzIGxvb2tzIGxp
+a2UgdGhpcyBkb2VzIG5vdCB3b3JrIGFuZCBvcnBoYW5zIHRoZSBjbG9jay4uLgoKPiDCoHN0YXRp
+YyBDQ1VfR0FURShDTEtfR01BQ19BWEksIGdtYWNfYXhpX2NsaywgImdtYWMtYXhpIiwKPiBheGk0
+X2NwdXN5czJfYWNsa19wZCwgMHgyMDQsIEJJVCgyMSksIDApOwo+IMKgc3RhdGljIENDVV9HQVRF
+KENMS19HUElPMywgZ3BpbzNfY2xrLCAiZ3BpbzMtY2xrIiwKPiBwZXJpMnN5c19hcGJfcGNsa19w
+ZCwgMHgyMDQsIEJJVCgyMCksIDApOwo+IMKgc3RhdGljIENDVV9HQVRFKENMS19HTUFDMCwgZ21h
+YzBfY2xrLCAiZ21hYzAiLCBnbWFjX3BsbF9jbGtfcGQsCj4gMHgyMDQsIEJJVCgxOSksIDApOwoK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
