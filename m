@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13033CA0EDB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBADCA0EC4
 	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 02:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,30 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FI1RAmp2tVytPWFFBzG0YK+Z5wjIcpS5msNqtrvyOPM=; b=FTMW0LxnMEPgKS
-	pMtYu5ReMb2SY/9BCMXvxoQxekGbZuJlH6t9z4FZ7iGKu8r1fKnrK8QCX86JzqGD8TUgeB45/po8I
-	O2ILSoj/Ek/rObd26dsCoH2j9bgMv59AmRsRLs10y7DBqLOK47eBCN9GaAtFHUTOg72XDx5sAEBFu
-	tS8f4ErU22rsqGhqhbYvMF/04C3WFOoZ3O8FYXX86NTXWGLmGatFWk77dJ1mq8hsXV36wf4Xk/Zy6
-	mkbqzz3u+0clM2AQlsD49YzBVFLR3ujCCiD6Cm7IiQcF/opfL2w81UKRW587AS7S+GrMgJ1uHJmLe
-	BWFWpRJnxkYdBP1lUyjQ==;
+	List-Owner; bh=p86OqlxUtuqEYvTI5SHN/W/scr3K3TqPkxACQfsJ910=; b=FDt09K3aXP/EPE
+	S0YgVnqlYCYW1ON75ReiLY8PuFrUuH4viHxhX2MS9FXIiPQL+9dHXxaaBTIpoUXFmWWGgS/L2QFzZ
+	qGgqZE2eT7EhZTsO7cQlzknXeXXVYM0QfwMKg7WK6LVv/Nij/6+7Q293Iy6itdoEfQEpyDZLvsbKT
+	zEsDhO7hY/Rt4A5XJT1MW6Y3ypj7X90S2cLrrSjETZQff0CKX0qjcO7Y4KI7AlTYPh2xerRus2dxI
+	ddkQC9VQ+r206OC+VNbJOyf43DiTUoyduHfh5nMSwMg/wLLrkAnB2zAOJaBLd+VzKX5gBykd8Rpz5
+	HA/Hsm46Y3iQF582bVuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uleM8-00000009ZVc-2rq1;
-	Tue, 12 Aug 2025 02:03:16 +0000
+	id 1uleM7-00000009ZV4-4AbH;
+	Tue, 12 Aug 2025 02:03:15 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uleM3-00000009ZSM-0MOC
+	id 1uleM2-00000009ZSL-3R78
 	for linux-riscv@lists.infradead.org;
 	Tue, 12 Aug 2025 02:03:13 +0000
 Received: from [127.0.0.2] (unknown [114.241.87.235])
-	by APP-03 (Coremail) with SMTP id rQCowAB3DH7LoJpoRIQaCw--.31870S3;
-	Tue, 12 Aug 2025 10:02:52 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAB3DH7LoJpoRIQaCw--.31870S5;
+	Tue, 12 Aug 2025 10:02:53 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Tue, 12 Aug 2025 10:02:17 +0800
-Subject: [PATCH net-next v5 1/5] dt-bindings: net: Add support for SpacemiT
- K1
+Date: Tue, 12 Aug 2025 10:02:19 +0800
+Subject: [PATCH net-next v5 3/5] riscv: dts: spacemit: Add Ethernet support
+ for K1
 MIME-Version: 1.0
-Message-Id: <20250812-net-k1-emac-v5-1-dd17c4905f49@iscas.ac.cn>
+Message-Id: <20250812-net-k1-emac-v5-3-dd17c4905f49@iscas.ac.cn>
 References: <20250812-net-k1-emac-v5-0-dd17c4905f49@iscas.ac.cn>
 In-Reply-To: <20250812-net-k1-emac-v5-0-dd17c4905f49@iscas.ac.cn>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, 
@@ -52,32 +52,32 @@ Cc: Vivian Wang <uwu@dram.page>,
  Junhui Liu <junhui.liu@pigmoral.tech>, Simon Horman <horms@kernel.org>, 
  Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor.dooley@microchip.com>
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-CM-TRANSID: rQCowAB3DH7LoJpoRIQaCw--.31870S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cry3WF45trW5KrW5Zr4rGrg_yoW5Jr1xpF
-	4fCrn3GF48KF13Jw4fXFykuF1fGw4kAF1DJrZFvw13tas5KF90qr4akryfXa4UurW8Ja43
-	XF1DAryDKr1DAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmY14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
+X-CM-TRANSID: rQCowAB3DH7LoJpoRIQaCw--.31870S5
+X-Coremail-Antispam: 1UD129KBjvJXoWxWFy7AFy8Wry7XF48Kr18AFb_yoW5Kry8pa
+	yUAFs3Cr4xCw1rCwnayF9rWFs5G3WFkFyrGr9xGFWxGF4rtry7tFn0yry5Xw48Zws8ArW8
+	Gr48XrWxKFnrtw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmI14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
 	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
-	8EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
-	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIev
-	Ja73UjIFyTuYvjTRMfOzDUUUU
+	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	A2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1l
+	e2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI
+	8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwAC
+	jcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0x
+	kIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_
+	Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1V
+	AY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAI
+	cVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMI
+	IF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnI
+	WIevJa73UjIFyTuYvjTRM6wCDUUUU
 X-Originating-IP: [114.241.87.235]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_190311_495957_2B9B09F1 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20250811_190311_224258_B42AD035 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,102 +94,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Ethernet MACs on SpacemiT K1 appears to be a custom design. SpacemiT
-refers to them as "EMAC", so let's just call them "spacemit,k1-emac".
+Add nodes for each of the two Ethernet MACs on K1 with generic
+properties. Also add "gmac" pins to pinctrl config.
 
 Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/net/spacemit,k1-emac.yaml  | 81 ++++++++++++++++++++++
- 1 file changed, 81 insertions(+)
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi | 48 ++++++++++++++++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi         | 22 +++++++++++++
+ 2 files changed, 70 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/spacemit,k1-emac.yaml b/Documentation/devicetree/bindings/net/spacemit,k1-emac.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..500a3e1daa230ea3a1fad30d8ea56a7822fccb3d
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/spacemit,k1-emac.yaml
-@@ -0,0 +1,81 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/spacemit,k1-emac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+index 3810557374228100be7adab58cd785c72e6d4aed..aff19c86d5ff381881016eaa87fc4809da65b50e 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+@@ -11,6 +11,54 @@
+ #define K1_GPIO(x)	(x / 32) (x % 32)
+ 
+ &pinctrl {
++	gmac0_cfg: gmac0-cfg {
++		gmac0-pins {
++			pinmux = <K1_PADCONF(0, 1)>,	/* gmac0_rxdv */
++				 <K1_PADCONF(1, 1)>,	/* gmac0_rx_d0 */
++				 <K1_PADCONF(2, 1)>,	/* gmac0_rx_d1 */
++				 <K1_PADCONF(3, 1)>,	/* gmac0_rx_clk */
++				 <K1_PADCONF(4, 1)>,	/* gmac0_rx_d2 */
++				 <K1_PADCONF(5, 1)>,	/* gmac0_rx_d3 */
++				 <K1_PADCONF(6, 1)>,	/* gmac0_tx_d0 */
++				 <K1_PADCONF(7, 1)>,	/* gmac0_tx_d1 */
++				 <K1_PADCONF(8, 1)>,	/* gmac0_tx */
++				 <K1_PADCONF(9, 1)>,	/* gmac0_tx_d2 */
++				 <K1_PADCONF(10, 1)>,	/* gmac0_tx_d3 */
++				 <K1_PADCONF(11, 1)>,	/* gmac0_tx_en */
++				 <K1_PADCONF(12, 1)>,	/* gmac0_mdc */
++				 <K1_PADCONF(13, 1)>,	/* gmac0_mdio */
++				 <K1_PADCONF(14, 1)>,	/* gmac0_int_n */
++				 <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
 +
-+title: SpacemiT K1 Ethernet MAC
++			bias-pull-up = <0>;
++			drive-strength = <21>;
++		};
++	};
 +
-+allOf:
-+  - $ref: ethernet-controller.yaml#
++	gmac1_cfg: gmac1-cfg {
++		gmac1-pins {
++			pinmux = <K1_PADCONF(29, 1)>,	/* gmac1_rxdv */
++				 <K1_PADCONF(30, 1)>,	/* gmac1_rx_d0 */
++				 <K1_PADCONF(31, 1)>,	/* gmac1_rx_d1 */
++				 <K1_PADCONF(32, 1)>,	/* gmac1_rx_clk */
++				 <K1_PADCONF(33, 1)>,	/* gmac1_rx_d2 */
++				 <K1_PADCONF(34, 1)>,	/* gmac1_rx_d3 */
++				 <K1_PADCONF(35, 1)>,	/* gmac1_tx_d0 */
++				 <K1_PADCONF(36, 1)>,	/* gmac1_tx_d1 */
++				 <K1_PADCONF(37, 1)>,	/* gmac1_tx */
++				 <K1_PADCONF(38, 1)>,	/* gmac1_tx_d2 */
++				 <K1_PADCONF(39, 1)>,	/* gmac1_tx_d3 */
++				 <K1_PADCONF(40, 1)>,	/* gmac1_tx_en */
++				 <K1_PADCONF(41, 1)>,	/* gmac1_mdc */
++				 <K1_PADCONF(42, 1)>,	/* gmac1_mdio */
++				 <K1_PADCONF(43, 1)>,	/* gmac1_int_n */
++				 <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
 +
-+maintainers:
-+  - Vivian Wang <wangruikang@iscas.ac.cn>
++			bias-pull-up = <0>;
++			drive-strength = <21>;
++		};
++	};
 +
-+properties:
-+  compatible:
-+    const: spacemit,k1-emac
+ 	uart0_2_cfg: uart0-2-cfg {
+ 		uart0-2-pins {
+ 			pinmux = <K1_PADCONF(68, 2)>,
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index abde8bb07c95c5a745736a2dd6f0c0e0d7c696e4..7b2ac3637d6d9fa1929418cc68aa25c57850ac7f 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -805,6 +805,28 @@ network-bus {
+ 			#size-cells = <2>;
+ 			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
+ 				     <0x0 0x80000000 0x1 0x00000000 0x0 0x80000000>;
 +
-+  reg:
-+    maxItems: 1
++			eth0: ethernet@cac80000 {
++				compatible = "spacemit,k1-emac";
++				reg = <0x0 0xcac80000 0x0 0x420>;
++				clocks = <&syscon_apmu CLK_EMAC0_BUS>;
++				interrupts = <131>;
++				mac-address = [ 00 00 00 00 00 00 ];
++				resets = <&syscon_apmu RESET_EMAC0>;
++				spacemit,apmu = <&syscon_apmu 0x3e4>;
++				status = "disabled";
++			};
 +
-+  clocks:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  mdio-bus:
-+    $ref: mdio.yaml#
-+    unevaluatedProperties: false
-+
-+  resets:
-+    maxItems: 1
-+
-+  spacemit,apmu:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to syscon that controls this MAC
-+          - description: offset of control registers
-+    description:
-+      A phandle to syscon with byte offset to control registers for this MAC
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - interrupts
-+  - resets
-+  - spacemit,apmu
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/spacemit,k1-syscon.h>
-+
-+    ethernet@cac80000 {
-+        compatible = "spacemit,k1-emac";
-+        reg = <0xcac80000 0x00000420>;
-+        clocks = <&syscon_apmu CLK_EMAC0_BUS>;
-+        interrupts = <131>;
-+        mac-address = [ 00 00 00 00 00 00 ];
-+        phy-handle = <&rgmii0>;
-+        phy-mode = "rgmii-id";
-+        pinctrl-names = "default";
-+        pinctrl-0 = <&gmac0_cfg>;
-+        resets = <&syscon_apmu RESET_EMAC0>;
-+        rx-internal-delay-ps = <0>;
-+        tx-internal-delay-ps = <0>;
-+        spacemit,apmu = <&syscon_apmu 0x3e4>;
-+
-+        mdio-bus {
-+            #address-cells = <0x1>;
-+            #size-cells = <0x0>;
-+
-+            rgmii0: phy@1 {
-+                reg = <0x1>;
-+            };
-+        };
-+    };
++			eth1: ethernet@cac81000 {
++				compatible = "spacemit,k1-emac";
++				reg = <0x0 0xcac81000 0x0 0x420>;
++				clocks = <&syscon_apmu CLK_EMAC1_BUS>;
++				interrupts = <133>;
++				mac-address = [ 00 00 00 00 00 00 ];
++				resets = <&syscon_apmu RESET_EMAC1>;
++				spacemit,apmu = <&syscon_apmu 0x3ec>;
++				status = "disabled";
++			};
+ 		};
+ 
+ 		pcie-bus {
 
 -- 
 2.50.1
