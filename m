@@ -4,67 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B10CA0EC4
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 16:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC5D4CA0EE0
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 16:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h9s/HQ0aOzsfqxw4eTS8mOXHuUbmMbSHZ+WngRY00hU=; b=Z83uscVO16DfcM
-	MbcBRmPlqPHPsUOf1weoDJUL8r7iaHhrK4k5yy3uAoQjTUdAE5mqUsgP06CoqeL3yf4WZJQfmz+V1
-	XiULojfkkcObbhFJXyHvCCMqizSQFQ5EwmNDM7ymAz1Nvdl0Y45UgCKkomcODLsDLjpty3/jywmZf
-	3b/mVoo7TpX6P5RvQooiwnCCUIDLOg/xbP2ltcUwjSGDIeLWzQd63AsmgwRRR15iszkSAvvUCvPgt
-	YgHdvHaLU8lR8hsMiMlNiLsLTJ+ymkMJxhe2pVUI1azkd8esyRLlpTO2UDHWcGaivu4WcgnPMHbeD
-	5ZkoBzgDdmATJHCZrJYA==;
+	List-Owner; bh=tq5uZrLqQWbFlaWsH2NXNVK7Dg3iW9wkIBsa8p++j98=; b=NGX0yYE0GfOgiU
+	YqK/aUTpTRADrz/LpLkdQuduwXAU0HLTTi0Dl/4Y1nE434DK1ZQgMSo+Yk2aX1VeH68BifEbvZxv+
+	7O3Rq1K9Wlp36TxbBz0JoMvqgciin2B7g7xEx2S3DZMZTz3ewRxRzCu9Q8g2wE6C+qUrTJ3fbN0D2
+	y4K1EuadcOVLVtaTuRdleMF85eD0Q7C09a3gaFVurzA1hmmnfDZWouLlXKK/YEfecRxTHTl+fZJAV
+	GF9pFhtiKupnwwinm4EGE/ZXnFNf41c5EIs8qcqA+8Ysvhj1axJjAa6tlQ0X5W39F33EVUrowa8T6
+	jOWIX2TEe/sAueQOg9vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrlw-0000000BNS6-1xrB;
-	Tue, 12 Aug 2025 16:22:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ulrtf-0000000BQ3x-2ajR;
+	Tue, 12 Aug 2025 16:30:47 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloAH-0000000Ah4n-3bT3
+	id 1uloka-0000000AsLl-0Fje
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Aug 2025 12:31:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9187646229;
-	Tue, 12 Aug 2025 12:31:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68EA4C4CEF7;
-	Tue, 12 Aug 2025 12:31:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755001901;
-	bh=yiBrKuWba6VUZfup9ZeV9421SjABVfIj51lBHmdRJW0=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=E2rBB2ESl52QtL7zEsFOolPtdPxh9p17mcwsc3P3pYlYohJZSXwct9V2df3myjbxQ
-	 JEKrjnTHtYOY/EgxPl83sUto2F4SqU7E6GCE8YTR3SRsyop6ysCTzCvwvpHBBe/wMq
-	 xIRKexZQX+kGkDevzIOHh5wK0RlRgbN7sHqttPaZi9T+3JiXw0GeadquLd2B8ids6Y
-	 jDPg72Q3KPSd4H6wu0+NEKhh9DVnDllt/J5VFxwuCIsxv3GIJYWAx7dLEvhLS9lEmh
-	 1w/nbm5HGn7xDNlDRn5IO24dRwOtXE2wav3L7ojvmpZPI/g3Wo8qM7D7Z+i5map/7U
-	 DOP2NA8DW443A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADD8B383BF51;
-	Tue, 12 Aug 2025 12:31:54 +0000 (UTC)
-MIME-Version: 1.0
-Subject: Re: [PATCH net v3 0/3] Fix broken link with TH1520 GMAC when
- linkspeed
- changes
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175500191323.2536290.8876313312572303826.git-patchwork-notify@kernel.org>
-Date: Tue, 12 Aug 2025 12:31:53 +0000
-References: <20250808093655.48074-2-ziyao@disroot.org>
-In-Reply-To: <20250808093655.48074-2-ziyao@disroot.org>
-To: Yao Zi <ziyao@disroot.org>
-Cc: fustini@kernel.org, guoren@kernel.org, wefu@redhat.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, emil.renner.berthing@canonical.com,
- jszhang@kernel.org, linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+	Tue, 12 Aug 2025 13:09:13 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3b788fdcc2dso389785f8f.1
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Aug 2025 06:09:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1755004150; x=1755608950; darn=lists.infradead.org;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MAomTme2JM325tkXeqcrCAovhqZxr09aQ6wqQb8gykQ=;
+        b=LlCvLaXBV7TAYbpOc1M41g1PS059OiBIuknU9VYCgkEws+UEjkJXmrSk449g8uCZkU
+         ase+PJkHYb97MgiQZ+1nupmOjrsLpTB4BIlTyaNGFZTutuC/vnBEk1xEkJ97z5wH9fo+
+         BY5whyVEhTGVUL2MJ6j+Y7dlMCmlIiUvT0N9jwAUxikN4PZd+DO6zEtTzC2fQ5X0Yi5Q
+         dsboDMMRSsgoTZGKLxV6du00aLV1uK58H0GqrfKhSKvMMGefz4b5iezIUnoTgWNw3sjc
+         cGfR8Lh2msxHEmJUOEaqZnMV28fdNm3K/qFzzieljdy/4dQgX4xS0qPNLjj7k19Nd52y
+         yMLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755004150; x=1755608950;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=MAomTme2JM325tkXeqcrCAovhqZxr09aQ6wqQb8gykQ=;
+        b=D7b3vs7vgVVzWqTW9ovo5crMnO7uvt5w4v4Co20pasbukQnf290WGYDNu9DpJsQ+jz
+         ktXynJrZZ5ofWaYak1Nal5vKlB+7GRPmuFZlkQOPDzYfHCPh4Hu8lGG9rpEz+setBcOx
+         rNFKSJo2djOTI5s5GeGNOnzd5wlrtFR4X/UeBWQdsH6IQEg1LrPM4HJymC0ImGXa8gd4
+         RQp/pw98nCDIOsm8AnvZzqY4pFwgM6Gb1Bk0IAZd26extG7huINKZV/FTlMrQy79FWFA
+         wH9ti5LSKGTH20G8C9oXYbuC02NDObfx9cXny3c1Za36JewdAvGLJ+1mB5GYddr1HnSn
+         KIAA==
+X-Forwarded-Encrypted: i=1; AJvYcCXioORXfqEvki8j0oG4sqLKoaONnpALdj4I0y1i2GtcjMQTUJiQB1okNmvmu5Pj2jgvD5d0eK6mPSb2Sg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqX4Fb5yEu/kFkAU6XSzBCVbyMYkgsKEQ871ZY44ObeuM9KJ9H
+	ZOdO50KNomtKrumw8Q17FpoYpegfaTS0EsO+xQGKv8m2Z74sgVKkrxtE+o5oJlqcqRFvQRjcDEm
+	cw7pY
+X-Gm-Gg: ASbGnctDj+8tTEbshgU0S0Wd/tYqtCiND0XGN4zBOfzvI09qJZF9C84NWzBg3D1MVEr
+	SYkFm5mxy0mTrxZucylgOZNl2tYqR7g5fdJg+HYVBsyxK1WnmkByYU/njCkHXFsnRGec+yzTwbI
+	2g3SfnSxh3LXLgozD3GkdFpHMOyjkDE6JV/ukfvU9SN28yrJQPANBARRH46PAlfLKumcLGBA0Ed
+	AEh3Eqct3+NK3L8pb3T+E+lgLtdmyu/Qe/X7rnyuHzu8oQyBuQ9enC3IWsLWmJzrOHq7GnhwlTK
+	j7roAn14cYEpLKTp7O7wPi04F5kTF/mrBKHLOkEltNe1s27zU2Iu0k03PTATIB2b6ADCYRbHfeJ
+	LC8WA3cQsd4t6ANpYZeB1n1PpAaSNMQ==
+X-Google-Smtp-Source: AGHT+IFCL0S2fG+7EvsWvlnJgkjJOc9wFOS6dc1oCWSwvbA7urqknr0ZeJjmy9NTqLN0RG30vSqL/A==
+X-Received: by 2002:a05:6000:1785:b0:3b7:948a:137b with SMTP id ffacd0b85a97d-3b9147c2a32mr526638f8f.11.1755004150288;
+        Tue, 12 Aug 2025 06:09:10 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200:8113:2b11:8f42:672f])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b79c338c7dsm44458535f8f.0.2025.08.12.06.09.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 06:09:09 -0700 (PDT)
+Mime-Version: 1.0
+Date: Tue, 12 Aug 2025 15:09:09 +0200
+Message-Id: <DC0H1RZKZ3QR.82P8JXIL5NBJ@ventanamicro.com>
+Subject: Re: [PATCH 0/2] riscv, bpf: fix reads of thread_info.cpu
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
+ KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Song Liu" <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>,
+ "John Fastabend" <john.fastabend@gmail.com>, "KP Singh"
+ <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
+ <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>,
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, "Pu Lehui"
+ <pulehui@huawei.com>, "Puranjay Mohan" <puranjay@kernel.org>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt"
+ <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Kumar Kartikeya
+ Dwivedi" <memxor@gmail.com>, <linux-riscv@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+To: "Alexandre Ghiti" <alex@ghiti.fr>, <bpf@vger.kernel.org>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+References: <20250812090256.757273-2-rkrcmar@ventanamicro.com>
+ <1fdaa939-d26c-454a-a722-7d0a590557b7@ghiti.fr>
+In-Reply-To: <1fdaa939-d26c-454a-a722-7d0a590557b7@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_053141_920439_7BE7E85D 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20250812_060912_097358_642CA056 
+X-CRM114-Status: UNSURE (   5.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,39 +112,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+2025-08-12T13:37:16+02:00, Alexandre Ghiti <alex@ghiti.fr>:
+> @Radim: This is the third similar bug, did you check all assembly code 
+> (and bpf) to make sure we don't have anymore left or should I?
 
-This series was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+I looked at load/store instructions, including bpf, and focussed on
+patterns where we access non-xlen sized data through an offset.
 
-On Fri,  8 Aug 2025 09:36:53 +0000 you wrote:
-> It's noted that on TH1520 SoC, the GMAC's link becomes broken after
-> the link speed is changed (for example, running ethtool -s eth0 speed
-> 100 on the peer when negotiated to 1Gbps), but the GMAC could function
-> normally if the speed is brought back to the initial.
-> 
-> Just like many other SoCs utilizing STMMAC IP, we need to adjust the TX
-> clock supplying TH1520's GMAC through some SoC-specific glue registers
-> when linkspeed changes. But it's found that after the full kernel
-> startup, reading from them results in garbage and writing to them makes
-> no effect, which is the cause of broken link.
-> 
-> [...]
-
-Here is the summary with links:
-  - [net,v3,1/3] dt-bindings: net: thead,th1520-gmac: Describe APB interface clock
-    https://git.kernel.org/netdev/net/c/c8a9a619c072
-  - [net,v3,2/3] net: stmmac: thead: Get and enable APB clock on initialization
-    https://git.kernel.org/netdev/net/c/4cc339ce482b
-  - [net,v3,3/3] riscv: dts: thead: Add APB clocks for TH1520 GMACs
-    https://git.kernel.org/netdev/net/c/a7f75e2883c4
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+(Nothing else popped up, but I mostly used grep and cscope as I don't
+ know of any semantic tool, so my confidence levels are low.)
 
 _______________________________________________
 linux-riscv mailing list
