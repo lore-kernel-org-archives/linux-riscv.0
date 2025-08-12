@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D138CA0EC4
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 16:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B10CA0EC4
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 16:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tabSuGYWco64thaJvva4/2ybrbyoSwdsZ5UFtm7A3BI=; b=YsWz12cgkvMrVw
-	2ngWVKX+VpOjpy0ZGmBQGRiqWVReXXlEjSUUcL5NnAYwfsut+RrqRkqvKEdWAoxOB5jPkl/RprzUP
-	2xxg1iwVqowQLZF47yAM1wJteSRRW4fTeGAk99Bf2RLsHPnGZ9PdjtshYfj+3L8cJuZpUHHF+TCCG
-	nCqI7FFnZpkCfI4wdL2t5yIcHK/Om0SS03lIUL585HT54naV2V6pQ0LJStC7U6/UgJVgA4ev/ss4T
-	mva4dNtCUX5JGaBhtbQkFUimEQfjicvyNRun4GtZXmo7GRXNVtmzeeQCIVFI+s87p5V5IepaPciZ2
-	uvK0idSGGEJouqtLYrYw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=h9s/HQ0aOzsfqxw4eTS8mOXHuUbmMbSHZ+WngRY00hU=; b=Z83uscVO16DfcM
+	MbcBRmPlqPHPsUOf1weoDJUL8r7iaHhrK4k5yy3uAoQjTUdAE5mqUsgP06CoqeL3yf4WZJQfmz+V1
+	XiULojfkkcObbhFJXyHvCCMqizSQFQ5EwmNDM7ymAz1Nvdl0Y45UgCKkomcODLsDLjpty3/jywmZf
+	3b/mVoo7TpX6P5RvQooiwnCCUIDLOg/xbP2ltcUwjSGDIeLWzQd63AsmgwRRR15iszkSAvvUCvPgt
+	YgHdvHaLU8lR8hsMiMlNiLsLTJ+ymkMJxhe2pVUI1azkd8esyRLlpTO2UDHWcGaivu4WcgnPMHbeD
+	5ZkoBzgDdmATJHCZrJYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrla-0000000BMpy-1IMl;
-	Tue, 12 Aug 2025 16:22:26 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1ulrlw-0000000BNS6-1xrB;
+	Tue, 12 Aug 2025 16:22:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulo09-0000000AgCp-1Wqm
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 12 Aug 2025 12:21:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=IJasn0of4ZfgWpMaOoC43Fe95Yd9y8lE2HTzZQXa9Kg=; b=McoTJ6RZy3QL4RniwFNvq8djPc
-	rGnue5uLaM8X+Lmgcb0ZwgHB2qrf7yLT/vTNnoU5kZ7Bc7oYwbF8TMHzlfRFPwtaKZgfgFtb9qHzC
-	2OgB9g0+/DUDCc1/8cDDnkEHKK01CboJjiE8yRY71wjYOGivaB4WnPAO9O44GYHa/H/wNYmMz4Lp3
-	APPAb8EkFcsOzYShFfHM2uABY1Mb+Iuj+pYKzTFX6k3qkllxKXK2dzFwGAKN/1ga8spVaeCbIXi/u
-	C3/giJwT1THvj3LOp9Tws4FRySuxTgPLGYIB1zUVWPTDI9Q2GvcGVrR8vmfxoa7pTsOkw++26UY9k
-	mc3lSONw==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulo03-0000000FxB9-0q7f
+	id 1uloAH-0000000Ah4n-3bT3
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Aug 2025 12:21:11 +0000
-Received: from loongson.cn (unknown [111.207.111.194])
-	by gateway (Coremail) with SMTP id _____8AxaeGhMZto2_M+AQ--.10741S3;
-	Tue, 12 Aug 2025 20:20:49 +0800 (CST)
-Received: from ubuntu.. (unknown [111.207.111.194])
-	by front1 (Coremail) with SMTP id qMiowJCxH8KeMZtoQ5dGAA--.16281S2;
-	Tue, 12 Aug 2025 20:20:47 +0800 (CST)
-From: Ming Wang <wangming01@loongson.cn>
-To: Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Ming Wang <wangming01@loongson.cn>,
-	loongarch@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: lixuefeng@loongson.cn,
-	chenhuacai@loongson.cn,
-	Huang Cun <cunhuang@tencent.com>
-Subject: [PATCH] LoongArch: Increase COMMAND_LINE_SIZE to 4096
-Date: Tue, 12 Aug 2025 20:20:43 +0800
-Message-ID: <20250812122043.2462836-1-wangming01@loongson.cn>
-X-Mailer: git-send-email 2.43.0
+	Tue, 12 Aug 2025 12:31:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9187646229;
+	Tue, 12 Aug 2025 12:31:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68EA4C4CEF7;
+	Tue, 12 Aug 2025 12:31:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755001901;
+	bh=yiBrKuWba6VUZfup9ZeV9421SjABVfIj51lBHmdRJW0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=E2rBB2ESl52QtL7zEsFOolPtdPxh9p17mcwsc3P3pYlYohJZSXwct9V2df3myjbxQ
+	 JEKrjnTHtYOY/EgxPl83sUto2F4SqU7E6GCE8YTR3SRsyop6ysCTzCvwvpHBBe/wMq
+	 xIRKexZQX+kGkDevzIOHh5wK0RlRgbN7sHqttPaZi9T+3JiXw0GeadquLd2B8ids6Y
+	 jDPg72Q3KPSd4H6wu0+NEKhh9DVnDllt/J5VFxwuCIsxv3GIJYWAx7dLEvhLS9lEmh
+	 1w/nbm5HGn7xDNlDRn5IO24dRwOtXE2wav3L7ojvmpZPI/g3Wo8qM7D7Z+i5map/7U
+	 DOP2NA8DW443A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADD8B383BF51;
+	Tue, 12 Aug 2025 12:31:54 +0000 (UTC)
 MIME-Version: 1.0
-X-CM-TRANSID: qMiowJCxH8KeMZtoQ5dGAA--.16281S2
-X-CM-SenderInfo: 5zdqwzxlqjiio6or00hjvr0hdfq/1tbiAQEMEmia16IHHwAAsB
-X-Coremail-Antispam: 1Uk129KBj93XoW7uw1kZry3trWktF13Kw47KFX_yoW8Ar13pF
-	98ursrGa1rCr1fCrWSqa4xur1Fka97Ww1Yya4Ig3y8KFnaq34vkr4vgFZIkFyUXw47X348
-	Z3ZYg34j9F1UX3gCm3ZEXasCq-sJn29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	GcCE3s1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2
-	xF0cIa020Ex4CE44I27wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_
-	Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x
-	0EwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
-	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIx
-	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
-	wI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
-	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8ctx3UU
-	UUU==
+Subject: Re: [PATCH net v3 0/3] Fix broken link with TH1520 GMAC when
+ linkspeed
+ changes
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175500191323.2536290.8876313312572303826.git-patchwork-notify@kernel.org>
+Date: Tue, 12 Aug 2025 12:31:53 +0000
+References: <20250808093655.48074-2-ziyao@disroot.org>
+In-Reply-To: <20250808093655.48074-2-ziyao@disroot.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: fustini@kernel.org, guoren@kernel.org, wefu@redhat.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, emil.renner.berthing@canonical.com,
+ jszhang@kernel.org, linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_132108_513738_1445BE43 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20250812_053141_920439_7BE7E85D 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,46 +81,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The default COMMAND_LINE_SIZE of 512, inherited from asm-generic, is
-too small for modern use cases. For example, kdump configurations or
-extensive debugging parameters can easily exceed this limit.
+Hello:
 
-Therefore, increase the command line size to 4096 bytes, aligning
-LoongArch with the MIPS architecture. This change follows a broader
-trend among architectures to raise this limit to support modern needs;
-for instance, PowerPC increased its value for similar reasons in
-commit a5980d064fe2 ("powerpc: Bump COMMAND_LINE_SIZE to 2048").
+This series was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Similar to the change made for RISC-V in commit 61fc1ee8be26
-("riscv: Bump COMMAND_LINE_SIZE value to 1024"), this is considered
-a safe change. The broader kernel community has reached a consensus
-that modifying COMMAND_LINE_SIZE from UAPI headers does not
-constitute a uABI breakage, as well-behaved userspace applications
-should not rely on this macro.
+On Fri,  8 Aug 2025 09:36:53 +0000 you wrote:
+> It's noted that on TH1520 SoC, the GMAC's link becomes broken after
+> the link speed is changed (for example, running ethtool -s eth0 speed
+> 100 on the peer when negotiated to 1Gbps), but the GMAC could function
+> normally if the speed is brought back to the initial.
+> 
+> Just like many other SoCs utilizing STMMAC IP, we need to adjust the TX
+> clock supplying TH1520's GMAC through some SoC-specific glue registers
+> when linkspeed changes. But it's found that after the full kernel
+> startup, reading from them results in garbage and writing to them makes
+> no effect, which is the cause of broken link.
+> 
+> [...]
 
-Suggested-by: Huang Cun <cunhuang@tencent.com>
-Signed-off-by: Ming Wang <wangming01@loongson.cn>
----
- arch/loongarch/include/uapi/asm/setup.h | 8 ++++++++
- 1 file changed, 8 insertions(+)
- create mode 100644 arch/loongarch/include/uapi/asm/setup.h
+Here is the summary with links:
+  - [net,v3,1/3] dt-bindings: net: thead,th1520-gmac: Describe APB interface clock
+    https://git.kernel.org/netdev/net/c/c8a9a619c072
+  - [net,v3,2/3] net: stmmac: thead: Get and enable APB clock on initialization
+    https://git.kernel.org/netdev/net/c/4cc339ce482b
+  - [net,v3,3/3] riscv: dts: thead: Add APB clocks for TH1520 GMACs
+    https://git.kernel.org/netdev/net/c/a7f75e2883c4
 
-diff --git a/arch/loongarch/include/uapi/asm/setup.h b/arch/loongarch/include/uapi/asm/setup.h
-new file mode 100644
-index 000000000000..d46363ce3e02
---- /dev/null
-+++ b/arch/loongarch/include/uapi/asm/setup.h
-@@ -0,0 +1,8 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+
-+#ifndef _UAPI_ASM_LOONGARCH_SETUP_H
-+#define _UAPI_ASM_LOONGARCH_SETUP_H
-+
-+#define COMMAND_LINE_SIZE	4096
-+
-+#endif /* _UAPI_ASM_LOONGARCH_SETUP_H */
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
