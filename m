@@ -4,108 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DC4C87FCB
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431E7CA0EC4
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 16:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uMW9nSFq8+R0/iwjS2B9+WLOF4BivYhKBbDVnZfviz4=; b=p+xSPFG8cIgosR
-	rHMlSNAd2MJXor48+pjK1aXEJgn7LTXuA5uTUQEgyRSJ1FCranbu9gUMXC5178h8Zm68Zd777oZjf
-	mDyzRNnbHoTR4CARduVwZQCWT7aPXUyAv1UD8YQABINPS4H4GH7loseUcg/5HxrpvLCTAeKhU/3BY
-	zxac5ImwI7fH6xPqq7tkP973oLD42tmcFUGzuPmsUC9c7FlTDL80oVIXRlxvNGX6z9DTpr8r2jWRe
-	Z1W2svmj2SXwY6ZAYVhkLitRF32j5leg/9mNd864jnBOQ74t5QNx29zOxvzYQP85au5swMbiLumN0
-	UcvnYkzDUqMCt5J75Gwg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Lz/P2V+U8dmrmOcUXPXfFzyQ9x0r32T4y/LmPqhk0RA=; b=UyAHwWja6/xkkI
+	sIi0j8+ebpMy0U8xqCFtHXcipjgwZ0hlarsH3y17byGPtVPHbF6ZrBwaC3xCEuKnbI4rFSqiphI+W
+	ZJSj1cTFxwYcAmTGITojp71LTKR6HdJSpHXnmxnxKfrYtvxC0egxeuaXjD5RC+tETzMf0Td+PpJRz
+	bbzBePeGqC33fKQ+kUaZ2QvPpJ/ZdC0b840+FaakO2uVO+51pnDcS4UwDZ6Q1dmONrPm3kajqgz8p
+	IJuosqKDsowLqKXto7B3hmP6PT9f7cLxmymFG2RvpBNM50ZzYnhhpe9RSKwDyAlP60lnC1eDago/B
+	l2bh9R07QakgwyP+oSdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrjV-0000000BJdc-0CMi;
-	Tue, 12 Aug 2025 16:20:17 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulmr6-0000000AZCb-0Aet;
-	Tue, 12 Aug 2025 11:07:49 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-73de140046eso364178b3a.1;
-        Tue, 12 Aug 2025 04:07:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754996867; x=1755601667; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mM1oIijYsTieBVXwDdbk88e2RvtyWnf8BqoF2nILFwk=;
-        b=iqzPveYoRu+5bHwVfGhSGpgBAqCJ1wPrg2bcbD0Y3nVT7zHY8rzICBba1sTbHgmZ0Z
-         pCMbjrtTHjJ/MunflKHrAjMmBaOt+zcTY5b1IuAafwp+8VD0Jt9i6fxvVj78mOfwPhNn
-         MJbnmHeY7MYud+K95IzD9VHBySu/hUdZh3gY4AOae97IxH9VzpBEOGUkzPVL+sifaHBu
-         o0wbjvz5uRSBzN1Z/pLKLs3NAzgbVa/GxF9wcU/0d4gmePPSS2r3ZsQBQioX93KdzFJw
-         tdyRI1UGd6ozUiHTwZYEXUw91nPz/464Q3pcPsdhVx5ojFA0KYt6/aVtYjt2azhXhrkE
-         h7QA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754996867; x=1755601667;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mM1oIijYsTieBVXwDdbk88e2RvtyWnf8BqoF2nILFwk=;
-        b=VQ3AZHbi4fB9/peia8r2rZuiwUPGTAH0F78IZyx/WUHsiLw9aw7k1bTl8kaBk372fD
-         4eYc03WZzq+5E/GFGRVn+wBzDBndA6MyNHiGwQW0Pzty5PlO+d+HP45Zj50fT4r6QeK9
-         lxpyYth8UemROz60P8J4MdymjuC2iWQdRakfYob/7INjNFV9Wqkqz7eErfl7D4aR7PF3
-         3NQZ7ex8NGc+T0c8zS2OlEP+i9gVLGZ9ZMpEsgor4LPgpFrtQ3XruJ4RR0wCAGedwThX
-         BxWvTdFNpCY1zgoZ3qTPZfTF/pI/5PXeVMEM+s3Pk56bBFVPra1MCSuUJJBcPAhXf+QF
-         TJJw==
-X-Forwarded-Encrypted: i=1; AJvYcCVcsbzJ/YqNcF05v+MLrTL+TZ3n1TmsIe6uNQUqdTOOSCmnH3rIN9j9yKLCzjA5J6jH716CIUwoUHU=@lists.infradead.org, AJvYcCWgfyvPepTxqr5i/IeOYDn+/QALcs1KUoYVK2zRBVNBNzhoMk3UCKi+xdP36W3vDQDdyHbH4+ksfsQksjeTSFqS@lists.infradead.org, AJvYcCXogtfPCdpdMAAkx4nbezslCY5MhMAnUN2f/DY92/7jdaGV+lCf1UlBnuxj0VnumBLf1krmarJT27iwfrk=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzwixcdBJzexqav2N+IhgTl2safF14hPKFWTEJRiBdduhuwmTu
-	S3fdF4i26UQarMpVXd0LSNuQjUvMGVV/rmbq2ZcGype65r/ONJ2HnikDkCg3NahnMGpGwYYYzD2
-	k1kfWn/kXcJDcG22o+kvskQhpxBe6+78=
-X-Gm-Gg: ASbGncsX5Nm4XzDZAdF3KtU1bQGYjs1y8Xuq2F2GKbIMRYc7ybuiz4zKuAsvHtnBQy/
-	a/ZfNpdrSRymXkq1+vlWdGFLVHGAbuRxDjdmflCS/qi0afWZkkw5SMkaeEqIKb/3jG0s7DVga0C
-	FNofJ+89I/UGogqXoNrJEhPVqYvVZCNbvsvnWeZv/wq3ifSvMhGajK8mH+c/Qr0/FuBV06/vBws
-	cOjDY8emQHkvy6OfpQ=
-X-Google-Smtp-Source: AGHT+IGLTgav5Ly0pJQ7DxONlyuqSGpB75/R07ZLvB4KvAdVZt2KEevtP/u+Z9PPdrxzblYTwfgzUXYmCR2PQbfj+a0=
-X-Received: by 2002:a17:903:1a70:b0:240:5c13:979a with SMTP id
- d9443c01a7336-24306da5537mr4831165ad.9.1754996867136; Tue, 12 Aug 2025
- 04:07:47 -0700 (PDT)
+	id 1ulrkB-0000000BKij-14qc;
+	Tue, 12 Aug 2025 16:20:59 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uln49-0000000AbH1-1iwk;
+	Tue, 12 Aug 2025 11:21:18 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4c1TRs1VQtz9sTD;
+	Tue, 12 Aug 2025 13:14:49 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id DTzy6W8y_UWe; Tue, 12 Aug 2025 13:14:49 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4c1TRs0Hb9z9sT8;
+	Tue, 12 Aug 2025 13:14:49 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id E8BFE8B764;
+	Tue, 12 Aug 2025 13:14:48 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id aDvaGGSKzC36; Tue, 12 Aug 2025 13:14:48 +0200 (CEST)
+Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 47B258B763;
+	Tue, 12 Aug 2025 13:14:48 +0200 (CEST)
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Arnd Bergmann <arnd@arndb.de>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	Peter Xu <peterx@redhat.com>,
+	Oscar Salvador <osalvador@suse.de>
+Subject: [PATCH] mm: Remove pud_user() from asm-generic/pgtable-nopmd.h
+Date: Tue, 12 Aug 2025 13:14:19 +0200
+Message-ID: <c7f99612ecfa04054b37518df661d04f88f7c9af.1754997083.git.christophe.leroy@csgroup.eu>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-References: <20250812-vdso-absolute-reloc-v4-0-61a8b615e5ec@linutronix.de>
-In-Reply-To: <20250812-vdso-absolute-reloc-v4-0-61a8b615e5ec@linutronix.de>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Tue, 12 Aug 2025 13:07:34 +0200
-X-Gm-Features: Ac12FXz75fv-5GwEH7lTNJ0yhooMj6nwQ9IaaKPBS7pSI2ZcZDdB8Ex-5Z7LxRg
-Message-ID: <CANiq72nV62c8cVBzke73OH-sfLdgerDBGrLKTmT83+OQtK6PjA@mail.gmail.com>
-Subject: Re: [PATCH v4 00/24] vdso: Reject absolute relocations during build
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Kees Cook <kees@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>, 
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-mm@kvack.org, linux-um@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
-	linux-mips@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, Jan Stancek <jstancek@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@redhat.com>, Alexandre Ghiti <alexghiti@rivosinc.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754997261; l=2502; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=r6IYALBSeAaNHtYjYDWidZ6/UEOCi800e0E0vkKVhXQ=; b=466+/Yll0FE2OOxX7pDe1DSWs6dRdpVNGh6d0m1M8DFv+SE6f95KjZD+1G1fkIXTHHkwZVaXn S8LTupzahjXA3L/dGJsoUuT48x1zCGoslcRYL6VTk4DeKlGSALhnV+L
+X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_040748_078555_DB65C10E 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250812_042117_612159_7203E5D1 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,24 +82,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBdWcgMTIsIDIwMjUgYXQgNzo0NOKAr0FNIFRob21hcyBXZWnDn3NjaHVoCjx0aG9t
-YXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRlPiB3cm90ZToKPgo+IEtidWlsZCBhbmQgUnVzdCBm
-b2xrczogVGhpcyBjb250YWlucyBjdXN0b20gZGVmaW5pdGlvbnMgb2YgaG9zdHByb2cKPiBiaW5k
-Z2VuIGFuZCBydXN0IGxpYnJhcnkgY29tbWFuZHMuCj4gVGhlc2UgYXJlIGN1cnJlbnRseSBvbmx5
-IGRlZmluZWQgaW5zaWRlIHRoZSBzdWJzeXN0ZW0gZGlyZWN0b3J5Lgo+IExldCBtZSBrbm93IGlm
-IHRoZXkgc2hvdWxkIGdvIGludG8gc2NyaXB0cy9NYWtlZmlsZS5ob3N0LgoKR2xhZCB0byBzZWUg
-bW9yZSBSdXN0IGhvc3QgcHJvZ3MgOikKCktlZXBpbmcgdGhlbSBsb2NhbCBtYXkgYmUgYSBiaXQg
-ZWFzaWVyIGluaXRpYWxseSB0byBsYW5kLCBJIGd1ZXNzCihlLmcuIG5vIGRvY3MpLCBhbmQgdGhl
-biB3ZSBjYW4gZ2VuZXJhbGl6ZSB3aGVuIG5lZWRlZCBsYXRlci4KCkJ5IHRoZSB3YXksIGZvciBj
-b25zaXN0ZW5jeSB3aXRoIGVsc2V3aGVyZSwgcHJvYmFibHkgd2Ugd2FudApgSE9TVFJVU1RMSUJg
-IC0+IGBIT1NUUlVTVEMgTGAuIFRob3VnaCBJIGFtIHRoaW5raW5nIHRvIHJlbW92ZSB0aGUgYExg
-CmFueXdheSBzaW5jZSBldmVudHVhbGx5IGEgbG90IG9mIGNvZGUgd2lsbCBiZSAibGliIi4KCkNo
-ZWVycywKTWlndWVsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
+issues") added pud_user() in include/asm-generic/pgtable-nopmd.h
+
+But pud_user() only exists on ARM64 and RISCV and is not expected
+by any part of MM.
+
+Add the missing definition in arch/riscv/include/asm/pgtable-32.h
+and remove it from asm-generic/pgtable-nopmd.h
+
+A stub pud_user() is also required for ARM64 after
+commit ed928a3402d8 ("arm64/mm: fix page table check compile
+error for CONFIG_PGTABLE_LEVELS=2")
+
+Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+Reviewed-by: Peter Xu <peterx@redhat.com>
+Reviewed-by: Oscar Salvador <osalvador@suse.de>
+---
+ arch/arm64/include/asm/pgtable.h    | 1 +
+ arch/riscv/include/asm/pgtable-32.h | 5 +++++
+ include/asm-generic/pgtable-nopmd.h | 1 -
+ 3 files changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index abd2dee416b3b..fef7cc7a340d8 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -955,6 +955,7 @@ static inline pmd_t *pud_pgtable(pud_t pud)
+ 
+ #define pud_valid(pud)		false
+ #define pud_page_paddr(pud)	({ BUILD_BUG(); 0; })
++#define pud_user		false /* Always 0 with folding */
+ #define pud_user_exec(pud)	pud_user(pud) /* Always 0 with folding */
+ 
+ /* Match pmd_offset folding in <asm/generic/pgtable-nopmd.h> */
+diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+index 00f3369570a83..37878ef374668 100644
+--- a/arch/riscv/include/asm/pgtable-32.h
++++ b/arch/riscv/include/asm/pgtable-32.h
+@@ -36,4 +36,9 @@
+ static const __maybe_unused int pgtable_l4_enabled;
+ static const __maybe_unused int pgtable_l5_enabled;
+ 
++static inline int pud_user(pud_t pud)
++{
++	return 0;
++}
++
+ #endif /* _ASM_RISCV_PGTABLE_32_H */
+diff --git a/include/asm-generic/pgtable-nopmd.h b/include/asm-generic/pgtable-nopmd.h
+index 8ffd64e7a24cb..b01349a312fa7 100644
+--- a/include/asm-generic/pgtable-nopmd.h
++++ b/include/asm-generic/pgtable-nopmd.h
+@@ -30,7 +30,6 @@ typedef struct { pud_t pud; } pmd_t;
+ static inline int pud_none(pud_t pud)		{ return 0; }
+ static inline int pud_bad(pud_t pud)		{ return 0; }
+ static inline int pud_present(pud_t pud)	{ return 1; }
+-static inline int pud_user(pud_t pud)		{ return 0; }
+ static inline int pud_leaf(pud_t pud)		{ return 0; }
+ static inline void pud_clear(pud_t *pud)	{ }
+ #define pmd_ERROR(pmd)				(pud_ERROR((pmd).pud))
+-- 
+2.49.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
