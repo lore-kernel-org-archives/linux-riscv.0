@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52870C87FCB
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 05:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC78BC87FCB
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 05:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KIzACGO/nzXj2dyVLB8G7ZWZav7eQqQGzjnvItTJ5tA=; b=bx2hXzF4Xq+TE6
-	B6vg0QhMB78zs9ppM1hyE07sVecvVBDwAewmN2gHg9NaoO0bPFd13dSnGX004PI/+Z8IQcONgQ7xa
-	Wm9zlW9KjG/wiuIVsamf/HjBKo0CdefJMIwHbylKSKIFJhTEMWzclQb5qVoeUSLrcHVfSxvtLjljg
-	de/+a79YCs5B+WzNB6TC7HUy1zub6MZ821SL8hQ+v/14wRt8U3dWWrwiaWxqmLxA9Y8SUAbYKe1OW
-	17Far6Te4CHfzSjA2aI1BeCMmskdHO/vSmNthEwGyqoi6kFbGKnmhYLksgWjl4cWDdF38nExmPc9J
-	ntmFI64yODhPfTOZ0Upw==;
+	List-Owner; bh=1V3vRs9JXfupzzfmdsoNGXqDHnrBs+aI5HONLoevrkI=; b=a7sZG2PntFPPnv
+	jcqGD4gn9iVqSlxpzA2Rcm5yqe6mtmmaHHWV82CLq9Hxng/Cw9cP+oGZerVUzaZy7YHHWA0MssTHT
+	7P+F6nhf2OpJxlsvNScA0BHshgAs6A0FgQrDebM28xCNarrJRferNd1Fvs7eeAaFVmc9Qr5VAq3cI
+	8vAZXByZhxnKwdk3l6YrxIGHFDdJILM6Kl7N6yiXNCUKgG3me5suqPTB0w1r4cGSVBde0J3fjJyaq
+	bOUaoZkxsrfe6pRjfSUGVmp3iRidZIWmQ5vgsSR9cr5GGdKJ74xZKQF/gRhDoXIK9MMOXlOtzNDyx
+	Zbr6AX1P9ZiMG++mlp3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhnJ-00000009uQR-2V1I;
-	Tue, 12 Aug 2025 05:43:33 +0000
+	id 1ulhnR-00000009uSh-0zPv;
+	Tue, 12 Aug 2025 05:43:41 +0000
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhnG-00000009uPr-4BEL
+	id 1ulhnP-00000009uRs-1eWj
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Aug 2025 05:43:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1754977408; cv=none; 
+	Tue, 12 Aug 2025 05:43:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1754977416; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=eAhIiWNmQ6ezpM1mxCLbOoGo7q8UUea4xRmCr8FPbJpmC5raikgQsSOsRQZ17G7bfWSKbzfhAk9XJSbQEf9GWH8VqS8MJC5qAkB1LzL/FW1fWd2KF0kdY6gq3iMLeCovrLdKdqg/38o9sSEg6Gb7EOZzKS7DyubAUtbO6MS1Pz8=
+	b=jTa4kReGla+i9FaNIqUx2M0EjqQ6aDG6gJKhYfP3NiD0y2SmflqQU1NIKld9juo7WOtgFxQP+vfy3kEhF10NeIkX5v547KwFoTIPCM53kAGUYXU9mUobVFihdflG2QxvLjbEgoCeIoeatLyJLs/QvM5JoQt+dcJN44qufepkfTo=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1754977408; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ru2Vsb7/og+EijPXl6fKV4Ujus+LUwB94JMCeT6zV3E=; 
-	b=E49ACa9e1KlsFqR6tntCei7Gg+hj1n2Ak6CZ16s35GCrngNIkKsxl75skuNlv4sAVA1uBzWE+tGqhweoHnRzMXTGAPx9w6rFVQrmgh83LOOK8N4cYB4GT7uuW+ktImWPq03yHcqoEPmOS+2xHrZS8PoLKEK/u3p41gEFxdQiV/c=
+	t=1754977416; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=guBz41lPC7DvB/lzb2XzSOW9gC2s99ipDDYDjHrfLz0=; 
+	b=BSHUNpee1RGTqu9yErYDfwaL/bJnfBOW+lYOfz+gZzn0M2YzIRWKRhrn60cWOSZv18n6jY5/BHYIaNnoMriFqvMES9sCG+hHKdcM8cXEKQAS/EacLcBG23eXtTLkYizECLOtkYPcam5s1jmMBt1nmjFLmq8nl4oBJtLiJME9M+8=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=icenowy.me;
 	spf=pass  smtp.mailfrom=uwu@icenowy.me;
 	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1754977408;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1754977416;
 	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
 	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=ru2Vsb7/og+EijPXl6fKV4Ujus+LUwB94JMCeT6zV3E=;
-	b=jJdqH35y2BSVPgoURVbes57NTgZDZdGATmlg45vbV2oMEzJ4v7ydjFaOO7yduL6K
-	WkBNuLZ7oXeJkML4RVJquQwC52k6kgqzap2fjYZwGo4zxeAiJu8qCgvUXUBq1vMLbRZ
-	UjzbWN0IAwmCCQot+ncGlmRI6h5BdhgDWPvZcCuz0dgVzqBQcDm3rXtjV9oElAeAF2N
-	dOZzuOX8IasspGRs/JV6ws/TS7du6v50LnnZDldj2G6D7ZrlZJjBNeLoV39R6czH9ly
-	P6UYfbrj/YJaYdUwK3gJbHDMz1QJ48v/QzroTjtgyDjGO/HjMszDc8SizVXXV2MWF6S
-	Q8nroX+eAw==
-Received: by mx.zohomail.com with SMTPS id 1754977406437790.7145889568351;
-	Mon, 11 Aug 2025 22:43:26 -0700 (PDT)
+	bh=guBz41lPC7DvB/lzb2XzSOW9gC2s99ipDDYDjHrfLz0=;
+	b=GsX8dMU6lFWvIeRcBIndLbRsaYdLiWPz1/iuvx/XMrEaRxH9e+hncM4AYrq3euKC
+	b3dRC1D8FPimt+NXyBMAjYSx6mhYxmo1VqEc4acrjo/qpImEaE2NP9zFJhu8+fxZuk/
+	bOGD5Vg3zZdu7z9fApQ3OWtgAPcfAExoF+UFyzfcglsmw/NOBhE1i7rFR25+iJK3wyn
+	vocFuZH6NWTysgLCWUzedd5ggKu0gSPkxsoZ3WundoKFTM3iyfelH1KzMsExQy0d6bH
+	YTUSKCdtBaefHN12t1MrZo3Ft8LM+FwZUUaRofMDulVA+lqdwcKoBbAm4Io23v0G3LF
+	fxxluq4qbw==
+Received: by mx.zohomail.com with SMTPS id 1754977413726883.2183651266567;
+	Mon, 11 Aug 2025 22:43:33 -0700 (PDT)
 From: Icenowy Zheng <uwu@icenowy.me>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -61,17 +61,17 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH 1/4] clk: thead: add support for enabling/disabling PLLs
-Date: Tue, 12 Aug 2025 13:42:55 +0800
-Message-ID: <20250812054258.1968351-2-uwu@icenowy.me>
+Subject: [PATCH 2/4] clk: thead: support changing DPU pixel clock rate
+Date: Tue, 12 Aug 2025 13:42:56 +0800
+Message-ID: <20250812054258.1968351-3-uwu@icenowy.me>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250812054258.1968351-1-uwu@icenowy.me>
 References: <20250812054258.1968351-1-uwu@icenowy.me>
 MIME-Version: 1.0
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_224331_096718_A937222E 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20250811_224339_496700_37408D78 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,120 +88,167 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 2nd control word of T-Head TH1520 PLLs contains a bit to put the VCO
-into reset state, which means disabling the PLL.
+The DPU pixel clock rate corresponds to the required dot clock of the
+display mode, so it needs to be tweakable.
 
-Some PLLs are put to disabled state by the bootloader, and the clock
-driver should be able to enable them.
-
-Add support for enabling/disabling PLLs. PLLs other than DPU ones are
-set CLK_IS_CRITICAL to prevent killing the system -- they're meant to
-drive CPU or system buses (even the GMAC/Video ones are driving arbitrary
-buses).
+Add support to change it, by adding generic divider setting code,
+arming the code to the dpu0/dpu1 clocks, and setting the pixel clock
+connected to the DPU (after a gate) to CLK_SET_RATE_PARENT to propagate
+it to the dividers.
 
 Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 ---
- drivers/clk/thead/clk-th1520-ap.c | 38 +++++++++++++++++++++++++++----
- 1 file changed, 33 insertions(+), 5 deletions(-)
+ drivers/clk/thead/clk-th1520-ap.c | 87 +++++++++++++++++++++++++++++--
+ 1 file changed, 82 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-index dd6359441f7e8..2f87c7c2c3baf 100644
+index 2f87c7c2c3baf..3e81f3051cd6c 100644
 --- a/drivers/clk/thead/clk-th1520-ap.c
 +++ b/drivers/clk/thead/clk-th1520-ap.c
-@@ -18,6 +18,7 @@
- #define TH1520_PLL_FBDIV	GENMASK(19, 8)
- #define TH1520_PLL_REFDIV	GENMASK(5, 0)
- #define TH1520_PLL_BYPASS	BIT(30)
-+#define TH1520_PLL_VCO_RST	BIT(29)
- #define TH1520_PLL_DSMPD	BIT(24)
- #define TH1520_PLL_FRAC		GENMASK(23, 0)
- #define TH1520_PLL_FRAC_BITS    24
-@@ -242,6 +243,30 @@ static const struct clk_ops ccu_div_ops = {
- 	.determine_rate	= clk_hw_determine_rate_no_reparent,
- };
+@@ -55,6 +55,7 @@ struct ccu_gate {
  
-+static void ccu_pll_disable(struct clk_hw *hw)
-+{
-+	struct ccu_pll *pll = hw_to_ccu_pll(hw);
-+
-+	regmap_set_bits(pll->common.map, pll->common.cfg1,
-+			TH1520_PLL_VCO_RST);
-+}
-+
-+static int ccu_pll_enable(struct clk_hw *hw)
-+{
-+	struct ccu_pll *pll = hw_to_ccu_pll(hw);
-+
-+	return regmap_clear_bits(pll->common.map, pll->common.cfg1,
-+				 TH1520_PLL_VCO_RST);
-+}
-+
-+static int ccu_pll_is_enabled(struct clk_hw *hw)
-+{
-+	struct ccu_pll *pll = hw_to_ccu_pll(hw);
-+
-+	return !regmap_test_bits(pll->common.map, pll->common.cfg1,
-+				 TH1520_PLL_VCO_RST);
-+}
-+
- static unsigned long th1520_pll_vco_recalc_rate(struct clk_hw *hw,
- 						unsigned long parent_rate)
- {
-@@ -299,6 +324,9 @@ static unsigned long ccu_pll_recalc_rate(struct clk_hw *hw,
+ struct ccu_div {
+ 	u32			enable;
++	u32			div_en;
+ 	struct ccu_div_internal	div;
+ 	struct ccu_internal	mux;
+ 	struct ccu_common	common;
+@@ -198,6 +199,78 @@ static unsigned long ccu_div_recalc_rate(struct clk_hw *hw,
+ 	return rate;
  }
  
- static const struct clk_ops clk_pll_ops = {
-+	.disable	= ccu_pll_disable,
-+	.enable		= ccu_pll_enable,
-+	.is_enabled	= ccu_pll_is_enabled,
- 	.recalc_rate	= ccu_pll_recalc_rate,
++static long ccu_div_round_rate(struct clk_hw *hw, unsigned long rate,
++			       unsigned long *parent_rate)
++{
++	struct ccu_div *cd = hw_to_ccu_div(hw);
++	unsigned int val;
++
++	if (!cd->div_en) {
++		regmap_read(cd->common.map, cd->common.cfg0, &val);
++		val = val >> cd->div.shift;
++		val &= GENMASK(cd->div.width - 1, 0);
++		return divider_ro_round_rate(hw, rate, parent_rate,
++					     NULL, cd->div.width, cd->div.flags,
++					     val);
++	} else {
++		return divider_round_rate(hw, rate, parent_rate,
++					  NULL, cd->div.width, cd->div.flags);
++	}
++}
++
++static int ccu_div_determine_rate(struct clk_hw *hw,
++				  struct clk_rate_request *req)
++{
++	struct ccu_div *cd = hw_to_ccu_div(hw);
++	unsigned int val;
++
++	if (!cd->div_en) {
++		regmap_read(cd->common.map, cd->common.cfg0, &val);
++		val = val >> cd->div.shift;
++		val &= GENMASK(cd->div.width - 1, 0);
++		return divider_ro_determine_rate(hw, req, NULL,
++						 cd->div.width,
++						 cd->div.flags,
++						 val);
++	} else {
++		return divider_determine_rate(hw, req, NULL,
++					      cd->div.width, cd->div.flags);
++	}
++}
++
++static int ccu_div_set_rate(struct clk_hw *hw, unsigned long rate,
++				      unsigned long parent_rate)
++{
++	struct ccu_div *cd = hw_to_ccu_div(hw);
++	int val = divider_get_val(rate, parent_rate, NULL,
++				  cd->div.width, cd->div.flags);
++	unsigned int curr_val, reg_val;
++
++	if (val < 0)
++		return val;
++
++	regmap_read(cd->common.map, cd->common.cfg0, &reg_val);
++	curr_val = reg_val;
++	curr_val = curr_val >> cd->div.shift;
++	curr_val &= GENMASK(cd->div.width - 1, 0);
++
++	if (!cd->div_en && curr_val != val)
++		return -EINVAL;
++
++	reg_val &= ~cd->div_en;
++	regmap_write(cd->common.map, cd->common.cfg0, reg_val);
++	udelay(1);
++
++	reg_val &= ~GENMASK(cd->div.width + cd->div.shift - 1, cd->div.shift);
++	reg_val |= val << cd->div.shift;
++	regmap_write(cd->common.map, cd->common.cfg0, reg_val);
++
++	reg_val |= cd->div_en;
++	regmap_write(cd->common.map, cd->common.cfg0, reg_val);
++
++	return 0;
++}
++
+ static u8 ccu_div_get_parent(struct clk_hw *hw)
+ {
+ 	struct ccu_div *cd = hw_to_ccu_div(hw);
+@@ -240,7 +313,9 @@ static const struct clk_ops ccu_div_ops = {
+ 	.get_parent	= ccu_div_get_parent,
+ 	.set_parent	= ccu_div_set_parent,
+ 	.recalc_rate	= ccu_div_recalc_rate,
+-	.determine_rate	= clk_hw_determine_rate_no_reparent,
++	.round_rate	= ccu_div_round_rate,
++	.set_rate	= ccu_div_set_rate,
++	.determine_rate = ccu_div_determine_rate,
  };
  
-@@ -314,7 +342,7 @@ static struct ccu_pll cpu_pll0_clk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("cpu-pll0",
- 					      osc_24m_clk,
- 					      &clk_pll_ops,
+ static void ccu_pll_disable(struct clk_hw *hw)
+@@ -784,6 +859,7 @@ static struct ccu_div venc_clk = {
+ };
+ 
+ static struct ccu_div dpu0_clk = {
++	.div_en		= BIT(8),
+ 	.div		= TH_CCU_DIV_FLAGS(0, 8, CLK_DIVIDER_ONE_BASED),
+ 	.common		= {
+ 		.clkid          = CLK_DPU0,
+@@ -791,7 +867,7 @@ static struct ccu_div dpu0_clk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_HW("dpu0",
+ 					      dpu0_pll_clk_parent,
+ 					      &ccu_div_ops,
 -					      0),
-+					      CLK_IS_CRITICAL),
++					      CLK_SET_RATE_UNGATE),
  	},
  };
  
-@@ -326,7 +354,7 @@ static struct ccu_pll cpu_pll1_clk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("cpu-pll1",
- 					      osc_24m_clk,
- 					      &clk_pll_ops,
+@@ -800,6 +876,7 @@ static const struct clk_parent_data dpu0_clk_pd[] = {
+ };
+ 
+ static struct ccu_div dpu1_clk = {
++	.div_en		= BIT(8),
+ 	.div		= TH_CCU_DIV_FLAGS(0, 8, CLK_DIVIDER_ONE_BASED),
+ 	.common		= {
+ 		.clkid          = CLK_DPU1,
+@@ -807,7 +884,7 @@ static struct ccu_div dpu1_clk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_HW("dpu1",
+ 					      dpu1_pll_clk_parent,
+ 					      &ccu_div_ops,
 -					      0),
-+					      CLK_IS_CRITICAL),
++					      CLK_SET_RATE_UNGATE),
  	},
  };
  
-@@ -338,7 +366,7 @@ static struct ccu_pll gmac_pll_clk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("gmac-pll",
- 					      osc_24m_clk,
- 					      &clk_pll_ops,
--					      0),
-+					      CLK_IS_CRITICAL),
- 	},
- };
- 
-@@ -358,7 +386,7 @@ static struct ccu_pll video_pll_clk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("video-pll",
- 					      osc_24m_clk,
- 					      &clk_pll_ops,
--					      0),
-+					      CLK_IS_CRITICAL),
- 	},
- };
- 
-@@ -410,7 +438,7 @@ static struct ccu_pll tee_pll_clk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("tee-pll",
- 					      osc_24m_clk,
- 					      &clk_pll_ops,
--					      0),
-+					      CLK_IS_CRITICAL),
- 	},
- };
- 
+@@ -891,9 +968,9 @@ static CCU_GATE(CLK_GPU_CORE, gpu_core_clk, "gpu-core-clk", video_pll_clk_pd,
+ static CCU_GATE(CLK_GPU_CFG_ACLK, gpu_cfg_aclk, "gpu-cfg-aclk",
+ 		video_pll_clk_pd, 0x0, BIT(4), 0);
+ static CCU_GATE(CLK_DPU_PIXELCLK0, dpu0_pixelclk, "dpu0-pixelclk",
+-		dpu0_clk_pd, 0x0, BIT(5), 0);
++		dpu0_clk_pd, 0x0, BIT(5), CLK_SET_RATE_PARENT);
+ static CCU_GATE(CLK_DPU_PIXELCLK1, dpu1_pixelclk, "dpu1-pixelclk",
+-		dpu1_clk_pd, 0x0, BIT(6), 0);
++		dpu1_clk_pd, 0x0, BIT(6), CLK_SET_RATE_PARENT);
+ static CCU_GATE(CLK_DPU_HCLK, dpu_hclk, "dpu-hclk", video_pll_clk_pd, 0x0,
+ 		BIT(7), 0);
+ static CCU_GATE(CLK_DPU_ACLK, dpu_aclk, "dpu-aclk", video_pll_clk_pd, 0x0,
 -- 
 2.50.1
 
