@@ -4,55 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB09CA0EC4
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 14:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24410CA0EC4
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 16:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/xqH/1zHNdGtV9w3z/2K7fFDmN4Yqv17B6PIWXQJMig=; b=v5xbNQB6IjnDfM
-	Sdr3W6eJQfXqNuJNFSGt518kt7C9u0VFEtPYtC1uYZTIfrDOYTMr0ItbCfHjKO6ghCLbkk0UPFTGL
-	hxy4V06w+z4LKFPOdgAmbMLReTsGD4RwzT+PwF0mpuy/65YOMV6Em5Up8TkQQQTUw+HUGH76EUtcA
-	kK0LdLNaqT6Yxx8EiNEE7iTZ1cIAEPwtmYAbi2g7RW2jL7aj8a8oF2Nq409+dhe2pxxvNvxGiPXfb
-	GDRA4z/eV6BnUd30lLl8Bz5/pEpYzaFQkUUZjANBxkGsstSPHuCxKlXY46oTzQZO0CjSvmQTVFmqM
-	RDM6NrqyfJmKnMPGUZag==;
+	List-Owner; bh=6Z4yXRP8udU9USaWTOcoq36Lv8OQTHXXKKZYAEGWxB0=; b=dcvzqqgSQo2+LR
+	7rg3Mr0EbI64M4+p1ljMrr2XkeJfvMSasPIYz6nDnrXv0kpgWxgTYWJ+Y1QKIvLqoesiM7adZqM4N
+	QG4q9UdkpeUfJUYCStZnV6r48YNm6Rqvw5awteBfw1QbZbdM2CswrJXhAnQ+nwnjVcg9jME/cXTi6
+	wtD2iU0LBPxo5kJjs5p+iqG/VbLzOmczFtQQ0ciOSZliNPrzVZaHltHbZ8yjiBhZLIQbSiN3GrX19
+	VE1EZZS+X2rcATBnlw0ZqIr1giM9n++hH/bS25G4YnT6aoEu+OB9EviGY6MyCcm8+h3OGm5CXmfCP
+	fhAEAJa/u8S6vOFqA+Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulqMq-0000000B71q-0ShH;
-	Tue, 12 Aug 2025 14:52:48 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1ulrj0-0000000BJ2c-3xdF;
+	Tue, 12 Aug 2025 16:19:47 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ullNE-0000000AOPL-0OVk
+	id 1ulmQ6-0000000AWLG-3Lug
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Aug 2025 09:32:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 2970143279;
-	Tue, 12 Aug 2025 09:32:48 +0000 (UTC)
-Message-ID: <5bfaa7c4-7925-4c8d-b43b-10012e3aee0e@ghiti.fr>
-Date: Tue, 12 Aug 2025 11:32:48 +0200
+	Tue, 12 Aug 2025 10:39:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1754995193;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZNmGluZMVEODqqLey7tscfNEcE8jZgnd0oIotEJMQE8=;
+	b=aEGe1w8zxJQBuJ9XfTMw2VQBa5DfgRGhVhyNcdeTb98+kLIUjhNCs4nZdBzTXBx4Z3Vypy
+	kAvwcVdIdFXAKYn2cQYSg81g0JZggXKwPq+ZdoXluwc4C1ATCXBjz9eSnb7hJEZA0ZQgtn
+	2Ujlk86CsSijXcLaXo7P6XfFuBD9x60=
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
+ [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-600-7QlL-fciOQmTdl7Ql7zGeA-1; Tue, 12 Aug 2025 06:39:50 -0400
+X-MC-Unique: 7QlL-fciOQmTdl7Ql7zGeA-1
+X-Mimecast-MFC-AGG-ID: 7QlL-fciOQmTdl7Ql7zGeA_1754995190
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7e7fc5f1e45so1103627285a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Aug 2025 03:39:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754995190; x=1755599990;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZNmGluZMVEODqqLey7tscfNEcE8jZgnd0oIotEJMQE8=;
+        b=FYoFIuFQ6ZrgCVyF27mhE6LfOgy11qveLgaV0ksEMdROAbuyqedx7TgyBRnAizdfMW
+         o4IC7neAMkhhBuJB+qGVUakuaXK0OhruKCaWxEyB/DQxdpkBIbHVJPju8OM/g9LNScYs
+         NGy42IPDyE2gH+sitGZFAIRUjOCXVhEHRpSMxSY9xPo2WvBhH3gMcBU2zbqmxfFL4sMs
+         H1AUm6hP7DGNntDeKWY7wsFwFpXPIroLL+3WsTxJN1jhMQ1nl3zwhnG3ThzZv8+881AV
+         dOT+S9TpWyN5U/Fl9UJ5hSBMhnJZgiVIihwcuz6tnJqY8nrUzPRdMeB2RpP80z1hfzOv
+         kHOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXK9c58/e5j1Mwj9lXNNHRaoNsL9RU+Ml+jztOiCXFrOsgxoniCw8Y706mPhoqWt1R9iT+CT47tgbgAgA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxajQE+6j07Rzd+w3VkbDb9ke5VRSAmLWZfXX6QqjgCssW/jf6d
+	lBr4zwoQtFchD0WjdkfKoKIOBhzUMmlub5kK4CSukvSY+4YiwaO+YIrDMw6Ql30gpH90PVVMtaB
+	CbuOt9FmvIVpVn6bQcQ5IMguZ/tAuRI8nbF5sXOMUz9uMGrUHUZq014P1ZlB7KOtrPiGX9w==
+X-Gm-Gg: ASbGncsih2KxEwblHEr8ki/Detl7D4PdoonIAqqMIrJVNnnjV8AxflID18lzH7sImFc
+	NUjtSlSC+RYkCPekJo+1XEs89namO8GdhBuho2GjmwuUXKUBOrATFGiQnPszS4pVgfe2uNdMA7f
+	fpK9Jtmv6Lo4xvvGk1OTMMuK+7KyFnc+U2rZZOLIiXxjkQdlbG9fJht2RXpNAp+6UIk3Vuuseu9
+	Pp67J3uhXa5KmOzQ2xWn208ws18vuqWQQNQecT4vO8jIJWS1QoKxE9R9G9E0c9jeOCTu95ugaXx
+	qhJkpmW49TDoOkjajb4uUgE/ax5gTFKQxedwBdc40gPJsB980g9ExUUYZNcxJT8=
+X-Received: by 2002:a05:620a:126c:b0:7e8:15ce:bf9f with SMTP id af79cd13be357-7e8588b064emr355637785a.33.1754995189754;
+        Tue, 12 Aug 2025 03:39:49 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFnBK/VwO9xaDEZqPIr5Ki0EDBjQlgku4qoR/ofUy7muXwNiOHVcU/4sdcTQibJSWhG5zm1ew==
+X-Received: by 2002:a05:620a:126c:b0:7e8:15ce:bf9f with SMTP id af79cd13be357-7e8588b064emr355631785a.33.1754995188996;
+        Tue, 12 Aug 2025 03:39:48 -0700 (PDT)
+Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e67f73101asm1727614485a.68.2025.08.12.03.39.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 03:39:47 -0700 (PDT)
+Date: Tue, 12 Aug 2025 06:39:41 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Taichi Sugaya <sugaya.taichi@socionext.com>,
+	Takao Orito <orito.takao@socionext.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Yixun Lan <dlan@gentoo.org>,
+	Steen Hegelund <Steen.Hegelund@microchip.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	UNGLinuxDriver@microchip.com, Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Qin Jian <qinjian@cqplus1.com>, Viresh Kumar <vireshk@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Alex Helms <alexander.helms.jy@renesas.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	sophgo@lists.linux.dev, linux-mips@vger.kernel.org,
+	imx@lists.linux.dev, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+	patches@opensource.cirrus.com, linux-actions@lists.infradead.org,
+	asahi@lists.linux.dev, linux-mediatek@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev
+Subject: Re: [PATCH 000/114] clk: convert drivers from deprecated
+ round_rate() to determine_rate()
+Message-ID: <aJsZ7bs0OMXcrStU@x1>
+References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Question About Access Fault Handling in the Kernel
-To: Vincent Chen <vincent.chen@sifive.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Greentime Hu <greentime.hu@sifive.com>
-References: <CABvJ_xjsawGX33f1LLPeLR=OgT635GcqOSrMQpyzn6LQFqx00w@mail.gmail.com>
- <92e9a9a0-2654-4a0a-9e26-ee4de998aab1@ghiti.fr>
- <CABvJ_xh0dg1s_9c+6EJmL9-jZdmskTSvWyDSUc-ccUwWx4F=jw@mail.gmail.com>
- <3d76c6f4-04d6-402e-a07e-8241a563af04@ghiti.fr>
- <CABvJ_xjacANbKcC-1viju6GoSF+1MM4iHx9UtoE2VpD3oqA2Zg@mail.gmail.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CABvJ_xjacANbKcC-1viju6GoSF+1MM4iHx9UtoE2VpD3oqA2Zg@mail.gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufeegleekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeeuffefvdelteelteejhfejhedujeetteevtddvvddthfeiteffledvffeggfeiieenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeejtdduugemkeguuggumegskegrtdemvdejfhgsnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeejtdduugemkeguuggumegskegrtdemvdejfhgspdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeejtdduugemkeguuggumegskegrtdemvdejfhgsngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeefpdhrtghpthhtohepvhhinhgtvghnthdrtghhvghnsehsihhfihhvvgdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvr
- ggurdhorhhgpdhrtghpthhtohepghhrvggvnhhtihhmvgdrhhhusehsihhfihhvvgdrtghomh
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: mEWzd54c26o4dcUflv4EK95Be2IzfL5RADeg4toOPu4_1754995190
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_023252_269431_8F7F369C 
-X-CRM114-Status: GOOD (  31.97  )
+X-CRM114-CacheID: sfid-20250812_033954_902783_89E622A0 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,122 +176,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOC8xMi8yNSAxMDo0NCwgVmluY2VudCBDaGVuIHdyb3RlOgo+IE9uIFRodSwgQXVnIDcsIDIw
-MjUgYXQgNToxM+KAr1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0aS5mcj4gd3JvdGU6Cj4+
-Cj4+IE9uIDcvMjMvMjUgMDQ6MDgsIFZpbmNlbnQgQ2hlbiB3cm90ZToKPj4+IE9uIFRodSwgSnVs
-IDE3LCAyMDI1IGF0IDk6NTnigK9QTSBBbGV4YW5kcmUgR2hpdGkgPGFsZXhAZ2hpdGkuZnI+IHdy
-b3RlOgo+Pj4+IEhpIFZpbmNlbnQsCj4+Pj4KPj4+PiBGaXJzdCBzb3JyeSBmb3IgdGhlIHZlcnkg
-bGF0ZSByZXBseS4KPj4+Pgo+Pj4gSGkgQWxleGFuZHJlLAo+Pj4KPj4+IE5vIHByb2JsZW0sIEkn
-bSBnbGFkIHRvIGhlYXIgdGhhdCBzb21lb25lIGVsc2UgaXMgYWxzbyBpbnRlcmVzdGVkIGluIHRo
-aXMgaXNzdWUuCj4+Pgo+Pj4+IE9uIDYvMy8yNSAwNjoyNSwgVmluY2VudCBDaGVuIHdyb3RlOgo+
-Pj4+PiBIaSBhbGwsCj4+Pj4+IEkgaGF2ZSBhIHF1ZXN0aW9uIHJlZ2FyZGluZyB0aGUgY3VycmVu
-dCBoYW5kbGluZyBmbG93IGZvciBhY2Nlc3MKPj4+Pj4gZmF1bHRzIGluIHRoZSBrZXJuZWwuCj4+
-Pj4+Cj4+Pj4+IEluIHRoZSBjdXJyZW50IGltcGxlbWVudGF0aW9uLCB0aGUga2VybmVsIGNvbnNp
-c3RlbnRseSByZXBvcnRzIHRhbGwKPj4+Pj4gYWNjZXNzIGZhdWx0cyB1c2luZyBhIFNJR1NFR1Yg
-d2l0aCBlcnJvciBjb2RlIFNFR1ZfQUNDRVJSLCB3aGVyZQo+Pj4+PiBTRUdWX0FDQ0VSUiBzaWdu
-aWZpZXMgIkludmFsaWQgcGVybWlzc2lvbnMgZm9yIG1hcHBlZCBvYmplY3QiCj4+Pj4+IGFjY29y
-ZGluZyB0byB0aGUgUE9TSVggc3BlY2lmaWNhdGlvbi4KPj4+Pj4KPj4+Pj4gSG93ZXZlciwgaW4g
-dGhlIFJJU0MtViBwcml2aWxlZ2Ugc3BlY2lmaWNhdGlvbiwgaXQgc3RhdGVzIHRoYXQKPj4+Pj4g
-IkltcGxlbWVudGF0aW9ucyBtYXkgcmFpc2UgYWNjZXNzLWZhdWx0IGV4Y2VwdGlvbnMgaW5zdGVh
-ZCBvZgo+Pj4+PiBhZGRyZXNzLW1pc2FsaWduZWQgZXhjZXB0aW9ucyBmb3Igc29tZSBtaXNhbGln
-bmVkIGFjY2Vzc2VzLCBpbmRpY2F0aW5nCj4+Pj4+IHRoZSBpbnN0cnVjdGlvbiBzaG91bGQgbm90
-IGJlIGVtdWxhdGVkIGJ5IGEgdHJhcCBoYW5kbGVyIi4gSW4gb3RoZXIKPj4+Pj4gd29yZHMsIGEg
-bG9hZC9zdG9yZSBhY2Nlc3MgZmF1bHQgbWF5IGJlIGNhdXNlZCBieSBhIG1pc2FsaWduZWQgQU1P
-Cj4+Pj4+IGluc3RydWN0aW9uLiBJbiBzdWNoIGNhc2VzLCBpdCBzZWVtcyBtb3JlIGFwcHJvcHJp
-YXRlIHRvIHJlcG9ydCB0aGUKPj4+Pj4gZXJyb3IgdXNpbmcgU0lHQlVTIHdpdGggdGhlIGVycm9y
-IGNvZGUgQlVTX0FEUkFMTiwgd2hpY2ggaW5kaWNhdGVzCj4+Pj4+ICJJbnZhbGlkIGFkZHJlc3Mg
-YWxpZ25tZW50LiIKPj4+PiBJIHRoaW5rIHlvdSdyZSByaWdodCwgaXQgc2VlbXMgbW9yZSBhcHBy
-b3ByaWF0ZS4gQnV0IHRoZW4gaG93IGRvIHdlCj4+Pj4gcmVjb2duaXplIGFuIGFjY2VzcyBmYXVs
-dCBleGNlcHRpb24gdGhhdCBpcyBjYXVzZWQgYnkgYSBtaXNhbGlnbmVkCj4+Pj4gYWNjZXNzPyBE
-byB5b3UgaGF2ZSBhIHNvbHV0aW9uPyBJZiB0aGF0IGRvZXMgbm90IHNsb3cgZG93biB0aGUgIm5v
-cm1hbCIKPj4+PiBhY2Nlc3MgZmF1bHQsIEkgZ3Vlc3Mgd2UgY2FuIGdpdmUgaXQgYSB0cnksIHdo
-YXQgZG8geW91IHRoaW5rPwo+Pj4+Cj4+PiBJbmRlZWQsIEkgZG8gbm90IHlldCBoYXZlIGEgY29u
-Y3JldGUgc29sdXRpb24gdG8gdGhpcyBwcm9ibGVtLiBNeQo+Pj4gY3VycmVudCB0aG91Z2h0IGlz
-IHRoYXQgd2UgbWF5IG5lZWQgYWNjZXNzIHRvIHRoZSBmdWxsIFBNQQo+Pj4gY29uZmlndXJhdGlv
-biBhbmQgUE1QIHNldHRpbmdzIGluIG9yZGVyIHRvIGFjY3VyYXRlbHkgZGlhZ25vc2UgdGhlCj4+
-PiByb290IGNhdXNlIG9mIGFuIGFjY2VzcyBmYXVsdC4KPj4+Cj4+PiBGb3IgZXhhbXBsZSwgd2hl
-biB0aGUga2VybmVsIGVuY291bnRlcnMgYW4gYWNjZXNzIGZhdWx0IHdpdGggc3R2YWwgPQo+Pj4g
-MHgxMDAwMDAyLCB3ZSBjYW5ub3QgZGlyZWN0bHkgZGV0ZXJtaW5lIHdoZXRoZXIgdGhlIGNhdXNl
-IGlzIGEKPj4+IG1pc2FsaWduZWQgQU1PIGFjY2VzcywgYSBQTVAgdmlvbGF0aW9uLCBvciBzb21l
-IG90aGVyIFBNQSB2aW9sYXRpb25zLgo+Pj4gQXMgYSByZXN1bHQsIHRoZSBrZXJuZWwgbWF5IG5v
-dCBiZSBhYmxlIHRvIHJhaXNlIGFuIGFwcHJvcHJpYXRlIHNpZ25hbAo+Pj4gd2l0aCB0aGUgY29y
-cmVjdCBlcnJvciBjb2RlLgo+Pj4KPj4+ICAgRnJvbSBhIHNlY3VyaXR5IHBlcnNwZWN0aXZlLCBl
-eHBvc2luZyBQTUEgY29uZmlndXJhdGlvbnMgb3V0c2lkZSBvZgo+Pj4gTS1tb2RlIG1heSBub3Qg
-YmUgYXBwcm9wcmlhdGUuIElmIHRoaXMgY29uY2VybiBpcyB2YWxpZCwgd2UgbWF5IG5lZWQKPj4+
-IHRvIHJlbHkgb24gT3BlblNCSSB0byBhc3Npc3QgaW4gZGlhZ25vc2luZyBzdWNoIGZhdWx0cy4g
-SG93ZXZlciwgdGhpcwo+Pj4gd291bGQgaW50cm9kdWNlIGFkZGl0aW9uYWwgb3ZlcmhlYWQgdG8g
-c2xvdyBkb3duIHRoZSBwcm9jZXNzIG9mIHRoZQo+Pj4gIm5vcm1hbCIgYWNjZXNzIGZhdWx0Lgo+
-Pj4KPj4+IE9uIHRoZSBvdGhlciBoYW5kLCB0aGUgY3VycmVudCBpbXBsZW1lbnRhdGlvbiBjb25z
-aXN0ZW50bHkgcmVwb3J0cyBhbgo+Pj4gYWNjZXNzIGZhdWx0IHZpYSB0aGUgU0lHU0VHViBzaWdu
-YWwgd2l0aCB0aGUgU0VHVl9BQ0NFUlIgZXJyb3IgY29kZS4KPj4+IEZvciBtZSwgdGhpcyBhcHBy
-b2FjaCBjb3VsZCBiZSBtb3JlIHByZWNpc2UgZm9yIHNvbWUgY2FzZXMuIEZvcgo+Pj4gZXhhbXBs
-ZSwgd2hlbiB0aGUgQ1BVIGV4ZWN1dGVzIGFuIEFNTyBpbnN0cnVjdGlvbiBvbiBhIHJlZ2lvbiBt
-YXJrZWQKPj4+IHdpdGggdGhlIEFNT05vbmUgUE1BIGF0dHJpYnV0ZSwgcmVwb3J0aW5nIHRoZSBm
-YXVsdCB1c2luZyB0aGUgU0lHQlVTCj4+PiB3aXRoIHRoZSBCVVNfT0JKRVJSIGVycm9yIGNvZGUg
-bWlnaHQgYmUgbW9yZSBhcHByb3ByaWF0ZS4gSG93ZXZlciwgSQo+Pj4gaGF2ZSBub3QgZGlzY292
-ZXJlZCBhbnkgZGlzY3Vzc2lvbnMgYWJvdXQgc2ltaWxhciBpc3N1ZXMgb24gdGhlCj4+PiBtYWls
-aW5nIGxpc3QsIHdoaWNoIG1ha2VzIG1lIHF1ZXN0aW9uIHdoZXRoZXIgaXQncyB3b3J0aCBkb2lu
-ZyB0aGlzCj4+PiBhcHByb2FjaC4KPj4KPj4gSSBkb24ndCB0aGluayB3ZSBuZWVkIFBNQS9QTVAg
-dG8gZGlzdGluZ3Vpc2ggYWxsIHBvc3NpYmxlIGFjY2VzcyBmYXVsdAo+PiBlcnJvcnMsIGl0IHNl
-ZW1zIG1vcmUgbGlrZSBhIHBsYXRmb3JtIGlzc3VlIHRvIG1lLiBJIG1lYW4gZG8gbm90IGV4cG9z
-ZQo+PiBhbiBBTU9Ob25lIHJlZ2lvbiBhcyBub3JtYWwgUkFNIHdpdGggYSBub3JtYWwgZGlzdHJv
-LCB5b3UgbXVzdCB0aGF0IHlvdXIKPj4gcGxhdGZvcm0gd2lsbCBuZWVkIHNwZWNpZmljIHVzZXJz
-cGFjZSBhbmQga2VybmVsIHJpZ2h0Pwo+Pgo+PiBGb3IgeW91ciBpbml0aWFsIHByb2JsZW0sIEkg
-dGhpbmsgdGhhdCBmb3IgdXNlcnNwYWNlIGFjY2VzcyBmYXVsdHMsIHdlCj4+IGNhbiB0cnkgdG8g
-ZmluZCBhIFZNQSB0aGF0IGNvbnRhaW5zIHN0dmFsLCBpZiBpdCBleGlzdHMsIHRoYXQncyBhCj4+
-IG1pc2FsaWduZWQgYWNjZXNzIGZhdWx0LCBvdGhlcndpc2UgdGhhdCdzIGEgIm5vcm1hbCIgYWNj
-ZXNzIGZhdWx0LiBXb3VsZAo+PiB0aGF0IHdvcms/Cj4+Cj4gSSBhZ3JlZSB0aGF0IG1vc3QgcHJv
-YmxlbXMgcmVwb3J0ZWQgYXMgYWNjZXNzIGZhdWx0cyBjYW4gYmUKPiBjYXRlZ29yaXplZCBhcyBw
-bGF0Zm9ybSBpc3N1ZXMuIFdlIGNhbiBhc3N1bWUgdGhhdCB0aGUgZW50aXJlIExpbnV4Cj4gZW52
-aXJvbm1lbnQgb3BlcmF0ZXMgd2l0aGluIGEgbWVtb3J5IHJlZ2lvbiBjb25maWd1cmVkIHdpdGgg
-dGhlCj4gY29ycmVjdCBQTVAgYW5kIFBNQSBzZXR0aW5ncywgYW5kIHRoYXQgTGludXggZG9lcyBu
-b3QgY3JlYXRlIGFueQo+IFZBLXRvLVBBIG1hcHBpbmcgd2hlcmUgdGhlIFBBIGlzIGluYWNjZXNz
-aWJsZS4KPgo+IEJhc2VkIG9uIHRoaXMgYXNzdW1wdGlvbiwgSSB0aGluayB5b3VyIGlkZWEgbWFr
-ZXMgc2Vuc2UuIEhvd2V2ZXIsIEkKPiBoYXZlIGFub3RoZXIgcXVlc3Rpb24gcmVnYXJkaW5nIGl0
-LiBJZiBJIHVuZGVyc3RhbmQgY29ycmVjdGx5LCBhbgo+IGFjY2VzcyBmYXVsdCBleGNlcHRpb24g
-b2NjdXJzIGR1ZSB0byBhIFBNQS9QTVAgdmlvbGF0aW9uLiBUaGlzIGFsc28KPiBpbXBsaWVzIHRo
-YXQgdGhlIENQVSBoYXMgYWxyZWFkeSB2ZXJpZmllZCB0aGF0IHRoZSBWQSBhbmQgaXRzCj4gcGVy
-bWlzc2lvbnMgZm9yIHRoaXMgYWNjZXNzIGFyZSB2YWxpZC4gVGhlcmVmb3JlLCBJIGN1cnJlbnRs
-eSBjYW5ub3QKPiB0aGluayBvZiBhIGNhc2Ugd2hlcmUgdGhlIENQVSByYWlzZXMgYW4gYWNjZXNz
-IGZhdWx0IGJ1dCB3ZSBjYW5ub3QKPiBmaW5kIGEgVk1BIHRoYXQgY29udGFpbnMgdGhpcyBzdHZh
-bC4gSW4gc3VjaCBhIGNhc2UsIEkgd291bGQgZXhwZWN0Cj4gdGhlIENQVSB0byByYWlzZSBhIHBh
-Z2UgZmF1bHQgZXhjZXB0aW9uIHJhdGhlciB0aGFuIGFuIGFjY2VzcyBmYXVsdC4KPiBBbSBJIG92
-ZXJsb29raW5nIGFueSBzY2VuYXJpb3M/CgoKVGhhdCB3b3VsZCBtZWFuIHRoYXQsIHVuZGVyIHRo
-ZSBhc3N1bXB0aW9ucyBhYm92ZSwgdGhlIG9ubHkgd2F5IHRvIGdldCAKYW4gYWNjZXNzIGZhdWx0
-IGlzIGZyb20gYSBtaXNhbGlnbmVkIGFjY2Vzcy4gQnV0IHRoZW4gSSdtIHdvbmRlcmluZyBpZiAK
-YXNzdW1pbmcgdGhlIGtlcm5lbCBkb2VzIG5vdCBtYXAgaW5hY2Nlc3NpYmxlIHBoeXNpY2FsIG1l
-bW9yeSBpcyAKY29ycmVjdCwgSSBtZWFuIHdlIGNvdWxkIG1pc3Mgc29tZSBrZXJuZWwgYnVncyAo
-Zm9yIGV4YW1wbGUsIHdyb25nIAptYXBwaW5nIG9mIGRldmljZXMsIGRldmljZXMgbWVtb3J5Li4u
-ZXRjKS4KCkJ1dCBhbnl3YXksIGl0IGZlZWxzIGxpa2UgYXQgbGVhc3Qgd2Ugc2hvdWxkIGFsd2F5
-cyBTSUdCVVMgaW4gY2FzZSBvZiBhbiAKYWNjZXNzIGZhdWx0IHJpZ2h0PyBUaGUgc3BlY2lmaWMg
-ZXJyb3IgY29kZSBtYXkgYmUgbW9yZSBjb21wbGljYXRlZCB0byAKZ2V0LCB3ZSBjb3VsZCBjaGVj
-ayBWTV9JTyBvciBtYWtlIHN1cmUgdGhhdCB0aGUgcGh5c2ljYWwgYWRkcmVzcyBleGlzdHMgCmlu
-IHRoZSBwaHlzaWNhbCBhZGRyZXNzIG1hcHBpbmcuLi5ldGMuIEJ1dCBpdCBzb3VuZHMgImRpcnR5
-Ii4uLgoKCj4KPj4+PiBEaWQgeW91IGVuY291bnRlciB0aGlzIHNpdHVhdGlvbiB3aGVyZSB5b3Ug
-d2VyZSByZXBvcnRlZCBhIFNJR1NFR1YgYnV0Cj4+Pj4gaXQgd2FzIGFjdHVhbGx5IGEgU0lHQlVT
-Pwo+Pj4+Cj4+PiBZZXMsIEkgZW5jb3VudGVyZWQgdGhpcyBpc3N1ZSB3aGVuIHJ1bm5pbmcgdGhl
-IGxvY2tidXMgdGVzdCBpbgo+Pj4gc3RyZXNzLW5nIHZlcnNpb24gdjAuMTguMTIuIFRoaXMgdGVz
-dGNhc2UgaW50ZW5kcyB0byB1c2UgdGhlIEFNTwo+Pj4gaW5zdHJ1Y3Rpb24gdG8gYWNjZXNzIGFu
-IHVuYWxpZ25lZCBhZGRyZXNzIGFuZCBleHBlY3RzIHRvIGdldCBhIFNJR0JVUwo+Pj4gc2lnbmFs
-IGR1ZSB0byB0aGlzIGFjY2Vzcy4KPj4+Cj4+Pj4gU29ycnkgYWdhaW4gZm9yIHRoZSBkZWxheSwK
-Pj4+Pgo+Pj4+IFRoYW5rcywKPj4+Pgo+Pj4+IEFsZXgKPj4+Pgo+Pj4+Cj4+Pj4+IEFzIEkgdW5k
-ZXJzdGFuZCBpdCwgbW9zdCBhY2Nlc3MgZmF1bHRzIGFyZSB0eXBpY2FsbHkgY2F1c2VkIGJ5Cj4+
-Pj4+IHZpb2xhdGlvbnMgb2YgZWl0aGVyIFBNQSBvciBQTVAgc2V0dGluZ3MuIElmIHRoZXNlIHNl
-dHRpbmdzIGFyZQo+Pj4+PiBjb25zaWRlcmVkIGEgZm9ybSBvZiBwZXJtaXNzaW9uIGZvciBhIG1h
-cHBlZCBvYmplY3QsIHRoZW4gdGhlIGN1cnJlbnQKPj4+Pj4gaW1wbGVtZW50YXRpb24gdXNpbmcg
-U0lHU0VHViB3aXRoIFNFR1ZfQUNDRVJSIG1ha2VzIHNlbnNlIGFuZCBoZWxwcwo+Pj4+PiBzaW1w
-bGlmeSB0aGUgZmF1bHQtaGFuZGxpbmcgbG9naWMuCj4+Pj4+Cj4+Pj4+IEnigJlkIGxpa2UgdG8g
-Y29uZmlybSB3aGV0aGVyIHRoaXMgaW50ZXJwcmV0YXRpb24gcmVmbGVjdHMgdGhlIHJlYXNvbmlu
-Zwo+Pj4+PiBiZWhpbmQgdGhlIGN1cnJlbnQgaW1wbGVtZW50YXRpb24uIEFueSBjbGFyaWZpY2F0
-aW9uIHdvdWxkIGJlCj4+Pj4+IGFwcHJlY2lhdGVkLiBUaGFua3MhCj4+Pj4+Cj4+Pj4+IF9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+Pj4+IGxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdAo+Pj4+PiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4+
-Pj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Aug 11, 2025 at 11:17:52AM -0400, Brian Masney via B4 Relay wrote:
+> Once all of my conversion patches across the various trees in the kernel
+> have been merged, I will post a small series that removes the
+> round_rate() op from the clk core and the documentation. Here's the
+> other patch series that are currently in flight that need to be merged
+> before we can remove round_rate() from the core.
+> 
+> - arm32 (3): https://lore.kernel.org/linux-clk/20250710-arm32-clk-round-rate-v1-0-a9146b77aca9@redhat.com/T/
+> - clk/tegra (6): https://lore.kernel.org/linux-clk/20250710-clk-tegra-round-rate-v1-0-e48ac3df4279@redhat.com/T/
+> - clk/ti (7): https://lore.kernel.org/linux-clk/20250811-b4-clk-ti-round-rate-v1-0-cc0840594a49@redhat.com/T/
+> - clocksource (1): https://lore.kernel.org/linux-clk/20250810-clocksource-round-rate-v1-1-486ef53e45eb@redhat.com/T/
+> - drm (9): https://lore.kernel.org/linux-clk/20250811-drm-clk-round-rate-v2-0-4a91ccf239cf@redhat.com/T/
+> - drm/msm (7): https://lore.kernel.org/linux-clk/20250810-drm-msm-phy-clk-round-rate-v2-0-0fd1f7979c83@redhat.com/T/
+> - i2c (1): https://lore.kernel.org/linux-clk/20250810-i2c-round-rate-v1-1-9488b57153e7@redhat.com/T/
+> - media (4): https://lore.kernel.org/linux-clk/20250710-media-clk-round-rate-v1-0-a9617b061741@redhat.com/T/
+> - mips (1): https://lore.kernel.org/linux-clk/20250810-mips-round-rate-v1-1-54e424c520dd@redhat.com/T/
+> - net (1): https://lore.kernel.org/linux-clk/20250810-net-round-rate-v1-1-dbb237c9fe5c@redhat.com/T/
+> - peci (1): https://lore.kernel.org/linux-clk/20250810-peci-round-rate-v1-1-ec96d216a455@redhat.com/T/
+> - phy (9): https://lore.kernel.org/linux-phy/20250810-phy-clk-round-rate-v2-0-9162470bb9f2@redhat.com/T/
+> - pmdomain (1): https://lore.kernel.org/linux-clk/20250810-pmdomain-round-rate-v1-1-1a90dbacdeb6@redhat.com/T/
+> - tty (1): https://lore.kernel.org/linux-clk/20250810-tty-round-rate-v1-1-849009f3bdfd@redhat.com/T/
+
+Konrad noticed on patch 90 the space after the cast. I thought I fixed
+all of those by hand, but apparently not. I looked through this series
+(and the others above) with `grep "u64) "` and `grep "long) "`, and found
+4 other cases.
+
+Patch 38: clk: nxp: lpc32xx: convert from round_rate() to determine_rate()
+Patch 64: clk: x86: cgu: convert from round_rate() to determine_rate()
+Patch 68: clk: zynqmp: divider: convert from round_rate() to determine_rate()
+Patch 95: clk: rockchip: half-divider: convert from round_rate() to determine_rate()
+
+Brian
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
