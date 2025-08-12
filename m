@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C48FCA0EC4
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 05:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52870C87FCB
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 05:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=C7ZRgRg6KngabxTHwB1b6f3Z2OMvcMQ1jmajnI3FJHg=; b=lYSpxZ4lYGk8Co
-	RYyL6/zXdcxKfachdSnCe0Qy+7A5wZCUlvqKPIGJhlHfpAKo4xBC5zQkU/Syan3qKk6f0bRYTURJg
-	j/xoEZvtADqWZ2HQmAksvb54qn3s3sg66yLoCSScAR6d6TOtSyGAsOOQe34x4iNbpjGBP76kX+jw/
-	isxe6vcYUUdaXqqPcd7BqQEqNBcU5GG5OlLso/yhrbr+Kb4OHgk9qcZXNl2e9/Q2uXIGvbXqO8q6P
-	90l97Z18pMx7Y6RDvMeGe6lz3YudBGTSElvqjMyJoyb3mZRRspfqyhO0bZogtZL7GskBBHS/2VHVM
-	Ut0jr80dnCQJjD0XtNjA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KIzACGO/nzXj2dyVLB8G7ZWZav7eQqQGzjnvItTJ5tA=; b=bx2hXzF4Xq+TE6
+	B6vg0QhMB78zs9ppM1hyE07sVecvVBDwAewmN2gHg9NaoO0bPFd13dSnGX004PI/+Z8IQcONgQ7xa
+	Wm9zlW9KjG/wiuIVsamf/HjBKo0CdefJMIwHbylKSKIFJhTEMWzclQb5qVoeUSLrcHVfSxvtLjljg
+	de/+a79YCs5B+WzNB6TC7HUy1zub6MZ821SL8hQ+v/14wRt8U3dWWrwiaWxqmLxA9Y8SUAbYKe1OW
+	17Far6Te4CHfzSjA2aI1BeCMmskdHO/vSmNthEwGyqoi6kFbGKnmhYLksgWjl4cWDdF38nExmPc9J
+	ntmFI64yODhPfTOZ0Upw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhnC-00000009uP5-40fJ;
-	Tue, 12 Aug 2025 05:43:26 +0000
+	id 1ulhnJ-00000009uQR-2V1I;
+	Tue, 12 Aug 2025 05:43:33 +0000
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhnA-00000009uOj-1KPY
+	id 1ulhnG-00000009uPr-4BEL
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Aug 2025 05:43:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1754977396; cv=none; 
+	Tue, 12 Aug 2025 05:43:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1754977408; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=BrBGm/vA4NzG7o7uj5qjFNzDvDw74Kmterqa2XgiiCV2Ho1W4tlrgiERdmGuXls+AGbR3V5UvXGfhBJvKRTeR5MbzO5ga/i2pdmMfVUhwDObPf56Ez0c6cswE1THgC03TP0dAEW4ZwGKaOxoYYQFcULrBh/9BWsd9dVpZTq101w=
+	b=eAhIiWNmQ6ezpM1mxCLbOoGo7q8UUea4xRmCr8FPbJpmC5raikgQsSOsRQZ17G7bfWSKbzfhAk9XJSbQEf9GWH8VqS8MJC5qAkB1LzL/FW1fWd2KF0kdY6gq3iMLeCovrLdKdqg/38o9sSEg6Gb7EOZzKS7DyubAUtbO6MS1Pz8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1754977396; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=pA524d/aKpZyY20fSlZrDb9/G4WDB7CsquWn7adUTYc=; 
-	b=n/mdmUFuumwC68cdBL2WocQOVOfclfkDGDV6WA359thzGSWpzsGKzzVyPTvleumAoCRcxomhopVpgN5v+p0pQq/o8IaYfL98zy2rfx6V1ugD28IEqko1UniZ8PCoQFduBVj/iX8+1PQRYG7ZorbJnIOGHsw8hui6CdodAjFES6k=
+	t=1754977408; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ru2Vsb7/og+EijPXl6fKV4Ujus+LUwB94JMCeT6zV3E=; 
+	b=E49ACa9e1KlsFqR6tntCei7Gg+hj1n2Ak6CZ16s35GCrngNIkKsxl75skuNlv4sAVA1uBzWE+tGqhweoHnRzMXTGAPx9w6rFVQrmgh83LOOK8N4cYB4GT7uuW+ktImWPq03yHcqoEPmOS+2xHrZS8PoLKEK/u3p41gEFxdQiV/c=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=icenowy.me;
 	spf=pass  smtp.mailfrom=uwu@icenowy.me;
 	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1754977396;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1754977408;
 	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=pA524d/aKpZyY20fSlZrDb9/G4WDB7CsquWn7adUTYc=;
-	b=A+1wIpONbt6KdAeW2suguNZ5G+FXc24a7PTbFjOCPIcrWTLFv+mVKK8fS67ydlzw
-	CMvwCoQQbyJDfbG6IqK6IGdDzMlN6OS5YKNqCMz2pZGAjHpbjLE+N35W5MDq2iK2/04
-	YsdaInTGFCsVzYZusnD/J2Q8A4mNoK2nQHfMeEloQUCQ5WYw6V8jZI+/dufXBp1RKPG
-	UaG3DJmLDoCPcJpQokWD7C1b3E14JlOcBoDNtoi8P5FSgj38m6YXlbjwj+BzUaqhtCt
-	fyW3mmA3sh3nSIiiRsUeIKEWla6e3WJ5N44qgLthSL5brQookr/cDAkTUfbKZzogmhv
-	xlsNMVxKTQ==
-Received: by mx.zohomail.com with SMTPS id 1754977393951539.500568194191;
-	Mon, 11 Aug 2025 22:43:13 -0700 (PDT)
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=ru2Vsb7/og+EijPXl6fKV4Ujus+LUwB94JMCeT6zV3E=;
+	b=jJdqH35y2BSVPgoURVbes57NTgZDZdGATmlg45vbV2oMEzJ4v7ydjFaOO7yduL6K
+	WkBNuLZ7oXeJkML4RVJquQwC52k6kgqzap2fjYZwGo4zxeAiJu8qCgvUXUBq1vMLbRZ
+	UjzbWN0IAwmCCQot+ncGlmRI6h5BdhgDWPvZcCuz0dgVzqBQcDm3rXtjV9oElAeAF2N
+	dOZzuOX8IasspGRs/JV6ws/TS7du6v50LnnZDldj2G6D7ZrlZJjBNeLoV39R6czH9ly
+	P6UYfbrj/YJaYdUwK3gJbHDMz1QJ48v/QzroTjtgyDjGO/HjMszDc8SizVXXV2MWF6S
+	Q8nroX+eAw==
+Received: by mx.zohomail.com with SMTPS id 1754977406437790.7145889568351;
+	Mon, 11 Aug 2025 22:43:26 -0700 (PDT)
 From: Icenowy Zheng <uwu@icenowy.me>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -61,16 +61,17 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH 0/4] clk: thead: Misc changes to TH1520 clock driver
-Date: Tue, 12 Aug 2025 13:42:54 +0800
-Message-ID: <20250812054258.1968351-1-uwu@icenowy.me>
+Subject: [PATCH 1/4] clk: thead: add support for enabling/disabling PLLs
+Date: Tue, 12 Aug 2025 13:42:55 +0800
+Message-ID: <20250812054258.1968351-2-uwu@icenowy.me>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250812054258.1968351-1-uwu@icenowy.me>
+References: <20250812054258.1968351-1-uwu@icenowy.me>
 MIME-Version: 1.0
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_224324_541932_937EE8A2 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250811_224331_096718_A937222E 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +88,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset is my changes to the TH1520 clock driver, mainly for
-supporting the display controller (the first 3).
+The 2nd control word of T-Head TH1520 PLLs contains a bit to put the VCO
+into reset state, which means disabling the PLL.
 
-The first two are functionality additions, with the first one adding
-support for enabling/disabling PLLs (for DPU PLL) and the second one
-adding support for changing DPU dividers.
+Some PLLs are put to disabled state by the bootloader, and the clock
+driver should be able to enable them.
 
-The 3rd one is to address hang issues met when testing the DPU driver
-w/o clk_ignore_unused command line option.
+Add support for enabling/disabling PLLs. PLLs other than DPU ones are
+set CLK_IS_CRITICAL to prevent killing the system -- they're meant to
+drive CPU or system buses (even the GMAC/Video ones are driving arbitrary
+buses).
 
-The 4th one has no relationship to display, and only exists for my need
-to change an arbitrary GPIO (well, GPIO3_3, the one controlling the fan
-on Lichee Pi 4A) with gpioset.
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+---
+ drivers/clk/thead/clk-th1520-ap.c | 38 +++++++++++++++++++++++++++----
+ 1 file changed, 33 insertions(+), 5 deletions(-)
 
-This patchset has a dependency (a 0th one) [1].
-
-[1] https://lore.kernel.org/linux-riscv/20250809-fix_clocks_thead_aug_9-v1-1-299c33d7a593@samsung.com/
-
-Icenowy Zheng (4):
-  clk: thead: add support for enabling/disabling PLLs
-  clk: thead: support changing DPU pixel clock rate
-  clk: thead: th1520-ap: set all AXI clocks to CLK_IS_CRITICAL
-  clk: thead: th1520-ap: fix parent of padctrl0 clock
-
- drivers/clk/thead/clk-th1520-ap.c | 174 ++++++++++++++++++++++++------
- 1 file changed, 143 insertions(+), 31 deletions(-)
-
+diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+index dd6359441f7e8..2f87c7c2c3baf 100644
+--- a/drivers/clk/thead/clk-th1520-ap.c
++++ b/drivers/clk/thead/clk-th1520-ap.c
+@@ -18,6 +18,7 @@
+ #define TH1520_PLL_FBDIV	GENMASK(19, 8)
+ #define TH1520_PLL_REFDIV	GENMASK(5, 0)
+ #define TH1520_PLL_BYPASS	BIT(30)
++#define TH1520_PLL_VCO_RST	BIT(29)
+ #define TH1520_PLL_DSMPD	BIT(24)
+ #define TH1520_PLL_FRAC		GENMASK(23, 0)
+ #define TH1520_PLL_FRAC_BITS    24
+@@ -242,6 +243,30 @@ static const struct clk_ops ccu_div_ops = {
+ 	.determine_rate	= clk_hw_determine_rate_no_reparent,
+ };
+ 
++static void ccu_pll_disable(struct clk_hw *hw)
++{
++	struct ccu_pll *pll = hw_to_ccu_pll(hw);
++
++	regmap_set_bits(pll->common.map, pll->common.cfg1,
++			TH1520_PLL_VCO_RST);
++}
++
++static int ccu_pll_enable(struct clk_hw *hw)
++{
++	struct ccu_pll *pll = hw_to_ccu_pll(hw);
++
++	return regmap_clear_bits(pll->common.map, pll->common.cfg1,
++				 TH1520_PLL_VCO_RST);
++}
++
++static int ccu_pll_is_enabled(struct clk_hw *hw)
++{
++	struct ccu_pll *pll = hw_to_ccu_pll(hw);
++
++	return !regmap_test_bits(pll->common.map, pll->common.cfg1,
++				 TH1520_PLL_VCO_RST);
++}
++
+ static unsigned long th1520_pll_vco_recalc_rate(struct clk_hw *hw,
+ 						unsigned long parent_rate)
+ {
+@@ -299,6 +324,9 @@ static unsigned long ccu_pll_recalc_rate(struct clk_hw *hw,
+ }
+ 
+ static const struct clk_ops clk_pll_ops = {
++	.disable	= ccu_pll_disable,
++	.enable		= ccu_pll_enable,
++	.is_enabled	= ccu_pll_is_enabled,
+ 	.recalc_rate	= ccu_pll_recalc_rate,
+ };
+ 
+@@ -314,7 +342,7 @@ static struct ccu_pll cpu_pll0_clk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("cpu-pll0",
+ 					      osc_24m_clk,
+ 					      &clk_pll_ops,
+-					      0),
++					      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
+@@ -326,7 +354,7 @@ static struct ccu_pll cpu_pll1_clk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("cpu-pll1",
+ 					      osc_24m_clk,
+ 					      &clk_pll_ops,
+-					      0),
++					      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
+@@ -338,7 +366,7 @@ static struct ccu_pll gmac_pll_clk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("gmac-pll",
+ 					      osc_24m_clk,
+ 					      &clk_pll_ops,
+-					      0),
++					      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
+@@ -358,7 +386,7 @@ static struct ccu_pll video_pll_clk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("video-pll",
+ 					      osc_24m_clk,
+ 					      &clk_pll_ops,
+-					      0),
++					      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
+@@ -410,7 +438,7 @@ static struct ccu_pll tee_pll_clk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("tee-pll",
+ 					      osc_24m_clk,
+ 					      &clk_pll_ops,
+-					      0),
++					      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
 -- 
 2.50.1
 
