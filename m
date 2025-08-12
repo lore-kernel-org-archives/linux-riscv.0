@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF54DCA0ED1
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 03:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E7F4C87FCB
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Aug 2025 04:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OSSSF6mmvl6NlsMDWGwgZ2L8URLlHHPuH5eevhM8pdU=; b=HLA1fQT15ZYBv0
-	C4vAbVSfgY01bE4MzSPpLoVjm1YEAZaAvqoJicNifBu98C8lDxWTXmqgshC2l4gnZZtxMtPkAyTL5
-	KGyuoJzSWbYd/EYZEPx9zijmhl6HisxGPuztG3fu4rp7V/qgev9xSCnt0J50iBn4NrPNgDe68pDsh
-	GWyMnb8YVzgLKu6ztF6YkQc091JNQNyNxrU3djwvyhKGtYnkCJA7LzfEZdFbAsdwrsznYq8M5x9rJ
-	D9zOCVfE7gXx6/hKqKA0u5vWGLXq62/t8n3+zUFUdNqQKD1mFxKe8k274Cyc+4qY7jsZoqVberMBX
-	LP2ia0Lps2D7Q3HiWrjg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9fdgkf34NxjDQ60oWefqvSkWUghPatgX6xeYSP/vFCU=; b=KrnWW234A34yIw
+	myMrlMiio4OZSQOh+FwZKe+Ua+LACFQZ43naHfk1e4yOuOriXlBwy7c+Up4qVRaqLTpoPSmOLL53i
+	Z8HgGmIQ3DvjG+SmLnF3+1zaTI9P7cy1X/rOSxg7ykO4vd6yqjHpgRiiO5mthAV0+Ud8+5g9GpO0h
+	p9kHbHE09RR+B7zhJw2xm7qPASGtRm+tawu8yQh9OE2uw/cGulpcQpt0xN1EB0gKIbl32DVdWoqr4
+	udzzZ+b9A/UiwCUezuLd/jTBRt5ma7qNaVBC1kpmFp8n3qTljoygccZiiub+CK2tdypgL8XNRnOdh
+	vmo6IS+imrF3q/TWjnsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulfys-00000009jrg-1nJq;
-	Tue, 12 Aug 2025 03:47:22 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1ulgLU-00000009lxM-3pOi;
+	Tue, 12 Aug 2025 04:10:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulfxZ-00000009jft-16U2
+	id 1ulgLR-00000009lwr-337G
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Aug 2025 03:46:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=NIC/wkT8xDaIY7MD6UsDmD8NMUh6b3J8xBtXrNsXYKo=; b=NbYqq15F+k0PaYhFy5Hc5uGO1C
-	F7j6cSoP/whS4817YNAeQ66fdIUeTNQC5RhDl3Pn2Jkb/dJBC2qkppaK48DJ9uxXASz28fYUHgXWy
-	gKaqh24ZdeiIwvrmcSyoigBz47PTJ39VEZOCcGj6Fe050vKSBFjjU3uGdFI1pW5XiSuY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1ulfxA-004PNl-P9; Tue, 12 Aug 2025 05:45:36 +0200
-Date: Tue, 12 Aug 2025 05:45:36 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Vivian Wang <uwu@dram.page>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v5 2/5] net: spacemit: Add K1 Ethernet MAC
-Message-ID: <ac9cce0b-d29e-499b-8a86-28979cd12fb5@lunn.ch>
-References: <20250812-net-k1-emac-v5-0-dd17c4905f49@iscas.ac.cn>
- <20250812-net-k1-emac-v5-2-dd17c4905f49@iscas.ac.cn>
+	Tue, 12 Aug 2025 04:10:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E30A75C657C;
+	Tue, 12 Aug 2025 04:10:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C0E6C4CEF0;
+	Tue, 12 Aug 2025 04:10:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754971840;
+	bh=A1IDknI2wBVOF1lDrVTLS/8ROE/k11Q3XCJ/bLtA1Qk=;
+	h=From:Date:Subject:To:Cc:From;
+	b=tMPKyrPX7lo45EbxFVokOQCV7amf4PfNmPA+d8EqFKOZ7mq6bO73wUaWvP7MO3jPa
+	 x2QLuPdJvru8sVfRRndqXv9SLq8UL/BRs+KfSVqpzOXH5u8ZACsmXSw4CIs3QogrwE
+	 a4i9XTRhwvDiyZAZIOB6gaFJqBAdJS5uyKhEIQgJTKJArOIsihkmLm7Fn0eQqRbn4H
+	 oFR4MN3FIPX10lbxO07nIAAVOFC0mw6ZqvCCBhgR5NFfx4cLZ1tPL/mgz0iEH7M1pg
+	 pCt4uuXQO5jniQp2dYuexo25QpiZrRJsqnrz7ut4QO69TmnPiuyEJYUFa8luUha2cA
+	 84MuwP1LVk6TQ==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Mon, 11 Aug 2025 21:10:01 -0700
+Subject: [PATCH RFC] riscv: Use 64-bit variable for output in
+ __get_user_asm
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250812-net-k1-emac-v5-2-dd17c4905f49@iscas.ac.cn>
+Message-Id: <20250811-riscv-wa-llvm-asm-goto-outputs-assertion-failure-v1-1-7bb8c9cbb92b@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAJi+mmgC/x3NywrCMBCF4Vcps3agSbEUt4IP4FZcDHFSB9Km5
+ KZQ+u4OLv+z+M4OmZNwhku3Q+ImWeKqYU4duDetM6O8tMH29txPxmCS7Bp+CENoC1JecI4lYqx
+ lqyXroGBRBD1JqIlxJPZkx2GYnANlt8Revv/LB9xvV3gexw/QjY3WhwAAAA==
+X-Change-ID: 20250811-riscv-wa-llvm-asm-goto-outputs-assertion-failure-6aefa26338cc
+To: Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Craig Topper <craig.topper@sifive.com>, 
+ linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+ patches@lists.linux.dev, Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2547; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=A1IDknI2wBVOF1lDrVTLS/8ROE/k11Q3XCJ/bLtA1Qk=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDBmz9u3bu+uaZ6lnc862mOrn133Ys/dd/3fH+YnE1hdRc
+ y/lJNzk6ChlYRDjYpAVU2Spfqx63NBwzlnGG6cmwcxhZQIZwsDFKQATMX7JyHDe9KGdeaNbuKXH
+ l/DAxCAb4a+J21+Ul92Kl05/7JhnpMXIsLmZ0U0t6PDh/XeutvcsczGcuKHPsEa67Lyh28p7y+W
+ zWAA=
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_204601_370218_D99CF1A7 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250811_211041_858412_C9021C16 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,50 +86,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +static void emac_get_pause_stats(struct net_device *dev,
-> +				 struct ethtool_pause_stats *pause_stats)
-> +{
-> +	struct emac_priv *priv = netdev_priv(dev);
-> +	struct emac_hw_tx_stats *tx_stats;
-> +	struct emac_hw_rx_stats *rx_stats;
-> +
-> +	tx_stats = &priv->tx_stats;
-> +	rx_stats = &priv->rx_stats;
-> +
-> +	scoped_guard(spinlock_irqsave, &priv->stats_lock) {
-> +		emac_stats_update(priv);
-> +
-> +		pause_stats->tx_pause_frames = tx_stats->tx_pause_pkts;
-> +		pause_stats->rx_pause_frames = rx_stats->rx_pause_pkts;
-> +	}
-> +}
+After commit f6bff7827a48 ("riscv: uaccess: use 'asm_goto_output' for
+get_user()"), which was the first commit that started using asm goto
+with outputs on RISC-V, builds of clang built with assertions enabled
+start crashing in certain files that use get_user() with:
 
-You have pause statistics, but not actual configuration of pause.
+  clang: llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp:12743: Register FollowCopyChain(MachineRegisterInfo &, Register): Assertion `MI->getOpcode() == TargetOpcode::COPY && "start of copy chain MUST be COPY"' failed.
 
-> +static void emac_adjust_link(struct net_device *dev)
-> +{
-> +	struct emac_priv *priv = netdev_priv(dev);
-> +	struct phy_device *phydev = dev->phydev;
-> +	u32 ctrl;
+Internally, LLVM generates an addiw instruction when the output of the
+inline asm (which may be any scalar type) needs to be sign extended for
+ABI reasons, such as a later function call, so that basic block does not
+have to do it.
 
-Normally the adjust_link callback you configure the hardware with the
-result of pause negotiation.
+Use a temporary 64-bit variable as the output of the inline assembly in
+__get_user_asm() and explicitly cast it to truncate it if necessary,
+avoiding the addiw that triggers the assertion.
 
-> +/* Called when net interface is brought up. */
-> +static int emac_open(struct net_device *ndev)
-> +{
-> +	struct emac_priv *priv = netdev_priv(ndev);
-> +	struct device *dev = &priv->pdev->dev;
-> +
-> +	int ret;
+Link: https://github.com/ClangBuiltLinux/linux/issues/2092
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+I did this unconditionally but I did not do much investigation into how
+the code generation changes, as I never have good luck with figuring out
+what is real vs. noise. If this is a worry, I can just duplicate this
+under a CONFIG_CC_IS_CLANG block. Alternatively, we could mark
+CONFIG_CC_HAS_ASM_GOTO_OUTPUT as broken with clang when targeting
+RISC-V.
+---
+ arch/riscv/include/asm/uaccess.h | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-Extra blank line.
-
-
-    Andrew
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index b88a6218b7f2..ff162db20521 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -98,12 +98,16 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
+ 
+ #ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
+ #define __get_user_asm(insn, x, ptr, label)			\
++do {								\
++	u64 __tmp;						\
+ 	asm_goto_output(					\
+ 		"1:\n"						\
+ 		"	" insn " %0, %1\n"			\
+ 		_ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)		\
+-		: "=&r" (x)					\
+-		: "m" (*(ptr)) : : label)
++		: "=&r" (__tmp)					\
++		: "m" (*(ptr)) : : label);			\
++	(x) = (__typeof__(x))__tmp;				\
++} while (0)
+ #else /* !CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
+ #define __get_user_asm(insn, x, ptr, label)			\
+ do {								\
 
 ---
-pw-bot: cr
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250811-riscv-wa-llvm-asm-goto-outputs-assertion-failure-6aefa26338cc
+
+Best regards,
+--  
+Nathan Chancellor <nathan@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
