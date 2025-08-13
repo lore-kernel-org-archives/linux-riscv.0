@@ -4,82 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C51CA0EE0
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 08:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A95DAC87FCF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 09:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gg/5zfp6szTVTmJheb4QovXdk2Vf0nc2161gNjGHJUM=; b=ZndF/YDpiKiYrc
-	DASEtk/egoP85p4F1PBovCJJrNGwrZOXy08U2I81F2aeux5AWMS+4WbkUxnBCPYbsFx6WeIMkWY2a
-	OAn0gGV+Vf1p9BzDiLpugRINepvAg3DfhZxofz7gISiRWZ898yA3xCwgtdqNG5A56ThsGzCdF37g1
-	pUDUyCwaO7NHR+pVNz3W8DpvPueng4MRb+0oeKD67DuH5VJflz3WwpYk2EEL4iB3aQ3PsEW723PrK
-	z2EkVmtlK50lEw+/0BrM35ZZO73RnBMgkClxYRPjCcnTdujWaK5s1MhS/64su31j3FYuU+hyAHkoX
-	5EXOz8fckGlbMzph0ebg==;
+	List-Owner; bh=nOGYFAMOTykS4UDfxLfCCyhO3txcevoiVE5JTZcGRJw=; b=VJ7PIBWiBfJ3X6
+	mKSvFBrlbo+wNkI9YIGwyN5PEpg7XJ3pF3l5O7IKkYN7IZm00XlH6dsMDSHBOqXiit/jg+B/Cro2a
+	oZNq9ZRCpTOfMrLyZkaaD18+CXlH0sobxloc9+5C3tkjeHqQ5ttmGCaU3+40vV96A0b2DkIjLAm5O
+	nyRyg/GgqL1gE6+WUCVqT8Ac3Egtp8zJRjWN7nHkaUiDy3AiQYqaYr4Fd0Sab4Ys/npMoQMsJQm1B
+	LQA7mf8pqOPrU/VZdYG/zLjy6wOYR+/UutKceiAChGNi7gFflqo12RrgAjnwZiRHSLy1DNiBW+NOU
+	Tl6h/YWXMO33R9BoJYwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um77X-0000000D8kT-3XlV;
-	Wed, 13 Aug 2025 08:46:07 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1um7Q2-0000000DB72-2hh8;
+	Wed, 13 Aug 2025 09:05:14 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um5Pc-0000000Cr0q-11Vm;
-	Wed, 13 Aug 2025 06:56:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755068200; x=1786604200;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=2b1COblDpAIUuYejzeV5esO2WB8etW2fL7OBAJ4d5UU=;
-  b=FU88SFlrOjTwOT5dnRqOAWHecRYQ59ZpvBEoUyCLRMJqzeZWIxPnhouG
-   Yhcamd0LbT4UGEspFRmOmgkvumHAecHxO8nsEz55hTP9weE0RA4lLV0x1
-   2HNCKTa6ck95QVhw0WK6zJEto13KS4ys2PSac8F6fGfE1tLSm5wrezV3D
-   mIbqWXLFdv9/PtAmovY3N5whYipkTnm1bjcbJVZoCsEFb2iDeJhGXIsHV
-   6B/36jQ32vsb2ZJhG0PCFVCfXOQ3vOvD16wQM0hYz6OgBthmszHhbv05E
-   cawz5uImnd2XFOZu9imzKWB1pjUvGdg0hoLeiBmgMPO+3eXWAdj77mmvi
-   Q==;
-X-CSE-ConnectionGUID: HW4Q/53OR8yqxCRuvO9bog==
-X-CSE-MsgGUID: VXgyK+TMShOjt1BAn/xX6g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="56563438"
-X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
-   d="scan'208";a="56563438"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Aug 2025 23:56:39 -0700
-X-CSE-ConnectionGUID: 4Be4PehFTYqPSTxVpOFDGg==
-X-CSE-MsgGUID: W0wSj/oQRMODQtEyk6Xq7w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
-   d="scan'208";a="165616782"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa010.jf.intel.com with ESMTP; 12 Aug 2025 23:56:36 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1um5PV-0009dE-0P;
-	Wed, 13 Aug 2025 06:56:33 +0000
-Date: Wed, 13 Aug 2025 14:56:13 +0800
-From: kernel test robot <lkp@intel.com>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	Peter Xu <peterx@redhat.com>, Oscar Salvador <osalvador@suse.de>
-Subject: Re: [PATCH] mm: Remove pud_user() from asm-generic/pgtable-nopmd.h
-Message-ID: <202508131402.ZaPLdNsY-lkp@intel.com>
-References: <c7f99612ecfa04054b37518df661d04f88f7c9af.1754997083.git.christophe.leroy@csgroup.eu>
+	id 1um7Mz-0000000DAjF-46ZU;
+	Wed, 13 Aug 2025 09:02:07 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B3C65431F3;
+	Wed, 13 Aug 2025 09:01:57 +0000 (UTC)
+Message-ID: <d0f8d0d8-fb46-4009-a50f-3faacf8516fc@ghiti.fr>
+Date: Wed, 13 Aug 2025 11:01:57 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <c7f99612ecfa04054b37518df661d04f88f7c9af.1754997083.git.christophe.leroy@csgroup.eu>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/5] riscv: add SBI SSE extension definitions
+To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Himanshu Chauhan <hchauhan@ventanamicro.com>,
+ Anup Patel <apatel@ventanamicro.com>, Xu Lu <luxu.kernel@bytedance.com>,
+ Atish Patra <atishp@atishpatra.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Yunhui Cui <cuiyunhui@bytedance.com>
+References: <20250808153901.2477005-1-cleger@rivosinc.com>
+ <20250808153901.2477005-2-cleger@rivosinc.com>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250808153901.2477005-2-cleger@rivosinc.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufeejkedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeelgeehveeivdeujeelkeevueettedvtdelheeftefhffejveejleekffegtdefffenucffohhmrghinheprhhishgtvhdrohhrghenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvvddruddtudgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddvpdhrtghpthhtoheptghlvghgvghrsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvg
+ hgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohephhgthhgruhhhrghnsehvvghnthgrnhgrmhhitghrohdrtghomhdprhgtphhtthhopegrphgrthgvlhesvhgvnhhtrghnrghmihgtrhhordgtohhm
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_235640_325950_0F83399C 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20250813_020206_166773_4334CC4A 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,83 +65,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on akpm-mm/mm-everything]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Christophe-Leroy/mm-Remove-pud_user-from-asm-generic-pgtable-nopmd-h/20250812-195212
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
-patch link:    https://lore.kernel.org/r/c7f99612ecfa04054b37518df661d04f88f7c9af.1754997083.git.christophe.leroy%40csgroup.eu
-patch subject: [PATCH] mm: Remove pud_user() from asm-generic/pgtable-nopmd.h
-config: arm64-randconfig-002-20250813 (https://download.01.org/0day-ci/archive/20250813/202508131402.ZaPLdNsY-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 12.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250813/202508131402.ZaPLdNsY-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508131402.ZaPLdNsY-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/pgtable.h:6,
-                    from arch/arm64/include/asm/io.h:12,
-                    from include/linux/io.h:12,
-                    from include/linux/irq.h:20,
-                    from include/asm-generic/hardirq.h:17,
-                    from arch/arm64/include/asm/hardirq.h:17,
-                    from include/linux/hardirq.h:11,
-                    from include/linux/interrupt.h:11,
-                    from include/linux/trace_recursion.h:5,
-                    from include/linux/ftrace.h:10,
-                    from arch/arm64/kernel/asm-offsets.c:12:
-   arch/arm64/include/asm/pgtable.h: In function 'pud_user_accessible_page':
->> arch/arm64/include/asm/pgtable.h:958:33: error: called object is not a function or function pointer
-     958 | #define pud_user                false /* Always 0 with folding */
-         |                                 ^~~~~
-   arch/arm64/include/asm/pgtable.h:1307:54: note: in expansion of macro 'pud_user'
-    1307 |         return pud_valid(pud) && !pud_table(pud) && (pud_user(pud) || pud_user_exec(pud));
-         |                                                      ^~~~~~~~
->> arch/arm64/include/asm/pgtable.h:958:33: error: called object is not a function or function pointer
-     958 | #define pud_user                false /* Always 0 with folding */
-         |                                 ^~~~~
-   arch/arm64/include/asm/pgtable.h:959:33: note: in expansion of macro 'pud_user'
-     959 | #define pud_user_exec(pud)      pud_user(pud) /* Always 0 with folding */
-         |                                 ^~~~~~~~
-   arch/arm64/include/asm/pgtable.h:1307:71: note: in expansion of macro 'pud_user_exec'
-    1307 |         return pud_valid(pud) && !pud_table(pud) && (pud_user(pud) || pud_user_exec(pud));
-         |                                                                       ^~~~~~~~~~~~~
-   make[3]: *** [scripts/Makefile.build:182: arch/arm64/kernel/asm-offsets.s] Error 1 shuffle=3093671401
-   make[3]: Target 'prepare' not remade because of errors.
-   make[2]: *** [Makefile:1281: prepare0] Error 2 shuffle=3093671401
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:248: __sub-make] Error 2 shuffle=3093671401
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:248: __sub-make] Error 2 shuffle=3093671401
-   make: Target 'prepare' not remade because of errors.
-
-
-vim +958 arch/arm64/include/asm/pgtable.h
-
-   955	
-   956	#define pud_valid(pud)		false
-   957	#define pud_page_paddr(pud)	({ BUILD_BUG(); 0; })
- > 958	#define pud_user		false /* Always 0 with folding */
-   959	#define pud_user_exec(pud)	pud_user(pud) /* Always 0 with folding */
-   960	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ2zDqW1lbnQsCgpPbiA4LzgvMjUgMTc6MzgsIENsw6ltZW50IEzDqWdlciB3cm90ZToKPiBB
+ZGQgbmVlZGVkIGRlZmluaXRpb25zIGZvciBTQkkgU3VwZXJ2aXNvciBTb2Z0d2FyZSBFdmVudHMg
+ZXh0ZW5zaW9uIFsxXS4KPiBUaGlzIGV4dGVuc2lvbiBlbmFibGVzIHRoZSBTQkkgdG8gaW5qZWN0
+IGV2ZW50cyBpbnRvIHN1cGVydmlzb3Igc29mdHdhcmUKPiBtdWNoIGxpa2UgQVJNIFNERUkuCj4K
+PiBbMV0gaHR0cHM6Ly9saXN0cy5yaXNjdi5vcmcvZy90ZWNoLXBycy9tZXNzYWdlLzUxNQo+Cj4g
+U2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgo+IC0t
+LQo+ICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaCB8IDYxICsrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKwo+ICAgMSBmaWxlIGNoYW5nZWQsIDYxIGluc2VydGlvbnMoKykK
+Pgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oIGIvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9zYmkuaAo+IGluZGV4IDM0MWU3NDIzOGFhMC4uZTQ5OTNmYjY2NGQyIDEw
+MDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgKPiArKysgYi9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3NiaS5oCj4gQEAgLTM2LDYgKzM2LDcgQEAgZW51bSBzYmlfZXh0X2lk
+IHsKPiAgIAlTQklfRVhUX1NUQSA9IDB4NTM1NDQxLAo+ICAgCVNCSV9FWFRfTkFDTCA9IDB4NEU0
+MTQzNEMsCj4gICAJU0JJX0VYVF9GV0ZUID0gMHg0NjU3NDY1NCwKPiArCVNCSV9FWFRfU1NFID0g
+MHg1MzUzNDUsCj4gICAKPiAgIAkvKiBFeHBlcmltZW50YWxzIGV4dGVuc2lvbnMgbXVzdCBsaWUg
+d2l0aGluIHRoaXMgcmFuZ2UgKi8KPiAgIAlTQklfRVhUX0VYUEVSSU1FTlRBTF9TVEFSVCA9IDB4
+MDgwMDAwMDAsCj4gQEAgLTQzMCw2ICs0MzEsNjYgQEAgZW51bSBzYmlfZndmdF9mZWF0dXJlX3Qg
+ewo+ICAgCj4gICAjZGVmaW5lIFNCSV9GV0ZUX1NFVF9GTEFHX0xPQ0sJCQlCSVQoMCkKPiAgIAo+
+ICtlbnVtIHNiaV9leHRfc3NlX2ZpZCB7Cj4gKwlTQklfU1NFX0VWRU5UX0FUVFJfUkVBRCA9IDAs
+Cj4gKwlTQklfU1NFX0VWRU5UX0FUVFJfV1JJVEUsCj4gKwlTQklfU1NFX0VWRU5UX1JFR0lTVEVS
+LAo+ICsJU0JJX1NTRV9FVkVOVF9VTlJFR0lTVEVSLAo+ICsJU0JJX1NTRV9FVkVOVF9FTkFCTEUs
+Cj4gKwlTQklfU1NFX0VWRU5UX0RJU0FCTEUsCj4gKwlTQklfU1NFX0VWRU5UX0NPTVBMRVRFLAo+
+ICsJU0JJX1NTRV9FVkVOVF9TSUdOQUwsCgoKTml0IGJ1dCBpbiB0aGUgc3BlY2lmaWNhdGlvbiB0
+aGlzIGV2ZW50IGlzIHJlZmVycmVkIGFzICJpbmplY3QiIGluc3RlYWQgCm9mICJzaWduYWwiLCBh
+bnkgcmVhc29uIHRvIGNoYW5nZSB0aGF0IG5hbWluZz8KCgo+ICsJU0JJX1NTRV9FVkVOVF9IQVJU
+X1VOTUFTSywKPiArCVNCSV9TU0VfRVZFTlRfSEFSVF9NQVNLLAo+ICt9Owo+ICsKPiArZW51bSBz
+Ymlfc3NlX3N0YXRlIHsKPiArCVNCSV9TU0VfU1RBVEVfVU5VU0VEICAgICA9IDAsCj4gKwlTQklf
+U1NFX1NUQVRFX1JFR0lTVEVSRUQgPSAxLAo+ICsJU0JJX1NTRV9TVEFURV9FTkFCTEVEICAgID0g
+MiwKPiArCVNCSV9TU0VfU1RBVEVfUlVOTklORyAgICA9IDMsCj4gK307Cj4gKwo+ICsvKiBTQkkg
+U1NFIEV2ZW50IEF0dHJpYnV0ZXMuICovCj4gK2VudW0gc2JpX3NzZV9hdHRyX2lkIHsKPiArCVNC
+SV9TU0VfQVRUUl9TVEFUVVMJCT0gMHgwMDAwMDAwMCwKPiArCVNCSV9TU0VfQVRUUl9QUklPCQk9
+IDB4MDAwMDAwMDEsCj4gKwlTQklfU1NFX0FUVFJfQ09ORklHCQk9IDB4MDAwMDAwMDIsCj4gKwlT
+QklfU1NFX0FUVFJfUFJFRkVSUkVEX0hBUlQJPSAweDAwMDAwMDAzLAo+ICsJU0JJX1NTRV9BVFRS
+X0VOVFJZX1BDCQk9IDB4MDAwMDAwMDQsCj4gKwlTQklfU1NFX0FUVFJfRU5UUllfQVJHCQk9IDB4
+MDAwMDAwMDUsCj4gKwlTQklfU1NFX0FUVFJfSU5URVJSVVBURURfU0VQQwk9IDB4MDAwMDAwMDYs
+Cj4gKwlTQklfU1NFX0FUVFJfSU5URVJSVVBURURfRkxBR1MJPSAweDAwMDAwMDA3LAo+ICsJU0JJ
+X1NTRV9BVFRSX0lOVEVSUlVQVEVEX0E2CT0gMHgwMDAwMDAwOCwKPiArCVNCSV9TU0VfQVRUUl9J
+TlRFUlJVUFRFRF9BNwk9IDB4MDAwMDAwMDksCj4gKwo+ICsJU0JJX1NTRV9BVFRSX01BWAkJPSAw
+eDAwMDAwMDBBCj4gK307Cj4gKwo+ICsjZGVmaW5lIFNCSV9TU0VfQVRUUl9TVEFUVVNfU1RBVEVf
+T0ZGU0VUCTAKPiArI2RlZmluZSBTQklfU1NFX0FUVFJfU1RBVFVTX1NUQVRFX01BU0sJCTB4Mwo+
+ICsjZGVmaW5lIFNCSV9TU0VfQVRUUl9TVEFUVVNfUEVORElOR19PRkZTRVQJMgo+ICsjZGVmaW5l
+IFNCSV9TU0VfQVRUUl9TVEFUVVNfSU5KRUNUX09GRlNFVAkzCj4gKwo+ICsjZGVmaW5lIFNCSV9T
+U0VfQVRUUl9DT05GSUdfT05FU0hPVAlCSVQoMCkKPiArCj4gKyNkZWZpbmUgU0JJX1NTRV9BVFRS
+X0lOVEVSUlVQVEVEX0ZMQUdTX1NTVEFUVVNfU1BQCUJJVCgwKQo+ICsjZGVmaW5lIFNCSV9TU0Vf
+QVRUUl9JTlRFUlJVUFRFRF9GTEFHU19TU1RBVFVTX1NQSUUJQklUKDEpCj4gKyNkZWZpbmUgU0JJ
+X1NTRV9BVFRSX0lOVEVSUlVQVEVEX0ZMQUdTX0hTVEFUVVNfU1BWCUJJVCgyKQo+ICsjZGVmaW5l
+IFNCSV9TU0VfQVRUUl9JTlRFUlJVUFRFRF9GTEFHU19IU1RBVFVTX1NQVlAJQklUKDMpCj4gKwo+
+ICsjZGVmaW5lIFNCSV9TU0VfRVZFTlRfTE9DQUxfSElHSF9QUklPX1JBUwkweDAwMDAwMDAwCj4g
+KyNkZWZpbmUgU0JJX1NTRV9FVkVOVF9MT0NBTF9ET1VCTEVfVFJBUAkJMHgwMDAwMDAwMQo+ICsj
+ZGVmaW5lIFNCSV9TU0VfRVZFTlRfR0xPQkFMX0hJR0hfUFJJT19SQVMJMHgwMDAwODAwMAo+ICsj
+ZGVmaW5lIFNCSV9TU0VfRVZFTlRfTE9DQUxfUE1VX09WRVJGTE9XCTB4MDAwMTAwMDAKPiArI2Rl
+ZmluZSBTQklfU1NFX0VWRU5UX0xPQ0FMX0xPV19QUklPX1JBUwkweDAwMTAwMDAwCj4gKyNkZWZp
+bmUgU0JJX1NTRV9FVkVOVF9HTE9CQUxfTE9XX1BSSU9fUkFTCTB4MDAxMDgwMDAKPiArI2RlZmlu
+ZSBTQklfU1NFX0VWRU5UX0xPQ0FMX1NPRlRXQVJFX0lOSkVDVEVECTB4ZmZmZjAwMDAKPiArI2Rl
+ZmluZSBTQklfU1NFX0VWRU5UX0dMT0JBTF9TT0ZUV0FSRV9JTkpFQ1RFRAkweGZmZmY4MDAwCgoK
+QW5kIGhlcmUgeW91IHVzZSAiaW5qZWN0ZWQiLgoKCj4gKwo+ICsjZGVmaW5lIFNCSV9TU0VfRVZF
+TlRfUExBVEZPUk0JCUJJVCgxNCkKPiArI2RlZmluZSBTQklfU1NFX0VWRU5UX0dMT0JBTAkJQklU
+KDE1KQo+ICsKPiAgIC8qIFNCSSBzcGVjIHZlcnNpb24gZmllbGRzICovCj4gICAjZGVmaW5lIFNC
+SV9TUEVDX1ZFUlNJT05fREVGQVVMVAkweDEKPiAgICNkZWZpbmUgU0JJX1NQRUNfVkVSU0lPTl9N
+QUpPUl9TSElGVAkyNAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
