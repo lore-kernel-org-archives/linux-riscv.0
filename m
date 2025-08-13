@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54141CA0EC4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A376FCA0EDC
 	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 02:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,64 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eTbEOXtQ8yFK06eoivRanqPLBHsJes6BbFK1zRmpwoA=; b=o9Eo2KIdLhgvfw
-	MwiN5ddm7fA7vDYirP1g+ZTOJts904YS/NsElo6rXEaeyy8rFrlF0R6tGftKMPAQyPwFyBp/twCeb
-	9IUN2phzUAunRg4ijlq30w08wh53cKXPmmE5Zsr2/6r8brKkyxbfnDSEiS+jHbev3tmK43rszZvTw
-	xbXkHXV3Ahhh+62EpqZjM0w0+uP4grg+a6J0LlRLdtIAPSzgdnf05Y5ZqtRHLm2sokYUveQpObFD1
-	rcnaMZ4/0wLB4YtGWTqkELXN4i/aF/NyK863QSkdgTAdRjf+SLnY/R5/JkF9z9WL/e/MQbc4xuidC
-	Sy5NR1TAt7grum6Kc6Xg==;
+	List-Owner; bh=MTRoO++xGOnuD4cIFKTOtXvkOVPWhrHT2e0bc76duqg=; b=2pm8/Vh6jgn3yE
+	TYBi/LoqTF6kDEA2V9qhQR8zRBOYy8gq2e+0WOD7c+5XNrRRmGoIArh1cYiLq32vILDKlhwbu8ltI
+	3cc/lVpwsoaYFVd4hfc+MYeOM+E4Jzu6lm3+gzKObAVg4FdlA8YjP2B91mOixjCt07hd/PMrjpwD8
+	VezD78zbvxlw7VonyCKj9VCrHmI9f4nX4HMaHwZXp+NHm+mGaFfzRtXKFVrEuZnRNp5Etq/P5zrB3
+	eceiV4J5ETLb5Nk8COGYDPCBLXp+CsvbAA3qUH4kAJUhqD9bng781sE4az5UnwoxEJoSTjDPBhQqW
+	54u3wayDOYcbMc9sgDfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um1Wy-0000000CRIb-1nLP;
-	Wed, 13 Aug 2025 02:48:00 +0000
-Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
+	id 1um1Wx-0000000CRIH-3V2W;
+	Wed, 13 Aug 2025 02:47:59 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um1UP-0000000CQhb-3Spl
+	id 1um1UO-0000000CQgU-0cdF
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Aug 2025 02:45:22 +0000
-Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3e3f378ea68so60558865ab.1
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Aug 2025 19:45:21 -0700 (PDT)
+	Wed, 13 Aug 2025 02:45:21 +0000
+Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-3e54f4ca0dfso23795985ab.3
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Aug 2025 19:45:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755053121; x=1755657921; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755053119; x=1755657919; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=skQxKpPrKNdpCm7T4rAP4k9qKdZRbQN/uiLC1I5fUpk=;
-        b=3TxIcjIPZFq7YjW+/x/cU1yU0NpWGqIjbI8h572JAHDplxPCgonowHRnFc9baqlkHx
-         LB+9c8DHO8tpDF9x2TZJOGwNQyz0Em9En1A6sW48AKlORA2cB6XEe3Wky5RXxcNYbHJz
-         G08QSg4w7RBd/GaUPy9W2K4XuSBRLuovpj0sPnseU2JUsriUmuzqE5xgQL25zvUA/Ki6
-         qfu5cO/WnQ/AhIdD8Xnst5PPnL200hgkmPS2PTaFvcB0oaX88tePPK/0WJHVRH38MuQX
-         i4WJ2T47bTN++fcI5dtG1KYdztz6bV4wPyUgiE6iU4fxvWfoPxN8mUHUO/Ug5BE4Zvsa
-         1DFA==
+        bh=Hsw/BvZpIOZLGeqmGQyLnyroLun+pMXni9Lkp/zHiaQ=;
+        b=KPEN2t0lfJuBdIIjH350Hwyw/YKKb5RLpfqDSld4A28KkAs2KcmsVeBl3faxmnc0rX
+         B0+deS2ueJMW++4bub64AVntdCs677QWX1PwyLnMWDN7fzpPgw4f1xtaPcmhKnbRyozm
+         23UI5t2NX41+knvmGPe60UKDGBFKzjzqs6tKoO/5WoJVVO/JPETOudw+KGJU7gq5IJgP
+         kmRvNj+fywEKOhbE48vFZZODFxBFrsBMeFAkOS3VgBj1V0CByrH3YZHzZKKg1n1xJJwr
+         iB+v8kiLaa2n3Rc+tQfbR98rCL0pJMvqnWuhlHcjWxf/2NgJrQYa5w9KG/0cycFo1bj2
+         KtWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755053121; x=1755657921;
+        d=1e100.net; s=20230601; t=1755053119; x=1755657919;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=skQxKpPrKNdpCm7T4rAP4k9qKdZRbQN/uiLC1I5fUpk=;
-        b=dNi1bsZ3lbaIExG+nJShzAedtWC2fqWSJKYarvrlk+NRh2hYNjYqImxt7GPnfJU5aD
-         KcmxAb62JlzNF3bcQmLEURIy1cRhEIQijFncUq3mb+oFOwEr959pElNFwdYYrLGvZm8E
-         Mf4y0IIXCaaWHPITxXw0FW1EbqHSNlMUS/MDrMb+G+XZvgLbFFBpnV7A4uF0/jWqkLrk
-         kkXvRDI7u4zVd/zeiWIwQMpsRl6OfTZShCLk0tJSy6DbJV8gf6XtDbd9NozHqNiTFotE
-         Q980eAGNGl+u3aoCnYZFwv4Mdy51D19ElKk0qtrGN3+JlKer52N+nBD4cu71i0fUTqjv
-         3KPw==
-X-Forwarded-Encrypted: i=1; AJvYcCWjj5klr5xhQbg2z3IumWAD8OvIPo2x/fCy5RK3lSxNn/96im/1NNOGKvRFyIwnFU3BibZrcL7A9i1LSg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0mFY30ct7/RlhUZgWxwXPMBOmQsSzBH+pS8TFFtH1PxjwH7tv
-	kIvmjVFqjvVTk1BPRbtPnOgvt0aENf6BJgJFUElC+HOvOWFg5wGMKIw24/gaOC0Iv9Q=
-X-Gm-Gg: ASbGncsXr/qF0k3TkZViWOSpikFdmJvzexAMP4wFcmM021LVxvehD1vPv38qGNf1WZp
-	vTqIiE7JxlZDgi1DWq6YVZ9nPpIu/+x6OCgwPq9v5wDa5NfykGiTB8YVkP42aPUVXq0guVftTDk
-	7KWITLUnkXrz6LF3LXJITMG3fwCWbsaf864Q/1IAMjUxHPsV4azM8S6CZABbPwTZUaC+YIbrigo
-	+0H6vUqhGGhSqCjoLdxXm8Xbxc7nc25B9xMeShCB+3Leux0KslP57J7OMYUaOxTTMmZcH8D9amE
-	T9rG9NvXdO4MEgIEYB28mjTnGKjxfdEDufHm/sRueoBNaEufXcs1mv6GiTMDOmB4bmvGNE+zw9b
-	pj+GlDlCQZaPTRGJ2yzGiYRt+t6Y2z6P4Ymk11hn3qzN6qhyXJl0AsSOLC3AqOSTOA630SzfrBQ
-	7N
-X-Google-Smtp-Source: AGHT+IEz5tWV7AOYkO1G25C+KmYFDcS2TvlegHWnbXhHscCzocXaxaX22SXdT4MVFSdmWuMwXllV2w==
-X-Received: by 2002:a05:6e02:12c7:b0:3e5:3520:4a75 with SMTP id e9e14a558f8ab-3e5674de40emr28137775ab.23.1755053121142;
-        Tue, 12 Aug 2025 19:45:21 -0700 (PDT)
+        bh=Hsw/BvZpIOZLGeqmGQyLnyroLun+pMXni9Lkp/zHiaQ=;
+        b=umS3LZHshkGQBeixCdF/XlGSAvj7y1sI6kSQgre/fQ8f1cDz9hp1t76b4aAJ2NKgm6
+         ne9U/2ESzlodi0CJIDkZn/xhkc7HEw5DkzZcHayZ6shLYVvN7SWRw5/OMwSn8bXHGXTy
+         9TV2b4h2BdXFFVmjAiqaOceZ6wMdjS+1YgmyQwDlKUICY80zfsYh95jtTRgcMLKT8SJ3
+         D12t9s15yxgIHR8AlVr/9JFzVf7Xk9bTt0kb0WtPhogodgtE4IsLjWzgDvN+4lmtYrP/
+         PkzH7Q/Y/08FmsTVpT1wem864l3HqFA9b2119rIQNSa9YWiDu9xxXLTXlocYn30QwoDz
+         dcRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVeopOw5WTL6a10FqttLJfEwIsD6jts5wCn4DsPjMuFF4p8ekeNS/hcuEHY/reKEIACwgu4Wq5x/e74tw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEBEZ0HruhMpRLA8Ru1omYqCEHan4VUtZXn3iCwNRizzPHnUyk
+	70yzE3VKw4vVLg+ijY+FtDM4yjQAjvf/GeZIMsFdWu4z9xKWGNAq7K1kj19SNKF1wUk=
+X-Gm-Gg: ASbGncsc7+VtrElCLBOWX6i4XlhBskXxMSHgZIorJbP0kRW+DY+Pe13MBWuVfzlyYSN
+	wYNww2H53z0hmM5PTOXApKKd+/hT5TYFBtUqVS8KwRfENICiXQfb6X/T5hQ+5/9x2we31ExGIes
+	eQEs8h9u1GRac9pqvbk9v0FzlJUXJgMmhdvrMT1j+R5nBy7wfRh845WqFaSzkzKYaFstuNiJwww
+	ykYE90cHW3OmAq/bj8fYTVgWjJ32T1RZzKFIu8QBdb7Zcf9la5X9xENNTj6zKL517SrHS1h1FZQ
+	fuDRlYwHr+CUaf8XlRFIiUJG0Tdn1ykeJog8A+Dd8fgMf7VCtfjylIluux+YQ5toyVGbPAzxgRE
+	aoq9J811dkEEuP5W0waBS14e6DRwBjn8Wh/6woZgp/a7pDqU0YZKIgoaIZlfnQ8ujhQ==
+X-Google-Smtp-Source: AGHT+IFmoYgFL0Ljoe1EbjW4Dm+mpeHUqfFEK+3iLnHmLdnCGnJsszG6Dc6UhDM5vRqVThI+hJTe0w==
+X-Received: by 2002:a05:6e02:1706:b0:3e5:5af7:7c99 with SMTP id e9e14a558f8ab-3e567399a2cmr29260485ab.3.1755053119190;
+        Tue, 12 Aug 2025 19:45:19 -0700 (PDT)
 Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50ae9bcfbf6sm3430829173.54.2025.08.12.19.45.19
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50ae9bcfbf6sm3430829173.54.2025.08.12.19.45.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Aug 2025 19:45:20 -0700 (PDT)
+        Tue, 12 Aug 2025 19:45:18 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: lee@kernel.org,
 	lgirdwood@gmail.com,
@@ -92,16 +91,16 @@ Cc: mat.jonczyk@o2.pl,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v12 4/7] rtc: spacemit: support the SpacemiT P1 RTC
-Date: Tue, 12 Aug 2025 21:45:05 -0500
-Message-ID: <20250813024509.2325988-5-elder@riscstar.com>
+Subject: [PATCH v12 3/7] regulator: spacemit: support SpacemiT P1 regulators
+Date: Tue, 12 Aug 2025 21:45:04 -0500
+Message-ID: <20250813024509.2325988-4-elder@riscstar.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250813024509.2325988-1-elder@riscstar.com>
 References: <20250813024509.2325988-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_194521_868719_9A3A8D27 
-X-CRM114-Status: GOOD (  26.72  )
+X-CRM114-CacheID: sfid-20250812_194520_191056_4A622232 
+X-CRM114-Status: GOOD (  22.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,226 +117,219 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for the RTC found in the SpacemiT P1 PMIC.  Initially
-only setting and reading the time are supported.
+Add support for the regulators found in the SpacemiT P1 PMIC.  This
+PMIC provides 6 buck converters and 12 LDO regulators.
 
-The PMIC is implemented as a multi-function device.  This RTC is
-probed based on this driver being named in a MFD cell in the simple
+The PMIC is implemented as a multi-function device.  These regulators
+are probed based on this driver being named in a MFD cell in the simple
 MFD I2C driver.
 
 Signed-off-by: Alex Elder <elder@riscstar.com>
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
 ---
- drivers/rtc/Kconfig           |  10 ++
- drivers/rtc/Makefile          |   1 +
- drivers/rtc/rtc-spacemit-p1.c | 167 ++++++++++++++++++++++++++++++++++
- 3 files changed, 178 insertions(+)
- create mode 100644 drivers/rtc/rtc-spacemit-p1.c
+ drivers/regulator/Kconfig       |  13 +++
+ drivers/regulator/Makefile      |   1 +
+ drivers/regulator/spacemit-p1.c | 157 ++++++++++++++++++++++++++++++++
+ 3 files changed, 171 insertions(+)
+ create mode 100644 drivers/regulator/spacemit-p1.c
 
-diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-index 64f6e9756aff4..31d355b103d43 100644
---- a/drivers/rtc/Kconfig
-+++ b/drivers/rtc/Kconfig
-@@ -406,6 +406,16 @@ config RTC_DRV_MAX77686
- 	  This driver can also be built as a module. If so, the module
- 	  will be called rtc-max77686.
+diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
+index eaa6df1c9f806..3af99bc3a9ece 100644
+--- a/drivers/regulator/Kconfig
++++ b/drivers/regulator/Kconfig
+@@ -1395,6 +1395,19 @@ config REGULATOR_SLG51000
+ 	  The SLG51000 is seven compact and customizable low dropout
+ 	  regulators.
  
-+config RTC_DRV_SPACEMIT_P1
-+	tristate "SpacemiT P1 RTC"
++config REGULATOR_SPACEMIT_P1
++	tristate "SpacemiT P1 regulators"
 +	depends on ARCH_SPACEMIT || COMPILE_TEST
++	depends on I2C
 +	select MFD_SPACEMIT_P1
 +	default ARCH_SPACEMIT
 +	help
-+	  Enable support for the RTC function in the SpacemiT P1 PMIC.
-+	  This driver can also be built as a module, which will be called
-+	  "spacemit-p1-rtc".
++	  Enable support for regulators implemented by the SpacemiT P1
++	  power controller.  The P1 implements 6 high-efficiency buck
++	  converters and 12 programmable LDO regulators.  To compile this
++	  driver as a module, choose M here.  The module will be called
++	  "spacemit-pmic".
 +
- config RTC_DRV_NCT3018Y
- 	tristate "Nuvoton NCT3018Y"
- 	depends on OF
-diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-index 789bddfea99d8..f41fdb4fabae9 100644
---- a/drivers/rtc/Makefile
-+++ b/drivers/rtc/Makefile
-@@ -171,6 +171,7 @@ obj-$(CONFIG_RTC_DRV_SD2405AL)	+= rtc-sd2405al.o
- obj-$(CONFIG_RTC_DRV_SD3078)	+= rtc-sd3078.o
- obj-$(CONFIG_RTC_DRV_SH)	+= rtc-sh.o
- obj-$(CONFIG_RTC_DRV_SNVS)	+= rtc-snvs.o
-+obj-$(CONFIG_RTC_DRV_SPACEMIT_P1)	+= rtc-spacemit-p1.o
- obj-$(CONFIG_RTC_DRV_SPEAR)	+= rtc-spear.o
- obj-$(CONFIG_RTC_DRV_STARFIRE)	+= rtc-starfire.o
- obj-$(CONFIG_RTC_DRV_STK17TA8)	+= rtc-stk17ta8.o
-diff --git a/drivers/rtc/rtc-spacemit-p1.c b/drivers/rtc/rtc-spacemit-p1.c
+ config REGULATOR_STM32_BOOSTER
+ 	tristate "STMicroelectronics STM32 BOOSTER"
+ 	depends on ARCH_STM32 || COMPILE_TEST
+diff --git a/drivers/regulator/Makefile b/drivers/regulator/Makefile
+index be98b29d6675d..278f5b8d1c7d7 100644
+--- a/drivers/regulator/Makefile
++++ b/drivers/regulator/Makefile
+@@ -162,6 +162,7 @@ obj-$(CONFIG_REGULATOR_S5M8767) += s5m8767.o
+ obj-$(CONFIG_REGULATOR_SC2731) += sc2731-regulator.o
+ obj-$(CONFIG_REGULATOR_SKY81452) += sky81452-regulator.o
+ obj-$(CONFIG_REGULATOR_SLG51000) += slg51000-regulator.o
++obj-$(CONFIG_REGULATOR_SPACEMIT_P1) += spacemit-p1.o
+ obj-$(CONFIG_REGULATOR_STM32_BOOSTER) += stm32-booster.o
+ obj-$(CONFIG_REGULATOR_STM32_VREFBUF) += stm32-vrefbuf.o
+ obj-$(CONFIG_REGULATOR_STM32_PWR) += stm32-pwr.o
+diff --git a/drivers/regulator/spacemit-p1.c b/drivers/regulator/spacemit-p1.c
 new file mode 100644
-index 0000000000000..43ab62494bb4b
+index 0000000000000..d437e6738ea1e
 --- /dev/null
-+++ b/drivers/rtc/rtc-spacemit-p1.c
-@@ -0,0 +1,167 @@
++++ b/drivers/regulator/spacemit-p1.c
+@@ -0,0 +1,157 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Driver for the RTC found in the SpacemiT P1 PMIC
++ * Driver for regulators found in the SpacemiT P1 PMIC
 + *
 + * Copyright (C) 2025 by RISCstar Solutions Corporation.  All rights reserved.
++ * Derived from code from SpacemiT.
++ *	Copyright (c) 2023, SPACEMIT Co., Ltd
 + */
 +
++#include <linux/array_size.h>
 +#include <linux/bits.h>
 +#include <linux/device.h>
++#include <linux/linear_range.h>
 +#include <linux/module.h>
++#include <linux/of.h>
 +#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/rtc.h>
++#include <linux/regulator/driver.h>
 +
-+#define MOD_NAME	"spacemit-p1-rtc"
++#define MOD_NAME	"spacemit-p1-regulator"
 +
-+/*
-+ * Six consecutive 1-byte registers hold the seconds, minutes, hours,
-+ * day-of-month, month, and year (respectively).
-+ *
-+ * The range of values in these registers is:
-+ *    seconds	0-59
-+ *    minutes	0-59
-+ *    hours	0-59
-+ *    day	0-30 (struct tm is 1-31)
-+ *    month	0-11
-+ *    year	years since 2000 (struct tm is since 1900)
-+ *
-+ * Note that the day and month must be converted after reading and
-+ * before writing.
-+ */
-+#define RTC_TIME		0x0d	/* Offset of the seconds register */
++enum p1_regulator_id {
++	P1_BUCK1,
++	P1_BUCK2,
++	P1_BUCK3,
++	P1_BUCK4,
++	P1_BUCK5,
++	P1_BUCK6,
 +
-+#define RTC_CTRL		0x1d
-+#define RTC_EN		BIT(2)
++	P1_ALDO1,
++	P1_ALDO2,
++	P1_ALDO3,
++	P1_ALDO4,
 +
-+/* Number of attempts to read a consistent time stamp before giving up */
-+#define RTC_READ_TRIES		20	/* At least 1 */
-+
-+struct p1_rtc {
-+	struct regmap *regmap;
-+	struct rtc_device *rtc;
++	P1_DLDO1,
++	P1_DLDO2,
++	P1_DLDO3,
++	P1_DLDO4,
++	P1_DLDO5,
++	P1_DLDO6,
++	P1_DLDO7,
 +};
 +
-+/*
-+ * The P1 hardware documentation states that the register values are
-+ * latched to ensure a consistent time snapshot within the registers,
-+ * but these are in fact unstable due to a bug in the hardware design.
-+ * So we loop until we get two identical readings.
-+ */
-+static int p1_rtc_read_time(struct device *dev, struct rtc_time *t)
++static const struct regulator_ops p1_regulator_ops = {
++	.list_voltage		= regulator_list_voltage_linear_range,
++	.get_voltage_sel	= regulator_get_voltage_sel_regmap,
++	.set_voltage_sel	= regulator_set_voltage_sel_regmap,
++	.set_voltage_time_sel   = regulator_set_voltage_time_sel,
++	.enable			= regulator_enable_regmap,
++	.disable		= regulator_disable_regmap,
++	.is_enabled		= regulator_is_enabled_regmap,
++};
++
++/* Selector value 255 can be used to disable the buck converter on sleep */
++static const struct linear_range p1_buck_ranges[] = {
++	REGULATOR_LINEAR_RANGE(500000, 0, 170, 5000),
++	REGULATOR_LINEAR_RANGE(1375000, 171, 254, 25000),
++};
++
++/* Selector value 0 can be used for suspend */
++static const struct linear_range p1_ldo_ranges[] = {
++	REGULATOR_LINEAR_RANGE(500000, 11, 127, 25000),
++};
++
++/* These define the voltage selector field for buck and LDO regulators */
++#define BUCK_MASK		GENMASK(7, 0)
++#define LDO_MASK		GENMASK(6, 0)
++
++#define P1_ID(_TYPE, _n)	P1_ ## _TYPE ## _n
++#define P1_ENABLE_REG(_off, _n)	((_off) + 3 * ((_n) - 1))
++
++#define P1_REG_DESC(_TYPE, _type, _n, _s, _off, _mask, _nv, _ranges)	\
++	{								\
++		.name			= #_type #_n,			\
++		.supply_name		= _s,				\
++		.of_match		= of_match_ptr(#_type #_n),	\
++		.regulators_node	= of_match_ptr("regulators"),	\
++		.id			= P1_ID(_TYPE, _n),		\
++		.n_voltages		= _nv,				\
++		.ops			= &p1_regulator_ops,		\
++		.owner			= THIS_MODULE,			\
++		.linear_ranges		= _ranges,			\
++		.n_linear_ranges	= ARRAY_SIZE(_ranges),		\
++		.vsel_reg		= P1_ENABLE_REG(_off, _n) + 1,	\
++		.vsel_mask		= _mask,			\
++		.enable_reg		= P1_ENABLE_REG(_off, _n),	\
++		.enable_mask		= BIT(0),			\
++	}
++
++#define P1_BUCK_DESC(_n) \
++	P1_REG_DESC(BUCK, buck, _n, "vcc", 0x47, BUCK_MASK, 254, p1_buck_ranges)
++
++#define P1_ALDO_DESC(_n) \
++	P1_REG_DESC(ALDO, aldo, _n, "vcc", 0x5b, LDO_MASK, 117, p1_ldo_ranges)
++
++#define P1_DLDO_DESC(_n) \
++	P1_REG_DESC(DLDO, dldo, _n, "buck5", 0x67, LDO_MASK, 117, p1_ldo_ranges)
++
++static const struct regulator_desc p1_regulator_desc[] = {
++	P1_BUCK_DESC(1),
++	P1_BUCK_DESC(2),
++	P1_BUCK_DESC(3),
++	P1_BUCK_DESC(4),
++	P1_BUCK_DESC(5),
++	P1_BUCK_DESC(6),
++
++	P1_ALDO_DESC(1),
++	P1_ALDO_DESC(2),
++	P1_ALDO_DESC(3),
++	P1_ALDO_DESC(4),
++
++	P1_DLDO_DESC(1),
++	P1_DLDO_DESC(2),
++	P1_DLDO_DESC(3),
++	P1_DLDO_DESC(4),
++	P1_DLDO_DESC(5),
++	P1_DLDO_DESC(6),
++	P1_DLDO_DESC(7),
++};
++
++static int p1_regulator_probe(struct platform_device *pdev)
 +{
-+	struct p1_rtc *p1 = dev_get_drvdata(dev);
-+	struct regmap *regmap = p1->regmap;
-+	u32 count = RTC_READ_TRIES;
-+	u8 seconds;
-+	u8 time[6];
-+	int ret;
++	struct regulator_config config = { };
++	struct device *dev = &pdev->dev;
++	u32 i;
 +
-+	if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
-+		return -EINVAL;		/* RTC is disabled */
++	/*
++	 * The parent device (PMIC) owns the regmap.  Since we don't
++	 * provide one in the config structure, that one will be used.
++	 */
++	config.dev = dev->parent;
 +
-+	ret = regmap_bulk_read(regmap, RTC_TIME, time, sizeof(time));
-+	if (ret)
-+		return ret;
++	for (i = 0; i < ARRAY_SIZE(p1_regulator_desc); i++) {
++		const struct regulator_desc *desc = &p1_regulator_desc[i];
++		struct regulator_dev *rdev;
 +
-+	do {
-+		seconds = time[0];
-+		ret = regmap_bulk_read(regmap, RTC_TIME, time, sizeof(time));
-+		if (ret)
-+			return ret;
-+	} while (time[0] != seconds && --count);
-+
-+	if (!count)
-+		return -EIO;		/* Unable to get a consistent result */
-+
-+	t->tm_sec = time[0] & GENMASK(5, 0);
-+	t->tm_min = time[1] & GENMASK(5, 0);
-+	t->tm_hour = time[2] & GENMASK(4, 0);
-+	t->tm_mday = (time[3] & GENMASK(4, 0)) + 1;
-+	t->tm_mon = time[4] & GENMASK(3, 0);
-+	t->tm_year = (time[5] & GENMASK(5, 0)) + 100;
++		rdev = devm_regulator_register(dev, desc, &config);
++		if (IS_ERR(rdev))
++			return dev_err_probe(dev, PTR_ERR(rdev),
++					     "error registering regulator %s\n",
++					     desc->name);
++	}
 +
 +	return 0;
 +}
 +
-+/*
-+ * The P1 hardware documentation states that values in the registers are
-+ * latched so when written they represent a consistent time snapshot.
-+ * Nevertheless, this is not guaranteed by the implementation, so we must
-+ * disable the RTC while updating it.
-+ */
-+static int p1_rtc_set_time(struct device *dev, struct rtc_time *t)
-+{
-+	struct p1_rtc *p1 = dev_get_drvdata(dev);
-+	struct regmap *regmap = p1->regmap;
-+	u8 time[6];
-+	int ret;
-+
-+	time[0] = t->tm_sec;
-+	time[1] = t->tm_min;
-+	time[2] = t->tm_hour;
-+	time[3] = t->tm_mday - 1;
-+	time[4] = t->tm_mon;
-+	time[5] = t->tm_year - 100;
-+
-+	/* Disable the RTC to update; re-enable again when done */
-+	ret = regmap_clear_bits(regmap, RTC_CTRL, RTC_EN);
-+	if (ret)
-+		return ret;
-+
-+	/* If something goes wrong, leave the RTC disabled */
-+	ret = regmap_bulk_write(regmap, RTC_TIME, time, sizeof(time));
-+	if (ret)
-+		return ret;
-+
-+	return regmap_set_bits(regmap, RTC_CTRL, RTC_EN);
-+}
-+
-+static const struct rtc_class_ops p1_rtc_class_ops = {
-+	.read_time = p1_rtc_read_time,
-+	.set_time = p1_rtc_set_time,
-+};
-+
-+static int p1_rtc_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct rtc_device *rtc;
-+	struct p1_rtc *p1;
-+
-+	p1 = devm_kzalloc(dev, sizeof(*p1), GFP_KERNEL);
-+	if (!p1)
-+		return -ENOMEM;
-+	dev_set_drvdata(dev, p1);
-+
-+	p1->regmap = dev_get_regmap(dev->parent, NULL);
-+	if (!p1->regmap)
-+		return dev_err_probe(dev, -ENODEV, "failed to get regmap\n");
-+
-+	rtc = devm_rtc_allocate_device(dev);
-+	if (IS_ERR(rtc))
-+		return dev_err_probe(dev, PTR_ERR(rtc),
-+				     "error allocating device\n");
-+	p1->rtc = rtc;
-+
-+	rtc->ops = &p1_rtc_class_ops;
-+	rtc->range_min = RTC_TIMESTAMP_BEGIN_2000;
-+	rtc->range_max = RTC_TIMESTAMP_END_2063;
-+
-+	clear_bit(RTC_FEATURE_ALARM, rtc->features);
-+	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, rtc->features);
-+
-+	return devm_rtc_register_device(rtc);
-+}
-+
-+static struct platform_driver p1_rtc_driver = {
-+	.probe = p1_rtc_probe,
++static struct platform_driver p1_regulator_driver = {
++	.probe = p1_regulator_probe,
 +	.driver = {
 +		.name = MOD_NAME,
 +	},
 +};
 +
-+module_platform_driver(p1_rtc_driver);
++module_platform_driver(p1_regulator_driver);
 +
-+MODULE_DESCRIPTION("SpacemiT P1 RTC driver");
++MODULE_DESCRIPTION("SpacemiT P1 regulator driver");
 +MODULE_LICENSE("GPL");
 +MODULE_ALIAS("platform:" MOD_NAME);
 -- 
