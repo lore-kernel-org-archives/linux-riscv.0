@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266A7C87FCF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 19:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F27CA0EE0
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 19:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BmV3/Mky337nBazYsqaXM+a1e6mbaNlGKOhoiJzEe4E=; b=AYk5qdYAd5NFls
-	xn+adfU1sFcVFDefUhheA3yz39DznlNY+94rKIt0qtP5jx+YSKo4HaTQlnAUGX85S8rxNYp7AU9hs
-	1KSVDIeRelwbYAAavNq/+DnnNR5b6rLMCfVL8z/xvDUCpi+JTC3bBgWMT6i1WY8Ze5lQ8NbvRIJoH
-	T4VTSCQSY8c6igTuw4RjHoxkNcqVxqY8WxKSS7jqhM7BZyoByKU1XwD1O78zc5TMNWXcqPCVDIB4F
-	ja3geXZwZWbYQZW50A7eBCca7aro+0/B1ebhk4Ag2VH2g9zgXW30kE6wlB6d20l0DAF94z6eNhxtC
-	fFzgXzJUFzSNDvOC2aPg==;
+	List-Owner; bh=AhWipRcdG/TybGHq6tMfTHsat+v5RJjYs6YkbEtYoKk=; b=NigKd8gU8GjoFM
+	TNYF67H0FcLT1bcGDt9Yo0BkIkC3vYtxnKr9HPz5qxxARbkOK3KG+RO0ph7so+IDbj79/3GTD9Lm1
+	2w/eC6sb2OdD1hi9n+vhSKL5iT7ZqxNYgBTcbO5d0Yn05OK/LLQ59XPrrkLxO1iwhCdK4vOL+A/Sq
+	sQqkF64zmBh6+IrxEqx1OSelf8h+cX5bKdOPeD6Kg/sAAeic6DQRoT7PxwiKDcZUJb7ego0XesTOQ
+	PXelMEXAexPAYdvwadLg4fuI6ogL1EJsVUWtAhxJ5n/uB5/N5y15t3Jtg+QY4yjxXv2JkX7i+FtCn
+	qz9hikqUfYmc7sJ6HwKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umHOs-0000000Ephs-2aAj;
-	Wed, 13 Aug 2025 19:44:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEs1-0000000EW9B-3dqo;
-	Wed, 13 Aug 2025 17:02:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 497041E7D;
-	Wed, 13 Aug 2025 10:02:29 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 304C73F738;
-	Wed, 13 Aug 2025 10:02:33 -0700 (PDT)
-From: Robin Murphy <robin.murphy@arm.com>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	kan.liang@linux.intel.com
-Cc: linux-perf-users@vger.kernel.org,
+	id 1umHOy-0000000EprP-3bmV;
+	Wed, 13 Aug 2025 19:44:48 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umF1A-0000000EYNQ-2ynu
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 Aug 2025 17:12:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755105117; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=UaS3ZnY0X3PYGMvu6R6w8/Yehw4DtCwK70MgnaZJaOT/gM6yCa2SO02OJuojNnRUbaslLKTvBEaCV4irhjE54QoF3m3GnUL6/tTxzdA/45LJIUaA0NcUqJ695B+ulq3mQy7jPzyacovmwnooQk+lDwIPxYi82F1D2yvceUl15EA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1755105117; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=sHxTIg5KX23NPs8JGCAUlXwsnAyjrEofp9+EiSddjm8=; 
+	b=LCyzOahHaFshbJUsStBb6fedE/wnbtRr1LJmax4OrEzdqf4jeUv4ifHk5/LvvhG36vLmQ4tGTY2/ReJQeDyNhb+qFys0mR3wn1oN5rt+7Kezwk66qFlwAeNZ83ZOlI5jHMUPFpUYqL4D39VwTK5HddoXY4heEvqm1gSkEiHw1+U=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755105117;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=sHxTIg5KX23NPs8JGCAUlXwsnAyjrEofp9+EiSddjm8=;
+	b=akkQ98LTw438ytZM3rA6mk71UtYNGyXWP5Kxd7zEuZ3vpwG3vdCdLOAC5iFQnID+
+	PexpLMowysrppo8Wp63gJvyhtmdcduXvwBYCkyDLJDHUnNsOWrZdOVefzS/hQD8nMiG
+	mlVOxKylnsC+5OVwvQfF21Se99pcXDAAQfsM4/ecOqRbT5nHbuISCDnoKZGSbCVMUDz
+	TeWLKJE1mRAt0QvnNE52zOuqbpcAzpqtxGAz4TOo7ol3fIQ6f9kJKR74o+09p0lVh+z
+	Z4HvLGKgzHqgUgx03l3iaGTMVNB/C9537UD40ckDcwDbh8mgxws5XhmV5cbnrNND9YC
+	yavui6WMzg==
+Received: by mx.zohomail.com with SMTPS id 1755105115781169.85043751187823;
+	Wed, 13 Aug 2025 10:11:55 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
+	Yao Zi <ziyao@disroot.org>,
+	Han Gao <rabenda.cn@gmail.com>,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-csky@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	dmaengine@vger.kernel.org,
-	linux-fpga@vger.kernel.org,
-	amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	coresight@lists.linaro.org,
-	iommu@lists.linux.dev,
-	linux-amlogic@lists.infradead.org,
-	linux-cxl@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 16/19] perf: Introduce positive capability for sampling
-Date: Wed, 13 Aug 2025 18:01:08 +0100
-Message-Id: <ae81cb65b38555c628e395cce67ac6c7eaafdd23.1755096883.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
-In-Reply-To: <cover.1755096883.git.robin.murphy@arm.com>
-References: <cover.1755096883.git.robin.murphy@arm.com>
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH 1/2] clk: thead: th1520-ap: describe gate clocks with clk_gate
+Date: Thu, 14 Aug 2025 01:11:35 +0800
+Message-ID: <20250813171136.2213309-2-uwu@icenowy.me>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250813171136.2213309-1-uwu@icenowy.me>
+References: <20250813171136.2213309-1-uwu@icenowy.me>
 MIME-Version: 1.0
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_100237_990943_856D55B3 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20250813_101204_812251_C08C5BB8 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,431 +90,510 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sampling is inherently a feature for CPU PMUs, given that the thing
-to be sampled is a CPU context. These days, we have many more
-uncore/system PMUs than CPU PMUs, so it no longer makes much sense to
-assume sampling support by default and force the ever-growing majority
-of drivers to opt out of it (or erroneously fail to). Instead, let's
-introduce a positive opt-in capability that's more obvious and easier to
-maintain.
+Similar to previous situation of mux clocks, the gate clocks of
+clk-th1520-ap drivers are also using a helper that creates a temporary
+struct clk_hw and abandons the struct clk_hw in struct ccu_common, which
+prevents clock gates to be clock parents.
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Do the similar refactor of dropping struct ccu_common and directly use
+struct clk_gate here.
+
+This patch mimics the refactor done on struct ccu_mux at [1].
+
+[1] https://lore.kernel.org/all/20250722080535.60027-2-ziyao@disroot.org/
+
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 ---
- arch/alpha/kernel/perf_event.c       |  3 ++-
- arch/arc/kernel/perf_event.c         |  2 ++
- arch/csky/kernel/perf_event.c        |  2 ++
- arch/loongarch/kernel/perf_event.c   |  1 +
- arch/mips/kernel/perf_event_mipsxx.c |  1 +
- arch/powerpc/perf/core-book3s.c      |  1 +
- arch/powerpc/perf/core-fsl-emb.c     |  1 +
- arch/powerpc/perf/imc-pmu.c          |  1 +
- arch/s390/kernel/perf_cpum_cf.c      |  1 +
- arch/s390/kernel/perf_cpum_sf.c      |  2 ++
- arch/s390/kernel/perf_pai_crypto.c   |  1 +
- arch/s390/kernel/perf_pai_ext.c      |  1 +
- arch/sparc/kernel/perf_event.c       |  1 +
- arch/x86/events/amd/ibs.c            |  2 ++
- arch/x86/events/core.c               |  4 +++-
- arch/xtensa/kernel/perf_event.c      |  1 +
- drivers/perf/arm_pmu.c               |  3 ++-
- drivers/perf/arm_pmu_platform.c      |  1 +
- drivers/perf/arm_spe_pmu.c           |  3 ++-
- drivers/perf/riscv_pmu_sbi.c         |  2 ++
- include/linux/perf_event.h           |  3 ++-
- kernel/events/core.c                 | 20 +++++++++++---------
- kernel/events/hw_breakpoint.c        |  1 +
- 23 files changed, 44 insertions(+), 14 deletions(-)
+ drivers/clk/thead/clk-th1520-ap.c | 382 +++++++++++++++---------------
+ 1 file changed, 185 insertions(+), 197 deletions(-)
 
-diff --git a/arch/alpha/kernel/perf_event.c b/arch/alpha/kernel/perf_event.c
-index 8557165e64c0..4de1802d249f 100644
---- a/arch/alpha/kernel/perf_event.c
-+++ b/arch/alpha/kernel/perf_event.c
-@@ -761,7 +761,8 @@ static struct pmu pmu = {
- 	.start		= alpha_pmu_start,
- 	.stop		= alpha_pmu_stop,
- 	.read		= alpha_pmu_read,
--	.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING |
-+			  PERF_PMU_CAP_NO_EXCLUDE,
+diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+index 0224f2dde0f63..d08e7fb387e50 100644
+--- a/drivers/clk/thead/clk-th1520-ap.c
++++ b/drivers/clk/thead/clk-th1520-ap.c
+@@ -49,8 +49,9 @@ struct ccu_mux {
  };
  
- 
-diff --git a/arch/arc/kernel/perf_event.c b/arch/arc/kernel/perf_event.c
-index ed6d4f0cd621..1b99b0215027 100644
---- a/arch/arc/kernel/perf_event.c
-+++ b/arch/arc/kernel/perf_event.c
-@@ -818,6 +818,8 @@ static int arc_pmu_device_probe(struct platform_device *pdev)
- 
- 	if (irq == -1)
- 		arc_pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
-+	else
-+		arc_pmu->pmu.capabilities |= PERF_PMU_CAP_SAMPLING;
- 
- 	/*
- 	 * perf parser doesn't really like '-' symbol in events name, so let's
-diff --git a/arch/csky/kernel/perf_event.c b/arch/csky/kernel/perf_event.c
-index e0a36acd265b..c5ba6e235a6f 100644
---- a/arch/csky/kernel/perf_event.c
-+++ b/arch/csky/kernel/perf_event.c
-@@ -1204,6 +1204,7 @@ int init_hw_perf_events(void)
- 	}
- 
- 	csky_pmu.pmu = (struct pmu) {
-+		.capabilities	= PERF_PMU_CAP_SAMPLING,
- 		.pmu_enable	= csky_pmu_enable,
- 		.pmu_disable	= csky_pmu_disable,
- 		.event_init	= csky_pmu_event_init,
-@@ -1314,6 +1315,7 @@ int csky_pmu_device_probe(struct platform_device *pdev,
- 
- 	ret = csky_pmu_request_irq(csky_pmu_handle_irq);
- 	if (ret) {
-+		csky_pmu.pmu.capabilities &= ~PERF_PMU_CAP_SAMPLING;
- 		csky_pmu.pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
- 		pr_notice("[perf] PMU request irq fail!\n");
- 	}
-diff --git a/arch/loongarch/kernel/perf_event.c b/arch/loongarch/kernel/perf_event.c
-index 8ad098703488..341b17bedd0e 100644
---- a/arch/loongarch/kernel/perf_event.c
-+++ b/arch/loongarch/kernel/perf_event.c
-@@ -571,6 +571,7 @@ static int loongarch_pmu_event_init(struct perf_event *event)
- }
- 
- static struct pmu pmu = {
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable	= loongarch_pmu_enable,
- 	.pmu_disable	= loongarch_pmu_disable,
- 	.event_init	= loongarch_pmu_event_init,
-diff --git a/arch/mips/kernel/perf_event_mipsxx.c b/arch/mips/kernel/perf_event_mipsxx.c
-index 196a070349b0..4c5d64d1158e 100644
---- a/arch/mips/kernel/perf_event_mipsxx.c
-+++ b/arch/mips/kernel/perf_event_mipsxx.c
-@@ -687,6 +687,7 @@ static int mipspmu_event_init(struct perf_event *event)
- }
- 
- static struct pmu pmu = {
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable	= mipspmu_enable,
- 	.pmu_disable	= mipspmu_disable,
- 	.event_init	= mipspmu_event_init,
-diff --git a/arch/powerpc/perf/core-book3s.c b/arch/powerpc/perf/core-book3s.c
-index d67f7d511f13..cfe7d3c120e1 100644
---- a/arch/powerpc/perf/core-book3s.c
-+++ b/arch/powerpc/perf/core-book3s.c
-@@ -2207,6 +2207,7 @@ ssize_t power_events_sysfs_show(struct device *dev,
- }
- 
- static struct pmu power_pmu = {
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable	= power_pmu_enable,
- 	.pmu_disable	= power_pmu_disable,
- 	.event_init	= power_pmu_event_init,
-diff --git a/arch/powerpc/perf/core-fsl-emb.c b/arch/powerpc/perf/core-fsl-emb.c
-index 509932b91b75..62038ff3663f 100644
---- a/arch/powerpc/perf/core-fsl-emb.c
-+++ b/arch/powerpc/perf/core-fsl-emb.c
-@@ -570,6 +570,7 @@ static int fsl_emb_pmu_event_init(struct perf_event *event)
- }
- 
- static struct pmu fsl_emb_pmu = {
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable	= fsl_emb_pmu_enable,
- 	.pmu_disable	= fsl_emb_pmu_disable,
- 	.event_init	= fsl_emb_pmu_event_init,
-diff --git a/arch/powerpc/perf/imc-pmu.c b/arch/powerpc/perf/imc-pmu.c
-index 8664a7d297ad..f352dda3baf9 100644
---- a/arch/powerpc/perf/imc-pmu.c
-+++ b/arch/powerpc/perf/imc-pmu.c
-@@ -1507,6 +1507,7 @@ static int update_pmu_ops(struct imc_pmu *pmu)
- 		pmu->pmu.commit_txn = thread_imc_pmu_commit_txn;
- 		break;
- 	case IMC_DOMAIN_TRACE:
-+		pmu->pmu.capabilities |= PERF_PMU_CAP_SAMPLING;
- 		pmu->pmu.event_init = trace_imc_event_init;
- 		pmu->pmu.add = trace_imc_event_add;
- 		pmu->pmu.del = trace_imc_event_del;
-diff --git a/arch/s390/kernel/perf_cpum_cf.c b/arch/s390/kernel/perf_cpum_cf.c
-index 4d09954ebf49..7d10842d54f0 100644
---- a/arch/s390/kernel/perf_cpum_cf.c
-+++ b/arch/s390/kernel/perf_cpum_cf.c
-@@ -1861,6 +1861,7 @@ static const struct attribute_group *cfdiag_attr_groups[] = {
-  */
- static struct pmu cf_diag = {
- 	.task_ctx_nr  = perf_sw_context,
-+	.capabilities = PERF_PMU_CAP_SAMPLING,
- 	.event_init   = cfdiag_event_init,
- 	.pmu_enable   = cpumf_pmu_enable,
- 	.pmu_disable  = cpumf_pmu_disable,
-diff --git a/arch/s390/kernel/perf_cpum_sf.c b/arch/s390/kernel/perf_cpum_sf.c
-index f432869f8921..3d2c400f0aaa 100644
---- a/arch/s390/kernel/perf_cpum_sf.c
-+++ b/arch/s390/kernel/perf_cpum_sf.c
-@@ -1892,6 +1892,8 @@ static const struct attribute_group *cpumsf_pmu_attr_groups[] = {
+ struct ccu_gate {
+-	u32			enable;
+-	struct ccu_common	common;
++	int			clkid;
++	u32			reg;
++	struct clk_gate		gate;
  };
  
- static struct pmu cpumf_sampling = {
-+	.capabilities = PERF_PMU_CAP_SAMPLING,
-+
- 	.pmu_enable   = cpumsf_pmu_enable,
- 	.pmu_disable  = cpumsf_pmu_disable,
+ struct ccu_div {
+@@ -89,12 +90,12 @@ struct ccu_pll {
+ 					0),				\
+ 	}
  
-diff --git a/arch/s390/kernel/perf_pai_crypto.c b/arch/s390/kernel/perf_pai_crypto.c
-index f373a1009c45..a64b6b056a21 100644
---- a/arch/s390/kernel/perf_pai_crypto.c
-+++ b/arch/s390/kernel/perf_pai_crypto.c
-@@ -569,6 +569,7 @@ static const struct attribute_group *paicrypt_attr_groups[] = {
- /* Performance monitoring unit for mapped counters */
- static struct pmu paicrypt = {
- 	.task_ctx_nr  = perf_hw_context,
-+	.capabilities = PERF_PMU_CAP_SAMPLING,
- 	.event_init   = paicrypt_event_init,
- 	.add	      = paicrypt_add,
- 	.del	      = paicrypt_del,
-diff --git a/arch/s390/kernel/perf_pai_ext.c b/arch/s390/kernel/perf_pai_ext.c
-index d827473e7f87..1261f80c6d52 100644
---- a/arch/s390/kernel/perf_pai_ext.c
-+++ b/arch/s390/kernel/perf_pai_ext.c
-@@ -595,6 +595,7 @@ static const struct attribute_group *paiext_attr_groups[] = {
- /* Performance monitoring unit for mapped counters */
- static struct pmu paiext = {
- 	.task_ctx_nr  = perf_hw_context,
-+	.capabilities = PERF_PMU_CAP_SAMPLING,
- 	.event_init   = paiext_event_init,
- 	.add	      = paiext_add,
- 	.del	      = paiext_del,
-diff --git a/arch/sparc/kernel/perf_event.c b/arch/sparc/kernel/perf_event.c
-index 706127749c66..6ecea8e7b592 100644
---- a/arch/sparc/kernel/perf_event.c
-+++ b/arch/sparc/kernel/perf_event.c
-@@ -1573,6 +1573,7 @@ static int sparc_pmu_commit_txn(struct pmu *pmu)
+-#define CCU_GATE(_clkid, _struct, _name, _parent, _reg, _gate, _flags)	\
++#define CCU_GATE(_clkid, _struct, _name, _parent, _reg, _bit, _flags)	\
+ 	struct ccu_gate _struct = {					\
+-		.enable	= _gate,					\
+-		.common	= {						\
+-			.clkid		= _clkid,			\
+-			.cfg0		= _reg,				\
++		.clkid	= _clkid,					\
++		.reg	= _reg,						\
++		.gate	= {						\
++			.bit_idx	= _bit,				\
+ 			.hw.init	= CLK_HW_INIT_PARENTS_DATA(	\
+ 						_name,			\
+ 						_parent,		\
+@@ -122,13 +123,6 @@ static inline struct ccu_div *hw_to_ccu_div(struct clk_hw *hw)
+ 	return container_of(common, struct ccu_div, common);
  }
  
- static struct pmu pmu = {
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable	= sparc_pmu_enable,
- 	.pmu_disable	= sparc_pmu_disable,
- 	.event_init	= sparc_pmu_event_init,
-diff --git a/arch/x86/events/amd/ibs.c b/arch/x86/events/amd/ibs.c
-index 95de309fc7d5..ed07d80b6fe0 100644
---- a/arch/x86/events/amd/ibs.c
-+++ b/arch/x86/events/amd/ibs.c
-@@ -768,6 +768,7 @@ static struct perf_ibs perf_ibs_fetch = {
- 	.pmu = {
- 		.task_ctx_nr	= perf_hw_context,
- 
-+		.capabilities	= PERF_PMU_CAP_SAMPLING,
- 		.event_init	= perf_ibs_init,
- 		.add		= perf_ibs_add,
- 		.del		= perf_ibs_del,
-@@ -793,6 +794,7 @@ static struct perf_ibs perf_ibs_op = {
- 	.pmu = {
- 		.task_ctx_nr	= perf_hw_context,
- 
-+		.capabilities	= PERF_PMU_CAP_SAMPLING,
- 		.event_init	= perf_ibs_init,
- 		.add		= perf_ibs_add,
- 		.del		= perf_ibs_del,
-diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-index eca5bb49aa85..72a4c43951ee 100644
---- a/arch/x86/events/core.c
-+++ b/arch/x86/events/core.c
-@@ -1837,7 +1837,7 @@ static void __init pmu_check_apic(void)
- 	 * sample via a hrtimer based software event):
- 	 */
- 	pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+-static inline struct ccu_gate *hw_to_ccu_gate(struct clk_hw *hw)
+-{
+-	struct ccu_common *common = hw_to_ccu_common(hw);
 -
-+	pmu.capabilities &= ~PERF_PMU_CAP_SAMPLING;
- }
+-	return container_of(common, struct ccu_gate, common);
+-}
+-
+ static u8 ccu_get_parent_helper(struct ccu_common *common,
+ 				struct ccu_internal *mux)
+ {
+@@ -876,128 +870,128 @@ static const struct clk_parent_data emmc_sdio_ref_clk_pd[] = {
+ 	{ .hw = &emmc_sdio_ref_clk.hw },
+ };
  
- static struct attribute_group x86_pmu_format_group __ro_after_init = {
-@@ -2698,6 +2698,8 @@ static bool x86_pmu_filter(struct pmu *pmu, int cpu)
- }
+-static CCU_GATE(CLK_BROM, brom_clk, "brom", ahb2_cpusys_hclk_pd, 0x100, BIT(4), 0);
+-static CCU_GATE(CLK_BMU, bmu_clk, "bmu", axi4_cpusys2_aclk_pd, 0x100, BIT(5), 0);
++static CCU_GATE(CLK_BROM, brom_clk, "brom", ahb2_cpusys_hclk_pd, 0x100, 4, 0);
++static CCU_GATE(CLK_BMU, bmu_clk, "bmu", axi4_cpusys2_aclk_pd, 0x100, 5, 0);
+ static CCU_GATE(CLK_AON2CPU_A2X, aon2cpu_a2x_clk, "aon2cpu-a2x", axi4_cpusys2_aclk_pd,
+-		0x134, BIT(8), CLK_IS_CRITICAL);
++		0x134, 8, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_X2X_CPUSYS, x2x_cpusys_clk, "x2x-cpusys", axi4_cpusys2_aclk_pd,
+-		0x134, BIT(7), CLK_IS_CRITICAL);
++		0x134, 7, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd,
+-		0x138, BIT(8), CLK_IS_CRITICAL);
++		0x138, 8, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_CPU2PERI_X2H, cpu2peri_x2h_clk, "cpu2peri-x2h", axi4_cpusys2_aclk_pd,
+-		0x140, BIT(9), CLK_IS_CRITICAL);
++		0x140, 9, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_PERISYS_APB1_HCLK, perisys_apb1_hclk, "perisys-apb1-hclk", perisys_ahb_hclk_pd,
+-		0x150, BIT(9), CLK_IS_CRITICAL);
++		0x150, 9, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_PERISYS_APB2_HCLK, perisys_apb2_hclk, "perisys-apb2-hclk", perisys_ahb_hclk_pd,
+-		0x150, BIT(10), CLK_IS_CRITICAL);
++		0x150, 10, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_PERISYS_APB3_HCLK, perisys_apb3_hclk, "perisys-apb3-hclk", perisys_ahb_hclk_pd,
+-		0x150, BIT(11), CLK_IS_CRITICAL);
++		0x150, 11, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_PERISYS_APB4_HCLK, perisys_apb4_hclk, "perisys-apb4-hclk", perisys_ahb_hclk_pd,
+-		0x150, BIT(12), 0);
+-static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, BIT(5), CLK_IS_CRITICAL);
+-static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, BIT(13), CLK_IS_CRITICAL);
+-static CCU_GATE(CLK_EMMC_SDIO, emmc_sdio_clk, "emmc-sdio", emmc_sdio_ref_clk_pd, 0x204, BIT(30), 0);
+-static CCU_GATE(CLK_GMAC1, gmac1_clk, "gmac1", gmac_pll_clk_pd, 0x204, BIT(26), 0);
+-static CCU_GATE(CLK_PADCTRL1, padctrl1_clk, "padctrl1", perisys_apb_pclk_pd, 0x204, BIT(24), 0);
+-static CCU_GATE(CLK_DSMART, dsmart_clk, "dsmart", perisys_apb_pclk_pd, 0x204, BIT(23), 0);
+-static CCU_GATE(CLK_PADCTRL0, padctrl0_clk, "padctrl0", perisys_apb_pclk_pd, 0x204, BIT(22), 0);
+-static CCU_GATE(CLK_GMAC_AXI, gmac_axi_clk, "gmac-axi", axi4_cpusys2_aclk_pd, 0x204, BIT(21), 0);
+-static CCU_GATE(CLK_GPIO3, gpio3_clk, "gpio3-clk", peri2sys_apb_pclk_pd, 0x204, BIT(20), 0);
+-static CCU_GATE(CLK_GMAC0, gmac0_clk, "gmac0", gmac_pll_clk_pd, 0x204, BIT(19), 0);
+-static CCU_GATE(CLK_PWM, pwm_clk, "pwm", perisys_apb_pclk_pd, 0x204, BIT(18), 0);
+-static CCU_GATE(CLK_QSPI0, qspi0_clk, "qspi0", video_pll_clk_pd, 0x204, BIT(17), 0);
+-static CCU_GATE(CLK_QSPI1, qspi1_clk, "qspi1", video_pll_clk_pd, 0x204, BIT(16), 0);
+-static CCU_GATE(CLK_SPI, spi_clk, "spi", video_pll_clk_pd, 0x204, BIT(15), 0);
+-static CCU_GATE(CLK_UART0_PCLK, uart0_pclk, "uart0-pclk", perisys_apb_pclk_pd, 0x204, BIT(14), 0);
+-static CCU_GATE(CLK_UART1_PCLK, uart1_pclk, "uart1-pclk", perisys_apb_pclk_pd, 0x204, BIT(13), 0);
+-static CCU_GATE(CLK_UART2_PCLK, uart2_pclk, "uart2-pclk", perisys_apb_pclk_pd, 0x204, BIT(12), 0);
+-static CCU_GATE(CLK_UART3_PCLK, uart3_pclk, "uart3-pclk", perisys_apb_pclk_pd, 0x204, BIT(11), 0);
+-static CCU_GATE(CLK_UART4_PCLK, uart4_pclk, "uart4-pclk", perisys_apb_pclk_pd, 0x204, BIT(10), 0);
+-static CCU_GATE(CLK_UART5_PCLK, uart5_pclk, "uart5-pclk", perisys_apb_pclk_pd, 0x204, BIT(9), 0);
+-static CCU_GATE(CLK_GPIO0, gpio0_clk, "gpio0-clk", perisys_apb_pclk_pd, 0x204, BIT(8), 0);
+-static CCU_GATE(CLK_GPIO1, gpio1_clk, "gpio1-clk", perisys_apb_pclk_pd, 0x204, BIT(7), 0);
+-static CCU_GATE(CLK_GPIO2, gpio2_clk, "gpio2-clk", peri2sys_apb_pclk_pd, 0x204, BIT(6), 0);
+-static CCU_GATE(CLK_I2C0, i2c0_clk, "i2c0", perisys_apb_pclk_pd, 0x204, BIT(5), 0);
+-static CCU_GATE(CLK_I2C1, i2c1_clk, "i2c1", perisys_apb_pclk_pd, 0x204, BIT(4), 0);
+-static CCU_GATE(CLK_I2C2, i2c2_clk, "i2c2", perisys_apb_pclk_pd, 0x204, BIT(3), 0);
+-static CCU_GATE(CLK_I2C3, i2c3_clk, "i2c3", perisys_apb_pclk_pd, 0x204, BIT(2), 0);
+-static CCU_GATE(CLK_I2C4, i2c4_clk, "i2c4", perisys_apb_pclk_pd, 0x204, BIT(1), 0);
+-static CCU_GATE(CLK_I2C5, i2c5_clk, "i2c5", perisys_apb_pclk_pd, 0x204, BIT(0), 0);
+-static CCU_GATE(CLK_SPINLOCK, spinlock_clk, "spinlock", ahb2_cpusys_hclk_pd, 0x208, BIT(10), 0);
+-static CCU_GATE(CLK_DMA, dma_clk, "dma", axi4_cpusys2_aclk_pd, 0x208, BIT(8), 0);
+-static CCU_GATE(CLK_MBOX0, mbox0_clk, "mbox0", apb3_cpusys_pclk_pd, 0x208, BIT(7), 0);
+-static CCU_GATE(CLK_MBOX1, mbox1_clk, "mbox1", apb3_cpusys_pclk_pd, 0x208, BIT(6), 0);
+-static CCU_GATE(CLK_MBOX2, mbox2_clk, "mbox2", apb3_cpusys_pclk_pd, 0x208, BIT(5), 0);
+-static CCU_GATE(CLK_MBOX3, mbox3_clk, "mbox3", apb3_cpusys_pclk_pd, 0x208, BIT(4), 0);
+-static CCU_GATE(CLK_WDT0, wdt0_clk, "wdt0", apb3_cpusys_pclk_pd, 0x208, BIT(3), 0);
+-static CCU_GATE(CLK_WDT1, wdt1_clk, "wdt1", apb3_cpusys_pclk_pd, 0x208, BIT(2), 0);
+-static CCU_GATE(CLK_TIMER0, timer0_clk, "timer0", apb3_cpusys_pclk_pd, 0x208, BIT(1), 0);
+-static CCU_GATE(CLK_TIMER1, timer1_clk, "timer1", apb3_cpusys_pclk_pd, 0x208, BIT(0), 0);
+-static CCU_GATE(CLK_SRAM0, sram0_clk, "sram0", axi_aclk_pd, 0x20c, BIT(4), 0);
+-static CCU_GATE(CLK_SRAM1, sram1_clk, "sram1", axi_aclk_pd, 0x20c, BIT(3), 0);
+-static CCU_GATE(CLK_SRAM2, sram2_clk, "sram2", axi_aclk_pd, 0x20c, BIT(2), 0);
+-static CCU_GATE(CLK_SRAM3, sram3_clk, "sram3", axi_aclk_pd, 0x20c, BIT(1), 0);
++		0x150, 12, 0);
++static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, 5, CLK_IS_CRITICAL);
++static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, 13, CLK_IS_CRITICAL);
++static CCU_GATE(CLK_EMMC_SDIO, emmc_sdio_clk, "emmc-sdio", emmc_sdio_ref_clk_pd, 0x204, 30, 0);
++static CCU_GATE(CLK_GMAC1, gmac1_clk, "gmac1", gmac_pll_clk_pd, 0x204, 26, 0);
++static CCU_GATE(CLK_PADCTRL1, padctrl1_clk, "padctrl1", perisys_apb_pclk_pd, 0x204, 24, 0);
++static CCU_GATE(CLK_DSMART, dsmart_clk, "dsmart", perisys_apb_pclk_pd, 0x204, 23, 0);
++static CCU_GATE(CLK_PADCTRL0, padctrl0_clk, "padctrl0", perisys_apb_pclk_pd, 0x204, 22, 0);
++static CCU_GATE(CLK_GMAC_AXI, gmac_axi_clk, "gmac-axi", axi4_cpusys2_aclk_pd, 0x204, 21, 0);
++static CCU_GATE(CLK_GPIO3, gpio3_clk, "gpio3-clk", peri2sys_apb_pclk_pd, 0x204, 20, 0);
++static CCU_GATE(CLK_GMAC0, gmac0_clk, "gmac0", gmac_pll_clk_pd, 0x204, 19, 0);
++static CCU_GATE(CLK_PWM, pwm_clk, "pwm", perisys_apb_pclk_pd, 0x204, 18, 0);
++static CCU_GATE(CLK_QSPI0, qspi0_clk, "qspi0", video_pll_clk_pd, 0x204, 17, 0);
++static CCU_GATE(CLK_QSPI1, qspi1_clk, "qspi1", video_pll_clk_pd, 0x204, 16, 0);
++static CCU_GATE(CLK_SPI, spi_clk, "spi", video_pll_clk_pd, 0x204, 15, 0);
++static CCU_GATE(CLK_UART0_PCLK, uart0_pclk, "uart0-pclk", perisys_apb_pclk_pd, 0x204, 14, 0);
++static CCU_GATE(CLK_UART1_PCLK, uart1_pclk, "uart1-pclk", perisys_apb_pclk_pd, 0x204, 13, 0);
++static CCU_GATE(CLK_UART2_PCLK, uart2_pclk, "uart2-pclk", perisys_apb_pclk_pd, 0x204, 12, 0);
++static CCU_GATE(CLK_UART3_PCLK, uart3_pclk, "uart3-pclk", perisys_apb_pclk_pd, 0x204, 11, 0);
++static CCU_GATE(CLK_UART4_PCLK, uart4_pclk, "uart4-pclk", perisys_apb_pclk_pd, 0x204, 10, 0);
++static CCU_GATE(CLK_UART5_PCLK, uart5_pclk, "uart5-pclk", perisys_apb_pclk_pd, 0x204, 9, 0);
++static CCU_GATE(CLK_GPIO0, gpio0_clk, "gpio0-clk", perisys_apb_pclk_pd, 0x204, 8, 0);
++static CCU_GATE(CLK_GPIO1, gpio1_clk, "gpio1-clk", perisys_apb_pclk_pd, 0x204, 7, 0);
++static CCU_GATE(CLK_GPIO2, gpio2_clk, "gpio2-clk", peri2sys_apb_pclk_pd, 0x204, 6, 0);
++static CCU_GATE(CLK_I2C0, i2c0_clk, "i2c0", perisys_apb_pclk_pd, 0x204, 5, 0);
++static CCU_GATE(CLK_I2C1, i2c1_clk, "i2c1", perisys_apb_pclk_pd, 0x204, 4, 0);
++static CCU_GATE(CLK_I2C2, i2c2_clk, "i2c2", perisys_apb_pclk_pd, 0x204, 3, 0);
++static CCU_GATE(CLK_I2C3, i2c3_clk, "i2c3", perisys_apb_pclk_pd, 0x204, 2, 0);
++static CCU_GATE(CLK_I2C4, i2c4_clk, "i2c4", perisys_apb_pclk_pd, 0x204, 1, 0);
++static CCU_GATE(CLK_I2C5, i2c5_clk, "i2c5", perisys_apb_pclk_pd, 0x204, 0, 0);
++static CCU_GATE(CLK_SPINLOCK, spinlock_clk, "spinlock", ahb2_cpusys_hclk_pd, 0x208, 10, 0);
++static CCU_GATE(CLK_DMA, dma_clk, "dma", axi4_cpusys2_aclk_pd, 0x208, 8, 0);
++static CCU_GATE(CLK_MBOX0, mbox0_clk, "mbox0", apb3_cpusys_pclk_pd, 0x208, 7, 0);
++static CCU_GATE(CLK_MBOX1, mbox1_clk, "mbox1", apb3_cpusys_pclk_pd, 0x208, 6, 0);
++static CCU_GATE(CLK_MBOX2, mbox2_clk, "mbox2", apb3_cpusys_pclk_pd, 0x208, 5, 0);
++static CCU_GATE(CLK_MBOX3, mbox3_clk, "mbox3", apb3_cpusys_pclk_pd, 0x208, 4, 0);
++static CCU_GATE(CLK_WDT0, wdt0_clk, "wdt0", apb3_cpusys_pclk_pd, 0x208, 3, 0);
++static CCU_GATE(CLK_WDT1, wdt1_clk, "wdt1", apb3_cpusys_pclk_pd, 0x208, 2, 0);
++static CCU_GATE(CLK_TIMER0, timer0_clk, "timer0", apb3_cpusys_pclk_pd, 0x208, 1, 0);
++static CCU_GATE(CLK_TIMER1, timer1_clk, "timer1", apb3_cpusys_pclk_pd, 0x208, 0, 0);
++static CCU_GATE(CLK_SRAM0, sram0_clk, "sram0", axi_aclk_pd, 0x20c, 4, 0);
++static CCU_GATE(CLK_SRAM1, sram1_clk, "sram1", axi_aclk_pd, 0x20c, 3, 0);
++static CCU_GATE(CLK_SRAM2, sram2_clk, "sram2", axi_aclk_pd, 0x20c, 2, 0);
++static CCU_GATE(CLK_SRAM3, sram3_clk, "sram3", axi_aclk_pd, 0x20c, 1, 0);
  
- static struct pmu pmu = {
-+	.capabilities		= PERF_PMU_CAP_SAMPLING,
+ static CCU_GATE(CLK_AXI4_VO_ACLK, axi4_vo_aclk, "axi4-vo-aclk",
+-		video_pll_clk_pd, 0x0, BIT(0), CLK_IS_CRITICAL);
++		video_pll_clk_pd, 0x0, 0, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_GPU_CORE, gpu_core_clk, "gpu-core-clk", video_pll_clk_pd,
+-		0x0, BIT(3), 0);
++		0x0, 3, 0);
+ static CCU_GATE(CLK_GPU_CFG_ACLK, gpu_cfg_aclk, "gpu-cfg-aclk",
+-		video_pll_clk_pd, 0x0, BIT(4), CLK_IS_CRITICAL);
++		video_pll_clk_pd, 0x0, 4, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_DPU_PIXELCLK0, dpu0_pixelclk, "dpu0-pixelclk",
+-		dpu0_clk_pd, 0x0, BIT(5), CLK_SET_RATE_PARENT);
++		dpu0_clk_pd, 0x0, 5, CLK_SET_RATE_PARENT);
+ static CCU_GATE(CLK_DPU_PIXELCLK1, dpu1_pixelclk, "dpu1-pixelclk",
+-		dpu1_clk_pd, 0x0, BIT(6), CLK_SET_RATE_PARENT);
++		dpu1_clk_pd, 0x0, 6, CLK_SET_RATE_PARENT);
+ static CCU_GATE(CLK_DPU_HCLK, dpu_hclk, "dpu-hclk", video_pll_clk_pd, 0x0,
+-		BIT(7), 0);
++		7, 0);
+ static CCU_GATE(CLK_DPU_ACLK, dpu_aclk, "dpu-aclk", video_pll_clk_pd, 0x0,
+-		BIT(8), 0);
++		8, 0);
+ static CCU_GATE(CLK_DPU_CCLK, dpu_cclk, "dpu-cclk", video_pll_clk_pd, 0x0,
+-		BIT(9), 0);
++		9, 0);
+ static CCU_GATE(CLK_HDMI_SFR, hdmi_sfr_clk, "hdmi-sfr-clk", video_pll_clk_pd,
+-		0x0, BIT(10), 0);
++		0x0, 10, 0);
+ static CCU_GATE(CLK_HDMI_PCLK, hdmi_pclk, "hdmi-pclk", video_pll_clk_pd, 0x0,
+-		BIT(11), 0);
++		11, 0);
+ static CCU_GATE(CLK_HDMI_CEC, hdmi_cec_clk, "hdmi-cec-clk", video_pll_clk_pd,
+-		0x0, BIT(12), 0);
++		0x0, 12, 0);
+ static CCU_GATE(CLK_MIPI_DSI0_PCLK, mipi_dsi0_pclk, "mipi-dsi0-pclk",
+-		video_pll_clk_pd, 0x0, BIT(13), 0);
++		video_pll_clk_pd, 0x0, 13, 0);
+ static CCU_GATE(CLK_MIPI_DSI1_PCLK, mipi_dsi1_pclk, "mipi-dsi1-pclk",
+-		video_pll_clk_pd, 0x0, BIT(14), 0);
++		video_pll_clk_pd, 0x0, 14, 0);
+ static CCU_GATE(CLK_MIPI_DSI0_CFG, mipi_dsi0_cfg_clk, "mipi-dsi0-cfg-clk",
+-		video_pll_clk_pd, 0x0, BIT(15), 0);
++		video_pll_clk_pd, 0x0, 15, 0);
+ static CCU_GATE(CLK_MIPI_DSI1_CFG, mipi_dsi1_cfg_clk, "mipi-dsi1-cfg-clk",
+-		video_pll_clk_pd, 0x0, BIT(16), 0);
++		video_pll_clk_pd, 0x0, 16, 0);
+ static CCU_GATE(CLK_MIPI_DSI0_REFCLK, mipi_dsi0_refclk, "mipi-dsi0-refclk",
+-		video_pll_clk_pd, 0x0, BIT(17), 0);
++		video_pll_clk_pd, 0x0, 17, 0);
+ static CCU_GATE(CLK_MIPI_DSI1_REFCLK, mipi_dsi1_refclk, "mipi-dsi1-refclk",
+-		video_pll_clk_pd, 0x0, BIT(18), 0);
++		video_pll_clk_pd, 0x0, 18, 0);
+ static CCU_GATE(CLK_HDMI_I2S, hdmi_i2s_clk, "hdmi-i2s-clk", video_pll_clk_pd,
+-		0x0, BIT(19), 0);
++		0x0, 19, 0);
+ static CCU_GATE(CLK_X2H_DPU1_ACLK, x2h_dpu1_aclk, "x2h-dpu1-aclk",
+-		video_pll_clk_pd, 0x0, BIT(20), CLK_IS_CRITICAL);
++		video_pll_clk_pd, 0x0, 20, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_X2H_DPU_ACLK, x2h_dpu_aclk, "x2h-dpu-aclk",
+-		video_pll_clk_pd, 0x0, BIT(21), CLK_IS_CRITICAL);
++		video_pll_clk_pd, 0x0, 21, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_AXI4_VO_PCLK, axi4_vo_pclk, "axi4-vo-pclk",
+-		video_pll_clk_pd, 0x0, BIT(22), 0);
++		video_pll_clk_pd, 0x0, 22, 0);
+ static CCU_GATE(CLK_IOPMP_VOSYS_DPU_PCLK, iopmp_vosys_dpu_pclk,
+-		"iopmp-vosys-dpu-pclk", video_pll_clk_pd, 0x0, BIT(23), 0);
++		"iopmp-vosys-dpu-pclk", video_pll_clk_pd, 0x0, 23, 0);
+ static CCU_GATE(CLK_IOPMP_VOSYS_DPU1_PCLK, iopmp_vosys_dpu1_pclk,
+-		"iopmp-vosys-dpu1-pclk", video_pll_clk_pd, 0x0, BIT(24), 0);
++		"iopmp-vosys-dpu1-pclk", video_pll_clk_pd, 0x0, 24, 0);
+ static CCU_GATE(CLK_IOPMP_VOSYS_GPU_PCLK, iopmp_vosys_gpu_pclk,
+-		"iopmp-vosys-gpu-pclk", video_pll_clk_pd, 0x0, BIT(25), 0);
++		"iopmp-vosys-gpu-pclk", video_pll_clk_pd, 0x0, 25, 0);
+ static CCU_GATE(CLK_IOPMP_DPU1_ACLK, iopmp_dpu1_aclk, "iopmp-dpu1-aclk",
+-		video_pll_clk_pd, 0x0, BIT(27), CLK_IS_CRITICAL);
++		video_pll_clk_pd, 0x0, 27, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_IOPMP_DPU_ACLK, iopmp_dpu_aclk, "iopmp-dpu-aclk",
+-		video_pll_clk_pd, 0x0, BIT(28), CLK_IS_CRITICAL);
++		video_pll_clk_pd, 0x0, 28, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_IOPMP_GPU_ACLK, iopmp_gpu_aclk, "iopmp-gpu-aclk",
+-		video_pll_clk_pd, 0x0, BIT(29), CLK_IS_CRITICAL);
++		video_pll_clk_pd, 0x0, 29, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_MIPIDSI0_PIXCLK, mipi_dsi0_pixclk, "mipi-dsi0-pixclk",
+-		video_pll_clk_pd, 0x0, BIT(30), 0);
++		video_pll_clk_pd, 0x0, 30, 0);
+ static CCU_GATE(CLK_MIPIDSI1_PIXCLK, mipi_dsi1_pixclk, "mipi-dsi1-pixclk",
+-		video_pll_clk_pd, 0x0, BIT(31), 0);
++		video_pll_clk_pd, 0x0, 31, 0);
+ static CCU_GATE(CLK_HDMI_PIXCLK, hdmi_pixclk, "hdmi-pixclk", video_pll_clk_pd,
+-		0x4, BIT(0), 0);
++		0x4, 0, 0);
+ 
+ static CLK_FIXED_FACTOR_HW(gmac_pll_clk_100m, "gmac-pll-clk-100m",
+ 			   &gmac_pll_clk.common.hw, 10, 1, 0);
+@@ -1053,93 +1047,93 @@ static struct ccu_mux *th1520_mux_clks[] = {
+ 	&uart_sclk,
+ };
+ 
+-static struct ccu_common *th1520_gate_clks[] = {
+-	&emmc_sdio_clk.common,
+-	&aon2cpu_a2x_clk.common,
+-	&x2x_cpusys_clk.common,
+-	&brom_clk.common,
+-	&bmu_clk.common,
+-	&cpu2aon_x2h_clk.common,
+-	&cpu2peri_x2h_clk.common,
+-	&cpu2vp_clk.common,
+-	&perisys_apb1_hclk.common,
+-	&perisys_apb2_hclk.common,
+-	&perisys_apb3_hclk.common,
+-	&perisys_apb4_hclk.common,
+-	&npu_axi_clk.common,
+-	&gmac1_clk.common,
+-	&padctrl1_clk.common,
+-	&dsmart_clk.common,
+-	&padctrl0_clk.common,
+-	&gmac_axi_clk.common,
+-	&gpio3_clk.common,
+-	&gmac0_clk.common,
+-	&pwm_clk.common,
+-	&qspi0_clk.common,
+-	&qspi1_clk.common,
+-	&spi_clk.common,
+-	&uart0_pclk.common,
+-	&uart1_pclk.common,
+-	&uart2_pclk.common,
+-	&uart3_pclk.common,
+-	&uart4_pclk.common,
+-	&uart5_pclk.common,
+-	&gpio0_clk.common,
+-	&gpio1_clk.common,
+-	&gpio2_clk.common,
+-	&i2c0_clk.common,
+-	&i2c1_clk.common,
+-	&i2c2_clk.common,
+-	&i2c3_clk.common,
+-	&i2c4_clk.common,
+-	&i2c5_clk.common,
+-	&spinlock_clk.common,
+-	&dma_clk.common,
+-	&mbox0_clk.common,
+-	&mbox1_clk.common,
+-	&mbox2_clk.common,
+-	&mbox3_clk.common,
+-	&wdt0_clk.common,
+-	&wdt1_clk.common,
+-	&timer0_clk.common,
+-	&timer1_clk.common,
+-	&sram0_clk.common,
+-	&sram1_clk.common,
+-	&sram2_clk.common,
+-	&sram3_clk.common,
+-};
+-
+-static struct ccu_common *th1520_vo_gate_clks[] = {
+-	&axi4_vo_aclk.common,
+-	&gpu_core_clk.common,
+-	&gpu_cfg_aclk.common,
+-	&dpu0_pixelclk.common,
+-	&dpu1_pixelclk.common,
+-	&dpu_hclk.common,
+-	&dpu_aclk.common,
+-	&dpu_cclk.common,
+-	&hdmi_sfr_clk.common,
+-	&hdmi_pclk.common,
+-	&hdmi_cec_clk.common,
+-	&mipi_dsi0_pclk.common,
+-	&mipi_dsi1_pclk.common,
+-	&mipi_dsi0_cfg_clk.common,
+-	&mipi_dsi1_cfg_clk.common,
+-	&mipi_dsi0_refclk.common,
+-	&mipi_dsi1_refclk.common,
+-	&hdmi_i2s_clk.common,
+-	&x2h_dpu1_aclk.common,
+-	&x2h_dpu_aclk.common,
+-	&axi4_vo_pclk.common,
+-	&iopmp_vosys_dpu_pclk.common,
+-	&iopmp_vosys_dpu1_pclk.common,
+-	&iopmp_vosys_gpu_pclk.common,
+-	&iopmp_dpu1_aclk.common,
+-	&iopmp_dpu_aclk.common,
+-	&iopmp_gpu_aclk.common,
+-	&mipi_dsi0_pixclk.common,
+-	&mipi_dsi1_pixclk.common,
+-	&hdmi_pixclk.common
++static struct ccu_gate *th1520_gate_clks[] = {
++	&emmc_sdio_clk,
++	&aon2cpu_a2x_clk,
++	&x2x_cpusys_clk,
++	&brom_clk,
++	&bmu_clk,
++	&cpu2aon_x2h_clk,
++	&cpu2peri_x2h_clk,
++	&cpu2vp_clk,
++	&perisys_apb1_hclk,
++	&perisys_apb2_hclk,
++	&perisys_apb3_hclk,
++	&perisys_apb4_hclk,
++	&npu_axi_clk,
++	&gmac1_clk,
++	&padctrl1_clk,
++	&dsmart_clk,
++	&padctrl0_clk,
++	&gmac_axi_clk,
++	&gpio3_clk,
++	&gmac0_clk,
++	&pwm_clk,
++	&qspi0_clk,
++	&qspi1_clk,
++	&spi_clk,
++	&uart0_pclk,
++	&uart1_pclk,
++	&uart2_pclk,
++	&uart3_pclk,
++	&uart4_pclk,
++	&uart5_pclk,
++	&gpio0_clk,
++	&gpio1_clk,
++	&gpio2_clk,
++	&i2c0_clk,
++	&i2c1_clk,
++	&i2c2_clk,
++	&i2c3_clk,
++	&i2c4_clk,
++	&i2c5_clk,
++	&spinlock_clk,
++	&dma_clk,
++	&mbox0_clk,
++	&mbox1_clk,
++	&mbox2_clk,
++	&mbox3_clk,
++	&wdt0_clk,
++	&wdt1_clk,
++	&timer0_clk,
++	&timer1_clk,
++	&sram0_clk,
++	&sram1_clk,
++	&sram2_clk,
++	&sram3_clk,
++};
 +
- 	.pmu_enable		= x86_pmu_enable,
- 	.pmu_disable		= x86_pmu_disable,
- 
-diff --git a/arch/xtensa/kernel/perf_event.c b/arch/xtensa/kernel/perf_event.c
-index 223f1d452310..b03a2feb0f92 100644
---- a/arch/xtensa/kernel/perf_event.c
-+++ b/arch/xtensa/kernel/perf_event.c
-@@ -397,6 +397,7 @@ irqreturn_t xtensa_pmu_irq_handler(int irq, void *dev_id)
- }
- 
- static struct pmu xtensa_pmu = {
-+	.capabilities = PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable = xtensa_pmu_enable,
- 	.pmu_disable = xtensa_pmu_disable,
- 	.event_init = xtensa_pmu_event_init,
-diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-index 2c1af3a0207c..72d8f38d0aa5 100644
---- a/drivers/perf/arm_pmu.c
-+++ b/drivers/perf/arm_pmu.c
-@@ -876,7 +876,8 @@ struct arm_pmu *armpmu_alloc(void)
- 		 * PERF_TYPE_HARDWARE and PERF_TYPE_HW_CACHE events on a
- 		 * specific PMU.
- 		 */
--		.capabilities	= PERF_PMU_CAP_EXTENDED_REGS |
-+		.capabilities	= PERF_PMU_CAP_SAMPLING |
-+				  PERF_PMU_CAP_EXTENDED_REGS |
- 				  PERF_PMU_CAP_EXTENDED_HW_TYPE,
- 	};
- 
-diff --git a/drivers/perf/arm_pmu_platform.c b/drivers/perf/arm_pmu_platform.c
-index 118170a5cede..ab7a802cd0d6 100644
---- a/drivers/perf/arm_pmu_platform.c
-+++ b/drivers/perf/arm_pmu_platform.c
-@@ -109,6 +109,7 @@ static int pmu_parse_irqs(struct arm_pmu *pmu)
- 	 */
- 	if (num_irqs == 0) {
- 		dev_warn(dev, "no irqs for PMU, sampling events not supported\n");
-+		pmu->pmu.capabilities &= ~PERF_PMU_CAP_SAMPLING;
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
- 		cpumask_setall(&pmu->supported_cpus);
- 		return 0;
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 369e77ad5f13..dbd52851f5c6 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -955,7 +955,8 @@ static int arm_spe_pmu_perf_init(struct arm_spe_pmu *spe_pmu)
- 	spe_pmu->pmu = (struct pmu) {
- 		.module = THIS_MODULE,
- 		.parent		= &spe_pmu->pdev->dev,
--		.capabilities	= PERF_PMU_CAP_EXCLUSIVE | PERF_PMU_CAP_ITRACE,
-+		.capabilities	= PERF_PMU_CAP_SAMPLING |
-+				  PERF_PMU_CAP_EXCLUSIVE | PERF_PMU_CAP_ITRACE,
- 		.attr_groups	= arm_spe_pmu_attr_groups,
- 		/*
- 		 * We hitch a ride on the software context here, so that
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 698de8ddf895..d185ea8c47ba 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -1361,6 +1361,8 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 		pr_info("Perf sampling/filtering is not supported as sscof extension is not available\n");
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
-+	} else {
-+		pmu->pmu.capabilities |= PERF_PMU_CAP_SAMPLING;
- 	}
- 
- 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 4d439c24c901..bf2cfbeabba2 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -294,7 +294,7 @@ struct perf_event_pmu_context;
- /**
-  * pmu::capabilities flags
-  */
--#define PERF_PMU_CAP_NO_INTERRUPT	0x0001
-+#define PERF_PMU_CAP_SAMPLING		0x0001
- #define PERF_PMU_CAP_NO_NMI		0x0002
- #define PERF_PMU_CAP_AUX_NO_SG		0x0004
- #define PERF_PMU_CAP_EXTENDED_REGS	0x0008
-@@ -305,6 +305,7 @@ struct perf_event_pmu_context;
- #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
- #define PERF_PMU_CAP_AUX_PAUSE		0x0200
- #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
-+#define PERF_PMU_CAP_NO_INTERRUPT	0x0800
- 
- /**
-  * pmu::scope
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 8060c2857bb2..71b2a6730705 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -4359,7 +4359,7 @@ perf_adjust_freq_unthr_context(struct perf_event_context *ctx, bool unthrottle)
- 			continue;
- 		if (!perf_pmu_ctx_is_active(pmu_ctx))
- 			continue;
--		if (pmu_ctx->pmu->capabilities & PERF_PMU_CAP_NO_INTERRUPT)
-+		if (!(pmu_ctx->pmu->capabilities & PERF_PMU_CAP_SAMPLING))
- 			continue;
- 
- 		perf_pmu_disable(pmu_ctx->pmu);
-@@ -10819,7 +10819,7 @@ static int perf_swevent_init(struct perf_event *event)
- static struct pmu perf_swevent = {
- 	.task_ctx_nr	= perf_sw_context,
- 
--	.capabilities	= PERF_PMU_CAP_NO_NMI,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_NO_NMI,
- 
- 	.event_init	= perf_swevent_init,
- 	.add		= perf_swevent_add,
-@@ -10861,6 +10861,7 @@ static int perf_tp_event_init(struct perf_event *event)
- static struct pmu perf_tracepoint = {
- 	.task_ctx_nr	= perf_sw_context,
- 
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.event_init	= perf_tp_event_init,
- 	.add		= perf_trace_add,
- 	.del		= perf_trace_del,
-@@ -11066,6 +11067,7 @@ static struct pmu perf_kprobe = {
- 	.stop		= perf_swevent_stop,
- 	.read		= perf_swevent_read,
- 	.attr_groups	= kprobe_attr_groups,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
++static struct ccu_gate *th1520_vo_gate_clks[] = {
++	&axi4_vo_aclk,
++	&gpu_core_clk,
++	&gpu_cfg_aclk,
++	&dpu0_pixelclk,
++	&dpu1_pixelclk,
++	&dpu_hclk,
++	&dpu_aclk,
++	&dpu_cclk,
++	&hdmi_sfr_clk,
++	&hdmi_pclk,
++	&hdmi_cec_clk,
++	&mipi_dsi0_pclk,
++	&mipi_dsi1_pclk,
++	&mipi_dsi0_cfg_clk,
++	&mipi_dsi1_cfg_clk,
++	&mipi_dsi0_refclk,
++	&mipi_dsi1_refclk,
++	&hdmi_i2s_clk,
++	&x2h_dpu1_aclk,
++	&x2h_dpu_aclk,
++	&axi4_vo_pclk,
++	&iopmp_vosys_dpu_pclk,
++	&iopmp_vosys_dpu1_pclk,
++	&iopmp_vosys_gpu_pclk,
++	&iopmp_dpu1_aclk,
++	&iopmp_dpu_aclk,
++	&iopmp_gpu_aclk,
++	&mipi_dsi0_pixclk,
++	&mipi_dsi1_pixclk,
++	&hdmi_pixclk
  };
  
- static int perf_kprobe_event_init(struct perf_event *event)
-@@ -11125,6 +11127,7 @@ static struct pmu perf_uprobe = {
- 	.stop		= perf_swevent_stop,
- 	.read		= perf_swevent_read,
- 	.attr_groups	= uprobe_attr_groups,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- };
+ static const struct regmap_config th1520_clk_regmap_config = {
+@@ -1153,7 +1147,7 @@ struct th1520_plat_data {
+ 	struct ccu_common **th1520_pll_clks;
+ 	struct ccu_common **th1520_div_clks;
+ 	struct ccu_mux	  **th1520_mux_clks;
+-	struct ccu_common **th1520_gate_clks;
++	struct ccu_gate   **th1520_gate_clks;
  
- static int perf_uprobe_event_init(struct perf_event *event)
-@@ -11899,7 +11902,7 @@ static int cpu_clock_event_init(struct perf_event *event)
- static struct pmu perf_cpu_clock = {
- 	.task_ctx_nr	= perf_sw_context,
+ 	int nr_clks;
+ 	int nr_pll_clks;
+@@ -1192,7 +1186,6 @@ static int th1520_clk_probe(struct platform_device *pdev)
  
--	.capabilities	= PERF_PMU_CAP_NO_NMI,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_NO_NMI,
- 	.dev		= PMU_NULL_DEV,
+ 	struct regmap *map;
+ 	void __iomem *base;
+-	struct clk_hw *hw;
+ 	int ret, i;
  
- 	.event_init	= cpu_clock_event_init,
-@@ -11982,7 +11985,7 @@ static int task_clock_event_init(struct perf_event *event)
- static struct pmu perf_task_clock = {
- 	.task_ctx_nr	= perf_sw_context,
- 
--	.capabilities	= PERF_PMU_CAP_NO_NMI,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_NO_NMI,
- 	.dev		= PMU_NULL_DEV,
- 
- 	.event_init	= task_clock_event_init,
-@@ -13476,11 +13479,10 @@ SYSCALL_DEFINE5(perf_event_open,
- 		goto err_task;
+ 	plat_data = device_get_match_data(&pdev->dev);
+@@ -1251,20 +1244,15 @@ static int th1520_clk_probe(struct platform_device *pdev)
  	}
  
--	if (is_sampling_event(event)) {
--		if (event->pmu->capabilities & PERF_PMU_CAP_NO_INTERRUPT) {
--			err = -EOPNOTSUPP;
--			goto err_alloc;
--		}
-+	if (is_sampling_event(event) &&
-+	    !(event->pmu->capabilities & PERF_PMU_CAP_SAMPLING)) {
-+		err = -EOPNOTSUPP;
-+		goto err_alloc;
+ 	for (i = 0; i < plat_data->nr_gate_clks; i++) {
+-		struct ccu_gate *cg = hw_to_ccu_gate(&plat_data->th1520_gate_clks[i]->hw);
++		struct ccu_gate *cg = plat_data->th1520_gate_clks[i];
+ 
+-		plat_data->th1520_gate_clks[i]->map = map;
++		cg->gate.reg = base + cg->reg;
+ 
+-		hw = devm_clk_hw_register_gate_parent_data(dev,
+-							   cg->common.hw.init->name,
+-							   cg->common.hw.init->parent_data,
+-							   cg->common.hw.init->flags,
+-							   base + cg->common.cfg0,
+-							   ffs(cg->enable) - 1, 0, NULL);
+-		if (IS_ERR(hw))
+-			return PTR_ERR(hw);
++		ret = devm_clk_hw_register(dev, &cg->gate.hw);
++		if (ret)
++			return ret;
+ 
+-		priv->hws[cg->common.clkid] = hw;
++		priv->hws[cg->clkid] = &cg->gate.hw;
  	}
  
- 	/*
-diff --git a/kernel/events/hw_breakpoint.c b/kernel/events/hw_breakpoint.c
-index 8ec2cb688903..604be7d7aecf 100644
---- a/kernel/events/hw_breakpoint.c
-+++ b/kernel/events/hw_breakpoint.c
-@@ -996,6 +996,7 @@ static void hw_breakpoint_stop(struct perf_event *bp, int flags)
- static struct pmu perf_breakpoint = {
- 	.task_ctx_nr	= perf_sw_context, /* could eventually get its own */
- 
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.event_init	= hw_breakpoint_event_init,
- 	.add		= hw_breakpoint_add,
- 	.del		= hw_breakpoint_del,
+ 	if (plat_data == &th1520_ap_platdata) {
 -- 
-2.39.2.101.g768bb238c484.dirty
+2.50.1
 
 
 _______________________________________________
