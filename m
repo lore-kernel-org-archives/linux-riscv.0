@@ -4,77 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 179C2CA0EE0
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 17:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6FAC87FCF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 18:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KmsjDPa4Y2UdTbBXOFLDS87+LpobKrcMKL5MbCWcGGU=; b=He9RBFHura60S1
-	H0JeDlZuot40h52UPp7NJ2auM6h7vYvVzdgZEVWoGrT0s77KX16gl5G3edp1MPofYA9AFENEmI2Nl
-	TqV7B0NVC1aF2e+x8JDGLRjyWDUMaWttMKr4BO8VNyxCa9h48D7AX4F5wc9caqmlIHCGGDoVXvoI4
-	+kPV5BfQr1HB5n6y/4OIc96sVlqLRLS015nLRZlhErdfL0NRnGPWc1se0qQmpxPO8mVZeTZSKBrnE
-	FLQtM80JpIWMmmpRpu/6ZqFCOkeA1ZbmTTJ9AlRJuLPCPx5VQUoh+fuuPSNDIVgyid1HkMV5DFkaZ
-	1VrC7AoQcj88b9xD9/sw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O1SwdMi8kWKBIIixDHYF0vkcVPGBpE/nIu6udVpdMrQ=; b=QZ3gEmCU8IslBYDbQwUhDVp4Iw
+	ml8vo4uURlWdyBjMAsL5lpAf47EGaSVGx2zJrD7ab2rFSBEsQlbt576QEUDT++pC+ECr5N0YXNuZp
+	lTnFnqMnPNma7TgKXlwxuieiuDJAnElk77FYRzacUX0+zyNtbgLhztxUHaghdIc3lPiw5a689erjy
+	QMz7VfcIFM+BBLDqehGx57A4eiC8h/SKubu3nSXQca/laj0oPDte1JIoTNIfKUNKAulz2rDI1X8xL
+	ifsU95jIbkxr1b4UHVWdT2C6BQX/xEszyZkDMCymuhrw+RBVPFbPfeQ2hVrmNjE7U4R6W0CpUSYFS
+	7oai7FQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umF1P-0000000EYRR-0nie;
-	Wed, 13 Aug 2025 17:12:19 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1umFrC-0000000EeWU-1Lwm;
+	Wed, 13 Aug 2025 18:05:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEQK-0000000EQ4m-2pPB
+	id 1umEgY-0000000ETE8-0bN1
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Aug 2025 16:34:02 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e931cc78a05so59710276.2
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Aug 2025 09:34:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755102839; x=1755707639; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=gOz1+0DNUxv1FqWb8ffV+5DpUijmBF4RC47iMywpm+4=;
-        b=ZtsEteJ7uTAB5mxzZJQaUOyMQHwg6GYaMaBlABMWf3sykMtekH66GHfT+72u9kzT7u
-         iSF8ZbE/xKPeaZrwCFxl2FlkaEU+JSJZGBKUPD5OjBI1oOsmeZsL8Xdq2vSPIQ65dszS
-         wVE/o2WAeKiddlKDBFEbEW6d97M0jnVL5jFRkBiYx2vSVcmOhowPQxJCaRhd5SUq3FW2
-         vWM8WjPFpHOuArppx7gAfikt5Eao3Dwb2sWGguZ4k4f3zingJU8zZM1dNCNpxEjcjEkZ
-         jpkymj1naMxvjUi9q0NwDsVpd5oUnkudlrfZlytN6S5ZxWjaFKFyP3Nh7zHVt2cSzfXp
-         nYFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755102839; x=1755707639;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gOz1+0DNUxv1FqWb8ffV+5DpUijmBF4RC47iMywpm+4=;
-        b=PdF/VOu1zI8BRo/suOah9vfNRPruuOJStz2OSh5WsJSv6/VPp0L01JrUkkN+uOtj7z
-         dzjE4Ls9zHx3qt+SZ9yFBSutmcIF75XaXkHJuAfTBEWAVxQGoVpoWJPMFCeGkp+l7P5/
-         mHi7134wvS+YWp9JKjmcDb/ocss5mOGR4h6fy5eHUMKG7CDxPWWPEQbNxNd+nHQZcq+t
-         P4+1+F/hYOzIKWHlps8qHbtJaqVWqyP3Q8CX5c6dkDNS5BwWi89M/xuPjPkWN+sxXN2C
-         VECjK2v3ttwj+1/+ZtBYT896CcyX7T7ecmqakefYyHPls2ObHZxiToOE3z/HoRNCeoIv
-         IP0g==
-X-Gm-Message-State: AOJu0YxXPWY6odF2937kQX+20PwAyx3b1T+cHpVWrk6EthvHnzcHf51N
-	cJ7MwZfwPCfAYPdlyN3vEwnbOjftmzfg6pBUC9E9+QICv28HGRWx0izovFxR3APrg5Z8EGY571p
-	xZGi4Q9S0GF6Eu5n3waqFxiY3a6JoBLMOEoCtL8yoTg==
-X-Gm-Gg: ASbGncsOx0Yiuu23b3cWXsc7Vg1+PBiTJqKyCWI9WYlzXT8ZRFeIyl96R/4q0OKvakW
-	7yjhXNQMi17wv+cApjllZ+OfBI3xJNE3/2o8HSOOlX5vf00bpevtFCck6Exa3j/UBZw2RaADfvN
-	9eaAf7W4I76fjPAHFc0PXbjp+mPkVKWv+lw2QHJQhgbDnFRVK+dc2USCZkrkxxQ0TZBHrdqwJg4
-	3m2z0+rGE3A82/rl9I6yYgcLQybWJLIq/dTkUY=
-X-Google-Smtp-Source: AGHT+IGFTOsNgcMsp1G/6uvcWM7NuJfxpZ0nRE4S4j9tsmS2NkdWYGcubu9SBde5xtQhNFt6zcBvjCxOCH/aWlNdonM=
-X-Received: by 2002:a05:690c:4809:b0:71c:1de5:5da5 with SMTP id
- 00721157ae682-71d4e5b68camr41073717b3.38.1755102839374; Wed, 13 Aug 2025
- 09:33:59 -0700 (PDT)
+	Wed, 13 Aug 2025 16:50:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 51D1A601F4;
+	Wed, 13 Aug 2025 16:50:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DCF5C4CEEB;
+	Wed, 13 Aug 2025 16:50:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755103843;
+	bh=umOXwit7HPdgtpNai0nTQjZA862x6q+vZeNe21y//E8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fAQQX0URqXwNQMry05zSHW6LAkUTTNSUlrvfCeJ98mGbcu4GZkzhYusG0v2etKCgc
+	 AIrwuYRIZFqvNcvox0TtSHjLpLRmkDs2v3i93PvANAV/ogqTH1n4TSzRqCjS5AO5iD
+	 HlWA0DNVAZOL7Ofa3zOo4oopTU2aiPjInv4g/GganJoAkEK7x8hHGRTPAPkBzmyE0O
+	 j6WsmfWJdooLSJog5OHRiCMvS6VuCmiHCI9S9PTfRCmDbFd3tN1NncN8TvXfmegBeN
+	 g04t+AN0mVzmrF13Motl0xh07Qaw73sWpvJAatt8qAqw8SkQZmDIlzsU4y/3L8yIjc
+	 JyfGB1BChaJpA==
+Date: Wed, 13 Aug 2025 17:50:37 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alex Elder <elder@riscstar.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	gregkh@linuxfoundation.org, jirislaby@kernel.org, dlan@gentoo.org,
+	lkundrak@v3.sk, devicetree@vger.kernel.org,
+	linux-serial@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: serial: 8250: move a constraint
+Message-ID: <20250813-pelvis-undress-b2c4bbb1d814@spud>
+References: <20250813032151.2330616-1-elder@riscstar.com>
 MIME-Version: 1.0
-From: Paris Oplopoios <parisoplop@gmail.com>
-Date: Wed, 13 Aug 2025 19:33:48 +0300
-X-Gm-Features: Ac12FXxvHSGQlTSbwWUJTmfX5RBpFQV0w4Dc8Ep1MRR9VxYNT25e2ttoU-MtZ8A
-Message-ID: <CAAbFZ0iFJbpqxqTUYhB+tUZSiL1qQJ=PeABCCjkeSpf4_TNiyQ@mail.gmail.com>
-Subject: [PATCH] riscv: hwprobe: allow querying available RISCV_HWPROBE_KEY_IMA_EXT_0
- bits
-To: linux-riscv@lists.infradead.org
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_093400_721777_F67BBFFD 
-X-CRM114-Status: GOOD (  13.98  )
+In-Reply-To: <20250813032151.2330616-1-elder@riscstar.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,110 +66,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2243885216092650259=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When probing for extensions using RISCV_HWPROBE_KEY_IMA_EXT_0, a missing
-bit in the resulting bitmask means extension is not available or the kernel is
-not recent enough to support the bit. Currently, there's no way to
-differentiate between the two.
 
-This adds a new riscv_hwprobe key, RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL, which
-returns a bitmask of all queryable supported by the kernel
-in RISCV_HWPROBE_KEY_IMA_EXT_0. This can allow programs to use a fallback
-extension detection method when the bit they want to query is not available
-in the kernel they are running on.
+--===============2243885216092650259==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4+YlI8SXROeMd4hi"
+Content-Disposition: inline
 
-Example usage:
 
-    struct riscv_hwprobe req = { RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL, 0 };
-    int ret = syscall(__NR_riscv_hwprobe, &req, 1, 0, NULL, 0);
-    if (ret == 0) {
-        uint64_t bitmask = req.value;
-        if (bitmask & RISCV_HWPROBE_EXT_ZABHA) {
-            // Check for existence of Zabha extension using riscv_hwprobe
-        } else {
-            // Fallback to checking if an instruction in the Zabha
-            // extension results in an illegal instruction exception
-        }
-    }
+--4+YlI8SXROeMd4hi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Paris Oplopoios <parisoplop@gmail.com>
+On Tue, Aug 12, 2025 at 10:21:50PM -0500, Alex Elder wrote:
+> A block that required a "spacemit,k1-uart" compatible node to
+> specify two clocks was placed in the wrong spot in the binding.
+> Conor Dooley pointed out it belongs earlier in the file, as part
+> of the initial "allOf".
+>=20
+> Fixes: 2c0594f9f0629 ("dt-bindings: serial: 8250: support an optional sec=
+ond clock")
+> Reported-by: Conor Dooley <conor@kernel.org>
+> Closes: https://lore.kernel.org/lkml/20250729-reshuffle-contented-e6def76=
+b540b@spud/
+> Signed-off-by: Alex Elder <elder@riscstar.com>
 
----
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst
-b/Documentation/arch/riscv/hwprobe.rst
-index 2aa9be272d5d..6d77def0a46e 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -360,4 +360,7 @@ The following keys are defined:
+--4+YlI8SXROeMd4hi
+Content-Type: application/pgp-signature; name="signature.asc"
 
-     * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFWMACCQQQ`: The Xsfvfwmaccqqq
-         vendor extension is supported in version 1.0 of Matrix
-Multiply Accumulate
--    Instruction Extensions Specification.
-\ No newline at end of file
-+    Instruction Extensions Specification.
-+
-+* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL`: A bitmask containing
-the extensions
-+  that can be probed using the :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0` key.
-\ No newline at end of file
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 7fe0a379474a..501d49b7a02a 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -8,7 +8,8 @@
+-----BEGIN PGP SIGNATURE-----
 
- #include <uapi/asm/hwprobe.h>
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaJzCXQAKCRB4tDGHoIJi
+0gThAQCi1iV3SuPkecqRkGn5+WZqYG7Ill9PuYyIpNgLbYrr1AEAimZbtkYt4pa7
+wWhXwjIqcs6KjT9DuXWGWB+Bk8dgJg4=
+=5zk2
+-----END PGP SIGNATURE-----
 
--#define RISCV_HWPROBE_MAX_KEY 13
-+#define RISCV_HWPROBE_MAX_KEY 14
-+#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE    ((1ULL << 59) - 1)
+--4+YlI8SXROeMd4hi--
 
- static inline bool riscv_hwprobe_key_is_valid(__s64 key)
- {
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h
-b/arch/riscv/include/uapi/asm/hwprobe.h
-index aaf6ad970499..a3b92df4dc05 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -82,6 +82,7 @@ struct riscv_hwprobe {
- #define        RISCV_HWPROBE_EXT_ZAAMO        (1ULL << 56)
- #define        RISCV_HWPROBE_EXT_ZALRSC    (1ULL << 57)
- #define        RISCV_HWPROBE_EXT_ZABHA        (1ULL << 58)
-+/* Change RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE when adding items. */
- #define RISCV_HWPROBE_KEY_CPUPERF_0    5
- #define        RISCV_HWPROBE_MISALIGNED_UNKNOWN    (0 << 0)
- #define        RISCV_HWPROBE_MISALIGNED_EMULATED    (1 << 0)
-@@ -106,6 +107,7 @@ struct riscv_hwprobe {
- #define RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0    11
- #define RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE    12
- #define RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0    13
-+#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL 14
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
 
- /* Flags */
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index 0b170e18a2be..40e7fa5f85f3 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -310,6 +310,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
-         hwprobe_isa_vendor_ext_thead_0(pair, cpus);
-         break;
-
-+    case RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL:
-+        pair->value = RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE;
-+        break;
-+
-     /*
-      * For forward compatibility, unknown keys don't fail the whole
-      * call, but get their element key set to -1 and value set to 0
+--===============2243885216092650259==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2243885216092650259==--
+
