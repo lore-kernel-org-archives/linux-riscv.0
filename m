@@ -4,77 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81324CA0EE3
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 07:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198EFC87FCF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 08:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KGDjseFs2H80QcHlFdxP0j0JHs7smBoManQE2yivDDg=; b=Stzz92LWu8/2iC
-	Zk3VlLE1StjumXHyh8YXKE5BT8C/xqO0H0nSRulp6coprloqjtvGVa1fg12MyobKih2208UebL1cv
-	yRTlxEe+nrMmM26Khna+r3I5nqHlQ1nHekjE6uMAwGFBxjc13Fb1/Q3Vg0W2+3YK6psQUuvRmYXVr
-	7kHAm49O07hTdLmPyNJPkAc36qTXPiX4+M7k+AyOQuKsDoZ99WYRqqQRkcPa8SJnBPERcQNEjbLRt
-	exUvseWC7OoJmJZ3yGj4V+25TcY/uXoildl03T65C4wrOtpl8TOIFfOCMi1ONToO6ZzxrjTkbLVs/
-	f7D+//x4oHHy3PTtv8/g==;
+	List-Owner; bh=6X2z8RJKfVH7YX9HW6/0R/pWoQpABLsU6xwSg3RG4FQ=; b=DVI+v13BpwZhO8
+	a69jsqhAJFOnd1hsGYCnOSqmAV79UW4DRvzcw9f5XUDxqzxaurAPqQdSAtpYakOGzOZyAkh6kLywv
+	xXycOcYb95CowpkSlXVA95z4ODnOznJJprnKZZnyDyMCcOVrtcwJkDQ46PhJeZvLvMUh4RkKXFPpj
+	Ly3VdO6wlDbDw6U21+VcEecR1uRXCSmKEje3sN+CVzEXREM+Eqt2OnjbXp0mIYMGSiUZKTdYelZfY
+	6oQzW20WdguUt6OMMaMO2Z+fYpfxyfxbMzgn7F3mFUq9fw1ij1NvFurE9c8CbDVtF72F5NPRzzrCV
+	ZEwT05u9gptd7GwfouoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6HZ-0000000CzZS-0ObV;
-	Wed, 13 Aug 2025 07:52:25 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1um6go-0000000D4HW-3e5w;
+	Wed, 13 Aug 2025 08:18:30 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um5u5-0000000Cvj6-0f4A
-	for linux-riscv@lists.infradead.org;
-	Wed, 13 Aug 2025 07:28:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755070084; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GaLTEOdq/Oq83qq10mXn+lrKHQWfpr/HxYEsyqcyCjj6p6aT9dwmTNZoJ90Egzc0egVTuH03UlWxRY9A2BqJSO1ozgENXMvVzSr7lXTi+K7ySl8uAyIQL/Z02ajPN3jjNM0qcqE5qlIT+O8qDJKA51DbT6paQRhLOC4lpC3O3Tc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755070084; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=YA5K1QeOw6QZSnl5vIgv8mS6MWi8kYtpfARcgg+9RII=; 
-	b=lDupjT7fl9ieLaDG0nZj2TP65OhHp5iAp8P0ZlkXdFnidb/pzq+40ct0HeEbDmBrSBFmzgrFrEsGtXYeDMKO9kViB9ldGgvDrVxBrSDMpGG2okeDcd92oGBW8IVj7JkLHHWM/Phf5TH7VT0rwPXbWla3efeSDrYM4b+kKvtny4E=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755070083;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=YA5K1QeOw6QZSnl5vIgv8mS6MWi8kYtpfARcgg+9RII=;
-	b=OtUN4/IUDTl5mOf48S5cbtEXIHeaV7f5g2Fwkdqnm4jguZji/hWbgD4SUwqNZzl7
-	8y2974zLP8LwaxnKoBTuVDqWMGnR/UOws9pGrN2l4XjXFgkoDvkyZzivtjwiI+ClJK2
-	3UY93l81raR56nwDYKiownGWsHql+wVz1dVGdTL2yFY0jabQnxT2qI15fo1gKogSKdm
-	mDWNwtLmYEnZ4CaDIWxK3HSSJUU51oa6CcRXMa87bFKIBCNy9fUW+riZdvlO0Pez7yY
-	BOOeWXDwIIP/DzmNPM2zwqWJ24jCydgQmwcJtCpOi12F/cxY3oSoq6cmB3zd6OJYOGe
-	3UEq7vQKKw==
-Received: by mx.zohomail.com with SMTPS id 1755070081771781.9115436334819;
-	Wed, 13 Aug 2025 00:28:01 -0700 (PDT)
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Yao Zi <ziyao@disroot.org>,
-	Han Gao <rabenda.cn@gmail.com>,
-	linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH v2 3/3] clk: thead: th1520-ap: set all AXI clocks to CLK_IS_CRITICAL
-Date: Wed, 13 Aug 2025 15:27:02 +0800
-Message-ID: <20250813072702.2176993-4-uwu@icenowy.me>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250813072702.2176993-1-uwu@icenowy.me>
-References: <20250813072702.2176993-1-uwu@icenowy.me>
+	id 1um6eY-0000000D3lA-2VRK;
+	Wed, 13 Aug 2025 08:16:13 +0000
+Date: Wed, 13 Aug 2025 10:16:02 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1755072965;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vgBW8b/WLrVQq0BHMU+zEk/Lyyfrm6a/mGbcYhX7PWw=;
+	b=t3ZaanvFJHTW1l1H2nSwoa1VFh8EVFo/BJn0UMRG7bq78PXYOpzqMO9UGefI5UiLZP7nNe
+	J1FX1/E5cqcFOVpKvUjolk1j8zY71ykS0B7X6UJ1jM73mZGhOMT+2RFDhdp4Y1WmHG3lB8
+	fhvgGlk/PFabS5Cn+w3uMjkgmqVzkQuRRvX4xJrjg/8hJ+0j7jOT/qLXJIWkp6a9jfxObj
+	LUOs4JziO5PF87uDbwzJHBzRMHIM1CkGRGPGIwWfVdP7ckTLMMlHtUDzc+O5vxoBEjlmG7
+	1skI/bKKNj/R2CTmQujVy01wAp2WhS97QfxNvozWzsRXygdxqvZz7+ZCEZyixQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1755072965;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vgBW8b/WLrVQq0BHMU+zEk/Lyyfrm6a/mGbcYhX7PWw=;
+	b=E1zvWv48KJJ+SOu4RstGU/Hts0jpCLaRVEpYFntAu8DSCAbOKCuCF3vYrHswu5Uo/Nk8OK
+	GMt5eI9bpKssCIDA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Nicolas Schier <nicolas.schier@linux.dev>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev, linux-mm@kvack.org, linux-um@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Jan Stancek <jstancek@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@redhat.com>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v4 00/24] vdso: Reject absolute relocations during build
+Message-ID: <20250813101305-04911850-2375-4be5-9a06-ced21de3ca22@linutronix.de>
+References: <20250812-vdso-absolute-reloc-v4-0-61a8b615e5ec@linutronix.de>
+ <CANiq72nV62c8cVBzke73OH-sfLdgerDBGrLKTmT83+OQtK6PjA@mail.gmail.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <CANiq72nV62c8cVBzke73OH-sfLdgerDBGrLKTmT83+OQtK6PjA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_002809_254637_31EB4A25 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250813_011610_785478_D5DC9FC3 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,165 +99,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The AXI crossbar of TH1520 has no proper timeout handling, which means
-gating AXI clocks can easily lead to bus timeout and thus system hang.
-
-Set all AXI clock gates to CLK_IS_CRITICAL. All these clock gates are
-ungated by default on system reset.
-
-In addition, convert all current CLK_IGNORE_UNUSED usage to
-CLK_IS_CRITICAL to prevent unwanted clock gating.
-
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
----
-No changes in v2 except for rebasing error fixes (which I sent as FIXED
-patches in v1).
-
- drivers/clk/thead/clk-th1520-ap.c | 44 +++++++++++++++----------------
- 1 file changed, 22 insertions(+), 22 deletions(-)
-
-diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-index b220a8ed22607..0224f2dde0f63 100644
---- a/drivers/clk/thead/clk-th1520-ap.c
-+++ b/drivers/clk/thead/clk-th1520-ap.c
-@@ -566,7 +566,7 @@ static struct ccu_div axi4_cpusys2_aclk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_HW("axi4-cpusys2-aclk",
- 					      gmac_pll_clk_parent,
- 					      &ccu_div_ops,
--					      0),
-+					      CLK_IS_CRITICAL),
- 	},
- };
- 
-@@ -588,7 +588,7 @@ static struct ccu_div axi_aclk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("axi-aclk",
- 						      axi_parents,
- 						      &ccu_div_ops,
--						      0),
-+						      CLK_IS_CRITICAL),
- 	},
- };
- 
-@@ -737,7 +737,7 @@ static struct ccu_div apb_pclk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("apb-pclk",
- 						      apb_parents,
- 						      &ccu_div_ops,
--						      CLK_IGNORE_UNUSED),
-+						      CLK_IS_CRITICAL),
- 	},
- };
- 
-@@ -768,7 +768,7 @@ static struct ccu_div vi_clk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_HW("vi",
- 					      video_pll_clk_parent,
- 					      &ccu_div_ops,
--					      0),
-+					      CLK_IS_CRITICAL),
- 	},
- };
- 
-@@ -793,7 +793,7 @@ static struct ccu_div vo_axi_clk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_HW("vo-axi",
- 					      video_pll_clk_parent,
- 					      &ccu_div_ops,
--					      0),
-+					      CLK_IS_CRITICAL),
- 	},
- };
- 
-@@ -818,7 +818,7 @@ static struct ccu_div vp_axi_clk = {
- 		.hw.init	= CLK_HW_INIT_PARENTS_HW("vp-axi",
- 					      video_pll_clk_parent,
- 					      &ccu_div_ops,
--					      CLK_IGNORE_UNUSED),
-+					      CLK_IS_CRITICAL),
- 	},
- };
- 
-@@ -879,23 +879,23 @@ static const struct clk_parent_data emmc_sdio_ref_clk_pd[] = {
- static CCU_GATE(CLK_BROM, brom_clk, "brom", ahb2_cpusys_hclk_pd, 0x100, BIT(4), 0);
- static CCU_GATE(CLK_BMU, bmu_clk, "bmu", axi4_cpusys2_aclk_pd, 0x100, BIT(5), 0);
- static CCU_GATE(CLK_AON2CPU_A2X, aon2cpu_a2x_clk, "aon2cpu-a2x", axi4_cpusys2_aclk_pd,
--		0x134, BIT(8), 0);
-+		0x134, BIT(8), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_X2X_CPUSYS, x2x_cpusys_clk, "x2x-cpusys", axi4_cpusys2_aclk_pd,
--		0x134, BIT(7), 0);
-+		0x134, BIT(7), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd,
--		0x138, BIT(8), CLK_IGNORE_UNUSED);
-+		0x138, BIT(8), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_CPU2PERI_X2H, cpu2peri_x2h_clk, "cpu2peri-x2h", axi4_cpusys2_aclk_pd,
--		0x140, BIT(9), CLK_IGNORE_UNUSED);
-+		0x140, BIT(9), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_PERISYS_APB1_HCLK, perisys_apb1_hclk, "perisys-apb1-hclk", perisys_ahb_hclk_pd,
--		0x150, BIT(9), CLK_IGNORE_UNUSED);
-+		0x150, BIT(9), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_PERISYS_APB2_HCLK, perisys_apb2_hclk, "perisys-apb2-hclk", perisys_ahb_hclk_pd,
--		0x150, BIT(10), CLK_IGNORE_UNUSED);
-+		0x150, BIT(10), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_PERISYS_APB3_HCLK, perisys_apb3_hclk, "perisys-apb3-hclk", perisys_ahb_hclk_pd,
--		0x150, BIT(11), CLK_IGNORE_UNUSED);
-+		0x150, BIT(11), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_PERISYS_APB4_HCLK, perisys_apb4_hclk, "perisys-apb4-hclk", perisys_ahb_hclk_pd,
- 		0x150, BIT(12), 0);
--static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, BIT(5), 0);
--static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, BIT(13), 0);
-+static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, BIT(5), CLK_IS_CRITICAL);
-+static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, BIT(13), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_EMMC_SDIO, emmc_sdio_clk, "emmc-sdio", emmc_sdio_ref_clk_pd, 0x204, BIT(30), 0);
- static CCU_GATE(CLK_GMAC1, gmac1_clk, "gmac1", gmac_pll_clk_pd, 0x204, BIT(26), 0);
- static CCU_GATE(CLK_PADCTRL1, padctrl1_clk, "padctrl1", perisys_apb_pclk_pd, 0x204, BIT(24), 0);
-@@ -939,11 +939,11 @@ static CCU_GATE(CLK_SRAM2, sram2_clk, "sram2", axi_aclk_pd, 0x20c, BIT(2), 0);
- static CCU_GATE(CLK_SRAM3, sram3_clk, "sram3", axi_aclk_pd, 0x20c, BIT(1), 0);
- 
- static CCU_GATE(CLK_AXI4_VO_ACLK, axi4_vo_aclk, "axi4-vo-aclk",
--		video_pll_clk_pd, 0x0, BIT(0), 0);
-+		video_pll_clk_pd, 0x0, BIT(0), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_GPU_CORE, gpu_core_clk, "gpu-core-clk", video_pll_clk_pd,
- 		0x0, BIT(3), 0);
- static CCU_GATE(CLK_GPU_CFG_ACLK, gpu_cfg_aclk, "gpu-cfg-aclk",
--		video_pll_clk_pd, 0x0, BIT(4), 0);
-+		video_pll_clk_pd, 0x0, BIT(4), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_DPU_PIXELCLK0, dpu0_pixelclk, "dpu0-pixelclk",
- 		dpu0_clk_pd, 0x0, BIT(5), CLK_SET_RATE_PARENT);
- static CCU_GATE(CLK_DPU_PIXELCLK1, dpu1_pixelclk, "dpu1-pixelclk",
-@@ -975,9 +975,9 @@ static CCU_GATE(CLK_MIPI_DSI1_REFCLK, mipi_dsi1_refclk, "mipi-dsi1-refclk",
- static CCU_GATE(CLK_HDMI_I2S, hdmi_i2s_clk, "hdmi-i2s-clk", video_pll_clk_pd,
- 		0x0, BIT(19), 0);
- static CCU_GATE(CLK_X2H_DPU1_ACLK, x2h_dpu1_aclk, "x2h-dpu1-aclk",
--		video_pll_clk_pd, 0x0, BIT(20), 0);
-+		video_pll_clk_pd, 0x0, BIT(20), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_X2H_DPU_ACLK, x2h_dpu_aclk, "x2h-dpu-aclk",
--		video_pll_clk_pd, 0x0, BIT(21), 0);
-+		video_pll_clk_pd, 0x0, BIT(21), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_AXI4_VO_PCLK, axi4_vo_pclk, "axi4-vo-pclk",
- 		video_pll_clk_pd, 0x0, BIT(22), 0);
- static CCU_GATE(CLK_IOPMP_VOSYS_DPU_PCLK, iopmp_vosys_dpu_pclk,
-@@ -987,11 +987,11 @@ static CCU_GATE(CLK_IOPMP_VOSYS_DPU1_PCLK, iopmp_vosys_dpu1_pclk,
- static CCU_GATE(CLK_IOPMP_VOSYS_GPU_PCLK, iopmp_vosys_gpu_pclk,
- 		"iopmp-vosys-gpu-pclk", video_pll_clk_pd, 0x0, BIT(25), 0);
- static CCU_GATE(CLK_IOPMP_DPU1_ACLK, iopmp_dpu1_aclk, "iopmp-dpu1-aclk",
--		video_pll_clk_pd, 0x0, BIT(27), 0);
-+		video_pll_clk_pd, 0x0, BIT(27), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_IOPMP_DPU_ACLK, iopmp_dpu_aclk, "iopmp-dpu-aclk",
--		video_pll_clk_pd, 0x0, BIT(28), 0);
-+		video_pll_clk_pd, 0x0, BIT(28), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_IOPMP_GPU_ACLK, iopmp_gpu_aclk, "iopmp-gpu-aclk",
--		video_pll_clk_pd, 0x0, BIT(29), 0);
-+		video_pll_clk_pd, 0x0, BIT(29), CLK_IS_CRITICAL);
- static CCU_GATE(CLK_MIPIDSI0_PIXCLK, mipi_dsi0_pixclk, "mipi-dsi0-pixclk",
- 		video_pll_clk_pd, 0x0, BIT(30), 0);
- static CCU_GATE(CLK_MIPIDSI1_PIXCLK, mipi_dsi1_pixclk, "mipi-dsi1-pixclk",
--- 
-2.50.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBBdWcgMTIsIDIwMjUgYXQgMDE6MDc6MzRQTSArMDIwMCwgTWlndWVsIE9qZWRhIHdy
+b3RlOgo+IE9uIFR1ZSwgQXVnIDEyLCAyMDI1IGF0IDc6NDTigK9BTSBUaG9tYXMgV2Vpw59zY2h1
+aAo+IDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRlPiB3cm90ZToKPiA+Cj4gPiBLYnVp
+bGQgYW5kIFJ1c3QgZm9sa3M6IFRoaXMgY29udGFpbnMgY3VzdG9tIGRlZmluaXRpb25zIG9mIGhv
+c3Rwcm9nCj4gPiBiaW5kZ2VuIGFuZCBydXN0IGxpYnJhcnkgY29tbWFuZHMuCj4gPiBUaGVzZSBh
+cmUgY3VycmVudGx5IG9ubHkgZGVmaW5lZCBpbnNpZGUgdGhlIHN1YnN5c3RlbSBkaXJlY3Rvcnku
+Cj4gPiBMZXQgbWUga25vdyBpZiB0aGV5IHNob3VsZCBnbyBpbnRvIHNjcmlwdHMvTWFrZWZpbGUu
+aG9zdC4KPiAKPiBHbGFkIHRvIHNlZSBtb3JlIFJ1c3QgaG9zdCBwcm9ncyA6KQo+IAo+IEtlZXBp
+bmcgdGhlbSBsb2NhbCBtYXkgYmUgYSBiaXQgZWFzaWVyIGluaXRpYWxseSB0byBsYW5kLCBJIGd1
+ZXNzCj4gKGUuZy4gbm8gZG9jcyksIGFuZCB0aGVuIHdlIGNhbiBnZW5lcmFsaXplIHdoZW4gbmVl
+ZGVkIGxhdGVyLgoKSSdtIGhhcHB5IHRvIGRvIHRoZSBkb2NzIGV0Yy4gSSBvbmx5IHdhbnRlZCB0
+byBhdm9pZCBkb2luZyBhbGwgdGhhdCB3b3JrLApvbmx5IGZvciBpdCB0byBzdGF5IGEgc3Vic3lz
+dGVtLWxvY2FsIHNvbHV0aW9uLgoKQWxzbyBpdCB3b3VsZCBiZSBuaWNlIHRvIGhhdmUgYSBLY29u
+ZmlnIHN5bWJvbCwgUlVTVENfQ0FOX0xJTksgb3Igc2ltaWxhciwKd2hpY2ggaW5kaWNhdGVzIHRo
+YXQgdGhlIHJ1c3QgY29tcGlsZXIgY2FuIGJ1aWxkIGhvc3QgcHJvZ3JhbXMuCgo+IEJ5IHRoZSB3
+YXksIGZvciBjb25zaXN0ZW5jeSB3aXRoIGVsc2V3aGVyZSwgcHJvYmFibHkgd2Ugd2FudAo+IGBI
+T1NUUlVTVExJQmAgLT4gYEhPU1RSVVNUQyBMYC4gVGhvdWdoIEkgYW0gdGhpbmtpbmcgdG8gcmVt
+b3ZlIHRoZSBgTGAKPiBhbnl3YXkgc2luY2UgZXZlbnR1YWxseSBhIGxvdCBvZiBjb2RlIHdpbGwg
+YmUgImxpYiIuCgpBY2suCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
