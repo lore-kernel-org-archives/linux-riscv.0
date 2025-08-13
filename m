@@ -4,95 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7F43CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 13:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FACCA0EEA
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 14:21:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2jweKsQvG2FGOZslWLZBfbuuZgExcsBUH1z4Q3790NY=; b=rkCe8cER/DSzBI
-	VissilnStnaP2uzLaXQmxtMu/UDBlJE/PU7UqC33aGeBDYVz8GZAyZexdOF9F1vKOTr8tbw6OwtX0
-	WHjZJ30ApnsOiv5qws/u/0I5zi0Zu6Tvm+vnDraFQrVHpplHLhuL4iM6Auut406+Z+tWSMjr9B6OJ
-	5Y0QU6pn5Hcc3Efqs4i4WLuEZHE8OjmHF8aRBebp9DGYjOeSMVewXWPpEM1zd1ROkXQ/KKrbQIlOe
-	eBwTRHiJqNrNDRBV1jQw3C5WGGXNQETztbdvZtNxrBoN7/wWiNn7Hlk+Hp2OwqUntZpDR3VtE9weF
-	k9PgtVZOb4nwqJP6lLMQ==;
+	List-Owner; bh=PO0xaeQt5FsxCw+tfEc2OFpiUWx7sdAciZYEJRIkCNs=; b=LVrm0IWmatOjv4
+	Ypie8VrQUl4naDpsJzjFr9UcD3PGhMIJkHsWqxoUPJESxTDT/Tvf7He8lhpZ9naKAi74b0HWrwaPd
+	eVuLeuFWpIz+oycr0l+2zhZ5oYk7obxwXpj9DUSZ4+MLmcYMuVpCx7uATStnSGPyvIDdeavJQfGLX
+	yYr6PS81XxMhZ9iDD0GSIQFMZXc8ftN2unIwA0+MBDU0AGzk+QrTEyphFfAJ3m28ccHl80G/vX8V9
+	l735tAVvluJOOwr4LjXF68FR+8RLJMZRQTi59fUMes1T3FqyUEYONGryn3F8NucUmVUxjmbrirIwV
+	6p4KLNSIVDB/3uU3tvdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBOn-0000000DkVs-02Qw;
-	Wed, 13 Aug 2025 13:20:13 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1umCMJ-0000000DtWO-3t8d;
+	Wed, 13 Aug 2025 14:21:43 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umAj0-0000000DebQ-2Zfu
+	id 1umBcQ-0000000DmNd-0yDy
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Aug 2025 12:37:03 +0000
-Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-87999c368e9so555064439f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Aug 2025 05:37:02 -0700 (PDT)
+	Wed, 13 Aug 2025 13:34:20 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3b78a034f17so5055642f8f.2
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Aug 2025 06:34:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755088622; x=1755693422; darn=lists.infradead.org;
+        d=hammernet-be.20230601.gappssmtp.com; s=20230601; t=1755092056; x=1755696856; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=QJSNE7TDIwDdVBJivdzquzFfOdkEAZ/NqbU/Si8oVJo=;
-        b=TBsQJnTsoHbbmZFW+ZhXtBTj05RERbi+IOjJH9miwh9l5QkWmrqxin14zJmndjR7A1
-         EecmDSOFez7aYaveY/w02bJyLko4FNTTI7Wh1KpQxdHpyRjAKypEgGoqZiW5jZ+GeXkQ
-         ghP2pyF0gpLdGt482N4568FEVcNvJsxfP5h9OAqVGUwpiEgLnEi62/Stk8aIy0QOhZ1A
-         oaLZGJWJ3W02FWLlyhQKpzr+FBXP+LkbXgIUs0b0wRAVcWUXAzc5zV8wMGYlXXn8fRtl
-         TOJ8eraZItGOhvB637Yyr7jubisABWy/DM/Tvq0AyGyn0lWfjcrTji/IV3bE9Egu9Smp
-         i08w==
+        bh=fNSC8w8HU0S89hQRnFJWFWREK6fXZjS72GfrRn4HArw=;
+        b=2aI39EeoRYA7hE4duePDs06RXDuMhE2kp6Tw3X971/aRnyZ+1pI3SM4lf8/mOzWw1l
+         g/BxMNqEutpYapkb4dXqBtHEB48sg+spVt9NqdSQghR/MAU1aobgQnRG5ug/deesESWk
+         8kamSevL4ZyC8d8S3Cvu6yiGFOcITdDHIPVJrq2jq+tYaqCQ3iY9A6c50no32yX6PCJ+
+         /TMcvTIDz1yxMYE7QJUVM3lNGcuPy6PcvZb4WZ3NFmNUXRfuzm9E/ZFgpg3unw/yYesT
+         2aE3RSH24CVuKAJ8CGXqZpSJNtrSKbZKTfAjpTm+Ylf7F718A8ovy8rm9bFopZfhTgI3
+         uCDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755088622; x=1755693422;
+        d=1e100.net; s=20230601; t=1755092056; x=1755696856;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QJSNE7TDIwDdVBJivdzquzFfOdkEAZ/NqbU/Si8oVJo=;
-        b=SLBHK8zNMgcnKeZ9ziBBBbYbHKgTPFweWEVp8uP9HoL09B7B5b8LvfSfPBtM5goqBj
-         aJiBX5BGhk+0FBOwzCyPz6Q0vmhhlBDljo21YAKAeFNzevHQ28eENdqz0E/wRYnOfLMJ
-         3E8FQgH5oD/1L9aE0XGIZOaZ0kZpWKvlF87ibwS/U5Ghi0SnxJ83Dswtg+9cCehcnVrA
-         bnQxmzqdH+tjOoNXuoGeYJQ7y7X6bhBn9OUGQmyiDmaHGpJSrKD8RZ0KwoQUS47mMq2i
-         TqnVFOW6SkWDxlN6P3MdyGjj1yl+J1Y3Mp/79Aiv63D3ynXnWQcpG4xZk3+eAqBMOv1e
-         R0fA==
-X-Forwarded-Encrypted: i=1; AJvYcCXiH5s6F7Vtqv66eSYBGVakpFjQF5YlHfV11X7+9D/qjeuzU6it00R0+caAzsrP9T4v09MVnk84PAOgKg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxq0PlH06DHm6tyjHBqQ+pITU91OI/doFBCHZO3YQjChXpPAS6/
-	BoWgisIuMgu8KNheZPBgHoiXWhIfuEsJ8K2QaFRaB0flrNd570Ej3Hkmg5V/QD7QKRY=
-X-Gm-Gg: ASbGncv0KhJwBNNcus6BpTYzin66+rP4z6L/XUQaWbFVFvRqPhAbTZ6nG/JnVfgl3Ir
-	cNPfhrYVB+k5UAV47Lf6Hd+0Sn8Z8G3DwDgxwA7mGt3/PhaZpH8ASBY8Qvq91k7Ns75EIaqHK8v
-	5HPP4ZKjMHDCMkjUPxSubL3bdqevzsE9f0AuJj/2mSXzqQIU5dKtzTuSBD6DYLVdT34T94aw1Qs
-	ZIb0ZoYsdPy8WO1Gu7aP2gXqWj+zUz6wXV7Ky/lEW+U5cH4v8ZrKsfTRb9mvN1mt5qWY2q7NEzy
-	2wBx2LbXfXngqJbuMlkguGHuwP3r5pA3oU62OpMSguokmZVvaVQ6H5BO6fZQalyRon7Gg1oBGfd
-	lhhSHg5mGeAPW18908Xd+ceZ6iWJgMetuBQWT8/CoIpimPYQWC5OLD+H2ybbeAReC9CVXN2Ng
-X-Google-Smtp-Source: AGHT+IFnwEFQtUPVw9g9mmFiyfGLoS5nlr8HAUmqQnFfYA2GdWoqbZqkoS/L9fICYJiWR+VCb+vYyQ==
-X-Received: by 2002:a05:6602:14d4:b0:881:7837:6058 with SMTP id ca18e2360f4ac-88429514720mr521566239f.0.1755088621539;
-        Wed, 13 Aug 2025 05:37:01 -0700 (PDT)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-883f19c1475sm445898339f.29.2025.08.13.05.36.59
+        bh=fNSC8w8HU0S89hQRnFJWFWREK6fXZjS72GfrRn4HArw=;
+        b=WREX1X5TOeY2uyw0+E7iRVjfQazNNN2j0y1LC/0XycY8Kq3ioXbxy9XXXgCI2dCTMU
+         fwqskX6hT5pQvy4PeSGaKPZMd7FtQy0FlIACzv6a2t1lv/0yXp0VBWH3diD1KTre2W/0
+         XjFFoV8sLY4phdMss3V4AZ2ndEuwRhAn4pv6X/vd1v/VlxTx1pkSSL75u85BfEJkm6SR
+         UnlTHmE+YGCb6ubF3mFYuW6+EjK9Bun8tnsnjxCxiKTv6Ucj2llscQfoMUWtZDdM6xsT
+         Td8vvH10ybHXy5nz9Qa7aJh0CzWxASDFGVEjNCZjP4T50KmkZhhkaUtEhKeQzfGaAeIK
+         dZUA==
+X-Forwarded-Encrypted: i=1; AJvYcCUkB4Bw41VSSqoN10OR5/UElXohJTq+xFExKD3OMS9coqHBRvElujtgWbCn2hk8c3eKrQR654aTSCbraA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6LfWubyTXArxSFyWUsLKnCB5soNT1U0Am89kondS0CupPqtN8
+	/23xG/U/r8GRvO+CoEEOQZ6Sw8oeHfPPuNVnXC3R6ySyXbAhTI3aCdvRCHwDFa7ix2A=
+X-Gm-Gg: ASbGncsisAjLjzcExC1dVvSqxSCnvE8cDO+X6+Ro/S8jVcDP0atSh13fo/EvBBwQJf3
+	XyXXMrJM4tucobdIoHeaEIfTd2n1jCk6u00veeQkxSFIR84aApatJ/gVuvDBJ4PiENabBmokEKR
+	GQvRZ//646dqzU+GXkBwU6NdnDQeHkLEtlVbT9Bqbpf5PNt9YJJEtdlKaSt4KPPm331+yLcjjlE
+	C0a7kez8HwdblxAEVtYePJFLBLbiifraRNCO+toZcgur9fgcXhn/fXIsymTPSLyJbYQuyK2nZpn
+	uFCDVuLAI0FuTqoEAp3Plhz/2IF9Lm+Zk3DkLTmIrypaoS84d411XI0o6lidBym/03VBskM+br1
+	nN16WqHOEndhkT/4bftB/22qZuVQlI2VDxEh+XyBnuN3pv9zR4/F/ANQYKviGIwSnv4zMXG33dF
+	9kGlr/w61YCO3hWvyUL7jc
+X-Google-Smtp-Source: AGHT+IGyWBRLcYyjmPdaFJ7RJMvGFJChrNnUkFexYqA+15BorH+hR4bUKBZZRC1EER2gmnrpcLdyVA==
+X-Received: by 2002:a05:6000:26c9:b0:3b8:ff3b:6437 with SMTP id ffacd0b85a97d-3b917c85890mr2243633f8f.0.1755092055765;
+        Wed, 13 Aug 2025 06:34:15 -0700 (PDT)
+Received: from ?IPV6:2a02:1807:2a00:3400:388a:2f48:ed4:7e0e? ([2a02:1807:2a00:3400:388a:2f48:ed4:7e0e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b8e0846777sm37944948f8f.48.2025.08.13.06.34.14
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 Aug 2025 05:37:01 -0700 (PDT)
-Message-ID: <fd7ac07d-030c-41d6-94dd-da53b593f5ab@riscstar.com>
-Date: Wed, 13 Aug 2025 07:36:58 -0500
+        Wed, 13 Aug 2025 06:34:15 -0700 (PDT)
+Message-ID: <463dcfa3-152e-4a48-9821-debdc29c89b2@hammernet.be>
+Date: Wed, 13 Aug 2025 15:34:13 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 1/7] dt-bindings: mfd: add support the SpacemiT P1
- PMIC
-To: Troy Mitchell <troymitchell988@gmail.com>
-Cc: lee@kernel.org, lgirdwood@gmail.com, broonie@kernel.org,
- alexandre.belloni@bootlin.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, mat.jonczyk@o2.pl, dlan@gentoo.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, linux.amoon@gmail.com, guodong@riscstar.com,
- linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250813024509.2325988-1-elder@riscstar.com>
- <20250813024509.2325988-2-elder@riscstar.com>
- <aJyC5q0X8mj1xbSB@troy-wujie14pro-arch>
+Subject: Re: [PATCH net-next v5 4/5] riscv: dts: spacemit: Add Ethernet
+ support for BPI-F3
+To: Vivian Wang <wangruikang@iscas.ac.cn>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Vivian Wang <uwu@dram.page>, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Junhui Liu <junhui.liu@pigmoral.tech>, Simon Horman <horms@kernel.org>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20250812-net-k1-emac-v5-0-dd17c4905f49@iscas.ac.cn>
+ <20250812-net-k1-emac-v5-4-dd17c4905f49@iscas.ac.cn>
 Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <aJyC5q0X8mj1xbSB@troy-wujie14pro-arch>
+From: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+In-Reply-To: <20250812-net-k1-emac-v5-4-dd17c4905f49@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_053702_740081_AC4EECD2 
-X-CRM114-Status: UNSURE (   6.49  )
+X-CRM114-CacheID: sfid-20250813_063418_508779_F591A13C 
+X-CRM114-Status: UNSURE (   6.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,20 +111,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/13/25 7:19 AM, Troy Mitchell wrote:
-> You can change it from this to my company email:
-> troy.mitchell@linux.spacemit.com
-> 
-> Acked-by: Troy Mitchell<troymitchell988@gmail.com>
-> 
->                  - Troy
 
-I will make this change before I do a final version.	-Alex
+
+On 8/12/25 04:02, Vivian Wang wrote:
+> Banana Pi BPI-F3 uses an RGMII PHY for each port and uses GPIO for PHY
+> reset.
+>
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+>
+Tested on Banana Pi BPI-F3 and Orange Pi RV2. Verified SSH shell over eth0
+and eth1 interfaces, and basic UDP connectivity using iperf3. Thank you!
+
+Tested-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+
+Kind regards,
+Hendrik
 
 _______________________________________________
 linux-riscv mailing list
