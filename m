@@ -4,104 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D98CA0EC4
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 07:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 626EECA0EC4
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 07:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0ZqlIS6H7ZTI05Z91pIXywXlRrqpxiwMI6pyaHtuo90=; b=QPYagEN3Lf86MO
-	BKATFkQAWpNlPXjiTpRw2rtjR1zUoCoEmmBSj4T20EmR3jWp7Gq/0H+gpbwk3TvYr6100p10xm+fq
-	FFcDg7jVB46EUKqGWQtZqMjuaDyg9LklBXu9dFLwt9pSRndsJcHt1QYNF9D/878OL5JB6TkyK9H37
-	ChVDmJAMpAZf6V2iRV6GKFq3BXyXcYMz3f6b73jwKFsHTw9DSqDBKSFIELPNnHCijEUB33YBLDpGR
-	XDIgC7F1tkZ9j0S/8JI5TUP2q6E7JEmy2Wf/4tAI718yf05auoABzwVbGuiKOkNHf5yvSqUG6JIdK
-	n8iTmAreH9wiXIDsSFVA==;
+	List-Owner; bh=WvhrfCJOSBRUdtVyWisbc0sKDDgTZai8DWhdHhoEqmI=; b=UbqIAx17Ucw/HA
+	8t0U85BSKWltW81kGmmObzlry2POqANWcFklRu98MRYzKoQlBFbFlDforUqGdICUUdG/dmjXJz2Sz
+	994HQdb5rs5KpNRvzzs5aod4nrjrH398oGyiv1JWAZCVW48OBUfU/dbh2lw9BgGBQIbuJiwOH+LJo
+	1bHb0ibdPT+nbJn+wfCMQKgKTX34HZmh3MrcltCS3/tty4eKZRS8dYmuv3ksfmzXhKADDWA67qQC2
+	Ge2BYoGtoH0mYRC1Q21IDfkAFihYxReJvH9BnRj4huxwM0JYf3GQff9NSR0JuG9tEjlkqHL2TgeyR
+	R7VJnB7mNneDQa5T1Tvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um5mI-0000000CubZ-0C3g;
-	Wed, 13 Aug 2025 07:20:06 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1um63v-0000000CwyQ-2SUQ;
+	Wed, 13 Aug 2025 07:38:19 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um4yE-0000000CmuC-2Enq;
-	Wed, 13 Aug 2025 06:28:23 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CNQPeX016645;
-	Wed, 13 Aug 2025 06:28:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=44eqnuQxJFQlBxqy0
-	By4fVwG48XTQCQD+YkQzck6kVg=; b=ssU3YHTvgnkn11Ea0cKl1OvR+aABePs34
-	MKYV2orZti4io8mpznzrPC1UaohXrwATiCwXDyQqp1vwL0IBYXmv35+icYv5ZfX1
-	z5KFDEfBOLQl5zLSysuaUUxuSEmN2CEknlsd0HWIOfPi8CGmpQ6j0MEME8Shg5t+
-	K4jF1Nx8Gg+rU9XeVt/bVAo72TBpYnTAh8tmCZ6F/fFTYh5MnWxaO92o8H3Q0Ucy
-	9WxCfFtOLILQ5WdQVu4IAQ3DoH/wxZBDlhtYsYDhzGPl/A+J8JdViskydfAadg2G
-	WM2sn4J+lenggbhRasJFhD3p4czwWEL0nIwW0BF160Eegbcby17ag==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48dx14jvpa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 13 Aug 2025 06:28:13 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 57D4hUUs017617;
-	Wed, 13 Aug 2025 06:28:12 GMT
-Received: from smtprelay07.dal12v.mail.ibm.com ([172.16.1.9])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 48ekc3np9r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 13 Aug 2025 06:28:12 +0000
-Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
-	by smtprelay07.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 57D6SBbm11076722
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 13 Aug 2025 06:28:11 GMT
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 879995805E;
-	Wed, 13 Aug 2025 06:28:11 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1493D58059;
-	Wed, 13 Aug 2025 06:28:06 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com.com (unknown [9.36.10.70])
-	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 13 Aug 2025 06:28:05 +0000 (GMT)
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org
-Cc: akpm@linux-foundation.org, x86@kernel.org, linux-riscv@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
-        nicholas@linux.ibm.com, christophe.leroy@csgroup.eu,
-        Rohan McLure <rmclure@linux.ibm.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>
-Subject: [PATCH v16 13/13] powerpc: mm: Support page table check
-Date: Wed, 13 Aug 2025 16:26:14 +1000
-Message-ID: <20250813062614.51759-14-ajd@linux.ibm.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250813062614.51759-1-ajd@linux.ibm.com>
-References: <20250813062614.51759-1-ajd@linux.ibm.com>
+	id 1um5DW-0000000CpA6-0pPT
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 Aug 2025 06:44:11 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-742f798bb20so4391872a34.1
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Aug 2025 23:44:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1755067449; x=1755672249; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kN4SWWkhP+H9aW8tQSuXufONqI8/WS93SoimYt/qVpo=;
+        b=ftifBWHIvrnU9AZ7uB6aK6h7yDHdUakqxUoIRFpko5BnuyStM6VTYuUFV4wOVYdqaU
+         nJsbXbJLDJTbvdcR9t8uQdHNLoegjyjl25fYc/iAa6S7FNAUwo7C6C0FXpBVAofBJx2P
+         HPb9ogrxfgrnXtWyCE8HZTn1U9fVYoMm1iuRKQqY1R76HXe8XbFn+itBWquAkViYTdpg
+         Csv495qUVaIejxHD+z4vu3xWVC+w3WAe+Qq59sF4JewEbBeskdx4z+a15NU6PoOgfkZh
+         GU/6czBcUmGJ8cv3LThupXk+X+tKULd0NPcMapqtxE/wK8tF2Ii4qSfe8iLZCBi1YBIc
+         HVYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755067449; x=1755672249;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kN4SWWkhP+H9aW8tQSuXufONqI8/WS93SoimYt/qVpo=;
+        b=xTZiQMp2waYLcc9I/W39CQttQ6uftb8mkim0DLGurVeh3qOOOwagEIVF7M/leBZUS0
+         eegb6NTGR1PQWvJ52d6FxqmbaiDQpOQaVyVMy4gv1qA12vejvjEdOmf00upDyp6uEKaB
+         oXPucPWVfFG5liyLyx3F1kXQ2iJvFXNjGqyHsQid+eyHilXbMcT+5jr0DAI10kCm39IG
+         RhUScXQxZkEuYQ73rDmE0nRlQTtJv0w7EycNCi6GrCQUcMPaIpSJMY3p57pFXXjefcNY
+         AiGwREpO4yr0b1+yOUARbmJyg97wjAWlTnd9IpKWeuhxPI0p3Zgta9ETtwe+FGFZH5k1
+         fQDA==
+X-Forwarded-Encrypted: i=1; AJvYcCWW4F6wJ7l4c3Sxbq58IN3FbTkVweH2tD2xcq6quDGGoLBXoxGDMoIB80azne2+X0r8pwbVAPTleeqAYw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+dR10I1XCIlufjHFACgJdKrY/Sx6ZjxyRxyaeZjfMoZbXqHzo
+	5cpb/V88LcEV9PVfybSLkj+D0ja9HcdFxZ+N2vLbCQKm/lnsJz9RICyBZ9NAk9gzxC90pWS/pEB
+	f0pkQYkFkSOFZJlOHY+MeukqWFtIQVYmqn87PaIr7sA==
+X-Gm-Gg: ASbGnct3CdNSt/3tXgm9LScsD7AhxBqBdT0zyxKYicpOYsvqWdHJCJxh6CG+x5MBwL9
+	4x2PPSP2WM30W01bjrUZ7he7+faEcheL/B2KIgU0GbVLfmjetzgR6xW4wuHMg7aggGm1gOsARMF
+	El10SrjLu3t0OwCh5Lr0I/PM3knVE3k1JIqOu7dPJhxbgLi0KzLio3Z9Z353YNJRTlm1QUZ5sYZ
+	5fKukjTa3JyXPu597ece21j
+X-Google-Smtp-Source: AGHT+IE1kH655r3yAN3e42gjKNXI3YeADBZSD3EwRPhXTz20ecAS64Pguy13srIYgyLsWKp0VZhzjHp56BATXuR+FCg=
+X-Received: by 2002:a05:6808:1818:b0:434:3f2:4d05 with SMTP id
+ 5614622812f47-435d4211298mr1290082b6e.20.1755067449027; Tue, 12 Aug 2025
+ 23:44:09 -0700 (PDT)
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 0rT8rbzx7mDS-jeuQ-ND6EZgSiab9sxZ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODEyMDIyNCBTYWx0ZWRfXy6PCfLipkhCN
- oodTDQPaNJdNeEyRiDcWeQV8w8Lu6Rcvta4dCrNr9HfBjUbtktfTfi3zUYZbl0Ex2iTx2cHFqr0
- zTkYFPW1ZJsusnPUvHLoRzdKOMOezFfkztBwJQwG24o1t8+M0ilt/IM+7ERHtaH/NMI4tgTYt3V
- tT4B1lERrcVoY6jDIiT/lae/e6mfXeIQdPCySTPoxZfOD5XdLLUHBDjjAj1L7D6Py0eXNowjKMI
- hPiVdUwymbupkpC3eiUZC0r7WoBWVZ28WO2RpRpA7vKsaEaXImDOtho7c6jL5VfnksHyGCB+okz
- UCXgHWLxqDoy1QlexzbQBVa6CH6Rm9VgNjov4ijPraw7SGGKcxQGgcZIWhagwZgTFtR5FlHUN6m
- 0SXPM+CF
-X-Proofpoint-GUID: 0rT8rbzx7mDS-jeuQ-ND6EZgSiab9sxZ
-X-Authority-Analysis: v=2.4 cv=fLg53Yae c=1 sm=1 tr=0 ts=689c307d cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=2OwXVqhp2XgA:10 a=VnNF1IyMAAAA:8 a=1UX6Do5GAAAA:8 a=7ipKWUHlAAAA:8
- a=X4bsUGyFbWMdYzZSxZoA:9 a=Et2XPkok5AAZYJIKzHr1:22 a=gpc5p9EgBqZVLdJeV_V1:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-12_08,2025-08-11_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 spamscore=0 priorityscore=1501 impostorscore=0
- phishscore=0 malwarescore=0 bulkscore=0 suspectscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508120224
+References: <20250515094301.40016-1-cuiyunhui@bytedance.com>
+ <CAEEQ3w=XqoKmVu1kvc5XUbGbQJsHVkRx=T65tXvYEYo0HCTcnQ@mail.gmail.com>
+ <aJs-aPH32OxpzR3G@sunil-laptop> <CAEEQ3wnHFPBPC0U59rDBJaZYxJ24uJzJ7NDQO0gfmVqoiQwNOw@mail.gmail.com>
+ <aJtKZhvNX0p3obFw@sunil-laptop> <CAEEQ3wmomscuAzuiRyJu4ha8tiM=s1Y-ytQROPTWr1DScMNL3g@mail.gmail.com>
+ <aJwiXKWXik8BmpL8@sunil-laptop>
+In-Reply-To: <aJwiXKWXik8BmpL8@sunil-laptop>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Wed, 13 Aug 2025 14:43:58 +0800
+X-Gm-Features: Ac12FXyGVnizD6EyhuBpve20mgaqlAC7Lqkjh6Jm18br-KgPX42SL0ncGyqGwNM
+Message-ID: <CAEEQ3wky3LXK=ge1wBkHD0ZWtwUF-aBn44EK0Uxa+_2DB1Giqw@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH] ACPI: RISC-V: CPPC: Add CSR_CYCLE for CPPC FFH
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: rafael@kernel.org, lenb@kernel.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>, 
+	Rahul Pathak <rpathak@ventanamicro.com>, juwenlong@bytedance.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_232822_569190_016DDDEA 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20250812_234410_240114_891A78A3 
+X-CRM114-Status: GOOD (  38.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,312 +97,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
-
-On creation and clearing of a page table mapping, instrument such calls
-by invoking page_table_check_pte_set and page_table_check_pte_clear
-respectively. These calls serve as a sanity check against illegal
-mappings.
-
-Enable ARCH_SUPPORTS_PAGE_TABLE_CHECK for all platforms.
-
-See also:
-
-riscv support in commit 3fee229a8eb9 ("riscv/mm: enable
-ARCH_SUPPORTS_PAGE_TABLE_CHECK")
-arm64 in commit 42b2547137f5 ("arm64/mm: enable
-ARCH_SUPPORTS_PAGE_TABLE_CHECK")
-x86_64 in commit d283d422c6c4 ("x86: mm: add x86_64 support for page table
-check")
-
-[ajd@linux.ibm.com: rebase]
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
----
- arch/powerpc/Kconfig                         |  1 +
- arch/powerpc/include/asm/book3s/32/pgtable.h |  7 ++-
- arch/powerpc/include/asm/book3s/64/pgtable.h | 45 +++++++++++++++-----
- arch/powerpc/include/asm/nohash/pgtable.h    |  8 +++-
- arch/powerpc/mm/book3s64/hash_pgtable.c      |  4 ++
- arch/powerpc/mm/book3s64/pgtable.c           | 11 +++--
- arch/powerpc/mm/book3s64/radix_pgtable.c     |  3 ++
- arch/powerpc/mm/pgtable.c                    |  4 ++
- 8 files changed, 68 insertions(+), 15 deletions(-)
-
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 93402a1d9c9f..09d192ee3f91 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -170,6 +170,7 @@ config PPC
- 	select ARCH_STACKWALK
- 	select ARCH_SUPPORTS_ATOMIC_RMW
- 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC	if PPC_BOOK3S || PPC_8xx
-+	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
- 	select ARCH_USE_BUILTIN_BSWAP
- 	select ARCH_USE_CMPXCHG_LOCKREF		if PPC64
- 	select ARCH_USE_MEMTEST
-diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
-index b225967f85ea..68864a71ca5f 100644
---- a/arch/powerpc/include/asm/book3s/32/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
-@@ -202,6 +202,7 @@ void unmap_kernel_page(unsigned long va);
- #ifndef __ASSEMBLY__
- #include <linux/sched.h>
- #include <linux/threads.h>
-+#include <linux/page_table_check.h>
- 
- /* Bits to mask out from a PGD to get to the PUD page */
- #define PGD_MASKED_BITS		0
-@@ -315,7 +316,11 @@ static inline int __ptep_test_and_clear_young(struct mm_struct *mm,
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
- 				       pte_t *ptep)
- {
--	return __pte(pte_update(mm, addr, ptep, ~_PAGE_HASHPTE, 0, 0));
-+	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~_PAGE_HASHPTE, 0, 0));
-+
-+	page_table_check_pte_clear(mm, addr, old_pte);
-+
-+	return old_pte;
- }
- 
- #define __HAVE_ARCH_PTEP_SET_WRPROTECT
-diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
-index 48f3a41317dd..81c220bcbd26 100644
---- a/arch/powerpc/include/asm/book3s/64/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
-@@ -144,6 +144,8 @@
- #define PAGE_KERNEL_ROX	__pgprot(_PAGE_BASE | _PAGE_KERNEL_ROX)
- 
- #ifndef __ASSEMBLY__
-+#include <linux/page_table_check.h>
-+
- /*
-  * page table defines
-  */
-@@ -416,8 +418,11 @@ static inline void huge_ptep_set_wrprotect(struct mm_struct *mm,
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- 				       unsigned long addr, pte_t *ptep)
- {
--	unsigned long old = pte_update(mm, addr, ptep, ~0UL, 0, 0);
--	return __pte(old);
-+	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
-+
-+	page_table_check_pte_clear(mm, addr, old_pte);
-+
-+	return old_pte;
- }
- 
- #define __HAVE_ARCH_PTEP_GET_AND_CLEAR_FULL
-@@ -426,11 +431,16 @@ static inline pte_t ptep_get_and_clear_full(struct mm_struct *mm,
- 					    pte_t *ptep, int full)
- {
- 	if (full && radix_enabled()) {
-+		pte_t old_pte;
-+
- 		/*
- 		 * We know that this is a full mm pte clear and
- 		 * hence can be sure there is no parallel set_pte.
- 		 */
--		return radix__ptep_get_and_clear_full(mm, addr, ptep, full);
-+		old_pte = radix__ptep_get_and_clear_full(mm, addr, ptep, full);
-+		page_table_check_pte_clear(mm, addr, old_pte);
-+
-+		return old_pte;
- 	}
- 	return ptep_get_and_clear(mm, addr, ptep);
- }
-@@ -1289,19 +1299,34 @@ extern int pudp_test_and_clear_young(struct vm_area_struct *vma,
- static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long addr, pmd_t *pmdp)
- {
--	if (radix_enabled())
--		return radix__pmdp_huge_get_and_clear(mm, addr, pmdp);
--	return hash__pmdp_huge_get_and_clear(mm, addr, pmdp);
-+	pmd_t old_pmd;
-+
-+	if (radix_enabled()) {
-+		old_pmd = radix__pmdp_huge_get_and_clear(mm, addr, pmdp);
-+	} else {
-+		old_pmd = hash__pmdp_huge_get_and_clear(mm, addr, pmdp);
-+	}
-+
-+	page_table_check_pmd_clear(mm, addr, old_pmd);
-+
-+	return old_pmd;
- }
- 
- #define __HAVE_ARCH_PUDP_HUGE_GET_AND_CLEAR
- static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long addr, pud_t *pudp)
- {
--	if (radix_enabled())
--		return radix__pudp_huge_get_and_clear(mm, addr, pudp);
--	BUG();
--	return *pudp;
-+	pud_t old_pud;
-+
-+	if (radix_enabled()) {
-+		old_pud = radix__pudp_huge_get_and_clear(mm, addr, pudp);
-+	} else {
-+		BUG();
-+	}
-+
-+	page_table_check_pud_clear(mm, addr, old_pud);
-+
-+	return old_pud;
- }
- 
- static inline pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
-diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
-index a8bc4f24beb1..3a6630dca615 100644
---- a/arch/powerpc/include/asm/nohash/pgtable.h
-+++ b/arch/powerpc/include/asm/nohash/pgtable.h
-@@ -29,6 +29,8 @@ static inline pte_basic_t pte_update(struct mm_struct *mm, unsigned long addr, p
- 
- #ifndef __ASSEMBLY__
- 
-+#include <linux/page_table_check.h>
-+
- extern int icache_44x_need_flush;
- 
- #ifndef pte_huge_size
-@@ -122,7 +124,11 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addr,
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
- 				       pte_t *ptep)
- {
--	return __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
-+	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
-+
-+	page_table_check_pte_clear(mm, addr, old_pte);
-+
-+	return old_pte;
- }
- #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
- 
-diff --git a/arch/powerpc/mm/book3s64/hash_pgtable.c b/arch/powerpc/mm/book3s64/hash_pgtable.c
-index 82d31177630b..ac2a24d15d2e 100644
---- a/arch/powerpc/mm/book3s64/hash_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/hash_pgtable.c
-@@ -8,6 +8,7 @@
- #include <linux/sched.h>
- #include <linux/mm_types.h>
- #include <linux/mm.h>
-+#include <linux/page_table_check.h>
- #include <linux/stop_machine.h>
- 
- #include <asm/sections.h>
-@@ -230,6 +231,9 @@ pmd_t hash__pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long addres
- 
- 	pmd = *pmdp;
- 	pmd_clear(pmdp);
-+
-+	page_table_check_pmd_clear(vma->vm_mm, address, pmd);
-+
- 	/*
- 	 * Wait for all pending hash_page to finish. This is needed
- 	 * in case of subpage collapse. When we collapse normal pages
-diff --git a/arch/powerpc/mm/book3s64/pgtable.c b/arch/powerpc/mm/book3s64/pgtable.c
-index ff0c5a1988f8..8be06a3cfcbc 100644
---- a/arch/powerpc/mm/book3s64/pgtable.c
-+++ b/arch/powerpc/mm/book3s64/pgtable.c
-@@ -10,6 +10,7 @@
- #include <linux/pkeys.h>
- #include <linux/debugfs.h>
- #include <linux/proc_fs.h>
-+#include <linux/page_table_check.h>
- 
- #include <asm/pgalloc.h>
- #include <asm/tlb.h>
-@@ -127,6 +128,7 @@ void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pmd_leaf(pmd)));
- #endif
- 	trace_hugepage_set_pmd(addr, pmd_val(pmd));
-+	page_table_check_pmd_set(mm, addr, pmdp, pmd);
- 	return set_pte_at_unchecked(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
- }
- 
-@@ -144,6 +146,7 @@ void set_pud_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pud_leaf(pud)));
- #endif
- 	trace_hugepage_set_pud(addr, pud_val(pud));
-+	page_table_check_pud_set(mm, addr, pudp, pud);
- 	return set_pte_at_unchecked(mm, addr, pudp_ptep(pudp), pud_pte(pud));
- }
- 
-@@ -179,12 +182,14 @@ void serialize_against_pte_lookup(struct mm_struct *mm)
- pmd_t pmdp_invalidate(struct vm_area_struct *vma, unsigned long address,
- 		     pmd_t *pmdp)
- {
--	unsigned long old_pmd;
-+	pmd_t old_pmd;
- 
- 	VM_WARN_ON_ONCE(!pmd_present(*pmdp));
--	old_pmd = pmd_hugepage_update(vma->vm_mm, address, pmdp, _PAGE_PRESENT, _PAGE_INVALID);
-+	old_pmd = __pmd(pmd_hugepage_update(vma->vm_mm, address, pmdp, _PAGE_PRESENT, _PAGE_INVALID));
- 	flush_pmd_tlb_range(vma, address, address + HPAGE_PMD_SIZE);
--	return __pmd(old_pmd);
-+	page_table_check_pmd_clear(vma->vm_mm, address, old_pmd);
-+
-+	return old_pmd;
- }
- 
- pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
-diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
-index 8c3b0f1750e4..00b178d41e04 100644
---- a/arch/powerpc/mm/book3s64/radix_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
-@@ -14,6 +14,7 @@
- #include <linux/of.h>
- #include <linux/of_fdt.h>
- #include <linux/mm.h>
-+#include <linux/page_table_check.h>
- #include <linux/hugetlb.h>
- #include <linux/string_helpers.h>
- #include <linux/memory.h>
-@@ -1474,6 +1475,8 @@ pmd_t radix__pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long addre
- 	pmd = *pmdp;
- 	pmd_clear(pmdp);
- 
-+	page_table_check_pmd_clear(vma->vm_mm, address, pmd);
-+
- 	radix__flush_tlb_collapsed_pmd(vma->vm_mm, address);
- 
- 	return pmd;
-diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
-index bf90becb6cd6..42aa850693af 100644
---- a/arch/powerpc/mm/pgtable.c
-+++ b/arch/powerpc/mm/pgtable.c
-@@ -22,6 +22,7 @@
- #include <linux/mm.h>
- #include <linux/percpu.h>
- #include <linux/hardirq.h>
-+#include <linux/page_table_check.h>
- #include <linux/hugetlb.h>
- #include <asm/tlbflush.h>
- #include <asm/tlb.h>
-@@ -206,6 +207,9 @@ void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
- 	 * and not hw_valid ptes. Hence there is no translation cache flush
- 	 * involved that need to be batched.
- 	 */
-+
-+	page_table_check_ptes_set(mm, addr, ptep, pte, nr);
-+
- 	for (;;) {
- 
- 		/*
--- 
-2.50.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgU3VuaWwsCgpPbiBXZWQsIEF1ZyAxMywgMjAyNSBhdCAxOjI44oCvUE0gU3VuaWwgViBMIDxz
+dW5pbHZsQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gSGkgWXVuaHVpLAo+Cj4gT24gV2Vk
+LCBBdWcgMTMsIDIwMjUgYXQgMTE6MjM6MzlBTSArMDgwMCwgeXVuaHVpIGN1aSB3cm90ZToKPiA+
+IEhpIFN1bmlsLAo+ID4KPiA+IE9uIFR1ZSwgQXVnIDEyLCAyMDI1IGF0IDEwOjA24oCvUE0gU3Vu
+aWwgViBMIDxzdW5pbHZsQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+ID4gPgo+IFsuLi5dCj4g
+PiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFRoZSBwdXJwb3NlIG9mIGNwcGNfZmZoX2Nzcl9yZWFkKCkg
+aXMgdG8gY2FsY3VsYXRlIHRoZSBhY3R1YWwKPiA+ID4gPiA+ID4gZnJlcXVlbmN5IG9mIHRoZSBD
+UFUsIHdoaWNoIGlzIGRlbHRhX0NTUl9DWUNMRS9kZWx0YV9DU1JfWFhYLgo+ID4gPiA+ID4gPgo+
+ID4gPiA+ID4gPiBDU1JfWFhYIHNob3VsZCBiZSBhIHJlZmVyZW5jZSBjbG9jayBhbmQgZG9lcyBu
+b3QgY291bnQgZHVyaW5nIFdGSQo+ID4gPiA+ID4gPiAoV2FpdCBGb3IgSW50ZXJydXB0KS4KPiA+
+ID4gPiA+ID4KPiA+ID4gPiA+ID4gU2ltaWxhciBzb2x1dGlvbnMgaW5jbHVkZTogeDg2J3MgYXBl
+cmYvbXBlcmYsIGFuZCBBUk02NCdzIEFNVSB3aXRoCj4gPiA+ID4gPiA+IHJlZ2lzdGVycyBTWVNf
+QU1FVkNOVFIwX0NPUkVfRUwwL1NZU19BTUVWQ05UUjBfQ09OU1RfRUwwLgo+ID4gPiA+ID4gPgo+
+ID4gPiA+ID4gPiBIb3dldmVyLCB3ZSBrbm93IHRoYXQgQ1NSX1RJTUUgaW4gdGhlIGN1cnJlbnQg
+Y29kZSBkb2VzIGNvdW50IGR1cmluZwo+ID4gPiA+ID4gPiBXRkkuIFNvLCBpcyB0aGlzIGRlc2ln
+biB1bnJlYXNvbmFibGU/Cj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFNob3VsZCB3ZSBjb25zaWRl
+ciBwcm9wb3NpbmcgYW4gZXh0ZW5zaW9uIHRvIHN1cHBvcnQgc3VjaCBhIGRlZGljYXRlZAo+ID4g
+PiA+ID4gPiBjb3VudGVyIChhIHJlZmVyZW5jZSBjbG9jayB0aGF0IGRvZXMgbm90IGNvdW50IGR1
+cmluZyBXRkkpPyBUaGlzIHdheSwKPiA+ID4gPiA+ID4gdGhlIHZhbHVlIGNhbiBiZSBvYnRhaW5l
+ZCBkaXJlY3RseSBpbiBTLW1vZGUgd2l0aG91dCB0cmFwcGluZyB0bwo+ID4gPiA+ID4gPiBNLW1v
+ZGUsIGVzcGVjaWFsbHkgc2luY2UgcmVhZGluZyB0aGlzIGNvdW50ZXIgaXMgdmVyeSBmcmVxdWVu
+dC4KPiA+ID4gPiA+ID4KPiA+ID4gPiA+IEhpIFl1bmh1aSwKPiA+ID4gPiA+Cj4gPiA+ID4gPiBZ
+ZXMsIGJ1dCB3ZSBhbnRpY2lwYXRlZCB0aGF0IHZlbmRvcnMgbWlnaHQgZGVmaW5lIHRoZWlyIG93
+biBjdXN0b20gQ1NScy4KPiA+ID4gPiA+IFNvLCB3ZSBpbnRyb2R1Y2VkIEZGSCBlbmNvZGluZyB0
+byBhY2NvbW1vZGF0ZSBzdWNoIGNhc2VzLgo+ID4gPiA+ID4KPiA+ID4gPiA+IFRoYW5rcywKPiA+
+ID4gPiA+IFN1bmlsCj4gPiA+ID4KPiA+ID4gPiBBcyBtZW50aW9uZWQgZWFybGllciwgaXQgaXMg
+YmVzdCB0byBkaXJlY3RseSByZWFkIENTUl9YWFggKGEgcmVmZXJlbmNlCj4gPiA+ID4gY2xvY2sg
+dGhhdCBkb2VzIG5vdCBjb3VudCBkdXJpbmcgV0ZJKSBhbmQgQ1NSX0NZQ0xFIGluIFMtbW9kZSwg
+cmF0aGVyCj4gPiA+ID4gdGhhbiB0cmFwcGluZyB0byBTQkkuCj4gPiA+ID4KPiA+ID4gTm8uIEkg
+bWVhbnQgZGlyZWN0IENTUiBhY2Nlc3MgaXRzZWxmIG5vdCBTQkkuIFBsZWFzZSB0YWtlIGEgbG9v
+ayBhdAo+ID4gPiBUYWJsZSA2IG9mIFJJU0MtViBGRkggc3BlYy4KPiA+ID4KPiA+ID4gPiBkcml2
+ZXJzL2FjcGkvcmlzY3YvY3BwYy5jIGlzIGEgZ2VuZXJpYyBkcml2ZXIgdGhhdCBpcyBub3Qgc3Bl
+Y2lmaWMgdG8KPiA+ID4gPiBhbnkgdmVuZG9yLiBDdXJyZW50bHksIHRoZSB1cHN0cmVhbSBjb2Rl
+IGFscmVhZHkgdXNlcyBDU1JfVElNRSwgYW5kCj4gPiA+ID4gdGhlIGxvZ2ljIG9mIENTUl9USU1F
+IGlzIGluY29ycmVjdC4KPiA+ID4gPgo+IEFDUEkgc3BlYyBmb3IgIlJlZmVyZW5jZSBQZXJmb3Jt
+YW5jZSBSZWdpc3RlciIgc2F5cywKPgo+ICJUaGUgUmVmZXJlbmNlIFBlcmZvcm1hbmNlIENvdW50
+ZXIgUmVnaXN0ZXIgY291bnRzIGF0IGEgZml4ZWQgcmF0ZSBhbnkKPiB0aW1lIHRoZSBwcm9jZXNz
+b3IgaXMgYWN0aXZlLiBJdCBpcyBub3QgYWZmZWN0ZWQgYnkgY2hhbmdlcyB0byBEZXNpcmVkCj4g
+UGVyZm9ybWFuY2UsIHByb2Nlc3NvciB0aHJvdHRsaW5nLCBldGMuIgo+Cj4gPiA+IENTUl9USU1F
+IGlzIGp1c3QgYW4gZXhhbXBsZS4gSXQgaXMgdXB0byB0aGUgdmVuZG9yIGhvdyBfQ1BDIG9iamVj
+dHMgYXJlCj4gPiA+IGVuY29kZWQgdXNpbmcgRkZILiBUaGUgbGludXggY29kZSBkb2Vzbid0IG1l
+YW4gb25lIHNob3VsZCB1c2UgQ1NSX1RJTUUKPiA+ID4gYWx3YXlzLgo+ID4KPiA+IEZpcnN0LCB0
+aGUgZXhhbXBsZSBvZiBDU1JfVElNRSBpcyBpbmNvcnJlY3QuIFdoYXQgaXMgbmVlZGVkIGlzIGEK
+PiA+IENTUl9YWFggKGEgcmVmZXJlbmNlIGNsb2NrIHRoYXQgZG9lcyBub3QgY291bnQgZHVyaW5n
+IFdGSSkuCj4gPgo+ID4gU2Vjb25kLCB5b3UgbWVudGlvbmVkIHRoYXQgZWFjaCB2ZW5kb3IgY2Fu
+IGN1c3RvbWl6ZSB0aGVpciBvd24KPiA+IGltcGxlbWVudGF0aW9ucy4gQnV0IHNob3VsZCBhbGwg
+dmVuZG9ycycgQ1NSX1hYWC9ZWVkvLi4uIGJlIGFkZGVkIHRvCj4gPiBkcml2ZXJzL2FjcGkvcmlz
+Y3YvY3BwYy5jPyBTaG91bGRu4oCZdCBkcml2ZXJzL2FjcGkvcmlzY3YvY3BwYy5jIGZhbGwKPiA+
+IHVuZGVyIHRoZSBzY29wZSBkZWZpbmVkIGJ5IHRoZSBSSVNDLVYgYXJjaGl0ZWN0dXJlPwo+ID4K
+PiBOby4gT25lIGNhbiBpbXBsZW1lbnQgc2ltaWxhciB0byBjc3JfcmVhZF9udW0oKSBpbiBvcGVu
+c2JpLiBXZSBkaWRuJ3QKPiBhZGQgaXQgc2luY2UgdGhlcmUgd2FzIG5vIEhXIGltcGxlbWVudGlu
+ZyBzdWNoIHRoaW5nLiBXaGF0IEkgYW0KPiBzYXlpbmcgaXMgd2UgaGF2ZSBGRkggZW5jb2Rpbmcg
+dG8gc3VwcG9ydCBzdWNoIGNhc2UuCj4KPiA+ID4KPiA+ID4gPiBJdCB3b3VsZCBiZSBiZXN0IHRv
+IHByb21vdGUgYSBzcGVjaWZpY2F0aW9uIHRvIHN1cHBvcnQgQ1NSX1hYWCwganVzdAo+ID4gPiA+
+IGxpa2Ugd2hhdCBoYXMgYmVlbiBkb25lIGZvciB4ODYgYW5kIGFybTY0LiBXaGF0IGRvIHlvdSB0
+aGluaz8KPiA+ID4gPgo+ID4gPiBXb3VsZG4ndCBhYm92ZSB3b3JrPyBGb3IgYSBzdGFuZGFyZCBl
+eHRlbnNpb24sIHlvdSBtYXkgaGF2ZSB0byBwcm92aWRlCj4gPiA+IG1vcmUgZGF0YSB3aXRoIGFj
+dHVhbCBIVy4KPiA+Cj4gPiBUaGlzIHdvbuKAmXQgd29yay4gTWF5IEkgYXNrIGhvdyB0aGUgY3Vy
+cmVudCB1cHN0cmVhbSBjb2RlIGNhbiBjYWxjdWxhdGUKPiA+IHRoZSBhY3R1YWwgQ1BVIGZyZXF1
+ZW5jeSB1c2luZyBDU1JfVElNRSB3aXRob3V0IHRyYXBwaW5nIHRvIFNCST8KPiA+IFRoaXMgaXMg
+YSB0aGVvcmV0aWNhbCBsb2dpY2FsIGlzc3VlLiBXaHkgaXMgZGF0YSBuZWVkZWQgaGVyZT8KPiA+
+Cj4gQXMgSSBtZW50aW9uZWQgYWJvdmUsIG9uZSBjYW4gaW1wbGVtZW50IGEgZ2VuZXJpYyBDU1Ig
+cmVhZCB3aXRob3V0Cj4gdHJhcHBpbmcgdG8gU0JJLgo+Cj4gPiBDb3VsZCB5b3UgdGFrZSBhIGxv
+b2sgYXQgdGhlICJBTVUgZXZlbnRzIGFuZCBldmVudCBudW1iZXJzIiBjaGFwdGVyIGluCj4gPiB0
+aGUgQVJNNjQgbWFudWFsPwo+ID4KPiBBcy1wZXIgQUNQSSBzcGVjIHJlZmVyZW5jZSBwZXJmb3Jt
+YW5jZSBjb3VudGVyIGlzIG5vdCBhZmZlY3RlZCBieSBDUFUKPiBzdGF0ZS4gVGhlIFJJU0MtViBG
+RkggZW5jb2RpbmcgaXMgc3VmZmljaWVudGx5IGdlbmVyaWMgdG8gc3VwcG9ydCB0aGlzCj4gcmVx
+dWlyZW1lbnQsIGV2ZW4gaWYgdGhlIHN0YW5kYXJkIENTUl9USU1FIGNhbm5vdCBiZSB1c2VkLiBJ
+biBzdWNoCj4gY2FzZXMsIGFuIGFsdGVybmF0aXZlIENTUiBjYW4gYmUgZW5jb2RlZGVkLCBhY2Nl
+c3NlZCB2aWEgYW4gT1MtbGV2ZWwKPiBhYnN0cmFjdGlvbiBzdWNoIGFzIGNzcl9yZWFkX251bSgp
+LgoKU28gd2hhdCB5b3UncmUgc2F5aW5nIGlzIHRoYXQgd2Ugc2hvdWxkIHN1Ym1pdCBhIHBhdGNo
+IGxpa2UgdGhpcywgcmlnaHQ/CgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9hY3BpL3Jpc2N2L2NwcGMu
+YyBiL2RyaXZlcnMvYWNwaS9yaXNjdi9jcHBjLmMKaW5kZXggNDQwY2Y5ZmI5MWFhYi4uOTUzYzI1
+OWQ0NmM2OSAxMDA2NDQKLS0tIGEvZHJpdmVycy9hY3BpL3Jpc2N2L2NwcGMuYworKysgYi9kcml2
+ZXJzL2FjcGkvcmlzY3YvY3BwYy5jCkBAIC02NiwxNiArNjYsOCBAQCBzdGF0aWMgdm9pZCBjcHBj
+X2ZmaF9jc3JfcmVhZCh2b2lkICpyZWFkX2RhdGEpCiB7CiAgICAgICAgc3RydWN0IHNiaV9jcHBj
+X2RhdGEgKmRhdGEgPSAoc3RydWN0IHNiaV9jcHBjX2RhdGEgKilyZWFkX2RhdGE7CgotICAgICAg
+IHN3aXRjaCAoZGF0YS0+cmVnKSB7Ci0gICAgICAgLyogU3VwcG9ydCBvbmx5IFRJTUUgQ1NSIGZv
+ciBub3cgKi8KLSAgICAgICBjYXNlIENTUl9USU1FOgotICAgICAgICAgICAgICAgZGF0YS0+cmV0
+LnZhbHVlID0gY3NyX3JlYWQoQ1NSX1RJTUUpOwotICAgICAgICAgICAgICAgZGF0YS0+cmV0LmVy
+cm9yID0gMDsKLSAgICAgICAgICAgICAgIGJyZWFrOwotICAgICAgIGRlZmF1bHQ6Ci0gICAgICAg
+ICAgICAgICBkYXRhLT5yZXQuZXJyb3IgPSAtRUlOVkFMOwotICAgICAgICAgICAgICAgYnJlYWs7
+Ci0gICAgICAgfQorICAgICAgIGRhdGEtPnJldC52YWx1ZSA9IGNzcl9yZWFkX251bShkYXRhLT5y
+ZWcpOworICAgICAgIGRhdGEtPnJldC5lcnJvciA9IDA7CiB9CgpJZiB0aGF0J3MgdGhlIGNhc2Us
+IHRoZSByb2J1c3RuZXNzIG9mIHRoZSBjb2RlIGNhbm5vdCBiZSBndWFyYW50ZWVkLApiZWNhdXNl
+IHRoZSByYW5nZSBvZiBDU1JzIGZyb20gZGlmZmVyZW50IHZlbmRvcnMgaXMgdW5rbm93bi4KClNp
+bmNlIGVhY2ggdmVuZG9yIHdpbGwgZGVmaW5lIHRoZWlyIG93biBDU1JzLCB3aHkgbm90IGZvcm1h
+bGl6ZSB0aGVtCmludG8gYSBzcGVjaWZpY2F0aW9uPwoKPgo+IFRoYW5rcywKPiBTdW5pbAoKVGhh
+bmtzLApZdW5odWkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
