@@ -4,178 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0033ECA0EE0
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 09:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173DAC87FCF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 10:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=LKvpX+vyh2MB5oNMzF1oAOK1SzWM/fIgUG2oT/Heo6I=; b=OokZQySwAs6p3PnCJekz0+qJGO
-	QSOTnxEJSX2zmsGuDd6QrnLuvja4hzJvcCAwcL0O2zwikqw+LEMtHNrSic3y8v/bXTkWt5QACWMmh
-	tx1OTvLEFRlRjBRdBP9jXppI7e/RyfsuqOCGjjs4NojsSNNJqjFq9dk2Q6qeNxs0qd3ZDQAXRmbFk
-	vrQ6VVHp3demOgL1OVuIbFs+cgOeyiJ6Cg/YJTp4nRJXrqIUbb7cAb0f3a2O2AjCU3T5BDhSiie+4
-	A82xrSxhd3xHYvMkvo0tst2DyQcnQqtigXks/d82qs4ZzJnXGTzeoeyLYaiQe9c9q1DIYBBOD4ie1
-	RutHNgYg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=c7bOTxcFw+3xw4Re6Uj8NERvg8mNhdhdDA9oeB6iRx8=; b=3/3bXTIaTFIhm2
+	12PFg1+GgxvOfM1VErvfobSmIGVNlkaiAnbTCvJPggDx/T4+SOoDmO1RE3IFc3LuebGumBUsq51yY
+	05DAL4wc8iS3I2ZXBk58GuCqbhnhOdrZhcjbsBELVvvLixuMR7i4XRTR3wtCGIMxTUzq6sLoYuTeY
+	sKHuOkwRo9xv+F3ZRs+37/Dczux2pILLBlGiWJSPWm7ifbFI7bmb7822ZAVdYR/iVhJzHbfN8r2p0
+	7jHLvYxdXkIjN92n/eiIwq55Qb33SuGlkln+TxBS6O8wfaOLDDtaIvUxnr4VIDKu27BJAaITF7gWk
+	ya1mW5xKEF6WK9S2SqHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um89h-0000000DHR2-3Jkm;
-	Wed, 13 Aug 2025 09:52:25 +0000
-Received: from mail-bn8nam12on20604.outbound.protection.outlook.com ([2a01:111:f403:2418::604] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1um8Wg-0000000DLYw-3fLZ;
+	Wed, 13 Aug 2025 10:16:10 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um87A-0000000DH7F-04kv;
-	Wed, 13 Aug 2025 09:49:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GcA5yIKl27/qgHZmSotgX9NGcX0A7B7YNSCTc1mAmkCRZl3/0UfoZ91nD1IG0CdguLc1gAsc/cwWZAqhiSC8ojhOHwWvPsRnJCxZi5kc9HXCuREP6n39EtKlva+NZBSFSO218SSujWy5TuuK9vf8sJyBSSudiey0FUPbx450mWx7Q6SLnZXOD72Gym9VWXIZJ9FEwhz/Ps6gIgeiDjbeeayi0incnCauXNxtnKtGSr3rTGvS3IjVF6GeOer9Qzy6XtUIXY16nRhKK3b+6bW22JQN6Qz7z+fUhJLvrL7s18N1k4hI3G9lbZSEU4GUF5Ike91CQnDTGaMH2iAW769jmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5mIAtkoQQU+/ekmx8hIB5wqJnSLrrW723lovBWuJ1QE=;
- b=H8w4g0gOoI9ViXOVHYRQYqoPz78VsoEsft/p2bq1Tuh7r5bIJiVLMu1Yt1QZjIXmG9Rri0jV78wg4S/Lt4dobZlIq9euPuvowVDHqcBH9yZnG/4VwYyZokVyvz2vgyUqbje87PJsZ48iwX2kvN+7Yq5/qx0NwxNoDMlqGyZemFRFgL+r34ELEcIkYQoYoKLW8YrjVQdPb0y4TAj+YLN0NcKX0eksOOJ4HafooU9K0pvzrWSeHDAQr/c6b1AEdQq31fhUWkojKztNgVOL8RvQOs/pGdrqLEXLzPrwm/BIfAZcz6TeOaabSceearQEZvaUs+WXNbyTI9m7ITFFmu+Hnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5mIAtkoQQU+/ekmx8hIB5wqJnSLrrW723lovBWuJ1QE=;
- b=rwCqrtiSQAiBR4wFrrp+R4Dj9Sj7X2ZKRy0qmqsgh1KbqNUGoFV7tTuHH+3ZYqLnsZNnil+M9foQBSyF62o/aEU7kvPCJHyIuLpifJs8bQ0i2hPxxmNsLeH9kCZk8VPT8mh7X0kFiWKggU7xevEcw+UYSL976lGTvtQ5VCC3QJ8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB5712.namprd12.prod.outlook.com (2603:10b6:510:1e3::13)
- by MW3PR12MB4458.namprd12.prod.outlook.com (2603:10b6:303:5d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.13; Wed, 13 Aug
- 2025 09:49:42 +0000
-Received: from PH7PR12MB5712.namprd12.prod.outlook.com
- ([fe80::2efc:dc9f:3ba8:3291]) by PH7PR12MB5712.namprd12.prod.outlook.com
- ([fe80::2efc:dc9f:3ba8:3291%4]) with mapi id 15.20.9009.021; Wed, 13 Aug 2025
- 09:49:42 +0000
-Message-ID: <30e986b3-4d93-4b77-8f17-b966f0ba7fab@amd.com>
-Date: Wed, 13 Aug 2025 15:19:27 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 20/44] KVM: x86/pmu: Implement AMD mediated PMU
- requirements
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
- Mingwei Zhang <mizhang@google.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Dapeng Mi <dapeng1.mi@linux.intel.com>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <20250806195706.1650976-21-seanjc@google.com>
-Content-Language: en-US
-From: Sandipan Das <sandipan.das@amd.com>
-In-Reply-To: <20250806195706.1650976-21-seanjc@google.com>
-X-ClientProxiedBy: BMXP287CA0010.INDP287.PROD.OUTLOOK.COM
- (2603:1096:b00:2c::20) To PH7PR12MB5712.namprd12.prod.outlook.com
- (2603:10b6:510:1e3::13)
+	id 1um5tQ-0000000Cvcp-3FGF
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 Aug 2025 07:27:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755070043; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Wwb3hLG4RZqGskVBpAUotm2xu9JzuoQmaiHSvUAXdKgEtSJ7FY/4Y1BeWWhNV2sbT7zVe/AXsF1XPcC4Z4p9/OsKjXot7XFUDwg7YXuVdxCEmfvF6mFKwuXoCTvRAS2DKlyjB1MLIyCmGh2bUY+2bEWmJ+BvGTRVQd4VMLZIzbI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1755070043; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ndGRIgyqpSoyEUU8zgnuxG9P6Dpgn6Lze4upIdgAB94=; 
+	b=efjvs8JL0prlmwrd259yGTJZtnu7Y4uQXmTtAYTnbePRDEOTjAb6QPFT6pQKKHF5RUZgqvtVjZz91XOMcUSOyQDlXkMZXPnh0YyK09QKjgriVt5NcLgJV5OvKMv3fOgYOC6fcZoMlZCI8AKXwAqWUHLyuqCYcOZn4n47TrhV90o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755070043;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=ndGRIgyqpSoyEUU8zgnuxG9P6Dpgn6Lze4upIdgAB94=;
+	b=FYPI5oTPPGpG0FGzGJBcE2IrCwEeYjC1rCOfndyR+2/yb5lWbjcNVQ3wlTGSmgLR
+	szRgCeKqfYXUdDbGFb/LkRy6WAVHIXQEmnBE4uMoodlIgKyWwEYtSKx3Cm00gqyD5Im
+	4+3Xh6mpziTyemFoqbda2xnZB8h4AUTji3VucXzmX+d1o05Y7hf0v9GyA7N5oGgidfM
+	dx50zl8VZ61Q+YqmQEM6a+vcYLw8sACIwhwS7lVdjULZKIYkorQsfCpg9q3hQotkKtO
+	4LPaYUQTrmQhWTdkSzd5uklGIboNoPFfrY2q2pDYURNLhbbatyqjerMykt5sHMsdI+m
+	TqrelN0Kig==
+Received: by mx.zohomail.com with SMTPS id 1755070041223966.9782012385351;
+	Wed, 13 Aug 2025 00:27:21 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Yao Zi <ziyao@disroot.org>,
+	Han Gao <rabenda.cn@gmail.com>,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH v2 0/3] clk: thead: Changes to TH1520 clock driver for disp
+Date: Wed, 13 Aug 2025 15:26:59 +0800
+Message-ID: <20250813072702.2176993-1-uwu@icenowy.me>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5712:EE_|MW3PR12MB4458:EE_
-X-MS-Office365-Filtering-Correlation-Id: e228179c-a083-48ed-c177-08ddda4eb9f2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bUk4cWRreDdFd1llcXgxOHRFU2toSEhBdG9adHJzaFI2VC96TmczOXNDNHh4?=
- =?utf-8?B?Mnh2OEQ2RkNzTUlzd29PTWFXa29CeTNMVXI2T0dWRXo4dEJIam0xK1BEZmZF?=
- =?utf-8?B?d3pTbEVDSFdTWENBejNBbWZ6MXhHRzAvNUg5ZkNYWDVaT2JoS0dzWGZHWGFv?=
- =?utf-8?B?Q2JoMEE4RVNOdWVMaHp2VGZrVmRnMCsvWnl4T1ZnT2duZFRtdEc4dkdtSlhG?=
- =?utf-8?B?bnF6SXhSYmh3anNPcURIUEl0K29PMWVzTDVjOGZzUVVWTW9uclp6dnZNeXJ3?=
- =?utf-8?B?clZSWFpub1RQUmt5bEhaSENVSVZZSUJHT09NUVFJQnB0ZlYvSGRrQ25zT3F3?=
- =?utf-8?B?UFhVN1g2NCtCSU5IeHBLSzZCTGVGVW9FUlhJSmY1U21USVZ1UitCUE45djhB?=
- =?utf-8?B?ZWVLaUJlOGpBYWc4dDhxZDVMUWZ4NTA0b2lwWkp6ZFZKUWNhMnZWVVEvTWdv?=
- =?utf-8?B?Mjh5VFRpSXFLN3hJYkFYekhUd1ErRDRPeVZFVmhZOThOM01hOWdrTDVyVDcy?=
- =?utf-8?B?ZFFGb2htSVNtYk9xMzRBK3B4MmNqNDlMYm1zT21pR0NZUFVjSHVuMUltOW45?=
- =?utf-8?B?clJNMTdSREdXekZQLzUvbXViSmRJdVhISG5USmpydFNzbld3d01QNTRFenVh?=
- =?utf-8?B?VHRjYTVIRjhtdkhibGFORWVtUGJHcm9CRWN3dDk5eVo5NmNZTlUxOVhsNE5y?=
- =?utf-8?B?NTRLUTR0bUxwYjZZcFFFL0dYWktDdmpubC9ZVVpaUW5rWDI3ckVWRHFsRkYr?=
- =?utf-8?B?MGlHbXVLb3l0RTVua3Y3c3ByRU96M2JwMmNVb25GYVZhcExXaC81YldoVWdI?=
- =?utf-8?B?THBWV2d3dWU0aVBmc3hKK3ZPMkIwbllwZC9xdDZjSFNnMmdJckdTN2tHR3ZS?=
- =?utf-8?B?ZmJYa3ZnOThQM0ZVTHhOT3h1L21QSGxybEZOL3FMSVFBZTdnbmxRRDNZMzZp?=
- =?utf-8?B?UUdPTjBXdWdqVXAzZDJIOGg0OGNsU1pPdEVSL09PTWIweWMwYWErL0hQWDZ1?=
- =?utf-8?B?WlJmVzBzeERIZHgvMng5MVhvMGF3eWxsMk1MY1JRK2RBMC9ZN0lObGtRbEVX?=
- =?utf-8?B?OTA3cXBPL2RONlpaWE9PNk9lRndISHhWQkljSXJXMWdOUFFuakc1bEgzcmx1?=
- =?utf-8?B?QzVpUEFadjVwb3hQVERvT2xnK0NET0x6N25JWkxBVGpwK0s5M25TWGxkMWto?=
- =?utf-8?B?L2xreUVQWXFTYWtiZlFRb25aQm5pSEpCbHdNZ21XRy9YbWhINS9YYnBUNXpO?=
- =?utf-8?B?azdqaGhtTWc5VXFXRlUrTVpZSHJBQ2djZm1DemswR3AyL3VnRDRLeDNlbTZL?=
- =?utf-8?B?aVJkOGRGc3Z5akJzdFdvWGVRZG44RWxEL3RMQkUvVWwwMnR1YmJRSy9YNW9q?=
- =?utf-8?B?UmFUTUZtUUJiL2hPL2xMbTFvMFpCa2dhNG5MdHRkb1BVa2M5YzIrd2tNaFdm?=
- =?utf-8?B?TlgrZG1SSy9QQjhhVE1ucnpuVnoxK1F2bzFYMjJndzhlWWdaa2s3c2JzTWs2?=
- =?utf-8?B?NFNSR3Nha3ZrenBaRG4xbFFpNzdXUkdXZVFoT0JNZjlBUjRtbzdCcTRYSERU?=
- =?utf-8?B?SGN4TjJ0WFRySEZJWi9kaGNSdWovbDU2VmtjbklPVUFPak80YnZaalpYd0Q4?=
- =?utf-8?B?RWVydkQ2bHhzQXB1YXd4SjBCNW83eDM0bGgra3FRM3dkWUdKVzhKMWVHZzY0?=
- =?utf-8?B?OUNFUmgrNU85M3owZW5ib3c1elJleVkzRko2SHVvdkxycE1wbE9EYjV5aVcr?=
- =?utf-8?B?QXE2R01GLzc0RFJMcjVlOWV0NmdvbEVGbzhkN2dkOFRWNlIrSjh5ZkU4Z1JJ?=
- =?utf-8?B?Z1YxRGxySmsxci9QbE9ValFPbEhtc25tZnVqZE9DVzJVRnhXN1MrSHVDeU1m?=
- =?utf-8?B?RlpaVmprdzNHVTFPZDFIUEpBaGk3NW5EYytlTVdpQ0F0MXZoY0pHM1RjMFY5?=
- =?utf-8?B?RklNRThKMnNQaWY5WGZBQzFIS3EydzYyZU4rcXBjSWJHR3hpbjFiOHJsaFAy?=
- =?utf-8?B?QVQrd25nc2Z3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5712.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q1FpQ1pqVFJiRlV3NW5GN211Nk9SbUZqejVBY1lGSzNOSE10MmNhcytqUTA5?=
- =?utf-8?B?U2FydS9vQThQbzI0QS9OcDNyNGM1WFNWeHlyMHZnYVAvRTNzY1NUaWlOcjYv?=
- =?utf-8?B?UnpzemVIbGJ5aEZkM1orZE1LL0ltRlVsUWpOdDU5b042c0dzTDMwaHNwSThV?=
- =?utf-8?B?QUlEQ2FoOUdtcVhBR0FYYjhUalpBeGdWSm5QcFU4VXFpcm9maDZRd1gwVmpM?=
- =?utf-8?B?RDFPT1U1WVdEVytobG5kUVdPU21rUzF0bjVMV3JsVWxjZXZZK2FFYlZsdzly?=
- =?utf-8?B?NnJPcXlFS2dGQ3p6Wkx1TlRDSWNRNEd2V3Bud1ZoalFTdEYya3FqUU56K21x?=
- =?utf-8?B?dlFLR240eHNjQTFYekVNTkFOYTZXaXhkUXlGOE1zQ1lhSjNxMTB1OEhDQzNY?=
- =?utf-8?B?VWhmV0p0V2w1RjExUmFCMkxTQ1hRWmxLZUF6ckozeHVnak5BdU1sQ0U4d2Iz?=
- =?utf-8?B?Vk8yUmhFajdIbzFiQ25zYWJZVndUYmdkSEx2T0xOL0hiTUZtbmYxNTVhTUZ3?=
- =?utf-8?B?R1FiWm5PbTdyTUUrdnVIMUo3Ym5kYkdyeTF6Vkg1WWNibDk4QndaOUx1cVpk?=
- =?utf-8?B?L3RYU3oxN3pySzA3QlJWNnZla1Jpblk2QUs3Ri9TN3U4b1FnWnBCaGRhNHpm?=
- =?utf-8?B?YjFVSThhb2EvSmZqTjhxdWdEdUtDd3VxSXlPQVB3QWRiOGxCS0tUamk0MDhP?=
- =?utf-8?B?OEZXa1pGd21JcVJUQmlZNUY2Rjd0VFlpQ29mTGFOVU1yY25kd1k5bVVQSTYv?=
- =?utf-8?B?L1V4RXVXOUpnc04xVkhpU0xST2ZNRGRBWW95ZExTV2o1cG9kMHl1S0FUZ1RV?=
- =?utf-8?B?MXdEUmhCMVhUeDdBZVlsUW44QzdIZ1huVVZ0TWtQaWk4QU1WaWV2aDE0cy8r?=
- =?utf-8?B?UXRLZW5pLzFKWFc2ODNPQjlOZmovMStFUjNldmRDRm05Rk9YQWRqOHlySlhP?=
- =?utf-8?B?dG5hc3BMMDh2aTU5U3l0b1g5bUVGTml2K3pzSFQ4SEhFY2VmZDZHMHdabVpC?=
- =?utf-8?B?K0g3Z1hsVytRazVTZkdUUEc2V3h1cjNmelN1YlFkK3Z5MTNuYXV4eXVBS0I4?=
- =?utf-8?B?b2wwd1RsMUd4R2tsUTIrcUN2S3JHN1VrMDF0NCtDaWNlWThnUlgzQU1DeVZU?=
- =?utf-8?B?bGlkMzcxaGtNSmUrMGxsU3JVUndmVCtJRDVrWkVvZi9YQTBMM1FYbWFKQ09p?=
- =?utf-8?B?enJBTVRwR3ZKaHhzLzBkNmNkWS9ySUFxQXlLckUrcEt1emhNN3hGZy85UkFC?=
- =?utf-8?B?QmtzUTNvOGlFR09uNHNGY3laS2wraEx4VWx5RzRSYjlNUTRVaVNXZU9nZjJj?=
- =?utf-8?B?STIwQVUrVktUQXl4cUFwQ1Q2SGVFN0EyYWZnRHV0Qkt0ZFlXSGZGSUMyRFpj?=
- =?utf-8?B?WnVKUDN6NDl6UlB2MG5FTGdkS1FxSmhuNEJqK3lnaWpDWXBQRkVGMDc3OThR?=
- =?utf-8?B?ZmwrUVd4bDZRcmtYMGhmaitSN3U0TEZwSStxV0JuN3pTR3RaclpnMTlOSU1s?=
- =?utf-8?B?SjVidmdmbldhemNoOWJQUmsxYW11bzJaMHpOZ0lwSXl5L01vblUwOHNwSWdU?=
- =?utf-8?B?TFBNUW10VHB6TitIN3Q3WlN3OGlnbTY3OGFtcDVMK1FLUWhhTWFYU2hSOEg5?=
- =?utf-8?B?V0FJME40am0vWUphOGRBTXhHMko2YXk5eWVyTHlTNDlRWUxrRjBQcjI1WE5s?=
- =?utf-8?B?K1JZd2JCYmozZUtQdzd2dFJialI5MktrWnh2Sk9ITG16VWsySzBONW5waVdP?=
- =?utf-8?B?UkZLT0hEUTNWRCtqRlBHMHpjc2pCNmhpMmh6eWJEeWg4WjkyR3dJSGhSTDBt?=
- =?utf-8?B?QnI1QTEwdjlnbXFQTlFVNEpRUjdibWJkNUxRcW5QdW56cmJKT2pycEg5M1RS?=
- =?utf-8?B?ekRlZkVveUxqanFNc09KdXFOMVhaMGthRis2VFVyS09ScTRaUHhSSjg2TWhP?=
- =?utf-8?B?OVBCMjAwZjZkV3lNaGw4OXkvNTAvU2Z4SUNqZ2JDcHdock9TaW9NUE93eGNr?=
- =?utf-8?B?c2U2VHZLWVRnc25vd1lrcW1wQ3ZOTUVGeWVaRFVON0xaWElaRjVOMzArRlRl?=
- =?utf-8?B?K1pIVUNnbnVZeXo5azlRVzdqVGFLU1htbWRKMWFwc3NUdWowdWNobTl1UWFL?=
- =?utf-8?Q?37aKHYtVT6LxyE11esV9kY3s8?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e228179c-a083-48ed-c177-08ddda4eb9f2
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5712.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2025 09:49:42.2194
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U+O3Ru+l147K3V/dI+i6Awd6igJyx0EE4/s66OeBkV982X5/7mqchDiPgfwO9BFYgzSjn62CCD61Xku0v8ISPQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4458
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_024948_052058_376E52FA 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250813_002728_857141_B0AD4CE8 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,47 +89,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07-08-2025 01:26, Sean Christopherson wrote:
-> Require host PMU version 2+ for AMD mediated PMU support, as
-> PERF_GLOBAL_CTRL and friends are hard requirements for the mediated PMU.
-> 
-> Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
-> Co-developed-by: Mingwei Zhang <mizhang@google.com>
-> Signed-off-by: Mingwei Zhang <mizhang@google.com>
-> [sean: extract to separate patch, write changelog]
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/svm/pmu.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/arch/x86/kvm/svm/pmu.c b/arch/x86/kvm/svm/pmu.c
-> index 7b8577f3c57a..96be2c3e0d65 100644
-> --- a/arch/x86/kvm/svm/pmu.c
-> +++ b/arch/x86/kvm/svm/pmu.c
-> @@ -227,6 +227,11 @@ static void amd_pmu_init(struct kvm_vcpu *vcpu)
->  	}
->  }
->  
-> +static bool amd_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_pmu)
-> +{
-> +	return host_pmu->version >= 2;
-> +}
-> +
->  struct kvm_pmu_ops amd_pmu_ops __initdata = {
->  	.rdpmc_ecx_to_pmc = amd_rdpmc_ecx_to_pmc,
->  	.msr_idx_to_pmc = amd_msr_idx_to_pmc,
-> @@ -236,6 +241,9 @@ struct kvm_pmu_ops amd_pmu_ops __initdata = {
->  	.set_msr = amd_pmu_set_msr,
->  	.refresh = amd_pmu_refresh,
->  	.init = amd_pmu_init,
-> +
-> +	.is_mediated_pmu_supported = amd_pmu_is_mediated_pmu_supported,
-> +
->  	.EVENTSEL_EVENT = AMD64_EVENTSEL_EVENT,
->  	.MAX_NR_GP_COUNTERS = KVM_MAX_NR_AMD_GP_COUNTERS,
->  	.MIN_NR_GP_COUNTERS = AMD64_NUM_COUNTERS,
+This patchset is my changes to the TH1520 clock driver, mainly for
+supporting the display controller.
 
-Reviewed-by: Sandipan Das <sandipan.das@amd.com>
+The first two are functionality additions, with the first one adding
+support for enabling/disabling PLLs (for DPU PLL) and the second one
+adding support for changing DPU dividers.
+
+The 3rd one is to address hang issues met when testing the DPU driver
+w/o clk_ignore_unused command line option.
+
+The 4th patch that used to be in v1 is dropped, makes this patchset
+purely display-related.
+
+This patchset has a dependency (a 0th one) [1].
+
+[1] https://lore.kernel.org/linux-riscv/20250809-fix_clocks_thead_aug_9-v1-1-299c33d7a593@samsung.com/
+
+Icenowy Zheng (3):
+  clk: thead: add support for enabling/disabling PLLs
+  clk: thead: support changing DPU pixel clock rate
+  clk: thead: th1520-ap: set all AXI clocks to CLK_IS_CRITICAL
+
+ drivers/clk/thead/clk-th1520-ap.c | 146 +++++++++++++++++++++++-------
+ 1 file changed, 114 insertions(+), 32 deletions(-)
+
+-- 
+2.50.1
 
 
 _______________________________________________
