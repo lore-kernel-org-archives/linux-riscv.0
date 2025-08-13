@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EF6CA0EE0
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 02:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA02CA0EDC
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 02:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kapFW2kn0ZtWuA980nPTHTYKfBajtnGL2MUq6bTOhe0=; b=WDzt2qU6IedO7y
-	oxiR2SAxQFiu5WhtZhtjNSV8MoPlLdFGkoEDZ8nKUlJiKVBb6Ch2ZXUfAJL8euPfzFKvOkGtiuE3G
-	JV2m4am4T6qPD94k+xDUg3S+im1igEkdH03d2TYUxs6bJ4zwJkd5m0bdcd7Dq5tlsAWI3JYQS+pS/
-	351miA01RMc5ckbZk8vXEBArYBXXfVrn0w1q0u23QbLstxwNtEL/J0KilIqlQe7MxKjAQE2YPX8oZ
-	xGZhHC2hFCzqbI5W43qzSR0EVZsk77wecwvBn1MkVufQL4qahB1yy1mZD1WqW+he5otA6ZH0zgPdw
-	cBy4VPOO4XtxkJmdeZIA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=k3H9i6u5x1IjLclm7iErWkvFR6HUeVTlz51lCFm3pI8=; b=faN20zP3RHiWK7
+	/2XUX9Ub7IMfX1ViyfR/GTskxnF9vFp/CFuT/2Xteb/RNYAdzkCPnIIDaDVxXFJ8eQFy7VBy4qZ+l
+	CBbSGPYYd066KiUu3qlrLUpM93SkE3Bf2GmgsQ02iRZQeBy+3qAoqIc+ofv4xfdWp2PbjR2ZfZDS0
+	IercTKacrfM+77PnEXx6mMz6VHYkodukYFzyzSHd/EyUNNmv+tlgAcd+6q8X0fLJgtt6CwhTfuux+
+	jkkWsxyW7nFwC17ID0fCyJEKob4nZbAxz+uCZYatVRqgmC6V02DjaQPSHfmX2Raeh0N0E37LHuNsD
+	F8Ff51A/WvhMYWmIueYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um1UO-0000000CQgm-16Pm;
-	Wed, 13 Aug 2025 02:45:20 +0000
-Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
+	id 1um1UL-0000000CQfT-0Rum;
+	Wed, 13 Aug 2025 02:45:17 +0000
+Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um1UM-0000000CQfc-1Tzo
+	id 1um1UI-0000000CQep-39vB
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Aug 2025 02:45:19 +0000
-Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-3e52146df5cso64238195ab.2
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Aug 2025 19:45:18 -0700 (PDT)
+	Wed, 13 Aug 2025 02:45:16 +0000
+Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3e40ac40940so2645025ab.0
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Aug 2025 19:45:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755053117; x=1755657917; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jpWSmw9lis/Pk9ItaAyFFmK9qCXYijFo17aiCbiLfY4=;
-        b=1aqzxFSePzlLwddm5Env4e8H37b/2hw+yiFkJujyExm+qpP/zxEjp6GR8iXqHwwYLK
-         2NKsZQCYCFekx8jCi957ko/iOioQ+HxWINxVohJq5VcYMi46FcDtY1537oLdMxBEJbjF
-         ibGR/cT4qkIjBvBvojwL5UTSSOXBOR24+Sb6jYmq8ntux2G+YVF2jvwpG0J03X16Xnqq
-         HFEOSppwUEsb9R+Q7uUiXB72CT6CHP0U1fKI5d5DDAFdo5e6KJD1H307RzQN2RwR7aBa
-         1NZTQi7i2UjP40VCXn9Qm00iAi91tIBmchjdy6XZ5MX3OlSydz8Gge8XDxZTx+bLpas5
-         pK8Q==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755053114; x=1755657914; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=niKBP2EZ19X+wqMs4ZG9wJKfN7oQpwL1MM9OL7zTge0=;
+        b=zT/Mpp/HkqL2o0IxfnWmAiBUy5j/Qx/E3j8pqHtvggfWu4CDwwod+4yTrv9P7e136K
+         hepGE1PLqyPKmhGJqyNGMSggAk/gBW38Nm8vtCTfUtvKSzJ12mz0DErixaGWwanJUMMR
+         ernt1ELoHBizdMOBdYmRnwnHBamiEvA8/mBYEo5Io8vIkMJP5vq3a6LfG2FdOmn4P9S0
+         XJjyVVaJwJEGK5TxI9hVBuRxYm1iG9OInyT2jxzSojk9NiKBBRXc+pvWF9cK8GMjEccP
+         sVLUv/f8PMob7jFx3hfgJ3/8gTY3k4/+0AvShEVXXNN8w3YhQntltjRbu+q4qGfP+ZXq
+         GKpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755053117; x=1755657917;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jpWSmw9lis/Pk9ItaAyFFmK9qCXYijFo17aiCbiLfY4=;
-        b=dCUYTC+Od0ydAWuxy+DkpabqX1KLbMzSmc+IPsHE1+0ynbDuhxptLHDVKbCTJlk+ll
-         qnC64cFVbxkj5jlsbKLLM2ISGKjCfGNEcM1eIZidMm++mjho9U7DiT1cFoArfqbgKqTv
-         Q5m3XAjGpWR1HKJo6DqWQablchHhDez2PxIligZNnE0MVpX1fetm68lTkDpEbOZpa8ME
-         TFmrilLPEXBdRbQzSOhQoO0rQfLQt9Io7attLIr4eBPEfrEcJkwuR7CkDIUxcpiEP2jM
-         SJSnLnhinouRrQ5VXS4qqb/InUjEwAbL7NXS0mEYDboNJepSohH1wLcMl6R0G1N5BB7Q
-         /tsA==
-X-Forwarded-Encrypted: i=1; AJvYcCWIPB5c3CfutJ6iz3vN6wzUz85BAswFoOCJmrm4721ia0QNimEE+4Y28BPv4/yejFh686x71wb355pwRQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRs0FUE9kpAnmVhGqKGGscuJ6dK3vY8MitKS9oXX0WQJzo9Tqb
-	+MU9j1y6mjZ2eKHMdnEq4MIkhaKf8TL7f0dQFk3DLsaNbi7PdMeM+YcMeK9GaKwsneU=
-X-Gm-Gg: ASbGncsuXTw+bZ2AfirL34z8LkgEIMXlUKd9a9KRo9YqjZoa1ZxQ3Pbrd01CLZoLAR0
-	iJJPjTmZKpRL7xeXiciXmSs3DBb35QQ8Hv7dByy9kKXrDqfKoXGbEj53ztvEZaH4VhiREuUNGnI
-	I9DrJ3S4rs1Tm7AkAaFTBB9MczMnhZJ6v2Cll8/yt/Ca7KVDMuz7+kBmDaZr9CKDkjZM3fEWd9x
-	leiNTzVxnsuDRGsEgmYPIx5OqbC+Yndoes3uKGTDhT8tVRhIfEBYgjU0cIFygy1c4Nx4lEzy1fS
-	txdKsuL3qVTieIgzReHRNR38Ke0cDu5hsasm4vk72HceXkbNW6uBMoHutdSqu0rT6+U0l2ze1UH
-	vT/M/kmr7J9QLtXRF2gmL0toDqOO15mZ8S9VwoMX34xFzfARbz9/CaDUWQLas0JSE8Q==
-X-Google-Smtp-Source: AGHT+IF/iYJMmWmcL8yZLA7oNGcNRdI/2yJYPqEsD9FqvoMdXobCS2emz+maEDlXX84/h0VsLJTXHA==
-X-Received: by 2002:a05:6e02:380e:b0:3e5:4eb2:73d4 with SMTP id e9e14a558f8ab-3e56739943fmr24223705ab.5.1755053117425;
-        Tue, 12 Aug 2025 19:45:17 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755053114; x=1755657914;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=niKBP2EZ19X+wqMs4ZG9wJKfN7oQpwL1MM9OL7zTge0=;
+        b=TT04KpFSnTDT9vz1SaK9Iv7+UgcZ9NY6wtufZD+ab1zRKOs2k+z3CbIwf+jLYOetB5
+         FdvAloPYV8kEoDHBQmohiNCNZZVIKYeHg7m34vzycz+DV+8YhM1VOngZxuEOJTPLJ/d1
+         iMpkgiorOxlJdCnucndEIgfZ2Ho82nW0YuyoefP8I0RzcLCmfuaP0AzSH08pYsKHVlKX
+         iUWXJt7Kar5qKyDcKW3WAIzDliqLA7Orn/LsRRNw+0eQJZRP1of4oT5OM7qgx2mULaE9
+         z0dAARmOl3+LHliOkulYVMHHO7+/ngbnkXNwi9dp4+p/vT/3KAstEVQT8YkUT7Nh1nUU
+         H6Kw==
+X-Forwarded-Encrypted: i=1; AJvYcCW8lylpjHpPvBcFhG3WVMhVZDl+udYS5hopIu5mKLUI0+P80BrcrqV7bBmN4HASbrnNrjsxkAwwxlC1OQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrIYDlzZ7DxaWUZsWsEX2FcPLugG0uYD7NEr4ey/HmrJZSk/fh
+	UTdxVkJfKFR8oxfNRgnRZ+yy239mGoUfpJccjbItfGFLVzheWrB2oueGH1yXPq6jspE=
+X-Gm-Gg: ASbGncvO0y8LHriInM6L6OKeUEbbPMiLH179dGbpbDofy+TvJLIYMAaoR3SbR9CYPu9
+	Cnh/75KFQQCUF57kg7ncaZbwcO2dGWLmaT0aP8d5sa4z+lj6QpGRtQFIZwcJHlb6NfdbHsC98ER
+	wn+6cW5Y+kFwIMAM0pB9YeacnMpJmMod9IBrII/jZcyyc5GsjRfeBwweLbCakZ7oZvf2mfrreNR
+	In+QaYyLdWfSdxWuuh5c86OP+Z2HhNUvsbigOnGJK64ip5JMbUcrfGKUn6MaCV7OpAVOJunF7rM
+	BC1pM8JBH8nyvPbfS4emCoZgEcwMIJ7OggRzXtnJlferUpKypfKKAzcIf3hPqGgHizoXyHEyncS
+	MCukOGP1SbR80ItIIFImBl1hGNXBdafHx319+pK/6Q4f96HNrDPOcnDnKWtwPAu8ySc2jgJcacL
+	OP
+X-Google-Smtp-Source: AGHT+IEBZwyeOzbbOcVhNNK5J1cGS+53cBPTwwwfowqlesyNWISPovkwp31RGRTV3tyrIRkYbuJPkg==
+X-Received: by 2002:a05:6e02:19cd:b0:3e3:b3d0:26cf with SMTP id e9e14a558f8ab-3e5685aa5bcmr15459295ab.10.1755053113531;
+        Tue, 12 Aug 2025 19:45:13 -0700 (PDT)
 Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50ae9bcfbf6sm3430829173.54.2025.08.12.19.45.15
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50ae9bcfbf6sm3430829173.54.2025.08.12.19.45.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Aug 2025 19:45:16 -0700 (PDT)
+        Tue, 12 Aug 2025 19:45:13 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: lee@kernel.org,
 	lgirdwood@gmail.com,
@@ -91,16 +91,14 @@ Cc: mat.jonczyk@o2.pl,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v12 2/7] mfd: simple-mfd-i2c: add SpacemiT P1 support
-Date: Tue, 12 Aug 2025 21:45:03 -0500
-Message-ID: <20250813024509.2325988-3-elder@riscstar.com>
+Subject: [PATCH v12 0/7] spacemit: introduce P1 PMIC support
+Date: Tue, 12 Aug 2025 21:45:01 -0500
+Message-ID: <20250813024509.2325988-1-elder@riscstar.com>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250813024509.2325988-1-elder@riscstar.com>
-References: <20250813024509.2325988-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_194518_391325_B8E363BA 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20250812_194514_953105_8DB91840 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,77 +115,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable support for the RTC and regulators found in the SpacemiT P1
-PMIC.  Support is implemented by the simple I2C MFD driver.
+The SpacemiT P1 is an I2C-controlled PMIC that implements 6 buck
+converters and 12 LDOs.  It contains a load switch, ADC channels,
+GPIOs, a real-time clock, and a watchdog timer.
 
-The P1 PMIC is normally implemented with the SpacemiT K1 SoC.  This
-PMIC provides 6 buck converters and 12 LDO regulators.  It also
-implements a switch, watchdog timer, real-time clock, and more.
-Initially its RTC and regulators are supported.
+This series introduces a multifunction driver for the P1 PMIC as
+well as drivers for its regulators and RTC.
 
-Signed-off-by: Alex Elder <elder@riscstar.com>
----
- drivers/mfd/Kconfig          | 11 +++++++++++
- drivers/mfd/simple-mfd-i2c.c | 18 ++++++++++++++++++
- 2 files changed, 29 insertions(+)
+The content of this version is identical to the previous one.
+It has simply been rebased onto Linux v6.17-rc1.
 
-diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index 425c5fba6cb1e..4d6a5a3a27220 100644
---- a/drivers/mfd/Kconfig
-+++ b/drivers/mfd/Kconfig
-@@ -1238,6 +1238,17 @@ config MFD_QCOM_RPM
- 	  Say M here if you want to include support for the Qualcomm RPM as a
- 	  module. This will build a module called "qcom_rpm".
- 
-+config MFD_SPACEMIT_P1
-+	tristate "SpacemiT P1 PMIC"
-+	depends on I2C
-+	select MFD_SIMPLE_MFD_I2C
-+	help
-+	  This option supports the I2C-based SpacemiT P1 PMIC, which
-+	  contains regulators, a power switch, GPIOs, an RTC, and more.
-+	  This option is selected when any of the supported sub-devices
-+	  is configured.  The basic functionality is implemented by the
-+	  simple MFD I2C driver.
-+
- config MFD_SPMI_PMIC
- 	tristate "Qualcomm SPMI PMICs"
- 	depends on ARCH_QCOM || COMPILE_TEST
-diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
-index 22159913bea03..47ffaac035cae 100644
---- a/drivers/mfd/simple-mfd-i2c.c
-+++ b/drivers/mfd/simple-mfd-i2c.c
-@@ -93,12 +93,30 @@ static const struct simple_mfd_data maxim_mon_max77705 = {
- 	.mfd_cell_size = ARRAY_SIZE(max77705_sensor_cells),
- };
- 
-+
-+static const struct regmap_config spacemit_p1_regmap_config = {
-+	.reg_bits = 8,
-+	.val_bits = 8,
-+};
-+
-+static const struct mfd_cell spacemit_p1_cells[] = {
-+	{ .name = "spacemit-p1-regulator", },
-+	{ .name = "spacemit-p1-rtc", },
-+};
-+
-+static const struct simple_mfd_data spacemit_p1 = {
-+	.regmap_config = &spacemit_p1_regmap_config,
-+	.mfd_cell = spacemit_p1_cells,
-+	.mfd_cell_size = ARRAY_SIZE(spacemit_p1_cells),
-+};
-+
- static const struct of_device_id simple_mfd_i2c_of_match[] = {
- 	{ .compatible = "kontron,sl28cpld" },
- 	{ .compatible = "silergy,sy7636a", .data = &silergy_sy7636a},
- 	{ .compatible = "maxim,max5970", .data = &maxim_max5970},
- 	{ .compatible = "maxim,max5978", .data = &maxim_max5970},
- 	{ .compatible = "maxim,max77705-battery", .data = &maxim_mon_max77705},
-+	{ .compatible = "spacemit,p1", .data = &spacemit_p1, },
- 	{}
- };
- MODULE_DEVICE_TABLE(of, simple_mfd_i2c_of_match);
+					-Alex
+
+This series is available here:
+  https://github.com/riscstar/linux/tree/outgoing/pmic-v12
+
+Between version 11 and version 12:
+  - Simple rebase
+
+Here is version 11 of this series:
+  https://lore.kernel.org/lkml/20250803025812.373029-1-elder@riscstar.com/
+
+Between version 10 and version 11:
+  - Abandon trying to implement a simple_mfd_data->max_register field
+  - Fix a missing dependency pointed out by the kernel test robot
+
+Here is version 10 of this series:
+  https://lore.kernel.org/lkml/20250726131003.3137282-1-elder@riscstar.com/
+
+Between version 9 and version 10:
+  - The #address-cells and #size-cells for the i2c8 DTS node
+    were moved into its primary definition in "k1.dtsi".
+  - The interrupts property for the i2c8 DTS node was moved
+    below its clock-related properties.
+  - The status property in the pmic@41 DTS node was dropped.
+  - The function that provides the regmap_config structure
+    to use was reworked a bit.
+  - A new function was added to free the regmap_config
+    structure after it's no longer needed.
+
+Here is version 9 of this series:
+  https://lore.kernel.org/lkml/20250724202511.499288-1-elder@riscstar.com/
+
+Between version 8 and version 9:
+  - The max_config value is always used if it is provided with the
+    simple_mfd_data structure.
+  - The regmap_config structure used is allocated dynamically if
+    necessary; otherwise regmap_config_8r_8v is used.
+  - A small duplicated comment is removed
+
+Here is version 8 of this series:
+  https://lore.kernel.org/lkml/20250710175107.1280221-1-elder@riscstar.com/
+
+More complete history is available at that link.
+
+
+Alex Elder (7):
+  dt-bindings: mfd: add support the SpacemiT P1 PMIC
+  mfd: simple-mfd-i2c: add SpacemiT P1 support
+  regulator: spacemit: support SpacemiT P1 regulators
+  rtc: spacemit: support the SpacemiT P1 RTC
+  riscv: dts: spacemit: enable the i2c8 adapter
+  riscv: dts: spacemit: define fixed regulators
+  riscv: dts: spacemit: define regulator constraints
+
+ .../devicetree/bindings/mfd/spacemit,p1.yaml  |  86 +++++++++
+ .../boot/dts/spacemit/k1-bananapi-f3.dts      | 135 ++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  |   7 +
+ arch/riscv/boot/dts/spacemit/k1.dtsi          |  13 ++
+ drivers/mfd/Kconfig                           |  11 ++
+ drivers/mfd/simple-mfd-i2c.c                  |  18 ++
+ drivers/regulator/Kconfig                     |  13 ++
+ drivers/regulator/Makefile                    |   1 +
+ drivers/regulator/spacemit-p1.c               | 157 ++++++++++++++++
+ drivers/rtc/Kconfig                           |  10 ++
+ drivers/rtc/Makefile                          |   1 +
+ drivers/rtc/rtc-spacemit-p1.c                 | 167 ++++++++++++++++++
+ 12 files changed, 619 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mfd/spacemit,p1.yaml
+ create mode 100644 drivers/regulator/spacemit-p1.c
+ create mode 100644 drivers/rtc/rtc-spacemit-p1.c
+
+
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
 -- 
 2.48.1
 
