@@ -4,56 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A95DAC87FCF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 09:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF5ACA0EE0
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 09:08:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nOGYFAMOTykS4UDfxLfCCyhO3txcevoiVE5JTZcGRJw=; b=VJ7PIBWiBfJ3X6
-	mKSvFBrlbo+wNkI9YIGwyN5PEpg7XJ3pF3l5O7IKkYN7IZm00XlH6dsMDSHBOqXiit/jg+B/Cro2a
-	oZNq9ZRCpTOfMrLyZkaaD18+CXlH0sobxloc9+5C3tkjeHqQ5ttmGCaU3+40vV96A0b2DkIjLAm5O
-	nyRyg/GgqL1gE6+WUCVqT8Ac3Egtp8zJRjWN7nHkaUiDy3AiQYqaYr4Fd0Sab4Ys/npMoQMsJQm1B
-	LQA7mf8pqOPrU/VZdYG/zLjy6wOYR+/UutKceiAChGNi7gFflqo12RrgAjnwZiRHSLy1DNiBW+NOU
-	Tl6h/YWXMO33R9BoJYwA==;
+	List-Owner; bh=nlyheSc0R5hQiwtDX+JwQZ1krgU2rMkGieboE4axWyE=; b=mZwZs4z5hQqGjt
+	q4tZkfmttG2BcV6p5XfrxfWgamCqFw2MGGZo48pzP8zvZwds2tTflhJJ//oSIoa06uYGHcp/eUO6R
+	F2ZVQXi2XeVtF/5KDDKqFGXhU8bCWZT5QR3MmX5Ig0cP/lcTBugGisQLMGYpg+aP/coX0ozu4ZKJE
+	qcfgbBAfQIhbT+A5BmuBtx9BZtkkwl6IkynRFGtiKhWH5iLD8EKnjZ/lcVxqe4Cjk7lQJRcLxLKdO
+	nOq3sLH3uAhkOtXL7YTBTXJO2/JQpw3C0n2uE9zIVdfwXclDTkepdZ1r8i4VpqDORNupfxenn32We
+	CY5thHlMvlE2b/IaJHDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um7Q2-0000000DB72-2hh8;
-	Wed, 13 Aug 2025 09:05:14 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1um7Sp-0000000DBWB-2oeu;
+	Wed, 13 Aug 2025 09:08:07 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um7Mz-0000000DAjF-46ZU;
-	Wed, 13 Aug 2025 09:02:07 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B3C65431F3;
-	Wed, 13 Aug 2025 09:01:57 +0000 (UTC)
-Message-ID: <d0f8d0d8-fb46-4009-a50f-3faacf8516fc@ghiti.fr>
-Date: Wed, 13 Aug 2025 11:01:57 +0200
+	id 1um7Sm-0000000DBUq-3KPJ;
+	Wed, 13 Aug 2025 09:08:06 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9806843283;
+	Wed, 13 Aug 2025 09:07:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1755076079;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zeW3w+muABU56lk8AynPRRMO7XtEP4qDrJkq+5Lwhw0=;
+	b=RBcxly02YqHg6yIG6IVGb6L0wWxwyXgbzexV7fz5MW/s00R1yXLzqz8R0Q4Hp6XCzFEgKy
+	aJQuxXVY2VuM3LcR+HuKLiDTJxPk7hPeIic299sk4PSxG2ekcA+2ZeJQZ9DJMqGpdiEK55
+	dlmn2pZocXR5RTpeMH7mXYpDsa1p5LBc6yeLbl5BB9RJI44aKGy2UdQyipWgEiGweTT6Zs
+	yKZjMHYwq/2e6TLrhQ1n/5tSh0xMWWU8ZMi+8EvpkTaKYRbcurnOinRJ6WojpOPIpt9hGK
+	EGL3JqryRCMP/IrQCvVCa6eDAFIGmMSS2+OxScw07Z8iZPtIZg8PP1xYwoncfg==
+Date: Wed, 13 Aug 2025 11:07:45 +0200
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Brian Masney via B4 Relay <devnull+bmasney.redhat.com@kernel.org>
+Cc: bmasney@redhat.com, Michael Turquette <mturquette@baylibre.com>, Stephen
+ Boyd <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, Cristian
+ Marussi <cristian.marussi@arm.com>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@gmail.com>, Nicolas Ferre
+ <nicolas.ferre@microchip.com>, Alexandre Belloni
+ <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Paul Cercueil <paul@crapouillou.net>, Keguang Zhang
+ <keguang.zhang@gmail.com>, Taichi Sugaya <sugaya.taichi@socionext.com>,
+ Takao Orito <orito.takao@socionext.com>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jacky Huang
+ <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, Vladimir
+ Zapolskiy <vz@mleia.com>, Piotr Wojtaszczyk
+ <piotr.wojtaszczyk@timesys.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>, Yixun Lan <dlan@gentoo.org>,
+ Steen Hegelund <Steen.Hegelund@microchip.com>, Daniel Machon
+ <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com, Orson Zhai
+ <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan
+ Zhang <zhang.lyra@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Michal Simek
+ <michal.simek@amd.com>, Maxime Ripard <mripard@kernel.org>, Andreas
+ =?UTF-8?B?RsOkcmJlcg==?= <afaerber@suse.de>, Manivannan Sadhasivam
+ <mani@kernel.org>, Sven Peter <sven@kernel.org>, Janne Grunau
+ <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa
+ <neal@gompa.dev>, Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Broadcom
+ internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Max
+ Filippov <jcmvbkbc@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>,
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+ <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, Bjorn Andersson <andersson@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, Heiko Stuebner
+ <heiko@sntech.de>, Andrea della Porta <andrea.porta@suse.com>, Krzysztof
+ Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Qin Jian <qinjian@cqplus1.com>, Viresh Kumar
+ <vireshk@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, Alex Helms
+ <alexander.helms.jy@renesas.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Liviu Dudau <liviu.dudau@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Nobuhiro Iwamatsu
+ <nobuhiro1.iwamatsu@toshiba.co.jp>, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, sophgo@lists.linux.dev,
+ linux-mips@vger.kernel.org, imx@lists.linux.dev,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-stm32@st-md-mailman.stormreply.com, patches@opensource.cirrus.com,
+ linux-actions@lists.infradead.org, asahi@lists.linux.dev,
+ linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev
+Subject: Re: [PATCH 106/114] clk: versaclock5: convert from round_rate() to
+ determine_rate()
+Message-ID: <20250813110745.63523645@booty>
+In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-106-b3bf97b038dc@redhat.com>
+References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
+	<20250811-clk-for-stephen-round-rate-v1-106-b3bf97b038dc@redhat.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/5] riscv: add SBI SSE extension definitions
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Himanshu Chauhan <hchauhan@ventanamicro.com>,
- Anup Patel <apatel@ventanamicro.com>, Xu Lu <luxu.kernel@bytedance.com>,
- Atish Patra <atishp@atishpatra.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Yunhui Cui <cuiyunhui@bytedance.com>
-References: <20250808153901.2477005-1-cleger@rivosinc.com>
- <20250808153901.2477005-2-cleger@rivosinc.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250808153901.2477005-2-cleger@rivosinc.com>
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufeejkedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeelgeehveeivdeujeelkeevueettedvtdelheeftefhffejveejleekffegtdefffenucffohhmrghinheprhhishgtvhdrohhrghenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvvddruddtudgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddvpdhrtghpthhtoheptghlvghgvghrsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvg
- hgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohephhgthhgruhhhrghnsehvvghnthgrnhgrmhhitghrohdrtghomhdprhgtphhtthhopegrphgrthgvlhesvhgvnhhtrghnrghmihgtrhhordgtohhm
-X-GND-Sasl: alex@ghiti.fr
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufeejkedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeeftdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeehffejffekudfhkeeklefgjeeuheekffelheejgfeijeehieelkedttdfhjedtnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepkeelpdhrtghpthhtohepuggvvhhnuhhllhdosghmrghsnhgvhidrrhgvughhrghtrdgtohhmsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegsmhgrshhnvgihsehrvgguhhgrthdrtghomhdprhgtphhtthhopehmthhurhhqu
+ hgvthhtvgessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtohepshgsohihugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhuuggvvghprdhhohhllhgrsegrrhhmrdgtohhmpdhrtghpthhtoheptghrihhsthhirghnrdhmrghruhhsshhisegrrhhmrdgtohhmpdhrtghpthhtohepuhhnihgtohhrnhgpfigrnhhgsehouhhtlhhoohhkrdgtohhmpdhrtghpthhtohepihhnohgthhhirghmrgesghhmrghilhdrtghomh
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_020206_166773_4334CC4A 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20250813_020804_970707_3056456E 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,71 +123,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2zDqW1lbnQsCgpPbiA4LzgvMjUgMTc6MzgsIENsw6ltZW50IEzDqWdlciB3cm90ZToKPiBB
-ZGQgbmVlZGVkIGRlZmluaXRpb25zIGZvciBTQkkgU3VwZXJ2aXNvciBTb2Z0d2FyZSBFdmVudHMg
-ZXh0ZW5zaW9uIFsxXS4KPiBUaGlzIGV4dGVuc2lvbiBlbmFibGVzIHRoZSBTQkkgdG8gaW5qZWN0
-IGV2ZW50cyBpbnRvIHN1cGVydmlzb3Igc29mdHdhcmUKPiBtdWNoIGxpa2UgQVJNIFNERUkuCj4K
-PiBbMV0gaHR0cHM6Ly9saXN0cy5yaXNjdi5vcmcvZy90ZWNoLXBycy9tZXNzYWdlLzUxNQo+Cj4g
-U2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgo+IC0t
-LQo+ICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaCB8IDYxICsrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKwo+ICAgMSBmaWxlIGNoYW5nZWQsIDYxIGluc2VydGlvbnMoKykK
-Pgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oIGIvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9zYmkuaAo+IGluZGV4IDM0MWU3NDIzOGFhMC4uZTQ5OTNmYjY2NGQyIDEw
-MDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgKPiArKysgYi9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL3NiaS5oCj4gQEAgLTM2LDYgKzM2LDcgQEAgZW51bSBzYmlfZXh0X2lk
-IHsKPiAgIAlTQklfRVhUX1NUQSA9IDB4NTM1NDQxLAo+ICAgCVNCSV9FWFRfTkFDTCA9IDB4NEU0
-MTQzNEMsCj4gICAJU0JJX0VYVF9GV0ZUID0gMHg0NjU3NDY1NCwKPiArCVNCSV9FWFRfU1NFID0g
-MHg1MzUzNDUsCj4gICAKPiAgIAkvKiBFeHBlcmltZW50YWxzIGV4dGVuc2lvbnMgbXVzdCBsaWUg
-d2l0aGluIHRoaXMgcmFuZ2UgKi8KPiAgIAlTQklfRVhUX0VYUEVSSU1FTlRBTF9TVEFSVCA9IDB4
-MDgwMDAwMDAsCj4gQEAgLTQzMCw2ICs0MzEsNjYgQEAgZW51bSBzYmlfZndmdF9mZWF0dXJlX3Qg
-ewo+ICAgCj4gICAjZGVmaW5lIFNCSV9GV0ZUX1NFVF9GTEFHX0xPQ0sJCQlCSVQoMCkKPiAgIAo+
-ICtlbnVtIHNiaV9leHRfc3NlX2ZpZCB7Cj4gKwlTQklfU1NFX0VWRU5UX0FUVFJfUkVBRCA9IDAs
-Cj4gKwlTQklfU1NFX0VWRU5UX0FUVFJfV1JJVEUsCj4gKwlTQklfU1NFX0VWRU5UX1JFR0lTVEVS
-LAo+ICsJU0JJX1NTRV9FVkVOVF9VTlJFR0lTVEVSLAo+ICsJU0JJX1NTRV9FVkVOVF9FTkFCTEUs
-Cj4gKwlTQklfU1NFX0VWRU5UX0RJU0FCTEUsCj4gKwlTQklfU1NFX0VWRU5UX0NPTVBMRVRFLAo+
-ICsJU0JJX1NTRV9FVkVOVF9TSUdOQUwsCgoKTml0IGJ1dCBpbiB0aGUgc3BlY2lmaWNhdGlvbiB0
-aGlzIGV2ZW50IGlzIHJlZmVycmVkIGFzICJpbmplY3QiIGluc3RlYWQgCm9mICJzaWduYWwiLCBh
-bnkgcmVhc29uIHRvIGNoYW5nZSB0aGF0IG5hbWluZz8KCgo+ICsJU0JJX1NTRV9FVkVOVF9IQVJU
-X1VOTUFTSywKPiArCVNCSV9TU0VfRVZFTlRfSEFSVF9NQVNLLAo+ICt9Owo+ICsKPiArZW51bSBz
-Ymlfc3NlX3N0YXRlIHsKPiArCVNCSV9TU0VfU1RBVEVfVU5VU0VEICAgICA9IDAsCj4gKwlTQklf
-U1NFX1NUQVRFX1JFR0lTVEVSRUQgPSAxLAo+ICsJU0JJX1NTRV9TVEFURV9FTkFCTEVEICAgID0g
-MiwKPiArCVNCSV9TU0VfU1RBVEVfUlVOTklORyAgICA9IDMsCj4gK307Cj4gKwo+ICsvKiBTQkkg
-U1NFIEV2ZW50IEF0dHJpYnV0ZXMuICovCj4gK2VudW0gc2JpX3NzZV9hdHRyX2lkIHsKPiArCVNC
-SV9TU0VfQVRUUl9TVEFUVVMJCT0gMHgwMDAwMDAwMCwKPiArCVNCSV9TU0VfQVRUUl9QUklPCQk9
-IDB4MDAwMDAwMDEsCj4gKwlTQklfU1NFX0FUVFJfQ09ORklHCQk9IDB4MDAwMDAwMDIsCj4gKwlT
-QklfU1NFX0FUVFJfUFJFRkVSUkVEX0hBUlQJPSAweDAwMDAwMDAzLAo+ICsJU0JJX1NTRV9BVFRS
-X0VOVFJZX1BDCQk9IDB4MDAwMDAwMDQsCj4gKwlTQklfU1NFX0FUVFJfRU5UUllfQVJHCQk9IDB4
-MDAwMDAwMDUsCj4gKwlTQklfU1NFX0FUVFJfSU5URVJSVVBURURfU0VQQwk9IDB4MDAwMDAwMDYs
-Cj4gKwlTQklfU1NFX0FUVFJfSU5URVJSVVBURURfRkxBR1MJPSAweDAwMDAwMDA3LAo+ICsJU0JJ
-X1NTRV9BVFRSX0lOVEVSUlVQVEVEX0E2CT0gMHgwMDAwMDAwOCwKPiArCVNCSV9TU0VfQVRUUl9J
-TlRFUlJVUFRFRF9BNwk9IDB4MDAwMDAwMDksCj4gKwo+ICsJU0JJX1NTRV9BVFRSX01BWAkJPSAw
-eDAwMDAwMDBBCj4gK307Cj4gKwo+ICsjZGVmaW5lIFNCSV9TU0VfQVRUUl9TVEFUVVNfU1RBVEVf
-T0ZGU0VUCTAKPiArI2RlZmluZSBTQklfU1NFX0FUVFJfU1RBVFVTX1NUQVRFX01BU0sJCTB4Mwo+
-ICsjZGVmaW5lIFNCSV9TU0VfQVRUUl9TVEFUVVNfUEVORElOR19PRkZTRVQJMgo+ICsjZGVmaW5l
-IFNCSV9TU0VfQVRUUl9TVEFUVVNfSU5KRUNUX09GRlNFVAkzCj4gKwo+ICsjZGVmaW5lIFNCSV9T
-U0VfQVRUUl9DT05GSUdfT05FU0hPVAlCSVQoMCkKPiArCj4gKyNkZWZpbmUgU0JJX1NTRV9BVFRS
-X0lOVEVSUlVQVEVEX0ZMQUdTX1NTVEFUVVNfU1BQCUJJVCgwKQo+ICsjZGVmaW5lIFNCSV9TU0Vf
-QVRUUl9JTlRFUlJVUFRFRF9GTEFHU19TU1RBVFVTX1NQSUUJQklUKDEpCj4gKyNkZWZpbmUgU0JJ
-X1NTRV9BVFRSX0lOVEVSUlVQVEVEX0ZMQUdTX0hTVEFUVVNfU1BWCUJJVCgyKQo+ICsjZGVmaW5l
-IFNCSV9TU0VfQVRUUl9JTlRFUlJVUFRFRF9GTEFHU19IU1RBVFVTX1NQVlAJQklUKDMpCj4gKwo+
-ICsjZGVmaW5lIFNCSV9TU0VfRVZFTlRfTE9DQUxfSElHSF9QUklPX1JBUwkweDAwMDAwMDAwCj4g
-KyNkZWZpbmUgU0JJX1NTRV9FVkVOVF9MT0NBTF9ET1VCTEVfVFJBUAkJMHgwMDAwMDAwMQo+ICsj
-ZGVmaW5lIFNCSV9TU0VfRVZFTlRfR0xPQkFMX0hJR0hfUFJJT19SQVMJMHgwMDAwODAwMAo+ICsj
-ZGVmaW5lIFNCSV9TU0VfRVZFTlRfTE9DQUxfUE1VX09WRVJGTE9XCTB4MDAwMTAwMDAKPiArI2Rl
-ZmluZSBTQklfU1NFX0VWRU5UX0xPQ0FMX0xPV19QUklPX1JBUwkweDAwMTAwMDAwCj4gKyNkZWZp
-bmUgU0JJX1NTRV9FVkVOVF9HTE9CQUxfTE9XX1BSSU9fUkFTCTB4MDAxMDgwMDAKPiArI2RlZmlu
-ZSBTQklfU1NFX0VWRU5UX0xPQ0FMX1NPRlRXQVJFX0lOSkVDVEVECTB4ZmZmZjAwMDAKPiArI2Rl
-ZmluZSBTQklfU1NFX0VWRU5UX0dMT0JBTF9TT0ZUV0FSRV9JTkpFQ1RFRAkweGZmZmY4MDAwCgoK
-QW5kIGhlcmUgeW91IHVzZSAiaW5qZWN0ZWQiLgoKCj4gKwo+ICsjZGVmaW5lIFNCSV9TU0VfRVZF
-TlRfUExBVEZPUk0JCUJJVCgxNCkKPiArI2RlZmluZSBTQklfU1NFX0VWRU5UX0dMT0JBTAkJQklU
-KDE1KQo+ICsKPiAgIC8qIFNCSSBzcGVjIHZlcnNpb24gZmllbGRzICovCj4gICAjZGVmaW5lIFNC
-SV9TUEVDX1ZFUlNJT05fREVGQVVMVAkweDEKPiAgICNkZWZpbmUgU0JJX1NQRUNfVkVSU0lPTl9N
-QUpPUl9TSElGVAkyNAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Mon, 11 Aug 2025 11:19:38 -0400
+Brian Masney via B4 Relay <devnull+bmasney.redhat.com@kernel.org> wrote:
+
+> From: Brian Masney <bmasney@redhat.com>
+> 
+> The round_rate() clk ops is deprecated, so migrate this driver from
+> round_rate() to determine_rate() using the Coccinelle semantic patch
+> on the cover letter of this series.
+> 
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
+
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
