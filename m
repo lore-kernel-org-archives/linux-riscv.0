@@ -4,90 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198EFC87FCF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82978CA0EE4
 	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 08:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6X2z8RJKfVH7YX9HW6/0R/pWoQpABLsU6xwSg3RG4FQ=; b=DVI+v13BpwZhO8
-	a69jsqhAJFOnd1hsGYCnOSqmAV79UW4DRvzcw9f5XUDxqzxaurAPqQdSAtpYakOGzOZyAkh6kLywv
-	xXycOcYb95CowpkSlXVA95z4ODnOznJJprnKZZnyDyMCcOVrtcwJkDQ46PhJeZvLvMUh4RkKXFPpj
-	Ly3VdO6wlDbDw6U21+VcEecR1uRXCSmKEje3sN+CVzEXREM+Eqt2OnjbXp0mIYMGSiUZKTdYelZfY
-	6oQzW20WdguUt6OMMaMO2Z+fYpfxyfxbMzgn7F3mFUq9fw1ij1NvFurE9c8CbDVtF72F5NPRzzrCV
-	ZEwT05u9gptd7GwfouoA==;
+	List-Owner; bh=GhrUJM0XzunW5X0919KQv5u37GgWUTlSm3xzOJnmE9w=; b=sTbF7juKXsLd9L
+	gIfxIsaMZHmEcdnE/cBTOO7bEqpv5dc/CsiUosKnHZX4Z5R8JPwVr5DelQjkpT/+dFBhj3fSp2irl
+	67l5Swduqz1EmFJ5W1i5RLmoj6VgmPnjU3SDENRnNX6UcpCs7NKUM7kkrzD+UzuLLIiRuepZbd3Ke
+	2l88uh/wnY7VuH1BZe3xGoTpp1vJc/16sQBLSo2QyhDqIMHqzzhGLv+Il89lUCuaZAsE+5a4NjEjK
+	7dW2CYPN6wfrlwxzzs2NK0BW8h1YsHqo46rPqba7xqyZFczwqHBb4V26XLBXSLBRULFprdXLKHH5N
+	Hb3djD5LrBs14elRWwOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6go-0000000D4HW-3e5w;
-	Wed, 13 Aug 2025 08:18:30 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1um6gn-0000000D4Gw-2RNZ;
+	Wed, 13 Aug 2025 08:18:29 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6eY-0000000D3lA-2VRK;
-	Wed, 13 Aug 2025 08:16:13 +0000
-Date: Wed, 13 Aug 2025 10:16:02 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1755072965;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vgBW8b/WLrVQq0BHMU+zEk/Lyyfrm6a/mGbcYhX7PWw=;
-	b=t3ZaanvFJHTW1l1H2nSwoa1VFh8EVFo/BJn0UMRG7bq78PXYOpzqMO9UGefI5UiLZP7nNe
-	J1FX1/E5cqcFOVpKvUjolk1j8zY71ykS0B7X6UJ1jM73mZGhOMT+2RFDhdp4Y1WmHG3lB8
-	fhvgGlk/PFabS5Cn+w3uMjkgmqVzkQuRRvX4xJrjg/8hJ+0j7jOT/qLXJIWkp6a9jfxObj
-	LUOs4JziO5PF87uDbwzJHBzRMHIM1CkGRGPGIwWfVdP7ckTLMMlHtUDzc+O5vxoBEjlmG7
-	1skI/bKKNj/R2CTmQujVy01wAp2WhS97QfxNvozWzsRXygdxqvZz7+ZCEZyixQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1755072965;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vgBW8b/WLrVQq0BHMU+zEk/Lyyfrm6a/mGbcYhX7PWw=;
-	b=E1zvWv48KJJ+SOu4RstGU/Hts0jpCLaRVEpYFntAu8DSCAbOKCuCF3vYrHswu5Uo/Nk8OK
-	GMt5eI9bpKssCIDA==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Nicolas Schier <nicolas.schier@linux.dev>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-mm@kvack.org, linux-um@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, Jan Stancek <jstancek@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@redhat.com>, Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v4 00/24] vdso: Reject absolute relocations during build
-Message-ID: <20250813101305-04911850-2375-4be5-9a06-ced21de3ca22@linutronix.de>
-References: <20250812-vdso-absolute-reloc-v4-0-61a8b615e5ec@linutronix.de>
- <CANiq72nV62c8cVBzke73OH-sfLdgerDBGrLKTmT83+OQtK6PjA@mail.gmail.com>
+	id 1um6Tl-0000000D1wD-0AG0
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 Aug 2025 08:05:03 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 9EC9422C21;
+	Wed, 13 Aug 2025 10:04:56 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id xzpl8vKaCdHJ; Wed, 13 Aug 2025 10:04:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1755072295; bh=k2quWAYJN0mrhO2L7Dv5sP0satmZdXbTO0q0ocGDgtE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=k4ogtrMRjSJ5MfXdfmM5BKOEHMD5g1sbgCnqNumpW8UxbDKtqGIMwc2bx7LVnpas3
+	 lAEcXvaOTtGZP4eOXLlSTRdNPuvd6HkZgc4EFJcaE7V5vAPOhGtbzsZVocRlOu39dl
+	 CsfzFUbpEm7ny8K6kStxfq8PMLOVC3H7sIG6w+leI+P1cCuhPVCbHNio/Mq0lFSJ3Q
+	 On/CBEUQZdPS7GPWgftu+PlPFEUqjh4uoosC15CTZfQP7O8qtLikL5vRyFsNoTpqKR
+	 g3CA3+mN1JFVjcS6P0dugxfce8oERJfekAVYqX01bv3DyHn/TDtn0SVyaP6DsNxPgv
+	 LVJI+xPSfDtfw==
+Date: Wed, 13 Aug 2025 08:04:40 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Drew Fustini <fustini@kernel.org>,
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Subject: Re: [PATCH] reset: thead: Scope TH1520 reset driver to VO subsystem
+Message-ID: <aJxGnnwlE1sWarXa@pie>
+References: <CGME20250810211419eucas1p173e5fefcfaae437d8b5531d1406ff6a6@eucas1p1.samsung.com>
+ <20250810-fix_reset_2-v1-1-b0d1900ba578@samsung.com>
+ <aJrTq775sXTrsepl@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CANiq72nV62c8cVBzke73OH-sfLdgerDBGrLKTmT83+OQtK6PjA@mail.gmail.com>
+In-Reply-To: <aJrTq775sXTrsepl@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_011610_785478_D5DC9FC3 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20250813_010501_496085_FB0D194A 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,30 +69,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Guo Ren <guoren@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBdWcgMTIsIDIwMjUgYXQgMDE6MDc6MzRQTSArMDIwMCwgTWlndWVsIE9qZWRhIHdy
-b3RlOgo+IE9uIFR1ZSwgQXVnIDEyLCAyMDI1IGF0IDc6NDTigK9BTSBUaG9tYXMgV2Vpw59zY2h1
-aAo+IDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRlPiB3cm90ZToKPiA+Cj4gPiBLYnVp
-bGQgYW5kIFJ1c3QgZm9sa3M6IFRoaXMgY29udGFpbnMgY3VzdG9tIGRlZmluaXRpb25zIG9mIGhv
-c3Rwcm9nCj4gPiBiaW5kZ2VuIGFuZCBydXN0IGxpYnJhcnkgY29tbWFuZHMuCj4gPiBUaGVzZSBh
-cmUgY3VycmVudGx5IG9ubHkgZGVmaW5lZCBpbnNpZGUgdGhlIHN1YnN5c3RlbSBkaXJlY3Rvcnku
-Cj4gPiBMZXQgbWUga25vdyBpZiB0aGV5IHNob3VsZCBnbyBpbnRvIHNjcmlwdHMvTWFrZWZpbGUu
-aG9zdC4KPiAKPiBHbGFkIHRvIHNlZSBtb3JlIFJ1c3QgaG9zdCBwcm9ncyA6KQo+IAo+IEtlZXBp
-bmcgdGhlbSBsb2NhbCBtYXkgYmUgYSBiaXQgZWFzaWVyIGluaXRpYWxseSB0byBsYW5kLCBJIGd1
-ZXNzCj4gKGUuZy4gbm8gZG9jcyksIGFuZCB0aGVuIHdlIGNhbiBnZW5lcmFsaXplIHdoZW4gbmVl
-ZGVkIGxhdGVyLgoKSSdtIGhhcHB5IHRvIGRvIHRoZSBkb2NzIGV0Yy4gSSBvbmx5IHdhbnRlZCB0
-byBhdm9pZCBkb2luZyBhbGwgdGhhdCB3b3JrLApvbmx5IGZvciBpdCB0byBzdGF5IGEgc3Vic3lz
-dGVtLWxvY2FsIHNvbHV0aW9uLgoKQWxzbyBpdCB3b3VsZCBiZSBuaWNlIHRvIGhhdmUgYSBLY29u
-ZmlnIHN5bWJvbCwgUlVTVENfQ0FOX0xJTksgb3Igc2ltaWxhciwKd2hpY2ggaW5kaWNhdGVzIHRo
-YXQgdGhlIHJ1c3QgY29tcGlsZXIgY2FuIGJ1aWxkIGhvc3QgcHJvZ3JhbXMuCgo+IEJ5IHRoZSB3
-YXksIGZvciBjb25zaXN0ZW5jeSB3aXRoIGVsc2V3aGVyZSwgcHJvYmFibHkgd2Ugd2FudAo+IGBI
-T1NUUlVTVExJQmAgLT4gYEhPU1RSVVNUQyBMYC4gVGhvdWdoIEkgYW0gdGhpbmtpbmcgdG8gcmVt
-b3ZlIHRoZSBgTGAKPiBhbnl3YXkgc2luY2UgZXZlbnR1YWxseSBhIGxvdCBvZiBjb2RlIHdpbGwg
-YmUgImxpYiIuCgpBY2suCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On Mon, Aug 11, 2025 at 10:39:55PM -0700, Drew Fustini wrote:
+> On Sun, Aug 10, 2025 at 11:14:19PM +0200, Michal Wilczynski wrote:
+> > The reset controller driver for the TH1520 was using the generic
+> > compatible string "thead,th1520-reset". However, the current
+> > implementation only manages the resets for the Video Output (VO)
+> > subsystem.
+> 
+> Looking at Section 5.4 on Page 451 of the TH1520 System User Manual [1],
+> it does seem like we would ultimately need 6 separate nodes for reset
+> controllers:
+
+Yes, this is true. And another six nodes for clock controllers (there's
+already one).
+
+>  0xFF_EF01_4000: AP_SUBSYS
+>  0xFF_EC02_C000: MISC_SUBSYS
+>  0xFF_E404_0000: VI_SUBSYS
+>  0xFF_EF52_8000: VO_SUBSYS
+>  0xFF_ECC3_0000: VP_SUBSYS
+>  0xFF_EF04_0000: DSP_SUBSYS
+> 
+> Maybe we should take this opportunity to document the bindings for all
+> the resets that the REE (e.g. Linux) can control?
+
+It's worth noting that with either mainline U-Boot or vendor U-Boot, no
+core is configured to run as REE. IOW, AON_SUBSYS could be accessed by
+AP cores as well.
+
+I think introducing read-only clock support to Linux could help us to
+correctly describe pvt clocks which are now replaced with a aonsys
+placeholder and resolve issues like what is described in 0370395d45ca
+("clk: thead: Mark essential bus clocks as CLK_IGNORE_UNUSED").
+
+Futhermore, there may be downstream projects, e.g. U-Boot, make use of
+these TEE-only devices, which could benefit if we have these devices
+documented and described in devicetree, too. Thus I think the AON clock
+and reset controllers should be documented as well if we're going to
+document every reset/clock controller in a batch.
+
+> It seemed like that was overkill for the 2 resets needed for the GPU,
+> but, as Krzysztof noted in this thread, problems arise when bindings are
+> introduced that are not complete.
+> 
+> Thanks,
+> Drew
+> 
+> [1] https://git.beagleboard.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
+
+Best regards,
+Yao Zi
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
