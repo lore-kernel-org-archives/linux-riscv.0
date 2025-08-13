@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70602CA0EE8
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 19:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F43CA0EE0
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 19:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zgmal/yWbcJQjtnO86x85GIJIyqGzOYIU7DaRGOqjdE=; b=H4GYR1uI23Gu0K
-	H2DPmI4C+UYGVzh0Bzi/7gdVuTCWZU5rnobx0wCdNEx9DOomoN06WnVc0eX9PiffpvEobNBLi155D
-	cEzK04gNeSiH/WCg3PuqArI87sid0G1+YQm3/fm4l0Dfls8RFE2mpNH3I/gQkGHEmtJn6P9TO+J6y
-	vbYEVmPOKcxJ19kuwpa3HgKRTI3VtqmfA8Y1hNLjVU4xN8UJbpk6O5D7KI/D4bVC5vuTITu0SuRO7
-	L4qftP7lb9xg6oPxg+qtzurXJnm2QnLPDH2ly2wCFRb7yiC/qQggG3fvNyvenUSNCXZJUKZsCVEmk
-	6hkpAMY6MgDo70kLNhOw==;
+	List-Owner; bh=KD7XJp4T3LuAyRyQJJW25hWU3iwamrM3Teql9jdpI4o=; b=l9UCkDuXfYoabg
+	6jgtbUkHHEFwEWsquqBx51YRwabhZKcYuCKtkpr6eN+NY8VTtpUf8wsGkAfdDNRCB9wALyMF+5m5m
+	QZKCGUoMv3Na7HPd9JCnJ227FC0MPMGI9GUiWgyuJJ2HYvgBlArxOqW9MOpOrvrsggHnxNjK3z/iH
+	DBIRhCoeDp94dOKYJVJir6wKOhA+H7hR8kidbPzFHyR6vTsfMBiPhUNp7bOashqTeBjMU3+nJaQka
+	ZOcYyaFNwTWXzQQ6sWqzlKKVgSP8RUocmBJ4DEGMphuSXC8yb3D5yuQkXJvwa5UBwsRDyei02Ng70
+	mEPziMq/th/Ai7O7t8sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umHNw-0000000EoLd-26xy;
-	Wed, 13 Aug 2025 19:43:44 +0000
+	id 1umHNp-0000000EoHC-3iQr;
+	Wed, 13 Aug 2025 19:43:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umErI-0000000EVb0-3ZCA;
-	Wed, 13 Aug 2025 17:01:54 +0000
+	id 1umEr9-0000000EVTy-2kgb;
+	Wed, 13 Aug 2025 17:01:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29D641C01;
-	Wed, 13 Aug 2025 10:01:44 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17EBF1BF3;
+	Wed, 13 Aug 2025 10:01:35 -0700 (PDT)
 Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 074E03F738;
-	Wed, 13 Aug 2025 10:01:47 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 002723F738;
+	Wed, 13 Aug 2025 10:01:38 -0700 (PDT)
 From: Robin Murphy <robin.murphy@arm.com>
 To: peterz@infradead.org,
 	mingo@redhat.com,
@@ -71,17 +71,16 @@ Cc: linux-perf-users@vger.kernel.org,
 	linux-cxl@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 06/19] ARM: l2x0: Fix group validation
-Date: Wed, 13 Aug 2025 18:00:58 +0100
-Message-Id: <925c34a4b7f0defc3582a9fcccb6af1c21279a86.1755096883.git.robin.murphy@arm.com>
+Subject: [PATCH 04/19] perf/starfive: Fix group validation
+Date: Wed, 13 Aug 2025 18:00:56 +0100
+Message-Id: <6b9c9cf887c102c9154a1f28aea643a66787858f.1755096883.git.robin.murphy@arm.com>
 X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 In-Reply-To: <cover.1755096883.git.robin.murphy@arm.com>
 References: <cover.1755096883.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_100152_926683_446A6F08 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250813_100143_745001_D03EE625 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,43 +97,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The group validation here is almost right, but fails to count the new
-event itself. While we fix that, also adopt the standard pattern to
-avoid racy access the sibling list and drop checks that are redundant
-with core code.
+The group validation code here is superficially the right shape, but
+is failing to count the group leader, while also erroneously counting
+software siblings. Just correctly count the events which belong to our
+PMU, and let perf core worry about the rest.
 
 Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
- arch/arm/mm/cache-l2x0-pmu.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ drivers/perf/starfive_starlink_pmu.c | 18 +++++++-----------
+ 1 file changed, 7 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm/mm/cache-l2x0-pmu.c b/arch/arm/mm/cache-l2x0-pmu.c
-index 93ef0502b7ff..6fc1171031a8 100644
---- a/arch/arm/mm/cache-l2x0-pmu.c
-+++ b/arch/arm/mm/cache-l2x0-pmu.c
-@@ -274,18 +274,17 @@ static bool l2x0_pmu_group_is_valid(struct perf_event *event)
- 	struct pmu *pmu = event->pmu;
- 	struct perf_event *leader = event->group_leader;
+diff --git a/drivers/perf/starfive_starlink_pmu.c b/drivers/perf/starfive_starlink_pmu.c
+index 5e5a672b4229..e185f307e639 100644
+--- a/drivers/perf/starfive_starlink_pmu.c
++++ b/drivers/perf/starfive_starlink_pmu.c
+@@ -347,19 +347,15 @@ static bool starlink_pmu_validate_event_group(struct perf_event *event)
  	struct perf_event *sibling;
--	int num_hw = 0;
-+	int num_hw = 1;
-+
+ 	int counter = 1;
+ 
+-	/*
+-	 * Ensure hardware events in the group are on the same PMU,
+-	 * software events are acceptable.
+-	 */
+-	if (event->group_leader->pmu != event->pmu &&
+-	    !is_software_event(event->group_leader))
+-		return false;
 +	if (leader == event)
 +		return true;
- 
- 	if (leader->pmu == pmu)
- 		num_hw++;
--	else if (!is_software_event(leader))
--		return false;
++
++	if (leader->pmu == event->pmu)
++		counter++;
  
  	for_each_sibling_event(sibling, leader) {
- 		if (sibling->pmu == pmu)
- 			num_hw++;
--		else if (!is_software_event(sibling))
+-		if (sibling->pmu != event->pmu && !is_software_event(sibling))
 -			return false;
+-
+-		counter++;
++		if (sibling->pmu == event->pmu)
++			counter++;
  	}
  
- 	return num_hw <= PMU_NR_COUNTERS;
+ 	return counter <= STARLINK_PMU_NUM_COUNTERS;
 -- 
 2.39.2.101.g768bb238c484.dirty
 
