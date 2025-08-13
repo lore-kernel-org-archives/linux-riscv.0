@@ -4,103 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC865CA0EE5
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 08:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D105CCA0EE0
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 08:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BQmm9dROq8IuRb2hPlMjcYULRAkUFD8/BRHUqYNYVkM=; b=yetpIx5ND7eUkA
-	IaqsZObprtN9GqAes9K+idWZkok/a7fA3+vr9mGKxe12q68odJjLfBTFH0vAlGojLPBhqVt6PyP7h
-	v8nOQHvERSN6CU2NDDRsnXlt8MH1H0f6BYHoTiIqdF71U2Jfw3NcVFI2qJuT93024KRx50fRJEaBn
-	HiaMNF5bgxvflR3Ecv9gRgprAwyx+76nHrSZsH0hr+7hL+n42XfuMPImENOF5WEUFP/6nHhROHTly
-	0/drYtXeQu8x9Wuv/0NBTdWgeGewdaTefcH3buNKKF7F/5GkorfGY1bHp0gmYXYZ2tZndhKga3a3Z
-	5zLx45AhnUe07edN5OwQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KC6CeFJYnNaRHqvKqicCQ2syKxxNurb1eRw6NMbnNaI=; b=svTd4b7obAgV4b
+	wjAv31IAJBb79sYbMT8MFj/dbsr9/trA+5furfi0f4z9rVBFlnts2I4ehjFpWOXwUegd7dkv68u+Y
+	H/t2O5zwg6gD16qPAFNktLZz3mfxfDsQoMjg/sZ2b4y6ZDHloBLVGwewunIRXlshSMLV+5WGahIKT
+	rPUahN9TV0DztBfEjZ4IvcpD30YxPPILbPRmMAVnUrl9Wp7DPLPL934JrBqOieWMXfYAOvMCy1UrR
+	uxcKtNJaz4Ee4dePU2SmGkEctUrSD0Icji6R/cEw38xwUDqAux4wxKMqaCucxkXW5eqaBZnidCF6p
+	4yr5EYU4JXz04cQTL82A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6t3-0000000D6Vp-17ME;
-	Wed, 13 Aug 2025 08:31:09 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1um6xD-0000000D7Iu-1nTQ;
+	Wed, 13 Aug 2025 08:35:27 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um4y8-0000000Cmrh-0uHF;
-	Wed, 13 Aug 2025 06:28:18 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CNQEPM015967;
-	Wed, 13 Aug 2025 06:28:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=/g6kMnd9VlSEFG+9+
-	pA2DC35UOWvtzDmUcNCP71hMuM=; b=LQ7YkoUl2KNWOrGYvJm7WP6V5c8T3sWOi
-	uYynaXBOEPs3smOZz0a6DVKeO4tJMqmQcdSgJMnoCFbN5r4+Lkfrl6N9/e3VIKKb
-	dlQDWZ6bNVmpVIVECqISLuPrGzbY8GCJ4onuPeJL60zI3yYDLc8A9paAbbvpnz4h
-	eAkxIpVleXK3CwWOwDGqtfdSqyBJUPH6DX1xKH0r0EdBxchMFSDBKCTawR8JXANg
-	xk883PVNvtNWCTzEL5jflSCoC4yiWU3S2Z8dPQR4MePfgeT5o5YDOHu3cml6CQrh
-	6hAkFL9QhSYgDjx160uFHmn3s51qvJUncpM03yvZiufPQ7QU5QF4w==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48dx14jvp5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 13 Aug 2025 06:28:07 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 57D1ew9v010824;
-	Wed, 13 Aug 2025 06:28:06 GMT
-Received: from smtprelay06.wdc07v.mail.ibm.com ([172.16.1.73])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 48egnup7q9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 13 Aug 2025 06:28:06 +0000
-Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
-	by smtprelay06.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 57D6S5K125100852
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 13 Aug 2025 06:28:05 GMT
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4511458059;
-	Wed, 13 Aug 2025 06:28:05 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5390158058;
-	Wed, 13 Aug 2025 06:27:59 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com.com (unknown [9.36.10.70])
-	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 13 Aug 2025 06:27:58 +0000 (GMT)
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org
-Cc: akpm@linux-foundation.org, x86@kernel.org, linux-riscv@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
-        nicholas@linux.ibm.com, christophe.leroy@csgroup.eu,
-        Rohan McLure <rmclure@linux.ibm.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>
-Subject: [PATCH v16 12/13] powerpc: mm: Use set_pte_at_unchecked() for internal usages
-Date: Wed, 13 Aug 2025 16:26:13 +1000
-Message-ID: <20250813062614.51759-13-ajd@linux.ibm.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250813062614.51759-1-ajd@linux.ibm.com>
-References: <20250813062614.51759-1-ajd@linux.ibm.com>
+	id 1um6vQ-0000000D70i-0ZrX
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 Aug 2025 08:33:37 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-76c3607d960so6837730b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Aug 2025 01:33:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755074015; x=1755678815; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JPDzkkyEE1PeddGvWneD5aTwEAedh3goCtrGQWQAwUQ=;
+        b=eV5WQ73AiioWYUaJIpwcWWTtEthIQuS6X77yuKqF0uWPJOia62UvWOcuPn6RCmsVO1
+         5rN5yFFFDI2tc/aMZR4SuQk9opKKFbxq7+hYABsar2zgOMvlbjOBqXPtQWqm2+NvpCWC
+         UlQ0wMYbwIlUx7ianbuvg+6CWlsMmVkNoncWrvvN2vunYobrNFASM9q6apl1wafUaU5C
+         cnb8sni5CYd8kMoDc3s9IPpRL+d+XD5I0fUE2apFmNS6VYSeijgxDcHr/bimwChoUkN3
+         tJJ4Pv8mKPfRd4I9OZ9wN9bnrL2TaGdsQgpKEYnQg0C+orPUO3m7B0nQ3JLtbb6QsPyh
+         PPFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755074015; x=1755678815;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JPDzkkyEE1PeddGvWneD5aTwEAedh3goCtrGQWQAwUQ=;
+        b=PSze+p8eJl1A+nRW40WCieGDackW04jG2xutZqcJMmPTDuFqE3OkNXq2PzSCnirkHy
+         3LsU9lC9ILg9qk3TosMCKbCPIvc7tHDw8WP2wf85goy6QgqQC8FvhbotvyYew6bFMZL7
+         j1x9nV7eTFqOz46+toZHNw06E1xyoQBYdd9UZ2C2ZaldDJ7mUhNaUzHbk0JtF4oeHkMj
+         lE67fqdG7jCRJsFs/qHkrYeY1DYqh1je8wiSxR3rCi+nYQXvzCfkNqH6xUCAMT2xcTbR
+         owGPiBbcPVsk8L5ClBNgVoddlyDzZ9DJ1R2keaqmDMoQjZCxSJ8Ttvk6pE/7jUYSwJJX
+         9ZXw==
+X-Forwarded-Encrypted: i=1; AJvYcCVeLm4MvZZtl2Chi97WVb5Sf0zKI6PHAZHw+Iu+aCjH+JW/oc6qE/bRmdzAwX015A4QtrEY28sRVFjLsA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrNnUMhhcobbp1eDLXuQnID5OWRtCRv1aHtO3DFJcPA8sppTFF
+	3E+32yqDmAx749YKDXENTIM5CqYbOa485am7J/fEKGXJLbbwswrwucknh4lyeoYUe5Y=
+X-Gm-Gg: ASbGnctv6NrzxtQGPB3rN0GKyEG/S2Mv9xbtEy9Zj5R0WyvglFMgYjL9CU8VP9Hvymd
+	LOusWsBeafTxTAbp6o0ZVs9f7Q9WKVyN5HDY7nA2MDDC1sAW0Ak5a1K6jsDzStDaKfEweS3ORCN
+	4INW4lw0qzEIXHFcxbkhl33nBKJi3gQyy7VvyryvS48P5+Phw0MTZcRPXzc7EovLI1oVL3+E8AI
+	vlynhAACpOdD9e8c75qAQM5pFl8Fz4E8BVDoOYuKo1YC4/m76HaIVe8R7dSe41KpqCma0BlfvBQ
+	05mX+jRAkVU3TmY8xz/S1T3SHiFnqNQoH5VJgShxmdVAGkccFsEU96sSdHd1BSf4eO7392KkzxX
+	l29deEQc5DYDfbcQ0GYE4VA==
+X-Google-Smtp-Source: AGHT+IGMVj5qQgOEZF3d8kkN+1z3WSDn/Ir88GWROkr8GIB4WMLaFMX45LhxQA3lGXmOJzy4c16XnA==
+X-Received: by 2002:a05:6a20:42a3:b0:240:1ae7:d918 with SMTP id adf61e73a8af0-240a8b8f9bbmr3831126637.45.1755074014305;
+        Wed, 13 Aug 2025 01:33:34 -0700 (PDT)
+Received: from [127.0.0.1] ([36.255.193.30])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76bccfe50c8sm31307814b3a.120.2025.08.13.01.33.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Aug 2025 01:33:33 -0700 (PDT)
+From: Zixian Zeng <sycamoremoon376@gmail.com>
+Subject: [PATCH 0/4] Add SPI NOR DTS node for SG2042 SoC and boards using
+ it
+Date: Wed, 13 Aug 2025 16:33:16 +0800
+Message-Id: <20250813-sfg-spidts-v1-0-99b7e2be89d9@gmail.com>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: rqUBxPOu36iDwos4bh3fv826WxLCDkT8
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODEyMDIyNCBTYWx0ZWRfX3mF2m1it+9T/
- 4veE5T4RO95vQp8Mxd4c6hNjDlPUIWA6Xh+Q6vt1Yhgrd9zZqgtD1cCakYT5+1x+/My2NkiPjpw
- bP2LYW5yTC/jyuwm5a3dL8v/6r8FWlXZ/CQzpOTPUWd8AeUsFQdkT1K5CfBn0nSCSUKKZO9oPsb
- 72+M9sucPofAe0fpnY85Ct+XiHL2vPWF6yFH7mcOoC5R7OHGiolTWY8BzKOAjmLpGugKrkXzQjn
- FWhrBgqBPd/PsdZlHTTfn8MnBCAuM2kP2AuNZsJu3GxmtzUysKCeDy7mOBr0qSeXYPPtb5KM/hw
- J7770KQAjxadl4SoFPoOVmegDW6hL9EwiCpwe1TpLDifcqSZ+/WSI74JukkZzCu/SycTIHdCV9q
- 81v4kBe5
-X-Proofpoint-GUID: rqUBxPOu36iDwos4bh3fv826WxLCDkT8
-X-Authority-Analysis: v=2.4 cv=fLg53Yae c=1 sm=1 tr=0 ts=689c3077 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=2OwXVqhp2XgA:10 a=VnNF1IyMAAAA:8 a=aG8EAFyCJnWj3sFUJ80A:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-12_08,2025-08-11_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 spamscore=0 priorityscore=1501 impostorscore=0
- phishscore=0 malwarescore=0 bulkscore=0 suspectscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508120224
+X-B4-Tracking: v=1; b=H4sIAMxNnGgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDC0Nj3eK0dN3igsyUkmLd1FRTMwMTE0szy7RUJaCGgqLUtMwKsGHRsbW
+ 1AFUvfmFcAAAA
+X-Change-ID: 20250813-sfg-spidts-ee56044969fe
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+ Inochi Amaoto <inochiama@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Han Gao <rabenda.cn@gmail.com>, Zixian Zeng <sycamoremoon376@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755074006; l=1045;
+ i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
+ bh=r6Pn4FavBLGpo16RFcdQETEDvimR9cNcZh+43E6Wt98=;
+ b=+JRymJXHHVyT36A7Tp9FTHfgaMJLxh95vFfkRmpMEHXieKVf0ypJ3KaezY3uVpY51/Y6yJoFM
+ N+tGbq15BpaBwiN75DAzUoL6wMYpQiBkPLEyWXLwhJcsugfSnzY6WNR
+X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
+ pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_232816_252951_155D53F0 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20250813_013336_179969_E7110784 
+X-CRM114-Status: UNSURE (   6.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,134 +115,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
+[PATCH 1/4] and [PATCH 2/4] are copied from patch set [1]
+[PATCH v4 4/4] without content changes.
 
-In the new set_ptes() API, set_pte_at() (a special case of set_ptes())
-is intended to be instrumented by the page table check facility. There
-are however several other routines that constitute the API for setting
-page table entries, including set_pmd_at() among others. Such routines
-are themselves implemented in terms of set_ptes_at().
+Link: https://lore.kernel.org/linux-riscv/20250720-sfg-spifmc-v4-0-033188ad801e@gmail.com/ [1]
 
-A future patch providing support for page table checking on powerpc
-must take care to avoid duplicate calls to
-page_table_check_p{te,md,ud}_set(). Allow for assignment of pte entries
-without instrumentation through the set_pte_at_unchecked() routine
-introduced in this patch.
-
-Cause API-facing routines that call set_pte_at() to instead call
-set_pte_at_unchecked(), which will remain uninstrumented by page
-table check. set_ptes() is itself implemented by calls to
-__set_pte_at(), so this eliminates redundant code.
-
-[ajd@linux.ibm.com: don't change to unchecked for early boot/kernel mappings]
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
+Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
 ---
-v13: don't use the unchecked version for early-boot kernel mappings (Pasha)
----
- arch/powerpc/include/asm/pgtable.h       | 2 ++
- arch/powerpc/mm/book3s64/pgtable.c       | 6 +++---
- arch/powerpc/mm/book3s64/radix_pgtable.c | 6 +++---
- arch/powerpc/mm/pgtable.c                | 8 ++++++++
- 4 files changed, 16 insertions(+), 6 deletions(-)
+Zixian Zeng (4):
+      riscv: dts: sophgo: Add SPI NOR node for SG2042
+      riscv: dts: sophgo: Enable SPI NOR node for PioneerBox
+      riscv: dts: sophgo: Enable SPI NOR node for SG2042_EVB_V1
+      riscv: dts: sophgo: Enable SPI NOR node for SG2042_EVB_V2
 
-diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
-index d0938e9c33fb..4fe970992147 100644
---- a/arch/powerpc/include/asm/pgtable.h
-+++ b/arch/powerpc/include/asm/pgtable.h
-@@ -46,6 +46,8 @@ struct mm_struct;
- void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
- 		pte_t pte, unsigned int nr);
- #define set_ptes set_ptes
-+void set_pte_at_unchecked(struct mm_struct *mm, unsigned long addr,
-+			  pte_t *ptep, pte_t pte);
- #define update_mmu_cache(vma, addr, ptep) \
- 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
- 
-diff --git a/arch/powerpc/mm/book3s64/pgtable.c b/arch/powerpc/mm/book3s64/pgtable.c
-index c9431ae7f78a..ff0c5a1988f8 100644
---- a/arch/powerpc/mm/book3s64/pgtable.c
-+++ b/arch/powerpc/mm/book3s64/pgtable.c
-@@ -127,7 +127,7 @@ void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pmd_leaf(pmd)));
- #endif
- 	trace_hugepage_set_pmd(addr, pmd_val(pmd));
--	return set_pte_at(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
-+	return set_pte_at_unchecked(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
- }
- 
- void set_pud_at(struct mm_struct *mm, unsigned long addr,
-@@ -144,7 +144,7 @@ void set_pud_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pud_leaf(pud)));
- #endif
- 	trace_hugepage_set_pud(addr, pud_val(pud));
--	return set_pte_at(mm, addr, pudp_ptep(pudp), pud_pte(pud));
-+	return set_pte_at_unchecked(mm, addr, pudp_ptep(pudp), pud_pte(pud));
- }
- 
- static void do_serialize(void *arg)
-@@ -549,7 +549,7 @@ void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr,
- 	if (radix_enabled())
- 		return radix__ptep_modify_prot_commit(vma, addr,
- 						      ptep, old_pte, pte);
--	set_pte_at(vma->vm_mm, addr, ptep, pte);
-+	set_pte_at_unchecked(vma->vm_mm, addr, ptep, pte);
- }
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
-index be523e5fe9c5..8c3b0f1750e4 100644
---- a/arch/powerpc/mm/book3s64/radix_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
-@@ -1606,7 +1606,7 @@ void radix__ptep_modify_prot_commit(struct vm_area_struct *vma,
- 	    (atomic_read(&mm->context.copros) > 0))
- 		radix__flush_tlb_page(vma, addr);
- 
--	set_pte_at(mm, addr, ptep, pte);
-+	set_pte_at_unchecked(mm, addr, ptep, pte);
- }
- 
- int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
-@@ -1617,7 +1617,7 @@ int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
- 	if (!radix_enabled())
- 		return 0;
- 
--	set_pte_at(&init_mm, 0 /* radix unused */, ptep, new_pud);
-+	set_pte_at_unchecked(&init_mm, 0 /* radix unused */, ptep, new_pud);
- 
- 	return 1;
- }
-@@ -1664,7 +1664,7 @@ int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot)
- 	if (!radix_enabled())
- 		return 0;
- 
--	set_pte_at(&init_mm, 0 /* radix unused */, ptep, new_pmd);
-+	set_pte_at_unchecked(&init_mm, 0 /* radix unused */, ptep, new_pmd);
- 
- 	return 1;
- }
-diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
-index dfaa9fd86f7e..bf90becb6cd6 100644
---- a/arch/powerpc/mm/pgtable.c
-+++ b/arch/powerpc/mm/pgtable.c
-@@ -224,6 +224,14 @@ void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
- 	}
- }
- 
-+void set_pte_at_unchecked(struct mm_struct *mm, unsigned long addr,
-+			  pte_t *ptep, pte_t pte)
-+{
-+	VM_WARN_ON(pte_hw_valid(*ptep) && !pte_protnone(*ptep));
-+	pte = set_pte_filter(pte, addr);
-+	__set_pte_at(mm, addr, ptep, pte, 0);
-+}
-+
- void unmap_kernel_page(unsigned long va)
- {
- 	pmd_t *pmdp = pmd_off_k(va);
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v1.dts       | 24 ++++++++++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts       | 12 +++++++++++
+ .../riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 24 ++++++++++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi             | 24 ++++++++++++++++++++++
+ 4 files changed, 84 insertions(+)
+---
+base-commit: 8a4fdd09c96f6713e6cb47d36e9f9dd6f6694215
+change-id: 20250813-sfg-spidts-ee56044969fe
+
+Best regards,
 -- 
-2.50.1
+Zixian Zeng <sycamoremoon376@gmail.com>
 
 
 _______________________________________________
