@@ -4,92 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6953EC87FCF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 08:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC865CA0EE5
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 08:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UfBNIiBPq4oMwoqEyUK+3CRpZMaiEW/wxqsVgPXFdYw=; b=tHjq040F52PMpg
-	cleRLzRmtfb+3or0KJT8+P4nblGi9/AqA6UhzN9m5hh5FEkPaXHmqkcqPvbxoB+kHZiQT8uuClf1s
-	5CCaN7kDgaa8p6TObe3yflQjPEQRTrrmS9meMLwKMQ7QpOhVk0v54RGXoptKCgQbVRwzMBrVwIbRI
-	5l9FU74z1tKTKawaXK6hipBAJBoCkMhoCZGNsV6h1cgRi1tFoPlAtoEjwRMcFBkwHrShkBkmt+ciL
-	Jtzbm3hm5JlmWDjjOEmB9hVoDHnmvkB8eWoTuYztiwtlicaUArofCw7c7qIehyaNQ74ui6WMe+Gnf
-	TkIcqejscbKpIqWQtM1w==;
+	List-Owner; bh=BQmm9dROq8IuRb2hPlMjcYULRAkUFD8/BRHUqYNYVkM=; b=yetpIx5ND7eUkA
+	IaqsZObprtN9GqAes9K+idWZkok/a7fA3+vr9mGKxe12q68odJjLfBTFH0vAlGojLPBhqVt6PyP7h
+	v8nOQHvERSN6CU2NDDRsnXlt8MH1H0f6BYHoTiIqdF71U2Jfw3NcVFI2qJuT93024KRx50fRJEaBn
+	HiaMNF5bgxvflR3Ecv9gRgprAwyx+76nHrSZsH0hr+7hL+n42XfuMPImENOF5WEUFP/6nHhROHTly
+	0/drYtXeQu8x9Wuv/0NBTdWgeGewdaTefcH3buNKKF7F/5GkorfGY1bHp0gmYXYZ2tZndhKga3a3Z
+	5zLx45AhnUe07edN5OwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6pR-0000000D61p-28UY;
-	Wed, 13 Aug 2025 08:27:25 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1um6t3-0000000D6Vp-17ME;
+	Wed, 13 Aug 2025 08:31:09 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6pN-0000000D5z7-2Gvn
-	for linux-riscv@lists.infradead.org;
-	Wed, 13 Aug 2025 08:27:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1755073570;
-	bh=zJ0hZ2py5pjtVoXQv0PDAz0XznKZrLsvelnbnYWAbCk=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=avm+WqjAeOe8vX+Nx9VA9fzl0v8H7vQ6jFdEe4/zHJXv+FDa1x0/CssHz2ffYplFX
-	 WWMGwZFTIeZgEmjWhLaFs7/SmEn3bnaKiw2XFQRo93J8wBYiTIjCNzTCBUkza4FXLI
-	 i3nEPFOmhWmBkMsYmWR4/jRGFahA4H/gjX95oMPY=
-X-QQ-mid: zesmtpsz6t1755073566t0d2cf4d6
-X-QQ-Originating-IP: ehoTC6TvF9jhdhuMPH9TGp/slVsmOkyosadz0faF+GE=
-Received: from = ( [61.145.255.150])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 13 Aug 2025 16:26:04 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8202150046870958779
-EX-QQ-RecipientCnt: 20
-Date: Wed, 13 Aug 2025 16:26:04 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Guodong Xu <guodong@riscstar.com>, Vinod Koul <vkoul@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Duje =?utf-8?Q?Mihanovi=C4=87?= <duje.mihanovic@skole.hr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH v3 0/8] dmaengine: mmp_pdma: Add SpacemiT K1 SoC support
- with 64-bit addressing
-Message-ID: <268633D49B18C3E7+aJxMHPhItPq9ioto@LT-Guozexi>
-References: <20250714-working_dma_0701_v2-v3-0-8b0f5cd71595@riscstar.com>
+	id 1um4y8-0000000Cmrh-0uHF;
+	Wed, 13 Aug 2025 06:28:18 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CNQEPM015967;
+	Wed, 13 Aug 2025 06:28:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=/g6kMnd9VlSEFG+9+
+	pA2DC35UOWvtzDmUcNCP71hMuM=; b=LQ7YkoUl2KNWOrGYvJm7WP6V5c8T3sWOi
+	uYynaXBOEPs3smOZz0a6DVKeO4tJMqmQcdSgJMnoCFbN5r4+Lkfrl6N9/e3VIKKb
+	dlQDWZ6bNVmpVIVECqISLuPrGzbY8GCJ4onuPeJL60zI3yYDLc8A9paAbbvpnz4h
+	eAkxIpVleXK3CwWOwDGqtfdSqyBJUPH6DX1xKH0r0EdBxchMFSDBKCTawR8JXANg
+	xk883PVNvtNWCTzEL5jflSCoC4yiWU3S2Z8dPQR4MePfgeT5o5YDOHu3cml6CQrh
+	6hAkFL9QhSYgDjx160uFHmn3s51qvJUncpM03yvZiufPQ7QU5QF4w==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48dx14jvp5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Aug 2025 06:28:07 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 57D1ew9v010824;
+	Wed, 13 Aug 2025 06:28:06 GMT
+Received: from smtprelay06.wdc07v.mail.ibm.com ([172.16.1.73])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 48egnup7q9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Aug 2025 06:28:06 +0000
+Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
+	by smtprelay06.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 57D6S5K125100852
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 13 Aug 2025 06:28:05 GMT
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4511458059;
+	Wed, 13 Aug 2025 06:28:05 +0000 (GMT)
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5390158058;
+	Wed, 13 Aug 2025 06:27:59 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com.com (unknown [9.36.10.70])
+	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 13 Aug 2025 06:27:58 +0000 (GMT)
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org
+Cc: akpm@linux-foundation.org, x86@kernel.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
+        nicholas@linux.ibm.com, christophe.leroy@csgroup.eu,
+        Rohan McLure <rmclure@linux.ibm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>
+Subject: [PATCH v16 12/13] powerpc: mm: Use set_pte_at_unchecked() for internal usages
+Date: Wed, 13 Aug 2025 16:26:13 +1000
+Message-ID: <20250813062614.51759-13-ajd@linux.ibm.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250813062614.51759-1-ajd@linux.ibm.com>
+References: <20250813062614.51759-1-ajd@linux.ibm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250714-working_dma_0701_v2-v3-0-8b0f5cd71595@riscstar.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: ND42uzdxTIzrasBiYskI7YFsfAFqaS6bMzVEAUdaGis6CKaY6PR2S6Cv
-	9zoQ6VD3TN5bNZbUG0k+Ae96q5gg9gRK6lvQRnEQ6XlhZBU7HWa7Hw8mvi6QKNJUJ/ZK+/Y
-	VXJN4pBvg+2qXQAFqD00wTCKZX9HpoqE/iNF08laTqkFwiTRJuxiSUFbb/LTGABVKN5k5il
-	Q0JCurAvs/R8dsxVRVQg4WhLLwtjEpoxtET218BS/LQrRazWu79BDnzOsQz6kSda84awsGh
-	DLzb9IgEmWPkw24wgAhjf7XUVm5nkC0IacV36MVGgzvUpap6hVftviksq/VySJ61Zdudbu4
-	28NPYUFcG9kJW3aaLvIe9AlzhyZA3ERJelcamEIzE8fXWFNofofg5Ix0XFLlxfhLv9aT5by
-	gcnw8ovTUUOPcsoXA8rGX24kC9w5M9YOuo6ZaxYqaO+DgFUHQ/R3WSiu6VkdzoWQmestTGH
-	BmFThxxLfRUbjctR4z6g9PtxsTD9pWLFQRlkDw/aVDKNpvFnhgtitAEuSDiUrB4Q651RYMn
-	L9hGLjjJZ58maYOocxMKHXj+vOiqAQnBctzNCHK7G2tmblW+4hHs4JXJYKaraU2x2FvFo8M
-	RFOr/hYcQodYfd08V4yZ6Ee5oXLKRGhHLSinvsmZx3G5wWvmuV9qi4R1Wg3aiLX3UjL8JOa
-	xYtTXCYLmlxJnSBZtER/OXUfLxs2yjVRNvDxR8Q2XWJ70pfO7BSD4tnVFOvLlyMrsmZuCwS
-	hsQRGrlHtj33jq7cwo89MbFoLhrp2YBWcsoPldWo79TQyvRe3D3TgE+pwvCEabAko7KwAFB
-	rsFh9OkNT4aQsv7d3K2I9loecpLDN7kCLwlTEbL4ip2L1fQstvb5O0ZhmkGnW0WWvmD3cWo
-	qw7PQ7XKK0yquqTAdBDOofOQgYgKtwT6284eslAYIduyteXrsQMviPN9uVAGu1ErMav8MRN
-	EpFnlSoFmQLNy4SJbvqov0NCXWxBNeQkSNYPoqyodK/ixLfKzlGa+NO3j++JEwJ3XIbV1QE
-	975GbqXYugICPBdjRsZvIwHLlo2BtAklMwOJIioYhfb5OLpCcl9tyaZd0VA5TWoQuKtHg0/
-	w==
-X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
-X-QQ-RECHKSPAM: 0
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: rqUBxPOu36iDwos4bh3fv826WxLCDkT8
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODEyMDIyNCBTYWx0ZWRfX3mF2m1it+9T/
+ 4veE5T4RO95vQp8Mxd4c6hNjDlPUIWA6Xh+Q6vt1Yhgrd9zZqgtD1cCakYT5+1x+/My2NkiPjpw
+ bP2LYW5yTC/jyuwm5a3dL8v/6r8FWlXZ/CQzpOTPUWd8AeUsFQdkT1K5CfBn0nSCSUKKZO9oPsb
+ 72+M9sucPofAe0fpnY85Ct+XiHL2vPWF6yFH7mcOoC5R7OHGiolTWY8BzKOAjmLpGugKrkXzQjn
+ FWhrBgqBPd/PsdZlHTTfn8MnBCAuM2kP2AuNZsJu3GxmtzUysKCeDy7mOBr0qSeXYPPtb5KM/hw
+ J7770KQAjxadl4SoFPoOVmegDW6hL9EwiCpwe1TpLDifcqSZ+/WSI74JukkZzCu/SycTIHdCV9q
+ 81v4kBe5
+X-Proofpoint-GUID: rqUBxPOu36iDwos4bh3fv826WxLCDkT8
+X-Authority-Analysis: v=2.4 cv=fLg53Yae c=1 sm=1 tr=0 ts=689c3077 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=2OwXVqhp2XgA:10 a=VnNF1IyMAAAA:8 a=aG8EAFyCJnWj3sFUJ80A:9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-12_08,2025-08-11_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015 spamscore=0 priorityscore=1501 impostorscore=0
+ phishscore=0 malwarescore=0 bulkscore=0 suspectscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508120224
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_012723_557171_4A53224E 
-X-CRM114-Status: GOOD (  25.60  )
+X-CRM114-CacheID: sfid-20250812_232816_252951_155D53F0 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,103 +117,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guodong, thanks for your patches!
+From: Rohan McLure <rmclure@linux.ibm.com>
 
-I have tested it using i2s and dma-tetst.
+In the new set_ptes() API, set_pte_at() (a special case of set_ptes())
+is intended to be instrumented by the page table check facility. There
+are however several other routines that constitute the API for setting
+page table entries, including set_pmd_at() among others. Such routines
+are themselves implemented in terms of set_ptes_at().
 
-Tested-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+A future patch providing support for page table checking on powerpc
+must take care to avoid duplicate calls to
+page_table_check_p{te,md,ud}_set(). Allow for assignment of pte entries
+without instrumentation through the set_pte_at_unchecked() routine
+introduced in this patch.
 
-                - Troy
+Cause API-facing routines that call set_pte_at() to instead call
+set_pte_at_unchecked(), which will remain uninstrumented by page
+table check. set_ptes() is itself implemented by calls to
+__set_pte_at(), so this eliminates redundant code.
 
-On Mon, Jul 14, 2025 at 05:39:27PM +0800, Guodong Xu wrote:
-> This patchset adds support for SpacemiT K1 PDMA controller to the existing
-> mmp_pdma driver. The K1 PDMA controller is compatible with Marvell MMP PDMA
-> but extends it with 64-bit addressing capabilities through LPAE (Long
-> Physical Address Extension) bit and higher 32-bit address registers (DDADRH,
-> DSADRH and DTADRH).
-> 
-> In v3, the major change is creating a separate yaml binding schema for
-> SpacemiT K1 PDMA, per Krzysztof's suggestion. By doing this, the binding
-> schema got simplified a lot. Deprecated property (ie. #dma-channels) and
-> unused values for backward compatibility (#dma-cells const 2) can be
-> removed.
-> 
-> Other changes involve placing pdma0 node in k1.dtsi and in board specific
-> dts files with proper ordering.
-> 
-> The patchset has been tested on BananaPi F3 board.
-> 
-> This patchset is based on SpacemiT linux (for-next) [1] with Patch 8
-> depending on:
-> - riscv: defconfig: run savedefconfig to reorder it
->     It has been merged into riscv/linux.git (for-next)
->     Link: https://git.kernel.org/riscv/c/d958097bdf88
-> 
-> [1] https://github.com/spacemit-com/linux.git (for-next)
-> 
-> All of these patches are available here:
-> https://github.com/docularxu/linux/tree/working_dma_0714_v3
-> 
-> Changes in v3:
-> - Created separated yaml binding for Spacemit K1 PDMA controller
-> - Updated pdma0 node properties according to the new yaml binding
-> - Put pdma0 node in k1.dtsi according to its device address
-> - Put pdma0 node in board dts files according to alphabetic order
-> 
-> Link to v2:
-> https://lore.kernel.org/r/20250701-working_dma_0701_v2-v2-0-ab6ee9171d26@riscstar.com
-> 
-> Changes in v2:
-> - Tag the series as "damengine".
-> - Used more specific compatible string "spacemit,k1-pdma"
-> - Enhanced DT bindings with conditional constraints:
->    - clocks/resets properties only required for SpacemiT K1
->    - #dma-cells set to 2 for marvell,pdma-1.0 and spacemit,k1-pdma
->    - #dma-cells set to 1 for other variants
-> - Split mmp_pdma driver changes per maintainer feedback:
->    - First patch (4/8) adds ops abstraction layer and 32-bit support
->    - Second patch (5/8) adds K1-specific 64-bit support
-> - Merged Kconfig changes into the dmaengine: mmp_pdma driver patch (5/8)
-> - Enabled pdma0 on both BPI-F3 and Milk-V Jupiter
-> 
-> Link to v1:
-> https://lore.kernel.org/all/20250611125723.181711-1-guodong@riscstar.com/
-> 
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> ---
-> Guodong Xu (8):
->       dt-bindings: dma: Add SpacemiT K1 PDMA controller
->       dmaengine: mmp_pdma: Add optional clock support
->       dmaengine: mmp_pdma: Add optional reset controller support
->       dmaengine: mmp_pdma: Add operations structure for controller abstraction
->       dmaengine: mmp_pdma: Add SpacemiT K1 PDMA support with 64-bit addressing
->       riscv: dts: spacemit: Add PDMA0 node for K1 SoC
->       riscv: dts: spacemit: Enable PDMA0 on Banana Pi F3 and Milkv Jupiter
->       riscv: defconfig: Enable MMP_PDMA support for SpacemiT K1 SoC
-> 
->  .../devicetree/bindings/dma/spacemit,k1-pdma.yaml  |  68 +++++
->  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |   4 +
->  arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts  |   4 +
->  arch/riscv/boot/dts/spacemit/k1.dtsi               |  11 +
->  arch/riscv/configs/defconfig                       |   1 +
->  drivers/dma/Kconfig                                |   2 +-
->  drivers/dma/mmp_pdma.c                             | 281 ++++++++++++++++++---
->  7 files changed, 339 insertions(+), 32 deletions(-)
-> ---
-> base-commit: 6be7a5a768aafcb07d177bd2ae36ab84e4e0acde
-> change-id: 20250701-working_dma_0701_v2-7d2cf506aad7
-> prerequisite-change-id: 20250611-01-riscv-defconfig-7f90f73d283d:v1
-> prerequisite-patch-id: 53bda77e089023a09152a7d5403e1a738355c5d3
-> 
-> Best regards,
-> -- 
-> Guodong Xu <guodong@riscstar.com>
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+[ajd@linux.ibm.com: don't change to unchecked for early boot/kernel mappings]
+Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
+Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
+Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
+---
+v13: don't use the unchecked version for early-boot kernel mappings (Pasha)
+---
+ arch/powerpc/include/asm/pgtable.h       | 2 ++
+ arch/powerpc/mm/book3s64/pgtable.c       | 6 +++---
+ arch/powerpc/mm/book3s64/radix_pgtable.c | 6 +++---
+ arch/powerpc/mm/pgtable.c                | 8 ++++++++
+ 4 files changed, 16 insertions(+), 6 deletions(-)
+
+diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
+index d0938e9c33fb..4fe970992147 100644
+--- a/arch/powerpc/include/asm/pgtable.h
++++ b/arch/powerpc/include/asm/pgtable.h
+@@ -46,6 +46,8 @@ struct mm_struct;
+ void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
+ 		pte_t pte, unsigned int nr);
+ #define set_ptes set_ptes
++void set_pte_at_unchecked(struct mm_struct *mm, unsigned long addr,
++			  pte_t *ptep, pte_t pte);
+ #define update_mmu_cache(vma, addr, ptep) \
+ 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+ 
+diff --git a/arch/powerpc/mm/book3s64/pgtable.c b/arch/powerpc/mm/book3s64/pgtable.c
+index c9431ae7f78a..ff0c5a1988f8 100644
+--- a/arch/powerpc/mm/book3s64/pgtable.c
++++ b/arch/powerpc/mm/book3s64/pgtable.c
+@@ -127,7 +127,7 @@ void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 	WARN_ON(!(pmd_leaf(pmd)));
+ #endif
+ 	trace_hugepage_set_pmd(addr, pmd_val(pmd));
+-	return set_pte_at(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
++	return set_pte_at_unchecked(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
+ }
+ 
+ void set_pud_at(struct mm_struct *mm, unsigned long addr,
+@@ -144,7 +144,7 @@ void set_pud_at(struct mm_struct *mm, unsigned long addr,
+ 	WARN_ON(!(pud_leaf(pud)));
+ #endif
+ 	trace_hugepage_set_pud(addr, pud_val(pud));
+-	return set_pte_at(mm, addr, pudp_ptep(pudp), pud_pte(pud));
++	return set_pte_at_unchecked(mm, addr, pudp_ptep(pudp), pud_pte(pud));
+ }
+ 
+ static void do_serialize(void *arg)
+@@ -549,7 +549,7 @@ void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr,
+ 	if (radix_enabled())
+ 		return radix__ptep_modify_prot_commit(vma, addr,
+ 						      ptep, old_pte, pte);
+-	set_pte_at(vma->vm_mm, addr, ptep, pte);
++	set_pte_at_unchecked(vma->vm_mm, addr, ptep, pte);
+ }
+ 
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
+index be523e5fe9c5..8c3b0f1750e4 100644
+--- a/arch/powerpc/mm/book3s64/radix_pgtable.c
++++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
+@@ -1606,7 +1606,7 @@ void radix__ptep_modify_prot_commit(struct vm_area_struct *vma,
+ 	    (atomic_read(&mm->context.copros) > 0))
+ 		radix__flush_tlb_page(vma, addr);
+ 
+-	set_pte_at(mm, addr, ptep, pte);
++	set_pte_at_unchecked(mm, addr, ptep, pte);
+ }
+ 
+ int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
+@@ -1617,7 +1617,7 @@ int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
+ 	if (!radix_enabled())
+ 		return 0;
+ 
+-	set_pte_at(&init_mm, 0 /* radix unused */, ptep, new_pud);
++	set_pte_at_unchecked(&init_mm, 0 /* radix unused */, ptep, new_pud);
+ 
+ 	return 1;
+ }
+@@ -1664,7 +1664,7 @@ int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot)
+ 	if (!radix_enabled())
+ 		return 0;
+ 
+-	set_pte_at(&init_mm, 0 /* radix unused */, ptep, new_pmd);
++	set_pte_at_unchecked(&init_mm, 0 /* radix unused */, ptep, new_pmd);
+ 
+ 	return 1;
+ }
+diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
+index dfaa9fd86f7e..bf90becb6cd6 100644
+--- a/arch/powerpc/mm/pgtable.c
++++ b/arch/powerpc/mm/pgtable.c
+@@ -224,6 +224,14 @@ void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
+ 	}
+ }
+ 
++void set_pte_at_unchecked(struct mm_struct *mm, unsigned long addr,
++			  pte_t *ptep, pte_t pte)
++{
++	VM_WARN_ON(pte_hw_valid(*ptep) && !pte_protnone(*ptep));
++	pte = set_pte_filter(pte, addr);
++	__set_pte_at(mm, addr, ptep, pte, 0);
++}
++
+ void unmap_kernel_page(unsigned long va)
+ {
+ 	pmd_t *pmdp = pmd_off_k(va);
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
