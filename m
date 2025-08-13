@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A34BCCA0EE0
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 19:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8117CCA0EE4
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 19:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oun5Fpx0rAFaPtU7JRUl6EjZPOanPKWVb1s26Dc/CZk=; b=4BBnzDesBjYUBS
-	v4M0rrMJ45uUfE6tpQkMdbi/b0hwPSUh9il3h8bi4dgWRgTSUjap3+WZFEXffbkQXtaSMC3vQr/eR
-	/3WlJ5GUzz3YdOenP8ZEJ00aNyKm4/nwJaCP/1z23XjaxGWeFq0usLHVGrEV8AmDaW9OBC0FC1E5t
-	x16uIR/2dQDmkaBuqOqXGR1vcV0kn9Wp93nIA2SnzjfXA4PnF7ovLTNXb0K19TbD65P47HnUuBYx2
-	RzMXTj8v2iPpBwsufGfd/pG8cVSY+bB+MCEh5QvSZC+Uxg+U4FFRg4JkcHF7/PvIYhFHqw1EB6Li4
-	IFuYHwXkkBNXQlwem+4g==;
+	List-Owner; bh=tlU3M/x/Gbs3khqbQZBFpER0Uq9nMAaG6FzlaHSjmW4=; b=VbD5QMCgeaXqQM
+	ZfjSvJxA3Pg5QfBSCCvahP6LYlefMXnrKySoYWK48nPxCzXF1hkQ4Wo4HB2tH1F4+tMzKPhkwFWG8
+	kkViF0QnivuNRCgWRhz7rIvWwSSYwXfwXjngpHKSEDLQyjk94QGQnBnwaH6e4A5LhBYRnOP2x4pGW
+	znZJ4zoWwxy8BK+AFsfxMP60QZo1lyu77lHlJgnk6TARgFqFkT+/L+anqfDIXhdGUs9R2NB9ZFW4+
+	LxsbQ9lI6wYtoBhurE5SL3yNtRpa/jURRlPSg1dWIXYee3EmWXGX0BGDV9mS824yw7OESpXup9CYw
+	Pdur3HP72lTa0puXcQ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umHOF-0000000EonX-092i;
-	Wed, 13 Aug 2025 19:44:03 +0000
+	id 1umHOR-0000000Ep9p-3VIh;
+	Wed, 13 Aug 2025 19:44:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umErf-0000000EVrs-1zVw;
-	Wed, 13 Aug 2025 17:02:17 +0000
+	id 1umEro-0000000EVyk-1Bo9;
+	Wed, 13 Aug 2025 17:02:26 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4F331D14;
-	Wed, 13 Aug 2025 10:02:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B6F701D6F;
+	Wed, 13 Aug 2025 10:02:15 -0700 (PDT)
 Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9DB4C3F738;
-	Wed, 13 Aug 2025 10:02:10 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A1A5F3F738;
+	Wed, 13 Aug 2025 10:02:19 -0700 (PDT)
 From: Robin Murphy <robin.murphy@arm.com>
 To: peterz@infradead.org,
 	mingo@redhat.com,
@@ -71,16 +71,16 @@ Cc: linux-perf-users@vger.kernel.org,
 	linux-cxl@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 11/19] perf/arm-cci: Tidy up event validation
-Date: Wed, 13 Aug 2025 18:01:03 +0100
-Message-Id: <b433bdccbf83a71878b67a9c159c3e9414bef2d0.1755096883.git.robin.murphy@arm.com>
+Subject: [PATCH 13/19] perf: Add helper for checking grouped events
+Date: Wed, 13 Aug 2025 18:01:05 +0100
+Message-Id: <b05607c3ce0d3ce52de1784823ef9f6de324283c.1755096883.git.robin.murphy@arm.com>
 X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 In-Reply-To: <cover.1755096883.git.robin.murphy@arm.com>
 References: <cover.1755096883.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_100215_583046_D56DF47B 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250813_100224_418332_07CD0E15 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,158 +97,256 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The CCI driver only accepts events of its own type, so it is pointless
-to re-check the event type again further into validation. Conversely, if
-an event *is* for CCI but has a nonsense config, we should not return
--ENOENT to potentially offer it to other PMUs. Finally it seems wrong
-not to count disabled events which may be enabled later.
+Several drivers cannot support groups, but enforce this inconsistently
+(including not at all) in their event_init routines. Add a helper so
+that such drivers can simply and robustly check for the acceptable
+conditions that their event is either standalone, or the first one
+being added to a software-only group.
 
-These are all artefacts left over from the original attempt to fit CCI
-into the arm_pmu framework; clean them up, along with the now-redundant
-checks for cross-PMU groups which core code will already handle (albeit
-not quite as the out-of-date comment says).
+In particular it took a while to see that marvell_cn10k_tad_pmu was
+seemingly trying to rely on the empirical behaviour of perf tool
+creating group leader events with disabled=1 and subsequent siblings
+with disabled=0. Down with this sort of thing!
 
 Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
- drivers/perf/arm-cci.c | 47 +++++++++++-------------------------------
- 1 file changed, 12 insertions(+), 35 deletions(-)
+ arch/x86/events/amd/ibs.c             | 30 ++++++---------------------
+ drivers/devfreq/event/rockchip-dfi.c  |  3 +++
+ drivers/perf/alibaba_uncore_drw_pmu.c | 11 +---------
+ drivers/perf/arm_dmc620_pmu.c         | 12 +----------
+ drivers/perf/dwc_pcie_pmu.c           | 10 ++-------
+ drivers/perf/marvell_cn10k_tad_pmu.c  |  6 ++----
+ drivers/perf/marvell_pem_pmu.c        | 11 ++--------
+ include/linux/perf_event.h            |  7 +++++++
+ 8 files changed, 24 insertions(+), 66 deletions(-)
 
-diff --git a/drivers/perf/arm-cci.c b/drivers/perf/arm-cci.c
-index 1cc3214d6b6d..086d4363fcc8 100644
---- a/drivers/perf/arm-cci.c
-+++ b/drivers/perf/arm-cci.c
-@@ -333,7 +333,7 @@ static int cci400_validate_hw_event(struct cci_pmu *cci_pmu, unsigned long hw_ev
- 	int if_type;
- 
- 	if (hw_event & ~CCI400_PMU_EVENT_MASK)
--		return -ENOENT;
-+		return -EINVAL;
- 
- 	if (hw_event == CCI400_PMU_CYCLES)
- 		return hw_event;
-@@ -354,14 +354,14 @@ static int cci400_validate_hw_event(struct cci_pmu *cci_pmu, unsigned long hw_ev
- 		if_type = CCI_IF_MASTER;
- 		break;
- 	default:
--		return -ENOENT;
-+		return -EINVAL;
- 	}
- 
- 	if (ev_code >= cci_pmu->model->event_ranges[if_type].min &&
- 		ev_code <= cci_pmu->model->event_ranges[if_type].max)
- 		return hw_event;
- 
--	return -ENOENT;
-+	return -EINVAL;
+diff --git a/arch/x86/events/amd/ibs.c b/arch/x86/events/amd/ibs.c
+index 112f43b23ebf..95de309fc7d5 100644
+--- a/arch/x86/events/amd/ibs.c
++++ b/arch/x86/events/amd/ibs.c
+@@ -248,27 +248,6 @@ int forward_event_to_ibs(struct perf_event *event)
+ 	return -ENOENT;
  }
  
- static int probe_cci400_revision(struct cci_pmu *cci_pmu)
-@@ -541,7 +541,7 @@ static int cci500_validate_hw_event(struct cci_pmu *cci_pmu,
- 	int if_type;
- 
- 	if (hw_event & ~CCI5xx_PMU_EVENT_MASK)
--		return -ENOENT;
-+		return -EINVAL;
- 
- 	switch (ev_source) {
- 	case CCI5xx_PORT_S0:
-@@ -565,14 +565,14 @@ static int cci500_validate_hw_event(struct cci_pmu *cci_pmu,
- 		if_type = CCI_IF_GLOBAL;
- 		break;
- 	default:
--		return -ENOENT;
-+		return -EINVAL;
- 	}
- 
- 	if (ev_code >= cci_pmu->model->event_ranges[if_type].min &&
- 		ev_code <= cci_pmu->model->event_ranges[if_type].max)
- 		return hw_event;
- 
--	return -ENOENT;
-+	return -EINVAL;
- }
- 
- /*
-@@ -592,7 +592,7 @@ static int cci550_validate_hw_event(struct cci_pmu *cci_pmu,
- 	int if_type;
- 
- 	if (hw_event & ~CCI5xx_PMU_EVENT_MASK)
--		return -ENOENT;
-+		return -EINVAL;
- 
- 	switch (ev_source) {
- 	case CCI5xx_PORT_S0:
-@@ -617,14 +617,14 @@ static int cci550_validate_hw_event(struct cci_pmu *cci_pmu,
- 		if_type = CCI_IF_GLOBAL;
- 		break;
- 	default:
--		return -ENOENT;
-+		return -EINVAL;
- 	}
- 
- 	if (ev_code >= cci_pmu->model->event_ranges[if_type].min &&
- 		ev_code <= cci_pmu->model->event_ranges[if_type].max)
- 		return hw_event;
- 
--	return -ENOENT;
-+	return -EINVAL;
- }
- 
- #endif	/* CONFIG_ARM_CCI5xx_PMU */
-@@ -801,17 +801,6 @@ static int pmu_get_event_idx(struct cci_pmu_hw_events *hw, struct perf_event *ev
- 	return -EAGAIN;
- }
- 
--static int pmu_map_event(struct perf_event *event)
+-/*
+- * Grouping of IBS events is not possible since IBS can have only
+- * one event active at any point in time.
+- */
+-static int validate_group(struct perf_event *event)
 -{
--	struct cci_pmu *cci_pmu = to_cci_pmu(event->pmu);
+-	struct perf_event *sibling;
 -
--	if (event->attr.type < PERF_TYPE_MAX ||
--			!cci_pmu->model->validate_hw_event)
--		return -ENOENT;
--
--	return	cci_pmu->model->validate_hw_event(cci_pmu, event->attr.config);
--}
--
- static int pmu_request_irq(struct cci_pmu *cci_pmu, irq_handler_t handler)
- {
- 	int i;
-@@ -1216,21 +1205,8 @@ static int validate_event(struct pmu *cci_pmu,
- 			  struct cci_pmu_hw_events *hw_events,
- 			  struct perf_event *event)
- {
--	if (is_software_event(event))
--		return 1;
--
--	/*
--	 * Reject groups spanning multiple HW PMUs (e.g. CPU + CCI). The
--	 * core perf code won't check that the pmu->ctx == leader->ctx
--	 * until after pmu->event_init(event).
--	 */
-+	/* Ignore grouped events that aren't ours */
- 	if (event->pmu != cci_pmu)
+-	if (event->group_leader == event)
 -		return 0;
 -
--	if (event->state < PERF_EVENT_STATE_OFF)
--		return 1;
+-	if (event->group_leader->pmu == event->pmu)
+-		return -EINVAL;
 -
--	if (event->state == PERF_EVENT_STATE_OFF && !event->attr.enable_on_exec)
- 		return 1;
- 
- 	return pmu_get_event_idx(hw_events, event) >= 0;
-@@ -1266,10 +1242,11 @@ static int validate_group(struct perf_event *event)
- 
- static int __hw_perf_event_init(struct perf_event *event)
+-	for_each_sibling_event(sibling, event->group_leader) {
+-		if (sibling->pmu == event->pmu)
+-			return -EINVAL;
+-	}
+-	return 0;
+-}
+-
+ static bool perf_ibs_ldlat_event(struct perf_ibs *perf_ibs,
+ 				 struct perf_event *event)
  {
-+	struct cci_pmu *cci_pmu = to_cci_pmu(event->pmu);
+@@ -309,9 +288,12 @@ static int perf_ibs_init(struct perf_event *event)
+ 	     event->attr.exclude_hv))
+ 		return -EINVAL;
+ 
+-	ret = validate_group(event);
+-	if (ret)
+-		return ret;
++	/*
++	 * Grouping of IBS events is not possible since IBS can have only
++	 * one event active at any point in time.
++	 */
++	if (in_hardware_group(event))
++		return -EINVAL;
+ 
+ 	if (hwc->sample_period) {
+ 		if (config & perf_ibs->cnt_mask)
+diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/event/rockchip-dfi.c
+index 0470d7c175f4..88a9ecbe96ce 100644
+--- a/drivers/devfreq/event/rockchip-dfi.c
++++ b/drivers/devfreq/event/rockchip-dfi.c
+@@ -413,6 +413,9 @@ static int rockchip_ddr_perf_event_init(struct perf_event *event)
+ 		dev_warn(dfi->dev, "Can't provide per-task data!\n");
+ 		return -EINVAL;
+ 	}
++	/* Disallow groups since we can't start/stop/read multiple counters at once */
++	if (in_hardware_group(event))
++		return -EINVAL;
+ 
+ 	return 0;
+ }
+diff --git a/drivers/perf/alibaba_uncore_drw_pmu.c b/drivers/perf/alibaba_uncore_drw_pmu.c
+index 99a0ef9817e0..0081618741c3 100644
+--- a/drivers/perf/alibaba_uncore_drw_pmu.c
++++ b/drivers/perf/alibaba_uncore_drw_pmu.c
+@@ -526,7 +526,6 @@ static int ali_drw_pmu_event_init(struct perf_event *event)
+ {
+ 	struct ali_drw_pmu *drw_pmu = to_ali_drw_pmu(event->pmu);
  	struct hw_perf_event *hwc = &event->hw;
- 	int mapping;
+-	struct perf_event *sibling;
+ 	struct device *dev = drw_pmu->pmu.dev;
  
--	mapping = pmu_map_event(event);
-+	mapping = cci_pmu->model->validate_hw_event(cci_pmu, event->attr.config);
+ 	if (event->attr.type != event->pmu->type)
+@@ -548,19 +547,11 @@ static int ali_drw_pmu_event_init(struct perf_event *event)
+ 		return -EOPNOTSUPP;
+ 	}
  
- 	if (mapping < 0) {
- 		pr_debug("event %x:%llx not supported\n", event->attr.type,
+-	if (event->group_leader != event &&
+-	    !is_software_event(event->group_leader)) {
++	if (in_hardware_group(event)) {
+ 		dev_err(dev, "driveway only allow one event!\n");
+ 		return -EINVAL;
+ 	}
+ 
+-	for_each_sibling_event(sibling, event->group_leader) {
+-		if (sibling != event && !is_software_event(sibling)) {
+-			dev_err(dev, "driveway event not allowed!\n");
+-			return -EINVAL;
+-		}
+-	}
+-
+ 	/* reset all the pmu counters */
+ 	writel(ALI_DRW_PMU_CNT_RST, drw_pmu->cfg_base + ALI_DRW_PMU_CNT_CTRL);
+ 
+diff --git a/drivers/perf/arm_dmc620_pmu.c b/drivers/perf/arm_dmc620_pmu.c
+index 619cf937602f..24308de80246 100644
+--- a/drivers/perf/arm_dmc620_pmu.c
++++ b/drivers/perf/arm_dmc620_pmu.c
+@@ -513,7 +513,6 @@ static int dmc620_pmu_event_init(struct perf_event *event)
+ {
+ 	struct dmc620_pmu *dmc620_pmu = to_dmc620_pmu(event->pmu);
+ 	struct hw_perf_event *hwc = &event->hw;
+-	struct perf_event *sibling;
+ 
+ 	if (event->attr.type != event->pmu->type)
+ 		return -ENOENT;
+@@ -544,22 +543,13 @@ static int dmc620_pmu_event_init(struct perf_event *event)
+ 
+ 	hwc->idx = -1;
+ 
+-	if (event->group_leader == event)
+-		return 0;
+-
+ 	/*
+ 	 * We can't atomically disable all HW counters so only one event allowed,
+ 	 * although software events are acceptable.
+ 	 */
+-	if (!is_software_event(event->group_leader))
++	if (in_hardware_group(event))
+ 		return -EINVAL;
+ 
+-	for_each_sibling_event(sibling, event->group_leader) {
+-		if (sibling != event &&
+-				!is_software_event(sibling))
+-			return -EINVAL;
+-	}
+-
+ 	return 0;
+ }
+ 
+diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
+index 146ff57813fb..78c522658d84 100644
+--- a/drivers/perf/dwc_pcie_pmu.c
++++ b/drivers/perf/dwc_pcie_pmu.c
+@@ -353,7 +353,6 @@ static int dwc_pcie_pmu_event_init(struct perf_event *event)
+ {
+ 	struct dwc_pcie_pmu *pcie_pmu = to_dwc_pcie_pmu(event->pmu);
+ 	enum dwc_pcie_event_type type = DWC_PCIE_EVENT_TYPE(event);
+-	struct perf_event *sibling;
+ 	u32 lane;
+ 
+ 	if (event->attr.type != event->pmu->type)
+@@ -367,15 +366,10 @@ static int dwc_pcie_pmu_event_init(struct perf_event *event)
+ 	if (event->cpu < 0 || event->attach_state & PERF_ATTACH_TASK)
+ 		return -EINVAL;
+ 
+-	if (event->group_leader != event &&
+-	    !is_software_event(event->group_leader))
++	/* Disallow groups since we can't start/stop/read multiple counters at once */
++	if (in_hardware_group(event))
+ 		return -EINVAL;
+ 
+-	for_each_sibling_event(sibling, event->group_leader) {
+-		if (sibling->pmu != event->pmu && !is_software_event(sibling))
+-			return -EINVAL;
+-	}
+-
+ 	if (type < 0 || type >= DWC_PCIE_EVENT_TYPE_MAX)
+ 		return -EINVAL;
+ 
+diff --git a/drivers/perf/marvell_cn10k_tad_pmu.c b/drivers/perf/marvell_cn10k_tad_pmu.c
+index 51ccb0befa05..ee6505cb01a7 100644
+--- a/drivers/perf/marvell_cn10k_tad_pmu.c
++++ b/drivers/perf/marvell_cn10k_tad_pmu.c
+@@ -152,10 +152,8 @@ static int tad_pmu_event_init(struct perf_event *event)
+ 	if (event->attr.type != event->pmu->type)
+ 		return -ENOENT;
+ 
+-	if (!event->attr.disabled)
+-		return -EINVAL;
+-
+-	if (event->state != PERF_EVENT_STATE_OFF)
++	/* Disallow groups since we can't start/stop/read multiple counters at once */
++	if (in_hardware_group(event))
+ 		return -EINVAL;
+ 
+ 	event->cpu = tad_pmu->cpu;
+diff --git a/drivers/perf/marvell_pem_pmu.c b/drivers/perf/marvell_pem_pmu.c
+index 29fbcd1848e4..53a35a5de7f8 100644
+--- a/drivers/perf/marvell_pem_pmu.c
++++ b/drivers/perf/marvell_pem_pmu.c
+@@ -190,7 +190,6 @@ static int pem_perf_event_init(struct perf_event *event)
+ {
+ 	struct pem_pmu *pmu = to_pem_pmu(event->pmu);
+ 	struct hw_perf_event *hwc = &event->hw;
+-	struct perf_event *sibling;
+ 
+ 	if (event->attr.type != event->pmu->type)
+ 		return -ENOENT;
+@@ -206,16 +205,10 @@ static int pem_perf_event_init(struct perf_event *event)
+ 	if (event->cpu < 0)
+ 		return -EOPNOTSUPP;
+ 
+-	/*  We must NOT create groups containing mixed PMUs */
+-	if (event->group_leader->pmu != event->pmu &&
+-	    !is_software_event(event->group_leader))
++	/* Disallow groups since we can't start/stop/read multiple counters at once */
++	if (in_hardware_group(event))
+ 		return -EINVAL;
+ 
+-	for_each_sibling_event(sibling, event->group_leader) {
+-		if (sibling->pmu != event->pmu &&
+-		    !is_software_event(sibling))
+-			return -EINVAL;
+-	}
+ 	/*
+ 	 * Set ownership of event to one CPU, same event can not be observed
+ 	 * on multiple cpus at same time.
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index ec9d96025683..4d439c24c901 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -1556,6 +1556,13 @@ static inline int in_software_context(struct perf_event *event)
+ 	return event->pmu_ctx->pmu->task_ctx_nr == perf_sw_context;
+ }
+ 
++/* True if the event has (or would have) any non-software siblings */
++static inline bool in_hardware_group(const struct perf_event *event)
++{
++	return event != event->group_leader &&
++	       !in_software_context(event->group_leader);
++}
++
+ static inline int is_exclusive_pmu(struct pmu *pmu)
+ {
+ 	return pmu->capabilities & PERF_PMU_CAP_EXCLUSIVE;
 -- 
 2.39.2.101.g768bb238c484.dirty
 
