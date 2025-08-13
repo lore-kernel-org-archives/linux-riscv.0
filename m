@@ -4,78 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E5B8CA0EE0
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 08:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6953EC87FCF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 08:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=67pxmOQwEwKPaa8NoKY85ik4ISHWG63OQAl5oSl+Ofo=; b=GVAPiP/adEAPiU
-	4oHs8vFwbXdaddaRzByDRc9LDb+3/TDiva7umxfHQ7kbaR9HsAyn0Wti4zZdd6VGKIOdgHjObXl2v
-	wekaAh93N4wVbGouib0YLGoKRdp7EWLeho2XiN/n3HOKfQm7BwAHzZmaU64wLwqQ7ojTHfXcIT0yr
-	SXSWVa7+PXdDo1guTD51+YdBT2aPO94MDbvNd7Kp9ID/oP4aNrGkL+KwLxAvNSHgeTbM8esfvjITS
-	CsYRO3tNu02AaZgCVmFr5FqgLnkuFnAnKJadJI9raHEoKQv3vL/G/r1cg0QndMNStleM47LhqrDP0
-	2/qpUxndf/99UHFkAQ5g==;
+	List-Owner; bh=UfBNIiBPq4oMwoqEyUK+3CRpZMaiEW/wxqsVgPXFdYw=; b=tHjq040F52PMpg
+	cleRLzRmtfb+3or0KJT8+P4nblGi9/AqA6UhzN9m5hh5FEkPaXHmqkcqPvbxoB+kHZiQT8uuClf1s
+	5CCaN7kDgaa8p6TObe3yflQjPEQRTrrmS9meMLwKMQ7QpOhVk0v54RGXoptKCgQbVRwzMBrVwIbRI
+	5l9FU74z1tKTKawaXK6hipBAJBoCkMhoCZGNsV6h1cgRi1tFoPlAtoEjwRMcFBkwHrShkBkmt+ciL
+	Jtzbm3hm5JlmWDjjOEmB9hVoDHnmvkB8eWoTuYztiwtlicaUArofCw7c7qIehyaNQ74ui6WMe+Gnf
+	TkIcqejscbKpIqWQtM1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6jg-0000000D5E8-1Oiy;
-	Wed, 13 Aug 2025 08:21:28 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1um6pR-0000000D61p-28UY;
+	Wed, 13 Aug 2025 08:27:25 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6gt-0000000D4Kx-02Kh
+	id 1um6pN-0000000D5z7-2Gvn
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Aug 2025 08:18:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755073110; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Em3ZSXtvhAnqwNgp1nuh5YcQhLbSwpjOoJikabPBmjDxbBxa/P/2+wRrDDMVM7pg6Q03CH13WMKcuPO4tTJgW/hjkFl6947VgXw/p6dtKsDjNm2pDemjWNYrWG6g2pxZf0mI7nLhOocKViV5zxLajBvp6HHz4gfmU1yQQW2mEY0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755073110; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=tc17qmFHa/GPucvOeBviX5DuJp7Go3v2kqed9wv4nmw=; 
-	b=XC5O1fqmCvPqUV9wFxt5RZWMSwYN4eoLsDcPJfV2xD5AG0TtSka0YE+BKPuxxD+Db9V6KuIrwedXPunbHvDpVLu6HHFQPr8/dK/m1mgK5BAZjPeuQAs9m4+OglQcpXwyj54ZMsjhrmcn0SxbrjGee+eOxres7WcP1mvTn/VuaDI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755073110;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=tc17qmFHa/GPucvOeBviX5DuJp7Go3v2kqed9wv4nmw=;
-	b=J4hMFpAaApTL34SWwxQ2/0XGBYXSxmedo0XTsbwDWNiRPRIsmFFManX6T/paRRFf
-	pcWhibDGjzAZQoQzRb6mu97YUn+vXMzn3ETugbleZqoi/SkeSPrWyLw1SEOaLI+OUb1
-	Y43GExumkIr6HAAq95PRFi57ZK3knnA3WxytRVtnIuTwJMCckQHAjilQtM3i43yuY14
-	UGbLQRxBwlC6OaLAWob/FGz746otpPIDOfcHDGTpvKYlykp8bUNlYfirObFd0/2rskr
-	c0oybIn7T8EmFmyPPks5ksyClzeoWMtSu+86fUJATjKYiigXEIBYcpKdmSkdP91PUIN
-	nnCOAUX7YQ==
-Received: by mx.zohomail.com with SMTPS id 1755073107397444.5758861641673;
-	Wed, 13 Aug 2025 01:18:27 -0700 (PDT)
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+	Wed, 13 Aug 2025 08:27:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1755073570;
+	bh=zJ0hZ2py5pjtVoXQv0PDAz0XznKZrLsvelnbnYWAbCk=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=avm+WqjAeOe8vX+Nx9VA9fzl0v8H7vQ6jFdEe4/zHJXv+FDa1x0/CssHz2ffYplFX
+	 WWMGwZFTIeZgEmjWhLaFs7/SmEn3bnaKiw2XFQRo93J8wBYiTIjCNzTCBUkza4FXLI
+	 i3nEPFOmhWmBkMsYmWR4/jRGFahA4H/gjX95oMPY=
+X-QQ-mid: zesmtpsz6t1755073566t0d2cf4d6
+X-QQ-Originating-IP: ehoTC6TvF9jhdhuMPH9TGp/slVsmOkyosadz0faF+GE=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 13 Aug 2025 16:26:04 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8202150046870958779
+EX-QQ-RecipientCnt: 20
+Date: Wed, 13 Aug 2025 16:26:04 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Guodong Xu <guodong@riscstar.com>, Vinod Koul <vkoul@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
-	Yao Zi <ziyao@disroot.org>,
-	Han Gao <rabenda.cn@gmail.com>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH 2/2] reset: th1520: add resets for display pipeline
-Date: Wed, 13 Aug 2025 16:17:16 +0800
-Message-ID: <20250813081716.2181843-3-uwu@icenowy.me>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250813081716.2181843-1-uwu@icenowy.me>
-References: <20250813081716.2181843-1-uwu@icenowy.me>
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Duje =?utf-8?Q?Mihanovi=C4=87?= <duje.mihanovic@skole.hr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH v3 0/8] dmaengine: mmp_pdma: Add SpacemiT K1 SoC support
+ with 64-bit addressing
+Message-ID: <268633D49B18C3E7+aJxMHPhItPq9ioto@LT-Guozexi>
+References: <20250714-working_dma_0701_v2-v3-0-8b0f5cd71595@riscstar.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <20250714-working_dma_0701_v2-v3-0-8b0f5cd71595@riscstar.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: ND42uzdxTIzrasBiYskI7YFsfAFqaS6bMzVEAUdaGis6CKaY6PR2S6Cv
+	9zoQ6VD3TN5bNZbUG0k+Ae96q5gg9gRK6lvQRnEQ6XlhZBU7HWa7Hw8mvi6QKNJUJ/ZK+/Y
+	VXJN4pBvg+2qXQAFqD00wTCKZX9HpoqE/iNF08laTqkFwiTRJuxiSUFbb/LTGABVKN5k5il
+	Q0JCurAvs/R8dsxVRVQg4WhLLwtjEpoxtET218BS/LQrRazWu79BDnzOsQz6kSda84awsGh
+	DLzb9IgEmWPkw24wgAhjf7XUVm5nkC0IacV36MVGgzvUpap6hVftviksq/VySJ61Zdudbu4
+	28NPYUFcG9kJW3aaLvIe9AlzhyZA3ERJelcamEIzE8fXWFNofofg5Ix0XFLlxfhLv9aT5by
+	gcnw8ovTUUOPcsoXA8rGX24kC9w5M9YOuo6ZaxYqaO+DgFUHQ/R3WSiu6VkdzoWQmestTGH
+	BmFThxxLfRUbjctR4z6g9PtxsTD9pWLFQRlkDw/aVDKNpvFnhgtitAEuSDiUrB4Q651RYMn
+	L9hGLjjJZ58maYOocxMKHXj+vOiqAQnBctzNCHK7G2tmblW+4hHs4JXJYKaraU2x2FvFo8M
+	RFOr/hYcQodYfd08V4yZ6Ee5oXLKRGhHLSinvsmZx3G5wWvmuV9qi4R1Wg3aiLX3UjL8JOa
+	xYtTXCYLmlxJnSBZtER/OXUfLxs2yjVRNvDxR8Q2XWJ70pfO7BSD4tnVFOvLlyMrsmZuCwS
+	hsQRGrlHtj33jq7cwo89MbFoLhrp2YBWcsoPldWo79TQyvRe3D3TgE+pwvCEabAko7KwAFB
+	rsFh9OkNT4aQsv7d3K2I9loecpLDN7kCLwlTEbL4ip2L1fQstvb5O0ZhmkGnW0WWvmD3cWo
+	qw7PQ7XKK0yquqTAdBDOofOQgYgKtwT6284eslAYIduyteXrsQMviPN9uVAGu1ErMav8MRN
+	EpFnlSoFmQLNy4SJbvqov0NCXWxBNeQkSNYPoqyodK/ixLfKzlGa+NO3j++JEwJ3XIbV1QE
+	975GbqXYugICPBdjRsZvIwHLlo2BtAklMwOJIioYhfb5OLpCcl9tyaZd0VA5TWoQuKtHg0/
+	w==
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_011835_113278_EA1D5149 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250813_012723_557171_4A53224E 
+X-CRM114-Status: GOOD (  25.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,81 +106,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The VO subsystem of TH1520 contains a few resets for the display
-pipeline -- display, MIPI DSI and HDMI controllers.
+Hi Guodong, thanks for your patches!
 
-Add support for them to the reset-th1520 driver.
+I have tested it using i2s and dma-tetst.
 
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
----
- drivers/reset/reset-th1520.c | 40 +++++++++++++++++++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
+Tested-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.c
-index 7874f0693e1b4..06e5dff7c524d 100644
---- a/drivers/reset/reset-th1520.c
-+++ b/drivers/reset/reset-th1520.c
-@@ -14,10 +14,20 @@
-  /* register offset in VOSYS_REGMAP */
- #define TH1520_GPU_RST_CFG		0x0
- #define TH1520_GPU_RST_CFG_MASK		GENMASK(1, 0)
-+#define TH1520_DPU_RST_CFG		0x4
-+#define TH1520_DSI0_RST_CFG		0x8
-+#define TH1520_DSI1_RST_CFG		0xc
-+#define TH1520_HDMI_RST_CFG		0x14
- 
- /* register values */
- #define TH1520_GPU_SW_GPU_RST		BIT(0)
- #define TH1520_GPU_SW_CLKGEN_RST	BIT(1)
-+#define TH1520_DPU_SW_DPU_HRST		BIT(0)
-+#define TH1520_DPU_SW_DPU_ARST		BIT(1)
-+#define TH1520_DPU_SW_DPU_CRST		BIT(2)
-+#define TH1520_DSI_SW_DSI_PRST		BIT(0)
-+#define TH1520_HDMI_SW_MAIN_RST		BIT(0)
-+#define TH1520_HDMI_SW_PRST		BIT(1)
- 
- struct th1520_reset_priv {
- 	struct reset_controller_dev rcdev;
-@@ -37,7 +47,35 @@ static const struct th1520_reset_map th1520_resets[] = {
- 	[TH1520_RESET_ID_GPU_CLKGEN] = {
- 		.bit = TH1520_GPU_SW_CLKGEN_RST,
- 		.reg = TH1520_GPU_RST_CFG,
--	}
-+	},
-+	[TH1520_RESET_ID_DPU_AHB] = {
-+		.bit = TH1520_DPU_SW_DPU_HRST,
-+		.reg = TH1520_DPU_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DPU_AXI] = {
-+		.bit = TH1520_DPU_SW_DPU_ARST,
-+		.reg = TH1520_DPU_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DPU_CORE] = {
-+		.bit = TH1520_DPU_SW_DPU_CRST,
-+		.reg = TH1520_DPU_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSI0_APB] = {
-+		.bit = TH1520_DSI_SW_DSI_PRST,
-+		.reg = TH1520_DSI0_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_DSI1_APB] = {
-+		.bit = TH1520_DSI_SW_DSI_PRST,
-+		.reg = TH1520_DSI1_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_HDMI] = {
-+		.bit = TH1520_HDMI_SW_MAIN_RST,
-+		.reg = TH1520_HDMI_RST_CFG,
-+	},
-+	[TH1520_RESET_ID_HDMI_APB] = {
-+		.bit = TH1520_HDMI_SW_PRST,
-+		.reg = TH1520_HDMI_RST_CFG,
-+	},
- };
- 
- static inline struct th1520_reset_priv *
--- 
-2.50.1
+                - Troy
 
+On Mon, Jul 14, 2025 at 05:39:27PM +0800, Guodong Xu wrote:
+> This patchset adds support for SpacemiT K1 PDMA controller to the existing
+> mmp_pdma driver. The K1 PDMA controller is compatible with Marvell MMP PDMA
+> but extends it with 64-bit addressing capabilities through LPAE (Long
+> Physical Address Extension) bit and higher 32-bit address registers (DDADRH,
+> DSADRH and DTADRH).
+> 
+> In v3, the major change is creating a separate yaml binding schema for
+> SpacemiT K1 PDMA, per Krzysztof's suggestion. By doing this, the binding
+> schema got simplified a lot. Deprecated property (ie. #dma-channels) and
+> unused values for backward compatibility (#dma-cells const 2) can be
+> removed.
+> 
+> Other changes involve placing pdma0 node in k1.dtsi and in board specific
+> dts files with proper ordering.
+> 
+> The patchset has been tested on BananaPi F3 board.
+> 
+> This patchset is based on SpacemiT linux (for-next) [1] with Patch 8
+> depending on:
+> - riscv: defconfig: run savedefconfig to reorder it
+>     It has been merged into riscv/linux.git (for-next)
+>     Link: https://git.kernel.org/riscv/c/d958097bdf88
+> 
+> [1] https://github.com/spacemit-com/linux.git (for-next)
+> 
+> All of these patches are available here:
+> https://github.com/docularxu/linux/tree/working_dma_0714_v3
+> 
+> Changes in v3:
+> - Created separated yaml binding for Spacemit K1 PDMA controller
+> - Updated pdma0 node properties according to the new yaml binding
+> - Put pdma0 node in k1.dtsi according to its device address
+> - Put pdma0 node in board dts files according to alphabetic order
+> 
+> Link to v2:
+> https://lore.kernel.org/r/20250701-working_dma_0701_v2-v2-0-ab6ee9171d26@riscstar.com
+> 
+> Changes in v2:
+> - Tag the series as "damengine".
+> - Used more specific compatible string "spacemit,k1-pdma"
+> - Enhanced DT bindings with conditional constraints:
+>    - clocks/resets properties only required for SpacemiT K1
+>    - #dma-cells set to 2 for marvell,pdma-1.0 and spacemit,k1-pdma
+>    - #dma-cells set to 1 for other variants
+> - Split mmp_pdma driver changes per maintainer feedback:
+>    - First patch (4/8) adds ops abstraction layer and 32-bit support
+>    - Second patch (5/8) adds K1-specific 64-bit support
+> - Merged Kconfig changes into the dmaengine: mmp_pdma driver patch (5/8)
+> - Enabled pdma0 on both BPI-F3 and Milk-V Jupiter
+> 
+> Link to v1:
+> https://lore.kernel.org/all/20250611125723.181711-1-guodong@riscstar.com/
+> 
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> ---
+> Guodong Xu (8):
+>       dt-bindings: dma: Add SpacemiT K1 PDMA controller
+>       dmaengine: mmp_pdma: Add optional clock support
+>       dmaengine: mmp_pdma: Add optional reset controller support
+>       dmaengine: mmp_pdma: Add operations structure for controller abstraction
+>       dmaengine: mmp_pdma: Add SpacemiT K1 PDMA support with 64-bit addressing
+>       riscv: dts: spacemit: Add PDMA0 node for K1 SoC
+>       riscv: dts: spacemit: Enable PDMA0 on Banana Pi F3 and Milkv Jupiter
+>       riscv: defconfig: Enable MMP_PDMA support for SpacemiT K1 SoC
+> 
+>  .../devicetree/bindings/dma/spacemit,k1-pdma.yaml  |  68 +++++
+>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |   4 +
+>  arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts  |   4 +
+>  arch/riscv/boot/dts/spacemit/k1.dtsi               |  11 +
+>  arch/riscv/configs/defconfig                       |   1 +
+>  drivers/dma/Kconfig                                |   2 +-
+>  drivers/dma/mmp_pdma.c                             | 281 ++++++++++++++++++---
+>  7 files changed, 339 insertions(+), 32 deletions(-)
+> ---
+> base-commit: 6be7a5a768aafcb07d177bd2ae36ab84e4e0acde
+> change-id: 20250701-working_dma_0701_v2-7d2cf506aad7
+> prerequisite-change-id: 20250611-01-riscv-defconfig-7f90f73d283d:v1
+> prerequisite-patch-id: 53bda77e089023a09152a7d5403e1a738355c5d3
+> 
+> Best regards,
+> -- 
+> Guodong Xu <guodong@riscstar.com>
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
