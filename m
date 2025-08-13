@@ -4,57 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6FAC87FCF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 18:06:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C17CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 18:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O1SwdMi8kWKBIIixDHYF0vkcVPGBpE/nIu6udVpdMrQ=; b=QZ3gEmCU8IslBYDbQwUhDVp4Iw
-	ml8vo4uURlWdyBjMAsL5lpAf47EGaSVGx2zJrD7ab2rFSBEsQlbt576QEUDT++pC+ECr5N0YXNuZp
-	lTnFnqMnPNma7TgKXlwxuieiuDJAnElk77FYRzacUX0+zyNtbgLhztxUHaghdIc3lPiw5a689erjy
-	QMz7VfcIFM+BBLDqehGx57A4eiC8h/SKubu3nSXQca/laj0oPDte1JIoTNIfKUNKAulz2rDI1X8xL
-	ifsU95jIbkxr1b4UHVWdT2C6BQX/xEszyZkDMCymuhrw+RBVPFbPfeQ2hVrmNjE7U4R6W0CpUSYFS
-	7oai7FQg==;
+	bh=ej9eKToShemPiCq6J1/nubYhIji8nW5e2Ga6v2PFRBI=; b=ACKyZAhEUCQQRkp3vjEu1CLGAK
+	Q5dkmMcHyRQ2fOEdBHpmUEYGdt/MUr+xdqpO9C4sCuGLYcyR12Ct60YUkyisKaVafE69TTOgYR7CH
+	yuaep/Ci92rsPpXp0fO48gV7ELNt19b+taY5UGsHm63J6sweDzf7KgHEbUQV7GYiLdL/Owx+K9BDs
+	OztNw1ty3VYtTPKC5QqyIen9wuoEpSyBf/+quNc7omGdbQ3ILp3laOWTVSADVj2My5Cx16trZHOy9
+	cFrIxDnIAjy+ptnnDNWv2dHQ476BFaKZRgePONa2VpxTu44iTnDhE5b0u0S9eEPnXEqkL5DOA17Tw
+	SSg3O2iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umFrC-0000000EeWU-1Lwm;
-	Wed, 13 Aug 2025 18:05:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1umFrM-0000000EefJ-3r8K;
+	Wed, 13 Aug 2025 18:06:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEgY-0000000ETE8-0bN1
+	id 1umEqU-0000000EVB2-235e
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Aug 2025 16:50:46 +0000
+	Wed, 13 Aug 2025 17:01:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51D1A601F4;
-	Wed, 13 Aug 2025 16:50:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DCF5C4CEEB;
-	Wed, 13 Aug 2025 16:50:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C7C155C6DFB;
+	Wed, 13 Aug 2025 17:01:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72301C4CEEF;
+	Wed, 13 Aug 2025 17:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755103843;
-	bh=umOXwit7HPdgtpNai0nTQjZA862x6q+vZeNe21y//E8=;
+	s=k20201202; t=1755104461;
+	bh=hPgVOTOzVezoA5w3n5VtqQYo2mxCUXrIIYMmOg4FXV0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fAQQX0URqXwNQMry05zSHW6LAkUTTNSUlrvfCeJ98mGbcu4GZkzhYusG0v2etKCgc
-	 AIrwuYRIZFqvNcvox0TtSHjLpLRmkDs2v3i93PvANAV/ogqTH1n4TSzRqCjS5AO5iD
-	 HlWA0DNVAZOL7Ofa3zOo4oopTU2aiPjInv4g/GganJoAkEK7x8hHGRTPAPkBzmyE0O
-	 j6WsmfWJdooLSJog5OHRiCMvS6VuCmiHCI9S9PTfRCmDbFd3tN1NncN8TvXfmegBeN
-	 g04t+AN0mVzmrF13Motl0xh07Qaw73sWpvJAatt8qAqw8SkQZmDIlzsU4y/3L8yIjc
-	 JyfGB1BChaJpA==
-Date: Wed, 13 Aug 2025 17:50:37 +0100
+	b=nMas8frntNXMrlTT99REIn0+lRenQk6+eTBfytsfAAY80CZSbPag8bJKBuyCTgldc
+	 Q1N8eY4ndQ2hQ5GzTkCDGruW8ajBO4TRHU9qMN1BliATenKBTYM+kGxuBOo5ZyTa1X
+	 VllOqWMpxzdgTBwuuVV3ijYARoxWHiuaIMLxQHHG2H7XcQoKYL9OugfZLKbCF9qast
+	 Dsfu3ss55MUvIqhEiDZSz4ShdxnA8bKfSyNGbEACqOU7QHk+3FOY2MIRg0m94kHq5I
+	 /yvtl7yAOdVwgivDRIpLD4RDP8kXamkAtyzX9IlXSPQvPmycoPz2f+ZtSCWsK84VoQ
+	 H/qFCQ91dCzWA==
+Date: Wed, 13 Aug 2025 18:00:56 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	gregkh@linuxfoundation.org, jirislaby@kernel.org, dlan@gentoo.org,
-	lkundrak@v3.sk, devicetree@vger.kernel.org,
-	linux-serial@vger.kernel.org, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: serial: 8250: move a constraint
-Message-ID: <20250813-pelvis-undress-b2c4bbb1d814@spud>
-References: <20250813032151.2330616-1-elder@riscstar.com>
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michal Wilczynski <m.wilczynski@samsung.com>,
+	Yao Zi <ziyao@disroot.org>, Han Gao <rabenda.cn@gmail.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: reset: thead,th1520-reset: add more
+ VOSYS resets
+Message-ID: <20250813-upstage-identify-683582a03f7e@spud>
+References: <20250813081716.2181843-1-uwu@icenowy.me>
+ <20250813081716.2181843-2-uwu@icenowy.me>
 MIME-Version: 1.0
-In-Reply-To: <20250813032151.2330616-1-elder@riscstar.com>
+In-Reply-To: <20250813081716.2181843-2-uwu@icenowy.me>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250813_100102_566136_365FDF5C 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,52 +76,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2243885216092650259=="
+Content-Type: multipart/mixed; boundary="===============8999723903571695116=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2243885216092650259==
+--===============8999723903571695116==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4+YlI8SXROeMd4hi"
+	protocol="application/pgp-signature"; boundary="zLx+xFUkqdnSsKIv"
 Content-Disposition: inline
 
 
---4+YlI8SXROeMd4hi
+--zLx+xFUkqdnSsKIv
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Aug 12, 2025 at 10:21:50PM -0500, Alex Elder wrote:
-> A block that required a "spacemit,k1-uart" compatible node to
-> specify two clocks was placed in the wrong spot in the binding.
-> Conor Dooley pointed out it belongs earlier in the file, as part
-> of the initial "allOf".
+On Wed, Aug 13, 2025 at 04:17:15PM +0800, Icenowy Zheng wrote:
+> VOSYS contains more resets for a display pipeline, includes ones for the
+> display controller (called DPU in the manual), the HDMI controller and 2
+> MIPI DSI controllers.
 >=20
-> Fixes: 2c0594f9f0629 ("dt-bindings: serial: 8250: support an optional sec=
-ond clock")
-> Reported-by: Conor Dooley <conor@kernel.org>
-> Closes: https://lore.kernel.org/lkml/20250729-reshuffle-contented-e6def76=
-b540b@spud/
-> Signed-off-by: Alex Elder <elder@riscstar.com>
+> Allocate IDs for these resets in the dt binding header file.
+>=20
+> Now all peripheral related VOSYS reset controls are here, only the bus
+> matrix / IOPMP ones are missing, which shouldn't be messed with.
+>=20
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---4+YlI8SXROeMd4hi
+--zLx+xFUkqdnSsKIv
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaJzCXQAKCRB4tDGHoIJi
-0gThAQCi1iV3SuPkecqRkGn5+WZqYG7Ill9PuYyIpNgLbYrr1AEAimZbtkYt4pa7
-wWhXwjIqcs6KjT9DuXWGWB+Bk8dgJg4=
-=5zk2
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaJzEyAAKCRB4tDGHoIJi
+0gxpAP0YBFmEYd0HAqrdEYHu+BQ+mClU/GfxdUwkKpFg61rWXAEAmjNCfBLWG/dz
+s0ZdN1Q34+01iYJuldDj2Vwt5ry8MgE=
+=VRmL
 -----END PGP SIGNATURE-----
 
---4+YlI8SXROeMd4hi--
+--zLx+xFUkqdnSsKIv--
 
 
---===============2243885216092650259==
+--===============8999723903571695116==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -122,5 +131,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2243885216092650259==--
+--===============8999723903571695116==--
 
