@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C17CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 18:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460FFCA0EE0
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Aug 2025 18:06:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ej9eKToShemPiCq6J1/nubYhIji8nW5e2Ga6v2PFRBI=; b=ACKyZAhEUCQQRkp3vjEu1CLGAK
-	Q5dkmMcHyRQ2fOEdBHpmUEYGdt/MUr+xdqpO9C4sCuGLYcyR12Ct60YUkyisKaVafE69TTOgYR7CH
-	yuaep/Ci92rsPpXp0fO48gV7ELNt19b+taY5UGsHm63J6sweDzf7KgHEbUQV7GYiLdL/Owx+K9BDs
-	OztNw1ty3VYtTPKC5QqyIen9wuoEpSyBf/+quNc7omGdbQ3ILp3laOWTVSADVj2My5Cx16trZHOy9
-	cFrIxDnIAjy+ptnnDNWv2dHQ476BFaKZRgePONa2VpxTu44iTnDhE5b0u0S9eEPnXEqkL5DOA17Tw
-	SSg3O2iw==;
+	bh=YRMEB3mu5VU1TX87qbUvlStVRDJDB89nd3FvO8gqABU=; b=VhhZ6C+9w7gUixPRhyXW5cmG9d
+	W1xCvH6WqSnRGps3/LzD/hljZmebH2f5GbDism5m6Mvjb6unnCc0uE0HJyegj1k4igEdPdLwaZrBW
+	MH9CRalusk8uDXpAj5gaNMB3mNgrJoijaQFzG67/5lFl4LxDv3LZRNrPZFayFPTMT+ZtG7KX5LWcB
+	NN8jPnIzBKKPa0tD9ebwGKnf8ZyN57zyNXBFRV1ohoMkgvIL91bVxwYDnwfWqfpqHOkxLGIOwnrBd
+	t1XLeB3va3wZUqGALr0ZgeDgczhosfSs4euUKes+hDkydbOtPD5Jc7f+cQwlYLsnTam2vJPwKxSRF
+	THlgpjbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umFrM-0000000EefJ-3r8K;
-	Wed, 13 Aug 2025 18:06:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1umFrE-0000000EeXR-0jtA;
+	Wed, 13 Aug 2025 18:05:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEqU-0000000EVB2-235e
-	for linux-riscv@lists.infradead.org;
-	Wed, 13 Aug 2025 17:01:03 +0000
+	id 1umEhL-0000000ETMW-1CW3;
+	Wed, 13 Aug 2025 16:51:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C7C155C6DFB;
-	Wed, 13 Aug 2025 17:01:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72301C4CEEF;
-	Wed, 13 Aug 2025 17:00:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A8DC6458EB;
+	Wed, 13 Aug 2025 16:51:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6F9FC4CEF1;
+	Wed, 13 Aug 2025 16:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755104461;
-	bh=hPgVOTOzVezoA5w3n5VtqQYo2mxCUXrIIYMmOg4FXV0=;
+	s=k20201202; t=1755103894;
+	bh=alZxexKuJRxDY0e4fO9bj6yA3dNEp3f4NpaBSvlkKBI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nMas8frntNXMrlTT99REIn0+lRenQk6+eTBfytsfAAY80CZSbPag8bJKBuyCTgldc
-	 Q1N8eY4ndQ2hQ5GzTkCDGruW8ajBO4TRHU9qMN1BliATenKBTYM+kGxuBOo5ZyTa1X
-	 VllOqWMpxzdgTBwuuVV3ijYARoxWHiuaIMLxQHHG2H7XcQoKYL9OugfZLKbCF9qast
-	 Dsfu3ss55MUvIqhEiDZSz4ShdxnA8bKfSyNGbEACqOU7QHk+3FOY2MIRg0m94kHq5I
-	 /yvtl7yAOdVwgivDRIpLD4RDP8kXamkAtyzX9IlXSPQvPmycoPz2f+ZtSCWsK84VoQ
-	 H/qFCQ91dCzWA==
-Date: Wed, 13 Aug 2025 18:00:56 +0100
+	b=PDg2ZCyH4ajXLj2AbKVypeCzSlWWhmIXAAed3U43vAolmHFPzJIq9xj+2SQS2CGnf
+	 A1fi6/1H5G+qtbMRoasHX2D6eKcY7JszjfW52QpacYgT0YMP1tdEpe3HcD3GPv1r9W
+	 L+ly6AHYVg70ypQulceswIE+sAUx1g8krjGpvCa5mkV1MvbaYlhbUgx0jXWenuEEW1
+	 0Y/ijSPMoHWjq09GvXB9cDpHC78faqTjOJrKxCVp9OzqMF/CRWYgyw/Nytt75o7mC/
+	 mXe15yxiS0h6ZqTBOcAYQLMsJ2t4ZW1SCbELcvZBCUDtI+ztjNd7dOaiutegNF+mse
+	 RHfwFT3XnI0Dw==
+Date: Wed, 13 Aug 2025 17:51:28 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michal Wilczynski <m.wilczynski@samsung.com>,
-	Yao Zi <ziyao@disroot.org>, Han Gao <rabenda.cn@gmail.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: reset: thead,th1520-reset: add more
- VOSYS resets
-Message-ID: <20250813-upstage-identify-683582a03f7e@spud>
-References: <20250813081716.2181843-1-uwu@icenowy.me>
- <20250813081716.2181843-2-uwu@icenowy.me>
+To: Alex Elder <elder@riscstar.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	gregkh@linuxfoundation.org, jirislaby@kernel.org, dlan@gentoo.org,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	lkundrak@v3.sk, devicetree@vger.kernel.org,
+	linux-serial@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v2] dt-bindings: serial: 8250: allow "main" and "uart" as
+ clock names
+Message-ID: <20250813-squint-glass-b68c6520a229@spud>
+References: <20250813031338.2328392-1-elder@riscstar.com>
 MIME-Version: 1.0
-In-Reply-To: <20250813081716.2181843-2-uwu@icenowy.me>
+In-Reply-To: <20250813031338.2328392-1-elder@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_100102_566136_365FDF5C 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250813_095135_347119_0507C4AA 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +72,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8999723903571695116=="
+Content-Type: multipart/mixed; boundary="===============8344028563431037307=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8999723903571695116==
+--===============8344028563431037307==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zLx+xFUkqdnSsKIv"
+	protocol="application/pgp-signature"; boundary="1anDfOTh12y5hzMv"
 Content-Disposition: inline
 
 
---zLx+xFUkqdnSsKIv
+--1anDfOTh12y5hzMv
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Aug 13, 2025 at 04:17:15PM +0800, Icenowy Zheng wrote:
-> VOSYS contains more resets for a display pipeline, includes ones for the
-> display controller (called DPU in the manual), the HDMI controller and 2
-> MIPI DSI controllers.
+On Tue, Aug 12, 2025 at 10:13:35PM -0500, Alex Elder wrote:
+> There are two compatible strings defined in "8250.yaml" that require
+> two clocks to be specified, along with their names:
+>   - "spacemit,k1-uart", used in "spacemit/k1.dtsi"
+>   - "nxp,lpc1850-uart", used in "lpc/lpc18xx.dtsi"
 >=20
-> Allocate IDs for these resets in the dt binding header file.
+> When only one clock is used, the name is not required.  However there
+> are two places that do specify a name:
+>   - In "mediatek/mt7623.dtsi", the clock for the "mediatek,mtk-btif"
+>     compatible serial device is named "main"
+>   - In "qca/ar9132.dtsi", the clock for the "ns8250" compatible
+>     serial device is named "uart"
 >=20
-> Now all peripheral related VOSYS reset controls are here, only the bus
-> matrix / IOPMP ones are missing, which shouldn't be messed with.
+> In commit d2db0d7815444 ("dt-bindings: serial: 8250: allow clock
+> 'uartclk' and 'reg' for nxp,lpc1850-uart"), Frank Li added the
+> restriction that two named clocks be used for the NXP platform
+> mentioned above.
 >=20
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> Change that logic, so that an additional condition for (only) the
+> SpacemiT platform similarly restricts the two clocks to have the
+> names "core" and "bus".
+>=20
+> Finally, add "main" and "uart" as allowed names when a single clock is
+> specified.
+>=20
+> Fixes: 2c0594f9f0629 ("dt-bindings: serial: 8250: support an optional sec=
+ond clock")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202507160314.wrC51lXX-lkp@i=
+ntel.com/
+> Signed-off-by: Alex Elder <elder@riscstar.com>
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---zLx+xFUkqdnSsKIv
+--1anDfOTh12y5hzMv
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaJzEyAAKCRB4tDGHoIJi
-0gxpAP0YBFmEYd0HAqrdEYHu+BQ+mClU/GfxdUwkKpFg61rWXAEAmjNCfBLWG/dz
-s0ZdN1Q34+01iYJuldDj2Vwt5ry8MgE=
-=VRmL
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaJzCkAAKCRB4tDGHoIJi
+0hf5AQCJLTs84F3yXa+J58tT2Ytl+UUy+1ftd0PWZy75L6EgiQEAqd0HSvhT8Kdp
+3558GIp4PpqlN9n18fVGmK6z3ca8Cgo=
+=iaPg
 -----END PGP SIGNATURE-----
 
---zLx+xFUkqdnSsKIv--
+--1anDfOTh12y5hzMv--
 
 
---===============8999723903571695116==
+--===============8344028563431037307==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -131,5 +147,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8999723903571695116==--
+--===============8344028563431037307==--
 
