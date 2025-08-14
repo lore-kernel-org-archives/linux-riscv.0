@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35792CA0EE4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3F6CA0ED1
 	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 09:46:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NmhxOaQ+oXEQmYO/Zy16m8j1Lhe3rw5X4Z4JyPFcBEg=; b=Sv4HEWstnzJPCk
-	flG4j+vwy81ccP94tVySqPddwnttUE+AC8XvYkz58d0KwBDGTvmNXLF+ZXDtEQButUmuMTTAkIwQn
-	aKGYR8dH+1BMt1ZSdLkIFucqq7YmJd56h/YhS1gTYyLWasE22G7ireU4I04U246mcSvSlww8YJC6s
-	pbqANyIryl4DW7JAlxK1TlbIZuU7hZ2DpsfyGqmiWcPYXBhStQietba6Qd4rdz+Hqt88PF+hwXIn4
-	WvyUU0/yeLM2KFJOKX8S8lq4IRg6HnSyHTcl+aDExeI0k4KSqKIVg3GHzPeWkxLFoJG5p91jqi73E
-	qgHnjKgQ+BmEGHcMR+Aw==;
+	List-Owner; bh=I+V74p7RXI2Z88jgDXmZr1FKEjm+CRLKKDYPDddgkoI=; b=JABsKK+iSA0xJD
+	Toh2+Qmkut3+QNkPWhP4lUlpXeZKwYScFfkSD+V/5+VcUHVqyh82CljFhCRokeemfiUEtI+5wuVNo
+	zX/K93RRzqoRkq952fGfMZno7oZ5MIiFvv3qOQTdZUkeexw+CNLZn4i00885wE6CtDpRvPpYRugJW
+	khINKwAkofDTeuHTFwinaP9dzlaK/WcSXJXb+A1pQJIaxb2CVTi2k6khwSLQEphNBguECSK7IOwnB
+	Hy3+9SOikZJ0JoKacYQdUJkOZslhyuVgvfKikqIY3YK3VdX7PJ9YVOLdza+bRicDAordG1nwFKzzP
+	QueaJa2nokQ39bdr5kfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUXS-0000000GTSn-20Tu;
-	Thu, 14 Aug 2025 09:46:26 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1umUXT-0000000GTTY-0qku;
+	Thu, 14 Aug 2025 09:46:27 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umS5L-0000000G2Tk-2D5b
+	id 1umS7Y-0000000G2xT-3nCd
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Aug 2025 07:09:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755155349; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=CGBpP2W8+XyP+ijwC5mVu0sCt/wY6l1nkGT89S//8IAneMCIYxkSEQ+1pt3ogTFm15i3yAwCssCMvRCzyv9Gzhp2tjOQ2ephKg0bMVSabyf7ZaOKX3mtS/6uo3yMpbLFVKWZSSBcJ9ia1Kcm9vLxH8FRnlezU8cCXS5N+BkefdE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755155349; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ovEpVAobaOr5oSBqbEFTxrzxetp69gYJsDnRp3Z4kbc=; 
-	b=YusffWqmjwbF8xra1OyH9QFNBqY2kNfq4IKnhr7VRyw7R7tjSXmpCzC11L90pKdFmToJJr8GsStcnXziLwJSLio/6mvGEAV/s8TCz7j7Fn2oQzFXP7O1wt4g9mjaUR8zRnufPVfvukQVnYEsZ6Bk1s4onWWwwO+JiikT8s5a2QM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755155349;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=ovEpVAobaOr5oSBqbEFTxrzxetp69gYJsDnRp3Z4kbc=;
-	b=eVPArtS4raaE+ZdXltwOJwjfHIFRpXne6G8ci5hUeEcWGtb2BBoysE3JyxGaWDFy
-	w8WxC+DynbcWgkbS9dcQCE7dXLdCybNncVTB+18cQ7WmoAXDF1TWLqWppnYOTHYlXOy
-	+lNX1USHsX83k6e9SqulDArMtFSDe387sNMgf/vQft0s5NtKvGwKH7lBp2HTS3PCgvG
-	w6+MlRE0JBKUanjSHDMYwntqF0HE/uDDsWSegyJWtXU8n8nlG4nbP5+HoHbwf5Z3LXa
-	yfa9Po7eLkda7x17hX8DlNrOnxzhT9pZJBWnFGyDpCvAQC5dfWmkswYFhI7VU5q4j6r
-	1McF2xJ7aA==
-Received: by mx.zohomail.com with SMTPS id 1755155346042254.80641025392765;
-	Thu, 14 Aug 2025 00:09:06 -0700 (PDT)
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Han Gao <rabenda.cn@gmail.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Yao Zi <ziyao@disroot.org>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Icenowy Zheng <uwu@icenowy.me>
-Subject: [RFC PATCH 4/4] riscv: dts: thead: th1520: add mailbox channel for SBI-to-AON comm
-Date: Thu, 14 Aug 2025 15:07:57 +0800
-Message-ID: <20250814070757.2267325-5-uwu@icenowy.me>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250814070757.2267325-1-uwu@icenowy.me>
-References: <20250814070757.2267325-1-uwu@icenowy.me>
+	Thu, 14 Aug 2025 07:11:34 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1umS7G-0005i4-1i; Thu, 14 Aug 2025 09:11:14 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1umS7E-000DJQ-31;
+	Thu, 14 Aug 2025 09:11:12 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1umS7E-0002mN-2m;
+	Thu, 14 Aug 2025 09:11:12 +0200
+Message-ID: <d256d4a9aed3cca70917391db3b187f73f9be74d.camel@pengutronix.de>
+Subject: Re: [PATCH 2/2] reset: th1520: add resets for display pipeline
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Icenowy Zheng <uwu@icenowy.me>, Drew Fustini <fustini@kernel.org>, Guo
+ Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>
+Cc: Michal Wilczynski <m.wilczynski@samsung.com>, Yao Zi
+ <ziyao@disroot.org>,  Han Gao <rabenda.cn@gmail.com>,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+Date: Thu, 14 Aug 2025 09:11:12 +0200
+In-Reply-To: <20250813081716.2181843-3-uwu@icenowy.me>
+References: <20250813081716.2181843-1-uwu@icenowy.me>
+	 <20250813081716.2181843-3-uwu@icenowy.me>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-X-ZohoMailClient: External
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_000915_628988_069F512B 
-X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-CacheID: sfid-20250814_001132_948254_8D3BE27D 
+X-CRM114-Status: UNSURE (   6.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,33 +83,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a mailbox channel declaration to the AON firmware node to describe
-the mailbox channel assigned to the SBI firmware to communicate with
-AON.
+On Mi, 2025-08-13 at 16:17 +0800, Icenowy Zheng wrote:
+> The VO subsystem of TH1520 contains a few resets for the display
+> pipeline -- display, MIPI DSI and HDMI controllers.
+> 
+> Add support for them to the reset-th1520 driver.
+> 
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
----
- arch/riscv/boot/dts/thead/th1520.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index 136ebe210b876..6e5e0223d0c16 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -233,8 +233,8 @@ stmmac_axi_config: stmmac-axi-config {
- 
- 	aon: aon {
- 		compatible = "thead,th1520-aon";
--		mboxes = <&mbox_910t 1>;
--		mbox-names = "aon";
-+		mboxes = <&mbox_910t 1>, <&mbox_910r 1>;
-+		mbox-names = "aon", "aon-for-sbi";
- 		resets = <&rst TH1520_RESET_ID_GPU_CLKGEN>;
- 		reset-names = "gpu-clkgen";
- 		#power-domain-cells = <1>;
--- 
-2.50.1
-
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
