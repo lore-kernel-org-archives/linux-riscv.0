@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A2C3CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 13:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1B41CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 14:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ze1l6AhMaBZJEAqYQBa02VmCQxgEwVNH0cnUkgvMP+g=; b=amq4b8RGG3UUge
-	J8ikkIWlDS13YlTNFoP5/riPliw2p6GPG35nFjjl0USsPPksE3JqNDJ94jb0eoMcTqlU4aHE6WnEk
-	FjDW75XJ5p5gY0RPruEFwiNq2ZVU8VnJ1IgTInqg4B3gab1aUB+WebxnK2VKPUgn4QZsMPb3ofRaH
-	S/uo1ZbfOYs70MKuBAU2LyVZZwae3afexFReigJ2vZmOGiuCKDL6PvKoAVmOgqc/viI7EjWtt4Qml
-	j/uwe60U0uVSbzN52u3JfWeFfHN8t8QOSj+dyltBekdnjTY37Xe7T06GM33zcAJpzxBCt+6ScUvwI
-	rchN5Q7TfZLSpoofkrmA==;
+	List-Owner; bh=NIRZ+oPJfndvxLnfYGRO+IM41C92lOAIDZEhBfZy2+0=; b=eTJwzrapuCohef
+	GZb+MzIlxXWmR0B+TxvSSa2AbFe/Mor92bSjZRfX6WnoQzDWPh1ujy+kzel3XRmMZFxCXmdzd2vGF
+	jP3kfCpCEt0mBgqlJodbdSk4UBUQY0HNXnDdWkyqh2RMHGN1siSFW4O0sBdmEY8lZhUt1ZTeiKePa
+	/k+roYk1zMXtj/UocvvnhJb6xjUyywZtS0V2CjY5HyK8KW3Jj2X6JlqV15ri60tMc3KHRrLsGHm79
+	Wvg6NRBLaeXAX9P7XBNq1MH9shVODgzyRI+BVm9XlMXjtBswHw9IqqsxClTx2uk9u2S0dkH08rBqQ
+	O4CtFlr0FC0SkorFjrJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umYHT-0000000H5lz-2EWw;
-	Thu, 14 Aug 2025 13:46:11 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1umYeG-0000000HAoO-353g;
+	Thu, 14 Aug 2025 14:09:44 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXWs-0000000Gu6W-29hu
+	id 1umXtc-0000000H25y-0sM8
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Aug 2025 12:58:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1755176237;
-	bh=IgYBW3AwwhAJwKaYD6mgI5O0u1e0WHzUqLYXuWvzKjM=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=c3MZlxDQ3CGAFllzic41M0oGippFsgU/SsTkFhb4dRCQ70QrpyTit62dwy5Q3w0Cq
-	 v+bXmqvHexTUbofPhbpWcn3pIvkRW5PwZ1TIxELToVn9mLtH6OS6EZ021TSS0q+e46
-	 SQT1+pY1/xKkhivw2KrKtcwHxxNyU4ECnjy0Wc1k=
-X-QQ-mid: zesmtpip3t1755176231taaf36bef
-X-QQ-Originating-IP: wN+c2eLOkRNcIVJY1pNB6J5n1MGPm6y3uPW43ysrABI=
-Received: from = ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 14 Aug 2025 20:57:10 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13746555438380575708
-EX-QQ-RecipientCnt: 7
-Date: Thu, 14 Aug 2025 20:57:07 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH v3] i2c: spacemit: configure ILCR for accurate SCL
- frequency
-Message-ID: <47E243C976750BA8+aJ3dIytXKwoC51Wt@troy-wujie14pro-arch>
-References: <20250814-k1-i2c-ilcr-v3-1-317723e74bcd@linux.spacemit.com>
+	Thu, 14 Aug 2025 13:21:33 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e931cb17df8so964102276.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Aug 2025 06:21:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755177691; x=1755782491; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=p/n0Fl1KI8FOX3ahVUqMGcL03bOlc50H+x6+cXcc8qk=;
+        b=YJwZayZXqe8XK7PhDFPNvcI0Pfgd9YvmNKk3b4tWVy6XirPcFhS8lzuAj0wPf61Ne0
+         B3QHbe/PH79+xVPlmDMf7u6SaCOx8KCi7YnvWWgvr/N7ndacuzC49WKelH+SSG1XYfud
+         FAd8nn1nMFjISOD4elqwoRU6j1/94k95Q8dA2+vId7zdKntibekJD1idRBn6mpbxImrL
+         /Xfh/7CWbTlYU0aaDwpq8bA6EryDUGjeAKdITpQnu2kd7eL0/3kyupy+mgbitWp1Nf2n
+         FDVIex2wQZidSUdtMSOVA7yAK6Qi5oZdbJVw7UJMLbg3KQXTSWkVH6dXV/GRf1FaNDCg
+         1cag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755177691; x=1755782491;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=p/n0Fl1KI8FOX3ahVUqMGcL03bOlc50H+x6+cXcc8qk=;
+        b=o/J0zM451JUDbFav6/0Yw+mdtZEAVAp2ntXMfOg8mvxW6g5fHaKj687ZlDk9Q8sH/o
+         6K/Kyi+4Sjq3QTeMyXloUXbGWC1yDBdjjiIsSm1A/hy9xVVUrhqtCtA/wmRtn7j/PuIr
+         n97fxmQcOFtioXoP5mK/I6c7tnKto0WL+LKYdZTxGZcAzr/Bp16GP2oY1SXQk7w0RoT6
+         GYHaWIr0aZDvFdmUifXqN32LrgCIBHh6Ap9tcwtQ1JEb3Fdg5GhQYgenCDBoRIisCpnr
+         /2bI4Eb+zlRIYeGJlic4uxIpZagLySLN+A0/xXXLj5Zv3QZh4MDlBffkudGGlacpzFIB
+         BhDg==
+X-Gm-Message-State: AOJu0YwcenQdV4kjQf/xGZ/3um4vE/eX2/rfvowy5UlxBY0jhuhhy4jR
+	ebj7o70Y7jwcOhanJOj7qbrL/krasux6P/g+lfjYCTsaL2fKbWygYaX9nmljHGA2CFuGpQSQDJM
+	YJ0oLXRLRSwaeuInsBPsJgoJKEugm5Eo=
+X-Gm-Gg: ASbGncvPmBeq+rKvlnQYpOqVaQmyYQvNdMhE6+pzB80wR7RiLIfJdhyaxcP1jcswGOS
+	soKahhXcd84r6eD7Krg5xptpBm7jyVfGcI51ThmW97CFfM7WC2mACBc8odmQzsj3z7WG/2UIEqB
+	cb38ONlKx3Ieo3pBkYUmnynxI/YzAXH9eYwvOcffqpOQSjnjWCvxzAS8zmbx1Pblg5J9JQ0AOoZ
+	Uwb1OgXCcZ+zkbIyRV3ss01+G7Cd9CQccqFOQGYWnda9opvbg==
+X-Google-Smtp-Source: AGHT+IGUJmHTB7Bj+7rMx6IHrlE3IGJokeOYKHAs+IXBzmFaWMqhj3LetKa3W4S1HzGEDcBALeQ1TmJ3RJYTbjiLwp8=
+X-Received: by 2002:a05:6902:4012:b0:e8b:c2b2:306f with SMTP id
+ 3f1490d57ef6-e931e128180mr3894720276.4.1755177690998; Thu, 14 Aug 2025
+ 06:21:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250814-k1-i2c-ilcr-v3-1-317723e74bcd@linux.spacemit.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: MBE1fGFuYIVHVKoAUON4dnP/pZAgdYUEFJA9fYOGfIudoh0wsDFfnS4C
-	NxW6KsDaoQmoo2KDutvD0lQdgKQTv2a/1kwNq+RVif/s82+C9PtllCsNSUxHrvOKjRpqTKK
-	7ESgsvyq9RxRRb2z2csDGZvIGeoWNQ11z/J6TQfnKFXHxOF/R3IhzocMsfZkAQlylMUkPHe
-	l1nyHRYIYrYcfMfd6lU0FqCOKQ+5FpGX0SdqjoQ89bBG0N60f6bD7ocCGqEUbMSvVFzMmGl
-	qkJO1JN2pLKk6D2OmQg4t+23c94qNRC6bzaVZCooN20cCKngMZjjyiJgkJHaF6GkOuJyBVH
-	u79BypNm2wf0DnmFV9PKGYSGrwKC+nUBk1qHHRZOhCAk9Zikaz6wGO/Ud/BgtA1GG49dmnx
-	zKvC2dkXB7i4GmHsXVbRjqjD1jaae8fXLdVdaM6jKkpz2/l2XWCV9DxsSxeNd9Rb6EQxgdX
-	weJI0eCgTchWJpNkViJZTJMtlQ7c4/xlxtnkTVhqmqMd4mLeioRuJCqE7SZeIDC/45UdeZl
-	igWSSYMrIQquGY4/uPsmyRYQXiSQk0+TiPelkPtvqVP/0GSNCrSpyZy8lTiJoowLagNMR0g
-	Z14u4OaUkzKMuAR2iiF9mw7t9Tm+2d3qLOrnhx1vwDVFa7xccp1rjEEy8vwAHhWJ881czF9
-	2BGDY+1mp3J/2Res/e284LT5rbyBu9qV1Er4jShFzdqp//Uczg+k85As1FFJ3tYjH2NvbZA
-	nLqyEQoAVc7z0RjZehsnUdN/WgQVN9OND2SSJmduYrq7NoDa3J6IKBt6Gg4mku/nn0izCXg
-	EWEysJr6k7RoqUXNTuHTs0YJZ1QLcAEKs5qOsPaONZRG1G/sZTuC5FGp5fmgykJTHum9OUk
-	fNTt/Gw/q2Nukboam6vGhJRO7pIaH3+VdzNDYXT1BlI3q27fLQdZGU0qjJeivYcfOnxsAHf
-	H+KMm7FfWTd4G4sz03iFyyy0BxkPRwDVLT4HB3yKV+VKp02ICcRIb8ocaEV35TbBaZrRVHT
-	7F4ca+lm7xOEXzNlrYRtOENvdb+9l6Q8UmehZ/qIcRzlCvcxRG5q8X4busZuswmA3K1jE+D
-	eEfAgFvxjGgRI2G2PwAS1aXfI3w03xbhvQkDj7Pai3vcMY5etabBK9SAPxCSXKzNQ==
-X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
-X-QQ-RECHKSPAM: 0
+References: <CAAbFZ0iFJbpqxqTUYhB+tUZSiL1qQJ=PeABCCjkeSpf4_TNiyQ@mail.gmail.com>
+ <20250813180545.110666-1-parisoplop@gmail.com> <bb580c80-5c6d-43f8-808a-e0d713f0be0c@ghiti.fr>
+ <CAAbFZ0hK7uAm_jXoThK+tLsGzBrLSNr1=Gv8=H21D7DyODWB6g@mail.gmail.com>
+ <18ea9e1c-ebf9-4a5e-8880-d1af9ea07138@ghiti.fr> <CAAbFZ0j0UL0E08NCFgHRwL83CbWiKTnmaaMm414Oofi12HxLgA@mail.gmail.com>
+ <ef00cbeb-e86e-40ed-b5f6-d771b10216da@ghiti.fr>
+In-Reply-To: <ef00cbeb-e86e-40ed-b5f6-d771b10216da@ghiti.fr>
+From: Paris Oplopoios <parisoplop@gmail.com>
+Date: Thu, 14 Aug 2025 16:21:18 +0300
+X-Gm-Features: Ac12FXwroAe1jSeoWVSJGnyZ9N8UJ_Z3EWLivv32onbv9Vfq-YIYnHSmwoQycF0
+Message-ID: <CAAbFZ0gh_gbvYeZ4K0YPr_xBS-srMjseNmVkYzg_R-XYuu89-g@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: hwprobe: allow querying available
+ RISCV_HWPROBE_KEY_IMA_EXT_0 bits
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, Conor Dooley <conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_055803_636307_F251D577 
-X-CRM114-Status: GOOD (  37.35  )
+X-CRM114-CacheID: sfid-20250814_062132_253987_9E1EE8BE 
+X-CRM114-Status: GOOD (  63.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,326 +98,228 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 05:06:01PM +0800, Troy Mitchell wrote:
-> The SpacemiT I2C controller's SCL (Serial Clock Line) frequency for
-> master mode operations is determined by the ILCR (I2C Load Count Register).
-> Previously, the driver relied on the hardware's reset default
-> values for this register.
-> 
-> The hardware's default ILCR values (SLV=0x156, FLV=0x5d) yield SCL
-> frequencies lower than intended. For example, with the default
-> 31.5 MHz input clock, these default settings result in an SCL
-> frequency of approximately 93 kHz (standard mode) when targeting 100 kHz,
-> and approximately 338 kHz (fast mode) when targeting 400 kHz.
-> These frequencies are below the 100 kHz/400 kHz nominal speeds.
-> 
-> This patch integrates the SCL frequency management into
-> the Common Clock Framework (CCF). Specifically, the ILCR register,
-> which acts as a frequency divider for the SCL clock, is now registered
-> as a managed clock (scl_clk) within the CCF.
-> 
-> This patch also cleans up unnecessary whitespace
-> in the included header files.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
-> Changelog in v3:
-> - use MASK macro in `recalc_rate` function
-> - rename clock name
-oops. There is one more thing written here.
-no rename.
+> Can you add that ^ to the change log?
 
-> - Link to v2: https://lore.kernel.org/r/20250718-k1-i2c-ilcr-v2-1-b4c68f13dcb1@linux.spacemit.com
-> 
-> Changelog in v2:
-> - Align line breaks.
-> - Check `lv` in `clk_set_rate` function.
-> - Force fast mode when SCL frequency is illegal or unavailable.
-> - Change "linux/bits.h" to <linux/bits.h>
-> - Kconfig: Add dependency on CCF.
-> - Link to v1: https://lore.kernel.org/all/20250710-k1-i2c-ilcr-v1-1-188d1f460c7d@linux.spacemit.com/
-> ---
->  drivers/i2c/busses/Kconfig  |   2 +-
->  drivers/i2c/busses/i2c-k1.c | 180 ++++++++++++++++++++++++++++++++++++++++----
->  2 files changed, 167 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-> index c8d115b58e449b59a38339b439190dcb0e332965..1382b6c257fa4ba4cf5098d684c1bbd5e2636fd4 100644
-> --- a/drivers/i2c/busses/Kconfig
-> +++ b/drivers/i2c/busses/Kconfig
-> @@ -797,7 +797,7 @@ config I2C_JZ4780
->  config I2C_K1
->  	tristate "SpacemiT K1 I2C adapter"
->  	depends on ARCH_SPACEMIT || COMPILE_TEST
-> -	depends on OF
-> +	depends on OF && COMMON_CLK
->  	help
->  	  This option enables support for the I2C interface on the SpacemiT K1
->  	  platform.
-> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-> index b68a21fff0b56b59fe2032ccb7ca6953423aad32..34b22969cf6789e99de58dd93dda6f0951069f85 100644
-> --- a/drivers/i2c/busses/i2c-k1.c
-> +++ b/drivers/i2c/busses/i2c-k1.c
-> @@ -3,17 +3,20 @@
->   * Copyright (C) 2024-2025 Troy Mitchell <troymitchell988@gmail.com>
->   */
->  
-> - #include <linux/clk.h>
-> - #include <linux/i2c.h>
-> - #include <linux/iopoll.h>
-> - #include <linux/module.h>
-> - #include <linux/of_address.h>
-> - #include <linux/platform_device.h>
-> +#include <linux/bits.h>
-> +#include <linux/clk.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/i2c.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/module.h>
-> +#include <linux/of_address.h>
-> +#include <linux/platform_device.h>
->  
->  /* spacemit i2c registers */
->  #define SPACEMIT_ICR		 0x0		/* Control register */
->  #define SPACEMIT_ISR		 0x4		/* Status register */
->  #define SPACEMIT_IDBR		 0xc		/* Data buffer register */
-> +#define SPACEMIT_ILCR		 0x10		/* Load Count Register */
->  #define SPACEMIT_IBMR		 0x1c		/* Bus monitor register */
->  
->  /* SPACEMIT_ICR register fields */
-> @@ -80,6 +83,19 @@
->  #define SPACEMIT_BMR_SDA         BIT(0)		/* SDA line level */
->  #define SPACEMIT_BMR_SCL         BIT(1)		/* SCL line level */
->  
-> +#define SPACEMIT_LCR_LV_STANDARD_SHIFT		0
-> +#define SPACEMIT_LCR_LV_FAST_SHIFT		9
-> +#define SPACEMIT_LCR_LV_STANDARD_WIDTH		9
-> +#define SPACEMIT_LCR_LV_FAST_WIDTH		9
-> +#define SPACEMIT_LCR_LV_STANDARD_MAX_VALUE	GENMASK(SPACEMIT_LCR_LV_STANDARD_WIDTH - 1, 0)
-> +#define SPACEMIT_LCR_LV_FAST_MAX_VALUE		GENMASK(SPACEMIT_LCR_LV_FAST_WIDTH - 1, 0)
-> +#define SPACEMIT_LCR_LV_STANDARD_MASK		GENMASK(SPACEMIT_LCR_LV_STANDARD_SHIFT +\
-> +						SPACEMIT_LCR_LV_STANDARD_WIDTH - 1,\
-> +						SPACEMIT_LCR_LV_STANDARD_SHIFT)
-> +#define SPACEMIT_LCR_LV_FAST_MASK		GENMASK(SPACEMIT_LCR_LV_FAST_SHIFT +\
-> +						SPACEMIT_LCR_LV_FAST_WIDTH - 1,\
-> +						SPACEMIT_LCR_LV_FAST_SHIFT)
-> +
->  /* i2c bus recover timeout: us */
->  #define SPACEMIT_I2C_BUS_BUSY_TIMEOUT		100000
->  
-> @@ -95,11 +111,20 @@ enum spacemit_i2c_state {
->  	SPACEMIT_STATE_WRITE,
->  };
->  
-> +enum spacemit_i2c_mode {
-> +	SPACEMIT_MODE_STANDARD,
-> +	SPACEMIT_MODE_FAST
-> +};
-> +
->  /* i2c-spacemit driver's main struct */
->  struct spacemit_i2c_dev {
->  	struct device *dev;
->  	struct i2c_adapter adapt;
->  
-> +	struct clk_hw scl_clk_hw;
-> +	struct clk *scl_clk;
-> +	enum spacemit_i2c_mode mode;
-> +
->  	/* hardware resources */
->  	void __iomem *base;
->  	int irq;
-> @@ -120,6 +145,88 @@ struct spacemit_i2c_dev {
->  	u32 status;
->  };
->  
-> +static void spacemit_i2c_scl_clk_disable_unprepare(void *data)
-> +{
-> +	struct spacemit_i2c_dev *i2c = data;
-> +
-> +	clk_disable_unprepare(i2c->scl_clk);
-> +}
-> +
-> +static void spacemit_i2c_scl_clk_exclusive_put(void *data)
-> +{
-> +	struct spacemit_i2c_dev *i2c = data;
-> +
-> +	clk_rate_exclusive_put(i2c->scl_clk);
-> +}
-> +
-> +static int spacemit_i2c_clk_set_rate(struct clk_hw *hw, unsigned long rate,
-> +				     unsigned long parent_rate)
-> +{
-> +	struct spacemit_i2c_dev *i2c = container_of(hw, struct spacemit_i2c_dev, scl_clk_hw);
-> +	u32 lv, lcr, mask, shift, max_lv;
-> +
-> +	lv = DIV_ROUND_UP(parent_rate, rate);
-> +
-> +	if (i2c->mode == SPACEMIT_MODE_STANDARD) {
-> +		mask = SPACEMIT_LCR_LV_STANDARD_MASK;
-> +		shift = SPACEMIT_LCR_LV_STANDARD_SHIFT;
-> +		max_lv = SPACEMIT_LCR_LV_STANDARD_MAX_VALUE;
-> +	} else if (i2c->mode == SPACEMIT_MODE_FAST) {
-> +		mask = SPACEMIT_LCR_LV_FAST_MASK;
-> +		shift = SPACEMIT_LCR_LV_FAST_SHIFT;
-> +		max_lv = SPACEMIT_LCR_LV_FAST_MAX_VALUE;
-> +	}
-> +
-> +	if (!lv || lv > max_lv) {
-> +		dev_err(i2c->dev, "set scl clock failed: lv 0x%x", lv);
-> +		return -EINVAL;
-> +	}
-> +
-> +	lcr = readl(i2c->base + SPACEMIT_ILCR);
-> +	lcr &= ~mask;
-> +	lcr |= lv << shift;
-> +	writel(lcr, i2c->base + SPACEMIT_ILCR);
-> +
-> +	return 0;
-> +}
-> +
-> +static long spacemit_i2c_clk_round_rate(struct clk_hw *hw, unsigned long rate,
-> +					unsigned long *parent_rate)
-> +{
-> +	u32 lv, freq;
-> +
-> +	lv = DIV_ROUND_UP(*parent_rate, rate);
-> +	freq = DIV_ROUND_UP(*parent_rate, lv);
-> +
-> +	return freq;
-> +}
-> +
-> +static unsigned long spacemit_i2c_clk_recalc_rate(struct clk_hw *hw,
-> +						  unsigned long parent_rate)
-> +{
-> +	struct spacemit_i2c_dev *i2c = container_of(hw, struct spacemit_i2c_dev, scl_clk_hw);
-> +	u32 lcr, lv = 0;
-> +
-> +	lcr = readl(i2c->base + SPACEMIT_ILCR);
-> +
-> +	if (i2c->mode == SPACEMIT_MODE_STANDARD)
-> +		lv = (lcr & SPACEMIT_LCR_LV_STANDARD_MASK) >>
-> +		     SPACEMIT_LCR_LV_STANDARD_SHIFT;
-> +	else if (i2c->mode == SPACEMIT_MODE_FAST)
-> +		lv = (lcr & SPACEMIT_LCR_LV_FAST_MASK) >>
-> +		     SPACEMIT_LCR_LV_FAST_SHIFT;
-> +	else
-> +		return 0;
-> +
-> +	return DIV_ROUND_UP(parent_rate, lv);
-> +}
-> +
-> +static const struct clk_ops spacemit_i2c_clk_ops = {
-> +	.set_rate = spacemit_i2c_clk_set_rate,
-> +	.round_rate = spacemit_i2c_clk_round_rate,
-> +	.recalc_rate = spacemit_i2c_clk_recalc_rate,
-> +};
-> +
->  static void spacemit_i2c_enable(struct spacemit_i2c_dev *i2c)
->  {
->  	u32 val;
-> @@ -138,6 +245,27 @@ static void spacemit_i2c_disable(struct spacemit_i2c_dev *i2c)
->  	writel(val, i2c->base + SPACEMIT_ICR);
->  }
->  
-> +static struct clk *spacemit_i2c_register_scl_clk(struct spacemit_i2c_dev *i2c,
-> +						 struct clk *parent)
-> +{
-> +	struct clk_init_data init;
-> +	char name[32];
-> +
-> +	snprintf(name, sizeof(name), "%s_scl_clk", dev_name(i2c->dev));
-> +
-> +	init.name = name;
-> +	init.ops = &spacemit_i2c_clk_ops;
-> +	init.parent_data = (struct clk_parent_data[]) {
-> +		{ .fw_name = "func" },
-> +	};
-> +	init.num_parents = 1;
-> +	init.flags = 0;
-> +
-> +	i2c->scl_clk_hw.init = &init;
-> +
-> +	return devm_clk_register(i2c->dev, &i2c->scl_clk_hw);
-> +}
-> +
->  static void spacemit_i2c_reset(struct spacemit_i2c_dev *i2c)
->  {
->  	writel(SPACEMIT_CR_UR, i2c->base + SPACEMIT_ICR);
-> @@ -224,7 +352,7 @@ static void spacemit_i2c_init(struct spacemit_i2c_dev *i2c)
->  	 */
->  	val |= SPACEMIT_CR_DRFIE;
->  
-> -	if (i2c->clock_freq == SPACEMIT_I2C_MAX_FAST_MODE_FREQ)
-> +	if (i2c->mode == SPACEMIT_MODE_FAST)
->  		val |= SPACEMIT_CR_MODE_FAST;
->  
->  	/* disable response to general call */
-> @@ -519,14 +647,15 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
->  		dev_warn(dev, "failed to read clock-frequency property: %d\n", ret);
->  
->  	/* For now, this driver doesn't support high-speed. */
-> -	if (!i2c->clock_freq || i2c->clock_freq > SPACEMIT_I2C_MAX_FAST_MODE_FREQ) {
-> -		dev_warn(dev, "unsupported clock frequency %u; using %u\n",
-> -			 i2c->clock_freq, SPACEMIT_I2C_MAX_FAST_MODE_FREQ);
-> +	if (i2c->clock_freq > SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ &&
-> +	    i2c->clock_freq <= SPACEMIT_I2C_MAX_FAST_MODE_FREQ) {
-> +		i2c->mode = SPACEMIT_MODE_FAST;
-> +	} else if (i2c->clock_freq && i2c->clock_freq <= SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ) {
-> +		i2c->mode = SPACEMIT_MODE_STANDARD;
-> +	} else {
-> +		dev_warn(i2c->dev, "invalid clock-frequency, using fast mode");
-> +		i2c->mode = SPACEMIT_MODE_FAST;
->  		i2c->clock_freq = SPACEMIT_I2C_MAX_FAST_MODE_FREQ;
-> -	} else if (i2c->clock_freq < SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ) {
-> -		dev_warn(dev, "unsupported clock frequency %u; using %u\n",
-> -			 i2c->clock_freq,  SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ);
-> -		i2c->clock_freq = SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ;
->  	}
->  
->  	i2c->dev = &pdev->dev;
-> @@ -548,10 +677,33 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
->  	if (IS_ERR(clk))
->  		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable func clock");
->  
-> +	i2c->scl_clk = spacemit_i2c_register_scl_clk(i2c, clk);
-> +	if (IS_ERR(i2c->scl_clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->scl_clk),
-> +				     "failed to register scl clock\n");
-> +
->  	clk = devm_clk_get_enabled(dev, "bus");
->  	if (IS_ERR(clk))
->  		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock");
->  
-> +	ret = clk_set_rate_exclusive(i2c->scl_clk, i2c->clock_freq);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "failed to set exclusive rate for SCL clock");
-> +
-> +	ret = devm_add_action_or_reset(dev, spacemit_i2c_scl_clk_exclusive_put, i2c);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				"failed to register cleanup action for exclusive SCL clock rate");
-> +
-> +	ret = clk_prepare_enable(i2c->scl_clk);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "failed to prepare and enable clock");
-> +
-> +	ret = devm_add_action_or_reset(dev, spacemit_i2c_scl_clk_disable_unprepare, i2c);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				"failed to register cleanup action for clk disable and unprepare");
-> +
->  	spacemit_i2c_reset(i2c);
->  
->  	i2c_set_adapdata(&i2c->adapt, i2c);
-> 
-> ---
-> base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
-> change-id: 20250709-k1-i2c-ilcr-ea347e0850a4
-> 
-> Best regards,
-> -- 
-> Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> 
+I'm new to kernel development, could you elaborate? Do you want me to make
+a v3 patch and add the points from our conversation to the changelog?
+
+> 59 should not be hardcoded, even with your comment below. Let's introduce
+> something like RISCV_HWPROBE_EXT_COUNT or similar.
+> You don't really need to return a mask here, you can simply return
+> RISCV_HWPROBE_EXT_COUNT and let the userspace deal with the mask.
+
+I do agree that the number 59 shouldn't be hardcoded, but I think returning
+a mask is more user-friendly. If we return a number, the userspace
+would have to do:
+
+     if (value == 64) {
+         mask = -1ull;
+     } else {
+         mask = (1ull << value) - 1;
+     }
+
+to construct a mask and be able to check availability via (mask &
+RISCV_HWPROBE_EXT_ZNEW).
+IMO, this makes the API more unfriendly than returning a mask.
+
+I think perhaps a better solution is constructing the mask by ORing
+all the available extensions
+and returning that. What do you think?
+
+On Thu, 14 Aug 2025 at 15:55, Alexandre Ghiti <alex@ghiti.fr> wrote:
+>
+> On 8/14/25 13:57, Paris Oplopoios wrote:
+> >> What about parsing the isa string?
+> > Yes, parsing the ISA string would work. But if we're going
+> > to do that, we might as well not use hwprobe at all. In my
+> > opinion, using the syscall is much easier to implement and maintain.
+>
+>
+> You're right.
+>
+>
+> >
+> >
+> >> And do you have a real usecase in
+> >> mind? I mean which project would benefit from this?
+> > Yes, I want this feature for an x86-on-RISC-V userspace emulator
+> > called felix86. We do runtime extension detection for our JIT.
+> > Currently, for any extension that defines instructions we use the SIGILL
+> > method previously described, because there's no way to tell with just
+> > a hwprobe call whether a 0 bit means extension not present or kernel
+> > too old. But we can't do this for all extensions, some don't define
+> > instructions.
+> >
+> > The end goal would be being able to detect an extension using hwprobe, and if
+> > it's not detectable, notifying the user that we can't detect it and
+> > they can mark
+> > it as enabled in the emulator's config file.
+>
+>
+> Ok, I'm not opposed anymore, but I have added Conor in cc to have his
+> opinion. Can you add that ^ to the change log? And now let's talk about
+> the patch, see my comments below.
+>
+>
+> >
+> > On Thu, 14 Aug 2025 at 14:22, Alexandre Ghiti <alex@ghiti.fr> wrote:
+> >> On 8/14/25 12:32, Paris Oplopoios wrote:
+> >>> Hello Alexandre,
+> >>>
+> >>>> trying to figure out if an extension is available will likely result in a SIGILL, so that will kill your application
+> >>> SIGILL can be captured with a signal handler and extension support can
+> >>> be checked this way. Not all extensions can be detected using this
+> >>> method, and it's much more straightforward to ask the kernel.
+> >>>
+> >>>> Why don't you check the kernel config or even the hwprobe.h header? Since basically here, you use a syscall to return an information that is visible already from userspace.
+> >>> To give an example, imagine a new extension Znew comes out, it
+> >>> occupies the bit 1<<59. Let's say my kernel version was built with
+> >>> support for detecting it and yours wasn't, but we both have the same
+> >>> hardware. I compile a binary of a program that wants to do runtime
+> >>> extension detection and I want to distribute it.
+> >>>
+> >>> If I use the config or the hwprobe.h header during compilation time,
+> >>> the compiled binary is assuming that both mine and your system have
+> >>> this new bit. So when my program tries to detect it, it will find it
+> >>> on my hardware but not yours. That's because my kernel was built to
+> >>> support this bit in hwprobe but yours wasn't.
+> >>>
+> >>> But in reality your hardware does have the extension. However, how
+> >>> will my program differentiate from "doesn't have an extension" and
+> >>> "kernel version not new enough"? Maybe I'd like to know that the
+> >>> kernel doesn't have the bit, and notify the user with an "update your
+> >>> kernel" message. Maybe I'd like to do the fallback SIGILL extension
+> >>> detection instead.
+> >>
+> >> What about parsing the isa string? And do you have a real usecase in
+> >> mind? I mean which project would benefit from this?
+> >>
+> >>
+> >>> PS: I'm assuming you meant checking config/hwprobe.h at compilation
+> >>> time. If you meant parsing it at runtime, that simply wouldn't be
+> >>> possible on all environments (think chroots).
+> >>>
+> >>> On Thu, 14 Aug 2025 at 12:37, Alexandre Ghiti <alex@ghiti.fr> wrote:
+> >>>> Hi Paris,
+> >>>>
+> >>>> On 8/13/25 20:05, offtkp wrote:
+> >>>>> When probing for extensions using RISCV_HWPROBE_KEY_IMA_EXT_0, a missing
+> >>>>> bit in the resulting bitmask means the extension is not available or the
+> >>>>> kernel is not recent enough to support the bit. Currently, there's no
+> >>>>> way to differentiate between the two.
+> >>>>>
+> >>>>> This adds a new riscv_hwprobe key, RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL,
+> >>>>> which returns a bitmask of all the queryable extensions supported by the
+> >>>>> kernel in RISCV_HWPROBE_KEY_IMA_EXT_0. This can allow programs to use a
+> >>>>> fallback extension detection method when the bit they want to query is
+> >>>>> not available in the kernel they are running on.
+> >>>> Admittedly, I'm not convinced this is necessary. As you showed in your
+> >>>> v1, trying to figure out if an extension is available will likely result
+> >>>> in a SIGILL, so that will kill your application. Why don't you check the
+> >>>> kernel config or even the hwprobe.h header? Since basically here, you
+> >>>> use a syscall to return an information that is visible already from
+> >>>> userspace.
+> >>>>
+> >>>> But maybe I'm missing an interesting usecase, just let me know.
+> >>>>
+> >>>> Thanks,
+> >>>>
+> >>>> Alex
+> >>>>
+> >>>>
+> >>>>> Signed-off-by: offtkp <parisoplop@gmail.com>
+> >>>>> ---
+> >>>>> Changes in v2:
+> >>>>> - convert spaces to tabs
+> >>>>> - use git format-patch to create diff
+> >>>>>
+> >>>>>     Documentation/arch/riscv/hwprobe.rst  | 5 ++++-
+> >>>>>     arch/riscv/include/asm/hwprobe.h      | 3 ++-
+> >>>>>     arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
+> >>>>>     arch/riscv/kernel/sys_hwprobe.c       | 4 ++++
+> >>>>>     4 files changed, 12 insertions(+), 2 deletions(-)
+> >>>>>
+> >>>>> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+> >>>>> index 2aa9be272d5d..6d77def0a46e 100644
+> >>>>> --- a/Documentation/arch/riscv/hwprobe.rst
+> >>>>> +++ b/Documentation/arch/riscv/hwprobe.rst
+> >>>>> @@ -360,4 +360,7 @@ The following keys are defined:
+> >>>>>
+> >>>>>         * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFWMACCQQQ`: The Xsfvfwmaccqqq
+> >>>>>             vendor extension is supported in version 1.0 of Matrix Multiply Accumulate
+> >>>>> -     Instruction Extensions Specification.
+> >>>>> \ No newline at end of file
+> >>>>> +     Instruction Extensions Specification.
+> >>>>> +
+> >>>>> +* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL`: A bitmask containing the extensions
+> >>>>> +  that can be probed using the :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0` key.
+> >>>>> \ No newline at end of file
+> >>>>> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+> >>>>> index 7fe0a379474a..501d49b7a02a 100644
+> >>>>> --- a/arch/riscv/include/asm/hwprobe.h
+> >>>>> +++ b/arch/riscv/include/asm/hwprobe.h
+> >>>>> @@ -8,7 +8,8 @@
+> >>>>>
+> >>>>>     #include <uapi/asm/hwprobe.h>
+> >>>>>
+> >>>>> -#define RISCV_HWPROBE_MAX_KEY 13
+> >>>>> +#define RISCV_HWPROBE_MAX_KEY 14
+> >>>>> +#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE      ((1ULL << 59) - 1)
+>
+>
+> 59 should not be hardcoded, even with your comment below. Let's
+> introduce something like RISCV_HWPROBE_EXT_COUNT or similar.
+>
+>
+> >>>>>
+> >>>>>     static inline bool riscv_hwprobe_key_is_valid(__s64 key)
+> >>>>>     {
+> >>>>> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+> >>>>> index aaf6ad970499..a3b92df4dc05 100644
+> >>>>> --- a/arch/riscv/include/uapi/asm/hwprobe.h
+> >>>>> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
+> >>>>> @@ -82,6 +82,7 @@ struct riscv_hwprobe {
+> >>>>>     #define             RISCV_HWPROBE_EXT_ZAAMO         (1ULL << 56)
+> >>>>>     #define             RISCV_HWPROBE_EXT_ZALRSC        (1ULL << 57)
+> >>>>>     #define             RISCV_HWPROBE_EXT_ZABHA         (1ULL << 58)
+> >>>>> +/* Change RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE when adding items. */
+> >>>>>     #define RISCV_HWPROBE_KEY_CPUPERF_0 5
+> >>>>>     #define             RISCV_HWPROBE_MISALIGNED_UNKNOWN        (0 << 0)
+> >>>>>     #define             RISCV_HWPROBE_MISALIGNED_EMULATED       (1 << 0)
+> >>>>> @@ -106,6 +107,7 @@ struct riscv_hwprobe {
+> >>>>>     #define RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0        11
+> >>>>>     #define RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE 12
+> >>>>>     #define RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0       13
+> >>>>> +#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL 14
+> >>>>>     /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+> >>>>>
+> >>>>>     /* Flags */
+> >>>>> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+> >>>>> index 0b170e18a2be..40e7fa5f85f3 100644
+> >>>>> --- a/arch/riscv/kernel/sys_hwprobe.c
+> >>>>> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> >>>>> @@ -310,6 +310,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+> >>>>>                 hwprobe_isa_vendor_ext_thead_0(pair, cpus);
+> >>>>>                 break;
+> >>>>>
+> >>>>> +     case RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL:
+> >>>>> +             pair->value = RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE;
+>
+>
+> You don't really need to return a mask here, you can simply return
+> RISCV_HWPROBE_EXT_COUNT and let the userspace deal with the mask.
+>
+>
+> >>>>> +             break;
+> >>>>> +
+> >>>>>         /*
+> >>>>>          * For forward compatibility, unknown keys don't fail the whole
+> >>>>>          * call, but get their element key set to -1 and value set to 0
+> >>>>>
+> >>>>> _______________________________________________
+> >>>>> linux-riscv mailing list
+> >>>>> linux-riscv@lists.infradead.org
+> >>>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
