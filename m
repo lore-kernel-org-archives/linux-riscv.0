@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F9FCA0EE4
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 13:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4300FCA0EE9
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 13:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=arvaMp3dVDUnfRtDdma9pOm3QFMiWhD2jv/HRQIfn6I=; b=2cOW5NL18m2J7w
-	5RFKk257jnedgsbGDPUGuA7u8tDpW1tB8+9T4NhKYSZ8Im5eAI6yr39yrOgM10FZ3QKDrvSlnXNC6
-	4Tz6i6iUu1hPBegkUlO9lwePwwHc35Q2XAeHcjAHrCMJclZ7jv65qfggcHeOasZQD+q+jlXuOE+Gb
-	cCCvQ/ClKD9hv0AE3eHdD0OFBldMfMFRFhIA206mWF4IYTVWsgbSmS0AAx8S3kXIr+8dQDHkGunrr
-	Tw3QL74K4/qShLMhBXtFoQZwGK/rNXtSBQT83ZIOOwGKwtmV/gcPHCHensBSR8BmulJFgHP2Aa/Zw
-	UnEsf8NS5yhv0KH+B7VA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/GI4B9LI2pgNq6s9dRofQTVsexr/Unse1VjXcAllhhg=; b=tOtBHGbLAqJlsm
+	o9iqc3RtmUt+vyqz+6Ziz1dy58mx3A0K5jFB/kRDS9DEUcz4FBLkds37mYRqW8N7T0suHimWdmVXD
+	LQuLdkXyk438V7zj33+AEFT5nwjXzDfNRZIXjWhgKi6IPSJHpfQywo8xv7MNQtsuLF535qwm8PqnU
+	tuIJTLyroWpUbEI0J8LDqzP2HQuICbQLsXiPrV2n4pwEF8n08PXg2j4O+dx+mYcCUqppm5y/nAxay
+	vzKLl/qefpChQrYiZI3VQ48+sx4s4/9eVOuDIf8FZKyxcQ0/jhe/HutAAa+5nR1uGWGgaSnd/5KoM
+	jz61GIPnPDDLnB9ZFA7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXmt-0000000GxQT-49N2;
-	Thu, 14 Aug 2025 13:14:35 +0000
+	id 1umXms-0000000GxPT-0KGR;
+	Thu, 14 Aug 2025 13:14:34 +0000
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umS56-0000000G2Qm-3llE
+	id 1umS4X-0000000G2J4-3gyO
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Aug 2025 07:09:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755155335; cv=none; 
+	Thu, 14 Aug 2025 07:08:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755155298; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=LWEDSFKbpMaUCdImQ1DRsFbnXyu06Lg9fu7akWCg7onqXewQ74/9DgaxASt5PQOaPoHOIMToe4LJNbRfOzUbxVQQJ70yHNrJoY7FD3q8CH1DPctJC9W6ZyPV4baMUpBLX2KnjXh1RJmae2Q5cuJ9wfHo1bbVfJ+P3v9X1kuphbU=
+	b=IY0TyYGEnYgW6vCsjXDw/T/qi49rCrlXY2ZhA7XIn36zbQAwmONr43oUlDHv7eGihoGWvEfNpvjtY6B7GoISZzOKIRxo30TzXq95uxO66Krhb5MY9v6NFWQq6tdVeKQGrZDQPqfai9KRiUY0Ri9TbuA8bjt0hIvI1Mnct4/5iPs=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755155335; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=g+6aGbgSqL+o5xd1mrzWWr83B6zwR2FugBnE+jwf0eY=; 
-	b=hPQeqbPtBFIRsufu23wPmwVKIbxWupzgMcD71F+m73sxMjZoI7RUISRwCnVivIN/+3zzEs1yEY7CJ4yIZjfj9emYWiRm4tzIITzTYEA5p33LF262Te0+CZdOwlzitl7AiiAdqIKXEULucNeSf7YMBL/4W1mIJmDbQpFWi5URPEA=
+	t=1755155298; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=5EDAGFHJuC9tPrNz6YQCZPVDFGTy8SOuvDsgiiHyCxU=; 
+	b=X5CoDENaz14mkXuNh7l6nUEjtxk6NcaRNIoTqBD6OVvqn56xfREzLmD17FaDfJLYMReigYbh/+OGcevfuU4IVPT5/qrP2N28qVj7rRSMOrqoLL3r9zn5va++771Al/01YUMwHp0cMx0ckA3dP3wCBKKOoHS64YZHnLs8xWjqeMI=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=icenowy.me;
 	spf=pass  smtp.mailfrom=uwu@icenowy.me;
 	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755155335;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755155298;
 	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=g+6aGbgSqL+o5xd1mrzWWr83B6zwR2FugBnE+jwf0eY=;
-	b=HrOlw9ewXqzttP/pB71sOsPTXyeLNo7vOpmtR3/E4IVtQVa/qswS3x7tmVmXl5/M
-	l05fAP2hlCWYY1q5xgNqqIUhVcrgtWgLvNmr1xzSYcA/MJDbNPkABNcQpXD045YQ/Ko
-	2Hxg4jDuJ+XGon2GypSGayZNv2SwR9J5MU6NshyNXftR1vqm2QGZdfL8aNBQn/ouXuo
-	ynRAtoYJKCZ4IWxkjvDukmFzj/9sDMS5GX5d5qfyy/sNDV0eD/7Y8BS6FE3N6erRo87
-	pqbMZyvcyVCP0wUlQEn0NTVIeF5vK5xXhfwbERbZWHkfpMdV5/2kua5D7/fZha5nYGE
-	niSiFGRtfw==
-Received: by mx.zohomail.com with SMTPS id 1755155332438337.2232936507686;
-	Thu, 14 Aug 2025 00:08:52 -0700 (PDT)
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=5EDAGFHJuC9tPrNz6YQCZPVDFGTy8SOuvDsgiiHyCxU=;
+	b=CeKvNwY0RoVu+SSNWIhoN7JBCB3euGdh7/JdgG/E8gqCLd5kdzmqYAqFBQzOfiVd
+	J+/ZBmOgwOxO2IZqWR06Hm1LtfaTtmpFIFjVPZl67CmXfapjodttx0vFMuTt286eymO
+	RGYMPCMvIIU0x/UwZhO4cxAt3PygyckJ4fTkhd2u3l5HfMIr2DiKCWyGbPudKr6jaic
+	Tzi188EP5jr0Gas4X39o3uDpO3PkjGGx55OgsZUb1nRXgTXEQUH4hquDnJxClLu2tyi
+	sxQgbQnvYzi6nxGAe38jpAn7AgvwxTDbawCr6lkBBIpLUmGd4LlTAeaTZKVtJHjmwfh
+	oIm2LrGGpA==
+Received: by mx.zohomail.com with SMTPS id 1755155296251591.0287398528361;
+	Thu, 14 Aug 2025 00:08:16 -0700 (PDT)
 From: Icenowy Zheng <uwu@icenowy.me>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -66,17 +66,15 @@ Cc: Han Gao <rabenda.cn@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Icenowy Zheng <uwu@icenowy.me>
-Subject: [RFC PATCH 3/4] riscv: dts: thead: th1520: add reserved node for C910R mailbox
-Date: Thu, 14 Aug 2025 15:07:56 +0800
-Message-ID: <20250814070757.2267325-4-uwu@icenowy.me>
+Subject: [RFC PATCH 0/4] riscv: dts: thead: th1520: Add mailbox for SBI-to-AON comm
+Date: Thu, 14 Aug 2025 15:07:53 +0800
+Message-ID: <20250814070757.2267325-1-uwu@icenowy.me>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250814070757.2267325-1-uwu@icenowy.me>
-References: <20250814070757.2267325-1-uwu@icenowy.me>
 MIME-Version: 1.0
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_000900_996053_970874DF 
-X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-CacheID: sfid-20250814_000825_991389_6B6DAA3E 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,42 +92,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The OpenSBI firmware might want to communicate to E902 CPU too. As we
-have two mailboxes assigned to the C910 CPU, declare the other C910
-mailbox as a "reserved" device for OpenSBI to use.
+In order to make system suspend / CPU hotplugging to work, the BSP
+OpenSBI wants to talk to the AON firmware, and will parse the
+information needed for this communication from the device tree.
 
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
----
- arch/riscv/boot/dts/thead/th1520.dtsi | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+This patchset tries to retrofit the thead,th1520-mbox binding for the
+C910R mailbox, and assign it for SBI-to-AON communication.
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index 42724bf7e90e0..136ebe210b876 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -565,6 +565,22 @@ timer3: timer@ffefc3203c {
- 			status = "disabled";
- 		};
- 
-+		mbox_910r: mbox@ffefc53000 {
-+			compatible = "thead,th1520-mbox";
-+			reg = <0xff 0xefc50000 0x0 0x6000>,
-+			      <0xff 0xefc48000 0x0 0x6000>,
-+			      <0xff 0xefc3e000 0x0 0x2000>,
-+			      <0xff 0xefc46000 0x0 0x2000>;
-+			reg-names = "local", "remote-icu0", "remote-icu1", "remote-icu2";
-+			clocks = <&clk CLK_MBOX3>, <&clk CLK_MBOX2>, <&clk CLK_MBOX0>,
-+				 <&clk CLK_MBOX1>;
-+			clock-names = "clk-local", "clk-remote-icu0", "clk-remote-icu1",
-+				      "clk-remote-icu2";
-+			thead,mbox-id = <3>;
-+			#mbox-cells = <1>;
-+			status = "reserved";
-+		};
-+
- 		uart4: serial@fff7f08000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0xff 0xf7f08000 0x0 0x4000>;
+The binding seems to be badly designed, and the retrofitting process
+looks quite dirty. Should we just abandon the current compatible and
+make a new one with a more proper binding?
+
+Icenowy Zheng (4):
+  dt-bindings: mailbox: thead,th1520-mbox: retrofit for other mailboxes
+  dt-bindings: firmware: thead,th1520-aon: add a mailbox name for SBI
+  riscv: dts: thead: th1520: add reserved node for C910R mailbox
+  riscv: dts: thead: th1520: add mailbox channel for SBI-to-AON comm
+
+ .../bindings/firmware/thead,th1520-aon.yaml   |  7 +--
+ .../bindings/mailbox/thead,th1520-mbox.yaml   | 49 ++++++++++++++-----
+ arch/riscv/boot/dts/thead/th1520.dtsi         | 20 +++++++-
+ 3 files changed, 58 insertions(+), 18 deletions(-)
+
 -- 
 2.50.1
 
