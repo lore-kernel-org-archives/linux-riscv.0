@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05583CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 19:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B024FCA0EE4
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 19:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=zKJOevwNwRMM4d2PACGuXENWnR2mk9pprTnFFia4GD4=; b=y/uW2IrWjVwiI1rXkTeIMu6JWk
-	etQdbFC4Xfp5o2mEHOh2czg73D8uohYdVf7JpRpomH13gmn/n15jtzRqQ8iqoQSDXWmUrQtYIEumc
-	F/EUg5OAIa9Xgimkx526fAR59sk4BrHCXTO5r2u8u2vSTZIXXpTBvG4KneeReQK7IYcxhXWOtSuTZ
-	bZyHBiNCu7GmEZSrmLXrsySV5VXVXtkOem9Dj4pafm+8L2fLWb3ELaFcBzeayGP2isho3DGyuUeS0
-	1hvUwxhZjMLVvrRqTT07FVArvlG7g+PyZPsbz9T21DAjzbY+bT1GXxUraG8dVbfd+Gl/nxFeIsXwr
-	O5cNZiog==;
+	bh=ZnIuK7lfCKPYbzr/5JGNMThnQLTst++B9GYPq+vwpCE=; b=eAlnI0N3H7mFtPLPF0iUxeAFID
+	2nLjpHxRHlz8Z0qJ7GG5r6Y8gObXguUsrAu1oi11NppN4NDXI4103jE8HjdCk+NU/N6vDnC4BAj7j
+	omdjjJciKxomofRv8v6dlENarQFDHcb/sXjIvCJFvTvUP2FsOWblQKKBZG9pw4qFUr4v3zwRqLLUo
+	CcErXnp93B3hMiHDTE+An8bBtWFoZFbEiDMJ4mnmMt2neEzhmwKN9VAhg+4+7aQKlHxMQbTb14N4h
+	jh6OZ0Sww+fiR13fzm9Kk1jfpfjag4T/1A+qROw6GmshTguSP8SqJT3noAtrur0e8O2XBRA1IopQu
+	N4pEmqlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umdVk-00000000QC8-1tP2;
-	Thu, 14 Aug 2025 19:21:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1umdVm-00000000QCV-03Nn;
+	Thu, 14 Aug 2025 19:21:18 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umdVj-00000000QBw-0Se3
+	id 1umdVk-00000000QC5-1pri
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Aug 2025 19:21:15 +0000
+	Thu, 14 Aug 2025 19:21:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DDF626020A;
-	Thu, 14 Aug 2025 19:21:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7156EC4CEED;
-	Thu, 14 Aug 2025 19:21:13 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D7E96A57733;
+	Thu, 14 Aug 2025 19:21:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83DD5C4CEEF;
+	Thu, 14 Aug 2025 19:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755199273;
-	bh=dq982r/AGUJviv6Tq6qfbL5MF+uO2Bkx/27uyYzXpME=;
+	s=k20201202; t=1755199274;
+	bh=ifOHHx6V2KJdZ0pCXCcV9hrJ66lyUldfnEN6tn1F6FQ=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=mlb6TUs5WKp7knR8qxZJ2aAPETXXSKNIA9vVz+mf+9q1RqadjO7sqWW/ILwLXYzGn
-	 fhEAbh6CP5kgjXBCUH/R0QM36T8rVW0hnhfhPTPUVpkcpq8U0w9fXUOtuqj0qMtZWr
-	 GeGjWi6hR0tQzQJcG6ae4TXI6Vb8IPNY6/42f677jX/VaVPhP+NdrcjzUJ8SIi7ifR
-	 8F+R3mcTG3894jKnUH+oxVZPj3NfjxBqhnfu5YeiN9NcixODS3nlRBkafpb6BYk/Oc
-	 Ak2mW0bS6yursdWdMxkDPV3QqGZlJZHI/AhRLVpo2zvi6XI3YgN8r7aZKeOEpsuajR
-	 S8dDGnOq1PehQ==
-Date: Thu, 14 Aug 2025 14:21:12 -0500
+	b=E/CQr1WU3wmFr4yYBtcvOxhjmvG+UqTkSdbQbsWGXyfo07dtdFD7dcJucf2eXNHEH
+	 tKcsfJ/7ilDp/xWqD2XoQbHZQMSYFmeTOfB4W9B9oPwaUxgJPjQnQqIZ9QM7eUW7fi
+	 unqvWfZwbOd+/0vjYMGYbWECyEkt5LuUecjt2x0wHTxRFYCPeAVZTjcRrqVMfQB4rX
+	 Pkcv8T5NblgShm3aKtWbIcJ6Ipe8iTxuAHYdMGon2vQzhw/GrzeQ1lTC0kyUQcJ8ux
+	 KYLyhveBccC7PXYUsQm4fGLDs2yQ51SRvWZqHQdPvWQfx07Xw06L2GvPiY+0CjKvkA
+	 XPmblu6HQWC2Q==
+Date: Thu, 14 Aug 2025 14:21:13 -0500
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, David Airlie <airlied@gmail.com>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, devicetree@vger.kernel.org, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Thomas Zimmermann <tzimmermann@suse.de>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Fu Wei <wefu@redhat.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, Yao Zi <ziyao@disroot.org>, 
- Maxime Ripard <mripard@kernel.org>, Han Gao <rabenda.cn@gmail.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ David Airlie <airlied@gmail.com>, Han Gao <rabenda.cn@gmail.com>, 
+ Maxime Ripard <mripard@kernel.org>, 
  Michal Wilczynski <m.wilczynski@samsung.com>, 
- linux-riscv@lists.infradead.org, 
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-kernel@vger.kernel.org, 
+ Simona Vetter <simona@ffwll.ch>, Fu Wei <wefu@redhat.com>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Robert Foss <rfoss@kernel.org>, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
+ Guo Ren <guoren@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Drew Fustini <fustini@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- dri-devel@lists.freedesktop.org, Simona Vetter <simona@ffwll.ch>, 
- Robert Foss <rfoss@kernel.org>
+ Andrzej Hajda <andrzej.hajda@intel.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Drew Fustini <fustini@kernel.org>, linux-riscv@lists.infradead.org, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Yao Zi <ziyao@disroot.org>
 To: Icenowy Zheng <uwu@icenowy.me>
-In-Reply-To: <20250814164048.2336043-3-uwu@icenowy.me>
+In-Reply-To: <20250814164048.2336043-5-uwu@icenowy.me>
 References: <20250814164048.2336043-1-uwu@icenowy.me>
- <20250814164048.2336043-3-uwu@icenowy.me>
-Message-Id: <175519927193.3738618.6789267440737807645.robh@kernel.org>
-Subject: Re: [RFC PATCH 2/8] dt-bindings: display: add versilicon,dc
+ <20250814164048.2336043-5-uwu@icenowy.me>
+Message-Id: <175519927254.3738647.1422282944471640003.robh@kernel.org>
+Subject: Re: [RFC PATCH 4/8] dt-bindings: display/bridge: add binding for
+ TH1520 HDMI controller
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250814_122116_539199_ADA7A4F0 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,21 +88,18 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 15 Aug 2025 00:40:42 +0800, Icenowy Zheng wrote:
-> Verisilicon has a series of display controllers prefixed with DC and
-> with self-identification facility like their GC series GPUs.
+On Fri, 15 Aug 2025 00:40:44 +0800, Icenowy Zheng wrote:
+> T-Head TH1520 SoC contains a Synopsys DesignWare HDMI controller paired
+> with DesignWare HDMI PHY, with an extra clock gate for HDMI pixel clock
+> and two reset controls.
 > 
-> Add a device tree binding for it.
-> 
-> Depends on the specific DC model, it can have either one or two display
-> outputs, and each display output could be set to DPI signal or "DP"
-> signal (which seems to be some plain parallel bus to HDMI controllers).
+> Add a device tree binding to it.
 > 
 > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 > ---
->  .../bindings/display/verisilicon,dc.yaml      | 127 ++++++++++++++++++
->  1 file changed, 127 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>  .../display/bridge/thead,th1520-dw-hdmi.yaml  | 120 ++++++++++++++++++
+>  1 file changed, 120 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -107,18 +107,11 @@ My bot found errors running 'make dt_binding_check' on your patch:
 yamllint warnings/errors:
 
 dtschema/dtc warnings/errors:
-Lexical error: Documentation/devicetree/bindings/display/verisilicon,dc.example.dts:41.28-52 Unexpected 'TH1520_RESET_ID_DPU_CORE'
-Lexical error: Documentation/devicetree/bindings/display/verisilicon,dc.example.dts:42.22-45 Unexpected 'TH1520_RESET_ID_DPU_AXI'
-Lexical error: Documentation/devicetree/bindings/display/verisilicon,dc.example.dts:43.22-45 Unexpected 'TH1520_RESET_ID_DPU_AHB'
-FATAL ERROR: Syntax error parsing input tree
-make[2]: *** [scripts/Makefile.dtbs:132: Documentation/devicetree/bindings/display/verisilicon,dc.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1527: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250814164048.2336043-3-uwu@icenowy.me
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250814164048.2336043-5-uwu@icenowy.me
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
