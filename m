@@ -4,57 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D207CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 13:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37922CA0EDC
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 13:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O+lvjxXQW/T0LUjA+D/Y55l0ng/7BQ8a3auO8UOvf90=; b=XzopdFc27OkU9O
-	ArogNbAvIxbvsMDETD6O3Q7KBmlliL8WGZkMAvp6dk/w0q11USXqVuZUdDW7ZIZMkF1pnW/0TuDkw
-	d6n46Q+N8EA0k5OYSELTOG1EMufazNzdWefeLxarP6pz9Plm5z1gW8ytfWtJXHwiYEHLM3FG9coPx
-	iu0fQH+L5kEcXq6BKexQPNc6K6ZuiiA4kvUhUEtCRI/wBWsnB2EW33adEs232NWJRgtIffuNpVjnn
-	kbEGSZG2B1bxMV5HAmkTP5+qyD8eSkbDt3XbJqBgS00ckRA6BPz66MqnAp5hHDBa8++6Eijy1gJUu
-	VoJn56XfgOZiRb796xsQ==;
+	List-Owner; bh=Z7Nizg+7n65eKHgsW5ovvD41ddDHQEW3ZuWtXqQd6bk=; b=fh2/xQdIukmlBu
+	HQdq1b6KkkOCgDJSgE1Tvl6Hit/o8RuHc8CClimGCQPFl829Wio/OUulIgWZyh+8aaDEQM7tg12xm
+	0pxzFTZBDv0dcRBboocVYLtRxdGwcC8zBGtCljM9QFAItyX81+8MJfs9Cr1KIrNQuT+P/swWPXa0U
+	ee6gik8gW3Wnru99E3XhpozBUuS7FBeJcgEA+JxTHPk4JtUG/J75D3eAc/ZjT2r0WMuumQFTm1ofB
+	9R9D7Gi0zlALbM9a4ZNiIXJg54z5rUGzMa8sQxD1BDMNTrwSX1kLP9pALCk3v94497LnjODw9KNcg
+	8ojujTPgSgIEm2r4NuwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umYHS-0000000H5lH-11OU;
+	id 1umYHS-0000000H5lf-3mnm;
 	Thu, 14 Aug 2025 13:46:10 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXU6-0000000GtpE-35Bv
+	id 1umXW8-0000000Gu03-1wJO
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Aug 2025 12:55:12 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 4276E2059F;
-	Thu, 14 Aug 2025 12:55:07 +0000 (UTC)
-Message-ID: <ef00cbeb-e86e-40ed-b5f6-d771b10216da@ghiti.fr>
-Date: Thu, 14 Aug 2025 14:55:07 +0200
+	Thu, 14 Aug 2025 12:57:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1755176171;
+	bh=CjtoWhdgfdevioOzjHH4EUUUH9uWoD93N4KhylunA44=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=LxaiRH0/CS6IxsCoNmRVWAolfmtZhdicV6g3XZUNGo376fLk1ONqLqo5BFAlTDf/2
+	 OrSfldVwWrg7JvCXBWDQPDRC8uN8m7oLBLada2NsEYLaQVqJaqjeFT5qtOOy+Nzoqb
+	 3zcjnUoucjGIyEoJ5BKAVDGllACKuDM6AbTOG0F8=
+X-QQ-mid: zesmtpip4t1755176162t001a8636
+X-QQ-Originating-IP: ft3DEdIShiaa2Pbj2KfMxFeuKw9DKtlEl9tdgLJOFt0=
+Received: from = ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 14 Aug 2025 20:56:00 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15176067644090953445
+EX-QQ-RecipientCnt: 16
+Date: Thu, 14 Aug 2025 20:55:58 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jinmei Wei <weijinmei@linux.spacemit.com>
+Subject: Re: [PATCH 2/2] ASoC: spacemit: i2s: add support for K1 SoC
+Message-ID: <7352191F0DCAFF7E+aJ3c3tGKdcM3G-Uc@troy-wujie14pro-arch>
+References: <20250814-k1-i2s-v1-0-c31149b29041@linux.spacemit.com>
+ <20250814-k1-i2s-v1-2-c31149b29041@linux.spacemit.com>
+ <851f1c3d96988920a28412a26d5cd951b684c020.camel@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] riscv: hwprobe: allow querying available
- RISCV_HWPROBE_KEY_IMA_EXT_0 bits
-To: Paris Oplopoios <parisoplop@gmail.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, Conor Dooley <conor@kernel.org>
-References: <CAAbFZ0iFJbpqxqTUYhB+tUZSiL1qQJ=PeABCCjkeSpf4_TNiyQ@mail.gmail.com>
- <20250813180545.110666-1-parisoplop@gmail.com>
- <bb580c80-5c6d-43f8-808a-e0d713f0be0c@ghiti.fr>
- <CAAbFZ0hK7uAm_jXoThK+tLsGzBrLSNr1=Gv8=H21D7DyODWB6g@mail.gmail.com>
- <18ea9e1c-ebf9-4a5e-8880-d1af9ea07138@ghiti.fr>
- <CAAbFZ0j0UL0E08NCFgHRwL83CbWiKTnmaaMm414Oofi12HxLgA@mail.gmail.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CAAbFZ0j0UL0E08NCFgHRwL83CbWiKTnmaaMm414Oofi12HxLgA@mail.gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugeduudefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeetieeitefghfeuvddvjeeiudehheeiffffgeeviedtleehgeffgfdtveekteehudenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvvddruddtudgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepiedprhgtphhtthhopehprghrihhsohhplhhophesghhmrghilhdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsv
- ghrkhgvlhgvhidrvgguuhdprhgtphhtthhopegtohhnohhrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <851f1c3d96988920a28412a26d5cd951b684c020.camel@pengutronix.de>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NOIkHYnr7VzdxN9VkEVqrvtprMEJI//PVPmx+ylqq4NxdOqdx2qzgriS
+	8WkPhVt9eBWkG1ItSZaqK3dsf5O/VN8z7sY7/nRc1GscouNXDHsr5HkdCSeCfgZhgBK5LkH
+	vfpy7CmUxNDwlK1sVOq1NiroFLcMzCkJ3MjiCrgB5+eni6izbLN8avov+c2kXr9EdBaahu2
+	QMQui3dFdRckVVevoGszhwrl5ktSAKpwdt49Y99dzcEAp+whqW1c98lskdwWmXtq6hghCQO
+	97teMwQMtttcEH4DBM5YG+BKxWEuI6ffKKsT2DlE0KfoGJss3Zo1jhKqGPN1v6+JfP/4TR/
+	J8uQFmq8jf9yqYNY4e5Wn+/BHM+8QCD1P1NlUvnzV3KSdf9oDFXdpCGqxA80FdDxhWtWx1Y
+	N0Ug3omBVa7kSh3/W0EmrDvBFQ5T8OLKNgL2FpN68LrGl2YVVgZiBN18IHy/eP8oK93TGi4
+	Y4Tqo1tMXTMD3n3SjR1G8D0bwK3p5q8gS/bakxq9RWXg/qmNy8OpWZ7rmuo0BWVAjN2jMtg
+	lnCLpP6XW2m1CLOk3wUn8QWshufLoZ4oAm8PLQE/5+rm0cMBUoM06KtS05n0COKxxfTfmD8
+	yvK5TZbnuhIoPNO72IfOnl1Hm0+HBPohgnAAoUf5K4Zyz78Jzn907ljL7c+WYcUZmrTJ/lF
+	2rjPNUib9RPSiKeE8NOrTzAaR7Kwr18NkMLRnqfDDo4Dq7dCQxqORElQFDfiVKdUsonyV+D
+	5tKEVZY1QjfgtrR+4tHAq6ub5KsohjvcyHjqIX4rw5yUx+65IOuNLMKmhcYRmoxy8qqSk54
+	eFYHX/efQfKVLMr4iEXTX8FzUTH0INcTEP9lQ4P7b/jowlFz/yxV5TxjIWo6eF2KCjWnmcd
+	+zBtqJT8bLbtkcSeUXGT5CdcRIMAdh75/1DqDudhj1xcvLG5CNNt6yEe5wIaFaBtlZXpKKM
+	Ws1OmFwfG0CbR/VrW3IZZKzpPRo/w5Re7Xkzs/I8Y3hZVatEqOZgLIfihwMyZvIYlDieH3h
+	cdJvDmDhifrFmerd3AEAA1wmilCYjF548LMcLqOD5C0zziAKU9
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_055510_932169_4175AD2F 
-X-CRM114-Status: GOOD (  38.17  )
+X-CRM114-CacheID: sfid-20250814_055717_555507_029A1164 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,203 +98,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/14/25 13:57, Paris Oplopoios wrote:
->> What about parsing the isa string?
-> Yes, parsing the ISA string would work. But if we're going
-> to do that, we might as well not use hwprobe at all. In my
-> opinion, using the syscall is much easier to implement and maintain.
+On Thu, Aug 14, 2025 at 12:36:45PM +0200, Philipp Zabel wrote:
+> On Do, 2025-08-14 at 16:54 +0800, Troy Mitchell wrote:
+> > Add ASoC platform driver for the SpacemiT K1 SoC full-duplex I2S
+> > controller.
+> > 
+> > Co-developer: Jinmei Wei <weijinmei@linux.spacemit.com>
+> > Signed-off-by: Jinmei Wei <weijinmei@linux.spacemit.com>
+> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > ---
+> >  sound/soc/Kconfig           |   1 +
+> >  sound/soc/Makefile          |   1 +
+> >  sound/soc/spacemit/Kconfig  |  14 ++
+> >  sound/soc/spacemit/Makefile |   5 +
+> >  sound/soc/spacemit/k1_i2s.c | 444 ++++++++++++++++++++++++++++++++++++++++++++
+> >  5 files changed, 465 insertions(+)
+> > 
+> [...]
+> > diff --git a/sound/soc/spacemit/k1_i2s.c b/sound/soc/spacemit/k1_i2s.c
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..9e41525afbf3f08ab9a26b562772861d86f39cd7
+> > --- /dev/null
+> > +++ b/sound/soc/spacemit/k1_i2s.c
+> > @@ -0,0 +1,444 @@
+> [...]
+> 
+> > +static int spacemit_i2s_probe(struct platform_device *pdev)
+> > +{
+> > +	struct snd_soc_dai_driver *dai;
+> > +	struct spacemit_i2s_dev *i2s;
+> > +	struct resource *res;
+> > +	struct clk *clk;
+> > +	int ret;
+> > +
+> > +	i2s = devm_kzalloc(&pdev->dev, sizeof(*i2s), GFP_KERNEL);
+> > +	if (!i2s)
+> > +		return -ENOMEM;
+> > +
+> > +	i2s->dev = &pdev->dev;
+> > +
+> > +	i2s->sysclk = devm_clk_get_enabled(i2s->dev, "sysclk");
+> > +	if (IS_ERR(i2s->sysclk))
+> > +		return dev_err_probe(i2s->dev, PTR_ERR(i2s->sysclk),
+> > +				     "failed to enable sysbase clock\n");
+> > +
+> > +	i2s->bclk = devm_clk_get_enabled(i2s->dev, "bclk");
+> > +	if (IS_ERR(i2s->bclk))
+> > +		return dev_err_probe(i2s->dev, PTR_ERR(i2s->bclk), "failed to enable bit clock\n");
+> > +
+> > +	clk = devm_clk_get_enabled(i2s->dev, "sspa_bus");
+> > +	if (IS_ERR(clk))
+> > +		return dev_err_probe(i2s->dev, PTR_ERR(clk), "failed to enable sspa_bus clock\n");
+> > +
+> > +	i2s->sspa_clk = devm_clk_get_enabled(i2s->dev, "sspa");
+> > +	if (IS_ERR(clk))
+> > +		return dev_err_probe(i2s->dev, PTR_ERR(clk), "failed to enable sspa clock\n");
+> > +
+> > +	i2s->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+> > +	if (IS_ERR(i2s->base))
+> > +		return dev_err_probe(i2s->dev, PTR_ERR(i2s->base), "failed to map registers\n");
+> > +
+> > +	i2s->reset =  devm_reset_control_get(&pdev->dev, NULL);
+> 
+> Please use devm_reset_control_get_exclusive() directly.
+Tnx. I will use in the next version.
 
-
-You're right.
-
-
+> 
+> > +	if (IS_ERR(i2s->reset))
+> > +		return dev_err_probe(i2s->dev, PTR_ERR(i2s->reset),
+> > +				     "failed to get reset control");
+> > +
+> > +	dev_set_drvdata(i2s->dev, i2s);
+> > +
+> > +	spacemit_i2s_init_dai(i2s, &dai, res->start + SSDATR);
+> > +
+> > +	ret = devm_snd_soc_register_component(i2s->dev,
+> > +					      &spacemit_i2s_component,
+> > +					      dai, 1);
+> > +	if (ret)
+> > +		return dev_err_probe(i2s->dev, ret, "failed to register component");
+> > +
+> > +	return devm_snd_dmaengine_pcm_register(&pdev->dev, &spacemit_dmaengine_pcm_config, 0);
+> > +}
+> > +
+> > +static void spacemit_i2s_remove(struct platform_device *pdev)
+> > +{
+> > +	struct spacemit_i2s_dev *i2s = dev_get_drvdata(&pdev->dev);
+> > +
+> > +	reset_control_assert(i2s->reset);
+> 
+> I'd move the reset_control_assert() be moved to snd_soc_dai_ops::remove
+> for symmetry.
 >
->
->> And do you have a real usecase in
->> mind? I mean which project would benefit from this?
-> Yes, I want this feature for an x86-on-RISC-V userspace emulator
-> called felix86. We do runtime extension detection for our JIT.
-> Currently, for any extension that defines instructions we use the SIGILL
-> method previously described, because there's no way to tell with just
-> a hwprobe call whether a 0 bit means extension not present or kernel
-> too old. But we can't do this for all extensions, some don't define
-> instructions.
->
-> The end goal would be being able to detect an extension using hwprobe, and if
-> it's not detectable, notifying the user that we can't detect it and
-> they can mark
-> it as enabled in the emulator's config file.
+It makes sense.
 
+deassert in ops::probe and assert in ops::remove.
 
-Ok, I'm not opposed anymore, but I have added Conor in cc to have his 
-opinion. Can you add that ^ to the change log? And now let's talk about 
-the patch, see my comments below.
-
-
->
-> On Thu, 14 Aug 2025 at 14:22, Alexandre Ghiti <alex@ghiti.fr> wrote:
->> On 8/14/25 12:32, Paris Oplopoios wrote:
->>> Hello Alexandre,
->>>
->>>> trying to figure out if an extension is available will likely result in a SIGILL, so that will kill your application
->>> SIGILL can be captured with a signal handler and extension support can
->>> be checked this way. Not all extensions can be detected using this
->>> method, and it's much more straightforward to ask the kernel.
->>>
->>>> Why don't you check the kernel config or even the hwprobe.h header? Since basically here, you use a syscall to return an information that is visible already from userspace.
->>> To give an example, imagine a new extension Znew comes out, it
->>> occupies the bit 1<<59. Let's say my kernel version was built with
->>> support for detecting it and yours wasn't, but we both have the same
->>> hardware. I compile a binary of a program that wants to do runtime
->>> extension detection and I want to distribute it.
->>>
->>> If I use the config or the hwprobe.h header during compilation time,
->>> the compiled binary is assuming that both mine and your system have
->>> this new bit. So when my program tries to detect it, it will find it
->>> on my hardware but not yours. That's because my kernel was built to
->>> support this bit in hwprobe but yours wasn't.
->>>
->>> But in reality your hardware does have the extension. However, how
->>> will my program differentiate from "doesn't have an extension" and
->>> "kernel version not new enough"? Maybe I'd like to know that the
->>> kernel doesn't have the bit, and notify the user with an "update your
->>> kernel" message. Maybe I'd like to do the fallback SIGILL extension
->>> detection instead.
->>
->> What about parsing the isa string? And do you have a real usecase in
->> mind? I mean which project would benefit from this?
->>
->>
->>> PS: I'm assuming you meant checking config/hwprobe.h at compilation
->>> time. If you meant parsing it at runtime, that simply wouldn't be
->>> possible on all environments (think chroots).
->>>
->>> On Thu, 14 Aug 2025 at 12:37, Alexandre Ghiti <alex@ghiti.fr> wrote:
->>>> Hi Paris,
->>>>
->>>> On 8/13/25 20:05, offtkp wrote:
->>>>> When probing for extensions using RISCV_HWPROBE_KEY_IMA_EXT_0, a missing
->>>>> bit in the resulting bitmask means the extension is not available or the
->>>>> kernel is not recent enough to support the bit. Currently, there's no
->>>>> way to differentiate between the two.
->>>>>
->>>>> This adds a new riscv_hwprobe key, RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL,
->>>>> which returns a bitmask of all the queryable extensions supported by the
->>>>> kernel in RISCV_HWPROBE_KEY_IMA_EXT_0. This can allow programs to use a
->>>>> fallback extension detection method when the bit they want to query is
->>>>> not available in the kernel they are running on.
->>>> Admittedly, I'm not convinced this is necessary. As you showed in your
->>>> v1, trying to figure out if an extension is available will likely result
->>>> in a SIGILL, so that will kill your application. Why don't you check the
->>>> kernel config or even the hwprobe.h header? Since basically here, you
->>>> use a syscall to return an information that is visible already from
->>>> userspace.
->>>>
->>>> But maybe I'm missing an interesting usecase, just let me know.
->>>>
->>>> Thanks,
->>>>
->>>> Alex
->>>>
->>>>
->>>>> Signed-off-by: offtkp <parisoplop@gmail.com>
->>>>> ---
->>>>> Changes in v2:
->>>>> - convert spaces to tabs
->>>>> - use git format-patch to create diff
->>>>>
->>>>>     Documentation/arch/riscv/hwprobe.rst  | 5 ++++-
->>>>>     arch/riscv/include/asm/hwprobe.h      | 3 ++-
->>>>>     arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
->>>>>     arch/riscv/kernel/sys_hwprobe.c       | 4 ++++
->>>>>     4 files changed, 12 insertions(+), 2 deletions(-)
->>>>>
->>>>> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
->>>>> index 2aa9be272d5d..6d77def0a46e 100644
->>>>> --- a/Documentation/arch/riscv/hwprobe.rst
->>>>> +++ b/Documentation/arch/riscv/hwprobe.rst
->>>>> @@ -360,4 +360,7 @@ The following keys are defined:
->>>>>
->>>>>         * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFWMACCQQQ`: The Xsfvfwmaccqqq
->>>>>             vendor extension is supported in version 1.0 of Matrix Multiply Accumulate
->>>>> -     Instruction Extensions Specification.
->>>>> \ No newline at end of file
->>>>> +     Instruction Extensions Specification.
->>>>> +
->>>>> +* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL`: A bitmask containing the extensions
->>>>> +  that can be probed using the :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0` key.
->>>>> \ No newline at end of file
->>>>> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
->>>>> index 7fe0a379474a..501d49b7a02a 100644
->>>>> --- a/arch/riscv/include/asm/hwprobe.h
->>>>> +++ b/arch/riscv/include/asm/hwprobe.h
->>>>> @@ -8,7 +8,8 @@
->>>>>
->>>>>     #include <uapi/asm/hwprobe.h>
->>>>>
->>>>> -#define RISCV_HWPROBE_MAX_KEY 13
->>>>> +#define RISCV_HWPROBE_MAX_KEY 14
->>>>> +#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE      ((1ULL << 59) - 1)
-
-
-59 should not be hardcoded, even with your comment below. Let's 
-introduce something like RISCV_HWPROBE_EXT_COUNT or similar.
-
-
->>>>>
->>>>>     static inline bool riscv_hwprobe_key_is_valid(__s64 key)
->>>>>     {
->>>>> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
->>>>> index aaf6ad970499..a3b92df4dc05 100644
->>>>> --- a/arch/riscv/include/uapi/asm/hwprobe.h
->>>>> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
->>>>> @@ -82,6 +82,7 @@ struct riscv_hwprobe {
->>>>>     #define             RISCV_HWPROBE_EXT_ZAAMO         (1ULL << 56)
->>>>>     #define             RISCV_HWPROBE_EXT_ZALRSC        (1ULL << 57)
->>>>>     #define             RISCV_HWPROBE_EXT_ZABHA         (1ULL << 58)
->>>>> +/* Change RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE when adding items. */
->>>>>     #define RISCV_HWPROBE_KEY_CPUPERF_0 5
->>>>>     #define             RISCV_HWPROBE_MISALIGNED_UNKNOWN        (0 << 0)
->>>>>     #define             RISCV_HWPROBE_MISALIGNED_EMULATED       (1 << 0)
->>>>> @@ -106,6 +107,7 @@ struct riscv_hwprobe {
->>>>>     #define RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0        11
->>>>>     #define RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE 12
->>>>>     #define RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0       13
->>>>> +#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL 14
->>>>>     /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
->>>>>
->>>>>     /* Flags */
->>>>> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
->>>>> index 0b170e18a2be..40e7fa5f85f3 100644
->>>>> --- a/arch/riscv/kernel/sys_hwprobe.c
->>>>> +++ b/arch/riscv/kernel/sys_hwprobe.c
->>>>> @@ -310,6 +310,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
->>>>>                 hwprobe_isa_vendor_ext_thead_0(pair, cpus);
->>>>>                 break;
->>>>>
->>>>> +     case RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL:
->>>>> +             pair->value = RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE;
-
-
-You don't really need to return a mask here, you can simply return 
-RISCV_HWPROBE_EXT_COUNT and let the userspace deal with the mask.
-
-
->>>>> +             break;
->>>>> +
->>>>>         /*
->>>>>          * For forward compatibility, unknown keys don't fail the whole
->>>>>          * call, but get their element key set to -1 and value set to 0
->>>>>
->>>>> _______________________________________________
->>>>> linux-riscv mailing list
->>>>> linux-riscv@lists.infradead.org
->>>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+                - Troy
+> 
+> regards
+> Philipp
+> 
 
 _______________________________________________
 linux-riscv mailing list
