@@ -4,201 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C202CA0EEA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23BBCA0EE4
 	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 09:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AAq/p8QtlkK4Ljm3PK5WCNnQWYzZhbBcnNE0FAmxiU=; b=gQh1rKhyW3S229Kl5G0kAw8RH8
-	ixK0D9YOgnK5f2EL4LqoyypbxcFJKSh9ixN3DxiXWdlCihvY7JLhTJZqTZUJ6FyNIeSXFk2hWZ6oW
-	/8pyL1TgOl6IFy0A7qd0ZPIeScJsIJJFmc68mR8nc3vx/PaXBaujPoJxVWp/Ys/fnsey2dt2duQ0o
-	a89cQR3irQUZpC8XY4pvsNzriATJBtsULJElfqm3CuGDYh41WwnIIuPAryHdQIKC55TJ1QEYllN2j
-	imfx9ROPvjPWO+FXGk1JiK0vSJy9js28QdAw2lmEADfNzESzpfjLJ7shHE5uPSFp3EbEJuiqC+IDR
-	d6Tkw+FQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/8khrr0o/LjRfa1GDgKfNp+/I1S3IFb1wE3hwfOK6MQ=; b=xtq8qQRlBujpZ0
+	Cm2D4l02yuJPOVl6a09/pho0XyfUcKDY+nJlQb/veYEK5YfvcVUE/fahAsvXCaO3L3cq3WhDgAJT3
+	iGTVb2Hl5QT+lSg2qbnmTReZS97d0d2cMA5hEf+FUh6MuQEWSl9F/3dC4uOfymMZrt3bJFijtTptd
+	1lEMKs7a7MbhxFYi+MZWs+HtiXY/kLugHN7oOwsAxvgx0s9LJGUBQPzT9RhLt3YCnn3ngbMzBCRWl
+	1uhbQwyNQNJKNNrKlsitR7H25WqiI3uhzjtOtE1FsI0wNlmDPm6kZReD/oVLyj/sy5QYEu8Z7OzcA
+	dbFJW3TAarMQhmdJva0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUUM-0000000GRL4-1yzW;
-	Thu, 14 Aug 2025 09:43:14 +0000
-Received: from mail-centralindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d409::] helo=PNYPR01CU001.outbound.protection.outlook.com)
+	id 1umUUR-0000000GRPm-0WPz;
+	Thu, 14 Aug 2025 09:43:19 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umTdK-0000000GIdM-3rao;
-	Thu, 14 Aug 2025 08:48:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V05/rQYhjgXKvtCU/4f5QAbDxj03OeC7sNYSE2y9W++Mgh8IlfcxNNBuPYFVotnc32QvOQKu8KCg4UyHhRbfPeQE2oMgJnS42h88cDLaOjlsEkvugADy0HV+OhFhPFE8GouGfUZvJS1w9VHxmlSsIMemVOhRh+6tMjT913TOXqqr/DFCdos4zHpxTItpl0C+whLUshrOsUQN+kcYCdeCRrNZyW+hX2qrYnyPDEGmrPeQ37xAJJbimIawHXSdWOH73Ac/IRGBogdoPuBGAVp5vqrOgMdROjzF3XSE+gUgA8fjI07u8+FivHW0DI5lWTxe1wigffbAD5wTR/oZbGhw1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2ACe8AHuhmUm8RQCLguFaLp80YsDyGpX5pwpLxKQtfU=;
- b=YmW6fV+mf1zXe8Cd3u3j6/fmlPq0iXwPAtjrkEA1uekK0jfBzScUxOIeHvUK/9WHtn8Xg1kmYvvcd9IAap4HRj9jns3OrkLScsVasUzkU+9dEUyCQplByVqZIBTc5z8nLFxHPVIvXFiDSkZRCy7wM91rK8Xk8Cr/zWPpB3VICmKePgIhRONhTdx2aRrjVTpFquxZiwRmJ5RYqKmHLADGlkFDruYkwy17+KHH+cHY+haohoO59cQ2dJWqR0tIB8YAWf97ewuedVCGm1txtP3AzzXbXzMG29uW7mEHSzXN/GP6ItxzrevMkYmvFu1+EFpehEDYYkosBu8NI+7q8H25Mg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2ACe8AHuhmUm8RQCLguFaLp80YsDyGpX5pwpLxKQtfU=;
- b=bkUq5WZYQPuSVfLcJzwnBmDWZKX5ZHUakDxhDVK7l7ga3HbKfRk/h+ugHwFkaDqxHOonxD1UmUVMwJXHqLgHAcz/oPTnzjBTlAr/ItL7wSPWcfBqHWQEyejZVOVoQfFE7r5G1LMKlitCNZFQ1sHBDyPP/Gd0RV67CnV2wzMqF5w0XMLdAX026oAfGfs2h+10glRS9u0fLas/FCutDY972svRSG0F3VdAObrDQntKxnvVT6UWFSqwZDNyupNhTo4nbeoFLEXp1ipjiDkwANgICutrw3LavvR7hzaxfJHABmjf5XRcwFo/K7vBoN5ei1p1fJGeUlqY7w0p1ALZCm3hZA==
-Received: from MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:16f::16) by MAYPR01MB10650.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:158::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.17; Thu, 14 Aug
- 2025 08:47:53 +0000
-Received: from MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::5dff:3ee7:86ee:6e4b]) by MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::5dff:3ee7:86ee:6e4b%4]) with mapi id 15.20.9031.014; Thu, 14 Aug 2025
- 08:47:53 +0000
-Message-ID: <MAUPR01MB110724C32BF11045318A6AE0EFE35A@MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM>
-Date: Thu, 14 Aug 2025 16:47:35 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 048/114] clk: sophgo: sg2042-clkgen: convert from
- round_rate() to determine_rate()
-To: bmasney@redhat.com, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
- Cristian Marussi <cristian.marussi@arm.com>,
- Inochi Amaoto <inochiama@gmail.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Paul Cercueil <paul@crapouillou.net>, Keguang Zhang
- <keguang.zhang@gmail.com>, Taichi Sugaya <sugaya.taichi@socionext.com>,
- Takao Orito <orito.takao@socionext.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Jacky Huang <ychuang3@nuvoton.com>,
- Shan-Chun Hung <schung@nuvoton.com>, Vladimir Zapolskiy <vz@mleia.com>,
- Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>, Yixun Lan <dlan@gentoo.org>,
- Steen Hegelund <Steen.Hegelund@microchip.com>,
- Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com,
- Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
- <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Michal Simek <michal.simek@amd.com>, Maxime Ripard <mripard@kernel.org>,
- =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
- Manivannan Sadhasivam <mani@kernel.org>, Sven Peter <sven@kernel.org>,
- Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Neal Gompa <neal@gompa.dev>, Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Max Filippov <jcmvbkbc@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>,
- Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Heiko Stuebner <heiko@sntech.de>, Andrea della Porta
- <andrea.porta@suse.com>, Krzysztof Kozlowski <krzk@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Qin Jian <qinjian@cqplus1.com>, Viresh Kumar <vireshk@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Alex Helms <alexander.helms.jy@renesas.com>,
- Linus Walleij <linus.walleij@linaro.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- sophgo@lists.linux.dev, linux-mips@vger.kernel.org, imx@lists.linux.dev,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com, patches@opensource.cirrus.com,
- linux-actions@lists.infradead.org, asahi@lists.linux.dev,
- linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev
-References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
- <20250811-clk-for-stephen-round-rate-v1-48-b3bf97b038dc@redhat.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-48-b3bf97b038dc@redhat.com>
-X-ClientProxiedBy: TYCP286CA0179.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:3c6::7) To MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:16f::16)
-X-Microsoft-Original-Message-ID: <9fa46633-da56-4a5e-9abc-0445c3799b12@outlook.com>
+	id 1umTkJ-0000000GJUa-1qGo
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 Aug 2025 08:55:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1755161674;
+	bh=Ke3beEqe6Pa4xwQguH8Wm9RAEs+vkFTy1jmJSngED4Y=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=r3OuX2sbVOYBzNPaXFasVWK4UPVoGFiRF63rwOy7So8uZg+t/TNqlY3gAcTUx/Gm4
+	 0pVlszCYBeh3EGm9H4pja5v7HXcVxcKYXmzsu6f1QSt0LvjW7QZo8IknP+FIvMIauT
+	 UirradNUwn79SBhjhoQ0jhMTDgRUP8HO4/B+n0Qg=
+X-QQ-mid: zesmtpgz5t1755161666tdaa37b79
+X-QQ-Originating-IP: xyGPJ5a57LfI2fCmO+XffstQbpLH+Fv6qZj+s9/q1UU=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 14 Aug 2025 16:54:23 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2060538249097170707
+EX-QQ-RecipientCnt: 16
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: [PATCH 0/2] ASoC: spacemit: add i2s support to K1 SoC
+Date: Thu, 14 Aug 2025 16:54:18 +0800
+Message-Id: <20250814-k1-i2s-v1-0-c31149b29041@linux.spacemit.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAUPR01MB11072:EE_|MAYPR01MB10650:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6142f3f4-d83e-4fe3-de5e-08dddb0f4186
-X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799012|6090799003|41001999006|23021999003|19110799012|8060799015|461199028|5072599009|440099028|51005399003|40105399003|41105399003|3412199025;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QzMzS1lYbFNxeExQWUNGb0VpN3V1bUkvbFlpbU03WFd4QTZNS0JNRVFKb1I1?=
- =?utf-8?B?WVFNaFRCWGxOVDhZdkRwUlhzaGsyQTE0S1JJUlQydlcyeGdHOEZpeGNJYVln?=
- =?utf-8?B?dVdTd3JnZXVWRC9EN2psNEtGdTRFYThkeDEySWZnT2Q3U1doc0NVRzZIQi81?=
- =?utf-8?B?VkFWU0JJVjNRMVJxLzVjdXpqZ0JBdDBscVF4S2RITlllNUM5UWtEYStkY2Nv?=
- =?utf-8?B?ejdNNzRxcWRUdlBLYS8rZTNSNjFicG1rMGxEMG8vWnpWSFVxempFaVhleVQy?=
- =?utf-8?B?ZWxWUG5KS2s1Yk5aZmxYaDE3QnYxRTE1ZEp3aUJqYXVENUpNWHBSalM0SjFF?=
- =?utf-8?B?ay80dnJwVjA3Vm1oSjVvVW0xYWNNenp3ZnY5eTQ0Skl0ZW5Xay9maC9OWGpQ?=
- =?utf-8?B?MXZqZS9WN0lmMVh1OUI5OGN5UnRHUHRqNXlieWwyYklmVlRObDVyWjRNczJI?=
- =?utf-8?B?eHhxYXpYcUNtR3cvT3EvQ2RycG1MZ09pUXpTaWllbTZ2TDQ4aXlObVlzS0hW?=
- =?utf-8?B?bnhTT0cvRlgvKzI0cGVwWEVRZ2l1NFgrRHJ6QmZaWWdyNHU1ZDVObTNxZVJL?=
- =?utf-8?B?VzE3MUhBR3kvbmFGTUNOZWk2M3ArTXdaY0l4UWxNb3NJekdwSk0rZEtVdXFn?=
- =?utf-8?B?ZTNlakd4OWN6WG9KOEU0WkdWWXdZSlU5b05TU3Nlc3RlUEhDS3hpVGVRb05m?=
- =?utf-8?B?Q1dBVi8xOEZESXp5UWN3REhlUnUrV1dwdno0U0RGV01nZTFmWU5zM05YY2Zx?=
- =?utf-8?B?RGsrNmR5amZzcDBNYVEvSGNjNVRZaUF0YlRteUVqMVFmNjVzd2h1c0NEVW1n?=
- =?utf-8?B?RVdNU0NJcm1GSDc3ZFdrTDJyeDBDZDNRNkV1aTZXV0RSNzRTZC9Id2toRHc2?=
- =?utf-8?B?cVNPOU1BMlJMd01PeWxZM3BLN284cXRuMUlQME4yVDRyaTM4Tm45ZkErSjZi?=
- =?utf-8?B?ZVFMS29jeXJ5Q3lvSjlCUEQ0YlBGZzN2dk5sTytWUFFWS0hHU3NqQzNwUUhn?=
- =?utf-8?B?SmlZTXRmK3pmV2lTM0YwcFNLUFMrWVpjcjJZOUxuYnhVUnZDQnR4NWhpUVFo?=
- =?utf-8?B?ZnBFdW5taEJJTkd3eVg2NGxXWGw3UzE4bkkycjVUdW5qQTZPOVJZUGZPMUwz?=
- =?utf-8?B?RXE5SmFOaEgzR0hwVFE2dytzZ212V1BJSjJCTUFDQXQzV3F6bUpNdWpQanZo?=
- =?utf-8?B?a0NwU0QreWdjUndsMXRBTVNnMzVaam9wTUk2aDAxT0ZPd2RaN3lYeU5HeldN?=
- =?utf-8?B?Sk96TU5MSHFlQ2gybC9FQm5zejVmRXNFb0xBU1l5bFJldlpQOGRmZk8vYmdq?=
- =?utf-8?B?ZHZORWpHUGFjK0FGU1p3VkpXdEYreUMvU1ZTR0YvUG1wUW1KYVpIclc4MkJs?=
- =?utf-8?B?b1JLOXpjOHJZNkV6bzR6OEdzbndCdFN4T1l2QndQNHRaVmNOTG15cHQ3RnAx?=
- =?utf-8?B?SGUwa2tOVllvTTk0cEY1UXdNUFVvMEJnNVdBUW5qNzVyV0RSd0puTTJldm5C?=
- =?utf-8?B?a1o0RnBRaHhtcDNwM1VGWVU3WnRMWUNOaEJIVXd1ODRmZURXcVY0RGNRZFk0?=
- =?utf-8?B?RUZ0a2ZvcUJJZi9lUUVrN1JYTnYxMzJ4amk5REFRVVNrTmpNNlJMTXBpdTlF?=
- =?utf-8?B?YUc5UFZxUHFxZWhEa3VGL1VFSythLzNvUXlzM2VjazRDb1FYQ2JqdEVqcmJX?=
- =?utf-8?B?TlNrcklxaTJBVTM5OG0wNjRWT0FzcFc5czZkbm1nL0FXVzlhbVhUTEpRPT0=?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q0hnaDliZjRKZmRxbnhPR2xlR1BVRnZPUTl1dUtxeENGSXhRU05zdGF1aWhL?=
- =?utf-8?B?VnlXRGRTNzNHdlRMWmxWNk9XK1VaUGxKcTE2Q1V6UFIxMUxjTWhsbFMyTTg4?=
- =?utf-8?B?RmhqMElETG0yc1NsQTFVZ09JN1VINklmUFJ2TXM0SGVQRW9BdDRCMkRyRGpF?=
- =?utf-8?B?QTJOSU1VN0lJNzViTk16Vko0aVZhY1ZVb09RN2F5T1lKakR3TDNPVDJZdlJ0?=
- =?utf-8?B?TjlHb0EyNkk0dm04UEM5MFozQ1V0QlpraXhiaVZnRmVjZkhBemhZZjVxWjky?=
- =?utf-8?B?bVcvMTlUeFRFMHAvY2NPcEJsTFhudk9zQUtmbTBRWVppdkdtaTRpZmV2Z3hV?=
- =?utf-8?B?dVY4OG1xeFlQekVnNkI1bFRyeHJZd1VhTk5jN3BkNmtCZFFsV2g5Vnk5dWhI?=
- =?utf-8?B?T0tGT0FVMVVXdXNKVjI0OEhEWkNmOENpYkpUSWtrODRSU0lLN2k3dXYvSUN0?=
- =?utf-8?B?OWxYK1JDeGZYZytLenRQbWdYZnRpUVl0TUhjaHY0c0NVWGxyQ3p1dmM0M2Jz?=
- =?utf-8?B?ZGMyZXdQTFQvN3Z6MU1LbGNjNWUvSy9YZldVTHJUYkpLTXR5eFkzTFN5dEVU?=
- =?utf-8?B?SzY2NW5hN1dmYU94WVk4cklXVDRlTVY2QzZveGNucDNkeVA0TFplOGlNOWxF?=
- =?utf-8?B?aEE1dlNBbE40eUI0bHhjVFdIMTVyMXZlWVpaYnhrVEJ4SXJDVTB4MkF1OG0r?=
- =?utf-8?B?WG1Wd1p2K0QzWTlBQnI2bGI5OEZnQWt4bHRDTXdsWHp4Zk03dHhsSXpTbUFv?=
- =?utf-8?B?ZkxkWmd4ZUpLZlAxdFJrRG1YemgyaGE4NXA5Nkl1YlJuaUZKSnhnN1o3SjNh?=
- =?utf-8?B?MURsc2hyWlZHM3hNYS9Vd0F2c2RTcUNHWDY1OVloMzN6VDV0NGVOZFk1YVdq?=
- =?utf-8?B?L1IyQU5oNEVKTEZxZjZ5MUUwYzRZbms0VU9waEpPbVd1M3VTUnUxT2VYcUdB?=
- =?utf-8?B?cW0vSUR3cWc0Q1RaSmZLcTM5b2N1MHZFYzFQaGVGZ2U5alhzSHJIcHRwY3Vm?=
- =?utf-8?B?U0F3RUREUFVUeVMyYytmV0puOVdBOG1ZQk14N0VjS0JwQ1Roc2dnUWFJekhv?=
- =?utf-8?B?WTZzbGNDT3JTdGkyVVM0WlZteDUzVm15WkRlU25naW42cWxXZGpPT1JqbG1O?=
- =?utf-8?B?S1hoY2hvcFVENDEyL0didUsybXdORlJXbk5zTlMzdkF3NTVYNWtDUzVOamhz?=
- =?utf-8?B?Q3lhMmU5MVM5enlaOW41S0NnNkk1MUY4cmIwNXFsVkVvbXR6dnYvb3hsaTFq?=
- =?utf-8?B?K05hejdEZnorcGFMdFh0eGtSTFFjdlBoQThvd1NJaWJsN2tRdm9vejMwekl2?=
- =?utf-8?B?MXYvSmpzSDFzMW1rUU5xd0E2Mlo4TXRDVDlueFM4YWh0NUNCWEppb1EvVHRP?=
- =?utf-8?B?OGg0RjlMZVhjdzRmTlltQjJPMUg5QzR6UG03VVhCQ1Z3NGxsRXZ5TzVmNklu?=
- =?utf-8?B?cHptQThBQnlSY2NGbjM4NXF3UHRQUjJVaXVzVEdKK3RjMWJTS3hUYXlFWFlQ?=
- =?utf-8?B?VGFCSWU4SU1CR0xtdEk2bit1Ylg5SnZPa1VobDVLQlNCeWtCaXU3UzBnZ1JC?=
- =?utf-8?B?YjB5VTdoSWdNcjFaVUt3aXJnTG9Hc2xDS3VRdVVNS1F5ZUJQbnFEQnk1eTVi?=
- =?utf-8?B?ak1YcVRjQWExckRqaFdHdExvT3R1c1F0TndSemxiYVNyK3BDWWRQbnljeVFL?=
- =?utf-8?B?bUdjNnVONFMrRXRuWCtFTGVhcGllNW5jZzFHbGVmVFNaZHMxY2RNTG9mSllt?=
- =?utf-8?Q?HiiQSi6qSTmGr3VZ35sO2PUgCofgcMYgFPTtdlA?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6142f3f4-d83e-4fe3-de5e-08dddb0f4186
-X-MS-Exchange-CrossTenant-AuthSource: MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2025 08:47:53.7093
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAYPR01MB10650
+X-B4-Tracking: v=1; b=H4sIADuknWgC/62QQW6EMAxFr4KybqQkJDhwlWqETOzQiAJToLTSa
+ O7eMGxGapddfsv+78k3sfKSeBVNcRML72lN85SDfilEeMOpZ5koZ2GUccrrUg5aJrNKrV0XK8e
+ IwYu8fF04pu9H0evlzAt/fOa+7RyKDleWYR7HtDWFjw65VFTVBM6WzKwIlPIlYbTEPrJ25LwTz
+ x5NcVooe1iE9+Fh0vPEC27ZW+YaULZm1oDNbo7jf6OChmcqWwMm6ljnPzS7+4WqOgZ0CJVHjKF
+ TQBqgI5P5FXbesmWFgfhPlNLya16GNPUtjdgeg3Y3EsiE6FSFSNDspbjc7z8Wj7lBwAEAAA==
+X-Change-ID: 20250813-k1-i2s-115bf65eaac8
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Jinmei Wei <weijinmei@linux.spacemit.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755161663; l=2411;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=QgGpAdvzuormNjUn6tUmYY9jPTavcmAGKkKi1zctL28=;
+ b=HO70OsWIvdbMolshXdBIfReQ6sDMnZTin41uCKGbrCSaqlVvv0JcII+K2L+wrBi1z1xSvtNRi
+ 98J5274iTZ6BZZSjNc4bN9jrB7B93X/TaMZ2ToMXk66cfczgcA+w9Fe
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: N649AdNySAiw8vM0MDinra7NsiVE7+ctZV4tTkIfJTrp5RlIInsTKcj0
+	RrLkJivpulfsILTA7ajvr1twO4AzqrXPRij8pv5CPJAUXjxDOqVH0PLGYdcRPs0gmJ503n0
+	Y0UPxzhJyAZXiu+xHXPuJX1euCqtnIKa+Rn94Ewv/1irhmdfycltIZOofE9PKa1yasFrG4l
+	+41aEExtse7wmZ1jCXZY+JHCbBEyZMAnEmXmr0Q9Vgod91s3kNxMQzJ76MDTCAluMcbuWu0
+	a0TjGAO88W7uxM/cz8G2T15Z8KQpz3FvFA746hE+9ioQtpolmqw6YPNtaFmKChSJSekiS6K
+	HwmnM9Jtq8ANCcVGyNr/rQT7FQJf8+oyjyRafPc8N3zS326L7iH5llg5QL2QZxG+rDOmbPk
+	Tbm8jhVg+xovmDw3GOAFU8JMAMZCvPVub2sV8BMdnQUv59bJ0+gC3IEbnBIiVhoA2zaIdGN
+	vKnS/n+Q16fT2oVZnRMoCdYQqtg9uggon8czJ8J2oF5gD6KCQMRvX5tXIqMoR8+1esvdTGk
+	CzPFfcGYN/wQv8JdzTeKlzivmDHc2Xdwrwk55WqTW5RtvKzYTSquAJMiA/0zdigeLpuaWRs
+	KG3JnIDDivVuF2tSlcD8Q0V2z8HPN+qz4hsqrESdImLjAzAfktMT3TjNcLqAbnnX6++Gi5G
+	3m+QGYwfef2FesDYzjs3jxqhyOU168mjUhOd+an+ts409NHMAX22UL6ox3EmEvKq/3kh7AH
+	droNO1HfDZTsTPE8yuf4FIUlDbYQRqdmxtMSz5UPKv3s3UqN7yKZs5AoYHZ87mk7lDQ63gU
+	KhRyRPehd4c/IV/D2KZ/bLbL7fcxWEk8SAa6olWgXjxtS/F3ZN1MQ4qXWIS6aBpw/vzDh8d
+	VFZ0hsxXSmWi7YlcGxu2ImMyqghJ2FTpmff/HeLAZGvthCyj8mC9QjnsMhj4Ql5NLm8QLaY
+	JW0kZP7zhpRnWcGwkTOx00Lc8QOAAfk/lNv+Hfnv45oAyyaJNXKmrxD3lFOtxeNa3uI7IgL
+	+h2kjG0uLs5mMiwenplzyR7oi5RoCeABObrkzK3t3JdIgrBdDHKGI+XTV2ApkKVAf9QSVwr
+	IKrsZmS6GW7qs4jt5WccXyrbwJ+9ibZ2WGV38Uj4KCGcfNamSQBebqUgURuk5Q561u1vzCt
+	0UbAqJwLOPL1cdVKF5ye5GMmSZR+rbuLDTm5C5yl1LNYJ08eZbGy0LO4gg==
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_014827_188681_C5CCDB87 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20250814_015540_030252_623385D1 
+X-CRM114-Status: UNSURE (   5.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,87 +109,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On the K1 SoC, there is a full-duplex I2S controller.
 
-On 8/11/2025 11:18 PM, Brian Masney via B4 Relay wrote:
-> From: Brian Masney <bmasney@redhat.com>
->
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
->
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
+The I2S is programmable, with the sample width configurable
+to 8, 16, 18, or 32 bits.
 
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+A dedicated FIFO is provided for transmit (TXFIFO) and another
+for receive (RXFIFO). In non-packed mode, both FIFOs are 32
+entries deep and 32 bits wide, giving a total of 32 samples each.
 
-Same comment as Alex. I will test this out after you send out v2.
+The register definitions can be found here[1]
 
-Thanks,
+Link:
+https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf#18.2-spi%2Fi2s [1]
 
-Chen
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+Troy Mitchell (2):
+      dt-bindings: i2s: spacemit: add support for K1 SoC
+      ASoC: spacemit: i2s: add support for K1 SoC
 
-> ---
->   drivers/clk/sophgo/clk-sg2042-clkgen.c | 17 +++++++++--------
->   1 file changed, 9 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/clk/sophgo/clk-sg2042-clkgen.c b/drivers/clk/sophgo/clk-sg2042-clkgen.c
-> index 9e61288d34f3757315702c355f2669577b29676f..1d3b1656bcf2e6655e0299e68ab39f32189744dc 100644
-> --- a/drivers/clk/sophgo/clk-sg2042-clkgen.c
-> +++ b/drivers/clk/sophgo/clk-sg2042-clkgen.c
-> @@ -176,9 +176,8 @@ static unsigned long sg2042_clk_divider_recalc_rate(struct clk_hw *hw,
->   	return ret_rate;
->   }
->   
-> -static long sg2042_clk_divider_round_rate(struct clk_hw *hw,
-> -					  unsigned long rate,
-> -					  unsigned long *prate)
-> +static int sg2042_clk_divider_determine_rate(struct clk_hw *hw,
-> +					     struct clk_rate_request *req)
->   {
->   	struct sg2042_divider_clock *divider = to_sg2042_clk_divider(hw);
->   	unsigned long ret_rate;
-> @@ -192,15 +191,17 @@ static long sg2042_clk_divider_round_rate(struct clk_hw *hw,
->   			bestdiv = readl(divider->reg) >> divider->shift;
->   			bestdiv &= clk_div_mask(divider->width);
->   		}
-> -		ret_rate = DIV_ROUND_UP_ULL((u64)*prate, bestdiv);
-> +		ret_rate = DIV_ROUND_UP_ULL((u64)*&req->best_parent_rate, bestdiv);
->   	} else {
-> -		ret_rate = divider_round_rate(hw, rate, prate, NULL,
-> +		ret_rate = divider_round_rate(hw, req->rate, &req->best_parent_rate, NULL,
->   					      divider->width, divider->div_flags);
->   	}
->   
->   	pr_debug("--> %s: divider_round_rate: val = %ld\n",
->   		 clk_hw_get_name(hw), ret_rate);
-> -	return ret_rate;
-> +	req->rate = ret_rate;
-> +
-> +	return 0;
->   }
->   
->   static int sg2042_clk_divider_set_rate(struct clk_hw *hw,
-> @@ -258,13 +259,13 @@ static int sg2042_clk_divider_set_rate(struct clk_hw *hw,
->   
->   static const struct clk_ops sg2042_clk_divider_ops = {
->   	.recalc_rate = sg2042_clk_divider_recalc_rate,
-> -	.round_rate = sg2042_clk_divider_round_rate,
-> +	.determine_rate = sg2042_clk_divider_determine_rate,
->   	.set_rate = sg2042_clk_divider_set_rate,
->   };
->   
->   static const struct clk_ops sg2042_clk_divider_ro_ops = {
->   	.recalc_rate = sg2042_clk_divider_recalc_rate,
-> -	.round_rate = sg2042_clk_divider_round_rate,
-> +	.determine_rate = sg2042_clk_divider_determine_rate,
->   };
->   
->   /*
->
+ .../devicetree/bindings/sound/spacemit,k1-i2s.yaml |  88 ++++
+ sound/soc/Kconfig                                  |   1 +
+ sound/soc/Makefile                                 |   1 +
+ sound/soc/spacemit/Kconfig                         |  14 +
+ sound/soc/spacemit/Makefile                        |   5 +
+ sound/soc/spacemit/k1_i2s.c                        | 444 +++++++++++++++++++++
+ 6 files changed, 553 insertions(+)
+---
+base-commit: 6be7a5a768aafcb07d177bd2ae36ab84e4e0acde
+change-id: 20250813-k1-i2s-115bf65eaac8
+prerequisite-change-id: 20250804-k1-clk-i2s-generation-eee7049ee17a:v2
+prerequisite-patch-id: 21c0ef38a82ad5f8e471bd904559e5bf68099445
+prerequisite-patch-id: 6fa5b6872559a75651342831399676ec96cc3974
+prerequisite-patch-id: 03cbe1816e519bc16c641055972558fb5eec6a37
+prerequisite-patch-id: 1ef339ef1a80a508b5761dab1ddf448a985864e9
+prerequisite-change-id: 20250717-k1-clk-i2s-e4272f1f915b:v5
+prerequisite-patch-id: 6f2626811da4833395f52f712d9f2a5fb553cb48
+prerequisite-patch-id: d2594982f7a8f39c2aa4f21490a19e93ab67254d
+prerequisite-change-id: 20250701-working_dma_0701_v2-7d2cf506aad7:v3
+prerequisite-patch-id: 3fe97698036c32c20d03b1b835a5735e8ee8126c
+prerequisite-patch-id: bf64cb2fbb9699d2ace64ae517532f13c6f8d277
+prerequisite-patch-id: 49263c65c84a0b045f9b5ae6831dc011c4dea52f
+prerequisite-patch-id: a62678262e4fd2361b8c0c535ce34853febf492a
+prerequisite-patch-id: 1b840918a99543f4497b6475ee52977bdb59f1c3
+prerequisite-patch-id: 75e5a355a32ceb2b0047ead035c07c5b201bebbc
+prerequisite-patch-id: bc8f599bef77297a7bd69736bb5307a0964aeff5
+prerequisite-patch-id: 62d0b3678cf825bca51424ad85cf35ebdd6dc171
+
+Best regards,
+-- 
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
+
 
 _______________________________________________
 linux-riscv mailing list
