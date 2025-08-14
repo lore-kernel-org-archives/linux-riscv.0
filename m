@@ -4,96 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733DFCA0EE4
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 13:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D207CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 13:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HaHru0RIN57n7MGGtv/pPqipXl+ESlEyHOnJ6Bv7wbo=; b=4Wbbwb3m2uX/0W
-	QRKuuZZ1MEab/NQuBRp9TklTxrV6ylP0b5b+BGnjwLnQbRDA66inuhu8mijF9vUNiWHrySDue1Cdd
-	3hMJ0KjbCNJbwviyz2UVFfpboMAWObCkhFAsUZJoQnpNWpb8CPg2o6hkZ3/SsGjVyVv9RkJAye4X9
-	XHXrvqyh6/AhhmYhYBd/cAEjsE6bjZaedFK9sLtQykics0Sk59dOqD4CPXX95YkhNBB6xYEv0ECS0
-	DIYxJqf4DdRYTmjxzDO2E5r62MwE0B7751gzAsHzYK6O2sT8QvkpQmobL73EkSN8hy6Htc2/Tbc8Q
-	I9V/5cLM1WS2A5v7voeg==;
+	List-Owner; bh=O+lvjxXQW/T0LUjA+D/Y55l0ng/7BQ8a3auO8UOvf90=; b=XzopdFc27OkU9O
+	ArogNbAvIxbvsMDETD6O3Q7KBmlliL8WGZkMAvp6dk/w0q11USXqVuZUdDW7ZIZMkF1pnW/0TuDkw
+	d6n46Q+N8EA0k5OYSELTOG1EMufazNzdWefeLxarP6pz9Plm5z1gW8ytfWtJXHwiYEHLM3FG9coPx
+	iu0fQH+L5kEcXq6BKexQPNc6K6ZuiiA4kvUhUEtCRI/wBWsnB2EW33adEs232NWJRgtIffuNpVjnn
+	kbEGSZG2B1bxMV5HAmkTP5+qyD8eSkbDt3XbJqBgS00ckRA6BPz66MqnAp5hHDBa8++6Eijy1gJUu
+	VoJn56XfgOZiRb796xsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umY2J-0000000H3XR-3LFT;
-	Thu, 14 Aug 2025 13:30:31 +0000
-Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
+	id 1umYHS-0000000H5lH-11OU;
+	Thu, 14 Aug 2025 13:46:10 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umX6e-0000000Gr0A-1dzZ
+	id 1umXU6-0000000GtpE-35Bv
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Aug 2025 12:30:57 +0000
-Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-74381e0a227so640624a34.0
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Aug 2025 05:30:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755174655; x=1755779455; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ywvq4778+XMT9D9uuqrnqBrIL1jeEJwzcsXhXKprWOg=;
-        b=dlXukGiPhpqYM23K08yZblaeoRIbyccG2xdRSj6B+JXQwJQ6kchGyHK4X973+5DNwL
-         OIuuRehJx3w23tIlTjx3g417B+J+/okOof7WgDP8I9SHRD+4A3PyTxsOhM3YgEiJxkwC
-         VilwEPLXmrDS3zTbxXQlAttGEI4ZAbKXL4Giz73L0fDkRViFxdlzFoNoD1ARh+lY+aLY
-         eS275yy9MUMdGmqTFnqQy+an8QxLV9cpUx7HQU1+fwgF9ah0sUUxBYaxaby1zY/cihox
-         8+i3IxM33p/99Eo5afCo45gdraLCwTijHJx23sgdww1ZQHaza5t+6I9nVGwnbmcxyTy1
-         ppEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755174655; x=1755779455;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ywvq4778+XMT9D9uuqrnqBrIL1jeEJwzcsXhXKprWOg=;
-        b=rZwgNEPkBMGLb83CsYt5Naukp2J60NhO0teaULyOxy/C/2/Oz43VnsPwLEBOvxacNm
-         6YgUWF/fFCH9CP0a5lyXiqiLGNDdud9TrwdGtmdPWZDE1gzvp6xAB13AHdVZIJ2rupKg
-         zNdkoTRJ8C1n7hkZqkIJjv3MVkRjeAEF4nubX3xce/jt2V8b3kHfhjQCKUOMSHClCuUA
-         Wyvv8AHegA6XH7vio0pHQsUfgWvQ52b3I0mzr5y7ZNtLvG5X1Geoz0tho8Xo9tg3kJO6
-         ubg8Qtu8WqZqtUUsUe4JbwFPvAIO6wOJ7Qhwgu0QOVMHu7BS8a4xEyqadbqrIrpLSutJ
-         E1lQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWQ2jPd0Xs7tZkZBF5/knJ5/Mr1UwRFdrCwriR7xS/jdy4Vx7h2w72dLuIc01tzkxzvq34kosNRMJZn3A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL1zty295vAJ6IWBxlTgDctIK+Q78ZqnVUPc0dtYFszwlh7s9r
-	DWpjppIh/pqjd3U0IXGB0vrr5tUBqEf+/r4TIDJxkOmIB9F4JXM8uTF2DZzEsCcye3E=
-X-Gm-Gg: ASbGncs6brxLsd/ZhKq6gPrOupLEz8EAhHsnV4Utk53QB68cixk1xrm03dhsqyG+dEA
-	KoYkPO8d0khbIpSqSu/vUGE9MP4UL1SvZzNytEmLvNoyyujSAYtfAwF0VOL7Vjb+ClIa2WV9g3F
-	mYauUEchk4F1aHz/dpKMXhZRWWnmd+D9PIryAr4iUH98OKi/UPJ3UFq8D6K/PVhrpP9jlrRofhi
-	bM28GdY1I4c7hEuPTSLyDqwkgzMK7Feg4cmrCah1dMMGg/0IGcQK1WRa2yVnXknUUcsuFfW+tWz
-	vy3X7tOCqB4rdsHmOBk2kpr6LYaUEQnjOfltBnvxIBYlS573FqzW95+5CDC0rqZqJxC7Ug2/seu
-	e/SyB73SgYTGb/LjMee7qXPS/RUqfdqsZCFfp5Sx/JXvT1fdg4d/svAJ7bD8ehQ==
-X-Google-Smtp-Source: AGHT+IHBzdCRrljPnkfDW8jmr3rpPTUxAN1tCDdoZAzws2zd3haB25jvZwxqllCVG7gPmDZID86wtg==
-X-Received: by 2002:a05:6830:3497:b0:727:3439:5bdf with SMTP id 46e09a7af769-74382bc3f86mr1632907a34.13.1755174655075;
-        Thu, 14 Aug 2025 05:30:55 -0700 (PDT)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50ae997ea9fsm4538196173.17.2025.08.14.05.30.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Aug 2025 05:30:54 -0700 (PDT)
-Message-ID: <8f7bac84-623b-47dc-bc58-dc0013a85877@riscstar.com>
-Date: Thu, 14 Aug 2025 07:30:52 -0500
+	Thu, 14 Aug 2025 12:55:12 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4276E2059F;
+	Thu, 14 Aug 2025 12:55:07 +0000 (UTC)
+Message-ID: <ef00cbeb-e86e-40ed-b5f6-d771b10216da@ghiti.fr>
+Date: Thu, 14 Aug 2025 14:55:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] dt-bindings: phy: spacemit: add SpacemiT PCIe/combo
- PHY
-To: Yao Zi <ziyao@disroot.org>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org,
- mani@kernel.org, bhelgaas@google.com, vkoul@kernel.org, kishon@kernel.org
-Cc: dlan@gentoo.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
- tglx@linutronix.de, johan+linaro@kernel.org, thippeswamy.havalige@amd.com,
- namcao@linutronix.de, mayank.rana@oss.qualcomm.com, shradha.t@samsung.com,
- inochiama@gmail.com, quic_schintav@quicinc.com, fan.ni@samsung.com,
- devicetree@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-pci@vger.kernel.org, spacemit@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250813184701.2444372-1-elder@riscstar.com>
- <20250813184701.2444372-2-elder@riscstar.com> <aJ1PJBax-Pj983OZ@pie>
+Subject: Re: [PATCH v2] riscv: hwprobe: allow querying available
+ RISCV_HWPROBE_KEY_IMA_EXT_0 bits
+To: Paris Oplopoios <parisoplop@gmail.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, Conor Dooley <conor@kernel.org>
+References: <CAAbFZ0iFJbpqxqTUYhB+tUZSiL1qQJ=PeABCCjkeSpf4_TNiyQ@mail.gmail.com>
+ <20250813180545.110666-1-parisoplop@gmail.com>
+ <bb580c80-5c6d-43f8-808a-e0d713f0be0c@ghiti.fr>
+ <CAAbFZ0hK7uAm_jXoThK+tLsGzBrLSNr1=Gv8=H21D7DyODWB6g@mail.gmail.com>
+ <18ea9e1c-ebf9-4a5e-8880-d1af9ea07138@ghiti.fr>
+ <CAAbFZ0j0UL0E08NCFgHRwL83CbWiKTnmaaMm414Oofi12HxLgA@mail.gmail.com>
 Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <aJ1PJBax-Pj983OZ@pie>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <CAAbFZ0j0UL0E08NCFgHRwL83CbWiKTnmaaMm414Oofi12HxLgA@mail.gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugeduudefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeetieeitefghfeuvddvjeeiudehheeiffffgeeviedtleehgeffgfdtveekteehudenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvvddruddtudgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepiedprhgtphhtthhopehprghrihhsohhplhhophesghhmrghilhdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsv
+ ghrkhgvlhgvhidrvgguuhdprhgtphhtthhopegtohhnohhrsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_053056_443558_811E4C1C 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20250814_055510_932169_4175AD2F 
+X-CRM114-Status: GOOD (  38.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,100 +71,198 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/13/25 9:52 PM, Yao Zi wrote:
-> On Wed, Aug 13, 2025 at 01:46:55PM -0500, Alex Elder wrote:
->> Add the Device Tree binding for the PCIe/USB 3.0 combo PHY found in
->> the SpacemiT K1 SoC.  This is one of three PCIe PHYs, and is unusual
->> in that only the combo PHY can perform a calibration step needed to
->> determine settings used by the other two PCIe PHYs.
+On 8/14/25 13:57, Paris Oplopoios wrote:
+>> What about parsing the isa string?
+> Yes, parsing the ISA string would work. But if we're going
+> to do that, we might as well not use hwprobe at all. In my
+> opinion, using the syscall is much easier to implement and maintain.
+
+
+You're right.
+
+
+>
+>
+>> And do you have a real usecase in
+>> mind? I mean which project would benefit from this?
+> Yes, I want this feature for an x86-on-RISC-V userspace emulator
+> called felix86. We do runtime extension detection for our JIT.
+> Currently, for any extension that defines instructions we use the SIGILL
+> method previously described, because there's no way to tell with just
+> a hwprobe call whether a 0 bit means extension not present or kernel
+> too old. But we can't do this for all extensions, some don't define
+> instructions.
+>
+> The end goal would be being able to detect an extension using hwprobe, and if
+> it's not detectable, notifying the user that we can't detect it and
+> they can mark
+> it as enabled in the emulator's config file.
+
+
+Ok, I'm not opposed anymore, but I have added Conor in cc to have his 
+opinion. Can you add that ^ to the change log? And now let's talk about 
+the patch, see my comments below.
+
+
+>
+> On Thu, 14 Aug 2025 at 14:22, Alexandre Ghiti <alex@ghiti.fr> wrote:
+>> On 8/14/25 12:32, Paris Oplopoios wrote:
+>>> Hello Alexandre,
+>>>
+>>>> trying to figure out if an extension is available will likely result in a SIGILL, so that will kill your application
+>>> SIGILL can be captured with a signal handler and extension support can
+>>> be checked this way. Not all extensions can be detected using this
+>>> method, and it's much more straightforward to ask the kernel.
+>>>
+>>>> Why don't you check the kernel config or even the hwprobe.h header? Since basically here, you use a syscall to return an information that is visible already from userspace.
+>>> To give an example, imagine a new extension Znew comes out, it
+>>> occupies the bit 1<<59. Let's say my kernel version was built with
+>>> support for detecting it and yours wasn't, but we both have the same
+>>> hardware. I compile a binary of a program that wants to do runtime
+>>> extension detection and I want to distribute it.
+>>>
+>>> If I use the config or the hwprobe.h header during compilation time,
+>>> the compiled binary is assuming that both mine and your system have
+>>> this new bit. So when my program tries to detect it, it will find it
+>>> on my hardware but not yours. That's because my kernel was built to
+>>> support this bit in hwprobe but yours wasn't.
+>>>
+>>> But in reality your hardware does have the extension. However, how
+>>> will my program differentiate from "doesn't have an extension" and
+>>> "kernel version not new enough"? Maybe I'd like to know that the
+>>> kernel doesn't have the bit, and notify the user with an "update your
+>>> kernel" message. Maybe I'd like to do the fallback SIGILL extension
+>>> detection instead.
 >>
->> Calibration must be done with the combo PHY in PCIe mode, and to allow
->> this to occur independent of the eventual use for the PHY (PCIe or USB)
->> some PCIe-related properties must be supplied: clocks; resets; and a
->> syscon phandle.
+>> What about parsing the isa string? And do you have a real usecase in
+>> mind? I mean which project would benefit from this?
 >>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->>   .../bindings/phy/spacemit,k1-combo-phy.yaml   | 110 ++++++++++++++++++
->>   1 file changed, 110 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
 >>
->> diff --git a/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
->> new file mode 100644
->> index 0000000000000..ed78083a53231
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
-> 
-> ...
-> 
->> +  spacemit,syscon-pmu:
->> +    description:
->> +      PHandle that refers to the APMU system controller, whose
->> +      regmap is used in setting the mode
->> +    $ref: /schemas/types.yaml#/definitions/phandle
-> 
-> Clock controllers and ethernet controllers all use spacemit,apmu to
-> refer the APMU system controller. Do you think it's better to keep them
-> aligned?
+>>> PS: I'm assuming you meant checking config/hwprobe.h at compilation
+>>> time. If you meant parsing it at runtime, that simply wouldn't be
+>>> possible on all environments (think chroots).
+>>>
+>>> On Thu, 14 Aug 2025 at 12:37, Alexandre Ghiti <alex@ghiti.fr> wrote:
+>>>> Hi Paris,
+>>>>
+>>>> On 8/13/25 20:05, offtkp wrote:
+>>>>> When probing for extensions using RISCV_HWPROBE_KEY_IMA_EXT_0, a missing
+>>>>> bit in the resulting bitmask means the extension is not available or the
+>>>>> kernel is not recent enough to support the bit. Currently, there's no
+>>>>> way to differentiate between the two.
+>>>>>
+>>>>> This adds a new riscv_hwprobe key, RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL,
+>>>>> which returns a bitmask of all the queryable extensions supported by the
+>>>>> kernel in RISCV_HWPROBE_KEY_IMA_EXT_0. This can allow programs to use a
+>>>>> fallback extension detection method when the bit they want to query is
+>>>>> not available in the kernel they are running on.
+>>>> Admittedly, I'm not convinced this is necessary. As you showed in your
+>>>> v1, trying to figure out if an extension is available will likely result
+>>>> in a SIGILL, so that will kill your application. Why don't you check the
+>>>> kernel config or even the hwprobe.h header? Since basically here, you
+>>>> use a syscall to return an information that is visible already from
+>>>> userspace.
+>>>>
+>>>> But maybe I'm missing an interesting usecase, just let me know.
+>>>>
+>>>> Thanks,
+>>>>
+>>>> Alex
+>>>>
+>>>>
+>>>>> Signed-off-by: offtkp <parisoplop@gmail.com>
+>>>>> ---
+>>>>> Changes in v2:
+>>>>> - convert spaces to tabs
+>>>>> - use git format-patch to create diff
+>>>>>
+>>>>>     Documentation/arch/riscv/hwprobe.rst  | 5 ++++-
+>>>>>     arch/riscv/include/asm/hwprobe.h      | 3 ++-
+>>>>>     arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
+>>>>>     arch/riscv/kernel/sys_hwprobe.c       | 4 ++++
+>>>>>     4 files changed, 12 insertions(+), 2 deletions(-)
+>>>>>
+>>>>> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+>>>>> index 2aa9be272d5d..6d77def0a46e 100644
+>>>>> --- a/Documentation/arch/riscv/hwprobe.rst
+>>>>> +++ b/Documentation/arch/riscv/hwprobe.rst
+>>>>> @@ -360,4 +360,7 @@ The following keys are defined:
+>>>>>
+>>>>>         * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFWMACCQQQ`: The Xsfvfwmaccqqq
+>>>>>             vendor extension is supported in version 1.0 of Matrix Multiply Accumulate
+>>>>> -     Instruction Extensions Specification.
+>>>>> \ No newline at end of file
+>>>>> +     Instruction Extensions Specification.
+>>>>> +
+>>>>> +* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL`: A bitmask containing the extensions
+>>>>> +  that can be probed using the :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0` key.
+>>>>> \ No newline at end of file
+>>>>> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+>>>>> index 7fe0a379474a..501d49b7a02a 100644
+>>>>> --- a/arch/riscv/include/asm/hwprobe.h
+>>>>> +++ b/arch/riscv/include/asm/hwprobe.h
+>>>>> @@ -8,7 +8,8 @@
+>>>>>
+>>>>>     #include <uapi/asm/hwprobe.h>
+>>>>>
+>>>>> -#define RISCV_HWPROBE_MAX_KEY 13
+>>>>> +#define RISCV_HWPROBE_MAX_KEY 14
+>>>>> +#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE      ((1ULL << 59) - 1)
 
-I do think it's better to keep them aligned.
 
-And I appreciate your noticing this.  I don't see anything
-that's accepted upstream that defines properties like this,
-but I now see this:
-  
-https://lore.kernel.org/lkml/20250812-net-k1-emac-v5-2-dd17c4905f49@iscas.ac.cn/
+59 should not be hardcoded, even with your comment below. Let's 
+introduce something like RISCV_HWPROBE_EXT_COUNT or similar.
 
-I did a quick scan for what others do when a property's
-value is a phandle, and other than just "syscon" it seems
-that word is omitted.
 
-So unless someone else suggests otherwise, I'll use
-"spacemit,apmu" for this property in my next version.
+>>>>>
+>>>>>     static inline bool riscv_hwprobe_key_is_valid(__s64 key)
+>>>>>     {
+>>>>> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+>>>>> index aaf6ad970499..a3b92df4dc05 100644
+>>>>> --- a/arch/riscv/include/uapi/asm/hwprobe.h
+>>>>> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
+>>>>> @@ -82,6 +82,7 @@ struct riscv_hwprobe {
+>>>>>     #define             RISCV_HWPROBE_EXT_ZAAMO         (1ULL << 56)
+>>>>>     #define             RISCV_HWPROBE_EXT_ZALRSC        (1ULL << 57)
+>>>>>     #define             RISCV_HWPROBE_EXT_ZABHA         (1ULL << 58)
+>>>>> +/* Change RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE when adding items. */
+>>>>>     #define RISCV_HWPROBE_KEY_CPUPERF_0 5
+>>>>>     #define             RISCV_HWPROBE_MISALIGNED_UNKNOWN        (0 << 0)
+>>>>>     #define             RISCV_HWPROBE_MISALIGNED_EMULATED       (1 << 0)
+>>>>> @@ -106,6 +107,7 @@ struct riscv_hwprobe {
+>>>>>     #define RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0        11
+>>>>>     #define RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE 12
+>>>>>     #define RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0       13
+>>>>> +#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL 14
+>>>>>     /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+>>>>>
+>>>>>     /* Flags */
+>>>>> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+>>>>> index 0b170e18a2be..40e7fa5f85f3 100644
+>>>>> --- a/arch/riscv/kernel/sys_hwprobe.c
+>>>>> +++ b/arch/riscv/kernel/sys_hwprobe.c
+>>>>> @@ -310,6 +310,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+>>>>>                 hwprobe_isa_vendor_ext_thead_0(pair, cpus);
+>>>>>                 break;
+>>>>>
+>>>>> +     case RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL:
+>>>>> +             pair->value = RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE;
 
-> ...
-> 
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/spacemit,k1-syscon.h>
->> +    combo_phy: phy@c0b10000 {
-> 
-> This label is unnecessary.
 
-OK.  I used it when testing USB but we can add the label
-back when that driver gets reviewed.
+You don't really need to return a mask here, you can simply return 
+RISCV_HWPROBE_EXT_COUNT and let the userspace deal with the mask.
 
->> +        compatible = "spacemit,k1-combo-phy";
->> +        reg = <0xc0b10000 0x1000>;
->> +        clocks = <&syscon_apmu CLK_PCIE0_DBI>,
->> +                 <&syscon_apmu CLK_PCIE0_MASTER>,
->> +                 <&syscon_apmu CLK_PCIE0_SLAVE>;
->> +        clock-names = "dbi",
->> +                      "mstr",
->> +                      "slv";
->> +        resets = <&syscon_apmu RESET_PCIE0_DBI>,
->> +                 <&syscon_apmu RESET_PCIE0_MASTER>,
->> +                 <&syscon_apmu RESET_PCIE0_SLAVE>,
->> +                 <&syscon_apmu RESET_PCIE0_GLOBAL>;
->> +        reset-names = "dbi",
->> +                      "mstr",
->> +                      "slv",
->> +                      "global";
->> +        spacemit,syscon-pmu = <&syscon_apmu>;
->> +        #phy-cells = <1>;
->> +        status = "disabled";
->> +    };
-> 
-> Best regards,
-> Yao Zi
 
-Thanks a lot.
-
-					-Alex
-
+>>>>> +             break;
+>>>>> +
+>>>>>         /*
+>>>>>          * For forward compatibility, unknown keys don't fail the whole
+>>>>>          * call, but get their element key set to -1 and value set to 0
+>>>>>
+>>>>> _______________________________________________
+>>>>> linux-riscv mailing list
+>>>>> linux-riscv@lists.infradead.org
+>>>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
