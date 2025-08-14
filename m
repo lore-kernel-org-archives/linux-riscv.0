@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C87E1CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 09:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35792CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 09:46:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7eA5VawWbhV0M8cObW6KbSI4D2cBVK8jVNJX+ahvc3E=; b=1hNGOJPEMexhUE
-	bnzC0weOi4iEgoORY3PV9e16Jk7kUeoDhWc6aRwnLeAejOOG8I4xG8Tuuw4q1taDJqNnQ1JJSgz/P
-	ewKkDm6XPhOCOe9yu/PP//vQREudPSl3dPnbzAOWyqJUO7O5hd2jf4zKNz5UZPZzQ35li50YMPhYn
-	lYJP2cztmVF+0WQ/rP7tElxuFn6iL1Ww9rgEnfgeiU3WQWBhBsrrPPpXWlnaxlUSjtuhhDPSWUNbN
-	HCUnWmvz3nfvrB6T1EnHByFtkF+UXT60kTO4BZ3P3GHTxGbB9KuGmd4EBoqlb6ZvH9Q/8PkON86vI
-	kGU1N3Mu0DjUKUZFcc7Q==;
+	List-Owner; bh=NmhxOaQ+oXEQmYO/Zy16m8j1Lhe3rw5X4Z4JyPFcBEg=; b=Sv4HEWstnzJPCk
+	flG4j+vwy81ccP94tVySqPddwnttUE+AC8XvYkz58d0KwBDGTvmNXLF+ZXDtEQButUmuMTTAkIwQn
+	aKGYR8dH+1BMt1ZSdLkIFucqq7YmJd56h/YhS1gTYyLWasE22G7ireU4I04U246mcSvSlww8YJC6s
+	pbqANyIryl4DW7JAlxK1TlbIZuU7hZ2DpsfyGqmiWcPYXBhStQietba6Qd4rdz+Hqt88PF+hwXIn4
+	WvyUU0/yeLM2KFJOKX8S8lq4IRg6HnSyHTcl+aDExeI0k4KSqKIVg3GHzPeWkxLFoJG5p91jqi73E
+	qgHnjKgQ+BmEGHcMR+Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUUb-0000000GRhF-324c;
-	Thu, 14 Aug 2025 09:43:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1umUXS-0000000GTSn-20Tu;
+	Thu, 14 Aug 2025 09:46:26 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umTna-0000000GK4u-0ejK
+	id 1umS5L-0000000G2Tk-2D5b
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Aug 2025 08:59:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 56B1DA5574E;
-	Thu, 14 Aug 2025 08:59:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5371CC4CEF6;
-	Thu, 14 Aug 2025 08:59:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755161940;
-	bh=UqiOEQj4i7jq9yn+tRZlkfQENRqT5RSvuuePfqVAfHA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QlyaO6ZnyoFv5m2v+JvsKLu9jmln9w8fn0/ZeuMm9bjuEJ9t9v83UMBa+nsfIzP49
-	 2wbVfS6OCrUi4p2lx0b36JyDfuqHX9pHAbGzm+F3oTFAuD8iZ4VVbIBKN2QO1HAS6Q
-	 iebEJGom3+H/UQNbwPKNPAGmBF+/cXdzeTn0jm9smawZ2nNduSr+Z8JGAucPoYh5sw
-	 Ea4ZyNkyyCwVT8Wz/GWGPhlMk9Wd67+sDP55nvJGcHDUZNB4TxyReslf3CNGrWR3V1
-	 V2PkcCsSZ1t3us4Ov1SOTQK2511dHCuI3zegeBBQpr+Lqg2jxQpBOhfgnhWFA7Hxda
-	 76yQhhVheEktQ==
-Date: Thu, 14 Aug 2025 10:58:58 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Jinmei Wei <weijinmei@linux.spacemit.com>
-Subject: Re: [PATCH v2 1/4] dt-bindings: clock: spacemit: introduce i2s
- pre-clock to fix i2s clock
-Message-ID: <20250814-whispering-kickass-sunfish-be49ae@kuoka>
-References: <20250811-k1-clk-i2s-generation-v2-0-e4d3ec268b7a@linux.spacemit.com>
- <20250811-k1-clk-i2s-generation-v2-1-e4d3ec268b7a@linux.spacemit.com>
+	Thu, 14 Aug 2025 07:09:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755155349; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=CGBpP2W8+XyP+ijwC5mVu0sCt/wY6l1nkGT89S//8IAneMCIYxkSEQ+1pt3ogTFm15i3yAwCssCMvRCzyv9Gzhp2tjOQ2ephKg0bMVSabyf7ZaOKX3mtS/6uo3yMpbLFVKWZSSBcJ9ia1Kcm9vLxH8FRnlezU8cCXS5N+BkefdE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1755155349; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ovEpVAobaOr5oSBqbEFTxrzxetp69gYJsDnRp3Z4kbc=; 
+	b=YusffWqmjwbF8xra1OyH9QFNBqY2kNfq4IKnhr7VRyw7R7tjSXmpCzC11L90pKdFmToJJr8GsStcnXziLwJSLio/6mvGEAV/s8TCz7j7Fn2oQzFXP7O1wt4g9mjaUR8zRnufPVfvukQVnYEsZ6Bk1s4onWWwwO+JiikT8s5a2QM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755155349;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=ovEpVAobaOr5oSBqbEFTxrzxetp69gYJsDnRp3Z4kbc=;
+	b=eVPArtS4raaE+ZdXltwOJwjfHIFRpXne6G8ci5hUeEcWGtb2BBoysE3JyxGaWDFy
+	w8WxC+DynbcWgkbS9dcQCE7dXLdCybNncVTB+18cQ7WmoAXDF1TWLqWppnYOTHYlXOy
+	+lNX1USHsX83k6e9SqulDArMtFSDe387sNMgf/vQft0s5NtKvGwKH7lBp2HTS3PCgvG
+	w6+MlRE0JBKUanjSHDMYwntqF0HE/uDDsWSegyJWtXU8n8nlG4nbP5+HoHbwf5Z3LXa
+	yfa9Po7eLkda7x17hX8DlNrOnxzhT9pZJBWnFGyDpCvAQC5dfWmkswYFhI7VU5q4j6r
+	1McF2xJ7aA==
+Received: by mx.zohomail.com with SMTPS id 1755155346042254.80641025392765;
+	Thu, 14 Aug 2025 00:09:06 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Han Gao <rabenda.cn@gmail.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Yao Zi <ziyao@disroot.org>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [RFC PATCH 4/4] riscv: dts: thead: th1520: add mailbox channel for SBI-to-AON comm
+Date: Thu, 14 Aug 2025 15:07:57 +0800
+Message-ID: <20250814070757.2267325-5-uwu@icenowy.me>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250814070757.2267325-1-uwu@icenowy.me>
+References: <20250814070757.2267325-1-uwu@icenowy.me>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250811-k1-clk-i2s-generation-v2-1-e4d3ec268b7a@linux.spacemit.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_015902_261618_C14DCE86 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250814_000915_628988_069F512B 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +94,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 10:04:27PM +0800, Troy Mitchell wrote:
-> Previously, the K1 clock driver did not include the parent clocks of
-> the I2S sysclk.
-> 
-> Otherwise, the I2S clock may not work as expected.
-> 
-> This patch adds their definitions to allow proper registration
-> in the driver and usage in the device tree.
-> 
-> Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
->  include/dt-bindings/clock/spacemit,k1-syscon.h | 3 +++
->  1 file changed, 3 insertions(+)
+Add a mailbox channel declaration to the AON firmware node to describe
+the mailbox channel assigned to the SBI firmware to communicate with
+AON.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+---
+ arch/riscv/boot/dts/thead/th1520.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index 136ebe210b876..6e5e0223d0c16 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -233,8 +233,8 @@ stmmac_axi_config: stmmac-axi-config {
+ 
+ 	aon: aon {
+ 		compatible = "thead,th1520-aon";
+-		mboxes = <&mbox_910t 1>;
+-		mbox-names = "aon";
++		mboxes = <&mbox_910t 1>, <&mbox_910r 1>;
++		mbox-names = "aon", "aon-for-sbi";
+ 		resets = <&rst TH1520_RESET_ID_GPU_CLKGEN>;
+ 		reset-names = "gpu-clkgen";
+ 		#power-domain-cells = <1>;
+-- 
+2.50.1
 
 
 _______________________________________________
