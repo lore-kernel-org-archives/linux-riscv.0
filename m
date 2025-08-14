@@ -4,162 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 910E4CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 16:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB30CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 16:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2mftMLSJHG7gFlM21YCFODnlzIsn9gKuZwxPpYmSHwI=; b=QbppuGwtMgm6GZ
-	sJqL4vjPqpeI0L0b7ZY6dQNhqvqyImnVTQhpXdOac/2YbWuOMw4nP4qfnJT6kiDn4+baMFgDz6bqi
-	wVlXRSJrhm7Iy147H9gBRFNICV+Z9PDrAYfD/rmvzMb6SOE/7omMdavSoyjbJhw0nJLdn0gOfb0r1
-	S6bpzIro0eqMOVsDo+aq8IuB9YbKUtLG3qix9QdfR/clYXI8sR6EKqUvmRfbWVTXo5bq+M4bA/5fk
-	OtKPkt4XKPRAWvnxTLnsQvyru0FaCq2cdId8MSGklXn9QsGCN8GS01s/rgwmBdAKtEUBXs7vYsFJE
-	i2BrYXWl03Tmt9CwZmGw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ubjMU0LCp8RtBqSJdAsGIC3miBMXvmIJFUB830h30AE=; b=haGGdMsHNYRJHv
+	+U6M50Fkf1AK8R08Iag1xRV4G1kbxGQ0gpafZiEba1AwbId+VnI0y7kCWRjcPIFfO1eDgkjLyJcFI
+	PoKAITHqX5z7qEfG3dLfonrYOvN81ygueGiIgQTjyD6MCEcEE/xecc+x7VLjVeOYhyImDjOh0NdjA
+	aMxTbKQbrWPNT8sfoyiVExh6jA/y+JMBtGcteqofGOFXVZB1tKuDKtvdXjmbkbOwRPFtJf829ifwZ
+	JI1DIOPrusEx+zX4gYdWhj97qWnzhGcpNwrrWI+nTM4RNLdrq4hIolh6phpVG6vW97h/9bzjYx+xB
+	nLOTqvcVGsJPSGqvRGKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umad0-000000001CM-2uks;
-	Thu, 14 Aug 2025 16:16:34 +0000
-Received: from flow-b4-smtp.messagingengine.com ([202.12.124.139])
+	id 1umbH9-000000007wa-2X1F;
+	Thu, 14 Aug 2025 16:58:03 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZtS-0000000HRPk-2qg9;
-	Thu, 14 Aug 2025 15:29:32 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailflow.stl.internal (Postfix) with ESMTP id 105C21300304;
-	Thu, 14 Aug 2025 11:29:27 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Thu, 14 Aug 2025 11:29:29 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1755185366; x=1755192566; bh=rkWnl6reuM
-	6yvJ3xZDTKQK+EuArjQadhj3fE3KZMVRQ=; b=bk5vgVr1CLPZUpu/8yzDk9lb/A
-	tHVYzQv9hTbjQ5kwcym7VsHTp19WAkg0Hpqa0wD+CqZ1Nd+U4CYQUhklsxcsM+gf
-	+Z8ariB4+I6d0eYBWBqwN85t+DHDwDQ7fqbhoqiETlG6gco3KS7d4UK8VRBiyAAS
-	6uQ21llXN+4WgyvPXd92zlyXucFtCItZdyaRf6rM974aMV78YFLsf5bYqI0hfslp
-	WGrZ3W02q0h1GvDjIb47eJZZb/RoRsmrCwwgfK5H4wRRs0C8WqQHHYIrOMK0ZHVP
-	aDBjLclEdxOpupQdAWDgeTb1M/iK05Vsaa408ZFpj/IrPd9EETcasajpGZrQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1755185366; x=1755192566; bh=rkWnl6reuM6yvJ3xZDTKQK+EuArjQadhj3f
-	E3KZMVRQ=; b=OgtRYyef+tMauOvZ4k9rGfwXDQPdj9klbG3t2P3cD1RmOS/9tKr
-	ofSSHcPOA4xPenVBOXiV5FhURDpUSMTCxAaCfaGDs8djlJNyu+CDw00HGUTHuZE7
-	iZZjz4ciUS7g9j3QlvnqXWnhLS9T0Hfr1vQzrZacIOAYqclBu7P8wHiQyBn3x1Tv
-	3IRsTGZTVlX0WWvOsiM9n8XZ6hNCPKGYNq9gwZN2kX8ko8IOuG4Q8FPM4sUswTeC
-	AgWkrih3zpy+BYFRHxDex0LNtVY1D6KtF6Lq5T4lYxyTSy86ct+fI6zX8qKxzdu/
-	3y8kkYasdpgKe+p3NAh/zboekg1+6r4CeXQ==
-X-ME-Sender: <xms:0ACeaPzCAtXgPuyqWluGHhM-MFgm73xya4MqxCsQTtBCktFBJqK7kg>
-    <xme:0ACeaMERX6gx9_hULngxnLQfekqkXc4lLgLYc32ut3v9CMFW_su7guEwNB2tie5mH
-    w5fawJBsHbwl2-YVLE>
-X-ME-Received: <xmr:0ACeaLVGQlU6CrqqKVJitR-Q-KYnw8sFF555-uv-1ZSx_gltuJRQBRXFJYSpweaBmMTG7ASMGOfysdY55ljMVadCgzU7C0B0G9o>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugedugeegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
-    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
-    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
-    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
-    drnhgvthdpnhgspghrtghpthhtohepkeekpdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopegsmhgrshhnvgihsehrvgguhhgrthdrtghomhdprhgtphhtthhopehmthhurhhquh
-    gvthhtvgessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtohepshgsohihugeskhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtohepshhuuggvvghprdhhohhllhgrsegrrhhmrdgtohhmpd
-    hrtghpthhtoheptghrihhsthhirghnrdhmrghruhhsshhisegrrhhmrdgtohhmpdhrtghp
-    thhtohepuhhnihgtohhrnhgpfigrnhhgsehouhhtlhhoohhkrdgtohhmpdhrtghpthhtoh
-    epihhnohgthhhirghmrgesghhmrghilhdrtghomhdprhgtphhtthhopehnihgtohhlrghs
-    rdhfvghrrhgvsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtoheprghlvgigrghnug
-    hrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomh
-X-ME-Proxy: <xmx:0QCeaCmil7BHYfOOKicsmHxn_e78pk70Rk65CyKWeasaaevmqI2c1w>
-    <xmx:0QCeaDoCeuybXqCAns088Q1xVlB3g1e970x8zyEDaKcok_TAC0lcKQ>
-    <xmx:0QCeaEVFJkoSfREyDcMyNqqo6Jw3DXglTgApYi_wACt6wsNooYRRBw>
-    <xmx:0QCeaBiIqVIoEzYCR8Pz3QPaA5HZY-DpDdZxQjhq8wajhutrO-oikw>
-    <xmx:1gCeaFTE4FSOg2ZAQsli0z35YCTwrTgdlOhrp7ge8wLAulQpy-Pb8Suw>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 14 Aug 2025 11:29:19 -0400 (EDT)
-Date: Thu, 14 Aug 2025 17:29:18 +0200
-From: Janne Grunau <j@jannau.net>
-To: bmasney@redhat.com
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Taichi Sugaya <sugaya.taichi@socionext.com>,
-	Takao Orito <orito.takao@socionext.com>,	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	id 1umaJ6-0000000HY45-2cAS
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 Aug 2025 15:56:01 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b47174b3429so699167a12.2
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Aug 2025 08:56:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1755186960; x=1755791760; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fbS0SnSfDCYNteBkAugCZAVezW6wYeQqbL6j1Y/9w2o=;
+        b=lrkPIcKa48cRDTKMN4ukq29X40b04Rgyv/3VCKlAFEQ6x7EGDrgIcaiFn26uZPCv0F
+         jv2ArefF+fImglGinfQOVzTl5VBZ2DSTCTvNIsfitKaEU7I8oM+MhQknnwQSDP7FGW9c
+         UjEPZiHocPycom1O//qohLYDW0fP+jxowj5wJEK6o3uwB+x9nDWBa6OrdADlqwSjN7gO
+         ie8mytwbvJUsfYkBdr2q+BuGedkaDxbCZOhNq1Hh9VBDTFYDiUOg29YB4p1w3p9dYI+Y
+         Xtx7g5fiM6VbiR+pOoi++27T3uEFp67jQjPrwB/kt+b2knr+Z/UXQLxANfsPIs+88wwP
+         0Hmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755186960; x=1755791760;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fbS0SnSfDCYNteBkAugCZAVezW6wYeQqbL6j1Y/9w2o=;
+        b=nLaN6FHFKoByKySqF+rHAOOncL1jOZvGgZeDSUQP2TgfPEbmIE/+20sM93YHee7kES
+         bSefbXWETdhdn0Ciiiau6xuRlWxMLGT8zp1MiZoNM1Kg5WbLFh1wrDynrfX+y7asDDfk
+         b78WwZtZgxXxTSiTCsKs31j2D/Xj/q3d0K3+XHjVNQHxfyJLz7+X9H6jPi6nA/36A7+J
+         Ki/X58/7O0LwJYbn4jYU2Lt9O6Zdsh79zE++lZO+9+bzkheW8pQV3m6HeXWyVXVefiAL
+         DFMjVAaUS6/UKMNDYh+oITy3eV6hoYfj3B12raAKZnizN81zKyy4bqF6bCn771favNIX
+         YiOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXv4MvQ0VoLquUwcvfoWg74fnCWkwzVyDXiToSQSeP3pIuT0HaLwCW3Iwkwj9n5FKWwsEW3w6YEpZ8fBA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwAn1EQZVvHXQKVsvRyXjzb7wFYTr/wkL9lXBK5fJUb1DphXhZ
+	/fl/3STZhAS5HpFMNMzyzIphgvKjZkP4MavthW0ZpHIIrLaKRcG95p7UjXv2Y0iGrq4=
+X-Gm-Gg: ASbGncsu4yZomm9a01cDsISz+Hr06rYo3xE3lDiqI1VPliWgjE4ImJ/s5EW4AyCP0vq
+	ONqaM+L/3C5y4qv1ppCuDSqyRaGYboBvpgJjEK6qZajM7tSh/RXWSggf9pgQyIZQuXwv7pJXD26
+	f5XblbYqAKpWBerDWOWWv2rj/JTbW88ZklGrV42iO6yYcPB5ahnvdjuB+MzJOqN+VBMtrZKrvXQ
+	vlVAw+DMfFW3kX24CXNOhCtiSmkQ7iOTm42Rg26T+0WWW9m6ycQiiyXlgf87zy9gXWb6c+JpxLS
+	rAILChpDcJbtzPr/jl2Ku4kuitCVZhfKrxYL+oXRsHm3a1PVzsF/4XVFVFApCu09O2IcCmSTYp1
+	2s0fqUn8vWcPv3mhzqQpUxC1JcJ+h9OkHNZfzku49b/HkhAWBipN3CsgGnDa82g==
+X-Google-Smtp-Source: AGHT+IHiJ/C+iotNnCA3DhU4+fNK2fePBsmUyymIcxaNYom/9E0Z1/NWwsgFdX4eBUWW/qEOqDpszg==
+X-Received: by 2002:a17:903:1a30:b0:242:fc4f:9fe3 with SMTP id d9443c01a7336-244586a18c8mr55450135ad.37.1755186959600;
+        Thu, 14 Aug 2025 08:55:59 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3233108e1d9sm2225500a91.29.2025.08.14.08.55.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Aug 2025 08:55:59 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Atish Patra <atish.patra@linux.dev>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,	Yixun Lan <dlan@gentoo.org>,
-	Steen Hegelund <Steen.Hegelund@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	UNGLinuxDriver@microchip.com, Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Michal Simek <michal.simek@amd.com>,	Maxime Ripard <mripard@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,	Sven Peter <sven@kernel.org>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,	Neal Gompa <neal@gompa.dev>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,	Qin Jian <qinjian@cqplus1.com>,
- Viresh Kumar <vireshk@kernel.org>,	Ulf Hansson <ulf.hansson@linaro.org>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Alex Helms <alexander.helms.jy@renesas.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	sophgo@lists.linux.dev, linux-mips@vger.kernel.org,	imx@lists.linux.dev,
- linux-riscv@lists.infradead.org,	spacemit@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com,	patches@opensource.cirrus.com,
- linux-actions@lists.infradead.org,	asahi@lists.linux.dev,
- linux-mediatek@lists.infradead.org,	linux-arm-msm@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org,	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev
-Subject: Re: [PATCH 075/114] clk: apple-nco: convert from round_rate() to
- determine_rate()
-Message-ID: <20250814152918.GA854971@robin.jannau.net>
-References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
- <20250811-clk-for-stephen-round-rate-v1-75-b3bf97b038dc@redhat.com>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH 0/6] ONE_REG interface for SBI FWFT extension
+Date: Thu, 14 Aug 2025 21:25:42 +0530
+Message-ID: <20250814155548.457172-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-75-b3bf97b038dc@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_082931_181413_24955B86 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20250814_085600_665915_36A87152 
+X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,19 +108,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 11:19:07AM -0400, Brian Masney via B4 Relay wrote:
-> From: Brian Masney <bmasney@redhat.com>
-> 
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
-> 
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-> ---
->  drivers/clk/clk-apple-nco.c | 14 ++++++++------
->  1 file changed, 8 insertions(+), 6 deletions(-)
+This series adds ONE_REG interface for SBI FWFT extension implemented
+by KVM RISC-V. This was missed out in accepted SBI FWFT patches for
+KVM RISC-V.
 
-Reviewed-by: Janne Grunau <j@jannau.net>
+These patches can also be found in the riscv_kvm_fwft_one_reg_v1 branch
+at: https://github.com/avpatel/linux.git
+
+Anup Patel (6):
+  RISC-V: KVM: Set initial value of hedeleg in kvm_arch_vcpu_create()
+  RISC-V: KVM: Introduce feature specific reset for SBI FWFT
+  RISC-V: KVM: Introduce optional ONE_REG callbacks for SBI extensions
+  RISC-V: KVM: Move copy_sbi_ext_reg_indices() to SBI implementation
+  RISC-V: KVM: Implement ONE_REG interface for SBI FWFT state
+  KVM: riscv: selftests: Add SBI FWFT to get-reg-list test
+
+ arch/riscv/include/asm/kvm_vcpu_sbi.h         |  23 +-
+ arch/riscv/include/uapi/asm/kvm.h             |  14 ++
+ arch/riscv/kvm/vcpu.c                         |   3 +-
+ arch/riscv/kvm/vcpu_onereg.c                  |  60 +-----
+ arch/riscv/kvm/vcpu_sbi.c                     | 172 ++++++++++++---
+ arch/riscv/kvm/vcpu_sbi_fwft.c                | 199 ++++++++++++++++--
+ arch/riscv/kvm/vcpu_sbi_sta.c                 |  64 ++++--
+ .../selftests/kvm/riscv/get-reg-list.c        |  28 +++
+ 8 files changed, 436 insertions(+), 127 deletions(-)
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
