@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C4DCA0EE6
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 18:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B9ECA0EE8
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 18:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AJ2xsF1mFJSrxpGn7BUhd4sGKtUpjjkbwSx9e1+vlcw=; b=vWOsCyD4J6WznV
-	ReuaADY3akaH4uNXzaS8XU+LoQNmYghnjhJwyvDG+VLZ3qtDhizKYb/Vu1n+0jzpXmjNbynHvgQhX
-	BmP3P89O7GNMtRgfutofYmOjIZSjYjiwdU7mplxf3zXvj8dzohwTlltTNVVNo7EVkQaar4ED1R7kk
-	7WwJ3mn1ebQbigRwz6MKauDq6un+HVMt4W7wFemHNHoWQad1VPrDkRLW3qd12N67d9kBvlqC3X/BW
-	vodEVZycw5q2tX5VEwc2qe2/rEK4ib3eMaRmmYKaNYMgnZQw13JcgoYXlVxpRuLZGoSi8GCHbLO5K
-	siGxT2EkGmgWhdGsXt3Q==;
+	List-Owner; bh=eDFgHunnEZ/IFwzr1bgCB/O5YG97Yc3qatOQYqFbOr4=; b=koXPcmR2lpvlbb
+	hpZNIfSYgEtIJn55bfrpY4tPFhI5eSLT6khnDNE818DDezWNcQsWk7kTE3R580CngVa8gvRMPIByo
+	za4ZRuzVhkFdIamZ25MvuigefC6saC9RGXXNQlzJE0DGLB9VHEFFF8qeo3Uyikr49t/CwXCQEdwkS
+	NOLDoKoiOoUDKuRsMZG5j0WgXGMk6MIvQNtsK61m8Ho/eaSkVtTvITCg2jLL9tX19Mgb3A8f+ZIs8
+	4r1IBivxFsXj3s/sWsPGBnqzkPrOwhsPXpriT6G/kApLrgPJ3qWjmpNg62enfR2fmekxURCRWbHMB
+	RZK0DAWn8a1tC9Nob+SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umcGk-00000000HFF-0bwk;
+	id 1umcGk-00000000HFu-3Gnm;
 	Thu, 14 Aug 2025 18:01:42 +0000
 Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umb2s-000000005xT-2SRV
+	id 1umb37-000000005zI-1B7i
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Aug 2025 16:43:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755189777; cv=none; 
+	Thu, 14 Aug 2025 16:43:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755189791; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=jfj0+VWHCsZnl/l4c3a1pQTfXoieDJV0XOVyg3FD16n4duOOyFGHrPkl9SXnfpdu5POIXlDfb7/dKQxlFhcqGy40pFT2NMy7JC43rNxP0Vv2R+bZZN+gwAvrVzc+lZPTE6D0FC95tPXH45w0OHPHCgJ+/SxdxNl8/7kqVRS8RNs=
+	b=ZFVoaYb0BqXsCSXiY7Nt3GjCO/emmFJtWURWBkSKPzSG28oW6RH69rPSaZLEPwsBdDAqQrR0Up7jwRCAmiMl+2tU25UZAbWkoZdbAf0d1YLJZ/dxy+w/gDQxMmGe1fllk+bsh5aAJFEGM7RR4HHlOQpOztflo8BjSwxpEryCudc=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755189777; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Hwz9vc0DqxjUR0hsEGwe0fb6hBhA6TWrtV1S0jJoekA=; 
-	b=TSXYZW8SmhQfoadpYqJ7l+gJfTsSfAejhY9919qwXVCyfwdEiL1jctfkx6ugiKtZIs8aMtIhO0drwo+c3aeFECJZa/rP1WYg4r3rwKRbXEFKuv3c/Kp9OvzqIGH0JVcL0KQeD2oE1FvS4ypV58aLLNrqI3imkJRg8fvnGZP3+ig=
+	t=1755189791; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1/iclKhHRrvz1RndiLfggvb+V2P6DE4+wzZACrQdYXQ=; 
+	b=PR74O+iTV635aQ+9dTX6kbR3SQUxshF5pVxH2ZoRFmXbNFB/f5F4ryJxgoNSNUuHCe8UvVCrIrrNeWtKFG3ME/3dZR/ojgkpaK+E6ego3V7Tv+0Ciri7O2ri8nz81hi9Kt+EmO8yYixXcGvsy/VznJrHqXgZ3lQgBgKPM8EyWvo=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=icenowy.me;
 	spf=pass  smtp.mailfrom=uwu@icenowy.me;
 	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755189776;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755189791;
 	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
 	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=Hwz9vc0DqxjUR0hsEGwe0fb6hBhA6TWrtV1S0jJoekA=;
-	b=T0kpRHZkG8e2If1kjhEHml/HZ5Kpeo0jMLMXQ3EcZggrEY6fe9oL8aoRSmEUAHxb
-	4nYrjIxAxucFIirguTAHtwvoAABwOw76s72C//qizlqlG3m4yGcvkZjtIslnQCzIO8V
-	yGE+hX/cjDmP0mzClXNeSCAYzGF4dBr4Qk6IcXiDTG763mlGmfkBz7IBziCK8O1h9hD
-	L6n5cwJNM7rMxxl1qMEeoDLgtiV+EQ5ZuS+F4CNc4Ugo1tSWpbgQTvQbdt/wQVc8Dpb
-	B5sdNknkoNPHfqFINb4YdSFjt35LYeXXGdQMNMbMyf/K2DPiroHnQ3NT2OhUWJXcOSN
-	NBSZpP5JKg==
-Received: by mx.zohomail.com with SMTPS id 1755189774001869.1159628547316;
-	Thu, 14 Aug 2025 09:42:54 -0700 (PDT)
+	bh=1/iclKhHRrvz1RndiLfggvb+V2P6DE4+wzZACrQdYXQ=;
+	b=FFckGQ8PrNiZ2CQY/GtDz7o2T+13e1b9kz3693PfFhJTAf1Scpp2WQqKMew0Gwh0
+	Zx6zCs4lzMXSy35XGn++MTl5eWVl8H+NIMf6+rmvyreNA9xoEwy8XTgVK1OvuBOFiWT
+	9vVZvGYqDNNvREeFxtxaqTyfNBLC0mUCgw0XQawDjTFpPyrUMIUxN8Twe9JR6sznWQE
+	p4tD4Its+W4UyqIF4G7S8nSGBcDQD0q2xzrEH6BctKxO4nZn/HI3r7Z1QsMgdo1wTNf
+	uj8NdBewPIsFR35vmaBgiXKZtxRsg7QmiU+l/Usvf3MwCFMPpOYZ6EGX/MaLeUFu0GI
+	X+5kxT5bpQ==
+Received: by mx.zohomail.com with SMTPS id 1755189789177857.0751333859133;
+	Thu, 14 Aug 2025 09:43:09 -0700 (PDT)
 From: Icenowy Zheng <uwu@icenowy.me>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -78,17 +78,17 @@ Cc: Han Gao <rabenda.cn@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Icenowy Zheng <uwu@icenowy.me>
-Subject: [RFC PATCH 7/8] riscv: dts: thead: lichee-pi-4a: enable HDMI
-Date: Fri, 15 Aug 2025 00:40:47 +0800
-Message-ID: <20250814164048.2336043-8-uwu@icenowy.me>
+Subject: [RFC PATCH 8/8] MAINTAINERS: assign myself as maintainer for verislicon DC driver
+Date: Fri, 15 Aug 2025 00:40:48 +0800
+Message-ID: <20250814164048.2336043-9-uwu@icenowy.me>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250814164048.2336043-1-uwu@icenowy.me>
 References: <20250814164048.2336043-1-uwu@icenowy.me>
 MIME-Version: 1.0
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_094318_697201_6141EF56 
-X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-CacheID: sfid-20250814_094333_376381_915CEA99 
+X-CRM114-Status: UNSURE (   8.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,60 +106,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Lichee Pi 4A board features a HDMI Type-A connector connected to the
-HDMI TX controller of TH1520 SoC.
+As I am the author of this rewritten driver, it makes sense for me to be
+the maintainer.
 
-Add a device tree node describing the connector, connect it to the HDMI
-controller, and enable everything on this display pipeline.
+Confirm this in MAINTAINERS file.
 
 Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 ---
- .../boot/dts/thead/th1520-lichee-pi-4a.dts    | 25 +++++++++++++++++++
- 1 file changed, 25 insertions(+)
+ MAINTAINERS | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-index 4020c727f09e8..3e99f905dc316 100644
---- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-+++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-@@ -28,6 +28,17 @@ aliases {
- 	chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
-+
-+	hdmi-connector {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
- };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index eb84e36ded6d5..8c604de979680 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -8385,6 +8385,13 @@ F:	Documentation/devicetree/bindings/display/brcm,bcm2835-*.yaml
+ F:	drivers/gpu/drm/vc4/
+ F:	include/uapi/drm/vc4_drm.h
  
- &padctrl0_apsys {
-@@ -54,6 +65,20 @@ rx-pins {
- 	};
- };
- 
-+&dpu {
-+	status = "okay";
-+};
++DRM DRIVERS FOR VERISILICON DISPLAY CONTROLLER IP
++M:	Icenowy Zheng <uwu@icenowy.me>
++L:	dri-devel@lists.freedesktop.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/display/verisilicon,dc.yaml
++F:	drivers/gpu/drm/verisilicon/
 +
-+&hdmi {
-+	status = "okay";
-+};
-+
-+&hdmi_out_port {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_pins>;
+ DRM DRIVERS FOR VIVANTE GPU IP
+ M:	Lucas Stach <l.stach@pengutronix.de>
+ R:	Russell King <linux+etnaviv@armlinux.org.uk>
 -- 
 2.50.1
 
