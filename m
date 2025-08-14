@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 258EACA0EE6
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 22:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2034CA0EF7
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 22:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
 	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7/IzT/hApUhBbIElYcyJHgQ/SxPEswfODgBXSjHfBik=; b=zaCFaQqXEE2n9Y
-	aEfO/qrwEONOMvHIboZmffOGGPPolpcuI1AsGS9HQWMuWMgKZ5a4o+KEQi11bX9jw9DvHDROGqpPq
-	axMUxblswAw14vm+KwByNdpvcZdQ7Z8scaD4V7zo2oGyP4PkHKx27zW6dcfZ+lOsPMkcSXILFRfCq
-	rNsLLgNNsBtDc7JQqVcA1UF7foDr8BAjwn966QkSKN+Ij+Y7M+nMuzc73ndDvB4LC7ZHBbTVd+pjg
-	lVAY4POlKjzZp7VkkuevB1a+/r94uf6dJppKGyDDZaXJW31gUHz0hudKXut30rBtfGzWeuSDK0yUM
-	XBnELs9cwwrxTuFao35Q==;
+	List-Owner; bh=Uj+Sn7KLNyG5v2l5dXTAP3CxjyrAnEIazqFTQPppjSY=; b=xgj1hkSYJ+Fzcp
+	fzKf90ZiE5H6YFhqVXS6RCQDJvSIsBuY/u7l6/uOGASZ6MsIukf1TByu+mp8x2nLoxE4BOOxf0xo3
+	9Wmuh8vkLx+dHA86eDNMzRw3w+3JVzxRyYs/iBsD90MKFuo7kec13swAxOpSvVOyLfhmVUzxKPqsf
+	92fz9P56/ndKdX/aETJ+bW9Xzg1GEmGu5BnGaZDm9W+HZfx8VCDIfDADps2V6oGCH5suBXSBplg+u
+	iK/3UHsSH+5CnOKzWYt+y4anlwjvsSQqdDor2qITHHjhZx6mJFK4JUdoG4umIY/zuDTjoJJ1INtqJ
+	eRsq0rlPQoBaZvcJ6p0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoV72-0000000BmNR-0CQv;
-	Tue, 19 Aug 2025 22:47:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uoV73-0000000BmNv-0ukx;
+	Tue, 19 Aug 2025 22:47:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJ1c-0000000F1V0-3Czz;
-	Wed, 13 Aug 2025 21:28:50 +0000
+	id 1umYn1-0000000HESx-0tpF;
+	Thu, 14 Aug 2025 14:18:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=V+vnB+61+tXOtwzGfCSSnwdvyVeojqtPAkoFjSfvsr4=; b=NhgbMQ8NdbEOVmheS2dvX0oJNY
+	ALrfcMDsEEnMNgunbvqREbZq1oHzp7ccngaUVMO5++E/uAyDNYqinyGThJmEpm7YBuhT3Tkh+VNi9
+	jAiqOM4rhUamhaj70Il7HCUSt7yzARMU72pOqw494k8l1Q8HailKIeknsdWt3dhAX7o6ayScfHwg/
+	Ii2lXAh/WZDOQPZt1HReyHlinv8O2qaXvljjxRqrXeqJkA4eRQnMCoaoGWNgplNRdFpt+ynmupnga
+	gL3L3ZRJ3TFncfXNK8+zrX/4powWhhke2jb57DUcEBWSVdXUgPoJqcrPP4QPAtiJT8kRpW7Q8p3j3
+	voDIwG1A==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umYmw-0000000GRX7-0xy9;
+	Thu, 14 Aug 2025 14:18:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0F0895C62BA;
-	Wed, 13 Aug 2025 21:28:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 038F0C4CEEB;
-	Wed, 13 Aug 2025 21:28:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BF3F944BCD;
+	Thu, 14 Aug 2025 14:18:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 140DFC4CEEF;
+	Thu, 14 Aug 2025 14:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755120527;
-	bh=w6o+Mcmx0kfk0qJVojOnLq3WRRaroXEK6NqPwh8WeEA=;
+	s=k20201202; t=1755181116;
+	bh=aIOvB7Z2yTByNAFttZWfPG8POEc6396jSKH09BJ+/Lw=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=tW0weATX4jZ11jXl3He1Ule5FSJuMatBGd51oT3bMN01eb3cT3/18BB0KpS64oSbV
-	 6A4QDHJDbE2i5JqtnfsyVBALsh6Bm5ABrlcwIeEaVVJKF8Ys4lmXD08V4Cf547I5mm
-	 6sCZgBGCfMRs6QPVrGxU4nTnD7f31+rWw2qkW80zdobtK+0W0QNMcTpZiJJZuxp3e3
-	 f72jB75x9bqVrnObcwmG+vOT476m4B3xoHJM2Tk0dvct2jHtt8v2WNoP/JeukhjYFa
-	 P4b7UnXzBQig+oKbLe5NjU5NaUCh5y3uOUysgIl6JhmCWTjHv+RyKuGvEMG/hhDxtg
-	 oUrRFt19OPnjQ==
+	b=EqgU/EDu3oDCYRt1Si13BRghMkcwK5LqN9GkAcGcfcrhFTazE34zUUq8Od+e5oGUJ
+	 GNx5ulPcFgtO5ZyiSpwIBr8FUNyAthpqEJ1HFf9GnjWHY+qIpiLzwl5jpRBrlolPn2
+	 z6xjKGXo4jawDOcpqGnCDN73BGfqRqAyieck88qD94UdpBJX7zr50+UVyAUEIFPEy1
+	 8iZ5/OdecI+vpH1tXXE5PIrAiCENDSW7wdju78QYNBO7tccEMhyLT5/PeO3ORXivtj
+	 sVMKdqgvEftfF5s9YxpUhwR00ND4s4PmT0wxP/dvrTnBxT6CdvlYHRM7ommRoJA5zP
+	 uiUsOyuYlg5Jw==
 From: Mark Brown <broonie@kernel.org>
 To: linux-kernel@vger.kernel.org, 
  Wolfram Sang <wsa+renesas@sang-engineering.com>
@@ -49,13 +63,13 @@ In-Reply-To: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
 References: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
 Subject: Re: (subset) [PATCH 00/21] treewide: remove unneeded 'fast_io'
  parameter in regmap_config
-Message-Id: <175512050873.352044.97744864083041762.b4-ty@kernel.org>
-Date: Wed, 13 Aug 2025 22:28:28 +0100
+Message-Id: <175518109481.47921.1666131365484481268.b4-ty@kernel.org>
+Date: Thu, 14 Aug 2025 15:18:14 +0100
 MIME-Version: 1.0
 X-Mailer: b4 0.15-dev-cff91
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_142848_885629_CD3A1203 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20250814_151842_687303_497FAFC4 
+X-CRM114-Status: GOOD (  16.64  )
 X-Mailman-Approved-At: Tue, 19 Aug 2025 14:03:23 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,12 +100,12 @@ On Wed, 13 Aug 2025 18:14:46 +0200, Wolfram Sang wrote:
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
 Thanks!
 
-[15/21] regulator: remove unneeded 'fast_io' parameter in regmap_config
-        commit: 37533933bfe92cd5a99ef4743f31dac62ccc8de0
+[21/21] ASoC: remove unneeded 'fast_io' parameter in regmap_config
+        commit: d578faf7096affc036fd16333f1bfbe4991a22f7
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
