@@ -4,111 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56ECCA0EE4
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 16:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8482CA0EE6
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 16:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NE0B55G75CKCjtMjtBICp8KOu5gY1ctHWq1755ODo1A=; b=ZejLfo3TFKE9I4
-	j7bHbMG7uv7EOMuDwr27azBHq+NUhZFjpLpM7d70z5HmpXYaBxlIegdihRiqp8jSemPdo27TN5FUj
-	28+pkxi1v0lQknG7zbIFTWa0/AV6XQ5CQ11c3CcdX/e/oFwbYX90HJENqzN1yMf9jtvhcE1xj5m9C
-	8N8NzpyHEwxUCprA4AUxELJm6u/2kFsFNWSJHvUxo1e30K4wCqQHZ61V1OQq5/MWxcCAcFcX4dlKb
-	j/qeWxh0qlNqkcwpWNiKTotnYsCiYrGNEvIm8QAun2opXZ5k1hQyL1SiUV1XFtmesPGN2Q7PLDNv5
-	788a+c5nkp+mDLsQV/FQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=shefzoiFh7zVhU0oNPCNjs/EpixSnxnqHCIiz//yWg0=; b=t54Dx2blEs16ms
+	wAD5Bnmk/9l1Q24qzboAKnC7xfwOgmMP//R7w2IADR7Th7Mk+yA16NyH6z4Wb5/1Hrk87L9uWTuaC
+	XuK/wz8lTVFUnSFod4PHscV88DNhTNmKXo6YWvP6tGl/IqLA8xTF2U9QZFOUCNvpnF1LsslLE/j48
+	hUSYcOpamcKsoHGR4X7ltRCzQbYbPXK59uW7iOFI9a91pmbFtC+Yl19R4wVGsjKT6BzRjlQKYWg1T
+	3a5Z7jgSjMvqZJ3uIpz52HDsgGsMB3gp9bJ+wr3KoTwJm8G+w9Bnq3qDtuRNEC/tNxG122Wpmml+A
+	re+xiHPuXxIhCkhcQDCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umbHE-0000000081o-4591;
-	Thu, 14 Aug 2025 16:58:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1umbHU-000000008Qw-3Ji6;
+	Thu, 14 Aug 2025 16:58:24 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umaJe-0000000HYBM-0QDC
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 14 Aug 2025 15:56:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Svq7qseUrNtldzbZ0qzqJnQgBxG3tF3m1Pv4UZc1zUI=; b=JRjv5H5yBd5qtACd1j2BfPOzi9
-	1H53p8aaPjjCtJWm4D3AMSrruyPA6w1jK9X63+l+ij/E9JW083XgvC6veU+qBrIi1z9O4i7hbe+2K
-	WA+7dCoqMye+B1o0K9KNEtJdaVIT2ufADzGGhv3y+T3xgP0gA0KMK9/CJQWRI4Qc8PR5h5Et8oNWI
-	oVNTKZJSb+G1GKpkLje5fpn0i0mCdDH4L8Fpt6f1XRZpGgtP4Oqm+GqcOYnRbgZa8kSZnGO+411B/
-	CGxIcpVm2chZ50+1kQiPfcN1pM7ZS/KTYHSRJ+Xl/YOQucmlhuvwjlDmqckG8H9fegjW0eInLI0hf
-	nIA9WXwQ==;
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umaJb-0000000GTCf-0jds
+	id 1umb1W-000000005kd-1m8q
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Aug 2025 15:56:33 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-321cf75482fso2126556a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Aug 2025 08:56:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1755186989; x=1755791789; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Svq7qseUrNtldzbZ0qzqJnQgBxG3tF3m1Pv4UZc1zUI=;
-        b=YGU1nCHb1q+LrFbaVLCbu/fLhSR5f9WK9urxz4Wn3mdUV8l2PAylK5Et5DNVZYQRnx
-         n5qdYjLWnRAXkxD36hn6Rb6zlDBXjZ9VAepBnGGTROiJlpvKgxX6+oF54QERxyaIpV/K
-         PeIcVJnkGFuyL7IdWTgPNPegZVrlJvGKeAePSZDlFIexEa7vhD2spoaNat5aAPGA+S6G
-         PDm3C+bl8E8SuUhlvuHfGwpQWhSEoezTXhtvlpWu1HeIkv3GjhOZGOM5r0/He4noyBl1
-         3EI8MXjrqoP9R1VUYrIrh6n1ODMzGmxy/CJxRA68y0H4dXKKkyJlajuKXuHGYvo6q+qi
-         Qy1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755186989; x=1755791789;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Svq7qseUrNtldzbZ0qzqJnQgBxG3tF3m1Pv4UZc1zUI=;
-        b=qgWufcjM6h8/pchDaqJV47SCFe77ZStiaSXE9dteaMvZoPXezkPd/pN83UA0vYAB+m
-         IEUTJXQezs6dZw08duFEAMPje6LpMyJlVaU7jah8rKcejQhTJJPjJxvpMHtdraadIEba
-         UIQhARoQvBUIgqzC5zndkTQXiWlAGGC0w2jJjedtMKyt+IihZYobJwoIIYrNmWA95cIa
-         RK662RPTscB7U0lB+xrph/JNLsqAJX9GoFAPSFkpav0ObDzBiTj1W6veuA10sL371UCR
-         RJQaCiw5moFQfSfyCfyL4a9I5aLO/SMx1X9HQUFcSPRODvQsOQn1l7CQTBEtAKBCrGax
-         fxKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXHvR7bXS2IPdWpvZa+ybqWEr7af/TS/MTmDzRBndrWccsR6a/eeBDsKLJyk13HtWC48Qk7mnQTJxgRgg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsU39zZfuihRR+iFaVp9aWRgmH0ufnBO8exGRXzswqJ/jGNhtd
-	9lxqc6QUF5JU2SzpOC0S3u8zOe2Ddcla9Br1yvbIMimtJd+sBBz8/7FOTx+ZsFC2wF0=
-X-Gm-Gg: ASbGncuXH2BYuw8795jT2B/0Y56eeGOfE4xvMSlkPUFMe/izAa6f3mCJ+IRnwHezZz7
-	7aZRrJTjfnQJlu2oZarJggh4yetOO0BSeN9BGywYyw4IPxWh7fcTPzSdb8My36vWmbYc/d/ptFp
-	qOpyyAkueO7QParyNXepH4PzAnFw6JqKcbz7a0c/loQZno5fFFFntaQxuVvKxGloa9TxIqRRf+S
-	428xyxXDdX+scU3X4VxewhST6KAFwuz8BNYWrFHRMR7Y3nLoYnbFP5FEtv0yznuuDtxgQ/ALTSV
-	2a9IJIKSJwdnDpY7lq/mIu/Fj11vekeuuKOdUF1xMzm540y3msKeufGX27BH+hKB5iKv7rcfW0x
-	g572OKKaxz+ra+KcM4/7aq3S8D1BurejNOOe6C7Od4rwy5jOpQvHMeiGhJ2hNbKCC4d4QMIbx
-X-Google-Smtp-Source: AGHT+IHWMmf5xN+1nUuUZiP9NZI9A2OjHQdZYcHTdLM60KutAKjF+UXZWVbDMBBXW8FB6v09Xkb8yg==
-X-Received: by 2002:a17:90b:4990:b0:31f:ecf:36f with SMTP id 98e67ed59e1d1-3232969ad39mr5129703a91.1.1755186988804;
-        Thu, 14 Aug 2025 08:56:28 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3233108e1d9sm2225500a91.29.2025.08.14.08.56.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Aug 2025 08:56:28 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Atish Patra <atish.patra@linux.dev>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
+	Thu, 14 Aug 2025 16:41:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755189675; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=MFiMSUFBzcPyJQfzfi3I/S6DML4BVSDvoL9Lsw/UeEKe8k5sCXoaHuuedjScG4EJf2D3lNqbM6jx1K3uZi8KTmhZ4N4Pv8QAKhx5m+DUGu8dYExELWznw8RA1yKJJ8SLIeZiu1ZtFivZRGDy/hZyIAMcVj8vs8aJ5ZceEue8pis=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1755189675; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=tYr5jhJDJkvIw+fj7xDK3ZbOSE4uzShS1SUkkize5pw=; 
+	b=IvV/GLDmncNbKjqCJ8zUTlKZNqiRlXsI7sO5LWhwADqI9QG9zV7/DO1T51TLbqEBvx3Hsyn/bXeNK0WRPVfDQW63z4hEEZsdhDAKqInFi7EytqwHgV6ECSNWVWWcNJnbh0Tj+5HEJKksT4B5X9v0q5Rwua/8B5dbzcPZtIE0dD4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755189675;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=tYr5jhJDJkvIw+fj7xDK3ZbOSE4uzShS1SUkkize5pw=;
+	b=isWE0l3Kx6NoGeGN/PVwYi6mz11STftVqqGqBZebJoSZ99B3NQ1ezb+q2dMBnPkY
+	AsVOaLSLCdmebhGGR7Zz9nLJGlbLis9Ji9xivSXisipUpwXLjIhuPbVBJjdZxaUuvuK
+	Zs7eyRbzO+qdAlBqzuuBXNtCBrp2IiUl3qllb2IBZ6p7979fRe1Jo8uy1evUcvLBDmJ
+	Y+0r66XphheK8h9ERmonRSLUB5pmU05VrMfJtETv4A7IFBW51d323HlsaIIdsqDeJM+
+	0r+cphiRSZOM7p0RQdHD+avsvjzhvda8iP+KnAH9Usn205tu2rg0rxQRV8Qm7jxzeq2
+	sFLb26XyZg==
+Received: by mx.zohomail.com with SMTPS id 1755189674180753.6754186286712;
+	Thu, 14 Aug 2025 09:41:14 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Han Gao <rabenda.cn@gmail.com>,
+	Yao Zi <ziyao@disroot.org>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 5/6] RISC-V: KVM: Implement ONE_REG interface for SBI FWFT state
-Date: Thu, 14 Aug 2025 21:25:47 +0530
-Message-ID: <20250814155548.457172-6-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250814155548.457172-1-apatel@ventanamicro.com>
-References: <20250814155548.457172-1-apatel@ventanamicro.com>
+	linux-riscv@lists.infradead.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [RFC PATCH 0/8] Verisilicon DC8200 driver (and adaption to TH1520)
+Date: Fri, 15 Aug 2025 00:40:40 +0800
+Message-ID: <20250814164048.2336043-1-uwu@icenowy.me>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_165631_339608_73EDA55C 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20250814_094154_484491_A5891FF9 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,333 +103,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The KVM user-space needs a way to save/restore the state of
-SBI FWFT features so implement SBI extension ONE_REG callbacks.
+This patchset tries to add a driver for Verisilicon DC8200 driver, and
+demonstrates the driver on T-Head TH1520 with its HDMI output.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- arch/riscv/include/uapi/asm/kvm.h |  14 +++
- arch/riscv/kvm/vcpu_sbi_fwft.c    | 169 +++++++++++++++++++++++++++---
- 2 files changed, 171 insertions(+), 12 deletions(-)
+This display controller IP is used on StarFive JH7110 too, but as the
+HDMI controller used there isn't as common as the DesignWare one, I
+choose to use TH1520 in this patchset.
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index a5ca0f4ce2d3..fc5624e89c7b 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -215,6 +215,17 @@ struct kvm_riscv_sbi_sta {
- 	unsigned long shmem_hi;
- };
- 
-+struct kvm_riscv_sbi_fwft_feature {
-+	unsigned long flags;
-+	unsigned long value;
-+};
-+
-+/* SBI FWFT extension registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-+struct kvm_riscv_sbi_fwft {
-+	struct kvm_riscv_sbi_fwft_feature misaligned_deleg;
-+	struct kvm_riscv_sbi_fwft_feature pointer_masking;
-+};
-+
- /* Possible states for kvm_riscv_timer */
- #define KVM_RISCV_TIMER_STATE_OFF	0
- #define KVM_RISCV_TIMER_STATE_ON	1
-@@ -298,6 +309,9 @@ struct kvm_riscv_sbi_sta {
- #define KVM_REG_RISCV_SBI_STA		(0x0 << KVM_REG_RISCV_SUBTYPE_SHIFT)
- #define KVM_REG_RISCV_SBI_STA_REG(name)		\
- 		(offsetof(struct kvm_riscv_sbi_sta, name) / sizeof(unsigned long))
-+#define KVM_REG_RISCV_SBI_FWFT		(0x1 << KVM_REG_RISCV_SUBTYPE_SHIFT)
-+#define KVM_REG_RISCV_SBI_FWFT_REG(name)	\
-+		(offsetof(struct kvm_riscv_sbi_fwft, name) / sizeof(unsigned long))
- 
- /* Device Control API: RISC-V AIA */
- #define KVM_DEV_RISCV_APLIC_ALIGN		0x1000
-diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft.c
-index 5a3bad0f9330..0d740e7c5713 100644
---- a/arch/riscv/kvm/vcpu_sbi_fwft.c
-+++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
-@@ -22,6 +22,11 @@ struct kvm_sbi_fwft_feature {
- 	 */
- 	enum sbi_fwft_feature_t id;
- 
-+	/**
-+	 * @flags_reg_num: ONE_REG index of the feature flag
-+	 */
-+	unsigned long flags_reg_num;
-+
- 	/**
- 	 * @supported: Check if the feature is supported on the vcpu
- 	 *
-@@ -44,7 +49,8 @@ struct kvm_sbi_fwft_feature {
- 	 *
- 	 * This callback is mandatory
- 	 */
--	long (*set)(struct kvm_vcpu *vcpu, struct kvm_sbi_fwft_config *conf, unsigned long value);
-+	long (*set)(struct kvm_vcpu *vcpu, struct kvm_sbi_fwft_config *conf,
-+		    bool one_reg_access, unsigned long value);
- 
- 	/**
- 	 * @get: Get the feature current value
-@@ -53,7 +59,8 @@ struct kvm_sbi_fwft_feature {
- 	 *
- 	 * This callback is mandatory
- 	 */
--	long (*get)(struct kvm_vcpu *vcpu, struct kvm_sbi_fwft_config *conf, unsigned long *value);
-+	long (*get)(struct kvm_vcpu *vcpu, struct kvm_sbi_fwft_config *conf,
-+		    bool one_reg_access, unsigned long *value);
- };
- 
- static const enum sbi_fwft_feature_t kvm_fwft_defined_features[] = {
-@@ -91,16 +98,18 @@ static void kvm_sbi_fwft_reset_misaligned_delegation(struct kvm_vcpu *vcpu)
- 
- static long kvm_sbi_fwft_set_misaligned_delegation(struct kvm_vcpu *vcpu,
- 					struct kvm_sbi_fwft_config *conf,
--					unsigned long value)
-+					bool one_reg_access, unsigned long value)
- {
- 	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
- 
- 	if (value == 1) {
- 		cfg->hedeleg |= MIS_DELEG;
--		csr_set(CSR_HEDELEG, MIS_DELEG);
-+		if (!one_reg_access)
-+			csr_set(CSR_HEDELEG, MIS_DELEG);
- 	} else if (value == 0) {
- 		cfg->hedeleg &= ~MIS_DELEG;
--		csr_clear(CSR_HEDELEG, MIS_DELEG);
-+		if (!one_reg_access)
-+			csr_clear(CSR_HEDELEG, MIS_DELEG);
- 	} else {
- 		return SBI_ERR_INVALID_PARAM;
- 	}
-@@ -110,10 +119,11 @@ static long kvm_sbi_fwft_set_misaligned_delegation(struct kvm_vcpu *vcpu,
- 
- static long kvm_sbi_fwft_get_misaligned_delegation(struct kvm_vcpu *vcpu,
- 					struct kvm_sbi_fwft_config *conf,
--					unsigned long *value)
-+					bool one_reg_access, unsigned long *value)
- {
--	*value = (csr_read(CSR_HEDELEG) & MIS_DELEG) == MIS_DELEG;
-+	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
- 
-+	*value = (cfg->hedeleg & MIS_DELEG) == MIS_DELEG;
- 	return SBI_SUCCESS;
- }
- 
-@@ -145,7 +155,7 @@ static void kvm_sbi_fwft_reset_pointer_masking_pmlen(struct kvm_vcpu *vcpu)
- 
- static long kvm_sbi_fwft_set_pointer_masking_pmlen(struct kvm_vcpu *vcpu,
- 						   struct kvm_sbi_fwft_config *conf,
--						   unsigned long value)
-+						   bool one_reg_access, unsigned long value)
- {
- 	struct kvm_sbi_fwft *fwft = vcpu_to_fwft(vcpu);
- 	unsigned long pmm;
-@@ -167,14 +177,15 @@ static long kvm_sbi_fwft_set_pointer_masking_pmlen(struct kvm_vcpu *vcpu,
- 	 * update here so that VCPU see's pointer masking mode change
- 	 * immediately.
- 	 */
--	csr_write(CSR_HENVCFG, vcpu->arch.cfg.henvcfg);
-+	if (!one_reg_access)
-+		csr_write(CSR_HENVCFG, vcpu->arch.cfg.henvcfg);
- 
- 	return SBI_SUCCESS;
- }
- 
- static long kvm_sbi_fwft_get_pointer_masking_pmlen(struct kvm_vcpu *vcpu,
- 						   struct kvm_sbi_fwft_config *conf,
--						   unsigned long *value)
-+						   bool one_reg_access, unsigned long *value)
- {
- 	switch (vcpu->arch.cfg.henvcfg & ENVCFG_PMM) {
- 	case ENVCFG_PMM_PMLEN_0:
-@@ -198,6 +209,8 @@ static long kvm_sbi_fwft_get_pointer_masking_pmlen(struct kvm_vcpu *vcpu,
- static const struct kvm_sbi_fwft_feature features[] = {
- 	{
- 		.id = SBI_FWFT_MISALIGNED_EXC_DELEG,
-+		.flags_reg_num = offsetof(struct kvm_riscv_sbi_fwft, misaligned_deleg.flags) /
-+				 sizeof(unsigned long),
- 		.supported = kvm_sbi_fwft_misaligned_delegation_supported,
- 		.reset = kvm_sbi_fwft_reset_misaligned_delegation,
- 		.set = kvm_sbi_fwft_set_misaligned_delegation,
-@@ -206,6 +219,8 @@ static const struct kvm_sbi_fwft_feature features[] = {
- #ifndef CONFIG_32BIT
- 	{
- 		.id = SBI_FWFT_POINTER_MASKING_PMLEN,
-+		.flags_reg_num = offsetof(struct kvm_riscv_sbi_fwft, pointer_masking.flags) /
-+				 sizeof(unsigned long),
- 		.supported = kvm_sbi_fwft_pointer_masking_pmlen_supported,
- 		.reset = kvm_sbi_fwft_reset_pointer_masking_pmlen,
- 		.set = kvm_sbi_fwft_set_pointer_masking_pmlen,
-@@ -214,6 +229,21 @@ static const struct kvm_sbi_fwft_feature features[] = {
- #endif
- };
- 
-+static const struct kvm_sbi_fwft_feature *kvm_sbi_fwft_regnum_to_feature(unsigned long reg_num)
-+{
-+	const struct kvm_sbi_fwft_feature *feature;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(features); i++) {
-+		feature = &features[i];
-+		if (feature->flags_reg_num == reg_num ||
-+		    (feature->flags_reg_num + 1) == reg_num)
-+			return feature;
-+	}
-+
-+	return NULL;
-+}
-+
- static struct kvm_sbi_fwft_config *
- kvm_sbi_fwft_get_config(struct kvm_vcpu *vcpu, enum sbi_fwft_feature_t feature)
- {
-@@ -267,7 +297,7 @@ static int kvm_sbi_fwft_set(struct kvm_vcpu *vcpu, u32 feature,
- 
- 	conf->flags = flags;
- 
--	return conf->feature->set(vcpu, conf, value);
-+	return conf->feature->set(vcpu, conf, false, value);
- }
- 
- static int kvm_sbi_fwft_get(struct kvm_vcpu *vcpu, unsigned long feature,
-@@ -280,7 +310,7 @@ static int kvm_sbi_fwft_get(struct kvm_vcpu *vcpu, unsigned long feature,
- 	if (ret)
- 		return ret;
- 
--	return conf->feature->get(vcpu, conf, value);
-+	return conf->feature->get(vcpu, conf, false, value);
- }
- 
- static int kvm_sbi_ext_fwft_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-@@ -354,6 +384,115 @@ static void kvm_sbi_ext_fwft_reset(struct kvm_vcpu *vcpu)
- 	}
- }
- 
-+static unsigned long kvm_sbi_ext_fwft_get_reg_count(struct kvm_vcpu *vcpu)
-+{
-+	unsigned long max_reg_count = sizeof(struct kvm_riscv_sbi_fwft) / sizeof(unsigned long);
-+	const struct kvm_sbi_fwft_feature *feature;
-+	struct kvm_sbi_fwft_config *conf;
-+	unsigned long reg, ret = 0;
-+
-+	for (reg = 0; reg < max_reg_count; reg++) {
-+		feature = kvm_sbi_fwft_regnum_to_feature(reg);
-+		if (!feature)
-+			continue;
-+
-+		conf = kvm_sbi_fwft_get_config(vcpu, feature->id);
-+		if (!conf || !conf->supported)
-+			continue;
-+
-+		ret++;
-+	}
-+
-+	return ret;
-+}
-+
-+static int kvm_sbi_ext_fwft_get_reg_id(struct kvm_vcpu *vcpu, int index, u64 *reg_id)
-+{
-+	int reg, max_reg_count = sizeof(struct kvm_riscv_sbi_fwft) / sizeof(unsigned long);
-+	const struct kvm_sbi_fwft_feature *feature;
-+	struct kvm_sbi_fwft_config *conf;
-+	int idx = 0;
-+
-+	for (reg = 0; reg < max_reg_count; reg++) {
-+		feature = kvm_sbi_fwft_regnum_to_feature(reg);
-+		if (!feature)
-+			continue;
-+
-+		conf = kvm_sbi_fwft_get_config(vcpu, feature->id);
-+		if (!conf || !conf->supported)
-+			continue;
-+
-+		if (index == idx) {
-+			*reg_id = KVM_REG_RISCV |
-+				  (IS_ENABLED(CONFIG_32BIT) ?
-+				   KVM_REG_SIZE_U32 : KVM_REG_SIZE_U64) |
-+				  KVM_REG_RISCV_SBI_STATE |
-+				  KVM_REG_RISCV_SBI_FWFT | reg;
-+			return 0;
-+		}
-+
-+		idx++;
-+	}
-+
-+	return -ENOENT;
-+}
-+
-+static int kvm_sbi_ext_fwft_get_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
-+				    unsigned long reg_size, void *reg_val)
-+{
-+	const struct kvm_sbi_fwft_feature *feature;
-+	struct kvm_sbi_fwft_config *conf;
-+	unsigned long *value;
-+	int ret = 0;
-+
-+	if (reg_size != sizeof(unsigned long))
-+		return -EINVAL;
-+	value = reg_val;
-+
-+	feature = kvm_sbi_fwft_regnum_to_feature(reg_num);
-+	if (!feature)
-+		return -ENOENT;
-+
-+	conf = kvm_sbi_fwft_get_config(vcpu, feature->id);
-+	if (!conf || !conf->supported)
-+		return -ENOENT;
-+
-+	if (feature->flags_reg_num == reg_num)
-+		*value = conf->flags;
-+	else
-+		ret = conf->feature->get(vcpu, conf, true, value);
-+
-+	return sbi_err_map_linux_errno(ret);
-+}
-+
-+static int kvm_sbi_ext_fwft_set_reg(struct kvm_vcpu *vcpu, unsigned long reg_num,
-+				    unsigned long reg_size, const void *reg_val)
-+{
-+	const struct kvm_sbi_fwft_feature *feature;
-+	struct kvm_sbi_fwft_config *conf;
-+	unsigned long value;
-+	int ret = 0;
-+
-+	if (reg_size != sizeof(unsigned long))
-+		return -EINVAL;
-+	value = *(const unsigned long *)reg_val;
-+
-+	feature = kvm_sbi_fwft_regnum_to_feature(reg_num);
-+	if (!feature)
-+		return -ENOENT;
-+
-+	conf = kvm_sbi_fwft_get_config(vcpu, feature->id);
-+	if (!conf || !conf->supported)
-+		return -ENOENT;
-+
-+	if (feature->flags_reg_num == reg_num)
-+		conf->flags = value & SBI_FWFT_SET_FLAG_LOCK;
-+	else
-+		ret = conf->feature->set(vcpu, conf, true, value);
-+
-+	return sbi_err_map_linux_errno(ret);
-+}
-+
- const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_fwft = {
- 	.extid_start = SBI_EXT_FWFT,
- 	.extid_end = SBI_EXT_FWFT,
-@@ -361,4 +500,10 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_fwft = {
- 	.init = kvm_sbi_ext_fwft_init,
- 	.deinit = kvm_sbi_ext_fwft_deinit,
- 	.reset = kvm_sbi_ext_fwft_reset,
-+	.have_state = true,
-+	.state_reg_subtype = KVM_REG_RISCV_SBI_FWFT,
-+	.get_state_reg_count = kvm_sbi_ext_fwft_get_reg_count,
-+	.get_state_reg_id = kvm_sbi_ext_fwft_get_reg_id,
-+	.get_state_reg = kvm_sbi_ext_fwft_get_reg,
-+	.set_state_reg = kvm_sbi_ext_fwft_set_reg,
- };
+The DC driver is written with other DC-series (mainly DC8000, which is
+known to be used on Eswin EIC7700 SoC) display controllers in mind, and
+uses the identification registers available on all Vivante branded IPs.
+A known exception is DCNano display controller, which is unlikely to be
+supported by this driver because of totally different register map and
+no known identification registers. (P.S. the in-tree loongson DRM driver
+seems to be for some DCNano instances based on the register map.)
+
+The HDMI controller seems to come with some common PHY by Synopsys, the
+DesignWare HDMI TX 2.0 PHY. By searching a few register names from the
+BSP driver of that PHY, that PHY seems to be used by a in-tree dw-hdmi
+glue, rcar_dw_hdmi -- an updated downstream version of rcar_dw_hdmi
+contains all 6 registers set here in the th1520-dw-hdmi driver. Some
+more suprising thing is that RK3288 uses the same PHY too, but the
+in-tree dw_hdmi-rockchip driver writes the configuration data array in a
+weird way to reuse the HDMI 3D TX PHY configuring function. It might be
+valuable to add common configuring function and configuration data
+definition for this HDMI 2.0 PHY too, but the current driver in this
+patchset simply duplicated most configuration logic from rcar_dw_hdmi
+driver (but with 3 extra configuration registers configured).
+
+This patchset depends on a TH1520 clock fix patchset at [1] and a TH1520
+VOSYS reset addition patchset at [2]. The reset addition patchset is
+just applied to reset/next, so it might appear in linux-next/master or
+not.
+
+[1] https://lore.kernel.org/linux-riscv/20250813072702.2176993-1-uwu@icenowy.me/
+[2] https://lore.kernel.org/linux-riscv/20250813081716.2181843-1-uwu@icenowy.me/
+
+Icenowy Zheng (8):
+  dt-bindings: vendor-prefixes: add verisilicon
+  dt-bindings: display: add versilicon,dc
+  drm: verisilicon: add a driver for Verisilicon display controllers
+  dt-bindings: display/bridge: add binding for TH1520 HDMI controller
+  drm/bridge: add a driver for T-Head TH1520 HDMI controller
+  riscv: dts: thead: add DPU and HDMI device tree nodes
+  riscv: dts: thead: lichee-pi-4a: enable HDMI
+  MAINTAINERS: assign myself as maintainer for verislicon DC driver
+
+ .../display/bridge/thead,th1520-dw-hdmi.yaml  | 120 +++++++
+ .../bindings/display/verisilicon,dc.yaml      | 127 +++++++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ MAINTAINERS                                   |   8 +
+ .../boot/dts/thead/th1520-lichee-pi-4a.dts    |  25 ++
+ arch/riscv/boot/dts/thead/th1520.dtsi         |  70 ++++
+ drivers/gpu/drm/Kconfig                       |   2 +
+ drivers/gpu/drm/Makefile                      |   1 +
+ drivers/gpu/drm/bridge/Kconfig                |  10 +
+ drivers/gpu/drm/bridge/Makefile               |   1 +
+ drivers/gpu/drm/bridge/th1520-dw-hdmi.c       | 170 +++++++++
+ drivers/gpu/drm/verisilicon/Kconfig           |  15 +
+ drivers/gpu/drm/verisilicon/Makefile          |   5 +
+ drivers/gpu/drm/verisilicon/vs_bridge.c       | 330 ++++++++++++++++++
+ drivers/gpu/drm/verisilicon/vs_bridge.h       |  40 +++
+ drivers/gpu/drm/verisilicon/vs_bridge_regs.h  |  47 +++
+ drivers/gpu/drm/verisilicon/vs_crtc.c         | 217 ++++++++++++
+ drivers/gpu/drm/verisilicon/vs_crtc.h         |  29 ++
+ drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |  60 ++++
+ drivers/gpu/drm/verisilicon/vs_dc.c           | 233 +++++++++++++
+ drivers/gpu/drm/verisilicon/vs_dc.h           |  39 +++
+ drivers/gpu/drm/verisilicon/vs_dc_top_regs.h  |  27 ++
+ drivers/gpu/drm/verisilicon/vs_drm.c          | 177 ++++++++++
+ drivers/gpu/drm/verisilicon/vs_drm.h          |  29 ++
+ drivers/gpu/drm/verisilicon/vs_hwdb.c         | 150 ++++++++
+ drivers/gpu/drm/verisilicon/vs_hwdb.h         |  29 ++
+ drivers/gpu/drm/verisilicon/vs_plane.c        | 102 ++++++
+ drivers/gpu/drm/verisilicon/vs_plane.h        |  68 ++++
+ .../gpu/drm/verisilicon/vs_primary_plane.c    | 166 +++++++++
+ .../drm/verisilicon/vs_primary_plane_regs.h   |  53 +++
+ 30 files changed, 2352 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/bridge/thead,th1520-dw-hdmi.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+ create mode 100644 drivers/gpu/drm/bridge/th1520-dw-hdmi.c
+ create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
+ create mode 100644 drivers/gpu/drm/verisilicon/Makefile
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge_regs.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc_regs.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_top_regs.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
+
 -- 
-2.43.0
+2.50.1
 
 
 _______________________________________________
