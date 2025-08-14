@@ -4,98 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 098F5CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 21:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD3DCA0EDC
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 22:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mwzmRB8NwrEN08Zf/4J7Z61V230Umx59En/y1eqKi64=; b=mUVDquW5yp1p/M
-	IoEp1lqAW+r3J1CpYD5XgLiaVJZOPBDlIrILLeHptu15QC33x6U7V3RnfpbSBU8zXiN+DX8A9YuLf
-	Sn8Ww0RDHoghKDl+R8WoUxNIgdXjl6pIuKEIIGTFkSI3ijj0dey79e6pTZaMGhqav3DFdvG3HDKX9
-	5GgI9pFbEU7slJ9SYVHbn6zXj32gwzlziU7KjxyPnjcta8SelVCfnysYB8fRB4VghvxATET/dYkwu
-	Bnc6qEszuKF+VIwIYvHSXJ/0VnyE1adydA2pHHLrctn2Hb8DfBrphp02u9N3nP9OJVoGqkp/sBb+T
-	Nm3Zg0xvPANifscxZKwA==;
+	List-Owner; bh=MnH6CqrW88bTGOHKboqa2ONrq56Tip9JMasNW4akl/s=; b=SYLyoeHyVkGx6i
+	uW4TQo3GZy/23F3YMAEvh55ZKD7u1ajSVSYIK5RnepV/VAAeTvKEIezJ125VK4czTOOHD4B7NcYIP
+	5Ucpvsij+/eNSTlBSU2hZDB8GkiBZ5bPDur1gkF9XknF0wv3x8L6vxHnPDg8uKreLRXp+VRRSufoY
+	GC2zEd+E4H6F35Aykvb7LmXYrz7Z01tsEufEs7EKoHWbxRn5formquoFrLNHc7+LdmNw2U4tdSqpJ
+	zZrcOyDQ3/u5PR85RwmFIbyqJYjero/0nR824xh4bcMeDOe/WyFoNMi5ZstlSxZ4k2tlGk1zq9zFo
+	+u2ki5tncbQFcikQKH0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umfoe-00000000cfD-3H93;
-	Thu, 14 Aug 2025 21:48:56 +0000
-Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
+	id 1umg42-00000000eXT-23TA;
+	Thu, 14 Aug 2025 22:04:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umfoa-00000000cce-3t4s
+	id 1umg3y-00000000eX1-1dzX
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Aug 2025 21:48:55 +0000
-Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3e57376f661so4538635ab.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Aug 2025 14:48:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755208132; x=1755812932; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XCt+/c8MTw4m0fkTKSEjZUjQW40svl96k4sq8RtcJzA=;
-        b=FwZLbQysT1DKYRmCVGGPH6f+p3mvPM6BMqdjCGZkMqL1Z4a2orc04fWquZ/WzYDnoD
-         PJoQFzu/ra5OGfT7HM7fk0eRrzBWgvj5gqI04qqZl8/0wHSKYRfTH8jRu2H6/uMfBP+s
-         ny6Sdi6VQ0mWJwoAQUnF8II1gr0qvEqMKIpXWQ2a+rdEJax6aw3ACplXX3iY28WPdXJf
-         V5j4GHBBAxYjRv8SawqGOhdC4/4lIdCF9LSvURRQ8rF05SFpZfGrdaeaURRLKOxlEzpy
-         wEfba3SWQdw2OgRH9i634DKCJk0UsvtNz+C6d5i1zG0tOvcpbkbYriQpyUCEyeylJtsR
-         j7sA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755208132; x=1755812932;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XCt+/c8MTw4m0fkTKSEjZUjQW40svl96k4sq8RtcJzA=;
-        b=XqlMQcEcInmuAmfn1WzXMCljWdcmyWIdHQ0+nCW6up7v5WE4mbMsLZTeie5wVOry6Y
-         tJSrutwZNwV92wO2/3drSPmu9Q70cL58H7DBFEoZen/tPNBtwWb5/6RshCOVYJKe55B8
-         828XbLvZJAfdk41gpIr2y2GOth3JiUnR7UELew9lNKP8E9um92c+myYagDJGLPdmwImz
-         NO8MtPZER+rgoLDPrUIPfZK7rmssd52eISisl39CVCjQlGkBeWf7wjZA6ahKQkjb7z/i
-         3aPj155TfgFm/kEHbhdshXq6zIQLoRZOFgSqh1bcntmcRAmGBXFdkVQo2ZmbUNK3/kde
-         bdtQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUGSP1V7rDixuxt2U3hXaFDqU+ch6Tva2KwvGJ21hRV5ZHuoqtgoE/1zEWS6GDKXZDwDh3ytrD42HKKsg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxA2rI84usvVnoqjyut6Zlk66sYDa/nWlBZDiVOB0DSN9gPQS9t
-	a3U3QJklUxPn2l/tLgntP4ti33ZV9dQAJ8749EKrt1t5k/Af1fcCsILRzB7DEf5/T3A=
-X-Gm-Gg: ASbGnctGNMv93q7nBGAys1nq58sybUmTXVlL6RSuZtp/yFyl3GmTRtSrTt8c2R+MtS8
-	V8Q8luJTSUPWzf4Sj4uCMaxZjVzBztbFcmTkxuGiAzsjhoRP/9v3XS/bBAKWWZF0a0o4ZTPkdjT
-	HWPpXrFpGNCanrE7C/SJQQ2FpQwawnO7lXM9E5d2A/kRhUP2zSZukF8R4uoL/jUmXip/FNvIV2/
-	kBJgZGh/z+0Cye/MUQsuuISJ7v+//h/kcFuhbvLkWWzAUYQeJ8rSms5mOky7Xv3RfSVuvYerQ3W
-	keC4mqL/mx+sJdmJhJthnvtRRa9CE6JZQbdwk94dVZBkld8XtmgGfV8yKMfXJnIFuGCcBV341zm
-	Plwn/bu3/HbUdOpkuCuqPQTS3iMu5NWtHr7v/NuxCkVCULA3jxpwyeMtFJWhCww==
-X-Google-Smtp-Source: AGHT+IFztpZaPjE0ea4cNoutzDsxWfnWI0H8yYAAWojxd3NMEw8UDJycdrDTch6nLLHh52NEA2N7Sw==
-X-Received: by 2002:a92:cd8c:0:b0:3e5:4eb2:73e3 with SMTP id e9e14a558f8ab-3e57ba5c53emr13235285ab.16.1755208131603;
-        Thu, 14 Aug 2025 14:48:51 -0700 (PDT)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50ae9bd3291sm4605468173.63.2025.08.14.14.48.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Aug 2025 14:48:51 -0700 (PDT)
-Message-ID: <bc6975bd-cc1a-41ff-887c-0509bc8f03c3@riscstar.com>
-Date: Thu, 14 Aug 2025 16:48:48 -0500
+	Thu, 14 Aug 2025 22:04:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A5A985C5D0C;
+	Thu, 14 Aug 2025 22:04:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31BE0C4CEED;
+	Thu, 14 Aug 2025 22:04:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755209085;
+	bh=gHu78kUOor8hxYgQbCL2CU5u8RDiVxrUTQKMzNK+XDw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=g8/5OuADXwVKBkCbfeV0TU4cs5i6vUp0l+zU4dWyEGqaVUQYAkqc9vSxTBvkEtCGD
+	 XF2CEfdZ+q3dBPIabPAU0Kkn4zgUW/D9BmTKTj30iDL24MJX1T6XyoHfHW9tsvIJPD
+	 CqyQ5qgTZ7q1Xk74I2jYRy8QpfoAPmAL6UTvXxsIZzF8KH4HuMzBCDbbq+e2/bujYh
+	 l6qQ1FNqioSQkdZCxLYz6G8H68Fv9TMrrZ8EBdJpycyadg9st04G4Ygu2ShEo1xRF3
+	 liSKFljiXhGhIzGljseTUa4YIePXyBzds3AUg8AWkd7OvxDY3XnFG6L7UWWzkFbPCx
+	 Q1FgPeg3xihZw==
+Date: Thu, 14 Aug 2025 17:04:44 -0500
+From: Rob Herring <robh@kernel.org>
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Michal Wilczynski <m.wilczynski@samsung.com>,
+	Han Gao <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [RFC PATCH 2/8] dt-bindings: display: add versilicon,dc
+Message-ID: <20250814220444.GA3988176-robh@kernel.org>
+References: <20250814164048.2336043-1-uwu@icenowy.me>
+ <20250814164048.2336043-3-uwu@icenowy.me>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] dt-bindings: phy: spacemit: add SpacemiT PCIe/combo
- PHY
-To: Rob Herring <robh@kernel.org>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, lpieralisi@kernel.org,
- kwilczynski@kernel.org, mani@kernel.org, bhelgaas@google.com,
- vkoul@kernel.org, kishon@kernel.org, dlan@gentoo.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, p.zabel@pengutronix.de, tglx@linutronix.de,
- johan+linaro@kernel.org, thippeswamy.havalige@amd.com, namcao@linutronix.de,
- mayank.rana@oss.qualcomm.com, shradha.t@samsung.com, inochiama@gmail.com,
- quic_schintav@quicinc.com, fan.ni@samsung.com, devicetree@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
- spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250813184701.2444372-1-elder@riscstar.com>
- <20250813184701.2444372-2-elder@riscstar.com>
- <20250814205128.GA3873683-robh@kernel.org>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20250814205128.GA3873683-robh@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20250814164048.2336043-3-uwu@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_144853_082706_E36BF6C8 
-X-CRM114-Status: GOOD (  36.86  )
+X-CRM114-CacheID: sfid-20250814_150446_510745_6A3F783C 
+X-CRM114-Status: GOOD (  24.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,227 +85,172 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/14/25 3:51 PM, Rob Herring wrote:
-> On Wed, Aug 13, 2025 at 01:46:55PM -0500, Alex Elder wrote:
->> Add the Device Tree binding for the PCIe/USB 3.0 combo PHY found in
->> the SpacemiT K1 SoC.  This is one of three PCIe PHYs, and is unusual
->> in that only the combo PHY can perform a calibration step needed to
->> determine settings used by the other two PCIe PHYs.
->>
->> Calibration must be done with the combo PHY in PCIe mode, and to allow
->> this to occur independent of the eventual use for the PHY (PCIe or USB)
->> some PCIe-related properties must be supplied: clocks; resets; and a
->> syscon phandle.
->>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->>   .../bindings/phy/spacemit,k1-combo-phy.yaml   | 110 ++++++++++++++++++
->>   1 file changed, 110 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
->> new file mode 100644
->> index 0000000000000..ed78083a53231
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/phy/spacemit,k1-combo-phy.yaml
->> @@ -0,0 +1,110 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/phy/spacemit,k1-combo-phy.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: SpacemiT K1 PCIe/USB3 Combo PHY
->> +
->> +maintainers:
->> +  - Alex Elder <elder@riscstar.com>
->> +
->> +description:
+On Fri, Aug 15, 2025 at 12:40:42AM +0800, Icenowy Zheng wrote:
+> Verisilicon has a series of display controllers prefixed with DC and
+> with self-identification facility like their GC series GPUs.
 > 
-> You need a '>' or the paragraphs formatting will not be maintained
-> (should we ever render docs from this).
-
-OK.
-
->> +  Of the three PHYs on the SpacemiT K1 SoC capable of being used for
->> +  PCIe, one is a combo PHY that can also be configured for use by a
->> +  USB 3 controller.  Using PCIe or USB 3 is a board design decision.
->> +
->> +  The combo PHY is also the only PCIe PHY that is able to determine
->> +  PCIe calibration values to use, and this must be determined before
->> +  the other two PCIe PHYs can be used.  This calibration must be
->> +  performed with the combo PHY in PCIe mode, and is this is done
->> +  when the combo PHY is probed.
->> +
->> +  During normal operation, the PCIe or USB port driver is responsible
->> +  for ensuring all clocks needed by a PHY are enabled, and all resets
->> +  affecting the PHY are deasserted.  However, for the combo PHY to
->> +  perform calibration independent of whether it's later used for
->> +  PCIe or USB, all PCIe mode clocks and resets must be defined.
->> +
->> +properties:
->> +  compatible:
->> +    const: spacemit,k1-combo-phy
->> +
->> +  reg:
->> +    items:
->> +      - description: PHY control registers
->> +
->> +  clocks:
->> +    items:
->> +      - description: DWC PCIe Data Bus Interface (DBI) clock
->> +      - description: DWC PCIe application AXI-bus Master interface clock
->> +      - description: DWC PCIe application AXI-bus Slave interface clock.
+> Add a device tree binding for it.
 > 
-> End with a period or don't. Just be consistent.
-
-OK.
-
-> You need DWC PCIe clocks for your PHY? A ref clock would make sense, but
-> these? I've never seen a PHY with a AXI master interface.
-
-*This* is what I was waiting for.  I explained it briefly in
-the patch headers and elsewhere but I expected questions.
-
-This is needed to support USB mode, while also supporting the other
-PCIe interfaces.
-
-The SpacemiT IP requires its PCIe interfaces to have 4-bit RX and TX
-receiver termination values be configured during initialization.  The
-values to use must be determined dynamically by doing a calibration
-step, then reading a (PCIe) register that contains the values to use.
-
-Only the combo PHY is able to perform this calibration. and the
-configuration values it determines must then be used to configure
-the other two PCIe (only) PHYs.
-
-This means that to calibrate, the combo PHY must be started (clocks
-enabled, resets de-asserted) in PCIe mode.
-
-If the combo PHY were going to be used for PCIe, this could be done
-when it is initialized, because the PCIe driver would ensure the
-clocks and resets were set up properly.
-
-But if the combo PHY is going to be used for USB, the PCIe
-calibration step would (otherwise) never be done, and that
-means the other two PCIe interfaces could not be used.
-
-So my solution is to move this calibration step into the PHY.
-The combo PHY performs the calibration step when it is probed,
-and to do that the driver needs to use its PCIe clocks and resets.
-Once the calibration values are known, the clocks and resets
-are essentially forgotten, and the PHY is available for use (by
-either PCIe or USB 3).
-
-The other two PCIe interfaces cannot probe (-EPROBE_DEFER) until
-the calibration values are known, which means they might have to
-wait until after the combo PHY has probed successfully.
-
-I asked SpacemiT about this a lot, but their answer is that the
-combo PHY is the only one that can determine these values, and
-they must be determined each time the hardware is powered up.
-
-I think this approach is less ugly than some alternatives.
-
-Is this clear?  Can you think of a different way of handling it?
-
->> +
->> +  clock-names:
->> +    items:
->> +      - const: dbi
->> +      - const: mstr
->> +      - const: slv
->> +
->> +  resets:
->> +    items:
->> +      - description: DWC PCIe Data Bus Interface (DBI) reset
->> +      - description: DWC PCIe application AXI-bus Master interface reset
->> +      - description: DWC PCIe application AXI-bus Slave interface reset.
+> Depends on the specific DC model, it can have either one or two display
+> outputs, and each display output could be set to DPI signal or "DP"
+> signal (which seems to be some plain parallel bus to HDMI controllers).
 > 
-> Same here (on both points).
-
-I will remove the period on the third one.
-
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> ---
+>  .../bindings/display/verisilicon,dc.yaml      | 127 ++++++++++++++++++
+>  1 file changed, 127 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/verisilicon,dc.yaml
 > 
->> +      - description: Global reset; must be deasserted for PHY to function
->> +
->> +  reset-names:
->> +    items:
->> +      - const: dbi
->> +      - const: mstr
->> +      - const: slv
->> +      - const: global
->> +
->> +  spacemit,syscon-pmu:
->> +    description:
->> +      PHandle that refers to the APMU system controller, whose
->> +      regmap is used in setting the mode
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +
->> +  "#phy-cells":
->> +    const: 1
->> +    description:
->> +      The argument value (PHY_TYPE_PCIE or PHY_TYPE_USB3) determines
->> +      whether the PHY operates in PCIe or USB3 mode.
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - clock-names
->> +  - resets
->> +  - reset-names
->> +  - spacemit,syscon-pmu
->> +  - "#phy-cells"
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/spacemit,k1-syscon.h>
->> +    combo_phy: phy@c0b10000 {
+> diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> new file mode 100644
+> index 0000000000000..2f71a811786aa
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> @@ -0,0 +1,127 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/verisilicon,dc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Verisilicon DC-series display controllers
+> +
+> +maintainers:
+> +  - Icenowy Zheng <uwu@icenowy.me>
+> +
+> +properties:
+> +  $nodename:
+> +    pattern: "^display@[0-9a-f]+$"
+> +
+> +  compatible:
+> +    const: verisilicon,dc
+
+If the clocks or resets varies by platform, then you need an SoC 
+specific compatible still. If these clocks/resets are straight from the 
+RTL and any other number of clocks/resets is wrong, then we can stick 
+with just this compatible.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: DC Core clock
+> +      - description: DMA AXI bus clock
+> +      - description: Configuration AHB bus clock
+> +      - description: Pixel clock of output 0
+> +      - description: Pixel clock of output 1
+> +    minItems: 4
+
+Generally we put this before 'items'.
+
+> +
+> +  clock-names:
+> +    items:
+> +      - const: core
+> +      - const: axi
+> +      - const: ahb
+> +      - const: pix0
+> +      - const: pix1
+> +    minItems: 4
+> +
+> +  resets:
+> +    items:
+> +      - description: DC Core reset
+> +      - description: DMA AXI bus reset
+> +      - description: Configuration AHB bus reset
+> +
+> +  reset-names:
+> +    items:
+> +      - const: core
+> +      - const: axi
+> +      - const: ahb
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: The first output channel, endpoint 0 should be
+> +          used for DPI format output and endpoint 1 should be used
+> +          for DP format output.
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: The second output channel if the DC variant
+> +          supports and used. Follow the same endpoint addressing
+> +          rule with the first port.
+> +
+> +    required:
+> +      - port@0
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - ports
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
+> +    #include <dt-bindings/reset/thead,th1520-reset.h>
+> +    soc {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      display@ffef600000 {
+> +        compatible = "verisilicon,dc";
+> +        reg = <0xff 0xef600000 0x0 0x100000>;
+> +        interrupts = <93 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks = <&clk_vo CLK_DPU_CCLK>,
+> +           <&clk_vo CLK_DPU_ACLK>,
+> +           <&clk_vo CLK_DPU_HCLK>,
+> +           <&clk_vo CLK_DPU_PIXELCLK0>,
+> +           <&clk_vo CLK_DPU_PIXELCLK1>;
+> +        clock-names = "core", "axi", "ahb", "pix0", "pix1";
+> +        resets = <&rst TH1520_RESET_ID_DPU_CORE>,
+> +           <&rst TH1520_RESET_ID_DPU_AXI>,
+> +           <&rst TH1520_RESET_ID_DPU_AHB>;
+> +        reset-names = "core", "axi", "ahb";
+> +
+> +        ports {
+> +          #address-cells = <1>;
+> +          #size-cells = <0>;
+> +          port@0 {
+> +            reg = <0>;
+> +          };
+> +
+> +          port@1 {
+> +            reg = <1>;
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +
+> +            dpu_out_dp1: endpoint@1 {
+> +              reg = <1>;
+> +              remote-endpoint = <&hdmi_in>;
+> +            };
+> +          };
+> +        };
+> +      };
+> +    };
+> -- 
+> 2.50.1
 > 
-> Drop unused labels.
-
-OK.
-
->> +        compatible = "spacemit,k1-combo-phy";
->> +        reg = <0xc0b10000 0x1000>;
->> +        clocks = <&syscon_apmu CLK_PCIE0_DBI>,
->> +                 <&syscon_apmu CLK_PCIE0_MASTER>,
->> +                 <&syscon_apmu CLK_PCIE0_SLAVE>;
->> +        clock-names = "dbi",
->> +                      "mstr",
->> +                      "slv";
->> +        resets = <&syscon_apmu RESET_PCIE0_DBI>,
->> +                 <&syscon_apmu RESET_PCIE0_MASTER>,
->> +                 <&syscon_apmu RESET_PCIE0_SLAVE>,
->> +                 <&syscon_apmu RESET_PCIE0_GLOBAL>;
->> +        reset-names = "dbi",
->> +                      "mstr",
->> +                      "slv",
->> +                      "global";
->> +        spacemit,syscon-pmu = <&syscon_apmu>;
->> +        #phy-cells = <1>;
->> +        status = "disabled";
-
-Krzysztof also pointed out that I can't disable it so I'll drop
-the above line as well.
-
-Thanks for the review.
-
-					-Alex
-
->> +    };
->> -- 
->> 2.48.1
->>
-
 
 _______________________________________________
 linux-riscv mailing list
