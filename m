@@ -4,56 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97EADCA0EE0
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 00:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F0BC87FCF
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Aug 2025 01:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8OZM00PZWifZWpZKcFb4yG6XZNzdYxrhSi50j8SYRPw=; b=ZccGg4VrBQDqsk
-	N05p4rR6kZEZe9er0UWn1rj+b2TSyjfsSJPKFKNUzTrRD9M/2FRZFEJRlLQsrZyodL2RDZJhbBjg/
-	AfhF8l4VsfU1j1HxaDsXdyGow89xLmrA2JEbBHOTHoQH6pIjRE2qv9rYAbFMtgZ+qmsw0XUtzagFs
-	i/G71+712IVBH4r6HAbCAdk30X1Sp5o1VGDIm3RKR0U9MDpsmYM6RR3IHsTeHnct7pHIMH9JYk6qX
-	OcpxY3M/jdgCY6z5Dwit/SFJfTISSPlP+BH4b9U1C1/Qetq/2/uegjhYwPACrNYeXFXZuMMdBZHxY
-	O2LPPG3IUXhEcB4Moiiw==;
+	List-Owner; bh=n8HlcDdvVBOwuxp/j0sY5Xcm6SWXLKxjrnwUL6v32SA=; b=pKS2YpwEnTG98R
+	mkZFGGJlkHg7FUgLEIhbBOA8s7GQYkUWN1gjbqDzKKi4N1ocYy4Y1kyoVgpkJ1pP4TJXEjbckgl/f
+	RGNI9eIGeJ1061ffF17N47v/h3DCQ4WlEVbElXSCJG9L2DQwSnQ8NY7HqNt0RRp0OqUe0KFMhXSWf
+	gjhbZ0D7DNQkbdbLDIPKsHFmDzN+a1xgOtZVtal7S9rKoyw742evesWzT4ZT666Sxbj72zrVeCUTL
+	WMzjKuTxCHzEWGPMsqlrTcdFJzkbbKb2ORcKzdf808PSZO/+y1sav3MZkDSv2+ikPFjNA//17/Of8
+	2DZ2cTp2xUNcB17Cnusg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umLdm-0000000FOsP-0TUk;
-	Thu, 14 Aug 2025 00:16:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1umMPn-0000000FSN6-47Hc;
+	Thu, 14 Aug 2025 01:05:59 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umGWi-0000000EjgB-3MJp
+	id 1umMPl-0000000FSMh-463N
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Aug 2025 18:48:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 901AF601EF;
-	Wed, 13 Aug 2025 18:48:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8DA4C4CEEB;
-	Wed, 13 Aug 2025 18:48:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755110923;
-	bh=h9+TOUuSmuwiGeeFq/t+i5nPgsw7wfFmCtzB/voaBMs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DZlohB5ixOlaz45evaXnl7qDy32fDEOZ6BGbTSFAhliWdtw+dZVDpifkSuuPhDxJe
-	 qE79KLFwqPMsz/kEyNXXYVLKpdGbpvayf3zBw2YGtzhQFc6od2+os7ZR2eBNfGTwDJ
-	 na5LyNI6j3CJw+NUGqoK4nAsWBAmwRoUuW78MxkzKT5OnVNPo7swvjGlQ8i49M0wgG
-	 lcCEPQ8qrjCWoLfwcycPTKi6gjkiS+1BZejCq4nNlwOUlpr55JdRdgsM93vk3jHzMC
-	 gSQ/5iCyG5+2TAmkgqM33xcPgOp+/KWxvPl+qAhlnYirYAAhGE4KSoYPszSX7ne3S1
-	 nxjTiH7GJV3Qg==
-Date: Wed, 13 Aug 2025 11:48:41 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Yao Zi <ziyao@disroot.org>
-Subject: Re: [PATCH] reset: thead: Scope TH1520 reset driver to VO subsystem
-Message-ID: <aJzeCbARIRltiYE1@x1>
-References: <CGME20250810211419eucas1p173e5fefcfaae437d8b5531d1406ff6a6@eucas1p1.samsung.com>
- <20250810-fix_reset_2-v1-1-b0d1900ba578@samsung.com>
- <aJrTq775sXTrsepl@x1>
- <aJxGnnwlE1sWarXa@pie>
+	Thu, 14 Aug 2025 01:05:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755133558; x=1786669558;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GHq+UdFILVZZcTmyOuJYpLnjJl4RNHxMErvsBexshnY=;
+  b=aElfw9PugSRRSNtTahKi3+HvFQUMRuTnoJ9rTUczDl+o149MGaoxahHK
+   I61UwOph4raZFaLrQNcvRr+ZE6SHTE6lZFladu8vFggtLBmVJ9/rnF3wF
+   3aWap22ACwbQNGydUPVx11izsAO5SP9kVZOcZki9KcjLh15eBNzpp/Wug
+   ATRMmO9RbjW6IB6BKZ1BH/4Kuns60d/Vf+IOxFjFrnBHC0/jVtRBWGkyN
+   ZMb1WO5q5OBAZ7l1xivZnGO/UAcWL32CGyz84bbnF5vFX4OVeCY7ejcuR
+   /qaQVcRswX9cr7m2UcMGont3wNNV+ZqAo+ZVSDdcoe0ZXmfq6yp7lDNCr
+   w==;
+X-CSE-ConnectionGUID: vQt9Y8J4SXm0uTAKkrHZDA==
+X-CSE-MsgGUID: J9LyVW1TRTK68MO4Z7CAtQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="68522885"
+X-IronPort-AV: E=Sophos;i="6.17,287,1747724400"; 
+   d="scan'208";a="68522885"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 18:05:57 -0700
+X-CSE-ConnectionGUID: GyU04fsaR2OYGBt93Y2/8w==
+X-CSE-MsgGUID: ewk1E047T+a1xTM9ypDf9Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,287,1747724400"; 
+   d="scan'208";a="166997295"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa008.fm.intel.com with ESMTP; 13 Aug 2025 18:05:53 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1umMPc-000ATw-07;
+	Thu, 14 Aug 2025 01:05:48 +0000
+Date: Thu, 14 Aug 2025 09:05:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>,
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Jinmei Wei <weijinmei@linux.spacemit.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH v2 4/4] clk: spacemit: fix i2s clock
+Message-ID: <202508140828.p7rvt41N-lkp@intel.com>
+References: <20250811-k1-clk-i2s-generation-v2-4-e4d3ec268b7a@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aJxGnnwlE1sWarXa@pie>
+In-Reply-To: <20250811-k1-clk-i2s-generation-v2-4-e4d3ec268b7a@linux.spacemit.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250813_180558_069198_BF53B366 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,62 +93,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Guo Ren <guoren@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Michal Wilczynski <m.wilczynski@samsung.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 08:04:40AM +0000, Yao Zi wrote:
-> On Mon, Aug 11, 2025 at 10:39:55PM -0700, Drew Fustini wrote:
-> > On Sun, Aug 10, 2025 at 11:14:19PM +0200, Michal Wilczynski wrote:
-> > > The reset controller driver for the TH1520 was using the generic
-> > > compatible string "thead,th1520-reset". However, the current
-> > > implementation only manages the resets for the Video Output (VO)
-> > > subsystem.
-> > 
-> > Looking at Section 5.4 on Page 451 of the TH1520 System User Manual [1],
-> > it does seem like we would ultimately need 6 separate nodes for reset
-> > controllers:
-> 
-> Yes, this is true. And another six nodes for clock controllers (there's
-> already one).
-> 
-> >  0xFF_EF01_4000: AP_SUBSYS
-> >  0xFF_EC02_C000: MISC_SUBSYS
-> >  0xFF_E404_0000: VI_SUBSYS
-> >  0xFF_EF52_8000: VO_SUBSYS
-> >  0xFF_ECC3_0000: VP_SUBSYS
-> >  0xFF_EF04_0000: DSP_SUBSYS
-> > 
-> > Maybe we should take this opportunity to document the bindings for all
-> > the resets that the REE (e.g. Linux) can control?
-> 
-> It's worth noting that with either mainline U-Boot or vendor U-Boot, no
-> core is configured to run as REE. IOW, AON_SUBSYS could be accessed by
-> AP cores as well.
+Hi Troy,
 
-Interesting, I didn't know that the AP cores could access TEE resources.
-> 
-> I think introducing read-only clock support to Linux could help us to
-> correctly describe pvt clocks which are now replaced with a aonsys
-> placeholder and resolve issues like what is described in 0370395d45ca
-> ("clk: thead: Mark essential bus clocks as CLK_IGNORE_UNUSED").
-> 
-> Futhermore, there may be downstream projects, e.g. U-Boot, make use of
-> these TEE-only devices, which could benefit if we have these devices
-> documented and described in devicetree, too. Thus I think the AON clock
-> and reset controllers should be documented as well if we're going to
-> document every reset/clock controller in a batch.
+kernel test robot noticed the following build warnings:
 
-I think that does make sense to document the AONSYS clock and reset
-controllers in the DT bindings as they are part of the hardware and
-described in the t-head documentation. It would be great to be able to
-make use of more functionality in the t-head sdk like the ability to
-reboot the board.
+[auto build test WARNING on 8f5ae30d69d7543eee0d70083daf4de8fe15d585]
 
-Thanks,
-Drew
+url:    https://github.com/intel-lab-lkp/linux/commits/Troy-Mitchell/dt-bindings-clock-spacemit-introduce-i2s-pre-clock-to-fix-i2s-clock/20250811-221114
+base:   8f5ae30d69d7543eee0d70083daf4de8fe15d585
+patch link:    https://lore.kernel.org/r/20250811-k1-clk-i2s-generation-v2-4-e4d3ec268b7a%40linux.spacemit.com
+patch subject: [PATCH v2 4/4] clk: spacemit: fix i2s clock
+config: riscv-randconfig-r112-20250813 (https://download.01.org/0day-ci/archive/20250814/202508140828.p7rvt41N-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce: (https://download.01.org/0day-ci/archive/20250814/202508140828.p7rvt41N-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508140828.p7rvt41N-lkp@intel.com/
+
+sparse warnings: (new ones prefixed by >>)
+>> drivers/clk/spacemit/ccu-k1.c:160:1: sparse: sparse: Initializer entry defined twice
+   drivers/clk/spacemit/ccu-k1.c:160:1: sparse:   also defined here
+   drivers/clk/spacemit/ccu-k1.c:656:1: sparse: sparse: Initializer entry defined twice
+   drivers/clk/spacemit/ccu-k1.c:656:1: sparse:   also defined here
+
+vim +160 drivers/clk/spacemit/ccu-k1.c
+
+   159	
+ > 160	CCU_DIV_GATE_DEFINE(i2s_bclk, CCU_PARENT_HW(i2s_sysclk), MPMU_ISCCR, 27, 2, BIT(29), 2, 0);
+   161	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
