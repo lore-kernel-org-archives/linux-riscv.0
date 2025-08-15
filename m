@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB17CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 13:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C005CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 14:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FRFI+CaILz93Dv30PAEcfG2pEKQcD2f/gm8wPRv7SpM=; b=dU2wWXU5+tmYmB
-	dyl1g+re+NlZdixeZ95EO1Lb5kC1sl5gY1vpzDpaa3IdXcMK7yecvDgKscB//SHTfFpUuAHbKbLUY
-	lA6T2jf7IOtqfrm76t3Nh9ESJAmZIKV6I9+6mxtRDs8oksP8lH+D65EYY58kpzsVrH/wtx4TwS6CJ
-	BuZ5HEggSlf85Phn7ufrbxGy0Ss76lXEB3MkQr+hxcDMTua0SBWU3lDQkkib4ZmkbUalckHQBZTeM
-	5NxOntIQtCKDxHbOd0IOK0qIgfd4buy1jpoeiL8ySnnjToW8FARWtmjV1Shu4P7yCfCbvFbiJYyLW
-	a8hmz8DrrRDRGR2XkepQ==;
+	List-Owner; bh=WwJ6GgQNhHTqIar4B9BOniCnEwivJ8eevtNeRqvozBc=; b=c56ATcfgvF4o51
+	2Zb4uyv7k5yF69ugmE7DNhC3ywOch9WusrHVUX/dHZQdn6fZ2dSx8+TYvIvqYqz3jDvyJ7b7aCZes
+	rIL53+KZRDAT2/Vfa1ynsDHix6NPivBQd6Y2UR7rdRu1R7WDn4y9LjGDlHihVfCakZHQQ1VqJI5/p
+	fh7KVfaI8aNOPeyi5YoVEyV0k1+YyW6Z7tOfD6SE/3++q8TWNiXg6S2zrTRekkTtRUdxV9dda1ZLD
+	OzEM0SOamDZv73+P6nXqbJWx3VThnZqqATI1AbecqxAp1x/ywRY7Q2VwYXIcfy7yy8A/iRBf5+Bjb
+	I0ncQ1xjUyV7n01yGAMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umuS1-00000002aFl-41Jq;
-	Fri, 15 Aug 2025 13:26:33 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1umvEc-00000002h4P-0uKe;
+	Fri, 15 Aug 2025 14:16:46 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ums1x-00000002G0c-2FRe
-	for linux-riscv@lists.infradead.org;
-	Fri, 15 Aug 2025 10:51:30 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b47156b3b79so1393030a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Aug 2025 03:51:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1755255088; x=1755859888; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Dix/CPpSMGWXSWO0Y4aNEfoYpWHiRGQqO96WVTnVXQ0=;
-        b=eT+myFC7j8D7wIIv6maIFHm4oGGQKkCYO14KCeqsTkSKalYPTIBnOuewB0+9LgnTv1
-         Ewcg3IOUzMGrD6nV9sfsub1Yb8qx54a1jDWVjzbk4OT215GerM0nzg8+dS3xBGb6EyYI
-         QBvjikdPkBJdXnbw5oAr5h9hctKGXdthYAPIbvsPIsAGR/zJIismxQnlRHSRi8FfQ4R8
-         8+gM3iZna+NUQ3cxzKeBY5aqcFsWZzGOU3nzdgcAYy6EhE0N/DYGfZYfdvAg5s4rWHgI
-         4ip/955oIf3a0vzARmIvW12+6Gol/51NKymax0jzfosCHbtTbdBVOAJowb6AC4GZNGlO
-         KM9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755255088; x=1755859888;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Dix/CPpSMGWXSWO0Y4aNEfoYpWHiRGQqO96WVTnVXQ0=;
-        b=CMGfi2F23abY7DvBnhgYgUASuekBrPyGB4JQSkzLt8xIw3SEWnvDSVFVxNGb2uBDgC
-         39QD+ldQXi5Mu/GiJ0VscqbEyUhlP6qNQk7BeRwMng5bIYVIAXLsV84kyhB5PWfFAD3+
-         LFxYBXG588hgS/ROpjIkbXpaB9TeUtK2xTHKJGFzDkV1JlLIzIzn5KgTC22rRXsMHuRX
-         oy9hv9RTRQhkZAvgUvodkMl+ZGkNMgc2Kh8CB4SPYl8aXmfgyidB1lOxVX71oyb/Pxkj
-         IIpxsUiFyvSSCNkb9cXd2eJOpvja17a0PnIsgvYewT5xmSHvPlVa+Y83XcAhyH7U80xX
-         r6WA==
-X-Forwarded-Encrypted: i=1; AJvYcCWl7xiOfxq5yE7GmFZ/e3F6052sVRSefinYPRav5YAnm+DaWWGI7TKKhSFeMRvOzAtbb2xqO4yMnaFNKQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmP5lqV2BLXsuTs3c1AWknINNv1twaKCC5WmpjHMQr45mOJg5n
-	+3L+ZoYzjqVU846lEyjXW1iE2gsL/JVec7ocYdGsb9Dp/9owbUYjKbQb+oI96WRZZJU=
-X-Gm-Gg: ASbGncse7CR8Xi5Tx3CzOtbh5+9rx/+QbCfzcQUbAFGwNu4u45SLo+qMGBgYAik3rjN
-	+nGk0OGkYgsQwY96le2jh7ssCI2N0wP1Ig1YVsQIIDRts/uhuU8njdd7/IurqJJKPM5KVs/J7m/
-	HP932iEU9X+tkKhya1vyT0GWNSMCO4VnNHWn+P6Trm29e8ZTRQkubK9E4bMeclPCsoNjIqwlyF4
-	emz4H6gicGIVEHP5C7q7JIN900SggLunGuPVr9Vy/hfl+lO46g258agecaWrmZDU3XVNIt2jOSQ
-	TdFzGcwvKDiZvcA+G9XgcZlKf9GP3XF4jnQMtihexwKnOylJzeKWaxYK60KVDGtYt4TSI3t0g81
-	IAyajL9/fRGz4pJZh2dNVf656GSs=
-X-Google-Smtp-Source: AGHT+IEmNprlP3EyYzXw2mJxg75wrJzN+aQ6IJA3e06q3ZiRiLLueRHZsG1qP8n+zVyH+f5AwDAHpw==
-X-Received: by 2002:a17:903:1252:b0:240:1ed3:fc28 with SMTP id d9443c01a7336-2446bd2d05fmr30011465ad.12.1755255088359;
-        Fri, 15 Aug 2025 03:51:28 -0700 (PDT)
-Received: from sunil-laptop ([106.51.199.3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446ca9ee0esm11563455ad.8.2025.08.15.03.51.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Aug 2025 03:51:27 -0700 (PDT)
-Date: Fri, 15 Aug 2025 16:21:16 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: XianLiang Huang <huangxianliang@lanxincomputing.com>
-Cc: ajones@ventanamicro.com, alex@ghiti.fr, anup@brainfault.org,
-	apatel@ventanamicro.com, atishp@rivosinc.com, iommu@lists.linux.dev,
-	joro@8bytes.org, lenb@kernel.org, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, paul.walmsley@sifive.com, rafael@kernel.org,
-	robin.murphy@arm.com, tjeznach@rivosinc.com, will@kernel.org
-Subject: Re: [PATCH v5 1/3] ACPI: RISC-V: Add support for RIMT
-Message-ID: <aJ8RJCFM8p_GrFXk@sunil-laptop>
-References: <20250716104059.3539482-2-sunilvl@ventanamicro.com>
- <20250815075541.29941-1-huangxianliang@lanxincomputing.com>
+	id 1umrK2-000000029up-0ReI;
+	Fri, 15 Aug 2025 10:06:07 +0000
+Date: Fri, 15 Aug 2025 12:06:02 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1755252363;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NKM6vYBTvYJgJZpC+3klg9OwyY5OfNg57KkNb0OocWg=;
+	b=aO2iazZBVl4jvGHcxioVfsh65iLR3Izq+qWPXADbutMqMavKgUaUthaDr+R6w1r6xC69M7
+	pL5h2TEWtWYewAnpScYhJCkIaFAKgULbi15SjfGtKC8LJ/mZc1hQQzLg71FWu25eDTH0y1
+	MdUY3+nnowrj0PdDzw1hyrQ8ozJ0BdBe+J6xfrhxUNOLMiWm7280NRlOtJuKnvCK2Hl4+R
+	JjnaSPjNDatrg+pgW4dq3uCQftbz45AWPj/EWmXs4IklOD4k8lw//0rXGaZQYflfEXqJDN
+	ZoNnis/wD+gc1ASC2wdlydN0BBi8bv7A4d+0Pi34HL6a8GZJXUQvVqO1fxQIkg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1755252363;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NKM6vYBTvYJgJZpC+3klg9OwyY5OfNg57KkNb0OocWg=;
+	b=S6z9FpXDI0m5KmQAvWcT/IWg9tN8RVfisToJ75YI5pbqWTKx4VxzrYh7GLy6FZouW5QiYj
+	9qWhB6v7+0ZZRyBg==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Miguel Ojeda <ojeda@kernel.org>, 
+	Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Nicolas Schier <nicolas.schier@linux.dev>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev, linux-mm@kvack.org, linux-um@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Jan Stancek <jstancek@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@redhat.com>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v4 00/24] vdso: Reject absolute relocations during build
+Message-ID: <20250815112851-e613308f-d49e-44ae-b2dd-ca7946fa1fd9@linutronix.de>
+References: <20250812-vdso-absolute-reloc-v4-0-61a8b615e5ec@linutronix.de>
+ <86186254-b2c6-4818-af0a-4eb67d90e501@csgroup.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250815075541.29941-1-huangxianliang@lanxincomputing.com>
+In-Reply-To: <86186254-b2c6-4818-af0a-4eb67d90e501@csgroup.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_035129_576194_461A3D6A 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20250815_030606_283981_DC3ABB5E 
+X-CRM114-Status: GOOD (  18.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,31 +98,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 03:55:41PM +0800, XianLiang Huang wrote:
-> Hi Sunil,
-> 
-> On Wed, 16 Jul 2025 16:10:57 +0530, Sunil V L wrote:
-> > +	parent = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_table, map->dest_offset);
-> > +
-> > +	if (node->type == ACPI_RIMT_NODE_TYPE_PLAT_DEVICE ||
-> > +	    node->type == ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX) {
-> > +		*id_out = map->dest_offset;
-> > +		return parent;
-> > +	}
-> 
-> Why do we assign dest_offset to id_out? The dest_offset is the iommu offset, not
-> a valid deviceid required for platform device in rimt_plat_iommu_map?
-> 
-Good catch!. Thanks!. It should be dest_id_base. Let me fix it in next
-revision.
+Hi Christophe,
 
-Thanks!
-Sunil
+On Thu, Aug 14, 2025 at 03:43:09PM +0200, Christophe Leroy wrote:
+> Le 12/08/2025 =E0 07:44, Thomas Wei=DFschuh a =E9crit=A0:
+> > The compiler can emit absolute relocations in vDSO code,
+> > which are invalid in vDSO code.
+> > Detect them at compile-time.
+> =
+
+> I'm a bit puzzled with this series.
+> =
+
+> If I understand correctly, the check will be done only when you have RUST
+> available ?
+
+Yes, this new check will only be performed if a rust toolchain is available.
+CONFIG_RUST however is *not* required.
+
+> I wouldn't expect having RUST to build a C kernel.
+
+The build will work fine without Rust present and will fall back to the
+simplistic readelf test. A single report of breakage will allow us to fix t=
+he code,
+not everybody needs to run the full thing.
+
+> By the way, aren't relocations already detected by command cmd_vdso_check=
+ in
+> lib/vdso/Makefile.include , using readelf ? Why is a new tool needed
+
+The current cmd_vdso_check only validates the final vDSO image.
+However that is not sufficient, as some problematic relocations will not sh=
+ow
+up in the final image anymore but only the intermediary object files.
+And there the logic is more complex than can be reasonably expressed in inl=
+ine
+shell scripts, see the previous revisions of this series for the attempts.
+The valid relocations depend on each architecture and the specific ELF sect=
+ion
+they appear in.
+For the real example that triggered all of this, see commit
+0c314cda9325 ("arm64: vdso: Work around invalid absolute relocations from G=
+CC")
+
+> and why does it have to be written in RUST langage ?
+
+There is no hard requirement for Rust. I chose it for convenience of
+implementation, especially around descriptive error handling and generic
+functions. tglx was fine with it.
+
+
+Thomas
 
 _______________________________________________
 linux-riscv mailing list
