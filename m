@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6965FCA0EE4
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 01:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB87ACA0EDC
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 01:07:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vvn1IpAI0fjk50Ps3j3Gf0q2gGUCmGQVgAqlbPQPhkM=; b=39yHHtJlxpPxYK
-	sUnhNo/P9pfO1RjvWw9PQSJkosNOtA6ADq4FEb+FxJZz+LATmnNb/SktXpbhuQAyA2pTqzhKa+JX1
-	tDOnC86ygzuxsCM+FhYoctQNdtBy+GUnirXbsir3ODlHCYu4xBupfLAnsh8l+5R8zs9scKrVVnZOW
-	pc3ziBgYrjetezLzcCLaxqBuWBN8p6vPptARd8Vm4skyU6vhyQhA84TeJtdgv+u8Fml4ElqndO15I
-	45Osk6og1bmdBdWUGT4mHNukcfqYTKDaRkCmgvFlHI1Dw+UHiWMPY84JTHBUN0kCB3fEHB6doRDhA
-	uk93xjjxRbMkrQsL3NcA==;
+	List-Owner; bh=oQTRr2bfm7bcmLZ276d/juNNVEis69Tj+r4eV7BJ9ZM=; b=q0hQVxmCPThOfh
+	4OpwdG1Vw4//wU9y/vYfAWJu8/lD6g0M6Q/BEwZRH4D68RvOCvsqRrXR1fgZ4BcSFEU+HPVwKDUWy
+	QN74l/FFTHfRq1BMuWRaUUBtBNuYqVjTHS71X6dc4ciiUSTqVUmnEbL38HTXAe8t95TZELG1QgKYG
+	2b0sOxFsHZtRa0c6PtRiuB9RKJxL1PvgERVtS0TWSsXRaeyra6GTHZ/VxLJMLssU7kbUEcJkzASpe
+	kSBFrfGsKTnFWTzxMb2W5MvojkFb7dOhUF9akLFb7BljcziPfdhCrx+7MZ9TA/Liy9nejmB3WZdUC
+	eNTKNx12k+JtWKiTbFHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umiur-000000010JL-28om;
-	Fri, 15 Aug 2025 01:07:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1umium-000000010F2-3cwC;
+	Fri, 15 Aug 2025 01:07:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umiMr-00000000uWP-3rL4
+	id 1umiA8-00000000sFA-2Xvt
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Aug 2025 00:32:27 +0000
+	Fri, 15 Aug 2025 00:19:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4DD775C71CE;
-	Fri, 15 Aug 2025 00:32:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA15EC4CEED;
-	Fri, 15 Aug 2025 00:32:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A6B895C664A;
+	Fri, 15 Aug 2025 00:19:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3238EC4CEED;
+	Fri, 15 Aug 2025 00:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755217944;
-	bh=137LREHYlf3O0nOm9QpaXT3ohL/dKVWc4fbvyJZAR2Q=;
+	s=k20201202; t=1755217155;
+	bh=g4zR21hNRbpIwW2GjR4PpTESla0shxBvfcD4TLxCbgw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a8zbGxbIa1IvVDqW2E6Y08jD3EhIjoEBs0kLOAGBQ5AJpdUDpaxkM6AEgMCp/I+Rf
-	 pEu+stkbCruZaRbD17WbvwEU0o6QhiqF1ulkBpFCULNoN+IV0JxslqN6vwxke2wUFr
-	 DLs+vdzvTX1clE7UKCHHow8ajxCA78I1gCpHyDYwZmFs03f7m/M0hGNF0/D+beByiz
-	 z8u8dsoqiJ8u7eXTxPrbUjy86s/O58Atwp0NmYwfrwhN92pOGUMF2Tn5nHvFqKgFZf
-	 zIE+NetzGOfBPVNCv6onQFw9vgyOn9Pb1S+wgVclhGBDg9A0RXfhjYx6tdm25/3bNY
-	 JI0SiQ38DytNQ==
-Date: Thu, 14 Aug 2025 17:32:22 -0700
+	b=kd73VYw0MpCR4rPM18k9+ZktOhzAEjAUwD1o8+Fe6aPeWrMhI1AZwI0YZvijEZy8c
+	 fIiewGAMhP1MPHIXrCt2fbHgPm8P616BSrRfUptBE8iCnanb4v1yJRSbg8klLocbi8
+	 UpenqMDDDJBI97YRl2wpQn/HxQPQElh6IeoTiaS9IxlLmjLcVzS8jqfAcKWiAOBz+Z
+	 FX+J6kNwaChIWnBSokvk+FKXB9J1hZzAamhiBG/nAy3NInMS++71/n7lUq8XXIdg++
+	 V965Neoi4auIKv6LnymCAB15UyDqBG0ZxcC77/ogBns/5F5svd6x51x2um7UuqagQC
+	 +AiIUSXjUYkbg==
+Date: Thu, 14 Aug 2025 17:19:13 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: Icenowy Zheng <uwu@icenowy.me>
 Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
@@ -52,16 +52,17 @@ Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
 	Yao Zi <ziyao@disroot.org>, Han Gao <rabenda.cn@gmail.com>,
 	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] clk: thead: support changing DPU pixel clock rate
-Message-ID: <aJ6AFttcM+jUHHQy@x1>
+Subject: Re: [PATCH v2 1/3] clk: thead: add support for enabling/disabling
+ PLLs
+Message-ID: <aJ59AfgQNHUpMM7x@x1>
 References: <20250813072702.2176993-1-uwu@icenowy.me>
- <20250813072702.2176993-3-uwu@icenowy.me>
+ <20250813072702.2176993-2-uwu@icenowy.me>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250813072702.2176993-3-uwu@icenowy.me>
+In-Reply-To: <20250813072702.2176993-2-uwu@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_173226_040881_686892C2 
-X-CRM114-Status: GOOD (  23.00  )
+X-CRM114-CacheID: sfid-20250814_171916_685740_103BA866 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,70 +79,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 03:27:01PM +0800, Icenowy Zheng wrote:
-> The DPU pixel clock rate corresponds to the required dot clock of the
-> display mode, so it needs to be tweakable.
+On Wed, Aug 13, 2025 at 03:27:00PM +0800, Icenowy Zheng wrote:
+> The 2nd control word of T-Head TH1520 PLLs contains a bit to put the VCO
+> into reset state, which means disabling the PLL.
 > 
-> Add support to change it, by adding generic divider setting code,
-> arming the code to the dpu0/dpu1 clocks, and setting the pixel clock
-> connected to the DPU (after a gate) to CLK_SET_RATE_PARENT to propagate
-> it to the dividers.
+> Some PLLs are put to disabled state by the bootloader, and the clock
+> driver should be able to enable them.
 > 
+> Add support for enabling/disabling PLLs. PLLs other than DPU ones are
+> set CLK_IS_CRITICAL to prevent killing the system -- they're meant to
+> drive CPU or system buses (even the GMAC/Video ones are driving arbitrary
+> buses).
+
+Do you think there is a way in the future to allow disabling PLLs for
+run-time power management?  I think it is more important right now to
+get hardware peripherals working upstream like you are doing, but I was
+curious if there is the potential to do something more granular in the
+future.
+
 > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 > ---
-> Changes in v2:
-> - Dropped round_rate() because of deprecation.
-> - Changed the logic of determine_rate() to early return if the divider
->   could be changed.
+> No changes in v2.
 > 
->  drivers/clk/thead/clk-th1520-ap.c | 64 ++++++++++++++++++++++++++++---
->  1 file changed, 59 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-> index 0b5458af8c550..b220a8ed22607 100644
-> --- a/drivers/clk/thead/clk-th1520-ap.c
-> +++ b/drivers/clk/thead/clk-th1520-ap.c
-> @@ -55,6 +55,7 @@ struct ccu_gate {
->  
->  struct ccu_div {
->  	u32			enable;
-> +	u32			div_en;
->  	struct ccu_div_internal	div;
->  	struct ccu_internal	mux;
->  	struct ccu_common	common;
-> @@ -198,6 +199,56 @@ static unsigned long ccu_div_recalc_rate(struct clk_hw *hw,
->  	return rate;
->  }
->  
-> +static int ccu_div_determine_rate(struct clk_hw *hw,
-> +				  struct clk_rate_request *req)
-> +{
-> +	struct ccu_div *cd = hw_to_ccu_div(hw);
-> +	unsigned int val;
-> +
-> +	if (cd->div_en)
-> +		return divider_determine_rate(hw, req, NULL,
-> +					      cd->div.width, cd->div.flags);
-> +
-> +	regmap_read(cd->common.map, cd->common.cfg0, &val);
-> +	val = val >> cd->div.shift;
-> +	val &= GENMASK(cd->div.width - 1, 0);
-> +	return divider_ro_determine_rate(hw, req, NULL, cd->div.width,
-> +					 cd->div.flags, val);
-> +}
-> +
-> +static int ccu_div_set_rate(struct clk_hw *hw, unsigned long rate,
-> +				      unsigned long parent_rate)
-
-This should line up with open parenthesis. Other than that nit:
+>  drivers/clk/thead/clk-th1520-ap.c | 38 +++++++++++++++++++++++++++----
+>  1 file changed, 33 insertions(+), 5 deletions(-)
 
 Reviewed-by: Drew Fustini <fustini@kernel.org>
 
-If no other issues arise on this series, then I can just fix it up when
-applying.
-
-Thanks,
-Drew
 
 _______________________________________________
 linux-riscv mailing list
