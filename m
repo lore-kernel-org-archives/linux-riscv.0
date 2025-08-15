@@ -4,96 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F352CA0EE0
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 05:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E28CA0EE0
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 05:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3xnfFG50BBK8IrJ8tlUzdcsOboYdDkhh3dnyXBfcxnA=; b=NNrJu1409WWem7
-	lhFttLzqYNapFbkgCrODPYm5b2xCZ1MRrF7QgHHxAk0XcfQOrwZqB4VWaVKGNSmJBQt52dwD3Yz6P
-	jimVEtuEemxP0xgNe8UTPuDEdqJ+0+qnbm/LZkyFgTTdae5oQi+lvDm/NAF4ucv8U4+7iOFG+7KNR
-	o7ylc/f3FpWghA+AipPxixS98UGe45kGn7BFf6G+G/v17VixjcQdBWRo1e2RIUG1pR7CXh7gL/m9p
-	KTP+UIY1CA7qNzbs4FWXdZfl1Ye0r59uh3MGxdhfsiiVBL4A45Ka1vO9GX9tNm5NCQfKHkw2nDTEp
-	rikOh7ya9x7OhmTIWRHA==;
+	List-Owner; bh=CuHfSg6Gk/5bRsG7/CuFv7bU1gxWR4Ng14sAeiQE2ug=; b=vuxW2MwkPoBzcl
+	zWbG6wu/bisW2ObdgaBoXhC4rzu539u6pX3A+B6NsQYVm/nSGEP/QdC3srT+s0lrljyr1YDv1xzx3
+	IHj8vGsDF2KdRRpjORNy0tBVyrZ8axHx9zthiR8K0ShCF1EPCB7HoNl9kmu5TwUD/cHqQy+vK/Bg9
+	5sYmUcLmpdvhmMTp+Sv3spqMpbeGOncMBs3rrULIaWuGyTcZBGw2JNzawdTZJlGgABWkw+w9x15Km
+	2AdZ+T8Y6OV7i+MpRl4ynsci3xavX8823Zt0P8EdKrVlWevBFvrYwp6zgzStArNkrHabHSAKvZzC+
+	vub5JOKZ9W8KE4tE5SEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ummpe-00000001VYH-02ev;
-	Fri, 15 Aug 2025 05:18:26 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1umnCz-00000001Xp0-1wEA;
+	Fri, 15 Aug 2025 05:42:33 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ummpb-00000001VWo-0nbO
+	id 1umnCw-00000001Xoa-16EN
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Aug 2025 05:18:24 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-32326bd4f4dso1701661a91.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Aug 2025 22:18:23 -0700 (PDT)
+	Fri, 15 Aug 2025 05:42:31 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-afcb732eee6so294401666b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Aug 2025 22:42:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755235102; x=1755839902; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+tu3VbVvBVdJX8NKXRo9aN8ru1kGERA/t9NfAcjD1b4=;
-        b=p3BL6SYJIKdPIVfgL5XgjtXnxJLCOOlvdcw+e5bloqSEKs9jQByqLwyJ+Pueu1RTvA
-         +5jfSm8b5j0OcuAVGiMpWVvqHH90HMhpcwG7uvTMYH8lAWaJrND1oBLMonZ6TtRh84pD
-         LxL+KZPsNq6qkpkw4xqtjLsEAZi57SJb0gEPSnBRMBbDtYXhwjgmOBQo5eRXlT/iriDY
-         eZf3OMWFe/jKJ50TFW+DvFyClqLKR+DZdRweFeROBLnTP5gfLhYHLq7JKLsuoURbjX48
-         U76OeTfGer4FJp5tPnhJ9KEsWOPMUUVRD+zJpPkrHwS67mXdVdsA8ZaqjSQXqOmhp3F5
-         Qp7w==
+        d=jms.id.au; s=google; t=1755236548; x=1755841348; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ao0nHqySVR1z1mkQWgkIv+zrEyClYUPdZ2AVw92mKw4=;
+        b=gw4jXx24wzGJ4o9ivEFNwmHiPvIAurWWxhdLRavgQRs17z5Q6CxJcbIw2ZL/zCLQ21
+         +tBFzzioXL7DShMnzelz5WYU1ngMKzgPIX4zKuV1G3ILf8OVHvyVxC/r48Gd2JpcKzLt
+         VZSIzZyrpjYsWSru/YZ7Hrpdf0xQsleO6X/OE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755235102; x=1755839902;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+tu3VbVvBVdJX8NKXRo9aN8ru1kGERA/t9NfAcjD1b4=;
-        b=LmMuJfvzU8YjGeL+uLkkeWi+YiNLRbngzsd48HCWT83TAoD0lpkEHU1FNitFuIPiE6
-         luS3i04rkJBUVS/krR1KGZisUpjjVDN8GmE74AUblfGP3Yt1ZK/wTnQ4uN1bTa52oRsE
-         pdLrOdWN8/GtLYV1urke9Wl8nE8/3xizm39r9EBxp1AqsnStWOGnJ2cp85DcvP/TR6C2
-         g6xCbMZMy0InAY6xFNgcG8uBXQboizgNupLSgwU0kUKwFZrE+L66qR0EV4yik9WUnD7I
-         wNEMezKP+qAybIVG11a0w46cAdYs3ilCy7wgHOK0U3t4XnBkT8hTOYR5IablRKMLf18x
-         2tGg==
-X-Forwarded-Encrypted: i=1; AJvYcCU3dXGfjlxEp8xx9sdmQjOGVrEA8+43oLe7w5nEILmGjqrNnXqcKsUuool2hJ/hQxAIAxuy6g3f7AL8HA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8nED/FLg388RpKCrlGAqYE5kLufjwI3Gjh7uTo6gtRfTBbbZW
-	lAGDDGGe8QYA5VSH9B8tToLi6oZ9B7DvraPA87yDE3YhVJYeyMLS7W784IIjviOy2aw=
-X-Gm-Gg: ASbGncuX3IP3cS8bk2zDls/XGwq7SuGwl/Ek5ZKRMPA+WgxUbwgtBcdO5u7aNZi1BMH
-	+T2OtXXu84ichQp0GrXRPudBCH9b7pm0ZQcl/QEO88NdOheIpsq80/ql+1r8dKFodh0QB6BzBrx
-	fINmOmjIWKZNDeKBYgHD3rrJpXMYOJUJo75e/4tK3dLiKItf8XuXbl1uLhDBluVrufS0eny05P+
-	F/FkWwBPP3Md93Qz/qbsh69lvR8d2hi6N/gYleBLkDEuv5/yH1/+G8RF6tOPmoJgJfIOnor/1Yx
-	IdPgaFwpt8DOYSBUge1lzY5vLLC91EeaAcWI1Gf7L9QTkkedDhCd6z3y+BNL2zJwpsfppqZpYdg
-	fZVYg44VKhUePBy/n3NPUbQ==
-X-Google-Smtp-Source: AGHT+IFDtHgfFvQxxm6fxEwWXi9awBBZD5Ua19+tFUlmmEm3vFbmRHegYSTVwFsXKmUcUeczaz7/jA==
-X-Received: by 2002:a17:90a:c10e:b0:321:2b89:958b with SMTP id 98e67ed59e1d1-3233f0c1a4bmr1740600a91.0.1755235102576;
-        Thu, 14 Aug 2025 22:18:22 -0700 (PDT)
-Received: from [127.0.1.1] ([103.88.46.155])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-323439978a4sm373212a91.10.2025.08.14.22.18.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Aug 2025 22:18:22 -0700 (PDT)
-From: Guodong Xu <guodong@riscstar.com>
-Date: Fri, 15 Aug 2025 13:16:29 +0800
-Subject: [PATCH v4 7/8] riscv: dts: spacemit: Enable PDMA on Banana Pi F3
- and Milkv Jupiter
+        d=1e100.net; s=20230601; t=1755236548; x=1755841348;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ao0nHqySVR1z1mkQWgkIv+zrEyClYUPdZ2AVw92mKw4=;
+        b=AKX/CLKGLIbR30kgygLQTQIhu09ZRD7AXZHXVPuNTVR0hfztlOaiDizWth0I0j7Gc+
+         PG4Ip9Z2bBpw+id0OTay5Es0T8a5mfuAeHx5nI40JP21nmPaekNrPBPXJwHHNc13Ua4o
+         +DU2we0HOGUzVchB5gGp+sGHiBqY6ZeLorVpeDjDNx4E1DhyoGyRgS72aeb97vVuOr8d
+         Ify7fqEbQ6PyYDfeIrMMYVq3ebRdXLe3Svu7qpINVbji2NZ+i4vUUIXO84Ay7ck2Zqmp
+         sCIfUxvmyDAlDR4e9+nR+fj9JKWCI2P4HlOn7d7Jw9aRQIe2zSpQqZ/KMOukZvqp7jAe
+         853Q==
+X-Gm-Message-State: AOJu0YxHi3WNb40bRgH1RmM8o/pJpZFLtnYsOtUxJ3/ZLjzu/0LTu9Ff
+	4L8Myh63ih0ZYD4O2KDbF/qZEYYvge72r5S4vojcLeqAdXeRA7bYl76nXIwL6c99kwWgj6NqQ8N
+	Mdpeg/R5X1VY900TyJsMH2FnUQS5ZHDc=
+X-Gm-Gg: ASbGncvZwS+wZuYr6sGrXqnZWM/bF4sKSGYAwCFRKamyMTXMJvjycLWgd1D6OHPfpGb
+	mIKzV7DA9yPGIkXhN9BNYITCf89HZqPTgta4VTLO28kn5vuL0/m5Aw/HSFxXRObA2CT3vjwdh9s
+	U8z9Rwe+v5Jsu9m0RHnave7aHhC6fVmr33AspBvHn+dKpfK1LKUEKwJyPfxjFdKELhHooRrrNTB
+	Ztw1tetqum/2h58REgaIkfhe5n3AHMcX/8=
+X-Google-Smtp-Source: AGHT+IHfJpD0Y3cKBjtoKB/TD0jiobIEw7Qext8zDoq1Qo4cR9mUtcGGxBbzZHvlUvY1u2ZejaJkKgOvEKCU+6YsJSs=
+X-Received: by 2002:a17:906:6a0e:b0:afc:d209:37f2 with SMTP id
+ a640c23a62f3a-afcdc359d12mr55071366b.61.1755236548083; Thu, 14 Aug 2025
+ 22:42:28 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20250815-working_dma_0701_v2-v4-7-62145ab6ea30@riscstar.com>
-References: <20250815-working_dma_0701_v2-v4-0-62145ab6ea30@riscstar.com>
-In-Reply-To: <20250815-working_dma_0701_v2-v4-0-62145ab6ea30@riscstar.com>
-To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, duje@dujemihanovic.xyz
-Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>, 
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, Guodong Xu <guodong@riscstar.com>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Mailer: b4 0.14.2
+References: <20250805193955.798277-1-jesse@rivosinc.com> <20250805193955.798277-9-jesse@rivosinc.com>
+In-Reply-To: <20250805193955.798277-9-jesse@rivosinc.com>
+From: Joel Stanley <joel@jms.id.au>
+Date: Fri, 15 Aug 2025 15:42:16 +1000
+X-Gm-Features: Ac12FXw8XUjBVkZPAHSLVno0uMPz2dM9vKDf4fisVFB6fiah4HK821c7ZHoR6ik
+Message-ID: <CACPK8Xd2QfL460LY2T0ia7Akb79fEXKF2+=B27M8q5j7jUoouQ@mail.gmail.com>
+Subject: Re: [PATCH 8/8] selftests: riscv: Add test for hardware breakpoints
+To: Jesse Taube <jesse@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_221823_234487_2D8268CD 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250814_224230_495993_1E843654 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,53 +90,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable the PDMA on the SpacemiT K1-based Banana Pi F3 and Milkv Jupiter
-boards by setting its status to "okay".
+Hi Jesse,
 
-Signed-off-by: Guodong Xu <guodong@riscstar.com>
----
-v4: rename the node from pdma0 to pdma
-v3: adjust pdma0 position, ordering by name alphabetic
-v2: added pdma0 enablement on Milkv Jupiter
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   | 4 ++++
- arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 4 ++++
- 2 files changed, 8 insertions(+)
+We had a pretty huge cc list on the thread, I've trimmed it right
+back. Feel free to add some people back but keep it focused.
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index fe22c747c5012fe56d42ac8a7efdbbdb694f31b6..6013be25854283a95e630098c1fde55e33e08018 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -40,6 +40,10 @@ &emmc {
- 	status = "okay";
- };
- 
-+&pdma {
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_2_cfg>;
-diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-index 4483192141049caa201c093fb206b6134a064f42..c615fcadbd333adc749b758f7f814126783f87fb 100644
---- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-@@ -20,6 +20,10 @@ chosen {
- 	};
- };
- 
-+&pdma {
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_2_cfg>;
+On Wed, 6 Aug 2025 at 05:42, Jesse Taube <jesse@rivosinc.com> wrote:
+>
+> Add riscv specific selftest for hardhardware breakpoints.
 
--- 
-2.43.0
+nit: double hardware
 
+> These tests are based on:
+> tools/testing/selftests/breakpoints/breakpoint_test_arm64.c
+
+The sefltest didn't build for me. There's a few suggested fixes below.
+
+> Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+> ---
+> The selftest fails as register_user_hw_breakpoint seemingly does not
+> call arch_install_hw_breakpoint. The test also seems to fail on arm64
+> in the same way when I tested it.
+
+Is this still a problem with your patchset?
+
+Do you test in qemu? Can you share your version, command line, etc?
+
+> --- /dev/null
+> +++ b/tools/testing/selftests/riscv/breakpoints/Makefile
+> @@ -0,0 +1,12 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +# Copyright (C) 2021 ARM Limited
+> +# Originally tools/testing/arm64/abi/Makefile
+
+CFLAGS += $(KHDR_INCLUDES)
+
+This adds -isystem to include local headers for the up to date
+ptrace.h and elf.h definitions.
+
+ $ make headers
+ $ make -C tools/testing/selftests CROSS_COMPILE=riscv64-linux-gnu-
+ARCH=riscv TARGETS=riscv/breakpoints
+     make: Entering directory 'tools/testing/selftests'
+     riscv64-linux-gnu-gcc -static
+-otools/testing/selftests/riscv/breakpoints/breakpoint_test
+     -isystem usr/include -Itools/testing/selftests/../../../tools/include
+     -D_GNU_SOURCE=   breakpoint_test.c
+
+> +
+> +CFLAGS += -I$(top_srcdir)/tools/include
+> +
+> +TEST_GEN_PROGS := breakpoint_test
+> +
+> +include ../../lib.mk
+> +
+> +$(OUTPUT)/breakpoint_test: breakpoint_test.c
+> +       $(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+> diff --git a/tools/testing/selftests/riscv/breakpoints/breakpoint_test.c b/tools/testing/selftests/riscv/breakpoints/breakpoint_test.c
+> new file mode 100644
+> index 000000000000..faeecc72da12
+> --- /dev/null
+> +++ b/tools/testing/selftests/riscv/breakpoints/breakpoint_test.c
+> @@ -0,0 +1,246 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2016 Google, Inc.
+> + *
+> + * Original Code by Pavel Labath <labath@google.com>
+> + *
+> + * Code modified by Pratyush Anand <panand@redhat.com>
+> + * for testing different byte select for each access size.
+> + * Originally tools/testing/selftests/breakpoints/breakpoint_test_arm64.c
+> + */
+> +
+> +#define _GNU_SOURCE
+> +
+> +#include <asm/ptrace.h>
+> +#include <sys/types.h>
+> +#include <sys/wait.h>
+> +#include <sys/ptrace.h>
+> +#include <sys/param.h>
+> +#include <sys/uio.h>
+> +#include <stdint.h>
+> +#include <stdbool.h>
+> +#include <stddef.h>
+> +#include <string.h>
+> +#include <stdio.h>
+> +#include <unistd.h>
+> +#include <elf.h>
+
+This is the wrong elf.h, we want the one with NT_RISCV_HW_BREAK.
+
+-#include <elf.h>
++#include <linux/elf.h>
+
+
+> +#include <errno.h>
+> +#include <signal.h>
+> +
+> +#include "../../kselftest.h"
+> +
+> +#define MAX_BP_SIZE 8
+> +
 
 _______________________________________________
 linux-riscv mailing list
