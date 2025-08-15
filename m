@@ -4,90 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E756CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 17:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CEFCA0ED1
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 17:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=6hfitMd8cccN+p7TFrGeSGQe67qXl4IC5D7i0h0fLN4=; b=jG/3wdRfeKvUY3qKy8ClJaeUA2
-	BZjtfekrokgxgeMC06VPWbm975LGMgsUANs0lXZPN5uxNH/sh1SfKQrM39PR4fTjx+G6UE5Gb3n0E
-	BHY19qnZhut8oQiJJIxkO8O1Khd/qMbT7WIbMvqcTpZZ0qoQfCfvAO4Pt1Qceeigd8gYPUnEviiXU
-	9J2S20fmSC+Loqiw3/uWjRh7kmJuKoXq82b9iImVDFx/Tq9pQQzM+WCAzG7S8FSsbVfBea0bbiwYB
-	BWr4bHG/rGWDqK/bYQP8IMsxAJrCJ86aQ/9aL2huWfQpuc1E0b1yRC6K5cUTznsrgPeL+RGnD6uba
-	sreMnUzw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8oKJIrVHUhgCIjfVEZAtGk/F2bs1mGLdfHkSBwc++JA=; b=GUCKpN5OVZjTQz
+	430GN1cpF0PV+GKGasE2Ss9FTDlsNMz03YAc6zZKu+Dw4FuM1orQYKN2Qq48EGPGPQ/X0JMuCfIB+
+	bWV2oeGavswY7fNoE0dM0UKeUUq4ZW/hJJSaArE8jtp+xnOCCuwm9QGbHGTp3jy4APwIYpO5SADlM
+	NfWI41bR/iXePRAsRSrH1W1P2mb3RJNrzg+9agGvbTuCqEw8imxwpIqePgxE0daGddrFo/OcWa7iR
+	eqocLOPWfDlWfseGQZVX6gjbw+1PNILtU2UfazYC4E4UT+gfU013twARZgYI+0eBFcCA0Vi2xRzof
+	XDfWnajzvHaov0om8fwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umyIT-000000038Em-2UNd;
-	Fri, 15 Aug 2025 17:32:57 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1umyV9-00000003ADq-2uuP;
+	Fri, 15 Aug 2025 17:46:03 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umwm8-00000002tVo-0ylZ
+	id 1umx4Q-00000002wdf-3JVN
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Aug 2025 15:55:29 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-323267858edso2178142a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Aug 2025 08:55:27 -0700 (PDT)
+	Fri, 15 Aug 2025 16:14:23 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-32326e2f0b3so1657040a91.2
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Aug 2025 09:14:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755273327; x=1755878127; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=z7Sa/kyYZ4LkgwyCX9rJEJ7u8HAAn0SslzIHQ/FhmRM=;
-        b=NxJZej/HLtDeAecvavdWhH6jnbB6EeJIGW8/pUipCwZEI2kNfjpGC9WfanJxTn4C/X
-         jFGWSuGJ/sGR51//diLFvJoGDuuxCxcvUCnxh1UDvtxrVniv261AVm7rHVUI8S0LbjA7
-         0YMNS54b/+dhFRWRf0uRIOYXEZXVcAQ6ykk7SiOQPWodDgY3etveT/5tGgEwdsqOQlNd
-         mbZnfu2X+miZZq4qqF69S0mPaOeOTZy3EpgO4mU/p1C0MJix1sfL3UgqDt1jlvPcsw81
-         1ijR+bJ/JSiJJeLvf3jqBAtJq8EUPHObiPiDURNzPQqCUfcwRTjsrzE7Dj7ovjO9PCyC
-         oyfQ==
+        d=ventanamicro.com; s=google; t=1755274462; x=1755879262; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DOTbtPDm0qsjMzwi16WVYcaH7+7/qMVJUy8rQwaf7Ps=;
+        b=m/coDFHec+xFVvjMWZsEEyBa4qnvm40qKUHHT/YNYp6E80srv0Z5Tiiw5O6ZCSobT9
+         vsaO0OeqTZq32XUIQ6w8mGDXPpj8WgckEos7AIn+pmi/3h9Qq1XKohGrCRmzlj2bGPEv
+         C83nQCA5lfYIelM0BD7YyQIJSqf/MxUxG1obRDKmB6JMm6Y8m5mhDcSF7p8KTHMTdClv
+         isqo8x6EeuF8ih6BlmWn0W86VQnBm5fMSYVWCNvwIzMGTturMLYYEh1nt6gvRmLIObaF
+         8TNdqslU3RMknvz8nE5S//wd78PwREtXVXjLx+P9jzCq3QEa8ToyAdUPNMZIVNICfdVv
+         S6Lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755273327; x=1755878127;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=z7Sa/kyYZ4LkgwyCX9rJEJ7u8HAAn0SslzIHQ/FhmRM=;
-        b=n1E8EZQWhFtFq+4LSErAhcmQ9PW9DTRSiFagPHZqgzcj6YtRoS6oWvz6u/tPnQOE9X
-         ktHbv8/AIeSvlJbLHBzIePJxyC7BBxJtzOG+OwN/6IPCSfRYF/rfQejtqXs+DYHfD20Q
-         eOmt3gqnPCVtGAp7QrSlPnbtFPcvwG8Xt6GA9gOqGAHe0Ohat0NEAi8z1Kxo41zVr8Er
-         ACneaanJTo2XxnWAT84uF7jDNMIH/FOXESytt56fIJjNSvJRiUcfRaV0qsdPIBQprKPb
-         LO6g/EaO84IoGIRd22+n4XEGaisgMHMyxOlD+9g/BbcXonwOt4RnD58tGPKwQV9ElkTz
-         8u/w==
-X-Forwarded-Encrypted: i=1; AJvYcCWj0JWR5qpi8yjFZcsNismDZF333WMA6LkXK0mTEXLCXqFVDxZbbR6DsVC933/b+hFuSq4R8M2sUBKiTQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyivpBQpbF+JFYSmlFyGUw8I+2RWxLY6sy0ht+CYM4qGvg1lJmQ
-	sPSAKQxr1fjVdtUbyDMbWQe3aSq64eyfw3r9j9coTJnS1l6aqpiOdZfuBeGTo2WN49midLw2MJM
-	jfm0LjA==
-X-Google-Smtp-Source: AGHT+IEdU+o+jxQRQjpxYUV2M2swV17WB5j94o9nqbjzzuHzapwMPWAh/lqVZpiY/Ko0sm3v0aaj/KNyHyA=
-X-Received: from pjbpl10.prod.google.com ([2002:a17:90b:268a:b0:321:370d:cae5])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:ec86:b0:313:dcf4:37bc
- with SMTP id 98e67ed59e1d1-323421229eamr3334693a91.34.1755273326710; Fri, 15
- Aug 2025 08:55:26 -0700 (PDT)
-Date: Fri, 15 Aug 2025 08:55:25 -0700
-In-Reply-To: <aJ9VQH87ytkWf1dH@google.com>
-Mime-Version: 1.0
-References: <20250806195706.1650976-1-seanjc@google.com> <20250806195706.1650976-10-seanjc@google.com>
- <20250815113951.GC4067720@noisy.programming.kicks-ass.net> <aJ9VQH87ytkWf1dH@google.com>
-Message-ID: <aJ9YbZTJAg66IiVh@google.com>
-Subject: Re: [PATCH v5 09/44] perf/x86: Switch LVTPC to/from mediated PMI
- vector on guest load/put context
-From: Sean Christopherson <seanjc@google.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>, 
-	Mingwei Zhang <mizhang@google.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
-	Sandipan Das <sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>
+        d=1e100.net; s=20230601; t=1755274462; x=1755879262;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DOTbtPDm0qsjMzwi16WVYcaH7+7/qMVJUy8rQwaf7Ps=;
+        b=ZsQuhtD02P6KU0OkgrMip21EktrJsmLPNBJMjw/yofKxAMGVoZp0hHSmQW0bckRj1l
+         cBKw4bgvRC2yCeGIcuI7ccwH2b/YAK5dFIjMPtEbwHGWMdiBbvGD8G7/D2uR0y7Xg7cy
+         h1HCEChlSX2IBJRO4KeqccdrZWKLL5BZ+LDz7eij+yVvPzgXihWfYeX53YQhhGBeeWp3
+         JV6H6aIu5hxMQAawXjxNahxzfaEDu9HpBz0NMMNOoZQpucUUwOBPWgXLKcZT9viMGFLc
+         2Fcwqju+6YKUJjSkxZEDIGi8NN1PwbxWnIsUblPWc74EHfz8dz7Mf3MHBMHTpcAbjG4Q
+         feXA==
+X-Forwarded-Encrypted: i=1; AJvYcCUNDlusIgswh83L+ElojjkmfYTIjBGgC9nB39DY4TjJlpTdn0Rug8ZndZRJpjav3XKKg+lKq9CKRVvLlw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyeba5ix0F76nomIGwd46X/kREKS2VxEOCCRc6MDZONenJTsaaF
+	QsT05yMM1+EiiG4Nhn5q4BcoeqfLPEWvDmLLaEzT+CJM+zWODDFuw4h9fnPB95BxCvE=
+X-Gm-Gg: ASbGncvF4vX455vQtYbU8yb5f7p9hahRHHz0NY7xPNB8/wko2DR4SR4DKWAIvHiqB84
+	oKtHsy/IW1DRI/yozI+Yo16eYYLKbx9SAXdpkH/3Zo1nXdzBQzX4pa9ZJS7XSx7EDFJILI3aGyk
+	JbwwffzonRHv+THghd7ucFtfqsBhE4Q0wfIfaf3oqZeC/IcO5Z39EK2Zxgkw0tB1KNAiTsFlYiQ
+	knSVVHeCOgUVb1sRmQjm4G/Yg79hCo5SBgUonDc0YVT7uQOaHkuJ2Qrj3FUXjeYQjnpKjZboKxh
+	fMOBn72oLODlSDl8lEn/mmdRXKoUp/c3GI5gE1XIV436huWk+GMuhRsGRlPHUkX4idX8C5jlwZE
+	zmrwgEPMO0VtXnbm2RD/3+Z52OX4q8WP3jiawyx2Xm15ArdUss4v0biA=
+X-Google-Smtp-Source: AGHT+IHFvFTmbcxXmRN3DXHTp35ctiVVaiF6Z8YM+uVIV53DcXSsUv4K9ZPJVyFNnw7pfMwftn7IEw==
+X-Received: by 2002:a17:90b:3f08:b0:31f:22f:a23e with SMTP id 98e67ed59e1d1-32342161425mr4018316a91.27.1755274461963;
+        Fri, 15 Aug 2025 09:14:21 -0700 (PDT)
+Received: from localhost.localdomain ([122.171.17.254])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32331123409sm4645605a91.20.2025.08.15.09.14.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Aug 2025 09:14:21 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Sunil V L <sunilvl@ventanamicro.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Len Brown <lenb@kernel.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-acpi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH 1/2] ACPI: RISC-V: Fix FFH_CPPC_CSR error handling
+Date: Fri, 15 Aug 2025 21:44:05 +0530
+Message-ID: <20250815161406.76370-2-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250815161406.76370-1-apatel@ventanamicro.com>
+References: <20250815161406.76370-1-apatel@ventanamicro.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_085528_278145_029556BB 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20250815_091422_828391_CFABBE61 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,57 +111,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025, Sean Christopherson wrote:
-> On Fri, Aug 15, 2025, Peter Zijlstra wrote:
-> > > diff --git a/kernel/events/core.c b/kernel/events/core.c
-> > > index e1df3c3bfc0d..ad22b182762e 100644
-> > > --- a/kernel/events/core.c
-> > > +++ b/kernel/events/core.c
-> > > @@ -6408,6 +6408,8 @@ void perf_load_guest_context(unsigned long data)
-> > >  		task_ctx_sched_out(cpuctx->task_ctx, NULL, EVENT_GUEST);
-> > >  	}
-> > >  
-> > > +	arch_perf_load_guest_context(data);
-> > 
-> > So I still don't understand why this ever needs to reach the generic
-> > code. x86 pmu driver and x86 kvm can surely sort this out inside of x86,
-> > no?
-> 
-> It's definitely possible to handle this entirely within x86, I just don't love
-> switching the LVTPC without the protection of perf_ctx_lock and perf_ctx_disable().
-> It's not a sticking point for me if you strongly prefer something like this: 
-> 
-> diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-> index 0e5048ae86fa..86b81c217b97 100644
-> --- a/arch/x86/kvm/pmu.c
-> +++ b/arch/x86/kvm/pmu.c
-> @@ -1319,7 +1319,9 @@ void kvm_mediated_pmu_load(struct kvm_vcpu *vcpu)
->  
->         lockdep_assert_irqs_disabled();
->  
-> -       perf_load_guest_context(kvm_lapic_get_reg(vcpu->arch.apic, APIC_LVTPC));
-> +       perf_load_guest_context();
-> +
-> +       perf_load_guest_lvtpc(kvm_lapic_get_reg(vcpu->arch.apic, APIC_LVTPC));
+The cppc_ffh_csr_read() and cppc_ffh_csr_write() returns Linux error
+code in "data->ret.error" so cpc_read_ffh() and cpc_write_ffh() must
+not use sbi_err_map_linux_errno() for FFH_CPPC_CSR.
 
-Hmm, an argument for providing a dedicated perf_load_guest_lvtpc() APIs is that
-it would allow KVM to handle LVTPC writes in KVM's VM-Exit fastpath, i.e. without
-having to do a full put+reload of the guest context.
+Fixes: 30f3ffbee86b ("ACPI: RISC-V: Add CPPC driver")
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ drivers/acpi/riscv/cppc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-So if we're confident that switching the host LVTPC outside of
-perf_{load,put}_guest_context() is functionally safe, I'm a-ok with it.
+diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
+index 440cf9fb91aa..42c1a9052470 100644
+--- a/drivers/acpi/riscv/cppc.c
++++ b/drivers/acpi/riscv/cppc.c
+@@ -119,7 +119,7 @@ int cpc_read_ffh(int cpu, struct cpc_reg *reg, u64 *val)
+ 
+ 		*val = data.ret.value;
+ 
+-		return (data.ret.error) ? sbi_err_map_linux_errno(data.ret.error) : 0;
++		return data.ret.error;
+ 	}
+ 
+ 	return -EINVAL;
+@@ -148,7 +148,7 @@ int cpc_write_ffh(int cpu, struct cpc_reg *reg, u64 val)
+ 
+ 		smp_call_function_single(cpu, cppc_ffh_csr_write, &data, 1);
+ 
+-		return (data.ret.error) ? sbi_err_map_linux_errno(data.ret.error) : 0;
++		return data.ret.error;
+ 	}
+ 
+ 	return -EINVAL;
+-- 
+2.43.0
 
->         /*
->          * Disable all counters before loading event selectors and PMCs so that
-> @@ -1380,5 +1382,7 @@ void kvm_mediated_pmu_put(struct kvm_vcpu *vcpu)
->  
->         kvm_pmu_put_guest_pmcs(vcpu);
->  
-> +       perf_put_guest_lvtpc();
-> +
->         perf_put_guest_context();
->  }
-> 
 
 _______________________________________________
 linux-riscv mailing list
