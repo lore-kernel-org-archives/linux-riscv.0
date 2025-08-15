@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3C5CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 17:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E756CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 17:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,60 +13,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=lfKkwmwPw7MgbaxzoQKVC6GjjtfGFcob47yr6SRbQu8=; b=aaHR//8Md5KDFn3j0jRMeytI4F
-	kWVfXme8XvoCRAS63xtEnVfLBp+LWFA4sMqn0iicJxeFmlLL6sYe8xgebcDRQZK0OeavAZTr469M3
-	UqNjRGmiWGXfTiJ4F+zTT/xY0dV3jmBZ4bX7irMgRa3sW0e49XpBHvuvjRWV21E4DXWMcFrE1izN5
-	a2Yzn2hAMR95UqatFOpNVKcYybnNBT3vJLq5XdnMZEposBeEdljkWpfHfym3RDIOTV4JE/ZDf60Mx
-	0r5DW/o2nQHPnQ4Qg+vDa1nA8WPOYkjl4ly5ozRQ8NEGS9gT8K6PM0NZtd1fcXyNCXY5h494pohqz
-	cUlPKGTA==;
+	bh=6hfitMd8cccN+p7TFrGeSGQe67qXl4IC5D7i0h0fLN4=; b=jG/3wdRfeKvUY3qKy8ClJaeUA2
+	BZjtfekrokgxgeMC06VPWbm975LGMgsUANs0lXZPN5uxNH/sh1SfKQrM39PR4fTjx+G6UE5Gb3n0E
+	BHY19qnZhut8oQiJJIxkO8O1Khd/qMbT7WIbMvqcTpZZ0qoQfCfvAO4Pt1Qceeigd8gYPUnEviiXU
+	9J2S20fmSC+Loqiw3/uWjRh7kmJuKoXq82b9iImVDFx/Tq9pQQzM+WCAzG7S8FSsbVfBea0bbiwYB
+	BWr4bHG/rGWDqK/bYQP8IMsxAJrCJ86aQ/9aL2huWfQpuc1E0b1yRC6K5cUTznsrgPeL+RGnD6uba
+	sreMnUzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umyAu-000000036uy-0JWh;
-	Fri, 15 Aug 2025 17:25:08 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1umyIT-000000038Em-2UNd;
+	Fri, 15 Aug 2025 17:32:57 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umwiR-00000002t3g-0hKC
+	id 1umwm8-00000002tVo-0ylZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Aug 2025 15:51:40 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b47156acca5so1613475a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Aug 2025 08:51:38 -0700 (PDT)
+	Fri, 15 Aug 2025 15:55:29 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-323267858edso2178142a91.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Aug 2025 08:55:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755273098; x=1755877898; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1755273327; x=1755878127; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yLuuQdqXBRGyu60+ieS//bbxP+3AVwFN22YqAdloirM=;
-        b=F4mzm3Lxw/Tj8v2La2Id+HmSTCUEITsVpZi32bBnyjpIBebdPlU4fT8Ei1WvnQMSs/
-         wmXg2SxAFecEnUZ7KM8IXVTMbq2GJzg7285Mb4HOEr4n7sI79RWP5lDvf/PYweY+jg8f
-         Cuc2uaIqyMfettuUw5WngL23J98ptqJE3SpyUIc/Bq0iBw4RXLqXqOpQ7McpdD2Di6KS
-         CJZXzbTNgp2BKpDDsIFygBjNp1Li7c67Z1482vnyoYPdrh5nRZXa6lJOmmqqxAIWtuAz
-         YDYQfNOqsiEqf4/pSMNnhBkz7EofKh7t9T5Oli6aMbuabLVENjxDJcesVfut1GP9e4LZ
-         lMfQ==
+        bh=z7Sa/kyYZ4LkgwyCX9rJEJ7u8HAAn0SslzIHQ/FhmRM=;
+        b=NxJZej/HLtDeAecvavdWhH6jnbB6EeJIGW8/pUipCwZEI2kNfjpGC9WfanJxTn4C/X
+         jFGWSuGJ/sGR51//diLFvJoGDuuxCxcvUCnxh1UDvtxrVniv261AVm7rHVUI8S0LbjA7
+         0YMNS54b/+dhFRWRf0uRIOYXEZXVcAQ6ykk7SiOQPWodDgY3etveT/5tGgEwdsqOQlNd
+         mbZnfu2X+miZZq4qqF69S0mPaOeOTZy3EpgO4mU/p1C0MJix1sfL3UgqDt1jlvPcsw81
+         1ijR+bJ/JSiJJeLvf3jqBAtJq8EUPHObiPiDURNzPQqCUfcwRTjsrzE7Dj7ovjO9PCyC
+         oyfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755273098; x=1755877898;
+        d=1e100.net; s=20230601; t=1755273327; x=1755878127;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yLuuQdqXBRGyu60+ieS//bbxP+3AVwFN22YqAdloirM=;
-        b=dz666FLL7vuxmF7SkXXLkeo4rMv7bZgZlgozoJHU9yqbgFNpio6YTD/TfUBCAmAZim
-         pLi2Xbc8M+aNdA8xwq6hz0xtj5Ct+KrYmsWnIFvM0dD8d5lcGphkTXAtwFM1VwZLoiwf
-         34QQk2cQGj9Ldw7YVjoVHH+w78kSYpuQ4VcgvdgLPHrh69q8LzRigiWgDOEbJxCMoPvH
-         jib2/E37LJqPaq4zaUyxhAAn0uej8EZWzxGwemfs+q3DTOuIX3EMF8SWOFIev8CPouyo
-         eHA8ET7rH+SX9wgVxk2GpKU+UFPkGt08ubU0Vk/N+hVB03mT0mBmK/Pxaii4bXlZMTCi
-         CtjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUzw4WWdoYo6Yza/sBL+k3blycHxtDjPNi5YzIw+3ePsqNCad+BMHCWQ4mKAhJEMP5KGP2APAaqcaa/iA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwakU+GkF7y2TUefxCOW7uX4W6MKwyJDmlEjwFpCbzX04Ikci/x
-	bxJnnWv7J8iRe8CqrzSNmK9PlkevxMVyXVhZSyWAcDwNZ8zaDoj41QdpmXSVbmLFQO+Ah6Qq56P
-	LrJOkXg==
-X-Google-Smtp-Source: AGHT+IEixUUF/+ontXG1UvvxuaP113HP3iSlTpnTS0Og0gwZnRo8djp+nSrKI0cvN3mMbDgB4JtBQNij17k=
-X-Received: from pjee7.prod.google.com ([2002:a17:90b:5787:b0:321:c2d6:d1c3])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:cec3:b0:244:5aa5:a8b
- with SMTP id d9443c01a7336-2445aa50e20mr99042625ad.27.1755273098085; Fri, 15
- Aug 2025 08:51:38 -0700 (PDT)
-Date: Fri, 15 Aug 2025 08:51:36 -0700
-In-Reply-To: <20250815130436.GA3289052@noisy.programming.kicks-ass.net>
+        bh=z7Sa/kyYZ4LkgwyCX9rJEJ7u8HAAn0SslzIHQ/FhmRM=;
+        b=n1E8EZQWhFtFq+4LSErAhcmQ9PW9DTRSiFagPHZqgzcj6YtRoS6oWvz6u/tPnQOE9X
+         ktHbv8/AIeSvlJbLHBzIePJxyC7BBxJtzOG+OwN/6IPCSfRYF/rfQejtqXs+DYHfD20Q
+         eOmt3gqnPCVtGAp7QrSlPnbtFPcvwG8Xt6GA9gOqGAHe0Ohat0NEAi8z1Kxo41zVr8Er
+         ACneaanJTo2XxnWAT84uF7jDNMIH/FOXESytt56fIJjNSvJRiUcfRaV0qsdPIBQprKPb
+         LO6g/EaO84IoGIRd22+n4XEGaisgMHMyxOlD+9g/BbcXonwOt4RnD58tGPKwQV9ElkTz
+         8u/w==
+X-Forwarded-Encrypted: i=1; AJvYcCWj0JWR5qpi8yjFZcsNismDZF333WMA6LkXK0mTEXLCXqFVDxZbbR6DsVC933/b+hFuSq4R8M2sUBKiTQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyivpBQpbF+JFYSmlFyGUw8I+2RWxLY6sy0ht+CYM4qGvg1lJmQ
+	sPSAKQxr1fjVdtUbyDMbWQe3aSq64eyfw3r9j9coTJnS1l6aqpiOdZfuBeGTo2WN49midLw2MJM
+	jfm0LjA==
+X-Google-Smtp-Source: AGHT+IEdU+o+jxQRQjpxYUV2M2swV17WB5j94o9nqbjzzuHzapwMPWAh/lqVZpiY/Ko0sm3v0aaj/KNyHyA=
+X-Received: from pjbpl10.prod.google.com ([2002:a17:90b:268a:b0:321:370d:cae5])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:ec86:b0:313:dcf4:37bc
+ with SMTP id 98e67ed59e1d1-323421229eamr3334693a91.34.1755273326710; Fri, 15
+ Aug 2025 08:55:26 -0700 (PDT)
+Date: Fri, 15 Aug 2025 08:55:25 -0700
+In-Reply-To: <aJ9VQH87ytkWf1dH@google.com>
 Mime-Version: 1.0
 References: <20250806195706.1650976-1-seanjc@google.com> <20250806195706.1650976-10-seanjc@google.com>
- <20250815130436.GA3289052@noisy.programming.kicks-ass.net>
-Message-ID: <aJ9XiAa58oMs55Ky@google.com>
+ <20250815113951.GC4067720@noisy.programming.kicks-ass.net> <aJ9VQH87ytkWf1dH@google.com>
+Message-ID: <aJ9YbZTJAg66IiVh@google.com>
 Subject: Re: [PATCH v5 09/44] perf/x86: Switch LVTPC to/from mediated PMI
  vector on guest load/put context
 From: Sean Christopherson <seanjc@google.com>
@@ -86,8 +86,8 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
 	Mingwei Zhang <mizhang@google.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
 	Sandipan Das <sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_085139_209759_6B25F7EE 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20250815_085528_278145_029556BB 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,26 +104,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025, Peter Zijlstra wrote:
-> On Wed, Aug 06, 2025 at 12:56:31PM -0700, Sean Christopherson wrote:
+On Fri, Aug 15, 2025, Sean Christopherson wrote:
+> On Fri, Aug 15, 2025, Peter Zijlstra wrote:
+> > > diff --git a/kernel/events/core.c b/kernel/events/core.c
+> > > index e1df3c3bfc0d..ad22b182762e 100644
+> > > --- a/kernel/events/core.c
+> > > +++ b/kernel/events/core.c
+> > > @@ -6408,6 +6408,8 @@ void perf_load_guest_context(unsigned long data)
+> > >  		task_ctx_sched_out(cpuctx->task_ctx, NULL, EVENT_GUEST);
+> > >  	}
+> > >  
+> > > +	arch_perf_load_guest_context(data);
+> > 
+> > So I still don't understand why this ever needs to reach the generic
+> > code. x86 pmu driver and x86 kvm can surely sort this out inside of x86,
+> > no?
 > 
-> > @@ -2727,6 +2739,21 @@ static struct pmu pmu = {
-> >  	.filter			= x86_pmu_filter,
-> >  };
-> >  
-> > +void arch_perf_load_guest_context(unsigned long data)
-> > +{
-> > +	u32 masked = data & APIC_LVT_MASKED;
-> > +
-> > +	apic_write(APIC_LVTPC,
-> > +		   APIC_DM_FIXED | PERF_GUEST_MEDIATED_PMI_VECTOR | masked);
-> > +	this_cpu_write(x86_guest_ctx_loaded, true);
-> > +}
+> It's definitely possible to handle this entirely within x86, I just don't love
+> switching the LVTPC without the protection of perf_ctx_lock and perf_ctx_disable().
+> It's not a sticking point for me if you strongly prefer something like this: 
 > 
-> I'm further confused, why would this ever be masked?
+> diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+> index 0e5048ae86fa..86b81c217b97 100644
+> --- a/arch/x86/kvm/pmu.c
+> +++ b/arch/x86/kvm/pmu.c
+> @@ -1319,7 +1319,9 @@ void kvm_mediated_pmu_load(struct kvm_vcpu *vcpu)
+>  
+>         lockdep_assert_irqs_disabled();
+>  
+> -       perf_load_guest_context(kvm_lapic_get_reg(vcpu->arch.apic, APIC_LVTPC));
+> +       perf_load_guest_context();
+> +
+> +       perf_load_guest_lvtpc(kvm_lapic_get_reg(vcpu->arch.apic, APIC_LVTPC));
 
-The idea is to match the guest's LVTPC state so that KVM doesn't trigger IRQ
-VM-Exits on counter overflow when the guest's LVTPC is masked.
+Hmm, an argument for providing a dedicated perf_load_guest_lvtpc() APIs is that
+it would allow KVM to handle LVTPC writes in KVM's VM-Exit fastpath, i.e. without
+having to do a full put+reload of the guest context.
+
+So if we're confident that switching the host LVTPC outside of
+perf_{load,put}_guest_context() is functionally safe, I'm a-ok with it.
+
+>         /*
+>          * Disable all counters before loading event selectors and PMCs so that
+> @@ -1380,5 +1382,7 @@ void kvm_mediated_pmu_put(struct kvm_vcpu *vcpu)
+>  
+>         kvm_pmu_put_guest_pmcs(vcpu);
+>  
+> +       perf_put_guest_lvtpc();
+> +
+>         perf_put_guest_context();
+>  }
+> 
 
 _______________________________________________
 linux-riscv mailing list
