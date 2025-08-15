@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C1BACA0EE9
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 01:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6965FCA0EE4
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 01:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bV/RAec1NegDAlAqb6E6LP53cqDdRgLif/mhGZ0O7dQ=; b=Xj1yOidQa41lp6
-	Q6iBrrY98VQ79wPUj0VcmONAxVxwaqOW2nkFFLp/z4yKTUYiG/HLM/ynBMvBTqag3lfPEsR596T1z
-	dOHH1NI3S87zF7BnW8RaI+I7f+zca4pZPzOjXstcsRgfoLnBzC5lztDAm/T4lpUkHmCzQ8UmXDmHO
-	2P/xY+IRwAxvcXK3UND8O/pWM6NtGtKB/5kqy6IaMiPwJGzAEWxyerUqq/KrzieKJvgBpAedvYdg6
-	LwIVFiTTiDdta0RAHExZ9OcpNN7RBfbAokxoVemqaslVmy27UhgDtYN3ZUAUizfv5icOOv6yftq+g
-	PDkylhpu2COfar5UkpXg==;
+	List-Owner; bh=Vvn1IpAI0fjk50Ps3j3Gf0q2gGUCmGQVgAqlbPQPhkM=; b=39yHHtJlxpPxYK
+	sUnhNo/P9pfO1RjvWw9PQSJkosNOtA6ADq4FEb+FxJZz+LATmnNb/SktXpbhuQAyA2pTqzhKa+JX1
+	tDOnC86ygzuxsCM+FhYoctQNdtBy+GUnirXbsir3ODlHCYu4xBupfLAnsh8l+5R8zs9scKrVVnZOW
+	pc3ziBgYrjetezLzcCLaxqBuWBN8p6vPptARd8Vm4skyU6vhyQhA84TeJtdgv+u8Fml4ElqndO15I
+	45Osk6og1bmdBdWUGT4mHNukcfqYTKDaRkCmgvFlHI1Dw+UHiWMPY84JTHBUN0kCB3fEHB6doRDhA
+	uk93xjjxRbMkrQsL3NcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umius-000000010Jo-0yuZ;
-	Fri, 15 Aug 2025 01:07:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1umiur-000000010JL-28om;
+	Fri, 15 Aug 2025 01:07:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umiR6-00000000vOO-0gZm
+	id 1umiMr-00000000uWP-3rL4
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Aug 2025 00:36:49 +0000
+	Fri, 15 Aug 2025 00:32:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AC2775C585C;
-	Fri, 15 Aug 2025 00:36:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36B81C4CEED;
-	Fri, 15 Aug 2025 00:36:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4DD775C71CE;
+	Fri, 15 Aug 2025 00:32:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA15EC4CEED;
+	Fri, 15 Aug 2025 00:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755218206;
-	bh=tStMn6cXffkABhKDGFsldNpRJKwVGbfiZhtguFPxof8=;
+	s=k20201202; t=1755217944;
+	bh=137LREHYlf3O0nOm9QpaXT3ohL/dKVWc4fbvyJZAR2Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mFcLuPKYFk93wVJI5GEXM8c8m2Ugh5j3GZ1C9JAfKbdLRjVlDYAZpTFlSRNU4LiGO
-	 er6ll6LEi37Xx/PRqbbZbe28rf/YNZM+/6+s9NIf5at3NktUreq4KwXa/0n2yWOCAD
-	 Ai4BAf9kDu/HlLmZRZZVpzSJSVqVi3lLKEUsUf9pGS+4NcLTGIuR/wqtKOGJseXTA/
-	 qGFTfBxKbZQmDhek4MgeGn20eLb4UPoN8ebpjjjf/ixBYiU1MqTUHd25Ys08DJe6lT
-	 nfCt4JrVSME16FsY7d/v0O9i4WS7iAagsVSNg+GZyZ6XP+DnR4q60ef3tp6Q8lDU07
-	 OukDmSN1nJ3sg==
-Date: Thu, 14 Aug 2025 17:36:44 -0700
+	b=a8zbGxbIa1IvVDqW2E6Y08jD3EhIjoEBs0kLOAGBQ5AJpdUDpaxkM6AEgMCp/I+Rf
+	 pEu+stkbCruZaRbD17WbvwEU0o6QhiqF1ulkBpFCULNoN+IV0JxslqN6vwxke2wUFr
+	 DLs+vdzvTX1clE7UKCHHow8ajxCA78I1gCpHyDYwZmFs03f7m/M0hGNF0/D+beByiz
+	 z8u8dsoqiJ8u7eXTxPrbUjy86s/O58Atwp0NmYwfrwhN92pOGUMF2Tn5nHvFqKgFZf
+	 zIE+NetzGOfBPVNCv6onQFw9vgyOn9Pb1S+wgVclhGBDg9A0RXfhjYx6tdm25/3bNY
+	 JI0SiQ38DytNQ==
+Date: Thu, 14 Aug 2025 17:32:22 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: Icenowy Zheng <uwu@icenowy.me>
 Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
@@ -52,17 +52,16 @@ Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
 	Yao Zi <ziyao@disroot.org>, Han Gao <rabenda.cn@gmail.com>,
 	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] clk: thead: th1520-ap: set all AXI clocks to
- CLK_IS_CRITICAL
-Message-ID: <aJ6BHNcf2e9x8QmF@x1>
+Subject: Re: [PATCH v2 2/3] clk: thead: support changing DPU pixel clock rate
+Message-ID: <aJ6AFttcM+jUHHQy@x1>
 References: <20250813072702.2176993-1-uwu@icenowy.me>
- <20250813072702.2176993-4-uwu@icenowy.me>
+ <20250813072702.2176993-3-uwu@icenowy.me>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250813072702.2176993-4-uwu@icenowy.me>
+In-Reply-To: <20250813072702.2176993-3-uwu@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_173648_242140_34218B6E 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250814_173226_040881_686892C2 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +78,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 03:27:02PM +0800, Icenowy Zheng wrote:
-> The AXI crossbar of TH1520 has no proper timeout handling, which means
-> gating AXI clocks can easily lead to bus timeout and thus system hang.
+On Wed, Aug 13, 2025 at 03:27:01PM +0800, Icenowy Zheng wrote:
+> The DPU pixel clock rate corresponds to the required dot clock of the
+> display mode, so it needs to be tweakable.
 > 
-> Set all AXI clock gates to CLK_IS_CRITICAL. All these clock gates are
-> ungated by default on system reset.
-> 
-> In addition, convert all current CLK_IGNORE_UNUSED usage to
-> CLK_IS_CRITICAL to prevent unwanted clock gating.
+> Add support to change it, by adding generic divider setting code,
+> arming the code to the dpu0/dpu1 clocks, and setting the pixel clock
+> connected to the DPU (after a gate) to CLK_SET_RATE_PARENT to propagate
+> it to the dividers.
 > 
 > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 > ---
-> No changes in v2 except for rebasing error fixes (which I sent as FIXED
-> patches in v1).
+> Changes in v2:
+> - Dropped round_rate() because of deprecation.
+> - Changed the logic of determine_rate() to early return if the divider
+>   could be changed.
 > 
->  drivers/clk/thead/clk-th1520-ap.c | 44 +++++++++++++++----------------
->  1 file changed, 22 insertions(+), 22 deletions(-)
+>  drivers/clk/thead/clk-th1520-ap.c | 64 ++++++++++++++++++++++++++++---
+>  1 file changed, 59 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+> index 0b5458af8c550..b220a8ed22607 100644
+> --- a/drivers/clk/thead/clk-th1520-ap.c
+> +++ b/drivers/clk/thead/clk-th1520-ap.c
+> @@ -55,6 +55,7 @@ struct ccu_gate {
+>  
+>  struct ccu_div {
+>  	u32			enable;
+> +	u32			div_en;
+>  	struct ccu_div_internal	div;
+>  	struct ccu_internal	mux;
+>  	struct ccu_common	common;
+> @@ -198,6 +199,56 @@ static unsigned long ccu_div_recalc_rate(struct clk_hw *hw,
+>  	return rate;
+>  }
+>  
+> +static int ccu_div_determine_rate(struct clk_hw *hw,
+> +				  struct clk_rate_request *req)
+> +{
+> +	struct ccu_div *cd = hw_to_ccu_div(hw);
+> +	unsigned int val;
+> +
+> +	if (cd->div_en)
+> +		return divider_determine_rate(hw, req, NULL,
+> +					      cd->div.width, cd->div.flags);
+> +
+> +	regmap_read(cd->common.map, cd->common.cfg0, &val);
+> +	val = val >> cd->div.shift;
+> +	val &= GENMASK(cd->div.width - 1, 0);
+> +	return divider_ro_determine_rate(hw, req, NULL, cd->div.width,
+> +					 cd->div.flags, val);
+> +}
+> +
+> +static int ccu_div_set_rate(struct clk_hw *hw, unsigned long rate,
+> +				      unsigned long parent_rate)
+
+This should line up with open parenthesis. Other than that nit:
 
 Reviewed-by: Drew Fustini <fustini@kernel.org>
+
+If no other issues arise on this series, then I can just fix it up when
+applying.
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
