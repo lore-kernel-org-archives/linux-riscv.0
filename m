@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E80CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 12:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D76CACA0ED1
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 12:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gn2oa10GQatBq0JAj2W82C8hl4/Myonh7qqXS08lG2Y=; b=kmBDMufg9Omuoz
-	mBfe4IfvocF2iWcWzee+9fJJCF15ibPcAIGHTsBSn6VcaNJLF9viN9QG63Vpp7oascQMnuYudjXbF
-	QZdkv/xudTtaJkb64vhsYazFYclWpWDbgiRQH/nM58cLLxPbHmp9Dc4bRwH5QfR1CWPdKFfK2ANlp
-	cyGBysM+SB5RpHNu20n6pE0qR+PHZYtk0WZwWMKXxhUPg0kDj7j/uzcaVhoeTZPun5MHNadBMWO5P
-	+zqSci5sr4306Wz/iPx4gTQ1ZiOXNIJ/yIzeYMDkbolbLmXnvaI88c/TstDONnmRWygo6Wp1vl6rc
-	b/h70PYuTKQ7PNXEg2AQ==;
+	List-Owner; bh=KlbP71mGjXT9hXkjdEr27IsWCTlcasyJTLgVhdqVZxw=; b=x6QaKDiM7HiGK7
+	3HoFWkPADGNqQGCi7YteYeJop22Ck86WOPWqerxvRq8swb7ZcKyLXmlLZsFXUDT5O/hRkk1fzA4tJ
+	nvK/sU2N/ey8+ZGlIN32Sxxwtd2OUa78lSQxkfdF1X+gz+glHXo0r94FM/u8k1wa2GiirQ/cPgdg8
+	pY6GzHA0+lmcsB2ZRzk0ROhPH3qG/jUVDTbBCkR7AGUMK1+wPSwyH5y9AwElauFn79Y+qT8QOYs94
+	TO4dwEaWT15AZGCcVlt3t+B9xwUjyUHkODpddiDueM1xxs5bPDBHxZUdrUa01Dina6M/Uoargq6fo
+	ttF9tWeABCANPPmHzTZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umtAB-00000002PJR-0kxo;
-	Fri, 15 Aug 2025 12:04:03 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1umtCl-00000002PaN-3vof;
+	Fri, 15 Aug 2025 12:06:43 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umqOF-00000001zF0-0VvN
+	id 1umqQ6-00000001zbv-3ngx
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Aug 2025 09:06:24 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1umqNo-0004om-NM; Fri, 15 Aug 2025 11:05:56 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1umqNl-000OPZ-0f;
-	Fri, 15 Aug 2025 11:05:53 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1umqNl-0007Uv-0K;
-	Fri, 15 Aug 2025 11:05:53 +0200
-Message-ID: <bf7bef07a36508356fe2ba4e846e5b4dc1dcd676.camel@pengutronix.de>
-Subject: Re: [RFC PATCH 3/8] drm: verisilicon: add a driver for Verisilicon
- display controllers
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Icenowy Zheng <uwu@icenowy.me>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Drew
- Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
- <wefu@redhat.com>, Heiko Stuebner <heiko@sntech.de>,  Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Michal Wilczynski
- <m.wilczynski@samsung.com>
-Cc: Han Gao <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Date: Fri, 15 Aug 2025 11:05:53 +0200
-In-Reply-To: <20250814164048.2336043-4-uwu@icenowy.me>
-References: <20250814164048.2336043-1-uwu@icenowy.me>
-	 <20250814164048.2336043-4-uwu@icenowy.me>
-User-Agent: Evolution 3.46.4-2 
+	Fri, 15 Aug 2025 09:08:21 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.216])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4c3GVF26ztzKHMnj
+	for <linux-riscv@lists.infradead.org>; Fri, 15 Aug 2025 17:08:05 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 988A11A1B04
+	for <linux-riscv@lists.infradead.org>; Fri, 15 Aug 2025 17:08:04 +0800 (CST)
+Received: from [10.67.109.184] (unknown [10.67.109.184])
+	by APP4 (Coremail) with SMTP id gCh0CgCHUBHz+J5ogLYDDw--.38943S2;
+	Fri, 15 Aug 2025 17:08:04 +0800 (CST)
+Message-ID: <381def4c-ebe1-4dc1-a301-72cdc7f9176a@huaweicloud.com>
+Date: Fri, 15 Aug 2025 17:08:03 +0800
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next 00/10] Add support arena atomics for RV64
+Content-Language: en-US
+To: Daniel Borkmann <daniel@iogearbox.net>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Puranjay Mohan <puranjay@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Pu Lehui <pulehui@huawei.com>
+References: <20250719091730.2660197-1-pulehui@huaweicloud.com>
+ <87v7n21deu.fsf@all.your.base.are.belong.to.us>
+ <00538107-08e3-4ba3-a11a-19fa9fd0a496@huaweicloud.com>
+ <8ef2259d-eb58-4c66-a27a-3ee0b85aa639@iogearbox.net>
+From: Pu Lehui <pulehui@huaweicloud.com>
+In-Reply-To: <8ef2259d-eb58-4c66-a27a-3ee0b85aa639@iogearbox.net>
+X-CM-TRANSID: gCh0CgCHUBHz+J5ogLYDDw--.38943S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ur1xGF1xKw17tw17Cr1rJFb_yoW5JFWfpw
+	s5CasIyrWrCr1fAwnrtr18JryfKr48Jw15Xr1UJFy8Arsrtr4jgF4xX3Wj9r1DJrWrXr15
+	Cr1YyrnxZw15ZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
+	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
+	s2-5UUUUU==
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_020623_168222_F53610E4 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20250815_020819_303747_6C15C8E3 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,138 +93,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2025-08-15 at 00:40 +0800, Icenowy Zheng wrote:
-> This is a from-scratch driver targeting Verisilicon DC-series display
-> controllers, which feature self-identification functionality like their
-> GC-series GPUs.
-> 
-> Only DC8200 is being supported now, and only the main framebuffer is set
-> up (as the DRM primary plane). Support for more DC models and more
-> features is my further targets.
-> 
-> As the display controller is delivered to SoC vendors as a whole part,
-> this driver does not use component framework and extra bridges inside a
-> SoC is expected to be implemented as dedicated bridges (this driver
-> properly supports bridge chaining).
-> 
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-> ---
->  drivers/gpu/drm/Kconfig                       |   2 +
->  drivers/gpu/drm/Makefile                      |   1 +
->  drivers/gpu/drm/verisilicon/Kconfig           |  15 +
->  drivers/gpu/drm/verisilicon/Makefile          |   5 +
->  drivers/gpu/drm/verisilicon/vs_bridge.c       | 330 ++++++++++++++++++
->  drivers/gpu/drm/verisilicon/vs_bridge.h       |  40 +++
->  drivers/gpu/drm/verisilicon/vs_bridge_regs.h  |  47 +++
->  drivers/gpu/drm/verisilicon/vs_crtc.c         | 217 ++++++++++++
->  drivers/gpu/drm/verisilicon/vs_crtc.h         |  29 ++
->  drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |  60 ++++
->  drivers/gpu/drm/verisilicon/vs_dc.c           | 233 +++++++++++++
->  drivers/gpu/drm/verisilicon/vs_dc.h           |  39 +++
->  drivers/gpu/drm/verisilicon/vs_dc_top_regs.h  |  27 ++
->  drivers/gpu/drm/verisilicon/vs_drm.c          | 177 ++++++++++
->  drivers/gpu/drm/verisilicon/vs_drm.h          |  29 ++
->  drivers/gpu/drm/verisilicon/vs_hwdb.c         | 150 ++++++++
->  drivers/gpu/drm/verisilicon/vs_hwdb.h         |  29 ++
->  drivers/gpu/drm/verisilicon/vs_plane.c        | 102 ++++++
->  drivers/gpu/drm/verisilicon/vs_plane.h        |  68 ++++
->  .../gpu/drm/verisilicon/vs_primary_plane.c    | 166 +++++++++
->  .../drm/verisilicon/vs_primary_plane_regs.h   |  53 +++
->  21 files changed, 1819 insertions(+)
->  create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
->  create mode 100644 drivers/gpu/drm/verisilicon/Makefile
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge_regs.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc_regs.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_top_regs.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-> 
-[...]
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c b/drivers/gpu/drm/verisilicon/vs_dc.c
-> new file mode 100644
-> index 0000000000000..98384559568c4
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
-> @@ -0,0 +1,233 @@
-[...]
-> +static int vs_dc_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct vs_dc *dc;
-> +	void __iomem *regs;
-> +	unsigned int outputs, i;
-> +	/* pix0/pix1 */
-> +	char pixclk_name[5];
-> +	int irq, ret;
-> +
-> +	if (!dev->of_node) {
-> +		dev_err(dev, "can't find DC devices\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	outputs = of_graph_get_port_count(dev->of_node);
-> +	if (!outputs) {
-> +		dev_err(dev, "can't find DC downstream ports\n");
-> +		return -ENODEV;
-> +	}
-> +	if (outputs > VSDC_MAX_OUTPUTS) {
-> +		dev_err(dev, "too many DC downstream ports than possible\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
-> +	if (ret) {
-> +		dev_err(dev, "No suitable DMA available\n");
-> +		return ret;
-> +	}
-> +
-> +	dc = devm_kzalloc(dev, sizeof(*dc), GFP_KERNEL);
-> +	if (!dc)
-> +		return -ENOMEM;
-> +
-> +	dc->outputs = outputs;
-> +
-> +	dc->rsts[0].id = "core";
-> +	dc->rsts[1].id = "axi";
-> +	dc->rsts[0].id = "ahb";
-
-I assume this should be:
-
-	dc->rsts[2].id = "ahb";
-
-> +
-> +	ret = devm_reset_control_bulk_get_optional_shared(dev, VSDC_RESET_COUNT,
-> +							  dc->rsts);
-> +	if (ret) {
-> +		dev_err(dev, "can't get reset lines\n");
-
-Consider using dev_err_probe().
-
-> +		return ret;
-> +	}
-[...]
-
-regards
-Philipp
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDI1LzgvMTUgMTY6NTUsIERhbmllbCBCb3JrbWFubiB3cm90ZToKPiBPbiA4LzUvMjUg
+ODo1MiBBTSwgUHUgTGVodWkgd3JvdGU6Cj4+IE9uIDIwMjUvOC81IDE0OjM4LCBCasO2cm4gVMO2
+cGVsIHdyb3RlOgo+Pj4gUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6
+Cj4+Pgo+Pj4+IEZyb206IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4+Pj4KPj4+PiBw
+YXRjaCAxLTMgcmVmYWN0b3IgcmVkdW5kYW50IGxvYWQgYW5kIHN0b3JlIG9wZXJhdGlvbnMuCj4+
+Pj4gcGF0Y2ggNC03IGFkZCBaYWNhcyBpbnN0cnVjdGlvbnMgZm9yIGNtcHhjaGcuCj4+Pj4gcGF0
+Y2ggOCBvcHRpbWl6ZXMgZXhjZXB0aW9uIHRhYmxlIGhhbmRsaW5nLgo+Pj4+IHBhdGNoIDktMTAg
+YWRkIHN1cHBvcnQgYXJlbmEgYXRvbWljcyBmb3IgUlY2NC4KPj4+Pgo+Pj4+IFRlc3RzIGB0ZXN0
+X3Byb2dzIC10IGF0b21pYyxhcmVuYWAgaGF2ZSBwYXNzZWQgYXMgc2hvd24gYmVsbG93LAo+Pj4+
+IGFzIHdlbGwgYXMgYHRlc3RfdmVyaWZpZXJgIGFuZCBgdGVzdF9icGYua29gIGhhdmUgcGFzc2Vk
+Lgo+Pj4KPj4+IFsuLi5dCj4+Pgo+Pj4+IFB1IExlaHVpICgxMCk6Cj4+Pj4gwqDCoCByaXNjdiwg
+YnBmOiBFeHRyYWN0IGVtaXRfc3R4KCkgaGVscGVyCj4+Pj4gwqDCoCByaXNjdiwgYnBmOiBFeHRy
+YWN0IGVtaXRfc3QoKSBoZWxwZXIKPj4+PiDCoMKgIHJpc2N2LCBicGY6IEV4dHJhY3QgZW1pdF9s
+ZHgoKSBoZWxwZXIKPj4+PiDCoMKgIHJpc2N2OiBTZXBhcmF0ZSB0b29sY2hhaW4gc3VwcG9ydCBk
+ZXBlbmRlbmN5IGZyb20gUklTQ1ZfSVNBX1pBQ0FTCj4+Pj4gwqDCoCByaXNjdiwgYnBmOiBBZGQg
+cnZfZXh0X2VuYWJsZWQgbWFjcm8gZm9yIHJ1bnRpbWUgZGV0ZWN0aW9uIAo+Pj4+IGV4dGVudHNp
+b24KPj4+PiDCoMKgIHJpc2N2LCBicGY6IEFkZCBaYWNhcyBpbnN0cnVjdGlvbnMKPj4+PiDCoMKg
+IHJpc2N2LCBicGY6IE9wdGltaXplIGNtcHhjaGcgaW5zbiB3aXRoIFphY2FzIHN1cHBvcnQKPj4+
+PiDCoMKgIHJpc2N2LCBicGY6IEFkZCBleF9pbnNuX29mZiBhbmQgZXhfam1wX29mZiBmb3IgZXhj
+ZXB0aW9uIHRhYmxlCj4+Pj4gwqDCoMKgwqAgaGFuZGxpbmcKPj4+PiDCoMKgIHJpc2N2LCBicGY6
+IEFkZCBzdXBwb3J0IGFyZW5hIGF0b21pY3MgZm9yIFJWNjQKPj4+PiDCoMKgIHNlbGZ0ZXN0cy9i
+cGY6IEVuYWJsZSBhcmVuYSBhdG9taWNzIHRlc3RzIGZvciBSVjY0Cj4+Pj4KPj4+PiDCoCBhcmNo
+L3Jpc2N2L0tjb25maWfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgfMKgwqAgMSAtCj4+Pj4gwqAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4
+Y2hnLmjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoCA2ICstCj4+Pj4gwqAgYXJjaC9y
+aXNjdi9rZXJuZWwvc2V0dXAuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgfMKgwqAgMSArCj4+Pj4gwqAgYXJjaC9yaXNjdi9uZXQvYnBmX2ppdC5owqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCA3MCArKy0KPj4+PiDCoCBhcmNoL3Jp
+c2N2L25ldC9icGZfaml0X2NvbXA2NC5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDUx
+NiAKPj4+PiArKysrKy0tLS0tLS0tLS0tLS0KPj4+PiDCoCAuLi4vc2VsZnRlc3RzL2JwZi9wcm9n
+cy9hcmVuYV9hdG9taWNzLmPCoMKgwqDCoMKgwqAgfMKgwqAgOSArLQo+Pj4+IMKgIDYgZmlsZXMg
+Y2hhbmdlZCwgMjE0IGluc2VydGlvbnMoKyksIDM4OSBkZWxldGlvbnMoLSkKPj4+Cj4+PiBXaGF0
+IGEgbmljZSBzZXJpZXMhIFRoZSBiZXN0IGtpbmQgb2YgY2hhbmdlc2V0IC0tIG5ldyBmZWF0dXJl
+LCBsZXNzCj4+PiBjb2RlISBUaGFuayB5b3UsIExlaHVpISBBZ2FpbiwgYXBvbG9naWVzIGZvciB0
+aGUgaG9ycmlibGUgU0xBLiBUaGUKPj4+IHdlYXRoZXIgaW4gU3dlZGVuIHdhcyBzaW1wbHkgVG9v
+IEdvb2QgdGhpcyBzdW1tZXIhCj4+Cj4+IFNvdW5kcyBsaWtlIGEgZ3JlYXQgdmFjYXRpb24hCj4g
+Cj4gVGhhbmtzIGZvciB3b3JraW5nIG9uIHRoaXMhIEkganVzdCB0b29rIHRoaXMgaW50byBicGYt
+bmV4dCwgcGxlYXNlIGFsc28KPiBtYWtlIHN1cmUgdG8gYWRkcmVzcyB0aGUgc21hbGwgZm9sbG93
+LXVwIHJlcXVlc3QgZnJvbSBCam9ybi4KCkhpIERhbmllbCwKCkFscmVhZHkgZXhwbGFpbmVkIGFu
+ZCBhbGlnbmVkIHdpdGggQmpvcm4sIG5vIGZ1cnRoZXIgcHJvY2Vzc2luZyBpcyAKcmVxdWlyZWQu
+IFRoYW5rcy4KCj4gCj4+PiBUZXN0ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5j
+LmNvbT4gIyBRRU1VIG9ubHkKPj4+IEFja2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJu
+ZWwub3JnPgo+IAo+IFRoYW5rcywKPiBEYW5pZWwKCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
