@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D84C2CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 01:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D09C87FCF
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 04:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ehe27fr/vVywbZUGezVQQgBPm44t1JDlDPqkKkb87lg=; b=aZRGbJ0dRw5UMt
-	XhLFOArVcl1oQTiT+SEDBPYYhb0XZpGCKOWkJfRanmRnjlpOPTC5dYH2Akl3+j30B0IBeAVZcXO8F
-	MunxMzaLChvJ16ZoHLGrPWDllV5SJ0NClDhMj6g088ItmS6uQw8e0LKml4X8QvZ5qO1AHIljMlb6M
-	zTZC0NOH3X5tzz+2kXaFJ7fWzlCixPWU/Nz768h/MzOYypSFYFsceoKk81J7g9+TIn2+RgEszxqPQ
-	t1WWjGr37IPVBu/WBOEUuTPQOd6g5OUlrF6HUI3NDndnAlxtmzbA6sA1hK1ivA5WDML+XXyviUeR9
-	lX0AYBjkA43SX1q6b7Pw==;
+	List-Owner; bh=7PaCYTVoqg/0nPu2pL7JB0Bg8x+4LE+dOL6UiEgCZkY=; b=u/ursKbynpNx9U
+	zDr9rOZsyOsHh9dF8WP0dT26prTo5ejB/hhZXoU8vyKnU9jhLYE/b+cPaKfOfFdXWDorWOlX2/r9D
+	87nO8A9SARmJ7pCkLCSIAWTKGuqiSNtWG9Zirao68IDI8LHXqCFYSG7VQ0NL5sTYIXiEvMYaZO8b+
+	S48fdVHy+VR1lDj/wOewaKa2oUMhuFaFL3L8/A6FYXRBhsAHfkbqCToEGVWBzXsX0Qnt+KZKejgAA
+	dQBp63YWEYJQ511Rzlm35KU8qQSObc+ggVXMyRdK/F58JQtir/W7HJqWQuV7xgL0T0nmwJ5RqBOa8
+	FC+uizvAgfiHdLBF8ZsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un5mJ-00000003rxi-3wdI;
-	Sat, 16 Aug 2025 01:32:15 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1un8TS-0000000430U-2Avw;
+	Sat, 16 Aug 2025 04:24:58 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un5l8-00000003rt4-1qAJ
+	id 1un8TO-000000042zt-2fTI
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Aug 2025 01:31:03 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4c3hKT5bsCz2dMMZ;
-	Sat, 16 Aug 2025 09:31:57 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3E357140145;
-	Sat, 16 Aug 2025 09:30:53 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 16 Aug 2025 09:30:52 +0800
-Message-ID: <deec25f9-9e58-4650-8920-eddd9995c28b@huawei.com>
-Date: Sat, 16 Aug 2025 09:30:51 +0800
+	Sat, 16 Aug 2025 04:24:57 +0000
+Received: from [192.168.0.108] (unknown [114.241.87.235])
+	by APP-01 (Coremail) with SMTP id qwCowABXgaUGCKBoONhEDA--.30386S2;
+	Sat, 16 Aug 2025 12:24:39 +0800 (CST)
+Message-ID: <89865f17-f405-445a-874d-9361fe247bfe@iscas.ac.cn>
+Date: Sat, 16 Aug 2025 12:24:38 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] riscv, bpf: use lw when reading int cpu in
- bpf_get_smp_processor_id
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Subject: Re: [PATCH 2/2] RISC-V: Add common csr_read_num() and csr_write_num()
+ functions
+To: Anup Patel <apatel@ventanamicro.com>, Sunil V L
+ <sunilvl@ventanamicro.com>, "Rafael J . Wysocki" <rafael@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Len Brown <lenb@kernel.org>, Atish Patra <atish.patra@linux.dev>,
+ Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Vivian Wang <wangruikang@iscas.ac.cn>
+References: <20250815161406.76370-1-apatel@ventanamicro.com>
+ <20250815161406.76370-3-apatel@ventanamicro.com>
 Content-Language: en-US
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	<bpf@vger.kernel.org>
-CC: <stable@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, Daniel
- Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin
- KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song
- Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John
- Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa
-	<jolsa@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Kumar Kartikeya
- Dwivedi <memxor@gmail.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20250812090256.757273-2-rkrcmar@ventanamicro.com>
- <20250812090256.757273-4-rkrcmar@ventanamicro.com>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20250812090256.757273-4-rkrcmar@ventanamicro.com>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemf100007.china.huawei.com (7.202.181.221)
+In-Reply-To: <20250815161406.76370-3-apatel@ventanamicro.com>
+X-CM-TRANSID: qwCowABXgaUGCKBoONhEDA--.30386S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxtr1xWw18WFy5KrW8JryDAwb_yoW7uFyUpr
+	WjkFZIkr48Ars293y3Crn8Jry5X3WxWFWUK348Xay3Xr4Utr98WrykWa4UtryDWFZ5X3s8
+	WF1q9w4fC3s0qrDanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjfUUxR6UUUUU
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_183102_639934_686D6BBA 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20250815_212455_040116_DB5AAB12 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +83,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDI1LzgvMTIgMTc6MDIsIFJhZGltIEtyxI1tw6HFmSB3cm90ZToKPiBlbWl0X2xkIGlz
-IHdyb25nLCBiZWNhdXNlIHRocmVhZF9pbmZvLmNwdSBpcyAzMi1iaXQsIG5vdCB4bGVuLWJpdCB3
-aWRlLgo+IFRoZSBzdHJ1Y3QgY3VycmVudGx5IGhhcyBhIGhvbGUgYWZ0ZXIgY3B1LCBzbyBsaXR0
-bGUgZW5kaWFuIGFjY2Vzc2VzCj4gc2VlbWVkIGZpbmUuCj4gCj4gRml4ZXM6IDJkZGVjMmM4MGI0
-NCAoInJpc2N2LCBicGY6IGlubGluZSBicGZfZ2V0X3NtcF9wcm9jZXNzb3JfaWQoKSIpCj4gQ2M6
-IDxzdGFibGVAdmdlci5rZXJuZWwub3JnPgo+IFNpZ25lZC1vZmYtYnk6IFJhZGltIEtyxI1tw6HF
-mSA8cmtyY21hckB2ZW50YW5hbWljcm8uY29tPgo+IC0tLQo+ICAgYXJjaC9yaXNjdi9uZXQvYnBm
-X2ppdF9jb21wNjQuYyB8IDIgKy0KPiAgIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwg
-MSBkZWxldGlvbigtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2Nv
-bXA2NC5jIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+IGluZGV4IDZlMTU1NGQ4
-OTY4MS4uOTg4M2E1NWQ2MWI1IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRf
-Y29tcDY0LmMKPiArKysgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jCj4gQEAgLTE3
-NjMsNyArMTc2Myw3IEBAIGludCBicGZfaml0X2VtaXRfaW5zbihjb25zdCBzdHJ1Y3QgYnBmX2lu
-c24gKmluc24sIHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4LAo+ICAgCQkgKi8KPiAgIAkJaWYg
-KGluc24tPnNyY19yZWcgPT0gMCAmJiBpbnNuLT5pbW0gPT0gQlBGX0ZVTkNfZ2V0X3NtcF9wcm9j
-ZXNzb3JfaWQpIHsKPiAgIAkJCS8qIExvYWQgY3VycmVudCBDUFUgbnVtYmVyIGluIFIwICovCj4g
-LQkJCWVtaXRfbGQoYnBmX3RvX3J2X3JlZyhCUEZfUkVHXzAsIGN0eCksIG9mZnNldG9mKHN0cnVj
-dCB0aHJlYWRfaW5mbywgY3B1KSwKPiArCQkJZW1pdF9sdyhicGZfdG9fcnZfcmVnKEJQRl9SRUdf
-MCwgY3R4KSwgb2Zmc2V0b2Yoc3RydWN0IHRocmVhZF9pbmZvLCBjcHUpLAo+ICAgCQkJCVJWX1JF
-R19UUCwgY3R4KTsKPiAgIAkJCWJyZWFrOwo+ICAgCQl9CgpSZXZpZXdlZC1ieTogUHUgTGVodWkg
-PHB1bGVodWlAaHVhd2VpLmNvbT4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+
+On 8/16/25 00:14, Anup Patel wrote:
+> In RISC-V, there is no CSR read/write instruction which takes CSR
+> number via register so add common csr_read_num() and csr_write_num()
+> functions which allow accessing certain CSRs by passing CSR number
+> as parameter. These common functions will be first used by the
+> ACPI CPPC driver and RISC-V PMU driver.
+>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/csr.h |   3 +
+>  arch/riscv/kernel/Makefile   |   1 +
+>  arch/riscv/kernel/csr.c      | 177 +++++++++++++++++++++++++++++++++++
+>  drivers/acpi/riscv/cppc.c    |  17 ++--
+>  drivers/perf/riscv_pmu.c     |  43 +--------
+>  5 files changed, 189 insertions(+), 52 deletions(-)
+>  create mode 100644 arch/riscv/kernel/csr.c
+>
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 6fed42e37705..1540626b3540 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -575,6 +575,9 @@
+>  			      : "memory");			\
+>  })
+>
+> +extern unsigned long csr_read_num(unsigned long csr_num, int *out_err);
+> +extern void csr_write_num(unsigned long csr_num, unsigned long val, int *out_err);
+> +
+>  #endif /* __ASSEMBLY__ */
+>
+>  #endif /* _ASM_RISCV_CSR_H */
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index c7b542573407..0a75e20bde18 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -50,6 +50,7 @@ obj-y	+= soc.o
+>  obj-$(CONFIG_RISCV_ALTERNATIVE) += alternative.o
+>  obj-y	+= cpu.o
+>  obj-y	+= cpufeature.o
+> +obj-y	+= csr.o
+>  obj-y	+= entry.o
+>  obj-y	+= irq.o
+>  obj-y	+= process.o
+> diff --git a/arch/riscv/kernel/csr.c b/arch/riscv/kernel/csr.c
+> new file mode 100644
+> index 000000000000..f7de45bb597c
+> --- /dev/null
+> +++ b/arch/riscv/kernel/csr.c
+> @@ -0,0 +1,177 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2025 Ventana Micro Systems Inc.
+> + */
+> +
+> +#define pr_fmt(fmt) "riscv: " fmt
+> +#include <linux/err.h>
+> +#include <linux/export.h>
+> +#include <linux/printk.h>
+> +#include <linux/types.h>
+> +#include <asm/csr.h>
+> +
+> +#define CSR_CUSTOM0_U_RW_BASE		0x800
+> +#define CSR_CUSTOM0_U_RW_COUNT		0x100
+> +
+> +#define CSR_CUSTOM1_U_RO_BASE		0xCC0
+> +#define CSR_CUSTOM1_U_RO_COUNT		0x040
+> +
+> +#define CSR_CUSTOM2_S_RW_BASE		0x5C0
+> +#define CSR_CUSTOM2_S_RW_COUNT		0x040
+> +
+> +#define CSR_CUSTOM3_S_RW_BASE		0x9C0
+> +#define CSR_CUSTOM3_S_RW_COUNT		0x040
+> +
+> +#define CSR_CUSTOM4_S_RO_BASE		0xDC0
+> +#define CSR_CUSTOM4_S_RO_COUNT		0x040
+> +
+> +#define CSR_CUSTOM5_HS_RW_BASE		0x6C0
+> +#define CSR_CUSTOM5_HS_RW_COUNT		0x040
+> +
+> +#define CSR_CUSTOM6_HS_RW_BASE		0xAC0
+> +#define CSR_CUSTOM6_HS_RW_COUNT		0x040
+> +
+> +#define CSR_CUSTOM7_HS_RO_BASE		0xEC0
+> +#define CSR_CUSTOM7_HS_RO_COUNT		0x040
+> +
+> +#define CSR_CUSTOM8_M_RW_BASE		0x7C0
+> +#define CSR_CUSTOM8_M_RW_COUNT		0x040
+> +
+> +#define CSR_CUSTOM9_M_RW_BASE		0xBC0
+> +#define CSR_CUSTOM9_M_RW_COUNT		0x040
+> +
+> +#define CSR_CUSTOM10_M_RO_BASE		0xFC0
+> +#define CSR_CUSTOM10_M_RO_COUNT		0x040
+> +
+> +unsigned long csr_read_num(unsigned long csr_num, int *out_err)
+> +{
+> +#define switchcase_csr_read(__csr_num)				\
+> +	case (__csr_num):					\
+> +		return csr_read(__csr_num)
+> +#define switchcase_csr_read_2(__csr_num)			\
+> +	switchcase_csr_read(__csr_num + 0);			\
+> +	switchcase_csr_read(__csr_num + 1)
+> +#define switchcase_csr_read_4(__csr_num)			\
+> +	switchcase_csr_read_2(__csr_num + 0);			\
+> +	switchcase_csr_read_2(__csr_num + 2)
+> +#define switchcase_csr_read_8(__csr_num)			\
+> +	switchcase_csr_read_4(__csr_num + 0);			\
+> +	switchcase_csr_read_4(__csr_num + 4)
+> +#define switchcase_csr_read_16(__csr_num)			\
+> +	switchcase_csr_read_8(__csr_num + 0);			\
+> +	switchcase_csr_read_8(__csr_num + 8)
+> +#define switchcase_csr_read_32(__csr_num)			\
+> +	switchcase_csr_read_16(__csr_num + 0);			\
+> +	switchcase_csr_read_16(__csr_num + 16)
+> +#define switchcase_csr_read_64(__csr_num)			\
+> +	switchcase_csr_read_32(__csr_num + 0);			\
+> +	switchcase_csr_read_32(__csr_num + 32)
+> +#define switchcase_csr_read_128(__csr_num)			\
+> +	switchcase_csr_read_64(__csr_num + 0);			\
+> +	switchcase_csr_read_64(__csr_num + 64)
+> +#define switchcase_csr_read_256(__csr_num)			\
+> +	switchcase_csr_read_128(__csr_num + 0);			\
+> +	switchcase_csr_read_128(__csr_num + 128)
+> +
+
+That's... a bit horrendous.
+
+Since we know that each inner case is quite simple, can we just do our
+own jump table for that? Each case can be one csrr/csrw and one jal
+(possibly pad to 8 bytes), and we can just jump to
+label + (csr_num - range_start) * 8. See bottom of this message for an
+untested prototype.
+
+Vivian "dramforever" Wang
+
+UNTESTED prototype:
+
+#define CSR_CYCLE 0xc00
+#define CSR_CYCLEH 0xc80
+
+/* Force expand argument if macro */
+#define str(_x) #_x
+
+unsigned long csr_read_num(long csr_num)
+{
+	unsigned long res, tmp;
+
+        /*
+	 * Generate a jump table for each range. Each (inner) case is 8 bytes of
+	 * code, a csrr instruction and a jump, possibly padded, so we just jump
+	 * to label_1f + (csr_num - _start) * 8
+	 */
+#define csr_read_case_range(_start, _size) 					\
+	case (_start) ... ((_start) + (_size) - 1):				\
+		asm volatile (							\
+				"	lla %[tmp], 1f\n"			\
+				"	add %[tmp], %[tmp], %[offset]\n"	\
+				"	jr %[tmp]\n"				\
+				"1:\n"						\
+				"	.rept (" str(_size) ")\n"		\
+				"	csrr %[res], (" str(_start) " + \\+)\n"	\
+				"	j 2f\n"					\
+				"	.balign 4\n"				\
+				"	.endr\n"				\
+				"2:\n"						\
+				: [tmp] "=&r"(tmp), [res] "=r"(res)		\
+				: [offset] "r"((csr_num - _start) * 8)		\
+				: );						\
+		break;								\
+
+
+	switch (csr_num) {
+	csr_read_case_range(CSR_CYCLE, 4)
+	csr_read_case_range(CSR_CYCLEH, 4)
+
+	/* ... other cases */
+
+	default:
+		/* Error handling */
+	}
+
+#undef csr_read_case_range
+
+	return res;
+}
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
