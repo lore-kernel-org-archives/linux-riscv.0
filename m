@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850D9CA0EE6
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 10:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 339ACCA0EE6
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 10:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RGhK+4Cj6NE4UcrEVVeA1fo0KHTYHfScAOFIFZhqpPk=; b=nOM9Lhlc7+nwin
-	taVhT/FDkqsRd5gieEe57xqpUmPYOVrusTB7w83gUQPCdBQ3YWfOfbdWf84J5nVU7dXvVlxi+eyKV
-	v1Vw/MzukD7VwOM4xDhVTWWXwylKg/B0jI4alfkvDHw4w4ZP4tNB0i6WhDEFAmU50Aoh9gLtrqXk2
-	wUSx03eLIc6KKi+Rl/48bar0t7XCKLUpRxDEVdzzj4VUTYVGgWy9DzOwlrLjxuDiXzfmFZAyV6BGV
-	5HTleorGd5iB2C/LVuXLPef6LcjljM6wjYePJERXFtuOx9b4hUB6lk5MF2dvC8nrZt5Zwfe69qW3N
-	IlqLxI3XI5MwqnkAgMQQ==;
+	List-Owner; bh=dAHL1fcJgeKfny27dpcg17btJcoDVCBuV3QpScUBumw=; b=4Mf1YiQglBnE/o
+	9Lhr9OjJnWyOEz199pEi1WmWil/LuIff13Nj+Fj6KATNzRgNJX+M4+0POptBQpe3c2H9j/TA8W8QU
+	EFZT7RXGKTBjsw/fL6x8g/YX1rjC4+VX/gvy+5POSLTb4Dp1gPeoZ2QsctKHQNfs7G6FZ0S20/GoS
+	PyYXnuau2rYQvWJF5679aTTeNKlt/Um9YfhY5DH5P+G/XPi/ovuRVovbUYS/vO+5n4u+jmKLDmW9J
+	LTbXG3MITDGBnKX7VlbKXj8CI36/liMSNBRRxbVa/ARtS0LMfhNlwKkPu1bLa67PI65Luv1+7d4XG
+	ejS1LwKoLHwYdKUzr/tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unDmn-00000004Rmh-1ak3;
-	Sat, 16 Aug 2025 10:05:17 +0000
+	id 1unDy2-00000004SeU-3MRK;
+	Sat, 16 Aug 2025 10:16:54 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unDml-00000004RlY-1s6i
+	id 1unCxT-00000004N3V-3xCw
 	for linux-riscv@bombadil.infradead.org;
-	Sat, 16 Aug 2025 10:05:16 +0000
+	Sat, 16 Aug 2025 09:12:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=eZfImn9gChRsPGmpJ+OtggQsnEF0T5T4xVSkg/MtDpg=; b=MhSH40O1303D51XoZlzJ92JVHy
-	Q31C9bKbbwit7qk8zFGZlg74JAzsOAQMdMwCk2/BaUUUIrxPMA09eg3uqkLMXyAwjpljo7j3GdPDK
-	L4PIS7xgPkzyT3CWF2qgnZdq+ZGhV9P0LzrSZaLi7Z8c//zJD+0zeTXkthQ+feIBaKt+peoJ5K4T/
-	pCXgkPYKwBW8jJqijdAgipsJCV74HwNJe479S+T7XyzMaOm7W0BSMoXRFt7Y6WTcKMQ0a99D4aUE+
-	TSypG4tUzTGmWlwPbamODgOZP7fOfkakjZfepe51Yf0uIjjYBNACa7xd+SKQVaP+qf9k0KDYixC7Q
-	clt0MEVA==;
-Received: from layka.disroot.org ([178.21.23.139])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=NRlRSlmdIvW6NmRYLkNnaaRN4ad5e91BviukfyqBzLo=; b=muQK8NlqFwnD7jlkIjcgeNWpGD
+	w8O0QAiElgKFs1UGOSzFPU4hhoqC5bhncG3PNi6eBCRBDCiYQMeHeEef9RaP9RoswoXdqy3OTh4Os
+	NkrxuyB9R49dORCZlzKHZ2XtC8/BMjQce2N5LQcr/Nr24W0jEXp6O5dPwMp2dMGX6DJyn5QXgGW32
+	oZAfRfAxC0C+m3s+BG8dC0fo3PzIbSfIDALrQXsBgslc//IF36zErs85iEYSzenlZz9ZSNIXY28ho
+	UW6fpck10qUBKpB4UeBhZOjqXPu7JVaJ4G0oEMRLJ8uSTcBvePrHnZuAN3E7p62QHwYjQ8UeU0FKh
+	CWloLehw==;
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unDmg-0000000GxT7-0JVn
+	id 1unCxQ-0000000Gwk4-1wGr
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Aug 2025 10:05:12 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 841E120C9D;
-	Sat, 16 Aug 2025 12:05:06 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id CdLs0zKOoopx; Sat, 16 Aug 2025 12:05:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1755338705; bh=5L967NphMLPRWeIE/xd6L5BN1UltYPBYco7lnin4VcM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=flAjoqaL8RO8TGVRX220W+zP2hvvX1L9wnB3dMr8PqHaGJE1wGTaLj3yguHdxRNEt
-	 7MW06a6ESHeIj73NC9h93LSaNhdCqZai/jZgWJvgeV6k78+fBY28Gpai3ZGVvan2nl
-	 pikW+gHRv1JNY3/WT8olzS83GI5pQrk4k/6kPyHETfdNvnsrJzEAMzRR5JY5an3LeL
-	 /MDVtr0fVsiyWU4j9qT2tHC0FFd/S9o4emezTAWtGd/6hYy3Nj0IslwOWKH79frZkQ
-	 s3RCBguY8AQbHEyH5KYWyBHx/8A4NLLsI5r/4wVqtYly/pKt7z5iPopM0yNCyd4oll
-	 fiCkRgsRisA+w==
-Date: Sat, 16 Aug 2025 10:04:33 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Icenowy Zheng <uwu@icenowy.me>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Sat, 16 Aug 2025 09:12:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755335526; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=mdit7eKotHavbQ2FTFFdYRrLobT1upX7wtgcYrNQD6jYKYItSAyZZiglbGzYpMRoljnRAFcgltakEKZqsxZe+4UWGlWdUKPOCkiMNoEtgHj9B0JjUYatVxJpkICGmDyXOuPEwFCkNoeckiU+9BiWhhY7DdSx4HL9g6cjkUFt9ys=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1755335526; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=NRlRSlmdIvW6NmRYLkNnaaRN4ad5e91BviukfyqBzLo=; 
+	b=NxKmgHBqUQB8IMOiDwHNqsOj5zLHmktNFTgrXhwwRbe43WdRTWr256b4MSJvbh3/LbS9u9eBgnZELEabshNUalEQT0t2Lz4qpyy0N2yaw2luVwUVzIXRuSHz6qYDnXilVofg84YQXKC13OikiMHk6XP7+Pu43dmknrJt2NK5oUE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755335526;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=NRlRSlmdIvW6NmRYLkNnaaRN4ad5e91BviukfyqBzLo=;
+	b=MDB8eRBhMH344Z6it9ItfGqQp5shI/jeiBD+vArrMbeVbAIeO2gHWnSFPiL0oSaf
+	aIFDYe1mDkyATA57Mc+g5A8TnvyeE04drQNFJNic+N4LXpaipocOXco5WQ5KecOC5hD
+	nhTVu2vYIZu6CJAVN9GnodeG5tpRc4Ko5RSNvxtv4McdyRkexJ+Ezu46Q6NGlV93tpy
+	GQlAEJjP8G5yB3FUI7oSOZqLmL3aT+7UxfOk/AwHc4papu5GtUCfTSi8gxi4CkVuN40
+	MtMFFXk573ey8DAmAHaRmfS03vpTVTDJOUydrOI9j7U4uHK+8jg3PUAwY6JnC6Jezwy
+	rjSFmahjMA==
+Received: by mx.zohomail.com with SMTPS id 1755335523279919.8290029794405;
+	Sat, 16 Aug 2025 02:12:03 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
 	Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Han Gao <rabenda.cn@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH 3/8] drm: verisilicon: add a driver for Verisilicon
- display controllers
-Message-ID: <aKBXscthC1U6x5b4@pie>
-References: <20250814164048.2336043-1-uwu@icenowy.me>
- <20250814164048.2336043-4-uwu@icenowy.me>
+Cc: Han Gao <rabenda.cn@gmail.com>,
+	Yao Zi <ziyao@disroot.org>,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH v3 4/4] clk: thead: th1520-ap: set all AXI clocks to CLK_IS_CRITICAL
+Date: Sat, 16 Aug 2025 17:11:13 +0800
+Message-ID: <20250816091113.2596048-5-uwu@icenowy.me>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250816091113.2596048-1-uwu@icenowy.me>
+References: <20250816091113.2596048-1-uwu@icenowy.me>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250814164048.2336043-4-uwu@icenowy.me>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_110510_394200_3159E83F 
-X-CRM114-Status: GOOD (  35.61  )
+X-CRM114-CacheID: sfid-20250816_101212_987793_79C79539 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,444 +106,166 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 12:40:43AM +0800, Icenowy Zheng wrote:
-> This is a from-scratch driver targeting Verisilicon DC-series display
-> controllers, which feature self-identification functionality like their
-> GC-series GPUs.
-> 
-> Only DC8200 is being supported now, and only the main framebuffer is set
-> up (as the DRM primary plane). Support for more DC models and more
-> features is my further targets.
-> 
-> As the display controller is delivered to SoC vendors as a whole part,
-> this driver does not use component framework and extra bridges inside a
-> SoC is expected to be implemented as dedicated bridges (this driver
-> properly supports bridge chaining).
-> 
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+The AXI crossbar of TH1520 has no proper timeout handling, which means
+gating AXI clocks can easily lead to bus timeout and thus system hang.
 
-Thank you for the great work!
+Set all AXI clock gates to CLK_IS_CRITICAL. All these clock gates are
+ungated by default on system reset.
 
-> ---
->  drivers/gpu/drm/Kconfig                       |   2 +
->  drivers/gpu/drm/Makefile                      |   1 +
->  drivers/gpu/drm/verisilicon/Kconfig           |  15 +
->  drivers/gpu/drm/verisilicon/Makefile          |   5 +
->  drivers/gpu/drm/verisilicon/vs_bridge.c       | 330 ++++++++++++++++++
->  drivers/gpu/drm/verisilicon/vs_bridge.h       |  40 +++
->  drivers/gpu/drm/verisilicon/vs_bridge_regs.h  |  47 +++
->  drivers/gpu/drm/verisilicon/vs_crtc.c         | 217 ++++++++++++
->  drivers/gpu/drm/verisilicon/vs_crtc.h         |  29 ++
->  drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |  60 ++++
->  drivers/gpu/drm/verisilicon/vs_dc.c           | 233 +++++++++++++
->  drivers/gpu/drm/verisilicon/vs_dc.h           |  39 +++
->  drivers/gpu/drm/verisilicon/vs_dc_top_regs.h  |  27 ++
->  drivers/gpu/drm/verisilicon/vs_drm.c          | 177 ++++++++++
->  drivers/gpu/drm/verisilicon/vs_drm.h          |  29 ++
->  drivers/gpu/drm/verisilicon/vs_hwdb.c         | 150 ++++++++
->  drivers/gpu/drm/verisilicon/vs_hwdb.h         |  29 ++
->  drivers/gpu/drm/verisilicon/vs_plane.c        | 102 ++++++
->  drivers/gpu/drm/verisilicon/vs_plane.h        |  68 ++++
->  .../gpu/drm/verisilicon/vs_primary_plane.c    | 166 +++++++++
->  .../drm/verisilicon/vs_primary_plane_regs.h   |  53 +++
->  21 files changed, 1819 insertions(+)
->  create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
->  create mode 100644 drivers/gpu/drm/verisilicon/Makefile
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_bridge_regs.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc_regs.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_top_regs.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_drm.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_hwdb.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.h
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-> 
+In addition, convert all current CLK_IGNORE_UNUSED usage to
+CLK_IS_CRITICAL to prevent unwanted clock gating.
 
-...
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+Reviewed-by: Drew Fustini <fustini@kernel.org>
+---
+No changes in v2 except for rebasing error fixes (which I sent as FIXED
+patches in v1).
+Changes in v3:
+- Rebased atop ccu_gate refactor.
+- Added Drew's R-b.
 
-> diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c b/drivers/gpu/drm/verisilicon/vs_bridge.c
-> new file mode 100644
-> index 0000000000000..c8caf31fac7d6
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
+ drivers/clk/thead/clk-th1520-ap.c | 44 +++++++++++++++----------------
+ 1 file changed, 22 insertions(+), 22 deletions(-)
 
-...
+diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+index 54222b3219ccf..26e55e1c60148 100644
+--- a/drivers/clk/thead/clk-th1520-ap.c
++++ b/drivers/clk/thead/clk-th1520-ap.c
+@@ -559,7 +559,7 @@ static struct ccu_div axi4_cpusys2_aclk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_HW("axi4-cpusys2-aclk",
+ 					      gmac_pll_clk_parent,
+ 					      &ccu_div_ops,
+-					      0),
++					      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
+@@ -581,7 +581,7 @@ static struct ccu_div axi_aclk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("axi-aclk",
+ 						      axi_parents,
+ 						      &ccu_div_ops,
+-						      0),
++						      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
+@@ -730,7 +730,7 @@ static struct ccu_div apb_pclk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_DATA("apb-pclk",
+ 						      apb_parents,
+ 						      &ccu_div_ops,
+-						      CLK_IGNORE_UNUSED),
++						      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
+@@ -761,7 +761,7 @@ static struct ccu_div vi_clk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_HW("vi",
+ 					      video_pll_clk_parent,
+ 					      &ccu_div_ops,
+-					      0),
++					      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
+@@ -786,7 +786,7 @@ static struct ccu_div vo_axi_clk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_HW("vo-axi",
+ 					      video_pll_clk_parent,
+ 					      &ccu_div_ops,
+-					      0),
++					      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
+@@ -811,7 +811,7 @@ static struct ccu_div vp_axi_clk = {
+ 		.hw.init	= CLK_HW_INIT_PARENTS_HW("vp-axi",
+ 					      video_pll_clk_parent,
+ 					      &ccu_div_ops,
+-					      CLK_IGNORE_UNUSED),
++					      CLK_IS_CRITICAL),
+ 	},
+ };
+ 
+@@ -872,27 +872,27 @@ static const struct clk_parent_data emmc_sdio_ref_clk_pd[] = {
+ static CCU_GATE(CLK_BROM, brom_clk, "brom", ahb2_cpusys_hclk_pd, 0x100, 4, 0);
+ static CCU_GATE(CLK_BMU, bmu_clk, "bmu", axi4_cpusys2_aclk_pd, 0x100, 5, 0);
+ static CCU_GATE(CLK_AON2CPU_A2X, aon2cpu_a2x_clk, "aon2cpu-a2x", axi4_cpusys2_aclk_pd,
+-		0x134, 8, 0);
++		0x134, 8, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_X2X_CPUSYS, x2x_cpusys_clk, "x2x-cpusys", axi4_cpusys2_aclk_pd,
+-		0x134, 7, 0);
++		0x134, 7, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_CPU2AON_X2H, cpu2aon_x2h_clk, "cpu2aon-x2h", axi_aclk_pd,
+-		0x138, 8, CLK_IGNORE_UNUSED);
++		0x138, 8, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_CPU2PERI_X2H, cpu2peri_x2h_clk, "cpu2peri-x2h", axi4_cpusys2_aclk_pd,
+-		0x140, 9, CLK_IGNORE_UNUSED);
++		0x140, 9, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_PERISYS_APB1_HCLK, perisys_apb1_hclk, "perisys-apb1-hclk", perisys_ahb_hclk_pd,
+-		0x150, 9, CLK_IGNORE_UNUSED);
++		0x150, 9, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_PERISYS_APB2_HCLK, perisys_apb2_hclk, "perisys-apb2-hclk", perisys_ahb_hclk_pd,
+-		0x150, 10, CLK_IGNORE_UNUSED);
++		0x150, 10, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_PERISYS_APB3_HCLK, perisys_apb3_hclk, "perisys-apb3-hclk", perisys_ahb_hclk_pd,
+-		0x150, 11, CLK_IGNORE_UNUSED);
++		0x150, 11, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_PERISYS_APB4_HCLK, perisys_apb4_hclk, "perisys-apb4-hclk", perisys_ahb_hclk_pd,
+ 		0x150, 12, 0);
+ static const struct clk_parent_data perisys_apb4_hclk_pd[] = {
+ 	{ .hw = &perisys_apb4_hclk.gate.hw },
+ };
+ 
+-static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, 5, 0);
+-static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, 13, 0);
++static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, 5, CLK_IS_CRITICAL);
++static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, 13, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_EMMC_SDIO, emmc_sdio_clk, "emmc-sdio", emmc_sdio_ref_clk_pd, 0x204, 30, 0);
+ static CCU_GATE(CLK_GMAC1, gmac1_clk, "gmac1", gmac_pll_clk_pd, 0x204, 26, 0);
+ static CCU_GATE(CLK_PADCTRL1, padctrl1_clk, "padctrl1", perisys_apb_pclk_pd, 0x204, 24, 0);
+@@ -936,11 +936,11 @@ static CCU_GATE(CLK_SRAM2, sram2_clk, "sram2", axi_aclk_pd, 0x20c, 2, 0);
+ static CCU_GATE(CLK_SRAM3, sram3_clk, "sram3", axi_aclk_pd, 0x20c, 1, 0);
+ 
+ static CCU_GATE(CLK_AXI4_VO_ACLK, axi4_vo_aclk, "axi4-vo-aclk",
+-		video_pll_clk_pd, 0x0, 0, 0);
++		video_pll_clk_pd, 0x0, 0, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_GPU_CORE, gpu_core_clk, "gpu-core-clk", video_pll_clk_pd,
+ 		0x0, 3, 0);
+ static CCU_GATE(CLK_GPU_CFG_ACLK, gpu_cfg_aclk, "gpu-cfg-aclk",
+-		video_pll_clk_pd, 0x0, 4, 0);
++		video_pll_clk_pd, 0x0, 4, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_DPU_PIXELCLK0, dpu0_pixelclk, "dpu0-pixelclk",
+ 		dpu0_clk_pd, 0x0, 5, CLK_SET_RATE_PARENT);
+ static CCU_GATE(CLK_DPU_PIXELCLK1, dpu1_pixelclk, "dpu1-pixelclk",
+@@ -972,9 +972,9 @@ static CCU_GATE(CLK_MIPI_DSI1_REFCLK, mipi_dsi1_refclk, "mipi-dsi1-refclk",
+ static CCU_GATE(CLK_HDMI_I2S, hdmi_i2s_clk, "hdmi-i2s-clk", video_pll_clk_pd,
+ 		0x0, 19, 0);
+ static CCU_GATE(CLK_X2H_DPU1_ACLK, x2h_dpu1_aclk, "x2h-dpu1-aclk",
+-		video_pll_clk_pd, 0x0, 20, 0);
++		video_pll_clk_pd, 0x0, 20, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_X2H_DPU_ACLK, x2h_dpu_aclk, "x2h-dpu-aclk",
+-		video_pll_clk_pd, 0x0, 21, 0);
++		video_pll_clk_pd, 0x0, 21, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_AXI4_VO_PCLK, axi4_vo_pclk, "axi4-vo-pclk",
+ 		video_pll_clk_pd, 0x0, 22, 0);
+ static CCU_GATE(CLK_IOPMP_VOSYS_DPU_PCLK, iopmp_vosys_dpu_pclk,
+@@ -984,11 +984,11 @@ static CCU_GATE(CLK_IOPMP_VOSYS_DPU1_PCLK, iopmp_vosys_dpu1_pclk,
+ static CCU_GATE(CLK_IOPMP_VOSYS_GPU_PCLK, iopmp_vosys_gpu_pclk,
+ 		"iopmp-vosys-gpu-pclk", video_pll_clk_pd, 0x0, 25, 0);
+ static CCU_GATE(CLK_IOPMP_DPU1_ACLK, iopmp_dpu1_aclk, "iopmp-dpu1-aclk",
+-		video_pll_clk_pd, 0x0, 27, 0);
++		video_pll_clk_pd, 0x0, 27, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_IOPMP_DPU_ACLK, iopmp_dpu_aclk, "iopmp-dpu-aclk",
+-		video_pll_clk_pd, 0x0, 28, 0);
++		video_pll_clk_pd, 0x0, 28, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_IOPMP_GPU_ACLK, iopmp_gpu_aclk, "iopmp-gpu-aclk",
+-		video_pll_clk_pd, 0x0, 29, 0);
++		video_pll_clk_pd, 0x0, 29, CLK_IS_CRITICAL);
+ static CCU_GATE(CLK_MIPIDSI0_PIXCLK, mipi_dsi0_pixclk, "mipi-dsi0-pixclk",
+ 		video_pll_clk_pd, 0x0, 30, 0);
+ static CCU_GATE(CLK_MIPIDSI1_PIXCLK, mipi_dsi1_pixclk, "mipi-dsi1-pixclk",
+-- 
+2.50.1
 
-> +static bool vs_bridge_out_dp_fmt_supported(u32 out_fmt)
-> +{
-> +	unsigned int i;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(vsdc_dp_supported_fmts); i++)
-> +		if (vsdc_dp_supported_fmts[i].linux_fmt == out_fmt)
-> +			break;
-> +
-> +	return !(i == ARRAY_SIZE(vsdc_dp_supported_fmts));
-
-You could simplify the return statement by returning early in the loop
-if out_fmt matches.
-
-> +}
-
-> +static int vs_bridge_detect_output_interface(struct device_node *of_node,
-> +					     unsigned int output)
-> +{
-> +	int ret;
-> +	struct device_node *remote;
-> +
-> +	remote = of_graph_get_remote_node(of_node, output,
-> +					  VSDC_OUTPUT_INTERFACE_DPI);
-> +	if (remote) {
-> +		ret = VSDC_OUTPUT_INTERFACE_DPI;
-> +	} else {
-> +		remote = of_graph_get_remote_node(of_node, output,
-> +						  VSDC_OUTPUT_INTERFACE_DP);
-> +		if (remote)
-> +			ret = VSDC_OUTPUT_INTERFACE_DP;
-> +		else
-> +			ret = -ENODEV;
-> +	}
-
-remote is leaked here, it should be released with of_node_put IMHO.
-
-> +	return ret;
-> +}
-> +
-> +struct vs_bridge *vs_bridge_init(struct drm_device *drm_dev,
-> +				 struct vs_crtc *crtc)
-> +{
-> +	unsigned int output = crtc->id;
-> +	struct vs_bridge *bridge;
-> +	struct drm_bridge *next;
-> +	enum vs_bridge_output_interface intf;
-> +	int ret;
-
-...
-
-> +	bridge = devm_kzalloc(drm_dev->dev, sizeof(*bridge), GFP_KERNEL);
-> +	if (!bridge)
-> +		return ERR_PTR(-ENOMEM);
-
-...
-
-> +err_cleanup_encoder:
-> +	drm_encoder_cleanup(&bridge->enc);
-> +err_free_bridge:
-> +	devm_kfree(drm_dev->dev, bridge);
-
-Though is technically correct, this devm_kfree() is unnecessary.
-Resources registered with devres are automatically released when probing
-fails[1][2].
-
-> +	return ERR_PTR(ret);
-> +}
-
-...
-
-> diff --git a/drivers/gpu/drm/verisilicon/vs_crtc.c b/drivers/gpu/drm/verisilicon/vs_crtc.c
-> new file mode 100644
-> index 0000000000000..46c4191b82f49
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_crtc.c
-> @@ -0,0 +1,217 @@
-
-...
-
-> +static enum drm_mode_status
-> +vs_crtc_mode_valid(struct drm_crtc *crtc, const struct drm_display_mode *mode)
-> +{
-> +	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
-> +	struct vs_dc *dc = vcrtc->dc;
-> +	unsigned int output = vcrtc->id;
-> +	long rate;
-> +
-> +	if (mode->htotal > 0x7FFF)
-> +		return MODE_BAD_HVALUE;
-> +	if (mode->vtotal > 0x7FFF)
-> +		return MODE_BAD_VVALUE;
-> +
-> +	rate = clk_round_rate(dc->pix_clk[output], mode->clock * 1000);
-> +	if (rate <= 0)
-> +		return MODE_CLOCK_RANGE;
-
-Some round_rate implementations may not return zero or error on an
-unsupported clock rate, instead they simply return a value differing a
-lot from the requested rate. Thus I think you should also check whether
-the resulted rate is acceptable as well, which applies for
-vs_crtc_mode_fixup() as well.
-
-> +	return MODE_OK;
-> +}
-> +
-> +static bool vs_crtc_mode_fixup(struct drm_crtc *crtc,
-> +			       const struct drm_display_mode *m,
-> +			       struct drm_display_mode *adjusted_mode)
-> +{
-> +	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
-> +	struct vs_dc *dc = vcrtc->dc;
-> +	unsigned int output = vcrtc->id;
-> +	long clk_rate;
-> +
-> +	drm_mode_set_crtcinfo(adjusted_mode, 0);
-> +
-> +	/* Feedback the pixel clock to crtc_clock */
-> +	clk_rate = adjusted_mode->crtc_clock * 1000;
-> +	clk_rate = clk_round_rate(dc->pix_clk[output], clk_rate);
-> +	if (clk_rate <= 0)
-> +		return false;
-> +
-> +	adjusted_mode->crtc_clock = clk_rate / 1000;
-> +
-> +	return true;
-> +}
-
-...
-
-> +struct vs_crtc *vs_crtc_init(struct drm_device *drm_dev, struct vs_dc *dc,
-> +			     unsigned int output)
-> +{
-> +	struct vs_crtc *vcrtc;
-> +	struct drm_plane *primary;
-> +	int ret;
-> +
-> +	vcrtc = devm_kzalloc(drm_dev->dev, sizeof(*vcrtc), GFP_KERNEL);
-> +	if (!vcrtc)
-> +		return ERR_PTR(-ENOMEM);
-> +	vcrtc->dc = dc;
-> +	vcrtc->id = output;
-> +
-> +	/* Create our primary plane */
-> +	primary = vs_primary_plane_init(drm_dev, dc);
-> +	if (IS_ERR(primary)) {
-> +		dev_err(drm_dev->dev, "Couldn't create the primary plane\n");
-> +		return ERR_PTR(PTR_ERR(primary));
-> +	}
-
-Suggest dev_err_probe which handles deferred probing as well.
-
-> +
-> +	ret = drm_crtc_init_with_planes(drm_dev, &vcrtc->base,
-> +					primary,
-> +					NULL,
-> +					&vs_crtc_funcs,
-> +					NULL);
-> +	if (ret) {
-> +		dev_err(drm_dev->dev, "Couldn't initialize CRTC\n");
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	drm_crtc_helper_add(&vcrtc->base, &vs_crtc_helper_funcs);
-> +
-> +	return vcrtc;
-> +}
-
-...
-
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c b/drivers/gpu/drm/verisilicon/vs_dc.c
-> new file mode 100644
-> index 0000000000000..98384559568c4
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
-> @@ -0,0 +1,233 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
-> + */
-> +
-> +#include <linux/dma-mapping.h>
-> +#include <linux/of.h>
-> +#include <linux/of_graph.h>
-> +
-> +#include "vs_crtc.h"
-> +#include "vs_dc.h"
-> +#include "vs_dc_top_regs.h"
-> +#include "vs_drm.h"
-> +#include "vs_hwdb.h"
-> +
-> +static const struct regmap_config vs_dc_regmap_cfg = {
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = sizeof(u32),
-> +	/* VSDC_OVL_CONFIG_EX(1) */
-> +	.max_register = 0x2544,
-> +	.cache_type = REGCACHE_NONE,
-
-I think cache_type = REGCACHE_NONE is the default, thus it should be
-okay to omitted it?
-
-> +};
-
-...
-
-> +static int vs_dc_probe(struct platform_device *pdev)
-> +{
-
-...
-
-> +	dc->core_clk = devm_clk_get(dev, "core");
-> +	if (IS_ERR(dc->core_clk)) {
-> +		dev_err(dev, "can't get core clock\n");
-> +		return PTR_ERR(dc->core_clk);
-> +	}
-> +
-> +	dc->axi_clk = devm_clk_get(dev, "axi");
-> +	if (IS_ERR(dc->axi_clk)) {
-> +		dev_err(dev, "can't get axi clock\n");
-> +		return PTR_ERR(dc->axi_clk);
-> +	}
-> +
-> +	dc->ahb_clk = devm_clk_get(dev, "ahb");
-> +	if (IS_ERR(dc->ahb_clk)) {
-> +		dev_err(dev, "can't get ahb clock\n");
-> +		return PTR_ERR(dc->ahb_clk);
-> +	}
-
-I think devm_clk_get_enabled() will help here.
-
-> +	for (i = 0; i < outputs; i++) {
-> +		snprintf(pixclk_name, sizeof(pixclk_name), "pix%u", i);
-> +		dc->pix_clk[i] = devm_clk_get(dev, pixclk_name);
-> +		if (IS_ERR(dc->pix_clk[i])) {
-> +			dev_err(dev, "can't get pixel clk %u\n", i);
-> +			return PTR_ERR(dc->pix_clk[i]);
-> +		}
-> +	}
-
-...
-
-> +err_ahb_clk_disable:
-> +	clk_disable_unprepare(dc->ahb_clk);
-> +err_axi_clk_disable:
-> +	clk_disable_unprepare(dc->axi_clk);
-> +err_core_clk_disable:
-> +	clk_disable_unprepare(dc->core_clk);
-
-And you could get avoid these clk_disable_unprepare(). Also the ones in
-the remove callback.
-
-> +err_rst_assert:
-> +	reset_control_bulk_assert(VSDC_RESET_COUNT, dc->rsts);
-> +	return ret;
-> +}
-> +
-> +static void vs_dc_remove(struct platform_device *pdev)
-> +{
-> +	struct vs_dc *dc = dev_get_drvdata(&pdev->dev);
-> +
-> +	vs_drm_finalize(dc);
-> +
-> +	dev_set_drvdata(&pdev->dev, NULL);
-> +
-> +	clk_disable_unprepare(dc->ahb_clk);
-> +	clk_disable_unprepare(dc->axi_clk);
-> +	clk_disable_unprepare(dc->core_clk);
-> +	reset_control_bulk_assert(VSDC_RESET_COUNT, dc->rsts);
-> +}
-
-...
-
-> diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane.c b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> new file mode 100644
-> index 0000000000000..25d6e01cc8b71
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> @@ -0,0 +1,166 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
-> + */
-> +
-> +#include <linux/regmap.h>
-> +
-> +#include <drm/drm_atomic.h>
-> +#include <drm/drm_atomic_helper.h>
-> +#include <drm/drm_crtc.h>
-> +#include <drm/drm_fb_dma_helper.h>
-> +#include <drm/drm_fourcc.h>
-> +#include <drm/drm_framebuffer.h>
-> +#include <drm/drm_gem_atomic_helper.h>
-> +#include <drm/drm_gem_dma_helper.h>
-> +#include <drm/drm_modeset_helper_vtables.h>
-> +#include <drm/drm_plane.h>
-> +#include <drm/drm_print.h>
-> +
-> +#include "vs_crtc.h"
-> +#include "vs_plane.h"
-> +#include "vs_dc.h"
-> +#include "vs_primary_plane_regs.h"
-> +
-> +static int vs_primary_plane_atomic_check(struct drm_plane *plane,
-> +					 struct drm_atomic_state *state)
-> +{
-> +	struct drm_plane_state *new_plane_state = drm_atomic_get_new_plane_state(state,
-> +										 plane);
-> +	struct drm_crtc *crtc = new_plane_state->crtc;
-> +	struct drm_crtc_state *crtc_state;
-> +
-> +	if (!crtc)
-> +		return 0;
-> +
-> +	crtc_state = drm_atomic_get_existing_crtc_state(state,
-> +							crtc);
-
-I think these arguments could be merged into a single line.
-
-> +	if (WARN_ON(!crtc_state))
-> +		return -EINVAL;
-> +
-> +	return drm_atomic_helper_check_plane_state(new_plane_state,
-> +						   crtc_state,
-> +						   DRM_PLANE_NO_SCALING,
-> +						   DRM_PLANE_NO_SCALING,
-> +						   false, true);
-> +}
-
-...
-
-> +struct drm_plane *vs_primary_plane_init(struct drm_device *drm_dev, struct vs_dc *dc)
-> +{
-> +	struct drm_plane *plane;
-> +	int ret;
-> +
-> +	plane = devm_kzalloc(drm_dev->dev, sizeof(*plane), GFP_KERNEL);
-> +	if (!plane)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	ret = drm_universal_plane_init(drm_dev, plane, 0,
-> +				       &vs_primary_plane_funcs,
-> +				       dc->identity.formats->array,
-> +				       dc->identity.formats->num,
-> +				       NULL,
-> +				       DRM_PLANE_TYPE_PRIMARY,
-> +				       NULL);
-> +
-> +	if (ret) {
-> +		devm_kfree(drm_dev->dev, plane);
-
-Similar to vs_bridge_init's case, this devm_kfree() isn't unnecessary,
-either.
-
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	drm_plane_helper_add(plane, &vs_primary_plane_helper_funcs);
-> +
-> +	return plane;
-> +}
-
-Best regards,
-Yao Zi
-
-[1]: https://elixir.bootlin.com/linux/v6.16/source/drivers/base/dd.c#L723
-[2]: https://elixir.bootlin.com/linux/v6.16/source/drivers/base/dd.c#L549
 
 _______________________________________________
 linux-riscv mailing list
