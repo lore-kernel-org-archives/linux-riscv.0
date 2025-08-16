@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09EDACA0EE4
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 08:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5449CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 08:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kojUwvInX8SxJemnJ7SkPo5lZicVkhfhBgfd5ww8yRs=; b=iilqGNYzfv/cnx
-	/Vn2nAjFQWqs5ACUk0q+rLwUFJOCsbPd2pby5p94P/akRbWTWDF4fPMZrd92i0sElV5yCd2GZ+fqH
-	oa12nL2Y8p5bz7U8AkH5eyl9+UBoxAZh7I8jmh0E177xZKiYvW4ojDIKcmehLnqXphgMUqOKfbxlz
-	QcKR8FB/jMOuxzIUxQrx0LO2uBcnOsFkBnX2uYsrZSQRzYWXFOC5MNCE9raUqh0nS37U4EXH2ryQ6
-	lfhsDdlScj+SrMCIo4kFjbyP22mUKyWiJWs0z3S4vLfLvPCMUHPTb71qG1gi1PpsJ3QxyE33V1nMx
-	7m/jj4icZDlg+BOwAJOA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kxqkw5SQR/AThH8T3CM0d9k1k1E055+DwodV0vMNMMk=; b=k98SpXYjrdQelm
+	1s8HpUZ3nHLzvlSm8Y99+q4AQQriT/CAcu6z0uoohPlPpRPXfnnOW9dU+tU+FL9r8MOmMMYnE3Blb
+	mpCrJjl7uz0JNS4nFwxTNHDQI1fzAaJ9/FyUKImn2QsgMjyJRH4n6sq5cH2UsKJDY4RqfKAE/OF0C
+	GoqMb+4XTODH/UOvG7Vy9hRpJUjmiUjs1Qb5MiLaiKnRE0xs5A1E0qUGA8swfdLDIMhSKiWM0O04S
+	8QmKYBBxkmA+QMYGU0s9hUaaUhVppxgqjc4N5AznRl8cENjcWhgiIFbBqkfwXerNSLxMEeGG1Lx+P
+	O1lTF1a/JT1tzVe3j2mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCIw-00000004Iix-35Tb;
-	Sat, 16 Aug 2025 08:30:22 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1unCSW-00000004JJZ-2hWe;
+	Sat, 16 Aug 2025 08:40:16 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCIu-00000004Iic-1ekO
+	id 1unCST-00000004JIC-48fc
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Aug 2025 08:30:21 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-333f901b229so20288651fa.2
-        for <linux-riscv@lists.infradead.org>; Sat, 16 Aug 2025 01:30:19 -0700 (PDT)
+	Sat, 16 Aug 2025 08:40:15 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-76e2eb20a64so3017533b3a.3
+        for <linux-riscv@lists.infradead.org>; Sat, 16 Aug 2025 01:40:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1755333018; x=1755937818; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ERxMgw2kpDYIcEN4b7OBl7/5abBT2Agrn9m7lX6uaGA=;
-        b=Cl72oZGy2KScr6EVP8GLC2NR1cyWoh/i2ITeuV8FsxjyTVCg19Tqg0yGQ5/VcZPq1G
-         +X8aLnSffdv6hSXN9EkyNRJDgU0wjGKDKdsFElLkmC8ze6YyODT+aSj5YxZlT7QTllBh
-         5LArQndmyCYsfBSddE5WxRyShWl7pzGYLb4Pk94G/MZQs+uEHzX5QFKEvvhaEwf8tjqm
-         Lnk98G+1XHXYPxXBZBqeR1YK3mYOi4MchSzbdCsOLSKuICdkHyyHF9KxFK6usIylRflZ
-         wsPz41r9jP4A6zqUAHnBh4wmvVUABSNojKj8D+YHIPCnXmkxkMwtYRnIekBBFFSjQKz9
-         m/LA==
+        d=gmail.com; s=20230601; t=1755333613; x=1755938413; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7lX5nNZt/iedD5I3qonATDQifeRjscW+DHMDcFYT6mk=;
+        b=hlyT4y7nepoQHLOB1v1mI2rF925tw1IjFgjdFR7Utoh5GlXuHHQ7U1cCRdS0ZDxChy
+         Q8x+d4oaDAOI8u49XKXe3vNvEPPFYQPaG4QZG6dXD8Vhe8B2iri4CbHYKbx+DyVWqy2O
+         kiyG3k743ECfmstKGWMJE9c7waYHOxwe9Lc/54SP48rI88nD2hcrR4bpRhj7L5sHR+sz
+         4Dg/gHT93x06hmlESctkUoknFYvmmydqyGO9hMdf94Nokh28K3cBf3RTVCFu9ZEQq2fO
+         dWF4y1yiAur/NKa2YyamVx+l0kFKpZBgrwqEPa7mWfUOg7yId2UosjrDMPRqRfHSY+Ys
+         O+0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755333018; x=1755937818;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ERxMgw2kpDYIcEN4b7OBl7/5abBT2Agrn9m7lX6uaGA=;
-        b=TOjYA7a1WhVsdZeUmFs1Yc9k8iB6Qcxg3+WzlEe4O0DLXA/39YuRb8CvSmDpyR3IBs
-         aIx97ooSbE+Luir5tEW1p3zp/P8pbJu/1QxziSy6mAkwViOcay04ttAruyCOWE8N1u2W
-         OOKsMlc6+ZY3ACb7zsuATW++sSceajQSr8QhTLZ6ZyTS7AC6isZFp+pLmY5wYLldR9pR
-         XmfQSiit29o2OCKxNKY1sSu6PdARxqVADcFrYNevvNZ7B3GnRAOuW8kvOP/ZybxWxg9y
-         Vcd1J5BmpMv2BAP+YDv86odXg9U8LdtLk49knC4G/63ot226MEHigod6SHpwNsx5ml1S
-         97sw==
-X-Forwarded-Encrypted: i=1; AJvYcCWk4B+2Wv5lOVu2JtRGA53JlJXjucKCaY8qqHjZHMSjYvSF9udXMsfTv7+RWvqt/m2+6a5mhVGR4N+ghQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzwCqt0AzSTFvCMEAq7I+07OTblYH/GGOn6TESC37W/skNtZMg
-	J00URnhsGKV5eG6GU6lny+Ao31/JgGC8OJnJ2NGPVpwGnuwv3BFN5GwF4TjvPv3h+yaY2x9EtiZ
-	8bCK+JkWufCnKN5EYv6ggPdc3hvjda2QIAS12THlyow==
-X-Gm-Gg: ASbGncsMp5OjHvRKE1uMSB8oHNQf+NYr+icaDPk+h3QFMykXpiiSIqffQSa75rX7nlT
-	tda2K92DB515bCr1356t9iWJYbr612GQDSM4orRquszosd4kW5tbbyvM1ABOSkPNpKyV0Brf25a
-	wvqyVROoTGlhO31PlaYqA5SylPAiKq2GNmtmuhopqAafVOSJGK3PjTke0Z9JNqq3amnOC2zLeAB
-	WlB/Vg=
-X-Google-Smtp-Source: AGHT+IEST4Hz1W6gN8Tp0q2vE+c0oXk55HJWk6Wusd2HGHaqZsEJzSfdSxtmeot6CG5ZxyPg8a3TAz84PqZoJqjFmzo=
-X-Received: by 2002:a2e:a00e:0:10b0:334:97:10c8 with SMTP id
- 38308e7fff4ca-3340986afc2mr7761541fa.4.1755333018132; Sat, 16 Aug 2025
- 01:30:18 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755333613; x=1755938413;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7lX5nNZt/iedD5I3qonATDQifeRjscW+DHMDcFYT6mk=;
+        b=r4nz4pfWa+4nN/+8ArmJvBZacpEw88n5M6UUcALTDDoHuZoJkwyTHjApCb5SWpYI6d
+         VR7nPWQ7O4C1su43Ha+LnBbrTx84reFDATMUxcRMdivbeGnWIMl4zDqOO3HYbW5m1BUm
+         vv0YYwLJTkmsbZnqhyKrGozCpu63Ibax9EnR+9BfClw0iv9PjlmB4sMDj10bZYm3x/Qi
+         Ff0B8LZR2AXURMQEjanZfEn4ZLQ25LLCuQV0pBBLK9DuV7MR5TwoncPALrPeRnxtcP96
+         zjKBsM+cyZaeHzUW4eLKRwW2vA79YTbDa2VLKRrwDAmzpfe8vQ9qzQydwrgn0KOelXnn
+         Xc3g==
+X-Gm-Message-State: AOJu0Yx3HxH6fMg70vP+aomdchFZC5h5BoTeTRbQ8AmhlgS6EuIBg+Gy
+	K6mzgw/wjZX6f1+S7++JdxdMOAhxDjvzmEA0MnjKy/ZEMnIFMmDx+DqarMOOfw==
+X-Gm-Gg: ASbGncs5WLpidRkswwKeU0w1mYGm54iCb0CcuBzEJkYDIL80k548bhTdPXCGgb3ZIJ1
+	3Bb5nSWtj0KWLPYlAHTO6BFvuWjpakoddx/yKiQLyrXK5wGFRfALVy6hTkmxZXw7x1HPAPjdGwU
+	F9XFpk4Q6Nm+hOtWf8NbifHc/V1s5oD0UKWaaONDejcJR08q1TiKICIWoBug59HeU1/MTe9ek0q
+	NJschePjCo8FIsOkQJzt+3bVITPRXni5KZb49DdMTGnuiO3hD2a39HsmVsbfWwSOjN3DBIHemVX
+	cJRTRxTBM0m4v9m8W9ejYWIWdZXougq7sN1q9kwc2Xs9bntlYADM1yEUjR2QBYINveMwjPe6Jjp
+	xLVPDc3AXeis48DP4J7AuUO8ra0OVufBR1ICIoHjkI9c=
+X-Google-Smtp-Source: AGHT+IFmarhC/MKShY0Sjxvn8fiJBLXUJaB8Dp5i6LVNGanCs7LN3b6VKsup9NKjyckWc9fSPg+DpQ==
+X-Received: by 2002:a05:6a20:3d06:b0:240:196f:35e5 with SMTP id adf61e73a8af0-240d2ef590cmr8225559637.36.1755333612521;
+        Sat, 16 Aug 2025 01:40:12 -0700 (PDT)
+Received: from localhost ([103.233.162.254])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76e4558b00bsm2685094b3a.102.2025.08.16.01.40.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 16 Aug 2025 01:40:11 -0700 (PDT)
+From: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+X-Google-Original-From: Zhihang Shao
+To: linux-crypto@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org,
+	herbert@gondor.apana.org.au,
+	paul.walmsley@sifive.com,
+	alex@ghiti.fr,
+	appro@cryptogams.org,
+	zhang.lyra@gmail.com,
+	ebiggers@kernel.org
+Subject: [PATCH v5] crypto: riscv/poly1305 - import OpenSSL/CRYPTOGAMS implementation
+Date: Sat, 16 Aug 2025 16:39:44 +0800
+Message-ID: <20250816083943.120700-2-zhihang.shao.iscas@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250815161406.76370-1-apatel@ventanamicro.com>
- <20250815161406.76370-3-apatel@ventanamicro.com> <20250815-e69bdc695cf78e6ce07e580c@orel>
-In-Reply-To: <20250815-e69bdc695cf78e6ce07e580c@orel>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Sat, 16 Aug 2025 14:00:07 +0530
-X-Gm-Features: Ac12FXyKiNxNt01bHkxj5VizDPtJcwrdzgQ6aEx_XK-xKa-rmi7zdvozfKXtcOY
-Message-ID: <CAK9=C2UA6EF=RQ0C9qK2CGEun3GGndq_G1UpTju23GNSfRaRbw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] RISC-V: Add common csr_read_num() and csr_write_num() functions
-To: Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_013020_444323_9FB26830 
-X-CRM114-Status: GOOD (  29.69  )
+X-CRM114-CacheID: sfid-20250816_014014_039426_DA389752 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,268 +96,1007 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Alexandre Ghiti <alex@ghiti.fr>, "Rafael J . Wysocki" <rafael@kernel.org>, Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBBdWcgMTYsIDIwMjUgYXQgMTozMuKAr0FNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
-bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBBdWcgMTUsIDIwMjUgYXQgMDk6NDQ6
-MDZQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90ZToKPiA+IEluIFJJU0MtViwgdGhlcmUgaXMgbm8g
-Q1NSIHJlYWQvd3JpdGUgaW5zdHJ1Y3Rpb24gd2hpY2ggdGFrZXMgQ1NSCj4gPiBudW1iZXIgdmlh
-IHJlZ2lzdGVyIHNvIGFkZCBjb21tb24gY3NyX3JlYWRfbnVtKCkgYW5kIGNzcl93cml0ZV9udW0o
-KQo+ID4gZnVuY3Rpb25zIHdoaWNoIGFsbG93IGFjY2Vzc2luZyBjZXJ0YWluIENTUnMgYnkgcGFz
-c2luZyBDU1IgbnVtYmVyCj4gPiBhcyBwYXJhbWV0ZXIuIFRoZXNlIGNvbW1vbiBmdW5jdGlvbnMg
-d2lsbCBiZSBmaXJzdCB1c2VkIGJ5IHRoZQo+ID4gQUNQSSBDUFBDIGRyaXZlciBhbmQgUklTQy1W
-IFBNVSBkcml2ZXIuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogQW51cCBQYXRlbCA8YXBhdGVsQHZl
-bnRhbmFtaWNyby5jb20+Cj4gPiAtLS0KPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5o
-IHwgICAzICsKPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSAgIHwgICAxICsKPiA+ICBh
-cmNoL3Jpc2N2L2tlcm5lbC9jc3IuYyAgICAgIHwgMTc3ICsrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrCj4gPiAgZHJpdmVycy9hY3BpL3Jpc2N2L2NwcGMuYyAgICB8ICAxNyArKy0t
-Cj4gPiAgZHJpdmVycy9wZXJmL3Jpc2N2X3BtdS5jICAgICB8ICA0MyArLS0tLS0tLS0KPiA+ICA1
-IGZpbGVzIGNoYW5nZWQsIDE4OSBpbnNlcnRpb25zKCspLCA1MiBkZWxldGlvbnMoLSkKPiA+ICBj
-cmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvY3NyLmMKPiA+Cj4gPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vY3NyLmgKPiA+IGluZGV4IDZmZWQ0MmUzNzcwNS4uMTU0MDYyNmIzNTQwIDEwMDY0NAo+ID4g
-LS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaAo+ID4gKysrIGIvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9jc3IuaAo+ID4gQEAgLTU3NSw2ICs1NzUsOSBAQAo+ID4gICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIDogIm1lbW9yeSIpOyAgICAgICAgICAgICAgICAgICAgICBcCj4gPiAg
-fSkKPiA+Cj4gPiArZXh0ZXJuIHVuc2lnbmVkIGxvbmcgY3NyX3JlYWRfbnVtKHVuc2lnbmVkIGxv
-bmcgY3NyX251bSwgaW50ICpvdXRfZXJyKTsKPiA+ICtleHRlcm4gdm9pZCBjc3Jfd3JpdGVfbnVt
-KHVuc2lnbmVkIGxvbmcgY3NyX251bSwgdW5zaWduZWQgbG9uZyB2YWwsIGludCAqb3V0X2Vycik7
-Cj4KPiBNeSBwcmVmZXJlbmNlIHdvdWxkIGJlIGZvciBhbiBpbnRlcmZhY2Ugd2l0aCB0aGUgcmV0
-dXJuL2VyciBwYXJhbWV0ZXJzIHRoZQo+IG90aGVyIHdheSBhcm91bmQsIGkuZS4KPgo+IGludCBj
-c3JfcmVhZF9udW0odW5zaWduZWQgbG9uZyBjc3JfbnVtLCB1bnNpZ25lZCBsb25nICp2YWwpOwo+
-IGludCBjc3Jfd3JpdGVfbnVtKHVuc2lnbmVkIGxvbmcgY3NyX251bSwgdW5zaWduZWQgbG9uZyB2
-YWwpOwo+Cj4gYW5kIHRoZW4gZW5zdXJlIGFsbCBjYWxsZXJzIGFsd2F5cyBjaGVjayB0aGF0IHRo
-ZSByZXR1cm4gdmFsdWUgaXMgemVybwo+IGJlZm9yZSBwcm9jZWVkaW5nIHRvIHVzZSB2YWwgb3Ig
-YXNzdW1lIHZhbCB3YXMgd3JpdHRlbi4KCkkgaGFkIGNvbnNpZGVyZWQgdGhpcyBidXQgdGhlIHBy
-b2JsZW0gd2l0aCB0aGlzIGFwcHJvYWNoIGlzIHRoYXQKaW5kaXZpZHVhbCBzd2l0Y2ggY2FzZXMg
-aW4gY3NyX3JlYWRfbnVtKCkgYmVjb21lIHJvdWdobHkgNAppbnN0cnVjdGlvbnMgYmVjYXVzZSB2
-YWx1ZSByZWFkIGZyb20gQ1NSIGhhcyB0byB3cml0dGVuIHRvIGEKbWVtb3J5IGxvY2F0aW9uLgoK
-VGhlIGN1cnJlbnQgYXBwcm9hY2ggcmVzdWx0cyBpbiBqdXN0IDIgaW5zdHJ1Y3Rpb25zIGZvciBl
-YWNoCnN3aXRjaC1jYXNlLiBBZGRpdGlvbmFsbHksIHRoZSBjdXJyZW50IHByb3RvdHlwZXMgb2Yg
-Y3NyX3JlYWRfbnVtKCkKYW5kIGNzcl93cml0ZV9udW0oKSBhcmUgY2xvc2VyIHRvIGNzcl9yZWFk
-KCkgYW5kIGNzcl93cml0ZSgpCnJlc3BlY3RpdmVseS4KCj4KPiA+ICsKPiA+ICAjZW5kaWYgLyog
-X19BU1NFTUJMWV9fICovCj4gPgo+ID4gICNlbmRpZiAvKiBfQVNNX1JJU0NWX0NTUl9IICovCj4g
-PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2tl
-cm5lbC9NYWtlZmlsZQo+ID4gaW5kZXggYzdiNTQyNTczNDA3Li4wYTc1ZTIwYmRlMTggMTAwNjQ0
-Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQo+ID4gKysrIGIvYXJjaC9yaXNj
-di9rZXJuZWwvTWFrZWZpbGUKPiA+IEBAIC01MCw2ICs1MCw3IEBAIG9iai15ICAgICAgICs9IHNv
-Yy5vCj4gPiAgb2JqLSQoQ09ORklHX1JJU0NWX0FMVEVSTkFUSVZFKSArPSBhbHRlcm5hdGl2ZS5v
-Cj4gPiAgb2JqLXkgICAgICAgICs9IGNwdS5vCj4gPiAgb2JqLXkgICAgICAgICs9IGNwdWZlYXR1
-cmUubwo+ID4gK29iai15ICAgICAgICArPSBjc3Iubwo+ID4gIG9iai15ICAgICAgICArPSBlbnRy
-eS5vCj4gPiAgb2JqLXkgICAgICAgICs9IGlycS5vCj4gPiAgb2JqLXkgICAgICAgICs9IHByb2Nl
-c3Mubwo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2Nzci5jIGIvYXJjaC9yaXNj
-di9rZXJuZWwvY3NyLmMKPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiBpbmRleCAwMDAwMDAw
-MDAwMDAuLmY3ZGU0NWJiNTk3Ywo+ID4gLS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvYXJjaC9yaXNj
-di9rZXJuZWwvY3NyLmMKPiA+IEBAIC0wLDAgKzEsMTc3IEBACj4gPiArLy8gU1BEWC1MaWNlbnNl
-LUlkZW50aWZpZXI6IEdQTC0yLjAKPiA+ICsvKgo+ID4gKyAqIENvcHlyaWdodCAoYykgMjAyNSBW
-ZW50YW5hIE1pY3JvIFN5c3RlbXMgSW5jLgo+ID4gKyAqLwo+ID4gKwo+ID4gKyNkZWZpbmUgcHJf
-Zm10KGZtdCkgInJpc2N2OiAiIGZtdAo+ID4gKyNpbmNsdWRlIDxsaW51eC9lcnIuaD4KPiA+ICsj
-aW5jbHVkZSA8bGludXgvZXhwb3J0Lmg+Cj4gPiArI2luY2x1ZGUgPGxpbnV4L3ByaW50ay5oPgo+
-ID4gKyNpbmNsdWRlIDxsaW51eC90eXBlcy5oPgo+ID4gKyNpbmNsdWRlIDxhc20vY3NyLmg+Cj4g
-PiArCj4gPiArI2RlZmluZSBDU1JfQ1VTVE9NMF9VX1JXX0JBU0UgICAgICAgICAgICAgICAgMHg4
-MDAKPiA+ICsjZGVmaW5lIENTUl9DVVNUT00wX1VfUldfQ09VTlQgICAgICAgICAgICAgICAweDEw
-MAo+ID4gKwo+ID4gKyNkZWZpbmUgQ1NSX0NVU1RPTTFfVV9ST19CQVNFICAgICAgICAgICAgICAg
-IDB4Q0MwCj4gPiArI2RlZmluZSBDU1JfQ1VTVE9NMV9VX1JPX0NPVU5UICAgICAgICAgICAgICAg
-MHgwNDAKPiA+ICsKPiA+ICsjZGVmaW5lIENTUl9DVVNUT00yX1NfUldfQkFTRSAgICAgICAgICAg
-ICAgICAweDVDMAo+ID4gKyNkZWZpbmUgQ1NSX0NVU1RPTTJfU19SV19DT1VOVCAgICAgICAgICAg
-ICAgIDB4MDQwCj4gPiArCj4gPiArI2RlZmluZSBDU1JfQ1VTVE9NM19TX1JXX0JBU0UgICAgICAg
-ICAgICAgICAgMHg5QzAKPiA+ICsjZGVmaW5lIENTUl9DVVNUT00zX1NfUldfQ09VTlQgICAgICAg
-ICAgICAgICAweDA0MAo+ID4gKwo+ID4gKyNkZWZpbmUgQ1NSX0NVU1RPTTRfU19ST19CQVNFICAg
-ICAgICAgICAgICAgIDB4REMwCj4gPiArI2RlZmluZSBDU1JfQ1VTVE9NNF9TX1JPX0NPVU5UICAg
-ICAgICAgICAgICAgMHgwNDAKPiA+ICsKPiA+ICsjZGVmaW5lIENTUl9DVVNUT001X0hTX1JXX0JB
-U0UgICAgICAgICAgICAgICAweDZDMAo+ID4gKyNkZWZpbmUgQ1NSX0NVU1RPTTVfSFNfUldfQ09V
-TlQgICAgICAgICAgICAgIDB4MDQwCj4gPiArCj4gPiArI2RlZmluZSBDU1JfQ1VTVE9NNl9IU19S
-V19CQVNFICAgICAgICAgICAgICAgMHhBQzAKPiA+ICsjZGVmaW5lIENTUl9DVVNUT002X0hTX1JX
-X0NPVU5UICAgICAgICAgICAgICAweDA0MAo+ID4gKwo+ID4gKyNkZWZpbmUgQ1NSX0NVU1RPTTdf
-SFNfUk9fQkFTRSAgICAgICAgICAgICAgIDB4RUMwCj4gPiArI2RlZmluZSBDU1JfQ1VTVE9NN19I
-U19ST19DT1VOVCAgICAgICAgICAgICAgMHgwNDAKPiA+ICsKPiA+ICsjZGVmaW5lIENTUl9DVVNU
-T004X01fUldfQkFTRSAgICAgICAgICAgICAgICAweDdDMAo+ID4gKyNkZWZpbmUgQ1NSX0NVU1RP
-TThfTV9SV19DT1VOVCAgICAgICAgICAgICAgIDB4MDQwCj4gPiArCj4gPiArI2RlZmluZSBDU1Jf
-Q1VTVE9NOV9NX1JXX0JBU0UgICAgICAgICAgICAgICAgMHhCQzAKPiA+ICsjZGVmaW5lIENTUl9D
-VVNUT005X01fUldfQ09VTlQgICAgICAgICAgICAgICAweDA0MAo+ID4gKwo+ID4gKyNkZWZpbmUg
-Q1NSX0NVU1RPTTEwX01fUk9fQkFTRSAgICAgICAgICAgICAgIDB4RkMwCj4gPiArI2RlZmluZSBD
-U1JfQ1VTVE9NMTBfTV9ST19DT1VOVCAgICAgICAgICAgICAgMHgwNDAKPiA+ICsKPiA+ICt1bnNp
-Z25lZCBsb25nIGNzcl9yZWFkX251bSh1bnNpZ25lZCBsb25nIGNzcl9udW0sIGludCAqb3V0X2Vy
-cikKPiA+ICt7Cj4gPiArI2RlZmluZSBzd2l0Y2hjYXNlX2Nzcl9yZWFkKF9fY3NyX251bSkgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gKyAgICAgY2FzZSAoX19jc3JfbnVtKTog
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgICAgICAg
-IHJldHVybiBjc3JfcmVhZChfX2Nzcl9udW0pCj4gPiArI2RlZmluZSBzd2l0Y2hjYXNlX2Nzcl9y
-ZWFkXzIoX19jc3JfbnVtKSAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRjaGNh
-c2VfY3NyX3JlYWQoX19jc3JfbnVtICsgMCk7ICAgICAgICAgICAgICAgICAgICAgXAo+ID4gKyAg
-ICAgc3dpdGNoY2FzZV9jc3JfcmVhZChfX2Nzcl9udW0gKyAxKQo+ID4gKyNkZWZpbmUgc3dpdGNo
-Y2FzZV9jc3JfcmVhZF80KF9fY3NyX251bSkgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAg
-ICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzIoX19jc3JfbnVtICsgMCk7ICAgICAgICAgICAgICAgICAg
-IFwKPiA+ICsgICAgIHN3aXRjaGNhc2VfY3NyX3JlYWRfMihfX2Nzcl9udW0gKyAyKQo+ID4gKyNk
-ZWZpbmUgc3dpdGNoY2FzZV9jc3JfcmVhZF84KF9fY3NyX251bSkgICAgICAgICAgICAgICAgICAg
-ICBcCj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzQoX19jc3JfbnVtICsgMCk7ICAgICAg
-ICAgICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRjaGNhc2VfY3NyX3JlYWRfNChfX2Nzcl9udW0g
-KyA0KQo+ID4gKyNkZWZpbmUgc3dpdGNoY2FzZV9jc3JfcmVhZF8xNihfX2Nzcl9udW0pICAgICAg
-ICAgICAgICAgICAgICBcCj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzgoX19jc3JfbnVt
-ICsgMCk7ICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRjaGNhc2VfY3NyX3JlYWRf
-OChfX2Nzcl9udW0gKyA4KQo+ID4gKyNkZWZpbmUgc3dpdGNoY2FzZV9jc3JfcmVhZF8zMihfX2Nz
-cl9udW0pICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFk
-XzE2KF9fY3NyX251bSArIDApOyAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRjaGNh
-c2VfY3NyX3JlYWRfMTYoX19jc3JfbnVtICsgMTYpCj4gPiArI2RlZmluZSBzd2l0Y2hjYXNlX2Nz
-cl9yZWFkXzY0KF9fY3NyX251bSkgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRj
-aGNhc2VfY3NyX3JlYWRfMzIoX19jc3JfbnVtICsgMCk7ICAgICAgICAgICAgICAgICAgXAo+ID4g
-KyAgICAgc3dpdGNoY2FzZV9jc3JfcmVhZF8zMihfX2Nzcl9udW0gKyAzMikKPiA+ICsjZGVmaW5l
-IHN3aXRjaGNhc2VfY3NyX3JlYWRfMTI4KF9fY3NyX251bSkgICAgICAgICAgICAgICAgICAgXAo+
-ID4gKyAgICAgc3dpdGNoY2FzZV9jc3JfcmVhZF82NChfX2Nzcl9udW0gKyAwKTsgICAgICAgICAg
-ICAgICAgICBcCj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzY0KF9fY3NyX251bSArIDY0
-KQo+ID4gKyNkZWZpbmUgc3dpdGNoY2FzZV9jc3JfcmVhZF8yNTYoX19jc3JfbnVtKSAgICAgICAg
-ICAgICAgICAgICBcCj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzEyOChfX2Nzcl9udW0g
-KyAwKTsgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRjaGNhc2VfY3NyX3JlYWRfMTI4
-KF9fY3NyX251bSArIDEyOCkKPiA+ICsKPiA+ICsgICAgIGlmIChvdXRfZXJyKQo+ID4gKyAgICAg
-ICAgICAgICAqb3V0X2VyciA9IDA7Cj4gPiArCj4gPiArICAgICBzd2l0Y2ggKGNzcl9udW0pIHsK
-PiA+ICsgICAgIHN3aXRjaGNhc2VfY3NyX3JlYWRfMzIoQ1NSX0NZQ0xFKTsKPiA+ICsgICAgIHN3
-aXRjaGNhc2VfY3NyX3JlYWRfMzIoQ1NSX0NZQ0xFSCk7Cj4gPiArICAgICBzd2l0Y2hjYXNlX2Nz
-cl9yZWFkXzI1NihDU1JfQ1VTVE9NMF9VX1JXX0JBU0UpOwo+ID4gKyAgICAgc3dpdGNoY2FzZV9j
-c3JfcmVhZF82NChDU1JfQ1VTVE9NMV9VX1JPX0JBU0UpOwo+ID4gKyAgICAgc3dpdGNoY2FzZV9j
-c3JfcmVhZF82NChDU1JfQ1VTVE9NMl9TX1JXX0JBU0UpOwo+ID4gKyAgICAgc3dpdGNoY2FzZV9j
-c3JfcmVhZF82NChDU1JfQ1VTVE9NM19TX1JXX0JBU0UpOwo+ID4gKyAgICAgc3dpdGNoY2FzZV9j
-c3JfcmVhZF82NChDU1JfQ1VTVE9NNF9TX1JPX0JBU0UpOwo+ID4gKyAgICAgc3dpdGNoY2FzZV9j
-c3JfcmVhZF82NChDU1JfQ1VTVE9NNV9IU19SV19CQVNFKTsKPiA+ICsgICAgIHN3aXRjaGNhc2Vf
-Y3NyX3JlYWRfNjQoQ1NSX0NVU1RPTTZfSFNfUldfQkFTRSk7Cj4gPiArICAgICBzd2l0Y2hjYXNl
-X2Nzcl9yZWFkXzY0KENTUl9DVVNUT003X0hTX1JPX0JBU0UpOwo+ID4gKyNpZmRlZiBDT05GSUdf
-UklTQ1ZfTV9NT0RFCj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzY0KENTUl9DVVNUT004
-X01fUldfQkFTRSk7Cj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzY0KENTUl9DVVNUT005
-X01fUldfQkFTRSk7Cj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzY0KENTUl9DVVNUT00x
-MF9NX1JPX0JBU0UpOwo+ID4gKyNlbmRpZgo+ID4gKyAgICAgZGVmYXVsdDoKPiA+ICsgICAgICAg
-ICAgICAgaWYgKG91dF9lcnIpCj4gPiArICAgICAgICAgICAgICAgICAgICAgKm91dF9lcnIgPSAt
-RUlOVkFMOwo+ID4gKyAgICAgICAgICAgICBlbHNlCj4gPiArICAgICAgICAgICAgICAgICAgICAg
-cHJfZXJyKCIlczogY3NyIDB4JWx4IG5vdCBzdXBwb3J0ZWRcbiIsIF9fZnVuY19fLCBjc3JfbnVt
-KTsKPiA+ICsgICAgICAgICAgICAgYnJlYWs7Cj4gPiArICAgICB9Cj4gPiArCj4gPiArICAgICBy
-ZXR1cm4gMDsKPiA+ICsjdW5kZWYgc3dpdGNoY2FzZV9jc3JfcmVhZF8yNTYKPiA+ICsjdW5kZWYg
-c3dpdGNoY2FzZV9jc3JfcmVhZF8xMjgKPiA+ICsjdW5kZWYgc3dpdGNoY2FzZV9jc3JfcmVhZF82
-NAo+ID4gKyN1bmRlZiBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzMyCj4gPiArI3VuZGVmIHN3aXRjaGNh
-c2VfY3NyX3JlYWRfMTYKPiA+ICsjdW5kZWYgc3dpdGNoY2FzZV9jc3JfcmVhZF84Cj4gPiArI3Vu
-ZGVmIHN3aXRjaGNhc2VfY3NyX3JlYWRfNAo+ID4gKyN1bmRlZiBzd2l0Y2hjYXNlX2Nzcl9yZWFk
-XzIKPiA+ICsjdW5kZWYgc3dpdGNoY2FzZV9jc3JfcmVhZAo+ID4gK30KPiA+ICtFWFBPUlRfU1lN
-Qk9MX0dQTChjc3JfcmVhZF9udW0pOwo+ID4gKwo+ID4gK3ZvaWQgY3NyX3dyaXRlX251bSh1bnNp
-Z25lZCBsb25nIGNzcl9udW0sIHVuc2lnbmVkIGxvbmcgdmFsLCBpbnQgKm91dF9lcnIpCj4gPiAr
-ewo+ID4gKyNkZWZpbmUgc3dpdGNoY2FzZV9jc3Jfd3JpdGUoX19jc3JfbnVtLCBfX3ZhbCkgICAg
-ICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgIGNhc2UgKF9fY3NyX251bSk6ICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gKyAgICAgICAgICAgICBjc3Jfd3Jp
-dGUoX19jc3JfbnVtLCBfX3ZhbCk7ICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgICAg
-ICAgIGJyZWFrCj4gPiArI2RlZmluZSBzd2l0Y2hjYXNlX2Nzcl93cml0ZV8yKF9fY3NyX251bSwg
-X192YWwpICAgICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRjaGNhc2VfY3NyX3dyaXRlKF9fY3Ny
-X251bSArIDAsIF9fdmFsKTsgICAgICAgICAgICAgXAo+ID4gKyAgICAgc3dpdGNoY2FzZV9jc3Jf
-d3JpdGUoX19jc3JfbnVtICsgMSwgX192YWwpCj4gPiArI2RlZmluZSBzd2l0Y2hjYXNlX2Nzcl93
-cml0ZV80KF9fY3NyX251bSwgX192YWwpICAgICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRjaGNh
-c2VfY3NyX3dyaXRlXzIoX19jc3JfbnVtICsgMCwgX192YWwpOyAgICAgICAgICAgXAo+ID4gKyAg
-ICAgc3dpdGNoY2FzZV9jc3Jfd3JpdGVfMihfX2Nzcl9udW0gKyAyLCBfX3ZhbCkKPiA+ICsjZGVm
-aW5lIHN3aXRjaGNhc2VfY3NyX3dyaXRlXzgoX19jc3JfbnVtLCBfX3ZhbCkgICAgICAgICAgICAg
-XAo+ID4gKyAgICAgc3dpdGNoY2FzZV9jc3Jfd3JpdGVfNChfX2Nzcl9udW0gKyAwLCBfX3ZhbCk7
-ICAgICAgICAgICBcCj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl93cml0ZV80KF9fY3NyX251bSAr
-IDQsIF9fdmFsKQo+ID4gKyNkZWZpbmUgc3dpdGNoY2FzZV9jc3Jfd3JpdGVfMTYoX19jc3JfbnVt
-LCBfX3ZhbCkgICAgICAgICAgICBcCj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl93cml0ZV84KF9f
-Y3NyX251bSArIDAsIF9fdmFsKTsgICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRjaGNhc2VfY3Ny
-X3dyaXRlXzgoX19jc3JfbnVtICsgOCwgX192YWwpCj4gPiArI2RlZmluZSBzd2l0Y2hjYXNlX2Nz
-cl93cml0ZV8zMihfX2Nzcl9udW0sIF9fdmFsKSAgICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRj
-aGNhc2VfY3NyX3dyaXRlXzE2KF9fY3NyX251bSArIDAsIF9fdmFsKTsgICAgICAgICAgXAo+ID4g
-KyAgICAgc3dpdGNoY2FzZV9jc3Jfd3JpdGVfMTYoX19jc3JfbnVtICsgMTYsIF9fdmFsKQo+ID4g
-KyNkZWZpbmUgc3dpdGNoY2FzZV9jc3Jfd3JpdGVfNjQoX19jc3JfbnVtLCBfX3ZhbCkgICAgICAg
-ICAgICBcCj4gPiArICAgICBzd2l0Y2hjYXNlX2Nzcl93cml0ZV8zMihfX2Nzcl9udW0gKyAwLCBf
-X3ZhbCk7ICAgICAgICAgIFwKPiA+ICsgICAgIHN3aXRjaGNhc2VfY3NyX3dyaXRlXzMyKF9fY3Ny
-X251bSArIDMyLCBfX3ZhbCkKPiA+ICsjZGVmaW5lIHN3aXRjaGNhc2VfY3NyX3dyaXRlXzEyOChf
-X2Nzcl9udW0sIF9fdmFsKSAgICAgICAgICAgXAo+ID4gKyAgICAgc3dpdGNoY2FzZV9jc3Jfd3Jp
-dGVfNjQoX19jc3JfbnVtICsgMCwgX192YWwpOyAgICAgICAgICBcCj4gPiArICAgICBzd2l0Y2hj
-YXNlX2Nzcl93cml0ZV82NChfX2Nzcl9udW0gKyA2NCwgX192YWwpCj4gPiArI2RlZmluZSBzd2l0
-Y2hjYXNlX2Nzcl93cml0ZV8yNTYoX19jc3JfbnVtLCBfX3ZhbCkgICAgICAgICAgIFwKPiA+ICsg
-ICAgIHN3aXRjaGNhc2VfY3NyX3dyaXRlXzEyOChfX2Nzcl9udW0gKyAwLCBfX3ZhbCk7ICAgICAg
-ICAgXAo+ID4gKyAgICAgc3dpdGNoY2FzZV9jc3Jfd3JpdGVfMTI4KF9fY3NyX251bSArIDEyOCwg
-X192YWwpCj4gPiArCj4gPiArICAgICBpZiAob3V0X2VycikKPiA+ICsgICAgICAgICAgICAgKm91
-dF9lcnIgPSAwOwo+ID4gKwo+ID4gKyAgICAgc3dpdGNoIChjc3JfbnVtKSB7Cj4gPiArICAgICBz
-d2l0Y2hjYXNlX2Nzcl93cml0ZV8yNTYoQ1NSX0NVU1RPTTBfVV9SV19CQVNFLCB2YWwpOwo+ID4g
-KyAgICAgc3dpdGNoY2FzZV9jc3Jfd3JpdGVfNjQoQ1NSX0NVU1RPTTJfU19SV19CQVNFLCB2YWwp
-Owo+ID4gKyAgICAgc3dpdGNoY2FzZV9jc3Jfd3JpdGVfNjQoQ1NSX0NVU1RPTTNfU19SV19CQVNF
-LCB2YWwpOwo+ID4gKyAgICAgc3dpdGNoY2FzZV9jc3Jfd3JpdGVfNjQoQ1NSX0NVU1RPTTVfSFNf
-UldfQkFTRSwgdmFsKTsKPiA+ICsgICAgIHN3aXRjaGNhc2VfY3NyX3dyaXRlXzY0KENTUl9DVVNU
-T002X0hTX1JXX0JBU0UsIHZhbCk7Cj4gPiArI2lmZGVmIENPTkZJR19SSVNDVl9NX01PREUKPiA+
-ICsgICAgIHN3aXRjaGNhc2VfY3NyX3dyaXRlXzY0KENTUl9DVVNUT004X01fUldfQkFTRSwgdmFs
-KTsKPiA+ICsgICAgIHN3aXRjaGNhc2VfY3NyX3dyaXRlXzY0KENTUl9DVVNUT005X01fUldfQkFT
-RSwgdmFsKTsKPiA+ICsjZW5kaWYKPiA+ICsgICAgIGRlZmF1bHQ6Cj4gPiArICAgICAgICAgICAg
-IGlmIChvdXRfZXJyKQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICpvdXRfZXJyID0gLUVJTlZB
-TDsKPiA+ICsgICAgICAgICAgICAgZWxzZQo+ID4gKyAgICAgICAgICAgICAgICAgICAgIHByX2Vy
-cigiJXM6IGNzciAweCVseCBub3Qgc3VwcG9ydGVkXG4iLCBfX2Z1bmNfXywgY3NyX251bSk7Cj4g
-PiArICAgICAgICAgICAgIGJyZWFrOwo+ID4gKyAgICAgfQo+ID4gKyN1bmRlZiBzd2l0Y2hjYXNl
-X2Nzcl93cml0ZV8yNTYKPiA+ICsjdW5kZWYgc3dpdGNoY2FzZV9jc3Jfd3JpdGVfMTI4Cj4gPiAr
-I3VuZGVmIHN3aXRjaGNhc2VfY3NyX3dyaXRlXzY0Cj4gPiArI3VuZGVmIHN3aXRjaGNhc2VfY3Ny
-X3dyaXRlXzMyCj4gPiArI3VuZGVmIHN3aXRjaGNhc2VfY3NyX3dyaXRlXzE2Cj4gPiArI3VuZGVm
-IHN3aXRjaGNhc2VfY3NyX3dyaXRlXzgKPiA+ICsjdW5kZWYgc3dpdGNoY2FzZV9jc3Jfd3JpdGVf
-NAo+ID4gKyN1bmRlZiBzd2l0Y2hjYXNlX2Nzcl93cml0ZV8yCj4gPiArI3VuZGVmIHN3aXRjaGNh
-c2VfY3NyX3dyaXRlCj4gPiArfQo+ID4gK0VYUE9SVF9TWU1CT0xfR1BMKGNzcl93cml0ZV9udW0p
-Owo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvYWNwaS9yaXNjdi9jcHBjLmMgYi9kcml2ZXJzL2Fj
-cGkvcmlzY3YvY3BwYy5jCj4gPiBpbmRleCA0MmMxYTkwNTI0NzAuLmZlNDkxOTM3ZWQyNSAxMDA2
-NDQKPiA+IC0tLSBhL2RyaXZlcnMvYWNwaS9yaXNjdi9jcHBjLmMKPiA+ICsrKyBiL2RyaXZlcnMv
-YWNwaS9yaXNjdi9jcHBjLmMKPiA+IEBAIC02NSwyNCArNjUsMTkgQEAgc3RhdGljIHZvaWQgc2Jp
-X2NwcGNfd3JpdGUodm9pZCAqd3JpdGVfZGF0YSkKPiA+ICBzdGF0aWMgdm9pZCBjcHBjX2ZmaF9j
-c3JfcmVhZCh2b2lkICpyZWFkX2RhdGEpCj4gPiAgewo+ID4gICAgICAgc3RydWN0IHNiaV9jcHBj
-X2RhdGEgKmRhdGEgPSAoc3RydWN0IHNiaV9jcHBjX2RhdGEgKilyZWFkX2RhdGE7Cj4gPiArICAg
-ICBpbnQgZXJyOwo+ID4KPiA+IC0gICAgIHN3aXRjaCAoZGF0YS0+cmVnKSB7Cj4gPiAtICAgICAv
-KiBTdXBwb3J0IG9ubHkgVElNRSBDU1IgZm9yIG5vdyAqLwo+ID4gLSAgICAgY2FzZSBDU1JfVElN
-RToKPiA+IC0gICAgICAgICAgICAgZGF0YS0+cmV0LnZhbHVlID0gY3NyX3JlYWQoQ1NSX1RJTUUp
-Owo+ID4gLSAgICAgICAgICAgICBkYXRhLT5yZXQuZXJyb3IgPSAwOwo+ID4gLSAgICAgICAgICAg
-ICBicmVhazsKPiA+IC0gICAgIGRlZmF1bHQ6Cj4gPiAtICAgICAgICAgICAgIGRhdGEtPnJldC5l
-cnJvciA9IC1FSU5WQUw7Cj4gPiAtICAgICAgICAgICAgIGJyZWFrOwo+ID4gLSAgICAgfQo+ID4g
-KyAgICAgZGF0YS0+cmV0LnZhbHVlID0gY3NyX3JlYWRfbnVtKGRhdGEtPnJlZywgJmVycik7Cj4g
-PiArICAgICBkYXRhLT5yZXQuZXJyb3IgPSBlcnI7Cj4gPiAgfQo+ID4KPiA+ICBzdGF0aWMgdm9p
-ZCBjcHBjX2ZmaF9jc3Jfd3JpdGUodm9pZCAqd3JpdGVfZGF0YSkKPiA+ICB7Cj4gPiAgICAgICBz
-dHJ1Y3Qgc2JpX2NwcGNfZGF0YSAqZGF0YSA9IChzdHJ1Y3Qgc2JpX2NwcGNfZGF0YSAqKXdyaXRl
-X2RhdGE7Cj4gPiArICAgICBpbnQgZXJyOwo+ID4KPiA+IC0gICAgIGRhdGEtPnJldC5lcnJvciA9
-IC1FSU5WQUw7Cj4gPiArICAgICBjc3Jfd3JpdGVfbnVtKGRhdGEtPnJlZywgZGF0YS0+dmFsLCAm
-ZXJyKTsKPiA+ICsgICAgIGRhdGEtPnJldC5lcnJvciA9IGVycjsKPiA+ICB9Cj4gPgo+ID4gIC8q
-Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdS5jIGIvZHJpdmVycy9wZXJm
-L3Jpc2N2X3BtdS5jCj4gPiBpbmRleCA3NjQ0MTQ3ZDUwYjQuLmFhMDUzMjU0NDQ4ZCAxMDA2NDQK
-PiA+IC0tLSBhL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXUuYwo+ID4gKysrIGIvZHJpdmVycy9wZXJm
-L3Jpc2N2X3BtdS5jCj4gPiBAQCAtMTYsNiArMTYsNyBAQAo+ID4gICNpbmNsdWRlIDxsaW51eC9z
-bXAuaD4KPiA+ICAjaW5jbHVkZSA8bGludXgvc2NoZWRfY2xvY2suaD4KPiA+Cj4gPiArI2luY2x1
-ZGUgPGFzbS9jc3IuaD4KPiA+ICAjaW5jbHVkZSA8YXNtL3NiaS5oPgo+ID4KPiA+ICBzdGF0aWMg
-Ym9vbCByaXNjdl9wZXJmX3VzZXJfYWNjZXNzKHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCkKPiA+
-IEBAIC04OCw0NiArODksNiBAQCB2b2lkIGFyY2hfcGVyZl91cGRhdGVfdXNlcnBhZ2Uoc3RydWN0
-IHBlcmZfZXZlbnQgKmV2ZW50LAo+ID4gICAgICAgdXNlcnBnLT5jYXBfdXNlcl90aW1lX3Nob3J0
-ID0gMTsKPiA+ICB9Cj4gPgo+ID4gLXN0YXRpYyB1bnNpZ25lZCBsb25nIGNzcl9yZWFkX251bShp
-bnQgY3NyX251bSkKPiA+IC17Cj4gPiAtI2RlZmluZSBzd2l0Y2hjYXNlX2Nzcl9yZWFkKF9fY3Ny
-X251bSwgX192YWwpICAgICAgICAgICAgICAgIHtcCj4gPiAtICAgICBjYXNlIF9fY3NyX251bTog
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiAtICAgICAgICAgICAgIF9fdmFs
-ID0gY3NyX3JlYWQoX19jc3JfbnVtKTsgICAgICAgICAgICBcCj4gPiAtICAgICAgICAgICAgIGJy
-ZWFrOyB9Cj4gPiAtI2RlZmluZSBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzIoX19jc3JfbnVtLCBfX3Zh
-bCkgICAgICAgICAgICAgIHtcCj4gPiAtICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkKF9fY3NyX251
-bSArIDAsIF9fdmFsKSAgICAgICAgXAo+ID4gLSAgICAgc3dpdGNoY2FzZV9jc3JfcmVhZChfX2Nz
-cl9udW0gKyAxLCBfX3ZhbCl9Cj4gPiAtI2RlZmluZSBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzQoX19j
-c3JfbnVtLCBfX3ZhbCkgICAgICAgICAgICAgIHtcCj4gPiAtICAgICBzd2l0Y2hjYXNlX2Nzcl9y
-ZWFkXzIoX19jc3JfbnVtICsgMCwgX192YWwpICAgICAgXAo+ID4gLSAgICAgc3dpdGNoY2FzZV9j
-c3JfcmVhZF8yKF9fY3NyX251bSArIDIsIF9fdmFsKX0KPiA+IC0jZGVmaW5lIHN3aXRjaGNhc2Vf
-Y3NyX3JlYWRfOChfX2Nzcl9udW0sIF9fdmFsKSAgICAgICAgICAgICAge1wKPiA+IC0gICAgIHN3
-aXRjaGNhc2VfY3NyX3JlYWRfNChfX2Nzcl9udW0gKyAwLCBfX3ZhbCkgICAgICBcCj4gPiAtICAg
-ICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzQoX19jc3JfbnVtICsgNCwgX192YWwpfQo+ID4gLSNkZWZp
-bmUgc3dpdGNoY2FzZV9jc3JfcmVhZF8xNihfX2Nzcl9udW0sIF9fdmFsKSAgICAge1wKPiA+IC0g
-ICAgIHN3aXRjaGNhc2VfY3NyX3JlYWRfOChfX2Nzcl9udW0gKyAwLCBfX3ZhbCkgICAgICBcCj4g
-PiAtICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzgoX19jc3JfbnVtICsgOCwgX192YWwpfQo+ID4g
-LSNkZWZpbmUgc3dpdGNoY2FzZV9jc3JfcmVhZF8zMihfX2Nzcl9udW0sIF9fdmFsKSAgICAge1wK
-PiA+IC0gICAgIHN3aXRjaGNhc2VfY3NyX3JlYWRfMTYoX19jc3JfbnVtICsgMCwgX192YWwpICAg
-ICBcCj4gPiAtICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzE2KF9fY3NyX251bSArIDE2LCBfX3Zh
-bCl9Cj4gPiAtCj4gPiAtICAgICB1bnNpZ25lZCBsb25nIHJldCA9IDA7Cj4gPiAtCj4gPiAtICAg
-ICBzd2l0Y2ggKGNzcl9udW0pIHsKPiA+IC0gICAgIHN3aXRjaGNhc2VfY3NyX3JlYWRfMzIoQ1NS
-X0NZQ0xFLCByZXQpCj4gPiAtICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzMyKENTUl9DWUNMRUgs
-IHJldCkKPiA+IC0gICAgIGRlZmF1bHQgOgo+ID4gLSAgICAgICAgICAgICBicmVhazsKPiA+IC0g
-ICAgIH0KPiA+IC0KPiA+IC0gICAgIHJldHVybiByZXQ7Cj4gPiAtI3VuZGVmIHN3aXRjaGNhc2Vf
-Y3NyX3JlYWRfMzIKPiA+IC0jdW5kZWYgc3dpdGNoY2FzZV9jc3JfcmVhZF8xNgo+ID4gLSN1bmRl
-ZiBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzgKPiA+IC0jdW5kZWYgc3dpdGNoY2FzZV9jc3JfcmVhZF80
-Cj4gPiAtI3VuZGVmIHN3aXRjaGNhc2VfY3NyX3JlYWRfMgo+ID4gLSN1bmRlZiBzd2l0Y2hjYXNl
-X2Nzcl9yZWFkCj4gPiAtfQo+ID4gLQo+ID4gIC8qCj4gPiAgICogUmVhZCB0aGUgQ1NSIG9mIGEg
-Y29ycmVzcG9uZGluZyBjb3VudGVyLgo+ID4gICAqLwo+ID4gQEAgLTEzOSw3ICsxMDAsNyBAQCB1
-bnNpZ25lZCBsb25nIHJpc2N2X3BtdV9jdHJfcmVhZF9jc3IodW5zaWduZWQgbG9uZyBjc3IpCj4g
-PiAgICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwo+ID4gICAgICAgfQo+ID4KPiA+IC0gICAg
-IHJldHVybiBjc3JfcmVhZF9udW0oY3NyKTsKPiA+ICsgICAgIHJldHVybiBjc3JfcmVhZF9udW0o
-Y3NyLCBOVUxMKTsKPiA+ICB9Cj4gPgo+ID4gIHU2NCByaXNjdl9wbXVfY3RyX2dldF93aWR0aF9t
-YXNrKHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCkKPiA+IC0tCj4gPiAyLjQzLjAKPiA+Cj4KPiBP
-dGhlciB0aGFuIHRoZSBzdWdnZXN0aW9uIHRvIGZsaXAgdGhlIGludGVyZmFjZSwKPgo+IFJldmll
-d2VkLWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPgoKUmVnYXJkcywK
-QW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+
+This is a straight import of the OpenSSL/CRYPTOGAMS Poly1305
+implementation for riscv authored by Andy Polyakov.
+The file 'poly1305-riscv.pl' is taken straight from this upstream
+GitHub repository [0] at commit
+5e3fba73576244708a752fa61a8e93e587f271bb.
+This patch was tested on SpacemiT X60, with 2~2.5x improvement 
+over generic implementation.
+
+Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+Signed-off-by: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+---
+v5:
+- adding clean-files += poly1305-core.S in Makefile. (Eric)
+- reduce the include list in poly1305-glue.c. (Eric)
+---
+v4:
+- use 142c43db490d188ff2aea1faf31b8ad0afd5b33f, the newest commit of
+  poly1305-riscv.pl in [0]. (Eric)
+- Directly pass -Dpoly1305_blocks=poly1305_blocks_arch instead of
+  implementing glue subroutine in C. (Andy, Eric)
+---
+v3:
+- remove redundant functions. (Herbert)
+---
+v2:
+- rebase onto mainline and port change to arch/riscv/lib/crypto. (Eric)
+- fix problems in code according to Andy's guidance. (Andy)
+---
+ arch/riscv/lib/crypto/Kconfig           |   5 +
+ arch/riscv/lib/crypto/Makefile          |  20 +
+ arch/riscv/lib/crypto/poly1305-glue.c   |  32 +
+ arch/riscv/lib/crypto/poly1305-riscv.pl | 847 ++++++++++++++++++++++++
+ lib/crypto/Kconfig                      |   2 +-
+ 5 files changed, 905 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/lib/crypto/poly1305-glue.c
+ create mode 100644 arch/riscv/lib/crypto/poly1305-riscv.pl
+
+diff --git a/arch/riscv/lib/crypto/Kconfig b/arch/riscv/lib/crypto/Kconfig
+index 47c99ea97ce2..3d5a87fafb01 100644
+--- a/arch/riscv/lib/crypto/Kconfig
++++ b/arch/riscv/lib/crypto/Kconfig
+@@ -7,6 +7,11 @@ config CRYPTO_CHACHA_RISCV64
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+ 
++config CRYPTO_POLY1305_RISCV
++	tristate
++	default CRYPTO_LIB_POLY1305
++	select CRYPTO_ARCH_HAVE_LIB_POLY1305
++
+ config CRYPTO_SHA256_RISCV64
+ 	tristate
+ 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+diff --git a/arch/riscv/lib/crypto/Makefile b/arch/riscv/lib/crypto/Makefile
+index b7cb877a2c07..a8df713e5bb5 100644
+--- a/arch/riscv/lib/crypto/Makefile
++++ b/arch/riscv/lib/crypto/Makefile
+@@ -3,5 +3,25 @@
+ obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
+ chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
+ 
++obj-$(CONFIG_CRYPTO_POLY1305_RISCV) += poly1305-riscv.o
++poly1305-riscv-y := poly1305-core.o poly1305-glue.o
++AFLAGS_poly1305-core.o += -Dpoly1305_init=poly1305_block_init_arch
++AFLAGS_poly1305-core.o += -Dpoly1305_blocks=poly1305_blocks_arch
++AFLAGS_poly1305-core.o += -Dpoly1305_emit=poly1305_emit_arch
++
+ obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
+ sha256-riscv64-y := sha256.o sha256-riscv64-zvknha_or_zvknhb-zvkb.o
++
++ifeq ($(CONFIG_64BIT),y)
++PERLASM_ARCH := 64
++else
++PERLASM_ARCH := void
++endif
++
++quiet_cmd_perlasm = PERLASM $@
++      cmd_perlasm = $(PERL) $(<) $(PERLASM_ARCH) $(@)
++
++$(obj)/%-core.S: $(src)/%-riscv.pl
++	$(call cmd,perlasm)
++
++clean-files += poly1305-core.S
+\ No newline at end of file
+diff --git a/arch/riscv/lib/crypto/poly1305-glue.c b/arch/riscv/lib/crypto/poly1305-glue.c
+new file mode 100644
+index 000000000000..f8fe618c7db5
+--- /dev/null
++++ b/arch/riscv/lib/crypto/poly1305-glue.c
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * OpenSSL/Cryptogams accelerated Poly1305 transform for riscv
++ *
++ * Copyright (C) 2025 Institute of Software, CAS.
++ */
++
++#include <crypto/internal/poly1305.h>
++#include <linux/export.h>
++#include <linux/module.h>
++
++asmlinkage void poly1305_block_init_arch(
++	struct poly1305_block_state *state,
++	const u8 raw_key[POLY1305_BLOCK_SIZE]);
++EXPORT_SYMBOL_GPL(poly1305_block_init_arch);
++asmlinkage void poly1305_blocks_arch(struct poly1305_block_state *state,
++				const u8 *src, u32 len, u32 hibit);
++EXPORT_SYMBOL_GPL(poly1305_blocks_arch);
++asmlinkage void poly1305_emit_arch(const struct poly1305_state *state,
++				   u8 digest[POLY1305_DIGEST_SIZE],
++				   const u32 nonce[4]);
++EXPORT_SYMBOL_GPL(poly1305_emit_arch);
++
++bool poly1305_is_arch_optimized(void)
++{
++	/* We always can use since only Integer Multiplication extension is used. */
++	return true;
++}
++EXPORT_SYMBOL(poly1305_is_arch_optimized);
++
++MODULE_DESCRIPTION("Poly1305 authenticator (RISC-V accelerated)");
++MODULE_LICENSE("GPL");
+diff --git a/arch/riscv/lib/crypto/poly1305-riscv.pl b/arch/riscv/lib/crypto/poly1305-riscv.pl
+new file mode 100644
+index 000000000000..554e21f58f1f
+--- /dev/null
++++ b/arch/riscv/lib/crypto/poly1305-riscv.pl
+@@ -0,0 +1,847 @@
++#!/usr/bin/env perl
++# SPDX-License-Identifier: GPL-1.0+ OR BSD-3-Clause
++#
++# ====================================================================
++# Written by Andy Polyakov, @dot-asm, initially for use with OpenSSL.
++# ====================================================================
++#
++# Poly1305 hash for RISC-V.
++#
++# February 2019
++#
++# In the essence it's pretty straightforward transliteration of MIPS
++# module [without big-endian option].
++#
++# 1.8 cycles per byte on U74, >100% faster than compiler-generated
++# code. 1.9 cpb on C910, ~75% improvement. 3.3 on Spacemit X60, ~69%
++# improvement.
++#
++# June 2024.
++#
++# Add CHERI support.
++#
++######################################################################
++#
++($zero,$ra,$sp,$gp,$tp)=map("x$_",(0..4));
++($t0,$t1,$t2,$t3,$t4,$t5,$t6)=map("x$_",(5..7,28..31));
++($a0,$a1,$a2,$a3,$a4,$a5,$a6,$a7)=map("x$_",(10..17));
++($s0,$s1,$s2,$s3,$s4,$s5,$s6,$s7,$s8,$s9,$s10,$s11)=map("x$_",(8,9,18..27));
++#
++######################################################################
++
++$flavour = shift || "64";
++
++for (@ARGV) {   $output=$_ if (/\w[\w\-]*\.\w+$/);   }
++open STDOUT,">$output";
++
++$code.=<<___;
++#ifdef __KERNEL__
++# ifdef __riscv_zicfilp
++#  undef __riscv_zicfilp // calls are expected to be direct
++# endif
++#endif
++
++#if defined(__CHERI_PURE_CAPABILITY__) && !defined(__riscv_misaligned_fast)
++# define __riscv_misaligned_fast 1
++#endif
++___
++
++if ($flavour =~ /64/) {{{
++######################################################################
++# 64-bit code path...
++#
++my ($ctx,$inp,$len,$padbit) = ($a0,$a1,$a2,$a3);
++my ($in0,$in1,$tmp0,$tmp1,$tmp2,$tmp3,$tmp4) = ($a4,$a5,$a6,$a7,$t0,$t1,$t2);
++
++$code.=<<___;
++#if __riscv_xlen == 64
++# if __SIZEOF_POINTER__ == 16
++#  define PUSH	csc
++#  define POP	clc
++# else
++#  define PUSH	sd
++#  define POP	ld
++# endif
++#else
++# error "unsupported __riscv_xlen"
++#endif
++
++.option	pic
++.text
++
++.globl	poly1305_init
++.type	poly1305_init,\@function
++poly1305_init:
++#ifdef	__riscv_zicfilp
++	lpad	0
++#endif
++	sd	$zero,0($ctx)
++	sd	$zero,8($ctx)
++	sd	$zero,16($ctx)
++
++	beqz	$inp,.Lno_key
++
++#ifndef	__riscv_misaligned_fast
++	andi	$tmp0,$inp,7		# $inp % 8
++	andi	$inp,$inp,-8		# align $inp
++	slli	$tmp0,$tmp0,3		# byte to bit offset
++#endif
++	ld	$in0,0($inp)
++	ld	$in1,8($inp)
++#ifndef	__riscv_misaligned_fast
++	beqz	$tmp0,.Laligned_key
++
++	ld	$tmp2,16($inp)
++	neg	$tmp1,$tmp0		# implicit &63 in sll
++	srl	$in0,$in0,$tmp0
++	sll	$tmp3,$in1,$tmp1
++	srl	$in1,$in1,$tmp0
++	sll	$tmp2,$tmp2,$tmp1
++	or	$in0,$in0,$tmp3
++	or	$in1,$in1,$tmp2
++
++.Laligned_key:
++#endif
++	li	$tmp0,1
++	slli	$tmp0,$tmp0,32		# 0x0000000100000000
++	addi	$tmp0,$tmp0,-63		# 0x00000000ffffffc1
++	slli	$tmp0,$tmp0,28		# 0x0ffffffc10000000
++	addi	$tmp0,$tmp0,-1		# 0x0ffffffc0fffffff
++
++	and	$in0,$in0,$tmp0
++	addi	$tmp0,$tmp0,-3		# 0x0ffffffc0ffffffc
++	and	$in1,$in1,$tmp0
++
++	sd	$in0,24($ctx)
++	srli	$tmp0,$in1,2
++	sd	$in1,32($ctx)
++	add	$tmp0,$tmp0,$in1	# s1 = r1 + (r1 >> 2)
++	sd	$tmp0,40($ctx)
++
++.Lno_key:
++	li	$a0,0			# return 0
++	ret
++.size	poly1305_init,.-poly1305_init
++___
++{
++my ($h0,$h1,$h2,$r0,$r1,$rs1,$d0,$d1,$d2) =
++   ($s0,$s1,$s2,$s3,$t3,$t4,$in0,$in1,$t2);
++my ($shr,$shl) = ($t5,$t6);		# used on R6
++
++$code.=<<___;
++.globl	poly1305_blocks
++.type	poly1305_blocks,\@function
++poly1305_blocks:
++#ifdef	__riscv_zicfilp
++	lpad	0
++#endif
++	andi	$len,$len,-16		# complete blocks only
++	beqz	$len,.Lno_data
++
++	caddi	$sp,$sp,-4*__SIZEOF_POINTER__
++	PUSH	$s0,3*__SIZEOF_POINTER__($sp)
++	PUSH	$s1,2*__SIZEOF_POINTER__($sp)
++	PUSH	$s2,1*__SIZEOF_POINTER__($sp)
++	PUSH	$s3,0*__SIZEOF_POINTER__($sp)
++
++#ifndef	__riscv_misaligned_fast
++	andi	$shr,$inp,7
++	andi	$inp,$inp,-8		# align $inp
++	slli	$shr,$shr,3		# byte to bit offset
++	neg	$shl,$shr		# implicit &63 in sll
++#endif
++
++	ld	$h0,0($ctx)		# load hash value
++	ld	$h1,8($ctx)
++	ld	$h2,16($ctx)
++
++	ld	$r0,24($ctx)		# load key
++	ld	$r1,32($ctx)
++	ld	$rs1,40($ctx)
++
++	add	$len,$len,$inp		# end of buffer
++
++.Loop:
++	ld	$in0,0($inp)		# load input
++	ld	$in1,8($inp)
++#ifndef	__riscv_misaligned_fast
++	beqz	$shr,.Laligned_inp
++
++	ld	$tmp2,16($inp)
++	srl	$in0,$in0,$shr
++	sll	$tmp3,$in1,$shl
++	srl	$in1,$in1,$shr
++	sll	$tmp2,$tmp2,$shl
++	or	$in0,$in0,$tmp3
++	or	$in1,$in1,$tmp2
++
++.Laligned_inp:
++#endif
++	caddi	$inp,$inp,16
++
++	andi	$tmp0,$h2,-4		# modulo-scheduled reduction
++	srli	$tmp1,$h2,2
++	andi	$h2,$h2,3
++
++	add	$d0,$h0,$in0		# accumulate input
++	 add	$tmp1,$tmp1,$tmp0
++	sltu	$tmp0,$d0,$h0
++	add	$d0,$d0,$tmp1		# ... and residue
++	sltu	$tmp1,$d0,$tmp1
++	add	$d1,$h1,$in1
++	add	$tmp0,$tmp0,$tmp1
++	sltu	$tmp1,$d1,$h1
++	add	$d1,$d1,$tmp0
++
++	 add	$d2,$h2,$padbit
++	 sltu	$tmp0,$d1,$tmp0
++	mulhu	$h1,$r0,$d0		# h0*r0
++	mul	$h0,$r0,$d0
++
++	 add	$d2,$d2,$tmp1
++	 add	$d2,$d2,$tmp0
++	mulhu	$tmp1,$rs1,$d1		# h1*5*r1
++	mul	$tmp0,$rs1,$d1
++
++	mulhu	$h2,$r1,$d0		# h0*r1
++	mul	$tmp2,$r1,$d0
++	 add	$h0,$h0,$tmp0
++	 add	$h1,$h1,$tmp1
++	 sltu	$tmp0,$h0,$tmp0
++
++	 add	$h1,$h1,$tmp0
++	 add	$h1,$h1,$tmp2
++	mulhu	$tmp1,$r0,$d1		# h1*r0
++	mul	$tmp0,$r0,$d1
++
++	 sltu	$tmp2,$h1,$tmp2
++	 add	$h2,$h2,$tmp2
++	mul	$tmp2,$rs1,$d2		# h2*5*r1
++
++	 add	$h1,$h1,$tmp0
++	 add	$h2,$h2,$tmp1
++	mul	$tmp3,$r0,$d2		# h2*r0
++	 sltu	$tmp0,$h1,$tmp0
++	 add	$h2,$h2,$tmp0
++
++	add	$h1,$h1,$tmp2
++	sltu	$tmp2,$h1,$tmp2
++	add	$h2,$h2,$tmp2
++	add	$h2,$h2,$tmp3
++
++	bne	$inp,$len,.Loop
++
++	sd	$h0,0($ctx)		# store hash value
++	sd	$h1,8($ctx)
++	sd	$h2,16($ctx)
++
++	POP	$s0,3*__SIZEOF_POINTER__($sp)		# epilogue
++	POP	$s1,2*__SIZEOF_POINTER__($sp)
++	POP	$s2,1*__SIZEOF_POINTER__($sp)
++	POP	$s3,0*__SIZEOF_POINTER__($sp)
++	caddi	$sp,$sp,4*__SIZEOF_POINTER__
++
++.Lno_data:
++	ret
++.size	poly1305_blocks,.-poly1305_blocks
++___
++}
++{
++my ($ctx,$mac,$nonce) = ($a0,$a1,$a2);
++
++$code.=<<___;
++.globl	poly1305_emit
++.type	poly1305_emit,\@function
++poly1305_emit:
++#ifdef	__riscv_zicfilp
++	lpad	0
++#endif
++	ld	$tmp2,16($ctx)
++	ld	$tmp0,0($ctx)
++	ld	$tmp1,8($ctx)
++
++	andi	$in0,$tmp2,-4		# final reduction
++	srl	$in1,$tmp2,2
++	andi	$tmp2,$tmp2,3
++	add	$in0,$in0,$in1
++
++	add	$tmp0,$tmp0,$in0
++	sltu	$in1,$tmp0,$in0
++	 addi	$in0,$tmp0,5		# compare to modulus
++	add	$tmp1,$tmp1,$in1
++	 sltiu	$tmp3,$in0,5
++	sltu	$tmp4,$tmp1,$in1
++	 add	$in1,$tmp1,$tmp3
++	add	$tmp2,$tmp2,$tmp4
++	 sltu	$tmp3,$in1,$tmp3
++	 add	$tmp2,$tmp2,$tmp3
++
++	srli	$tmp2,$tmp2,2		# see if it carried/borrowed
++	neg	$tmp2,$tmp2
++
++	xor	$in0,$in0,$tmp0
++	xor	$in1,$in1,$tmp1
++	and	$in0,$in0,$tmp2
++	and	$in1,$in1,$tmp2
++	xor	$in0,$in0,$tmp0
++	xor	$in1,$in1,$tmp1
++
++	lwu	$tmp0,0($nonce)		# load nonce
++	lwu	$tmp1,4($nonce)
++	lwu	$tmp2,8($nonce)
++	lwu	$tmp3,12($nonce)
++	slli	$tmp1,$tmp1,32
++	slli	$tmp3,$tmp3,32
++	or	$tmp0,$tmp0,$tmp1
++	or	$tmp2,$tmp2,$tmp3
++
++	add	$in0,$in0,$tmp0		# accumulate nonce
++	add	$in1,$in1,$tmp2
++	sltu	$tmp0,$in0,$tmp0
++	add	$in1,$in1,$tmp0
++
++#ifdef	__riscv_misaligned_fast
++	sd	$in0,0($mac)		# write mac value
++	sd	$in1,8($mac)
++#else
++	srli	$tmp0,$in0,8		# write mac value
++	srli	$tmp1,$in0,16
++	srli	$tmp2,$in0,24
++	sb	$in0,0($mac)
++	srli	$tmp3,$in0,32
++	sb	$tmp0,1($mac)
++	srli	$tmp0,$in0,40
++	sb	$tmp1,2($mac)
++	srli	$tmp1,$in0,48
++	sb	$tmp2,3($mac)
++	srli	$tmp2,$in0,56
++	sb	$tmp3,4($mac)
++	srli	$tmp3,$in1,8
++	sb	$tmp0,5($mac)
++	srli	$tmp0,$in1,16
++	sb	$tmp1,6($mac)
++	srli	$tmp1,$in1,24
++	sb	$tmp2,7($mac)
++
++	sb	$in1,8($mac)
++	srli	$tmp2,$in1,32
++	sb	$tmp3,9($mac)
++	srli	$tmp3,$in1,40
++	sb	$tmp0,10($mac)
++	srli	$tmp0,$in1,48
++	sb	$tmp1,11($mac)
++	srli	$tmp1,$in1,56
++	sb	$tmp2,12($mac)
++	sb	$tmp3,13($mac)
++	sb	$tmp0,14($mac)
++	sb	$tmp1,15($mac)
++#endif
++
++	ret
++.size	poly1305_emit,.-poly1305_emit
++.string	"Poly1305 for RISC-V, CRYPTOGAMS by \@dot-asm"
++___
++}
++}}} else {{{
++######################################################################
++# 32-bit code path
++#
++
++my ($ctx,$inp,$len,$padbit) = ($a0,$a1,$a2,$a3);
++my ($in0,$in1,$in2,$in3,$tmp0,$tmp1,$tmp2,$tmp3) =
++   ($a4,$a5,$a6,$a7,$t0,$t1,$t2,$t3);
++
++$code.=<<___;
++#if __riscv_xlen == 32
++# if __SIZEOF_POINTER__ == 8
++#  define PUSH	csc
++#  define POP	clc
++# else
++#  define PUSH	sw
++#  define POP	lw
++# endif
++# define MULX(hi,lo,a,b)	mulhu hi,a,b; mul lo,a,b
++# define srliw	srli
++# define srlw	srl
++# define sllw	sll
++# define addw	add
++# define addiw	addi
++# define mulw	mul
++#elif __riscv_xlen == 64
++# if __SIZEOF_POINTER__ == 16
++#  define PUSH	csc
++#  define POP	clc
++# else
++#  define PUSH	sd
++#  define POP	ld
++# endif
++# define MULX(hi,lo,a,b)	slli b,b,32; srli b,b,32; mul hi,a,b; addiw lo,hi,0; srai hi,hi,32
++#else
++# error "unsupported __riscv_xlen"
++#endif
++
++.option	pic
++.text
++
++.globl	poly1305_init
++.type	poly1305_init,\@function
++poly1305_init:
++#ifdef	__riscv_zicfilp
++	lpad	0
++#endif
++	sw	$zero,0($ctx)
++	sw	$zero,4($ctx)
++	sw	$zero,8($ctx)
++	sw	$zero,12($ctx)
++	sw	$zero,16($ctx)
++
++	beqz	$inp,.Lno_key
++
++#ifndef	__riscv_misaligned_fast
++	andi	$tmp0,$inp,3		# $inp % 4
++	sub	$inp,$inp,$tmp0		# align $inp
++	sll	$tmp0,$tmp0,3		# byte to bit offset
++#endif
++	lw	$in0,0($inp)
++	lw	$in1,4($inp)
++	lw	$in2,8($inp)
++	lw	$in3,12($inp)
++#ifndef	__riscv_misaligned_fast
++	beqz	$tmp0,.Laligned_key
++
++	lw	$tmp2,16($inp)
++	sub	$tmp1,$zero,$tmp0
++	srlw	$in0,$in0,$tmp0
++	sllw	$tmp3,$in1,$tmp1
++	srlw	$in1,$in1,$tmp0
++	or	$in0,$in0,$tmp3
++	sllw	$tmp3,$in2,$tmp1
++	srlw	$in2,$in2,$tmp0
++	or	$in1,$in1,$tmp3
++	sllw	$tmp3,$in3,$tmp1
++	srlw	$in3,$in3,$tmp0
++	or	$in2,$in2,$tmp3
++	sllw	$tmp2,$tmp2,$tmp1
++	or	$in3,$in3,$tmp2
++.Laligned_key:
++#endif
++
++	lui	$tmp0,0x10000
++	addi	$tmp0,$tmp0,-1		# 0x0fffffff
++	and	$in0,$in0,$tmp0
++	addi	$tmp0,$tmp0,-3		# 0x0ffffffc
++	and	$in1,$in1,$tmp0
++	and	$in2,$in2,$tmp0
++	and	$in3,$in3,$tmp0
++
++	sw	$in0,20($ctx)
++	sw	$in1,24($ctx)
++	sw	$in2,28($ctx)
++	sw	$in3,32($ctx)
++
++	srlw	$tmp1,$in1,2
++	srlw	$tmp2,$in2,2
++	srlw	$tmp3,$in3,2
++	addw	$in1,$in1,$tmp1		# s1 = r1 + (r1 >> 2)
++	addw	$in2,$in2,$tmp2
++	addw	$in3,$in3,$tmp3
++	sw	$in1,36($ctx)
++	sw	$in2,40($ctx)
++	sw	$in3,44($ctx)
++.Lno_key:
++	li	$a0,0
++	ret
++.size	poly1305_init,.-poly1305_init
++___
++{
++my ($h0,$h1,$h2,$h3,$h4, $r0,$r1,$r2,$r3, $rs1,$rs2,$rs3) =
++   ($s0,$s1,$s2,$s3,$s4, $s5,$s6,$s7,$s8, $t0,$t1,$t2);
++my ($d0,$d1,$d2,$d3) =
++   ($a4,$a5,$a6,$a7);
++my $shr = $ra;		# used on R6
++
++$code.=<<___;
++.globl	poly1305_blocks
++.type	poly1305_blocks,\@function
++poly1305_blocks:
++#ifdef	__riscv_zicfilp
++	lpad	0
++#endif
++	andi	$len,$len,-16		# complete blocks only
++	beqz	$len,.Labort
++
++#ifdef	__riscv_zcmp
++	cm.push	{ra,s0-s8}, -48
++#else
++	caddi	$sp,$sp,-__SIZEOF_POINTER__*12
++	PUSH	$ra, __SIZEOF_POINTER__*11($sp)
++	PUSH	$s0, __SIZEOF_POINTER__*10($sp)
++	PUSH	$s1, __SIZEOF_POINTER__*9($sp)
++	PUSH	$s2, __SIZEOF_POINTER__*8($sp)
++	PUSH	$s3, __SIZEOF_POINTER__*7($sp)
++	PUSH	$s4, __SIZEOF_POINTER__*6($sp)
++	PUSH	$s5, __SIZEOF_POINTER__*5($sp)
++	PUSH	$s6, __SIZEOF_POINTER__*4($sp)
++	PUSH	$s7, __SIZEOF_POINTER__*3($sp)
++	PUSH	$s8, __SIZEOF_POINTER__*2($sp)
++#endif
++
++#ifndef	__riscv_misaligned_fast
++	andi	$shr,$inp,3
++	andi	$inp,$inp,-4		# align $inp
++	slli	$shr,$shr,3		# byte to bit offset
++#endif
++
++	lw	$h0,0($ctx)		# load hash value
++	lw	$h1,4($ctx)
++	lw	$h2,8($ctx)
++	lw	$h3,12($ctx)
++	lw	$h4,16($ctx)
++
++	lw	$r0,20($ctx)		# load key
++	lw	$r1,24($ctx)
++	lw	$r2,28($ctx)
++	lw	$r3,32($ctx)
++	lw	$rs1,36($ctx)
++	lw	$rs2,40($ctx)
++	lw	$rs3,44($ctx)
++
++	add	$len,$len,$inp		# end of buffer
++
++.Loop:
++	lw	$d0,0($inp)		# load input
++	lw	$d1,4($inp)
++	lw	$d2,8($inp)
++	lw	$d3,12($inp)
++#ifndef	__riscv_misaligned_fast
++	beqz	$shr,.Laligned_inp
++
++	lw	$t4,16($inp)
++	sub	$t5,$zero,$shr
++	srlw	$d0,$d0,$shr
++	sllw	$t3,$d1,$t5
++	srlw	$d1,$d1,$shr
++	or	$d0,$d0,$t3
++	sllw	$t3,$d2,$t5
++	srlw	$d2,$d2,$shr
++	or	$d1,$d1,$t3
++	sllw	$t3,$d3,$t5
++	srlw	$d3,$d3,$shr
++	or	$d2,$d2,$t3
++	sllw	$t4,$t4,$t5
++	or	$d3,$d3,$t4
++
++.Laligned_inp:
++#endif
++	srliw	$t3,$h4,2		# modulo-scheduled reduction
++	andi	$t4,$h4,-4
++	andi	$h4,$h4,3
++
++	addw	$d0,$d0,$h0		# accumulate input
++	 addw	$t4,$t4,$t3
++	sltu	$h0,$d0,$h0
++	addw	$d0,$d0,$t4		# ... and residue
++	sltu	$t4,$d0,$t4
++
++	addw	$d1,$d1,$h1
++	 addw	$h0,$h0,$t4		# carry
++	sltu	$h1,$d1,$h1
++	addw	$d1,$d1,$h0
++	sltu	$h0,$d1,$h0
++
++	addw	$d2,$d2,$h2
++	 addw	$h1,$h1,$h0		# carry
++	sltu	$h2,$d2,$h2
++	addw	$d2,$d2,$h1
++	sltu	$h1,$d2,$h1
++
++	addw	$d3,$d3,$h3
++	 addw	$h2,$h2,$h1		# carry
++	sltu	$h3,$d3,$h3
++	addw	$d3,$d3,$h2
++
++	MULX	($h1,$h0,$r0,$d0)	# d0*r0
++
++	 sltu	$h2,$d3,$h2
++	 addw	$h3,$h3,$h2		# carry
++
++	MULX	($t4,$t3,$rs3,$d1)	# d1*s3
++
++	 addw	$h4,$h4,$padbit
++	 caddi	$inp,$inp,16
++	 addw	$h4,$h4,$h3
++
++	MULX	($t6,$a3,$rs2,$d2)	# d2*s2
++	 addw	$h0,$h0,$t3
++	 addw	$h1,$h1,$t4
++	 sltu	$t3,$h0,$t3
++	 addw	$h1,$h1,$t3
++
++	MULX	($t4,$t3,$rs1,$d3)	# d3*s1
++	 addw	$h0,$h0,$a3
++	 addw	$h1,$h1,$t6
++	 sltu	$a3,$h0,$a3
++	 addw	$h1,$h1,$a3
++
++
++	MULX	($h2,$a3,$r1,$d0)	# d0*r1
++	 addw	$h0,$h0,$t3
++	 addw	$h1,$h1,$t4
++	 sltu	$t3,$h0,$t3
++	 addw	$h1,$h1,$t3
++
++	MULX	($t4,$t3,$r0,$d1)	# d1*r0
++	 addw	$h1,$h1,$a3
++	 sltu	$a3,$h1,$a3
++	 addw	$h2,$h2,$a3
++
++	MULX	($t6,$a3,$rs3,$d2)	# d2*s3
++	 addw	$h1,$h1,$t3
++	 addw	$h2,$h2,$t4
++	 sltu	$t3,$h1,$t3
++	 addw	$h2,$h2,$t3
++
++	MULX	($t4,$t3,$rs2,$d3)	# d3*s2
++	 addw	$h1,$h1,$a3
++	 addw	$h2,$h2,$t6
++	 sltu	$a3,$h1,$a3
++	 addw	$h2,$h2,$a3
++
++	mulw	$a3,$rs1,$h4		# h4*s1
++	 addw	$h1,$h1,$t3
++	 addw	$h2,$h2,$t4
++	 sltu	$t3,$h1,$t3
++	 addw	$h2,$h2,$t3
++
++
++	MULX	($h3,$t3,$r2,$d0)	# d0*r2
++	 addw	$h1,$h1,$a3
++	 sltu	$a3,$h1,$a3
++	 addw	$h2,$h2,$a3
++
++	MULX	($t6,$a3,$r1,$d1)	# d1*r1
++	 addw	$h2,$h2,$t3
++	 sltu	$t3,$h2,$t3
++	 addw	$h3,$h3,$t3
++
++	MULX	($t4,$t3,$r0,$d2)	# d2*r0
++	 addw	$h2,$h2,$a3
++	 addw	$h3,$h3,$t6
++	 sltu	$a3,$h2,$a3
++	 addw	$h3,$h3,$a3
++
++	MULX	($t6,$a3,$rs3,$d3)	# d3*s3
++	 addw	$h2,$h2,$t3
++	 addw	$h3,$h3,$t4
++	 sltu	$t3,$h2,$t3
++	 addw	$h3,$h3,$t3
++
++	mulw	$t3,$rs2,$h4		# h4*s2
++	 addw	$h2,$h2,$a3
++	 addw	$h3,$h3,$t6
++	 sltu	$a3,$h2,$a3
++	 addw	$h3,$h3,$a3
++
++
++	MULX	($t6,$a3,$r3,$d0)	# d0*r3
++	 addw	$h2,$h2,$t3
++	 sltu	$t3,$h2,$t3
++	 addw	$h3,$h3,$t3
++
++	MULX	($t4,$t3,$r2,$d1)	# d1*r2
++	 addw	$h3,$h3,$a3
++	 sltu	$a3,$h3,$a3
++	 addw	$t6,$t6,$a3
++
++	MULX	($a3,$d3,$r0,$d3)	# d3*r0
++	 addw	$h3,$h3,$t3
++	 addw	$t6,$t6,$t4
++	 sltu	$t3,$h3,$t3
++	 addw	$t6,$t6,$t3
++
++	MULX	($t4,$t3,$r1,$d2)	# d2*r1
++	 addw	$h3,$h3,$d3
++	 addw	$t6,$t6,$a3
++	 sltu	$d3,$h3,$d3
++	 addw	$t6,$t6,$d3
++
++	mulw	$a3,$rs3,$h4		# h4*s3
++	 addw	$h3,$h3,$t3
++	 addw	$t6,$t6,$t4
++	 sltu	$t3,$h3,$t3
++	 addw	$t6,$t6,$t3
++
++
++	mulw	$h4,$r0,$h4		# h4*r0
++	 addw	$h3,$h3,$a3
++	 sltu	$a3,$h3,$a3
++	 addw	$t6,$t6,$a3
++	addw	$h4,$t6,$h4
++
++	li	$padbit,1		# if we loop, padbit is 1
++
++	bne	$inp,$len,.Loop
++
++	sw	$h0,0($ctx)		# store hash value
++	sw	$h1,4($ctx)
++	sw	$h2,8($ctx)
++	sw	$h3,12($ctx)
++	sw	$h4,16($ctx)
++
++#ifdef	__riscv_zcmp
++	cm.popret	{ra,s0-s8}, 48
++#else
++	POP	$ra, __SIZEOF_POINTER__*11($sp)
++	POP	$s0, __SIZEOF_POINTER__*10($sp)
++	POP	$s1, __SIZEOF_POINTER__*9($sp)
++	POP	$s2, __SIZEOF_POINTER__*8($sp)
++	POP	$s3, __SIZEOF_POINTER__*7($sp)
++	POP	$s4, __SIZEOF_POINTER__*6($sp)
++	POP	$s5, __SIZEOF_POINTER__*5($sp)
++	POP	$s6, __SIZEOF_POINTER__*4($sp)
++	POP	$s7, __SIZEOF_POINTER__*3($sp)
++	POP	$s8, __SIZEOF_POINTER__*2($sp)
++	caddi	$sp,$sp,__SIZEOF_POINTER__*12
++#endif
++.Labort:
++	ret
++.size	poly1305_blocks,.-poly1305_blocks
++___
++}
++{
++my ($ctx,$mac,$nonce,$tmp4) = ($a0,$a1,$a2,$a3);
++
++$code.=<<___;
++.globl	poly1305_emit
++.type	poly1305_emit,\@function
++poly1305_emit:
++#ifdef	__riscv_zicfilp
++	lpad	0
++#endif
++	lw	$tmp4,16($ctx)
++	lw	$tmp0,0($ctx)
++	lw	$tmp1,4($ctx)
++	lw	$tmp2,8($ctx)
++	lw	$tmp3,12($ctx)
++
++	srliw	$ctx,$tmp4,2		# final reduction
++	andi	$in0,$tmp4,-4
++	andi	$tmp4,$tmp4,3
++	addw	$ctx,$ctx,$in0
++
++	addw	$tmp0,$tmp0,$ctx
++	sltu	$ctx,$tmp0,$ctx
++	 addiw	$in0,$tmp0,5		# compare to modulus
++	addw	$tmp1,$tmp1,$ctx
++	 sltiu	$in1,$in0,5
++	sltu	$ctx,$tmp1,$ctx
++	 addw	$in1,$in1,$tmp1
++	addw	$tmp2,$tmp2,$ctx
++	 sltu	$in2,$in1,$tmp1
++	sltu	$ctx,$tmp2,$ctx
++	 addw	$in2,$in2,$tmp2
++	addw	$tmp3,$tmp3,$ctx
++	 sltu	$in3,$in2,$tmp2
++	sltu	$ctx,$tmp3,$ctx
++	 addw	$in3,$in3,$tmp3
++	addw	$tmp4,$tmp4,$ctx
++	 sltu	$ctx,$in3,$tmp3
++	 addw	$ctx,$ctx,$tmp4
++
++	srl	$ctx,$ctx,2		# see if it carried/borrowed
++	sub	$ctx,$zero,$ctx
++
++	xor	$in0,$in0,$tmp0
++	xor	$in1,$in1,$tmp1
++	xor	$in2,$in2,$tmp2
++	xor	$in3,$in3,$tmp3
++	and	$in0,$in0,$ctx
++	and	$in1,$in1,$ctx
++	and	$in2,$in2,$ctx
++	and	$in3,$in3,$ctx
++	xor	$in0,$in0,$tmp0
++	xor	$in1,$in1,$tmp1
++	xor	$in2,$in2,$tmp2
++	xor	$in3,$in3,$tmp3
++
++	lw	$tmp0,0($nonce)		# load nonce
++	lw	$tmp1,4($nonce)
++	lw	$tmp2,8($nonce)
++	lw	$tmp3,12($nonce)
++
++	addw	$in0,$in0,$tmp0		# accumulate nonce
++	sltu	$ctx,$in0,$tmp0
++
++	addw	$in1,$in1,$tmp1
++	sltu	$tmp1,$in1,$tmp1
++	addw	$in1,$in1,$ctx
++	sltu	$ctx,$in1,$ctx
++	addw	$ctx,$ctx,$tmp1
++
++	addw	$in2,$in2,$tmp2
++	sltu	$tmp2,$in2,$tmp2
++	addw	$in2,$in2,$ctx
++	sltu	$ctx,$in2,$ctx
++	addw	$ctx,$ctx,$tmp2
++
++	addw	$in3,$in3,$tmp3
++	addw	$in3,$in3,$ctx
++
++#ifdef	__riscv_misaligned_fast
++	sw	$in0,0($mac)		# write mac value
++	sw	$in1,4($mac)
++	sw	$in2,8($mac)
++	sw	$in3,12($mac)
++#else
++	srl	$tmp0,$in0,8		# write mac value
++	srl	$tmp1,$in0,16
++	srl	$tmp2,$in0,24
++	sb	$in0, 0($mac)
++	sb	$tmp0,1($mac)
++	srl	$tmp0,$in1,8
++	sb	$tmp1,2($mac)
++	srl	$tmp1,$in1,16
++	sb	$tmp2,3($mac)
++	srl	$tmp2,$in1,24
++	sb	$in1, 4($mac)
++	sb	$tmp0,5($mac)
++	srl	$tmp0,$in2,8
++	sb	$tmp1,6($mac)
++	srl	$tmp1,$in2,16
++	sb	$tmp2,7($mac)
++	srl	$tmp2,$in2,24
++	sb	$in2, 8($mac)
++	sb	$tmp0,9($mac)
++	srl	$tmp0,$in3,8
++	sb	$tmp1,10($mac)
++	srl	$tmp1,$in3,16
++	sb	$tmp2,11($mac)
++	srl	$tmp2,$in3,24
++	sb	$in3, 12($mac)
++	sb	$tmp0,13($mac)
++	sb	$tmp1,14($mac)
++	sb	$tmp2,15($mac)
++#endif
++
++	ret
++.size	poly1305_emit,.-poly1305_emit
++.string	"Poly1305 for RISC-V, CRYPTOGAMS by \@dot-asm"
++___
++}
++}}}
++
++foreach (split("\n", $code)) {
++    if ($flavour =~ /^cheri/) {
++	s/\(x([0-9]+)\)/(c$1)/ and s/\b([ls][bhwd]u?)\b/c$1/;
++	s/\b(PUSH|POP)(\s+)x([0-9]+)/$1$2c$3/ or
++	s/\b(ret|jal)\b/c$1/;
++	s/\bcaddi?\b/cincoffset/ and s/\bx([0-9]+,)/c$1/g or
++	m/\bcmove\b/ and s/\bx([0-9]+)/c$1/g;
++    } else {
++	s/\bcaddi?\b/add/ or
++	s/\bcmove\b/mv/;
++    }
++    print $_, "\n";
++}
++
++close STDOUT;
+\ No newline at end of file
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index 1ec1466108cc..0d425f8ce90f 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -100,7 +100,7 @@ config CRYPTO_LIB_DES
+ 
+ config CRYPTO_LIB_POLY1305_RSIZE
+ 	int
+-	default 2 if MIPS
++	default 2 if MIPS || RISCV
+ 	default 11 if X86_64
+ 	default 9 if ARM || ARM64
+ 	default 1
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
