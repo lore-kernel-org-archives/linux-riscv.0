@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE319CA0EE6
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 07:34:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9DCCA0EE6
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 07:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+v8NbO1f86OcEVm3P1pZf3vIQ4tW0ywmvsSXDfJrtik=; b=G8Jil5MSQHH04j
-	Ehen3ce33SQ3DmPGEPLCMqhUza0fD0Qr2FdNPbe8PtYPtY+jaurOvZYXS5Tqlvg1zqyjXzbJqolxi
-	v0kY0lOQTeiBG4AaIKNFwRaq6GoQby4dF8BFJW67H5hCZnJQ/DzsidPNrE5xAKwaOAat3qvyfpCy+
-	UodF+jH+Et4CJb3Zp+0haKsfR2dGT77XdyCqi/AC2spJVz4UCFrtqFr5JiF4EZrg/M6nysMa+uF+6
-	SO0cCu9DcRq2V79/1mYYCgXEuOt2qy49Fh0TqiHhme/xRemZA77R/hlUFIadiiEle9p5Ib+mQ5m+M
-	/LeB82I9vOrwxTWWsZ1A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rmKQqNXUDveDz9QCv6Bol7mKOu4+X1q12BjCd170jRg=; b=o9AkXPv3Mregoz
+	Xw7ApDOXV7My+AU6u5n7KdEEQjsgJgrjZIIHHA9A1e8syY7zK4PL4l4uQP4096OlaH5mk/PD9z1he
+	OFlGoxS8gEge8yEcLcgCTKLP9X//h7BKt6Sgu2lrE+mPoJCKmlZgKGRWKIrIitp79ahmCWT70lGgv
+	nL/Sc42SWewajH9ecb0yrjn3sqHHb4gBhfX32l5tcNPnfsNSZNazMDxxyU6LIuIq/j3tXhBj8/8rZ
+	eL2aDxFQ43SuboE4lNMSeMNmFL/mmQgr/0WBwDh0x3OvBVc928smALDO5tNau4K4ycGMfKiPOvtPh
+	Y823YlT9b4y8BKpO0yLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unBQN-00000004Dmh-0PVn;
-	Sat, 16 Aug 2025 07:33:59 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1unBQM-00000004DmR-0wE9;
+	Sat, 16 Aug 2025 07:33:58 +0000
+Received: from out-182.mta0.migadu.com ([91.218.175.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unBPE-00000004DeB-0UsU;
-	Sat, 16 Aug 2025 07:32:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1755329560; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=Zi3mt6f9DghYW3n1681Tp/+SCUmn8lZ88byVYz6vHiE=;
-	b=CD9uCfn91zAZjxb6Vfm58NSpxSsJbPY07wqRGu6sfqIlbvCum9S2hCJxl+ScRSDMY9uP4nK5p2D9f1Vgg2sPzg++2WTI1KP9QLt2eFr5GhCqz9hOEqOHadYja9gLlYhBJDrFfIP+Bu51Mm71vzfG0uoc4kISmqyeaFfuGxEjxeE=
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0Wlqzknt_1755329556 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sat, 16 Aug 2025 15:32:38 +0800
-From: fangyu.yu@linux.alibaba.com
-To: anup@brainfault.org,
-	atish.patra@linux.dev,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: guoren@linux.alibaba.com,
-	guoren@kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [PATCH] RISC-V: KVM: Write hgatp register with valid mode bits
-Date: Sat, 16 Aug 2025 15:32:34 +0800
-Message-Id: <20250816073234.77646-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	id 1unBNB-00000004DTI-2dTb
+	for linux-riscv@lists.infradead.org;
+	Sat, 16 Aug 2025 07:30:43 +0000
+Date: Sat, 16 Aug 2025 15:30:14 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1755329427;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VrtQfsqunoMUAgJ9HLaz9rRre5ttd6HWa6pPbNixffA=;
+	b=GytX8O7ZMvMgzlcKTYRi7/4RWi/vtIOmu0EqcFqGnCSgetACzbUYNmff9ftOjvDflrsnWP
+	ugPkOXm0MdNmesJpFMxbW2sV82NwmGDRe6+HWNj3UXzWJ4kI5Y2azMDN/GpJcgtUW3ZWR0
+	VxSm/8mYunsgnCD92SdK3z47VJDA890=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Troy Mitchell <troy.mitchell@linux.dev>
+To: Anup Patel <apatel@ventanamicro.com>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Len Brown <lenb@kernel.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, linux-acpi@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Troy Mitchell <troy.mitchell@linux.dev>
+Subject: Re: [PATCH 1/2] ACPI: RISC-V: Fix FFH_CPPC_CSR error handling
+Message-ID: <aKAzhjJcCAynfF1Q@troy-wujie14pro-arch>
+References: <20250815161406.76370-1-apatel@ventanamicro.com>
+ <20250815161406.76370-2-apatel@ventanamicro.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250815161406.76370-2-apatel@ventanamicro.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_003248_859932_798B5B43 
-X-CRM114-Status: UNSURE (   7.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250816_003042_511697_FEE65EFA 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,35 +78,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+On Fri, Aug 15, 2025 at 09:44:05PM +0530, Anup Patel wrote:
+> The cppc_ffh_csr_read() and cppc_ffh_csr_write() returns Linux error
+> code in "data->ret.error" so cpc_read_ffh() and cpc_write_ffh() must
+> not use sbi_err_map_linux_errno() for FFH_CPPC_CSR.
+> 
+> Fixes: 30f3ffbee86b ("ACPI: RISC-V: Add CPPC driver")
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  drivers/acpi/riscv/cppc.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
+> index 440cf9fb91aa..42c1a9052470 100644
+> --- a/drivers/acpi/riscv/cppc.c
+> +++ b/drivers/acpi/riscv/cppc.c
+> @@ -119,7 +119,7 @@ int cpc_read_ffh(int cpu, struct cpc_reg *reg, u64 *val)
+>  
+>  		*val = data.ret.value;
+>  
+> -		return (data.ret.error) ? sbi_err_map_linux_errno(data.ret.error) : 0;
+> +		return data.ret.error;
+>  	}
+>  
+>  	return -EINVAL;
+> @@ -148,7 +148,7 @@ int cpc_write_ffh(int cpu, struct cpc_reg *reg, u64 val)
+>  
+>  		smp_call_function_single(cpu, cppc_ffh_csr_write, &data, 1);
+>  
+> -		return (data.ret.error) ? sbi_err_map_linux_errno(data.ret.error) : 0;
+> +		return data.ret.error;
+>  	}
+>  
+>  	return -EINVAL;
+>
+Thanks!
 
-According to the RISC-V Privileged Architecture Spec, when MODE=Bare
-is selected,software must write zero to the remaining fields of hgatp.
-
-We have detected the valid mode supported by the HW before, So using a
-valid mode to detect how many vmid bits are supported.
-
-Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
----
- arch/riscv/kvm/vmid.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
-index 3b426c800480..d176a5c2f9a4 100644
---- a/arch/riscv/kvm/vmid.c
-+++ b/arch/riscv/kvm/vmid.c
-@@ -28,7 +28,7 @@ void __init kvm_riscv_gstage_vmid_detect(void)
- 
- 	/* Figure-out number of VMID bits in HW */
- 	old = csr_read(CSR_HGATP);
--	csr_write(CSR_HGATP, old | HGATP_VMID);
-+	csr_write(CSR_HGATP, (kvm_riscv_gstage_mode() << HGATP_MODE_SHIFT) | HGATP_VMID);
- 	vmid_bits = csr_read(CSR_HGATP);
- 	vmid_bits = (vmid_bits & HGATP_VMID) >> HGATP_VMID_SHIFT;
- 	vmid_bits = fls_long(vmid_bits);
--- 
-2.49.0
-
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.dev>
+> -- 
+> 2.43.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
