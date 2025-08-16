@@ -4,61 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E293BCA0EE4
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 13:09:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C02D2CA0EE6
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 15:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDeBqdu73VG6khOKQR6Q9cpuEKadG8tw6KG8lHitJU0=; b=tZo/qvpxahs82Q4Xfl9HDB6w9Y
-	fP5tRk7klG0u5eXvU26Y+q31tIb6wwSY7C9kAvgzep6yanAagONgMaZX867t2XVH0qcD8L/Zlnbon
-	eI1BVOkU5VitVO9lp+Hvbuyo9Zh9hW8QvsvQE+aZ0pUzqvvr0ya8bvdsd1mkD36qSDx5yvmFaRzw2
-	DYAshBS5Mz+SolL7Nj4tRiXB05yR5EU2WC/ap9gKdZNAjyDdx+0Py/3JuYYcyv6aLUJwp2VYJ5dnI
-	w0O6duvWU5gKR0b7Q8ArscCMfZvyg/DxCDvtoZVK3IgGzwwxunyMfrX58g90e/tN0rB28XtN5ldP8
-	LH1MMQxw==;
+	List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:Message-ID:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CkDeVtqaZyjvrPsdQQaPLYr8xt+qTcmMBklJQPlP8k0=; b=Sa2f6xxqXABiz4
+	nwMMBUV9p7+hSMB6wmcsuP+hkzl2scZdcGHe9VD2FTDWlAhQDmk94JkBIPvszOUV3SO9+NfS61Oqb
+	KK/9belk/ew6ZKqtHHDZBz2AqYVBjkACgNCKh1S81b98Jdg1Gcqxs2uiOsCDMf/m9eCmVZ3FJYIYg
+	7qAN/5S+oGXgMFtXn51MKZGKoQK9okSYHckPF6D1pxboRsh2zvBMJTE4vgwo1/8afb2KUYrtQPVBh
+	MEhNhB2XhTFv7ZKC9SbSHV3fTXj4qEgr7n/EQp/ozegzZcv++ESbLv723Fnuq6bdLRUKEMRhuZp59
+	jGUumpmmZc1OYUuvwm+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unGey-00000004flG-0oXr;
-	Sat, 16 Aug 2025 13:09:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1unJG4-00000004s5O-2sf1;
+	Sat, 16 Aug 2025 15:55:52 +0000
+Received: from relay16.mail.gandi.net ([2001:4b98:dc4:8::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unGdz-00000004fiw-3G1e
+	id 1unIhM-00000004pO0-03TI
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Aug 2025 13:08:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C9C42601F8;
-	Sat, 16 Aug 2025 13:08:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEB37C4CEF1;
-	Sat, 16 Aug 2025 13:08:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755349701;
-	bh=+T/6B/T5uz0eml6pEVTOry9UZOIWHyEWSI6jNc/vg/Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PXLNHcyYcgveCQu5Z+a8nzuhWIqZ7ADuPzJ2pjRCpG/4mN2tixFh751kEtg45Pgoy
-	 v2U8vwVZc3AMk7C29H9+a3rXWG75oKbxrX0mpjzA+kPs8WNvk/fZy9mm2jsTh60ZIQ
-	 eMueFSAiZ7ePJ+KwPTh5IKf6rW1R6qWz2JQ+WOB8vCdLeiFM1uHYL9BEo2IqMEMV80
-	 qS2CsXwsX7bMb0hrAOwb4FzowYRSHO9kZ4FZICk/jz3jjTJrcYI68ANK1smYktsO7j
-	 HgOYteqVnXKaEQMSxb7SqcBbGzz8aiYj6oetIos2n/uZ8gYqtlI8j2H5aOF6mUy+fI
-	 fcvRLL4rjSkHg==
-Date: Sat, 16 Aug 2025 09:08:19 -0400
-From: Sasha Levin <sashal@kernel.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
-Cc: patches@lists.linux.dev, stable@vger.kernel.org,
-	Nylon Chen <nylon.chen@sifive.com>, Zong Li <zong.li@sifive.com>,
-	Vincent Chen <vincent.chen@sifive.com>, paul.walmsley@sifive.com,
-	samuel.holland@sifive.com, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH AUTOSEL 6.1 24/51] pwm: sifive: Fix PWM algorithm and
- clarify inverted compare behavior
-Message-ID: <aKCCwwjndbFXFbIB@lappy>
-References: <20250804003643.3625204-1-sashal@kernel.org>
- <20250804003643.3625204-24-sashal@kernel.org>
- <52ycm5nf2jrxdmdmcijz57xhm2twspjmmiign6zq6rp3d5wt6t@tq5w47fmiwgg>
+	Sat, 16 Aug 2025 15:20:02 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 067C7449B7;
+	Sat, 16 Aug 2025 15:19:51 +0000 (UTC)
+Message-ID: <7a6e8374-592c-4af8-984b-88158a41ca64@ghiti.fr>
+Date: Sat, 16 Aug 2025 17:19:47 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <52ycm5nf2jrxdmdmcijz57xhm2twspjmmiign6zq6rp3d5wt6t@tq5w47fmiwgg>
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Anup Patel <anup@brainfault.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+From: Alexandre Ghiti <alex@ghiti.fr>
+Subject: kselftest ftrace timeout on 6.17-rc1
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugeejvddtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfvhffutgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepvefgtedtieehueffteefveetveekfeelffeufedvheegkeeludevgeegjeffteevnecukfhppeeikedrvdefhedrgeeirdefkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeikedrvdefhedrgeeirdefkedphhgvlhhopegluddtrdduheehrddujedurdejkegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepvddprhgtphhtthhopegrnhhuphessghrrghinhhfrghulhhtrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250816_082000_203063_78C8A969 
+X-CRM114-Status: UNSURE (   4.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,127 +56,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 04, 2025 at 12:38:15PM +0200, Uwe Kleine-K=F6nig wrote:
->Hello,
->
->On Sun, Aug 03, 2025 at 08:36:16PM -0400, Sasha Levin wrote:
->> From: Nylon Chen <nylon.chen@sifive.com>
->>
->> [ Upstream commit 7dbc4432ea6bf9d709391eb57f1e9fb44e99845a ]
->>
->> The `frac` variable represents the pulse inactive time, and the result
->> of this algorithm is the pulse active time. Therefore, we must reverse
->> the result.
->>
->> Although the SiFive Reference Manual states "pwms >=3D pwmcmpX -> HIGH",
->> the hardware behavior is inverted due to a fixed XNOR with 0. As a resul=
-t,
->> the pwmcmp register actually defines the low (inactive) portion of the p=
-ulse.
->>
->> The reference is SiFive FU740-C000 Manual[0]
->>
->> Link: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8=
-b16acba_fu740-c000-manual-v1p6.pdf [0]
->>
->> Co-developed-by: Zong Li <zong.li@sifive.com>
->> Signed-off-by: Zong Li <zong.li@sifive.com>
->> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
->> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
->> Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
->> Link: https://lore.kernel.org/r/20250529035341.51736-3-nylon.chen@sifive=
-.com
->> Signed-off-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org>
->> Signed-off-by: Sasha Levin <sashal@kernel.org>
->> ---
->>
->> LLM Generated explanations, may be completely bogus:
->>
->> **Backport Status: YES**
->>
->> This commit should be backported to stable kernel trees. Here's my
->> extensive analysis:
->>
->> ## Critical Bug Fix Analysis
->>
->> 1. **The commit fixes a significant functional bug** - The PWM algorithm
->>    was fundamentally broken:
->>    - The `frac` variable was incorrectly used (lines 158-161 in
->>      original, now 168-171)
->>    - The driver was writing the duty cycle value directly to PWMCMP
->>      register (line 193), but the hardware actually expects the
->>      **inactive** (low) time
->>    - This results in inverted PWM output behavior where users get the
->>      opposite duty cycle from what they request
->>
->> 2. **Hardware behavior discrepancy** - The commit reveals and fixes a
->>    critical mismatch between documentation and actual hardware:
->>    - The documentation states "pwms >=3D pwmcmpX -> HIGH"
->>    - But the hardware has a hard-tied XNOR with 0 that inverts this
->>      behavior
->>    - The driver now correctly compensates for this hardware quirk
->>
->> 3. **User-visible impact**:
->>    - **In `pwm_sifive_get_state()`**: The driver now correctly inverts
->>      the value read from hardware (lines 115->122-126)
->>    - **In `pwm_sifive_apply()`**: The driver now inverts the duty cycle
->>      before writing to hardware (lines 162->171)
->>    - **Polarity change**: Changed from `PWM_POLARITY_INVERSED` to
->>      `PWM_POLARITY_NORMAL` (lines 126->137, 142->152)
->>    - **Documentation fix**: Updated comment from "cannot generate 100%
->>      duty" to "cannot generate 0% duty" (lines 11->27, 160->170)
->>
->> 4. **The fix is relatively small and contained**:
->>    - Changes are isolated to the PWM algorithm logic
->>    - No architectural changes or new features
->>    - Simple mathematical inversion: `duty =3D (1U << PWM_SIFIVE_CMPWIDTH)
->>      - 1 - inactive`
->>
->> 5. **No risky side effects**:
->>    - The change is straightforward and mathematically correct
->>    - Doesn't affect other subsystems
->>    - Maintains the same register interface
->>
->> 6. **Affects all SiFive PWM users**:
->>    - Any system using SiFive FU540 or FU740 SoCs would have incorrect
->>      PWM output
->>    - This includes various RISC-V development boards and embedded
->>      systems
->>    - Users would get inverted duty cycles, potentially breaking motor
->>      controls, LED dimming, etc.
->>
->> 7. **Clear documentation reference**:
->>    - The commit references the official SiFive FU740-C000 Manual
->>    - Provides clear explanation of the hardware behavior mismatch
->>
->> The bug causes PWM outputs to be inverted from user expectations, which
->> is a significant functional issue that would affect any system relying
->> on proper PWM behavior for motor control, LED dimming, or other PWM-
->> dependent functionality. The fix is clean, minimal, and addresses a
->> clear hardware/software mismatch that exists in production systems.
->
->What your LLM missed is that the device trees using this PWM relied on
->this "bug" and so this commit should be applied either together with
->f4bcf818e5d6 ("riscv: dts: sifive: unleashed/unmatched: Remove PWM
->controlled LED's active-low properties") or not at all.
->
->Given that there might be device trees in use that are not in mainline
->and that break in the same way without a possiblity for us to fix that I
->tend to prefer not to backport this breaking change to stable.
-
-Ack, I'll drop it. Thanks!
-
--- =
-
-Thanks,
-Sasha
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpJJ20gaGl0dGluZyBhIHRpbWVvdXQgd2hpbGUgcnVubmluZyB0aGUga3NlbGZ0ZXN0IGZ0
+cmFjZS4gSSBub3RpY2VkIHRoZSAKZm9sbG93aW5nIG1lc3NhZ2U6CgpbwqAgODk4LjEwNzExNl0g
+Q1BVOiAzIFVJRDogMCBQSUQ6IDAgQ29tbTogc3dhcHBlci8zIE5vdCB0YWludGVkIAo2LjE3LjAt
+cmMxLTAwMDExLWdmZWQ1YzcxNTQ2MWIgIzEgTk9ORSBeTQpbwqAgODk4LjEwNzI3MF0gSGFyZHdh
+cmUgbmFtZTogcmlzY3YtdmlydGlvIHFlbXUvcWVtdSwgQklPUyAyMDI0LjEwIAoxMC8wMS8yMDI0
+Xk0KdFvCoCA4OTguMTA3NDIyXSBDYWxsIFRyYWNlOl5NCnJbwqAgODk4LjEwNzU2M10gWzxmZmZm
+ZmZmZjgwMDFjNzAwPl0gZHVtcF9iYWNrdHJhY2UrMHgyOC8weDM4Xk0KW8KgIDg5OC4xMDc3Nzdd
+IFs8ZmZmZmZmZmY4MDAwMjRlMD5dIHNob3dfc3RhY2srMHgzOC8weDUwXk0KL1vCoCA4OTguMTA3
+Nzg5XSBbPGZmZmZmZmZmODAwMTRlNzA+XSBkdW1wX3N0YWNrX2x2bCsweDcwLzB4YTBeTQp0W8Kg
+IDg5OC4xMDc4MDJdIFs8ZmZmZmZmZmY4MDAxNGViOD5dIGR1bXBfc3RhY2srMHgxOC8weDIwXk0K
+W8KgIDg5OC4xMDc4MTRdIFs8ZmZmZmZmZmY4MDAwM2U2Yz5dIF9fcmVwb3J0X2JhZF9pcnErMHg0
+Yy8weGUwXk0KclvCoCA4OTguMTA3ODI3XSBbPGZmZmZmZmZmODAxMDY0OTA+XSBub3RlX2ludGVy
+cnVwdCsweDJjMC8weDMzMF5NCmlbwqAgODk4LjEwNzg0MV0gWzxmZmZmZmZmZjgwMTAyMTlhPl0g
+aGFuZGxlX2lycV9ldmVudCsweGVhLzB4MTI4Xk0KW8KgIDg5OC4xMDc4NjRdIFs8ZmZmZmZmZmY4
+MDEwODVlMD5dIGhhbmRsZV9mYXN0ZW9pX2lycSsweDE3MC8weDM2OF5NCmdbwqAgODk4LjEwNzg3
+OF0gWzxmZmZmZmZmZjgwMTAxNDNlPl0gaGFuZGxlX2lycV9kZXNjKzB4MmUvMHg1MF5NCmdbwqAg
+ODk4LjEwNzg4OV0gWzxmZmZmZmZmZjgwMTAxNDhlPl0gZ2VuZXJpY19oYW5kbGVfaXJxKzB4MmUv
+MHg0MF5NCmVbwqAgODk4LjEwNzkwMF0gWzxmZmZmZmZmZjgwODkyM2I2Pl0gaW1zaWNfaGFuZGxl
+X2lycSsweDU2LzB4MTM4Xk0KW8KgIDg5OC4xMDc5MTVdIFs8ZmZmZmZmZmY4MDEwMTQzZT5dIGhh
+bmRsZV9pcnFfZGVzYysweDJlLzB4NTBeTQpyW8KgIDg5OC4xMDc5MjZdIFs8ZmZmZmZmZmY4MDEw
+MTU1ZT5dIGdlbmVyaWNfaGFuZGxlX2RvbWFpbl9pcnErMHgyNi8weDM4Xk0KW8KgIDg5OC4xMDc5
+NDldIFs8ZmZmZmZmZmY4MDg4ZjdlNj5dIHJpc2N2X2ludGNfYWlhX2lycSsweDJlLzB4NDheTQog
+wqBbwqAgODk4LjEwNzk2MF0gWzxmZmZmZmZmZjgxMjYwMDhhPl0gaGFuZGxlX3Jpc2N2X2lycSsw
+eDZhLzB4MTAwXk0KZVvCoCA4OTguMTA3OTc0XSBbPGZmZmZmZmZmODEyNzE3YWE+XSBjYWxsX29u
+X2lycV9zdGFjaysweDMyLzB4NDBeTQpbwqAgODk4LjEwODA0NV0gaGFuZGxlcnM6Xk0KdmVudHNb
+wqAgODk4LjExNDYzM10gWzxmZmZmZmZmZjgwYTA4MGIwPl0gc2VyaWFsODI1MF9pbnRlcnJ1cHRe
+TQovblvCoCA4OTguMTE1MzYyXSBEaXNhYmxpbmcgSVJRICMxOF5NCgpBZnRlciB0aGF0LCB0aGUg
+dGVzdHN1aXRlIGNvbnRpbnVlcyBidXQgd2hlbiBwb3dlcmluZyBvZmYgdGhlIHN5c3RlbSwgCnN5
+c3RlbWQgcHJvY2Vzc2VzIHRpbWUgb3V0IGFuZCB0aGUgZm9sbG93aW5nIGdvZXMgb24gYW5kIG9u
+IHVwIHRvIHRoZSAKdGVzdHN1aXRlIHRpbWVvdXQ6CgpbIDQ1NDkuNTI3NDk3XSBzeXN0ZW1kWzFd
+OiBTdGFydGluZyBzeXN0ZW1kLXRpbWVzeW5jZC5zZXJ2aWNlIC0gTmV0d29yayAKVGltZSBTeW5j
+aHJvbml6YXRpb24uLi5eTQorIHBvd2Vyb2ZmXk0KWyA0Nzg1LjYwMDI5NF0gc3lzdGVtZFsxXTog
+U3RhcnRpbmcgc3lzdGVtZC11ZGV2ZC5zZXJ2aWNlIC0gUnVsZS1iYXNlZCAKTWFuYWdlciBmb3Ig
+RGV2aWNlIEV2ZW50cyBhbmQgRmlsZXMuLi5eTQpbIDUwNzIuMjAyMzkwXSBzeXN0ZW1kWzFdOiBz
+eXN0ZW1kLWpvdXJuYWxkLnNlcnZpY2U6IE1haW4gcHJvY2VzcyAKZXhpdGVkLCBjb2RlPWtpbGxl
+ZCwgc3RhdHVzPTYvQUJSVF5NClsgNTA5Ni4yMjAzNjZdIHN5c3RlbWRbMV06IHN5c3RlbWQtam91
+cm5hbGQuc2VydmljZTogRmFpbGVkIHdpdGggcmVzdWx0IAond2F0Y2hkb2cnLl5NClsgNTEzNC40
+NTU5NjhdIHN5c3RlbWRbMV06IHN5c3RlbWQtam91cm5hbGQuc2VydmljZTogQ29uc3VtZWQgOG1p
+biAKMTAuMjM3cyBDUFUgdGltZSwgMTcuOU0gbWVtb3J5IHBlYWsuXk0KWyA1MzkxLjg0NzgzMV0g
+c3lzdGVtZFsxXTogc3lzdGVtZC10aW1lc3luY2Quc2VydmljZTogc3RhcnQgb3BlcmF0aW9uIAp0
+aW1lZCBvdXQuIFRlcm1pbmF0aW5nLl5NClsgNTQwNi40MTg1NTRdIHN5c3RlbWRbMV06IHN5c3Rl
+bWQtdWRldmQuc2VydmljZTogc3RhcnQgb3BlcmF0aW9uIHRpbWVkIApvdXQuIFRlcm1pbmF0aW5n
+Ll5NClsgNTQxNS45MjI2MjRdIHN5c3RlbWRbMV06IHN5c3RlbWQtam91cm5hbGQuc2VydmljZTog
+U2NoZWR1bGVkIHJlc3RhcnQgCmpvYiwgcmVzdGFydCBjb3VudGVyIGlzIGF0IDEuXk0KXltbMDsx
+OzM4OjU6MTg1bUZhaWxlZCB0byBzZXQgd2FsbCBtZXNzYWdlLCBpZ25vcmluZzogVHJhbnNwb3J0
+IGVuZHBvaW50IAppcyBub3QgY29ubmVjdGVkXltbMG1eTV5NCl5bWzA7MTszMW1DYWxsIHRvIFBv
+d2VyT2ZmIGZhaWxlZDogVHJhbnNwb3J0IGVuZHBvaW50IGlzIG5vdCAKY29ubmVjdGVkXltbMG1e
+TV5NCl5bWz8yMDA0aHJvb3RAcml2b3M6fiMgWyA1Njk0LjQwNzU4MF0gc3lzdGVtZFsxXTogU3Rh
+cnRpbmcgCnN5c3RlbWQtam91cm5hbGQuc2VydmljZSAtIEpvdXJuYWwgU2VydmljZS4uLl5NClsg
+NTcxOC40OTgyODNdIHN5c3RlbWRbMV06IHN5c3RlbWQtdGltZXN5bmNkLnNlcnZpY2U6IFN0YXRl
+IAonc3RvcC1zaWd0ZXJtJyB0aW1lZCBvdXQuIEtpbGxpbmcuXk0KWyA1NzIyLjcxMTU3Ml0gc3lz
+dGVtZFsxXTogc3lzdGVtZC10aW1lc3luY2Quc2VydmljZTogS2lsbGluZyBwcm9jZXNzIAo1MjUw
+ICg5KSB3aXRoIHNpZ25hbCBTSUdLSUxMLl5NClsgNTcyNS44MTMyODhdIHN5c3RlbWRbMV06IHN5
+c3RlbWQtdWRldmQuc2VydmljZTogU3RhdGUgJ3N0b3Atc2lndGVybScgCnRpbWVkIG91dC4gS2ls
+bGluZy5eTQpbIDU3MzEuMTUwNDc1XSBzeXN0ZW1kWzFdOiBzeXN0ZW1kLXVkZXZkLnNlcnZpY2U6
+IEtpbGxpbmcgcHJvY2VzcyA1MjU0IAooOSkgd2l0aCBzaWduYWwgU0lHS0lMTC5eTQpbIDU3NTMu
+NjA0MjcxXSBzeXN0ZW1kWzFdOiBzeXN0ZW1kLWpvdXJuYWxkLnNlcnZpY2U6IHN0YXJ0IG9wZXJh
+dGlvbiAKdGltZWQgb3V0LiBUZXJtaW5hdGluZy5eTQpbIDU4NTguODE1MzkyXSBzeXN0ZW1kWzFd
+OiBTdGFydGVkIHN5c3RlbWQtaW5pdGN0bC5zZXJ2aWNlIC0gaW5pdGN0bCAKQ29tcGF0aWJpbGl0
+eSBEYWVtb24uXk0KWyA1OTAyLjgyOTEzMF0gc3lzdGVtZFsxXTogc3lzdGVtZC10aW1lc3luY2Qu
+c2VydmljZTogTWFpbiBwcm9jZXNzIApleGl0ZWQsIGNvZGU9a2lsbGVkLCBzdGF0dXM9OS9LSUxM
+Xk0KWyA1OTA4Ljg4OTQwNl0gc3lzdGVtZFsxXTogc3lzdGVtZC10aW1lc3luY2Quc2VydmljZTog
+RmFpbGVkIHdpdGggcmVzdWx0IAondGltZW91dCcuXk0KCkkgaGF2ZW4ndCBiZWVuIGFibGUgdG8g
+cmVwcm9kdWNlIGl0IGxvY2FsbHkgdW5mb3J0dW5hdGVseSwgd2hpY2ggaXMgCndlaXJkLCBidXQg
+bWF5YmUgc29tZW9uZSBoYXMgYW4gaWRlYSB3aGF0IGNvdWxkIGdvIHdyb25nPwoKVGhhbmtzLAoK
+QWxleAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
