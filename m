@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9DCCA0EE6
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 07:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10ED6CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 07:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rmKQqNXUDveDz9QCv6Bol7mKOu4+X1q12BjCd170jRg=; b=o9AkXPv3Mregoz
-	Xw7ApDOXV7My+AU6u5n7KdEEQjsgJgrjZIIHHA9A1e8syY7zK4PL4l4uQP4096OlaH5mk/PD9z1he
-	OFlGoxS8gEge8yEcLcgCTKLP9X//h7BKt6Sgu2lrE+mPoJCKmlZgKGRWKIrIitp79ahmCWT70lGgv
-	nL/Sc42SWewajH9ecb0yrjn3sqHHb4gBhfX32l5tcNPnfsNSZNazMDxxyU6LIuIq/j3tXhBj8/8rZ
-	eL2aDxFQ43SuboE4lNMSeMNmFL/mmQgr/0WBwDh0x3OvBVc928smALDO5tNau4K4ycGMfKiPOvtPh
-	Y823YlT9b4y8BKpO0yLQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0fd/CZJEeUqWk0zuo0SamhrUqnfl4t/2xbDXhLY1azM=; b=cSMKmRpoZCtNRd
+	XrBxRtDloL9rF9amcQoPZCb+J5TKimxyKtuo1qpoZxT7U/1RQhRY0o+wX/9DdtW1q7wNxW5+amaL8
+	oCJp4STeUPES3mq8oKiMR/tn0BDn4Bfc7pbfP7ZGjYv2rNQxQfz0/kmSRh6WNp/pTP5D9IjO78+Qn
+	TjbY7Y6Wn3AA547HAg/5YdQk69kQnHcXW1BBsE5hHz90xtRuV7NDkdAiIj4eUW5Gwknts9HiacF/z
+	UmIKvlwnD1d7Y/CK5P3Bo11e/xKwEualYLoLbQ3Vwrov1l78kskA40Ocvg8ZsR7JHLxY8tMH9rcXQ
+	6IiWeyXBi7GgYArNAqNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unBQM-00000004DmR-0wE9;
-	Sat, 16 Aug 2025 07:33:58 +0000
-Received: from out-182.mta0.migadu.com ([91.218.175.182])
+	id 1unBeW-00000004ERJ-39ZZ;
+	Sat, 16 Aug 2025 07:48:36 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unBNB-00000004DTI-2dTb
+	id 1unBeT-00000004EQw-3tPC
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Aug 2025 07:30:43 +0000
-Date: Sat, 16 Aug 2025 15:30:14 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1755329427;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VrtQfsqunoMUAgJ9HLaz9rRre5ttd6HWa6pPbNixffA=;
-	b=GytX8O7ZMvMgzlcKTYRi7/4RWi/vtIOmu0EqcFqGnCSgetACzbUYNmff9ftOjvDflrsnWP
-	ugPkOXm0MdNmesJpFMxbW2sV82NwmGDRe6+HWNj3UXzWJ4kI5Y2azMDN/GpJcgtUW3ZWR0
-	VxSm/8mYunsgnCD92SdK3z47VJDA890=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Troy Mitchell <troy.mitchell@linux.dev>
-To: Anup Patel <apatel@ventanamicro.com>,
-	Sunil V L <sunilvl@ventanamicro.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Len Brown <lenb@kernel.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, linux-acpi@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Troy Mitchell <troy.mitchell@linux.dev>
-Subject: Re: [PATCH 1/2] ACPI: RISC-V: Fix FFH_CPPC_CSR error handling
-Message-ID: <aKAzhjJcCAynfF1Q@troy-wujie14pro-arch>
-References: <20250815161406.76370-1-apatel@ventanamicro.com>
- <20250815161406.76370-2-apatel@ventanamicro.com>
+	Sat, 16 Aug 2025 07:48:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755330499; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=A3Z3+ERcLsXTZoUMsAKaue8d2lHMezKapHDW7CIAizHx7DFRfYlxDHl+oVMKxnmPZY92upxn8WP/kd4f+7bf+jsr1MnwPaJcr8/jIOcz3+GNX0aQ4IJ4fqVaxzRc3JfmxSBluUTF+yRkWlC0VTRHWhhUNjiGrObr/M4mTFUAnV4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1755330499; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ZvPMHxn9L7TiQAMN2zR904XCsjoFl4D3E0wwP1N3GjU=; 
+	b=bIO4+m8a1j6drs3qvNV5RvzSKhP+SZUi8yeO98ZXPG+TBg5VKrHp/Njbb/5iI7gsCD65Q/zm6ocF7VE9SKPhyNhsMyAnJlyC5vqutdkj9BMITfuE/Cr50OYT3+MhtIATV6I/N+9MLyBLy2LEVM8PZVf9ox4t95At6GA1DtkLJWU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755330499;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=ZvPMHxn9L7TiQAMN2zR904XCsjoFl4D3E0wwP1N3GjU=;
+	b=Ejc61UXZtgJgtPUu0kbjrf9a3gMGZBwkNEp6GNXbaNY9cd5k5v4MN4OUPJjCST4P
+	vJN8xP6j2quoP+UiX8rOPTDhpmQnuK7Ca4VoiCwf6BwMohPt4vXBZPMyL3+ugPn0b9i
+	ATAD/sVL2HgXoQASdKdxOM9iCXCGoRJ2YVlrcA37+Otde/CsMDzREbQSi2+UMXaWEOu
+	bc5y0Bxy7VrFu0J6Uh0IWJt84uFla/nVJOI0ZWnDF68SbRdbcf4rtTsUWqBsxdbUacv
+	IPzTuUPVP9O4Da7Joos9Te4/Pvrpl4RUT0Z00JnjGCuQZZ7aQaQJxIi8PwtiVwQXa0M
+	uk4u/S+V8Q==
+Received: by mx.zohomail.com with SMTPS id 1755330497800252.9936948125818;
+	Sat, 16 Aug 2025 00:48:17 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Russell King <linux+etnaviv@armlinux.org.uk>,
+	Christian Gmeiner <christian.gmeiner@gmail.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	etnaviv@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH 0/7] drm/etnaviv: add support for GC620 on T-Head TH1520
+Date: Sat, 16 Aug 2025 15:47:50 +0800
+Message-ID: <20250816074757.2559055-1-uwu@icenowy.me>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250815161406.76370-2-apatel@ventanamicro.com>
-X-Migadu-Flow: FLOW_OUT
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_003042_511697_FEE65EFA 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250816_004834_036537_F141DBDB 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +89,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 09:44:05PM +0530, Anup Patel wrote:
-> The cppc_ffh_csr_read() and cppc_ffh_csr_write() returns Linux error
-> code in "data->ret.error" so cpc_read_ffh() and cpc_write_ffh() must
-> not use sbi_err_map_linux_errno() for FFH_CPPC_CSR.
-> 
-> Fixes: 30f3ffbee86b ("ACPI: RISC-V: Add CPPC driver")
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  drivers/acpi/riscv/cppc.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
-> index 440cf9fb91aa..42c1a9052470 100644
-> --- a/drivers/acpi/riscv/cppc.c
-> +++ b/drivers/acpi/riscv/cppc.c
-> @@ -119,7 +119,7 @@ int cpc_read_ffh(int cpu, struct cpc_reg *reg, u64 *val)
->  
->  		*val = data.ret.value;
->  
-> -		return (data.ret.error) ? sbi_err_map_linux_errno(data.ret.error) : 0;
-> +		return data.ret.error;
->  	}
->  
->  	return -EINVAL;
-> @@ -148,7 +148,7 @@ int cpc_write_ffh(int cpu, struct cpc_reg *reg, u64 val)
->  
->  		smp_call_function_single(cpu, cppc_ffh_csr_write, &data, 1);
->  
-> -		return (data.ret.error) ? sbi_err_map_linux_errno(data.ret.error) : 0;
-> +		return data.ret.error;
->  	}
->  
->  	return -EINVAL;
->
-Thanks!
+This patchset tries to add support for the GC620 2D accelerator, which
+is a quirky thing -- it has quirks on both MMU and DEC.
 
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.dev>
-> -- 
-> 2.43.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+The DEC quirk is bound to the model number and revision number
+currently, and only involves writing to some DEC registers at specific
+situation.
+
+The MMU quirk is more weird -- it contains a broken implementation of
+PTA, which blocks directly writing MTLB address to switch MMU context,
+but loading page table IDs different to the initial one does not work
+either. A shared context practice, like what's done for IOMMUv1, has to
+be used instead.
+
+The DT patch isn't ready because the VP (video processing) subsystem on
+TH1520 does not have proper clock and reset driver yet, and the DT patch
+included in this patchset uses fake clocks and ignore resets.
+
+Tested by the etnaviv_2d_test program in libdrm tests.
+
+Icenowy Zheng (7):
+  drm/etnaviv: add HWDB entry for GC620 r5552 c20b
+  drm/etnaviv: add handle for GPUs with only SECURITY_AHB flag
+  drm/etnaviv: setup DEC400EX on GC620 r5552
+  drm/etnaviv: protect whole iommuv2 ctx alloc func under global mutex
+  drm/etnaviv: prepare for shared_context support for iommuv2
+  drm/etnaviv: add shared context support for iommuv2
+  [NOT FOR UPSTREAM] riscv: dts: thead: enable GC620 G2D on TH1520
+
+ arch/riscv/boot/dts/thead/th1520.dtsi      | 19 +++++++++++++
+ drivers/gpu/drm/etnaviv/etnaviv_gpu.c      | 19 ++++++++++---
+ drivers/gpu/drm/etnaviv/etnaviv_hwdb.c     | 31 ++++++++++++++++++++++
+ drivers/gpu/drm/etnaviv/etnaviv_iommu.c    |  8 +++---
+ drivers/gpu/drm/etnaviv/etnaviv_iommu_v2.c | 23 +++++++++++-----
+ drivers/gpu/drm/etnaviv/etnaviv_mmu.c      |  1 +
+ drivers/gpu/drm/etnaviv/etnaviv_mmu.h      | 24 +++++++----------
+ 7 files changed, 96 insertions(+), 29 deletions(-)
+
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
