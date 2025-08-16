@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D045ECA0EE4
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Aug 2025 23:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 440F1CA0ED1
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 01:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=daXlH0Kn8E1TRd85J30Ekk3KWAXxojVFWMcE4tT3tFo=; b=L9tmTDqrbAdOKl
-	YIj9GyKPrAKKFzIHYvvOkFzp1BjvOVmQvKo5bxbeFEnmfLHBlvlKrq+wnWuydITS7zICO5kDQLvul
-	65SFKfS2/tPJC8X++oxDeBfQyqICIbmIIVRRsV0CFzvvSuTq+H8haHgAvoAXch5vhBwX3F4cAptal
-	4YG96u5EZFv6b7lvJGUMy+97ux4b61emskl48FR42ygv54Ic7h8TT8vzQFEkmlNAA6EauXA4dWjiV
-	esRqvk1t834MGQSGIfzEVhtjhrsg12G25BZSNxnXcY/IwZfRdLJXOWklN3nSJmoLFNPhjNGq7xSiy
-	Nt6lD6vNxt3N0kJE2Xjg==;
+	List-Owner; bh=pH/6PuJBK/4K8FubMOUu09G2xmsIcifQWtRcvPqVlMk=; b=G3NXRxi9gK442F
+	SuZQ0q0/P/Vz1H/J+SXLAp6yXX6riU6QKy0WCUc4v3we4v1T546TPAPf4C0dDYR0slALqjn6EhXXt
+	jgnjdFs3TGc689xBKkwWfOAyzSfRnL6YVTtMqFx3JsF2lB8u5SQkZpebmEQ1He4gl9aQFZUgbEuQH
+	7ji2xpycodNCRnU0cZko2lvVwnVxFbiFQFVGJ2VjdySHwQGv6zvLp0/fYUznQFK970udA1dmOKWbY
+	IsJjXWr+T5tTAPbLED+KQPrXelv19DSaPiX8+WeDUHUlb+lnswBIKLtQuTA0Hi50wk3kfMC5q7KJQ
+	oNqikfO4zFCRQ+WR3Viw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un47B-00000003jB8-0b9r;
-	Fri, 15 Aug 2025 23:45:41 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1un5iO-00000003rXS-2LEQ;
+	Sat, 16 Aug 2025 01:28:12 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un477-00000003jAP-45e1
+	id 1un5iL-00000003rX0-3efa
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Aug 2025 23:45:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4EABEA58444;
-	Fri, 15 Aug 2025 23:45:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCB8FC4CEEB;
-	Fri, 15 Aug 2025 23:45:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755301537;
-	bh=g68O3WmYOhk4y5L79Ofa0c3kpmvbkMRbUGdK4BAXSrM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AAocX+1XJ55zDaEfebP8eiItlhPcEHOFkcM8AAnOFUHjfUQZjIHRIu54XvhsRnYLW
-	 X248Ua9VPnXnKIUrafSn3+h7l/XhKWoB4eLmAX5wlpzfaH8/0vS0X8czOTA+ASzB0f
-	 dm9xpwP9Wdn64dMZkMJQEse9JfdW+abCZXscpSSmwI47YRqgevHpFPs/baByOAIR5M
-	 woPb7GKTEm6uWNDgjZJCvIHjGIwfpmBBhrLZGm/7y6YtqpHEDSkU42I1Vx8b+gTZUd
-	 bWFtBe7D41YF2EzFcuR1zVWK3CTOoM+L43sG72lVF7tuTGVc+OP56Es5BGtG0Kp9cQ
-	 gbHrpTQN6a2Pw==
-Date: Fri, 15 Aug 2025 16:45:35 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michal Wilczynski <m.wilczynski@samsung.com>,
-	Yao Zi <ziyao@disroot.org>, Han Gao <rabenda.cn@gmail.com>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] clk: thead: th1520-ap: describe gate clocks with
- clk_gate
-Message-ID: <aJ/Gn2BeN4w2Yy9y@x1>
-References: <20250813171136.2213309-1-uwu@icenowy.me>
- <20250813171136.2213309-2-uwu@icenowy.me>
+	Sat, 16 Aug 2025 01:28:11 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4c3h7r48NhzdcBV;
+	Sat, 16 Aug 2025 09:23:36 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9918A1401E9;
+	Sat, 16 Aug 2025 09:27:57 +0800 (CST)
+Received: from [10.67.109.184] (10.67.109.184) by
+ kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 16 Aug 2025 09:27:56 +0800
+Message-ID: <40d38745-a790-4f34-8eef-8038069b976d@huawei.com>
+Date: Sat, 16 Aug 2025 09:27:55 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250813171136.2213309-2-uwu@icenowy.me>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] riscv, bpf: use lw when reading int cpu in
+ BPF_MOV64_PERCPU_REG
+Content-Language: en-US
+To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+	<bpf@vger.kernel.org>
+CC: <stable@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin
+ KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song
+ Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John
+ Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa
+	<jolsa@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Kumar Kartikeya
+ Dwivedi <memxor@gmail.com>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20250812090256.757273-2-rkrcmar@ventanamicro.com>
+ <20250812090256.757273-3-rkrcmar@ventanamicro.com>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20250812090256.757273-3-rkrcmar@ventanamicro.com>
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_164538_076493_850A2EE9 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250815_182810_068477_35C5E813 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,32 +79,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 01:11:35AM +0800, Icenowy Zheng wrote:
-> Similar to previous situation of mux clocks, the gate clocks of
-> clk-th1520-ap drivers are also using a helper that creates a temporary
-> struct clk_hw and abandons the struct clk_hw in struct ccu_common, which
-> prevents clock gates to be clock parents.
-> 
-> Do the similar refactor of dropping struct ccu_common and directly use
-> struct clk_gate here.
-> 
-> This patch mimics the refactor done on struct ccu_mux at [1].
-> 
-> [1] https://lore.kernel.org/all/20250722080535.60027-2-ziyao@disroot.org/
-> 
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-> ---
->  drivers/clk/thead/clk-th1520-ap.c | 382 +++++++++++++++---------------
->  1 file changed, 185 insertions(+), 197 deletions(-)
-
-Reviewed-by: Drew Fustini <fustini@kernel.org>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDI1LzgvMTIgMTc6MDIsIFJhZGltIEtyxI1tw6HFmSB3cm90ZToKPiBlbWl0X2xkIGlz
+IHdyb25nLCBiZWNhdXNlIHRocmVhZF9pbmZvLmNwdSBpcyAzMi1iaXQsIG5vdCB4bGVuLWJpdCB3
+aWRlLgo+IFRoZSBzdHJ1Y3QgY3VycmVudGx5IGhhcyBhIGhvbGUgYWZ0ZXIgY3B1LCBzbyBsaXR0
+bGUgZW5kaWFuIGFjY2Vzc2VzCj4gc2VlbWVkIGZpbmUuCj4gCj4gRml4ZXM6IDE5YzU2ZDRlNWJl
+MSAoInJpc2N2LCBicGY6IGFkZCBpbnRlcm5hbC1vbmx5IE1PViBpbnN0cnVjdGlvbiB0byByZXNv
+bHZlIHBlci1DUFUgYWRkcnMiKQo+IENjOiA8c3RhYmxlQHZnZXIua2VybmVsLm9yZz4KPiBTaWdu
+ZWQtb2ZmLWJ5OiBSYWRpbSBLcsSNbcOhxZkgPHJrcmNtYXJAdmVudGFuYW1pY3JvLmNvbT4KPiAt
+LS0KPiAgIGFyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgfCAyICstCj4gICAxIGZpbGUg
+Y2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPiAKPiBkaWZmIC0tZ2l0IGEv
+YXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRf
+Y29tcDY0LmMKPiBpbmRleCAxMGUwMWZmMDYzMTIuLjZlMTU1NGQ4OTY4MSAxMDA2NDQKPiAtLS0g
+YS9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jCj4gKysrIGIvYXJjaC9yaXNjdi9uZXQv
+YnBmX2ppdF9jb21wNjQuYwo+IEBAIC0xMzU2LDcgKzEzNTYsNyBAQCBpbnQgYnBmX2ppdF9lbWl0
+X2luc24oY29uc3Qgc3RydWN0IGJwZl9pbnNuICppbnNuLCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQg
+KmN0eCwKPiAgIAkJCQllbWl0X212KHJkLCBycywgY3R4KTsKPiAgICNpZmRlZiBDT05GSUdfU01Q
+Cj4gICAJCQkvKiBMb2FkIGN1cnJlbnQgQ1BVIG51bWJlciBpbiBUMSAqLwo+IC0JCQllbWl0X2xk
+KFJWX1JFR19UMSwgb2Zmc2V0b2Yoc3RydWN0IHRocmVhZF9pbmZvLCBjcHUpLAo+ICsJCQllbWl0
+X2x3KFJWX1JFR19UMSwgb2Zmc2V0b2Yoc3RydWN0IHRocmVhZF9pbmZvLCBjcHUpLAo+ICAgCQkJ
+CVJWX1JFR19UUCwgY3R4KTsKPiAgIAkJCS8qIExvYWQgYWRkcmVzcyBvZiBfX3Blcl9jcHVfb2Zm
+c2V0IGFycmF5IGluIFQyICovCj4gICAJCQllbWl0X2FkZHIoUlZfUkVHX1QyLCAodTY0KSZfX3Bl
+cl9jcHVfb2Zmc2V0LCBleHRyYV9wYXNzLCBjdHgpOwoKUmV2aWV3ZWQtYnk6IFB1IExlaHVpIDxw
+dWxlaHVpQGh1YXdlaS5jb20+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
