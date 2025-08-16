@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8953DCA0EE4
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 09:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF72ACA0EE4
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Aug 2025 09:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YyGQt8B/q9SjRoIomLKzTXv6BbPTQdLizKAM/duxa+U=; b=L9ym24YbDF1Dl4
-	nFdb+Mxrj484d4U/W2mdvCWYv4+jzSpqPRon4DhoALqbBv22FWXC1Ca/JPkv6GDXbdORfNv7io990
-	yNrnuxJ+28tvenjsJN/UTGPbZfHfo9dljyS/0MwIXWixjNQog9dg4qdBoBWV/NF/I28zr/rD1qgc5
-	6rx3wPIT5BIrLr9mxzpo5ar4F22cLBbMasSp7F2anxTGhwb0BT1RmqbVggXkGVgHdrRK1/zXzfjJ7
-	7JDnXtubtJtxTL3ntG3JjRpnveUNFBs9pzFoUagpxd4I1cpmH+Ke6nyyVGygeuL7qPykEb5/SKX2S
-	/GFrmxAWr6E4g4j/Z0kQ==;
+	List-Owner; bh=CRbJT7SFoK4dHBka8VVNB5NnIXdKTnXyCXmqaN38Spg=; b=khTgG5OlpehbaO
+	F3H0q4RoH1g+nwW1Q882RPndH41fd1rJI1qJfVjGUxghGMcnEV6bkRFQzdfqk2Jtn38KlIt4PCpgs
+	inrPnj+RjxHOeyxryes0PS6mAiaeTA3Usy//mFEACyJgaBMzaxyi4qHGa29wmyeBMQ0/PINHmEKEO
+	bTdok8aSwQBX9xhBSYtndZlWihOC0gxlN5ecoavWQR/EgmJ+fYwEJw4eB9EaugxrdHr3whiCpvF3T
+	c6adwS8Pf+/8oGoqqPVhuS+p8FEhuLJbmGc44/RK949Pvfuq4oLJtEOku9hzKvyeMMU9SphqqZ0D3
+	O43AzESAQygNaAQ90JKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unD1y-00000004Nja-2uoM;
-	Sat, 16 Aug 2025 09:16:54 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1unDOv-00000004PYv-20bj;
+	Sat, 16 Aug 2025 09:40:37 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unBrU-00000004Gko-00Ep
+	id 1unDHQ-00000004OeK-1vBc
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Aug 2025 08:02:01 +0000
-Date: Sat, 16 Aug 2025 16:01:37 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1755331316;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EOo8GB7o2DUvLMEWO0WKIusOz/pycPiItGuieZ5F3Os=;
-	b=mAiimklowZnC4ncMq5D5aWLLDUqkRnWsS0Zb8uiLFJk6xsZlYeQwpzLnQlJLWAvu5qZPZZ
-	hApNxZdJ7X7JaX91swUNSvOpWLb5HikunvI7RwMKSSQs5HXU41sqIy4nt1GNQIa3dpCLEb
-	l8jepjAqxubbQp6bzKtRojk+3g2IF6g=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Troy Mitchell <troy.mitchell@linux.dev>
-To: Icenowy Zheng <uwu@icenowy.me>, Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
-	Yao Zi <ziyao@disroot.org>, Han Gao <rabenda.cn@gmail.com>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	Sat, 16 Aug 2025 09:32:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755336766; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ZUVD1jKbcycpJoOHNYt6loehgxTSeRCDJag3kw2I2QnzA+ypHO88tNyQqye1FylJlD1mnBs+EFnle10N+R/eGNjCIxG3mqzHbqJs0kxF313+bGsVuJSNnncrc3GFzLfAGS+cfNNcC9QDsjFSP+aqh3fDaKsLYYIIUXdXWOQKVbo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1755336766; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=T93m/qBDDnHV3ndKiLSsbo6LGiGCBHHPOQ9wTTk4DHs=; 
+	b=DC04lwQgdsvQi67rgSxznHA3hJeSQj2Vn4sF+M7mknA368ZE+sWzO65z/+0Ju4mf/Ppr2TYXDhl30iuhi3NciyhP3KV26N5Q2cAitPpbLF28HgiJxlx4YkNVx2J0GVy5mHZEBQS97evZ5iizG3IFwBjqd2dum3LqXErplzt1UTw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755336766;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=T93m/qBDDnHV3ndKiLSsbo6LGiGCBHHPOQ9wTTk4DHs=;
+	b=cu++eg9n1Z7p9md9w6Hqnxk23dieTThLkzdyjxuBokoEuIYqdp/ezHSbfK+1hqO6
+	oBfyAPzX3ddH45cGu8U090vE97Y8Etbx79Sjj7P2pO1yj2WxTvF/iSU5RaB1wnE9qiQ
+	xPFKDojTlNQNYwmnC0/fK1aRrcTKLVhFuIy93c/f1xslO9VfoYLYlDsUxyd+dIvU7h+
+	wiH4rMOGQISG1D+ELvvAa7Q/zGxYkaSLMATp4VAMSQRlEOGWZuBESxGWL25+JgoHrmy
+	vjAzv3bsSSEMHPmsSEO603t/+CfCZRXedlXpNTNwJ2EtSCqdhF9UhXdtMlB9Nxi9ZaG
+	Mxkbc4B6xw==
+Received: by mx.zohomail.com with SMTPS id 1755336765084748.2338970354662;
+	Sat, 16 Aug 2025 02:32:45 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Han Gao <rabenda.cn@gmail.com>,
+	Yao Zi <ziyao@disroot.org>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Troy Mitchell <troy.mitchell@linux.dev>
-Subject: Re: [PATCH 2/2] clk: thead: th1520-ap: fix parent of padctrl0 clock
-Message-ID: <aKA64Xj-2GCCVRgg@troy-wujie14pro-arch>
-References: <20250813171136.2213309-1-uwu@icenowy.me>
- <20250813171136.2213309-3-uwu@icenowy.me>
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH 2/3] riscv: dts: thead: th1520: add initial thermal zones
+Date: Sat, 16 Aug 2025 17:32:08 +0800
+Message-ID: <20250816093209.2600355-3-uwu@icenowy.me>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250816093209.2600355-1-uwu@icenowy.me>
+References: <20250816093209.2600355-1-uwu@icenowy.me>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250813171136.2213309-3-uwu@icenowy.me>
-X-Migadu-Flow: FLOW_OUT
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_010200_244858_B915C86D 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20250816_023252_561671_2A5BF454 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,51 +91,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 01:11:36AM +0800, Icenowy Zheng wrote:
-> The padctrl0 clock seems to be a child of the perisys_apb4_hclk clock,
-> gating the later makes padctrl0 registers stuck too.
-> 
-> Fix this relationship.
-> 
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-> ---
->  drivers/clk/thead/clk-th1520-ap.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->
-With fixing what Drew said, feel free to add:
+As the PVT sensors's "T" means thermal, add thermal zones for the
+thermal sensors.
 
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.dev>
-> 
-> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-> index d08e7fb387e50..f6f3d63d53353 100644
-> --- a/drivers/clk/thead/clk-th1520-ap.c
-> +++ b/drivers/clk/thead/clk-th1520-ap.c
-> @@ -888,13 +888,16 @@ static CCU_GATE(CLK_PERISYS_APB3_HCLK, perisys_apb3_hclk, "perisys-apb3-hclk", p
->  		0x150, 11, CLK_IS_CRITICAL);
->  static CCU_GATE(CLK_PERISYS_APB4_HCLK, perisys_apb4_hclk, "perisys-apb4-hclk", perisys_ahb_hclk_pd,
->  		0x150, 12, 0);
-> +static const struct clk_parent_data perisys_apb4_hclk_pd[] = {
-> +	{ .hw = &perisys_apb4_hclk.gate.hw },
-> +};
->  static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, 5, CLK_IS_CRITICAL);
->  static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, 13, CLK_IS_CRITICAL);
->  static CCU_GATE(CLK_EMMC_SDIO, emmc_sdio_clk, "emmc-sdio", emmc_sdio_ref_clk_pd, 0x204, 30, 0);
->  static CCU_GATE(CLK_GMAC1, gmac1_clk, "gmac1", gmac_pll_clk_pd, 0x204, 26, 0);
->  static CCU_GATE(CLK_PADCTRL1, padctrl1_clk, "padctrl1", perisys_apb_pclk_pd, 0x204, 24, 0);
->  static CCU_GATE(CLK_DSMART, dsmart_clk, "dsmart", perisys_apb_pclk_pd, 0x204, 23, 0);
-> -static CCU_GATE(CLK_PADCTRL0, padctrl0_clk, "padctrl0", perisys_apb_pclk_pd, 0x204, 22, 0);
-> +static CCU_GATE(CLK_PADCTRL0, padctrl0_clk, "padctrl0", perisys_apb4_hclk_pd, 0x204, 22, 0);
->  static CCU_GATE(CLK_GMAC_AXI, gmac_axi_clk, "gmac-axi", axi4_cpusys2_aclk_pd, 0x204, 21, 0);
->  static CCU_GATE(CLK_GPIO3, gpio3_clk, "gpio3-clk", peri2sys_apb_pclk_pd, 0x204, 20, 0);
->  static CCU_GATE(CLK_GMAC0, gmac0_clk, "gmac0", gmac_pll_clk_pd, 0x204, 19, 0);
-> -- 
-> 2.50.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Because of the current lack of DVFS, only a critical trip point is added
+now.
+
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+---
+ arch/riscv/boot/dts/thead/th1520.dtsi | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index e9c81bdabed8a..a48eca5def606 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -701,4 +701,29 @@ gpio4: gpio-controller@0 {
+ 			};
+ 		};
+ 	};
++
++	thermal-zones {
++		cpu-thermal {
++			polling-delay-passive = <250>;
++			polling-delay = <15000>;
++
++			thermal-sensors = <&pvt 0>;
++
++			trips {
++				cpu_crit: crit-trip {
++					/* milliCelsius */
++					temperature = <110000>;
++					hysteresis = <2000>;
++					type = "critical";
++				};
++			};
++		};
++
++		ddrc-thermal {
++			polling-delay-passive = <250>;
++			polling-delay = <15000>;
++
++			thermal-sensors = <&pvt 1>;
++		};
++	};
+ };
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
