@@ -4,72 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B12CA0EDC
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Aug 2025 03:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD09CA0EDC
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Aug 2025 06:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pCdyg4HIoE8uoYxyWA1xHjrRILgS51aZuIS2Wm1qpy8=; b=XzNP/IB9hUDgT9
-	jSZJ7cOufbIWme8tFFJ1Mw/eva2Cs8Ht2fUiM3/hQLdSFmZSNZKCy+7oX3RcUyYtjZ0t9+zq8qv+w
-	ckVTDYN/gWijSiT5x3RyvaecMkoj9EUeZU2VcdN5+gcVoCENlc9J7a0ciDkHPUqGq7XxrRyy9FX1S
-	os5O3snZ5UY7zqvRSs102KngxHXTeRyzkupRKNxks8lpHeEvGaLPlDEP9WRlZad4eFI9MT86XmhaU
-	vx75Urk2phL2TnS10PBze34ehJ+0nKaNFYU7/O+E2HM0xyvADQ2+S1eo+kjrNMw8eXtEa5L756mU1
-	nTS8NFWYCoYqwEOqvp/g==;
+	List-Owner; bh=fSs47FH+QxF2WLfQ+0+4I6pOl5u0HSgvRRpQeSomzXQ=; b=crhqSVPA1Z+PTg
+	xWhDWOHpqn3e9ulxNEVqUnXVvoucGc/eYDg/6FJOrM6BmcOJiH91Jr7d4kv0weQ7hmz6XJp7K9tqf
+	3sKjgQaGxdx20z16mEEiaqGfpbqISUWLikKpGpEs99I+aDMhjJ8T8PqHVYgLUVMVsrOu7AtYppCq4
+	mg0UpdAxcClEl7KKW+ZeEkxLqCfWcP8WKddeVNUEOxb7DyOPHCskEmDqWh6LhrlmCQ72KPqsRFXTt
+	iUjOvqnRVLmRENKpDY6z/HTGOMifDFqLRhOOEesk1QW+bDiC38i+YjM/u/0x3ECwoj8jzqFMptJX8
+	wvJZhvqL1kY8EmfDReaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unUHl-00000005JpK-2mny;
-	Sun, 17 Aug 2025 03:42:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1unWSS-00000005OKg-2IoS;
+	Sun, 17 Aug 2025 06:01:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unUHj-00000005Jox-1dH9
+	id 1unWSR-00000005OKa-30oR
 	for linux-riscv@lists.infradead.org;
-	Sun, 17 Aug 2025 03:42:20 +0000
+	Sun, 17 Aug 2025 06:01:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D0EB845C53
-	for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 03:42:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1798C19421
-	for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 03:42:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E80D1601DA;
+	Sun, 17 Aug 2025 06:01:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB26BC4CEEB;
+	Sun, 17 Aug 2025 06:01:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755402137;
-	bh=0RK7oybG39j/BzocNbqy4mpNmNZxOo5/Ezo2Vuk9LOA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=qtj5huLrqLq9PZqGS9NV2KRNcai63H0aKe1uFpxPvxIiwsZDfQwywOEFdWiRSBxX7
-	 spirLkb1pPoCL/R4QVFEQF9IMzc3DJWmqJjoA8gVIReY8K/GpYM9ymiDzSAncztT0Q
-	 1w7olO5rLg9O9t44FHWE8cN7MjSgbhipZG0nPKbF4vqf+Yw70dg76ErTeJAuOqvyjB
-	 LoZuo1ZcyEmK+qTe9+kZPo0wthgq/DJ8H92d8i1CPOA2041H1J5jPUnqcRsRrOHipl
-	 PIppqwPDX2AJcVYHECkrkV8d7Z5mHaUtPBpBfvVtZM/DdBQObdb5cEbtwbUQPf9Kb4
-	 K0PETbf902eWA==
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-61a1663be10so1218752a12.1
-        for <linux-riscv@lists.infradead.org>; Sat, 16 Aug 2025 20:42:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCU71WeWoB2B2l23Jg6Ek2f+ZKlNbZI/80f7Aw0WhTanB8AwxCo7NpOT7ONJU7gePCPiV9KYu6B4yuYObA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDSECrCmnoOgRlDxJWswtNJKluxBVVc8vbE0uBA/FzhRQ93fG6
-	dwDLJ1PtQOziJIYV4mRk6001m7x44fHsGFpqrzELwEfjDf52j+/8gnEN1qK1q8Oc/Xi+rHhoO8o
-	Zm5q+29+EPx+GfZaZdpgYnjP2X0WS0GA=
-X-Google-Smtp-Source: AGHT+IFBem0X5N5rrHNPoyjgpsHEbfGMj4eZD3b4gWF1FzyT3xN0jpZbWjI+FJ9IbxNO86/8kD6wXwUzeSs7qHNdcog=
-X-Received: by 2002:a05:6402:234b:b0:617:fe86:6bff with SMTP id
- 4fb4d7f45d1cf-618b0513fe6mr6495112a12.8.1755402136197; Sat, 16 Aug 2025
- 20:42:16 -0700 (PDT)
+	s=k20201202; t=1755410490;
+	bh=mHZUPtn5UficimsWMroxIB90kO/gt16LWXvu1TDftiI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Qq+Qa1Q1NID6yT4ELg0thEZhShaOpzvUCqLG2VgKDcJPdQTrwBHc6P6O+jm/u/PgU
+	 hWw+v+rZiWQLviUAgQwprPMRVcH3qBMPThs/Fb0XjwYaS9zPgj5lyH7ILdQBCDKM1i
+	 KXQY+ZkXyHGkTDi0GYE21MYhDTf07kdCgcef4q2l1DE8iwuTMIVj1y3CeYsEwq643E
+	 C0fQQzhP36sKEYjgPiuB1/DZJS6xGDXNwB/VlCZhuYhARWn8KLACfIP0gTmSDP4R6d
+	 I4y6dYS5aIDM/0IBBtunQ9rBVZezmuX7qTC6k82hVpAvbQPmyvN7GCHZ5hT7NiY/uF
+	 FSFJiZJPB7ZWg==
+Message-ID: <58e3e3ef-1871-45b1-ba2b-be6981d7d3d1@kernel.org>
+Date: Sun, 17 Aug 2025 08:01:24 +0200
 MIME-Version: 1.0
-References: <20250812122043.2462836-1-wangming01@loongson.cn>
-In-Reply-To: <20250812122043.2462836-1-wangming01@loongson.cn>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Sun, 17 Aug 2025 11:42:02 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H6MunQ7NBcH2gUytoFyQTk8NpaZ9ZoWUyfQrSPmvubBNw@mail.gmail.com>
-X-Gm-Features: Ac12FXxjtlZJIyQy_PnuNPhA3GQUv3sGESkFCR9A2gdlrilDcc-u2Q07VvWbo2w
-Message-ID: <CAAhV-H6MunQ7NBcH2gUytoFyQTk8NpaZ9ZoWUyfQrSPmvubBNw@mail.gmail.com>
-Subject: Re: [PATCH] LoongArch: Increase COMMAND_LINE_SIZE to 4096
-To: Ming Wang <wangming01@loongson.cn>
-Cc: WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, loongarch@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	lixuefeng@loongson.cn, chenhuacai@loongson.cn, 
-	Huang Cun <cunhuang@tencent.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_204219_467899_61C6309F 
-X-CRM114-Status: GOOD (  18.79  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/3] clock: eswin: Documentation for eic7700 SoC
+To: dongxuyang@eswincomputing.com, mturquette@baylibre.com, sboyd@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org
+Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
+ huangyifeng@eswincomputing.com, pinkesh.vaghela@einfochips.com
+References: <20250815093539.975-1-dongxuyang@eswincomputing.com>
+ <20250815093653.1033-1-dongxuyang@eswincomputing.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250815093653.1033-1-dongxuyang@eswincomputing.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,43 +113,221 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QXBwbGllZCwgdGhhbmtzLgoKSHVhY2FpCgpPbiBUdWUsIEF1ZyAxMiwgMjAyNSBhdCA4OjIw4oCv
-UE0gTWluZyBXYW5nIDx3YW5nbWluZzAxQGxvb25nc29uLmNuPiB3cm90ZToKPgo+IFRoZSBkZWZh
-dWx0IENPTU1BTkRfTElORV9TSVpFIG9mIDUxMiwgaW5oZXJpdGVkIGZyb20gYXNtLWdlbmVyaWMs
-IGlzCj4gdG9vIHNtYWxsIGZvciBtb2Rlcm4gdXNlIGNhc2VzLiBGb3IgZXhhbXBsZSwga2R1bXAg
-Y29uZmlndXJhdGlvbnMgb3IKPiBleHRlbnNpdmUgZGVidWdnaW5nIHBhcmFtZXRlcnMgY2FuIGVh
-c2lseSBleGNlZWQgdGhpcyBsaW1pdC4KPgo+IFRoZXJlZm9yZSwgaW5jcmVhc2UgdGhlIGNvbW1h
-bmQgbGluZSBzaXplIHRvIDQwOTYgYnl0ZXMsIGFsaWduaW5nCj4gTG9vbmdBcmNoIHdpdGggdGhl
-IE1JUFMgYXJjaGl0ZWN0dXJlLiBUaGlzIGNoYW5nZSBmb2xsb3dzIGEgYnJvYWRlcgo+IHRyZW5k
-IGFtb25nIGFyY2hpdGVjdHVyZXMgdG8gcmFpc2UgdGhpcyBsaW1pdCB0byBzdXBwb3J0IG1vZGVy
-biBuZWVkczsKPiBmb3IgaW5zdGFuY2UsIFBvd2VyUEMgaW5jcmVhc2VkIGl0cyB2YWx1ZSBmb3Ig
-c2ltaWxhciByZWFzb25zIGluCj4gY29tbWl0IGE1OTgwZDA2NGZlMiAoInBvd2VycGM6IEJ1bXAg
-Q09NTUFORF9MSU5FX1NJWkUgdG8gMjA0OCIpLgo+Cj4gU2ltaWxhciB0byB0aGUgY2hhbmdlIG1h
-ZGUgZm9yIFJJU0MtViBpbiBjb21taXQgNjFmYzFlZThiZTI2Cj4gKCJyaXNjdjogQnVtcCBDT01N
-QU5EX0xJTkVfU0laRSB2YWx1ZSB0byAxMDI0IiksIHRoaXMgaXMgY29uc2lkZXJlZAo+IGEgc2Fm
-ZSBjaGFuZ2UuIFRoZSBicm9hZGVyIGtlcm5lbCBjb21tdW5pdHkgaGFzIHJlYWNoZWQgYSBjb25z
-ZW5zdXMKPiB0aGF0IG1vZGlmeWluZyBDT01NQU5EX0xJTkVfU0laRSBmcm9tIFVBUEkgaGVhZGVy
-cyBkb2VzIG5vdAo+IGNvbnN0aXR1dGUgYSB1QUJJIGJyZWFrYWdlLCBhcyB3ZWxsLWJlaGF2ZWQg
-dXNlcnNwYWNlIGFwcGxpY2F0aW9ucwo+IHNob3VsZCBub3QgcmVseSBvbiB0aGlzIG1hY3JvLgo+
-Cj4gU3VnZ2VzdGVkLWJ5OiBIdWFuZyBDdW4gPGN1bmh1YW5nQHRlbmNlbnQuY29tPgo+IFNpZ25l
-ZC1vZmYtYnk6IE1pbmcgV2FuZyA8d2FuZ21pbmcwMUBsb29uZ3Nvbi5jbj4KPiAtLS0KPiAgYXJj
-aC9sb29uZ2FyY2gvaW5jbHVkZS91YXBpL2FzbS9zZXR1cC5oIHwgOCArKysrKysrKwo+ICAxIGZp
-bGUgY2hhbmdlZCwgOCBpbnNlcnRpb25zKCspCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL2xv
-b25nYXJjaC9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmgKPgo+IGRpZmYgLS1naXQgYS9hcmNoL2xv
-b25nYXJjaC9pbmNsdWRlL3VhcGkvYXNtL3NldHVwLmggYi9hcmNoL2xvb25nYXJjaC9pbmNsdWRl
-L3VhcGkvYXNtL3NldHVwLmgKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAw
-MDAwMC4uZDQ2MzYzY2UzZTAyCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL2FyY2gvbG9vbmdhcmNo
-L2luY2x1ZGUvdWFwaS9hc20vc2V0dXAuaAo+IEBAIC0wLDAgKzEsOCBAQAo+ICsvKiBTUERYLUxp
-Y2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCBXSVRIIExpbnV4LXN5c2NhbGwtbm90ZSAqLwo+ICsK
-PiArI2lmbmRlZiBfVUFQSV9BU01fTE9PTkdBUkNIX1NFVFVQX0gKPiArI2RlZmluZSBfVUFQSV9B
-U01fTE9PTkdBUkNIX1NFVFVQX0gKPiArCj4gKyNkZWZpbmUgQ09NTUFORF9MSU5FX1NJWkUgICAg
-ICA0MDk2Cj4gKwo+ICsjZW5kaWYgLyogX1VBUElfQVNNX0xPT05HQVJDSF9TRVRVUF9IICovCj4g
-LS0KPiAyLjQzLjAKPgo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On 15/08/2025 11:36, dongxuyang@eswincomputing.com wrote:
+> From: Xuyang Dong <dongxuyang@eswincomputing.com>
+> 
+> Add device tree binding documentation for the ESWIN eic7700
+> clock controller module.
+> 
+> Signed-off-by: Yifeng Huang <huangyifeng@eswincomputing.com>
+> Signed-off-by: Xuyang Dong <dongxuyang@eswincomputing.com>
+> ---
+>  .../bindings/clock/eswin,eic7700-clock.yaml   | 381 ++++++++++++++++++
+>  1 file changed, 381 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/eswin,eic7700-clock.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/eswin,eic7700-clock.yaml b/Documentation/devicetree/bindings/clock/eswin,eic7700-clock.yaml
+> new file mode 100644
+> index 000000000000..45e70ebc08e6
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/eswin,eic7700-clock.yaml
+> @@ -0,0 +1,381 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/eswin,eic7700-clock.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Eswin EIC7700 SoC clock controller
+> +
+> +maintainers:
+> +  - Yifeng Huang <huangyifeng@eswincomputing.com>
+> +  - Xuyang Dong <dongxuyang@eswincomputing.com>
+> +
+> +description:
+> +  The clock controller generates and supplies clock to all the modules
+> +  for eic7700 SoC.
+> +
+> +properties:
+> +  compatible:
+> +    const: eswin,eic7700-clock
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  '#clock-cells':
+> +    const: 0
+> +
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 0
+> +
+> +required:
+
+Incorrectly placed. required is after all properties.
+
+> +  - compatible
+> +  - reg
+> +  - '#clock-cells'
+> +  - '#address-cells'
+> +  - '#size-cells'
+> +
+> +patternProperties:
+> +  "^fixed-rate.*":
+> +    type: object
+> +    $ref: /schemas/clock/fixed-clock.yaml#
+
+No, you do not get node per clock.
+
+> +
+> +  ".*pll@[a-f0-9]+$":
+> +    type: object
+> +
+> +    properties:
+> +      compatible:
+> +        const: eswin,pll-clock
+
+
+Nothing explains in the changelog why this appeared. Drop all these
+nodes and fake or redundant compatibles.
+
+
+> +
+> +      reg:
+> +        items:
+> +          - description: PLL's config 0 register
+> +          - description: PLL's config 1 register
+> +          - description: PLL's config 2 register
+> +          - description: PLL's status register
+> +
+> +      '#clock-cells':
+> +        const: 0
+> +
+> +      clock-output-names:
+> +        maxItems: 1
+> +
+> +      enable-shift:
+> +        description: Bit shift of the enable register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      enable-width:
+> +        description: Width of the enable register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      refdiv-shift:
+> +        description: Bit shift of the reference divider register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      refdiv-width:
+> +        description: Width of the reference divider register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      fbdiv-shift:
+> +        description: Bit shift of the feedback divider register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      fbdiv-width:
+> +        description: Width of the feedback divider register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      frac-shift:
+> +        description: Bit shift of the fractional divider register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      frac-width:
+> +        description: Width of the fractional divider register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      postdiv1-shift:
+> +        description: Bit shift of the post divider 1 register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      postdiv1-width:
+> +        description: Width of the post divider 1 register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      postdiv2-shift:
+> +        description: Bit shift of the post divider 2 register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      postdiv2-width:
+> +        description: Width of the post divider 2 register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        maximum: 31
+> +
+> +      lock-shift:
+> +        description: Bit shift of the lock register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +      lock-width:
+> +        description: Width of the lock register.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        minimum: 0
+> +        maximum: 31
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - '#clock-cells'
+> +      - clock-output-names
+> +      - enable-shift
+> +      - enable-width
+> +      - refdiv-shift
+> +      - refdiv-width
+> +      - fbdiv-shift
+> +      - fbdiv-width
+> +      - frac-shift
+> +      - frac-width
+> +      - postdiv1-shift
+> +      - postdiv1-width
+> +      - postdiv2-shift
+> +      - postdiv2-width
+> +      - lock-shift
+> +      - lock-width
+> +
+> +    additionalProperties: false
+> +
+> +  ".*mux@[a-f0-9]+$":
+> +    type: object
+
+NAK, but anyway explain in the changelog WHY you did this...
+
+
+Best regards,
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
