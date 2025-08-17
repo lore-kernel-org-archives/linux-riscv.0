@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDBDACA0EE9
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Aug 2025 12:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21709CA0EDC
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Aug 2025 12:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tU2VmWSUulLcB7j17HqzoMJ4MnBDSiPtRju6tFf6fac=; b=At+uv18ZjsVSYx
-	Uw2FsJPHbtDi1tFYqxc9DCzOwsO/JZmQsWSakz2jIhF5d5DsOWfFZvK7VYzZPbjkNPEp2Vm9zQMs8
-	yJtoEZvYCMjPP233HuTPfZpjUUHINF2ZcHBu3G6Hejlcpd6YiUCJNyASTNBIE5lVe4+v5eMnrNVhV
-	bEHdWFQ/UjQZ0qYlW8tyQxPYo7BBpf+a83Sp40zE/0m9yiVN42K9/MrEeWKpgGxxukKA3wu+IQXcC
-	tkpwKqRyP/OVJW5SDF3LSnmlBnBGcBdBO08vVzEVdPQ95H6ysLi1UsX+pWFSRIopNBK534M0kqcvz
-	WQ5eW5G7f7TEJxVk2J0g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pWsT3DMuPK9X5oq1NAi+tLfNgq3QbBeidq6S5mfOZ3Q=; b=On2QlFxuuaozdc
+	NPfwfWdMQQhzbjP9UndWbJI+yGNVcuPVFgKo49rp+BgTI3QpAqav0Egj9VnnNPXf3GAAIMfSLdKsh
+	/4DGA7o4h3ATy5wewmxyO2f33UqrNDfHlMU9/4hooMzlhjRdpzUViVet+WG5c/EwvxJ92pXTcp57+
+	xQ0iawO1JSJxZPzCrFGfsLBBDh0szLOcdMc6tDB96vRuKZMGLSfPvBR+hFTSfj8WAcNTAKmzLhWoi
+	kQojX/xE5QrsPLe5zSMcnE9327dCIb4VB5LLOPb27+u1YiM+/JbEdZHnUsb95GFMTpvVXEWlyInET
+	PGXYTz74S/XK6LFgteiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unca0-00000005etO-1Kgh;
-	Sun, 17 Aug 2025 12:33:44 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1unca5-00000005evV-0kTr;
+	Sun, 17 Aug 2025 12:33:49 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uncZx-00000005esd-2gkQ
+	id 1unca2-00000005etv-23dd
 	for linux-riscv@lists.infradead.org;
-	Sun, 17 Aug 2025 12:33:42 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-321cfa7ad29so3146627a91.1
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 05:33:41 -0700 (PDT)
+	Sun, 17 Aug 2025 12:33:47 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-323267bc2eeso2314318a91.1
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 05:33:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1755434021; x=1756038821; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7WbiJIeRAyXPasTR+StFJQvgx7M5MTQOS33x2RRGox8=;
-        b=cP6hU/rVgCPnLmgZfjagw6kygp/XbuBcHkCn92L6OT3WgMWLPFJ/xnqQYlEXuotkSv
-         gNfFGp1sIrWxyRlKHbXl03rRcDGJRgTMlLzSKnx6PTaucoKz+eqxxLq1ArTxojKf77SZ
-         gnSRTl8nY9KoRM/6u1UUPswSuCZjsgzmO1gSZ+jr96rFAq1js1y+CllDyV1fjvbzjbay
-         C6RRc86vx5f7h3f1dZWF0p3IF/wrEe73FRDUYNHsHqhODnUfZ7vX+hGFMGJIh2qDjETI
-         ndvQwYvjuMLaG6AVq/25zpXbvGmtpL3qtz4SAQmlXOB7mwNqFMtK+bs6zGqxE+BHYKQf
-         cM2g==
+        d=ventanamicro.com; s=google; t=1755434026; x=1756038826; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WdtyVjgEpxnmEVvN9KL7OGdIrEXqBJ3Mt9H1T0gTjFI=;
+        b=m+eFc5U7toOPYoQTvJZ7sfG+9rj4dtbYKlnee/CN89gTHUZ582qxPoY+DDEUvLPpfc
+         QE3l9/9acVGH4kWmXBXzS7bWZRB++2GCOHA61KtiQonU/iFYBZ0d5eMFukc1j9iAm/iS
+         0vtqHHi1w47pGvMpEM1tjRENJI6ObuUSlYWUUVmv7FNV8AcHIguku3YcAg0WdlizV58R
+         l5zeqaM5tbXf1QRzlflznitDMJejCL+I9aGgLpAIQE/LHp/9KkdCPo7XOORxhLHwOnzg
+         Dhmrsa66ZxDHDe7qPN7X0mzuWv5TvRC0RT4R96rAjp86faFE7jqnLBflHbgw93HDDT/5
+         2aKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755434021; x=1756038821;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7WbiJIeRAyXPasTR+StFJQvgx7M5MTQOS33x2RRGox8=;
-        b=m/jnRo7WA2+pDnf0n3oCQMO5AKDc2GL+F0zM+DxfmBv7FQdkUUZD7RJKx14VtKG7GK
-         EGbEjeipjxwGKvUeNSFJVcagLkm8faj3ZY7v46OUkISrvEFm/XYnUK2JW4/ryzS8JQAq
-         kDJjPEdLMlSNik5/HQk7V9R+dEBAtavtNBQlThipYVfa2X4GJLQ3h3p/ws8/NHN7D3D8
-         W28UUrJdCY11ITNO1malWF8aXEoVYhbp5vGBFa2Xtt8UN4K2QkUlcXa8+YjdFXCUcMHU
-         cH6mA98Ro0MPHUho3TJPHnOGDoH186zL4vi+2LS8QY9YafKtK2KcI/bdAnuBhba8KQyC
-         1/ZA==
-X-Forwarded-Encrypted: i=1; AJvYcCVR8wZUnJkrYYQXyz381bp99vyHtAIR1+TeOXVOM42OWvwm4KBDriJnFSvmlozCAM45zu+auICVTloG3A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLbLpyUU+e8mAIBdROIVhzvpIq6lWG46J35GM77XHBPgDNSz4l
-	lzDf2q9yP9+V3mynFoQlwRXm6y20WYNIy74/dnybyvbMWWfJwKjSNKz0hY32INDF0DY=
-X-Gm-Gg: ASbGncsdJ10MKH6sru6Lt5NRMrBnMoaloNxcZZ3HSYGUVW5mr+GWs5nNZjfoPHaOwOB
-	F887DHC5XDngOH2c3B90eXYDboRCbgdxd9KohSqdMjium3sv5MxStc8hcQKM6PeCPSHjroJAbHK
-	0y7l2uN5ZrJzp2tA2IM+XE6SionAe+ccsHPueQuuvV83GAY0a9uKjwm8n+MlWNnqHZK8cTleiPA
-	tGMl8Svary8Z+qwB/VUun3p64aDPzJ4BekmL3NRzrZcwJGju5ULVtEpNY8a7JYU4oEe5gthvZwy
-	VLKpu0hjGOVc5SBNUi+oupDux6F5Ob37p8DgrSP/O7KlWqdNyxmkiFhnWhwoIaOvxoU1mZ6/LVI
-	TP8DNj2mD8tAleffLw9sgETc+jHU0qTmOKveOSk8+DDSYios59zvIjXw+W8ZpR1V97Q==
-X-Google-Smtp-Source: AGHT+IFVbDDjII11gSvR9Q4jewkTQtbKL3ViUFZFZq0yfpKxvIKgRxHNfx519E/5M9iV986Io2UJ3g==
-X-Received: by 2002:a17:90b:3c8c:b0:320:e145:26f3 with SMTP id 98e67ed59e1d1-323296f24bdmr20313460a91.8.1755434020703;
-        Sun, 17 Aug 2025 05:33:40 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755434026; x=1756038826;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WdtyVjgEpxnmEVvN9KL7OGdIrEXqBJ3Mt9H1T0gTjFI=;
+        b=H9f/ay5UFJcW4P4plUMbF2SRtEO5Vn4neFqTSCu7/KfwItvt+rOkdRnixuWdeYpb1g
+         /leBD7B5yjHi9mDrZ9rycOy1Ix1cOdjMsJbIMB6pnswXw7fTTFEzzx+r6L9Md1fNARxW
+         OCrEKACx6mVU5LK7NZT8M0voLv0E+rVjunZPRKpHnSH8otK68wmUJC+RUc8IJRhOOHX5
+         LYvCbB5kF1cfzPyalXAwjhwEGShtPnduCqLYUD+K/uvoE+Nin1madXbXEyoWDqtTy5+3
+         IMgcSpTu74n1KVj7OT3qMvjIKbufL4CUZ0wEoYy2XolBSY2ZYUf/lSyQdJE2XehcNKMY
+         n2gw==
+X-Forwarded-Encrypted: i=1; AJvYcCXRKc7A5qZtdNbMqMetDBn8hDocqknAz46ynTuQlybLXPnWzeYJetuGDVMYYz5MJOhMpgdpzYCc9+1kfw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0/1gc7JuT2D6IFngBa0p9yepUFzT4GWmWYZ/8t+BO2tfUFgVM
+	TA3s/QWTq0ikzOIqy2p0EOQwC4jPLBpdcjSv3OXblLLWjPeuVGaT0AblcD+97f+EzY0=
+X-Gm-Gg: ASbGnctzbW+PlphJWbn2O/KQAGWCnGF+b6ERTJrO7cioYfNfcw9lWoufysM8E74J88+
+	jtM0zWAHMT8Sbc4hQWDi0vPfSSPiIEuaEtBuX2Zyu7FG3q8AjEJ5gHb5ejMjdkmVp+6Xbqd4e2Y
+	Oc1ZAoBAbwLyIrL4owHc7gzXugA6BuZgOVulXqNVpAsqMKCel8kbf63A+h1AWcTN6/yIBVpmnHt
+	9aOQyWK/oCnDK22URiW91W5YS2B2y8t5lIsZ+l/sC/zdjhmZaOCbDOAnuHGkHBwbA8rXRQFYBAu
+	ylEccNrVBp8SPWaOqVZ+kuogdRikmVIluHHXeonf4fOBCOM7yfZiVzUdIf9zijKxhLfb5QMT5+r
+	sdyjqm+h6udMoWsp8X0PeFdgZ3f3sq0g2jSxWahnAWV2zp+mwdL7wPz0=
+X-Google-Smtp-Source: AGHT+IEDEZ+sKN9pizGMbZuUmdosnGUt8+j6ILexLeYj3eWsbGW9HTYMbtimVNOhIKuNFlbVtoY1Dw==
+X-Received: by 2002:a17:90b:2d43:b0:31e:c62b:477b with SMTP id 98e67ed59e1d1-32341ec4ed7mr12210812a91.11.1755434025641;
+        Sun, 17 Aug 2025 05:33:45 -0700 (PDT)
 Received: from localhost.localdomain ([122.171.23.202])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3232b291449sm4480912a91.0.2025.08.17.05.33.35
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3232b291449sm4480912a91.0.2025.08.17.05.33.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Aug 2025 05:33:40 -0700 (PDT)
+        Sun, 17 Aug 2025 05:33:45 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Atish Patra <atish.patra@linux.dev>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -83,14 +84,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v2 0/6] ONE_REG interface for SBI FWFT extension
-Date: Sun, 17 Aug 2025 18:03:18 +0530
-Message-ID: <20250817123324.239423-1-apatel@ventanamicro.com>
+Subject: [PATCH v2 1/6] RISC-V: KVM: Set initial value of hedeleg in kvm_arch_vcpu_create()
+Date: Sun, 17 Aug 2025 18:03:19 +0530
+Message-ID: <20250817123324.239423-2-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250817123324.239423-1-apatel@ventanamicro.com>
+References: <20250817123324.239423-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_053341_676929_7D962E07 
-X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-CacheID: sfid-20250817_053346_527482_58AA4E0A 
+X-CRM114-Status: UNSURE (   9.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,35 +111,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds ONE_REG interface for SBI FWFT extension implemented
-by KVM RISC-V. This was missed out in accepted SBI FWFT patches for
-KVM RISC-V.
+The hedeleg may be updated by ONE_REG interface before the VCPU
+is run at least once hence set the initial value of hedeleg in
+kvm_arch_vcpu_create() instead of kvm_riscv_vcpu_setup_config().
 
-These patches can also be found in the riscv_kvm_fwft_one_reg_v2 branch
-at: https://github.com/avpatel/linux.git
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/kvm/vcpu.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Changes since v1:
- - Dropped have_state in PATCH4 as suggested by Drew
- - Added Drew's Reviewed-by in appropriate patches
-
-Anup Patel (6):
-  RISC-V: KVM: Set initial value of hedeleg in kvm_arch_vcpu_create()
-  RISC-V: KVM: Introduce feature specific reset for SBI FWFT
-  RISC-V: KVM: Introduce optional ONE_REG callbacks for SBI extensions
-  RISC-V: KVM: Move copy_sbi_ext_reg_indices() to SBI implementation
-  RISC-V: KVM: Implement ONE_REG interface for SBI FWFT state
-  KVM: riscv: selftests: Add SBI FWFT to get-reg-list test
-
- arch/riscv/include/asm/kvm_vcpu_sbi.h         |  22 +-
- arch/riscv/include/uapi/asm/kvm.h             |  14 ++
- arch/riscv/kvm/vcpu.c                         |   3 +-
- arch/riscv/kvm/vcpu_onereg.c                  |  60 +-----
- arch/riscv/kvm/vcpu_sbi.c                     | 172 ++++++++++++---
- arch/riscv/kvm/vcpu_sbi_fwft.c                | 198 ++++++++++++++++--
- arch/riscv/kvm/vcpu_sbi_sta.c                 |  63 ++++--
- .../selftests/kvm/riscv/get-reg-list.c        |  28 +++
- 8 files changed, 433 insertions(+), 127 deletions(-)
-
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index f001e56403f9..86025f68c374 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -133,6 +133,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+ 
+ 	/* Mark this VCPU never ran */
+ 	vcpu->arch.ran_atleast_once = false;
++
++	vcpu->arch.cfg.hedeleg = KVM_HEDELEG_DEFAULT;
+ 	vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
+ 	bitmap_zero(vcpu->arch.isa, RISCV_ISA_EXT_MAX);
+ 
+@@ -570,7 +572,6 @@ static void kvm_riscv_vcpu_setup_config(struct kvm_vcpu *vcpu)
+ 			cfg->hstateen0 |= SMSTATEEN0_SSTATEEN0;
+ 	}
+ 
+-	cfg->hedeleg = KVM_HEDELEG_DEFAULT;
+ 	if (vcpu->guest_debug)
+ 		cfg->hedeleg &= ~BIT(EXC_BREAKPOINT);
+ }
 -- 
 2.43.0
 
