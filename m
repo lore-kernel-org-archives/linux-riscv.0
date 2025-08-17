@@ -4,107 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D199CA0EDC
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Aug 2025 06:07:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B58CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Aug 2025 08:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k1Ttd5DJAXmUQeO/0+BIutnBTQRqqthyDhcMR/cXIsA=; b=n6p7cnIdCVEt5X
-	p6OMVhNEAEFSwk12OCa+jA+J8AhZJAd6YXy7mOb1kBUXLhUJ/74v/jNf0SdjCt7de5N6QZeccgLrE
-	P3odo90y2jBnSTXAebjVZ55RwZ4/baJFbh/K0TmPyoPnbcyFvQre9jX0qv6cHKuI/C2SAExmrQU9o
-	9obOdmhv+ZxIh6QeMevUV9NErawgtPiBtuLpTptANqG0vKOQrSNtO876x7RmXDKBwQT/Mz7XxS6T+
-	otb+tg6Sh3VWBfUFNqwInEBsLKuEqhcV0qgaVrWdU4O4LgIacxy8L5KWD9cuwgDmmhfKDkqaGUxco
-	zaqbhqpqFGCf/+6vfxcg==;
+	List-Owner; bh=VrXzY5pRQG+6YAEHW1e0Hgne9m0J88mgutren8r6lQU=; b=ngACn09cfDh2eX
+	V3XwRwHPOOd+302u4Ea+OjLF7EpkMBvavXASaryPSR1NxuyiLcbJKAsBy2ERMc5oVWX0/J+JT+SPt
+	n6qMqG2GDVK/bIPWwLqeDowAebae3KKUDyOHq5fHP/4OuKFDhorsVDSxluAaUawSKEBlqu6xOExcJ
+	aaHv42Jbx4a//J8Bnaj52hmli7fLybDe9Y4z83N/HsFfgF7+aRpEnV3FsT9ANl568kP4Y+RSM44Aj
+	6yHN8lU/401fp8WRj+lfaUlsQeYwdjgLLJAVneSj+P6FFZO0sdQqX1a1869HAZO0GD2/SGd9yzJBi
+	su8x8CA1BsOqxjZZIG9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unWYW-00000005Oel-0uhZ;
-	Sun, 17 Aug 2025 06:07:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1unYgM-00000005Twz-40ld;
+	Sun, 17 Aug 2025 08:24:02 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unWYU-00000005OeF-1K7b
-	for linux-riscv@lists.infradead.org;
-	Sun, 17 Aug 2025 06:07:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9FBC943DA5;
-	Sun, 17 Aug 2025 06:07:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EAD8C4CEEB;
-	Sun, 17 Aug 2025 06:07:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755410865;
-	bh=X02f05gY68FIyb1hXHqWMuC+nigmCvh2u0vEQs5OzG8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HLilhO/0wlJQYRgcgAW+/NA9WWbn8955dZvrL/TOogoT0EUhpCvJW4jLCGc8qP6lk
-	 PA04F1yZu1C98lJZGAlbI1c5HPUNFIz4wZ4fxGFILrGUu+5xYKxr0WlLXKsP6/oHmW
-	 dPGs55iO4PzBCAJ3O2JhKc5Wfwbavi4iFitePMU1V9rxJzO2lfOXxbbYnIsHM9OWl3
-	 Xjt0aSq2Tidl/mrE/ASS7fRMRMBOixYFenN8i/4Npy7qevfewl/VhPJed0R1wkXgY7
-	 6fzadZX6cRKt8cOmjCXXVrZU7frnaGN3XKbKBn1WrBxu33Xc/JxHXHbrTV+CxqV0ug
-	 Lp6+f13UvD7NA==
-Message-ID: <0ef61f03-0346-491d-ad2a-293e24cbc4a8@kernel.org>
-Date: Sun, 17 Aug 2025 08:07:39 +0200
+	id 1unYgJ-00000005TvS-0zDs;
+	Sun, 17 Aug 2025 08:24:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755419039; x=1786955039;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=RZAnz7L85Wfz24qIoBnlsJGnPIYsmf8V4ssxmCvYkzI=;
+  b=brwESoGStzpZjW5gDFQf22yQE9E1N4aUNrlaBbSC9jRGqklC6KijcQkX
+   Y+bJ0zGlG+G4CeaRkJXXi/1Jf64cYLV7UoCrVIXWlhbG3Jm1GcK0XRc1s
+   Vpyqp+yrux+0N4MM9GsOjGTR20R+xW6auMNAQKIKWSsTLQUuh/ju/bDSl
+   2e35wlj/fq6m7lqBD60eQVQV4obJE6uyxpDF7k68h23WqhcDClkkk/KSe
+   KZQkZRs9aK2J+JfvbXerPV/19cgdacO0C41MC8aZ8JWf3P9FR5jd7kbeK
+   4bTjm2DF9OzfOOyFjLWnGn2Tc7ksWfBqzGMwv8CE81BnCYzuHoLIQ9fXT
+   g==;
+X-CSE-ConnectionGUID: fnM4GZ/yRluSRdCuRtiuaA==
+X-CSE-MsgGUID: sPvanEhGR0uZmRrQu7XvYQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11524"; a="69041019"
+X-IronPort-AV: E=Sophos;i="6.17,293,1747724400"; 
+   d="scan'208";a="69041019"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2025 01:23:51 -0700
+X-CSE-ConnectionGUID: bjJLIwlUSRmjcf8/bTZHlg==
+X-CSE-MsgGUID: 7anPUwZpTUSNNe2QAQ62FQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,293,1747724400"; 
+   d="scan'208";a="168147451"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa010.fm.intel.com with ESMTP; 17 Aug 2025 01:23:47 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1unYg5-000DQN-0O;
+	Sun, 17 Aug 2025 08:23:45 +0000
+Date: Sun, 17 Aug 2025 16:22:50 +0800
+From: kernel test robot <lkp@intel.com>
+To: fangyu.yu@linux.alibaba.com, anup@brainfault.org, atish.patra@linux.dev,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	guoren@linux.alibaba.com, guoren@kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Subject: Re: [PATCH] RISC-V: KVM: Write hgatp register with valid mode bits
+Message-ID: <202508171655.76Ifmphq-lkp@intel.com>
+References: <20250816073234.77646-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] riscv: dts: eswin: Add clock driver support
-To: dongxuyang@eswincomputing.com, mturquette@baylibre.com, sboyd@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org
-Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
- huangyifeng@eswincomputing.com, pinkesh.vaghela@einfochips.com
-References: <20250815093539.975-1-dongxuyang@eswincomputing.com>
- <20250815093754.1143-1-dongxuyang@eswincomputing.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250815093754.1143-1-dongxuyang@eswincomputing.com>
+Content-Disposition: inline
+In-Reply-To: <20250816073234.77646-1-fangyu.yu@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_230746_398618_C2688E8B 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250817_012359_285607_87F49A63 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,47 +92,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/08/2025 11:37, dongxuyang@eswincomputing.com wrote:
-> From: Xuyang Dong <dongxuyang@eswincomputing.com>
-> 
-> Add clock device tree support for eic7700 SoC.
-> 
-> Signed-off-by: Yifeng Huang <huangyifeng@eswincomputing.com>
-> Signed-off-by: Xuyang Dong <dongxuyang@eswincomputing.com>
-> ---
->  arch/riscv/boot/dts/eswin/eic7700-clocks.dtsi | 2283 +++++++++++++++++
->  1 file changed, 2283 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/eswin/eic7700-clocks.dtsi
-> 
-> diff --git a/arch/riscv/boot/dts/eswin/eic7700-clocks.dtsi b/arch/riscv/boot/dts/eswin/eic7700-clocks.dtsi
-> new file mode 100644
-> index 000000000000..405d06f9190e
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/eswin/eic7700-clocks.dtsi
-> @@ -0,0 +1,2283 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (c) 2025, Beijing ESWIN Computing Technology Co., Ltd.
-> + */
-> +
-> +/ {
-> +	clock-controller@51828000 {
-> +		compatible = "eswin,eic7700-clock";
-> +		reg = <0x000000 0x51828000 0x000000 0x80000>;
-> +		#clock-cells = <0>;
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		/* fixed clock */
-> +		fixed_rate_clk_apll_fout2: fixed-rate-apll-fout2 {
+Hi,
 
-Such pattern was years ago NAKed.
+kernel test robot noticed the following build warnings:
 
-No, don't ever bring nodes per clock.
+[auto build test WARNING on kvm/queue]
+[also build test WARNING on kvm/next mst-vhost/linux-next linus/master v6.17-rc1 next-20250815]
+[cannot apply to kvm/linux-next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/fangyu-yu-linux-alibaba-com/RISC-V-KVM-Write-hgatp-register-with-valid-mode-bits/20250816-153513
+base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
+patch link:    https://lore.kernel.org/r/20250816073234.77646-1-fangyu.yu%40linux.alibaba.com
+patch subject: [PATCH] RISC-V: KVM: Write hgatp register with valid mode bits
+config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20250817/202508171655.76Ifmphq-lkp@intel.com/config)
+compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250817/202508171655.76Ifmphq-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508171655.76Ifmphq-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   arch/riscv/kvm/vmid.c:31:24: error: call to undeclared function 'kvm_riscv_gstage_mode'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           csr_write(CSR_HGATP, (kvm_riscv_gstage_mode() << HGATP_MODE_SHIFT) | HGATP_VMID);
+                                 ^
+>> arch/riscv/kvm/vmid.c:31:48: warning: shift count >= width of type [-Wshift-count-overflow]
+           csr_write(CSR_HGATP, (kvm_riscv_gstage_mode() << HGATP_MODE_SHIFT) | HGATP_VMID);
+                                                         ^  ~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/csr.h:538:38: note: expanded from macro 'csr_write'
+           unsigned long __v = (unsigned long)(val);               \
+                                               ^~~
+   1 warning and 1 error generated.
 
 
-Best regards,
-Krzysztof
+vim +31 arch/riscv/kvm/vmid.c
+
+    24	
+    25	void __init kvm_riscv_gstage_vmid_detect(void)
+    26	{
+    27		unsigned long old;
+    28	
+    29		/* Figure-out number of VMID bits in HW */
+    30		old = csr_read(CSR_HGATP);
+  > 31		csr_write(CSR_HGATP, (kvm_riscv_gstage_mode() << HGATP_MODE_SHIFT) | HGATP_VMID);
+    32		vmid_bits = csr_read(CSR_HGATP);
+    33		vmid_bits = (vmid_bits & HGATP_VMID) >> HGATP_VMID_SHIFT;
+    34		vmid_bits = fls_long(vmid_bits);
+    35		csr_write(CSR_HGATP, old);
+    36	
+    37		/* We polluted local TLB so flush all guest TLB */
+    38		kvm_riscv_local_hfence_gvma_all();
+    39	
+    40		/* We don't use VMID bits if they are not sufficient */
+    41		if ((1UL << vmid_bits) < num_possible_cpus())
+    42			vmid_bits = 0;
+    43	}
+    44	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
