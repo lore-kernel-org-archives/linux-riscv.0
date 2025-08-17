@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B58CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Aug 2025 08:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E5ECA0EDC
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Aug 2025 11:41:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VrXzY5pRQG+6YAEHW1e0Hgne9m0J88mgutren8r6lQU=; b=ngACn09cfDh2eX
-	V3XwRwHPOOd+302u4Ea+OjLF7EpkMBvavXASaryPSR1NxuyiLcbJKAsBy2ERMc5oVWX0/J+JT+SPt
-	n6qMqG2GDVK/bIPWwLqeDowAebae3KKUDyOHq5fHP/4OuKFDhorsVDSxluAaUawSKEBlqu6xOExcJ
-	aaHv42Jbx4a//J8Bnaj52hmli7fLybDe9Y4z83N/HsFfgF7+aRpEnV3FsT9ANl568kP4Y+RSM44Aj
-	6yHN8lU/401fp8WRj+lfaUlsQeYwdjgLLJAVneSj+P6FFZO0sdQqX1a1869HAZO0GD2/SGd9yzJBi
-	su8x8CA1BsOqxjZZIG9w==;
+	List-Owner; bh=HkEesEpuynVvXmtFO65OUn8h0aXGlrHLJeAsdOzLdMM=; b=cMjoNwsgCx3azw
+	EtKzoGZjZFfJ4nKp7poSsuAjTKjbzy2bHiYpuHtHBebIurasnVGP+0i17Ou694VT01rNthkHq6U2G
+	8tfFp0krkDG2vkjRjauRXKTH2jfHf8ycwc5Ggt+0P6w+2f6k/W5Z2Q9qsHv7gdD9ToDxPktxLkXAU
+	F5Ui/CPDCbZxiuwL+esRjwsM/296Fb6vWagmFnP3zptlSoBIWmX9dD4LDLHHkGnDr9o+CpTSaAlep
+	xod8pqhy2QsnoU3HBxYzCG95j163vt1AUQpIhf791lB2mK7cWpMRA1oltryPSU6nKxlg1kYWDQHU+
+	3OBC1jiaul74l+mgU96g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unYgM-00000005Twz-40ld;
-	Sun, 17 Aug 2025 08:24:02 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1unblA-00000005cy8-2fo1;
+	Sun, 17 Aug 2025 11:41:12 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unYgJ-00000005TvS-0zDs;
-	Sun, 17 Aug 2025 08:24:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755419039; x=1786955039;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=RZAnz7L85Wfz24qIoBnlsJGnPIYsmf8V4ssxmCvYkzI=;
-  b=brwESoGStzpZjW5gDFQf22yQE9E1N4aUNrlaBbSC9jRGqklC6KijcQkX
-   Y+bJ0zGlG+G4CeaRkJXXi/1Jf64cYLV7UoCrVIXWlhbG3Jm1GcK0XRc1s
-   Vpyqp+yrux+0N4MM9GsOjGTR20R+xW6auMNAQKIKWSsTLQUuh/ju/bDSl
-   2e35wlj/fq6m7lqBD60eQVQV4obJE6uyxpDF7k68h23WqhcDClkkk/KSe
-   KZQkZRs9aK2J+JfvbXerPV/19cgdacO0C41MC8aZ8JWf3P9FR5jd7kbeK
-   4bTjm2DF9OzfOOyFjLWnGn2Tc7ksWfBqzGMwv8CE81BnCYzuHoLIQ9fXT
-   g==;
-X-CSE-ConnectionGUID: fnM4GZ/yRluSRdCuRtiuaA==
-X-CSE-MsgGUID: sPvanEhGR0uZmRrQu7XvYQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11524"; a="69041019"
-X-IronPort-AV: E=Sophos;i="6.17,293,1747724400"; 
-   d="scan'208";a="69041019"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2025 01:23:51 -0700
-X-CSE-ConnectionGUID: bjJLIwlUSRmjcf8/bTZHlg==
-X-CSE-MsgGUID: 7anPUwZpTUSNNe2QAQ62FQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,293,1747724400"; 
-   d="scan'208";a="168147451"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by fmviesa010.fm.intel.com with ESMTP; 17 Aug 2025 01:23:47 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1unYg5-000DQN-0O;
-	Sun, 17 Aug 2025 08:23:45 +0000
-Date: Sun, 17 Aug 2025 16:22:50 +0800
-From: kernel test robot <lkp@intel.com>
-To: fangyu.yu@linux.alibaba.com, anup@brainfault.org, atish.patra@linux.dev,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	guoren@linux.alibaba.com, guoren@kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: Re: [PATCH] RISC-V: KVM: Write hgatp register with valid mode bits
-Message-ID: <202508171655.76Ifmphq-lkp@intel.com>
-References: <20250816073234.77646-1-fangyu.yu@linux.alibaba.com>
+	id 1unbl5-00000005cxk-2r5e
+	for linux-riscv@lists.infradead.org;
+	Sun, 17 Aug 2025 11:41:12 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-55ce510e769so3458356e87.1
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 04:41:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cryptogams.org; s=gmail; t=1755430865; x=1756035665; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EYJ+YmJH/QJFK3QPKh3mCliyXt6+SxftDgDgHhCJCZI=;
+        b=Zc0Y4SggFCo78IS+TBjo9FHN8qZk4PJAZwRCZIAW1x0ZMU2dAn6QMVE+1xlTLWaz1L
+         FqyIwMWJl95Uz/8SI93pL00Oue8iJsVgnQ7fMr4uFtv4SrTx1rIk9pj2uBz4Z5anU3I+
+         xMKqLm4AKT0L04eMxNlxw5LBYQ6bqC3aIYaGWwah1oMQoYpiduubpQMsiqGJk6L9ZiBT
+         AQPAW0s57Y8RLMXb/llShMrnAwC20gnmgMoFLT2L4O3S4+QGosmC8bgyNJbHB+BCCdMO
+         idHHRls+ThWibWIkgvL60I+ySsWdob/LE4Xx5T19XWcW0PO6YHbCRhELLZbuqOiphGMM
+         NUdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755430865; x=1756035665;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=EYJ+YmJH/QJFK3QPKh3mCliyXt6+SxftDgDgHhCJCZI=;
+        b=ZTxeuin4rKQz8AAhdgoj+XjbLz1KU8FAD5ETt2S1vrE2MESList3XvXDyCeFMjUjgM
+         UfDnKOoCJakCgqVFRyFEjCZtyQ00W3QdO901HJJeiSxPxSHSyZuC84bFhbHuWiOnfm+t
+         c/CVSof5ePRjEcQ4xA907QBfUexz+WbpNhLHGyeijckahG2AV0Rr6E8WqRNiXlL2C9yh
+         gGI4fVn/2xmJkdAQTsjOVpzuoxpWtBU3JCx2D6piSWpZSEcHWQZlxntAcx6IWOjXh4N6
+         iQjB461JrwsuaZjgjbF5A7enIUNrJKMvLZk/6g2mLZDnK5zc8W2MtMZo/oqCf3rwSfNc
+         XldQ==
+X-Gm-Message-State: AOJu0YyfK/V8QALJydrmbSKF2hT8DjYa0TyeJg4eYE5YHM03oot7O7xL
+	mm3jO+cg53t50tX6jbBH4Yyyq9QwfZdjCkgR6p1fu08d5m9wGNTc6713tZsnXvaZo1Q=
+X-Gm-Gg: ASbGncvP2iPSHPIQ5it2twsAl1y/5z0/db4jPNzDt4YhGd8Fp4hQFTW7a3v8Eop2Z+n
+	gSWkYnTi3vzHmLMSpJqF7WYhGhVjAaAVpsJPwWYOfNnr1QqRYOHrR1WvykiHkCyrnZZGcsDxSd7
+	PlBDGL0tyVEDPKiMLPSZWH2fzgCoOZBRmd6kq+qhpLaD+HXvFiY/zDZX6F3/C9STD3vITZmw+lc
+	fP1Ek83gsSvtcgl6bcbougpfPD179f+5z+dRcRbbepWszZG6bgRWhd5T9pS/prhithyzvJfXOPv
+	ceropSyXzlSkSqUS3P3tSsU9vet+SVkYCKYAsUuRtyDLlP2hKbxy0Up6BywBOt0BJEdxD3TqrZt
+	mgMCskmSiFEVNSy4Yp2SR+vUs0VLTLY8VoGCOR9q/FyRF2C3ta4dCt8hxOsfMbbkaIg==
+X-Google-Smtp-Source: AGHT+IE8dO5R02xyu+qWmBSjeSZeP8c+5NZHdslpk+tly4n/ZsJgKJbx69ZDR41YXG62hz0YCsX79w==
+X-Received: by 2002:a05:6512:1583:b0:55b:861a:d2cf with SMTP id 2adb3069b0e04-55cf2cdd182mr1262304e87.26.1755430864685;
+        Sun, 17 Aug 2025 04:41:04 -0700 (PDT)
+Received: from [10.0.1.129] (c-92-32-247-84.bbcust.telenor.se. [92.32.247.84])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55cef36acffsm1212000e87.66.2025.08.17.04.41.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 17 Aug 2025 04:41:04 -0700 (PDT)
+Message-ID: <1d962466-dca6-4b0f-accb-efa02a279ca5@cryptogams.org>
+Date: Sun, 17 Aug 2025 13:41:03 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250816073234.77646-1-fangyu.yu@linux.alibaba.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] crypto: riscv/poly1305 - import OpenSSL/CRYPTOGAMS
+ implementation
+To: Zhihang Shao <zhihang.shao.iscas@gmail.com>, linux-crypto@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, herbert@gondor.apana.org.au,
+ paul.walmsley@sifive.com, alex@ghiti.fr, zhang.lyra@gmail.com,
+ ebiggers@kernel.org
+References: <20250816083943.120700-2-zhihang.shao.iscas@gmail.com>
+Content-Language: en-US
+From: Andy Polyakov <appro@cryptogams.org>
+In-Reply-To: <20250816083943.120700-2-zhihang.shao.iscas@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_012359_285607_87F49A63 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20250817_044107_731939_93A5DA0C 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,76 +97,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+> The file 'poly1305-riscv.pl' is taken straight from this upstream
+> GitHub repository [0] at commit
+> 5e3fba73576244708a752fa61a8e93e587f271bb.
+> This patch was tested on SpacemiT X60, with 2~2.5x improvement
+> over generic implementation.
 
-kernel test robot noticed the following build warnings:
+Just in case. The fact that the improvement coefficient is higher than 
+one quoted in the poly1305-riscv.pl should not come as a surprise. 
+Baselines are simply different. The Linux baseline is 9 widening 
+multiplications, while the one used for the assembly module in question 
+is 4 widening multiplications plus 2 non-widening ones.
 
-[auto build test WARNING on kvm/queue]
-[also build test WARNING on kvm/next mst-vhost/linux-next linus/master v6.17-rc1 next-20250815]
-[cannot apply to kvm/linux-next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+A clarification to my previous message where I mentioned that I've 
+adjusted benchmark results for U74. It turned out to be some weird power 
+management thing that affected the initial readings.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/fangyu-yu-linux-alibaba-com/RISC-V-KVM-Write-hgatp-register-with-valid-mode-bits/20250816-153513
-base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
-patch link:    https://lore.kernel.org/r/20250816073234.77646-1-fangyu.yu%40linux.alibaba.com
-patch subject: [PATCH] RISC-V: KVM: Write hgatp register with valid mode bits
-config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20250817/202508171655.76Ifmphq-lkp@intel.com/config)
-compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250817/202508171655.76Ifmphq-lkp@intel.com/reproduce)
+I've also mentioned vector implementation being developed. It's now 
+committed. On a related note, ChaCha20 vector implementation is also 
+optimized, though it needs a little bit more work...
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508171655.76Ifmphq-lkp@intel.com/
+Cheers.
 
-All warnings (new ones prefixed by >>):
-
-   arch/riscv/kvm/vmid.c:31:24: error: call to undeclared function 'kvm_riscv_gstage_mode'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           csr_write(CSR_HGATP, (kvm_riscv_gstage_mode() << HGATP_MODE_SHIFT) | HGATP_VMID);
-                                 ^
->> arch/riscv/kvm/vmid.c:31:48: warning: shift count >= width of type [-Wshift-count-overflow]
-           csr_write(CSR_HGATP, (kvm_riscv_gstage_mode() << HGATP_MODE_SHIFT) | HGATP_VMID);
-                                                         ^  ~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/csr.h:538:38: note: expanded from macro 'csr_write'
-           unsigned long __v = (unsigned long)(val);               \
-                                               ^~~
-   1 warning and 1 error generated.
-
-
-vim +31 arch/riscv/kvm/vmid.c
-
-    24	
-    25	void __init kvm_riscv_gstage_vmid_detect(void)
-    26	{
-    27		unsigned long old;
-    28	
-    29		/* Figure-out number of VMID bits in HW */
-    30		old = csr_read(CSR_HGATP);
-  > 31		csr_write(CSR_HGATP, (kvm_riscv_gstage_mode() << HGATP_MODE_SHIFT) | HGATP_VMID);
-    32		vmid_bits = csr_read(CSR_HGATP);
-    33		vmid_bits = (vmid_bits & HGATP_VMID) >> HGATP_VMID_SHIFT;
-    34		vmid_bits = fls_long(vmid_bits);
-    35		csr_write(CSR_HGATP, old);
-    36	
-    37		/* We polluted local TLB so flush all guest TLB */
-    38		kvm_riscv_local_hfence_gvma_all();
-    39	
-    40		/* We don't use VMID bits if they are not sufficient */
-    41		if ((1UL << vmid_bits) < num_possible_cpus())
-    42			vmid_bits = 0;
-    43	}
-    44	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
