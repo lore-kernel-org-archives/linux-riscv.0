@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D148DCA0EDC
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Aug 2025 18:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90435CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Aug 2025 21:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zBdNQ0I4qqrkxryEVVbScjgaXWXbJUm16fXqoIm+OH8=; b=JC8zp+IFYNSjCu
-	HzFz8h+X+LmZpwRaiIJgDyvv3dh2Yin+BkKZKaQS0I7TdeanGFlVJVe3rnQ739yA+EycTBP/tHcPB
-	4kd0mbSF7pVgUJhtSCC1iv6woBUlr3Sp0+b1g3d/PZrEQYwVLSHZZ1mD0ATAzD7IQdlJORYBw883n
-	x227zKazwdnWkzVaI1Nw7W7AEMIuFaEeWYguILNaVXu5pOzcX1jl5KTihUiuWFrQPo5OcysjVjBX4
-	E9jy8CtcXdZ3Kby9VPrJia2wvPo1EGUTzMm4mzwXBRtmzjN94jgybqjLfk+WXm+RoSU9XgqsB8hpF
-	Zi0qrU0xX5Fz7oxZvV3w==;
+	List-Owner; bh=bMRDlR20RCYOMaflLZydbVapx2N2nIVCZYuexITCBuA=; b=jdme/PqmzKcMUU
+	Gyq4Z4OEZxs10pbEjy8jE8uM33/aXDE/cfqmuFv0H1rwPCMtDS/8mSCTLT9v17+lNVlonSFlHq7Fw
+	iLjMHnk4R1jJvds1BJNDDClokdyw8fuwfahU6P+CGClrI1QDHmSi98fwAA91aSTITqjml1mTP3lDU
+	/t8gLXFHMifAQjTArQYkRYkRKJCt+Q/dYqzkWyyhirgmkUMSZQZGlZ2C1csN543AAdTHqUVrQcQ2y
+	Yk/VvEkZDDdLywaJux/RA77So/PADZH3N3MybW00FpOXDNFFU+xQNmOMpS9wHzGp3WC7YfjZFnX3n
+	+MwkmQsnKtPF5shiDCrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uniIR-00000005x03-0Cm3;
-	Sun, 17 Aug 2025 18:39:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1unkXN-000000063BO-3FxF;
+	Sun, 17 Aug 2025 21:03:33 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uniIO-00000005wzM-3ZlJ
-	for linux-riscv@lists.infradead.org;
-	Sun, 17 Aug 2025 18:39:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9ECD341AD1;
-	Sun, 17 Aug 2025 18:39:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EB7BC4CEF4;
-	Sun, 17 Aug 2025 18:39:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755455994;
-	bh=m3PNNERXxwpCzkdnS/g84M24HexPmr502VnjyAPJFJI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z5MV2LqV5LaNSHO32gXSptkeeQvdwAMfWW7X7n7y7rTWYI09NaoJG3Z9C3hepxBhr
-	 dPGoUfZBzXnlxVUldR0sBdlw+z9HusCvmtzP9tIt/tG8YvzxKRZ2BYh8mkwxcB2vNE
-	 WFXso5bMN0O9faE67bNcjStO7OtzvS8Ep3hAz2v7vNt7+Qvo9GpRheMJkvYVb/K/OA
-	 iwgfeyTh7JYatQAJzzLJS9Qq+bboyEn8C6LCx9kadkPhgrNPXydEMvyKDF5nCzoEgU
-	 CtU28F8rTR/etylIJzaHpDW5v2v+psolCfE8tzrpzkVBQbkXz7+7j5G9GNW8Dj9e5E
-	 IOsSimuN2k63A==
-Date: Sun, 17 Aug 2025 11:39:52 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Michal Wilczynski <m.wilczynski@samsung.com>,
-	Han Gao <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH 3/8] drm: verisilicon: add a driver for Verisilicon
- display controllers
-Message-ID: <aKIh+MLEO2aM/vO7@x1>
-References: <20250814164048.2336043-1-uwu@icenowy.me>
- <20250814164048.2336043-4-uwu@icenowy.me>
+	id 1unkXK-000000063Ao-2ziC;
+	Sun, 17 Aug 2025 21:03:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755464611; x=1787000611;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mXDm9pzQ2v2aMXQtgfLc6q6k54TIbxRQKNSFRAvlPm8=;
+  b=K7AbOv2xHPUjoKY1zFbIw1/CvcG43d/5FkVX9ZqD6DsdHcl0FD7UQlHZ
+   xGfxuXhyeuHaoL4pCwKbAjHRKAHUtfPeD0j1+Dy0tjlCM+I6AT7pGxTV2
+   b+apnYjzypKa1IB7+GUlKiHM6sZTzcK4ga96sp3CfG70UscSA+DRBvKWa
+   omtw60DfI3xzSpMg45XGMNbIjiD3nSpWx5ojf/HUOkwdv8QLKcLeP1hFF
+   CrnTzXVRSOk+T5oS/c9GR0cQEBa/UKp8qn1Q/0kpEZAJtE4JG2LZhwKdN
+   m5+aOic2i6toLtPXlN4a2Jt0vGVQFeORBI/aXamWSW09df9jgzREHS1i6
+   w==;
+X-CSE-ConnectionGUID: LSyjJBE+Q+uv1R2mgz4blA==
+X-CSE-MsgGUID: RDONzPS+SfaVLvExogq+Qg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11524"; a="69143675"
+X-IronPort-AV: E=Sophos;i="6.17,293,1747724400"; 
+   d="scan'208";a="69143675"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2025 14:03:25 -0700
+X-CSE-ConnectionGUID: XDR8jl+CQ7mIMDSoIjuRUw==
+X-CSE-MsgGUID: Itk0I8gxStyf6NnlXNz1YQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,293,1747724400"; 
+   d="scan'208";a="171644503"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa005.fm.intel.com with ESMTP; 17 Aug 2025 14:03:21 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1unkW4-000Dih-0l;
+	Sun, 17 Aug 2025 21:02:41 +0000
+Date: Mon, 18 Aug 2025 05:01:04 +0800
+From: kernel test robot <lkp@intel.com>
+To: fangyu.yu@linux.alibaba.com, anup@brainfault.org, atish.patra@linux.dev,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	guoren@linux.alibaba.com, guoren@kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Subject: Re: [PATCH] RISC-V: KVM: Write hgatp register with valid mode bits
+Message-ID: <202508180228.aJykn9j0-lkp@intel.com>
+References: <20250816073234.77646-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250814164048.2336043-4-uwu@icenowy.me>
+In-Reply-To: <20250816073234.77646-1-fangyu.yu@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_113956_929361_A6A153F1 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20250817_140330_822733_EB738C66 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,59 +93,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 12:40:43AM +0800, Icenowy Zheng wrote:
-> This is a from-scratch driver targeting Verisilicon DC-series display
-> controllers, which feature self-identification functionality like their
-> GC-series GPUs.
-> 
-> Only DC8200 is being supported now, and only the main framebuffer is set
-> up (as the DRM primary plane). Support for more DC models and more
-> features is my further targets.
-> 
-> As the display controller is delivered to SoC vendors as a whole part,
-> this driver does not use component framework and extra bridges inside a
-> SoC is expected to be implemented as dedicated bridges (this driver
-> properly supports bridge chaining).
-> 
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+Hi,
 
-Thanks for working on this!
+kernel test robot noticed the following build errors:
 
-[snip]
-> diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane.c b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-> new file mode 100644
-> index 0000000000000..25d6e01cc8b71
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-[snip]
-> +static void vs_primary_plane_atomic_update(struct drm_plane *plane,
-> +					   struct drm_atomic_state *atomic_state)
-> +{
-> +	struct drm_plane_state *state = drm_atomic_get_new_plane_state(atomic_state,
-> +								       plane);
-> +	struct drm_framebuffer *fb = state->fb;
-> +	struct drm_crtc *crtc = state->crtc;
-> +	struct drm_gem_dma_object *gem;
-> +	struct vs_dc *dc;
-> +	struct vs_crtc *vcrtc;
-> +	struct vs_format fmt;
-> +	unsigned int output, bpp;
-> +	dma_addr_t dma_addr;
-> +
-> +	if (!crtc)
-> +		return;
-> +
-> +	DRM_DEBUG_DRIVER("Updating output %d primary plane\n", output);
+[auto build test ERROR on kvm/queue]
+[also build test ERROR on kvm/next mst-vhost/linux-next linus/master v6.17-rc1 next-20250815]
+[cannot apply to kvm/linux-next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-clang flagged this when building. I think this needs to be after the
-line below that assigns vcrtc->id to output.
+url:    https://github.com/intel-lab-lkp/linux/commits/fangyu-yu-linux-alibaba-com/RISC-V-KVM-Write-hgatp-register-with-valid-mode-bits/20250816-153513
+base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
+patch link:    https://lore.kernel.org/r/20250816073234.77646-1-fangyu.yu%40linux.alibaba.com
+patch subject: [PATCH] RISC-V: KVM: Write hgatp register with valid mode bits
+config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20250818/202508180228.aJykn9j0-lkp@intel.com/config)
+compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250818/202508180228.aJykn9j0-lkp@intel.com/reproduce)
 
-> +
-> +	vcrtc = drm_crtc_to_vs_crtc(crtc);
-> +	output = vcrtc->id;
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508180228.aJykn9j0-lkp@intel.com/
 
-Thanks,
-Drew
+All errors (new ones prefixed by >>):
+
+>> arch/riscv/kvm/vmid.c:31:24: error: call to undeclared function 'kvm_riscv_gstage_mode'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           csr_write(CSR_HGATP, (kvm_riscv_gstage_mode() << HGATP_MODE_SHIFT) | HGATP_VMID);
+                                 ^
+   arch/riscv/kvm/vmid.c:31:48: warning: shift count >= width of type [-Wshift-count-overflow]
+           csr_write(CSR_HGATP, (kvm_riscv_gstage_mode() << HGATP_MODE_SHIFT) | HGATP_VMID);
+                                                         ^  ~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/csr.h:538:38: note: expanded from macro 'csr_write'
+           unsigned long __v = (unsigned long)(val);               \
+                                               ^~~
+   1 warning and 1 error generated.
+
+
+vim +/kvm_riscv_gstage_mode +31 arch/riscv/kvm/vmid.c
+
+    24	
+    25	void __init kvm_riscv_gstage_vmid_detect(void)
+    26	{
+    27		unsigned long old;
+    28	
+    29		/* Figure-out number of VMID bits in HW */
+    30		old = csr_read(CSR_HGATP);
+  > 31		csr_write(CSR_HGATP, (kvm_riscv_gstage_mode() << HGATP_MODE_SHIFT) | HGATP_VMID);
+    32		vmid_bits = csr_read(CSR_HGATP);
+    33		vmid_bits = (vmid_bits & HGATP_VMID) >> HGATP_VMID_SHIFT;
+    34		vmid_bits = fls_long(vmid_bits);
+    35		csr_write(CSR_HGATP, old);
+    36	
+    37		/* We polluted local TLB so flush all guest TLB */
+    38		kvm_riscv_local_hfence_gvma_all();
+    39	
+    40		/* We don't use VMID bits if they are not sufficient */
+    41		if ((1UL << vmid_bits) < num_possible_cpus())
+    42			vmid_bits = 0;
+    43	}
+    44	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
