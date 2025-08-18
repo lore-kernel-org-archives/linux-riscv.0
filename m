@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9E03CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 07:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5CDCA0EE9
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 07:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=h8bByxtSCePESmatLJmYRaFyEkV437Jnvhk5+7Zcs80=; b=gmjXZXilLHONtk
-	006LCKcCofiIXXJ6gZ1dzivItYtc0A2pgS24N3LRcXD1Xai/fM9Stv+3TtBPo23lJMYtS3zUyDOww
-	TuVXI4z+FlR82Fa04tzjnJ2e1MxpJ9XX/nDuVO6/F1CeqRXXoMgoQj/tCaXnd/HaZvvYGyXqAI81d
-	NK2FrfqliMobIPD3RvFYmozeRXLnGcSpd4CGQiD9RWHS+q7GeGxcUfvzMtPSULDaAruMCWMR2Mk5X
-	a1beAlGBLtkUoCbCdbEGLeH6uSNJtIYiNtnlsaVPoDFGxx/Edog7bM+VP/V1HmHn4bRmUCx3b2vq6
-	s/NI7NMDtyAh+wh+B22A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YUrfTFxabAYdQNrKuGeo4EQmV8vWfVo5GegMPUAQHQI=; b=ZcEhy+7o5GPDLC
+	/EQ2aaKPxdqTKnIOOMv2CNLNjA/YftMXsSyeQ+utYquUFIwez5CvQs138xzbZkG+YGaryv+rWfVxK
+	i5LD7MJregQ2AG7qE4/6Vk7/LCFOJcs3SUSiGqdrHlS+sOzO4UTXALx8wBzEi7+DeEii5jD17UKof
+	ebzD9sQlCClpakUkgZxzJ03fLtlo6sHHHtQ+LsPbNoVCR95WGWYeZYVQja+re2NMS9cpq9n9yqfQ7
+	J5WYQK9GRRh+U1ieVWvBgIoJQvqM9DYCWd9bZgqPEqzJNB4V3nz4C9Sz/MOXyfJ5Za05HVAvJ+F5t
+	O/xWlIcVVDh/vXzUzlEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unufl-00000006rS2-0z9d;
-	Mon, 18 Aug 2025 07:52:53 +0000
+	id 1unufm-00000006rUJ-2goL;
+	Mon, 18 Aug 2025 07:52:54 +0000
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unucV-00000006olu-1XB4
+	id 1unucc-00000006onx-1f8t
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 07:49:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755503364; cv=none; 
+	Mon, 18 Aug 2025 07:49:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755503374; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Xat82lbwEAS5jmKyCWhCxIrL/pBgJx8v8X9Zf9OCzTYRKnq7vczAO28Ph4iQAHHOVyK9H204KTrbsEPND4n7KsxlBWajeRQDqcY4clpvhTTbeuqt9L6G6c7iRlVprl3CY7UYHaYbRhWImLh6Yht/lWrCjRu+jhLCxgGDoKWj5pg=
+	b=X032uvCgpoQTIviV7My3PYMDvdbfmyxrOehYKxeioFUO7KQ/aZ9abRKNasky+b3SBtd1JKRNa+cdcMJSp1q5qlDc5qKOHYXzR/q8rpSJp1UwvuEXhq3Jct+Lh+n7lnCJ1CdQnaLLaekOGWX0BV3ZdNCplX1W5ZS7CUonTyBSkzA=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755503364; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=M3qvXpajujXPyv4fG45eVXvK9DfgH/PM+T6mlMFxVd8=; 
-	b=c3b/6iJXlHwPsV+IOwvc+S8GbhXs0ie0By7xvFaMEY9lCkoKGYHLyf+zSW4Dg1RcmqN8SHdO8EpBKpVKsFg46fZdLOB8tF3fZz/LjvR0MKQdk0xQOKOczPQLyg8d4IUkqoQAT3ZyOJP2x2SFdcpSlEP+909+oVDrQWUHJim7G6c=
+	t=1755503374; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=UedmDzyvf5l65qW+hQfIQJ8Xd28PzjRNYITRMIOAHbE=; 
+	b=JUc8L0gaccDunSIVZUel4Z+xTSGE8NXgu0rzLkQ47kRSkGyjopGsGFAcD+LHE3vq9cIVm0ZNnCdlYgCda/iq68E+sYVUnsIRISFVbxT3UbSkbgXx60/Fjzup8pQQU5SxtwOwgDpRmJG9qzHdOqyQxPGmFWA2T7RT/iFL28GCOEg=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=icenowy.me;
 	spf=pass  smtp.mailfrom=uwu@icenowy.me;
 	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755503364;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755503374;
 	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=M3qvXpajujXPyv4fG45eVXvK9DfgH/PM+T6mlMFxVd8=;
-	b=gILAbdMGVlBomoNgtIKUlWz8tm2rVq7h3QiiDUl0ykxnuozKF5nktryt66P3Q+B0
-	G4uTYo2pCWzzOHaxJipLyB1GsLOxbrxneteHyQcMn2yHuWuD5ST5OOQpzjJPvJSh77P
-	hU0Pp+ZaaEhnNiJPCswVbFm9gTg5gFlyG9vKiR5AgJNuDCsVqJEW60GJYOsEnyjuFlA
-	bBk+5G2Nybfz7vqMvt4ZoNhQUoizZWvCFHLyPJpL3Tpn2fhpTOmVpORhFv33KZWrqrB
-	wcvdJoCYyWjn/FuiuRd+LJyVV3AIZtLy4Zmfm6z72NbKrhTvgr+RJod3xxeuDXRVuyr
-	njNlXuepjw==
-Received: by mx.zohomail.com with SMTPS id 175550336257471.67178673265767;
-	Mon, 18 Aug 2025 00:49:22 -0700 (PDT)
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=UedmDzyvf5l65qW+hQfIQJ8Xd28PzjRNYITRMIOAHbE=;
+	b=k4QhiuegKR1KjzI+AbcmK5swtDTs1eGRuKJoq3iZ5yDsNG4iKCTXgL+Z4oJGEJwb
+	qQ3wdnShysWsdzhtBbwkMepF1oYABlAghFQuEu1Rlv74wxIy+rYxfKAN8LHvvi5fBOx
+	F1kdoH98xdny8jzJ1AfoOEyDMFRO+Ravl5MHwRM8VTzgXmEsZvZ5b4kbiIDFzIYo/kn
+	a3bHknIG+nZNgSoRKvTthRaAPSW6ZgfviDjESAjHiievc5yzHatbE54H9PPPD2D+JsL
+	7YLJh0EO+PiRbHngtbdDaHyILXJyARQKubyyrXmy2LZBVhbhQK7tblA4VBhfoV3mRzl
+	2ueR0TLUfQ==
+Received: by mx.zohomail.com with SMTPS id 1755503371096963.652409830932;
+	Mon, 18 Aug 2025 00:49:31 -0700 (PDT)
 From: Icenowy Zheng <uwu@icenowy.me>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -63,16 +63,17 @@ Cc: Han Gao <rabenda.cn@gmail.com>,
 	linux-riscv@lists.infradead.org,
 	linux-pm@vger.kernel.org,
 	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH 0/2] Poweroff/reboot support for TH1520 via AON
-Date: Mon, 18 Aug 2025 15:49:04 +0800
-Message-ID: <20250818074906.2907277-1-uwu@icenowy.me>
+Subject: [PATCH 1/2] driver: reset: th1520-aon: add driver for poweroff/reboot via AON FW
+Date: Mon, 18 Aug 2025 15:49:05 +0800
+Message-ID: <20250818074906.2907277-2-uwu@icenowy.me>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250818074906.2907277-1-uwu@icenowy.me>
+References: <20250818074906.2907277-1-uwu@icenowy.me>
 MIME-Version: 1.0
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_004931_459275_D8BF39D8 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250818_004938_471202_8F7675C5 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,25 +90,168 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset tries to add support for poweroff/reboot on T-Head TH1520
-SoC by calling the AON firmware.
+This driver implements poweroff/reboot support for T-Head TH1520 SoCs
+running the AON firmware by sending a message to the AON firmware's WDG
+part.
 
-The first patch creates an auxiliary driver for this, and the second
-patch makes the driver currently matching thead,th1520-aon create an
-auxiliary device.
+This is a auxiliary device driver, and expects the AON channel to be
+passed via the platform_data of the auxiliary device.
 
-Icenowy Zheng (2):
-  driver: reset: th1520-aon: add driver for poweroff/reboot via AON FW
-  pmdomain: thead: create auxiliary device for rebooting
-
- MAINTAINERS                                |  1 +
- drivers/pmdomain/thead/th1520-pm-domains.c | 35 +++++++-
- drivers/power/reset/Kconfig                |  7 ++
- drivers/power/reset/Makefile               |  1 +
- drivers/power/reset/th1520-aon-reboot.c    | 98 ++++++++++++++++++++++
- 5 files changed, 140 insertions(+), 2 deletions(-)
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+---
+ MAINTAINERS                             |  1 +
+ drivers/power/reset/Kconfig             |  7 ++
+ drivers/power/reset/Makefile            |  1 +
+ drivers/power/reset/th1520-aon-reboot.c | 98 +++++++++++++++++++++++++
+ 4 files changed, 107 insertions(+)
  create mode 100644 drivers/power/reset/th1520-aon-reboot.c
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index daf520a13bdf6..e138a1e96ceea 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21730,6 +21730,7 @@ F:	drivers/mailbox/mailbox-th1520.c
+ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+ F:	drivers/pinctrl/pinctrl-th1520.c
+ F:	drivers/pmdomain/thead/
++F:	drivers/power/reset/th1520-aon-reboot.c
+ F:	drivers/power/sequencing/pwrseq-thead-gpu.c
+ F:	drivers/reset/reset-th1520.c
+ F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+index 77ea3129c7080..8248895ca9038 100644
+--- a/drivers/power/reset/Kconfig
++++ b/drivers/power/reset/Kconfig
+@@ -225,6 +225,13 @@ config POWER_RESET_ST
+ 	help
+ 	  Reset support for STMicroelectronics boards.
+ 
++config POWER_RESET_TH1520_AON
++	tristate "T-Head TH1520 AON firmware poweroff and reset driver"
++	depends on TH1520_PM_DOMAINS
++	help
++	  This driver supports power-off and reset operations for T-Head
++	  TH1520 SoCs running the AON firmware.
++
+ config POWER_RESET_TORADEX_EC
+ 	tristate "Toradex Embedded Controller power-off and reset driver"
+ 	depends on ARCH_MXC || COMPILE_TEST
+diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
+index b7c2b5940be99..51da87e05ce76 100644
+--- a/drivers/power/reset/Makefile
++++ b/drivers/power/reset/Makefile
+@@ -25,6 +25,7 @@ obj-$(CONFIG_POWER_RESET_QNAP) += qnap-poweroff.o
+ obj-$(CONFIG_POWER_RESET_REGULATOR) += regulator-poweroff.o
+ obj-$(CONFIG_POWER_RESET_RESTART) += restart-poweroff.o
+ obj-$(CONFIG_POWER_RESET_ST) += st-poweroff.o
++obj-$(CONFIG_POWER_RESET_TH1520_AON) += th1520-aon-reboot.o
+ obj-$(CONFIG_POWER_RESET_TORADEX_EC) += tdx-ec-poweroff.o
+ obj-$(CONFIG_POWER_RESET_TPS65086) += tps65086-restart.o
+ obj-$(CONFIG_POWER_RESET_VERSATILE) += arm-versatile-reboot.o
+diff --git a/drivers/power/reset/th1520-aon-reboot.c b/drivers/power/reset/th1520-aon-reboot.c
+new file mode 100644
+index 0000000000000..8256c1703ebe8
+--- /dev/null
++++ b/drivers/power/reset/th1520-aon-reboot.c
+@@ -0,0 +1,98 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * T-HEAD TH1520 AON Firmware Reboot Driver
++ *
++ * Copyright (c) 2025 Icenowy Zheng <uwu@icenowy.me>
++ */
++
++#include <linux/auxiliary_bus.h>
++#include <linux/firmware/thead/thead,th1520-aon.h>
++#include <linux/module.h>
++#include <linux/notifier.h>
++#include <linux/of.h>
++#include <linux/reboot.h>
++#include <linux/slab.h>
++
++#define TH1520_AON_REBOOT_PRIORITY 200
++
++struct th1520_aon_msg_empty_body {
++	struct th1520_aon_rpc_msg_hdr hdr;
++	u16 reserved[12];
++} __packed __aligned(1);
++
++static int th1520_aon_pwroff_handler(struct sys_off_data *data)
++{
++	struct th1520_aon_chan *aon_chan = data->cb_data;
++	struct th1520_aon_msg_empty_body msg = {};
++
++	msg.hdr.svc = TH1520_AON_RPC_SVC_WDG;
++	msg.hdr.func = TH1520_AON_WDG_FUNC_POWER_OFF;
++	msg.hdr.size = TH1520_AON_RPC_MSG_NUM;
++
++	th1520_aon_call_rpc(aon_chan, &msg);
++
++	return NOTIFY_DONE;
++}
++
++static int th1520_aon_restart_handler(struct sys_off_data *data)
++{
++	struct th1520_aon_chan *aon_chan = data->cb_data;
++	struct th1520_aon_msg_empty_body msg = {};
++
++	msg.hdr.svc = TH1520_AON_RPC_SVC_WDG;
++	msg.hdr.func = TH1520_AON_WDG_FUNC_RESTART;
++	msg.hdr.size = TH1520_AON_RPC_MSG_NUM;
++
++	th1520_aon_call_rpc(aon_chan, &msg);
++
++	return NOTIFY_DONE;
++}
++
++static int th1520_aon_reboot_probe(struct auxiliary_device *adev,
++				  const struct auxiliary_device_id *id)
++{
++	struct device *dev = &adev->dev;
++	int ret;
++
++	/* Expect struct th1520_aon_chan to be passed via platform_data */
++	ret = devm_register_sys_off_handler(dev, SYS_OFF_MODE_POWER_OFF,
++					    TH1520_AON_REBOOT_PRIORITY,
++					    th1520_aon_pwroff_handler,
++					    adev->dev.platform_data);
++
++	if (ret) {
++		dev_err(dev, "Failed to register power off handler\n");
++		return ret;
++	}
++
++	ret = devm_register_sys_off_handler(dev, SYS_OFF_MODE_RESTART,
++					    TH1520_AON_REBOOT_PRIORITY,
++					    th1520_aon_restart_handler,
++					    adev->dev.platform_data);
++
++	if (ret) {
++		dev_err(dev, "Failed to register restart handler\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static const struct auxiliary_device_id th1520_aon_reboot_id_table[] = {
++	{ .name = "th1520_pm_domains.reboot" },
++	{},
++};
++MODULE_DEVICE_TABLE(auxiliary, th1520_aon_reboot_id_table);
++
++static struct auxiliary_driver th1520_aon_reboot_driver = {
++	.driver = {
++		.name = "th1520-aon-reboot",
++	},
++	.probe = th1520_aon_reboot_probe,
++	.id_table = th1520_aon_reboot_id_table,
++};
++module_auxiliary_driver(th1520_aon_reboot_driver);
++
++MODULE_AUTHOR("Icenowy Zheng <uwu@icenowy.me>");
++MODULE_DESCRIPTION("T-HEAD TH1520 AON-firmware-based reboot driver");
++MODULE_LICENSE("GPL");
 -- 
 2.50.1
 
