@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3B19CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 13:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5307BCA0ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 13:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O/UkgqqDnAKSBhL8N8n3VmjEyONtv7cIP8DKJlNLvT0=; b=EEvbbXDOrRNoMx
-	hN3Kai0JIhHIG+MloQl4+KBlk3q2TwwPpVcQj/SB0xwNKrDePE60/eMWiXNxe6JjA9UFBRgncs1oK
-	vfUgzeM8cJpovprUzMw94L3XLxFaKtt1GMr3jMu/wrK5C+2wj2RbZqi8M3Zdq5rEBrfQG+pJf3R6j
-	hNjtEuvEmggZNU+tfmF4XHt1b1gtBTpzPSPFBZDgJ+ugwKNMOFTeenYrKnQvpFXg9rSI7eHtmfD1v
-	O4jDoaTtaLGb8lneg1W7Z0pCakoh5Cit6uSTof1gk819/sUwoTTsyZHt5EQsZxJvbfDKhfD3vWkkJ
-	uurHavlNV8J/y9Vw1BMg==;
+	List-Owner; bh=sS3DPMkWFJZ33Ntz5umDNHm9iHx1hUblFXSJckyPXVE=; b=DWSpSbsFOk0FSZ
+	ova3+qTXkwkAEmYxPaQlniLiBTuvfEfHoPsccBSjLXBLKb069MTXNK9EFxnn7f2EpwrrtxizReW2R
+	eYXHaQ+EvFk0+9y9WQAN1J4BPFZZforrL9fgS+zuWirsTK+Hi1wYl0H4FUFHA1ns9dh1vRbGlEAgR
+	yYyPyuQZ+57rXAKOWA8jriW5JwSZ2J+vFB95xhrcvTbeyZ1ROEtf/tlNoeNQYhWnJEP0YdJGnHNKg
+	ZEU0xR8BpzWaORCSVdww0MXWmJdA0oJTX9mV3P3A8WQjtpQB4z7augY+OLIoepWKDs2QiHi3G1zwF
+	fjr3qkotPT5OoEm6RqjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo06S-00000007ZGB-09np;
-	Mon, 18 Aug 2025 13:40:48 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1uo06U-00000007ZJA-2I5n;
+	Mon, 18 Aug 2025 13:40:50 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unwBQ-000000073eX-3Tti
+	id 1unwBV-000000073el-0GaQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 09:29:42 +0000
+	Mon, 18 Aug 2025 09:29:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1755509323;
-	bh=SK3FakjrDopXlK4b5FMuZJRoz8l5i/5MUhXQJMfoKCo=;
+	s=mxsw2412; t=1755509324;
+	bh=gcsRKHyAKuMtB+ZuHSQSM7MM8/icoYyw0uVo9I/iac4=;
 	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=Oo7FZL1I95o3WPd0/0ENEFRzwqhgTepThuKOV7zJmtmcILk5LpuCnAl0QK5BJvg94
-	 buWj1fLZW4h8DLif6YE0v6v5HGA3AYNOETgag28eXLiov5JwODje3BuZvpYPvNkTHa
-	 7GIy8TegxKznopLO9s2wVD7YbblRTuYpILdn61rI=
-X-QQ-mid: esmtpsz21t1755509314tc4b3f005
-X-QQ-Originating-IP: L38W9V9/NIsHLDRox8+OFBX7sY7Zm9fj9dMmiK4F+k0=
+	b=Smx8K7T+mQl4sCibbhLRjBw5lJan7lD6g2awAkUjGlRfWxG79es81gYZBbS4rNSLX
+	 SoD3srdio19Us/w0L6ONNYPMxU+UzGHoYLPA/34G4ZDtsD7PlQeTb+T1zFK12odq6F
+	 HBdRfSAaJP2Fh+6sAv51Noxd1Kn7NcxKUzmKotrw=
+X-QQ-mid: esmtpsz21t1755509322t40396246
+X-QQ-Originating-IP: B3DkngCQnn0bbz9w7FXWq/lfnZGvWROgMlt3PBsCQy8=
 Received: from = ( [14.123.254.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 18 Aug 2025 17:28:31 +0800 (CST)
+	id ; Mon, 18 Aug 2025 17:28:39 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 2456046681612972940
-EX-QQ-RecipientCnt: 17
+X-BIZMAIL-ID: 16519149024286198019
+EX-QQ-RecipientCnt: 16
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Mon, 18 Aug 2025 17:28:20 +0800
-Subject: [PATCH v3 1/3] dt-bindings: clock: spacemit: introduce i2s
- pre-clock to fix i2s clock
+Date: Mon, 18 Aug 2025 17:28:22 +0800
+Subject: [PATCH v3 3/3] clk: spacemit: fix i2s clock
 MIME-Version: 1.0
-Message-Id: <20250818-k1-clk-i2s-generation-v3-1-8139b22ae709@linux.spacemit.com>
+Message-Id: <20250818-k1-clk-i2s-generation-v3-3-8139b22ae709@linux.spacemit.com>
 References: <20250818-k1-clk-i2s-generation-v3-0-8139b22ae709@linux.spacemit.com>
 In-Reply-To: <20250818-k1-clk-i2s-generation-v3-0-8139b22ae709@linux.spacemit.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -60,41 +59,40 @@ To: Michael Turquette <mturquette@baylibre.com>,
 Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Jinmei Wei <weijinmei@linux.spacemit.com>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755509307; l=1199;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755509307; l=4733;
  i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=/hJv0mzHXIS6bEs1DcXOmRFXRROo56LNrivXaAlRwYY=;
- b=ZtadIMTCPcMoagONLw2fcK0RfQQmIg9zoCpUCUgEN+CJ8bCi+82+iMoYoG1qE3w4cjauBbzxA
- HfHdrwxXtpDAGFvrB4k/veMHhwIUHtM5WEzH7JMVsKAH+BPEXvNtw2Z
+ bh=EbxNhhULS7njhbvu3e7GjERZF4MmhlDW5guLkzvyZP4=;
+ b=c0A8Dxfc6KBKkPbV9tt0qoy/mYxWLZhU7nqpIZSp7tr0i5kxJIeA12u+q5lGGBGPFh+y1JtJk
+ c+jkw2SU6PyAXlo+xKUN9avrR2Awz55sq+It+J+QpXjwn7tILizpJtR
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
  pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: MPRzOxUHFxuwCPq5HbOmX4JTrcV36O+w2ru4UpHsgWDEi4CLKqHhPo2f
-	6SOfOv7GikXIsmd1Ne3r2jrkJnI3mnO37OZ0Hf0aqJ8bjub7/tQJIT0gVfTCEj1boLvz9EB
-	h8/phjY0d6w0VHA8PHYxAE60+trKzq4q9mk8cTbgqwPuK1xuJG/mwdZstVq1Wbd4La0DT/h
-	h1kV7A70lYMGtqNzbsqNPmUW+KkZWkg6PLPxQE/NK7lY7q0hZ58pV8xWkgNhT+3xHPHxXXb
-	55mZCWcbMEx6U013UEwN+w7m7MA1Fi99TT1cQ1U9Z7e5CwPSDLDxU4uYdYCUL7sAGT1/bWr
-	OnFe4o47yuB1IN6FVRqT/2NsuZ4H8QytT5I1YVRfzb1ObL3ce85CNKxCT8O/Wd+ohUqGAWc
-	B7yABLR0ICv8X8I0Wz77JWoDIuYRAuKgDRG/I9kOG1weApy2UxlgfyTfo6w+/IcsN6Urv3x
-	vQ64Q4eU8b7fY+jnkbcDkVxH6Di3femC8nvlfzR8rrJl7CI2eGG6qWlYa26cklGAY3LhubF
-	N8bXo0B534fBO/K/ikBSRWqqM7rlPZBU/Z1ypbiBzQ53wDlwC/AL4PWbmbBcS0mTS/JxyDo
-	R+l2SSRGEcC7Wr47YXH6I0SVPwCsHtioajbK11mkOiYxbrBpEzZGgbkpHbinwmep8ogIeGC
-	TqLsQbHWZXD/NE3tENHsMtlDgbiLG4XTqw2UGAILTnwD/EPsjYqX8MA6BefDB5We+tD0MeK
-	17B9XzVqAhdjw25LO9Eivt98166hNz3MWU8ewxhI1keQoh6NxkGSvfA8APOMF0DUhTRmd9u
-	EuVTrGoyVIT8QghGi4wdCND5mXgeMaFsJCmzYpKSFTlJWM/5hn3CSgcTSSCA3763nYzMtly
-	FIScSXsGXBeB7vVec977fZ+jELycK0gXTxuQhoPMPW33BAP+NpoIgjBfOi0te8Ln90oqhTj
-	YLllcBmlcP+1lCvFxU5PpmxiRDnL/FaG+iyZ14sPLSyp9tbIRWlUwF4aeN2VMETHS/8r1Oh
-	/M7e9NlV0jyqkCipu0zh0rptxgSaVtWh3BGyYVCIkYyPvvWKZ305JbVt7l6matSjkY/JLYc
-	vhGp36TnAm8nCisZRs6kn/7q5pH20xpHboZYr27G9CDJQS89nXH6+s=
-X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-XMAILINFO: M+Qa/yP3m2vGCAhUJiJg8RjSxFqRv6mp0DHJa6FCcIqJ7WEhdSs5ucr+
+	7jkTgHZ2xYhsCa7nJzpVKGKQNsyVJ+OqdujsBSLWU/HBwiRPBDJtFkyMfqHf2UKvNWiLc+8
+	ZwwJRCLGbeDFYomj94mCTDC33ClXps2BFcFCQe3M+OQNBw2WzjJWyVhU+Y72W5oVb9VvFCl
+	jU4dXh4FNdXjdAo8QQq9Vs3mp6xjSepnLLWja/ixN74Y/PoBxiE/DhSVpRaiq/oBh2EBRie
+	l2ZrgBzhEcBc+XwSCaTGMMQjF+2TA5i1yKVBR+bgQxyqtqCxFtxTp6lPtK7Glt+2YaPqOdR
+	Y90fihELssYbn9RPtegE0BhlJZEmwZGsR0Db7gLNXLa+M4ePEJew7QXdRfdce5XJJwGa4ar
+	/Yli//5kwRsPucVm5rivsSGsmpz5sGwB9IsQLg6Kra3qCDrSArGjL3oOwhejPL54b8q0JCl
+	k5mAVX1MR6+Qm6Ae6Ad/HkutCCEZXCk+D7+vHunJi5I96i76jB9kcoyNcWfmNkunDQkbd/z
+	N5ZoXlLLToPAKvcaHb+m7Y43ZDxTOTh7XXX4E8ktMQEHNnfHfDYWEpCC0k7nMbgMsFkNi0J
+	z8oG0JUfiKY6HMQ28kAKr3WzY/ve3zRdVvjjPe0PDtmIlV51uYW6TQGC9hDmNe90imT0NXB
+	ZfYKSPqpmjuLjBfk2Mu+C6WdDDTRzpUe1yQGEy3L54TCtDoNeCSTBucpeCb5udaVlNVupHc
+	/ftsbVGVxGd5vAmbuUvqdL2J4buHu7tCKOZGLYcIsfzukaIAds/izyj+oLG5EmVw+NATRsZ
+	520GnbCmpADk7zDE/zdVi2j8eThPuhMSv8bEPSPN9HEauKaQ3RhUw6EpZLDy2DZgrGsAQCe
+	rHWRutUgqiK1Ucw9SE86ZZVPFc4wginY1zPFFUogJ6i15s1PuYwOqDCpetsgDsRHYob36ld
+	yWgOYSriC+aKi2iImckfMH2k1o9wrPj7EEoAYWQ9BlBCTctiKkAr4C7cldMrWBZutOnEBo+
+	cDBCMiNpfGrYtAwmnlAC6IXqB/jW3xBWJv32LHsS/JIaQ7oHVMV6yswOf97TsXiOuun4LJx
+	EX9pZTJgmZ7t7Nc8URR7TUgt5Zo57guiaH1UQFecPpEWmaoXdKaxhXcYvYC+f/m2MqH8As1
+	u19F2tlZIS17gLc=
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_022941_750697_B54EE499 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250818_022945_938742_1980B086 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,38 +109,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Previously, the K1 clock driver did not include the parent clocks of
-the I2S sysclk.
+Defining i2s_bclk and i2s_sysclk as fixed-rate clocks is insufficient
+for real I2S use cases.
 
-Introduce pre-clock to fix I2S clock.
+Moreover, the current I2S clock configuration does not work as expected
+due to missing parent clocks.
 
-Otherwise, the I2S clock may not work as expected.
+This patch adds the missing parent clocks, defines i2s_sysclk as
+a DDN clock, and i2s_bclk as a DIV clock.
 
-This patch adds their definitions to allow proper registration
-in the driver and usage in the device tree.
+A special note for i2s_bclk:
+
+From the definition of register, The i2s_bclk is a non-linear,
+discrete divider clock.
+
+The following table shows the correspondence between index
+and frequency division coefficients:
+
+| index |  div  |
+|-------|-------|
+|   0   |   2   |
+|   1   |   4   |
+|   2   |   6   |
+|   2   |   8   |
+
+From a software perspective, introducing i2s_bclk_factor as the
+parent of i2s_bclk is sufficient to address the issue.
+
+The I2S-related clock registers can be found here [1].
+
+Link:
+https://developer.spacemit.com/documentation?token=LCrKwWDasiJuROkVNusc2pWTnEb
+[1]
 
 Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Co-developer: Jinmei Wei <weijinmei@linux.spacemit.com>
+Suggested-by: Haylen Chu <heylenay@4d2.org>
+Signed-off-by: Jinmei Wei <weijinmei@linux.spacemit.com>
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- include/dt-bindings/clock/spacemit,k1-syscon.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/clk/spacemit/ccu-k1.c    | 29 +++++++++++++++++++++++++++--
+ drivers/clk/spacemit/ccu_mix.h   |  2 +-
+ include/soc/spacemit/k1-syscon.h |  1 +
+ 3 files changed, 29 insertions(+), 3 deletions(-)
 
-diff --git a/include/dt-bindings/clock/spacemit,k1-syscon.h b/include/dt-bindings/clock/spacemit,k1-syscon.h
-index 2714c3fe66cd5b49e12c8b20689f5b01da36b774..ad62525be43a909633f8d3a65ece1acd60ba8052 100644
---- a/include/dt-bindings/clock/spacemit,k1-syscon.h
-+++ b/include/dt-bindings/clock/spacemit,k1-syscon.h
-@@ -77,6 +77,10 @@
- #define CLK_I2S_BCLK		30
- #define CLK_APB			31
- #define CLK_WDT_BUS		32
-+#define CLK_I2S_153P6		33
-+#define CLK_I2S_153P6_BASE	34
-+#define CLK_I2S_SYSCLK_SRC	35
-+#define CLK_I2S_BCLK_FACTOR	36
+diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+index 7155824673fb450971439873b6b6163faf48c7e5..b2c426b629a37a9901bbced26fc55c5f1b34eba5 100644
+--- a/drivers/clk/spacemit/ccu-k1.c
++++ b/drivers/clk/spacemit/ccu-k1.c
+@@ -141,8 +141,29 @@ CCU_DDN_DEFINE(slow_uart2_48, pll1_d4_614p4, MPMU_SUCCR_1, 16, 13, 0, 13, 2, 0);
  
- /* MPMU resets */
- #define RESET_WDT		0
+ CCU_GATE_DEFINE(wdt_clk, CCU_PARENT_HW(pll1_d96_25p6), MPMU_WDTPCR, BIT(1), 0);
+ 
+-CCU_FACTOR_GATE_DEFINE(i2s_sysclk, CCU_PARENT_HW(pll1_d16_153p6), MPMU_ISCCR, BIT(31), 50, 1);
+-CCU_FACTOR_GATE_DEFINE(i2s_bclk, CCU_PARENT_HW(i2s_sysclk), MPMU_ISCCR, BIT(29), 1, 1);
++CCU_FACTOR_DEFINE(i2s_153p6, CCU_PARENT_HW(pll1_d8_307p2), 2, 1);
++
++static const struct clk_parent_data i2s_153p6_base_parents[] = {
++	CCU_PARENT_HW(i2s_153p6),
++	CCU_PARENT_HW(pll1_d8_307p2),
++};
++CCU_MUX_DEFINE(i2s_153p6_base, i2s_153p6_base_parents, MPMU_FCCR, 29, 1, 0);
++
++static const struct clk_parent_data i2s_sysclk_src_parents[] = {
++	CCU_PARENT_HW(pll1_d96_25p6),
++	CCU_PARENT_HW(i2s_153p6_base)
++};
++CCU_MUX_GATE_DEFINE(i2s_sysclk_src, i2s_sysclk_src_parents, MPMU_ISCCR, 30, 1, BIT(31), 0);
++
++CCU_DDN_DEFINE(i2s_sysclk, i2s_sysclk_src, MPMU_ISCCR, 0, 15, 15, 12, 1, 0);
++
++CCU_FACTOR_DEFINE(i2s_bclk_factor, CCU_PARENT_HW(i2s_sysclk), 2, 1);
++/*
++ * i2s_bclk is a non-linear discrete divider clock.
++ * Using i2s_bclk_factor as its parent simplifies software handling
++ * and avoids dealing with the non-linear division directly.
++ */
++CCU_DIV_GATE_DEFINE(i2s_bclk, CCU_PARENT_HW(i2s_bclk_factor), MPMU_ISCCR, 27, 2, BIT(29), 0);
+ 
+ static const struct clk_parent_data apb_parents[] = {
+ 	CCU_PARENT_HW(pll1_d96_25p6),
+@@ -756,6 +777,10 @@ static struct clk_hw *k1_ccu_mpmu_hws[] = {
+ 	[CLK_I2S_BCLK]		= &i2s_bclk.common.hw,
+ 	[CLK_APB]		= &apb_clk.common.hw,
+ 	[CLK_WDT_BUS]		= &wdt_bus_clk.common.hw,
++	[CLK_I2S_153P6]		= &i2s_153p6.common.hw,
++	[CLK_I2S_153P6_BASE]	= &i2s_153p6_base.common.hw,
++	[CLK_I2S_SYSCLK_SRC]	= &i2s_sysclk_src.common.hw,
++	[CLK_I2S_BCLK_FACTOR]	= &i2s_bclk_factor.common.hw,
+ };
+ 
+ static const struct spacemit_ccu_data k1_ccu_mpmu_data = {
+diff --git a/drivers/clk/spacemit/ccu_mix.h b/drivers/clk/spacemit/ccu_mix.h
+index 54d40cd39b2752260f57d2a96eb8d3eed8116ecd..5b5c3bb958167a68736587e9097a1ca6f94d22fa 100644
+--- a/drivers/clk/spacemit/ccu_mix.h
++++ b/drivers/clk/spacemit/ccu_mix.h
+@@ -130,7 +130,7 @@ static struct ccu_mix _name = {							\
+ }
+ 
+ #define CCU_DIV_GATE_DEFINE(_name, _parent, _reg_ctrl, _shift, _width,		\
+-			    _mask_gate,	_flags)					\
++			    _mask_gate, _flags)			\
+ static struct ccu_mix _name = {							\
+ 	.gate	= CCU_GATE_INIT(_mask_gate),					\
+ 	.div	= CCU_DIV_INIT(_shift, _width),					\
+diff --git a/include/soc/spacemit/k1-syscon.h b/include/soc/spacemit/k1-syscon.h
+index c59bd7a38e5b4219121341b9c0d9ffda13a9c3e2..354751562c55523ef8a22be931ddd8aca9651084 100644
+--- a/include/soc/spacemit/k1-syscon.h
++++ b/include/soc/spacemit/k1-syscon.h
+@@ -30,6 +30,7 @@ to_spacemit_ccu_adev(struct auxiliary_device *adev)
+ 
+ /* MPMU register offset */
+ #define MPMU_POSR			0x0010
++#define MPMU_FCCR			0x0008
+ #define  POSR_PLL1_LOCK			BIT(27)
+ #define  POSR_PLL2_LOCK			BIT(28)
+ #define  POSR_PLL3_LOCK			BIT(29)
 
 -- 
 2.50.1
