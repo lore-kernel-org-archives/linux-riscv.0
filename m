@@ -4,99 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58741CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 13:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FB8CA0ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 13:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5GWtrHRUxxSCe09SfkJzRAlP9DVQy/MNvW2ElMqn6aA=; b=LiSj2ky2PA77Jt
-	siCVb71LETDF3tjQsORVaVwEze4d8wGkn1ljaZk6cp1M886PdafRER2Ahn9ICgAtQGvIx0u/ozweO
-	gJOxQzolu/wB3ZuKmFX+AuedN2fPV/wCNKYWbCM4bN3C3tQpk5+laE2615BOBo6NBZU+PqXDUlSxz
-	tKguaSgYJcowlzYV+CeViOb2O2hTMZ5k4tx/D9fzL+goEMwYq2U5S/B6G8R2C8P2CBz6GjcLWMRJV
-	XYwoTmoLQzFE97ZmNSVD0gZehsDyoYJFnQOSDe/D5dbGCqsg4+h2ObSh9zmjVtwSpsy/ijThAhxfK
-	RhJE4TRfYLNkORi4QTNA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cScbEGB8IbGZ2hRlF0x9sdGZ6i5M5ssvmmA6925IllU=; b=jh5JAicDne+lOC
+	b+zSXVFENGo3JKh6ejTiRZpxJBsj24pKGTD57sUYk53rlj0GEjeI0ax5LQfGYqxSBBLhqYFpHlw6x
+	gNEjjoESfsUBL69+k4WQdlTmFKNEkSUYl/12WsODZGUKNAjcwG0fK+uySEeK1Mz78H7G0bDM/GDJr
+	bNhlEqLXdBYMhW8svQQxjhN812dYyoSMPu+nHy7ZqKJw7c70+m8QtloK94IS71/JubiLvlIEwJ7KQ
+	NpARLvCquEIQkVh+5wx2eaJCr+3p7Rq766KLpmdqAywsHv+kBr/qd7XSkIih15A5BQrYRUZDCAeSC
+	C1gxbww4wOknm9WmUwcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo06a-00000007ZRc-22U2;
-	Mon, 18 Aug 2025 13:40:56 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1uo070-00000007a5w-3aMI;
+	Mon, 18 Aug 2025 13:41:22 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unwBV-000000073ev-2zcw
+	id 1unwOt-000000075K9-2bU4
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 09:29:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1755509318;
-	bh=9FmrJjqg/fw+am1I+fhbZiD9RUE7Ro4CHVIAUBMnukY=;
-	h=From:Subject:Date:Message-Id:MIME-Version:To;
-	b=eBfAV7shIdTLHezFOR78M1wy4Ld1p+76EOuHjcy8T0sQPU3t93748klwG32zjewmw
-	 0Rs2EsMSZvFMnAWwDPriJ/k9WkUKCPrvTzLGc3UZq1Yu3uB0AE9/6m3ZMHF6HPuonD
-	 N9UTudxXOvyrHLCUiamxrLZ+SVxsa2kvgA2bh/GQ=
-X-QQ-mid: zesmtpsz9t1755509309t6c580f51
-X-QQ-Originating-IP: cKEs5s2CY18in1J6kPHzPGnr423fzsum8U+lBY0rnm4=
-Received: from = ( [14.123.254.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 18 Aug 2025 17:28:27 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12055654906655040144
-EX-QQ-RecipientCnt: 17
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: [PATCH v3 0/3] clk: spacemit: fix i2s clock
-Date: Mon, 18 Aug 2025 17:28:19 +0800
-Message-Id: <20250818-k1-clk-i2s-generation-v3-0-8139b22ae709@linux.spacemit.com>
+	Mon, 18 Aug 2025 09:43:37 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 3007720E37;
+	Mon, 18 Aug 2025 11:43:31 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id H-l89fRMrwVf; Mon, 18 Aug 2025 11:43:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1755510210; bh=kvFLkZd49qaINmgLXux3yvrYr/hxKrrvscnAQB/WUng=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TlcEiIHoMtlAl2saN8yxYLjXkbcsm6JBdVLGzc+jl2AS1b+an/MmtxcFAE/xU7iYd
+	 8jwo4ADl77uY9jj2HxO+oa0lFgL8EDGDKAAj4hgOyN6KhUOqCnBq8VTERoMolFJURT
+	 gQ5yClMwtpJ5p/GxejAUoS7yvD4hTDxp2R85+2D8Sw2UULzeltB6AYUT/1dz7fa7yX
+	 TUINM9Ab/8mb22RQXEAZvtrw85FZtARc8updoorB/uviX7ICX8dKUir2+2syzhlJm1
+	 /ZmnuCr7SpAyQVnEId4dDWa7FodzRHV4dCxwbcnXp081DxwbUzUMlQrQRKK8olBMAE
+	 HuSNR/2QyTMWg==
+Date: Mon, 18 Aug 2025 09:43:13 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Icenowy Zheng <uwu@icenowy.me>, Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Michal Wilczynski <m.wilczynski@samsung.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Sebastian Reichel <sre@kernel.org>
+Cc: Han Gao <rabenda.cn@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH 1/2] driver: reset: th1520-aon: add driver for
+ poweroff/reboot via AON FW
+Message-ID: <aKL1sTutiMZPAd70@pie>
+References: <20250818074906.2907277-1-uwu@icenowy.me>
+ <20250818074906.2907277-2-uwu@icenowy.me>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIADPyomgC/3WNQQ6CMBBFr0Jm7ZC2lFRdeQ/DopYRJkAhLRIM4
- e5WEpcu30/e+xtECkwRrtkGgRaOPPoExSkD11rfEHKdGJRQpTgLjZ1E13fIKmJDnoKdk4FEZIS
- +EEljIblToCevR/deJW45zmN4HzeL/K6/ovlTXCQKNLVTJT006bq49exfax4n62jgOXfjANW+7
- x/sbrXMwwAAAA==
-X-Change-ID: 20250804-k1-clk-i2s-generation-eee7049ee17a
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>, 
- Inochi Amaoto <inochiama@outlook.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Jinmei Wei <weijinmei@linux.spacemit.com>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755509307; l=2086;
- i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=Ix8rQX7j+Djeow/6d/c6nvq5oESHFJilL/KybCgSlgw=;
- b=aVYL6kUleE+B4XSTi5WfXl0yVT2LMvgB+NBhSsLqFhYKv/I7ewX5NwYNxGO+PiNQIR32slhyb
- LfpvAk33XQNDefyF9v2KUvgkSO5wVWUP0ih9HZ9ym8owffx6k/a6sC/
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
- pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: N10XyoOyIIl0qJlBfOUj9zmUJS2acQKdoWHkIeHB89D6L77TxqFP9PQI
-	GVVAa/vuyScHRIo7MQZfWaafsm1FUImiRzByDLoWufRA+kGFqVMogbpgMWA389Cmub+jrmx
-	da5Uzddv1FHN8d+7WDH0HZ4qxgHvfHN4cxDB2jGUHLlSx+JrKbfr99uQpJEPshtSlMhu3ez
-	cw+WHmcoUS4yQxHQhiUYpRGW6X+Nh1kQvATA3Y2u3pHIl7f9veyZdFDMOtsUQnFzRM3vhiL
-	UwE8MUWHA7/54f8q7OkmF/YU/pn0pxi3JZsYJC0/vaKZGrXfaGHWmU4L4u0vqQAvv/aeOi/
-	TDpYn2nPWSvbpPJcDLZpI9+4WOO6ZyJ15gs+3wXio3STmN+a7BeplBh9Cnb5HTPaxuUV73X
-	aW2x6lLz53SCNxaaXSSse5ENaE26vaR7lr5NxB5bJcyqvDhJuyJqiKmEh5c86+A6dvc/2ub
-	Nj1+IXr/rYYzQa1FJ61Wl3PJfR6w9Y+CeqRZKoJKDELuoDDp8PNUSDfLkIv3iXZCoxraXen
-	tGfyjT0UWWS+Vh9LeVd+jzgni6GvExYjGemCOqarARS0fnjgTpO824hfv4ZKHFB3j3GmwWC
-	xNXSg1W52wvmvpueeR+ruM66yt5mmdV/jrDxUIRcXOFfm17Vaj4R6Wt8YMKAIgze6fQLgUj
-	m649Knag/3vTuNTJbpUKAVJaaMZfN6+1bcIjOkiR31p6eIZcID1Y0bNMlPHJyvSsppUdUmN
-	1pxTdoe9z7IxMTmfwZWKEg/F8VkdSyuIZZYjRkygmmTjYQyJmMycMJvdIFx/0rA0xIWFAcI
-	nWCWhGnjzBfMnPZfAnsB6MZiMW4dAySf1cgR9LnkJxDiUyOFQbMwKRJlCCPMhSPB5IFdIIP
-	6VDHQz7ZsLTqghc8tUtywkwgNyVC9lfrTzWNfYD44mmazZBGpEZpdXrZ4wH8F7X5pAZLCq8
-	cgx3gtbAI3dr0HTbmyerumMsBrMU2tPh0hNc7iSGKrjX1pjj42man2wVkxLd7cHQmOZzxno
-	eN2alJqpcmBbNdRuj9p+FPx2ewSmWQrIsDurtTYlCkQvqifG8dAi+anQ05QGoWEfXdNrCM0
-	1j0FzcEyXgd6HmGAFal/RM3j9m07fKayxJxtAuJDBHrM7BnVyux5ZNUJGEmSfcAFQ==
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
-X-QQ-RECHKSPAM: 0
+Content-Disposition: inline
+In-Reply-To: <20250818074906.2907277-2-uwu@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_022946_397723_BD3F66FA 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250818_024336_068439_5A572508 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,61 +79,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Previously, the driver defined two clocks for the I2S controller:
-i2s_bclk and its parent i2s_sysclk.
+On Mon, Aug 18, 2025 at 03:49:05PM +0800, Icenowy Zheng wrote:
+> This driver implements poweroff/reboot support for T-Head TH1520 SoCs
+> running the AON firmware by sending a message to the AON firmware's WDG
+> part.
+> 
+> This is a auxiliary device driver, and expects the AON channel to be
+> passed via the platform_data of the auxiliary device.
+> 
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> ---
+>  MAINTAINERS                             |  1 +
+>  drivers/power/reset/Kconfig             |  7 ++
+>  drivers/power/reset/Makefile            |  1 +
+>  drivers/power/reset/th1520-aon-reboot.c | 98 +++++++++++++++++++++++++
+>  4 files changed, 107 insertions(+)
+>  create mode 100644 drivers/power/reset/th1520-aon-reboot.c
 
-Both i2s_bclk and i2s_sysclk were treated as fixed-rate clocks,
-which clearly does not reflect the practical requirements for I2S operation.
+...
 
-Additionally, the original driver overlooked some upstream clock sources.
+> diff --git a/drivers/power/reset/th1520-aon-reboot.c b/drivers/power/reset/th1520-aon-reboot.c
+> new file mode 100644
+> index 0000000000000..8256c1703ebe8
+> --- /dev/null
+> +++ b/drivers/power/reset/th1520-aon-reboot.c
+> @@ -0,0 +1,98 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * T-HEAD TH1520 AON Firmware Reboot Driver
+> + *
+> + * Copyright (c) 2025 Icenowy Zheng <uwu@icenowy.me>
+> + */
+> +
+> +#include <linux/auxiliary_bus.h>
+> +#include <linux/firmware/thead/thead,th1520-aon.h>
+> +#include <linux/module.h>
+> +#include <linux/notifier.h>
+> +#include <linux/of.h>
+> +#include <linux/reboot.h>
+> +#include <linux/slab.h>
+> +
+> +#define TH1520_AON_REBOOT_PRIORITY 200
+> +
+> +struct th1520_aon_msg_empty_body {
+> +	struct th1520_aon_rpc_msg_hdr hdr;
+> +	u16 reserved[12];
+> +} __packed __aligned(1);
+> +
+> +static int th1520_aon_pwroff_handler(struct sys_off_data *data)
+> +{
+> +	struct th1520_aon_chan *aon_chan = data->cb_data;
+> +	struct th1520_aon_msg_empty_body msg = {};
+> +
+> +	msg.hdr.svc = TH1520_AON_RPC_SVC_WDG;
+> +	msg.hdr.func = TH1520_AON_WDG_FUNC_POWER_OFF;
+> +	msg.hdr.size = TH1520_AON_RPC_MSG_NUM;
+> +
+> +	th1520_aon_call_rpc(aon_chan, &msg);
 
-To fix the I2S clock, this series also introduces several new clock definition macros.
+It's possible for th1520_aon_call_rpc() to fail. Should we check for its
+return value and emit a warning/error if it fails? Though in case of
+failure there may not be much we could do...
 
-The I2S clock hierarchy can be found here [1].
-
-Link:
-https://developer.spacemit.com/documentation?token=LCrKwWDasiJuROkVNusc2pWTnEb
-[1]
-
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
-Changes in v3:
-- remove factor for CCU_DIV_GATE_DEFINE
-- introduce I2S_BCLK_FACTOR as I2S_BCLK parent clock
-- adjust consumers in patch2/3
-- Link to v2: https://lore.kernel.org/all/20250811-k1-clk-i2s-generation-v2-0-e4d3ec268b7a@linux.spacemit.com/
-
-Changes in v2:
-- remove CCU_DDN_GATE_DEFINE
-- remove CCU_DIV_TABLE_GATE_DEFINE
-- move gate of i2s_sysclk from DDN to MUX
-- introduce factor for CCU_DIV_GATE_DEFINE
-- modify commit message
-- split patch2/2 into separate patches
-- remove reformatting in k1-syscon.h
-- Link to v1: https://lore.kernel.org/r/20250807-k1-clk-i2s-generation-v1-0-7dc25eb4e4d3@linux.spacemit.com
-
----
-Troy Mitchell (3):
-      dt-bindings: clock: spacemit: introduce i2s pre-clock to fix i2s clock
-      clk: spacemit: introduce pre-div for ddn clock
-      clk: spacemit: fix i2s clock
-
- drivers/clk/spacemit/ccu-k1.c                  | 33 ++++++++++++++++++++++----
- drivers/clk/spacemit/ccu_ddn.c                 | 12 +++++-----
- drivers/clk/spacemit/ccu_ddn.h                 |  6 +++--
- drivers/clk/spacemit/ccu_mix.h                 |  2 +-
- include/dt-bindings/clock/spacemit,k1-syscon.h |  4 ++++
- include/soc/spacemit/k1-syscon.h               |  1 +
- 6 files changed, 45 insertions(+), 13 deletions(-)
----
-base-commit: e3324912fe5a05a3ea439df476625e7c8efc2b9a
-change-id: 20250804-k1-clk-i2s-generation-eee7049ee17a
+> +	return NOTIFY_DONE;
+> +}
 
 Best regards,
--- 
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
-
+Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
