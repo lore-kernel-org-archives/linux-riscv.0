@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE68CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 04:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82229CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 04:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ly7p7if6v96GlpiQ+MkciON4/IzL3AOcOIbWcyVqn20=; b=CSvXYR7vJGWmN3
-	R3CwwJhl8n3xCuYGm2V5V+se818HblcOIa5MRf4zE+HC+HWh5kbn7WeAm2pcvDvoz+uHumyi7YfRw
-	Z4V8W+XxTxOJiwYrS4ISNPyVvcuUOLSr0/s2KyWyeRlnzuH2KlUTOLNi18wxb/fKofKXjg1ZmOGuh
-	ShshrQImOCLzxbHlBUUwk241cUMsBiu6/c2CrNovbr+xBAKasAOAsWAD6WF6JJvXquuZo6t1DMXNH
-	8fc+HTZ5s3y+SOQynZN5tpmP12XmanolwAAjLOJNg1onijhd7/kNW7MGLM61QKU9RFZMKPdyr1WBx
-	B4acaPmsCAQCP8bF0pig==;
+	List-Owner; bh=pmlCkty8Sk5zKyLres+whKTWlpGbIWO/UCfpQ5Z82Ow=; b=gOGIfYI4AKQwAf
+	ilRXsy6oSSy6m6VKEVit52Uw8L5+dITb9k/g0XcIkCKhGxeNWYauzNVm6x1r17SVvpiqcbHf05Vx5
+	Y3nlvu/9OdQ1QR6QeV6kPLEWDGCYshOHwOQupp+28ozRMRtqu+BH2zFCaqexxZCT5OGDUpXreheHh
+	seTsWhXAmN75NLD2OijKk/3BQUPjPKChWeun1KMH5750CsGlG+Y6I2MNVrQzahxrx0MzfRhyVscFh
+	X+hTqdIndKJX0o48uzDDVFfSHyDNrEClNnQUiFfBPIzE+sree6ou0/5S3dsYULSbQ6c8ICUeMVPkA
+	A6hXUWI4Hr4f/Lv3nD7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrFG-00000006Rtb-2XR7;
-	Mon, 18 Aug 2025 04:13:18 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1unrFN-00000006RxH-14bw;
+	Mon, 18 Aug 2025 04:13:25 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrFD-00000006Rs9-1DIr
+	id 1unrFL-00000006Rvt-0UaV
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 04:13:16 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-24458194d83so24942015ad.2
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 21:13:15 -0700 (PDT)
+	Mon, 18 Aug 2025 04:13:24 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b47052620a6so3704352a12.1
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 21:13:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1755490394; x=1756095194; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1755490402; x=1756095202; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tJN6/jwOx6PvAx5UtYwiYDtqnVqwfwWox4DCK7OERJ8=;
-        b=SCJLX+SOTfolRAE1CO/b5DgskZS4i9USImOwHQWTjG+Kc7PHzezorGBhqPeDjgz1T+
-         zDYKDlgrT3JQ3WwKLmSwSFXI921iv+3FTB78Ex5vXvfu8fUg15vAIjF4rVJNpqwqqIHD
-         edHlOj9TlaOF1y+NsQhCm7KvyGmPyyEUH7wY3mzqFQq9Xw0s/6/A+hHlqwjxnKTqv7XI
-         Na/onhtOiFD2iQ0X09mj/eMw6329Syn8ei1smqYx5gD0lwwCr6mQjgGdK0Z+bmyJ23Rx
-         qWciqffltF8JIvyw+ddCU3Rw99PFJyxi60uWAx2SEWZCe10k8Xllf/Qukjo8p75qXQoM
-         16IQ==
+        bh=PujbwOz9dknJBj0WiTvzomVt33H+ylTg1a04PuImAic=;
+        b=k1GNejs/lmmtVPD4JOfpjc+gwHXoG8+xYdtrQGY0l9HoQJ410seSwxHYEXSCNHJwdg
+         D7mpJK+7LMdtVJMF0NjUAoSpMa2aOhowywvXXZ2i8MrS0JwvOg/3SRqGJyfsT8YiQ73U
+         FiyYR+14/z9Sutv0LV1ULxT+dECSK6lzLGS3ZyIWmHVxHznv56JgcM+gDJGRlH4yjgDN
+         4A4wory62+qNDqE7ZDAW/j7NMMKcgCEWpwBCmrZO01D+4tAH8vlTqfIhbdWX0RtqosAB
+         pXvfgoKic2nttj5uq0BOa+KRlZVky1O33Rhvpddu48FA3rJF1RnVgyaRF8swOTI3kNK7
+         28OA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755490394; x=1756095194;
+        d=1e100.net; s=20230601; t=1755490402; x=1756095202;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tJN6/jwOx6PvAx5UtYwiYDtqnVqwfwWox4DCK7OERJ8=;
-        b=CCSk2jxxQ4h2h/s+1+D0Iw3BGqQW1D58UqETDt8v8u1hFYKUnaaLr6gGiSplySZQbg
-         wqGU1njgex0rRbUHtISWOj753dYoCpPf8H3ZL/GSKWy+ydz1pdw6dmL0esQBl46eqpV+
-         IueWiUjRuRL9I/kKnxEBr8jXjFAzE6bFJWtl696y8vGjTpPmqTbWX8SJQqJY+SqOZ//z
-         4rU5xrxNnknDQYVFZX6MB35GbENzujykVD4+gfNIaQUqWNwOi8tZYHyRHLXLCVeEXn1E
-         22pdcqt4gU+56QjbDeI+Z+4nbjPhlV4cnic59jv+hF//xGUKfCRTAgPI6WGCi11XOZTT
-         +rOg==
-X-Forwarded-Encrypted: i=1; AJvYcCX96ZjKrhwB7VeU+vy8MZ8mbajNLdybKg7KUFr+zOX1uJDiPBNjcrhK8w+A4nEnbuIFcx0A3EFi9Yo7SQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+pW0+CB7yIwa04TvN5UC2Z+9AbVHM1Nh+VdtXpwqWCsJfF0tV
-	2pEuzy1vlYiOUZRJp8UV5QJl0lhE5Uizjt/VgeepdQT+6GFMLOeTMQApV1THpa/TsR0=
-X-Gm-Gg: ASbGncsukc/9jap7O0C8BnidkQhz4Lbq/h7jR+CMHBR34IhtjJ7Tq7u7QCMZHHwpCDv
-	dMrm8I3fZX43O/xdTC0RULbV98OibqHSUCCI96asDO6EWXFpSdqMm4NOWuyHbSrdohFDYUtIpbk
-	KSenYTXl2HesjSaCu7F9N6kRy5rlF3IJYFRC0fRE9Y5OAXKNtNtjaYBTRikgWXDQHq8lP4oVP7e
-	R48z2pbHa1it1+a4Lmz0HIy4ncE54bjMOC7A9nlrxum/jm9IsMM0jF6345oqJ5F5/CogpT5I1uM
-	SEoa0s5shE4R2Rlm0ZxH3LTM4Etucqk+pz1i2b7Cm0ycoPEBHXXjayclE7wCK82qO5OkoARTqf8
-	kzVoSrlWrX3f8JUpqyqdiAFmF17Sy4cQhqEuaVYFZmF2/GoiBWkXWIoXzOmFAhnVP
-X-Google-Smtp-Source: AGHT+IGHAghuq2SQgJxlaChRoet/Tx7S9hCYmLUP2wntlwdg9I81uVIMsAQNgL7M5sl0qBnBN4yH/A==
-X-Received: by 2002:a17:902:e948:b0:242:3855:c77a with SMTP id d9443c01a7336-2446d8c6388mr161787285ad.34.1755490394370;
-        Sun, 17 Aug 2025 21:13:14 -0700 (PDT)
+        bh=PujbwOz9dknJBj0WiTvzomVt33H+ylTg1a04PuImAic=;
+        b=bKwDDBRKZDCHARvCvD/BGKUw1SaX8TGwqYwbWv6e62/3tbyVkg/pC/vc+j4PfUcg63
+         BLZQa2jDSSIdQ4ukH1zrq/g/vJENWkN/Ly7a/mLoC6b2DUb5Hwyw3E/81g5tNl06jNif
+         8i2Ovlc2hJRb8jyCvLcKLYunW6fc8m3j0Ek1TAvYtWvckxtkSt5imJ/H1YOXGUCJDgyV
+         ACBIUB3lpX9IE2uwMWkfVyONJwTVKQifUkzBCPFDB2Da76FI4wRQ0czXxgrqlmVkqMY5
+         dOCVibomY3rYy1Vi3wcn1FTaCjymgyA8NTwUeayliY8+JIoZiVAlBGJXl3UgZXNn2MSI
+         MWZw==
+X-Forwarded-Encrypted: i=1; AJvYcCW37/r/Lt2l/8dETVR50jgrgPc8sFuhgMXsiULhrabnY9IwPxfhxay/hMWSQlQVjnTmkglqHlhT9c2+fA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfXADmpbr9m4pNfb6FsL5svGNEbfvNuLLo6VZKhRKcA11tsOnD
+	3VvenQ0CCrbL1gwTmmYNRbb18lEOt55aZH51DN4apfKwRLxdIBlifG6dFAzdRBwU3QE=
+X-Gm-Gg: ASbGncuDVEljXibrLm5KUL0aSX3Mcaeqw1/aE1K9YATCZoNeoWA+x7WthkMHjqxY6J+
+	Q3C4BXteGowVAIRjQMU/3L6Gd6jLNu3ZbT2IEQduUSfWgo7SharPYtrNXYD+cbu9hz5DjD2ADKN
+	IdzTMblfDkGW4MgbBysDHm9Uk46KUz7QyHknO0Fw9rIBnWzOQlxQxXhzkery/4XrPmahO4+6dIq
+	J5WZekvwe3l6R1Zo/vtqJRduIiJXZd6qOWHFnt3Go++7yJ06vFDminkF24S8hVdK6PhXloVf2wa
+	SlK7ahNbnRasJTGvsuWHWx6WHVN1K5m5BLniQjYJAosnfOapG1SIeKOKG3vfdluK9l/2aiC5Cn3
+	oS+4k6/gqtiUKcLV6il8rCi0X2NNAxiB0rU0LC6EbIwPy5Le3khUZfg==
+X-Google-Smtp-Source: AGHT+IHd64OLVzgyUo/oPlpqgL2RhIpctnfrLzAnLHSZJO6tBzpwKW59cA8/JZnKdWHEIOpAgVUkNw==
+X-Received: by 2002:a17:90b:2681:b0:321:c9cf:deaa with SMTP id 98e67ed59e1d1-323297bdeb6mr20158792a91.17.1755490402208;
+        Sun, 17 Aug 2025 21:13:22 -0700 (PDT)
 Received: from localhost.localdomain ([122.171.17.53])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32343c70356sm6560972a91.25.2025.08.17.21.13.06
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32343c70356sm6560972a91.25.2025.08.17.21.13.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Aug 2025 21:13:13 -0700 (PDT)
+        Sun, 17 Aug 2025 21:13:21 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -83,16 +83,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v10 23/24] RISC-V: Enable GPIO keyboard and event device in RV64 defconfig
-Date: Mon, 18 Aug 2025 09:39:19 +0530
-Message-ID: <20250818040920.272664-24-apatel@ventanamicro.com>
+Subject: [PATCH v10 24/24] MAINTAINERS: Add entry for RISC-V RPMI and MPXY drivers
+Date: Mon, 18 Aug 2025 09:39:20 +0530
+Message-ID: <20250818040920.272664-25-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250818040920.272664-1-apatel@ventanamicro.com>
 References: <20250818040920.272664-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_211315_327619_A1BA2D7F 
-X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-CacheID: sfid-20250817_211323_151546_6FF0964A 
+X-CRM114-Status: UNSURE (   8.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,28 +111,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The GPIO keyboard and event device can be used to receive graceful
-shutdown or reboot input keys so let us enable it by default for
-RV64 (just like ARM64).
+Add Rahul and myself as maintainers for RISC-V RPMI and MPXY drivers.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ MAINTAINERS | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 7b5eed17611a..021baecb253a 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -139,6 +139,8 @@ CONFIG_MICREL_PHY=y
- CONFIG_MICROSEMI_PHY=y
- CONFIG_MOTORCOMM_PHY=y
- CONFIG_INPUT_MOUSEDEV=y
-+CONFIG_INPUT_EVDEV=y
-+CONFIG_KEYBOARD_GPIO=y
- CONFIG_KEYBOARD_SUN4I_LRADC=m
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
+diff --git a/MAINTAINERS b/MAINTAINERS
+index daf520a13bdf..c675625504de 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21698,6 +21698,21 @@ F:	drivers/perf/riscv_pmu.c
+ F:	drivers/perf/riscv_pmu_legacy.c
+ F:	drivers/perf/riscv_pmu_sbi.c
+ 
++RISC-V RPMI AND MPXY DRIVERS
++M:	Rahul Pathak <rahul@summations.net>
++M:	Anup Patel <anup@brainfault.org>
++L:	linux-riscv@lists.infradead.org
++F:	Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
++F:	Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
++F:	Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
++F:	Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
++F:	Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
++F:	Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
++F:	drivers/clk/clk-rpmi.c
++F:	drivers/irqchip/irq-riscv-rpmi-sysmsi.c
++F:	drivers/mailbox/riscv-sbi-mpxy-mbox.c
++F:	include/linux/mailbox/riscv-rpmi-message.h
++
+ RISC-V SPACEMIT SoC Support
+ M:	Yixun Lan <dlan@gentoo.org>
+ L:	linux-riscv@lists.infradead.org
 -- 
 2.43.0
 
