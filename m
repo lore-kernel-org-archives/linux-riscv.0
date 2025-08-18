@@ -4,173 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A89FCA0EEB
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 13:43:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD9C6CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 13:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nPrQ8oRL9VBtBCzvrWIM0grMCVozApgoCHnqpYoDtao=; b=MYxiiFBvMv9P1a
-	WziuZvpN59ghm/t/sG4Cdr/uZsuxcgTV22zAgd2LdixgVEkLcVJFtyo+lK7iCdkEIECOZPYQ6CjmW
-	rw9SJ0RcQ6OyY76zCxrRnmuINanc4ymc8rWVsx1s6FEqwADFSgT47fxkee2joVnpNaKwejIWC7Ven
-	wpncQP3aJx/FNvHLAWVRYfp+5dWyNPeBzN7tWdh8ZVxEnn+jMrDjJ5SHBTqsz51pbsI53vr713OMh
-	hH592PaKMuw/2OZb3Kuo/mBVce5r3abiLbt7O+H4wURmQzWMiA5LuA/Eowuh5p8/LbOR/m1Qq7lTG
-	A3EITY5MBSsDyCxxv/2A==;
+	List-Owner; bh=4oIAB1/Xe1zeQ08ItUwGNhKrii+boVG0nrm4Jr8C6/Y=; b=EOPGFRiUWiny/U
+	QLOd+TntiV/Wjhd86zvNy3sJ9OtRQBecFJ8xivFIZoxk4oVBhsxlTrLc1R+mU6CqZP+uCo8XR7jrn
+	wnCSUdPwHmteMyxYfSS4mzWxR0rKPQ6vovFpaijA472KhgR+bkZQ3z5HVId0mBi9VF7yekx7czo4C
+	lTCr3A3X25J1DhU9KgiVDsGeUs6F8b4RkIie5ui06RKy0vjq04UETi1QxVy8HKsJUWGf5X7LJq7C3
+	yevWrhEel0K3hL1N1XbOKgDd6+tvcwOyW4RUAa855Qyf/M8mKlrhNzXiczmCcPDH4XBq2zEhSX38z
+	1DaPuDgOg2BaU9S4qr1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo08V-00000007cpd-0q62;
-	Mon, 18 Aug 2025 13:42:55 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uo08e-00000007d6E-26Jw;
+	Mon, 18 Aug 2025 13:43:04 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unylJ-00000007JDO-19f7;
-	Mon, 18 Aug 2025 12:14:54 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57IBFYxq016305;
-	Mon, 18 Aug 2025 14:14:22 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Di2sJMGDTfc2gFtc34a6qY4519gtg5sAUPBz5vhubF0=; b=1hz90Qtb072d/lZA
-	y9NnyHsNccVQIbaFxcx7E7yMN9BVd6YWYCKylGEN0e+OTGXy865/O0Gbf3dEl9Z1
-	+pyjnZtqZmY2hzn9RxRMNrPWlLtWLnBzv9SpI7iBuZ/YBnTIyzd+BxQeYYhkAnBf
-	lX0UbccWrDFNhEjef3I/A05Gy8if96eAhsYMdQYBIYX+g0MMFq0OgbfziCesFdFl
-	nXQ1MgcAlJriBhvCSa3kyLIDJFZiBSDm3BbHyZUB9/jrK0ro6YbspzGy9IWCI7bL
-	FHgHd+KEt/UAXCrUnRbJH4HCqt+6p5voVSZk9OWqBUOTtwg3MAsd6wUIGVvnupeu
-	MGwV9Q==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48jf47p5mr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Aug 2025 14:14:22 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2B43640058;
-	Mon, 18 Aug 2025 14:11:18 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5BF7971CEFF;
-	Mon, 18 Aug 2025 14:09:58 +0200 (CEST)
-Received: from [10.48.87.121] (10.48.87.121) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 18 Aug
- 2025 14:09:53 +0200
-Message-ID: <836b8be6-ec6a-413d-8657-ee02025ebc24@foss.st.com>
-Date: Mon, 18 Aug 2025 14:09:52 +0200
+	id 1unyw6-00000007KN0-3EL9
+	for linux-riscv@lists.infradead.org;
+	Mon, 18 Aug 2025 12:26:06 +0000
+Received: from ofsar (unknown [180.158.240.122])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 84414340DB0;
+	Mon, 18 Aug 2025 12:25:54 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	palmer@dabbelt.com,
+	Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
+Cc: Yixun Lan <dlan@gentoo.org>,
+	skhan@linuxfoundation.org,
+	linux-kernel-mentees@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] riscv: dts: spacemit: Add initial support for OrangePi RV2
+Date: Mon, 18 Aug 2025 20:25:36 +0800
+Message-ID: <175551987874.16484.811796950493073575.b4-ty@gentoo.org>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250813092240.180333-1-hendrik.hamerlinck@hammernet.be>
+References: <20250813092240.180333-1-hendrik.hamerlinck@hammernet.be>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 059/114] clk: stm32: stm32mp1: convert from round_rate()
- to determine_rate()
-To: <bmasney@redhat.com>, Michael Turquette <mturquette@baylibre.com>,
-        "Stephen Boyd" <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
-        "Cristian Marussi" <cristian.marussi@arm.com>,
-        Chen Wang
-	<unicorn_wang@outlook.com>,
-        Inochi Amaoto <inochiama@gmail.com>,
-        Nicolas
- Ferre <nicolas.ferre@microchip.com>,
-        Alexandre Belloni
-	<alexandre.belloni@bootlin.com>,
-        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-        Paul Cercueil <paul@crapouillou.net>,
-        Keguang Zhang
-	<keguang.zhang@gmail.com>,
-        Taichi Sugaya <sugaya.taichi@socionext.com>,
-        "Takao Orito" <orito.takao@socionext.com>,
-        Shawn Guo <shawnguo@kernel.org>,
-        "Sascha Hauer" <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team
-	<kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Jacky Huang
-	<ychuang3@nuvoton.com>,
-        Shan-Chun Hung <schung@nuvoton.com>,
-        "Vladimir
- Zapolskiy" <vz@mleia.com>,
-        Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Samuel Holland
-	<samuel.holland@sifive.com>,
-        Yixun Lan <dlan@gentoo.org>,
-        Steen Hegelund
-	<Steen.Hegelund@microchip.com>,
-        Daniel Machon <daniel.machon@microchip.com>,
-        <UNGLinuxDriver@microchip.com>, Orson Zhai <orsonzhai@gmail.com>,
-        Baolin Wang
-	<baolin.wang@linux.alibaba.com>,
-        Chunyan Zhang <zhang.lyra@gmail.com>,
-        "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Michal Simek <michal.simek@amd.com>,
-        "Maxime
- Ripard" <mripard@kernel.org>,
-        =?UTF-8?Q?Andreas_F=C3=A4rber?=
-	<afaerber@suse.de>,
-        Manivannan Sadhasivam <mani@kernel.org>, Sven Peter
-	<sven@kernel.org>,
-        Janne Grunau <j@jannau.net>, Alyssa Rosenzweig
-	<alyssa@rosenzweig.io>,
-        Neal Gompa <neal@gompa.dev>,
-        Eugeniy Paltsev
-	<Eugeniy.Paltsev@synopsys.com>,
-        Ray Jui <rjui@broadcom.com>, Scott Branden
-	<sbranden@broadcom.com>,
-        Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>,
-        Max Filippov <jcmvbkbc@gmail.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-        Daniel Palmer <daniel@thingy.jp>,
-        Romain Perier <romain.perier@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-        Gregory Clement <gregory.clement@bootlin.com>,
-        Sebastian Hesselbarth
-	<sebastian.hesselbarth@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Heiko Stuebner
-	<heiko@sntech.de>,
-        Andrea della Porta <andrea.porta@suse.com>,
-        "Krzysztof
- Kozlowski" <krzk@kernel.org>,
-        Sylwester Nawrocki <s.nawrocki@samsung.com>,
-        Chanwoo Choi <cw00.choi@samsung.com>,
-        Alim Akhtar <alim.akhtar@samsung.com>, Qin Jian <qinjian@cqplus1.com>,
-        Viresh Kumar <vireshk@kernel.org>,
-        "Ulf
- Hansson" <ulf.hansson@linaro.org>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Alex Helms <alexander.helms.jy@renesas.com>,
-        Linus Walleij
-	<linus.walleij@linaro.org>,
-        Liviu Dudau <liviu.dudau@arm.com>,
-        "Lorenzo
- Pieralisi" <lpieralisi@kernel.org>,
-        Nobuhiro Iwamatsu
-	<nobuhiro1.iwamatsu@toshiba.co.jp>
-CC: <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <sophgo@lists.linux.dev>, <linux-mips@vger.kernel.org>,
-        <imx@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
-        <spacemit@lists.linux.dev>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <patches@opensource.cirrus.com>, <linux-actions@lists.infradead.org>,
-        <asahi@lists.linux.dev>, <linux-mediatek@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-        <linux-rockchip@lists.infradead.org>,
-        <linux-samsung-soc@vger.kernel.org>, <soc@lists.linux.dev>
-References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
- <20250811-clk-for-stephen-round-rate-v1-59-b3bf97b038dc@redhat.com>
-Content-Language: en-US
-From: Gabriel FERNANDEZ <gabriel.fernandez@foss.st.com>
-In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-59-b3bf97b038dc@redhat.com>
-X-Originating-IP: [10.48.87.121]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-18_05,2025-08-14_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_051453_587938_B6DEDC3A 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20250818_052602_827438_C55225A7 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,60 +71,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 8/11/25 17:18, Brian Masney via B4 Relay wrote:
-> From: Brian Masney <bmasney@redhat.com>
->
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
->
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-Reviewed-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+On Wed, 13 Aug 2025 11:22:38 +0200, Hendrik Hamerlinck wrote:
+> This patchset adds initial device tree support for the OrangePi RV2 board.
+> 
+> The OrangePi RV2 [1] is described as using the Ky X1 SoC. Based on research
+> and testing, it appears to be identical or very closely related to the
+> SpacemiT K1 SoC [2], as suggested by the following:
+> 
+> - Similar integration in the Banana Pi kernel tree [3], which uses the
+>   OrangePi RV2 and identifies it as the SpacemiT K1.
+> - Comparison of the device tree code showing a match to the OrangePi RV2
+>   Linux tree [4].
+> - Locally tested the OrangePi RV2 with the SpacemiT K1 device tree,
+>   confirming it boots and operates correctly.
+> 
+> [...]
 
-> ---
->   drivers/clk/stm32/clk-stm32mp1.c | 13 ++++++++-----
->   1 file changed, 8 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/clk/stm32/clk-stm32mp1.c b/drivers/clk/stm32/clk-stm32mp1.c
-> index b8b45ed22f981df580506f3d4ca801ba11d2bab2..2d9ccd96ec98c05eb836d632bfd9903de60ba1bb 100644
-> --- a/drivers/clk/stm32/clk-stm32mp1.c
-> +++ b/drivers/clk/stm32/clk-stm32mp1.c
-> @@ -970,12 +970,15 @@ static unsigned long __bestmult(struct clk_hw *hw, unsigned long rate,
->   	return mult;
->   }
->   
-> -static long timer_ker_round_rate(struct clk_hw *hw, unsigned long rate,
-> -				 unsigned long *parent_rate)
-> +static int timer_ker_determine_rate(struct clk_hw *hw,
-> +				    struct clk_rate_request *req)
->   {
-> -	unsigned long factor = __bestmult(hw, rate, *parent_rate);
-> +	unsigned long factor = __bestmult(hw, req->rate,
-> +					  req->best_parent_rate);
->   
-> -	return *parent_rate * factor;
-> +	req->rate = req->best_parent_rate * factor;
-> +
-> +	return 0;
->   }
->   
->   static int timer_ker_set_rate(struct clk_hw *hw, unsigned long rate,
-> @@ -1026,7 +1029,7 @@ static unsigned long timer_ker_recalc_rate(struct clk_hw *hw,
->   
->   static const struct clk_ops timer_ker_ops = {
->   	.recalc_rate	= timer_ker_recalc_rate,
-> -	.round_rate	= timer_ker_round_rate,
-> +	.determine_rate = timer_ker_determine_rate,
->   	.set_rate	= timer_ker_set_rate,
->   
->   };
->
+Applied, thanks!
+
+[1/2] dt-bindings: riscv: spacemit: Add OrangePi RV2 board
+      https://github.com/spacemit-com/linux/commit/f10512e2c44e6ee3242314d43102acab7340e2d3
+[2/2] riscv: dts: spacemit: Add OrangePi RV2 board device tree
+      https://github.com/spacemit-com/linux/commit/bab8dea259100a99e047fd11a48940b229d30031
+
+Best regards,
+-- 
+Yixun Lan
+
 
 _______________________________________________
 linux-riscv mailing list
