@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA666CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 04:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45800CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 04:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eh0TJ0HvhF+I50j9BruiuWogn9a8//GrUVl24MP+hY4=; b=PxYAxhmSqNQbHa
-	iNUO3rn2ehWeP3moV+AYPj5EkyQbrOoaUw+O8ETw08xPTT23wvLvXfaYL31jKoNsUERAtH+RW6PGG
-	n+GDAMuqzqdB25tFV8atP4CZRy2IfOvezDq6d1HbhwgsXsEO7GD86UW9VRPU5oUGtGsz1bxl80n1t
-	rBvYVwdPYNTo0DGHhUIPb41/5usH1gtU2dXmic+yknjwICSxU1pkoWTdr31N/Vtp9fmiGJp/8oOnw
-	ZnwpsBZgOW2tbbc3yECit+aLLiw8xPZF2dYq8yCHhyYs+vkTyPKxpjY79rns2Y4uKrCSzY2/dtbms
-	AusREmECdg9Ep+q3eJqQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wGBLBhDg9ysCkUgmQ/uYgxjmBZ7ZEGqoi/a7fy9XYb8=; b=B4kXVaMhagT8b1
+	o1z8x9FHVIOkRwWL4VbhEtv18BWnTNGjW7YLosi0hmyuZjNyiBli1aKxZbCle3vAMhlpN+iwIyvSa
+	/+mhAknLNpwq7/93DMgiG99nPfgdlwAQGeeY178PRpnuJrK+HSo01Vo6JGYrG8ETIGPrpyaz6ylhv
+	jgB0uF3o5B9A977tO9B8iPUOmUPfwA6ZzEP6EXMVwnzSGp0/OXEG5UTGm2Zd73Ft4+8Vrbdlol7aK
+	X+OT3xanrmfRNF2xO4a90ha/miU/i5SlIaWPJAVfEPrigBivr5hj4EiEhuLCe//R9JwQe0Vc4Uqg6
+	Z6ZU5tEns//iFHn3YhOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrC5-00000006Qiq-2g1Y;
-	Mon, 18 Aug 2025 04:10:01 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1unrCC-00000006Qkm-1CwA;
+	Mon, 18 Aug 2025 04:10:08 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrC2-00000006QhS-39S1
+	id 1unrCA-00000006QkB-1C4n
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 04:09:59 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-24457f53d2eso43550935ad.0
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 21:09:58 -0700 (PDT)
+	Mon, 18 Aug 2025 04:10:07 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-32372c05b79so283075a91.0
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 21:10:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1755490198; x=1756094998; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cic6m/dj0aD9eVh/PT4j71J5W/VVI1QVdV93xvllQvk=;
-        b=jlGZ86C+ZDjGuKLLfq+9CmaYiAp2RXXhvUN/rUxZAOlVvj3vh8+8J6W3Ewe5MApH7/
-         CweqOiicXqhKPPh2+7a4PQnsCFgzpa8XVPVue3qwPbK8Vs5/BfZ/xzdZUZ1g7rIeSt/q
-         W7cWpcJ7AMJoWvuSuj3EF5G0c5oyoDv6OPUzHmOqfQgxQp47kCr9qv5aHR/+jY4ADVE2
-         cT0FJ1oPSX8uMHQdDKXaW7M57GH+jbzJnqLdWYME1dcqJAsRUR9vRM5zF3zeEtguYgEv
-         6ZqhGi1I5d/oGXp+UjtQUirW+vQxL+WcVAznhWM2sRAmxDvrl1+WaeG/tz37gUdFYUut
-         NS4w==
+        d=ventanamicro.com; s=google; t=1755490205; x=1756095005; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=iKYOLGunQqKMdXF6qm/SZHKTrDdQ8k/yLLtlmUN6IDM=;
+        b=PjkVhsb8xjkpV4Y5MYUIiZzGsud0ErT0p4PqAmh8oj2ekomVjkgZdg38BWQ6ppZlkx
+         1w2jKRiMz91h2Y8CPjcZ0AA8dv4SazLHNLg8Sj4/RGiO8RmNTQOu7ke99lfOEBcY6zS5
+         oqQ2rtOJAlbzOJdPv5E2H2+xYT878HNZQL2i8m32dqc7n5BidyT2BEMzhVjj6Rag7Ecm
+         b8fgMm8pEZvE69Gf0pIP3sUAj0tc1MgOsCOmdOpPY6hpwf0DWb3vky+sNdRapf185vlQ
+         lYfwGMRu2HJwfgVbrpkrnQWjaKlIOCzhnqFwOC5Qdcj3KhuOz8Y91jcnx3kUPFIU1stG
+         73qA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755490198; x=1756094998;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cic6m/dj0aD9eVh/PT4j71J5W/VVI1QVdV93xvllQvk=;
-        b=PkV6zGYRE8pfOJYExLTmXRJy9/hSTmT9rpDM3RYI6oWVLJzn6gq08Vmnlk6/V0SPJg
-         Myn80GK1A+IPXU9JX0zmJpGmNyRUoayqT8KkIzCQW+0scjtzoHqOsFJN2DmCwtDaVhjt
-         myzSrKvtQZbR8BPLgniQOeMfQQUE7rPqP6LmfTaaMtt+Gu2n9TFmwEgLvoj3M+2yHzs8
-         aGKWEwRnGgDJbuk308qnHG04D3+OXRXORmmfxFFUEZvnli2pZWVyjTVGv5xsaGn7VwXo
-         p4xDXhgR7I2SYUWzpYFXHZMuxViyc9AFbJc2IvlaLeymTpdavr/oDp1lNfocV5Tgt5bm
-         AT/w==
-X-Forwarded-Encrypted: i=1; AJvYcCVSdnO1BQR5ZBftsR74cs74osO2Zu/OaqpkzptAa0zPrXAkEvFjMor7LJH/DFSYDfpiWVxbINKTXxMI0A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YykZuqv9pzIa2xN0BcD5K2vQNXTMTHkGIXUPUp4320/7Wwmq/DX
-	c0asqrf4Db6oRxcvmaXXc7vwb/XqgwEqdNGLB7dtT8LOsbzgemwzv0TD+JBXiXJYSE8=
-X-Gm-Gg: ASbGncsevgA06Mvlu21yKzCX9C0wmneombbcedvvx67NfLqKPXg+8esWzkLita6aZKQ
-	sSC8tZmHxrOz9qSRohSw3PIBzH6UP2q92xbDU3it28uakOvUVvZaBAXxCRF5ZYC4UkR/eKDSg1b
-	L1cM+63dvpxhUbKCF3yhoIXClFY9Uz+O4l2AxdutiwlUN8EthSiqRGhMuQDFswutejTMOa6/CHD
-	34xCeEutgx7vaL6j6HJA8IukVGle/0+MaMdnTg0eJ5LGsSJ43yNBM/AtTFYODobTv/5VMvxndOi
-	+6jMhtTj36KvY5pDV3McNJ/njTeMIowgvGfRFoG+oTOj1kejt1CpsUJhMV7w+tGkEeeznj21eyz
-	fA2I6NJO6zUDHzGrIUC5+/5v9lFZGCEn+rkNZJQ==
-X-Google-Smtp-Source: AGHT+IECZ/fHWu0eLpHlyIlOaOKTW7TB5KbiIYIV2gyGFhcdQyqL1sbiVLLuzteuinhCHVBZ4RQLFQ==
-X-Received: by 2002:a17:903:4b4c:b0:23f:f3e1:7363 with SMTP id d9443c01a7336-2446d73e7c9mr128300415ad.23.1755490197940;
-        Sun, 17 Aug 2025 21:09:57 -0700 (PDT)
-Received: from sunil-laptop ([106.51.199.3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d578aa4sm66701445ad.153.2025.08.17.21.09.52
+        d=1e100.net; s=20230601; t=1755490205; x=1756095005;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iKYOLGunQqKMdXF6qm/SZHKTrDdQ8k/yLLtlmUN6IDM=;
+        b=CXQtoxtdmgLmtIOEICJvKJGbbLNEZDV8hRq+vd+33pmXijAqkLOx9zzuRVs+esTYZX
+         1LK+5AjHQDVAwhR9AMR3Em57HESogveQG33ctcBpxpOaB8eRu5pDMyJkcVmWqFIO25xT
+         lzzlyOl1AAJsQdgKVLX3xPY1aU/d2DFBoQqP8gjVSGR343WX64yUrRrmtU59ebV7U7qN
+         XS0xLosZFinVx4Zwtej7c8t/UkP/XT+1eSvpQymZxuIhEdFJ0Uv1LMnW5dW7oQ8SS8aa
+         1bAiTRbtVfYeZrgGxtwNxMIULHCAkF3TK41ibvvplH2/8ocgeLrProkDiavWDe6y3QGq
+         CI1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUc/QPdJUjIOMT3LN/Jkq6cBt/b+7rRSMkzfKZPA7iBVtzr11b0PJH+HviIXp+F8O6Ch1LOpJ9D47QZkg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxCLKAXH14BrIhA6ksy8Jt4+pkxggTs6/asv6T5VOL8fyR8OeV
+	HvbsHkZgMiosdPCAJgdKmZZh9AW0pE4odLMfYAdo3aSxT7ZFfHkZvml6LB9/DiyE9L0=
+X-Gm-Gg: ASbGnctBGbbKxr5GuHSYlOvHzNUuvb/Gfw979LIMwryps0JdA+8k7wxlsc9UHvSICRv
+	arZGKUAUSqxOxov0r1lyffAdtYxT9TxcGtb8f3NaeOtU15DEjEmF3VlFTPeTPsmg/CG0LioJxS8
+	l8hiEdRu7eJ8KrKT12YLQlmYWR40ot0B/AprStFuzYdGvktXXsnKSOgOqFwviTqksKzK5L1GpsD
+	dyJw9Ra/cf4mebl11E2/ZzDs7R9WpWqXSwXb0racObMrC7MS8gxjoOCHAeV/pfbSnQQEAS9Yfib
+	0jzuIxUoBNO59DfOkGwqDOzpzPnhWgQOefoh2fo6jF2/l606YC2QZD9T3uCAidjoSm1OEUwFpj8
+	EjV0p92QPatjRROx7A8aFB1RdH2kMC+NyCpzhBkOlmmRZuHQQB8o/jA==
+X-Google-Smtp-Source: AGHT+IGdmiB7+Cb5/hqIGlVOwluhJy7QNe0bpoiDKTDYPYAg4O4TLUdcaJ5Rvz0B2g2NDnT1eIGDqA==
+X-Received: by 2002:a17:90b:390f:b0:321:2407:3cef with SMTP id 98e67ed59e1d1-32342107d3emr12083892a91.32.1755490205226;
+        Sun, 17 Aug 2025 21:10:05 -0700 (PDT)
+Received: from localhost.localdomain ([122.171.17.53])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32343c70356sm6560972a91.25.2025.08.17.21.09.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Aug 2025 21:09:57 -0700 (PDT)
-Date: Mon, 18 Aug 2025 09:39:48 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Len Brown <lenb@kernel.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, linux-acpi@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] RISC-V: Add common csr_read_num() and
- csr_write_num() functions
-Message-ID: <aKKnjDt5bSTFtFQX@sunil-laptop>
-References: <20250815161406.76370-1-apatel@ventanamicro.com>
- <20250815161406.76370-3-apatel@ventanamicro.com>
+        Sun, 17 Aug 2025 21:10:04 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Subject: [PATCH v10 00/24] Linux SBI MPXY and RPMI drivers
+Date: Mon, 18 Aug 2025 09:38:56 +0530
+Message-ID: <20250818040920.272664-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250815161406.76370-3-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_210958_794309_1922BA83 
-X-CRM114-Status: GOOD (  27.51  )
+X-CRM114-CacheID: sfid-20250817_211006_331079_1C1E968A 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,350 +101,192 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 09:44:06PM +0530, Anup Patel wrote:
-> In RISC-V, there is no CSR read/write instruction which takes CSR
-> number via register so add common csr_read_num() and csr_write_num()
-> functions which allow accessing certain CSRs by passing CSR number
-> as parameter. These common functions will be first used by the
-> ACPI CPPC driver and RISC-V PMU driver.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/csr.h |   3 +
->  arch/riscv/kernel/Makefile   |   1 +
->  arch/riscv/kernel/csr.c      | 177 +++++++++++++++++++++++++++++++++++
->  drivers/acpi/riscv/cppc.c    |  17 ++--
->  drivers/perf/riscv_pmu.c     |  43 +--------
->  5 files changed, 189 insertions(+), 52 deletions(-)
->  create mode 100644 arch/riscv/kernel/csr.c
-> 
-> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> index 6fed42e37705..1540626b3540 100644
-> --- a/arch/riscv/include/asm/csr.h
-> +++ b/arch/riscv/include/asm/csr.h
-> @@ -575,6 +575,9 @@
->  			      : "memory");			\
->  })
->  
-> +extern unsigned long csr_read_num(unsigned long csr_num, int *out_err);
-> +extern void csr_write_num(unsigned long csr_num, unsigned long val, int *out_err);
-> +
->  #endif /* __ASSEMBLY__ */
->  
->  #endif /* _ASM_RISCV_CSR_H */
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index c7b542573407..0a75e20bde18 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -50,6 +50,7 @@ obj-y	+= soc.o
->  obj-$(CONFIG_RISCV_ALTERNATIVE) += alternative.o
->  obj-y	+= cpu.o
->  obj-y	+= cpufeature.o
-> +obj-y	+= csr.o
->  obj-y	+= entry.o
->  obj-y	+= irq.o
->  obj-y	+= process.o
-> diff --git a/arch/riscv/kernel/csr.c b/arch/riscv/kernel/csr.c
-> new file mode 100644
-> index 000000000000..f7de45bb597c
-> --- /dev/null
-> +++ b/arch/riscv/kernel/csr.c
-> @@ -0,0 +1,177 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2025 Ventana Micro Systems Inc.
-> + */
-> +
-> +#define pr_fmt(fmt) "riscv: " fmt
-> +#include <linux/err.h>
-> +#include <linux/export.h>
-> +#include <linux/printk.h>
-> +#include <linux/types.h>
-> +#include <asm/csr.h>
-> +
-> +#define CSR_CUSTOM0_U_RW_BASE		0x800
-> +#define CSR_CUSTOM0_U_RW_COUNT		0x100
-> +
-> +#define CSR_CUSTOM1_U_RO_BASE		0xCC0
-> +#define CSR_CUSTOM1_U_RO_COUNT		0x040
-> +
-> +#define CSR_CUSTOM2_S_RW_BASE		0x5C0
-> +#define CSR_CUSTOM2_S_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM3_S_RW_BASE		0x9C0
-> +#define CSR_CUSTOM3_S_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM4_S_RO_BASE		0xDC0
-> +#define CSR_CUSTOM4_S_RO_COUNT		0x040
-> +
-> +#define CSR_CUSTOM5_HS_RW_BASE		0x6C0
-> +#define CSR_CUSTOM5_HS_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM6_HS_RW_BASE		0xAC0
-> +#define CSR_CUSTOM6_HS_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM7_HS_RO_BASE		0xEC0
-> +#define CSR_CUSTOM7_HS_RO_COUNT		0x040
-> +
-> +#define CSR_CUSTOM8_M_RW_BASE		0x7C0
-> +#define CSR_CUSTOM8_M_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM9_M_RW_BASE		0xBC0
-> +#define CSR_CUSTOM9_M_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM10_M_RO_BASE		0xFC0
-> +#define CSR_CUSTOM10_M_RO_COUNT		0x040
-> +
-> +unsigned long csr_read_num(unsigned long csr_num, int *out_err)
-> +{
-> +#define switchcase_csr_read(__csr_num)				\
-> +	case (__csr_num):					\
-> +		return csr_read(__csr_num)
-> +#define switchcase_csr_read_2(__csr_num)			\
-> +	switchcase_csr_read(__csr_num + 0);			\
-> +	switchcase_csr_read(__csr_num + 1)
-> +#define switchcase_csr_read_4(__csr_num)			\
-> +	switchcase_csr_read_2(__csr_num + 0);			\
-> +	switchcase_csr_read_2(__csr_num + 2)
-> +#define switchcase_csr_read_8(__csr_num)			\
-> +	switchcase_csr_read_4(__csr_num + 0);			\
-> +	switchcase_csr_read_4(__csr_num + 4)
-> +#define switchcase_csr_read_16(__csr_num)			\
-> +	switchcase_csr_read_8(__csr_num + 0);			\
-> +	switchcase_csr_read_8(__csr_num + 8)
-> +#define switchcase_csr_read_32(__csr_num)			\
-> +	switchcase_csr_read_16(__csr_num + 0);			\
-> +	switchcase_csr_read_16(__csr_num + 16)
-> +#define switchcase_csr_read_64(__csr_num)			\
-> +	switchcase_csr_read_32(__csr_num + 0);			\
-> +	switchcase_csr_read_32(__csr_num + 32)
-> +#define switchcase_csr_read_128(__csr_num)			\
-> +	switchcase_csr_read_64(__csr_num + 0);			\
-> +	switchcase_csr_read_64(__csr_num + 64)
-> +#define switchcase_csr_read_256(__csr_num)			\
-> +	switchcase_csr_read_128(__csr_num + 0);			\
-> +	switchcase_csr_read_128(__csr_num + 128)
-> +
-> +	if (out_err)
-> +		*out_err = 0;
-> +
-> +	switch (csr_num) {
-> +	switchcase_csr_read_32(CSR_CYCLE);
-> +	switchcase_csr_read_32(CSR_CYCLEH);
-> +	switchcase_csr_read_256(CSR_CUSTOM0_U_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM1_U_RO_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM2_S_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM3_S_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM4_S_RO_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM5_HS_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM6_HS_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM7_HS_RO_BASE);
-> +#ifdef CONFIG_RISCV_M_MODE
-> +	switchcase_csr_read_64(CSR_CUSTOM8_M_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM9_M_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM10_M_RO_BASE);
-> +#endif
-> +	default:
-> +		if (out_err)
-> +			*out_err = -EINVAL;
-> +		else
-> +			pr_err("%s: csr 0x%lx not supported\n", __func__, csr_num);
-> +		break;
-> +	}
-> +
-> +	return 0;
-> +#undef switchcase_csr_read_256
-> +#undef switchcase_csr_read_128
-> +#undef switchcase_csr_read_64
-> +#undef switchcase_csr_read_32
-> +#undef switchcase_csr_read_16
-> +#undef switchcase_csr_read_8
-> +#undef switchcase_csr_read_4
-> +#undef switchcase_csr_read_2
-> +#undef switchcase_csr_read
-> +}
-> +EXPORT_SYMBOL_GPL(csr_read_num);
-> +
-> +void csr_write_num(unsigned long csr_num, unsigned long val, int *out_err)
-> +{
-> +#define switchcase_csr_write(__csr_num, __val)			\
-> +	case (__csr_num):					\
-> +		csr_write(__csr_num, __val);			\
-> +		break
-> +#define switchcase_csr_write_2(__csr_num, __val)		\
-> +	switchcase_csr_write(__csr_num + 0, __val);		\
-> +	switchcase_csr_write(__csr_num + 1, __val)
-> +#define switchcase_csr_write_4(__csr_num, __val)		\
-> +	switchcase_csr_write_2(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_2(__csr_num + 2, __val)
-> +#define switchcase_csr_write_8(__csr_num, __val)		\
-> +	switchcase_csr_write_4(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_4(__csr_num + 4, __val)
-> +#define switchcase_csr_write_16(__csr_num, __val)		\
-> +	switchcase_csr_write_8(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_8(__csr_num + 8, __val)
-> +#define switchcase_csr_write_32(__csr_num, __val)		\
-> +	switchcase_csr_write_16(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_16(__csr_num + 16, __val)
-> +#define switchcase_csr_write_64(__csr_num, __val)		\
-> +	switchcase_csr_write_32(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_32(__csr_num + 32, __val)
-> +#define switchcase_csr_write_128(__csr_num, __val)		\
-> +	switchcase_csr_write_64(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_64(__csr_num + 64, __val)
-> +#define switchcase_csr_write_256(__csr_num, __val)		\
-> +	switchcase_csr_write_128(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_128(__csr_num + 128, __val)
-> +
-> +	if (out_err)
-> +		*out_err = 0;
-> +
-> +	switch (csr_num) {
-> +	switchcase_csr_write_256(CSR_CUSTOM0_U_RW_BASE, val);
-> +	switchcase_csr_write_64(CSR_CUSTOM2_S_RW_BASE, val);
-> +	switchcase_csr_write_64(CSR_CUSTOM3_S_RW_BASE, val);
-> +	switchcase_csr_write_64(CSR_CUSTOM5_HS_RW_BASE, val);
-> +	switchcase_csr_write_64(CSR_CUSTOM6_HS_RW_BASE, val);
-> +#ifdef CONFIG_RISCV_M_MODE
-> +	switchcase_csr_write_64(CSR_CUSTOM8_M_RW_BASE, val);
-> +	switchcase_csr_write_64(CSR_CUSTOM9_M_RW_BASE, val);
-> +#endif
-> +	default:
-> +		if (out_err)
-> +			*out_err = -EINVAL;
-> +		else
-> +			pr_err("%s: csr 0x%lx not supported\n", __func__, csr_num);
-> +		break;
-> +	}
-> +#undef switchcase_csr_write_256
-> +#undef switchcase_csr_write_128
-> +#undef switchcase_csr_write_64
-> +#undef switchcase_csr_write_32
-> +#undef switchcase_csr_write_16
-> +#undef switchcase_csr_write_8
-> +#undef switchcase_csr_write_4
-> +#undef switchcase_csr_write_2
-> +#undef switchcase_csr_write
-> +}
-> +EXPORT_SYMBOL_GPL(csr_write_num);
-> diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
-> index 42c1a9052470..fe491937ed25 100644
-> --- a/drivers/acpi/riscv/cppc.c
-> +++ b/drivers/acpi/riscv/cppc.c
-> @@ -65,24 +65,19 @@ static void sbi_cppc_write(void *write_data)
->  static void cppc_ffh_csr_read(void *read_data)
->  {
->  	struct sbi_cppc_data *data = (struct sbi_cppc_data *)read_data;
-> +	int err;
->  
-> -	switch (data->reg) {
-> -	/* Support only TIME CSR for now */
-> -	case CSR_TIME:
-> -		data->ret.value = csr_read(CSR_TIME);
-> -		data->ret.error = 0;
-> -		break;
-> -	default:
-> -		data->ret.error = -EINVAL;
-> -		break;
-> -	}
-> +	data->ret.value = csr_read_num(data->reg, &err);
-> +	data->ret.error = err;
->  }
->  
->  static void cppc_ffh_csr_write(void *write_data)
->  {
->  	struct sbi_cppc_data *data = (struct sbi_cppc_data *)write_data;
-> +	int err;
->  
-> -	data->ret.error = -EINVAL;
-> +	csr_write_num(data->reg, data->val, &err);
-> +	data->ret.error = err;
->  }
->  
->  /*
-> diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-> index 7644147d50b4..aa053254448d 100644
-> --- a/drivers/perf/riscv_pmu.c
-> +++ b/drivers/perf/riscv_pmu.c
-> @@ -16,6 +16,7 @@
->  #include <linux/smp.h>
->  #include <linux/sched_clock.h>
->  
-> +#include <asm/csr.h>
->  #include <asm/sbi.h>
->  
->  static bool riscv_perf_user_access(struct perf_event *event)
-> @@ -88,46 +89,6 @@ void arch_perf_update_userpage(struct perf_event *event,
->  	userpg->cap_user_time_short = 1;
->  }
->  
-> -static unsigned long csr_read_num(int csr_num)
-> -{
-> -#define switchcase_csr_read(__csr_num, __val)		{\
-> -	case __csr_num:					\
-> -		__val = csr_read(__csr_num);		\
-> -		break; }
-> -#define switchcase_csr_read_2(__csr_num, __val)		{\
-> -	switchcase_csr_read(__csr_num + 0, __val)	 \
-> -	switchcase_csr_read(__csr_num + 1, __val)}
-> -#define switchcase_csr_read_4(__csr_num, __val)		{\
-> -	switchcase_csr_read_2(__csr_num + 0, __val)	 \
-> -	switchcase_csr_read_2(__csr_num + 2, __val)}
-> -#define switchcase_csr_read_8(__csr_num, __val)		{\
-> -	switchcase_csr_read_4(__csr_num + 0, __val)	 \
-> -	switchcase_csr_read_4(__csr_num + 4, __val)}
-> -#define switchcase_csr_read_16(__csr_num, __val)	{\
-> -	switchcase_csr_read_8(__csr_num + 0, __val)	 \
-> -	switchcase_csr_read_8(__csr_num + 8, __val)}
-> -#define switchcase_csr_read_32(__csr_num, __val)	{\
-> -	switchcase_csr_read_16(__csr_num + 0, __val)	 \
-> -	switchcase_csr_read_16(__csr_num + 16, __val)}
-> -
-> -	unsigned long ret = 0;
-> -
-> -	switch (csr_num) {
-> -	switchcase_csr_read_32(CSR_CYCLE, ret)
-> -	switchcase_csr_read_32(CSR_CYCLEH, ret)
-> -	default :
-> -		break;
-> -	}
-> -
-> -	return ret;
-> -#undef switchcase_csr_read_32
-> -#undef switchcase_csr_read_16
-> -#undef switchcase_csr_read_8
-> -#undef switchcase_csr_read_4
-> -#undef switchcase_csr_read_2
-> -#undef switchcase_csr_read
-> -}
-> -
->  /*
->   * Read the CSR of a corresponding counter.
->   */
-> @@ -139,7 +100,7 @@ unsigned long riscv_pmu_ctr_read_csr(unsigned long csr)
->  		return -EINVAL;
->  	}
->  
-> -	return csr_read_num(csr);
-> +	return csr_read_num(csr, NULL);
->
-I think it is better to pass valid error pointer here.
+The SBI v3.0 (MPXY extension) [1] and RPMI v1.0 [2] specifications
+are ratified by the RISC-V International.
 
->  }
->  
->  u64 riscv_pmu_ctr_get_width_mask(struct perf_event *event)
-> -- 
-> 2.43.0
-> 
+Currently, most of the RPMI and MPXY drivers are in OpenSBI whereas
+Linux only has SBI MPXY mailbox controller driver, RPMI clock driver
+and RPMI system MSI driver This series also includes ACPI support
+for SBI MPXY mailbox controller and RPMI system MSI drivers.
 
-Otherwise, LGTM.
+These patches can be found in the riscv_sbi_mpxy_mailbox_v10 branch
+at: https://github.com/avpatel/linux.git
 
-Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
+To test these patches, boot Linux on "virt,rpmi=on,aia=aplic-imsic"
+machine with OpenSBI and QEMU from the dev-upstream branch at:
+https://github.com/ventanamicro/opensbi.git
+https://github.com/ventanamicro/qemu.git
+
+[1] https://github.com/riscv-non-isa/riscv-sbi-doc/releases
+[2] https://github.com/riscv-non-isa/riscv-rpmi/releases
+
+Changes since v9:
+ - Rebased on Linux-6.17-rc2
+ - Dropped make_u32_from_two_u16() and make_u64_from_two_u32() macros
+   and their use from PATCH3, PATCH4, and PATCH10 as-per comments from
+   Linus Torvalds (Refer, https://lkml.org/lkml/2025/8/9/76).
+
+Changes since v8:
+ - Added Jassi's Acked-by in mailbox related patches
+ - Renamed "clock-controller" DT node to "clock-service" DT node
+   in PATCH8 as suggested by Stephen Boyd
+
+Changes since v7:
+ - Addressed enum related nits in PATCH3
+   (Refer, https://lore.kernel.org/all/CAK9=C2VxhC6soxHtmacedbeCU=rFi84Br1RvN2uPcBKoLhRaJw@mail.gmail.com/)
+ - Addressed comments in PATCH7 as follows:
+   - Added minmax.h to includes
+   - Removed "rc" variable from mpxy_mbox_send_rpmi_data()
+   - Removed alignment and other checks from mpxy_mbox_peek_rpmi_data()
+   - Created separate function to restrict scope of channel_ids used in mpxy_mbox_probe()
+   (Refer, https://lore.kernel.org/all/CAK9=C2Ume2CmBYHYob7HSJHu=ZdfdWM+4JYPgFJ9Hir5Oi8cOg@mail.gmail.com/)
+ - Improved comments for struct rpmi_clk_rates in PATCH10
+   (Refer, https://lore.kernel.org/all/CAK9=C2VfvsbFTjecQm0OSsssXbff7wC4fqWf3CTmnpWSiaLcBw@mail.gmail.com/)
+ - Improved refactoring of acpi_fwnode_get_reference_args() in PATCH14
+   (Refer, https://lore.kernel.org/all/20250702051345.1460497-15-apatel@ventanamicro.com/)
+ - Improve nargs_count parsing in acpi_fwnode_get_reference_args() for PATCH15
+   (Refer, https://lore.kernel.org/all/20250702051345.1460497-16-apatel@ventanamicro.com/)
+ - Added more comments describing why need to explicitly set device MSI domain in PATCH21
+   (Refer, https://lore.kernel.org/all/aGaUmpw1pVWNAmpb@smile.fi.intel.com/)
+
+Changes since v6:
+ - Rebased the series on Linux-6.16-rc4
+ - Added Stephen's Reviewed-by in appropriate patches
+ - Addressed Andy's comments on PATCH5, PATCH6, PATCH9, and PATCH14
+ - New PATCH6 in this series which is factored-out from PATCH7
+
+Changes since v5:
+ - Rebased the series on Linux-6.16-rc2
+ - Added Conor's Reviewed-by in all DT binding patches
+ - Addressed Andy's comments on PATCH5
+ - Addressed Tglx's comments on PATCH12 and PATCH21
+
+Changes since v4:
+ - Rebased the series on Linux-6.16-rc1
+ - Dropped PATCH1 since a similar change is already merged
+   https://lore.kernel.org/linux-riscv/20250523101932.1594077-4-cleger@rivosinc.com/
+ - Addressed Andy's comments on PATCH4, PATCH5, PATCH6, PATCH7,
+   PATCH13, and PATCH17
+ - Addressed Atish's comments on PATCH11 and PATCH12
+ - Addressed Conor's comments on PATCH9
+
+Changes since v3:
+ - Rebased the series on Linux-6.15-rc7
+ - Updated PATCH2 DT bindings as-per Rob's suggestion
+ - Improved request_threaded_irq() usage in PATCH7
+ - Updated PATCH10 clk-rpmi driver as-per commments from Andy
+ - Updated PATCH13 irq-riscv-rpmi-sysmsi driver as-per comments
+   from Andy and Tglx
+ - Addressed ACPI related comments in PATCH14, PATCH15, PATCH18,
+   PATCH20 and PATCH21
+
+Changes since v2:
+ - Dropped the "RFC" tag from series since the SBI v3.0 and
+   RPMI v1.0 specifications are now frozen
+ - Rebased the series on Linux-6.15-rc5
+ - Split PATCH8 of v2 into two patches adding separate DT
+   bindings for "riscv,rpmi-mpxy-clock" and "riscv,rpmi-clock"
+ - Split PATCH10 of v2 into two patches adding separate DT
+   bindings for "riscv,rpmi-mpxy-system-msi" and
+   "riscv,rpmi-system-msi"
+ - Addressed comments from TGLX on PATCH11 of v2 adding irqchip
+   driver for RPMI system MSI
+ - Addressed ACPI related comments in PATCH15 and PATCH16 of v2
+ - New PATCH17 and PATCH18 in this series
+
+Changes since v1:
+ - Addressed DT bindings related comments in PATCH2, PATCH3, and
+   PATCH7 of v1 series
+ - Addressed comments in PATCH6 and PATCH8 of v1 series
+ - New PATCH6 in v2 series to allow fwnode based mailbox channel
+   request
+ - New PATCH10 and PATCH11 to add RPMI system MSI based interrupt
+   controller driver
+ - New PATCH12 to PATCH16 which adds ACPI support in SBI MPXY
+   mailbox driver and RPMI system MSI driver
+ - New PATCH17 to enable required kconfig option to allow graceful
+   shutdown on QEMU virt machine
+
+Anup Patel (14):
+  dt-bindings: mailbox: Add bindings for RPMI shared memory transport
+  dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
+  RISC-V: Add defines for the SBI message proxy extension
+  mailbox: Add common header for RPMI messages sent via mailbox
+  mailbox: Allow controller specific mapping using fwnode
+  byteorder: Add memcpy_to_le32() and memcpy_from_le32()
+  mailbox: Add RISC-V SBI message proxy (MPXY) based mailbox driver
+  dt-bindings: clock: Add RPMI clock service message proxy bindings
+  dt-bindings: clock: Add RPMI clock service controller bindings
+  dt-bindings: Add RPMI system MSI message proxy bindings
+  dt-bindings: Add RPMI system MSI interrupt controller bindings
+  irqchip: Add driver for the RPMI system MSI service group
+  RISC-V: Enable GPIO keyboard and event device in RV64 defconfig
+  MAINTAINERS: Add entry for RISC-V RPMI and MPXY drivers
+
+Rahul Pathak (1):
+  clk: Add clock driver for the RISC-V RPMI clock service group
+
+Sunil V L (9):
+  ACPI: property: Refactor acpi_fwnode_get_reference_args() to support
+    nargs_prop
+  ACPI: Add support for nargs_prop in acpi_fwnode_get_reference_args()
+  ACPI: scan: Update honor list for RPMI System MSI
+  ACPI: RISC-V: Create interrupt controller list in sorted order
+  ACPI: RISC-V: Add support to update gsi range
+  ACPI: RISC-V: Add RPMI System MSI to GSI mapping
+  irqchip/irq-riscv-imsic-early: Export imsic_acpi_get_fwnode()
+  mailbox/riscv-sbi-mpxy: Add ACPI support
+  irqchip/riscv-rpmi-sysmsi: Add ACPI support
+
+ .../bindings/clock/riscv,rpmi-clock.yaml      |   64 ++
+ .../bindings/clock/riscv,rpmi-mpxy-clock.yaml |   64 ++
+ .../riscv,rpmi-mpxy-system-msi.yaml           |   67 ++
+ .../riscv,rpmi-system-msi.yaml                |   74 ++
+ .../mailbox/riscv,rpmi-shmem-mbox.yaml        |  124 ++
+ .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml |   51 +
+ MAINTAINERS                                   |   15 +
+ arch/riscv/configs/defconfig                  |    2 +
+ arch/riscv/include/asm/irq.h                  |    6 +
+ arch/riscv/include/asm/sbi.h                  |   62 +
+ drivers/acpi/property.c                       |  128 ++-
+ drivers/acpi/riscv/irq.c                      |   75 +-
+ drivers/acpi/scan.c                           |    2 +
+ drivers/base/property.c                       |    2 +-
+ drivers/clk/Kconfig                           |    8 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/clk-rpmi.c                        |  616 ++++++++++
+ drivers/irqchip/Kconfig                       |    7 +
+ drivers/irqchip/Makefile                      |    1 +
+ drivers/irqchip/irq-riscv-imsic-early.c       |    2 +
+ drivers/irqchip/irq-riscv-rpmi-sysmsi.c       |  328 ++++++
+ drivers/mailbox/Kconfig                       |   11 +
+ drivers/mailbox/Makefile                      |    2 +
+ drivers/mailbox/mailbox.c                     |   65 +-
+ drivers/mailbox/riscv-sbi-mpxy-mbox.c         | 1019 +++++++++++++++++
+ include/linux/byteorder/generic.h             |   16 +
+ include/linux/mailbox/riscv-rpmi-message.h    |  243 ++++
+ include/linux/mailbox_controller.h            |    3 +
+ 28 files changed, 2975 insertions(+), 83 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+ create mode 100644 drivers/clk/clk-rpmi.c
+ create mode 100644 drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+ create mode 100644 drivers/mailbox/riscv-sbi-mpxy-mbox.c
+ create mode 100644 include/linux/mailbox/riscv-rpmi-message.h
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
