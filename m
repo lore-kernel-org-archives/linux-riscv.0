@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3401CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 19:37:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F219CA0EE9
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 21:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5JpzRcD2IiWbdvXYo+x2+EXhLvF+IEdqLRQJC3u2Okc=; b=1zAWVeqT/WXgLs
-	aXpiL3skcPgOPTHa6lC/E/U+k/2N5SuQAAImTA8JwGtkBAxjtvl1DknEvutfU0YQJvFrazCAXC9Y8
-	uAQqzDDlsJ18OqZxzbKVrcM6lDdIyCOUu1Vcuw5nwDPzZYJGG/5+UFc0C0VaeUie9cB9FVPEiOFvG
-	AHYIT6wQB4A1CBgQpqVcGoocrDWQz7eU4tDMbv6zJLjpaDNqgC24/BeIqnc1iZO6Ugs+9GRikWPh4
-	8gFT/hGvYqefPm425J5WDMHMRPyRFHbzuaLzfIZqaqJgg4eBTcbOdYzrFm2yvHIbMZnp8D3wbEjpt
-	oEyXhDyOr2/NVjldkxNw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mfrNHXthOC0u4eKQDvo7cys8JsyTCHzwPlAkFYPOMO4=; b=V8prGWLbBcVq17
+	eoOTpom3N74DJv0QvzcREI/U/u+btiQBPEAG1kIChvjsWUuR5pmVyPwNQyGk7Xdyvr7eAm4LB6UY3
+	aaEFqPpHrRptHxLXoKpMG/M4cBHw6UPUm8wAy2UhAutqJaTIkFveJYklImmWZvM5ZpeWgGYF2I+Oq
+	7GdPFkigkgny10XzU2bmmkFqJ3B8kisiJHSyuJ1sUtU17WfrT30FsRBMTXncF+FCz0oEwREIyjpyP
+	ePwdQQbFYBgu0zsEFdwpOOaaNZ/LNn5TGi2xkNx9Pr+6uwumojskveE2e6QLOmHkEn+kXennIE8MY
+	tXgXhkmsnPUOi3p/QY2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo5fH-00000008XI6-0bNn;
-	Mon, 18 Aug 2025 19:37:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uo7Nu-00000008i4M-37ij;
+	Mon, 18 Aug 2025 21:27:18 +0000
+Received: from out-186.mta0.migadu.com ([91.218.175.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo53O-00000008QhU-2YCr;
-	Mon, 18 Aug 2025 18:58:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A05445C62C9;
-	Mon, 18 Aug 2025 18:57:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7007FC4CEEB;
-	Mon, 18 Aug 2025 18:57:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755543466;
-	bh=qBGPy4AI12NWfHAvs72tXhhLkggZ76cCh4aJ0zfhg4o=;
-	h=From:Subject:Date:To:Cc:From;
-	b=TO8hGFu9iuv4h970cI0P8DaQE+EJjCFUuIpmSaDSZc3jEdTo9PJkV2ZjkGkU8yAyz
-	 hA6uFbfmOGnWNaUYGLBL+njTod03yGzU0n3WtfoyFctsEwXUmB+b+ektMo1uhkUEt0
-	 x+B2tuvrWWSXUizIVwqIgYX1trm2mhHkeSrWJzCgOaoVdF3TOEIEatnQLchQ6bouVN
-	 bqR50c9Og2MFxhXY+8T0CJouc/vuM+CLdC6liY23Lilx/TBdkUhSccNoOPjp8E2qEG
-	 KDRyquCnMeMv42skmZrHiH02/P7YKlkxqYQSYkfrbDYOmhiwgZm559AXS4YzQzJBoT
-	 JHTROUXnhA26w==
-From: Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH 00/10] Bump minimum supported version of LLVM for building
- the kernel to 15.0.0
-Date: Mon, 18 Aug 2025 11:57:16 -0700
-Message-Id: <20250818-bump-min-llvm-ver-15-v1-0-c8b1d0f955e0@kernel.org>
+	id 1uo5Uu-00000008Vg8-2dOH
+	for linux-riscv@lists.infradead.org;
+	Mon, 18 Aug 2025 19:26:26 +0000
+Message-ID: <2a7e2450-5e31-40d6-bca4-ccc2c1d60b72@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1755545179;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=q3UWG4FunCCbQLj+biR4a06QSU33PixM4sYuMp155u4=;
+	b=mH+VmKVX5OvdeT8AcQ2d9iNMPDRxQosoUJQ+Ob0OavqixnlEqb9GHwVlnTZnHxlnGMpvQU
+	OjkW/hosFEVjhKBL5FeQZXzERh9v0nZkwj9jqgbhKaFqNQpWUHm1XliM1mdeQ4VKL4/98u
+	OJWUdliYOG5PWDHcW4mIwyiL/5PnkNc=
+Date: Mon, 18 Aug 2025 12:26:13 -0700
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAIx3o2gC/x3MwQoCIRCA4VeROe+AY0zRvkrsoa2xBtRESQLx3
- Vc6fof/71ClqFRYTYciTat+0gQtBh7ve3oJ6nManHVsL2Rx/8aMUROG0CI2KUiMV3Yn8iT7mRl
- mmot4/f23t22MA23HpyFmAAAA
-X-Change-ID: 20250710-bump-min-llvm-ver-15-95231f1eb655
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev, patches@lists.linux.dev, 
- Nathan Chancellor <nathan@kernel.org>, linux-kbuild@vger.kernel.org, 
- linux-hardening@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
- Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- linuxppc-dev@lists.ozlabs.org, Palmer Dabbelt <palmer@dabbelt.com>, 
- Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
- Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
- kasan-dev@googlegroups.com, Alexander Potapenko <glider@google.com>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3422; i=nathan@kernel.org;
- h=from:subject:message-id; bh=qBGPy4AI12NWfHAvs72tXhhLkggZ76cCh4aJ0zfhg4o=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDBmLyxfkKs9J3XvmTW/HPLXzb2LV/ble9105em3NlZSrK
- rcn6luu7yhlYRDjYpAVU2Spfqx63NBwzlnGG6cmwcxhZQIZwsDFKQAT2WLNyLDcY1peR8tewSkT
- F3NPCHvlGPr7vt3zpq/7/opaMwrfUPdmZDjG+/9Q5BeZLcKLVm0XPXCDawGDjEHkhrzAGu39rXt
- Z47gA
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+Subject: Re: [PATCH v2 1/2] ACPI: RISC-V: Fix FFH_CPPC_CSR error handling
+To: Anup Patel <apatel@ventanamicro.com>, Sunil V L
+ <sunilvl@ventanamicro.com>, "Rafael J . Wysocki" <rafael@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Len Brown <lenb@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
+ Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, linux-acpi@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Troy Mitchell <troy.mitchell@linux.dev>
+References: <20250818143600.894385-1-apatel@ventanamicro.com>
+ <20250818143600.894385-2-apatel@ventanamicro.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+Content-Language: en-US
+In-Reply-To: <20250818143600.894385-2-apatel@ventanamicro.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_115758_732850_6678C449 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250818_122625_445840_1A284229 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,79 +71,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-s390 and x86 have required LLVM 15 since
 
-  30d17fac6aae ("scripts/min-tool-version.sh: raise minimum clang version to 15.0.0 for s390")
-  7861640aac52 ("x86/build: Raise the minimum LLVM version to 15.0.0")
+On 8/18/25 7:35 AM, Anup Patel wrote:
+> The cppc_ffh_csr_read() and cppc_ffh_csr_write() returns Linux error
+> code in "data->ret.error" so cpc_read_ffh() and cpc_write_ffh() must
+> not use sbi_err_map_linux_errno() for FFH_CPPC_CSR.
+>
+> Fixes: 30f3ffbee86b ("ACPI: RISC-V: Add CPPC driver")
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Reviewed-by: Troy Mitchell <troy.mitchell@linux.dev>
+> ---
+>   drivers/acpi/riscv/cppc.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
+> index 440cf9fb91aa..42c1a9052470 100644
+> --- a/drivers/acpi/riscv/cppc.c
+> +++ b/drivers/acpi/riscv/cppc.c
+> @@ -119,7 +119,7 @@ int cpc_read_ffh(int cpu, struct cpc_reg *reg, u64 *val)
+>   
+>   		*val = data.ret.value;
+>   
+> -		return (data.ret.error) ? sbi_err_map_linux_errno(data.ret.error) : 0;
+> +		return data.ret.error;
+>   	}
+>   
+>   	return -EINVAL;
+> @@ -148,7 +148,7 @@ int cpc_write_ffh(int cpu, struct cpc_reg *reg, u64 val)
+>   
+>   		smp_call_function_single(cpu, cppc_ffh_csr_write, &data, 1);
+>   
+> -		return (data.ret.error) ? sbi_err_map_linux_errno(data.ret.error) : 0;
+> +		return data.ret.error;
+>   	}
+>   
+>   	return -EINVAL;
 
-respectively. This series bumps the rest of the kernel to 15.0.0 to
-match, which allows for a decent number of clean ups.
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 
-On the distros front, we will only leave behind Debian Bookworm and
-Ubuntu Jammy. In both of those cases, builders / developers can either
-use the kernel.org toolchains or https://apt.llvm.org to get newer
-versions that will run on those distributions, if they cannot upgrade.
-
-  archlinux:latest              clang version 20.1.8
-  debian:oldoldstable-slim      Debian clang version 11.0.1-2
-  debian:oldstable-slim         Debian clang version 14.0.6
-  debian:stable-slim            Debian clang version 19.1.7 (3+b1)
-  debian:testing-slim           Debian clang version 19.1.7 (3+b1)
-  debian:unstable-slim          Debian clang version 19.1.7 (3+b2)
-  fedora:41                     clang version 19.1.7 (Fedora 19.1.7-4.fc41)
-  fedora:latest                 clang version 20.1.8 (Fedora 20.1.8-3.fc42)
-  fedora:rawhide                clang version 20.1.8 (Fedora 20.1.8-3.fc43)
-  opensuse/leap:latest          clang version 17.0.6
-  opensuse/tumbleweed:latest    clang version 20.1.8
-  ubuntu:focal                  clang version 10.0.0-4ubuntu1
-  ubuntu:jammy                  Ubuntu clang version 14.0.0-1ubuntu1.1
-  ubuntu:noble                  Ubuntu clang version 18.1.3 (1ubuntu1)
-  ubuntu:latest                 Ubuntu clang version 18.1.3 (1ubuntu1)
-  ubuntu:rolling                Ubuntu clang version 20.1.2 (0ubuntu1)
-  ubuntu:devel                  Ubuntu clang version 20.1.8 (0ubuntu1)
-
-I think it makes sense for either Andrew to carry this via -mm on a
-nonmm branch or me to carry this via the Kbuild tree, with the
-appropriate acks.
-
----
-Nathan Chancellor (10):
-      kbuild: Bump minimum version of LLVM for building the kernel to 15.0.0
-      arch/Kconfig: Drop always true condition from RANDOMIZE_KSTACK_OFFSET
-      ARM: Clean up definition of ARM_HAS_GROUP_RELOCS
-      arm64: Remove tautological LLVM Kconfig conditions
-      mips: Unconditionally select ARCH_HAS_CURRENT_STACK_POINTER
-      powerpc: Drop unnecessary initializations in __copy_inst_from_kernel_nofault()
-      riscv: Remove version check for LTO_CLANG selects
-      lib/Kconfig.debug: Drop CLANG_VERSION check from DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT
-      objtool: Drop noinstr hack for KCSAN_WEAK_MEMORY
-      KMSAN: Remove tautological checks
-
- Documentation/process/changes.rst |  2 +-
- arch/Kconfig                      |  1 -
- arch/arm/Kconfig                  | 11 ++++-------
- arch/arm64/Kconfig                |  5 +----
- arch/mips/Kconfig                 |  2 +-
- arch/powerpc/include/asm/inst.h   |  4 ----
- arch/riscv/Kconfig                |  5 ++---
- lib/Kconfig.debug                 |  2 +-
- lib/Kconfig.kcsan                 |  6 ------
- lib/Kconfig.kmsan                 | 11 +----------
- scripts/min-tool-version.sh       |  6 ++----
- tools/objtool/check.c             | 10 ----------
- 12 files changed, 13 insertions(+), 52 deletions(-)
----
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250710-bump-min-llvm-ver-15-95231f1eb655
-
-Best regards,
---  
-Nathan Chancellor <nathan@kernel.org>
 
 
 _______________________________________________
