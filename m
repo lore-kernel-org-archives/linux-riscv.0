@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FB8CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 13:41:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0CDCA0ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 13:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cScbEGB8IbGZ2hRlF0x9sdGZ6i5M5ssvmmA6925IllU=; b=jh5JAicDne+lOC
-	b+zSXVFENGo3JKh6ejTiRZpxJBsj24pKGTD57sUYk53rlj0GEjeI0ax5LQfGYqxSBBLhqYFpHlw6x
-	gNEjjoESfsUBL69+k4WQdlTmFKNEkSUYl/12WsODZGUKNAjcwG0fK+uySEeK1Mz78H7G0bDM/GDJr
-	bNhlEqLXdBYMhW8svQQxjhN812dYyoSMPu+nHy7ZqKJw7c70+m8QtloK94IS71/JubiLvlIEwJ7KQ
-	NpARLvCquEIQkVh+5wx2eaJCr+3p7Rq766KLpmdqAywsHv+kBr/qd7XSkIih15A5BQrYRUZDCAeSC
-	C1gxbww4wOknm9WmUwcA==;
+	List-Owner; bh=/FZJRA1Z9QgbwIE2zkUXywNN1MvbX2qwYfnek0dMjrk=; b=yUfFmARhLCfgHr
+	m7nFFiG1Exlzz8Zb7Gg9y0ZsSXxHloTkJUYARh8GKBldNfO0uto3457+3xoejS4t2zJOIXTP/4xOG
+	XkWDp+b7dUM6+by8u728Vw6wzC1OJZ207UUuqrp1kdwzhlNLNUMLc0bmFmuJuNVm9bmLSjRzj/6Of
+	1OO6YC3/qz3k46MD80iO4fA3eGbM/u0U86qODSUvLxLop/kxTIEpI4liKVTrXoTvxukEirrkC6ZbV
+	4wcTxDKb8fMR2Hd0YxjjyQBgydsBvtpU4ceeUjxRwSJ0t73Cm+U/Jzi/I4d93JP/sGzk7i5AKqazB
+	ehuHVdNQ5SNxRh9+6aGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo070-00000007a5w-3aMI;
-	Mon, 18 Aug 2025 13:41:22 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uo075-00000007aEC-26Kp;
+	Mon, 18 Aug 2025 13:41:27 +0000
+Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unwOt-000000075K9-2bU4
+	id 1unwUR-000000075lj-1kqZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 09:43:37 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 3007720E37;
-	Mon, 18 Aug 2025 11:43:31 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id H-l89fRMrwVf; Mon, 18 Aug 2025 11:43:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1755510210; bh=kvFLkZd49qaINmgLXux3yvrYr/hxKrrvscnAQB/WUng=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TlcEiIHoMtlAl2saN8yxYLjXkbcsm6JBdVLGzc+jl2AS1b+an/MmtxcFAE/xU7iYd
-	 8jwo4ADl77uY9jj2HxO+oa0lFgL8EDGDKAAj4hgOyN6KhUOqCnBq8VTERoMolFJURT
-	 gQ5yClMwtpJ5p/GxejAUoS7yvD4hTDxp2R85+2D8Sw2UULzeltB6AYUT/1dz7fa7yX
-	 TUINM9Ab/8mb22RQXEAZvtrw85FZtARc8updoorB/uviX7ICX8dKUir2+2syzhlJm1
-	 /ZmnuCr7SpAyQVnEId4dDWa7FodzRHV4dCxwbcnXp081DxwbUzUMlQrQRKK8olBMAE
-	 HuSNR/2QyTMWg==
-Date: Mon, 18 Aug 2025 09:43:13 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Icenowy Zheng <uwu@icenowy.me>, Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Michal Wilczynski <m.wilczynski@samsung.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Sebastian Reichel <sre@kernel.org>
-Cc: Han Gao <rabenda.cn@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH 1/2] driver: reset: th1520-aon: add driver for
- poweroff/reboot via AON FW
-Message-ID: <aKL1sTutiMZPAd70@pie>
-References: <20250818074906.2907277-1-uwu@icenowy.me>
- <20250818074906.2907277-2-uwu@icenowy.me>
+	Mon, 18 Aug 2025 09:49:20 +0000
+Received: from localhost (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id 8FF6F12FB9DF;
+	Mon, 18 Aug 2025 02:49:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1755510557; bh=G/TSilIIny419+wjwN/t2gGm9Hi+eIHM7DbXOJEDR/Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ehE1dNDflSHrSI1XDw3/kMTk6XunMr7pZkesptPP9ZcgZ9eQHS21I5gFj65Bspvic
+	 9SOilobYM2UxwooLW6ojkDUVnatWPEaYq9/DNS00ab3LmAjE840weuQeaUrUI02TTw
+	 MzotrWhuc+v1vP6OOwdFNdl/AV259boFpcbE/OaMA9Ayl33hr3e04kNxtZKUq2Gi7M
+	 hllbooq0QeV7EddmJZIMKnD7hL+s/fpgOfkawrCfaON1YupZUB91zVDq09y92q0/MI
+	 3y8HeddVCRQi4rp92E/HKQYy2pf2m7poCJH8PIvKVJoYrJyEzx7TC0+j/gow9fESJB
+	 w69GhLgWYqxwA==
+X-Virus-Scanned: amavis at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by localhost (bayard.4d2.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id VRxjUVBxbqYv; Mon, 18 Aug 2025 02:49:16 -0700 (PDT)
+Received: from ketchup (unknown [117.171.67.207])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 58EE012FB42D;
+	Mon, 18 Aug 2025 02:49:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1755510556; bh=G/TSilIIny419+wjwN/t2gGm9Hi+eIHM7DbXOJEDR/Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=0jyHjaznbZLTd5hBz72tL6eH29OiPyRhhDBoTFL3eIAEJ3iQWDz+kx7mlDgQV1CK0
+	 fIKTsi2ba5WbwjqD2gSVID+zmaJPLOvl8kN0JPeZjXlO9LAFeWOdDnIi0zzoRBG3/5
+	 1SrbHlFceI7LpiroCT+jH1hLANLpY5ikQSWZooUN8PMmHChGOYKKRx3Vqv+CUyZ7St
+	 wY3f+TlRA5n7yf1EQcn7d0mNllzO4GwrdMF0Z9PT+JEk3uNDM/mtvvLGZlE9wcC4uO
+	 bPmcoKppUWojRn4/jnajtjgm+Ke1aVGMUrDTMdT6Kbikk1E9ixtpc7VKPtjoS7X8gc
+	 TyOe8sQjx1VFA==
+Date: Mon, 18 Aug 2025 09:49:10 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>,
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jinmei Wei <weijinmei@linux.spacemit.com>
+Subject: Re: [PATCH v3 2/3] clk: spacemit: introduce pre-div for ddn clock
+Message-ID: <aKL3FghKPUaQcagM@ketchup>
+References: <20250818-k1-clk-i2s-generation-v3-0-8139b22ae709@linux.spacemit.com>
+ <20250818-k1-clk-i2s-generation-v3-2-8139b22ae709@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250818074906.2907277-2-uwu@icenowy.me>
+In-Reply-To: <20250818-k1-clk-i2s-generation-v3-2-8139b22ae709@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_024336_068439_5A572508 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20250818_024919_771444_EEE6D155 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,73 +98,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 03:49:05PM +0800, Icenowy Zheng wrote:
-> This driver implements poweroff/reboot support for T-Head TH1520 SoCs
-> running the AON firmware by sending a message to the AON firmware's WDG
-> part.
+On Mon, Aug 18, 2025 at 05:28:21PM +0800, Troy Mitchell wrote:
+> The original DDN operations applied an implicit divide-by-2, which should
+> not be a default behavior.
 > 
-> This is a auxiliary device driver, and expects the AON channel to be
-> passed via the platform_data of the auxiliary device.
+> This patch removes that assumption, letting each clock define its
+> actual behavior explicitly.
 > 
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > ---
->  MAINTAINERS                             |  1 +
->  drivers/power/reset/Kconfig             |  7 ++
->  drivers/power/reset/Makefile            |  1 +
->  drivers/power/reset/th1520-aon-reboot.c | 98 +++++++++++++++++++++++++
->  4 files changed, 107 insertions(+)
->  create mode 100644 drivers/power/reset/th1520-aon-reboot.c
+>  drivers/clk/spacemit/ccu-k1.c  |  4 ++--
+>  drivers/clk/spacemit/ccu_ddn.c | 12 ++++++------
+>  drivers/clk/spacemit/ccu_ddn.h |  6 ++++--
+>  3 files changed, 12 insertions(+), 10 deletions(-)
 
-...
+Reviewed-by: Haylen Chu <heylenay@4d2.org>
 
-> diff --git a/drivers/power/reset/th1520-aon-reboot.c b/drivers/power/reset/th1520-aon-reboot.c
-> new file mode 100644
-> index 0000000000000..8256c1703ebe8
-> --- /dev/null
-> +++ b/drivers/power/reset/th1520-aon-reboot.c
-> @@ -0,0 +1,98 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * T-HEAD TH1520 AON Firmware Reboot Driver
-> + *
-> + * Copyright (c) 2025 Icenowy Zheng <uwu@icenowy.me>
-> + */
-> +
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/firmware/thead/thead,th1520-aon.h>
-> +#include <linux/module.h>
-> +#include <linux/notifier.h>
-> +#include <linux/of.h>
-> +#include <linux/reboot.h>
-> +#include <linux/slab.h>
-> +
-> +#define TH1520_AON_REBOOT_PRIORITY 200
-> +
-> +struct th1520_aon_msg_empty_body {
-> +	struct th1520_aon_rpc_msg_hdr hdr;
-> +	u16 reserved[12];
-> +} __packed __aligned(1);
-> +
-> +static int th1520_aon_pwroff_handler(struct sys_off_data *data)
-> +{
-> +	struct th1520_aon_chan *aon_chan = data->cb_data;
-> +	struct th1520_aon_msg_empty_body msg = {};
-> +
-> +	msg.hdr.svc = TH1520_AON_RPC_SVC_WDG;
-> +	msg.hdr.func = TH1520_AON_WDG_FUNC_POWER_OFF;
-> +	msg.hdr.size = TH1520_AON_RPC_MSG_NUM;
-> +
-> +	th1520_aon_call_rpc(aon_chan, &msg);
-
-It's possible for th1520_aon_call_rpc() to fail. Should we check for its
-return value and emit a warning/error if it fails? Though in case of
-failure there may not be much we could do...
-
-> +	return NOTIFY_DONE;
-> +}
-
-Best regards,
-Yao Zi
+> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+> index 65e6de030717afa60eefab7bda88f9a13b857650..7155824673fb450971439873b6b6163faf48c7e5 100644
+> --- a/drivers/clk/spacemit/ccu-k1.c
+> +++ b/drivers/clk/spacemit/ccu-k1.c
+> @@ -136,8 +136,8 @@ CCU_GATE_DEFINE(pll1_d3_819p2, CCU_PARENT_HW(pll1_d3), MPMU_ACGR, BIT(14), 0);
+>  CCU_GATE_DEFINE(pll1_d2_1228p8, CCU_PARENT_HW(pll1_d2), MPMU_ACGR, BIT(16), 0);
+>  
+>  CCU_GATE_DEFINE(slow_uart, CCU_PARENT_NAME(osc), MPMU_ACGR, BIT(1), CLK_IGNORE_UNUSED);
+> -CCU_DDN_DEFINE(slow_uart1_14p74, pll1_d16_153p6, MPMU_SUCCR, 16, 13, 0, 13, 0);
+> -CCU_DDN_DEFINE(slow_uart2_48, pll1_d4_614p4, MPMU_SUCCR_1, 16, 13, 0, 13, 0);
+> +CCU_DDN_DEFINE(slow_uart1_14p74, pll1_d16_153p6, MPMU_SUCCR, 16, 13, 0, 13, 2, 0);
+> +CCU_DDN_DEFINE(slow_uart2_48, pll1_d4_614p4, MPMU_SUCCR_1, 16, 13, 0, 13, 2, 0);
+>  
+>  CCU_GATE_DEFINE(wdt_clk, CCU_PARENT_HW(pll1_d96_25p6), MPMU_WDTPCR, BIT(1), 0);
+>  
+> diff --git a/drivers/clk/spacemit/ccu_ddn.c b/drivers/clk/spacemit/ccu_ddn.c
+> index be311b045698e95a688a35858a8ac1bcfbffd2c7..06d86748182bd1959cdab5c18d0a882ee25dcade 100644
+> --- a/drivers/clk/spacemit/ccu_ddn.c
+> +++ b/drivers/clk/spacemit/ccu_ddn.c
+> @@ -22,21 +22,21 @@
+>  
+>  #include "ccu_ddn.h"
+>  
+> -static unsigned long ccu_ddn_calc_rate(unsigned long prate,
+> -				       unsigned long num, unsigned long den)
+> +static unsigned long ccu_ddn_calc_rate(unsigned long prate, unsigned long num,
+> +				       unsigned long den, unsigned int pre_div)
+>  {
+> -	return prate * den / 2 / num;
+> +	return prate * den / pre_div / num;
+>  }
+>  
+>  static unsigned long ccu_ddn_calc_best_rate(struct ccu_ddn *ddn,
+>  					    unsigned long rate, unsigned long prate,
+>  					    unsigned long *num, unsigned long *den)
+>  {
+> -	rational_best_approximation(rate, prate / 2,
+> +	rational_best_approximation(rate, prate / ddn->pre_div,
+>  				    ddn->den_mask >> ddn->den_shift,
+>  				    ddn->num_mask >> ddn->num_shift,
+>  				    den, num);
+> -	return ccu_ddn_calc_rate(prate, *num, *den);
+> +	return ccu_ddn_calc_rate(prate, *num, *den, ddn->pre_div);
+>  }
+>  
+>  static long ccu_ddn_round_rate(struct clk_hw *hw, unsigned long rate,
+> @@ -58,7 +58,7 @@ static unsigned long ccu_ddn_recalc_rate(struct clk_hw *hw, unsigned long prate)
+>  	num = (val & ddn->num_mask) >> ddn->num_shift;
+>  	den = (val & ddn->den_mask) >> ddn->den_shift;
+>  
+> -	return ccu_ddn_calc_rate(prate, num, den);
+> +	return ccu_ddn_calc_rate(prate, num, den, ddn->pre_div);
+>  }
+>  
+>  static int ccu_ddn_set_rate(struct clk_hw *hw, unsigned long rate,
+> diff --git a/drivers/clk/spacemit/ccu_ddn.h b/drivers/clk/spacemit/ccu_ddn.h
+> index a52fabe77d62eba16426867a9c13481e72f025c0..4838414a8e8dc04af49d3b8d39280efedbd75616 100644
+> --- a/drivers/clk/spacemit/ccu_ddn.h
+> +++ b/drivers/clk/spacemit/ccu_ddn.h
+> @@ -18,13 +18,14 @@ struct ccu_ddn {
+>  	unsigned int num_shift;
+>  	unsigned int den_mask;
+>  	unsigned int den_shift;
+> +	unsigned int pre_div;
+>  };
+>  
+>  #define CCU_DDN_INIT(_name, _parent, _flags) \
+>  	CLK_HW_INIT_HW(#_name, &_parent.common.hw, &spacemit_ccu_ddn_ops, _flags)
+>  
+>  #define CCU_DDN_DEFINE(_name, _parent, _reg_ctrl, _num_shift, _num_width,	\
+> -		       _den_shift, _den_width, _flags)				\
+> +		       _den_shift, _den_width, _pre_div, _flags)		\
+>  static struct ccu_ddn _name = {							\
+>  	.common = {								\
+>  		.reg_ctrl	= _reg_ctrl,					\
+> @@ -33,7 +34,8 @@ static struct ccu_ddn _name = {							\
+>  	.num_mask	= GENMASK(_num_shift + _num_width - 1, _num_shift),	\
+>  	.num_shift	= _num_shift,						\
+>  	.den_mask	= GENMASK(_den_shift + _den_width - 1, _den_shift),	\
+> -	.den_shift	= _den_shift,					\
+> +	.den_shift	= _den_shift,						\
+> +	.pre_div	= _pre_div,						\
+>  }
+>  
+>  static inline struct ccu_ddn *hw_to_ccu_ddn(struct clk_hw *hw)
+> 
+> -- 
+> 2.50.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
