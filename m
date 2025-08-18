@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30394CA0EED
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 21:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8E9CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 21:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wWjdvkS7mqe74P8j2PpullhTg5nuELVAgxbMHWM8yOE=; b=CzDxbkp/T2UyI4
-	LTWnHoW+wz42xHVEEunaZRA/Jb0qyNSqFJJQmYCgbpfvPlQUC4VOzj92qMVYnwFsPwjsUI1pYH/kZ
-	zlDK66F9B1X5e2u2fNz7+9gL+ZOfUbX2MrQpcjslcVxMDIreXgal05JZMwmvVi03AEfEazU7l3suu
-	zytLMcboGuv9SVqyOw2qA1C54ib7j1ra6qUeR2z8RDC1Ju1rEzsr3UFvXcPJrnBUU24SaxT+4L+q5
-	f8VeX8T0qb10/y34UMyOlL1s8uv7/huiyZwmgJ/0M8LbwB5JSGurLNAgaHIfmsjzyFhUUdTPV8m9h
-	ChxOtFkRoLCPhaod7y3Q==;
+	List-Owner; bh=nxmSpkSj19wlp84CBhJ71nk/j96yXWEQpts5QCz14Zs=; b=fz5oKBmYOAR3Ft
+	p6Q+uzN1Ft0SPKFlPjMnu6l9Hw89H6WTyU5IXHiV7csMrNJEv+eH3RcflCwb+o91ndXwtxP7kx3Tg
+	HcCUrt9zIe5NMGLvNykufKeq0hKIbuzZKXViy95bKCCNJCqs5yqQHWOoqBhAjULD+PT2oJ/VX/3G9
+	WhLuDduZhmOTwaJnUIK6PPj9MUUSE93BtyX7tjOzd0ZkyTXnza7hcp/1v1KMGKqpJUyeKeCWPXdbO
+	cmdt8g8VlIjwgwCORagmhkH42UVeoRFWbqRqVAGDmTRLd1C4QPlJnDHOB/eM5i1k5o8Bdd7oy4+sS
+	W1FVswzikEqSBhvtOykg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo7O0-00000008i8O-0RMb;
-	Mon, 18 Aug 2025 21:27:24 +0000
-Received: from out-186.mta1.migadu.com ([95.215.58.186])
+	id 1uo7OA-00000008iNR-2RwU;
+	Mon, 18 Aug 2025 21:27:34 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo5YH-00000008WQf-0YD1
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 19:29:54 +0000
-Message-ID: <187e5d1b-92f0-4a24-99ae-c55137cb7de4@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1755545390;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=A1LPhIu7KE1xSdbtwTXFZXR3H6pDP+wGqBCLl8liJ5M=;
-	b=jf8luqdOxN31PMcev2r/bYnXNrAC7PVeprZZXSQqbz1DYXczHAM6Xj3jzHKccxQgF5CNHB
-	0JUKfPrXsDap//jnKeUpEwUFe4Hj7untSaThcFhfuSVObB6NVY4EoSV+lH8R2QoKzBBXx6
-	g2/BYT4pWb/5AXT0BO8nT4wVOzrIOO0=
-Date: Mon, 18 Aug 2025 12:29:38 -0700
+	id 1uo68x-00000008aWt-0HOk;
+	Mon, 18 Aug 2025 20:07:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755547667; x=1787083667;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=HUP2AEiZfFgmlejZ9gs27ibEAHSKm6RtjRLDUuqDXBM=;
+  b=M8ixLp5/m7XiMl3k9ifYx3QLHZKHAGfoKkyWDomrgVUSgnHoVnxhKCy1
+   ThsFNhE4rdFF+i7WXk6I8HOmteCp+DqmjDOyA8ppopVRZNJLbcXPn2PvA
+   ALBmzW80pmUReY1UsFNkOLx5DSNqqi4wzHK9/ilPaodp99Si4emSl3feE
+   ZLOLv+H0JrxnmfZHo3x9N5KQRJsm9WYrDQ6Ij2ne3As6u1NsTqBmglFrR
+   ZgWIGmWR9TaTFqdVGIR4FIW4S/F8CZuIK5nDRF6QbBec/1B6MwAW72OxA
+   FZxCsJ/PVapgRqxbxfjAwblH4MSN3s2qRgq2b8DG1yxJk5VaNmX0OnKGc
+   Q==;
+X-CSE-ConnectionGUID: 95cFrr3CSkmcOeYKUE2U5A==
+X-CSE-MsgGUID: ER6hlTXNQX26E0ti0xYMCg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11526"; a="69233310"
+X-IronPort-AV: E=Sophos;i="6.17,300,1747724400"; 
+   d="scan'208";a="69233310"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2025 13:07:43 -0700
+X-CSE-ConnectionGUID: VPdWLgrPQ4q9Io7sk+4Srw==
+X-CSE-MsgGUID: IPqmhJ93SHqaacsNGeVfjQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,300,1747724400"; 
+   d="scan'208";a="168055360"
+Received: from linux.intel.com ([10.54.29.200])
+  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2025 13:07:41 -0700
+Received: from [10.124.163.195] (kliang2-mobl1.ccr.corp.intel.com [10.124.163.195])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by linux.intel.com (Postfix) with ESMTPS id D183720B571C;
+	Mon, 18 Aug 2025 13:07:39 -0700 (PDT)
+Message-ID: <4e58688f-22e0-4e20-9043-dee76d01d24f@linux.intel.com>
+Date: Mon, 18 Aug 2025 13:07:39 -0700
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 2/2] RISC-V: Add common csr_read_num() and
- csr_write_num() functions
-To: Anup Patel <apatel@ventanamicro.com>, Sunil V L
- <sunilvl@ventanamicro.com>, "Rafael J . Wysocki" <rafael@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Len Brown <lenb@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
- Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, linux-acpi@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250818143600.894385-1-apatel@ventanamicro.com>
- <20250818143600.894385-3-apatel@ventanamicro.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 09/44] perf/x86: Switch LVTPC to/from mediated PMI
+ vector on guest load/put context
+To: Peter Zijlstra <peterz@infradead.org>,
+ Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Yongwei Ma <yongwei.ma@intel.com>, Mingwei Zhang <mizhang@google.com>,
+ Xiong Zhang <xiong.y.zhang@linux.intel.com>,
+ Sandipan Das <sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>
+References: <20250806195706.1650976-1-seanjc@google.com>
+ <20250806195706.1650976-10-seanjc@google.com>
+ <20250815113951.GC4067720@noisy.programming.kicks-ass.net>
+ <aJ9VQH87ytkWf1dH@google.com> <aJ9YbZTJAg66IiVh@google.com>
+ <20250818143204.GH3289052@noisy.programming.kicks-ass.net>
+ <aKNF7jc4qr9ab-Es@google.com>
+ <20250818161210.GJ3289052@noisy.programming.kicks-ass.net>
 Content-Language: en-US
-In-Reply-To: <20250818143600.894385-3-apatel@ventanamicro.com>
-X-Migadu-Flow: FLOW_OUT
+From: "Liang, Kan" <kan.liang@linux.intel.com>
+In-Reply-To: <20250818161210.GJ3289052@noisy.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_122953_330124_838CB7D8 
-X-CRM114-Status: GOOD (  25.46  )
+X-CRM114-CacheID: sfid-20250818_130747_175855_3016CBD4 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,351 +107,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 8/18/25 7:36 AM, Anup Patel wrote:
-> In RISC-V, there is no CSR read/write instruction which takes CSR
-> number via register so add common csr_read_num() and csr_write_num()
-> functions which allow accessing certain CSRs by passing CSR number
-> as parameter. These common functions will be first used by the
-> ACPI CPPC driver and RISC-V PMU driver.
 
-Thanks for the cleanup. Are you planning to align the csr.h in tools so 
-that userpsace tools can use leverage it as well ?
+On 2025-08-18 9:12 a.m., Peter Zijlstra wrote:
+> On Mon, Aug 18, 2025 at 08:25:34AM -0700, Sean Christopherson wrote:
+> 
+>>> OK, so *IF* doing the VM-exit during PMI is sound, this is something
+>>> that needs a comment somewhere. 
+>>
+>> I'm a bit lost here.  Are you essentially asking if it's ok to take a VM-Exit
+>> while the guest is handling a PMI?  If so, that _has_ to work, because there are
+>> myriad things that can/will trigger a VM-Exit at any point while the guest is
+>> active.
+> 
+> Yes, that's what I'm asking. Why is this VM-exit during PMI nonsense not
+> subject to the same failures that mandates the mid/late PMI ACK.
+> 
+> And yes, I realize this needs to work. But so far I'm not sure I
+> understand why that is a safe thing to do.
+> 
+> Like I wrote, I suspect writing all the PMU MSRs serializes things
+> sufficiently, but if that is the case, that needs to be explicitly
+> mentioned. Because that also doesn't explain why we needs mid-ack
+> instead of late-ack on ADL e-cores for instance.
 
-tools/arch/riscv/include/asm/csr.h
+The mid-ack and late-ack only require under some corner cases, e.g., two
+PMIs are triggered simultaneously with PEBS.
+Because the ucode of p-core and e-core handle the pending PEBS records
+and PMIs differently.
+For p-core, the ACK should be as close to EOM. Otherwise, the pending
+PMI will trigger a spurious PMI warning.
+For e-core, the uncode handles the pending PMI well. There is no
+spurious PMI. However, it impacts the update of the PEBS_DATA_CFG. The
+PEBS_DATA_CFG is global. If the ACK cannot be done before re-enabling
+counters, the stale PEBS_DATA_CFG will somehow be written into the next
+PEBS record of the pending PMI. It triggers the malformed PEBS record.
 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
-> ---
->   arch/riscv/include/asm/csr.h |   3 +
->   arch/riscv/kernel/Makefile   |   1 +
->   arch/riscv/kernel/csr.c      | 165 +++++++++++++++++++++++++++++++++++
->   drivers/acpi/riscv/cppc.c    |  17 ++--
->   drivers/perf/riscv_pmu.c     |  54 ++----------
->   5 files changed, 184 insertions(+), 56 deletions(-)
->   create mode 100644 arch/riscv/kernel/csr.c
+For the upcoming arch PEBS, the data cfg is per-counter.
+The mid-ack workaround should not be required.
+> 
+> Could it perhaps be that we don't let the guests do PEBS because DS
+> doesn't virtualize? And thus we don't have the malformed PEBS record?
 >
-> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> index 6fed42e37705..1540626b3540 100644
-> --- a/arch/riscv/include/asm/csr.h
-> +++ b/arch/riscv/include/asm/csr.h
-> @@ -575,6 +575,9 @@
->   			      : "memory");			\
->   })
->   
-> +extern unsigned long csr_read_num(unsigned long csr_num, int *out_err);
-> +extern void csr_write_num(unsigned long csr_num, unsigned long val, int *out_err);
-> +
->   #endif /* __ASSEMBLY__ */
->   
->   #endif /* _ASM_RISCV_CSR_H */
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index c7b542573407..0a75e20bde18 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -50,6 +50,7 @@ obj-y	+= soc.o
->   obj-$(CONFIG_RISCV_ALTERNATIVE) += alternative.o
->   obj-y	+= cpu.o
->   obj-y	+= cpufeature.o
-> +obj-y	+= csr.o
->   obj-y	+= entry.o
->   obj-y	+= irq.o
->   obj-y	+= process.o
-> diff --git a/arch/riscv/kernel/csr.c b/arch/riscv/kernel/csr.c
-> new file mode 100644
-> index 000000000000..e96b129c1a99
-> --- /dev/null
-> +++ b/arch/riscv/kernel/csr.c
-> @@ -0,0 +1,165 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2025 Ventana Micro Systems Inc.
-> + */
-> +
-> +#include <linux/err.h>
-> +#include <linux/export.h>
-> +#include <linux/types.h>
-> +#include <asm/csr.h>
-> +
-> +#define CSR_CUSTOM0_U_RW_BASE		0x800
-> +#define CSR_CUSTOM0_U_RW_COUNT		0x100
-> +
-> +#define CSR_CUSTOM1_U_RO_BASE		0xCC0
-> +#define CSR_CUSTOM1_U_RO_COUNT		0x040
-> +
-> +#define CSR_CUSTOM2_S_RW_BASE		0x5C0
-> +#define CSR_CUSTOM2_S_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM3_S_RW_BASE		0x9C0
-> +#define CSR_CUSTOM3_S_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM4_S_RO_BASE		0xDC0
-> +#define CSR_CUSTOM4_S_RO_COUNT		0x040
-> +
-> +#define CSR_CUSTOM5_HS_RW_BASE		0x6C0
-> +#define CSR_CUSTOM5_HS_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM6_HS_RW_BASE		0xAC0
-> +#define CSR_CUSTOM6_HS_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM7_HS_RO_BASE		0xEC0
-> +#define CSR_CUSTOM7_HS_RO_COUNT		0x040
-> +
-> +#define CSR_CUSTOM8_M_RW_BASE		0x7C0
-> +#define CSR_CUSTOM8_M_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM9_M_RW_BASE		0xBC0
-> +#define CSR_CUSTOM9_M_RW_COUNT		0x040
-> +
-> +#define CSR_CUSTOM10_M_RO_BASE		0xFC0
-> +#define CSR_CUSTOM10_M_RO_COUNT		0x040
-> +
-> +unsigned long csr_read_num(unsigned long csr_num, int *out_err)
-> +{
-> +#define switchcase_csr_read(__csr_num)				\
-> +	case (__csr_num):					\
-> +		return csr_read(__csr_num)
-> +#define switchcase_csr_read_2(__csr_num)			\
-> +	switchcase_csr_read(__csr_num + 0);			\
-> +	switchcase_csr_read(__csr_num + 1)
-> +#define switchcase_csr_read_4(__csr_num)			\
-> +	switchcase_csr_read_2(__csr_num + 0);			\
-> +	switchcase_csr_read_2(__csr_num + 2)
-> +#define switchcase_csr_read_8(__csr_num)			\
-> +	switchcase_csr_read_4(__csr_num + 0);			\
-> +	switchcase_csr_read_4(__csr_num + 4)
-> +#define switchcase_csr_read_16(__csr_num)			\
-> +	switchcase_csr_read_8(__csr_num + 0);			\
-> +	switchcase_csr_read_8(__csr_num + 8)
-> +#define switchcase_csr_read_32(__csr_num)			\
-> +	switchcase_csr_read_16(__csr_num + 0);			\
-> +	switchcase_csr_read_16(__csr_num + 16)
-> +#define switchcase_csr_read_64(__csr_num)			\
-> +	switchcase_csr_read_32(__csr_num + 0);			\
-> +	switchcase_csr_read_32(__csr_num + 32)
-> +#define switchcase_csr_read_128(__csr_num)			\
-> +	switchcase_csr_read_64(__csr_num + 0);			\
-> +	switchcase_csr_read_64(__csr_num + 64)
-> +#define switchcase_csr_read_256(__csr_num)			\
-> +	switchcase_csr_read_128(__csr_num + 0);			\
-> +	switchcase_csr_read_128(__csr_num + 128)
-> +
-> +	*out_err = 0;
-> +	switch (csr_num) {
-> +	switchcase_csr_read_32(CSR_CYCLE);
-> +	switchcase_csr_read_32(CSR_CYCLEH);
-> +	switchcase_csr_read_256(CSR_CUSTOM0_U_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM1_U_RO_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM2_S_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM3_S_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM4_S_RO_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM5_HS_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM6_HS_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM7_HS_RO_BASE);
-> +#ifdef CONFIG_RISCV_M_MODE
-> +	switchcase_csr_read_64(CSR_CUSTOM8_M_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM9_M_RW_BASE);
-> +	switchcase_csr_read_64(CSR_CUSTOM10_M_RO_BASE);
-> +#endif
-> +	default:
-> +		*out_err = -EINVAL;
-> +		break;
-> +	}
-> +
-> +	return 0;
-> +#undef switchcase_csr_read_256
-> +#undef switchcase_csr_read_128
-> +#undef switchcase_csr_read_64
-> +#undef switchcase_csr_read_32
-> +#undef switchcase_csr_read_16
-> +#undef switchcase_csr_read_8
-> +#undef switchcase_csr_read_4
-> +#undef switchcase_csr_read_2
-> +#undef switchcase_csr_read
-> +}
-> +EXPORT_SYMBOL_GPL(csr_read_num);
-> +
-> +void csr_write_num(unsigned long csr_num, unsigned long val, int *out_err)
-> +{
-> +#define switchcase_csr_write(__csr_num, __val)			\
-> +	case (__csr_num):					\
-> +		csr_write(__csr_num, __val);			\
-> +		break
-> +#define switchcase_csr_write_2(__csr_num, __val)		\
-> +	switchcase_csr_write(__csr_num + 0, __val);		\
-> +	switchcase_csr_write(__csr_num + 1, __val)
-> +#define switchcase_csr_write_4(__csr_num, __val)		\
-> +	switchcase_csr_write_2(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_2(__csr_num + 2, __val)
-> +#define switchcase_csr_write_8(__csr_num, __val)		\
-> +	switchcase_csr_write_4(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_4(__csr_num + 4, __val)
-> +#define switchcase_csr_write_16(__csr_num, __val)		\
-> +	switchcase_csr_write_8(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_8(__csr_num + 8, __val)
-> +#define switchcase_csr_write_32(__csr_num, __val)		\
-> +	switchcase_csr_write_16(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_16(__csr_num + 16, __val)
-> +#define switchcase_csr_write_64(__csr_num, __val)		\
-> +	switchcase_csr_write_32(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_32(__csr_num + 32, __val)
-> +#define switchcase_csr_write_128(__csr_num, __val)		\
-> +	switchcase_csr_write_64(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_64(__csr_num + 64, __val)
-> +#define switchcase_csr_write_256(__csr_num, __val)		\
-> +	switchcase_csr_write_128(__csr_num + 0, __val);		\
-> +	switchcase_csr_write_128(__csr_num + 128, __val)
-> +
-> +	*out_err = 0;
-> +	switch (csr_num) {
-> +	switchcase_csr_write_256(CSR_CUSTOM0_U_RW_BASE, val);
-> +	switchcase_csr_write_64(CSR_CUSTOM2_S_RW_BASE, val);
-> +	switchcase_csr_write_64(CSR_CUSTOM3_S_RW_BASE, val);
-> +	switchcase_csr_write_64(CSR_CUSTOM5_HS_RW_BASE, val);
-> +	switchcase_csr_write_64(CSR_CUSTOM6_HS_RW_BASE, val);
-> +#ifdef CONFIG_RISCV_M_MODE
-> +	switchcase_csr_write_64(CSR_CUSTOM8_M_RW_BASE, val);
-> +	switchcase_csr_write_64(CSR_CUSTOM9_M_RW_BASE, val);
-> +#endif
-> +	default:
-> +		*out_err = -EINVAL;
-> +		break;
-> +	}
-> +#undef switchcase_csr_write_256
-> +#undef switchcase_csr_write_128
-> +#undef switchcase_csr_write_64
-> +#undef switchcase_csr_write_32
-> +#undef switchcase_csr_write_16
-> +#undef switchcase_csr_write_8
-> +#undef switchcase_csr_write_4
-> +#undef switchcase_csr_write_2
-> +#undef switchcase_csr_write
-> +}
-> +EXPORT_SYMBOL_GPL(csr_write_num);
-> diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
-> index 42c1a9052470..fe491937ed25 100644
-> --- a/drivers/acpi/riscv/cppc.c
-> +++ b/drivers/acpi/riscv/cppc.c
-> @@ -65,24 +65,19 @@ static void sbi_cppc_write(void *write_data)
->   static void cppc_ffh_csr_read(void *read_data)
->   {
->   	struct sbi_cppc_data *data = (struct sbi_cppc_data *)read_data;
-> +	int err;
->   
-> -	switch (data->reg) {
-> -	/* Support only TIME CSR for now */
-> -	case CSR_TIME:
-> -		data->ret.value = csr_read(CSR_TIME);
-> -		data->ret.error = 0;
-> -		break;
-> -	default:
-> -		data->ret.error = -EINVAL;
-> -		break;
-> -	}
-> +	data->ret.value = csr_read_num(data->reg, &err);
-> +	data->ret.error = err;
->   }
->   
->   static void cppc_ffh_csr_write(void *write_data)
->   {
->   	struct sbi_cppc_data *data = (struct sbi_cppc_data *)write_data;
-> +	int err;
->   
-> -	data->ret.error = -EINVAL;
-> +	csr_write_num(data->reg, data->val, &err);
-> +	data->ret.error = err;
->   }
->   
->   /*
-> diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-> index 7644147d50b4..b41f353ba964 100644
-> --- a/drivers/perf/riscv_pmu.c
-> +++ b/drivers/perf/riscv_pmu.c
-> @@ -16,6 +16,7 @@
->   #include <linux/smp.h>
->   #include <linux/sched_clock.h>
->   
-> +#include <asm/csr.h>
->   #include <asm/sbi.h>
->   
->   static bool riscv_perf_user_access(struct perf_event *event)
-> @@ -88,58 +89,21 @@ void arch_perf_update_userpage(struct perf_event *event,
->   	userpg->cap_user_time_short = 1;
->   }
->   
-> -static unsigned long csr_read_num(int csr_num)
-> -{
-> -#define switchcase_csr_read(__csr_num, __val)		{\
-> -	case __csr_num:					\
-> -		__val = csr_read(__csr_num);		\
-> -		break; }
-> -#define switchcase_csr_read_2(__csr_num, __val)		{\
-> -	switchcase_csr_read(__csr_num + 0, __val)	 \
-> -	switchcase_csr_read(__csr_num + 1, __val)}
-> -#define switchcase_csr_read_4(__csr_num, __val)		{\
-> -	switchcase_csr_read_2(__csr_num + 0, __val)	 \
-> -	switchcase_csr_read_2(__csr_num + 2, __val)}
-> -#define switchcase_csr_read_8(__csr_num, __val)		{\
-> -	switchcase_csr_read_4(__csr_num + 0, __val)	 \
-> -	switchcase_csr_read_4(__csr_num + 4, __val)}
-> -#define switchcase_csr_read_16(__csr_num, __val)	{\
-> -	switchcase_csr_read_8(__csr_num + 0, __val)	 \
-> -	switchcase_csr_read_8(__csr_num + 8, __val)}
-> -#define switchcase_csr_read_32(__csr_num, __val)	{\
-> -	switchcase_csr_read_16(__csr_num + 0, __val)	 \
-> -	switchcase_csr_read_16(__csr_num + 16, __val)}
-> -
-> -	unsigned long ret = 0;
-> -
-> -	switch (csr_num) {
-> -	switchcase_csr_read_32(CSR_CYCLE, ret)
-> -	switchcase_csr_read_32(CSR_CYCLEH, ret)
-> -	default :
-> -		break;
-> -	}
-> -
-> -	return ret;
-> -#undef switchcase_csr_read_32
-> -#undef switchcase_csr_read_16
-> -#undef switchcase_csr_read_8
-> -#undef switchcase_csr_read_4
-> -#undef switchcase_csr_read_2
-> -#undef switchcase_csr_read
-> -}
-> -
->   /*
->    * Read the CSR of a corresponding counter.
->    */
->   unsigned long riscv_pmu_ctr_read_csr(unsigned long csr)
->   {
-> -	if (csr < CSR_CYCLE || csr > CSR_HPMCOUNTER31H ||
-> -	   (csr > CSR_HPMCOUNTER31 && csr < CSR_CYCLEH)) {
-> -		pr_err("Invalid performance counter csr %lx\n", csr);
-> -		return -EINVAL;
-> +	unsigned long val;
-> +	int rc;
-> +
-> +	val = csr_read_num(csr, &rc);
-> +	if (rc) {
-> +		pr_err("Failed to read performance counter csr %lx (error %d)\n", csr, rc);
-> +		return rc;
->   	}
->   
-> -	return csr_read_num(csr);
-> +	return val;
->   }
 
-Otherwise, lgtm.
+Yes, I don't think it can impact the mediated PMU. The legacy PEBS for
+vPMU is not supported.
+Since the configuration is per-counter with the arch PEBS, the malformed
+PEBS record should not be triggered either.
 
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
 
->   
->   u64 riscv_pmu_ctr_get_width_mask(struct perf_event *event)
+Thanks,
+Kan
 
 _______________________________________________
 linux-riscv mailing list
