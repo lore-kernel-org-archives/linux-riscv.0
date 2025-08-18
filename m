@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5420CCA0ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 07:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8888CA0ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 07:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bsjZapYNbAeA09BTbPhymlqz40RG9c3AjJHb286l9xI=; b=Bq21IKeu/dIVOi
-	exYWEPcUvryvbQBh+XMhavdwGfFQHZxwSSyN9jwvYlCl6OLlvU2Qt57LnRTApKuHcAP7PZgNfxXVw
-	cfcC6zv+Vw06cy5Tcfu5xC+uCuc7WRVpkPIrkQXuuRmyBIjsLNY5FKxAi0Kt86JVLtd4YMt1BQtNC
-	mkCTu89NU+TX2LfizqDBEDYS1cxy7HR06vBuDea+jEP4yYh+BOJDW5MsuXXAoB97NDwuCUQnkvQ/f
-	4SGEI0kWuIz2d/zMmEA99vG3TWrFKIr7C3T4G1jj83Xej0eL6s9DnnegTBcbJDBJrBoKr5o2wQCAG
-	QToniM2o8SA15NtViX4w==;
+	List-Owner; bh=8punNF9uQXo7b/caV8KQDq8aI7LjSLwnOsrXAvInsWY=; b=MiQEzbuOGgRrcl
+	VGn5pYdMs7yhUqKF0Kr3JVn6PwTUTDLGNpNwWssGbfnneDno1PSeIcZNzoSiAh+N9Z2RuPrdeJcWM
+	1dAztSDZsv366tRI2k7+YiZsY/eFAtf/+P5vB468euVxNVitqdgxUIeUNIn9tcNcQtNxDUjMYY4XD
+	Azh3KfNomBpoiJDQUpoLrSbiq6yliOonNVmlkAQ9kYUm8qhaVahaV5oBwQlK+b0Sta2HDYCkNgZv4
+	fKQ648PYIDuC/1T1BNG0bGPNbhYFMu8e/PH8OFcwY3mv92T3XJ7NuPjI0KLa2mwNUdhnwdzIAtFVM
+	1esKAJr8q+BmxImMaywg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unufO-00000006qtb-11Ix;
-	Mon, 18 Aug 2025 07:52:30 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1unufc-00000006rF0-3Grv;
+	Mon, 18 Aug 2025 07:52:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unuNg-00000006nI6-1mqr
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 07:34:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1755502389;
-	bh=uwNK2cvpl14UHlk6Q5HkI+LCPc7KO0VzPNrORHnwh5I=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=W61BvZ2xoHRXH+yg9R/6GYIReVXi0MSgronvvyLPLYB4xdHMQf9qIfJZwUBU48Clb
-	 A+qEjsvmbTKLPiiVDqJ48mqB6HQIs/Y5kZDI3HiwxEJ/8eaoR1s6IunOx/fefvjjy0
-	 gQGI0xdBi9GHRe71gz9VKWAQb/rq7m1a8w8iGlbc=
-X-QQ-mid: esmtpgz16t1755502387t4d77be40
-X-QQ-Originating-IP: rqQDzakR9JIpcJNuoSEqQ+Nb63NMEXIV97JzDC/KoEo=
-Received: from = ( [61.145.255.150])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 18 Aug 2025 15:33:06 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13474632048173593548
-EX-QQ-RecipientCnt: 16
-Date: Mon, 18 Aug 2025 15:33:06 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Haylen Chu <heylenay@4d2.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Alex Elder <elder@riscstar.com>,
-	Inochi Amaoto <inochiama@outlook.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Jinmei Wei <weijinmei@linux.spacemit.com>
-Subject: Re: [PATCH v2 3/4] clk: spacemit: introduce factor for div clock
-Message-ID: <0CBDC60ECB91670B+aKLXMuKPpicjd3_r@LT-Guozexi>
-References: <20250811-k1-clk-i2s-generation-v2-0-e4d3ec268b7a@linux.spacemit.com>
- <20250811-k1-clk-i2s-generation-v2-3-e4d3ec268b7a@linux.spacemit.com>
- <aKKN05w88uKP_HY7@ketchup>
+	id 1unuYv-00000006oHE-32LN;
+	Mon, 18 Aug 2025 07:45:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C9EE601EC;
+	Mon, 18 Aug 2025 07:45:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8460C4AF09;
+	Mon, 18 Aug 2025 07:45:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755503148;
+	bh=f5gFJWZNQokzZOq71ViHREuQpbfVbZrgOrUABXKAViM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Ffsh8y/O2JaZVNiMDIHY6BS5ex3bNjgqkeVeRgHjjgOrXt/CKunYwGK+7E+KZr+Wj
+	 A/7JOszRNc/HY8nA69woYUxdbkEtCzGDoZpAxbNELAgAKWEK7+8o05C0dTIgSdZDR2
+	 hSWufsu7FkJwAgMl4nobHGwul506MVUmFvN83RsimrHJDPG2O27L2zq4R6H5OTr0QB
+	 0NIDBNW9ZGZFNRwAQRpHGhnLrENgoVosGVy6uiZxMOx/zQKaAJFcv9mGzQVkfdkNQw
+	 BZyDxO1LMmyDWyq9e241PkiTNzMu/WbkvL60XM4i/GsftrbiI/fNaYYmeem9e4k7PU
+	 AVPqZ1djdeiEw==
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-3b9e4193083so3616353f8f.3;
+        Mon, 18 Aug 2025 00:45:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUNLHpStH0lbWBHB3thO5uLEB9D2eNDN2/8QeAhNAIpAxNlECOcy6AXDvYmcypvzq+q90S1BQ6lBwesUOk=@lists.infradead.org, AJvYcCXw/tWbqrEi5rPS7VSEEssfGzcOz8PDeGlcHEBI6XF8m28Z49PWjB4zsJy6xefrvXJuAcKMkqixwBI=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXRtwbV/+fGwlTSYtccPw0veozRkpZHEpw5q7wEerjpBqsflXN
+	yLiiKLGbWG+gfTajP4EYnMNr1pcKjQjyTsxzrbYF/1oKnFVhVc3flBGI+NS/E6s8drnoo4kuUit
+	wHNfz5UKmzI9vTW69JVhme2Wno5/AUEI=
+X-Google-Smtp-Source: AGHT+IGB7LkhStNqvvKRj/omAM1mb4ypfuPD4iQ0j12D2cQIIBZbw8yOGFfbBk4SzXwHAZG+XPtcy3nV7EaiWd9UgmY=
+X-Received: by 2002:a5d:5887:0:b0:3b9:15eb:6464 with SMTP id
+ ffacd0b85a97d-3bb66f11537mr8108831f8f.15.1755503147364; Mon, 18 Aug 2025
+ 00:45:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aKKN05w88uKP_HY7@ketchup>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: MeukCuWaRbQlQJ3u5VItcX5xPI4s2nytYKNTuyN6PFs39InvVwFco0m5
-	AU4ULQxqQ9Yqf15kTr1BTevS8+4+h4sbSerNWvT6dJvJTvfQ5pobVb0o1KwjQ7sor654p9R
-	/WKPzTXVEBcunT1aq4xE7edrIW3vYONaB6bPujrkgHrfh0PYQffVdC7A/JyYb3OganziM7Q
-	yduKBz8I/Y5+66Y223vr7AgqePZfbks8aGkLMIFOA5Tf5+EGUYHMYJ+aU8y+yuuid8twJzP
-	3COzWA9WTXCAiZozsL26UzGTsebdON41jfItp6va8HySl5ixmlfqlhqh95oJwETl11qkc/Z
-	Fx5DCBH66g5hjBMdaL3mO8/dig3/W9k11swqlBwwBBpK8vdpQ0QrQDrgQa/+PCVgwqLvnX8
-	zLUmOm90rGf0NQW6TqGMmlim5qydN+FnxjWLXd1HhRavDKTH3AGeBb8n4UV/HJXifZ+fdqF
-	vCw6SdKIIXCymfPPbERsIonJRgoOpIFkVlYwGBO8NiKyxeNIzUgu1rEuswNEXjIo01VHP2Z
-	BQwWdmk+7hiExjfLxETY9QskPcG3w9DCBhgsI6sOTiTyQenEmXN1VtWL8brYB8gVSrytdHB
-	epUhpDpNDBr7NOO9rtI5VE9CPxWIflAQnMmVrPQ7uIxQZCpY5fOjGTXBWKX6YLYFdo6woZc
-	FBC+KF8RtRZ0lGQoNVqXNZg/9OSwuMmd8SYtxk78WAIFU/KX7SyvL6QNCQGIOzSeXSbn6C6
-	rWJ3beoyqO6FutQacNrWOs905WM67qalTkQnHQv8hrQJlTOwEtQcJ2sJ1HAulRWhL6KXJU5
-	gu/7cFUI/WQEfcCqBH2p7hNdbqRRJYz1heu5KPICSEM7qoat3ZZU9rICajQgvWV2i7+VzGE
-	ezMFkYNmdogWLEsG8HxAI3sk/mmgOxMNQEwejKC3XV4HBj2A2156QUYnuVgZCvke/M83c/I
-	uILaITTIv3bnnKCOSM3Nty0Mk8qWSLIU3ky32TneDo/+AyZR0IlTdjnkVuzr45YI/EGK4Nh
-	TtFZcsk2DD6m0e+qkLSM8m35D0/JvS5NRn+vnBm6J+t3B0CBDHgJmxzY0gDBP+Jg03Bj6In
-	BEoP3ezd7vtCLE2LkSVhQKmNEPhhbyrhWkGcJIokCy0
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_003413_129269_50832BE9 
-X-CRM114-Status: GOOD (  31.73  )
+References: <20250818054207.21532-1-fangyu.yu@linux.alibaba.com> <CAJF2gTTqPMVTNdHL7PUwobXQr3dwzKPi13ZDpmkVz+3VXHLZVw@mail.gmail.com>
+In-Reply-To: <CAJF2gTTqPMVTNdHL7PUwobXQr3dwzKPi13ZDpmkVz+3VXHLZVw@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 18 Aug 2025 15:45:34 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQFWJzHhRoQ-oASO9nn1kC0dv+NuK-DD=JgfeHE90RWqw@mail.gmail.com>
+X-Gm-Features: Ac12FXzzM0il7f9K7PUzED9HklQztO75B3sc-fXWfkPu4ViWfodFZHTR1W6vw-E
+Message-ID: <CAJF2gTQFWJzHhRoQ-oASO9nn1kC0dv+NuK-DD=JgfeHE90RWqw@mail.gmail.com>
+Subject: Re: [PATCH V2] RISC-V: KVM: Write hgatp register with valid mode bits
+To: fangyu.yu@linux.alibaba.com
+Cc: anup@brainfault.org, atish.patra@linux.dev, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	guoren@linux.alibaba.com, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,120 +76,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 02:20:03AM +0000, Haylen Chu wrote:
-> On Mon, Aug 11, 2025 at 10:04:29PM +0800, Troy Mitchell wrote:
-> > From the definition of register, The i2s_bclk is a non-linear,
-> > discrete divider clock.
-> > 
-> > The following table shows the correspondence between index
-> > and frequency division coefficients:
-> > 
-> > | index |  div  |
-> > |-------|-------|
-> > |   0   |   2   |
-> > |   1   |   4   |
-> > |   2   |   6   |
-> > |   3   |   8   |
-> > 
-> > But from a software perspective and this table, dividing the
-> > actual div value by 2 is sufficient to obtain a continuous
-> > divider clock.
-> > 
-> > Rather than introducing a new clock type to handle this case,
-> > a factor parameter has been added to CCU_DIV_GATE_DEFINE.
-> 
-> Actually, I expected you to represent the factor simply with
-> CCU_FACTOR_DEFINE, introducing no new clock-calculation code...
-I'll change it in the next version.
-
-> 
-> > Suggested-by: Haylen Chu <heylenay@4d2.org>
-> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > ---
-> >  drivers/clk/spacemit/ccu_mix.c | 7 ++++++-
-> >  drivers/clk/spacemit/ccu_mix.h | 4 +++-
-> >  2 files changed, 9 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/clk/spacemit/ccu_mix.c b/drivers/clk/spacemit/ccu_mix.c
-> > index 9b852aa61f78aed5256bfe6fc3b01932d6db6256..dbd2cf234bf81d8e110b19868ff9af7373e2ab55 100644
-> > --- a/drivers/clk/spacemit/ccu_mix.c
-> > +++ b/drivers/clk/spacemit/ccu_mix.c
-> > @@ -56,7 +56,10 @@ static unsigned long ccu_div_recalc_rate(struct clk_hw *hw,
-> >  	val = ccu_read(&mix->common, ctrl) >> div->shift;
-> >  	val &= (1 << div->width) - 1;
-> >  
-> > -	return divider_recalc_rate(hw, parent_rate, val, NULL, 0, div->width);
-> > +	if (!div->factor)
-> > +		return divider_recalc_rate(hw, parent_rate, val, NULL, 0, div->width);
-> 
-> Please adapt all div-related macros to make them assign one to the
-> factor, which helps you get rid of this if and the one in
-> ccu_mix_calc_best_rate().
-> 
-> > +	return divider_recalc_rate(hw, parent_rate, val, NULL, 0, div->width) / div->factor;
-> >  }
-> >  
-> >  /*
-> > @@ -115,6 +118,8 @@ ccu_mix_calc_best_rate(struct clk_hw *hw, unsigned long rate,
-> >  
-> >  		for (int j = 1; j <= div_max; j++) {
-> >  			unsigned long tmp = DIV_ROUND_CLOSEST_ULL(parent_rate, j);
-> > +			if (mix->div.factor)
-> 			---- this if ------
-> 
-> > +				tmp /= mix->div.factor;
-> >  
-> >  			if (abs(tmp - rate) < abs(best_rate - rate)) {
-> >  				best_rate = tmp;
-> > diff --git a/drivers/clk/spacemit/ccu_mix.h b/drivers/clk/spacemit/ccu_mix.h
-> > index 54d40cd39b2752260f57d2a96eb8d3eed8116ecd..7dd00d24ec4b1dab70663b9cb7b9ebb02abeaecb 100644
-> > --- a/drivers/clk/spacemit/ccu_mix.h
-> > +++ b/drivers/clk/spacemit/ccu_mix.h
-> > @@ -34,6 +34,7 @@ struct ccu_mux_config {
-> >  struct ccu_div_config {
-> >  	u8 shift;
-> >  	u8 width;
-> > +	unsigned int factor;
-> >  };
-> >  
-> >  struct ccu_mix {
-> > @@ -130,10 +131,11 @@ static struct ccu_mix _name = {							\
-> >  }
-> >  
-> >  #define CCU_DIV_GATE_DEFINE(_name, _parent, _reg_ctrl, _shift, _width,		\
-> > -			    _mask_gate,	_flags)					\
-> > +			    _mask_gate,	_factor, _flags)			\
-> 
-> This isn't that consistent: why could only divider-gate come with a
-> factor? This is another reason why I think representing the factor
-> separately with the CCU_FACTOR_DEFINE() macro is better.
-> 
-> >  static struct ccu_mix _name = {							\
-> >  	.gate	= CCU_GATE_INIT(_mask_gate),					\
-> >  	.div	= CCU_DIV_INIT(_shift, _width),					\
-> > +	.div.factor = _factor,						\
-> >  	.common = {								\
-> >  		.reg_ctrl	= _reg_ctrl,					\
-> >  		CCU_MIX_INITHW(_name, _parent, spacemit_ccu_div_gate_ops,	\
-> > 
-> > -- 
-> > 2.50.1
-> > 
-> 
-> Best regards,
-> Haylen Chu
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBdWcgMTgsIDIwMjUgYXQgMjoxN+KAr1BNIEd1byBSZW4gPGd1b3JlbkBrZXJuZWwu
+b3JnPiB3cm90ZToKPgo+IE9uIE1vbiwgQXVnIDE4LCAyMDI1IGF0IDE6NDLigK9QTSA8ZmFuZ3l1
+Lnl1QGxpbnV4LmFsaWJhYmEuY29tPiB3cm90ZToKPiA+Cj4gPiBGcm9tOiBGYW5neXUgWXUgPGZh
+bmd5dS55dUBsaW51eC5hbGliYWJhLmNvbT4KPiA+Cj4gPiBBY2NvcmRpbmcgdG8gdGhlIFJJU0Mt
+ViBQcml2aWxlZ2VkIEFyY2hpdGVjdHVyZSBTcGVjLCB3aGVuIE1PREU9QmFyZQo+ID4gaXMgc2Vs
+ZWN0ZWQsc29mdHdhcmUgbXVzdCB3cml0ZSB6ZXJvIHRvIHRoZSByZW1haW5pbmcgZmllbGRzIG9m
+IGhnYXRwLgo+ID4KPiA+IFdlIGhhdmUgZGV0ZWN0ZWQgdGhlIHZhbGlkIG1vZGUgc3VwcG9ydGVk
+IGJ5IHRoZSBIVyBiZWZvcmUsIFNvIHVzaW5nIGEKPiA+IHZhbGlkIG1vZGUgdG8gZGV0ZWN0IGhv
+dyBtYW55IHZtaWQgYml0cyBhcmUgc3VwcG9ydGVkLgo+IEdvb2QgY2F0Y2ghIEl0J3MgYSBidWcu
+IFRoZSBjb2RlIHNlZW1zIGNvcGllZCBmcm9tIGFzaWRzX2luaXQoKSwgd2hvc2UKPiBvbGQgdmFs
+dWUgaXMgbm90IGJhcmUgbW9kZS4gRm9yIHJlYWwgaGFyZHdhcmUsIGl0IHdvdWxkIGNhdXNlCj4g
+cHJvYmxlbXMsIGJ1dCB0aGUgcWVtdSBidWdneSBjb2RlIGhpZGVzIHRoZSBwcm9ibGVtLgo+Cj4g
+SXQgbmVlZHMgYSB0YWc6IEZpeGVzOiBmZDdiYjRhMjUxZGYgKCJSSVNDLVY6IEtWTTogSW1wbGVt
+ZW50IFZNSUQgYWxsb2NhdG9yIikKPgo+IE90aGVycywgUmV2aWV3ZWQtYnk6IEd1byBSZW4gPGd1
+b3JlbkBrZXJlbmwub3JnPgoKU29ycnkgZm9yIHRoZSB0eXBvOgpSZXZpZXdlZC1ieTogR3VvIFJl
+biA8Z3VvcmVuQGtlcm5lbC5vcmc+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBeXgo+Cj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogRmFu
+Z3l1IFl1IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+Cj4gPgo+ID4gLS0tCj4gPiBDaGFu
+Z2VzIGluIHYyOgo+ID4gLSBGaXhlZCBidWlsZCBlcnJvciBzaW5jZSBrdm1fcmlzY3ZfZ3N0YWdl
+X21vZGUoKSBoYXMgYmVlbiBtb2RpZmllZC4KPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3Yva3ZtL3Zt
+aWQuYyB8IDMgKystCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMSBkZWxl
+dGlvbigtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS92bWlkLmMgYi9hcmNo
+L3Jpc2N2L2t2bS92bWlkLmMKPiA+IGluZGV4IDNiNDI2YzgwMDQ4MC4uNWYzMzYyNWY0MDcwIDEw
+MDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vdm1pZC5jCj4gPiArKysgYi9hcmNoL3Jpc2N2
+L2t2bS92bWlkLmMKPiA+IEBAIC0xNCw2ICsxNCw3IEBACj4gPiAgI2luY2x1ZGUgPGxpbnV4L3Nt
+cC5oPgo+ID4gICNpbmNsdWRlIDxsaW51eC9rdm1faG9zdC5oPgo+ID4gICNpbmNsdWRlIDxhc20v
+Y3NyLmg+Cj4gPiArI2luY2x1ZGUgPGFzbS9rdm1fbW11Lmg+Cj4gPiAgI2luY2x1ZGUgPGFzbS9r
+dm1fdGxiLmg+Cj4gPiAgI2luY2x1ZGUgPGFzbS9rdm1fdm1pZC5oPgo+ID4KPiA+IEBAIC0yOCw3
+ICsyOSw3IEBAIHZvaWQgX19pbml0IGt2bV9yaXNjdl9nc3RhZ2Vfdm1pZF9kZXRlY3Qodm9pZCkK
+PiA+Cj4gPiAgICAgICAgIC8qIEZpZ3VyZS1vdXQgbnVtYmVyIG9mIFZNSUQgYml0cyBpbiBIVyAq
+Lwo+ID4gICAgICAgICBvbGQgPSBjc3JfcmVhZChDU1JfSEdBVFApOwo+ID4gLSAgICAgICBjc3Jf
+d3JpdGUoQ1NSX0hHQVRQLCBvbGQgfCBIR0FUUF9WTUlEKTsKPiA+ICsgICAgICAgY3NyX3dyaXRl
+KENTUl9IR0FUUCwgKGt2bV9yaXNjdl9nc3RhZ2VfbW9kZSA8PCBIR0FUUF9NT0RFX1NISUZUKSB8
+IEhHQVRQX1ZNSUQpOwo+ID4gICAgICAgICB2bWlkX2JpdHMgPSBjc3JfcmVhZChDU1JfSEdBVFAp
+Owo+ID4gICAgICAgICB2bWlkX2JpdHMgPSAodm1pZF9iaXRzICYgSEdBVFBfVk1JRCkgPj4gSEdB
+VFBfVk1JRF9TSElGVDsKPiA+ICAgICAgICAgdm1pZF9iaXRzID0gZmxzX2xvbmcodm1pZF9iaXRz
+KTsKPiA+IC0tCj4gPiAyLjQ5LjAKPiA+Cj4KPgo+IC0tCj4gQmVzdCBSZWdhcmRzCj4gIEd1byBS
+ZW4KCgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
