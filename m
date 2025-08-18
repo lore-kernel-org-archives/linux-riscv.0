@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4FACA0EED
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 05:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F35CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 05:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4vTc9FZo9G1HjnEh6XWY9KpAQb83bItCIPN4cxliZVU=; b=PLfnqCTCRLjmv1
-	pvT0CYZjHQW0bz9aRbVUwKeY1RICqk4ED+P0ORKI9R6QQGsOgiJLiispy8NEWtPV6t20UdWCQUVSy
-	qsUZqgJ0+HUc3W4nD/0dElP1VJiljCLBrRwVa75dAJO9VrrFSVddG0hkw+IZ18vFyOQXk+k3rOiNF
-	SPkREiY7TYNr8CeP2DUJF2XM2yA8kz7KTd3R8yl3PvwR4F9qjkEcCr+kS9YqufRMqlpnd7R8q+aGt
-	Fi0tPrIHILnzzjR3bt8jTeT8o68GMcFCuQuNNLxPxChFRXE0af//3XTHj9mjbcu9FrWpheY7ipdcM
-	tsp+JAY5t/OxAZcQ00MQ==;
+	List-Owner; bh=SAfGO82llCEh3Qi95A5ynEyqKJrVoGn1J4e12u4ZWEg=; b=fZWdBTdZgyrWGN
+	27K/UIsmGaCGnHcuLfg0IiI3+/fmlAnhw5So4nQyShgdZnTjltw0uudAq2neNI0JQnU5LUuiYk170
+	xExCbtDLH+xNARhFil8OAsUbXV/plW7pzDManCRb7gbi2v5z3VezvyyRacZU882efQBOtIwNaJIdw
+	zyNYvjGFYTI7f3IuRx8k5Y7b7r7gu1NP9xR9R4BpRfC/gljbn5rATivz+40BN8ErB1+NM/PgRofkh
+	GT3l/iyqzYCB4t8DDa7LQyCzc9W8ZcDf4f00i+Ipzgh84J9SAjOTWCI78qrL3B5CyJMa+bhQCoTXY
+	tzNcxV6koHW+7jXtZyJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unsGH-00000006XAc-1xsz;
-	Mon, 18 Aug 2025 05:18:25 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1unsGK-00000006XB4-0H1k;
+	Mon, 18 Aug 2025 05:18:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrD8-00000006RDN-2LLI
+	id 1unrEU-00000006Rd6-47Ou
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 18 Aug 2025 04:12:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=X+ejybDVQT/aGz6Lcll3wkVRKaiK+174ISdzaVIOfkE=; b=eTp+eFRL5JO0XW+3u97wn0D6Xn
+	GyPwucFgmmRcbL51LBeuGLN5pDeETfVeAsiVt8rVPR3f9UNFRCiVt4X7pkYItMA8nevoV7fOqVZFW
+	WZ/9h5AmHWzXVQrXfj/0hGUN2m7/E2hsfhU0htIyzGCp3njDacFgl21mo35/TgbxcVTRZAW5F9n1F
+	Bg41mOjW13BHBwVSGfTf2zS69l12pZpScrP2KYazYViVSCvudfFizUNSilcGP4JiV+ivsM1ZmYLnL
+	A5yFPwMKl3Z5wduQp7FaePonUSYMGBoJvprk/nszr7HGFLVlA9sJI7I8fXioLBel9GYesqJ1HBysF
+	8FrST3Zw==;
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unrDK-0000000HE7H-2faU
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 04:11:08 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-32326de9cb4so2855681a91.2
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 21:11:06 -0700 (PDT)
+	Mon, 18 Aug 2025 04:12:13 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-76e4f2e4c40so1308603b3a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 21:11:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1755490266; x=1756095066; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1755490274; x=1756095074; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=d7jXIztdXGL/f3E5EaVlPx6Pk/S/V3+4s88JQr1nkxE=;
-        b=pijL0HDIZsF3jz2uCLNeXIUrRFAZGuONYUTMVDLPnmSHDhw26lfffUhXYJmJGMLBq9
-         kCfcUSAQvRZlUDeESi8OdK14vxMeNNukrd6wlzo2i98K6rmFMRxWCZBKerY+zb7I28R7
-         +QB+dk5wSZLlaBHn9afULwMDMKMy4eVxXZOd2SrEuBNqTczoAnEBd/AzzBhrS6+o00bA
-         ausvphVU+UuGYKcIZlh7YHxVClhXnMwrak9GivlAGLe7vw9+s6uNdEyec0aNjMQJJMMa
-         LEq78G0dWc4KCEqkNmUIH5qyAvCYrWGROo1iR4DXljDdCjEHiWw7YdeF8RCw4adExnnL
-         3gFw==
+        bh=X+ejybDVQT/aGz6Lcll3wkVRKaiK+174ISdzaVIOfkE=;
+        b=SToiNcRIpX+msiwVx7mDOYmf5HaWt3j7WXmTofmAmTLolSiEVb6LkIeXopQLmCBrqq
+         uigvhuZ6Oc1Dov7r8ktcoP52imPsxjY+zKuhca/AXOVV+JC4CFq96ksIlJH3vBouoVFf
+         wIA1xLwjvW27swFMEfNrIOb/6kufp0ruAUC5YselrRKel3m11ypMODaOjPNkBrp0OOn1
+         SkXlStRHZ9et5p5cI86DNYHMnh0Gs8LtPug+iLXCOYDVR4Ll3BL+WrTUS1m/WtFtPYIv
+         RL3I1HPslKKX1A8UNzL760vVyv6tEW3ECS0gZfgYL8m88FI6yesPhVhHcssAGuFemtv1
+         k9ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755490266; x=1756095066;
+        d=1e100.net; s=20230601; t=1755490274; x=1756095074;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=d7jXIztdXGL/f3E5EaVlPx6Pk/S/V3+4s88JQr1nkxE=;
-        b=o0QTKLrYP0/6leIpYKPUWHnGw1TPNhbaDn4IYXCijT20RC9kNJ11vaQ6doVgc8D/VV
-         7MysyAqVeJuc+QQoi715YSXWdkIDx4qzckdqEwQj/4W9MRi7oz5bOOziAP5UZ+pE7Fqt
-         VvVknTekwzL6jrZWCzh3Bmdl8juGkkaqGNnEUZIxQNORNm7/xYwrjm0zD6L2r+T5IrSn
-         ikkwbB9I3tFnPWh6FMIrwJ1aHOgfNtxVhjUSXbjUnrYdRo8wbOjfO0ihJ8OMX/1Qg6jE
-         vJklxCEFmrpziYsuKyyK7w+XbvWb8JX481A6dkbmKfzcapKNe/8gs/FENdhBcFQaEROk
-         jk2A==
-X-Forwarded-Encrypted: i=1; AJvYcCVO55m10NVaf16BmGAOaBuWQ5MEAuMhWzNln4V2e5uyNAW9qO7Q6Y1QU1x0xqR+/BfH6gXQWLcdslyHBw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw94O9slVLGltIbBkrW+Va/7LI1kH1F4tD2U5k4j2K2CTi73/E5
-	xf89L803i9oiSvsecqX+mXSwdyQSN9HGwKdS8ftIWrFWj4NHC1Dbu1rCjhWQTAR6AW0=
-X-Gm-Gg: ASbGncuP2tP5DAk2zVtj5gxBgkpSKexvS6j4vsyuvrretmp4Lcq499K4sxyDB7Pv0hS
-	Ozgl5u3iN8Dnngx86oQoHXIfTDXflKOVIAfAvjEmk/Jhl+QENadq7k1fhd9XVBLcf+z16mlAXjj
-	6TZOqRfX3MyiTP2N/pxB0NMVewVAJuDxWCKvTp86ryKxjWjRUsQxdj8tX8ZBCKVUgYXFX2tMWE6
-	1yGuf2H1kG0Xzde6bjfie9GtWS/W/Y2EyEOpa4+N/jxw5nzgi0RWduqvhRbW+aQRtsf0eIXcPim
-	q3IpJwZeAny/1InFuEzNgbpK6kyRtGCCJOW3lRo1bDXF3MX7D6MKEJm3EE7FWbptYEOmbQX9D2Z
-	7xws8BXuMb0+a9XybJeLlAUXyrCDIXAAG1TWn2KjhUWjZ4sm/jDOQgQ==
-X-Google-Smtp-Source: AGHT+IFQB4yvYf+crjMlWDARnMOptvGYsN3D4PXtuRQdUHn2FH7LxzVsNeaIAVRD5mQcrbjiQUHkWQ==
-X-Received: by 2002:a17:90b:5687:b0:323:28ac:23b4 with SMTP id 98e67ed59e1d1-32341ebf8f3mr16184241a91.8.1755490265447;
-        Sun, 17 Aug 2025 21:11:05 -0700 (PDT)
+        bh=X+ejybDVQT/aGz6Lcll3wkVRKaiK+174ISdzaVIOfkE=;
+        b=CdBCbUjAibIPh5fpk0X8Zq70EzsMSdcv9C/4lqIJAIUQAepTod1hjiN6ol3ytBOj6/
+         ypE09CZjKO4/xHCI89OdshqEmyaN19VQSZEve0uVbSnIuWu0e+7VGcAfS+txnrFo5IPO
+         MSuX4WN+RrqP26ZIfdkFSm96bY2z6DDj7ZxUWHi+9NOv5N+ve2nkdcx82v4aAsCGj6Rl
+         KRl4frQk9oHIIQhZREwpyUaW5twRNDOxZMai9tpCGYqqflMyJ7mkJOQvhHFRILtchrBL
+         6ZWKZ3iBZ3upXdplYBS9EWjnRmei9uC94zHtWO3BGjMuEbQF6OG3UPtUq4IFxHjjd0G9
+         UmBw==
+X-Forwarded-Encrypted: i=1; AJvYcCXL3Iy6jJqwawChhoVtQbzPuoyAjCSsvp/n4l/OyrwXnWGPLlSWNfUwJd3lzY2OttTwD2nSEXQB7B62cA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXhu1rW3GkWBwPBqNEg4RGeponOHi5rdggAJkMxm6XuU9jKLKS
+	Cf2sWeSckqgtB0s5lUcOhjq9IdbfVmg79Rzwf9kTnarF5aH4rC5XivdgEjOjcOtZn60=
+X-Gm-Gg: ASbGncuN+J6GnfAFySTCT475JjzTmTkKAKH2i1db8zaxyqi0Kp9bkd/qwmZ9kIiqhjj
+	mhT9JafotKZf5SViZgNM1xCt+40gNdYpIfaqvv80eoy5td2Oxqy+E96bVuukpD/eEAoPy4sbNNB
+	ocFi0OWVaq9elJOuIK1uJrJ0hq9+yhgpQe3uxQz1UX5pU4T7/BCfT3gjKeysiayQUc8qam5YaC5
+	62p6uNRFX/9Ckj9wz7YRtlconxno/t0n/BLjLv9yjMgdieRI8onM6X9QYZ/P9hQcw8KpBQiSnZC
+	X+09g2RxsR/m5+rDSGKNxsvQ5e4ymmS/SocQ5sJdG4+B7J2oU4z+y7MURXNpIFzPrHmPJTLFOZS
+	Vx6msGCbECHptkL7xwOPzQP+9uJTbJT9Wt9odL05WWeNR4BG6Lg0XDw==
+X-Google-Smtp-Source: AGHT+IEUmCBJqt58NVIHDPHHca9PR8O5TrOG4aqKnEqH28bGTGwWCZIcGW0W6/qShoAW7F8CGp1xoA==
+X-Received: by 2002:a05:6a20:9183:b0:23d:9dd0:b2ce with SMTP id adf61e73a8af0-240d2f668bfmr14194804637.44.1755490273971;
+        Sun, 17 Aug 2025 21:11:13 -0700 (PDT)
 Received: from localhost.localdomain ([122.171.17.53])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32343c70356sm6560972a91.25.2025.08.17.21.10.56
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32343c70356sm6560972a91.25.2025.08.17.21.11.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Aug 2025 21:11:04 -0700 (PDT)
+        Sun, 17 Aug 2025 21:11:13 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -83,16 +98,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v10 07/24] mailbox: Add RISC-V SBI message proxy (MPXY) based mailbox driver
-Date: Mon, 18 Aug 2025 09:39:03 +0530
-Message-ID: <20250818040920.272664-8-apatel@ventanamicro.com>
+Subject: [PATCH v10 08/24] dt-bindings: clock: Add RPMI clock service message proxy bindings
+Date: Mon, 18 Aug 2025 09:39:04 +0530
+Message-ID: <20250818040920.272664-9-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250818040920.272664-1-apatel@ventanamicro.com>
 References: <20250818040920.272664-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_211106_612641_48434EEB 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20250818_051130_058794_1510B842 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,1056 +119,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a mailbox controller driver for the new SBI message proxy extension
-which is part of the SBI v3.0 specification.
+Add device tree bindings for the RPMI clock service group based
+message proxy implemented by the SBI implementation (machine mode
+firmware or hypervisor).
 
-Acked-by: Jassi Brar <jassisinghbrar@gmail.com>
-Co-developed-by: Rahul Pathak <rpathak@ventanamicro.com>
-Signed-off-by: Rahul Pathak <rpathak@ventanamicro.com>
+The RPMI clock service group is defined by the RISC-V platform
+management interface (RPMI) specification.
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/mailbox/Kconfig               |  11 +
- drivers/mailbox/Makefile              |   2 +
- drivers/mailbox/riscv-sbi-mpxy-mbox.c | 994 ++++++++++++++++++++++++++
- 3 files changed, 1007 insertions(+)
- create mode 100644 drivers/mailbox/riscv-sbi-mpxy-mbox.c
+ .../bindings/clock/riscv,rpmi-mpxy-clock.yaml | 64 +++++++++++++++++++
+ 1 file changed, 64 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
 
-diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-index 02432d4a5ccd..c488725aa2a5 100644
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@ -369,4 +369,15 @@ config BCM74110_MAILBOX
- 	  processor and coprocessor that handles various power management task
- 	  and more.
- 
-+config RISCV_SBI_MPXY_MBOX
-+	tristate "RISC-V SBI Message Proxy (MPXY) Mailbox"
-+	depends on RISCV_SBI
-+	default RISCV
-+	help
-+	  Mailbox driver implementation for RISC-V SBI Message Proxy (MPXY)
-+	  extension. This mailbox driver is used to send messages to the
-+	  remote processor through the SBI implementation (M-mode firmware
-+	  or HS-mode hypervisor). Say Y here if you want to have this support.
-+	  If unsure say N.
-+
- endif
-diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-index 98a68f838486..f9a11f5639aa 100644
---- a/drivers/mailbox/Makefile
-+++ b/drivers/mailbox/Makefile
-@@ -78,3 +78,5 @@ obj-$(CONFIG_THEAD_TH1520_MBOX)	+= mailbox-th1520.o
- obj-$(CONFIG_CIX_MBOX)	+= cix-mailbox.o
- 
- obj-$(CONFIG_BCM74110_MAILBOX)	+= bcm74110-mailbox.o
-+
-+obj-$(CONFIG_RISCV_SBI_MPXY_MBOX)	+= riscv-sbi-mpxy-mbox.o
-diff --git a/drivers/mailbox/riscv-sbi-mpxy-mbox.c b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+diff --git a/Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml b/Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
 new file mode 100644
-index 000000000000..21404baa6df0
+index 000000000000..76f2a1b3d30d
 --- /dev/null
-+++ b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
-@@ -0,0 +1,994 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * RISC-V SBI Message Proxy (MPXY) mailbox controller driver
-+ *
-+ * Copyright (C) 2025 Ventana Micro Systems Inc.
-+ */
-+
-+#include <linux/cpu.h>
-+#include <linux/errno.h>
-+#include <linux/init.h>
-+#include <linux/mailbox_controller.h>
-+#include <linux/mailbox/riscv-rpmi-message.h>
-+#include <linux/minmax.h>
-+#include <linux/mm.h>
-+#include <linux/module.h>
-+#include <linux/msi.h>
-+#include <linux/of_irq.h>
-+#include <linux/percpu.h>
-+#include <linux/platform_device.h>
-+#include <linux/smp.h>
-+#include <linux/string.h>
-+#include <linux/types.h>
-+#include <asm/byteorder.h>
-+#include <asm/sbi.h>
-+
-+/* ====== SBI MPXY extension data structures ====== */
-+
-+/* SBI MPXY MSI related channel attributes */
-+struct sbi_mpxy_msi_info {
-+	/* Lower 32-bits of the MSI target address */
-+	u32 msi_addr_lo;
-+	/* Upper 32-bits of the MSI target address */
-+	u32 msi_addr_hi;
-+	/* MSI data value */
-+	u32 msi_data;
-+};
-+
-+/*
-+ * SBI MPXY standard channel attributes.
-+ *
-+ * NOTE: The sequence of attribute fields are as-per the
-+ * defined sequence in the attribute table in spec (or
-+ * as-per the enum sbi_mpxy_attribute_id).
-+ */
-+struct sbi_mpxy_channel_attrs {
-+	/* Message protocol ID */
-+	u32 msg_proto_id;
-+	/* Message protocol version */
-+	u32 msg_proto_version;
-+	/* Message protocol maximum message length */
-+	u32 msg_max_len;
-+	/* Message protocol message send timeout in microseconds */
-+	u32 msg_send_timeout;
-+	/* Message protocol message completion timeout in microseconds */
-+	u32 msg_completion_timeout;
-+	/* Bit array for channel capabilities */
-+	u32 capability;
-+	/* SSE event ID */
-+	u32 sse_event_id;
-+	/* MSI enable/disable control knob */
-+	u32 msi_control;
-+	/* Channel MSI info */
-+	struct sbi_mpxy_msi_info msi_info;
-+	/* Events state control */
-+	u32 events_state_ctrl;
-+};
-+
-+/*
-+ * RPMI specific SBI MPXY channel attributes.
-+ *
-+ * NOTE: The sequence of attribute fields are as-per the
-+ * defined sequence in the attribute table in spec (or
-+ * as-per the enum sbi_mpxy_rpmi_attribute_id).
-+ */
-+struct sbi_mpxy_rpmi_channel_attrs {
-+	/* RPMI service group ID */
-+	u32 servicegroup_id;
-+	/* RPMI service group version */
-+	u32 servicegroup_version;
-+	/* RPMI implementation ID */
-+	u32 impl_id;
-+	/* RPMI implementation version */
-+	u32 impl_version;
-+};
-+
-+/* SBI MPXY channel IDs data in shared memory */
-+struct sbi_mpxy_channel_ids_data {
-+	/* Remaining number of channel ids */
-+	__le32 remaining;
-+	/* Returned channel ids in current function call */
-+	__le32 returned;
-+	/* Returned channel id array */
-+	__le32 channel_array[];
-+};
-+
-+/* SBI MPXY notification data in shared memory */
-+struct sbi_mpxy_notification_data {
-+	/* Remaining number of notification events */
-+	__le32 remaining;
-+	/* Number of notification events returned */
-+	__le32 returned;
-+	/* Number of notification events lost */
-+	__le32 lost;
-+	/* Reserved for future use */
-+	__le32 reserved;
-+	/* Returned channel id array */
-+	u8 events_data[];
-+};
-+
-+/* ====== MPXY data structures & helper routines ====== */
-+
-+/* MPXY Per-CPU or local context */
-+struct mpxy_local {
-+	/* Shared memory base address */
-+	void *shmem;
-+	/* Shared memory physical address */
-+	phys_addr_t shmem_phys_addr;
-+	/* Flag representing whether shared memory is active or not */
-+	bool shmem_active;
-+};
-+
-+static DEFINE_PER_CPU(struct mpxy_local, mpxy_local);
-+static unsigned long mpxy_shmem_size;
-+static bool mpxy_shmem_init_done;
-+
-+static int mpxy_get_channel_count(u32 *channel_count)
-+{
-+	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct sbi_mpxy_channel_ids_data *sdata = mpxy->shmem;
-+	u32 remaining, returned;
-+	struct sbiret sret;
-+
-+	if (!mpxy->shmem_active)
-+		return -ENODEV;
-+	if (!channel_count)
-+		return -EINVAL;
-+
-+	get_cpu();
-+
-+	/* Get the remaining and returned fields to calculate total */
-+	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_GET_CHANNEL_IDS,
-+			 0, 0, 0, 0, 0, 0);
-+	if (sret.error)
-+		goto err_put_cpu;
-+
-+	remaining = le32_to_cpu(sdata->remaining);
-+	returned = le32_to_cpu(sdata->returned);
-+	*channel_count = remaining + returned;
-+
-+err_put_cpu:
-+	put_cpu();
-+	return sbi_err_map_linux_errno(sret.error);
-+}
-+
-+static int mpxy_get_channel_ids(u32 channel_count, u32 *channel_ids)
-+{
-+	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct sbi_mpxy_channel_ids_data *sdata = mpxy->shmem;
-+	u32 remaining, returned, count, start_index = 0;
-+	struct sbiret sret;
-+
-+	if (!mpxy->shmem_active)
-+		return -ENODEV;
-+	if (!channel_count || !channel_ids)
-+		return -EINVAL;
-+
-+	get_cpu();
-+
-+	do {
-+		sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_GET_CHANNEL_IDS,
-+				 start_index, 0, 0, 0, 0, 0);
-+		if (sret.error)
-+			goto err_put_cpu;
-+
-+		remaining = le32_to_cpu(sdata->remaining);
-+		returned = le32_to_cpu(sdata->returned);
-+
-+		count = returned < (channel_count - start_index) ?
-+			returned : (channel_count - start_index);
-+		memcpy_from_le32(&channel_ids[start_index], sdata->channel_array, count);
-+		start_index += count;
-+	} while (remaining && start_index < channel_count);
-+
-+err_put_cpu:
-+	put_cpu();
-+	return sbi_err_map_linux_errno(sret.error);
-+}
-+
-+static int mpxy_read_attrs(u32 channel_id, u32 base_attrid, u32 attr_count,
-+			   u32 *attrs_buf)
-+{
-+	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct sbiret sret;
-+
-+	if (!mpxy->shmem_active)
-+		return -ENODEV;
-+	if (!attr_count || !attrs_buf)
-+		return -EINVAL;
-+
-+	get_cpu();
-+
-+	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_READ_ATTRS,
-+			 channel_id, base_attrid, attr_count, 0, 0, 0);
-+	if (sret.error)
-+		goto err_put_cpu;
-+
-+	memcpy_from_le32(attrs_buf, (__le32 *)mpxy->shmem, attr_count);
-+
-+err_put_cpu:
-+	put_cpu();
-+	return sbi_err_map_linux_errno(sret.error);
-+}
-+
-+static int mpxy_write_attrs(u32 channel_id, u32 base_attrid, u32 attr_count,
-+			    u32 *attrs_buf)
-+{
-+	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct sbiret sret;
-+
-+	if (!mpxy->shmem_active)
-+		return -ENODEV;
-+	if (!attr_count || !attrs_buf)
-+		return -EINVAL;
-+
-+	get_cpu();
-+
-+	memcpy_to_le32((__le32 *)mpxy->shmem, attrs_buf, attr_count);
-+	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_WRITE_ATTRS,
-+			 channel_id, base_attrid, attr_count, 0, 0, 0);
-+
-+	put_cpu();
-+	return sbi_err_map_linux_errno(sret.error);
-+}
-+
-+static int mpxy_send_message_with_resp(u32 channel_id, u32 msg_id,
-+				       void *tx, unsigned long tx_len,
-+				       void *rx, unsigned long max_rx_len,
-+				       unsigned long *rx_len)
-+{
-+	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	unsigned long rx_bytes;
-+	struct sbiret sret;
-+
-+	if (!mpxy->shmem_active)
-+		return -ENODEV;
-+	if (!tx && tx_len)
-+		return -EINVAL;
-+
-+	get_cpu();
-+
-+	/* Message protocols allowed to have no data in messages */
-+	if (tx_len)
-+		memcpy(mpxy->shmem, tx, tx_len);
-+
-+	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_SEND_MSG_WITH_RESP,
-+			 channel_id, msg_id, tx_len, 0, 0, 0);
-+	if (rx && !sret.error) {
-+		rx_bytes = sret.value;
-+		if (rx_bytes > max_rx_len) {
-+			put_cpu();
-+			return -ENOSPC;
-+		}
-+
-+		memcpy(rx, mpxy->shmem, rx_bytes);
-+		if (rx_len)
-+			*rx_len = rx_bytes;
-+	}
-+
-+	put_cpu();
-+	return sbi_err_map_linux_errno(sret.error);
-+}
-+
-+static int mpxy_send_message_without_resp(u32 channel_id, u32 msg_id,
-+					  void *tx, unsigned long tx_len)
-+{
-+	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct sbiret sret;
-+
-+	if (!mpxy->shmem_active)
-+		return -ENODEV;
-+	if (!tx && tx_len)
-+		return -EINVAL;
-+
-+	get_cpu();
-+
-+	/* Message protocols allowed to have no data in messages */
-+	if (tx_len)
-+		memcpy(mpxy->shmem, tx, tx_len);
-+
-+	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_SEND_MSG_WITHOUT_RESP,
-+			 channel_id, msg_id, tx_len, 0, 0, 0);
-+
-+	put_cpu();
-+	return sbi_err_map_linux_errno(sret.error);
-+}
-+
-+static int mpxy_get_notifications(u32 channel_id,
-+				  struct sbi_mpxy_notification_data *notif_data,
-+				  unsigned long *events_data_len)
-+{
-+	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
-+	struct sbiret sret;
-+
-+	if (!mpxy->shmem_active)
-+		return -ENODEV;
-+	if (!notif_data || !events_data_len)
-+		return -EINVAL;
-+
-+	get_cpu();
-+
-+	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_GET_NOTIFICATION_EVENTS,
-+			 channel_id, 0, 0, 0, 0, 0);
-+	if (sret.error)
-+		goto err_put_cpu;
-+
-+	memcpy(notif_data, mpxy->shmem, sret.value + 16);
-+	*events_data_len = sret.value;
-+
-+err_put_cpu:
-+	put_cpu();
-+	return sbi_err_map_linux_errno(sret.error);
-+}
-+
-+static int mpxy_get_shmem_size(unsigned long *shmem_size)
-+{
-+	struct sbiret sret;
-+
-+	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_GET_SHMEM_SIZE,
-+			 0, 0, 0, 0, 0, 0);
-+	if (sret.error)
-+		return sbi_err_map_linux_errno(sret.error);
-+	if (shmem_size)
-+		*shmem_size = sret.value;
-+	return 0;
-+}
-+
-+static int mpxy_setup_shmem(unsigned int cpu)
-+{
-+	struct page *shmem_page;
-+	struct mpxy_local *mpxy;
-+	struct sbiret sret;
-+
-+	mpxy = per_cpu_ptr(&mpxy_local, cpu);
-+	if (mpxy->shmem_active)
-+		return 0;
-+
-+	shmem_page = alloc_pages(GFP_KERNEL | __GFP_ZERO, get_order(mpxy_shmem_size));
-+	if (!shmem_page)
-+		return -ENOMEM;
-+
-+	/*
-+	 * Linux setup of shmem is done in mpxy OVERWRITE mode.
-+	 * flags[1:0] = 00b
-+	 */
-+	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_SET_SHMEM,
-+			 page_to_phys(shmem_page), 0, 0, 0, 0, 0);
-+	if (sret.error) {
-+		free_pages((unsigned long)page_to_virt(shmem_page),
-+			   get_order(mpxy_shmem_size));
-+		return sbi_err_map_linux_errno(sret.error);
-+	}
-+
-+	mpxy->shmem = page_to_virt(shmem_page);
-+	mpxy->shmem_phys_addr = page_to_phys(shmem_page);
-+	mpxy->shmem_active = true;
-+
-+	return 0;
-+}
-+
-+/* ====== MPXY mailbox data structures ====== */
-+
-+/* MPXY mailbox channel */
-+struct mpxy_mbox_channel {
-+	struct mpxy_mbox *mbox;
-+	u32 channel_id;
-+	struct sbi_mpxy_channel_attrs attrs;
-+	struct sbi_mpxy_rpmi_channel_attrs rpmi_attrs;
-+	struct sbi_mpxy_notification_data *notif;
-+	u32 max_xfer_len;
-+	bool have_events_state;
-+	u32 msi_index;
-+	u32 msi_irq;
-+	bool started;
-+};
-+
-+/* MPXY mailbox */
-+struct mpxy_mbox {
-+	struct device *dev;
-+	u32 channel_count;
-+	struct mpxy_mbox_channel *channels;
-+	u32 msi_count;
-+	struct mpxy_mbox_channel **msi_index_to_channel;
-+	struct mbox_controller controller;
-+};
-+
-+/* ====== MPXY RPMI processing ====== */
-+
-+static void mpxy_mbox_send_rpmi_data(struct mpxy_mbox_channel *mchan,
-+				     struct rpmi_mbox_message *msg)
-+{
-+	msg->error = 0;
-+	switch (msg->type) {
-+	case RPMI_MBOX_MSG_TYPE_GET_ATTRIBUTE:
-+		switch (msg->attr.id) {
-+		case RPMI_MBOX_ATTR_SPEC_VERSION:
-+			msg->attr.value = mchan->attrs.msg_proto_version;
-+			break;
-+		case RPMI_MBOX_ATTR_MAX_MSG_DATA_SIZE:
-+			msg->attr.value = mchan->max_xfer_len;
-+			break;
-+		case RPMI_MBOX_ATTR_SERVICEGROUP_ID:
-+			msg->attr.value = mchan->rpmi_attrs.servicegroup_id;
-+			break;
-+		case RPMI_MBOX_ATTR_SERVICEGROUP_VERSION:
-+			msg->attr.value = mchan->rpmi_attrs.servicegroup_version;
-+			break;
-+		case RPMI_MBOX_ATTR_IMPL_ID:
-+			msg->attr.value = mchan->rpmi_attrs.impl_id;
-+			break;
-+		case RPMI_MBOX_ATTR_IMPL_VERSION:
-+			msg->attr.value = mchan->rpmi_attrs.impl_version;
-+			break;
-+		default:
-+			msg->error = -EOPNOTSUPP;
-+			break;
-+		}
-+		break;
-+	case RPMI_MBOX_MSG_TYPE_SET_ATTRIBUTE:
-+		/* None of the RPMI linux mailbox attributes are writeable */
-+		msg->error = -EOPNOTSUPP;
-+		break;
-+	case RPMI_MBOX_MSG_TYPE_SEND_WITH_RESPONSE:
-+		if ((!msg->data.request && msg->data.request_len) ||
-+		    (msg->data.request && msg->data.request_len > mchan->max_xfer_len) ||
-+		    (!msg->data.response && msg->data.max_response_len)) {
-+			msg->error = -EINVAL;
-+			break;
-+		}
-+		if (!(mchan->attrs.capability & SBI_MPXY_CHAN_CAP_SEND_WITH_RESP)) {
-+			msg->error = -EIO;
-+			break;
-+		}
-+		msg->error = mpxy_send_message_with_resp(mchan->channel_id,
-+							 msg->data.service_id,
-+							 msg->data.request,
-+							 msg->data.request_len,
-+							 msg->data.response,
-+							 msg->data.max_response_len,
-+							 &msg->data.out_response_len);
-+		break;
-+	case RPMI_MBOX_MSG_TYPE_SEND_WITHOUT_RESPONSE:
-+		if ((!msg->data.request && msg->data.request_len) ||
-+		    (msg->data.request && msg->data.request_len > mchan->max_xfer_len)) {
-+			msg->error = -EINVAL;
-+			break;
-+		}
-+		if (!(mchan->attrs.capability & SBI_MPXY_CHAN_CAP_SEND_WITHOUT_RESP)) {
-+			msg->error = -EIO;
-+			break;
-+		}
-+		msg->error = mpxy_send_message_without_resp(mchan->channel_id,
-+							    msg->data.service_id,
-+							    msg->data.request,
-+							    msg->data.request_len);
-+		break;
-+	default:
-+		msg->error = -EOPNOTSUPP;
-+		break;
-+	}
-+}
-+
-+static void mpxy_mbox_peek_rpmi_data(struct mbox_chan *chan,
-+				     struct mpxy_mbox_channel *mchan,
-+				     struct sbi_mpxy_notification_data *notif,
-+				     unsigned long events_data_len)
-+{
-+	struct rpmi_notification_event *event;
-+	struct rpmi_mbox_message msg;
-+	unsigned long pos = 0;
-+
-+	while (pos < events_data_len && (events_data_len - pos) <= sizeof(*event)) {
-+		event = (struct rpmi_notification_event *)(notif->events_data + pos);
-+
-+		msg.type = RPMI_MBOX_MSG_TYPE_NOTIFICATION_EVENT;
-+		msg.notif.event_datalen = le16_to_cpu(event->event_datalen);
-+		msg.notif.event_id = event->event_id;
-+		msg.notif.event_data = event->event_data;
-+		msg.error = 0;
-+
-+		mbox_chan_received_data(chan, &msg);
-+		pos += sizeof(*event) + msg.notif.event_datalen;
-+	}
-+}
-+
-+static int mpxy_mbox_read_rpmi_attrs(struct mpxy_mbox_channel *mchan)
-+{
-+	return mpxy_read_attrs(mchan->channel_id,
-+			       SBI_MPXY_ATTR_MSGPROTO_ATTR_START,
-+			       sizeof(mchan->rpmi_attrs) / sizeof(u32),
-+			       (u32 *)&mchan->rpmi_attrs);
-+}
-+
-+/* ====== MPXY mailbox callbacks ====== */
-+
-+static int mpxy_mbox_send_data(struct mbox_chan *chan, void *data)
-+{
-+	struct mpxy_mbox_channel *mchan = chan->con_priv;
-+
-+	if (mchan->attrs.msg_proto_id == SBI_MPXY_MSGPROTO_RPMI_ID) {
-+		mpxy_mbox_send_rpmi_data(mchan, data);
-+		return 0;
-+	}
-+
-+	return -EOPNOTSUPP;
-+}
-+
-+static bool mpxy_mbox_peek_data(struct mbox_chan *chan)
-+{
-+	struct mpxy_mbox_channel *mchan = chan->con_priv;
-+	struct sbi_mpxy_notification_data *notif = mchan->notif;
-+	bool have_notifications = false;
-+	unsigned long data_len;
-+	int rc;
-+
-+	if (!(mchan->attrs.capability & SBI_MPXY_CHAN_CAP_GET_NOTIFICATIONS))
-+		return false;
-+
-+	do {
-+		rc = mpxy_get_notifications(mchan->channel_id, notif, &data_len);
-+		if (rc || !data_len)
-+			break;
-+
-+		if (mchan->attrs.msg_proto_id == SBI_MPXY_MSGPROTO_RPMI_ID)
-+			mpxy_mbox_peek_rpmi_data(chan, mchan, notif, data_len);
-+
-+		have_notifications = true;
-+	} while (1);
-+
-+	return have_notifications;
-+}
-+
-+static irqreturn_t mpxy_mbox_irq_thread(int irq, void *dev_id)
-+{
-+	mpxy_mbox_peek_data(dev_id);
-+	return IRQ_HANDLED;
-+}
-+
-+static int mpxy_mbox_setup_msi(struct mbox_chan *chan,
-+			       struct mpxy_mbox_channel *mchan)
-+{
-+	struct device *dev = mchan->mbox->dev;
-+	int rc;
-+
-+	/* Do nothing if MSI not supported */
-+	if (mchan->msi_irq == U32_MAX)
-+		return 0;
-+
-+	/* Fail if MSI already enabled */
-+	if (mchan->attrs.msi_control)
-+		return -EALREADY;
-+
-+	/* Request channel MSI handler */
-+	rc = request_threaded_irq(mchan->msi_irq, NULL, mpxy_mbox_irq_thread,
-+				  0, dev_name(dev), chan);
-+	if (rc) {
-+		dev_err(dev, "failed to request MPXY channel 0x%x IRQ\n",
-+			mchan->channel_id);
-+		return rc;
-+	}
-+
-+	/* Enable channel MSI control */
-+	mchan->attrs.msi_control = 1;
-+	rc = mpxy_write_attrs(mchan->channel_id, SBI_MPXY_ATTR_MSI_CONTROL,
-+			      1, &mchan->attrs.msi_control);
-+	if (rc) {
-+		dev_err(dev, "enable MSI control failed for MPXY channel 0x%x\n",
-+			mchan->channel_id);
-+		mchan->attrs.msi_control = 0;
-+		free_irq(mchan->msi_irq, chan);
-+		return rc;
-+	}
-+
-+	return 0;
-+}
-+
-+static void mpxy_mbox_cleanup_msi(struct mbox_chan *chan,
-+				  struct mpxy_mbox_channel *mchan)
-+{
-+	struct device *dev = mchan->mbox->dev;
-+	int rc;
-+
-+	/* Do nothing if MSI not supported */
-+	if (mchan->msi_irq == U32_MAX)
-+		return;
-+
-+	/* Do nothing if MSI already disabled */
-+	if (!mchan->attrs.msi_control)
-+		return;
-+
-+	/* Disable channel MSI control */
-+	mchan->attrs.msi_control = 0;
-+	rc = mpxy_write_attrs(mchan->channel_id, SBI_MPXY_ATTR_MSI_CONTROL,
-+			      1, &mchan->attrs.msi_control);
-+	if (rc) {
-+		dev_err(dev, "disable MSI control failed for MPXY channel 0x%x\n",
-+			mchan->channel_id);
-+	}
-+
-+	/* Free channel MSI handler */
-+	free_irq(mchan->msi_irq, chan);
-+}
-+
-+static int mpxy_mbox_setup_events(struct mpxy_mbox_channel *mchan)
-+{
-+	struct device *dev = mchan->mbox->dev;
-+	int rc;
-+
-+	/* Do nothing if events state not supported */
-+	if (!mchan->have_events_state)
-+		return 0;
-+
-+	/* Fail if events state already enabled */
-+	if (mchan->attrs.events_state_ctrl)
-+		return -EALREADY;
-+
-+	/* Enable channel events state */
-+	mchan->attrs.events_state_ctrl = 1;
-+	rc = mpxy_write_attrs(mchan->channel_id, SBI_MPXY_ATTR_EVENTS_STATE_CONTROL,
-+			      1, &mchan->attrs.events_state_ctrl);
-+	if (rc) {
-+		dev_err(dev, "enable events state failed for MPXY channel 0x%x\n",
-+			mchan->channel_id);
-+		mchan->attrs.events_state_ctrl = 0;
-+		return rc;
-+	}
-+
-+	return 0;
-+}
-+
-+static void mpxy_mbox_cleanup_events(struct mpxy_mbox_channel *mchan)
-+{
-+	struct device *dev = mchan->mbox->dev;
-+	int rc;
-+
-+	/* Do nothing if events state not supported */
-+	if (!mchan->have_events_state)
-+		return;
-+
-+	/* Do nothing if events state already disabled */
-+	if (!mchan->attrs.events_state_ctrl)
-+		return;
-+
-+	/* Disable channel events state */
-+	mchan->attrs.events_state_ctrl = 0;
-+	rc = mpxy_write_attrs(mchan->channel_id, SBI_MPXY_ATTR_EVENTS_STATE_CONTROL,
-+			      1, &mchan->attrs.events_state_ctrl);
-+	if (rc)
-+		dev_err(dev, "disable events state failed for MPXY channel 0x%x\n",
-+			mchan->channel_id);
-+}
-+
-+static int mpxy_mbox_startup(struct mbox_chan *chan)
-+{
-+	struct mpxy_mbox_channel *mchan = chan->con_priv;
-+	int rc;
-+
-+	if (mchan->started)
-+		return -EALREADY;
-+
-+	/* Setup channel MSI */
-+	rc = mpxy_mbox_setup_msi(chan, mchan);
-+	if (rc)
-+		return rc;
-+
-+	/* Setup channel notification events */
-+	rc = mpxy_mbox_setup_events(mchan);
-+	if (rc) {
-+		mpxy_mbox_cleanup_msi(chan, mchan);
-+		return rc;
-+	}
-+
-+	/* Mark the channel as started */
-+	mchan->started = true;
-+
-+	return 0;
-+}
-+
-+static void mpxy_mbox_shutdown(struct mbox_chan *chan)
-+{
-+	struct mpxy_mbox_channel *mchan = chan->con_priv;
-+
-+	if (!mchan->started)
-+		return;
-+
-+	/* Mark the channel as stopped */
-+	mchan->started = false;
-+
-+	/* Cleanup channel notification events */
-+	mpxy_mbox_cleanup_events(mchan);
-+
-+	/* Cleanup channel MSI */
-+	mpxy_mbox_cleanup_msi(chan, mchan);
-+}
-+
-+static const struct mbox_chan_ops mpxy_mbox_ops = {
-+	.send_data = mpxy_mbox_send_data,
-+	.peek_data = mpxy_mbox_peek_data,
-+	.startup = mpxy_mbox_startup,
-+	.shutdown = mpxy_mbox_shutdown,
-+};
-+
-+/* ====== MPXY platform driver ===== */
-+
-+static void mpxy_mbox_msi_write(struct msi_desc *desc, struct msi_msg *msg)
-+{
-+	struct device *dev = msi_desc_to_dev(desc);
-+	struct mpxy_mbox *mbox = dev_get_drvdata(dev);
-+	struct mpxy_mbox_channel *mchan;
-+	struct sbi_mpxy_msi_info *minfo;
-+	int rc;
-+
-+	mchan = mbox->msi_index_to_channel[desc->msi_index];
-+	if (!mchan) {
-+		dev_warn(dev, "MPXY channel not available for MSI index %d\n",
-+			 desc->msi_index);
-+		return;
-+	}
-+
-+	minfo = &mchan->attrs.msi_info;
-+	minfo->msi_addr_lo = msg->address_lo;
-+	minfo->msi_addr_hi = msg->address_hi;
-+	minfo->msi_data = msg->data;
-+
-+	rc = mpxy_write_attrs(mchan->channel_id, SBI_MPXY_ATTR_MSI_ADDR_LO,
-+			      sizeof(*minfo) / sizeof(u32), (u32 *)minfo);
-+	if (rc) {
-+		dev_warn(dev, "failed to write MSI info for MPXY channel 0x%x\n",
-+			 mchan->channel_id);
-+	}
-+}
-+
-+static struct mbox_chan *mpxy_mbox_fw_xlate(struct mbox_controller *ctlr,
-+					    const struct fwnode_reference_args *pa)
-+{
-+	struct mpxy_mbox *mbox = container_of(ctlr, struct mpxy_mbox, controller);
-+	struct mpxy_mbox_channel *mchan;
-+	u32 i;
-+
-+	if (pa->nargs != 2)
-+		return ERR_PTR(-EINVAL);
-+
-+	for (i = 0; i < mbox->channel_count; i++) {
-+		mchan = &mbox->channels[i];
-+		if (mchan->channel_id == pa->args[0] &&
-+		    mchan->attrs.msg_proto_id == pa->args[1])
-+			return &mbox->controller.chans[i];
-+	}
-+
-+	return ERR_PTR(-ENOENT);
-+}
-+
-+static int mpxy_mbox_populate_channels(struct mpxy_mbox *mbox)
-+{
-+	u32 i, *channel_ids __free(kfree) = NULL;
-+	struct mpxy_mbox_channel *mchan;
-+	int rc;
-+
-+	/* Find-out of number of channels */
-+	rc = mpxy_get_channel_count(&mbox->channel_count);
-+	if (rc)
-+		return dev_err_probe(mbox->dev, rc, "failed to get number of MPXY channels\n");
-+	if (!mbox->channel_count)
-+		return dev_err_probe(mbox->dev, -ENODEV, "no MPXY channels available\n");
-+
-+	/* Allocate and fetch all channel IDs */
-+	channel_ids = kcalloc(mbox->channel_count, sizeof(*channel_ids), GFP_KERNEL);
-+	if (!channel_ids)
-+		return -ENOMEM;
-+	rc = mpxy_get_channel_ids(mbox->channel_count, channel_ids);
-+	if (rc)
-+		return dev_err_probe(mbox->dev, rc, "failed to get MPXY channel IDs\n");
-+
-+	/* Populate all channels */
-+	mbox->channels = devm_kcalloc(mbox->dev, mbox->channel_count,
-+				      sizeof(*mbox->channels), GFP_KERNEL);
-+	if (!mbox->channels)
-+		return -ENOMEM;
-+	for (i = 0; i < mbox->channel_count; i++) {
-+		mchan = &mbox->channels[i];
-+		mchan->mbox = mbox;
-+		mchan->channel_id = channel_ids[i];
-+
-+		rc = mpxy_read_attrs(mchan->channel_id, SBI_MPXY_ATTR_MSG_PROT_ID,
-+				     sizeof(mchan->attrs) / sizeof(u32),
-+				     (u32 *)&mchan->attrs);
-+		if (rc) {
-+			return dev_err_probe(mbox->dev, rc,
-+					     "MPXY channel 0x%x read attrs failed\n",
-+					     mchan->channel_id);
-+		}
-+
-+		if (mchan->attrs.msg_proto_id == SBI_MPXY_MSGPROTO_RPMI_ID) {
-+			rc = mpxy_mbox_read_rpmi_attrs(mchan);
-+			if (rc) {
-+				return dev_err_probe(mbox->dev, rc,
-+						     "MPXY channel 0x%x read RPMI attrs failed\n",
-+						     mchan->channel_id);
-+			}
-+		}
-+
-+		mchan->notif = devm_kzalloc(mbox->dev, mpxy_shmem_size, GFP_KERNEL);
-+		if (!mchan->notif)
-+			return -ENOMEM;
-+
-+		mchan->max_xfer_len = min(mpxy_shmem_size, mchan->attrs.msg_max_len);
-+
-+		if ((mchan->attrs.capability & SBI_MPXY_CHAN_CAP_GET_NOTIFICATIONS) &&
-+		    (mchan->attrs.capability & SBI_MPXY_CHAN_CAP_EVENTS_STATE))
-+			mchan->have_events_state = true;
-+
-+		if ((mchan->attrs.capability & SBI_MPXY_CHAN_CAP_GET_NOTIFICATIONS) &&
-+		    (mchan->attrs.capability & SBI_MPXY_CHAN_CAP_MSI))
-+			mchan->msi_index = mbox->msi_count++;
-+		else
-+			mchan->msi_index = U32_MAX;
-+		mchan->msi_irq = U32_MAX;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mpxy_mbox_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct mpxy_mbox_channel *mchan;
-+	struct mpxy_mbox *mbox;
-+	int msi_idx, rc;
-+	u32 i;
-+
-+	/*
-+	 * Initialize MPXY shared memory only once. This also ensures
-+	 * that SBI MPXY mailbox is probed only once.
-+	 */
-+	if (mpxy_shmem_init_done) {
-+		dev_err(dev, "SBI MPXY mailbox already initialized\n");
-+		return -EALREADY;
-+	}
-+
-+	/* Probe for SBI MPXY extension */
-+	if (sbi_spec_version < sbi_mk_version(1, 0) ||
-+	    sbi_probe_extension(SBI_EXT_MPXY) <= 0) {
-+		dev_info(dev, "SBI MPXY extension not available\n");
-+		return -ENODEV;
-+	}
-+
-+	/* Find-out shared memory size */
-+	rc = mpxy_get_shmem_size(&mpxy_shmem_size);
-+	if (rc)
-+		return dev_err_probe(dev, rc, "failed to get MPXY shared memory size\n");
-+
-+	/*
-+	 * Setup MPXY shared memory on each CPU
-+	 *
-+	 * Note: Don't cleanup MPXY shared memory upon CPU power-down
-+	 * because the RPMI System MSI irqchip driver needs it to be
-+	 * available when migrating IRQs in CPU power-down path.
-+	 */
-+	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/sbi-mpxy-shmem",
-+			  mpxy_setup_shmem, NULL);
-+
-+	/* Mark as MPXY shared memory initialization done */
-+	mpxy_shmem_init_done = true;
-+
-+	/* Allocate mailbox instance */
-+	mbox = devm_kzalloc(dev, sizeof(*mbox), GFP_KERNEL);
-+	if (!mbox)
-+		return -ENOMEM;
-+	mbox->dev = dev;
-+	platform_set_drvdata(pdev, mbox);
-+
-+	/* Populate mailbox channels */
-+	rc = mpxy_mbox_populate_channels(mbox);
-+	if (rc)
-+		return rc;
-+
-+	/* Initialize mailbox controller */
-+	mbox->controller.txdone_irq = false;
-+	mbox->controller.txdone_poll = false;
-+	mbox->controller.ops = &mpxy_mbox_ops;
-+	mbox->controller.dev = dev;
-+	mbox->controller.num_chans = mbox->channel_count;
-+	mbox->controller.fw_xlate = mpxy_mbox_fw_xlate;
-+	mbox->controller.chans = devm_kcalloc(dev, mbox->channel_count,
-+					      sizeof(*mbox->controller.chans),
-+					      GFP_KERNEL);
-+	if (!mbox->controller.chans)
-+		return -ENOMEM;
-+	for (i = 0; i < mbox->channel_count; i++)
-+		mbox->controller.chans[i].con_priv = &mbox->channels[i];
-+
-+	/* Setup MSIs for mailbox (if required) */
-+	if (mbox->msi_count) {
-+		/*
-+		 * The device MSI domain for platform devices on RISC-V architecture
-+		 * is only available after the MSI controller driver is probed so,
-+		 * explicitly configure here.
-+		 */
-+		if (!dev_get_msi_domain(dev)) {
-+			/*
-+			 * The device MSI domain for OF devices is only set at the
-+			 * time of populating/creating OF device. If the device MSI
-+			 * domain is discovered later after the OF device is created
-+			 * then we need to set it explicitly before using any platform
-+			 * MSI functions.
-+			 */
-+			if (dev_of_node(dev))
-+				of_msi_configure(dev, dev_of_node(dev));
-+
-+			if (!dev_get_msi_domain(dev))
-+				return -EPROBE_DEFER;
-+		}
-+
-+		mbox->msi_index_to_channel = devm_kcalloc(dev, mbox->msi_count,
-+							  sizeof(*mbox->msi_index_to_channel),
-+							  GFP_KERNEL);
-+		if (!mbox->msi_index_to_channel)
-+			return -ENOMEM;
-+
-+		for (msi_idx = 0; msi_idx < mbox->msi_count; msi_idx++) {
-+			for (i = 0; i < mbox->channel_count; i++) {
-+				mchan = &mbox->channels[i];
-+				if (mchan->msi_index == msi_idx) {
-+					mbox->msi_index_to_channel[msi_idx] = mchan;
-+					break;
-+				}
-+			}
-+		}
-+
-+		rc = platform_device_msi_init_and_alloc_irqs(dev, mbox->msi_count,
-+							     mpxy_mbox_msi_write);
-+		if (rc) {
-+			return dev_err_probe(dev, rc, "Failed to allocate %d MSIs\n",
-+					     mbox->msi_count);
-+		}
-+
-+		for (i = 0; i < mbox->channel_count; i++) {
-+			mchan = &mbox->channels[i];
-+			if (mchan->msi_index == U32_MAX)
-+				continue;
-+			mchan->msi_irq = msi_get_virq(dev, mchan->msi_index);
-+		}
-+	}
-+
-+	/* Register mailbox controller */
-+	rc = devm_mbox_controller_register(dev, &mbox->controller);
-+	if (rc) {
-+		dev_err_probe(dev, rc, "Registering SBI MPXY mailbox failed\n");
-+		if (mbox->msi_count)
-+			platform_device_msi_free_irqs_all(dev);
-+		return rc;
-+	}
-+
-+	dev_info(dev, "mailbox registered with %d channels\n",
-+		 mbox->channel_count);
-+	return 0;
-+}
-+
-+static void mpxy_mbox_remove(struct platform_device *pdev)
-+{
-+	struct mpxy_mbox *mbox = platform_get_drvdata(pdev);
-+
-+	if (mbox->msi_count)
-+		platform_device_msi_free_irqs_all(mbox->dev);
-+}
-+
-+static const struct of_device_id mpxy_mbox_of_match[] = {
-+	{ .compatible = "riscv,sbi-mpxy-mbox" },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, mpxy_mbox_of_match);
-+
-+static struct platform_driver mpxy_mbox_driver = {
-+	.driver = {
-+		.name = "riscv-sbi-mpxy-mbox",
-+		.of_match_table = mpxy_mbox_of_match,
-+	},
-+	.probe = mpxy_mbox_probe,
-+	.remove = mpxy_mbox_remove,
-+};
-+module_platform_driver(mpxy_mbox_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Anup Patel <apatel@ventanamicro.com>");
-+MODULE_DESCRIPTION("RISC-V SBI MPXY mailbox controller driver");
++++ b/Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
+@@ -0,0 +1,64 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/riscv,rpmi-mpxy-clock.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V RPMI clock service group based message proxy
++
++maintainers:
++  - Anup Patel <anup@brainfault.org>
++
++description: |
++  The RISC-V Platform Management Interface (RPMI) [1] defines a
++  messaging protocol which is modular and extensible. The supervisor
++  software can send/receive RPMI messages via SBI MPXY extension [2]
++  or some dedicated supervisor-mode RPMI transport.
++
++  The RPMI specification [1] defines clock service group for accessing
++  system clocks managed by a platform microcontroller. The SBI implementation
++  (machine mode firmware or hypervisor) can implement an SBI MPXY channel
++  to allow RPMI clock service group access to the supervisor software.
++
++  ===========================================
++  References
++  ===========================================
++
++  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-rpmi/releases
++
++  [2] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++
++properties:
++  compatible:
++    description:
++      Intended for use by the SBI implementation.
++    const: riscv,rpmi-mpxy-clock
++
++  mboxes:
++    maxItems: 1
++    description:
++      Mailbox channel of the underlying RPMI transport.
++
++  riscv,sbi-mpxy-channel-id:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The SBI MPXY channel id to be used for providing RPMI access to
++      the supervisor software.
++
++required:
++  - compatible
++  - mboxes
++  - riscv,sbi-mpxy-channel-id
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-service {
++        compatible = "riscv,rpmi-mpxy-clock";
++        mboxes = <&rpmi_shmem_mbox 0x8>;
++        riscv,sbi-mpxy-channel-id = <0x1000>;
++    };
++...
 -- 
 2.43.0
 
