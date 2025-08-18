@@ -4,41 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D82CA0EF2
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 13:37:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 644ADCA0EF1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 13:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q0LYlFemhC5zlD3agAjLyq1DXY17W7fakNCRSTw6lwQ=; b=vx3BmJaYXuTH4A
-	ksR8icEqmVCUo7v1mgVMH2b49EEC7/p15HEI5yKHg509uqX+f+G2d5SeluX8dX4MBtRjnO72NjJ4a
-	KezlcYW5K6kOjpQVTkModqazP0PPi72/4UfCB23cq0nb/wZYJ9YuC8gWYeGSIAgOANrQfvz2dgoWl
-	1THwlpmVg+f0YusTqR7HV0w6eYKsD2xsgqymGBTsMhKzk6q0tfAq3GaG8VoPDdSNgG3cbzTFm5DIo
-	bXD/ZDjkq2XgtI8n1AvTbgMR08e0gGgQ9qe3LSYqznG68TisAoKFnYkAmaJhAZbn/H660fmC87qDb
-	CGIDgUHP5rmzfMGaQvHA==;
+	List-Owner; bh=97FzeZSBxQMDZYfjFSaUL/tK63WAajd31G3tUdoswU0=; b=3YTW28RLz0yXcZ
+	10pd0QCAq8br1OJ2ZMASKzBH8DGatXNaEkxcNKEA5rU9DxQINI2SK0BL4B5lJuH2myx+yNu1aCAnl
+	IZGsdu2ewMz+mzg7Ih2n/Blli0kHzT7G1eGb0UzPgMWiTqJ+B878jzXGxAzYeMsTXi7W32XiHHvzY
+	5GHMESXqMZlZgfzKq03V4Ne+MinRVs1oVuaTzRN0G5ecL9XfSnVpydNPgnZ1oXXtmdX0aqtppjg0j
+	y75rAs7XK1aY3o1LsnV7Sf+3XzfPC7OFm93WS/oULjEmiOv7ntiDBDylhryzZozERoW70sUj1ZlSs
+	ucUPz0MgwZA3v0I3vOpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo03I-00000007U1N-1Xlw;
-	Mon, 18 Aug 2025 13:37:32 +0000
+	id 1uo03J-00000007U4I-48Fg;
+	Mon, 18 Aug 2025 13:37:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unux5-00000006up2-2M2h
+	id 1unv2q-00000006vLi-1oAR
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 08:10:48 +0000
+	Mon, 18 Aug 2025 08:16:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A5491596;
-	Mon, 18 Aug 2025 01:10:36 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 035E21596;
+	Mon, 18 Aug 2025 01:16:35 -0700 (PDT)
 Received: from [10.57.58.12] (unknown [10.57.58.12])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C2E943F63F;
-	Mon, 18 Aug 2025 01:10:38 -0700 (PDT)
-Message-ID: <c09a2a13-8571-44e5-b780-c704598df764@arm.com>
-Date: Mon, 18 Aug 2025 10:10:36 +0200
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B04543F63F;
+	Mon, 18 Aug 2025 01:16:37 -0700 (PDT)
+Message-ID: <57c816d6-a9ba-47c9-8f40-3978580b7f67@arm.com>
+Date: Mon, 18 Aug 2025 10:16:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] selftests/mm: Add -Wunreachable-code and fix
- warnings
+Subject: Re: [PATCH v2 4/8] selftests/mm: Add -Wunused family of flags
 To: Muhammad Usama Anjum <usama.anjum@collabora.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  David Hildenbrand <david@redhat.com>,
@@ -58,13 +57,13 @@ To: Muhammad Usama Anjum <usama.anjum@collabora.com>,
  linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>
 Cc: kernel@collabora.com
 References: <20250731160132.1795351-1-usama.anjum@collabora.com>
- <20250731160132.1795351-2-usama.anjum@collabora.com>
+ <20250731160132.1795351-5-usama.anjum@collabora.com>
 Content-Language: en-GB
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <20250731160132.1795351-2-usama.anjum@collabora.com>
+In-Reply-To: <20250731160132.1795351-5-usama.anjum@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_011047_647780_35946DF2 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250818_011644_518761_5EF74130 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +83,38 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 31/07/2025 18:01, Muhammad Usama Anjum wrote:
 > [...]
 >
-> diff --git a/tools/testing/selftests/mm/pkey_sighandler_tests.c b/tools/testing/selftests/mm/pkey_sighandler_tests.c
-> index b5e076a564c95..302fef54049c8 100644
-> --- a/tools/testing/selftests/mm/pkey_sighandler_tests.c
-> +++ b/tools/testing/selftests/mm/pkey_sighandler_tests.c
-> @@ -41,7 +41,7 @@ static siginfo_t siginfo = {0};
->   * syscall will attempt to access the PLT in order to call a library function
->   * which is protected by MPK 0 which we don't have access to.
->   */
-> -static inline __always_inline
-> +static __always_inline
-
-Thanks for this, I had this fix locally but never got to post it!
-
->  long syscall_raw(long n, long a1, long a2, long a3, long a4, long a5, long a6)
->  {
->  	unsigned long ret;
-> diff --git a/tools/testing/selftests/mm/split_huge_page_test.c b/tools/testing/selftests/mm/split_huge_page_test.c
-> index 05de1fc0005b7..a85b2e393e4e8 100644
-> --- a/tools/testing/selftests/mm/split_huge_page_test.c
-> +++ b/tools/testing/selftests/mm/split_huge_page_test.c
-> @@ -296,10 +296,8 @@ void split_file_backed_thp(int order)
->  		ksft_exit_fail_msg("Unable to create a tmpfs for testing\n");
+> diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
+> index 23d4bf6215465..d75f1effcb791 100644
+> --- a/tools/testing/selftests/mm/Makefile
+> +++ b/tools/testing/selftests/mm/Makefile
+> @@ -20,7 +20,6 @@ endif
+>  # thus tricking Make (and you!) into believing that All Is Well, in subsequent
+>  # make invocations:
+>  .DELETE_ON_ERROR:
+> -
+>  # Avoid accidental wrong builds, due to built-in rules working just a little
+>  # bit too well--but not quite as well as required for our situation here.
+>  #
+> @@ -35,6 +34,7 @@ MAKEFLAGS += --no-builtin-rules
 >  
->  	status = snprintf(testfile, INPUT_MAX, "%s/thp_file", tmpfs_loc);
-> -	if (status >= INPUT_MAX) {
-> +	if (status >= INPUT_MAX)
->  		ksft_exit_fail_msg("Fail to create file-backed THP split testing file\n");
-> -		goto cleanup;
+>  CFLAGS = -Wall -O2 -I $(top_srcdir) $(EXTRA_CFLAGS) $(KHDR_INCLUDES) $(TOOLS_INCLUDES)
+>  CFLAGS += -Wunreachable-code
+> +CFLAGS += -Wunused  -Wunused-parameter -Wunused-function -Wunused-label -Wunused-variable -Wunused-value
 
-At that point the mount() call has succeeded so I think we do want to
-keep the goto and just print the error message instead of calling
-replace ksft_exit_fail_msg().
+-Wall implies all of these except -Wunused-parameter (at least according
+to gcc(1)).
+
+As to -Wunused-parameter I am frankly not convinced it's worth the
+hassle. We're getting 90 lines changed in patch 6-8 just to mark
+parameters as unused, in other words noise to keep the compiler happy.
+It is not enabled by default in the kernel proper precisely because it
+is so noisy when callbacks are involved.
+
+Patch 5 is clearly an improvement, but I'd rather take it without
+actually enabling -Wunused-parameter. The rest of this patch isn't that
+useful either IMHO.
 
 - Kevin
-
-> -	}
->  
->  	fd = open(testfile, O_CREAT|O_RDWR, 0664);
->  	if (fd == -1) {
 
 _______________________________________________
 linux-riscv mailing list
