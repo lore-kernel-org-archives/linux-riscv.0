@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDEACA0EE9
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 07:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24A4CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 07:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pvaZGXbsMVXK2K6QCN76Hms9/LXE0MYI6MQav7df/3Y=; b=M3NjRz8L4nvg26
-	kjkHVBj2YJLsTVI++OOtTDJrdXjqLJbvLn+yXVF3SlMl+TguLtXLwa9BJYxJN2px1ghb1un41iqoz
-	vRvB3YvGQr10Cf5I1vV1CA9OJ0uDGxtcBxNsZ9Qd0EtnuotUCPXJyLj73p60O6s1dD/yerRTSpmb/
-	AtaPMBzSczZczqDeDqWoouByxcbJwEYg3ZRoCbuiCipurXkhHNa1ZYxC7WQo0c2+oPwNQtIkux0w3
-	zXz/yTtbNPr32lC1Mw4z1+4K/aU6d/mIqDvbf1rCOBFUFnuT/+iZJ0wpTmmKRRCY6mtE/ECe9MwU9
-	yLPb0nP2bjumgpiCnLNA==;
+	List-Owner; bh=x7JLirymXDNV3lHLQ+0WBoQQnF/CqqZFo2kLx2WMLB8=; b=iJD1piXECKF6zj
+	4XBjK2w9gKg6CA73Q/dsWETqtqU3HIHJWmsEu7UMWbE9ejswzOCOBHG4bzAmcyNg6y+n2HjCs9fN7
+	lPI4Z7YSgdB23+bj5QY7OnUPoDAKqRQI5FHdJHEnG+yEh9qOj+MCjkdzRJ7b/pcVyI/S/tmk1vNu8
+	6puA0tOihsmt8dSdNUZwwBNnaRAvSR0pFHmB5mhHVVHrG62PrCy98oYi8WZ0hzmZEYxGOOLNYmnSF
+	gYUBVFB15QZSLbRghK9cXQ5xut3Uav1Zx6YTYU01iznHi5HKTlUqwSasASKwGKoAKhH701keREe2p
+	byOhqnd//YXfn1nOWwJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unueO-00000006pTA-3cb5;
-	Mon, 18 Aug 2025 07:51:28 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1unueW-00000006pef-25pn;
+	Mon, 18 Aug 2025 07:51:36 +0000
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untzW-00000006lRd-3329
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 07:09:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755500919; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=F0/jkPyUckKeliSSvKuXqvDbQXp28q1CS3WKE6XZzY7MyTGQMIPQdoIIT7gih20Q7ig/257SzUyHNJV5Vmd43cGPopyTRFLjZlA4sDUxvj/d6Gtk1AE2PmsDRYiRGS0Ong8xVBO5/B+sTUVZ+aGDqoEpmYa8UZooWBzVpmnv2H4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755500919; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Sgmd+CuKqOWfoT7raFLnBvXLcCnzbWKYqkcBawmnT5c=; 
-	b=BT3pNsMP7r+lSiYYRvUdaHQRlV69MtOhaBZk4mFY2EHoL7i0Ud2/0MaVCb4tHyq+mxhqZmZuVDFJzgaN1Pmy/LpIHvuZYtzkwl4QQM/d+BW5g2zQ7i340k6McMdx/ivh6uOd+l9xiAWrRDhFHbPdfz0+nJKsEAoUXNDfwYJART8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755500919;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=Sgmd+CuKqOWfoT7raFLnBvXLcCnzbWKYqkcBawmnT5c=;
-	b=HObhQdZJMOogk/S2wgghy95vnYx5oo8Cuw1Uws7KLIZAgHxPZJs8y3s+FGYGRtbO
-	JmImlDi7X4yRrEYnG4XXEiB04yxSiMH7ZKBlgcvbEkHYMb/98clmi7PbJ0o387PM92v
-	haKNCeDVgJLiVo+/oqqCSOVimcSgJ76Oel52cdXOftBsCrbP8M6BWseZbD1ZkUNmZ46
-	R9dzwo4bMBBTznewGAU983ClkWc9myPqlVaY2YZ9n3GQejF6G/9qXA7SciRRf4b/Piw
-	uYgiZTpe1MaufvxaqqIdUnx1gEoZOdFWF+ZxIY1ZF8xRkBdQXOG9SghqkGW31ehR1ma
-	gjJH72E1tg==
-Received: by mx.zohomail.com with SMTPS id 1755500915570507.0743823766354;
-	Mon, 18 Aug 2025 00:08:35 -0700 (PDT)
-Message-ID: <bc7e7476abd4777759d02e7ae6d857d160451e7b.camel@icenowy.me>
-Subject: Re: [RFC PATCH 3/8] drm: verisilicon: add a driver for Verisilicon
- display controllers
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
- <wefu@redhat.com>,  Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner
- <heiko@sntech.de>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
- <neil.armstrong@linaro.org>,  Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Michal
- Wilczynski <m.wilczynski@samsung.com>, Han Gao <rabenda.cn@gmail.com>, Yao
- Zi <ziyao@disroot.org>, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org
-Date: Mon, 18 Aug 2025 15:08:23 +0800
-In-Reply-To: <aKIh+MLEO2aM/vO7@x1>
-References: <20250814164048.2336043-1-uwu@icenowy.me>
-	 <20250814164048.2336043-4-uwu@icenowy.me> <aKIh+MLEO2aM/vO7@x1>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
+	id 1unu2F-00000006lcV-2koP;
+	Mon, 18 Aug 2025 07:12:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1755501033;
+	bh=DIyLi8TReoN+5AF3jvUXWckVHC2MAP2cCVjZaPo6GQw=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=l9qdOH6SuVBnYSZj+wjxhn+mvv9XN/PmDpQhQAMuNdM5hmG0h5t3vvtwMW+1zoWG5
+	 Yib/VO077FBPGrtxgZQPyc0aPqSc9Hg7cqAR8s/6fqWF1dNsmW1FIM10jju4bLs3pB
+	 rQiiOdhiP/WuA3gsrbZXNFkjpoI5MoedclxU+OkU=
+X-QQ-mid: esmtpsz16t1755501030t18f06d0f
+X-QQ-Originating-IP: Yz02jh1oqjelU7qc2kAra1/3BSe5M9Cdk8a1P5ZaNVc=
+Received: from = ( [14.123.254.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 18 Aug 2025 15:10:28 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5468809535196601441
+EX-QQ-RecipientCnt: 14
+Date: Mon, 18 Aug 2025 15:10:28 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: fangyu.yu@linux.alibaba.com, anup@brainfault.org, atish.patra@linux.dev,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: guoren@linux.alibaba.com, guoren@kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH V2] RISC-V: KVM: Write hgatp register with valid mode bits
+Message-ID: <BA652752F35145B4+aKLR5OHaYZ99CvHb@LT-Guozexi>
+References: <20250818054207.21532-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <20250818054207.21532-1-fangyu.yu@linux.alibaba.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NDvHpYI+rUKoCcvanv+jDIBUFssVCvhhKrpqbR+7d71n1kdyxCazB81I
+	PHlJuKUylrJszCDad1ILvaNCUFiIFycmNKJeLgHrJ3/T3942SSn+hPbANl+/gj7uIkysQX5
+	i7XAOijoLUmoncqVX3ypNJ4Repj0/fU9vTAXsgsatAEkFL51tyM4P+G2jqu1EZYpreD7lT4
+	mbP05gp4FYOd1pJX2NaFGi/nskN5TtF9K9O8qDtQiYQTA59wpFQ+HCi1K6fX2tmiUDS5cpi
+	sZCmj8Un/r3vs6YA9ihA1sdT8kLh7GubiDMCYSc4merQM+YHNQudWeiwduZn4rbafwpJpeq
+	I2UmxCbKnTMEochv69bI+unWe1A/cgfwxSUnl7o45T1W7lo9JR3kPZj16TxitxT8WUBqAKP
+	+WNiU9XuG1KwTOKzb8dseSbzxfrDvhr69qT4p3Zjr7h7SXYSjBqe44saX8Ws3+L8zm+D7Q3
+	qP+0u3ioynRIbswDzhoCJF/4qxo1N5E6C/6Ti5e9+Y+m8etr9hLcAdf9pwmU5LkJKLc03YM
+	w5O0yva8ya4pJ45mGGld4qqcJYP11Q6NvdnJt+RRpYr4n35wU4ZJa2QlVyW9cGqyp0ywEG6
+	T/3zKHZmJgik7DtKIpxkK0Q25HwUAcfuJVls0yxzH2P3rXgwSGii0gK3WebDaH7uq/f/eES
+	gjVl/wQc4mAdjE/ztMAPhKM7nQ5tK5o02q2vv7q6SrSDO1vPcKlTdKbmCBgv7rztyRG39Am
+	Q0K8DVVtnheX92tKb46zJ//zUyo5a/qZM9ug//inn+L+OTaHNKm0Aw8WZUhuykZ1DK397Tk
+	TssYToPQFE3g96+ij+pHU+DoHuUaoXz2/Jt3N4QwfyCm58ijr4FVCrvQANcv44hVRBnoqwF
+	ynMckF6iRSqPuIBxmk2Wd+PKno5tXlFKX7+Y1oB1o7xPaBFv9VQWwGPDxz3q1aerqVij/Op
+	/SYwPgTmXPFu+JeAjHsVw4EJBBIHR/1l9t8bLsBySQCSKWcqOxScfeVsKtWy57sMGyOyRTN
+	tDXxHZhE0II6z7OBJCAq98IZ2mW8eU0WyAZO7OgmMZlzZiUK3Ec3KrmuMBzzrQpMzTDqI1n
+	8TLsK/rdFHbtYnx4IwZUjgmocXt8WGrsw==
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_000914_814967_1A6B96CE 
-X-CRM114-Status: GOOD (  23.30  )
+X-CRM114-CacheID: sfid-20250818_001204_083150_49AFDF33 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,54 +92,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjUtMDgtMTfmmJ/mnJ/ml6XnmoQgMTE6MzkgLTA3MDDvvIxEcmV3IEZ1c3Rpbmnlhpnp
-gZPvvJoKPiBPbiBGcmksIEF1ZyAxNSwgMjAyNSBhdCAxMjo0MDo0M0FNICswODAwLCBJY2Vub3d5
-IFpoZW5nIHdyb3RlOgo+ID4gVGhpcyBpcyBhIGZyb20tc2NyYXRjaCBkcml2ZXIgdGFyZ2V0aW5n
-IFZlcmlzaWxpY29uIERDLXNlcmllcwo+ID4gZGlzcGxheQo+ID4gY29udHJvbGxlcnMsIHdoaWNo
-IGZlYXR1cmUgc2VsZi1pZGVudGlmaWNhdGlvbiBmdW5jdGlvbmFsaXR5IGxpa2UKPiA+IHRoZWly
-Cj4gPiBHQy1zZXJpZXMgR1BVcy4KPiA+IAo+ID4gT25seSBEQzgyMDAgaXMgYmVpbmcgc3VwcG9y
-dGVkIG5vdywgYW5kIG9ubHkgdGhlIG1haW4gZnJhbWVidWZmZXIKPiA+IGlzIHNldAo+ID4gdXAg
-KGFzIHRoZSBEUk0gcHJpbWFyeSBwbGFuZSkuIFN1cHBvcnQgZm9yIG1vcmUgREMgbW9kZWxzIGFu
-ZCBtb3JlCj4gPiBmZWF0dXJlcyBpcyBteSBmdXJ0aGVyIHRhcmdldHMuCj4gPiAKPiA+IEFzIHRo
-ZSBkaXNwbGF5IGNvbnRyb2xsZXIgaXMgZGVsaXZlcmVkIHRvIFNvQyB2ZW5kb3JzIGFzIGEgd2hv
-bGUKPiA+IHBhcnQsCj4gPiB0aGlzIGRyaXZlciBkb2VzIG5vdCB1c2UgY29tcG9uZW50IGZyYW1l
-d29yayBhbmQgZXh0cmEgYnJpZGdlcwo+ID4gaW5zaWRlIGEKPiA+IFNvQyBpcyBleHBlY3RlZCB0
-byBiZSBpbXBsZW1lbnRlZCBhcyBkZWRpY2F0ZWQgYnJpZGdlcyAodGhpcyBkcml2ZXIKPiA+IHBy
-b3Blcmx5IHN1cHBvcnRzIGJyaWRnZSBjaGFpbmluZykuCj4gPiAKPiA+IFNpZ25lZC1vZmYtYnk6
-IEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5Lm1lPgo+IAo+IFRoYW5rcyBmb3Igd29ya2luZyBv
-biB0aGlzIQo+IAo+IFtzbmlwXQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS92ZXJp
-c2lsaWNvbi92c19wcmltYXJ5X3BsYW5lLmMKPiA+IGIvZHJpdmVycy9ncHUvZHJtL3ZlcmlzaWxp
-Y29uL3ZzX3ByaW1hcnlfcGxhbmUuYwo+ID4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiA+IGluZGV4
-IDAwMDAwMDAwMDAwMDAuLjI1ZDZlMDFjYzhiNzEKPiA+IC0tLSAvZGV2L251bGwKPiA+ICsrKyBi
-L2RyaXZlcnMvZ3B1L2RybS92ZXJpc2lsaWNvbi92c19wcmltYXJ5X3BsYW5lLmMKPiBbc25pcF0K
-PiA+ICtzdGF0aWMgdm9pZCB2c19wcmltYXJ5X3BsYW5lX2F0b21pY191cGRhdGUoc3RydWN0IGRy
-bV9wbGFuZQo+ID4gKnBsYW5lLAo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgc3RydWN0
-IGRybV9hdG9taWNfc3RhdGUKPiA+ICphdG9taWNfc3RhdGUpCj4gPiArewo+ID4gK8KgwqDCoMKg
-wqDCoMKgc3RydWN0IGRybV9wbGFuZV9zdGF0ZSAqc3RhdGUgPQo+ID4gZHJtX2F0b21pY19nZXRf
-bmV3X3BsYW5lX3N0YXRlKGF0b21pY19zdGF0ZSwKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+
-IMKgwqDCoCBwbGFuZSk7Cj4gPiArwqDCoMKgwqDCoMKgwqBzdHJ1Y3QgZHJtX2ZyYW1lYnVmZmVy
-ICpmYiA9IHN0YXRlLT5mYjsKPiA+ICvCoMKgwqDCoMKgwqDCoHN0cnVjdCBkcm1fY3J0YyAqY3J0
-YyA9IHN0YXRlLT5jcnRjOwo+ID4gK8KgwqDCoMKgwqDCoMKgc3RydWN0IGRybV9nZW1fZG1hX29i
-amVjdCAqZ2VtOwo+ID4gK8KgwqDCoMKgwqDCoMKgc3RydWN0IHZzX2RjICpkYzsKPiA+ICvCoMKg
-wqDCoMKgwqDCoHN0cnVjdCB2c19jcnRjICp2Y3J0YzsKPiA+ICvCoMKgwqDCoMKgwqDCoHN0cnVj
-dCB2c19mb3JtYXQgZm10Owo+ID4gK8KgwqDCoMKgwqDCoMKgdW5zaWduZWQgaW50IG91dHB1dCwg
-YnBwOwo+ID4gK8KgwqDCoMKgwqDCoMKgZG1hX2FkZHJfdCBkbWFfYWRkcjsKPiA+ICsKPiA+ICvC
-oMKgwqDCoMKgwqDCoGlmICghY3J0YykKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqByZXR1cm47Cj4gPiArCj4gPiArwqDCoMKgwqDCoMKgwqBEUk1fREVCVUdfRFJJVkVSKCJVcGRh
-dGluZyBvdXRwdXQgJWQgcHJpbWFyeSBwbGFuZVxuIiwKPiA+IG91dHB1dCk7Cj4gCj4gY2xhbmcg
-ZmxhZ2dlZCB0aGlzIHdoZW4gYnVpbGRpbmcuIEkgdGhpbmsgdGhpcyBuZWVkcyB0byBiZSBhZnRl
-ciB0aGUKPiBsaW5lIGJlbG93IHRoYXQgYXNzaWducyB2Y3J0Yy0+aWQgdG8gb3V0cHV0LgoKT29w
-cyBnb3Qgc2lsbHkgaGVyZS4uLgoKPiAKPiA+ICsKPiA+ICvCoMKgwqDCoMKgwqDCoHZjcnRjID0g
-ZHJtX2NydGNfdG9fdnNfY3J0YyhjcnRjKTsKPiA+ICvCoMKgwqDCoMKgwqDCoG91dHB1dCA9IHZj
-cnRjLT5pZDsKPiAKPiBUaGFua3MsCj4gRHJldwoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, Aug 18, 2025 at 01:42:07PM +0800, fangyu.yu@linux.alibaba.com wrote:
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> 
+> According to the RISC-V Privileged Architecture Spec, when MODE=Bare
+> is selected,software must write zero to the remaining fields of hgatp.
+> 
+> We have detected the valid mode supported by the HW before, So using a
+> valid mode to detect how many vmid bits are supported.
+> 
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+With Fixed tag, feel free to add:
+
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> 
+> ---
+> Changes in v2:
+> - Fixed build error since kvm_riscv_gstage_mode() has been modified.
+> ---
+>  arch/riscv/kvm/vmid.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
+> index 3b426c800480..5f33625f4070 100644
+> --- a/arch/riscv/kvm/vmid.c
+> +++ b/arch/riscv/kvm/vmid.c
+> @@ -14,6 +14,7 @@
+>  #include <linux/smp.h>
+>  #include <linux/kvm_host.h>
+>  #include <asm/csr.h>
+> +#include <asm/kvm_mmu.h>
+>  #include <asm/kvm_tlb.h>
+>  #include <asm/kvm_vmid.h>
+>  
+> @@ -28,7 +29,7 @@ void __init kvm_riscv_gstage_vmid_detect(void)
+>  
+>  	/* Figure-out number of VMID bits in HW */
+>  	old = csr_read(CSR_HGATP);
+> -	csr_write(CSR_HGATP, old | HGATP_VMID);
+> +	csr_write(CSR_HGATP, (kvm_riscv_gstage_mode << HGATP_MODE_SHIFT) | HGATP_VMID);
+>  	vmid_bits = csr_read(CSR_HGATP);
+>  	vmid_bits = (vmid_bits & HGATP_VMID) >> HGATP_VMID_SHIFT;
+>  	vmid_bits = fls_long(vmid_bits);
+> -- 
+> 2.49.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
