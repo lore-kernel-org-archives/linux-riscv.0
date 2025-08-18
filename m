@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829B8CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 04:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A2F0CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 04:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SKf+gTq+ieT3ixJm6yolOVcf/QeGWozpSj4zcFrpWbM=; b=vduj7pDi5zhRQW
-	czGfEun2mOKA+tHMjLXnow4GsOgUijAjjLMfzvddNxSgHWZ6wfYYmXqwmtCiHFamfsxs/Yfxd6KB7
-	CBhc9MWPesfMUBi27GSEswT3a/fo7OK3ecXtc1Pv09oh3xnvJLW1z6XnE7spyKXrRVChONWPoZmXE
-	t3oQxBFxcPIwVUyohA8X04849XG8Sx8lMagWllU1dp2G9AQI68CDZPrx77nmFpPa7h+GDIAddPw6y
-	ZjHpWsniFm19Xl0civBdyaz3jBlkbHdzXEWGu555Q4hXBRtjH7P/ew8q3fKZb/ZK71Um4UMVm1sEi
-	gAvsmXmBMK/SFcy8ECKQ==;
+	List-Owner; bh=gkPGGEzP9fUqXqzu3KTqSSA4LNZTqL+rFWfNhhSKM0M=; b=JIaWFmyZbiNrPp
+	/Wk3+pXwdo/fmvl/JsD1qPcphv5Ul2G8113dHXUMtiXJZEgPGsx86h4N8Eh4zjQJFfdUHftIYq0cF
+	dk7Twve8+Pk0eFNN1t8c1FRc57NzgIHXiCg5hbygwhIXCOLdlo9aD1xCwzN+Hc5w2yh4iteSv/Me9
+	aR6ugca+BT/CWeaTNb93dNQBXomB/6/GHGndaHxcpQre/IRipVgzHvGSI6wpAz3lHJB5QnxzZ3fp1
+	b+/WxGcsENDaUXOsiijlSLUO4kLiZgQP/CObWK3aRSZ4hFNDciiyw31pFxb2CWk21xiNOst+gqScl
+	NwaIF+o0HPNH/YQyAaZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrEy-00000006Rl0-2kZZ;
-	Mon, 18 Aug 2025 04:13:00 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1unrF4-00000006RnD-12r8;
+	Mon, 18 Aug 2025 04:13:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrEx-00000006RkO-19Br
+	id 1unrF2-00000006Rma-3bub
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 18 Aug 2025 04:12:59 +0000
+	Mon, 18 Aug 2025 04:13:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=psS8/HGvEcGOGsMgWWXg1B2q2pSduh9TsFVsTLXCZt8=; b=CWewRRao+0D+Z+5V/uxFu7fG3c
-	DIz/kM5FD58YChzu2fvCyNKjjM0ysPtGMjC7tH/PgZ7jQo8u/1yciXS8CgWHFDwpyB5yfLSOJUfXU
-	Z9CpWAUoNb46+z4dqsrr3EguiinFuS9aAqGAP4ZHgpvHXLD44PDXemeHcSkHvmcuytKS5WHnSc7c6
-	Z3rkovTa+MV6TkvFijWPKBPpHALJsj9ELIBjan6Q3b/NXYldXEb5C6OukL7Zth0uZBGE+Ax0EllyA
-	p0hUJe/VZIOYeRB3p3t/wdBsZu4hgZ68ohL+muDSNE7ib4SDGYLFhB8GJXxXaoM5R/jrpHPMEIb3U
-	mcP/WRBQ==;
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrE5-00000000EeI-051B
+	bh=qnjod1mifEH5b/qp1WwSmznv0TnT3EP+iS7ZheWdF/Q=; b=Y9BJyE3jdGMFBXMnI+q/28NYQN
+	miI3ceJTlI0o46hXi/Gi4YYP6jyi0YMG/IvOG7MN8rE4GsSYt3Umw3a4OPFj+ZIzTQEpX+Dw+tCOn
+	10BBzEFM4E0BG4Um3hkFhOjcex2VGF+MtpN/Y7Xjk3F9SWj1B9xalwnbaCxkuaBOSoVO6d0wR3Ddv
+	V8pa25aKFI2/oXgX8167wqVqaNJZPv53PCHLW+Fo9L03icBApVJDHvRbexvYW8CwVX+bRuhmFCNqf
+	YXQEseG/MjM30AZxGVEUJegMOtWLIfOIXfdsLz6NA/OnFXqU7pl2TTOprqJpmcWG6fC82C9OpF1AB
+	8+8gfGQg==;
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unrEy-0000000HEJT-3NJC
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 04:12:57 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2445826fd9dso40691725ad.3
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 21:12:05 -0700 (PDT)
+	Mon, 18 Aug 2025 04:13:03 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-244581cc971so44275425ad.2
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 21:13:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1755490323; x=1756095123; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1755490379; x=1756095179; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=psS8/HGvEcGOGsMgWWXg1B2q2pSduh9TsFVsTLXCZt8=;
-        b=JkYw1ELtkFi8NPxY/KkbBvrJUT6hNRbNHzH2n1wQvV02vYB7vC6+++4Pz68Q+fIs/8
-         SUHs0hwot+8E4Hk9fHTsuvuRA5ueR07O6rxJmdVasjUX3zneAAxK/BLboPa0kLOyfltk
-         DYa1sv5+1MW0oJOzy+qheXaV473PGzuHnqD5MfRr0czPhBb+JqMjfnqbd5rccj7U11h3
-         yxPfYgIXVRDm4X9tHQZGLN8PcSczLz9v+gUj2aJuGhX11eVmE5xHgRB6UyRodLAon9ci
-         lNG5nhG/wncx07BC9GvYhV8w80CJwcYRikb1QY/ZyZl6yPgS9CCq9oh36y5kaKS1TS2F
-         qpeQ==
+        bh=qnjod1mifEH5b/qp1WwSmznv0TnT3EP+iS7ZheWdF/Q=;
+        b=XqAqNT0ZQQwmYQnja3GmZehWWCxgQEB8N8jQA1bTWGrreHnfgoDqdqJ+zKmlUA8rYE
+         r8g4KKWRiFvydbtfKco3z5N9RLadW2zYjmgB0WJTVoVdiGQGqYpN0zgb3EaqEe+2MZ5c
+         OHQn6w1a7LvI2fDHlbkySXdXXUs5SBLddjA8SE2bKvUrqsuqCUpYp8Nu3/sqnCXFq7sK
+         /ej2ruqVqUXuUTl84HcCJy7/joV8npao5hwhtIjT2aBuS9ntfiG/CW3aIahv0w59sBOH
+         soEMpkVvX3M4I6dPSZxK+eAKOvT1O5lvUK72mBuuVLYLZj8kWxB18xGyj9u90YwBsGUn
+         nTGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755490323; x=1756095123;
+        d=1e100.net; s=20230601; t=1755490379; x=1756095179;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=psS8/HGvEcGOGsMgWWXg1B2q2pSduh9TsFVsTLXCZt8=;
-        b=JwIPYpO/iPXp3KZNrcLSnEZ9N0nCq2xC3GsNdOilx+/frCxyikFIJiBFvBcw8KMYg1
-         HG/sqUlz7SgZQ8T7Ev+kNfq2GqeFkxMYBjLcNJg5fhpLEXnDv7pV2JN2Z9BhQITpDB4q
-         LfCr5j6Jk4cHfvgLGA2A4BtKEeUTgCot7ah2zBEUucU2qrCJBJ63boxbzn3bxVviCaMU
-         w6f1Sbqfj+lcVQNoJVaPncrhwVlWo0BNbPjs23yV2SdfYEHzUM4UfKplDovkOiszGXGF
-         LRIUyIyP1MlMApGFbZpHZSkiL6HPShi9fp1xDU6uddSRr/5PObHAcjNwcR5/QQm4N/Hy
-         y1Rg==
-X-Forwarded-Encrypted: i=1; AJvYcCWiOgNpquDXidji75bs/gfBK1NLmKLasbkapW+f+dGhfRHknGAaEx8nivGRYhwZhr2ENBkDcmia+cyV5g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH/3EbsQsQIKMCQDR11ZiGywU1/oGXQAo3qmZanG8AQP6qA6+z
-	Let2r7Dy0W//q852w0+lid0iFssXFQsN5LwS81hURotSgbHaK9nKi5p9D14LYZ4L4P0=
-X-Gm-Gg: ASbGnctrZIo/mO/DRc0T0AKf3QF7BCCOMnhKKYnf0ezQ97wfnW6afKgVLEGzolvgiy+
-	5BOFl/vnXKU6svmlDz1GPd8Pnr+3dnnaAYipfe/fyqLeL0irGZgNV516oVsSMRjuxRTPkeyhu1X
-	+cv/dzEmBa9mPW5HDgEwo7G7jftBDqF+KEVD3h7E6uc+Hzb0qoV7wQezcUNaODkWqqPvKSjZNqW
-	mzUA0Tn6VxW66+aEk2vN681KN18tMGfjyVvSBkPhty9HR04vpI6DM4168J1dRjIXHYDpksnX1in
-	OGDr6b0bp9xm7xvGQI1iOl8pRL36Ocb/51GRcAHHPpQM/tnc1NhBCExwgtnhXinJpyNAkaGp9eU
-	YZWZM4b1Vhh597tdI0ZI7ShkUVrZpY3tIQpUp/EpePLIA25IweDpcxw==
-X-Google-Smtp-Source: AGHT+IFg2JaZydXsoz3oTb0p0Gh/5FN3+0FJRvvXtyYYz3C7r58Enx6ENab6eBnXqudj+8YWHETz5w==
-X-Received: by 2002:a17:902:d58f:b0:240:5c38:756b with SMTP id d9443c01a7336-2446d710a8fmr130054555ad.14.1755490322531;
-        Sun, 17 Aug 2025 21:12:02 -0700 (PDT)
+        bh=qnjod1mifEH5b/qp1WwSmznv0TnT3EP+iS7ZheWdF/Q=;
+        b=MC3OOQQk0Ei3s5SMN+Hws6D7zCQ61V5kIDRk2g7fgeLYF5kyx6koZkWf+M9r8ce7D6
+         YW5xkfIahb/aNa2q5SDv9EzQw+BtH0qG8TM2FO0NSRPOdc/rjGsrgI+PpLGuXXQH679f
+         6cgxoHDqAfwDuAZJ410gt0u6J6Tb/+GCNpKXRla/6ndAaVIC/Pg95ljDIUcaqDFd5CjV
+         JN4vu71wFsqzcLdFP8UT3t5m0Of58PL+cZi9SRalo3YWf5Jjup3mxg2stISRAlmVETst
+         XX/JnZp+lyEtjDAbv6UBYWXQKMlkPhodI16+Umb33iZR3hOtKdgIxX1zTlbtfmCzhKTA
+         OGOA==
+X-Forwarded-Encrypted: i=1; AJvYcCU1wjieXI599Z5tqoJnSOUYCYIRqHLIXyo3ebo2QhxrCiJTJ/T6iNJhM9GEvliOLQwQfwh/XduJcTTCVA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx32+XmuTgFzOp0mnAeSW+Q5ABbTtwUwUDsB7I4nI+hgTYgky4K
+	2uJu8iPHJsmOgp48+Ny2iZG5pcZSXB77YVG2IGH83NO2WxIBo6gnHSFuxutp6TJonec=
+X-Gm-Gg: ASbGncvo0puBV7G4UK88HqUVJjxCoMcTE30OAWye+C7Xv0a8qtZPR//5kF2t3a+8BGh
+	d0Ml2wqkwhdf/1ZHL0Q+GFNogzSAwwkOLwgFJVzCsC5QPy2e0Z4PPLFpGArwzR/vuEwgGfmOyQE
+	lmQuglX2gk2Jo+MGa9AAIGaB2xr5Qed34hgWcCPWZWkOSIOS8Z5RgOBydBTSlDtXymA7nByu8jZ
+	0yayE4MJZdf/lKG9wajqJsW01Cf8JOn1mGbeFkk5kOwiNBjdJ1Z4M5f1uXo+ILzi4GPPzFoxVeH
+	M0jJxD3Ydr+GUrt+F9FqPt6tvItfdeYIHT9RaLzoXBZCn2U3/ECJkoHuEEICOb6o0Gqt2M6TZmX
+	RXNhN0TfHLFh3+Nr+r2TVGCxhQpxA9ngNWd/ga7ov0TqwKgWO0mmmsg==
+X-Google-Smtp-Source: AGHT+IG8j5so9LT6XTGWsEtufkwowpwix82la3oqJqNnsExlbLVaOnLWc/li5RhrKLvcU04tm9JZeA==
+X-Received: by 2002:a17:903:1983:b0:240:38f8:ed05 with SMTP id d9443c01a7336-2446d8f36edmr131628175ad.36.1755490378108;
+        Sun, 17 Aug 2025 21:12:58 -0700 (PDT)
 Received: from localhost.localdomain ([122.171.17.53])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32343c70356sm6560972a91.25.2025.08.17.21.11.54
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32343c70356sm6560972a91.25.2025.08.17.21.12.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Aug 2025 21:12:02 -0700 (PDT)
+        Sun, 17 Aug 2025 21:12:57 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -98,16 +98,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v10 14/24] ACPI: property: Refactor acpi_fwnode_get_reference_args() to support nargs_prop
-Date: Mon, 18 Aug 2025 09:39:10 +0530
-Message-ID: <20250818040920.272664-15-apatel@ventanamicro.com>
+Subject: [PATCH v10 21/24] mailbox/riscv-sbi-mpxy: Add ACPI support
+Date: Mon, 18 Aug 2025 09:39:17 +0530
+Message-ID: <20250818040920.272664-22-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250818040920.272664-1-apatel@ventanamicro.com>
 References: <20250818040920.272664-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_051206_340387_D439FDB0 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20250818_051301_698668_3374153C 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,7 +119,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -127,175 +127,90 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Sunil V L <sunilvl@ventanamicro.com>
 
-Currently, acpi_fwnode_get_reference_args() delegates to the internal
-function __acpi_node_get_property_reference() to retrieve property
-references. However, this function does not handle the nargs_prop (cells
-property) parameter, and instead expects the number of arguments (nargs)
-to be known or hardcoded.
+Add ACPI support for the RISC-V SBI message proxy (MPXY) based
+mailbox driver.
 
-As a result, when fwnode_property_get_reference_args() is used with a
-valid nargs_prop, the ACPI backend ignores it, whereas the Device Tree
-(DT) backend uses the #*-cells property from the reference node to
-determine the number of arguments dynamically.
-
-To support the nargs_prop in ACPI, refactor the code as follows:
-
-- Move the implementation from __acpi_node_get_property_reference()
-  into acpi_fwnode_get_reference_args().
-
-- Update __acpi_node_get_property_reference() to call the (now updated)
-  acpi_fwnode_get_reference_args() passing NULL as nargs_prop to keep
-  the behavior of __acpi_node_get_property_reference() intact.
-
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-Suggested-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Acked-by: Jassi Brar <jassisinghbrar@gmail.com>
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/acpi/property.c | 101 ++++++++++++++++++++--------------------
- 1 file changed, 50 insertions(+), 51 deletions(-)
+ drivers/mailbox/riscv-sbi-mpxy-mbox.c | 27 ++++++++++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/acpi/property.c b/drivers/acpi/property.c
-index 436019d96027..d4863746fb11 100644
---- a/drivers/acpi/property.c
-+++ b/drivers/acpi/property.c
-@@ -882,45 +882,10 @@ static struct fwnode_handle *acpi_parse_string_ref(const struct fwnode_handle *f
- 	return &dn->fwnode;
- }
+diff --git a/drivers/mailbox/riscv-sbi-mpxy-mbox.c b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+index 21404baa6df0..7c9c006b7244 100644
+--- a/drivers/mailbox/riscv-sbi-mpxy-mbox.c
++++ b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+@@ -5,9 +5,11 @@
+  * Copyright (C) 2025 Ventana Micro Systems Inc.
+  */
  
--/**
-- * __acpi_node_get_property_reference - returns handle to the referenced object
-- * @fwnode: Firmware node to get the property from
-- * @propname: Name of the property
-- * @index: Index of the reference to return
-- * @num_args: Maximum number of arguments after each reference
-- * @args: Location to store the returned reference with optional arguments
-- *	  (may be NULL)
-- *
-- * Find property with @name, verifify that it is a package containing at least
-- * one object reference and if so, store the ACPI device object pointer to the
-- * target object in @args->adev.  If the reference includes arguments, store
-- * them in the @args->args[] array.
-- *
-- * If there's more than one reference in the property value package, @index is
-- * used to select the one to return.
-- *
-- * It is possible to leave holes in the property value set like in the
-- * example below:
-- *
-- * Package () {
-- *     "cs-gpios",
-- *     Package () {
-- *        ^GPIO, 19, 0, 0,
-- *        ^GPIO, 20, 0, 0,
-- *        0,
-- *        ^GPIO, 21, 0, 0,
-- *     }
-- * }
-- *
-- * Calling this function with index %2 or index %3 return %-ENOENT. If the
-- * property does not contain any more values %-ENOENT is returned. The NULL
-- * entry must be single integer and preferably contain value %0.
-- *
-- * Return: %0 on success, negative error code on failure.
-- */
--int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
--	const char *propname, size_t index, size_t num_args,
--	struct fwnode_reference_args *args)
-+static int acpi_fwnode_get_reference_args(const struct fwnode_handle *fwnode,
-+					  const char *propname, const char *nargs_prop,
-+					  unsigned int args_count, unsigned int index,
-+					  struct fwnode_reference_args *args)
- {
- 	const union acpi_object *element, *end;
- 	const union acpi_object *obj;
-@@ -999,7 +964,7 @@ int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
- 
- 			ret = acpi_get_ref_args(idx == index ? args : NULL,
- 						acpi_fwnode_handle(device),
--						&element, end, num_args);
-+						&element, end, args_count);
- 			if (ret < 0)
- 				return ret;
- 
-@@ -1017,7 +982,7 @@ int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
- 
- 			ret = acpi_get_ref_args(idx == index ? args : NULL,
- 						ref_fwnode, &element, end,
--						num_args);
-+						args_count);
- 			if (ret < 0)
- 				return ret;
- 
-@@ -1039,6 +1004,50 @@ int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
- 
- 	return -ENOENT;
- }
++#include <linux/acpi.h>
+ #include <linux/cpu.h>
+ #include <linux/errno.h>
+ #include <linux/init.h>
++#include <linux/irqchip/riscv-imsic.h>
+ #include <linux/mailbox_controller.h>
+ #include <linux/mailbox/riscv-rpmi-message.h>
+ #include <linux/minmax.h>
+@@ -906,6 +908,8 @@ static int mpxy_mbox_probe(struct platform_device *pdev)
+ 		 * explicitly configure here.
+ 		 */
+ 		if (!dev_get_msi_domain(dev)) {
++			struct fwnode_handle *fwnode = dev_fwnode(dev);
 +
-+/**
-+ * __acpi_node_get_property_reference - returns handle to the referenced object
-+ * @fwnode: Firmware node to get the property from
-+ * @propname: Name of the property
-+ * @index: Index of the reference to return
-+ * @num_args: Maximum number of arguments after each reference
-+ * @args: Location to store the returned reference with optional arguments
-+ *	  (may be NULL)
-+ *
-+ * Find property with @name, verifify that it is a package containing at least
-+ * one object reference and if so, store the ACPI device object pointer to the
-+ * target object in @args->adev.  If the reference includes arguments, store
-+ * them in the @args->args[] array.
-+ *
-+ * If there's more than one reference in the property value package, @index is
-+ * used to select the one to return.
-+ *
-+ * It is possible to leave holes in the property value set like in the
-+ * example below:
-+ *
-+ * Package () {
-+ *     "cs-gpios",
-+ *     Package () {
-+ *        ^GPIO, 19, 0, 0,
-+ *        ^GPIO, 20, 0, 0,
-+ *        0,
-+ *        ^GPIO, 21, 0, 0,
-+ *     }
-+ * }
-+ *
-+ * Calling this function with index %2 or index %3 return %-ENOENT. If the
-+ * property does not contain any more values %-ENOENT is returned. The NULL
-+ * entry must be single integer and preferably contain value %0.
-+ *
-+ * Return: %0 on success, negative error code on failure.
-+ */
-+int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
-+				       const char *propname, size_t index,
-+				       size_t num_args,
-+				       struct fwnode_reference_args *args)
-+{
-+	return acpi_fwnode_get_reference_args(fwnode, propname, NULL, index, num_args, args);
-+}
- EXPORT_SYMBOL_GPL(__acpi_node_get_property_reference);
+ 			/*
+ 			 * The device MSI domain for OF devices is only set at the
+ 			 * time of populating/creating OF device. If the device MSI
+@@ -913,8 +917,15 @@ static int mpxy_mbox_probe(struct platform_device *pdev)
+ 			 * then we need to set it explicitly before using any platform
+ 			 * MSI functions.
+ 			 */
+-			if (dev_of_node(dev))
++			if (is_of_node(fwnode)) {
+ 				of_msi_configure(dev, dev_of_node(dev));
++			} else if (is_acpi_device_node(fwnode)) {
++				struct irq_domain *msi_domain;
++
++				msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
++								      DOMAIN_BUS_PLATFORM_MSI);
++				dev_set_msi_domain(dev, msi_domain);
++			}
  
- static int acpi_data_prop_read_single(const struct acpi_device_data *data,
-@@ -1558,16 +1567,6 @@ acpi_fwnode_property_read_string_array(const struct fwnode_handle *fwnode,
- 				   val, nval);
- }
+ 			if (!dev_get_msi_domain(dev))
+ 				return -EPROBE_DEFER;
+@@ -960,6 +971,13 @@ static int mpxy_mbox_probe(struct platform_device *pdev)
+ 		return rc;
+ 	}
  
--static int
--acpi_fwnode_get_reference_args(const struct fwnode_handle *fwnode,
--			       const char *prop, const char *nargs_prop,
--			       unsigned int args_count, unsigned int index,
--			       struct fwnode_reference_args *args)
--{
--	return __acpi_node_get_property_reference(fwnode, prop, index,
--						  args_count, args);
--}
--
- static const char *acpi_fwnode_get_name(const struct fwnode_handle *fwnode)
- {
- 	const struct acpi_device *adev;
++#ifdef CONFIG_ACPI
++	struct acpi_device *adev = ACPI_COMPANION(dev);
++
++	if (adev)
++		acpi_dev_clear_dependencies(adev);
++#endif
++
+ 	dev_info(dev, "mailbox registered with %d channels\n",
+ 		 mbox->channel_count);
+ 	return 0;
+@@ -979,10 +997,17 @@ static const struct of_device_id mpxy_mbox_of_match[] = {
+ };
+ MODULE_DEVICE_TABLE(of, mpxy_mbox_of_match);
+ 
++static const struct acpi_device_id mpxy_mbox_acpi_match[] = {
++	{ "RSCV0005" },
++	{}
++};
++MODULE_DEVICE_TABLE(acpi, mpxy_mbox_acpi_match);
++
+ static struct platform_driver mpxy_mbox_driver = {
+ 	.driver = {
+ 		.name = "riscv-sbi-mpxy-mbox",
+ 		.of_match_table = mpxy_mbox_of_match,
++		.acpi_match_table = mpxy_mbox_acpi_match,
+ 	},
+ 	.probe = mpxy_mbox_probe,
+ 	.remove = mpxy_mbox_remove,
 -- 
 2.43.0
 
