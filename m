@@ -4,79 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F6B1CA0ED1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 07:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2730CCA0EE9
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 07:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n69VTAG8/2RRXvA4PITUbXfhqYlwpsuG7kfFdfNtuTM=; b=eltkD8ITrdyf6p
-	quaNDUD26uly85uyUHsrkBRwhP+otc6mlRvCgolTqHhKECdh2DEICtflDEsbCN+L/4QMZiqwuCZWb
-	uo4JvzEGPRadU4NsdghK8tRbP04qO9ZonPGQxvoftfoSWtaaE27w/sOkSFjqBmz5gIvF8yqcFrqCA
-	T4JJ50nly6gInB1XqNN9cuj4IBqAMl15oHQ58CB5IOD8c2HL9hgQDYVdOBnhxeax6HgW9nca5MSBD
-	kxlgdeB06noLKvioJnR4DouvZNUt+qAZHJ2n9lbMJkFJrhsuhh1Opax4K7RBcdhU/mzgrnBnu+fL+
-	XJYkBlgohz33Rlfmo3mA==;
+	List-Owner; bh=Aw7WG2QIoijVxb1w+iiPFGKN6DYLp4tVpS/rsLnTaVE=; b=4TprhNDEbg0qvO
+	FMVByvNp9UJKMjJGwVzymkEAsF7CQIsnPbnrlyVN+e/v+ajugFXjJnpoNk7cyrzz78eBOoGgpu0vW
+	yMUr3zzDelhXg5mtadRir+wlgASvlzTCzwDcoBZbMJrCigj6uvJppZMR8f4kNCFyFFy2tC8S8dhrR
+	1Ut1OTWxsD5X8TEKBBo1oS7WKThDj7Be9FqMcB5rPf2+R+N1gBtFJMsC67HRdxpYKOky75+WohdbY
+	u23Y/+IU6Gfks42qvhQfi61Fg4rFnYbbl9pVp/GEDVErGaVQU+Pu08mnIVid50C2Mhqbi3sJguTkU
+	a5QAFET48dR1xy+yfq3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unuek-00000006q4d-3T8l;
-	Mon, 18 Aug 2025 07:51:51 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1unufF-00000006qi1-0Pzq;
+	Mon, 18 Aug 2025 07:52:21 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unuIB-00000006mnF-1Iv2
+	id 1unuNM-00000006nFf-40z0
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 07:28:33 +0000
+	Mon, 18 Aug 2025 07:33:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1755502088;
-	bh=z3qb5MwrWKicSaliZRieeJW1O3PX8tC82J3tbg6iX8g=;
+	s=mxsw2412; t=1755502368;
+	bh=hGJ5K9s0Yp8aThcYwUIFCFOisXwtrtzSiCz6334Suws=;
 	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=s58Fwiy+AWs8KqAzInu/iV6TdS5dDbLXeJl4bgBHr8fIgDGIIe+QcAx8YMmXTcdtY
-	 GdsJAqvvW3k+1yJpUPTzZ9Mr3kKaHZ83ChWfa2UF0m1P1czd4BNE5vOiPnWVK5dU+n
-	 Z8NWWqCTBUOOHb4RkA3GCP3eMLHHS3bTNIjMFhlY=
-X-QQ-mid: zesmtpsz9t1755502081t9c957051
-X-QQ-Originating-IP: adgdB0r2YHeKNJFiNxSXKvVHIVI9sT9H4/Lqu6fnvoU=
+	b=xp6GF8gl+MUMZ04JitlW/eTq7Fvx+VNb9uvqbTuYXkdbWLliQI6AGkxZHlrr4+1xX
+	 sF6DAv89tGdii/3oyDuzQL3kSZXrj7/Zkqj6XQJ5QkVXwhjeMEjUt94e8rb5zU3fFA
+	 jB8ruvsMgoikdXQUXrutQdMjezuW55VbQR1D1kSc=
+X-QQ-mid: esmtpgz11t1755502366t70d98cfb
+X-QQ-Originating-IP: 9nT85dNpey8gNJPRsy567TDQcjCRP7XKv8Zl8iCkjPs=
 Received: from = ( [61.145.255.150])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 18 Aug 2025 15:27:59 +0800 (CST)
+	id ; Mon, 18 Aug 2025 15:32:44 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6329483696988879861
-EX-QQ-RecipientCnt: 3
-Date: Mon, 18 Aug 2025 15:27:59 +0800
+X-BIZMAIL-ID: 7156475783990062859
+EX-QQ-RecipientCnt: 16
+Date: Mon, 18 Aug 2025 15:32:44 +0800
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Jimmy Ho <jimmy.ho@sifive.com>, linux-riscv@lists.infradead.org
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH] sifive: fix using wrong load type
-Message-ID: <DCACD670EB6DF876+aKLV_63OSOvH-VR3@LT-Guozexi>
-References: <20250818061336.30173-1-jimmy.ho@sifive.com>
+To: Haylen Chu <heylenay@4d2.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Alex Elder <elder@riscstar.com>,
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jinmei Wei <weijinmei@linux.spacemit.com>
+Subject: Re: [PATCH v2 2/4] clk: spacemit: introduce pre-div for ddn clock
+Message-ID: <20058E075D69E4A3+aKLXHNNdwT-SP25i@LT-Guozexi>
+References: <20250811-k1-clk-i2s-generation-v2-0-e4d3ec268b7a@linux.spacemit.com>
+ <20250811-k1-clk-i2s-generation-v2-2-e4d3ec268b7a@linux.spacemit.com>
+ <aKKKNynq-w89YeAx@ketchup>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250818061336.30173-1-jimmy.ho@sifive.com>
+In-Reply-To: <aKKKNynq-w89YeAx@ketchup>
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: ObRDf3flJ9WfJSa2XsjcXAnNhjNwajQ+/qBFmAthKMGfvAnWV9klgKbl
-	mAVV0IA8Ufmrwx+ES2OwydazZsLeElJbRYLmxL5xzNxWUgn57BvMTN9G/iC8gLNBDSJ76Y7
-	o1u75FTIK9QvPmXP+uF46boCjW5a+NDm2m/PoyqVD/1Cd24q8ehlGPFf8XPshvjaBg8z5/x
-	I6iUUwVLfYzv5gdL2LSYw8pcCZE0tDvL709pLG3mYqKwqcjbV5M6jRCjFuAXHt05E7DtJro
-	F06Vl7JFP24j1o0soAZG2F2sH/alutLETd22FtpOL/kobxp4A6c80yXruIa1jLu1rQuHMYc
-	WDXyhewb+kIc6EMgvDlQGq8jFdQRO/9BmenEyBRPeSuH1WxvwzTE6zSpbhOJDOd73hSR+uJ
-	rhnGIQD0H+aAXBXjybVr3Y4scQc1MMXFEt/OJqRjK2Jnp5JXoazxrXJW3/ZgulhSPdJXAyZ
-	jlWXzrI3fuW0hEArgOK5wN0dKlCImywr2MxyKB3qV1qlCM/g1bW8D1KpgaQ8Z2Lmw2R6hLu
-	/lT0GVhOdYmCUZQW8Lz/2WI3yyjyipEWbWv7zQNsvnK7PS0izY5ShQOoULxx7M+b6ltPs4T
-	B8OIGr067OIb2S3Crb51AA+mi8cLthKKepNdSy5aHCQvO5+cjE0/ExvNC4SUIUG3v+WpuhX
-	NQLLwc6D1p9ceQJGHVOBbxKQtzvhRWs83RXQvFIP0PXfT5yRvxy6zyNDA9x+anhOjBkKXrV
-	wo+ADoFJQsZS3WV0nl9FxjE3Vkv2Pggko2vFDJHHomhi20YoUzjpdA0GxcT8dUqXHutoPBx
-	pjMLhXCArsZZ9aYkZMHiAuS4f8Z8c4o0ntE3IGoGoawpTcIkWwIlLIUEebCVEF7aqm1EP7L
-	VseB6Wp9QcOmuczTcFKKpbugxtJt541UC57zd3nEcQ/0VI5jHC37zmiRTaCnjSZtCQW8SPR
-	eta9U9yTSe0FbmBOT10qoxm4TKOG9JYCETjj+8kDzIFzYHueuNDLFaEZGIEnVwI295Q66AG
-	scUvD9VJeyTZcurev7i82PztKbA03Xcphe2kU+jQlpBJ2E1KCcC6RDGPXCGaIQPH8c/LHa5
-	iHXPcZrjMp0
-X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: MCk7GSmjSGXyi/V+t/RdOkrnnRidTf36jgGgsvFIyuy58ivSBOHi3Gn3
+	rlK8UYi5EyaQnFMlUrMG07Y8NH7NbooKU+k/OKrW0sUBkTTtQV3y7lWzZzm9vPWC6jedsE6
+	hWYIJdSfpSQCTgPt17BK6TuGU3nrsJFtxDnTyMhJSTM9njX8rKLjSvXYiGakZj2OaVWNVhg
+	MIQcuUU5qpkrokgyU3MKPZnjqoZITLV3VucZFVyGqHP4d26hWmsp1MDZ6TYd/4A4iTmrxJa
+	hrK3cLYMJW2Lg8b/EdgiUWr5tw4r9LpZmHWnWzFYxsYrp/Ws/CwiqkOD5UBV9fIeAmG2nqD
+	0dE8tu9eNu11UGQNKUZxFj6ela1QvSRVJoUylc0lVm/mcUxgWUlJG+hlzNoUGMmMByNtcG3
+	/rGq8O/2Weky/WetUvHUskI7S5ZdebB/JSLyVf2qrVDKrFh9FK49TBk5o3/iKi/f/6780HR
+	b/Q3g3kRfGS/l/grdmKKpTakx4aTfZE5th9fK/k53JH1w/2JcyrYxcThSFc19UNfajpeNSa
+	xeo05IxnClznQzk/CpkTPKf8INUwTHJmvuUtOMbyAnWNT4Rfo/U+ml906TtHF4TerMn62ui
+	htDWEG0W6rpPuRcOmvhNBWIvuzJAsHAZb8FUs2JPhj/hqgFbMeC7GYY8aPuShO28XKlPKwR
+	8EKO83sfl9z5DUnqXDUtox5wtY23N/04H34L0DyaM8MhlON0yLAOBXscFbPj50/BJhTPgKn
+	Hw9snUzZVMJ/blW4bXVqz7akipYFu8LWQpoAeGZHI2x6B1yp7IZHt0USts2fWXkIWRuXATJ
+	VGVZ/Z3ooU/FrS2AREPJiWSB0KKOqoQjfqxA+CU9DId8pqWTpcSH9r8/54MbtbWa2I357Gj
+	L8CNm3O/xEZPjuEjbbvXg3E9ttuFZ7FSPAP95ryB+3AQPpGTZQ1PTvOdkReWpA5d5Nz4RSb
+	sOWgyJDHi1Vogu0QIY2MUQ4jEQzreCc7q7DANcGAC+xfJXvHn3VE8H5dMEXnDoJJaFwbvYe
+	kUWfqZtBoZC7Q+o6/CII8ik4/CR/6hvE+nZUucreCCrfNjriGE/m1pIG1336CHRIPd/0CI/
+	bRcJhZpE9o8KglGcmGFGoDIFf6X4MYlF67aIhY4oywUMN0V4oMGFdY=
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_002832_067945_95CB8420 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20250818_003353_837469_5CA080EB 
+X-CRM114-Status: GOOD (  24.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,34 +105,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 02:13:36PM +0800, Jimmy Ho wrote:
-> thread_info.cpu field is 32 bits wide,
-> but is accessed using an XLEN-bit load, which might be 64bit load, fix it
-> 
-> Signed-off-by: Jimmy Ho <jimmy.ho@sifive.com>
-> ---
->  arch/riscv/kernel/entry.S | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 3a0ec6fd5956..ed493cd3dc35 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -46,7 +46,7 @@
->  	 * a0 = &new_vmalloc[BIT_WORD(cpu)]
->  	 * a1 = BIT_MASK(cpu)
->  	 */
-> -	REG_L 	a2, TASK_TI_CPU(tp)
-> +	lw a2, TASK_TI_CPU(tp)
-We better add a comment to explain why use lw instead of REG_L.
+On Mon, Aug 18, 2025 at 02:04:39AM +0000, Haylen Chu wrote:
+> On Mon, Aug 11, 2025 at 10:04:28PM +0800, Troy Mitchell wrote:
+> > The original DDN operations applied an implicit divide-by-2, which should
+> > not be a default behavior.
+> > 
+> > This patch removes that assumption, letting each clock define its
+> > actual behavior explicitly.
+> > 
+> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> > ---
+> >  drivers/clk/spacemit/ccu_ddn.c | 12 ++++++------
+> >  drivers/clk/spacemit/ccu_ddn.h |  6 ++++--
+> >  2 files changed, 10 insertions(+), 8 deletions(-)
+Hi Haylen,
+Thanks for ur review.
 
-                - Troy
->  	/*
->  	 * Compute the new_vmalloc element position:
->  	 * (cpu / 64) * 8 = (cpu >> 6) << 3
-> -- 
-> 2.39.3
 > 
+> The code change looks good to me, but
+> 
+> > diff --git a/drivers/clk/spacemit/ccu_ddn.h b/drivers/clk/spacemit/ccu_ddn.h
+> > index a52fabe77d62eba16426867a9c13481e72f025c0..4838414a8e8dc04af49d3b8d39280efedbd75616 100644
+> > --- a/drivers/clk/spacemit/ccu_ddn.h
+> > +++ b/drivers/clk/spacemit/ccu_ddn.h
+> > @@ -18,13 +18,14 @@ struct ccu_ddn {
+> >  	unsigned int num_shift;
+> >  	unsigned int den_mask;
+> >  	unsigned int den_shift;
+> > +	unsigned int pre_div;
+> >  };
+> >  
+> >  #define CCU_DDN_INIT(_name, _parent, _flags) \
+> >  	CLK_HW_INIT_HW(#_name, &_parent.common.hw, &spacemit_ccu_ddn_ops, _flags)
+> >  
+> >  #define CCU_DDN_DEFINE(_name, _parent, _reg_ctrl, _num_shift, _num_width,	\
+> > -		       _den_shift, _den_width, _flags)				\
+> > +		       _den_shift, _den_width, _pre_div, _flags)		\
+> 
+> You changed the definition of CCU_DDN_DEFINE without adjusting consumers
+> of this macro. If I'm correct, this creates a build failure.
+So I need to adjust consumers in same patch?
+
+> 
+> >  static struct ccu_ddn _name = {							\
+> >  	.common = {								\
+> >  		.reg_ctrl	= _reg_ctrl,					\
+> > @@ -33,7 +34,8 @@ static struct ccu_ddn _name = {							\
+> >  	.num_mask	= GENMASK(_num_shift + _num_width - 1, _num_shift),	\
+> >  	.num_shift	= _num_shift,						\
+> >  	.den_mask	= GENMASK(_den_shift + _den_width - 1, _den_shift),	\
+> > -	.den_shift	= _den_shift,					\
+> > +	.den_shift	= _den_shift,						\
+> > +	.pre_div	= _pre_div,						\
+> >  }
+> >  
+> >  static inline struct ccu_ddn *hw_to_ccu_ddn(struct clk_hw *hw)
+> > 
+> > -- 
+> > 2.50.1
+> > 
+> 
+> Best regards,
+> Haylen Chu
 > 
 > _______________________________________________
 > linux-riscv mailing list
