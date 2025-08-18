@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E3D4CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 05:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92EA2CA0EE9
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 05:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=40U/V3uDfHx7sPpXQoWb+5GswOx/dAzqzBkz84En27A=; b=ZbKnfJTXDUitGP
-	BWimvLfjt01mD29l/4P00G+cBma+bPvJbJod8HTRptkfwJ06oDxwXjUR8TiYN0jP46om5D7Wy6Xu/
-	aDbrzSSzzx2F92wLueuPc7de2Fx5PupT5zx2IkjUyTdrSrJq4lJ6cpte/55PKp7vqwe/YFS4mECtQ
-	kPuwfjUSDo0dQa1Ape4jvrmDLmMa18/VjXcjF7pHDtR0PPyBGRExm1g/gqzidCSW14Agey4Oxxzj7
-	VbXWDgsTUy5O8/LfK/vBbKdHpxaGWfPmnWMX6b9kxBcdrXiqWqP3bvszH7vGpBPpEPfQX1K0wrBTx
-	GonYCz34jN4zG/bs+3ow==;
+	List-Owner; bh=RmAfkcbvg0r8siLFTk1w+6hBR/Oziq77yFiLtHXeaUc=; b=FS+Xq2oXr2z+Yi
+	HGTA8Qmb3JaAsNm95e9Qqq2vp2liNtwocLW/HKgHyFvwmmyXR7HASfeA8InCIhoBR/16Dvx4W1WBW
+	qlEFPINexHYiF5BFX0+k+KceGD/FRnHmgf69qphHzzM7QNlkRfHeEcGC3xWQtfqtycX4MVauJh/TK
+	pSwjKwhF5ZXvamDgoKCyewE748A0yPRkgRudLwP4IfAehSbWdjUyDUqRBsJKhWmPUVSLRh4uk6t8H
+	h7rehFo5nREBDTbEtJacZP98hvrbD93y8EGqyGGqEJeHuTwG96hOgaJLWlH8QZzCxY9JtJIF8Zsq7
+	oF516ALZU9CJSV6z1IyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unsGI-00000006XAj-1QXb;
-	Mon, 18 Aug 2025 05:18:26 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1unsGL-00000006XBn-1TgN;
+	Mon, 18 Aug 2025 05:18:29 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrEB-00000006RYk-1dgR
+	id 1unrEZ-00000006ReY-35dd
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 18 Aug 2025 04:12:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=RQx4DIh4Piuq7HhjaN41eXcQRyGY2O2ucSjN2pwnllI=; b=DlnOh47cGTkv+MIg9FLcle4/8y
+	3GV9cnfcX96FTDk7f+cW0xAa19DplGN3kNc4Bi9J9/LkYo0aYAv4lcmCJGOe9nYYYgFFtv6L38DNK
+	l+ixXKJFvdtHOUQJPJ/1TQHfZuPhZXMO4TJIfWLG1jlhVG+9HnWhSMOnLa/9wAXFhUrliztTtnMMI
+	eZXn8x3EFOX5u0F1abBHpbO19j+G01WeMoIvhGNroNFIECPeftPupANTYvCOYtNDDsNFXFukkEIv4
+	Mr+SiXrjgDQBfn0D1Mus5OZK4p+Rwi0rBMCq7dFcP1MIbAELVSL+iOWTisXkqKy/sD8B8Xthkt0Fp
+	F5g7rl1w==;
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unrEV-00000000Exy-2ClP
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 04:12:12 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-32326e2f0b3so2578062a91.2
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 21:12:11 -0700 (PDT)
+	Mon, 18 Aug 2025 04:12:34 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-32372c05b79so284453a91.0
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 21:12:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1755490331; x=1756095131; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1755490339; x=1756095139; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=euEEBnJ10Ul0dBSAcTDiXwaw0u7DfxF4JtogRsP9Xlg=;
-        b=lQzaIFI4pL8Lh084ae1fSP+4u++73rzLBJ6fsqg+QWTSA1TjG0AyqQY3+qaClU6FqO
-         XSTrSFgZKdXOPxxQU4pVc+0mrxC5E7ountUltWwfCJ6o5C0XDvTgrkhWfFBarHWKHJ5E
-         Vu+em7lztimh7g6jhE8NLjHTCe9ULoIov1M2G/8ABJlHkOQHmZqCtanIYRMZkGbKQtau
-         WvQea5QO+WQ9BH5mZTX3NPntbHdjlZXuJOPGXLoBlbnpLehqKRZjUy2EMwEVTEyD1UeS
-         7VgjSz4MlsS2k5yFa3IrQAMo9RXRhF8Kcua/gAhjvF7yaq5FychXu2GDSlNb5fggiDC2
-         CR2g==
+        bh=RQx4DIh4Piuq7HhjaN41eXcQRyGY2O2ucSjN2pwnllI=;
+        b=fP/SKO95W3YWtL+zFwzVAW0CyPDeB2FyxHCmtnIdLr5d61PEwmqBaN6ezbEkq0tRvz
+         jPs1b3oUKDSqiNUiEn6NmBQvjjENSvIoGUNzDxabrdRCdmeAwKXHphV9B82eyQkJCmtd
+         SPd/1wPf4z/IFBX/PhfCX6ncGsU8IlQ7IPpbJqDDvhOqhMkxqbjMP62Kaiefopxk4n8J
+         0GLOYM2bHMKtHOT2U+ygKOuYdrzWM/7rrkI3Cyju9k2zTcJc1xL5CL4BVjwipUTh2Ffq
+         o9QbTb14EoOWn6V1vVFa7ljUG/JRFiTneHT47EOV6Khm5CiuIBraqwz9lgLliyQ8aTXC
+         IOBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755490331; x=1756095131;
+        d=1e100.net; s=20230601; t=1755490339; x=1756095139;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=euEEBnJ10Ul0dBSAcTDiXwaw0u7DfxF4JtogRsP9Xlg=;
-        b=VwZx6KpCQrH3s7HtSJtPonwgDZnii8zo9rhk3Z/QAY15k8gkEpZmIfzIbjuc4gT7WK
-         WJZd2/CEyS7fZ7p9RlsjrIDPAuGlLBmFRKQ7QcSLyqBSIWty0vXHP95Br7mF3Y2K6wxJ
-         9wTvhjwcBTE4v+HvatVMdCsFghjq98n8u0dAj3DXnzxZZC39mv5nN2alefBo1r8qUN3S
-         MYTkNBiNhm+4A0vKSbIdTlYDJwVA8dJ1Ed/+mpnJY1nFsN3VYhhD7oMJT1Of0XSIvtby
-         /3Z8ar8T8fjh3i65+E0X8svXzrgPPLQWgOkM2iiGmiOlUY3XqAhLu1uLn6xbxLp4YnWk
-         MSxA==
-X-Forwarded-Encrypted: i=1; AJvYcCXrXAnooP42I2Cwggo0fpZWXaRlnO73U3LBnzFVklg7Ae82J/RC65dN+kTSMxaTjcGCQPlq39vVHHGvcg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUk41w26Ou7eroFhVgaL/jg6alAlELpwpYQruP/C2fQL2Hqm0X
-	2PGPQ/w0dpjViVLkp6nkXWadNtW02ZGQkzAya5iMNwUeh4gUKOgRv2QpgOttNmCQTQo=
-X-Gm-Gg: ASbGncsBXRA72BObCwgjTZ+WfDVvY3xKIgEZl6Mf2UQNLNxms3a8jGPoYo2SrVnz544
-	4TuTPQz+yCeoOKW86XkCK+88RC1Sra0G9WaVftUC55jKMKuQaQNobkIYZOVgkRasUxzDQYdxmVd
-	UQp/OnyUbuPgeSLgHwWB/1qkOOAdEQyMB01pPYY/7yYg79PvUlAva76IbX19iRKyVExKFlYnA4C
-	+4HfF4eyKYkAmwzGBierTCNSA1APcq1a9yrloVY/ffRaY3RAsEnaSGS5Q3aFpwR5CFOygrqpehU
-	z6UL8ZiOXpb2Fb9RpkvqLRFHOYKCSC2cHAqpMIa//aji1t3O0XLmv2dRPNvOmj5O5CA8RpcquKL
-	KUirFOvBU8FxKOEDwrKT4mQdQbOR0gbHZsL15kFG/r7SicqjXZWhr5UVgbHooaaN0
-X-Google-Smtp-Source: AGHT+IEbCDpwORPaaFZ1NYP5UlV84IBgHfNrd/o9UzgQMcIg0DT5gPsfDu8wRZ7EeXNlc9EJa4PqPg==
-X-Received: by 2002:a17:90b:5343:b0:2fa:157e:c790 with SMTP id 98e67ed59e1d1-32341ea8b2fmr14321856a91.5.1755490330522;
-        Sun, 17 Aug 2025 21:12:10 -0700 (PDT)
+        bh=RQx4DIh4Piuq7HhjaN41eXcQRyGY2O2ucSjN2pwnllI=;
+        b=VrU7n07HkAeTEzO5teUmKtpZrEBV+4eoIuy/w2PCRyARcoTUW1sCuYo7wHkskUB6zB
+         acVfSQ8Qk38mjLu+UzumopM7Sczt30CQUvXJRPLcopsRiYiYQf/8hAqe0r3AMHrzvSca
+         E4KuJJUSBLc6L/L9g98Ie+tOadSDtJbNCg7kPsC8qJYE+hczhzEtttSUtNr18ACeJ9we
+         r4HRiQCGOw6/ChvLdKnh2a7/YQ0X9QpriuwryHKdch/HiHS+aPp301uHUvHgg2OpqzXD
+         1hGE3X3hZalOGKXnqDnoDsuj6/EnO7yLSYSPGoATcCBcR9hxDqSB/NcB/8TUlUWiLEBk
+         7cQw==
+X-Forwarded-Encrypted: i=1; AJvYcCVhFSJBscYBrEnpRB/pFkd5TAuBEywqYIhAKj9hd+DXnsO7zjbk8p2hW6e9Xec/mAoVjF0NBJy6nIOA3Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwesJr8I1PTb4rbzWxP3mrFdIsv2pPlJCAPr8VtpMRiBI1mz8QA
+	ng/QkOcxUi+1KHkHtMDpjTXi1WAUK++nlfcvD2SOYD0pdnfsvlhg33Vc7L5vhUHzsbQ=
+X-Gm-Gg: ASbGncuJZNEtGLcff5VndSJRSyvB2USXNCEiwcVf+zGYy7jxMzgKy1fxO4J/wxxHmqv
+	Qw8VSDP64tuANZWQpz1u9ex6EQFhRc9j6W1dkip9957yKXCcqKJXEK53Y3wDcKydUXXIF3Jyscj
+	f34/ot7uw4MbkSvcHTHgr+xvhyqxx9HYy5xIz4buwVoyZr1hFdMRuGEI/9TJnSzJ9gf5+SiWRLV
+	UfaSGEwpzHC5e+HSlBwd2+NBCltLsSUACIKnNidVWykh9/y2Vi5rWHj4oXv1g9JSUmVmOQArTpf
+	XMto5WxhVHA99VEXJ8jgWej9kRXnHAs+aFTBJ+LjbHfgaWORJenVul4HMLyn3bcIozt8MWwJnPZ
+	kMkNp+yS1a3WiGneuq+58E+yMndwo6S71ilwfcGBFH4fgaiFtIdZLBC5a+3xYF1YQ
+X-Google-Smtp-Source: AGHT+IEPxSb/NsG9Zm6Sde3dy+9vjl78ugsOjUnfoDwFeFFug3ocplCGnN7dY2ngRx9phRfT5mXqyQ==
+X-Received: by 2002:a17:90b:268c:b0:321:87fa:e1e4 with SMTP id 98e67ed59e1d1-32341df8cfbmr15719154a91.6.1755490338939;
+        Sun, 17 Aug 2025 21:12:18 -0700 (PDT)
 Received: from localhost.localdomain ([122.171.17.53])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32343c70356sm6560972a91.25.2025.08.17.21.12.02
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32343c70356sm6560972a91.25.2025.08.17.21.12.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Aug 2025 21:12:10 -0700 (PDT)
+        Sun, 17 Aug 2025 21:12:18 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -83,16 +98,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v10 15/24] ACPI: Add support for nargs_prop in acpi_fwnode_get_reference_args()
-Date: Mon, 18 Aug 2025 09:39:11 +0530
-Message-ID: <20250818040920.272664-16-apatel@ventanamicro.com>
+Subject: [PATCH v10 16/24] ACPI: scan: Update honor list for RPMI System MSI
+Date: Mon, 18 Aug 2025 09:39:12 +0530
+Message-ID: <20250818040920.272664-17-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250818040920.272664-1-apatel@ventanamicro.com>
 References: <20250818040920.272664-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_211211_434493_AE46E735 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20250818_051232_377869_131DB4D2 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,7 +119,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -112,110 +127,35 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Sunil V L <sunilvl@ventanamicro.com>
 
-Currently, ACPI does not support the use of a nargs_prop (e.g.,
-associated with a reference in fwnode_property_get_reference_args().
-Instead, ACPI expects the number of arguments (nargs) to be explicitly
-passed or known.
+The RPMI System MSI interrupt controller (just like PLIC and APLIC)
+needs to probed prior to devices like GED which use interrupts provided
+by it. Also, it has dependency on the SBI MPXY mailbox device.
 
-This behavior diverges from Open Firmware (OF), which allows the use of
-a #*-cells property in the referenced node to determine the number of
-arguments. Since fwnode_property_get_reference_args() is a common
-interface used across both OF and ACPI firmware paradigms, it is
-desirable to have a unified calling convention that works seamlessly for
-both.
+Add HIDs of RPMI System MSI and SBI MPXY mailbox devices to the honor
+list so that those dependencies are handled.
 
-Add the support for ACPI to parse a nargs_prop from the referenced
-fwnode, aligning its behavior with the OF backend. This allows drivers
-and subsystems using fwnode_property_get_reference_args() to work in a
-firmware-agnostic way without having to hardcode or special-case
-argument counts for ACPI.
-
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/acpi/property.c | 29 +++++++++++++++++++++++++----
- drivers/base/property.c |  2 +-
- 2 files changed, 26 insertions(+), 5 deletions(-)
+ drivers/acpi/scan.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/acpi/property.c b/drivers/acpi/property.c
-index d4863746fb11..e92402deee77 100644
---- a/drivers/acpi/property.c
-+++ b/drivers/acpi/property.c
-@@ -804,13 +804,35 @@ acpi_fwnode_get_named_child_node(const struct fwnode_handle *fwnode,
- 	return NULL;
- }
- 
-+static unsigned int acpi_fwnode_get_args_count(struct fwnode_handle *fwnode,
-+					       const char *nargs_prop)
-+{
-+	const struct acpi_device_data *data;
-+	const union acpi_object *obj;
-+	int ret;
-+
-+	data = acpi_device_data_of_node(fwnode);
-+	if (!data)
-+		return 0;
-+
-+	ret = acpi_data_get_property(data, nargs_prop, ACPI_TYPE_INTEGER, &obj);
-+	if (ret)
-+		return 0;
-+
-+	return obj->integer.value;
-+}
-+
- static int acpi_get_ref_args(struct fwnode_reference_args *args,
- 			     struct fwnode_handle *ref_fwnode,
-+			     const char *nargs_prop,
- 			     const union acpi_object **element,
- 			     const union acpi_object *end, size_t num_args)
- {
- 	u32 nargs = 0, i;
- 
-+	if (nargs_prop)
-+		num_args = acpi_fwnode_get_args_count(ref_fwnode, nargs_prop);
-+
- 	/*
- 	 * Assume the following integer elements are all args. Stop counting on
- 	 * the first reference (possibly represented as a string) or end of the
-@@ -961,10 +983,10 @@ static int acpi_fwnode_get_reference_args(const struct fwnode_handle *fwnode,
- 				return -EINVAL;
- 
- 			element++;
--
- 			ret = acpi_get_ref_args(idx == index ? args : NULL,
- 						acpi_fwnode_handle(device),
--						&element, end, args_count);
-+						nargs_prop, &element, end,
-+						args_count);
- 			if (ret < 0)
- 				return ret;
- 
-@@ -979,9 +1001,8 @@ static int acpi_fwnode_get_reference_args(const struct fwnode_handle *fwnode,
- 				return -EINVAL;
- 
- 			element++;
--
- 			ret = acpi_get_ref_args(idx == index ? args : NULL,
--						ref_fwnode, &element, end,
-+						ref_fwnode, nargs_prop, &element, end,
- 						args_count);
- 			if (ret < 0)
- 				return ret;
-diff --git a/drivers/base/property.c b/drivers/base/property.c
-index f626d5bbe806..6a63860579dd 100644
---- a/drivers/base/property.c
-+++ b/drivers/base/property.c
-@@ -578,7 +578,7 @@ EXPORT_SYMBOL_GPL(fwnode_property_match_property_string);
-  * @prop:	The name of the property
-  * @nargs_prop:	The name of the property telling the number of
-  *		arguments in the referred node. NULL if @nargs is known,
-- *		otherwise @nargs is ignored. Only relevant on OF.
-+ *		otherwise @nargs is ignored.
-  * @nargs:	Number of arguments. Ignored if @nargs_prop is non-NULL.
-  * @index:	Index of the reference, from zero onwards.
-  * @args:	Result structure with reference and integer arguments.
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index fb1fe9f3b1a3..54181b03b345 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -858,6 +858,8 @@ static const char * const acpi_honor_dep_ids[] = {
+ 	"INTC10CF", /* IVSC (MTL) driver must be loaded to allow i2c access to camera sensors */
+ 	"RSCV0001", /* RISC-V PLIC */
+ 	"RSCV0002", /* RISC-V APLIC */
++	"RSCV0005", /* RISC-V SBI MPXY MBOX */
++	"RSCV0006", /* RISC-V RPMI SYSMSI */
+ 	"PNP0C0F",  /* PCI Link Device */
+ 	NULL
+ };
 -- 
 2.43.0
 
