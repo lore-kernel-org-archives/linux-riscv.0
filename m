@@ -4,124 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12EC1CA0EE9
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 06:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 345EACA0ED1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Aug 2025 06:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0Yx6jor654oQ0UrLAcgU0KUlh9YARlmu4sJHqYy+Ixo=; b=zFhwkD14DdV+Wb
-	ysAVUSX0U1Lez7t+hftymTp5nZ0G61PrSSVomal77OcbirYlKnlLtJLKoeo0hwuXWMVHvVRFfCMQM
-	loYjPxo51R5RLniCmxEPY1iNKJzNnBhe2oiWGoQLJBFDkOcYIRJEcNfdyO0twXd/xehZJwTzMisBL
-	67dlue0l3EaoiXmijPoikOqLaJe3jDx8hWfEAL1PLj17UbN+gImzkjxRCpZxHsGI8scercxCCYIKP
-	2FN2yZwlU09gHkB3M0XYY5wAaEt4XNlQ9d/MsM9go69qbbUl9rhFXvOZiFW0Yx5koaLOirkiiv5NK
-	5GuJVB+rXPVC6Cvr4m2Q==;
+	List-Owner; bh=cjLwRHHEbhw8ORzNFd6l7QzhnUMFlr7Glt3HFJowCi8=; b=U/5HDfo3PIsJdz
+	1QvFQrnusLIJaqY1D42hkNbIEFKTb3hTdch5Acl5LMbhv0jMVyJEtdM8OMXa7q7qOTtIPFwnsBVgB
+	2+vLvDjagqiQ/ZrAWmk9HTd0813ebaxzt1OSWJnbpaWYGZdOnt72qB5/mq0Nau/hbh7A6g7qDEiQU
+	7otzgRcXu55mwi082ir2UTUx4ryaKvCq1dy5IV720M1n3UJ/bc0onQ120+jzgqV92t84Y26xAyPix
+	/V6brRFD0Ng7gzeESJdY9VIZ6iqSEe1Hq0w0wsSYuxFoJbJs0CTm2io3db93GgTNCkYcV0eZ7C7ix
+	iPS817OJzYHjMVLLAkaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unt0j-00000006bKW-0DX7;
-	Mon, 18 Aug 2025 06:06:25 +0000
-Received: from mail-sh0chn02on2108.outbound.protection.partner.outlook.cn ([139.219.146.108] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1unt5P-00000006byZ-47Ha;
+	Mon, 18 Aug 2025 06:11:15 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unt0f-00000006bIj-1vie
+	id 1unt5L-00000006bw8-0NAc
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Aug 2025 06:06:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=l4LjWilmZ+Cbha/0S81zHYfCvqACUWzMkRJEh3ra0glj6OOt7ZFC8HO54MlH9is79V9nQmOximqUXubfLDSiNMxvlTqgLW7eDlhLE5qN6liFi2Wd6SvPwNfShjjjUm0FiB4LpK8CdR56wDNBtKn3tEQXaFeMslJwXtUPoLNRgKxUlx1gij8i7RKM3oIHXKiHP9VbGix4uV/g6bJW143dpzuFruS/7jjnG+ob0MWXh5vSiVwosL3Cx2qGLewxx1QT+mqrdjT6h045Bd//Ds57dvosXT0RMoW3cAXXJhum+0WlcKAO1EUJebN3Bdp5WQ/onMcUBQavJ4YG8lGWTP3Efw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sk5HRt83ejDx8HUvz4F+zgnWFAiZyavV10DZzdV4P7o=;
- b=ESK0lPX2lJc95/X5G5ChBpCDpOYisQQqVk+1yZiJpQ9uBahRl7uFDD8B18Pw/1Vp4V0oSPFB8wVTtGj3nOuDK+8fvmTP3IcFFIy2w/d14pw72OQqHIE3XHVZJHrQTiJ0ZWDx14wR3OYCKMjE4+asaomK0lm3iJ1B9xqs5ZbjipZp3xK3nPsytmsdiPMKBbVMvbLYNXuX/NB0ExAfWYM/zCPFXc70WAwzO32dVAob/I0RJfA+p62AafvC9pMHaSDEbMFwszhHT4S6aeF4YrH39an4p4ULQseDMmXkYhZFlxaU/foam8qeegiKzYggM3bHUnzmuKZWK6rK5+avPfA3LQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:7::14) by ZQ2PR01MB1161.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:6::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Mon, 18 Aug
- 2025 06:05:40 +0000
-Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- ([fe80::2595:ef4d:fae:37d7]) by ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- ([fe80::2595:ef4d:fae:37d7%6]) with mapi id 15.20.9031.023; Mon, 18 Aug 2025
- 06:05:40 +0000
-From: Hal Feng <hal.feng@starfivetech.com>
-To: E Shattow <e@freeshell.de>, Conor Dooley <conor@kernel.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH v2 3/3] riscv: dts: starfive: jh7110: bootph-pre-ram
- hinting needed by boot loader
-Thread-Topic: [PATCH v2 3/3] riscv: dts: starfive: jh7110: bootph-pre-ram
- hinting needed by boot loader
-Thread-Index: AQHcDbfjrd5j87sKqkyiqAyP5B2/v7Rn7XHQ
-Date: Mon, 18 Aug 2025 06:05:40 +0000
-Message-ID: <ZQ2PR01MB1307CE398A5993B9E5B93357E6312@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
-References: <20250815073739.79241-1-e@freeshell.de>
- <20250815073739.79241-4-e@freeshell.de>
-In-Reply-To: <20250815073739.79241-4-e@freeshell.de>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1161:EE_
-x-ms-office365-filtering-correlation-id: 1255fb70-e384-4fd5-04ae-08ddde1d420e
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|41320700013|366016|38070700018;
-x-microsoft-antispam-message-info: xEz6NGJN2LGx/78JNqOYdbBgmKf1/5u1QqSqRKrbLMU7OEMef938KneYxD9VTLDLtPCEVuJk5Ovvt+5mWFgcHbY5NUHV78WYzN+GDWi+whuYaamY3doaKBvgt41mmw+S3Cc+aQqrnNcTcqbr7h42jLoFBy8aROxmBfJ2I/muZ1Gl7+tFzSe7aYqLmbapP+05dqbr1ZhLKNv6YBZFNFEcUWekR6OSxmCtV/+vvNOfD3iI7tuQQNOgfo8IWpVNtZfTXTlvkHfzCCqKmHDkJWnuDckWeQwsajrtY842f+Lru4SJiZrpV/oYvW3FXCBkw08QNFNBLWg65d6Og7jhrGOQdf/MtYFLEI+cTJe+EBGBm0Te2GaN8N7iIuhl7M/pSmYuHA33xRr52PAuzdC2GIYc9XQGQ7WhEkO36kIlsOhYxXLk5JKz52qTmqWjjSzeej+OSYc3JikRe77cYwRyIdKUowFPORQeww7hWRK+mDFyLudc51HBZ0Po5WChXXiHyROr/1AyuvJrIlZkbYi9Tpl6vw5lTCSIgiM7p7pDPp8iNVs6Kz1SLbms+ZC88b650K82oZ7TNCH8pmDFsPIJRazxrGukU2IeSyt7lXawRYvY99Q=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(41320700013)(366016)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?YVolEmx+kdPGNnZ+GAEsDXT0xDS5eBDJJIT/okrNtKzayQ2w47Ecmh/j7U1/?=
- =?us-ascii?Q?SNhV8Vlr50OZXyZ0A7GZUfH2dLw655Y/D7E+cNskT7e3D3rYjKGG3gyaaWAP?=
- =?us-ascii?Q?/GSKFDKv7MF049PZ6/usLfaiO31aQ68oOylls7vamhlMSEIus9AeelpLhEwQ?=
- =?us-ascii?Q?ubDJ9B0Zs1FVaDVOEw0Nlqr9VvfCpSfeHkJxp7to32GtdsLKBEJYS0sX1Lmx?=
- =?us-ascii?Q?ZvzDRFSTdXUcRPSsWhLx+8cyTyejzUcl51tyRTqMwfjOrxHUwVGh8L/98tG1?=
- =?us-ascii?Q?S5YMjdxlQY/C2PQIvTNj/bTwa+X/qghv+wnmWQHesDY3/RZlVXqGfoEVH0cT?=
- =?us-ascii?Q?APkpr7T/BlHCBg36tjt0LyqzI3gjaPX0XIJg3tqXMB/vDMz2dMvSbNtc2Hx4?=
- =?us-ascii?Q?qDPCiCIPNq2uJX5srCfG66EvR9ywNQlkX2gDgxnKlPy2tGsPBYUiGv/Z5uNb?=
- =?us-ascii?Q?bQHnLpzXFhJlpBQYUfaCqo4xCpXaPLH5o2jMUtEzxlvY+xz6EAvWwGaX5qms?=
- =?us-ascii?Q?k8Lvhr29PTGpSKNBfcUtwUMuARibt8AI6uzk9jq1TnXG4Ffo1Ffx6nnR2E3Y?=
- =?us-ascii?Q?svFzVWKLMWNVTgq77xhdTNabJ5LPi+DfjS6/yRk8M7lAzMk8C2l5xbWEDw2+?=
- =?us-ascii?Q?6R18nkq6+4VGFQqqXiJ35OyIytIetSZ/hMEcAgnjBfDc7PEegvGwZbXMb9Xt?=
- =?us-ascii?Q?Bjhzn8CV8QRGqVVdKWg00IusFvWCMVdYNO/34L3WbGWeBfy+zHmMsZh1VYCg?=
- =?us-ascii?Q?HNJq0EAd0NwJ4jxAYJYz0dW+Hhf3Fak0AWLrqMpav5pUZyocqF5xwGoxhAC+?=
- =?us-ascii?Q?PySc8y/t20VL/nn+7DXhWRXy0LRmPDbgVoLnS4dxSVY8WF6fT1tyh6LRvlhw?=
- =?us-ascii?Q?xOt1nhtMoL5oUAxb8ZVE1fkeYKUQblc1M1CnTu+R+rkU1It9NAocr6EfCIKJ?=
- =?us-ascii?Q?sEgJL/+92Aw2uT/xF7AcvkZGv0c6QMnaVnH5OvHL0JHa7LEyYgyLEOuOzZJJ?=
- =?us-ascii?Q?C5LtJ1IKlJzOYIMFIMwcneiHsQuZhIkbQbDjLwjdzhZ5w8qWfhwsKCnzbWqU?=
- =?us-ascii?Q?hUzyZirbnytI2qFrxC4PHUE42kEzm7R/jnZtdZAScg/xh2rywRromZhTHyKU?=
- =?us-ascii?Q?i/nXUzGZRGUtD3pd+Hqy6UmmQmaYHeww/IjqIdFgLOZ3xC4EePLvIwjxs4jO?=
- =?us-ascii?Q?K7HF6+HPfvmLqoBll1OLnBmKM8v0JqD72ZsmlOWrTMyt3nM9kdq7AqMCuTkN?=
- =?us-ascii?Q?ZhbveWOwqvyXFaE6qbi3h2GBUARtrQq4iX7FI5nzmx2Kj+H9I0jzcA1EKeCh?=
- =?us-ascii?Q?/CWULE90Q9aySuY5q2UAa1rDqdSP+CeMR36riHmogCAUaKuWvRSwD4JYIxqH?=
- =?us-ascii?Q?sb1MAPAoy/6vsIEmwoxb7IR043dZ6mx2ngyJCjMaW/Cj+XS8RHr6yIxWwhtB?=
- =?us-ascii?Q?aLSXG8c802zhsGWttmbRtiSFuxTi6EYQ64paDngSXr6ap1eV2ESp/8UkKgfA?=
- =?us-ascii?Q?MrsPGTde4yCODDga5gCLAROLbKXj4T7hvS5E5EsLAEwygWxD3I2p+GG9HWW2?=
- =?us-ascii?Q?BhnB1t3oaHKrDE2SG+7mdxvWue/dGTl48UTmMHxtm0c0LOIK2rYQMQfefWXa?=
- =?us-ascii?Q?xQ=3D=3D?=
+	Mon, 18 Aug 2025 06:11:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755497468;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=ilfNOSXpmB/eYq3cbXUlvKiZ0NGf6LLnNw90QesFLBE=;
+	b=K142VYB3G4ZH0ezHECehIlIsYiw16SDKtrG37m7ZiJtHJ61lMEQfbkGq4sGCLC//AIelVU
+	LZZa5nLynvr+ywB86IdtmEwNo7hTj7sE/7xoD9DUe4kmyky4cjY6AFZsCgXlDLbXkmEl0k
+	ELYWizI7rKPgnZ9plzrLYMZPWK42TCc=
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com
+ [209.85.160.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-641-IIQqPDy-OSSYvAEEADRY6Q-1; Mon, 18 Aug 2025 02:09:00 -0400
+X-MC-Unique: IIQqPDy-OSSYvAEEADRY6Q-1
+X-Mimecast-MFC-AGG-ID: IIQqPDy-OSSYvAEEADRY6Q_1755497339
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4b10ab0062aso104986651cf.1
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Aug 2025 23:09:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755497339; x=1756102139;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ilfNOSXpmB/eYq3cbXUlvKiZ0NGf6LLnNw90QesFLBE=;
+        b=V7HuY1lv+/dedVqLG6Hp/Clz0HQlD8zlX10n8TrzWB7MbMpafuT5kOS00y4+70HN6t
+         EoW+qV1sn39c+t/SFZbPTlLjfkLkcYVtXx2v9NQansEHJGJphESCLyQK9xgp60n1t5go
+         zr2ZUpcxp3Ha4LMJIt/X81TjrI8LUZ+YUgrTMZAxcneGTF0CLyq/Lq3MCD4IZ9jZ1JwL
+         E016THC9AlQb2zBSlqAHNnVxtdC0E61yCJ2ZpdT7rfos36hToSOcixEmCgkqnE4PirtC
+         KCdtufKEMm5T6mVvO1u45tfvz7Ug7Fg8u2UY0MwSkLzypX3xb1UHEDjQRkMZZvoNi4z2
+         1iuQ==
+X-Gm-Message-State: AOJu0YxQLRAfbnvt4UoLQcnDBXT4hDKgRoLkCN466S/nmYvjBpCpKlbb
+	ptGe42sff2m27KHgoxKX7IxuEP9L12458w6iaThuqXCGMDguU1bYcdOzcbpsOS8Gd1V4wyYI3KG
+	HlGyaIOTT+od3+WcF1QjWCwfVElrLaVBhMzrbSgxlHR1t9ExGBy4Hp0aL0UAoo4632tmjJg==
+X-Gm-Gg: ASbGncsG8wY7Re0P9J5WzXecT6RKHAQRsK4JMH9aRv+OIKEQwyI2yjrFnL888M+sEkA
+	1SdnPCGumk6gT9At6qEeCna/3o5GXbdcaE5euk5cPw9VvBF2g/91eoVQgmH57zBsGp2iVY5hAb6
+	yVv4eJL2nOqrE/BL88BpRXfpwbf5RJUe13KYXEV/pcczFdXYsSWnbAcyCerqR21qkAzm8RfpDwz
+	IJ1L+0QTRSURv0lguVzVOyEEGl/KNz1X73cHR0LGaYY6geV8V9v8NVl4E/8vS5plPTf1lFO3nKa
+	QZ6zqwZjbOTbUYJdJdrkQ74V5ccVfMPZxliP5d/Yp0G3uHbrBuT1V34c3jCfv89X1YJOVloM3O4
+	pZcc=
+X-Received: by 2002:a05:622a:4d0f:b0:4b0:7439:4578 with SMTP id d75a77b69052e-4b11e2747c9mr137102461cf.33.1755497339473;
+        Sun, 17 Aug 2025 23:08:59 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG1I1mVyzHOHlHnpVFQ7/VLzhHJrTwCfwPwbcObGfoLuOQESoX7BOBqeE6GF2iKiWwcfgOk9A==
+X-Received: by 2002:a05:622a:4d0f:b0:4b0:7439:4578 with SMTP id d75a77b69052e-4b11e2747c9mr137102301cf.33.1755497339094;
+        Sun, 17 Aug 2025 23:08:59 -0700 (PDT)
+Received: from [192.168.0.6] (ltea-047-064-113-055.pools.arcor-ip.net. [47.64.113.55])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b11dc1aa56sm47525081cf.7.2025.08.17.23.08.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 17 Aug 2025 23:08:58 -0700 (PDT)
+Message-ID: <d1fe7fdf-b3da-4c53-8a5a-a87acd38d525@redhat.com>
+Date: Mon, 18 Aug 2025 08:08:54 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1255fb70-e384-4fd5-04ae-08ddde1d420e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Aug 2025 06:05:40.0089
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 3CNYOlMQHsfuFdz1k6RiVOMYjbbQA0YQn45HJNcvop7q7+ecp8wC4mFpXfqThRuBgYuRucEpmAPyVgrzJTTSMVxKEnRET5LVVMjX/5MQYto=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1161
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] riscv: Replace __ASSEMBLY__ with __ASSEMBLER__ in
+ header files
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ atish.patra@linux.dev, anup@brainfault.org, linux-kernel@vger.kernel.org
+References: <20250606070952.498274-1-thuth@redhat.com>
+ <175450055499.2863135.2738368758577957268.git-patchwork-notify@kernel.org>
+From: Thomas Huth <thuth@redhat.com>
+Autocrypt: addr=thuth@redhat.com; keydata=
+ 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
+In-Reply-To: <175450055499.2863135.2738368758577957268.git-patchwork-notify@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: uPq26_hhrGr5V5jIN6As4JzCOVBI3cGrLfjB0E8NWw8_1755497339
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_230621_501069_8FF5207B 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20250817_231111_195195_6E0BE224 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,114 +150,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On 15.08.25 15:37, E Shattow wrote:
-> Add bootph-pre-ram hinting to jh7110.dtsi:
->   - CPU interrupt controller(s)
->   - core local interrupt timer
->   - DDR memory controller
->   - oscillator
->   - syscrg clock-controller
+On 06/08/2025 19.15, patchwork-bot+linux-riscv@kernel.org wrote:
+> Hello:
 > 
-> Signed-off-by: E Shattow <e@freeshell.de>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110.dtsi | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 14df3d062a45..884a3526cb0f 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -35,6 +35,7 @@ S7_0: cpu@0 {
-> 
->  			cpu0_intc: interrupt-controller {
->  				compatible = "riscv,cpu-intc";
-> +				bootph-pre-ram;
->  				interrupt-controller;
->  				#interrupt-cells = <1>;
->  			};
-> @@ -68,6 +69,7 @@ U74_1: cpu@1 {
-> 
->  			cpu1_intc: interrupt-controller {
->  				compatible = "riscv,cpu-intc";
-> +				bootph-pre-ram;
->  				interrupt-controller;
->  				#interrupt-cells = <1>;
->  			};
-> @@ -101,6 +103,7 @@ U74_2: cpu@2 {
-> 
->  			cpu2_intc: interrupt-controller {
->  				compatible = "riscv,cpu-intc";
-> +				bootph-pre-ram;
->  				interrupt-controller;
->  				#interrupt-cells = <1>;
->  			};
-> @@ -134,6 +137,7 @@ U74_3: cpu@3 {
-> 
->  			cpu3_intc: interrupt-controller {
->  				compatible = "riscv,cpu-intc";
-> +				bootph-pre-ram;
->  				interrupt-controller;
->  				#interrupt-cells = <1>;
->  			};
-> @@ -167,6 +171,7 @@ U74_4: cpu@4 {
-> 
->  			cpu4_intc: interrupt-controller {
->  				compatible = "riscv,cpu-intc";
-> +				bootph-pre-ram;
->  				interrupt-controller;
->  				#interrupt-cells = <1>;
->  			};
-> @@ -321,6 +326,7 @@ mclk_ext: mclk-ext-clock {
-> 
->  	osc: oscillator {
->  		compatible = "fixed-clock";
-> +		bootph-pre-ram;
->  		clock-output-names = "osc";
->  		#clock-cells = <0>;
->  	};
-> @@ -354,6 +360,7 @@ soc {
->  		clint: timer@2000000 {
->  			compatible = "starfive,jh7110-clint", "sifive,clint0";
->  			reg = <0x0 0x2000000 0x0 0x10000>;
-> +			bootph-pre-ram;
->  			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc
-> 7>,
->  					      <&cpu1_intc 3>, <&cpu1_intc 7>,
->  					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-> @@ -376,6 +383,7 @@ memory-controller@15700000 {
->  			compatible = "starfive,jh7110-dmc";
->  			reg = <0x0 0x15700000 0x0 0x10000>,
->  			      <0x0 0x13000000 0x0 0x10000>;
-> +			bootph-pre-ram;
->  			clocks = <&syscrg JH7110_PLLCLK_PLL1_OUT>;
->  			clock-names = "pll1_out";
->  			resets = <&syscrg JH7110_SYSRST_DDR_AXI>, @@ -
-> 892,6 +900,7 @@ qspi: spi@13010000 {
->  		syscrg: clock-controller@13020000 {
->  			compatible = "starfive,jh7110-syscrg";
->  			reg = <0x0 0x13020000 0x0 0x10000>;
-> +			bootph-pre-ram;
->  			clocks = <&osc>, <&gmac1_rmii_refin>,
->  				 <&gmac1_rgmii_rxin>,
->  				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
+> This series was applied to riscv/linux.git (for-next)
+> by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-pllclk also needs to add bootph-pre-ram. Because it is the dependency of syscrg.
+  Hi Alexandre,
 
-		pllclk: clock-controller {
-			compatible = "starfive,jh7110-pll";
-+			bootph-pre-ram;
-			clocks = <&osc>;
-			#clock-cells = <1>;
-		};
+I can't see the patches in the for-next branch ... have they been dropped 
+again? Was there an issue with the patches?
 
-Best regards,
-Hal
+  Thanks,
+   Thomas
+
+
+> On Fri,  6 Jun 2025 09:09:50 +0200 you wrote:
+>> The kernel Makefiles define the __ASSEMBLY__ macro to provide
+>> a way to use headers in both, assembly and C source code.
+>> However, all the supported versions of the GCC and Clang compilers
+>> also define the macro __ASSEMBLER__ automatically already when compiling
+>> assembly code, so some kernel headers are using __ASSEMBLER__ instead.
+>> With regards to userspace code, this seems also to be constant source
+>> of confusion, see for example these links here:
+>>
+>> [...]
+> 
+> Here is the summary with links:
+>    - [v2,1/2] riscv: Replace __ASSEMBLY__ with __ASSEMBLER__ in uapi headers
+>      https://git.kernel.org/riscv/c/c47963980ba6
+>    - [v2,2/2] riscv: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi headers
+>      https://git.kernel.org/riscv/c/b5eb1f12a416
+> 
+> You are awesome, thank you!
+
 
 _______________________________________________
 linux-riscv mailing list
