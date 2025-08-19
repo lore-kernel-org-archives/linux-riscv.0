@@ -4,80 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F1C2CA0EF5
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 00:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CA8CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 01:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UXYetnlAYYDf0UqXyBfgvFpW/qqZ2SlJB4h4N4tFxFo=; b=I25D64GMyroSu9
-	VOHWtG2tmATga8MrJfXmZOeC6hRSj0ZnN6JBv/m8U+gU/04zaHjDuNhHz4dn05f7XxCx2VZdEU9Wj
-	NzMt4ZEYH0hUP9/zOo8u0QyeJ3P9NCuGAd27fnlbNhIXZlOlVVLTDdu5fMtz06VEjrBLrPkvIn7xg
-	glIbHznyjZOFRXk8kIWarz8pB9JgCaYovr3Ms3ZmT30U2iahcpqBPodI9N3pf0b/CxsYg8bRP588I
-	mDB8Ecjr0PF4uR+oz9kbMJxftpTHiULAoTwOpT0Nlj49n8SneKTYLBM6YuEJ5dCeOd50oAvvjcbmC
-	hl6iyQc4wJ2htPWS5H9A==;
+	List-Owner; bh=vA2Paszmv6FCMzaLKF9LD5QuEImXMFUOxQYkgpKNvPE=; b=T9H4l00fOnXLFd
+	ewSZwgl6xBlaMiYG9MAvn4YEZueDIo/0WwJ4TFNDDrN4QiUkTnofC214OALiwN8W+xXqwU+1NHt3J
+	l0odqYPZKpcczZRB9y8gI2zLLP5ztLwXJ1jS3LkeARaZ95/sKT3iZ2ZJNBy+ZOr3Vw6h6nYaLN5pu
+	QeGO/mYKLT4AOxxWXFFI/K+rWpp6VYCDHIPgn+jwL3Sl83fEaK6NHmqj2UWeqkYlMj9/Z9riTgd++
+	bFgeqepkcpkqWk/5njKX9cNKxp/aUDGiWVjykZO0h8HnGAV7p2cnkZYVGVdUEZMG7GE5NU4zRkm2L
+	M1+wrgX5yQIY3tUoMO3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoAfy-000000092hy-2dvd;
-	Tue, 19 Aug 2025 00:58:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uoAzo-000000094KP-2DkT;
+	Tue, 19 Aug 2025 01:18:40 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoAdO-000000092YK-3U4N;
-	Tue, 19 Aug 2025 00:55:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 896C55C57B0;
-	Tue, 19 Aug 2025 00:55:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0A33C4CEEB;
-	Tue, 19 Aug 2025 00:55:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755564929;
-	bh=RHDDgdI1KU5gTd6q3RZ5KjPYkSkpxLcDr1NCuu19268=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xf9fcNQgSU+Jeg+ZP/DY9xu+7OEGwXkut8IrHzRW8NQLSJst0aTV0vjj7mBLD2TMC
-	 w5Fy48Sn79iupubE3YtfbIfAZusLxLPs26rf7V0ryA7My7a+9RNPJSdkDFA+bypbef
-	 SxGw74sKCkXQJfaZC+ps0lk9znD9XBmUnvgdm6lcfG4Dymf7j7PwKOAneQrOIzbUez
-	 vCSoiI+k4kes3saiX75j3h1XiAq43lBTMSMpkalNwUodG0ItYSp05wxSQjcjHYl4v/
-	 z2RjuW+7g/v5dY5viRILFm+jyrKcdgAUsnv3ksqOxqwz7dYrU5SvTErUHtrouytaWZ
-	 aW3FdXzlx4+Dw==
-Date: Mon, 18 Aug 2025 17:55:28 -0700
-From: Kees Cook <kees@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, patches@lists.linux.dev,
-	linux-kbuild@vger.kernel.org, linux-hardening@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-mips@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linuxppc-dev@lists.ozlabs.org, Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
-	kasan-dev@googlegroups.com, Alexander Potapenko <glider@google.com>
-Subject: Re: [PATCH 00/10] Bump minimum supported version of LLVM for
- building the kernel to 15.0.0
-Message-ID: <202508181753.7204670E@keescook>
-References: <20250818-bump-min-llvm-ver-15-v1-0-c8b1d0f955e0@kernel.org>
+	id 1uoAzk-000000094Ii-0ouT;
+	Tue, 19 Aug 2025 01:18:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1755566270;
+	bh=g6JjCoyupLN35z2qvVI8PUyBR1aUVsz84r9rhHKnBG8=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=fBdEdbfEtSE3GETmB1e3uL6fxPX8AdUXXyzEFslWrIE5xOZSmIqzUSEEaIdoDCsJu
+	 bNRzR5ogWHWYPrrRnMw4IBX0DLWPgv94P/V64TFmA8/sXkKJd9zzGkqRzrRLtHJG+Y
+	 3sscIuOVfSW0DKRV2ad2Ayq5HLp7PlhXT9+7deoM=
+X-QQ-mid: esmtpgz12t1755566262td4c8f477
+X-QQ-Originating-IP: 9iDyEPMT2fIW1OmOGvQwzxzUT/TRlHh13QLu2xmmxSI=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 19 Aug 2025 09:17:40 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15089458960345209029
+EX-QQ-RecipientCnt: 11
+Date: Tue, 19 Aug 2025 09:17:40 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: zhouquan@iscas.ac.cn, anup@brainfault.org, ajones@ventanamicro.com,
+	atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH v2 1/6] RISC-V: KVM: Change zicbom/zicboz block size to
+ depend on the host isa
+Message-ID: <A0B6F37B4275250B+aKPQtDahHgv7Gq6-@LT-Guozexi>
+References: <cover.1754646071.git.zhouquan@iscas.ac.cn>
+ <fef5907425455ecd41b224e0093f1b6bc4067138.1754646071.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250818-bump-min-llvm-ver-15-v1-0-c8b1d0f955e0@kernel.org>
+In-Reply-To: <fef5907425455ecd41b224e0093f1b6bc4067138.1754646071.git.zhouquan@iscas.ac.cn>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NI6mNDRHoM9V6UIO0PANqbhBtmIzyi4VxG6uMub6K4uOxD+OaXdF6e+B
+	9vdJ7VKtMnuyImz1jxJ6MOydSP6mXnrxf3H4Vm3yR/+FJiwvBM8pbjdW+Wo3pYZg7R+SoCm
+	q3Wu93qEbUXAeamdfbJyaDUvvayU/dCz9BFfVYuh+x2YvoiWrDBMU9AWNbhbMIL7HBP4a9u
+	ZYA1QJ87l6g82ay2HrJXxO4jtZB6Kw/dzQ8SU2S0gELoocuodX9hQ9KxOFD/mq9wcaX7eNe
+	YRaRDHTFJ9E/JG1+XZumDmGPKt0O0vGMIbFk6Fr0DxiD81SX3IvZiwOGx9+ApNQYhQMAEDr
+	j9jBMO5N9lS61PH1aWhTj7JECUDy+pszHDPB1t3hSfro8MckFJMh2yXo7vfVxKrm25V6Itq
+	dZp1Ckd6vxyhVK7fBL4EzR+iBeJivThc/X7NGkUwmC/rN/OkUkYXDFJkLIuZBMl9MPcGxjX
+	bWBxNcduBW+rePJRv8oSYG1nTvTgelS0mFs63Efkq7Y0SZWN0vJc4AKrbPKPK25Q2BPk+B4
+	Fm2B6iTsbSL9cfSFLaHTGha8lXt+mVp+3udorSnmo54espk6KXe7azqkJDKOBbiOIublfEi
+	kXkwCWMpMAR1JDow2Cx/sELL1K/Wjjaq4dx7qdLGuAEclTisAwYIfuYRCUHScaI//9gHhRA
+	6svuHzrvBWJvnDiTMEwEuzwnNQDnvZYz4OhqQWl5x35PVqra9AixV89WH+jxbQasYrmu3Bx
+	o9IjTadJbWZXiOx45H/g+Jc2lsdil3WfbhaVVZuKFXROJPflTAjP0NyPuju5AyIaFt18t/U
+	4eS9bv7WLM3jEBsKBU5jkTzBnyJq04PDTXLX20fr8AZXmnqBLamCFJaR0X6KfDAvHejCL/E
+	Ccu760ETi54XeGDNmaqdP5/G6vf8FmLNwyJKTkZclaAaOfccrkR7rqsqX1CZRHYyWXZFi57
+	RASEr2GK28SVsWiC1qSPl1IY5Mseb2KUJtYCnlmOypVPCtz/YasFmGRGaR9aQUWGUMoSyFT
+	OM9fTDvFYwjVIes/TLRo+5aVdzsRxYApGzZi2tzFFBhSEtqUHq
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_175530_912037_073CE6B8 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250818_181836_970451_732E9D1A 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,27 +96,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 11:57:16AM -0700, Nathan Chancellor wrote:
-> s390 and x86 have required LLVM 15 since
->
->   30d17fac6aae ("scripts/min-tool-version.sh: raise minimum clang version to 15.0.0 for s390")
->   7861640aac52 ("x86/build: Raise the minimum LLVM version to 15.0.0")
->
-> respectively. This series bumps the rest of the kernel to 15.0.0 to
-> match, which allows for a decent number of clean ups.
+On Fri, Aug 08, 2025 at 06:18:21PM +0800, zhouquan@iscas.ac.cn wrote:
+> From: Quan Zhou <zhouquan@iscas.ac.cn>
+> 
+> The zicbom/zicboz block size registers should depend on the host's isa,
+> the reason is that we otherwise create an ioctl order dependency on the VMM.
+> 
+> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+> ---
+>  arch/riscv/kvm/vcpu_onereg.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+Reviwed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-Looks good to me!
-
-Reviewed-by: Kees Cook <kees@kernel.org>
-
-> I think it makes sense for either Andrew to carry this via -mm on a
-> nonmm branch or me to carry this via the Kbuild tree, with the
-> appropriate acks.
-
-I vote you carry it with Kbuild. :)
-
---
-Kees Cook
+Best regards,
+Troy
+> 
+> diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+> index cce6a38ea54f..6bd64ae17b80 100644
+> --- a/arch/riscv/kvm/vcpu_onereg.c
+> +++ b/arch/riscv/kvm/vcpu_onereg.c
+> @@ -277,12 +277,12 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+>  		reg_val = vcpu->arch.isa[0] & KVM_RISCV_BASE_ISA_MASK;
+>  		break;
+>  	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+> -		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOM))
+> +		if (!riscv_isa_extension_available(NULL, ZICBOM))
+>  			return -ENOENT;
+>  		reg_val = riscv_cbom_block_size;
+>  		break;
+>  	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
+> -		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOZ))
+> +		if (!riscv_isa_extension_available(NULL, ZICBOZ))
+>  			return -ENOENT;
+>  		reg_val = riscv_cboz_block_size;
+>  		break;
+> @@ -366,13 +366,13 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+>  		}
+>  		break;
+>  	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+> -		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOM))
+> +		if (!riscv_isa_extension_available(NULL, ZICBOM))
+>  			return -ENOENT;
+>  		if (reg_val != riscv_cbom_block_size)
+>  			return -EINVAL;
+>  		break;
+>  	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
+> -		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOZ))
+> +		if (!riscv_isa_extension_available(NULL, ZICBOZ))
+>  			return -ENOENT;
+>  		if (reg_val != riscv_cboz_block_size)
+>  			return -EINVAL;
+> @@ -817,10 +817,10 @@ static int copy_config_reg_indices(const struct kvm_vcpu *vcpu,
+>  		 * was not available.
+>  		 */
+>  		if (i == KVM_REG_RISCV_CONFIG_REG(zicbom_block_size) &&
+> -			!riscv_isa_extension_available(vcpu->arch.isa, ZICBOM))
+> +			!riscv_isa_extension_available(NULL, ZICBOM))
+>  			continue;
+>  		else if (i == KVM_REG_RISCV_CONFIG_REG(zicboz_block_size) &&
+> -			!riscv_isa_extension_available(vcpu->arch.isa, ZICBOZ))
+> +			!riscv_isa_extension_available(NULL, ZICBOZ))
+>  			continue;
+>  
+>  		size = IS_ENABLED(CONFIG_32BIT) ? KVM_REG_SIZE_U32 : KVM_REG_SIZE_U64;
+> -- 
+> 2.34.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
