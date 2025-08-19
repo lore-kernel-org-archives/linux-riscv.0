@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE98DCA0EE4
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 02:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 562E2CA0EF5
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 02:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DxLmkRnfF//eQ6OfKm5oU1nawoAUaUZtoNkycfBBIrE=; b=LiT9w3nlyNw6J/
-	VfTfmB1Vmm5iWTQ5D2umFCgxcxFChW3aQII1mhpy9rntAnE/uAZOXy+moHEdNLdyVIqP24+UszVcw
-	ltJ05y8pGcB9vAlvoerH8uWzhX1++jTUuFoPig7q2TX0hFA1l1ckQoSuEuZ7qDbZz23PlUOZtTTIf
-	Cc7C03ta/jWsRpQcP02MkByIvsPN6KViRhy9UkHDwvK4tg2jugmpLPNxGv2M+F2TlKJWPBk2AhzqE
-	FmcO1bNaMmVjApMElWqMb4flbNi3tZlHssC5YxAiVDiqpc+S6PGTNKbFEwYTtOgrfBsM/dG9crVXk
-	m/LiJjpJopgTjbHN1H+A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9wb72iFa0mqN+6+QTsuHGyGWjDb4l7zUEQcPUjDFtpE=; b=u5oohKRFDQK5Wp
+	naEQVORZ5mJNlxa/CkJY2y4VorCx6/TenrtKTTOuZfsS7Glr1osOkhuFpSlLG20K7LAdIWb8O1WLV
+	iPVaw6bd4FkkUAjFpTpZ/VSRHCCZ3+NJLdHw7FULTEoek9WYYDp9widMAe5XnwyQGXzPKokhxaEwK
+	+NqRiJNIoa7zdWdZMfTrAQVwX7SYRz2oQIV2GY9KI8Gen/nlRnNLnsKr0AlhNYN9XvGCKGGpYR1HW
+	0bsjaztreix5oUW2PVixOm7bWd/rdP7L0RdpOsoRCm6Agbv4WrVNr+4BW3Cj4jj5L4aGF+GCQtfyN
+	rd4B8qxVAdziG2mPgHbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoBx3-00000009C4d-2o4x;
-	Tue, 19 Aug 2025 02:19:53 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1uoC4d-00000009CTq-3qc5;
+	Tue, 19 Aug 2025 02:27:43 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoBx2-00000009C4G-0UzZ
+	id 1uoC4a-00000009CSO-0rHs
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Aug 2025 02:19:53 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-323267adb81so5647115a91.1
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Aug 2025 19:19:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1755569991; x=1756174791; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=T4PS0eC2AqHTY+TwJpiamjzTws9ptPGz26xKGd5nRxQ=;
-        b=McrpE+YciS9S3gKq25MhQYh62jfE+VO+jZ+JPht1uUUndDu58G9L3jjRL3SaoVb818
-         NPgWTQoVKAC1Ju4DzO2Mq+kLnIyNfaun6FOiB7xu5MzXW3G/0+t1Z1tFIbxW3103ubEE
-         JQte5a30JeQOTOu12uLRKLIiYm3+72s9qjKfclmUnM8IMezTa3FeThHVCz0p5aj/b3b+
-         /+HM3OFhTqsrGOWqPsw4UKOMBn82RSqL5YQPUhNBI1AKpNCBoGZYSct52myJ6tJPcsby
-         m4up2p0Na9Ri+QF/GyNcoUgpRlzXjsHNTN/7BtJfW38klF/SCx9zKvh44Jgjpxw94RyO
-         N/8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755569991; x=1756174791;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=T4PS0eC2AqHTY+TwJpiamjzTws9ptPGz26xKGd5nRxQ=;
-        b=rKx5BP1yHygQ1/o3m3r4keESUMy0VIWbCTKaBg7kW1gXlgUhYWbdeRs/oz5Of+wXCM
-         I17UFLq45WuCwNsS1qiqZV0+3cgNVSEBVIyq++5wg/gvgXz+IQjGRxwryLZEg6k6uW1N
-         qZ6p8WRqMQh2W0mqlRi9sbfIBZSNzkQ2SHmNwx+R6y0PTw0qmpupyeZrApG+fFqPfE0z
-         WZUY1H6zkPSYVFHhy+eYSSV42vXlnF4PHRbK5cnUXjJCU9bO6KW7xV+rM7S150TKBSg1
-         PJXCLmrBCe33xtYl+NKgl9eKElOZhdpen2JjFX5kQFjK2YXWfUkajCCCU98xVFY41gBq
-         iErw==
-X-Gm-Message-State: AOJu0YwX+7EL0QHfyP0TwcTDMLL/1L3Og76ifLT/KR2F4ZE+V3Za00en
-	B2fs3skXn2liviWYWPlkRhDA/q1GXj6KOdnbM3tZXny/kYgzY9uozuM34rwWZxxR3QwErWTQsZ4
-	nJgimM8cjUzq8C0KExP7jbiNRV/t6V5KdwU58fXKnPwiYml50Aao5YfAR20rn96Q7jsk/bxnW/D
-	+zbe5w60bPlq8jMCVuNZrZpTeW6rbTrBoSQdi18kCmQW8QpIOIH+ehzYw=
-X-Gm-Gg: ASbGncv9Qlkar5uAWI8vUiysRWGrXf8pc6sGaG6PhiJxD5ea2BcE1SD7/dRltdRVHK2
-	vNTVlqrk+DemmLesMQxk10lDYNHK1I5x+Kf/pWbBSKHnm8wZeKcBgt5yz3t2tYU7W3EIcEUq8Uq
-	vER9xW8McwSitQYiF+UGanAf9Zoaz8ebp/jAOaEqpnFBY6ESrKbZP2WvBZCLBlqgHXfUg+YlLws
-	TVN+gf5OWcPlQ1yXMlydzcvrkfNdkzRevtYW7+VwUoBi2szJMirG/O1M1IXfQlyrRoD0HC3ycmU
-	HEiK6poyqW6BYxZYgTPm7eVr8Jvm5XRArxL7jSal+lTY5SrOsAc+dn7lg8nhGN1Uq7HTFkNAIoC
-	jGUMKk3vKE5n4W8Ndo9fJPylFMHcjR3qCOQ6lB0nEakbwsg==
-X-Google-Smtp-Source: AGHT+IHWxvM98sDiuowUcpyFGuIrYZq49EK/uo9oADs6CGCF44k8IV1yH0AJVvIhczCfi2Wj+ZB+nw==
-X-Received: by 2002:a17:90b:4b8d:b0:311:a4d6:30f8 with SMTP id 98e67ed59e1d1-3245e58f423mr1341313a91.13.1755569990659;
-        Mon, 18 Aug 2025 19:19:50 -0700 (PDT)
-Received: from hsinchu01.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b472d19a02fsm9270780a12.0.2025.08.18.19.19.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Aug 2025 19:19:50 -0700 (PDT)
-From: Jimmy Ho <jimmy.ho@sifive.com>
-To: linux-riscv@lists.infradead.org
-Cc: troy.mitchell@linux.spacemit.com,
-	Jimmy Ho <jimmy.ho@sifive.com>
-Subject: [PATCH v2] riscv: fix using wrong load type
-Date: Tue, 19 Aug 2025 10:19:31 +0800
-Message-ID: <20250819021931.31935-1-jimmy.ho@sifive.com>
-X-Mailer: git-send-email 2.50.1
+	Tue, 19 Aug 2025 02:27:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1755570438;
+	bh=dks+CMmYVtapyb9MeMeQJDrb41DKjzDiQ+nRTvDWNr8=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=NctxkUP8w0uuCzd07n1sL7CskdHk9Ohbgfsx3SWyrew6HTWkh81b5xd8x6c7hOVyx
+	 MJfAjIT9ZIsS6j+V12rqeG/TouCV8tFbNB/Gliyk2jXUlMgzwOgCr/MgB1wtVrosSs
+	 ZMxxbToUIxiE/tD/XYvrAYV49+McKNFhJquEP38c=
+X-QQ-mid: esmtpgz15t1755570433t5bae6159
+X-QQ-Originating-IP: DuEr08kmrqmluKmx3DvQ4TyekXMJJhFTMiL03tBEGDI=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 19 Aug 2025 10:27:12 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1763745132820180299
+EX-QQ-RecipientCnt: 3
+Date: Tue, 19 Aug 2025 10:27:12 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Jimmy Ho <jimmy.ho@sifive.com>, linux-riscv@lists.infradead.org
+Cc: troy.mitchell@linux.spacemit.com
+Subject: Re: [PATCH v2] riscv: fix using wrong load type
+Message-ID: <757D0C00B4904597+aKPhAOEu22fsD2ta@LT-Guozexi>
+References: <20250819021931.31935-1-jimmy.ho@sifive.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250819021931.31935-1-jimmy.ho@sifive.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: OQyZCLmtEz7nPAYI5eysVOiSVJXY/HTULWQ2et4uMA6XChFqOsDpYdg3
+	IkvzWoo9kAD8BVk0Rx/0C60NvGYt9yL6a+nZmsxiH97MXEg9R8Qjl+NvkqngU/WkGWcdlH0
+	tBIum5XzLGzAx0hHk9Y7zV9WeJXj8W6KUMU8cgtLPmnqGcWWE4uFeAJXkq1yeD/2zA9puUx
+	BT147Dsl12dg4nUg7tpOhK0DdmSRCeT/m/6s7eZwX+khPfcngP+LtI8GLbdHW3njKbVMZRh
+	c1aZnudKTvWyt6+OEaB070VBU2ujh3CRlcqI7t++EnUPoPwFQ7Ti7Ol02bHGtYY8q4qMELJ
+	fnKXBzcy6ofZESL58QgZOJCDc0sDc55JZnkGF+nIsFbXSo+VVguu/WOVhotPbjcccFs9oB1
+	P10Fki1oN+iyS+S6wDbs5TiiGFE7OSNKGDg6zm2GvTeL3auZXgwBQnkDRIz0/17UzV69EHq
+	91whClt22ENvTaZSxWJNw4QDt5V5RE7wz1GP4P1L1JqCnBzylfYKq8wNraI2zCYkD/4SkUv
+	tP7868IyBWcNoDnBdFlG86RU+6rij4+a03KLm0D7XW0nnIA+B1Jt0FiOHvh0dgBzsFLnKa5
+	0XcfptGwH3Alv3gP+0fozXIWMD8BD3PPMwS7Tf04OMdRlvVuGytwOjJKFJcj151hOn7w9jQ
+	PknyG1P8/RqME9WzzqaJkwI6bto8QEno5pgfLkjak3FASUOsmSE4OfzHAt8IS2L5O/LI7r+
+	NgmrtJzkKekcnhr2Z0bVdxNWxnGH/9GtnU0Ub7nrETHN9mwhcM1h0D4VTqfysBO4Go/rQVR
+	Ew/4LY3vL4A7mzFTbTwgH+bfNPZKYzJqSJxQnFSpzwbvelfkQx+qpZkdsdbUrhBsBsypnIl
+	M2mVOhf3LDim88mRHHaq9fWSqsOzei2+kYpZ8lgtF2SZRaLBIA+aT6pcb/RcCnMJQtg5onI
+	sDBw/GKCVRP4pVoHqPQwNaUMx+tAEcrTMbKQpFCvY9EEqR6fnRDH6KRPAodcapOLAntXx8L
+	3vyQmokYP+HFDet2XUP/apY2X3kLB7WM6zM7eaw/cGVvexGJLEI3zNBCXnrBWJWl40NkqEJ
+	7uh0bV4AEqefFX0F/tv+vD6GcAHlq7wqg==
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_191952_166542_5443F579 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250818_192740_936579_1EBB4316 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +93,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-thread_info.cpu field is 32 bits wide,
-but is accessed using an XLEN-bit load, which might be 64bit load, fix it
+On Tue, Aug 19, 2025 at 10:19:31AM +0800, Jimmy Ho wrote:
+> thread_info.cpu field is 32 bits wide,
+> but is accessed using an XLEN-bit load, which might be 64bit load, fix it
+> 
+> Signed-off-by: Jimmy Ho <jimmy.ho@sifive.com>
+Hi Jimmy,
 
-Signed-off-by: Jimmy Ho <jimmy.ho@sifive.com>
+Some email addresses seem to be missing?
 
-Changes in v2:
-- add a comment to explain why use lw instead of REG_L.
-- correct commit message
----
- arch/riscv/kernel/entry.S | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 3a0ec6fd5956..82306cecfdcb 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -45,8 +45,10 @@
- 	 * Computes:
- 	 * a0 = &new_vmalloc[BIT_WORD(cpu)]
- 	 * a1 = BIT_MASK(cpu)
-+	 * 
-+	 * using lw instead of REG_L is because the thread_info.cpu field is 32 bits wide
- 	 */
--	REG_L 	a2, TASK_TI_CPU(tp)
-+	lw a2, TASK_TI_CPU(tp)
- 	/*
- 	 * Compute the new_vmalloc element position:
- 	 * (cpu / 64) * 8 = (cpu >> 6) << 3
--- 
-2.39.3
-
+Best regards,
+Troy
+> 
+> Changes in v2:
+> - add a comment to explain why use lw instead of REG_L.
+> - correct commit message
+> ---
+>  arch/riscv/kernel/entry.S | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 3a0ec6fd5956..82306cecfdcb 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -45,8 +45,10 @@
+>  	 * Computes:
+>  	 * a0 = &new_vmalloc[BIT_WORD(cpu)]
+>  	 * a1 = BIT_MASK(cpu)
+> +	 * 
+> +	 * using lw instead of REG_L is because the thread_info.cpu field is 32 bits wide
+>  	 */
+> -	REG_L 	a2, TASK_TI_CPU(tp)
+> +	lw a2, TASK_TI_CPU(tp)
+>  	/*
+>  	 * Compute the new_vmalloc element position:
+>  	 * (cpu / 64) * 8 = (cpu >> 6) << 3
+> -- 
+> 2.39.3
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
