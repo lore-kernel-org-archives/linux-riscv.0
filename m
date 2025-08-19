@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA06CA0EE6
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 07:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FBDACA0EED
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 09:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RvgCrYAjeuPFVMxLOeflIubseJkIsKzYGdDQLusAo/g=; b=XT+rTpBo9jiLAD
-	b4wOw2djs+ebL84W8s9AxvfYhQhwrNk3BZUkQhGcqxbAq0zc6dWEN5eIeIFQF5nVq+PcdOJJn7PAP
-	Pu0eREI1gkn3kwK/TEfhpIyFnEtHxuO8mnOAZx0nKJLE7sVuGul11Jyi7UXpdSLVV/ICXSNswoBgt
-	IjjRzsFle0CrUFfx1XQlM4mzHcFRyj3YEAPikvd8vIhe6UaPguu8OaAa0csBRKa10zysQldxcGTlw
-	K7mKDPRZ2rf3AzWeO1oc8dsCS3kgcsqzxu4fMMd0+Zpxua0LBpqLa4bmvgbP2uBFMNFrD+NFCojIY
-	sgeEYQZEzaIXuAZdjc7g==;
+	List-Owner; bh=JcuGqWeAQs9MVo8iSe9OCbOpjqOo53kE8OxxiJLZhiA=; b=lvAGLAljIoleex
+	0kyZTqV5axK7CJNWM9HfgMMPsVqODsakgNhs4amHVYwqv9iHfojK/XlMs0CFlP9yJDNyFGRhm/Qo2
+	e3piMrUYIVxrQmvex0syK3D2BgwKgCM4D64hTAbyx3kQHVeMUIoMY5HAnJW1RX5RnKTjydszzZYMU
+	2CE5ZR7PNmRT3GUZ57ISexSvZDTUY+RmsPlDN98hWkw4YuvnUDSDsWXflT2KwzLhFWsquk69fOgZi
+	KqNQwch3ZfOBhzEtfhvjAm8Ztczfev9q/Ha0oqqH/5bXyJ6l4k4bmzq/YPRRnnLyuqXH194QEYItU
+	b5pudrvcNhDX3bNfvJkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoH3d-00000009iRU-1O8v;
-	Tue, 19 Aug 2025 07:47:01 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGeV-00000009edR-1I94
+	id 1uoIPK-00000009uYG-1mnh;
+	Tue, 19 Aug 2025 09:13:30 +0000
+Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoHng-00000009oyt-0e6r
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Aug 2025 07:21:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1755587967;
-	bh=6GXKO/OSeIUD3NFhD4xkJWy9owCpecXpN1wJWziXETk=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=KSdxxmg/squyJLOgxmJaNxvB1gmJRPUDeBBERmEb+v22Nq4L+EcgJuL5EwNfuWQvO
-	 TZviJMJHWYU5qW+RfzGrR16XYT7lCPWRMEn01kMmqM9vUZQdD3NTxLezrT/LH4wwhf
-	 tOjCZRa5a0sFeT3kqoWQjAwF70GnVQE3Kez1Yepk=
-X-QQ-mid: zesmtpgz5t1755587959tb7026c59
-X-QQ-Originating-IP: bVF3pNTnsEAaLtygWLNeH55OqNdWT2+5WcRDKPuwz/o=
-Received: from = ( [61.145.255.150])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 19 Aug 2025 15:19:17 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8562983801700431660
-EX-QQ-RecipientCnt: 15
-Date: Tue, 19 Aug 2025 15:19:17 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Jimmy Ho <jimmy.ho@sifive.com>, linux-riscv@lists.infradead.org
-Cc: troy.mitchell@linux.spacemit.com, ziyao@disroot.org,
+	Tue, 19 Aug 2025 08:34:39 +0000
+Received: from dongxuyang$eswincomputing.com ( [10.12.96.41] ) by
+ ajax-webmail-app2 (Coremail) ; Tue, 19 Aug 2025 16:34:18 +0800 (GMT+08:00)
+X-Originating-IP: [10.12.96.41]
+Date: Tue, 19 Aug 2025 16:34:18 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?6JGj57uq5rSL?= <dongxuyang@eswincomputing.com>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>, mturquette@baylibre.com,
+	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, cyrilbur@tenstorrent.com, cleger@rivosinc.com,
-	charlie@rivosinc.com, kees@kernel.org, ben.dooks@codethink.co.uk,
-	jszhang@kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: fix using wrong load type
-Message-ID: <B1669DA80470EE6A+aKQldVbfZ9rnlD9o@LT-Guozexi>
-References: <20250819071318.21103-1-jimmy.ho@sifive.com>
+	alex@ghiti.fr, linux-riscv@lists.infradead.org
+Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	huangyifeng@eswincomputing.com, pinkesh.vaghela@einfochips.com
+Subject: Re: Re: [PATCH v4 3/3] riscv: dts: eswin: Add clock driver support
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2025 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <0ef61f03-0346-491d-ad2a-293e24cbc4a8@kernel.org>
+References: <20250815093539.975-1-dongxuyang@eswincomputing.com>
+ <20250815093754.1143-1-dongxuyang@eswincomputing.com>
+ <0ef61f03-0346-491d-ad2a-293e24cbc4a8@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250819071318.21103-1-jimmy.ho@sifive.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: MoIKForzQxXwiaNOB0+wTI7a8pdZ6VGfWsxqiq+fdS0912n9JT86ce1P
-	LWs21Lu0/e57UfAqN+PYmPecNQVuINjbBYdkoh6leZMytZXUTkp4Z6uPiSFJQ70kxMkGFpP
-	zZyNPGoMPa6K848hA09Fe9HhaVBwYaBd8A5irq02GpH3FUDIcj2PtQNbDbmW9LsgBvmHaHq
-	zmJdmZjU/Y2x4NQZzQg9gxR1uYRholp/S5rNLzBweIg1CQtGrLHnF8x4f09ztK4IWLBqqoY
-	Ceegz/pxSPYL44fuVpzCemZnOnT46FEgguyiPGtSBva28LUV/16468bvAa5LUBR+qUmHQUp
-	lZ/9CARPWeGv/Ot95d1jcA8zlYGPpYZ3K49cpbcbyeMmNlrP9kSjwzxrxlBzBzUJKTIdcYS
-	Qss9c2kPI8gAPLdArwZcvhIPRh1f8iEb0psO4M1jwRSTxVDpPKEBXEtBf87OrVB8Zk2JjO7
-	s6Ia03mpvABlRq8TMR3KHCU48aF++scAmoFSkjwrkUr0RsqS2xBrRHMPZFPoNirkg+QoFEe
-	Z1jxbtgHahR2YcQhxHY33e1QJ4WOcGETfy4c4Cdkqn4fpvbR9RZ5jruS6Dm1akdTm0d/MVQ
-	R337tEz+O6/OhxWv9wghElaPTJff9/VGh7ZqyQ0MJg19mOi6TuPv9FKN6/o3k2pjYEieTdu
-	KdY7djKAX2zKf3rGpcwThuuEXtze8PF7APqdXCBKQaIUpfbmm3k779m+BYz8h6JVqbJhxZN
-	SGvDosQmL8Bf5Q2FVAGOYFL+tAaxMeEp7dtIzmws0dtZ4VMluxPhuWpTcIlFtLkHI8vlrgP
-	AfTvRn2g6vFQEiBgNX//ZqNDV6SXXN06zCKXCAZwZ1mOzszCQtSW4U1WPKSiOjDDwfjGgz2
-	SYA04pGRcz2pxY1nqpP4rGi1Dj1o5S9rSrA068XxCZ/qI3Y0rd6g2C22jpH1aNJdWzAvD0c
-	kPhwZRoK84l6Hwr/P69FFJ2qT8BiWzF1vC9T+XciVbL9OpvVNll0fpoLE6w9fwLkFCaH9HZ
-	BV7JhVF2BQCtQJXSic9l4G4ypLeZ1/+t0XCHBsBcxL9fYnHt+zmpvNBeE5e2gxa7KYWXcPW
-	g==
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-X-QQ-RECHKSPAM: 0
+Message-ID: <3fa3950e.371.198c1770125.Coremail.dongxuyang@eswincomputing.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: TQJkCgDHZpUKN6Ro+YvAAA--.22666W
+X-CM-SenderInfo: pgrqw5xx1d0w46hv4xpqfrz1xxwl0woofrz/1tbiAgETAmijVc8e3
+	wABsD
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_002104_167525_50B2DCF5 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20250819_013436_508713_3327D451 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,60 +73,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 03:13:18PM +0800, Jimmy Ho wrote:
-> thread_info.cpu field is 32 bits wide,
-> but is accessed using an XLEN-bit load, which might be 64bit load, fix it
-> 
-> Changes in v3:
-> - replace space with tab to keep it aligned with code block
-> - Add "Fixes" tag
-Please add previous version link.
-
-> 
-> Changes in v2:
-> - add a comment to explain why use lw instead of REG_L.
-> - correct commit message
-ditto.
-
-Additionally, I see a patch here that serves the same purpose as yours,
-but it's more comprehensive and was submitted earlier.
-
-In any case, if you'd like to proceed, here is the:
-Acked-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> 
-> Fixes: 503638e0babf3 ("riscv: Stop emitting preventive sfence.vma for new vmalloc mappings")
-> Signed-off-by: Jimmy Ho <jimmy.ho@sifive.com>
-> ---
->  arch/riscv/kernel/entry.S | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 3a0ec6fd5956..492ae936dccd 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -45,8 +45,10 @@
->  	 * Computes:
->  	 * a0 = &new_vmalloc[BIT_WORD(cpu)]
->  	 * a1 = BIT_MASK(cpu)
-> +	 * 
-> +	 * using lw instead of REG_L is because the thread_info.cpu field is 32 bits wide
->  	 */
-> -	REG_L 	a2, TASK_TI_CPU(tp)
-> +	lw	a2, TASK_TI_CPU(tp)
->  	/*
->  	 * Compute the new_vmalloc element position:
->  	 * (cpu / 64) * 8 = (cpu >> 6) << 3
-> -- 
-> 2.39.3
-> 
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgS3J6eXN6dG9mLAoKVGhhbmsgeW91IHZlcnkgbXVjaCBmb3IgeW91ciBjb25zdHJ1Y3RpdmUg
+c3VnZ2VzdGlvbnMuCgo+ID4gCj4gPiBBZGQgY2xvY2sgZGV2aWNlIHRyZWUgc3VwcG9ydCBmb3Ig
+ZWljNzcwMCBTb0MuCj4gPiAKPiA+IFNpZ25lZC1vZmYtYnk6IFlpZmVuZyBIdWFuZyA8aHVhbmd5
+aWZlbmdAZXN3aW5jb21wdXRpbmcuY29tPgo+ID4gU2lnbmVkLW9mZi1ieTogWHV5YW5nIERvbmcg
+PGRvbmd4dXlhbmdAZXN3aW5jb21wdXRpbmcuY29tPgo+ID4gLS0tCj4gPiAgYXJjaC9yaXNjdi9i
+b290L2R0cy9lc3dpbi9laWM3NzAwLWNsb2Nrcy5kdHNpIHwgMjI4MyArKysrKysrKysrKysrKysr
+Kwo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAyMjgzIGluc2VydGlvbnMoKykKPiA+ICBjcmVhdGUgbW9k
+ZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9lc3dpbi9laWM3NzAwLWNsb2Nrcy5kdHNpCj4g
+PiAKPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2Vzd2luL2VpYzc3MDAtY2xv
+Y2tzLmR0c2kgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2Vzd2luL2VpYzc3MDAtY2xvY2tzLmR0c2kK
+PiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLjQwNWQwNmY5
+MTkwZQo+ID4gLS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9lc3dp
+bi9laWM3NzAwLWNsb2Nrcy5kdHNpCj4gPiBAQCAtMCwwICsxLDIyODMgQEAKPiA+ICsvLyBTUERY
+LUxpY2Vuc2UtSWRlbnRpZmllcjogKEdQTC0yLjAgT1IgTUlUKQo+ID4gKy8qCj4gPiArICogQ29w
+eXJpZ2h0IChjKSAyMDI1LCBCZWlqaW5nIEVTV0lOIENvbXB1dGluZyBUZWNobm9sb2d5IENvLiwg
+THRkLgo+ID4gKyAqLwo+ID4gKwo+ID4gKy8gewo+ID4gKwljbG9jay1jb250cm9sbGVyQDUxODI4
+MDAwIHsKPiA+ICsJCWNvbXBhdGlibGUgPSAiZXN3aW4sZWljNzcwMC1jbG9jayI7Cj4gPiArCQly
+ZWcgPSA8MHgwMDAwMDAgMHg1MTgyODAwMCAweDAwMDAwMCAweDgwMDAwPjsKPiA+ICsJCSNjbG9j
+ay1jZWxscyA9IDwwPjsKPiA+ICsJCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ID4gKwkJI3NpemUt
+Y2VsbHMgPSA8MD47Cj4gPiArCj4gPiArCQkvKiBmaXhlZCBjbG9jayAqLwo+ID4gKwkJZml4ZWRf
+cmF0ZV9jbGtfYXBsbF9mb3V0MjogZml4ZWQtcmF0ZS1hcGxsLWZvdXQyIHsKPiAKPiBTdWNoIHBh
+dHRlcm4gd2FzIHllYXJzIGFnbyBOQUtlZC4KPiAKPiBObywgZG9uJ3QgZXZlciBicmluZyBub2Rl
+cyBwZXIgY2xvY2suCj4gCldlIGhhdmUgZGVmaW5lZCBhIGxhcmdlIG51bWJlciBvZiBjbG9jayBk
+ZXZpY2VzLsKgClRoZSBjb21tZW50IG9mIHYzIGlzICJEcml2ZXIgaXMgYWxzbyB3YXkgdG9vIGJp
+ZyBmb3Igc2ltcGxlIGNsb2NrIGRyaXZlciBhbmQgScKgCmFtIHN1cnByaXNlZCB0byBzZWUgc28g
+bWFueSByZWR1bmRhbmNpZXMuIi4gVGhlcmVmb3JlLCB3ZSBtb2RpZmllZCB0aGUgY2xvY2vCoApk
+cml2ZXIgY29kZSBhbmQgbW92ZWQgdGhlIGRlc2NyaXB0aW9uIG9mIGNsb2NrIGRldmljZSBmcm9t
+IHRoZSBkcml2ZXIgdG8gdGhlIERUUy4KCkJ1dCwgdGhpcyBjb21tZW50IGlzIHRoYXQgZG9uJ3Qg
+ZXZlciBicmluZyBub2RlcyBwZXIgY2xvY2suIFdl4oCZdmUgcnVuIGludG8gc29tZQp0cm91Ymxl
+IGFuZCBhcmVu4oCZdCBzdXJlIHdoaWNoIGFwcHJvYWNoIGFsaWducyBiZXR0ZXIgd2l0aCBjb21t
+dW5pdHkgZ3VpZGVsaW5lcy7CoApDb3VsZCB5b3Ugc2hhcmUgeW91ciBhZHZpY2Ugb3Igc3VnZ2Vz
+dGlvbnMgb24gdGhlIGJlc3Qgd2F5IGZvcndhcmQ/CgpJIHdvdWxkIGJlIGdyYXRlZnVsIGZvciB5
+b3VyIHJlcGx5LgoKUmVnYXJkcywKWHV5YW5nIERvbmcKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
