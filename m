@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A2CCA0EFC
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 20:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77154CA0EFB
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 22:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XoDgCCiVTSdDNAma4c+/A6OzLhXmH8oOfsF6S927vGs=; b=KifJgvCcZ7Tqlr
-	G+Vyla8eRW6KS00W3k7Lo7qAPDrOmQAh3YojbCxh84O0fbHHgwYZuMhdPEHLa0CRjPGi6C6hWT0Nd
-	zaSZQPu65B6xs7RDSesBHWR1FcDkiDxrE6UakgojRyMPfddgVLUYK65/iXAhM3UIIwkggrb2Jj6rw
-	lx3xhKE/qvaXr13NwAxSeYaEEU3zmrtGl4GUigKFXf2voaoHR0gQIo5gAwNsp9AzD4JHDjWJBKTgE
-	Ks/Y3yOYI/1yuBBXdnOhuENZ8ztyyu0qGuKD0VwvPaQWIgg8O1GGnS11BtnBSK/SKe2ByxdoSuCpF
-	o4U2zp30IKin7snZkb5A==;
+	List-Owner; bh=W1hP3H6n9RYq4HwNQQK32TXCYbDfM/fUQ5GgjCg9I+I=; b=luCinYsQWq+k/f
+	sZ1t42BmJ73+0WogQFh43Ouxn+VMqpW2MQgKoAntAySY9tJzVJJFE6ZgVV9BvrPwmAi2Ufq4+LGXR
+	PIChrGNweTuEdhAXw9MqcOkRjlU1ZUXKz8tZNaC//VluiK39sQtCf4krfF7kX7B7Mg/aDtILW1FlM
+	+LtgqQNzArDw0+DMoD3mhdAFT0vpQsz4debgWtb9+HI4/vz3bjnttSjbT4rbOOv5p8SqGvXdILlD0
+	Y/n+jVejJIt0psoNKfbU0s+uQooFekGSRZq3U8niZfscbyBCcjuzcDSLqyYx6xp/NXflQ9EJhxWhy
+	JRt6lDbd4KDDnnToS51g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTAX-0000000BZ2E-2q5h;
-	Tue, 19 Aug 2025 20:42:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uoV1l-0000000BkaA-208A;
+	Tue, 19 Aug 2025 22:42:01 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoRRc-0000000BLQ7-2lOt;
-	Tue, 19 Aug 2025 18:52:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7B76B5C65AD;
-	Tue, 19 Aug 2025 18:52:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64AB7C4CEF1;
-	Tue, 19 Aug 2025 18:52:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755629547;
-	bh=UtpGsqXUkldWGa3nJKuOrHaS+PduZ9qTMdBlN9e+xOY=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=r+iA9dLmj6cVcyob6HLoSTvGYGcB4vNpyq5nDs1dLlAuYwxuYvdz2dIxJMRTFnDbB
-	 ngKZot3gY1gBpWm8qEElguO95+95Fjhx2qo3EZPCTtBiDhFkwUQ15WTT4omOLWdUDJ
-	 fb+seFWe7JcwLS5EAT3BuLplKV9J0hp6BHU/FYieC0RXGHRK2ga4wFag12a87a3nHa
-	 2GASII1kgQFzWdB6huGdUs9exYHIfvPOv8+lS4Iq9FE3+UIN1jfGtUsA/tg/48dPex
-	 jS2H5rn2P2+aHxmw6t7sbD4Ciod6k7kqfB1MW3Oa8aiRgVAJt0VFLBnC/5K9tkH9RX
-	 xy6zNeW7U8SUg==
-From: Mark Brown <broonie@kernel.org>
-To: Raju Rangoju <Raju.Rangoju@amd.com>, Sunny Luo <sunny.luo@amlogic.com>, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
- Robert Jarzmik <robert.jarzmik@free.fr>, Andi Shyti <andi.shyti@kernel.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, linux-spi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Xichao Zhao <zhao.xichao@vivo.com>
-In-Reply-To: <20250819092044.549464-1-zhao.xichao@vivo.com>
-References: <20250819092044.549464-1-zhao.xichao@vivo.com>
-Subject: Re: [PATCH v1 0/6] spi: Remove the use of dev_err_probe()
-Message-Id: <175562954316.246851.7964895006967945147.b4-ty@kernel.org>
-Date: Tue, 19 Aug 2025 19:52:23 +0100
+	id 1uoS9Q-0000000BRXU-2BsE
+	for linux-riscv@lists.infradead.org;
+	Tue, 19 Aug 2025 19:37:45 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3e56fe580b4so28031485ab.0
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Aug 2025 12:37:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1755632263; x=1756237063; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nygGfsQ9+AzoHDnWCHHV3eOhpawLdpH8cctAohWM0f0=;
+        b=o7MqaA2elpCwihZecXmjOJt2O/uG9xJtAL+26UyY/4fpjUOwVIkOHWip9sxaHFfUSl
+         J8sCVg7lm8buApdUpUp/GMEsot3RxcqaNOycxjAI/9y5oeMdHIbiTOHNE5tZuOXVjHyG
+         CzG458QZXwvLkFwZSRn8A8AGB+BN5TNusU+K4nlNgmnzzlJyejtkKPNXFfDLFwbzjP/g
+         WigC9ieGybUYDx0pPuySzrs/YCoeHo+0LqMXJpKGKE5iMmJ2CbMdnioxMcY/eGEgPFCo
+         ozwCuqIL2yDXkeOukoYw0sKbE4jXaO3rMDVQUEaDY4xhU0X2ZIE1vThZfcOPbYTZV3Un
+         jZXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755632263; x=1756237063;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nygGfsQ9+AzoHDnWCHHV3eOhpawLdpH8cctAohWM0f0=;
+        b=kVPVXIPIN1SMifqWfgNjYY+MOCeEWsQvMqlq6KJR+ECv6W/DwpB3JE5Fl9zoZx5t62
+         jy41KmdUHtpv/u1xX8verSmfDKdwMN3ppeiiYg5b0wuHkP7iE89WS+ZqcU+GZO2ol7qd
+         iWQBa/agPYzNhX44JxwzBm8r74ZUoudkxBeJ3siWXZoQ73fdKSTpGqf1Mccoi6ObE9Ed
+         8YqpnmXe9DCpmlj5LJL0WDNGg9+pZkyf4rp/Egk41TYeZi8jdIIr4qarQtutotUxY+Xp
+         LVIU1Duv37O7zNhDMC1KSdRgaMTDD+RhQSOAlRLk8j9HPNTs8B0xMEsaze72WzNvmZnD
+         ACJA==
+X-Gm-Message-State: AOJu0Yz8VhaYvC/9HckgXYam8BNKDYwaHj9e5LRpigflFgmU8meF10Ig
+	wqrhgq4+JMYenUAYdnFyT3JtKIOj7EjHQaD5N+NIpwKvmMJGKfWGOYFWERYiBhOT2Fc=
+X-Gm-Gg: ASbGncvrlaJjZ8mrZEG1PSe6Bx3iXw1DFd5v/1vGGB6vGFm3D6tzesXt43dFRfQ4v5D
+	dxlkEte8MmqXyseyIpkRf/FWSCXW/RZYqaPmlyncm/ATuKhrhxzi0BMz+TKmCo6vrSYFcJZVGMA
+	cMiBnYCaXbcP+wvPtm80wjlNVWamw95l0owHpkP0IwUsKz0MuakEB4K8CV6EMTeDS+XYqI/QKBy
+	HEO12nyw+UL8w25AoMXFy6OOCoiEiY3oDJNkkZ0EVJacNSVTl6136gECFG+/6rTeaUJy96ocGEK
+	VYwIZB008TxslAFv5xP0ZaMpJF5DnslXYwyKkD/Iv/yaD34VJNrzJDwMSwbn4/D4dSuJOTUAx1f
+	RNnCwdP3ItQCtoUdAqWzlyz/G
+X-Google-Smtp-Source: AGHT+IHHewQfS+MFcBYSs+K79ojhdGXOI3EddWtR2Rd6xchxzhlHI2WrFwEkh5bbrAxDD7TnAi6TAw==
+X-Received: by 2002:a05:6e02:1a28:b0:3e5:7281:eb6b with SMTP id e9e14a558f8ab-3e67ca73a10mr6237665ab.23.1755632263389;
+        Tue, 19 Aug 2025 12:37:43 -0700 (PDT)
+Received: from localhost ([140.82.166.162])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50c9477ef61sm3746634173.8.2025.08.19.12.37.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Aug 2025 12:37:43 -0700 (PDT)
+Date: Tue, 19 Aug 2025 14:37:42 -0500
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Paris Oplopoios <parisoplop@gmail.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
+Subject: Re: [PATCH] riscv: hwprobe: allow querying available
+ RISCV_HWPROBE_KEY_IMA_EXT_0 bits
+Message-ID: <20250819-fa2f9d3392614bd654c530c9@orel>
+References: <CAAbFZ0iFJbpqxqTUYhB+tUZSiL1qQJ=PeABCCjkeSpf4_TNiyQ@mail.gmail.com>
 MIME-Version: 1.0
-X-Mailer: b4 0.15-dev-cff91
+Content-Disposition: inline
+In-Reply-To: <CAAbFZ0iFJbpqxqTUYhB+tUZSiL1qQJ=PeABCCjkeSpf4_TNiyQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_115228_777508_6C7EB6DE 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20250819_123744_564602_8D44D471 
+X-CRM114-Status: GOOD (  33.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +98,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Aug 2025 17:20:37 +0800, Xichao Zhao wrote:
-> The dev_err_probe() doesn't do anything when error is '-ENOMEM'. Therefore,
-> remove the useless call to dev_err_probe(), and just return the value instead.
+On Wed, Aug 13, 2025 at 07:33:48PM +0300, Paris Oplopoios wrote:
+> When probing for extensions using RISCV_HWPROBE_KEY_IMA_EXT_0, a missing
+> bit in the resulting bitmask means extension is not available or the kernel is
+> not recent enough to support the bit. Currently, there's no way to
+> differentiate between the two.
 > 
-> Xichao Zhao (6):
->   spi: spi_amd: Remove the use of dev_err_probe()
->   spi: SPISG: Remove the use of dev_err_probe()
->   spi: Remove the use of dev_err_probe()
->   spi: mt65xx: Remove the use of dev_err_probe()
->   spi: pxa2xx: Remove the use of dev_err_probe()
->   spi: s3c64xx: Remove the use of dev_err_probe()
+> This adds a new riscv_hwprobe key, RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL, which
+> returns a bitmask of all queryable supported by the kernel
+> in RISCV_HWPROBE_KEY_IMA_EXT_0. This can allow programs to use a fallback
+> extension detection method when the bit they want to query is not available
+> in the kernel they are running on.
 > 
-> [...]
+> Example usage:
+> 
+>     struct riscv_hwprobe req = { RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL, 0 };
+>     int ret = syscall(__NR_riscv_hwprobe, &req, 1, 0, NULL, 0);
+>     if (ret == 0) {
+>         uint64_t bitmask = req.value;
+>         if (bitmask & RISCV_HWPROBE_EXT_ZABHA) {
+>             // Check for existence of Zabha extension using riscv_hwprobe
+>         } else {
+>             // Fallback to checking if an instruction in the Zabha
+>             // extension results in an illegal instruction exception
 
-Applied to
+The new key allows us to know when the kernel is aware of an extension
+or not. When the kernel is aware of the extension, then a hwprobe of
+the extension's key generates a result that unambiguously states whether
+or not the extension is available. However, when the kernel is unaware of
+the extension, then we still know nothing about its availability. IOW,
+how does the new key help? The fact that this example use still has this
+fallback path in it implies it doesn't.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[1/6] spi: spi_amd: Remove the use of dev_err_probe()
-      commit: 2a5d410916d3a8dcac06f72494f252314e933cfb
-[2/6] spi: SPISG: Remove the use of dev_err_probe()
-      commit: 0d00ebc6b869f4df67c05522bc1e8d01d1c7daa7
-[3/6] spi: Remove the use of dev_err_probe()
-      commit: b875b97017050b92c64273178a0b0d282ea67874
-[4/6] spi: mt65xx: Remove the use of dev_err_probe()
-      commit: 2bee48c9d1cd1749922d0e2df54330c924e14a0e
-[5/6] spi: pxa2xx: Remove the use of dev_err_probe()
-      commit: 67259af78219bdbdea00491f32b1c0971a33401e
-[6/6] spi: s3c64xx: Remove the use of dev_err_probe()
-      commit: 27848c082ba0b22850fd9fb7b185c015423dcdc7
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+What I think we need is a way to better automatically expose Z-extensions
+which are in the DT/ACPI. I like the idea of generating a sysfs node for
+each extension string. Those nodes could then have properties such as the
+kernel's awareness of it, etc. I proposed something in the past like that,
+but it was considered too Linux-specific.
 
 Thanks,
-Mark
+drew
 
+>         }
+>     }
+> 
+> Signed-off-by: Paris Oplopoios <parisoplop@gmail.com>
+> 
+> ---
+> 
+> diff --git a/Documentation/arch/riscv/hwprobe.rst
+> b/Documentation/arch/riscv/hwprobe.rst
+> index 2aa9be272d5d..6d77def0a46e 100644
+> --- a/Documentation/arch/riscv/hwprobe.rst
+> +++ b/Documentation/arch/riscv/hwprobe.rst
+> @@ -360,4 +360,7 @@ The following keys are defined:
+> 
+>      * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFWMACCQQQ`: The Xsfvfwmaccqqq
+>          vendor extension is supported in version 1.0 of Matrix
+> Multiply Accumulate
+> -    Instruction Extensions Specification.
+> \ No newline at end of file
+> +    Instruction Extensions Specification.
+> +
+> +* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL`: A bitmask containing
+> the extensions
+> +  that can be probed using the :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0` key.
+> \ No newline at end of file
+> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+> index 7fe0a379474a..501d49b7a02a 100644
+> --- a/arch/riscv/include/asm/hwprobe.h
+> +++ b/arch/riscv/include/asm/hwprobe.h
+> @@ -8,7 +8,8 @@
+> 
+>  #include <uapi/asm/hwprobe.h>
+> 
+> -#define RISCV_HWPROBE_MAX_KEY 13
+> +#define RISCV_HWPROBE_MAX_KEY 14
+> +#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE    ((1ULL << 59) - 1)
+> 
+>  static inline bool riscv_hwprobe_key_is_valid(__s64 key)
+>  {
+> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h
+> b/arch/riscv/include/uapi/asm/hwprobe.h
+> index aaf6ad970499..a3b92df4dc05 100644
+> --- a/arch/riscv/include/uapi/asm/hwprobe.h
+> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
+> @@ -82,6 +82,7 @@ struct riscv_hwprobe {
+>  #define        RISCV_HWPROBE_EXT_ZAAMO        (1ULL << 56)
+>  #define        RISCV_HWPROBE_EXT_ZALRSC    (1ULL << 57)
+>  #define        RISCV_HWPROBE_EXT_ZABHA        (1ULL << 58)
+> +/* Change RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE when adding items. */
+>  #define RISCV_HWPROBE_KEY_CPUPERF_0    5
+>  #define        RISCV_HWPROBE_MISALIGNED_UNKNOWN    (0 << 0)
+>  #define        RISCV_HWPROBE_MISALIGNED_EMULATED    (1 << 0)
+> @@ -106,6 +107,7 @@ struct riscv_hwprobe {
+>  #define RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0    11
+>  #define RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE    12
+>  #define RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0    13
+> +#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL 14
+>  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+> 
+>  /* Flags */
+> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+> index 0b170e18a2be..40e7fa5f85f3 100644
+> --- a/arch/riscv/kernel/sys_hwprobe.c
+> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> @@ -310,6 +310,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+>          hwprobe_isa_vendor_ext_thead_0(pair, cpus);
+>          break;
+> 
+> +    case RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL:
+> +        pair->value = RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE;
+> +        break;
+> +
+>      /*
+>       * For forward compatibility, unknown keys don't fail the whole
+>       * call, but get their element key set to -1 and value set to 0
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
