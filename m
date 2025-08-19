@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0405CCA0EE6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F22CA0EFB
 	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 20:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,81 +12,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cNS1UMNeYv0obfgitC1CZeUIvpffltScFSLmiT2xfCU=; b=cHQEkNbWaq2aDV
-	EEkM4Y+GyrF384GJK7VRuD/MX8X9skUx4j5uab0LOcuhEvTICHY43IfyL/yKI8Qkm9/LXUU7acDev
-	FAyVtBb3ThM2KBjrWhvUpnxEfevX2wPyDhSJox20pcFEOe0z1mDkikwrhr3TRbhRtFOtboFzmC4N7
-	YxcaAF6BFYH+c5kkk+/U52yv3CFjdcpiYGcrkCHxJFHBCdGH7/+WbbcnUFeeY/NQbq4t3KE4J1fgY
-	JnTiqwsbbk7NpOAOG9qEU8zRda47cA0qnNpJKf8gyqZ0xPqK/PwIlPTyA4DiTcUldotkVlydoSloE
-	Gqriy3xXuuyi5qsxwbtA==;
+	List-Owner; bh=z1YtuqKvAHHxsKa3kDtLZQZykF6gAwzBvXETGgEc2oc=; b=Re7P1AoiSv7GYu
+	e0x6HQgsqH6vbJoxH5KMMJbEoxWWMmBffJ0xFwge5MLJQF0ils3xFXGr3jj4iLS/WvEv4sXo2zja5
+	o2b9asGXs2CRXFJ6+YiuhydO+6tXDAFGqn0qyvqstyd/iHuK93Fhldxiog/ZCWlzLpP36k6x26Hhl
+	RMlGVAjHblGjf16lZr1BKVM1/Y7CazoeMNhDdJhXKijNuANLVB9iBM476F36VgBvd+rqqCsls0awq
+	N+p2Ln+VLKGDYwxsk64igIURRI4u6m7ePWSaMXXFYmb7aOrfiK+nJPmW4E0YcS51fgbBAmLAqRCct
+	vRS8NuN+6PfQC86nssyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTAN-0000000BYoQ-4AIo;
-	Tue, 19 Aug 2025 20:42:47 +0000
-Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
+	id 1uoTAQ-0000000BYsO-2zOX;
+	Tue, 19 Aug 2025 20:42:50 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoR1r-0000000BI2s-2kY3
+	id 1uoR9t-0000000BJQU-0dcL
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Aug 2025 18:25:53 +0000
-Received: by mail-io1-xd29.google.com with SMTP id ca18e2360f4ac-88432cbf3fbso419820539f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Aug 2025 11:25:51 -0700 (PDT)
+	Tue, 19 Aug 2025 18:34:10 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3e66937e452so12460265ab.0
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Aug 2025 11:34:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1755627951; x=1756232751; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1755628446; x=1756233246; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SjcLjUdfx2b5kyu1zQdvPBjWREHanlpzr8pf7Mlw9+s=;
-        b=LA4HELekcQbQQ68giZBHnW10qaFkVHDMCycZihSFGqV2x3k4eBC6yVWw8vhLJLv1AM
-         r9kOxETQyV8oaC7lzmJ7e0kYKT+GUt1+c8gPnPOgUE8FCCtIlFJiUGNl5O2AWETMxyih
-         hG2sxJUSBZrviFcWRqrSgCFrJZn8wYNflF2qlVH7MIf9kqYexy1gOdNKG+8PFlU021rE
-         riBhu0v0V61zDebINoGWSiPrJPgv1gzllYArRaucaj7p3CKHa9Ly4zS/w5Fj5oFRQGM6
-         u8GAn1dIhc0GC8icVAxKd4RcPsgqKfsLdHZ9F4EYOXF80hW4UmWie3/8YCggiF+5EUm/
-         6xwg==
+        bh=RIAFx2sAZr1aaxi1LZMuk62XnAozlnUi2qc60mZCUPc=;
+        b=e7n2CD3SRO+4emoyFUnEEQmA2lSH9lSmDkufEk7dvtAMZki2VJJfjKTid7JyztDWTm
+         PdJhqVnbwDbM7irz7bLYMhT3+AHZj85+1AxPCY6AMGYlA52FdrcKhcBlb9olUnJ1KoQH
+         a2lriQ6RlbktDVmV7W/4jJGJkH7emGhU/v13WNAyv7M0PlXOJYZzL+Tm6tEFoSWneH9Y
+         E1x5C9DeCz9QPXj4VmIfZIC589UvZExNT3cy9yJDyp+Qc0lZz0dy5eqtLam7qjoOGSXV
+         fnuPt1kt6Z+r24kxxOov0fNv6OR3q3JGZts3CpktXCw9FOT4uKbGqc2zElmoqmBLel9p
+         2bOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755627951; x=1756232751;
+        d=1e100.net; s=20230601; t=1755628446; x=1756233246;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SjcLjUdfx2b5kyu1zQdvPBjWREHanlpzr8pf7Mlw9+s=;
-        b=oaBgp/ZII/Ek5JP7yzZ6GkuJIYAvBTIoEof17/Tinc6x81s9BoLu1IQJV916Cqv35a
-         a3/1Qj7pUjo3futeKZ5mBwaoZs5BOdezUMcCo6T1e6NG2jcK/JQJcWXArH8DRXuYLihD
-         bSpze8jYZbIqyqf3HHVZ7GfhZ85EX6ORSvRZJYcaW7oy6R+J9MCMV3/wjSM8fh1EHT9I
-         3v/ekdaJJaCrrIi8oiyY3+TIxn0mS8ODBIFcGh2gtwm2xAgtLyY4F+O8m2f5vy1QTvCf
-         d13lt5vBGqWb28LjUws5oeHc07uZ4ZkMNAqib0JRurK6csuUxbVa2TBayxAVJxgBFPCy
-         I6ig==
-X-Forwarded-Encrypted: i=1; AJvYcCWy4GhJLqkza6c3BDqSKyL9RQl8XqSx4dzLPoTCdPdUeG9Efbl+Y3IrD+qeLJrn0aLCwEhgvf014DXBEg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw98P1qjWxMMEeSmNzhJLxlnqR7hrnxJCZcOKNdtPBZn6eV3cTG
-	FbX+dq7bVVDHHBpDKauuQCoKmazwkpi55d45DgusYmS28Piv0uR8YaKigmP1WhjLIus=
-X-Gm-Gg: ASbGncuMQbccet/E9M4rxOtZXrhXHdWTL1h1xkyiLdJxQhI9a/Mw9t4i3pI+VSUDpIn
-	aeJy1iOphfSV1bRXX3fWaL8rxYj5VwOpEzQiT4eIEFG3vj0qSiJasU9aczKSDyhyQDfMJl4UgeK
-	LISb/J4ioaRdc11KZeJuuTIZTaCyFdpMOLi4ESwBAem/lh/PK6jPCaz5KX8gbLqrYK1BnTUldsy
-	olNdpnO3dXm4YGzkbKIEEWMNUNVOy1vu1sqE10NK63T3BJomSIHTqJqqjfAQP3BIMhhkD51jL32
-	/hvkL7fIQH6AplfNs1RGdTcpbCZR91jCkx/DTLwh6SY8ZvvL0mj5YuVD3RsC6a6dn0q70273WRQ
-	l6Y2RIgEueD8rGM3zkb1eB4Zo
-X-Google-Smtp-Source: AGHT+IE6fqIEj5m/DaNqdyH4siLxHSicGC+isWwpsiSl3g9mfo/W7KkG9POZskmo3mstpG06/kTUsw==
-X-Received: by 2002:a05:6e02:2506:b0:3e6:6b01:ebd with SMTP id e9e14a558f8ab-3e67ca2ba4emr1836755ab.18.1755627950635;
-        Tue, 19 Aug 2025 11:25:50 -0700 (PDT)
+        bh=RIAFx2sAZr1aaxi1LZMuk62XnAozlnUi2qc60mZCUPc=;
+        b=DnBoFEzQSAHSq2v8vPLw3QarUw1xd6VIsDv+XI+BD5fwozZEugc1UjdSStUWtBc/tl
+         n7ucIRMiPF7ms3UlI4CgT1EArgVoYw49pbTnvdxLzyJitTx+uf8inGx4MjOiJRfyFrwA
+         zQkrTPnQZk/Z2IaX0GYuaw6pMAGu3c/6XJvtRJGW94tudq+WMAsazub+lgp93lr7CO/+
+         t4ZG5UwCOXNsAMOVZeIoGjwDhxEvSgfPlVchd7K7lr0MOjo1omQssAr2KgFG7MqeKTPK
+         3bntZ9Xw24WpkMh23RQh+VyDcu09TFqN6R5AAc7TIPA6g9esPZ38TYLXzcjvu+di8uEE
+         7ipQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWHQAZR/oFcgBmXxSGRI1smCkJpB0wriphyByob5d4Py/sbx+2r6RkRju12+etpync1fDhOzVIWQ5Iu+A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfKKZwEM804fb1pz8wdEay7mfjSUb8Na7rVWLUWzdWW0INVtTe
+	uCWhvphCiV2FG1ZWHUzju6OkHMbTne6Jwf2jY1ncEGM++FJ6jzUFato0q4utCM8v0SE=
+X-Gm-Gg: ASbGnctdukl/GphwvM2U8pT8efwyHcQJ1JJYF3gkbJqZuhUalvL06p9SJdR4mOx/Cce
+	eu6GWl8KaHf2x6+5LktOl5A+nFxGYqf3Dk8aj2qDo7ReR+oApLg+iHXQsHtj5+gAFbPG6YpPBZZ
+	GUj408s5Mq6ilhhcc8bZs2GwKjjV97z2D5IAwszgpOLSxsjICvckm73f7JRQCyz/L4YMBDS61u4
+	HJfKJJkIl+MpmkjPxS5JvJS89EMuEgjO/QoM3Al5HLeQ8LA+NMEdj6XFREeZZ2vGqRQAotkPLla
+	g6sHlXAlpybEvTOpAudiBYAgwHjEcIVSROX7/W0DXsLmVRwTZ80T/jcSDZTezqkZeIdXAfwpfB8
+	UN55+cmMIf9MWJWZUDzLTiBwS
+X-Google-Smtp-Source: AGHT+IGjSJksXWyqg1XL0sVPSDYoY1K2vCLq/4dy3SroIh5LK0eS+1A0FfIsKIXyrpSD/vuDEKpP6Q==
+X-Received: by 2002:a05:6e02:219d:b0:3e2:9ab4:3ebf with SMTP id e9e14a558f8ab-3e67ca22bfdmr2488955ab.19.1755628446014;
+        Tue, 19 Aug 2025 11:34:06 -0700 (PDT)
 Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50c949f8038sm3584125173.80.2025.08.19.11.25.50
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3e6727848bcsm16495005ab.7.2025.08.19.11.34.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Aug 2025 11:25:50 -0700 (PDT)
-Date: Tue, 19 Aug 2025 13:25:49 -0500
+        Tue, 19 Aug 2025 11:34:05 -0700 (PDT)
+Date: Tue, 19 Aug 2025 13:34:04 -0500
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Jimmy Ho <jimmy.ho@sifive.com>, linux-riscv@lists.infradead.org, 
-	ziyao@disroot.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, cyrilbur@tenstorrent.com, cleger@rivosinc.com, 
-	charlie@rivosinc.com, kees@kernel.org, ben.dooks@codethink.co.uk, jszhang@kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: fix using wrong load type
-Message-ID: <20250819-aa072701b64fc0f42795e491@orel>
-References: <20250819071318.21103-1-jimmy.ho@sifive.com>
- <B1669DA80470EE6A+aKQldVbfZ9rnlD9o@LT-Guozexi>
- <D49B33DEEB859CD5+aKQltEZ8Ef3v6rB9@LT-Guozexi>
+To: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
+Cc: shuah@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] selftests: riscv: Add README for RISC-V KSelfTest
+Message-ID: <20250819-28695c586656c926fdfd0468@orel>
+References: <20250815180724.14459-1-reddybalavignesh9979@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <D49B33DEEB859CD5+aKQltEZ8Ef3v6rB9@LT-Guozexi>
+In-Reply-To: <20250815180724.14459-1-reddybalavignesh9979@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_112551_693880_91C30349 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20250819_113409_192055_B6A5F834 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,71 +99,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 03:20:20PM +0800, Troy Mitchell wrote:
-> On Tue, Aug 19, 2025 at 03:19:17PM +0800, Troy Mitchell wrote:
-> > On Tue, Aug 19, 2025 at 03:13:18PM +0800, Jimmy Ho wrote:
-> > > thread_info.cpu field is 32 bits wide,
-> > > but is accessed using an XLEN-bit load, which might be 64bit load, fix it
-> > > 
-> > > Changes in v3:
-> > > - replace space with tab to keep it aligned with code block
-> > > - Add "Fixes" tag
-> > Please add previous version link.
-> > 
-> > > 
-> > > Changes in v2:
-> > > - add a comment to explain why use lw instead of REG_L.
-> > > - correct commit message
-> > ditto.
-> > 
-> > Additionally, I see a patch here that serves the same purpose as yours,
-> Sry I forgot to put link:
-> https://lore.kernel.org/all/20250722160556.2216925-4-rkrcmar@ventanamicro.com/
-
-Ah, yes. I forgot about Radim's patch. We should go with that.
-
-Thanks,
-drew
-
+On Fri, Aug 15, 2025 at 11:37:24PM +0530, Bala-Vignesh-Reddy wrote:
+> Add a README file for RISC-V specific kernel selftests under
+> tools/testing/selftests/riscv/. This mirrors the existing README
+> for arm64, providing clear guidance on how the tests are architecture
+> specific and skipped on non-riscv systems. It also includes
+> standard make commands for building, running and installing the
+> tests, along with a reference to general kselftest documentation.
 > 
->                  - Troy
+> Signed-off-by: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
+> ---
+>  tools/testing/selftests/riscv/README | 24 ++++++++++++++++++++++++
+>  1 file changed, 24 insertions(+)
+>  create mode 100644 tools/testing/selftests/riscv/README
 > 
-> > but it's more comprehensive and was submitted earlier.
-> > 
-> > In any case, if you'd like to proceed, here is the:
-> > Acked-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > > 
-> > > Fixes: 503638e0babf3 ("riscv: Stop emitting preventive sfence.vma for new vmalloc mappings")
-> > > Signed-off-by: Jimmy Ho <jimmy.ho@sifive.com>
-> > > ---
-> > >  arch/riscv/kernel/entry.S | 4 +++-
-> > >  1 file changed, 3 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > > index 3a0ec6fd5956..492ae936dccd 100644
-> > > --- a/arch/riscv/kernel/entry.S
-> > > +++ b/arch/riscv/kernel/entry.S
-> > > @@ -45,8 +45,10 @@
-> > >  	 * Computes:
-> > >  	 * a0 = &new_vmalloc[BIT_WORD(cpu)]
-> > >  	 * a1 = BIT_MASK(cpu)
-> > > +	 * 
-> > > +	 * using lw instead of REG_L is because the thread_info.cpu field is 32 bits wide
-> > >  	 */
-> > > -	REG_L 	a2, TASK_TI_CPU(tp)
-> > > +	lw	a2, TASK_TI_CPU(tp)
-> > >  	/*
-> > >  	 * Compute the new_vmalloc element position:
-> > >  	 * (cpu / 64) * 8 = (cpu >> 6) << 3
-> > > -- 
-> > > 2.39.3
-> > > 
-> > > 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> diff --git a/tools/testing/selftests/riscv/README b/tools/testing/selftests/riscv/README
+> new file mode 100644
+> index 000000000000..443da395da68
+> --- /dev/null
+> +++ b/tools/testing/selftests/riscv/README
+> @@ -0,0 +1,24 @@
+> +KSelfTest RISC-V
+> +================
+> +
+> +- These tests are riscv specific and so not built or run but just skipped
+> +  completely when env-variable ARCH is found to be different than 'riscv'.
+> +
+> +- Holding true the above, RISC-V KSFT tests can be run within the
+> +  KSelfTest framework using standard Linux top-level-makefile targets:
+> +
+> +      $ make TARGETS=riscv kselftest-clean
+> +      $ make TARGETS=riscv kselftest
+> +
+> +      or
+> +
+> +      $ make -C tools/testing/selftests TARGETS=riscv \
+> +		INSTALL_PATH=<your-installation-path> install
+> +
+> +      or, alternatively, only specific riscv/ subtargets can be picked:
+> +
+> +      $ make -C tools/testing/selftests TARGETS=riscv RISCV_SUBTARGETS="mm vector" \
+> +		INSTALL_PATH=<your-installation-path> install
+> +
+> +   Further details on building and running KSFT can be found in:
+> +     Documentation/dev-tools/kselftest.rst
+> -- 
+> 2.43.0
+>
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
