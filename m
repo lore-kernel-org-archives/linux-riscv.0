@@ -4,65 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07EE0CA0EE6
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26CEBCA0EEB
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 18:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QV2DwuSRkh2ZQ1Obt6xbjEJZWVUYF9AoYfbmUBvO2AI=; b=mDpVcO+Ct7wqzn
-	NQ787jHd0SBvJQTpVXFosJEG65DLwPP7gyMAWzmMVDRSBrIFK0vrkfWLQy2gru2XDCcrOEVyqOnM+
-	JWfPCpBorZRXF1lxWB3sQ5YthYtVH1GHLYLyLJvFXwQkTL3yCQ+IHGwHvVGSlWMqCvp6BpubsfBRS
-	o/57tCw3b0AW8t6tkFY89Q/KnhZuQfQI1fY0pzDZi2HZlpagk7vq5Szb2VV0oUWNE/+5jD+DDwB4Z
-	C4earGq4pB0t4XG1rhn3AFeafbJlg1rUvfwv7d8/cafOEnS8AkFJrT+oRsfHBq/c/6XWHNssXohqo
-	4XmzX6tKJbFGSt3B/5Bw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=y8hupOQ39teoOzd1pJ8WQswr8eUu4Lt0TecTpE1VBrI=; b=CJKzY3ZixbECVZ
+	6DMguGF/CA57iXkbHdCOoAv1qJHI0W42T4tRKd+6ffY58WbXcB9byHnK0CeL93aSVW9Y6wjTLKwbC
+	jbaUT4JFUbmDCdKfGR97tO2ut9/2uqIMgOIeIOPL1pSxImgDQoov7nXB7xKCnb9pZl8u9QM7d4BZA
+	/0yZ1iS9GSWyLJQ1CUcp5DE7UmZVRDkvMlAGd8jvXbchIUmuyypkP6VQ8Lomqxl03i3sdhElpwuHp
+	Vg82NKLci/TLoiXHx/TG5UiUjQ/2TAwQCMqifFwhs4lZA4O3H57sxTiIFhyxwmmbZAKdA8GBle3PD
+	az5yUkiTsN9vPuv7UcgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoQqC-0000000BD2C-3i0g;
-	Tue, 19 Aug 2025 18:13:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMLX-0000000Aay7-2520;
-	Tue, 19 Aug 2025 13:25:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8CEF116A3;
-	Tue, 19 Aug 2025 06:25:42 -0700 (PDT)
-Received: from [10.1.196.50] (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 884583F738;
-	Tue, 19 Aug 2025 06:25:46 -0700 (PDT)
-Message-ID: <271daf71-3c57-49a5-a65f-c58ac670864f@arm.com>
-Date: Tue, 19 Aug 2025 14:25:45 +0100
+	id 1uoQr6-0000000BECg-0qCP;
+	Tue, 19 Aug 2025 18:14:44 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoMjD-0000000Aeve-0Kyg
+	for linux-riscv@lists.infradead.org;
+	Tue, 19 Aug 2025 13:50:20 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b4746fd4793so1810971a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Aug 2025 06:50:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1755611418; x=1756216218; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=i9TJ4yjgH6QJU6NhC4uJmmFxWtgzYAcw2NPkZcqPt60=;
+        b=hYPjchz1JuDVGWqRrK9jvHYHgVl37jDsmIWKMx76CQIGVZfs/1Iri/1+T58g43NnGL
+         hUYyrppSDfGhjC5ibl/stU1Ji9/2dOZP7SbeYNqfGetH+07lJh85tNztMR5Uzwu3pcHs
+         z5SrBk+U4dwdlYVliN+aMWGIjAWZEL91/YbJyGZovFgOpvJiwvtrG0JnJka0T7FEEr1b
+         cF8KPuncJnoC2lOYZtu1zzdc0XkCvgNOOvxcnGLhU6OGVSwki7xkzKpfoMihtnNXPqdS
+         WLchFK3pM2GsSThL+VSBK4RUBQStEyyEHCBj2XHjctXlTdTaaGQPR70G334KhOMiDYZt
+         WSQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755611418; x=1756216218;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=i9TJ4yjgH6QJU6NhC4uJmmFxWtgzYAcw2NPkZcqPt60=;
+        b=dLufrW2CQQWIMBfums2bTZE5zj4ujNNgDbaM+njOvauvbg6PzvoeNh+ZexYsT2q5J8
+         z5L3s2IUGblnVZNPy3v9Ai5GISEV6sbZYusqgF47s9JU0Kv6jC9um2DsINhIKHQLqfq9
+         X/J0JnZlMM9ZCp0rPfF1LGZQGC0CSx719aJTSMutAeTAk9MpWrRwU6t/LtRVhtoJpzL6
+         K4wdnEiV0pnEZ6lVnPYdmtariPQ00g4iP+E+LX9iLh1Whfk+5c4fDkGZ90xExeLXtbpw
+         yTFXwc1AGmaB848yq/an9W035h0GGCaW8kENQyNPoTakq0KXoCq2inB2A4wttObiu6sR
+         lyXA==
+X-Forwarded-Encrypted: i=1; AJvYcCUG+3ByWgVDnEt1a/j43CaOZ9q+myPj7QnVIEuVSxa9GS5bufuD8gjN3I86fOXVqmgobjlnDGaDqIQfwQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5c1febVqJwuSxwXze8NkCwWHhetLmHUCsTyvPDThx3cCVyxk+
+	9oQKsifFVHGDO9OvskSri5zgHYArubGtN7mgerZ8pzaXVuQa30wZa+OGTK0W9U4Nhhs=
+X-Gm-Gg: ASbGnctScEocGoL2DXTxHK37b1xaX/3K9ECFpn/35Z3gjg7ZuIRZTFCxYNPAY1wIjE6
+	t54bPjCNL76ztJCzJNvkEf3N5pHT2xYf4fJ+jDXTBmrKC57StOv9RbDDzncRUpq9ClFVDa66Dbj
+	FuwpVIX5iuk5b67CxeO2snuRIHr8Yz9Mc8x10VjoA+/V3GjDhAwmjY18/93eHJvAQCZeKte0LMi
+	QTTPJJDvQBSyJ0DS5s+wJDOo3NMnRoppYxix+0rN82nUZ0iBvutdwrLIscz7CDliGnwvftY3QcB
+	0i1BEb1ubucCa5pnYI1gn6Fi0qXPWjTsMaZ1uJgUQpGOxPolPkMEZd/t0A6KSddoyiz+4tkgYus
+	EhY3GOeD7S3XvDLZtDm6J5h9LuVrIzQ0mrPqJQiEaqhrlL0OePIhvWimY
+X-Google-Smtp-Source: AGHT+IHZy0Y4108SytN6YUHUMh4gN5FYzipiyPM05e4guHvSQuE82DjG6I5AZlKeM5wR3Grwk8hS5w==
+X-Received: by 2002:a17:903:2282:b0:240:a504:cb84 with SMTP id d9443c01a7336-245e047bbe2mr35948055ad.30.1755611417766;
+        Tue, 19 Aug 2025 06:50:17 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([61.213.176.9])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d5533c4sm109937815ad.140.2025.08.19.06.50.12
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 19 Aug 2025 06:50:17 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: yury.norov@gmail.com,
+	linux@rasmusvillemoes.dk,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	dennis@kernel.org,
+	tj@kernel.org,
+	cl@gentwo.org,
+	linux-mm@kvack.org
+Cc: Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: [PATCH 0/2] riscv: introduce percpu.h
+Date: Tue, 19 Aug 2025 21:50:05 +0800
+Message-Id: <20250819135007.85646-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 19/19] perf: Garbage-collect event_init checks
-From: Robin Murphy <robin.murphy@arm.com>
-To: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
- mark.rutland@arm.com, acme@kernel.org, namhyung@kernel.org,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, kan.liang@linux.intel.com
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
- linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
- iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
- linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <ace3532a8a438a96338bf349a27636d8294c7111.1755096883.git.robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <ace3532a8a438a96338bf349a27636d8294c7111.1755096883.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_062551_585873_0AA4631D 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20250819_065019_117538_EEA0C602 
+X-CRM114-Status: UNSURE (   6.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,52 +102,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/08/2025 6:01 pm, Robin Murphy wrote:
-[...]
-> diff --git a/arch/x86/events/intel/uncore.c b/arch/x86/events/intel/uncore.c
-> index 297ff5adb667..98ffab403bb4 100644
-> --- a/arch/x86/events/intel/uncore.c
-> +++ b/arch/x86/events/intel/uncore.c
-> @@ -731,24 +731,11 @@ static int uncore_pmu_event_init(struct perf_event *event)
->   	struct hw_perf_event *hwc = &event->hw;
->   	int ret;
->   
-> -	if (event->attr.type != event->pmu->type)
-> -		return -ENOENT;
-> -
->   	pmu = uncore_event_to_pmu(event);
->   	/* no device found for this pmu */
->   	if (!pmu->registered)
->   		return -ENOENT;
->   
-> -	/* Sampling not supported yet */
-> -	if (hwc->sample_period)
-> -		return -EINVAL;
-> -
-> -	/*
-> -	 * Place all uncore events for a particular physical package
-> -	 * onto a single cpu
-> -	 */
-> -	if (event->cpu < 0)
-> -		return -EINVAL;
+Current per-CPU operations rely on generic code using raw_local_irq_save(),
+which incurs significant overhead. This patch optimizes 32/64-bit paths with
+RISC-V atomic instructions, reducing overhead.
 
-Oopsie, I missed that this isn't just the usual boilerplate as the 
-comment kind of implies, but is also necessary to prevent the 
-uncore_pmu_to_box() lookup going wrong (since the core code won't reject 
-a task-bound event until later). I'll put this back with an updated 
-comment for v2 (and double-check everything else again...), thanks LKP!
+RISC-V lacks lr/sc.b/h support; without ZABHA, emulating 8/16-bit operations
+via lr/sc.w would require complex mask logic. However, data shows 8/16-bit
+per-CPU operations are extremely rare (single-digit counts in boot and
+hackbench tests). Thus, we let 8/16-bit ops fall back to the generic
+implementation, avoiding unnecessary complexity. 32/64-bit ops use direct
+atomic instructions for performance.
 
-Robin.
+Yunhui Cui (2):
+  riscv: remove irqflags.h inclusion in asm/bitops.h
+  riscv: introduce percpu.h into include/asm
 
+ arch/riscv/include/asm/bitops.h |   1 -
+ arch/riscv/include/asm/percpu.h | 138 ++++++++++++++++++++++++++++++++
+ 2 files changed, 138 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/percpu.h
 
->   	box = uncore_pmu_to_box(pmu, event->cpu);
->   	if (!box || box->cpu < 0)
->   		return -EINVAL;
+-- 
+2.39.5
+
 
 _______________________________________________
 linux-riscv mailing list
