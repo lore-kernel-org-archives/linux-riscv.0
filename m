@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDFD3CA0EEB
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 20:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FB6CA0EE6
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Aug 2025 20:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=54U6X8H3LWsw32tKgOX7HifIqBf6PQJEsu2bY6PfirI=; b=X7LwI83vJPD3Kc
-	ItHsXNsyrzvP0eUP5ZAVumHvAor2V/AAQvkdhIPwg7vTS1H7cAiS+Cij9WrYQJxtrKjP/N9q7dqcM
-	KHCJj5mqDEzOzf8Szu1WcOprr45P6SVLZEvPGvoQ9fDo5+pVRFKDFf55vShlypgvQJrOfkJeaLv/s
-	WtHVqW9WDYwUnSjB4vUDN8gtuM3UIDL1kP9bA4EHriA2aNPw9h+Jcs40wimMZEQ1AEphNG7tJ2sKV
-	OF8zhW8yNv1ReW1EK4XgMJmGHVFC/ipBbrkHNIWpcGkmK9pzksz+MO/XWDJj4Ig+f79+ai64qAgOD
-	C+fVnLAeOY20JNX3aVTA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rBlRT9fkkaV1hhUx727/wicMkRpYwPriOITcGVKXiE8=; b=aA+u+MssKlz2ECRvXFM6LP7p/f
+	2YPnzzAIPzCdMd20vuMBZxtnSCKu7yuzAHD6nOaItt9SGH4BetiFsOBJiLDp/oM8bZ4BvxYWtoYxk
+	hv/7dXcZ6/swp8sDD2riOInOJcvzK0jvoIAUxAh2e9ijloLcW7qgi91A3fDkM9OHoKCWtkwq2s4Xf
+	uatWSYPEzZarREHcRLSVFBlUnJDarbc/uMXEDRLeOpAoLCqsHCwmt94fWsf+avHNAkuZAd4HIbUK9
+	uAHygiLMXVR64k8BlhDzT4h4Fm/XhejfqeGvjw6m1mRuHgipH2rZWE6QQ5qd8h0m4Hq2TacR4iAlz
+	/hm2oN+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoScB-0000000BV95-04Et;
-	Tue, 19 Aug 2025 20:07:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoQST-0000000BA2Q-33lx;
-	Tue, 19 Aug 2025 17:49:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E877152B;
-	Tue, 19 Aug 2025 10:49:06 -0700 (PDT)
-Received: from [10.1.196.50] (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 475103F738;
-	Tue, 19 Aug 2025 10:49:10 -0700 (PDT)
-Message-ID: <cdb7b1e7-6e51-4c0e-bffb-b0d4b654a623@arm.com>
-Date: Tue, 19 Aug 2025 18:49:08 +0100
+	id 1uoShH-0000000BVhm-2VHE;
+	Tue, 19 Aug 2025 20:12:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoQq6-0000000BCoB-0Znn
+	for linux-riscv@lists.infradead.org;
+	Tue, 19 Aug 2025 18:13:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7800C613EF;
+	Tue, 19 Aug 2025 18:13:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C64EC16AAE;
+	Tue, 19 Aug 2025 18:13:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755627220;
+	bh=KpvPL2aa1SINbF9+aQNQrZ61uMnyrWTf51xfQ5aKQRg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bU/kEK1KAuwIyAzv3AUR7Zqhso85eaRZLKIgaj2rVHGE6tFvTO/ViepXxzzQDnqOX
+	 jEPgFw3N2mtxEwVlFLGMv3HjfATY6f85xggSTgLuDslh8Jg+qmSAFnWosmxmp433Y3
+	 OkBa/aYHSBE3gtdDWSk0emTgJ2THXPc2WeQ5pyRBpj/m5JcsZzfFAjXK6b4gk1nRor
+	 Jj/7rUMrDYKmJL509RfvCKXbPrA+Ln/UNdzd6QKLEp3GaG4z88tdj8x2nLFwAOyGeX
+	 obsQ3ryuo79NPNLm01A1HwIw1uomZkJWfgDCXc3ZIqJMCgWH5a0uiFsWonkqeMnHT/
+	 j14dae9pUEQgA==
+Date: Tue, 19 Aug 2025 19:13:35 +0100
+From: Conor Dooley <conor@kernel.org>
+To: E Shattow <e@freeshell.de>
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2] riscv: dts: starfive: jh7110-common: drop no-sdio
+ property from mmc1
+Message-ID: <20250819-sushi-change-1254c2d2a08d@spud>
+References: <20250729141142.13907-1-e@freeshell.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 19/19] perf: Garbage-collect event_init checks
-To: kernel test robot <oliver.sang@intel.com>
-Cc: oe-lkp@lists.linux.dev, lkp@intel.com,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- dmaengine@vger.kernel.org, linux-fpga@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
- iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
- linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-pm@vger.kernel.org, peterz@infradead.org, mingo@redhat.com,
- will@kernel.org, mark.rutland@arm.com, acme@kernel.org, namhyung@kernel.org,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, kan.liang@linux.intel.com,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- imx@lists.linux.dev, linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-riscv@lists.infradead.org
-References: <202508190403.33c83ece-lkp@intel.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <202508190403.33c83ece-lkp@intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_104917_878778_F810A49C 
-X-CRM114-Status: GOOD (  17.93  )
+In-Reply-To: <20250729141142.13907-1-e@freeshell.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,93 +71,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============3499183443737283873=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2025 3:44 am, kernel test robot wrote:
-> 
-> 
-> Hello,
-> 
-> kernel test robot noticed "BUG:unable_to_handle_page_fault_for_address" on:
-> 
-> commit: 1ba20479196e5af3ebbedf9321de6b26f2a0cdd3 ("[PATCH 19/19] perf: Garbage-collect event_init checks")
-> url: https://github.com/intel-lab-lkp/linux/commits/Robin-Murphy/perf-arm-cmn-Fix-event-validation/20250814-010626
-> base: https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git 91325f31afc1026de28665cf1a7b6e157fa4d39d
-> patch link: https://lore.kernel.org/all/ace3532a8a438a96338bf349a27636d8294c7111.1755096883.git.robin.murphy@arm.com/
-> patch subject: [PATCH 19/19] perf: Garbage-collect event_init checks
 
-OK, after looking a bit more deeply at x86 and PowerPC, I think it
-probably is nicest to solve this commonly too. Below is what I've cooked
-up for a v2 (I'll save reposting the whole series this soon...)
+--===============3499183443737283873==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="+sm/HGNSxtTF3UeQ"
+Content-Disposition: inline
 
-Thanks,
-Robin.
 
------>8-----
-Subject: [PATCH 18.5/19] perf: Add common uncore-CPU check
+--+sm/HGNSxtTF3UeQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Many uncore drivers depend on event->cpu being valid in order to look
-up various data in their event_init call. Since we've now factored out
-common PMU identification, we can factor out this check in the correct
-order too. While it might technically be possible to hoist the general
-task/cgroup check up here now, that would be horribly messy, so for
-clarity let's keep these as distinct (albeit related) concerns.
+On Tue, Jul 29, 2025 at 07:11:35AM -0700, E Shattow wrote:
+> Relax no-sdio restriction on mmc1 for jh7110 boards. Property was
+> introduced for StarFive VisionFive2 dts to configure mmc1 for SD Card
+> but this is not necessary, the restriction is only needed to block use of
+> commands that would cause a device to malfunction.
+>=20
+> Signed-off-by: E Shattow <e@freeshell.de>
 
-Reported-by: kernel test robot <oliver.sang@intel.com>
-Closes: https://lore.kernel.org/oe-lkp/202508190403.33c83ece-lkp@intel.com
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
-  kernel/events/core.c | 12 +++++++++++-
-  1 file changed, 11 insertions(+), 1 deletion(-)
+I'm going to apply this one to for-next, to give it more of a chance to
+soak.
 
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 5f7eb526d87c..ddf045ad4d83 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -12562,6 +12562,11 @@ static bool is_raw_pmu(const struct pmu *pmu)
-  	       pmu->capabilities & PERF_PMU_CAP_RAW_EVENTS;
-  }
-  
-+static bool is_uncore_pmu(const struct pmu *pmu)
-+{
-+	return pmu->task_ctx_nr == perf_invalid_context;
-+}
-+
-  static int perf_try_init_event(struct pmu *pmu, struct perf_event *event)
-  {
-  	struct perf_event_context *ctx = NULL;
-@@ -12571,11 +12576,16 @@ static int perf_try_init_event(struct pmu *pmu, struct perf_event *event)
-  	 * Before touching anything, we can safely skip:
-  	 * - any event for a specific PMU which is not this one
-  	 * - any common event if this PMU doesn't support them
-+	 * - non-CPU-bound uncore events (so drivers can assume event->cpu is
-+	 *   valid; we'll check the actual task/cgroup attach state later)
-  	 */
-  	if (event->attr.type != pmu->type &&
-  	    (event->attr.type >= PERF_TYPE_MAX || !is_raw_pmu(pmu)))
-  		return -ENOENT;
-  
-+	if (is_uncore_pmu(pmu) && event->cpu < 0)
-+		return -EINVAL;
-+
-  	if (!try_module_get(pmu->module))
-  		return -ENODEV;
-  
-@@ -12990,7 +13000,7 @@ perf_event_alloc(struct perf_event_attr *attr, int cpu,
-  	 * events (they don't make sense as the cgroup will be different
-  	 * on other CPUs in the uncore mask).
-  	 */
--	if (pmu->task_ctx_nr == perf_invalid_context && (task || cgroup_fd != -1))
-+	if (is_uncore_pmu(pmu) && (task || cgroup_fd != -1))
-  		return ERR_PTR(-EINVAL);
-  
-  	if (event->attr.aux_output &&
--- 
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 1 -
+>  1 file changed, 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv=
+/boot/dts/starfive/jh7110-common.dtsi
+> index 4baeb981d4df..b156f8703016 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> @@ -290,7 +290,6 @@ &mmc1 {
+>  	assigned-clock-rates =3D <50000000>;
+>  	bus-width =3D <4>;
+>  	bootph-pre-ram;
+> -	no-sdio;
+>  	no-mmc;
+>  	cd-gpios =3D <&sysgpio 41 GPIO_ACTIVE_LOW>;
+>  	disable-wp;
+>=20
+> base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
+> --=20
+> 2.50.0
+>=20
+
+--+sm/HGNSxtTF3UeQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKS+zgAKCRB4tDGHoIJi
+0h8zAPsEZlSydbDhSSY6HK5fbO8Q2t/BWSTx9sJrPaJSoqzKxwD/cZmCHPLsQpJ1
+LjxgMVRbqLLWQ0fpBuU/6TlManpKJQI=
+=orR2
+-----END PGP SIGNATURE-----
+
+--+sm/HGNSxtTF3UeQ--
+
+
+--===============3499183443737283873==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3499183443737283873==--
+
