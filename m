@@ -4,90 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFEA6CA0EF8
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 22:41:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F75ACA0EED
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 01:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z/l+ym95lUxJMCSPXTL6MX4TYfKD34sCz1WnyUxAkhc=; b=avOqAtrf67AFCZ
-	Zr39BPGT5EhnaEDmwG08Qk567FDPZ6cFEZllB+AlNCku8Hx1ZRMQk/nF7SHd2bSvqJ6PTn50JAjiv
-	hqH6iZ4kcTgl8Id3xooOEvMpbgx6ASD2ysgr3ajFU/A/R3I2VjUbpnvvFxU58OSbHcZB//aDRp6i9
-	X6QKpI0KhadsVGLEkta4r04b8+P4c5n4/XisnUwF8uOSz9wWd10frKWJeDUj6UJiK1tqqTRXkTrZQ
-	3OH1716BVQ3KZV01sw5sn9lHPuX9VFigK4gtKIiQ2+5vJx+mh2eqspBz5IMF7AFjeW0ksAjC4TXR0
-	NyqDkXD+3KWXOAWpgaTQ==;
+	List-Owner; bh=JoXz3ip2FmDYWPjgm/qQIhR7bRhW8gx230/h/FrQzss=; b=X13jhdtvJ8wyDn
+	DBZZKC2k2ZH/MoDcPiQgJGjAzIXdQ3rbkmAyqCocJlvPtOGmKgIGcyqKP4fxeXU57limh8IM0QsVd
+	dCdmGJ1QnT7Vn3/WRRpNQ2SYvXWo9Ytr3ink2LxvY3AlWyLH00S824H2/E1Lt42l/0vn46IUZ2X/V
+	DTtjxeLz7P6wpvFjpahxdBcNB1WhWBOPe+l8PIWCzoVOY4gqUs4Vlx8kIpn41TjAQmE3d3VXoISQd
+	HOVntA/z4wXKSpN5b7awE6iRIM70Jbf8pqYQfaGw/8wUkQUJrPg1Y1hUqfknXkk1aDe5gJKdKTkDN
+	DeCJm0IbFS73wWc0Gk8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uorUi-0000000F786-2GOH;
-	Wed, 20 Aug 2025 22:41:24 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uotjQ-0000000FN6c-0jG9;
+	Thu, 21 Aug 2025 01:04:44 +0000
+Received: from mail-43171.protonmail.ch ([185.70.43.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uonXR-0000000EgIx-2yHd
+	id 1uopUn-0000000EqJ5-1lGn
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 18:27:59 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45a1b066b5eso986415e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Aug 2025 11:27:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=hammernet-be.20230601.gappssmtp.com; s=20230601; t=1755714475; x=1756319275; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8NPVQBMSrrf3jhmLLcgVMSadSNRoC9cJI1+fcHorCmY=;
-        b=U88zXrOseI/SQYnvt+sEmp1VwB53DcCC0YvGhi7CfcOGi3CwYSEYf8bvJUvWvj7KLY
-         Et4SK9NygWlpj63cj+1SfO96FTt7T9TmtscZQiDyBnGPhZKD1IVE76E2Pyqrlc6d6O7q
-         eO7/tGWEboIZnCJKvs801XrHuKAfTwozdyVxr4P+cJok0FcSdmaWwVvwxEd7FoANYUou
-         nIF1uRRe+78ylTspPjaXBpf1qczfL54bMZsgKoUI6USFYzzHPqhITuveTmJW78PPzL8z
-         MAGPNqVp7QYwZyVIwXXBwNOtNGOfVKJoKqhucMc3AgqbxaNlUFWiwEWZoLXJBgr17Dka
-         +trw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755714475; x=1756319275;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8NPVQBMSrrf3jhmLLcgVMSadSNRoC9cJI1+fcHorCmY=;
-        b=haU5J7k91Rc7GkP4H1fk0G1po7BWxnPdtrrx1J/BK3A3J3K6T2UfSbQI/zOTDU8kAx
-         oBYg+7RozvZNLqGjbtsML7NpVVQor8Bz4EvGGSM7cYPoXp6Aecy3nO6oogcBF/Q5Tb64
-         8No6RDGIJgiDQIQd3KZmewQltebZUaVc8EmUxBwc4FWNu2jitdlc7xYf6XE/2SA293YA
-         iMb8ItudQDBlMWEPZtWVvQNi+E3hD+ca7iJWQzLFUtoFdTIAWDgq74Ku0ATYFQLZIuSD
-         CxcYxgRQQlfAjixGKGRCHYbjUx6v0GwWP+ikWsUSscMr2KlT28n2OkBdu1U/Q3AiLRY7
-         h3Og==
-X-Forwarded-Encrypted: i=1; AJvYcCWCdd0nlPAGG5QnU6fzURX6i0zhqB+muNlJAa4qmXwLdBEAE+AJjoJGwzF51D4ugp+0YdojYmIYx4qtqg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnyvhDBlUEFww1J/MyE/9iGyK0oj5qjuRYR0T7Mxf+9ozaPj2k
-	+Do1eobSsRXYVqP74tTuxKR4Pqfu2JEk+1wi9MNSLhRX/pRwJsZE2TPRPXf0NxSmT6M=
-X-Gm-Gg: ASbGncur56pEv05LYnAWYZw3VoO22FV8o6rkp5/wqUiy+kavhphT4np5A+YOpcCKK49
-	ZPRJEQXyGUbOPk6MmF/roQ2v8d+X1yEWtWKjUVL5fqr+snoHDw+HiEXiy997iqOSwDFXezWxDxq
-	/PmGDn6PEtTbGIUP9Zqwlrj8pxOIHieH12AWmTRTthKNdRo0CKWgsGabigrPiAJxOHvRF7tju8A
-	esbdKps3HIwXMdZoEQsuscc+2DOo+H802q2H9kOlyBYIpbLSmnbB05nierAiSaIKDBPO8YL6CJN
-	15Aybdl28fFrAJw1cEzU9vqnz8fzw3oldGpgRp6c0IG/3zMRR0Y+O6GfBRGLOA8j0c5GDU/Pa/a
-	J2VtjgIiWzPSmCcaWzPiFHUxG9dZKhvOMD6rAa260keRh8qhDpv9dmiBzfv7YZuDT/klTHUuuY9
-	Ah7kcRbFp+GI6xpeP9dPi0cEw=
-X-Google-Smtp-Source: AGHT+IGQKS3XqM+4Wd++Np9yalKPfzEFkK54upvYWtNTNYRTddwvhBFV5n3bYbpZpN+GCnzAAC724g==
-X-Received: by 2002:a05:600c:4a06:b0:43d:42b:e186 with SMTP id 5b1f17b1804b1-45b47ab2420mr21491235e9.8.1755714475079;
-        Wed, 20 Aug 2025 11:27:55 -0700 (PDT)
-Received: from ?IPV6:2a02:1807:2a00:3400:7e73:cf38:ddee:2b1d? ([2a02:1807:2a00:3400:7e73:cf38:ddee:2b1d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b47c310efsm46093025e9.7.2025.08.20.11.27.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 Aug 2025 11:27:54 -0700 (PDT)
-Message-ID: <1a4a25d2-25a1-4d06-bba6-50f51cfbb619@hammernet.be>
-Date: Wed, 20 Aug 2025 20:27:53 +0200
+	Wed, 20 Aug 2025 20:33:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=weathered-steel.dev;
+	s=protonmail3; t=1755721995; x=1755981195;
+	bh=t7NXEEuVH/wrVVp48tGTzSJA0b9aGiHDJRGZakt3E5E=;
+	h=Date:From:To:Cc:Subject:Message-ID:References:In-Reply-To:From:To:
+	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=FMcI4mfXJHsguwdIMwtmxDEsuImO9BKJY1sTBvFWRZA8yZrY6Kgbq0nhIkluiecMy
+	 BkPqodDUdDqZ6Mh1og6ovUQ2SjBhcshD01eYmtcwRiUhZrRCpgb2t9pky3woeyUVTh
+	 6CeHQXAEjtIVgllaM1rRFlCJzbFtCVIBERIyal/YhR0p1XXN4tTmaWJ0qmuD6tP6Ua
+	 uW82YfbpsCWg2ppoMyavvHRP/mcs91bzWD8g3dW3qg04pIuNK1Aed5mkrA1EqK3HXA
+	 AkhrgcQ81t2xssUOH+6aNVboWNRk26I4rJw0/QDdFpJDfBYOpch1cSSvZqbnklLw24
+	 S64ApfpVDUw0w==
+X-Pm-Submission-Id: 4c6dST1yHnz2ScP7
+Date: Wed, 20 Aug 2025 20:30:57 +0000
+From: Elle Rhumsaa <elle@weathered-steel.dev>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Drew Fustini <fustini@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v14 1/7] pwm: Export `pwmchip_release` for external use
+Message-ID: <aKYwgQBt62PyCEd9@archiso>
+References: <20250820-rust-next-pwm-working-fan-for-sending-v14-0-df2191621429@samsung.com>
+ <CGME20250820083541eucas1p2ad7d78418576b8bc8cbddd8efe83bbe9@eucas1p2.samsung.com>
+ <20250820-rust-next-pwm-working-fan-for-sending-v14-1-df2191621429@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: dts: spacemit: add UART resets for Soc K1
-To: dlan@gentoo.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr
-Cc: skhan@linuxfoundation.org, linux-kernel-mentees@lists.linux.dev,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, elder@riscstar.com
-References: <20250807191817.157494-1-hendrik.hamerlinck@hammernet.be>
-Content-Language: en-US
-From: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-In-Reply-To: <20250807191817.157494-1-hendrik.hamerlinck@hammernet.be>
+Content-Disposition: inline
+In-Reply-To: <20250820-rust-next-pwm-working-fan-for-sending-v14-1-df2191621429@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_112757_857875_D4AE6D40 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20250820_133322_089324_6A416F47 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,37 +86,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8sCgpPbiA4LzcvMjUgMjE6MTgsIEhlbmRyaWsgSGFtZXJsaW5jayB3cm90ZToKPiBBZGQg
-cmVzZXQgY29udHJvbCBlbnRyaWVzIGZvciBhbGwgVUFSVHMgaW4gdGhlIFNwYWNlTUlUIEsxIFNv
-QyBEZXZpY2UgVHJlZS4KPiBVQVJUMCB3YXMgZnVuY3Rpb25hbCBhcyBpdCBkaWQgbm90IG5lZWQg
-YSByZXNldC4gQnV0IHRoZSBvdGhlciBVQVJUcyB3ZXJlCj4gdW5hYmxlIHRvIGFjY2VzcyB0aGVp
-ciByZWdpc3RlcnMgd2l0aG91dCB0aGUgcmVzZXQgYmVpbmcgYXBwbGllZC4KPgo+IEFsdGhvdWdo
-IHBlcmhhcHMgbm90IG5lZWRlZCBJIGRpZCBhZGQgdGhlIHJlc2V0IGZvciBVQVJUMCBhcyB3ZWxs
-LAo+IHRvIGVuc3VyZSBjb25zaXN0ZW5jeSBhY3Jvc3MgYWxsIFVBUlRzLiBXaXRoIHRoZSBjdXJy
-ZW50LXNwZWVkIHNldCB0bwo+IDExMjUwMCBiYXVkIHJhdGUsIGl0IG1hdGNoZXMgdGhlIGZhY3Rv
-cnkgVS1Cb290IHNldHRpbmdzLgo+IFRoaXMgc2hvdWxkIG5vdCBnaXZlIGlzc3VlcyB3aXRoIGVh
-cmx5IGNvbnNvbGUgdXNhZ2UuIEJ1dCBwZXJoYXBzIGl0IGNvdWxkCj4gYmUgYSBnb29kIGlkZWEg
-dG8gbGV0IHNvbWVib2R5IGVsc2UgY29uZmlybSB0aGlzIGFzIHdlbGwuCkkgaGF2ZSB0ZXN0ZWQg
-dGhpcyB2ZXJzaW9uIGZvciBhIHdoaWxlIGFuZCBubyBsb25nZXIgc2VlIHRoZSBuZWVkIGZvcgph
-ZGRpdGlvbmFsIGNvbmZpcm1hdGlvbi4KCj4KPiBUZXN0ZWQgdGhpcyBsb2NhbGx5IG9uIGJvdGgg
-T3JhbmdlIFBpIFJWMiBhbmQgQmFuYW5hIFBpIEJQSS1GMyBib2FyZHMuIAo+IEkgZW5hYmxlZCB0
-aGUgVUFSVDkgYW5kIHdhcyBhYmxlIHRvIHVzZSBpdCBzdWNjZXNzZnVsbHkuCj4KSnVzdCBhIGdl
-bnRsZSByZW1pbmRlciBhYm91dCB0aGlzIHBhdGNoLgoKQWxsIFVBUlRzIGFyZSBsaXN0ZWQgaW4g
-dGhlIEsxIGRldmljZSB0cmVlIGFuZCBwcm9iZWQgYnkgdGhlIDgyNTBfb2YgZHJpdmVyLApidXQg
-d2l0aG91dCByZXNldCBsaW5lcyBtb3N0IG9mIHRoZW0gYXJlIG5vbi1mdW5jdGlvbmFsLiBBZGRp
-bmcgdGhlIHJlc2V0cwptYWtlcyB0aGVtIHVzYWJsZSB3aGVuIG1hcHBlZCB0byBkZXZpY2VzLgoK
-VGhpcyBwYXRjaCBpcyBsaW1pdGVkIHRvIERUUyByZXNldCBoYW5kbGluZywgc28gVUFSVHMgYXJl
-IHVzYWJsZSBpbiB0aGUKY3VycmVudCBzdGF0ZS4gSeKAmW0gYXdhcmUgQWxleCBFbGRlciBpcyBh
-c3NpZ25lZCB0byB0aGUgVUFSVCBwZXJpcGhlcmFsIG9uCnRoZSB3aWtpIGFuZCB3aWxsIGxpa2Vs
-eSBoYW5kbGUgdGhlIGJyb2FkZXIgZHJpdmVyIGltcHJvdmVtZW50cyAoRE1BLApjbG9jayB1cGRh
-dGVzLCBmdWxsIGJhdWQtcmF0ZSBzdXBwb3J0KSwgc28gdGhpcyBzaG91bGQgbm90IGludGVyZmVy
-ZSB3aXRoCnRoYXQgd29yay4KClRoYW5rcyBmb3IgdGFraW5nIGEgbG9vayEKCktpbmQgcmVnYXJk
-cywKSGVuZHJpawoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Wed, Aug 20, 2025 at 10:35:36AM +0200, Michal Wilczynski wrote:
+> The upcoming Rust abstraction layer for the PWM subsystem uses a custom
+> `dev->release` handler to safely manage the lifetime of its driver
+> data.
+> 
+> To prevent leaking the memory of the `struct pwm_chip` (allocated by
+> `pwmchip_alloc`), this custom handler must also call the original
+> `pwmchip_release` function to complete the cleanup.
+> 
+> Make `pwmchip_release` a global, exported function so that it can be
+> called from the Rust FFI bridge. This involves removing the `static`
+> keyword, adding a prototype to the public header, and exporting the
+> symbol.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  drivers/pwm/core.c  | 3 ++-
+>  include/linux/pwm.h | 6 ++++++
+>  2 files changed, 8 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pwm/core.c b/drivers/pwm/core.c
+> index 0d66376a83ec350e0c3718959f4d794efd71595a..a33da3dff608fdff91251e5fd07b0dbd295be022 100644
+> --- a/drivers/pwm/core.c
+> +++ b/drivers/pwm/core.c
+> @@ -1600,12 +1600,13 @@ void pwmchip_put(struct pwm_chip *chip)
+>  }
+>  EXPORT_SYMBOL_GPL(pwmchip_put);
+>  
+> -static void pwmchip_release(struct device *pwmchip_dev)
+> +void pwmchip_release(struct device *pwmchip_dev)
+>  {
+>  	struct pwm_chip *chip = pwmchip_from_dev(pwmchip_dev);
+>  
+>  	kfree(chip);
+>  }
+> +EXPORT_SYMBOL_GPL(pwmchip_release);
+>  
+>  struct pwm_chip *pwmchip_alloc(struct device *parent, unsigned int npwm, size_t sizeof_priv)
+>  {
+> diff --git a/include/linux/pwm.h b/include/linux/pwm.h
+> index 8cafc483db53addf95591d1ac74287532c0fa0ee..d86061024b52172edf3845bf9252a966f120e365 100644
+> --- a/include/linux/pwm.h
+> +++ b/include/linux/pwm.h
+> @@ -485,6 +485,12 @@ int __pwmchip_add(struct pwm_chip *chip, struct module *owner);
+>  #define pwmchip_add(chip) __pwmchip_add(chip, THIS_MODULE)
+>  void pwmchip_remove(struct pwm_chip *chip);
+>  
+> +/*
+> + * For FFI wrapper use only:
+> + * The Rust PWM abstraction needs this to properly free the pwm_chip.
+> + */
+> +void pwmchip_release(struct device *dev);
+> +
+>  int __devm_pwmchip_add(struct device *dev, struct pwm_chip *chip, struct module *owner);
+>  #define devm_pwmchip_add(dev, chip) __devm_pwmchip_add(dev, chip, THIS_MODULE)
+>  
+> 
+> -- 
+> 2.34.1
+
+Reviewed-by: Elle Rhumsaa <elle@weathered-steel.dev>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
