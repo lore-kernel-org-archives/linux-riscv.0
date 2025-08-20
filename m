@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55479CA0EF8
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 21:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB861CA0EDC
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 22:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=To7ZHpz0WnmyYJx5WHeK71BkifsNPPzfGqqqmi74mm0=; b=xBSIqKgE+mUSa/
-	rO4qJmR7HqAD11D6oVwbH0B+5OZZKvpOM9PW++nUxIfHczNxn3HvPGENlB9IXqIZotipBNx4POWgm
-	Hnd0Jz3HB+1u9dTnDepTGkBlG7zfD/+QQPrXOLrjq5KXsrc338CbbsoKASlQ5iMZQz+JboSVkbHg0
-	Mzge0xv4UjnfgoArEuh5BBu2aNr0ktUWJrRP6KL1OzpREKWL07i2ACzYAch2yfHXRAUYYAbLpNo6q
-	ky8EhA3IyxArQmHw5meMic6+dQMAsofp3aWEkYE6248aSIpzBV7QWeM5WrhX6OenNub0wZGP/SyPn
-	Lmh3SNF+zwqFrmGgjbxw==;
+	List-Owner; bh=YlP8aj4K1cxOuDZE1uOhjdoBv3Uk3AeiVBqMQkdYrzs=; b=AAln+7H86Pr1kN
+	jw+O3luAn6Lirk9izGp/wh/jHsEOy8E5/Bm3VEW+V6zm/CHONAYgTDp5ZTHDlxiGK/P5fKHAmffS9
+	v3Rw1NbSmz+hjxi2Ey9sARChcc2dJ1UEQCNVXuVaAX580hSt0vs6xZOXWSOqRErcVt4SyIqYMk/ZM
+	Uj2mLr69js/RRMR9stqDKagz6MpT9uo9nz+QKPNTJxECDRXvpKBHa/ZjX8lv1d9RF9gzfrHae/42j
+	g3QLKoG2Knuy/gpHBLWQS9gJ8BH3VwZBOHQ93MHCrqM2aq5n+rvaKdBosS84D8l+UYQCK4fPitVLQ
+	YhQRLyco03cdnUGVrr+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoqkQ-0000000F2Le-1zH8;
-	Wed, 20 Aug 2025 21:53:34 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1uorHq-0000000F5x9-2jQ4;
+	Wed, 20 Aug 2025 22:28:06 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uomTQ-0000000EWEI-3Qmy
+	id 1uon2k-0000000Ec1V-26dx
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 17:19:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755710385; x=1787246385;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GxHr6/54rgcy6sAclCD5AO7ktqqANCdjdS8twJwHCMA=;
-  b=fDpsQa9eXVW3VUKag2sEKTeHkQJUYbP+sJO26cTNdygg9yv2PSm668ZS
-   pEGSj0wFF13DBljeGm0IZbdiIj6A4jXr685Cgf69OJitnwKhVycI3sz/X
-   lzzRitpiNyi29foD5g6Uk4OERwXVAMs5BcMxg99RPdgMBR2T0/7qdRSHI
-   2apcDGhrma00TnfuFZyg40kzxGrT5ARuGMTTAtG8TTvcR6gtVw8rn/jkf
-   7n9nMq4EdJ+q9WgGgxakeeI5nQraY1pgxtTeSFcEbykSwWyTZ7xK5EEbv
-   LwU0/T/WQVhjT+PH+BE+PXG0fM51QyhfAq0cOq1vWPJTbYMx/ruy6U1lw
-   A==;
-X-CSE-ConnectionGUID: S48BkUiGSjmtIwTUOjlqaw==
-X-CSE-MsgGUID: 4WrFc0s/Rf2KoitWGnCQgA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11527"; a="83406119"
-X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
-   d="scan'208";a="83406119"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2025 10:19:44 -0700
-X-CSE-ConnectionGUID: id3NsaM5RTK6EUgGk1bUSw==
-X-CSE-MsgGUID: F/GOHyWPSxGZCqOCHmhCXg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
-   d="scan'208";a="167798899"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa009.jf.intel.com with ESMTP; 20 Aug 2025 10:19:40 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uomTK-000JXL-03;
-	Wed, 20 Aug 2025 17:19:38 +0000
-Date: Thu, 21 Aug 2025 01:18:54 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yunhui Cui <cuiyunhui@bytedance.com>, yury.norov@gmail.com,
-	linux@rasmusvillemoes.dk, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	dennis@kernel.org, tj@kernel.org, cl@gentwo.org, linux-mm@kvack.org
-Cc: oe-kbuild-all@lists.linux.dev, Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: Re: [PATCH 2/2] riscv: introduce percpu.h into include/asm
-Message-ID: <202508210101.WySkXlSZ-lkp@intel.com>
-References: <20250819135007.85646-3-cuiyunhui@bytedance.com>
+	Wed, 20 Aug 2025 17:56:16 +0000
+Received: from [192.168.0.110] (unknown [114.241.87.235])
+	by APP-01 (Coremail) with SMTP id qwCowAB3Z6sLDKZou3TODQ--.64161S2;
+	Thu, 21 Aug 2025 01:55:23 +0800 (CST)
+Message-ID: <2601e3bd-b3d4-4eb1-bcb5-e4fbd9fe9c96@iscas.ac.cn>
+Date: Thu, 21 Aug 2025 01:55:23 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250819135007.85646-3-cuiyunhui@bytedance.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v5 4/5] riscv: dts: spacemit: Add Ethernet
+ support for BPI-F3
+To: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Vivian Wang <uwu@dram.page>, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Junhui Liu <junhui.liu@pigmoral.tech>, Simon Horman <horms@kernel.org>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20250812-net-k1-emac-v5-0-dd17c4905f49@iscas.ac.cn>
+ <20250812-net-k1-emac-v5-4-dd17c4905f49@iscas.ac.cn>
+ <463dcfa3-152e-4a48-9821-debdc29c89b2@hammernet.be>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <463dcfa3-152e-4a48-9821-debdc29c89b2@hammernet.be>
+X-CM-TRANSID: qwCowAB3Z6sLDKZou3TODQ--.64161S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrurWrJr43Kw45AFy8Gr45Wrg_yoWfArbE9F
+	WSqFnxu34ku3W0gr1UtanxAr1FqrZxWryaqas8twn5J34Ivw4UGw1rJas5JwnxGFy2qrnr
+	ZFyagF4jyr12vjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbVxYjsxI4VWkKwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
+	wI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
+	73UjIFyTuYvjxUkX_TUUUUU
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_101944_899925_1624141A 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20250820_105614_896132_2F5DA268 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,80 +91,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yunhui,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on linus/master]
-[also build test ERROR on dennis-percpu/for-next v6.17-rc2 next-20250820]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Yunhui-Cui/riscv-remove-irqflags-h-inclusion-in-asm-bitops-h/20250819-215256
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20250819135007.85646-3-cuiyunhui%40bytedance.com
-patch subject: [PATCH 2/2] riscv: introduce percpu.h into include/asm
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20250821/202508210101.WySkXlSZ-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250821/202508210101.WySkXlSZ-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508210101.WySkXlSZ-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/atomic.h:80,
-                    from include/linux/cpumask.h:14,
-                    from include/linux/smp.h:13,
-                    from include/linux/lockdep.h:14,
-                    from include/linux/spinlock.h:63,
-                    from include/linux/mmzone.h:8,
-                    from include/linux/gfp.h:7,
-                    from include/linux/mm.h:7,
-                    from mm/slub.c:13:
-   mm/slub.c: In function '__update_cpu_freelist_fast':
->> include/linux/atomic/atomic-arch-fallback.h:414:30: error: implicit declaration of function 'arch_cmpxchg128_local'; did you mean 'arch_cmpxchg64_local'? [-Wimplicit-function-declaration]
-     414 | #define raw_cmpxchg128_local arch_cmpxchg128_local
-         |                              ^~~~~~~~~~~~~~~~~~~~~
-   include/linux/atomic/atomic-instrumented.h:5005:9: note: in expansion of macro 'raw_cmpxchg128_local'
-    5005 |         raw_cmpxchg128_local(__ai_ptr, __VA_ARGS__); \
-         |         ^~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/percpu.h:131:17: note: in expansion of macro 'cmpxchg128_local'
-     131 |         ret__ = cmpxchg128_local(ptr__, old__, new__);                  \
-         |                 ^~~~~~~~~~~~~~~~
-   include/asm-generic/percpu.h:108:17: note: in expansion of macro 'this_cpu_cmpxchg128'
-     108 |         __val = _cmpxchg(pcp, __old, nval);                             \
-         |                 ^~~~~~~~
-   include/asm-generic/percpu.h:527:9: note: in expansion of macro '__cpu_fallback_try_cmpxchg'
-     527 |         __cpu_fallback_try_cmpxchg(pcp, ovalp, nval, this_cpu_cmpxchg128)
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   mm/slab.h:24:41: note: in expansion of macro 'this_cpu_try_cmpxchg128'
-      24 | #define this_cpu_try_cmpxchg_freelist   this_cpu_try_cmpxchg128
-         |                                         ^~~~~~~~~~~~~~~~~~~~~~~
-   mm/slub.c:3638:16: note: in expansion of macro 'this_cpu_try_cmpxchg_freelist'
-    3638 |         return this_cpu_try_cmpxchg_freelist(s->cpu_slab->freelist_tid.full,
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-vim +414 include/linux/atomic/atomic-arch-fallback.h
-
-9257959a6e5b4f Mark Rutland 2023-06-05  413  
-9257959a6e5b4f Mark Rutland 2023-06-05 @414  #define raw_cmpxchg128_local arch_cmpxchg128_local
-e6ce9d741163af Uros Bizjak  2023-04-05  415  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDgvMTMvMjUgMjE6MzQsIEhlbmRyaWsgSGFtZXJsaW5jayB3cm90ZToKPgo+IE9uIDgvMTIv
+MjUgMDQ6MDIsIFZpdmlhbiBXYW5nIHdyb3RlOgo+PiBCYW5hbmEgUGkgQlBJLUYzIHVzZXMgYW4g
+UkdNSUkgUEhZIGZvciBlYWNoIHBvcnQgYW5kIHVzZXMgR1BJTyBmb3IgUEhZCj4+IHJlc2V0Lgo+
+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBWaXZpYW4gV2FuZyA8d2FuZ3J1aWthbmdAaXNjYXMuYWMuY24+
+Cj4+Cj4gVGVzdGVkIG9uIEJhbmFuYSBQaSBCUEktRjMgYW5kIE9yYW5nZSBQaSBSVjIuIFZlcmlm
+aWVkIFNTSCBzaGVsbCBvdmVyIGV0aDAKPiBhbmQgZXRoMSBpbnRlcmZhY2VzLCBhbmQgYmFzaWMg
+VURQIGNvbm5lY3Rpdml0eSB1c2luZyBpcGVyZjMuIFRoYW5rIHlvdSEKPgo+IFRlc3RlZC1ieTog
+SGVuZHJpayBIYW1lcmxpbmNrIDxoZW5kcmlrLmhhbWVybGluY2tAaGFtbWVybmV0LmJlPgoKVGhh
+bmsgeW91IGZvciB0aGUgdGVzdGluZyEgSSd2ZSBhbHJlYWR5IHB1dCB0aGlzIHRyYWlsZXIgb24g
+djYsIGJ1dApmb3Jnb3QgdG8gcmVwbHkgaGVyZS4KCkkgaGF2ZW4ndCBpbmNsdWRlZCB0aGUgRFRT
+IHBhdGNoIGZvciBPcmFuZ2UgUGkgUlYywqBpbiB2NizCoGJlY2F1c2UgdGhlCmJvYXJkIERUUyBp
+cyBub3QgaW4gdjYuMTctcmMxLiBIb3dldmVyLCBpdCBpcyBpbiBZaXh1bidzIHNwYWNlbWl0IHRy
+ZWUsCkFGQUlDVCwgc28gaWYgd2UgZ2V0IHRoZSBkcml2ZXIgaW4gZm9yIHY2LjE4IEknbGwgc2Vu
+ZCB0aGUgRFRTCnNlcGFyYXRlbHkgdG8gc3BhY2VtaXQgbWFpbGluZyBsaXN0LiBJZiB3ZSBkb24n
+dCwgSSdsbCBpbmNsdWRlIGl0CmFsb25nc2lkZSB0aGUgZHJpdmVyIHdoZW4gcmViYXNpbmcgdG8g
+djYuMTgtcmMxLgoKVml2aWFuICJkcmFtZm9yZXZlciIgV2FuZwoKCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
