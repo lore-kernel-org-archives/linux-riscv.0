@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE5FCA0EED
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 10:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA806CA0EED
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 10:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:Date:Subject:
-	From:Cc:References:To:Message-Id:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fCtUGGjpMu8dKlhSda4TeT1EPauIKUoYtu3T6g6Kho8=; b=mZmqNalj7SLjpW
-	5DGgFGLlmy6F69kL9Gg9g0F82RjuzgIDRI7P4ayMFcASbANosLE28QKGTQCp6O/DjMb9zvoXkJWTi
-	M5/lS/nGvlqcltiNWeI1g1lRFSs9L59c1PWUreIKtUQH/VgysY/+2ChZwYr3MKfcZPH38tZWvXspB
-	dKyD4pTCg1KdlMhpp4YWA19vNQUQR6b4b4rDdofQKvO/gR2l6af3uCwMvD/VXaF9QHTI1b6BuaFPu
-	9/P6HOtC6xNPBhMlZZ6zCUiVF6fJ+LJg9jTijzNqenTpm13a/VsuzrEJJgR1Mwy8NTS1N44h+azbM
-	yEYMXRPDP1nirjvoU/+w==;
+	List-Owner; bh=EzTnKNfNiuzrpUgCaFIxDAdaNRAzaRAPu2RXn41HyBg=; b=dJnVxgINJSssiC
+	LPUvgmMTr4ZOq0tFtw4NBpnx8+LKWgmXJUwfjLCwirmjmUxKyHS5S8pMz2xcK+cVTHY+VLe+SkUU1
+	0AAEeWREHJvRNc7uvoothAdu62N4R0Oc7inZJ5Huztx3UBrFUgK5D3u99mITnglxf4uJ9iQ7lztIA
+	DUsclKwmaDghP48UPBzI1deWbmZ1e24QpoHN1OGafhW/sOehYRW9KJCV81E03WQcQZ+LDdej1J3ks
+	rITcdJkxRDmyPbo1NS4Q3xPEYaJHw1mCgB0h5ecCe+XR3lW5alQ64L1HmuUmng4dNwPSzCWQCpE53
+	DDgupJT7CvHim3BCv60Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uofh1-0000000D59E-32S6;
-	Wed, 20 Aug 2025 10:05:19 +0000
-Received: from sg-1-12.ptr.blmpb.com ([118.26.132.12])
+	id 1uofhE-0000000D5C8-1RsN;
+	Wed, 20 Aug 2025 10:05:32 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uof10-0000000CuBO-2EtH
+	id 1uof5g-0000000Cutx-06DZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 09:21:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1755681700;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=26u28Ud/7i5hcKzRJDyQdYOfPIqHtE24mfxQ8LptvT8=;
- b=z3mXtNiUkxhHMDXpKd4Pg82xb9xvoc9gx/rM6ReuznEKIkf/7rgN03rLn2kFVs8JmIuMf+
- qm/2KlX7m5DanWNPsMx+ZXF0Q/uWziYp3xDY9BRvVyO7MaVd5VkBo1EC3bAIg98Z3sHens
- 45+Y2HyGw+BsKpY9QpY0r3psl+2y9/mK02DsLND1MnEiXmWY89BIA126QJOuEcz1ZXB/up
- sE1F7Owxvr5fIfR0o2hrUD1WW6Th4IRPMVFoeQOU0JtBWsOfNMJWwwK9/fGwfdlongCQEn
- gHMoBdvuMNQvLYhOMV0N/gYdDghQxGgppXMHa1gvf0oXJDl51ALBhIM5Rwq5lQ==
-Message-Id: <20250820092128.8069-1-huangxianliang@lanxincomputing.com>
-X-Mailer: git-send-email 2.34.1
-To: <markus.elfring@web.de>
-References: <568d8b25-8cb5-48f8-850e-0298e3fc456a@web.de>
-X-Original-From: XianLiang Huang <huangxianliang@lanxincomputing.com>
-Cc: <alex@ghiti.fr>, <aou@eecs.berkeley.edu>, 
-	<huangxianliang@lanxincomputing.com>, <iommu@lists.linux.dev>, 
-	<joro@8bytes.org>, <linux-kernel@vger.kernel.org>, 
-	<linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>, 
-	<paul.walmsley@sifive.com>, <robin.murphy@arm.com>, 
-	<tjeznach@rivosinc.com>, <will@kernel.org>
-From: "XianLiang Huang" <huangxianliang@lanxincomputing.com>
-Subject: Re: [PATCH v4] iommu/riscv: prevent NULL deref in iova_to_phys
-Received: from LeonHXL.localdomain ([116.237.111.137]) by smtp.feishu.cn with ESMTPS; Wed, 20 Aug 2025 17:21:34 +0800
-Date: Wed, 20 Aug 2025 17:21:28 +0800
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+268a5939e+78712b+lists.infradead.org+huangxianliang@lanxincomputing.com>
-In-Reply-To: <568d8b25-8cb5-48f8-850e-0298e3fc456a@web.de>
+	Wed, 20 Aug 2025 09:26:46 +0000
+X-UUID: c4a19ca47da711f0b29709d653e92f7d-20250820
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:fd378d40-514e-4215-996f-0aeebd413e45,IP:10,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:-15,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:-5
+X-CID-INFO: VERSION:1.1.45,REQID:fd378d40-514e-4215-996f-0aeebd413e45,IP:10,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:-15,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:6493067,CLOUDID:336d5cb5b5924752fdd99b4725ca7b31,BulkI
+	D:250820145207GW1MRF9C,BulkQuantity:3,Recheck:0,SF:17|19|24|44|64|66|78|80
+	|81|82|83|102|841,TC:nil,Content:0|50,EDM:-3,IP:-2,URL:0,File:nil,RT:nil,B
+	ulk:40,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:
+	0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD,TF_CID_SPAM_FSI
+X-UUID: c4a19ca47da711f0b29709d653e92f7d-20250820
+X-User: duanchenghao@kylinos.cn
+Received: from localhost [(223.70.159.239)] by mailgw.kylinos.cn
+	(envelope-from <duanchenghao@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 382454535; Wed, 20 Aug 2025 17:26:36 +0800
+Date: Wed, 20 Aug 2025 17:26:28 +0800
+From: Chenghao Duan <duanchenghao@kylinos.cn>
+To: Pu Lehui <pulehui@huawei.com>
+Cc: ast@kernel.org, bjorn@kernel.org, puranjay@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
+	eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
+	john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
+	haoluo@google.com, jolsa@kernel.org, alex@ghiti.fr,
+	bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: bpf: Fix uninitialized symbol 'retval_off'
+Message-ID: <20250820092628.GA1289807@chenghao-pc>
+References: <20250820062520.846720-1-duanchenghao@kylinos.cn>
+ <8b836b6e-103a-41c2-b111-0417d8db4dce@huawei.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <8b836b6e-103a-41c2-b111-0417d8db4dce@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_022154_760553_F9A527B3 
-X-CRM114-Status: UNSURE (   4.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250820_022644_974748_820C5EFC 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,22 +81,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-aHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC9mZWI0NjY1OC01YTNhLTQ0MDMtYjQwNy01MDA1
-NjYyODBlYjNAd2ViLmRlLwoKSSB1cGRhdGVkIHRoZSBwYXRjaCBpbiB2MywgYW5kIHVwZGF0ZWQg
-Y2hhbmdlIGRlc2NyaXB0aW9uIGFjY29yZGluZ2x5OgoKSW4gdjEKPiAtCWlmIChfaW9fcHRlX25v
-bmUoKnB0cikgfHwgIV9pb19wdGVfcHJlc2VudCgqcHRyKSkKPiArCWlmICghcHRyIHx8IF9pb19w
-dGVfbm9uZSgqcHRyKSB8fCAhX2lvX3B0ZV9wcmVzZW50KCpwdHIpKQoKSW4gdjMKPiAtCWlmIChf
-aW9fcHRlX25vbmUoKnB0cikgfHwgIV9pb19wdGVfcHJlc2VudCgqcHRyKSkKPiArCWlmICghcHRy
-KQoKYnV0IHB1dCB5b3VyIHByb3Bvc2FsIGF0IHRoZSBwYXRjaCBTdWJqZWN0Li4uCiAgdjE6IGNo
-ZWNrIHB0ZSBudWxsIHBvaW50ZXIgYmVmb3JlIHVzZQogIHYzOiBwcmV2ZW50IE5VTEwgZGVyZWYg
-aW4gaW92YV90b19waHlzCgo+IOKApj4gLS0tCj4gPiBDaGFuZ2VzCj4gPiB2NDoKPiA+IC0gQ2hh
-bmdlIHRoZSBzdW1tYXJ5IGFzIE1hcmt1cyByZWNvbW1lbmRzCj4gPiAKPiA+IHYzOgpzb3JyeSBm
-b3IgbWFraW5nIHRoaXMgbWVzc3kuCgpSZWdhcmRzLApYaWFubGlhbmcKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Aug 20, 2025 at 02:52:01PM +0800, Pu Lehui wrote:
+> 
+> 
+> On 2025/8/20 14:25, Chenghao Duan wrote:
+> > In __arch_prepare_bpf_trampoline(), retval_off is only meaningful when
+> > save_ret is true, so the current logic is correct. However, in the
+> 
+> lgtm, and same for `ip_off`, pls patch it together.
+
+I also checked at the time that ip_off is only initialized and assigned
+when flags & BPF_TRAMP_F_IP_ARG is true. However, I noticed that the use
+of ip_off also requires this condition, so the compiler did not issue a
+warning.
+
+Chenghao
+
+> 
+> > original logic, retval_off is only initialized under certain
+> > conditions, which may cause a build warning.
+> > 
+> > So initialize retval_off unconditionally to fix it.
+> > 
+> > Signed-off-by: Chenghao Duan <duanchenghao@kylinos.cn>
+> > ---
+> >   arch/riscv/net/bpf_jit_comp64.c | 5 ++---
+> >   1 file changed, 2 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> > index 10e01ff06312..49bbda8372b0 100644
+> > --- a/arch/riscv/net/bpf_jit_comp64.c
+> > +++ b/arch/riscv/net/bpf_jit_comp64.c
+> > @@ -1079,10 +1079,9 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+> >   	stack_size += 16;
+> >   	save_ret = flags & (BPF_TRAMP_F_CALL_ORIG | BPF_TRAMP_F_RET_FENTRY_RET);
+> > -	if (save_ret) {
+> > +	if (save_ret)
+> >   		stack_size += 16; /* Save both A5 (BPF R0) and A0 */
+> > -		retval_off = stack_size;
+> > -	}
+> > +	retval_off = stack_size;
+> >   	stack_size += nr_arg_slots * 8;
+> >   	args_off = stack_size;
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
