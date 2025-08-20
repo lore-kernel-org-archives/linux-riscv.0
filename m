@@ -4,96 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C77BBCA0EFF
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 11:04:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A9BCA0EE4
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 11:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0Sx5+VV89zn9sgr1sVRK7CHDju4j1+ihxMBBIRH5FZw=; b=fREMicVGHecCD5
-	QTv9E5XCoGm3IMN+AAhHvZlqXWvnlsvPgN/5KVx9G2Ay2l6hjf0zWHzgGMM07ejcCUKvJVahzbLIZ
-	WyAgv0Qh2Aqj2TSEGQn2qgMspZRhEM0QYIPGF5/sYLdSlhDUyUKPgho/HxquDTlX+E30vextiDsts
-	aE9hdj8pNMFUgDdHIdPm6bO1q9n17bXIIdDy/KkIs65ZEXvdAlQ0Wb9g535T9UL3u3VZJKv0QLOEv
-	o2L+Vm9CZPggrDgIdhLI1f03S3g5VnVk7efhOl9FIm2TTN62K4mzjt3rm1XTQRy097d1vQcqhwLVg
-	LvetQyvS5LfP2J4kcPFw==;
+	List-Owner; bh=3JSKKaQJ91euR7bW4YMSSQE74CL0Ih+s87Fg5cVWxU8=; b=dUODv4v5R0i2LR
+	GVc5K5P0+MhToBp9UYfuj3lpTMYupj/dFqAEQ2NuNa3SEEMMQG2l/aGLW/ByDPDRMuDRch86R3WUc
+	Jfez3iMnoBovSskbj5BOyhdFgaYUJWmgfXmWbHcwofY5Kt51/g/YMKpLDw6RzPy1ja6YGvrd5PJ16
+	zJChcT5SnUvYXTgou5HjcCg2ZlrrjTaPtDQXanumy36u7WDNsa87Hj/Tnl613GoSKiDKEPOhTPZwQ
+	w/s5Qs3C/FHLxTAuPrsxOY1OTIRsOrs0DRTdxIQyEi1AkJOkTu6aulzkuBt2J2yJo/4jmyIYvokEe
+	k85dQiloMLNHpi5O1smA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uogbl-0000000DHN7-0wta;
-	Wed, 20 Aug 2025 11:03:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uoh4X-0000000DQGx-1stJ;
+	Wed, 20 Aug 2025 11:33:41 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoecD-0000000CodS-3mDK
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 20 Aug 2025 08:56:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:Cc:To:
-	In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=XgtuGVmgQ4duTRcu7yxrlM+/W0pETlvqiX9sxjj/NBQ=; b=VgN0pJb/Ax1O/fQr7eXN70UZnl
-	bSArQbxzcZBKbp/ZRCpC9hYDMDx5MLaVlBYgIR4HpKwl0CUZtWuF2Xp8LXbBYjtVHMFaB14DqX8gY
-	CzuFc+vPjLxwwLyVp2eldI4NpnVvXtiU7sBLSoxXTBfX2t4DQeYgfV2lVNdikWYNZN14bE8vn0NPe
-	UYeLtai5Rz0xuRHKLLto/QDjzyrsqV1j2m4goJf6xZWb7QefLxaSFBqIyD9+F3rgBiL1Wfs3UordQ
-	g1QZmvlYXdrYqnb/a0EESzOoG5prcn4MP4JdzSE2zwjtQiWAVqV/BX+yd8vQFV/Z8lujcJmwVn9dD
-	cShMuKAA==;
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoecA-00000000FTr-1Wu1
+	id 1uogAl-0000000DBjR-1COr
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 08:56:16 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250820085610euoutp023b1605fd2eb01209f3fcf3c3867916f0~dbdAJ37mF0047300473euoutp02j
-	for <linux-riscv@lists.infradead.org>; Wed, 20 Aug 2025 08:56:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250820085610euoutp023b1605fd2eb01209f3fcf3c3867916f0~dbdAJ37mF0047300473euoutp02j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755680170;
-	bh=XgtuGVmgQ4duTRcu7yxrlM+/W0pETlvqiX9sxjj/NBQ=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=nX/rKgC537zRgxWLwe4f+Cb87AYqt9MWJv7AmXLf9kpC6XnjmqGaKVQuuCrfVVzUB
-	 WWx49fzPIKSmTKNcsAjZSnBw6MnCdQ/bFUP7I1MS1PfPSrsGIdKefBMx2xsf9wEnjs
-	 PsTY8XJCaKvIJLwfKocl+Lg8lTGG0c0ccqsMeprY=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250820085609eucas1p2938d69999f4d7c9654d5d2a12a20c906~dbc-QGG_Y1096710967eucas1p2o;
-	Wed, 20 Aug 2025 08:56:09 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250820085607eusmtip1ecf2dabe8d6918e47c1542e544ab87c7~dbc_Bf_NC3025430254eusmtip1R;
-	Wed, 20 Aug 2025 08:56:07 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Wed, 20 Aug 2025 10:55:53 +0200
-Subject: [PATCH v12 1/4] drm/imagination: Use pwrseq for TH1520 GPU power
- management
+	Wed, 20 Aug 2025 10:36:04 +0000
+X-UUID: 744871e27db111f0b29709d653e92f7d-20250820
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:1cb5ba09-da8d-4e80-90ab-8a047c07187e,IP:10,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:-15,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:-5
+X-CID-INFO: VERSION:1.1.45,REQID:1cb5ba09-da8d-4e80-90ab-8a047c07187e,IP:10,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:-15,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:6493067,CLOUDID:8bfd02a35658c3b6214171ca5bbacc6a,BulkI
+	D:250820145207GW1MRF9C,BulkQuantity:7,Recheck:0,SF:17|19|24|44|64|66|78|80
+	|81|82|83|102|841,TC:nil,Content:0|50,EDM:-3,IP:-2,URL:0,File:nil,RT:nil,B
+	ulk:40,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:
+	0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD,TF_CID_SPAM_FSI
+X-UUID: 744871e27db111f0b29709d653e92f7d-20250820
+X-User: duanchenghao@kylinos.cn
+Received: from localhost [(223.70.159.239)] by mailgw.kylinos.cn
+	(envelope-from <duanchenghao@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1900494786; Wed, 20 Aug 2025 18:35:56 +0800
+Date: Wed, 20 Aug 2025 18:35:30 +0800
+From: Chenghao Duan <duanchenghao@kylinos.cn>
+To: Pu Lehui <pulehui@huawei.com>
+Cc: ast@kernel.org, bjorn@kernel.org, puranjay@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
+	eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
+	john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
+	haoluo@google.com, jolsa@kernel.org, alex@ghiti.fr,
+	bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: bpf: Fix uninitialized symbol 'retval_off'
+Message-ID: <20250820103530.GA1475460@chenghao-pc>
+References: <20250820062520.846720-1-duanchenghao@kylinos.cn>
+ <8b836b6e-103a-41c2-b111-0417d8db4dce@huawei.com>
+ <20250820092628.GA1289807@chenghao-pc>
+ <239193b7-7dab-45b0-ab13-06bfe3f96f22@huawei.com>
 MIME-Version: 1.0
-Message-Id: <20250820-apr_14_for_sending-v12-1-4213ccefbd05@samsung.com>
-In-Reply-To: <20250820-apr_14_for_sending-v12-0-4213ccefbd05@samsung.com>
-To: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
-	<conor+dt@kernel.org>,  Michal Wilczynski <m.wilczynski@samsung.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Frank Binns <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Paul Walmsley
-	<paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson
-	<ulf.hansson@linaro.org>,  Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Drew Fustini <fustini@kernel.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250820085609eucas1p2938d69999f4d7c9654d5d2a12a20c906
-X-Msg-Generator: CA
-X-RootMTR: 20250820085609eucas1p2938d69999f4d7c9654d5d2a12a20c906
-X-EPHeader: CA
-X-CMS-RootMailID: 20250820085609eucas1p2938d69999f4d7c9654d5d2a12a20c906
-References: <20250820-apr_14_for_sending-v12-0-4213ccefbd05@samsung.com>
-	<CGME20250820085609eucas1p2938d69999f4d7c9654d5d2a12a20c906@eucas1p2.samsung.com>
+Content-Disposition: inline
+In-Reply-To: <239193b7-7dab-45b0-ab13-06bfe3f96f22@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_095614_665924_7A2378E2 
-X-CRM114-Status: GOOD (  31.74  )
+X-CRM114-CacheID: sfid-20250820_033603_654361_01D4E322 
+X-CRM114-Status: GOOD (  24.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,439 +88,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update the Imagination PVR DRM driver to leverage the pwrseq framework
-for managing the complex power sequence of the GPU on the T-HEAD TH1520
-SoC.
+On Wed, Aug 20, 2025 at 06:10:07PM +0800, Pu Lehui wrote:
+> 
+> 
+> On 2025/8/20 17:26, Chenghao Duan wrote:
+> > On Wed, Aug 20, 2025 at 02:52:01PM +0800, Pu Lehui wrote:
+> > > 
+> > > 
+> > > On 2025/8/20 14:25, Chenghao Duan wrote:
+> > > > In __arch_prepare_bpf_trampoline(), retval_off is only meaningful when
+> > > > save_ret is true, so the current logic is correct. However, in the
+> > > 
+> > > lgtm, and same for `ip_off`, pls patch it together.
+> > 
+> > I also checked at the time that ip_off is only initialized and assigned
+> > when flags & BPF_TRAMP_F_IP_ARG is true. However, I noticed that the use
+> > of ip_off also requires this condition, so the compiler did not issue a
+> > warning.
+> > 
+> > Chenghao
+> > 
+> > > 
+> > > > original logic, retval_off is only initialized under certain
+> 
+> Can you show how to replay this warning? I guess the warning path is as
+> follow. Compiler didn't know fmod_ret prog need BPF_TRAMP_F_CALL_ORIG.
+> 
+> ```
+> if (fmod_ret->nr_links) {
+> 	...
+> 	emit_sd(RV_REG_FP, -retval_off, RV_REG_ZERO, ctx);
+> }
+> ```
+> 
 
-To cleanly separate platform-specific logic from the generic driver,
-this patch introduces an `init` callback to the `pwr_power_sequence_ops`
-struct. This allows for different power management strategies to be
-selected at probe time based on the device's compatible string.
+Exactly, the compiler sees the unconditional use of retval_off.
 
-A `pvr_device_data` struct, associated with each compatible in the
-of_device_id table, points to the appropriate ops table (manual or
-pwrseq).
+Chenghao
 
-At probe time, the driver now calls the `->init()` op. For pwrseq-based
-platforms, this callback calls `devm_pwrseq_get("gpu-power")`, deferring
-probe if the sequencer is not yet available. For other platforms, it
-falls back to the existing manual clock and reset handling. The runtime
-PM callbacks continue to call the appropriate functions via the ops
-table.
-
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- drivers/gpu/drm/imagination/pvr_device.c |  22 +---
- drivers/gpu/drm/imagination/pvr_device.h |  22 ++++
- drivers/gpu/drm/imagination/pvr_drv.c    |  27 ++++-
- drivers/gpu/drm/imagination/pvr_power.c  | 174 ++++++++++++++++++++++++-------
- drivers/gpu/drm/imagination/pvr_power.h  |  15 +++
- 5 files changed, 201 insertions(+), 59 deletions(-)
-
-diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
-index 8b9ba4983c4cb5bc40342fcafc4259078bc70547..294b6019b4155bb7fdb7de73ccf7fa8ad867811f 100644
---- a/drivers/gpu/drm/imagination/pvr_device.c
-+++ b/drivers/gpu/drm/imagination/pvr_device.c
-@@ -23,6 +23,7 @@
- #include <linux/firmware.h>
- #include <linux/gfp.h>
- #include <linux/interrupt.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/reset.h>
-@@ -121,21 +122,6 @@ static int pvr_device_clk_init(struct pvr_device *pvr_dev)
- 	return 0;
- }
- 
--static int pvr_device_reset_init(struct pvr_device *pvr_dev)
--{
--	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
--	struct reset_control *reset;
--
--	reset = devm_reset_control_get_optional_exclusive(drm_dev->dev, NULL);
--	if (IS_ERR(reset))
--		return dev_err_probe(drm_dev->dev, PTR_ERR(reset),
--				     "failed to get gpu reset line\n");
--
--	pvr_dev->reset = reset;
--
--	return 0;
--}
--
- /**
-  * pvr_device_process_active_queues() - Process all queue related events.
-  * @pvr_dev: PowerVR device to check
-@@ -618,6 +604,9 @@ pvr_device_init(struct pvr_device *pvr_dev)
- 	struct device *dev = drm_dev->dev;
- 	int err;
- 
-+	/* Get the platform-specific data based on the compatible string. */
-+	pvr_dev->device_data = of_device_get_match_data(dev);
-+
- 	/*
- 	 * Setup device parameters. We do this first in case other steps
- 	 * depend on them.
-@@ -631,8 +620,7 @@ pvr_device_init(struct pvr_device *pvr_dev)
- 	if (err)
- 		return err;
- 
--	/* Get the reset line for the GPU */
--	err = pvr_device_reset_init(pvr_dev);
-+	err = pvr_dev->device_data->pwr_ops->init(pvr_dev);
- 	if (err)
- 		return err;
- 
-diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
-index 7cb01c38d2a9c3fc71effe789d4dfe54eddd93ee..0c970255f90805a569d7d19e35ec5f4ca7f02f7a 100644
---- a/drivers/gpu/drm/imagination/pvr_device.h
-+++ b/drivers/gpu/drm/imagination/pvr_device.h
-@@ -37,6 +37,9 @@ struct clk;
- /* Forward declaration from <linux/firmware.h>. */
- struct firmware;
- 
-+/* Forward declaration from <linux/pwrseq/consumer.h> */
-+struct pwrseq_desc;
-+
- /**
-  * struct pvr_gpu_id - Hardware GPU ID information for a PowerVR device
-  * @b: Branch ID.
-@@ -57,6 +60,14 @@ struct pvr_fw_version {
- 	u16 major, minor;
- };
- 
-+/**
-+ * struct pvr_device_data - Platform specific data associated with a compatible string.
-+ * @pwr_ops: Pointer to a structure with platform-specific power functions.
-+ */
-+struct pvr_device_data {
-+	const struct pvr_power_sequence_ops *pwr_ops;
-+};
-+
- /**
-  * struct pvr_device - powervr-specific wrapper for &struct drm_device
-  */
-@@ -98,6 +109,9 @@ struct pvr_device {
- 	/** @fw_version: Firmware version detected at runtime. */
- 	struct pvr_fw_version fw_version;
- 
-+	/** @device_data: Pointer to platform-specific data. */
-+	const struct pvr_device_data *device_data;
-+
- 	/** @regs_resource: Resource representing device control registers. */
- 	struct resource *regs_resource;
- 
-@@ -148,6 +162,14 @@ struct pvr_device {
- 	 */
- 	struct reset_control *reset;
- 
-+	/**
-+	 * @pwrseq: Pointer to a power sequencer, if one is used.
-+	 *
-+	 * Note: This member should only be accessed when
-+	 * IS_ENABLED(CONFIG_POWER_SEQUENCING) is true.
-+	 */
-+	struct pwrseq_desc *pwrseq;
-+
- 	/** @irq: IRQ number. */
- 	int irq;
- 
-diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
-index b058ec183bb30ab5c3db17ebaadf2754520a2a1f..af830e565646daf19555197df492438ef48d5e44 100644
---- a/drivers/gpu/drm/imagination/pvr_drv.c
-+++ b/drivers/gpu/drm/imagination/pvr_drv.c
-@@ -1480,15 +1480,37 @@ static void pvr_remove(struct platform_device *plat_dev)
- 	pvr_power_domains_fini(pvr_dev);
- }
- 
-+static const struct pvr_device_data pvr_device_data_manual = {
-+	.pwr_ops = &pvr_power_sequence_ops_manual,
-+};
-+
-+#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-+static const struct pvr_device_data pvr_device_data_pwrseq = {
-+	.pwr_ops = &pvr_power_sequence_ops_pwrseq,
-+};
-+#endif
-+
- static const struct of_device_id dt_match[] = {
--	{ .compatible = "img,img-rogue", .data = NULL },
-+#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-+	{
-+		.compatible = "thead,th1520-gpu",
-+		.data = &pvr_device_data_pwrseq,
-+	},
-+#endif
-+	{
-+		.compatible = "img,img-rogue",
-+		.data = &pvr_device_data_manual,
-+	},
- 
- 	/*
- 	 * This legacy compatible string was introduced early on before the more generic
- 	 * "img,img-rogue" was added. Keep it around here for compatibility, but never use
- 	 * "img,img-axe" in new devicetrees.
- 	 */
--	{ .compatible = "img,img-axe", .data = NULL },
-+	{
-+		.compatible = "img,img-axe",
-+		.data = &pvr_device_data_manual,
-+	},
- 	{}
- };
- MODULE_DEVICE_TABLE(of, dt_match);
-@@ -1513,4 +1535,5 @@ MODULE_DESCRIPTION(PVR_DRIVER_DESC);
- MODULE_LICENSE("Dual MIT/GPL");
- MODULE_IMPORT_NS("DMA_BUF");
- MODULE_FIRMWARE("powervr/rogue_33.15.11.3_v1.fw");
-+MODULE_FIRMWARE("powervr/rogue_36.52.104.182_v1.fw");
- MODULE_FIRMWARE("powervr/rogue_36.53.104.796_v1.fw");
-diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
-index 187a07e0bd9adb2f0713ac2c8e091229f4027354..58e0e812894de19c834e1dfca427208b343eaa1c 100644
---- a/drivers/gpu/drm/imagination/pvr_power.c
-+++ b/drivers/gpu/drm/imagination/pvr_power.c
-@@ -18,6 +18,9 @@
- #include <linux/platform_device.h>
- #include <linux/pm_domain.h>
- #include <linux/pm_runtime.h>
-+#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-+#include <linux/pwrseq/consumer.h>
-+#endif
- #include <linux/reset.h>
- #include <linux/timer.h>
- #include <linux/types.h>
-@@ -234,6 +237,132 @@ pvr_watchdog_init(struct pvr_device *pvr_dev)
- 	return 0;
- }
- 
-+static int pvr_power_init_manual(struct pvr_device *pvr_dev)
-+{
-+	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
-+	struct reset_control *reset;
-+
-+	reset = devm_reset_control_get_optional_exclusive(drm_dev->dev, NULL);
-+	if (IS_ERR(reset))
-+		return dev_err_probe(drm_dev->dev, PTR_ERR(reset),
-+				     "failed to get gpu reset line\n");
-+
-+	pvr_dev->reset = reset;
-+
-+	return 0;
-+}
-+
-+static int pvr_power_on_sequence_manual(struct pvr_device *pvr_dev)
-+{
-+	int err;
-+
-+	err = clk_prepare_enable(pvr_dev->core_clk);
-+	if (err)
-+		return err;
-+
-+	err = clk_prepare_enable(pvr_dev->sys_clk);
-+	if (err)
-+		goto err_core_clk_disable;
-+
-+	err = clk_prepare_enable(pvr_dev->mem_clk);
-+	if (err)
-+		goto err_sys_clk_disable;
-+
-+	/*
-+	 * According to the hardware manual, a delay of at least 32 clock
-+	 * cycles is required between de-asserting the clkgen reset and
-+	 * de-asserting the GPU reset. Assuming a worst-case scenario with
-+	 * a very high GPU clock frequency, a delay of 1 microsecond is
-+	 * sufficient to ensure this requirement is met across all
-+	 * feasible GPU clock speeds.
-+	 */
-+	udelay(1);
-+
-+	err = reset_control_deassert(pvr_dev->reset);
-+	if (err)
-+		goto err_mem_clk_disable;
-+
-+	return 0;
-+
-+err_mem_clk_disable:
-+	clk_disable_unprepare(pvr_dev->mem_clk);
-+
-+err_sys_clk_disable:
-+	clk_disable_unprepare(pvr_dev->sys_clk);
-+
-+err_core_clk_disable:
-+	clk_disable_unprepare(pvr_dev->core_clk);
-+
-+	return err;
-+}
-+
-+static int pvr_power_off_sequence_manual(struct pvr_device *pvr_dev)
-+{
-+	int err;
-+
-+	err = reset_control_assert(pvr_dev->reset);
-+
-+	clk_disable_unprepare(pvr_dev->mem_clk);
-+	clk_disable_unprepare(pvr_dev->sys_clk);
-+	clk_disable_unprepare(pvr_dev->core_clk);
-+
-+	return err;
-+}
-+
-+const struct pvr_power_sequence_ops pvr_power_sequence_ops_manual = {
-+	.init = pvr_power_init_manual,
-+	.power_on = pvr_power_on_sequence_manual,
-+	.power_off = pvr_power_off_sequence_manual,
-+};
-+
-+#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-+static int pvr_power_init_pwrseq(struct pvr_device *pvr_dev)
-+{
-+	struct device *dev = from_pvr_device(pvr_dev)->dev;
-+
-+	pvr_dev->pwrseq = devm_pwrseq_get(dev, "gpu-power");
-+	if (IS_ERR(pvr_dev->pwrseq)) {
-+		/*
-+		 * This platform requires a sequencer. If we can't get it, we
-+		 * must return the error (including -EPROBE_DEFER to wait for
-+		 * the provider to appear)
-+		 */
-+		return dev_err_probe(dev, PTR_ERR(pvr_dev->pwrseq),
-+				     "Failed to get required power sequencer\n");
-+	}
-+
-+	return 0;
-+}
-+
-+static int pvr_power_on_sequence_pwrseq(struct pvr_device *pvr_dev)
-+{
-+	return pwrseq_power_on(pvr_dev->pwrseq);
-+}
-+
-+static int pvr_power_off_sequence_pwrseq(struct pvr_device *pvr_dev)
-+{
-+	return pwrseq_power_off(pvr_dev->pwrseq);
-+}
-+
-+const struct pvr_power_sequence_ops pvr_power_sequence_ops_pwrseq = {
-+	.init = pvr_power_init_pwrseq,
-+	.power_on = pvr_power_on_sequence_pwrseq,
-+	.power_off = pvr_power_off_sequence_pwrseq,
-+};
-+#else /* IS_ENABLED(CONFIG_POWER_SEQUENCING) */
-+static int pvr_power_sequence_stub(struct pvr_device *pvr_dev)
-+{
-+	WARN_ONCE(1, "pwrseq support not enabled in kernel config\n");
-+	return -EOPNOTSUPP;
-+}
-+
-+const struct pvr_power_sequence_ops pvr_power_sequence_ops_pwrseq = {
-+	.init = pvr_power_sequence_stub,
-+	.power_on = pvr_power_sequence_stub,
-+	.power_off = pvr_power_sequence_stub,
-+};
-+#endif /* IS_ENABLED(CONFIG_POWER_SEQUENCING) */
-+
- int
- pvr_power_device_suspend(struct device *dev)
- {
-@@ -252,11 +381,7 @@ pvr_power_device_suspend(struct device *dev)
- 			goto err_drm_dev_exit;
- 	}
- 
--	clk_disable_unprepare(pvr_dev->mem_clk);
--	clk_disable_unprepare(pvr_dev->sys_clk);
--	clk_disable_unprepare(pvr_dev->core_clk);
--
--	err = reset_control_assert(pvr_dev->reset);
-+	err = pvr_dev->device_data->pwr_ops->power_off(pvr_dev);
- 
- err_drm_dev_exit:
- 	drm_dev_exit(idx);
-@@ -276,53 +401,22 @@ pvr_power_device_resume(struct device *dev)
- 	if (!drm_dev_enter(drm_dev, &idx))
- 		return -EIO;
- 
--	err = clk_prepare_enable(pvr_dev->core_clk);
-+	err = pvr_dev->device_data->pwr_ops->power_on(pvr_dev);
- 	if (err)
- 		goto err_drm_dev_exit;
- 
--	err = clk_prepare_enable(pvr_dev->sys_clk);
--	if (err)
--		goto err_core_clk_disable;
--
--	err = clk_prepare_enable(pvr_dev->mem_clk);
--	if (err)
--		goto err_sys_clk_disable;
--
--	/*
--	 * According to the hardware manual, a delay of at least 32 clock
--	 * cycles is required between de-asserting the clkgen reset and
--	 * de-asserting the GPU reset. Assuming a worst-case scenario with
--	 * a very high GPU clock frequency, a delay of 1 microsecond is
--	 * sufficient to ensure this requirement is met across all
--	 * feasible GPU clock speeds.
--	 */
--	udelay(1);
--
--	err = reset_control_deassert(pvr_dev->reset);
--	if (err)
--		goto err_mem_clk_disable;
--
- 	if (pvr_dev->fw_dev.booted) {
- 		err = pvr_power_fw_enable(pvr_dev);
- 		if (err)
--			goto err_reset_assert;
-+			goto err_power_off;
- 	}
- 
- 	drm_dev_exit(idx);
- 
- 	return 0;
- 
--err_reset_assert:
--	reset_control_assert(pvr_dev->reset);
--
--err_mem_clk_disable:
--	clk_disable_unprepare(pvr_dev->mem_clk);
--
--err_sys_clk_disable:
--	clk_disable_unprepare(pvr_dev->sys_clk);
--
--err_core_clk_disable:
--	clk_disable_unprepare(pvr_dev->core_clk);
-+err_power_off:
-+	pvr_dev->device_data->pwr_ops->power_off(pvr_dev);
- 
- err_drm_dev_exit:
- 	drm_dev_exit(idx);
-diff --git a/drivers/gpu/drm/imagination/pvr_power.h b/drivers/gpu/drm/imagination/pvr_power.h
-index ada85674a7ca762dcf92df40424230e1c3910342..b853d092242cc90cb98cf66100679a309055a1dc 100644
---- a/drivers/gpu/drm/imagination/pvr_power.h
-+++ b/drivers/gpu/drm/imagination/pvr_power.h
-@@ -41,4 +41,19 @@ pvr_power_put(struct pvr_device *pvr_dev)
- int pvr_power_domains_init(struct pvr_device *pvr_dev);
- void pvr_power_domains_fini(struct pvr_device *pvr_dev);
- 
-+/**
-+ * struct pvr_power_sequence_ops - Platform specific power sequence operations.
-+ * @init: Pointer to the platform-specific initialization function.
-+ * @power_on: Pointer to the platform-specific power on function.
-+ * @power_off: Pointer to the platform-specific power off function.
-+ */
-+struct pvr_power_sequence_ops {
-+	int (*init)(struct pvr_device *pvr_dev);
-+	int (*power_on)(struct pvr_device *pvr_dev);
-+	int (*power_off)(struct pvr_device *pvr_dev);
-+};
-+
-+extern const struct pvr_power_sequence_ops pvr_power_sequence_ops_manual;
-+extern const struct pvr_power_sequence_ops pvr_power_sequence_ops_pwrseq;
-+
- #endif /* PVR_POWER_H */
-
--- 
-2.34.1
-
+> > > > conditions, which may cause a build warning.
+> > > > 
+> > > > So initialize retval_off unconditionally to fix it.
+> > > > 
+> > > > Signed-off-by: Chenghao Duan <duanchenghao@kylinos.cn>
+> > > > ---
+> > > >    arch/riscv/net/bpf_jit_comp64.c | 5 ++---
+> > > >    1 file changed, 2 insertions(+), 3 deletions(-)
+> > > > 
+> > > > diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> > > > index 10e01ff06312..49bbda8372b0 100644
+> > > > --- a/arch/riscv/net/bpf_jit_comp64.c
+> > > > +++ b/arch/riscv/net/bpf_jit_comp64.c
+> > > > @@ -1079,10 +1079,9 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+> > > >    	stack_size += 16;
+> > > >    	save_ret = flags & (BPF_TRAMP_F_CALL_ORIG | BPF_TRAMP_F_RET_FENTRY_RET);
+> > > > -	if (save_ret) {
+> > > > +	if (save_ret)
+> > > >    		stack_size += 16; /* Save both A5 (BPF R0) and A0 */
+> > > > -		retval_off = stack_size;
+> > > > -	}
+> > > > +	retval_off = stack_size;
+> > > >    	stack_size += nr_arg_slots * 8;
+> > > >    	args_off = stack_size;
 
 _______________________________________________
 linux-riscv mailing list
