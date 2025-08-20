@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8644CA0EED
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 06:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E497DCA0EED
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 06:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VHV7AQadnjJxBJ8HqB5LVEgWuvCIKKxEBXn4/WnxmRQ=; b=Jw90satsLVBkwO
-	tuVMMh1d5Desqj28mEiEn2Fg34IjgHqVMHbNl6aAeFIYaMtWzLEmJOGkew44CJxBNRwU2yHwcm1dc
-	L4GCs4odz4GNiRvNi7l9/QAElmmvEeokoFWh4QCJviW9v72pNy/DF0plEhpeugy2NMLRxzCyfCZ+N
-	Bo0+NRv087NYdGOrAIG9V+kr+1XmuM/ZfvdnhezP3jxW7w7c18iBm5xqdrpBc7pHfE8Om3uGc/zM7
-	8JYAscH61uv8NDzGTVej3BZOhG8gCDWlK4tOkP2OKQ1oWuNAlYqXU2zt7u04VO21cuDwTXBoKTjO4
-	B7Hxkok6zAa7Q5bWespw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tfvEg+KJbdbWHqovvCFWGWhsWaHDz5FyHJFH4c5P7QQ=; b=dXg3rb0AOeGY0Y
+	LE1CrNlZ9/n8i+OSm5Fr9onJ49pR4kTW+R2GLm0nEx0E3MM/owqvRo5VFQycdR71KHZwQ6MtKieBm
+	FO9Dwh3a4HgYqHm8iS3qVCh8pCSQCaQ4CTiGv3QNnlafxZOQ378pCXkF4Xd9zCkFWeKmKGgtgDTzc
+	ZzLq7LeJbPa0M9zZDa1I938NqlJhSQXAUqsCOQiY1RJPJtehBFNksTHSympk8IklYK0I1GGhm4egd
+	B7rhp8967eHfcIvZblPe9BCRJ14rTWNVjJqlC84VhXjv7g+fCpJDB+QsEC+0ehil9jINhfGbTUuro
+	Abq7BCw8AFntzrwhxDTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uocIQ-0000000CV94-22m3;
-	Wed, 20 Aug 2025 06:27:42 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1uocZn-0000000CWPa-2WbU;
+	Wed, 20 Aug 2025 06:45:39 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uocGg-0000000CUxq-2d6q
+	id 1uocZl-0000000CWPD-24P0
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 06:25:56 +0000
-X-UUID: 7bd9d41e7d8e11f0b29709d653e92f7d-20250820
-X-CTIC-Tags: HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NO_NAME, HR_CTE_8B, HR_CTT_MISS
-	HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME, HR_SJ_LANG
-	HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM, HR_SJ_PHRASE, HR_SJ_PHRASE_LEN
-	HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT, HR_TO_NO_NAME, IP_TRUSTED
-	SRC_TRUSTED, DN_TRUSTED, SA_EXISTED, SN_EXISTED, SPF_NOPASS
-	DKIM_NOPASS, DMARC_NOPASS, CIE_BAD, CIE_GOOD, CIE_GOOD_SPF
-	GTI_FG_BS, GTI_RG_INFO, GTI_C_BU, AMN_T1, AMN_GOOD
-	AMN_C_TI, AMN_C_BU, ABX_MISS_RDNS
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:e636fa68-9d02-4af0-a420-e9bc43ed3e55,IP:10,
-	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:-15,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:-5
-X-CID-INFO: VERSION:1.1.45,REQID:e636fa68-9d02-4af0-a420-e9bc43ed3e55,IP:10,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:-15,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:6493067,CLOUDID:ffb03ffa128f39143bd09c13b159062a,BulkI
-	D:250820142542ZBWU6064,BulkQuantity:0,Recheck:0,SF:17|19|24|38|44|66|78|10
-	2,TC:nil,Content:0|50,EDM:-3,IP:-2,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,B
-	EC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_FSI,TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
-X-UUID: 7bd9d41e7d8e11f0b29709d653e92f7d-20250820
-X-User: duanchenghao@kylinos.cn
-Received: from localhost.localdomain [(223.70.159.239)] by mailgw.kylinos.cn
-	(envelope-from <duanchenghao@kylinos.cn>)
-	(Generic MTA)
-	with ESMTP id 798464706; Wed, 20 Aug 2025 14:25:36 +0800
-From: Chenghao Duan <duanchenghao@kylinos.cn>
-To: ast@kernel.org,
-	bjorn@kernel.org,
-	pulehui@huawei.com,
-	puranjay@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: daniel@iogearbox.net,
-	andrii@kernel.org,
-	martin.lau@linux.dev,
-	eddyz87@gmail.com,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	john.fastabend@gmail.com,
-	kpsingh@kernel.org,
-	sdf@fomichev.me,
-	haoluo@google.com,
-	jolsa@kernel.org,
-	alex@ghiti.fr,
-	bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	duanchenghao@kylinos.cn
-Subject: [PATCH] riscv: bpf: Fix uninitialized symbol 'retval_off'
-Date: Wed, 20 Aug 2025 14:25:20 +0800
-Message-Id: <20250820062520.846720-1-duanchenghao@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	Wed, 20 Aug 2025 06:45:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755672337; x=1787208337;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Aks18XLnFJDywmToiC/hQRBj84tcW/vcMhMm0McgHP4=;
+  b=BQXJa2DklheG1XobGiKPr7yfHJ1llIMtWEnmthEuG2o5XuQJhnZd4722
+   +r4ginOFQaGSEUGnmO/3zhl+ytz6YfJNcrajthLUsCrcqJyHsMf2/LpAV
+   AY3egFRSJco4Dh4wUl+GSItpo1Wcq7yRfeZICZT95j5RScDfm2Pv26g8J
+   wGhpaYcSwhYgj4WUe5SxR+V93cgCBi3CsHjQpLZIG072iwUGi+hQrrmiG
+   j2EfKJZV870QQCCUxmxMz5CHCiKoRlFTzHNT4iNEyO9IBiMJffcigLMXk
+   eZ0wdtzvwUQ9FXwwpTLG3b716xUuWMi4WvKmGukpY/i5jjsGwaUlbnav0
+   Q==;
+X-CSE-ConnectionGUID: ifJb8bwiTByEPDy5MhL8iA==
+X-CSE-MsgGUID: KqNQeZ7PSMKmZdd6oU9Lmw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11527"; a="61745339"
+X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
+   d="scan'208";a="61745339"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2025 23:45:36 -0700
+X-CSE-ConnectionGUID: oZu6t+lTTiuD65z9o2thYw==
+X-CSE-MsgGUID: BZwrqRZbQTWCzxT/CDtEsg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
+   d="scan'208";a="168851444"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa010.fm.intel.com with ESMTP; 19 Aug 2025 23:45:32 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uocZd-000IJH-2r;
+	Wed, 20 Aug 2025 06:45:29 +0000
+Date: Wed, 20 Aug 2025 14:44:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>, yury.norov@gmail.com,
+	linux@rasmusvillemoes.dk, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dennis@kernel.org, tj@kernel.org, cl@gentwo.org, linux-mm@kvack.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: Re: [PATCH 2/2] riscv: introduce percpu.h into include/asm
+Message-ID: <202508201452.ciEgfhNO-lkp@intel.com>
+References: <20250819135007.85646-3-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250819135007.85646-3-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_232555_011576_69B2B999 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250819_234537_550885_89867966 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +92,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In __arch_prepare_bpf_trampoline(), retval_off is only meaningful when
-save_ret is true, so the current logic is correct. However, in the
-original logic, retval_off is only initialized under certain
-conditions, which may cause a build warning.
+Hi Yunhui,
 
-So initialize retval_off unconditionally to fix it.
+kernel test robot noticed the following build warnings:
 
-Signed-off-by: Chenghao Duan <duanchenghao@kylinos.cn>
----
- arch/riscv/net/bpf_jit_comp64.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+[auto build test WARNING on linus/master]
+[also build test WARNING on dennis-percpu/for-next v6.17-rc2 next-20250819]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 10e01ff06312..49bbda8372b0 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -1079,10 +1079,9 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
- 	stack_size += 16;
- 
- 	save_ret = flags & (BPF_TRAMP_F_CALL_ORIG | BPF_TRAMP_F_RET_FENTRY_RET);
--	if (save_ret) {
-+	if (save_ret)
- 		stack_size += 16; /* Save both A5 (BPF R0) and A0 */
--		retval_off = stack_size;
--	}
-+	retval_off = stack_size;
- 
- 	stack_size += nr_arg_slots * 8;
- 	args_off = stack_size;
+url:    https://github.com/intel-lab-lkp/linux/commits/Yunhui-Cui/riscv-remove-irqflags-h-inclusion-in-asm-bitops-h/20250819-215256
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20250819135007.85646-3-cuiyunhui%40bytedance.com
+patch subject: [PATCH 2/2] riscv: introduce percpu.h into include/asm
+config: riscv-randconfig-002-20250820 (https://download.01.org/0day-ci/archive/20250820/202508201452.ciEgfhNO-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 93d24b6b7b148c47a2fa228a4ef31524fa1d9f3f)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250820/202508201452.ciEgfhNO-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508201452.ciEgfhNO-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from arch/riscv/kernel/asm-offsets.c:8:
+   In file included from include/linux/mm.h:7:
+   In file included from include/linux/gfp.h:7:
+   In file included from include/linux/mmzone.h:22:
+   In file included from include/linux/mm_types.h:19:
+   In file included from include/linux/workqueue.h:9:
+>> include/linux/alloc_tag.h:219:2: warning: implicit conversion from 'typeof (tag->counters->calls)' (aka 'unsigned long long') to 'unsigned long' changes value from 18446744073709551615 to 4294967295 [-Wconstant-conversion]
+     219 |         this_cpu_dec(tag->counters->calls);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/percpu-defs.h:512:28: note: expanded from macro 'this_cpu_dec'
+     512 | #define this_cpu_dec(pcp)               this_cpu_sub(pcp, 1)
+         |                                         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/percpu-defs.h:510:51: note: expanded from macro 'this_cpu_sub'
+     510 | #define this_cpu_sub(pcp, val)          this_cpu_add(pcp, -(typeof(pcp))(val))
+         |                                         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+   include/linux/percpu-defs.h:501:70: note: expanded from macro 'this_cpu_add'
+     501 | #define this_cpu_add(pcp, val)          __pcpu_size_call(this_cpu_add_, pcp, val)
+         |                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+   include/linux/percpu-defs.h:372:29: note: expanded from macro '__pcpu_size_call'
+     372 |                 case 8: stem##8(variable, __VA_ARGS__);break;           \
+         |                         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+   arch/riscv/include/asm/percpu.h:96:78: note: expanded from macro 'this_cpu_add_8'
+      96 | #define this_cpu_add_8(pcp, val)        _pcp_protect(__percpu_add_amo_case_64, pcp, val)
+         |                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+   arch/riscv/include/asm/percpu.h:72:26: note: expanded from macro '_pcp_protect'
+      72 |         op(raw_cpu_ptr(&(pcp)), __VA_ARGS__);                           \
+         |         ~~                      ^~~~~~~~~~~
+   1 warning generated.
+--
+   In file included from arch/riscv/errata/sifive/errata.c:7:
+   In file included from include/linux/memory.h:19:
+   In file included from include/linux/node.h:18:
+   In file included from include/linux/device.h:16:
+   In file included from include/linux/energy_model.h:7:
+   In file included from include/linux/kobject.h:20:
+   In file included from include/linux/sysfs.h:16:
+   In file included from include/linux/kernfs.h:12:
+   In file included from include/linux/idr.h:15:
+   In file included from include/linux/radix-tree.h:16:
+   In file included from include/linux/percpu.h:5:
+>> include/linux/alloc_tag.h:219:2: warning: implicit conversion from 'typeof (tag->counters->calls)' (aka 'unsigned long long') to 'unsigned long' changes value from 18446744073709551615 to 4294967295 [-Wconstant-conversion]
+     219 |         this_cpu_dec(tag->counters->calls);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/percpu-defs.h:512:28: note: expanded from macro 'this_cpu_dec'
+     512 | #define this_cpu_dec(pcp)               this_cpu_sub(pcp, 1)
+         |                                         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/percpu-defs.h:510:51: note: expanded from macro 'this_cpu_sub'
+     510 | #define this_cpu_sub(pcp, val)          this_cpu_add(pcp, -(typeof(pcp))(val))
+         |                                         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+   include/linux/percpu-defs.h:501:70: note: expanded from macro 'this_cpu_add'
+     501 | #define this_cpu_add(pcp, val)          __pcpu_size_call(this_cpu_add_, pcp, val)
+         |                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+   include/linux/percpu-defs.h:372:29: note: expanded from macro '__pcpu_size_call'
+     372 |                 case 8: stem##8(variable, __VA_ARGS__);break;           \
+         |                         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+   arch/riscv/include/asm/percpu.h:96:78: note: expanded from macro 'this_cpu_add_8'
+      96 | #define this_cpu_add_8(pcp, val)        _pcp_protect(__percpu_add_amo_case_64, pcp, val)
+         |                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+   arch/riscv/include/asm/percpu.h:72:26: note: expanded from macro '_pcp_protect'
+      72 |         op(raw_cpu_ptr(&(pcp)), __VA_ARGS__);                           \
+         |         ~~                      ^~~~~~~~~~~
+   arch/riscv/errata/sifive/errata.c:29:14: warning: result of comparison of constant 9223372036854775815 with expression of type 'unsigned long' is always true [-Wtautological-constant-out-of-range-compare]
+      29 |         if (arch_id != 0x8000000000000007 ||
+         |             ~~~~~~~ ^  ~~~~~~~~~~~~~~~~~~
+   arch/riscv/errata/sifive/errata.c:42:14: warning: result of comparison of constant 9223372036854775815 with expression of type 'unsigned long' is always true [-Wtautological-constant-out-of-range-compare]
+      42 |         if (arch_id != 0x8000000000000007 && arch_id != 0x1)
+         |             ~~~~~~~ ^  ~~~~~~~~~~~~~~~~~~
+   3 warnings generated.
+--
+   In file included from arch/riscv/kernel/asm-offsets.c:8:
+   In file included from include/linux/mm.h:7:
+   In file included from include/linux/gfp.h:7:
+   In file included from include/linux/mmzone.h:22:
+   In file included from include/linux/mm_types.h:19:
+   In file included from include/linux/workqueue.h:9:
+>> include/linux/alloc_tag.h:219:2: warning: implicit conversion from 'typeof (tag->counters->calls)' (aka 'unsigned long long') to 'unsigned long' changes value from 18446744073709551615 to 4294967295 [-Wconstant-conversion]
+     219 |         this_cpu_dec(tag->counters->calls);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/percpu-defs.h:512:28: note: expanded from macro 'this_cpu_dec'
+     512 | #define this_cpu_dec(pcp)               this_cpu_sub(pcp, 1)
+         |                                         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/percpu-defs.h:510:51: note: expanded from macro 'this_cpu_sub'
+     510 | #define this_cpu_sub(pcp, val)          this_cpu_add(pcp, -(typeof(pcp))(val))
+         |                                         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+   include/linux/percpu-defs.h:501:70: note: expanded from macro 'this_cpu_add'
+     501 | #define this_cpu_add(pcp, val)          __pcpu_size_call(this_cpu_add_, pcp, val)
+         |                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+   include/linux/percpu-defs.h:372:29: note: expanded from macro '__pcpu_size_call'
+     372 |                 case 8: stem##8(variable, __VA_ARGS__);break;           \
+         |                         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+   arch/riscv/include/asm/percpu.h:96:78: note: expanded from macro 'this_cpu_add_8'
+      96 | #define this_cpu_add_8(pcp, val)        _pcp_protect(__percpu_add_amo_case_64, pcp, val)
+         |                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+   arch/riscv/include/asm/percpu.h:72:26: note: expanded from macro '_pcp_protect'
+      72 |         op(raw_cpu_ptr(&(pcp)), __VA_ARGS__);                           \
+         |         ~~                      ^~~~~~~~~~~
+   1 warning generated.
+
+
+vim +219 include/linux/alloc_tag.h
+
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  202  
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  203  static inline void alloc_tag_sub(union codetag_ref *ref, size_t bytes)
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  204  {
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  205  	struct alloc_tag *tag;
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  206  
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  207  	alloc_tag_sub_check(ref);
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  208  	if (!ref || !ref->ct)
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  209  		return;
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  210  
+239d6c96d86f8a Suren Baghdasaryan 2024-03-21  211  	if (is_codetag_empty(ref)) {
+239d6c96d86f8a Suren Baghdasaryan 2024-03-21  212  		ref->ct = NULL;
+239d6c96d86f8a Suren Baghdasaryan 2024-03-21  213  		return;
+239d6c96d86f8a Suren Baghdasaryan 2024-03-21  214  	}
+239d6c96d86f8a Suren Baghdasaryan 2024-03-21  215  
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  216  	tag = ct_to_alloc_tag(ref->ct);
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  217  
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  218  	this_cpu_sub(tag->counters->bytes, bytes);
+22d407b164ff79 Suren Baghdasaryan 2024-03-21 @219  	this_cpu_dec(tag->counters->calls);
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  220  
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  221  	ref->ct = NULL;
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  222  }
+22d407b164ff79 Suren Baghdasaryan 2024-03-21  223  
+
 -- 
-2.25.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
