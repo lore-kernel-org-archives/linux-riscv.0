@@ -4,57 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66358CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 03:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F3CBCA0EED
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 05:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q5xOuN7WHlmhjvF7kFZTd06kYfaAf4KSrBAWv0rYVqg=; b=gvYbCNEPJy78cW
-	kFGHndcDpNNIGEWXkPLpfs4UIh48dFWVBfL32jO0i7N4xZ+ARwdPmAwX4AnFS3bMZX2ZK7mySxmTk
-	DNMwaEn6v8yrTq5kcf6+lPD+s+f4C/2Cwm35UbXsw1E19tN25qG+Iyzb2b6Q+zGK3sRPrFSjUHJlZ
-	deoNpjutsD9FKvtfmEzJI3Itw6AhGgkBm7dcV5f1ZjyxXtvM8Nc7x2Ha75iAzhGnJqkvQ5xshUead
-	fI8bqedBYguCsztru9eSun8sut4Wh6w7ZkjEAfx/t/8Shl9ZfLnfyEkVs1s2F66MfDkPJazcaGq20
-	v1KXDaE6RXb9Z+ZHj6ug==;
+	List-Owner; bh=JBVveZefJJT22fdYh4MKL7vLKFvCYP3veF6M9Pjwajg=; b=RdgMRRQfH9rB79
+	31yZ9PqW67bXB42Wpm8IYdvynMwnDEAKW99OkjD3A2tDd1KrsG/Y4vtFN9zdz6KR2FKWfV9cfTsjk
+	bS5HQpLU5H/6aIGzZYfyZFkH3udueHH8lz+NvcGGEmeO05d5o6s29lM7LagFeui+utwMGawcl+GDf
+	m1Lhigwb6rkT3QbgLp1rHFtZAajVtlWY7VxpGKS8i+xhbQAxBIkWg27Inhp3EH8TPR30YSKkQEw1Q
+	AAEgLgNF7hHN9fd6wozqtFU5uEUPYSrpeHChEBPuBF/81x8PKxsO50p0PODpWOe2VLpiIImJ1fBWB
+	ph7Aiwf6yOkgLTdfHVsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoZqZ-0000000CJLp-4BKM;
-	Wed, 20 Aug 2025 03:50:47 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1uobdd-0000000CRfq-22bq;
+	Wed, 20 Aug 2025 05:45:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoZp2-0000000CJEm-1R0S
+	id 1uobUu-0000000CQHd-3aQR
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 03:49:13 +0000
-Received: from [192.168.2.54] (unknown [98.97.63.12])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id C3467B4E0015;
-	Wed, 20 Aug 2025 05:49:05 +0200 (CEST)
-Message-ID: <4b516172-bd75-432a-9c96-f02fbfb68c16@freeshell.de>
-Date: Tue, 19 Aug 2025 20:49:03 -0700
+	Wed, 20 Aug 2025 05:36:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755668192;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tSX6B0M/ECg+25VESJMFTz+rvOMGoiNHgeaxc9XIWxk=;
+	b=Tdsr2JNp1vCFeAdTDNli7ZiJWxgrdlfWt6tslojGCc0SUla/vmSsA/XMu6b77YYIbpHcc6
+	kfsN5/TKFFHl2+vkhI7NPNnPcOAwVp056yez1MWIiWw/sLAtNRCt20QTe7x8ceoXUvywFp
+	pmmTcVuYUaw3/rn3AiZp7jirFyU4qv4=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-92-GaD0GWmKPR2v39dZ-bWOUA-1; Wed,
+ 20 Aug 2025 01:36:27 -0400
+X-MC-Unique: GaD0GWmKPR2v39dZ-bWOUA-1
+X-Mimecast-MFC-AGG-ID: GaD0GWmKPR2v39dZ-bWOUA_1755668184
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A6107180047F;
+	Wed, 20 Aug 2025 05:36:24 +0000 (UTC)
+Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.99])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id BF69119560B0;
+	Wed, 20 Aug 2025 05:36:16 +0000 (UTC)
+From: Baoquan He <bhe@redhat.com>
+To: linux-mm@kvack.org
+Cc: ryabinin.a.a@gmail.com,
+	andreyknvl@gmail.com,
+	glider@google.com,
+	dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	akpm@linux-foundation.org,
+	kasan-dev@googlegroups.com,
+	linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org,
+	sj@kernel.org,
+	lorenzo.stoakes@oracle.com,
+	elver@google.com,
+	snovitoll@gmail.com,
+	christophe.leroy@csgroup.eu,
+	Baoquan He <bhe@redhat.com>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v3 08/12] arch/riscv: don't initialize kasan if it's disabled
+Date: Wed, 20 Aug 2025 13:34:55 +0800
+Message-ID: <20250820053459.164825-9-bhe@redhat.com>
+In-Reply-To: <20250820053459.164825-1-bhe@redhat.com>
+References: <20250820053459.164825-1-bhe@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] riscv: dts: starfive: jh7110: bootph-pre-ram
- hinting needed by boot loader
-To: Hal Feng <hal.feng@starfivetech.com>, Conor Dooley <conor@kernel.org>,
- Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-References: <20250815073739.79241-1-e@freeshell.de>
- <20250815073739.79241-4-e@freeshell.de>
- <ZQ2PR01MB1307CE398A5993B9E5B93357E6312@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <ZQ2PR01MB1307CE398A5993B9E5B93357E6312@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_204912_528951_B1F2E206 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250819_223632_955072_B962CBFA 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,120 +98,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+And also add code to enable kasan_flag_enabled, this is for later
+usage.
 
+Signed-off-by: Baoquan He <bhe@redhat.com>
+Cc: linux-riscv@lists.infradead.org
+---
+ arch/riscv/mm/kasan_init.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-On 8/17/25 23:05, Hal Feng wrote:
->> On 15.08.25 15:37, E Shattow wrote:
->> Add bootph-pre-ram hinting to jh7110.dtsi:
->>   - CPU interrupt controller(s)
->>   - core local interrupt timer
->>   - DDR memory controller
->>   - oscillator
->>   - syscrg clock-controller
->>
->> Signed-off-by: E Shattow <e@freeshell.de>
->> ---
->>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 9 +++++++++
->>  1 file changed, 9 insertions(+)
->>
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> index 14df3d062a45..884a3526cb0f 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> @@ -35,6 +35,7 @@ S7_0: cpu@0 {
->>
->>  			cpu0_intc: interrupt-controller {
->>  				compatible = "riscv,cpu-intc";
->> +				bootph-pre-ram;
->>  				interrupt-controller;
->>  				#interrupt-cells = <1>;
->>  			};
->> @@ -68,6 +69,7 @@ U74_1: cpu@1 {
->>
->>  			cpu1_intc: interrupt-controller {
->>  				compatible = "riscv,cpu-intc";
->> +				bootph-pre-ram;
->>  				interrupt-controller;
->>  				#interrupt-cells = <1>;
->>  			};
->> @@ -101,6 +103,7 @@ U74_2: cpu@2 {
->>
->>  			cpu2_intc: interrupt-controller {
->>  				compatible = "riscv,cpu-intc";
->> +				bootph-pre-ram;
->>  				interrupt-controller;
->>  				#interrupt-cells = <1>;
->>  			};
->> @@ -134,6 +137,7 @@ U74_3: cpu@3 {
->>
->>  			cpu3_intc: interrupt-controller {
->>  				compatible = "riscv,cpu-intc";
->> +				bootph-pre-ram;
->>  				interrupt-controller;
->>  				#interrupt-cells = <1>;
->>  			};
->> @@ -167,6 +171,7 @@ U74_4: cpu@4 {
->>
->>  			cpu4_intc: interrupt-controller {
->>  				compatible = "riscv,cpu-intc";
->> +				bootph-pre-ram;
->>  				interrupt-controller;
->>  				#interrupt-cells = <1>;
->>  			};
->> @@ -321,6 +326,7 @@ mclk_ext: mclk-ext-clock {
->>
->>  	osc: oscillator {
->>  		compatible = "fixed-clock";
->> +		bootph-pre-ram;
->>  		clock-output-names = "osc";
->>  		#clock-cells = <0>;
->>  	};
->> @@ -354,6 +360,7 @@ soc {
->>  		clint: timer@2000000 {
->>  			compatible = "starfive,jh7110-clint", "sifive,clint0";
->>  			reg = <0x0 0x2000000 0x0 0x10000>;
->> +			bootph-pre-ram;
->>  			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc
->> 7>,
->>  					      <&cpu1_intc 3>, <&cpu1_intc 7>,
->>  					      <&cpu2_intc 3>, <&cpu2_intc 7>,
->> @@ -376,6 +383,7 @@ memory-controller@15700000 {
->>  			compatible = "starfive,jh7110-dmc";
->>  			reg = <0x0 0x15700000 0x0 0x10000>,
->>  			      <0x0 0x13000000 0x0 0x10000>;
->> +			bootph-pre-ram;
->>  			clocks = <&syscrg JH7110_PLLCLK_PLL1_OUT>;
->>  			clock-names = "pll1_out";
->>  			resets = <&syscrg JH7110_SYSRST_DDR_AXI>, @@ -
->> 892,6 +900,7 @@ qspi: spi@13010000 {
->>  		syscrg: clock-controller@13020000 {
->>  			compatible = "starfive,jh7110-syscrg";
->>  			reg = <0x0 0x13020000 0x0 0x10000>;
->> +			bootph-pre-ram;
->>  			clocks = <&osc>, <&gmac1_rmii_refin>,
->>  				 <&gmac1_rgmii_rxin>,
->>  				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
-> 
-> pllclk also needs to add bootph-pre-ram. Because it is the dependency of syscrg.
-> 
-> 		pllclk: clock-controller {
-> 			compatible = "starfive,jh7110-pll";
-> +			bootph-pre-ram;
-> 			clocks = <&osc>;
-> 			#clock-cells = <1>;
-> 		};
-> 
-> Best regards,
-> Hal
+diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+index 41c635d6aca4..ac3ac227c765 100644
+--- a/arch/riscv/mm/kasan_init.c
++++ b/arch/riscv/mm/kasan_init.c
+@@ -485,6 +485,9 @@ void __init kasan_init(void)
+ 	phys_addr_t p_start, p_end;
+ 	u64 i;
+ 
++	if (kasan_arg_disabled)
++		return;
++
+ 	create_tmp_mapping();
+ 	csr_write(CSR_SATP, PFN_DOWN(__pa(tmp_pg_dir)) | satp_mode);
+ 
+@@ -531,6 +534,9 @@ void __init kasan_init(void)
+ 	memset(kasan_early_shadow_page, KASAN_SHADOW_INIT, PAGE_SIZE);
+ 	init_task.kasan_depth = 0;
+ 
++	/* KASAN is now initialized, enable it. */
++	static_branch_enable(&kasan_flag_enabled);
++
+ 	csr_write(CSR_SATP, PFN_DOWN(__pa(swapper_pg_dir)) | satp_mode);
+ 	local_flush_tlb_all();
+ }
+-- 
+2.41.0
 
-What users are there for 'pllclk' at U-Boot SPL phase? There does not
-seem to be any difference in testing U-Boot and Linux with or without
-this hint for 'pllclk'.
-
-Thanks,
-
--E
 
 _______________________________________________
 linux-riscv mailing list
