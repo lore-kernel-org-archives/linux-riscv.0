@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 513B8CA0EDC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 16:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19874CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 18:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9cb3C7zbtyK0cWZCZVXdzfwlrvNHMG9cqMmj98j+v7U=; b=3KjRCT4vIt56ai
-	Yu2LSUnxf6MDYyMTuMYVUZCuHxt9OS4wvbS4xLAZaewCvvZW2Yb2eQeJZEZOs78hj5Le26Sg6MD3u
-	1pOP0gjC6J9J3LgIr4nl2WbbLKdhR4H4l4nq6VMsrTZTs1Zd+rB97SEeS4sONB2Rom0NmFXOejuV3
-	H+qoTENLWoa/LK2S8TNKopYbjfaKcaydq/m2n5n5gE1rhnT5SMnHj+2QmKgAR87F1toXePBtTo22Y
-	vXxbq+E/RYP1mcnrUvXyUiK2rpNOAhFNVtLMrbJ4vciXYj4gMimsxN6YCh3SPvou3zB8mCuMrb1vo
-	jGThhYnuYgQt5u0ej2kg==;
+	List-Owner; bh=Jk43W/TR60vNU8rZqH4zyRhxz/9SPtuckf8iQLednsI=; b=gIXIsqUwNSQeHv
+	RHcGdUA24wV5uOnn8Kw5yrotjH4VdvBz8k1fXKsaJAT4fnpTXbaF64mFku9AB3kJ97Z5wr+f22Tgr
+	AWpdmVASucyW9Bz8Acu9KVc8Lrdrqgm3E7N1Wd59nWdE58olZlteHp6yDuzhjCxk0Fn3BInjis+cf
+	e2Y5qzV4uNz3J1MTqQbt0s+uHssEcNhn6DNE1UAnaXdhG6VJq3FqmzmeWeqkji5RNlXJUJcMqkjT8
+	/b2u22Vxg+fPgiVebzC+gN6GLvYqhIPJY4gIp2mYVheWwSdVBuNlHRURsiG9OJhsZn6346K2wUZB/
+	cHVxBl8huMUh9vWGCzcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uolmV-0000000EPqU-2Xwe;
-	Wed, 20 Aug 2025 16:35:23 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1uonVZ-0000000Eg1e-0FFY;
+	Wed, 20 Aug 2025 18:26:01 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokEt-0000000EA2X-2r2y
+	id 1uokMd-0000000EBUy-0c2Z
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 14:56:36 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2449978aceaso19768715ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Aug 2025 07:56:35 -0700 (PDT)
+	Wed, 20 Aug 2025 15:04:36 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2445811e19dso53114715ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Aug 2025 08:04:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755701794; x=1756306594; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=moeebx/JYPecP7+5BXDqI16mVoleF3sa2PSk0SopksM=;
-        b=KsrvFh8hE+l26EBVJAwWGod1YZ/iSCdkSCYZ9FluawmD+8Ux1TZnpwRwcJBSjzHLxk
-         8CHuaZNTkc84vihgHH3FBoiQl8oRUSW81agIEcLz+CAsv7eWHc1AhxBeX/XaoVQgzu9f
-         YPen4eI7Ns6q/yGHLEprQ//5e4WotDjcmEZ4zDdTlwjSQABYRBJrIbiNBdJomdIOAefS
-         XvufEFEdnUDhZzZrf3f0QX+5VUrig/xD6tJU2f9U7Ha2VsIvTNoJhpbwI7n7KA936qy9
-         wkVBU0dFMjLdqXRPRNvCW1EoJw1bDJUjZ7rhtgs5HRomwh0nZV/4rZGn5av3yScgslpo
-         nc7Q==
+        d=gmail.com; s=20230601; t=1755702274; x=1756307074; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=++r0iAI2yCp7ByMWBTkoq4eZJInhcfQbLd7c4fa729Y=;
+        b=bZpdH90xxan6OqaSKkRp8WH9hK+rnzYEJN4f/XuFvnJcLtzgh1aMqWLLfnmn5ENv5g
+         yjmk9wkpj7aftuutLvmcdTR7N0Wtfh03hHY17aAqzOBOkrrj3hXOPDfRsyXRkOjrmThL
+         TGbo5SXkOj1fQlNuxOd5ixcDdWM0yPtc6msqIBtXh+I/IRpuHDTrrZuv0h4hX31pkSE5
+         dLhuG8bdVZ0fU4vaJhXvOWqsLweyjg8RX4omPHVEvokFPaGae5LWLLrZcVJPHe+jDRNO
+         DVbX7kXri3NE1rJehssD/XyJAc5xc5uHOBHQjJqPmBoymarisL5atrXRQ6YySpVOY+P1
+         NvsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755701794; x=1756306594;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=moeebx/JYPecP7+5BXDqI16mVoleF3sa2PSk0SopksM=;
-        b=w0WMZfjHPpHZFS1cYMMJVNLD3zFxw5ijHcCIaz8S26mcfUyt6q/Uzmqqg2BVgFr5Op
-         PzWlJdvSkjFDx3MeDahuQ1JiGI6UBVX67NqbhoCyGLqS32EkSrTQCYonOdKsAKYBh2f5
-         GmLcLwlE4AH6ObLiBVaT95KDAVvRLwCJ+d600jpTThL4S40UEOkcSUmK4D9Vh0DUj2qY
-         /CpO9mDnajOLJ/46ER+Eb9bRhgK+Yx41gya8lNUXEm1UPULzucHrNSnRMONuBKpuAL5I
-         FbhLIQpqO+MQsQ6CxQdXB8Cz/JY+wZ9v0qhyyVTt8NPXGB4D0Ml8MfDjvrXdeItXyc88
-         IXxA==
-X-Forwarded-Encrypted: i=1; AJvYcCV2jUfGUILrfu0bduX4SKqankMjzOA2iD/CGrrzJgtJILl1fbPJjz92RqINlnx6SBltf/kAA4WRRWhR+w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6dmg23DxHbaFLdufExgpd650p7SNTenYip3ck4t0y2Tt+prBy
-	A0NIYFP/p9rc7G2ynF33E7x/zbMdaRZk22ksTGkTo79mTp57BVmBrORN
-X-Gm-Gg: ASbGncv5ICkN6KskCIDHS3aZG5ijnpZloV76ziv6zamkWArb7C8hTDYWoXmCtU4JmD3
-	eojg8F/cvnp7AFqo5063jxvY94Grx3q3ZLLri8X0wU0PyIDqf0rTMq+5npC1GeKq3qko/5q80/Q
-	e/lZwtAvW0k5sMxEd8hLdTpesRSuf3YDg2HUi4ThpVncxJTeVALABwVEIjobRvs/mZqYZodIbsZ
-	4gwFxRNFJvBYCmDv0Po0ld5DPTsBwb1niViW96qjXMnIVfOWNBjn3C90Ezik9TJxfzBtDZGNMEv
-	blLZxImB2VCk2sPYxSBbCLK9tLeq6dsfbPUCdjOfkZtNbSyglMmH2NHZz68UvFLbldPiUUPwBPQ
-	dUcOQVgHa5Fuus0rPZdY52kkvJoWsjnoP
-X-Google-Smtp-Source: AGHT+IFvmJ+PFgyRTv6iBOk9rxDjBEezlxvSGHL//EVCX7uKCA4RaW440nBfEbxK3UBFWSkUHyyBLA==
-X-Received: by 2002:a17:903:18a:b0:224:10a2:cae7 with SMTP id d9443c01a7336-245ef25dc0fmr44522095ad.40.1755701794342;
-        Wed, 20 Aug 2025 07:56:34 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755702274; x=1756307074;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=++r0iAI2yCp7ByMWBTkoq4eZJInhcfQbLd7c4fa729Y=;
+        b=vO061MJf+grbz15Kag3yIk2EthdE7A9WZr3PiKDWzuaWKfTha5CqbtoCN8vZWVdwag
+         B00FGVd9MxZMJUFiasz1unhblGD3l1bc8Ca5cr68K2g2BZCmBAb8U7t4ip+ZNCpeveOg
+         T6HpjpaLP/X04r7n2U+oW42IulgvzB92A7+M9E9VXyElO1vYO2gu6+ksxakuuJ5UMW+f
+         RYhR+F/lo5TSBoXh3DpBOE2HoUB1v8IxY+lmhyRUDkJSnJJ1nRa4WXWtMSAdUk0NkYEk
+         9n1//ujihPjjBvyIUcGc4FwfTmNh1ozj2jjU35lP2ENPOEnXWBs6sCZGClQ2MZi3W/ea
+         M+Qw==
+X-Forwarded-Encrypted: i=1; AJvYcCXd79INj8YIs6JkmgeVSxzXE/crWJSjIfsWT8itTmzsAwaNxP2Ybheew+fegWTJOaVGZ31Ku1HYXuCNmw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIBsWDgkVskAd3tIDOt46oH6JfyCmT/4uczg/ySFETwZtjvQ0H
+	bc43nmagQLtJbpO66AKRSz7Bg/2Co4u+qZUgKblLwR/NDiESgHMe7lFW
+X-Gm-Gg: ASbGncvU8zz7FuymPE3Xu7r+O3PuJknG9I+Pkm36ogo5pzIjjpjWVl/DwQURveig3K2
+	SxXsdH887vCmPmsYz6DzS5eKYu/Sk2fhpyRB4MFD6irbTCDGiYSzMi4wVrUNTDFacx6DQi+j2Bt
+	Uvz6sQtJxF6tKkTrQLiyx5dXymdYTIjSpJAhGP3hsEaU5PKwlS6xRPxsiH/o9pnAAfUElJCkIOH
+	jnN9ccy8Er63cExZL9XSvGAd2o2ShtIt78YZt7dkviS86CCkEFoeYGNuee9LyIFoLf4cNknN8aw
+	ktzSFNV4m57tXAy4ajkpQ+3T8iWq00RaWcPdoafoIaTTnIhfWvv6n+pK8LsaXasSnXzjPSGZHYa
+	3mY6NfM161g6u5IGQiHYITw==
+X-Google-Smtp-Source: AGHT+IG5GibFX4nRPe3uAIyd9oVrLLUMsOnz3s+oCgefLCLc1FqEY0SeoiyMrK+0hu5OLASgGFtLgg==
+X-Received: by 2002:a17:903:1b6e:b0:245:fc41:eb53 with SMTP id d9443c01a7336-245fc41ecefmr466235ad.30.1755702274208;
+        Wed, 20 Aug 2025 08:04:34 -0700 (PDT)
 Received: from localhost ([216.228.127.129])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-245f374595fsm19276835ad.105.2025.08.20.07.56.33
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-245ed53eb8bsm29017525ad.166.2025.08.20.08.04.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Aug 2025 07:56:33 -0700 (PDT)
-Date: Wed, 20 Aug 2025 10:56:31 -0400
+        Wed, 20 Aug 2025 08:04:33 -0700 (PDT)
+Date: Wed, 20 Aug 2025 11:04:31 -0400
 From: Yury Norov <yury.norov@gmail.com>
 To: Vivian Wang <wangruikang@iscas.ac.cn>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -77,18 +76,17 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
 	Vivian Wang <uwu@dram.page>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?utf-8?B?QXlkxLFu?= Mercan <aydin@mercan.dev>
-Subject: Re: [PATCH 1/6] riscv: Introduce use_alternative_{likely,unlikely}
-Message-ID: <aKXiH1eqGliLNb8u@yury>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/6] riscv: bitops: Convert to use_alternative_likely
+Message-ID: <aKXj_zTwvk0SwUpV@yury>
 References: <20250820-riscv-altn-helper-wip-v1-0-c3c626c1f7e6@iscas.ac.cn>
- <20250820-riscv-altn-helper-wip-v1-1-c3c626c1f7e6@iscas.ac.cn>
+ <20250820-riscv-altn-helper-wip-v1-5-c3c626c1f7e6@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250820-riscv-altn-helper-wip-v1-1-c3c626c1f7e6@iscas.ac.cn>
+In-Reply-To: <20250820-riscv-altn-helper-wip-v1-5-c3c626c1f7e6@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_075635_720328_C57D46E6 
-X-CRM114-Status: GOOD (  23.44  )
+X-CRM114-CacheID: sfid-20250820_080435_186797_2A785808 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,71 +98,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBBdWcgMjAsIDIwMjUgYXQgMDk6NDQ6NDVQTSArMDgwMCwgVml2aWFuIFdhbmcgd3Jv
-dGU6Cj4gSW50cm9kdWNlIGNvbnZlbmllbmNlIGhlbHBlcnMgdXNlX2FsdGVybmF0aXZlX2xpa2Vs
-eSgpIGFuZAo+IHVzZV9hbHRlcm5hdGl2ZV91bmxpa2VseSgpIHRvIGltcGxlbWVudCB0aGUgcGF0
-dGVybiBvZiB1c2luZyBhc20gZ290byB0bwo+IGNoZWNrIGlmIGFuIGFsdGVybmF0aXZlIGlzIHNl
-bGVjdGVkLiBFeGlzdGluZyBjb2RlIHdpbGwgYmUgY29udmVydGVkIGluCj4gc3Vic2VxdWVudCBw
-YXRjaGVzLgo+IAo+IFNpbWlsYXIgdG8gYXJtNjQgYWx0ZXJuYXRpdmVfaGFzX2NhcF97bGlrZWx5
-LHVubGlrZWx5fSwgYnV0IGZvciByaXNjdiwKPiBhbHRlcm5hdGl2ZXMgYXJlIG5vdCBhbGwgQ1BV
-IGNhcGFiaWxpdGllcy4KPiAKPiBTdWdnZXN0ZWQtYnk6IEF5ZMSxbiBNZXJjYW4gPGF5ZGluQG1l
-cmNhbi5kZXY+Cj4gU2lnbmVkLW9mZi1ieTogVml2aWFuIFdhbmcgPHdhbmdydWlrYW5nQGlzY2Fz
-LmFjLmNuPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FsdGVybmF0aXZlLW1hY3Jv
-cy5oIHwgNzMgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKPiAgMSBmaWxlIGNoYW5nZWQs
-IDczIGluc2VydGlvbnMoKykKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9hbHRlcm5hdGl2ZS1tYWNyb3MuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYWx0ZXJuYXRp
-dmUtbWFjcm9zLmgKPiBpbmRleCAyMzFkNzc3ZDkzNmMyZDI5Yzg1OGRlY2FhOWEzZmE1ZjE3MmVm
-YmI4Li5iZTk4MzViNWU0ZWJhMDNkNzZkYjNhNzNkYTE5YWM5ZTI5ODFjNGRiIDEwMDY0NAo+IC0t
-LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYWx0ZXJuYXRpdmUtbWFjcm9zLmgKPiArKysgYi9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FsdGVybmF0aXZlLW1hY3Jvcy5oCj4gQEAgLTE1OCw0ICsx
-NTgsNzcgQEAKPiAgCV9BTFRFUk5BVElWRV9DRkdfMihvbGRfY29udGVudCwgbmV3X2NvbnRlbnRf
-MSwgdmVuZG9yX2lkXzEsIHBhdGNoX2lkXzEsIENPTkZJR19rXzEsCVwKPiAgCQkJCQluZXdfY29u
-dGVudF8yLCB2ZW5kb3JfaWRfMiwgcGF0Y2hfaWRfMiwgQ09ORklHX2tfMikKPiAgCj4gKy8qCj4g
-KyAqIHVzZV9hbHRlcm5hdGl2ZV97bGlrZWx5LHVubGlrZWx5fSgpIHJldHVybnMgdHJ1ZSBpZiB0
-aGUgYWx0ZXJuYXRpdmUgaXMKPiArICogYXBwbGllZCBhbmQgZmFsc2Ugb3RoZXJ3aXNlLCBidXQg
-aW4gYSB3YXkgd2hlcmUgdGhlIGNvbXBpbGVyIGNhbiBvcHRpbWl6ZQo+ICsgKiB0aGlzIGNoZWNr
-IGRvd24gdG8gYSBub3AgaW5zdHJ1Y3Rpb24gdGhhdCdzIHBhdGNoZWQgaW50byBhIGp1bXAsIG9y
-IHZpY2UKPiArICogdmVyc2EuCj4gKyAqCj4gKyAqIEFsd2F5cyByZXR1cm5zIGZhbHNlIGlmIHRo
-ZSBhbHRlcm5hdGl2ZXMgbWVjaGFuaXNtIGlzIG5vdCBhdmFpbGFibGUuCj4gKyAqCj4gKyAqIFVz
-YWdlIGV4YW1wbGU6Cj4gKyAqICAgaWYgKHVzZV9hbHRlcm5hdGl2ZV9saWtlbHkoMCwgUklTQ1Zf
-SVNBX1pCQikpCj4gKyAqCj4gKyAqIFNpbWlsYXIgdG8gc3RhdGljIGtleXMsICJsaWtlbHkiIG1l
-YW5zIHVzZSBhIG5vcCBpZiB0aGUgYWx0ZXJuYXRpdmUgaXMKPiArICogc2VsZWN0ZWQsIGFuZCBq
-dW1wIGlmIHVuc2VsZWN0ZWQ7ICJ1bmxpa2VseSIgaXMgdGhlIG90aGVyIHdheSBhcm91bmQuCj4g
-KyAqLwo+ICsKPiArI2lmbmRlZiBfX0FTU0VNQkxFUl9fCj4gKwo+ICsjaW5jbHVkZSA8bGludXgv
-dHlwZXMuaD4KPiArCj4gKyNpZmRlZiBDT05GSUdfUklTQ1ZfQUxURVJOQVRJVkUKPiArCj4gK3N0
-YXRpYyBfX2Fsd2F5c19pbmxpbmUgYm9vbCB1c2VfYWx0ZXJuYXRpdmVfbGlrZWx5KHUxNiB2ZW5k
-b3JfaWQsIHUzMiBwYXRjaF9pZCkKPiArewo+ICsJQlVJTERfQlVHX09OKCFfX2J1aWx0aW5fY29u
-c3RhbnRfcCh2ZW5kb3JfaWQpKTsKPiArCUJVSUxEX0JVR19PTighX19idWlsdGluX2NvbnN0YW50
-X3AocGF0Y2hfaWQpKTsKPiArCj4gKwlhc20gZ290byhBTFRFUk5BVElWRSgiaiAlbFtub19hbHRd
-IiwgIm5vcCIsICVbdmVuZG9yX2lkXSwgJVtwYXRjaF9pZF0sIDEpCj4gKwkJIDoKPiArCQkgOiBb
-dmVuZG9yX2lkXSAiaSIodmVuZG9yX2lkKSwKPiArCQkgICBbcGF0Y2hfaWRdICJpIihwYXRjaF9p
-ZCkKPiArCQkgOgo+ICsJCSA6IG5vX2FsdCk7Cj4gKwo+ICsJcmV0dXJuIHRydWU7Cj4gKwo+ICtu
-b19hbHQ6Cj4gKwlyZXR1cm4gZmFsc2U7Cj4gK30KCkFwYXJ0IGZyb20gdGhvc2UgQlVJTERfQlVH
-X09OKClzLCBpdCBsb29rcyBzaW1pbGFyIHRvCl9fcmlzY3ZfaGFzX2V4dGVuc2lvbl9saWtlbHko
-KS4gQ2FuIHlvdSBtYWtlIHN1cmUgeW91IGRvbid0IGR1cGxpY2F0ZQppdD8KCklmIHNvLCBjYW4g
-eW91IGRlc2NyaWJlIHdoYXQncyB0aGUgZGlmZmVyZW5jZSBiZXR3ZWVuIHRob3NlIHR3byBpbiB0
-aGUKY29tbWl0IG1lc3NhZ2U/Cgo+ICtzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wgdXNlX2Fs
-dGVybmF0aXZlX3VubGlrZWx5KHUxNiB2ZW5kb3JfaWQsIHUzMiBwYXRjaF9pZCkKPiArewo+ICsJ
-QlVJTERfQlVHX09OKCFfX2J1aWx0aW5fY29uc3RhbnRfcCh2ZW5kb3JfaWQpKTsKPiArCUJVSUxE
-X0JVR19PTighX19idWlsdGluX2NvbnN0YW50X3AocGF0Y2hfaWQpKTsKPiArCj4gKwlhc20gZ290
-byhBTFRFUk5BVElWRSgibm9wIiwgImogJWxbYWx0XSIsICVbdmVuZG9yX2lkXSwgJVtwYXRjaF9p
-ZF0sIDEpCj4gKwkJIDoKPiArCQkgOiBbdmVuZG9yX2lkXSAiaSIodmVuZG9yX2lkKSwKPiArCQkg
-ICBbcGF0Y2hfaWRdICJpIihwYXRjaF9pZCkKPiArCQkgOgo+ICsJCSA6IGFsdCk7Cj4gKwo+ICsJ
-cmV0dXJuIGZhbHNlOwo+ICsKPiArYWx0Ogo+ICsJcmV0dXJuIHRydWU7Cj4gK30KClRoaXMgJ3Vu
-bGlrZWx5JyB2ZXJzaW9uIGlzIGp1c3QgYW4gbmVnYXRpb24gb2YgJ2xpa2VseScgb25lLCBhbmQg
-aXQKbG9va3MgbGlrZSBhbiBhdHRlbXB0IHRvIHNhdmUgb24gb25lIG5lZ2F0aW9uLiBPbiB0aGUg
-b3RoZXIgaGFuZCwgdGhlCmZ1bmN0aW9uIGlzIF9fYWx3YXlzX2lubGluZSwgd2hpY2ggbWVhbnMg
-dGhhdCBjb21waWxlciBzaG91bGQgbm9ybWFsbHkKdGFrZSBjYXJlIG9mIGl0LiBDYW4geW91IHBy
-b3ZlIHdpdGggb2JqZHVtcCB0aGF0IGl0IHJlYWxseSB3b3JrcyBhcwppbnRlbmRlZD8gSSBtZWFu
-IHRoYXQgCgogICAgICAgIGlmICh1c2VfYWx0ZXJuYXRpdmVfdW5saWtlbHkoKSkKICAgICAgICAg
-ICAgICAgIGRvX3NvbWV0aGluZygpOwoKZ2VuZXJhdGVzIGEgYmV0dGVyIGNvZGUgdGhhbiAKICAg
-ICAgICAKICAgICAgICBpZiAoIXVzZV9hbHRlcm5hdGl2ZV9saWtlbHkoKSkKICAgICAgICAgICAg
-ICAgIGRvX3NvbWV0aGluZygpOwoKVGhhbmtzLApZdXJ5CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Aug 20, 2025 at 09:44:49PM +0800, Vivian Wang wrote:
+> Use use_alternative_likely() to check for RISCV_ISA_EXT_ZBB, replacing
+> the use of asm goto with ALTERNATIVE.
+> 
+> The "likely" variant is used to match the behavior of the original
+> implementation using ALTERNATIVE("j %l[legacy]", "nop", ...).
+> 
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+> ---
+>  arch/riscv/include/asm/bitops.h | 112 ++++++++++++++++++----------------------
+>  1 file changed, 50 insertions(+), 62 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
+> index d59310f74c2ba70caeb7b9b0e9221882117583f5..0257d547a96293909d90b017c8a48b508d0fd642 100644
+> --- a/arch/riscv/include/asm/bitops.h
+> +++ b/arch/riscv/include/asm/bitops.h
+> @@ -47,20 +47,17 @@
+>  
+>  static __always_inline unsigned long variable__ffs(unsigned long word)
+>  {
+> -	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
+> -				      RISCV_ISA_EXT_ZBB, 1)
+> -			  : : : : legacy);
+> -
+> -	asm volatile (".option push\n"
+> -		      ".option arch,+zbb\n"
+> -		      "ctz %0, %1\n"
+> -		      ".option pop\n"
+> -		      : "=r" (word) : "r" (word) :);
+> -
+> -	return word;
+> -
+> -legacy:
+> -	return generic___ffs(word);
+> +	if (use_alternative_likely(0, RISCV_ISA_EXT_ZBB)) {
+
+I don't think that 'likely' is used properly here. The likely/unlikely
+wording has a meaning of a hint to the compiler:
+
+        if (unlikely(WARN_ON(cond))
+                goto err;
+
+In your case, it's just meaningless, because whatever is 'likely' for
+one CPU, will be always 'unlikely' for another. 
+
+
+> +		asm volatile (".option push\n"
+> +			      ".option arch,+zbb\n"
+> +			      "ctz %0, %1\n"
+> +			      ".option pop\n"
+> +			      : "=r" (word) : "r" (word) :);
+> +
+> +		return word;
+> +	} else {
+> +		return generic___ffs(word);
+> +	}
+>  }
+
+This tabs wipe most of the history. Can you reorganize your patch
+such that it preserves as much history as you can?
+
+        if (use_alternative_unlikely(...))
+                return generic___ffs();
+
+        asm volatile (".option push\n"
+                      ".option arch,+zbb\n"
+                      "ctz %0, %1\n"
+                      ".option pop\n"
+                      : "=r" (word) : "r" (word) :);
+
+        return word;
+
+And so on.
+
+Thanks,
+Yury
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
