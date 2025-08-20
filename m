@@ -4,83 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F3CBCA0EED
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 05:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8644CA0EED
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 06:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JBVveZefJJT22fdYh4MKL7vLKFvCYP3veF6M9Pjwajg=; b=RdgMRRQfH9rB79
-	31yZ9PqW67bXB42Wpm8IYdvynMwnDEAKW99OkjD3A2tDd1KrsG/Y4vtFN9zdz6KR2FKWfV9cfTsjk
-	bS5HQpLU5H/6aIGzZYfyZFkH3udueHH8lz+NvcGGEmeO05d5o6s29lM7LagFeui+utwMGawcl+GDf
-	m1Lhigwb6rkT3QbgLp1rHFtZAajVtlWY7VxpGKS8i+xhbQAxBIkWg27Inhp3EH8TPR30YSKkQEw1Q
-	AAEgLgNF7hHN9fd6wozqtFU5uEUPYSrpeHChEBPuBF/81x8PKxsO50p0PODpWOe2VLpiIImJ1fBWB
-	ph7Aiwf6yOkgLTdfHVsQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VHV7AQadnjJxBJ8HqB5LVEgWuvCIKKxEBXn4/WnxmRQ=; b=Jw90satsLVBkwO
+	tuVMMh1d5Desqj28mEiEn2Fg34IjgHqVMHbNl6aAeFIYaMtWzLEmJOGkew44CJxBNRwU2yHwcm1dc
+	L4GCs4odz4GNiRvNi7l9/QAElmmvEeokoFWh4QCJviW9v72pNy/DF0plEhpeugy2NMLRxzCyfCZ+N
+	Bo0+NRv087NYdGOrAIG9V+kr+1XmuM/ZfvdnhezP3jxW7w7c18iBm5xqdrpBc7pHfE8Om3uGc/zM7
+	8JYAscH61uv8NDzGTVej3BZOhG8gCDWlK4tOkP2OKQ1oWuNAlYqXU2zt7u04VO21cuDwTXBoKTjO4
+	B7Hxkok6zAa7Q5bWespw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uobdd-0000000CRfq-22bq;
-	Wed, 20 Aug 2025 05:45:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uocIQ-0000000CV94-22m3;
+	Wed, 20 Aug 2025 06:27:42 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uobUu-0000000CQHd-3aQR
+	id 1uocGg-0000000CUxq-2d6q
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 05:36:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755668192;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tSX6B0M/ECg+25VESJMFTz+rvOMGoiNHgeaxc9XIWxk=;
-	b=Tdsr2JNp1vCFeAdTDNli7ZiJWxgrdlfWt6tslojGCc0SUla/vmSsA/XMu6b77YYIbpHcc6
-	kfsN5/TKFFHl2+vkhI7NPNnPcOAwVp056yez1MWIiWw/sLAtNRCt20QTe7x8ceoXUvywFp
-	pmmTcVuYUaw3/rn3AiZp7jirFyU4qv4=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-92-GaD0GWmKPR2v39dZ-bWOUA-1; Wed,
- 20 Aug 2025 01:36:27 -0400
-X-MC-Unique: GaD0GWmKPR2v39dZ-bWOUA-1
-X-Mimecast-MFC-AGG-ID: GaD0GWmKPR2v39dZ-bWOUA_1755668184
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A6107180047F;
-	Wed, 20 Aug 2025 05:36:24 +0000 (UTC)
-Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.99])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id BF69119560B0;
-	Wed, 20 Aug 2025 05:36:16 +0000 (UTC)
-From: Baoquan He <bhe@redhat.com>
-To: linux-mm@kvack.org
-Cc: ryabinin.a.a@gmail.com,
-	andreyknvl@gmail.com,
-	glider@google.com,
-	dvyukov@google.com,
-	vincenzo.frascino@arm.com,
-	akpm@linux-foundation.org,
-	kasan-dev@googlegroups.com,
+	Wed, 20 Aug 2025 06:25:56 +0000
+X-UUID: 7bd9d41e7d8e11f0b29709d653e92f7d-20250820
+X-CTIC-Tags: HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NO_NAME, HR_CTE_8B, HR_CTT_MISS
+	HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME, HR_SJ_LANG
+	HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM, HR_SJ_PHRASE, HR_SJ_PHRASE_LEN
+	HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT, HR_TO_NO_NAME, IP_TRUSTED
+	SRC_TRUSTED, DN_TRUSTED, SA_EXISTED, SN_EXISTED, SPF_NOPASS
+	DKIM_NOPASS, DMARC_NOPASS, CIE_BAD, CIE_GOOD, CIE_GOOD_SPF
+	GTI_FG_BS, GTI_RG_INFO, GTI_C_BU, AMN_T1, AMN_GOOD
+	AMN_C_TI, AMN_C_BU, ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:e636fa68-9d02-4af0-a420-e9bc43ed3e55,IP:10,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:-15,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:-5
+X-CID-INFO: VERSION:1.1.45,REQID:e636fa68-9d02-4af0-a420-e9bc43ed3e55,IP:10,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:-15,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:6493067,CLOUDID:ffb03ffa128f39143bd09c13b159062a,BulkI
+	D:250820142542ZBWU6064,BulkQuantity:0,Recheck:0,SF:17|19|24|38|44|66|78|10
+	2,TC:nil,Content:0|50,EDM:-3,IP:-2,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,B
+	EC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_FSI,TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
+X-UUID: 7bd9d41e7d8e11f0b29709d653e92f7d-20250820
+X-User: duanchenghao@kylinos.cn
+Received: from localhost.localdomain [(223.70.159.239)] by mailgw.kylinos.cn
+	(envelope-from <duanchenghao@kylinos.cn>)
+	(Generic MTA)
+	with ESMTP id 798464706; Wed, 20 Aug 2025 14:25:36 +0800
+From: Chenghao Duan <duanchenghao@kylinos.cn>
+To: ast@kernel.org,
+	bjorn@kernel.org,
+	pulehui@huawei.com,
+	puranjay@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: daniel@iogearbox.net,
+	andrii@kernel.org,
+	martin.lau@linux.dev,
+	eddyz87@gmail.com,
+	song@kernel.org,
+	yonghong.song@linux.dev,
+	john.fastabend@gmail.com,
+	kpsingh@kernel.org,
+	sdf@fomichev.me,
+	haoluo@google.com,
+	jolsa@kernel.org,
+	alex@ghiti.fr,
+	bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	kexec@lists.infradead.org,
-	sj@kernel.org,
-	lorenzo.stoakes@oracle.com,
-	elver@google.com,
-	snovitoll@gmail.com,
-	christophe.leroy@csgroup.eu,
-	Baoquan He <bhe@redhat.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 08/12] arch/riscv: don't initialize kasan if it's disabled
-Date: Wed, 20 Aug 2025 13:34:55 +0800
-Message-ID: <20250820053459.164825-9-bhe@redhat.com>
-In-Reply-To: <20250820053459.164825-1-bhe@redhat.com>
-References: <20250820053459.164825-1-bhe@redhat.com>
+	duanchenghao@kylinos.cn
+Subject: [PATCH] riscv: bpf: Fix uninitialized symbol 'retval_off'
+Date: Wed, 20 Aug 2025 14:25:20 +0800
+Message-Id: <20250820062520.846720-1-duanchenghao@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_223632_955072_B962CBFA 
-X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-CacheID: sfid-20250819_232555_011576_69B2B999 
+X-CRM114-Status: UNSURE (   8.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,41 +105,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-And also add code to enable kasan_flag_enabled, this is for later
-usage.
+In __arch_prepare_bpf_trampoline(), retval_off is only meaningful when
+save_ret is true, so the current logic is correct. However, in the
+original logic, retval_off is only initialized under certain
+conditions, which may cause a build warning.
 
-Signed-off-by: Baoquan He <bhe@redhat.com>
-Cc: linux-riscv@lists.infradead.org
+So initialize retval_off unconditionally to fix it.
+
+Signed-off-by: Chenghao Duan <duanchenghao@kylinos.cn>
 ---
- arch/riscv/mm/kasan_init.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/riscv/net/bpf_jit_comp64.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index 41c635d6aca4..ac3ac227c765 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -485,6 +485,9 @@ void __init kasan_init(void)
- 	phys_addr_t p_start, p_end;
- 	u64 i;
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 10e01ff06312..49bbda8372b0 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -1079,10 +1079,9 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 	stack_size += 16;
  
-+	if (kasan_arg_disabled)
-+		return;
-+
- 	create_tmp_mapping();
- 	csr_write(CSR_SATP, PFN_DOWN(__pa(tmp_pg_dir)) | satp_mode);
+ 	save_ret = flags & (BPF_TRAMP_F_CALL_ORIG | BPF_TRAMP_F_RET_FENTRY_RET);
+-	if (save_ret) {
++	if (save_ret)
+ 		stack_size += 16; /* Save both A5 (BPF R0) and A0 */
+-		retval_off = stack_size;
+-	}
++	retval_off = stack_size;
  
-@@ -531,6 +534,9 @@ void __init kasan_init(void)
- 	memset(kasan_early_shadow_page, KASAN_SHADOW_INIT, PAGE_SIZE);
- 	init_task.kasan_depth = 0;
- 
-+	/* KASAN is now initialized, enable it. */
-+	static_branch_enable(&kasan_flag_enabled);
-+
- 	csr_write(CSR_SATP, PFN_DOWN(__pa(swapper_pg_dir)) | satp_mode);
- 	local_flush_tlb_all();
- }
+ 	stack_size += nr_arg_slots * 8;
+ 	args_off = stack_size;
 -- 
-2.41.0
+2.25.1
 
 
 _______________________________________________
