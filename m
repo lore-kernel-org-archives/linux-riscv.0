@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780CFCA0EDC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B53CA0EED
 	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 07:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HToNizWw4Sd8cS/bUzOH14jD1EDtUpZloh+2L3JD/HU=; b=diDH4vm54E8Tcq
-	1fScU42PnEaN3QMzbPFTH8FkccKw/sm1OqY+kACjpKuVUH+973g/8g4H60XznAjLe3uVXRBkh1b8n
-	3BWHaqD76HzrXXfmYmRhRFkMRNz1iKJGGJfmNnR43allxsJCkOmjsQSpH13ko5YpotmFHp9EW7Vl9
-	xjhSdKhrMJCf62rVeP5uIyZYZvC+VTPUR3QpEFB8pq4tfZFt0vAibD45Md9zcztIVuWWMQdclzp8s
-	BOs88xm9liKaDUT0ngqz49FaspHV0kPhOIr4NPfnhppITcpc95s/+aEqctTLLBOxUbFHhAAc4o4A7
-	FM8n22peFTqDNOhVGqXw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JbssM8UuSVCJIqd6vDgtKNQ/ONd8gx68tfxQOsLccVA=; b=fYgFnk5Y7nWUC8
+	RSDh26xyuf7C87qA5qIty+8zypBK1VZrvej0/4yPkXtJTxlpnfG78zEQPLYAC8fsag4KzbD3OcyH2
+	50qVmU6nlhTmBbjxKHU0FfhRl0jACzGWkcnFWuQzOpGzFLb3FK48vGd1hV4VaIwNzKYddz+NM/Fcm
+	GJ6eWjhd8kHfKviP0ZUxt+MH5b53feavwTiXr7W41tJlmVETvfT3hQGb4PpwmEcNYrpy0cj/DCkdD
+	c/Tb/HauZDEUfew6Gla8s9PtQB177AvfSOgY39CvX8LzA/VFKozkLTmevYQEMrxfrLORHRb1N3Duc
+	5y5QVty6D9qYcxaKHV8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uodWE-0000000CdNB-3FXI;
-	Wed, 20 Aug 2025 07:46:02 +0000
+	id 1uodWD-0000000CdMr-2HXx;
+	Wed, 20 Aug 2025 07:46:01 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uodTe-0000000Cd4r-3xYZ
+	id 1uodTS-0000000Cd2N-0FKd
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 07:43:24 +0000
+	Wed, 20 Aug 2025 07:43:11 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 9879320D9F;
-	Wed, 20 Aug 2025 09:43:21 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id D0A6820D9E;
+	Wed, 20 Aug 2025 09:43:06 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id WAWoSrNxQhzA; Wed, 20 Aug 2025 09:43:19 +0200 (CEST)
+ id 9woW5s42fAIz; Wed, 20 Aug 2025 09:43:06 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1755675799; bh=Im+oemJDXWL80mEoHEC/AYrA40M35zJiJWeGpLm6Pjk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jE1pS826qnrHeJew7gQ5Uci75z55bkn53V4TQ07BBr6WL5l5ScF4AtWIfe4kNYSvN
-	 H7WAu8z1V44qJbG4+Rl1ShJqaQL6oX5Yln898RzQA7AVw6HNRk3i/EfdJrNpPizHU+
-	 4gkMoHqxl5DuoSlAV7Wo063TK4usv1offxnkF9Z2oyjYPM4EdJlQp43nmeQdcC/KKk
-	 Y/H34MOxBQaobpWLMNVhDZngQxPIIG0ZAaefsgrZBHBQy2gJ3CujlNYirBAMs3N0l7
-	 uomlqn9r8z2oNPQRkpmUtHkjkWzaOk2egOWt0DCVS+QxbFLfKuI7qIy2t5r5ZZ3rm+
-	 iieguHInu0mdw==
+	t=1755675786; bh=P8veYh6gqApO82yJJe+m7t0wzfjcOUl63n9yTtWKqKo=;
+	h=From:To:Cc:Subject:Date;
+	b=KoIPgeBCeFzJnioLHkrdO5SJbjwjUvd6Ha8yC2W2/m91IshHhmUU7EOYsVK6gBPxx
+	 AHONKz/mXH2RO7f3HIPasV5DSSGbLqi/wodQHQBoV1EXhZYB6sJGDwoLmT6DVNgT40
+	 uGDo4OdQYrne305FMWNkYoiHRscAf8rHVUgAQ8+ChyMQHo8YSkJxxzP/5b+Oq1kyC5
+	 LLkZ3aa4UXgLtCnLHrGGeyNwOKZpieA6FJObChZxb08dLff2J2RWPmPN77hcHiL/t2
+	 Pxp8By5aqPWir18gMUeb7qapQLoxhLhDbUGAGMbnTsg0Wp471pxPoJ31/L6L6lXsAb
+	 d3/gCMtFlk1gw==
 From: Yao Zi <ziyao@disroot.org>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -56,16 +56,13 @@ To: Drew Fustini <fustini@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH v2 2/3] reset: th1520: Support the new compatible for VO-subsystem controller
-Date: Wed, 20 Aug 2025 07:42:44 +0000
-Message-ID: <20250820074245.16613-3-ziyao@disroot.org>
-In-Reply-To: <20250820074245.16613-1-ziyao@disroot.org>
-References: <20250820074245.16613-1-ziyao@disroot.org>
+Subject: [PATCH v2 0/3] Scope TH1520 reset driver to VO subsystem
+Date: Wed, 20 Aug 2025 07:42:42 +0000
+Message-ID: <20250820074245.16613-1-ziyao@disroot.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_004323_114266_7FD03BFD 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250820_004310_229260_3724799A 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +80,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The reset controller for VO-subsystem is previously described with
-compatible "thead,th1520-reset", which is misleading since it implies
-control over all reset units on the SoC.
+T-Head TH1520 SoC integrates nine distinct reset controllers (AON, AP,
+DDR, MISC, VI, VO, VP, DSP and AUDIO). Currently only the reset
+controller for the VO (Video Output) subsystem is implemented in
+mainline Linux.
 
-A new compatible, "thead,th1520-reset-vo", has been introduced to
-describe the controller's scope explicitly, while the old one has been
-deprecated. Let's support the compatible in the driver.
+However, the controller is described with a generic compatible string
+"thead,th1520-reset", which may imply control over all reset signals
+on the SoC and thus is confusing. It may also cause conflicts when
+reset support for other subsystems are introduced.
 
-Fixes: 4a65326311ab ("reset: thead: Add TH1520 reset controller driver")
-Reported-by: Icenowy Zheng <uwu@icenowy.me>
-Co-developed-by: Michal Wilczynski <m.wilczynski@samsung.com>
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-Signed-off-by: Yao Zi <ziyao@disroot.org>
----
- drivers/reset/reset-th1520.c | 1 +
- 1 file changed, 1 insertion(+)
+This series deprecates the generic "thead,th1520-reset" compatible
+string, documents a new one, "thead,th1520-reset-vo", which explicitly
+describes scope of the reset controller, and converts driver and
+devicetree to use the new one.
 
-diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.c
-index 14d964a9c6b6..4c8ea35b174e 100644
---- a/drivers/reset/reset-th1520.c
-+++ b/drivers/reset/reset-th1520.c
-@@ -154,6 +154,7 @@ static int th1520_reset_probe(struct platform_device *pdev)
- 
- static const struct of_device_id th1520_reset_match[] = {
- 	{ .compatible = "thead,th1520-reset" },
-+	{ .compatible = "thead,th1520-reset-vo" },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, th1520_reset_match);
+Krzysztof and Drew, I agree that we should document the bindings for
+other reset controllers in TH1520 ASAP, but this requires a lot of new
+code: taking TEE-only ones into account, there're eight new controllers
+to be documented. Since this is a fix series that may be backported, it
+think it may help to keep it small, thus decided to make a separate
+series for the new reset controllers.
+
+Changed from v1
+- Split the original patch
+- Deprecate the old compatible instead of removing it in dt-binding
+- Drop the redundant label and outer SoC node for the dt-binding
+  example
+  - Keep the old compatible in driver for compatibility
+  - Link to v1: https://lore.kernel.org/all/20250810-fix_reset_2-v1-1-b0d1900ba578@samsung.com/
+
+Yao Zi (3):
+  dt-bindings: reset: Scope the compatible to VO subsystem explicitly
+  reset: th1520: Support the new compatible for VO-subsystem controller
+  riscv: dts: thead: Scope the reset controller to VO for TH1520
+
+ .../bindings/reset/thead,th1520-reset.yaml      | 17 ++++++++---------
+ arch/riscv/boot/dts/thead/th1520.dtsi           |  6 +++---
+ drivers/reset/reset-th1520.c                    |  1 +
+ 3 files changed, 12 insertions(+), 12 deletions(-)
+
 -- 
 2.50.1
 
