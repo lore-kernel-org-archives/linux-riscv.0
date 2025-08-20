@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF4ECA0EFC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 20:55:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0599ACA0EDC
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 20:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qm18lqc17f4gl3Igvdl1Qdc0HYxoa+LPFGzaCCh0JqM=; b=1ZlqQW4mTZCdns
-	Mca1m0Ptc6QI20ELQ8HbpIZzYCdheQGq+s0/fN3TkChiBheTBqKablsSqBEBTOsj7Gji8MMb2uETY
-	gHd1YQD45Zp0uXuuwbe35Lv0tYqjfNl0rlQzQ92wkEBPMoWbRwwR3P/cwqDY5iY/8dBx182sPG7UP
-	v43tU7Dt0tQSlFRPULTBon/bCvfODIj+FMKby3zjw7d5kKUBqu0FeLYVfua/M3sm0yjIYPWO3x78u
-	4MH8HiuAbYj5EAeqQYCNKjR5PMkNe+TkgVGsvmi5HdstV+sPj/ss0jn7U8LpTKUdrPgWEfjcCQa5G
-	yhjfMrXiJ8zdKoEkgCGA==;
+	List-Owner; bh=/82OOFrZ4DX2x/8neChfvv+rCSXcNhrZZsJt49ofcLo=; b=VzlavQZdo9J82N
+	a/o80GGXl/z4zGU7y0wb0lrykjjR/5t/om5r48A6ehbzwbNMPaN+Hx1NlHMrsBR8SPt5sBJF9UF9R
+	qdwqL844xZfveu6k3sjLFWTehgNP9TUvbYw4mWh/FGuLtJwp4CFDEgQqQySyg9n6PhNIxF+oiq15o
+	+VEczJlwqXci2fYI1MxH0ATI/03Gl/qXNJq/gHyo6vr+PHi8BYhvIQZLJ/kpo/HpLuF3/FyZLTuOA
+	ZA+NfTBFGVi9mJadWfWhInHT2nftxl0qf2+/Kcvrk6n3xRJVJ0woY92+muXcDpLO2R5fxhMAufYUt
+	ouWMGiA8BtfN+Unhpnbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoppn-0000000EveT-08h9;
-	Wed, 20 Aug 2025 20:55:03 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1uopsN-0000000Evvh-219f;
+	Wed, 20 Aug 2025 20:57:43 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uomIj-0000000EU5B-0SBN
+	id 1uomKr-0000000EUTY-1vCF
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 17:08:42 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-71e816e7f09so384797b3.1
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Aug 2025 10:08:40 -0700 (PDT)
+	Wed, 20 Aug 2025 17:10:54 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-71fb85c4b59so9430447b3.1
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Aug 2025 10:10:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755709720; x=1756314520; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1755709852; x=1756314652; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=O/XUuLfoY6+gYrAj9zQedluwYe3BaTFEGX9Jgs2SqNQ=;
-        b=rgxBeBQpIH4kNvct/MdSO53utPImJPaTYtIJkgzxGqzATZSwap52Q5qiQuLe1HnRuP
-         16RX+WE223RxeJwRxImlNstMM4LF420IeqwA4LulPBuTL1cYKv071Lzfyk9gOiM5wUcF
-         6/+CqUAoPVW8E+QDbNFTY6eGW2H4Uk0xPPoc9nJ1EXPcsd63FnMd3v1hIjBmI1l8a+p5
-         pM58/WUXfpXJIeFoEgYwiQa2Dz06f/unMwVQQK+RqXcvBgtqgZp8SnvMp5er5Rw6Bvsi
-         EY8zlY+NL0NfYgMtEeQ/Q24F0NLwkQP9w7ofMAWpyPPuaEcrCOZCiuCYSFgai3ubsP17
-         6R8w==
+        bh=727UKZSKS9UwGe6aim6XorGjWW+I61+OozHvio/cjhs=;
+        b=R5PP+yZ1MSaiOKG7m18Ij4nbPep+5F9JG/TF2zHSdnWOUCtEOL5BpwtN0Y06OorxH0
+         VjcKB2cez9NBXvJiI3FOszUmDVoxci1ll61LUA1cyRfP6yaqLowgDATvFHTk1m7LOtZj
+         cNlTNYOBB9ADoDwFSpll7zBvAlbBJDuhXnL7hk1H0nfPvMJLVKerMMwALAjT5QoqbyEm
+         cV8SWWW4CZQihiiK+37lUXqgsraZ2oIbZLQ6GnZDP+DpHW+VjZqg884tH/LfpNrdCJGu
+         yahE598JdRTu1yzUIQSuJ2eQNKI7nAWCms6hSZN7c8YCMiCF2qWhMAJB/JbOlhdQMLiZ
+         voWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755709720; x=1756314520;
+        d=1e100.net; s=20230601; t=1755709852; x=1756314652;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=O/XUuLfoY6+gYrAj9zQedluwYe3BaTFEGX9Jgs2SqNQ=;
-        b=kmmKJZhzaw3SDBd/CQgwf7zz4slmPR4N73mFXfMQS2zsrQVfG+tv63RodfhzysLxVk
-         ReSHaffWXwVpI6Tsb1gd//ixMPbkK/svCWep4evuonPQvPwvyCWRFn8UZh3t/AiJY3/0
-         ZQZZwxVbBwJjDMDTpjfQM13IcOpJ2J4sU7kNWqUddEZVL698ShUVvE2EtGeq47Z3lBWR
-         1ScRsOblssTpPixljJZXqaQCNdf9ZHa/+1hYzYw0u5Zh8bxnKF/IhNudmUfHORNzkOPz
-         HDvR00Ue51mDQ+xq+I9CEzPwN9Lzt+2D7vdxTr0NYTtLKE3veJ8+8ciZru9wG0RxdrdP
-         dwOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXU1hdeWhAEzTTFbiWmhvtSbrfB+viTAX5slF+h2eDSeER7svD5PJ5PbKLL8GqLdZaW1idJ/g6EZOPf5w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSF7vOozAGI9YPSX3hwC9/mQyct7ZIBh9M+q8OkiYtAlTyXPmo
-	tbm30drnkgtU5m9cdxZlP2sgJmTqM3qg8XI3Iahs2jOECHht3hvlG/qV7cWTGUKJfd/8vigpgvF
-	GIrSa9yoZraVFZXHAYmoQuVnecsBPSf2qd9V5RR8xhg==
-X-Gm-Gg: ASbGncvr40TQ46leX6pJN1ZxHGsj7LDouDZ3z/X9W61HUIqtL4nZmAVCShHZj8WAg0/
-	o4RiNEiF4bE/bK9Eo1n7O3flSdSxfX9GXagiNi7DEM+dHqzeQfjUInL1zuExtcJw5S08rcdAEBa
-	5LoNBha7MDRX14tLsE8v2lYWEB8lEuh0vsuIw3M9ogwS6Wl4lgk2wneAxjxwOd6vFXU/6JBDxQt
-	Qdls2PAba7P/FeEaRg=
-X-Google-Smtp-Source: AGHT+IGlGXuOvnfP3Ir6OS8al6ga3AfydhvhjdXrQHZJuSnSmrgoAV/zsSysQENVrVYRVpQFRldeApRViDFlFkTu4k8=
-X-Received: by 2002:a05:690c:d88:b0:71a:f22:28fa with SMTP id
- 00721157ae682-71fb3239be7mr40732987b3.39.1755709719218; Wed, 20 Aug 2025
- 10:08:39 -0700 (PDT)
+        bh=727UKZSKS9UwGe6aim6XorGjWW+I61+OozHvio/cjhs=;
+        b=bC9D653bmUlqUsRbJpaT7JdAOR083inZf0gXcx01tmlzBOss5x72lPAnnARWwgHeMy
+         fqYtHa+JVeUDi0zdiT/7iJlCedyIP2Nwo9V7otQVrZdLFngVoqBBgaMF3rCUW77FGauB
+         xCYlZj74WyerRblUymbUOEBcmCqx4Uz/UFmxpXIDe/CcX8KbifyfdY5U6Vlzv+doIaPI
+         2HkFNiNkTMFejceXdWpBSi3Ca88nuXrfn5cx88EaWnzXAD7jMlRs7x5mPphjjl7R4MgS
+         GozBGc3ePx7t8XsYRpb/9AIad1aXGUbXNlNbs1dG1BwcrIrso+3QA+GgAIFscaX4qp0d
+         D8Hw==
+X-Forwarded-Encrypted: i=1; AJvYcCVgVgeA4ID7z7kPBVNUbpXm6kGFc/X4/n5bzr27DJOeeV6zZzQlZg79+nRPtv2naD8hDxRNL4uUyh/S8g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxK33lEHXSj6LxkahkFsADduyuEyxgnyQM5swkWoY9hTETSRHik
+	zcQB/L4mJ+I2EArWtBcVsgyKBktKLLFxrp31g/fv5Elbj9b8OpWtJmj2kUvp7+GfQD2ppSD57CL
+	P4oF7xuWz20nj5HWrB3kFkcaJQzB337DmKgkMbaZCsA==
+X-Gm-Gg: ASbGncvj3dbmIfit+dp2Y8WcBAa1w4lej3Bu4obSxCCWrstDJ4NGC68wOsYACUnfNWc
+	ekw2T3GPLi0LkZYBgkEA7y+Bin3eTJkz1aJpYhSNE4wOxeYx0ihVSJCWszCYEzc2F2b+Gc2kuVZ
+	YlqtrwFYFrN0hVsQWDFWvS26FMzlHNh7WB7Gy7qumbvBdFjJlj4y25eciRiWlUll9mEXX2CgmTf
+	lNsBEUn
+X-Google-Smtp-Source: AGHT+IEpDwtZVI6H+GfGnTfQIwUyY5UUZdBfiqI97/jjpj/Lpw9zMkd2OWo35A3c2Mc0ZAvXui6OtqnR/RLurFK8aDA=
+X-Received: by 2002:a05:690c:4b8d:b0:71b:f419:2099 with SMTP id
+ 00721157ae682-71fc6380a74mr4423317b3.21.1755709852320; Wed, 20 Aug 2025
+ 10:10:52 -0700 (PDT)
 MIME-Version: 1.0
-References: <CGME20250820085609eucas1p2938d69999f4d7c9654d5d2a12a20c906@eucas1p2.samsung.com>
- <20250820-apr_14_for_sending-v12-0-4213ccefbd05@samsung.com> <20250820-apr_14_for_sending-v12-1-4213ccefbd05@samsung.com>
-In-Reply-To: <20250820-apr_14_for_sending-v12-1-4213ccefbd05@samsung.com>
+References: <CGME20250820085609eucas1p25d7c6d67318b6c332e3f238705544b19@eucas1p2.samsung.com>
+ <20250820-apr_14_for_sending-v12-0-4213ccefbd05@samsung.com> <20250820-apr_14_for_sending-v12-2-4213ccefbd05@samsung.com>
+In-Reply-To: <20250820-apr_14_for_sending-v12-2-4213ccefbd05@samsung.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 20 Aug 2025 19:08:02 +0200
-X-Gm-Features: Ac12FXw84idZj0dYShW-KZlBsFf_YLd_YtGHUpuugnHlBqwWFxkTq5CDVHjf0G4
-Message-ID: <CAPDyKFqeOUwTbZEUFmHS2Onyj5LZ1b26vGgC4=UHUOxhwbzjRw@mail.gmail.com>
-Subject: Re: [PATCH v12 1/4] drm/imagination: Use pwrseq for TH1520 GPU power management
+Date: Wed, 20 Aug 2025 19:10:15 +0200
+X-Gm-Features: Ac12FXxCH2ttqXRbmi_2dmdMWE4eeauuwFrI7EIdSSvrawO-ealoi74PXSk4RH8
+Message-ID: <CAPDyKFrjHdASRUDxR+KROovV0sherhqdkOgHC9hoA6dhdMr39A@mail.gmail.com>
+Subject: Re: [PATCH v12 2/4] dt-bindings: gpu: img,powervr-rogue: Add TH1520
+ GPU support
 To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -85,10 +86,11 @@ Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring <robh@ker
 	Marek Szyprowski <m.szyprowski@samsung.com>, Drew Fustini <fustini@kernel.org>, 
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org
+	dri-devel@lists.freedesktop.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_100841_154972_7495995F 
-X-CRM114-Status: GOOD (  43.64  )
+X-CRM114-CacheID: sfid-20250820_101053_501090_70AE8119 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,374 +110,126 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On Wed, 20 Aug 2025 at 10:56, Michal Wilczynski
 <m.wilczynski@samsung.com> wrote:
 >
-> Update the Imagination PVR DRM driver to leverage the pwrseq framework
-> for managing the complex power sequence of the GPU on the T-HEAD TH1520
-> SoC.
+> Rework the PowerVR Rogue GPU binding to use an explicit, per variant
+> style for defining power domain properties and add support for the
+> T-HEAD TH1520 SoC's GPU.
 >
-> To cleanly separate platform-specific logic from the generic driver,
-> this patch introduces an `init` callback to the `pwr_power_sequence_ops`
-> struct. This allows for different power management strategies to be
-> selected at probe time based on the device's compatible string.
+> To improve clarity and precision, the binding is refactored so that
+> power domain items are listed explicitly for each variant [1]. The
+> previous method relied on an implicit, positional mapping between the
+> `power-domains` and `power-domain-names` properties. This change
+> replaces the generic rules with self contained if/then blocks for each
+> GPU variant, making the relationship between power domains and their
+> names explicit and unambiguous.
 >
-> A `pvr_device_data` struct, associated with each compatible in the
-> of_device_id table, points to the appropriate ops table (manual or
-> pwrseq).
+> The generic if block for img,img-rogue, which previously required
+> power-domains and power-domain-names for all variants, is removed.
+> Instead, each specific GPU variant now defines its own power domain
+> requirements within a self-contained if/then block, making the schema
+> more explicit.
 >
-> At probe time, the driver now calls the `->init()` op. For pwrseq-based
-> platforms, this callback calls `devm_pwrseq_get("gpu-power")`, deferring
-> probe if the sequencer is not yet available. For other platforms, it
-> falls back to the existing manual clock and reset handling. The runtime
-> PM callbacks continue to call the appropriate functions via the ops
-> table.
+> This new structure is then used to add support for the
+> `thead,th1520-gpu`. While its BXM-4-64 IP has two conceptual power
+> domains, the TH1520 SoC integrates them behind a single power gate. The
+> new binding models this with a specific rule that enforces a single
+> `power-domains` entry and disallows the `power-domain-names` property.
 >
+> Link: https://lore.kernel.org/all/4d79c8dd-c5fb-442c-ac65-37e7176b0cdd@linaro.org/ [1]
+>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+
+Even if you already have the necessary ack, feel free to add:
+
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+
 > ---
->  drivers/gpu/drm/imagination/pvr_device.c |  22 +---
->  drivers/gpu/drm/imagination/pvr_device.h |  22 ++++
->  drivers/gpu/drm/imagination/pvr_drv.c    |  27 ++++-
->  drivers/gpu/drm/imagination/pvr_power.c  | 174 ++++++++++++++++++++++++-------
->  drivers/gpu/drm/imagination/pvr_power.h  |  15 +++
->  5 files changed, 201 insertions(+), 59 deletions(-)
+>  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 37 +++++++++++++++++-----
+>  1 file changed, 29 insertions(+), 8 deletions(-)
 >
-> diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
-> index 8b9ba4983c4cb5bc40342fcafc4259078bc70547..294b6019b4155bb7fdb7de73ccf7fa8ad867811f 100644
-> --- a/drivers/gpu/drm/imagination/pvr_device.c
-> +++ b/drivers/gpu/drm/imagination/pvr_device.c
-> @@ -23,6 +23,7 @@
->  #include <linux/firmware.h>
->  #include <linux/gfp.h>
->  #include <linux/interrupt.h>
-> +#include <linux/of.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/reset.h>
-> @@ -121,21 +122,6 @@ static int pvr_device_clk_init(struct pvr_device *pvr_dev)
->         return 0;
->  }
+> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> index 4450e2e73b3ccf74d29f0e31e2e6687d7cbe5d65..c87d7bece0ecd6331fc7d1a479bbdaf68bac6e6d 100644
+> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> @@ -21,6 +21,11 @@ properties:
+>            # work with newer dts.
+>            - const: img,img-axe
+>            - const: img,img-rogue
+> +      - items:
+> +          - enum:
+> +              - thead,th1520-gpu
+> +          - const: img,img-bxm-4-64
+> +          - const: img,img-rogue
+>        - items:
+>            - enum:
+>                - ti,j721s2-gpu
+> @@ -77,14 +82,18 @@ required:
+>  additionalProperties: false
 >
-> -static int pvr_device_reset_init(struct pvr_device *pvr_dev)
-> -{
-> -       struct drm_device *drm_dev = from_pvr_device(pvr_dev);
-> -       struct reset_control *reset;
-> -
-> -       reset = devm_reset_control_get_optional_exclusive(drm_dev->dev, NULL);
-> -       if (IS_ERR(reset))
-> -               return dev_err_probe(drm_dev->dev, PTR_ERR(reset),
-> -                                    "failed to get gpu reset line\n");
-> -
-> -       pvr_dev->reset = reset;
-> -
-> -       return 0;
-> -}
-> -
->  /**
->   * pvr_device_process_active_queues() - Process all queue related events.
->   * @pvr_dev: PowerVR device to check
-> @@ -618,6 +604,9 @@ pvr_device_init(struct pvr_device *pvr_dev)
->         struct device *dev = drm_dev->dev;
->         int err;
+>  allOf:
+> -  # Constraints added alongside the new compatible strings that would otherwise
+> -  # create an ABI break.
+>    - if:
+>        properties:
+>          compatible:
+>            contains:
+> -            const: img,img-rogue
+> +            const: img,img-axe-1-16m
+>      then:
+> +      properties:
+> +        power-domains:
+> +          items:
+> +            - description: Power domain A
+> +        power-domain-names:
+> +          maxItems: 1
+>        required:
+>          - power-domains
+>          - power-domain-names
+> @@ -93,13 +102,20 @@ allOf:
+>        properties:
+>          compatible:
+>            contains:
+> -            const: img,img-axe-1-16m
+> +            const: thead,th1520-gpu
+>      then:
+>        properties:
+> +        clocks:
+> +          minItems: 3
+> +        clock-names:
+> +          minItems: 3
+>          power-domains:
+> -          maxItems: 1
+> -        power-domain-names:
+> -          maxItems: 1
+> +          items:
+> +            - description: The single, unified power domain for the GPU on the
+> +                TH1520 SoC, integrating all internal IP power domains.
+> +        power-domain-names: false
+> +      required:
+> +        - power-domains
 >
-> +       /* Get the platform-specific data based on the compatible string. */
-> +       pvr_dev->device_data = of_device_get_match_data(dev);
-> +
->         /*
->          * Setup device parameters. We do this first in case other steps
->          * depend on them.
-> @@ -631,8 +620,7 @@ pvr_device_init(struct pvr_device *pvr_dev)
->         if (err)
->                 return err;
+>    - if:
+>        properties:
+> @@ -109,9 +125,14 @@ allOf:
+>      then:
+>        properties:
+>          power-domains:
+> -          minItems: 2
+> +          items:
+> +            - description: Power domain A
+> +            - description: Power domain B
+>          power-domain-names:
+>            minItems: 2
+> +      required:
+> +        - power-domains
+> +        - power-domain-names
 >
-> -       /* Get the reset line for the GPU */
-> -       err = pvr_device_reset_init(pvr_dev);
-> +       err = pvr_dev->device_data->pwr_ops->init(pvr_dev);
->         if (err)
->                 return err;
+>    - if:
+>        properties:
 >
-> diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
-> index 7cb01c38d2a9c3fc71effe789d4dfe54eddd93ee..0c970255f90805a569d7d19e35ec5f4ca7f02f7a 100644
-> --- a/drivers/gpu/drm/imagination/pvr_device.h
-> +++ b/drivers/gpu/drm/imagination/pvr_device.h
-> @@ -37,6 +37,9 @@ struct clk;
->  /* Forward declaration from <linux/firmware.h>. */
->  struct firmware;
+> --
+> 2.34.1
 >
-> +/* Forward declaration from <linux/pwrseq/consumer.h> */
-> +struct pwrseq_desc;
-> +
->  /**
->   * struct pvr_gpu_id - Hardware GPU ID information for a PowerVR device
->   * @b: Branch ID.
-> @@ -57,6 +60,14 @@ struct pvr_fw_version {
->         u16 major, minor;
->  };
->
-> +/**
-> + * struct pvr_device_data - Platform specific data associated with a compatible string.
-> + * @pwr_ops: Pointer to a structure with platform-specific power functions.
-> + */
-> +struct pvr_device_data {
-> +       const struct pvr_power_sequence_ops *pwr_ops;
-> +};
-> +
->  /**
->   * struct pvr_device - powervr-specific wrapper for &struct drm_device
->   */
-> @@ -98,6 +109,9 @@ struct pvr_device {
->         /** @fw_version: Firmware version detected at runtime. */
->         struct pvr_fw_version fw_version;
->
-> +       /** @device_data: Pointer to platform-specific data. */
-> +       const struct pvr_device_data *device_data;
-> +
->         /** @regs_resource: Resource representing device control registers. */
->         struct resource *regs_resource;
->
-> @@ -148,6 +162,14 @@ struct pvr_device {
->          */
->         struct reset_control *reset;
->
-> +       /**
-> +        * @pwrseq: Pointer to a power sequencer, if one is used.
-> +        *
-> +        * Note: This member should only be accessed when
-> +        * IS_ENABLED(CONFIG_POWER_SEQUENCING) is true.
-> +        */
-
-This looks like something that should be taken care of by the pwrseq interface?
-
-Ideally there should be stub functions, when CONFIG_POWER_SEQUENCING
-is unset, right?
-
-> +       struct pwrseq_desc *pwrseq;
-> +
->         /** @irq: IRQ number. */
->         int irq;
->
-> diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
-> index b058ec183bb30ab5c3db17ebaadf2754520a2a1f..af830e565646daf19555197df492438ef48d5e44 100644
-> --- a/drivers/gpu/drm/imagination/pvr_drv.c
-> +++ b/drivers/gpu/drm/imagination/pvr_drv.c
-> @@ -1480,15 +1480,37 @@ static void pvr_remove(struct platform_device *plat_dev)
->         pvr_power_domains_fini(pvr_dev);
->  }
->
-> +static const struct pvr_device_data pvr_device_data_manual = {
-> +       .pwr_ops = &pvr_power_sequence_ops_manual,
-> +};
-> +
-> +#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-
-Ditto.
-
-> +static const struct pvr_device_data pvr_device_data_pwrseq = {
-> +       .pwr_ops = &pvr_power_sequence_ops_pwrseq,
-> +};
-> +#endif
-> +
->  static const struct of_device_id dt_match[] = {
-> -       { .compatible = "img,img-rogue", .data = NULL },
-> +#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-
-Ditto.
-
-I don't see anything wrong with allowing the driver to probe with the
-compatible below.
-
-When it then tries to hook up a pwrseq handle and fails, then the
-probe function should fail. Right?
-
-> +       {
-> +               .compatible = "thead,th1520-gpu",
-> +               .data = &pvr_device_data_pwrseq,
-> +       },
-> +#endif
-> +       {
-> +               .compatible = "img,img-rogue",
-> +               .data = &pvr_device_data_manual,
-> +       },
->
->         /*
->          * This legacy compatible string was introduced early on before the more generic
->          * "img,img-rogue" was added. Keep it around here for compatibility, but never use
->          * "img,img-axe" in new devicetrees.
->          */
-> -       { .compatible = "img,img-axe", .data = NULL },
-> +       {
-> +               .compatible = "img,img-axe",
-> +               .data = &pvr_device_data_manual,
-> +       },
->         {}
->  };
->  MODULE_DEVICE_TABLE(of, dt_match);
-> @@ -1513,4 +1535,5 @@ MODULE_DESCRIPTION(PVR_DRIVER_DESC);
->  MODULE_LICENSE("Dual MIT/GPL");
->  MODULE_IMPORT_NS("DMA_BUF");
->  MODULE_FIRMWARE("powervr/rogue_33.15.11.3_v1.fw");
-> +MODULE_FIRMWARE("powervr/rogue_36.52.104.182_v1.fw");
->  MODULE_FIRMWARE("powervr/rogue_36.53.104.796_v1.fw");
-> diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
-> index 187a07e0bd9adb2f0713ac2c8e091229f4027354..58e0e812894de19c834e1dfca427208b343eaa1c 100644
-> --- a/drivers/gpu/drm/imagination/pvr_power.c
-> +++ b/drivers/gpu/drm/imagination/pvr_power.c
-> @@ -18,6 +18,9 @@
->  #include <linux/platform_device.h>
->  #include <linux/pm_domain.h>
->  #include <linux/pm_runtime.h>
-> +#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-> +#include <linux/pwrseq/consumer.h>
-> +#endif
->  #include <linux/reset.h>
->  #include <linux/timer.h>
->  #include <linux/types.h>
-> @@ -234,6 +237,132 @@ pvr_watchdog_init(struct pvr_device *pvr_dev)
->         return 0;
->  }
->
-> +static int pvr_power_init_manual(struct pvr_device *pvr_dev)
-> +{
-> +       struct drm_device *drm_dev = from_pvr_device(pvr_dev);
-> +       struct reset_control *reset;
-> +
-> +       reset = devm_reset_control_get_optional_exclusive(drm_dev->dev, NULL);
-> +       if (IS_ERR(reset))
-> +               return dev_err_probe(drm_dev->dev, PTR_ERR(reset),
-> +                                    "failed to get gpu reset line\n");
-> +
-> +       pvr_dev->reset = reset;
-> +
-> +       return 0;
-> +}
-> +
-> +static int pvr_power_on_sequence_manual(struct pvr_device *pvr_dev)
-> +{
-> +       int err;
-> +
-> +       err = clk_prepare_enable(pvr_dev->core_clk);
-> +       if (err)
-> +               return err;
-> +
-> +       err = clk_prepare_enable(pvr_dev->sys_clk);
-> +       if (err)
-> +               goto err_core_clk_disable;
-> +
-> +       err = clk_prepare_enable(pvr_dev->mem_clk);
-> +       if (err)
-> +               goto err_sys_clk_disable;
-> +
-> +       /*
-> +        * According to the hardware manual, a delay of at least 32 clock
-> +        * cycles is required between de-asserting the clkgen reset and
-> +        * de-asserting the GPU reset. Assuming a worst-case scenario with
-> +        * a very high GPU clock frequency, a delay of 1 microsecond is
-> +        * sufficient to ensure this requirement is met across all
-> +        * feasible GPU clock speeds.
-> +        */
-> +       udelay(1);
-> +
-> +       err = reset_control_deassert(pvr_dev->reset);
-> +       if (err)
-> +               goto err_mem_clk_disable;
-> +
-> +       return 0;
-> +
-> +err_mem_clk_disable:
-> +       clk_disable_unprepare(pvr_dev->mem_clk);
-> +
-> +err_sys_clk_disable:
-> +       clk_disable_unprepare(pvr_dev->sys_clk);
-> +
-> +err_core_clk_disable:
-> +       clk_disable_unprepare(pvr_dev->core_clk);
-> +
-> +       return err;
-> +}
-> +
-> +static int pvr_power_off_sequence_manual(struct pvr_device *pvr_dev)
-> +{
-> +       int err;
-> +
-> +       err = reset_control_assert(pvr_dev->reset);
-> +
-> +       clk_disable_unprepare(pvr_dev->mem_clk);
-> +       clk_disable_unprepare(pvr_dev->sys_clk);
-> +       clk_disable_unprepare(pvr_dev->core_clk);
-> +
-> +       return err;
-> +}
-> +
-> +const struct pvr_power_sequence_ops pvr_power_sequence_ops_manual = {
-> +       .init = pvr_power_init_manual,
-> +       .power_on = pvr_power_on_sequence_manual,
-> +       .power_off = pvr_power_off_sequence_manual,
-> +};
-> +
-> +#if IS_ENABLED(CONFIG_POWER_SEQUENCING)
-
-Again, this should not be needed. Instead, the call to
-devm_pwrseq_get() should return an error from a stub function if
-CONFIG_POWER_SEQUENCING is not set, right?
-
-The similar should apply to pwrseq_power_on|off(), right?
-
-> +static int pvr_power_init_pwrseq(struct pvr_device *pvr_dev)
-> +{
-> +       struct device *dev = from_pvr_device(pvr_dev)->dev;
-> +
-> +       pvr_dev->pwrseq = devm_pwrseq_get(dev, "gpu-power");
-> +       if (IS_ERR(pvr_dev->pwrseq)) {
-> +               /*
-> +                * This platform requires a sequencer. If we can't get it, we
-> +                * must return the error (including -EPROBE_DEFER to wait for
-> +                * the provider to appear)
-> +                */
-> +               return dev_err_probe(dev, PTR_ERR(pvr_dev->pwrseq),
-> +                                    "Failed to get required power sequencer\n");
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static int pvr_power_on_sequence_pwrseq(struct pvr_device *pvr_dev)
-> +{
-> +       return pwrseq_power_on(pvr_dev->pwrseq);
-> +}
-> +
-> +static int pvr_power_off_sequence_pwrseq(struct pvr_device *pvr_dev)
-> +{
-> +       return pwrseq_power_off(pvr_dev->pwrseq);
-> +}
-> +
-> +const struct pvr_power_sequence_ops pvr_power_sequence_ops_pwrseq = {
-> +       .init = pvr_power_init_pwrseq,
-> +       .power_on = pvr_power_on_sequence_pwrseq,
-> +       .power_off = pvr_power_off_sequence_pwrseq,
-> +};
-> +#else /* IS_ENABLED(CONFIG_POWER_SEQUENCING) */
-> +static int pvr_power_sequence_stub(struct pvr_device *pvr_dev)
-> +{
-> +       WARN_ONCE(1, "pwrseq support not enabled in kernel config\n");
-> +       return -EOPNOTSUPP;
-> +}
-> +
-> +const struct pvr_power_sequence_ops pvr_power_sequence_ops_pwrseq = {
-> +       .init = pvr_power_sequence_stub,
-> +       .power_on = pvr_power_sequence_stub,
-> +       .power_off = pvr_power_sequence_stub,
-> +};
-> +#endif /* IS_ENABLED(CONFIG_POWER_SEQUENCING) */
-
-Yeah, this looks really messy to me.
-
-If there is something missing in the pwrseq interface to make this
-simpler, let's add that instead of having to keep this if/def hacks
-around.
-
-[...]
-
-Other than the if/def hacks, I think this looks good to me!
-
-Kind regards
-Uffe
 
 _______________________________________________
 linux-riscv mailing list
