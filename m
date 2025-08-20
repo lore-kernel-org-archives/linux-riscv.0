@@ -4,66 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FF0CAC582
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 17:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 988DBCAC582
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 18:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qK1z95ynuvsxAAgSZtWNpO/cvW38WWzl6/8G4ED/RiI=; b=XfzKHuk/kHuNwMWW+1pwZa25yi
-	Zqn5ZmmWgEdROyhJS23vS/kJSDvueUal3DgD1j8LLS8+ALPrMaSUXf+YMqE1niAybDFZAbVL/BKbh
-	c6m1NnNbqTutWY80Sw6DTHB+RVr9RXE3ZLfq/3pJVgCqeSL3l7O3z/9obUQYQ/j0cS0qDIZ65QmgU
-	9iPyr8m3FxU3Pk2BP9YIa64VVP9mpAtoOmjD2mH7ZJ5SrL0p1ZlGuWMwXnVaYlKuuCWrhyf0CbPol
-	9RkX5ifZWFHPSDfwMDogpG414URAd+Lkjan2GyvDDoUb31HKbwNIP3wp31hkHWZ0eQcU5VdIzdfYi
-	L53C4BLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ic+waCzDoOryj6lGFyGWDNSaR/Q5mofKeA9KWCmbVsI=; b=E/Akd+QGmF9Lpe
+	kM1NvlJb8/7/xykKoHihLytB6P472rIYuhS8th/+BLU65H9COCsJKT7O6rKBdCEjdKBniE9bkQP/g
+	0q3k/ukfnEY3fWhIBTpFG4OLt+P+EuS27q4HnWjvk/Mqr04AwWq0bF+UaVSOhi9hGMyW1OJ/7WS5X
+	+Okyj0WoQyy2gbyVzRyqe5M9RGJqOqO2sardxdvY1MfiRCTKZvGKhUrcu2N9jXBbb4xqo57v8Mx6G
+	ddff9XLplvI6m/L4vB1ZPr608DLgGGmgi//y3182s9AYAKnfOoQflEoKnDAkb6/WzKQMT0sRKZWWI
+	vqjuHUdfiPfZswSI/SPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux83I-0000000AsLe-41Y3;
-	Fri, 12 Sep 2025 17:59:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ux8JU-0000000Avmb-3hIk;
+	Fri, 12 Sep 2025 18:16:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux83G-0000000AsKs-2DKT
-	for linux-riscv@lists.infradead.org;
-	Fri, 12 Sep 2025 17:59:15 +0000
+	id 1uomDF-0000000ETJg-0xOy;
+	Wed, 20 Aug 2025 17:03:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8778940239;
-	Fri, 12 Sep 2025 17:59:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 951C1C4CEF1;
-	Fri, 12 Sep 2025 17:59:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CCAA7601D7;
+	Wed, 20 Aug 2025 17:02:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A73AC113CF;
+	Wed, 20 Aug 2025 17:02:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757699953;
-	bh=NAZECHrYbl8mxswXcbpWQ0UVEYqlvkhivcyRhkS4tyo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ge59Wiowz9H3gLLSBo+dahVii80E4/vECJFWZRQtbtJuN3j362S/DYM+Ud0xxogdZ
-	 ioX3k4fSM4b4azMmh0t5h3FGFQqSfZoa4lN5bokDbvlL0c0ZBU1fLzG+iQ30SasfjF
-	 SFvYpABBc/aam/TRXxq9hTzO9kDkHnFSDWf5Ydq9mU8yJLsmIUo0XxwOjouN8p6XYh
-	 3dfjmZhHG1iECE2MxRKFaHwu1n86HehG1gQ3GRSYoZEW+ZMrHclf04H7w9F67fX97P
-	 lNJNZYd2A5ugopVoAcoT2QzVg/XQOU+xa7Y0TG8U8sPnxJAwc28nQIUHjsLYBTYIVO
-	 7VILswe79csvw==
-Date: Fri, 12 Sep 2025 18:59:08 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Han Gao <rabenda.cn@gmail.com>
-Cc: devicetree@vger.kernel.org, Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Han Gao <gaohan@iscas.ac.cn>
-Subject: Re: [PATCH 3/3] riscv: dts: thead: add zfh for th1520
-Message-ID: <20250912-verdict-croon-81ac20e5b621@spud>
-References: <20250911184528.1512543-1-rabenda.cn@gmail.com>
- <20250911184528.1512543-4-rabenda.cn@gmail.com>
+	s=k20201202; t=1755709379;
+	bh=Zv4ujPO3KQCQ/S/zZ+87yMEeTHGtDtwjmsw35eFBLPg=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Dr1d03/ztQZzehnuA3pVpw7eG2apfzSIzXWZn4V8PSF/oxOnzaMyj6VZxDgQ3XY0C
+	 nca+A2IJDoLbxKo30R/YmbItPPf92i6LVVRW7LTdmYn+yLP3bLCTrV977h9BaHEtKx
+	 NXa2PCl2PJ+9sKMlIBp1C0l2xmBSHRNp1Ot+Slf6644+zsAzHmD5BYUvfwKZ1SqBPg
+	 b3bNilTK6GPtQRkA2c0x0ltTwqwessPnwFUwQuinpUV1sWYrBj8/SGJJQ8Wlda48Mw
+	 vcZIdxxAkqbQkwlZ9DlQZ/Zs8lvh3SMTfcqlJlRdXT5KDCZbCRFgNoX/rafdY4my5h
+	 Ujim+Xbb9lOhA==
+From: Vinod Koul <vkoul@kernel.org>
+To: linux-kernel@vger.kernel.org, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Mark Brown <broonie@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Alim Akhtar <alim.akhtar@samsung.com>, Andrea della Porta <andrea.porta@suse.com>, =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, Andy Shevchenko <andy@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, Avi Fishman <avifishman70@gmail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, Benjamin Fair <benjaminfair@google.com>, Bjorn Andersson <andersson@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, David Airlie <airlied@gmail.com>, David Lechner <dlechner@baylibre.com>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, Drew Fustini <fustini@kernel.org>, dri-devel@lists.freedesktop.org, Fabio Estevam <festevam@gmail.com>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>, Hans Verkuil <hverkuil@kernel.org>, =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, imx@lists.linux.dev, Iwona Winiarska <iwona.winiarska@intel.com>, Jaroslav Kysela <perex@perex.cz>, Jassi Brar <jassisinghbrar@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Jerome Brunet <jbrunet@baylibre.com>, Jonas Karlman <jonas@kwiboo.se>, Jonathan Cameron <jic23@kernel.org>, Kevin Hilman <khilman@baylibre.com>, Kishon Vijay Abraham I <kishon@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, linux-actions@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, linux-input@vger.kernel.org, linux-media@vger.kernel.org, linux-mmc@vger.kernel.org, linux-phy@lists.infradead.org, linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-rtc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, linux-sound@vger.kernel.org, linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, Liu Ying <victor.liu@nxp.com>, Lukasz Luba <lukasz.luba@arm.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Manivannan Sadhasivam <mani@kernel.org>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Maxime Ripard <mripard@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Miquel Raynal <miquel.raynal@bootlin.com>, Nancy Yuen <yuenn@google.com>, Neil Armstrong <neil.armstrong@linaro.org>, Nicolin Chen <nicoleotsuka@gmail.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, openbmc@lists.ozlabs.org, Patrick Venture <venture@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Philipp Zabel <p.zabel@pengutronix.de>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Robert Foss <rfoss@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Samuel Holland <samuel@sholland.org>, Sandy Huang <hjc@rock-chips.com>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Shengjiu Wang <shengjiu.wang@gmail.com>, Simona Vetter <simona@ffwll.ch>, Stephen Boyd <sboyd@kernel.org>, Takashi Iwai <tiwai@suse.com>, Tali Perry <tali.perry1@gmail.com>, Thomas Zimmermann <tzimmermann@suse.de>, Tomer Maimon <tmaimon77@gmail.com>, Ulf Hansson <ulf.hansson@linaro.org>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Vasily Khoruzhick <anarsoul@gmail.com>, Vladimir Zapolskiy <vz@mleia.com>, Xiubo Li <Xiubo.Lee@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>, Zhang Rui <rui.zhang@intel.com>
+In-Reply-To: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
+References: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
+Subject: Re: (subset) [PATCH 00/21] treewide: remove unneeded 'fast_io'
+ parameter in regmap_config
+Message-Id: <175570934550.66459.15951444863822303407.b4-ty@kernel.org>
+Date: Wed, 20 Aug 2025 22:32:25 +0530
 MIME-Version: 1.0
-In-Reply-To: <20250911184528.1512543-4-rabenda.cn@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250912_105914_606336_C85DB3BC 
-X-CRM114-Status: GOOD (  15.32  )
+X-Mailer: b4 0.13.0
+X-Mailman-Approved-At: Fri, 12 Sep 2025 11:15:59 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,112 +65,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3143623879626328832=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3143623879626328832==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="b5pIc3q2NffjnH9i"
-Content-Disposition: inline
+On Wed, 13 Aug 2025 18:14:46 +0200, Wolfram Sang wrote:
+> While working on a driver using regmap with MMIO, I wondered if I need
+> to set 'fast_io' in the config. Turned out I don't need to, so I added
+> documentation for it with commit ffc72771ff6e ("regmap: Annotate that
+> MMIO implies fast IO").
+> 
+> This series fixes the existing users in the tree which needlessly set
+> the flag. They have been found using this coccinelle script:
+> 
+> [...]
+
+Applied, thanks!
+
+[12/21] phy: remove unneeded 'fast_io' parameter in regmap_config
+        commit: e1e1e77f7df7cbee959ba024e5475907fe561c98
+
+Best regards,
+-- 
+~Vinod
 
 
---b5pIc3q2NffjnH9i
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Sep 12, 2025 at 02:45:28AM +0800, Han Gao wrote:
-> th1520 support Zfh ISA extension [1].
->=20
-> Link: https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1737721=
-869472/%E7%8E%84%E9%93%81C910%E4%B8%8EC920R1S6%E7%94%A8%E6%88%B7%E6%89%8B%E=
-5%86%8C%28xrvm%29_20250124.pdf [1]
-
-Could you please cite the section that this is detailed in?
-
->=20
-> Signed-off-by: Han Gao <rabenda.cn@gmail.com>
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> ---
->  arch/riscv/boot/dts/thead/th1520.dtsi | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
->=20
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/=
-thead/th1520.dtsi
-> index 7f07688aa964..2075bb969c2f 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -26,7 +26,7 @@ c910_0: cpu@0 {
->  			riscv,isa-base =3D "rv64i";
->  			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c",
->  					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->  					       "xtheadvector";
->  			thead,vlenb =3D <16>;
->  			reg =3D <0>;
-> @@ -53,7 +53,7 @@ c910_1: cpu@1 {
->  			riscv,isa-base =3D "rv64i";
->  			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c",
->  					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->  					       "xtheadvector";
->  			thead,vlenb =3D <16>;
->  			reg =3D <1>;
-> @@ -80,7 +80,7 @@ c910_2: cpu@2 {
->  			riscv,isa-base =3D "rv64i";
->  			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c",
->  					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->  					       "xtheadvector";
->  			thead,vlenb =3D <16>;
->  			reg =3D <2>;
-> @@ -107,7 +107,7 @@ c910_3: cpu@3 {
->  			riscv,isa-base =3D "rv64i";
->  			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c",
->  					       "ziccrse", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm",
-> +					       "zifencei", "zihpm", "zfh",
->  					       "xtheadvector";
->  			thead,vlenb =3D <16>;
->  			reg =3D <3>;
-> --=20
-> 2.47.3
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---b5pIc3q2NffjnH9i
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMRfbAAKCRB4tDGHoIJi
-0gr1AQDn94lY15gXhvjAqX086W8aphAAVGa73ZrLqmyznyWS9QD/a6zFwVSlSV+C
-TDWMts0ppc63CwGlT0Ixd1N2hyU89AI=
-=Vc25
------END PGP SIGNATURE-----
-
---b5pIc3q2NffjnH9i--
-
-
---===============3143623879626328832==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3143623879626328832==--
-
