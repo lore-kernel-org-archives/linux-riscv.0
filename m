@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 761F0CA0EDC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 07:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F97CCA0EDC
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 07:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w03m3oI9fCDNOU1flv9x9Jwu04cXTVQnqFjzz6LAJxM=; b=sQstyPmN9Vb+aK
-	/C5GRXxLQ+iac5hgasjzFxUxL2K2KkuM/hdB5zQcm1ffwxG1jVf4ilNpZUnyCBjwOfx7KFvGu3KPB
-	W8LM3ft1TfIk69oFmR6vnrlsYsZtGXNjWyfvKX6U08wsrYX99GhCbXmrWuBKlcz95PpxtiffC1HWF
-	MeUSLwDX+71RH0RXCTEyk8T0n2xt1ehY7rikvF4BiqQwkQlprDtEJqWceysopUYQ8CpJii8xCItiX
-	hSrgtqg0hcHxm9BdK06EXUZC4OamTo+1LtNtdeKV4xEfLlr44BDpic36JxGo5zQZuFSB+jpFVLQv6
-	1462Y9KsTDf/EY9ynk2g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:From:To:Mime-Version:Subject:
+	Message-Id:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=roPzyoX/+oiCCIKC8TAes+mBilkaTpJe3nJuQW4ctFQ=; b=GMh7T4c+1MJQvs
+	VpHxbvMUEZrqYSobLUycd2KGYlHUUMriZBLi9fqY88xojCF77RhmYPqMjdYNFM5CRoiFRJy9PCohk
+	mNVFvZD33McDQk9Cv3KpsMgk3skIFv2q7lr3FlMn509L+Wn5pTGzj67mpUYz5Rop22Vjx6VlCqAFs
+	tRtCbuJNs3MyyxujNxr/h215CThw9/bnGRWW95Nzkw47sXdXcUbcRzgd+2fQCRqtGrYTdCIIVX8w2
+	cR8q+2yhz6HUX+tp8QSQzO6E3zrdgLUtm48WAOEBrXJ6slmaJVkYQJA0qnVcmNzNA62LRbk+P2b12
+	l9fUjiETz1IpUeKutUFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uodOS-0000000CcU6-0171;
-	Wed, 20 Aug 2025 07:38:00 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1uodOR-0000000CcTw-1gjo;
+	Wed, 20 Aug 2025 07:37:59 +0000
+Received: from sg-3-13.ptr.tlmpb.com ([101.45.255.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uodAA-0000000Cb7r-1Jx5
+	id 1uodA7-0000000Cb7Y-0K5T
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 07:23:15 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1BD45442D0;
-	Wed, 20 Aug 2025 07:23:08 +0000 (UTC)
-Message-ID: <8078e385-e08e-40a5-b6df-31c0b5be8f43@ghiti.fr>
-Date: Wed, 20 Aug 2025 09:23:08 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/10] riscv: Remove version check for LTO_CLANG selects
-To: Nathan Chancellor <nathan@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev, patches@lists.linux.dev,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-References: <20250818-bump-min-llvm-ver-15-v1-0-c8b1d0f955e0@kernel.org>
- <20250818-bump-min-llvm-ver-15-v1-7-c8b1d0f955e0@kernel.org>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250818-bump-min-llvm-ver-15-v1-7-c8b1d0f955e0@kernel.org>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduheejjeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeejveeuuddtuedtffevkeevteelffelueeiveeitdevieejgeffteekkeevhedugfenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhgihhthhhusgdrtghomhdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtdegmegtvggttdemuddvudgumehfvdefvdemjegufhekmegsfhegsgemgeeliegvmeduugegsgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtgeemtggvtgdtmeduvdduugemfhdvfedvmeejughfkeemsghfgegsmeegleeivgemudgugegspdhhvghloheplgfkrfggieemvdgrtdegmegtvggttdemuddvudgumehfvdefvdemjegufhekmegsfhegsgemgeeliegvmeduugegsggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddvpdhrtghpthhtohepnhgrthhhrghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrkhhpmheslhhin
- hhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprghrnhgusegrrhhnuggsrdguvgdprhgtphhtthhopehkvggvsheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhhitghkrdguvghsrghulhhnihgvrhhsodhlkhhmlhesghhmrghilhdrtghomhdprhgtphhtthhopehmohhrsghosehgohhoghhlvgdrtghomhdprhgtphhtthhopehjuhhsthhinhhsthhithhtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+	Wed, 20 Aug 2025 07:23:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1755674578;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=kZxmK5a1KAqXLehUVFYamep8ylDTy8+Ik5zqiesTQDU=;
+ b=IgYdjih8GFgXd6SQ7J2LREnUtlpk4CyEinPz89A6jfxoWT7MLKIPG5kLzwpvrZKgIWjkXZ
+ XNr0/Cb4kMsDAP0Und0ltZhp36ebGxNWEiir+IMvZEFMbBEVLYiubafr7/5q6dM4e3sTH0
+ EsTdik+gW3KTIQR9t2alMhzkTTudM8YybE52d0P0XCJ5dJaGLKrYa/gIBXDt45Tu19RcTT
+ iOVISBM75NAR/PHSeJJ4ab0h7/ehCdA6EydL6My+SYGd0GjDIwQJw5xtkPTeMiwInJIrX0
+ Ms/ogbfZTd07l67plJsZGscyYYAWgVkLlGr5SWolMyhTq91SCGSrPcUkkVGoww==
+Cc: <markus.elfring@web.de>, <joro@8bytes.org>, <will@kernel.org>, 
+	<robin.murphy@arm.com>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <iommu@lists.linux.dev>, 
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
+	<huangxianliang@lanxincomputing.com>
+Message-Id: <20250820072248.312-1-huangxianliang@lanxincomputing.com>
+Subject: [PATCH v4] iommu/riscv: prevent NULL deref in iova_to_phys
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.34.1
+To: <tjeznach@rivosinc.com>
+Received: from LeonHXL.localdomain ([116.237.111.137]) by smtp.feishu.cn with ESMTPS; Wed, 20 Aug 2025 15:22:55 +0800
+From: "XianLiang Huang" <huangxianliang@lanxincomputing.com>
+Date: Wed, 20 Aug 2025 15:22:48 +0800
+X-Lms-Return-Path: <lba+268a577d0+54257f+lists.infradead.org+huangxianliang@lanxincomputing.com>
+X-Original-From: XianLiang Huang <huangxianliang@lanxincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_002314_491754_28968BAA 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20250820_002311_511388_D3936E25 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,70 +67,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nathan,
+The riscv_iommu_pte_fetch() function returns either NULL for
+unmapped/never-mapped iova, or a valid leaf pte pointer that requires no
+further validation.
 
-On 8/18/25 20:57, Nathan Chancellor wrote:
-> Now that the minimum supported version of LLVM for building the kernel
-> has been bumped to 15.0.0, there is no need to check the LLD version
-> before selecting ARCH_SUPPORTS_LTO_CLANG{,_THIN} because it will always
-> be true.
->
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Alexandre Ghiti <alex@ghiti.fr>
-> Cc: linux-riscv@lists.infradead.org
->
-> Small note, this will conflict with
-> https://lore.kernel.org/20250710-riscv-restrict-lto-to-medany-v1-1-b1dac9871ecf@kernel.org/
-> but I think it is simple enough to deal with.
+riscv_iommu_iova_to_phys() failed to handle NULL returns. Prevent null pointer
+dereference in riscv_iommu_iova_to_phys(), and remove the pte validation.
 
+Fixes: 488ffbf18171 ("iommu/riscv: Paging domain support")
+Cc: Tomasz Jeznach <tjeznach@rivosinc.com>
+Signed-off-by: XianLiang Huang <huangxianliang@lanxincomputing.com>
+---
+Changes
+v4:
+- Change the summary as Markus recommends
 
-FYI, I'll send this patch for some 6.17-rcX.
+v3:
+- Remove redundant pte validation in riscv_iommu_iova_to_phys
+- Improve subject line to emphasize prevention
 
+v2:
+- Refine problem description
+- Add "Fixes" tag
+---
+ drivers/iommu/riscv/iommu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> ---
->   arch/riscv/Kconfig | 5 ++---
->   1 file changed, 2 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index a4b233a0659e..1d53bf02d0fa 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -64,9 +64,8 @@ config RISCV
->   	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
->   	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
->   	select ARCH_SUPPORTS_HUGETLBFS if MMU
-> -	# LLD >= 14: https://github.com/llvm/llvm-project/issues/50505
-> -	select ARCH_SUPPORTS_LTO_CLANG if LLD_VERSION >= 140000
-> -	select ARCH_SUPPORTS_LTO_CLANG_THIN if LLD_VERSION >= 140000
-> +	select ARCH_SUPPORTS_LTO_CLANG
-> +	select ARCH_SUPPORTS_LTO_CLANG_THIN
->   	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS if 64BIT && MMU
->   	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
->   	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
->
-
-I found another bunch of LLD_VERSION check in this file that could be 
-removed:
-
-https://elixir.bootlin.com/linux/v6.17-rc2/source/arch/riscv/Kconfig#L253
-https://elixir.bootlin.com/linux/v6.17-rc2/source/arch/riscv/Kconfig#L262
-https://elixir.bootlin.com/linux/v6.17-rc2/source/arch/riscv/Kconfig#L630
-https://elixir.bootlin.com/linux/v6.17-rc2/source/arch/riscv/Kconfig#L731
-https://elixir.bootlin.com/linux/v6.17-rc2/source/arch/riscv/Kconfig#L746
-https://elixir.bootlin.com/linux/v6.17-rc2/source/arch/riscv/Kconfig#L781
-https://elixir.bootlin.com/linux/v6.17-rc2/source/arch/riscv/Kconfig#L804
-
-Thanks,
-
-Alex
-
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index 2d0d31ba2886..0eae2f4bdc5e 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1283,7 +1283,7 @@ static phys_addr_t riscv_iommu_iova_to_phys(struct iommu_domain *iommu_domain,
+ 	unsigned long *ptr;
+ 
+ 	ptr = riscv_iommu_pte_fetch(domain, iova, &pte_size);
+-	if (_io_pte_none(*ptr) || !_io_pte_present(*ptr))
++	if (!ptr)
+ 		return 0;
+ 
+ 	return pfn_to_phys(__page_val_to_pfn(*ptr)) | (iova & (pte_size - 1));
+-- 
+2.34.1
 
 _______________________________________________
 linux-riscv mailing list
