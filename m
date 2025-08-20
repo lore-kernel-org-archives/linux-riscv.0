@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA62CA0EDC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 18:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313D4CA0EE4
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 18:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hVu+diQ1JTBeHoeif8uk+jFPeaIXcWKaeIPZeBXe30g=; b=J8sW+gje4LcAxX
-	pqa4tu7tjqIY+tABB8U279aNWlC2CBw4qvmykuUEi9hyiFVUCAXT4B27fffpDHximXojPn3yWtV8D
-	S1zAjLl7QpIPN2Rhw+PVDw1u+knYQpVFmIkOqz4kATD2G6naBVxd7fOV30AoJo5F5tLSAF73OulKn
-	ou/I8PmW7NESw9BmgpDynyapztAnZ/EXw4t916OqXbDSFMej0GcXullNmoum+/pknTiEpwY4ial1r
-	mNwVSGTL4ahPXw2bL44zjKHBrMogYGpFqCXip2H3QuJM2c9U2jCwsBXM4VvpPfDeEShUzBY+2/eS5
-	KL8NL6LmMevEIFpMM7lA==;
+	List-Owner; bh=naIjdpQ1gJvGkXsciZ1PaP7H2xRhSzPyySyYF/DJ9z4=; b=P+iTfGwjCvY7Db
+	0T4l5zF4o2E0LQBQbxtprJSkLyRHdAPzB2LhT+8hSFRTcfN29QVbQrwOim3iku28AkHCF4DpUsUeP
+	S/KJhupMmDNGXdjlwU7rZoj1zWIoRCmjLp5v/TKOjh1OLmJlvqvh8MpLOJRuYJrR4mhxhriyybpoC
+	hor3iquATUD+R1jyQ3wH1SOMvuQYbQVppNSXU4TJVZ5lZ5612cXUOXyCrHlw8e8HdK0AjEJ5qUeHF
+	cxc571btOjEe3rZW+VrHlhvfB2qWjRlVgM6NOhsjOc9eBLrTKtLDDvTFuDUJ0l4lhacxQsozzpSQZ
+	891StNRvEpeYpjpUeSKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoo0Q-0000000Ej71-0QFB;
+	id 1uoo0Q-0000000Ej7X-2tWL;
 	Wed, 20 Aug 2025 18:57:54 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokrz-0000000EHaB-3QKb
+	id 1uokxr-0000000EIEB-2xHO
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 15:37:01 +0000
-Received: from [192.168.0.110] (unknown [114.241.87.235])
-	by APP-05 (Coremail) with SMTP id zQCowAAXq1uV66VopRy+DQ--.7550S2;
-	Wed, 20 Aug 2025 23:36:54 +0800 (CST)
-Message-ID: <800585ca-29ff-40ef-bddd-8cc14806dbb1@iscas.ac.cn>
-Date: Wed, 20 Aug 2025 23:36:54 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/6] riscv: bitops: Convert to use_alternative_likely
-To: Yury Norov <yury.norov@gmail.com>
+	Wed, 20 Aug 2025 15:43:04 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-244581c3b43so59261715ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Aug 2025 08:43:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755704583; x=1756309383; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=/HYcUpkMkv94h2XbvkcDPME37XSxTyvkygwYUU+N7Xk=;
+        b=k4EJnqESA7hGGyAp7/UdP/JLylh+o6pRw/9nIffvXGU/rzapXYqFwZ44Hy8OEhuHuE
+         TSjuX47BrBntizilwp0lHgTjWu9YlcaP8ZKQgAHnv7DGSwSqoA3O0h35Rbx2bIEG6ewT
+         cObSfiRAyrnV6EB4iG+yM94q2GxN1nZ78P+Er9tlSt1bnUwfS3RaZl8Vrc8J0L1K68pS
+         hREVeeVHChKcnkkQuJ+kR3SJXtYNyYyMoVzYMj4NMo9BzEiT+WKDuv9TqGPnfB59ixwp
+         wF0BmiDD7A5UfdNsG9I1Sa00umIX0fBLL4dV2D21ug+YCuoNz6XlMK7Oz8MafNJMtbTT
+         U5HQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755704583; x=1756309383;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/HYcUpkMkv94h2XbvkcDPME37XSxTyvkygwYUU+N7Xk=;
+        b=BE70HOzUAAsNXFW7eBtMkJJcV6EqArRGZyVZszApX9CFbsZ2Pp5ZCR9S1e3xijRgTO
+         HnlECaQwBEfRir0zONJTN4gC3wIAYDHUCrsyvkQy1DmqvIXAM84SPDuAIePSuP8RSBEA
+         /Tra8I7nThx8wiE3FwBnKBmlYAqdJpLeGmw7kWGjOAitFNJ4vZalL1n7DJdliljh/9Wb
+         Kx/k4Ryc8846PWv0kw5PqNFjhmDEjGQQgAAex0q/0Z2TmXdgBIkv1/JtE7CgPvWasKtz
+         ue5I7dq2J6y0g17SSwk+zx58CBVmmJdpl5N+RDQYqcZV3XiPS6L6KI4r5el8pNsCZJcT
+         6A4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVL+HcnLyAkmWzK/ZjXgAPZjV3oeQ/gMEUJ5+4t0Q0GnC0vDbv2kLJBemPgls4lV5+3XkG4rspkp30DPQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSOoEM3U99r/frKEAA/lWG+xdMN3Z7epoYOFieFIEHfS+v2aEu
+	if2FFsbwBoUsIQamzhpGQ0twSiNZFgys243L5Wf46YTnBufQLxNtOG6m
+X-Gm-Gg: ASbGncv42EVJm7z8W7SslbDhzlBDMR3rc3m/7WO5V6krZ4/3z1kaLnA73XvspQ0emEG
+	UuDgkLyEjYdguIWSJIAM6dqN2qXg9mGsrg9SQnKAUDY4D4Hz7/+yMb5dgIgYceJjgoyIA1dGT1i
+	QDhdzlS8Dmv9zzj8HKqGUchoS0gQD0iha5cgksrVzjxHcRPZZLU4m5nXUmmktuXieW+I3yqVeWN
+	9tWSd8gUBVpsSk6nshmJkuRA1phSgPkTjngSELi9Q+ABA+Xer8TPFn33HpDpeJCGnP9yKXLhgwr
+	4eh2S+4QN9dRv0ETWvkssJDDprneAePePoxhQ7D7gnuUcXcKtGHTOwcc9OzFrk+CtRdo8joncpb
+	Izn3HAPC+p5Cxwj+i9ybnfQ==
+X-Google-Smtp-Source: AGHT+IH6gZ26DxE2JLewlQcM21xboqntWHSUL7OzhgIsIqZtImyMgE5DwLxxAppSG+MW2AGNfYQzcQ==
+X-Received: by 2002:a17:903:1b07:b0:235:eb8d:7fff with SMTP id d9443c01a7336-245ef225a57mr41050265ad.28.1755704582780;
+        Wed, 20 Aug 2025 08:43:02 -0700 (PDT)
+Received: from localhost ([216.228.127.129])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-245ed4c75c9sm29939385ad.87.2025.08.20.08.43.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 Aug 2025 08:43:02 -0700 (PDT)
+Date: Wed, 20 Aug 2025 11:43:00 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Rasmus Villemoes
- <linux@rasmusvillemoes.dk>, Vivian Wang <uwu@dram.page>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Vivian Wang <uwu@dram.page>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?utf-8?B?QXlkxLFu?= Mercan <aydin@mercan.dev>
+Subject: Re: [PATCH 1/6] riscv: Introduce use_alternative_{likely,unlikely}
+Message-ID: <aKXtBJ5Aqqmvdc1B@yury>
 References: <20250820-riscv-altn-helper-wip-v1-0-c3c626c1f7e6@iscas.ac.cn>
- <20250820-riscv-altn-helper-wip-v1-5-c3c626c1f7e6@iscas.ac.cn>
- <aKXj_zTwvk0SwUpV@yury>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <aKXj_zTwvk0SwUpV@yury>
-X-CM-TRANSID: zQCowAAXq1uV66VopRy+DQ--.7550S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxZF4UZry5Aw47ZFWfAry5Jwb_yoW5Gw13pF
-	n3K3ZxCFWkGa4fu3Zrtw1qgr1Fy397G343Gr9agr1kXF1qk3ySyr15K3WrCryrAFWvv34I
-	vr4UCa4rC3Z8uFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUk2b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCY1x0262kKe7AKxVWUtVW8ZwCF04k2
-	0xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI
-	8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41l
-	IxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIx
-	AIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2
-	jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxUqVcEUUUUU
-X-Originating-IP: [114.241.87.235]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+ <20250820-riscv-altn-helper-wip-v1-1-c3c626c1f7e6@iscas.ac.cn>
+ <aKXiH1eqGliLNb8u@yury>
+ <544577b2-6810-4bef-b588-e1c662d5be13@iscas.ac.cn>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <544577b2-6810-4bef-b588-e1c662d5be13@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_083700_228228_B749DBC8 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20250820_084303_742085_9E706ADF 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,96 +102,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/20/25 23:04, Yury Norov wrote:
+> > This 'unlikely' version is just an negation of 'likely' one, and it
+> > looks like an attempt to save on one negation. On the other hand, the
+> > function is __always_inline, which means that compiler should normally
+> > take care of it. Can you prove with objdump that it really works as
+> > intended? I mean that =
 
-> On Wed, Aug 20, 2025 at 09:44:49PM +0800, Vivian Wang wrote:
->> Use use_alternative_likely() to check for RISCV_ISA_EXT_ZBB, replacing
->> the use of asm goto with ALTERNATIVE.
->>
->> The "likely" variant is used to match the behavior of the original
->> implementation using ALTERNATIVE("j %l[legacy]", "nop", ...).
->>
->> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
->> ---
->>  arch/riscv/include/asm/bitops.h | 112 ++++++++++++++++++----------------------
->>  1 file changed, 50 insertions(+), 62 deletions(-)
->>
->> diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
->> index d59310f74c2ba70caeb7b9b0e9221882117583f5..0257d547a96293909d90b017c8a48b508d0fd642 100644
->> --- a/arch/riscv/include/asm/bitops.h
->> +++ b/arch/riscv/include/asm/bitops.h
->> @@ -47,20 +47,17 @@
->>  
->>  static __always_inline unsigned long variable__ffs(unsigned long word)
->>  {
->> -	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
->> -				      RISCV_ISA_EXT_ZBB, 1)
->> -			  : : : : legacy);
->> -
->> -	asm volatile (".option push\n"
->> -		      ".option arch,+zbb\n"
->> -		      "ctz %0, %1\n"
->> -		      ".option pop\n"
->> -		      : "=r" (word) : "r" (word) :);
->> -
->> -	return word;
->> -
->> -legacy:
->> -	return generic___ffs(word);
->> +	if (use_alternative_likely(0, RISCV_ISA_EXT_ZBB)) {
-> I don't think that 'likely' is used properly here. The likely/unlikely
-> wording has a meaning of a hint to the compiler:
->
->         if (unlikely(WARN_ON(cond))
->                 goto err;
->
-> In your case, it's just meaningless, because whatever is 'likely' for
-> one CPU, will be always 'unlikely' for another. 
+> >
+> >         if (use_alternative_unlikely())
+> >                 do_something();
+> >
+> > generates a better code than =
 
-As mentioned in the reply for patch 1, I do believe that unfortunately
-we currently have no way of leaving the decision up to the compiler, so
-we have to pick one. The situation is similar to
-static_branch_{likely,unlikely}.
+> >         =
 
-So I have preserved the original choice made here: The original asm goto
-uses the "likely" pattern, so I kept it as "likely".
+> >         if (!use_alternative_likely())
+> >                 do_something();
+> =
 
->> +		asm volatile (".option push\n"
->> +			      ".option arch,+zbb\n"
->> +			      "ctz %0, %1\n"
->> +			      ".option pop\n"
->> +			      : "=r" (word) : "r" (word) :);
->> +
->> +		return word;
->> +	} else {
->> +		return generic___ffs(word);
->> +	}
->>  }
-> This tabs wipe most of the history. Can you reorganize your patch
-> such that it preserves as much history as you can?
->
->         if (use_alternative_unlikely(...))
->                 return generic___ffs();
->
->         asm volatile (".option push\n"
->                       ".option arch,+zbb\n"
->                       "ctz %0, %1\n"
->                       ".option pop\n"
->                       : "=r" (word) : "r" (word) :);
->
->         return word;
->
-> And so on.
+> use_alternative_likely() and=A0use_alternative_unlikely() are not
+> negations of each other and in fact should be functionally equivalent. I
+> also briefly explained the difference in the comment, but the difference
+> is which case is nop i.e. fallthrough, and which case requires a jump
+> instruction. The likely case should get a "nop", and the unlikely case
+> should get a "j %l[...]". This choice does work as intended [1].
+> =
 
-Thanks for the tip, I'll give it a go at minimizing the diff for v2.
+> I don't think it is possible to give both options to the compiler, so at
+> least for now AIUI users have to pick one.
+> =
 
-Vivian "dramforever" Wang
+> The same applies to __riscv_has_extension_{likely,unlikely}.
+> =
 
+> Vivian "dramforever" Wang
+> =
+
+> [1]: https://godbolt.org/z/v8zTEhzTx
+
+I realize that likely and unlikely versions generate different code,
+I'm just not convinced that
+
+1. it works in real kernel as intended, not only in the godbold; and
+2. has any measurable impact.
+
+That's why I asked you to share objdump and possibly perf tests.
 
 _______________________________________________
 linux-riscv mailing list
