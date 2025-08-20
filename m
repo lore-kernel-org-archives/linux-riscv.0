@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B93AECA0EED
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 14:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC7DCA0EE4
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 14:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=763JPD63EKXIt+uvG5kIWaoiv81lqL5so4cGsvRjmJM=; b=bvR+nm8HsjymKc
-	VhilGYyswdTVFirJlHRl67mQTFcDEkGqmSVGsH4KhjRnuDw+xXdsG6OvXfH8eWV6dNXkNLXJhBDaS
-	MV6rOKrGztvHgVubNzq/IUgZR5KZreUmMgGJHgwivgzMVdegE1QUCCvBJOq6Q0hMC9IYpruFvVMsS
-	WbVF/YyKgcxA8HUIqvpsJobvC/DbJYfCxXt4ZntdUZ3iZ6Elyhm0W29S9PqZY5nmv5EFBOGtEeoJF
-	R1pUp4P7l0uH1wqwRKUhOCDKDN9uwTQXqggdFfV7QP0KSY0vk/wsDbceBUQDy+IpMccIyIndDuRNE
-	eZvZ5hy+/E1bS8mC2CzA==;
+	List-Owner; bh=o6SmOB/7O+5vUXWCMqwc2Fk+MzvwAJmMKyS8xbdcRQc=; b=XKOSAGRtl1hYt+
+	/VQ5bUlB5f/BywXf/WWcU1qZGl4ZFWj6lsYRFWfz48rObVqxbt1LDfkvJSuvSRlhRNhJPWfL9P2A8
+	db6fuwFmvogDT3c1k7Q5UXNs2nPTAUW/6gv0Tz99as3JXn2wZnSGAwmk0kMALlSXTTfD6E5ILdUhF
+	5OE1IxCfidBBGdez3kinFP2eV34XNfhUuxaohvd7JQUVop2KR7TK6/4UIikI4rIjdcTzDGTtDb/ai
+	1Vxf5aK4EDj13jQbYhpzKdeutI4auqnfwNwfcF5p5V9WarIeTijIB/I3vooeoMkOyu9gYuUvS729Q
+	heDKzW+nhwu8jGgQaLhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojw6-0000000E6mJ-1F6J;
+	id 1uojw6-0000000E6mg-3h72;
 	Wed, 20 Aug 2025 14:37:10 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoj7Z-0000000DsQZ-2MaT
+	id 1uoj7Z-0000000DsQY-2HsG
 	for linux-riscv@lists.infradead.org;
 	Wed, 20 Aug 2025 13:44:59 +0000
 Received: from [127.0.0.2] (unknown [114.241.87.235])
-	by APP-01 (Coremail) with SMTP id qwCowABHN6tT0aVogOTBDQ--.24665S3;
+	by APP-01 (Coremail) with SMTP id qwCowABHN6tT0aVogOTBDQ--.24665S4;
 	Wed, 20 Aug 2025 21:44:52 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Wed, 20 Aug 2025 21:44:45 +0800
-Subject: [PATCH 1/6] riscv: Introduce use_alternative_{likely,unlikely}
+Date: Wed, 20 Aug 2025 21:44:46 +0800
+Subject: [PATCH 2/6] riscv: pgtable: Convert to use_alternative_unlikely
 MIME-Version: 1.0
-Message-Id: <20250820-riscv-altn-helper-wip-v1-1-c3c626c1f7e6@iscas.ac.cn>
+Message-Id: <20250820-riscv-altn-helper-wip-v1-2-c3c626c1f7e6@iscas.ac.cn>
 References: <20250820-riscv-altn-helper-wip-v1-0-c3c626c1f7e6@iscas.ac.cn>
 In-Reply-To: <20250820-riscv-altn-helper-wip-v1-0-c3c626c1f7e6@iscas.ac.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -42,16 +42,15 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
  Alexandre Ghiti <alex@ghiti.fr>, Yury Norov <yury.norov@gmail.com>, 
  Rasmus Villemoes <linux@rasmusvillemoes.dk>
 Cc: Vivian Wang <wangruikang@iscas.ac.cn>, Vivian Wang <uwu@dram.page>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Ayd=C4=B1n_Mercan?= <aydin@mercan.dev>
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-CM-TRANSID: qwCowABHN6tT0aVogOTBDQ--.24665S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxAr4fWF4rXw45Ar43JF1UKFg_yoW5Ww4UpF
-	s3Ga45AFZ5G3WIyF9xZw1qqr4Yk3yfK3sxXasxKF1jka1jy3yrtr18Jr4Yvr9rA3sxWry7
-	JFn7t3W8C3WjkFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmj14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+X-CM-TRANSID: qwCowABHN6tT0aVogOTBDQ--.24665S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxJFWUKFWUWrWxtFyftF1xGrg_yoW5CFy5pr
+	Z3CasxXFWrGw1I9rZayr4Uur45Z39ag3Z8tr1S93ZYyr4akrWavFnxJ3WSvry8Ja97X34x
+	KF4Ykr45Gw1ayr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmj14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
 	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
 	ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I2
 	62IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcV
@@ -62,13 +61,12 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxAr4fWF4rXw45Ar43JF1UKFg_yoW5Ww4UpF
 	CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0
 	I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I
 	8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2Kfnx
-	nUUI43ZEXa7VUjnXo7UUUUU==
+	nUUI43ZEXa7VUbH5lUUUUUU==
 X-Originating-IP: [114.241.87.235]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_064457_965356_86F9DD98 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250820_064457_986519_FFDF78EE 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +78,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SW50cm9kdWNlIGNvbnZlbmllbmNlIGhlbHBlcnMgdXNlX2FsdGVybmF0aXZlX2xpa2VseSgpIGFu
-ZAp1c2VfYWx0ZXJuYXRpdmVfdW5saWtlbHkoKSB0byBpbXBsZW1lbnQgdGhlIHBhdHRlcm4gb2Yg
-dXNpbmcgYXNtIGdvdG8gdG8KY2hlY2sgaWYgYW4gYWx0ZXJuYXRpdmUgaXMgc2VsZWN0ZWQuIEV4
-aXN0aW5nIGNvZGUgd2lsbCBiZSBjb252ZXJ0ZWQgaW4Kc3Vic2VxdWVudCBwYXRjaGVzLgoKU2lt
-aWxhciB0byBhcm02NCBhbHRlcm5hdGl2ZV9oYXNfY2FwX3tsaWtlbHksdW5saWtlbHl9LCBidXQg
-Zm9yIHJpc2N2LAphbHRlcm5hdGl2ZXMgYXJlIG5vdCBhbGwgQ1BVIGNhcGFiaWxpdGllcy4KClN1
-Z2dlc3RlZC1ieTogQXlkxLFuIE1lcmNhbiA8YXlkaW5AbWVyY2FuLmRldj4KU2lnbmVkLW9mZi1i
-eTogVml2aWFuIFdhbmcgPHdhbmdydWlrYW5nQGlzY2FzLmFjLmNuPgotLS0KIGFyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vYWx0ZXJuYXRpdmUtbWFjcm9zLmggfCA3MyArKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKwogMSBmaWxlIGNoYW5nZWQsIDczIGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FsdGVybmF0aXZlLW1hY3Jvcy5oIGIvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9hbHRlcm5hdGl2ZS1tYWNyb3MuaAppbmRleCAyMzFkNzc3ZDkzNmMyZDI5
-Yzg1OGRlY2FhOWEzZmE1ZjE3MmVmYmI4Li5iZTk4MzViNWU0ZWJhMDNkNzZkYjNhNzNkYTE5YWM5
-ZTI5ODFjNGRiIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FsdGVybmF0aXZl
-LW1hY3Jvcy5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYWx0ZXJuYXRpdmUtbWFjcm9z
-LmgKQEAgLTE1OCw0ICsxNTgsNzcgQEAKIAlfQUxURVJOQVRJVkVfQ0ZHXzIob2xkX2NvbnRlbnQs
-IG5ld19jb250ZW50XzEsIHZlbmRvcl9pZF8xLCBwYXRjaF9pZF8xLCBDT05GSUdfa18xLAlcCiAJ
-CQkJCW5ld19jb250ZW50XzIsIHZlbmRvcl9pZF8yLCBwYXRjaF9pZF8yLCBDT05GSUdfa18yKQog
-CisvKgorICogdXNlX2FsdGVybmF0aXZlX3tsaWtlbHksdW5saWtlbHl9KCkgcmV0dXJucyB0cnVl
-IGlmIHRoZSBhbHRlcm5hdGl2ZSBpcworICogYXBwbGllZCBhbmQgZmFsc2Ugb3RoZXJ3aXNlLCBi
-dXQgaW4gYSB3YXkgd2hlcmUgdGhlIGNvbXBpbGVyIGNhbiBvcHRpbWl6ZQorICogdGhpcyBjaGVj
-ayBkb3duIHRvIGEgbm9wIGluc3RydWN0aW9uIHRoYXQncyBwYXRjaGVkIGludG8gYSBqdW1wLCBv
-ciB2aWNlCisgKiB2ZXJzYS4KKyAqCisgKiBBbHdheXMgcmV0dXJucyBmYWxzZSBpZiB0aGUgYWx0
-ZXJuYXRpdmVzIG1lY2hhbmlzbSBpcyBub3QgYXZhaWxhYmxlLgorICoKKyAqIFVzYWdlIGV4YW1w
-bGU6CisgKiAgIGlmICh1c2VfYWx0ZXJuYXRpdmVfbGlrZWx5KDAsIFJJU0NWX0lTQV9aQkIpKQor
-ICoKKyAqIFNpbWlsYXIgdG8gc3RhdGljIGtleXMsICJsaWtlbHkiIG1lYW5zIHVzZSBhIG5vcCBp
-ZiB0aGUgYWx0ZXJuYXRpdmUgaXMKKyAqIHNlbGVjdGVkLCBhbmQganVtcCBpZiB1bnNlbGVjdGVk
-OyAidW5saWtlbHkiIGlzIHRoZSBvdGhlciB3YXkgYXJvdW5kLgorICovCisKKyNpZm5kZWYgX19B
-U1NFTUJMRVJfXworCisjaW5jbHVkZSA8bGludXgvdHlwZXMuaD4KKworI2lmZGVmIENPTkZJR19S
-SVNDVl9BTFRFUk5BVElWRQorCitzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wgdXNlX2FsdGVy
-bmF0aXZlX2xpa2VseSh1MTYgdmVuZG9yX2lkLCB1MzIgcGF0Y2hfaWQpCit7CisJQlVJTERfQlVH
-X09OKCFfX2J1aWx0aW5fY29uc3RhbnRfcCh2ZW5kb3JfaWQpKTsKKwlCVUlMRF9CVUdfT04oIV9f
-YnVpbHRpbl9jb25zdGFudF9wKHBhdGNoX2lkKSk7CisKKwlhc20gZ290byhBTFRFUk5BVElWRSgi
-aiAlbFtub19hbHRdIiwgIm5vcCIsICVbdmVuZG9yX2lkXSwgJVtwYXRjaF9pZF0sIDEpCisJCSA6
-CisJCSA6IFt2ZW5kb3JfaWRdICJpIih2ZW5kb3JfaWQpLAorCQkgICBbcGF0Y2hfaWRdICJpIihw
-YXRjaF9pZCkKKwkJIDoKKwkJIDogbm9fYWx0KTsKKworCXJldHVybiB0cnVlOworCitub19hbHQ6
-CisJcmV0dXJuIGZhbHNlOworfQorCitzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wgdXNlX2Fs
-dGVybmF0aXZlX3VubGlrZWx5KHUxNiB2ZW5kb3JfaWQsIHUzMiBwYXRjaF9pZCkKK3sKKwlCVUlM
-RF9CVUdfT04oIV9fYnVpbHRpbl9jb25zdGFudF9wKHZlbmRvcl9pZCkpOworCUJVSUxEX0JVR19P
-TighX19idWlsdGluX2NvbnN0YW50X3AocGF0Y2hfaWQpKTsKKworCWFzbSBnb3RvKEFMVEVSTkFU
-SVZFKCJub3AiLCAiaiAlbFthbHRdIiwgJVt2ZW5kb3JfaWRdLCAlW3BhdGNoX2lkXSwgMSkKKwkJ
-IDoKKwkJIDogW3ZlbmRvcl9pZF0gImkiKHZlbmRvcl9pZCksCisJCSAgIFtwYXRjaF9pZF0gImki
-KHBhdGNoX2lkKQorCQkgOgorCQkgOiBhbHQpOworCisJcmV0dXJuIGZhbHNlOworCithbHQ6CisJ
-cmV0dXJuIHRydWU7Cit9CisKKyNlbHNlCisKK3N0YXRpYyBpbmxpbmUgYm9vbCB1c2VfYWx0ZXJu
-YXRpdmVfbGlrZWx5KHUxNiB2ZW5kb3JfaWQsIHUzMiBwYXRjaF9pZCkKK3sKKwlyZXR1cm4gZmFs
-c2U7Cit9CisKK3N0YXRpYyBpbmxpbmUgYm9vbCB1c2VfYWx0ZXJuYXRpdmVfdW5saWtlbHkodTE2
-IHZlbmRvcl9pZCwgdTMyIHBhdGNoX2lkKQoreworCXJldHVybiBmYWxzZTsKK30KKworI2VuZGlm
-IC8qIENPTkZJR19SSVNDVl9BTFRFUk5BVElWRSAqLworCisjZW5kaWYgLyogX19BU1NFTUJMRVJf
-XyAqLworCiAjZW5kaWYKCi0tIAoyLjUwLjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Use use_alternative_unlikely() to check for RISCV_ISA_EXT_SVVPTC,
+replacing the use of asm goto with ALTERNATIVE.
+
+The "unlikely" variant is used to match the behavior of the original
+implementation using ALTERNATIVE("nop", "j %l[svvptc]", ...).
+
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+---
+ arch/riscv/include/asm/pgtable.h | 15 +++++++--------
+ arch/riscv/mm/pgtable.c          | 22 ++++++++++------------
+ 2 files changed, 17 insertions(+), 20 deletions(-)
+
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 91697fbf1f9013005800f713797e4b6b1fc8d312..81eb386da837f064c7372530e2f2227575a703d3 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -495,8 +495,13 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ 		struct vm_area_struct *vma, unsigned long address,
+ 		pte_t *ptep, unsigned int nr)
+ {
+-	asm goto(ALTERNATIVE("nop", "j %l[svvptc]", 0, RISCV_ISA_EXT_SVVPTC, 1)
+-		 : : : : svvptc);
++	/*
++	 * Svvptc guarantees that the new valid pte will be visible within
++	 * a bounded timeframe, so when the uarch does not cache invalid
++	 * entries, we don't have to do anything.
++	 */
++	if (use_alternative_unlikely(0, RISCV_ISA_EXT_SVVPTC))
++		return;
+ 
+ 	/*
+ 	 * The kernel assumes that TLBs don't cache invalid entries, but
+@@ -508,12 +513,6 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ 	while (nr--)
+ 		local_flush_tlb_page(address + nr * PAGE_SIZE);
+ 
+-svvptc:;
+-	/*
+-	 * Svvptc guarantees that the new valid pte will be visible within
+-	 * a bounded timeframe, so when the uarch does not cache invalid
+-	 * entries, we don't have to do anything.
+-	 */
+ }
+ #define update_mmu_cache(vma, addr, ptep) \
+ 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
+index 8b6c0a112a8db4e91de54c3bd3bd527a605a6197..e0c414fa0d433fdc39c80ec390c467ca59a9a334 100644
+--- a/arch/riscv/mm/pgtable.c
++++ b/arch/riscv/mm/pgtable.c
+@@ -9,8 +9,16 @@ int ptep_set_access_flags(struct vm_area_struct *vma,
+ 			  unsigned long address, pte_t *ptep,
+ 			  pte_t entry, int dirty)
+ {
+-	asm goto(ALTERNATIVE("nop", "j %l[svvptc]", 0, RISCV_ISA_EXT_SVVPTC, 1)
+-		 : : : : svvptc);
++	if (use_alternative_unlikely(0, RISCV_ISA_EXT_SVVPTC)) {
++		if (!pte_same(ptep_get(ptep), entry)) {
++			__set_pte_at(vma->vm_mm, ptep, entry);
++			/* Here only not svadu is impacted */
++			flush_tlb_page(vma, address);
++			return true;
++		}
++
++		return false;
++	}
+ 
+ 	if (!pte_same(ptep_get(ptep), entry))
+ 		__set_pte_at(vma->vm_mm, ptep, entry);
+@@ -19,16 +27,6 @@ int ptep_set_access_flags(struct vm_area_struct *vma,
+ 	 * the case that the PTE changed and the spurious fault case.
+ 	 */
+ 	return true;
+-
+-svvptc:
+-	if (!pte_same(ptep_get(ptep), entry)) {
+-		__set_pte_at(vma->vm_mm, ptep, entry);
+-		/* Here only not svadu is impacted */
+-		flush_tlb_page(vma, address);
+-		return true;
+-	}
+-
+-	return false;
+ }
+ 
+ int ptep_test_and_clear_young(struct vm_area_struct *vma,
+
+-- 
+2.50.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
