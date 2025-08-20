@@ -4,93 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0599ACA0EDC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 20:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55479CA0EF8
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Aug 2025 21:53:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/82OOFrZ4DX2x/8neChfvv+rCSXcNhrZZsJt49ofcLo=; b=VzlavQZdo9J82N
-	a/o80GGXl/z4zGU7y0wb0lrykjjR/5t/om5r48A6ehbzwbNMPaN+Hx1NlHMrsBR8SPt5sBJF9UF9R
-	qdwqL844xZfveu6k3sjLFWTehgNP9TUvbYw4mWh/FGuLtJwp4CFDEgQqQySyg9n6PhNIxF+oiq15o
-	+VEczJlwqXci2fYI1MxH0ATI/03Gl/qXNJq/gHyo6vr+PHi8BYhvIQZLJ/kpo/HpLuF3/FyZLTuOA
-	ZA+NfTBFGVi9mJadWfWhInHT2nftxl0qf2+/Kcvrk6n3xRJVJ0woY92+muXcDpLO2R5fxhMAufYUt
-	ouWMGiA8BtfN+Unhpnbg==;
+	List-Owner; bh=To7ZHpz0WnmyYJx5WHeK71BkifsNPPzfGqqqmi74mm0=; b=xBSIqKgE+mUSa/
+	rO4qJmR7HqAD11D6oVwbH0B+5OZZKvpOM9PW++nUxIfHczNxn3HvPGENlB9IXqIZotipBNx4POWgm
+	Hnd0Jz3HB+1u9dTnDepTGkBlG7zfD/+QQPrXOLrjq5KXsrc338CbbsoKASlQ5iMZQz+JboSVkbHg0
+	Mzge0xv4UjnfgoArEuh5BBu2aNr0ktUWJrRP6KL1OzpREKWL07i2ACzYAch2yfHXRAUYYAbLpNo6q
+	ky8EhA3IyxArQmHw5meMic6+dQMAsofp3aWEkYE6248aSIpzBV7QWeM5WrhX6OenNub0wZGP/SyPn
+	Lmh3SNF+zwqFrmGgjbxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uopsN-0000000Evvh-219f;
-	Wed, 20 Aug 2025 20:57:43 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1uoqkQ-0000000F2Le-1zH8;
+	Wed, 20 Aug 2025 21:53:34 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uomKr-0000000EUTY-1vCF
+	id 1uomTQ-0000000EWEI-3Qmy
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Aug 2025 17:10:54 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-71fb85c4b59so9430447b3.1
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Aug 2025 10:10:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755709852; x=1756314652; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=727UKZSKS9UwGe6aim6XorGjWW+I61+OozHvio/cjhs=;
-        b=R5PP+yZ1MSaiOKG7m18Ij4nbPep+5F9JG/TF2zHSdnWOUCtEOL5BpwtN0Y06OorxH0
-         VjcKB2cez9NBXvJiI3FOszUmDVoxci1ll61LUA1cyRfP6yaqLowgDATvFHTk1m7LOtZj
-         cNlTNYOBB9ADoDwFSpll7zBvAlbBJDuhXnL7hk1H0nfPvMJLVKerMMwALAjT5QoqbyEm
-         cV8SWWW4CZQihiiK+37lUXqgsraZ2oIbZLQ6GnZDP+DpHW+VjZqg884tH/LfpNrdCJGu
-         yahE598JdRTu1yzUIQSuJ2eQNKI7nAWCms6hSZN7c8YCMiCF2qWhMAJB/JbOlhdQMLiZ
-         voWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755709852; x=1756314652;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=727UKZSKS9UwGe6aim6XorGjWW+I61+OozHvio/cjhs=;
-        b=bC9D653bmUlqUsRbJpaT7JdAOR083inZf0gXcx01tmlzBOss5x72lPAnnARWwgHeMy
-         fqYtHa+JVeUDi0zdiT/7iJlCedyIP2Nwo9V7otQVrZdLFngVoqBBgaMF3rCUW77FGauB
-         xCYlZj74WyerRblUymbUOEBcmCqx4Uz/UFmxpXIDe/CcX8KbifyfdY5U6Vlzv+doIaPI
-         2HkFNiNkTMFejceXdWpBSi3Ca88nuXrfn5cx88EaWnzXAD7jMlRs7x5mPphjjl7R4MgS
-         GozBGc3ePx7t8XsYRpb/9AIad1aXGUbXNlNbs1dG1BwcrIrso+3QA+GgAIFscaX4qp0d
-         D8Hw==
-X-Forwarded-Encrypted: i=1; AJvYcCVgVgeA4ID7z7kPBVNUbpXm6kGFc/X4/n5bzr27DJOeeV6zZzQlZg79+nRPtv2naD8hDxRNL4uUyh/S8g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxK33lEHXSj6LxkahkFsADduyuEyxgnyQM5swkWoY9hTETSRHik
-	zcQB/L4mJ+I2EArWtBcVsgyKBktKLLFxrp31g/fv5Elbj9b8OpWtJmj2kUvp7+GfQD2ppSD57CL
-	P4oF7xuWz20nj5HWrB3kFkcaJQzB337DmKgkMbaZCsA==
-X-Gm-Gg: ASbGncvj3dbmIfit+dp2Y8WcBAa1w4lej3Bu4obSxCCWrstDJ4NGC68wOsYACUnfNWc
-	ekw2T3GPLi0LkZYBgkEA7y+Bin3eTJkz1aJpYhSNE4wOxeYx0ihVSJCWszCYEzc2F2b+Gc2kuVZ
-	YlqtrwFYFrN0hVsQWDFWvS26FMzlHNh7WB7Gy7qumbvBdFjJlj4y25eciRiWlUll9mEXX2CgmTf
-	lNsBEUn
-X-Google-Smtp-Source: AGHT+IEpDwtZVI6H+GfGnTfQIwUyY5UUZdBfiqI97/jjpj/Lpw9zMkd2OWo35A3c2Mc0ZAvXui6OtqnR/RLurFK8aDA=
-X-Received: by 2002:a05:690c:4b8d:b0:71b:f419:2099 with SMTP id
- 00721157ae682-71fc6380a74mr4423317b3.21.1755709852320; Wed, 20 Aug 2025
- 10:10:52 -0700 (PDT)
+	Wed, 20 Aug 2025 17:19:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755710385; x=1787246385;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GxHr6/54rgcy6sAclCD5AO7ktqqANCdjdS8twJwHCMA=;
+  b=fDpsQa9eXVW3VUKag2sEKTeHkQJUYbP+sJO26cTNdygg9yv2PSm668ZS
+   pEGSj0wFF13DBljeGm0IZbdiIj6A4jXr685Cgf69OJitnwKhVycI3sz/X
+   lzzRitpiNyi29foD5g6Uk4OERwXVAMs5BcMxg99RPdgMBR2T0/7qdRSHI
+   2apcDGhrma00TnfuFZyg40kzxGrT5ARuGMTTAtG8TTvcR6gtVw8rn/jkf
+   7n9nMq4EdJ+q9WgGgxakeeI5nQraY1pgxtTeSFcEbykSwWyTZ7xK5EEbv
+   LwU0/T/WQVhjT+PH+BE+PXG0fM51QyhfAq0cOq1vWPJTbYMx/ruy6U1lw
+   A==;
+X-CSE-ConnectionGUID: S48BkUiGSjmtIwTUOjlqaw==
+X-CSE-MsgGUID: 4WrFc0s/Rf2KoitWGnCQgA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11527"; a="83406119"
+X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
+   d="scan'208";a="83406119"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2025 10:19:44 -0700
+X-CSE-ConnectionGUID: id3NsaM5RTK6EUgGk1bUSw==
+X-CSE-MsgGUID: F/GOHyWPSxGZCqOCHmhCXg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
+   d="scan'208";a="167798899"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa009.jf.intel.com with ESMTP; 20 Aug 2025 10:19:40 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uomTK-000JXL-03;
+	Wed, 20 Aug 2025 17:19:38 +0000
+Date: Thu, 21 Aug 2025 01:18:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>, yury.norov@gmail.com,
+	linux@rasmusvillemoes.dk, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dennis@kernel.org, tj@kernel.org, cl@gentwo.org, linux-mm@kvack.org
+Cc: oe-kbuild-all@lists.linux.dev, Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: Re: [PATCH 2/2] riscv: introduce percpu.h into include/asm
+Message-ID: <202508210101.WySkXlSZ-lkp@intel.com>
+References: <20250819135007.85646-3-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-References: <CGME20250820085609eucas1p25d7c6d67318b6c332e3f238705544b19@eucas1p2.samsung.com>
- <20250820-apr_14_for_sending-v12-0-4213ccefbd05@samsung.com> <20250820-apr_14_for_sending-v12-2-4213ccefbd05@samsung.com>
-In-Reply-To: <20250820-apr_14_for_sending-v12-2-4213ccefbd05@samsung.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 20 Aug 2025 19:10:15 +0200
-X-Gm-Features: Ac12FXxCH2ttqXRbmi_2dmdMWE4eeauuwFrI7EIdSSvrawO-ealoi74PXSk4RH8
-Message-ID: <CAPDyKFrjHdASRUDxR+KROovV0sherhqdkOgHC9hoA6dhdMr39A@mail.gmail.com>
-Subject: Re: [PATCH v12 2/4] dt-bindings: gpu: img,powervr-rogue: Add TH1520
- GPU support
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Frank Binns <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Drew Fustini <fustini@kernel.org>, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Disposition: inline
+In-Reply-To: <20250819135007.85646-3-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_101053_501090_70AE8119 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20250820_101944_899925_1624141A 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,129 +91,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Aug 2025 at 10:56, Michal Wilczynski
-<m.wilczynski@samsung.com> wrote:
->
-> Rework the PowerVR Rogue GPU binding to use an explicit, per variant
-> style for defining power domain properties and add support for the
-> T-HEAD TH1520 SoC's GPU.
->
-> To improve clarity and precision, the binding is refactored so that
-> power domain items are listed explicitly for each variant [1]. The
-> previous method relied on an implicit, positional mapping between the
-> `power-domains` and `power-domain-names` properties. This change
-> replaces the generic rules with self contained if/then blocks for each
-> GPU variant, making the relationship between power domains and their
-> names explicit and unambiguous.
->
-> The generic if block for img,img-rogue, which previously required
-> power-domains and power-domain-names for all variants, is removed.
-> Instead, each specific GPU variant now defines its own power domain
-> requirements within a self-contained if/then block, making the schema
-> more explicit.
->
-> This new structure is then used to add support for the
-> `thead,th1520-gpu`. While its BXM-4-64 IP has two conceptual power
-> domains, the TH1520 SoC integrates them behind a single power gate. The
-> new binding models this with a specific rule that enforces a single
-> `power-domains` entry and disallows the `power-domain-names` property.
->
-> Link: https://lore.kernel.org/all/4d79c8dd-c5fb-442c-ac65-37e7176b0cdd@linaro.org/ [1]
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+Hi Yunhui,
 
-Even if you already have the necessary ack, feel free to add:
+kernel test robot noticed the following build errors:
 
-Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+[auto build test ERROR on linus/master]
+[also build test ERROR on dennis-percpu/for-next v6.17-rc2 next-20250820]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> ---
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 37 +++++++++++++++++-----
->  1 file changed, 29 insertions(+), 8 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> index 4450e2e73b3ccf74d29f0e31e2e6687d7cbe5d65..c87d7bece0ecd6331fc7d1a479bbdaf68bac6e6d 100644
-> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -21,6 +21,11 @@ properties:
->            # work with newer dts.
->            - const: img,img-axe
->            - const: img,img-rogue
-> +      - items:
-> +          - enum:
-> +              - thead,th1520-gpu
-> +          - const: img,img-bxm-4-64
-> +          - const: img,img-rogue
->        - items:
->            - enum:
->                - ti,j721s2-gpu
-> @@ -77,14 +82,18 @@ required:
->  additionalProperties: false
->
->  allOf:
-> -  # Constraints added alongside the new compatible strings that would otherwise
-> -  # create an ABI break.
->    - if:
->        properties:
->          compatible:
->            contains:
-> -            const: img,img-rogue
-> +            const: img,img-axe-1-16m
->      then:
-> +      properties:
-> +        power-domains:
-> +          items:
-> +            - description: Power domain A
-> +        power-domain-names:
-> +          maxItems: 1
->        required:
->          - power-domains
->          - power-domain-names
-> @@ -93,13 +102,20 @@ allOf:
->        properties:
->          compatible:
->            contains:
-> -            const: img,img-axe-1-16m
-> +            const: thead,th1520-gpu
->      then:
->        properties:
-> +        clocks:
-> +          minItems: 3
-> +        clock-names:
-> +          minItems: 3
->          power-domains:
-> -          maxItems: 1
-> -        power-domain-names:
-> -          maxItems: 1
-> +          items:
-> +            - description: The single, unified power domain for the GPU on the
-> +                TH1520 SoC, integrating all internal IP power domains.
-> +        power-domain-names: false
-> +      required:
-> +        - power-domains
->
->    - if:
->        properties:
-> @@ -109,9 +125,14 @@ allOf:
->      then:
->        properties:
->          power-domains:
-> -          minItems: 2
-> +          items:
-> +            - description: Power domain A
-> +            - description: Power domain B
->          power-domain-names:
->            minItems: 2
-> +      required:
-> +        - power-domains
-> +        - power-domain-names
->
->    - if:
->        properties:
->
-> --
-> 2.34.1
->
+url:    https://github.com/intel-lab-lkp/linux/commits/Yunhui-Cui/riscv-remove-irqflags-h-inclusion-in-asm-bitops-h/20250819-215256
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20250819135007.85646-3-cuiyunhui%40bytedance.com
+patch subject: [PATCH 2/2] riscv: introduce percpu.h into include/asm
+config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20250821/202508210101.WySkXlSZ-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250821/202508210101.WySkXlSZ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508210101.WySkXlSZ-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from include/linux/atomic.h:80,
+                    from include/linux/cpumask.h:14,
+                    from include/linux/smp.h:13,
+                    from include/linux/lockdep.h:14,
+                    from include/linux/spinlock.h:63,
+                    from include/linux/mmzone.h:8,
+                    from include/linux/gfp.h:7,
+                    from include/linux/mm.h:7,
+                    from mm/slub.c:13:
+   mm/slub.c: In function '__update_cpu_freelist_fast':
+>> include/linux/atomic/atomic-arch-fallback.h:414:30: error: implicit declaration of function 'arch_cmpxchg128_local'; did you mean 'arch_cmpxchg64_local'? [-Wimplicit-function-declaration]
+     414 | #define raw_cmpxchg128_local arch_cmpxchg128_local
+         |                              ^~~~~~~~~~~~~~~~~~~~~
+   include/linux/atomic/atomic-instrumented.h:5005:9: note: in expansion of macro 'raw_cmpxchg128_local'
+    5005 |         raw_cmpxchg128_local(__ai_ptr, __VA_ARGS__); \
+         |         ^~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/percpu.h:131:17: note: in expansion of macro 'cmpxchg128_local'
+     131 |         ret__ = cmpxchg128_local(ptr__, old__, new__);                  \
+         |                 ^~~~~~~~~~~~~~~~
+   include/asm-generic/percpu.h:108:17: note: in expansion of macro 'this_cpu_cmpxchg128'
+     108 |         __val = _cmpxchg(pcp, __old, nval);                             \
+         |                 ^~~~~~~~
+   include/asm-generic/percpu.h:527:9: note: in expansion of macro '__cpu_fallback_try_cmpxchg'
+     527 |         __cpu_fallback_try_cmpxchg(pcp, ovalp, nval, this_cpu_cmpxchg128)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   mm/slab.h:24:41: note: in expansion of macro 'this_cpu_try_cmpxchg128'
+      24 | #define this_cpu_try_cmpxchg_freelist   this_cpu_try_cmpxchg128
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~
+   mm/slub.c:3638:16: note: in expansion of macro 'this_cpu_try_cmpxchg_freelist'
+    3638 |         return this_cpu_try_cmpxchg_freelist(s->cpu_slab->freelist_tid.full,
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +414 include/linux/atomic/atomic-arch-fallback.h
+
+9257959a6e5b4f Mark Rutland 2023-06-05  413  
+9257959a6e5b4f Mark Rutland 2023-06-05 @414  #define raw_cmpxchg128_local arch_cmpxchg128_local
+e6ce9d741163af Uros Bizjak  2023-04-05  415  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
