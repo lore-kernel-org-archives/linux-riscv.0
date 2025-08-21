@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47623CA0EEB
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD8FCA0EFA
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vhQfBfq8iXVVMyZRRNuftkKwoUq1X4idU9xupbhAG4s=; b=ln8cRVZCv3YzvM
-	+RAp2+n5YM4OqO6R5c3YxllR2k3cFIz5SH1cmDXrh2dHmQpc1sW5pLGY8PbyGUma78bSUuMTn6uzM
-	vygnVOZp/2JEFYFtRpDXKyVYtnGXfYQXEG5kxWVa8kIwPvwBw196pbbZtom+FH92EIL/HRepsrhh/
-	6ptTR927CmXXnK0DPPbrGhz2yp8Iq8+jpwDFmBaoTnUB6WOhcS2rqxfyF4MoP2geZJCPp0kHnVfVR
-	d8xRm/R2DnrJy0AeH19nLddyv5naXS+Q7P8q++6VL+CRfUKIl4FKpWWJG6G/MfTGKDerpv7+I+cB3
-	qH4u6CzrHH9NXpeIechQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=L/mO3F4QlhyqWvc83L8OAEU9BXMDG6hPTDDab7c3lG4=; b=vgDEZzXgTD+gbI
+	8nJ6YMBD8YJv1uaZQmP371N+yEE0bxip4haelHrXdZRjVA6De1RssPwnOESG2ndP+Am4obIZJrhY5
+	/4N3cC2UyR5uvvnsoI6PGllv8TQEvvamoXqh9BER7UdVQkPvaOmgMNph0o6gTUqr2BKHAq9LowWVF
+	BMEUDIr71nyd/JfwK6NmF8aQquBiW/PCoQU3143UYuKll21wH605/lub9r7x94Xql9bbAsA1idGwi
+	HKA794PuYDqLZUvUc2wF3ESpAiFWaioAXroingbY51/r9jyig37ylj2Pk+njVGLFGWCfntf9Kpiau
+	9QflDrCQ8HvfJ+kQvf3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upAhj-00000000EKh-2AaX;
-	Thu, 21 Aug 2025 19:12:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1upAi9-00000000F2b-0J9Q;
+	Thu, 21 Aug 2025 19:12:33 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5VS-0000000H5HI-13dc
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 21 Aug 2025 13:39:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nB2t3WQDGZmyqwOWHUe4oKJKmrBX6EMje7BAzEJRWNg=; b=D8WfSHTN/9TnZ2syqgcgHFXoQ7
-	6dJLJgW4y6O2swCs0DM0kDfMgLzzndOA8fQ5MIG6uNLFKhK78IdExqfGcLeNcX5Ha9A3UmzFhz7N9
-	DwoYxiZ6khDQxyOO0eZzBAySWa5gSf3FAxHVtq89OT6vkQ3Ux48m08DzxhJhfzqzslamYe8R6fPkB
-	fzSxn80WB5rLQmdP9GjDqLoMDr5JXcA3Xfk/e6VAAthFwSYZqo8KEylR3Kvg3Fw6UghKebEpLm+29
-	1S/GC2+NNuIbnrq9+Bcbm1eIarQavqDr93NJt0VD1cFtZd82QMyjjbDGaUEzsM/K8m12uWw5Zk+Ol
-	vnquEZAQ==;
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5VN-00000000ZeW-2FtJ
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 13:39:05 +0000
-Received: from [192.168.0.106] (unknown [114.241.87.235])
-	by APP-01 (Coremail) with SMTP id qwCowABXR6tfIadoNV0QDg--.59898S2;
-	Thu, 21 Aug 2025 21:38:40 +0800 (CST)
-Message-ID: <e0d4e114-9523-4b12-bf32-22d13c7f914f@iscas.ac.cn>
-Date: Thu, 21 Aug 2025 21:38:39 +0800
+	id 1up5rR-0000000H9cG-2JaQ;
+	Thu, 21 Aug 2025 14:01:51 +0000
+Received: from ROG.lan (unknown [118.251.176.166])
+	by APP-03 (Coremail) with SMTP id rQCowABn+Xq+JqdoP8MTDg--.22469S2;
+	Thu, 21 Aug 2025 22:01:36 +0800 (CST)
+From: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	anup@brainfault.org,
+	pbonzini@redhat.com,
+	shuah@kernel.org,
+	cyan.yang@sifive.com,
+	cleger@rivosinc.com,
+	charlie@rivosinc.com,
+	cuiyunhui@bytedance.com,
+	samuel.holland@sifive.com,
+	namcao@linutronix.de,
+	jesse@rivosinc.com,
+	inochiama@gmail.com,
+	yongxuan.wang@sifive.com,
+	ajones@ventanamicro.com,
+	parri.andrea@gmail.com,
+	mikisabate@gmail.com,
+	yikming2222@gmail.com,
+	thomas.weissschuh@linutronix.de
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	pincheng.plct@isrc.iscas.ac.cn
+Subject: [PATCH v1 RESEND 0/5] RISC-V: Add Zilsd/Zclsd support in hwprobe and KVM
+Date: Thu, 21 Aug 2025 22:01:26 +0800
+Message-Id: <20250821140131.225756-1-pincheng.plct@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 2/5] net: spacemit: Add K1 Ethernet MAC
-To: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Vivian Wang <uwu@dram.page>, Junhui Liu <junhui.liu@pigmoral.tech>,
- Simon Horman <horms@kernel.org>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20250820-net-k1-emac-v6-0-c1e28f2b8be5@iscas.ac.cn>
- <20250820-net-k1-emac-v6-2-c1e28f2b8be5@iscas.ac.cn>
- <cf0431cf-523e-488e-87ec-6b5a68699809@linux.dev>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <cf0431cf-523e-488e-87ec-6b5a68699809@linux.dev>
-X-CM-TRANSID: qwCowABXR6tfIadoNV0QDg--.59898S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GryfZFWfAr48ZFy8AFWUurg_yoWxtrXEkF
-	W0vwnF9w1DGw10g3WfG3ZF9w4DKr1kXr1xWrZrZws5Jw17AF98XF17Kwnaqr43WFZ2qrn7
-	Gr1jyrWYv343ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbsxYjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z2
-	80aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAK
-	zVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx
-	8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF
-	7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI
-	8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AK
-	xVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI
-	8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280
-	aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0x
-	ZFpf9x07jgPEfUUUUU=
-X-Originating-IP: [114.241.87.235]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-CM-TRANSID: rQCowABn+Xq+JqdoP8MTDg--.22469S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ArykGr1fCw45Aw13Xw4xJFb_yoW8KrWUpa
+	n5Gw1YgF1kXry7C34fAr48ur1rKF4ru393Jrnxt348WFW3Cr95Jr93K3ZxZF18AFWI9ry0
+	93WFgw1I93Z7ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9v14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWUWVWUuwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbV
+	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7Cj
+	xVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26rWY6r4UJwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r
+	1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0
+	rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJV
+	WxJrUvcSsGvfC2KfnxnUUI43ZEXa7VUU2jg7UUUUU==
+X-Originating-IP: [118.251.176.166]
+X-CM-SenderInfo: pslquxhhqjh1xofwqxxvufhxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_143902_305630_68E2BA08 
-X-CRM114-Status: UNSURE (   6.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_070149_952370_CE652C8F 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,23 +100,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVmFkaW0sCgpPbiA4LzIxLzI1IDIwOjU5LCBWYWRpbSBGZWRvcmVua28gd3JvdGU6Cgo+IE9u
-IDIwLzA4LzIwMjUgMDc6NDcsIFZpdmlhbiBXYW5nIHdyb3RlOgo+PiBUaGUgRXRoZXJuZXQgTUFD
-cyBmb3VuZCBvbiBTcGFjZW1pVCBLMSBhcHBlYXJzIHRvIGJlIGEgY3VzdG9tIGRlc2lnbgo+PiB0
-aGF0IG9ubHkgc3VwZXJmaWNpYWxseSByZXNlbWJsZXMgc29tZSBvdGhlciBlbWJlZGRlZCBNQUNz
-LiBTcGFjZW1pVAo+PiByZWZlcnMgdG8gdGhlbSBhcyAiRU1BQyIsIHNvIGxldCdzIGp1c3QgY2Fs
-bCB0aGUgZHJpdmVyICJrMV9lbWFjIi4KPj4KPj4gU3VwcG9ydHMgUkdNSUkgYW5kIFJNSUkgaW50
-ZXJmYWNlcy4gSW5jbHVkZXMgc3VwcG9ydCBmb3IgTUFDIGhhcmR3YXJlCj4+IHN0YXRpc3RpY3Mg
-Y291bnRlcnMuIFBUUCBzdXBwb3J0IGlzIG5vdCBpbXBsZW1lbnRlZC4KPj4KPj4gVGVzdGVkLWJ5
-OiBKdW5odWkgTGl1IDxqdW5odWkubGl1QHBpZ21vcmFsLnRlY2g+Cj4+IFNpZ25lZC1vZmYtYnk6
-IFZpdmlhbiBXYW5nIDx3YW5ncnVpa2FuZ0Bpc2Nhcy5hYy5jbj4KPgo+IFJldmlld2VkLWJ5OiBW
-YWRpbSBGZWRvcmVua28gPHZhZGltLmZlZG9yZW5rb0BsaW51eC5kZXY+wqAKClRoYW5rIHlvdSBm
-b3IgeW91ciByZXZpZXcuIEkgYXBwcmVjaWF0ZSBpdC4KClZpdmlhbiAiZHJhbWZvcmV2ZXIiIFdh
-bmcKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi all,
+
+This is a RESEND of v1 to correct a mistake in the CC list.
+There are **no changes in code** compared to the previous v1.
+
+This patch series adds support for the recently ratified Zilsd
+(Load/Store pair instructions) and Zclsd (Compressed Load/Store pair
+instructions) extensions to the RISC-V Linux kernel. It covers device tree
+binding,ISA string parsing, hwprobe exposure, KVM guest handling and selftests.
+
+Zilsd and Zclsd allow more efficient memory access sequences on RV32. My
+goal is to enable glibc and other user-space libraries to detect these
+extensions via hwprobe and make use of them for optimized
+implementations of common routines. To achieve this, the Linux kernel
+needs to recognize and expose the availability of these extensions
+through the device tree bindings, ISA string parsing and hwprobe
+interfaces. KVM support is also required to correctly virtualize these
+features for guest environments.
+
+The series is structured as follows:
+- Patch 1: Add device tree bindings documentation for Zilsd and Zclsd
+- Patch 2: Extend RISC-V ISA extension string parsing to recognize them.
+- Patch 3: Export Zilsd and Zclsd via riscv_hwprobe
+- Patch 4: Allow KVM guests to use them.
+- Patch 5: Add KVM selftests.
+
+This series of patches is a preparatory step toward enabling user-space
+optimizations in glibc that leverage Zilsd and Zclsd, by providing the
+necessary kernel-side support.
+
+Please review, and let me know if any adjustments are needed.
+
+Thanks,
+Pincheng Wang
+
+
+Pincheng Wang (5):
+  dt-bidings: riscv: add Zilsd and Zclsd extension descriptions
+  riscv: add ISA extension parsing for Zilsd and Zclsd:
+  riscv: hwprobe: export Zilsd and Zclsd ISA extensions
+  riscv: KVM: allow Zilsd and Zclsd extensions for Guest/VM
+  KVM: riscv: selftests: add Zilsd and Zclsd extension to get-reg-list
+    test
+
+ Documentation/arch/riscv/hwprobe.rst          |  8 ++++
+ .../devicetree/bindings/riscv/extensions.yaml | 39 +++++++++++++++++++
+ arch/riscv/include/asm/hwcap.h                |  2 +
+ arch/riscv/include/uapi/asm/hwprobe.h         |  2 +
+ arch/riscv/include/uapi/asm/kvm.h             |  2 +
+ arch/riscv/kernel/cpufeature.c                | 24 ++++++++++++
+ arch/riscv/kernel/sys_hwprobe.c               |  2 +
+ arch/riscv/kvm/vcpu_onereg.c                  |  2 +
+ .../selftests/kvm/riscv/get-reg-list.c        |  6 +++
+ 9 files changed, 87 insertions(+)
+
+-- 
+2.39.5
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
