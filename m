@@ -4,58 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23756CA0EEB
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 09:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D52CA0EF8
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 09:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WOsn0M0wEbxmU68IHe3kf1ee4RGYX3g/60j8633Bn9o=; b=dNqrZngGTp6USa
-	Elrg6vnk6g9b5yWUHuHoPi2xKARGh4296AGxhRCNwud3VYRKoRpemiC1+6G95z/xElTqe1/RzzzkE
-	GtWgUCi615F04nFYGwDqkkcy9NIqQCW2xz61p56Z8OX3O/fYWUSBImjILgoq39hEEdNXSNkzSmw4k
-	4YBsfbT07YGVpMGZ1YlC67/6Jz+ZganAyLONrSUoN2nK9DSYqVKD2qRilXfEv436QCiFk4m705mCx
-	oSODX+CxF+UWyzrfxBJ65c2kKzclrms6kY9zS+ho0tyy4703I6N0FCgkJZGZFOs5jbg1HAeaLBAQT
-	myxx0wbP8DnRgSZNbO0Q==;
+	List-Owner; bh=yoTnQkYpCz62RCZX1GS2r1EdtoMzbPAh65/TYOlUt2o=; b=duZGhaX8zxcBzw
+	VkTxx0T58PWLFLKmidtNKD5V2I0blVJNb4c/qQwloKqVROpsMwRhNrAH5V6E/WI1HRIoSnwexxg+S
+	4FMuYFp+xHYOXi9Me/oqHXLJPxUzjwvYoAY4bN0Z/5e3m3vcqJWreb8mOeifAaczAThFcp4lpT7IJ
+	+PZYHh7SUrbVYSc65QkFfN85cw4wvBQLnDnI8WWe7fJ3XdpGKfvl5YgTibcP+qUHywdhwEV2pMwmL
+	IUq9ABJNR1qLa7tCdMKUga/ChKLRUXI3zdxcVVH9Arumt4EKgNAnmDR9qNmyWd8bdDhwn0OSIps9n
+	zZ/UzndJFAyW3yQv0myw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1mh-0000000GRkS-1uhC;
-	Thu, 21 Aug 2025 09:40:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1up1nT-0000000GSpM-3EIc;
+	Thu, 21 Aug 2025 09:41:27 +0000
+Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up07f-0000000G9t7-21Xn
+	id 1up0Eh-0000000GAss-2JuR
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 07:54:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D9073447D4;
-	Thu, 21 Aug 2025 07:54:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A3D8C4CEED;
-	Thu, 21 Aug 2025 07:54:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755762850;
-	bh=IPUilLuvpTBBH6sPGlI6idGeP+t2/3AiJ5bzLQuzi4w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aW1yJ47zmSPUHgdPC4EYbN1/1lCNd7kl9uuDMieVhuOo43n8Y8ivXbxNTbx+f4x8p
-	 DXu4NBjGWGCZLDxpjoSBAaQmx5Rkop/kE6zIpIkvhBdKSNloW4mZGc3ISRCBdzUX/U
-	 tQJATBa3WsYkw6cpQhAyzByLzczEWiY1VuepkbS/TTL16HsKKEwntMdRpCzAcfolpC
-	 TwuXXqqbVKX0Io2Aq7NULsbcJs73hT+s5G/AbRFPS/JvVpEHJrUnH6Rfyz98nCWhi1
-	 Y6k0Kf88lVBi249eXJVqcO+1Qr0N/SMZ9pDd2iiEbbqzOeR6hyJK6vuY6P8mefHbSS
-	 5yX5bpfUxoekQ==
-Date: Thu, 21 Aug 2025 09:54:08 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Yao Zi <ziyao@disroot.org>
-Subject: Re: [PATCH v2 1/3] dt-bindings: reset: Scope the compatible to VO
- subsystem explicitly
-Message-ID: <20250821-bizarre-pigeon-of-unity-5a2d5d@kuoka>
-References: <20250820074245.16613-1-ziyao@disroot.org>
- <20250820074245.16613-2-ziyao@disroot.org>
+	Thu, 21 Aug 2025 08:01:29 +0000
+Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-30cce8c3afaso585908fac.1
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 01:01:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1755763283; x=1756368083; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=X0l+hqGahEDr13/VVOMr1/ba48aJ1pl6KG+1VNry8aA=;
+        b=BOJIJNcTNs27YbP8/yhEIAwhFQIZWuR9ccrKeQPcx5SMQbdRl/2CvXUfMrmRcDTqdB
+         l9XOfBN5oEVLB8HpvBXWjbProQey2UTUumU3PtATYF6GKhv+qe90XQ3dIBKpfW+Ha6My
+         YMpluSNNr9m4lI+k8ASHXE7LBAdkseYbGVaRNtvnbFkR8LERbSA2/Weivauk4e7mHbVn
+         feIraqw6ngFjI0ZncTahTd4TvCTwOw4bP+eUQRSwk82a6Dy7zUri0cR03+12/DHYXq3U
+         SDO67whhwxyQ4tkKSGUIykq1fs1bhCpUTzpaNagoX7TInPT9s80PNLM62Am/rbpeIKjY
+         PAIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755763283; x=1756368083;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=X0l+hqGahEDr13/VVOMr1/ba48aJ1pl6KG+1VNry8aA=;
+        b=Kmjk/Nw4UxsOepR6wDFGYrnyL0I7sdNvuZSVvvXd8HQyHCq5kR3xqEVGlXNaQ34QSO
+         xqBsURoHPq1L3YfnY03dvEa64spgwgrOjzOzgm/WnPfbLc/mO3/DHfN4a9wP7zQjG8XB
+         UwiP81fqPepZfV3uAH75DoggLDPpcF9LJf8gl+Gs19PXM1TobcpOtZ+EYANwvtNDSjg2
+         uO9BsKmAquTiDNAEou3VaaGF4CvtRWDky+97UEwrkz68Y4cAmV8ANV+kG7AUW0mwMYFV
+         +O0vXG0gI/OhrOcAN6V7iBbQaykwYy9eKJCkl0hAOTnVgIyhTZ3B09/LYPjqfcb+XX/D
+         MDvg==
+X-Forwarded-Encrypted: i=1; AJvYcCUWKrTg+jHahXcQnzLwtAusjM4om58ynXlQsyl5JNsnfT/FFT/tjJJJn+LajZ/4wAvn96137H0kaYyTZw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQ3m1cBmWAtuOky7sWirxuckvvibnIKG2Kl3nNZHchqlrs4BGb
+	7oHWDH8vzBSNA8eb5cXJeea4zKaogJZJ6XpELBn2Zis3cufvGFE9H675AFA1IXOlxxe7TKlX1Vw
+	RE1HjP/dyZwJ5BIQmeAcUtHWxLq8OJNu+vor1C5N2ZQ==
+X-Gm-Gg: ASbGnctG14YET1hS474WzPIl1UMjLvdOW1fMSxz77dpU0+tHtbioO7LTkAIcX6bEHlT
+	X4w4Bv1pMQlBMO9yXci4HGyB1xGQ3ZeL/quZRfRMOXqBgV5CdoTneBqpsbLQYICbve3gabZNLGZ
+	D3DGYALW2CzpepZd0XQcb5y3Dzh/4nH8h9wZ/RGytqdOkezjZfinJLVPrvCJkPKx6ntJv42Atpu
+	ZLWkgrOVxhg7jpjn1WhaJ3s
+X-Google-Smtp-Source: AGHT+IE1OeafrLylfvLmrdDojnOroAp8hDYwluDFKL9kS6j+UuoaPTREpF8UcR7eJdteZMLpeZ1xWt+LGXG2u0Pv6TQ=
+X-Received: by 2002:a05:6808:50a5:b0:435:27b4:3fcb with SMTP id
+ 5614622812f47-4377d6b1ed9mr504349b6e.3.1755763282540; Thu, 21 Aug 2025
+ 01:01:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250820074245.16613-2-ziyao@disroot.org>
+References: <20250819135007.85646-1-cuiyunhui@bytedance.com>
+ <20250819135007.85646-3-cuiyunhui@bytedance.com> <e7653089-5c57-ee61-ed01-0b3245e10d82@gentwo.org>
+In-Reply-To: <e7653089-5c57-ee61-ed01-0b3245e10d82@gentwo.org>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Thu, 21 Aug 2025 16:01:11 +0800
+X-Gm-Features: Ac12FXwUWi_BUfDOcCWj-9DhtNJYZaytAFdS1lP3UQLaq51ftYyrJTGQtLfjgb4
+Message-ID: <CAEEQ3w=KrysBJrkYA6mUKCjC=fz23R7u81a2p8EipaN9oVHs_Q@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH 2/2] riscv: introduce percpu.h into include/asm
+To: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+Cc: yury.norov@gmail.com, linux@rasmusvillemoes.dk, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	dennis@kernel.org, tj@kernel.org, linux-mm@kvack.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_005411_564901_043E84A5 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20250821_010127_870048_B61B32D4 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,79 +93,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Drew Fustini <fustini@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Michal Wilczynski <m.wilczynski@samsung.com>, Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, Han Gao <gaohan@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-kernel@vger.kernel.org, stable@vger.kernel.org, devicetree@vger.kernel.org, Guo Ren <guoren@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 07:42:43AM +0000, Yao Zi wrote:
-> The reset controller driver for the TH1520 was using the generic
-> compatible string "thead,th1520-reset". However, the controller
-> described by this compatible only manages the resets for the Video
-> Output (VO) subsystem.
-
-Please use subject prefixes matching the subsystem. You can get them for
-example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-
-> 
-> Using a generic compatible is confusing as it implies control over all
-> reset units on the SoC. This could lead to conflicts if support for
-
-No, it won't lead to conflicts. Stop making up reasons.
-
-> other reset controllers on the TH1520 is added in the future like AP.
-> 
-> Let's introduce a new compatible string, "thead,th1520-reset-vo", to
-> explicitly scope the controller to VO-subsystem. The old one is marked
-> as deprecated.
-> 
-> Fixes: 30e7573babdc ("dt-bindings: reset: Add T-HEAD TH1520 SoC Reset Controller")
-> Cc: stable@vger.kernel.org
-
-Especially for backporting... Describe the actual bug being fixed here.
-
-> Reported-by: Icenowy Zheng <uwu@icenowy.me>
-> Co-developed-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> ---
->  .../bindings/reset/thead,th1520-reset.yaml      | 17 ++++++++---------
->  1 file changed, 8 insertions(+), 9 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
-> index f2e91d0add7a..3930475dcc04 100644
-> --- a/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
-> +++ b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
-> @@ -15,8 +15,11 @@ maintainers:
->  
->  properties:
->    compatible:
-> -    enum:
-> -      - thead,th1520-reset
-> +    oneOf:
-> +      - enum:
-> +          - thead,th1520-reset-vo
-> +      - const: thead,th1520-reset
-> +        deprecated: true
-
-This you can do, but none of this is getting to backports and your DTS
-is a NAK. This basically means that this is kind of pointless.
-
-Compatibles do not have particular meanings, so entire explanation that
-it implies something is not true. We have been here, this was discussed
-for other SoCs and you were told in v1 - don't do that.
-
-You are stuck with the old compatible. Is here an issue to fix? No.
-
-Best regards,
-Krzysztof
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ2hyaXN0b3BoLAoKT24gVGh1LCBBdWcgMjEsIDIwMjUgYXQgNzozOeKAr0FNIENocmlzdG9w
+aCBMYW1ldGVyIChBbXBlcmUpCjxjbEBnZW50d28ub3JnPiB3cm90ZToKPgo+IE9uIFR1ZSwgMTkg
+QXVnIDIwMjUsIFl1bmh1aSBDdWkgd3JvdGU6Cj4KPiA+ICsjZGVmaW5lIF9fUEVSQ1BVX0FNT19P
+UF9DQVNFKHNmeCwgbmFtZSwgc3osIGFtb19pbnNuKSAgICAgICAgICAgICAgICAgICAgICAgIFwK
+PiA+ICtzdGF0aWMgaW5saW5lIHZvaWQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBcCj4gPiArX19wZXJjcHVfIyNuYW1lIyNfYW1vX2Nhc2VfIyNzeih2
+b2lkICpwdHIsIHVuc2lnbmVkIGxvbmcgdmFsKSAgICAgICAgICAgICAgICBcCj4gPiAreyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgXAo+ID4gKyAgICAgYXNtIHZvbGF0aWxlICggICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgICAgICAgICAgImFtbyIgI2Ftb19p
+bnNuICNzZnggIiB6ZXJvLCAlW3ZhbF0sICVbcHRyXSIgICAgICAgICAgICBcCj4gPiArICAgICAg
+ICAgICAgIDogW3B0cl0gIitBIiAoKih1IyNzeiAqKXB0cikgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgXAo+ID4gKyAgICAgICAgICAgICA6IFt2YWxdICJyIiAoKHUjI3N6KSh2YWwpKSAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgICAgICAgICAgOiAibWVtb3J5Iik7
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArfQo+Cj4g
+QU1PIGNyZWF0ZXMgYSBzaW5nbGUgaW5zdHJ1Y3Rpb24gdGhhdCBwZXJmb3JtcyB0aGUgb3BlcmF0
+aW9uPwo+Cj4gPiArI2RlZmluZSBfcGNwX3Byb3RlY3Qob3AsIHBjcCwgLi4uKSAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gKyh7ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgIHBy
+ZWVtcHRfZGlzYWJsZV9ub3RyYWNlKCk7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBcCj4gPiArICAgICBvcChyYXdfY3B1X3B0cigmKHBjcCkpLCBfX1ZBX0FSR1NfXyk7ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gKyAgICAgcHJlZW1wdF9lbmFibGVfbm90cmFj
+ZSgpOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICt9KQo+Cj4g
+SXMgIm9wIiBhIHNpbmdsZSBpbnN0cnVjdGlvbj8gSWYgc28gdGhlbiBwcmVlbXB0IGRpc2FibGUg
+LyBlbmRhYmxlIHdvdWxkCj4gbm90IGJlIG5lZWRlZCBpZiB0aGVyZSBpcyBubyBvdGhlciBpbnN0
+cnVjdGlvbiBjcmVhdGVkLgo+Cj4gQnV0IHJhd19jcHVfcHRyIHBlcmZvcm1zIGEgU0hJRlRfUEVS
+Q1BVX1BUUiB3aGljaCBwZXJmb3JtcyBhbiBhZGRpdGlvbi4KPiBTbyB5b3UgbmVlZCB0aGUgZGlz
+YWJsaW5nIG9mIHByZWVtcHRpb24gdG8gcHJvdGVjdCB0aGUgYWRkLgo+Cj4gSXMgdGhlcmUgYSB3
+YXkgb24gUklTQyBWIHRvIGVtYmVkZCB0aGUgcG9pbnRlciBhcml0aG1ldGljIGluIHRoZSAiQU1P
+Igo+IGluc3RydWN0aW9uPyBPciBjYW4geW91IHVzZSByZWxhdGl2ZSBhZGRyZXNzaW5nIHRvIGEg
+cmVnaXN0ZXIgdGhhdAo+IGNvbnRhaW5zIHRoZSBjcHUgb2Zmc2V0LiBJIGJlbGlldmUgUklTQyBW
+IGhhcyBhIHRocmVhZCBwb2ludGVyPwo+Cj4gSWYgeW91IGNhbiBkbyB0aGlzIHRoZW4gYSBsb3Qg
+b2YgcHJlZW1wdF9lbmFibGUvZGlzYWJsZSBwb2ludHMgY2FuIGJlCj4gcmVtb3ZlZCBmcm9tIHRo
+ZSBjb3JlIGtlcm5lbCBhbmQgdGhlIGluc3RydWN0aW9uIG1heSBiZSBhcyBzY2FsYWJsZSBhcyB4
+ODYKPiB3aGljaCBjYW4gZG8gdGhlIHBlciBjcHUgb3BlcmF0aW9ucyB3aXRoIGEgc2luZ2xlIGlu
+c3RydWN0aW9uLgoKWWVzLCB0aGFuayB5b3UuIFdoaWxlIGl04oCZcyBjZXJ0YWlubHkgZ29vZCB0
+byByZW1vdmUgcHJlZW1wdGlvbgpkaXNhYmxpbmcsIGN1cnJlbnRseSBSSVNDLVbigJlzIGFtb2Fk
+ZC53L2QgaW5zdHJ1Y3Rpb25zIGNhbiB0YWtlIHRoZQphZGRyZXNzIG9mIGEgdmFyaWFibGUgcmF0
+aGVyIHRoYW4gYSByZWdpc3Rlci4KCkkgcHJldmlvdXNseSBzdWJtaXR0ZWQgYW4gYXR0ZW1wdCB0
+byB1c2UgZ3AgdG8gc3RvcmUgdGhlIHBlcmNwdQpvZmZzZXQsIGFuZCB3ZSBhcmUgYWxzbyB0cnlp
+bmcgdG8gcHVzaCBmb3IgYW4gZXh0ZW5zaW9uIHRoYXQgdXNlcyBhCnJlZ2lzdGVyIHRvIHN0b3Jl
+IHRoZSBwZXJjcHUgb2Zmc2V0LgpodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvQ0FFRVEzdz1Q
+c001VCt5TXJFR2RXWjJubTdtN1NYM3Z6c2NMdFdwT1BWdTF6cGZtM1lRQG1haWwuZ21haWwuY29t
+LwpodHRwczovL2xpc3RzLnJpc2N2Lm9yZy9nL3RlY2gtcHJpdmlsZWdlZC90b3BpYy9yaXNjX3Zf
+dGVjaF9hcmNoX3Jldmlldy8xMTM0Mzc1NTM/cGFnZT0yCgo+Cj4gPiArCj4gPiArI2RlZmluZSBf
+cGNwX3Byb3RlY3RfcmV0dXJuKG9wLCBwY3AsIGFyZ3MuLi4pICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBcCj4gPiArKHsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gKyAgICAgdHlwZW9mKHBjcCkgX19y
+ZXR2YWw7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsg
+ICAgIHByZWVtcHRfZGlzYWJsZV9ub3RyYWNlKCk7ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBcCj4gPiArICAgICBfX3JldHZhbCA9ICh0eXBlb2YocGNwKSlvcChyYXdfY3B1
+X3B0cigmKHBjcCkpLCAjI2FyZ3MpOyAgICAgICAgXAo+ID4gKyAgICAgcHJlZW1wdF9lbmFibGVf
+bm90cmFjZSgpOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsg
+ICAgIF9fcmV0dmFsOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBcCj4gPiArfSkKPgo+IFNhbWUgaGVyZS4KPgo+CgpUaGFua3MsCll1bmh1aQoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
