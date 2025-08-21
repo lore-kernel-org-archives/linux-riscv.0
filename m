@@ -4,111 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE8FCA0EFA
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 00:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 592ECCA0EFC
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 00:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QtgVRnC1CzVxJ1ua7Q9BFW0mXShhxFVRDcs9mDxist8=; b=R/eWoc07ZATdc5
-	/wqdH1PtuGl1QE1xdx1kHBYbYu2Si9QCirzu0HCMm0oPYDfkhOWHCks6GHu5rKXq0Q8pjYphUcs41
-	jumpU6Ni0LzzmphSu7J6YXLAKh1yTkQHraAzBbWlT1JrkK5yh1RzmQakIpeDepdTnlBBsZ6uHCFkn
-	C+n7knexxtRxiLAX+xlnRg0X1cJRR+XLgz21H8j05+qD6Op3WfEvGEJvNpY2+BiB66WC57PtEZP5t
-	ZX6VBtE5t9D9YPPateF3ZsgbKd4g4j2gV+lf+Jk9g2R7aCW7olnpi9ynEjTbeeCJPguiw7Zm9USne
-	gwlr4X8Ewis52BzL7jIw==;
+	List-Owner; bh=FZvlFtfgJAWdXY9+lBaUodebXeebw9yeFt+85NJp1ss=; b=sDNU9lnndKmCsj
+	ulIy4e25w0ayIYJaQ6/EY9djdeNoCOBtis/+oLUDtDAi2qnTZ4RFYgQctBErMSr+hABlcHTPKk50z
+	OxcMg9Cp9poEYEORmugGMd87MwngH2AgauPfYiPd05q4yunEqXrUP5AmQEf9/4yb0DhuAWQxQKrwE
+	J+A5ezSSNwWEAVNz+3zsNDawpkMbBPyTEDsSuoVCgSF6WR9ipA7pDJxMJ/6jv/6BFgT30kCAiCyVs
+	Pws0MGBcHsKONzCR1Tpm+rS+/DxG2mKgx+iCEU7y23MMjpIlah/miqShu8JguIlGLG3OL1lcJt/5H
+	wZvwMCeNDqhoiowPYJbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upG0Q-000000015Hv-40bd;
-	Fri, 22 Aug 2025 00:51:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBaY-00000000OBV-1JVX
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 21 Aug 2025 20:08:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Zfh98TqNQqR9uCNr2hB5bEgIJ/15ql7Yv0zNbj5EC/8=; b=cDGaBL9uIdRdqjds1A0OM6JBW7
-	xpyl+PoMYSkqVQ5IbTxDP7qXIkVwV7ZZJd3Ot7VWlUpr+uPvsettU/CV8+wRPq87ik/vOUREvrW5G
-	1V/5hC0aD81ih8ecsEVbekhhuL3AcK09egRMgbVVjqTHE2sJtk+JeavG6M8slftWxIFbg1WrW8Ffx
-	EbYyGhQ+TuY0hOXkjasTtl7BQQPUX2BHCbinfOAXQluThofJhAUvpmiigtKZ9gLWiiit2juNexvy9
-	Z+e5ncbtJEEko2o4OcLDp2h+HBp2mALzvJYDtDuRTZsc453br3vsHvI4hilw/yQb9vIsg80foTw74
-	0KW9Iz8A==;
+	id 1upG0R-000000015Ic-2wTz;
+	Fri, 22 Aug 2025 00:51:47 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBaT-00000000fB3-1lxo
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upBaU-00000000O9A-2Z4F
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 20:08:44 +0000
+	Thu, 21 Aug 2025 20:08:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
 	s=mimecast20190719; t=1755806920;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Zfh98TqNQqR9uCNr2hB5bEgIJ/15ql7Yv0zNbj5EC/8=;
-	b=Utw0GzM1fV3qofFoLeXbp/lRfieUB6HsiXebB8ElPlR3iObcLeF/cEXbHsmZ7Qsw8xsOHB
-	JB4BFtCyBv5L5oulR4ayLVqTx/95rBADjIL021rQEr8Q4qw3/oVX6O33j154Qkb9MzNuP9
-	TK4PF2zqw51W1hkjrgUEIs92Wo1aLyo=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806920;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Zfh98TqNQqR9uCNr2hB5bEgIJ/15ql7Yv0zNbj5EC/8=;
-	b=Utw0GzM1fV3qofFoLeXbp/lRfieUB6HsiXebB8ElPlR3iObcLeF/cEXbHsmZ7Qsw8xsOHB
-	JB4BFtCyBv5L5oulR4ayLVqTx/95rBADjIL021rQEr8Q4qw3/oVX6O33j154Qkb9MzNuP9
-	TK4PF2zqw51W1hkjrgUEIs92Wo1aLyo=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=w6VkvDa+3msZeC5nA9B9+aDln+Mg2ABReefULBX94/4=;
+	b=JxkxZadlDeHHnazH3t93dNRHHEHYq8fohyBI3UTHKg8vkhg3iGxfuYzbkoDz8I2CfrcDvZ
+	kiCXQdTDWdM4c6pOlHq2LtKcdw1GFWKtpvjiwq/rS4kwbIHjan32wCNscN25K6DMeQJZFZ
+	pGloWyBHkPEKCJXOyrfUCA6IQEeXsxA=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-650-AJBYwcxjNQiRhbJ0UnB0JA-1; Thu, 21 Aug 2025 16:07:17 -0400
-X-MC-Unique: AJBYwcxjNQiRhbJ0UnB0JA-1
-X-Mimecast-MFC-AGG-ID: AJBYwcxjNQiRhbJ0UnB0JA_1755806836
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3b9e4157303so922324f8f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:07:17 -0700 (PDT)
+ us-mta-326-C0qDTrH9NiWuMQnPIPje3g-1; Thu, 21 Aug 2025 16:08:03 -0400
+X-MC-Unique: C0qDTrH9NiWuMQnPIPje3g-1
+X-Mimecast-MFC-AGG-ID: C0qDTrH9NiWuMQnPIPje3g_1755806880
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-45a15f10f31so14273715e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:08:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755806836; x=1756411636;
+        d=1e100.net; s=20230601; t=1755806880; x=1756411680;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Zfh98TqNQqR9uCNr2hB5bEgIJ/15ql7Yv0zNbj5EC/8=;
-        b=OKV+qMv81g8i6bz/MS2js948vAhlf0gFFgX/0hh/vXksMEGUAW+WTTSejc7AKI5Vnv
-         3czo8FF/vN9hOgL6XhSmQbI6D1vx0cqhr44NOdeKZd4XpEepFOOZ0fSJjEyxswfWNyr4
-         SqA5fNJI1PAoDA/F1+evmkd32vFUyssqJDZtp93Qe5bIycbC9DOPXdMeogCxthLiR0Xr
-         DuuRPbgmhvkUcqBvFzSPPLhJOglvp0NRY+PdeN+Hxjk+ZTlc6G7KW/kZd+99hKgg5Oq1
-         4/ncvdjk13aRCxn7wI2nfjac4JM5sZ47HhmVGeyagjKxdbjbwQdsHc79IvUgDc/d6SwA
-         krFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX0uSSyKpfPql1BaLWuSmPwCn6H/FzQO6Bj38P6ByzKkF+cSsG6UBXT4VM3DvalSR664AOZ1mY9WYhmRQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/UAitoWAo4of8IcD7sNmNOZngIhci4stf4n8+nKyVyyvQpv9b
-	Uh+G30G3cnEinXHfktvLN1aHPLTTBod7A74T7ltb7R3tXbE5nrMG3ssLL/MVlTutSCLoeET+a6L
-	W9ZPOcRaKNrLsClH7KGO4rv+OaW22nFTleFUxj0PRn8GMs/ut33hU+0j05UWP62M6Ow1x2A==
-X-Gm-Gg: ASbGncunygLbsZFXAIrhI2xLkg9tUWj6sCK6fLVFo5juiJQ0qBT3Tu0lNn69kOMZBVG
-	h0g9bNWNb9XuSfXiXCq7k5U2bQgfn3iKUJTQs+Yh1BOcx9ZcVjbPvGFIMcuQn9xaYTQCDPZM6UU
-	bCcu5XEMOBkd7kQvnHAgd03b/jNaJXa4Mo5YPr5aDBfrZQy6xE8mLmQoY46H2F590WyeovZx4Qu
-	by1yju2kQV0z2qRY8KgwzB1SUCweGYQ39ILMWHz3IQDe8IBSkxInpnfjpZRqptlR80drc1DtqHU
-	uX5urgOJB3BUxl5wJAup4VuVZ0ko2Iy4leU4xzJV1VKPIQpNyeAnrlzQWyUL3TpoNezQEdzx0ma
-	a/SuAI55D2hNeUH8fljop/Q==
-X-Received: by 2002:a05:6000:1445:b0:3a5:27ba:47c7 with SMTP id ffacd0b85a97d-3c5dcc0da36mr162998f8f.48.1755806836149;
-        Thu, 21 Aug 2025 13:07:16 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFpC+bUbLbCjHqucY3RiMYJPd72Xl9UYU3JmJwOiC1ZPXsKWXLLEiwWSHifO8HwGgrBWSbiEw==
-X-Received: by 2002:a05:6000:1445:b0:3a5:27ba:47c7 with SMTP id ffacd0b85a97d-3c5dcc0da36mr162946f8f.48.1755806835650;
-        Thu, 21 Aug 2025 13:07:15 -0700 (PDT)
+        bh=w6VkvDa+3msZeC5nA9B9+aDln+Mg2ABReefULBX94/4=;
+        b=JZw/4ZZjELS05jjjPr9I74qCkmMTYCZx3yy3RahrIZOrNwM/PJnJ+CH1/9+SSLOuJP
+         4sqQIQR3jQobuO5LKFGWQEPJrhYSCOhOafm6nkFjoBMNZcMDr0TyaDNUqg+gsqjYd3ql
+         /GQrhXwuwvYhtgeZSRplJ9jeKieAyMHC0GBUV8tv9EYhcCGXVjmqtAXG7jmw41CWVJh7
+         UtJnqibuOK/vXHPS0JiZ0u/vfbbqU6kAsEJpPJSmER83y/kj2xr3kteEA5+YOyvpZiCc
+         P1M31lvsMU8CWhnY0Y5Aq+u1V5zPPTIzH8nJ7LVW0Ojg7D1sMxl15wIQmNfy34Kp8wF1
+         Q61Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX8ns6ShcuWHAxbG8rMx7Nvd+l15vwThBBf6AizgQvVHSICz0RXucL9oPY1FUnt8EU+u9nKqYwLjrCevQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1GKe4KDvle0Uq2WUDUaJXx9di9n35DTqucflKU48LT8O8HLGb
+	XMnynf9t1BwO0IEQeCLVRq/NJwuTTLPrBwOPOReOGZliffmi7wgBZiVkaH9pDfwc2hSGnCdwxcO
+	rpLesZZMrSV3k9SghOCdjniKMJM1m667Q9gEQyQvah8PF3qHOM3KGMz8oIjBS1s8bIZNV9A==
+X-Gm-Gg: ASbGncsFI6kbpsb4IMSkAVbHizjWK/inLHNMGpWBBD4w9sh7JeukcaWUhy+NoE91ph4
+	/Afq51uq7zXcTigg6k1b2Kdvqctgwq4/+0qA5W1b3v9lKZd8Nfs2A4xMPH70aXJCfv4TiodPUTw
+	YGlsGOQz+JhvfcdYeyLaymOHhufpG2qPwCSoS422I8lyS8+QLVomg0SqLT8YIuHUJz41gmT/1hf
+	A3FyuyiSPOFKvTKc1Jvo5qIpnH1ZBqP9duoljk1bFL9prGHTFaQpwQCcBneDoVchWNbluIpzzTf
+	7A+Ys+g+GsLLqdf4RaG+TJ1QKQ26WYX23HNuln7zOaoWZxCgqlGyS4kdMhTzIxShC8uY63W6nRY
+	hv9TNz4/PSMrcxwAGWDNNxg==
+X-Received: by 2002:a05:600c:1c87:b0:456:942:b162 with SMTP id 5b1f17b1804b1-45b51792539mr3328925e9.11.1755806880062;
+        Thu, 21 Aug 2025 13:08:00 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG9ciI0WdoI3CxhUtu7m/cESVsdReJmvmXFWCMaWsO+hhXySreox2GeOL2sJ8kVyLPwCYhbEA==
+X-Received: by 2002:a05:600c:1c87:b0:456:942:b162 with SMTP id 5b1f17b1804b1-45b51792539mr3328365e9.11.1755806879543;
+        Thu, 21 Aug 2025 13:07:59 -0700 (PDT)
 Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b50dc00a8sm10958175e9.1.2025.08.21.13.07.13
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3c07778939bsm12219075f8f.46.2025.08.21.13.07.57
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:07:15 -0700 (PDT)
+        Thu, 21 Aug 2025 13:07:59 -0700 (PDT)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
+	Jens Axboe <axboe@kernel.dk>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -120,7 +91,6 @@ Cc: David Hildenbrand <david@redhat.com>,
 	iommu@lists.linux.dev,
 	io-uring@vger.kernel.org,
 	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
 	Johannes Weiner <hannes@cmpxchg.org>,
 	John Hubbard <jhubbard@nvidia.com>,
 	kasan-dev@googlegroups.com,
@@ -155,20 +125,19 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH RFC 03/35] s390/Kconfig: drop superfluous "select SPARSEMEM_VMEMMAP"
-Date: Thu, 21 Aug 2025 22:06:29 +0200
-Message-ID: <20250821200701.1329277-4-david@redhat.com>
+Subject: [PATCH RFC 19/35] io_uring/zcrx: remove nth_page() usage within folio
+Date: Thu, 21 Aug 2025 22:06:45 +0200
+Message-ID: <20250821200701.1329277-20-david@redhat.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
 References: <20250821200701.1329277-1-david@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 4__zIhvklX-p0ArRyDVC5HCDOBHY5F73vnRl5clRW4Y_1755806836
+X-Mimecast-MFC-PROC-ID: 06oWlD8JIMuRp_bH3GlCs4Z6VkyRGKPKDfLLEeqVNic_1755806880
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_210841_978549_896152AB 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_130846_754585_BF5B84A8 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,31 +154,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now handled by the core automatically once SPARSEMEM_VMEMMAP_ENABLE
-is selected.
+Within a folio/compound page, nth_page() is no longer required.
+Given that we call folio_test_partial_kmap()+kmap_local_page(), the code
+would already be problematic if the src_pages would span multiple folios.
 
-Cc: Heiko Carstens <hca@linux.ibm.com>
-Cc: Vasily Gorbik <gor@linux.ibm.com>
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
-Cc: Sven Schnelle <svens@linux.ibm.com>
+So let's just assume that all src pages belong to a single
+folio/compound page and can be iterated ordinarily.
+
+Cc: Jens Axboe <axboe@kernel.dk>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- arch/s390/Kconfig | 1 -
- 1 file changed, 1 deletion(-)
+ io_uring/zcrx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index bf680c26a33cf..145ca23c2fff6 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -710,7 +710,6 @@ menu "Memory setup"
- config ARCH_SPARSEMEM_ENABLE
- 	def_bool y
- 	select SPARSEMEM_VMEMMAP_ENABLE
--	select SPARSEMEM_VMEMMAP
+diff --git a/io_uring/zcrx.c b/io_uring/zcrx.c
+index f29b2a4867516..107b2a1b31c1c 100644
+--- a/io_uring/zcrx.c
++++ b/io_uring/zcrx.c
+@@ -966,7 +966,7 @@ static ssize_t io_copy_page(struct page *dst_page, struct page *src_page,
+ 		size_t n = len;
  
- config ARCH_SPARSEMEM_DEFAULT
- 	def_bool y
+ 		if (folio_test_partial_kmap(page_folio(src_page))) {
+-			src_page = nth_page(src_page, src_offset / PAGE_SIZE);
++			src_page += src_offset / PAGE_SIZE;
+ 			src_offset = offset_in_page(src_offset);
+ 			n = min(PAGE_SIZE - src_offset, PAGE_SIZE - dst_offset);
+ 			n = min(n, len);
 -- 
 2.50.1
 
