@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A918CA0EEB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAEBCA0EFA
 	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 00:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,95 +12,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R1WoBPoEmTTWNDs988bEOLq60OBMhhl+2w6RWkJYO0c=; b=vfY4J7DnDW11Q+
-	2Q0hzIAYNCSQDdEShPDmPNv6Z+rwNSDABho2QqYljsQLgBZsYdhKBoSSozmcve2PXufgpf2VJGG0I
-	N0YAgYG3imxZvNxezXS2FbDzibzW0rAwbIbATnXk03oPGGjpumTLrFb6+k+pp/akItX4Px6A6s4pb
-	WeKL74ixkvjA144rHNtWJQRxhFbIKtATHmI6lY0DhDerSEYp3IZmoHAI48xDobXS1vwfbZSb6NnI/
-	GMuKgBtngrsBtfhkJMvsH+Ck95Xt9Uxv+tcRxNBfIVu8jY9e9e1iPxgVDLZWFcB8mpSpfMJk7n0qW
-	H/KqkheIeMfzK2X/zzPQ==;
+	List-Owner; bh=7rHzYSP3ALTbZBXAtL8no/qQ4/gD+Tlyx/+hCImktkc=; b=gaaA1laexJvMVJ
+	7sMou9XsZXZS0K9AnQMDCM1XCilJwOTRO7RPFpYSljJziQi7SXT3Y2tPJURruo36zkty6hzJzskyj
+	sC3E7/9xdPNIwsrTqmb8urfJXCZssNM22mnRjNUBCCK7fAo43xRVNGk6bYeI+bAr3gcXJ5/d/Q1A0
+	pHLqCvW5KT2jJZZ6kQzwXZXwNGjgUmWZtc56nFikSI1w0E2RJ1wg4QoM3YgT2DDoTKYR0pPKPGgEF
+	hBGYZn0YjE0gxn21qRZ7S5kb7GIMbqTeik2pUgiNc5ZCT0NzeBnrGsiuJQUb8HXkKq4jl64l+9nVQ
+	SH41qh5R5MhsS9eUKr+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upG1o-0000000162A-2mEg;
-	Fri, 22 Aug 2025 00:53:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBak-00000000OIC-3IRW
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 21 Aug 2025 20:08:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=r/kmddABpvZJu5K+QD662cz6jOGE1r8xokeQdlRgepQ=; b=j7Wo6GgCUDVv6UzHD00XLdkjhC
-	3KbyfRAe9vm2i8iA+zkM4eGKIETFU/rIgLKG1wmoM0EK5/NTnJvS97fT7yHPMj0VmaAIS7SAC6QFX
-	T+BHsKWbXgfAgboigtz74xJEC8FuWi+/RrZ5Zh24MPiVaWvD63LjhDDR9fuEuYiHljPuD+zE6218H
-	qaRWEoHpBMYgKlWSwNnMb9VUenAZIy9Q80memJ/mBawfqxGGWEYTVBsF75spdCjxNDJJq5B6/QX8g
-	pfOZypX1EvI6GB+ouUya1c6dmLWmJu6XmO2YOyjR1OPyfi0Q3sK12NWBbHQaKcTpohtZSgkkhOUcR
-	JO5N7wEQ==;
+	id 1upG1p-0000000162b-1ezO;
+	Fri, 22 Aug 2025 00:53:13 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBah-00000000fMd-3hR2
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upBao-00000000OJL-1fwe
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 20:08:57 +0000
+	Thu, 21 Aug 2025 20:09:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806934;
+	s=mimecast20190719; t=1755806941;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=r/kmddABpvZJu5K+QD662cz6jOGE1r8xokeQdlRgepQ=;
-	b=TRoQtw3f9xuA3hGHbVXsu6MxPLA3hrXwfyCGLYr/2tA0+KrmA5XMSn1aVF05v1pxtkfSL9
-	64LM4k0a8EuQd9ayAMMY0UBqpSENOZ2BkGG9AYBCd9nuEUJf706ShGgMKYmymL/4SVSGDW
-	V+eG8E06OvItj9H66RfEbENDPLaD/wk=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806934;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=r/kmddABpvZJu5K+QD662cz6jOGE1r8xokeQdlRgepQ=;
-	b=TRoQtw3f9xuA3hGHbVXsu6MxPLA3hrXwfyCGLYr/2tA0+KrmA5XMSn1aVF05v1pxtkfSL9
-	64LM4k0a8EuQd9ayAMMY0UBqpSENOZ2BkGG9AYBCd9nuEUJf706ShGgMKYmymL/4SVSGDW
-	V+eG8E06OvItj9H66RfEbENDPLaD/wk=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=fXj+9vT03G0X8fnCGUCy6hSTWwnZnWm2sdD6cJzGZDI=;
+	b=IJwcQIpolBusN3dQPxutUJwTpPvysCeu4qQYqly6aiiWAsrL4JUGkBok5Kg3JtoVXALMOC
+	XFTLJaqmwvsSaw7+D0fugFgjwPWu4irumTLVNU5xtTsiOQ/08cUjrOrtisP/WiomHytn8x
+	Dr2nffKBfTNRkIzLH1e+fnBQE6lO0/I=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-486-eLmQ7Kb7PCOSkxSgSL4_Tw-1; Thu, 21 Aug 2025 16:07:34 -0400
-X-MC-Unique: eLmQ7Kb7PCOSkxSgSL4_Tw-1
-X-Mimecast-MFC-AGG-ID: eLmQ7Kb7PCOSkxSgSL4_Tw_1755806853
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3b9dc566cb4so996122f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:07:33 -0700 (PDT)
+ us-mta-214-NKcRrwB_N_uQF2gJVTTADg-1; Thu, 21 Aug 2025 16:07:36 -0400
+X-MC-Unique: NKcRrwB_N_uQF2gJVTTADg-1
+X-Mimecast-MFC-AGG-ID: NKcRrwB_N_uQF2gJVTTADg_1755806855
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3b9d41b779aso818598f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:07:36 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755806853; x=1756411653;
+        d=1e100.net; s=20230601; t=1755806855; x=1756411655;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=r/kmddABpvZJu5K+QD662cz6jOGE1r8xokeQdlRgepQ=;
-        b=mf3vU8ob72e7skP0S4GoQus5zKAhtoq6SFP/aGLEsDNhHzan/fajsir1iHX4cYrmSI
-         7EsYH3R1myZBPbe+o7LjAO1O5R5Tzh5s7prWtEhFzomLeS/xXrUHuhCFnnANhEl6xVxU
-         E0j8I+rLkWiWXeJQRXBC+Ox0tj3MtNj+Vt2JOxmJt+XgBkCXlpao/3fkFop5MuP7hIF8
-         itDOzzLVs7Mwtnnn3R7TL8p9RyIcUo3jHoWSwJrLTn2AHal66wZ7GMQ6zooPI9Ju5aSX
-         Vxf4aCS6egwLAzYGVQsky4TgTbBfbzBnHWtUyjeG42YzNGL3Mekw7EiOPTL3Gd3QkARj
-         oftw==
-X-Forwarded-Encrypted: i=1; AJvYcCUsHBAA7G1pfzWMMBINsq7sxBOSRkV7wIr+CW0AHv60Ddf7fmgfdBEn3xTJZuMi0wJk9OdYYEEc2XJPmw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMEV8VmtHlYXeVYUlcF/zNrkAQIXdSZDHcF1Xi4gRmcNFtykOJ
-	JLiXM/KnyAvjs4s+cFETCoUGzkE4LlnjnyaBNcaWEqLTsJeAzLSE1NqnTaRnOiDANgdY1lEcurF
-	1OfMhxKQiLjJGnAd9zoFa64D+sPxV8deJmanYxV5nCpsAV3aHXf2AK57sauYxSz64DiTM0A==
-X-Gm-Gg: ASbGncv/Vc1fBPo5Hd6on7Vk6tjUK72HITAfXZTP8vgXPqYm7BsG/LGJ3nJE1AxjKyc
-	kWgL/tLvZ9PjUpB7mTt2hKTK6/gJInkyPh2Hlk8G8Pvl5Bn2EiG12wX39zBM0IzzKVQl3c7UDol
-	vge0x+vN83/OSNzKN0+pGCcy0w1ZIkxTiDEfoTLjF1XJtKusxHnH29eg7J0qDv/KFMlFPuH34V2
-	0YI5UeZZCUyRkM0idQsviiIYAVXKZHIHls0HEgNH+4aDIxdTC01GM4HaFFW9kgjZUZJ5CXfL05j
-	xu3HjXmnYfv93pIuO2KGZR011B6X6qhVv45j6YzZLZGOzAb/JdEtmVICUF0SpSGSZxxKBihrAcZ
-	V9Krb4VqRARBnzCkq8cC8ww==
-X-Received: by 2002:a05:6000:2dc7:b0:3b9:15eb:6464 with SMTP id ffacd0b85a97d-3c5daefa9e0mr244687f8f.15.1755806852599;
-        Thu, 21 Aug 2025 13:07:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHbqF8V2lF/CygktHxSJZNB7+pmyneW6nxhnLwTxWefpTwvecQ9FG1LkYH8lxi0WUYYPrMQFQ==
-X-Received: by 2002:a05:6000:2dc7:b0:3b9:15eb:6464 with SMTP id ffacd0b85a97d-3c5daefa9e0mr244660f8f.15.1755806852102;
-        Thu, 21 Aug 2025 13:07:32 -0700 (PDT)
+        bh=fXj+9vT03G0X8fnCGUCy6hSTWwnZnWm2sdD6cJzGZDI=;
+        b=gjaFTxY4rrjTozGy27HafLGNJN1fs4Mhg7aSnSGwWCDJUcRERVL1KpeYfPW1f7Wt39
+         h8C4kF0BrpyoOMSWlan11rJUtXkX04BZS3YMCRJansBtNEjjpr6BtsB5FV9v6o1R8SRm
+         ZDu0cluon0y8K1Hhc1z7Y/ZSwh7rxGW2+b/bYmoCAYldcK172aZPZPvp1uc9/HCxJU5A
+         wjO7ba9YB6q4TC9vJg6bDgU9DLvzIfgBtf412ORTz4lIL3HIAtEsEZQJJNkaNdUJ4v1b
+         8XXm54vaK8xOPY43vDx9r5a7gM+iNb1cs+QqKXGErc+mPcw1HcpyvoT5ulNbRqiS/XQ+
+         p1NA==
+X-Forwarded-Encrypted: i=1; AJvYcCX8dAFygrlOHcrcgGcv5mgyVBBpmELGEZpBvrQF8xylkZIx4gCzTNZDgJXBYGFnxM9dn35jR3loTaHMpA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5+3IiVpwfdSAdDLROtQ4Mx9bhoa+HbbTWnmYTT2zs0SqqHjK1
+	PnGJ9QaHmxEepkbyMN8eMGj8n8Jg6Rz9uLVF8nM2D/nMRfCfr4AO3P899Uw6cNBxSXoG7xARCZH
+	P0F998rzwOozuyU2FQmvw8ZZw3VBhMLX8+q3GVsUhJMdb59emGtbn66SvV2AyMXQNCmxujA==
+X-Gm-Gg: ASbGncsmkOxHAGNIZ4BBqx6rRIw/Z+frpYEk6p0MYE2aqPzHM+b8UbDXkqadymyfpet
+	RMdfuyWP9ZOtqyTfg5rM4mVgrCU42xLUQq2xZCOQvPTssQJl4wwjBsAuDCXdpWIm5AYTvbokbBu
+	bY2TqMetYCcOodsZuTbvIq6KzTyZOSGWOY4Sp049p5BEgaPEwZfJX3URkmaSwdRuV2+WuGWMcFo
+	GZj9OI0o1dAyrKFarERWIJKfXeWHiV7ITaN/HshEHYc5pN96mkrnjEPwT5iHr9LLrbEWMg5NAf1
+	4djyl/23hoBPg/Fv80gQFnmif9/EasA9aXYeYjD9Clr903CRtoua2M2JjaYJjNEzYlO1f/YBM1j
+	wqkHODFbnlD2MtZalNK54BQ==
+X-Received: by 2002:a05:6000:2303:b0:3b8:d893:5230 with SMTP id ffacd0b85a97d-3c5ddd7f36emr169058f8f.47.1755806855254;
+        Thu, 21 Aug 2025 13:07:35 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGbzCbSL6MUAhNqtGz96KSex+k6XoYEx77XRmSFhqyAAErvnD4a434thNrJcfmyX2YJjFDsxQ==
+X-Received: by 2002:a05:6000:2303:b0:3b8:d893:5230 with SMTP id ffacd0b85a97d-3c5ddd7f36emr169035f8f.47.1755806854709;
+        Thu, 21 Aug 2025 13:07:34 -0700 (PDT)
 Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3c077789c92sm12629958f8f.52.2025.08.21.13.07.30
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3c077788b39sm12802789f8f.47.2025.08.21.13.07.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:07:31 -0700 (PDT)
+        Thu, 21 Aug 2025 13:07:34 -0700 (PDT)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
@@ -150,19 +125,19 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH RFC 09/35] mm/mm_init: make memmap_init_compound() look more like prep_compound_page()
-Date: Thu, 21 Aug 2025 22:06:35 +0200
-Message-ID: <20250821200701.1329277-10-david@redhat.com>
+Subject: [PATCH RFC 10/35] mm/hugetlb: cleanup hugetlb_folio_init_tail_vmemmap()
+Date: Thu, 21 Aug 2025 22:06:36 +0200
+Message-ID: <20250821200701.1329277-11-david@redhat.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
 References: <20250821200701.1329277-1-david@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: MVClG0GfDqdzP1Z3C-qE6w2CS7J1FJ42roBqNWXWHSM_1755806853
+X-Mimecast-MFC-PROC-ID: H7euhi4gpHL2m_08ETbPX2ewPBYIJOiGSS2Y9jhLmd0_1755806855
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_210856_088091_9E35ED4E 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20250821_130902_503783_292705A0 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,64 +154,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Grepping for "prep_compound_page" leaves on clueless how devdax gets its
-compound pages initialized.
+All pages were already initialized and set to PageReserved() with a
+refcount of 1 by MM init code.
 
-Let's add a comment that might help finding this open-coded
-prep_compound_page() initialization more easily.
+In fact, by using __init_single_page(), we will be setting the refcount to
+1 just to freeze it again immediately afterwards.
 
-Further, let's be less smart about the ordering of initialization and just
-perform the prep_compound_head() call after all tail pages were
-initialized: just like prep_compound_page() does.
+So drop the __init_single_page() and use __ClearPageReserved() instead.
+Adjust the comments to highlight that we are dealing with an open-coded
+prep_compound_page() variant.
 
-No need for a lengthy comment then: again, just like prep_compound_page().
+Further, as we can now safely iterate over all pages in a folio, let's
+avoid the page-pfn dance and just iterate the pages directly.
 
-Note that prep_compound_head() already does initialize stuff in page[2]
-through prep_compound_head() that successive tail page initialization
-will overwrite: _deferred_list, and on 32bit _entire_mapcount and
-_pincount. Very likely 32bit does not apply, and likely nobody ever ends
-up testing whether the _deferred_list is empty.
-
-So it shouldn't be a fix at this point, but certainly something to clean
-up.
+Note that the current code was likely problematic, but we never ran into
+it: prep_compound_tail() would have been called with an offset that might
+exceed a memory section, and prep_compound_tail() would have simply
+added that offset to the page pointer -- which would not have done the
+right thing on sparsemem without vmemmap.
 
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/mm_init.c | 13 +++++--------
- 1 file changed, 5 insertions(+), 8 deletions(-)
+ mm/hugetlb.c | 21 ++++++++++-----------
+ 1 file changed, 10 insertions(+), 11 deletions(-)
 
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index 5c21b3af216b2..708466c5b2cc9 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -1091,6 +1091,10 @@ static void __ref memmap_init_compound(struct page *head,
- 	unsigned long pfn, end_pfn = head_pfn + nr_pages;
- 	unsigned int order = pgmap->vmemmap_shift;
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index d12a9d5146af4..ae82a845b14ad 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -3235,17 +3235,14 @@ static void __init hugetlb_folio_init_tail_vmemmap(struct folio *folio,
+ 					unsigned long start_page_number,
+ 					unsigned long end_page_number)
+ {
+-	enum zone_type zone = zone_idx(folio_zone(folio));
+-	int nid = folio_nid(folio);
+-	unsigned long head_pfn = folio_pfn(folio);
+-	unsigned long pfn, end_pfn = head_pfn + end_page_number;
++	struct page *head_page = folio_page(folio, 0);
++	struct page *page = folio_page(folio, start_page_number);
++	unsigned long i;
+ 	int ret;
  
+-	for (pfn = head_pfn + start_page_number; pfn < end_pfn; pfn++) {
+-		struct page *page = pfn_to_page(pfn);
+-
+-		__init_single_page(page, pfn, zone, nid);
+-		prep_compound_tail((struct page *)folio, pfn - head_pfn);
++	for (i = start_page_number; i < end_page_number; i++, page++) {
++		__ClearPageReserved(page);
++		prep_compound_tail(head_page, i);
+ 		ret = page_ref_freeze(page, 1);
+ 		VM_BUG_ON(!ret);
+ 	}
+@@ -3257,12 +3254,14 @@ static void __init hugetlb_folio_init_vmemmap(struct folio *folio,
+ {
+ 	int ret;
+ 
+-	/* Prepare folio head */
 +	/*
 +	 * This is an open-coded prep_compound_page() whereby we avoid
-+	 * walking pages twice by initializing them in the same go.
++	 * walking pages twice by preparing+freezing them in the same go.
 +	 */
- 	__SetPageHead(head);
- 	for (pfn = head_pfn + 1; pfn < end_pfn; pfn++) {
- 		struct page *page = pfn_to_page(pfn);
-@@ -1098,15 +1102,8 @@ static void __ref memmap_init_compound(struct page *head,
- 		__init_zone_device_page(page, pfn, zone_idx, nid, pgmap);
- 		prep_compound_tail(head, pfn - head_pfn);
- 		set_page_count(page, 0);
--
--		/*
--		 * The first tail page stores important compound page info.
--		 * Call prep_compound_head() after the first tail page has
--		 * been initialized, to not have the data overwritten.
--		 */
--		if (pfn == head_pfn + 1)
--			prep_compound_head(head, order);
- 	}
-+	prep_compound_head(head, order);
+ 	__folio_clear_reserved(folio);
+ 	__folio_set_head(folio);
+ 	ret = folio_ref_freeze(folio, 1);
+ 	VM_BUG_ON(!ret);
+-	/* Initialize the necessary tail struct pages */
+ 	hugetlb_folio_init_tail_vmemmap(folio, 1, nr_pages);
+ 	prep_compound_head((struct page *)folio, huge_page_order(h));
  }
- 
- void __ref memmap_init_zone_device(struct zone *zone,
 -- 
 2.50.1
 
