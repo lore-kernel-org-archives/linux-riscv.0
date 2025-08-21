@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86820CA0EFA
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 03:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540B6CA0EFC
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 03:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WsZUjbGgRUmJ7LQ2FtKanoJvJNfCumV+riMH1KU5qGc=; b=sFcWj/CX2pzhov
-	0Yzd4E5XypMHIBSW05euHDPcwnYkP5f7Oe67AgdRfvzhB8xpTEl5ZaLCHxpC7loBbMNNCtAud6dmE
-	selEKbW37GbraGddwWfzV0uCo+USDEv+DnLFrHFfdAroavgfhSpYd8nEfV3GBusGxx8fp7PXdDjGR
-	h7Q5PuzXWMYgt3rOLxQEp8Ns2YCn7j0Wi57Pmb7as9KHJksNRy4deXKFYuIfxv6cWBjLgl4vIeIj/
-	fkYSMnXzti3+mSS1XT3H0m44k/SqEoMwUp9JZHTOUj99QuaPNwkXP4GkXmqKM5AdUKzbjGe1H3Nnq
-	jkzjuKmQhI05H2H1pEnA==;
+	List-Owner; bh=Y5zQZvOsyjKiw2VjfB2w2SUouZf/L11NDkwrBxhpVAE=; b=0sImzrpBZNqQfY
+	EUw9BBAHd2/s+K4Ug2pzR0fD/EAopZCeGR/VgLdZyNPpgd/bTosGvGpn7OCw7YCAoWPHMkTQRda7s
+	3Nun69juhvCKTWk9pRyrABhJehqpVLWj55svR56+YMpxTLlyJrt0pf/H9OYOgWD+QkL41yZKmO0vC
+	tm+TwvVoU5+NKRDVXZy9YF5rWta8eH1+QXTADX/1ON5i1W6r4xQn8ndRf8z1BAbt8f9+EUvPrX8mC
+	LqcdXWIyYUc6dkwTsBbe7k6co4jE9dfj1uoWfNUl5tuii0XVL52p+koZce+T96kZ4ADLIO49JcBKq
+	1jE/Kx9pAqUFIJ8Je90Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upIWl-00000001OfL-3fWz;
-	Fri, 22 Aug 2025 03:33:19 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1upIWn-00000001OhD-1rSq;
+	Fri, 22 Aug 2025 03:33:21 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDdz-00000000jCP-08hU
+	id 1upDdz-00000000jBQ-08VP
 	for linux-riscv@lists.infradead.org;
 	Thu, 21 Aug 2025 22:20:30 +0000
 Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250821222025euoutp0113b778cee77c00404063f51eb994b0f5~d6Efc1lhb2409824098euoutp01L
-	for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 22:20:25 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250821222025euoutp0113b778cee77c00404063f51eb994b0f5~d6Efc1lhb2409824098euoutp01L
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250821222023euoutp021a32632b25b5ce746ef170a0a802baee~d6EdlQQ1p1912819128euoutp02-
+	for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 22:20:23 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250821222023euoutp021a32632b25b5ce746ef170a0a802baee~d6EdlQQ1p1912819128euoutp02-
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755814825;
-	bh=sKprqc5e6NKeYW0/ZlcX1W6ahYkIBlxOh0FMJaxMLh4=;
+	s=mail20170921; t=1755814823;
+	bh=SoNkZnB/ZDH4173ojh3m2tOndFgBpgzx3po9ZkmxTE8=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=HSLnsP2YK8Jbl7O6GM3HUNrCApoNrjm/y0dbQh8Z3PHH2S09I0fb2nLgApPKgItGN
-	 0ZUyKHjEnmMKnTDzeuM9f7NdTyOQBio06c8Ck7olId6czj4S34AA2AutI4FPVKVLs9
-	 sJxpny0i+MIFDhGs/qGITRT+jBJVPZGpKzivvfhk=
+	b=hAbhCwgFIrltaMqBAPehYQys9VjBS97uOB5k5fJWh/NBrCaPRMqspRWb+4CeQeqoy
+	 mXH+mx6FgVmTosN6cWIjoDLRa3qSwzqRPfUKuX+06oHBxNJclDu/VBfFsJVeXPhGm+
+	 jvaQGM40zWkEPtiQ1T4L67t4hFlS/2R7SgYWdBuc=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250821222024eucas1p1e4f66aeff7be9e3319633c6067339595~d6EewxrMM2013020130eucas1p1R;
-	Thu, 21 Aug 2025 22:20:24 +0000 (GMT)
+	20250821222022eucas1p16a85eedbb11598fb0d9403fc41e24da9~d6EcoxKFM2014520145eucas1p1M;
+	Thu, 21 Aug 2025 22:20:22 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250821222023eusmtip10b6e5460e41b514eff348e2f5b8f09aa~d6EdwMk2Y2143321433eusmtip1B;
-	Thu, 21 Aug 2025 22:20:23 +0000 (GMT)
+	20250821222020eusmtip119b9c25fcb841bb6cbacefcd2f0fa7e3~d6EboXLIj1697316973eusmtip1V;
+	Thu, 21 Aug 2025 22:20:20 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 22 Aug 2025 00:20:18 +0200
-Subject: [PATCH v13 4/4] drm/imagination: Enable PowerVR driver for RISC-V
+Date: Fri, 22 Aug 2025 00:20:16 +0200
+Subject: [PATCH v13 2/4] dt-bindings: gpu: img,powervr-rogue: Add TH1520 GPU
+ support
 MIME-Version: 1.0
-Message-Id: <20250822-apr_14_for_sending-v13-4-af656f7cc6c3@samsung.com>
+Message-Id: <20250822-apr_14_for_sending-v13-2-af656f7cc6c3@samsung.com>
 In-Reply-To: <20250822-apr_14_for_sending-v13-0-af656f7cc6c3@samsung.com>
 To: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
 	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
@@ -66,19 +67,19 @@ To: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
 	Drew Fustini <fustini@kernel.org>
 Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org,  Bartosz Golaszewski
-	<bartosz.golaszewski@linaro.org>
+	dri-devel@lists.freedesktop.org,  Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250821222024eucas1p1e4f66aeff7be9e3319633c6067339595
+X-CMS-MailID: 20250821222022eucas1p16a85eedbb11598fb0d9403fc41e24da9
 X-Msg-Generator: CA
-X-RootMTR: 20250821222024eucas1p1e4f66aeff7be9e3319633c6067339595
+X-RootMTR: 20250821222022eucas1p16a85eedbb11598fb0d9403fc41e24da9
 X-EPHeader: CA
-X-CMS-RootMailID: 20250821222024eucas1p1e4f66aeff7be9e3319633c6067339595
+X-CMS-RootMailID: 20250821222022eucas1p16a85eedbb11598fb0d9403fc41e24da9
 References: <20250822-apr_14_for_sending-v13-0-af656f7cc6c3@samsung.com>
-	<CGME20250821222024eucas1p1e4f66aeff7be9e3319633c6067339595@eucas1p1.samsung.com>
+	<CGME20250821222022eucas1p16a85eedbb11598fb0d9403fc41e24da9@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_152027_699465_AE9ED640 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250821_152027_726392_D8E63A1B 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,44 +96,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Several RISC-V boards feature Imagination GPUs that are compatible with
-the PowerVR driver. An example is the IMG BXM-4-64 GPU on the Lichee Pi
-4A board. This commit adjusts the driver's Kconfig dependencies to allow
-the PowerVR driver to be compiled on the RISC-V architecture.
+Rework the PowerVR Rogue GPU binding to use an explicit, per variant
+style for defining power domain properties and add support for the
+T-HEAD TH1520 SoC's GPU.
 
-By enabling compilation on RISC-V, we expand support for these GPUs,
-providing graphics acceleration capabilities and enhancing hardware
-compatibility on RISC-V platforms.
+To improve clarity and precision, the binding is refactored so that
+power domain items are listed explicitly for each variant [1]. The
+previous method relied on an implicit, positional mapping between the
+`power-domains` and `power-domain-names` properties. This change
+replaces the generic rules with self contained if/then blocks for each
+GPU variant, making the relationship between power domains and their
+names explicit and unambiguous.
 
-The RISC-V support is restricted to 64-bit systems (RISCV && 64BIT) as
-the driver currently has an implicit dependency on a 64-bit platform.
+The generic if block for img,img-rogue, which previously required
+power-domains and power-domain-names for all variants, is removed.
+Instead, each specific GPU variant now defines its own power domain
+requirements within a self-contained if/then block, making the schema
+more explicit.
 
-Add a dependency on MMU to fix a build warning on RISC-V configurations
-without an MMU.
+This new structure is then used to add support for the
+`thead,th1520-gpu`. While its BXM-4-64 IP has two conceptual power
+domains, the TH1520 SoC integrates them behind a single power gate. The
+new binding models this with a specific rule that enforces a single
+`power-domains` entry and disallows the `power-domain-names` property.
 
-Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Link: https://lore.kernel.org/all/4d79c8dd-c5fb-442c-ac65-37e7176b0cdd@linaro.org/ [1]
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Reviewed-by: Matt Coster <matt.coster@imgtec.com>
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- drivers/gpu/drm/imagination/Kconfig | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 37 +++++++++++++++++-----
+ 1 file changed, 29 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/Kconfig b/drivers/gpu/drm/imagination/Kconfig
-index 3bfa2ac212dccb73c53bdc2bc259bcba636e7cfc..682dd2633d0c012df18d0f7144d029b67a14d241 100644
---- a/drivers/gpu/drm/imagination/Kconfig
-+++ b/drivers/gpu/drm/imagination/Kconfig
-@@ -3,8 +3,9 @@
+diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+index 4450e2e73b3ccf74d29f0e31e2e6687d7cbe5d65..c87d7bece0ecd6331fc7d1a479bbdaf68bac6e6d 100644
+--- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
++++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+@@ -21,6 +21,11 @@ properties:
+           # work with newer dts.
+           - const: img,img-axe
+           - const: img,img-rogue
++      - items:
++          - enum:
++              - thead,th1520-gpu
++          - const: img,img-bxm-4-64
++          - const: img,img-rogue
+       - items:
+           - enum:
+               - ti,j721s2-gpu
+@@ -77,14 +82,18 @@ required:
+ additionalProperties: false
  
- config DRM_POWERVR
- 	tristate "Imagination Technologies PowerVR (Series 6 and later) & IMG Graphics"
--	depends on ARM64
-+	depends on (ARM64 || RISCV && 64BIT)
- 	depends on DRM
-+	depends on MMU
- 	depends on PM
- 	select DRM_EXEC
- 	select DRM_GEM_SHMEM_HELPER
+ allOf:
+-  # Constraints added alongside the new compatible strings that would otherwise
+-  # create an ABI break.
+   - if:
+       properties:
+         compatible:
+           contains:
+-            const: img,img-rogue
++            const: img,img-axe-1-16m
+     then:
++      properties:
++        power-domains:
++          items:
++            - description: Power domain A
++        power-domain-names:
++          maxItems: 1
+       required:
+         - power-domains
+         - power-domain-names
+@@ -93,13 +102,20 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: img,img-axe-1-16m
++            const: thead,th1520-gpu
+     then:
+       properties:
++        clocks:
++          minItems: 3
++        clock-names:
++          minItems: 3
+         power-domains:
+-          maxItems: 1
+-        power-domain-names:
+-          maxItems: 1
++          items:
++            - description: The single, unified power domain for the GPU on the
++                TH1520 SoC, integrating all internal IP power domains.
++        power-domain-names: false
++      required:
++        - power-domains
+ 
+   - if:
+       properties:
+@@ -109,9 +125,14 @@ allOf:
+     then:
+       properties:
+         power-domains:
+-          minItems: 2
++          items:
++            - description: Power domain A
++            - description: Power domain B
+         power-domain-names:
+           minItems: 2
++      required:
++        - power-domains
++        - power-domain-names
+ 
+   - if:
+       properties:
 
 -- 
 2.34.1
