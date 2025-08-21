@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EFD2CA0EEB
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 22:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F46CA0FE4
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 23:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T0UvbOasgWcWvAGYSY9F8nY/5tRqqJLHOOKTXKa/fSU=; b=v2KewqFp5KAjHV
-	/9wp00snBTKFMZvxIarMACuJz75n/BY+MGeBtAhtS2kNm7pq+q2g4rur2dwaF7lj/xKpT3lT6bwUy
-	7eatwnSsHO6VPm9eIDA1rtOu56B/eKclOZHP3FFvivx9lnTfX+LraILeC0e0AkWWau2w/iQ6FwJSr
-	Iu3CzLTWciFnwY6kVeTi0/aH72iNA6aqn3Gkl/p9+sabbofvul2mOmRisLLRgbAWQDkr6b9+MG2Nm
-	Bnc+sALWF1+LUSYxLk/gTaK5beT82tcdm4AKBWOY8e47BZ91Dysfrd0njvX1Pjh56foTez43Ck5y+
-	sZ7jRbKjUPGvpYVlRynA==;
+	List-Owner; bh=FboYejhIXnGzSF4/SV9DC2TcsV3zt02+XBe5VEBgQBI=; b=XRnja53fvcjWaY
+	60gq70VtIdoYYnJM9dw4yRRYt6J9sy7Sxs2xx/MPtkn3hJ628PYybLvlWGFuRhJ8GzjK5xa3NeAXA
+	GHFmoTYlDMpPwaeqyLcHxCO0UIIMJQJYeFocavgctMceZth9UDNEtsnvVhq1OxsEmDmTBzIzCwebR
+	G8sdydzpuwCDu1BuzZzTGvFpKw2hnbB0mdDUgLcVBYTrt0Z2wqFvpd3SS5oyudBCzWgQ4QOCi4Jq+
+	GCtr0tJoyaZIx4GMg4Ggfcngub8xYDZMeafgNKftNfgzvYNhEy2zUAleULv6Gg1afh55jyMOWdGQE
+	hNhr9rFq74wVvcsIhrLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDsm-00000000kYc-3YUO;
-	Thu, 21 Aug 2025 22:35:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1upEWB-00000000udN-3FyY;
+	Thu, 21 Aug 2025 23:16:27 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up6F3-0000000HDId-3Jgf;
-	Thu, 21 Aug 2025 14:26:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E7A69A58430;
-	Thu, 21 Aug 2025 14:26:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78E13C4CEEB;
-	Thu, 21 Aug 2025 14:26:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755786372;
-	bh=G0YrLOlqNEkhmNDKqjNXIej+ao+iP0qZxWm/nWbxgcU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nIUwo+87Ry/oXZ6mg9Fw4HZ0MMFxJkXAarXgjf1itGfDNVkddF4Mp9uqfxoFzfwwq
-	 dKkxZPxRYY1b8fD4Gzfy77M8ZwRGzu1RRdhCgLkhFVCyRl9G71eTogt/T+i5tI71u+
-	 BllOOUXWaAO6HLOOnHNhwvJlDGq/Rmr3zM/Qy4lQu2tGIUSeYmZSvD2I3ubrSiHccA
-	 h5aSW27p/WEpPX2u1iVBmgKU7a0nHp6CD+jOJXNj/XTA4RLvZAdRNMlxXbmUNEvnWf
-	 gI32iy8/42hgb5rRDxJhwI6k52FpdkimxQJmeV9X99ERICX2upoWuiSF28m4VDYneg
-	 VKarGoW2PNQRA==
-From: guoren@kernel.org
-To: guoren@kernel.org,
-	troy.mitchell@linux.dev
-Cc: alex@ghiti.fr,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	fangyu.yu@linux.alibaba.com,
-	guoren@linux.alibaba.com,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com
-Subject: [PATCH V4 RESEND 2/3] RISC-V: KVM: Remove unnecessary HGATP csr_read
-Date: Thu, 21 Aug 2025 10:25:41 -0400
-Message-Id: <20250821142542.2472079-3-guoren@kernel.org>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20250821142542.2472079-1-guoren@kernel.org>
-References: <20250821142542.2472079-1-guoren@kernel.org>
+	id 1up9Gm-000000005iB-0oB1
+	for linux-riscv@lists.infradead.org;
+	Thu, 21 Aug 2025 17:40:13 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-afcb7347e09so215610766b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 10:40:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755798010; x=1756402810; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fy0q5agTDRyofy0fsNfLOTICm7ccThcSJln5HnL5Dwg=;
+        b=TsOIS2fQrJFmV528yN5JldMDzVUU56R2BgvwZljL49GxiW2ewet/jXYFLEutK24veR
+         VXtwMKazdeIl2a3ZXZR8ncIlg5TZiKbGhTMkq14ggRcF2VRPpd61HwP3Unk9kPLat4FK
+         FJlguOTEafshO/dhsKMkKooXzk66giWLz22KrMNiu7CiQy4CVDcvFLyb2shzDcDgJc2K
+         Yxe2PGdpMVz5A3yFnsbb5IXByWnIeIgg5NqXhECQxBmCEja8TgjTIA0oND1q/EI+Y5Ru
+         Owan48HzzFqG+xjCJXPlkEJDt+ZlsngE0RotJQrZ8wjaMxVQgVIdKnMzQKljJVTGBJyu
+         sVKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755798010; x=1756402810;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fy0q5agTDRyofy0fsNfLOTICm7ccThcSJln5HnL5Dwg=;
+        b=iDGAhUg3lLaqxIQr6McOkGzIwXfu9EQ3mQbtiLQVmXaxZ1WzsHfjpnyypJ8Zbd6Ngb
+         8T8/KJ73Gx301OeaKV1cW1Tg6IqpuW/tXJ1nH5032spK7SfI7o8q504/Cxp3I/mO46Tg
+         OKjLotUw4F1JBizkuVwMKHBMR6lAAaKXYET/e2Ik3QiMOgU6RSvZjQ1ZZczKH5herFiR
+         w0p4RaEVjY4mMU9/WD48ysNtzg2HKsaStXhf8s1a+6i0r+gn4TiQCX8RhN3BOiWAXdSh
+         LlMuJzSn26j8wtDAjdknrMqCmw/Z1Mrukkqi7HBz3o2cHTWm30130Hncbsc0fFax75ml
+         R64Q==
+X-Gm-Message-State: AOJu0YybEuZvw16aogOtGbHmZWch+kDbmTHLhDdFSJZL8qM6heZ4KDBE
+	hNyfphzOuneM7PQxNS9SIwQS/Ue6D3cixZnmyaLSJuPkv6DQPRLXM5zgLTtoHheI8/s=
+X-Gm-Gg: ASbGnct5FkXbBr2CHMXHzJtQ77ZF+YeDLizo2GExe6roMkcSxVvz82YH4DpNILjExpN
+	pWEHgUkn2nbnwn2BBumLaMMFWVnfVMZJLNAaJhssUbMyu73a05bA9mTaEif1cOc9I1L4gNoA40k
+	PSYNoXmuCfobA3K1kOVcpkSIG7/9xdtX++SbhDyUGvMOoNDxqa7W+hetUF8Ty7vXYyxy620Jl+v
+	LPLe2m40e9k79q2j8z6++y2Mph9AjgbrJ8/T4owoDMLSw6eqeHnwLa902qs2L0PG1Sev5ilqZHn
+	bF7CSe4gUO3KG1Rne/dAv1dCf2laOvGHFipp6vwhauf822+PhN9fbNVu+FQMXusHaF3DNtVTmMp
+	kdU0dVxpjOq30zoKnQQIBWmIN/A==
+X-Google-Smtp-Source: AGHT+IGAy5EZ5DUHnsPFAMnn2L3yiI7i2y2A21NKrB3daSt0oG0Pph2v2JH9rNdO79XTM9hPqHfqtw==
+X-Received: by 2002:a17:907:3f97:b0:af9:613b:3055 with SMTP id a640c23a62f3a-afe28f836eamr884866b.2.1755798009985;
+        Thu, 21 Aug 2025 10:40:09 -0700 (PDT)
+Received: from curiosity ([80.211.22.60])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-afded4c9c12sm422705266b.82.2025.08.21.10.40.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Aug 2025 10:40:09 -0700 (PDT)
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: linux-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Sergey Matyukevich <geomatsi@gmail.com>
+Subject: [PATCH 2/2] riscv: vector: init vlenb in vector context allocation
+Date: Thu, 21 Aug 2025 20:39:50 +0300
+Message-ID: <20250821173957.563472-2-geomatsi@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250821173957.563472-1-geomatsi@gmail.com>
+References: <20250821173957.563472-1-geomatsi@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_072613_892163_22BEEBB2 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_104012_233238_3C132643 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +105,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
+Currently, vlenb in vstate is set to zero on vector context allocation
+and remains zero until the first context switch. This can expose an
+inconsistent vlenb value to user-space in early vector debug scenarios,
+e.g. when ptrace attaches to a tracee after the first vector instruction
+but before the first context switch. Fix this by setting the correct
+vlenb value during vector context allocation. Simple reproducer has been
+added to selftests:
+- tools/testing/selftests/riscv/vector/v_ptrace.c
 
-The HGATP has been set to zero in gstage_mode_detect(), so there
-is no need to save the old context. Unify the code convention
-with gstage_mode_detect().
-
-Reviewed-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
+Signed-off-by: Sergey Matyukevich <geomatsi@gmail.com>
 ---
- arch/riscv/kvm/vmid.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ arch/riscv/kernel/vector.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
-index 5f33625f4070..abb1c2bf2542 100644
---- a/arch/riscv/kvm/vmid.c
-+++ b/arch/riscv/kvm/vmid.c
-@@ -25,15 +25,12 @@ static DEFINE_SPINLOCK(vmid_lock);
+diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+index 184f780c932d..6ba68568735b 100644
+--- a/arch/riscv/kernel/vector.c
++++ b/arch/riscv/kernel/vector.c
+@@ -120,6 +120,8 @@ static int riscv_v_thread_zalloc(struct kmem_cache *cache,
  
- void __init kvm_riscv_gstage_vmid_detect(void)
- {
--	unsigned long old;
--
- 	/* Figure-out number of VMID bits in HW */
--	old = csr_read(CSR_HGATP);
- 	csr_write(CSR_HGATP, (kvm_riscv_gstage_mode << HGATP_MODE_SHIFT) | HGATP_VMID);
- 	vmid_bits = csr_read(CSR_HGATP);
- 	vmid_bits = (vmid_bits & HGATP_VMID) >> HGATP_VMID_SHIFT;
- 	vmid_bits = fls_long(vmid_bits);
--	csr_write(CSR_HGATP, old);
-+	csr_write(CSR_HGATP, 0);
+ 	ctx->datap = datap;
+ 	memset(ctx, 0, offsetof(struct __riscv_v_ext_state, datap));
++	ctx->vlenb = riscv_v_vsize / 32;
++
+ 	return 0;
+ }
  
- 	/* We polluted local TLB so flush all guest TLB */
- 	kvm_riscv_local_hfence_gvma_all();
 -- 
-2.40.1
+2.50.1
 
 
 _______________________________________________
