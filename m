@@ -4,108 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B354CA0EFA
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 03:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDB2CA0EEB
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 03:33:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V1hqDrFtSdxmC4FS6MDfWyCEddET8FUn1wkRM4MNiT0=; b=SbpU16ajFpiOJ3
-	kd/Mmvic24rpOcI/MmxwxFCugDoNdeakVj9EhtIK96cAoHxtdb93d7M4/kIxvYM1lbTFm5+C+kb5H
-	OthUYftuXRe5iTBADN8RlK2z27kU3ScqBT8OHjtyZ6WFFVM0MtCqmzlngnRGfsL9JQX9WfTtbdLwX
-	IjR+mzg8gJD/R8xR8/+NaK7ISu/Q/JsvfrjD4saQxBt/3MC0tgagloIn7hCBoff0kbJhD/mJ+GRM5
-	cwFcOZ7vT7dVcpB0UrHBvnkG41+dE4OB9zcpkoUV62fp+BlKHj4D016dnZ4aO/azSaYUBFwQ7kC6L
-	lIF5I6iUt/kasvcT9lgg==;
+	List-Owner; bh=kKy0gAvQM6nlnmWoNs03Q+O6oxumu8jKv/tzrxxsDHg=; b=yusrlqUTmthX/t
+	aTWidPk8Tl2cappeX3gx9H0KsF4LdqO1rcSYf2oGShHqd0OH9hEKjJzvMLCyFgRRtVkz6JVcXOZUd
+	eINrsCQxU2Tk2G7xqc8SQT+5aE0ZXtf4phkA90ZvM4FS0UJX/+jwjdgUQabrdTX5KbwFkUU+b3+os
+	oaZp3CyMV9KQoY3mlD3Bn7SzLBuVtSzshc8VrKDvFnJCOP4E8o5xRDam/erWp51L/2oBDVbdUIPqk
+	5cXqkiGLlzjNBthYQXkJhUWxM5oH1/uHYTUyv5Z6QdGtM3Or+XuUbIGO2WIrDNTFSJ80v5j+3V36k
+	stKz9dwNUn5tmn2RDoqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upITz-00000001OJr-14pW;
-	Fri, 22 Aug 2025 03:30:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1upIWb-00000001OaZ-3P9A;
+	Fri, 22 Aug 2025 03:33:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upD77-00000000gv4-1Has
+	id 1upDWx-00000000iZc-3iML
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 21:46:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755812788;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UOEidWIYFOcPQc5k2cWSdnWss7AqeJmy+kRLikq18m4=;
-	b=K8Ah7uDhCPqerNmb4nVEJWvyZZyKKUflA1cziygM+Ve249/l3ZGLl0TvvteiC9CWnLSe/x
-	vE1yJrRTtG2RgqcEjgiY67nZ95glF0HthDVB77wIeXy0mDgUlFPkJQaIfIJmP/+YdAd/P5
-	9H53nhE9FSWOgdCF7WLqqo1+UpkJw/c=
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
- [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-314-Q_wk-dDrNYSpiVs8Me9IAA-1; Thu, 21 Aug 2025 17:46:27 -0400
-X-MC-Unique: Q_wk-dDrNYSpiVs8Me9IAA-1
-X-Mimecast-MFC-AGG-ID: Q_wk-dDrNYSpiVs8Me9IAA_1755812786
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4b29a0b8a6aso43257021cf.0
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 14:46:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755812786; x=1756417586;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UOEidWIYFOcPQc5k2cWSdnWss7AqeJmy+kRLikq18m4=;
-        b=emtJMby7MkHRAB0tAWoqIY0o0hkensR9CsehcHGuAI/PlKQ0KEelpw9Tvi4f9//pLu
-         QeTJVMhxYLbl8zr4eQ8z5Zn+pOLplxscRU7Ys0y5NthaLz7LijoLta0/CD9ovGm6CNlM
-         j3U2szUX3k82uAByvClQPAF22BmhwI2o15E0T1ghkgMZYSJjfsxJ3KdkX6oOhZkfIYdR
-         aLBqR0eMDiasE6w/25nZK7iWzv4QnHda5WdARykOkJeotazfFDoPQh+TJ4G29PAy5sKz
-         xWLy8nw+F7mLntkPN8dq1Xv6vXXKjC0cP/B41iTVdENSALBlFr/yyeAArCnhQgQTyl6H
-         qAzA==
-X-Forwarded-Encrypted: i=1; AJvYcCX0jPgUxB3Caxhmcwbfz6I3BOsQtvFCOQNA/zWsVqXk8GMs1ACwpojH8p7TOSpYQ4jWo0D4nb166Ypz0Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVdvrcZMhFbMeOF1T7Z1Jit3Oftbz3SXNY+oTYdJC1PTWhVcul
-	iFinHCoISvfV86zkm2aNtZpcpYB7Hl7sWdRMP8MTF48G25Hj4oE6d/OuR/bWgbkBB8IdqXlX2eb
-	OxBtFt9qlxnGVPo6DTGbRs3I5RuKMjt0sIv4tMDdgIthlB3gFaHaaGsPcY2N0ejyRdeA7Vw==
-X-Gm-Gg: ASbGncsBMzPzQNahj1k1tG9+LKkhVFyB1OmxGUrFWMyAQNjDWRDG8mVez2uddPoAaz1
-	1vIrtA28h3uvr7xpTvwz4gqh5u/B+hnMwGUhB4MhS19FKDiuV5sEA8zrtv7Q9znQ7vLcggdDsRQ
-	KTOsyb7+8Yk6ijNQOdNiynkGeDhrLuQ1I/nupSJkinq6DtHLFJlLY+NyyZGAnZ2X/WNX9td82V8
-	onTZQnyAWBw0DV1DPC5ePsEqCOwnbSctiEx9i0fkFxtVBGqv05bzyAwznW20v/+U2JcFK5Xfvo7
-	bWAeBxKGUCPqut6lBBCp0vsWjzY4s8GUt+UUFGYAuiQuQmdyDizqvS9HaNQE1GvOqIK0P7JdGYr
-	lwZgzknhgy75DHjxBhz8=
-X-Received: by 2002:ac8:5812:0:b0:4b0:73db:f81b with SMTP id d75a77b69052e-4b2aaa1a378mr10332701cf.10.1755812786465;
-        Thu, 21 Aug 2025 14:46:26 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGM/f6AWKsD/uiuSUkJzb9jNkg9oqjjxZOXqxlVkr171nvQa2lEbcNla+IOhlEltLwBQr891g==
-X-Received: by 2002:ac8:5812:0:b0:4b0:73db:f81b with SMTP id d75a77b69052e-4b2aaa1a378mr10332491cf.10.1755812786097;
-        Thu, 21 Aug 2025 14:46:26 -0700 (PDT)
-Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e87e020514sm1201852885a.17.2025.08.21.14.46.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 14:46:25 -0700 (PDT)
-Date: Thu, 21 Aug 2025 17:46:19 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/21] clk: remove unneeded 'fast_io' parameter in
- regmap_config
-Message-ID: <aKeTq1lJ549a2jnQ@x1>
-References: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
- <20250813161517.4746-3-wsa+renesas@sang-engineering.com>
-MIME-Version: 1.0
-In-Reply-To: <20250813161517.4746-3-wsa+renesas@sang-engineering.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: dA3OeCjq5oO9WyENDGlfJF540CYfxvIPQheZAbUVyVg_1755812786
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+	Thu, 21 Aug 2025 22:13:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C71F85C5996;
+	Thu, 21 Aug 2025 22:13:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BA09C4CEEB;
+	Thu, 21 Aug 2025 22:13:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1755814390;
+	bh=OZVsV1pjh5cFcCuKO5I5KInQUt83XkwpyN8e5LAvhKs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=h8PefxhwzUDkEVO/G7Udqk5ywBFaWt9v80jL/AxtOQi2x3HrajmGLKlp/Jzy3IK33
+	 jRNdGw8nWXvygM/jJFn4eftYLX1BV7wHKc/GKOYZJypKp3M12AanRlfcEb8RG6EBDB
+	 3AU+Ot/yjoAk7wmY5xRhet+2x2RivUMY3LZGC/Qg=
+Date: Thu, 21 Aug 2025 15:13:08 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Muhammad Usama Anjum <usama.anjum@collabora.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, kernel@collabora.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Vlastimil
+ Babka <vbabka@suse.cz>, Albert Ou <aou@eecs.berkeley.edu>, Zi Yan
+ <ziy@nvidia.com>, David Hildenbrand <david@redhat.com>, Suren Baghdasaryan
+ <surenb@google.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, Baolin
+ Wang <baolin.wang@linux.alibaba.com>, Mike Rapoport <rppt@kernel.org>,
+ Peter Xu <peterx@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Ryan Roberts <ryan.roberts@arm.com>, Leon
+ Romanovsky <leon@kernel.org>, Shuah Khan <shuah@kernel.org>, Lorenzo
+ Stoakes <lorenzo.stoakes@oracle.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Barry Song <baohua@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ linux-kselftest@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-mm@kvack.org, Nico Pache <npache@redhat.com>, John Hubbard
+ <jhubbard@nvidia.com>, Michal Hocko <mhocko@suse.com>
+Subject: Re: [PATCH v2 4/8] selftests/mm: Add -Wunused family of flags
+Message-Id: <20250821151308.915362b14e82f5626f659481@linux-foundation.org>
+In-Reply-To: <4abd97fe-412d-4e3e-9efc-cf3092d66e57@collabora.com>
+References: <20250731160132.1795351-1-usama.anjum@collabora.com>
+	<20250731160132.1795351-5-usama.anjum@collabora.com>
+	<57c816d6-a9ba-47c9-8f40-3978580b7f67@arm.com>
+	<8e9d7c59-46b4-4e1b-8a55-1898302f5080@collabora.com>
+	<88ea592c-c6ff-4a19-a366-eadeca66b039@arm.com>
+	<4abd97fe-412d-4e3e-9efc-cf3092d66e57@collabora.com>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_144629_414899_B644862B 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20250821_151312_166289_C8C7E7BF 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,38 +86,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Wolfram,
+On Thu, 21 Aug 2025 17:31:21 +0500 Muhammad Usama Anjum <usama.anjum@collabora.com> wrote:
 
-On Wed, Aug 13, 2025 at 06:14:48PM +0200, Wolfram Sang wrote:
-> When using MMIO with regmap, fast_io is implied. No need to set it
-> again.
+> > My
+> > feeling is that unused parameters are expected to be allowed in the
+> > kernel and it isn't helpful to go against that expectation in just a
+> > small subset of kselftests.
+> I thought kernel must be giving error for unused parameters as well (from
+> my memory). But just checked and it doesn't seem like it. I'm okay with
+> dropping -Wunused-parameters.
 > 
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> ---
-> No dependencies, can be applied directly to the subsystem tree. Buildbot is
-> happy, too.
+> We need to drop patch 6/7 and in Patch 4 should have only:
 > 
->  drivers/clk/actions/owl-common.c  | 1 -
->  drivers/clk/clk-axm5516.c         | 1 -
->  drivers/clk/nxp/clk-lpc32xx.c     | 1 -
->  drivers/clk/qcom/a53-pll.c        | 1 -
->  drivers/clk/qcom/a7-pll.c         | 1 -
->  drivers/clk/qcom/apss-ipq-pll.c   | 1 -
->  drivers/clk/qcom/clk-cbf-8996.c   | 1 -
->  drivers/clk/qcom/clk-cpu-8996.c   | 1 -
->  drivers/clk/qcom/hfpll.c          | 1 -
->  drivers/clk/qcom/ipq-cmn-pll.c    | 1 -
->  drivers/clk/thead/clk-th1520-ap.c | 1 -
->  11 files changed, 11 deletions(-)
+> -CFLAGS += -Wunused  -Wunused-parameter -Wunused-function -Wunused-label -Wunused-variable -Wunused-value
+> +CFLAGS += -Wunused
+> 
+> @Andrew, Should I resend the entire series or would you can make the change?
 
-These all look good to me.
-
-Reviewed-by: Brian Masney <bmasney@redhat.com>
-
-Should drivers/clk/sprd/common.c also be updated as well?
-
-Brian
-
+I think a new series would be clearer, please.  It's unclear (to me)
+whether Kevin's various comments have all been addressed.
 
 _______________________________________________
 linux-riscv mailing list
