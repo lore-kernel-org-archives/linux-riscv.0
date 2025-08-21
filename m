@@ -4,86 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8632ECA0EFA
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 02:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CCFCA0EFA
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 02:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ndtjDFoLA/8KjdQ760/QFd90sq4zcq0H1qGxVNZyArQ=; b=Kru6QwiA4aNVBQ
-	/vtdUYu9Nif2dmf2A712IEervX1P3NeygmxLE+l9eG40q6txFKuFtHRgKFIP2ihHLvhdaF+shpEQ4
-	tp30EqLDUuarFxj10gcw2JSHeFyM5yhFsZQ+rOnjgkzgH8uR1mQ2lAsdxT5e/1W1QaofcgQgR2bfO
-	oy0yZXGrW4NwQRyGTEXhjQklKYD/Y1m+ItYWQii+bkKMVg4Sl4bVTIQ9q3VhvJ/TVuLYA3nxAG7LF
-	KkFJCSzsxeiC9rvRT18YYCHaF8wMv0Yp/3IcF4VaVhNJ5ndtZLuTxAuoH46+ueL1EtARtd6tlJoko
-	/IvRrlmKEIxNXuaRjnTA==;
+	List-Owner; bh=q1a6Hjxz8g/RBslgWye23c+FJPG7rwfG6rGjURq2Hcw=; b=VTXrI458IaQRPD
+	YhcwLsKql+Tra2aQS9iEUoAhyaC/Ir0Z+hfM6nqg4vnGutQ71ITnY/msXLGTgCIiyo76HUUPP+N+F
+	Qv/puXNk3vemNyt2gA0sKnAqPhCBUAXvbZvDawn419vTJkh1EkB7ZDr7m7VmX9HqUhi+kVJ/8wnq5
+	OBshRyxWy6YZqhSiyhUyPfHVWP/2821fKEoW9OJnZV9CyNhdrzVv+jHK851nedIofrHUOEr/H/fMW
+	MHE9g4QZxQStBBor3UyKmje7Fm3kXVSD3f4klD29dnRlIjusBMguXONvErAlQqT0Phs62VSxGLt6B
+	rxZ/SSyWm+M3JaN0DQpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upHNK-00000001GAz-1a9O;
-	Fri, 22 Aug 2025 02:19:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1upHPw-00000001Gd2-0dGv;
+	Fri, 22 Aug 2025 02:22:12 +0000
+Received: from mail-mw2nam12on20600.outbound.protection.outlook.com ([2a01:111:f403:200a::600] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upCDk-00000000Y0I-42am
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 20:49:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755809356;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=OQbfbvrWDouK+ZcKIphQE1nervr1PSIMFSTWfTxDfjA=;
-	b=G40SbERBJh+llM8CAKgG2B3k8FjrE5hIXCq1ar/UQVQSUJ4IdqSKKuzvTm661gIjP3WNLP
-	JNzZ475Kkf3BemLcxh6G1AzU13YsAEZiT/JXPsB1QTM3Lkotehf9TPH8Q7UDHEG78MP5RS
-	34NbAef/ZzkwMcl75fsfXwlzf8McXvk=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-404-bEThClQoMzuq0KCd6cz3ZA-1; Thu, 21 Aug 2025 16:49:12 -0400
-X-MC-Unique: bEThClQoMzuq0KCd6cz3ZA-1
-X-Mimecast-MFC-AGG-ID: bEThClQoMzuq0KCd6cz3ZA_1755809351
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45a1b0cfbafso7963485e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:49:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755809351; x=1756414151;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OQbfbvrWDouK+ZcKIphQE1nervr1PSIMFSTWfTxDfjA=;
-        b=of/JEBI7H+ahy9LXNoZOFtrJaDyA7lyx+5iK0s8NjCdgnQviwYhlSpQpar/iA+AJLs
-         LPs6H1J8uV/gL4IpqZpwaxP4gmsjwKMXkF/1q9slyR+oAkcG2Wb2ZF8Li7cRRTHDItxC
-         MGEN/NMhrB1y559UPdem/rj+bKBKl6GFReJ5rJFnPRUE7dbGEZXumfTeklXTaSC52H1/
-         0oA8uUJuTGfUGFJPuq7GDp24/KDWm0iArbRFPrz7JmOX3QV3vwIPlccYoihqLXmRwkX8
-         AkKiilngRPIhaffsvDk027x3zsNpojEydY/mlUuIuN7EO8KnC6RQYcC77gIqj65lGo34
-         sYiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXEz2qPa8AfthQPEj1o2wEW2MgNMo2kMVEgfLoUlJt0RiyD9T28eMV5L5ItCx71FuKYx2nl+wPOg7dazg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFACgFriyaxTRoPx7DqmI9dNm4gVJ2OcgCaUPfsgmzPCjdAGJk
-	bx1Dlrj8dM7N/d2n5oGnQ7sZtLePMToIG0N1bkRLyrH/m3oTElGq76EC2NuXao66ZRzTLWa7KkO
-	Yf+PAvt1r7wyzIXaPvlwacG5li50miw9lNOw/0TLs1mVS86gQUf/5d42yyjxcJQvbikL36w==
-X-Gm-Gg: ASbGncuoqPtIkVmbI6wzsECjI6Ji03xW7YH30oVfZ/AleNrQSpIbPpYifdyoeTchVSQ
-	TdTaaxvAVKnSGkt14TnEQALzB8vBU8OXQI1bshsLy4e9+ka9mT+ByZG5At9+aZXRWzYaNTapn9t
-	hB5sqDzD7ZKZ81O4EZCjEQNa8Y2gWHs8De7WAG1xHzPV7mdKNwdBYYFWlU9vX41TxIg0guhUh3p
-	ywEKiR28nsNXeOb45X1YU9GVtkjlRRD5Qz3berVOiAzJ5q6Bou9cZ5FXm8+Hw1JmjPehdOgjpDr
-	9WQztYmlJi/khK6Llnk3AFsdPFDpmh43Vk4gKBbNRTQHH3deLL4rq5cT5P01wlUCxj+DJc2IVEe
-	rxHmnCLH0SUR9Wp1fGThbZubdBnEH/+lNhLbaYOJY97eOL45/rBk9CB2X34IeQw==
-X-Received: by 2002:a05:600c:3584:b0:459:a1c7:99ad with SMTP id 5b1f17b1804b1-45b517c5dc0mr2898235e9.22.1755809351439;
-        Thu, 21 Aug 2025 13:49:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFQxIz6cJmjwdOB6bO2j0uv4baEhvDU693i3u6jJ5B08S4e/6/ILSJ1Cj5B/IwK2GJTi24SIA==
-X-Received: by 2002:a05:600c:3584:b0:459:a1c7:99ad with SMTP id 5b1f17b1804b1-45b517c5dc0mr2897695e9.22.1755809350879;
-        Thu, 21 Aug 2025 13:49:10 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f26:ba00:803:6ec5:9918:6fd? (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c4c218c599sm3550158f8f.67.2025.08.21.13.49.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:49:10 -0700 (PDT)
-Message-ID: <835b776a-4e15-4821-a601-1470807373a1@redhat.com>
-Date: Thu, 21 Aug 2025 22:49:07 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 12/35] mm: limit folio/compound page sizes in
- problematic kernel configs
-To: Zi Yan <ziy@nvidia.com>
+	id 1upCKH-00000000a4Y-447p;
+	Thu, 21 Aug 2025 20:56:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BGtO701Wpp3SQ+JSkp12FhJBwkI2qSfgJktct3ITnhgZBnN0rsZyHsVHVxvjiLDPOEPrNXM1FygvVPiZEqoQPWVo0M8gYBbbkQDuRfQbS5KBJ7TLweeoGkvYJm+Bd8LAROewGgjaork/dkQUpTOEbPYAMWYzguxuuxAX0RqpL5vF88gROU301kXFUx8CHSCdST25Tqc8QQFMLRH7Czsl15KM1izzNpJ15LXoYlOnGDJDwWTTDjKMdmI9I/zp7fLyCw3JFtv2ClUtAaI+FN2S+uwfqHznJnBZRnWE2RwPe3ZV+n4DnJaB22LRV/xpaj35dbxxhgBxDM7qKdumfO6EuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uD6U2yYEcuK6Q08U/iYV3O62S0ShleTOpomGqDgXsYI=;
+ b=PleA2I5UJoDSA2Bvc+l8O3eT6+0DyyMoq1gnYvzJdedWt0Kbaqo31PGHgN7+9tgXTkUC7uPPMJGibIDUazLnaC4oZsCvtA1y7sErGwgw3/tnhwYXmyja8Zuca6OQoAfYRuIMfySwrpU1J6mQKi7AwtlQI9SMLbXCEUkNHSCw0WQEHL9HlgrFDFrHXDn2bz2mJDrT7WmyiuEGSEIRBLPHv4TtgR33lkUE95ef0Je6OtL9FgR3l8QyxtYgK62vTPYPJ5e5DVyG9JVYfJDnM5gwbgezuALaMRycuDlX5kyQHghh+sJGC3z39pnRUceFeXQXJhVRrUPcwapomRxmu2YHcA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uD6U2yYEcuK6Q08U/iYV3O62S0ShleTOpomGqDgXsYI=;
+ b=ZRAMTS8IO1yvquvWwj1YPQ595GciHz04wjKHRcsg9grLd7zAPPKn1iLIS64o1ivjeA4xfuM6AEsjAWlD+gKgN4GKecIQsidbTm/C9peywSn4pTSo3+Y0nDgmzlFnc7vJG+L45Sq98AncL9N7uLz3mRvI7tbSQKYcz40fYwYjL0hQ1Qi7hT8aqf1YrUjXlXLe14/HEbU5tsaM3qW6jDVS3ca2s9gEHd4uJHxaJOuNWdHSHT4rnbgiTkGKLy8P6opCQO/jlik5b66u8AODXMwbImBsUVNdl8GN6FukYZpjtbZUjKBVFIRsB1/lBKLvhvlr8hUttuqdYx40v1+0MTwVPQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS7PR12MB9473.namprd12.prod.outlook.com (2603:10b6:8:252::5) by
+ DM3PR12MB9435.namprd12.prod.outlook.com (2603:10b6:0:40::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9031.24; Thu, 21 Aug 2025 20:55:57 +0000
+Received: from DS7PR12MB9473.namprd12.prod.outlook.com
+ ([fe80::5189:ecec:d84a:133a]) by DS7PR12MB9473.namprd12.prod.outlook.com
+ ([fe80::5189:ecec:d84a:133a%6]) with mapi id 15.20.9052.013; Thu, 21 Aug 2025
+ 20:55:57 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: David Hildenbrand <david@redhat.com>
 Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
@@ -107,62 +76,91 @@ Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
  Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
  Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
  Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org
+Subject: Re: [PATCH RFC 13/35] mm: simplify folio_page() and folio_page_idx()
+Date: Thu, 21 Aug 2025 16:55:52 -0400
+X-Mailer: MailMate (2.0r6272)
+Message-ID: <E1AA1AC8-06E4-4896-B62B-F3EA0AE3E09C@nvidia.com>
+In-Reply-To: <20250821200701.1329277-14-david@redhat.com>
 References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-13-david@redhat.com>
- <FFF22E91-6CA5-4C8F-92DE-89C22DB3EAD7@nvidia.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <FFF22E91-6CA5-4C8F-92DE-89C22DB3EAD7@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: JMRMNeZMGm3PGC-4IbULAcqiD3Kwo118ybCOqL29ELA_1755809351
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+ <20250821200701.1329277-14-david@redhat.com>
+X-ClientProxiedBy: MN0PR05CA0013.namprd05.prod.outlook.com
+ (2603:10b6:208:52c::7) To DS7PR12MB9473.namprd12.prod.outlook.com
+ (2603:10b6:8:252::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|DM3PR12MB9435:EE_
+X-MS-Office365-Filtering-Correlation-Id: 53f644a2-a6e9-425e-f5ac-08dde0f52088
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SLASAnWO5dsLJrJaGcvQK8asVFX5uUU6DChGG8O74SKblEWes73GHfSEq5cy?=
+ =?us-ascii?Q?5Jsbz0OMROVpE9y8CEHztDg9Vz9/3Q9eakouNUIaZnxCuAUGA1b8rOopJI2G?=
+ =?us-ascii?Q?QqjMZ5JvUQ3ui/vYkjjwylsH4eAhfKQjR7oBD7+yjs7bXFu1hw/SAXMes/uK?=
+ =?us-ascii?Q?mnUsSpTbOMD/oMLKkQT0J6/7WyMa3zF/mIo8RjMYcskl96e/hpdVONJOYeQR?=
+ =?us-ascii?Q?oCwpWnGlrqZ/mwF2Sqyc7+tZV6qSbIOPGfV3L6sogjJbNImuV1jVr43JJMVX?=
+ =?us-ascii?Q?8kOrN/vYfGQV7wwX5C0RlDJyrzsdekkt+xTrArBx7IVRA/xrImmyLtV8+PEI?=
+ =?us-ascii?Q?FfUj+TFTWkXufCfGS8c950TIFJPnH1Dxt3OF3Ar3V7HS1RZul7ph3y7FcOrQ?=
+ =?us-ascii?Q?ngUOH7uGjJV1/xjw3bPFYEtxcYOGcMwuYsQii5bU3g4oDOX61/EKKVF50YlG?=
+ =?us-ascii?Q?raeCrN2i6KYXwHqRfDHZtTT9D6JGRRdcG1Xf7xbqWg7+bGPCLh+TsWvbkTy4?=
+ =?us-ascii?Q?WHiOwVrr90S/zev7FmHbk1aRKkEE9bmsr5EVenGj7jUdX/w0og9VhvE8T//B?=
+ =?us-ascii?Q?Zl/Xzb4DqvzlNlDSijTxplTQaSVGsyjQzYJlPsAiuM5kGC4L2Ssph6/sE6jc?=
+ =?us-ascii?Q?+JgIyDYqfABy1McMPqEMGRm+Rql2vyVpr9vk+a/DRHdcqYuZrFSi6qsA0c7C?=
+ =?us-ascii?Q?WKQt78MmjQmozUkCoTFaK8UfDroi1fu6PzYebdu6/FkcgjVKwS9Hx0ypLn0o?=
+ =?us-ascii?Q?2dCb99incVd00aTYigJE/C2Um8YDQSEhd0GbXMf5mdpmiO51eTaH4POmvrey?=
+ =?us-ascii?Q?pLrwz4VG8AwiOtHXOsGkwOq4yKhMUjyCZBRnpOhLt9nXwM/hPjhb4ZqiyVN1?=
+ =?us-ascii?Q?TUTW7VFsA98GcuJ2RZfFtZKIll8BJ01lMikki5R8ybxikLkq6XtMUbkvqNMX?=
+ =?us-ascii?Q?O2HhX9W2HaLsCnmVGNVeMrW9PNBNREZke58yQNg6/hlUMyzCo7+p2NSWUsZS?=
+ =?us-ascii?Q?DJthMMa9qbnk2fHL5t4QnBOGtVXfqeQeqlLVXmt+6JV+Q2rZx6DPw04B8v7a?=
+ =?us-ascii?Q?6mvjy0LE+LWRG10EaUk93JNqsRkuAA+vOpF6SC2qljzQ5XdC441g03scFcoi?=
+ =?us-ascii?Q?P3jjwFaIZJeCoSHkBGiIarnL2nrtDi6u6bD34WtJzRCukFxhSF+PX9zJn6lJ?=
+ =?us-ascii?Q?ZAVFD7DmL0c4lhpAyAUtrdHTP2k9LkFjbXxCZHPSzAn2O/C+Et8g56oBXUzz?=
+ =?us-ascii?Q?3nFGxQWArrbHzzhw95y6cGMrjzZthlczlAsJhMAE5JXS/lb/1kRCPKWvQGMu?=
+ =?us-ascii?Q?7yvxHYdFAOzvhZdRjDMQUC4+msaBw1PeUr8/Icqxq0ozboCK4FABZhppSFJI?=
+ =?us-ascii?Q?Sg6H7OA2a+SpVufQ33b1aDFdmcyzvXzDcFIieiwYsICuwdrCebdlYSR63JqR?=
+ =?us-ascii?Q?F4Q0HFqgous=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GCW3TSWvDDZgtPRu0mapa8vVSPYB0lARyPKCbDeWnthBZKcVQvKVJDBEuDgT?=
+ =?us-ascii?Q?OH9lwPa67imtbAZpYy+vp4DVuPjsF0rZaO72T8QRQjn6+CYzHTzMqEbT0tqk?=
+ =?us-ascii?Q?9ViWOdSuFUtXntkPdm47L+HxhOLAuXVTR4nTEmx3MpDi4hqLDxhbA/61fnBs?=
+ =?us-ascii?Q?hhN4i7ESnS54wzxChkLwiTl1R6SHKdCF5kUucT9XJ7YvIFe5KXFfzenits3J?=
+ =?us-ascii?Q?TbeTCmZY+DX6g8MCi5dhLwZeVwXpxPZpwuHDTJegZ+E9OwBsLYKUwKZEEFys?=
+ =?us-ascii?Q?UL+RFy2sArsjRv5F+vs8ZMjuy8WIQQssYiyf8AdHXmRfO8LvYvy6knWqUqtK?=
+ =?us-ascii?Q?084R8z1rKGvw9kR70ZpYqasX/R86HMkK1aBp4uZO61CJjtGI0X6ndAw1TD2c?=
+ =?us-ascii?Q?ZBg6p5cESNvDK0riuIMTmfUjbxi7zmaLbJpO/Z9zycx6vikb14CM/MJSemOY?=
+ =?us-ascii?Q?ncNDBbAXw4tJoI/hSCkcTaVSUTaRsTnY/Gwr/NPou7YJAjuksXi8nuVviUu6?=
+ =?us-ascii?Q?kj3al/GAeElizyH6e8XxRzcPRKL/6ZRkWL5haduotRyR4+Y51LuuOHfm8UkZ?=
+ =?us-ascii?Q?nHsXhH0Mz7FT1LNUuEX3rk0VG0bDPS26oH2FPLPJjNCAfbjI04Fxt0Lem2I9?=
+ =?us-ascii?Q?IbLwTDQFoZNCxijpHYeVmztjLxHY+sNXQTqwrE19WQgsOZzc6cylv0TOmSmi?=
+ =?us-ascii?Q?KkJHT4q0oA8V7w1eoZl4r0vn1Ug0EqZ3X4FrUfpVu5R8tYfst0DAoHmRvSBy?=
+ =?us-ascii?Q?x10cHiEzDLPP11Nx4+o3EkABxq/IsMQRLoVBPIL4V1DqBTn488DX2Yo7Cvv+?=
+ =?us-ascii?Q?0T//OE6bTA5vG8c5qEgpAin/J3SYcUCn+/g8As009rDrZu5l3UjWbzboRBYK?=
+ =?us-ascii?Q?SFnoLevLyh8N+5KigM7Q0IkyTVNVC6ELt7VswA2FMAWVxY3AVgV/8svceINs?=
+ =?us-ascii?Q?pMDtHDeomlH2ZrZcQmR9+Uid0dQL5JkRnN7g/lgzh++4f9hR5mDIUOmev/o9?=
+ =?us-ascii?Q?E5V6rC6h3FKsF7GSOFVkoNr0UaVnVWUCvc+jFDLnAsObwxzq2AW5rzvrIFm7?=
+ =?us-ascii?Q?AFXxc1LNuTXYjKDL3NkO7d4vwnm5GaN6Nuj1mV8MMoUn4pHyh6iodeH1IlQL?=
+ =?us-ascii?Q?IVPvevRSZXw7FH/nBMbi4RnCfGJCBgYy2KvmJdBNCzun1o02laQrqZDigbLa?=
+ =?us-ascii?Q?zuWFPQQB1Ky9GxS+c/uj8rBdD3sIeyy+Lq5oht8bPLy9MX3YaUkB+u3/0HJr?=
+ =?us-ascii?Q?CbVlAcRsTCIAHGDXlefu2u+y5He9/s9YB9vNRiKMN8W+bVg9FORSWy1jsJqh?=
+ =?us-ascii?Q?cXF99coGunlp16CeSjPuOfXXoizrD69nwrb7m3XE3XiYbU+RXVR1QDlGBRqz?=
+ =?us-ascii?Q?ad79/45mmr3x/7c74ailpgNZoag/C2hzTkfNsQWkzAcSXZSojRYB8pSpYMLE?=
+ =?us-ascii?Q?Ci4i/fET8pFEtYTlhp70B+rdXmXT6sVvCAx5Z0pKz7/56YeRfqf7jfs/f8tN?=
+ =?us-ascii?Q?pyP0zzE6EZ4PJgwJV79mwyghO681WwuqqCN5B0hIBV9laUYEWlwHFXWRnaRu?=
+ =?us-ascii?Q?9wqyvmGu2ju7TcU4mKnUrDeFknZdseYHpIYYwFdE?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 53f644a2-a6e9-425e-f5ac-08dde0f52088
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9473.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 20:55:57.5860
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: l98mhjCEPP2PIcqstFN7T4wAHLpAWbpLGr/OMjiznshiERwmm281INsYH3GPRneT
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9435
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_134917_069076_B5E22D82 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20250821_135602_007794_96EA2DF6 
+X-CRM114-Status: GOOD (  26.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,54 +172,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjEuMDguMjUgMjI6NDYsIFppIFlhbiB3cm90ZToKPiBPbiAyMSBBdWcgMjAyNSwgYXQgMTY6
-MDYsIERhdmlkIEhpbGRlbmJyYW5kIHdyb3RlOgo+IAo+PiBMZXQncyBsaW1pdCB0aGUgbWF4aW11
-bSBmb2xpbyBzaXplIGluIHByb2JsZW1hdGljIGtlcm5lbCBjb25maWcgd2hlcmUKPj4gdGhlIG1l
-bW1hcCBpcyBhbGxvY2F0ZWQgcGVyIG1lbW9yeSBzZWN0aW9uIChTUEFSU0VNRU0gd2l0aG91dAo+
-PiBTUEFSU0VNRU1fVk1FTU1BUCkgdG8gYSBzaW5nbGUgbWVtb3J5IHNlY3Rpb24uCj4+Cj4+IEN1
-cnJlbnRseSwgb25seSBhIHNpbmdsZSBhcmNoaXRlY3R1cmVzIHN1cHBvcnRzIEFSQ0hfSEFTX0dJ
-R0FOVElDX1BBR0UKPj4gYnV0IG5vdCBTUEFSU0VNRU1fVk1FTU1BUDogc2guCj4+Cj4+IEZvcnR1
-bmF0ZWx5LCB0aGUgYmlnZ2VzdCBodWdldGxiIHNpemUgc2ggc3VwcG9ydHMgaXMgNjQgTWlCCj4+
-IChIVUdFVExCX1BBR0VfU0laRV82NE1CKSBhbmQgdGhlIHNlY3Rpb24gc2l6ZSBpcyBhdCBsZWFz
-dCA2NCBNaUIKPj4gKFNFQ1RJT05fU0laRV9CSVRTID09IDI2KSwgc28gdGhlaXIgdXNlIGNhc2Ug
-aXMgbm90IGRlZ3JhZGVkLgo+Pgo+PiBBcyBmb2xpb3MgYW5kIG1lbW9yeSBzZWN0aW9ucyBhcmUg
-bmF0dXJhbGx5IGFsaWduZWQgdG8gdGhlaXIgb3JkZXItMiBzaXplCj4+IGluIG1lbW9yeSwgY29u
-c2VxdWVudGx5IGEgc2luZ2xlIGZvbGlvIGNhbiBubyBsb25nZXIgc3BhbiBtdWx0aXBsZSBtZW1v
-cnkKPj4gc2VjdGlvbnMgb24gdGhlc2UgcHJvYmxlbWF0aWMga2VybmVsIGNvbmZpZ3MuCj4+Cj4+
-IG50aF9wYWdlKCkgaXMgbm8gbG9uZ2VyIHJlcXVpcmVkIHdoZW4gb3BlcmF0aW5nIHdpdGhpbiBh
-IHNpbmdsZSBjb21wb3VuZAo+PiBwYWdlIC8gZm9saW8uCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IERh
-dmlkIEhpbGRlbmJyYW5kIDxkYXZpZEByZWRoYXQuY29tPgo+PiAtLS0KPj4gICBpbmNsdWRlL2xp
-bnV4L21tLmggfCAyMiArKysrKysrKysrKysrKysrKystLS0tCj4+ICAgMSBmaWxlIGNoYW5nZWQs
-IDE4IGluc2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pCj4+Cj4+IGRpZmYgLS1naXQgYS9pbmNs
-dWRlL2xpbnV4L21tLmggYi9pbmNsdWRlL2xpbnV4L21tLmgKPj4gaW5kZXggNzc3MzdjYmYyMjE2
-YS4uNDhhOTg1ZTE3ZWY0ZSAxMDA2NDQKPj4gLS0tIGEvaW5jbHVkZS9saW51eC9tbS5oCj4+ICsr
-KyBiL2luY2x1ZGUvbGludXgvbW0uaAo+PiBAQCAtMjA1MywxMSArMjA1MywyNSBAQCBzdGF0aWMg
-aW5saW5lIGxvbmcgZm9saW9fbnJfcGFnZXMoY29uc3Qgc3RydWN0IGZvbGlvICpmb2xpbykKPj4g
-ICAJcmV0dXJuIGZvbGlvX2xhcmdlX25yX3BhZ2VzKGZvbGlvKTsKPj4gICB9Cj4+Cj4+IC0vKiBP
-bmx5IGh1Z2V0bGJmcyBjYW4gYWxsb2NhdGUgZm9saW9zIGxhcmdlciB0aGFuIE1BWF9PUkRFUiAq
-Lwo+PiAtI2lmZGVmIENPTkZJR19BUkNIX0hBU19HSUdBTlRJQ19QQUdFCj4+IC0jZGVmaW5lIE1B
-WF9GT0xJT19PUkRFUgkJUFVEX09SREVSCj4+IC0jZWxzZQo+PiArI2lmICFkZWZpbmVkKENPTkZJ
-R19BUkNIX0hBU19HSUdBTlRJQ19QQUdFKQo+PiArLyoKPj4gKyAqIFdlIGRvbid0IGV4cGVjdCBh
-bnkgZm9saW9zIHRoYXQgZXhjZWVkIGJ1ZGR5IHNpemVzIChhbmQgY29uc2VxdWVudGx5Cj4+ICsg
-KiBtZW1vcnkgc2VjdGlvbnMpLgo+PiArICovCj4+ICAgI2RlZmluZSBNQVhfRk9MSU9fT1JERVIJ
-CU1BWF9QQUdFX09SREVSCj4+ICsjZWxpZiBkZWZpbmVkKENPTkZJR19TUEFSU0VNRU0pICYmICFk
-ZWZpbmVkKENPTkZJR19TUEFSU0VNRU1fVk1FTU1BUCkKPj4gKy8qCj4+ICsgKiBPbmx5IHBhZ2Vz
-IHdpdGhpbiBhIHNpbmdsZSBtZW1vcnkgc2VjdGlvbiBhcmUgZ3VhcmFudGVlZCB0byBiZQo+PiAr
-ICogY29udGlndW91cy4gQnkgbGltaXRpbmcgZm9saW9zIHRvIGEgc2luZ2xlIG1lbW9yeSBzZWN0
-aW9uLCBhbGwgZm9saW8KPj4gKyAqIHBhZ2VzIGFyZSBndWFyYW50ZWVkIHRvIGJlIGNvbnRpZ3Vv
-dXMuCj4+ICsgKi8KPj4gKyNkZWZpbmUgTUFYX0ZPTElPX09SREVSCQlQRk5fU0VDVElPTl9TSElG
-VAo+PiArI2Vsc2UKPj4gKy8qCj4+ICsgKiBUaGVyZSBpcyBubyByZWFsIGxpbWl0IG9uIHRoZSBm
-b2xpbyBzaXplLiBXZSBsaW1pdCB0aGVtIHRvIHRoZSBtYXhpbXVtIHdlCj4+ICsgKiBjdXJyZW50
-bHkgZXhwZWN0Lgo+IAo+IFRoZSBjb21tZW50IGFib3V0IGh1Z2V0bGJmcyBpcyBoZWxwZnVsIGhl
-cmUsIHNpbmNlIHRoZSBvdGhlciBmb2xpb3MgYXJlIHN0aWxsCj4gbGltaXRlZCBieSBidWRkeSBh
-bGxvY2F0b3LigJlzIE1BWF9PUkRFUi4KClllYWgsIGJ1dCB0aGUgb2xkIGNvbW1lbnQgd2FzIHdy
-b25nICh0aGVyZSBpcyBEQVgpLgoKSSBjYW4gYWRkIGhlcmUgImN1cnJlbnRseSBleHBlY3QgKGUu
-Zy4sIGh1Z2V0bGZzLCBkYXgpLiIKCi0tIApDaGVlcnMKCkRhdmlkIC8gZGhpbGRlbmIKCgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
-YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 21 Aug 2025, at 16:06, David Hildenbrand wrote:
+
+> Now that a single folio/compound page can no longer span memory sections
+> in problematic kernel configurations, we can stop using nth_page().
+>
+> While at it, turn both macros into static inline functions and add
+> kernel doc for folio_page_idx().
+>
+> Signed-off-by: David Hildenbrand <david@redhat.com>
+> ---
+>  include/linux/mm.h         | 16 ++++++++++++++--
+>  include/linux/page-flags.h |  5 ++++-
+>  2 files changed, 18 insertions(+), 3 deletions(-)
+>
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 48a985e17ef4e..ef360b72cb05c 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -210,10 +210,8 @@ extern unsigned long sysctl_admin_reserve_kbytes;
+>
+>  #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
+>  #define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
+> -#define folio_page_idx(folio, p)	(page_to_pfn(p) - folio_pfn(folio))
+>  #else
+>  #define nth_page(page,n) ((page) + (n))
+> -#define folio_page_idx(folio, p)	((p) - &(folio)->page)
+>  #endif
+>
+>  /* to align the pointer to the (next) page boundary */
+> @@ -225,6 +223,20 @@ extern unsigned long sysctl_admin_reserve_kbytes;
+>  /* test whether an address (unsigned long or pointer) is aligned to PAGE_SIZE */
+>  #define PAGE_ALIGNED(addr)	IS_ALIGNED((unsigned long)(addr), PAGE_SIZE)
+>
+> +/**
+> + * folio_page_idx - Return the number of a page in a folio.
+> + * @folio: The folio.
+> + * @page: The folio page.
+> + *
+> + * This function expects that the page is actually part of the folio.
+> + * The returned number is relative to the start of the folio.
+> + */
+> +static inline unsigned long folio_page_idx(const struct folio *folio,
+> +		const struct page *page)
+> +{
+> +	return page - &folio->page;
+> +}
+> +
+>  static inline struct folio *lru_to_folio(struct list_head *head)
+>  {
+>  	return list_entry((head)->prev, struct folio, lru);
+> diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+> index d53a86e68c89b..080ad10c0defc 100644
+> --- a/include/linux/page-flags.h
+> +++ b/include/linux/page-flags.h
+> @@ -316,7 +316,10 @@ static __always_inline unsigned long _compound_head(const struct page *page)
+>   * check that the page number lies within @folio; the caller is presumed
+>   * to have a reference to the page.
+>   */
+> -#define folio_page(folio, n)	nth_page(&(folio)->page, n)
+> +static inline struct page *folio_page(struct folio *folio, unsigned long nr)
+> +{
+> +	return &folio->page + nr;
+> +}
+
+Maybe s/nr/n/ or s/nr/nth/, since it returns the nth page within a folio.
+
+Since you have added kernel doc for folio_page_idx(), it does not hurt
+to have something similar for folio_page(). :)
+
++/**
++ * folio_page - Return the nth page in a folio.
++ * @folio: The folio.
++ * @n: Page index within the folio.
++ *
++ * This function expects that n does not exceed folio_nr_pages(folio).
++ * The returned page is relative to the first page of the folio.
++ */
+
+>
+>  static __always_inline int PageTail(const struct page *page)
+>  {
+> -- 
+> 2.50.1
+
+Otherwise, Reviewed-by: Zi Yan <ziy@nvidia.com>
+
+Best Regards,
+Yan, Zi
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
