@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D46BCA0EFA
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CEACA0EEB
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B/7x3e/gN49Ql2h7Df032lr/rORQWjAvS25JY2jjtU0=; b=OdUlSxxMvUueL7
-	IwFfNqkuaew13BZwC/9/80hFG+9GBoaifsqm+8GUCr2PmHRJLcnb5rAgMWTzVAgQG3uYmqSrteETt
-	JPJFA2pVz+S4Mhmr+qSlk5wTpQytEsahQIQTFv8AB+4CjAsoi9Ab7u3IuRaBBz4SRylRvWlz98mIu
-	QmUczrLGxCwuPSm/hf7QDbpLeb/OOb1NkPKKCbkWkTQEMn6GOtVhr2XdBbKLjlQox/LlbDyU2tJPW
-	0ie1MLIvkVlP+oN0MLSdRwCeHuof5KKSmJYvE7bKd8PUTOc96XmeYAsSD1u0My8hPiZcD1aWcoeIu
-	PbjLxwEXlghqmRdMzhCw==;
+	List-Owner; bh=pn3NLoIW2rYRwJ2s4QXBETcBNjm+ahXyP2YA2G5yAFA=; b=hZ6VKvxDQEr0Xc
+	X0EcCS6uZa5ott8j6Y2aodVIF3KH28aEWFPSqr2Uo0TKpfAPPXSn1/5WA8zyIdYR/zYhboh31kHiF
+	fJCCLIJF/v/2h7xzFUQFZUyKyrNpsHGNAm+LfmE5UROVHB/o9/Su8i32B1lruDhAAlFB5tiW2p68w
+	DqKyzWHbWl5V6PeV6ZmPfjaZzpw2I6PDaVqsBw+0tQc58nsFrLA+4q9rSHdSOz0EzGTpBVOpi1z47
+	45SgcUyzZZKdRYcz0kndfCctKpnuy4c8oYsfaM6+6YrwbMsOv7tAuQ6tpR38nuRXr5p6b3WcD54mn
+	L/Bvp2Ym5E0tXzBevqWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upAiF-00000000FD0-2Yk7;
-	Thu, 21 Aug 2025 19:12:39 +0000
+	id 1upAiO-00000000FPs-01cr;
+	Thu, 21 Aug 2025 19:12:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5rY-0000000H9db-2vpI;
-	Thu, 21 Aug 2025 14:01:56 +0000
+	id 1up5re-0000000H9fA-3JG7;
+	Thu, 21 Aug 2025 14:02:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=TuYLz5cJ1ahDWB/sh+nnpAMVfJ9cAcHDo7a4pdfBqj0=; b=exSg1YO1KMeOXy2OGsoYybvZeN
-	gnLK/1oQAsc3JfPI1KH+/pdNkbWCGSet1Ea7GcNdVd60YCg8yHSfrxYYvLkjrL5fn5+6StmrNLXy2
-	JlALiDNjYOudBzQkOtUbUouP+5w+bUb5EGyFNlWkQ8RR+WcrzVaunuQ/4j7z4uqXrcAgKpKARlKH3
-	BA8lvU6IybYWYhl7YCauZt+k1xEMESbNT7ILFUKdMNg2G9pCxFuawEFM3NgQxO1CiCClmdSYDksO6
-	jwvBd3dc50YWVvoOvQ1YwFOe6VLw6JQY/sk0P9ZiyNnafXH+Kwj8olnkOXAtKw+P4j5VHvu7WSPCv
-	s5i0pWIQ==;
+	bh=rTW1kP7aTYTeLALjYkGd/oQheoOm8IA693rfkJNd5rI=; b=NovpS5d3R6JvXlJ8P7GUkiYkuT
+	en8FWlDYchk/CzA4PwPSWDMo0LDirAME/2Rpv6Ms9ap9CE76awWihakg6UiTmy1E7IRJkvz9jtNsq
+	W92zzgdu0MFp7UNJk4dXAqZ0jJaNjji83QwiTS+DzBkxVkxTxv9pgOLncRtPSiYp9/SuIotKzWaCa
+	Pk0theydKUiDayOQGQK0zLUhY7DYH/Tb+yIYAmMPzVuT8+Me22msbOq96vedM98n295fyBxr2Dspq
+	PXaG0NT/o+Etax1hvqn3ErhmMY85Xgro7lcUtQGVE0j2qBVpO7XEZD5Hqu7IFQ4ZM7a1tQvYErcei
+	7aah6AKA==;
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5rV-00000000aLW-0c3b;
-	Thu, 21 Aug 2025 14:01:55 +0000
+	id 1up5rb-00000000aM4-2Fbk;
+	Thu, 21 Aug 2025 14:02:01 +0000
 Received: from ROG.lan (unknown [118.251.176.166])
-	by APP-03 (Coremail) with SMTP id rQCowABn+Xq+JqdoP8MTDg--.22469S3;
-	Thu, 21 Aug 2025 22:01:38 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABn+Xq+JqdoP8MTDg--.22469S6;
+	Thu, 21 Aug 2025 22:01:46 +0800 (CST)
 From: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -76,36 +76,36 @@ Cc: linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	pincheng.plct@isrc.iscas.ac.cn
-Subject: [PATCH v1 RESEND 1/5] dt-bidings: riscv: add Zilsd and Zclsd extension descriptions
-Date: Thu, 21 Aug 2025 22:01:27 +0800
-Message-Id: <20250821140131.225756-2-pincheng.plct@isrc.iscas.ac.cn>
+Subject: [PATCH v1 RESEND 4/5] riscv: KVM: allow Zilsd and Zclsd extensions for Guest/VM
+Date: Thu, 21 Aug 2025 22:01:30 +0800
+Message-Id: <20250821140131.225756-5-pincheng.plct@isrc.iscas.ac.cn>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250821140131.225756-1-pincheng.plct@isrc.iscas.ac.cn>
 References: <20250821140131.225756-1-pincheng.plct@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABn+Xq+JqdoP8MTDg--.22469S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7CF4ftF48uw17Ww1fCr15Jwb_yoW8tF1rpF
-	s3GF1kKas0q3W3ur97tw4xuw15ZF1vqw45AFZFy34xKFZ0yry0qrWay3W5Z3WrCF4xAFyU
-	ua1jgr17ZrsrAaDanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmq14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWUWVWUuwAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr0_Cr1U
-	M2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjx
-	v20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r4U
-	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
-	kIc2xKxwCY1x0262kKe7AKxVWrXVW3AwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
-	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
-	AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1l
-	IxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r
-	1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIY
-	CTnIWIevJa73UjIFyTuYvjTRuq2MUUUUU
+X-CM-TRANSID: rQCowABn+Xq+JqdoP8MTDg--.22469S6
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4ruw45tFyDtrWUCrWUCFg_yoW8Wr17pr
+	s8CF9I9rW5C34fuas7twn8ur18Ww4UWws0ka1xur4xJFyUCry8JF1DA3W3Zr1DJay09rn5
+	WF1fGr18Zw45Ar7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUml14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWUWVWUuwAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr0_
+	Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6x
+	IIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j
+	6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x0262
+	8vn2kIc2xKxwCY1x0262kKe7AKxVWrXVW3AwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE
+	7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI
+	8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Gr0_
+	Xr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r
+	1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4U
+	JbIYCTnIWIevJa73UjIFyTuYvjTRZGYpUUUUU
 X-Originating-IP: [118.251.176.166]
 X-CM-SenderInfo: pslquxhhqjh1xofwqxxvufhxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_150153_734747_08DC4626 
-X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-CacheID: sfid-20250821_150200_125584_36D42239 
+X-CRM114-Status: UNSURE (   7.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,80 +123,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add descriptions for the Zilsd (Load/Store pair instructions) and
-Zclsd (Compressed Load/Store pair instructions) ISA extensions
-which were ratified in commit f88abf1 ("Integrating load/store
-pair for RV32 with the main manual") of the riscv-isa-manual.
+Extend the KVM ISA extension ONE_REG interface to allow KVM user space
+to detect and enable Zilsd and Zclsd extensions for Guest/VM.
 
 Signed-off-by: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
 ---
- .../devicetree/bindings/riscv/extensions.yaml | 39 +++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ arch/riscv/include/uapi/asm/kvm.h | 2 ++
+ arch/riscv/kvm/vcpu_onereg.c      | 2 ++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index ede6a58ccf53..d72ffe8f6fa7 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -366,6 +366,20 @@ properties:
-             guarantee on LR/SC sequences, as ratified in commit b1d806605f87
-             ("Updated to ratified state.") of the riscv profiles specification.
- 
-+        - const: zilsd
-+          description:
-+            The standard Zilsd extension which provides support for aligned
-+            register-pair load and store operations in 32-bit instruction
-+            encodings, as ratified in commit f88abf1 ("Integrating
-+            load/store pair for RV32 with the main manual") of riscv-isa-manual.
-+
-+        - const: zclsd
-+          description:
-+            The Zclsd extension implements the compressed (16-bit) version of the
-+            Load/Store Pair for RV32. As with Zilsd, this extension was ratified
-+            in commit f88abf1 ("Integrating load/store pair for RV32 with the
-+            main manual") of riscv-isa-manual.
-+
-         - const: zk
-           description:
-             The standard Zk Standard Scalar cryptography extension as ratified
-@@ -847,6 +861,16 @@ properties:
-             anyOf:
-               - const: v
-               - const: zve32x
-+      # Zclsd depends on Zilsd and Zca
-+      - if:
-+          contains:
-+            anyOf:
-+              - const: zclsd
-+        then:
-+          contains:
-+            anyOf:
-+              - const: zilsd
-+              - const: zca
- 
- allOf:
-   # Zcf extension does not exist on rv64
-@@ -864,6 +888,21 @@ allOf:
-           not:
-             contains:
-               const: zcf
-+  # Zilsd extension does not exist on rv64
-+  - if:
-+      properties:
-+        riscv,isa-extensions:
-+          contains:
-+            const: zilsd
-+        riscv,isa-base:
-+          contains:
-+            const: rv64i
-+    then:
-+      properties:
-+        riscv,isa-extensions:
-+          not:
-+            contains:
-+              const: zilsd
- 
- additionalProperties: true
- ...
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index 5f59fd226cc5..beb7ce06dce8 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -174,6 +174,8 @@ enum KVM_RISCV_ISA_EXT_ID {
+ 	KVM_RISCV_ISA_EXT_ZCD,
+ 	KVM_RISCV_ISA_EXT_ZCF,
+ 	KVM_RISCV_ISA_EXT_ZCMOP,
++	KVM_RISCV_ISA_EXT_ZCLSD,
++	KVM_RISCV_ISA_EXT_ZILSD,
+ 	KVM_RISCV_ISA_EXT_ZAWRS,
+ 	KVM_RISCV_ISA_EXT_SMNPM,
+ 	KVM_RISCV_ISA_EXT_SSNPM,
+diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+index 2e1b646f0d61..8219769fc4a1 100644
+--- a/arch/riscv/kvm/vcpu_onereg.c
++++ b/arch/riscv/kvm/vcpu_onereg.c
+@@ -64,6 +64,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
+ 	KVM_ISA_EXT_ARR(ZCD),
+ 	KVM_ISA_EXT_ARR(ZCF),
+ 	KVM_ISA_EXT_ARR(ZCMOP),
++	KVM_ISA_EXT_ARR(ZCLSD),
+ 	KVM_ISA_EXT_ARR(ZFA),
+ 	KVM_ISA_EXT_ARR(ZFH),
+ 	KVM_ISA_EXT_ARR(ZFHMIN),
+@@ -78,6 +79,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
+ 	KVM_ISA_EXT_ARR(ZIHINTPAUSE),
+ 	KVM_ISA_EXT_ARR(ZIHPM),
+ 	KVM_ISA_EXT_ARR(ZIMOP),
++	KVM_ISA_EXT_ARR(ZILSD),
+ 	KVM_ISA_EXT_ARR(ZKND),
+ 	KVM_ISA_EXT_ARR(ZKNE),
+ 	KVM_ISA_EXT_ARR(ZKNH),
 -- 
 2.39.5
 
