@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806C4CA0EFA
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 22:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EFD2CA0EEB
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 22:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oQ+EG0F0axFFJNbl0VaQJoKF6TwkMbLDuCfmTOmPwQA=; b=BeqYGF8Lg9JXnt
-	djEeV5rgccyC9CwUTpdv0dCUXJuRC61rl4Af4q+E9Z2Aey0bYXs91QfTlD4eYubl2D+nU8yvxpjc0
-	v93VYT7tGsYYPaSr0Jhp27uMQR8GTzxdWnWHDOHV0jJLTCU9v60KI/638/Ebn0w4sEZkBM1Ru71+u
-	aYzY/GNYwT7AOgQ9xt7i6LD0ZIrEes69p3GxsLnXdTkSxdwh59Lg61A8ulmXN7Sf9xPzA6MX169BO
-	zkRre2zNvonNkDEat/ko2iokSJt2j/xpss16I+6K4SsmGzPmAdS1BftOSiTppxz5tszvMKHmHOJ6K
-	DYGNnsOeW6borXB84r6Q==;
+	List-Owner; bh=T0UvbOasgWcWvAGYSY9F8nY/5tRqqJLHOOKTXKa/fSU=; b=v2KewqFp5KAjHV
+	/9wp00snBTKFMZvxIarMACuJz75n/BY+MGeBtAhtS2kNm7pq+q2g4rur2dwaF7lj/xKpT3lT6bwUy
+	7eatwnSsHO6VPm9eIDA1rtOu56B/eKclOZHP3FFvivx9lnTfX+LraILeC0e0AkWWau2w/iQ6FwJSr
+	Iu3CzLTWciFnwY6kVeTi0/aH72iNA6aqn3Gkl/p9+sabbofvul2mOmRisLLRgbAWQDkr6b9+MG2Nm
+	Bnc+sALWF1+LUSYxLk/gTaK5beT82tcdm4AKBWOY8e47BZ91Dysfrd0njvX1Pjh56foTez43Ck5y+
+	sZ7jRbKjUPGvpYVlRynA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDsl-00000000kY4-1pAl;
-	Thu, 21 Aug 2025 22:35:43 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1upDsm-00000000kYc-3YUO;
+	Thu, 21 Aug 2025 22:35:44 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5y0-0000000HAtc-2c5F
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 14:08:38 +0000
-Received: from [192.168.0.106] (unknown [114.241.87.235])
-	by APP-01 (Coremail) with SMTP id qwCowADXA6hfKKdoj+MRDg--.46265S2;
-	Thu, 21 Aug 2025 22:08:31 +0800 (CST)
-Message-ID: <c1396997-fa92-47cd-9bc6-8dcb67e87eb8@iscas.ac.cn>
-Date: Thu, 21 Aug 2025 22:08:21 +0800
+	id 1up6F3-0000000HDId-3Jgf;
+	Thu, 21 Aug 2025 14:26:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E7A69A58430;
+	Thu, 21 Aug 2025 14:26:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78E13C4CEEB;
+	Thu, 21 Aug 2025 14:26:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755786372;
+	bh=G0YrLOlqNEkhmNDKqjNXIej+ao+iP0qZxWm/nWbxgcU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=nIUwo+87Ry/oXZ6mg9Fw4HZ0MMFxJkXAarXgjf1itGfDNVkddF4Mp9uqfxoFzfwwq
+	 dKkxZPxRYY1b8fD4Gzfy77M8ZwRGzu1RRdhCgLkhFVCyRl9G71eTogt/T+i5tI71u+
+	 BllOOUXWaAO6HLOOnHNhwvJlDGq/Rmr3zM/Qy4lQu2tGIUSeYmZSvD2I3ubrSiHccA
+	 h5aSW27p/WEpPX2u1iVBmgKU7a0nHp6CD+jOJXNj/XTA4RLvZAdRNMlxXbmUNEvnWf
+	 gI32iy8/42hgb5rRDxJhwI6k52FpdkimxQJmeV9X99ERICX2upoWuiSF28m4VDYneg
+	 VKarGoW2PNQRA==
+From: guoren@kernel.org
+To: guoren@kernel.org,
+	troy.mitchell@linux.dev
+Cc: alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	fangyu.yu@linux.alibaba.com,
+	guoren@linux.alibaba.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Subject: [PATCH V4 RESEND 2/3] RISC-V: KVM: Remove unnecessary HGATP csr_read
+Date: Thu, 21 Aug 2025 10:25:41 -0400
+Message-Id: <20250821142542.2472079-3-guoren@kernel.org>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20250821142542.2472079-1-guoren@kernel.org>
+References: <20250821142542.2472079-1-guoren@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC 3/3] riscv: dts: starfive: Add VisionFive 2 Lite board
- device tree
-To: Hal Feng <hal.feng@starfivetech.com>, Conor Dooley <conor+dt@kernel.org>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250821100930.71404-1-hal.feng@starfivetech.com>
- <20250821100930.71404-4-hal.feng@starfivetech.com>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20250821100930.71404-4-hal.feng@starfivetech.com>
-X-CM-TRANSID: qwCowADXA6hfKKdoj+MRDg--.46265S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7Wr1UKF4fXrWxZr4rWFyxuFg_yoWDWwc_Ga
-	4kKw1fGF4UJF1kK3s8Grn7CF1FyayavrnxA3yFvr47JF9Yg34Yy3ZrG3y0kF1UAF1jgFs8
-	GFn3WF4qkr4kKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbskYjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxU2X_-DUUUU
-X-Originating-IP: [114.241.87.235]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_070837_028246_95E01EEB 
-X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-CacheID: sfid-20250821_072613_892163_22BEEBB2 
+X-CRM114-Status: UNSURE (   9.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,50 +83,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/21/25 18:09, Hal Feng wrote:
-> [...]
-> +++ b/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.dts
-> @@ -0,0 +1,152 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2025 StarFive Technology Co., Ltd.
-> + * Copyright (C) 2025 Hal Feng <hal.feng@starfivetech.com>
-> + */
-> +
-> +/dts-v1/;
-> +#include "jh7110-common.dtsi"
-> +
-> +/ {
-> +	model = "StarFive VisionFive 2 Lite";
-> +	compatible = "starfive,visionfive-2-lite", "starfive,jh7110s";
-> +};
+From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-Might need to add starfive,jh7110s to:
+The HGATP has been set to zero in gstage_mode_detect(), so there
+is no need to save the old context. Unify the code convention
+with gstage_mode_detect().
 
-  drivers/cpufreq/cpufreq-dt-platdev.c
+Reviewed-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
+---
+ arch/riscv/kvm/vmid.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-So that it can use the opp stuff here:
-
-> +
-> +&cpu_opp {
-> +	opp-312500000 {
-> +		opp-hz = /bits/ 64 <312500000>;
-> +		opp-microvolt = <800000>;
-> +	};
-> +	opp-417000000 {
-> +		opp-hz = /bits/ 64 <417000000>;
-> +		opp-microvolt = <800000>;
-> +	};
-> +	opp-625000000 {
-> +		opp-hz = /bits/ 64 <625000000>;
-> +		opp-microvolt = <800000>;
-> +	};
-> +	opp-1250000000 {
-> +		opp-hz = /bits/ 64 <1250000000>;
-> +		opp-microvolt = <1000000>;
-> +	};
-> +};
-> +> [...]
+diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
+index 5f33625f4070..abb1c2bf2542 100644
+--- a/arch/riscv/kvm/vmid.c
++++ b/arch/riscv/kvm/vmid.c
+@@ -25,15 +25,12 @@ static DEFINE_SPINLOCK(vmid_lock);
+ 
+ void __init kvm_riscv_gstage_vmid_detect(void)
+ {
+-	unsigned long old;
+-
+ 	/* Figure-out number of VMID bits in HW */
+-	old = csr_read(CSR_HGATP);
+ 	csr_write(CSR_HGATP, (kvm_riscv_gstage_mode << HGATP_MODE_SHIFT) | HGATP_VMID);
+ 	vmid_bits = csr_read(CSR_HGATP);
+ 	vmid_bits = (vmid_bits & HGATP_VMID) >> HGATP_VMID_SHIFT;
+ 	vmid_bits = fls_long(vmid_bits);
+-	csr_write(CSR_HGATP, old);
++	csr_write(CSR_HGATP, 0);
+ 
+ 	/* We polluted local TLB so flush all guest TLB */
+ 	kvm_riscv_local_hfence_gvma_all();
+-- 
+2.40.1
 
 
 _______________________________________________
