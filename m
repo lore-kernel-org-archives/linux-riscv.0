@@ -4,106 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE034CA0EEB
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 00:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA6C1CA0EFA
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 00:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nlMdFfkN5wxCpxlnpbLvAhVZuzPBmg7l/DogPRS+laI=; b=x4cmju98N1aQiV
-	btCyzhRYHRR2CiywbKhenjdAg7MNTDjEoEk1ctBRvQI1Bp9AQuBrMG4dRchw7LUxRsfr3P+Y5YaNg
-	4ZyYAZ4/+0dUHUTTgbbd0QxsmfNIL36GiltdY2vM7rhItldJypVtLt+W2CBcQ6XLFSgu9wTdjKrp5
-	iVj/lJc8sm15vYKTo4CLDK5e25Tc+e6gJA7Q3YqtlAxPNSydwQUnBdAV9BLsvT1ZonVjZlWQup6uO
-	bbyhQvcxowsIPyQFSrluHNaIYaqR6WEcS6pB8HyW7QeZ7gfVhskH0D6kbyu76yT0uGzYWDFtI5s40
-	cNOilprZ2edZSjjzl3ZQ==;
+	List-Owner; bh=B9u+gIY5gWFEp8FiYu9MHTb63cWLFbA7AvaQ9zVazSQ=; b=4sq+FXq41kK+tC
+	JUMV1Y6aDIxCUZqK2jjc9bau2TQ3Z3GQh1vpBVWwejexPx3cmbR9gsaY4F8S9SpY8fVq/CL1cxByc
+	PFwk9RqHJDGiemrb9rOV3knH3rHglGRZaAhN9b4Oq4DTQWkGsDchs+5VxS+RK8Qjhith9KJDjsL0X
+	StJZRoHz7aMuXQlFuNe4wN+NiZKcvAtL8hKvTnUFHxj3ydF7XJwmWSGYDURjnJoW5WNJJxEp3sKHH
+	qUfdjrMLZjKV10qiv+xmeGzaYYyaWK+dBIX285wY81W7ucaM9RLR5sXg5PwWhCmoKXmWfWmH8sIyy
+	5akl8mY6XZw0/V0PNVHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upG0v-000000015aX-2PGP;
-	Fri, 22 Aug 2025 00:52:17 +0000
+	id 1upG0w-000000015b4-149u;
+	Fri, 22 Aug 2025 00:52:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBaf-00000000OF8-2kH7
+	id 1upBaf-00000000OFD-3544
 	for linux-riscv@bombadil.infradead.org;
 	Thu, 21 Aug 2025 20:08:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Z7iPpUiW3LrFM0W3XrB+Z82uodwKTsefoCzXwhLbLUo=; b=QazDwaC9jxgrFY27owS0LQWJgt
-	ohulZAdv3FwkUrKKmytvlW7JawijcUkgP09o14/kquaMA0VJirqqyXOOD4KA/wmGdP1K3/LW8nQU+
-	S0Rpz52RIbqkexln5b6LrSwgtR9spI9zEkO48llGPg8ufZq8Uqi9ohAzM44YZln+HOkJwZXcRmLyT
-	774ub9k5siH3mh9W8YAYIVtY/npxUovEbyCoh09Nz1UAnZEycdESHKsb4kK8eFZQQnwZ1djIN7GNc
-	rEnk/GFEuj5ottpGSl2wqnK5j8K6AzoTE9HBo/Czz118CmO0/54cfkiSdtiT3odErRZwy9rvnYsLm
-	PqqMr64g==;
+	bh=XmvTcrL5C0dM7rPtm73IEcsYc8PUVzmaMdzwCc2EnvI=; b=K/z60T7wCsRWnmUrmDIlYDGF5f
+	yNCig5cNw4kY1i4vQaFXAfZMC4mYUvMelOGeslgejNEzSkpetjeiTFtUeadR20FnQ+oIr0CQV1/iS
+	JjhMHy9NKl5LUITd6PBJDz/Tp2xS7tlHrda4x5+m7Ro+IKZ6t4v/ZYMxJin9mMzXNMmcaZ5US0wi6
+	yoPDZFcJTGWfTGseW5o72ECmlImcrtnjC4/C6dj0vWeNCkZO4j8M6Y7OrP+Ps9QLQnwpZ5SR7qXWj
+	Wzeloos4XjAHIBILlBumHdtj7lpqQmaLr8DD4zpEqlHzCUrS3xCxd+YCPuQFNCAtOBK/NHplAeDnv
+	Ipqs1Mwg==;
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBaY-00000000fGF-3eWr
+	id 1upBaZ-00000000fGi-0wLT
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 20:08:51 +0000
+	Thu, 21 Aug 2025 20:08:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806925;
+	s=mimecast20190719; t=1755806926;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Z7iPpUiW3LrFM0W3XrB+Z82uodwKTsefoCzXwhLbLUo=;
-	b=UonbbPABs/WAVZJ+kINp2q/lhGgM2bobix8GHDf7b+5l8wT6zS1EEwQKVIipjhp7kANz1G
-	6qN0HXc1f3tA5YdI62e4WfebyfFYLgR0INJwDIY+GOce3ZnZNdU9OpuLKm5ORDZ9vPb7NW
-	kx5CHPOcDKoq6F21zkgReSDFBMZc1Mw=
+	bh=XmvTcrL5C0dM7rPtm73IEcsYc8PUVzmaMdzwCc2EnvI=;
+	b=btRGvwQd5yEfPj1kifp6xEheNnjz998SBeyIWOi7oq/6mXKxnQ2bu9f54XY1VniGqLA3ZF
+	+9zxTpUM6dkAvyV01fm0UpJuWQ6MGgKkQ+kaoZfk8em0o56R3zwEu2gnutQWGDro4s9/f9
+	nKbl7ySrWTjb6gjZRh08nJJ3sjXjwxI=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806925;
+	s=mimecast20190719; t=1755806926;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Z7iPpUiW3LrFM0W3XrB+Z82uodwKTsefoCzXwhLbLUo=;
-	b=UonbbPABs/WAVZJ+kINp2q/lhGgM2bobix8GHDf7b+5l8wT6zS1EEwQKVIipjhp7kANz1G
-	6qN0HXc1f3tA5YdI62e4WfebyfFYLgR0INJwDIY+GOce3ZnZNdU9OpuLKm5ORDZ9vPb7NW
-	kx5CHPOcDKoq6F21zkgReSDFBMZc1Mw=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=XmvTcrL5C0dM7rPtm73IEcsYc8PUVzmaMdzwCc2EnvI=;
+	b=btRGvwQd5yEfPj1kifp6xEheNnjz998SBeyIWOi7oq/6mXKxnQ2bu9f54XY1VniGqLA3ZF
+	+9zxTpUM6dkAvyV01fm0UpJuWQ6MGgKkQ+kaoZfk8em0o56R3zwEu2gnutQWGDro4s9/f9
+	nKbl7ySrWTjb6gjZRh08nJJ3sjXjwxI=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-606-2d5QSKnSPeOFycnudZ5fkQ-1; Thu, 21 Aug 2025 16:08:44 -0400
-X-MC-Unique: 2d5QSKnSPeOFycnudZ5fkQ-1
-X-Mimecast-MFC-AGG-ID: 2d5QSKnSPeOFycnudZ5fkQ_1755806923
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3b9e41037e6so864610f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:08:44 -0700 (PDT)
+ us-mta-528-Ro38Sf9IOpeN_l3FN1vgnQ-1; Thu, 21 Aug 2025 16:07:10 -0400
+X-MC-Unique: Ro38Sf9IOpeN_l3FN1vgnQ-1
+X-Mimecast-MFC-AGG-ID: Ro38Sf9IOpeN_l3FN1vgnQ_1755806830
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-45a1b05d8d0so8767145e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:07:10 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755806923; x=1756411723;
+        d=1e100.net; s=20230601; t=1755806829; x=1756411629;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Z7iPpUiW3LrFM0W3XrB+Z82uodwKTsefoCzXwhLbLUo=;
-        b=m43Yxy8avv10wMUmoSSrWqcPSQqsumb0DO6bb5G59yDnR50YRPa5/Z11/rU93PDk1n
-         iFR4JEK3C3MI2tA0LdEljaeN66I5sL0Eivvqtjxd8mvPiOmaqH1wv2/JiOLuaWAQJy8E
-         zbTNnHSMiXATBrBVcka7PkUs+hqNacgFOqyFcxfUau5cFgzD/VF/iJ7B/uth/Gr7Jjtt
-         /8UQXQduVuH61T8cc9TR5M5oHVCX744vkdX1N3YNfwEZyAYKKt6SpQlz8L7KUGHco8DM
-         yhPllOERUcboxDRbxmuakaFRinTPUAQIzskxlDixamh1d/qqR5vpm/XW++E+lAmG76cl
-         Ebyg==
-X-Forwarded-Encrypted: i=1; AJvYcCUjWKcEishKpK3xwpbtvRWkaNu35zSflOnVPaUrGhoz2EEGSbl3ykhxZtj8oSvkEDjZGORiD9IEPh5VdA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywaiyfcmxm8rhQKjSk8JZCcWaSl9LkMHqLD949hBCIGsOgb7lG2
-	hBwu9R0NJW0JoaTXy4LQUIqkSJFldLA2oJYpbsJJASuP40Rl6U1Ioub5qwhOeGyPvvEOhkHi7QO
-	pu+h3GSivNlBraP/C0r6UpPK7QhkD3sHcD0rt9tkY5OEBVRCuWW3+6uy+HendT3K3buuu7g==
-X-Gm-Gg: ASbGncvVjcgGRT+Mfx7twErJb7Nkavaiga/UE+MfNieb9tCnL+cSQ93UAmyqR8dxpFi
-	kOIHwra9M2EQW2tpqQMDabvQtAUJHF43/xkMQ57jmO0fcSnD573W6StKLhIWZ6VdA6tSODrWKMy
-	/if0u2OgDpjmJYjLuA5aPKWAKTccNOtzT3dLBJzwu8YKuHrjB1Ug0hp2wSba/dUPMt0Gpv6FIRw
-	Vmz8vwdg8h6hkxK/HHvdRZPNIZ5ld1XMJweiMGzV7GGfJYK3dYoip08WCKyoyRdpX7cGXcYtn0j
-	VK3dgvQJdSJ0ZRSdKAlyou47mRhhq2G5z5b7VTEhorFyJVETdgyemR/++I6q0S4SaNFp+O3xNCK
-	MXWbcpXXc0xuYP/iBnmm11g==
-X-Received: by 2002:a5d:64ed:0:b0:3b5:dafc:1525 with SMTP id ffacd0b85a97d-3c5dc7313famr204686f8f.33.1755806922957;
-        Thu, 21 Aug 2025 13:08:42 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHnHzRKC08dohUKQD/XdldMc6IWYVddiLtTh8Yidep5vx+5++gzVG23SiimMwYZ+HldR36Zkg==
-X-Received: by 2002:a5d:64ed:0:b0:3b5:dafc:1525 with SMTP id ffacd0b85a97d-3c5dc7313famr204645f8f.33.1755806922505;
-        Thu, 21 Aug 2025 13:08:42 -0700 (PDT)
+        bh=XmvTcrL5C0dM7rPtm73IEcsYc8PUVzmaMdzwCc2EnvI=;
+        b=VXj4WczUlv89F9qyymUn4S0R+KJubTnFrMs+08A9F9zG1qVYVp8KvMVuqrd+t+wL8C
+         qPTFW7Ws8WbLqBatLb4Ozxga1VlSAdfneA7u0AJtL9F7uufUkGJje3dgihghUMPs1ble
+         0wTYGQFxZ6OD9FwOV1Dd3q27WqddElTujWnGS7LJZc1IJd5GQPco3iAiuJm9WuXVzUCp
+         30QJaktvA0sypmKzdQJ+B+llzVfYhe7mIBJI83sPQt0sGGDmcgd54u7NpGJMWmQ46p0x
+         q0e0gF5U0LDkRN9Mm0l7XKHJX18TgU+Yu4aYWLI/Tz5R/68aljmWsp4c09/Tq3tdfv6d
+         H0ow==
+X-Forwarded-Encrypted: i=1; AJvYcCVNqGJbjKWoODyChuDyrbDUR+4HLGswXAgzGC4A/8vb0haucjcdVTCVs7RC1a5uQ6Qcos5GNN/gEU2QYw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAdrGXrFm64WeHW8mjpPWv8GqQPo4IXi8UVxQeUwVo418Ptl3O
+	947byHUuQdY0VYhCaIJiYUvdoNZl/q1Lf5xdIdqjP6SlGP9l0bJwOzozFIV76YE1p5pKimDLkKo
+	buMf6VH5Ld2kfrJ1drZLz6PfuXvbTzxA33KhkP0ZLqPEtoVmn633Nm3tBcRrAXWf+JeOpuA==
+X-Gm-Gg: ASbGnctOIJ6WqMJb6P4v2ZHZ0yVdoRSxakhdHNu1iDL38WOXZMKQ+4wQzLJztHlCLwp
+	nDC1oiIbhLRU0e5jRoeAlg1R/sPNRzSKKdkhCjT5fwyIQF5s59gZkSD/sdj2MXi6m4BKucV7Kr9
+	G5EPjlyy/jQgGYUpW913RPN1b3Mn68Fu9UMQzyvcnHqqisk3LINIQb0sh0TpYyeK33NAxC09s4u
+	KzKXSyH+rchviNbdAPrZBYEMycpupmqo2WzYLcV6IMb2aG3mmguDSwEbYYyxaTgtgLSn5n9uvey
+	LeLA2pSEr/Wv8qOjyD3SBbtIrUFFZ8tvJig3KGFmbpoZevATPNLaIetLz4HX8OupdYBCpJcUKkT
+	4lI6ZIRZ1TE63hipA2saqCQ==
+X-Received: by 2002:a05:600c:4506:b0:456:eab:633e with SMTP id 5b1f17b1804b1-45b517c5f34mr3673705e9.17.1755806829499;
+        Thu, 21 Aug 2025 13:07:09 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGvYkVaGxfZdplMxnR9eu9+L8mDJqjqWM2enq3Cze2cE8zEp05huuco+bDpuuERUQ/1xaOAqQ==
+X-Received: by 2002:a05:600c:4506:b0:456:eab:633e with SMTP id 5b1f17b1804b1-45b517c5f34mr3673145e9.17.1755806828996;
+        Thu, 21 Aug 2025 13:07:08 -0700 (PDT)
 Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b50e3a587sm10028205e9.18.2025.08.21.13.08.40
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b50e1852asm8722665e9.25.2025.08.21.13.07.06
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:08:42 -0700 (PDT)
+        Thu, 21 Aug 2025 13:07:08 -0700 (PDT)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -150,19 +162,19 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH RFC 34/35] block: update comment of "struct bio_vec" regarding nth_page()
-Date: Thu, 21 Aug 2025 22:07:00 +0200
-Message-ID: <20250821200701.1329277-35-david@redhat.com>
+Subject: [PATCH RFC 01/35] mm: stop making SPARSEMEM_VMEMMAP user-selectable
+Date: Thu, 21 Aug 2025 22:06:27 +0200
+Message-ID: <20250821200701.1329277-2-david@redhat.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
 References: <20250821200701.1329277-1-david@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 13UODRy5Kv8jqW9dXmA3uuQyn9MGmL0r2B619NOJxPw_1755806923
+X-Mimecast-MFC-PROC-ID: jAIBqGfUrgPqZUJkR6ypVP5-Neg8mWfNq-sak70MWZY_1755806830
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_210847_116307_4FA0DFEE 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250821_210847_423656_D0891115 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,34 +191,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ever since commit 858c708d9efb ("block: move the bi_size update out of
-__bio_try_merge_page"), page_is_mergeable() no longer exists, and the
-logic in bvec_try_merge_page() is now a simple page pointer
-comparison.
+In an ideal world, we wouldn't have to deal with SPARSEMEM without
+SPARSEMEM_VMEMMAP, but in particular for 32bit SPARSEMEM_VMEMMAP is
+considered too costly and consequently not supported.
 
+However, if an architecture does support SPARSEMEM with
+SPARSEMEM_VMEMMAP, let's forbid the user to disable VMEMMAP: just
+like we already do for arm64, s390 and x86.
+
+So if SPARSEMEM_VMEMMAP is supported, don't allow to use SPARSEMEM without
+SPARSEMEM_VMEMMAP.
+
+This implies that the option to not use SPARSEMEM_VMEMMAP will now be
+gone for loongarch, powerpc, riscv and sparc. All architectures only
+enable SPARSEMEM_VMEMMAP with 64bit support, so there should not really
+be a big downside to using the VMEMMAP (quite the contrary).
+
+This is a preparation for not supporting
+
+(1) folio sizes that exceed a single memory section
+(2) CMA allocations of non-contiguous page ranges
+
+in SPARSEMEM without SPARSEMEM_VMEMMAP configs, whereby we
+want to limit possible impact as much as possible (e.g., gigantic hugetlb
+page allocations suddenly fails).
+
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: WANG Xuerui <kernel@xen0n.name>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Andreas Larsson <andreas@gaisler.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- include/linux/bvec.h | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ mm/Kconfig | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/include/linux/bvec.h b/include/linux/bvec.h
-index 0a80e1f9aa201..3fc0efa0825b1 100644
---- a/include/linux/bvec.h
-+++ b/include/linux/bvec.h
-@@ -22,11 +22,8 @@ struct page;
-  * @bv_len:    Number of bytes in the address range.
-  * @bv_offset: Start of the address range relative to the start of @bv_page.
-  *
-- * The following holds for a bvec if n * PAGE_SIZE < bv_offset + bv_len:
-- *
-- *   nth_page(@bv_page, n) == @bv_page + n
-- *
-- * This holds because page_is_mergeable() checks the above property.
-+ * All pages within a bio_vec starting from @bv_page are contiguous and
-+ * can simply be iterated (see bvec_advance()).
-  */
- struct bio_vec {
- 	struct page	*bv_page;
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 4108bcd967848..330d0e698ef96 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -439,9 +439,8 @@ config SPARSEMEM_VMEMMAP_ENABLE
+ 	bool
+ 
+ config SPARSEMEM_VMEMMAP
+-	bool "Sparse Memory virtual memmap"
++	def_bool y
+ 	depends on SPARSEMEM && SPARSEMEM_VMEMMAP_ENABLE
+-	default y
+ 	help
+ 	  SPARSEMEM_VMEMMAP uses a virtually mapped memmap to optimise
+ 	  pfn_to_page and page_to_pfn operations.  This is the most
 -- 
 2.50.1
 
