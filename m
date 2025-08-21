@@ -4,165 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AD0CA0EEB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A8DCA0EFC
 	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 03:04:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rgp6ceT4FwgCuzN7SE8l9nU4J0BPayXVxZqrbg38uiI=; b=EemqYHadypRZoY
-	Vrvb2I8G53UyIKBthqCywgpvg0/Bcfh5VJstgLrj9P675A10qoK/9TOHQPCLrND0JYEoc/JX52CNL
-	xbir8yBghP7UnwWANy5FwE3Vo/Pc8LZCiHaqV9t8wFo3rnaP/k04Q7SRhUorwLZa2UFbJiB3DR73I
-	UtJIPwF69ZkUYxvrCDSAuOS+5CE3n+I9NJ1/8ufdFVR+RBEeBmoDEu5vOWo4JS8ZJAIkBIVM+lhRZ
-	InHaOj2l0yBaeaXWbeBs77o5+Nc9q1m8/ogwJIi1UVSLLtN4CyZrBe7hxdg2KGTNz6ChT/JHhXUgN
-	Xh9dBIJH7ivXCQ9cWwlg==;
+	List-Owner; bh=ffqcCOqPRWp+t5XNIP2xyjfMPsM8uv7dIxxUIpjJC28=; b=azUTkMMEC4HAkf
+	Vf1P/a/dqslyvPxSZJVaUe/07bz7j6vpYrbUi1YOzfDuhPj6TQllz4ZJXegqEBtyp38zHlgLZ1BzR
+	vFI3sQkLo/W+QtXlx3b6NCL4GX+SN8ngvNwItAd78rhqaWYW/XCR540EnecbisGSKyVHkjHcKs90o
+	IOgv0oL6HroatXnCOsZVbkS9Pw/ysTJ96efKhdw3DS0JMs37BThzlqNCnQoFXbUjzZnNELuQ/MCmw
+	1lv8QZiSUQtE6h3pj/YzkVEIMZBP8oY9O8+LK1f9r3xz6o6HiCOXp9DqOYtxYJZcVdK+5usSF6lvO
+	R2PCwpWvXnzCt+euB42Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upI4V-00000001KcB-3Sa8;
-	Fri, 22 Aug 2025 03:04:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1upI4X-00000001Kd1-2Z32;
+	Fri, 22 Aug 2025 03:04:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBb0-00000000OOx-2u2j
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 21 Aug 2025 20:09:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QQ4Uu4zoWyKmYQrq0i4l3HgKr6VpAHaNUVdQgPTsBAE=; b=RM+/s/BryFemG7CM5/8MSRVDEM
-	7mVpyOzLypWfN43WqsNlXtKId+/i3L7xhUwRAHJ20GwVl9Yn6oYdUjBGuCe3SkiBPEPHzvyaMdK/N
-	MpIBF1hK//8JhTh7DBksBc12UqVsShvTr5bYkTBoCQPVrygfO6E8f7hxOOIIjyKMIwme2Do5E7j1t
-	Oxri5Lr8GpK49nOa7T1eOgFbrZd9vOfR8FceNuJ/CBqKyb972PYJE1OxDp5D2gp38WcAsT5Kmb3mJ
-	q881DNYr7G5qVsREv7erZR0SXt0SfDJcBdN7xzyxxfOo7E5FDuHLs72p1tRUYh3v5mKiBVL5tCUiH
-	EQ6bwShw==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBax-00000000fOP-2Hde
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 20:09:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806950;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QQ4Uu4zoWyKmYQrq0i4l3HgKr6VpAHaNUVdQgPTsBAE=;
-	b=F0rJ02Fy5sYdAzAIbmC3iZXjQcv2iB2rYRReDO6RkJ2QB4WZXKossWw3qqua5zDR5rxEDZ
-	5D5PkzUYb9MZeHNBuJbCp/nQwthfcIkQ0hujA/CleQgbxuuoisYvpWU5+y0yne9tkyI6iO
-	DhrZlsg07IslMxWBl8g+99lWRH/2Ptc=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806950;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QQ4Uu4zoWyKmYQrq0i4l3HgKr6VpAHaNUVdQgPTsBAE=;
-	b=F0rJ02Fy5sYdAzAIbmC3iZXjQcv2iB2rYRReDO6RkJ2QB4WZXKossWw3qqua5zDR5rxEDZ
-	5D5PkzUYb9MZeHNBuJbCp/nQwthfcIkQ0hujA/CleQgbxuuoisYvpWU5+y0yne9tkyI6iO
-	DhrZlsg07IslMxWBl8g+99lWRH/2Ptc=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-288-JMOncY5lMMiq0QkiLiY7Zg-1; Thu, 21 Aug 2025 16:07:39 -0400
-X-MC-Unique: JMOncY5lMMiq0QkiLiY7Zg-1
-X-Mimecast-MFC-AGG-ID: JMOncY5lMMiq0QkiLiY7Zg_1755806858
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-45a1b0511b3so8301595e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:07:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755806858; x=1756411658;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QQ4Uu4zoWyKmYQrq0i4l3HgKr6VpAHaNUVdQgPTsBAE=;
-        b=mXayJO4VDBgnu0rB6OjgfMilen9rA2F0pfP53iLxgNgnNf3YDmlBudKI+6DRN1Mz3u
-         8Vk6xIinQktHwp/boliBdqOr5uvwjQuLwVF97eR6trtogFRC/8cGH3XaMQdKtZNkbPel
-         xGadFauShWStwjWnt69fwBHJ1pkezfvkV9ve8teIO2V8E8H/Q8gHSYzhKnR6fMj014qz
-         clBZoAsfg9z1xpA5AeAvdR8uo3i6WGZ2S3ZMhjaxZcZFa887iGu1uvDMvqsELE2bPamL
-         PozBvUKCwO3kdppT06XBpZIw0ZcSF6kcPP5x+wrrMNINGS0hhHQ9wywtsdNYA6Pfk1Z9
-         2lyg==
-X-Forwarded-Encrypted: i=1; AJvYcCVvCUbOnDlKxik84BLkd9Np//masDAxvIvcfVjYeDPB3eUJIErAbx0gWjdHqLhAnX048oOzTNbprMf0DA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhzDQRk0gnPemzL7yxe6D3tmBCcqoodz0hXgl4yk/gKpHi3oSb
-	Z/VYsawWb5uocPC9LWGRRcgcjGrAYrhks0eynAx4/wkDiXuEYZ+1OdS0I4WRNYacfqqhksvJQgM
-	5dB51PAbEXpaugfb3jaVDEmCS1rKQu0K/B+OuoD4ZGuBn0V7XGtVGNCSXcAKDQPaEkwCUPA==
-X-Gm-Gg: ASbGncuFBXNF6Q4g9R8A/Py08NLzvy7rNoo9/OHFgOXCpcHUFXCtUJpJ1orAP0wXMYD
-	1OcBAoRyQaDbg2p8Q7hnogNNM/GK8I9EJ+k5UEcHmwMhQJ9yNEQaKNqc2W/ZEFLUkvNefrGkMxa
-	InKek3pceqHhiY7mBYyDH2s5TRV+n/Z5nPTsnfzRazlG+6RMPz6YCxyWCi2PCJd7f3vJCkZXJ1e
-	J/+NutGvKdidcVh/m/aApvdMJiadfmgiiqmiqR0lGAUxjt87IcwzQA2NFKhj8qT/WIlY3aikgmC
-	/y3BnaC3Rs9kqe7oagkClxMnA/zJ2w76g0H2Nerl3wplaSo9kEXj5S7dUjsaNN5DOU53jSjNbvK
-	2o7yaE3tfGSXIG+AK/wOYaA==
-X-Received: by 2002:a05:600c:5251:b0:455:f380:32e2 with SMTP id 5b1f17b1804b1-45b517ca54cmr2646645e9.18.1755806857895;
-        Thu, 21 Aug 2025 13:07:37 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHlSU80KqPPviGOLp6CI40u/NjPujjG4FLCG6NoakJIlvY80lRDOTTm20w50mEKFuk0YjVSLQ==
-X-Received: by 2002:a05:600c:5251:b0:455:f380:32e2 with SMTP id 5b1f17b1804b1-45b517ca54cmr2646245e9.18.1755806857378;
-        Thu, 21 Aug 2025 13:07:37 -0700 (PDT)
-Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b4e87858asm18672185e9.3.2025.08.21.13.07.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:07:36 -0700 (PDT)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH RFC 11/35] mm: sanity-check maximum folio size in folio_set_order()
-Date: Thu, 21 Aug 2025 22:06:37 +0200
-Message-ID: <20250821200701.1329277-12-david@redhat.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
-References: <20250821200701.1329277-1-david@redhat.com>
+	id 1upBxk-00000000UFi-29UN;
+	Thu, 21 Aug 2025 20:32:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 92481601F8;
+	Thu, 21 Aug 2025 20:32:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9632BC4CEEB;
+	Thu, 21 Aug 2025 20:32:31 +0000 (UTC)
+Message-ID: <1a13a5cb-4312-4c01-827b-fa8a029df0f1@redhat.com>
+Date: Thu, 21 Aug 2025 22:32:29 +0200
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rtoPcZYUDY0fdgHcUmzJL7rhoPl9x7cEhQTyOjL49UI_1755806858
-X-Mimecast-Originator: redhat.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_210911_997144_89041061 
-X-CRM114-Status: GOOD (  11.48  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 33/35] kfence: drop nth_page() usage
+To: linux-kernel@vger.kernel.org
+Cc: Alexander Potapenko <glider@google.com>, Marco Elver <elver@google.com>,
+ Dmitry Vyukov <dvyukov@google.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Brendan Jackman <jackmanb@google.com>,
+ Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-34-david@redhat.com>
+From: David Hildenbrand <david@redhat.com>
+Content-Language: en-US
+Autocrypt: addr=david@redhat.com; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
+ ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZoEEwEIAEQCGwMCF4ACGQEFCwkIBwICIgIG
+ FQoJCAsCBBYCAwECHgcWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaJzangUJJlgIpAAKCRBN
+ 3hD3AP+DWhAxD/9wcL0A+2rtaAmutaKTfxhTP0b4AAp1r/eLxjrbfbCCmh4pqzBhmSX/4z11
+ opn2KqcOsueRF1t2ENLOWzQu3Roiny2HOU7DajqB4dm1BVMaXQya5ae2ghzlJN9SIoopTWlR
+ 0Af3hPj5E2PYvQhlcqeoehKlBo9rROJv/rjmr2x0yOM8qeTroH/ZzNlCtJ56AsE6Tvl+r7cW
+ 3x7/Jq5WvWeudKrhFh7/yQ7eRvHCjd9bBrZTlgAfiHmX9AnCCPRPpNGNedV9Yty2Jnxhfmbv
+ Pw37LA/jef8zlCDyUh2KCU1xVEOWqg15o1RtTyGV1nXV2O/mfuQJud5vIgzBvHhypc3p6VZJ
+ lEf8YmT+Ol5P7SfCs5/uGdWUYQEMqOlg6w9R4Pe8d+mk8KGvfE9/zTwGg0nRgKqlQXrWRERv
+ cuEwQbridlPAoQHrFWtwpgYMXx2TaZ3sihcIPo9uU5eBs0rf4mOERY75SK+Ekayv2ucTfjxr
+ Kf014py2aoRJHuvy85ee/zIyLmve5hngZTTe3Wg3TInT9UTFzTPhItam6dZ1xqdTGHZYGU0O
+ otRHcwLGt470grdiob6PfVTXoHlBvkWRadMhSuG4RORCDpq89vu5QralFNIf3EysNohoFy2A
+ LYg2/D53xbU/aa4DDzBb5b1Rkg/udO1gZocVQWrDh6I2K3+cCs7BTQRVy5+RARAA59fefSDR
+ 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
+ VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
+ /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
+ iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
+ 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
+ zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
+ azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
+ FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
+ sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
+ 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
+ EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
+ IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
+ 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
+ Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
+ sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
+ yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
+ 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
+ r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
+ 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
+ CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
+ qIws/H2t
+In-Reply-To: <20250821200701.1329277-34-david@redhat.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,37 +120,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's sanity-check in folio_set_order() whether we would be trying to
-create a folio with an order that would make it exceed MAX_FOLIO_ORDER.
+On 21.08.25 22:06, David Hildenbrand wrote:
+> We want to get rid of nth_page(), and kfence init code is the last user.
+> 
+> Unfortunately, we might actually walk a PFN range where the pages are
+> not contiguous, because we might be allocating an area from memblock
+> that could span memory sections in problematic kernel configs (SPARSEMEM
+> without SPARSEMEM_VMEMMAP).
+> 
+> We could check whether the page range is contiguous
+> using page_range_contiguous() and failing kfence init, or making kfence
+> incompatible these problemtic kernel configs.
+> 
+> Let's keep it simple and simply use pfn_to_page() by iterating PFNs.
+> 
 
-This will enable the check whenever a folio/compound page is initialized
-through prepare_compound_head() / prepare_compound_page().
+Fortunately this series is RFC due to lack of detailed testing :P
 
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- mm/internal.h | 1 +
- 1 file changed, 1 insertion(+)
+Something gives me a NULL-pointer pointer here (maybe the virt_to_phys()).
 
-diff --git a/mm/internal.h b/mm/internal.h
-index 45b725c3dc030..946ce97036d67 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -755,6 +755,7 @@ static inline void folio_set_order(struct folio *folio, unsigned int order)
- {
- 	if (WARN_ON_ONCE(!order || !folio_test_large(folio)))
- 		return;
-+	VM_WARN_ON_ONCE(order > MAX_FOLIO_ORDER);
- 
- 	folio->_flags_1 = (folio->_flags_1 & ~0xffUL) | order;
- #ifdef NR_PAGES_IN_LARGE_FOLIO
+Will look into that tomorrow.
+
 -- 
-2.50.1
+Cheers
 
+David / dhildenb
 
 _______________________________________________
 linux-riscv mailing list
