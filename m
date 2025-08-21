@@ -4,54 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE137CA0EFA
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 03:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C128CA0EEB
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 03:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dt2QSUJ3YOU+zdYPPNLlRYRtXgsTs+YHt+K0auVPYTA=; b=I8wt1ulrMzlV/A
-	z4AOpMY4uzZNAsOqwbT3vWq4qoYZ8fKKlMzNy+j6PuQjHLx5R09hXk8PYwCkd2CChWzNCD65TCidk
-	ZcoCtlSWaeSMsTlQk3kLnh+K184OPFaakrSItaUdelRlpjOcPgDw1D4aUcZUeIg+83wn1aJfWtT4v
-	MO10c6yQgZM07TivAX87jD2aVI7itgRhqPdadvGROs4Fycb20YAK7pKXLrdl9LrG8Ko36baE0K8br
-	sT8rXiCFAJ7iD1VYP4HCb9gTyoq9MDUkqU+Oe90XcDBLoVT2b1K1ke9qDyEcRJmFwoIUOUGu4e80T
-	R6U3QfCJrD6ZPQtOxVjA==;
+	List-Owner; bh=Xw86paDHnsqQG335fHSwVPLwHCz7iy0WNui/J4iWAOw=; b=I5VgqWg7b5ZDpq
+	U8H0/pXcedmk2IVAs3Fy6Siy9+sq9Uaf5E6xfB4G/HTtCqfk+8VQb0zL83vtKQB1gYAYJiOWUhRiF
+	fb8FEnvT+kqcL8mmHDOJv0rmu48VqvCzlKBgA5WKut2jtmrJR3MqnHyNlME+HZ482ifFYmHMQnEOv
+	nf5XqjhPx4k1pRud2sZj+hzjuP8OXTSSa06T/DUh/5Cw9oWhKcP9+fCx0LN0fmIDn6NEKjaRgIKt0
+	VKcUBcEPsYODAsZQ6bzAcp2y0MM08LhGpoxUf5adXY2kzX4BFYQGdQT8LyJHZlLCKNWj1qQcrar6I
+	QvJrkd8J8WmIzmT35dJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upIWb-00000001OaA-0rrC;
-	Fri, 22 Aug 2025 03:33:09 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1upIWa-00000001Oa0-2Zuj;
+	Fri, 22 Aug 2025 03:33:08 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDOe-00000000iBa-0xEp
+	id 1upDN9-00000000i2R-3Y8X
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 22:04:37 +0000
-Received: from localhost (unknown [180.158.240.122])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id AD411340441;
-	Thu, 21 Aug 2025 22:04:34 +0000 (UTC)
-Date: Fri, 22 Aug 2025 06:04:30 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, skhan@linuxfoundation.org,
-	linux-kernel-mentees@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: dts: spacemit: add UART resets for Soc K1
-Message-ID: <20250821220430-GYA1070455@gentoo>
-References: <20250821152619.597051-1-hendrik.hamerlinck@hammernet.be>
+	Thu, 21 Aug 2025 22:03:06 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250821220257euoutp0196ead7333121a1cc0e1b89cd8a7f6eab~d51QEuwXH0465004650euoutp01D
+	for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 22:02:57 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250821220257euoutp0196ead7333121a1cc0e1b89cd8a7f6eab~d51QEuwXH0465004650euoutp01D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755813777;
+	bh=FhMuLkPlqfOoY3HIjX51+kKhFnIWCP0l9JSXpliABCM=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=JA7/0yvQ9bCoZF7Gao2nrxDRcUPghZ/NnCzteaYJ3z8KWW17iOhcIqkflQLcbCGke
+	 JoSwhBZpTny62tt11p3bJesDP5T7I8CrHVkS9lnGecvQVVA1hEn14jVVuMhdXmZRhm
+	 XzkOGQNI4ARvYpm/Vo/b+NXer98BSONe8U6Ucw6w=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250821220256eucas1p2c4854f72c98d23d6b8a6247712430482~d51OvRzKh0715107151eucas1p2U;
+	Thu, 21 Aug 2025 22:02:56 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250821220255eusmtip12f604debb503f4c26d3d8ae003a6c9a1~d51Nw2j0p2648126481eusmtip1c;
+	Thu, 21 Aug 2025 22:02:55 +0000 (GMT)
+Message-ID: <1b7b1e78-e94c-4d5b-a023-61852d2f7951@samsung.com>
+Date: Fri, 22 Aug 2025 00:02:55 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250821152619.597051-1-hendrik.hamerlinck@hammernet.be>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 1/4] drm/imagination: Use pwrseq for TH1520 GPU
+ power management
+To: Matt Coster <Matt.Coster@imgtec.com>, Ulf Hansson
+	<ulf.hansson@linaro.org>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Frank Binns <Frank.Binns@imgtec.com>, Maarten
+	Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Marek Szyprowski
+	<m.szyprowski@samsung.com>, Drew Fustini <fustini@kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <27d70d29-9e37-4905-9d22-0266c8a290a2@imgtec.com>
+X-CMS-MailID: 20250821220256eucas1p2c4854f72c98d23d6b8a6247712430482
+X-Msg-Generator: CA
+X-RootMTR: 20250820085609eucas1p2938d69999f4d7c9654d5d2a12a20c906
+X-EPHeader: CA
+X-CMS-RootMailID: 20250820085609eucas1p2938d69999f4d7c9654d5d2a12a20c906
+References: <CGME20250820085609eucas1p2938d69999f4d7c9654d5d2a12a20c906@eucas1p2.samsung.com>
+	<20250820-apr_14_for_sending-v12-0-4213ccefbd05@samsung.com>
+	<20250820-apr_14_for_sending-v12-1-4213ccefbd05@samsung.com>
+	<CAPDyKFqeOUwTbZEUFmHS2Onyj5LZ1b26vGgC4=UHUOxhwbzjRw@mail.gmail.com>
+	<27d70d29-9e37-4905-9d22-0266c8a290a2@imgtec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_150436_290014_DBA45F81 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20250821_150304_485565_01985FCB 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,110 +101,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17:26 Thu 21 Aug     , Hendrik Hamerlinck wrote:
-> The UARTs in the SpacemiT K1 device tree are probed by the 8250_of driver,
-> but without reset lines they remain non-functional.
-> 
-> Add reset control entries so that the UARTs can operate when mapped to
-> devices. UART0 is already de-asserted by the bootloader, but include its
-> reset as well to avoid relying on bootloader state.
-> 
-> Tested on Orange Pi RV2 and Banana Pi BPI-F3 boards, with UART9 enabled
-> and verified functional.
-> 
-> Signed-off-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
 
-Reviewed-by: Yixun Lan <dlan@gentoo.org>
-> ---
-> Changes in v2:
-> - Improved changelog
-> - Omitted current-speed property for UART0
-> ---
->  arch/riscv/boot/dts/spacemit/k1.dtsi | 9 +++++++++
->  1 file changed, 9 insertions(+)
+
+On 8/21/25 11:02, Matt Coster wrote:
+> On 20/08/2025 18:08, Ulf Hansson wrote:
+>> On Wed, 20 Aug 2025 at 10:56, Michal Wilczynski
+>>> +#endif /* IS_ENABLED(CONFIG_POWER_SEQUENCING) */
+>>
+>> Yeah, this looks really messy to me.
+>>
+>> If there is something missing in the pwrseq interface to make this
+>> simpler, let's add that instead of having to keep this if/def hacks
+>> around.
 > 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> index abde8bb07c95..6c68b2e54675 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> @@ -667,6 +667,7 @@ uart0: serial@d4017000 {
->  				clocks = <&syscon_apbc CLK_UART0>,
->  					 <&syscon_apbc CLK_UART0_BUS>;
->  				clock-names = "core", "bus";
-> +				resets = <&syscon_apbc RESET_UART0>;
->  				interrupts = <42>;
->  				reg-shift = <2>;
->  				reg-io-width = <4>;
-> @@ -680,6 +681,7 @@ uart2: serial@d4017100 {
->  				clocks = <&syscon_apbc CLK_UART2>,
->  					 <&syscon_apbc CLK_UART2_BUS>;
->  				clock-names = "core", "bus";
-> +				resets = <&syscon_apbc RESET_UART2>;
->  				interrupts = <44>;
->  				reg-shift = <2>;
->  				reg-io-width = <4>;
-> @@ -693,6 +695,7 @@ uart3: serial@d4017200 {
->  				clocks = <&syscon_apbc CLK_UART3>,
->  					 <&syscon_apbc CLK_UART3_BUS>;
->  				clock-names = "core", "bus";
-> +				resets = <&syscon_apbc RESET_UART3>;
->  				interrupts = <45>;
->  				reg-shift = <2>;
->  				reg-io-width = <4>;
-> @@ -706,6 +709,7 @@ uart4: serial@d4017300 {
->  				clocks = <&syscon_apbc CLK_UART4>,
->  					 <&syscon_apbc CLK_UART4_BUS>;
->  				clock-names = "core", "bus";
-> +				resets = <&syscon_apbc RESET_UART4>;
->  				interrupts = <46>;
->  				reg-shift = <2>;
->  				reg-io-width = <4>;
-> @@ -719,6 +723,7 @@ uart5: serial@d4017400 {
->  				clocks = <&syscon_apbc CLK_UART5>,
->  					 <&syscon_apbc CLK_UART5_BUS>;
->  				clock-names = "core", "bus";
-> +				resets = <&syscon_apbc RESET_UART5>;
->  				interrupts = <47>;
->  				reg-shift = <2>;
->  				reg-io-width = <4>;
-> @@ -732,6 +737,7 @@ uart6: serial@d4017500 {
->  				clocks = <&syscon_apbc CLK_UART6>,
->  					 <&syscon_apbc CLK_UART6_BUS>;
->  				clock-names = "core", "bus";
-> +				resets = <&syscon_apbc RESET_UART6>;
->  				interrupts = <48>;
->  				reg-shift = <2>;
->  				reg-io-width = <4>;
-> @@ -745,6 +751,7 @@ uart7: serial@d4017600 {
->  				clocks = <&syscon_apbc CLK_UART7>,
->  					 <&syscon_apbc CLK_UART7_BUS>;
->  				clock-names = "core", "bus";
-> +				resets = <&syscon_apbc RESET_UART7>;
->  				interrupts = <49>;
->  				reg-shift = <2>;
->  				reg-io-width = <4>;
-> @@ -758,6 +765,7 @@ uart8: serial@d4017700 {
->  				clocks = <&syscon_apbc CLK_UART8>,
->  					 <&syscon_apbc CLK_UART8_BUS>;
->  				clock-names = "core", "bus";
-> +				resets = <&syscon_apbc RESET_UART8>;
->  				interrupts = <50>;
->  				reg-shift = <2>;
->  				reg-io-width = <4>;
-> @@ -771,6 +779,7 @@ uart9: serial@d4017800 {
->  				clocks = <&syscon_apbc CLK_UART9>,
->  					 <&syscon_apbc CLK_UART9_BUS>;
->  				clock-names = "core", "bus";
-> +				resets = <&syscon_apbc RESET_UART9>;
->  				interrupts = <51>;
->  				reg-shift = <2>;
->  				reg-io-width = <4>;
-> -- 
-> 2.43.0
+> Agreed (now that I've actually done my homework), I see no reason to
+> keep the IS_ENABLED(...) checks around.
+> 
+> Cheers,
+> Matt
+
+Thank you both for the feedback, I haven't noticed that there are stubs
+already. Will re-roll the patchset.
+
+> 
+>>
+>> [...]
+>>
+>> Other than the if/def hacks, I think this looks good to me!
+>>
+>> Kind regards
+>> Uffe
+> 
 > 
 
+Best regards,
 -- 
-Yixun Lan (dlan)
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
