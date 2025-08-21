@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C1BCA0EED
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 03:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC272CA0EED
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 04:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3RT+yv7px5t+pNQhLd4D4qy8pWqvHiGCwmSE4a9bvsc=; b=RflebB2KurT6fI
-	8Oam9AcNEFukOE9h7LaVt3CxpG0bZ2B82c+IANGG/Yq9dNfAYN3wXnI/wAKYMIylf85djzTf7Ruo5
-	/YYWC6ptJ/0u/vBteN/fvHuiBprvB8GbGEEtltDZ37oKEhooX/v6S5GQ9TnqA8ndnL94x86/z2rrV
-	zYDrAQFoXqgkaRS9rZfdteL1Q/8oZogqBdsmrrMjfocjmALz6zucKzpKM8HVqS0LgC/RoPJu0oKlP
-	Z0QVSgqvBwMejQML9b5mVnpIUz5QnVQ7dYq4Vnw3LbJDzdczeKRXRdyvnwDlFTV7X6yc525mSxC0K
-	PGCL6RnnQdJWM7xk/y9w==;
+	List-Owner; bh=NxJv8gExwdqcHRKQWyqpOLXBC0AZi9C7T29rkDrQMtk=; b=UymOFL+dZeV2RZ
+	xBqCRKQuOCkFJ+gy0KT3JsbSD4QCCD6q2hsaJ9hJVukd1AKRRSLJEHOYLsOR0C+q2GA3dSIlIxNtD
+	dHYmEYXxdo7/HTACXi+gy47XtqFtzgklMFepfHt9OpUCs3QsDPcBo2aZ+bABq/KwQZ4eFGrx7AF7x
+	bXDbKmgydOszBSdzBZvSRtsVfaoeK9Ya3ssPp7+sA2gcVwwUA90Xiq7zJPBfQ/WdvQWQz07+fiQVI
+	e9060ORgQ5Tgtk7iBMe5Dlgl3iSXSYW9sOZjY8YTmnsZmGwXy9i8JwBN/9zWa1BKR5ckTVzF9Gx5/
+	xkg6QEcAbcG6rsWPKhWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upIdS-00000001Pwx-2eK2;
-	Fri, 22 Aug 2025 03:40:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1upJTb-00000001Vlh-3soW;
+	Fri, 22 Aug 2025 04:34:07 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upEUB-00000000uQy-3aeA
+	id 1upCdr-00000000dtv-27mW
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 23:14:23 +0000
+	Thu, 21 Aug 2025 21:16:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 074A9601F8;
-	Thu, 21 Aug 2025 23:14:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8524C4CEEB;
-	Thu, 21 Aug 2025 23:14:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D3A3DA586AF;
+	Thu, 21 Aug 2025 21:16:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F479C4CEEB;
+	Thu, 21 Aug 2025 21:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755818062;
-	bh=zkvshjcFzWG50O/pScvDURQ9fCVL6bGdtUAFxbZxmO0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=rZpOV3X7vM/+xZhBzFZx9X4PJUC7Lr4N8ayg2H5IRAnzb9rBcCe33yEmcE8UQbyNR
-	 yK3CrjDjZA8YSwDMRNS+VM9MmFqoUQ+zb36GYNwHGV3El/BnPxvTQQTAgFnJh0xrQd
-	 AFTOzvJcQV5HENN6MBxREzPkYmIGdo2f3EhgqNh+gYgPh6xRDC6xl57jcnv/uhspwQ
-	 kDXaZJCY/3kQesywbz2PefI9iyzCPD+qEcrDCUkcqL5lSv09FrENYoXvM1NWsk99CR
-	 1RzS12EYK0IajEC0spl1xGT4isw8GPlI57gwytl1Uov/fcRK34IiUOOlPtABl++lfV
-	 eDw1xuNuLXy9Q==
-Date: Thu, 21 Aug 2025 16:14:20 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Vivian Wang
- <uwu@dram.page>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, Junhui Liu
- <junhui.liu@pigmoral.tech>, Simon Horman <horms@kernel.org>, Maxime
- Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v6 2/5] net: spacemit: Add K1 Ethernet MAC
-Message-ID: <20250821161420.7c9804f7@kernel.org>
-In-Reply-To: <20250820-net-k1-emac-v6-2-c1e28f2b8be5@iscas.ac.cn>
-References: <20250820-net-k1-emac-v6-0-c1e28f2b8be5@iscas.ac.cn>
-	<20250820-net-k1-emac-v6-2-c1e28f2b8be5@iscas.ac.cn>
+	s=k20201202; t=1755810974;
+	bh=VYJ/3Og460FvKVmmzAjxmjg94FV8xklZJeBiFr5mKfo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=YEcECcyYrBMrAwn6owMjROwcvn9APF9mq3vwMadEfmJU2ImyjMIUaRC9P7kvZhRss
+	 aVHetJxVgwampwYPBB4FadtEnyBoG/bo1yYDOyQonjDpKMRDkIiz6fRzQzKNvJ65Ft
+	 a+4kXZHE4FSoC0eOP+SdQmJhV+B6iGDSqbM/+qMqG3HipQalah7zqoL+M6rG4GJAVv
+	 axkmZXBMpzLCbsR0Vlz3YK8hGXiPrnWCrh8mf1oOz3LwDZnvLNBWDSWleau14QT0PN
+	 IhrYXIG8z2Ghko5jyzi4MSTT3JeHiX3FXWFEliLCsFEu4iBKx2Qnrw4eqYMqIxWKxz
+	 pgxF3mEu1QR6A==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Thu, 21 Aug 2025 14:15:44 -0700
+Subject: [PATCH v2 07/12] riscv: Remove version check for LTO_CLANG selects
 MIME-Version: 1.0
+Message-Id: <20250821-bump-min-llvm-ver-15-v2-7-635f3294e5f0@kernel.org>
+References: <20250821-bump-min-llvm-ver-15-v2-0-635f3294e5f0@kernel.org>
+In-Reply-To: <20250821-bump-min-llvm-ver-15-v2-0-635f3294e5f0@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ llvm@lists.linux.dev, patches@lists.linux.dev, 
+ Nathan Chancellor <nathan@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1468; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=VYJ/3Og460FvKVmmzAjxmjg94FV8xklZJeBiFr5mKfo=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDBnLe5r1vLOvWH+xsD/gzbyJ2c4hufDL21gxoWk/5C/Je
+ ZgEnwvsKGVhEONikBVTZKl+rHrc0HDOWcYbpybBzGFlAhnCwMUpABNZ/pnhf9aDa9W5X7cVbGQP
+ nTt1j9XCB3rMC9OXPJH+/mFb3ay1cTwM/zRf34m8/Mjsdmd2SBHXLfPrMZeKupg2dz7012Wca/d
+ iIxsA
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250821_141615_609673_7E80EB8F 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,185 +84,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Aug 2025 14:47:51 +0800 Vivian Wang wrote:
-> +static void emac_tx_mem_map(struct emac_priv *priv, struct sk_buff *skb)
-> +{
-> +	struct emac_desc_ring *tx_ring = &priv->tx_ring;
-> +	struct emac_desc tx_desc, *tx_desc_addr;
-> +	struct device *dev = &priv->pdev->dev;
-> +	struct emac_tx_desc_buffer *tx_buf;
-> +	u32 head, old_head, frag_num, f;
-> +	bool buf_idx;
-> +
-> +	frag_num = skb_shinfo(skb)->nr_frags;
-> +	head = tx_ring->head;
-> +	old_head = head;
-> +
-> +	for (f = 0; f < frag_num + 1; f++) {
-> +		buf_idx = f % 2;
-> +
-> +		/*
-> +		 * If using buffer 1, initialize a new desc. Otherwise, use
-> +		 * buffer 2 of previous fragment's desc.
-> +		 */
-> +		if (!buf_idx) {
-> +			tx_buf = &tx_ring->tx_desc_buf[head];
-> +			tx_desc_addr =
-> +				&((struct emac_desc *)tx_ring->desc_addr)[head];
-> +			memset(&tx_desc, 0, sizeof(tx_desc));
-> +
-> +			/*
-> +			 * Give ownership for all but first desc initially. For
-> +			 * first desc, give at the end so DMA cannot start
-> +			 * reading uninitialized descs.
-> +			 */
-> +			if (head != old_head)
-> +				tx_desc.desc0 |= TX_DESC_0_OWN;
-> +
-> +			if (++head == tx_ring->total_cnt) {
-> +				/* Just used last desc in ring */
-> +				tx_desc.desc1 |= TX_DESC_1_END_RING;
-> +				head = 0;
-> +			}
-> +		}
-> +
-> +		if (emac_tx_map_frag(dev, &tx_desc, tx_buf, skb, f)) {
-> +			netdev_err(priv->ndev, "Map TX frag %d failed", f);
-> +			goto dma_map_err;
-> +		}
-> +
-> +		if (f == 0)
-> +			tx_desc.desc1 |= TX_DESC_1_FIRST_SEGMENT;
-> +
-> +		if (f == frag_num) {
-> +			tx_desc.desc1 |= TX_DESC_1_LAST_SEGMENT;
-> +			tx_buf->skb = skb;
-> +			if (emac_tx_should_interrupt(priv, frag_num + 1))
-> +				tx_desc.desc1 |=
-> +					TX_DESC_1_INTERRUPT_ON_COMPLETION;
-> +		}
-> +
-> +		*tx_desc_addr = tx_desc;
-> +	}
-> +
-> +	/* All descriptors are ready, give ownership for first desc */
-> +	tx_desc_addr = &((struct emac_desc *)tx_ring->desc_addr)[old_head];
-> +	dma_wmb();
-> +	WRITE_ONCE(tx_desc_addr->desc0, tx_desc_addr->desc0 | TX_DESC_0_OWN);
-> +
-> +	emac_dma_start_transmit(priv);
-> +
-> +	tx_ring->head = head;
-> +
-> +	return;
-> +
-> +dma_map_err:
-> +	dev_kfree_skb_any(skb);
+Now that the minimum supported version of LLVM for building the kernel
+has been bumped to 15.0.0, there is no need to check the LLD version
+before selecting ARCH_SUPPORTS_LTO_CLANG{,_THIN} because it will always
+be true.
 
-You free the skb here.. 
+Reviewed-by: Kees Cook <kees@kernel.org>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org
 
-> +	priv->ndev->stats.tx_dropped++;
-> +}
-> +
-> +static netdev_tx_t emac_start_xmit(struct sk_buff *skb, struct net_device *ndev)
-> +{
-> +	struct emac_priv *priv = netdev_priv(ndev);
-> +	int nfrags = skb_shinfo(skb)->nr_frags;
-> +	struct device *dev = &priv->pdev->dev;
-> +
-> +	if (unlikely(emac_tx_avail(priv) < nfrags + 1)) {
-> +		if (!netif_queue_stopped(ndev)) {
-> +			netif_stop_queue(ndev);
-> +			dev_err_ratelimited(dev, "TX ring full, stop TX queue\n");
-> +		}
-> +		return NETDEV_TX_BUSY;
-> +	}
-> +
-> +	emac_tx_mem_map(priv, skb);
-> +
-> +	ndev->stats.tx_packets++;
-> +	ndev->stats.tx_bytes += skb->len;
+Small note, this will conflict with
+https://lore.kernel.org/20250710-riscv-restrict-lto-to-medany-v1-1-b1dac9871ecf@kernel.org/
+but I think it is simple enough to deal with.
+---
+ arch/riscv/Kconfig | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-.. and then you use skb here.
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a4b233a0659e..1d53bf02d0fa 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -64,9 +64,8 @@ config RISCV
+ 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+ 	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
+ 	select ARCH_SUPPORTS_HUGETLBFS if MMU
+-	# LLD >= 14: https://github.com/llvm/llvm-project/issues/50505
+-	select ARCH_SUPPORTS_LTO_CLANG if LLD_VERSION >= 140000
+-	select ARCH_SUPPORTS_LTO_CLANG_THIN if LLD_VERSION >= 140000
++	select ARCH_SUPPORTS_LTO_CLANG
++	select ARCH_SUPPORTS_LTO_CLANG_THIN
+ 	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS if 64BIT && MMU
+ 	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
+ 	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
 
-> +	/* Make sure there is space in the ring for the next TX. */
-> +	if (unlikely(emac_tx_avail(priv) <= MAX_SKB_FRAGS + 2))
-> +		netif_stop_queue(ndev);
-> +
-> +	return NETDEV_TX_OK;
-> +}
-
-> +static void emac_get_ethtool_stats(struct net_device *dev,
-> +				   struct ethtool_stats *stats, u64 *data)
-> +{
-> +	struct emac_priv *priv = netdev_priv(dev);
-> +	u64 *rx_stats = (u64 *)&priv->rx_stats;
-> +	int i;
-> +
-> +	scoped_guard(spinlock_irqsave, &priv->stats_lock) {
-
-Why is this spin lock taken in irqsave mode?
-Please convert the code not to use scoped_guard()
-There's not a single flow control (return) in any of them.
-It's just hiding the information that you're unnecessarily masking irqs.
-See
-https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#using-device-managed-and-cleanup-h-constructs
-
-> +		emac_stats_update(priv);
-> +
-> +		for (i = 0; i < ARRAY_SIZE(emac_ethtool_rx_stats); i++)
-> +			data[i] = rx_stats[emac_ethtool_rx_stats[i].offset];
-> +	}
-
-> +static void emac_tx_timeout_task(struct work_struct *work)
-> +{
-> +	struct net_device *ndev;
-> +	struct emac_priv *priv;
-> +
-> +	priv = container_of(work, struct emac_priv, tx_timeout_task);
-> +	ndev = priv->ndev;
-
-I don't see this work ever being canceled.
-What prevents ndev from being freed before it gets to run?
-
-> +/* Called when net interface is brought up. */
-> +static int emac_open(struct net_device *ndev)
-> +{
-> +	struct emac_priv *priv = netdev_priv(ndev);
-> +	struct device *dev = &priv->pdev->dev;
-> +	int ret;
-> +
-> +	ret = emac_alloc_tx_resources(priv);
-> +	if (ret) {
-> +		dev_err(dev, "Error when setting up the Tx resources\n");
-> +		goto emac_alloc_tx_resource_fail;
-> +	}
-> +
-> +	ret = emac_alloc_rx_resources(priv);
-> +	if (ret) {
-> +		dev_err(dev, "Error when setting up the Rx resources\n");
-> +		goto emac_alloc_rx_resource_fail;
-> +	}
-> +
-> +	ret = emac_up(priv);
-> +	if (ret) {
-> +		dev_err(dev, "Error when bringing interface up\n");
-> +		goto emac_up_fail;
-> +	}
-> +	return 0;
-> +
-> +emac_up_fail:
-
-please name the jump labels after the destination not the source.
-Please fix everywhere in the driver.
-This is covered in the kernel coding style docs.
-
-> +	emac_free_rx_resources(priv);
-> +emac_alloc_rx_resource_fail:
-> +	emac_free_tx_resources(priv);
-> +emac_alloc_tx_resource_fail:
-> +	return ret;
-> +}
+-- 
+2.50.1
 
 
 _______________________________________________
