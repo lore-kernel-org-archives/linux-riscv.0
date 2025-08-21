@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806BECA0EE6
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99780CA0EE6
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZCry/gstBPTOKY7zM/UZQsvosvJ1vCr26yKr2dqpa3Y=; b=eI26Gj5yRAB4Cg
-	F8Kkf1I82ZKiMfe0psJ0++HzMoUuv9SJrpGRwzT7xE2pri4PQmvLveNYFWjV150UigWYXv3LGaWka
-	Z8pE4QBAESZD0yDS8FC+HRSulHKQXDjdiI6AzVSav0cH3O8ai+5wyalW9uUcOcP0ugv9VBzGSMn2j
-	ICw2bz6Q6aCS8qsDMRU9HSnp045i4abrsh6BZoLuF5RtM8mdhQNXKhUEtm+bOY4H9bj72yTn7EiYg
-	H1GQkJIKts+MmoYGDDwvLBNTdRoS/2DWoBSePFTOn2FS1jRQVN9xyZEnYiXSF+3PLgEfQ/ySUtVKi
-	3Er5oA7leazv1XxzdvJA==;
+	List-Owner; bh=h7yup+fpa8QgK/3oX3I+TvvpmaGkvAMiqspwixnHuiQ=; b=ONe7fLvu9MFcJO
+	Oi719jFMlOarLzbLEMXLCCwOaS9yGoSi1MI4sajCCdBm60k5NmHrTnAcYGeys7BOM7GR/+ASvGBXE
+	UxDxHtRWga4DhWtfv0WRlVzlRPJ6/IQ8GyXRTTVYVXcXfTChBhHjW0glqmw0BSNvwQtxD47oHEhwo
+	zC9TNVgsaKSUOgZk64SLXlSY6BT1pIjRdb9L5UwoFBDZHTHbwbaGzF/qLpGgogGBHQPbu3r3dPmr/
+	d/iQ4jO5Kw3x/T191CdNxWtBCXNW/dELoKsWBoyTuQCp4BTB+vtXenzhfaqDNuczP3cIrA687+Mbn
+	YD/670GVydR8woUTjRzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uow8L-0000000Fevd-1Lpb;
-	Thu, 21 Aug 2025 03:38:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uow8S-0000000Ff5D-0b9j;
+	Thu, 21 Aug 2025 03:38:44 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uov44-0000000FXuR-1MnN;
-	Thu, 21 Aug 2025 02:30:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A3CE453E6;
-	Thu, 21 Aug 2025 02:30:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC13BC19423;
-	Thu, 21 Aug 2025 02:30:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755743406;
-	bh=hubpUThmEzsghOP3D/C7Zn97GmCl6Og8IXTCNTfgLvU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=MgpcCjoDMNUJIiTimGJ/mSX+xldZOsAnLnNqwF4NlWkUeXtn7yC2TU0isXNO0CHsQ
-	 2eW9LUlt8AZA2oZUZC5W/DWZ7XDa2K0f0Ok2yJBgI6TJETMuvrGwAnv5S1ruR0Vf8b
-	 +bxXtIEdKJmFVJC2Z8JxcOUYUnKUlCZrlHvjQVYaPvmyruWnWkkHk026lXNPH2oQKj
-	 VJjUG/y1dwm24ZnaECYiK4orHWE4JLOfBdjG6IkoMa/OzVuNdgFlDaK9O6pKtEAfvZ
-	 gdBkcwCWGp7SA9iurNC9hfUKPU1bJvY7PinPbAcHMab5AXriGAtxW9RBrjvXIPQLij
-	 0yXXknvCxA5PA==
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-45a1b004a31so3227185e9.0;
-        Wed, 20 Aug 2025 19:30:05 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV9wpCy6McbfLI1al1+GsPsqRBC3H6onaaq5kQ31BPN2q1sxkQxB7fwDzUtTHgzci0sP4xfx9u2Sj1TGd8=@lists.infradead.org, AJvYcCVC1bAf7fGAwlVGojJfnnBcTlU8a2vF0FiAl042bb5pF7jSQPZvKChDey7NmqQl0m04nq0jNMp5YMc=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYcMyT/Mrbca5Ipp8CzFZ9Te745VYUwfG2nAw8xMj8fi5ttnzy
-	SPw3UtzgmXzx448YniIDWAbwSZx0yING7DqH6aESObtSdXEAxG9sjUwf68PbQmbmWDQF3LzxqD1
-	pi98D5/IpADxAZiI57v8/NnuklLJmZHg=
-X-Google-Smtp-Source: AGHT+IGYX4eEyPphK+rf6VYqExLd5m/PEgZbk79xQHbEyvtKvfzfhnDjWrlazH1kSQ3/wuGNLwSYdViL32OHBPoQlXg=
-X-Received: by 2002:a05:600c:4587:b0:456:302:6dc3 with SMTP id
- 5b1f17b1804b1-45b4d858a37mr4606865e9.26.1755743404380; Wed, 20 Aug 2025
- 19:30:04 -0700 (PDT)
+	id 1uovFn-0000000FYxL-0hiP
+	for linux-riscv@lists.infradead.org;
+	Thu, 21 Aug 2025 02:42:20 +0000
+X-QQ-mid: esmtpgz12t1755744015tdf80e59d
+X-QQ-Originating-IP: O6wBfJ/mxbSxcRE/MwEPz7eaNjXY68MXi0HQGF45vL4=
+Received: from [192.168.125.98] ( [113.104.140.179])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 21 Aug 2025 10:40:13 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2970625901000882426
+Message-ID: <257702B5AE6EE65A+20bf1aab-7fa4-45ba-a8ae-d3aeb5f6e9d9@linux.starfivetech.com>
+Date: Thu, 21 Aug 2025 10:40:13 +0800
 MIME-Version: 1.0
-References: <20250820125952.71689-1-fangyu.yu@linux.alibaba.com>
- <20250820125952.71689-3-fangyu.yu@linux.alibaba.com> <aKXeXd4pZvoQmYB9@troy-wujie14pro-arch>
- <CAJF2gTRR0LTO-CbUMkyXisov3BeftN+UJzv99GX7KfqCxWxmUg@mail.gmail.com>
-In-Reply-To: <CAJF2gTRR0LTO-CbUMkyXisov3BeftN+UJzv99GX7KfqCxWxmUg@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 21 Aug 2025 10:29:51 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTT9Py=wE9eHfY-i-cvoPatwFvRHq2dH1xznyX+GM8BxQw@mail.gmail.com>
-X-Gm-Features: Ac12FXw_adGCNVjgTV_UXKrfw26y_tUOuHc9MjDbq3ZDuenvMG1Bo2H0ToRcxCg
-Message-ID: <CAJF2gTT9Py=wE9eHfY-i-cvoPatwFvRHq2dH1xznyX+GM8BxQw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] RISC-V KVM: Remove unnecessary HGATP csr_read
-To: Troy Mitchell <troy.mitchell@linux.dev>
-Cc: fangyu.yu@linux.alibaba.com, anup@brainfault.org, atish.patra@linux.dev, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 4/4] riscv: dts: starfive: add Milk-V Mars CM Lite
+ system-on-module
+To: E Shattow <e@freeshell.de>, Emil Renner Berthing <kernel@esmil.dk>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20250724094912.253723-1-e@freeshell.de>
+ <20250724094912.253723-5-e@freeshell.de>
+Content-Language: en-US
+From: Hal Feng <hal.feng@linux.starfivetech.com>
+In-Reply-To: <20250724094912.253723-5-e@freeshell.de>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.starfivetech.com:qybglogicsvrgz:qybglogicsvrgz5a-1
+X-QQ-XMAILINFO: Mbusj0+sBV8LM60Z+wPgUWsCYmQJ/XK3LOJ7LkwmO8VBfMrP/fyRpEKg
+	siG6pSjz8OQXczo70OFwFV2Yk3D9wC/GPcCYqr5sDJxc4jOV4jrnr3d3zNF3S6TIF0quBH5
+	eaFrUj4DFwWLYpLmdiD3TnQo5RvFVo/uw8xcr/TB1Vf9kQEeFnASTSQAdwuHkyKTKYbwCo8
+	kYUJ/WarIBn1C5NQSROOPx2CSkYXDDcHMF003WDIWCqpttpDbUQ+n5u3oy0hN9gggiC/bl3
+	MwF3ED78kWWmbl/XZvSW4KBe0U7nc0o+dZEUN28kaqHP4PVns611GTcsBHmb+4M++N7Rku/
+	3WofdpPaH0FFY1UVpVn5fcxUiYNlkchOAhTIlFYvwrnJS2A8QTrCBoBqHcLv/Z+KQobvIu9
+	JITFbCxvRCSE4J1uW2ixIeX1QV6dUXEl5ePI8x+Qt6/IQDvQIU0NSGPrjJu8dD4BzOQj0bR
+	NM6B6CGDQ9LASkKudhjVyixOD2fSsZHb3LwDXLchVTZHzyKiXTQNvm8Cens0321CIzlShQI
+	c3r4OcX5BLIgTpfTQli4ReSgTbErLuekoyf4Vb8STk5CYUamkEb3XKYyhrn+lTNo2NZBCGj
+	q5DOVrUTUrAff5LPfQ3kM+g8GO+mf3/8ZQjW56CxkBwtZH3qOB/ToxAbttu37zOIKYT/Fnf
+	TlSVuNxB6OdDltugm/cQZwPK6+aiqbMyQfYyT+LbZ+xEombGidCwg4wT7DJgFzFM8gc69bI
+	T1X93muhhh0Rc2/4jGwKPqja+7Hbi6J7YCCNcabNBRLUTH7Ogj6xZM3SwjoWFIg1VcMV9NX
+	ishMbh6+le+ksFw2W3wjBtH1wFj1CQO1Op7Rnb6j3/7UvUdeDetgx1Jo+J9tKyHyoUDvVUF
+	fBy0rG7vPAHXb23U9JAeAFomofb5KnJmLaHAyDohgeQAb0LRbLhivb71kYbFPmBJ1S5fZPc
+	bWpHGLYSvF0JDOyns3l685bC75oea13HDw578dBybxlW235bkGgJmjwCosm4AdZj1xCB2aj
+	+BXrUnnGDBaXGBwTVZ
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_193008_409454_7ECA3FF6 
-X-CRM114-Status: GOOD (  28.28  )
+X-CRM114-CacheID: sfid-20250820_194215_653359_D61EAA9D 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,62 +88,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBdWcgMjEsIDIwMjUgYXQgOToyNeKAr0FNIEd1byBSZW4gPGd1b3JlbkBrZXJuZWwu
-b3JnPiB3cm90ZToKPgo+IE9uIFdlZCwgQXVnIDIwLCAyMDI1IGF0IDEwOjQw4oCvUE0gVHJveSBN
-aXRjaGVsbCA8dHJveS5taXRjaGVsbEBsaW51eC5kZXY+IHdyb3RlOgo+ID4KPiA+IE9uIFdlZCwg
-QXVnIDIwLCAyMDI1IGF0IDA4OjU5OjUyUE0gKzA4MDAsIGZhbmd5dS55dUBsaW51eC5hbGliYWJh
-LmNvbSB3cm90ZToKPiA+ID4gRnJvbTogIkd1byBSZW4gKEFsaWJhYmEgREFNTyBBY2FkZW15KSIg
-PGd1b3JlbkBrZXJuZWwub3JnPgo+ID4gPgo+ID4gPiBUaGUgSEdBVFAgaGFzIGJlZW4gc2V0IHRv
-IHplcm8gaW4gZ3N0YWdlX21vZGVfZGV0ZWN0KCksIHNvIHRoZXJlCj4gPiA+IGlzIG5vIG5lZWQg
-dG8gc2F2ZSB0aGUgb2xkIGNvbnRleHQuIFVuaWZ5IHRoZSBjb2RlIGNvbnZlbnRpb24KPiA+ID4g
-d2l0aCBnc3RhZ2VfbW9kZV9kZXRlY3QoKS4KPiA+ID4KPiA+ID4gU2lnbmVkLW9mZi1ieTogR3Vv
-IFJlbiAoQWxpYmFiYSBEQU1PIEFjYWRlbXkpIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+ID4gU2ln
-bmVkLW9mZi1ieTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+Cj4gPiA+
-IC0tLQo+ID4gPiAgYXJjaC9yaXNjdi9rdm0vdm1pZC5jIHwgNSArLS0tLQo+ID4gPiAgMSBmaWxl
-IGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCA0IGRlbGV0aW9ucygtKQo+ID4gPgo+ID4gPiBkaWZm
-IC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdm1pZC5jIGIvYXJjaC9yaXNjdi9rdm0vdm1pZC5jCj4g
-PiA+IGluZGV4IDVmMzM2MjVmNDA3MC4uYWJiMWMyYmYyNTQyIDEwMDY0NAo+ID4gPiAtLS0gYS9h
-cmNoL3Jpc2N2L2t2bS92bWlkLmMKPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9rdm0vdm1pZC5jCj4g
-PiA+IEBAIC0yNSwxNSArMjUsMTIgQEAgc3RhdGljIERFRklORV9TUElOTE9DSyh2bWlkX2xvY2sp
-Owo+ID4gPgo+ID4gPiAgdm9pZCBfX2luaXQga3ZtX3Jpc2N2X2dzdGFnZV92bWlkX2RldGVjdCh2
-b2lkKQo+ID4gPiAgewo+ID4gPiAtICAgICB1bnNpZ25lZCBsb25nIG9sZDsKPiA+ID4gLQo+ID4g
-PiAgICAgICAvKiBGaWd1cmUtb3V0IG51bWJlciBvZiBWTUlEIGJpdHMgaW4gSFcgKi8KPiA+ID4g
-LSAgICAgb2xkID0gY3NyX3JlYWQoQ1NSX0hHQVRQKTsKPiA+ID4gICAgICAgY3NyX3dyaXRlKENT
-Ul9IR0FUUCwgKGt2bV9yaXNjdl9nc3RhZ2VfbW9kZSA8PCBIR0FUUF9NT0RFX1NISUZUKSB8IEhH
-QVRQX1ZNSUQpOwo+ID4gPiAgICAgICB2bWlkX2JpdHMgPSBjc3JfcmVhZChDU1JfSEdBVFApOwo+
-ID4gPiAgICAgICB2bWlkX2JpdHMgPSAodm1pZF9iaXRzICYgSEdBVFBfVk1JRCkgPj4gSEdBVFBf
-Vk1JRF9TSElGVDsKPiA+ID4gICAgICAgdm1pZF9iaXRzID0gZmxzX2xvbmcodm1pZF9iaXRzKTsK
-PiA+ID4gLSAgICAgY3NyX3dyaXRlKENTUl9IR0FUUCwgb2xkKTsKPiA+ID4gKyAgICAgY3NyX3dy
-aXRlKENTUl9IR0FUUCwgMCk7Cj4gPiBJcyBzZXR0aW5nIEhHQVRQIHRvIDAgaW4gZ3N0YWdlX21v
-ZGVfZGV0ZWN0IG1lYW5pbmdsZXNzIG5vdz8KPiA+IElmIHNvLCBpdCBtaWdodCBiZSBiZXR0ZXIg
-dG8gZHJvcCBpdCBhbmQganVzdCBrZWVwIHRoZSBvbmUgaGVyZS4KPiBTb3JyeSwgSSBtaXN1bmRl
-cnN0b29kIGhlcmUuCj4KPiAxLiBrdm1fcmlzY3ZfZ3N0YWdlX3ZtaWRfZGV0ZWN0KCkgJiBnc3Rh
-Z2VfbW9kZV9kZXRlY3QoKSBhcmUgaW5kZXBlbnQKPiBmdW5jdGlvbiwgc28ga2VlcCBjc3Jfd3Jp
-dGUoQ1NSX0hHQVRQLCAwKSBpcyBjb25zaWRlcmFibGUuCj4KPiAyLiBCdXQgeW91ciBpZGVhIGlz
-IGdvb2QsIGJlY2F1c2UgY3NyX3dyaXRlKENTUl9IR0FUUCwgMCkgd291bGQgY2F1c2UKPiBUTEIg
-Zmx1c2ggaW4gc29tZSBtaWNyby1hcmNoLCB3aGljaCByZWR1Y2VzIHRoZSBJUEMuIFNvLCByZW1v
-dmluZwo+IHVubmVjZXNzYXJ5IENTUl93cml0ZSAoQ1NSX0hHQVRQLCAwKSBpcyBhbHNvIGNvbnNp
-ZGVyYWJsZS4KPgo+IEkgd291bGQgdXBkYXRlIFY0IHRvIG1lcmdlIGt2bV9yaXNjdl9nc3RhZ2Vf
-dm1pZF9kZXRlY3QoKSAmCj4gZ3N0YWdlX21vZGVfZGV0ZWN0KCkgaW50byBhIHNpbmdsZSBmdW5j
-dGlvbiwgaW5zcGlyZWQgYnkgeW91ciBpZGVhLgpJIGZvdW5kIHdlIGNhbid0IHJlbW92ZSAiY3Ny
-X3dyaXRlKENTUl9IR0FUUCwgMCkiIGluCmdzdGFnZV9tb2RlX2RldGVjdCgpLCBiZWNhdXNlIHRo
-aXMgcGF0Y2ggbmVlZHMgdG8gcmVzZXQgdGhlIEhHQVRQIHdoZW4KbW9kZSBjaGVjayBmYWlsdXJl
-OgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI1MDgxOTAwNDY0My4xODg0
-MTQ5LTEtZ3VvcmVuQGtlcm5lbC5vcmcvCgpJIHdvdWxkIHVwZGF0ZSB0byB2NCwgd2hpY2ggY29s
-bGVjdHMgdGhlc2UgcmVsYXRlZCBwYXRjaGVzIHRvZ2V0aGVyCmZvciByZXZpZXcgY29udmVuaWVu
-Y2UuCgo+Cj4gPgo+ID4gICAgICAgICAgICAgICAgIC0gVHJveQo+ID4KPiA+ID4KPiA+ID4gICAg
-ICAgLyogV2UgcG9sbHV0ZWQgbG9jYWwgVExCIHNvIGZsdXNoIGFsbCBndWVzdCBUTEIgKi8KPiA+
-ID4gICAgICAga3ZtX3Jpc2N2X2xvY2FsX2hmZW5jZV9ndm1hX2FsbCgpOwo+ID4gPiAtLQo+ID4g
-PiAyLjQ5LjAKPiA+ID4KPiA+ID4KPiA+ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KPiA+ID4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gPiA+IGxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiA+ID4gaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo+Cj4KPgo+IC0tCj4gQmVzdCBSZWdh
-cmRzCj4gIEd1byBSZW4KCgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 7/24/2025 5:48 PM, E Shattow wrote:
+> Milk-V Mars CM Lite is a System-on-Module based on the Milk-V Mars CM
+> without the onboard eMMC storage component populated and configured
+> instead for SD3.0 Card Slot on that interface via 100-pin connector.
+> 
+> Link to Milk-V Mars CM Lite schematics: https://github.com/milkv-mars/mars-files/tree/main/Mars-CM_Hardware_Schematices
+> Link to StarFive JH7110 Technical Reference Manual: https://doc-en.rvspace.org/JH7110/TRM/index.html
+> Link to Raspberry Pi CM4IO datasheet: https://datasheets.raspberrypi.com/cm4io/cm4io-datasheet.pdf
+> 
+> Add the devicetree file to make use of StarFive JH7110 common supported
+> features PMIC, EEPROM, UART, I2C, GPIO, PCIe, QSPI Flash, PWM, and
+> Ethernet. Also configure the eMMC interface mmc0 for SD Card use and
+> configure the common SD Card interface mmc1 for onboard SDIO BT+WiFi.
+> 
+> Signed-off-by: E Shattow <e@freeshell.de>
+> ---
+>  arch/riscv/boot/dts/starfive/Makefile         |   1 +
+>  .../dts/starfive/jh7110-milkv-marscm-lite.dts | 176 ++++++++++++++++++
+>  2 files changed, 177 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> index 79742617ddab..62b659f89ba7 100644
+> --- a/arch/riscv/boot/dts/starfive/Makefile
+> +++ b/arch/riscv/boot/dts/starfive/Makefile
+> @@ -11,6 +11,7 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-deepcomputing-fml13v01.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-marscm-emmc.dtb
+> +dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-marscm-lite.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
+> new file mode 100644
+> index 000000000000..e110146f0b76
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
+> @@ -0,0 +1,176 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2025 E Shattow <e@freeshell.de>
+> + */
+> +
+> +/dts-v1/;
+> +#include <dt-bindings/pinctrl/starfive,jh7110-pinctrl.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include "jh7110-common.dtsi"
+
+You can just include "jh7110-milkv-marscm-emmc.dts" instead of "jh7110-common.dtsi".
+And then adding mmc0 changes will be enough.
+
+Best regards,
+Hal
+
+...
+
+> +&mmc0 {
+> +	bus-width = <4>;
+> +	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+> +};
+> +
+> +&mmc0_pins {
+> +	pwren-pins {
+> +		pinmux = <GPIOMUX(22, GPOUT_HIGH,
+> +				      GPOEN_ENABLE,
+> +				      GPI_NONE)>;
+> +	};
+> +};
+> +
+...
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
