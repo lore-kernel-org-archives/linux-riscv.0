@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D5ACA0EEB
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 00:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A4ABCA0EFC
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 00:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OmwMo0yI4NkFyFK2mOKj7V6Q3msi6VOIJSQaISLbY8s=; b=a11eRp8Ipp18d1
-	2V4e8wLqFCUmJO1HEaI1fXNNV0BWG/NDEAotwuW8kd9hbbJRVf0NPvOJKvKM48C5KlEQ7X07q2mGg
-	DROty/hRNWG9PoVkiiWQmCvwcJZT5Tn5RxMM8AMnSwCeM5sT2fFhF4WkDCvlKVECUMPvGGTPLEw20
-	Hd932mq0nNynZyaya/qF6JXEeouBJMT6JY3G1hjq1y6FkOvbAaHvRx8dzK+eQIMh8c/EZftf/I7iw
-	wO6UD0+R8RjubaWDuTbGpXnFNQal8FyH16qaI1AZVNuAXG3fPjcpjP3lpCERStbHi2mZPEyjZpTtm
-	xRzveQIsfQ0N5XgZ5f5w==;
+	List-Owner; bh=ZLSLUNBiq4HEKs9qp07psNfmlPQ/YUttBFlQkODjGJQ=; b=LqtZKHkEXtFNon
+	24IfMzm0kcfAkqgbh+V9wvPA5u5kAtIjY+x+Qc6VhWLtMIfNRqxCV5Mt4IJsJEL23SKI7rU3wraau
+	jxFJnS25o9bSq+9EbK9NDbS2MZyRt04okrR72KHMQg2yIeVicb2hgdFuCny6xtjfkKbMsrBsb07lc
+	Hd9qGhe7PW5y4wah+/Kko6/rfE5kTISqt2DCvfjIpASZeNAgyyQP1/chu4nqxGFvxKdp23Rw7aBUO
+	zsQeO10Ksno/CW/2m7jUp48omR42chYAFA2NQIbsS9HkOKsMK8xmXo0RAQXgF1NK9Z6iJHKko6YNV
+	am512cbzUAus8niZdtlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upFcZ-000000011Zu-2Uju;
-	Fri, 22 Aug 2025 00:27:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1upFhk-0000000134k-0in8;
+	Fri, 22 Aug 2025 00:32:28 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBZF-00000000NQL-0leQ
+	id 1upBZo-00000000NmH-40N0
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 20:07:26 +0000
+	Thu, 21 Aug 2025 20:08:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806844;
+	s=mimecast20190719; t=1755806880;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=aOl+Pd7m6DQCTUATshUDhXjEbKNtUx8aQQ0CVjE/d9w=;
-	b=hJBsxZ1oqBHQxt0Le0Bhv7aC7ES8ofEkvpknAG5yrjJEIhY4uLizGHxEsNvlwS/a/lpi4e
-	dpbOi4fZQ+sO28whrk7tP1rrB3Wm37isRp8Y70vstDMm1qT9Ppbh8UJlCV9SduN/+Kawto
-	VN4pEzTAFrN791a7Ni4EtjRIjlzN0mU=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=hICKs+PYshPEfoclHwqOXtWPheskj6p8LyRcJkrFnX4=;
+	b=d50BOTRb+SEcMJs+gPi21vd4ycSzxd+Hq6bmtV+XrL44+R89DB6hvtzUQNgULdNUcDSJVS
+	0goysmH283RP0xKSkgdmsR0QkSU5sOzbbYg3LDOKmhcFFui3QjMGy0RNsIGRAnFZWlO5Zp
+	t1fmTshP+97z+qpiYMKOo/BrfLJTrNc=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-264-HQQwdgVdNISraZyvILKx_Q-1; Thu, 21 Aug 2025 16:07:23 -0400
-X-MC-Unique: HQQwdgVdNISraZyvILKx_Q-1
-X-Mimecast-MFC-AGG-ID: HQQwdgVdNISraZyvILKx_Q_1755806842
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45a1b0b6466so9581295e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:07:22 -0700 (PDT)
+ us-mta-163-n_KKH4fONDyNVgQYWRYXNQ-1; Thu, 21 Aug 2025 16:07:58 -0400
+X-MC-Unique: n_KKH4fONDyNVgQYWRYXNQ-1
+X-Mimecast-MFC-AGG-ID: n_KKH4fONDyNVgQYWRYXNQ_1755806877
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3b9edf34ad0so613146f8f.3
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:07:58 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755806842; x=1756411642;
+        d=1e100.net; s=20230601; t=1755806877; x=1756411677;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=aOl+Pd7m6DQCTUATshUDhXjEbKNtUx8aQQ0CVjE/d9w=;
-        b=eXl/uKV7yudj2BdRLHU0MP+uv9k702ZVsbLRV7Ir0BBZxb8MsHeLi8ybIocfIJWytk
-         2oEKvnFjRrCS6+ogBodK7VvgNU4JT0dB/YzGTD9tqivBH1nC0cjqSP4MWKrjCHC53/yy
-         au6qHaXpJmn42CRsW+xZCmpRwIdU74U4OLbKhbBa4qCDMx0wz1K97Ustj6sCxgxyCZ+t
-         4PoUmvkb0TTtZbxClqPMMz83L2JiLkqtyX+6yj0/uJiv/Ipu/9pg+BGpDrgFibmham3e
-         3/HUzlLPpbknCTMBCxsWDcxzvxhjjlgDg2vS7Z/lqNjLECuM5IA0oMEnZsf0gs3a7rQZ
-         Mr+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXDL0a3j7EBop50m59rLBYPXymFBvVyV/NkDcgzWrS4TM6uKx5Piu2vmg/XHdiaYTXSyot80szVdnQXdA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxx4ojS95GRj/vq3c3essODx6CjXTH5qs0uXpTNl8Tb6evBqHHO
-	6a9x85jwritltVWfKupVzw533w5Q5K4N+RoEicT78ciTYGo7E/7TaFuJb+4WPwtO6sK7eFE4CMk
-	NZ8UT7mWs0aDDF4r0YUIG46x8rkxJNCIz48RHjw0ykgLBkM9Ub8gw3R72q4Khz/uY/b//SQ==
-X-Gm-Gg: ASbGncstLMUHaEgNDs0a/CfNaogjGsDcbdUwiwgryQzukOyT88kdmWKPMPDMVAZ9KJj
-	XyShbssqBdAPw814oWDzZCRJxLQNZdJmiMzhto7lSg2KJzXzeGq9uucVNpqeC9jYKyeXx3MpY47
-	IOjz5kSFqhPKI6TYzMyIbosZ5RIR8OB3SB8gZb1g+fOJRBBaZHuA794cj5BiKk2Gb36fCPgQHr+
-	lZD1MZhYbceCaQs5pNChvtEgIM8u8QXEtfH2SojmV0HrnmQx0m/GJFyuSr9saON7Rom6GSGJddI
-	WSm+BQCvcdJDP3QS3x1pCwHxSyq3Y8zYsz2MrG8i/5u7pHAc8PFXpjKfD4HV6yXlPQKDHAipp4/
-	WwTTUx3OeIITZ26YWsOE9zw==
-X-Received: by 2002:a05:600c:1993:b0:456:e39:ec1a with SMTP id 5b1f17b1804b1-45b517ad4a9mr2412525e9.14.1755806841689;
-        Thu, 21 Aug 2025 13:07:21 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHtBnzBdejX2oNj8vG9iZBZKJew+pPrkGWxHzVnhFEnb5RkXIsj+cBFTtJrIXnzr/4lYhSU+w==
-X-Received: by 2002:a05:600c:1993:b0:456:e39:ec1a with SMTP id 5b1f17b1804b1-45b517ad4a9mr2412295e9.14.1755806841198;
-        Thu, 21 Aug 2025 13:07:21 -0700 (PDT)
+        bh=hICKs+PYshPEfoclHwqOXtWPheskj6p8LyRcJkrFnX4=;
+        b=iSE5lNDiBR3Ot8bdTU5XJE71bFpAyyF9DvPaYS1/b7wdSKGYDWjLcl98/M9TJ78eMN
+         uPoTNS5JK2kh4btAdb9wlDU0tyxuGKIdyWsG/OsXiUfbuJTHQhh9wy4t/TwHuCKaNLom
+         YMKrh1GMA/hQmllbP2VEGuK+3CvKTC2XAJvziOWJrVzdmLKLE+RhRhBVW5t8QwPxBCYM
+         NAeuhNdZwI3rg5Y08sBHnwrhOOLoZLB0+fQ5IDMnO2oOjmJ3U0BACPEL9rM1Kw6qBYep
+         ukNlRJrlrNM7CTMxg9Nb79FUqInOo3a7xDSF/YA65/kz2dCkaoR0WCHpH4iDf/OCZIg8
+         7kOA==
+X-Forwarded-Encrypted: i=1; AJvYcCUB/kb86NkbjtdigukU8vKhRSlsArTAI4L4La6A1S7UztP4kGpj/Lq8NRQM0N3z8Ox2f04K7O3kK+9MAQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWeFj5bbJtWrAJ6v2/9Ufcy5ivVKE5zRW05IRIewi5q8NosRsL
+	iAQIgZxd/OZeeHsYKlJvJyvn7yo3+u7SfuQUAu2LJ9uVLPW3ra7APj538i3kxgFvxhSCBOVqDbq
+	ZuvR7f7U7hxs+ytjrii92dzuwD///eIGL3xI8RXOZJe+Zw2us5mq76EndPqKCQBJs4LqiwtD6pd
+	3M2386
+X-Gm-Gg: ASbGncvVO+++UY0/sDe0Ax+4To8T5yoWI1m00K0da5ZCsaCq1r+hVgnqbMtw7lRS3Pi
+	HrWpPA9fUi8fzGL6zvuErjBXgpxMPxF7Z4tk8uvBdatxTjko8mS/bBSUpL+plBUGmdCRIUIg7GO
+	tzyQqQ3RnrpiEd2O7ulfJbDYVyNjDI02BtoSeL2lI7UyBg4n82M+qETK4rqximxUQz8BxuY8DST
+	8Xhf0ZEiGnqmDvbEMXataD6R/J1NRtqQEMPxiIZYrFPfU7ljPwTQZTpPtxBNTN69W/HHkymGGWO
+	uI6ZEj+ceWCByf2KpfhlAkqtyfFMU1dSKa08Ztb0HXeO1L7w779IkJYFq8GUiFIxf9BL3oOlc0W
+	KT55q2f3ID9oDIe8KVoEegw==
+X-Received: by 2002:a05:6000:1789:b0:3b4:9721:2b2b with SMTP id ffacd0b85a97d-3c5dac17062mr195823f8f.12.1755806877252;
+        Thu, 21 Aug 2025 13:07:57 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHgVLjhFaRrDh3LOBLGV7UmH7wFAxvy1IR++ErfO8cOP/XFU/ikMyZpM3bVU7Jjqctj1mhmFQ==
+X-Received: by 2002:a05:6000:1789:b0:3b4:9721:2b2b with SMTP id ffacd0b85a97d-3c5dac17062mr195797f8f.12.1755806876810;
+        Thu, 21 Aug 2025 13:07:56 -0700 (PDT)
 Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b50dc00a8sm10960275e9.1.2025.08.21.13.07.19
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3c4f77e968esm2903478f8f.21.2025.08.21.13.07.54
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:07:20 -0700 (PDT)
+        Thu, 21 Aug 2025 13:07:56 -0700 (PDT)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Shuah Khan <shuah@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -92,7 +92,6 @@ Cc: David Hildenbrand <david@redhat.com>,
 	iommu@lists.linux.dev,
 	io-uring@vger.kernel.org,
 	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
 	Johannes Weiner <hannes@cmpxchg.org>,
 	John Hubbard <jhubbard@nvidia.com>,
 	kasan-dev@googlegroups.com,
@@ -127,19 +126,19 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH RFC 05/35] wireguard: selftests: remove CONFIG_SPARSEMEM_VMEMMAP=y from qemu kernel config
-Date: Thu, 21 Aug 2025 22:06:31 +0200
-Message-ID: <20250821200701.1329277-6-david@redhat.com>
+Subject: [PATCH RFC 18/35] io_uring/zcrx: remove "struct io_copy_cache" and one nth_page() usage
+Date: Thu, 21 Aug 2025 22:06:44 +0200
+Message-ID: <20250821200701.1329277-19-david@redhat.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
 References: <20250821200701.1329277-1-david@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: e9hgnvak8YlpKJUfQYOf50evq9NUJqLXeSGG4R39AQY_1755806842
+X-Mimecast-MFC-PROC-ID: DxgDcp-VQuOQQf7Jx6KXBar-6MQx0Ur-5TnKzel8HkU_1755806877
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_130725_291783_755D8050 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20250821_130801_073968_F48E0A7B 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,28 +155,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It's no longer user-selectable (and the default was already "y"), so
-let's just drop it.
+We always provide a single dst page, it's unclear why the io_copy_cache
+complexity is required.
 
-Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: Shuah Khan <shuah@kernel.org>
+So let's simplify and get rid of "struct io_copy_cache", simply working on
+the single page.
+
+... which immediately allows us for dropping one "nth_page" usage,
+because it's really just a single page.
+
+Cc: Jens Axboe <axboe@kernel.dk>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- tools/testing/selftests/wireguard/qemu/kernel.config | 1 -
- 1 file changed, 1 deletion(-)
+ io_uring/zcrx.c | 32 +++++++-------------------------
+ 1 file changed, 7 insertions(+), 25 deletions(-)
 
-diff --git a/tools/testing/selftests/wireguard/qemu/kernel.config b/tools/testing/selftests/wireguard/qemu/kernel.config
-index 0a5381717e9f4..1149289f4b30f 100644
---- a/tools/testing/selftests/wireguard/qemu/kernel.config
-+++ b/tools/testing/selftests/wireguard/qemu/kernel.config
-@@ -48,7 +48,6 @@ CONFIG_JUMP_LABEL=y
- CONFIG_FUTEX=y
- CONFIG_SHMEM=y
- CONFIG_SLUB=y
--CONFIG_SPARSEMEM_VMEMMAP=y
- CONFIG_SMP=y
- CONFIG_SCHED_SMT=y
- CONFIG_SCHED_MC=y
+diff --git a/io_uring/zcrx.c b/io_uring/zcrx.c
+index e5ff49f3425e0..f29b2a4867516 100644
+--- a/io_uring/zcrx.c
++++ b/io_uring/zcrx.c
+@@ -954,29 +954,18 @@ static struct net_iov *io_zcrx_alloc_fallback(struct io_zcrx_area *area)
+ 	return niov;
+ }
+ 
+-struct io_copy_cache {
+-	struct page		*page;
+-	unsigned long		offset;
+-	size_t			size;
+-};
+-
+-static ssize_t io_copy_page(struct io_copy_cache *cc, struct page *src_page,
++static ssize_t io_copy_page(struct page *dst_page, struct page *src_page,
+ 			    unsigned int src_offset, size_t len)
+ {
+-	size_t copied = 0;
++	size_t dst_offset = 0;
+ 
+-	len = min(len, cc->size);
++	len = min(len, PAGE_SIZE);
+ 
+ 	while (len) {
+ 		void *src_addr, *dst_addr;
+-		struct page *dst_page = cc->page;
+-		unsigned dst_offset = cc->offset;
+ 		size_t n = len;
+ 
+-		if (folio_test_partial_kmap(page_folio(dst_page)) ||
+-		    folio_test_partial_kmap(page_folio(src_page))) {
+-			dst_page = nth_page(dst_page, dst_offset / PAGE_SIZE);
+-			dst_offset = offset_in_page(dst_offset);
++		if (folio_test_partial_kmap(page_folio(src_page))) {
+ 			src_page = nth_page(src_page, src_offset / PAGE_SIZE);
+ 			src_offset = offset_in_page(src_offset);
+ 			n = min(PAGE_SIZE - src_offset, PAGE_SIZE - dst_offset);
+@@ -991,12 +980,10 @@ static ssize_t io_copy_page(struct io_copy_cache *cc, struct page *src_page,
+ 		kunmap_local(src_addr);
+ 		kunmap_local(dst_addr);
+ 
+-		cc->size -= n;
+-		cc->offset += n;
++		dst_offset += n;
+ 		len -= n;
+-		copied += n;
+ 	}
+-	return copied;
++	return dst_offset;
+ }
+ 
+ static ssize_t io_zcrx_copy_chunk(struct io_kiocb *req, struct io_zcrx_ifq *ifq,
+@@ -1011,7 +998,6 @@ static ssize_t io_zcrx_copy_chunk(struct io_kiocb *req, struct io_zcrx_ifq *ifq,
+ 		return -EFAULT;
+ 
+ 	while (len) {
+-		struct io_copy_cache cc;
+ 		struct net_iov *niov;
+ 		size_t n;
+ 
+@@ -1021,11 +1007,7 @@ static ssize_t io_zcrx_copy_chunk(struct io_kiocb *req, struct io_zcrx_ifq *ifq,
+ 			break;
+ 		}
+ 
+-		cc.page = io_zcrx_iov_page(niov);
+-		cc.offset = 0;
+-		cc.size = PAGE_SIZE;
+-
+-		n = io_copy_page(&cc, src_page, src_offset, len);
++		n = io_copy_page(io_zcrx_iov_page(niov), src_page, src_offset, len);
+ 
+ 		if (!io_zcrx_queue_cqe(req, niov, ifq, 0, n)) {
+ 			io_zcrx_return_niov(niov);
 -- 
 2.50.1
 
