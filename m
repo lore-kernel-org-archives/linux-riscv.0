@@ -4,69 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2804ACA0EEB
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 13:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA912CA0EF8
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Aug 2025 13:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QrIgQEyBZ5wlsaTRnZiquM+1YZolikyzbQuvRgLtGW4=; b=xfa+Kz1jGwZjJh
-	6xFdKIWp2EafgMjuzLdS0aKoHy1CoXErUJjO+2Jl6V6aCtI3yBc3o0cDUE5OII/+naoLZQBzZqGWy
-	NXZYQcjGYbuTF4PcwBB6M1lWkDWNNNogVG261kBgSS6OLwzdMjgN5aiap2LspN9WX557yXufZMQTT
-	i8sCnXWMz7qyoGWtehcaZHl+BSCbqtD/9dAZSmGGMo2anJDlUMfpUAhsC1CrRwkipktvD14w+wQio
-	EBIevJ6VoU8ZO4Y0IZLi/S+oreN0w4bdYvTZfJ9Lk5RBiwk/e4l+j+Aa3f1A2Kjfzs7FoNG8NKP5p
-	uMVNeLF4RUUx2g2bSeaQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2RS+6IBqu6vaEIrCf/ZR6KB1oko6Iih+MFr9QK3HIHc=; b=kjKQ95Ir468IO5
+	CSafy8PzDj/1sBNd/MlME1KJnwlAjOpmjm9acwiryFTs8I7HFkkX2A726zb6qTtEtxfJb5fy8A2uS
+	fMXwqNa19Wj0cicXrKjxCom5fwmoFWuvB+tJVwmChLHkSYV3iB8cDfomqQqvDrGNcbdLKYCLjs8ly
+	YTVXVWTI9a2GyfY5A8OxUSS3ZHBMfbuqGkwobJg957j8VUfi25kzsFVjbS22I5I6q1Ac2w8iPYYlS
+	+G/qkWj0yglSx+LAgQRg8xNY0BNsvrFNnMH1X8tDrbxk0Sst+48UUbjJPkf2qmHjgfJYxP6+jeI0+
+	pIbVTUBZujmWwpeet27Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5C3-0000000H1kC-3IRk;
-	Thu, 21 Aug 2025 13:19:03 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1up5C0-0000000H1gx-1KiI;
+	Thu, 21 Aug 2025 13:19:00 +0000
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1wd-0000000GVt6-01xA
+	id 1up1jg-0000000GPnC-33HK
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 09:50:57 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250821095049euoutp028dfda1608a81a966beba275a5dd84d37~dv2BExheW2668826688euoutp02S
-	for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 09:50:49 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250821095049euoutp028dfda1608a81a966beba275a5dd84d37~dv2BExheW2668826688euoutp02S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755769849;
-	bh=HSvuQ3ZafL8FGWMfbxoBhMAcsMdHdvxyBcoWoRljZZM=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=Cgs6sY9VitL++i12YOxwq0KuzQAZAnn2/w0+ZDLDu1gKU8RWKenQa9vgELQCy6Bca
-	 1NmZvhpPWd4fzDNHg7KzLBIvObQXwmtsw61R69jQaHVDpM9NRvToXL0zQyIn90P00E
-	 oQO+2YS4H9vfYis0ZoNZRWeA6LJpss2UCdCDRBzU=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250821095049eucas1p19e5b485fe044f78c1cfcb62b720fd974~dv2Ao05Ph2463024630eucas1p1e;
-	Thu, 21 Aug 2025 09:50:49 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250821095048eusmtip104d6456e3cae6213f4fc65d90468cf00~dv1-pHhmh0661206612eusmtip1s;
-	Thu, 21 Aug 2025 09:50:48 +0000 (GMT)
-Message-ID: <d5c31ec9-84c1-45ea-8c0d-aba78ebd6481@samsung.com>
-Date: Thu, 21 Aug 2025 11:50:48 +0200
+	Thu, 21 Aug 2025 09:37:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1755768995;
+	bh=Z7a20uzgaJfYK7FaliYK+7k5YDrvLjGIWAUoVZyPaKo=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=tpt0f3v8z6ix/aeQztJY5oQD/ljaDELcTOJLD8oQjXxo6DIuVSUf2tazLsxdjWtsx
+	 UJ+yE15QWeuZy7JHOStYVa6i5i/6b7T0Q6jHBUS+ilIB6/4b51wOKWmbrkddnsaTFk
+	 wRH7B+BtPHSUPjFYKho3Dq/ZH08FkVnYhPT8OQew=
+X-QQ-mid: zesmtpgz5t1755768987tf998ac75
+X-QQ-Originating-IP: zxGfrGj3pnsFHyfA4AE25AfviKwsBEHGf+H24mqqqh4=
+Received: from = ( [120.239.196.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 21 Aug 2025 17:36:26 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11650469383386562404
+EX-QQ-RecipientCnt: 7
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Thu, 21 Aug 2025 17:36:10 +0800
+Subject: [PATCH RESEND v3] i2c: spacemit: configure ILCR for accurate SCL
+ frequency
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 3/8] drm: verisilicon: add a driver for Verisilicon
- display controllers
-To: Maud Spierings <maud_spierings@hotmail.com>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <AM7P189MB10098641C0B58ACFA3502A03E332A@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
-X-CMS-MailID: 20250821095049eucas1p19e5b485fe044f78c1cfcb62b720fd974
-X-Msg-Generator: CA
-X-RootMTR: 20250821093817eucas1p1d1f41f99c9fcf800c8230fb5795ad1d1
-X-EPHeader: CA
-X-CMS-RootMailID: 20250821093817eucas1p1d1f41f99c9fcf800c8230fb5795ad1d1
-References: <4e6d1a0f-4270-4d25-86c5-e4ec3721c451@samsung.com>
-	<CGME20250821093817eucas1p1d1f41f99c9fcf800c8230fb5795ad1d1@eucas1p1.samsung.com>
-	<AM7P189MB10098641C0B58ACFA3502A03E332A@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
+Message-Id: <20250821-k1-i2c-ilcr-v3-1-1a024f935717@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIAInopmgC/23NOw+CMBQF4L9iOlvSFxadHGR10NE4QLnIjbzSI
+ sEQ/rtNHQyJ47kn9zszcWARHDlsZmJhRIdd64PcboipsvYBFAufiWAiZprt6ZNTFIZibSyFTCo
+ NLIlZpoj/6C2UOAXtRi7pNT2fyN3fK3RDZ99hZBSh/Xo8WXmjoJzmyuySksvC5PxYY/uaItdnB
+ hocItM1ARzlD0m4WiPSI5JrLSRolZviL7IsywcTrSWj/AAAAA==
+X-Change-ID: 20250709-k1-i2c-ilcr-ea347e0850a4
+To: Andi Shyti <andi.shyti@kernel.org>, Yixun Lan <dlan@gentoo.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755768986; l=10871;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=zjzHsYUFAYdhKsd6LMQCUsQ4i3LBBoVBbwpa+M9mieI=;
+ b=itq6wpZdtCHg8ajcuUM4J4yG4tiyX8jUU243UK7lf0ii2+HBTjdpATfu7CKEQ3d2cTOffvkMj
+ +c4Exf95LDyD5ABnXgW/0HMcjka7fkfJVQdNYFx6yz10arG4o8pTWEL
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NSoa40jSEY0I0YCbYx3R2VyQoZFSz2NSDTt1nbYsf8T5v3+e6yyU8F1P
+	vYXw5EM6khJ9Ybc/bYqEmpc0ConXs2E4djLuZlBleZdTupRw88TLfbwsyD+lVekZNVwpYgT
+	SIysLCvyw51bvmtQUIsVZ5ADIyjo1089FPus3nneM0h7Fn0A3qCb+Xq/PVgZKhhw1L3O4Jo
+	Ma5NiVbRPkmOkc7tgChTWfCb4iFwTbnkWMNEqPYA+1s4E8QbyQs4zCMk1Zj70K3OYEREGef
+	zD7tDduelBVvMV2nuh0jLcV6Ogqg+9o4KbkQUDfJRP6buIum7vrk1BWo3lLU9vD1A1wolSI
+	z4D9FH2aoYAhOajA0EZtH71iFpp38EFi+nNeafO787lI2yfkXk7uQOggbQwDZ1SE1bPYLXd
+	79fopQIg+V9bZKdCuSmlRwDITfQcIDzDSwmVQ6dJ4gJtbeWqRmmpYhV+i8IAyJCRgRpc0VW
+	C9rsw08PONC4Inf/fwyWS29/80YbK0xXe5wWQbn+1scVkq9qKeMQuK2sdmu/cEx42oaWK6S
+	N1jdCtO55y2U3tM1IUtfdn37Xfb+FNwFMT5ZPhUK+Lu7KNv5bD4HD2AkwSl+1Yi+RDtfo4j
+	1ATjVjUDcspetyQ9ZhCFT62j5moiXp+UFzqVV2Jf9MUPXNTYpnrf+6wh/F/siklkLUV7ayz
+	ZW/RLdnPJmimvHkwJaj0+So60fSd8FKC+CKE+7tWLdE/tu9TGCEcn14CWM0tMWoweDttViQ
+	8JZAJxOt9WyJeo4pxsbdUVHUpZvQweYlPUH+GMOdRX9dCx7x0bmqk8qgfRMNdepBJ+S3q15
+	wR8496LRa7AIJ4Xs6hcjemXtBL7pbhm2BovRfv2RTh3YkvHICxxEqz3EcAh9jOpVOV4ZAu1
+	0B9uDqBRgepjpETkFXWUGFA9OYj0vlr2BaQ8QZ9QwkrixIAOdqMu/R+U6SqTWPF7b0PvQ4v
+	bF3x4V7kx+r0P/4UI/WGN6kd7QNXq8l1umO4/knN2SBgCayqHEi7zK7AtDIGcU33PtoBfyG
+	bzOFUL7vgvAnXPRSlLYICJUlfjPGUkzzlBDabWnOx1Ak+gxcEu9ye3inXlp4L9HwuMScJL9
+	Q9lPSmajQrkWdWcpGjPTy+R9lzYDX/7eh19cYc2jG9jsdbsVO+gvSw=
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_025055_649574_98E00209 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20250821_023733_454939_05D7723D 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,73 +101,326 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: fustini@kernel.org, heiko@sntech.de, dri-devel@lists.freedesktop.org, guoren@kernel.org, Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com, linux-riscv@lists.infradead.org, airlied@gmail.com, ziyao@disroot.org, simona@ffwll.ch, robh@kernel.org, rfoss@kernel.org, jernej.skrabec@gmail.com, devicetree@vger.kernel.org, conor+dt@kernel.org, tzimmermann@suse.de, jonas@kwiboo.se, maarten.lankhorst@linux.intel.com, mripard@kernel.org, neil.armstrong@linaro.org, linux-kernel@vger.kernel.org, p.zabel@pengutronix.de, rabenda.cn@gmail.com, krzk+dt@kernel.org, wefu@redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The SpacemiT I2C controller's SCL (Serial Clock Line) frequency for
+master mode operations is determined by the ILCR (I2C Load Count Register).
+Previously, the driver relied on the hardware's reset default
+values for this register.
 
+The hardware's default ILCR values (SLV=0x156, FLV=0x5d) yield SCL
+frequencies lower than intended. For example, with the default
+31.5 MHz input clock, these default settings result in an SCL
+frequency of approximately 93 kHz (standard mode) when targeting 100 kHz,
+and approximately 338 kHz (fast mode) when targeting 400 kHz.
+These frequencies are below the 100 kHz/400 kHz nominal speeds.
 
-On 8/21/25 11:38, Maud Spierings wrote:
->> So I am trying to make it work on JH7110 as well, and here is the
->> problem:
->>
->> [    5.564433] ------------[ cut here ]------------                                                                                                                                           [    5.569161] refcount_t: addition on 0; use-after-free.                                                                                                                                     [    5.574485] WARNING: CPU: 2 PID: 71 at lib/refcount.c:25 refcount_warn_saturate+0x110/0x162                                                                                                [    5.574537] Modules linked in:                                                                                                                                                             [    5.574560] CPU: 2 UID: 0 PID: 71 Comm: kworker/u17:2 Not tainted 6.17.0-rc1-g60ec647ec20c-dirty #77 NONE                                                                                  [    5.574596] Hardware name: StarFive
->> VisionFive 2 v1.2A (DT)                                                                                                                                [    5.574613] Workqueue: events_unbound deferred_probe_work_func                                                                                                                             [    5.574654] epc : refcount_warn_saturate+0x110/0x162                                                                                                                                       [    5.574682]  ra : refcount_warn_saturate+0x110/0x162                                                                                                                                       [    5.574710] epc : ffffffff81336608 ra : ffffffff81336608 sp : ffffffc6006e7530                                                                                                             [    5.574732]  gp : ffffffff8514c1c0 tp : ffffffd6c14ba580 t0 :
->> ffffffc6006e7134                                                                                                             [    5.574753]  t1 : fffffffef0a29898 t2 : 5f746e756f636665 s0 : ffffffc6006e7550                                                                                                             [    5.574774]  s1 : ffffffff83c058a8 a0 : 000000000000002a a1 : 0000000000000004                                                                                                             [    5.574794]  a2 : 0000000000000000 a3 : ffffffff801ef586 a4 : 0000000000000000                                                                                                             [    5.574813]  a5 : 0000000000000000 a6 : fffffffef0a29899 a7 : 0000000000000003                                                                                                             [    5.574833]  s2 : ffffffd6c35e68e8 s3 : ffffffd6c35e6990 s4 :
->> ffffffd6c33dc008                                                                                                             [    5.574854]  s5 : 0000000000000000 s6 : 1ffffffad867b801 s7 : 0000000000000000                                                                                                             [    5.574873]  s8 : ffffffd6c35e6990 s9 : 0000000000000000 s10: ffffffd6c3099058                                                                                                             [    5.574894]  s11: 1ffffffad861320b t3 : 1ffffff8c00dce34 t4 : fffffffef0a29898                                                                                                             [    5.574915]  t5 : fffffffef0a29899 t6 : ffffffc6006e6f38                                                                                                                                   [    5.574933] status: 0000000200000120 badaddr: 0000000000000000 cause:
->> 0000000000000003                                                                                                     [    5.574952] [<ffffffff81336608>] refcount_warn_saturate+0x110/0x162                                                                                                                        [    5.574985] [<ffffffff8193a506>] drm_bridge_get+0x66/0x6e                                                                                                                                  [    5.575022] [<ffffffff8001f26e>] drm_bridge_attach+0x54/0x5a2                                                                                                                              [    5.575055] [<ffffffff8002740e>] vs_bridge_init+0x3bc/0x4ba                                                                                                                                [    5.575087] [<ffffffff82313026>]
->> vs_drm_initialize+0xe0/0x2f2                                                                                                                              [    5.575126] [<ffffffff80027ca4>] vs_dc_probe+0x758/0x85c                                                                                                                                   [    5.575156] [<ffffffff8233123c>] platform_probe+0xac/0x138                                                                                                                                 [    5.575186] [<ffffffff8232b2a8>] really_probe+0x164/0x59e                                                                                                                                  [    5.575221] [<ffffffff8232b818>] __driver_probe_device+0x136/0x266
->> [    5.575257] [<ffffffff8232bb18>] driver_probe_device+0x56/0x214
->> [    5.575292] [<ffffffff8232bdf0>] __device_attach_driver+0x11a/0x278
->> [    5.575329] [<ffffffff823272d8>] bus_for_each_drv+0xea/0x16e
->> [    5.575363] [<ffffffff8232c680>] __device_attach+0x160/0x2d4
->> [    5.575398] [<ffffffff8232ca06>] device_initial_probe+0xe/0x16
->> [    5.575434] [<ffffffff823291d8>] bus_probe_device+0xfe/0x134
->> [    5.575468] [<ffffffff82329c62>] deferred_probe_work_func+0x128/0x1d6
->> [    5.575503] [<ffffffff80126aae>] process_one_work+0x5c0/0xe76
->> [    5.575543] [<ffffffff80129da6>] worker_thread+0x6d4/0x1316
->> [    5.575572] [<ffffffff801429ce>] kthread+0x29a/0x570
->> [    5.575608] [<ffffffff8004693e>] ret_from_fork_kernel+0x10/0x9a
->> [    5.575643] [<ffffffff835f55f6>] ret_from_fork_kernel_asm+0x16/0x18
->> [    5.575682] ---[ end trace 0000000000000000 ]---
->>
->>
->> When a bridge is allocated with kzalloc, its kref count is initialized
->> to zero. The drm_bridge_attach() function then calls drm_bridge_get() on
->> this bridge, which sees the zero refcount and triggers a use-after-free
->> warning because it assumes the object has already been freed.
->>
->> To fix this, the bridge's refcount must be initialized with kref_init()
->> after allocation and before it's attached.
-> 
-> Do you have a tree I can look at? I am very interested in getting this working on the jh7110. looked at it myself a week ago, but got lost quite quickly. If you end up upstreaming it I will definetly be there to test it.
+This patch integrates the SCL frequency management into
+the Common Clock Framework (CCF). Specifically, the ILCR register,
+which acts as a frequency divider for the SCL clock, is now registered
+as a managed clock (scl_clk) within the CCF.
 
-I first started working od getting the Keith version working and have
-the 'old' tree here [1]. It works with older version of the DC driver.
+This patch also cleans up unnecessary whitespace
+in the included header files.
 
-[1] - https://github.com/mwilczy/linux/commits/dpu_Aug_9_2/
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+Changelog in v3:
+- use MASK macro in `recalc_rate` function
+- Link to v2: https://lore.kernel.org/r/20250718-k1-i2c-ilcr-v2-1-b4c68f13dcb1@linux.spacemit.com
 
-So the above version works, however the display was 'purple-ish', colors
-were skewed. I shared the image in the 'Mainline Linux for RISC-V'
-telegram chat.
+Changelog in v2:
+- Align line breaks.
+- Check `lv` in `clk_set_rate` function.
+- Force fast mode when SCL frequency is illegal or unavailable.
+- Change "linux/bits.h" to <linux/bits.h>
+- Kconfig: Add dependency on CCF.
+- Link to v1: https://lore.kernel.org/all/20250710-k1-i2c-ilcr-v1-1-188d1f460c7d@linux.spacemit.com/
+---
+ drivers/i2c/busses/Kconfig  |   2 +-
+ drivers/i2c/busses/i2c-k1.c | 180 ++++++++++++++++++++++++++++++++++++++++----
+ 2 files changed, 167 insertions(+), 15 deletions(-)
 
-For the current version from Icenowy it's still a bit messy to share
-however it includes addition to inno-hdmi driver to make it works a bit
-more like dw-hdmi currently - introduce a probe function, not just
-bind, so it doesn't use component framework. Plus changes to
-clocks/resets that were discussed.
+diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+index c8d115b58e449b59a38339b439190dcb0e332965..1382b6c257fa4ba4cf5098d684c1bbd5e2636fd4 100644
+--- a/drivers/i2c/busses/Kconfig
++++ b/drivers/i2c/busses/Kconfig
+@@ -797,7 +797,7 @@ config I2C_JZ4780
+ config I2C_K1
+ 	tristate "SpacemiT K1 I2C adapter"
+ 	depends on ARCH_SPACEMIT || COMPILE_TEST
+-	depends on OF
++	depends on OF && COMMON_CLK
+ 	help
+ 	  This option enables support for the I2C interface on the SpacemiT K1
+ 	  platform.
+diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+index b68a21fff0b56b59fe2032ccb7ca6953423aad32..34b22969cf6789e99de58dd93dda6f0951069f85 100644
+--- a/drivers/i2c/busses/i2c-k1.c
++++ b/drivers/i2c/busses/i2c-k1.c
+@@ -3,17 +3,20 @@
+  * Copyright (C) 2024-2025 Troy Mitchell <troymitchell988@gmail.com>
+  */
+ 
+- #include <linux/clk.h>
+- #include <linux/i2c.h>
+- #include <linux/iopoll.h>
+- #include <linux/module.h>
+- #include <linux/of_address.h>
+- #include <linux/platform_device.h>
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/clk-provider.h>
++#include <linux/i2c.h>
++#include <linux/iopoll.h>
++#include <linux/module.h>
++#include <linux/of_address.h>
++#include <linux/platform_device.h>
+ 
+ /* spacemit i2c registers */
+ #define SPACEMIT_ICR		 0x0		/* Control register */
+ #define SPACEMIT_ISR		 0x4		/* Status register */
+ #define SPACEMIT_IDBR		 0xc		/* Data buffer register */
++#define SPACEMIT_ILCR		 0x10		/* Load Count Register */
+ #define SPACEMIT_IBMR		 0x1c		/* Bus monitor register */
+ 
+ /* SPACEMIT_ICR register fields */
+@@ -80,6 +83,19 @@
+ #define SPACEMIT_BMR_SDA         BIT(0)		/* SDA line level */
+ #define SPACEMIT_BMR_SCL         BIT(1)		/* SCL line level */
+ 
++#define SPACEMIT_LCR_LV_STANDARD_SHIFT		0
++#define SPACEMIT_LCR_LV_FAST_SHIFT		9
++#define SPACEMIT_LCR_LV_STANDARD_WIDTH		9
++#define SPACEMIT_LCR_LV_FAST_WIDTH		9
++#define SPACEMIT_LCR_LV_STANDARD_MAX_VALUE	GENMASK(SPACEMIT_LCR_LV_STANDARD_WIDTH - 1, 0)
++#define SPACEMIT_LCR_LV_FAST_MAX_VALUE		GENMASK(SPACEMIT_LCR_LV_FAST_WIDTH - 1, 0)
++#define SPACEMIT_LCR_LV_STANDARD_MASK		GENMASK(SPACEMIT_LCR_LV_STANDARD_SHIFT +\
++						SPACEMIT_LCR_LV_STANDARD_WIDTH - 1,\
++						SPACEMIT_LCR_LV_STANDARD_SHIFT)
++#define SPACEMIT_LCR_LV_FAST_MASK		GENMASK(SPACEMIT_LCR_LV_FAST_SHIFT +\
++						SPACEMIT_LCR_LV_FAST_WIDTH - 1,\
++						SPACEMIT_LCR_LV_FAST_SHIFT)
++
+ /* i2c bus recover timeout: us */
+ #define SPACEMIT_I2C_BUS_BUSY_TIMEOUT		100000
+ 
+@@ -95,11 +111,20 @@ enum spacemit_i2c_state {
+ 	SPACEMIT_STATE_WRITE,
+ };
+ 
++enum spacemit_i2c_mode {
++	SPACEMIT_MODE_STANDARD,
++	SPACEMIT_MODE_FAST
++};
++
+ /* i2c-spacemit driver's main struct */
+ struct spacemit_i2c_dev {
+ 	struct device *dev;
+ 	struct i2c_adapter adapt;
+ 
++	struct clk_hw scl_clk_hw;
++	struct clk *scl_clk;
++	enum spacemit_i2c_mode mode;
++
+ 	/* hardware resources */
+ 	void __iomem *base;
+ 	int irq;
+@@ -120,6 +145,88 @@ struct spacemit_i2c_dev {
+ 	u32 status;
+ };
+ 
++static void spacemit_i2c_scl_clk_disable_unprepare(void *data)
++{
++	struct spacemit_i2c_dev *i2c = data;
++
++	clk_disable_unprepare(i2c->scl_clk);
++}
++
++static void spacemit_i2c_scl_clk_exclusive_put(void *data)
++{
++	struct spacemit_i2c_dev *i2c = data;
++
++	clk_rate_exclusive_put(i2c->scl_clk);
++}
++
++static int spacemit_i2c_clk_set_rate(struct clk_hw *hw, unsigned long rate,
++				     unsigned long parent_rate)
++{
++	struct spacemit_i2c_dev *i2c = container_of(hw, struct spacemit_i2c_dev, scl_clk_hw);
++	u32 lv, lcr, mask, shift, max_lv;
++
++	lv = DIV_ROUND_UP(parent_rate, rate);
++
++	if (i2c->mode == SPACEMIT_MODE_STANDARD) {
++		mask = SPACEMIT_LCR_LV_STANDARD_MASK;
++		shift = SPACEMIT_LCR_LV_STANDARD_SHIFT;
++		max_lv = SPACEMIT_LCR_LV_STANDARD_MAX_VALUE;
++	} else if (i2c->mode == SPACEMIT_MODE_FAST) {
++		mask = SPACEMIT_LCR_LV_FAST_MASK;
++		shift = SPACEMIT_LCR_LV_FAST_SHIFT;
++		max_lv = SPACEMIT_LCR_LV_FAST_MAX_VALUE;
++	}
++
++	if (!lv || lv > max_lv) {
++		dev_err(i2c->dev, "set scl clock failed: lv 0x%x", lv);
++		return -EINVAL;
++	}
++
++	lcr = readl(i2c->base + SPACEMIT_ILCR);
++	lcr &= ~mask;
++	lcr |= lv << shift;
++	writel(lcr, i2c->base + SPACEMIT_ILCR);
++
++	return 0;
++}
++
++static long spacemit_i2c_clk_round_rate(struct clk_hw *hw, unsigned long rate,
++					unsigned long *parent_rate)
++{
++	u32 lv, freq;
++
++	lv = DIV_ROUND_UP(*parent_rate, rate);
++	freq = DIV_ROUND_UP(*parent_rate, lv);
++
++	return freq;
++}
++
++static unsigned long spacemit_i2c_clk_recalc_rate(struct clk_hw *hw,
++						  unsigned long parent_rate)
++{
++	struct spacemit_i2c_dev *i2c = container_of(hw, struct spacemit_i2c_dev, scl_clk_hw);
++	u32 lcr, lv = 0;
++
++	lcr = readl(i2c->base + SPACEMIT_ILCR);
++
++	if (i2c->mode == SPACEMIT_MODE_STANDARD)
++		lv = (lcr & SPACEMIT_LCR_LV_STANDARD_MASK) >>
++		     SPACEMIT_LCR_LV_STANDARD_SHIFT;
++	else if (i2c->mode == SPACEMIT_MODE_FAST)
++		lv = (lcr & SPACEMIT_LCR_LV_FAST_MASK) >>
++		     SPACEMIT_LCR_LV_FAST_SHIFT;
++	else
++		return 0;
++
++	return DIV_ROUND_UP(parent_rate, lv);
++}
++
++static const struct clk_ops spacemit_i2c_clk_ops = {
++	.set_rate = spacemit_i2c_clk_set_rate,
++	.round_rate = spacemit_i2c_clk_round_rate,
++	.recalc_rate = spacemit_i2c_clk_recalc_rate,
++};
++
+ static void spacemit_i2c_enable(struct spacemit_i2c_dev *i2c)
+ {
+ 	u32 val;
+@@ -138,6 +245,27 @@ static void spacemit_i2c_disable(struct spacemit_i2c_dev *i2c)
+ 	writel(val, i2c->base + SPACEMIT_ICR);
+ }
+ 
++static struct clk *spacemit_i2c_register_scl_clk(struct spacemit_i2c_dev *i2c,
++						 struct clk *parent)
++{
++	struct clk_init_data init;
++	char name[32];
++
++	snprintf(name, sizeof(name), "%s_scl_clk", dev_name(i2c->dev));
++
++	init.name = name;
++	init.ops = &spacemit_i2c_clk_ops;
++	init.parent_data = (struct clk_parent_data[]) {
++		{ .fw_name = "func" },
++	};
++	init.num_parents = 1;
++	init.flags = 0;
++
++	i2c->scl_clk_hw.init = &init;
++
++	return devm_clk_register(i2c->dev, &i2c->scl_clk_hw);
++}
++
+ static void spacemit_i2c_reset(struct spacemit_i2c_dev *i2c)
+ {
+ 	writel(SPACEMIT_CR_UR, i2c->base + SPACEMIT_ICR);
+@@ -224,7 +352,7 @@ static void spacemit_i2c_init(struct spacemit_i2c_dev *i2c)
+ 	 */
+ 	val |= SPACEMIT_CR_DRFIE;
+ 
+-	if (i2c->clock_freq == SPACEMIT_I2C_MAX_FAST_MODE_FREQ)
++	if (i2c->mode == SPACEMIT_MODE_FAST)
+ 		val |= SPACEMIT_CR_MODE_FAST;
+ 
+ 	/* disable response to general call */
+@@ -519,14 +647,15 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
+ 		dev_warn(dev, "failed to read clock-frequency property: %d\n", ret);
+ 
+ 	/* For now, this driver doesn't support high-speed. */
+-	if (!i2c->clock_freq || i2c->clock_freq > SPACEMIT_I2C_MAX_FAST_MODE_FREQ) {
+-		dev_warn(dev, "unsupported clock frequency %u; using %u\n",
+-			 i2c->clock_freq, SPACEMIT_I2C_MAX_FAST_MODE_FREQ);
++	if (i2c->clock_freq > SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ &&
++	    i2c->clock_freq <= SPACEMIT_I2C_MAX_FAST_MODE_FREQ) {
++		i2c->mode = SPACEMIT_MODE_FAST;
++	} else if (i2c->clock_freq && i2c->clock_freq <= SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ) {
++		i2c->mode = SPACEMIT_MODE_STANDARD;
++	} else {
++		dev_warn(i2c->dev, "invalid clock-frequency, using fast mode");
++		i2c->mode = SPACEMIT_MODE_FAST;
+ 		i2c->clock_freq = SPACEMIT_I2C_MAX_FAST_MODE_FREQ;
+-	} else if (i2c->clock_freq < SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ) {
+-		dev_warn(dev, "unsupported clock frequency %u; using %u\n",
+-			 i2c->clock_freq,  SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ);
+-		i2c->clock_freq = SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ;
+ 	}
+ 
+ 	i2c->dev = &pdev->dev;
+@@ -548,10 +677,33 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
+ 	if (IS_ERR(clk))
+ 		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable func clock");
+ 
++	i2c->scl_clk = spacemit_i2c_register_scl_clk(i2c, clk);
++	if (IS_ERR(i2c->scl_clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->scl_clk),
++				     "failed to register scl clock\n");
++
+ 	clk = devm_clk_get_enabled(dev, "bus");
+ 	if (IS_ERR(clk))
+ 		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock");
+ 
++	ret = clk_set_rate_exclusive(i2c->scl_clk, i2c->clock_freq);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "failed to set exclusive rate for SCL clock");
++
++	ret = devm_add_action_or_reset(dev, spacemit_i2c_scl_clk_exclusive_put, i2c);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				"failed to register cleanup action for exclusive SCL clock rate");
++
++	ret = clk_prepare_enable(i2c->scl_clk);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "failed to prepare and enable clock");
++
++	ret = devm_add_action_or_reset(dev, spacemit_i2c_scl_clk_disable_unprepare, i2c);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				"failed to register cleanup action for clk disable and unprepare");
++
+ 	spacemit_i2c_reset(i2c);
+ 
+ 	i2c_set_adapdata(&i2c->adapt, i2c);
 
-> 
-> Did you actually manage to get display out over hdmi? The hdmi output from last years starfive driver gave me some strange output issues that I'm currently just living with, but would love to see it gone.
-> 
-
-On the current version of the DC driver I'm still working on it.
+---
+base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
+change-id: 20250709-k1-i2c-ilcr-ea347e0850a4
 
 Best regards,
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
+
 
 _______________________________________________
 linux-riscv mailing list
