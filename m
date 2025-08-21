@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A61F1CA0FE2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D5ACA0EEB
 	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 00:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,73 +12,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fnL5gGcH+DUd1SqMkLnpjiY+pK5OSOxJqzSeCN7BqQU=; b=YBigB0DsmREQFO
-	03ycRkj3s6LI+fTfAB/BlUlNT6ksIiA23L3hFDi/lHtjlTPWK4knTumEWuodzIMWuu1whBuG3FfYQ
-	3c4whGcxCdVs4u1jijWfw0UwYjXXueicPiHD3E6KecSdF4p80yZgQMj9dkn70IGJxrU31/NPFJ6yX
-	XQC8lgmEbci0DQVP9UhUinKyIWuiFtA48w+ODpr3aBmyMbRMaK2p3lJG6NDZQyhRgiKxZkXqlVG1S
-	OFFZepnRWHfI0xTY05gISC1aCO2hc+TSOaToYsWEuMIIJBHnGGP0t8/fEQEvfQ3wCgg8xne8nPKh9
-	gpwCgaOox5hgCYGbK7gg==;
+	List-Owner; bh=OmwMo0yI4NkFyFK2mOKj7V6Q3msi6VOIJSQaISLbY8s=; b=a11eRp8Ipp18d1
+	2V4e8wLqFCUmJO1HEaI1fXNNV0BWG/NDEAotwuW8kd9hbbJRVf0NPvOJKvKM48C5KlEQ7X07q2mGg
+	DROty/hRNWG9PoVkiiWQmCvwcJZT5Tn5RxMM8AMnSwCeM5sT2fFhF4WkDCvlKVECUMPvGGTPLEw20
+	Hd932mq0nNynZyaya/qF6JXEeouBJMT6JY3G1hjq1y6FkOvbAaHvRx8dzK+eQIMh8c/EZftf/I7iw
+	wO6UD0+R8RjubaWDuTbGpXnFNQal8FyH16qaI1AZVNuAXG3fPjcpjP3lpCERStbHi2mZPEyjZpTtm
+	xRzveQIsfQ0N5XgZ5f5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upFcb-000000011cV-3xg4;
-	Fri, 22 Aug 2025 00:27:09 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1upFcZ-000000011Zu-2Uju;
+	Fri, 22 Aug 2025 00:27:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBZj-00000000Nih-0Kr0
+	id 1upBZF-00000000NQL-0leQ
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 20:07:56 +0000
+	Thu, 21 Aug 2025 20:07:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806874;
+	s=mimecast20190719; t=1755806844;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=QCvnB/7xI7T/4p4mwWx/D4+W6s//h9G2+oSyfbDOFZs=;
-	b=gw13t9nDpGG3U2GGHMcx/2sRRR9KRkg1799gYSbpZQy4XI+pCFyIp7adDzu0khQO8BlEpD
-	lsze6by2yDpulNWR+PJFam3a3xB1nScMtY6y+/YUHGdU/1aG7lVsqZTdUdI9gZXt0cQ3+e
-	lab+ur2ji94m2LOBF2zm59gUmk9HE54=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=aOl+Pd7m6DQCTUATshUDhXjEbKNtUx8aQQ0CVjE/d9w=;
+	b=hJBsxZ1oqBHQxt0Le0Bhv7aC7ES8ofEkvpknAG5yrjJEIhY4uLizGHxEsNvlwS/a/lpi4e
+	dpbOi4fZQ+sO28whrk7tP1rrB3Wm37isRp8Y70vstDMm1qT9Ppbh8UJlCV9SduN/+Kawto
+	VN4pEzTAFrN791a7Ni4EtjRIjlzN0mU=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-617-fH1wo1a7NwyYYvk-OceBlg-1; Thu, 21 Aug 2025 16:07:52 -0400
-X-MC-Unique: fH1wo1a7NwyYYvk-OceBlg-1
-X-Mimecast-MFC-AGG-ID: fH1wo1a7NwyYYvk-OceBlg_1755806872
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-45a1b05b15eso10519425e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:07:52 -0700 (PDT)
+ us-mta-264-HQQwdgVdNISraZyvILKx_Q-1; Thu, 21 Aug 2025 16:07:23 -0400
+X-MC-Unique: HQQwdgVdNISraZyvILKx_Q-1
+X-Mimecast-MFC-AGG-ID: HQQwdgVdNISraZyvILKx_Q_1755806842
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45a1b0b6466so9581295e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:07:22 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755806871; x=1756411671;
+        d=1e100.net; s=20230601; t=1755806842; x=1756411642;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=QCvnB/7xI7T/4p4mwWx/D4+W6s//h9G2+oSyfbDOFZs=;
-        b=p2LdBblAcQEswlzrIUPH1wMn6R2tBGlL13Mw7iFr+nMtlEgCbi131toVv/8jkqqx96
-         Okun/jj1Y+JHO4sWgfMYH0AxFNXiKg9pHtNH+wpyyAaAJf1NVS1BHxPFfSF0bvp6KIEP
-         PRlIJNk4iFHceu9tHa3t5HddB4pwdente5G8lhTOj55FmTzrMmtBprCowjXRUGQGTHIk
-         ESzPX1PKjKeswwo4uKu1VSqOoassR77rg+T0ffiLQQrSdeQXvqaa6yN7rfagiMGALYTB
-         WJwhWag8oIDn0z/uGQynRiFgDrko7hc6BGOg85Rn/9dzkeFgSoWd42sA4ODsst/WDe9C
-         SoaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWMlPknStnz/yWgl0JNaT6BNossBlnP4usGNACTJZd7RbsPsKVSdUiKP3cA0dxkutzEf/3+NCq/19xZpA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQXcqsZX0p8VhcDzJ8fxrjF4epYdkYjpf2cIzCG3qU2deBds31
-	Iuh0/meKXLObrxTk9IjYR0NAmTBDNF5MNQVT1TDWf+dHgD8KJ8tYIj1je5fVfASvHZ0QVMA21uv
-	6+Rn3dnB/MtlsO8SXFPseOhiXca4nvM0ozuNZikdmxu/dPvhnhRFDRL3QhFzhmo8H5sLouw==
-X-Gm-Gg: ASbGncsfMnXYGUwKSm0POOj9DuQ8952NQUB2UDxmZcHQwE6MqD7SYZWz7y294QnWp11
-	s6Xj1n3hLnYwl+VP8yCrHH08IoNKZepP3DQAV16/DVl5M2TUY9eeJCgtgBn28VjydEp406Yz2cX
-	pxsHDil4mXf8hmyFedZS9mMZayFlAznJx4qBzpVPWL580D9XH3n9yv7PEj1VbeyXnhu1NgGKQ+6
-	spvInXmTUph8jZ18DejuwvJVnOvVG7L4+DI4S1Oo/SspDfiYnWSwZgnVtvJXT4pRvgP1C6K6J7e
-	tcVGiRh2WGtyZKx066stbCLE2at1QUfTQ8K5yHyvYvBkr4PUXKH1Yw9xqTThMuXvOfgwJBQn99v
-	+maA5aWXfqwFPiPtMgbaQgA==
-X-Received: by 2002:a05:600c:1d07:b0:459:e025:8c40 with SMTP id 5b1f17b1804b1-45b5179e897mr2278765e9.10.1755806871564;
-        Thu, 21 Aug 2025 13:07:51 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGQe1GSIQC6LfutgynQLrqB1o4Jo0GTrBjlhxRWjM7nqTD8l8oEo1HOcPxtIuVQVn3tsHm8QA==
-X-Received: by 2002:a05:600c:1d07:b0:459:e025:8c40 with SMTP id 5b1f17b1804b1-45b5179e897mr2278575e9.10.1755806871147;
-        Thu, 21 Aug 2025 13:07:51 -0700 (PDT)
+        bh=aOl+Pd7m6DQCTUATshUDhXjEbKNtUx8aQQ0CVjE/d9w=;
+        b=eXl/uKV7yudj2BdRLHU0MP+uv9k702ZVsbLRV7Ir0BBZxb8MsHeLi8ybIocfIJWytk
+         2oEKvnFjRrCS6+ogBodK7VvgNU4JT0dB/YzGTD9tqivBH1nC0cjqSP4MWKrjCHC53/yy
+         au6qHaXpJmn42CRsW+xZCmpRwIdU74U4OLbKhbBa4qCDMx0wz1K97Ustj6sCxgxyCZ+t
+         4PoUmvkb0TTtZbxClqPMMz83L2JiLkqtyX+6yj0/uJiv/Ipu/9pg+BGpDrgFibmham3e
+         3/HUzlLPpbknCTMBCxsWDcxzvxhjjlgDg2vS7Z/lqNjLECuM5IA0oMEnZsf0gs3a7rQZ
+         Mr+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXDL0a3j7EBop50m59rLBYPXymFBvVyV/NkDcgzWrS4TM6uKx5Piu2vmg/XHdiaYTXSyot80szVdnQXdA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxx4ojS95GRj/vq3c3essODx6CjXTH5qs0uXpTNl8Tb6evBqHHO
+	6a9x85jwritltVWfKupVzw533w5Q5K4N+RoEicT78ciTYGo7E/7TaFuJb+4WPwtO6sK7eFE4CMk
+	NZ8UT7mWs0aDDF4r0YUIG46x8rkxJNCIz48RHjw0ykgLBkM9Ub8gw3R72q4Khz/uY/b//SQ==
+X-Gm-Gg: ASbGncstLMUHaEgNDs0a/CfNaogjGsDcbdUwiwgryQzukOyT88kdmWKPMPDMVAZ9KJj
+	XyShbssqBdAPw814oWDzZCRJxLQNZdJmiMzhto7lSg2KJzXzeGq9uucVNpqeC9jYKyeXx3MpY47
+	IOjz5kSFqhPKI6TYzMyIbosZ5RIR8OB3SB8gZb1g+fOJRBBaZHuA794cj5BiKk2Gb36fCPgQHr+
+	lZD1MZhYbceCaQs5pNChvtEgIM8u8QXEtfH2SojmV0HrnmQx0m/GJFyuSr9saON7Rom6GSGJddI
+	WSm+BQCvcdJDP3QS3x1pCwHxSyq3Y8zYsz2MrG8i/5u7pHAc8PFXpjKfD4HV6yXlPQKDHAipp4/
+	WwTTUx3OeIITZ26YWsOE9zw==
+X-Received: by 2002:a05:600c:1993:b0:456:e39:ec1a with SMTP id 5b1f17b1804b1-45b517ad4a9mr2412525e9.14.1755806841689;
+        Thu, 21 Aug 2025 13:07:21 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHtBnzBdejX2oNj8vG9iZBZKJew+pPrkGWxHzVnhFEnb5RkXIsj+cBFTtJrIXnzr/4lYhSU+w==
+X-Received: by 2002:a05:600c:1993:b0:456:e39:ec1a with SMTP id 5b1f17b1804b1-45b517ad4a9mr2412295e9.14.1755806841198;
+        Thu, 21 Aug 2025 13:07:21 -0700 (PDT)
 Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b4e1d77e0sm22159155e9.0.2025.08.21.13.07.49
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b50dc00a8sm10960275e9.1.2025.08.21.13.07.19
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:07:50 -0700 (PDT)
+        Thu, 21 Aug 2025 13:07:20 -0700 (PDT)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Shuah Khan <shuah@kernel.org>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -125,19 +127,19 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH RFC 16/35] mm/pagewalk: drop nth_page() usage within folio in folio_walk_start()
-Date: Thu, 21 Aug 2025 22:06:42 +0200
-Message-ID: <20250821200701.1329277-17-david@redhat.com>
+Subject: [PATCH RFC 05/35] wireguard: selftests: remove CONFIG_SPARSEMEM_VMEMMAP=y from qemu kernel config
+Date: Thu, 21 Aug 2025 22:06:31 +0200
+Message-ID: <20250821200701.1329277-6-david@redhat.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
 References: <20250821200701.1329277-1-david@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: bFosnWYX2l1Wf8DaDkJkp1kL1OBVMOoAUUVzXf_i4ws_1755806872
+X-Mimecast-MFC-PROC-ID: e9hgnvak8YlpKJUfQYOf50evq9NUJqLXeSGG4R39AQY_1755806842
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_130755_197757_8E5E0C12 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20250821_130725_291783_755D8050 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,27 +156,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It's no longer required to use nth_page() within a folio, so let's just
-drop the nth_page() in folio_walk_start().
+It's no longer user-selectable (and the default was already "y"), so
+let's just drop it.
 
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: Shuah Khan <shuah@kernel.org>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/pagewalk.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/testing/selftests/wireguard/qemu/kernel.config | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-index c6753d370ff4e..9e4225e5fcf5c 100644
---- a/mm/pagewalk.c
-+++ b/mm/pagewalk.c
-@@ -1004,7 +1004,7 @@ struct folio *folio_walk_start(struct folio_walk *fw,
- found:
- 	if (expose_page)
- 		/* Note: Offset from the mapped page, not the folio start. */
--		fw->page = nth_page(page, (addr & (entry_size - 1)) >> PAGE_SHIFT);
-+		fw->page = page + ((addr & (entry_size - 1)) >> PAGE_SHIFT);
- 	else
- 		fw->page = NULL;
- 	fw->ptl = ptl;
+diff --git a/tools/testing/selftests/wireguard/qemu/kernel.config b/tools/testing/selftests/wireguard/qemu/kernel.config
+index 0a5381717e9f4..1149289f4b30f 100644
+--- a/tools/testing/selftests/wireguard/qemu/kernel.config
++++ b/tools/testing/selftests/wireguard/qemu/kernel.config
+@@ -48,7 +48,6 @@ CONFIG_JUMP_LABEL=y
+ CONFIG_FUTEX=y
+ CONFIG_SHMEM=y
+ CONFIG_SLUB=y
+-CONFIG_SPARSEMEM_VMEMMAP=y
+ CONFIG_SMP=y
+ CONFIG_SCHED_SMT=y
+ CONFIG_SCHED_MC=y
 -- 
 2.50.1
 
