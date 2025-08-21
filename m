@@ -4,165 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F15CA0FE4
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 03:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D57CA0EEB
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 03:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sDiOWYD5XcbxHzZTto+U9V3IrgfKK4h7Gy1YJHriC1s=; b=F1WaAbt2jkQWnV
-	I4NzhZ8bve8QPlmSZ7ufcXkIpwGVNQY9mooVKoVXaGfZUlviwMVBZltyJN4bm8nvX5LcoFPs9kUMv
-	A9+qD3Nb9XAfg1nrH8KBuz7xMS3Aw4NusmIQfq/qONU72+gNQHMSx0Zp4apNEPnkqCiQtgnKe/XTT
-	NxP2qx28K7qWMxEw/38kkc0v9RbLVRMGYfhICB0L4q0jq1XQpZqfld47b7RgJJ0G3pHanbZa+ODNi
-	nYlbfqGIIxzb6i9c/bwmy6GGjSNuRE9TPB9ktGph7l2zgTNupqOfCEsRqMAaxjWVReToVV41kwuon
-	X7kJcUmNZwDlj6+E+YKA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8mpM+1wof0NL/5wex/1R6is/Je/+iYq3k+V8WsNrLxM=; b=SUogbzqWdsIlK7
+	52me+cvlFVLypKuqbh6ywzrWAevJCxOfYEXYltOPpxK49CM+LNecsY7in//eBT5+RlZbc8u7GdJjc
+	FW8ks6iuk6zNK5v2/El/nEEgAic5xZYt4vMVXq3kQ+XKvVlYaZuq2H5kfZs9LpOCR3JxpbuPaaO+f
+	7CztMTex53xcm6ZQt2CVcU9ce0jBUX+fvKrw8Hfi5qW5gRvqn50XQ9qb1y7C1euzVwwvr7Uo+XgHE
+	yWgpEUDotM7gG1iBHcVEyvFK2OC0GUbZ6D8OmfgYijKyp8njvsER+Irleg/YBGhFGN5s0XRlFm/iW
+	Kolz4007eVT0MfUTk9zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upI4U-00000001Kbv-2eX4;
-	Fri, 22 Aug 2025 03:04:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1upIG2-00000001MHk-0mtI;
+	Fri, 22 Aug 2025 03:16:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBab-00000000OEA-3vDS
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 21 Aug 2025 20:08:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=wK69Pd9CHZjKZhmlaft7kkJNdToX7IH/S9WvVIRScQg=; b=gzW/guhTVJxFLAc9NVC/wIJawW
-	IhJJSUTr7R0Pfv6CDpWI5puFgADXxBvAAnm5H0YSAzvtBNduo5SlWnfpRnwejdgFzN2A/3RhEIUZ5
-	vGqFrHoPvcOWhR52u2J+azGcvxrUPJreqNbE7m75WyQwQo7/gXxiBucCk6d45HYaQ/oalB4TvugWT
-	I221RBYNONgQKV2XGbhFSl9VQRmIJSTntuTu7nZYkG8FJwt2/zR0YTIUh7JyxpQ+V4v5Ktr2fXGiu
-	cgdsUOqF6YuRmLMDwRUBJomMNNaxXl4Jd0V1WZHHvEdQSWYwsc1xDaOiqzcJWd7A0du5Ns4wAEjy8
-	rDMpjUiA==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBaV-00000000fE7-2X8q
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Aug 2025 20:08:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806922;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wK69Pd9CHZjKZhmlaft7kkJNdToX7IH/S9WvVIRScQg=;
-	b=NbCFXHhbl7F8nCT3qz4reEAUDlamu2nUfuqGTXVMftG8wbwfoRvC1Xakoyq3sQjNR/VLc8
-	z67Yu1yr1OMyUOLZQTrera6NL3sUZvOjWFBvfKIQr63IcppAnmeq63Jw8zetE6cELxGQhd
-	lj/M7yhBSPu+MCBpvmFqxjz3lV7fyCA=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806922;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wK69Pd9CHZjKZhmlaft7kkJNdToX7IH/S9WvVIRScQg=;
-	b=NbCFXHhbl7F8nCT3qz4reEAUDlamu2nUfuqGTXVMftG8wbwfoRvC1Xakoyq3sQjNR/VLc8
-	z67Yu1yr1OMyUOLZQTrera6NL3sUZvOjWFBvfKIQr63IcppAnmeq63Jw8zetE6cELxGQhd
-	lj/M7yhBSPu+MCBpvmFqxjz3lV7fyCA=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-318-C3Cbf0TdNJC5ts7Et08VQA-1; Thu, 21 Aug 2025 16:08:39 -0400
-X-MC-Unique: C3Cbf0TdNJC5ts7Et08VQA-1
-X-Mimecast-MFC-AGG-ID: C3Cbf0TdNJC5ts7Et08VQA_1755806918
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3b9d41b88ffso838825f8f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 13:08:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755806918; x=1756411718;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wK69Pd9CHZjKZhmlaft7kkJNdToX7IH/S9WvVIRScQg=;
-        b=R82bX50nq+JyM9O5Y+TiCumrjX5/QcHRtKUNAtuvj+wsNqmRK121wdHHDh3M9BtKDW
-         VH/LA7/VRBxyzA57fjupXDB1djBXtmY3iidnkSR7QK5BKFVQ71U5p4iWEq8itNdKpuPy
-         OzbVQ67wcwRFl0jN6dkEcQf4sSZN728G9ZTo/Wz5A7T79xTnOZ3Tifx9dZZvbFgRATEV
-         NkWOjR/m6yQklRFpLa1+9Z6ItKsWi6j3dqOrE9GBqN9ORIMWIi5VvOQkkLDWoQts3p3g
-         baM29WQ5Nxp/JSdZRWpwMluRmFFCJwiVWGHsVs809VND4n2cKiEmqisQWBWmqPXkmbuQ
-         p4jQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWfT2TaZ9LDDtj6sdQ/IykGYD8mrR08La418ghY085eXX2yzGZsKKxblYbkR8iKqkfKoY/Qiv63l7XmPg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCtowVSlVO2hjn9+ZRS25NE7eyLC3STBWab9uv+wXT9H9DjyRP
-	4j6GBn2uQhLqe8u8ynvZEv8tkuPL94hPG5wSzcZ+ckhMpwJs0nE5VuF/o23uPj8++Pw3opboAcp
-	NDfDgJ2Owt3RYL2zqWMMrA5PkuAYSrTVh7jFjyD9Js44OUXOIdSnNbEy5rZs9Ne+TelgaIQ==
-X-Gm-Gg: ASbGnctgCyTLW0mPv3o2FkGhhIGMu/sciItUwcbGtaiyfWVwIDyHe08hVd5vndp6YAN
-	WE7Y1eAEcH81kGvP9ih6rzHTjZczZI5oYBk5J+q6YHML+6YiFQXKCjx2GbyPsuiIHZTxtp+nFEM
-	or5/NvF4xMtU3EWUBKJaZzM7Xf2dGlS3mOJVr+V37Hj5jkQFHR9FMXB8+SeVP34D9YRhBTgRXiQ
-	8lJ3+siJ5c1JOoJwVvmM6eoc82HmI8GG7ys9JRnaDL24U1h+Lv1mTWJy4dFPiQ9DTZuCG8uyt1o
-	K1HOGV5XS/yGSB+ykTMseuv3H8A7chWI2BJMkABiynkpBMXdmbkIngrbiWAFVeirRbieTdlExLI
-	jtO3SQGoSxjh9vEmSnblRPg==
-X-Received: by 2002:a5d:64e9:0:b0:3b8:d7c7:62d7 with SMTP id ffacd0b85a97d-3c5daefc298mr218336f8f.16.1755806917870;
-        Thu, 21 Aug 2025 13:08:37 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IETBfJ8klmP3LMs+G3FmlUfLKA9Qlb/rzelQ5gyETYamNwKefh2PCq6Da3p1XS4Ia+K1NPGrw==
-X-Received: by 2002:a5d:64e9:0:b0:3b8:d7c7:62d7 with SMTP id ffacd0b85a97d-3c5daefc298mr218279f8f.16.1755806917364;
-        Thu, 21 Aug 2025 13:08:37 -0700 (PDT)
-Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3c4ccbf04fasm3355197f8f.7.2025.08.21.13.08.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:08:36 -0700 (PDT)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH RFC 32/35] mm/gup: drop nth_page() usage in unpin_user_page_range_dirty_lock()
-Date: Thu, 21 Aug 2025 22:06:58 +0200
-Message-ID: <20250821200701.1329277-33-david@redhat.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
-References: <20250821200701.1329277-1-david@redhat.com>
+	id 1upCdX-00000000dqm-3EUE;
+	Thu, 21 Aug 2025 21:15:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C7E18601F8;
+	Thu, 21 Aug 2025 21:15:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE9A8C4CEEB;
+	Thu, 21 Aug 2025 21:15:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755810954;
+	bh=pOQAZPk+siIZkKBpkkHyydqf+iJWdipFSBVhf2HWXnk=;
+	h=From:Subject:Date:To:Cc:From;
+	b=uQZ01Sr4y5UBxZbhDZfvUDEeNvw7RqMPpecFt11yc7bsaW5ovYL0XUfzrWWsiNXzZ
+	 c8++tipPQjqwKYp0k0gDhrvljaAd7re4WVkFUF5WrFBqQqEIN8iR74Vee7BNt/CA+g
+	 /tG0RI1G9MmS/0WG3vAsp0ldl5sjGRh0EGxzNxVH1Tm0PYZoCyCQqG00dIozdKH/oE
+	 pE+AKTCsKwpp5uIo1NEGnmB8ycta84iEl1LU6UXiRm6kopTiphBIqE2wbsbInRJaJl
+	 x/kzDSN/k618a3jDJ0BA65cb43YnV0uqrkYoP768loOw8+WrPigrhNPUtuX3uXdZuq
+	 W/LW5Ik2tcyqg==
+From: Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH v2 00/12] Bump minimum supported version of LLVM for
+ building the kernel to 15.0.0
+Date: Thu, 21 Aug 2025 14:15:37 -0700
+Message-Id: <20250821-bump-min-llvm-ver-15-v2-0-635f3294e5f0@kernel.org>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: mFWGoFB9QdJ8jH5KXmE5YmFehYO5UEYKJgiqKwzXjgQ_1755806918
-X-Mimecast-Originator: redhat.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_210843_960155_B564C6AC 
-X-CRM114-Status: GOOD (  15.75  )
+X-B4-Tracking: v=1; b=H4sIAHqMp2gC/22NQQ6CMBBFr0Jm7ZhOzSi48h6GhcAAE6GQVhsN4
+ e5W3Lp8L/nvLxDEqwQ4Zwt4iRp0cgnsLoO6v7lOUJvEYI1lcyKD1XOccVSHwxBHjOKRGAu2B2p
+ JqiMzpOnspdXXlr2WiXsNj8m/t5dIX/sL5pT/D0ZCg3VeUWPaglnM5S7eybCffAfluq4fb81km
+ bkAAAA=
+X-Change-ID: 20250710-bump-min-llvm-ver-15-95231f1eb655
+To: linux-kernel@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ llvm@lists.linux.dev, patches@lists.linux.dev, 
+ Nicolas Schier <nsc@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+ linux-kbuild@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ Russell King <linux@armlinux.org.uk>, Ard Biesheuvel <ardb@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ linuxppc-dev@lists.ozlabs.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
+ Marco Elver <elver@google.com>, 
+ "Peter Zijlstra (Intel)" <peterz@infraded.org>, kasan-dev@googlegroups.com
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3775; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=pOQAZPk+siIZkKBpkkHyydqf+iJWdipFSBVhf2HWXnk=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDBnLexp5jt71uLBmLnPYsZJXWxZZ/jvpEC46Jadf9c7Uw
+ ETlF/9MO0pZGMS4GGTFFFmqH6seNzScc5bxxqlJMHNYmUCGMHBxCsBEbpkw/I9487fgnDGfn0/r
+ 3M6FSqzXJdY9UrRtFZK/fJjFtn+JsiAjw7+LX1KSfVQYtyp9370iKU3tw4SvX9nUW67uL1go/I+
+ LnxkA
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,51 +94,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is the concern that unpin_user_page_range_dirty_lock() might do
-some weird merging of PFN ranges -- either now or in the future -- such
-that PFN range is contiguous but the page range might not be.
+s390 and x86 have required LLVM 15 since
 
-Let's sanity-check for that and drop the nth_page() usage.
+  30d17fac6aae ("scripts/min-tool-version.sh: raise minimum clang version to 15.0.0 for s390")
+  7861640aac52 ("x86/build: Raise the minimum LLVM version to 15.0.0")
 
-Signed-off-by: David Hildenbrand <david@redhat.com>
+respectively. This series bumps the rest of the kernel to 15.0.0 to
+match, which allows for a decent number of clean ups.
+
+On the distros front, we will only leave behind Debian Bookworm and
+Ubuntu Jammy. In both of those cases, builders / developers can either
+use the kernel.org toolchains or https://apt.llvm.org to get newer
+versions that will run on those distributions, if they cannot upgrade.
+
+  archlinux:latest              clang version 20.1.8
+  debian:oldoldstable-slim      Debian clang version 11.0.1-2
+  debian:oldstable-slim         Debian clang version 14.0.6
+  debian:stable-slim            Debian clang version 19.1.7 (3+b1)
+  debian:testing-slim           Debian clang version 19.1.7 (3+b1)
+  debian:unstable-slim          Debian clang version 19.1.7 (3+b2)
+  fedora:41                     clang version 19.1.7 (Fedora 19.1.7-4.fc41)
+  fedora:latest                 clang version 20.1.8 (Fedora 20.1.8-3.fc42)
+  fedora:rawhide                clang version 20.1.8 (Fedora 20.1.8-3.fc43)
+  opensuse/leap:latest          clang version 17.0.6
+  opensuse/tumbleweed:latest    clang version 20.1.8
+  ubuntu:focal                  clang version 10.0.0-4ubuntu1
+  ubuntu:jammy                  Ubuntu clang version 14.0.0-1ubuntu1.1
+  ubuntu:noble                  Ubuntu clang version 18.1.3 (1ubuntu1)
+  ubuntu:latest                 Ubuntu clang version 18.1.3 (1ubuntu1)
+  ubuntu:rolling                Ubuntu clang version 20.1.2 (0ubuntu1)
+  ubuntu:devel                  Ubuntu clang version 20.1.8 (0ubuntu1)
+
+I plan to carry this via the Kbuild tree with the appropriate acks.
+
 ---
- mm/gup.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+Changes in v2:
+- Add two new patches for RISC-V to clean up more LLD_VERSION checks
+  (Alex)
+- Pick up provided tags (thanks all!)
+- Link to v1: https://lore.kernel.org/r/20250818-bump-min-llvm-ver-15-v1-0-c8b1d0f955e0@kernel.org
 
-diff --git a/mm/gup.c b/mm/gup.c
-index f017ff6d7d61a..0a669a766204b 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -237,7 +237,7 @@ void folio_add_pin(struct folio *folio)
- static inline struct folio *gup_folio_range_next(struct page *start,
- 		unsigned long npages, unsigned long i, unsigned int *ntails)
- {
--	struct page *next = nth_page(start, i);
-+	struct page *next = start + i;
- 	struct folio *folio = page_folio(next);
- 	unsigned int nr = 1;
- 
-@@ -342,6 +342,9 @@ EXPORT_SYMBOL(unpin_user_pages_dirty_lock);
-  * "gup-pinned page range" refers to a range of pages that has had one of the
-  * pin_user_pages() variants called on that page.
-  *
-+ * The page range must be truly contiguous: the page range corresponds
-+ * to a contiguous PFN range and all pages can be iterated naturally.
-+ *
-  * For the page ranges defined by [page .. page+npages], make that range (or
-  * its head pages, if a compound page) dirty, if @make_dirty is true, and if the
-  * page range was previously listed as clean.
-@@ -359,6 +362,8 @@ void unpin_user_page_range_dirty_lock(struct page *page, unsigned long npages,
- 	struct folio *folio;
- 	unsigned int nr;
- 
-+	VM_WARN_ON_ONCE(!page_range_contiguous(page, npages));
-+
- 	for (i = 0; i < npages; i += nr) {
- 		folio = gup_folio_range_next(page, npages, i, &nr);
- 		if (make_dirty && !folio_test_dirty(folio)) {
--- 
-2.50.1
+---
+Nathan Chancellor (12):
+      kbuild: Bump minimum version of LLVM for building the kernel to 15.0.0
+      arch/Kconfig: Drop always true condition from RANDOMIZE_KSTACK_OFFSET
+      ARM: Clean up definition of ARM_HAS_GROUP_RELOCS
+      arm64: Remove tautological LLVM Kconfig conditions
+      mips: Unconditionally select ARCH_HAS_CURRENT_STACK_POINTER
+      powerpc: Drop unnecessary initializations in __copy_inst_from_kernel_nofault()
+      riscv: Remove version check for LTO_CLANG selects
+      riscv: Unconditionally use linker relaxation
+      riscv: Remove ld.lld version checks from many TOOLCHAIN_HAS configs
+      lib/Kconfig.debug: Drop CLANG_VERSION check from DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT
+      objtool: Drop noinstr hack for KCSAN_WEAK_MEMORY
+      KMSAN: Remove tautological checks
+
+ Documentation/process/changes.rst |  2 +-
+ arch/Kconfig                      |  1 -
+ arch/arm/Kconfig                  | 11 ++++-------
+ arch/arm64/Kconfig                |  5 +----
+ arch/mips/Kconfig                 |  2 +-
+ arch/powerpc/include/asm/inst.h   |  4 ----
+ arch/riscv/Kconfig                | 21 +++++++--------------
+ arch/riscv/Makefile               |  9 +--------
+ lib/Kconfig.debug                 |  2 +-
+ lib/Kconfig.kcsan                 |  6 ------
+ lib/Kconfig.kmsan                 | 11 +----------
+ scripts/min-tool-version.sh       |  6 ++----
+ tools/objtool/check.c             | 10 ----------
+ 13 files changed, 19 insertions(+), 71 deletions(-)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250710-bump-min-llvm-ver-15-95231f1eb655
+
+Best regards,
+--  
+Nathan Chancellor <nathan@kernel.org>
 
 
 _______________________________________________
