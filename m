@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832AECA0EEB
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 14:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F4ECA0EED
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 14:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+gVwZZooh1G2olYJWn966YwiQuupyB2YXdTIcrEd52k=; b=faFTl5BFXb3ijq
-	KzY93VoiJWDCx6pMHYf8Jql2Ny72bIi3HAxKzpGh2xP9yp+5Z+rV2LsM+mj1kVYhl2e36ytpr+5ie
-	6fVVHQEj6UOGP5aODYg+C0wkc3Vbg1Ye5Xzg0duznDpTOq5xQM4ml0ZZFBh8xV0VIEjNiMLeJNRTx
-	jSszUWF2pNwDmucSbKIpU3INuB52dAi0sfdgS3iXWzVQnvxAHFV5lv4gPtIbG7Q3/Z/FSzGK2e+TA
-	K6cIaL/YUG4I6T6twGEL3pNcS7RBc9BgoMj+XhfHqGetCU2+a01z4cNtetB+7R0KJC39rc4/aA+Us
-	tj0Y152mLaeDmI+6spUg==;
+	List-Owner; bh=NRnxpD6/eFsh/4vMVwci8xJSejj2vCqMyvu4T8OGg+8=; b=wJVHldFOYgULBv
+	8KVBUEJhrl9eZ5k9nFXIYuO8bpCHccbP9IIrYXgDoaxLbkik5ZkEKbYDSrXHfzSEDNYYRdI5sf1aC
+	6cwEY6b0diXf4NAgX0tJPuUVgNNIbnC0O+RcizVpLAJIdDE5kMhxcXF8g7JWL/iQgoylaNMQWnyyF
+	eeoyNDeJkL3Ct1OGCGWBBgy/JEzANUPe9QIDWpVXATUHuHLEaBxdpzUXfMQ8YbZWojjZmlWWTMfaL
+	bGU4xt8jqg4noHj/rCA6cZhM8lhTir7RlvLdSK5yz1y8QbrDJ33Um6f4PmaQuw+SUeHIM2htjsdtd
+	ItA+Bzq0JE3TCne8yTgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSbT-00000002l1k-3tOi;
-	Fri, 22 Aug 2025 14:18:51 +0000
+	id 1upSbd-00000002lDg-2ePx;
+	Fri, 22 Aug 2025 14:19:01 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upL6t-00000001fyR-3YPp
+	id 1upLCY-00000001glO-3q65
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Aug 2025 06:18:49 +0000
+	Fri, 22 Aug 2025 06:24:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755843526;
+	s=mimecast20190719; t=1755843877;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=niXcAgzmbCLTQjKBYxU2ktBBprjtNy5MGdyac9sGLRc=;
-	b=CDPw+Cgl+44lMKi5XjtbtWGWnS9+cLBWHtKrimwV3ABFOJwqQVz4LL9k3doLN5omJ0RLfD
-	jJ0sBjYxRIix46h9Y3J3ApFHYRoVWENXCvl8N3BilgFIjSbXQBc5algKoUhqkWoqw8uc/V
-	UDrmcwoYT0KFEg6ei0Tzk3iokbBvIxM=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=WiI+ZnCzEnb/n6DQfRPkU+9oejYIM/R2hKOTH1yevco=;
+	b=JUuDx/mIh1HjyqVIb1gxTmOSbawlExlJEHy+T/G78xkeOa1aDOsr81JuC1jaDFHmmCJQYE
+	ZT6pMSU4frP+G2bMSgz+u3vbvrUtZCmY8LQT56a58zFfXe/EV8l+Q21T1dBhzkqoHkxm5m
+	mZ5pHjgZVeGVNjfwncuqOwW4u7yjRKI=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-86-b21biGi1O5iGdtLsc0uVZw-1; Fri, 22 Aug 2025 02:18:45 -0400
-X-MC-Unique: b21biGi1O5iGdtLsc0uVZw-1
-X-Mimecast-MFC-AGG-ID: b21biGi1O5iGdtLsc0uVZw_1755843524
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45a1b0098c0so10729445e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 23:18:45 -0700 (PDT)
+ us-mta-304-bGN-wOw7MDmJTvriMbIV0g-1; Fri, 22 Aug 2025 02:24:36 -0400
+X-MC-Unique: bGN-wOw7MDmJTvriMbIV0g-1
+X-Mimecast-MFC-AGG-ID: bGN-wOw7MDmJTvriMbIV0g_1755843875
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3b9edf332faso560774f8f.3
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 23:24:36 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755843524; x=1756448324;
+        d=1e100.net; s=20230601; t=1755843875; x=1756448675;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=niXcAgzmbCLTQjKBYxU2ktBBprjtNy5MGdyac9sGLRc=;
-        b=osS4LHiB7h45yEJzMVW2+Gm5o1vIDRZhAV7e66hJAKHZD3bf24EofoLIoh7pFch3HA
-         SB2cgCQtGiJCGF+0XOWZnX6NtCNcuQNSXWcM/gDv/A+Ejv/Z1hD/GdpPvPK+fUm/78Tz
-         8B6UiGm3IwhfqpsLTwpT8RcMD8AhLoeDSarNCr6vHfXzSM59rKHtq5pkWk6mfBreNk0r
-         UNScNeI1Vl67B9txCYJttMLiPkG89FVRskvEEnBCgYfDx8eXDF7p9Y7zaUhoIIF5PmiU
-         xbYFSK3NxIZb4uCxOBjqIUDiRD1If4i4Rd0BGmLY3ka2M2hRNbn9FCm9Ua+fyg/8f9NP
-         ZMTA==
-X-Forwarded-Encrypted: i=1; AJvYcCUaDWNrfoQjwzY7ivG0nYiYQGgFNo4fNmiql8NkRYqV0MHud7GkYhgwAqfBliv436d8TisS4TXxM0iv+w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOhasrA7YRr+9YYw23nG4rqi/xGEDOLu+lGLBP9ZXnojOv1MTJ
-	qjdb+vzdFeoOPH+h1JTE5T3TbRyIXCuQIj/D5uAqpEY5HhGYP4pt1Tt/9jyGbe3UxRcxl8Ttaph
-	J/ix9jcN+ljyvILn4QmJKO05KhKsGC2wK4uG/Ki7A9N005+jRmUI6/Pk1iCNLazBD687nzQ==
-X-Gm-Gg: ASbGncty9Ca+GkG8GK/wvBBiLwAynAx9P/blTqKIjhp8TTzWOuvPBiQkAdXopr7O7uA
-	HM4Bi6vGGVw0F+hO1ZLJZJD5A2ATkoWdyoqh3hXcpXuRtXXiPVc/LdZPZgezHHunk4+PVzKhUeR
-	6aD9HDlxk7kN3yExA1O1KTgHs7DDBioWkhUOk9fXpIhmL2NRlxOsO/J5pABoKxZBRdf2FnxZYyt
-	PExbeEV/YvwJ+5tpjFA+Kzonodx1lLVEVxM6bvBboYlt4yHiAnegD1x8RXRyvENKn40O+0rIzZT
-	OJ7Ae7AdCh12WdC0kfd6v1y0Ao4vcavJAR6F6HxLDotly/AUjgayMgLNWHKymX4xCApuzQ==
-X-Received: by 2002:a05:600c:4e8c:b0:456:1ac8:cace with SMTP id 5b1f17b1804b1-45b5179e7e8mr12435825e9.12.1755843523923;
-        Thu, 21 Aug 2025 23:18:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHdnIqi4Hq3cqdHCtXLM1BskgbP/iNxi6JCTe3b4/5WxUiRcTB1IoXLbvfQ3J7NKdKWtFg41A==
-X-Received: by 2002:a05:600c:4e8c:b0:456:1ac8:cace with SMTP id 5b1f17b1804b1-45b5179e7e8mr12435175e9.12.1755843523431;
-        Thu, 21 Aug 2025 23:18:43 -0700 (PDT)
+        bh=WiI+ZnCzEnb/n6DQfRPkU+9oejYIM/R2hKOTH1yevco=;
+        b=dY/s9UZmYEuIMsJQhEJdvhlbYeuNhvFhHfGHFE28djcs3hfJJan7wT643SXCIJxNIM
+         VPsdhlmShCiS0G2BTRWKrlGaFknnNuPEYkdDaAExUN7x2JjA3KRPoAYPspj72jydJqZ0
+         FOFIuB7/rpncX8wFIAUq9J37zlX+KsiVCyxZB7mdbeP9fbxGrya1kQfDqW47YHebNJ0T
+         bw9apVeX4jdzLi3reiXebvj2xXrupCOQULxjRA0NDB6rrZQebCBE1LaUUOSVEtB2JLdc
+         BD47VFMMkRAy6IUTynf4DNrD921RxJ5AItAJqHqNrt0oowi+xTpUrD1sQN1IVixDcM6X
+         2Dzg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwwDjE6vQt4ixjIgL3E+hWcXJspaBEs1H74lmRXY64NM9YYgTJU9y84k0aKdQpQuEe3s5fkSvnFoz+Rg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzN7UkV5HlKpp4ejk8x5BrxG2Zn+YiFjKcA1WRuxsAD8KvJhtsH
+	SVR4ZHGXLCAAXIQvs3fhfSKvveEGU59IabVDbQ5btJU96TtraFUi0iOhLVlQFYDriZgJKBJGlkz
+	YuBm5ax1CHWQX01QKIDnNF84dtTyaHhdQFlLtFtdpp6qC1Eh5b8S2k5TVMpT2jc3IsPTDRA==
+X-Gm-Gg: ASbGncvylsfqivx60QStHWnYwNkPuBrgMsP+mZlG7zAH2qTmYQGgisDimbxEpw+gz9p
+	AZwb4ul3fgqsKPMQw5JNAAzec3pi9CbwMhPBzr/2pECMxDoqA9EZMzhIV/uVRf++rs9+pcL3WYi
+	iEZsciFmHI6hEu6Nus1fkOjQGJF67xPRQjdLTQV5VHHAC9YwoJUpfDPvBV9RqY5OyTT1EWG9jUE
+	3VSSSLDjGStwkF9QX2A52u1vfYm+f7ryg/JUAz5kyNsfNKvZnUJK6d+IWqAld/5rsKW6oog6H/h
+	MjoO5RaTZT2OXhoaRUJms+nAQOUXWbFrEo+4M7z4ijpYvyLrpjelLmVRJd1xQCKeKy79Cw==
+X-Received: by 2002:a05:6000:26c1:b0:3a3:7ba5:93a5 with SMTP id ffacd0b85a97d-3c5daefc4a3mr930386f8f.26.1755843874990;
+        Thu, 21 Aug 2025 23:24:34 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGkMOIqwJnbz0zMoKzv9XjVteH9mRf82hflWECX8mqHGwhCkTy10DA8QnyI2PcknGc6Szk7/A==
+X-Received: by 2002:a05:6000:26c1:b0:3a3:7ba5:93a5 with SMTP id ffacd0b85a97d-3c5daefc4a3mr930326f8f.26.1755843874452;
+        Thu, 21 Aug 2025 23:24:34 -0700 (PDT)
 Received: from [192.168.3.141] (p4ff1f25c.dip0.t-ipconnect.de. [79.241.242.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b50d62991sm24078285e9.0.2025.08.21.23.18.41
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c6070264fbsm1198544f8f.67.2025.08.21.23.24.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 23:18:42 -0700 (PDT)
-Message-ID: <6bff5a45-8e52-4a5d-81cb-63a7331d7d0b@redhat.com>
-Date: Fri, 22 Aug 2025 08:18:40 +0200
+        Thu, 21 Aug 2025 23:24:33 -0700 (PDT)
+Message-ID: <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
+Date: Fri, 22 Aug 2025 08:24:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 24/35] ata: libata-eh: drop nth_page() usage within SG
- entry
-To: Damien Le Moal <dlemoal@kernel.org>, linux-kernel@vger.kernel.org
-Cc: Niklas Cassel <cassel@kernel.org>, Alexander Potapenko
- <glider@google.com>, Andrew Morton <akpm@linux-foundation.org>,
+Subject: Re: [PATCH RFC 10/35] mm/hugetlb: cleanup
+ hugetlb_folio_init_tail_vmemmap()
+To: =?UTF-8?Q?Mika_Penttil=C3=A4?= <mpenttil@redhat.com>,
+ linux-kernel@vger.kernel.org
+Cc: Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
  Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
  Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
  dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
@@ -108,8 +109,8 @@ Cc: Niklas Cassel <cassel@kernel.org>, Alexander Potapenko
  Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
  Zi Yan <ziy@nvidia.com>
 References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-25-david@redhat.com>
- <3812ed9e-2a47-4c1c-bd69-f37768e62ad3@kernel.org>
+ <20250821200701.1329277-11-david@redhat.com>
+ <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -155,14 +156,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <3812ed9e-2a47-4c1c-bd69-f37768e62ad3@kernel.org>
+In-Reply-To: <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9TUhn5hharY6Qv8R6o8Fr9E4U6UyKxF7h4VsDekCaXs_1755843524
+X-Mimecast-MFC-PROC-ID: GFFtdqDBWrYJ_5BCSj2YDY2o-ku0_xwC9UnUUM97ye4_1755843875
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_231848_136818_80E8A45B 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20250821_232439_027958_C83843C1 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,52 +175,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22.08.25 03:59, Damien Le Moal wrote:
-> On 8/22/25 05:06, David Hildenbrand wrote:
->> It's no longer required to use nth_page() when iterating pages within a
->> single SG entry, so let's drop the nth_page() usage.
->>
->> Cc: Damien Le Moal <dlemoal@kernel.org>
->> Cc: Niklas Cassel <cassel@kernel.org>
->> Signed-off-by: David Hildenbrand <david@redhat.com>
->> ---
->>   drivers/ata/libata-sff.c | 6 +++---
->>   1 file changed, 3 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/ata/libata-sff.c b/drivers/ata/libata-sff.c
->> index 7fc407255eb46..9f5d0f9f6d686 100644
->> --- a/drivers/ata/libata-sff.c
->> +++ b/drivers/ata/libata-sff.c
->> @@ -614,7 +614,7 @@ static void ata_pio_sector(struct ata_queued_cmd *qc)
->>   	offset = qc->cursg->offset + qc->cursg_ofs;
->>   
->>   	/* get the current page and offset */
->> -	page = nth_page(page, (offset >> PAGE_SHIFT));
->> +	page += offset / PAGE_SHIFT;
-> 
-> Shouldn't this be "offset >> PAGE_SHIFT" ?
-
-Thanks for taking a look!
-
-Yeah, I already reverted back to "offset >> PAGE_SHIFT" after Linus 
-mentioned in another mail in this thread that ">> PAGE_SHIFT" is 
-generally preferred because the compiler cannot optimize as much if 
-offset would be a signed variable.
-
-So the next version will have the shift again.
-
--- 
-Cheers
-
-David / dhildenb
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjIuMDguMjUgMDY6MDksIE1pa2EgUGVudHRpbMOkIHdyb3RlOgo+IAo+IE9uIDgvMjEvMjUg
+MjM6MDYsIERhdmlkIEhpbGRlbmJyYW5kIHdyb3RlOgo+IAo+PiBBbGwgcGFnZXMgd2VyZSBhbHJl
+YWR5IGluaXRpYWxpemVkIGFuZCBzZXQgdG8gUGFnZVJlc2VydmVkKCkgd2l0aCBhCj4+IHJlZmNv
+dW50IG9mIDEgYnkgTU0gaW5pdCBjb2RlLgo+IAo+IEp1c3QgdG8gYmUgc3VyZSwgaG93IGlzIHRo
+aXMgd29ya2luZyB3aXRoIE1FTUJMT0NLX1JTUlZfTk9JTklULCB3aGVyZSBNTSBpcyBzdXBwb3Nl
+ZCBub3QgdG8KPiBpbml0aWFsaXplIHN0cnVjdCBwYWdlcz8KCkV4Y2VsbGVudCBwb2ludCwgSSBk
+aWQgbm90IGtub3cgYWJvdXQgdGhhdCBvbmUuCgpTcG90dGluZyB0aGF0IHdlIGRvbid0IGRvIHRo
+ZSBzYW1lIGZvciB0aGUgaGVhZCBwYWdlIG1hZGUgbWUgYXNzdW1lIHRoYXQgCml0J3MganVzdCBh
+IG1pc3VzZSBvZiBfX2luaXRfc2luZ2xlX3BhZ2UoKS4KCkJ1dCB0aGUgbmFzdHkgdGhpbmcgaXMg
+dGhhdCB3ZSB1c2UgbWVtYmxvY2tfcmVzZXJ2ZWRfbWFya19ub2luaXQoKSB0byAKb25seSBtYXJr
+IHRoZSB0YWlsIHBhZ2VzIC4uLgoKTGV0IG1lIHJldmVydCBiYWNrIHRvIF9faW5pdF9zaW5nbGVf
+cGFnZSgpIGFuZCBhZGQgYSBiaWcgZmF0IGNvbW1lbnQgd2h5IAp0aGlzIGlzIHJlcXVpcmVkLgoK
+VGhhbmtzIQoKLS0gCkNoZWVycwoKRGF2aWQgLyBkaGlsZGVuYgoKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
