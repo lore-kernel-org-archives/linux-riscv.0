@@ -4,151 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B333ECA0EE4
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 06:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7409CA0FE1
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 06:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RNn9jd4KKvo1ou81QNyt/rLOLk9rQtjk4Ex7MT62ebI=; b=eeIQ6CtF3z2KBV
-	QBdL22pbpB9N3NvB7zwAt2ixtIbcRIANPL5EunAyVuHKRdKdg2mBnk+sJjUafHs7yMil6xJn1lwmx
-	nDV6wsHlylbKI++Zg/3Rrjzh3leTm/FAO5mTye07jhbGpTSmcwJfHz/AGVwAzKDOOR/ZdAji29Lb6
-	jspI9JJ6tvHhmoTOrdlxXmMtI+ZGw/QXWGUfT1jOQC5bt8XxwPhuWutRZ2TPc3lKQMfeHM1l5fKU5
-	WUbKl+qGMCLSkqUd1iEMgdTN05jEhLFrlSJWNJtaxK4czHz4XH46eIHvg67k3aMWIAbA8uvHU9x8O
-	aUEMEyzcycrJhnPcrisw==;
+	List-Owner; bh=Uu9SXiSk3qDm9ctePnAybvZliF4Xz7W1GPtriAIDuXk=; b=B/p8RNELJ9Za9n
+	Q2RF87LnBmG6Wr14AuHyz4IrUPRtl4m0ZmDq1U3Em5fCH2S/JfxYzAGUFydUmKEhOwCo+zvUT49tS
+	Gh25m+2n8rRteEgfnxIu+67F2JcQbM8Dat5yP3VAJMhreJdyi5n42noG1aY9QS7YdjyfcDzY2Dwk/
+	26d50bxZQc/Q0CpEksqJR2se8sS5ztC16muCANILJB4KgtB0OY5hoxUQUkp76Ng8oD/BfkYgNJToM
+	I/vB5gTKRGuNVgVBsK6jXc5OaEQfHq17oBft1E73o++Xn8AqR2rJY9uFkSzP33ZDRmnXmxFSAEPSQ
+	VQ1ZudQSfjXQDzn9yHZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphwf-00000004DeY-0GBr;
-	Sat, 23 Aug 2025 06:41:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uphx0-00000004E8n-3j0p;
+	Sat, 23 Aug 2025 06:42:06 +0000
+Received: from mail-ua1-x92b.google.com ([2607:f8b0:4864:20::92b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upVrU-00000003GHo-0srY
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 22 Aug 2025 17:47:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=485omdnoiZ8q/zyCXrPmnF91ALfkIJJ0rUsYbVB32HY=; b=N8qczx5gqAko4rvcM58R4TC5al
-	GHhdCmyca9HJB+KKXml2KrL0FBlMfBRU/v9VC6q6uqeRn1k8ciMzUwT+KEMxvlSGV+vWIrfzVwxrn
-	INVsKPBvZeq+3Vdh2JGOs1zchjuYaqMZ4ToUM+N3b1XFGKW3nLDtw1A7qGO0feGLK9aLA4+jXV++V
-	42gzHryg3ZdR55EGKnn8uwI+ICq/DCDJSRvSXWi/UYhvwjPiVPWUTbNzHUboBGThI5L7zJ5LCvgXo
-	Sdm1hr1wq6L3s8Acmv8YmlD1G4fzc/O0W4anscHQl5gAWlSHhew2qCd6eGi/ERYInBrfVn9O/cG1M
-	0P2VfzWQ==;
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upVrR-000000013Oi-1bDr
+	id 1upW1w-00000003HAn-38xW
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Aug 2025 17:47:35 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4b10c1abfe4so37045891cf.2
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Aug 2025 10:47:33 -0700 (PDT)
+	Fri, 22 Aug 2025 17:58:25 +0000
+Received: by mail-ua1-x92b.google.com with SMTP id a1e0cc1a2514c-89018e97232so792271241.0
+        for <linux-riscv@lists.infradead.org>; Fri, 22 Aug 2025 10:58:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1755884852; x=1756489652; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=rivosinc.com; s=google; t=1755885503; x=1756490303; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=485omdnoiZ8q/zyCXrPmnF91ALfkIJJ0rUsYbVB32HY=;
-        b=WX4Scniy1g2gifI9CFumkY+h2M/CW2XITSPXKyQ52z1elRnSmg28MAzO/LlIbW62uS
-         bM6n4kS2ysr8scsAr0UorwhotQeLR058RLdd7F9HqE0aX92eT/tgtN2iyTFCzeGWMruV
-         iwazf2zDfJdzUtEM/lki3L8FJ37aW37bogMvo4QohpYMiKWo5ZNGtEKyMDbPevz5ka/o
-         0z33aDycga2+zbjRZ2QzSj9RQ70RBR6bfhFt9bD0gTQBi1/xazu9rHuUi46aFANZEL2k
-         aN9tu3BNV7cO/HlS6830uVyjFklx6BXsUq6sXRMrAzmsuBo2LYXVMJedPhLIw17T4Tkh
-         QjSA==
+        bh=QctlWqJYLmIg/E5LPhpjhg17ib5pNjMH7p/Hx4zus4I=;
+        b=XPijDyRxjjB47f4SBMCaDL1bLzLH9hFhD9vmjIO3+mKT5wXO+676V6FvP9UDvuxzpb
+         07j2pbVwz9ePrTE+ZepEHOLhNkj3p5u98U7v9DR4+/L8/mTABtGxEi6YSxLykHfp/4am
+         6BzpMPTwzytoYtxF2ELj8yUM12rZYtViSrixJPcO4w4E7QTf22wBSy6TXc5qO5PS/1iG
+         CC7cn8q+HqxM2Rd5vR6aYgIFqsG8LkQNPKLXv/FlZzK6QaW5yBgJxrNuKAoUGr+YZIqJ
+         Y9jvLH/VLlGkjcQS78lGDpKdCHzux0mgbZqoizsPKDRFDeC6T5xhHqooZTojRZ87JiD2
+         vqxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755884852; x=1756489652;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1755885503; x=1756490303;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=485omdnoiZ8q/zyCXrPmnF91ALfkIJJ0rUsYbVB32HY=;
-        b=KssoefAYGCrMrK24C01jHK1J1wST0nSVtS+M/1B3pj5dnMlZltvwfpwUAmA9Xev1yE
-         WzYmlZz8RIP297ELEondBPnbY4PKaydMKM2jgQnEGGrsgu2SWpI2gmPNTyOtRPcd+sy6
-         GM6fQc55m8DpwWcHRAtFEee3Kh99xNsevZSatBum1wwWbLblYUsf+XJsTPEP8TC4z4If
-         mVXV+XiokoSoiMEWmFzUyB6oU2wOTERxi5AyvqE1kZ3WYlDFvFhL1kylkaiEEtiRTArH
-         +f/PXuLoOYAdHHg/qhhq7wW/EB+3DNCZHYI4v2LUN0fdqY0HMu0WB3Zn+IXpyGqtt2Z+
-         65+A==
-X-Gm-Message-State: AOJu0YzvvtGShfxuxVg4qr31fipI/+F3DDjCCS+lELVAWgsCoisobAV2
-	U7FY9/3KlKJ3FtAMIYGupLrpZih4lmvE59gwZn+5ZpcGdjJzwlBb4YFcVbXGQ07no88HWViG8Rc
-	WEpBT
-X-Gm-Gg: ASbGncsxavYosLxH7U0zggW+TSdks1NRIkfjKUVBpZHr7H9G151V2wX28HtMsqz7gpD
-	ROxqx11qEDkfTns/4Fd9nKNg26+jlnVal72E8klrk0p1l6zAlpQFH3FUgPMGD7JBQaYW7m6FYCX
-	oXQdx+GpOIWJxyNDfva06E4K8KltxgIBos/Xmib5xgJaF2bVjgGTZJ/2q5XGfa9hV/NaXKn9uKd
-	chv2I2eOnEs36Y3p6Q+igimi09RQDIRbKLn8+tctKZXIwxzn+hnakEf61ELEzxNwjYVQLqydsq5
-	23/WvVN30PntPVprWOEFlNnAC0ulv/3SI1g4AGD/yH4k9qfY8bR3EfsO8Fpcz5puiRQm2a72M9R
-	t5yNg0evCM6Aslh/gIv+u9LGGEhVdsFeaP7xOYWGclvuz40Ta+y6vae7zk5LuCOBOQ2x6fHqWRB
-	PvXj4wfvJQlOIcXKV6
-X-Google-Smtp-Source: AGHT+IGoenLDbU6hbLQEKjRKYVSKG56q+cISud/2IPoQ+SsuP/D2JDv3vRwFBNiEIIl5J7Ci/Xlcfg==
-X-Received: by 2002:a05:622a:1115:b0:4b2:8ac4:f07f with SMTP id d75a77b69052e-4b2aab8c4e6mr52180651cf.81.1755884851684;
-        Fri, 22 Aug 2025 10:47:31 -0700 (PDT)
-Received: from jesse-lt.jtp-bos.lab (pool-108-26-215-125.bstnma.fios.verizon.net. [108.26.215.125])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b2b8e6023asm3121361cf.53.2025.08.22.10.47.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Aug 2025 10:47:31 -0700 (PDT)
-From: Jesse Taube <jesse@rivosinc.com>
-To: linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Kees Cook <kees@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang Kan" <kan.liang@linux.intel.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Jesse Taube <jesse@rivosinc.com>,
-	Himanshu Chauhan <hchauhan@ventanamicro.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Evan Green <evan@rivosinc.com>,
-	WangYuli <wangyuli@uniontech.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Nam Cao <namcao@linutronix.de>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	Joel Granados <joel.granados@kernel.org>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Celeste Liu <coelacanthushex@gmail.com>,
-	Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
-	Nylon Chen <nylon.chen@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Joel Stanley <joel@jms.id.au>
-Subject: [PATCH 6/8] riscv: ptrace: Add hw breakpoint support
-Date: Fri, 22 Aug 2025 10:47:13 -0700
-Message-ID: <20250822174715.1269138-7-jesse@rivosinc.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250822174715.1269138-1-jesse@rivosinc.com>
-References: <20250822174715.1269138-1-jesse@rivosinc.com>
+        bh=QctlWqJYLmIg/E5LPhpjhg17ib5pNjMH7p/Hx4zus4I=;
+        b=ia0kEVRCMljTYXppn+uOEyDIEiOSu4gtpYO67PPBemv1hJ2StneEEFi6XzOp9MTClN
+         +A5fWw2p22OkpUPkaCih+DTeCkr6JM/kyw9564dTK6uz9tJLQzCqI+mrvgyB5T++6DSh
+         y5FozPtymIa658+8MAdknAvMcX8wleEE93T1kQezTxbms6pNVvfNuZXifMws9ElNZfsO
+         Nq6Y8Zhyf2wR7bz5Cj/t2+TonapBTazu7QYHCjwEUlxodo2UaSVutq1AfxVmCoIfXwsn
+         i5RZ/f9iQPhdCnMkiDDmRxXNdnj22LS8ZIRTrPXk5juURWcicvzAJHQPMMx14u+aWkAm
+         7vkQ==
+X-Gm-Message-State: AOJu0YxvaGNJkdPGdRCA0Iod2bPHUP+pjur9oj1QXzHdybGatsnPt5nL
+	P8JN1w4tQhiTLi45OkKbwekzhH0WSUtC6S8poMpVZeaWl749RXRMQB5jyx318LOAeY+9GYQ18kq
+	entWkhNEKkjNxgL8X1IRSh45+PfoKAri+GMRox0zm7Q==
+X-Gm-Gg: ASbGnctz0Yf6kbUmw3pPIPhRg5ggyj+SIUUAhILAHQCKDIRoBC6bhYIpp3AlvHDDEAB
+	IGf+Dntvoo0UR8715BZmcPGjLP0dZK2DihKOdHvG7ZWvGddmtzpcODdobkF3L0VxgbYWR+tJZy5
+	QHgsKo/hzauQRt6t44thhLKXipvBCd/8AQdu0ts1jGT8vVYZ+Tly9XNuHFqadLdqQ0NDYH6qtnA
+	d6/5Jy5
+X-Google-Smtp-Source: AGHT+IFN//tAIOu8+R+uuhM96f7zV3pePtaUS87r3F/6litKfGF0/DndAdWIWiwCZ7w8YwN9/a0uzZqZes7ebIu5qsc=
+X-Received: by 2002:a05:6102:579b:b0:4fc:f151:a644 with SMTP id
+ ada2fe7eead31-51d0f1e3aebmr1186332137.27.1755885503401; Fri, 22 Aug 2025
+ 10:58:23 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250805193955.798277-1-jesse@rivosinc.com> <20250805193955.798277-9-jesse@rivosinc.com>
+ <CACPK8Xd2QfL460LY2T0ia7Akb79fEXKF2+=B27M8q5j7jUoouQ@mail.gmail.com>
+In-Reply-To: <CACPK8Xd2QfL460LY2T0ia7Akb79fEXKF2+=B27M8q5j7jUoouQ@mail.gmail.com>
+From: Jesse Taube <jesse@rivosinc.com>
+Date: Fri, 22 Aug 2025 10:58:12 -0700
+X-Gm-Features: Ac12FXyOxEp8jMlrarfb8y3cqhZyCnGwLGrfNnesQRaBf_dB1MguAeHwG0yw4Oc
+Message-ID: <CALSpo=bM8S2cKHRQ1Zn1ViDh9QfoKkWGVVeW50D1UQkXP_6rug@mail.gmail.com>
+Subject: Re: [PATCH 8/8] selftests: riscv: Add test for hardware breakpoints
+To: Joel Stanley <joel@jms.id.au>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_184733_521086_2B4FF64B 
-X-CRM114-Status: GOOD (  25.90  )
+X-CRM114-CacheID: sfid-20250822_105824_788168_76421ECA 
+X-CRM114-Status: GOOD (  24.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,281 +90,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add ability to setup hw breakpoints to ptrace. Call defines a new
-structure of __riscv_hwdebug_state which will be passed to ptrace.
-
-Signed-off-by: Jesse Taube <jesse@rivosinc.com>
----
-RFC -> V1:
- - Add struct __riscv_hwdebug_state for ptrace_hbp_set/get
- - Break out ptrace_hbp_set/get so regset can use them
- - Check for NULL instead of IS_ERR_OR_NULL
- - Move	ptrace_get/sethbpregs above user_regset
-V1 -> V2:
- - No change
----
- arch/riscv/include/asm/processor.h   |   4 +
- arch/riscv/include/uapi/asm/ptrace.h |   9 +++
- arch/riscv/kernel/hw_breakpoint.c    |  14 +++-
- arch/riscv/kernel/process.c          |   4 +
- arch/riscv/kernel/ptrace.c           | 110 +++++++++++++++++++++++++++
- 5 files changed, 140 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 5f56eb9d114a..488d956a951f 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -12,6 +12,7 @@
- 
- #include <vdso/processor.h>
- 
-+#include <asm/hw_breakpoint.h>
- #include <asm/ptrace.h>
- 
- #define arch_get_mmap_end(addr, len, flags)			\
-@@ -108,6 +109,9 @@ struct thread_struct {
- 	struct __riscv_v_ext_state vstate;
- 	unsigned long align_ctl;
- 	struct __riscv_v_ext_state kernel_vstate;
-+#ifdef CONFIG_HAVE_HW_BREAKPOINT
-+	struct perf_event *ptrace_bps[RV_MAX_TRIGGERS];
-+#endif
- #ifdef CONFIG_SMP
- 	/* Flush the icache on migration */
- 	bool force_icache_flush;
-diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
-index a38268b19c3d..20d1aa595cbd 100644
---- a/arch/riscv/include/uapi/asm/ptrace.h
-+++ b/arch/riscv/include/uapi/asm/ptrace.h
-@@ -14,6 +14,8 @@
- 
- #define PTRACE_GETFDPIC_EXEC	0
- #define PTRACE_GETFDPIC_INTERP	1
-+#define PTRACE_GETHBPREGS	2
-+#define PTRACE_SETHBPREGS	3
- 
- /*
-  * User-mode register state for core dumps, ptrace, sigcontext
-@@ -120,6 +122,13 @@ struct __riscv_v_regset_state {
- 	char vreg[];
- };
- 
-+struct __riscv_hwdebug_state {
-+	unsigned long addr;
-+	unsigned long type;
-+	unsigned long len;
-+	unsigned long ctrl;
-+} __packed;
-+
- /*
-  * According to spec: The number of bits in a single vector register,
-  * VLEN >= ELEN, which must be a power of 2, and must be no greater than
-diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
-index f12306247436..f8841941f2ab 100644
---- a/arch/riscv/kernel/hw_breakpoint.c
-+++ b/arch/riscv/kernel/hw_breakpoint.c
-@@ -715,7 +715,19 @@ void arch_uninstall_hw_breakpoint(struct perf_event *event)
- 		pr_warn("%s: Failed to uninstall trigger %d. error: %ld\n", __func__, i, ret.error);
- }
- 
--void flush_ptrace_hw_breakpoint(struct task_struct *tsk) { }
-+/*
-+ * Release the user breakpoints used by ptrace
-+ */
-+void flush_ptrace_hw_breakpoint(struct task_struct *tsk)
-+{
-+	int i;
-+	struct thread_struct *t = &tsk->thread;
-+
-+	for (i = 0; i < dbtr_total_num; i++) {
-+		unregister_hw_breakpoint(t->ptrace_bps[i]);
-+		t->ptrace_bps[i] = NULL;
-+	}
-+}
- 
- void hw_breakpoint_pmu_read(struct perf_event *bp) { }
- 
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 15d8f75902f8..9cf07ecfb523 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -9,6 +9,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/cpu.h>
-+#include <linux/hw_breakpoint.h>
- #include <linux/kernel.h>
- #include <linux/sched.h>
- #include <linux/sched/debug.h>
-@@ -164,6 +165,7 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
- 
- void flush_thread(void)
- {
-+	flush_ptrace_hw_breakpoint(current);
- #ifdef CONFIG_FPU
- 	/*
- 	 * Reset FPU state and context
-@@ -218,6 +220,8 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 		set_bit(MM_CONTEXT_LOCK_PMLEN, &p->mm->context.flags);
- 
- 	memset(&p->thread.s, 0, sizeof(p->thread.s));
-+	if (IS_ENABLED(CONFIG_HAVE_HW_BREAKPOINT))
-+		memset(p->thread.ptrace_bps, 0, sizeof(p->thread.ptrace_bps));
- 
- 	/* p->thread holds context to be restored by __switch_to() */
- 	if (unlikely(args->fn)) {
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index ea67e9fb7a58..e097e6a61910 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -9,11 +9,13 @@
- 
- #include <asm/vector.h>
- #include <asm/ptrace.h>
-+#include <asm/hw_breakpoint.h>
- #include <asm/syscall.h>
- #include <asm/thread_info.h>
- #include <asm/switch_to.h>
- #include <linux/audit.h>
- #include <linux/compat.h>
-+#include <linux/hw_breakpoint.h>
- #include <linux/ptrace.h>
- #include <linux/elf.h>
- #include <linux/regset.h>
-@@ -184,6 +186,104 @@ static int tagged_addr_ctrl_set(struct task_struct *target,
- }
- #endif
- 
-+#ifdef CONFIG_HAVE_HW_BREAKPOINT
-+static void ptrace_hbptriggered(struct perf_event *bp,
-+				struct perf_sample_data *data,
-+				struct pt_regs *regs)
-+{
-+	struct arch_hw_breakpoint *bkpt = counter_arch_bp(bp);
-+	int num = 0;
-+
-+	force_sig_ptrace_errno_trap(num, (void __user *)bkpt->address);
-+}
-+
-+static int ptrace_hbp_get(struct task_struct *child, unsigned long idx,
-+			  struct __riscv_hwdebug_state *state)
-+{
-+	struct perf_event *bp;
-+
-+	if (idx >= RV_MAX_TRIGGERS)
-+		return -EINVAL;
-+
-+	bp = child->thread.ptrace_bps[idx];
-+
-+	if (!bp)
-+		return -ENOENT;
-+
-+	state->addr = bp->attr.bp_addr;
-+	state->len = bp->attr.bp_len;
-+	state->type = bp->attr.bp_type;
-+	state->ctrl = bp->attr.disabled == 1;
-+
-+	return 0;
-+}
-+
-+static int ptrace_hbp_set(struct task_struct *child, unsigned long idx,
-+			  struct __riscv_hwdebug_state *state)
-+{
-+	struct perf_event *bp;
-+	struct perf_event_attr attr;
-+
-+	if (idx >= RV_MAX_TRIGGERS)
-+		return -EINVAL;
-+
-+	bp = child->thread.ptrace_bps[idx];
-+	if (bp)
-+		attr = bp->attr;
-+	else
-+		ptrace_breakpoint_init(&attr);
-+
-+	attr.bp_addr = state->addr;
-+	attr.bp_len = state->len;
-+	attr.bp_type = state->type;
-+	attr.disabled = state->ctrl == 1;
-+
-+	if (!bp) {
-+		bp = register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL,
-+					   child);
-+		if (IS_ERR(bp))
-+			return PTR_ERR(bp);
-+
-+		child->thread.ptrace_bps[idx] = bp;
-+		return 0;
-+	}
-+
-+	return modify_user_hw_breakpoint(bp, &attr);
-+}
-+
-+/*
-+ * idx selects the breakpoint index.
-+ * Both PTRACE_GETHBPREGS and PTRACE_SETHBPREGS transfer __riscv_hwdebug_state
-+ */
-+
-+static long ptrace_gethbpregs(struct task_struct *child, unsigned long idx,
-+			      unsigned long __user *datap)
-+{
-+	struct __riscv_hwdebug_state state;
-+	long ret;
-+
-+	ret = ptrace_hbp_get(child, idx, &state);
-+	if (ret)
-+		return ret;
-+	if (copy_to_user(datap, &state, sizeof(state)))
-+		return -EFAULT;
-+
-+	return 0;
-+}
-+
-+static long ptrace_sethbpregs(struct task_struct *child, unsigned long idx,
-+			      unsigned long __user *datap)
-+{
-+	struct __riscv_hwdebug_state state;
-+
-+	if (copy_from_user(&state, datap, sizeof(state)))
-+		return -EFAULT;
-+
-+	return ptrace_hbp_set(child, idx, &state);
-+
-+}
-+#endif
-+
- static const struct user_regset riscv_user_regset[] = {
- 	[REGSET_X] = {
- 		.core_note_type = NT_PRSTATUS,
-@@ -340,8 +440,18 @@ long arch_ptrace(struct task_struct *child, long request,
- 		 unsigned long addr, unsigned long data)
- {
- 	long ret = -EIO;
-+	unsigned long __user *datap = (unsigned long __user *) data;
- 
- 	switch (request) {
-+#ifdef CONFIG_HAVE_HW_BREAKPOINT
-+	case PTRACE_GETHBPREGS:
-+		ret = ptrace_gethbpregs(child, addr, datap);
-+		break;
-+
-+	case PTRACE_SETHBPREGS:
-+		ret = ptrace_sethbpregs(child, addr, datap);
-+		break;
-+#endif
- 	default:
- 		ret = ptrace_request(child, request, addr, data);
- 		break;
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBdWcgMTQsIDIwMjUgYXQgMTA6NDLigK9QTSBKb2VsIFN0YW5sZXkgPGpvZWxAam1z
+LmlkLmF1PiB3cm90ZToKPgo+IEhpIEplc3NlLAo+Cj4gV2UgaGFkIGEgcHJldHR5IGh1Z2UgY2Mg
+bGlzdCBvbiB0aGUgdGhyZWFkLCBJJ3ZlIHRyaW1tZWQgaXQgcmlnaHQKPiBiYWNrLiBGZWVsIGZy
+ZWUgdG8gYWRkIHNvbWUgcGVvcGxlIGJhY2sgYnV0IGtlZXAgaXQgZm9jdXNlZC4KPgo+IE9uIFdl
+ZCwgNiBBdWcgMjAyNSBhdCAwNTo0MiwgSmVzc2UgVGF1YmUgPGplc3NlQHJpdm9zaW5jLmNvbT4g
+d3JvdGU6Cj4gPgo+ID4gQWRkIHJpc2N2IHNwZWNpZmljIHNlbGZ0ZXN0IGZvciBoYXJkaGFyZHdh
+cmUgYnJlYWtwb2ludHMuCj4KPiBuaXQ6IGRvdWJsZSBoYXJkd2FyZQo+Cj4gPiBUaGVzZSB0ZXN0
+cyBhcmUgYmFzZWQgb246Cj4gPiB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9icmVha3BvaW50cy9i
+cmVha3BvaW50X3Rlc3RfYXJtNjQuYwo+Cj4gVGhlIHNlZmx0ZXN0IGRpZG4ndCBidWlsZCBmb3Ig
+bWUuIFRoZXJlJ3MgYSBmZXcgc3VnZ2VzdGVkIGZpeGVzIGJlbG93Lgo+Cj4gPiBTaWduZWQtb2Zm
+LWJ5OiBKZXNzZSBUYXViZSA8amVzc2VAcml2b3NpbmMuY29tPgo+ID4gLS0tCj4gPiBUaGUgc2Vs
+ZnRlc3QgZmFpbHMgYXMgcmVnaXN0ZXJfdXNlcl9od19icmVha3BvaW50IHNlZW1pbmdseSBkb2Vz
+IG5vdAo+ID4gY2FsbCBhcmNoX2luc3RhbGxfaHdfYnJlYWtwb2ludC4gVGhlIHRlc3QgYWxzbyBz
+ZWVtcyB0byBmYWlsIG9uIGFybTY0Cj4gPiBpbiB0aGUgc2FtZSB3YXkgd2hlbiBJIHRlc3RlZCBp
+dC4KPgo+IElzIHRoaXMgc3RpbGwgYSBwcm9ibGVtIHdpdGggeW91ciBwYXRjaHNldD8KClllcwoK
+Pgo+IERvIHlvdSB0ZXN0IGluIHFlbXU/IENhbiB5b3Ugc2hhcmUgeW91ciB2ZXJzaW9uLCBjb21t
+YW5kIGxpbmUsIGV0Yz8KClllcy4gSSB1c2VkIGJ1aWxkcm9vdCdzIGBxZW11X2FhcmNoNjRfdmly
+dF9kZWZjb25maWdgIGNvbmZpZyBhbmQgc2V0CmBCUjJfUEFDS0FHRV9MSU5VWF9UT09MU19TRUxG
+VEVTVFNgIGFuZCB0ZXN0ZWQgd2l0aCB0aGUgZXhhbXBsZQpjb21tYW5kIGZyb20gdGhlIGJvYXJk
+cyByZWFkbWUuCgo+Cj4gPiAtLS0gL2Rldi9udWxsCj4gPiArKysgYi90b29scy90ZXN0aW5nL3Nl
+bGZ0ZXN0cy9yaXNjdi9icmVha3BvaW50cy9NYWtlZmlsZQo+ID4gQEAgLTAsMCArMSwxMiBAQAo+
+ID4gKyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPiA+ICsjIENvcHlyaWdodCAo
+QykgMjAyMSBBUk0gTGltaXRlZAo+ID4gKyMgT3JpZ2luYWxseSB0b29scy90ZXN0aW5nL2FybTY0
+L2FiaS9NYWtlZmlsZQo+Cj4gQ0ZMQUdTICs9ICQoS0hEUl9JTkNMVURFUykKPgo+IFRoaXMgYWRk
+cyAtaXN5c3RlbSB0byBpbmNsdWRlIGxvY2FsIGhlYWRlcnMgZm9yIHRoZSB1cCB0byBkYXRlCj4g
+cHRyYWNlLmggYW5kIGVsZi5oIGRlZmluaXRpb25zLgo+Cj4gICQgbWFrZSBoZWFkZXJzCgpvaCB0
+aGF0J3Mgd2h5IGl0IHdhc24ndCBidWlsZGluZyEKClRoYW5rcywKSmVzc2UgVGF1YmUKPiAgJCBt
+YWtlIC1DIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzIENST1NTX0NPTVBJTEU9cmlzY3Y2NC1saW51
+eC1nbnUtCj4gQVJDSD1yaXNjdiBUQVJHRVRTPXJpc2N2L2JyZWFrcG9pbnRzCj4gICAgICBtYWtl
+OiBFbnRlcmluZyBkaXJlY3RvcnkgJ3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzJwo+ICAgICAgcmlz
+Y3Y2NC1saW51eC1nbnUtZ2NjIC1zdGF0aWMKPiAtb3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jp
+c2N2L2JyZWFrcG9pbnRzL2JyZWFrcG9pbnRfdGVzdAo+ICAgICAgLWlzeXN0ZW0gdXNyL2luY2x1
+ZGUgLUl0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy8uLi8uLi8uLi90b29scy9pbmNsdWRlCj4gICAg
+ICAtRF9HTlVfU09VUkNFPSAgIGJyZWFrcG9pbnRfdGVzdC5jCj4KPiA+ICsKPiA+ICtDRkxBR1Mg
+Kz0gLUkkKHRvcF9zcmNkaXIpL3Rvb2xzL2luY2x1ZGUKPiA+ICsKPiA+ICtURVNUX0dFTl9QUk9H
+UyA6PSBicmVha3BvaW50X3Rlc3QKPiA+ICsKPiA+ICtpbmNsdWRlIC4uLy4uL2xpYi5tawo+ID4g
+Kwo+ID4gKyQoT1VUUFVUKS9icmVha3BvaW50X3Rlc3Q6IGJyZWFrcG9pbnRfdGVzdC5jCj4gPiAr
+ICAgICAgICQoQ0MpIC1zdGF0aWMgLW8kQCAkKENGTEFHUykgJChMREZMQUdTKSAkXgo+ID4gZGlm
+ZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2L2JyZWFrcG9pbnRzL2JyZWFr
+cG9pbnRfdGVzdC5jIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvcmlzY3YvYnJlYWtwb2ludHMv
+YnJlYWtwb2ludF90ZXN0LmMKPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiBpbmRleCAwMDAw
+MDAwMDAwMDAuLmZhZWVjYzcyZGExMgo+ID4gLS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvdG9vbHMv
+dGVzdGluZy9zZWxmdGVzdHMvcmlzY3YvYnJlYWtwb2ludHMvYnJlYWtwb2ludF90ZXN0LmMKPiA+
+IEBAIC0wLDAgKzEsMjQ2IEBACj4gPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0y
+LjAtb25seQo+ID4gKy8qCj4gPiArICogQ29weXJpZ2h0IChDKSAyMDE2IEdvb2dsZSwgSW5jLgo+
+ID4gKyAqCj4gPiArICogT3JpZ2luYWwgQ29kZSBieSBQYXZlbCBMYWJhdGggPGxhYmF0aEBnb29n
+bGUuY29tPgo+ID4gKyAqCj4gPiArICogQ29kZSBtb2RpZmllZCBieSBQcmF0eXVzaCBBbmFuZCA8
+cGFuYW5kQHJlZGhhdC5jb20+Cj4gPiArICogZm9yIHRlc3RpbmcgZGlmZmVyZW50IGJ5dGUgc2Vs
+ZWN0IGZvciBlYWNoIGFjY2VzcyBzaXplLgo+ID4gKyAqIE9yaWdpbmFsbHkgdG9vbHMvdGVzdGlu
+Zy9zZWxmdGVzdHMvYnJlYWtwb2ludHMvYnJlYWtwb2ludF90ZXN0X2FybTY0LmMKPiA+ICsgKi8K
+PiA+ICsKPiA+ICsjZGVmaW5lIF9HTlVfU09VUkNFCj4gPiArCj4gPiArI2luY2x1ZGUgPGFzbS9w
+dHJhY2UuaD4KPiA+ICsjaW5jbHVkZSA8c3lzL3R5cGVzLmg+Cj4gPiArI2luY2x1ZGUgPHN5cy93
+YWl0Lmg+Cj4gPiArI2luY2x1ZGUgPHN5cy9wdHJhY2UuaD4KPiA+ICsjaW5jbHVkZSA8c3lzL3Bh
+cmFtLmg+Cj4gPiArI2luY2x1ZGUgPHN5cy91aW8uaD4KPiA+ICsjaW5jbHVkZSA8c3RkaW50Lmg+
+Cj4gPiArI2luY2x1ZGUgPHN0ZGJvb2wuaD4KPiA+ICsjaW5jbHVkZSA8c3RkZGVmLmg+Cj4gPiAr
+I2luY2x1ZGUgPHN0cmluZy5oPgo+ID4gKyNpbmNsdWRlIDxzdGRpby5oPgo+ID4gKyNpbmNsdWRl
+IDx1bmlzdGQuaD4KPiA+ICsjaW5jbHVkZSA8ZWxmLmg+Cj4KPiBUaGlzIGlzIHRoZSB3cm9uZyBl
+bGYuaCwgd2Ugd2FudCB0aGUgb25lIHdpdGggTlRfUklTQ1ZfSFdfQlJFQUsuCj4KPiAtI2luY2x1
+ZGUgPGVsZi5oPgo+ICsjaW5jbHVkZSA8bGludXgvZWxmLmg+Cj4KPgo+ID4gKyNpbmNsdWRlIDxl
+cnJuby5oPgo+ID4gKyNpbmNsdWRlIDxzaWduYWwuaD4KPiA+ICsKPiA+ICsjaW5jbHVkZSAiLi4v
+Li4va3NlbGZ0ZXN0LmgiCj4gPiArCj4gPiArI2RlZmluZSBNQVhfQlBfU0laRSA4Cj4gPiArCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
