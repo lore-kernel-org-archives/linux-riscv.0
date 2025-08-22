@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0DACA0FE9
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 11:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF0CCA0EFC
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 11:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TMu6ftxj25MMrBLw+41yjPj2fKSxRI3XFLZjqKASWzI=; b=15vDG3vx64vFcF
-	zJEEsPJaJnoJs+bLsieAEXDyo2VMvtapg6/6H5UYRmSRj8xoN5/hTJpAgykNyQrbQNAIBL1FZA/O4
-	0yyNfLc7NsrfcI8w0NNgrqI8+Y7nwHfTmmPwA2+GL/cd2jBDQmRmTMDRIw9s6S+06wW37/3DexgY0
-	QRJ9fkrnm4eANSpZM6VDbxsFwFXyQxMUjaWCCaSYy0zxTqvZB6qWviB1apxK1VspACaWX7Bh8JM+6
-	pF0SWM5F46BwQUsDZqz73wuV3AplJAnmxE3sMw68/PeB+MEzHvgat2W4hDFFKwM2eD0lLClGzT5Hv
-	k7yjzMvYGfrgQaTCTJ+A==;
+	List-Owner; bh=VVs6/BbeSJLKNYQ+phwneVZy9KGBriBXZTKYWVAYSN4=; b=fK9s9HG7XSMFYs
+	JPMnGBTr08c1OTGkgIaSUkzMQoSuchk1SBH9GewImBvAFGpVVA6PIyDtfgEyfwuVCgCzYlCDuS2ZP
+	jbBffLzJjuKqcCUWVUnl1N2y59tn3mN9jcxLdCgPvdqfFgGjfkC7Ydo5hR7nZGIF7tq4zfXc8S7UM
+	htjzono6PjSqVrbIDlOJU3aIUO6KwKhZJHERrRvKbA9RkBfsQ/Fcyuk/2qUkLpyK1uOmRn4eFAYxW
+	v98MIC5bh2xn+OFoSYHZ6rlP1q2t66lVnHLxzSpWGWJvlSq8NBaSc8yD5SKZqHfcm33e3lT2oWyL3
+	vSEyHfxBCfOhsu/Zx8hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upPqt-00000002IBu-3aWx;
-	Fri, 22 Aug 2025 11:22:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1upPqx-00000002IGd-1ebi;
+	Fri, 22 Aug 2025 11:22:39 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upI7I-00000001LKH-1vw5
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 22 Aug 2025 03:07:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=7BAjxgsZNwrVYK2P5WY991mZDVNjwHAbdWB8f2RwW+Y=; b=OzUid9XuHWFWumloc/t+1TYsJi
-	hymoaW6CSdJBASebMSh1kJs0Sx7IB5N/gMZi5zcN3YWY4/C+AGNqBWGwaBbq/slK7Z4uORhK4AxuU
-	V6Ano7r8blG8g/7IRIjXiwaSKPJvtcP8lwi6k4Sm7vATroOIh7Q+PUhOODXWiYrf/QB3daPu2x3JS
-	6Bmo2Zp5ttimspi3qi917YaZXFQ9AJJqMt+FXKOdUDjAGDwMSWOIgK1TbxlBk4J4LkirPbyCZtfmx
-	P7a6051T9aQkMGMrmTDtOGnW+jEVJ+aHqEeQ6IIsGOLtS+SWomoJzHYBV9d7FSau4H3setxMxCeHr
-	PL7rbsnA==;
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upI7E-00000000mCM-3r9G
+	id 1upI7R-00000001LM5-2gBW
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Aug 2025 03:06:59 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-76e2eb20a64so1909988b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 20:06:56 -0700 (PDT)
+	Fri, 22 Aug 2025 03:07:10 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-76e2eb49b83so1208972b3a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 20:07:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755832015; x=1756436815; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755832029; x=1756436829; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7BAjxgsZNwrVYK2P5WY991mZDVNjwHAbdWB8f2RwW+Y=;
-        b=h5xg9jLA9GvGURynslzjQ7vkT6yJPACOMbgiegnoByNi1tk3Zy87d1DPG0e9GAIhy9
-         yH74iLhvkcPwC/3ucubNdznikm3JjQ7I/UqUv4y+1D0fyTdfHUaCzZ+1i9fwXY2fSgkF
-         +b45Yn/ydvNksUCn/p9+RDtKFanlZBBnaaOxcXp6QCv3JS12UwCSSWlVWkDZJ7XCUl5s
-         ifUgByderKX07IECOg1VxTbcOrOEOTYAucIQvBlRLy4z0/TUOAbjIZUU/USbZmMkNjJJ
-         kiBqbmROd8lhKp0y5K2pkrEDbPL1N+7UaHQesvY9tNHQn/gBk95jljczbuNlSSc68WwP
-         jXnQ==
+        bh=PBarAmiAVNczS9KrycJoO+goP9AfyIOpybp54mi0NCk=;
+        b=PSHjwdiKO6hfbmVE0rlVvOLqmstU9L/b9jyhocn8vozoQM7E0fmQJIA3LXStUERgqU
+         RZQqFcvXbcg4dXlxV2xEJzL12LEr/FxBRMQUP4B5RZeSUG1ABVVKtQrS7zBiDQp4IGY1
+         5EJXyrd/xgrWETKWjQ2n0/Pm6sFeo/qrVfBbzNsKJ33ld9+bg+IURm5X5DXw+etPYb8E
+         Pb1XCUQnZpf+9K6msOOM7e7pBxYFVLquczI8ixSU2OcRKJldf9S5uVUcqJjZFYw/lbEk
+         ly8bozwlfhpqh+achZcw135RyuZBEzhvWgTbzgeR7pFOOKBWTjsCbGdBym8zlPU3WZT9
+         iGeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755832015; x=1756436815;
+        d=1e100.net; s=20230601; t=1755832029; x=1756436829;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7BAjxgsZNwrVYK2P5WY991mZDVNjwHAbdWB8f2RwW+Y=;
-        b=IPYwyEJ+udPLmzKmaGQlZSdANQGXx/ZPbs4fZ35txtBdYfyPJijLse6RPh55tMrL5I
-         E+euaqzmNwZPC8EDpn4KMst0NI6E3xr4Cug4Z2jMcfaUdMd5ue3h1sZRi6zkttgmYFxu
-         CKT9Av+/54KBR7UFo9YTiWnFsV8L8aoz6/6lfmhzYK6w9OfEjUjGQ9rnOm4oQRqNmMwc
-         q793rztkXJQZiI4SSVzmpuE91RJgaWuL8ssfbmQOvFRpx9SX34fezC/CGJOYpcw1/xpM
-         x092KRduG/egQShwbaT+gPsgVEuk429hf7MUi6oc9CuRVobvOCsYlSiNX9xDafoRLB9c
-         lI4g==
-X-Forwarded-Encrypted: i=1; AJvYcCVGhwHYpdQRFB7u6y2jWmV26DDSczUv3kCj63K3Qh4JDbdr2YnkLJG3DvkiejBfVVOzE46vbpItbnLdFA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxyiLTYvoDMrsOzoxRzzufmHxMctxdPmMTrpsbnseIy3nB2LS8
-	MDSyYXXUPZ5zmTJx/HJEebrdCkJXf0PHvhTItLPefgnfkDq7Z9NU7Im28U02I7CjFI4=
-X-Gm-Gg: ASbGncv6/Agk4PHozmBXdXciZsq7xecq1aqHbu+TtMNVl9YEEHwDp1WeFWh3TWhVrp5
-	Q5nhDIphAfi7QlrrgNbonr6Mo1y/6ZCkXNd4pMkZiK4wl/CQXo1sHb7GjlOYhy5Mdo8ymi9BZBZ
-	pC2GGZ0mqBk8nhX4ntVmDHVhsMb3qCrDAYpZRjN3geZi97gy2VRk6ueyHkU78ssXT/xMFNUGGoq
-	rXQsl+OjEmHu/W4BYGZck9yBhuN0bPQb6fIQzkbBZanUnICy63EHtZ4+f/Wj2mn9a6WkyaWMwxq
-	vZ2J7I5NoyqbuQH5CEm/15EGXnolJvqcHqM4oXk7F3vm0MGvJ0J8ykrWnB9Aasns9SRX5ISM7lk
-	Z59WnLj/Vrkw3bj/0Y7bBfZV1V536x3JqItiXiXb1zC2u
-X-Google-Smtp-Source: AGHT+IEqNZrjI5ipEX/9kDUXq8Tvh6Ae0QR53LZBOTaObqj1EDNaiC3E6W7T5zqgopGpzYipKpfXEg==
-X-Received: by 2002:a05:6a21:33aa:b0:240:f96:3153 with SMTP id adf61e73a8af0-24340e1c60bmr2090943637.29.1755832014309;
-        Thu, 21 Aug 2025 20:06:54 -0700 (PDT)
+        bh=PBarAmiAVNczS9KrycJoO+goP9AfyIOpybp54mi0NCk=;
+        b=Qo18zAhfZvBGEtUMWKnsbnUz7FJgxY2NuUS7AzZ5fp1qGm+i1I1u76t/u3twkaTfA3
+         8PYaiG2LvYkDn3TkWwPGa0dMuk2Ci798feXLfTwR1+neGsTm4XgG7B71iG+uGOJUoP81
+         VeR+MlfvBAYY+Fox1PDaw8hDpe/Q0/1mEW5zjXu9FQHrJsGHHNxd3BPi3aE6EVA075xE
+         XpEkBCrOsq3pyccUba/DYuIsg9mbl5Dx0WJ6F78GGmyY4u98OHCODxFRqvMzChFDB4bp
+         EUmGDNWrGRM7NE5Vi/Sr83aLQhBrAvP9zDgLqgcGz0PgWhHg8k2WWviAUH7fzLndhZFH
+         cP4w==
+X-Forwarded-Encrypted: i=1; AJvYcCXODq2gbgSfSvsPZP7VYI0+HY3of0RNo/cjG4I+6FIlguywOL82dzWSSOW9PkqNYynG3jrvJOsQmoBbYA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxQHSPA79omq51XEffOHux+4wMA1pyXfWIsXzoq7qCY/1aS1Vc
+	3vOf0d/cYBMuZIyb02N6cTMbM9R8AsY6N+8LF2Lxi14ZC3PrEPw6ZSHYDDj8ANi0+/4=
+X-Gm-Gg: ASbGncu5S52eXvYfSU0xvO4ERU1qkSs/jfNWsmt7fEEnGHQQY6EfCzcY/ug3vigus4Z
+	/1+6Q2QqyoXE/W8DZSCYm6ue/rTOcLQ1k3+euNHsZptRfEc9dkt83ICWGNLZ9xaoTQG7GLH1Rxd
+	glCmhDEoffxjuXqW6UQTa2xvujfxFg4+bFmhN3mwLT/rNNkv1yPhUGK0FGJQUSMd2+6cYKoTV6q
+	uYjh3At/u096iKXsHVQkCb22VOrjUSJrFk7ZV3r52Qp7Rek5F+vePE3sdZ8AhkCuk2H2y5Hqutk
+	xz64q7kgYD9/XyDeEsxXnSqeWx6rET2dy074x1FLX8xvZRrY3zqoraSgFoBGbHjm1yqDBkc+JHV
+	Xiq92K5jbQDyll3J6Y26k9CRzhyWAuoTD6A==
+X-Google-Smtp-Source: AGHT+IG9r1IW40WvsK0ieNWX502Z1iaJ5R2nE5AB//lCMTQKx+lUDc3v2aZziBxwICd17ogNaz3RaQ==
+X-Received: by 2002:a05:6a20:2445:b0:23d:58e9:347a with SMTP id adf61e73a8af0-24340c964femr2260198637.26.1755832028794;
+        Thu, 21 Aug 2025 20:07:08 -0700 (PDT)
 Received: from [127.0.1.1] ([222.71.237.178])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b47769afc1bsm2756777a12.19.2025.08.21.20.06.50
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b47769afc1bsm2756777a12.19.2025.08.21.20.07.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 20:06:53 -0700 (PDT)
+        Thu, 21 Aug 2025 20:07:07 -0700 (PDT)
 From: Guodong Xu <guodong@riscstar.com>
-Date: Fri, 22 Aug 2025 11:06:30 +0800
-Subject: [PATCH v5 4/8] dmaengine: mmp_pdma: Add operations structure for
- controller abstraction
+Date: Fri, 22 Aug 2025 11:06:33 +0800
+Subject: [PATCH v5 7/8] riscv: dts: spacemit: Enable PDMA on Banana Pi F3
+ and Milkv Jupiter
 MIME-Version: 1.0
-Message-Id: <20250822-working_dma_0701_v2-v5-4-f5c0eda734cc@riscstar.com>
+Message-Id: <20250822-working_dma_0701_v2-v5-7-f5c0eda734cc@riscstar.com>
 References: <20250822-working_dma_0701_v2-v5-0-f5c0eda734cc@riscstar.com>
 In-Reply-To: <20250822-working_dma_0701_v2-v5-0-f5c0eda734cc@riscstar.com>
 To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -103,12 +88,12 @@ Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
  dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, Guodong Xu <guodong@riscstar.com>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Dan Carpenter <dan.carpenter@linaro.org>
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_040657_586449_5C2FEB46 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20250821_200709_683675_25DD985B 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,423 +110,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce mmp_pdma_ops structure to abstract 32-bit addressing operations
-and enable support for different controller variants. This prepares for
-adding 64-bit addressing support.
+Enable the PDMA on the SpacemiT K1-based Banana Pi F3 and Milkv Jupiter
+boards by setting its status to "okay".
 
-The ops structure includes:
-- Hardware register operations (read/write DDADR, DSADR, DTADR)
-- Descriptor memory operations (manipulate descriptor structs)
-- Controller configuration (run bits, DMA mask)
-
-Convert existing 32-bit operations to use the new abstraction layer
-while maintaining backward compatibility.
-
-Cc: Dan Carpenter <dan.carpenter@linaro.org>
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
-v5: Fixed dereference warnings reported by kernel test bot and Dan
-    Carpenter.
-v4: No change.
-v3: No change.
-v2: New patch, introduce mmp_pdma_ops for 32-bit addressing operations.
+v5: No change.
+v4: Rename the node from pdma0 to pdma
+v3: Adjust pdma0 position, ordering by name alphabetic
+v2: Added pdma0 enablement on Milkv Jupiter
 ---
- drivers/dma/mmp_pdma.c | 195 ++++++++++++++++++++++++++++++++++++++++---------
- 1 file changed, 160 insertions(+), 35 deletions(-)
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   | 4 ++++
+ arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 4 ++++
+ 2 files changed, 8 insertions(+)
 
-diff --git a/drivers/dma/mmp_pdma.c b/drivers/dma/mmp_pdma.c
-index fe627efeaff07436647f86ab5ec5333144a3c92d..38d1a4cdfd0e92e53c77b61caa1133559ef40dbd 100644
---- a/drivers/dma/mmp_pdma.c
-+++ b/drivers/dma/mmp_pdma.c
-@@ -25,7 +25,7 @@
- #define DCSR		0x0000
- #define DALGN		0x00a0
- #define DINT		0x00f0
--#define DDADR		0x0200
-+#define DDADR(n)	(0x0200 + ((n) << 4))
- #define DSADR(n)	(0x0204 + ((n) << 4))
- #define DTADR(n)	(0x0208 + ((n) << 4))
- #define DCMD		0x020c
-@@ -120,12 +120,55 @@ struct mmp_pdma_phy {
- 	struct mmp_pdma_chan *vchan;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index fe22c747c5012fe56d42ac8a7efdbbdb694f31b6..6013be25854283a95e630098c1fde55e33e08018 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -40,6 +40,10 @@ &emmc {
+ 	status = "okay";
  };
  
-+/**
-+ * struct mmp_pdma_ops - Operations for the MMP PDMA controller
-+ *
-+ * Hardware Register Operations (read/write hardware registers):
-+ * @write_next_addr: Function to program address of next descriptor into
-+ *                   DDADR/DDADRH
-+ * @read_src_addr: Function to read the source address from DSADR/DSADRH
-+ * @read_dst_addr: Function to read the destination address from DTADR/DTADRH
-+ *
-+ * Descriptor Memory Operations (manipulate descriptor structs in memory):
-+ * @set_desc_next_addr: Function to set next descriptor address in descriptor
-+ * @set_desc_src_addr: Function to set the source address in descriptor
-+ * @set_desc_dst_addr: Function to set the destination address in descriptor
-+ * @get_desc_src_addr: Function to get the source address from descriptor
-+ * @get_desc_dst_addr: Function to get the destination address from descriptor
-+ *
-+ * Controller Configuration:
-+ * @run_bits:   Control bits in DCSR register for channel start/stop
-+ * @dma_mask:   DMA addressing capability of controller. 0 to use OF/platform
-+ *              settings, or explicit mask like DMA_BIT_MASK(32/64)
-+ */
-+struct mmp_pdma_ops {
-+	/* Hardware Register Operations */
-+	void (*write_next_addr)(struct mmp_pdma_phy *phy, dma_addr_t addr);
-+	u64 (*read_src_addr)(struct mmp_pdma_phy *phy);
-+	u64 (*read_dst_addr)(struct mmp_pdma_phy *phy);
-+
-+	/* Descriptor Memory Operations */
-+	void (*set_desc_next_addr)(struct mmp_pdma_desc_hw *desc,
-+				   dma_addr_t addr);
-+	void (*set_desc_src_addr)(struct mmp_pdma_desc_hw *desc,
-+				  dma_addr_t addr);
-+	void (*set_desc_dst_addr)(struct mmp_pdma_desc_hw *desc,
-+				  dma_addr_t addr);
-+	u64 (*get_desc_src_addr)(const struct mmp_pdma_desc_hw *desc);
-+	u64 (*get_desc_dst_addr)(const struct mmp_pdma_desc_hw *desc);
-+
-+	/* Controller Configuration */
-+	u32 run_bits;
-+	u64 dma_mask;
++&pdma {
++	status = "okay";
 +};
 +
- struct mmp_pdma_device {
- 	int				dma_channels;
- 	void __iomem			*base;
- 	struct device			*dev;
- 	struct dma_device		device;
- 	struct mmp_pdma_phy		*phy;
-+	const struct mmp_pdma_ops	*ops;
- 	spinlock_t phy_lock; /* protect alloc/free phy channels */
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_2_cfg>;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+index 4483192141049caa201c093fb206b6134a064f42..c615fcadbd333adc749b758f7f814126783f87fb 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+@@ -20,6 +20,10 @@ chosen {
+ 	};
  };
  
-@@ -138,24 +181,61 @@ struct mmp_pdma_device {
- #define to_mmp_pdma_dev(dmadev)					\
- 	container_of(dmadev, struct mmp_pdma_device, device)
- 
--static int mmp_pdma_config_write(struct dma_chan *dchan,
--			   struct dma_slave_config *cfg,
--			   enum dma_transfer_direction direction);
-+/* For 32-bit PDMA */
-+static void write_next_addr_32(struct mmp_pdma_phy *phy, dma_addr_t addr)
-+{
-+	writel(addr, phy->base + DDADR(phy->idx));
-+}
-+
-+static u64 read_src_addr_32(struct mmp_pdma_phy *phy)
-+{
-+	return readl(phy->base + DSADR(phy->idx));
-+}
-+
-+static u64 read_dst_addr_32(struct mmp_pdma_phy *phy)
-+{
-+	return readl(phy->base + DTADR(phy->idx));
-+}
-+
-+static void set_desc_next_addr_32(struct mmp_pdma_desc_hw *desc, dma_addr_t addr)
-+{
-+	desc->ddadr = addr;
-+}
-+
-+static void set_desc_src_addr_32(struct mmp_pdma_desc_hw *desc, dma_addr_t addr)
-+{
-+	desc->dsadr = addr;
-+}
- 
--static void set_desc(struct mmp_pdma_phy *phy, dma_addr_t addr)
-+static void set_desc_dst_addr_32(struct mmp_pdma_desc_hw *desc, dma_addr_t addr)
- {
--	u32 reg = (phy->idx << 4) + DDADR;
-+	desc->dtadr = addr;
-+}
- 
--	writel(addr, phy->base + reg);
-+static u64 get_desc_src_addr_32(const struct mmp_pdma_desc_hw *desc)
-+{
-+	return desc->dsadr;
- }
- 
-+static u64 get_desc_dst_addr_32(const struct mmp_pdma_desc_hw *desc)
-+{
-+	return desc->dtadr;
-+}
-+
-+static int mmp_pdma_config_write(struct dma_chan *dchan,
-+				 struct dma_slave_config *cfg,
-+				 enum dma_transfer_direction direction);
-+
- static void enable_chan(struct mmp_pdma_phy *phy)
- {
- 	u32 reg, dalgn;
-+	struct mmp_pdma_device *pdev;
- 
- 	if (!phy->vchan)
- 		return;
- 
-+	pdev = to_mmp_pdma_dev(phy->vchan->chan.device);
-+
- 	reg = DRCMR(phy->vchan->drcmr);
- 	writel(DRCMR_MAPVLD | phy->idx, phy->base + reg);
- 
-@@ -167,18 +247,29 @@ static void enable_chan(struct mmp_pdma_phy *phy)
- 	writel(dalgn, phy->base + DALGN);
- 
- 	reg = (phy->idx << 2) + DCSR;
--	writel(readl(phy->base + reg) | DCSR_RUN, phy->base + reg);
-+	writel(readl(phy->base + reg) | pdev->ops->run_bits,
-+	       phy->base + reg);
- }
- 
- static void disable_chan(struct mmp_pdma_phy *phy)
- {
--	u32 reg;
-+	u32 reg, dcsr;
- 
- 	if (!phy)
- 		return;
- 
- 	reg = (phy->idx << 2) + DCSR;
--	writel(readl(phy->base + reg) & ~DCSR_RUN, phy->base + reg);
-+	dcsr = readl(phy->base + reg);
-+
-+	if (phy->vchan) {
-+		struct mmp_pdma_device *pdev;
-+
-+		pdev = to_mmp_pdma_dev(phy->vchan->chan.device);
-+		writel(dcsr & ~pdev->ops->run_bits, phy->base + reg);
-+	} else {
-+		/* If no vchan, just clear the RUN bit */
-+		writel(dcsr & ~DCSR_RUN, phy->base + reg);
-+	}
- }
- 
- static int clear_chan_irq(struct mmp_pdma_phy *phy)
-@@ -297,6 +388,7 @@ static void mmp_pdma_free_phy(struct mmp_pdma_chan *pchan)
- static void start_pending_queue(struct mmp_pdma_chan *chan)
- {
- 	struct mmp_pdma_desc_sw *desc;
-+	struct mmp_pdma_device *pdev = to_mmp_pdma_dev(chan->chan.device);
- 
- 	/* still in running, irq will start the pending list */
- 	if (!chan->idle) {
-@@ -331,7 +423,7 @@ static void start_pending_queue(struct mmp_pdma_chan *chan)
- 	 * Program the descriptor's address into the DMA controller,
- 	 * then start the DMA transaction
- 	 */
--	set_desc(chan->phy, desc->async_tx.phys);
-+	pdev->ops->write_next_addr(chan->phy, desc->async_tx.phys);
- 	enable_chan(chan->phy);
- 	chan->idle = false;
- }
-@@ -447,15 +539,14 @@ mmp_pdma_prep_memcpy(struct dma_chan *dchan,
- 		     size_t len, unsigned long flags)
- {
- 	struct mmp_pdma_chan *chan;
-+	struct mmp_pdma_device *pdev;
- 	struct mmp_pdma_desc_sw *first = NULL, *prev = NULL, *new;
- 	size_t copy = 0;
- 
--	if (!dchan)
--		return NULL;
--
--	if (!len)
-+	if (!dchan || !len)
- 		return NULL;
- 
-+	pdev = to_mmp_pdma_dev(dchan->device);
- 	chan = to_mmp_pdma_chan(dchan);
- 	chan->byte_align = false;
- 
-@@ -478,13 +569,14 @@ mmp_pdma_prep_memcpy(struct dma_chan *dchan,
- 			chan->byte_align = true;
- 
- 		new->desc.dcmd = chan->dcmd | (DCMD_LENGTH & copy);
--		new->desc.dsadr = dma_src;
--		new->desc.dtadr = dma_dst;
-+		pdev->ops->set_desc_src_addr(&new->desc, dma_src);
-+		pdev->ops->set_desc_dst_addr(&new->desc, dma_dst);
- 
- 		if (!first)
- 			first = new;
- 		else
--			prev->desc.ddadr = new->async_tx.phys;
-+			pdev->ops->set_desc_next_addr(&prev->desc,
-+						      new->async_tx.phys);
- 
- 		new->async_tx.cookie = 0;
- 		async_tx_ack(&new->async_tx);
-@@ -528,6 +620,7 @@ mmp_pdma_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
- 		       unsigned long flags, void *context)
- {
- 	struct mmp_pdma_chan *chan = to_mmp_pdma_chan(dchan);
-+	struct mmp_pdma_device *pdev = to_mmp_pdma_dev(dchan->device);
- 	struct mmp_pdma_desc_sw *first = NULL, *prev = NULL, *new = NULL;
- 	size_t len, avail;
- 	struct scatterlist *sg;
-@@ -559,17 +652,18 @@ mmp_pdma_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
- 
- 			new->desc.dcmd = chan->dcmd | (DCMD_LENGTH & len);
- 			if (dir == DMA_MEM_TO_DEV) {
--				new->desc.dsadr = addr;
-+				pdev->ops->set_desc_src_addr(&new->desc, addr);
- 				new->desc.dtadr = chan->dev_addr;
- 			} else {
- 				new->desc.dsadr = chan->dev_addr;
--				new->desc.dtadr = addr;
-+				pdev->ops->set_desc_dst_addr(&new->desc, addr);
- 			}
- 
- 			if (!first)
- 				first = new;
- 			else
--				prev->desc.ddadr = new->async_tx.phys;
-+				pdev->ops->set_desc_next_addr(&prev->desc,
-+							   new->async_tx.phys);
- 
- 			new->async_tx.cookie = 0;
- 			async_tx_ack(&new->async_tx);
-@@ -609,12 +703,15 @@ mmp_pdma_prep_dma_cyclic(struct dma_chan *dchan,
- 			 unsigned long flags)
- {
- 	struct mmp_pdma_chan *chan;
-+	struct mmp_pdma_device *pdev;
- 	struct mmp_pdma_desc_sw *first = NULL, *prev = NULL, *new;
- 	dma_addr_t dma_src, dma_dst;
- 
- 	if (!dchan || !len || !period_len)
- 		return NULL;
- 
-+	pdev = to_mmp_pdma_dev(dchan->device);
-+
- 	/* the buffer length must be a multiple of period_len */
- 	if (len % period_len != 0)
- 		return NULL;
-@@ -651,13 +748,14 @@ mmp_pdma_prep_dma_cyclic(struct dma_chan *dchan,
- 
- 		new->desc.dcmd = (chan->dcmd | DCMD_ENDIRQEN |
- 				  (DCMD_LENGTH & period_len));
--		new->desc.dsadr = dma_src;
--		new->desc.dtadr = dma_dst;
-+		pdev->ops->set_desc_src_addr(&new->desc, dma_src);
-+		pdev->ops->set_desc_dst_addr(&new->desc, dma_dst);
- 
- 		if (!first)
- 			first = new;
- 		else
--			prev->desc.ddadr = new->async_tx.phys;
-+			pdev->ops->set_desc_next_addr(&prev->desc,
-+						      new->async_tx.phys);
- 
- 		new->async_tx.cookie = 0;
- 		async_tx_ack(&new->async_tx);
-@@ -678,7 +776,7 @@ mmp_pdma_prep_dma_cyclic(struct dma_chan *dchan,
- 	first->async_tx.cookie = -EBUSY;
- 
- 	/* make the cyclic link */
--	new->desc.ddadr = first->async_tx.phys;
-+	pdev->ops->set_desc_next_addr(&new->desc, first->async_tx.phys);
- 	chan->cyclic_first = first;
- 
- 	return &first->async_tx;
-@@ -764,7 +862,9 @@ static unsigned int mmp_pdma_residue(struct mmp_pdma_chan *chan,
- 				     dma_cookie_t cookie)
- {
- 	struct mmp_pdma_desc_sw *sw;
--	u32 curr, residue = 0;
-+	struct mmp_pdma_device *pdev = to_mmp_pdma_dev(chan->chan.device);
-+	u64 curr;
-+	u32 residue = 0;
- 	bool passed = false;
- 	bool cyclic = chan->cyclic_first != NULL;
- 
-@@ -776,17 +876,18 @@ static unsigned int mmp_pdma_residue(struct mmp_pdma_chan *chan,
- 		return 0;
- 
- 	if (chan->dir == DMA_DEV_TO_MEM)
--		curr = readl(chan->phy->base + DTADR(chan->phy->idx));
-+		curr = pdev->ops->read_dst_addr(chan->phy);
- 	else
--		curr = readl(chan->phy->base + DSADR(chan->phy->idx));
-+		curr = pdev->ops->read_src_addr(chan->phy);
- 
- 	list_for_each_entry(sw, &chan->chain_running, node) {
--		u32 start, end, len;
-+		u64 start, end;
-+		u32 len;
- 
- 		if (chan->dir == DMA_DEV_TO_MEM)
--			start = sw->desc.dtadr;
-+			start = pdev->ops->get_desc_dst_addr(&sw->desc);
- 		else
--			start = sw->desc.dsadr;
-+			start = pdev->ops->get_desc_src_addr(&sw->desc);
- 
- 		len = sw->desc.dcmd & DCMD_LENGTH;
- 		end = start + len;
-@@ -802,7 +903,7 @@ static unsigned int mmp_pdma_residue(struct mmp_pdma_chan *chan,
- 		if (passed) {
- 			residue += len;
- 		} else if (curr >= start && curr <= end) {
--			residue += end - curr;
-+			residue += (u32)(end - curr);
- 			passed = true;
- 		}
- 
-@@ -996,9 +1097,26 @@ static int mmp_pdma_chan_init(struct mmp_pdma_device *pdev, int idx, int irq)
- 	return 0;
- }
- 
-+static const struct mmp_pdma_ops marvell_pdma_v1_ops = {
-+	.write_next_addr = write_next_addr_32,
-+	.read_src_addr = read_src_addr_32,
-+	.read_dst_addr = read_dst_addr_32,
-+	.set_desc_next_addr = set_desc_next_addr_32,
-+	.set_desc_src_addr = set_desc_src_addr_32,
-+	.set_desc_dst_addr = set_desc_dst_addr_32,
-+	.get_desc_src_addr = get_desc_src_addr_32,
-+	.get_desc_dst_addr = get_desc_dst_addr_32,
-+	.run_bits = (DCSR_RUN),
-+	.dma_mask = 0,			/* let OF/platform set DMA mask */
++&pdma {
++	status = "okay";
 +};
 +
- static const struct of_device_id mmp_pdma_dt_ids[] = {
--	{ .compatible = "marvell,pdma-1.0", },
--	{}
-+	{
-+		.compatible = "marvell,pdma-1.0",
-+		.data = &marvell_pdma_v1_ops
-+	}, {
-+		/* sentinel */
-+	}
- };
- MODULE_DEVICE_TABLE(of, mmp_pdma_dt_ids);
- 
-@@ -1050,6 +1168,10 @@ static int mmp_pdma_probe(struct platform_device *op)
- 	if (IS_ERR(rst))
- 		return PTR_ERR(rst);
- 
-+	pdev->ops = of_device_get_match_data(&op->dev);
-+	if (!pdev->ops)
-+		return -ENODEV;
-+
- 	if (pdev->dev->of_node) {
- 		/* Parse new and deprecated dma-channels properties */
- 		if (of_property_read_u32(pdev->dev->of_node, "dma-channels",
-@@ -1111,7 +1233,10 @@ static int mmp_pdma_probe(struct platform_device *op)
- 	pdev->device.directions = BIT(DMA_MEM_TO_DEV) | BIT(DMA_DEV_TO_MEM);
- 	pdev->device.residue_granularity = DMA_RESIDUE_GRANULARITY_DESCRIPTOR;
- 
--	if (pdev->dev->coherent_dma_mask)
-+	/* Set DMA mask based on ops->dma_mask, or OF/platform */
-+	if (pdev->ops->dma_mask)
-+		dma_set_mask(pdev->dev, pdev->ops->dma_mask);
-+	else if (pdev->dev->coherent_dma_mask)
- 		dma_set_mask(pdev->dev, pdev->dev->coherent_dma_mask);
- 	else
- 		dma_set_mask(pdev->dev, DMA_BIT_MASK(64));
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_2_cfg>;
 
 -- 
 2.43.0
