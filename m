@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D417BCA0EE4
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 06:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B702ACA0EFA
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 06:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uXAbojIfEgbJKsPBi2H+qi2S5iotszTkyb+j+T2P1OY=; b=FEyuLySXqRu+Km+PHkBSs10Py/
-	8wNwxEvExYP+f4vo8AmFQvIAh0y7hnO7UDBJ0ECNx1fiYVZU/vWPOI5j+qqJt2y5cDAZDwgC8OLfE
-	/jeAQHDzlU1U4LMh9DFecvKA3t0Ay0GBfWLbce9B+9BihLd+UfSeUEGidNCqfBNcN4XY4rayZDlAd
-	IYXCpnNCazv/4iDK2sPqSGHs1+XElaMq5tdu4iobWnej4/Kk3YDme1UqKyJdcH4evjEcouTrCo1VD
-	D9kzfiWJL467nAuEMcRv7WB7q9uhZg+yOWLF8y/M+YaNp7jLqEOdVa2GQjiW4CeOXJA3+IE9tAwtN
-	bEeG7bWQ==;
+	bh=E6eGieqwnDesuMIeNf+wdwP4SixWK1DOQ6eXYpWLyP4=; b=3vP6ADUEU2+WmBI4k6/7PNaFap
+	7l3UWJH12MGE2bKB7nAuNjVZRcoL1UqyRRwpDe43N2rQqUiH9Z9TTCYmzR3lbFwX/ogiMD0zogYiA
+	oYt/QM8NDHLS585wQK04g7FxMsIzivF8d6fAlbne9+vivZ3Zdk9m0HnkoEMfdRRGckyPC+e/uGykF
+	Nb/gf7xj1D97szM+pkskaD4jIu7AWxCycXn3y3CO+D/bOCdhNz5Ok5I1lWWodPafsHfT/RyI9vNsc
+	ZweYGbUgWzTTJP10m8hlWF9zm0xeDZ2Y9oqR1Esv56/R4pDQGOWn4bDECHS8uedyi1ECc/2phsCDi
+	tuTCjsyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphum-00000004BB1-0W6F;
-	Sat, 23 Aug 2025 06:39:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uphur-00000004BHa-3N9B;
+	Sat, 23 Aug 2025 06:39:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upUiN-00000003B8F-2JrR;
-	Fri, 22 Aug 2025 16:34:08 +0000
+	id 1upUlK-00000003BMP-02Fz
+	for linux-riscv@lists.infradead.org;
+	Fri, 22 Aug 2025 16:37:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 005D7A58A19;
-	Fri, 22 Aug 2025 16:34:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D87CEC4CEED;
-	Fri, 22 Aug 2025 16:33:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1DBF45C70E6;
+	Fri, 22 Aug 2025 16:37:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73852C4CEED;
+	Fri, 22 Aug 2025 16:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755880445;
-	bh=iKMaqY2T2MvMaFi0XbUWD0o8saOVzIOavh0WskJFFJk=;
+	s=k20201202; t=1755880628;
+	bh=Nu4e6UeAXwVcvfZtjpDX4+Fvi5Hf97mH4y1qIQ3VZzA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gSgMwNByRYG87aU+xs9MlnWyfggyMpBShAVpHsDhv7+s2Rl50S6MV03gYuI5AIodC
-	 gHcJY5vJ8pODlXqfgGFRJt9EsHTYJ9w2zZFxRJzHV80px0qH3IDHBBl2EIDCGFHNVc
-	 NdTJacp29PXHOA/QWlJPY6xryO5kHtiYrIf2AmdKyPGVZOmtYOiIeRzrL/a25q30Mp
-	 zcBN6hWt8nLuR0iQficgQqnP2PL2DpHAas3KYnbbJjCNjhbrFEoluJgwSHM9RLb14W
-	 /tnD6l4HBcfilMhKlkILzTEKi08X16/ucccvai6fqwMVP7CYKttBi9Kng1v051vWcI
-	 yXe6kg4RWOPiA==
-Date: Fri, 22 Aug 2025 17:33:57 +0100
+	b=n8hLAZfJovCKOU2fELvFU+ZBcFqnowH+57AbthIsjm22+oAhTNi6jrkkShDDkK6K/
+	 C1H8s6gvzNgkXr31PNpTZ4UMCG/1+hzaGo4VbrTKm/r+LrQ5wGvaWOI55XUeKNykvT
+	 /jSzs4nHn9hFj1gb2KcPdkn6rZ0txqkgQnhe57K9CLyHSIJCjeTsQgr2OWkdLM7wc5
+	 W8umRxG2B8NtlR/N5bVucmEIwDjeM2AjYC3sxBa07queDIccM1qoYlZ43ooRfiqC6b
+	 D9zNd4dWYQxcO/nfvNYuzpk5PzHkPtB0GUYx+K9iKYzqGnGYiP5NHwB6Gf5ylsP3K7
+	 BPZUyP/CprI9A==
+Date: Fri, 22 Aug 2025 17:37:04 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, anup@brainfault.org, pbonzini@redhat.com,
-	shuah@kernel.org, cyan.yang@sifive.com, cleger@rivosinc.com,
-	charlie@rivosinc.com, cuiyunhui@bytedance.com,
-	samuel.holland@sifive.com, namcao@linutronix.de, jesse@rivosinc.com,
-	inochiama@gmail.com, yongxuan.wang@sifive.com,
-	ajones@ventanamicro.com, parri.andrea@gmail.com,
-	mikisabate@gmail.com, yikming2222@gmail.com,
-	thomas.weissschuh@linutronix.de, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	devicetree@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v1 RESEND 1/5] dt-bidings: riscv: add Zilsd and Zclsd
- extension descriptions
-Message-ID: <20250822-purge-doubling-f38988284db1@spud>
-References: <20250821140131.225756-1-pincheng.plct@isrc.iscas.ac.cn>
- <20250821140131.225756-2-pincheng.plct@isrc.iscas.ac.cn>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [RFC 1/3] dt-bindings: riscv: Add StarFive JH7110S SoC and
+ VisionFive 2 Lite board
+Message-ID: <20250822-rascal-geometry-83c35926ea7e@spud>
+References: <20250821100930.71404-1-hal.feng@starfivetech.com>
+ <20250821100930.71404-2-hal.feng@starfivetech.com>
+ <20250821-pencil-anguished-6b8467adbd38@spud>
+ <ZQ2PR01MB13071F6F2732451DBE3BEE9DE63D2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
 MIME-Version: 1.0
-In-Reply-To: <20250821140131.225756-2-pincheng.plct@isrc.iscas.ac.cn>
+In-Reply-To: <ZQ2PR01MB13071F6F2732451DBE3BEE9DE63D2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_093407_739410_5E3E8920 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20250822_093710_136930_C8395D2E 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,131 +79,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2441541404025002504=="
+Content-Type: multipart/mixed; boundary="===============3852810226875606596=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2441541404025002504==
+--===============3852810226875606596==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iXs4qi8wL7fiAACn"
+	protocol="application/pgp-signature"; boundary="nZfVf4i1qpRGT5hz"
 Content-Disposition: inline
 
 
---iXs4qi8wL7fiAACn
+--nZfVf4i1qpRGT5hz
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Aug 21, 2025 at 10:01:27PM +0800, Pincheng Wang wrote:
-> Add descriptions for the Zilsd (Load/Store pair instructions) and
-> Zclsd (Compressed Load/Store pair instructions) ISA extensions
-> which were ratified in commit f88abf1 ("Integrating load/store
-> pair for RV32 with the main manual") of the riscv-isa-manual.
+On Fri, Aug 22, 2025 at 07:37:29AM +0000, Hal Feng wrote:
+> > On 22.08.25 02:17, Conor Dooley wrote:
+> > On Thu, Aug 21, 2025 at 06:09:28PM +0800, Hal Feng wrote:
+> > > Add device tree bindings for the StarFive JH7110S SoC and the
+> > > VisionFive 2 Lite board equipped with it.
+> > >
+> > > JH7110S SoC is an industrial SoC which can run at -40~85 degrees
+> > > centigrade and up to 1.25GHz. Its CPU cores and peripherals are mostly
+> > > similar to those of the JH7110 SoC.
+> >=20
+> > How "mostly" is mostly? Are there memory map or capability differences?
 >=20
-> Signed-off-by: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
-> ---
->  .../devicetree/bindings/riscv/extensions.yaml | 39 +++++++++++++++++++
->  1 file changed, 39 insertions(+)
+> To be precise, the CPU cores and peripherals are the same as those of the
+> JH7110 SoC. I will improve the commit description in the next version.
+
+Ye, please do. The complete lack of differences other than thermals
+and cpu performance is what allows you to use all the same compatibles
+for the peripherals after all!
+
 >=20
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
-cumentation/devicetree/bindings/riscv/extensions.yaml
-> index ede6a58ccf53..d72ffe8f6fa7 100644
-> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -366,6 +366,20 @@ properties:
->              guarantee on LR/SC sequences, as ratified in commit b1d80660=
-5f87
->              ("Updated to ratified state.") of the riscv profiles specifi=
-cation.
-> =20
-> +        - const: zilsd
-> +          description:
-> +            The standard Zilsd extension which provides support for alig=
-ned
-> +            register-pair load and store operations in 32-bit instruction
-> +            encodings, as ratified in commit f88abf1 ("Integrating
-> +            load/store pair for RV32 with the main manual") of riscv-isa=
--manual.
-> +
-> +        - const: zclsd
-> +          description:
-> +            The Zclsd extension implements the compressed (16-bit) versi=
-on of the
-> +            Load/Store Pair for RV32. As with Zilsd, this extension was =
-ratified
-> +            in commit f88abf1 ("Integrating load/store pair for RV32 wit=
-h the
-> +            main manual") of riscv-isa-manual.
-> +
->          - const: zk
->            description:
->              The standard Zk Standard Scalar cryptography extension as ra=
-tified
-> @@ -847,6 +861,16 @@ properties:
->              anyOf:
->                - const: v
->                - const: zve32x
-> +      # Zclsd depends on Zilsd and Zca
-> +      - if:
-> +          contains:
-> +            anyOf:
-> +              - const: zclsd
-> +        then:
-> +          contains:
-> +            anyOf:
-> +              - const: zilsd
-> +              - const: zca
-> =20
->  allOf:
->    # Zcf extension does not exist on rv64
-> @@ -864,6 +888,21 @@ allOf:
->            not:
->              contains:
->                const: zcf
-> +  # Zilsd extension does not exist on rv64
-> +  - if:
-> +      properties:
-
-> +        riscv,isa-extensions:
-> +          contains:
-> +            const: zilsd
-
-This syntax is odd, it shouldn't be required to have zilsd in here and
-in the then. Did you copy this from Zcf or come up with it yourself
-because it didn't work otherwise?
-
-> +        riscv,isa-base:
-> +          contains:
-> +            const: rv64i
-> +    then:
-> +      properties:
-> +        riscv,isa-extensions:
-> +          not:
-> +            contains:
-> +              const: zilsd
-> =20
->  additionalProperties: true
->  ...
-> --=20
-> 2.39.5
+> Here are the differences between them:=20
+> JH7110 supports 0~70 degrees centigrade and up to 1.5GHz.
+> JH7110S supports -40~85 degrees centigrade and up to 1.25GHz.
+>=20
+> Best regards,
+> Hal
+>=20
+> >=20
+> > >
+> > > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> > > ---
+> > >  Documentation/devicetree/bindings/riscv/starfive.yaml | 5 +++++
+> > >  1 file changed, 5 insertions(+)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml
+> > > b/Documentation/devicetree/bindings/riscv/starfive.yaml
+> > > index 7ef85174353d..a2952490709f 100644
+> > > --- a/Documentation/devicetree/bindings/riscv/starfive.yaml
+> > > +++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+> > > @@ -33,6 +33,11 @@ properties:
+> > >                - starfive,visionfive-2-v1.3b
+> > >            - const: starfive,jh7110
+> > >
+> > > +      - items:
+> > > +          - enum:
+> > > +              - starfive,visionfive-2-lite
+> > > +          - const: starfive,jh7110s
+> > > +
+> > >  additionalProperties: true
+> > >
+> > >  ...
+> > > --
+> > > 2.43.2
+> > >
 >=20
 
---iXs4qi8wL7fiAACn
+--nZfVf4i1qpRGT5hz
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKib9QAKCRB4tDGHoIJi
-0irLAQCV5/SvoxN05dR+xOZRbx3ngdqvZgXtTOXV1Bvb1u1sbgEAqB+ZSQTXtrTn
-OOlkomc7ojGER25FiOTQpdYiyfasmAg=
-=zFKH
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKicsAAKCRB4tDGHoIJi
+0sCgAQCngjj8rbPb0Af9BMZYRbpS50JcfXIJv0U+8Lki4SL4CQEAzz2rJzTiq/u6
+Udk42wTGzXD6bXBGwcGrUnFUsV713ws=
+=6L7i
 -----END PGP SIGNATURE-----
 
---iXs4qi8wL7fiAACn--
+--nZfVf4i1qpRGT5hz--
 
 
---===============2441541404025002504==
+--===============3852810226875606596==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -213,5 +176,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2441541404025002504==--
+--===============3852810226875606596==--
 
