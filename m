@@ -4,136 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13914CA0EFF
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 09:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5757CA0FE8
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 09:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aLCS/GZZBZ1rgLOIivYoJXnh8Mx8zv+VRGweNCF4nDo=; b=0MAVz/DqqzRswL
-	LYn+W5bMj0jyW5LMY8f4M8sd1KGSQAUit1vTAXk9ZjA3s/pmlOIBrJHGZUHkc/0zA6wfbJFovML0u
-	nvpx4cdKKwIAIlGLdZhdBpRDD5bwlXv1HhbLy0R4zi6NN4KAHM5oKsokir6eW314pUZgrZ554pNDG
-	1QwQBAVblxGnhBsC+htYDs52oT90LIvKRk1nKTb0tAmCQvFLwgq/++XhmPXwOpru+wgvAoo3chDSA
-	4yaQhkTQPzooDbRoFMpfNBqtGwL4I9Em4rjwQctF48c8iVVyE1q/C3TIs5IVAo52BDq4kms7XdHkd
-	Qp58ElV5a4NQXSbnYCxg==;
+	List-Owner; bh=6Lm7dr4pcI3mgqTnkq/vGzzZOIdFJbJgw8KsjoILrNk=; b=jVhTi2Dl9e7fZV
+	PhbiHEC7vK+DrVVIHiyhFO9jXRg+8BbUfNTkYfVmCWcgXt/wiO+OHy9nlMwhv0I7wMI4jma6xiMn/
+	Wt+4V4MpUiNCQztHKl29nT4xce3O/z2WTuPFTD8wkC3weKmag4TZnLn4BHzAyLyPdBSoMytd1jDF6
+	TafvtZbk0jHy4rp1njR6Bi7pDHelNgR4C0ikrM7Eh3N033RptPfZ6M6VRhOytyhgEax3k/OPydYxc
+	sYwuQopM06LNyKlMRMedKAq+INIaE/4E+TsatRSfuqSI485EeNbFlY6f4IrHeEwdTyTcap29r6i5E
+	nS7GOlnCf1Xec6fEZdJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkfX-00000004UvZ-21dp;
-	Sat, 23 Aug 2025 09:36:15 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1upkfc-00000004V34-0rnk;
+	Sat, 23 Aug 2025 09:36:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upVrS-00000003GH8-40Kx
+	id 1upWE8-00000003IHr-1zsT
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Aug 2025 17:47:37 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-4b10993301fso24046961cf.0
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Aug 2025 10:47:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1755884854; x=1756489654; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1/NZ3invqjYii7VgIefIBIrdQlA4A/NoIleSlxqcTKI=;
-        b=fGk2frhTXdl9VWRC3VjHA1XzrswAlKKIX4ESYIdwMJOMOH+pHk8BHjLnDcsKsAFTx5
-         YlFCOCOqECaV2M5uiqPpr5IZiyTazzvmehg2x1Eq3utPmkBFNrtZMMm/Ek9Zk8YDhTvz
-         JS44L0/qMyOkaD6x9kU7X8tow4pedb2kheUrq48h9pJ0UdqP7Goz9/iZYB5G4I27k9KH
-         7weJFWXjznvdMWLYi3S29aTWViSgAB2m/XRXwaxc87OrGkf7K6ems5CQKd5Tjh11f/jl
-         nddyRAqv6orlcujwmtFNpazcHPVKv77w+9EPXm+rK3XXN5fDZpk7CtlaA8JlNQ3x11/G
-         gRtg==
+	Fri, 22 Aug 2025 18:11:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755886259;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Cs65i5/BwS5INh2iU3PXL6F11yYfHDlCfNAhWqRXwfw=;
+	b=IPejttsmqlF0h0LJHcs218J3r9CAoF9SJ+oFUvesxdN4wfEjbuQBl4jZGLxxFaV15KRWLi
+	UUMS0nxXN7upIExUbwWPiTptaPYjLhgT8ErdW7r5DxksfxeYlEVvhPdN2GQAsLxLe3RL0Z
+	HXq/iyYzkpUKcs5+aoBmdPFp+lyHXDM=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-626-zS4DAEHhOmKXWLtJhxNEdQ-1; Fri, 22 Aug 2025 14:10:57 -0400
+X-MC-Unique: zS4DAEHhOmKXWLtJhxNEdQ-1
+X-Mimecast-MFC-AGG-ID: zS4DAEHhOmKXWLtJhxNEdQ_1755886255
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3c584459d02so645122f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 22 Aug 2025 11:10:55 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755884854; x=1756489654;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1/NZ3invqjYii7VgIefIBIrdQlA4A/NoIleSlxqcTKI=;
-        b=JU4SHxwDOdM0T0/TU8MdFSQjXF8xI76GCRw4FRu+Z0oU5Gxs2Py3M5Eek5exRNM4UK
-         1HkXwu4iNLsKNB3eDZCjxGjkSdpDZ9R4LC+i8QJYOX5ePlATymumTNfoVO5IU79bB3q9
-         8SVn59EGBHuW5/1qa2uQH3ooacAI/fth+uL7OJR5KwPGeToGIx1CL+q+h+HKFoVTycYd
-         dZVpaF4WA+as+ZK2CcxGaDtV7Iz1iBaQKpylkCB6bZUZnCLpvLBBuLEFxss0Ow16Asqr
-         L9YHssejUyRxqaJAD/agQtqTnFnQIlFbjTv217ByB0mr9w6JJNwy/V9b1slrosAfECZ0
-         MpSg==
-X-Gm-Message-State: AOJu0YwCgOPL9X5UXkH4e4OyGCrJa6DdD4/Ovm1cGMMNvvv1cO+lt/8I
-	BSU8ZUH12FEb3C6zqTr0mkYULd3cNe1rl5/2rQvfqD8rnldJYFxevt7UZCR/W/w0U1wfYVtZfnV
-	JOrIc
-X-Gm-Gg: ASbGncspc9uQN0WqjI/6+2VDtLtMH30RyNdxcPwzfvCUCatG2hS3iBNBFomiuquF8L1
-	gwAqHdzGIe64CR0Wy5vY+Yamxkq75g/Mrmt4QdU+ARSROUuGa2pZhYr6RvduoyzlC7I3wzyOXgs
-	qgCxMyWu24KQXaUBJd5lEHeT2+mKaje/afUyHE+ICyxd900sgsZRvy0awSg2uZ+ZQQJnUthsmNR
-	BcpZz2fFM6boZ1bWbsCysZWgYz+nAtaaszH8m6rePqVw0kODe06kcTxxmlFjZ/qJTX6WNnp/LY/
-	XeIGIJgHDzJpVdCghJjXeM8aQT0vCUPeZZCdsY7YDki9R4Zmaa3DmKbvHVqhDngSANouBIp/z5x
-	e0/BxU/diwCTg5vUB1m42G7Ptmn7Pk7NbzBv8FQ2BgyRloSp4k2x+dEYdZJAtzMfi2wdttJaokF
-	1qfmjWfw==
-X-Google-Smtp-Source: AGHT+IFZbeEwjqDea0hlGgRVd9Xscw2cIAz+36MfAAXzcnD0U+Bx3mxtHkRwJItm6g9vdsmkz7a3oQ==
-X-Received: by 2002:a05:622a:50c:b0:4b2:8ac4:ef7c with SMTP id d75a77b69052e-4b2aab4abe8mr43670911cf.75.1755884853830;
-        Fri, 22 Aug 2025 10:47:33 -0700 (PDT)
-Received: from jesse-lt.jtp-bos.lab (pool-108-26-215-125.bstnma.fios.verizon.net. [108.26.215.125])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b2b8e6023asm3121361cf.53.2025.08.22.10.47.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Aug 2025 10:47:33 -0700 (PDT)
-From: Jesse Taube <jesse@rivosinc.com>
-To: linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Kees Cook <kees@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang Kan" <kan.liang@linux.intel.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Jesse Taube <jesse@rivosinc.com>,
-	Himanshu Chauhan <hchauhan@ventanamicro.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Evan Green <evan@rivosinc.com>,
-	WangYuli <wangyuli@uniontech.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Nam Cao <namcao@linutronix.de>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	Joel Granados <joel.granados@kernel.org>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Celeste Liu <coelacanthushex@gmail.com>,
-	Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
-	Nylon Chen <nylon.chen@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Joel Stanley <joel@jms.id.au>
-Subject: [PATCH 7/8] riscv: ptrace: Add hw breakpoint regset
-Date: Fri, 22 Aug 2025 10:47:14 -0700
-Message-ID: <20250822174715.1269138-8-jesse@rivosinc.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250822174715.1269138-1-jesse@rivosinc.com>
-References: <20250822174715.1269138-1-jesse@rivosinc.com>
+        d=1e100.net; s=20230601; t=1755886255; x=1756491055;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Cs65i5/BwS5INh2iU3PXL6F11yYfHDlCfNAhWqRXwfw=;
+        b=XJ9lN/BACP4/T2+DKcugalRQ1Kdm29Hz/ExbDMfjR5jz1+4doJ+w3Y2I29O+GIT6kD
+         gLL+H5Rdq/WDD2CpIdHg9sngd99KTb4E4GyPeH3dMrhu0OnQoDeg6nssEzKvAb3l4QZo
+         MAv6Vj/X/AW2YiwiHqBCRL5rnJpQ8P1i1ZxEVIVEiK55qXOOL+Kv0v2uLIbqgWSI5VB9
+         T2OLfaqMHdceJvVLgBr20BQXpUm4mSNrtDbQXzpZ2j0se6mWDDjj7AAwZDGoYtvu+DGM
+         vxYtv6BGqTtT9Q4oXxR8D3RD58an4uNR8iBN0hI3IHAFbnqA1t1+SKAUoAUs3uvWwL12
+         sBvA==
+X-Forwarded-Encrypted: i=1; AJvYcCX+rtLVUxxwtyO7zD79cN1Bmfy8lwswWMkIqftR3eDFiS2uw148ZOMfh5JXGkZZQtzprKTQ9a2FCz9vEw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+InHm6EvlBtPSTXe7hgopx6EnvI7ca9wdjd0+JxK+qMBjoeDL
+	s8GNighQkyMrvL4jOmS93mGIcImd/FYBCTrJI8DWYlYPNSmkeFGZm/ZVpaETw8/9AMghohP9q4E
+	WR4T3nxMjdPBVKSUohKmxzqZ/paPq6iEJrdklfBGTIGRl5tokVtGjI1XaNLoebjInkdI+rQ==
+X-Gm-Gg: ASbGnctq7q37MQrcoclI3VSpixaGSoTpmbKcPdDKKJO1l4F8DKeVAE8f5Lw0fCjwqDd
+	N2O3QoXoSZ7gA/Vxc1QMwpKhtSCdnF0OjMlIqp2Y2WMg3CErgwUxhSrL16ROh7LEkAqBT0OYikv
+	P7Y4TJR8+ucbnGlQPJEdi9fJ5OK0b1OaFcIycOpgt2ePdVFw8wXUZHWduyMmGPYBjAn4GSRbqYg
+	k9rDK02bZrPOlD/Jch+A1pBGRokFHfvAZJMiIRpofpAzrJLFTxfaN62f4i2MBO0PnhpSJRzAvU8
+	vMaeVwp81KO5fHg3ZvsZHTq5aGOrpUMW36LKLVkYKj/UGH75rUpDL3OKtRMYIqgwZCptUHWHYdA
+	VydsG4z4DTFgyS8KZJ7Idz6WAt8cf6hMfkFHWM/X1yjFbg4tkPa6tBui4x6qGE4VDM/Y=
+X-Received: by 2002:a05:6000:26ce:b0:3b7:83c0:a9e0 with SMTP id ffacd0b85a97d-3c5daefc76amr3207821f8f.25.1755886254511;
+        Fri, 22 Aug 2025 11:10:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFruF/9yLWC9qQiiSeqlnaZybt0y1Lc6OlpmYaNOwlaf7dspYYth5O1iwJEpGlFoX5TNvjMRA==
+X-Received: by 2002:a05:6000:26ce:b0:3b7:83c0:a9e0 with SMTP id ffacd0b85a97d-3c5daefc76amr3207779f8f.25.1755886254021;
+        Fri, 22 Aug 2025 11:10:54 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f2e:6100:d9da:ae87:764c:a77e? (p200300d82f2e6100d9daae87764ca77e.dip0.t-ipconnect.de. [2003:d8:2f2e:6100:d9da:ae87:764c:a77e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c70f238640sm404818f8f.26.2025.08.22.11.10.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 22 Aug 2025 11:10:53 -0700 (PDT)
+Message-ID: <9a9eb9ca-a5ae-4230-8921-fd0e0a79ccbb@redhat.com>
+Date: Fri, 22 Aug 2025 20:10:51 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 29/35] scsi: core: drop nth_page() usage within SG
+ entry
+To: Bart Van Assche <bvanassche@acm.org>, linux-kernel@vger.kernel.org
+Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Doug Gilbert <dgilbert@interlog.com>, Alexander Potapenko
+ <glider@google.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+ Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+ Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
+ Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
+ Zi Yan <ziy@nvidia.com>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-30-david@redhat.com>
+ <58816f2c-d4a7-4ec0-a48e-66a876ea1168@acm.org>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <58816f2c-d4a7-4ec0-a48e-66a876ea1168@acm.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: CEtyPM2zcIjHzzuYdCAWxAWVrmGtME9COo4BMhA1cQE_1755886255
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_104734_994314_DD4BA02E 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20250822_111100_578541_4E7F5B35 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,138 +178,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add ability to setup hw breakpoints using REGSET use the
-__riscv_hwdebug_state structure to configure breakpoints.
+On 22.08.25 20:01, Bart Van Assche wrote:
+> On 8/21/25 1:06 PM, David Hildenbrand wrote:
+>> It's no longer required to use nth_page() when iterating pages within a
+>> single SG entry, so let's drop the nth_page() usage.
+> Usually the SCSI core and the SG I/O driver are updated separately.
+> Anyway:
 
-Signed-off-by: Jesse Taube <jesse@rivosinc.com>
----
-RFC -> V1:
- - New commit
-V1 -> V2:
- - No change
----
- arch/riscv/kernel/ptrace.c     | 59 ++++++++++++++++++++++++++++++++++
- include/uapi/linux/elf.h       |  2 ++
- tools/include/uapi/linux/elf.h |  1 +
- 3 files changed, 62 insertions(+)
+Thanks, I had it separately but decided to merge per broader subsystem 
+before sending. I can split it up in the next version.
 
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index e097e6a61910..fbd0097ec168 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -33,6 +33,9 @@ enum riscv_regset {
- #ifdef CONFIG_RISCV_ISA_SUPM
- 	REGSET_TAGGED_ADDR_CTRL,
- #endif
-+#ifdef CONFIG_HAVE_HW_BREAKPOINT
-+	REGSET_HW_BREAK
-+#endif
- };
- 
- static int riscv_gpr_get(struct task_struct *target,
-@@ -280,7 +283,53 @@ static long ptrace_sethbpregs(struct task_struct *child, unsigned long idx,
- 		return -EFAULT;
- 
- 	return ptrace_hbp_set(child, idx, &state);
-+}
- 
-+static int hw_break_set(struct task_struct *target,
-+			const struct user_regset *regset,
-+			unsigned int pos, unsigned int count,
-+			const void *kbuf, const void __user *ubuf)
-+{
-+	struct __riscv_hwdebug_state state;
-+	int ret, idx, offset, limit;
-+
-+	idx = offset = 0;
-+	limit = regset->n * regset->size;
-+	while (count && offset < limit) {
-+		if (count < sizeof(state))
-+			return -EINVAL;
-+
-+		ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &state,
-+					 offset, offset + sizeof(state));
-+		if (ret)
-+			return ret;
-+		ret = ptrace_hbp_set(target, idx, &state);
-+		if (ret)
-+			return ret;
-+		offset += sizeof(state);
-+		idx++;
-+	}
-+
-+	return 0;
-+}
-+
-+static int hw_break_get(struct task_struct *target,
-+			const struct user_regset *regset,
-+			struct membuf to)
-+{
-+	int ret, idx = 0;
-+	struct __riscv_hwdebug_state state;
-+
-+	while (to.left) {
-+		ret = ptrace_hbp_get(target, idx, &state);
-+		if (ret)
-+			return ret;
-+
-+		membuf_write(&to, &state, sizeof(state));
-+		idx++;
-+	}
-+
-+	return 0;
- }
- #endif
- 
-@@ -324,6 +373,16 @@ static const struct user_regset riscv_user_regset[] = {
- 		.set = tagged_addr_ctrl_set,
- 	},
- #endif
-+#ifdef CONFIG_HAVE_HW_BREAKPOINT
-+	[REGSET_HW_BREAK] = {
-+		.core_note_type = NT_RISCV_HW_BREAK,
-+		.n = sizeof(struct __riscv_hwdebug_state) / sizeof(unsigned long),
-+		.size = sizeof(unsigned long),
-+		.align = sizeof(unsigned long),
-+		.regset_get = hw_break_get,
-+		.set = hw_break_set,
-+	},
-+#endif
- };
- 
- static const struct user_regset_view riscv_user_native_view = {
-diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-index 819ded2d39de..7a32073e0d68 100644
---- a/include/uapi/linux/elf.h
-+++ b/include/uapi/linux/elf.h
-@@ -545,6 +545,8 @@ typedef struct elf64_shdr {
- #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
- #define NN_RISCV_TAGGED_ADDR_CTRL "LINUX"
- #define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
-+#define NN_RISCV_HW_BREAK	"LINUX"
-+#define NT_RISCV_HW_BREAK	0x903	/* RISC-V hardware breakpoint registers */
- #define NN_LOONGARCH_CPUCFG	"LINUX"
- #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
- #define NN_LOONGARCH_CSR	"LINUX"
-diff --git a/tools/include/uapi/linux/elf.h b/tools/include/uapi/linux/elf.h
-index 5834b83d7f9a..b5f35df1de7a 100644
---- a/tools/include/uapi/linux/elf.h
-+++ b/tools/include/uapi/linux/elf.h
-@@ -460,6 +460,7 @@ typedef struct elf64_shdr {
- #define NT_RISCV_CSR	0x900		/* RISC-V Control and Status Registers */
- #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
- #define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
-+#define NT_RISCV_HW_BREAK	0x903	/* RISC-V hardware breakpoint registers */
- #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
- #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
- #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
 -- 
-2.43.0
+Cheers
+
+David / dhildenb
 
 
 _______________________________________________
