@@ -4,73 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B8BCA0EFA
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 10:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D7CCCA0EFA
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 10:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sjvq6uH/HflapOoVMe/JIsjbIuXtxh+3Qyzgj1FX9Hk=; b=fSY/kzV1tspHSt
-	biWmIBlPyHiG7mNgTMEVrWhSAqTRrw9W1uzGUa+kLOTmcCKRaoWXnpUibDZ+TC1/KhyuR9qUQtVcR
-	ulWSilz1OWHXPxzejMENBKgF+3sI5aVbfJk7ZGVD6NoPW3r9bJKjuGQO3MRzoHMTuP080QR5UoG0W
-	MTPoCKfUu8AQ0bvPM/5HRf7qmCKGjRiKfF1tyjdc9/Ydj/wXT6/FyDl1x2IRhCOxrPgwn/lXrLrOx
-	Syfcv5LdNgdo9R2e9lC8Ac/w5B9vyQgos1EVT9ZymwMfnl5T6uxXaTislJiZ/+8U5krTp3a/0OQzh
-	5sLTJxwhtvDqLlaxx6gA==;
+	List-Owner; bh=gVHjj8TYg37z1ND2ggq+78lyskyjmokE6cezaRjJKEw=; b=ceqMww0RZSaWAd
+	Q/sCUXPF3x/w8A1qw2sebem8qxx2zrYEoUmzYJniwWfWIoSvEefWkVUhQGuIr9E7mfGtNbzGWiP8P
+	KywpprDKr+gKLe2rQpJhSWDeUiCnwQTODjqfdJVGbx0HXVAoTTedXyJNB93Vt3NsZ6UmCuRmgvMxx
+	q/UFzb1iSASZNjBP+oijZfrCWsKPlFMOE09H/FygXZOsG8WNtkFD3BzhIICDukODfHpqYEw1vGsjS
+	yPymFAndPDQvXkG6e18LdN0H2sd9q9OOCjYr+TP4suZxEEFB99u264ZIB0+OknHLDlMj7s5B6q7hV
+	3ghu6opXY/JaJtWZRJDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uplLX-00000004cyS-0Z0t;
-	Sat, 23 Aug 2025 10:19:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uploa-00000004f9Q-3ZuO;
+	Sat, 23 Aug 2025 10:49:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upk5w-00000004Pnq-037z
-	for linux-riscv@bombadil.infradead.org;
-	Sat, 23 Aug 2025 08:59:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=ivruQgPAgnOsXQb561q1ghCx4pNshuV7J+JnMf6gLIQ=; b=GGq3ntIApzZKSxoUMv6uoqDV1X
-	J7QCg/eEfI6QCFi/oJERzaC3CJAM3B2K5LY81T7RNRRVz5VO199/69tG5mzBPyCb6cLwyEJUMHmrg
-	BFOnHqUS0dJXmiw6eI0ItxclEqbRkz4H8sU0UziKhLS1f/4EPIJbeQnaJ3qjhMkys9PILGcqmuVHY
-	24EaumeK8ljdebzIx1TDq3LmAwiDr5mQIGoDl1qZDJlS3pQazIOG7i0Gfn9hrl69uM5UschoMqM3b
-	ZjYXsZI/O3Ytg/3p9O+fiwzFMCENOa9oGY6sT0mMoLvOyAPbGV44OQDv72/k3PSpqUNs8W/Q/j2ic
-	lviEk7rQ==;
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upk5s-00000001NOB-3Vh4
+	id 1upYhO-00000003SGi-386L
 	for linux-riscv@lists.infradead.org;
-	Sat, 23 Aug 2025 08:59:26 +0000
-Received: from hay.lan (unknown [IPv6:2605:59c0:2078:cf00:6ecf:39ff:fe00:8375])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 6A05EB4E0023;
-	Sat, 23 Aug 2025 10:59:18 +0200 (CEST)
-From: E Shattow <e@freeshell.de>
-To: Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Fri, 22 Aug 2025 20:49:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E1E37A58BAE;
+	Fri, 22 Aug 2025 20:49:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3E0FC4CEED;
+	Fri, 22 Aug 2025 20:49:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755895761;
+	bh=wmRCLD9hOfy0sueOqSOzM5LT8HdFfskptuv1HyGoOiA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TREzWGI/KHNYiYiVKXn4mwg3b3FDPsPm24JWVzD9c1QWsPwZ6vnvsxHNQPR75cOJD
+	 h/72DFHoP8T0ao4DFDBGMhPYmu0IpfPbmRiWJNdFGLE8YO0Pa1T9ke5JUiElqtV6JH
+	 lFeNa8Tmod24lBIkxtq/BTVX2iwnt1whenapPUEn1FFg3jKjuIiKO1JD/bpDEZJIA9
+	 AbpPQ+Q8zrHEMbcdMsVdOUsMkUfoVPRiZcMnwgg2ORnHfLFsr+ZZ0lQLLbpHDjcAg3
+	 N/Xw7dzGn05qpazPV5vG/uSe1RTsGssQHCRo+QUHzeniWihGOHjCssXmIX9qvG88hS
+	 iXu7Mi4hl2xXg==
+Date: Fri, 22 Aug 2025 13:49:19 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	E Shattow <e@freeshell.de>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 2/3] riscv: dts: starfive: jh7110: add DMC memory controller
-Date: Sat, 23 Aug 2025 01:58:01 -0700
-Message-ID: <20250823085818.203263-3-e@freeshell.de>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250823085818.203263-1-e@freeshell.de>
-References: <20250823085818.203263-1-e@freeshell.de>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v14 7/7] riscv: dts: thead: Add PWM fan and thermal
+ control
+Message-ID: <aKjXzyyYd9QneIKf@x1>
+References: <20250820-rust-next-pwm-working-fan-for-sending-v14-0-df2191621429@samsung.com>
+ <CGME20250820083548eucas1p2a40775d53dfd9f8608671cc20003fd7d@eucas1p2.samsung.com>
+ <20250820-rust-next-pwm-working-fan-for-sending-v14-7-df2191621429@samsung.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250820-rust-next-pwm-working-fan-for-sending-v14-7-df2191621429@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_095924_960739_0CB69F4A 
-X-CRM114-Status: UNSURE (   6.02  )
+X-CRM114-CacheID: sfid-20250822_134922_852775_DEA050D5 
+X-CRM114-Status: UNSURE (   9.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,39 +95,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add JH7110 SoC DDR external memory controller.
+On Wed, Aug 20, 2025 at 10:35:42AM +0200, Michal Wilczynski wrote:
+> Add Device Tree nodes to enable a PWM controlled fan and it's associated
+> thermal management for the Lichee Pi 4A board.
+> 
+> This enables temperature-controlled active cooling for the Lichee Pi 4A
+> board based on SoC temperature.
+> 
+> Reviewed-by: Drew Fustini <fustini@kernel.org>
+> Tested-by: Drew Fustini <fustini@kernel.org>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts | 67 +++++++++++++++++++++++
+>  1 file changed, 67 insertions(+)
 
-Signed-off-by: E Shattow <e@freeshell.de>
----
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Do you think it makes sense to coordinate this with the "Initial thermal
+management for Lichee Pi 4A board" series [1] from Icenowy?
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 0ba74ef04679..f3876660c07f 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -931,6 +931,18 @@ watchdog@13070000 {
- 				 <&syscrg JH7110_SYSRST_WDT_CORE>;
- 		};
- 
-+		memory-controller@15700000 {
-+			compatible = "starfive,jh7110-dmc";
-+			reg = <0x0 0x15700000 0x0 0x10000>,
-+			      <0x0 0x13000000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_PLLCLK_PLL1_OUT>;
-+			clock-names = "pll";
-+			resets = <&syscrg JH7110_SYSRST_DDR_AXI>,
-+				 <&syscrg JH7110_SYSRST_DDR_OSC>,
-+				 <&syscrg JH7110_SYSRST_DDR_APB>;
-+			reset-names = "axi", "osc", "apb";
-+		};
-+
- 		crypto: crypto@16000000 {
- 			compatible = "starfive,jh7110-crypto";
- 			reg = <0x0 0x16000000 0x0 0x4000>;
--- 
-2.50.0
+Thanks,
+Drew
 
+[1] https://lore.kernel.org/linux-riscv/20250816093209.2600355-1-uwu@icenowy.me/
 
 _______________________________________________
 linux-riscv mailing list
