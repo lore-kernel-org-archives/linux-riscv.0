@@ -4,90 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C3B7CA0EED
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 06:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB12CA0EEB
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 07:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XMuf9WVxe/NTE1+UzEYjsKJGMShEupBU74w+ldMAXGk=; b=GADC18D9emuL5Y
-	VP9XQ+3Sps6T2PPxeLcYHRgfqzKNV06Nyf6MdP1IxX0gNbfMvMBpbFkeA/FSdcVMMAYBI0rnFZLf7
-	B5oqyA731uHDvQK8DdknGg+Kjl0l34hh6PGalyIxpmAmXfto/CPNTSMJlfLYjAln/OzCBiwjc0QlX
-	k4RSVxlvRoP5wA1+FgKjHCSIhCtNT+CPu6sQ4CFcTaIpxkygEe7PiZjywHnVfg3b/USHOyPUmWefZ
-	5FIgHR+zwMLnEBOtNrPPquYVlfWv8VE/BMsyuoVsuawwiEFiD3AbSXoliC4MDaS2gqGoTH7oWlE/1
-	hNBKERrvtM8DzqE9mq3g==;
+	List-Owner; bh=+qnqrk2adPsuPlpEIfhzMEq5dCceWJ4WOVTxjHyYV+Q=; b=h9RouguGNYAVkE
+	2Dfxnhac+w06nHRkv3k3eQ51Dw68Xr+L48WLfMKBSHueokypUdPJteJfOxiYaPUrE4S29EE7fuJ3C
+	CAeE7QiSw4GjvmpckdyhPXSTSt0OnZhUeLKwOdNiFaEL/Yz0ryco6YPDT7tRD+C18OtizLyUkeaYO
+	dv1+S4NbwTCl2nc3LQlX1ovYyusAe6P92P0WPdmeY7M1uE1099nyL8DlrmKqjCQBwo+2YTJYwoEFk
+	cf2k+PfErlRDF9iLWAvEcFRWyTkrKKxqWGzATj9vziJmRzp7LqwsGatzByrAfWQSF1w5isai0oAN0
+	TSeC+gRkhRWpuYUuF1Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upL2e-00000001fQP-00hB;
-	Fri, 22 Aug 2025 06:14:24 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1upMS5-00000001qZB-0Ml9;
+	Fri, 22 Aug 2025 07:44:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upGdh-000000019SL-0ZFm
-	for linux-riscv@lists.infradead.org;
-	Fri, 22 Aug 2025 01:32:22 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id 98e67ed59e1d1-32519b32b6cso305933a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 18:32:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755826340; x=1756431140; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HLZ4xRwf86hNbCUyOlRYqjM/i0x4T75qp61KARr1Axc=;
-        b=Fq/xOiUdU0jlbK+vCgBVxL8kIxvDMbbNVSgolSL0dV/Wohlrqt2UtxNMrc2Kuzj+kl
-         2Rnkigf+oFvHllQluU1aYpb0O3QOW57KSJGD3rbQhDur7aVQwuS4pEuMraHZfNHAiGiO
-         ws8U+MDGttKAKhJ8KGeZ3F3We/CyZa1xWldgFBZwOFMQsODTtpejmu1NzWGbPzyrxnKP
-         HVb8gALtTS3UO80PxJWsadMBKOnwnBiWshbeAKjN7BFXF7l6qZfFocXlWrgbB6+qkmvs
-         Z/xBo1CKYtZS4Sq3zQXAp+0FjX3ZkNWCarA+f63TOfe6I/1xeHClFYE7ezu+GvYI05/o
-         yA/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755826340; x=1756431140;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HLZ4xRwf86hNbCUyOlRYqjM/i0x4T75qp61KARr1Axc=;
-        b=DMMrTrbFxs63vDLJb5AplPWBc0VjufogpuPenGUpet2kseUUHw+b2zE7e0hkRq957E
-         3p7BlAAHOjsjT6EtioGyAzBIs/NPOlBAw/OuSC7xQ6D2NA2YJFU6qYl4np/G6H1Nms65
-         7hqxSVn3ZQBNam4WXPyB+aSJpGuaU5RtptZv+iOHr5ViBAGAO3VPlMhb779LteT36hAt
-         24Vl9jNdBxHaMG4BL3b/VlO+IlaneNYDN9GcIOvuYkkCm3YcyxAkWsdcWD2ll5Ppcsiy
-         TYZCQTGez2advNU4eQra/XL924ain1apFJITe3WpzR4DtA9D9OJTCwt7bK7LLLdqRguG
-         7vww==
-X-Forwarded-Encrypted: i=1; AJvYcCVMH/uan50lUakD+FA5+9zmmU8+R03SfP5YdnRVTXnuiGZ04fxEgIliVZ0UxdIBEK7WaRQJhasvBRP4+g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxe7hHZ9UAwa5M0s2Wd7O0fILjjyKbxumOHb7HnwKKcIVHu4BjG
-	0KXNzNPdhchPGqba4ZUB0jBwFshy6aDL2Llm5H98fc5zbX/Bz9aCYnHa7KkwkbWA0/oDvA==
-X-Gm-Gg: ASbGncvBXtxM/ahFi8UyrIzjfpCCYbV9QfcNo5Wsn81vHJThVyY529eLzCx8b9JrXsl
-	lND/CrBT58fkrY7mXFs8j7AYjyiaK82mMXt0zW5iDXF2am/Noc39w4e7VayBwA3+Lk8l7aVuizy
-	absNEpJBOA9uzv53GrG4f3W1M6QSO/PDk9eUnpNMOx5mNF9lWl05qUBH8IlX1WO3CDK/W3wGJnP
-	Sz540N3zjX6J8EyBYghbZE3T43S9OBb/e+PFyREB9o7C15+BGt7743SGBccc6LcJQ4hn3MaVlW9
-	+u4opXbc2hd09dbcR2+vJOkEVnwRmi1texEECaKhPxMhAznG6LlV2gDObByEbVIlrllYQhmKebO
-	2wOM=
-X-Google-Smtp-Source: AGHT+IHqg5BMS5H5H0CXatOkDxWYnVma8locc0gsDLlLL4jvBLJblPVH8Oi76UEBkFgq0T0ofvpIFQ==
-X-Received: by 2002:a17:90b:1d91:b0:321:59e7:c5c5 with SMTP id 98e67ed59e1d1-325177426fcmr1615455a91.27.1755826339746;
-        Thu, 21 Aug 2025 18:32:19 -0700 (PDT)
-Received: from localhost ([2602:f919:106::1b8])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-76e8344494dsm8737468b3a.79.2025.08.21.18.32.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 18:32:19 -0700 (PDT)
-Date: Fri, 22 Aug 2025 09:32:15 +0800
-From: Troy Mitchell <troymitchell988@gmail.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Troy Mitchell <troymitchell988@gmail.com>,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: i2c: spacemit,k1-i2c: Minor whitespace
- cleanup in example
-Message-ID: <aKfInxTH8XeZo55z@troy-wujie14pro-arch>
-References: <20250821083205.46600-2-krzysztof.kozlowski@linaro.org>
+	id 1upH4D-00000001CQZ-0D7u;
+	Fri, 22 Aug 2025 01:59:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=TYwcfR40TeWsfT3bxGe5ccvVRM+x9ilYYyOeQE763K8=; b=jQMvrrk8oa/S9bIuu/2SwkZ2J+
+	iZM44VpAwl+e05hZoJK0EL5RP9FSeKyevfp+tfOZ1CzIxUDqo20uJ79KBvLyqpkAXpNgxqzw5At6h
+	m4Ip/9LhuY4vWd5HRYztCfz/UicQXVHmjxovc1Ffvit9zxJTBF/qSYhLPAfscTwAQi6jm3kX3wRAx
+	0JgbiWUSiWVbJEZqY95MSUFwIOTGqYtGNxf/OcA+a3RxUr67Jc/TaFlHBZsURXV7OjfNXDUL8wKFy
+	y/+fS1B6WwIkEYWbXiVQpbrhIT3L/cPfU0NnW2taQu2eyygq2jmuJi2NSy/npx3/RKAak7jEetruh
+	fuGDYNdw==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upH44-00000000k6w-1dPq;
+	Fri, 22 Aug 2025 01:59:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BB83A5C6103;
+	Fri, 22 Aug 2025 01:59:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0940C4CEEB;
+	Fri, 22 Aug 2025 01:59:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755827964;
+	bh=hEGBgFk9rer7lwQXMpzjj4FPsIa17LEhE/UyLSIHv80=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fwCb0/jzIQkNPwEVBU6dtHyOVey66bf/HcR/iNP6aS0AhxrgrvMe34HD6vjnkGUZf
+	 z1O8tLkMNZpr+UzcBZV9dLBbBCwOaf+NQwl5ntySvGabL1KCpUaRFv+wfDydW+poVi
+	 X5XvF2zmqSX16ZKS+hqRP+DFJCxEdKcM7wYo6L7tOqHJI3XrYsnweALvOp8+KSqJnD
+	 2bWhxr7953gGHvjXyBJUoUfk/Lgb2omKSw1C8cEO/Qv3yAqSEKl2XaKQVhYluUWO/h
+	 UsLkNxPauxpS9RjmwleNolFzOVx4bdRBpqA+ZD7ACyej3l0Oe7T142W2dhwsBnQaC9
+	 DSd2Q1+ARL+Zw==
+Message-ID: <3812ed9e-2a47-4c1c-bd69-f37768e62ad3@kernel.org>
+Date: Fri, 22 Aug 2025 10:59:15 +0900
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250821083205.46600-2-krzysztof.kozlowski@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 24/35] ata: libata-eh: drop nth_page() usage within SG
+ entry
+To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
+Cc: Niklas Cassel <cassel@kernel.org>, Alexander Potapenko
+ <glider@google.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+ Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+ Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
+ Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
+ Zi Yan <ziy@nvidia.com>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-25-david@redhat.com>
+Content-Language: en-US
+From: Damien Le Moal <dlemoal@kernel.org>
+Organization: Western Digital Research
+In-Reply-To: <20250821200701.1329277-25-david@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_183221_175936_9083FA07 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20250822_025939_214223_B5082CB5 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,35 +111,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 10:32:06AM +0200, Krzysztof Kozlowski wrote:
-> The DTS code coding style expects exactly one space around '='
-> character.
+On 8/22/25 05:06, David Hildenbrand wrote:
+> It's no longer required to use nth_page() when iterating pages within a
+> single SG entry, so let's drop the nth_page() usage.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Cc: Damien Le Moal <dlemoal@kernel.org>
+> Cc: Niklas Cassel <cassel@kernel.org>
+> Signed-off-by: David Hildenbrand <david@redhat.com>
 > ---
->  Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/ata/libata-sff.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> index 3d6aefb0d0f1..c1a3004df71d 100644
-> --- a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> @@ -53,7 +53,7 @@ examples:
->          reg = <0xd4010800 0x38>;
->          interrupt-parent = <&plic>;
->          interrupts = <36>;
-> -        clocks =<&ccu 32>, <&ccu 84>;
-> +        clocks = <&ccu 32>, <&ccu 84>;
-Reviewed-by: Troy Mitchell <troymitchell988@gmail.com>
+> diff --git a/drivers/ata/libata-sff.c b/drivers/ata/libata-sff.c
+> index 7fc407255eb46..9f5d0f9f6d686 100644
+> --- a/drivers/ata/libata-sff.c
+> +++ b/drivers/ata/libata-sff.c
+> @@ -614,7 +614,7 @@ static void ata_pio_sector(struct ata_queued_cmd *qc)
+>  	offset = qc->cursg->offset + qc->cursg_ofs;
+>  
+>  	/* get the current page and offset */
+> -	page = nth_page(page, (offset >> PAGE_SHIFT));
+> +	page += offset / PAGE_SHIFT;
 
-Best regards,
-Troy
->          clock-names = "func", "bus";
->          clock-frequency = <100000>;
->      };
-> -- 
-> 2.48.1
-> 
+Shouldn't this be "offset >> PAGE_SHIFT" ?
+
+>  	offset %= PAGE_SIZE;
+>  
+>  	/* don't overrun current sg */
+> @@ -631,7 +631,7 @@ static void ata_pio_sector(struct ata_queued_cmd *qc)
+>  		unsigned int split_len = PAGE_SIZE - offset;
+>  
+>  		ata_pio_xfer(qc, page, offset, split_len);
+> -		ata_pio_xfer(qc, nth_page(page, 1), 0, count - split_len);
+> +		ata_pio_xfer(qc, page + 1, 0, count - split_len);
+>  	} else {
+>  		ata_pio_xfer(qc, page, offset, count);
+>  	}
+> @@ -751,7 +751,7 @@ static int __atapi_pio_bytes(struct ata_queued_cmd *qc, unsigned int bytes)
+>  	offset = sg->offset + qc->cursg_ofs;
+>  
+>  	/* get the current page and offset */
+> -	page = nth_page(page, (offset >> PAGE_SHIFT));
+> +	page += offset / PAGE_SIZE;
+
+Same here, though this seems correct too.
+
+>  	offset %= PAGE_SIZE;
+>  
+>  	/* don't overrun current sg */
+
+
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
