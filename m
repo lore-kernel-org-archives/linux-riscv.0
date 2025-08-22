@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B2CCA0EED
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 11:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD828CA0EFC
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 11:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CUDex6sFMqj55zQ32aWrai6d5zZS+4dagst9iuYMfG4=; b=ftR1EwYjunPisR
-	c5RX5hFnv0iHmSKGLPXas7/SWZ2K1oE96ExHYNndA7Zrf+e/q18oRj2naIjpt76EG76PGpwB7hgwj
-	T+/EHp16iF0A5I1cx5uur6yLJ3wNibPJru3cMKQJOHQZ8xYfcYph5ijC5Xt+j7w5sf9a5VlfNnFZG
-	tPpJv1G77MAUSMC30OcljYr+A21w4RW4F9TaWuyNZtH1GwEBMej+2TabB+fy5WtjtOdxhJpcYj8D4
-	Zq5/+wEu2wCwAVd+5eTYHtUMDHfXyJET7JCdkMqjf6xOiB1iyLyT1RbKk4Vo9dsG4TB2m/Dd193Zi
-	j4R9mR/QySkntB357gCg==;
+	List-Owner; bh=gXyGRpNXx6DB1qEschh9eJOsQLkCC9M3Th7R+aT4dqQ=; b=mGoJXmfqBHpwEu
+	7E5rTGFawLb5Qv4JvFzIB1o5yrhr0fbVBlChRwNCH+aaADzPxDK7KhjnEAuxHrFT5o+GBlq8GsvR5
+	66c2bDVIBARxMFhTxCoyrnt+aiczSk9JFT/fKP2C274EACdmIGnkpXa9kHWfujlAlYpEDHvJGod2D
+	07JZZIDbri2McVeHxjwxmdMruIxkNakN079LQyFrGpXirWPTz4Da2/MYrpETrd4HKDJDQtExiqQ+m
+	pzCtpRvYdjPP2u7N5FvIDu0P5Clye4OvguVKvTN4sb/3fw9CXuBrAopeTFTfsuEeQvh+EhlEEGdYZ
+	LKRNWuPEg8qD4tmn9ujw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upPqv-00000002IE4-1a0x;
-	Fri, 22 Aug 2025 11:22:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1upPqy-00000002IIU-2Czv;
+	Fri, 22 Aug 2025 11:22:40 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upI7M-00000001LLH-3UYq
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 22 Aug 2025 03:07:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=XtQvt8lm8/UHHNz+8CMXd5C/9rKefGZFh5EhUafS5gg=; b=joafW34ADjwkOjZwXg2zXQ63bW
-	AnFHoDThquPVNxetpIbFfST3cf0WYwPaozwMa3uo/locuTyOpQLuZzaT1iwNfcTikBG3A7EX/2utn
-	BRhJCa7jOmSTkp6a2KYnMxzn0JgBCE+GTv8sVJbWV072w4vrqUFn8yEY+ll/zCT5eOPFJ818dJKDF
-	HpwkQAsGkQx94ySKoSowjFtuc9/zX8KD1S0HtA++rxQ3qamxxYJSRN243vmRe6OXxyD4a/toTtJ20
-	lyQhtXgPnJbjW3M6AEhehFYfwULBwzKaSWM+R3YUzOW/8sOw2UtRRKTksdiNZUNgOaYlExZktMQij
-	gUD1F9eA==;
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upI7J-00000000mCg-1kn5
+	id 1upI7V-00000001LNB-3vZa
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Aug 2025 03:07:03 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-76e2eb6d07bso1459461b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 20:07:00 -0700 (PDT)
+	Fri, 22 Aug 2025 03:07:15 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2445827be70so17287185ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Aug 2025 20:07:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755832019; x=1756436819; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1755832033; x=1756436833; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=XtQvt8lm8/UHHNz+8CMXd5C/9rKefGZFh5EhUafS5gg=;
-        b=lvIgZlZyP0KL4LEbum8ZGtXgouH389wxcvPAlCwLR+fmaYobSCmRr02k9dzhcuwX+O
-         c9rNowWln5TpkFxRceDpklffjKYoBhTmHIwgbLJ5HkYs0yD1lI75nj7NCjjZGkonHPXO
-         MwQHLVkp/BoDhIw3FkRLu36azr3a96uPjVo2vQR3IRD0qz9qIiPvITvN+/U4g0hP1jSl
-         DPu2OEj6QCeMmDDGMN+0L7ZO6rJ5BpQMyW8j7YbUX1YGSRtfsxhDhHyZPNIdLgYuedum
-         gjFarjXp/8/TiGgr/zNcLcv4FhvsBrvmZeNvX8Edi8i9mFIws+p/m+7c6eVozdMGE5MY
-         a6wg==
+        bh=quTPMYj7s5QwSm0woBLSQz7z4VVYjT+IYu8GwKKHe24=;
+        b=REmQf6SRj8ezA0zgaal4o5yppdyReBgEmOY6UhyWAUyOiqwzH6fj0dBcZ+ZkUquzeR
+         ERMbnNBbtF6pTCvxXq8XRAvOIOzml0kRn4V93miX960izKbsaXwd0fjGbGw00fzxNYST
+         nRPDlL/5GfPpzpXllQt8Op8CsOMEr2c4QK/H7zUC8Sm3ccE87PpHixTgxExWD/B+ZHGw
+         W6UD9ASlmrQ3TCTh8d9j2q8+CC72dLmd4e4zJLvmBCzPhwdLycomjAfg1sc4gAMFWo4h
+         3OGWLEtwWOWFahzsI5QZtJs4lVjuO08OyDz7rFzlZ4kQBWhoKihH4cPDl4+7tDrJUGp4
+         NDlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755832019; x=1756436819;
+        d=1e100.net; s=20230601; t=1755832033; x=1756436833;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=XtQvt8lm8/UHHNz+8CMXd5C/9rKefGZFh5EhUafS5gg=;
-        b=HQHi5LCIjbBIgn1IXaTenkG1cRElcR6okAQ/72ftlEU7vHpSZJ20r2el5xmHjykd17
-         e76mkr6IfEYPjr9Ga0qjcp1aZ3dIl2y1PgPoO8fGGHz+mKeFyU3AQ36P+PZQd52IDUug
-         YwKQmiYsRPIFMhOFAjrEHf5YhPV6AHR8NNvNfxmqQsNLmMAPmpLKTY/fp/kNUHwhPhx3
-         Rst0v3av3EQlObjs9U98msKV7U0dy4i7LIYVTBs7rNgURhk582AS+3RbgRO4qtZXhtzg
-         MIKSfgPFs5NiqtbJBOx1pASAtByEGioBdF7rDdqS0f9Gli7+nmV4EsY707EjOv8lov87
-         EgVA==
-X-Forwarded-Encrypted: i=1; AJvYcCW3Spn1qcRigVDUPBZXDSlHddsj7+YBgmxtF3fTNYaBWHHUdns9frAJ97/urIYph+kircgFGxZSnc3Eiw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yznb6+P6MLMM7jb6IjbtpJcljyJDh6VuAcSZW7WzZXu1zYRC/2S
-	QLnmKSuCJ5hpI3/tbqY5ZZ7Tf82X+zsiaSWT7r+RzmC6k3cn7o+oaoDrGRcK4KmqOpk=
-X-Gm-Gg: ASbGncti46HT/Q4mEv/3eJvmlyuhHxQiRVSjyT0z4ikJVMYt0XIpu8XmSPl9GmhtfGp
-	2Zuy1bBtw8dQ5Tej36kebvOEfbm0ExWEwuteNm/IfSjFHPG4p6Tu1CodyftAOhAS5J4FP6CMHgS
-	ZO3/6mPcghSFPyz0otvpt0Io+H7gamJ8Gt7k5JfkJu7N8RXHAXBEX50RsDeyKKT3/AX6bcaBLUr
-	b0GviUQOQq7kg0wZO+MnOoDX0dbEuhGySA4Cbz+5IX4sEpw+3vvB86jk7hdnh0RuVSQDHG4651Z
-	HRt4H4jd9C2Z3TcdV+4HS/8NrG8/w0MinPnr2gYggap3VSdtp0x0Gx7LWUPJAq6SiVmEFI1GreT
-	Lwa/ZSY/0TZ1oFsPaMcE+17i9l0VCaU4kEg==
-X-Google-Smtp-Source: AGHT+IFy0F1It4YMiy66wNzMrVWGW3rtyeZwnA2Mto2V1Iiq0zsuEd/8gIg4XCp3DGmUoishTl063A==
-X-Received: by 2002:a05:6a20:1585:b0:232:7c7b:1c7b with SMTP id adf61e73a8af0-24340c429e2mr2292745637.14.1755832019211;
-        Thu, 21 Aug 2025 20:06:59 -0700 (PDT)
+        bh=quTPMYj7s5QwSm0woBLSQz7z4VVYjT+IYu8GwKKHe24=;
+        b=liliYOD4WucHFseByDtsoe2oz//OX1x3+794eA1JbzBq+1OI13UIGxsbyRjuDUuZ1p
+         ZFVB11w8pP8oZag0yM7yJRCIthDTlMo+nSlNVxEZzGxtEK8NjnFktyCufZCS0A0p0lqM
+         cWGeIKI3vUV9zEqBdpTuS3dFkrzMot6K7p49eDVNmjWpDrmVhycKBQHpb5XW72whfEBX
+         K59LBv4Gjr4EGhLuXlNA5z/szo4wGzQdVaPIV2D+U9sfiDDwnMYQuXiik/oUMIR30sVS
+         SOiBtPBJ6vjHJXEAcik9HLt2zix+Pzx0vUzZdk4NlyH+wNnYOSnTyoxmyFP4Jom6W/ht
+         XHGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWGpE49TcwiGDmRSXnblQu2rti9OKbUT5JH1+gmGiVd7rswvdThEU9Q9z2fK24yEfzC549t+PJsD0XVGg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxrb/GBZlplezE8uiRKyP+hRaB7jYQ6/UHjaQhOhAR5vLUBiCL7
+	YoqlTBXlkxBuDu3yaTIO6eC4LJ6+xmlRddJzeFSZZGiK/ho4wbn18krDkxBqjxouuTk=
+X-Gm-Gg: ASbGnctUQOe6XB1PPZXQEOthJ6Wqy3CZmiyP+PhUZJz0v4McLAMBBCZqrQig1FlYO4s
+	1p00FW0gv2NKZ+4aafvB8HLVUHyzJJdvd0lZW9e99GrQqEHD9JfqZnMa76XjmtTJWPFghVa70EG
+	x4xWbecbpXIvwmDhsPF6JEvYGjep8FwlrYD5MUSBkfhsv2E5ND6mtpQUJfNPTG/wqaKa3NMFwVf
+	KW6mhq9sXx/nVta0AAc76+x8lFWam8qr4EcUVP/hpGDy0+bPGBFV8ODmxcbWk8jy41NFwcUlFWD
+	SzOiBVuFN0FzWByFEqSs4PEjbNzC1BMh+WCp9BpScczgncE7xxHcXDgH1Lbwl9xhNjl0CcHv4xY
+	PQT9/BeC0EkpQdr2Y/dB6aayIecV8YGRBCw==
+X-Google-Smtp-Source: AGHT+IGxr6BvRlq9gDlCAE/XGtF9F2t4Uze1UvterPKqOgW+FIUz6fdAVotEWXje2mAfPXpMbJnhUA==
+X-Received: by 2002:a17:902:ce91:b0:234:d292:be95 with SMTP id d9443c01a7336-2462eeea5f4mr23986195ad.42.1755832033132;
+        Thu, 21 Aug 2025 20:07:13 -0700 (PDT)
 Received: from [127.0.1.1] ([222.71.237.178])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b47769afc1bsm2756777a12.19.2025.08.21.20.06.55
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b47769afc1bsm2756777a12.19.2025.08.21.20.07.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 20:06:58 -0700 (PDT)
+        Thu, 21 Aug 2025 20:07:12 -0700 (PDT)
 From: Guodong Xu <guodong@riscstar.com>
-Date: Fri, 22 Aug 2025 11:06:31 +0800
-Subject: [PATCH v5 5/8] dmaengine: mmp_pdma: Add SpacemiT K1 PDMA support
- with 64-bit addressing
+Date: Fri, 22 Aug 2025 11:06:34 +0800
+Subject: [PATCH v5 8/8] riscv: defconfig: Enable MMP_PDMA support for
+ SpacemiT K1 SoC
 MIME-Version: 1.0
-Message-Id: <20250822-working_dma_0701_v2-v5-5-f5c0eda734cc@riscstar.com>
+Message-Id: <20250822-working_dma_0701_v2-v5-8-f5c0eda734cc@riscstar.com>
 References: <20250822-working_dma_0701_v2-v5-0-f5c0eda734cc@riscstar.com>
 In-Reply-To: <20250822-working_dma_0701_v2-v5-0-f5c0eda734cc@riscstar.com>
 To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -106,8 +91,9 @@ Cc: Alex Elder <elder@riscstar.com>, Vivian Wang <wangruikang@iscas.ac.cn>,
  Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_040701_816238_43156B87 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20250821_200713_985975_866CF573 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,171 +110,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for SpacemiT K1 PDMA controller which features 64-bit
-addressing capabilities.
-
-The SpacemiT K1 PDMA extends the descriptor format with additional
-32-bit words for high address bits, enabling access to memory beyond
-4GB boundaries. The new spacemit_k1_pdma_ops provides necessary 64-bit
-address handling functions and k1 specific controller configurations.
-
-Key changes:
-- Add ARCH_SPACEMIT dependency to Kconfig
-- Define new high 32-bit address registers (DDADRH, DSADRH, DTADRH)
-- Add DCSR_LPAEEN bit for Long Physical Address Extension Enable
-- Implement 64-bit operations for SpacemiT K1 PDMA
+Enable CONFIG_MMP_PDMA in the riscv defconfig for SpacemiT K1 SoC boards.
 
 Signed-off-by: Guodong Xu <guodong@riscstar.com>
 ---
 v5: No change.
 v4: No change.
 v3: No change.
-v2: New patch.
-  - Implement 64-bit addrssing support to mmp_pdma
-  - Add support for SpacemiT K1 PDMA
-  - Extend the MMP_PDMA entry in Kconfig to depend on ARCH_SPACEMIT
+v2: Rebased. Part of the modification in v1 is now in this patch:
+     - "riscv: defconfig: run savedefconfig to reorder it"
+        , which has been merged into riscv/linux.git (for-next)
+     - Link: https://git.kernel.org/riscv/c/d958097bdf88
 ---
- drivers/dma/Kconfig    |  2 +-
- drivers/dma/mmp_pdma.c | 81 ++++++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 82 insertions(+), 1 deletion(-)
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
-index 05c7c7d9e5a4e52a8ad7ada8c8b9b1a6f9d875f6..b8a74b1798ba1d44b26553990428c065de6fc535 100644
---- a/drivers/dma/Kconfig
-+++ b/drivers/dma/Kconfig
-@@ -450,7 +450,7 @@ config MILBEAUT_XDMAC
- 
- config MMP_PDMA
- 	tristate "MMP PDMA support"
--	depends on ARCH_MMP || ARCH_PXA || COMPILE_TEST
-+	depends on ARCH_MMP || ARCH_PXA || ARCH_SPACEMIT || COMPILE_TEST
- 	select DMA_ENGINE
- 	help
- 	  Support the MMP PDMA engine for PXA and MMP platform.
-diff --git a/drivers/dma/mmp_pdma.c b/drivers/dma/mmp_pdma.c
-index 38d1a4cdfd0e92e53c77b61caa1133559ef40dbd..d07229a748868b8115892c63c54c16130d88e326 100644
---- a/drivers/dma/mmp_pdma.c
-+++ b/drivers/dma/mmp_pdma.c
-@@ -28,6 +28,9 @@
- #define DDADR(n)	(0x0200 + ((n) << 4))
- #define DSADR(n)	(0x0204 + ((n) << 4))
- #define DTADR(n)	(0x0208 + ((n) << 4))
-+#define DDADRH(n)	(0x0300 + ((n) << 4))
-+#define DSADRH(n)	(0x0304 + ((n) << 4))
-+#define DTADRH(n)	(0x0308 + ((n) << 4))
- #define DCMD		0x020c
- 
- #define DCSR_RUN	BIT(31)	/* Run Bit (read / write) */
-@@ -44,6 +47,7 @@
- #define DCSR_EORSTOPEN	BIT(26)	/* STOP on an EOR */
- #define DCSR_SETCMPST	BIT(25)	/* Set Descriptor Compare Status */
- #define DCSR_CLRCMPST	BIT(24)	/* Clear Descriptor Compare Status */
-+#define DCSR_LPAEEN	BIT(21)	/* Long Physical Address Extension Enable */
- #define DCSR_CMPST	BIT(10)	/* The Descriptor Compare Status */
- #define DCSR_EORINTR	BIT(9)	/* The end of Receive */
- 
-@@ -76,6 +80,16 @@ struct mmp_pdma_desc_hw {
- 	u32 dsadr;	/* DSADR value for the current transfer */
- 	u32 dtadr;	/* DTADR value for the current transfer */
- 	u32 dcmd;	/* DCMD value for the current transfer */
-+	/*
-+	 * The following 32-bit words are only used in the 64-bit, ie.
-+	 * LPAE (Long Physical Address Extension) mode.
-+	 * They are used to specify the high 32 bits of the descriptor's
-+	 * addresses.
-+	 */
-+	u32 ddadrh;	/* High 32-bit of DDADR */
-+	u32 dsadrh;	/* High 32-bit of DSADR */
-+	u32 dtadrh;	/* High 32-bit of DTADR */
-+	u32 rsvd;	/* reserved */
- } __aligned(32);
- 
- struct mmp_pdma_desc_sw {
-@@ -222,6 +236,57 @@ static u64 get_desc_dst_addr_32(const struct mmp_pdma_desc_hw *desc)
- 	return desc->dtadr;
- }
- 
-+/* For 64-bit PDMA */
-+static void write_next_addr_64(struct mmp_pdma_phy *phy, dma_addr_t addr)
-+{
-+	writel(lower_32_bits(addr), phy->base + DDADR(phy->idx));
-+	writel(upper_32_bits(addr), phy->base + DDADRH(phy->idx));
-+}
-+
-+static u64 read_src_addr_64(struct mmp_pdma_phy *phy)
-+{
-+	u32 low = readl(phy->base + DSADR(phy->idx));
-+	u32 high = readl(phy->base + DSADRH(phy->idx));
-+
-+	return ((u64)high << 32) | low;
-+}
-+
-+static u64 read_dst_addr_64(struct mmp_pdma_phy *phy)
-+{
-+	u32 low = readl(phy->base + DTADR(phy->idx));
-+	u32 high = readl(phy->base + DTADRH(phy->idx));
-+
-+	return ((u64)high << 32) | low;
-+}
-+
-+static void set_desc_next_addr_64(struct mmp_pdma_desc_hw *desc, dma_addr_t addr)
-+{
-+	desc->ddadr = lower_32_bits(addr);
-+	desc->ddadrh = upper_32_bits(addr);
-+}
-+
-+static void set_desc_src_addr_64(struct mmp_pdma_desc_hw *desc, dma_addr_t addr)
-+{
-+	desc->dsadr = lower_32_bits(addr);
-+	desc->dsadrh = upper_32_bits(addr);
-+}
-+
-+static void set_desc_dst_addr_64(struct mmp_pdma_desc_hw *desc, dma_addr_t addr)
-+{
-+	desc->dtadr = lower_32_bits(addr);
-+	desc->dtadrh = upper_32_bits(addr);
-+}
-+
-+static u64 get_desc_src_addr_64(const struct mmp_pdma_desc_hw *desc)
-+{
-+	return ((u64)desc->dsadrh << 32) | desc->dsadr;
-+}
-+
-+static u64 get_desc_dst_addr_64(const struct mmp_pdma_desc_hw *desc)
-+{
-+	return ((u64)desc->dtadrh << 32) | desc->dtadr;
-+}
-+
- static int mmp_pdma_config_write(struct dma_chan *dchan,
- 				 struct dma_slave_config *cfg,
- 				 enum dma_transfer_direction direction);
-@@ -1110,10 +1175,26 @@ static const struct mmp_pdma_ops marvell_pdma_v1_ops = {
- 	.dma_mask = 0,			/* let OF/platform set DMA mask */
- };
- 
-+static const struct mmp_pdma_ops spacemit_k1_pdma_ops = {
-+	.write_next_addr = write_next_addr_64,
-+	.read_src_addr = read_src_addr_64,
-+	.read_dst_addr = read_dst_addr_64,
-+	.set_desc_next_addr = set_desc_next_addr_64,
-+	.set_desc_src_addr = set_desc_src_addr_64,
-+	.set_desc_dst_addr = set_desc_dst_addr_64,
-+	.get_desc_src_addr = get_desc_src_addr_64,
-+	.get_desc_dst_addr = get_desc_dst_addr_64,
-+	.run_bits = (DCSR_RUN | DCSR_LPAEEN),
-+	.dma_mask = DMA_BIT_MASK(64),	/* force 64-bit DMA addr capability */
-+};
-+
- static const struct of_device_id mmp_pdma_dt_ids[] = {
- 	{
- 		.compatible = "marvell,pdma-1.0",
- 		.data = &marvell_pdma_v1_ops
-+	}, {
-+		.compatible = "spacemit,k1-pdma",
-+		.data = &spacemit_k1_pdma_ops
- 	}, {
- 		/* sentinel */
- 	}
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index f25394d088d0d3cbee41fa9fb553c71e495036fd..b9ef2da15fb22f08bdb5ee5d1bba9f6eed49ff97 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -241,6 +241,7 @@ CONFIG_RTC_DRV_SUN6I=y
+ CONFIG_DMADEVICES=y
+ CONFIG_DMA_SUN6I=m
+ CONFIG_DW_AXI_DMAC=y
++CONFIG_MMP_PDMA=m
+ CONFIG_VIRTIO_PCI=y
+ CONFIG_VIRTIO_BALLOON=y
+ CONFIG_VIRTIO_INPUT=y
 
 -- 
 2.43.0
