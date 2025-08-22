@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B4DCA0EFF
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 09:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8616CA0FE8
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 09:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nrch3Qq4aXGqqMq5d4BBbZgKDSMTiGqCIpLFenjTEus=; b=oPMr6LBJSa3wGL
-	OQp9VtMvJ0P2shr2yfMwHMdj1kEDTZ4Ek6qsM8+Vz1fIPYObBfArBTyTUD2Y0M/Uv6lndnZY4QAvW
-	eNPtJHE3uEuRkb4hF+2sU4Ls5B8zc9iTePIyPVPR6oayK654XoifxJZS+ULuY/N5LJAamf6hjvBZc
-	Qw/IoX47wgV97a5Mqw5ntwHxtUYFFW0fsZ30TxWwgY0ubE4Hbeebs1wEjLpAB6EC9vUgAU9IOAcyF
-	f7IE87IFI66I9QhdQVIOcZXBfVdE7Cdl4tW97fu1f227UaLoLzUt6fxdg/xZZgPX6JZJf0ToQyDaI
-	EWd7p3YRQZ3k1kLucCAg==;
+	List-Owner; bh=e5hG2dBoBzGdToSn7iSieECJqIelkoU13Kna/iYHIKg=; b=ZwXjj1z7KcwHfF
+	zNdyhGZC9/isB4gW6WLmHFSX4MaJ7ArthvYcU/5jp9SZ0Gh7SEwBqy81T0yaDARmtP92cwMrezYV5
+	c8iWHlELI9UdTchMBPtoHmSQVP7tag0ZGKkuFI94XgeIVw48m3v+RAdsdY9712HzeZFntl58z2Wxw
+	MSMk31wDYHvuDS/mxlGdUoUj7z78OCSbRp5LTHT6miMfI+91pGamcMgUWUhVmU88ZSPOaKk04ZFY1
+	tSI4QjjrX1NlTF1lCM4tYaSV2qZoIbyLZmVndUnoWQMs92cFy68RJKEeloY5bYEVwDW65p4z3lAVZ
+	DknfgCUAxjKJO++7HxNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkEm-00000004QqK-3Iy0;
-	Sat, 23 Aug 2025 09:08:36 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1upkdr-00000004SEn-2Wne;
+	Sat, 23 Aug 2025 09:34:31 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upk6b-00000004PxK-0dML;
-	Sat, 23 Aug 2025 09:00:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6ABA25C0FCC;
-	Sat, 23 Aug 2025 09:00:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F35E6C113D0;
-	Sat, 23 Aug 2025 08:59:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755939608;
-	bh=aU4s6rL8qphUf3ASSPtkvFhSbnF7KQL/5p/AkB6ZkD0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rOGkWtsURQmqeVJWZZ8QU1TwZHK57H1RHXwc/i48rhECw+oAVRa4mF0zfqNM3aJ7b
-	 K4ufsfNlCAWHsLgknGRRJAM8fAg49ifByU7aHcJpd60KD5n2ftLsVEjekOSHSO2hKf
-	 TyNgVi/IP/sZ+Zv1HQC39pwpdaVXtYVat6Ea2uqdZXF6QBRAllDzvBMajMv+E6mXfL
-	 wV6BxOvsD2NYhNSk4hF0URYans98VMn0JY+kTDajsHLCy41MHKhsR0ynwpYDfvi23F
-	 uDIHwC7s5hdPOSqfKNvqn2djgrkhoLcYMLwZ0RX2xL3FelT1nsv2lD+CEaDl2f3oOX
-	 wFjm0sW7YW4bQ==
-Date: Sat, 23 Aug 2025 11:59:50 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: Mika =?iso-8859-1?Q?Penttil=E4?= <mpenttil@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
-	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-Subject: Re: [PATCH RFC 10/35] mm/hugetlb: cleanup
- hugetlb_folio_init_tail_vmemmap()
-Message-ID: <aKmDBobyvEX7ZUWL@kernel.org>
-References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-11-david@redhat.com>
- <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
- <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
+	id 1upRnn-00000002ceD-0FSs
+	for linux-riscv@lists.infradead.org;
+	Fri, 22 Aug 2025 13:27:33 +0000
+Received: from [192.168.0.105] (unknown [114.241.87.235])
+	by APP-03 (Coremail) with SMTP id rQCowADnQIIncKhoqZtfDg--.14333S2;
+	Fri, 22 Aug 2025 21:27:04 +0800 (CST)
+Message-ID: <50926ebd-f8c0-485b-87cd-f7552df4bcd4@iscas.ac.cn>
+Date: Fri, 22 Aug 2025 21:27:03 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v6 2/5] net: spacemit: Add K1 Ethernet MAC
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Vadim Fedorenko
+ <vadim.fedorenko@linux.dev>, Junhui Liu <junhui.liu@pigmoral.tech>,
+ Simon Horman <horms@kernel.org>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Vivian Wang <uwu@dram.page>
+References: <20250820-net-k1-emac-v6-0-c1e28f2b8be5@iscas.ac.cn>
+ <20250820-net-k1-emac-v6-2-c1e28f2b8be5@iscas.ac.cn>
+ <20250821161420.7c9804f7@kernel.org>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20250821161420.7c9804f7@kernel.org>
+X-CM-TRANSID: rQCowADnQIIncKhoqZtfDg--.14333S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3JFy3XFyxKFyDAr15urW3ZFb_yoW7ArW8pF
+	W8Wa1DAF48Xrn7Cr47Xr4UAFnFvr1xXw15u3WYyaya9F9IkrySgryrKrWak34rCr909r1F
+	vr4jv343WFn5KrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvqb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
+	ZFpf9x07bIBTOUUUUU=
+X-Originating-IP: [114.241.87.235]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_020009_270658_69012960 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20250822_062731_478302_10FC96BE 
+X-CRM114-Status: GOOD (  23.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,99 +89,192 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 08:24:31AM +0200, David Hildenbrand wrote:
-> On 22.08.25 06:09, Mika Penttil=E4 wrote:
-> > =
+Hi Jakub,
 
-> > On 8/21/25 23:06, David Hildenbrand wrote:
-> > =
+Thank you for the comments.
 
-> > > All pages were already initialized and set to PageReserved() with a
-> > > refcount of 1 by MM init code.
-> > =
+On 8/22/25 07:14, Jakub Kicinski wrote:
+> On Wed, 20 Aug 2025 14:47:51 +0800 Vivian Wang wrote:
+>> +static void emac_tx_mem_map(struct emac_priv *priv, struct sk_buff *skb)
+>> +{
+>> +	struct emac_desc_ring *tx_ring = &priv->tx_ring;
+>> +	struct emac_desc tx_desc, *tx_desc_addr;
+>> +	struct device *dev = &priv->pdev->dev;
+>> +	struct emac_tx_desc_buffer *tx_buf;
+>> +	u32 head, old_head, frag_num, f;
+>> +	bool buf_idx;
+>> +
+>> +	frag_num = skb_shinfo(skb)->nr_frags;
+>> +	head = tx_ring->head;
+>> +	old_head = head;
+>> +
+>> +	for (f = 0; f < frag_num + 1; f++) {
+>> +		buf_idx = f % 2;
+>> +
+>> +		/*
+>> +		 * If using buffer 1, initialize a new desc. Otherwise, use
+>> +		 * buffer 2 of previous fragment's desc.
+>> +		 */
+>> +		if (!buf_idx) {
+>> +			tx_buf = &tx_ring->tx_desc_buf[head];
+>> +			tx_desc_addr =
+>> +				&((struct emac_desc *)tx_ring->desc_addr)[head];
+>> +			memset(&tx_desc, 0, sizeof(tx_desc));
+>> +
+>> +			/*
+>> +			 * Give ownership for all but first desc initially. For
+>> +			 * first desc, give at the end so DMA cannot start
+>> +			 * reading uninitialized descs.
+>> +			 */
+>> +			if (head != old_head)
+>> +				tx_desc.desc0 |= TX_DESC_0_OWN;
+>> +
+>> +			if (++head == tx_ring->total_cnt) {
+>> +				/* Just used last desc in ring */
+>> +				tx_desc.desc1 |= TX_DESC_1_END_RING;
+>> +				head = 0;
+>> +			}
+>> +		}
+>> +
+>> +		if (emac_tx_map_frag(dev, &tx_desc, tx_buf, skb, f)) {
+>> +			netdev_err(priv->ndev, "Map TX frag %d failed", f);
+>> +			goto dma_map_err;
+>> +		}
+>> +
+>> +		if (f == 0)
+>> +			tx_desc.desc1 |= TX_DESC_1_FIRST_SEGMENT;
+>> +
+>> +		if (f == frag_num) {
+>> +			tx_desc.desc1 |= TX_DESC_1_LAST_SEGMENT;
+>> +			tx_buf->skb = skb;
+>> +			if (emac_tx_should_interrupt(priv, frag_num + 1))
+>> +				tx_desc.desc1 |=
+>> +					TX_DESC_1_INTERRUPT_ON_COMPLETION;
+>> +		}
+>> +
+>> +		*tx_desc_addr = tx_desc;
+>> +	}
+>> +
+>> +	/* All descriptors are ready, give ownership for first desc */
+>> +	tx_desc_addr = &((struct emac_desc *)tx_ring->desc_addr)[old_head];
+>> +	dma_wmb();
+>> +	WRITE_ONCE(tx_desc_addr->desc0, tx_desc_addr->desc0 | TX_DESC_0_OWN);
+>> +
+>> +	emac_dma_start_transmit(priv);
+>> +
+>> +	tx_ring->head = head;
+>> +
+>> +	return;
+>> +
+>> +dma_map_err:
+>> +	dev_kfree_skb_any(skb);
+> You free the skb here.. 
+>
+>> +	priv->ndev->stats.tx_dropped++;
+>> +}
+>> +
+>> +static netdev_tx_t emac_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+>> +{
+>> +	struct emac_priv *priv = netdev_priv(ndev);
+>> +	int nfrags = skb_shinfo(skb)->nr_frags;
+>> +	struct device *dev = &priv->pdev->dev;
+>> +
+>> +	if (unlikely(emac_tx_avail(priv) < nfrags + 1)) {
+>> +		if (!netif_queue_stopped(ndev)) {
+>> +			netif_stop_queue(ndev);
+>> +			dev_err_ratelimited(dev, "TX ring full, stop TX queue\n");
+>> +		}
+>> +		return NETDEV_TX_BUSY;
+>> +	}
+>> +
+>> +	emac_tx_mem_map(priv, skb);
+>> +
+>> +	ndev->stats.tx_packets++;
+>> +	ndev->stats.tx_bytes += skb->len;
+> .. and then you use skb here.
+>
+>> +	/* Make sure there is space in the ring for the next TX. */
+>> +	if (unlikely(emac_tx_avail(priv) <= MAX_SKB_FRAGS + 2))
+>> +		netif_stop_queue(ndev);
+>> +
+>> +	return NETDEV_TX_OK;
+>> +}
 
-> > Just to be sure, how is this working with MEMBLOCK_RSRV_NOINIT, where M=
-M is supposed not to
-> > initialize struct pages?
-> =
+Thanks for the catch. I'll fix the error handling here in the next version.
 
-> Excellent point, I did not know about that one.
-> =
+>> +static void emac_get_ethtool_stats(struct net_device *dev,
+>> +				   struct ethtool_stats *stats, u64 *data)
+>> +{
+>> +	struct emac_priv *priv = netdev_priv(dev);
+>> +	u64 *rx_stats = (u64 *)&priv->rx_stats;
+>> +	int i;
+>> +
+>> +	scoped_guard(spinlock_irqsave, &priv->stats_lock) {
+> Why is this spin lock taken in irqsave mode?
+> Please convert the code not to use scoped_guard()
+> There's not a single flow control (return) in any of them.
+> It's just hiding the information that you're unnecessarily masking irqs.
+> See
+> https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#using-device-managed-and-cleanup-h-constructs
 
-> Spotting that we don't do the same for the head page made me assume that
-> it's just a misuse of __init_single_page().
-> =
+I'll fix these in the next version.
 
-> But the nasty thing is that we use memblock_reserved_mark_noinit() to only
-> mark the tail pages ...
+>> +		emac_stats_update(priv);
+>> +
+>> +		for (i = 0; i < ARRAY_SIZE(emac_ethtool_rx_stats); i++)
+>> +			data[i] = rx_stats[emac_ethtool_rx_stats[i].offset];
+>> +	}
+>> +static void emac_tx_timeout_task(struct work_struct *work)
+>> +{
+>> +	struct net_device *ndev;
+>> +	struct emac_priv *priv;
+>> +
+>> +	priv = container_of(work, struct emac_priv, tx_timeout_task);
+>> +	ndev = priv->ndev;
+> I don't see this work ever being canceled.
+> What prevents ndev from being freed before it gets to run?
+Oops. I'll fix the handling of this timer in the next version.
+>> +/* Called when net interface is brought up. */
+>> +static int emac_open(struct net_device *ndev)
+>> +{
+>> +	struct emac_priv *priv = netdev_priv(ndev);
+>> +	struct device *dev = &priv->pdev->dev;
+>> +	int ret;
+>> +
+>> +	ret = emac_alloc_tx_resources(priv);
+>> +	if (ret) {
+>> +		dev_err(dev, "Error when setting up the Tx resources\n");
+>> +		goto emac_alloc_tx_resource_fail;
+>> +	}
+>> +
+>> +	ret = emac_alloc_rx_resources(priv);
+>> +	if (ret) {
+>> +		dev_err(dev, "Error when setting up the Rx resources\n");
+>> +		goto emac_alloc_rx_resource_fail;
+>> +	}
+>> +
+>> +	ret = emac_up(priv);
+>> +	if (ret) {
+>> +		dev_err(dev, "Error when bringing interface up\n");
+>> +		goto emac_up_fail;
+>> +	}
+>> +	return 0;
+>> +
+>> +emac_up_fail:
+> please name the jump labels after the destination not the source.
+> Please fix everywhere in the driver.
+> This is covered in the kernel coding style docs.
+>
+I'll fix in next version.
 
-And even nastier thing is that when CONFIG_DEFERRED_STRUCT_PAGE_INIT is
-disabled struct pages are initialized regardless of
-memblock_reserved_mark_noinit().
+Thanks,
+Vivian "dramforever" Wang
 
-I think this patch should go in before your updates:
-
-diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-index 753f99b4c718..1c51788339a5 100644
---- a/mm/hugetlb.c
-+++ b/mm/hugetlb.c
-@@ -3230,6 +3230,22 @@ int __alloc_bootmem_huge_page(struct hstate *h, int =
-nid)
- 	return 1;
- }
- =
-
-+/*
-+ * Tail pages in a huge folio allocated from memblock are marked as 'noini=
-t',
-+ * which means that when CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled their
-+ * struct page won't be initialized
-+ */
-+#ifdef CONFIG_DEFERRED_STRUCT_PAGE_INIT
-+static void __init hugetlb_init_tail_page(struct page *page, unsigned long=
- pfn,
-+					enum zone_type zone, int nid)
-+{
-+	__init_single_page(page, pfn, zone, nid);
-+}
-+#else
-+static inline void hugetlb_init_tail_page(struct page *page, unsigned long=
- pfn,
-+					enum zone_type zone, int nid) {}
-+#endif
-+
- /* Initialize [start_page:end_page_number] tail struct pages of a hugepage=
- */
- static void __init hugetlb_folio_init_tail_vmemmap(struct folio *folio,
- 					unsigned long start_page_number,
-@@ -3244,7 +3260,7 @@ static void __init hugetlb_folio_init_tail_vmemmap(st=
-ruct folio *folio,
- 	for (pfn =3D head_pfn + start_page_number; pfn < end_pfn; pfn++) {
- 		struct page *page =3D pfn_to_page(pfn);
- =
-
--		__init_single_page(page, pfn, zone, nid);
-+		hugetlb_init_tail_page(page, pfn, zone, nid);
- 		prep_compound_tail((struct page *)folio, pfn - head_pfn);
- 		ret =3D page_ref_freeze(page, 1);
- 		VM_BUG_ON(!ret);
- =
-
-> Let me revert back to __init_single_page() and add a big fat comment why
-> this is required.
-> =
-
-> Thanks!
-
--- =
-
-Sincerely yours,
-Mike.
 
 _______________________________________________
 linux-riscv mailing list
