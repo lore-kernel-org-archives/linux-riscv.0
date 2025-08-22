@@ -4,97 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB12CA0EEB
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 07:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788F3CA0EED
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Aug 2025 07:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+qnqrk2adPsuPlpEIfhzMEq5dCceWJ4WOVTxjHyYV+Q=; b=h9RouguGNYAVkE
-	2Dfxnhac+w06nHRkv3k3eQ51Dw68Xr+L48WLfMKBSHueokypUdPJteJfOxiYaPUrE4S29EE7fuJ3C
-	CAeE7QiSw4GjvmpckdyhPXSTSt0OnZhUeLKwOdNiFaEL/Yz0ryco6YPDT7tRD+C18OtizLyUkeaYO
-	dv1+S4NbwTCl2nc3LQlX1ovYyusAe6P92P0WPdmeY7M1uE1099nyL8DlrmKqjCQBwo+2YTJYwoEFk
-	cf2k+PfErlRDF9iLWAvEcFRWyTkrKKxqWGzATj9vziJmRzp7LqwsGatzByrAfWQSF1w5isai0oAN0
-	TSeC+gRkhRWpuYUuF1Yg==;
+	List-Owner; bh=ixo3FSM7yatUbP5l8NUx5JETRbBd6D6z0Bh0OhgBEFM=; b=mzvetZzCM2vDOE
+	7UfMe5eMXRkB3WnKaa4BOZYCgeCXK8oa/yAFyTu6JL79ZjSYGonlEnpq1lsB/ZtqrEcy0tNERo6fd
+	edPV/iZqvPCbLGHf6O6tJeAdYVy8Xh1DvomTdt6l5zPE9RlL32yGSM5V38KHmq6fKlQL4U8SRCd93
+	5UwXUorWdpOmlFZ/Zgtv3csD59iUTZSkI6aRwQ9OJjWQraSHLlnuEfLq3RrT1S39TvI3isAApI0Wj
+	Eh+2OCxb5Xlyh2W4B+TeUFNgbV4xiljAsWHXiBuHA5/gri5SV7N+1gYmuH18Y9zwg4Xhi1k9asBgN
+	x6T6pPwofGeTL3AcNkOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upMS5-00000001qZB-0Ml9;
-	Fri, 22 Aug 2025 07:44:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1upMXN-00000001rJ4-2FA9;
+	Fri, 22 Aug 2025 07:50:13 +0000
+Received: from mail-bjschn02on2118.outbound.protection.partner.outlook.cn ([139.219.17.118] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upH4D-00000001CQZ-0D7u;
-	Fri, 22 Aug 2025 01:59:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=TYwcfR40TeWsfT3bxGe5ccvVRM+x9ilYYyOeQE763K8=; b=jQMvrrk8oa/S9bIuu/2SwkZ2J+
-	iZM44VpAwl+e05hZoJK0EL5RP9FSeKyevfp+tfOZ1CzIxUDqo20uJ79KBvLyqpkAXpNgxqzw5At6h
-	m4Ip/9LhuY4vWd5HRYztCfz/UicQXVHmjxovc1Ffvit9zxJTBF/qSYhLPAfscTwAQi6jm3kX3wRAx
-	0JgbiWUSiWVbJEZqY95MSUFwIOTGqYtGNxf/OcA+a3RxUr67Jc/TaFlHBZsURXV7OjfNXDUL8wKFy
-	y/+fS1B6WwIkEYWbXiVQpbrhIT3L/cPfU0NnW2taQu2eyygq2jmuJi2NSy/npx3/RKAak7jEetruh
-	fuGDYNdw==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upH44-00000000k6w-1dPq;
-	Fri, 22 Aug 2025 01:59:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BB83A5C6103;
-	Fri, 22 Aug 2025 01:59:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0940C4CEEB;
-	Fri, 22 Aug 2025 01:59:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755827964;
-	bh=hEGBgFk9rer7lwQXMpzjj4FPsIa17LEhE/UyLSIHv80=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fwCb0/jzIQkNPwEVBU6dtHyOVey66bf/HcR/iNP6aS0AhxrgrvMe34HD6vjnkGUZf
-	 z1O8tLkMNZpr+UzcBZV9dLBbBCwOaf+NQwl5ntySvGabL1KCpUaRFv+wfDydW+poVi
-	 X5XvF2zmqSX16ZKS+hqRP+DFJCxEdKcM7wYo6L7tOqHJI3XrYsnweALvOp8+KSqJnD
-	 2bWhxr7953gGHvjXyBJUoUfk/Lgb2omKSw1C8cEO/Qv3yAqSEKl2XaKQVhYluUWO/h
-	 UsLkNxPauxpS9RjmwleNolFzOVx4bdRBpqA+ZD7ACyej3l0Oe7T142W2dhwsBnQaC9
-	 DSd2Q1+ARL+Zw==
-Message-ID: <3812ed9e-2a47-4c1c-bd69-f37768e62ad3@kernel.org>
-Date: Fri, 22 Aug 2025 10:59:15 +0900
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 24/35] ata: libata-eh: drop nth_page() usage within SG
- entry
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: Niklas Cassel <cassel@kernel.org>, Alexander Potapenko
- <glider@google.com>, Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
- Zi Yan <ziy@nvidia.com>
-References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-25-david@redhat.com>
+	id 1upHHg-00000001FBL-3vuf
+	for linux-riscv@lists.infradead.org;
+	Fri, 22 Aug 2025 02:13:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=CoJCk7JmXMu0Fyuaornn7NkhfH3EgFJIqfPyjTrjHOsqnUMqmvzdtoUJuxRcAO2vTw5qLN6bNu7HZWDOfM0pSRno2wc8CUs3k1Vd2T6KFII6yOS/6C89PAs0eHHqLoEnYEJSgeSnQhw9L8Ij4veWOOt8JR5EsUZk/ji5oFqB+5b7nDQ90G/DhVa/AlN+JrV/QTJ+eubUbluM/U0jJB1Hmu+mvLIkFKjozKhFKVEEjmhfpbPS3nYpHQVB7pN+XMbqY2tk1x63TG1XtxVrgNW5x8waUPkFb/QjmwYTSaZ94GMDSNv+I3G6xF0pACT/ui1moFz1sSUWqsjXxDJZqJXXxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fkGugi36vkKwmkDtB8Dk84tdNc0FOy9r8GBmyjQVdA8=;
+ b=Q7hYzDOqmFQgr2o5vfv3ah4224aPx0Boo4OGSRqtZgDrSHw/aFpMMhcGysrZS+Gu7DQzNsszC3O++Bpt4hRCaXFTRvdrte0m+ouHBNZkpTqAeQ/dhS0pIsUnu/QmnKTW+aw3NtHEZE1f7gw+bQDxdt/15x4ZSq7K4JUs+vwIeZfb+QdYPgUQx8F12P8W1p5lv3JNv+JVtCxs4YwAKKVf4QCKkyosgyOsmsxbWCH06G4DEWm3k7jjEgP2FDFk9pPoduUTVQLrPZc5J8a2WQW0sUgy4gjqR4/hyPj2v8/eRbo/GgfvwNyll1tlsCHTp6Hje7c7EqsFnNQuKcJo8y9ZdA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:7::14) by ZQ2PR01MB1323.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:7::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.29; Fri, 22 Aug
+ 2025 02:13:35 +0000
+Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ ([fe80::2595:ef4d:fae:37d7]) by ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ ([fe80::2595:ef4d:fae:37d7%6]) with mapi id 15.20.9031.024; Fri, 22 Aug 2025
+ 02:13:34 +0000
+From: Hal Feng <hal.feng@starfivetech.com>
+To: Vivian Wang <wangruikang@iscas.ac.cn>, Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Heinrich
+ Schuchardt <heinrich.schuchardt@canonical.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [RFC 3/3] riscv: dts: starfive: Add VisionFive 2 Lite board
+ device tree
+Thread-Topic: [RFC 3/3] riscv: dts: starfive: Add VisionFive 2 Lite board
+ device tree
+Thread-Index: AQHcEoPTVFgiZ2cNsUahDKGHWBxu8bRtJRKAgADI63A=
+Date: Fri, 22 Aug 2025 02:13:34 +0000
+Message-ID: <ZQ2PR01MB1307E45973922C6C3BC31A7FE63D2@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+References: <20250821100930.71404-1-hal.feng@starfivetech.com>
+ <20250821100930.71404-4-hal.feng@starfivetech.com>
+ <c1396997-fa92-47cd-9bc6-8dcb67e87eb8@iscas.ac.cn>
+In-Reply-To: <c1396997-fa92-47cd-9bc6-8dcb67e87eb8@iscas.ac.cn>
+Accept-Language: zh-CN, en-US
 Content-Language: en-US
-From: Damien Le Moal <dlemoal@kernel.org>
-Organization: Western Digital Research
-In-Reply-To: <20250821200701.1329277-25-david@redhat.com>
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1323:EE_
+x-ms-office365-filtering-correlation-id: 7d8027b7-fda7-4560-0d71-08dde1217fa2
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|41320700013|366016|38070700018;
+x-microsoft-antispam-message-info: k1ODaHAaXu3N+2Qw6s74jruJaGXkQb9hFufsNuNgkPHbNAn11GvDTEWlyBO4+gc5bX0oqxtz1Kl1LjN0LuSMLQiNQGN82sUbZ8nZzMSnqFDIuhkjekEd6RuRyLU2+6Ctv6Rll2QnUQEQp5bnzC3NCiiVFQRFvwrhWqpwZCy/psZT7MI5c+gC8RiOuBM4awDs065J0l04YT9EfpDzBa3vtkz6ca5pBSXRZvDmsKjajFLZRidy3yciyRsHt2uQz047HO0Fqqdfzg1m4MQ3rLL3SABM93RB0QZ5Y3RpI9CZ1SdGhPqTmlA1bK+6aFAKXqyTycrAhMy4naHQgQ9thPtr2nXqcD+XDvCIjEUwwNb2m8122ZP8qsS/mCRjQ+DWGm3VvHhf5E9yBUMS5utv2ouQG0ErbulNOp7kwNtnltSBA/TiqzsG+ltQt/Kn84cdp7xl3haunkk+GI5KkqRusFTFVDhFL6XLlIYpTCN4U3/BULpnFle6VcnrLmKiSOG2XbcCOHym3VAQ9LtmqEOVOuRA4IFSzbAFa/EXghcx1gBKSyI9yMwNaHa0X6Fql6sJDJ1jjAm0qOeWAKOj+bOqMWhnVNctSqmkw9iXcb9EZR79rKI=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(41320700013)(366016)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZlRhejdXbVpNam1qWmhScXlqMjdBRm5NMVp1bTZKUmtUaWY4SVlBUTkzMnVQ?=
+ =?utf-8?B?bW1NUGxBa25FNVZkSWNjaFQ2L1RadmNqOWhRd2JBQklYb2pmTU40OVMvNFFr?=
+ =?utf-8?B?ZlhZUWl1T09FVmxTTFdxNERiMnBNcFE2Nk9oNnk2bnFsb20rT3pVaVNLVlhE?=
+ =?utf-8?B?VjJNS3kyUWxwMnhJU09zOURuc3dvNXBNaTRaZEhRandpZUVDOGtTcW5JYVNL?=
+ =?utf-8?B?ckIwYkR3NG9vbmsrNGV6MDRNbzJRcEpqWG5jOVhZWlBBM0RWZ094VmpvcEYx?=
+ =?utf-8?B?SU9WbTMwRTZzeFdvdW9CbWpyWWFXY2oxY21jRzBIMTdUcUNOSTllZDdYenVS?=
+ =?utf-8?B?V2YzTWt1bkJZNmtLSlM5UFNtbEZGM3RQeTBaWW84TThpSGcxV3RZTXJNV1FD?=
+ =?utf-8?B?aTZFZDBieXF2UkpXczMreWNuekFqLytKZVo0SHJwZm5UNXl0WDBjY0ovTk96?=
+ =?utf-8?B?Q3Z6c1Zwb3ZKZ1V3bUNORU1nRElDM2Z1Z3JLVTYzNnlKMVEzNzMzeGl6UXl2?=
+ =?utf-8?B?bVFzTERJanc1ajZJU2NkdllpUmtqY3duTTlaUFpTNy9POTNLemRWSXhyaGFF?=
+ =?utf-8?B?TmwzUkhSNndlalhmOHZ3dXZweTFpaThYbjdydFIzWklQYWtaVTlVUlpicUo3?=
+ =?utf-8?B?empSdm9VNWM1M2xLMzNaOFBUV1pZNlBya3dMTzVIbDBpSDBHWi83NUVUWCtC?=
+ =?utf-8?B?TS9aQ0hxMmdSREhITHZBSjBOTkhBakJ5LzM1SWo5RHJ4aUpUZXBQb1dTNkx6?=
+ =?utf-8?B?dkJzcktncks5clRTeFVZR2d3MnFYWUJucVQ1L2NJYWxqN1RrTS9xZ3Z6Wm85?=
+ =?utf-8?B?cFJXQy9GeEoxMFlUL1NacEtBckpka2ZJZWRHWENSajdFckdBd1BvTndoVGlr?=
+ =?utf-8?B?UW9TeElXYXFUWXQ2clF4YXYyOTZHeWlhSjc5YkR3UEZ4TGgyT3RDcGp1bTNL?=
+ =?utf-8?B?RS9FbFZjUEdvWkRvdWNXVU95Q05XUkhzZGxnL1ByWnRId0dzbDFhMlkzMzl0?=
+ =?utf-8?B?QTdSTjlVZVRMNWU5Um8yU0ZuN0hRb2RUZWJIUkJEM2tRejA1NktUTXVOQi9I?=
+ =?utf-8?B?SG1BZ1VQY0hsNk10MmwwUTNMbkt2dy84QTBBQ1M2SklXM2VRb243UStmcjNz?=
+ =?utf-8?B?QzRVZzFTenFMa1oxT3VrMkIwQUFzTUFvd1dyLzZZNC93YzB4ai9BTWFyVldi?=
+ =?utf-8?B?VzlSbG01azhHelRmMHZZNFl2Mk4wMC9xVFQ1WWJmblloUDkyT0FTcy9JTWVo?=
+ =?utf-8?B?WlEzVDl4aFZ6OGNtRUdkc2hlZFpETjRxY2QyS3pCL2lwUXJKcUkwM09KRW9J?=
+ =?utf-8?B?cG02S29TSGt1UCtxUFZCVGNMOFIvMTBZMk5rOHZINHNFUEx3SVpUd2l1b05v?=
+ =?utf-8?B?MHRrRGRrWTNmcDJ3OFpISUlPSlFtSDVKV1FvZTJMU0dVY2JwSUROV2lTdDlp?=
+ =?utf-8?B?cjVMWmlPQVErd21HazR3RmxOaUkzY0VUV2NjMXZ6L0dxTjFRN2h2VVRKbTJF?=
+ =?utf-8?B?V1BKbmQ5WjgvWVUrS09Jc3dXY2l0Y1dJeCtpZEs2ZWJhakxkODlHanV3Uk9N?=
+ =?utf-8?B?WjVxeU9rdmtFQTJqMG9pUHJnR0grcDNSdEgxODVBWlFrV2pxUk5IZ01tZmxs?=
+ =?utf-8?B?c0ZTZG01L0NhRUExdkRTYzNnTHFLcWFjblZYUG9QdnNreEFXdUtrVkZFL2NM?=
+ =?utf-8?B?dW43SXBvNFQ4UVZUTS9raHpGWWk5YlRnbGFWcC9TSVdyTUVzVEJnMXpZbDg1?=
+ =?utf-8?B?MHdHQmJWWVFaWVh4K2JlbFZ2WGJITHRGd3VaUmg0Q0hseEthNmhPTlJ5aHFN?=
+ =?utf-8?B?UmNyZHdCbE5rZHNTR2JWdWJmQ2R2V3VlOXlWRE10YjlKZ0FlWW82NUsrOXlj?=
+ =?utf-8?B?WGtFTmRUT3lER3NwQ3ZOQXZaVU1OR0hRU3dGaGNPdlN4dHRRek5hMUs4ck9H?=
+ =?utf-8?B?bkFlNGdMdUkvcUxJT0U3Vzh3NlpVa01ROUxGUmlEVnZ3aVlDYlFFbzl4bWk2?=
+ =?utf-8?B?aUtpRm9rODIvYm8xeER6VXVIMThBUlFnNGVOeDJOTnhVRFBTVTNTZllzc0xo?=
+ =?utf-8?B?R2EvWC96cUhScWJDV3g4cTJpaHJuVGxQMlNjN2JTQkFJK29nNnBRNENTMTVn?=
+ =?utf-8?B?cnhod1pMZ0dqQTZmOWI1d0NIditXZ2dYOEd1SU1BVm9Ta2w0NVZoRzlrSzBN?=
+ =?utf-8?B?cnc9PQ==?=
+MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d8027b7-fda7-4560-0d71-08dde1217fa2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Aug 2025 02:13:34.7715
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: zPcFiY+rlmdrTSMWykSUzViZfjupmnQvo3ysl7obSpaJQ0WItS8mRT90ZhRRQp0gzHiDrGHpd/CBrxJx41+/FeGbSamCPJng39/OEH72ilA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1323
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_025939_214223_B5082CB5 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20250821_191340_978166_755FC33C 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,59 +149,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/22/25 05:06, David Hildenbrand wrote:
-> It's no longer required to use nth_page() when iterating pages within a
-> single SG entry, so let's drop the nth_page() usage.
+> On 21.08.25 22:08, Vivian Wang wrote:
+> On 8/21/25 18:09, Hal Feng wrote:
+> > [...]
+> > +++ b/arch/riscv/boot/dts/starfive/jh7110s-starfive-visionfive-2-lite.
+> > +++ dts
+> > @@ -0,0 +1,152 @@
+> > +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> > +/*
+> > + * Copyright (C) 2025 StarFive Technology Co., Ltd.
+> > + * Copyright (C) 2025 Hal Feng <hal.feng@starfivetech.com>  */
+> > +
+> > +/dts-v1/;
+> > +#include "jh7110-common.dtsi"
+> > +
+> > +/ {
+> > +	model = "StarFive VisionFive 2 Lite";
+> > +	compatible = "starfive,visionfive-2-lite", "starfive,jh7110s"; };
 > 
-> Cc: Damien Le Moal <dlemoal@kernel.org>
-> Cc: Niklas Cassel <cassel@kernel.org>
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  drivers/ata/libata-sff.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+> Might need to add starfive,jh7110s to:
 > 
-> diff --git a/drivers/ata/libata-sff.c b/drivers/ata/libata-sff.c
-> index 7fc407255eb46..9f5d0f9f6d686 100644
-> --- a/drivers/ata/libata-sff.c
-> +++ b/drivers/ata/libata-sff.c
-> @@ -614,7 +614,7 @@ static void ata_pio_sector(struct ata_queued_cmd *qc)
->  	offset = qc->cursg->offset + qc->cursg_ofs;
->  
->  	/* get the current page and offset */
-> -	page = nth_page(page, (offset >> PAGE_SHIFT));
-> +	page += offset / PAGE_SHIFT;
+>   drivers/cpufreq/cpufreq-dt-platdev.c
+> 
+> So that it can use the opp stuff here:
 
-Shouldn't this be "offset >> PAGE_SHIFT" ?
+Good catch. Thanks for your review.
 
->  	offset %= PAGE_SIZE;
->  
->  	/* don't overrun current sg */
-> @@ -631,7 +631,7 @@ static void ata_pio_sector(struct ata_queued_cmd *qc)
->  		unsigned int split_len = PAGE_SIZE - offset;
->  
->  		ata_pio_xfer(qc, page, offset, split_len);
-> -		ata_pio_xfer(qc, nth_page(page, 1), 0, count - split_len);
-> +		ata_pio_xfer(qc, page + 1, 0, count - split_len);
->  	} else {
->  		ata_pio_xfer(qc, page, offset, count);
->  	}
-> @@ -751,7 +751,7 @@ static int __atapi_pio_bytes(struct ata_queued_cmd *qc, unsigned int bytes)
->  	offset = sg->offset + qc->cursg_ofs;
->  
->  	/* get the current page and offset */
-> -	page = nth_page(page, (offset >> PAGE_SHIFT));
-> +	page += offset / PAGE_SIZE;
+Best regards,
+Hal
 
-Same here, though this seems correct too.
-
->  	offset %= PAGE_SIZE;
->  
->  	/* don't overrun current sg */
-
-
--- 
-Damien Le Moal
-Western Digital Research
+> 
+> > +
+> > +&cpu_opp {
+> > +	opp-312500000 {
+> > +		opp-hz = /bits/ 64 <312500000>;
+> > +		opp-microvolt = <800000>;
+> > +	};
+> > +	opp-417000000 {
+> > +		opp-hz = /bits/ 64 <417000000>;
+> > +		opp-microvolt = <800000>;
+> > +	};
+> > +	opp-625000000 {
+> > +		opp-hz = /bits/ 64 <625000000>;
+> > +		opp-microvolt = <800000>;
+> > +	};
+> > +	opp-1250000000 {
+> > +		opp-hz = /bits/ 64 <1250000000>;
+> > +		opp-microvolt = <1000000>;
+> > +	};
+> > +};
+> > +> [...]
 
 _______________________________________________
 linux-riscv mailing list
