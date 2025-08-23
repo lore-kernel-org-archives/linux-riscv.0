@@ -4,59 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25934CA0FE8
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 09:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B4DCA0EFF
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 09:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oJOL/J3lnGZ7bpqZb2ZVFczCzH4UpJyNpUOrHe1RP/s=; b=2yLP27SIcrY9kG
-	bO/Qviy/ThTNjarwXKBBvmzjNg/eifb2mynFgff9PY6woMqgdEglB9FFFOg8mi2b1LxbLo39Eeu4Y
-	SS8+8fakYcc0wxJ8XAs+HqCG/VaEgu5GQ6BusnynAaEk+eWSqS9JrWuFBtPLv4GGJUoyNNIvrUhEQ
-	D7wvT7Is8L6d3zsebx9tYQd45LmKaMxd4U61js9u1UnD7Jgh/tfX3KWqgrb/uTf8PzpLmOmxdfkMA
-	DSMJbCcMujUagliAHYB9u/uefHFX7doG3HmouIumJMcq1irdKR/rRX1RJSaWDwupfWnQKB2E/ZOea
-	5mp9Ne/Y4K58LUgA1dRg==;
+	List-Owner; bh=Nrch3Qq4aXGqqMq5d4BBbZgKDSMTiGqCIpLFenjTEus=; b=oPMr6LBJSa3wGL
+	OQp9VtMvJ0P2shr2yfMwHMdj1kEDTZ4Ek6qsM8+Vz1fIPYObBfArBTyTUD2Y0M/Uv6lndnZY4QAvW
+	eNPtJHE3uEuRkb4hF+2sU4Ls5B8zc9iTePIyPVPR6oayK654XoifxJZS+ULuY/N5LJAamf6hjvBZc
+	Qw/IoX47wgV97a5Mqw5ntwHxtUYFFW0fsZ30TxWwgY0ubE4Hbeebs1wEjLpAB6EC9vUgAU9IOAcyF
+	f7IE87IFI66I9QhdQVIOcZXBfVdE7Cdl4tW97fu1f227UaLoLzUt6fxdg/xZZgPX6JZJf0ToQyDaI
+	EWd7p3YRQZ3k1kLucCAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkEl-00000004Qq9-2rYQ;
-	Sat, 23 Aug 2025 09:08:35 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1upkEm-00000004QqK-3Iy0;
+	Sat, 23 Aug 2025 09:08:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upk5x-00000004Po2-2FtG
-	for linux-riscv@lists.infradead.org;
-	Sat, 23 Aug 2025 08:59:30 +0000
-Received: from hay.lan (unknown [IPv6:2605:59c0:2078:cf00:6ecf:39ff:fe00:8375])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 6CCDBB4E0039;
-	Sat, 23 Aug 2025 10:59:25 +0200 (CEST)
-From: E Shattow <e@freeshell.de>
-To: Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org,
+	id 1upk6b-00000004PxK-0dML;
+	Sat, 23 Aug 2025 09:00:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6ABA25C0FCC;
+	Sat, 23 Aug 2025 09:00:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F35E6C113D0;
+	Sat, 23 Aug 2025 08:59:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755939608;
+	bh=aU4s6rL8qphUf3ASSPtkvFhSbnF7KQL/5p/AkB6ZkD0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rOGkWtsURQmqeVJWZZ8QU1TwZHK57H1RHXwc/i48rhECw+oAVRa4mF0zfqNM3aJ7b
+	 K4ufsfNlCAWHsLgknGRRJAM8fAg49ifByU7aHcJpd60KD5n2ftLsVEjekOSHSO2hKf
+	 TyNgVi/IP/sZ+Zv1HQC39pwpdaVXtYVat6Ea2uqdZXF6QBRAllDzvBMajMv+E6mXfL
+	 wV6BxOvsD2NYhNSk4hF0URYans98VMn0JY+kTDajsHLCy41MHKhsR0ynwpYDfvi23F
+	 uDIHwC7s5hdPOSqfKNvqn2djgrkhoLcYMLwZ0RX2xL3FelT1nsv2lD+CEaDl2f3oOX
+	 wFjm0sW7YW4bQ==
+Date: Sat, 23 Aug 2025 11:59:50 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: Mika =?iso-8859-1?Q?Penttil=E4?= <mpenttil@redhat.com>,
 	linux-kernel@vger.kernel.org,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	E Shattow <e@freeshell.de>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 3/3] riscv: dts: starfive: jh7110: bootph-pre-ram hinting needed by boot loader
-Date: Sat, 23 Aug 2025 01:58:02 -0700
-Message-ID: <20250823085818.203263-4-e@freeshell.de>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250823085818.203263-1-e@freeshell.de>
-References: <20250823085818.203263-1-e@freeshell.de>
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH RFC 10/35] mm/hugetlb: cleanup
+ hugetlb_folio_init_tail_vmemmap()
+Message-ID: <aKmDBobyvEX7ZUWL@kernel.org>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-11-david@redhat.com>
+ <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
+ <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_015929_717958_B4B66D4E 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250823_020009_270658_69012960 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,128 +96,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bootph-pre-ram hinting to jh7110.dtsi:
-  - CPU interrupt controller(s)
-  - gmac1_rgmii_rxin fixed-clock (dependency of syscrg)
-  - gmac1_rmii_refin fixed-clock (dependency of syscrg)
-  - oscillator
-  - core local interrupt timer
-  - syscrg clock-controller
-  - pllclk clock-controller (dependency of syscrg)
-  - DDR memory controller
+On Fri, Aug 22, 2025 at 08:24:31AM +0200, David Hildenbrand wrote:
+> On 22.08.25 06:09, Mika Penttil=E4 wrote:
+> > =
 
-Signed-off-by: E Shattow <e@freeshell.de>
----
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+> > On 8/21/25 23:06, David Hildenbrand wrote:
+> > =
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index f3876660c07f..6e56e9d20bb0 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -35,6 +35,7 @@ S7_0: cpu@0 {
- 
- 			cpu0_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-+				bootph-pre-ram;
- 				interrupt-controller;
- 				#interrupt-cells = <1>;
- 			};
-@@ -68,6 +69,7 @@ U74_1: cpu@1 {
- 
- 			cpu1_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-+				bootph-pre-ram;
- 				interrupt-controller;
- 				#interrupt-cells = <1>;
- 			};
-@@ -101,6 +103,7 @@ U74_2: cpu@2 {
- 
- 			cpu2_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-+				bootph-pre-ram;
- 				interrupt-controller;
- 				#interrupt-cells = <1>;
- 			};
-@@ -134,6 +137,7 @@ U74_3: cpu@3 {
- 
- 			cpu3_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-+				bootph-pre-ram;
- 				interrupt-controller;
- 				#interrupt-cells = <1>;
- 			};
-@@ -167,6 +171,7 @@ U74_4: cpu@4 {
- 
- 			cpu4_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-+				bootph-pre-ram;
- 				interrupt-controller;
- 				#interrupt-cells = <1>;
- 			};
-@@ -273,12 +278,14 @@ gmac0_rmii_refin: gmac0-rmii-refin-clock {
- 
- 	gmac1_rgmii_rxin: gmac1-rgmii-rxin-clock {
- 		compatible = "fixed-clock";
-+		bootph-pre-ram;
- 		clock-output-names = "gmac1_rgmii_rxin";
- 		#clock-cells = <0>;
- 	};
- 
- 	gmac1_rmii_refin: gmac1-rmii-refin-clock {
- 		compatible = "fixed-clock";
-+		bootph-pre-ram;
- 		clock-output-names = "gmac1_rmii_refin";
- 		#clock-cells = <0>;
- 	};
-@@ -321,6 +328,7 @@ mclk_ext: mclk-ext-clock {
- 
- 	osc: oscillator {
- 		compatible = "fixed-clock";
-+		bootph-pre-ram;
- 		clock-output-names = "osc";
- 		#clock-cells = <0>;
- 	};
-@@ -354,6 +362,7 @@ soc {
- 		clint: timer@2000000 {
- 			compatible = "starfive,jh7110-clint", "sifive,clint0";
- 			reg = <0x0 0x2000000 0x0 0x10000>;
-+			bootph-pre-ram;
- 			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
- 					      <&cpu1_intc 3>, <&cpu1_intc 7>,
- 					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-@@ -880,6 +889,7 @@ qspi: spi@13010000 {
- 		syscrg: clock-controller@13020000 {
- 			compatible = "starfive,jh7110-syscrg";
- 			reg = <0x0 0x13020000 0x0 0x10000>;
-+			bootph-pre-ram;
- 			clocks = <&osc>, <&gmac1_rmii_refin>,
- 				 <&gmac1_rgmii_rxin>,
- 				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
-@@ -904,6 +914,7 @@ sys_syscon: syscon@13030000 {
- 
- 			pllclk: clock-controller {
- 				compatible = "starfive,jh7110-pll";
-+				bootph-pre-ram;
- 				clocks = <&osc>;
- 				#clock-cells = <1>;
- 			};
-@@ -935,6 +946,7 @@ memory-controller@15700000 {
- 			compatible = "starfive,jh7110-dmc";
- 			reg = <0x0 0x15700000 0x0 0x10000>,
- 			      <0x0 0x13000000 0x0 0x10000>;
-+			bootph-pre-ram;
- 			clocks = <&syscrg JH7110_PLLCLK_PLL1_OUT>;
- 			clock-names = "pll";
- 			resets = <&syscrg JH7110_SYSRST_DDR_AXI>,
--- 
-2.50.0
+> > > All pages were already initialized and set to PageReserved() with a
+> > > refcount of 1 by MM init code.
+> > =
 
+> > Just to be sure, how is this working with MEMBLOCK_RSRV_NOINIT, where M=
+M is supposed not to
+> > initialize struct pages?
+> =
+
+> Excellent point, I did not know about that one.
+> =
+
+> Spotting that we don't do the same for the head page made me assume that
+> it's just a misuse of __init_single_page().
+> =
+
+> But the nasty thing is that we use memblock_reserved_mark_noinit() to only
+> mark the tail pages ...
+
+And even nastier thing is that when CONFIG_DEFERRED_STRUCT_PAGE_INIT is
+disabled struct pages are initialized regardless of
+memblock_reserved_mark_noinit().
+
+I think this patch should go in before your updates:
+
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index 753f99b4c718..1c51788339a5 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -3230,6 +3230,22 @@ int __alloc_bootmem_huge_page(struct hstate *h, int =
+nid)
+ 	return 1;
+ }
+ =
+
++/*
++ * Tail pages in a huge folio allocated from memblock are marked as 'noini=
+t',
++ * which means that when CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled their
++ * struct page won't be initialized
++ */
++#ifdef CONFIG_DEFERRED_STRUCT_PAGE_INIT
++static void __init hugetlb_init_tail_page(struct page *page, unsigned long=
+ pfn,
++					enum zone_type zone, int nid)
++{
++	__init_single_page(page, pfn, zone, nid);
++}
++#else
++static inline void hugetlb_init_tail_page(struct page *page, unsigned long=
+ pfn,
++					enum zone_type zone, int nid) {}
++#endif
++
+ /* Initialize [start_page:end_page_number] tail struct pages of a hugepage=
+ */
+ static void __init hugetlb_folio_init_tail_vmemmap(struct folio *folio,
+ 					unsigned long start_page_number,
+@@ -3244,7 +3260,7 @@ static void __init hugetlb_folio_init_tail_vmemmap(st=
+ruct folio *folio,
+ 	for (pfn =3D head_pfn + start_page_number; pfn < end_pfn; pfn++) {
+ 		struct page *page =3D pfn_to_page(pfn);
+ =
+
+-		__init_single_page(page, pfn, zone, nid);
++		hugetlb_init_tail_page(page, pfn, zone, nid);
+ 		prep_compound_tail((struct page *)folio, pfn - head_pfn);
+ 		ret =3D page_ref_freeze(page, 1);
+ 		VM_BUG_ON(!ret);
+ =
+
+> Let me revert back to __init_single_page() and add a big fat comment why
+> this is required.
+> =
+
+> Thanks!
+
+-- =
+
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
