@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9573CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 19:09:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ADD1CA0EFA
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 19:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x8JSvGuDoVy7+0i59dYsPZukapWsIqnuM+H7iUkuLEg=; b=T1Pu0fbrrSNs5G
-	cqlSYtCpWAVRWBYF+QVmivmhdrR+Ul3xDG3KOhSqb3hd8WHnyxk6S5YmKuorX63SZvbwytiNYyVXQ
-	8C1mRx8iZcobkLYY67SxPFSNoeyHQwSQUC7W2Y5MBc3MBvkQV8tgVM0qHn0XbZb/JfFdSo8pocdgk
-	o7KOKjUXP1g9xJa2KVcQ59Sco5BmHrEiYnuklyCsodCxhrjt/m70y4BD1/JezSqBbjoKHYqyvpYUe
-	5F69lCrf30b5FT3UnajgylmBAJ3DhCNvLsGg7TYWvDS1JCw/GQkKWmvTeqIRX6kZHstAVXspAF5S3
-	WOh3ppvFA/9Uty2mBUSw==;
+	List-Owner; bh=OwqXCfORQL3m/kfIRj5uZDoHSrYvbCmFzeWAizWgafg=; b=dqpLZxs+B6tIhZ
+	9cWJPMFjkrkECmJ/V1jRPMKCXBxGLPDba13ytnAwWXqzkJpuOflKHA/UHuA+Mz7+wkvlYwPwZF2OW
+	4yr21IVWD2K4+hu7cvKHyRAlnvbl4lXm4II5UHuc1PayuXl9D7uYJRspU3RVO6AjvlI5vdyctC6oO
+	+K2PrG+X4TvSq1hrzPyAX/BpE4KH5gS8gQsWBz/CftupdbJqlXmxWZczJ3iA+dRDlk1i7Whifyb3b
+	jp2aqQU/omaKPPSyqgyfEv52YiXJMlPJtKDfpe3Ar0jIQDemTpUi2alYy6eppyFL9ZGdlXRHXKF5q
+	dGvjCY6F9oXu1byKIDxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uptbj-00000005DLw-42Mz;
+	id 1uptbj-00000005DLK-05bT;
 	Sat, 23 Aug 2025 19:08:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uprQ0-000000055N3-1Inn;
-	Sat, 23 Aug 2025 16:48:41 +0000
+	id 1uprLE-000000054bx-41BS;
+	Sat, 23 Aug 2025 16:43:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 458855C53EC;
-	Sat, 23 Aug 2025 16:48:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3333C4CEE7;
-	Sat, 23 Aug 2025 16:48:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 261E4A58779;
+	Sat, 23 Aug 2025 16:43:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D084DC113CF;
+	Sat, 23 Aug 2025 16:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755967718;
-	bh=PDfxYI4xJFYmIUFeVYOEcKsGHc9UOGEej4nxqYpMpgE=;
+	s=k20201202; t=1755967423;
+	bh=xFZkeJN2BuDgCkOi+KgCMmmiWf02TF4MkQxM0ILCb/c=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HOXXqNd5ZbNFfXhPJvOSJpuLPaIFgLCHSTOAh/B1wd0Q2+30Sz2yxhHeQ70I+6ira
-	 0Y5NvdqZewIGHh3fkbPEhG731f/9TGrKaqfi79StYlzLt0GkPuc4NLdiVOkkkxLTNj
-	 lCF/coYvgjNcuwJWCN2zhq4sqXhpK39/OUs5pH4vNM0y+kq4UP444vgPGrnlvtOBZ3
-	 vWypYT/Tu9R0zxIRm9lNFsGdK0gPihI1EbGXWDeLh+oYTOkC391/3865/PLGswrKR0
-	 ci3Jz3vltoNG+fME7+Z7D1Hi98pBVKINaG1l8/tKH5WKRXP5EgThnk9ap13vHnwjWY
-	 WyuxowF5X6EHQ==
-Message-ID: <64c311f7-1cc1-4d0d-9f9d-b586050b8fec@kernel.org>
-Date: Sat, 23 Aug 2025 18:48:19 +0200
+	b=itdiEScC2Beeu6c63pmd/CTzPnWhE183hRyVzasZY+gmKVI5vd3nuihdYSmXUtzqM
+	 n5pXlMOZ4f4CfdZ3y+9TL4OAfKF1rUicpUcWpAKV25yexOoQiIUVRBOvzvVlnT7m1x
+	 Ow/syOgbGs/7sFzlP8M9T9k2hQaa02Q05lgaQ79U07gOCwpaS6+/LYxvOeLuY9D4Yg
+	 tFdZWFXEVSKg+nsuehNXz2gcumXyv2a/Cv5In16FOD/gqLYo3Ce8RoRceAlgwmH+KZ
+	 F0iWduD+DHlVLd9Xvqi99qFs+b/bjDIb80nCd1xXSh9G2AR1wHFNtLXyjiCEgmjyyG
+	 kbRIEhswFKxGg==
+Message-ID: <7c6cc42c-fc76-4300-b0d2-8dabf54cf337@kernel.org>
+Date: Sat, 23 Aug 2025 18:43:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 000/114] clk: convert drivers from deprecated round_rate()
  to determine_rate()
-To: bmasney@redhat.com, Michael Turquette <mturquette@baylibre.com>,
+To: Brian Masney <bmasney@redhat.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
  Stephen Boyd <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
  Cristian Marussi <cristian.marussi@arm.com>,
  Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>,
@@ -94,8 +95,8 @@ To: bmasney@redhat.com, Michael Turquette <mturquette@baylibre.com>,
  Alex Helms <alexander.helms.jy@renesas.com>,
  Linus Walleij <linus.walleij@linaro.org>, Liviu Dudau <liviu.dudau@arm.com>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  sophgo@lists.linux.dev, linux-mips@vger.kernel.org, imx@lists.linux.dev,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
@@ -105,6 +106,8 @@ Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev
 References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
+ <1907e1c7-2b15-4729-8497-a7e6f0526366@kernel.org> <aKhVVJPEPxCoKKjI@x1>
+ <4d31df9e-62c9-4988-9301-2911ff7de229@kernel.org> <aKhr8NYhei59At0s@x1>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -150,11 +153,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
+In-Reply-To: <aKhr8NYhei59At0s@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_094840_433543_96FECE57 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250823_094345_130791_D90946BC 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,16 +173,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/08/2025 17:17, Brian Masney via B4 Relay wrote:
-> The round_rate() clk ops is deprecated in the clk framework in favor
-> of the determine_rate() clk ops, so let's go ahead and convert the
-> various clk drivers using the Coccinelle semantic patch posted below.
-> I did a few minor cosmetic cleanups of the code in a few cases.
+On 22/08/2025 15:09, Brian Masney wrote:
+> On Fri, Aug 22, 2025 at 02:23:50PM +0200, Krzysztof Kozlowski wrote:
+>> On 22/08/2025 13:32, Brian Masney wrote:
+>>> 7 of the 114 patches in this series needs a v2 with a minor fix. I see
+>>> several paths forward to merging this. It's ultimately up to Stephen how
+>>> he wants to proceed.
+>>>
+>>> - I send Stephen a PULL request with all of these patches with the minor
+>>>   cleanups to the 7 patches. Depending on the timing, Stephen can merge
+>>>   the other work first, and I deal with cleaning up the merge conflicts.
+>>>   Or he can if he prefers to instead.
+>>>
+>>> - Stephen applies everyone else's work first to his tree, and then the
+>>>   good 107 patches in this series. He skips anything that doesn't apply
+>>>   due to other people's work and I follow up with a smaller series.
+>>
+>> Both cause cross tree merge conflicts. Anyway, please document clearly
+>> the dependencies between patches.
 > 
-@Stephen,
+> This series only touches drivers/clk, so it shouldn't cause any issues
+> with other subsystems, unless there's a topic branch somewhere, or I'm
+> missing something?
 
-There will be dependencies/conflicts for Samsung, so I will take the two
-Samsung patches. Let me know if you disagree.
+Individual maintainers handle subdirectories.
+
+> 
+> There are some drivers under drivers/clk/ where there is an entry in the
+> MAINTAINERS file that's not Stephen, although it wasn't clear to me if
+> all of those people will send PULL requests to Stephen. I described on
+> the cover how how the series was broken up.
+> 
+>   - Patches 4-70 are for drivers where there is no clk submaintainer
+>   - Patches 71-110 are for drivers where this is an entry in MAINTAINERS
+>     (for drivers/clk)
+
+It's hidden between multiple other descriptions of patches, so I really
+would not think that this means that it is okay by individual maintainer
+to take the patch.
+
+This really should be the one most important part of the cover letter
+for something like this.
+..
 
 Best regards,
 Krzysztof
