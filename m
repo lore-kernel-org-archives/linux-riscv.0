@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C5CCA0EEB
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Aug 2025 08:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E2DDCA0EFC
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Aug 2025 08:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PCyImLi2xqsD5g9EeCvBuDWMWR9fExM5mVDgghBJD/A=; b=2qOCuSfcx3aXNC
-	qWk7ScKJYLiMCBs9mfUD4NC7OMmBZ4Xi75aZdd/ZkyEnx0vDZaEDbdYPyoEieCXUkzbf6B0EauMUP
-	nF6WbSVz9iKbNGjZvj2x8KsNH11FTLsbrdAs52KUegQMCzveVdNVbssrr18wEPndey7MtdO/QO4T1
-	kRzphClalX1HZk39HM/BzCj01opNRYINTVMCD86qgwQBkSdbxN2kk6RkRpYK3lb0eGBYICpNAjkwB
-	K2BnyxraGObwC4n0wAVbwxqrlIWmoSxT/XIKjfGn2h2iPvayGcqqHTqvUvB0hy2foyZClsFDxIPui
-	fFQFoyj4p1ueproIgEpA==;
+	List-Owner; bh=SlRXzDpmqf+hMB3IePpTW+gaVBNlAckqIMfe5ArjAng=; b=T5zF19VwVFrWme
+	m6QdYx/JjcQzMaC/TmcTN/tjpIbXSCZRC7frZ/06zJsZsPs+/X+hPBNHaXrZzaJhmIA0Q2fvh2zIL
+	yHxHTSz6cUVLcHa4SUarFTHNd3NU9Q/fT/eZBIeu0sOmA7MVXSYACJQwYqnsQAcQRSCooj4QiX59T
+	VuoHZzHFcliBWj5rh+to1FfP2xsgJL2M/ZJA8DC1swk+CjGnhfeqik5HS/D7nkFE6d42tfGlC6qaS
+	rSD1lL0Qw6ig29mc56bnTy3oQ+VC9kFZxJjYZtPgpwvzt/sCrSgWUfMu8sdcKNw6ZaUIvaCn3CMhn
+	jNmvGE/lYotU7yXXIpcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq6Ij-00000005soT-3cia;
+	id 1uq6Ij-00000005soJ-13Mg;
 	Sun, 24 Aug 2025 08:42:09 +0000
 Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq6Ig-00000005sht-1hbS
+	id 1uq6If-00000005sgK-1tYL
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 Aug 2025 08:42:08 +0000
+	Sun, 24 Aug 2025 08:42:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1756024845;
-	bh=+0D/xtSyclY9YeXodV2ESPW/VNymBxUPSTcmaRsZFQk=;
+	s=mxsw2412; t=1756024831;
+	bh=uIeFRp7srlfzTl3qg/h25R18H1T9HniV32V3H37+zLo=;
 	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=SkYYVD8E4ltoualxi1RvcD5FWAuTAvbcDlEPXpDNjjN+kJkp1QeiTIzExn1DY9nSa
-	 c9UWheD3XWgBCuAiV+ai9Z0zTpptEDRVs1EUcdu+bE2Lztj8q2HF51CvmZF605JoHl
-	 oZjNgEmxsUCsxIHJQOviBKxGD2mwcJ/9pVjoYeLM=
-X-QQ-mid: zesmtpip4t1756024837t616a7bdf
-X-QQ-Originating-IP: PUsKbz+++SlMt/xebBO1hY0S118liMczPg+o1fjZI/g=
+	b=GKbwYKEpik6QLJbcHuSWJhkX1LzKHnBobBPBQFIfpjiwLqMjUfFbcqMR/454lbGj5
+	 j3SCkajM4TPrpi91c97NsquZxLSjorr2/MA3LljLTt9DfTQ+LS7Hk1eC5oqHUPmYIE
+	 q0iPc3HRl7Tdsnt/++RAIE+VWVvAtYNq02nr2fOI=
+X-QQ-mid: zesmtpip4t1756024829ta2e03abb
+X-QQ-Originating-IP: R+FEK3RJ0uU9/B5/5AD3L4JnXkWhDGlpkAywfX6XE6s=
 Received: from = ( [localhost])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sun, 24 Aug 2025 16:40:34 +0800 (CST)
+	id ; Sun, 24 Aug 2025 16:40:25 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 9689889897890366230
-EX-QQ-RecipientCnt: 16
+X-BIZMAIL-ID: 17996591963032369533
+EX-QQ-RecipientCnt: 15
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Sun, 24 Aug 2025 16:40:01 +0800
-Subject: [PATCH RESEND v5 2/2] clk: spacemit: fix sspax_clk
+Date: Sun, 24 Aug 2025 16:40:00 +0800
+Subject: [PATCH RESEND v5 1/2] dt-bindings: clock: spacemit:
+ CLK_SSPA_I2S_BCLK for SSPA
 MIME-Version: 1.0
-Message-Id: <20250824-k1-clk-i2s-v5-2-217b6b7cea06@linux.spacemit.com>
+Message-Id: <20250824-k1-clk-i2s-v5-1-217b6b7cea06@linux.spacemit.com>
 References: <20250824-k1-clk-i2s-v5-0-217b6b7cea06@linux.spacemit.com>
 In-Reply-To: <20250824-k1-clk-i2s-v5-0-217b6b7cea06@linux.spacemit.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -59,40 +60,39 @@ To: Michael Turquette <mturquette@baylibre.com>,
 Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Yao Zi <ziyao@disroot.org>
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756024814; l=3086;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756024814; l=987;
  i=troy.mitchell@linux.spacemit.com; s=20250712; h=from:subject:message-id;
- bh=EwKVSE+xlhWtppMsIC0wFkFKY+Ek8JZOdL9HhV7w8qQ=;
- b=Glx1thNAZLGwZF+ZRevm8+R6O87PYXOxfak/RqijosoYktJgN4SadVOOB7TzA7d15sqnpnFNj
- OAy5yz77XPgBXfWp/q1GWBFbmWDkYKOX2ioCS3c+xwdTaqoRyC+np7p
+ bh=v/t1aI3aNag38Iw54UrTz56l99+UEE1QCM7Cs9uZPv4=;
+ b=iONwEIHlXVoixiSORjJxTfn/gRA3ySjVcx44485CZagW2P+78goqG1fL/Z+oleVAPbN/wYGb2
+ RQryHUz9mJjBnXwhtDnWU94+xGj896RrrhljBPr/wCbDoUstkk/2IWX
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
  pk=zhRP1xE0bftrurqSWI+SzcSdJGIZ0BTTY9Id0ESzqlI=
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpip:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: MQ7i6Ib+DYfjH2lCYvgT0bZu51wi0pYgcn1zlE/7V9vHh1nGRaWtLRpP
-	tzeHox4hAdYCjR7C7e2Yp/I4r6YcqzxE2urOAWFE6G0MRwpMiYo57ZKGQwWs40fS4htDFG5
-	k2D/nq4TtUjLI7pX5O1S5BGwqQpjUeqZKl8vddVh6HtDNA+yiOP9VEYTXtinvwNwOaPoOSr
-	8dqKWggrdmqHKJxPKeJHCkjvqrkxpqOi3ny6jtUkeYOBv4OGCQ1T6J2RYU/QiaWYOizAxKc
-	Bx/uKg6iivbUKbK3HlxusFzpv56Ask1MRkNIncJgOdcZrhypXOrPMDBT4wSZwOoKpUhFylo
-	zqbr3GRDXtI5TQHiG+Xc7Afh5nbB6zHIYjcgmhvyTaoBwRa4jlCz5ROoIrg84OOL3dUD4xF
-	gO8YSgyzL/j0gkShKaQnYFa43SdCwoPIXB0qXJtqCRimhiXhoFtlsjKVjxgwgHk8fWzF2uR
-	WjXEqdpaId9hUPziTa5luz9vDv6rJHltdNxvMmqrG/O+tuJffpRdaqYftOit+YkcJbbfXqD
-	0mQNKaVL+nKkfOp1DAXrv06+EDBnYAJBqEVlajhBiT9Qj7hhLRJUf+vlnWD7XtYnLtmZ/Cb
-	tGFZcz8hhovjuJ9aLqj1WQ7y2obPTp4oUWvXgaXdxzYU1uvS+Xt3RoAIAy9FeGJ2dshhCf5
-	a46spIOhVAxVWHJvVTXtjfuTqIriJE6JYaaTPisDUXHk9ok4Db3qCVAEk2TmUwnhlDJjV5y
-	fL7EDAG4FzGKXnxYbF+W5Ic+xjA3t3u4g6GOjEOhp+Gtkp5Qz01cbN/Iin2vyMxlJ8Qzu3C
-	X7Hfuk9t9TK3Bunmz3TPB+E1U48zD2cIra/R8Vj47ywl4FpDWkn9Iz1rFCk+2RsW0ERsZwK
-	SWUHb0UURjEApfuvjUPZ+A69KrSlPtrcLjuvQvzFpO0ZHQWHJktOIdZKxNtAbbz0q8huyIA
-	JlFUfOLhpzQHwd5Qo4v71A1kex/4PrvQd7gIzC6Pe6AHneP8eTxa55mNpOSnRPcd1GIF83N
-	euB7dBB8aKZMfwXJF3OLd8ymQDQYZf71ytq2ACRAsHjh9GmOa8pZ+rePKC3vKYleWNoe01/
-	WcVULX4ovskhb/mcwbOf2NMlMlTcpJYZyVgN9QV+P5a
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-XMAILINFO: MWzGDmnScki3k3C5VIVHaDBd8z4Roju4+0neCTSnYOxzh9F3UIJVkRW7
+	vbNS57Rn+P6EcKYl1wMCksANQzKMZtZ7Ogsjr3wfaS2Wp/UH+9xJtc51Y7O/g5Kt5r7bNpf
+	kG04qQiJdNBRzvXTLTndAIXxALEb7mcO1/2eL0M79UCuQu0rDRUbbkLm8EA1Z1WzSKFSwlf
+	j9TDqZViB3pEerwDDIVNRUhgtKl6UpSe8X0cbI0c7Xb1oQgBeEql5XxJzVf8UXg0jkShZMO
+	Cq+bnC4BeCfwxux/FehkKkC9etkHyrt9Ay4QjhdYQ0JhriCK060bbzGb2E0GjOnFeo1fYFy
+	069xZ82vns/DfyroYIZv2wtVFIktA9lxvLXJgWbTODwJkfdv6SqqVOIAq0bPVY7M8Ej0btQ
+	mhLz7A7xVwfOH+ldGk7cxiIeuLs5ppefKzYT+IFbc4sl4kcUJnZ9NPa8zRLhgFmxAwQqObH
+	jgwTUy7b+2moPpLhM3RhAmyj/lUtt9YyHOwnIKE+tlOhp6Xh2uX83VfyNBtpvRE4VUU+WL0
+	W2rm/USXdStM32e5pu5poXVNmVfqIwfK2hdffPTaoJB8e/Q5fRw1xQmQIhLnbkyFt3JkDO8
+	qivqhVKgunAj5FG8I/FuzoSs9fUz8HTmVjlZM2IhNjv0w/rT7cIyM4U/njgeAP0DIk6iWce
+	IMr/5sz79vfm5AiHh2nZdRpeJklGRxULJyWwIBQC1t3iZzlmyt8JCLBAQDOISHsOtjsiB4D
+	3jdTvmA63mLbDDyHyZPhCpSzs7scFWCxEcBKPkv8EtJFc9VZtdhvyNwQeQ3offQCnEFdYAp
+	sivDEIHgmgYXc+qE0y5TBQXL4tR7tQhX+dNN97bFvVPVRgekpnxrW3UKA2ps4MQKonXg8YN
+	A2WfOm6k2XZUsH7F8lllU2QoI5C9uXkhV3uemraTVX8msZsYADSjSWT4uDunA6RDFMSCvnX
+	XHZxiwV5EfxAcTopjhp3eG3t82WSU+UVzQEChY6Y+LJ6RngOf29PINzhIm+dGdPSm1qYWYL
+	zLVmpD6qNzJmxPygSy+C2HREFiQ4nXTPP9tGI8MlJxmSIepxMetqJUcFIh3/wGuj594zYsW
+	o8DP69ICqdhPrg5TgIHPAU=
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_014206_981295_02F271EB 
-X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-CacheID: sfid-20250824_014206_513438_3B07EDB2 
+X-CRM114-Status: UNSURE (   8.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,75 +110,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hardware Requirement:
-
-BIT[3] of this register must be set if need to select i2s_bclk as
-SSPA parent clock, to solve this, introduces a new SSPAx_I2S_BCLK
-clock as the virtual gate clock.
+In order to use the virtual clock SSPAx_I2S_BCLK in the device tree and
+register it in the driver, this patch introduces the macro definition.
 
 Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
-Suggested-by: Yao Zi <ziyao@disroot.org>
-Reviewed-by: Haylen Chu <heylenay@4d2.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- drivers/clk/spacemit/ccu-k1.c | 29 +++++++++++++++++++++++++----
- 1 file changed, 25 insertions(+), 4 deletions(-)
+ include/dt-bindings/clock/spacemit,k1-syscon.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-index 65e6de030717afa60eefab7bda88f9a13b857650..62cdba516a29f960e15e04642470f55e3d85bfad 100644
---- a/drivers/clk/spacemit/ccu-k1.c
-+++ b/drivers/clk/spacemit/ccu-k1.c
-@@ -247,7 +247,14 @@ CCU_GATE_DEFINE(aib_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_AIB_CLK_RST, BIT(1),
+diff --git a/include/dt-bindings/clock/spacemit,k1-syscon.h b/include/dt-bindings/clock/spacemit,k1-syscon.h
+index 2714c3fe66cd5b49e12c8b20689f5b01da36b774..505205453d7f19ad478b3b741d83f4498fcb8c0d 100644
+--- a/include/dt-bindings/clock/spacemit,k1-syscon.h
++++ b/include/dt-bindings/clock/spacemit,k1-syscon.h
+@@ -182,6 +182,8 @@
+ #define CLK_SSPA1_BUS		97
+ #define CLK_TSEN_BUS		98
+ #define CLK_IPC_AP2AUD_BUS	99
++#define CLK_SSPA0_I2S_BCLK	100
++#define CLK_SSPA1_I2S_BCLK	101
  
- CCU_GATE_DEFINE(onewire_clk, CCU_PARENT_NAME(vctcxo_24m), APBC_ONEWIRE_CLK_RST, BIT(1), 0);
- 
--static const struct clk_parent_data sspa_parents[] = {
-+/*
-+ * When i2s_bclk is selected as the parent clock of sspa,
-+ * the hardware requires bit3 to be set
-+ */
-+CCU_GATE_DEFINE(sspa0_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA0_CLK_RST, BIT(3), 0);
-+CCU_GATE_DEFINE(sspa1_i2s_bclk, CCU_PARENT_HW(i2s_bclk), APBC_SSPA1_CLK_RST, BIT(3), 0);
-+
-+static const struct clk_parent_data sspa0_parents[] = {
- 	CCU_PARENT_HW(pll1_d384_6p4),
- 	CCU_PARENT_HW(pll1_d192_12p8),
- 	CCU_PARENT_HW(pll1_d96_25p6),
-@@ -255,10 +262,22 @@ static const struct clk_parent_data sspa_parents[] = {
- 	CCU_PARENT_HW(pll1_d768_3p2),
- 	CCU_PARENT_HW(pll1_d1536_1p6),
- 	CCU_PARENT_HW(pll1_d3072_0p8),
--	CCU_PARENT_HW(i2s_bclk),
-+	CCU_PARENT_HW(sspa0_i2s_bclk),
- };
--CCU_MUX_GATE_DEFINE(sspa0_clk, sspa_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
--CCU_MUX_GATE_DEFINE(sspa1_clk, sspa_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-+CCU_MUX_GATE_DEFINE(sspa0_clk, sspa0_parents, APBC_SSPA0_CLK_RST, 4, 3, BIT(1), 0);
-+
-+static const struct clk_parent_data sspa1_parents[] = {
-+	CCU_PARENT_HW(pll1_d384_6p4),
-+	CCU_PARENT_HW(pll1_d192_12p8),
-+	CCU_PARENT_HW(pll1_d96_25p6),
-+	CCU_PARENT_HW(pll1_d48_51p2),
-+	CCU_PARENT_HW(pll1_d768_3p2),
-+	CCU_PARENT_HW(pll1_d1536_1p6),
-+	CCU_PARENT_HW(pll1_d3072_0p8),
-+	CCU_PARENT_HW(sspa1_i2s_bclk),
-+};
-+CCU_MUX_GATE_DEFINE(sspa1_clk, sspa1_parents, APBC_SSPA1_CLK_RST, 4, 3, BIT(1), 0);
-+
- CCU_GATE_DEFINE(dro_clk, CCU_PARENT_HW(apb_clk), APBC_DRO_CLK_RST, BIT(1), 0);
- CCU_GATE_DEFINE(ir_clk, CCU_PARENT_HW(apb_clk), APBC_IR_CLK_RST, BIT(1), 0);
- CCU_GATE_DEFINE(tsen_clk, CCU_PARENT_HW(apb_clk), APBC_TSEN_CLK_RST, BIT(1), 0);
-@@ -865,6 +884,8 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
- 	[CLK_SSPA1_BUS]		= &sspa1_bus_clk.common.hw,
- 	[CLK_TSEN_BUS]		= &tsen_bus_clk.common.hw,
- 	[CLK_IPC_AP2AUD_BUS]	= &ipc_ap2aud_bus_clk.common.hw,
-+	[CLK_SSPA0_I2S_BCLK]	= &sspa0_i2s_bclk.common.hw,
-+	[CLK_SSPA1_I2S_BCLK]	= &sspa1_i2s_bclk.common.hw,
- };
- 
- static const struct spacemit_ccu_data k1_ccu_apbc_data = {
+ /* APBC resets */
+ #define RESET_UART0		0
 
 -- 
 2.50.1
