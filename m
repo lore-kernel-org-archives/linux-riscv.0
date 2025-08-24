@@ -4,53 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7F2CA0EE4
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Aug 2025 20:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF49BCA0EE4
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Aug 2025 00:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l6oe0cyeoYv7CsJrSvdg0xOtXQ8lLyPgVay+oJ0NkoI=; b=t1LilfJc5oMnQZ
-	+FTT133G5HEtuMK3CNXQ0YQzSqcr6iibvuysK9fWLbsF19TFd/qS5QGWaCLOuH18S5HmdCZwvXVp0
-	4/my9O8ex2r4sd4ubu4E67rFqNEJcS2IWc+1n9Q7maEksQaTj+WOC+h0RwK0dJBeqi780S00JDGjb
-	zPjtG4g+wnQPbZSbPtcxHFRErmL7T050H3qk/W1vNuXByjmpVUw7weoqINv4Tc823D5/IFgot32oh
-	GStOwCSwja0BWGRBL5p65p/o2QUlgjifvpWA8UloSlJ8PqXUK/EP95Xy85LkR+DWrqk9WkmJzdao+
-	1D6x0JupobuuBX5RQh4g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZCmD4eABIJV59kWC1RLuYMvMb1gLuH5aBjT3gSfyBVw=; b=0fO/37/Zcf+wfhAkRNhkBVjzaW
+	YQMvFt5O0Z3eMKwG73qhTbNjfSm7Vofmscx9gk1bLGLOl09RFOi7NsKfWQp70R+hgXW9X0EbM2CMd
+	tfOTHiVSoVaOM/ntQ+t+u1wL6438rPsndDRJTxi8OhXIY3CrLZtt53VnAzcedVBW/mS8BosbnXkBZ
+	hBdSRZH9DhMzs0y63pc+GvuuQjuOGPYneZFDpQ24cBqsOMjqYHHaMz7y/CyAUWEaOB2S+c5TUziuA
+	mDmRMPT0Td73gbh5V2P0jdujEuaoa/LflTpSKohxI6il4lDJke7+e7/A/Ll50U5SQI4KqYQeEyBMX
+	SDF5HpPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upv3R-00000005HTo-2trl;
-	Sat, 23 Aug 2025 20:41:37 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1upymU-00000005VF2-0Yx8;
+	Sun, 24 Aug 2025 00:40:22 +0000
+Received: from mail-centralindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d409::1] helo=PNZPR01CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upv3O-00000005HTU-2lTi
+	id 1upymR-00000005VEf-3xIp
 	for linux-riscv@lists.infradead.org;
-	Sat, 23 Aug 2025 20:41:36 +0000
-Received: from [192.168.2.54] (unknown [98.97.26.216])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 4DDFBB4E0012;
-	Sat, 23 Aug 2025 22:41:30 +0200 (CEST)
-Message-ID: <a30e894b-cd23-46d7-9621-2fe039123466@freeshell.de>
-Date: Sat, 23 Aug 2025 13:41:28 -0700
-MIME-Version: 1.0
+	Sun, 24 Aug 2025 00:40:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ojMeq2Q7h3+z0IGlYZ0Wf5WGwG0mhDy8Sd1Z51crmU4+nONAurHJxBqv8pIFPPjeNSyTwRlq+cfMFNGU9K4+NDa+gf75OPHHbrIQ98MHeWYpmKMNQxYVdV172cWK/HNedtyVonnzgqyxqhdUdjjVLD9dHCHWmgfav1YJqmfR//IlFGPqjlDJc+sx0Ou9Cj8q8pgS1bI2VCfv4LGFWPeBF/QG32Ix1nSOE+vanwM3qYGsuoXG6B4fIYKgJwos1CwoNuYN1CHTBBttC74BksPR1cmBCQUkmqpktnwXXYoAEkoLdNR7XQTyUL9+MuNVnm4Z7fkmTI+dFzK1lej2+buKkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DUJikpznnlmFqtDjTyIC3bJvpCctsb9zfxlIk6HZ7Qs=;
+ b=lxUHSJqJJ2uMgVxLfvmXER+rCNlNXL5sy83ekbif7f618uB8OGXL52IBtUgcN38pM5s5BRE0elrrqOW2gUSsvIt8u7VouMtAkDuyAG4QFS5O5IZEeh6jGG4FZeN0SSNF33v8f0A6YSlXHaHSeWg0fOK52gFw0RJSJ6KTG9ONvAyc05bDmoQThHD80qsPHj5wl/mWvfOkN9entZbGWTcSdfjBjuBXtDDZZ/V7nFAenkFZrnAmKanYD5UKDMNqSOej8RLw1QllM3WugT8CqKWHHR/pRH8d9fGVXqjzX8/UCChNIPizKiCUoaFRb4l+/riQn5RnRNUIwu99WNj/Yfpk1A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DUJikpznnlmFqtDjTyIC3bJvpCctsb9zfxlIk6HZ7Qs=;
+ b=vGo9Jr+WVYMRGR4Cz7rg3DPCy6+wgD4jjlR5rdDUm3YvNfGE9CZs231V1Xq3PSI5nZtAXc+zY6ZebX94hmoe3DqcWLk/FFkUJ1Yl6WF6s84NCkX+t7+VBy06Iwu+w/i69BoQh+UgOzkbSHXCMQaxGQwy3cvaeh3gR5SFcYRcQWGTbF5gI0Wv9mfuCFFdzvCJySiQU8EIcqBM0X23rH77dQ0uhHIuqSX4QpNGyCRt6f/pPhzWv8HPAMo3e+VmC64pKZnMbSRFnFicBTIgyMXUEn9n9dTna4bt+rCh54tT9++Gplq4a1ucM/E4mEcJ9NK8C3edJn4cISJnWouYAoQKWg==
+Received: from MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:16f::16) by PN3PR01MB7728.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:cd::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.20; Sun, 24 Aug
+ 2025 00:40:06 +0000
+Received: from MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::5dff:3ee7:86ee:6e4b]) by MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::5dff:3ee7:86ee:6e4b%4]) with mapi id 15.20.9052.019; Sun, 24 Aug 2025
+ 00:40:06 +0000
+Message-ID: <MAUPR01MB11072DF9EE680F641C10F79D7FE3FA@MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM>
+Date: Sun, 24 Aug 2025 08:40:02 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: memory-controllers: add StarFive
- JH7110 SoC DMC
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>,
- Minda Chen <minda.chen@starfivetech.com>
-References: <20250823100159.203925-1-e@freeshell.de>
- <20250823100159.203925-2-e@freeshell.de>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <20250823100159.203925-2-e@freeshell.de>
+Subject: Re: [PATCH v2] irqchip/sifive-plic: Respect mask state when setting
+ affinity
+To: Inochi Amaoto <inochiama@gmail.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>,
+ Nam Cao <namcao@linutronix.de>
+References: <20250811002633.55275-1-inochiama@gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20250811002633.55275-1-inochiama@gmail.com>
+X-ClientProxiedBy: SG2PR04CA0207.apcprd04.prod.outlook.com
+ (2603:1096:4:187::9) To MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:16f::16)
+X-Microsoft-Original-Message-ID: <11cec161-3f79-4feb-a71f-e0eb8ea491a1@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MAUPR01MB11072:EE_|PN3PR01MB7728:EE_
+X-MS-Office365-Filtering-Correlation-Id: c01de001-6432-4d42-e48d-08dde2a6c532
+X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799012|23021999003|461199028|5072599009|6090799003|41001999006|8060799015|19110799012|1602099012|53005399003|40105399003|4302099013|440099028|3412199025|10035399007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bE5WMXBjOG5VZlY2empkN0U5aXNsNUsxSWgwMnUwSDdkNnUweXhyMEJaL0FT?=
+ =?utf-8?B?MUNVMUpxQmgyalZ2REdvYmpSaUw5R25YaGhJU3FYUEFrQWdHUGtDMlFOcm1i?=
+ =?utf-8?B?WlJsQ08wWFJxQVI0eTNjQzliR2lzeStFYlJIcitzKy95cFRTRWIrb1lDTWg3?=
+ =?utf-8?B?MTlZRjlxTXVLdm9JQUQxZ2VOa2VWU2J1UmNPVExsNXZFbGxlL1JWZVM3TTRN?=
+ =?utf-8?B?MjF0Y3hxTHl1V2xoUVl4VFFxUlo1NGlaSnhtMlRIVlJWbnZrR3lGYUUydHhK?=
+ =?utf-8?B?QWZvNEZ3cXpBT0FDYmpxVHhhL0QyaFNoTkMvNlFsOFhwUnNxc1RZQTgydmhE?=
+ =?utf-8?B?SUc1RTRmNzFLZ3dvQklFVlRTdkpKMmVwNzRkdGJ1VytwaGpiU1hJclR6aWZH?=
+ =?utf-8?B?N3lETzdMeGtwMysxdzU3d2plUTYwTlhBb2orMTZMdjZXbWRMam9wRHBrNGoy?=
+ =?utf-8?B?NjhMbjVISzg1dEZCcExidXhZSVo1bEJDQjJuWWdpSU42U1VOT1ptL1BZYjdR?=
+ =?utf-8?B?OW10VFIwTVo0cVg1R3MyRTRaYWNNYmlkYWZERnJjSU1XYURjMDViSVdkOEtG?=
+ =?utf-8?B?RjlLQU5jZnlYSk5lWTBtdk8wYWxKL0xuRlpsTjhYYkl2bFdTUDE4Q3ZrZ0NM?=
+ =?utf-8?B?T2ljUWZ2d1p4a2ZIblVjSGp1dUJlVllHalN4UzdIWWRqTVZDemhMSUhXdHVN?=
+ =?utf-8?B?dUNYbmR5dytSOE93dU1LQUFDZ3pXR3ZxRkNxbitmZHpuZlBpbGFSQU9rYXBI?=
+ =?utf-8?B?RUpMblU1ZS9ydnd1VlVQK3FQR2xFZUdsYkJoRTk0T0RBbVN6aEhnNHQ2VWFJ?=
+ =?utf-8?B?MGxMZzI0VFNDWGwwV2VNQXRGd2ZuWi9vTlU5YnhzR1lJSlFBaWFBM2ZZZ0Jz?=
+ =?utf-8?B?MVoyMTBTV01ZMjZKRWdoeXRjWGNvYkJOQTdSTmNEUm5nZWlmR015TWxyd0Ew?=
+ =?utf-8?B?M25uR1FSZ21POTArS1AyWHVuWG4zdG9hMm01VnN2TFV2NnAwWnlrZmFZRFZs?=
+ =?utf-8?B?dHNtNHFoVUZTR09HWUJjeldBSm5PQjN1b3JLRisvdGhXeS9aeFRGT3l0R0NJ?=
+ =?utf-8?B?SXh4cmdDK0x3VVJPN240eHFWTUFBTkptTXZ1UlNoejlhMkZNRzZvdTdBQ203?=
+ =?utf-8?B?UDhXQWFqR1grK21LSEJhcFhNQ2RQeis4M2tBdmZTamt3WU44eE5ZMWE1M21C?=
+ =?utf-8?B?a1doUkV1aVp4N0NIeElxbkcrbjZsOFc5dFJrQnNBaTRLTEoxZkhFQ05MMWwv?=
+ =?utf-8?B?aTR1a1RpaGMzYTB5NHc2dllvOFd5aTlnZjB3SU9vSDFISzJZUWZ1Z1BiVHVi?=
+ =?utf-8?B?U1ltVkc2MVB3SU5pcXB1eU9PK2Z3S0NmK1dhNkZKMWI3dXNvem4rN0N0UzVX?=
+ =?utf-8?B?Smc5K0lrVWNEVDl0NUNSY2krYklmeVo3U3UrQVM3ODVRREpIcktFS0tyRWJn?=
+ =?utf-8?B?Yi8xV2lzQS81OUp3VVViZ0R2THA3dEVjcCt4dVkzcUJXTHU0cnVlK1BMUUQr?=
+ =?utf-8?B?UG16WVJycHd0eXBPeVdISlpTRXJ2ZG10R3J5RUJYdnQ0c1BkbFRhN0tDemI5?=
+ =?utf-8?B?Yzl6ZHRpSDZ1RWttQ05QRXEvMTk3Q09Ha1Q3b3BsOHo5MkNpY01FdWkvZHRm?=
+ =?utf-8?B?MC9WVW9ESU1JalJVMUVhUWRtUVNlbW9YeUp6b05DQ0R4NXFkWDVRVGt5ejRh?=
+ =?utf-8?B?NUdDaTNmM0hYa1dGdkp0SFFPdGRNejJxNER5REJKb2VTSmM5UGVmNW9la0ZL?=
+ =?utf-8?B?Y3RIeHkya2VQZEFrSXVwdUJRalcrUUVneEt3MTI2N0lCalI3WUI5M3N0dTNG?=
+ =?utf-8?B?aHZnVS9GY3hFTnlHK3RoQWxscytXejZoV2p3TkI2VkNNZjRNdjVIbW5VbU1W?=
+ =?utf-8?Q?Z2mawQ61D/pNG?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dk9uYjlQZWg4RElUZjFDV0FqaThlSUdEYTlSWk84YjZVdnZGWDFsRU85Y3Az?=
+ =?utf-8?B?aFg2aTVpVEJkT0JlTzhzWlV5bk9kUEYxNUtGdTJ0ZXVnc2lpVEVPYXM3bklB?=
+ =?utf-8?B?cmJJYXRnbjE5NW1FU0JUMElBbVdCSGtUQXI4Wk1zTzg3R2l1c3hNcThDZklE?=
+ =?utf-8?B?U1h6Mm1kM3FmaEFzcWR0ODU4MzdxQkErV2c3VjRjV0kvYWo5ZVk2RDRTNlgv?=
+ =?utf-8?B?Zmkybm5WWlY5RXBsZzExWnlYWmptVzlyREFVZSt1WTBZN3poUy9KVGNPZlh1?=
+ =?utf-8?B?R2xpVEo3Z252cXFuOWpDQmJCT0l6WEF2TjFhTnZ5dDZWM2RoazNseVVnaXBZ?=
+ =?utf-8?B?TEZTbkxaUTdlbEk3U2c2ajhMUi94VDhCNVRyNkJERFZKMm5KZGVscmhvQWVu?=
+ =?utf-8?B?Q29sMlBDOUNIQ3BpNDRqMmkwZ2luajJMbkRQVUNoNUgxejJKSmY2QVhUNllZ?=
+ =?utf-8?B?Y0NxT3o5dE1wOHBCaWNsVUttWjdZYTBXSCtPeTVBb09yV1dubkFaLzhSRGJO?=
+ =?utf-8?B?NklGbldXSmR3Y0dHdXdwU3FQWDg4b1JSb0pEUGlOMm5EUXErUnVLd05kd2FJ?=
+ =?utf-8?B?SWZBcm8wd1A0dno1U2FSQ0EySDNRTURMVUNGLzMyQ2tHbHc0SEl5VjRNL29w?=
+ =?utf-8?B?Z2l0TUFic2RJYm9YSEN2d1R1R2hSSUJsVmZTM1NYazJkd1pseTJNRm51aDJO?=
+ =?utf-8?B?ZEpYTnFTVkN4YkViZitmazVuUFUzWDVDbTM4T245c2d6ZzFFWmpFUmJtc2ow?=
+ =?utf-8?B?MmtINitNL3VPZlJna0FzY2p6eVRQWE9rU0xSa0s0T1VOeDlEbjZFTjh3QVRJ?=
+ =?utf-8?B?MnFONHJUdDlFelpHUHAxd01sUkt3R1JGSFg4UWJOMEdra2lRWTgrcWVLcWxH?=
+ =?utf-8?B?Z2ZwemcwZXNyenBRbmJjdjAyQktvY09Xbzk4THExb0hUUzUxbnVtSlVGK1pm?=
+ =?utf-8?B?YXBSdC9tUm5rVC9hU2FjUVNCNk1BRUtsdmxQdGplaWc5b1J2bGtaWTdFcDMy?=
+ =?utf-8?B?RHJ1TlFpTUduMStpWDVsVkpyUzJHcFB0M1JWdGZSMGdCV1UzcE94ZWRtSitQ?=
+ =?utf-8?B?K093dzNyUjhaWkw4dkJpMHNBdEtoQXJDWVcrSGRHSUxDSHBCZUJEM3FUbGgv?=
+ =?utf-8?B?S3V3WTVTU0FualVtek5MS2hBQUtjRGptay9KdC9RbS81NG9mZ3dnOXFWU3c2?=
+ =?utf-8?B?ajNFWEVJbVNxaUxCM1d4a0JYQm53WXMwYTI1VGd3ekJ2aXRCdXdVaXowWWs1?=
+ =?utf-8?B?OUN0Szg1YjVTRGUxUDdFOXRwTGxObWFqUmMvTWZQNGVUU0JKV2xHWGVDY0Uv?=
+ =?utf-8?B?ampvckRKY2syWXROcXJpeFZrUTBjNEJna3VnTTg2SzZqOGlHTU1xUDMzcjZZ?=
+ =?utf-8?B?VFU0T3Z4eERPZjFYQTR6ZzFXby9qWFBvU2dQRnF2aVhrcWRBRlpDS0daVGlt?=
+ =?utf-8?B?QXNtbmdTUlE2V05rNDVndURCR2lYbjdLV0g5eWM5d3FCSng2Y2VvTENwbk1Z?=
+ =?utf-8?B?dUdDN3hpb3V6Z1k1N2x0UXp5UEpxcXVaN3BtS3F6SjJuYzdrd2JrakEweE1B?=
+ =?utf-8?B?RmpuKy9xM0JSdTJvMm9TU1RIa0hRcXZxQ0VXL2pmRExaQW5CMXY4VVVrc2Y2?=
+ =?utf-8?B?dXRsTXZzM2dEbmw2STNRSjl6MW53U2l0SktTY1BWZmc3alFWd0ErSUJHcWhw?=
+ =?utf-8?B?NEFQckhuVEozSzEwNjFzR09rTFZwVWpWMWx6aHhST0VIbVg5cWZ0b01RYnh5?=
+ =?utf-8?Q?lq2xPz1pIKoz3i30nTcF7i4SK0S65Kwtahg89h2?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c01de001-6432-4d42-e48d-08dde2a6c532
+X-MS-Exchange-CrossTenant-AuthSource: MAUPR01MB11072.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2025 00:40:05.9658
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3PR01MB7728
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_134134_845770_24834109 
-X-CRM114-Status: UNSURE (   7.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250823_174020_004367_912A9E63 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,28 +161,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/23/25 08:20, Krzysztof Kozlowski wrote:
-> On 23/08/2025 10:58, E Shattow wrote:
->> Describe JH7110 SoC DDR external memory interface.
->>
->> Signed-off-by: E Shattow <e@freeshell.de>
->
-> Don't send the same patch multiple times. To which one people should
-> respond?
->
-> Best regards,
-> Krzysztof
+Hi, Thomas, will you merge this? I see you have picked another related 
+patchset [1].
 
-Respond to v3 RESEND (this thread), or I may collect responses from
-either thread they are the same content. I'd missed a linux-riscv list
-CC line on a patch and that confused patchwork, and then I missed
-'RESEND' in subject for the re-send series after the cover letter.
-Patchwork sees the RESEND series now, and sorry for the added noise. -E
+Link: 
+https://lore.kernel.org/lkml/20250813232835.43458-1-inochiama@gmail.com/ 
+[1].
+
+Thanks,
+
+Chen
+
+On 8/11/2025 8:26 AM, Inochi Amaoto wrote:
+> The plic_set_affinity always call plic_irq_enable(), which clears up
+> the priority setting even the irq is only masked. This make the irq
+> unmasked unexpectly.
+>
+> Replace the plic_irq_enable/disable() with plic_irq_toggle() to
+> avoid changing priority setting.
+>
+> Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Reviewed-by: Nam Cao <namcao@linutronix.de>
+> Tested-by: Nam Cao <namcao@linutronix.de> # VisionFive 2
+> ---
+> Change from v1:
+> 1. apply Nam's tag
+> 2. remove unnecessary off-topic change in plic_irq_disable()
+> ---
+>   drivers/irqchip/irq-sifive-plic.c | 6 ++++--
+>   1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index bf69a4802b71..866e38612b94 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -179,12 +179,14 @@ static int plic_set_affinity(struct irq_data *d,
+>   	if (cpu >= nr_cpu_ids)
+>   		return -EINVAL;
+>
+> -	plic_irq_disable(d);
+> +	/* Invalidate the original routing entry */
+> +	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
+>
+>   	irq_data_update_effective_affinity(d, cpumask_of(cpu));
+>
+> +	/* Setting the new routing entry if irq is enabled */
+>   	if (!irqd_irq_disabled(d))
+> -		plic_irq_enable(d);
+> +		plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 1);
+>
+>   	return IRQ_SET_MASK_OK_DONE;
+>   }
+> --
+> 2.50.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
