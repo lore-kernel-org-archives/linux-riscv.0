@@ -4,58 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E9FCA0EEB
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Aug 2025 09:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D10ACA0EEB
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Aug 2025 13:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HfHCl8CXOPfLH0PSZR3TRqiuStHcuhAqvS2oByyiCfY=; b=h7+9652nZWndsH
-	hbfDInWivStr3scixySyYn6RsEi545ZEZN7lStUFIWVrCiFCaVBND/ltup7UsznM2blcwcRheD4gG
-	QqRfPIHJM4FyQ8vnsvG76/SV9ELLVl+v56zHVpggO2ruPZgHEZUgciVYW6i+owMyOPtr11REGxg2U
-	5KTn1k7EnQ+lAptMVbC/6SAM/xeQ/bQuBTFzwZLCGUs8bArPBFwVBCpAHP0LwghH3osslsUIQZdsT
-	XGLHDbr9ZNCdStTL+lIvjVrXtekm2k10vpXKUQpqklvKLn6wkGVhVXUnhbSpsYG7Ei0wBj26j5N0d
-	/WgHGTfA5jKBKgw6w5Xg==;
+	List-Owner; bh=+lXZGxOI9ogzjn8UDlm56iRBN4/u+0E9j0dJPDyF59A=; b=NK26KXsLObweDT
+	Oao1fdkOmOalT7dyn/tf3s+GjKs7hu2j7DF97oJRCsD+8RZDe1w8MwObW6DR0GkXcnttlcVyj1L3j
+	cbk7lbySB0/fXyiZcOOHUJMBU+peKh8RrELxyIhIxo/Q/zIKeL4HHyQ8ihMqBTJKU2cBCWa/h4dqP
+	V4DdnDWJ3gCddO3ytKbfekgSQwQPIq6M83t3MII4tGWQ61eR4AdEupfwg5AONdxMmn1LTVSaDIpK0
+	AQYlTod7lrFvHJyYfrOAd5KAPIRAAAenOv9BF4rEvbiswZWd5Ybz0TECwviCzsr+M/OQcC7wLN66g
+	aRbqBINVfGNF3P5Qd/Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq6yP-00000005wlI-2WJ1;
-	Sun, 24 Aug 2025 09:25:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uqAkw-00000006BPm-3gtA;
+	Sun, 24 Aug 2025 13:27:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq6yO-00000005wlA-1w0q
-	for linux-riscv@lists.infradead.org;
-	Sun, 24 Aug 2025 09:25:12 +0000
+	id 1uqAiK-00000006BEM-0pSu;
+	Sun, 24 Aug 2025 13:24:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E018A601E8;
-	Sun, 24 Aug 2025 09:25:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8392C4CEEB;
-	Sun, 24 Aug 2025 09:25:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D3EC43442;
+	Sun, 24 Aug 2025 13:24:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4638C4CEEB;
+	Sun, 24 Aug 2025 13:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756027511;
-	bh=S2Hs0y3UyUhNqz6ZmS2Je0osjxQ8a6YMieoxMFUDa7I=;
+	s=k20201202; t=1756041880;
+	bh=ULWSWvx5qOQocuXhhEVwmUdZJ/jQrpo8zzXV1kr+XYk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L8YSmOeRjWNHNjjzRccSnLr2QjzZ3HqdwNcOJKD9CiTF8n/dkgsEAoTeqz4tjuLTJ
-	 HCHO0VT8E8Tu0MGvmExgPQS+/8bFEO4XZgv0xotG6t+BFoeaRkC80YrffzE/1NhbSe
-	 U80t1vQfew0fBdZ3wub3fEDp6Bi0zZqZRD3NryOQf4Tp+iObVLIKf/svVth9o6IILz
-	 byWpJPN/SytHioQBEm8ktBICLo3t8eupBUN2CYBiuwfxpNF1/DIshnjVdHxOlXfcf9
-	 8B4RmQMUZif6q0bFU7Fa9R0Dnk6ko/ccuzqk0wIrtqcqjvf3jM1urE1nmFT5iMQqWv
-	 ns4Bov0LoIqjA==
-Date: Sun, 24 Aug 2025 11:25:08 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: E Shattow <e@freeshell.de>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Hal Feng <hal.feng@starfivetech.com>, Minda Chen <minda.chen@starfivetech.com>
-Subject: Re: [PATCH v3 1/3] dt-bindings: memory-controllers: add StarFive
- JH7110 SoC DMC
-Message-ID: <20250824-new-messy-raccoon-1c26b7@kuoka>
-References: <20250823100159.203925-1-e@freeshell.de>
- <20250823100159.203925-2-e@freeshell.de>
+	b=SquWihWK3f+VpRPVHREvb/KU1Ip2U18TP7N1MuJITOAx4rQrPZH3cvqtkOP5SvK7q
+	 i6NO1TPVUbZk8RWkAk3LTCsFqBTBZ14HIKev8nasvhFuIsLkIUiO3cKzio2Q51II/F
+	 wyed5FtAlddWEWPif7U0YGP0VU7Jz0WnTx8oiBRZXCVwF7SJXztCvl7h61L8oudm/m
+	 ZzJcPQiQ6a3vkdslZGaL+map5bzuxrOH69hNlp4a8gDkADVHKqlXnjP6H9fUKUPAle
+	 G5RP+5YSDJFPCZAOfsIK30ngRx5fl+uNMhMZuFtvohYRU68gjsyw/nUrRlnisE/5CR
+	 1GDLoGVBUCvXA==
+Date: Sun, 24 Aug 2025 16:24:23 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH RFC 12/35] mm: limit folio/compound page sizes in
+ problematic kernel configs
+Message-ID: <aKsSh0OEjf4GLmIG@kernel.org>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-13-david@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250823100159.203925-2-e@freeshell.de>
+In-Reply-To: <20250821200701.1329277-13-david@redhat.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250824_062452_280503_C6B20670 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,23 +97,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 23, 2025 at 03:01:41AM -0700, E Shattow wrote:
-> Describe JH7110 SoC DDR external memory interface.
+On Thu, Aug 21, 2025 at 10:06:38PM +0200, David Hildenbrand wrote:
+> Let's limit the maximum folio size in problematic kernel config where
+> the memmap is allocated per memory section (SPARSEMEM without
+> SPARSEMEM_VMEMMAP) to a single memory section.
 > 
-> Signed-off-by: E Shattow <e@freeshell.de>
+> Currently, only a single architectures supports ARCH_HAS_GIGANTIC_PAGE
+> but not SPARSEMEM_VMEMMAP: sh.
+> 
+> Fortunately, the biggest hugetlb size sh supports is 64 MiB
+> (HUGETLB_PAGE_SIZE_64MB) and the section size is at least 64 MiB
+> (SECTION_SIZE_BITS == 26), so their use case is not degraded.
+> 
+> As folios and memory sections are naturally aligned to their order-2 size
+> in memory, consequently a single folio can no longer span multiple memory
+> sections on these problematic kernel configs.
+> 
+> nth_page() is no longer required when operating within a single compound
+> page / folio.
+> 
+> Signed-off-by: David Hildenbrand <david@redhat.com>
+
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+
 > ---
->  .../starfive,jh7110-dmc.yaml                  | 74 +++++++++++++++++++
->  1 file changed, 74 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/memory-controllers/starfive,jh7110-dmc.yaml
+>  include/linux/mm.h | 22 ++++++++++++++++++----
+>  1 file changed, 18 insertions(+), 4 deletions(-)
+> 
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 77737cbf2216a..48a985e17ef4e 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -2053,11 +2053,25 @@ static inline long folio_nr_pages(const struct folio *folio)
+>  	return folio_large_nr_pages(folio);
+>  }
+>  
+> -/* Only hugetlbfs can allocate folios larger than MAX_ORDER */
+> -#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
+> -#define MAX_FOLIO_ORDER		PUD_ORDER
+> -#else
+> +#if !defined(CONFIG_ARCH_HAS_GIGANTIC_PAGE)
+> +/*
+> + * We don't expect any folios that exceed buddy sizes (and consequently
+> + * memory sections).
+> + */
+>  #define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
+> +#elif defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
+> +/*
+> + * Only pages within a single memory section are guaranteed to be
+> + * contiguous. By limiting folios to a single memory section, all folio
+> + * pages are guaranteed to be contiguous.
+> + */
+> +#define MAX_FOLIO_ORDER		PFN_SECTION_SHIFT
+> +#else
+> +/*
+> + * There is no real limit on the folio size. We limit them to the maximum we
+> + * currently expect.
+> + */
+> +#define MAX_FOLIO_ORDER		PUD_ORDER
+>  #endif
+>  
+>  #define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
+> -- 
+> 2.50.1
+> 
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-There is no memory controllers driver change, so I am fine if this goes
-via SoC/DTS tree.  If you want me to pick it up, please ping on IRC.
-
-Best regards,
-Krzysztof
-
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
