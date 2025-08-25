@@ -4,108 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A713CCA0FE7
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 20:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D525BC8303F
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 21:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E4/OermETz/HM/8H9K9qi3n1u3i4TGHBusUEDfYfdgk=; b=idjJFJKh4thDML
-	t7F/TFYlKQOUVEtXffAF1jdCU/AnmI0wGjOVospM6kP7XCqo1MoKMjBN3SeOixSo5rxQFegGBJizr
-	evZJVB9eyKequX9PmkPzqAI3ChpRm5n5ukF7jgIpFxH39VuX98JtgYhcLN9a5ym9V06q8SCae6UkM
-	cfm/IbWVAWU44UU9fl4Ci7AQWpE9nme1gZsu8+hQhZU0ZpIG3wbupuNrKhldebjszsWqwIk7L/dW9
-	ZQ5wfLKQHnxVKynMVWeKn3Lzz9t55flVrIgAwVVnphtMP0B84UFXTA9qftJmxFq768kHRbPKRXPle
-	VPz0MRUty0dzsxgS7NBg==;
+	List-Owner; bh=M0lbC0L6QECAyCeVd5nHIM1YUSTPPTQIlf2pkW2zCoQ=; b=WdMS+w5vdbs2bO
+	pnxeTBXBxIZvgZA1jxA8J2ae+ITF07ymmMn5SP73LN+3TZ6xPDNK7ghLYmeQNnzgWo+X6CiLor1Tw
+	Th4k8Nob9FqATqgD1cJ852G/ZQ7U9qmSFbDZ+mWKVRcGrn8iJ+dqEP9J60AL8EjM5W4GOubzBLANR
+	xS8PiH0TbC4XFFRrFdjv+JnT/PS3/8Cryp3yeaN+Q2/ezWe5Pvm9HZeb9/eJUyFo9SipP3v9dklvp
+	wYzisuJ2nyI1MlcE3XHnAO02xIbrjG2bBpcwWwN3I50b1mQGXPm4L2wmJr3xG5eXJllq2ku6YQhOh
+	k5hdOfNvzpamAxheE83w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqdh6-00000009YWC-1hC2;
-	Mon, 25 Aug 2025 20:21:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uqf3f-00000009o9I-1RNJ;
+	Mon, 25 Aug 2025 21:48:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqdSg-00000009Uuv-3fkb
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 25 Aug 2025 20:06:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wbD6+fQUFLj6ZyKIXXe+rz89WoEnq6GRJ4KXesOmIvQ=; b=IjFjPtzfpy8vZlM0f+UGCHbJOE
-	POeuq4Kdx97cUIqfgX3jCF+Hh3BHveAey6s8nQMtj7tDFg2+LXz+gzk0XQxdb8m1iAGZaCc/pN6rc
-	l2jKsyfSV+UaAOOqvQFw0OmmdYNl55OsDNNCVumCO2vFjSMt2uUpkTOWYxapYr5UydJOqbG5ebI2X
-	A0sc2qLFhVuZ+ECgFwTkr+KKu0OlGaQIHKuFE9pV1fosS/ghlN5xsJHEgSviIoxiJR0KpC/w0Et72
-	ShKfHN5j+9wYSOJML1MJH5d4GZPun+BcoJS/M/erZlD65sTN34X5XaXRg/6g2yHw1IZxaVH4bJaIu
-	aUHdlCNA==;
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqdSd-000000021wC-0cWU
-	for linux-riscv@lists.infradead.org;
-	Mon, 25 Aug 2025 20:06:37 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2468b307df7so22796185ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Aug 2025 13:06:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756152393; x=1756757193; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=wbD6+fQUFLj6ZyKIXXe+rz89WoEnq6GRJ4KXesOmIvQ=;
-        b=FUV8699rv0ZQh65QnA/pVy9PFVQPwqzxscNH3OLF4Gb73m+QvfAbf8SAR2LeedhJRP
-         NhrR/o/ca2xkxWgqrkrMQDsEPa8qrbiLUDZp43Uj6lDuEQZdf4RzM5WfkfqtAhZ2hU+i
-         A/tVe4PSxyuk1uV5syXd6N7K6qNNzZ2zQ33TsemJ7lgJZgyTKdjJnCORcK1kgIyq4tNE
-         ub+sSIJWOHCYSZI1kyYfHolpKJ6rs2l9QYGRdyhGdnxfhPpwnIulXeRFLTMp5VPUdnmz
-         1Xd2SfDipXMKvHH9p8TNtAM7sjVSV5o65baVVMCkRG9ysYwVWUrPmZVUuB+VE09U5TD7
-         tuOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756152393; x=1756757193;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wbD6+fQUFLj6ZyKIXXe+rz89WoEnq6GRJ4KXesOmIvQ=;
-        b=Lq426omwWzcW+2WcsUTTKr762gHmMSI01vvcJuQ6vXKF28cO8EDOKKGB5Z41sJA1/9
-         N/Gkm96YkbfUND1rfJSHqKt3Bbv65upgzaV6RcEEJ33VIAgK3bem5uzvEnWW+aJls93V
-         gnZ3PydZ6NeeTdUn1/ym2Vz6cOZzPaT5xg+p/EZCZio7GgidIbUyOIxyz+qRBLP0v/ty
-         EN/+8OSM3mx2d2ZBjzsulWXIhsMgn+oMLDakprjHx8aM+4Wqmvf8XSXgb3wGpj4VCQ05
-         5L7gOb8bNj+Str4a6KtFwqngcxjzexnok2SJ24G0cGW1nFJCpD31U0qaS8wkRa1P7iKf
-         WHZg==
-X-Forwarded-Encrypted: i=1; AJvYcCUedFb+Qoixa2m9C+jfOV82+UqyYBnfqXWKLU23R/R9ZOBZGzcusi2OkqNc61XWnYXM8fX+PS9d5AP3OQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOf81iAIHeKOngBR4d/ZASL4QJRKMatnu36tQjBInWgjH258z5
-	2/Cnm0Mc6bmIm82bXNFmYecIiSDLalTbRuMTB5dLcp1exBu/i7K7sPWey1GNu5MOwNinsMMDgZC
-	Ojly1fw==
-X-Google-Smtp-Source: AGHT+IH5IBTx24tzWYAz5h7k7ppjFmo3GXWf3YKN3bogG8Gmm6XMIM/yADKjND6wIF+ApQDKi4M8PqDi2F4=
-X-Received: from pjbsp3.prod.google.com ([2002:a17:90b:52c3:b0:31f:2a78:943])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:22c9:b0:246:6f78:1fc1
- with SMTP id d9443c01a7336-2466f7820c6mr142747395ad.36.1756152392594; Mon, 25
- Aug 2025 13:06:32 -0700 (PDT)
-Date: Mon, 25 Aug 2025 13:06:21 -0700
-In-Reply-To: <20250825200622.3759571-1-seanjc@google.com>
-Mime-Version: 1.0
+	id 1uqf0x-00000009ndJ-00d9;
+	Mon, 25 Aug 2025 21:46:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 04A06601E5;
+	Mon, 25 Aug 2025 21:46:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95AD6C4CEED;
+	Mon, 25 Aug 2025 21:45:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756158354;
+	bh=z2K4pTnpiDqLqYIH8QVc9PQKE3DH+YA71ZyqVbqxW6o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WehF5ftNNXRo0ktcAvTwwGNFGV/EAJ74RPmJHCc1/Z17l1QEglTKoK3ibLL8gnc4t
+	 NlKz6k7fz2lmrzWRP6K+pj3xu5efQX0yAcStIUphpdlkE0hXvX1O/hxV14uaFfM9Il
+	 teNGWS4vL/IPlA1GKik4UxLjNusOjbU5D/OewsXrWcI/Ynet9r+J6j0h0Qw9udbcdx
+	 Jt5qZw5UoaBh5E3LiK4rJTYYyfwi5l7H9dDZXLKpcynQANDbCwVWm46jM36cUflkSE
+	 TgteF7/ksdzao8dEBvyhS4bxR3OBEL/v0WKy2lffmwCnCK3v1xmgFX8nRRpGli6jrU
+	 9ptYFqpFDYbDA==
+Date: Mon, 25 Aug 2025 21:45:52 +0000
+From: Wei Liu <wei.liu@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org,
+	mrathor@linux.microsoft.com, nunodasneves@linux.microsoft.com
+Subject: Re: [PATCH 0/5] Drivers: hv: Fix NEED_RESCHED_LAZY and use common
+ APIs
+Message-ID: <aKzZkItq-8_OmxJ0@liuwe-devbox-ubuntu-v2.tail21d00.ts.net>
 References: <20250825200622.3759571-1-seanjc@google.com>
-X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
-Message-ID: <20250825200622.3759571-5-seanjc@google.com>
-Subject: [PATCH 4/5] entry: Rename "kvm" entry code assets to "virt" to
- genericize APIs
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
-	Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_210635_320749_B1A133DB 
-X-CRM114-Status: GOOD (  16.28  )
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250825200622.3759571-1-seanjc@google.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,251 +92,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Rename the "kvm" entry code files and Kconfigs to use generic "virt"
-nomenclature so that the code can be reused by other hypervisors (or
-rather, their root/dom0 partition drivers), without incorrectly suggesting
-the code somehow relies on and/or involves KVM.
+On Mon, Aug 25, 2025 at 01:06:17PM -0700, Sean Christopherson wrote:
+> Fix a bug where MSHV root partitions don't honor NEED_RESCHED_LAZY, and then
+> deduplicate the TIF related MSHV code by turning the "kvm" entry APIs into
+> more generic "virt" APIs (which ideally would have been done when MSHV root
+> support was added).
+> 
 
-No functional change intended.
+It is nice to have a common infrastructure.
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- MAINTAINERS                                 | 2 +-
- arch/arm64/kvm/Kconfig                      | 2 +-
- arch/loongarch/kvm/Kconfig                  | 2 +-
- arch/riscv/kvm/Kconfig                      | 2 +-
- arch/x86/kvm/Kconfig                        | 2 +-
- include/linux/{entry-kvm.h => entry-virt.h} | 8 ++++----
- include/linux/kvm_host.h                    | 6 +++---
- include/linux/rcupdate.h                    | 2 +-
- kernel/entry/Makefile                       | 2 +-
- kernel/entry/{kvm.c => virt.c}              | 2 +-
- kernel/rcu/tree.c                           | 6 +++---
- virt/kvm/Kconfig                            | 2 +-
- 12 files changed, 19 insertions(+), 19 deletions(-)
- rename include/linux/{entry-kvm.h => entry-virt.h} (94%)
- rename kernel/entry/{kvm.c => virt.c} (97%)
+Cc Mukesh and Nuno for review and test.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fed6cd812d79..17b9c9d7958e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -10211,7 +10211,7 @@ L:	linux-kernel@vger.kernel.org
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git core/entry
- F:	include/linux/entry-common.h
--F:	include/linux/entry-kvm.h
-+F:	include/linux/entry-virt.h
- F:	include/linux/irq-entry-common.h
- F:	kernel/entry/
- 
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index 713248f240e0..6f4fc3caa31a 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -25,7 +25,7 @@ menuconfig KVM
- 	select HAVE_KVM_CPU_RELAX_INTERCEPT
- 	select KVM_MMIO
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
--	select KVM_XFER_TO_GUEST_WORK
-+	select VIRT_XFER_TO_GUEST_WORK
- 	select KVM_VFIO
- 	select HAVE_KVM_DIRTY_RING_ACQ_REL
- 	select NEED_KVM_DIRTY_RING_WITH_BITMAP
-diff --git a/arch/loongarch/kvm/Kconfig b/arch/loongarch/kvm/Kconfig
-index 40eea6da7c25..ae64bbdf83a7 100644
---- a/arch/loongarch/kvm/Kconfig
-+++ b/arch/loongarch/kvm/Kconfig
-@@ -31,7 +31,7 @@ config KVM
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	select KVM_GENERIC_MMU_NOTIFIER
- 	select KVM_MMIO
--	select KVM_XFER_TO_GUEST_WORK
-+	select VIRT_XFER_TO_GUEST_WORK
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
- 	help
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index 5a62091b0809..c50328212917 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -30,7 +30,7 @@ config KVM
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	select KVM_MMIO
--	select KVM_XFER_TO_GUEST_WORK
-+	select VIRT_XFER_TO_GUEST_WORK
- 	select KVM_GENERIC_MMU_NOTIFIER
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
-diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
-index 2c86673155c9..f81074b0c0a8 100644
---- a/arch/x86/kvm/Kconfig
-+++ b/arch/x86/kvm/Kconfig
-@@ -40,7 +40,7 @@ config KVM_X86
- 	select HAVE_KVM_MSI
- 	select HAVE_KVM_CPU_RELAX_INTERCEPT
- 	select HAVE_KVM_NO_POLL
--	select KVM_XFER_TO_GUEST_WORK
-+	select VIRT_XFER_TO_GUEST_WORK
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_VFIO
- 	select HAVE_KVM_PM_NOTIFIER if PM
-diff --git a/include/linux/entry-kvm.h b/include/linux/entry-virt.h
-similarity index 94%
-rename from include/linux/entry-kvm.h
-rename to include/linux/entry-virt.h
-index 3644de7e6019..42c89e3e5ca7 100644
---- a/include/linux/entry-kvm.h
-+++ b/include/linux/entry-virt.h
-@@ -1,6 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0 */
--#ifndef __LINUX_ENTRYKVM_H
--#define __LINUX_ENTRYKVM_H
-+#ifndef __LINUX_ENTRYVIRT_H
-+#define __LINUX_ENTRYVIRT_H
- 
- #include <linux/static_call_types.h>
- #include <linux/resume_user_mode.h>
-@@ -10,7 +10,7 @@
- #include <linux/tick.h>
- 
- /* Transfer to guest mode work */
--#ifdef CONFIG_KVM_XFER_TO_GUEST_WORK
-+#ifdef CONFIG_VIRT_XFER_TO_GUEST_WORK
- 
- #ifndef ARCH_XFER_TO_GUEST_MODE_WORK
- # define ARCH_XFER_TO_GUEST_MODE_WORK	(0)
-@@ -90,6 +90,6 @@ static inline bool xfer_to_guest_mode_work_pending(void)
- 	lockdep_assert_irqs_disabled();
- 	return __xfer_to_guest_mode_work_pending();
- }
--#endif /* CONFIG_KVM_XFER_TO_GUEST_WORK */
-+#endif /* CONFIG_VIRT_XFER_TO_GUEST_WORK */
- 
- #endif
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 598b9473e46d..70ac2267d5d0 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -2,7 +2,7 @@
- #ifndef __KVM_HOST_H
- #define __KVM_HOST_H
- 
--#include <linux/entry-kvm.h>
-+#include <linux/entry-virt.h>
- #include <linux/types.h>
- #include <linux/hardirq.h>
- #include <linux/list.h>
-@@ -2444,7 +2444,7 @@ static inline int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
- }
- #endif /* CONFIG_HAVE_KVM_VCPU_RUN_PID_CHANGE */
- 
--#ifdef CONFIG_KVM_XFER_TO_GUEST_WORK
-+#ifdef CONFIG_VIRT_XFER_TO_GUEST_WORK
- static inline void kvm_handle_signal_exit(struct kvm_vcpu *vcpu)
- {
- 	vcpu->run->exit_reason = KVM_EXIT_INTR;
-@@ -2461,7 +2461,7 @@ static inline int kvm_xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu)
- 	}
- 	return r;
- }
--#endif /* CONFIG_KVM_XFER_TO_GUEST_WORK */
-+#endif /* CONFIG_VIRT_XFER_TO_GUEST_WORK */
- 
- /*
-  * If more than one page is being (un)accounted, @virt must be the address of
-diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
-index 120536f4c6eb..1e1f3aa375d9 100644
---- a/include/linux/rcupdate.h
-+++ b/include/linux/rcupdate.h
-@@ -129,7 +129,7 @@ static inline void rcu_sysrq_start(void) { }
- static inline void rcu_sysrq_end(void) { }
- #endif /* #else #ifdef CONFIG_RCU_STALL_COMMON */
- 
--#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_KVM_XFER_TO_GUEST_WORK))
-+#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_VIRT_XFER_TO_GUEST_WORK))
- void rcu_irq_work_resched(void);
- #else
- static __always_inline void rcu_irq_work_resched(void) { }
-diff --git a/kernel/entry/Makefile b/kernel/entry/Makefile
-index 77fcd83dd663..2333d70802e4 100644
---- a/kernel/entry/Makefile
-+++ b/kernel/entry/Makefile
-@@ -14,4 +14,4 @@ CFLAGS_common.o		+= -fno-stack-protector
- 
- obj-$(CONFIG_GENERIC_IRQ_ENTRY) 	+= common.o
- obj-$(CONFIG_GENERIC_SYSCALL) 		+= syscall-common.o syscall_user_dispatch.o
--obj-$(CONFIG_KVM_XFER_TO_GUEST_WORK)	+= kvm.o
-+obj-$(CONFIG_VIRT_XFER_TO_GUEST_WORK)	+= virt.o
-diff --git a/kernel/entry/kvm.c b/kernel/entry/virt.c
-similarity index 97%
-rename from kernel/entry/kvm.c
-rename to kernel/entry/virt.c
-index 6fc762eaacca..c52f99249763 100644
---- a/kernel/entry/kvm.c
-+++ b/kernel/entry/virt.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- 
--#include <linux/entry-kvm.h>
-+#include <linux/entry-virt.h>
- 
- static int xfer_to_guest_mode_work(unsigned long ti_work)
- {
-diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
-index 8eff357b0436..371447651929 100644
---- a/kernel/rcu/tree.c
-+++ b/kernel/rcu/tree.c
-@@ -573,7 +573,7 @@ void rcutorture_format_gp_seqs(unsigned long long seqs, char *cp, size_t len)
- }
- EXPORT_SYMBOL_GPL(rcutorture_format_gp_seqs);
- 
--#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_KVM_XFER_TO_GUEST_WORK))
-+#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_VIRT_XFER_TO_GUEST_WORK))
- /*
-  * An empty function that will trigger a reschedule on
-  * IRQ tail once IRQs get re-enabled on userspace/guest resume.
-@@ -602,7 +602,7 @@ noinstr void rcu_irq_work_resched(void)
- 	if (IS_ENABLED(CONFIG_GENERIC_ENTRY) && !(current->flags & PF_VCPU))
- 		return;
- 
--	if (IS_ENABLED(CONFIG_KVM_XFER_TO_GUEST_WORK) && (current->flags & PF_VCPU))
-+	if (IS_ENABLED(CONFIG_VIRT_XFER_TO_GUEST_WORK) && (current->flags & PF_VCPU))
- 		return;
- 
- 	instrumentation_begin();
-@@ -611,7 +611,7 @@ noinstr void rcu_irq_work_resched(void)
- 	}
- 	instrumentation_end();
- }
--#endif /* #if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_KVM_XFER_TO_GUEST_WORK)) */
-+#endif /* #if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_VIRT_XFER_TO_GUEST_WORK)) */
- 
- #ifdef CONFIG_PROVE_RCU
- /**
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index 727b542074e7..ce843db53831 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -87,7 +87,7 @@ config HAVE_KVM_VCPU_RUN_PID_CHANGE
- config HAVE_KVM_NO_POLL
-        bool
- 
--config KVM_XFER_TO_GUEST_WORK
-+config VIRT_XFER_TO_GUEST_WORK
-        bool
- 
- config HAVE_KVM_PM_NOTIFIER
--- 
-2.51.0.261.g7ce5a0a67e-goog
+Thanks,
+Wei
 
+> Assuming all is well, maybe this could go through the tip tree?
+> 
+> The Hyper-V stuff and non-x86 architectures are compile-tested only.
+> 
+> Sean Christopherson (5):
+>   Drivers: hv: Move TIF pre-guest work handling fully into mshv_common.c
+>   Drivers: hv: Handle NEED_RESCHED_LAZY before transferring to guest
+>   entry/kvm: KVM: Move KVM details related to signal/-EINTR into KVM
+>     proper
+>   entry: Rename "kvm" entry code assets to "virt" to genericize APIs
+>   Drivers: hv: Use common "entry virt" APIs to do work before running
+>     guest
+> 
+>  MAINTAINERS                                 |  2 +-
+>  arch/arm64/kvm/Kconfig                      |  2 +-
+>  arch/arm64/kvm/arm.c                        |  3 +-
+>  arch/loongarch/kvm/Kconfig                  |  2 +-
+>  arch/loongarch/kvm/vcpu.c                   |  3 +-
+>  arch/riscv/kvm/Kconfig                      |  2 +-
+>  arch/riscv/kvm/vcpu.c                       |  3 +-
+>  arch/x86/kvm/Kconfig                        |  2 +-
+>  arch/x86/kvm/vmx/vmx.c                      |  1 -
+>  arch/x86/kvm/x86.c                          |  3 +-
+>  drivers/hv/Kconfig                          |  1 +
+>  drivers/hv/mshv.h                           |  2 --
+>  drivers/hv/mshv_common.c                    | 22 ---------------
+>  drivers/hv/mshv_root_main.c                 | 31 ++++-----------------
+>  include/linux/{entry-kvm.h => entry-virt.h} | 19 +++++--------
+>  include/linux/kvm_host.h                    | 17 +++++++++--
+>  include/linux/rcupdate.h                    |  2 +-
+>  kernel/entry/Makefile                       |  2 +-
+>  kernel/entry/{kvm.c => virt.c}              | 15 ++++------
+>  kernel/rcu/tree.c                           |  6 ++--
+>  virt/kvm/Kconfig                            |  2 +-
+>  21 files changed, 49 insertions(+), 93 deletions(-)
+>  rename include/linux/{entry-kvm.h => entry-virt.h} (83%)
+>  rename kernel/entry/{kvm.c => virt.c} (66%)
+> 
+> 
+> base-commit: 1b237f190eb3d36f52dffe07a40b5eb210280e00
+> -- 
+> 2.51.0.261.g7ce5a0a67e-goog
+> 
 
 _______________________________________________
 linux-riscv mailing list
