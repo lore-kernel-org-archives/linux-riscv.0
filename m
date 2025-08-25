@@ -4,89 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379A4CA0FE7
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 15:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64DCDCA0FE8
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 15:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wXG6+IX5GZQPRJIkSF8pmuzv0ndcFBDAKTEWwD3HTTU=; b=Ah1hwNS/YZoO5a
-	VAUacVYmd34FuRATf5Eh6ATQzdK3PakZZ8RisL6n2wWk+EfHM623ehqOLlrJoyZ8I0ab4YUGSrwtt
-	GghvOuF/3s7vn6/ychUPrvuy1opa+t5P/EtcxCaCAvM0BJZHBpRqnTPVdH1tx8ZjpX6fMEb4f1Hy9
-	anRpPqgEbrtEjdg6GkNvxlWYQN1n3X+A1Du2Vdy8Wk+7+1Zkna6q4taMWwt0e1Dgj2r9dhn9QTjuB
-	yYOM5AvdnZdaRPEz4qo/N31w0Wgf/RtR6pTjWPp9MV4lxs32az6hKih9UBpqKV3pUCJ8266WdK8ph
-	p1D6U30gfQg4j8Lo3dMw==;
+	List-Owner; bh=Mzyllb1ER4Sp7SvKiXwNIcTEytTGVho5j+OotolsAv4=; b=2a077eJzeC+P8Q
+	j7j5jcXMKYOV9qyCxwIaH+Ljf7pC+fKaqJK49rQOsuUAOV9FIrgD89laGsdNzMoe85wp+Z+Bz1nKf
+	BKxnqJUoCxH3ArGzV37zvAmZ9jm0N9ue1MrUKk6RBiXBpyjIIJaX/FzGmeDMINtFxuAUs7hEZ89L5
+	xpoJoaKdWPlzVknOSWGJjTIjBQ83hHJlc3qMoawmoXmpgngY6IjW61+c2oynRGYeojjW/eah2Ktl8
+	EKKiMo1NT0+FZxImeygHHPsz08c4yaPIHEsnCuPo7Dbma8Guwdt7hO7vllGgKXlMwYOKgntPBNXC+
+	KodBTmw2chdayp+y5Dlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZC7-00000008WtB-2gd4;
-	Mon, 25 Aug 2025 15:33:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uqZEn-00000008XP9-105y;
+	Mon, 25 Aug 2025 15:36:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYFY-00000008Got-06Yp;
-	Mon, 25 Aug 2025 14:32:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 07341407BB;
-	Mon, 25 Aug 2025 14:32:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28395C4CEED;
-	Mon, 25 Aug 2025 14:32:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756132360;
-	bh=DU+1S4Dtf6BzIA9TMfJpqm5TRVwGVofXB+Dj9RHsm1g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n7YZsnMUaPKieR6Aen8NXplrqXq649ng2cWds08Paw0ZE1V9/s04MYuzfMJunBPPM
-	 e9q5l/4IYbHR+zLW6tZ3Ain+SM/EPsptEidQNiwcBG+gIXbD0MDb3NpuMIodH9q/bK
-	 gfUkw7ZqtLUllteesZei9c9/9Nob4tERnp37xBWgOfA8ssretvfGAj7ddnS1nJ/eSw
-	 gYK9m1P9+EEv6DvwLeTd0I1ynl3rIVfEsEIPpMbPhXNcaQgQQCdndA/xeV7DIotpxx
-	 J60e7ZU1ZivKd3L40DdBa/CHbHS/SOS0E/lE/sJu2Rz1DevUCKw6IvTf/zpKfAvZXV
-	 BIxp/l6R3haNQ==
-Date: Mon, 25 Aug 2025 17:32:20 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: Mika =?iso-8859-1?Q?Penttil=E4?= <mpenttil@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
-	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+	id 1uqYKq-00000008HmF-1pXf
+	for linux-riscv@lists.infradead.org;
+	Mon, 25 Aug 2025 14:38:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756132691;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=S1b1Qn5IdFgoYphqgj6hBBswyK4CJqNFMjotKKBhPlQ=;
+	b=HoobbtYgW+PrUqxQN2BTDWBcUPLPsr7Pk9UIYE1NUHoS+P+rFUq9PzfPFunuX3v8+Ds1VU
+	UsiDDgP8B+/lzzpSX7uEfEGZy4+26U34EiEQcUuOdl6628d9FLg3hIsOSPReWMV0X57SgN
+	3PIAfja/536eEFFiXNk3H/JBFAp1rzk=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-258-vmfiRTnrMCSOhenvn3GXRg-1; Mon, 25 Aug 2025 10:38:09 -0400
+X-MC-Unique: vmfiRTnrMCSOhenvn3GXRg-1
+X-Mimecast-MFC-AGG-ID: vmfiRTnrMCSOhenvn3GXRg_1756132687
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3c79f0a5ff0so798650f8f.3
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Aug 2025 07:38:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756132686; x=1756737486;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=S1b1Qn5IdFgoYphqgj6hBBswyK4CJqNFMjotKKBhPlQ=;
+        b=VzS2KS5makBg5Uo9No72MWUkat46zkbRlxSjbQzwQjSFDzQ0K/vx5xhdMD8/7xznw9
+         2ADvMuqFJ6Nf+EHCBFs0flwsJ2p4v/ckwsoHSdR5krHBhLrx6eT5ELeMx3ffjCccUaLT
+         i4jACieYLAvEHSToXEZlWhWdJmLk5zMo3LcRFw4/ZqZ9cwDR9AdMMX+9L0tiX/I8oq7U
+         o1ig+VoklJi1HCdqVZ2Nz6M2gA2GXXWiPmvnHR9Wu6lzSDo32xbz162j++TI+2VygG5C
+         BB/e+BgZlolUgS0eB09tPcqA6uxQtT4/wpba8IkoGmpsGO3is9qjFqK3357dV18yYPha
+         u2kQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVa2dCOAzDYm1P86wK3z1kp5Po+zprrCYziQgf/mIANnf0xMX9Mnf/zZeiwWlW1uIPdwNHt7cafumWMGg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxnf35MmEvUjQpwf5M8zJck/ZqknHzX/4NHqh6VUd7G90nyPs/O
+	d9C1mxatP2HxmK9SvDmYZUZN/lp2Xm6JQeADuliiny2Inq1r1pVMnG5a5n8ZaPBIDEve5mmJeH+
+	ZtqnCYxt1mM47HbhFahQefS+ihPHN/ba5Fnn3SiNWIA7nOktpTMPHh2OMBsKSXGACcKyESQ==
+X-Gm-Gg: ASbGnct0PEB0IvnDEW/MZr6MiNVLxKHBDAISXCe3jV39vqkJlD79er5sFIOo6zxLacN
+	w0WxyvdYexVNmfcOo3yZ9rbckYWR3VZKGcV2h95PxBP40g4P5cd/XAX1zAjsCCibmKBQM0Au6Fu
+	hFJbgzK5dfOfndkcixGy2p8qBWzO8x7BUGSxY5Z3T9+KZI4SPUcEJwwCpAZRpjyLbFaKLw69NsT
+	iAIPG+vgOWYHBi7jJpdvmeg4JkhtZ7z/ubL4yfFd5Y0TN1hnXnAZlglfla0CFAxcugbbbPK6XUk
+	dbzwtAEhsaTWHTOQsIAKo1PZbf+R+aQ3CuVHqBgxwqcKMHRdDfxB771OlLEc0qkMG5lC23cbnDv
+	FjNGUg4D3bL0IkAAh78jH2fJWQJRdsfLLINvNxR1O+jOVY4LaNqV9TPVig8ebr+lqNRU=
+X-Received: by 2002:a05:6000:3113:b0:3c9:f8a:f257 with SMTP id ffacd0b85a97d-3c90f8af5cbmr2996351f8f.50.1756132686347;
+        Mon, 25 Aug 2025 07:38:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHCFvBJRBfcBEdo8i70/6pukUQNYn2Qrs6ZnSbppOdelrrIoC/z5rNFiWI+fX6KVi1Xqpq2ow==
+X-Received: by 2002:a05:6000:3113:b0:3c9:f8a:f257 with SMTP id ffacd0b85a97d-3c90f8af5cbmr2996318f8f.50.1756132685799;
+        Mon, 25 Aug 2025 07:38:05 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f4f:1300:42f1:98e5:ddf8:3a76? (p200300d82f4f130042f198e5ddf83a76.dip0.t-ipconnect.de. [2003:d8:2f4f:1300:42f1:98e5:ddf8:3a76])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b5744e9b1sm109711045e9.11.2025.08.25.07.38.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Aug 2025 07:38:05 -0700 (PDT)
+Message-ID: <a72080b4-5156-4add-ac7c-1160b44e0dfe@redhat.com>
+Date: Mon, 25 Aug 2025 16:38:03 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH RFC 10/35] mm/hugetlb: cleanup
  hugetlb_folio_init_tail_vmemmap()
-Message-ID: <aKxz9HLQTflFNYEu@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: =?UTF-8?Q?Mika_Penttil=C3=A4?= <mpenttil@redhat.com>,
+ linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
 References: <20250821200701.1329277-1-david@redhat.com>
  <20250821200701.1329277-11-david@redhat.com>
  <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
  <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
  <aKmDBobyvEX7ZUWL@kernel.org>
  <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
+ <aKxz9HLQTflFNYEu@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <aKxz9HLQTflFNYEu@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 56nBa7Kkiiln3l_OFpPh5jQphifv0Rz09M3aR3BwLJ0_1756132687
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_073244_098640_455BB37B 
-X-CRM114-Status: GOOD (  26.98  )
+X-CRM114-CacheID: sfid-20250825_073812_540178_A87C913D 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,84 +179,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 02:48:58PM +0200, David Hildenbrand wrote:
-> On 23.08.25 10:59, Mike Rapoport wrote:
-> > On Fri, Aug 22, 2025 at 08:24:31AM +0200, David Hildenbrand wrote:
-> > > On 22.08.25 06:09, Mika Penttil=E4 wrote:
-> > > > =
-
-> > > > On 8/21/25 23:06, David Hildenbrand wrote:
-> > > > =
-
-> > > > > All pages were already initialized and set to PageReserved() with=
- a
-> > > > > refcount of 1 by MM init code.
-> > > > =
-
-> > > > Just to be sure, how is this working with MEMBLOCK_RSRV_NOINIT, whe=
-re MM is supposed not to
-> > > > initialize struct pages?
-> > > =
-
-> > > Excellent point, I did not know about that one.
-> > > =
-
-> > > Spotting that we don't do the same for the head page made me assume t=
-hat
-> > > it's just a misuse of __init_single_page().
-> > > =
-
-> > > But the nasty thing is that we use memblock_reserved_mark_noinit() to=
- only
-> > > mark the tail pages ...
-> > =
-
-> > And even nastier thing is that when CONFIG_DEFERRED_STRUCT_PAGE_INIT is
-> > disabled struct pages are initialized regardless of
-> > memblock_reserved_mark_noinit().
-> > =
-
-> > I think this patch should go in before your updates:
-> =
-
-> Shouldn't we fix this in memblock code?
-> =
-
-> Hacking around that in the memblock_reserved_mark_noinit() user sound wro=
-ng
-> -- and nothing in the doc of memblock_reserved_mark_noinit() spells that
-> behavior out.
-
-We can surely update the docs, but unfortunately I don't see how to avoid
-hacking around it in hugetlb. =
-
-Since it's used to optimise HVO even further to the point hugetlb open
-codes memmap initialization, I think it's fair that it should deal with all
-possible configurations.
- =
-
-> -- =
-
-> Cheers
-> =
-
-> David / dhildenb
-> =
-
-> =
-
-
--- =
-
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjUuMDguMjUgMTY6MzIsIE1pa2UgUmFwb3BvcnQgd3JvdGU6Cj4gT24gTW9uLCBBdWcgMjUs
+IDIwMjUgYXQgMDI6NDg6NThQTSArMDIwMCwgRGF2aWQgSGlsZGVuYnJhbmQgd3JvdGU6Cj4+IE9u
+IDIzLjA4LjI1IDEwOjU5LCBNaWtlIFJhcG9wb3J0IHdyb3RlOgo+Pj4gT24gRnJpLCBBdWcgMjIs
+IDIwMjUgYXQgMDg6MjQ6MzFBTSArMDIwMCwgRGF2aWQgSGlsZGVuYnJhbmQgd3JvdGU6Cj4+Pj4g
+T24gMjIuMDguMjUgMDY6MDksIE1pa2EgUGVudHRpbMOkIHdyb3RlOgo+Pj4+Pgo+Pj4+PiBPbiA4
+LzIxLzI1IDIzOjA2LCBEYXZpZCBIaWxkZW5icmFuZCB3cm90ZToKPj4+Pj4KPj4+Pj4+IEFsbCBw
+YWdlcyB3ZXJlIGFscmVhZHkgaW5pdGlhbGl6ZWQgYW5kIHNldCB0byBQYWdlUmVzZXJ2ZWQoKSB3
+aXRoIGEKPj4+Pj4+IHJlZmNvdW50IG9mIDEgYnkgTU0gaW5pdCBjb2RlLgo+Pj4+Pgo+Pj4+PiBK
+dXN0IHRvIGJlIHN1cmUsIGhvdyBpcyB0aGlzIHdvcmtpbmcgd2l0aCBNRU1CTE9DS19SU1JWX05P
+SU5JVCwgd2hlcmUgTU0gaXMgc3VwcG9zZWQgbm90IHRvCj4+Pj4+IGluaXRpYWxpemUgc3RydWN0
+IHBhZ2VzPwo+Pj4+Cj4+Pj4gRXhjZWxsZW50IHBvaW50LCBJIGRpZCBub3Qga25vdyBhYm91dCB0
+aGF0IG9uZS4KPj4+Pgo+Pj4+IFNwb3R0aW5nIHRoYXQgd2UgZG9uJ3QgZG8gdGhlIHNhbWUgZm9y
+IHRoZSBoZWFkIHBhZ2UgbWFkZSBtZSBhc3N1bWUgdGhhdAo+Pj4+IGl0J3MganVzdCBhIG1pc3Vz
+ZSBvZiBfX2luaXRfc2luZ2xlX3BhZ2UoKS4KPj4+Pgo+Pj4+IEJ1dCB0aGUgbmFzdHkgdGhpbmcg
+aXMgdGhhdCB3ZSB1c2UgbWVtYmxvY2tfcmVzZXJ2ZWRfbWFya19ub2luaXQoKSB0byBvbmx5Cj4+
+Pj4gbWFyayB0aGUgdGFpbCBwYWdlcyAuLi4KPj4+Cj4+PiBBbmQgZXZlbiBuYXN0aWVyIHRoaW5n
+IGlzIHRoYXQgd2hlbiBDT05GSUdfREVGRVJSRURfU1RSVUNUX1BBR0VfSU5JVCBpcwo+Pj4gZGlz
+YWJsZWQgc3RydWN0IHBhZ2VzIGFyZSBpbml0aWFsaXplZCByZWdhcmRsZXNzIG9mCj4+PiBtZW1i
+bG9ja19yZXNlcnZlZF9tYXJrX25vaW5pdCgpLgo+Pj4KPj4+IEkgdGhpbmsgdGhpcyBwYXRjaCBz
+aG91bGQgZ28gaW4gYmVmb3JlIHlvdXIgdXBkYXRlczoKPj4KPj4gU2hvdWxkbid0IHdlIGZpeCB0
+aGlzIGluIG1lbWJsb2NrIGNvZGU/Cj4+Cj4+IEhhY2tpbmcgYXJvdW5kIHRoYXQgaW4gdGhlIG1l
+bWJsb2NrX3Jlc2VydmVkX21hcmtfbm9pbml0KCkgdXNlciBzb3VuZCB3cm9uZwo+PiAtLSBhbmQg
+bm90aGluZyBpbiB0aGUgZG9jIG9mIG1lbWJsb2NrX3Jlc2VydmVkX21hcmtfbm9pbml0KCkgc3Bl
+bGxzIHRoYXQKPj4gYmVoYXZpb3Igb3V0Lgo+IAo+IFdlIGNhbiBzdXJlbHkgdXBkYXRlIHRoZSBk
+b2NzLCBidXQgdW5mb3J0dW5hdGVseSBJIGRvbid0IHNlZSBob3cgdG8gYXZvaWQKPiBoYWNraW5n
+IGFyb3VuZCBpdCBpbiBodWdldGxiLgo+IFNpbmNlIGl0J3MgdXNlZCB0byBvcHRpbWlzZSBIVk8g
+ZXZlbiBmdXJ0aGVyIHRvIHRoZSBwb2ludCBodWdldGxiIG9wZW4KPiBjb2RlcyBtZW1tYXAgaW5p
+dGlhbGl6YXRpb24sIEkgdGhpbmsgaXQncyBmYWlyIHRoYXQgaXQgc2hvdWxkIGRlYWwgd2l0aCBh
+bGwKPiBwb3NzaWJsZSBjb25maWd1cmF0aW9ucy4KClJlbWluZCBtZSwgd2h5IGNhbid0IHdlIHN1
+cHBvcnQgbWVtYmxvY2tfcmVzZXJ2ZWRfbWFya19ub2luaXQoKSB3aGVuIApDT05GSUdfREVGRVJS
+RURfU1RSVUNUX1BBR0VfSU5JVCBpcyBkaXNhYmxlZD8KCi0tIApDaGVlcnMKCkRhdmlkIC8gZGhp
+bGRlbmIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
