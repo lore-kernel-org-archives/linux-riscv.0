@@ -4,98 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDD5CA0FE1
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 07:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E19CA0FE1
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 07:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LO9pueDlBtCpqOaIM5GvI1MINokcszf4dlvxl3eqxYg=; b=gjf6ZUv/2t6cTE
-	LTU90w0+VAJUD6smO+kcNSmKRvSkz1HCVYrjOFRKVUqNoGP4/MLYpDvRVuCWtiwpa1JugEq7u0EVC
-	kIyVZBVMEwkyvyAOb7OGfKOilVhZmhObxaW7z5tXTK+om84RDU4+OyjkRwB/RHk1bXgV/+bPUcqTz
-	4DWxZZJeYzwHtexZRSh29YEZXHC558hhplUmitAc/uQJ6BJUKVp2yMevOHIEFPewBomAPomA0JIGD
-	iLDQ0MXanBlhgG6j+bPhxET6HYVD0wPIAnGyBacJ/1KdT7WqImroxSTNI8Y/JB+XNo7toF465YWNh
-	qKj71OfeiIhNJMKdmz2Q==;
+	List-Owner; bh=yBxIQWb6E/4JXcuNhGGOjm0lD2BqwkpATyCKv0/SiQ8=; b=yiG+pHiYh5t5Kx
+	jk25Dyyz9Vx54w513pYRQcrCubazzSnJOEbPj6l964INHpBtLhJqUMZug6lB4zKBFkBculRO4JZq6
+	lnxjbbvMJhTGlv8gjxU6LkWvBvpNVMkXMaumMbKWewc/CnmBjj2ie2QRX4jKGLnWhEgo1B+a/33xx
+	vcB5DUMTuhbIomdn/cxYsddopw/m12J20aGPfMWX8uvBaUK+Hs2MOsAOVUpMfZxberIc+u8Ht4qqV
+	apDQ3OaqoZ9IO9R0g0hBb0YeqrtmqAxbf1hjxCw+aTcssrlgjGwgdS0F73PZM+uIOZPqkBp3qNJtP
+	Czk7gjHvxRYI/BKd0+gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqRel-00000007Aam-30xc;
-	Mon, 25 Aug 2025 07:30:19 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1uqRzP-00000007Dlq-016j;
+	Mon, 25 Aug 2025 07:51:39 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqR8Q-000000075ha-1GRu
+	id 1uqRPx-000000078t7-46Wu
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Aug 2025 06:56:55 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-30cceb749d7so1318493fac.2
-        for <linux-riscv@lists.infradead.org>; Sun, 24 Aug 2025 23:56:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756105013; x=1756709813; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6/Iq+sl3J+lnpf+wc6OQRiTYktTo8qUO7r+bK6zwUBU=;
-        b=XopG0ftH7HCdXXDaLzxdB2y5kDRSzl/fv54WpFgHIx/o4DyCbvTmmh2Kf4SM8ILyB+
-         6vsLaTkk8td1Pye/gHd1BpCS1vESl/Nf2TH6gfWigzkNQImMq3otAHXa14qdnL+xDadc
-         Gg6xjBzTtUpHFh10xDvZhng/y8/shkZOaIagCvrZaYWOYRRcoDuX0/9mcYZ2VdMAnzwG
-         EybaUB73u5C8PQh+I/elBU0K4lyKpWm9Y5M/jXIDDKzwYraODrCwWiy1PtfDkIIXUJFm
-         WAEz4Bmu7uIdK9YRQLGDuq1Eoq5IPAku8I1/KCqpULu2kHhRwC2aaGrMiFVrDMRlEyMT
-         zTmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756105013; x=1756709813;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6/Iq+sl3J+lnpf+wc6OQRiTYktTo8qUO7r+bK6zwUBU=;
-        b=rsUcfR/bHFSdosMUf73FggyBrPtF1VPKBhdTpFWOVmoj52fzL2EZ/0T1eomPEpnboU
-         s2qlDMqE/iPnmubhybUFN2BRmhXnUO7fS/pS8UYoNRSFBFOxyd0gd9K0X38YWkCRb/T3
-         lll6awf7E7ZHU3BJ1t9jjK3mEXcQGmVM02VhzGEz3YhPD6/FBxngve0L5/vVzsDaxMtV
-         VLOH+Oi7de8B6eRjaPeL3814cO3K79p6sVa7B8lyu7kH+swrnBkXFTvvlT0JxeljlUji
-         zVYHPFDx7FGlbwjxyC8/EDOp3L9jS8Ewm55iqqzGSEmDdpNYGFGWyPw7fQylV1T9xGI8
-         IIQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXBzeCriNN3ZkR2J2nuOYSMm+7xD2mMsi5n7Yopim6oH74Bpi14P7U0KO8yYdHShj8P+nRg0AfZmYtpLg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxybFbqzhg3ogYM4MsdDczO6TQzJvLc7AvrP+xmcI5ALpizzaE
-	14qIMgJ6/uqaWNFaqUKg56OdERDA8hI4/KbSf5qSq4LX6Ab07xh7Ie5X
-X-Gm-Gg: ASbGnct1+IkOkoU0z74mKK4BDGlu0sy7HHTqlplZ+eoX7zpStno1+QymD0gtSbc9dnO
-	p9Mpn8/FToH44o8keMxPDl0rQe+dcnkyDNJsTKY49jFgU26V8RckeoDxEnAgQjGhxorwjwQ1Oa5
-	+lWdGc+d3Qsm0XOlbdQWsSLVmObnP9EqkvaGQ4mXaaZkTH/0WAxDftRIGAz0MHlPpKpKhPkQwTl
-	0Ka0E1RWzOOz7oZBi0N+6zyeT5q8+O6JJO6uYW8arxiXNF9DOc+QW3vhi1g3sStbkg24tx/6QCp
-	UXydkmmWx5jIOUxiTVUfNysSCED+GO4NJKXLxtregCWJymWUBdB8+dLOWh3e25KUq15VTbKaDRU
-	/4B1ozwmeNaLFT0Qvzso5ciSu4TwMBGnZ
-X-Google-Smtp-Source: AGHT+IE4S8hpOAZcHJoPilZ7mmplf7IZel6cvlTzB91P6LUa8rKsYKvo/Uiar7NnssN2qnxAYRP3Qw==
-X-Received: by 2002:a05:6870:1698:b0:314:b6a6:68aa with SMTP id 586e51a60fabf-314dce1b218mr4807487fac.50.1756105013383;
-        Sun, 24 Aug 2025 23:56:53 -0700 (PDT)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-314f7a21bdfsm1630481fac.8.2025.08.24.23.56.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 Aug 2025 23:56:53 -0700 (PDT)
-From: Chen Wang <unicornxw@gmail.com>
-To: u.kleine-koenig@baylibre.com,
-	aou@eecs.berkeley.edu,
-	unicorn_wang@outlook.com,
-	conor+dt@kernel.org,
-	inochiama@gmail.com,
-	krzk+dt@kernel.org,
-	looong.bin@gmail.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh@kernel.org,
-	tglx@linutronix.de,
-	sycamoremoon376@gmail.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev
-Subject: [PATCH 4/4] riscv: sophgo: dts: sg2044: change msi irq type to IRQ_TYPE_EDGE_RISING
-Date: Mon, 25 Aug 2025 14:56:44 +0800
-Message-Id: <a0ddd70d0658a26a24a9ae48d7ea9e59dfd7cb6f.1756103516.git.unicorn_wang@outlook.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1756103516.git.unicorn_wang@outlook.com>
-References: <cover.1756103516.git.unicorn_wang@outlook.com>
+	Mon, 25 Aug 2025 07:15:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756106099;
+	bh=eMGy4y29o/Xaojr66YRlL+mqETiAilNKbdnWyHcteLs=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=kK2qjz9JmVvoqJbD+9Z2wBdusaJYnGDPmASxy0tVLx+dYO/BpufQRmUxwhZILWCGY
+	 XU7mzb/j2AgGn1PT4XVSPU+WLEmogXtQTIhUHJeQTMSGvGOW693yIzmaJ8fLbcQ2Zf
+	 TtLcR1DvxIjOI25VfZOtzLhyh5PbZpRcJmPZA0J5UYkPteGoxeZ11nGAd3eblYsxGn
+	 CDxzTf7MJZlv465pIZzrgFXb+3uRDM3YhN8OyMms1PvrN27kVTFD9rtaPOTLuGQWYG
+	 GHZjSthrN1HEe05yGba1hjLeFocUYqA1NAs9tDD3OFNtWA2AqIzacsZK0dwrzg9e4S
+	 3xOUmfKuPc9oQ==
+Received: from [192.168.100.175] (unknown [103.151.43.82])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: usama.anjum)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 08E4B17E110D;
+	Mon, 25 Aug 2025 09:14:53 +0200 (CEST)
+Message-ID: <a3928ec4-8c2f-4f04-bab4-9ef5c87c57de@collabora.com>
+Date: Mon, 25 Aug 2025 12:14:52 +0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: usama.anjum@collabora.com, Shuah Khan <shuah@kernel.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, John Hubbard <jhubbard@nvidia.com>,
+ Peter Xu <peterx@redhat.com>, Leon Romanovsky <leon@kernel.org>,
+ Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Nico Pache <npache@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, kevin.brodsky@arm.com, kernel@collabora.com
+Subject: Re: [PATCH v3 0/8] selftests/mm: Add compiler flags and fix found
+ warnings
+To: Andrew Morton <akpm@linux-foundation.org>
+References: <20250822082145.4145617-1-usama.anjum@collabora.com>
+ <20250822174259.bf4ed76a0da7d0d6f80ba2c1@linux-foundation.org>
+Content-Language: en-US
+From: Muhammad Usama Anjum <usama.anjum@collabora.com>
+In-Reply-To: <20250822174259.bf4ed76a0da7d0d6f80ba2c1@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_235654_337700_613BADFA 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20250825_001502_202853_139D19AC 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +91,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Wang <unicorn_wang@outlook.com>
+On 8/23/25 5:42 AM, Andrew Morton wrote:
+> On Fri, 22 Aug 2025 13:20:57 +0500 Muhammad Usama Anjum <usama.anjum@collabora.com> wrote:
+> 
+>> Recently, I reviewed a patch on the mm/kselftest mailing list about a
+>> test which had obvious type mismatch fix in it. It was strange why that
+>> wasn't caught during development and when patch was accepted. This led
+>> me to discover that those extra compiler options to catch these warnings
+>> aren't being used. When I added them, I found tens of warnings in just
+>> mm suite.
+>>
+>> In this series, I'm adding these flags and fixing those warnings. In the
+>> last try several months ago [1], I'd patches for individual tests. I've
+>> made patches better by grouping the same type of fixes together. Hence
+>> there is no changelog for individual patches.
+> 
+> I think it would be best to avoid adding warnings to selftests which
+> aren't present in the main kernel code.  If only to avoid surprising
+> people over what isn't permissible in selftests/.
+> 
+> In particular, there's an expectation that we can do
+> 
+> #else
+> static inline int some_stub(type1 arg1, type2 arg2)
+> {
+> }
+> #endif
+> 
+> without warning.  We do this extensively.
 
-The latest MSI driver will read the DTS configuration to set the IRQ type,
-so correct the IRQ type in the DTS to the correct value.
+I'm only adding -Wunreachable-code -Wunused flags now. The above shouldn't
+cause any warnings. I'll double check again in next series.
 
-This field in the DTS was not used before.
+> 
+> Also, please be aware that there's already a patch in mm-new which
+> centralizes selftests' __maybe_unused definition.
+> https://git.kernel.org/pub/scm/linux/kernel/git/akpm/25-new.git/tree/patches/selftests-centralise-maybe-unused-definition-in-kselftesth.patch
+I'll rebase on top of it and send again.
 
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
----
- arch/riscv/boot/dts/sophgo/sg2044.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2044.dtsi b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-index 6ec955744b0c..320c4d1d08e6 100644
---- a/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-@@ -214,7 +214,7 @@ msi: msi-controller@6d50000000 {
- 			reg-names = "clr", "doorbell";
- 			#msi-cells = <0>;
- 			msi-controller;
--			msi-ranges = <&intc 352 IRQ_TYPE_LEVEL_HIGH 512>;
-+			msi-ranges = <&intc 352 IRQ_TYPE_EDGE_RISING 512>;
- 			status = "disabled";
- 		};
- 
 -- 
-2.34.1
-
+---
+Thanks,
+Usama
 
 _______________________________________________
 linux-riscv mailing list
