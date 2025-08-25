@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 742F6CA0FED
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 17:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2656CCA0FE7
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 17:00:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:To:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x5ss2ApmxWER7lA+q8XsQ1ADbwu+pEPAyYENbobf8pc=; b=EfUiS0WgV0jXXY
-	452m5zF+g1bwVtprj1WqZlTzsxLQqmzW4ZDWzDGXmeEJAFD5+pZXqMR8YhSy55IOj0NcSn/Y3vxWI
-	dfiCPpVd547FEb1ShUeaVXQ2r7PQLtBjKRLVWYjq5++f6oVIWU7H85BJUgeIIXGgV7HHeb9k+EENE
-	PtMHNY9mtPeFPmXwobn+6/ggvALVGFm6wfNVJE406cDauJOrVL8g17L75xQeYg/YajNXT8C9evEzg
-	5sLyKZGT6OEXfRg2Y+0Aq/3mLhdLM89vmB1+d6aJ/cbCADWszbjyqlYrIf5EaeHEjhXvHbJxDmgYu
-	4us+pHMY5i+oys4uospw==;
+	List-Owner; bh=vKfZMruSzz86Ofy3KP5yeto9wcIztdXoe5BZG2FKKBc=; b=LtPo7hoFQDK8pc
+	DxHNJjn2M0/zyMg8ee6V2tus+vCEWkyBRyChh87qKU8fSyXECPtmroCi0xi1H37rIRM10E6qNgjVp
+	DP+XyZ8Fn+vz/G4c2UPKl/RP2wJMUslmNvX5Qt7eWw2z4PttG6lQPBqa12MF1rDjXgaMmEA3UaHRX
+	c11MULphU2mvgNjmtrWAmHnITiXJphB3Gjd+sN/1Gx0WN3Oze5pRrRgvk0vsA3yqkq10/UeVzEdle
+	Lulrc9Ds5WBhxxDuR1Ux4ph5Q8auL8U/fvV9Sf9dtEHq6UYAjpsfh7JAliQ92SlSKXnL/DhskdPGH
+	BnCzrkn412iX4AeS7sxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqaYt-00000008kYi-2KU5;
-	Mon, 25 Aug 2025 17:00:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uqaYv-00000008kbu-1t6X;
+	Mon, 25 Aug 2025 17:00:53 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZss-00000008dH6-2Z0W;
-	Mon, 25 Aug 2025 16:17:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=yaUcnQjozmvTYDYURkWMjBxCsSnXy41d7hzIH1GSQGQ=; b=D+k3JKrOeXBEthO1Dh5I4BQiH6
-	cj4qZS/6JooVxFpUxP92Dqyaz7To4r+5jNzJf8tqLZ9u3l2IA7SdBKmTjrwf4dC34HLEPazgZKtV5
-	WUdKqoVC/ZbaGKNBawuC0UrKA7Vd9PQrb4wlbpgpYaeWvAHpuSYGU863VOhF3LNDmUZYjeXuxJRQa
-	nhZn2mf9Z1DehtXYg49Gr2PynIKYgCWpDqhtvKF6oc98xlG+zIe1fOvZr/af4CrLBo5K7Q1PKaqnt
-	Z4kIhekSzao2u376MSOg2AQoJKz04bwWoF1dTL0ytmUAXhO3nyZ/QuLXoaS7urY0iE6Dk1NCdbizy
-	DCDhkHNQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZsp-00000001vs0-1rPb;
-	Mon, 25 Aug 2025 16:17:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 523095C5FB5;
-	Mon, 25 Aug 2025 16:17:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3323DC4CEED;
-	Mon, 25 Aug 2025 16:17:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756138640;
-	bh=FANVRTF6GTKZEwwkEPlW/tWs0ubXGJ7R1OcvtRKQmn8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z1X+B0ZGv7uHOoHuOLd4SJt16FexWEbZsjEQFQqRUrapr3OCpVgaCrasYjPdbbOyy
-	 eytOcCBL+pDQ3AWWdM11/NupldPVN7n787Ac52JA6muufv5Aq5hmbyZm6HiI3UG9/E
-	 S3WLhadcDWFA0vrOLjkLNWku02BCbOZumOEeIy+mLkW7A9OWvR0HBF0JMJQllwxMjH
-	 McwQict10AbNwzUaf3Fe4rhbDyKvQqV4mNkpdYsg1XXv1bkWDE2ZZQycNZSZHCAubw
-	 xxCEDJgzUrllwHg0O5i5LR3vB8H9ddKiEeoiX5nxByJsLox/KvefidsYGinF192ZU3
-	 LkZva/mIcA0xQ==
-Date: Mon, 25 Aug 2025 19:17:02 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: Mika =?iso-8859-1?Q?Penttil=E4?= <mpenttil@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
-	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-Subject: Re: [PATCH RFC 10/35] mm/hugetlb: cleanup
- hugetlb_folio_init_tail_vmemmap()
-Message-ID: <aKyMfvWe8JetkbRL@kernel.org>
-References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-11-david@redhat.com>
- <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
- <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
- <aKmDBobyvEX7ZUWL@kernel.org>
- <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
- <aKxz9HLQTflFNYEu@kernel.org>
- <a72080b4-5156-4add-ac7c-1160b44e0dfe@redhat.com>
- <aKx6SlYrj_hiPXBB@kernel.org>
- <f8140a17-c4ec-489b-b314-d45abe48bf36@redhat.com>
+	id 1uqZvF-00000008dec-0ubD;
+	Mon, 25 Aug 2025 16:19:55 +0000
+Received: from [192.168.110.25] (unknown [118.251.178.216])
+	by APP-05 (Coremail) with SMTP id zQCowADXaVocjaxos6UhDw--.6581S2;
+	Tue, 26 Aug 2025 00:19:42 +0800 (CST)
+Message-ID: <b812bb46-6a26-456a-8210-d02138fb31a6@isrc.iscas.ac.cn>
+Date: Tue, 26 Aug 2025 00:19:40 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f8140a17-c4ec-489b-b314-d45abe48bf36@redhat.com>
+User-Agent: Mozilla Thunderbird
+To: inochiama@gmail.com
+Cc: ajones@ventanamicro.com, alex@ghiti.fr, anup@brainfault.org,
+ aou@eecs.berkeley.edu, charlie@rivosinc.com, cleger@rivosinc.com,
+ conor+dt@kernel.org, cuiyunhui@bytedance.com, cyan.yang@sifive.com,
+ devicetree@vger.kernel.org, jesse@rivosinc.com, krzk+dt@kernel.org,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+ mikisabate@gmail.com, namcao@linutronix.de, palmer@dabbelt.com,
+ parri.andrea@gmail.com, paul.walmsley@sifive.com, pbonzini@redhat.com,
+ pincheng.plct@isrc.iscas.ac.cn, robh@kernel.org, samuel.holland@sifive.com,
+ shuah@kernel.org, thomas.weissschuh@linutronix.de, yikming2222@gmail.com,
+ yongxuan.wang@sifive.com
+References: <znik7dcyeipf57xerlm5gwjszcaaeujoukr7g4a7wt7lsfu366@skany6k7agt4>
+Subject: Re: [PATCH v1 RESEND 1/5] dt-bidings: riscv: add Zilsd and Zclsd
+ extension descriptions
+From: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
+In-Reply-To: <znik7dcyeipf57xerlm5gwjszcaaeujoukr7g4a7wt7lsfu366@skany6k7agt4>
+X-CM-TRANSID: zQCowADXaVocjaxos6UhDw--.6581S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF4fKrWkurWxZr18AryUtrb_yoW8Kw4Upa
+	93CF18KFZ8Xw13u3s7tw18Xw45Jr4kKr15AF47t34xKay5Ar10qFWakw1YvF18GF4xCF4I
+	va1Ygw1fZ3ZrAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcVAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kI
+	c2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbV
+	WUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF
+	67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjTRM6wCDUUUU
+X-Originating-IP: [118.251.178.216]
+X-CM-SenderInfo: pslquxhhqjh1xofwqxxvufhxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_171723_877670_30A42F9C 
-X-CRM114-Status: GOOD (  49.54  )
+X-CRM114-CacheID: sfid-20250825_091953_625661_F88C2649 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,211 +84,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 05:42:33PM +0200, David Hildenbrand wrote:
-> On 25.08.25 16:59, Mike Rapoport wrote:
-> > On Mon, Aug 25, 2025 at 04:38:03PM +0200, David Hildenbrand wrote:
-> > > On 25.08.25 16:32, Mike Rapoport wrote:
-> > > > On Mon, Aug 25, 2025 at 02:48:58PM +0200, David Hildenbrand wrote:
-> > > > > On 23.08.25 10:59, Mike Rapoport wrote:
-> > > > > > On Fri, Aug 22, 2025 at 08:24:31AM +0200, David Hildenbrand wro=
-te:
-> > > > > > > On 22.08.25 06:09, Mika Penttil=E4 wrote:
-> > > > > > > > =
+On 2025/8/23 6:34, Inochi Amaoto wrote:
+ > On Thu, Aug 21, 2025 at 10:01:27PM +0800, Pincheng Wang wrote:
+ >> Add descriptions for the Zilsd (Load/Store pair instructions) and
+ >> Zclsd (Compressed Load/Store pair instructions) ISA extensions
+ >> which were ratified in commit f88abf1 ("Integrating load/store
+ >> pair for RV32 with the main manual") of the riscv-isa-manual.
+ >>
+ >> Signed-off-by: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
+ >> ---
+ >>   .../devicetree/bindings/riscv/extensions.yaml | 39 +++++++++++++++++++
+ >>   1 file changed, 39 insertions(+)
+ >>
+ >> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml 
+b/Documentation/devicetree/bindings/riscv/extensions.yaml
+ >> index ede6a58ccf53..d72ffe8f6fa7 100644
+ >> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+ >> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+ >> @@ -366,6 +366,20 @@ properties:
+ >>               guarantee on LR/SC sequences, as ratified in commit 
+b1d806605f87
+ >>               ("Updated to ratified state.") of the riscv profiles 
+specification.
+ >>
+ >> +        - const: zilsd
+ >> +          description:
+ >> +            The standard Zilsd extension which provides support for 
+aligned
+ >> +            register-pair load and store operations in 32-bit 
+instruction
+ >> +            encodings, as ratified in commit f88abf1 ("Integrating
+ >> +            load/store pair for RV32 with the main manual") of 
+riscv-isa-manual.
+ >> +
+ >> +        - const: zclsd
+ >> +          description:
+ >> +            The Zclsd extension implements the compressed (16-bit) 
+version of the
+ >> +            Load/Store Pair for RV32. As with Zilsd, this extension 
+was ratified
+ >> +            in commit f88abf1 ("Integrating load/store pair for 
+RV32 with the
+ >> +            main manual") of riscv-isa-manual.
+ >> +
+ >>           - const: zk
+ >>             description:
+ >>               The standard Zk Standard Scalar cryptography extension 
+as ratified
+ >> @@ -847,6 +861,16 @@ properties:
+ >>               anyOf:
+ >>                 - const: v
+ >>                 - const: zve32x
+ >
+ >> +      # Zclsd depends on Zilsd and Zca
+ >> +      - if:
+ >> +          contains:
+ >> +            anyOf:
+ >> +              - const: zclsd
+ >> +        then:
+ >> +          contains:
+ >> +            anyOf:
+ >> +              - const: zilsd
+ >> +              - const: zca
+ >>
+ >
+ > Should be allOf? I see the comment says "Zclsd" requires both "Zilsd"
+ > and "Zca".
+ >
+ > Regards,
+ > Inochi
 
-> > > > > > > > On 8/21/25 23:06, David Hildenbrand wrote:
-> > > > > > > > =
+You're absolutely right, thank you for catching this. Since Zclsd 
+depends on both Zilsd and Zca, the condition should use allOf to 
+correctly enforce the conjunction. I'll fix this in next revision.
 
-> > > > > > > > > All pages were already initialized and set to PageReserve=
-d() with a
-> > > > > > > > > refcount of 1 by MM init code.
-> > > > > > > > =
+Best regards,
+Pincheng Wang
 
-> > > > > > > > Just to be sure, how is this working with MEMBLOCK_RSRV_NOI=
-NIT, where MM is supposed not to
-> > > > > > > > initialize struct pages?
-> > > > > > > =
-
-> > > > > > > Excellent point, I did not know about that one.
-> > > > > > > =
-
-> > > > > > > Spotting that we don't do the same for the head page made me =
-assume that
-> > > > > > > it's just a misuse of __init_single_page().
-> > > > > > > =
-
-> > > > > > > But the nasty thing is that we use memblock_reserved_mark_noi=
-nit() to only
-> > > > > > > mark the tail pages ...
-> > > > > > =
-
-> > > > > > And even nastier thing is that when CONFIG_DEFERRED_STRUCT_PAGE=
-_INIT is
-> > > > > > disabled struct pages are initialized regardless of
-> > > > > > memblock_reserved_mark_noinit().
-> > > > > > =
-
-> > > > > > I think this patch should go in before your updates:
-> > > > > =
-
-> > > > > Shouldn't we fix this in memblock code?
-> > > > > =
-
-> > > > > Hacking around that in the memblock_reserved_mark_noinit() user s=
-ound wrong
-> > > > > -- and nothing in the doc of memblock_reserved_mark_noinit() spel=
-ls that
-> > > > > behavior out.
-> > > > =
-
-> > > > We can surely update the docs, but unfortunately I don't see how to=
- avoid
-> > > > hacking around it in hugetlb.
-> > > > Since it's used to optimise HVO even further to the point hugetlb o=
-pen
-> > > > codes memmap initialization, I think it's fair that it should deal =
-with all
-> > > > possible configurations.
-> > > =
-
-> > > Remind me, why can't we support memblock_reserved_mark_noinit() when
-> > > CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled?
-> > =
-
-> > When CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled we initialize the ent=
-ire
-> > memmap early (setup_arch()->free_area_init()), and we may have a bunch =
-of
-> > memblock_reserved_mark_noinit() afterwards
-> =
-
-> Oh, you mean that we get effective memblock modifications after already
-> initializing the memmap.
-> =
-
-> That sounds ... interesting :)
-
-It's memmap, not the free lists. Without deferred init, memblock is active
-for a while after memmap initialized and before the memory goes to the free
-lists.
- =
-
-> So yeah, we have to document this for memblock_reserved_mark_noinit().
-> =
-
-> Is it also a problem for kexec_handover?
-
-With KHO it's also interesting, but it does not support deferred struct
-page init for now :)
- =
-
-> We should do something like:
-> =
-
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index 154f1d73b61f2..ed4c563d72c32 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -1091,13 +1091,16 @@ int __init_memblock memblock_clear_nomap(phys_add=
-r_t base, phys_addr_t size)
->  /**
->   * memblock_reserved_mark_noinit - Mark a reserved memory region with fl=
-ag
-> - * MEMBLOCK_RSRV_NOINIT which results in the struct pages not being init=
-ialized
-> - * for this region.
-> + * MEMBLOCK_RSRV_NOINIT which allows for the "struct pages" corresponding
-> + * to this region not getting initialized, because the caller will take
-> + * care of it.
->   * @base: the base phys addr of the region
->   * @size: the size of the region
->   *
-> - * struct pages will not be initialized for reserved memory regions mark=
-ed with
-> - * %MEMBLOCK_RSRV_NOINIT.
-> + * "struct pages" will not be initialized for reserved memory regions ma=
-rked
-> + * with %MEMBLOCK_RSRV_NOINIT if this function is called before initiali=
-zation
-> + * code runs. Without CONFIG_DEFERRED_STRUCT_PAGE_INIT, it is more likely
-> + * that this function is not effective.
->   *
->   * Return: 0 on success, -errno on failure.
->   */
-
-I have a different version :)
- =
-
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index b96746376e17..d20d091c6343 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -40,8 +40,9 @@ extern unsigned long long max_possible_pfn;
-  * via a driver, and never indicated in the firmware-provided memory map as
-  * system RAM. This corresponds to IORESOURCE_SYSRAM_DRIVER_MANAGED in the
-  * kernel resource tree.
-- * @MEMBLOCK_RSRV_NOINIT: memory region for which struct pages are
-- * not initialized (only for reserved regions).
-+ * @MEMBLOCK_RSRV_NOINIT: memory region for which struct pages don't have
-+ * PG_Reserved set and are completely not initialized when
-+ * %CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled (only for reserved regions=
-).
-  * @MEMBLOCK_RSRV_KERN: memory region that is reserved for kernel use,
-  * either explictitly with memblock_reserve_kern() or via memblock
-  * allocation APIs. All memblock allocations set this flag.
-diff --git a/mm/memblock.c b/mm/memblock.c
-index 154f1d73b61f..02de5ffb085b 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -1091,13 +1091,15 @@ int __init_memblock memblock_clear_nomap(phys_addr_=
-t base, phys_addr_t size)
- =
-
- /**
-  * memblock_reserved_mark_noinit - Mark a reserved memory region with flag
-- * MEMBLOCK_RSRV_NOINIT which results in the struct pages not being initia=
-lized
-- * for this region.
-+ * MEMBLOCK_RSRV_NOINIT
-+ *
-  * @base: the base phys addr of the region
-  * @size: the size of the region
-  *
-- * struct pages will not be initialized for reserved memory regions marked=
- with
-- * %MEMBLOCK_RSRV_NOINIT.
-+ * The struct pages for the reserved regions marked %MEMBLOCK_RSRV_NOINIT =
-will
-+ * not have %PG_Reserved flag set.
-+ * When %CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled, setting this flags a=
-lso
-+ * completly bypasses the initialization of struct pages for this region.
-  *
-  * Return: 0 on success, -errno on failure.
-  */
- =
-
-> Optimizing the hugetlb code could be done, but I am not sure how high
-> the priority is (nobody complained so far about the double init).
-> =
-
-> -- =
-
-> Cheers
-> =
-
-> David / dhildenb
-> =
-
-
--- =
-
-Sincerely yours,
-Mike.
 
 _______________________________________________
 linux-riscv mailing list
