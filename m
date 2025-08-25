@@ -4,93 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEB6CA0FE7
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 17:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D8BCA0EFA
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 17:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9X6MSHhshrnyAq4OkugGvacZ4mVGWLLgW3jh9gRiHbk=; b=UL8bG0VD+gsg5u
-	18A073Qcu5QRATggLdHnuhrWSeRWXqFtNAh7UppZu46Q6iUNiuR1pogkI6bs0HKWgfZvKHRXAJU9i
-	JWCInypmH4EOu2cVpHx7OYAwkJ6b2hCNjx8VLeodwh68hKEOLsJcqNdCQrIv+KvXbpUZdoR49xDl0
-	A82me+D19s1yWAK+xEPjA0uVzyRYp5byL6bAaZSqN1atg/p1/HZ8GdRkP/cFAJFMJXdaB7VSvupQj
-	s+AcRtJMZcowBHyLtbBrlHIYDQneDyLJNE7Q5s2QFlBpIhc6RELOGLmG/7L+4ZP95AZWW+wp43Pq5
-	R57WpmwqmI3PqOvU/l9g==;
+	List-Owner; bh=DpFnJArbjAHmDwz0Ne2cWXPJLgiwsWahrSneSu6IJ9M=; b=lZGi2MgjtMN/i7
+	rHi+ZEZb/fV0aXlAjkSEINgRY0FTYVTOVqvGYM7MG7A6isI+EvBuZ102fu3On0hr6mkS46pXxv1z8
+	zy2Pm59BwZKJL5ax2TrBgJycj7QKwNkVcRXLlfPRbLo724eWkwrgr7zmEgO9K/5rzqWZrNM1gTHZ+
+	GHHhiqbLu7rWBoNqYpoy0ie46I6CmQslhRXKlZvtMDJDvPjk5ZswOydKNQQa3BrvzNkHlj4jMc1sI
+	kcYbFCVvzvx8D0N9LPr2NaRRamqu3vPlNILVeK7DJsHpE+l0nA/RxvLNLkTquyh/u9Syy8PtJzD2K
+	ri5ycB2Lpoj6xtCAhqoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqar6-00000008ocq-2B5F;
-	Mon, 25 Aug 2025 17:19:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uqarH-00000008oeG-0Wbi;
+	Mon, 25 Aug 2025 17:19:51 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqaWa-00000008jmG-0dua;
-	Mon, 25 Aug 2025 16:58:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C4B8D43E7E;
-	Mon, 25 Aug 2025 16:58:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF37AC4CEED;
-	Mon, 25 Aug 2025 16:58:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756141107;
-	bh=5Xs4ClQrBNPUK24yQ8tvJo62CGzQ+OUCbyk/7pv7K6g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=K8EPeL9rFMK2+nBscZ78BHN9AXOnwLlio8wCQA9T4HPI2M7JTseek460vnzI7LqJC
-	 TDu4NzXeMpXS8jhUa/iSAcIvRfHFDSrWxcvq7/PwB+bucaEQsHAodSxeBqU3oHbYQw
-	 JfnmUaXpTgDVr5GNOQRbyvPuO31dhRIGQUncZS3uv95CJi5KIRjBjS37ASsfqMbjJV
-	 FaVoAzebuKQA21fTHdob2rVKAkh6oJNsI5NIl49si6OGRBanVCOrvFPYRUxz3E2h7U
-	 H5t70EO0n4A9bkEljsMG6VtFtoS+dKBxf5ZFl9Bmc3Iax0SvbwLHZzXF+Oj3qlKigt
-	 vsahqKXPodl2Q==
-Date: Mon, 25 Aug 2025 19:58:10 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: Mika =?iso-8859-1?Q?Penttil=E4?= <mpenttil@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
-	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-Subject: update kernel-doc for MEMBLOCK_RSRV_NOINIT (was: Re: [PATCH RFC
- 10/35] mm/hugetlb: cleanup hugetlb_folio_init_tail_vmemmap())
-Message-ID: <aKyWIriZ1bmnIrBW@kernel.org>
-References: <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
- <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
- <aKmDBobyvEX7ZUWL@kernel.org>
- <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
- <aKxz9HLQTflFNYEu@kernel.org>
- <a72080b4-5156-4add-ac7c-1160b44e0dfe@redhat.com>
- <aKx6SlYrj_hiPXBB@kernel.org>
- <f8140a17-c4ec-489b-b314-d45abe48bf36@redhat.com>
- <aKyMfvWe8JetkbRL@kernel.org>
- <dbd2ec55-0e7f-407a-a8bd-e1ac83ac2a0a@redhat.com>
+	id 1uqaYi-00000008kH4-3Ctu;
+	Mon, 25 Aug 2025 17:00:42 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-24602f6d8b6so8435925ad.1;
+        Mon, 25 Aug 2025 10:00:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756141240; x=1756746040; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=f0oEN90SLYgvRgTxYwIkfotkQK1LJND5IDEHVs53sDg=;
+        b=TLQPGRPVr4WzBh/Jv6nNWpml0os7sluryMHIzsFMFQ5e21kEpDhOsQ6j18bGPLf69f
+         AmJD7CwGeizq2TvR64OGshVhA0eXwvE4xKb/a39qG0QFoaph58q/ghcJYHYdOJBr5sDP
+         1+SazOARdwJm/Alty6+v3iR9Nu2q597Ba60pg8iLUnxl65gXk/+6/I2CsU2c49HaRh94
+         Zx1CLsD0udaSCTPvajxs2TkR9vhYpTCJx0eBqpMWrMggVFIFok0tSfUS2rYezNGAabfk
+         AQBS2n6wtWuolb+OxbecVRpdA5rUdbKQLe0ePzCOeuwnGQdQ2UtUXuKi9tVEZ70fjvFk
+         oHHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756141240; x=1756746040;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=f0oEN90SLYgvRgTxYwIkfotkQK1LJND5IDEHVs53sDg=;
+        b=PqkLoYw4DWMkj49olp6AZNZE5zL10elQVL7cVH93/odocUn/nYTHjhoK2mkKE6xDzd
+         9twU/L3qZN8LbqpEwgGh+Ar1NY2Gxp/qicKVimTFl6Vg0lddFsPpdqzw2KhxFHsg3qE2
+         H7b+V0UDHyArJyoOg7oxF2O8Hoj3991s6e+CSxjN/yPNc1ulCT3qoJDw3ET44NeH0SdY
+         5TcVYRVIk9NZ5p+cmRHE4pNqV6Z1v/hOIHjaapUvVXGpBhVDd9nAw7MAvwdNcwDoeaxl
+         2xdiXuGaRggYdi4eOe+2ExV4EhEhzTHyLuBJkwz16Tnsu89Rs4EczqoXEOshJq4C31Jq
+         a0JA==
+X-Forwarded-Encrypted: i=1; AJvYcCWNsMMZxXiTWuwAv6FOXRPPQwSl5+30N3vVvT3xuHlmjmvcxV0Y0+m9CtpHikiNIFmo3Yniyk9ARcekOEM=@lists.infradead.org, AJvYcCXQ2HP+q7lHikZNxYL2WXmxZNIV585S+NtMXMLkZqRu1IezwQYj+ME7SfASA8dff2V03tX7P+01u9dz5VeLLklq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8ECc6ZXf30vIeJXYCvyRhqiJgMgpDCrmXwnLGWPRntCUyhX4S
+	qjmpxRYngjks/pBQjCeVLIFGS8QVWNyKMVwPMiK20kh4ZUzHZOmhvlotWu67lhyqY7J8SEEmIVB
+	Gvz7PoNV0t8IlblowJyq5k5ZWOYNxcZw=
+X-Gm-Gg: ASbGncuRzGcPbcGsR/zK9eXKbzJOhpb4FDaw9yzbQ2ufqPqWs4OYzRR4dClA0zHI15b
+	GkLYe/I8VXDsUw/fMGIWWfMq6HlpfCqb+yAPHcg9erTnkvDvwEQiMx7i5TX61JWfGuhCJVfhMaW
+	ivyZOQUw91Ue9If2hbs/968fmpwlds27gWG6KKM8fm3DpsYocEvXqITskE85R8fDdWQ4wv0SN6A
+	0IsaYIh7Xr6vypLCj+/AQpNgYj20zBZR9Xl8cQSIW1+YIzHbxRkXh00nQg0YBGxG57Km98hM7Eb
+	guGy04xb4qVcl82e9dIZO5CxyQ==
+X-Google-Smtp-Source: AGHT+IHKT4JJBJ9rgR6CsJmxUiw1K8DlbFWihB3KfiTBy1l9WKV/JStW65ETOGMdOn/RgdA5Ko6AVAJXlO2Hf7k2FPY=
+X-Received: by 2002:a17:902:cf09:b0:240:729c:a022 with SMTP id
+ d9443c01a7336-24630427edbmr91627825ad.11.1756141239755; Mon, 25 Aug 2025
+ 10:00:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <dbd2ec55-0e7f-407a-a8bd-e1ac83ac2a0a@redhat.com>
+References: <20250825141316.work.967-kees@kernel.org> <20250825142603.1907143-5-kees@kernel.org>
+ <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com> <202508250834.E2456B9@keescook>
+In-Reply-To: <202508250834.E2456B9@keescook>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Mon, 25 Aug 2025 19:00:22 +0200
+X-Gm-Features: Ac12FXyYN3VEhnMM3td2GuBBEWm8dOLy6K6qZL3tvq3QOv-O5HJfG5pSFZcSTv8
+Message-ID: <CANiq72mQsLqhpX29NP3Zm8HZ5m429tSXjgFcRYJM3e=Zac1G1w@mail.gmail.com>
+Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
+To: Kees Cook <kees@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Kees Cook <kees@outflux.net>, 
+	Sami Tolvanen <samitolvanen@google.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Puranjay Mohan <puranjay@kernel.org>, 
+	David Woodhouse <dwmw2@infradead.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Nathan Chancellor <nathan@kernel.org>, x86@kernel.org, linux-doc@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+	linux-hardening@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_095828_232184_3508E715 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20250825_100040_810759_142F3277 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,79 +97,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 06:23:48PM +0200, David Hildenbrand wrote:
-> 
-> I don't quite understand the interaction with PG_Reserved and why anybody
-> using this function should care.
-> 
-> So maybe you can rephrase in a way that is easier to digest, and rather
-> focuses on what callers of this function are supposed to do vs. have the
-> liberty of not doing?
-
-How about
- 
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index b96746376e17..fcda8481de9a 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -40,8 +40,9 @@ extern unsigned long long max_possible_pfn;
-  * via a driver, and never indicated in the firmware-provided memory map as
-  * system RAM. This corresponds to IORESOURCE_SYSRAM_DRIVER_MANAGED in the
-  * kernel resource tree.
-- * @MEMBLOCK_RSRV_NOINIT: memory region for which struct pages are
-- * not initialized (only for reserved regions).
-+ * @MEMBLOCK_RSRV_NOINIT: reserved memory region for which struct pages are not
-+ * fully initialized. Users of this flag are responsible to properly initialize
-+ * struct pages of this region
-  * @MEMBLOCK_RSRV_KERN: memory region that is reserved for kernel use,
-  * either explictitly with memblock_reserve_kern() or via memblock
-  * allocation APIs. All memblock allocations set this flag.
-diff --git a/mm/memblock.c b/mm/memblock.c
-index 154f1d73b61f..46b411fb3630 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -1091,13 +1091,20 @@ int __init_memblock memblock_clear_nomap(phys_addr_t base, phys_addr_t size)
- 
- /**
-  * memblock_reserved_mark_noinit - Mark a reserved memory region with flag
-- * MEMBLOCK_RSRV_NOINIT which results in the struct pages not being initialized
-- * for this region.
-+ * MEMBLOCK_RSRV_NOINIT
-+ *
-  * @base: the base phys addr of the region
-  * @size: the size of the region
-  *
-- * struct pages will not be initialized for reserved memory regions marked with
-- * %MEMBLOCK_RSRV_NOINIT.
-+ * The struct pages for the reserved regions marked %MEMBLOCK_RSRV_NOINIT will
-+ * not be fully initialized to allow the caller optimize their initialization.
-+ *
-+ * When %CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled, setting this flag
-+ * completely bypasses the initialization of struct pages for such region.
-+ *
-+ * When %CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled, struct pages in this
-+ * region will be initialized with default values but won't be marked as
-+ * reserved.
-  *
-  * Return: 0 on success, -errno on failure.
-  */
-
-> -- 
-> Cheers
-> 
-> David / dhildenb
-> 
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBdWcgMjUsIDIwMjUgYXQgNTozNeKAr1BNIEtlZXMgQ29vayA8a2Vlc0BrZXJuZWwu
+b3JnPiB3cm90ZToKPgo+IFllYWgsIHRoYXQncyBhIGdvb2QgaWRlYS4gV2hhdCB0aGUgcmlnaHQg
+d2F5IHRvIGRvIHRoYXQ/Cj4KPiBjb25maWcgQ0ZJX0NMQU5HCj4gICAgICAgICBib29sICJVc2Ug
+Q2xhbmcncyBDb250cm9sIEZsb3cgSW50ZWdyaXR5IChDRkkpIgo+ICAgICAgICAgZGVwZW5kcyBv
+biBBUkNIX1NVUFBPUlRTX0NGSQo+ICAgICAgICAgc2VsZWN0IENGSQo+Cj4gPwoKSSBkb24ndCBy
+ZWNhbGwgd2hhdCBpcyB0aGUgaWRpb21hdGljIHNvbHV0aW9uIGZvciByZW5hbWVzLCBidXQgSQpy
+ZW1lbWJlciBMaW51cyB0YWxraW5nIGFib3V0IHRoaXMgdG9waWMgYW5kIGFib3V0IGF2b2lkaW5n
+IGxvc2luZyBvbGQKdmFsdWVzIGlmIHBvc3NpYmxlIChwZXJoYXBzIGdldHRpbmcgYSBuZXcgcXVl
+c3Rpb24gaW4gYG9sZGNvbmZpZ2AgaXMKT0sgYXMgbG9uZyBhcyB0aGUgYG9sZGRlZmNvbmZpZ2Ag
+cmVzcGVjdHMgdGhlIG9sZCB2YWx1ZSkuCgpJIHRoaW5rIHlvdXIgc3VnZ2VzdGlvbiBhYm92ZSB3
+aWxsIHN0aWxsIG1ha2UgaXQgYXBwZWFyIHR3aWNlIGluCmBtZW51Y29uZmlnYCAtLSB0aGVyZSBt
+YXkgYmUgYSB3YXkgdG8gcGxheSB3aXRoIHZpc2liaWxpdHkgdG8gbWFrZSBpdApiZXR0ZXIuCgpB
+IHNpbXBsZSBwb3NzaWJpbGl0eSBJIGNhbiB0aGluayBvZiAoYXNzdW1pbmcgaXQgd29ya3MpIGlz
+IGhhdmluZyB0aGUKQ0ZJIHN5bWJvbCBmb3IgdGhlIHRpbWUgYmVpbmcgaW50cm9kdWNlZCBqdXN0
+IGFzIGEgYGRlZl9ib29sCkNGSV9DTEFOR2AgZm9yIGEgZmV3IHJlbGVhc2VzIHNvIHRoYXQgcGVv
+cGxlIGdldCB0aGUgbmV3IG9uZSBpbiB0aGVpcgpjb25maWdzLgoKQ2hlZXJzLApNaWd1ZWwKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
