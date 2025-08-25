@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36BD4CA0FE1
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 07:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD91CA0EED
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 07:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OUl3sxxBdcfQSbrpn1OJoHdNhq4OD06hKblzyntKnNM=; b=QVPpR7gOnxCnjg
-	ocJ3PAADd/vk7I7vVtgrLFzRpQjo7Jh12J7xM10P6oHT4SVP+Nt3YNH/yIClSytmRpecsqmPzjAM1
-	ynkka4MPK+KhEBFPs5yB6PxXJPUekpR/YfEueK3uJ3fI7sR+SSvEAVVJDF8wibEoguRiMig442EaN
-	JPaGKVWM2zO/1nRMVZXvItuoy4rt4gTyNFozuqhHLas7UEARGb1bWaZKiHfN6zedN0F1vXuiCu4tX
-	Hgq02q/Byzf48c1YNoAPUPFAI7obkiSivQyim8stTrMAkC9CHyiOqy80Zts9a7zIcAyh7lw6Rcw14
-	h+fUlMFX58TdmlUtChWQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8AufCQ4h32PJD030Zha2IxIkwUC/fC9k0Hxgv/HqEuE=; b=J1E7UOiay/DvFF
+	XQ2HT60IWazJkTxgJp7S2Vn3IOGdiD62CfKxKSxDOt5hsECkCzJPhWlDkvZsLgAWyFTTtv81/k+LZ
+	vDhY47dy4ZKePkbfnZPq35e1zE/Kpn0zE1hduaQaQWbUB7P9mJb4AyxdfA3V+C4PKN//Zv35BtL8W
+	handkqH/xpI4Hsz957UDyIx3g83rVdlUcL3kKenKckxbPz0mTSoJoDQ9hJ/nhfHv34FM/9wXgl4mi
+	ZOL7rdSvjn93gkb7yEoNndYrgG+9CFA2WNmzgmdOkskYIyKOfCpSue4ft4KZs0jRweqBHCeZ21d8i
+	PuIaXkzoWRy4Hw1iTiGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqRej-00000007Aa6-48dF;
-	Mon, 25 Aug 2025 07:30:18 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1uqRei-00000007AZH-1ahf;
+	Mon, 25 Aug 2025 07:30:16 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqR7Z-000000075Ui-03VD
+	id 1uqR6E-0000000757b-0ajL
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Aug 2025 06:56:02 +0000
-Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-74381fdb5faso2519197a34.2
-        for <linux-riscv@lists.infradead.org>; Sun, 24 Aug 2025 23:56:00 -0700 (PDT)
+	Mon, 25 Aug 2025 06:54:39 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-74381df8cf1so1226673a34.0
+        for <linux-riscv@lists.infradead.org>; Sun, 24 Aug 2025 23:54:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756104960; x=1756709760; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3ulckDe3eWSmf553AzjVX023UG188U0t36zbr4OOP20=;
-        b=RohwcBX3MCu0Vi9x7dnzFvCNjoulDhojzPZnfT1JFPG0w9zRF4K0MpU6bIHV2VfQYL
-         sdOVz4LF5SoY4Oj4cLP7Bj1mFblp9FiJbOs3SCBtiEX+cBFoVcMD5HmZ4rtLXuFGR68H
-         Mwx9R0df7RwNJLet9BiJh/DW4OtJaA/fsvZsZc5m3AVXOyHJSI34gAMf3P5Sb7+K4VfP
-         qZJXwn/Z8WO0CbXSMNnVxXlRArwm14kSSu6yD98rfESsm9rwKtNfmnEM5+8Lfjm3rEaG
-         PJbLTcmxKOzZMfQ6hQp1MdMhiRb5OUpKJRujiMrJwi2P+NImfvsKSu3zg4OfPp/7H0ZL
-         WGeA==
+        d=gmail.com; s=20230601; t=1756104877; x=1756709677; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bjCk9K/9vMZWlVyVVNpjDms4LHQz7N1FEpHm6N3zn4E=;
+        b=EMWPIHnKAIXSxs8mPtzXRVA/IsBTxFwotE3jPWfuLWmdlpM3vNU21aR6ROcAQo3EMo
+         qMtvUjfFpzEa9VogMH9rRI22H8kqbX+2tM8aCbP8WRC8Dtl5ELFeefmN/rODDyFbuNth
+         ZsXF+YxFLgtCmg5MGgEMHz7W5iUquNDY0g1NQA8u+aZX20pED2mZhf/i6R5rZdYtHl9P
+         cGLLzPN8YUQ9eM3Khi4JnGjNgROeRlO7XdXWlE+Hd15FLJ/zrp0sx7Keqk2qsZtx18/S
+         kbNaqlnnc6kUyr73OIe69Q2jtDLs6yNOuJSROFEl5qh5g+Icp+lKJEF33EI5GNQymp5R
+         CvLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756104960; x=1756709760;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3ulckDe3eWSmf553AzjVX023UG188U0t36zbr4OOP20=;
-        b=L8T3yVke2OJVGPiiFUxuqrvz+9nqsnLT7gm6UBqVxQVdhYH2VrgMR+Rusz9qcg5Yz5
-         p9TkK/S7AjiPMR4MoOgyIiJfxIH7ah6ELwqka8ebthnZ87W9m2c+mVUG+YMXaRONsuPf
-         8cJQQEZugxdIwj50Clb/Hvz0FeTikRqHkKW5ir0wQ7sr7HddpUi0SC5rXDZ645+xFm3U
-         QZOGHi140F7BXwDhl/RZjTovo/4+hybVgIEfdlepZE8XtcGVWllWxriFWvEphBwbPpbd
-         Es9a7+kRNZTtS4SnxWv0448V/GvYt2PRnDDODWTCWt87pJc8s/khr42uq3wgrQfiV86S
-         GgNA==
-X-Forwarded-Encrypted: i=1; AJvYcCU1wiUXL7NXypl/yyhUF1M4NnmVGGavVr7Xg0flp5KQO4UCMsPZJaystDiuxvSyDC+gw05mPQwKqYgiMw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDlzsDBDcQm4dVjlYUAPm+1JnI+fXPnFkoYKYk9DDYPA3KF5Yr
-	Oub9PNSEGaviay25WpZUeRb3XhhFvmwnFOM6kM5O7v3YCPtDPrTpj7i1
-X-Gm-Gg: ASbGncsbNeLIWJU32I+/ZSDCiAtpY+hFttrrx1nocwdtLD4Bt+hPm3YjjWOG9ZjjUR6
-	C4qt+3ozLmvvGfLY7EO4IWJzDbbg3VrdMAshxox9kCt6zmRnn8G9pG4vSZF5hb1A5U6vcprERWF
-	YPLnH7vP+vjcv391qMGlmzz+D8dmUKjoyUCPXv7vg18FIFatB1gQgIgaRtLtjJVnKEMKfk7XwQr
-	3YwZZkwo0KEDPaT4r9TuDTFdaFdVpWEhHyZU68HTsinAO2joiqRxTIpFWy4DF/0soXy7gHdgwqC
-	VwigSfmxBI4Rk649n2PCY5224qpds829ioA3Y6gc0cu2h79iJNzGSTIn5k5Qj0p0atQ9XkpRq7k
-	4V6RjPjGPnnYZrtmjBJkMIlqfaqkk6sRr
-X-Google-Smtp-Source: AGHT+IGpwYqZSLvuloDemQpps6HazGQohvDaEOzeL74e9j9PrL6xU465ZXDCufj9C4D2mPl9+TYvfw==
-X-Received: by 2002:a05:6830:418f:b0:743:2cc:d530 with SMTP id 46e09a7af769-74500a45257mr5265337a34.19.1756104960115;
-        Sun, 24 Aug 2025 23:56:00 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756104877; x=1756709677;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bjCk9K/9vMZWlVyVVNpjDms4LHQz7N1FEpHm6N3zn4E=;
+        b=fHS6N51vectTL4WccelC8kocJOu6trL7B+v1jczCaTW/4t4c5mVabrR79q7e8YP9F+
+         vmYLBOMv6HIsFwLMZ7a7Ya6F73DT0UJo4/GYnGEIzo4YmAKG+Do/Yndp+qFo/hhjCagf
+         QceJYBDqNXTg0K5VTRfyrTg7HNj3oEpzWElejkfn9lJnE+dlKCu7JLfpjpY6xOklMBev
+         DIesmxKcTE5k42TsDSc9uzhb+aIBxKAT73QkToClyhRa8RLAN8teaMUoJMISSkdD5ywe
+         S/b+P7F6Uw+GNCkWqDu3pLEYbRyz5C4lqHIJmq6JWFHklXhSbWLbfP/aY2/ScRIwC6vw
+         +Kwg==
+X-Forwarded-Encrypted: i=1; AJvYcCWilakr1Pog7h3gi0eQSHx4MBmEioT34RVmtBJmas613LxgN8hH4f5Qk7cTrd3JI6ProLPwRAs1/tTVAQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxci/w+sft9ynQ30vQQGjyLBTG/iaqluO+rVbs8cVSbDthrRXDg
+	6CKViMifQj8Pr1tElowVA3hdLxWoTl77ais7hbYfnwWEFqNL9svPj1jV
+X-Gm-Gg: ASbGnct7mZbM5lUeSd7cPTAw04mfXNGPSR/wis8pokuPjhiOOL9pysf6fS/x7PNrTR6
+	wxDrNUcrJ4uJdiTTDFyabAYgc7Z27yWuUgj32Lt4zuNVr3dllOPhSPy5PgGfpjm81Bjfmr/xYv8
+	c5/f4uRK1mNNhIaaZGIF50SZl2KtQRKooT+tON+AA1lKQ9WHKcsLvArXm6Ewu5KODvO1y70oB6l
+	AhCnUKRivWI1Pfz6/27r7IVkWlv6bt2wCVLQ1V5Imzitb/4b1C6EA6UkcwlYJSDKfm3XO3g/6io
+	cFRWms2hDZcuzRoHYwR54tn/JXDEdxtIw/ew1VFY8JvA2U8JT1lbKQc9B8PXu4M/HJrxg1eSEWa
+	WemPadyx3bsMUzz163X7KVekWQvnYYmo5
+X-Google-Smtp-Source: AGHT+IHDP2qnmqjS+OjyuxLINGnH6RRIlWczknh6KUY3WAEc+CTBhXBDniv6qq7QdHd/r3GPOi1JPw==
+X-Received: by 2002:a05:6830:6993:b0:741:c135:6afe with SMTP id 46e09a7af769-74500900005mr6184862a34.5.1756104876891;
+        Sun, 24 Aug 2025 23:54:36 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-61dc790aa7bsm894731eaf.26.2025.08.24.23.55.57
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-745226acdfcsm433568a34.12.2025.08.24.23.54.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 Aug 2025 23:55:58 -0700 (PDT)
+        Sun, 24 Aug 2025 23:54:35 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 To: u.kleine-koenig@baylibre.com,
 	aou@eecs.berkeley.edu,
@@ -86,16 +84,15 @@ To: u.kleine-koenig@baylibre.com,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	sophgo@lists.linux.dev
-Subject: [PATCH 2/4] irqchip/sg2042-msi: Set irq type according to DT configuration
-Date: Mon, 25 Aug 2025 14:55:50 +0800
-Message-Id: <cf73d95140b03b586f44d2495376d367e32857ed.1756103516.git.unicorn_wang@outlook.com>
+Subject: [PATCH 0/4] irqchip/sg2042-msi: Set irq type according to DT configuration
+Date: Mon, 25 Aug 2025 14:54:24 +0800
+Message-Id: <cover.1756103516.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1756103516.git.unicorn_wang@outlook.com>
-References: <cover.1756103516.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_235601_056190_A98A7674 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20250824_235438_178849_488E04F7 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,56 +115,26 @@ The original MSI interrupt type was hard-coded, which was not a good idea.
 Now it is changed to read the device tree configuration and then set the
 interrupt type.
 
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
----
- drivers/irqchip/irq-sg2042-msi.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+Also improve the code to obtain msi-ranges parameters in this patchset.
 
-diff --git a/drivers/irqchip/irq-sg2042-msi.c b/drivers/irqchip/irq-sg2042-msi.c
-index 5249afd93b4a..be47c038386c 100644
---- a/drivers/irqchip/irq-sg2042-msi.c
-+++ b/drivers/irqchip/irq-sg2042-msi.c
-@@ -30,6 +30,7 @@ struct sg204x_msi_chip_info {
-  * @doorbell_addr:	see TRM, 10.1.32, GP_INTR0_SET
-  * @irq_first:		First vectors number that MSIs starts
-  * @num_irqs:		Number of vectors for MSIs
-+ * @irq_type:		IRQ type for MSIs
-  * @msi_map:		mapping for allocated MSI vectors.
-  * @msi_map_lock:	Lock for msi_map
-  * @chip_info:		chip specific infomations
-@@ -41,6 +42,7 @@ struct sg204x_msi_chipdata {
- 
- 	u32					irq_first;
- 	u32					num_irqs;
-+	unsigned int				irq_type;
- 
- 	unsigned long				*msi_map;
- 	struct mutex				msi_map_lock;
-@@ -137,14 +139,14 @@ static int sg204x_msi_parent_domain_alloc(struct irq_domain *domain, unsigned in
- 	fwspec.fwnode = domain->parent->fwnode;
- 	fwspec.param_count = 2;
- 	fwspec.param[0] = data->irq_first + hwirq;
--	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
-+	fwspec.param[1] = data->irq_type;
- 
- 	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
- 	if (ret)
- 		return ret;
- 
- 	d = irq_domain_get_irq_data(domain->parent, virq);
--	return d->chip->irq_set_type(d, IRQ_TYPE_EDGE_RISING);
-+	return d->chip->irq_set_type(d, data->irq_type);
- }
- 
- static int sg204x_msi_middle_domain_alloc(struct irq_domain *domain, unsigned int virq,
-@@ -290,6 +292,7 @@ static int sg2042_msi_probe(struct platform_device *pdev)
- 	}
- 
- 	data->irq_first = (u32)args.args[0];
-+	data->irq_type = (unsigned int)args.args[1];
- 	data->num_irqs = (u32)args.args[2];
- 
- 	mutex_init(&data->msi_map_lock);
+This patchset is based on irq/drivers branch of tip.
+
+Chen Wang (4):
+  irqchip/sg2042-msi: Improve the logic of obtaining msi-ranges
+    parameters
+  irqchip/sg2042-msi: Set irq type according to DT configuration
+  riscv: sophgo: dts: sg2042: change msi irq type to
+    IRQ_TYPE_EDGE_RISING
+  riscv: sophgo: dts: sg2044: change msi irq type to
+    IRQ_TYPE_EDGE_RISING
+
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi |  2 +-
+ arch/riscv/boot/dts/sophgo/sg2044.dtsi |  2 +-
+ drivers/irqchip/irq-sg2042-msi.c       | 21 ++++++++-------------
+ 3 files changed, 10 insertions(+), 15 deletions(-)
+
+
+base-commit: 8ff1c16c753e293c3ba20583cb64f81ea7b9a451
 -- 
 2.34.1
 
