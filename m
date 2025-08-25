@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDC2DC8303F
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 23:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 668F2C8303F
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 23:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pc1Q1XUj3WuukEkusGQfr32eIQy72rUUSK+2M2lT6+Q=; b=YknHC1OJ8slbLw
-	aZOsp9OvL58/HyoqM3j6jcGjs13sMwHtJsOCh6HcWtTgn0bTDVL0brN8Z8Y32nj+VfY+i+ME9ofMV
-	XmGTyAXJFkh09WjJ+nnvbp8lbpyXR3ap20lVsMzKfIAKnUaLjBX3LYZZNLIib3VJe3cfQeff65N2W
-	QL5f5KiXEEdmSkYUxHdZ4UYkhG02jl4i7kpTqcpkzaLkBja3bIBB1igu8YxNL00kzmk+677tqPWZz
-	qxrjYG9n/gA7DnTlsVrQqsSxxMT1GMUOLfmis3vNo43akF7hEbO4ClDIwqGz6X5qID+L2/Egx0LoA
-	uCLqZRZUPRNkWzi95bEw==;
+	List-Owner; bh=9bhTctegQnKXBl2EF5D8aitvBPiwVZW/kkyhWewnfxE=; b=tocPbBkxpkfGhB
+	33raLnvJzCEFMd/0vVeDqPoLolyThGUF4VCHueRQdF+Qazvnx052pN8LQXohuJQ1h85VP057KISQF
+	sL0skiAvQNzg25Ji+TbOyKmX+IrpoRxkfej2LaJJCkABp7IHanGuFabSAy2f6vp1ARgPCxw1TR5GZ
+	NIvWe1SoUxVjK+jVO7Pth374nGUY9zmyllysOzJ7FCPiuljsNurcCOrWMcza72xz1tR5VkLLAbD2q
+	w+5XuxrsaVpY20x2N4Pi08/yD37LW477yJt1ygFC4o7cuveLu2AM4UuhJxlfwBnISl6doHVJ+AVLf
+	1YYzUASMgD7rsFTwmp+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqgOZ-0000000A7Gl-2d61;
-	Mon, 25 Aug 2025 23:14:35 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1uqgfy-0000000A8J5-0TtS;
+	Mon, 25 Aug 2025 23:32:34 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqgNB-0000000A74K-2WqF
+	id 1uqgfw-0000000A8IK-0QP5
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Aug 2025 23:13:10 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-71d6059f490so45495737b3.3
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Aug 2025 16:13:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756163588; x=1756768388; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xUNSEbz92uNNIlJa5HQmPG2vdi+kZuMkO4IE6wbihPA=;
-        b=L65AVReJFhgNvWzG9lPcfR4VhAIvVXGgJjfVyNPybt5aG+sPqtWkVZ0P24U3mvy3Ys
-         Qx/cd9b26buy1h9EngPZsZc+v2tj9lVOix4XEx1s0QA5EIVKruNCUTF8QWFMqDH8TfhS
-         oCZ+kjxOlrHdS9shGNx0H7WEcnzCfjZzfbON9RU2SVuXQLAsOyZ6ldUmQeL9sLAYi0gE
-         Z6ORBHIFEv+JoMGd+RHTsSZJfKdcBdmjo94ZA8uWI8+dMjyX29NFTXSCTCwzVH2qXd+2
-         T8wJaLI6g7YUgAkXS7rz8IHbcx5eQq5utpcz1PJniPczn2avr6lutVMcxBNTuW/dLOcu
-         IlNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756163588; x=1756768388;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xUNSEbz92uNNIlJa5HQmPG2vdi+kZuMkO4IE6wbihPA=;
-        b=cNIodD9TQSTp6k15AcdBYKQyJHjlyqpqBBksHR/PxbNKVRb6Uf7lkuMB3rgWylET/W
-         3Ea8CAE6vm4dhXlVDK4bRB9e8h+L3LugIPvJDrGEA22RkSSbk031QdijPliID8LXOTKz
-         IsZcBCdALSW8RkGt8B0tGkN+r615epd4soBidRIgeSoWyk0Okixx4/7NKSS4h6AS6paQ
-         r44rFmO5oZ7EQfRi4ta8uXaSphGOpK7DC9qnTjxQtC+gKcXMx2/vEIxFW/SXQqXCWbK3
-         oJG26c0jec06cEkkcT3rXl7dlScl7UbcCjznlsBmqCfiy7uhChKbwN4DAUC1wnw/yixl
-         aHDQ==
-X-Gm-Message-State: AOJu0YyDuSLFjjCkIU//UZcNiIMvryDHPqZ00D5rerbuszEc7BYLQuvz
-	R8UTCvqzaho71tj1ctm2nbfk5JddoPJpW8ghha3r75C10y/sOk/L1w9h6pyAzeSk4gNIkS99dts
-	VHpVBa7YEkAoq+h7jNxE7UzQoRAZjZq8=
-X-Gm-Gg: ASbGncuRo0XPzWNG4Jjy6es1HwlQjjUOXr0rY061Waghi/Z+X9MZmpnizqmBJrNoXXh
-	JDbpVaUYqqN5l/Sdej06nojpinUXoU4qhDWV3HvY9m5zvghJNG53mpkG6s2SOSCAZOdtg1iOfY4
-	CnF1ibIaIqoC0DPTm9Hk3woaftxC+JaAaOAHcSrHNNgSfCeQeHohU3N4HdmJZVrDltXPgO2TdZC
-	HM8YduGtN05M+QueJVmeDRFoYZyBP2LXgMzYFA=
-X-Google-Smtp-Source: AGHT+IGN2Vd+h7bhtYrLnenKzaUnM+vmllgmPbXwGIIUWMKrelmnp2ZGgX8sgFmLElAlrSvEGfmgaF+jm0WcyGT8rSo=
-X-Received: by 2002:a05:690c:9a11:b0:71f:b944:1011 with SMTP id
- 00721157ae682-71fdc43b185mr149897137b3.44.1756163588234; Mon, 25 Aug 2025
- 16:13:08 -0700 (PDT)
+	Mon, 25 Aug 2025 23:32:33 +0000
+Received: from localhost (unknown [180.158.240.122])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id CC847340EF8;
+	Mon, 25 Aug 2025 23:32:28 +0000 (UTC)
+Date: Tue, 26 Aug 2025 07:32:17 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Vivian Wang <wangruikang@iscas.ac.cn>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Vivian Wang <uwu@dram.page>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v6 3/5] riscv: dts: spacemit: Add Ethernet
+ support for K1
+Message-ID: <20250825233217-GYA1101079@gentoo.org>
+References: <20250820-net-k1-emac-v6-0-c1e28f2b8be5@iscas.ac.cn>
+ <20250820-net-k1-emac-v6-3-c1e28f2b8be5@iscas.ac.cn>
 MIME-Version: 1.0
-References: <20250814221646.32140-1-parisoplop@gmail.com> <20250825170258.24068-1-parisoplop@gmail.com>
- <20250825-6d7eedc4459b72ceb07ce782@orel>
-In-Reply-To: <20250825-6d7eedc4459b72ceb07ce782@orel>
-From: Paris Oplopoios <parisoplop@gmail.com>
-Date: Tue, 26 Aug 2025 02:12:57 +0300
-X-Gm-Features: Ac12FXwr3vZA4CQ_NR4KKCceESTZz4qomXiX_b2ut2Hy1aioMiymfp-nHAyJyvE
-Message-ID: <CAAbFZ0gHRs0N6Fo58oobEVbrJmrCZzC1H4TXYOPKyE2YxdN11g@mail.gmail.com>
-Subject: Re: [PATCH v3 RESEND] riscv: hwprobe: allow querying available
- RISCV_HWPROBE_KEY_IMA_EXT_0 bits
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, conor@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20250820-net-k1-emac-v6-3-c1e28f2b8be5@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_161309_645831_36822912 
-X-CRM114-Status: GOOD (  50.61  )
+X-CRM114-CacheID: sfid-20250825_163232_172092_5FFA92A5 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,169 +82,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I disagree. This sort of practice is used in other places in the
-kernel, such as statx and stx_attributes with stx_attributes_mask.
-Knowing that the kernel is unaware of the extension is important for
-programs, regardless of if we can learn about its availability or not.
-Another example is openat2. If you pass a flag in how.resolve that the
-kernel doesn't support, an error is returned.
+Hi Vivian,
 
-Whether or not we need a new API to detect extensions, hwprobe is not
-reliable in its current state if we can't tell which bits the kernel
-knows about at runtime.
+On 14:47 Wed 20 Aug     , Vivian Wang wrote:
+> Add nodes for each of the two Ethernet MACs on K1 with generic
+> properties. Also add "gmac" pins to pinctrl config.
+> 
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 
-On Tue, 26 Aug 2025 at 01:00, Andrew Jones <ajones@ventanamicro.com> wrote:
->
-> On Mon, Aug 25, 2025 at 08:02:21PM +0300, offtkp wrote:
-> > When probing for extensions using RISCV_HWPROBE_KEY_IMA_EXT_0, a missing
-> > bit in the resulting bitmask means the extension is not available or the
-> > kernel is not recent enough to support the bit. Currently, there's no
-> > way to differentiate between the two.
-> >
-> > This adds a new riscv_hwprobe key, RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL,
-> > which returns a bitmask of all the queryable extensions supported by the
-> > kernel in RISCV_HWPROBE_KEY_IMA_EXT_0. This can allow programs to use a
-> > fallback extension detection method when the bit they want to query is
-> > not available in the kernel they are running on.
-> >
-> > Signed-off-by: offtkp <parisoplop@gmail.com>
-> > ---
-> > Changes in v3:
-> > - remove the 59 magic number and create the mask as a define
-> >
-> > Conversation from v2 to show motivation for this patch as a whole:
-> >
-> > > And do you have a real usecase in
-> > > mind? I mean which project would benefit from this?
-> > Yes, I want this feature for an x86-on-RISC-V userspace emulator
-> > called felix86. We do runtime extension detection for our JIT.
-> > Currently, for any extension that defines instructions we use the SIGILL
-> > method previously described, because there's no way to tell with just
-> > a hwprobe call whether a 0 bit means extension not present or kernel
-> > too old. But we can't do this for all extensions, some don't define
-> > instructions.
-> >
-> > The end goal would be being able to detect an extension using hwprobe,
-> > and if it's not detectable, notifying the user that we can't detect it and
-> > they can mark it as enabled in the emulator's config file.
->
-> As I pointed out on v2, I don't think this patch helps. When the kernel
-> is unaware of the extension, then we still know nothing about its
-> availability. This is only helpful when the kernel is aware of an
-> extension, but, in those cases, the current hwprobe can be trusted, so
-> we don't need this.
->
-> The problem is there's no good way to detect extensions that the kernel
-> is unaware of, which means the kernel needs to blindly expose what's in
-> the DT/ACPI somehow.
->
-> Thanks,
-> drew
->
-> >
-> >
-> >
-> >  Documentation/arch/riscv/hwprobe.rst  |  5 ++++-
-> >  arch/riscv/include/asm/hwprobe.h      | 29 ++++++++++++++++++++++++++-
-> >  arch/riscv/include/uapi/asm/hwprobe.h |  2 ++
-> >  arch/riscv/kernel/sys_hwprobe.c       |  4 ++++
-> >  4 files changed, 38 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-> > index 2aa9be272d5d..6d77def0a46e 100644
-> > --- a/Documentation/arch/riscv/hwprobe.rst
-> > +++ b/Documentation/arch/riscv/hwprobe.rst
-> > @@ -360,4 +360,7 @@ The following keys are defined:
-> >
-> >      * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFWMACCQQQ`: The Xsfvfwmaccqqq
-> >          vendor extension is supported in version 1.0 of Matrix Multiply Accumulate
-> > -     Instruction Extensions Specification.
-> > \ No newline at end of file
-> > +     Instruction Extensions Specification.
-> > +
-> > +* :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL`: A bitmask containing the extensions
-> > +  that can be probed using the :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0` key.
-> > \ No newline at end of file
-> > diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-> > index 7fe0a379474a..a06eeec11e2c 100644
-> > --- a/arch/riscv/include/asm/hwprobe.h
-> > +++ b/arch/riscv/include/asm/hwprobe.h
-> > @@ -8,7 +8,34 @@
-> >
-> >  #include <uapi/asm/hwprobe.h>
-> >
-> > -#define RISCV_HWPROBE_MAX_KEY 13
-> > +#define RISCV_HWPROBE_MAX_KEY 14
-> > +#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE      (RISCV_HWPROBE_IMA_FD | \
-> > +     RISCV_HWPROBE_IMA_C | RISCV_HWPROBE_IMA_V | RISCV_HWPROBE_EXT_ZBA | \
-> > +     RISCV_HWPROBE_EXT_ZBB | RISCV_HWPROBE_EXT_ZBS | RISCV_HWPROBE_EXT_ZICBOZ | \
-> > +     RISCV_HWPROBE_EXT_ZBC | RISCV_HWPROBE_EXT_ZBKB | RISCV_HWPROBE_EXT_ZBKC | \
-> > +     RISCV_HWPROBE_EXT_ZBKX | RISCV_HWPROBE_EXT_ZKND | RISCV_HWPROBE_EXT_ZKNE | \
-> > +     RISCV_HWPROBE_EXT_ZKNH | RISCV_HWPROBE_EXT_ZKSED | \
-> > +     RISCV_HWPROBE_EXT_ZKSH | RISCV_HWPROBE_EXT_ZKT | RISCV_HWPROBE_EXT_ZVBB | \
-> > +     RISCV_HWPROBE_EXT_ZVBC | RISCV_HWPROBE_EXT_ZVKB | RISCV_HWPROBE_EXT_ZVKG | \
-> > +     RISCV_HWPROBE_EXT_ZVKNED | RISCV_HWPROBE_EXT_ZVKNHA | \
-> > +     RISCV_HWPROBE_EXT_ZVKNHB | RISCV_HWPROBE_EXT_ZVKSED | \
-> > +     RISCV_HWPROBE_EXT_ZVKSH | RISCV_HWPROBE_EXT_ZVKT | \
-> > +     RISCV_HWPROBE_EXT_ZFH | RISCV_HWPROBE_EXT_ZFHMIN | \
-> > +     RISCV_HWPROBE_EXT_ZIHINTNTL | RISCV_HWPROBE_EXT_ZVFH | \
-> > +     RISCV_HWPROBE_EXT_ZVFHMIN | RISCV_HWPROBE_EXT_ZFA | \
-> > +     RISCV_HWPROBE_EXT_ZTSO | RISCV_HWPROBE_EXT_ZACAS | \
-> > +     RISCV_HWPROBE_EXT_ZICOND | RISCV_HWPROBE_EXT_ZIHINTPAUSE | \
-> > +     RISCV_HWPROBE_EXT_ZVE32X | RISCV_HWPROBE_EXT_ZVE32F | \
-> > +     RISCV_HWPROBE_EXT_ZVE64X | RISCV_HWPROBE_EXT_ZVE64F | \
-> > +     RISCV_HWPROBE_EXT_ZVE64D | RISCV_HWPROBE_EXT_ZIMOP | \
-> > +     RISCV_HWPROBE_EXT_ZCA | RISCV_HWPROBE_EXT_ZCB | RISCV_HWPROBE_EXT_ZCD | \
-> > +     RISCV_HWPROBE_EXT_ZCF | RISCV_HWPROBE_EXT_ZCMOP | \
-> > +     RISCV_HWPROBE_EXT_ZAWRS | RISCV_HWPROBE_EXT_SUPM | \
-> > +     RISCV_HWPROBE_EXT_ZICNTR | RISCV_HWPROBE_EXT_ZIHPM | \
-> > +     RISCV_HWPROBE_EXT_ZFBFMIN | RISCV_HWPROBE_EXT_ZVFBFMIN | \
-> > +     RISCV_HWPROBE_EXT_ZVFBFWMA | RISCV_HWPROBE_EXT_ZICBOM | \
-> > +     RISCV_HWPROBE_EXT_ZAAMO | RISCV_HWPROBE_EXT_ZALRSC | \
-> > +     RISCV_HWPROBE_EXT_ZABHA)
-> >
-> >  static inline bool riscv_hwprobe_key_is_valid(__s64 key)
-> >  {
-> > diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-> > index aaf6ad970499..a3b92df4dc05 100644
-> > --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> > +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> > @@ -82,6 +82,7 @@ struct riscv_hwprobe {
-> >  #define              RISCV_HWPROBE_EXT_ZAAMO         (1ULL << 56)
-> >  #define              RISCV_HWPROBE_EXT_ZALRSC        (1ULL << 57)
-> >  #define              RISCV_HWPROBE_EXT_ZABHA         (1ULL << 58)
-> > +/* Change RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE when adding items. */
-> >  #define RISCV_HWPROBE_KEY_CPUPERF_0  5
-> >  #define              RISCV_HWPROBE_MISALIGNED_UNKNOWN        (0 << 0)
-> >  #define              RISCV_HWPROBE_MISALIGNED_EMULATED       (1 << 0)
-> > @@ -106,6 +107,7 @@ struct riscv_hwprobe {
-> >  #define RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 11
-> >  #define RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE  12
-> >  #define RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0        13
-> > +#define RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL 14
-> >  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
-> >
-> >  /* Flags */
-> > diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> > index 0b170e18a2be..40e7fa5f85f3 100644
-> > --- a/arch/riscv/kernel/sys_hwprobe.c
-> > +++ b/arch/riscv/kernel/sys_hwprobe.c
-> > @@ -310,6 +310,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
-> >               hwprobe_isa_vendor_ext_thead_0(pair, cpus);
-> >               break;
-> >
-> > +     case RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL:
-> > +             pair->value = RISCV_HWPROBE_KEY_IMA_EXT_0_AVAIL_VALUE;
-> > +             break;
-> > +
-> >       /*
-> >        * For forward compatibility, unknown keys don't fail the whole
-> >        * call, but get their element key set to -1 and value set to 0
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
+> ---
+>  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi | 48 ++++++++++++++++++++++++++++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi         | 22 +++++++++++++
+>  2 files changed, 70 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> index 3810557374228100be7adab58cd785c72e6d4aed..aff19c86d5ff381881016eaa87fc4809da65b50e 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> @@ -11,6 +11,54 @@
+>  #define K1_GPIO(x)	(x / 32) (x % 32)
+>  
+>  &pinctrl {
+> +	gmac0_cfg: gmac0-cfg {
+> +		gmac0-pins {
+> +			pinmux = <K1_PADCONF(0, 1)>,	/* gmac0_rxdv */
+> +				 <K1_PADCONF(1, 1)>,	/* gmac0_rx_d0 */
+> +				 <K1_PADCONF(2, 1)>,	/* gmac0_rx_d1 */
+> +				 <K1_PADCONF(3, 1)>,	/* gmac0_rx_clk */
+> +				 <K1_PADCONF(4, 1)>,	/* gmac0_rx_d2 */
+> +				 <K1_PADCONF(5, 1)>,	/* gmac0_rx_d3 */
+> +				 <K1_PADCONF(6, 1)>,	/* gmac0_tx_d0 */
+> +				 <K1_PADCONF(7, 1)>,	/* gmac0_tx_d1 */
+> +				 <K1_PADCONF(8, 1)>,	/* gmac0_tx */
+> +				 <K1_PADCONF(9, 1)>,	/* gmac0_tx_d2 */
+> +				 <K1_PADCONF(10, 1)>,	/* gmac0_tx_d3 */
+> +				 <K1_PADCONF(11, 1)>,	/* gmac0_tx_en */
+> +				 <K1_PADCONF(12, 1)>,	/* gmac0_mdc */
+> +				 <K1_PADCONF(13, 1)>,	/* gmac0_mdio */
+> +				 <K1_PADCONF(14, 1)>,	/* gmac0_int_n */
+> +				 <K1_PADCONF(45, 1)>;	/* gmac0_clk_ref */
+> +
+> +			bias-pull-up = <0>;
+> +			drive-strength = <21>;
+> +		};
+> +	};
+> +
+> +	gmac1_cfg: gmac1-cfg {
+> +		gmac1-pins {
+> +			pinmux = <K1_PADCONF(29, 1)>,	/* gmac1_rxdv */
+> +				 <K1_PADCONF(30, 1)>,	/* gmac1_rx_d0 */
+> +				 <K1_PADCONF(31, 1)>,	/* gmac1_rx_d1 */
+> +				 <K1_PADCONF(32, 1)>,	/* gmac1_rx_clk */
+> +				 <K1_PADCONF(33, 1)>,	/* gmac1_rx_d2 */
+> +				 <K1_PADCONF(34, 1)>,	/* gmac1_rx_d3 */
+> +				 <K1_PADCONF(35, 1)>,	/* gmac1_tx_d0 */
+> +				 <K1_PADCONF(36, 1)>,	/* gmac1_tx_d1 */
+> +				 <K1_PADCONF(37, 1)>,	/* gmac1_tx */
+> +				 <K1_PADCONF(38, 1)>,	/* gmac1_tx_d2 */
+> +				 <K1_PADCONF(39, 1)>,	/* gmac1_tx_d3 */
+> +				 <K1_PADCONF(40, 1)>,	/* gmac1_tx_en */
+> +				 <K1_PADCONF(41, 1)>,	/* gmac1_mdc */
+> +				 <K1_PADCONF(42, 1)>,	/* gmac1_mdio */
+> +				 <K1_PADCONF(43, 1)>,	/* gmac1_int_n */
+> +				 <K1_PADCONF(46, 1)>;	/* gmac1_clk_ref */
+> +
+> +			bias-pull-up = <0>;
+> +			drive-strength = <21>;
+> +		};
+> +	};
+> +
+>  	uart0_2_cfg: uart0-2-cfg {
+>  		uart0-2-pins {
+>  			pinmux = <K1_PADCONF(68, 2)>,
+> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> index abde8bb07c95c5a745736a2dd6f0c0e0d7c696e4..7b2ac3637d6d9fa1929418cc68aa25c57850ac7f 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> @@ -805,6 +805,28 @@ network-bus {
+>  			#size-cells = <2>;
+>  			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
+>  				     <0x0 0x80000000 0x1 0x00000000 0x0 0x80000000>;
+> +
+> +			eth0: ethernet@cac80000 {
+> +				compatible = "spacemit,k1-emac";
+> +				reg = <0x0 0xcac80000 0x0 0x420>;
+> +				clocks = <&syscon_apmu CLK_EMAC0_BUS>;
+> +				interrupts = <131>;
+> +				mac-address = [ 00 00 00 00 00 00 ];
+> +				resets = <&syscon_apmu RESET_EMAC0>;
+> +				spacemit,apmu = <&syscon_apmu 0x3e4>;
+> +				status = "disabled";
+> +			};
+> +
+> +			eth1: ethernet@cac81000 {
+> +				compatible = "spacemit,k1-emac";
+> +				reg = <0x0 0xcac81000 0x0 0x420>;
+> +				clocks = <&syscon_apmu CLK_EMAC1_BUS>;
+> +				interrupts = <133>;
+> +				mac-address = [ 00 00 00 00 00 00 ];
+> +				resets = <&syscon_apmu RESET_EMAC1>;
+> +				spacemit,apmu = <&syscon_apmu 0x3ec>;
+> +				status = "disabled";
+> +			};
+>  		};
+>  
+>  		pcie-bus {
+> 
+> -- 
+> 2.50.1
+> 
+
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
