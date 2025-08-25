@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2656CCA0FE7
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 17:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26704CA0FE8
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 17:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:To:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vKfZMruSzz86Ofy3KP5yeto9wcIztdXoe5BZG2FKKBc=; b=LtPo7hoFQDK8pc
-	DxHNJjn2M0/zyMg8ee6V2tus+vCEWkyBRyChh87qKU8fSyXECPtmroCi0xi1H37rIRM10E6qNgjVp
-	DP+XyZ8Fn+vz/G4c2UPKl/RP2wJMUslmNvX5Qt7eWw2z4PttG6lQPBqa12MF1rDjXgaMmEA3UaHRX
-	c11MULphU2mvgNjmtrWAmHnITiXJphB3Gjd+sN/1Gx0WN3Oze5pRrRgvk0vsA3yqkq10/UeVzEdle
-	Lulrc9Ds5WBhxxDuR1Ux4ph5Q8auL8U/fvV9Sf9dtEHq6UYAjpsfh7JAliQ92SlSKXnL/DhskdPGH
-	BnCzrkn412iX4AeS7sxA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=X9GGT/cJ9vPxMGBr5EayvOj48b1aTkkAYBQFS7NiLwQ=; b=nU6zjw1j04WG3D
+	Z8wkIjGpLab2xkuwvNDovoJYeot2XbaEV5coO3b1tVsPr+RQ3p/pr/fxkA8ln3kyYTU/UBu6GLFda
+	osGZpEetWWOP9NXyaHRrKhRtajnl8HfYx/4FV88Jsg+8QMfB1DLFy9xaZpFQBOAe0DsNYtsejJjPS
+	qlbe1XvGIwPjjnGrKCJJ46U0Gh1nM4cHwVq7A0RjguKUEPPCXV/0jnJqPgJsxc3ssK8UFdCWIRDJm
+	rkb3ireeFxen2NLiE8+kbcUU14anSHYhcdLHuyPTsCvT3PDiFvEKkCWCu7MFbQJOgZoVdgfaL8nPu
+	0Ux23REIteqPX6UuCRmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqaYv-00000008kbu-1t6X;
-	Mon, 25 Aug 2025 17:00:53 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1uqaYw-00000008kec-3nb7;
+	Mon, 25 Aug 2025 17:00:54 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZvF-00000008dec-0ubD;
-	Mon, 25 Aug 2025 16:19:55 +0000
-Received: from [192.168.110.25] (unknown [118.251.178.216])
-	by APP-05 (Coremail) with SMTP id zQCowADXaVocjaxos6UhDw--.6581S2;
-	Tue, 26 Aug 2025 00:19:42 +0800 (CST)
-Message-ID: <b812bb46-6a26-456a-8210-d02138fb31a6@isrc.iscas.ac.cn>
-Date: Tue, 26 Aug 2025 00:19:40 +0800
+	id 1uqZw7-00000008dmK-0urv
+	for linux-riscv@lists.infradead.org;
+	Mon, 25 Aug 2025 16:20:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1756138847; x=1787674847;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=7RPyJ/WS8sIDW2l0x9iCbOzBEdLIsTVZEzDioi73MfE=;
+  b=wwMzOvbabXHydywudYWm3FUMoelEw1tXL2wyyvTNX7uWlTXBvTF/t1vt
+   CSnkvaAZl7bziWWGfUgvlPsaMSgL+b6txc04cst48Yhdd1xhP4KQuI4kh
+   ylPlg8f7bOk0na6r+vnkFfyi0DTQI1IFfXGpQtXO2YqHkoe7J6ubXnBzA
+   mux4VhTaUjEZkNpdC9reufRuCgsAoZIA1GLnMYqxROTrAo+1m0ln5DqlY
+   NSVX4IHJ9qbH7+vGplTpKGaKd5r7T3ZO0Yaqee/47KUwXaQIWJkBf/rcf
+   7XdB90t2oaORz9IsQoC1WkonNThGIWau+h0s3HSHi62aMZpVqfffYRSVV
+   w==;
+X-CSE-ConnectionGUID: yR/Y38h+TmqSdYuuwCmvnw==
+X-CSE-MsgGUID: IJ4yU4nmSpugJRaaEWeb/w==
+X-IronPort-AV: E=Sophos;i="6.18,213,1751266800"; 
+   d="scan'208";a="45617280"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Aug 2025 09:20:45 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 25 Aug 2025 09:20:42 -0700
+Received: from valentina.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Mon, 25 Aug 2025 09:20:40 -0700
+From: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+To: <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<valentina.fernandezalanis@microchip.com>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>
+Subject: [PATCH v1 0/5] Icicle Kit with prod device and Discovery Kit support
+Date: Mon, 25 Aug 2025 17:19:47 +0100
+Message-ID: <20250825161952.3902672-1-valentina.fernandezalanis@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: inochiama@gmail.com
-Cc: ajones@ventanamicro.com, alex@ghiti.fr, anup@brainfault.org,
- aou@eecs.berkeley.edu, charlie@rivosinc.com, cleger@rivosinc.com,
- conor+dt@kernel.org, cuiyunhui@bytedance.com, cyan.yang@sifive.com,
- devicetree@vger.kernel.org, jesse@rivosinc.com, krzk+dt@kernel.org,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
- mikisabate@gmail.com, namcao@linutronix.de, palmer@dabbelt.com,
- parri.andrea@gmail.com, paul.walmsley@sifive.com, pbonzini@redhat.com,
- pincheng.plct@isrc.iscas.ac.cn, robh@kernel.org, samuel.holland@sifive.com,
- shuah@kernel.org, thomas.weissschuh@linutronix.de, yikming2222@gmail.com,
- yongxuan.wang@sifive.com
-References: <znik7dcyeipf57xerlm5gwjszcaaeujoukr7g4a7wt7lsfu366@skany6k7agt4>
-Subject: Re: [PATCH v1 RESEND 1/5] dt-bidings: riscv: add Zilsd and Zclsd
- extension descriptions
-From: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
-In-Reply-To: <znik7dcyeipf57xerlm5gwjszcaaeujoukr7g4a7wt7lsfu366@skany6k7agt4>
-X-CM-TRANSID: zQCowADXaVocjaxos6UhDw--.6581S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CF4fKrWkurWxZr18AryUtrb_yoW8Kw4Upa
-	93CF18KFZ8Xw13u3s7tw18Xw45Jr4kKr15AF47t34xKay5Ar10qFWakw1YvF18GF4xCF4I
-	va1Ygw1fZ3ZrAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcVAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kI
-	c2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbV
-	WUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF
-	67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
-	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
-	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
-	evJa73UjIFyTuYvjTRM6wCDUUUU
-X-Originating-IP: [118.251.178.216]
-X-CM-SenderInfo: pslquxhhqjh1xofwqxxvufhxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_091953_625661_F88C2649 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250825_092047_390883_85C21A48 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,87 +80,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/23 6:34, Inochi Amaoto wrote:
- > On Thu, Aug 21, 2025 at 10:01:27PM +0800, Pincheng Wang wrote:
- >> Add descriptions for the Zilsd (Load/Store pair instructions) and
- >> Zclsd (Compressed Load/Store pair instructions) ISA extensions
- >> which were ratified in commit f88abf1 ("Integrating load/store
- >> pair for RV32 with the main manual") of the riscv-isa-manual.
- >>
- >> Signed-off-by: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
- >> ---
- >>   .../devicetree/bindings/riscv/extensions.yaml | 39 +++++++++++++++++++
- >>   1 file changed, 39 insertions(+)
- >>
- >> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml 
-b/Documentation/devicetree/bindings/riscv/extensions.yaml
- >> index ede6a58ccf53..d72ffe8f6fa7 100644
- >> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
- >> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
- >> @@ -366,6 +366,20 @@ properties:
- >>               guarantee on LR/SC sequences, as ratified in commit 
-b1d806605f87
- >>               ("Updated to ratified state.") of the riscv profiles 
-specification.
- >>
- >> +        - const: zilsd
- >> +          description:
- >> +            The standard Zilsd extension which provides support for 
-aligned
- >> +            register-pair load and store operations in 32-bit 
-instruction
- >> +            encodings, as ratified in commit f88abf1 ("Integrating
- >> +            load/store pair for RV32 with the main manual") of 
-riscv-isa-manual.
- >> +
- >> +        - const: zclsd
- >> +          description:
- >> +            The Zclsd extension implements the compressed (16-bit) 
-version of the
- >> +            Load/Store Pair for RV32. As with Zilsd, this extension 
-was ratified
- >> +            in commit f88abf1 ("Integrating load/store pair for 
-RV32 with the
- >> +            main manual") of riscv-isa-manual.
- >> +
- >>           - const: zk
- >>             description:
- >>               The standard Zk Standard Scalar cryptography extension 
-as ratified
- >> @@ -847,6 +861,16 @@ properties:
- >>               anyOf:
- >>                 - const: v
- >>                 - const: zve32x
- >
- >> +      # Zclsd depends on Zilsd and Zca
- >> +      - if:
- >> +          contains:
- >> +            anyOf:
- >> +              - const: zclsd
- >> +        then:
- >> +          contains:
- >> +            anyOf:
- >> +              - const: zilsd
- >> +              - const: zca
- >>
- >
- > Should be allOf? I see the comment says "Zclsd" requires both "Zilsd"
- > and "Zca".
- >
- > Regards,
- > Inochi
+Hi all,
 
-You're absolutely right, thank you for catching this. Since Zclsd 
-depends on both Zilsd and Zca, the condition should use allOf to 
-correctly enforce the conjunction. I'll fix this in next revision.
+With the introduction of the Icicle Kit with the production device
+(MPFS250T) to the market, it's necessary to distinguish it from the
+engineering sample (-es) variant. This is because engineering samples
+cannot write to flash from the MSS, as noted in the PolarFire SoC
+FPGA ES errata.
 
-Best regards,
-Pincheng Wang
+This series adds a common board DTSI for the Icicle Kit, containing
+hardware shared by both the engineering sample and production
+versions, as well as a DTS for each Icicle Kit variant.
+
+The last two patches add support for the PolarFire SoC Discovery Kit
+board.
+
+Thanks,
+Valentina
+
+Valentina Fernandez (5):
+  riscv: dts: microchip: add common board dtsi for icicle kit variants
+  dt-bindings: riscv: microchip: document icicle kit with production
+    device
+  riscv: dts: microchip: add icicle kit with production device
+  dt-bindings: riscv: microchip: document Discovery Kit
+  riscv: dts: microchip: add a device tree for Discovery Kit
+
+ .../devicetree/bindings/riscv/microchip.yaml  |  13 +
+ arch/riscv/boot/dts/microchip/Makefile        |   2 +
+ .../dts/microchip/mpfs-disco-kit-fabric.dtsi  |  58 ++++
+ .../boot/dts/microchip/mpfs-disco-kit.dts     | 191 +++++++++++++
+ .../dts/microchip/mpfs-icicle-kit-common.dtsi | 251 ++++++++++++++++++
+ .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |  23 +-
+ .../dts/microchip/mpfs-icicle-kit-prod.dts    |  23 ++
+ .../boot/dts/microchip/mpfs-icicle-kit.dts    | 244 +----------------
+ 8 files changed, 561 insertions(+), 244 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-disco-kit-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts
+
+-- 
+2.34.1
 
 
 _______________________________________________
