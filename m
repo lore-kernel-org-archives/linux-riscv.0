@@ -4,82 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA904CA0FE8
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 15:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61EA6CA0EFA
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 16:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OhPCkUqDdY6JBswZQcdHDwJlWnjF3XLOaYA5Ww0hMk4=; b=xSxwpCEI4s+ma/
-	TY/0Xa5vkayqS9lmB3ovlkGr6a2XSQrkys5j1csdeWLmBwnpPBbXI+JWTiGLg3/mNz6seamATVSbp
-	uPR8x7Rtc4rQdlAojbIgafccccgbkc6zSH7Hd9USvNmMJYMsYl53ufZJ4HFeAuuteaVcNGFRAIOOp
-	i3TmW3u9PBlVMfXQDYCDNoA5ELZ4mswULx6tv4A/0D2I30tTE5slOvG3w6g2B8sIrAmxhozqqEsk7
-	jnU2OACyznLv7skhybhGxfqLok7MUlIt768HbYeQLsbdUOKFRN2CStBMj40YUDn/8Q5wzQGrOg3Ww
-	0RBWUstDfTn30sjycYsQ==;
+	List-Owner; bh=0IT8+yjRBmtNAyqB2w8ShUvPgOTuRJq9aTxtEb1va5E=; b=mPkM53CaDDr2WY
+	+tgdnG7BXIikLFE6TovAqfZfscG6lB/ULpW93XF0baGLUF/0POQ9+cSakBX3RUiZfKTHvqoChpf/b
+	CbOEcG21SrSexb6PBS8OXrT7wt6Rqe82cNmbEaHIu/ZN8yAe5lsMoSoCdQhAcUQ/uik2ojoInvGTB
+	pPk/fLKyw+8Fb3ND0sUT4V8jiB5/PpzoAKwpd9UuCQ2fjRMwBN0DC10vuXQNXO6igoqzbA3s/fsP1
+	4lcMZtOBLcrnRoaIWINQhlxonNgitcv+8N3i+0pGV0XADxNKhcyeuEQ2SYyLfkOsqKhIIOr8b6JQD
+	fNTM7lttFiddqVkHY7Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZaJ-00000008bCL-2yJ9;
-	Mon, 25 Aug 2025 15:58:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uqa6b-00000008faY-1qWY;
+	Mon, 25 Aug 2025 16:31:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZCy-00000008X1e-2J3e;
-	Mon, 25 Aug 2025 15:34:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=j1red41HWWtPZBuuKms1c1dp19RMTf9JNo/WgBeD8ts=; b=Fy99Gu/CpdDN2FEht9+h81+T+s
-	N3bLxSTDS0lF9+pJzHMVjC2S4jccVkhgIL85iRapNvxCmaeeuJNxiflBKwucfxUzOWJ7fhwIv6/Pb
-	oS/uHuoEXj9R5o6XKJX828BXcg65G/nPnQZjaABgvlZLDiJl3R9G7RGVp/NKveH7+rRhgSiJV018P
-	JW5fu2Qy8oOIWb35iJpuOzEyr2h5CLnoal8Xqsdjrq+NE6ItyWWDOwCEcFEPoZ8L3lFAAMX1P1Uk8
-	gBN0GelkLGHWb12zTtbHyY408WcvDKkFPG/mYI1PkWRrpLDhE7+7dOkNTLWhNN498rTlhobYowIHU
-	7jRnC3JQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZCv-00000001uYz-1p0x;
-	Mon, 25 Aug 2025 15:34:07 +0000
+	id 1uqZE3-00000008XEU-1v08;
+	Mon, 25 Aug 2025 15:35:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E6F6D5C5A0D;
-	Mon, 25 Aug 2025 15:34:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 889BDC4CEED;
-	Mon, 25 Aug 2025 15:34:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A3034069E;
+	Mon, 25 Aug 2025 15:35:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 011FEC4CEED;
+	Mon, 25 Aug 2025 15:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756136041;
-	bh=3MHuUrJA85kZg9pqQ9ja7UgU1fGiFhs/ppzPxlxFgxQ=;
+	s=k20201202; t=1756136115;
+	bh=DJjOmkVujeC5JzsbUheOOz5HCUqqi0gOpXXCgeiknkM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HudmS/JHfspDfBCzO62hEaLPbXPLtHOHCdGNnxZGXjNsiP8MMHrCtKMHPb+7rh/rY
-	 bb8xttodiZxiBiOqINmw/uL5wi2A0DTgwuxpgB8y1rUwfUMlWzaIlLxmrwL5ctYptR
-	 vGmtTUhT9sCFB1yXE22v/wpDLWvSd0GpkKiFL53qBbxTwdYNQEA60aiTPAhXX8LF7K
-	 dvhIzCUyFWWG8UqL0WCQ9ntSnq9DneESU3MaGz7Vu/FcJVlv+Kc64/jFLhjAV5i8QW
-	 K5YGs60Cvmgt2ECznzT/QPnGw5UInRPZ/Kau51i0RGgXsIRJuJCshQCRu/1S0G0qJQ
-	 2R0a8O/FbHgBQ==
-Date: Mon, 25 Aug 2025 08:34:00 -0700
+	b=kdmBXckubJWHEXmKqcoBXuKEg4sUWopFtgGS8CKU6AYg17qDR9d4sAIFF7YZcTjLg
+	 +9bpRB9qMnzrlApo2L4kU8KTtH6EcgOtoChsicI3YfkBfzj3bTXYtQTAvsmdef+4mu
+	 jZFOTgnbrqRUuqb+wMsUj7pzNS7gmcdr2KHeo+Bb2Z79HW6SoBTsAHksQkkMSxZeIr
+	 m0yNkjx2elCNQ9F5SA2nuLkJmL+4yl9P4s5D64UAf2gU1/uH3I2g1zdoE5ZeomcWI5
+	 35NMHJFivKJtXYbojPIzbyphYxV4aWgHrEIdOtDPkaX0ujVfi3lGMMVyaYnorRZOvv
+	 ETPnUGlCWOgNg==
+Date: Mon, 25 Aug 2025 08:35:14 -0700
 From: Kees Cook <kees@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Sami Tolvanen <samitolvanen@google.com>,
-	David Woodhouse <dwmw2@infradead.org>,
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Kees Cook <kees@outflux.net>,
+	Sami Tolvanen <samitolvanen@google.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Puranjay Mohan <puranjay@kernel.org>,
+	David Woodhouse <dwmw2@infradead.org>,
 	Jonathan Corbet <corbet@lwn.net>,
 	Nathan Chancellor <nathan@kernel.org>, x86@kernel.org,
 	linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH 3/5] x86/cfi: Add option for cfi=debug bootparam
-Message-ID: <202508250833.AB86A99894@keescook>
+Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
+Message-ID: <202508250834.E2456B9@keescook>
 References: <20250825141316.work.967-kees@kernel.org>
- <20250825142603.1907143-3-kees@kernel.org>
+ <20250825142603.1907143-5-kees@kernel.org>
+ <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250825142603.1907143-3-kees@kernel.org>
+In-Reply-To: <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_163405_702733_5629220A 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250825_083515_514874_2D49B7CA 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,25 +78,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 07:25:50AM -0700, Kees Cook wrote:
->  static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
->  			    s32 *start_cfi, s32 *end_cfi, bool builtin)
->  {
-> +	if (builtin)
-> +		pr_info("CFI: Using standard kCFI\n");
->  }
-
-Oops, this needs IS_ENABLED(CONFIG_CFI) && ...
-
--- 
-Kees Cook
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBdWcgMjUsIDIwMjUgYXQgMDU6MDE6MTNQTSArMDIwMCwgTWlndWVsIE9qZWRhIHdy
+b3RlOgo+IE9uIE1vbiwgQXVnIDI1LCAyMDI1IGF0IDQ6MjjigK9QTSBLZWVzIENvb2sgPGtlZXNA
+a2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gLWNvbmZpZyBDRklfQ0xBTkcKPiA+IC0gICAgICAg
+Ym9vbCAiVXNlIENsYW5nJ3MgQ29udHJvbCBGbG93IEludGVncml0eSAoQ0ZJKSIKPiA+IC0gICAg
+ICAgZGVwZW5kcyBvbiBBUkNIX1NVUFBPUlRTX0NGSV9DTEFORwo+ID4gK2NvbmZpZyBDRkkKPiA+
+ICsgICAgICAgYm9vbCAiVXNlIEtlcm5lbCBDb250cm9sIEZsb3cgSW50ZWdyaXR5IChrQ0ZJKSIK
+PiA+ICsgICAgICAgZGVwZW5kcyBvbiBBUkNIX1NVUFBPUlRTX0NGSQo+ID4gICAgICAgICBkZXBl
+bmRzIG9uICQoY2Mtb3B0aW9uLC1mc2FuaXRpemU9a2NmaSkKPiA+ICAgICAgICAgaGVscAo+IAo+
+IERvIHdlIG5lZWQgdG8gZG8gc29tZXRoaW5nIHRvIG1ha2UgdGhlIHRyYW5zaXRpb24gc21vb3Ro
+ZXIsIGkuZS4KPiBrZWVwaW5nIHRoZSBvbGQgb25lIGZvciBhIHdoaWxlIHRvIGF2b2lkIGEgbmV3
+IHF1ZXN0aW9uIGV0Yy4/CgpZZWFoLCB0aGF0J3MgYSBnb29kIGlkZWEuIFdoYXQgdGhlIHJpZ2h0
+IHdheSB0byBkbyB0aGF0PwoKY29uZmlnIENGSV9DTEFORwoJYm9vbCAiVXNlIENsYW5nJ3MgQ29u
+dHJvbCBGbG93IEludGVncml0eSAoQ0ZJKSIKCWRlcGVuZHMgb24gQVJDSF9TVVBQT1JUU19DRkkK
+CXNlbGVjdCBDRkkKCj8KCi0tIApLZWVzIENvb2sKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
