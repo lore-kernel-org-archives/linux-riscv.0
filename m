@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 458D7CA0FED
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 12:55:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBEA7CA0EFA
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 12:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dk5P3tnZH7FTrCvWTF9YfPEATVISC7PMaZaAFOI3vTA=; b=G15xa1boLxj88F
-	YcmIyke/00uiqm8fcIlkA7SL3awO1xyZ88g6uVddTO4i1QNMKAVxQq0/zhYIy54XLkynEmMm+Xo5a
-	V3z+swKNz/TmdCzt8vS7Hs9jTavtlIVkvVQuKHOMF7egZyFzZaSq8JEchHnbfXOtx2ctnybQoXWWJ
-	5uce11POFD7zY8b7cmaxzike4dvnSR9NFJnr2oVgsa3lojOy9BovJ4xA4i90Jm+0HrQZL0GAIcjCF
-	ykJCwoT+2pc822/zQqQiRB3yZEZSgJP82M1ijoHtHrdumwfWYIJE4dGW/Xmb+X+weoXsYsQJkJEsF
-	BJaS37J82+EkUgPyPl+A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XuaCuY7dFGSx1EJTDJUh7Tv14P503neP/CBNXynTz6c=; b=iLyNiVMdaw5jsE
+	yUF54MQ8ImYK2yRnR5SYfhKJpogYTgLLQkvBWVagOlI/V1MSzZ/uGpFTh9160p4eHvzdLDEyj3QMj
+	s4hQjIySNOykKeD5JQwwQIvpjOJOVflcb2Em+FjEnLDR7KpRdRscuaD/ZnywLtmo0NkS82iD8Xo+p
+	LXlXGPm/D3RE1zvsq0ygYDTBhNLnc79qyHEKSyzNwRo1W5cYkPwDhcQS57uGdfpTmebydSsWf/Sw4
+	A/TIMxm16ck6+aHLHM5Tn/l4K2N3RdJTmYesLCWpJTTU3ETb9LR2fy/FNTiMpx4hIZMjxQZZE7WuI
+	i/x3tGmcUsz3y8cM+KAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWj6-00000007zqf-0jXM;
-	Mon, 25 Aug 2025 12:55:08 +0000
-Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqUyG-00000007hgb-3Uyt
-	for linux-riscv@lists.infradead.org;
-	Mon, 25 Aug 2025 11:02:41 +0000
-Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7e87030df79so477830385a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Aug 2025 04:02:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1756119759; x=1756724559; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1KrFoOnuL5GMtaq0YKgHhpMxoakpxp6Ykplg7n1PuXc=;
-        b=LfNrPM1uRyx/mtn03lz3iqE5UtXEsXd0YBziotMpHQ6LShJEzDl4hVVYMfs5vDxzgI
-         xynp3zGCTh1uHDH5/r2mhpMCfgK/5dHUFZzvtXkdM/ldHX8D5Zi9iHZkHs71RLI2SQ0w
-         SAQaXMxvaxeFAN7qoRwwbAA/gz31HEmKdGl5XuLyFxaASUNerE3NYOe4fNE/xMshEn/I
-         cO96sh05Cj6mfcezKpbsRj/JildZqEvnqI3rBn1EtL+Op9pUsTCtxc5Vf1RFS6/hizAM
-         4GCqcngovGuFfXAwrl2W1zA9RVKfZs/gtvP8efgNhVZq983scU0/TYzuKfPuekiUIFun
-         M2Dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756119759; x=1756724559;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1KrFoOnuL5GMtaq0YKgHhpMxoakpxp6Ykplg7n1PuXc=;
-        b=un3mH8AD5cJRXTjw348bJ1TarlehAKe4ywg5uWQQecTHH8N7oRhDNXeF7YAtvQwszY
-         6Ve4CLMe4vETsYTwDuIcdoT22a5zpzqfjfXg1yZXdgF5XG3TrHuhwb/dFbivjauZLivX
-         UG4Up93TTSn/uAqzW3+lcKRqa5FQW5cfndxA+FE/4T5x9GY1818lKqS8zaoAbw6NJnvd
-         etwd4EPJ5ueNSsH92542nrhEfgHC8jrrHKxQ3HiM4KYQr9P5XVsIediKYvUt8+gqdcDR
-         pbV35qqlMhcdtsQmM6CMCuCoyooyEqG+AOlppVgvrB2Qzo3Hz24/YV56kJiNygnvyylt
-         2nXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVSbyRB2qpyQRMEINp8T4TqFrnH/3yqF2XZM8Kv1OQetwXlvJ2iV0Ws6W5m01ahMTdXJFR/VU1TtmxcQA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEnxEC2c1LCekbEQX1Us7P8u4TJhbdJsXqyTc+fow7SIlCENHr
-	lHVQ1AV33u4rfBixd6uRuVoetRm59TfuDS4EKnw79AyNS13WklE7qwolVumC2jYpbLQ=
-X-Gm-Gg: ASbGnctm9Rz7ncUw7VWFtxwfnkaH+bb97lhwSTek9D4XeNPgG3HYI8SWJdbp0iB866E
-	GRt0AvBQgbUCnY/SuqXrglUAE0/ky3HwY1CuSdNxPUJxf/hldyR8tK1s/nRhB7q/JvQmczwPHPG
-	LkkGT2zZskt/vgyG9kUvaGfxSg8DZnam8rZ9+u3CkDFuQurcyiYC3ceOrp9+s91AhwAR6ecHt30
-	LFdUZeQMapDtqMIEVZXtSnRwUCjg9iul9V/5H62BPn5rfYOed3sV8JfY3p79IwAoQJb1YwzqT9S
-	Y/JQfVuSViOvKmdgdj/hGkgWaxB3cCGcgsWs0+d1MJ+A2EvxM5D6t4DBTVMYyD9wALOXQ/YMWoT
-	IqPG9Hhl2dANGeSP+AKF1ibIqWg==
-X-Google-Smtp-Source: AGHT+IF+Xp2kSkiYMs9XH9xufQw3bih7peJ51tO8RYHjQC3ESxBEZ2qFaKuTNArd2lSB1l4CzhQLSQ==
-X-Received: by 2002:a05:620a:1a98:b0:7e9:f820:2b46 with SMTP id af79cd13be357-7ea11082af5mr1233715085a.82.1756119759186;
-        Mon, 25 Aug 2025 04:02:39 -0700 (PDT)
-Received: from localhost ([138.199.100.237])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7ebf3bb4e4bsm463662185a.60.2025.08.25.04.02.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Aug 2025 04:02:38 -0700 (PDT)
-Date: Mon, 25 Aug 2025 06:02:37 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Atish Patra <atish.patra@linux.dev>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v3 6/6] KVM: riscv: selftests: Add SBI FWFT to
- get-reg-list test
-Message-ID: <20250825-5f0ede7adacb9fcc102d6cca@orel>
-References: <20250823155947.1354229-1-apatel@ventanamicro.com>
- <20250823155947.1354229-7-apatel@ventanamicro.com>
+	id 1uqWjC-00000007zyO-3F08;
+	Mon, 25 Aug 2025 12:55:14 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqW64-00000007tSx-22Z6;
+	Mon, 25 Aug 2025 12:14:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=wm
+	j5n76lJI+EQ4fSCNHd5tg/1m0AUVHlQPLj3ohhhUY=; b=oesLLvfIRErVrkDogt
+	a1OiIZOZxwCxnyD4vqmBrnVVnRE80lSQFCaARmR+gtW5WcBIqVPm0z8/9JginPJi
+	BJSCAAwBOWQ0Aaaza4t++VbR9D/xdZ4ULSDfoDFvbUDgzCkA4qdjYYMSMerFg3Sb
+	bq23otVjkEWrLMTDxEZQrHoFc=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wCn0LeWU6xoYo0IEQ--.6105S2;
+	Mon, 25 Aug 2025 20:14:15 +0800 (CST)
+From: Jinyu Tang <tjytimi@163.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Nutty Liu <nutty.liu@hotmail.com>
+Cc: kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jinyu Tang <tjytimi@163.com>
+Subject: [PATCH v3] riscv: skip csr restore if vcpu preempted reload
+Date: Mon, 25 Aug 2025 20:14:11 +0800
+Message-ID: <20250825121411.86573-1-tjytimi@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250823155947.1354229-7-apatel@ventanamicro.com>
+X-CM-TRANSID: _____wCn0LeWU6xoYo0IEQ--.6105S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxuryrZw13Kr13uF15tw47Jwb_yoW5Ww48pF
+	W7urs09w48JrW7G342qrsY9F4F9rZYgrn3XryDWrWSyr1Utr9Yyr4kK3y7AFy5GryrZF1S
+	yFyDtFyIkFnYvwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piHa0PUUUUU=
+X-Originating-IP: [2408:823d:2011:2f19:6887:e830:50c:ac99]
+X-CM-SenderInfo: xwm13xlpl6il2tof0z/1tbipR+0eGisTjSwYwAAsb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_040240_863727_3BFAC595 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250825_051448_966721_7F2493FA 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,16 +79,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 23, 2025 at 09:29:47PM +0530, Anup Patel wrote:
-> KVM RISC-V now supports SBI FWFT, so add it to the get-reg-list test.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  .../selftests/kvm/riscv/get-reg-list.c        | 32 +++++++++++++++++++
->  1 file changed, 32 insertions(+)
->
+The kvm_arch_vcpu_load() function is called in two cases for riscv:
+1. When entering KVM_RUN from userspace ioctl.
+2. When a preempted VCPU is scheduled back.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+In the second case, if no other KVM VCPU has run on this CPU since the
+current VCPU was preempted, the guest CSR (including AIA CSRS and HGTAP) 
+values are still valid in the hardware and do not need to be restored.
+
+This patch is to skip the CSR write path when:
+1. The VCPU was previously preempted
+(vcpu->scheduled_out == 1).
+2. It is being reloaded on the same physical CPU
+(vcpu->arch.last_exit_cpu == cpu).
+3. No other KVM VCPU has used this CPU in the meantime
+(vcpu == __this_cpu_read(kvm_former_vcpu)).
+
+This reduces many CSR writes with frequent preemption on the same CPU.
+
+Signed-off-by: Jinyu Tang <tjytimi@163.com>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+---
+ v2 -> v3:
+ v2 was missing a critical check because I generated the patch from my
+ wrong (experimental) branch. This is fixed in v3. Sorry for my trouble.
+
+ v1 -> v2:
+ Apply the logic to aia csr load. Thanks for
+ Andrew Jones's advice.
+
+ arch/riscv/kvm/vcpu.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index f001e5640..66bd3ddd5 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -25,6 +25,8 @@
+ #define CREATE_TRACE_POINTS
+ #include "trace.h"
+ 
++static DEFINE_PER_CPU(struct kvm_vcpu *, kvm_former_vcpu);
++
+ const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, ecall_exit_stat),
+@@ -581,6 +583,10 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+ 	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
+ 
++	if (vcpu->scheduled_out && vcpu == __this_cpu_read(kvm_former_vcpu) &&
++		vcpu->arch.last_exit_cpu == cpu)
++		goto csr_restore_done;
++
+ 	if (kvm_riscv_nacl_sync_csr_available()) {
+ 		nsh = nacl_shmem();
+ 		nacl_csr_write(nsh, CSR_VSSTATUS, csr->vsstatus);
+@@ -624,6 +630,9 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 
+ 	kvm_riscv_mmu_update_hgatp(vcpu);
+ 
++	kvm_riscv_vcpu_aia_load(vcpu, cpu);
++
++csr_restore_done:
+ 	kvm_riscv_vcpu_timer_restore(vcpu);
+ 
+ 	kvm_riscv_vcpu_host_fp_save(&vcpu->arch.host_context);
+@@ -633,8 +642,6 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	kvm_riscv_vcpu_guest_vector_restore(&vcpu->arch.guest_context,
+ 					    vcpu->arch.isa);
+ 
+-	kvm_riscv_vcpu_aia_load(vcpu, cpu);
+-
+ 	kvm_make_request(KVM_REQ_STEAL_UPDATE, vcpu);
+ 
+ 	vcpu->cpu = cpu;
+@@ -645,6 +652,8 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	void *nsh;
+ 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+ 
++	__this_cpu_write(kvm_former_vcpu, vcpu);
++
+ 	vcpu->cpu = -1;
+ 
+ 	kvm_riscv_vcpu_aia_put(vcpu);
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
