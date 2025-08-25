@@ -4,173 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46973CA0FED
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 18:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88FCECA0FF0
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 19:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JrKiKwAlkRU9HkPgA09obwQUqf87ihzJBy/7LDdZjCk=; b=QNHER/LvMOAaFb
-	W4HqAgr0kMzUIGjOdvM5ezUst5QYwxiGf+HxiOOUt8/8d4ai6ZJzCy21xq2RhFl3cx6p8yOvoVQF+
-	lg5ulpIyXc11toJyJ9HVP3ymUumvi35681LZH4GPT9mCDm2ejCG5lIBOcuCxf3cjIewpNYCJz9yTY
-	Nah0L/GO7rCC7/wn+EZF1hsUV3xmFAtseLblyCXt1Q3bBlSXbLNM3khBgDCWseXvA0RhFg0Td11+D
-	dQKfAspcLc5W3j0vLcHTl6bfSrt9WcHDK+fVevjVqMMaEWPvTRrkAz6k6MknCoslJoodxlKkzZKjV
-	ah4BZvfw9EHyU1xaqp2w==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fQgZhe1POkInCkFSxurSXojuvpwhIHdwaj4pwIITjXM=; b=c017zGynsynO9k2y3mPA2i6Cta
+	B2+gotKuCb/2o9yDKJPXwmgRjotJoY+o/2SDSGVmI/I9KXYAqrvORLR/yaGkYdt1DukE0G98AQW2O
+	zu2GBc2Lw5n/Mw2DoBDu2X91U64lA0PjxpWVToOoYc9ZCtNBaLvRlBpcecTU5LG9FSL8Bt81/Bj7Z
+	Ni+7Ahm4GsLRPZBG21QHFzlC6LAeuCozZbuiNSadsqQUzj35ORLihfZvklCASEIVzmbLFPlvbmG/s
+	Fhydx/xFnCZDcnL9i4yaY07Yej/KJWW8ZQ3F2wHVqNtb8h0BkzP5xO4UgWdjcWgkQ5iNWj9WdmDoK
+	3d1Sw0zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqc1N-000000091j4-09Co;
-	Mon, 25 Aug 2025 18:34:21 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uqcY8-00000009AhR-0wyt;
+	Mon, 25 Aug 2025 19:08:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqbzh-000000090PW-3F0E
-	for linux-riscv@lists.infradead.org;
-	Mon, 25 Aug 2025 18:32:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756146756;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=bluti57k39MttADONVHVsAxBvXyqb5R7ZWo2ok70EgM=;
-	b=QaLwgUM67P0pBnaSlF9vPnbSSsU1jQ5fdcdb836XP332LaK56RqlzQ0LdHEXkMzIiwfdmA
-	J20fW4Qj+4j2DKlTPDDhqd7SFkzXCCD7UPwrTttYN6gmDuEcZnTOuHoK/5kiPSiEgxCRlz
-	ayUbNNmjYi6wd8c2NXkTC3Op0q2JugM=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-462-18FyBkGFM9uqn4ASKzh5Wg-1; Mon, 25 Aug 2025 14:32:33 -0400
-X-MC-Unique: 18FyBkGFM9uqn4ASKzh5Wg-1
-X-Mimecast-MFC-AGG-ID: 18FyBkGFM9uqn4ASKzh5Wg_1756146752
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45a1b0b46bbso21329605e9.2
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Aug 2025 11:32:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756146752; x=1756751552;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bluti57k39MttADONVHVsAxBvXyqb5R7ZWo2ok70EgM=;
-        b=bsduLxhoBNkT/qUyVALrz1a0fbK3JOqj9yPYEdxifq9MJqIWMHpsCdXgcWSLKOYATo
-         0gR1YYlepGhVjz572Q2BEwhjo+x0c6gHc2Z7URPRbTrV87EUg2puPw0bXF5PaWAeo9n+
-         qoZm1Lm3UnHv4hFZzpeHwv7T7Pd3FXJBvUyv15lvk0OVUYjJtWhOHQ99SRL0Hqzi9Q8G
-         DgqKKFGrJ5Cfn/PTb8IxR4LYwkCSUbEgC2eTQh8s4AK27HuvhEtVQEjGijEOkbhC3XbN
-         T3E52tP4WE3zJWySDfBs8hTXcyarErTFEKLK+ka/PploQtkisPXvw7FN2QYNqZRnUvpu
-         +9kw==
-X-Forwarded-Encrypted: i=1; AJvYcCULgMxvtIYJ40xXPlBhVsEFqqHEL9MuK0LKD6melZkBcLQVrB6w+hV+aYvzFJnDDSfurLwlWx/aUo/oyQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3OSWQePyyzBpkp8KaZsdENLO5f0NDaxnAKdcxtnQu2PmzzN2p
-	78rrPiHnlREKA01nVeCOf6S54CXCJmD+Jk58k1tHuepSyIe3ExynlgUuuD8UIgoWLywIdoTMjXK
-	Rf77D3rY67/tNi/krz0LCF0K8H3puLj4eHk5oTCsuurJNPeuBAXT/e3jaYrQQzH+OKqhECw==
-X-Gm-Gg: ASbGncsoCpXBTi5ntwszQI0uh9fvLZRdgbstNyhpgo3LkXyAHqfjqDu2IGGR2YUjHrb
-	HhULyMQsa8lHa5HRcMj05RDU872lUhVEiueemn/XaJg8x2gw8uxekZ0ai9i3JjFBf2RyU5Pj/Mu
-	tc9Iq4cvmfVgalnTKr4Uv8XCMcgqgyXZ9YJpzw/ToCBF5e5CC4kcLA8I2ZIdzbTSI2238zfe05z
-	S61ph5sn4R6WHM40Koq0KREdTWam37WjhV+DLpGqdvnooWUttxDnTkRgD8Fo/5U36B2+L1D0ecZ
-	zCPlnk9T0eKF1zL9ZMn5mfTT7GFa4K99TfG5TzKxZwlsL/7jhxodsSjQm4xsdkj+9PT6UQLf4/F
-	lLFkiv2ty7gRgdG6FWAQNrfHS9HomqkkDX9Zt2GgyqXw/K9BoTmlFtkZ/m9Assk+m7FY=
-X-Received: by 2002:a05:600c:4e90:b0:458:a559:a693 with SMTP id 5b1f17b1804b1-45b517b957emr126710625e9.18.1756146752231;
-        Mon, 25 Aug 2025 11:32:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFxuQzAylX90vNEmmjxyPSaWFpv8tCbOTWCm8WazHqaDOnMAPM4HK8CKvM3oYkR/BEIZaOMIA==
-X-Received: by 2002:a05:600c:4e90:b0:458:a559:a693 with SMTP id 5b1f17b1804b1-45b517b957emr126710235e9.18.1756146751795;
-        Mon, 25 Aug 2025 11:32:31 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f4f:1300:42f1:98e5:ddf8:3a76? (p200300d82f4f130042f198e5ddf83a76.dip0.t-ipconnect.de. [2003:d8:2f4f:1300:42f1:98e5:ddf8:3a76])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7119c4200sm12481975f8f.53.2025.08.25.11.32.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 25 Aug 2025 11:32:31 -0700 (PDT)
-Message-ID: <7ffd0abd-27a1-40a8-b538-9a01e21abb29@redhat.com>
-Date: Mon, 25 Aug 2025 20:32:27 +0200
+	id 1uqZz9-00000008eRV-153G;
+	Mon, 25 Aug 2025 16:23:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 24A4740396;
+	Mon, 25 Aug 2025 16:23:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09423C4CEED;
+	Mon, 25 Aug 2025 16:23:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756139022;
+	bh=KgpIyi6RAg5MAXdti7zU0f2hj8RJXYvhBuIqG1e+0CE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cuZQedcg1Zp25ehlMzicSD+8IdnsfbE4M/4qDW+GBk9ac9z4eDU7QA6R5eTSxBxbe
+	 IFjDzU/5VAjaY7v9KqbVmjsEbZWtdaSccRasiAxWh7JdLtkj+ykHU+0OaB9UTDfEgW
+	 8v3PFGD7ukTKEdGiWSqbat61DdJsQ9rU/FEmZLPNkKxQDhf/heHdagLNykxupDCCSm
+	 3lu7uf5m1eR2ji0UUJezLjeh0pDx9h8qfk1AU2OFNwyw+HTJPTewAnEGi434B1V6Br
+	 p9w1zuysufJvFxZwXfaIKGYzFCI2xiznEsqSR8PVd5faWmyVnMEqXjwtewDrGZOMx5
+	 kCya4XmM0eXwQ==
+Date: Mon, 25 Aug 2025 17:23:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, anup@brainfault.org, pbonzini@redhat.com,
+	shuah@kernel.org, cyan.yang@sifive.com, cleger@rivosinc.com,
+	charlie@rivosinc.com, cuiyunhui@bytedance.com,
+	samuel.holland@sifive.com, namcao@linutronix.de, jesse@rivosinc.com,
+	inochiama@gmail.com, yongxuan.wang@sifive.com,
+	ajones@ventanamicro.com, parri.andrea@gmail.com,
+	mikisabate@gmail.com, yikming2222@gmail.com,
+	thomas.weissschuh@linutronix.de, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	devicetree@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v1 RESEND 1/5] dt-bidings: riscv: add Zilsd and Zclsd
+ extension descriptions
+Message-ID: <20250825-clang-husband-bcb5defdb5f3@spud>
+References: <20250821140131.225756-1-pincheng.plct@isrc.iscas.ac.cn>
+ <20250821140131.225756-2-pincheng.plct@isrc.iscas.ac.cn>
+ <20250822-purge-doubling-f38988284db1@spud>
+ <a2cc4cbe-82ca-4a89-b623-73721a1f3baf@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: update kernel-doc for MEMBLOCK_RSRV_NOINIT
-To: Mike Rapoport <rppt@kernel.org>
-Cc: =?UTF-8?Q?Mika_Penttil=C3=A4?= <mpenttil@redhat.com>,
- linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
- Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
- virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
- wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-References: <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
- <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
- <aKmDBobyvEX7ZUWL@kernel.org>
- <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
- <aKxz9HLQTflFNYEu@kernel.org>
- <a72080b4-5156-4add-ac7c-1160b44e0dfe@redhat.com>
- <aKx6SlYrj_hiPXBB@kernel.org>
- <f8140a17-c4ec-489b-b314-d45abe48bf36@redhat.com>
- <aKyMfvWe8JetkbRL@kernel.org>
- <dbd2ec55-0e7f-407a-a8bd-e1ac83ac2a0a@redhat.com>
- <aKyWIriZ1bmnIrBW@kernel.org>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <aKyWIriZ1bmnIrBW@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: bL2kRKOMFXxdBJIXuiC2GrbyoVg8hcE_Bi9OJBb1JEo_1756146752
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+In-Reply-To: <a2cc4cbe-82ca-4a89-b623-73721a1f3baf@isrc.iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_113237_897942_5D64F88A 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20250825_092355_339100_0292F334 
+X-CRM114-Status: GOOD (  28.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,80 +80,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============6739879532067015706=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25.08.25 18:58, Mike Rapoport wrote:
-> On Mon, Aug 25, 2025 at 06:23:48PM +0200, David Hildenbrand wrote:
->>
->> I don't quite understand the interaction with PG_Reserved and why anybody
->> using this function should care.
->>
->> So maybe you can rephrase in a way that is easier to digest, and rather
->> focuses on what callers of this function are supposed to do vs. have the
->> liberty of not doing?
-> 
-> How about
->   
-> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> index b96746376e17..fcda8481de9a 100644
-> --- a/include/linux/memblock.h
-> +++ b/include/linux/memblock.h
-> @@ -40,8 +40,9 @@ extern unsigned long long max_possible_pfn;
->    * via a driver, and never indicated in the firmware-provided memory map as
->    * system RAM. This corresponds to IORESOURCE_SYSRAM_DRIVER_MANAGED in the
->    * kernel resource tree.
-> - * @MEMBLOCK_RSRV_NOINIT: memory region for which struct pages are
-> - * not initialized (only for reserved regions).
-> + * @MEMBLOCK_RSRV_NOINIT: reserved memory region for which struct pages are not
-> + * fully initialized. Users of this flag are responsible to properly initialize
-> + * struct pages of this region
->    * @MEMBLOCK_RSRV_KERN: memory region that is reserved for kernel use,
->    * either explictitly with memblock_reserve_kern() or via memblock
->    * allocation APIs. All memblock allocations set this flag.
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index 154f1d73b61f..46b411fb3630 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -1091,13 +1091,20 @@ int __init_memblock memblock_clear_nomap(phys_addr_t base, phys_addr_t size)
->   
->   /**
->    * memblock_reserved_mark_noinit - Mark a reserved memory region with flag
-> - * MEMBLOCK_RSRV_NOINIT which results in the struct pages not being initialized
-> - * for this region.
-> + * MEMBLOCK_RSRV_NOINIT
-> + *
->    * @base: the base phys addr of the region
->    * @size: the size of the region
->    *
-> - * struct pages will not be initialized for reserved memory regions marked with
-> - * %MEMBLOCK_RSRV_NOINIT.
-> + * The struct pages for the reserved regions marked %MEMBLOCK_RSRV_NOINIT will
-> + * not be fully initialized to allow the caller optimize their initialization.
-> + *
-> + * When %CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled, setting this flag
-> + * completely bypasses the initialization of struct pages for such region.
-> + *
-> + * When %CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled, struct pages in this
-> + * region will be initialized with default values but won't be marked as
-> + * reserved.
 
-Sounds good.
-
-I am surprised regarding "reserved", but I guess that's because we don't 
-end up calling "reserve_bootmem_region()" on these regions in 
-memmap_init_reserved_pages().
+--===============6739879532067015706==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="przAQh4lUz2Eomq/"
+Content-Disposition: inline
 
 
--- 
-Cheers
+--przAQh4lUz2Eomq/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-David / dhildenb
+On Mon, Aug 25, 2025 at 11:26:13PM +0800, Pincheng Wang wrote:
+> On 2025/8/23 0:33, Conor Dooley wrote:
+> > On Thu, Aug 21, 2025 at 10:01:27PM +0800, Pincheng Wang wrote:
+> > > Add descriptions for the Zilsd (Load/Store pair instructions) and
+> > > Zclsd (Compressed Load/Store pair instructions) ISA extensions
+> > > which were ratified in commit f88abf1 ("Integrating load/store
+> > > pair for RV32 with the main manual") of the riscv-isa-manual.
+> > >=20
+> > > Signed-off-by: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
+> > > ---
+> > >   .../devicetree/bindings/riscv/extensions.yaml | 39 ++++++++++++++++=
++++
+> > >   1 file changed, 39 insertions(+)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml =
+b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > index ede6a58ccf53..d72ffe8f6fa7 100644
+> > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > @@ -366,6 +366,20 @@ properties:
+> > >               guarantee on LR/SC sequences, as ratified in commit b1d=
+806605f87
+> > >               ("Updated to ratified state.") of the riscv profiles sp=
+ecification.
+> > > +        - const: zilsd
+> > > +          description:
+> > > +            The standard Zilsd extension which provides support for =
+aligned
+> > > +            register-pair load and store operations in 32-bit instru=
+ction
+> > > +            encodings, as ratified in commit f88abf1 ("Integrating
+> > > +            load/store pair for RV32 with the main manual") of riscv=
+-isa-manual.
+> > > +
+> > > +        - const: zclsd
+> > > +          description:
+> > > +            The Zclsd extension implements the compressed (16-bit) v=
+ersion of the
+> > > +            Load/Store Pair for RV32. As with Zilsd, this extension =
+was ratified
+> > > +            in commit f88abf1 ("Integrating load/store pair for RV32=
+ with the
+> > > +            main manual") of riscv-isa-manual.
+> > > +
+> > >           - const: zk
+> > >             description:
+> > >               The standard Zk Standard Scalar cryptography extension =
+as ratified
+> > > @@ -847,6 +861,16 @@ properties:
+> > >               anyOf:
+> > >                 - const: v
+> > >                 - const: zve32x
+> > > +      # Zclsd depends on Zilsd and Zca
+> > > +      - if:
+> > > +          contains:
+> > > +            anyOf:
+> > > +              - const: zclsd
+> > > +        then:
+> > > +          contains:
+> > > +            anyOf:
+> > > +              - const: zilsd
+> > > +              - const: zca
+> > >   allOf:
+> > >     # Zcf extension does not exist on rv64
+> > > @@ -864,6 +888,21 @@ allOf:
+> > >             not:
+> > >               contains:
+> > >                 const: zcf
+> > > +  # Zilsd extension does not exist on rv64
+> > > +  - if:
+> > > +      properties:
+> >=20
+> > > +        riscv,isa-extensions:
+> > > +          contains:
+> > > +            const: zilsd
+> >=20
+> > This syntax is odd, it shouldn't be required to have zilsd in here and
+> > in the then. Did you copy this from Zcf or come up with it yourself
+> > because it didn't work otherwise?
+> >=20
+>=20
+> Yes, I did model this after the existing Zcf constraint in the same file.
+> The structure is nearly identical: cheking for presence of the extension =
+and
+> rv64i, then forbidding it in the "then" branch.
+>=20
+> I've tested confirmed that removing the "contains: const: zilsd" from the
+> "if" condition still correctly enforces that zilsd must not appear when
+> rv64i is present. The "then" clause with "not: contains" is sufficient.
+>=20
+> Given that the validation behavior is equivalent, but the logic is cleaner
+> and less redundant without the extra "contains", would you recommend
+> updating it to the simpler form:
+>=20
+>     - if:
+>         properties:
+>           riscv,isa-base:
+>             contains:
+>               const: rv64i
+>       then:
+>         properties:
+>           riscv,isa-extensions:
+>             not:
+>               contains:
+>                 const: zilsd
+>=20
+> If so, I'll update it in the next revision.
 
+Yeah, please reduce it to this form.
+
+--przAQh4lUz2Eomq/
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKyOBgAKCRB4tDGHoIJi
+0tBmAPwITOW6B962WAfPzymCU4z9xZ51B5BtYVuDFIxypRRcogD/bJcgHnZ/rI15
+6Mdyko1A6Tb+pZvgrrtqkICniCrQogc=
+=3Dwx
+-----END PGP SIGNATURE-----
+
+--przAQh4lUz2Eomq/--
+
+
+--===============6739879532067015706==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6739879532067015706==--
+
