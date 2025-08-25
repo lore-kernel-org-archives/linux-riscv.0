@@ -4,143 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740B4C8303F
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 22:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A7DCA0FE7
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 22:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OzvmVgC2HtIUsNLxOLl4PjkujJ0LCQZW0ziZWWkXvtg=; b=up3rtkcPDrSdXc
-	VZW8ZG1gqZ0Oen+yiDyQOWq7ld5odJCu8ONled1fNSRLl4OmPlwdpJGwu0Ee4aJMPSGD/O4LuSLJ3
-	SamQJIBNP3swc1th75wMvLjhddL0V3MyHbXRfx3yGa0LYUZsSzSVexmeooaCnn2OCyLDXf3VBt+8D
-	TUPwxWgLFgy0/nYeyeDl3I5Fw0jS20MEetyOhqCH6cCB12l24rnAKvH3pLAlS+hPx5tpWLivC1vJR
-	ZuilLM39uQUaaJg00TP2p6WkvDu1x0n2g3JwWB489XLL4/HcEjSL6uEGNvv/BR+V3ylTfn1vbjpzz
-	mlGX6NeBx0F98b4F8+tg==;
+	List-Owner; bh=NeWgLC8IGrc+8rGI30ZLiPvYNrWwPNOJaDAWKMqUXp8=; b=RkrQRZmnpEUolX
+	GBxIrCsdDWCO2dU6aEldzID04oc2Dcb181IyvTXsprhZ8ajMZ5a82YIDtLwFVEfj0vkCQDcFzOqUP
+	t/wwXQjV+d0BTRgjX85ZRQJEgvlI60IONeYpA5Ewp0EjVFf+f8FJy5+KSk1WRgxALqMmyl0gVLJmo
+	K2oi36YE18v18NLTu8jHdSjLsD7BbE0UYBrGUqdRBppJaoY6HE3utwPU5QXayVOYYdZi2y2aG+cpF
+	EDjkOaK5WIaOqqKIg+36ZNSMpPusHqz00y77O592CelAzOsIqaFSsyPI5npngU4l8zOtW5WiyoBij
+	1bFwFOtnBTyq+uTUtxJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqffA-00000009xEH-1ura;
-	Mon, 25 Aug 2025 22:27:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uqff9-00000009xE3-2J8v;
+	Mon, 25 Aug 2025 22:27:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqfbm-00000009wXy-3pZQ;
-	Mon, 25 Aug 2025 22:24:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 82F14434CE;
-	Mon, 25 Aug 2025 22:24:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B2B5C4CEED;
-	Mon, 25 Aug 2025 22:23:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756160639;
-	bh=C8dCcIKDdLsDA62THkA9YNFeAbhvDEtzivsFsYtysoQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eFrzhgcpB4xSQ+04CnDToPC6BbaXLfZhYIA5I/BavZfky4LVkNeiBm33bKCwjfNMR
-	 7Xb6TL3pLhbQUnBSeoZywHVCHtHEMtbySuCz757jR5LLWGzGIAWc2BOMQnJKu/GTDD
-	 OqBmH7dyMmZk1RARABrqGFKsw9O9AnWfe1iHh5N4qj7JtCSjVfAJPlNBoDQzAapk03
-	 krEs+vWhYgzabnk0EG5oW4LBwfNFqc1Pw+++S7/1krPhye3Fbxfwd3gAuIyFq598JK
-	 pyPcrlbN+zCcku+7kEqoKnQ115oGGgQBsZT2rIXqlg87fc1FYNe8a8EqRPk1p8C1S+
-	 DRCnOZhIQCHAQ==
-From: Yixun Lan <dlan@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Taichi Sugaya <sugaya.taichi@socionext.com>,
-	Takao Orito <orito.takao@socionext.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	id 1uqfb6-00000009wOZ-0sZF;
+	Mon, 25 Aug 2025 22:23:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=VQ6ZxU9qPw4vkvXRX5Uv3LAGHE1s7LId4Lk2ftW+5fQ=; b=Dl7NKkPggz+LyLx3g8yECmKY46
+	frByDzPrm1d7k7r6fUYBr7sJ1/gtI3/xuCZztOdzBTfXHZW5dLTfoeezOIGEPointBsAmd03xk48d
+	WlEM/iwO4pRpd/cRbRKw3fHveNo5GXY5PxTUSJ8+GZzhKGoxCHx2gpOCpjkylBAeqT/2dyKgrAimm
+	+dCTSl+QYVkt2M0A4NwjYvWM4SBpo+zMRuLXJJRssy7tLZ5SJF8r5hIe+zRkvyqcggHxDm1LnCjKo
+	AkoKfXPmuduAgVkKtztmrNNPM5r0DScPdhFhgKU4NzqG9y6QY6PhELbLGykH30oOt1dX2dZTR1OUR
+	AnNYWLvA==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqfay-000000024iA-1xRz;
+	Mon, 25 Aug 2025 22:23:21 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 0C1983002C5; Tue, 26 Aug 2025 00:23:19 +0200 (CEST)
+Date: Tue, 26 Aug 2025 00:23:19 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Steen Hegelund <Steen.Hegelund@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	UNGLinuxDriver@microchip.com,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Qin Jian <qinjian@cqplus1.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Alex Helms <alexander.helms.jy@renesas.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
-	Brian Masney <bmasney@redhat.com>
-Cc: Yixun Lan <dlan@kernel.org>,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	patches@opensource.cirrus.com,
-	linux-actions@lists.infradead.org,
-	asahi@lists.linux.dev,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	soc@lists.linux.dev
-Subject: Re: (subset) [PATCH 000/114] clk: convert drivers from deprecated round_rate() to determine_rate()
-Date: Tue, 26 Aug 2025 06:23:38 +0800
-Message-ID: <175616003525.79746.16402526303339008811.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
-References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org
+Subject: Re: [PATCH 0/5] Drivers: hv: Fix NEED_RESCHED_LAZY and use common
+ APIs
+Message-ID: <20250825222319.GO3419281@noisy.programming.kicks-ass.net>
+References: <20250825200622.3759571-1-seanjc@google.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_152410_991902_55B0C250 
-X-CRM114-Status: GOOD (  11.85  )
+Content-Disposition: inline
+In-Reply-To: <20250825200622.3759571-1-seanjc@google.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,30 +96,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 11 Aug 2025 11:17:52 -0400, Brian Masney wrote:
-> The round_rate() clk ops is deprecated in the clk framework in favor
-> of the determine_rate() clk ops, so let's go ahead and convert the
-> various clk drivers using the Coccinelle semantic patch posted below.
-> I did a few minor cosmetic cleanups of the code in a few cases.
+On Mon, Aug 25, 2025 at 01:06:17PM -0700, Sean Christopherson wrote:
+> Fix a bug where MSHV root partitions don't honor NEED_RESCHED_LAZY, and then
+> deduplicate the TIF related MSHV code by turning the "kvm" entry APIs into
+> more generic "virt" APIs (which ideally would have been done when MSHV root
+> support was added).
 > 
-> This series is broken up into several categories:
+> Assuming all is well, maybe this could go through the tip tree?
 > 
-> [...]
+> The Hyper-V stuff and non-x86 architectures are compile-tested only.
 
-Thanks, Applied to SpacemiT's SoC tree at "k1/clk-for-6.18" branch
+I suspect there's more of this wreckage in the new VTL driver that
+they just put in:
 
-[049/114] clk: spacemit: ccu_ddn: convert from round_rate() to determine_rate()
-          https://github.com/spacemit-com/linux/commit/b4a7b0d2c4485d11d37dec721709660f3967efcf
-[050/114] clk: spacemit: ccu_mix: convert from round_rate() to determine_rate()
-          https://github.com/spacemit-com/linux/commit/56737edda7db58549550776092da12fe03600399
-[051/114] clk: spacemit: ccu_pll: convert from round_rate() to determine_rate()
-          https://github.com/spacemit-com/linux/commit/d02c71cba7bba453d233a49497412ddbf2d44871
+  https://lore.kernel.org/all/20250729051436.190703-3-namjain@linux.microsoft.com/
 
-Best regards,
--- 
-Yixun Lan
-
+although ideally they rip that thing out. I don't know how that code can
+ever be correct.
 
 _______________________________________________
 linux-riscv mailing list
