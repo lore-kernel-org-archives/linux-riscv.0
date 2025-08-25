@@ -4,100 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94F4CA0FE7
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 19:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB31CA0FE7
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 19:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VSYq4be5q4qU080bPC/hazl9I/RTG6ozzjIuOb9/4AA=; b=XeprALfPAHDauS
-	coq2j7ujrXB9DUVlnJo1E6vnMaACxIYg+AEaH9A2ooBQ8xEhUk0/iXYGwGOxbY0TTP9ewdAniXO92
-	IfeiPzRCLspElcMFyBOQChySbOuMdFKxsqQTmA2DXAiGr7nXStXO+NQMSMY+kbJZcDfed1XoTstH3
-	rgA02Vy/JYAqky2h/ck71XKLNgL/02goW8myiPdAWcTU1UZq3uj++YEXgjeyxGtFlvRmfAU5gkCYX
-	hEHSQxF4hUb0SEvly51wqgugn/rqpw6jj/61buADGZ1iiEPHbDafuf/EgOVqkEeXH7e0qpuRoEcwz
-	LaGhEWN1+xarnm4pCjgg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=WLgK6mcVtC2h28gb7JJ/xdOlQnlnNi7CizYc1StPW+k=; b=Jz64tEUaq9ftf1p4Mlti0qRjHf
+	fietki7ULoj1iQKStfoyCaug7mT+1y5CzcJHkeBm+QR1WlbtFL8vxdrjiNJEellBNxZk7UyLRvFO9
+	oPep3h6Cjv/CicXYcK/VsbBSWycftJQEkSqadfqVN/JxayndZ4ddlJJCYxpx1V0FmZ4XwxBwOZeXg
+	TQElvQuYtFWVw2khkeaCkahR4B3cj4GqopYxToqYMaD6r0UuLiEST/8BQEKZRON8OzIUBsOS4/9zG
+	19vrLgTwvhS/8/wK6b3I0EenSPJz9Aa35OsxJDR1+LyOtGiUapElkpzybQQM9v5k88JMbJ/9GFpuO
+	e4/HaaNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqcYQ-00000009B9h-1pAh;
-	Mon, 25 Aug 2025 19:08:30 +0000
-Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
+	id 1uqcma-00000009Hme-49dx;
+	Mon, 25 Aug 2025 19:23:08 +0000
+Received: from mail-bn1nam02on2060b.outbound.protection.outlook.com ([2a01:111:f403:2407::60b] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqasR-00000008orD-3Utm
+	id 1uqbpg-00000008xEN-0AGu
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Aug 2025 17:21:05 +0000
-Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-8844ee2cb61so124348339f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Aug 2025 10:21:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1756142463; x=1756747263; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=CDRNDuzfDsv2nazycUSggd95+r+QXZLBa3yNf0OnFtg=;
-        b=MeQErKXbRYX8aD/c4ReiswUxz+rsisZLWuZUX/fatJES98DyAsBHCVhyUrjxs3evCv
-         uzhFxNKDikmJsh6pKHsdMh84nxsA9FQS6Q/4FUKnn6hHZ/d75xwox6c0mqNVJA50bCoQ
-         3wuyE3sWtPOSwENr89t2iSXK+U2NhxaEFxlV8NAF/E+T+hufVf+/I5GVMaETePBRQ4X9
-         979LPTCYPJnVASPJ1fgqThNcc5Lx9KJC4TJdxPlRbR6WxUUCUq3X5NT1UPM6LYsdr3KE
-         3zpINUlN9U0gMD+jJKc87Ah7ohtspzOGOrvaWue1XyUaqgKOr6Sy4UBqMSZbUDLttCG3
-         Y5hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756142463; x=1756747263;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CDRNDuzfDsv2nazycUSggd95+r+QXZLBa3yNf0OnFtg=;
-        b=ih54OE1KrAmwP4r90lvFd57jasif/TAvpw5CE8alUihZMvzNmSUjMah0AoU8A821YQ
-         z9TolbEYyy6zMmuUDaJhpgmVwIZae5XncLGqz7QhjnbhHPMnqfo5Zf/1FNv0tZqcTpJV
-         DJ9ykuXiL88O1XDtRR1W0S2hbCntHXAO0N//Rhg+oOi2iUip8l05cWlbZbZpJhFHQciR
-         9IcVlZa/yLdy1EUIrER5xyN+77ewGRcrGLgbwx+j4YsBiEMs7hLrfVX0DtgVDasnWaEq
-         77J+X41Z3PtSKwvdTpIp1m9LJmUVcFKxoG6xPQVqIE9gCbheBI4xVc8k5zuSzIpemWq6
-         lYTw==
-X-Forwarded-Encrypted: i=1; AJvYcCXCzMXnQcRV9vHRVriCOFBNKzY+TCiHx2kw2dE8hy6D2/gBo/PJcD1X4r4iqTllsi411jlM7ZaWrMA/BQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvUOkiHPuBD711hQA16zcW2smsROc6kYq5P1ZKb0WBbfg3/EzM
-	kqgPGisy/QY7ZLkhp1b44hVrWp2sGTl/KEkyav3Em8MAJl7T3UT+VFOOXTogkjeJPdQ=
-X-Gm-Gg: ASbGnct7hrp+qDzq6evF0nnFSLOmqQ3se1+suDBGC/YiOtsafOmR9LFo4Bz5nT/Sh6M
-	CPh0wSS8D0bAHHF1d0fSnin95iWPhNdNOwHvTVr8+rT7D0nj/dWnCMOuWbpYc59XreV/7CKsb6h
-	D2gAr3d2fufliMBJNbWDvkvDDgZZD7hoPyAJf4gEr6otnUserqyOulTjcE5ZWtckW0qcFXzxImw
-	0v8RSUpLd88AUI7dVBFAZ3krgYQXvEO9FoPA3Z8oNdpet/bt3VF+BsTheg2qyh7AnnBkzaHDCGm
-	A+GNhvr28SSjhpd30svnQ3hL4NGxaXWnm10ax0PDygVKzhXgNG6qxps6Wf3wM6npKwqqkP2aX83
-	GvPsCnsieezE2ZkUE/QR4lShJCUREXXQd6dUfYYad9xRSt/Z7RclOokFdM8QrD5UfVA==
-X-Google-Smtp-Source: AGHT+IGEzPSBz+bPlXOat9c0EsPU9K3GuEWngl1Fa2CoYcKOTcciz21i7xthvFdDRasSvDgUl27o7w==
-X-Received: by 2002:a05:6602:6d1b:b0:881:659f:cd59 with SMTP id ca18e2360f4ac-886bd1313a9mr2196495139f.5.1756142462660;
-        Mon, 25 Aug 2025 10:21:02 -0700 (PDT)
-Received: from zippy.localdomain (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-886e60c4737sm76275439f.26.2025.08.25.10.21.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Aug 2025 10:21:02 -0700 (PDT)
-From: Alex Elder <elder@riscstar.com>
-To: lee@kernel.org,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	alexandre.belloni@bootlin.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: mat.jonczyk@o2.pl,
-	dlan@gentoo.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux.amoon@gmail.com,
-	troymitchell988@gmail.com,
-	guodong@riscstar.com,
-	linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v13 0/7] spacemit: introduce P1 PMIC support
-Date: Mon, 25 Aug 2025 12:20:49 -0500
-Message-ID: <20250825172057.163883-1-elder@riscstar.com>
-X-Mailer: git-send-email 2.48.1
+	Mon, 25 Aug 2025 18:22:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MLY7FBXWmyEVzFd01WeKSclzGw7KKIQJ3WiRzWaup44S74+ERnhZ3zwwdOB+Cc3+4iFCOHPKfdUp7dnwzrhqLnV4kbOlAaGy0zrhFq4D+Z/Q75crlVcWBjfoLyk4IUIFpl+7WZ21L8iGZMgdRoL0zBKDMKdl8RPfELwHOwSfrZvwncQKpuxQeMrxHDRKSPIummwp2sGSo3d2yFRVtOEt2+nEwBUpa/qal/dHYVmH6Lb/VkU4n7Qj/+S0oSDnypnsNysGmVYzDUPZPURETyngQRm+GipeKRyrS6e1TVtiDX2kmmJQJ0itN2R7i5NENAUNUKidyuF2Pt7uoh0/Tu53UQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UmTPSQh7WD9yYdJaEQKH98TDH82jSkVmtZ9hGS6jfWw=;
+ b=ERbsppOYsuXBKnA21UuSvOU58hxCNs1SeVQRJh37kc5eO5kRIwR8PvqU1/F+5ucvRT8L6sAg6EypahL/lbAoyCLnjZol/fzb/gYLqz8pbQukf9S6+/KXtviAe4Y5BYuQ8mhTogrjA3TsMWmumKdpsBx5qAHWwmF7eq2xmt0f0hnJdDrQCZ8gbYituZTALV4YFKKQZQZeR3c+oBVmhm0k2jtcLvZdRwyncBzjz3aq6URSFDkLcbIEn1GHM+EXcH5xlrtKVAY3w8je0Ia6ppUivBY2pcCqUZZo5xIvzoBAOHfCojsCM6ClUq7+e2sgjNn1qbeuhRLax0IxI6p4fSLHtQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UmTPSQh7WD9yYdJaEQKH98TDH82jSkVmtZ9hGS6jfWw=;
+ b=JhHimdtXhIVS0HecDxqWnGcnaeImf4L2hoOH3FJ5K0+SXkFfHbf22sxuxIEK9brqjb5KbDm1xIdiFT5HpUwPYWEo1HIILxTZ/LDsYkB6id26vQ/oqCkrpSeXSwdg75wRDAsGrkH1oYQobRVU5Unp8q37onIcm8ptxoxxXZsLGYRK7/XF418BjS9loASd0zr6jCq6x1h672xxzDXf1F9tVfFCOxBEtsq6Vb21eh/kXqO7BTHiCgJEywsS1U+x5ugW7Jf7yTmfw5C1upzVBrHB7ijNH3fs0iSOFzqN/vanL1Y+K23jfpwZhV8dwyvF5KhA7qC4MAo2VgNQa2A3E15LGg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV2PR12MB5968.namprd12.prod.outlook.com (2603:10b6:408:14f::7)
+ by CY5PR12MB6624.namprd12.prod.outlook.com (2603:10b6:930:40::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.20; Mon, 25 Aug
+ 2025 18:22:00 +0000
+Received: from LV2PR12MB5968.namprd12.prod.outlook.com
+ ([fe80::e6dd:1206:6677:f9c4]) by LV2PR12MB5968.namprd12.prod.outlook.com
+ ([fe80::e6dd:1206:6677:f9c4%6]) with mapi id 15.20.9052.014; Mon, 25 Aug 2025
+ 18:22:00 +0000
+Message-ID: <4a9e0017-53a6-48dd-8e3c-774a859a28dc@nvidia.com>
+Date: Mon, 25 Aug 2025 11:21:56 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/8] selftests/mm: Add -Wunused family of flags
+To: Muhammad Usama Anjum <usama.anjum@collabora.com>,
+ Shuah Khan <shuah@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Peter Xu <peterx@redhat.com>,
+ Leon Romanovsky <leon@kernel.org>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Barry Song <baohua@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, kevin.brodsky@arm.com
+Cc: kernel@collabora.com
+References: <20250822082145.4145617-1-usama.anjum@collabora.com>
+ <20250822082145.4145617-5-usama.anjum@collabora.com>
+Content-Language: en-US
+From: John Hubbard <jhubbard@nvidia.com>
+In-Reply-To: <20250822082145.4145617-5-usama.anjum@collabora.com>
+X-ClientProxiedBy: BYAPR02CA0026.namprd02.prod.outlook.com
+ (2603:10b6:a02:ee::39) To LV2PR12MB5968.namprd12.prod.outlook.com
+ (2603:10b6:408:14f::7)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV2PR12MB5968:EE_|CY5PR12MB6624:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4a79fbc-7f1c-4225-56f5-08dde4044828
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bUxjQWlpa2dqTGtHbUVkZHc0Z20wa2RQbTF3eER6WEFXTTg2L3dBR3ZRWEZp?=
+ =?utf-8?B?ak1naGZhUVo4WGtmTk1POUZwS0tZMnMyRmZFOFBrWm14enQ0c1hCYUZmNU9K?=
+ =?utf-8?B?eU90VGtJUDhYTDAvV1h4UlVsNmJHV1kwZlkxWFFHQWcwS3IwVmptYXNtM3Jz?=
+ =?utf-8?B?VDB2WW93NkpSSDNtUXNkaUk0WEI0QVJub3dkYkI2Z2kwNjRXMzJobm9UYkdi?=
+ =?utf-8?B?cnFQQUQ5a2E4SEV1K1dDbU15MGY1S2RTYVJ1SnVNcG5ZQUo4a1psdE9VSnR6?=
+ =?utf-8?B?MGJoTEk5c2hFVTBDOURLK2R1YTI2elVVVG54WjVESG40cWFia0wrb3hZc1p1?=
+ =?utf-8?B?d1dTTHhaVk1vcmJ3cEU2THJZcDZ1OGlLTWtIdzZQRUFhTnNWYWx4VmVkSGpx?=
+ =?utf-8?B?SG9JMEJRdmk3Y0RaRVAvU1d3WFptTVdJbW53QWJLdVdxSnFsbGxxM0V2Vndp?=
+ =?utf-8?B?ZVUxMTNTT2dFZlV1RHN4ckRHSk5UMnVCaDR5ZXU3QU44SDhOeWZwZFFBTGhV?=
+ =?utf-8?B?K1dkWFJyUVV5c2RDQTJVT2EyaEh2M1lnMnZKVmF2VkhNY041NHczdmxzSUdN?=
+ =?utf-8?B?eldsbGR5V09pS2h6dldiazd2Nnh5dkl4SXo4UnB2ei94WU5OWUI2cXBOQUFU?=
+ =?utf-8?B?NVRZdE5obEZWRSt4RnQzRFYrOEl6emJMUEwwZkY1MCtsaTRBNW55YmJpbS81?=
+ =?utf-8?B?RmVEOXpySDJEaUFCdFRNQXFlM0lmaUN4K0k5bFdlY1RXZzQ1RURwVjNTY2V6?=
+ =?utf-8?B?Q2NRc1VSZmlyNXFYcFRoanlqb2xCckhoQUVqQzQ3aHZycWs5UC80Skc1Q0ZL?=
+ =?utf-8?B?cndYWFd3RmNnWXRZVG1sbWdzUER3aWxIUitodE96VzdhUmhTKzd4WldLVFBm?=
+ =?utf-8?B?bjUzd2JIbi9kbTQ2aDJlZk1uQVhYUlhyRW11MDBUa2xpY1NJakJIVVB5RU5C?=
+ =?utf-8?B?bGxJUThPcFEwVXJXOW92WnRFRnZZdGh2RkhLRkJRRU5XSGZSS2htOGFXeVhr?=
+ =?utf-8?B?Q3J4SFVHVUl4alhRYmQ0NktBUGFnWUtDWFpiMWZVQ3NkVnQ5blcxRkRSSVB1?=
+ =?utf-8?B?MU1yVks1TDF4VkNuV0QxRGdRcHJldlN1SzVXZDRUbFFLQzVQK1hGZEpLaHZl?=
+ =?utf-8?B?eTlIeTk1cXpOR1VpRmxnYXdOSUViWmNHZDBnc3FxZTk2UHpCK0tVdm1rcEk5?=
+ =?utf-8?B?cnI2MUdKaSs3a0ZJeEk1MXcxY3liblJreVFRVERtWnNQa2VKUkxKb1g0eFZV?=
+ =?utf-8?B?QUhzM2U1RmVrYXZFTlNxbjBjSXlkaWUxN2U4UDV1YXVBaExpK3dOMVFBL3kx?=
+ =?utf-8?B?ZGFGMnE5dC9lZVpycEJDK0g3dVV3MUNOTFBDRitxS3VOQll1ejF2d1FSVVpD?=
+ =?utf-8?B?b0hjQTlGMTRjN2NSM001MGt2UFVScGtVd2Q4T01lSVNjN3hESUlJV0d3ZVRm?=
+ =?utf-8?B?cmhHSkwzWDFBM012ZlhwdlozZldocHpVeDZDejBWK0NKMzRaWTh2azM1N09P?=
+ =?utf-8?B?cDdpcjYzUGpEckdBS1U4OEFKVkp2YjZCdFVOeHFwbnVSTHF5OE56bGovS0FV?=
+ =?utf-8?B?dE9oUWIvZ2krbTBXcUd6NjVLSXE0aVVJREFqWStpNkkrWFh4OXFjNlZ2OU4r?=
+ =?utf-8?B?R1lLZm9wdkx0MGYrZzlhZ29DK01DaVU2U1NPWGRKdHhHcU9WN2p4ZUlTNjJZ?=
+ =?utf-8?B?VWpMN2ZvcEVUTEZpV0g1UUp2Z2RpYkRSTjVJQVUzenVERlJwMkljRHBNQkJC?=
+ =?utf-8?B?UFZHMkRVQTE4QkZUeGlzcC96aHJyZjVIckh0Z1hGVkRQWEY1dlVlZ0dDaDRX?=
+ =?utf-8?B?SG5WWHp3YjlBMWpPLzg2U1BRU05nRlg4a3BlZ3RWTUJoSm5xTTFEN3A2QW9Z?=
+ =?utf-8?B?SUJuN1dBUnplTVhxQVVCbjdNMjVQUkJzV0hCcit1dU9EZXhqRmdKTWxHT1NM?=
+ =?utf-8?B?YVVTOFhWM09oQUM0MGZQVEZmbDZLRUVoTFVDSFdHQUQwdmpkZG8reGRYMVU5?=
+ =?utf-8?B?Yks2a3ArNVVnPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5968.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YTZYbWdic3NPakZqRCt6cFJVK1NNdFgxOE9TNGVCcEhiZjdMRXVOd0d3VTNl?=
+ =?utf-8?B?TUNKbTBNOWpRR0dBNyt5ZnJmdDd5bXUyYTIxL2pRTFpKN21ZMGt1WG1TRENy?=
+ =?utf-8?B?dk9xRjVHemQyU2ppS1pPV0tMMXNKRUxqOVVQRldqb0dBNjNvcGF5ZmZrUDNW?=
+ =?utf-8?B?REpQcEx6QXJUZXJoN2ozNTB2ek1FMW5NaU8vQlZoektvUmg4ZUdEUXpxUHlk?=
+ =?utf-8?B?blFuUlliWG1GcUpzQUcrZWJvdXQ5ajMxdERYWStWRGNFK1EyTTZSbzBTVDRL?=
+ =?utf-8?B?cW9ETXpRSWVvM2g5SW1zdko4cU1GdndqWVQ3Qkgwc1FYZFAzeWl3Z0ZVNXgv?=
+ =?utf-8?B?RXkwNmpPYnZuQVNQbmVTRVNmM0JEU2pCL3ptdmpHOFFXT29ka3ZaU29ockMr?=
+ =?utf-8?B?QkM2TzZKanJxOU9va2xmUHdKdEVPYzdQZ1dRWHoyeE4rWjdNYW96eWpLZlkr?=
+ =?utf-8?B?SmFHSi84dWZrWjk5djk4M3VpN2V2bUttU1FEbEI0K0pHSHE3NUVkT0xLVjFC?=
+ =?utf-8?B?dnRlR0lTandxdFRpRFVUSDlpb3JVeGVFKzZJT3pUOStWRGh1eVhpNFdjT3Ir?=
+ =?utf-8?B?ZDJRT1l0OVExUDVZd2dmaTBNeC9PZTZQOE85YTErM0RIdFp4NDVhWWlkNk9C?=
+ =?utf-8?B?SU1lSXlrTW5aZXcrTi9ISDIxSmpNQUNpVmNIZ2MyYlI1TSswUkdDR1JmV1NN?=
+ =?utf-8?B?QXdaVkZkY2M5U0Yzc200dnA1clBKa3hqWG0zdkUyR0V5MUdPczR5eUcyVisx?=
+ =?utf-8?B?b0dnRVRGUWJXSzVSTXhFUE1sek40T3Urd0p5Q3FKV1N3eUZORFdEYVlCcjZQ?=
+ =?utf-8?B?cWlvMDhsdUNBcXY5NzRIeWV1aGlGdnVkcncxMDkxV0FpSnVsQXo0OFVrWnc1?=
+ =?utf-8?B?OEVsWnFhTHppb2FlNjQyNXY3aXpHMXFtUFpHM2loQXkxTE5hNDJ1UTFoSkhv?=
+ =?utf-8?B?S3IwSnlBWTg1OURwMXhWbWFIQjVjUWpLUGh4d2hPZytSV254K3FOeVpFdHZP?=
+ =?utf-8?B?NjlBVjIyWWd4TC9jM2NwYWVrVXBEaGlQMzVmalFjbFhJcHhLTTgwV2JsaUpM?=
+ =?utf-8?B?MmpiRkVHcnZpM3FEamgxWURiRUVJQWJYRnc5V2M2UU9xYkZxZUZHTXNYNjhY?=
+ =?utf-8?B?a29FSW16WENKYWJuQnVYeUtwME9yWGpWTFF2Y1B5SVFOaVRTUmlHSTdPSk5G?=
+ =?utf-8?B?TXJNR2RJM2xDNkYvVHYvdWFhdG9INWp1bU9NMGZ0MHh0ZTVpS3VoYmhscG55?=
+ =?utf-8?B?ZE5DQXNyV29HUzNNU2EvQVFxOXRoUW5nQjN4SGVFMVhqSGNzZk4vWWxUamls?=
+ =?utf-8?B?U1BERDJEdlFlbmxqMlFzTVdtT2FDZi9HQXliRlBvMi9XL29jZnRXSTY5WUJ1?=
+ =?utf-8?B?S3VtSTkwenV1ZzlyNnFhRUltQjUwL0d6aEhqL1NCakhIZ1hkd2VWbUpDRWR0?=
+ =?utf-8?B?RlZYeXQ4SXp1bXo0TFVqeEU3WTYwNHJLVFA2UkpTczd2aGFHKzNFYkJiYkti?=
+ =?utf-8?B?MjlJaUx6TUU4b3VFZE13eENvTjRVOE1KaHVpMGg0b0U2S3dHSUJjRHBsZWF4?=
+ =?utf-8?B?bFVpbXYyY05naGh2aWxxYzJlNFAyR05URkhLWEIyZVF2UmE1RnYvbVBSdHVS?=
+ =?utf-8?B?bE1tdHpPUzdOSGs5ejRiMGgrVGRtUTRWejVHYjBzdzhIWFZ1OUl4NmM2VGdl?=
+ =?utf-8?B?clJUV3E4cWFrM25UM3IvdUtQd2pCOU5JaW0rV3Z1RmlteGZGZ0dBNG83bU5H?=
+ =?utf-8?B?ZXd5MWhlL2h3azhUNmx2SUJqd2t4OUFLcllpd0tMcVFsL1EzaUwxS0V2a2NO?=
+ =?utf-8?B?NE0vbGhUQjVWUnFpd2xsRFo1Nk5OZ05mUFJ0b1gwUUppVFdIRENCSDFJMVI2?=
+ =?utf-8?B?Z2tNSnlKQnphaCs4RFkvRUxTWFg1anNxR2NZVGdEK29OSW9NYkJTd254VWcx?=
+ =?utf-8?B?NmQ4M0RQeFh4NkI1dlhRaDRqcWE0TzA4Z0pjT2JXYmhySjVyU0Uzbk1XY1RN?=
+ =?utf-8?B?QmRuU2NGREtVVzFuUU5vck1DOWVRelRmeW1MbTgxNmNDeVdrUVc4N3hmNlcr?=
+ =?utf-8?B?dGdZUXBvUDFBNjUwMm9EaGl0ZTZCTXF5WVlwTnBGaUU2ZGErL0t6KzNPanJ6?=
+ =?utf-8?Q?ax2Kk7hsC95/DNqiptka/AZCk?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4a79fbc-7f1c-4225-56f5-08dde4044828
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5968.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2025 18:21:59.9995
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: m79ghvQPgl2OqVerG7LwXDPMHsPT5ZHXlBQL+jWhIXDaypHmlnPO+eBlN4D5xWLhysGFQ9HzzD2y5FAk4NQhPQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6624
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_102104_111002_1B4C9CD9 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250825_112216_075777_0CF4928F 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,102 +193,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SpacemiT P1 is an I2C-controlled PMIC that implements 6 buck
-converters and 12 LDOs.  It contains a load switch, ADC channels,
-GPIOs, a real-time clock, and a watchdog timer.
+On 8/22/25 1:21 AM, Muhammad Usama Anjum wrote:
+...
+> diff --git a/tools/testing/selftests/mm/compaction_test.c b/tools/testing/selftests/mm/compaction_test.c
+> index 9bc4591c7b169..4fa03679e9b07 100644
+> --- a/tools/testing/selftests/mm/compaction_test.c
+> +++ b/tools/testing/selftests/mm/compaction_test.c
+> @@ -203,7 +203,7 @@ int set_zero_hugepages(unsigned long *initial_nr_hugepages)
+>  	return ret;
+>  }
+>  
+> -int main(int argc, char **argv)
+> +int main(void)
 
-This series introduces a multifunction driver for the P1 PMIC as
-well as drivers for its regulators and RTC.
+Hi Muhammad,
 
-In this version I updated Troy Mitchell's e-mail address, and
-modified the definition of the MFD_SPACEMIT_P1 config option so
-it enables I2C_K1, to allow it to be usable.  The series is now
-based on net-next rather than linux-v6.17-rc1.
+This is not helpful nor desirable, in selftest code.
 
-					-Alex
+In fact, I think this particular patch is actually a solid
+illustration of why you probably should just abandon the -Wunused
+flag in kselftests.
 
-This series is available here:
-  https://github.com/riscstar/linux/tree/outgoing/pmic-v13
+Skimming through the other patches doesn't change my initial
+impression, either. This is adding churn and admin overhead,
+but for test code there is basically no benefit here. Certainly
+not enough to be worth it.
 
-Between version 12 and version 13:
-  - Rebased onto August 25 linux-next
-  - Updated Troy Mitchell's e-mail address in patch 1
-  - Add Troy Mitchell's Acked-by in patch 1
-  - In patch 2, have MFD_SPACEMIT_P1 select I2C_K1 and depend on
-    ARCH_SPACEMIT as suggested (privately) by Yixun Lan
-
-Here is version 12 of this series:
-  https://lore.kernel.org/lkml/20250813024509.2325988-1-elder@riscstar.com/
-
-Between version 11 and version 12:
-  - Simple rebase
-
-Here is version 11 of this series:
-  https://lore.kernel.org/lkml/20250803025812.373029-1-elder@riscstar.com/
-
-Between version 10 and version 11:
-  - Abandon trying to implement a simple_mfd_data->max_register field
-  - Fix a missing dependency pointed out by the kernel test robot
-
-Here is version 10 of this series:
-  https://lore.kernel.org/lkml/20250726131003.3137282-1-elder@riscstar.com/
-
-Between version 9 and version 10:
-  - The #address-cells and #size-cells for the i2c8 DTS node
-    were moved into its primary definition in "k1.dtsi".
-  - The interrupts property for the i2c8 DTS node was moved
-    below its clock-related properties.
-  - The status property in the pmic@41 DTS node was dropped.
-  - The function that provides the regmap_config structure
-    to use was reworked a bit.
-  - A new function was added to free the regmap_config
-    structure after it's no longer needed.
-
-Here is version 9 of this series:
-  https://lore.kernel.org/lkml/20250724202511.499288-1-elder@riscstar.com/
-
-Between version 8 and version 9:
-  - The max_config value is always used if it is provided with the
-    simple_mfd_data structure.
-  - The regmap_config structure used is allocated dynamically if
-    necessary; otherwise regmap_config_8r_8v is used.
-  - A small duplicated comment is removed
-
-Here is version 8 of this series:
-  https://lore.kernel.org/lkml/20250710175107.1280221-1-elder@riscstar.com/
-
-More complete history is available at that link.
-
-Alex Elder (7):
-  dt-bindings: mfd: add support the SpacemiT P1 PMIC
-  mfd: simple-mfd-i2c: add SpacemiT P1 support
-  regulator: spacemit: support SpacemiT P1 regulators
-  rtc: spacemit: support the SpacemiT P1 RTC
-  riscv: dts: spacemit: enable the i2c8 adapter
-  riscv: dts: spacemit: define fixed regulators
-  riscv: dts: spacemit: define regulator constraints
-
- .../devicetree/bindings/mfd/spacemit,p1.yaml  |  86 +++++++++
- .../boot/dts/spacemit/k1-bananapi-f3.dts      | 135 ++++++++++++++
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  |   7 +
- arch/riscv/boot/dts/spacemit/k1.dtsi          |  13 ++
- drivers/mfd/Kconfig                           |  13 ++
- drivers/mfd/simple-mfd-i2c.c                  |  17 ++
- drivers/regulator/Kconfig                     |  13 ++
- drivers/regulator/Makefile                    |   1 +
- drivers/regulator/spacemit-p1.c               | 157 ++++++++++++++++
- drivers/rtc/Kconfig                           |  10 ++
- drivers/rtc/Makefile                          |   1 +
- drivers/rtc/rtc-spacemit-p1.c                 | 167 ++++++++++++++++++
- 12 files changed, 620 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mfd/spacemit,p1.yaml
- create mode 100644 drivers/regulator/spacemit-p1.c
- create mode 100644 drivers/rtc/rtc-spacemit-p1.c
-
-
-base-commit: 6c68f4c0a147c025ae0b25fab688c7c47964a02f
+thanks,
 -- 
-2.48.1
+John Hubbard
 
 
 _______________________________________________
