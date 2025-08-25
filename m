@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C04CA0FE8
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 15:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA904CA0FE8
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 15:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wpRBmPTbgjBpsr0ANA1V3fq45T9l+Ynii4QZqDCxANI=; b=2ZnXNb9oQiAF3Q
-	YsDhhxi4m8LkpsYgoF4ckmKrLVJ337xO69xfJqbMmi4z5SShjrBmXv7fuxG1XSznpB/P/839TTI9S
-	+0oko5CrYpADkj2DVzMqQa3kVX7SzxlFJU0wCjv1HnP1IKc0UDpYLQD6+cn7zhOwJBQnRwKevWprL
-	UHMTjFnt2+hjL2WwibncTN7bZUgM+jDAlHQjftfqefjBVtxd9pSNeI5Rhq4o27FXZiesygyeT0sRx
-	LXrSmeVp3AcmMQU09xHX3QttitOuSfNikfmUXROR1lzZacDEuBckn1BUMZpfN4Rj9rblpKNcA6w7D
-	2hsDVwdJSNu90VSwwmbg==;
+	List-Owner; bh=OhPCkUqDdY6JBswZQcdHDwJlWnjF3XLOaYA5Ww0hMk4=; b=xSxwpCEI4s+ma/
+	TY/0Xa5vkayqS9lmB3ovlkGr6a2XSQrkys5j1csdeWLmBwnpPBbXI+JWTiGLg3/mNz6seamATVSbp
+	uPR8x7Rtc4rQdlAojbIgafccccgbkc6zSH7Hd9USvNmMJYMsYl53ufZJ4HFeAuuteaVcNGFRAIOOp
+	i3TmW3u9PBlVMfXQDYCDNoA5ELZ4mswULx6tv4A/0D2I30tTE5slOvG3w6g2B8sIrAmxhozqqEsk7
+	jnU2OACyznLv7skhybhGxfqLok7MUlIt768HbYeQLsbdUOKFRN2CStBMj40YUDn/8Q5wzQGrOg3Ww
+	0RBWUstDfTn30sjycYsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZXr-00000008a3x-13B1;
-	Mon, 25 Aug 2025 15:55:43 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1uqZaJ-00000008bCL-2yJ9;
+	Mon, 25 Aug 2025 15:58:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZ5V-00000008VOp-48fp;
-	Mon, 25 Aug 2025 15:26:27 +0000
-Received: from [192.168.110.25] (unknown [118.251.178.216])
-	by APP-05 (Coremail) with SMTP id zQCowACXLF2WgKxok2QfDw--.14476S2;
-	Mon, 25 Aug 2025 23:26:15 +0800 (CST)
-Message-ID: <a2cc4cbe-82ca-4a89-b623-73721a1f3baf@isrc.iscas.ac.cn>
-Date: Mon, 25 Aug 2025 23:26:13 +0800
+	id 1uqZCy-00000008X1e-2J3e;
+	Mon, 25 Aug 2025 15:34:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=j1red41HWWtPZBuuKms1c1dp19RMTf9JNo/WgBeD8ts=; b=Fy99Gu/CpdDN2FEht9+h81+T+s
+	N3bLxSTDS0lF9+pJzHMVjC2S4jccVkhgIL85iRapNvxCmaeeuJNxiflBKwucfxUzOWJ7fhwIv6/Pb
+	oS/uHuoEXj9R5o6XKJX828BXcg65G/nPnQZjaABgvlZLDiJl3R9G7RGVp/NKveH7+rRhgSiJV018P
+	JW5fu2Qy8oOIWb35iJpuOzEyr2h5CLnoal8Xqsdjrq+NE6ItyWWDOwCEcFEPoZ8L3lFAAMX1P1Uk8
+	gBN0GelkLGHWb12zTtbHyY408WcvDKkFPG/mYI1PkWRrpLDhE7+7dOkNTLWhNN498rTlhobYowIHU
+	7jRnC3JQ==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqZCv-00000001uYz-1p0x;
+	Mon, 25 Aug 2025 15:34:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E6F6D5C5A0D;
+	Mon, 25 Aug 2025 15:34:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 889BDC4CEED;
+	Mon, 25 Aug 2025 15:34:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756136041;
+	bh=3MHuUrJA85kZg9pqQ9ja7UgU1fGiFhs/ppzPxlxFgxQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HudmS/JHfspDfBCzO62hEaLPbXPLtHOHCdGNnxZGXjNsiP8MMHrCtKMHPb+7rh/rY
+	 bb8xttodiZxiBiOqINmw/uL5wi2A0DTgwuxpgB8y1rUwfUMlWzaIlLxmrwL5ctYptR
+	 vGmtTUhT9sCFB1yXE22v/wpDLWvSd0GpkKiFL53qBbxTwdYNQEA60aiTPAhXX8LF7K
+	 dvhIzCUyFWWG8UqL0WCQ9ntSnq9DneESU3MaGz7Vu/FcJVlv+Kc64/jFLhjAV5i8QW
+	 K5YGs60Cvmgt2ECznzT/QPnGw5UInRPZ/Kau51i0RGgXsIRJuJCshQCRu/1S0G0qJQ
+	 2R0a8O/FbHgBQ==
+Date: Mon, 25 Aug 2025 08:34:00 -0700
+From: Kees Cook <kees@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Nathan Chancellor <nathan@kernel.org>, x86@kernel.org,
+	linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH 3/5] x86/cfi: Add option for cfi=debug bootparam
+Message-ID: <202508250833.AB86A99894@keescook>
+References: <20250825141316.work.967-kees@kernel.org>
+ <20250825142603.1907143-3-kees@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 RESEND 1/5] dt-bidings: riscv: add Zilsd and Zclsd
- extension descriptions
-To: Conor Dooley <conor@kernel.org>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- anup@brainfault.org, pbonzini@redhat.com, shuah@kernel.org,
- cyan.yang@sifive.com, cleger@rivosinc.com, charlie@rivosinc.com,
- cuiyunhui@bytedance.com, samuel.holland@sifive.com, namcao@linutronix.de,
- jesse@rivosinc.com, inochiama@gmail.com, yongxuan.wang@sifive.com,
- ajones@ventanamicro.com, parri.andrea@gmail.com, mikisabate@gmail.com,
- yikming2222@gmail.com, thomas.weissschuh@linutronix.de,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, devicetree@vger.kernel.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org
-References: <20250821140131.225756-1-pincheng.plct@isrc.iscas.ac.cn>
- <20250821140131.225756-2-pincheng.plct@isrc.iscas.ac.cn>
- <20250822-purge-doubling-f38988284db1@spud>
-From: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
-In-Reply-To: <20250822-purge-doubling-f38988284db1@spud>
-X-CM-TRANSID: zQCowACXLF2WgKxok2QfDw--.14476S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCr47Ww18Kw47Xr4xKrW3Jrb_yoW5Kr43pF
-	Z3GF4kKa90qw13u3s2y3W0vw45AF4kKw13AFnrt34fKa98Zr10gF4ak3Z0qF1rCF48CF4j
-	vw4Ygr15ZrsrAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6r1S6rWUM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26rWY6r4UJwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IUYsyCtUUUUU==
-X-Originating-IP: [118.251.178.216]
-X-CM-SenderInfo: pslquxhhqjh1xofwqxxvufhxpvfd2hldfou0/
+Content-Disposition: inline
+In-Reply-To: <20250825142603.1907143-3-kees@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_082626_392173_4EDEFEC5 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20250825_163405_702733_5629220A 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,129 +91,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/23 0:33, Conor Dooley wrote:
-> On Thu, Aug 21, 2025 at 10:01:27PM +0800, Pincheng Wang wrote:
->> Add descriptions for the Zilsd (Load/Store pair instructions) and
->> Zclsd (Compressed Load/Store pair instructions) ISA extensions
->> which were ratified in commit f88abf1 ("Integrating load/store
->> pair for RV32 with the main manual") of the riscv-isa-manual.
->>
->> Signed-off-by: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
->> ---
->>   .../devicetree/bindings/riscv/extensions.yaml | 39 +++++++++++++++++++
->>   1 file changed, 39 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
->> index ede6a58ccf53..d72ffe8f6fa7 100644
->> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
->> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
->> @@ -366,6 +366,20 @@ properties:
->>               guarantee on LR/SC sequences, as ratified in commit b1d806605f87
->>               ("Updated to ratified state.") of the riscv profiles specification.
->>   
->> +        - const: zilsd
->> +          description:
->> +            The standard Zilsd extension which provides support for aligned
->> +            register-pair load and store operations in 32-bit instruction
->> +            encodings, as ratified in commit f88abf1 ("Integrating
->> +            load/store pair for RV32 with the main manual") of riscv-isa-manual.
->> +
->> +        - const: zclsd
->> +          description:
->> +            The Zclsd extension implements the compressed (16-bit) version of the
->> +            Load/Store Pair for RV32. As with Zilsd, this extension was ratified
->> +            in commit f88abf1 ("Integrating load/store pair for RV32 with the
->> +            main manual") of riscv-isa-manual.
->> +
->>           - const: zk
->>             description:
->>               The standard Zk Standard Scalar cryptography extension as ratified
->> @@ -847,6 +861,16 @@ properties:
->>               anyOf:
->>                 - const: v
->>                 - const: zve32x
->> +      # Zclsd depends on Zilsd and Zca
->> +      - if:
->> +          contains:
->> +            anyOf:
->> +              - const: zclsd
->> +        then:
->> +          contains:
->> +            anyOf:
->> +              - const: zilsd
->> +              - const: zca
->>   
->>   allOf:
->>     # Zcf extension does not exist on rv64
->> @@ -864,6 +888,21 @@ allOf:
->>             not:
->>               contains:
->>                 const: zcf
->> +  # Zilsd extension does not exist on rv64
->> +  - if:
->> +      properties:
-> 
->> +        riscv,isa-extensions:
->> +          contains:
->> +            const: zilsd
-> 
-> This syntax is odd, it shouldn't be required to have zilsd in here and
-> in the then. Did you copy this from Zcf or come up with it yourself
-> because it didn't work otherwise?
-> 
+On Mon, Aug 25, 2025 at 07:25:50AM -0700, Kees Cook wrote:
+>  static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
+>  			    s32 *start_cfi, s32 *end_cfi, bool builtin)
+>  {
+> +	if (builtin)
+> +		pr_info("CFI: Using standard kCFI\n");
+>  }
 
-Yes, I did model this after the existing Zcf constraint in the same 
-file. The structure is nearly identical: cheking for presence of the 
-extension and rv64i, then forbidding it in the "then" branch.
+Oops, this needs IS_ENABLED(CONFIG_CFI) && ...
 
-I've tested confirmed that removing the "contains: const: zilsd" from 
-the "if" condition still correctly enforces that zilsd must not appear 
-when rv64i is present. The "then" clause with "not: contains" is sufficient.
-
-Given that the validation behavior is equivalent, but the logic is 
-cleaner and less redundant without the extra "contains", would you 
-recommend updating it to the simpler form:
-
-     - if:
-         properties:
-           riscv,isa-base:
-             contains:
-               const: rv64i
-       then:
-         properties:
-           riscv,isa-extensions:
-             not:
-               contains:
-                 const: zilsd
-
-If so, I'll update it in the next revision.
-
-Thanks for the review!
-
-Best regards,
-Pincheng Wang
-
->> +        riscv,isa-base:
->> +          contains:
->> +            const: rv64i
->> +    then:
->> +      properties:
->> +        riscv,isa-extensions:
->> +          not:
->> +            contains:
->> +              const: zilsd
->>   
->>   additionalProperties: true
->>   ...
->> -- 
->> 2.39.5
->>
-
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
