@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE95BCA0FE9
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 09:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B28CA0FED
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 11:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QH58xNeauqs2Ka/Vsn9qmLnIZOjZkhtKtadZS4o+OV4=; b=m+eu/5LbTzL6Tl
-	PQYAsxuVP2YVYiLNaVh65eA/A3kXuZKjEshM9QwMvPzOUGmJyzniLMK/H94kHs+dFalPImZR/5gfD
-	kPxXWFz7qMes4/Km0VnDXDLRWUvjQdlUUPfOBo7zEOu6egVnAenLmFh2q/ShBI6ptKGrvpnUWppCH
-	6x0R6ns6JeDYnPaoe9DRSRewSRGFEiH0y8YmpWjk1LHptlhvYuolOsKDhLrG8L0rfcgHKPNIuWu3A
-	ZDOk+NGRBFIpM25BzBDX8uP3Z2L2zTGYUAN3hdETt2dXv3+5v3sXGE/EClPsSplWwR0F/LVpnZrvh
-	cq/6tACToQssLXKCx8Gw==;
+	List-Owner; bh=17dIUs4dx+wZPHNFfKWtYwIBsSflDPR0SWBwtv9zqcg=; b=bnuuVMKsY7Q54X
+	lv1c/zkG9JSrecnASoy6ju/uG4Uv5Acu0wI2YGSaA9PoUsYw/SIMbKe3kDN+tHJ5nhCcGaqRyzjgZ
+	QBddS9vFgq28Jm4/Ne/3rmML2gkD6h3nnzM8P1IIbIMHGsSJ81YkI4tAPhBPoCWixsifPoJGlKLSa
+	rWmzd40u0hzzDj7NwA1HOK1myN6nFSvhgKlYmJPDB82YEs3k44ZipaWZHq71akHMEVJWdtXR9RqO7
+	NGRjYSyvPX5ay/AhVnsTGg/ElGZ1+qHI8HazTzLt77TZL/NVdkG3TMhgucCycM7wmuoTL3qFI+H/i
+	9kn2w+Fg2M3WjijVeWFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqq87-0000000BSKF-16AN;
-	Tue, 26 Aug 2025 09:38:15 +0000
+	id 1uqs6a-0000000BpeY-3sYU;
+	Tue, 26 Aug 2025 11:44:48 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqp85-0000000B20J-413W
-	for linux-riscv@lists.infradead.org;
-	Tue, 26 Aug 2025 08:34:11 +0000
+	id 1uqrBr-0000000BfIC-3PlD;
+	Tue, 26 Aug 2025 10:46:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 054471AC1;
-	Tue, 26 Aug 2025 01:33:59 -0700 (PDT)
-Received: from [10.57.89.149] (unknown [10.57.89.149])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E23E3F694;
-	Tue, 26 Aug 2025 01:34:01 -0700 (PDT)
-Message-ID: <9e2dcf8f-98b7-4461-af75-71627ee48230@arm.com>
-Date: Tue, 26 Aug 2025 10:33:59 +0200
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0AD2A1A00;
+	Tue, 26 Aug 2025 03:46:01 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 93FC13F694;
+	Tue, 26 Aug 2025 03:46:01 -0700 (PDT)
+Date: Tue, 26 Aug 2025 11:45:58 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH RFC 21/35] mm/cma: refuse handing out non-contiguous page
+ ranges
+Message-ID: <aK2QZnzS1ErHK5tP@raptor>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-22-david@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/8] selftests/mm: Add -Wunreachable-code and fix
- warnings
-To: Muhammad Usama Anjum <usama.anjum@collabora.com>,
- Shuah Khan <shuah@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
- <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, John Hubbard <jhubbard@nvidia.com>,
- Peter Xu <peterx@redhat.com>, Leon Romanovsky <leon@kernel.org>,
- Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
- Nico Pache <npache@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>,
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org
-Cc: kernel@collabora.com, Sidhartha Kumar <sidhartha.kumar@oracle.com>
-References: <20250822082145.4145617-1-usama.anjum@collabora.com>
- <20250822082145.4145617-2-usama.anjum@collabora.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <20250822082145.4145617-2-usama.anjum@collabora.com>
+Content-Disposition: inline
+In-Reply-To: <20250821200701.1329277-22-david@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_013410_079533_86065250 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20250826_034611_955656_8A32204B 
+X-CRM114-Status: GOOD (  41.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,105 +89,204 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 10:20, Muhammad Usama Anjum wrote:
-> Enable -Wunreachable-code flag to catch dead code and fix them.
->
-> 1. Remove the dead code and write a comment instead:
-> hmm-tests.c:2033:3: warning: code will never be executed
-> [-Wunreachable-code]
->                 perror("Should not reach this\n");
->                 ^~~~~~
->
-> 2. ksft_exit_fail_msg() calls exit(). Remove the dead code.
+Hi David,
 
-In that new version there's no dead code removal, rather that call is
-replaced to a call to ksft_print_msg() that doesn't exit.
-
-With that corrected:
-
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-
-- Kevin
-
-> split_huge_page_test.c:301:3: warning: code will never be executed
-> [-Wunreachable-code]
->                 goto cleanup;
->                 ^~~~~~~~~~~~
->
-> 3. Remove duplicate inline.
-> pkey_sighandler_tests.c:44:15: warning: duplicate 'inline' declaration
-> specifier [-Wduplicate-decl-specifier]
-> static inline __always_inline
->
-> Reviewed-by: Sidhartha Kumar <sidhartha.kumar@oracle.com>
-> Signed-off-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
+On Thu, Aug 21, 2025 at 10:06:47PM +0200, David Hildenbrand wrote:
+> Let's disallow handing out PFN ranges with non-contiguous pages, so we
+> can remove the nth-page usage in __cma_alloc(), and so any callers don't
+> have to worry about that either when wanting to blindly iterate pages.
+> 
+> This is really only a problem in configs with SPARSEMEM but without
+> SPARSEMEM_VMEMMAP, and only when we would cross memory sections in some
+> cases.
+> 
+> Will this cause harm? Probably not, because it's mostly 32bit that does
+> not support SPARSEMEM_VMEMMAP. If this ever becomes a problem we could
+> look into allocating the memmap for the memory sections spanned by a
+> single CMA region in one go from memblock.
+> 
+> Signed-off-by: David Hildenbrand <david@redhat.com>
 > ---
-> Changes since v2:
-> - In split_huge_page_test.c, print error message and then go to cleanup
->   tag for cleanup instead of just exiting without cleanup
-> ---
->  tools/testing/selftests/mm/Makefile                | 1 +
->  tools/testing/selftests/mm/hmm-tests.c             | 5 ++---
->  tools/testing/selftests/mm/pkey_sighandler_tests.c | 2 +-
->  tools/testing/selftests/mm/split_huge_page_test.c  | 2 +-
->  4 files changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
-> index d13b3cef2a2b2..23d4bf6215465 100644
-> --- a/tools/testing/selftests/mm/Makefile
-> +++ b/tools/testing/selftests/mm/Makefile
-> @@ -34,6 +34,7 @@ endif
->  MAKEFLAGS += --no-builtin-rules
+>  include/linux/mm.h |  6 ++++++
+>  mm/cma.c           | 36 +++++++++++++++++++++++-------------
+>  mm/util.c          | 33 +++++++++++++++++++++++++++++++++
+>  3 files changed, 62 insertions(+), 13 deletions(-)
+> 
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index ef360b72cb05c..f59ad1f9fc792 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -209,9 +209,15 @@ extern unsigned long sysctl_user_reserve_kbytes;
+>  extern unsigned long sysctl_admin_reserve_kbytes;
 >  
->  CFLAGS = -Wall -O2 -I $(top_srcdir) $(EXTRA_CFLAGS) $(KHDR_INCLUDES) $(TOOLS_INCLUDES)
-> +CFLAGS += -Wunreachable-code
->  LDLIBS = -lrt -lpthread -lm
+>  #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
+> +bool page_range_contiguous(const struct page *page, unsigned long nr_pages);
+>  #define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
+>  #else
+>  #define nth_page(page,n) ((page) + (n))
+> +static inline bool page_range_contiguous(const struct page *page,
+> +		unsigned long nr_pages)
+> +{
+> +	return true;
+> +}
+>  #endif
 >  
->  # Some distributions (such as Ubuntu) configure GCC so that _FORTIFY_SOURCE is
-> diff --git a/tools/testing/selftests/mm/hmm-tests.c b/tools/testing/selftests/mm/hmm-tests.c
-> index 141bf63cbe05e..15aadaf24a667 100644
-> --- a/tools/testing/selftests/mm/hmm-tests.c
-> +++ b/tools/testing/selftests/mm/hmm-tests.c
-> @@ -2027,11 +2027,10 @@ TEST_F(hmm, hmm_cow_in_device)
->  	if (pid == -1)
->  		ASSERT_EQ(pid, 0);
->  	if (!pid) {
-> -		/* Child process waitd for SIGTERM from the parent. */
-> +		/* Child process waits for SIGTERM from the parent. */
->  		while (1) {
->  		}
-> -		perror("Should not reach this\n");
-> -		exit(0);
-> +		/* Should not reach this */
->  	}
->  	/* Parent process writes to COW pages(s) and gets a
->  	 * new copy in system. In case of device private pages,
-> diff --git a/tools/testing/selftests/mm/pkey_sighandler_tests.c b/tools/testing/selftests/mm/pkey_sighandler_tests.c
-> index b5e076a564c95..302fef54049c8 100644
-> --- a/tools/testing/selftests/mm/pkey_sighandler_tests.c
-> +++ b/tools/testing/selftests/mm/pkey_sighandler_tests.c
-> @@ -41,7 +41,7 @@ static siginfo_t siginfo = {0};
->   * syscall will attempt to access the PLT in order to call a library function
->   * which is protected by MPK 0 which we don't have access to.
->   */
-> -static inline __always_inline
-> +static __always_inline
->  long syscall_raw(long n, long a1, long a2, long a3, long a4, long a5, long a6)
+>  /* to align the pointer to the (next) page boundary */
+> diff --git a/mm/cma.c b/mm/cma.c
+> index 2ffa4befb99ab..1119fa2830008 100644
+> --- a/mm/cma.c
+> +++ b/mm/cma.c
+> @@ -780,10 +780,8 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
+>  				unsigned long count, unsigned int align,
+>  				struct page **pagep, gfp_t gfp)
 >  {
->  	unsigned long ret;
-> diff --git a/tools/testing/selftests/mm/split_huge_page_test.c b/tools/testing/selftests/mm/split_huge_page_test.c
-> index bf40e6b121abc..de0d26f3df675 100644
-> --- a/tools/testing/selftests/mm/split_huge_page_test.c
-> +++ b/tools/testing/selftests/mm/split_huge_page_test.c
-> @@ -297,7 +297,7 @@ void split_file_backed_thp(int order)
+> -	unsigned long mask, offset;
+> -	unsigned long pfn = -1;
+> -	unsigned long start = 0;
+>  	unsigned long bitmap_maxno, bitmap_no, bitmap_count;
+> +	unsigned long start, pfn, mask, offset;
+>  	int ret = -EBUSY;
+>  	struct page *page = NULL;
 >  
->  	status = snprintf(testfile, INPUT_MAX, "%s/thp_file", tmpfs_loc);
->  	if (status >= INPUT_MAX) {
-> -		ksft_exit_fail_msg("Fail to create file-backed THP split testing file\n");
-> +		ksft_print_msg("Fail to create file-backed THP split testing file\n");
->  		goto cleanup;
+> @@ -795,7 +793,7 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
+>  	if (bitmap_count > bitmap_maxno)
+>  		goto out;
+>  
+> -	for (;;) {
+> +	for (start = 0; ; start = bitmap_no + mask + 1) {
+>  		spin_lock_irq(&cma->lock);
+>  		/*
+>  		 * If the request is larger than the available number
+> @@ -812,6 +810,22 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
+>  			spin_unlock_irq(&cma->lock);
+>  			break;
+>  		}
+> +
+> +		pfn = cmr->base_pfn + (bitmap_no << cma->order_per_bit);
+> +		page = pfn_to_page(pfn);
+> +
+> +		/*
+> +		 * Do not hand out page ranges that are not contiguous, so
+> +		 * callers can just iterate the pages without having to worry
+> +		 * about these corner cases.
+> +		 */
+> +		if (!page_range_contiguous(page, count)) {
+> +			spin_unlock_irq(&cma->lock);
+> +			pr_warn_ratelimited("%s: %s: skipping incompatible area [0x%lx-0x%lx]",
+> +					    __func__, cma->name, pfn, pfn + count - 1);
+> +			continue;
+> +		}
+> +
+>  		bitmap_set(cmr->bitmap, bitmap_no, bitmap_count);
+>  		cma->available_count -= count;
+>  		/*
+> @@ -821,29 +835,25 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
+>  		 */
+>  		spin_unlock_irq(&cma->lock);
+>  
+> -		pfn = cmr->base_pfn + (bitmap_no << cma->order_per_bit);
+>  		mutex_lock(&cma->alloc_mutex);
+>  		ret = alloc_contig_range(pfn, pfn + count, ACR_FLAGS_CMA, gfp);
+>  		mutex_unlock(&cma->alloc_mutex);
+> -		if (ret == 0) {
+> -			page = pfn_to_page(pfn);
+> +		if (!ret)
+>  			break;
+> -		}
+>  
+>  		cma_clear_bitmap(cma, cmr, pfn, count);
+>  		if (ret != -EBUSY)
+>  			break;
+>  
+>  		pr_debug("%s(): memory range at pfn 0x%lx %p is busy, retrying\n",
+> -			 __func__, pfn, pfn_to_page(pfn));
+> +			 __func__, pfn, page);
+>  
+>  		trace_cma_alloc_busy_retry(cma->name, pfn, pfn_to_page(pfn),
+
+Nitpick: I think you already have the page here.
+
+>  					   count, align);
+> -		/* try again with a bit different memory target */
+> -		start = bitmap_no + mask + 1;
+>  	}
+>  out:
+> -	*pagep = page;
+> +	if (!ret)
+> +		*pagep = page;
+>  	return ret;
+>  }
+>  
+> @@ -882,7 +892,7 @@ static struct page *__cma_alloc(struct cma *cma, unsigned long count,
+>  	 */
+>  	if (page) {
+>  		for (i = 0; i < count; i++)
+> -			page_kasan_tag_reset(nth_page(page, i));
+> +			page_kasan_tag_reset(page + i);
+
+Had a look at it, not very familiar with CMA, but the changes look equivalent to
+what was before. Not sure that's worth a Reviewed-by tag, but here it in case
+you want to add it:
+
+Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
+
+Just so I can better understand the problem being fixed, I guess you can have
+two consecutive pfns with non-consecutive associated struct page if you have two
+adjacent memory sections spanning the same physical memory region, is that
+correct?
+
+Thanks,
+Alex
+
 >  	}
 >  
+>  	if (ret && !(gfp & __GFP_NOWARN)) {
+> diff --git a/mm/util.c b/mm/util.c
+> index d235b74f7aff7..0bf349b19b652 100644
+> --- a/mm/util.c
+> +++ b/mm/util.c
+> @@ -1280,4 +1280,37 @@ unsigned int folio_pte_batch(struct folio *folio, pte_t *ptep, pte_t pte,
+>  {
+>  	return folio_pte_batch_flags(folio, NULL, ptep, &pte, max_nr, 0);
+>  }
+> +
+> +#if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
+> +/**
+> + * page_range_contiguous - test whether the page range is contiguous
+> + * @page: the start of the page range.
+> + * @nr_pages: the number of pages in the range.
+> + *
+> + * Test whether the page range is contiguous, such that they can be iterated
+> + * naively, corresponding to iterating a contiguous PFN range.
+> + *
+> + * This function should primarily only be used for debug checks, or when
+> + * working with page ranges that are not naturally contiguous (e.g., pages
+> + * within a folio are).
+> + *
+> + * Returns true if contiguous, otherwise false.
+> + */
+> +bool page_range_contiguous(const struct page *page, unsigned long nr_pages)
+> +{
+> +	const unsigned long start_pfn = page_to_pfn(page);
+> +	const unsigned long end_pfn = start_pfn + nr_pages;
+> +	unsigned long pfn;
+> +
+> +	/*
+> +	 * The memmap is allocated per memory section. We need to check
+> +	 * each involved memory section once.
+> +	 */
+> +	for (pfn = ALIGN(start_pfn, PAGES_PER_SECTION);
+> +	     pfn < end_pfn; pfn += PAGES_PER_SECTION)
+> +		if (unlikely(page + (pfn - start_pfn) != pfn_to_page(pfn)))
+> +			return false;
+> +	return true;
+> +}
+> +#endif
+>  #endif /* CONFIG_MMU */
+> -- 
+> 2.50.1
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
