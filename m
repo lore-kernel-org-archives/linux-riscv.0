@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 547ACCA0FF6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17B1CA0FF7
 	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 16:30:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GWO2eHASuq3SLjw88TcSM6fGli0kLVGHEtmRqYejMIQ=; b=q4xeklyBQQg+6C
-	9qyIXKsVkHLSeZxYycpkm5tykRavsfjdP0NN0g9yNrHyZH2dH2xVLWUVtxVc6UIgjeSod1ytGUn2s
-	drQtjOkPpNA2kcMeojQcKZUuAme/7J+8akLiQaYV7Xe/faokUFYAlxRRLdGUJ6JFY8LdTLAzLUh8d
-	fzBgee8qDzVnK5BfgrhxX/faJ79kiflsm182S76B0sq8ZUdqHHTv5SHc5TUpyFMdX9tjMjFXNCMqi
-	tyQsh8r2SFiCOgu8Y/rxC9HZlmxMb/wtQknCwTWtcNbuLWMBIQiEfAWmifTVu467TMhfj6Pdb5O5n
-	JytPgSyh32i4/nJG36RQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4wu0ADXYFlZFZx18oTq7KB4wXMyhTjWR9TCtO9/hnik=; b=L+tEjAfstLVqwh
+	Y3Wjm8qhrqs2pN+bzAXRABUZBJG8RhrtDXGGEf9BiIWOucq+93DGTwGsUwDF8iDtaiHMqidhhVE3p
+	Z/YBDZLd5OJwRvgTOWZWPnrj+Fr3RXymMhXIsCXyafkM4Z7xJ5js2iU7RFleA+eLlTVN3A4/oed7B
+	1xVhyi/Nt8p1cV4qUkFnM3Gi669c+guezEMnuNeQk3F6pBw2ypFrzU/hjxj1agrKmHbaB2dHb3ojR
+	Mpevg7o/L7B+/TlZOjJjtKqVbHjfzLnO/2M1UTTvDPGm2ZOaTrHYME4rrzQcfzIb/25AoshHzZ2E8
+	2s2i/MbTuigUjyqPYCHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwYy-0000000Cdyy-0D6T;
-	Tue, 26 Aug 2025 16:30:24 +0000
+	id 1uqwZ4-0000000Ce0c-0ctu;
+	Tue, 26 Aug 2025 16:30:30 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwYu-0000000CdyX-2hZ5;
-	Tue, 26 Aug 2025 16:30:23 +0000
+	id 1uqwZ1-0000000CdzM-3389;
+	Tue, 26 Aug 2025 16:30:29 +0000
 Received: from ROG.lan (unknown [118.251.176.199])
-	by APP-03 (Coremail) with SMTP id rQCowAD3jX8L4a1oBKJmDw--.6398S2;
-	Wed, 27 Aug 2025 00:30:05 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAD3jX8L4a1oBKJmDw--.6398S3;
+	Wed, 27 Aug 2025 00:30:18 +0800 (CST)
 From: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -62,33 +62,36 @@ Cc: linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	pincheng.plct@isrc.iscas.ac.cn
-Subject: [PATCH v2 0/5] Add Zilsd/Zclsd support in hwprobe and KVM
-Date: Wed, 27 Aug 2025 00:29:34 +0800
-Message-Id: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn>
+Subject: [PATCH v2 1/5] dt-bindings: riscv: add Zilsd and Zclsd extension descriptions
+Date: Wed, 27 Aug 2025 00:29:35 +0800
+Message-Id: <20250826162939.1494021-2-pincheng.plct@isrc.iscas.ac.cn>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn>
+References: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAD3jX8L4a1oBKJmDw--.6398S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tFyftr1UXr48Cr1DJrW5Jrb_yoW8KrW5pF
-	s5GwnI9r1kJw13CF1fAr48ur1rKan5uws3tF9xtw18WayayFyrZr10k3ZxZF1kAFZ29FyD
-	Z3WrWryI9wnrAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
-	nIWIevJa73UjIFyTuYvjTRM6wCDUUUU
+X-CM-TRANSID: rQCowAD3jX8L4a1oBKJmDw--.6398S3
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF4ftF48uw4kCr4fWw4kJFb_yoW8uw4kpa
+	n3GF18K3s0q3W3ur97tw4xuw15ZF1vqw45AFZFk34xKFZ0yry0qrWay3W5Z3W8CF4xAFyj
+	9a1jgr17ZrsrAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+	8EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r4UJwAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
+	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
+	kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAI
+	cVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
+	AIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2
+	KfnxnUUI43ZEXa7sRiubytUUUUU==
 X-Originating-IP: [118.251.176.199]
 X-CM-SenderInfo: pslquxhhqjh1xofwqxxvufhxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_093021_047166_FA0E7115 
-X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-CacheID: sfid-20250826_093028_125604_E8B6BFD1 
+X-CRM114-Status: UNSURE (   8.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,53 +104,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgYWxsLAoKVGhpcyBpcyB2MiBvZiBhIHNob3J0IHNlcmllcyB0aGF0IGFkZHMga2VybmVsIHN1
-cHBvcnQgZm9yIHRoZSByYXRpZmllZApaaWxzZCAoTG9hZC9TdG9yZSBwYWlyKSBhbmQgWmNsc2Qg
-KENvbXByZXNzZWQgTG9hZC9TdG9yZSBwYWlyKSBSSVNDLVYKSVNBIGV4dGVuc2lvbnMuIFRoZSBz
-ZXJpZXMgZW5hYmxlcyBrZXJuZWwtc2lkZSBleHBvc3VyZSBzbyB1c2VyLXNwYWNlCihmb3IgZXhh
-bXBsZSBnbGliYykgY2FuIGRldGVjdCBhbmQgdXNlIHRoZXNlIGV4dGVuc2lvbnMgdmlhIGh3cHJv
-YmUgYW5kCnJ1bnRpbWUgY2hlY2tzLgoKUGF0Y2hlczoKLSBQYXRjaCAx77yaQWRkIGRldmljZSB0
-cmVlIGJpbmRpbmdzIGRvY3VtZW50YXRpb24gZm9yIFppbHNkIGFuZCBaY2xzZC4KLSBQYXRjaCAy
-OiBFeHRlbmQgUklTQy1WIElTQSBleHRlbnNpb24gc3RyaW5nIHBhcnNpbmcgdG8gcmVjb2duaXpl
-IHRoZW0uCi0gUGF0Y2ggMzogRXhwb3J0IFppbHNkIGFuZCBaY2xzZCB2aWEgcmlzY3ZfaHdwcm9i
-ZS4KLSBQYXRjaCA0OiBBbGxvdyBLVk0gZ3Vlc3RzIHRvIHVzZSB0aGVtLgotIFBhdGNoIDU6IEFk
-ZCBLVk0gc2VsZnRlc3RzLgoKQ2hhbmdlcyBpbiB2MjoKLSBEZXZpY2UtdHJlZSBzY2hlbWE6IHNp
-bXBsaWZpZWQgdGhlIHJ2NjQgdmFsaWRhdGlvbiBmb3IgWmlsc2QgYnkKICByZW1vdmluZyBhIHJl
-ZHVuZGFudCBgY29udGFpczogY29uc3Q6IHppbHNkYCBpbiB0aGUgYGlmYCBjbGF1c2U7IHRoZQog
-IHNpbXBsZXIgYGlmIChyaXNjdiwgaXNhLWJhc2UgY29udGFpbnMgcnY2NGkpIHRoZW4gKHJpc2N2
-LAogIGlzYS1leHRlbnNpb24gbm90IGNvbnRhaW5zIHppbHNkKWAgZm9ybSBpcyB1c2VkIGluc3Rl
-YWQuIEJlaGF2aW91ciBpcwogIHVuY2hhbmdlZCwgYW5kIHRoZSBsb2dpYyBpcyBjbGVhbmVyLgot
-IERldmljZS10cmVlIHNjaGVtYTogY29ycmVjdGVkIFpjbHNkIGRlcGVuZGVuY3kgdG8gcmVxdWly
-ZSBib3RoIFppbHNkCiAgYW5kIFpjYSAocHJldmlvdXMgYGFueU9mYCB3YXMgaW5jb3JyZWN0OyBu
-b3cgYm90aCBhcmUgZW5mb3JjZWQpLgotIENvbW1pdCBtZXNzYWdlIHR5cG8gZml4ZWQ6ICJkdC1i
-aWRpbmdzIiAtPiAiZHQtYmluZGluZ3MiIGluIHRoZSBQYXRjaAogIDEgY29tbWl0IHN1YmplY3Qu
-CgpUaGUgdjIgY2hhbmdlcyBhcmUgZG9jdW1lbnRhdGlvbi9zY2hlbWEgY29ycmVjdGlvbnMgaW4g
-ZXh0ZW5zaW9ucy55YW1sLgpObyBmdW5jdGlvbmFsIGNoYW5nZXMgd2VyZSBtYWRlIHRvIElTQSBw
-YXJzaW5nLCBod3Byb2JlIHN5c2NhbGwsIEtWTQpndWVzdCBzdXBwb3J0IG9yIHRoZSBzZWxmdGVz
-dHMgYmV5b25kIGVuc3VyaW5nIHRoZSBiaW5kaW5nIGNvcnJlY3RseQpkb2N1bWVudHMgYW5kIHZh
-bGlkYXRlcyB0aGUgZXh0ZW5zaW9uIHJlbGF0aW9uc2hpcHMuCgpQbGVhc2UgcmV2aWV3IHYyIGFu
-ZCBhZHZpc2UgaWYgZnV0aGVyIGNoYW5nZXMgYXJlIG5lZWRlZC4KClRoYW5rcywKUGluY2hlbmcg
-V2FuZyAKClBpbmNoZW5nIFdhbmcgKDUpOgogIGR0LWJpbmRpbmdzOiByaXNjdjogYWRkIFppbHNk
-IGFuZCBaY2xzZCBleHRlbnNpb24gZGVzY3JpcHRpb25zCiAgcmlzY3Y6IGFkZCBJU0EgZXh0ZW5z
-aW9uIHBhcnNpbmcgZm9yIFppbHNkIGFuZCBaY2xzZAogIHJpc2N2OiBod3Byb2JlOiBleHBvcnQg
-Wmlsc2QgYW5kIFpjbHNkIElTQSBleHRlbnNpb25zCiAgcmlzY3Y6IEtWTTogYWxsb3cgWmlsc2Qg
-YW5kIFpjbHNkIGV4dGVuc2lvbnMgZm9yIEd1ZXN0L1ZNCiAgS1ZNOiByaXNjdjogc2VsZnRlc3Rz
-OiBhZGQgWmlsc2QgYW5kIFpjbHNkIGV4dGVuc2lvbiB0byBnZXQtcmVnLWxpc3QKICAgIHRlc3QK
-CiBEb2N1bWVudGF0aW9uL2FyY2gvcmlzY3YvaHdwcm9iZS5yc3QgICAgICAgICAgfCAgOCArKysr
-KwogLi4uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvZXh0ZW5zaW9ucy55YW1sIHwgMzYgKysr
-KysrKysrKysrKysrKysrKwogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oICAgICAgICAg
-ICAgICAgIHwgIDIgKysKIGFyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmggICAg
-ICAgICB8ICAyICsrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmggICAgICAgICAg
-ICAgfCAgMiArKwogYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jICAgICAgICAgICAgICAg
-IHwgMjQgKysrKysrKysrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYyAgICAg
-ICAgICAgICAgIHwgIDIgKysKIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfb25lcmVnLmMgICAgICAgICAg
-ICAgICAgICB8ICAyICsrCiAuLi4vc2VsZnRlc3RzL2t2bS9yaXNjdi9nZXQtcmVnLWxpc3QuYyAg
-ICAgICAgfCAgNiArKysrCiA5IGZpbGVzIGNoYW5nZWQsIDg0IGluc2VydGlvbnMoKykKCi0tIAoy
-LjM5LjUKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Add descriptions for the Zilsd (Load/Store pair instructions) and
+Zclsd (Compressed Load/Store pair instructions) ISA extensions
+which were ratified in commit f88abf1 ("Integrating load/store
+pair for RV32 with the main manual") of the riscv-isa-manual.
+
+Signed-off-by: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
+---
+ .../devicetree/bindings/riscv/extensions.yaml | 36 +++++++++++++++++++
+ 1 file changed, 36 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index ede6a58ccf53..c562c4dbbe9d 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -366,6 +366,20 @@ properties:
+             guarantee on LR/SC sequences, as ratified in commit b1d806605f87
+             ("Updated to ratified state.") of the riscv profiles specification.
+
++        - const: zilsd
++          description:
++            The standard Zilsd extension which provides support for aligned
++            register-pair load and store operations in 32-bit instruction
++            encodings, as ratified in commit f88abf1 ("Integrating
++            load/store pair for RV32 with the main manual") of riscv-isa-manual.
++
++        - const: zclsd
++          description:
++            The Zclsd extension implements the compressed (16-bit) version of the
++            Load/Store Pair for RV32. As with Zilsd, this extension was ratified
++            in commit f88abf1 ("Integrating load/store pair for RV32 with the
++            main manual") of riscv-isa-manual.
++
+         - const: zk
+           description:
+             The standard Zk Standard Scalar cryptography extension as ratified
+@@ -847,6 +861,16 @@ properties:
+             anyOf:
+               - const: v
+               - const: zve32x
++      # Zclsd depends on Zilsd and Zca
++      - if:
++          contains:
++            anyOf:
++              - const: zclsd
++        then:
++          contains:
++            allOf:
++              - const: zilsd
++              - const: zca
+ 
+ allOf:
+   # Zcf extension does not exist on rv64
+@@ -864,6 +888,18 @@ allOf:
+           not:
+             contains:
+               const: zcf
++  # Zilsd extension does not exist on rv64
++  - if:
++      properties:
++        riscv,isa-base:
++          contains:
++            const: rv64i
++    then:
++      properties:
++        riscv,isa-extensions:
++          not:
++            contains:
++              const: zilsd
+ 
+ additionalProperties: true
+ ...
+-- 
+2.39.5
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
