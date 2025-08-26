@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF1DECA0FF0
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 08:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE95BCA0FE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 09:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t//vp8QMdkvKBURjyYcbhNKZmOQEy2T6TLZHjXMdmg4=; b=FLWktHbEFqutwU
-	H/COZs3wqMC2kR4x5YRY6KrjkTTnoXQXBXAEti02+dcvE1yM1mBTVMOzwGNslzNlkDI9ZSZM9Vyfk
-	Xl9q2Fn2lYAduwGZ2tZzvBV2xzIsZBENUkgugypQrgtyuavFKlY+w25B3E6t5WBc9vhcaaYSnJ34G
-	DNvqQW159gpC0B9G1Jb/VM1i/VBxZwXaJrIlEa2+jhnKBsSLhpDRrpayPLa0vxqWaPOacf72Yg+8s
-	fgKhmsdLSp84ug5/sdVcv5epBQZfxFlUJC/gHZGknZdq86OoSjkE8m4u0nrCxgSbNe4NS2N5eubT1
-	wGw6obDaZ3H3UVjP0eOw==;
+	List-Owner; bh=QH58xNeauqs2Ka/Vsn9qmLnIZOjZkhtKtadZS4o+OV4=; b=m+eu/5LbTzL6Tl
+	PQYAsxuVP2YVYiLNaVh65eA/A3kXuZKjEshM9QwMvPzOUGmJyzniLMK/H94kHs+dFalPImZR/5gfD
+	kPxXWFz7qMes4/Km0VnDXDLRWUvjQdlUUPfOBo7zEOu6egVnAenLmFh2q/ShBI6ptKGrvpnUWppCH
+	6x0R6ns6JeDYnPaoe9DRSRewSRGFEiH0y8YmpWjk1LHptlhvYuolOsKDhLrG8L0rfcgHKPNIuWu3A
+	ZDOk+NGRBFIpM25BzBDX8uP3Z2L2zTGYUAN3hdETt2dXv3+5v3sXGE/EClPsSplWwR0F/LVpnZrvh
+	cq/6tACToQssLXKCx8Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqpVv-0000000B9jk-3N35;
-	Tue, 26 Aug 2025 08:58:47 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqpSL-0000000B8Tz-3S7p
+	id 1uqq87-0000000BSKF-16AN;
+	Tue, 26 Aug 2025 09:38:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqp85-0000000B20J-413W
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Aug 2025 08:55:07 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uqpRq-0003j9-Qa; Tue, 26 Aug 2025 10:54:34 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uqpRn-002Cb2-1w;
-	Tue, 26 Aug 2025 10:54:31 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uqpRn-0005k0-1e;
-	Tue, 26 Aug 2025 10:54:31 +0200
-Message-ID: <eb127fd167cfbd885099a7c4c962eb1135a5a8a0.camel@pengutronix.de>
-Subject: Re: [PATCH net-next v7 2/5] net: spacemit: Add K1 Ethernet MAC
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Vivian Wang <wangruikang@iscas.ac.cn>, Andrew Lunn
- <andrew+netdev@lunn.ch>,  Jakub Kicinski <kuba@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>
-Cc: Vivian Wang <uwu@dram.page>, Vadim Fedorenko
- <vadim.fedorenko@linux.dev>,  Junhui Liu <junhui.liu@pigmoral.tech>, Simon
- Horman <horms@kernel.org>, Maxime Chevallier
- <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Date: Tue, 26 Aug 2025 10:54:31 +0200
-In-Reply-To: <20250826-net-k1-emac-v7-2-5bc158d086ae@iscas.ac.cn>
-References: <20250826-net-k1-emac-v7-0-5bc158d086ae@iscas.ac.cn>
-	 <20250826-net-k1-emac-v7-2-5bc158d086ae@iscas.ac.cn>
-User-Agent: Evolution 3.46.4-2 
+	Tue, 26 Aug 2025 08:34:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 054471AC1;
+	Tue, 26 Aug 2025 01:33:59 -0700 (PDT)
+Received: from [10.57.89.149] (unknown [10.57.89.149])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E23E3F694;
+	Tue, 26 Aug 2025 01:34:01 -0700 (PDT)
+Message-ID: <9e2dcf8f-98b7-4461-af75-71627ee48230@arm.com>
+Date: Tue, 26 Aug 2025 10:33:59 +0200
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/8] selftests/mm: Add -Wunreachable-code and fix
+ warnings
+To: Muhammad Usama Anjum <usama.anjum@collabora.com>,
+ Shuah Khan <shuah@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, John Hubbard <jhubbard@nvidia.com>,
+ Peter Xu <peterx@redhat.com>, Leon Romanovsky <leon@kernel.org>,
+ Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Nico Pache <npache@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org
+Cc: kernel@collabora.com, Sidhartha Kumar <sidhartha.kumar@oracle.com>
+References: <20250822082145.4145617-1-usama.anjum@collabora.com>
+ <20250822082145.4145617-2-usama.anjum@collabora.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <20250822082145.4145617-2-usama.anjum@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_015505_870656_C6F645D1 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20250826_013410_079533_86065250 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,119 +81,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Di, 2025-08-26 at 14:23 +0800, Vivian Wang wrote:
-> The Ethernet MACs found on SpacemiT K1 appears to be a custom design
-> that only superficially resembles some other embedded MACs. SpacemiT
-> refers to them as "EMAC", so let's just call the driver "k1_emac".
-> 
-> Supports RGMII and RMII interfaces. Includes support for MAC hardware
-> statistics counters. PTP support is not implemented.
-> 
-> Tested-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+On 22/08/2025 10:20, Muhammad Usama Anjum wrote:
+> Enable -Wunreachable-code flag to catch dead code and fix them.
+>
+> 1. Remove the dead code and write a comment instead:
+> hmm-tests.c:2033:3: warning: code will never be executed
+> [-Wunreachable-code]
+>                 perror("Should not reach this\n");
+>                 ^~~~~~
+>
+> 2. ksft_exit_fail_msg() calls exit(). Remove the dead code.
+
+In that new version there's no dead code removal, rather that call is
+replaced to a call to ksft_print_msg() that doesn't exit.
+
+With that corrected:
+
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+
+- Kevin
+
+> split_huge_page_test.c:301:3: warning: code will never be executed
+> [-Wunreachable-code]
+>                 goto cleanup;
+>                 ^~~~~~~~~~~~
+>
+> 3. Remove duplicate inline.
+> pkey_sighandler_tests.c:44:15: warning: duplicate 'inline' declaration
+> specifier [-Wduplicate-decl-specifier]
+> static inline __always_inline
+>
+> Reviewed-by: Sidhartha Kumar <sidhartha.kumar@oracle.com>
+> Signed-off-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
 > ---
->  drivers/net/ethernet/Kconfig            |    1 +
->  drivers/net/ethernet/Makefile           |    1 +
->  drivers/net/ethernet/spacemit/Kconfig   |   29 +
->  drivers/net/ethernet/spacemit/Makefile  |    6 +
->  drivers/net/ethernet/spacemit/k1_emac.c | 2193 +++++++++++++++++++++++++++++++
->  drivers/net/ethernet/spacemit/k1_emac.h |  426 ++++++
->  6 files changed, 2656 insertions(+)
-> 
-[...]
-> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..9e558d5893cfbbda0baa7ad21a7209dadda9487e
-> --- /dev/null
-> +++ b/drivers/net/ethernet/spacemit/k1_emac.c
-> @@ -0,0 +1,2193 @@
-[...]
-> +static int emac_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct reset_control *reset;
-> +	struct net_device *ndev;
-> +	struct emac_priv *priv;
-> +	int ret;
-> +
-> +	ndev = devm_alloc_etherdev(dev, sizeof(struct emac_priv));
-> +	if (!ndev)
-> +		return -ENOMEM;
-> +
-> +	ndev->hw_features = NETIF_F_SG;
-> +	ndev->features |= ndev->hw_features;
-> +
-> +	ndev->max_mtu = EMAC_RX_BUF_4K - (ETH_HLEN + ETH_FCS_LEN);
-> +
-> +	priv = netdev_priv(ndev);
-> +	priv->ndev = ndev;
-> +	priv->pdev = pdev;
-> +	platform_set_drvdata(pdev, priv);
-> +
-> +	ret = emac_config_dt(pdev, priv);
-> +	if (ret < 0) {
-> +		dev_err_probe(dev, ret, "Configuration failed\n");
-> +		goto err;
-
-I'd just
-		return dev_err_probe(...);
-here.
-
-> +	}
-> +
-> +	ndev->watchdog_timeo = 5 * HZ;
-> +	ndev->base_addr = (unsigned long)priv->iobase;
-> +	ndev->irq = priv->irq;
-> +
-> +	ndev->ethtool_ops = &emac_ethtool_ops;
-> +	ndev->netdev_ops = &emac_netdev_ops;
-> +
-> +	devm_pm_runtime_enable(&pdev->dev);
-> +
-> +	priv->bus_clk = devm_clk_get_enabled(&pdev->dev, NULL);
-> +	if (IS_ERR(priv->bus_clk)) {
-> +		ret = dev_err_probe(dev, PTR_ERR(priv->bus_clk),
-> +				    "Failed to get clock\n");
-> +		goto err;
-
-Same here.
-
-> +	}
-> +
-> +	reset = devm_reset_control_get_optional_exclusive_deasserted(&pdev->dev,
-> +								     NULL);
-> +	if (IS_ERR(reset)) {
-> +		ret = dev_err_probe(dev, PTR_ERR(reset),
-> +				    "Failed to get reset\n");
-> +		goto err;
-
-And here.
-
-> +	}
-> +
-> +	emac_sw_init(priv);
-> +
-> +	if (of_phy_is_fixed_link(dev->of_node)) {
-> +		ret = of_phy_register_fixed_link(dev->of_node);
-> +		if (ret) {
-> +			dev_err_probe(dev, ret,
-> +				      "Failed to register fixed-link");
-> +			goto err_timer_delete;
-
-If you can move this section before emac_sw_init(), this could also
-just return.
-
-> +		}
-
-Then here a function calling of_phy_deregister_fixed_link() could be
-registered with devm_add_action_or_reset(), to avoid duplicated cleanup
-in the error path and in emac_remove().
-
-
-regards
-Philipp
+> Changes since v2:
+> - In split_huge_page_test.c, print error message and then go to cleanup
+>   tag for cleanup instead of just exiting without cleanup
+> ---
+>  tools/testing/selftests/mm/Makefile                | 1 +
+>  tools/testing/selftests/mm/hmm-tests.c             | 5 ++---
+>  tools/testing/selftests/mm/pkey_sighandler_tests.c | 2 +-
+>  tools/testing/selftests/mm/split_huge_page_test.c  | 2 +-
+>  4 files changed, 5 insertions(+), 5 deletions(-)
+>
+> diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
+> index d13b3cef2a2b2..23d4bf6215465 100644
+> --- a/tools/testing/selftests/mm/Makefile
+> +++ b/tools/testing/selftests/mm/Makefile
+> @@ -34,6 +34,7 @@ endif
+>  MAKEFLAGS += --no-builtin-rules
+>  
+>  CFLAGS = -Wall -O2 -I $(top_srcdir) $(EXTRA_CFLAGS) $(KHDR_INCLUDES) $(TOOLS_INCLUDES)
+> +CFLAGS += -Wunreachable-code
+>  LDLIBS = -lrt -lpthread -lm
+>  
+>  # Some distributions (such as Ubuntu) configure GCC so that _FORTIFY_SOURCE is
+> diff --git a/tools/testing/selftests/mm/hmm-tests.c b/tools/testing/selftests/mm/hmm-tests.c
+> index 141bf63cbe05e..15aadaf24a667 100644
+> --- a/tools/testing/selftests/mm/hmm-tests.c
+> +++ b/tools/testing/selftests/mm/hmm-tests.c
+> @@ -2027,11 +2027,10 @@ TEST_F(hmm, hmm_cow_in_device)
+>  	if (pid == -1)
+>  		ASSERT_EQ(pid, 0);
+>  	if (!pid) {
+> -		/* Child process waitd for SIGTERM from the parent. */
+> +		/* Child process waits for SIGTERM from the parent. */
+>  		while (1) {
+>  		}
+> -		perror("Should not reach this\n");
+> -		exit(0);
+> +		/* Should not reach this */
+>  	}
+>  	/* Parent process writes to COW pages(s) and gets a
+>  	 * new copy in system. In case of device private pages,
+> diff --git a/tools/testing/selftests/mm/pkey_sighandler_tests.c b/tools/testing/selftests/mm/pkey_sighandler_tests.c
+> index b5e076a564c95..302fef54049c8 100644
+> --- a/tools/testing/selftests/mm/pkey_sighandler_tests.c
+> +++ b/tools/testing/selftests/mm/pkey_sighandler_tests.c
+> @@ -41,7 +41,7 @@ static siginfo_t siginfo = {0};
+>   * syscall will attempt to access the PLT in order to call a library function
+>   * which is protected by MPK 0 which we don't have access to.
+>   */
+> -static inline __always_inline
+> +static __always_inline
+>  long syscall_raw(long n, long a1, long a2, long a3, long a4, long a5, long a6)
+>  {
+>  	unsigned long ret;
+> diff --git a/tools/testing/selftests/mm/split_huge_page_test.c b/tools/testing/selftests/mm/split_huge_page_test.c
+> index bf40e6b121abc..de0d26f3df675 100644
+> --- a/tools/testing/selftests/mm/split_huge_page_test.c
+> +++ b/tools/testing/selftests/mm/split_huge_page_test.c
+> @@ -297,7 +297,7 @@ void split_file_backed_thp(int order)
+>  
+>  	status = snprintf(testfile, INPUT_MAX, "%s/thp_file", tmpfs_loc);
+>  	if (status >= INPUT_MAX) {
+> -		ksft_exit_fail_msg("Fail to create file-backed THP split testing file\n");
+> +		ksft_print_msg("Fail to create file-backed THP split testing file\n");
+>  		goto cleanup;
+>  	}
+>  
 
 _______________________________________________
 linux-riscv mailing list
