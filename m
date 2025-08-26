@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776C3CA0FE9
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 19:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED93CA0FE7
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 19:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IGw/MEBL9JKS55n7Ayoa0sxX3bhSzh/7hHcpDdvWZ/A=; b=qCIKtHqMKU2UrN
-	CM0CO0MeebAlRQAxBi0At2yEhCXPBT92vJcLlgv93XXprzovz4CvPoQFMowdG35xu2LjbacGLbW1W
-	2V3Wsa0tMuqJT8wc7uE6drF3PHJrTcRLvcPgGOPRMVRl+osRw+kzUhLD7Paws2MGXDt1O3WjvUSlp
-	hwk+VL9ZcSwjlspA2CrIp04qZOT+ZS99T88lOl/T59L7iCDbHvqvSHQf1Va1iYb+qb0tRyC9jjYqj
-	DWZkHl6VKGQuLIIGmHa4l11bU0+3AHobuuKMfOnmdYpaE2H4nE+JgdJZp7fuFfZ/A/7YlDzHnmcHg
-	YYTUjpMI5CEufzcKAiBg==;
+	List-Owner; bh=iw5ho4GszvWRdd9ahZJ+QaP4P7/jN7bEv/Mq4Rvui/E=; b=duXAt8c4oQerVY
+	mP/LcYDP3jdHOxx+cLf1Ch08/xde+pThRFpeUuXM9mMst9E2hWN6wT5l/NrQ0xobDRTL8S06bN7Mc
+	eI27zEvydFPRwmhoKaWd1SB/tPd2MTd4usPJ98lBiHf9wi9sS0f6sib/JmanzNG9jzPNe0VAAwN0S
+	DQsMcOGznzwTMBH5gpeEo+aTFqjYgb2zQvGvJxBnu6T8QWZUAHecY4+w0NKJ89yKxXdDC/CzsYPlT
+	PG+rmipjsVh4ybtVTfHmnq6EEbfpNVpZTbd1beKo1d6TGyNQ0asq3+HhWzioh9xr0VCF09vEls+s7
+	kKhxVFjSWe1Bl/qSzKeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqzWm-0000000D1MH-2zWc;
-	Tue, 26 Aug 2025 19:40:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uqzZT-0000000D1gS-0SbR;
+	Tue, 26 Aug 2025 19:43:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqzQN-0000000CzzJ-0bDs;
-	Tue, 26 Aug 2025 19:33:43 +0000
+	id 1uqzQg-0000000D04r-3hAx;
+	Tue, 26 Aug 2025 19:34:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6FEEA601E9;
-	Tue, 26 Aug 2025 19:33:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89AAAC4CEF1;
-	Tue, 26 Aug 2025 19:33:35 +0000 (UTC)
-Date: Tue, 26 Aug 2025 20:33:37 +0100
+	by sea.source.kernel.org (Postfix) with ESMTP id 804664505B;
+	Tue, 26 Aug 2025 19:34:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3FDAC4CEF1;
+	Tue, 26 Aug 2025 19:33:55 +0000 (UTC)
+Date: Tue, 26 Aug 2025 20:33:58 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
 Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
@@ -64,13 +64,17 @@ Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
 	linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	Rasmus Villemoes <linux@rasmusvillemoes.dk>
-Subject: Re: [PATCH 08/11] vdso: Drop kconfig GENERIC_COMPAT_VDSO
-Message-ID: <aK4MES_GHUQ-9zoY@arm.com>
+Subject: Re: [PATCH 09/11] vdso: Drop kconfig GENERIC_VDSO_DATA_STORE
+Message-ID: <aK4MJl3dfjsY8pPM@arm.com>
 References: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
- <20250826-vdso-cleanups-v1-8-d9b65750e49f@linutronix.de>
+ <20250826-vdso-cleanups-v1-9-d9b65750e49f@linutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250826-vdso-cleanups-v1-8-d9b65750e49f@linutronix.de>
+In-Reply-To: <20250826-vdso-cleanups-v1-9-d9b65750e49f@linutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250826_123402_937279_10A76C9C 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,18 +91,18 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 08:17:11AM +0200, Thomas Wei=DFschuh wrote:
-> This configuration is never used.
+On Tue, Aug 26, 2025 at 08:17:12AM +0200, Thomas Wei=DFschuh wrote:
+> All users of the generic vDSO library also use the generic vDSO datastore.
 > =
 
-> Remove it.
+> Remove the now unnecessary kconfig symbol.
 > =
 
 > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
 > ---
->  arch/arm64/Kconfig | 1 -
->  lib/vdso/Kconfig   | 5 -----
->  2 files changed, 6 deletions(-)
+>  arch/Kconfig                        | 2 +-
+>  arch/arm/mm/Kconfig                 | 1 -
+>  arch/arm64/Kconfig                  | 1 -
 
 Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
