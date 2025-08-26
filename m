@@ -4,69 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC50ACA0FE7
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 15:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 547ACCA0FF6
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 16:30:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/RkGS0Xi48fkuA5wHdaJkkGv28ns3NO/gA/6vrAcl20=; b=ef4oKVyDmI9pcx
-	HhEj/EPMkHkpLa0v71FyNpxqx5rG9WFcfPtE/YPZ8Tj3RSMN560hTjn7arZ2PbN+dIiYYWP90ON6Z
-	WmBSD58v2J/zQ+mUgI6RettZBKIh0zuj9JIhHJqTDREmyYOoytT3hJoG47NGor9q//MSSzJpdcWCm
-	HeHUfnxZBuzC1UUcRoul7UqvIwCXFbsUW9jzqz2k7KA1HPY/yeS2w7Q4aVR4JpYqTBsot1UEo6Na0
-	sKEZOUjMtL7JHjz9rlHA0MrbfeI5zLEGaWcQM7IBi+sQdvP/sIiVe0RX0ezfJ/cAaBzcf4gNcfuOM
-	dpLUSuLU6Wncx3+2pfvw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GWO2eHASuq3SLjw88TcSM6fGli0kLVGHEtmRqYejMIQ=; b=q4xeklyBQQg+6C
+	9qyIXKsVkHLSeZxYycpkm5tykRavsfjdP0NN0g9yNrHyZH2dH2xVLWUVtxVc6UIgjeSod1ytGUn2s
+	drQtjOkPpNA2kcMeojQcKZUuAme/7J+8akLiQaYV7Xe/faokUFYAlxRRLdGUJ6JFY8LdTLAzLUh8d
+	fzBgee8qDzVnK5BfgrhxX/faJ79kiflsm182S76B0sq8ZUdqHHTv5SHc5TUpyFMdX9tjMjFXNCMqi
+	tyQsh8r2SFiCOgu8Y/rxC9HZlmxMb/wtQknCwTWtcNbuLWMBIQiEfAWmifTVu467TMhfj6Pdb5O5n
+	JytPgSyh32i4/nJG36RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqw5G-0000000CYql-3IQj;
-	Tue, 26 Aug 2025 15:59:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqw1e-0000000CXUW-2dRW;
-	Tue, 26 Aug 2025 15:55:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A3F871A25;
-	Tue, 26 Aug 2025 08:55:49 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D7E113F694;
-	Tue, 26 Aug 2025 08:55:51 -0700 (PDT)
-Date: Tue, 26 Aug 2025 16:55:49 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
-	acme@kernel.org, namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
-	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/19] perf/hisilicon: Fix group validation
-Message-ID: <aK3ZBUQ3QeB2egX7@J2N7QTR9R3>
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
- <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
- <ab80cb84-42b2-4ce8-aa6c-4ce6be7a12b7@arm.com>
- <aK3TS3s5_Pczx1nu@J2N7QTR9R3>
+	id 1uqwYy-0000000Cdyy-0D6T;
+	Tue, 26 Aug 2025 16:30:24 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqwYu-0000000CdyX-2hZ5;
+	Tue, 26 Aug 2025 16:30:23 +0000
+Received: from ROG.lan (unknown [118.251.176.199])
+	by APP-03 (Coremail) with SMTP id rQCowAD3jX8L4a1oBKJmDw--.6398S2;
+	Wed, 27 Aug 2025 00:30:05 +0800 (CST)
+From: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	anup@brainfault.org,
+	pbonzini@redhat.com,
+	shuah@kernel.org,
+	cyan.yang@sifive.com,
+	cleger@rivosinc.com,
+	charlie@rivosinc.com,
+	cuiyunhui@bytedance.com,
+	samuel.holland@sifive.com,
+	namcao@linutronix.de,
+	jesse@rivosinc.com,
+	inochiama@gmail.com,
+	yongxuan.wang@sifive.com,
+	ajones@ventanamicro.com,
+	parri.andrea@gmail.com,
+	mikisabate@gmail.com,
+	yikming2222@gmail.com,
+	thomas.weissschuh@linutronix.de
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	pincheng.plct@isrc.iscas.ac.cn
+Subject: [PATCH v2 0/5] Add Zilsd/Zclsd support in hwprobe and KVM
+Date: Wed, 27 Aug 2025 00:29:34 +0800
+Message-Id: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aK3TS3s5_Pczx1nu@J2N7QTR9R3>
+X-CM-TRANSID: rQCowAD3jX8L4a1oBKJmDw--.6398S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tFyftr1UXr48Cr1DJrW5Jrb_yoW8KrW5pF
+	s5GwnI9r1kJw13CF1fAr48ur1rKan5uws3tF9xtw18WayayFyrZr10k3ZxZF1kAFZ29FyD
+	Z3WrWryI9wnrAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
+	nIWIevJa73UjIFyTuYvjTRM6wCDUUUU
+X-Originating-IP: [118.251.176.199]
+X-CM-SenderInfo: pslquxhhqjh1xofwqxxvufhxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_085558_761790_683DA3EA 
-X-CRM114-Status: GOOD (  34.67  )
+X-CRM114-CacheID: sfid-20250826_093021_047166_FA0E7115 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,84 +101,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 04:31:23PM +0100, Mark Rutland wrote:
-> On Tue, Aug 26, 2025 at 03:35:48PM +0100, Robin Murphy wrote:
-> > On 2025-08-26 12:15 pm, Mark Rutland wrote:
-> > > On Wed, Aug 13, 2025 at 06:00:54PM +0100, Robin Murphy wrote:
-> > > > diff --git a/drivers/perf/hisilicon/hisi_pcie_pmu.c b/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> > > > index c5394d007b61..3b0b2f7197d0 100644
-> > > > --- a/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> > > > +++ b/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> > > > @@ -338,21 +338,16 @@ static bool hisi_pcie_pmu_validate_event_group(struct perf_event *event)
-> > > >   	int counters = 1;
-> > > >   	int num;
-> > > > -	event_group[0] = leader;
-> > > > -	if (!is_software_event(leader)) {
-> > > > -		if (leader->pmu != event->pmu)
-> > > > -			return false;
-> > > > +	if (leader == event)
-> > > > +		return true;
-> > > > -		if (leader != event && !hisi_pcie_pmu_cmp_event(leader, event))
-> > > > -			event_group[counters++] = event;
-> > > > -	}
-> > > > +	event_group[0] = event;
-> > > > +	if (leader->pmu == event->pmu && !hisi_pcie_pmu_cmp_event(leader, event))
-> > > > +		event_group[counters++] = leader;
-> > > 
-> > > Looking at this, the existing logic to share counters (which
-> > > hisi_pcie_pmu_cmp_event() is trying to permit) looks to be bogus, given
-> > > that the start/stop callbacks will reprogram the HW counters (and hence
-> > > can fight with one another).
-> > 
-> > Yeah, this had a dodgy smell when I first came across it, but after doing
-> > all the digging I think it does actually work out - the trick seems to be
-> > the group_leader check in hisi_pcie_pmu_get_event_idx(), with the
-> > implication the PMU is going to be stopped while scheduling in/out the whole
-> > group, so assuming hisi_pcie_pmu_del() doesn't clear the counter value in
-> > hardware (even though the first call nukes the rest of the event
-> > configuration), then the events should stay in sync.
-> 
-> I don't think that's sufficient. If nothing else, overflow is handled
-> per-event, and for a group of two identical events, upon overflow
-> hisi_pcie_pmu_irq() will reprogram the shared HW counter when handling
-> the first event, and the second event will see an arbitrary
-> discontinuity. Maybe no-one has spotted that due to the 2^63 counter
-> period that we program, but this is clearly bogus.
-> 
-> In addition, AFAICT the IRQ handler doesn't stop the PMU, so in general
-> groups aren't handled atomically, and snapshots of the counters won't be
-> atomic.
-> 
-> > It does seem somewhat nonsensical to have multiple copies of the same event
-> > in the same group, but I imagine it could happen with some sort of scripted
-> > combination of metrics, and supporting it at this level saves needing
-> > explicit deduplication further up. So even though my initial instinct was to
-> > rip it out too, in the end I concluded that that doesn't seem justified.
-> 
-
-[...]
-
-> As above, I think it's clearly bogus. I don't think we should have
-> merged it as-is and it's not something I'd like to see others copy.
-> Other PMUs don't do this sort of event deduplication, and in general it
-> should be up to the user or userspace software to do that rather than
-> doing that badly in the kernel.
-> 
-> Given it was implemented with no rationale I think we should rip it out.
-> If that breaks someone's scripting, then we can consider implementing
-> something that actually works.
-
-FWIW, I'm happy to go do that as a follow-up, so if that's a pain, feel
-free to leave that as-is for now.
-
-Mark.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgYWxsLAoKVGhpcyBpcyB2MiBvZiBhIHNob3J0IHNlcmllcyB0aGF0IGFkZHMga2VybmVsIHN1
+cHBvcnQgZm9yIHRoZSByYXRpZmllZApaaWxzZCAoTG9hZC9TdG9yZSBwYWlyKSBhbmQgWmNsc2Qg
+KENvbXByZXNzZWQgTG9hZC9TdG9yZSBwYWlyKSBSSVNDLVYKSVNBIGV4dGVuc2lvbnMuIFRoZSBz
+ZXJpZXMgZW5hYmxlcyBrZXJuZWwtc2lkZSBleHBvc3VyZSBzbyB1c2VyLXNwYWNlCihmb3IgZXhh
+bXBsZSBnbGliYykgY2FuIGRldGVjdCBhbmQgdXNlIHRoZXNlIGV4dGVuc2lvbnMgdmlhIGh3cHJv
+YmUgYW5kCnJ1bnRpbWUgY2hlY2tzLgoKUGF0Y2hlczoKLSBQYXRjaCAx77yaQWRkIGRldmljZSB0
+cmVlIGJpbmRpbmdzIGRvY3VtZW50YXRpb24gZm9yIFppbHNkIGFuZCBaY2xzZC4KLSBQYXRjaCAy
+OiBFeHRlbmQgUklTQy1WIElTQSBleHRlbnNpb24gc3RyaW5nIHBhcnNpbmcgdG8gcmVjb2duaXpl
+IHRoZW0uCi0gUGF0Y2ggMzogRXhwb3J0IFppbHNkIGFuZCBaY2xzZCB2aWEgcmlzY3ZfaHdwcm9i
+ZS4KLSBQYXRjaCA0OiBBbGxvdyBLVk0gZ3Vlc3RzIHRvIHVzZSB0aGVtLgotIFBhdGNoIDU6IEFk
+ZCBLVk0gc2VsZnRlc3RzLgoKQ2hhbmdlcyBpbiB2MjoKLSBEZXZpY2UtdHJlZSBzY2hlbWE6IHNp
+bXBsaWZpZWQgdGhlIHJ2NjQgdmFsaWRhdGlvbiBmb3IgWmlsc2QgYnkKICByZW1vdmluZyBhIHJl
+ZHVuZGFudCBgY29udGFpczogY29uc3Q6IHppbHNkYCBpbiB0aGUgYGlmYCBjbGF1c2U7IHRoZQog
+IHNpbXBsZXIgYGlmIChyaXNjdiwgaXNhLWJhc2UgY29udGFpbnMgcnY2NGkpIHRoZW4gKHJpc2N2
+LAogIGlzYS1leHRlbnNpb24gbm90IGNvbnRhaW5zIHppbHNkKWAgZm9ybSBpcyB1c2VkIGluc3Rl
+YWQuIEJlaGF2aW91ciBpcwogIHVuY2hhbmdlZCwgYW5kIHRoZSBsb2dpYyBpcyBjbGVhbmVyLgot
+IERldmljZS10cmVlIHNjaGVtYTogY29ycmVjdGVkIFpjbHNkIGRlcGVuZGVuY3kgdG8gcmVxdWly
+ZSBib3RoIFppbHNkCiAgYW5kIFpjYSAocHJldmlvdXMgYGFueU9mYCB3YXMgaW5jb3JyZWN0OyBu
+b3cgYm90aCBhcmUgZW5mb3JjZWQpLgotIENvbW1pdCBtZXNzYWdlIHR5cG8gZml4ZWQ6ICJkdC1i
+aWRpbmdzIiAtPiAiZHQtYmluZGluZ3MiIGluIHRoZSBQYXRjaAogIDEgY29tbWl0IHN1YmplY3Qu
+CgpUaGUgdjIgY2hhbmdlcyBhcmUgZG9jdW1lbnRhdGlvbi9zY2hlbWEgY29ycmVjdGlvbnMgaW4g
+ZXh0ZW5zaW9ucy55YW1sLgpObyBmdW5jdGlvbmFsIGNoYW5nZXMgd2VyZSBtYWRlIHRvIElTQSBw
+YXJzaW5nLCBod3Byb2JlIHN5c2NhbGwsIEtWTQpndWVzdCBzdXBwb3J0IG9yIHRoZSBzZWxmdGVz
+dHMgYmV5b25kIGVuc3VyaW5nIHRoZSBiaW5kaW5nIGNvcnJlY3RseQpkb2N1bWVudHMgYW5kIHZh
+bGlkYXRlcyB0aGUgZXh0ZW5zaW9uIHJlbGF0aW9uc2hpcHMuCgpQbGVhc2UgcmV2aWV3IHYyIGFu
+ZCBhZHZpc2UgaWYgZnV0aGVyIGNoYW5nZXMgYXJlIG5lZWRlZC4KClRoYW5rcywKUGluY2hlbmcg
+V2FuZyAKClBpbmNoZW5nIFdhbmcgKDUpOgogIGR0LWJpbmRpbmdzOiByaXNjdjogYWRkIFppbHNk
+IGFuZCBaY2xzZCBleHRlbnNpb24gZGVzY3JpcHRpb25zCiAgcmlzY3Y6IGFkZCBJU0EgZXh0ZW5z
+aW9uIHBhcnNpbmcgZm9yIFppbHNkIGFuZCBaY2xzZAogIHJpc2N2OiBod3Byb2JlOiBleHBvcnQg
+Wmlsc2QgYW5kIFpjbHNkIElTQSBleHRlbnNpb25zCiAgcmlzY3Y6IEtWTTogYWxsb3cgWmlsc2Qg
+YW5kIFpjbHNkIGV4dGVuc2lvbnMgZm9yIEd1ZXN0L1ZNCiAgS1ZNOiByaXNjdjogc2VsZnRlc3Rz
+OiBhZGQgWmlsc2QgYW5kIFpjbHNkIGV4dGVuc2lvbiB0byBnZXQtcmVnLWxpc3QKICAgIHRlc3QK
+CiBEb2N1bWVudGF0aW9uL2FyY2gvcmlzY3YvaHdwcm9iZS5yc3QgICAgICAgICAgfCAgOCArKysr
+KwogLi4uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvZXh0ZW5zaW9ucy55YW1sIHwgMzYgKysr
+KysrKysrKysrKysrKysrKwogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oICAgICAgICAg
+ICAgICAgIHwgIDIgKysKIGFyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmggICAg
+ICAgICB8ICAyICsrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmggICAgICAgICAg
+ICAgfCAgMiArKwogYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jICAgICAgICAgICAgICAg
+IHwgMjQgKysrKysrKysrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYyAgICAg
+ICAgICAgICAgIHwgIDIgKysKIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfb25lcmVnLmMgICAgICAgICAg
+ICAgICAgICB8ICAyICsrCiAuLi4vc2VsZnRlc3RzL2t2bS9yaXNjdi9nZXQtcmVnLWxpc3QuYyAg
+ICAgICAgfCAgNiArKysrCiA5IGZpbGVzIGNoYW5nZWQsIDg0IGluc2VydGlvbnMoKykKCi0tIAoy
+LjM5LjUKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
