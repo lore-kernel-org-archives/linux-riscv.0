@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC88ECA0FE9
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 11:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7779CA0FE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 13:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b0NeJ2RAEhInb50l2Ad2AUqmp0PG3/TCSLKUOdlK/qs=; b=cCgo7Vvs20ewGI
-	0tXgKrkMFhDa0yP071k7Aem3624nxVMGSaLMfIiW5nUPsQhV8pqd8FCswP92PL4IvR7KdSxsRwAqD
-	fFtDj6AckcjcLXSesum/MWJXZyjKrrAAO3VrtWxZLeFusaY8bCs37e//kikxWU5REf3DAVzsmmrie
-	L7Kg6vXJU9hoFVjXDFWaGrOiKVN/9OdmwOa+mU/3xWhwgcVkDzI6vPcqEu2QFYGOAEb7hei+ROjom
-	1nhlrHQ2b0OO3Q0ddEGtzZECIwDdCB+t80hMVynytjYBHEp5S6iE9D3pXpYPmj6noksTs1DYNL11S
-	2yLc3N2hqoFipIjACOOg==;
+	List-Owner; bh=69etOkI2BEM0MfKuXmsCuTRwt0KN4+vJ8H43fwabGSk=; b=oWieLHzw3opnbz
+	RfXiPCAPy+4IkMvDFA7djfZHCkc+oOn8OY0xW5s26kEmZkKfQDbOyvZFXs5n9FT61cqYNW1V9wYM7
+	BZsMzRvQ/+0CItmR9+kTZpnL2m4Xv6OFx3dzD2kL/VthnfX1reWbqd0qYJ6E1dyq95FtT7zbLs2cs
+	S9EEBKJ70roFrEEyFoend1RMdY2AXnnWQamrFTwLa+3n+lDS9mVthPxZ1RUKlorjkWaqnjc5b+AhE
+	EgOoN/UZgEW9qim8REQXKjwZH0kSU1sTVQ7lbhLrULVNPTuowIJ6B4VT9O0Q8JFtLmVpvKOkLkBpZ
+	NvMv2HWKdnUvb5iUb7fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqs7S-0000000Bq8J-0WH4;
-	Tue, 26 Aug 2025 11:45:42 +0000
+	id 1uqtNQ-0000000C29J-1T3D;
+	Tue, 26 Aug 2025 13:06:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqreP-0000000BkGg-1ml9;
-	Tue, 26 Aug 2025 11:15:43 +0000
+	id 1uqtKh-0000000C1jj-1QJL;
+	Tue, 26 Aug 2025 13:03:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E7AF1A00;
-	Tue, 26 Aug 2025 04:15:32 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 663C13F63F;
-	Tue, 26 Aug 2025 04:15:28 -0700 (PDT)
-Date: Tue, 26 Aug 2025 12:15:23 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
-	acme@kernel.org, namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
-	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/19] perf/hisilicon: Fix group validation
-Message-ID: <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 025E02C23;
+	Tue, 26 Aug 2025 06:03:18 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5B423F63F;
+	Tue, 26 Aug 2025 06:03:19 -0700 (PDT)
+Date: Tue, 26 Aug 2025 14:03:16 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH RFC 21/35] mm/cma: refuse handing out non-contiguous page
+ ranges
+Message-ID: <aK2wlGYvCaFQXzBm@raptor>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-22-david@redhat.com>
+ <aK2QZnzS1ErHK5tP@raptor>
+ <ad521f4f-47aa-4728-916f-3704bf01f770@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
+In-Reply-To: <ad521f4f-47aa-4728-916f-3704bf01f770@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_041541_548312_553A09F7 
-X-CRM114-Status: GOOD (  25.96  )
+X-CRM114-CacheID: sfid-20250826_060327_421136_4941519B 
+X-CRM114-Status: GOOD (  18.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,156 +91,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 06:00:54PM +0100, Robin Murphy wrote:
-> The group validation logic shared by the HiSilicon HNS3/PCIe drivers is
-> a bit off, in that given a software group leader, it will consider that
-> event *in place of* the actual new event being opened. At worst this
-> could theoretically allow an unschedulable group if the software event
-> config happens to look like one of the hardware siblings.
+Hi David,
+
+On Tue, Aug 26, 2025 at 01:04:33PM +0200, David Hildenbrand wrote:
+..
+> > Just so I can better understand the problem being fixed, I guess you can have
+> > two consecutive pfns with non-consecutive associated struct page if you have two
+> > adjacent memory sections spanning the same physical memory region, is that
+> > correct?
 > 
-> The uncore framework avoids that particular issue,
-
-What is "the uncore framework"? I'm not sure exactly what you're
-referring to, nor how that composes with the problem described above.
-
-> but all 3 also share the common issue of not preventing racy access to
-> the sibling list,
-
-Can you please elaborate on this racy access to the silbing list? I'm
-not sure exactly what you're referring to.
-
-> and some redundant checks which can be cleaned up.
+> Exactly. Essentially on SPARSEMEM without SPARSEMEM_VMEMMAP it is not
+> guaranteed that
 > 
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
->  drivers/perf/hisilicon/hisi_pcie_pmu.c   | 17 ++++++-----------
->  drivers/perf/hisilicon/hisi_uncore_pmu.c | 23 +++++++----------------
->  drivers/perf/hisilicon/hns3_pmu.c        | 17 ++++++-----------
->  3 files changed, 19 insertions(+), 38 deletions(-)
+> 	pfn_to_page(pfn + 1) == pfn_to_page(pfn) + 1
 > 
-> diff --git a/drivers/perf/hisilicon/hisi_pcie_pmu.c b/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> index c5394d007b61..3b0b2f7197d0 100644
-> --- a/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> @@ -338,21 +338,16 @@ static bool hisi_pcie_pmu_validate_event_group(struct perf_event *event)
->  	int counters = 1;
->  	int num;
->  
-> -	event_group[0] = leader;
-> -	if (!is_software_event(leader)) {
-> -		if (leader->pmu != event->pmu)
-> -			return false;
-> +	if (leader == event)
-> +		return true;
->  
-> -		if (leader != event && !hisi_pcie_pmu_cmp_event(leader, event))
-> -			event_group[counters++] = event;
-> -	}
-> +	event_group[0] = event;
-> +	if (leader->pmu == event->pmu && !hisi_pcie_pmu_cmp_event(leader, event))
-> +		event_group[counters++] = leader;
-
-Looking at this, the existing logic to share counters (which
-hisi_pcie_pmu_cmp_event() is trying to permit) looks to be bogus, given
-that the start/stop callbacks will reprogram the HW counters (and hence
-can fight with one another).
-
-I suspect that can be removed *entirely*, and this can be simplified
-down to allocating N counters, without a quadratic event comparison.  We
-don't try to share counters in other PMU drivers, and there was no
-rationale for trying to do this when this wa introduced in commit:
-
-  8404b0fbc7fbd42e ("drivers/perf: hisi: Add driver for HiSilicon PCIe PMU")
-
-The 'link' tag in that comment goes to v13, which doesn't link to prior
-postings, so I'm not going to dig further.
-
-Mark.
-
->  
->  	for_each_sibling_event(sibling, event->group_leader) {
-> -		if (is_software_event(sibling))
-> -			continue;
-> -
->  		if (sibling->pmu != event->pmu)
-> -			return false;
-> +			continue;
->  
->  		for (num = 0; num < counters; num++) {
->  			/*
-> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> index a449651f79c9..3c531b36cf25 100644
-> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> @@ -101,26 +101,17 @@ static bool hisi_validate_event_group(struct perf_event *event)
->  	/* Include count for the event */
->  	int counters = 1;
->  
-> -	if (!is_software_event(leader)) {
-> -		/*
-> -		 * We must NOT create groups containing mixed PMUs, although
-> -		 * software events are acceptable
-> -		 */
-> -		if (leader->pmu != event->pmu)
-> -			return false;
-> +	if (leader == event)
-> +		return true;
->  
-> -		/* Increment counter for the leader */
-> -		if (leader != event)
-> -			counters++;
-> -	}
-> +	/* Increment counter for the leader */
-> +	if (leader->pmu == event->pmu)
-> +		counters++;
->  
->  	for_each_sibling_event(sibling, event->group_leader) {
-> -		if (is_software_event(sibling))
-> -			continue;
-> -		if (sibling->pmu != event->pmu)
-> -			return false;
->  		/* Increment counter for each sibling */
-> -		counters++;
-> +		if (sibling->pmu == event->pmu)
-> +			counters++;
->  	}
->  
->  	/* The group can not count events more than the counters in the HW */
-> diff --git a/drivers/perf/hisilicon/hns3_pmu.c b/drivers/perf/hisilicon/hns3_pmu.c
-> index c157f3572cae..382e469257f9 100644
-> --- a/drivers/perf/hisilicon/hns3_pmu.c
-> +++ b/drivers/perf/hisilicon/hns3_pmu.c
-> @@ -1058,21 +1058,16 @@ static bool hns3_pmu_validate_event_group(struct perf_event *event)
->  	int counters = 1;
->  	int num;
->  
-> -	event_group[0] = leader;
-> -	if (!is_software_event(leader)) {
-> -		if (leader->pmu != event->pmu)
-> -			return false;
-> +	if (leader == event)
-> +		return true;
->  
-> -		if (leader != event && !hns3_pmu_cmp_event(leader, event))
-> -			event_group[counters++] = event;
-> -	}
-> +	event_group[0] = event;
-> +	if (leader->pmu == event->pmu && !hns3_pmu_cmp_event(leader, event))
-> +		event_group[counters++] = leader;
->  
->  	for_each_sibling_event(sibling, event->group_leader) {
-> -		if (is_software_event(sibling))
-> -			continue;
-> -
->  		if (sibling->pmu != event->pmu)
-> -			return false;
-> +			continue;
->  
->  		for (num = 0; num < counters; num++) {
->  			/*
-> -- 
-> 2.39.2.101.g768bb238c484.dirty
+> when we cross memory section boundaries.
 > 
+> It can be the case for early boot memory if we allocated consecutive areas
+> from memblock when allocating the memmap (struct pages) per memory section,
+> but it's not guaranteed.
+
+Thank you for the explanation, but I'm a bit confused by the last paragraph. I
+think what you're saying is that we can also have the reverse problem, where
+consecutive struct page * represent non-consecutive pfns, because memmap
+allocations happened to return consecutive virtual addresses, is that right?
+
+If that's correct, I don't think that's the case for CMA, which deals out
+contiguous physical memory. Or were you just trying to explain the other side of
+the problem, and I'm just overthinking it?
+
+Thanks,
+Alex
 
 _______________________________________________
 linux-riscv mailing list
