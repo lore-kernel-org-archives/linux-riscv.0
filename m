@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F00CCA0FEB
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 13:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D60CA0FEB
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 14:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q7CPs01o1b284zDl60pT/7/jRfXs/pvCt+MYOgEA7BM=; b=qO0typD/BBKRI3
-	XmBzNJN1PLa2POyIRWD3G/9gArwZsnVlwd48QpgVp82NGH61d5F0L+glY4CYW9vJiyJBVWPpAhq53
-	jDllgO2QxbQaoaz4goIxqUt6wVzu3QPf0tIvmbKCqkMcpSX3maVW9F09h+JgW/a9jRts02dspqC2B
-	ER5uLAt2N7+4yjh3EwvQrSDcsRGRXTH5IcamFEH+173L664yGQssPap2G/6vU4Bs9rr8QJpfk643v
-	z9NfWxZTLFcUYdkNbPOKU7hbKD7jcbkYD6WPp8JiY/YIQpdOOaAQlJrBbDJWyBkVZzW4cRrBnXYc4
-	6w7V32qnXfxHbEDfVnfA==;
+	List-Owner; bh=gVbpl4A+Ge+ZQML3ghY3xm3ifGI2eD/P46aCc9TPguE=; b=yIFUbNuhJbhvig
+	NYAyALuyrd3azt7ACWr2RLg43Fd8WCVle4CYXgfy1b+ODYN3iQCY33NtF6MJlqIUDIIG9v6/CPtjG
+	vgVOuYSzLS/2b8bovq/RhqXfFpYtYNhBwMqeDVPAp7aOkWO3QRw1wUWN4Mi0ox2NaeHjLdfSinnet
+	YfbwUiVbtRyRzioNLVfx3w6xKpt50ZVDjmvazmwb5Yk5oiwy5tKu861Xrv9Zxq7vE1ghh82EzFEPn
+	5COixdcGy8UBRR9tUM36CVRapDxfAXQ8p4Ls0A5g3fC+6IneovkPVLiigTSxwbSr/RkzLWL18bEqG
+	4TEctmG53hyYbrTrrWrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uquCM-0000000CAeg-0FtD;
-	Tue, 26 Aug 2025 13:58:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqtjI-0000000C6Nd-1kGI;
-	Tue, 26 Aug 2025 13:28:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 742EB1A25;
-	Tue, 26 Aug 2025 06:28:43 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A56233F63F;
-	Tue, 26 Aug 2025 06:28:45 -0700 (PDT)
-Date: Tue, 26 Aug 2025 14:28:43 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, mingo@redhat.com, will@kernel.org,
-	acme@kernel.org, namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
-	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 16/19] perf: Introduce positive capability for sampling
-Message-ID: <aK22izKE4r6wI_D9@J2N7QTR9R3>
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <ae81cb65b38555c628e395cce67ac6c7eaafdd23.1755096883.git.robin.murphy@arm.com>
- <20250826130806.GY4067720@noisy.programming.kicks-ass.net>
+	id 1uquN3-0000000CCnt-2ftU;
+	Tue, 26 Aug 2025 14:09:57 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqu0g-0000000C91W-1DT8
+	for linux-riscv@lists.infradead.org;
+	Tue, 26 Aug 2025 13:46:51 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45a1b0cbbbaso49739835e9.3
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Aug 2025 06:46:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756216009; x=1756820809; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0bgIZihST00M2CtyLVGqxcGCSa4PCOhuFDLrOFCRzds=;
+        b=D0hdUyrWy/N8sAe6xwI/cb8zxKuIpd6sDL9TUWerTifCttPoKLFSeRZWRSMP5rpMts
+         5nj1cFOTjyfH4FFt+3SjQHjatXJb4Sv6DEjofa2fnHADMwnnPvObWwjNMeHi2I0xD6Si
+         nTWdOFBsjkgLn+nO2NCGqi++zvf3KBQ0YkBDmS9iQ1KDY+V2TAWFNIGGoxslov6+S29S
+         u1a8ng60dX2XrLoB7rXWQ+KTqkcoWPEf7MhQSZ80n3vSWM4RaPg44V2vls+6cO19utDY
+         uuFTIM7Y2rDngXf2+bVQ4szHTD1BAYScmUINNSPf8SQHFdZjKi374P3aDThe/xMmhEE5
+         z3tw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756216009; x=1756820809;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0bgIZihST00M2CtyLVGqxcGCSa4PCOhuFDLrOFCRzds=;
+        b=BKI+1y4DGZsGPVwh8bPrK/dYeVUXSk95vda9KTtqjS0QTGXaJPD4sJWXALaIatgxNT
+         my9wQnSk/9RTsRmIvjLiPCmObef5P70JNIsNP7iGl0YXwCIwbZ8JdndyhBvHCRyDe8fP
+         73DaNT6OiF9ehneY7UbeK3SPuFZYGHkmuow1uqwjgkNmBc5abnHKTv75wmqvR1RZGrYG
+         mqGCP8NIz5IL+FTpmDhbce7AsLU+tIKPAl5OKhozZSi1OEwnLdzd2scZSHLOcdLSB5a4
+         qDM97ba1+XSVWb+IpF3K4MLDOYcsAZ9M0DxCoZTHsGJYt+n3lqc9O6yb+QZcbdPT8E8H
+         7D/g==
+X-Forwarded-Encrypted: i=1; AJvYcCUyo89fOWQU5g20vRb8/VhmAurw6EMSuQLUggXSC4ueZLrZLTaxaSWUfNUcTYQ6/MN84THo90wyAXg3hw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw36w51hELU/ecAbP5WHDieB09+E13m3SVM7ElcMTf/SusFJhbL
+	q64ARJd2cqZZyiEsm59/UsgYy1RulSulWXVruLRtsMJbWQcNICddn6U0goMewpUfmHU=
+X-Gm-Gg: ASbGncuTMDYH6UmUiCuSZ2PgQQOXtgSgtuVcfnhztGeRoDa2Tvx/tp6YWQCiH8q2zLp
+	PO72RR45NSeX99QsRYhxmK/ltksPGWw6PLKxara8N4aAzw1/TQq6rytwpC4DnKDL+xtkicRr55P
+	OYlhIrTvidnZP87Y2Lf0ICBqY6YBzjg0NixYCHotaz4AqU7jdwb+cnRriWEnNR4g78NEojP0GcU
+	ZesRcOeWLWNGMraFYt2ppkCmxYnfQrMk+ngBQ3fV+NpDrLgNtdRZUzzBfeaRN1Tus/ODsG6wKF4
+	eQL16fu3SvYTnAv75TQ/e1G2hFaimHAwHpG+zOioq9tbg6+waeIpB8lJlgcmedDajeAtZuvEnee
+	zWgefQ7XucH8qptsnerGX+Qjm
+X-Google-Smtp-Source: AGHT+IH/vtben+jS8p+rxXWOqr702i8ga9ZchZdA6ANpXGCersQKl3QS+kocMs00UNNWRezs+Fzb3w==
+X-Received: by 2002:a05:600c:190e:b0:459:e3f8:9308 with SMTP id 5b1f17b1804b1-45b517ad4bbmr141075015e9.11.1756216008734;
+        Tue, 26 Aug 2025 06:46:48 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:fed4:79fc:9440:6629])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7117d5b10sm16231162f8f.47.2025.08.26.06.46.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Aug 2025 06:46:48 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Lukas Wunner <lukas@wunner.de>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH] dt-bindings: gpio: Minor whitespace cleanup in example
+Date: Tue, 26 Aug 2025 15:46:46 +0200
+Message-ID: <175621600512.33327.13991412012918423626.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250821083213.46642-2-krzysztof.kozlowski@linaro.org>
+References: <20250821083213.46642-2-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250826130806.GY4067720@noisy.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_062852_495432_88B2D15B 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20250826_064650_328732_D44DE1C0 
+X-CRM114-Status: UNSURE (   6.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +111,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 03:08:06PM +0200, Peter Zijlstra wrote:
-> On Wed, Aug 13, 2025 at 06:01:08PM +0100, Robin Murphy wrote:
-> > Sampling is inherently a feature for CPU PMUs, given that the thing
-> > to be sampled is a CPU context. These days, we have many more
-> > uncore/system PMUs than CPU PMUs, so it no longer makes much sense to
-> > assume sampling support by default and force the ever-growing majority
-> > of drivers to opt out of it (or erroneously fail to). Instead, let's
-> > introduce a positive opt-in capability that's more obvious and easier to
-> > maintain.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+
+On Thu, 21 Aug 2025 10:32:14 +0200, Krzysztof Kozlowski wrote:
+> The DTS code coding style expects exactly one space around '='
+> character.
 > 
-> > diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-> > index 4d439c24c901..bf2cfbeabba2 100644
-> > --- a/include/linux/perf_event.h
-> > +++ b/include/linux/perf_event.h
-> > @@ -294,7 +294,7 @@ struct perf_event_pmu_context;
-> >  /**
-> >   * pmu::capabilities flags
-> >   */
-> > -#define PERF_PMU_CAP_NO_INTERRUPT	0x0001
-> > +#define PERF_PMU_CAP_SAMPLING		0x0001
-> >  #define PERF_PMU_CAP_NO_NMI		0x0002
-> >  #define PERF_PMU_CAP_AUX_NO_SG		0x0004
-> >  #define PERF_PMU_CAP_EXTENDED_REGS	0x0008
-> > @@ -305,6 +305,7 @@ struct perf_event_pmu_context;
-> >  #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
-> >  #define PERF_PMU_CAP_AUX_PAUSE		0x0200
-> >  #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
-> > +#define PERF_PMU_CAP_NO_INTERRUPT	0x0800
 > 
-> So NO_INTERRUPT was supposed to be the negative of your new SAMPLING
-> (and I agree with your reasoning).
-> 
-> What I'm confused/curious about is why we retain NO_INTERRUPT?
 
-I see from your other reply that you spotted the next patch does that.
+Applied, thanks!
 
-For the sake of other reviewers or anyone digging through the git
-history it's probably worth adding a line to this commit message to say:
+[1/1] dt-bindings: gpio: Minor whitespace cleanup in example
+      https://git.kernel.org/brgl/linux/c/604642fc148b5d98fbe5f55e4c2688f9ee0b5868
 
-| A subsequent patch will remove PERF_PMU_CAP_NO_INTERRUPT as this
-| requires some additional cleanup.
-
-Mark.
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
 _______________________________________________
 linux-riscv mailing list
