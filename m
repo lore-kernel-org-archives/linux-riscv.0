@@ -4,95 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9010CA0FF2
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 16:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0CBCA0FE7
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 16:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pn3NLoIW2rYRwJ2s4QXBETcBNjm+ahXyP2YA2G5yAFA=; b=ioP8bqMadqbWFC
-	Pd8UJw7fqhgq9g6935DcmzXYVGVM+Mnv0pCBarywGBVTbZB16ixAAEJMxAH87ltCelso2lOe7YWRI
-	jOISqxK1adk29KJfZLKmt0kxGD2h1BcfLbKXErUGomO42irYN2ajTCjzgOI7ts4U7wwLlrJxVvkJo
-	LEXuXYkg/iT7B8h+FYzuR3yxJeWgmoOaPlJpRO3UkSrMY5vv4+S145UIewdh3bD4p0P+PopYgDEsX
-	VcRHFmni4jcQTgaWs0bgmr804nwq06PQj3FJF34NDBYYDN+QQ/eIsRNBbNN54+5s25xHfpxe3PfHt
-	mMtKQx4YZsC/htbhp5Gw==;
+	List-Owner; bh=gsZCOrbYgPGKhyDRLVah84oD7sr44AfP+e5qKjHaLr0=; b=RDVXRtqAwUsJRR
+	bdbdntQpHtK1tTyzHVWMe2S/AJ4BOvSgdCPgLmyJnJKitC1tH2646Vohwr7My3XKOqystc6tA09yc
+	3q/7gca+yzJ2m/KBMLtA0iPZyYwrtT/pGo+DX86DKzUeBxJzPurppejTiNUKn+u4G32VuCukqT2U3
+	+ssG/u65R/Qbcpw2eig1MsL9qqvRy12GWSIi1X593Z5bsdVj807d4WHZlCeG860B3ZIbnm4qpAdzi
+	PIvujOYzOcNWL3FnQ9ayNqB20l5nbsKODHcVr7blWZRiDZVh+5ZduG6j/3XTfoKsbjmAZZPkuh2cz
+	56DIgG7hHJVzr6KYt9Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwZE-0000000Ce8L-3XfG;
-	Tue, 26 Aug 2025 16:30:40 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1uqwgc-0000000Cfch-0dmi;
+	Tue, 26 Aug 2025 16:38:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwZB-0000000Ce3P-0JmU;
-	Tue, 26 Aug 2025 16:30:38 +0000
-Received: from ROG.lan (unknown [118.251.176.199])
-	by APP-03 (Coremail) with SMTP id rQCowAD3jX8L4a1oBKJmDw--.6398S6;
-	Wed, 27 Aug 2025 00:30:25 +0800 (CST)
-From: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	anup@brainfault.org,
-	pbonzini@redhat.com,
-	shuah@kernel.org,
-	cyan.yang@sifive.com,
-	cleger@rivosinc.com,
-	charlie@rivosinc.com,
-	cuiyunhui@bytedance.com,
-	samuel.holland@sifive.com,
-	namcao@linutronix.de,
-	jesse@rivosinc.com,
-	inochiama@gmail.com,
-	yongxuan.wang@sifive.com,
-	ajones@ventanamicro.com,
-	parri.andrea@gmail.com,
-	mikisabate@gmail.com,
-	yikming2222@gmail.com,
-	thomas.weissschuh@linutronix.de
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	pincheng.plct@isrc.iscas.ac.cn
-Subject: [PATCH v2 4/5] riscv: KVM: allow Zilsd and Zclsd extensions for Guest/VM
-Date: Wed, 27 Aug 2025 00:29:38 +0800
-Message-Id: <20250826162939.1494021-5-pincheng.plct@isrc.iscas.ac.cn>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn>
-References: <20250826162939.1494021-1-pincheng.plct@isrc.iscas.ac.cn>
+	id 1uqwdt-0000000CfGS-3t4L;
+	Tue, 26 Aug 2025 16:35:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Cs3lA0xtwHyZRzw7X/rouKWvwTFpddTtyCuNGpxeQfg=; b=OZceRtTnXpkXN7MsmlPuJoe2Sv
+	+Rd1y+UmaNCfMNS6F6DnEG15mXTIKl38PP6azrJTgsvUJ8Qfkm1NbfJHWBcWSmHwANbvmVVHioKq+
+	hUPbwGnIXx5fahRT2KnJ9WAbAtahJHwGze58fEWMVDcbcQ9VIWGeqOxjM47IS05/ZL2Rznom11Q4q
+	E/VYNrJiReReu22mXB6rzhGSeVZkA5rLojePOBr5LJmJrrw73it16RSDn4NS2V+1fCzJKGM5x15du
+	0cYBZuujm8OpTh/qr96K5hk1EpXJTVJpqk1UYordrgdcaugvo+mTb6PyMy9za8GBzTjym4rDITJrE
+	ktn35v2A==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqwdq-00000002Gk5-2Cim;
+	Tue, 26 Aug 2025 16:35:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E4571A25;
+	Tue, 26 Aug 2025 09:35:15 -0700 (PDT)
+Received: from [10.57.4.86] (unknown [10.57.4.86])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5A1B3F694;
+	Tue, 26 Aug 2025 09:35:17 -0700 (PDT)
+Message-ID: <8d6ac059-fc8f-4a5d-b49e-d02777c01cfb@arm.com>
+Date: Tue, 26 Aug 2025 17:35:15 +0100
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAD3jX8L4a1oBKJmDw--.6398S6
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4ruw45tFyDtrWUCrWUCFg_yoW8Wr17pr
-	s8CF9I9rW5C34fuas7twn8ur18Ww4UWws0ka1xur4xJFyUCry8JF1DA3W3Zr1DJay09rn5
-	WF1fGr18Zw45Ar7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr0_
-	Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6x
-	IIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_
-	Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8c
-	xan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCj
-	c4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4
-	CE17CEb7AF67AKxVWrXVW8Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWU
-	CwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr
-	0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1U
-	YxBIdaVFxhVjvjDU0xZFpf9x0pRQJ5wUUUUU=
-X-Originating-IP: [118.251.176.199]
-X-CM-SenderInfo: pslquxhhqjh1xofwqxxvufhxpvfd2hldfou0/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 16/19] perf: Introduce positive capability for sampling
+To: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>
+Cc: mingo@redhat.com, will@kernel.org, acme@kernel.org, namhyung@kernel.org,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
+ adrian.hunter@intel.com, kan.liang@linux.intel.com,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
+ linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
+ iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
+ linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <cover.1755096883.git.robin.murphy@arm.com>
+ <ae81cb65b38555c628e395cce67ac6c7eaafdd23.1755096883.git.robin.murphy@arm.com>
+ <20250826130806.GY4067720@noisy.programming.kicks-ass.net>
+ <aK22izKE4r6wI_D9@J2N7QTR9R3>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aK22izKE4r6wI_D9@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_093037_474307_BE26BB52 
-X-CRM114-Status: UNSURE (   7.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250826_173527_023543_BE579732 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,56 +90,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extend the KVM ISA extension ONE_REG interface to allow KVM user space
-to detect and enable Zilsd and Zclsd extensions for Guest/VM.
+On 2025-08-26 2:28 pm, Mark Rutland wrote:
+> On Tue, Aug 26, 2025 at 03:08:06PM +0200, Peter Zijlstra wrote:
+>> On Wed, Aug 13, 2025 at 06:01:08PM +0100, Robin Murphy wrote:
+>>> Sampling is inherently a feature for CPU PMUs, given that the thing
+>>> to be sampled is a CPU context. These days, we have many more
+>>> uncore/system PMUs than CPU PMUs, so it no longer makes much sense to
+>>> assume sampling support by default and force the ever-growing majority
+>>> of drivers to opt out of it (or erroneously fail to). Instead, let's
+>>> introduce a positive opt-in capability that's more obvious and easier to
+>>> maintain.
+>>
+>>> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+>>> index 4d439c24c901..bf2cfbeabba2 100644
+>>> --- a/include/linux/perf_event.h
+>>> +++ b/include/linux/perf_event.h
+>>> @@ -294,7 +294,7 @@ struct perf_event_pmu_context;
+>>>   /**
+>>>    * pmu::capabilities flags
+>>>    */
+>>> -#define PERF_PMU_CAP_NO_INTERRUPT	0x0001
+>>> +#define PERF_PMU_CAP_SAMPLING		0x0001
+>>>   #define PERF_PMU_CAP_NO_NMI		0x0002
+>>>   #define PERF_PMU_CAP_AUX_NO_SG		0x0004
+>>>   #define PERF_PMU_CAP_EXTENDED_REGS	0x0008
+>>> @@ -305,6 +305,7 @@ struct perf_event_pmu_context;
+>>>   #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
+>>>   #define PERF_PMU_CAP_AUX_PAUSE		0x0200
+>>>   #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
+>>> +#define PERF_PMU_CAP_NO_INTERRUPT	0x0800
+>>
+>> So NO_INTERRUPT was supposed to be the negative of your new SAMPLING
+>> (and I agree with your reasoning).
+>>
+>> What I'm confused/curious about is why we retain NO_INTERRUPT?
+> 
+> I see from your other reply that you spotted the next patch does that.
+> 
+> For the sake of other reviewers or anyone digging through the git
+> history it's probably worth adding a line to this commit message to say:
+> 
+> | A subsequent patch will remove PERF_PMU_CAP_NO_INTERRUPT as this
+> | requires some additional cleanup.
 
-Signed-off-by: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
----
- arch/riscv/include/uapi/asm/kvm.h | 2 ++
- arch/riscv/kvm/vcpu_onereg.c      | 2 ++
- 2 files changed, 4 insertions(+)
+Yup, the main reason is the set of drivers getting the new cap is 
+smaller than the set of drivers currently not rejecting sampling events, 
+so I wanted it to be clearly visible in the patch. Indeed I shall 
+clarify the relationship to NO_INTERRUPT in the commit message.
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 5f59fd226cc5..beb7ce06dce8 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -174,6 +174,8 @@ enum KVM_RISCV_ISA_EXT_ID {
- 	KVM_RISCV_ISA_EXT_ZCD,
- 	KVM_RISCV_ISA_EXT_ZCF,
- 	KVM_RISCV_ISA_EXT_ZCMOP,
-+	KVM_RISCV_ISA_EXT_ZCLSD,
-+	KVM_RISCV_ISA_EXT_ZILSD,
- 	KVM_RISCV_ISA_EXT_ZAWRS,
- 	KVM_RISCV_ISA_EXT_SMNPM,
- 	KVM_RISCV_ISA_EXT_SSNPM,
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index 2e1b646f0d61..8219769fc4a1 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -64,6 +64,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
- 	KVM_ISA_EXT_ARR(ZCD),
- 	KVM_ISA_EXT_ARR(ZCF),
- 	KVM_ISA_EXT_ARR(ZCMOP),
-+	KVM_ISA_EXT_ARR(ZCLSD),
- 	KVM_ISA_EXT_ARR(ZFA),
- 	KVM_ISA_EXT_ARR(ZFH),
- 	KVM_ISA_EXT_ARR(ZFHMIN),
-@@ -78,6 +79,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
- 	KVM_ISA_EXT_ARR(ZIHINTPAUSE),
- 	KVM_ISA_EXT_ARR(ZIHPM),
- 	KVM_ISA_EXT_ARR(ZIMOP),
-+	KVM_ISA_EXT_ARR(ZILSD),
- 	KVM_ISA_EXT_ARR(ZKND),
- 	KVM_ISA_EXT_ARR(ZKNE),
- 	KVM_ISA_EXT_ARR(ZKNH),
--- 
-2.39.5
-
+Thanks,
+Robin.
 
 _______________________________________________
 linux-riscv mailing list
