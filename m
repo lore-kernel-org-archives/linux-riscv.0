@@ -4,67 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F0EFCA0FEB
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 14:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 131E2CA0FE7
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 14:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OG8ZShlguXDDdG2IVMTyKonz95F8e0ezQUAKL8d+nrc=; b=02xktEcs8mOBJl
-	OGLtO2x2exYTGDGv6oMkjXXgLe/Rfjx0vNPkZqX5Uil/eX/nOL6G4+ISK+dsjurne3p0AqK5+HhBl
-	qveraiBh2kt0vdM2YJ7I70l0AsFUUtLfQJgw6hx+jdpYaONW4yZNTexqIGwMU3SfvzYqars0zXCOH
-	buSeSU+k2nnDVg7Rn9jrP97fPPRWjK+w+czvfePMAMpI+peXA5irNEJX4kVRUVVKCpP2KdPfffvqi
-	9CPawtDFkF+TiNET6Pf8KszBwXK1O8fxToJtr1QJqiHgawj5KjvBbUCSUXZRtY6BauZrbsTLqs3aZ
-	ibCvphpZPwZjgifCyyMQ==;
+	List-Owner; bh=ur32O8lVD5YFcZ1/ZMAkjAgpvCmhLBh2cL7fEZWy0Vg=; b=o0imY0o9nLkSyH
+	Ai5SshU1E0iQBViCBjezp7n8m+mOVImu6pAig6B7WjXOOr+q2j3cs8x5t99wveYfMjjedaKBUWcOW
+	/X4IIcKrdr3M0C7IEwXx4DXvdufALxZDTw+j3VEkwGjm0vM5Q++btB30QQEg/WkB3QowV7TNKNBhe
+	2TZc45wlMXTTXGCnlHchcJbWCrXTwxdEhFmt8mEG5iXf+ahlJDL8Yd7eZnkx12FO84TXvAZAzcvHy
+	GD3NEksHjIIEUletqN/VqI/3NJiWX5rWxdWMbp3agYL7xDmjQYvKPpqAEyBgOkVSVQIFv/FIV2jEF
+	lIU8Mx37wN3NA39cskJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqv2z-0000000CKve-1mqe;
-	Tue, 26 Aug 2025 14:53:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqtZF-0000000C4ck-3FYB;
-	Tue, 26 Aug 2025 13:18:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0DEB1A25;
-	Tue, 26 Aug 2025 06:18:20 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E10B23F63F;
-	Tue, 26 Aug 2025 06:18:22 -0700 (PDT)
-Date: Tue, 26 Aug 2025 14:18:16 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
-	acme@kernel.org, namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
-	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/19] perf/hisilicon: Fix group validation
-Message-ID: <aK20GP5g1iu9DGrQ@J2N7QTR9R3>
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
- <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
+	id 1uqv9E-0000000CMKN-3iIw;
+	Tue, 26 Aug 2025 14:59:44 +0000
+Received: from mail-pf1-f169.google.com ([209.85.210.169])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqv7S-0000000CLyH-4ADd
+	for linux-riscv@lists.infradead.org;
+	Tue, 26 Aug 2025 14:57:56 +0000
+Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-771ed4a8124so1829345b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Aug 2025 07:57:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1756220274; x=1756825074; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L4l4TBk/LGXRpjovIOSrhrLfanQNTxjIirl6+Uo+sE8=;
+        b=Gjnm7sxC8bOLRik2oWnFaeQvP1XPYGED066RGwmbD2vauxyFlTZQuDw3dfNFv1Cmwv
+         WWFzYansbVV8C1fmKdRONinlAifN+7iwLoQ3PYnlwUN1pjgmeE72BKKx+CuMTcfMvbT0
+         vywLPu+zBQZMaIQ+ku9tahKpJESN+98+vbAiak2KZ1cH6aaSvoVRJPhTRN1apCYNerTv
+         4WW7XMD7ZgU2Cmt1sFD4KAnd/ijRdjZlRM+Fwxf1rS53VCalaz9ODjD8SKPuarip+NM4
+         H/BhjtuYsu+zCGvQF0wvvr6lDUSWnCNYpECpGLwkz/klRszxxxebIp3t1VDmRlPbhp94
+         sP/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756220274; x=1756825074;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=L4l4TBk/LGXRpjovIOSrhrLfanQNTxjIirl6+Uo+sE8=;
+        b=HGiCz2ltP+eWnADvz3zoYqva313O/wIEXzYmtBODYsmBfx51WNyWVnqwsG7d8T/Zk+
+         5KSw2VjdhR1KNWq7OHb81IleNRVAk5J6ujgstaGEdrAwCd4lS24hNeqHRFJelcES+JFl
+         7Mh8C2g/T5jTkf8yJiLxJu/fx05pnFY8TxOQDN9Z7vu9OO0e7SRlMhb/uCbhBRpE5fUY
+         1/xpsCfD1kDzDUk+6TKh+SUjVH2swJqRvUdgVeXYtw0ruJpAeZby9jDt1jyhwByMVc9e
+         tqItJ/GabcweRLQqxgoW3Tp5uqz8U5N/k50KvoRubqec2y+LwIOV/TbnpbTwIGr2K0EC
+         7WwQ==
+X-Gm-Message-State: AOJu0Yz5+ltFhV5ObBzFsZ4X59Qq6eiHEoZkvjgx5M9IXLi1ptuf5+lZ
+	kJ1iw/HfAA0/HSGH+7Y9QUDm7cv3ZgiDwNnh9Jr7hwKjxpHM+nEtmAvVRAwLuJpNRY0WS/Qytq+
+	3AepYryU=
+X-Gm-Gg: ASbGncuVMi6NN5Kd2V2tD0o+EmNffA9LbcuUCnv4P/LCIdHsSWFzODtSkgC+4xPoG99
+	1dU5VjmJkhosHf8XVDZoj/54Im+KNv7bl+PK8mQHo2/dW0PC3P0pqEcDDFY6oHLhmPrPCP/Yke0
+	wIXptNeCvJ6sJ0eMtX1AGO2BZYlZKusx/Q+MRUCXMDoaqwjLUn8dqFH9RjJGWDWywq/3QJTxG+X
+	xgTAVp8T+yezl1QetCOTaU5w2wep24OMBDpr1gsQ3JCa30cxJVwz/RdopMp2MFgQg9pJi9qYV3l
+	swqTq62AE/wtxKcx2o3TQH38+JABOeVpfNCK12ZIrOZilm7TGgW7Dvy7204j7GJPyx/5Jh6MbFx
+	k4lO7Q6ozkXa5CbhwG2Xz15bVnyIUmWUytAlEIadlb4Ovku6wxjzL5cQ8+eWABvo9ANqCDF3FrR
+	em6H/B/5IwZd+6FY6rWEnIiDX7Eh/7LBf7Kuq7O7aw/l4=
+X-Google-Smtp-Source: AGHT+IF2b1+8Sme48WZ+/3lAfrfDRXPo0RsBhXH2ou3PBP/Wh3Zgu70REv/4ACU8qivX/oSldk1NJg==
+X-Received: by 2002:a05:6a00:1793:b0:771:f852:4529 with SMTP id d2e1a72fcca58-771f8524884mr4800612b3a.13.1756220273882;
+        Tue, 26 Aug 2025 07:57:53 -0700 (PDT)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77059928c5asm7209799b3a.1.2025.08.26.07.57.50
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 26 Aug 2025 07:57:53 -0700 (PDT)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	ajones@ventanamicro.com,
+	brs@rivosinc.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [RFC PATCH 1/4] riscv: add ISA extension parsing for Zalasr
+Date: Tue, 26 Aug 2025 22:57:37 +0800
+Message-Id: <20250826145740.92276-2-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20250826145740.92276-1-luxu.kernel@bytedance.com>
+References: <20250826145740.92276-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_061829_940885_FC68B2D6 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20250826_075755_034340_FED47A31 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,62 +107,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 12:15:23PM +0100, Mark Rutland wrote:
-> On Wed, Aug 13, 2025 at 06:00:54PM +0100, Robin Murphy wrote:
-> > The group validation logic shared by the HiSilicon HNS3/PCIe drivers is
-> > a bit off, in that given a software group leader, it will consider that
-> > event *in place of* the actual new event being opened. At worst this
-> > could theoretically allow an unschedulable group if the software event
-> > config happens to look like one of the hardware siblings.
-> > 
-> > The uncore framework avoids that particular issue,
-> 
-> What is "the uncore framework"? I'm not sure exactly what you're
-> referring to, nor how that composes with the problem described above.
-> 
-> > but all 3 also share the common issue of not preventing racy access to
-> > the sibling list,
-> 
-> Can you please elaborate on this racy access to the silbing list? I'm
-> not sure exactly what you're referring to.
+Add parsing for Zalasr ISA extension.
 
-Ah, I think you're referring to the issue in:
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+---
+ arch/riscv/include/asm/hwcap.h | 1 +
+ arch/riscv/kernel/cpufeature.c | 1 +
+ 2 files changed, 2 insertions(+)
 
-  https://lore.kernel.org/linux-arm-kernel/Zg0l642PgQ7T3a8Z@FVFF77S0Q05N/
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index affd63e11b0a3..ae3852c4f2ca2 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -106,6 +106,7 @@
+ #define RISCV_ISA_EXT_ZAAMO		97
+ #define RISCV_ISA_EXT_ZALRSC		98
+ #define RISCV_ISA_EXT_ZICBOP		99
++#define RISCV_ISA_EXT_ZALASR		100
+ 
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 743d53415572e..bf9d3d92bf372 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -472,6 +472,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(zaamo, RISCV_ISA_EXT_ZAAMO),
+ 	__RISCV_ISA_EXT_DATA(zabha, RISCV_ISA_EXT_ZABHA),
+ 	__RISCV_ISA_EXT_DATA(zacas, RISCV_ISA_EXT_ZACAS),
++	__RISCV_ISA_EXT_DATA(zalasr, RISCV_ISA_EXT_ZALASR),
+ 	__RISCV_ISA_EXT_DATA(zalrsc, RISCV_ISA_EXT_ZALRSC),
+ 	__RISCV_ISA_EXT_DATA(zawrs, RISCV_ISA_EXT_ZAWRS),
+ 	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
+-- 
+2.20.1
 
-... where when creatign a new event which is its own group leader,
-lockdep_assert_event_ctx(event) fires in for_each_sibling_event(),
-because the new event's context isn't locked...
-
-> > diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> > index a449651f79c9..3c531b36cf25 100644
-> > --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> > +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> > @@ -101,26 +101,17 @@ static bool hisi_validate_event_group(struct perf_event *event)
-> >  	/* Include count for the event */
-> >  	int counters = 1;
-> >  
-> > -	if (!is_software_event(leader)) {
-> > -		/*
-> > -		 * We must NOT create groups containing mixed PMUs, although
-> > -		 * software events are acceptable
-> > -		 */
-> > -		if (leader->pmu != event->pmu)
-> > -			return false;
-> > +	if (leader == event)
-> > +		return true;
-
-... and hence bailing out here avoids that?
-
-It's not strictly "racy access to the sibling list", becuase there's
-nothing else accessing the list; it's just that this is the simplest way
-to appease lockdep while avoiding false negatives.
-
-It'd probably be better to say something like "the common issue of
-calling for_each_sibling_event() when initialising a new group leader",
-and maybe to spell that out a bit.
-
-Mark.
 
 _______________________________________________
 linux-riscv mailing list
