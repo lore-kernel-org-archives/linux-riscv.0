@@ -4,81 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0CBCA0FE7
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 16:38:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FB9CA0FF2
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 17:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gsZCOrbYgPGKhyDRLVah84oD7sr44AfP+e5qKjHaLr0=; b=RDVXRtqAwUsJRR
-	bdbdntQpHtK1tTyzHVWMe2S/AJ4BOvSgdCPgLmyJnJKitC1tH2646Vohwr7My3XKOqystc6tA09yc
-	3q/7gca+yzJ2m/KBMLtA0iPZyYwrtT/pGo+DX86DKzUeBxJzPurppejTiNUKn+u4G32VuCukqT2U3
-	+ssG/u65R/Qbcpw2eig1MsL9qqvRy12GWSIi1X593Z5bsdVj807d4WHZlCeG860B3ZIbnm4qpAdzi
-	PIvujOYzOcNWL3FnQ9ayNqB20l5nbsKODHcVr7blWZRiDZVh+5ZduG6j/3XTfoKsbjmAZZPkuh2cz
-	56DIgG7hHJVzr6KYt9Dw==;
+	List-Owner; bh=IHfTHKaGp6xIm5G8a5gz7P2rf0z12V3FHXth6rk6Xuk=; b=JeIVDkukl2zD2b
+	GTs4nHId8YOo7Z8ZVeZmt/ZZcUxw7DNwsj2cvmQ5aSVNHzK2LjNmDbNLTpnvj+sRFYGt7DFWfN/oB
+	NyDui5OogufOnZN4yumZuYy/k4r3pS1OhW+i4g7c4j0+yz0xJ1Rvi9hMAUSm357JT4ymUXdtA4mk/
+	447t2OLeehSKLdk01q5MsIIJlREideBsAqs5Agm/opstl99irGACrUfrVkgUAu1BzeIRQNfCcQzjM
+	McQ3O4G70Sk3piSuGH5MZdVimP5UoBpsO+2WMdNsilCXNKqtvWTNj3aHLhTFLk9WKN6o2B4Jyplgr
+	xq1laW31QICopnDfjZNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwgc-0000000Cfch-0dmi;
-	Tue, 26 Aug 2025 16:38:18 +0000
+	id 1uqx2Y-0000000Ci1M-29ey;
+	Tue, 26 Aug 2025 17:00:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwdt-0000000CfGS-3t4L;
-	Tue, 26 Aug 2025 16:35:29 +0000
+	id 1uqwzp-0000000ChNV-39Ms;
+	Tue, 26 Aug 2025 16:58:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Cs3lA0xtwHyZRzw7X/rouKWvwTFpddTtyCuNGpxeQfg=; b=OZceRtTnXpkXN7MsmlPuJoe2Sv
-	+Rd1y+UmaNCfMNS6F6DnEG15mXTIKl38PP6azrJTgsvUJ8Qfkm1NbfJHWBcWSmHwANbvmVVHioKq+
-	hUPbwGnIXx5fahRT2KnJ9WAbAtahJHwGze58fEWMVDcbcQ9VIWGeqOxjM47IS05/ZL2Rznom11Q4q
-	E/VYNrJiReReu22mXB6rzhGSeVZkA5rLojePOBr5LJmJrrw73it16RSDn4NS2V+1fCzJKGM5x15du
-	0cYBZuujm8OpTh/qr96K5hk1EpXJTVJpqk1UYordrgdcaugvo+mTb6PyMy9za8GBzTjym4rDITJrE
-	ktn35v2A==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwdq-00000002Gk5-2Cim;
-	Tue, 26 Aug 2025 16:35:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E4571A25;
-	Tue, 26 Aug 2025 09:35:15 -0700 (PDT)
-Received: from [10.57.4.86] (unknown [10.57.4.86])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5A1B3F694;
-	Tue, 26 Aug 2025 09:35:17 -0700 (PDT)
-Message-ID: <8d6ac059-fc8f-4a5d-b49e-d02777c01cfb@arm.com>
-Date: Tue, 26 Aug 2025 17:35:15 +0100
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=B1Ra0sIa1ZhdeCCWkbFdTe10sKp2xTKc4kpjbQJ+L0o=; b=O2hOXDu1uzbwlX7OANF+iGx/R+
+	6UoXejCDibkCsBP0Sufh3Cb3m2ROKpT0+iygB0+J2CFV6fsEcSakCSOSpcjcst5wqBNZ9Rl7SvzIa
+	Pp8Cm8v4K61eCclnm95hf4TwyzFqt3VNXXKASCFdrpUfQBmIKmHmZMWxCZeMODzT0/ZSx1BXyXevy
+	LBYUvUvp3c2Jv1v+1UkRNjfGE9F5GZHLGzke7MyECyGMET1vTEOJH00LPKwLlO5Nr2QYb4X85ZH/L
+	8C93B3Ay1P9C54Em9H9JVOShPXXyBlOSfgO6zM9rI1vKDiYjnkTX7V5taI1ycLtBX9hzcD4QAYzEJ
+	9DcRBDbw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqwzm-00000002HDR-20kM;
+	Tue, 26 Aug 2025 16:58:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 828AA44427;
+	Tue, 26 Aug 2025 16:58:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C82A7C4CEF1;
+	Tue, 26 Aug 2025 16:58:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756227482;
+	bh=fnUtXDAxJfdbxKoWIvjZ0YEMsdquajfs3Wt0vqohrgU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fuvpJ+uRtRM9fzHvRv14jD9ZQo0Z+Ik1UILyoPgPF2jz8dNyPROaEFVvlvQAaXz4X
+	 ttXYaAtJGkub4HtTxq/BEINhmPDYT0kc4MO9Pt7hSTntGG0uTTAcFEzDYKdGxtFeT2
+	 qkjkQ9Njb/UFnPIIvb1+17UQA9vp2juzNUYGm3uywq3v8NTkaS1OlNFYQ09AI39lpx
+	 YQaZvSP4SUfRf4YlPPa54Y1tNy/wsF7ZVJVKqynCB7t8JfsAtW1Xvl7gh2NjEvVbqY
+	 byeS9jwZXrmVRhx6StAaC2vlVi6HX3Ox4JExT2RQEj9zwDNL3tioAysr1mHqOoXhAg
+	 8DUjtPx04KNjg==
+Date: Tue, 26 Aug 2025 16:58:00 +0000
+From: Wei Liu <wei.liu@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org
+Subject: Re: [PATCH 0/5] Drivers: hv: Fix NEED_RESCHED_LAZY and use common
+ APIs
+Message-ID: <aK3nmOgVl4INJpjG@liuwe-devbox-ubuntu-v2.tail21d00.ts.net>
+References: <20250825200622.3759571-1-seanjc@google.com>
+ <3188ca61-2591-4576-9777-1671689b7235@linux.microsoft.com>
+ <aKz_ZMvvF0e9nwSn@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 16/19] perf: Introduce positive capability for sampling
-To: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>
-Cc: mingo@redhat.com, will@kernel.org, acme@kernel.org, namhyung@kernel.org,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, kan.liang@linux.intel.com,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
- linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
- iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
- linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <ae81cb65b38555c628e395cce67ac6c7eaafdd23.1755096883.git.robin.murphy@arm.com>
- <20250826130806.GY4067720@noisy.programming.kicks-ass.net>
- <aK22izKE4r6wI_D9@J2N7QTR9R3>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <aK22izKE4r6wI_D9@J2N7QTR9R3>
+Content-Disposition: inline
+In-Reply-To: <aKz_ZMvvF0e9nwSn@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_173527_023543_BE579732 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20250826_175806_966277_7C8F639B 
+X-CRM114-Status: GOOD (  30.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,61 +112,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-08-26 2:28 pm, Mark Rutland wrote:
-> On Tue, Aug 26, 2025 at 03:08:06PM +0200, Peter Zijlstra wrote:
->> On Wed, Aug 13, 2025 at 06:01:08PM +0100, Robin Murphy wrote:
->>> Sampling is inherently a feature for CPU PMUs, given that the thing
->>> to be sampled is a CPU context. These days, we have many more
->>> uncore/system PMUs than CPU PMUs, so it no longer makes much sense to
->>> assume sampling support by default and force the ever-growing majority
->>> of drivers to opt out of it (or erroneously fail to). Instead, let's
->>> introduce a positive opt-in capability that's more obvious and easier to
->>> maintain.
->>
->>> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
->>> index 4d439c24c901..bf2cfbeabba2 100644
->>> --- a/include/linux/perf_event.h
->>> +++ b/include/linux/perf_event.h
->>> @@ -294,7 +294,7 @@ struct perf_event_pmu_context;
->>>   /**
->>>    * pmu::capabilities flags
->>>    */
->>> -#define PERF_PMU_CAP_NO_INTERRUPT	0x0001
->>> +#define PERF_PMU_CAP_SAMPLING		0x0001
->>>   #define PERF_PMU_CAP_NO_NMI		0x0002
->>>   #define PERF_PMU_CAP_AUX_NO_SG		0x0004
->>>   #define PERF_PMU_CAP_EXTENDED_REGS	0x0008
->>> @@ -305,6 +305,7 @@ struct perf_event_pmu_context;
->>>   #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
->>>   #define PERF_PMU_CAP_AUX_PAUSE		0x0200
->>>   #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
->>> +#define PERF_PMU_CAP_NO_INTERRUPT	0x0800
->>
->> So NO_INTERRUPT was supposed to be the negative of your new SAMPLING
->> (and I agree with your reasoning).
->>
->> What I'm confused/curious about is why we retain NO_INTERRUPT?
+On Mon, Aug 25, 2025 at 05:27:16PM -0700, Sean Christopherson wrote:
+> On Mon, Aug 25, 2025, Nuno Das Neves wrote:
+> > On 8/25/2025 1:06 PM, Sean Christopherson wrote:
+> > > Fix a bug where MSHV root partitions don't honor NEED_RESCHED_LAZY, and then
+> > > deduplicate the TIF related MSHV code by turning the "kvm" entry APIs into
+> > > more generic "virt" APIs (which ideally would have been done when MSHV root
+> > > support was added).
+> > > 
+> > > Assuming all is well, maybe this could go through the tip tree?
+> > > 
+> > > The Hyper-V stuff and non-x86 architectures are compile-tested only.
+> > > 
+> > 
+> > Thanks Sean, I can test the root partition changes.
+> > 
+> > A similar change will be needed in mshv_vtl_main.c since it also calls
+> > mshv_do_pre_guest_mode_work() (hence the "common" in mshv_common.c).
 > 
-> I see from your other reply that you spotted the next patch does that.
+> Oof, more dependencies.  I suppose the easiest thing would be to send a series
+> against
 > 
-> For the sake of other reviewers or anyone digging through the git
-> history it's probably worth adding a line to this commit message to say:
+>   git://git.kernel.org/pub/scm/linux/kernel/git/hyperv/linux.git queue
 > 
-> | A subsequent patch will remove PERF_PMU_CAP_NO_INTERRUPT as this
-> | requires some additional cleanup.
+> and then route everything through there?
 
-Yup, the main reason is the set of drivers getting the new cap is 
-smaller than the set of drivers currently not rejecting sampling events, 
-so I wanted it to be clearly visible in the patch. Indeed I shall 
-clarify the relationship to NO_INTERRUPT in the commit message.
+Our fixes branch is on 6.17-rc1. You can use it as a base if you want
+to.
+
+> 
+> Alternatively, frontload the MSHV fixes (which I'll do regardless) and take those
+> through hyperv and the rest through the tip tree?  That seems like an absurd
+> amount of juggling though, especially if we want to get the cleanups into 6.18.
+> And if none of these lands, it's MSHV that'll suffer the most, so betting it all
+> on the hyperv tree doesn't seem terrible.
+> 
+
+I'm happy to do it however the community sees fit.
+
+> > Also, is it possible to make all the mshv driver changes in a single patch?
+> 
+> It's certainly possible, but I'd prefer not do to that.
+> 
+> > It seems like it would be cleaner than refactoring it in patches 1 & 2 and
+> > then deleting all the refactored code in patch 5.
+> 
+> Only if you don't care about backporting fixes, bisection, or maintaining code.
+> 
+> E.g. if checking NEED_RESCHED_LAZY somehow causes issues, it would be really nice
+> for that to bisect to exactly that patch, not a patch that also switches to a
+> completely different set of APIs.
+> 
+> And if someone is wants the fixes in a pre-6.18 kernel, they don't need to
+> backport all of the KVM and entry code changes just to get the fix.
+
++1 on this.
 
 Thanks,
-Robin.
+Wei
+
+> 
+> As for the maintenance headache, see above.
 
 _______________________________________________
 linux-riscv mailing list
