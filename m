@@ -4,83 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F14C8303F
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Aug 2025 23:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7413C8303F
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Aug 2025 01:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZWeTy+iwMFgX22kTbx6nkElfVrpp40ESP+qoMRdVWbw=; b=mnRxNZp57suhna
-	QF7aTfEv3RIMA4VjMeSiWUmNvlrl9zRjDRgm2RIEtP8cRyFfaKwcnwgrBu0ejiucuPMNX9w7acrrb
-	rTdsmIun4s6f34lAFYXizTbELTAyJWd2wEyTPslq/n9gGmUfo19Bqs26xHY2goM7XrEFgKaHMVps3
-	pXBqYa55z0H7blbl33UF+quf9GrtCpQFrDzM/Fw1m/NyajCt6UTC1WMxqYQjtfQOEjzNp2brLew2Z
-	eWe7yjHAdZbXBRlGCsFqZYSw9JrgvNNmoOLN8/ov4f5Ad/3utq1JuP/vMVxJK4CYBfjk3CUHu/cz+
-	wzDVXiu8mU39jyW8sBig==;
+	List-Owner; bh=mzTnHKambqeS3EKV+xTO6MMjaX4UiaQtrVIMv+8OCpg=; b=u8mIbGjV72Mxzg
+	IPc+RPJJAYdNhnVL7ilCFIUXHvQFwGcZ28Dg1z2vSne6RFyTKehDMwRnZDCWHhVe6SsZpkqTHnf7T
+	tTuRt98xdXP/iyFLCT32pMokzjNY5wwSbqOJik3sfLuh5v4jhKy50sb9MS7Zpf8k11eLXw0cXSBVD
+	iHKnzWqkHkZDLmR1TlNLirQutwW65Sn7OCOLBDZ4mMO5O6ROrFFwJpOh+o36eipHzF1rlh2a2Zqq+
+	kowkNA+WQXoIdmp+RhHHGvub8nyCBPSmT4O91Ls1/48C1ebBkylV9YuiBLvh3CBWVA4CNStsdtiy6
+	H+o4kSTaLLcdjT3OgqMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqghT-0000000A8dF-1qyz;
-	Mon, 25 Aug 2025 23:34:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uqi7Q-0000000AFKz-0ZF1;
+	Tue, 26 Aug 2025 01:05:00 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqghR-0000000A8cW-3qDC
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 25 Aug 2025 23:34:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=PgMkBldykyrg2fTEUth1OIIQzSp1nNzxqsXgbzQr/DE=; b=eEk8hb7SOVQV+L4++guiWVjIV7
-	vxpuGosBEDhT7QdkEVLDbxskQnIvaun1z3efGTaayngAEqbZUgE/lsqTRCi3LxHQAmsEtdz2wNObm
-	PrZGQMKgk4HuC1BEQatkf93XTHyFSeK7VcMzChInlYNteQBwdyMKxfS97k4lPC9HbXnebfvipaF+I
-	wGgwOBmb/0mxQQQaTjlkyjfli+e0iwra0LIb+3jKycWr+ahBfBGYN3gloXm3U5fY9PCD/b4g3fHwZ
-	6SNl7Jc/E8Sr63W0nbYUqnfK9zLAKstNjz3hmcNb91LClkI3YAGIrqTMX886YKG2omWA66gUdAPJZ
-	GTxrXDEQ==;
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqghO-000000025y1-2AB2
+	id 1uqi7M-0000000AFJw-3nB0
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Aug 2025 23:34:04 +0000
-Received: from localhost (unknown [180.158.240.122])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id CDDB0340ED8;
-	Mon, 25 Aug 2025 23:33:49 +0000 (UTC)
-Date: Tue, 26 Aug 2025 07:33:45 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Vivian Wang <uwu@dram.page>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v6 5/5] riscv: dts: spacemit: Add Ethernet
- support for Jupiter
-Message-ID: <20250825233345-GYC1101079@gentoo.org>
-References: <20250820-net-k1-emac-v6-0-c1e28f2b8be5@iscas.ac.cn>
- <20250820-net-k1-emac-v6-5-c1e28f2b8be5@iscas.ac.cn>
+	Tue, 26 Aug 2025 01:04:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1756170260;
+	bh=YFNm4O+HT++w/XhGn19PpWttVXNF4FCXA5kWvgTYm9Y=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=NJIULm2ITw00OlVySf0zjkJbhgXaJ7GfGuEYcZmo4LgA80CpXz+50mmE34KHqy6rp
+	 fBf7RQH6ANXyy2zZIULBEkJ3aAIVHiJQ4ZN1TBDJ6K8wVgPVlroNtlGKXj1Is0+gGx
+	 T3Pp0orsc1ZgJADzSx8nYsZLCmOvuvLjpUhOopks=
+X-QQ-mid: zesmtpsz5t1756170257t506bec28
+X-QQ-Originating-IP: Z9Hix52xyLw0E0FxPAVbErXQgqX6aadOjoYB/9fqoi4=
+Received: from = ( [14.123.253.26])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 26 Aug 2025 09:04:15 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 6597786748243803849
+EX-QQ-RecipientCnt: 23
+Date: Tue, 26 Aug 2025 09:04:15 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Alex Elder <elder@riscstar.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>, lee@kernel.org,
+	lgirdwood@gmail.com, broonie@kernel.org,
+	alexandre.belloni@bootlin.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: mat.jonczyk@o2.pl, dlan@gentoo.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux.amoon@gmail.com, troymitchell988@gmail.com,
+	guodong@riscstar.com, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v12 2/7] mfd: simple-mfd-i2c: add SpacemiT P1 support
+Message-ID: <A90BFF97E4869C5B+aK0ID3oyoCtco3m5@LT-Guozexi>
+References: <20250813024509.2325988-1-elder@riscstar.com>
+ <20250813024509.2325988-3-elder@riscstar.com>
+ <089D29348F246F2C+aJ6bPgJsp5GjhDs5@LT-Guozexi>
+ <b387ebdd-ae5d-4711-9e10-c61cb06f4b5b@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250820-net-k1-emac-v6-5-c1e28f2b8be5@iscas.ac.cn>
+In-Reply-To: <b387ebdd-ae5d-4711-9e10-c61cb06f4b5b@riscstar.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: M9Bxf819/8YCxgr5E0eCTLJr0bZlmzJWwDmRH2FZekU0xn6PD6v6rNoe
+	dP3FI+l5Y2TabLIuZ+pXMq7AqSls/Kb0pqyd/2lP12ecRF5IFegdolFYmdAFGAL5cC7pYtm
+	unYTaEl3D9lb0pvw/2e0yoIvivn8EtqMJivGWgMLbERMQMWAPOX2tJF3FnvzI+dOuhGGVSe
+	FFIKrApyUSVtGNuW+vfBx4GbdryHB4xbh3zbfAskp0+bI/r6lfhzvip9ax1wIPO3EHYa5An
+	cQ/TN3v+wTVK82+Ue5a8wus6wWEXd9y3LU3YmvvCbclID3qa/shf0oF2qd/CeUNez7Tc0cR
+	2bgE55pXaKoFFdcQnMbFURCCoQl4nnNIyF4whrRjnrtjzo14ht2sXoS0MEyn3AfJD8IvZ7T
+	7/GYrSzY75y3IileD8IexRT1UhWqgZs8/7Sb/PLw2K1NZIrMXSrj7+wlXZs//ghHZn8hE5J
+	JU0xiLzXvku3iXb3cOoK06ZYOLhXDl8uNoN45UiJicDXx2a/zMI5HKkRVnqE0yz+VxOb04H
+	nZtAUuTb7Z0lExVKjUPbbvRfZwwc0W3NUDWo1pUvikqZM95ska4ny2w9Qry2/kzt+GBAL23
+	EwSvxYdDp2dZr0E8WopDPOQxqoDu/bQoXpdk5V5PX22VELzEnhDYuY+fM2EQdFOPKDaoA08
+	xQcyiBEfWBpcVJy23BguuauVJNUmUfIbTW2wd0CTtM9RCQKzN/HUPSdv0dSJGDcXkJH0v+D
+	ENtaTttTz/h1RsNYoKQo+PsO/dtZs4wmCFtpfMAgveBSUCdyOq1TGMHKJTmCcHUKR7Ju2f+
+	2Y8C6JHoIerlxI+IH4p8X2VAh4oroH7PHkCDSB4rmDv+b5RMRUtBzH0CIen2DVZZHq7pAes
+	Dhed/+pMY+otrlh/bmSynVv3qpNbqGW6ZI/x8TOvQ/VEDReJUmayesfytyAStECNklmSQd/
+	nF6Z3hNBmH1MZkDjw7PEBAfbsnBybB0e7MwrljOLvmZA4HiGBbbPU+sMzPxLJcGxfr70HYU
+	RwHxLeTDqapmWrajBZ9Xx7JvLV/R7idTrBGlKoY40C8Xw8nsMDvXIpCpV2byc4ZUkKR5roI
+	fObJKo2BPe7i0xC8CsWnmRKvBOLbqqE+g==
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_003402_943403_DC534659 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20250825_180457_780188_057C1D7F 
+X-CRM114-Status: GOOD (  37.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,83 +105,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vivian,
+On Mon, Aug 25, 2025 at 11:08:45AM -0500, Alex Elder wrote:
+> On 8/14/25 9:28 PM, Troy Mitchell wrote:
+> > Hi, Alex,
+> > 
+> > I did not find any accesses to the P1 shutdown or reboot registers here.
+> > Does this mean that the current series does not support reboot or shutdown?
+> 
+> Yes, that is correct.
+> 
+> > If so, do you have any plans to support this functionality?
+> 
+> At this time I personally don't have any plans to add this, but
+> it could be added later (by anyone).
+> 
+> I actually attempted to do this initially, but gave up.  The PMIC
+> is accessed via I2C, and I needed to implement a non-blocking
+> version of the I2C register write operation.  I tried that,
+You tried that? so that means you have implemented a non-blocking version
+of the I2C?
+If so, can you give me a source tree to test it?
+> but
+> then found that the shutdown or reboot still did not work reliably.
+ditto.
 
-On 14:47 Wed 20 Aug     , Vivian Wang wrote:
-> Milk-V Jupiter uses an RGMII PHY for each port and uses GPIO for PHY
-> reset.
-> 
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+                - Troy
 
-Reviewed-by: Yixun Lan <dlan@gentoo.org>
-> ---
->  arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 46 +++++++++++++++++++++++
->  1 file changed, 46 insertions(+)
+> As it was, this was more than I originally planned to do, so I just
+> implemented the simple RTC operations instead.
 > 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-> index 4483192141049caa201c093fb206b6134a064f42..c5933555c06b66f40e61fe2b9c159ba0770c2fa1 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-> @@ -20,6 +20,52 @@ chosen {
->  	};
->  };
->  
-> +&eth0 {
-> +	phy-handle = <&rgmii0>;
-> +	phy-mode = "rgmii-id";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac0_cfg>;
-> +	rx-internal-delay-ps = <0>;
-> +	tx-internal-delay-ps = <0>;
-> +	status = "okay";
-> +
-> +	mdio-bus {
-> +		#address-cells = <0x1>;
-> +		#size-cells = <0x0>;
-> +
-> +		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
-> +		reset-delay-us = <10000>;
-> +		reset-post-delay-us = <100000>;
-> +
-> +		rgmii0: phy@1 {
-> +			reg = <0x1>;
-> +		};
-> +	};
-> +};
-> +
-> +&eth1 {
-> +	phy-handle = <&rgmii1>;
-> +	phy-mode = "rgmii-id";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac1_cfg>;
-> +	rx-internal-delay-ps = <0>;
-> +	tx-internal-delay-ps = <250>;
-> +	status = "okay";
-> +
-> +	mdio-bus {
-> +		#address-cells = <0x1>;
-> +		#size-cells = <0x0>;
-> +
-> +		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
-> +		reset-delay-us = <10000>;
-> +		reset-post-delay-us = <100000>;
-> +
-> +		rgmii1: phy@1 {
-> +			reg = <0x1>;
-> +		};
-> +	};
-> +};
-> +
->  &uart0 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&uart0_2_cfg>;
+> 					-Alex
 > 
-> -- 
-> 2.50.1
+> > If I have misunderstood, please correct me.
+> > 
+> > Best regards,
+> > Troy
+> > 
+> > 
+> > On Tue, Aug 12, 2025 at 09:45:03PM -0500, Alex Elder wrote:
+> > > Enable support for the RTC and regulators found in the SpacemiT P1
+> > > PMIC.  Support is implemented by the simple I2C MFD driver.
+> > > 
+> > > The P1 PMIC is normally implemented with the SpacemiT K1 SoC.  This
+> > > PMIC provides 6 buck converters and 12 LDO regulators.  It also
+> > > implements a switch, watchdog timer, real-time clock, and more.
+> > > Initially its RTC and regulators are supported.
+> > > 
+> > > Signed-off-by: Alex Elder <elder@riscstar.com>
+> > > ---
+> > >   drivers/mfd/Kconfig          | 11 +++++++++++
+> > >   drivers/mfd/simple-mfd-i2c.c | 18 ++++++++++++++++++
+> > >   2 files changed, 29 insertions(+)
+> > > 
+> > > diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> > > index 425c5fba6cb1e..4d6a5a3a27220 100644
+> > > --- a/drivers/mfd/Kconfig
+> > > +++ b/drivers/mfd/Kconfig
+> > > @@ -1238,6 +1238,17 @@ config MFD_QCOM_RPM
+> > >   	  Say M here if you want to include support for the Qualcomm RPM as a
+> > >   	  module. This will build a module called "qcom_rpm".
+> > > +config MFD_SPACEMIT_P1
+> > > +	tristate "SpacemiT P1 PMIC"
+> > > +	depends on I2C
+> > > +	select MFD_SIMPLE_MFD_I2C
+> > > +	help
+> > > +	  This option supports the I2C-based SpacemiT P1 PMIC, which
+> > > +	  contains regulators, a power switch, GPIOs, an RTC, and more.
+> > > +	  This option is selected when any of the supported sub-devices
+> > > +	  is configured.  The basic functionality is implemented by the
+> > > +	  simple MFD I2C driver.
+> > > +
+> > >   config MFD_SPMI_PMIC
+> > >   	tristate "Qualcomm SPMI PMICs"
+> > >   	depends on ARCH_QCOM || COMPILE_TEST
+> > > diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
+> > > index 22159913bea03..47ffaac035cae 100644
+> > > --- a/drivers/mfd/simple-mfd-i2c.c
+> > > +++ b/drivers/mfd/simple-mfd-i2c.c
+> > > @@ -93,12 +93,30 @@ static const struct simple_mfd_data maxim_mon_max77705 = {
+> > >   	.mfd_cell_size = ARRAY_SIZE(max77705_sensor_cells),
+> > >   };
+> > > +
+> > > +static const struct regmap_config spacemit_p1_regmap_config = {
+> > > +	.reg_bits = 8,
+> > > +	.val_bits = 8,
+> > > +};
+> > > +
+> > > +static const struct mfd_cell spacemit_p1_cells[] = {
+> > > +	{ .name = "spacemit-p1-regulator", },
+> > > +	{ .name = "spacemit-p1-rtc", },
+> > > +};
+> > > +
+> > > +static const struct simple_mfd_data spacemit_p1 = {
+> > > +	.regmap_config = &spacemit_p1_regmap_config,
+> > > +	.mfd_cell = spacemit_p1_cells,
+> > > +	.mfd_cell_size = ARRAY_SIZE(spacemit_p1_cells),
+> > > +};
+> > > +
+> > >   static const struct of_device_id simple_mfd_i2c_of_match[] = {
+> > >   	{ .compatible = "kontron,sl28cpld" },
+> > >   	{ .compatible = "silergy,sy7636a", .data = &silergy_sy7636a},
+> > >   	{ .compatible = "maxim,max5970", .data = &maxim_max5970},
+> > >   	{ .compatible = "maxim,max5978", .data = &maxim_max5970},
+> > >   	{ .compatible = "maxim,max77705-battery", .data = &maxim_mon_max77705},
+> > > +	{ .compatible = "spacemit,p1", .data = &spacemit_p1, },
+> > >   	{}
+> > >   };
+> > >   MODULE_DEVICE_TABLE(of, simple_mfd_i2c_of_match);
+> > > -- 
+> > > 2.48.1
+> > > 
+> > > 
+> > > _______________________________________________
+> > > linux-riscv mailing list
+> > > linux-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
 > 
-
--- 
-Yixun Lan (dlan)
+> 
 
 _______________________________________________
 linux-riscv mailing list
