@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48CB9CA0FFC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D252CA0FF7
 	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E9oVPcL9DyXh7deZREq75W24S/m2Wj05HSPa6Vx5prQ=; b=vUjaBbSq3hjPaL
-	dd0uvrHd4nQyYiuYtJuhDiSzCEECo3ioFlGqAyvIJZeblOE0D6j7OrFjUlYqG/rQUeh87JSieC5D0
-	vc07VxT9PWpPEipSA0r7FV6vazQi87aDEmlYTHkC2UtYKwHwg4s8Nj9VpPp/djXmQGRzVURdOkNIB
-	X9OlpYjynuL5+N2odTs3+EkCydkg2dlz3v+gnYpMiVkjG015ngBOFWpWBl0s/Ek6DbO8QObxvDR/N
-	05HE9TkuY0x4/GSMPN0+/t21dcalPqBcMk+7zex9FPIxm291pPylqjRk3XD2Y0uueRGLXuc2W51NM
-	pK7DSSHOflTdXiEWK0sQ==;
+	List-Owner; bh=5rVpORCyeKJz4m/JHFnzMdenGhkjbTmp5jEEV4jbKAA=; b=Ot7jjeb8gZ4qUD
+	QBr68sIN5S5Gzm9URDbN0kbANt4GeOGIkyIrBD3xsQLcQpVN9HpYFav/xQ1Pj/xj5NfuN73PFCP/s
+	iAChEZDZ6VnyeDTRfdcuXLFXEvAKPhoUDD1wLn7NwZTSRFvQd1u0PYfXrDr1BBJdol7PY866miAGT
+	VlYbmTcqSmDCMuIKKUftzkDnfCvb9j6nETzzsOfWp+jNS+0uA129sbx8A2ABB5srFZtKsppkNK3IJ
+	OsIKdXZ5M8KnoNhK7RbhLegrtDjCHclCUriwEnd79tldbhs0gLh04iArOunb3L4+Z/CGFlzaWhhie
+	MshSd3tBKqqDNsukd9+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPMm-0000000HBWe-2IA4;
-	Wed, 27 Aug 2025 23:15:44 +0000
+	id 1urPMc-0000000HBLT-1pBC;
+	Wed, 27 Aug 2025 23:15:34 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOIw-0000000Gzmn-18e7
+	id 1urOHA-0000000Gywb-1FCZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:07:43 +0000
+	Wed, 27 Aug 2025 22:05:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332461;
+	s=mimecast20190719; t=1756332351;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=jRdNfj9ZJOGMCBURzHWfgI671U+1iCcASfBCX64ogeI=;
-	b=exu8+pBGwmwIeb2lGv4MNF/v4WBx+K1DMFTITGBc7cQpWyPsmyiNc0NhHuY59W3cZ7VbPk
-	j1BZDQ9essfep3gc92xd8F58gaV6tqBf+oKdVBLEKyslPYcUgEMyq0igDiScYOhWPZoTvW
-	ATpAn+RmiCFMO4dftEWMCPtZiTWJdTE=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+	bh=tOg+y93CWdttiSRHo5MMFmvDG+rRd/OMag8GX96YAWo=;
+	b=TefR4SCwLU95eyGTl4qEexmmI7iO9PjzPm0VYw9Pg8ZbW1gr7mtOtVmvUXuA4/psmmpNJz
+	UcnTqnbOa6MLiIkEfIb3Ec+g3la+rGkIjOMOKBWLJWTq3QwtnghX/6dGLcWmvL3CtnaKXA
+	z3+xpAyV6KoCG9u1QYqBIFk1i192Tjc=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-552-hUo1S-tsOY-l5AExsMPNLg-1; Wed,
- 27 Aug 2025 18:07:39 -0400
-X-MC-Unique: hUo1S-tsOY-l5AExsMPNLg-1
-X-Mimecast-MFC-AGG-ID: hUo1S-tsOY-l5AExsMPNLg_1756332454
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-468-z4mlROjvMIiLD1GebYFmSQ-1; Wed,
+ 27 Aug 2025 18:05:47 -0400
+X-MC-Unique: z4mlROjvMIiLD1GebYFmSQ-1
+X-Mimecast-MFC-AGG-ID: z4mlROjvMIiLD1GebYFmSQ_1756332341
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DE2EB195608E;
-	Wed, 27 Aug 2025 22:07:33 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BEADE195419A;
+	Wed, 27 Aug 2025 22:05:41 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E10A430001A1;
-	Wed, 27 Aug 2025 22:07:17 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DDB1430001A5;
+	Wed, 27 Aug 2025 22:05:26 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
-	Pavel Begunkov <asml.silence@gmail.com>,
-	Jens Axboe <axboe@kernel.dk>,
+	Zi Yan <ziy@nvidia.com>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -69,6 +68,7 @@ Cc: David Hildenbrand <david@redhat.com>,
 	iommu@lists.linux.dev,
 	io-uring@vger.kernel.org,
 	Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>,
 	Johannes Weiner <hannes@cmpxchg.org>,
 	John Hubbard <jhubbard@nvidia.com>,
 	kasan-dev@googlegroups.com,
@@ -101,18 +101,17 @@ Cc: David Hildenbrand <david@redhat.com>,
 	virtualization@lists.linux.dev,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v1 19/36] io_uring/zcrx: remove nth_page() usage within folio
-Date: Thu, 28 Aug 2025 00:01:23 +0200
-Message-ID: <20250827220141.262669-20-david@redhat.com>
+	x86@kernel.org
+Subject: [PATCH v1 12/36] mm: simplify folio_page() and folio_page_idx()
+Date: Thu, 28 Aug 2025 00:01:16 +0200
+Message-ID: <20250827220141.262669-13-david@redhat.com>
 In-Reply-To: <20250827220141.262669-1-david@redhat.com>
 References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150742_379312_DC5A7F27 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20250827_150552_402034_04D3BDD8 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,39 +128,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Within a folio/compound page, nth_page() is no longer required.
-Given that we call folio_test_partial_kmap()+kmap_local_page(), the code
-would already be problematic if the pages would span multiple folios.
+Now that a single folio/compound page can no longer span memory sections
+in problematic kernel configurations, we can stop using nth_page().
 
-So let's just assume that all src pages belong to a single
-folio/compound page and can be iterated ordinarily. The dst page is
-currently always a single page, so we're not actually iterating
-anything.
+While at it, turn both macros into static inline functions and add
+kernel doc for folio_page_idx().
 
-Reviewed-by: Pavel Begunkov <asml.silence@gmail.com>
-Cc: Jens Axboe <axboe@kernel.dk>
-Cc: Pavel Begunkov <asml.silence@gmail.com>
+Reviewed-by: Zi Yan <ziy@nvidia.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- io_uring/zcrx.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ include/linux/mm.h         | 16 ++++++++++++++--
+ include/linux/page-flags.h |  5 ++++-
+ 2 files changed, 18 insertions(+), 3 deletions(-)
 
-diff --git a/io_uring/zcrx.c b/io_uring/zcrx.c
-index e5ff49f3425e0..18c12f4b56b6c 100644
---- a/io_uring/zcrx.c
-+++ b/io_uring/zcrx.c
-@@ -975,9 +975,9 @@ static ssize_t io_copy_page(struct io_copy_cache *cc, struct page *src_page,
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 2dee79fa2efcf..f6880e3225c5c 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -210,10 +210,8 @@ extern unsigned long sysctl_admin_reserve_kbytes;
  
- 		if (folio_test_partial_kmap(page_folio(dst_page)) ||
- 		    folio_test_partial_kmap(page_folio(src_page))) {
--			dst_page = nth_page(dst_page, dst_offset / PAGE_SIZE);
-+			dst_page += dst_offset / PAGE_SIZE;
- 			dst_offset = offset_in_page(dst_offset);
--			src_page = nth_page(src_page, src_offset / PAGE_SIZE);
-+			src_page += src_offset / PAGE_SIZE;
- 			src_offset = offset_in_page(src_offset);
- 			n = min(PAGE_SIZE - src_offset, PAGE_SIZE - dst_offset);
- 			n = min(n, len);
+ #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
+ #define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
+-#define folio_page_idx(folio, p)	(page_to_pfn(p) - folio_pfn(folio))
+ #else
+ #define nth_page(page,n) ((page) + (n))
+-#define folio_page_idx(folio, p)	((p) - &(folio)->page)
+ #endif
+ 
+ /* to align the pointer to the (next) page boundary */
+@@ -225,6 +223,20 @@ extern unsigned long sysctl_admin_reserve_kbytes;
+ /* test whether an address (unsigned long or pointer) is aligned to PAGE_SIZE */
+ #define PAGE_ALIGNED(addr)	IS_ALIGNED((unsigned long)(addr), PAGE_SIZE)
+ 
++/**
++ * folio_page_idx - Return the number of a page in a folio.
++ * @folio: The folio.
++ * @page: The folio page.
++ *
++ * This function expects that the page is actually part of the folio.
++ * The returned number is relative to the start of the folio.
++ */
++static inline unsigned long folio_page_idx(const struct folio *folio,
++		const struct page *page)
++{
++	return page - &folio->page;
++}
++
+ static inline struct folio *lru_to_folio(struct list_head *head)
+ {
+ 	return list_entry((head)->prev, struct folio, lru);
+diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+index 5ee6ffbdbf831..faf17ca211b4f 100644
+--- a/include/linux/page-flags.h
++++ b/include/linux/page-flags.h
+@@ -316,7 +316,10 @@ static __always_inline unsigned long _compound_head(const struct page *page)
+  * check that the page number lies within @folio; the caller is presumed
+  * to have a reference to the page.
+  */
+-#define folio_page(folio, n)	nth_page(&(folio)->page, n)
++static inline struct page *folio_page(struct folio *folio, unsigned long n)
++{
++	return &folio->page + n;
++}
+ 
+ static __always_inline int PageTail(const struct page *page)
+ {
 -- 
 2.50.1
 
