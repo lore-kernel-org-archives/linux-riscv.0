@@ -4,98 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E3DCA0EFF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 11:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E82DCA0FED
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 14:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W26xm3BoGVsJuJD3PCopGHVsB86ePBJUtBf4wWWbxJQ=; b=uJUgrY/BkqRhzO
-	y0SOSix2NYObLxYeLlZWbfdkWBxVNU8h4xKxorY9Uz7TVsSF5E4GyL/Mcm8NC+avA6iDmzqWpHH1+
-	dNQmJq5evI45xGJgZBT9uedW4IXaEEx9/GVrv51YgDLlINbZ/xH0t0BBfATcPFM9a1UhJz6bYSxy4
-	mnIi9EQF+6t7U1v474xBucca1Uj4J+1UApzfYabTGCRlUeAMiLvNV+IkVuUTTprtJ83Ddhg/VQp7p
-	FxWPExFZYI6PB0WY8lAbaCY8qGV4Xx48T+wJ6yEuaFn3wpU+/j13abwbcD/97gkcE3KYSajQVTjHs
-	qOu+68XT3eFMqmDY0/LQ==;
+	List-Owner; bh=o5NVAXZbIei/wutVy75r+IYcR4hk8tD113UikRTHNwo=; b=wAK9SPbi0JoEq8
+	SZwtIwYzT3ph9/wzs+XqqjdlvwHp3s7lZtK0evh2AWsupX1+6L8KEm5VajnQN1eRwfQ4rwFy7H/6v
+	Q2ymSrcFJpXnzqPokWK2N5hosF8P9xpn7/4540zrEb97vN3W/LZvl0uij316oJ9EZ8C/44DRja2kr
+	SsYqJ2xfYEtBV3bPU8PqEWDsyMO8gp6nLplb7P5w02rzh+eJMZ1w6z2u1FsjS5uNqsUei0G/5fFmE
+	0zjoFPV+a/kwqiXA2NNcPG0uKcUrx7HJJFqR4bCb7sa49+ikoUwux+30Bz1guig6s2XSJTECghH3m
+	ySuJUE6Fc4qlQL6IkI1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEFy-0000000FFeX-2OVM;
-	Wed, 27 Aug 2025 11:23:58 +0000
-Received: from mail-ej1-f49.google.com ([209.85.218.49])
+	id 1urGpC-0000000Fgot-46LD;
+	Wed, 27 Aug 2025 14:08:31 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDbz-0000000F6OR-24QU;
-	Wed, 27 Aug 2025 10:42:40 +0000
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-afcb7a16441so1039589466b.2;
-        Wed, 27 Aug 2025 03:42:39 -0700 (PDT)
+	id 1urD72-0000000EzzJ-0YVA
+	for linux-riscv@lists.infradead.org;
+	Wed, 27 Aug 2025 10:10:41 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-771f3f89952so652020b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Aug 2025 03:10:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1756289439; x=1756894239; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JM7gSlpkCi+0kyKyklIFOqWTnKhlvxmA1qdlwzNde30=;
+        b=Xb/KHsgQf4s8x4NrV9LYKIQqwAO2CQ4890nSB7tLcw/hMqywlq9/7CwVFhLxhpYbd9
+         K0RfcbPpLjIgItJr1Auwqk/O7fpD3Lacf53tvxsCo8G0EdSyhIZquStK8vcKRK82hQNN
+         g7K9zhI3JOzsMB7+Y6pT1P5LR0B3D1adUHlSVmeBXuSdYlHKhoPyFN+bO1+sNKoPuTMj
+         bWwfJkGtkK5zZvMrwk9QoMvruwwmEkaa9py/JX1MoXUZ8EzGPLFAa0Ig9hqWUj4rw8sf
+         aW9m6S1AcUisGx8Z4DY54/0SObLJucv9OuzE5JwBv4Tzk9HizeOyppUbQQUN6ztGRS7j
+         Ikfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756291358; x=1756896158;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1756289439; x=1756894239;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6X/wDuwMGXHolRz+V9ennd5Bffj6ymv9Jrzy1lUthU8=;
-        b=CicPtQBZip8No8E3LsIWmJ6p1Esa9wP+7wI/zKDHugtdXQ5IQ4gANXHDMOvLyNbFwt
-         fOm5YrXgpUbOA/+S86Cpef4DhlHzFh9GWWoNIjqf8qh8lu0r8/mN6gfbjNCxpAFpzl/m
-         WSNPKAbzama06oTKL14zlX2fPye3+OAFxDpCimlS9rF/oZg3Hs8SGzxkTcLQ88NtvS5N
-         +3I0hYC4qqGEvPIT6Aa5b3UKsTZXmE87g4XLD8ntqErat00RprQZMBAGqJCwkO+Ehd0P
-         HRR45fIMUXpnHVNhswNgJKuPfklTr9tTfAKHyiJwEeBr5aQuz2hdtpgoczHSgjUAOGKu
-         vFVw==
-X-Forwarded-Encrypted: i=1; AJvYcCUe9AhPg4AWFinywwxw5TgIUaz6Jz91Ru5AiDWi+SW/bB7F8zAdYgabwmRm4JsMjpPPBucasId9B0vLiw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlDx0+1xlsDb6WflByhdRjuntYXXrJNZjCG6YXjaDL7EGjHe/6
-	GBmhy7kmJjjaRX1/Wv2gIgdvj4LPWSFAS0QwHsxXIw9EmjNOwZ7ovlJQ
-X-Gm-Gg: ASbGncurhLbPb4wkur4/nGhdoBbIcKk9+OnJ4BUPdQ8ChoRByL/ZTC0u6t/qQXB5dMx
-	C2vVvTvQnoRgMNG8VdT/OfayEBar6GDb1rXCMl+bmksEBv+kwpnTc5LUnHoA/FT/RHTAoC4mLwn
-	9pxipqyeYOqfkj3Dw8/Cf5QkBW9g1a52WqW6d05wTz+dTmtR/rTWcgZtbGw9V4RQ7qp4fpiddqq
-	tUyrSKMHSPs/AoQ9rB0MXIv0swd4RSRjZTQ9KtHvZHl05pbqJCmyOJn2zKwhi9TY5TveLYPauOs
-	Odzg7eGfIHuW4JSmVs7fU9cybhBApqJwaUVcam0lI1dKGmUJ/eXTgNJL+kyclwlh+pmXET7q9kc
-	CIq8E3usbhC0j6XBOhzG5Uuk=
-X-Google-Smtp-Source: AGHT+IEt7HUfyMYn7wwTTBfAgAlW9baMBm2buHWzgRksugd2fL7uEBallbmWq6FW+jaBEaqaNP9fhw==
-X-Received: by 2002:a17:907:934c:b0:add:fe17:e970 with SMTP id a640c23a62f3a-afe28fbaffcmr1737084966b.14.1756291357601;
-        Wed, 27 Aug 2025 03:42:37 -0700 (PDT)
-Received: from localhost ([2a03:2880:30ff:7::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afea4b5eafcsm365786666b.9.2025.08.27.03.42.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Aug 2025 03:42:37 -0700 (PDT)
-From: Breno Leitao <leitao@debian.org>
-Date: Wed, 27 Aug 2025 03:42:23 -0700
-Subject: [PATCH 3/3] s390: kexec: Initialize kexec_buf struct
+        bh=JM7gSlpkCi+0kyKyklIFOqWTnKhlvxmA1qdlwzNde30=;
+        b=BwG/MAAWpkUmMXwNlwvGZnCvNgqe+nt5qWt4YDDFJydCBC4HEKqzqtc3fxv6Wu8eMP
+         Eh9jeap0pKlnlkvc76fF0ACQoeTCDhaFV5XL718sxY5DqzFC/ueiMLugnUPUMOy9+Fa7
+         UpFtPFqfa61CCLWCmWmTpTWz2BL+7giBQbX7NcZBmPAYVDM498cYQpmC4vbIYRThlmtq
+         HPoErf6/er2RT/dis7ZQvD1pvyUp/3wrjX3Tlk2CSLRHNa4bVCpM3KCN/HBPmxJNTwt2
+         DmZwKeodnV9syaBdMceOyCYn/YWLmZ5CSqiuLCWkq02Zh/NT78x8C5KMPW3bbW2tzNL5
+         5yew==
+X-Forwarded-Encrypted: i=1; AJvYcCXE7DC+6xqrW4oshnZJu2MfgvIoKVYTkLPMgptUEeoKGHT3b2vORuxchEOTt6yB1SB3UB1zb5ywAQBgtA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz557UvEnqo2dbZlK0W10taEU09qclPgljPzSfLbQDn+3HGS/d0
+	xm+YfzUAW+6zU3eh+wrM4Ud6aiGrLPQ2pawiVUFzGTG/22Ros0rciO4mj3eyRaqSDkg=
+X-Gm-Gg: ASbGncu2lfOLdBH67qaHUb3f3h0U3xPODDI+BX92ztFg/iXLZfx7Dovj1n5MUgNZ2Vr
+	hrMYPDmJULWyifcBx4pzVSHeBqKmfZHkh8RvMDAeCJBtE3IpYk/d/gxEMjQc2lW0fEhUEUJxLDF
+	X42yl/oZl95xjyaStSPyOiW3ktrjWRmyeIdqysrbIRYIDOUrG6FZD8Sd8ZcE1CAifO6S7Q4A8At
+	4g5Dk2IJv+xHTPdo7LpdXmKhi8dUfdRElFml6sOXGTT9TPdizcG+X7FiCYTzcQw+PSz3gGovQuy
+	o4bZTJqEPemfC9RCqLf0UdG6C+MN0WzYphwsO5AG6gtqbK3YJLr4+1wihGRO4zN830LxW4OfBRo
+	zNABTuxCRnsc0tumZHavxu9qlgnYYhHe1ZcdPeFuCk00PXho716izzQQEgAjyZwk=
+X-Google-Smtp-Source: AGHT+IGdtKUBscgA9xYMmV3962XLu6gCj63wXPK/4bKpP1nVTjXzqxHi4UVk2L8ckDMtXKsc3B7ldA==
+X-Received: by 2002:aa7:88c2:0:b0:771:e341:ce68 with SMTP id d2e1a72fcca58-771fc292e89mr6337778b3a.5.1756289439091;
+        Wed, 27 Aug 2025 03:10:39 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([139.177.225.229])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-770401eb20dsm12813462b3a.79.2025.08.27.03.10.30
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 27 Aug 2025 03:10:38 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	atish.patra@linux.dev,
+	anup@brainfault.org,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	catalin.marinas@arm.com,
+	masahiroy@kernel.org,
+	suzuki.poulose@arm.com,
+	cuiyunhui@bytedance.com,
+	maz@kernel.org,
+	zhanjie9@hisilicon.com,
+	yangyicong@hisilicon.com,
+	dianders@chromium.org,
+	mingo@kernel.org,
+	lihuafei1@huawei.com,
+	akpm@linux-foundation.org,
+	jpoimboe@kernel.org,
+	rppt@kernel.org,
+	kees@kernel.org,
+	thomas.weissschuh@linutronix.de
+Subject: [PATCH 2/2] riscv: add HARDLOCKUP_DETECTOR_PERF support
+Date: Wed, 27 Aug 2025 18:09:59 +0800
+Message-Id: <20250827100959.83023-3-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+In-Reply-To: <20250827100959.83023-1-cuiyunhui@bytedance.com>
+References: <20250827100959.83023-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-Message-Id: <20250827-kbuf_all-v1-3-1df9882bb01a@debian.org>
-References: <20250827-kbuf_all-v1-0-1df9882bb01a@debian.org>
-In-Reply-To: <20250827-kbuf_all-v1-0-1df9882bb01a@debian.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
- Baoquan He <bhe@redhat.com>, Coiby Xu <coxu@redhat.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, 
- Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- Breno Leitao <leitao@debian.org>, kernel-team@meta.com
-X-Mailer: b4 0.15-dev-dd21f
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2880; i=leitao@debian.org;
- h=from:subject:message-id; bh=GxK8Y/l6QMpHsSC5/lKRcWUThT3tPFQypyafdn6KEZQ=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBoruEXRx0x/sg5L8lF842+++ptuDPjC3oj8dadJ
- uKgX0JY7+mJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaK7hFwAKCRA1o5Of/Hh3
- bf5WEACRmffaU59y0c07C3h33TU9GzbJO9HOZxapXThAtEqn33XPo4si1FFGv6sTYNargSr6Lzs
- MJosdJiWDHRZaXSxFawvJvBq5XBTfFYs+4tW2EiAU19diAu5I3J5dfl8lqww3GI6zzZIrB5wA4B
- r71V3ZUJK3cZ8l4gTpGp2zWNvG7Q+121ozv4yRD5kfazvucI93HIth7LZcXGKfNkpz+1aW8Y+Bo
- CECDcsH4Z4ZHW/73m7w0ThVouXFEkSIxWhyzVtYPFMWF/MmktJ0t7niZfKNMTRyu++v37nlGcmY
- uWpa1o6LmJUU93AJFkXojU93ztyTZZ2RC7FupVqYsQy5ZqvoIJ37Zd7oPpAULS1x5FX2xzbe7s4
- PYhfG2kBSlHriVV/gT/wRX6SMyVLWK0NQOszrjhZoQUHCkTPzfBdtRkf06wYGOoZHY8VV70IOSX
- fxXgT6OPXyi7xResv3bkLI4vLyEvNWjbQXsAOX3L/ZLQwvYKEpMDSd2eaoO2TSKIBnuQnArR846
- uDq8NSU+HoTOGc4chbxXxwQZH2qpGuNnndVelTsFCmtlb9I7yVtrk/qCAN/9fdHnGjVmU9f6grm
- TWCAnmqakjCXdNYLT+OhBxkDcorfJgKFH/44W4AXsfhUTjdTaRNM+uGkGeRohC2Vx/EUGQTChd+
- UYUwpwtf+a6rOTg==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_034239_563534_055DF10C 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20250827_031040_187759_821436CD 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,90 +123,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The kexec_buf structure was previously declared without initialization.
-commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-added a field that is always read but not consistently populated by all
-architectures. This un-initialized field will contain garbage.
+Reuse watchdog_hld.c to enable HARDLOCKUP_DETECTOR_PERF and
+add Kconfig selections for RISC-V.
 
-This is also triggering a UBSAN warning when the uninitialized data was
-accessed:
-
-	------------[ cut here ]------------
-	UBSAN: invalid-load in ./include/linux/kexec.h:210:10
-	load of value 252 is not a valid value for type '_Bool'
-
-Zero-initializing kexec_buf at declaration ensures all fields are
-cleanly set, preventing future instances of uninitialized memory being
-used.
-
-Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-Signed-off-by: Breno Leitao <leitao@debian.org>
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- arch/s390/kernel/kexec_elf.c          | 2 +-
- arch/s390/kernel/kexec_image.c        | 2 +-
- arch/s390/kernel/machine_kexec_file.c | 6 +++---
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ arch/riscv/Kconfig           | 3 +++
+ drivers/perf/riscv_pmu_sbi.c | 8 ++++++++
+ 2 files changed, 11 insertions(+)
 
-diff --git a/arch/s390/kernel/kexec_elf.c b/arch/s390/kernel/kexec_elf.c
-index 4d364de437992..143e34a4eca57 100644
---- a/arch/s390/kernel/kexec_elf.c
-+++ b/arch/s390/kernel/kexec_elf.c
-@@ -16,7 +16,7 @@
- static int kexec_file_add_kernel_elf(struct kimage *image,
- 				     struct s390_load_data *data)
- {
--	struct kexec_buf buf;
-+	struct kexec_buf buf = {};
- 	const Elf_Ehdr *ehdr;
- 	const Elf_Phdr *phdr;
- 	Elf_Addr entry;
-diff --git a/arch/s390/kernel/kexec_image.c b/arch/s390/kernel/kexec_image.c
-index a32ce8bea745c..9a439175723ca 100644
---- a/arch/s390/kernel/kexec_image.c
-+++ b/arch/s390/kernel/kexec_image.c
-@@ -16,7 +16,7 @@
- static int kexec_file_add_kernel_image(struct kimage *image,
- 				       struct s390_load_data *data)
- {
--	struct kexec_buf buf;
-+	struct kexec_buf buf = {};
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 451eb23d86c96..214b1ead5781a 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -184,6 +184,9 @@ config RISCV
+ 	select HAVE_PAGE_SIZE_4KB
+ 	select HAVE_PCI
+ 	select HAVE_PERF_EVENTS
++	select PERF_EVENTS
++	select HAVE_PERF_EVENTS_NMI if RISCV_SSE && RISCV_PMU_SSE
++	select HAVE_HARDLOCKUP_DETECTOR_PERF if PERF_EVENTS && HAVE_PERF_EVENTS_NMI
+ 	select HAVE_PERF_REGS
+ 	select HAVE_PERF_USER_STACK_DUMP
+ 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 8c1ac7985df6c..c5423a046d016 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -22,6 +22,7 @@
+ #include <linux/sched/clock.h>
+ #include <linux/soc/andes/irq.h>
+ #include <linux/workqueue.h>
++#include <linux/nmi.h>
  
- 	buf.image = image;
+ #include <asm/errata_list.h>
+ #include <asm/sbi.h>
+@@ -1102,6 +1103,11 @@ static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
+ }
+ #endif
  
-diff --git a/arch/s390/kernel/machine_kexec_file.c b/arch/s390/kernel/machine_kexec_file.c
-index c2bac14dd668a..a36d7311c6683 100644
---- a/arch/s390/kernel/machine_kexec_file.c
-+++ b/arch/s390/kernel/machine_kexec_file.c
-@@ -129,7 +129,7 @@ static int kexec_file_update_purgatory(struct kimage *image,
- static int kexec_file_add_purgatory(struct kimage *image,
- 				    struct s390_load_data *data)
++bool arch_pmu_irq_is_nmi(void)
++{
++	return IS_ENABLED(CONFIG_RISCV_PMU_SSE);
++}
++
+ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
  {
--	struct kexec_buf buf;
-+	struct kexec_buf buf = {};
- 	int ret;
+ 	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
+@@ -1525,6 +1531,8 @@ static int __init pmu_sbi_devinit(void)
+ 	/* Notify legacy implementation that SBI pmu is available*/
+ 	riscv_pmu_legacy_skip_init();
  
- 	buf.image = image;
-@@ -152,7 +152,7 @@ static int kexec_file_add_purgatory(struct kimage *image,
- static int kexec_file_add_initrd(struct kimage *image,
- 				 struct s390_load_data *data)
- {
--	struct kexec_buf buf;
-+	struct kexec_buf buf = {};
- 	int ret;
- 
- 	buf.image = image;
-@@ -184,7 +184,7 @@ static int kexec_file_add_ipl_report(struct kimage *image,
- {
- 	__u32 *lc_ipl_parmblock_ptr;
- 	unsigned int len, ncerts;
--	struct kexec_buf buf;
-+	struct kexec_buf buf = {};
- 	unsigned long addr;
- 	void *ptr, *end;
- 	int ret;
-
++	lockup_detector_retry_init();
++
+ 	return ret;
+ }
+ device_initcall(pmu_sbi_devinit)
 -- 
-2.47.3
+2.39.5
 
 
 _______________________________________________
