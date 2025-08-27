@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC12ECA0FED
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 22:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3149ACA0FFB
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KrPKnvuWYu34cZHYd4xXJpBmqzEoIHMM8ICEoMPFLfI=; b=ZCPNpIckFjbHuc
-	eVzmIYKtmDloJCrEX9kchWzgNU+8q50MV9kf6FV1rppNpPnKrXVyBu7fF/e5n3G5W6eT4HTgMKwHv
-	3Gtz3/leHPIlhaKGQLeNz6He8hqSh+dyLZWbwjCTKUsY0QlNuK3SqZxlWmBmGv+l7QexOg1EzBCkP
-	aQTxSmDQKlI8bpK2RdKnljdjzYixEWpTRSqVvoNR1Y2a+dsR3zOwGPktDoFZDDx31tcWwJ2D1MSKT
-	OrUSoHX4wfk8TWVlOXdHYRziMNQd8O5MCDnA6OpaNlOMBqqmsZybFrXGZjNctGy0nJNctR48+HPcc
-	zy31qAu2W+0Bq86jzzLA==;
+	List-Owner; bh=aVmeujhBKUvMUva3/GwX/g5eWvcdiwBBOnW3yGey744=; b=s13KbraQyHBJQj
+	g+MTLGYQtvPqvjrRVPVtsfpiBGmaz9rlOy+WcHRsrV7drPyqDzA48xEoiWsXcJLBIS7k2R1gpQJUs
+	Gh5FByYr0jSTPeSRD0T3HCh+E63JVFcnSRuizC6i14/zJcnI+K5cIhEDYKhh5NJDNJTnvxZKlwhCd
+	BpOa3Ke5mgs1nd/V+sEsgAfV8PWLxh+xlvGtRueIIfB2kn+xTyuTif6OeZVBdJ1kgknQVLJZZkBpl
+	QBCbtm4kSLYWpQwhxoNyx1XkT1aVmtjEon1q1WbtfaeHp2U5pY7pNnhsFEu/7RQjtfMCmunwXQZdR
+	/UJWwU6zPRnHfnR8NqCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOQV-0000000H32E-0Ik8;
-	Wed, 27 Aug 2025 22:15:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1urPMf-0000000HBOf-29k0;
+	Wed, 27 Aug 2025 23:15:37 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOGd-0000000GyiV-1B8p
+	id 1urOHh-0000000GzBI-3RJc
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:05:20 +0000
+	Wed, 27 Aug 2025 22:06:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332318;
+	s=mimecast20190719; t=1756332385;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=D/EwzdzyNFR+ewVEEFqEze2ovwyb82bK+Rce3/V3U0s=;
-	b=gWDYrHQ75ObeH3C/F4Sip45SMhCe/ECpS/Dh4FNAxo61507ZNU3inZH6yzW441wb0cb7Rc
-	rmwkMmiMdqiH50JDSylpL06xLjw3lLdjpIyoNAibqv7OdMVRY+MKz9gc4H8sC8wNwgIhvr
-	Ky7T+PE8QXvJydzQfLmZQou5t3pgNDI=
+	bh=TaqjYk7qiFpFT4dP16wKMuC8fiQfbkUwRRgQVKGzHC8=;
+	b=PoXHJwEzk7w2QrZiRN5qwswFGzO4Fur9KbS2Pq0kw3vH+sjIV8DfkOy5vjMjGF3DFFk/9W
+	FyvaBZ7ulBVM5XZsqIJ30EIBKMC296H30G5XkHH0wvHUb/ZgeCZY1AU/dMk8X2bD1PaLfS
+	XxcbE1lvXXaONrNyGeeCHMcoMU3rGME=
 Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-319-rAeDOcrbOYu2jFZVlj4BxA-1; Wed,
- 27 Aug 2025 18:05:15 -0400
-X-MC-Unique: rAeDOcrbOYu2jFZVlj4BxA-1
-X-Mimecast-MFC-AGG-ID: rAeDOcrbOYu2jFZVlj4BxA_1756332310
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-154-990HNXa9P7CWji11STEtIQ-1; Wed,
+ 27 Aug 2025 18:06:21 -0400
+X-MC-Unique: 990HNXa9P7CWji11STEtIQ-1
+X-Mimecast-MFC-AGG-ID: 990HNXa9P7CWji11STEtIQ_1756332373
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E3F20180028D;
-	Wed, 27 Aug 2025 22:05:09 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 36F19180028E;
+	Wed, 27 Aug 2025 22:06:13 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CB62530001A1;
-	Wed, 27 Aug 2025 22:04:53 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B193D30001A1;
+	Wed, 27 Aug 2025 22:05:57 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
-	Zi Yan <ziy@nvidia.com>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -101,17 +100,18 @@ Cc: David Hildenbrand <david@redhat.com>,
 	virtualization@lists.linux.dev,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
-	x86@kernel.org
-Subject: [PATCH v1 10/36] mm: sanity-check maximum folio size in folio_set_order()
-Date: Thu, 28 Aug 2025 00:01:14 +0200
-Message-ID: <20250827220141.262669-11-david@redhat.com>
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH v1 14/36] mm/mm/percpu-km: drop nth_page() usage within single allocation
+Date: Thu, 28 Aug 2025 00:01:18 +0200
+Message-ID: <20250827220141.262669-15-david@redhat.com>
 In-Reply-To: <20250827220141.262669-1-david@redhat.com>
 References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150519_396769_DC92D837 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20250827_150625_924631_2C6D3DFB 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,30 +128,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's sanity-check in folio_set_order() whether we would be trying to
-create a folio with an order that would make it exceed MAX_FOLIO_ORDER.
+We're allocating a higher-order page from the buddy. For these pages
+(that are guaranteed to not exceed a single memory section) there is no
+need to use nth_page().
 
-This will enable the check whenever a folio/compound page is initialized
-through prepare_compound_head() / prepare_compound_page().
-
-Reviewed-by: Zi Yan <ziy@nvidia.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/internal.h | 1 +
- 1 file changed, 1 insertion(+)
+ mm/percpu-km.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/mm/internal.h b/mm/internal.h
-index 45da9ff5694f6..9b0129531d004 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -755,6 +755,7 @@ static inline void folio_set_order(struct folio *folio, unsigned int order)
- {
- 	if (WARN_ON_ONCE(!order || !folio_test_large(folio)))
- 		return;
-+	VM_WARN_ON_ONCE(order > MAX_FOLIO_ORDER);
+diff --git a/mm/percpu-km.c b/mm/percpu-km.c
+index fe31aa19db81a..4efa74a495cb6 100644
+--- a/mm/percpu-km.c
++++ b/mm/percpu-km.c
+@@ -69,7 +69,7 @@ static struct pcpu_chunk *pcpu_create_chunk(gfp_t gfp)
+ 	}
  
- 	folio->_flags_1 = (folio->_flags_1 & ~0xffUL) | order;
- #ifdef NR_PAGES_IN_LARGE_FOLIO
+ 	for (i = 0; i < nr_pages; i++)
+-		pcpu_set_page_chunk(nth_page(pages, i), chunk);
++		pcpu_set_page_chunk(pages + i, chunk);
+ 
+ 	chunk->data = pages;
+ 	chunk->base_addr = page_address(pages);
 -- 
 2.50.1
 
