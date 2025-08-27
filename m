@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1608FCA0FF6
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 19:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E00CBCA0EFF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 19:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0bfi5Fie3SukZBTMphPy8sgrOLMyFtk0ZUHP7OORnZU=; b=KP2jUUrp1BJBLUJL+55Vq+IW2W
-	0M65aOCY1g4AvU4dh8szLYJIiGj/pd1S1r+M9UrrgxitJjYbGGEY0wT4ba/YL2Jpu2rZ+6B9y2q6/
-	DV0wiK8TfigkbDzZNIIHMdQ8U0BOoFMsL9pbUs1OjnwB5V3xBFOfKi+W156i5kfdziZU2krL5pl9l
-	4lXSoZdE4+FG4Fr8oOdLCacYKI/UZ8oGjK0qxUBmUMjj+kx/hd1suAbWOfhyxMPHjtleL/13SaDRk
-	XjGqfGZsKB4rAvlAVyX6avmUnyUEUbAlCFvM7vPXbO/3XGaRr9IkTA/pLItNtT5MP0DNbqEvhKmTx
-	xcjHATdg==;
+	bh=d5vzYm7jj0Z+wJasnSYZ4llcxUsfwUsIGMVndXPUf/I=; b=trs3sv68rEghEt5wSy30SYRisr
+	U3z/SdqtEhyWhxebhj9mHbJplIIfANoJgniLGUNAlrcBZxIDgMymcL+5fr9BaeyUlfib+YkX9jAnB
+	G53A/Nyp3tog9OXIuiUwRqhCBuvyb71TMC/8qgDObr3DqlmKm8Za4xlwf8tTxs9qT2oXYjJI+SAtN
+	O80TaEQa1gujA0pOoZ1L3CBsHmOtw1pjuP9dsqTDTmpOm6cF3VZ30/9kWspAibecIesrhn2YMSykK
+	ueakJ2YijFPCqlL9+m56p8NdlMkZ2Zl9JIqLFNUEJNXC41PyG7SWjYpPPoeJVgaiCtvxW+he31ZfZ
+	tYX0oG7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urLxk-0000000GdCC-26QM;
-	Wed, 27 Aug 2025 19:37:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1urLxm-0000000GdDB-1bJN;
+	Wed, 27 Aug 2025 19:37:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urJwX-0000000GJVL-0iZB
+	id 1urJzQ-0000000GK8C-30Cg
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 17:28:18 +0000
+	Wed, 27 Aug 2025 17:31:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C6EDE44BB7;
-	Wed, 27 Aug 2025 17:28:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4104C4CEF0;
-	Wed, 27 Aug 2025 17:28:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 11F93601DA;
+	Wed, 27 Aug 2025 17:31:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7677EC4CEEB;
+	Wed, 27 Aug 2025 17:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756315696;
-	bh=J2iW4fcquoMXCFvrwNgVUWmetrANS/ZUtfkvs7vrbUw=;
+	s=k20201202; t=1756315875;
+	bh=cXxFf40MPDViexLTcqO0ztrjyez1wiDGf0ZJBEGexao=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a83xwGxlmmFgKbpXsiSmmPwVl48weCDVspZ0TGs/TfZ7amQqZKAQIUXlr2ls5/7RV
-	 ES/aC3DOfpBAIuOy7lhwp0at6S1I7BRy/gV1WaX0PgupjR4DgdRacO2y6s27OHweXV
-	 iqXXrvV5EEcNZtEY9548ph9X5pyM6QfZLU1lLbiZeNdIuciZVj1TFPOZ83OSUWbHmp
-	 W4D2PTsd/47Q2NdXl+J0chm/MSYSDh7VgpdTDSXY0ZE6vDoDA29aEljZcBTwx3lR2w
-	 O/RJWDlkB9MBrmZ23DhkkZNRmBcF+LrhauKt77mYId7FuYF9GBVMPnChHysjjh7X6P
-	 wS5+1qz+WQg+Q==
-Date: Wed, 27 Aug 2025 18:28:12 +0100
+	b=tyR2QNtN22RvMDohWgsRxKLr4FDC+++nmC+K23QB0czoCoV9wY0GfXKCx6P+xDtW/
+	 ZpCPe49Yu4BqdPI9kZYDJxp4y1dzpN/OrQCtYTlfNu1SFTfGBjJCWlz5Qt0mJaoOCh
+	 5V5ecyHf9IgmKtmyaoOZm47WjmTTPimv+CSUN+toJ2qxd00wwzRpzKoXwLJN0ao5eY
+	 05XOUjLA/cCTP6ENn5rv5r59tJEoE3yfUjWqZiu6Go3M/yFqAVbfFtr4JVSlh5Sg5g
+	 l4sD/2Ko33Vlga370ZkhPXbMhiaZy1lOsdYrovz/unS6m2srqvq3UJkAj3R73vKjyq
+	 9Q78SHoGD+pHQ==
+Date: Wed, 27 Aug 2025 18:31:11 +0100
 From: Conor Dooley <conor@kernel.org>
-To: E Shattow <e@freeshell.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>,
-	Minda Chen <minda.chen@starfivetech.com>
-Subject: Re: [PATCH v3 RESEND 0/3] riscv: dts: starfive: jh7110: More U-Boot
- downstream changes for JH7110
-Message-ID: <20250827-aloha-datebook-6133960546ff@spud>
-References: <20250823100159.203925-1-e@freeshell.de>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Kees Cook <kees@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
+	patches@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 07/12] riscv: Remove version check for LTO_CLANG
+ selects
+Message-ID: <20250827-stick-duly-b40d7e90de1f@spud>
+References: <20250821-bump-min-llvm-ver-15-v2-0-635f3294e5f0@kernel.org>
+ <20250821-bump-min-llvm-ver-15-v2-7-635f3294e5f0@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20250823100159.203925-1-e@freeshell.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_102817_235001_ECA60E18 
-X-CRM114-Status: GOOD (  10.09  )
+In-Reply-To: <20250821-bump-min-llvm-ver-15-v2-7-635f3294e5f0@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,46 +70,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1195742452529552530=="
+Content-Type: multipart/mixed; boundary="===============1536348893854432894=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1195742452529552530==
+--===============1536348893854432894==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DBSyI2GI+xVp3lzx"
+	protocol="application/pgp-signature"; boundary="9hV4SjGmbLMT0uH7"
 Content-Disposition: inline
 
 
---DBSyI2GI+xVp3lzx
+--9hV4SjGmbLMT0uH7
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Sat, Aug 23, 2025 at 03:01:40AM -0700, E Shattow wrote:
-> Bring in additional downstream U-Boot boot loader changes for StarFive
-> VisionFive2 board target (and related JH7110 common boards). Create a
-> basic dt-binding (and not any Linux driver) in support of the
-> memory-controller dts node used in mainline U-Boot. Also add
-> bootph-pre-ram hinting to jh7110.dtsi needed at SPL boot phase.
+On Thu, Aug 21, 2025 at 02:15:44PM -0700, Nathan Chancellor wrote:
+> Now that the minimum supported version of LLVM for building the kernel
+> has been bumped to 15.0.0, there is no need to check the LLD version
+> before selecting ARCH_SUPPORTS_LTO_CLANG{,_THIN} because it will always
+> be true.
+>=20
+> Reviewed-by: Kees Cook <kees@kernel.org>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
-Emil, could you take a look at this please?
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-
---DBSyI2GI+xVp3lzx
+--9hV4SjGmbLMT0uH7
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaK9ALAAKCRB4tDGHoIJi
-0h47AQC8FbMusMnLVxo/83unGL4xyLbvXY89HBtv7cWlwJZMIwEAgL1E3yrJIeXC
-LtVzvGmO2ZTGxJTfVWJVmWMOuLQsLgg=
-=7Ecq
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaK9A3wAKCRB4tDGHoIJi
+0nSUAQCDJ2G/cZdQFmAmDOl90XeIgL2nlWFCnq0Pv2BL+l+WwQEAlL0ORgY2kcgL
+CJQL4AtmMpjkg5O2g+HksQ80QfPKFgo=
+=KfEH
 -----END PGP SIGNATURE-----
 
---DBSyI2GI+xVp3lzx--
+--9hV4SjGmbLMT0uH7--
 
 
---===============1195742452529552530==
+--===============1536348893854432894==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -121,5 +122,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1195742452529552530==--
+--===============1536348893854432894==--
 
