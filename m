@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E3CCA0EFF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A888CA0FED
 	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pz5BB3hwULMDF11baQUiGOnYYcgAQW6u6ePlekegISw=; b=HvddVMUdk3IsEt
-	2Fhw5QaiDdjR+D+9Xf5PbHCtCceAXRG4dojRxIWVUdkpKFwhCch8mQh2CRlKbppSwr2o6xJASRjnk
-	ADylpLrSe7I7QXnzHRnJi+oTrUprvU1f3rIC4gbXxgV1ij72c7sWpcTIBorTQiSjexdnJueErxAtA
-	PlfpLz1Fo/NBcxIg1CmNh/1OpX6q0QFsomJ+ia4YHickuMv3O8+qpQWW1wci+oinf61YxXdwIYH6c
-	fb7kLTcQNi7CDFv1HCIwsaoYdFr5ixqyxdLeLjjdIVyZ3CbCOcS3uKCb19Th4omMa5FhFZd2iL1xr
-	lkorQ9Gl3JY3ebg9PaXg==;
+	List-Owner; bh=K2VmR8h876n0Wzt1h2HhyFgo1vbcbSQmTh64mrG4OBA=; b=AuXqDJ5hZb3iVa
+	vgGVJmXme0DV9jREtnrRsNLCYiTnXJ7KuceDJb5ncGZi1hxHuZBRicE4S00r0oARbx+FOpm028V35
+	ZhTSvzriQ35TWwVWdL+Fl5e643KyI6TVJwe3hey/fHnEDXTcf3GSJY9XbNkaoerIseINmLsJ4RqJ9
+	2Vh3i57a0SN2+6GFrcX/mq7SntZzd/o5Y0x4VZs2aFXnWae1kHXIBAs109IpGhiw6xwUq4xaY5fzM
+	drq+1P2eTXG3gOMwkc3pAOir3NGXVHOc7DafwTO4VcQwL/sF2qWYB/tBYuwacbnHq+MuFWH7D9Btf
+	v5ID9I14w7WAH8OmgDLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPN1-0000000HC3d-495q;
-	Wed, 27 Aug 2025 23:15:59 +0000
+	id 1urPN3-0000000HC6v-1MFx;
+	Wed, 27 Aug 2025 23:16:01 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOKu-0000000H0fs-06hJ
+	id 1urOLB-0000000H0qY-2qNX
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:09:45 +0000
+	Wed, 27 Aug 2025 22:10:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332583;
+	s=mimecast20190719; t=1756332600;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8SUmSf66LiCJvVJzeEx0UA2HTOESqflB/UZ9jC2+86E=;
-	b=QDPF+yu/zCyx63L61fjkPKi3muSJmzNjyOxhLCTnEEWgN74F3ZPMTJMkqKiEQxv/8zIsO1
-	yN41oHw8iy2Oxjic25wQhL5QMOE4oT13dJLMU1prFCYgygTpU1Vr40cPD9MJ75iJXgeGBO
-	jKUT0gvCAmilIaWI2Sqqy+R+3hLDwNo=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=GXg5sKb3LQ8Ovlzb+xXgvQsFzOeAfDPZ/pDh6HDj700=;
+	b=Xlo4f4WpByFIKvloR9wPp5yDaO4tLLMzZrbhjMspKAeuTmk4pjHeBu142gbIEa5DYTZVfw
+	0nkguwp+ON1hn98kXEbfnyrUEoC/RSdsWlVf5a+nTn4AuDUO70PpT1cI7AJn5TqbL3GVun
+	c55NMCXpgPjUwhKIqUsGawo22Mn9YP4=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-638-wuVJZl_PPm-kz40j0XhWgA-1; Wed,
- 27 Aug 2025 18:09:38 -0400
-X-MC-Unique: wuVJZl_PPm-kz40j0XhWgA-1
-X-Mimecast-MFC-AGG-ID: wuVJZl_PPm-kz40j0XhWgA_1756332573
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-474-6glRl4KNPgiaFeNg7_zkYg-1; Wed,
+ 27 Aug 2025 18:09:55 -0400
+X-MC-Unique: 6glRl4KNPgiaFeNg7_zkYg-1
+X-Mimecast-MFC-AGG-ID: 6glRl4KNPgiaFeNg7_zkYg_1756332590
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 006A91956095;
-	Wed, 27 Aug 2025 22:09:33 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F370918002C4;
+	Wed, 27 Aug 2025 22:09:49 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C1B9F30001A1;
-	Wed, 27 Aug 2025 22:09:16 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9186830001A1;
+	Wed, 27 Aug 2025 22:09:33 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
@@ -105,16 +105,16 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v1 26/36] mspro_block: drop nth_page() usage within SG entry
-Date: Thu, 28 Aug 2025 00:01:30 +0200
-Message-ID: <20250827220141.262669-27-david@redhat.com>
+Subject: [PATCH v1 27/36] memstick: drop nth_page() usage within SG entry
+Date: Thu, 28 Aug 2025 00:01:31 +0200
+Message-ID: <20250827220141.262669-28-david@redhat.com>
 In-Reply-To: <20250827220141.262669-1-david@redhat.com>
 References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150944_137014_A4B5AA36 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20250827_151001_790035_48370171 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,23 +140,38 @@ Cc: Alex Dubov <oakad@yahoo.com>
 Cc: Ulf Hansson <ulf.hansson@linaro.org>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- drivers/memstick/core/mspro_block.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/memstick/host/jmb38x_ms.c | 3 +--
+ drivers/memstick/host/tifm_ms.c   | 3 +--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/memstick/core/mspro_block.c b/drivers/memstick/core/mspro_block.c
-index c9853d887d282..d3f160dc0da4c 100644
---- a/drivers/memstick/core/mspro_block.c
-+++ b/drivers/memstick/core/mspro_block.c
-@@ -560,8 +560,7 @@ static int h_mspro_block_transfer_data(struct memstick_dev *card,
- 		t_offset += msb->current_page * msb->page_size;
+diff --git a/drivers/memstick/host/jmb38x_ms.c b/drivers/memstick/host/jmb38x_ms.c
+index cddddb3a5a27f..79e66e30417c1 100644
+--- a/drivers/memstick/host/jmb38x_ms.c
++++ b/drivers/memstick/host/jmb38x_ms.c
+@@ -317,8 +317,7 @@ static int jmb38x_ms_transfer_data(struct jmb38x_ms_host *host)
+ 		unsigned int p_off;
  
- 		sg_set_page(&t_sg,
--			    nth_page(sg_page(&(msb->req_sg[msb->current_seg])),
--				     t_offset >> PAGE_SHIFT),
-+			    sg_page(&(msb->req_sg[msb->current_seg])) + (t_offset >> PAGE_SHIFT),
- 			    msb->page_size, offset_in_page(t_offset));
+ 		if (host->req->long_data) {
+-			pg = nth_page(sg_page(&host->req->sg),
+-				      off >> PAGE_SHIFT);
++			pg = sg_page(&host->req->sg) + (off >> PAGE_SHIFT);
+ 			p_off = offset_in_page(off);
+ 			p_cnt = PAGE_SIZE - p_off;
+ 			p_cnt = min(p_cnt, length);
+diff --git a/drivers/memstick/host/tifm_ms.c b/drivers/memstick/host/tifm_ms.c
+index db7f3a088fb09..0b6a90661eee5 100644
+--- a/drivers/memstick/host/tifm_ms.c
++++ b/drivers/memstick/host/tifm_ms.c
+@@ -201,8 +201,7 @@ static unsigned int tifm_ms_transfer_data(struct tifm_ms *host)
+ 		unsigned int p_off;
  
- 		memstick_init_req_sg(*mrq, msb->data_dir == READ
+ 		if (host->req->long_data) {
+-			pg = nth_page(sg_page(&host->req->sg),
+-				      off >> PAGE_SHIFT);
++			pg = sg_page(&host->req->sg) + (off >> PAGE_SHIFT);
+ 			p_off = offset_in_page(off);
+ 			p_cnt = PAGE_SIZE - p_off;
+ 			p_cnt = min(p_cnt, length);
 -- 
 2.50.1
 
