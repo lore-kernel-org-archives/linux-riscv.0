@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA9F6CA0EFF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 19:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFAECA0FFB
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 20:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kwW61eASVK7Xi61ReLgPlgIHCV5SacNyHTury0nIRiE=; b=RCZtE1LsVo0JvFI+kdU32uLmVp
-	KX8qRt5XSs9Ylc+B66f3UIjPAGuo+Z1lSMcfRC+iGS4Q8AwIlWh+7lAHHCtLAjwCUVqmZw9MOW6nT
-	GbcAGQQqnH5nmmtMinpwrX/VYp+RZ6wuutVqjlxhfjLaHMjHRjCQbsmg/OYLixQV4cEzRzbtxIisP
-	5nOc1Fr6/dsZmeuby6exOgvZCYxBavBIQkTBLcLQO0DHRqb5BNgo5DiUM/ewlGDYIzMhGdzghmMMZ
-	tL0zmW7hd9FbBdlcDf3oLUMjnudhypqlCmHlakUVKJVm2HlOh6Tsqr5NQbnHAJiVyEiUoYb9800UX
-	1CPyLONw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s2ht/DxyyMeEB6OdGayf1QFvW/Ugx61OZNV9JmNM1/8=; b=GpZGNA2pQZBPk2
+	9EiuMZt8FY8OSRVk7NV0yYYQg1VYDRH/EsbsXWRoeb4SvAe4umcg7omI9EKhIVRiR1NTI7qkE9imK
+	Dmrd/+CofgVb3H+NS7OdHHqfzqv1TDQRwxis53C/KyH/trbZJUB2b0yBQUAE+zN/Y1UM8cPHuaeM0
+	213cri50Aosohg9SFfOaBB5tcDEpABL4lZ3Smd+DmA3t2wAmdc+L/EV2yE29YhZMjk2dcHH53XUFi
+	BOKOKxPuFXR+41iNoNMEl7HlrlbGnZjnc/gzEBf3V7ZVOH8G/zVS2cC79J0iRhMs9fRrjPX2nuGLA
+	pjWnSCj69xiO7kJBfoWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urLxl-0000000GdCj-319g;
-	Wed, 27 Aug 2025 19:37:41 +0000
+	id 1urMh7-0000000GkEJ-2DII;
+	Wed, 27 Aug 2025 20:24:33 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urJyb-0000000GJz2-1HgI
-	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 17:30:26 +0000
+	id 1urM6q-0000000Gf4F-3VWZ;
+	Wed, 27 Aug 2025 19:47:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD0FA43A2F;
-	Wed, 27 Aug 2025 17:30:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63903C4CEEB;
-	Wed, 27 Aug 2025 17:30:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 29BE1441C7;
+	Wed, 27 Aug 2025 19:47:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2933C4CEEB;
+	Wed, 27 Aug 2025 19:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756315824;
-	bh=Ldgiz2GuhClXg2UMzhvrhRQZw+hw5GM8cArSw82JF+8=;
+	s=k20201202; t=1756324024;
+	bh=81/v8nWc8euoHfOV4Sjmxdu7D+OwRFilhJeDCR9aoI0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q0e/LOgJd7QkDQDg3xUk1b/IonFPtKv3Ose5FChrXmLTxjK51M3zyyh58Z8sAsKe4
-	 rtS2V9znGQBdhjPkmzmZX7yATlsMN8ckZSv1zfyPdluJnoUCdj4PLDJMC6tWnmZPxf
-	 gwz0oDhhYiASTeJ+f1/KtZVGswWr1pQewyaLt4qMWQkPKvTI+YuwDgv4rJmi3jfNXa
-	 Cc/QN2y3OnBX7/+bK4hKMCdI8eAz8H4vKpAa68rZpB4ae9K3DNS0VJ+G7k9gFCAt8l
-	 DuJpbPyVh+FCGTteDib5L0UI2GMiDSakSb0kply6F0H6u3ijeSgjFMpb3ihjmIQ7oj
-	 7WN+FwfS9Dq/w==
-Date: Wed, 27 Aug 2025 18:30:20 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	Kees Cook <kees@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
-	patches@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 09/12] riscv: Remove ld.lld version checks from many
- TOOLCHAIN_HAS configs
-Message-ID: <20250827-unvalued-imprison-3ce3ce4275b4@spud>
-References: <20250821-bump-min-llvm-ver-15-v2-0-635f3294e5f0@kernel.org>
- <20250821-bump-min-llvm-ver-15-v2-9-635f3294e5f0@kernel.org>
+	b=tTybwMbHizBbBlCHjbHP/jpIktQ/ZQYuzvV1Tnp3YyDotqDC81SzIyROZnM4yuBYP
+	 G1Mk4y/PMZDns8MmWGWMAUj1e+KchkU/0F5x2SS4M1O/bGVM2s5dzaJNvl1JW+HDqH
+	 jL+ptyEcHrr//HSSh4xi74Pm322Med55qEJfMDCu2zkv4rMXdPzA1gHPofldXLtFRI
+	 /KqeGOWvWaUrDk4oGIXOkxz2ITxzITs8K6PClIDn95mtSWNUwCN/VJiiet0Pyp3+EE
+	 cev3f58U6HuM8xgSHWTLjRDxgreGTPEbeJXbYmeIjUt/LGBoRJu+q3lfriZq6iwLgs
+	 +h2byf++DGPuw==
+Date: Wed, 27 Aug 2025 12:46:57 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Kees Cook <kees@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Kees Cook <kees@outflux.net>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, x86@kernel.org,
+	linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH 1/5] compiler_types.h: Move __nocfi out of
+ compiler-specific header
+Message-ID: <20250827194657.GA3572128@ax162>
+References: <20250825141316.work.967-kees@kernel.org>
+ <20250825142603.1907143-1-kees@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20250821-bump-min-llvm-ver-15-v2-9-635f3294e5f0@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20250825142603.1907143-1-kees@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_103025_371510_DDEB95FD 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20250827_124704_889019_5CFB4FC4 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,56 +77,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1524271989442942267=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 25, 2025 at 07:25:48AM -0700, Kees Cook wrote:
+> From: Kees Cook <kees@outflux.net>
+> 
+> Prepare for GCC KCFI support and move the __nocfi attribute from
+> compiler-clang.h to compiler_types.h. This was already effectively gated
+> by CONFIG_CFI_CLANG, so this remains safe for non-KCFI GCC builds.
+> 
+> Signed-off-by: Kees Cook <kees@outflux.net>
 
---===============1524271989442942267==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="R5mG8D6tas3Pwbly"
-Content-Disposition: inline
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
+> ---
+>  include/linux/compiler-clang.h | 5 -----
+>  include/linux/compiler_types.h | 4 +++-
+>  2 files changed, 3 insertions(+), 6 deletions(-)
+> 
+> diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
+> index fa4ffe037bc7..7a4568e421dc 100644
+> --- a/include/linux/compiler-clang.h
+> +++ b/include/linux/compiler-clang.h
+> @@ -96,11 +96,6 @@
+>  # define __noscs	__attribute__((__no_sanitize__("shadow-call-stack")))
+>  #endif
+>  
+> -#if __has_feature(kcfi)
+> -/* Disable CFI checking inside a function. */
+> -#define __nocfi		__attribute__((__no_sanitize__("kcfi")))
+> -#endif
+> -
+>  /*
+>   * Turn individual warnings and errors on and off locally, depending
+>   * on version.
+> diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+> index 16755431fc11..a910f9fa5341 100644
+> --- a/include/linux/compiler_types.h
+> +++ b/include/linux/compiler_types.h
+> @@ -432,7 +432,9 @@ struct ftrace_likely_data {
+>  # define __noscs
+>  #endif
+>  
+> -#ifndef __nocfi
+> +#if defined(CONFIG_CFI_CLANG)
 
---R5mG8D6tas3Pwbly
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I tend to prefer '#ifdef' for single symbols.
 
-On Thu, Aug 21, 2025 at 02:15:46PM -0700, Nathan Chancellor wrote:
-> Now that the minimum supported version of LLVM for building the kernel
-> has been bumped to 15.0.0, several ld.lld version checks become
-> tautological, as they are always true. Replace them with a simple
-> CONFIG_LD_IS_LLD check.
->=20
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
---R5mG8D6tas3Pwbly
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaK9ArAAKCRB4tDGHoIJi
-0invAPsG/JWS08f2B17slnzm+vAHqLKU1mIw4NastP78Wr2ZoAEA6h2+WO0ujNy5
-0Vb5WxYNkKBy6X/GNAseBfozgSuxpAA=
-=6SKS
------END PGP SIGNATURE-----
-
---R5mG8D6tas3Pwbly--
-
-
---===============1524271989442942267==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +# define __nocfi		__attribute__((__no_sanitize__("kcfi")))
+> +#else
+>  # define __nocfi
+>  #endif
+>  
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1524271989442942267==--
-
