@@ -4,110 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89CE0CA0EFF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 11:08:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D507FCA0EFF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 11:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O3Zsw98q4Nr5LTr6TQBWp73bMp8sg8i/qgRjNAyiuMU=; b=KGEqCzqbfGgAZ5
-	owMi1kOnVi1TGCXCyTKpCYTLyUwWnQt5hsJ4QNwYI3XHlBZcWcf42bJEsxwYKsMz8+8x+PQzflJ9N
-	+3UO1ZYEBviQHqe+spVFG0jKaks0YuIQg05K5PFtRVf++3PbAdDPJMC/QijnoCpRE6i8l/bzQZsgq
-	yiMiq9v0Y0309/X+st9tzYLxWOqfKfDM20avt298AtIO/F2SndlnR2OqAxcxyGqxAbZjqseoUzr3x
-	zHCcxfMwaUqTz1GGINI6iuBSae0as1t/F/5Eg4W4E9CRX4Uu3DhM4xEqS5WuivAmDJu36zaHb1LDC
-	9HaAuFOLXJWX6wMj1IRA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/oc3CqPG/fW+mhKPVf5JxfNoSdOu2evyYx5zobrCH+8=; b=ctyL0S8F/Yl2Sz
+	sBf9u2L/iTNtUhYUTRy1B+PhxvvqHOyV5QYZEM2Z1/6DIV1d0Hf7VkwSHOyqACuVZqGYEcLuPH408
+	3fqtv/vgb74+pDoEMRHWJFqVD5v2ZCzYlV2dwfXWWeV4p3FNTvnBYv9Hz0Tt23oOxROTyiPEQIVAu
+	+x0yLQBrOFqX5z89yTDFPlcxKA0aoxknoPW6HvFDdzMZTtUn6gGL/xi3MVpx6jlgP0WAKp43KC8F5
+	Fl8NkkEnUjqMDt/PqIjXIMunnCWX30sVGK+Vi/SE/uakqEf3b2qNjqqRRoMNzq/ORTENyY9TN0aIq
+	YIH3ikkQkiBXRN5i5kSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urE0S-0000000FB7r-0d2m;
-	Wed, 27 Aug 2025 11:07:56 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1urE7u-0000000FEEt-0dwY;
+	Wed, 27 Aug 2025 11:15:38 +0000
+Received: from mail-ed1-f45.google.com ([209.85.208.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urD6z-0000000EzxA-06vn
-	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 10:10:38 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7720c9e2900so283227b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Aug 2025 03:10:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1756289436; x=1756894236; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ogvjFdajJu5uEleDwj80v3hZV9fH5TDAuXMS6jOc2pE=;
-        b=VQjco4HnbH29+2+rVUU47BsA4TVRlj5P+kKtjcQaw9UQbM9rDVBgsjqVh39vnGw5w5
-         hGiNfk/qycp9b/J7sNgU2ip1PP/+kNbv5YiVxTVx+Y1KbkEKk9WZ8Jpm0inP56QSS5HZ
-         tG1ouUfFkdkWUCA2Ki+xeaB09h6FxQIVHIwl+kXhi12+T/9TSOVuqVpZUhIAWKm4LsU2
-         FFF0CnBzrtl61LkqPaZ76Y9a/2ahzQT3U3MSUrnpMsiS0YisSfkNoB93u+UeN/MHynKj
-         MO0I145VNWAp6gE6KqjRSVtD78d0ZAZ5hPbK+EE1AT5K2cL5a6YtQKiLsW7FUrsCiT6z
-         TimA==
+	id 1urDbv-0000000F6NO-003w;
+	Wed, 27 Aug 2025 10:42:36 +0000
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-61c30ceacdcso1247152a12.1;
+        Wed, 27 Aug 2025 03:42:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756289436; x=1756894236;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ogvjFdajJu5uEleDwj80v3hZV9fH5TDAuXMS6jOc2pE=;
-        b=ur8UmRPhHZeFOwiNuPucDYhkCzKorFHyH4nysA1a3L0g2rh5po/G3cvH45VEWqsGbA
-         cbIvI9Pk28OeX43c/pRwQMcizRTXKVr3W/tL8+fSxXIHHQLmxyzhCT+/V7V5GSyFF64R
-         7NDkzyMPqfSbjNUFhm4/8Qau3opyHgJeBmqClG5vdq9IJT98EjWCMtGECgSXzCOOYno4
-         cKcf8V5HUbmAMVnb8zj/jHZjWeVAsqhp0XldbsxJpusrqF294T5y7bWy52eGAAkFuBNa
-         FIO7hGpytYYLuWX0QK7MJxsgwIULDS0U5AWbZvVyg6Zc/DJzP7mGG4L6ehY1YuzccIJP
-         z8Eg==
-X-Forwarded-Encrypted: i=1; AJvYcCUAOUU6FNLcVcOo8jibiPZon+5dwd1cJZewDbVcSKyPw0KE0iDA/CPQXfa6+ZceW/wy6vi20TmI5qieng==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLeCCQjYt8HsUXQ+f+pQtj7R2fxktwHxCSvYXnVvYb1Q8vfv5Y
-	9dEwTUVFPsFnQVrSkpdyy6RB8IPXfuCJhIfuMKpe8LWTpvnX0ib61EQdKoRMFknDVXE=
-X-Gm-Gg: ASbGnctw6k5yP2SyUAizQ9a3I8R1voVHMog1WS51NUdYnhznOXxatYQNRWJWUz9dRSy
-	O0TWr5WJIZvlkCH/YH5L81r3yw2k/surmwfjsHhw0ZiC4d/uE6jA72zbrd9JgJFmwJfW+LW9UCm
-	MdIRx2pTQt8mJXXdACW+3FbnruKWUjdssU/wW7pmv5QPqYTBOnqpSBvhKK5Li7WIiQBlWYzcehq
-	tgO+uanDT7WL/SjKGPPYJbneL4NuxVA8m84bEh0T49iJcW8mvM/StMQRcgMlzvOtqmfi2969O8s
-	yzKj9SN0uvxW0IaQL5bqujHxDpRIU/b6/Ule8EHTLT/JhdMuPhtiwyeSQINTHN77zFNuhdny8MK
-	Hmj+Nt/r7QpYxhO/gQdKNCx3WogIfHctFj4lnGbLpt4syAkLdXNyvUIITfKMvf22MpNdvHcu9Dw
-	==
-X-Google-Smtp-Source: AGHT+IGKq+xCbT38FLHdMDvm1hcp5EAcutLkJLn66CFHjFRgZpXlNTya/iJ1ORo8WxdEG7UC3P6/tQ==
-X-Received: by 2002:a05:6a00:929d:b0:771:fbb0:b1cf with SMTP id d2e1a72fcca58-771fbb0b2b0mr7265480b3a.17.1756289429909;
-        Wed, 27 Aug 2025 03:10:29 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.229])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-770401eb20dsm12813462b3a.79.2025.08.27.03.10.21
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 27 Aug 2025 03:10:29 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	atish.patra@linux.dev,
-	anup@brainfault.org,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	catalin.marinas@arm.com,
-	masahiroy@kernel.org,
-	suzuki.poulose@arm.com,
-	cuiyunhui@bytedance.com,
-	maz@kernel.org,
-	zhanjie9@hisilicon.com,
-	yangyicong@hisilicon.com,
-	dianders@chromium.org,
-	mingo@kernel.org,
-	lihuafei1@huawei.com,
-	akpm@linux-foundation.org,
-	jpoimboe@kernel.org,
-	rppt@kernel.org,
-	kees@kernel.org,
-	thomas.weissschuh@linutronix.de
-Subject: [PATCH 1/2] watchdog: refactor watchdog_hld functionality
-Date: Wed, 27 Aug 2025 18:09:58 +0800
-Message-Id: <20250827100959.83023-2-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
-In-Reply-To: <20250827100959.83023-1-cuiyunhui@bytedance.com>
-References: <20250827100959.83023-1-cuiyunhui@bytedance.com>
+        d=1e100.net; s=20230601; t=1756291353; x=1756896153;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1u4zcic0l+T6GeQNUmUI9Uac9hp+HfKFNViGwyEQyPY=;
+        b=P02a0atJRVl0SQv3wjsaMjADUv1bg6mTg5gAr8i4JD5t6sC5Fl5p3V0BjB6DdKu/FF
+         in0E8VuSKQESv7yz/SKg40DPOCkY7dSmAvUVVYTCasUS77wOaYYP/0TzJ6PpW0F+g0CA
+         NBEla23CNTkTg3U1oulDtOcWjfp1DTPerDzNIUwm83tv3IbeAE5GwUXuK0UntM8NdbOP
+         /FBiIcpnrYRlJY8XZDsbaq/jP4VBaYCAHge++gqQ6W36PCdfeNrIoo7N4WzwlPyr28tp
+         Gn5Jc5k4ti32C6nD210+xpon/bftE+fJO0gBm+nFCr++ND5d97QQVLEh95ZB0gytesrs
+         nZ+w==
+X-Forwarded-Encrypted: i=1; AJvYcCXxeSQDv5hqq38rJtUnJmjlWHqmFjXeMkWCAll9YFZcwdiKCID9lTHbBC67ZenwNn8xxvN0cnbmlE8Znw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf3mKcZfRuqgKBchu1/w/zn9m6dOdzOVkI4EZJ++BPEODdnTFd
+	2Bh+NhjRapJHPmqb83QsTYGA2qYnysRS+DmkKUR+P9OtrCUCtXsuAx8U
+X-Gm-Gg: ASbGncsM9NiRLlLNZ8XQ6c6pYLWqfEFU9+Li2J4N8d2DHAibD0iQ+gn3FaWSBVKxeb1
+	zYbbswWLl3J7mDKgfruGluVc/Pnu0U8+kLURzkuEkN+q42t0yGTyhs3hhBBwdMbooNFwtsC49Ds
+	lqGdDiarbB7N/XyE1hG62HXCb1TfKQnAMAFOjtkOqmTsJ7c/mgmhcgbD/5u2KdDbybU5zwCibXG
+	T4jfHaNDXnoy1Mjr2gu5fEECsLoSRXgcZwjlRMU0y5U/xVHGMAnu62y6BITHaGos1cRApCPoUm2
+	d0i6kRUS7YlfDQ++FcLza8pJ3rhcTfQnBizCNnDRlc17tTLEtO5N/Gor5+3buJVqW0oeFPaur/s
+	Mx7rjQuHGoiDYHHIUWLDYY/c=
+X-Google-Smtp-Source: AGHT+IGjq9XcVFJfT48t3D2sSSWpKBUwYgoLrOJ85gEuT6CFTvTN24ctslyJVbJFjI6uf4ov/6pprA==
+X-Received: by 2002:a05:6402:4cb:b0:61c:4222:4856 with SMTP id 4fb4d7f45d1cf-61c983b899dmr3243783a12.3.1756291352988;
+        Wed, 27 Aug 2025 03:42:32 -0700 (PDT)
+Received: from localhost ([2a03:2880:30ff:5::])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61c3119ffdfsm8866926a12.9.2025.08.27.03.42.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Aug 2025 03:42:32 -0700 (PDT)
+From: Breno Leitao <leitao@debian.org>
+Subject: [PATCH 0/3] kexec: Fix invalid field access
+Date: Wed, 27 Aug 2025 03:42:20 -0700
+Message-Id: <20250827-kbuf_all-v1-0-1df9882bb01a@debian.org>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAAzhrmgC/x3M4QpAMBQG0Fe5fb+tZrXYXkWSzcWN0BYpeXflP
+ MB5kDkJZ3h6kPiSLPsGT2VBiHO/TaxkgCcYbayuTaWWcI5dv64quMHa6IwrOaAgHIlHuf+qad/
+ 3Awsgpn9aAAAA
+X-Change-ID: 20250827-kbuf_all-b9d55c9291eb
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+ Baoquan He <bhe@redhat.com>, Coiby Xu <coxu@redhat.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ Breno Leitao <leitao@debian.org>, kernel-team@meta.com
+X-Mailer: b4 0.15-dev-dd21f
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1971; i=leitao@debian.org;
+ h=from:subject:message-id; bh=rML8t243wUUhsl2OLv0RtLzgEBGwxGXZlMqXmCPiepA=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBoruEXzwuDBBiV9rroaHj06zedE14jXSY01dNDe
+ 05pyXnMz2GJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaK7hFwAKCRA1o5Of/Hh3
+ bQ8zEACrimEGA/OQuvFVrT8mrQ5Mr4ou2ECD6x2JT6IN4mZlhwCnR7sMQJqrC032rCxgekihaHs
+ 7Ki113795L3C7BTYvyPWbwWtUQaPsSQ0/UJ+6m2XCmjDAbJ7t/WO9A7UVM1FR5idIjTV1oBNTtC
+ wpOrdPVNCg0WaxKKdASKjM8a8hVT3jA87Jk7R4lGAjpJaeJy9aftaNWBa8NsFXHwpy75km7tcGF
+ SBFX3mhGEe8J9dGy4/nAeVnGht9vZ9Hq5YaznVRgYZyPIfY1G8ZuhDcm+EZtMwSxhi5W//q8LKY
+ iUp/8X6lf79htbfC+5DOcq59ZKX/xLV4z90bdmafjP2oy/VIu5caJj1zAve2+Dz27xhy6vjd43W
+ C657LTC1KH1FkT7zo9gIQ6ZaH2okMu4Whhj19eiml86fP+KfCoKc0hk/TokrLnuQyHD9aAkRLFn
+ 2ucGx3hvFvyGjiL7R5RPhWFjfrY2ZdERinWI7A3v1fnkQxK4MsXgGuMxujjh4Tu34tsjJn/o82U
+ 8x+dO26drFZw0H50CdChjQHWa8N22UHPNlVrbvc3PK6dK+5GSeqrTGqgvLdqEMu4d4/XNygR13L
+ 5qH8uiuMDjp1NxTTDlw9LR4RVGAebXqZVAEYDejtp/c80AVXiejNbHTcms+vFKQ3dspdi7xDESB
+ kUAepqT0fXLi+cg==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_031037_058216_3E318D68 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20250827_034235_075880_9C20837E 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,121 +114,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move watchdog_hld.c to kernel/, and rename arm_pmu_irq_is_nmi()
-to arch_pmu_irq_is_nmi() for cross-arch reusability.
+The kexec_buf structure was previously declared without initialization.
+commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
+added a field that is always read but not consistently populated by all
+architectures. This un-initialized field will contain garbage.
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+This is also triggering a UBSAN warning when the uninitialized data was
+accessed:
+
+	------------[ cut here ]------------
+	UBSAN: invalid-load in ./include/linux/kexec.h:210:10
+	load of value 252 is not a valid value for type '_Bool'
+
+Zero-initializing kexec_buf at declaration ensures all fields are
+cleanly set, preventing future instances of uninitialized memory being
+used.
+
+An initial fix was already landed for arm64[0], and this patchset fixes
+the problem on the remaining arm64 code and on riscv, as raised by Mark.
+
+Discussions about this problem could be found at[1][2].
+
+Link: https://lore.kernel.org/all/20250826180742.f2471131255ec1c43683ea07@linux-foundation.org/ [0]
+Link: https://lore.kernel.org/all/oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3/ [1]
+Link: https://lore.kernel.org/all/20250826-akpm-v1-1-3c831f0e3799@debian.org/ [2]
+
+Signed-off-by: Breno Leitao <leitao@debian.org>
 ---
- arch/arm64/kernel/Makefile                   | 1 -
- drivers/perf/arm_pmu.c                       | 2 +-
- include/linux/nmi.h                          | 1 +
- include/linux/perf/arm_pmu.h                 | 2 --
- kernel/Makefile                              | 2 +-
- {arch/arm64/kernel => kernel}/watchdog_hld.c | 8 ++++++--
- 6 files changed, 9 insertions(+), 7 deletions(-)
- rename {arch/arm64/kernel => kernel}/watchdog_hld.c (97%)
+Breno Leitao (3):
+      arm64: kexec: Initialize kexec_buf struct in load_other_segments()
+      riscv: kexec: Initialize kexec_buf struct
+      s390: kexec: Initialize kexec_buf struct
 
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index 76f32e424065e..12d77f373fea4 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -44,7 +44,6 @@ obj-$(CONFIG_KUSER_HELPERS)		+= kuser32.o
- obj-$(CONFIG_FUNCTION_TRACER)		+= ftrace.o entry-ftrace.o
- obj-$(CONFIG_MODULES)			+= module.o module-plts.o
- obj-$(CONFIG_PERF_EVENTS)		+= perf_regs.o perf_callchain.o
--obj-$(CONFIG_HARDLOCKUP_DETECTOR_PERF)	+= watchdog_hld.o
- obj-$(CONFIG_HAVE_HW_BREAKPOINT)	+= hw_breakpoint.o
- obj-$(CONFIG_CPU_PM)			+= sleep.o suspend.o
- obj-$(CONFIG_KGDB)			+= kgdb.o
-diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-index 5c310e803dd78..4fd7f88d44543 100644
---- a/drivers/perf/arm_pmu.c
-+++ b/drivers/perf/arm_pmu.c
-@@ -696,7 +696,7 @@ static int armpmu_get_cpu_irq(struct arm_pmu *pmu, int cpu)
- 	return per_cpu(hw_events->irq, cpu);
- }
- 
--bool arm_pmu_irq_is_nmi(void)
-+bool arch_pmu_irq_is_nmi(void)
- {
- 	return has_nmi;
- }
-diff --git a/include/linux/nmi.h b/include/linux/nmi.h
-index cf3c6ab408aac..c34bdc4f43f6d 100644
---- a/include/linux/nmi.h
-+++ b/include/linux/nmi.h
-@@ -207,6 +207,7 @@ static inline bool trigger_single_cpu_backtrace(int cpu)
- #ifdef CONFIG_HARDLOCKUP_DETECTOR_PERF
- u64 hw_nmi_get_sample_period(int watchdog_thresh);
- bool arch_perf_nmi_is_available(void);
-+bool arch_pmu_irq_is_nmi(void);
- #endif
- 
- #if defined(CONFIG_HARDLOCKUP_CHECK_TIMESTAMP) && \
-diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
-index 93c9a26492fcf..6b53fb453fd63 100644
---- a/include/linux/perf/arm_pmu.h
-+++ b/include/linux/perf/arm_pmu.h
-@@ -184,8 +184,6 @@ void kvm_host_pmu_init(struct arm_pmu *pmu);
- #define kvm_host_pmu_init(x)	do { } while(0)
- #endif
- 
--bool arm_pmu_irq_is_nmi(void);
--
- /* Internal functions only for core arm_pmu code */
- struct arm_pmu *armpmu_alloc(void);
- void armpmu_free(struct arm_pmu *pmu);
-diff --git a/kernel/Makefile b/kernel/Makefile
-index c60623448235f..4ec7702b00aa1 100644
---- a/kernel/Makefile
-+++ b/kernel/Makefile
-@@ -101,7 +101,7 @@ obj-$(CONFIG_KGDB) += debug/
- obj-$(CONFIG_DETECT_HUNG_TASK) += hung_task.o
- obj-$(CONFIG_LOCKUP_DETECTOR) += watchdog.o
- obj-$(CONFIG_HARDLOCKUP_DETECTOR_BUDDY) += watchdog_buddy.o
--obj-$(CONFIG_HARDLOCKUP_DETECTOR_PERF) += watchdog_perf.o
-+obj-$(CONFIG_HARDLOCKUP_DETECTOR_PERF) += watchdog_perf.o watchdog_hld.o
- obj-$(CONFIG_SECCOMP) += seccomp.o
- obj-$(CONFIG_RELAY) += relay.o
- obj-$(CONFIG_SYSCTL) += utsname_sysctl.o
-diff --git a/arch/arm64/kernel/watchdog_hld.c b/kernel/watchdog_hld.c
-similarity index 97%
-rename from arch/arm64/kernel/watchdog_hld.c
-rename to kernel/watchdog_hld.c
-index 3093037dcb7be..f3864e604a6b5 100644
---- a/arch/arm64/kernel/watchdog_hld.c
-+++ b/kernel/watchdog_hld.c
-@@ -1,7 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <linux/nmi.h>
- #include <linux/cpufreq.h>
--#include <linux/perf/arm_pmu.h>
- 
- /*
-  * Safe maximum CPU frequency in case a particular platform doesn't implement
-@@ -25,6 +24,11 @@ u64 hw_nmi_get_sample_period(int watchdog_thresh)
- 	return (u64)max_cpu_freq * watchdog_thresh;
- }
- 
-+__weak bool arch_pmu_irq_is_nmi(void)
-+{
-+	return false;
-+}
-+
- bool __init arch_perf_nmi_is_available(void)
- {
- 	/*
-@@ -32,7 +36,7 @@ bool __init arch_perf_nmi_is_available(void)
- 	 * however, the pmu interrupts will act like a normal interrupt instead of
- 	 * NMI and the hardlockup detector would be broken.
- 	 */
--	return arm_pmu_irq_is_nmi();
-+	return arch_pmu_irq_is_nmi();
- }
- 
- static int watchdog_perf_update_period(void *data)
--- 
-2.39.5
+ arch/arm64/kernel/machine_kexec_file.c | 2 +-
+ arch/riscv/kernel/kexec_elf.c          | 4 ++--
+ arch/riscv/kernel/kexec_image.c        | 2 +-
+ arch/riscv/kernel/machine_kexec_file.c | 2 +-
+ arch/s390/kernel/kexec_elf.c           | 2 +-
+ arch/s390/kernel/kexec_image.c         | 2 +-
+ arch/s390/kernel/machine_kexec_file.c  | 6 +++---
+ 7 files changed, 10 insertions(+), 10 deletions(-)
+---
+base-commit: 3c642997252eef4449cb6b6e02af3dc22515d817
+change-id: 20250827-kbuf_all-b9d55c9291eb
+
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
 
 
 _______________________________________________
