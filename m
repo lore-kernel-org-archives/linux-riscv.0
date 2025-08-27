@@ -4,79 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3244CA0FED
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC2ACA0EFF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8G0NOabzQzBT5UL6Wx+DM+e1rR8nFP4J0queifCue8I=; b=hvjWrVOka97hHf
-	FBy5xT8MlR/pI/An6QPKk1SgOTkJHO9i756tYgbtcGh1MM8jVC/BA3jin4QwDhjQOyZAiF223tzx2
-	wYLlKRkr31o8AEibUTZrnrjSEOA9q216V0vfRD3YUOn4jeESflxWHSoMiLTwN8Kpd9SqinUp2JChq
-	FQwYAppm6XIU2ddXPHUaQB0haT1AlwMseFRu5q9v5Id5BapE00wujTMN1Sa7ZefpqhkHgkqEamU6a
-	Ec+kSxVr5ORXGfyccivH9tDxwmoyh6D9EWQd9lFBxC0ON7Qfv578OPOXlzlDtSx2tEqbJSGdDBMG1
-	6iU8N1HH5CdszGJZROUg==;
+	List-Owner; bh=WdalLRjT8F0m0LbVxw5w5Uqx3SNI8zePUZqjldWZYcg=; b=Bv7pdr+mtOhPqv
+	gvEGNhIJXW78kym21FTZmcDD0pYyNvbqhX/wDuISdAW3zsljow6Cao2QODYAlZTa8qdIt9rc5aaEh
+	pU1UJzIMKKEwDbQs/xBrewnKgnxN5h6NrdvqOfQw/yKR89ZGckZdgIE+6Rig3Oj3JiTw9qOjvISqi
+	2S/wfiIuXkIbAXR3ItfjGbB9BEznvCSfMQABAGZ2MSQ7C+V7TZ7OFHGRwerpXeUv90eylGp2wHvFY
+	4Df05odgjoZtZwF+DpGG1WqC/LR7SOVBDIfMmtYpoR4FBOoSjJ/wYaTExGWbzpOEYFtVVWWDYCXQ3
+	44FzLVKWueVM7KwffD9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPMo-0000000HBZo-1Zbs;
-	Wed, 27 Aug 2025 23:15:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1urPMq-0000000HBd7-0XkC;
+	Wed, 27 Aug 2025 23:15:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOJI-0000000GzyB-12YF
+	id 1urOJI-0000000Gzy6-2ez6
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:08:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AAB516027F;
-	Wed, 27 Aug 2025 22:08:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EECAEC4CEEB;
-	Wed, 27 Aug 2025 22:08:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756332483;
-	bh=zzgfsYDCFmRhdoMZwZ++3Els9HxkLOsb+5Uew5Yhl6I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bRX+tNGWVTUIuuRWXCG5ONBpUuQUHP/wyei8Yn+SJQPZSdxqbskV+o+bN48kMj2LB
-	 4LR1hBAGzxuKLAJWZNXy2LqiiK4grBJTMBnIjHo0RwE4YUqcPtybj6NCyu5EeXcjNd
-	 n0UcO9BkDLs6IzjiMW2jrqIMMVulxJo5Do3KhN4j9Hvj+V51zj+8jFAFccSUx9DHvR
-	 /2IKuBbcutfJoszc+0hXc++CluMVTe/YUadwI9Jqk2eOGsxfQeX5CdH02aoJyE9ygy
-	 k3Zy+tyzneCTzQN6/F9NY9/LcqCQjrY9f2UV7/xR2BsYufOXpBoDEbFPfmTFIJ7lsY
-	 9CC5fg9wyhsdg==
-Date: Wed, 27 Aug 2025 15:08:01 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Matt Coster <matt.coster@imgtec.com>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Frank Binns <frank.binns@imgtec.com>,
-	Matt Coster <matt.coster@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	Wed, 27 Aug 2025 22:08:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756332483;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3ZA4z8X3DBAGYUxj/2WGnSPhW3B2O9Q5Mn2y+SAGx1Y=;
+	b=DWaBNMnveU1tSZpjByUJKlZ1okenrWfEBZEVhDP4eB2lqhUaDKG3MATYWNax2tnWNaJwZY
+	7Myx3FDadHyKe7P1i1g2Y5KFK/knSwOAyrhJ7B/swxwP775N/Fhw13oAKch1I7BVQXzbHt
+	F6PWG89+V3nUhF+Iz9Iw8jQyESwvhlg=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-35-9CODWK8aMK6h5vL0lOzKFQ-1; Wed,
+ 27 Aug 2025 18:07:57 -0400
+X-MC-Unique: 9CODWK8aMK6h5vL0lOzKFQ-1
+X-Mimecast-MFC-AGG-ID: 9CODWK8aMK6h5vL0lOzKFQ_1756332470
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AD5F5195608A;
+	Wed, 27 Aug 2025 22:07:50 +0000 (UTC)
+Received: from t14s.redhat.com (unknown [10.22.80.195])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7867C30001A1;
+	Wed, 27 Aug 2025 22:07:34 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: David Hildenbrand <david@redhat.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>,
+	Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
 	dri-devel@lists.freedesktop.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v13 3/4] riscv: dts: thead: th1520: Add IMG BXM-4-64 GPU
- node
-Message-ID: <aK-BwY8c-OR_WqNk@thelio>
-References: <20250822-apr_14_for_sending-v13-0-af656f7cc6c3@samsung.com>
- <CGME20250821222023eucas1p1805feda41e485de76c2981beb8b9102d@eucas1p1.samsung.com>
- <20250822-apr_14_for_sending-v13-3-af656f7cc6c3@samsung.com>
- <aKjWiU4fQw3k77GR@x1>
+	intel-gfx@lists.freedesktop.org,
+	iommu@lists.linux.dev,
+	io-uring@vger.kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev,
+	Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com,
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH v1 20/36] mips: mm: convert __flush_dcache_pages() to __flush_dcache_folio_pages()
+Date: Thu, 28 Aug 2025 00:01:24 +0200
+Message-ID: <20250827220141.262669-21-david@redhat.com>
+In-Reply-To: <20250827220141.262669-1-david@redhat.com>
+References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aKjWiU4fQw3k77GR@x1>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250827_150804_740110_E97E25AD 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,49 +129,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 01:43:53PM -0700, Drew Fustini wrote:
-> On Fri, Aug 22, 2025 at 12:20:17AM +0200, Michal Wilczynski wrote:
-> > Add a device tree node for the IMG BXM-4-64 GPU present in the T-HEAD
-> > TH1520 SoC used by the Lichee Pi 4A board. This node enables support for
-> > the GPU using the drm/imagination driver.
-> > 
-> > By adding this node, the kernel can recognize and initialize the GPU,
-> > providing graphics acceleration capabilities on the Lichee Pi 4A and
-> > other boards based on the TH1520 SoC.
-> > 
-> > Add fixed clock gpu_mem_clk, as the MEM clock on the T-HEAD SoC can't be
-> > controlled programatically.
-> > 
-> > Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > Reviewed-by: Drew Fustini <drew@pdp7.com>
-> > Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > Acked-by: Matt Coster <matt.coster@imgtec.com>
-> > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> > ---
-> >  arch/riscv/boot/dts/thead/th1520.dtsi | 21 +++++++++++++++++++++
-> >  1 file changed, 21 insertions(+)
-> 
-> I've applied this to thead-dt-for-next [1]:
-> 
-> 0f78e44fb857 ("riscv: dts: thead: th1520: Add IMG BXM-4-64 GPU node")
-> 
-> Thanks,
-> Drew
-> 
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/log/?h=thead-dt-for-next
+Let's make it clearer that we are operating within a single folio by
+providing both the folio and the page.
 
-Hi Matt,
+This implies that for flush_dcache_folio() we'll now avoid one more
+page->folio lookup, and that we can safely drop the "nth_page" usage.
 
-Do you know when the dt binding patch will be applied to
-the drm-misc/for-linux-next tree?
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Signed-off-by: David Hildenbrand <david@redhat.com>
+---
+ arch/mips/include/asm/cacheflush.h | 11 +++++++----
+ arch/mips/mm/cache.c               |  8 ++++----
+ 2 files changed, 11 insertions(+), 8 deletions(-)
 
-I applied the dts patch but it is creating a warning in next right now.
-If the binding won't show up soon in drm-misc, then I'll remove this dts
-patch from next as dtbs_check is now failing in next. I can add it back
-once the binding makes it to next.
+diff --git a/arch/mips/include/asm/cacheflush.h b/arch/mips/include/asm/cacheflush.h
+index 5d283ef89d90d..8d79bfc687d21 100644
+--- a/arch/mips/include/asm/cacheflush.h
++++ b/arch/mips/include/asm/cacheflush.h
+@@ -50,13 +50,14 @@ extern void (*flush_cache_mm)(struct mm_struct *mm);
+ extern void (*flush_cache_range)(struct vm_area_struct *vma,
+ 	unsigned long start, unsigned long end);
+ extern void (*flush_cache_page)(struct vm_area_struct *vma, unsigned long page, unsigned long pfn);
+-extern void __flush_dcache_pages(struct page *page, unsigned int nr);
++extern void __flush_dcache_folio_pages(struct folio *folio, struct page *page, unsigned int nr);
+ 
+ #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
+ static inline void flush_dcache_folio(struct folio *folio)
+ {
+ 	if (cpu_has_dc_aliases)
+-		__flush_dcache_pages(&folio->page, folio_nr_pages(folio));
++		__flush_dcache_folio_pages(folio, folio_page(folio, 0),
++					   folio_nr_pages(folio));
+ 	else if (!cpu_has_ic_fills_f_dc)
+ 		folio_set_dcache_dirty(folio);
+ }
+@@ -64,10 +65,12 @@ static inline void flush_dcache_folio(struct folio *folio)
+ 
+ static inline void flush_dcache_page(struct page *page)
+ {
++	struct folio *folio = page_folio(page);
++
+ 	if (cpu_has_dc_aliases)
+-		__flush_dcache_pages(page, 1);
++		__flush_dcache_folio_pages(folio, page, folio_nr_pages(folio));
+ 	else if (!cpu_has_ic_fills_f_dc)
+-		folio_set_dcache_dirty(page_folio(page));
++		folio_set_dcache_dirty(folio);
+ }
+ 
+ #define flush_dcache_mmap_lock(mapping)		do { } while (0)
+diff --git a/arch/mips/mm/cache.c b/arch/mips/mm/cache.c
+index bf9a37c60e9f0..e3b4224c9a406 100644
+--- a/arch/mips/mm/cache.c
++++ b/arch/mips/mm/cache.c
+@@ -99,9 +99,9 @@ SYSCALL_DEFINE3(cacheflush, unsigned long, addr, unsigned long, bytes,
+ 	return 0;
+ }
+ 
+-void __flush_dcache_pages(struct page *page, unsigned int nr)
++void __flush_dcache_folio_pages(struct folio *folio, struct page *page,
++		unsigned int nr)
+ {
+-	struct folio *folio = page_folio(page);
+ 	struct address_space *mapping = folio_flush_mapping(folio);
+ 	unsigned long addr;
+ 	unsigned int i;
+@@ -117,12 +117,12 @@ void __flush_dcache_pages(struct page *page, unsigned int nr)
+ 	 * get faulted into the tlb (and thus flushed) anyways.
+ 	 */
+ 	for (i = 0; i < nr; i++) {
+-		addr = (unsigned long)kmap_local_page(nth_page(page, i));
++		addr = (unsigned long)kmap_local_page(page + i);
+ 		flush_data_cache_page(addr);
+ 		kunmap_local((void *)addr);
+ 	}
+ }
+-EXPORT_SYMBOL(__flush_dcache_pages);
++EXPORT_SYMBOL(__flush_dcache_folio_pages);
+ 
+ void __flush_anon_page(struct page *page, unsigned long vmaddr)
+ {
+-- 
+2.50.1
 
-Thanks,
-Drew
 
 _______________________________________________
 linux-riscv mailing list
