@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D89A6CA0FED
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 20:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A16DCA0EFF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 20:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cXjEJ1L4m1qP0aoIW6o5YBfZLfiS717vwlNaxDB0c3M=; b=aJeEbI50X7oHLO
-	Z6t0Mt/gGErDQiU1HNIfsXeEvOxc71xNv56HZ/8zsXYnSCxHI/kt+bZ51rjnPgdpiKo/r8qy5twNP
-	Y4DvlbgxESuzPIBzzKV5QYn0qlDitxZtJyf6whQCqqdt/eJ9f1CZ8adwIQRIgyPzbi1G0UaTSsrLT
-	LEIVGJquLBuLjoI3cxx75WmS2OWpPRM+x7RnAtb6lBoRcJfHWgJQm31YOAmZSBYrZHj6EtsDmXEYn
-	y7YYvMxFo+TWg0TrSiWmWou0+nM90ELXrYxR7YxnzUlSru/7WHIlI/NiwVPX8CPG8GoW59nYG1CbG
-	JNwETbX03POxiyRdu6AQ==;
+	List-Owner; bh=aAmiO4fGh99MlfPK/st0dNKZI7YPrjJs1tg+VVtaCN8=; b=aAAptNmuyEaBIc
+	8Wkkz/jPPJ2UVZ44Nna5FRlL1JPG6zH5MDZUiHoE5nUqrTtqg8s4nW/Fdcl/k5qvcJM21aE9/hjKG
+	n4fQ1xmBTawOpIbQ7pnYjEe68ik+OxUWt1xR5lGNQ9dZDGeSEKc6Nb3CiNDJqBVQH6F9OgZkvdlqi
+	/0MA2TV3Hu4QFHzVJ9E+eiMwCjqTrd65SNtyrihtFVnJJCpe7wiySBCFermZV0cL8eySixh9WdKpt
+	U4BjnwRCJI8jny7iEHkze5D4myjrxl7UV2qbYDhcyh/s6KaCKgxhYKiehgW0hfUYbhoDNxhpeS49p
+	wCtPPJr9FtlIVUwCTIgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urMh9-0000000GkGd-0mLK;
-	Wed, 27 Aug 2025 20:24:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1urMh6-0000000GkCk-0l28;
+	Wed, 27 Aug 2025 20:24:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urMHP-0000000GgRs-2oCY;
-	Wed, 27 Aug 2025 19:58:01 +0000
+	id 1urLyQ-0000000GdZE-0CRS;
+	Wed, 27 Aug 2025 19:38:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 104DE40A9D;
-	Wed, 27 Aug 2025 19:57:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9B1EC4CEEB;
-	Wed, 27 Aug 2025 19:57:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 72F7760289;
+	Wed, 27 Aug 2025 19:38:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1760C4CEEB;
+	Wed, 27 Aug 2025 19:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756324678;
-	bh=vy4jaU+tF4nJ+2/n+HhT0G0kW3maniYcW78uwrPgAQc=;
+	s=k20201202; t=1756323501;
+	bh=W1AubzeJB5Z8LwdDQVCG3K8ifP+7BeoXcKAJfA+3/kA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ii6ET0wvArOsxX/ssBzb/+H7x9KbZftfTVjf/SXXq4vInYHTqx+iHWGk9SusLNXM8
-	 9M8JLRgUhM+h+7PWPxGKRNDg81FH5AjGacpl9nbf63lJHmieGEU/EV9dVFOHiztk9r
-	 yLffNs4q5n8uhwnSc+/so3sr3s/b3LlpZIKq5YPwx1tjjMKnzMKIUSkqRrpqR9g0oP
-	 E82PXUm9owcegxXN+Hjw40BjDxX21cZaTVKYwY2gJl7jAcWQ08NWeBl2ctSqA9p56T
-	 znFZ/U+3N5oO88nF2YnkSs1sk45Sx+XbR6QU1ECiSSJMalVUM5n/7+89hWJng7Jta4
-	 ydYMGwfNEvSrA==
-Date: Wed, 27 Aug 2025 12:57:53 -0700
+	b=EH7zDK5u6fdSChttEZ9MV34eaB/tec1yaLBsuBo62yZMBidjNVD3N2cfcpetw5OlX
+	 dJwRpObDkmjwGuaEeXNcXsBTkxrloAbzi8JdZ0ou0e1d6kpAPZqFf4WZIolLovvjuL
+	 NfPNU9xcO+AxflQmOxwBl/n3JmC5OLK8+qePfSEKNJFf8YgASTiiRPhij5JYDJWxUj
+	 B7V9W5raCFZMwDkbFJOvSMd641UP4EnSUSoI/B72ovoBaT7nE5yb/JfDIjVkJehFBO
+	 auGCVBbIQHa226riQz1U1ceP19zIf1WljY658hJJqpXQA2G7m0vw5u9tkyjn84TBe8
+	 sefDaIsTF223w==
+Date: Wed, 27 Aug 2025 12:38:15 -0700
 From: Nathan Chancellor <nathan@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Kees Cook <kees@outflux.net>,
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: Kees Cook <kees@outflux.net>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Kees Cook <kees@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
 	Sami Tolvanen <samitolvanen@google.com>,
-	David Woodhouse <dwmw2@infradead.org>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Puranjay Mohan <puranjay@kernel.org>,
+	David Woodhouse <dwmw2@infradead.org>,
 	Jonathan Corbet <corbet@lwn.net>, x86@kernel.org,
 	linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH 3/5] x86/cfi: Add option for cfi=debug bootparam
-Message-ID: <20250827195753.GB3572128@ax162>
+Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
+Message-ID: <20250827193815.GA2293657@ax162>
 References: <20250825141316.work.967-kees@kernel.org>
- <20250825142603.1907143-3-kees@kernel.org>
+ <20250825142603.1907143-5-kees@kernel.org>
+ <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com>
+ <202508250834.E2456B9@keescook>
+ <CANiq72mQsLqhpX29NP3Zm8HZ5m429tSXjgFcRYJM3e=Zac1G1w@mail.gmail.com>
+ <9CCDBE93-7DBD-41D0-B9B6-05900F2AB1EE@outflux.net>
+ <20250827013444.GA2859318@ax162>
+ <56c2b1ce-00a4-403c-9927-79bfd9a23574@infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250825142603.1907143-3-kees@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_125759_759510_EDE87A7F 
-X-CRM114-Status: GOOD (  31.49  )
+In-Reply-To: <56c2b1ce-00a4-403c-9927-79bfd9a23574@infradead.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,213 +81,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 07:25:50AM -0700, Kees Cook wrote:
-> From: Kees Cook <kees@outflux.net>
-> 
-> Add "debug" option for "cfi=" bootparam to get details on early CFI
-> initialization steps. Standardize CFI pr_info() lines to use "CFI:"
-> prefix. Standardize "CFI: Using ..." to always report which CFI mode is
-> being used, regardless of CONFIG_FINEIBT. Document all the "cfi=" options.
-> 
-> Signed-off-by: Kees Cook <kees@outflux.net>
-
-I am not sure if the x86 maintainers are "patch count adverse" but it
-feels like this would be a little easier to review as four separate
-patches. Every sentence in the commit message is basically its own
-change.
-
-1. The initial documentation for cfi= and its current values.
-2. Standardization of pr_info() calls to use "CFI:"
-3. Adding "CFI: Using" to __apply_fineibt()
-4. Adding cfi=debug
-
-Patch four would become much simpler to understand, especially with
-Peter's suggested change.
-
-> ---
->  .../admin-guide/kernel-parameters.txt         | 18 +++++++++
->  arch/x86/kernel/alternative.c                 | 39 +++++++++++++++----
->  2 files changed, 50 insertions(+), 7 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 747a55abf494..7b4bddb5a030 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -608,6 +608,24 @@
->  	ccw_timeout_log	[S390]
->  			See Documentation/arch/s390/common_io.rst for details.
->  
-> +	cfi=		[X86-64] Set Control Flow Integrity checking features
-> +			when CONFIG_FINEIBT is enabled.
-> +			Format: feature[,feature...]
-> +			Default: auto
-> +
-> +			auto:	  Use FineIBT if IBT available, otherwise kCFI.
-> +				  Under FineIBT, enable "paranoid" mode when
-> +				  FRED is not available.
-> +			off:	  Turn off CFI checking.
-> +			kcfi:	  Use kCFI (disable FineIBT).
-> +			fineibt:  Use FineIBT (even if IBT not available).
-> +			norand:   Do not re-randomize CFI hashes.
-> +			paranoid: Add caller hash checking under FineIBT.
-> +			bhi:	  Enable register poisoning to stop speculation
-> +				  across FineIBT. (Disabled by default.)
-> +			warn:	  Do not enforce CFI checking: warn only.
-> +			debug:	  Report CFI initialization details.
-> +
->  	cgroup_disable=	[KNL] Disable a particular controller or optional feature
->  			Format: {name of the controller(s) or feature(s) to disable}
->  			The effects of cgroup_disable=foo are:
-> diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
-> index 7bde68247b5f..5d80ae77c042 100644
-> --- a/arch/x86/kernel/alternative.c
-> +++ b/arch/x86/kernel/alternative.c
-> @@ -1225,6 +1225,7 @@ int cfi_get_func_arity(void *func)
->  
->  static bool cfi_rand __ro_after_init = true;
->  static u32  cfi_seed __ro_after_init;
-> +static bool cfi_debug __ro_after_init;
->  
->  /*
->   * Re-hash the CFI hash with a boot-time seed while making sure the result is
-> @@ -1259,6 +1260,8 @@ static __init int cfi_parse_cmdline(char *str)
->  		} else if (!strcmp(str, "off")) {
->  			cfi_mode = CFI_OFF;
->  			cfi_rand = false;
-> +		} else if (!strcmp(str, "debug")) {
-> +			cfi_debug = true;
->  		} else if (!strcmp(str, "kcfi")) {
->  			cfi_mode = CFI_KCFI;
->  		} else if (!strcmp(str, "fineibt")) {
-> @@ -1266,26 +1269,26 @@ static __init int cfi_parse_cmdline(char *str)
->  		} else if (!strcmp(str, "norand")) {
->  			cfi_rand = false;
->  		} else if (!strcmp(str, "warn")) {
-> -			pr_alert("CFI mismatch non-fatal!\n");
-> +			pr_alert("CFI: mismatch non-fatal!\n");
->  			cfi_warn = true;
->  		} else if (!strcmp(str, "paranoid")) {
->  			if (cfi_mode == CFI_FINEIBT) {
->  				cfi_paranoid = true;
->  			} else {
-> -				pr_err("Ignoring paranoid; depends on fineibt.\n");
-> +				pr_err("CFI: ignoring paranoid; depends on fineibt.\n");
->  			}
->  		} else if (!strcmp(str, "bhi")) {
->  #ifdef CONFIG_FINEIBT_BHI
->  			if (cfi_mode == CFI_FINEIBT) {
->  				cfi_bhi = true;
->  			} else {
-> -				pr_err("Ignoring bhi; depends on fineibt.\n");
-> +				pr_err("CFI: ignoring bhi; depends on fineibt.\n");
->  			}
->  #else
-> -			pr_err("Ignoring bhi; depends on FINEIBT_BHI=y.\n");
-> +			pr_err("CFI: ignoring bhi; depends on FINEIBT_BHI=y.\n");
->  #endif
->  		} else {
-> -			pr_err("Ignoring unknown cfi option (%s).", str);
-> +			pr_err("CFI: Ignoring unknown option (%s).", str);
-
-You lowercase "Ignoring" earlier but not here, intentional? There are a
-couple of other messages that have a capital first letter but not
-others.
-
->  		}
->  
->  		str = next;
-> @@ -1734,6 +1737,8 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
->  	 * rewrite them. This disables all CFI. If this succeeds but any of the
->  	 * later stages fails, we're without CFI.
->  	 */
-> +	if (builtin && cfi_debug)
-> +		pr_info("CFI: disabling all indirect call checking\n");
->  	ret = cfi_disable_callers(start_retpoline, end_retpoline);
->  	if (ret)
->  		goto err;
-> @@ -1744,43 +1749,61 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
->  			cfi_bpf_hash = cfi_rehash(cfi_bpf_hash);
->  			cfi_bpf_subprog_hash = cfi_rehash(cfi_bpf_subprog_hash);
->  		}
-> +		if (builtin && cfi_debug)
-> +			pr_info("CFI: cfi_seed: 0x%08x\n", cfi_seed);
->  
-> +		if (builtin && cfi_debug)
-> +			pr_info("CFI: rehashing all preambles\n");
->  		ret = cfi_rand_preamble(start_cfi, end_cfi);
->  		if (ret)
->  			goto err;
->  
-> +		if (builtin && cfi_debug)
-> +			pr_info("CFI: rehashing all indirect calls\n");
->  		ret = cfi_rand_callers(start_retpoline, end_retpoline);
->  		if (ret)
->  			goto err;
-> +	} else {
-> +		if (builtin && cfi_debug)
-> +			pr_info("CFI: rehashing disabled\n");
->  	}
->  
->  	switch (cfi_mode) {
->  	case CFI_OFF:
->  		if (builtin)
-> -			pr_info("Disabling CFI\n");
-> +			pr_info("CFI: disabled\n");
->  		return;
->  
->  	case CFI_KCFI:
-> +		if (builtin && cfi_debug)
-> +			pr_info("CFI: enabling all indirect call checking\n");
->  		ret = cfi_enable_callers(start_retpoline, end_retpoline);
->  		if (ret)
->  			goto err;
->  
->  		if (builtin)
-> -			pr_info("Using kCFI\n");
-> +			pr_info("CFI: Using %s kCFI\n",
-> +				cfi_rand ? "rehashed" : "retpoline");
->  		return;
->  
->  	case CFI_FINEIBT:
-> +		if (builtin && cfi_debug)
-> +			pr_info("CFI: adding FineIBT to all preambles\n");
->  		/* place the FineIBT preamble at func()-16 */
->  		ret = cfi_rewrite_preamble(start_cfi, end_cfi);
->  		if (ret)
->  			goto err;
->  
->  		/* rewrite the callers to target func()-16 */
-> +		if (builtin && cfi_debug)
-> +			pr_info("CFI: rewriting indirect call sites to use FineIBT\n");
->  		ret = cfi_rewrite_callers(start_retpoline, end_retpoline);
->  		if (ret)
->  			goto err;
->  
->  		/* now that nobody targets func()+0, remove ENDBR there */
-> +		if (builtin && cfi_debug)
-> +			pr_info("CFI: removing old endbr insns\n");
->  		cfi_rewrite_endbr(start_cfi, end_cfi);
->  
->  		if (builtin) {
-> @@ -2005,6 +2028,8 @@ bool decode_fineibt_insn(struct pt_regs *regs, unsigned long *target, u32 *type)
->  static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
->  			    s32 *start_cfi, s32 *end_cfi, bool builtin)
->  {
-> +	if (builtin)
-> +		pr_info("CFI: Using standard kCFI\n");
->  }
->  
->  #ifdef CONFIG_X86_KERNEL_IBT
-> -- 
-> 2.34.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBBdWcgMjcsIDIwMjUgYXQgMTI6MzU6MTJBTSAtMDcwMCwgUmFuZHkgRHVubGFwIHdy
+b3RlOgo+IE9uIDgvMjYvMjUgNjozNCBQTSwgTmF0aGFuIENoYW5jZWxsb3Igd3JvdGU6Cj4gPiBP
+biBNb24sIEF1ZyAyNSwgMjAyNSBhdCAwMzozMTozNFBNIC0wNDAwLCBLZWVzIENvb2sgd3JvdGU6
+Cj4gPj4gT24gQXVndXN0IDI1LCAyMDI1IDE6MDA6MjIgUE0gRURULCBNaWd1ZWwgT2plZGEgPG1p
+Z3VlbC5vamVkYS5zYW5kb25pc0BnbWFpbC5jb20+IHdyb3RlOgo+ID4+PiBPbiBNb24sIEF1ZyAy
+NSwgMjAyNSBhdCA1OjM14oCvUE0gS2VlcyBDb29rIDxrZWVzQGtlcm5lbC5vcmc+IHdyb3RlOgo+
+ID4+Pj4KPiA+Pj4+IFllYWgsIHRoYXQncyBhIGdvb2QgaWRlYS4gV2hhdCB0aGUgcmlnaHQgd2F5
+IHRvIGRvIHRoYXQ/Cj4gPj4+Pgo+ID4+Pj4gY29uZmlnIENGSV9DTEFORwo+ID4+Pj4gICAgICAg
+ICBib29sICJVc2UgQ2xhbmcncyBDb250cm9sIEZsb3cgSW50ZWdyaXR5IChDRkkpIgo+ID4+Pj4g
+ICAgICAgICBkZXBlbmRzIG9uIEFSQ0hfU1VQUE9SVFNfQ0ZJCj4gPj4+PiAgICAgICAgIHNlbGVj
+dCBDRkkKPiA+Pj4+Cj4gPj4+PiA/Cj4gPj4+Cj4gPj4+IEkgZG9uJ3QgcmVjYWxsIHdoYXQgaXMg
+dGhlIGlkaW9tYXRpYyBzb2x1dGlvbiBmb3IgcmVuYW1lcywgYnV0IEkKPiA+Pj4gcmVtZW1iZXIg
+TGludXMgdGFsa2luZyBhYm91dCB0aGlzIHRvcGljIGFuZCBhYm91dCBhdm9pZGluZyBsb3Npbmcg
+b2xkCj4gPj4+IHZhbHVlcyBpZiBwb3NzaWJsZSAocGVyaGFwcyBnZXR0aW5nIGEgbmV3IHF1ZXN0
+aW9uIGluIGBvbGRjb25maWdgIGlzCj4gPj4+IE9LIGFzIGxvbmcgYXMgdGhlIGBvbGRkZWZjb25m
+aWdgIHJlc3BlY3RzIHRoZSBvbGQgdmFsdWUpLgo+ID4+Pgo+ID4+PiBJIHRoaW5rIHlvdXIgc3Vn
+Z2VzdGlvbiBhYm92ZSB3aWxsIHN0aWxsIG1ha2UgaXQgYXBwZWFyIHR3aWNlIGluCj4gPj4+IGBt
+ZW51Y29uZmlnYCAtLSB0aGVyZSBtYXkgYmUgYSB3YXkgdG8gcGxheSB3aXRoIHZpc2liaWxpdHkg
+dG8gbWFrZSBpdAo+ID4+PiBiZXR0ZXIuCj4gPj4+Cj4gPj4+IEEgc2ltcGxlIHBvc3NpYmlsaXR5
+IEkgY2FuIHRoaW5rIG9mIChhc3N1bWluZyBpdCB3b3JrcykgaXMgaGF2aW5nIHRoZQo+ID4+PiBD
+Rkkgc3ltYm9sIGZvciB0aGUgdGltZSBiZWluZyBpbnRyb2R1Y2VkIGp1c3QgYXMgYSBgZGVmX2Jv
+b2wKPiA+Pj4gQ0ZJX0NMQU5HYCBmb3IgYSBmZXcgcmVsZWFzZXMgc28gdGhhdCBwZW9wbGUgZ2V0
+IHRoZSBuZXcgb25lIGluIHRoZWlyCj4gPj4+IGNvbmZpZ3MuCj4gPj4KPiA+PiBBaCwgSSB0aGlu
+ayB0aGlzIHdvcmtzOgo+ID4+Cj4gPj4gY29uZmlnIENGSV9DTEFORwo+ID4+ICAgICBib29sCj4g
+Pj4KPiA+PiBjb25maWcgQ0ZJCj4gPj4gICAgIGJvb2wgIi4uLi4iCj4gPj4gICAgIGRlZmF1bHQg
+Q0ZJX0NMQU5HCj4gPj4KPiA+PiBJIHdpbGwgYWRkIHRoYXQgZm9yIHYyLgo+ID4gCj4gPiBUaGF0
+IGRvZXMgbm90IGFwcGVhciB0byB3b3JrIGZvciBtZS4gSSBhcHBsaWVkCj4gPiAKPiA+IGRpZmYg
+LS1naXQgYS9hcmNoL0tjb25maWcgYi9hcmNoL0tjb25maWcKPiA+IGluZGV4IGMyNWE0NWQ5YWE5
+Ni4uMGQzZWQwM2M3NmMyIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9LY29uZmlnCj4gPiArKysgYi9h
+cmNoL0tjb25maWcKPiA+IEBAIC04NzYsOCArODc2LDEyIEBAIGNvbmZpZyBBUkNIX1NVUFBPUlRT
+X0NGSQo+ID4gIGNvbmZpZyBBUkNIX1VTRVNfQ0ZJX1RSQVBTCj4gPiAgICAgICAgIGJvb2wKPiA+
+IAo+ID4gK2NvbmZpZyBDRklfQ0xBTkcKPiA+ICsgICAgICAgYm9vbAo+ID4gKwo+ID4gIGNvbmZp
+ZyBDRkkKPiA+ICAgICAgICAgYm9vbCAiVXNlIEtlcm5lbCBDb250cm9sIEZsb3cgSW50ZWdyaXR5
+IChrQ0ZJKSIKPiA+ICsgICAgICAgZGVmYXVsdCBDRklfQ0xBTkcKPiA+ICAgICAgICAgZGVwZW5k
+cyBvbiBBUkNIX1NVUFBPUlRTX0NGSQo+ID4gICAgICAgICBkZXBlbmRzIG9uICQoY2Mtb3B0aW9u
+LC1mc2FuaXRpemU9a2NmaSkKPiA+ICAgICAgICAgaGVscAo+ID4gCj4gPiBvbiB0b3Agb2YgdGhp
+cyBzZXJpZXMgYW5kCj4gPiAKPiA+ICAgQ09ORklHX0NGSV9DTEFORz15Cj4gPiAgICMgQ09ORklH
+X0NGSV9JQ0FMTF9OT1JNQUxJWkVfSU5URUdFUlMgaXMgbm90IHNldAo+ID4gICAjIENPTkZJR19D
+RklfUEVSTUlTU0lWRSBpcyBub3Qgc2V0Cj4gPiAKPiA+IGdldHMgdHVybmVkIGludG8KPiA+IAo+
+ID4gICAjIENPTkZJR19DRkkgaXMgbm90IHNldAo+ID4gCj4gPiBhZnRlciBvbGRkZWZjb25maWcu
+IENPTkZJR19DRklfQ0xBTkcgaGFzIHRvIGJlIHVzZXIgc2VsZWN0YWJsZSB3aXRoIGEKPiAKPiBD
+b3VsZC9kaWQgeW91IHRlc3Qgd2l0aCAnb2xkY29uZmlnJyBpbnN0ZWFkPwo+IAo+IG9sZGRlZmNv
+bmZpZyBpcyBnb2luZyB0byB1c2UgdGhlIGRlZmF1bHQgdmFsdWUgZnJvbSB0aGUgS2NvbmZpZyBm
+aWxlLAo+IHdoaWNoIGlmIENGSV9DTEFORyB3aGljaCBpcyB1bmRlZmluZWQvTm8vTm90IHNldC4K
+PiAKPiBvbGRjb25maWcgd2lsbCB1c2UgdGhlIG9sZCB2YWx1ZSBmcm9tIHRoZSAuY29uZmlnIGZp
+bGUuCgpJIGFtIG5vdCBzdXJlIEkgdW5kZXJzdGFuZCB3aGF0IHlvdSBtZWFuIGhlcmUuIFdpdGgg
+dGhlIHNlcmllcyBhcyBpdCBpcwpvciBLZWVzJ3Mgc3VnZ2VzdGVkIGZpeCwgb2xkY29uZmlnIHN0
+aWxsIHByb21wdHMgdGhlIHVzZXIgdG8gZW5hYmxlCkNPTkZJR19DRkkgd2l0aCBDT05GSUdfQ0ZJ
+X0NMQU5HPXkgaW4gdGhlIG9sZCBjb25maWd1cmF0aW9uLiBCb3RoIE1pZ3VlbAphbmQgSSBhbGx1
+ZGUgdG8gdGhhdCBiZWluZyBmaW5lIGJ1dCBpdCB3b3VsZCBiZSByZWFsbHkgbmljZSBpZiB1c2Vy
+cwp3aXRoIENPTkZJR19DRklfQ0xBTkc9eSB3ZXJlIGF1dG9tYXRpY2FsbHkgdHJhbnNpdGlvbmVk
+IHRvIENPTkZJR19DRkk9eQp3aXRob3V0IGFueSBhY3Rpb24gb24gdGhlaXIgcGFydC4gVGhhdCBz
+ZWVtcyB0byBiZSBpbiBsaW5lIHdpdGggaG93CkxpbnVzIGZlZWxzIGV2ZW4gYXMgcmVjZW50bHkg
+YXMgdGhpcyBwYXN0IG1lcmdlIHdpbmRvdzoKCmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL0NBSGst
+PXdnTzBSeDJMY1lUNGY3NVhzNDZvcmJKNEp4TzJqYkFGUW5WS0RZQWpWNUhlUUBtYWlsLmdtYWls
+LmNvbS8KCkFub3RoZXIgaWRlYSBJIGhhZCB0byBhdm9pZCB0aGlzIGlzIGludHJvZHVjaW5nIENP
+TkZJR19DRklfR0NDIGFzIGEgdXNlcgpzZWxlY3RhYmxlIHN5bWJvbCBhbmQgbWFraW5nIENPTkZJ
+R19DRkkgdGhlIGhpZGRlbiBzeW1ib2wgdGhhdCBib3RoCmNvbXBpbGVyIHN5bWJvbHMgc2VsZWN0
+LiBBZnRlciBhIGNvdXBsZSBvZiByZWxlYXNlcyAob3IgbWF5YmUgdGhlIG5leHQKTFRTKSwgYm90
+aCBDT05GSUdfQ0ZJX0NMQU5HIGFuZCBDT05GSUdfQ0ZJX0dDQyBjb3VsZCBiZSBlbGltaW5hdGVk
+IHdpdGgKQ09ORklHX0NGSSBiZWNvbWluZyB1c2VyIHNlbGVjdGFibGUsIHdoaWNoIHdvdWxkIGtl
+ZXAgdGhpbmdzIHdvcmtpbmcKc2luY2UgQ09ORklHX0NGST15IHdpbGwgYmUgcHJlc2VudCBpbiB0
+aGUgcHJldmlvdXMgY29uZmlndXJhdGlvbi4KCk1heWJlIGl0IGlzIG5vdCB3b3J0aCBvcHRpbWl6
+aW5nIGZvciB0aGlzIHNpdHVhdGlvbi4gSSBwZXJzb25hbGx5IGNoZWNrCm15IGNvbmZpZ3VyYXRp
+b25zIGludG8gZ2l0IHNvIHRoYXQgaXQgaXMgZWFzeSB0byBkZWFsIHdpdGggbG9zaW5nCnRoaW5n
+cywgYXMgSSBoYXZlIGhhZCBteSBuZXR3b3JraW5nIGJyb2tlbiBzZXZlcmFsIHRpbWVzIGJ5IG5l
+dyBzeW1ib2xzCmFuZCBkZXBlbmRlbmNpZXMgdGhhdCBkbyBub3QgZ2V0IGhhbmRsZWQgd2VsbCB3
+aXRoIG9sZGRlZmNvbmZpZy4KCj4gPiBwcm9tcHQgYnV0IHRoZSBvbmx5IHNvbHV0aW9uIEkgY2Fu
+IHRoaW5rIG9mIGF0IHRoZSBtb21lbnQgcmVzdWx0cyBpbiBhCj4gPiBkdXBsaWNhdGUgcHJvbXB0
+IGZvciBDbGFuZy4KPiA+IAo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvS2NvbmZpZyBiL2FyY2gvS2Nv
+bmZpZwo+ID4gaW5kZXggYzI1YTQ1ZDlhYTk2Li45M2JmOWI0MWE5ZGUgMTAwNjQ0Cj4gPiAtLS0g
+YS9hcmNoL0tjb25maWcKPiA+ICsrKyBiL2FyY2gvS2NvbmZpZwo+ID4gQEAgLTg3Niw4ICs4NzYs
+MTcgQEAgY29uZmlnIEFSQ0hfU1VQUE9SVFNfQ0ZJCj4gPiAgY29uZmlnIEFSQ0hfVVNFU19DRklf
+VFJBUFMKPiA+ICAgICAgICAgYm9vbAo+ID4gCj4gPiArY29uZmlnIENGSV9DTEFORwo+ID4gKyAg
+ICAgICBib29sICJVc2UgS2VybmVsIENvbnRyb2wgRmxvdyBJbnRlZ3JpdHkgKGtDRkkpIC0gVHJh
+bnNpdGlvbmFsIiBpZiBDQ19JU19DTEFORwo+ID4gKyAgICAgICBzZWxlY3QgQ0ZJCj4gPiArICAg
+ICAgIGRlcGVuZHMgb24gQVJDSF9TVVBQT1JUU19DRkkKPiA+ICsgICAgICAgZGVwZW5kcyBvbiAk
+KGNjLW9wdGlvbiwtZnNhbml0aXplPWtjZmkpCj4gPiArICAgICAgIGhlbHAKPiA+ICsgICAgICAg
+ICBUaGlzIGlzIGEgdHJhbnNpdGlvbmFsIHN5bWJvbCB0byBDT05GSUdfQ0ZJLCBzZWUgaXRzIGhl
+bHAgdGV4dAo+ID4gKyAgICAgICAgIGZvciBtb3JlIGluZm9ybWF0aW9uLgo+ID4gKwo+ID4gIGNv
+bmZpZyBDRkkKPiA+IC0gICAgICAgYm9vbCAiVXNlIEtlcm5lbCBDb250cm9sIEZsb3cgSW50ZWdy
+aXR5IChrQ0ZJKSIKPiA+ICsgICAgICAgYm9vbCAiVXNlIEtlcm5lbCBDb250cm9sIEZsb3cgSW50
+ZWdyaXR5IChrQ0ZJKSIgaWYgQ0NfSVNfR0NDCj4gPiAgICAgICAgIGRlcGVuZHMgb24gQVJDSF9T
+VVBQT1JUU19DRkkKPiA+ICAgICAgICAgZGVwZW5kcyBvbiAkKGNjLW9wdGlvbiwtZnNhbml0aXpl
+PWtjZmkpCj4gPiAgICAgICAgIGhlbHAKPiA+IAo+ID4gTWF5YmUgdGhhdCBkb2VzIG5vdCBtYXR0
+ZXIgZm9yIHRoZSBzYWtlIG9mIGtlZXBpbmcgdGhpbmdzIHdvcmtpbmc/Cj4gPiBPdGhlcndpc2Us
+IHdlIGNvdWxkIGp1c3Qga2VlcCB0aGluZ3MgYXMgdGhleSBhcmUgd2l0aCB0aGUgcGF0Y2ggc2V0
+IGFuZAo+ID4gZXhwZWN0IHBlb3BsZSB0byBhY3R1YWxseSB1c2Ugb2xkY29uZmlnIG9yIGRpZmYg
+dGhlIHJlc3VsdHMgb2YKPiA+IG9sZGRlZmNvbmZpZyAod2hpY2ggSSB0aGluayBpcyBnb29kIHBy
+YWN0aWNlIGFueXdheXMpLgo+ID4gCj4gPiBDaGVlcnMsCj4gPiBOYXRoYW4KPiA+IAo+IAo+IC0t
+IAo+IH5SYW5keQo+IAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
