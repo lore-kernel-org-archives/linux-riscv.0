@@ -4,109 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 557B8CA0EFF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Aug 2025 00:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6AFCA0FF7
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Aug 2025 00:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n1Dpf7g+rotUkbTt88qmVS1S2ppNpdR0Sh2ziLmYYS8=; b=xs3eXYO36jdjZS
-	DVNXhMejU8uK8k18AdtScFfAEpn0bbiwxx1HzIlsk7zsPPySxzwoQu/1RJYe/L5Di5vJjYRjLb6Dc
-	veNjYoyLH/h34txAP1Az8LT1e9McEUQ5/MLImVP1Dy4PtnMZHg7/z5jrn8dIAfCR+D9AY0QGEy1J/
-	0b5A4I7/VEATm0sHl+QCb+M/pYJJ/fJmYlfkqx8BBzC2nomq18OBXiQTUGFLpB0MhI62zB279grTz
-	Vp+cSFFbs+L+RoD4QitNEIkcruSeS+XYcxeR88NCs70gs69Ltr2t8HNlBYNc09zPCkOovOJcxb3wm
-	uneu6mYNZHft+RLp5MSA==;
+	List-Owner; bh=X0+LzbeUWDf6nhC9Cxvx+TPTT8ufFwjf4MBlPepqWOA=; b=hgmnV79RXFE+Zn
+	yRv4cvtBc7uXYcKGaowsp5UkKbNNi+HOg84SjXbTJv5gAm5XHj3RJwefhGUttPcprgI+N54rnzUEl
+	z4j0sOgwefXcDTGLlHG7i9tSSDFQIsSDnCHmgSj3W4bswuLz8Y5nxBTZhM8wbScBFH3hDncOaPOqp
+	f9eJtZQQv2c/ZVon2FzJNUKtbhfoq2pyBS/Ysfvt47P+lXbRI/ttOzLCjQCE8fxYD8DaE4DKgaL+U
+	/lCillwXRnvUjnt1cGVzQXYz2zqU95nkTZ5SNeuprXU/o6Sna0JLgIq9aUHelTYZh4XRzoAuc+v9P
+	TlQiswwq9omkkuIHjDEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQJa-0000000HKbs-1mui;
-	Thu, 28 Aug 2025 00:16:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1urQQS-0000000HLZ5-04fh;
+	Thu, 28 Aug 2025 00:23:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5s-0000000HICt-0PSu
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 28 Aug 2025 00:02:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=EmsaxLywmqXJrqAtwLwAP27sFBwlzqDgNEuWnDn/370=; b=Mg81vVFr1ruzxefGlsSdI9trd4
-	8AgV2zQw+ATuQ5byx98wxG50lJ+D3lOezWQoTLIArL/skwFRoT/Z4HxQYO5jhUZ6zCqhqp5mtZW+I
-	k5301nETXU1a1ecgaCYTyMZrx1qnYhyawLF3/PmxvsFei3a2csaI6dCnIkrVmNWe/vH1FPf/wb3KZ
-	rSEKaD4LKcUUS9s7hqUnl3Ms1koXK4cTAVRZkNpxrgIDcrYmWwZDaovR7CdBVj4NdS4QkLw0MRXa1
-	8ATGfYWmGtU1YTwCkBREsy8nM6FiFs/qDkMTzDNbqCmmbiMrS4UE/wdd29ZGUDW472mHpJT7eZUGW
-	cFZrTIEg==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5n-00000002YG6-1b4u
+	id 1urON4-0000000H1iu-1k60
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Aug 2025 00:02:18 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3274f7e6c1fso353934a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Aug 2025 17:02:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756339333; x=1756944133; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=EmsaxLywmqXJrqAtwLwAP27sFBwlzqDgNEuWnDn/370=;
-        b=kFLL3GA9avgCZFMH52fVxJ1BO1miRSQydAsGRmCRgpFB4xCuhEfvdB0Bz9JJXUMK7O
-         Ir3j74eDguKP1AekgEThdBeeWkGJDbw0xoLYttwYbmoXufS/HWCvXCFc7GpphMFyEpTh
-         bmNAzDHPqA0zevTcjWYEUtlbmTe3vr+j74RkRA6J6Fqnv6dF7LKbX6yc0uPtXghMB3JB
-         oU6NWsgHtK1gR4Nxh6tQbawFweh2e2BABPg3l9Tw2EyVEt3vF91PcJFvbfRWdWHG/b3U
-         bw715WHCPgkdR+tZr86p1BJSnsrfayVrNJaQfoQ4gWe0DbN3TOIqezjWp3WbS8EAHlDs
-         p4Cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756339333; x=1756944133;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EmsaxLywmqXJrqAtwLwAP27sFBwlzqDgNEuWnDn/370=;
-        b=JRpRmJTb+DxnT96jhHYQZw6GwQOzliuSLCukGfzbOWHjOmmu3Zvj+NAZumLOkWOXR+
-         h5TrwQePn4sBVWf0bI5Il6lV1PQ/or1faiaQwoGbdMy4IFO2iNhqJVtUtPDWhmPZAgQE
-         La9LLmtQuZw8TtwnbhDQwH9s6xkQAbVM3UeqaiyPs9qGgv7F0EWHAWIxTM1fCln0YvRL
-         vAVlIYGXyPLQF2mgfeKad2tI3jfp3KKSxW01IgJj1zYhvB/xhvAb/pGiaBcMQc4QKQF1
-         vMwnFQBQyxGwet0NcNVSwJHgrVtBJ6TuZtBPkJCvgEaKQ13q3+SeRFDVTIdx5BsbPZqU
-         U7cA==
-X-Forwarded-Encrypted: i=1; AJvYcCWbp3ojbVZxBgSDbjJZ1TpeHI+b4Fz7gGdMOs0ra3JQs44BIC5P/PJe7UzzMxKAfDbZ3lDsSVXzdzkATg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLR1YSCoUwk5wZ8IKjB89DiyxW0wwTjmYkGiyEPGcZ0Twj5rfW
-	OsoPS3JxiwPTlGTnLCICH0Hwph/KmQxHNx45fLxR6dkSjjRc8PZipO0g9B3X3N/hiF8FpWieSz/
-	Nmw76FQ==
-X-Google-Smtp-Source: AGHT+IHWkrv7kVZHVzSto7MjJE9ImCnU6mvGeqto5tWqGBVv3p+HjVdYjEAK6cb7aWSN7qrvwO4+vOKCqys=
-X-Received: from pjur11.prod.google.com ([2002:a17:90a:d40b:b0:325:9404:7ff3])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2785:b0:31f:9114:ead8
- with SMTP id 98e67ed59e1d1-32515e2d5a0mr28901913a91.6.1756339332928; Wed, 27
- Aug 2025 17:02:12 -0700 (PDT)
-Date: Wed, 27 Aug 2025 17:01:55 -0700
-In-Reply-To: <20250828000156.23389-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250828000156.23389-1-seanjc@google.com>
-X-Mailer: git-send-email 2.51.0.268.g9569e192d0-goog
-Message-ID: <20250828000156.23389-7-seanjc@google.com>
-Subject: [PATCH v2 6/7] Drivers: hv: Use common "entry virt" APIs to do work
- in root before running guest
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
-	Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org, 
-	Nuno Das Neves <nunodasneves@linux.microsoft.com>, Mukesh R <mrathor@linux.microsoft.com>
+	Wed, 27 Aug 2025 22:12:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756332717;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oaPdsETQ5qU/BcrWAtBVOePuWmWOKOsgMpANROeM44s=;
+	b=BpxLO7zPkj9eG2gNFelEljHU17rwkhMbp9eWECDAQ+XfSvd/Y+lwoxu5Z+cVgyWoSf7MlQ
+	+eUR3CHp1LIGFI0On1qva9/QL7KYPEc1e8KlhCXjhy4+6us/Pe0Gzx45rKVtbBD0dj4Mp1
+	x3dgjVArZ6oMAj3xG9dmk7FE0jmL+1U=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-658-Snfm6E4cPnqT__aizlDo0A-1; Wed,
+ 27 Aug 2025 18:11:53 -0400
+X-MC-Unique: Snfm6E4cPnqT__aizlDo0A-1
+X-Mimecast-MFC-AGG-ID: Snfm6E4cPnqT__aizlDo0A_1756332708
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EAFA8180034A;
+	Wed, 27 Aug 2025 22:11:47 +0000 (UTC)
+Received: from t14s.redhat.com (unknown [10.22.80.195])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8D43430001A1;
+	Wed, 27 Aug 2025 22:11:32 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: David Hildenbrand <david@redhat.com>,
+	Alexander Potapenko <glider@google.com>,
+	Marco Elver <elver@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>,
+	Dennis Zhou <dennis@kernel.org>,
+	dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	iommu@lists.linux.dev,
+	io-uring@vger.kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev,
+	Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com,
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH v1 34/36] kfence: drop nth_page() usage
+Date: Thu, 28 Aug 2025 00:01:38 +0200
+Message-ID: <20250827220141.262669-35-david@redhat.com>
+In-Reply-To: <20250827220141.262669-1-david@redhat.com>
+References: <20250827220141.262669-1-david@redhat.com>
+MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_010215_855807_25122581 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20250827_151158_524436_5F554BC2 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,95 +123,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the kernel's common "entry virt" APIs to handle pending work prior to
-(re)entering guest mode, now that the virt APIs don't have a superfluous
-dependency on KVM.
+We want to get rid of nth_page(), and kfence init code is the last user.
 
-No functional change intended.
+Unfortunately, we might actually walk a PFN range where the pages are
+not contiguous, because we might be allocating an area from memblock
+that could span memory sections in problematic kernel configs (SPARSEMEM
+without SPARSEMEM_VMEMMAP).
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
+We could check whether the page range is contiguous
+using page_range_contiguous() and failing kfence init, or making kfence
+incompatible these problemtic kernel configs.
+
+Let's keep it simple and simply use pfn_to_page() by iterating PFNs.
+
+Cc: Alexander Potapenko <glider@google.com>
+Cc: Marco Elver <elver@google.com>
+Cc: Dmitry Vyukov <dvyukov@google.com>
+Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- drivers/hv/Kconfig          |  1 +
- drivers/hv/mshv_root_main.c | 32 ++++++--------------------------
- 2 files changed, 7 insertions(+), 26 deletions(-)
+ mm/kfence/core.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
-index 2e8df09db599..894037afcbf9 100644
---- a/drivers/hv/Kconfig
-+++ b/drivers/hv/Kconfig
-@@ -66,6 +66,7 @@ config MSHV_ROOT
- 	# no particular order, making it impossible to reassemble larger pages
- 	depends on PAGE_SIZE_4KB
- 	select EVENTFD
-+	select VIRT_XFER_TO_GUEST_WORK
- 	default n
- 	help
- 	  Select this option to enable support for booting and running as root
-diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
-index 0d849f09160a..7c83f656e071 100644
---- a/drivers/hv/mshv_root_main.c
-+++ b/drivers/hv/mshv_root_main.c
-@@ -8,6 +8,7 @@
-  * Authors: Microsoft Linux virtualization team
+diff --git a/mm/kfence/core.c b/mm/kfence/core.c
+index 0ed3be100963a..727c20c94ac59 100644
+--- a/mm/kfence/core.c
++++ b/mm/kfence/core.c
+@@ -594,15 +594,14 @@ static void rcu_guarded_free(struct rcu_head *h)
   */
- 
-+#include <linux/entry-virt.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/fs.h>
-@@ -481,29 +482,6 @@ mshv_vp_wait_for_hv_kick(struct mshv_vp *vp)
- 	return 0;
- }
- 
--static int mshv_pre_guest_mode_work(struct mshv_vp *vp)
--{
--	const ulong work_flags = _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING |
--				 _TIF_NEED_RESCHED  | _TIF_NEED_RESCHED_LAZY |
--				 _TIF_NOTIFY_RESUME;
--	ulong th_flags;
--
--	th_flags = read_thread_flags();
--	while (th_flags & work_flags) {
--		int ret;
--
--		/* nb: following will call schedule */
--		ret = mshv_do_pre_guest_mode_work(th_flags);
--
--		if (ret)
--			return ret;
--
--		th_flags = read_thread_flags();
--	}
--
--	return 0;
--}
--
- /* Must be called with interrupts enabled */
- static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
+ static unsigned long kfence_init_pool(void)
  {
-@@ -524,9 +502,11 @@ static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
- 		u32 flags = 0;
- 		struct hv_output_dispatch_vp output;
+-	unsigned long addr;
+-	struct page *pages;
++	unsigned long addr, start_pfn;
+ 	int i;
  
--		ret = mshv_pre_guest_mode_work(vp);
--		if (ret)
--			break;
-+		if (__xfer_to_guest_mode_work_pending()) {
-+			ret = xfer_to_guest_mode_handle_work();
-+			if (ret)
-+				break;
-+		}
+ 	if (!arch_kfence_init_pool())
+ 		return (unsigned long)__kfence_pool;
  
- 		if (vp->run.flags.intercept_suspend)
- 			flags |= HV_DISPATCH_VP_FLAG_CLEAR_INTERCEPT_SUSPEND;
+ 	addr = (unsigned long)__kfence_pool;
+-	pages = virt_to_page(__kfence_pool);
++	start_pfn = PHYS_PFN(virt_to_phys(__kfence_pool));
+ 
+ 	/*
+ 	 * Set up object pages: they must have PGTY_slab set to avoid freeing
+@@ -613,11 +612,12 @@ static unsigned long kfence_init_pool(void)
+ 	 * enters __slab_free() slow-path.
+ 	 */
+ 	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
+-		struct slab *slab = page_slab(nth_page(pages, i));
++		struct slab *slab;
+ 
+ 		if (!i || (i % 2))
+ 			continue;
+ 
++		slab = page_slab(pfn_to_page(start_pfn + i));
+ 		__folio_set_slab(slab_folio(slab));
+ #ifdef CONFIG_MEMCG
+ 		slab->obj_exts = (unsigned long)&kfence_metadata_init[i / 2 - 1].obj_exts |
+@@ -665,10 +665,12 @@ static unsigned long kfence_init_pool(void)
+ 
+ reset_slab:
+ 	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
+-		struct slab *slab = page_slab(nth_page(pages, i));
++		struct slab *slab;
+ 
+ 		if (!i || (i % 2))
+ 			continue;
++
++		slab = page_slab(pfn_to_page(start_pfn + i));
+ #ifdef CONFIG_MEMCG
+ 		slab->obj_exts = 0;
+ #endif
 -- 
-2.51.0.268.g9569e192d0-goog
+2.50.1
 
 
 _______________________________________________
