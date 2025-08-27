@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08F2FCA0FF7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBFECA0FED
 	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XCtvo3j4hgx+4og/fg0tjbdauTORXGUJik/MHwdaqj8=; b=JOZVvEGcNL1naO
-	Z3JolUQglCeN63U/qXTapFFUYRHEAegPAmojr5o00Fcj5APQbba2VgWzkoY58K9pLdBmq7ZEzn2es
-	gQcDptWvcITSjJlhL5yBCa4T29E5xVKsxnd7CANxOS/BCqZJD6TuGsmVegNIvR8QwWJcFQ04NfJGf
-	gUELU3P8VJ1NFG1We3AnAHoHc8OjYVcSuXxsNC4TrqGj4JgqATZCXCrO+AXEqn4vLIKIbdfD+YJYT
-	80ht9m/iIcsn2u30oRLJ77vBXiOPg4y89w83+Zoyv9TfX/UyC9AExz211oYnXaPQb/aCUaSZ57fuC
-	8ePAzDB9gNaXPyTNddlw==;
+	List-Owner; bh=8q7+rLFCK9wYnXcWjBfq5IDmavxZvqzn5HNCwryZ5XM=; b=1VqJ0H7CecAcG2
+	QyCTO8/RZxmzG4xvI3K2rMBQ8uiEsIlda72zZcCEtEBdbYYczzkhN7i67eTggUNyWShZ7LsLAimAf
+	oJe92njzeF6k+hWj4uUhv0YGoZmibOhoXb3yfij/5j5jWFMhsWuZtJaw38LIykiHGHj+SMVHheFUH
+	ORQSzQZMM2ya+ACTiEdoJ5Uj/gF/D05P1sqYQSotHD/lGU6qfU/SbIdGMW4gKhacMPXdnq133JRNg
+	nFBI05Y+W/syZrY9ucVVmKu8/oOAGRuTsSPqDJWFm9DkJ8pnkqa7EAjQ+BtSzgko+LFN/7W9a574d
+	2BuB01SZdnwrukOR9Thg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPMb-0000000HBL7-3YF1;
-	Wed, 27 Aug 2025 23:15:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1urPMi-0000000HBQr-0HV4;
+	Wed, 27 Aug 2025 23:15:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOGw-0000000Gyr1-1JQQ
+	id 1urOIB-0000000GzMP-1ND5
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:05:39 +0000
+	Wed, 27 Aug 2025 22:06:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332337;
+	s=mimecast20190719; t=1756332414;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pEIm/KOIpGpHTKl4mPR/fyxdpTiNWERCnfvCZDPI4mo=;
-	b=PzzBwKcV0EyOZDH2Ip70xMTkDGJQjj22pLIZ7M12vbBFnzI6lEd3PdPdUKyPhxmlzHZWw/
-	KGhyOWjjpNO1cep4IzFRYCQL8RiSZhYib0o8xnZqFvZsu1ugRCihKvqTUUmS4ZOE0yZRC3
-	uCHaNm9Iq34RMQCnBu72Wz4/fBiiULM=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=6MroGOug632a51ffxPVHU3ATCsOwaa4b3tJ1MTGryys=;
+	b=I8tySRCEXOP6SoHvu7Gq1d0csFlNaSIQJA/RrSJy6OnXcUV6VSkOlrVw2VFQfA9Ztv2S4H
+	uLpylm83UCjDSgl2S6mhuNRC63FjQsfitG9X2oVBps1Th7xlXD5V/MScE8R3z1xhU+7ak1
+	JRzIAIOCElo0+0AJCi0S794mz5OS4NE=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-657-fC3PEug1PNexc7Z1HEH41g-1; Wed,
- 27 Aug 2025 18:05:31 -0400
-X-MC-Unique: fC3PEug1PNexc7Z1HEH41g-1
-X-Mimecast-MFC-AGG-ID: fC3PEug1PNexc7Z1HEH41g_1756332326
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-556-a2F6JvbVP--8yuHhX8WRDg-1; Wed,
+ 27 Aug 2025 18:06:50 -0400
+X-MC-Unique: a2F6JvbVP--8yuHhX8WRDg-1
+X-Mimecast-MFC-AGG-ID: a2F6JvbVP--8yuHhX8WRDg_1756332405
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4E647180048E;
-	Wed, 27 Aug 2025 22:05:26 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2834019541AC;
+	Wed, 27 Aug 2025 22:06:45 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6585F30001A1;
-	Wed, 27 Aug 2025 22:05:10 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8C0E530001A1;
+	Wed, 27 Aug 2025 22:06:29 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
-	Zi Yan <ziy@nvidia.com>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -91,6 +89,7 @@ Cc: David Hildenbrand <david@redhat.com>,
 	Marco Elver <elver@google.com>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
 	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
 	Muchun Song <muchun.song@linux.dev>,
 	netdev@vger.kernel.org,
 	Oscar Salvador <osalvador@suse.de>,
@@ -101,17 +100,18 @@ Cc: David Hildenbrand <david@redhat.com>,
 	virtualization@lists.linux.dev,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
-	x86@kernel.org
-Subject: [PATCH v1 11/36] mm: limit folio/compound page sizes in problematic kernel configs
-Date: Thu, 28 Aug 2025 00:01:15 +0200
-Message-ID: <20250827220141.262669-12-david@redhat.com>
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH v1 16/36] fs: hugetlbfs: cleanup folio in adjust_range_hwpoison()
+Date: Thu, 28 Aug 2025 00:01:20 +0200
+Message-ID: <20250827220141.262669-17-david@redhat.com>
 In-Reply-To: <20250827220141.262669-1-david@redhat.com>
 References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150538_453237_53531AF7 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20250827_150655_490295_3E713A63 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,65 +128,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's limit the maximum folio size in problematic kernel config where
-the memmap is allocated per memory section (SPARSEMEM without
-SPARSEMEM_VMEMMAP) to a single memory section.
+Let's cleanup and simplify the function a bit.
 
-Currently, only a single architectures supports ARCH_HAS_GIGANTIC_PAGE
-but not SPARSEMEM_VMEMMAP: sh.
-
-Fortunately, the biggest hugetlb size sh supports is 64 MiB
-(HUGETLB_PAGE_SIZE_64MB) and the section size is at least 64 MiB
-(SECTION_SIZE_BITS == 26), so their use case is not degraded.
-
-As folios and memory sections are naturally aligned to their order-2 size
-in memory, consequently a single folio can no longer span multiple memory
-sections on these problematic kernel configs.
-
-nth_page() is no longer required when operating within a single compound
-page / folio.
-
-Reviewed-by: Zi Yan <ziy@nvidia.com>
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- include/linux/mm.h | 22 ++++++++++++++++++----
- 1 file changed, 18 insertions(+), 4 deletions(-)
+ fs/hugetlbfs/inode.c | 33 +++++++++++----------------------
+ 1 file changed, 11 insertions(+), 22 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 77737cbf2216a..2dee79fa2efcf 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -2053,11 +2053,25 @@ static inline long folio_nr_pages(const struct folio *folio)
- 	return folio_large_nr_pages(folio);
+diff --git a/fs/hugetlbfs/inode.c b/fs/hugetlbfs/inode.c
+index c5a46d10afaa0..6ca1f6b45c1e5 100644
+--- a/fs/hugetlbfs/inode.c
++++ b/fs/hugetlbfs/inode.c
+@@ -198,31 +198,20 @@ hugetlb_get_unmapped_area(struct file *file, unsigned long addr,
+ static size_t adjust_range_hwpoison(struct folio *folio, size_t offset,
+ 		size_t bytes)
+ {
+-	struct page *page;
+-	size_t n = 0;
+-	size_t res = 0;
+-
+-	/* First page to start the loop. */
+-	page = folio_page(folio, offset / PAGE_SIZE);
+-	offset %= PAGE_SIZE;
+-	while (1) {
+-		if (is_raw_hwpoison_page_in_hugepage(page))
+-			break;
++	struct page *page = folio_page(folio, offset / PAGE_SIZE);
++	size_t safe_bytes;
++
++	if (is_raw_hwpoison_page_in_hugepage(page))
++		return 0;
++	/* Safe to read the remaining bytes in this page. */
++	safe_bytes = PAGE_SIZE - (offset % PAGE_SIZE);
++	page++;
+ 
+-		/* Safe to read n bytes without touching HWPOISON subpage. */
+-		n = min(bytes, (size_t)PAGE_SIZE - offset);
+-		res += n;
+-		bytes -= n;
+-		if (!bytes || !n)
++	for (; safe_bytes < bytes; safe_bytes += PAGE_SIZE, page++)
++		if (is_raw_hwpoison_page_in_hugepage(page))
+ 			break;
+-		offset += n;
+-		if (offset == PAGE_SIZE) {
+-			page++;
+-			offset = 0;
+-		}
+-	}
+ 
+-	return res;
++	return min(safe_bytes, bytes);
  }
  
--/* Only hugetlbfs can allocate folios larger than MAX_ORDER */
--#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
--#define MAX_FOLIO_ORDER		PUD_ORDER
--#else
-+#if !defined(CONFIG_ARCH_HAS_GIGANTIC_PAGE)
-+/*
-+ * We don't expect any folios that exceed buddy sizes (and consequently
-+ * memory sections).
-+ */
- #define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
-+#elif defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
-+/*
-+ * Only pages within a single memory section are guaranteed to be
-+ * contiguous. By limiting folios to a single memory section, all folio
-+ * pages are guaranteed to be contiguous.
-+ */
-+#define MAX_FOLIO_ORDER		PFN_SECTION_SHIFT
-+#else
-+/*
-+ * There is no real limit on the folio size. We limit them to the maximum we
-+ * currently expect (e.g., hugetlb, dax).
-+ */
-+#define MAX_FOLIO_ORDER		PUD_ORDER
- #endif
- 
- #define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
+ /*
 -- 
 2.50.1
 
