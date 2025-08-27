@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBFECA0FED
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE05CA0FFE
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8q7+rLFCK9wYnXcWjBfq5IDmavxZvqzn5HNCwryZ5XM=; b=1VqJ0H7CecAcG2
-	QyCTO8/RZxmzG4xvI3K2rMBQ8uiEsIlda72zZcCEtEBdbYYczzkhN7i67eTggUNyWShZ7LsLAimAf
-	oJe92njzeF6k+hWj4uUhv0YGoZmibOhoXb3yfij/5j5jWFMhsWuZtJaw38LIykiHGHj+SMVHheFUH
-	ORQSzQZMM2ya+ACTiEdoJ5Uj/gF/D05P1sqYQSotHD/lGU6qfU/SbIdGMW4gKhacMPXdnq133JRNg
-	nFBI05Y+W/syZrY9ucVVmKu8/oOAGRuTsSPqDJWFm9DkJ8pnkqa7EAjQ+BtSzgko+LFN/7W9a574d
-	2BuB01SZdnwrukOR9Thg==;
+	List-Owner; bh=fnL5gGcH+DUd1SqMkLnpjiY+pK5OSOxJqzSeCN7BqQU=; b=EFgvDMPP4OXG9i
+	sQRBtV2deiPfCmA98Wqls+WJiPMfDsK8wYklozBkSrPyCBWBigwbm2jIQt/k7ylafeq3TQZijkXDr
+	7+DNgibtbjfqfPF0DLQPB1eJgR+ulPtgKH+262BywPISAm8R2N3WgFjHsTgcVRoMcdWeDWNAHIOT5
+	aqeCjau2/kuXhy+FVSaTM2qqBVQ4u2nBG6cvX7ULTFYIWbgxAYEoXropLWSPDFTuRRpr6QE4wr3Y8
+	DEFwBb1m0fZuhbA11DbgkxTy8ktdR5gIrZaAzQpYn6PCSasusgq7LBGukBtI27oKzzlHYu5J6pqiX
+	FeUnOqBQoyXRdFpF/5ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPMi-0000000HBQr-0HV4;
-	Wed, 27 Aug 2025 23:15:40 +0000
+	id 1urPMj-0000000HBSM-1lvV;
+	Wed, 27 Aug 2025 23:15:41 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOIB-0000000GzMP-1ND5
+	id 1urOIR-0000000GzVt-26ak
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:06:56 +0000
+	Wed, 27 Aug 2025 22:07:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332414;
+	s=mimecast20190719; t=1756332430;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=6MroGOug632a51ffxPVHU3ATCsOwaa4b3tJ1MTGryys=;
-	b=I8tySRCEXOP6SoHvu7Gq1d0csFlNaSIQJA/RrSJy6OnXcUV6VSkOlrVw2VFQfA9Ztv2S4H
-	uLpylm83UCjDSgl2S6mhuNRC63FjQsfitG9X2oVBps1Th7xlXD5V/MScE8R3z1xhU+7ak1
-	JRzIAIOCElo0+0AJCi0S794mz5OS4NE=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=QCvnB/7xI7T/4p4mwWx/D4+W6s//h9G2+oSyfbDOFZs=;
+	b=ftvEY9QbbtpEdWEFwA9LZnhZo1kLdEz8iioe4D0O2C7Hz2PdubtD9nFct8FV4nRddsAl+B
+	IDwUFzXhynhjn0LWdtAaX5+FC7OmH5RFCWToTiWXFj3ZVDjNLj87ldzjTtI5R4BqJbLLzA
+	K6PdnxExzO9KK9evt4bUtsc4/Axt6j4=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-556-a2F6JvbVP--8yuHhX8WRDg-1; Wed,
- 27 Aug 2025 18:06:50 -0400
-X-MC-Unique: a2F6JvbVP--8yuHhX8WRDg-1
-X-Mimecast-MFC-AGG-ID: a2F6JvbVP--8yuHhX8WRDg_1756332405
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-82-ClQKmaRWPAKB1M2iEYT62g-1; Wed,
+ 27 Aug 2025 18:07:06 -0400
+X-MC-Unique: ClQKmaRWPAKB1M2iEYT62g-1
+X-Mimecast-MFC-AGG-ID: ClQKmaRWPAKB1M2iEYT62g_1756332421
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2834019541AC;
-	Wed, 27 Aug 2025 22:06:45 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B7B791800285;
+	Wed, 27 Aug 2025 22:07:01 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8C0E530001A1;
-	Wed, 27 Aug 2025 22:06:29 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B7D6F30001A1;
+	Wed, 27 Aug 2025 22:06:45 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
@@ -102,16 +102,16 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v1 16/36] fs: hugetlbfs: cleanup folio in adjust_range_hwpoison()
-Date: Thu, 28 Aug 2025 00:01:20 +0200
-Message-ID: <20250827220141.262669-17-david@redhat.com>
+Subject: [PATCH v1 17/36] mm/pagewalk: drop nth_page() usage within folio in folio_walk_start()
+Date: Thu, 28 Aug 2025 00:01:21 +0200
+Message-ID: <20250827220141.262669-18-david@redhat.com>
 In-Reply-To: <20250827220141.262669-1-david@redhat.com>
 References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150655_490295_3E713A63 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20250827_150711_611559_E0D01342 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,60 +128,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's cleanup and simplify the function a bit.
+It's no longer required to use nth_page() within a folio, so let's just
+drop the nth_page() in folio_walk_start().
 
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- fs/hugetlbfs/inode.c | 33 +++++++++++----------------------
- 1 file changed, 11 insertions(+), 22 deletions(-)
+ mm/pagewalk.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/fs/hugetlbfs/inode.c b/fs/hugetlbfs/inode.c
-index c5a46d10afaa0..6ca1f6b45c1e5 100644
---- a/fs/hugetlbfs/inode.c
-+++ b/fs/hugetlbfs/inode.c
-@@ -198,31 +198,20 @@ hugetlb_get_unmapped_area(struct file *file, unsigned long addr,
- static size_t adjust_range_hwpoison(struct folio *folio, size_t offset,
- 		size_t bytes)
- {
--	struct page *page;
--	size_t n = 0;
--	size_t res = 0;
--
--	/* First page to start the loop. */
--	page = folio_page(folio, offset / PAGE_SIZE);
--	offset %= PAGE_SIZE;
--	while (1) {
--		if (is_raw_hwpoison_page_in_hugepage(page))
--			break;
-+	struct page *page = folio_page(folio, offset / PAGE_SIZE);
-+	size_t safe_bytes;
-+
-+	if (is_raw_hwpoison_page_in_hugepage(page))
-+		return 0;
-+	/* Safe to read the remaining bytes in this page. */
-+	safe_bytes = PAGE_SIZE - (offset % PAGE_SIZE);
-+	page++;
- 
--		/* Safe to read n bytes without touching HWPOISON subpage. */
--		n = min(bytes, (size_t)PAGE_SIZE - offset);
--		res += n;
--		bytes -= n;
--		if (!bytes || !n)
-+	for (; safe_bytes < bytes; safe_bytes += PAGE_SIZE, page++)
-+		if (is_raw_hwpoison_page_in_hugepage(page))
- 			break;
--		offset += n;
--		if (offset == PAGE_SIZE) {
--			page++;
--			offset = 0;
--		}
--	}
- 
--	return res;
-+	return min(safe_bytes, bytes);
- }
- 
- /*
+diff --git a/mm/pagewalk.c b/mm/pagewalk.c
+index c6753d370ff4e..9e4225e5fcf5c 100644
+--- a/mm/pagewalk.c
++++ b/mm/pagewalk.c
+@@ -1004,7 +1004,7 @@ struct folio *folio_walk_start(struct folio_walk *fw,
+ found:
+ 	if (expose_page)
+ 		/* Note: Offset from the mapped page, not the folio start. */
+-		fw->page = nth_page(page, (addr & (entry_size - 1)) >> PAGE_SHIFT);
++		fw->page = page + ((addr & (entry_size - 1)) >> PAGE_SHIFT);
+ 	else
+ 		fw->page = NULL;
+ 	fw->ptl = ptl;
 -- 
 2.50.1
 
