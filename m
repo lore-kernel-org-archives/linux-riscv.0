@@ -4,149 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F25CAC582
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16985CA101F
 	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 18:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ky39cI3MK1bqCH/f2xOi7KAMtfxUoF1f/HP1aQF8m+Y=; b=2Nhrr79AVlbeku
-	Uyt5ZhpDNT6I8k5cdcO/uOGuxF2YsteBG8BMOAJ3TH2lk+0XgBcRZ2b6TviL+mRnOYNd+hubgnQkB
-	j2Rg6q+CRXRmSo8Jbnw9Lr18ZbzG8jsz6H7Rwp/agRX8ETLbaq9GNv2A3tQgWEACwf7/VQ/6CtYAE
-	slIIvNLQfkTkYJk9WFgFJRPf4VXCqatzU6DIKK7YJaATR22aQQTa1B70ySBSL7CVYOa7B3tpbHFZx
-	dti1lb+6Jpm/F/+PW5y2rXevoIwM2i37zH/LOShmSB8NhsUPFAv1vyGs0G2cCmVMDDp/VKUfZOo41
-	YnVF6bLNfrX6VadKndlw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fiOCSWaZtzIWlz3SrSCJVg6ZFA44gzwSgt4IGvnFJwU=; b=3satP9dK/j6DFC
+	iHy+LqVT25X0PFIvZkRKdPByDDzBJIPSQiaz62B2JeXMSzLHd/Gw1otKCviFY3lWO5KlG15zncHnN
+	9D9TpAavvJZCUYPu3Mg+LHJbPvgilQryHAw1vEBWppbactxKN4gzRnEHToC72FJvAlCwuBMo/d88z
+	qDuYcSpi4h1nTJPKQxG3e7DGlBtbUyqGSaCmvcyNZm9qY0dXGZEaX/0SNyPRK1LtqcA6I/vkBKYpO
+	b3vEYOz5NHvsKJI+satcuDDavxruILcaSWApSmKevpgZ6gl7mNsTBfoH8R328D314k/7V9SQe9oO/
+	6LwifQNo6rXYAn7YTVpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8JW-0000000Avoy-3S1C;
-	Fri, 12 Sep 2025 18:16:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ux8JV-0000000Avmo-1vhu;
+	Fri, 12 Sep 2025 18:16:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4JA-0000000CdqV-1maS;
-	Mon, 01 Sep 2025 13:10:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29B39601F2;
-	Mon,  1 Sep 2025 13:10:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8DCC2C2BCB4;
-	Mon,  1 Sep 2025 13:10:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756732249;
-	bh=bn11Mcm9rcT+MQQ0Xp201gsG19m4YqCNUtE/9w0wOKQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KRZi3sS9oPatGmfq2hHozBvMYdfgtjqHP1O+4MZw4/W8FlW7VF6WwhhBhP8gEUdr6
-	 kDPZQSF5ohlsPOwQhgAE1+Wk5UB9+ElpMclkA5GVsgxNbWhX+7et5sGWktdFTwvAK2
-	 A/qgST9yyRvOAjwZRVt1dH+cIr4hrQIIbJ0JrA5uByNUPwoOn8T8Sott9iBCClOY+s
-	 MwhzTvqSmWrwkaOFxUQdxJVuOHazoI6Yc033Fo3Lu8JjJ12XSnw2Uf67bntnAvM0xA
-	 eO5W+0zeQcGO4jiXKuN2Vw7x9S9NUkeJiMMze1z5n2vM4z6XPFk8uxLpiruWmqyFwh
-	 Q+/2eVXQgxpzg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 697A5CA1007;
-	Mon,  1 Sep 2025 13:10:49 +0000 (UTC)
-From: Simon Schuster via B4 Relay <devnull+schuster.simon.siemens-energy.com@kernel.org>
-Date: Mon, 01 Sep 2025 15:09:52 +0200
-Subject: [PATCH v2 3/4] arch: copy_thread: pass clone_flags as u64
+	id 1urODu-0000000Gx2f-2ocO
+	for linux-riscv@lists.infradead.org;
+	Wed, 27 Aug 2025 22:02:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756332149;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=f98zaxrJvycSnAQcu/39hCOw4ptNGiOoTMWM+eDqoaw=;
+	b=bI4TmeZ6C99Q9QNE6nyZgaErg5stJ/r/Dzr1uIwj7/iS9tNGIu1O+tIbCNKclimLJqn3Jj
+	JQXwkszmnsuC1zGyohg5rBnSoyBaKShPG+0A7fcBoTumoaOwEzUjPv8fgiMYJA+Y3XI8NA
+	FfBl71MjkIhE9QZGyvD3S/WihdoSbpw=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-20-1LbWQP2kMBGXOP4ayV8mdA-1; Wed,
+ 27 Aug 2025 18:02:25 -0400
+X-MC-Unique: 1LbWQP2kMBGXOP4ayV8mdA-1
+X-Mimecast-MFC-AGG-ID: 1LbWQP2kMBGXOP4ayV8mdA_1756332140
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 64F29180035D;
+	Wed, 27 Aug 2025 22:02:18 +0000 (UTC)
+Received: from t14s.redhat.com (unknown [10.22.80.195])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E90FC30001A5;
+	Wed, 27 Aug 2025 22:01:42 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Peter Xu <peterx@redhat.com>,
+	Alexander Potapenko <glider@google.com>,
+	Marco Elver <elver@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Brendan Jackman <jackmanb@google.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Zi Yan <ziy@nvidia.com>,
+	Dennis Zhou <dennis@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@gentwo.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	intel-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	linux-mmc@vger.kernel.org,
+	linux-arm-kernel@axis.com,
+	linux-scsi@vger.kernel.org,
+	kvm@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	linux-mm@kvack.org,
+	io-uring@vger.kernel.org,
+	iommu@lists.linux.dev,
+	kasan-dev@googlegroups.com,
+	wireguard@lists.zx2c4.com,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Alex Dubov <oakad@yahoo.com>,
+	Alex Williamson <alex.williamson@redhat.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Brett Creeley <brett.creeley@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Airlie <airlied@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Doug Gilbert <dgilbert@interlog.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Lars Persson <lars.persson@axis.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Maxim Levitsky <maximlevitsky@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Niklas Cassel <cassel@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Pavel Begunkov <asml.silence@gmail.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	SeongJae Park <sj@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Will Deacon <will@kernel.org>,
+	Yishai Hadas <yishaih@nvidia.com>
+Subject: [PATCH v1 00/36] mm: remove nth_page()
+Date: Thu, 28 Aug 2025 00:01:04 +0200
+Message-ID: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
-Message-Id: <20250901-nios2-implement-clone3-v2-3-53fcf5577d57@siemens-energy.com>
-References: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
-In-Reply-To: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
-To: Dinh Nguyen <dinguyen@kernel.org>, 
- Christian Brauner <brauner@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@redhat.com>, 
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
- Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
- Juri Lelli <juri.lelli@redhat.com>, 
- Vincent Guittot <vincent.guittot@linaro.org>, 
- Dietmar Eggemann <dietmar.eggemann@arm.com>, 
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
- Kees Cook <kees@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Guo Ren <guoren@kernel.org>, 
- Oleg Nesterov <oleg@redhat.com>, Jens Axboe <axboe@kernel.dk>, 
- Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
- Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, 
- =?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
- Paul Moore <paul@paul-moore.com>, Serge Hallyn <sergeh@kernel.org>, 
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
- Anna-Maria Behnsen <anna-maria@linutronix.de>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- John Johansen <john.johansen@canonical.com>, 
- Stephen Smalley <stephen.smalley.work@gmail.com>, 
- Ondrej Mosnacek <omosnace@redhat.com>, 
- Kentaro Takeda <takedakn@nttdata.co.jp>, 
- Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>, 
- Richard Henderson <richard.henderson@linaro.org>, 
- Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- WANG Xuerui <kernel@xen0n.name>, Geert Uytterhoeven <geert@linux-m68k.org>, 
- Michal Simek <monstr@monstr.eu>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Jonas Bonn <jonas@southpole.se>, 
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
- Stafford Horne <shorne@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, 
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
- Andreas Larsson <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>, 
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
- Johannes Berg <johannes@sipsolutions.net>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, 
- Max Filippov <jcmvbkbc@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org, 
- linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- cgroups@vger.kernel.org, linux-security-module@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org, 
- linux-perf-users@vger.kernel.org, apparmor@lists.ubuntu.com, 
- selinux@vger.kernel.org, linux-alpha@vger.kernel.org, 
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, 
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
- linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
- linux-um@lists.infradead.org, 
- Simon Schuster <schuster.simon@siemens-energy.com>
-X-Mailer: b4 0.14.3-dev-2ce6c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756732247; l=16540;
- i=schuster.simon@siemens-energy.com; s=20250818;
- h=from:subject:message-id;
- bh=Y3a/SqNexPbCaZWJBpdYeJq+/IM8XgQTim9rBfKHiaA=;
- b=UjI5dxbF8m/bKhCNWgu/x71TjwpiyMXHU3gmg9s7/nOiVWKAXB66aimoxuWTlDPPa26oUbNcf
- kv5epNY+XY6CCqxvFt/3W0br9TEi4ANevDDyK0PBDev3N7SAYA7IWjA
-X-Developer-Key: i=schuster.simon@siemens-energy.com; a=ed25519;
- pk=PUhOMiSp43aSeRE1H41KApxYOluamBFFiMfKlBjocvo=
-X-Endpoint-Received: by B4 Relay for
- schuster.simon@siemens-energy.com/20250818 with auth_id=495
-X-Original-From: Simon Schuster <schuster.simon@siemens-energy.com>
-X-Mailman-Approved-At: Fri, 12 Sep 2025 11:15:58 -0700
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250827_150230_853267_57B8FC93 
+X-CRM114-Status: GOOD (  21.39  )
+X-Mailman-Approved-At: Fri, 12 Sep 2025 11:15:59 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,410 +174,240 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: schuster.simon@siemens-energy.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Simon Schuster <schuster.simon@siemens-energy.com>
+This is based on mm-unstable.
 
-With the introduction of clone3 in commit 7f192e3cd316 ("fork: add
-clone3") the effective bit width of clone_flags on all architectures was
-increased from 32-bit to 64-bit, with a new type of u64 for the flags.
-However, for most consumers of clone_flags the interface was not
-changed from the previous type of unsigned long.
+I will only CC non-MM folks on the cover letter and the respective patch
+to not flood too many inboxes (the lists receive all patches).
 
-While this works fine as long as none of the new 64-bit flag bits
-(CLONE_CLEAR_SIGHAND and CLONE_INTO_CGROUP) are evaluated, this is still
-undesirable in terms of the principle of least surprise.
+--
 
-Thus, this commit fixes all relevant interfaces of the copy_thread
-function that is called from copy_process to consistently pass
-clone_flags as u64, so that no truncation to 32-bit integers occurs on
-32-bit architectures.
+As discussed recently with Linus, nth_page() is just nasty and we would
+like to remove it.
 
-Signed-off-by: Simon Schuster <schuster.simon@siemens-energy.com>
----
- arch/alpha/kernel/process.c      | 2 +-
- arch/arc/kernel/process.c        | 2 +-
- arch/arm/kernel/process.c        | 2 +-
- arch/arm64/kernel/process.c      | 2 +-
- arch/csky/kernel/process.c       | 2 +-
- arch/hexagon/kernel/process.c    | 2 +-
- arch/loongarch/kernel/process.c  | 2 +-
- arch/m68k/kernel/process.c       | 2 +-
- arch/microblaze/kernel/process.c | 2 +-
- arch/mips/kernel/process.c       | 2 +-
- arch/nios2/kernel/process.c      | 2 +-
- arch/openrisc/kernel/process.c   | 2 +-
- arch/parisc/kernel/process.c     | 2 +-
- arch/powerpc/kernel/process.c    | 2 +-
- arch/riscv/kernel/process.c      | 2 +-
- arch/s390/kernel/process.c       | 2 +-
- arch/sh/kernel/process_32.c      | 2 +-
- arch/sparc/kernel/process_32.c   | 2 +-
- arch/sparc/kernel/process_64.c   | 2 +-
- arch/um/kernel/process.c         | 2 +-
- arch/x86/include/asm/fpu/sched.h | 2 +-
- arch/x86/include/asm/shstk.h     | 4 ++--
- arch/x86/kernel/fpu/core.c       | 2 +-
- arch/x86/kernel/process.c        | 2 +-
- arch/x86/kernel/shstk.c          | 2 +-
- arch/xtensa/kernel/process.c     | 2 +-
- 26 files changed, 27 insertions(+), 27 deletions(-)
+To recap, the reason we currently need nth_page() within a folio is because
+on some kernel configs (SPARSEMEM without SPARSEMEM_VMEMMAP), the
+memmap is allocated per memory section.
 
-diff --git a/arch/alpha/kernel/process.c b/arch/alpha/kernel/process.c
-index 582d96548385..06522451f018 100644
---- a/arch/alpha/kernel/process.c
-+++ b/arch/alpha/kernel/process.c
-@@ -231,7 +231,7 @@ flush_thread(void)
-  */
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	extern void ret_from_fork(void);
-diff --git a/arch/arc/kernel/process.c b/arch/arc/kernel/process.c
-index 186ceab661eb..8166d0908713 100644
---- a/arch/arc/kernel/process.c
-+++ b/arch/arc/kernel/process.c
-@@ -166,7 +166,7 @@ asmlinkage void ret_from_fork(void);
-  */
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct pt_regs *c_regs;        /* child's pt_regs */
-diff --git a/arch/arm/kernel/process.c b/arch/arm/kernel/process.c
-index e16ed102960c..d7aa95225c70 100644
---- a/arch/arm/kernel/process.c
-+++ b/arch/arm/kernel/process.c
-@@ -234,7 +234,7 @@ asmlinkage void ret_from_fork(void) __asm__("ret_from_fork");
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long stack_start = args->stack;
- 	unsigned long tls = args->tls;
- 	struct thread_info *thread = task_thread_info(p);
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 96482a1412c6..fba7ca102a8c 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -409,7 +409,7 @@ asmlinkage void ret_from_fork(void) asm("ret_from_fork");
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long stack_start = args->stack;
- 	unsigned long tls = args->tls;
- 	struct pt_regs *childregs = task_pt_regs(p);
-diff --git a/arch/csky/kernel/process.c b/arch/csky/kernel/process.c
-index 0c6e4b17fe00..a7a90340042a 100644
---- a/arch/csky/kernel/process.c
-+++ b/arch/csky/kernel/process.c
-@@ -32,7 +32,7 @@ void flush_thread(void){}
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct switch_stack *childstack;
-diff --git a/arch/hexagon/kernel/process.c b/arch/hexagon/kernel/process.c
-index 2a77bfd75694..15b4992bfa29 100644
---- a/arch/hexagon/kernel/process.c
-+++ b/arch/hexagon/kernel/process.c
-@@ -52,7 +52,7 @@ void arch_cpu_idle(void)
-  */
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct thread_info *ti = task_thread_info(p);
-diff --git a/arch/loongarch/kernel/process.c b/arch/loongarch/kernel/process.c
-index 3582f591bab2..efd9edf65603 100644
---- a/arch/loongarch/kernel/process.c
-+++ b/arch/loongarch/kernel/process.c
-@@ -167,7 +167,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 	unsigned long childksp;
- 	unsigned long tls = args->tls;
- 	unsigned long usp = args->stack;
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	struct pt_regs *childregs, *regs = current_pt_regs();
- 
- 	childksp = (unsigned long)task_stack_page(p) + THREAD_SIZE;
-diff --git a/arch/m68k/kernel/process.c b/arch/m68k/kernel/process.c
-index fda7eac23f87..f5a07a70e938 100644
---- a/arch/m68k/kernel/process.c
-+++ b/arch/m68k/kernel/process.c
-@@ -141,7 +141,7 @@ asmlinkage int m68k_clone3(struct pt_regs *regs)
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct fork_frame {
-diff --git a/arch/microblaze/kernel/process.c b/arch/microblaze/kernel/process.c
-index 56342e11442d..6cbf642d7b80 100644
---- a/arch/microblaze/kernel/process.c
-+++ b/arch/microblaze/kernel/process.c
-@@ -54,7 +54,7 @@ void flush_thread(void)
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct pt_regs *childregs = task_pt_regs(p);
-diff --git a/arch/mips/kernel/process.c b/arch/mips/kernel/process.c
-index 02aa6a04a21d..29191fa1801e 100644
---- a/arch/mips/kernel/process.c
-+++ b/arch/mips/kernel/process.c
-@@ -107,7 +107,7 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
-  */
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct thread_info *ti = task_thread_info(p);
-diff --git a/arch/nios2/kernel/process.c b/arch/nios2/kernel/process.c
-index f84021303f6a..151404139085 100644
---- a/arch/nios2/kernel/process.c
-+++ b/arch/nios2/kernel/process.c
-@@ -101,7 +101,7 @@ void flush_thread(void)
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct pt_regs *childregs = task_pt_regs(p);
-diff --git a/arch/openrisc/kernel/process.c b/arch/openrisc/kernel/process.c
-index eef99fee2110..73ffb9fa3118 100644
---- a/arch/openrisc/kernel/process.c
-+++ b/arch/openrisc/kernel/process.c
-@@ -165,7 +165,7 @@ extern asmlinkage void ret_from_fork(void);
- int
- copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct pt_regs *userregs;
-diff --git a/arch/parisc/kernel/process.c b/arch/parisc/kernel/process.c
-index ed93bd8c1545..e64ab5d2a40d 100644
---- a/arch/parisc/kernel/process.c
-+++ b/arch/parisc/kernel/process.c
-@@ -201,7 +201,7 @@ arch_initcall(parisc_idle_init);
- int
- copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct pt_regs *cregs = &(p->thread.regs);
-diff --git a/arch/powerpc/kernel/process.c b/arch/powerpc/kernel/process.c
-index 855e09886503..eb23966ac0a9 100644
---- a/arch/powerpc/kernel/process.c
-+++ b/arch/powerpc/kernel/process.c
-@@ -1805,7 +1805,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 			f = ret_from_kernel_user_thread;
- 		} else {
- 			struct pt_regs *regs = current_pt_regs();
--			unsigned long clone_flags = args->flags;
-+			u64 clone_flags = args->flags;
- 			unsigned long usp = args->stack;
- 
- 			/* Copy registers */
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index a0a40889d79a..31a392993cb4 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -223,7 +223,7 @@ asmlinkage void ret_from_fork_user(struct pt_regs *regs)
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct pt_regs *childregs = task_pt_regs(p);
-diff --git a/arch/s390/kernel/process.c b/arch/s390/kernel/process.c
-index f55f09cda6f8..b107dbca4ed7 100644
---- a/arch/s390/kernel/process.c
-+++ b/arch/s390/kernel/process.c
-@@ -106,7 +106,7 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long new_stackp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct fake_frame
-diff --git a/arch/sh/kernel/process_32.c b/arch/sh/kernel/process_32.c
-index 92b6649d4929..62f753a85b89 100644
---- a/arch/sh/kernel/process_32.c
-+++ b/arch/sh/kernel/process_32.c
-@@ -89,7 +89,7 @@ asmlinkage void ret_from_kernel_thread(void);
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct thread_info *ti = task_thread_info(p);
-diff --git a/arch/sparc/kernel/process_32.c b/arch/sparc/kernel/process_32.c
-index 9c7c662cb565..5a28c0e91bf1 100644
---- a/arch/sparc/kernel/process_32.c
-+++ b/arch/sparc/kernel/process_32.c
-@@ -260,7 +260,7 @@ extern void ret_from_kernel_thread(void);
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long sp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct thread_info *ti = task_thread_info(p);
-diff --git a/arch/sparc/kernel/process_64.c b/arch/sparc/kernel/process_64.c
-index 529adfecd58c..25781923788a 100644
---- a/arch/sparc/kernel/process_64.c
-+++ b/arch/sparc/kernel/process_64.c
-@@ -567,7 +567,7 @@ void fault_in_user_windows(struct pt_regs *regs)
-  */
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long sp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct thread_info *t = task_thread_info(p);
-diff --git a/arch/um/kernel/process.c b/arch/um/kernel/process.c
-index 1be644de9e41..9c9c66dc45f0 100644
---- a/arch/um/kernel/process.c
-+++ b/arch/um/kernel/process.c
-@@ -143,7 +143,7 @@ static void fork_handler(void)
- 
- int copy_thread(struct task_struct * p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long sp = args->stack;
- 	unsigned long tls = args->tls;
- 	void (*handler)(void);
-diff --git a/arch/x86/include/asm/fpu/sched.h b/arch/x86/include/asm/fpu/sched.h
-index c060549c6c94..89004f4ca208 100644
---- a/arch/x86/include/asm/fpu/sched.h
-+++ b/arch/x86/include/asm/fpu/sched.h
-@@ -11,7 +11,7 @@
- 
- extern void save_fpregs_to_fpstate(struct fpu *fpu);
- extern void fpu__drop(struct task_struct *tsk);
--extern int  fpu_clone(struct task_struct *dst, unsigned long clone_flags, bool minimal,
-+extern int  fpu_clone(struct task_struct *dst, u64 clone_flags, bool minimal,
- 		      unsigned long shstk_addr);
- extern void fpu_flush_thread(void);
- 
-diff --git a/arch/x86/include/asm/shstk.h b/arch/x86/include/asm/shstk.h
-index ba6f2fe43848..0f50e0125943 100644
---- a/arch/x86/include/asm/shstk.h
-+++ b/arch/x86/include/asm/shstk.h
-@@ -16,7 +16,7 @@ struct thread_shstk {
- 
- long shstk_prctl(struct task_struct *task, int option, unsigned long arg2);
- void reset_thread_features(void);
--unsigned long shstk_alloc_thread_stack(struct task_struct *p, unsigned long clone_flags,
-+unsigned long shstk_alloc_thread_stack(struct task_struct *p, u64 clone_flags,
- 				       unsigned long stack_size);
- void shstk_free(struct task_struct *p);
- int setup_signal_shadow_stack(struct ksignal *ksig);
-@@ -28,7 +28,7 @@ static inline long shstk_prctl(struct task_struct *task, int option,
- 			       unsigned long arg2) { return -EINVAL; }
- static inline void reset_thread_features(void) {}
- static inline unsigned long shstk_alloc_thread_stack(struct task_struct *p,
--						     unsigned long clone_flags,
-+						     u64 clone_flags,
- 						     unsigned long stack_size) { return 0; }
- static inline void shstk_free(struct task_struct *p) {}
- static inline int setup_signal_shadow_stack(struct ksignal *ksig) { return 0; }
-diff --git a/arch/x86/kernel/fpu/core.c b/arch/x86/kernel/fpu/core.c
-index aefd412a23dc..1f71cc135e9a 100644
---- a/arch/x86/kernel/fpu/core.c
-+++ b/arch/x86/kernel/fpu/core.c
-@@ -631,7 +631,7 @@ static int update_fpu_shstk(struct task_struct *dst, unsigned long ssp)
- }
- 
- /* Clone current's FPU state on fork */
--int fpu_clone(struct task_struct *dst, unsigned long clone_flags, bool minimal,
-+int fpu_clone(struct task_struct *dst, u64 clone_flags, bool minimal,
- 	      unsigned long ssp)
- {
- 	/*
-diff --git a/arch/x86/kernel/process.c b/arch/x86/kernel/process.c
-index 1b7960cf6eb0..e3a3987b0c4f 100644
---- a/arch/x86/kernel/process.c
-+++ b/arch/x86/kernel/process.c
-@@ -159,7 +159,7 @@ __visible void ret_from_fork(struct task_struct *prev, struct pt_regs *regs,
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long sp = args->stack;
- 	unsigned long tls = args->tls;
- 	struct inactive_task_frame *frame;
-diff --git a/arch/x86/kernel/shstk.c b/arch/x86/kernel/shstk.c
-index 2ddf23387c7e..5eba6c5a6775 100644
---- a/arch/x86/kernel/shstk.c
-+++ b/arch/x86/kernel/shstk.c
-@@ -191,7 +191,7 @@ void reset_thread_features(void)
- 	current->thread.features_locked = 0;
- }
- 
--unsigned long shstk_alloc_thread_stack(struct task_struct *tsk, unsigned long clone_flags,
-+unsigned long shstk_alloc_thread_stack(struct task_struct *tsk, u64 clone_flags,
- 				       unsigned long stack_size)
- {
- 	struct thread_shstk *shstk = &tsk->thread.shstk;
-diff --git a/arch/xtensa/kernel/process.c b/arch/xtensa/kernel/process.c
-index 7bd66677f7b6..94d43f44be13 100644
---- a/arch/xtensa/kernel/process.c
-+++ b/arch/xtensa/kernel/process.c
-@@ -267,7 +267,7 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
--	unsigned long clone_flags = args->flags;
-+	u64 clone_flags = args->flags;
- 	unsigned long usp_thread_fn = args->stack;
- 	unsigned long tls = args->tls;
- 	struct pt_regs *childregs = task_pt_regs(p);
+While buddy allocations cannot cross memory section boundaries, hugetlb
+and dax folios can.
 
+So crossing a memory section means that "page++" could do the wrong thing.
+Instead, nth_page() on these problematic configs always goes from
+page->pfn, to the go from (++pfn)->page, which is rather nasty.
+
+Likely, many people have no idea when nth_page() is required and when
+it might be dropped.
+
+We refer to such problematic PFN ranges and "non-contiguous pages".
+If we only deal with "contiguous pages", there is not need for nth_page().
+
+Besides that "obvious" folio case, we might end up using nth_page()
+within CMA allocations (again, could span memory sections), and in
+one corner case (kfence) when processing memblock allocations (again,
+could span memory sections).
+
+So let's handle all that, add sanity checks, and remove nth_page().
+
+Patch #1 -> #5   : stop making SPARSEMEM_VMEMMAP user-selectable + cleanups
+Patch #6 -> #13  : disallow folios to have non-contiguous pages
+Patch #14 -> #20 : remove nth_page() usage within folios
+Patch #21        : disallow CMA allocations of non-contiguous pages
+Patch #22 -> #32 : sanity+check + remove nth_page() usage within SG entry
+Patch #33        : sanity-check + remove nth_page() usage in
+                   unpin_user_page_range_dirty_lock()
+Patch #34        : remove nth_page() in kfence
+Patch #35        : adjust stale comment regarding nth_page
+Patch #36        : mm: remove nth_page()
+
+A lot of this is inspired from the discussion at [1] between Linus, Jason
+and me, so cudos to them.
+
+[1] https://lore.kernel.org/all/CAHk-=wiCYfNp4AJLBORU-c7ZyRBUp66W2-Et6cdQ4REx-GyQ_A@mail.gmail.com/T/#u
+
+RFC -> v1:
+* "wireguard: selftests: remove CONFIG_SPARSEMEM_VMEMMAP=y from qemu kernel
+   config"
+ -> Mention that it was never really relevant for the test
+* "mm/mm_init: make memmap_init_compound() look more like
+   prep_compound_page()"
+ -> Mention the setup of page links
+* "mm: limit folio/compound page sizes in problematic kernel configs"
+ -> Improve comment for PUD handling, mentioning hugetlb and dax
+* "mm: simplify folio_page() and folio_page_idx()"
+ -> Call variable "n"
+* "mm/hugetlb: cleanup hugetlb_folio_init_tail_vmemmap()"
+ -> Keep __init_single_page() and refer to the usage of
+    memblock_reserved_mark_noinit()
+* "fs: hugetlbfs: cleanup folio in adjust_range_hwpoison()"
+* "fs: hugetlbfs: remove nth_page() usage within folio in
+   adjust_range_hwpoison()"
+ -> Separate nth_page() removal from cleanups
+ -> Further improve cleanups
+* "io_uring/zcrx: remove nth_page() usage within folio"
+ -> Keep the io_copy_cache for now and limit to nth_page() removal
+* "mm/gup: drop nth_page() usage within folio when recording subpages"
+ -> Cleanup record_subpages as bit
+* "mm/cma: refuse handing out non-contiguous page ranges"
+ -> Replace another instance of "pfn_to_page(pfn)" where we already have
+    the page
+* "scatterlist: disallow non-contigous page ranges in a single SG entry"
+ -> We have to EXPORT the symbol. I thought about moving it to mm_inline.h,
+    but I really don't want to include that in include/linux/scatterlist.h
+* "ata: libata-eh: drop nth_page() usage within SG entry"
+* "mspro_block: drop nth_page() usage within SG entry"
+* "memstick: drop nth_page() usage within SG entry"
+* "mmc: drop nth_page() usage within SG entry"
+ -> Keep PAGE_SHIFT
+* "scsi: scsi_lib: drop nth_page() usage within SG entry"
+* "scsi: sg: drop nth_page() usage within SG entry"
+ -> Split patches, Keep PAGE_SHIFT
+* "crypto: remove nth_page() usage within SG entry"
+ -> Keep PAGE_SHIFT
+* "kfence: drop nth_page() usage"
+ -> Keep modifying i and use "start_pfn" only instead
+
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>
+Cc: Vlastimil Babka <vbabka@suse.cz>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Suren Baghdasaryan <surenb@google.com>
+Cc: Michal Hocko <mhocko@suse.com>
+Cc: Jens Axboe <axboe@kernel.dk>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: John Hubbard <jhubbard@nvidia.com>
+Cc: Peter Xu <peterx@redhat.com>
+Cc: Alexander Potapenko <glider@google.com>
+Cc: Marco Elver <elver@google.com>
+Cc: Dmitry Vyukov <dvyukov@google.com>
+Cc: Brendan Jackman <jackmanb@google.com>
+Cc: Johannes Weiner <hannes@cmpxchg.org>
+Cc: Zi Yan <ziy@nvidia.com>
+Cc: Dennis Zhou <dennis@kernel.org>
+Cc: Tejun Heo <tj@kernel.org>
+Cc: Christoph Lameter <cl@gentwo.org>
+Cc: Muchun Song <muchun.song@linux.dev>
+Cc: Oscar Salvador <osalvador@suse.de>
+Cc: x86@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-crypto@vger.kernel.org
+Cc: linux-ide@vger.kernel.org
+Cc: intel-gfx@lists.freedesktop.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-mmc@vger.kernel.org
+Cc: linux-arm-kernel@axis.com
+Cc: linux-scsi@vger.kernel.org
+Cc: kvm@vger.kernel.org
+Cc: virtualization@lists.linux.dev
+Cc: linux-mm@kvack.org
+Cc: io-uring@vger.kernel.org
+Cc: iommu@lists.linux.dev
+Cc: kasan-dev@googlegroups.com
+Cc: wireguard@lists.zx2c4.com
+Cc: netdev@vger.kernel.org
+Cc: linux-kselftest@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+
+David Hildenbrand (36):
+  mm: stop making SPARSEMEM_VMEMMAP user-selectable
+  arm64: Kconfig: drop superfluous "select SPARSEMEM_VMEMMAP"
+  s390/Kconfig: drop superfluous "select SPARSEMEM_VMEMMAP"
+  x86/Kconfig: drop superfluous "select SPARSEMEM_VMEMMAP"
+  wireguard: selftests: remove CONFIG_SPARSEMEM_VMEMMAP=y from qemu
+    kernel config
+  mm/page_alloc: reject unreasonable folio/compound page sizes in
+    alloc_contig_range_noprof()
+  mm/memremap: reject unreasonable folio/compound page sizes in
+    memremap_pages()
+  mm/hugetlb: check for unreasonable folio sizes when registering hstate
+  mm/mm_init: make memmap_init_compound() look more like
+    prep_compound_page()
+  mm: sanity-check maximum folio size in folio_set_order()
+  mm: limit folio/compound page sizes in problematic kernel configs
+  mm: simplify folio_page() and folio_page_idx()
+  mm/hugetlb: cleanup hugetlb_folio_init_tail_vmemmap()
+  mm/mm/percpu-km: drop nth_page() usage within single allocation
+  fs: hugetlbfs: remove nth_page() usage within folio in
+    adjust_range_hwpoison()
+  fs: hugetlbfs: cleanup folio in adjust_range_hwpoison()
+  mm/pagewalk: drop nth_page() usage within folio in folio_walk_start()
+  mm/gup: drop nth_page() usage within folio when recording subpages
+  io_uring/zcrx: remove nth_page() usage within folio
+  mips: mm: convert __flush_dcache_pages() to
+    __flush_dcache_folio_pages()
+  mm/cma: refuse handing out non-contiguous page ranges
+  dma-remap: drop nth_page() in dma_common_contiguous_remap()
+  scatterlist: disallow non-contigous page ranges in a single SG entry
+  ata: libata-eh: drop nth_page() usage within SG entry
+  drm/i915/gem: drop nth_page() usage within SG entry
+  mspro_block: drop nth_page() usage within SG entry
+  memstick: drop nth_page() usage within SG entry
+  mmc: drop nth_page() usage within SG entry
+  scsi: scsi_lib: drop nth_page() usage within SG entry
+  scsi: sg: drop nth_page() usage within SG entry
+  vfio/pci: drop nth_page() usage within SG entry
+  crypto: remove nth_page() usage within SG entry
+  mm/gup: drop nth_page() usage in unpin_user_page_range_dirty_lock()
+  kfence: drop nth_page() usage
+  block: update comment of "struct bio_vec" regarding nth_page()
+  mm: remove nth_page()
+
+ arch/arm64/Kconfig                            |  1 -
+ arch/mips/include/asm/cacheflush.h            | 11 +++--
+ arch/mips/mm/cache.c                          |  8 ++--
+ arch/s390/Kconfig                             |  1 -
+ arch/x86/Kconfig                              |  1 -
+ crypto/ahash.c                                |  4 +-
+ crypto/scompress.c                            |  8 ++--
+ drivers/ata/libata-sff.c                      |  6 +--
+ drivers/gpu/drm/i915/gem/i915_gem_pages.c     |  2 +-
+ drivers/memstick/core/mspro_block.c           |  3 +-
+ drivers/memstick/host/jmb38x_ms.c             |  3 +-
+ drivers/memstick/host/tifm_ms.c               |  3 +-
+ drivers/mmc/host/tifm_sd.c                    |  4 +-
+ drivers/mmc/host/usdhi6rol0.c                 |  4 +-
+ drivers/scsi/scsi_lib.c                       |  3 +-
+ drivers/scsi/sg.c                             |  3 +-
+ drivers/vfio/pci/pds/lm.c                     |  3 +-
+ drivers/vfio/pci/virtio/migrate.c             |  3 +-
+ fs/hugetlbfs/inode.c                          | 33 +++++--------
+ include/crypto/scatterwalk.h                  |  4 +-
+ include/linux/bvec.h                          |  7 +--
+ include/linux/mm.h                            | 48 +++++++++++++++----
+ include/linux/page-flags.h                    |  5 +-
+ include/linux/scatterlist.h                   |  3 +-
+ io_uring/zcrx.c                               |  4 +-
+ kernel/dma/remap.c                            |  2 +-
+ mm/Kconfig                                    |  3 +-
+ mm/cma.c                                      | 39 +++++++++------
+ mm/gup.c                                      | 14 ++++--
+ mm/hugetlb.c                                  | 22 +++++----
+ mm/internal.h                                 |  1 +
+ mm/kfence/core.c                              | 12 +++--
+ mm/memremap.c                                 |  3 ++
+ mm/mm_init.c                                  | 15 +++---
+ mm/page_alloc.c                               |  5 +-
+ mm/pagewalk.c                                 |  2 +-
+ mm/percpu-km.c                                |  2 +-
+ mm/util.c                                     | 34 +++++++++++++
+ tools/testing/scatterlist/linux/mm.h          |  1 -
+ .../selftests/wireguard/qemu/kernel.config    |  1 -
+ 40 files changed, 202 insertions(+), 129 deletions(-)
+
+
+base-commit: efa7612003b44c220551fd02466bfbad5180fc83
 -- 
-2.39.5
-
+2.50.1
 
 
 _______________________________________________
