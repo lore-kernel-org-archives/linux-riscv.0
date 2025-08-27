@@ -4,114 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D252CA0FF7
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3244CA0FED
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5rVpORCyeKJz4m/JHFnzMdenGhkjbTmp5jEEV4jbKAA=; b=Ot7jjeb8gZ4qUD
-	QBr68sIN5S5Gzm9URDbN0kbANt4GeOGIkyIrBD3xsQLcQpVN9HpYFav/xQ1Pj/xj5NfuN73PFCP/s
-	iAChEZDZ6VnyeDTRfdcuXLFXEvAKPhoUDD1wLn7NwZTSRFvQd1u0PYfXrDr1BBJdol7PY866miAGT
-	VlYbmTcqSmDCMuIKKUftzkDnfCvb9j6nETzzsOfWp+jNS+0uA129sbx8A2ABB5srFZtKsppkNK3IJ
-	OsIKdXZ5M8KnoNhK7RbhLegrtDjCHclCUriwEnd79tldbhs0gLh04iArOunb3L4+Z/CGFlzaWhhie
-	MshSd3tBKqqDNsukd9+A==;
+	List-Owner; bh=8G0NOabzQzBT5UL6Wx+DM+e1rR8nFP4J0queifCue8I=; b=hvjWrVOka97hHf
+	FBy5xT8MlR/pI/An6QPKk1SgOTkJHO9i756tYgbtcGh1MM8jVC/BA3jin4QwDhjQOyZAiF223tzx2
+	wYLlKRkr31o8AEibUTZrnrjSEOA9q216V0vfRD3YUOn4jeESflxWHSoMiLTwN8Kpd9SqinUp2JChq
+	FQwYAppm6XIU2ddXPHUaQB0haT1AlwMseFRu5q9v5Id5BapE00wujTMN1Sa7ZefpqhkHgkqEamU6a
+	Ec+kSxVr5ORXGfyccivH9tDxwmoyh6D9EWQd9lFBxC0ON7Qfv578OPOXlzlDtSx2tEqbJSGdDBMG1
+	6iU8N1HH5CdszGJZROUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPMc-0000000HBLT-1pBC;
-	Wed, 27 Aug 2025 23:15:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1urPMo-0000000HBZo-1Zbs;
+	Wed, 27 Aug 2025 23:15:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOHA-0000000Gywb-1FCZ
+	id 1urOJI-0000000GzyB-12YF
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:05:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332351;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tOg+y93CWdttiSRHo5MMFmvDG+rRd/OMag8GX96YAWo=;
-	b=TefR4SCwLU95eyGTl4qEexmmI7iO9PjzPm0VYw9Pg8ZbW1gr7mtOtVmvUXuA4/psmmpNJz
-	UcnTqnbOa6MLiIkEfIb3Ec+g3la+rGkIjOMOKBWLJWTq3QwtnghX/6dGLcWmvL3CtnaKXA
-	z3+xpAyV6KoCG9u1QYqBIFk1i192Tjc=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-468-z4mlROjvMIiLD1GebYFmSQ-1; Wed,
- 27 Aug 2025 18:05:47 -0400
-X-MC-Unique: z4mlROjvMIiLD1GebYFmSQ-1
-X-Mimecast-MFC-AGG-ID: z4mlROjvMIiLD1GebYFmSQ_1756332341
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BEADE195419A;
-	Wed, 27 Aug 2025 22:05:41 +0000 (UTC)
-Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DDB1430001A5;
-	Wed, 27 Aug 2025 22:05:26 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	Zi Yan <ziy@nvidia.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
+	Wed, 27 Aug 2025 22:08:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AAB516027F;
+	Wed, 27 Aug 2025 22:08:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EECAEC4CEEB;
+	Wed, 27 Aug 2025 22:08:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756332483;
+	bh=zzgfsYDCFmRhdoMZwZ++3Els9HxkLOsb+5Uew5Yhl6I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bRX+tNGWVTUIuuRWXCG5ONBpUuQUHP/wyei8Yn+SJQPZSdxqbskV+o+bN48kMj2LB
+	 4LR1hBAGzxuKLAJWZNXy2LqiiK4grBJTMBnIjHo0RwE4YUqcPtybj6NCyu5EeXcjNd
+	 n0UcO9BkDLs6IzjiMW2jrqIMMVulxJo5Do3KhN4j9Hvj+V51zj+8jFAFccSUx9DHvR
+	 /2IKuBbcutfJoszc+0hXc++CluMVTe/YUadwI9Jqk2eOGsxfQeX5CdH02aoJyE9ygy
+	 k3Zy+tyzneCTzQN6/F9NY9/LcqCQjrY9f2UV7/xR2BsYufOXpBoDEbFPfmTFIJ7lsY
+	 9CC5fg9wyhsdg==
+Date: Wed, 27 Aug 2025 15:08:01 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Matt Coster <matt.coster@imgtec.com>
+Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Frank Binns <frank.binns@imgtec.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org
-Subject: [PATCH v1 12/36] mm: simplify folio_page() and folio_page_idx()
-Date: Thu, 28 Aug 2025 00:01:16 +0200
-Message-ID: <20250827220141.262669-13-david@redhat.com>
-In-Reply-To: <20250827220141.262669-1-david@redhat.com>
-References: <20250827220141.262669-1-david@redhat.com>
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v13 3/4] riscv: dts: thead: th1520: Add IMG BXM-4-64 GPU
+ node
+Message-ID: <aK-BwY8c-OR_WqNk@thelio>
+References: <20250822-apr_14_for_sending-v13-0-af656f7cc6c3@samsung.com>
+ <CGME20250821222023eucas1p1805feda41e485de76c2981beb8b9102d@eucas1p1.samsung.com>
+ <20250822-apr_14_for_sending-v13-3-af656f7cc6c3@samsung.com>
+ <aKjWiU4fQw3k77GR@x1>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150552_402034_04D3BDD8 
-X-CRM114-Status: GOOD (  16.64  )
+Content-Disposition: inline
+In-Reply-To: <aKjWiU4fQw3k77GR@x1>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,74 +93,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that a single folio/compound page can no longer span memory sections
-in problematic kernel configurations, we can stop using nth_page().
+On Fri, Aug 22, 2025 at 01:43:53PM -0700, Drew Fustini wrote:
+> On Fri, Aug 22, 2025 at 12:20:17AM +0200, Michal Wilczynski wrote:
+> > Add a device tree node for the IMG BXM-4-64 GPU present in the T-HEAD
+> > TH1520 SoC used by the Lichee Pi 4A board. This node enables support for
+> > the GPU using the drm/imagination driver.
+> > 
+> > By adding this node, the kernel can recognize and initialize the GPU,
+> > providing graphics acceleration capabilities on the Lichee Pi 4A and
+> > other boards based on the TH1520 SoC.
+> > 
+> > Add fixed clock gpu_mem_clk, as the MEM clock on the T-HEAD SoC can't be
+> > controlled programatically.
+> > 
+> > Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+> > Reviewed-by: Drew Fustini <drew@pdp7.com>
+> > Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > Acked-by: Matt Coster <matt.coster@imgtec.com>
+> > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> > ---
+> >  arch/riscv/boot/dts/thead/th1520.dtsi | 21 +++++++++++++++++++++
+> >  1 file changed, 21 insertions(+)
+> 
+> I've applied this to thead-dt-for-next [1]:
+> 
+> 0f78e44fb857 ("riscv: dts: thead: th1520: Add IMG BXM-4-64 GPU node")
+> 
+> Thanks,
+> Drew
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/log/?h=thead-dt-for-next
 
-While at it, turn both macros into static inline functions and add
-kernel doc for folio_page_idx().
+Hi Matt,
 
-Reviewed-by: Zi Yan <ziy@nvidia.com>
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- include/linux/mm.h         | 16 ++++++++++++++--
- include/linux/page-flags.h |  5 ++++-
- 2 files changed, 18 insertions(+), 3 deletions(-)
+Do you know when the dt binding patch will be applied to
+the drm-misc/for-linux-next tree?
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 2dee79fa2efcf..f6880e3225c5c 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -210,10 +210,8 @@ extern unsigned long sysctl_admin_reserve_kbytes;
- 
- #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
- #define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
--#define folio_page_idx(folio, p)	(page_to_pfn(p) - folio_pfn(folio))
- #else
- #define nth_page(page,n) ((page) + (n))
--#define folio_page_idx(folio, p)	((p) - &(folio)->page)
- #endif
- 
- /* to align the pointer to the (next) page boundary */
-@@ -225,6 +223,20 @@ extern unsigned long sysctl_admin_reserve_kbytes;
- /* test whether an address (unsigned long or pointer) is aligned to PAGE_SIZE */
- #define PAGE_ALIGNED(addr)	IS_ALIGNED((unsigned long)(addr), PAGE_SIZE)
- 
-+/**
-+ * folio_page_idx - Return the number of a page in a folio.
-+ * @folio: The folio.
-+ * @page: The folio page.
-+ *
-+ * This function expects that the page is actually part of the folio.
-+ * The returned number is relative to the start of the folio.
-+ */
-+static inline unsigned long folio_page_idx(const struct folio *folio,
-+		const struct page *page)
-+{
-+	return page - &folio->page;
-+}
-+
- static inline struct folio *lru_to_folio(struct list_head *head)
- {
- 	return list_entry((head)->prev, struct folio, lru);
-diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
-index 5ee6ffbdbf831..faf17ca211b4f 100644
---- a/include/linux/page-flags.h
-+++ b/include/linux/page-flags.h
-@@ -316,7 +316,10 @@ static __always_inline unsigned long _compound_head(const struct page *page)
-  * check that the page number lies within @folio; the caller is presumed
-  * to have a reference to the page.
-  */
--#define folio_page(folio, n)	nth_page(&(folio)->page, n)
-+static inline struct page *folio_page(struct folio *folio, unsigned long n)
-+{
-+	return &folio->page + n;
-+}
- 
- static __always_inline int PageTail(const struct page *page)
- {
--- 
-2.50.1
+I applied the dts patch but it is creating a warning in next right now.
+If the binding won't show up soon in drm-misc, then I'll remove this dts
+patch from next as dtbs_check is now failing in next. I can add it back
+once the binding makes it to next.
 
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
