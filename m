@@ -4,109 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E82DCA0FED
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 14:08:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 836CFCA0FED
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 15:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o5NVAXZbIei/wutVy75r+IYcR4hk8tD113UikRTHNwo=; b=wAK9SPbi0JoEq8
-	SZwtIwYzT3ph9/wzs+XqqjdlvwHp3s7lZtK0evh2AWsupX1+6L8KEm5VajnQN1eRwfQ4rwFy7H/6v
-	Q2ymSrcFJpXnzqPokWK2N5hosF8P9xpn7/4540zrEb97vN3W/LZvl0uij316oJ9EZ8C/44DRja2kr
-	SsYqJ2xfYEtBV3bPU8PqEWDsyMO8gp6nLplb7P5w02rzh+eJMZ1w6z2u1FsjS5uNqsUei0G/5fFmE
-	0zjoFPV+a/kwqiXA2NNcPG0uKcUrx7HJJFqR4bCb7sa49+ikoUwux+30Bz1guig6s2XSJTECghH3m
-	ySuJUE6Fc4qlQL6IkI1w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xWTNFROo0Y/RxGFWAer7BuDcE8STEdB6TyAqvZ0CY2U=; b=vFWFDJhnEwPUvG
+	o54P9q2Uhwd8T+jt3sVfX+hDF941JhzFqFpf2zvVUpY8l3SLIhD+Zr63QKJyaqxq3g8nXQatx2LmF
+	3Sgb3IxZUNzy7WAW6aZndcpWPmL9OCWDcSPhM398WRnhEsTfdVTzLMXdN0qpCD2+VBoPacoYEB2Cy
+	OV71ZOmAVXLgVk1QT1HRZSkVhESq1N0CRK0PpwDOOFVZp470BzDiThnF0k4SF1y8B3PkpmKXGH4iK
+	MT4hrtFfLx9Xv6jxLCAygmsalAe0wQQzHi75IWatTqPJWp77ob//QEiM+OxSuvNmkkl+LiERGh7oA
+	3Nckgp06KiXGdwsQMezg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urGpC-0000000Fgot-46LD;
-	Wed, 27 Aug 2025 14:08:31 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1urIQV-0000000G0m3-07kU;
+	Wed, 27 Aug 2025 15:51:07 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urD72-0000000EzzJ-0YVA
+	id 1urEsm-0000000FNKR-1UmV
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 10:10:41 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-771f3f89952so652020b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Aug 2025 03:10:39 -0700 (PDT)
+	Wed, 27 Aug 2025 12:04:05 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-4b109c58e29so125984461cf.3
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Aug 2025 05:04:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1756289439; x=1756894239; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JM7gSlpkCi+0kyKyklIFOqWTnKhlvxmA1qdlwzNde30=;
-        b=Xb/KHsgQf4s8x4NrV9LYKIQqwAO2CQ4890nSB7tLcw/hMqywlq9/7CwVFhLxhpYbd9
-         K0RfcbPpLjIgItJr1Auwqk/O7fpD3Lacf53tvxsCo8G0EdSyhIZquStK8vcKRK82hQNN
-         g7K9zhI3JOzsMB7+Y6pT1P5LR0B3D1adUHlSVmeBXuSdYlHKhoPyFN+bO1+sNKoPuTMj
-         bWwfJkGtkK5zZvMrwk9QoMvruwwmEkaa9py/JX1MoXUZ8EzGPLFAa0Ig9hqWUj4rw8sf
-         aW9m6S1AcUisGx8Z4DY54/0SObLJucv9OuzE5JwBv4Tzk9HizeOyppUbQQUN6ztGRS7j
-         Ikfg==
+        d=gmail.com; s=20230601; t=1756296243; x=1756901043; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Oh7qX3heP82/xvGRdFcTI045iSa1lfxsBF6MYN2KcOw=;
+        b=Oj4eBRwZ6fy0NkJbFiZSL8UGOzyyVgC+3l0wtHHnIun7SDmeM96r5726g1SQWPyhYt
+         IgqgZDEHsdLDmlCUkqZpz3GhAhUn5h5ejk9vnbB9iSX7FS5hwPn4F2bV1DACfjZYqb3/
+         bt6JMluYeVMe/2B6l1CLJyk/cd1vTIJbc0N2UiByfd8wkpVmKRpUx/uS15s2IyUWqG5A
+         Cl4syqp5v7YNI8A/gw1Oi1sSgpWYfyvOWTMc470Kg/CRNa0xo+ncxCDd0rhHa8F8M0Qu
+         0Dgo1KL58TrJ4e4U4WkUy3zqpBK6CoSrY+iZN17DMwyMzBibAAp+5I+FKGLMkToxICvz
+         ctug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756289439; x=1756894239;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JM7gSlpkCi+0kyKyklIFOqWTnKhlvxmA1qdlwzNde30=;
-        b=BwG/MAAWpkUmMXwNlwvGZnCvNgqe+nt5qWt4YDDFJydCBC4HEKqzqtc3fxv6Wu8eMP
-         Eh9jeap0pKlnlkvc76fF0ACQoeTCDhaFV5XL718sxY5DqzFC/ueiMLugnUPUMOy9+Fa7
-         UpFtPFqfa61CCLWCmWmTpTWz2BL+7giBQbX7NcZBmPAYVDM498cYQpmC4vbIYRThlmtq
-         HPoErf6/er2RT/dis7ZQvD1pvyUp/3wrjX3Tlk2CSLRHNa4bVCpM3KCN/HBPmxJNTwt2
-         DmZwKeodnV9syaBdMceOyCYn/YWLmZ5CSqiuLCWkq02Zh/NT78x8C5KMPW3bbW2tzNL5
-         5yew==
-X-Forwarded-Encrypted: i=1; AJvYcCXE7DC+6xqrW4oshnZJu2MfgvIoKVYTkLPMgptUEeoKGHT3b2vORuxchEOTt6yB1SB3UB1zb5ywAQBgtA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz557UvEnqo2dbZlK0W10taEU09qclPgljPzSfLbQDn+3HGS/d0
-	xm+YfzUAW+6zU3eh+wrM4Ud6aiGrLPQ2pawiVUFzGTG/22Ros0rciO4mj3eyRaqSDkg=
-X-Gm-Gg: ASbGncu2lfOLdBH67qaHUb3f3h0U3xPODDI+BX92ztFg/iXLZfx7Dovj1n5MUgNZ2Vr
-	hrMYPDmJULWyifcBx4pzVSHeBqKmfZHkh8RvMDAeCJBtE3IpYk/d/gxEMjQc2lW0fEhUEUJxLDF
-	X42yl/oZl95xjyaStSPyOiW3ktrjWRmyeIdqysrbIRYIDOUrG6FZD8Sd8ZcE1CAifO6S7Q4A8At
-	4g5Dk2IJv+xHTPdo7LpdXmKhi8dUfdRElFml6sOXGTT9TPdizcG+X7FiCYTzcQw+PSz3gGovQuy
-	o4bZTJqEPemfC9RCqLf0UdG6C+MN0WzYphwsO5AG6gtqbK3YJLr4+1wihGRO4zN830LxW4OfBRo
-	zNABTuxCRnsc0tumZHavxu9qlgnYYhHe1ZcdPeFuCk00PXho716izzQQEgAjyZwk=
-X-Google-Smtp-Source: AGHT+IGdtKUBscgA9xYMmV3962XLu6gCj63wXPK/4bKpP1nVTjXzqxHi4UVk2L8ckDMtXKsc3B7ldA==
-X-Received: by 2002:aa7:88c2:0:b0:771:e341:ce68 with SMTP id d2e1a72fcca58-771fc292e89mr6337778b3a.5.1756289439091;
-        Wed, 27 Aug 2025 03:10:39 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.229])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-770401eb20dsm12813462b3a.79.2025.08.27.03.10.30
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 27 Aug 2025 03:10:38 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	atish.patra@linux.dev,
-	anup@brainfault.org,
-	will@kernel.org,
-	mark.rutland@arm.com,
+        d=1e100.net; s=20230601; t=1756296243; x=1756901043;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Oh7qX3heP82/xvGRdFcTI045iSa1lfxsBF6MYN2KcOw=;
+        b=MnL/qSPpX5zOkvoFRO446JkoSviIoaH5RtaqxD8QW84mIHfBh5strzJLMg8u2VZDRe
+         0nrLqT+1nvNnA6Dqypfz/Jz/xq+K6qe0y19i1apY0tSLDmQ7Ss8xmDGT/PZhSSNPIZaD
+         7sDwKSYWbEB4BlyZMsCNilczZxYl0snhbSJP+1K90MwZx2tS2b3Q3Q4Aumu9kJNEim7o
+         b0PjGQn8uaExHBUZ2aZxN7UFAEURhjPqtpvDuDv9u1y3oJaGhL6uaJJrOylUADaZGlp/
+         84Vq7oug0eo/CVDnrWIQYHgB903C2ude9Oih+xygOPjq+RVlNuRrLix11HTCwyKXw7ee
+         KcrA==
+X-Forwarded-Encrypted: i=1; AJvYcCVxttSO4a4gt3/+gkWa4ibsBfQuLHGwH00hEIXYmTMllsaJYPJhzDymSV6+Uary39E0CvrTElB3fK4uKQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxK7S+cMACaDZq28CIFWjGdIFGD87yQ5iX5FVkndMbgD3L4yglx
+	/Vzwb005clSFQKE7VzRSLT2pdBoS5tRx1qz8BK2qTe64S5F6vWFn//wK
+X-Gm-Gg: ASbGnctMb9LTTmzQVtAySCzqezLmahuKaXFdeLJLoQ1EdP9xf5W6kl8v27qSQG+cq10
+	ajr9M3Hf0FHF0alIYiqBfyD0qU9fuv2pnXuShgL7kkxlR5SmNbkg7v66ZI6zwcQVbU6EWtrWmHs
+	zL0XAD3eqWvqG2m0dJazok6oM7BXB3k++Iglxwc4bxJRYsqKgyDkBxS4qlKWfKYaDrgLWTKX9xV
+	padu4dr1BpaI+i9U5cegdt3M0ZRySWzB4MunkLWNbezArDeZlseIZAx0KO3VMxfLYeaPTaFV1nd
+	YERyXoi/TJZ8DnnxcJJ/mQuSiIoL/fAC0Laf2KAWZzUB7NnE/iyxYgFQsMg3gZYh0aYDJujMeJJ
+	dNNqEQqgKh4+ilfo4foNse+dC/TmsNtgzg+rQZngP
+X-Google-Smtp-Source: AGHT+IEkreAUdFea/dTdA/eLgslTv14Osti7kTMUmukoBVeQqTVBjgPGnMV/CBIaXJPNaKk1CQBCjg==
+X-Received: by 2002:ac8:5e07:0:b0:4b0:6228:b3e7 with SMTP id d75a77b69052e-4b2aab4abf4mr197233561cf.43.1756296242625;
+        Wed, 27 Aug 2025 05:04:02 -0700 (PDT)
+Received: from ubuntu.. ([43.132.141.25])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b2b8c61acfsm92067921cf.7.2025.08.27.05.03.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Aug 2025 05:04:02 -0700 (PDT)
+From: Hengqi Chen <hengqi.chen@gmail.com>
+To: ast@kernel.org,
+	daniel@iogearbox.net,
+	andrii@kernel.org,
+	martin.lau@linux.dev,
+	bjorn@kernel.org,
+	pulehui@huawei.com,
+	puranjay@kernel.org
+Cc: bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	catalin.marinas@arm.com,
-	masahiroy@kernel.org,
-	suzuki.poulose@arm.com,
-	cuiyunhui@bytedance.com,
-	maz@kernel.org,
-	zhanjie9@hisilicon.com,
-	yangyicong@hisilicon.com,
-	dianders@chromium.org,
-	mingo@kernel.org,
-	lihuafei1@huawei.com,
-	akpm@linux-foundation.org,
-	jpoimboe@kernel.org,
-	rppt@kernel.org,
-	kees@kernel.org,
-	thomas.weissschuh@linutronix.de
-Subject: [PATCH 2/2] riscv: add HARDLOCKUP_DETECTOR_PERF support
-Date: Wed, 27 Aug 2025 18:09:59 +0800
-Message-Id: <20250827100959.83023-3-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
-In-Reply-To: <20250827100959.83023-1-cuiyunhui@bytedance.com>
-References: <20250827100959.83023-1-cuiyunhui@bytedance.com>
+	Hengqi Chen <hengqi.chen@gmail.com>
+Subject: [PATCH] riscv, bpf: Sign extend struct ops return values properly
+Date: Wed, 27 Aug 2025 12:03:44 +0000
+Message-ID: <20250827120344.6796-1-hengqi.chen@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_031040_187759_821436CD 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250827_050404_402863_99579414 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,64 +103,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reuse watchdog_hld.c to enable HARDLOCKUP_DETECTOR_PERF and
-add Kconfig selections for RISC-V.
+The ns_bpf_qdisc selftest triggers a kernel panic:
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+    Unable to handle kernel paging request at virtual address ffffffffa38dbf58
+    Current test_progs pgtable: 4K pagesize, 57-bit VAs, pgdp=0x00000001109cc000
+    [ffffffffa38dbf58] pgd=000000011fffd801, p4d=000000011fffd401, pud=000000011fffd001, pmd=0000000000000000
+    Oops [#1]
+    Modules linked in: bpf_testmod(OE) xt_conntrack nls_iso8859_1 dm_mod drm drm_panel_orientation_quirks configfs backlight btrfs blake2b_generic xor lzo_compress zlib_deflate raid6_pq efivarfs [last unloaded: bpf_testmod(OE)]
+    CPU: 1 UID: 0 PID: 23584 Comm: test_progs Tainted: G        W  OE       6.17.0-rc1-g2465bb83e0b4 #1 NONE
+    Tainted: [W]=WARN, [O]=OOT_MODULE, [E]=UNSIGNED_MODULE
+    Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2024.01+dfsg-1ubuntu5.1 01/01/2024
+    epc : __qdisc_run+0x82/0x6f0
+     ra : __qdisc_run+0x6e/0x6f0
+    epc : ffffffff80bd5c7a ra : ffffffff80bd5c66 sp : ff2000000eecb550
+     gp : ffffffff82472098 tp : ff60000096895940 t0 : ffffffff8001f180
+     t1 : ffffffff801e1664 t2 : 0000000000000000 s0 : ff2000000eecb5d0
+     s1 : ff60000093a6a600 a0 : ffffffffa38dbee8 a1 : 0000000000000001
+     a2 : ff2000000eecb510 a3 : 0000000000000001 a4 : 0000000000000000
+     a5 : 0000000000000010 a6 : 0000000000000000 a7 : 0000000000735049
+     s2 : ffffffffa38dbee8 s3 : 0000000000000040 s4 : ff6000008bcda000
+     s5 : 0000000000000008 s6 : ff60000093a6a680 s7 : ff60000093a6a6f0
+     s8 : ff60000093a6a6ac s9 : ff60000093140000 s10: 0000000000000000
+     s11: ff2000000eecb9d0 t3 : 0000000000000000 t4 : 0000000000ff0000
+     t5 : 0000000000000000 t6 : ff60000093a6a8b6
+    status: 0000000200000120 badaddr: ffffffffa38dbf58 cause: 000000000000000d
+    [<ffffffff80bd5c7a>] __qdisc_run+0x82/0x6f0
+    [<ffffffff80b6fe58>] __dev_queue_xmit+0x4c0/0x1128
+    [<ffffffff80b80ae0>] neigh_resolve_output+0xd0/0x170
+    [<ffffffff80d2daf6>] ip6_finish_output2+0x226/0x6c8
+    [<ffffffff80d31254>] ip6_finish_output+0x10c/0x2a0
+    [<ffffffff80d31446>] ip6_output+0x5e/0x178
+    [<ffffffff80d2e232>] ip6_xmit+0x29a/0x608
+    [<ffffffff80d6f4c6>] inet6_csk_xmit+0xe6/0x140
+    [<ffffffff80c985e4>] __tcp_transmit_skb+0x45c/0xaa8
+    [<ffffffff80c995fe>] tcp_connect+0x9ce/0xd10
+    [<ffffffff80d66524>] tcp_v6_connect+0x4ac/0x5e8
+    [<ffffffff80cc19b8>] __inet_stream_connect+0xd8/0x318
+    [<ffffffff80cc1c36>] inet_stream_connect+0x3e/0x68
+    [<ffffffff80b42b20>] __sys_connect_file+0x50/0x88
+    [<ffffffff80b42bee>] __sys_connect+0x96/0xc8
+    [<ffffffff80b42c40>] __riscv_sys_connect+0x20/0x30
+    [<ffffffff80e5bcae>] do_trap_ecall_u+0x256/0x378
+    [<ffffffff80e69af2>] handle_exception+0x14a/0x156
+    Code: 892a 0363 1205 489c 8bc1 c7e5 2d03 084a 2703 080a (2783) 0709
+    ---[ end trace 0000000000000000 ]---
+
+The bpf_fifo_dequeue prog returns a skb which is a pointer.
+The pointer is treated as a 32bit value and sign extend to
+64bit in epilogue. This behavior is right for most bpf prog
+types but wrong for struct ops which requires RISC-V ABI.
+
+So let's sign extend struct ops return values according to
+the return value spec in function model.
+
+Fixes: 25ad10658dc1 ("riscv, bpf: Adapt bpf trampoline to optimized riscv ftrace framework")
+Signed-off-by: Hengqi Chen <hengqi.chen@gmail.com>
 ---
- arch/riscv/Kconfig           | 3 +++
- drivers/perf/riscv_pmu_sbi.c | 8 ++++++++
- 2 files changed, 11 insertions(+)
+ arch/riscv/net/bpf_jit_comp64.c | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 451eb23d86c96..214b1ead5781a 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -184,6 +184,9 @@ config RISCV
- 	select HAVE_PAGE_SIZE_4KB
- 	select HAVE_PCI
- 	select HAVE_PERF_EVENTS
-+	select PERF_EVENTS
-+	select HAVE_PERF_EVENTS_NMI if RISCV_SSE && RISCV_PMU_SSE
-+	select HAVE_HARDLOCKUP_DETECTOR_PERF if PERF_EVENTS && HAVE_PERF_EVENTS_NMI
- 	select HAVE_PERF_REGS
- 	select HAVE_PERF_USER_STACK_DUMP
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 8c1ac7985df6c..c5423a046d016 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -22,6 +22,7 @@
- #include <linux/sched/clock.h>
- #include <linux/soc/andes/irq.h>
- #include <linux/workqueue.h>
-+#include <linux/nmi.h>
- 
- #include <asm/errata_list.h>
- #include <asm/sbi.h>
-@@ -1102,6 +1103,11 @@ static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
- }
- #endif
- 
-+bool arch_pmu_irq_is_nmi(void)
-+{
-+	return IS_ENABLED(CONFIG_RISCV_PMU_SSE);
-+}
-+
- static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
- {
- 	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
-@@ -1525,6 +1531,8 @@ static int __init pmu_sbi_devinit(void)
- 	/* Notify legacy implementation that SBI pmu is available*/
- 	riscv_pmu_legacy_skip_init();
- 
-+	lockup_detector_retry_init();
-+
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 549c3063c7f1..11ca56320a3f 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -954,6 +954,33 @@ static int invoke_bpf_prog(struct bpf_tramp_link *l, int args_off, int retval_of
  	return ret;
  }
- device_initcall(pmu_sbi_devinit)
+ 
++/*
++ * Sign-extend the register if necessary
++ */
++static int sign_extend(struct rv_jit_context *ctx, int r, u8 size)
++{
++	switch (size) {
++	case 1:
++		emit_slli(r, r, 56, ctx);
++		emit_srai(r, r, 56, ctx);
++		break;
++	case 2:
++		emit_slli(r, r, 48, ctx);
++		emit_srai(r, r, 48, ctx);
++		break;
++	case 4:
++		emit_addiw(r, r, 0, ctx);
++		break;
++	case 8:
++		break;
++	default:
++		pr_err("bpf-jit: invalid size %d for sign_extend\n", size);
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
+ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 					 const struct btf_func_model *m,
+ 					 struct bpf_tramp_links *tlinks,
+@@ -1177,6 +1204,12 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 	if (save_ret) {
+ 		emit_ld(RV_REG_A0, -retval_off, RV_REG_FP, ctx);
+ 		emit_ld(regmap[BPF_REG_0], -(retval_off - 8), RV_REG_FP, ctx);
++		if (is_struct_ops) {
++			emit_mv(RV_REG_A0, regmap[BPF_REG_0], ctx);
++			ret = sign_extend(ctx, RV_REG_A0, m->ret_size);
++			if (ret)
++				goto out;
++		}
+ 	}
+ 
+ 	emit_ld(RV_REG_S1, -sreg_off, RV_REG_FP, ctx);
 -- 
-2.39.5
+2.45.2
 
 
 _______________________________________________
