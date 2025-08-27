@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619A8CA0FED
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B3CCA0EFF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QbxucaLc6CWwAkFqQZvJDJey0C0FZCxq9d09mFoff5Y=; b=LLcrZOqggq98Hq
-	uuc9qKnsTFLnkQLud9/oKvgDaRuZP4f9LVA1xUaC4qoJdaOi8DH9MQLtRKkvEUiqYobGjAKMrsVfD
-	kSQd65Elqn1OYAJ1H5z7Rh0Jhpdn+NByREIra11iRCn6v8+NB+OnRoIdSulUJ0GWjCplSMPJXb5Zl
-	xuF5vGqy+5R5HuYDJcLlSbWUePgGxkje+wugvP85m+Bp5SD6q6kQRdmkVT7bKNwr90BjykKPFMwDq
-	N+NT2DqJ4gk9NB9pqvx8SV4nTqi0SB6FrAFFUZGCnzFUo27Wgmx/HEYjmlOoVWJhTp3apg3B7VKwd
-	dMtwdUPyT9BME835yGHg==;
+	List-Owner; bh=Xh0X6l0eK090km6xunAixrSJilHBBxy9rD2h5eKAPqs=; b=IM5oYgVifFmcEj
+	kAAHN1Dtpr8LT+hMvfvOLIdJO2k6oddrwZJ5Dni33NHdiqK6TFMpyMP+8WsYp/1ioMaIi7grwJB52
+	BFoQUGp3HYhUzGFczjieXe5q+hAKiYI1t3wusl38N0f8SScjdwemLjWSDvb24cb7s9eTuJRxhjPA2
+	nweOzkF2BkE4X4EDVyEFwXARQPvYely16XsCq8bOKWxdrIEyaHrT/eb26GFK5TAr1SECBP3FLOpul
+	w+cZLK64VQK50L1L01hXbeJqV/1CnWEit0Cxt7JZg0A5iAU0Oqbmnl4G/40+FgzOlHsEMWRw6Qr+p
+	JiLcyHlXQ6Fj2X6CoZvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPNI-0000000HCck-0McC;
-	Wed, 27 Aug 2025 23:16:16 +0000
+	id 1urPUN-0000000HEse-1zWo;
+	Wed, 27 Aug 2025 23:23:35 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOMr-0000000H1ej-3d2H
+	id 1urOGP-0000000Gyd3-3p3p
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:11:47 +0000
+	Wed, 27 Aug 2025 22:05:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332705;
+	s=mimecast20190719; t=1756332305;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=J4GDJdCQl51NuSKZxl+9iTiOXWhrOYbM3n+02Irtvfk=;
-	b=Ht6hqq3e2cjkM39vLUtsUx49ECFGEv5xQd1gYWHBKrJizej7gDlwBWJ5DurybDFMaUy9NS
-	hAxSVgJcYSUHdIKH1/EbTL98OVunGRso9EWbq8txxbJxOnTDd8wHSBgnerrNlsGMHE7ol0
-	Ov2MQeJU3ETz8pzeUXMKeCacyvSK2tA=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=sdduxfP9sOW11CIIetzrq/g2aOdRCb5eN+kQk0XudUI=;
+	b=i+wE1QF9MhqX0fCHddDu6EfjihwZbjtfe4Q4JkSoo2ZGzU8ajU4BDITvB0REYbNZ1CXYve
+	nLnFjsyRznmlAK4l7H+rkcQ5mFmY+eW4KoWKSPPdoyaWOPhkiBq+2yCgl3Jcg59rDW8rcT
+	g568KSaxOQu8kLcUwU59O4985sdQzqU=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-581-9TdTk-QAOCyo3sfI9-0djQ-1; Wed,
- 27 Aug 2025 18:11:36 -0400
-X-MC-Unique: 9TdTk-QAOCyo3sfI9-0djQ-1
-X-Mimecast-MFC-AGG-ID: 9TdTk-QAOCyo3sfI9-0djQ_1756332692
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-417-EpEDj_iqOtyJ7pKJWv6ETA-1; Wed,
+ 27 Aug 2025 18:04:58 -0400
+X-MC-Unique: EpEDj_iqOtyJ7pKJWv6ETA-1
+X-Mimecast-MFC-AGG-ID: EpEDj_iqOtyJ7pKJWv6ETA_1756332292
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F1280180028E;
-	Wed, 27 Aug 2025 22:11:31 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 995B919541AC;
+	Wed, 27 Aug 2025 22:04:52 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 78E0330001A1;
-	Wed, 27 Aug 2025 22:11:16 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CAF5B30001A1;
+	Wed, 27 Aug 2025 22:04:36 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -89,7 +90,6 @@ Cc: David Hildenbrand <david@redhat.com>,
 	Marco Elver <elver@google.com>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
 	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
 	Muchun Song <muchun.song@linux.dev>,
 	netdev@vger.kernel.org,
 	Oscar Salvador <osalvador@suse.de>,
@@ -102,16 +102,16 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v1 33/36] mm/gup: drop nth_page() usage in unpin_user_page_range_dirty_lock()
-Date: Thu, 28 Aug 2025 00:01:37 +0200
-Message-ID: <20250827220141.262669-34-david@redhat.com>
+Subject: [PATCH v1 09/36] mm/mm_init: make memmap_init_compound() look more like prep_compound_page()
+Date: Thu, 28 Aug 2025 00:01:13 +0200
+Message-ID: <20250827220141.262669-10-david@redhat.com>
 In-Reply-To: <20250827220141.262669-1-david@redhat.com>
 References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_151145_974569_CCC6CEC5 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20250827_150506_031360_5638AB35 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,49 +128,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is the concern that unpin_user_page_range_dirty_lock() might do
-some weird merging of PFN ranges -- either now or in the future -- such
-that PFN range is contiguous but the page range might not be.
+Grepping for "prep_compound_page" leaves on clueless how devdax gets its
+compound pages initialized.
 
-Let's sanity-check for that and drop the nth_page() usage.
+Let's add a comment that might help finding this open-coded
+prep_compound_page() initialization more easily.
 
+Further, let's be less smart about the ordering of initialization and just
+perform the prep_compound_head() call after all tail pages were
+initialized: just like prep_compound_page() does.
+
+No need for a comment to describe the initialization order: again,
+just like prep_compound_page().
+
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/gup.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ mm/mm_init.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/mm/gup.c b/mm/gup.c
-index 89ca0813791ab..c24f6009a7a44 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -237,7 +237,7 @@ void folio_add_pin(struct folio *folio)
- static inline struct folio *gup_folio_range_next(struct page *start,
- 		unsigned long npages, unsigned long i, unsigned int *ntails)
- {
--	struct page *next = nth_page(start, i);
-+	struct page *next = start + i;
- 	struct folio *folio = page_folio(next);
- 	unsigned int nr = 1;
+diff --git a/mm/mm_init.c b/mm/mm_init.c
+index 5c21b3af216b2..df614556741a4 100644
+--- a/mm/mm_init.c
++++ b/mm/mm_init.c
+@@ -1091,6 +1091,12 @@ static void __ref memmap_init_compound(struct page *head,
+ 	unsigned long pfn, end_pfn = head_pfn + nr_pages;
+ 	unsigned int order = pgmap->vmemmap_shift;
  
-@@ -342,6 +342,9 @@ EXPORT_SYMBOL(unpin_user_pages_dirty_lock);
-  * "gup-pinned page range" refers to a range of pages that has had one of the
-  * pin_user_pages() variants called on that page.
-  *
-+ * The page range must be truly contiguous: the page range corresponds
-+ * to a contiguous PFN range and all pages can be iterated naturally.
-+ *
-  * For the page ranges defined by [page .. page+npages], make that range (or
-  * its head pages, if a compound page) dirty, if @make_dirty is true, and if the
-  * page range was previously listed as clean.
-@@ -359,6 +362,8 @@ void unpin_user_page_range_dirty_lock(struct page *page, unsigned long npages,
- 	struct folio *folio;
- 	unsigned int nr;
++	/*
++	 * We have to initialize the pages, including setting up page links.
++	 * prep_compound_page() does not take care of that, so instead we
++	 * open-code prep_compound_page() so we can take care of initializing
++	 * the pages in the same go.
++	 */
+ 	__SetPageHead(head);
+ 	for (pfn = head_pfn + 1; pfn < end_pfn; pfn++) {
+ 		struct page *page = pfn_to_page(pfn);
+@@ -1098,15 +1104,8 @@ static void __ref memmap_init_compound(struct page *head,
+ 		__init_zone_device_page(page, pfn, zone_idx, nid, pgmap);
+ 		prep_compound_tail(head, pfn - head_pfn);
+ 		set_page_count(page, 0);
+-
+-		/*
+-		 * The first tail page stores important compound page info.
+-		 * Call prep_compound_head() after the first tail page has
+-		 * been initialized, to not have the data overwritten.
+-		 */
+-		if (pfn == head_pfn + 1)
+-			prep_compound_head(head, order);
+ 	}
++	prep_compound_head(head, order);
+ }
  
-+	VM_WARN_ON_ONCE(!page_range_contiguous(page, npages));
-+
- 	for (i = 0; i < npages; i += nr) {
- 		folio = gup_folio_range_next(page, npages, i, &nr);
- 		if (make_dirty && !folio_test_dirty(folio)) {
+ void __ref memmap_init_zone_device(struct zone *zone,
 -- 
 2.50.1
 
