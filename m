@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE8DCA0FF7
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 22:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC12ECA0FED
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 22:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NT0tuJYicSxiifiaR/NLUEgvWr+dUq/hlX1vd6JYWMU=; b=LnPyhVOQU66N8+
-	xT+uJkn8LnS4k0cIevogrQFNCeTZtfJ6p/+v+N95k4RkJxr+FXi7kdQ/r2DZ7gECkNqJJRDe/wh0z
-	78TsrFbrpPb0K8vEoa/3pp0TUC2TnYF1r6fJfCCN1xW1iUcfQ8Vloy8WEpohiaCHHBfTLUZfB14cm
-	vT8ZM3+yIxJEJhw1B2irowiD4oTnHwYvHUKjmmhylAQdchTHzvzCaRK7M6QKWDnY9ajVhjoINAENH
-	FD0NtXEA4VP1QnUjb44K67RlAHjzJ0QekZ6XnVMubZ7OjGn8kY416Ek3nDnYAqTGZYlYZXFij7wUz
-	xK2dfYqPPXZNfSVusybQ==;
+	List-Owner; bh=KrPKnvuWYu34cZHYd4xXJpBmqzEoIHMM8ICEoMPFLfI=; b=ZCPNpIckFjbHuc
+	eVzmIYKtmDloJCrEX9kchWzgNU+8q50MV9kf6FV1rppNpPnKrXVyBu7fF/e5n3G5W6eT4HTgMKwHv
+	3Gtz3/leHPIlhaKGQLeNz6He8hqSh+dyLZWbwjCTKUsY0QlNuK3SqZxlWmBmGv+l7QexOg1EzBCkP
+	aQTxSmDQKlI8bpK2RdKnljdjzYixEWpTRSqVvoNR1Y2a+dsR3zOwGPktDoFZDDx31tcWwJ2D1MSKT
+	OrUSoHX4wfk8TWVlOXdHYRziMNQd8O5MCDnA6OpaNlOMBqqmsZybFrXGZjNctGy0nJNctR48+HPcc
+	zy31qAu2W+0Bq86jzzLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urONn-0000000H20H-2Dnu;
-	Wed, 27 Aug 2025 22:12:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1urOQV-0000000H32E-0Ik8;
+	Wed, 27 Aug 2025 22:15:31 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOG5-0000000GyRO-1ICm
+	id 1urOGd-0000000GyiV-1B8p
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:04:46 +0000
+	Wed, 27 Aug 2025 22:05:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332284;
+	s=mimecast20190719; t=1756332318;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=IPdRkz39C6GEGewoqOPx6e5B77yZ10PZ9TzgCgWDUu8=;
-	b=RXbo7jloDqD6rJfmfSxHdq7ICOTO4EncjNN6NSnwYcfOAcMwpCYeBxwsT2Jx8BudPfxyxv
-	8zskoMpajFuLltu1TTZius8qkUk7J7tVdTzexl2ma9WDVlHR/EQ2CTZadlRv7NhVkF+B/A
-	qIusWWUfHqXNBrYA78WlHx6pp8CB6ic=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=D/EwzdzyNFR+ewVEEFqEze2ovwyb82bK+Rce3/V3U0s=;
+	b=gWDYrHQ75ObeH3C/F4Sip45SMhCe/ECpS/Dh4FNAxo61507ZNU3inZH6yzW441wb0cb7Rc
+	rmwkMmiMdqiH50JDSylpL06xLjw3lLdjpIyoNAibqv7OdMVRY+MKz9gc4H8sC8wNwgIhvr
+	Ky7T+PE8QXvJydzQfLmZQou5t3pgNDI=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-140-ejq5WAESPvyYJNhJ8vcpMw-1; Wed,
- 27 Aug 2025 18:04:41 -0400
-X-MC-Unique: ejq5WAESPvyYJNhJ8vcpMw-1
-X-Mimecast-MFC-AGG-ID: ejq5WAESPvyYJNhJ8vcpMw_1756332276
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-319-rAeDOcrbOYu2jFZVlj4BxA-1; Wed,
+ 27 Aug 2025 18:05:15 -0400
+X-MC-Unique: rAeDOcrbOYu2jFZVlj4BxA-1
+X-Mimecast-MFC-AGG-ID: rAeDOcrbOYu2jFZVlj4BxA_1756332310
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3C407195608E;
-	Wed, 27 Aug 2025 22:04:36 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E3F20180028D;
+	Wed, 27 Aug 2025 22:05:09 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9EB3E30001A1;
-	Wed, 27 Aug 2025 22:04:20 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CB62530001A1;
+	Wed, 27 Aug 2025 22:04:53 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
+	Zi Yan <ziy@nvidia.com>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -100,18 +101,17 @@ Cc: David Hildenbrand <david@redhat.com>,
 	virtualization@lists.linux.dev,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v1 08/36] mm/hugetlb: check for unreasonable folio sizes when registering hstate
-Date: Thu, 28 Aug 2025 00:01:12 +0200
-Message-ID: <20250827220141.262669-9-david@redhat.com>
+	x86@kernel.org
+Subject: [PATCH v1 10/36] mm: sanity-check maximum folio size in folio_set_order()
+Date: Thu, 28 Aug 2025 00:01:14 +0200
+Message-ID: <20250827220141.262669-11-david@redhat.com>
 In-Reply-To: <20250827220141.262669-1-david@redhat.com>
 References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150445_429954_56F0E4D2 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250827_150519_396769_DC92D837 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,43 +128,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's check that no hstate that corresponds to an unreasonable folio size
-is registered by an architecture. If we were to succeed registering, we
-could later try allocating an unsupported gigantic folio size.
+Let's sanity-check in folio_set_order() whether we would be trying to
+create a folio with an order that would make it exceed MAX_FOLIO_ORDER.
 
-Further, let's add a BUILD_BUG_ON() for checking that HUGETLB_PAGE_ORDER
-is sane at build time. As HUGETLB_PAGE_ORDER is dynamic on powerpc, we have
-to use a BUILD_BUG_ON_INVALID() to make it compile.
+This will enable the check whenever a folio/compound page is initialized
+through prepare_compound_head() / prepare_compound_page().
 
-No existing kernel configuration should be able to trigger this check:
-either SPARSEMEM without SPARSEMEM_VMEMMAP cannot be configured or
-gigantic folios will not exceed a memory section (the case on sparse).
-
+Reviewed-by: Zi Yan <ziy@nvidia.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/hugetlb.c | 2 ++
- 1 file changed, 2 insertions(+)
+ mm/internal.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-index 572b6f7772841..4a97e4f14c0dc 100644
---- a/mm/hugetlb.c
-+++ b/mm/hugetlb.c
-@@ -4657,6 +4657,7 @@ static int __init hugetlb_init(void)
+diff --git a/mm/internal.h b/mm/internal.h
+index 45da9ff5694f6..9b0129531d004 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -755,6 +755,7 @@ static inline void folio_set_order(struct folio *folio, unsigned int order)
+ {
+ 	if (WARN_ON_ONCE(!order || !folio_test_large(folio)))
+ 		return;
++	VM_WARN_ON_ONCE(order > MAX_FOLIO_ORDER);
  
- 	BUILD_BUG_ON(sizeof_field(struct page, private) * BITS_PER_BYTE <
- 			__NR_HPAGEFLAGS);
-+	BUILD_BUG_ON_INVALID(HUGETLB_PAGE_ORDER > MAX_FOLIO_ORDER);
- 
- 	if (!hugepages_supported()) {
- 		if (hugetlb_max_hstate || default_hstate_max_huge_pages)
-@@ -4740,6 +4741,7 @@ void __init hugetlb_add_hstate(unsigned int order)
- 	}
- 	BUG_ON(hugetlb_max_hstate >= HUGE_MAX_HSTATE);
- 	BUG_ON(order < order_base_2(__NR_USED_SUBPAGE));
-+	WARN_ON(order > MAX_FOLIO_ORDER);
- 	h = &hstates[hugetlb_max_hstate++];
- 	__mutex_init(&h->resize_lock, "resize mutex", &h->resize_key);
- 	h->order = order;
+ 	folio->_flags_1 = (folio->_flags_1 & ~0xffUL) | order;
+ #ifdef NR_PAGES_IN_LARGE_FOLIO
 -- 
 2.50.1
 
