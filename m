@@ -4,110 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A3CCA0FF6
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 11:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA7BCCA0FFC
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 11:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s78YdtaQ7m/SttecLXTKoKis6yhvoYCQoj2sBDCufck=; b=UhagqzBrv6qAGU
-	uL93ZRE/gdhReZgDuo8e9zIWjEkRcxAm67AFUrLvPPwBhV3axDdK3m5g3oRQ+C506ZoKOHtk9g94z
-	DzX0iiWM/8/apDFvRG26ds0PJq+Pk4Lne6CzHakHJqz4Iz00sSalMVYt1uL6mAqEj2d7DHDeD3a8l
-	d+PBb1fQT4LxseS8OuFcf1bNDomBf5NnoO4NpDEPl1hDrtd8sXoe+IF7lAV1E0Ig2xfFmATJYfg2l
-	WUiB5aAXI7CQ4nASFPRJ5pj7WJw68SwLtfbDo2dzUlL/GnOMlRa+Sm70O2yvvO68sttYGiFOCui3a
-	XjaWdnWykSARGr0ds+Yg==;
+	List-Owner; bh=pgVrUQOxGzqNWZBAWO92nOM/LN/b6hpX8htsyAdkYSM=; b=jPioxaEVV1HYIw
+	DVfsVEFijCCZqpHAfM7xLHF/jJUkg3LaYUWapmmzuhhgJw6yd6ZyceeKQ6/HAi9tKoteMhX4Y8ch3
+	+uXPgV+sMxwoNx/B8Ik4FLJA33XfdrtggpmVjPq/xMNSUoyglN/N2NmsQmcJ6/A/8xsjEOGNF8WYp
+	4oixWhBQCJyO/4C/RRmf1ibxba1tQ6ghjD6Mna+nMdlPb+YWFyy/ZK9Pn8DLJ6wi4p9VSiakpqR6n
+	UlHlPnPm0h9y4BdSs1LK2/M8pcgryL1glX0Vkpn4MDquXJbmEmdf+NLvUJ0LMDbP3btesct66ohFB
+	VmK/wluOrxju39rXSLAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urE03-0000000FAQ6-3ckJ;
-	Wed, 27 Aug 2025 11:07:31 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1urDzv-0000000FABW-0EIi;
+	Wed, 27 Aug 2025 11:07:23 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urCfx-0000000EtMj-1o9t;
-	Wed, 27 Aug 2025 09:42:42 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3b9edf4cf6cso5311470f8f.3;
-        Wed, 27 Aug 2025 02:42:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756287759; x=1756892559; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=s4gNirUawo/2N73RGh/VZFmiZovBEw6Zvsz5pkyBSog=;
-        b=ijyo+SI5cQMYv7UOPPf2DCWddvqx/3TkLzd0HV1ernhDIHUiRENkh2vk/Wh2+k7jB3
-         FFipvcsRk9vaWZinJhttwE2z+HLER1AihAV8Uj2pCLyIDf/gTWlnLOvs5cpS4vaLOxiK
-         yGxoVHf1OikLWAGqE6HqzNH8r2Tz2DBji0jrupulh+ClVxxLw8xq8a3dROEDf4phmnM6
-         iEmsHE/zptw6DC3Watd4Ymsc1hwknAxtYl2nREgRIXJD16CAKe5WlVT77orJKdq/UGvj
-         knNMLxkxZebQjIbA9lR7f/stRkTbJactE2IcHZu0Zj4KJZf4iZ/UmrSHnK2XIG3AS8qb
-         5eDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756287759; x=1756892559;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=s4gNirUawo/2N73RGh/VZFmiZovBEw6Zvsz5pkyBSog=;
-        b=QfgBcPBXDXpmukJDbLY0XiviTOYR4/9k3rNYHooc3OVe7w6r0Wn+oN/+l7fMnUTLo6
-         tyPRdwqjYtXn81ENnTUXhAEqmbDlsFYikMBXv+fLjDhoEiD2sctmlWdQC1CWDv8XWkjS
-         567AHeI1Fq3nJVDqOUTty1zJHSHjX84GKW5hElR4ngQpNZ2zeAtaP2NSARTR7yP23M2z
-         3GUVJnIVTixyugRpKXlY3etgUMUv6Nbpx0F7TfRN6DQTg0RcgbtMPu6uCVzj1XOYYjlt
-         rR1OvW9IPDYBn4jqbOFw3mmrM/Mhxgju+qV4eGdZPWp0JRrZ3hbZ+xZ++6vPSzI7kFcN
-         46CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUuKXApxAqsFRvlm0vWbpSQ/verkpIvU6HrdxsnDOPKgHXMcBvnTAVDyN5T4xjxYq6HXzMwLcZYoB0DKns=@lists.infradead.org, AJvYcCUuhddNOMgBA7PGLPt2sG1Z++Y5iSULAyRGTnb4xlRgIgXfATLQ1Q4CpZht7YuCh7T457Z0ZWx0KUynBisuEt48@lists.infradead.org
-X-Gm-Message-State: AOJu0YzD/HdOPiNYWYeeS+u1A0GwTikcOPGpAk+3vXK//2NYiN9VR/GT
-	U3Izguk/Q8rfNZKPPY6DecLWjabbSnial0CQ2Mb32kJeEDzzMNfl3bJQ
-X-Gm-Gg: ASbGncuJ18QkzBByK4P/PKSzSMH45rC9eJB1lsxvLArxzd+L8ECVZssrnTPDTXL92iH
-	RIDXWy9NEjM6m8n5OyE0/0qfl7OlTawUb7JjrvlMw4HkFmDUZYO9eRWyFJMVcGHRn92EA+6cCQZ
-	rWKATNdPKuahl6fSlEOZaHPq7AWHhoaD7WQ4YmeoeYmlniS76c2fEtt4grxUFb0ptg9HEYhpdys
-	s/eRj0/sIGvNeC+mBsWLQIpPPW67dXKEVdg3JTM1Pd4ka6Vm6le5vnTG/xGUe3c1KnWtlut/j+N
-	xW8fC4+2sRI+TbzbWRgjnRiPBHN75E3Bo/CgDV5TAMZhSRXPTzd46ezP+AabDvH2oRRwSCm9jOV
-	MYFjx/DrunMzJZ5ksdX+/+IpnS6hpuGNbyPtVwImUy3gz0dWFh1/6NWRu3g+gmvgPBw==
-X-Google-Smtp-Source: AGHT+IFkjO5GHbU1+2MUuKQvNL0fwH2etmLb7S57NgBpdq01aCYpWSgROxwdQQpXxfO8aoPZevSNpQ==
-X-Received: by 2002:a05:6000:3105:b0:3b8:d672:3cf8 with SMTP id ffacd0b85a97d-3c5dcb10b6amr14770182f8f.43.1756287759105;
-        Wed, 27 Aug 2025 02:42:39 -0700 (PDT)
-Received: from ?IPV6:2620:10d:c096:325:77fd:1068:74c8:af87? ([2620:10d:c092:600::1:4a1a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cc4b102889sm3363615f8f.51.2025.08.27.02.42.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Aug 2025 02:42:38 -0700 (PDT)
-Message-ID: <46d09557-1873-4d97-b073-ce0c7296b954@gmail.com>
-Date: Wed, 27 Aug 2025 10:43:59 +0100
+	id 1urCXg-0000000ErIh-1TBj
+	for linux-riscv@lists.infradead.org;
+	Wed, 27 Aug 2025 09:34:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1756287215;
+	bh=3fghkl2yk9rz5bIVyEjDjhowSDJcsJYAqStEl1qbPDU=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=Mgecbmb3p/PsLbTn+l8oN+uzB7JDNHXI7nd6eH2ypvN+YcsPElYL20phBK57H5wn2
+	 Cz45+X9B71J4Jh6YVMe6tkvaIB5n10rjV76pVgEMi/GZKSki6XhQrmBjfBHPXFwltm
+	 yIfAaW9yD/M4lQrM0cPuJtbQuQ3lmaiGI2AOXX5E=
+X-QQ-mid: zesmtpgz8t1756287213t979e8db4
+X-QQ-Originating-IP: +p5Udl5pLkD5rldse5I0GLOWxX+xPdjNmzEYXYfq1hY=
+Received: from = ( [61.145.255.150])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 27 Aug 2025 17:33:31 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 295757120406263004
+EX-QQ-RecipientCnt: 23
+Date: Wed, 27 Aug 2025 17:33:31 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Alex Elder <elder@riscstar.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>, lee@kernel.org,
+	lgirdwood@gmail.com, broonie@kernel.org,
+	alexandre.belloni@bootlin.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: mat.jonczyk@o2.pl, dlan@gentoo.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux.amoon@gmail.com, troymitchell988@gmail.com,
+	guodong@riscstar.com, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v12 2/7] mfd: simple-mfd-i2c: add SpacemiT P1 support
+Message-ID: <1D7078ABFE5E7BF8+aK7Q60w5Vhy1Wreg@LT-Guozexi>
+References: <20250813024509.2325988-1-elder@riscstar.com>
+ <20250813024509.2325988-3-elder@riscstar.com>
+ <089D29348F246F2C+aJ6bPgJsp5GjhDs5@LT-Guozexi>
+ <b387ebdd-ae5d-4711-9e10-c61cb06f4b5b@riscstar.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 18/35] io_uring/zcrx: remove "struct io_copy_cache"
- and one nth_page() usage
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: Jens Axboe <axboe@kernel.dk>, Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Johannes Weiner <hannes@cmpxchg.org>,
- John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
- kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
- Zi Yan <ziy@nvidia.com>
-References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-19-david@redhat.com>
- <b5b08ad3-d8cd-45ff-9767-7cf1b22b5e03@gmail.com>
- <473f3576-ddf3-4388-aeec-d486f639950a@redhat.com>
-Content-Language: en-US
-From: Pavel Begunkov <asml.silence@gmail.com>
-In-Reply-To: <473f3576-ddf3-4388-aeec-d486f639950a@redhat.com>
+Content-Disposition: inline
+In-Reply-To: <b387ebdd-ae5d-4711-9e10-c61cb06f4b5b@riscstar.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: Nnd5cAEgLcFhoWAD0Vlb8+NYa6DFeqnWj/tGOR0GIV8AJHK4EuhRKvVH
+	gMHgyGSvwmPDdGjeiI4cBLA9X1WjvSVHxXN9UKhJ+Pbcj7x+QkfssV089eA1OfObBJQweZF
+	85fhpuGWlBUM2Mx/HX3obo0TNtXtr8h2PLxvNvjO5F8f4Z53XMclyxflU7GETUxr2+Siyoc
+	nYYSr+ZNr255gOga6eqowez4VpF6oLSJpM9JsY/WqQhioj1S4TVDKYYjTdLnTNnbWwB1tdk
+	g06LJ+G7P1wcVv4iWIClVuvMLW+0UC/yapanHs3EzZize0wWHbpvKZBv7qlsSkFYUTxfCgu
+	fzLYpCdpcZpGRLEbJb6H/syDdsYEIsSWQlhsp+gV4Rjdy1+U+gyI6GGyLPDBfemWhLLOWvf
+	rD9mzLkGUxx3J7HwOtb2jDdziqjz2KQIE98qiPZNpPSAtWBtBZbHM0h/QkdQKTnVoIKHdRG
+	CxoOuYPRqVF/A1awvaR3BglMOMjmvh4woX4B/q/uMZ+V4f8m984XCPzsSIRH23OMdVTDtBf
+	4puv+J3Nawjr8vcKVyDmjGxRiDA6ju+Ybk0lle6pt3KF/9joVNXssOspuhxhuwsOwbA/hvR
+	E4X/hPDxkNMU+79ikGdBKhFDnRgHr7WGo+BexBEwi3VNPWlwRZeaMcjNIESRbmgG8XmgVdU
+	dJrA7wvfppgDtv2JbNfLfYl75/Hu41cIwYeW72yE4TSgeozjpUI6Q3bFUUnqDKhHZ9bdcgf
+	sYPY1ihQkYcQpV5747ExvDFArYlRAaWW1mHZGRItFG95cRw/gbRtIDLNVOLtusY4mduW7nf
+	5ehwXblmebB0Vo1hNfbgWKnIrWoOyPCD9e6ZWV7ja40+FstVLsoJFQNDBLkj0cu8di6yIHv
+	+ZvmSdjbK0CTASKmEr1KNVIH37Y3qJot6Jm4+y7oWplUfI9fX/HDiCdjVkQybHNBOWL19Fn
+	tFlz2A4/zZVgd/OKc1yI61H7byr3Umihle75evUJnU3wM3f11u10sO77AGHORcf7bu0RPSx
+	Zp/UkqpqPyScDTD9z5UC9dRKbGhd/KcPuPTuGMzRkEsT8FG/thC45RaeUVpHbfQUOag4z98
+	vasK5rLzsgV
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_024241_472126_52B37757 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20250827_023409_062567_CF219534 
+X-CRM114-Status: GOOD (  36.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,44 +100,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOC8yMi8yNSAxNDo1OSwgRGF2aWQgSGlsZGVuYnJhbmQgd3JvdGU6Cj4gT24gMjIuMDguMjUg
-MTM6MzIsIFBhdmVsIEJlZ3Vua292IHdyb3RlOgo+PiBPbiA4LzIxLzI1IDIxOjA2LCBEYXZpZCBI
-aWxkZW5icmFuZCB3cm90ZToKPj4+IFdlIGFsd2F5cyBwcm92aWRlIGEgc2luZ2xlIGRzdCBwYWdl
-LCBpdCdzIHVuY2xlYXIgd2h5IHRoZSBpb19jb3B5X2NhY2hlCj4+PiBjb21wbGV4aXR5IGlzIHJl
-cXVpcmVkLgo+Pgo+PiBCZWNhdXNlIGl0J2xsIG5lZWQgdG8gYmUgcHVsbGVkIG91dHNpZGUgdGhl
-IGxvb3AgdG8gcmV1c2UgdGhlIHBhZ2UgZm9yCj4+IG11bHRpcGxlIGNvcGllcywgaS5lLiBwYWNr
-aW5nIG11bHRpcGxlIGZyYWdtZW50cyBvZiB0aGUgc2FtZSBza2IgaW50bwo+PiBpdC4gTm90IGZp
-bmlzaGVkLCBhbmQgY3VycmVudGx5IGl0J3Mgd2FzdGluZyBtZW1vcnkuCj4gCj4gT2theSwgc28g
-d2hhdCB5b3UncmUgc2F5aW5nIGlzIHRoYXQgdGhlcmUgd2lsbCBiZSBmb2xsb3ctdXAgd29yayB0
-aGF0IHdpbGwgYWN0dWFsbHkgbWFrZSB0aGlzIHN0cnVjdHVyZSB1c2VmdWwuCgpFeGFjdGx5Cgo+
-PiBXaHkgbm90IGRvIGFzIGJlbG93PyBQYWdlcyB0aGVyZSBuZXZlciBjcm9zcyBib3VuZGFyaWVz
-IG9mIHRoZWlyIGZvbGlvcy4gPiBEbyB5b3Ugd2FudCBpdCB0byBiZSB0YWtlbiBpbnRvIHRoZSBp
-b191cmluZyB0cmVlPwo+IAo+IFRoaXMgc2hvdWxkIGJldHRlciBhbGwgZ28gdGhyb3VnaCB0aGUg
-TU0gdHJlZSB3aGVyZSB3ZSBhY3R1YWxseSBndWFyYW50ZWUgY29udGlndW91cyBwYWdlcyB3aXRo
-aW4gYSBmb2xpby4gKHNlZSB0aGUgY292ZXIgbGV0dGVyKQoKTWFrZXMgc2Vuc2UuIE5vIG9iamVj
-dGlvbiwgaG9wZWZ1bGx5IGl0IHdvbid0IGNhdXNlIHRvbyBtYW55IGNvbmZsaWN0cy4KCj4+IGRp
-ZmYgLS1naXQgYS9pb191cmluZy96Y3J4LmMgYi9pb191cmluZy96Y3J4LmMKPj4gaW5kZXggZTVm
-ZjQ5ZjM0MjVlLi4xOGMxMmY0YjU2YjYgMTAwNjQ0Cj4+IC0tLSBhL2lvX3VyaW5nL3pjcnguYwo+
-PiArKysgYi9pb191cmluZy96Y3J4LmMKPj4gQEAgLTk3NSw5ICs5NzUsOSBAQCBzdGF0aWMgc3Np
-emVfdCBpb19jb3B5X3BhZ2Uoc3RydWN0IGlvX2NvcHlfY2FjaGUgKmNjLCBzdHJ1Y3QgcGFnZSAq
-c3JjX3BhZ2UsCj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgIGlmIChmb2xpb190ZXN0X3BhcnRpYWxf
-a21hcChwYWdlX2ZvbGlvKGRzdF9wYWdlKSkgfHwKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCBmb2xpb190ZXN0X3BhcnRpYWxfa21hcChwYWdlX2ZvbGlvKHNyY19wYWdlKSkpIHsKPj4g
-LcKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZHN0X3BhZ2UgPSBudGhfcGFnZShkc3RfcGFnZSwgZHN0
-X29mZnNldCAvIFBBR0VfU0laRSk7Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGRzdF9wYWdl
-ICs9IGRzdF9vZmZzZXQgLyBQQUdFX1NJWkU7Cj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgZHN0X29mZnNldCA9IG9mZnNldF9pbl9wYWdlKGRzdF9vZmZzZXQpOwo+PiAtwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCBzcmNfcGFnZSA9IG50aF9wYWdlKHNyY19wYWdlLCBzcmNfb2Zmc2V0IC8g
-UEFHRV9TSVpFKTsKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgc3JjX3BhZ2UgKz0gc3JjX29m
-ZnNldCAvIFBBR0VfU0laRTsKPiAKPiBZZWFoLCBJIGNhbiBkbyB0aGF0IGluIHRoZSBuZXh0IHZl
-cnNpb24gZ2l2ZW4gdGhhdCB5b3UgaGF2ZSBwbGFucyBvbiBleHRlbmRpbmcgdGhhdCBjb2RlIHNv
-b24uCgpJZiB3ZSBnbyB3aXRoIHRoaXMgdmVyc2lvbjoKClJldmlld2VkLWJ5OiBQYXZlbCBCZWd1
-bmtvdiA8YXNtbC5zaWxlbmNlQGdtYWlsLmNvbT4KCi0tIApQYXZlbCBCZWd1bmtvdgoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Aug 25, 2025 at 11:08:45AM -0500, Alex Elder wrote:
+> On 8/14/25 9:28 PM, Troy Mitchell wrote:
+> > Hi, Alex,
+> > 
+> > I did not find any accesses to the P1 shutdown or reboot registers here.
+> > Does this mean that the current series does not support reboot or shutdown?
+> 
+> Yes, that is correct.
+> 
+> > If so, do you have any plans to support this functionality?
+> 
+> At this time I personally don't have any plans to add this, but
+> it could be added later (by anyone).
+> 
+> I actually attempted to do this initially, but gave up.  The PMIC
+> is accessed via I2C, and I needed to implement a non-blocking
+> version of the I2C register write operation.  I tried that, but
+I have implemented a non-blocking version of the I2C driver [1]
+
+Link: 
+https://lore.kernel.org/all/20250827-k1-i2c-atomic-v1-0-e59bea02d680@linux.spacemit.com/
+[1]
+
+                - Troy
+> then found that the shutdown or reboot still did not work reliably.
+> As it was, this was more than I originally planned to do, so I just
+> implemented the simple RTC operations instead.
+> 
+> 					-Alex
+> 
+> > If I have misunderstood, please correct me.
+> > 
+> > Best regards,
+> > Troy
+> > 
+> > 
+> > On Tue, Aug 12, 2025 at 09:45:03PM -0500, Alex Elder wrote:
+> > > Enable support for the RTC and regulators found in the SpacemiT P1
+> > > PMIC.  Support is implemented by the simple I2C MFD driver.
+> > > 
+> > > The P1 PMIC is normally implemented with the SpacemiT K1 SoC.  This
+> > > PMIC provides 6 buck converters and 12 LDO regulators.  It also
+> > > implements a switch, watchdog timer, real-time clock, and more.
+> > > Initially its RTC and regulators are supported.
+> > > 
+> > > Signed-off-by: Alex Elder <elder@riscstar.com>
+> > > ---
+> > >   drivers/mfd/Kconfig          | 11 +++++++++++
+> > >   drivers/mfd/simple-mfd-i2c.c | 18 ++++++++++++++++++
+> > >   2 files changed, 29 insertions(+)
+> > > 
+> > > diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> > > index 425c5fba6cb1e..4d6a5a3a27220 100644
+> > > --- a/drivers/mfd/Kconfig
+> > > +++ b/drivers/mfd/Kconfig
+> > > @@ -1238,6 +1238,17 @@ config MFD_QCOM_RPM
+> > >   	  Say M here if you want to include support for the Qualcomm RPM as a
+> > >   	  module. This will build a module called "qcom_rpm".
+> > > +config MFD_SPACEMIT_P1
+> > > +	tristate "SpacemiT P1 PMIC"
+> > > +	depends on I2C
+> > > +	select MFD_SIMPLE_MFD_I2C
+> > > +	help
+> > > +	  This option supports the I2C-based SpacemiT P1 PMIC, which
+> > > +	  contains regulators, a power switch, GPIOs, an RTC, and more.
+> > > +	  This option is selected when any of the supported sub-devices
+> > > +	  is configured.  The basic functionality is implemented by the
+> > > +	  simple MFD I2C driver.
+> > > +
+> > >   config MFD_SPMI_PMIC
+> > >   	tristate "Qualcomm SPMI PMICs"
+> > >   	depends on ARCH_QCOM || COMPILE_TEST
+> > > diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
+> > > index 22159913bea03..47ffaac035cae 100644
+> > > --- a/drivers/mfd/simple-mfd-i2c.c
+> > > +++ b/drivers/mfd/simple-mfd-i2c.c
+> > > @@ -93,12 +93,30 @@ static const struct simple_mfd_data maxim_mon_max77705 = {
+> > >   	.mfd_cell_size = ARRAY_SIZE(max77705_sensor_cells),
+> > >   };
+> > > +
+> > > +static const struct regmap_config spacemit_p1_regmap_config = {
+> > > +	.reg_bits = 8,
+> > > +	.val_bits = 8,
+> > > +};
+> > > +
+> > > +static const struct mfd_cell spacemit_p1_cells[] = {
+> > > +	{ .name = "spacemit-p1-regulator", },
+> > > +	{ .name = "spacemit-p1-rtc", },
+> > > +};
+> > > +
+> > > +static const struct simple_mfd_data spacemit_p1 = {
+> > > +	.regmap_config = &spacemit_p1_regmap_config,
+> > > +	.mfd_cell = spacemit_p1_cells,
+> > > +	.mfd_cell_size = ARRAY_SIZE(spacemit_p1_cells),
+> > > +};
+> > > +
+> > >   static const struct of_device_id simple_mfd_i2c_of_match[] = {
+> > >   	{ .compatible = "kontron,sl28cpld" },
+> > >   	{ .compatible = "silergy,sy7636a", .data = &silergy_sy7636a},
+> > >   	{ .compatible = "maxim,max5970", .data = &maxim_max5970},
+> > >   	{ .compatible = "maxim,max5978", .data = &maxim_max5970},
+> > >   	{ .compatible = "maxim,max77705-battery", .data = &maxim_mon_max77705},
+> > > +	{ .compatible = "spacemit,p1", .data = &spacemit_p1, },
+> > >   	{}
+> > >   };
+> > >   MODULE_DEVICE_TABLE(of, simple_mfd_i2c_of_match);
+> > > -- 
+> > > 2.48.1
+> > > 
+> > > 
+> > > _______________________________________________
+> > > linux-riscv mailing list
+> > > linux-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
