@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 095C2CA0FFB
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC08CA0EFF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dZIDoElpIf6I1waY5cWq5xcdmbxcRrr/bB97IkAI9tA=; b=4CsGkIKqKVziav
-	4rY9ceWwzM/KVI82qfAElbQP7ViAK6B5hQPiwuVuJlH03RyUABN2C7T0VqiWuh5y30bwARH0CfR36
-	eZk1EL0Zd5Z1+NtUw3TCB2YBnEpMFabzySo6lyF21lNXGpa8cd3DlITfPO7GMKkBt5JrUdOVqVqmd
-	kqs1Ltv5NMlAaf0vNt3AJ0OnxNbdwx29m/QCdO+/V/Th4cJTMOsR2ap1p08daerTVktgMIoKbXbqE
-	CCiKqC7A6zExF/Hu9g935vcHVjh4tYR+P6cCi2HSwFswGFUaafltyRoCSMdiiQ+4RcV9PxFj5faMv
-	z6sT3ZTm35taQ84IUnRw==;
+	List-Owner; bh=qIW7kVDh42+Ewuvmz7BGEydriLe/HWij9/qReWLp+Qc=; b=vOh+EP38Y37+dH
+	pe+HpvuSmc0fZIito0u7Bur4DnvO31G25HcGub7rjPKzyY7IiS5C3ZdBvuD8mr/KZ6VuYAXs+sZqh
+	dnKFqZCpXhXGQmhkz14RFgRUK8/O+ZI6uEtWefwTC5uiVCcpMxFC4l7utediJAxeBPwkb5ITjP2xE
+	5iYMUeNf0xYBUewuNRsSkIUKavr1bDjxJo5Sthg+kFF7AnY8D42svlS2/c8posik0CnyFiyNEsH2t
+	kMO11/T1x0WdBGMbAbWf3lVCKO2mW2RxPMx+yeBv+KzPH4TLe8RpLIypzXAUju+q4FuFC+2iVsPA+
+	Fxufe2WPTcbkUvWtVjXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPMr-0000000HBf5-0Pfw;
-	Wed, 27 Aug 2025 23:15:49 +0000
+	id 1urPMe-0000000HBNU-1NSh;
+	Wed, 27 Aug 2025 23:15:36 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOJT-0000000H056-1oAF
+	id 1urOHO-0000000Gz0h-15ug
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:08:16 +0000
+	Wed, 27 Aug 2025 22:06:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332494;
+	s=mimecast20190719; t=1756332365;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=oNaSehEob45J6rBCmQiuv1tai/IG2I8b55z4DkHJozQ=;
-	b=E9R0KCix1jP001tQDbtOYUb8+wDyCyfYPUkl1DVn3hoKZKxkbLCERpobEtyaop0PhV6j1z
-	ZDaJE2qPnykeaHXjtpO1q+htiSHoTnroUVldU+B4e5Dhsx987ehdmexCbGuze2nBbez6f7
-	yd846itaKd/CQkkae+rW7gNHPcEATJg=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=jt1gUZzcr2XqEG7AN90PiEkY48hGbYno8tKmbdcHa9Y=;
+	b=hfXlma82rS47oRmBZQyKmjFxlHROHHW2twY6UrUihsou1h3ra8pUyduciag+0CBvZpFTZO
+	wcJqxqk9iYXP5PX4VQQDZvkRmHLJ5aJDwD/1twbZDw+VPXOAHLzgjP15p2xuTyCfBF/Odj
+	MwzVKOjz1VChM8krMlkJ+aRcDHEh1co=
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-376-aT4Dz_AHNuy0h_90DuEaig-1; Wed,
- 27 Aug 2025 18:08:13 -0400
-X-MC-Unique: aT4Dz_AHNuy0h_90DuEaig-1
-X-Mimecast-MFC-AGG-ID: aT4Dz_AHNuy0h_90DuEaig_1756332487
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-522-J9sCWjtzNZKv3p8K8yqDNQ-1; Wed,
+ 27 Aug 2025 18:06:02 -0400
+X-MC-Unique: J9sCWjtzNZKv3p8K8yqDNQ-1
+X-Mimecast-MFC-AGG-ID: J9sCWjtzNZKv3p8K8yqDNQ_1756332357
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2D1AD1800296;
-	Wed, 27 Aug 2025 22:08:07 +0000 (UTC)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 230CF19560B0;
+	Wed, 27 Aug 2025 22:05:57 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 478603001453;
-	Wed, 27 Aug 2025 22:07:50 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 5908830001A1;
+	Wed, 27 Aug 2025 22:05:42 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -103,16 +102,16 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v1 21/36] mm/cma: refuse handing out non-contiguous page ranges
-Date: Thu, 28 Aug 2025 00:01:25 +0200
-Message-ID: <20250827220141.262669-22-david@redhat.com>
+Subject: [PATCH v1 13/36] mm/hugetlb: cleanup hugetlb_folio_init_tail_vmemmap()
+Date: Thu, 28 Aug 2025 00:01:17 +0200
+Message-ID: <20250827220141.262669-14-david@redhat.com>
 In-Reply-To: <20250827220141.262669-1-david@redhat.com>
 References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150815_544445_1EA23E05 
-X-CRM114-Status: GOOD (  26.45  )
+X-CRM114-CacheID: sfid-20250827_150606_375786_41824872 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,181 +128,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's disallow handing out PFN ranges with non-contiguous pages, so we
-can remove the nth-page usage in __cma_alloc(), and so any callers don't
-have to worry about that either when wanting to blindly iterate pages.
+We can now safely iterate over all pages in a folio, so no need for the
+pfn_to_page().
 
-This is really only a problem in configs with SPARSEMEM but without
-SPARSEMEM_VMEMMAP, and only when we would cross memory sections in some
-cases.
+Also, as we already force the refcount in __init_single_page() to 1,
+we can just set the refcount to 0 and avoid page_ref_freeze() +
+VM_BUG_ON. Likely, in the future, we would just want to tell
+__init_single_page() to which value to initialize the refcount.
 
-Will this cause harm? Probably not, because it's mostly 32bit that does
-not support SPARSEMEM_VMEMMAP. If this ever becomes a problem we could
-look into allocating the memmap for the memory sections spanned by a
-single CMA region in one go from memblock.
+Further, adjust the comments to highlight that we are dealing with an
+open-coded prep_compound_page() variant, and add another comment explaining
+why we really need the __init_single_page() only on the tail pages.
 
-Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
+Note that the current code was likely problematic, but we never ran into
+it: prep_compound_tail() would have been called with an offset that might
+exceed a memory section, and prep_compound_tail() would have simply
+added that offset to the page pointer -- which would not have done the
+right thing on sparsemem without vmemmap.
+
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- include/linux/mm.h |  6 ++++++
- mm/cma.c           | 39 ++++++++++++++++++++++++---------------
- mm/util.c          | 33 +++++++++++++++++++++++++++++++++
- 3 files changed, 63 insertions(+), 15 deletions(-)
+ mm/hugetlb.c | 20 ++++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index f6880e3225c5c..2ca1eb2db63ec 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -209,9 +209,15 @@ extern unsigned long sysctl_user_reserve_kbytes;
- extern unsigned long sysctl_admin_reserve_kbytes;
- 
- #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
-+bool page_range_contiguous(const struct page *page, unsigned long nr_pages);
- #define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
- #else
- #define nth_page(page,n) ((page) + (n))
-+static inline bool page_range_contiguous(const struct page *page,
-+		unsigned long nr_pages)
-+{
-+	return true;
-+}
- #endif
- 
- /* to align the pointer to the (next) page boundary */
-diff --git a/mm/cma.c b/mm/cma.c
-index e56ec64d0567e..813e6dc7b0954 100644
---- a/mm/cma.c
-+++ b/mm/cma.c
-@@ -780,10 +780,8 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
- 				unsigned long count, unsigned int align,
- 				struct page **pagep, gfp_t gfp)
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index 4a97e4f14c0dc..1f42186a85ea4 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -3237,17 +3237,18 @@ static void __init hugetlb_folio_init_tail_vmemmap(struct folio *folio,
  {
--	unsigned long mask, offset;
--	unsigned long pfn = -1;
--	unsigned long start = 0;
- 	unsigned long bitmap_maxno, bitmap_no, bitmap_count;
-+	unsigned long start, pfn, mask, offset;
- 	int ret = -EBUSY;
- 	struct page *page = NULL;
+ 	enum zone_type zone = zone_idx(folio_zone(folio));
+ 	int nid = folio_nid(folio);
++	struct page *page = folio_page(folio, start_page_number);
+ 	unsigned long head_pfn = folio_pfn(folio);
+ 	unsigned long pfn, end_pfn = head_pfn + end_page_number;
+-	int ret;
+-
+-	for (pfn = head_pfn + start_page_number; pfn < end_pfn; pfn++) {
+-		struct page *page = pfn_to_page(pfn);
  
-@@ -795,7 +793,7 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
- 	if (bitmap_count > bitmap_maxno)
- 		goto out;
- 
--	for (;;) {
-+	for (start = 0; ; start = bitmap_no + mask + 1) {
- 		spin_lock_irq(&cma->lock);
- 		/*
- 		 * If the request is larger than the available number
-@@ -812,6 +810,22 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
- 			spin_unlock_irq(&cma->lock);
- 			break;
- 		}
-+
-+		pfn = cmr->base_pfn + (bitmap_no << cma->order_per_bit);
-+		page = pfn_to_page(pfn);
-+
-+		/*
-+		 * Do not hand out page ranges that are not contiguous, so
-+		 * callers can just iterate the pages without having to worry
-+		 * about these corner cases.
-+		 */
-+		if (!page_range_contiguous(page, count)) {
-+			spin_unlock_irq(&cma->lock);
-+			pr_warn_ratelimited("%s: %s: skipping incompatible area [0x%lx-0x%lx]",
-+					    __func__, cma->name, pfn, pfn + count - 1);
-+			continue;
-+		}
-+
- 		bitmap_set(cmr->bitmap, bitmap_no, bitmap_count);
- 		cma->available_count -= count;
- 		/*
-@@ -821,29 +835,24 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
- 		 */
- 		spin_unlock_irq(&cma->lock);
- 
--		pfn = cmr->base_pfn + (bitmap_no << cma->order_per_bit);
- 		mutex_lock(&cma->alloc_mutex);
- 		ret = alloc_contig_range(pfn, pfn + count, ACR_FLAGS_CMA, gfp);
- 		mutex_unlock(&cma->alloc_mutex);
--		if (ret == 0) {
--			page = pfn_to_page(pfn);
-+		if (!ret)
- 			break;
--		}
- 
- 		cma_clear_bitmap(cma, cmr, pfn, count);
- 		if (ret != -EBUSY)
- 			break;
- 
- 		pr_debug("%s(): memory range at pfn 0x%lx %p is busy, retrying\n",
--			 __func__, pfn, pfn_to_page(pfn));
-+			 __func__, pfn, page);
- 
--		trace_cma_alloc_busy_retry(cma->name, pfn, pfn_to_page(pfn),
--					   count, align);
--		/* try again with a bit different memory target */
--		start = bitmap_no + mask + 1;
-+		trace_cma_alloc_busy_retry(cma->name, pfn, page, count, align);
- 	}
- out:
--	*pagep = page;
-+	if (!ret)
-+		*pagep = page;
- 	return ret;
- }
- 
-@@ -882,7 +891,7 @@ static struct page *__cma_alloc(struct cma *cma, unsigned long count,
- 	 */
- 	if (page) {
- 		for (i = 0; i < count; i++)
--			page_kasan_tag_reset(nth_page(page, i));
-+			page_kasan_tag_reset(page + i);
- 	}
- 
- 	if (ret && !(gfp & __GFP_NOWARN)) {
-diff --git a/mm/util.c b/mm/util.c
-index d235b74f7aff7..0bf349b19b652 100644
---- a/mm/util.c
-+++ b/mm/util.c
-@@ -1280,4 +1280,37 @@ unsigned int folio_pte_batch(struct folio *folio, pte_t *ptep, pte_t pte,
- {
- 	return folio_pte_batch_flags(folio, NULL, ptep, &pte, max_nr, 0);
- }
-+
-+#if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
-+/**
-+ * page_range_contiguous - test whether the page range is contiguous
-+ * @page: the start of the page range.
-+ * @nr_pages: the number of pages in the range.
-+ *
-+ * Test whether the page range is contiguous, such that they can be iterated
-+ * naively, corresponding to iterating a contiguous PFN range.
-+ *
-+ * This function should primarily only be used for debug checks, or when
-+ * working with page ranges that are not naturally contiguous (e.g., pages
-+ * within a folio are).
-+ *
-+ * Returns true if contiguous, otherwise false.
-+ */
-+bool page_range_contiguous(const struct page *page, unsigned long nr_pages)
-+{
-+	const unsigned long start_pfn = page_to_pfn(page);
-+	const unsigned long end_pfn = start_pfn + nr_pages;
-+	unsigned long pfn;
-+
 +	/*
-+	 * The memmap is allocated per memory section. We need to check
-+	 * each involved memory section once.
++	 * We mark all tail pages with memblock_reserved_mark_noinit(),
++	 * so these pages are completely uninitialized.
 +	 */
-+	for (pfn = ALIGN(start_pfn, PAGES_PER_SECTION);
-+	     pfn < end_pfn; pfn += PAGES_PER_SECTION)
-+		if (unlikely(page + (pfn - start_pfn) != pfn_to_page(pfn)))
-+			return false;
-+	return true;
-+}
-+#endif
- #endif /* CONFIG_MMU */
++	for (pfn = head_pfn + start_page_number; pfn < end_pfn; page++, pfn++) {
+ 		__init_single_page(page, pfn, zone, nid);
+ 		prep_compound_tail((struct page *)folio, pfn - head_pfn);
+-		ret = page_ref_freeze(page, 1);
+-		VM_BUG_ON(!ret);
++		set_page_count(page, 0);
+ 	}
+ }
+ 
+@@ -3257,12 +3258,15 @@ static void __init hugetlb_folio_init_vmemmap(struct folio *folio,
+ {
+ 	int ret;
+ 
+-	/* Prepare folio head */
++	/*
++	 * This is an open-coded prep_compound_page() whereby we avoid
++	 * walking pages twice by initializing/preparing+freezing them in the
++	 * same go.
++	 */
+ 	__folio_clear_reserved(folio);
+ 	__folio_set_head(folio);
+ 	ret = folio_ref_freeze(folio, 1);
+ 	VM_BUG_ON(!ret);
+-	/* Initialize the necessary tail struct pages */
+ 	hugetlb_folio_init_tail_vmemmap(folio, 1, nr_pages);
+ 	prep_compound_head((struct page *)folio, huge_page_order(h));
+ }
 -- 
 2.50.1
 
