@@ -4,56 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A99CCCA0EED
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Aug 2025 06:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5771CA0FF2
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Aug 2025 07:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ug4rmFm+FxsmvqJbFfj5MJpMGlr480AqdUJ44SUxrJw=; b=shOCmDZkvUNQNJ
-	n53+fEjkBjCF8y2LRrAQWNLdrLSB9pipBol/j3mA1u1R0RCHSbiP06Pmop+qn0MGdBjmL2P2XeVyl
-	1oWwzPprTxDFR1TulLlTlv1k/FDPUbL3beWys0S4lI1wIKljzwBBDRoPwaxHccbT9QoKDOFnT3uXa
-	l65/bPHWghDch+lCqrEMPnz4qJNoKIgQ54HHtHwtxtVHw3Z4AXk8jHE7HkEpJ1O3Mmb9+jQXtR0XZ
-	mn0zpThZ1mZ2W/MPuoPwaRmD/XcF87cZvCrnZv5oATvz5j1OSQJId+tzlvML4AmEatheKr4s01aUB
-	stSsEIYxrj8bh2gZViiQ==;
+	List-Owner; bh=yUQKWUSnPRTD9lrjnmMCDsIa9bDRdiJqz0nUGGdZBrU=; b=B7Chml/U0jzqH6
+	dfyCCI2tTXF0D5LeRtO5CTAyhPe1Pdr65wHa0N5ixWA4AqhrVNTHZTPg764ic0fVnIzp0ZuGYqBJH
+	DTmDkTiqavg3Jwm/2GYSJYPCzXb50D2Fcx+dmsbB393swqmCcfMTndw11pYnKZraFItwKUZF8TjGd
+	fS5GwFJ+RSkbvtD30HScP0/mmrd3Jpr1FuVTueyfYmIoQmGnHsucLyAfFh9MWdBg9UJ/ZqUvAogcv
+	3MH8L0HLKGtc+Ryd7lCLVEayfdBMHM3hFc1fQeBAxoTxbXEeI4IRubXRUWMdIeGSw1arMBwVY28JG
+	qoMZ7DYPGYBwX90+SMdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urVws-00000000PsT-2Sjx;
-	Thu, 28 Aug 2025 06:17:26 +0000
-Received: from [50.53.25.54] (helo=[192.168.254.17])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urVuA-00000000Phx-1KCr;
-	Thu, 28 Aug 2025 06:14:38 +0000
-Message-ID: <61cd6dac-14e1-474e-9aa3-4fe782e81ba9@infradead.org>
-Date: Wed, 27 Aug 2025 23:14:36 -0700
+	id 1urX2D-00000000aUO-28mK;
+	Thu, 28 Aug 2025 07:27:01 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urWuL-00000000Yv6-2mB9;
+	Thu, 28 Aug 2025 07:18:55 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-afcb7322da8so107953666b.0;
+        Thu, 28 Aug 2025 00:18:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756365532; x=1756970332; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ACPidqQG6DQZNVxh12NaJPKP3Jkf06hyqyPjQ1p5F2E=;
+        b=XqYfYlUwSXpgsDlMxgylTbnhisM9KRUoXe9xPr7etfJsQo8w+b7f5jor90U2wOutuA
+         fihDvkZVxpV02s587wcdr2JLgTfDIPVXQYEQ+GHspMW7iILIvBva9LAfPlkMsYCQiRkj
+         Vr06Rx7VXkwHjU5H1/5KdIqldTJF4jRfVYIYCeuQVHCNUtz0naj6Ex8DrIHCV/WphtHG
+         NkfKmUTq3HnWqWvPgsLAp5ZqS8Fqn04Df7EPkoZYVvykeWfX5mOW27YPj4g/SjSfd8rS
+         gQrbFIhaV9QOeHdl1QXq8qAVG92kEe4QKjmQcZ5n2Uh6y60Z5hrpTGzO6PckALzEx9M3
+         B0bA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756365532; x=1756970332;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ACPidqQG6DQZNVxh12NaJPKP3Jkf06hyqyPjQ1p5F2E=;
+        b=toQroIZCf48MQtykFoEXRJ7FIs5rxUmLTdGypKoMkh83WIfJGOSczsBUrXfsxd54PG
+         E/KNAINbCUDLFjs1xvc84pPX3DSFYsuPUbdAz0N9XclnUUqYmSC2JqilMZhqDiwFu93+
+         lh3ypluZxXfggHw5mRkFU1tM/JRPMBXEUk2DpRLId9rLXzCN7R0mB3vai4OFUDw3Lksf
+         3EthH9NZw73Y1ri8qu0ZsBGpj5zt5fdZs9SqsYJ/s+hXBJGyWuJn8wZ+YHodwR+saFjW
+         OKO6plqFUSIkXBSxlMzaAz6MYSrdvOAcqFbzzHF5JC1MfhcqDIYmSZD0vIJlsStUve1G
+         VFRA==
+X-Forwarded-Encrypted: i=1; AJvYcCUpfxEtoqAsjnHncBnbQpO/bVyOWX+hG+ctpBNsS3/1WX7oGfqXK6ZEPzrWl7MP+C08ztPlXH3UKXqNX6g=@lists.infradead.org, AJvYcCXwZMebuIY/tLs6Wcbd2ZmU0J314kQ4WN+GehtW6zAruskCKXy2tN1OImuWDAfiyuNQKGaKWR9wNeAIUwsF4OaZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCWst7FNGU91k+yGrCKOfrUynfDq3jLgzndl3kyPiDx+5sPH2D
+	lon+v2f6veJpoXFI3Pw33AYwp2L4sNc2/8LnE+e8KB01HlSOu1GmbYip
+X-Gm-Gg: ASbGncvmHXYKKkeOL6GS+4OnoLkhPEV9eFta2PWXq2z3zIyjK4QVl/1uBlA1I2eSrML
+	0G20mPgjD5Acy2lpiZTS071vnw8SKGi2VVZzi4u2k24dyfNXgDu7ImDC80Tfs72RTSvJa+1Wfgs
+	fintbst0cRKyTnmSILPiYftkP/UQda5D0GDUdsJVYtjyhTFYTJE+L8Gi4RR5JTM8V/GR1yDMIeY
+	zjr6sumEqXJmySHK5ub3s4a51re+vcF6YTcxqQLfuT9ozYITul/HeL97k2B20U8cDBb/tvaSUbr
+	6O+vRWmvE74MuzQbbt/M+x7fH3YeZHvlrJTlMJ4LoWqo/kLz5inHQEXyGvR19EH3V/StDRwxlJ2
+	Pkffb7GEPgsbbqEdC7WKU0CgQdaCr5h2TD/m0
+X-Google-Smtp-Source: AGHT+IEf18QCG44U8jBJ4evHstdtd0oL4Hr6BpN08BPT0cHmsLXVki3gbBRZpXohq9eRx3IUTA8+0Q==
+X-Received: by 2002:a17:907:d2a:b0:afe:dbfb:b10e with SMTP id a640c23a62f3a-afedbfbb935mr140730666b.47.1756365531421;
+        Thu, 28 Aug 2025 00:18:51 -0700 (PDT)
+Received: from localhost ([185.92.221.13])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe98ade972sm616427066b.50.2025.08.28.00.18.50
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 28 Aug 2025 00:18:50 -0700 (PDT)
+Date: Thu, 28 Aug 2025 07:18:50 +0000
+From: Wei Yang <richard.weiyang@gmail.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	SeongJae Park <sj@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org
+Subject: Re: [PATCH v1 01/36] mm: stop making SPARSEMEM_VMEMMAP
+ user-selectable
+Message-ID: <20250828071850.kl7clyh6e75horlk@master>
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-2-david@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Kees Cook <kees@outflux.net>,
- Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Kees Cook <kees@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- Linus Walleij <linus.walleij@linaro.org>, Mark Rutland
- <mark.rutland@arm.com>, Puranjay Mohan <puranjay@kernel.org>,
- David Woodhouse <dwmw2@infradead.org>, Jonathan Corbet <corbet@lwn.net>,
- x86@kernel.org, linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- llvm@lists.linux.dev, linux-hardening@vger.kernel.org
-References: <20250825141316.work.967-kees@kernel.org>
- <20250825142603.1907143-5-kees@kernel.org>
- <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com>
- <202508250834.E2456B9@keescook>
- <CANiq72mQsLqhpX29NP3Zm8HZ5m429tSXjgFcRYJM3e=Zac1G1w@mail.gmail.com>
- <9CCDBE93-7DBD-41D0-B9B6-05900F2AB1EE@outflux.net>
- <20250827013444.GA2859318@ax162>
- <56c2b1ce-00a4-403c-9927-79bfd9a23574@infradead.org>
- <20250827193815.GA2293657@ax162>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20250827193815.GA2293657@ax162>
+Content-Disposition: inline
+In-Reply-To: <20250827220141.262669-2-david@redhat.com>
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250828_001853_726746_BDE2813F 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,78 +133,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: Wei Yang <richard.weiyang@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA4LzI3LzI1IDEyOjM4IFBNLCBOYXRoYW4gQ2hhbmNlbGxvciB3cm90ZToKPiBPbiBXZWQs
-IEF1ZyAyNywgMjAyNSBhdCAxMjozNToxMkFNIC0wNzAwLCBSYW5keSBEdW5sYXAgd3JvdGU6Cj4+
-IE9uIDgvMjYvMjUgNjozNCBQTSwgTmF0aGFuIENoYW5jZWxsb3Igd3JvdGU6Cj4+PiBPbiBNb24s
-IEF1ZyAyNSwgMjAyNSBhdCAwMzozMTozNFBNIC0wNDAwLCBLZWVzIENvb2sgd3JvdGU6Cj4+Pj4g
-T24gQXVndXN0IDI1LCAyMDI1IDE6MDA6MjIgUE0gRURULCBNaWd1ZWwgT2plZGEgPG1pZ3VlbC5v
-amVkYS5zYW5kb25pc0BnbWFpbC5jb20+IHdyb3RlOgo+Pj4+PiBPbiBNb24sIEF1ZyAyNSwgMjAy
-NSBhdCA1OjM14oCvUE0gS2VlcyBDb29rIDxrZWVzQGtlcm5lbC5vcmc+IHdyb3RlOgo+Pj4+Pj4K
-Pj4+Pj4+IFllYWgsIHRoYXQncyBhIGdvb2QgaWRlYS4gV2hhdCB0aGUgcmlnaHQgd2F5IHRvIGRv
-IHRoYXQ/Cj4+Pj4+Pgo+Pj4+Pj4gY29uZmlnIENGSV9DTEFORwo+Pj4+Pj4gICAgICAgICBib29s
-ICJVc2UgQ2xhbmcncyBDb250cm9sIEZsb3cgSW50ZWdyaXR5IChDRkkpIgo+Pj4+Pj4gICAgICAg
-ICBkZXBlbmRzIG9uIEFSQ0hfU1VQUE9SVFNfQ0ZJCj4+Pj4+PiAgICAgICAgIHNlbGVjdCBDRkkK
-Pj4+Pj4+Cj4+Pj4+PiA/Cj4+Pj4+Cj4+Pj4+IEkgZG9uJ3QgcmVjYWxsIHdoYXQgaXMgdGhlIGlk
-aW9tYXRpYyBzb2x1dGlvbiBmb3IgcmVuYW1lcywgYnV0IEkKPj4+Pj4gcmVtZW1iZXIgTGludXMg
-dGFsa2luZyBhYm91dCB0aGlzIHRvcGljIGFuZCBhYm91dCBhdm9pZGluZyBsb3Npbmcgb2xkCj4+
-Pj4+IHZhbHVlcyBpZiBwb3NzaWJsZSAocGVyaGFwcyBnZXR0aW5nIGEgbmV3IHF1ZXN0aW9uIGlu
-IGBvbGRjb25maWdgIGlzCj4+Pj4+IE9LIGFzIGxvbmcgYXMgdGhlIGBvbGRkZWZjb25maWdgIHJl
-c3BlY3RzIHRoZSBvbGQgdmFsdWUpLgo+Pj4+Pgo+Pj4+PiBJIHRoaW5rIHlvdXIgc3VnZ2VzdGlv
-biBhYm92ZSB3aWxsIHN0aWxsIG1ha2UgaXQgYXBwZWFyIHR3aWNlIGluCj4+Pj4+IGBtZW51Y29u
-ZmlnYCAtLSB0aGVyZSBtYXkgYmUgYSB3YXkgdG8gcGxheSB3aXRoIHZpc2liaWxpdHkgdG8gbWFr
-ZSBpdAo+Pj4+PiBiZXR0ZXIuCj4+Pj4+Cj4+Pj4+IEEgc2ltcGxlIHBvc3NpYmlsaXR5IEkgY2Fu
-IHRoaW5rIG9mIChhc3N1bWluZyBpdCB3b3JrcykgaXMgaGF2aW5nIHRoZQo+Pj4+PiBDRkkgc3lt
-Ym9sIGZvciB0aGUgdGltZSBiZWluZyBpbnRyb2R1Y2VkIGp1c3QgYXMgYSBgZGVmX2Jvb2wKPj4+
-Pj4gQ0ZJX0NMQU5HYCBmb3IgYSBmZXcgcmVsZWFzZXMgc28gdGhhdCBwZW9wbGUgZ2V0IHRoZSBu
-ZXcgb25lIGluIHRoZWlyCj4+Pj4+IGNvbmZpZ3MuCj4+Pj4KPj4+PiBBaCwgSSB0aGluayB0aGlz
-IHdvcmtzOgo+Pj4+Cj4+Pj4gY29uZmlnIENGSV9DTEFORwo+Pj4+ICAgICBib29sCj4+Pj4KPj4+
-PiBjb25maWcgQ0ZJCj4+Pj4gICAgIGJvb2wgIi4uLi4iCj4+Pj4gICAgIGRlZmF1bHQgQ0ZJX0NM
-QU5HCj4+Pj4KPj4+PiBJIHdpbGwgYWRkIHRoYXQgZm9yIHYyLgo+Pj4KPj4+IFRoYXQgZG9lcyBu
-b3QgYXBwZWFyIHRvIHdvcmsgZm9yIG1lLiBJIGFwcGxpZWQKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEv
-YXJjaC9LY29uZmlnIGIvYXJjaC9LY29uZmlnCj4+PiBpbmRleCBjMjVhNDVkOWFhOTYuLjBkM2Vk
-MDNjNzZjMiAxMDA2NDQKPj4+IC0tLSBhL2FyY2gvS2NvbmZpZwo+Pj4gKysrIGIvYXJjaC9LY29u
-ZmlnCj4+PiBAQCAtODc2LDggKzg3NiwxMiBAQCBjb25maWcgQVJDSF9TVVBQT1JUU19DRkkKPj4+
-ICBjb25maWcgQVJDSF9VU0VTX0NGSV9UUkFQUwo+Pj4gICAgICAgICBib29sCj4+Pgo+Pj4gK2Nv
-bmZpZyBDRklfQ0xBTkcKPj4+ICsgICAgICAgYm9vbAo+Pj4gKwo+Pj4gIGNvbmZpZyBDRkkKPj4+
-ICAgICAgICAgYm9vbCAiVXNlIEtlcm5lbCBDb250cm9sIEZsb3cgSW50ZWdyaXR5IChrQ0ZJKSIK
-Pj4+ICsgICAgICAgZGVmYXVsdCBDRklfQ0xBTkcKPj4+ICAgICAgICAgZGVwZW5kcyBvbiBBUkNI
-X1NVUFBPUlRTX0NGSQo+Pj4gICAgICAgICBkZXBlbmRzIG9uICQoY2Mtb3B0aW9uLC1mc2FuaXRp
-emU9a2NmaSkKPj4+ICAgICAgICAgaGVscAo+Pj4KPj4+IG9uIHRvcCBvZiB0aGlzIHNlcmllcyBh
-bmQKPj4+Cj4+PiAgIENPTkZJR19DRklfQ0xBTkc9eQo+Pj4gICAjIENPTkZJR19DRklfSUNBTExf
-Tk9STUFMSVpFX0lOVEVHRVJTIGlzIG5vdCBzZXQKPj4+ICAgIyBDT05GSUdfQ0ZJX1BFUk1JU1NJ
-VkUgaXMgbm90IHNldAo+Pj4KPj4+IGdldHMgdHVybmVkIGludG8KPj4+Cj4+PiAgICMgQ09ORklH
-X0NGSSBpcyBub3Qgc2V0Cj4+Pgo+Pj4gYWZ0ZXIgb2xkZGVmY29uZmlnLiBDT05GSUdfQ0ZJX0NM
-QU5HIGhhcyB0byBiZSB1c2VyIHNlbGVjdGFibGUgd2l0aCBhCj4+Cj4+IENvdWxkL2RpZCB5b3Ug
-dGVzdCB3aXRoICdvbGRjb25maWcnIGluc3RlYWQ/Cj4+Cj4+IG9sZGRlZmNvbmZpZyBpcyBnb2lu
-ZyB0byB1c2UgdGhlIGRlZmF1bHQgdmFsdWUgZnJvbSB0aGUgS2NvbmZpZyBmaWxlLAo+PiB3aGlj
-aCBpZiBDRklfQ0xBTkcgd2hpY2ggaXMgdW5kZWZpbmVkL05vL05vdCBzZXQuCj4+Cj4+IG9sZGNv
-bmZpZyB3aWxsIHVzZSB0aGUgb2xkIHZhbHVlIGZyb20gdGhlIC5jb25maWcgZmlsZS4KPiAKPiBJ
-IGFtIG5vdCBzdXJlIEkgdW5kZXJzdGFuZCB3aGF0IHlvdSBtZWFuIGhlcmUuIFdpdGggdGhlIHNl
-cmllcyBhcyBpdCBpcwo+IG9yIEtlZXMncyBzdWdnZXN0ZWQgZml4LCBvbGRjb25maWcgc3RpbGwg
-cHJvbXB0cyB0aGUgdXNlciB0byBlbmFibGUKCk9LLCBJIGRvbid0IGtub3cgdGhlIHN0YXRlIG9m
-IHRoZSBDRklfQ0xBTkcgLyBDTEFORyBwYXRjaChlcykuCgpJIGp1c3QgbWVhbiB0aGUgZGlmZmVy
-ZW5jZSBpbiAnbWFrZSBvbGRjb25maWcnIGFuZCAnbWFrZSBvbGRkZWZjb25maWcnCihhdCBsZWFz
-dCBBSVVJKS4KCgo+IENPTkZJR19DRkkgd2l0aCBDT05GSUdfQ0ZJX0NMQU5HPXkgaW4gdGhlIG9s
-ZCBjb25maWd1cmF0aW9uLiBCb3RoIE1pZ3VlbAo+IGFuZCBJIGFsbHVkZSB0byB0aGF0IGJlaW5n
-IGZpbmUgYnV0IGl0IHdvdWxkIGJlIHJlYWxseSBuaWNlIGlmIHVzZXJzCj4gd2l0aCBDT05GSUdf
-Q0ZJX0NMQU5HPXkgd2VyZSBhdXRvbWF0aWNhbGx5IHRyYW5zaXRpb25lZCB0byBDT05GSUdfQ0ZJ
-PXkKPiB3aXRob3V0IGFueSBhY3Rpb24gb24gdGhlaXIgcGFydC4gVGhhdCBzZWVtcyB0byBiZSBp
-biBsaW5lIHdpdGggaG93CgpZZXMsIEkgYWdyZWUuCgo+IExpbnVzIGZlZWxzIGV2ZW4gYXMgcmVj
-ZW50bHkgYXMgdGhpcyBwYXN0IG1lcmdlIHdpbmRvdzoKPiAKPiBodHRwczovL2xvcmUua2VybmVs
-Lm9yZy9DQUhrLT13Z08wUngyTGNZVDRmNzVYczQ2b3JiSjRKeE8yamJBRlFuVktEWUFqVjVIZVFA
-bWFpbC5nbWFpbC5jb20vCj4gCj4gQW5vdGhlciBpZGVhIEkgaGFkIHRvIGF2b2lkIHRoaXMgaXMg
-aW50cm9kdWNpbmcgQ09ORklHX0NGSV9HQ0MgYXMgYSB1c2VyCj4gc2VsZWN0YWJsZSBzeW1ib2wg
-YW5kIG1ha2luZyBDT05GSUdfQ0ZJIHRoZSBoaWRkZW4gc3ltYm9sIHRoYXQgYm90aAo+IGNvbXBp
-bGVyIHN5bWJvbHMgc2VsZWN0LiBBZnRlciBhIGNvdXBsZSBvZiByZWxlYXNlcyAob3IgbWF5YmUg
-dGhlIG5leHQKPiBMVFMpLCBib3RoIENPTkZJR19DRklfQ0xBTkcgYW5kIENPTkZJR19DRklfR0ND
-IGNvdWxkIGJlIGVsaW1pbmF0ZWQgd2l0aAo+IENPTkZJR19DRkkgYmVjb21pbmcgdXNlciBzZWxl
-Y3RhYmxlLCB3aGljaCB3b3VsZCBrZWVwIHRoaW5ncyB3b3JraW5nCj4gc2luY2UgQ09ORklHX0NG
-ST15IHdpbGwgYmUgcHJlc2VudCBpbiB0aGUgcHJldmlvdXMgY29uZmlndXJhdGlvbi4KCgotLSAK
-flJhbmR5CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, Aug 28, 2025 at 12:01:05AM +0200, David Hildenbrand wrote:
+>In an ideal world, we wouldn't have to deal with SPARSEMEM without
+>SPARSEMEM_VMEMMAP, but in particular for 32bit SPARSEMEM_VMEMMAP is
+>considered too costly and consequently not supported.
+>
+>However, if an architecture does support SPARSEMEM with
+>SPARSEMEM_VMEMMAP, let's forbid the user to disable VMEMMAP: just
+>like we already do for arm64, s390 and x86.
+>
+>So if SPARSEMEM_VMEMMAP is supported, don't allow to use SPARSEMEM without
+>SPARSEMEM_VMEMMAP.
+>
+>This implies that the option to not use SPARSEMEM_VMEMMAP will now be
+>gone for loongarch, powerpc, riscv and sparc. All architectures only
+>enable SPARSEMEM_VMEMMAP with 64bit support, so there should not really
+>be a big downside to using the VMEMMAP (quite the contrary).
+>
+>This is a preparation for not supporting
+>
+>(1) folio sizes that exceed a single memory section
+>(2) CMA allocations of non-contiguous page ranges
+>
+>in SPARSEMEM without SPARSEMEM_VMEMMAP configs, whereby we
+>want to limit possible impact as much as possible (e.g., gigantic hugetlb
+>page allocations suddenly fails).
+>
+>Acked-by: Zi Yan <ziy@nvidia.com>
+>Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>Acked-by: SeongJae Park <sj@kernel.org>
+>Cc: Huacai Chen <chenhuacai@kernel.org>
+>Cc: WANG Xuerui <kernel@xen0n.name>
+>Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+>Cc: Michael Ellerman <mpe@ellerman.id.au>
+>Cc: Nicholas Piggin <npiggin@gmail.com>
+>Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+>Cc: Paul Walmsley <paul.walmsley@sifive.com>
+>Cc: Palmer Dabbelt <palmer@dabbelt.com>
+>Cc: Albert Ou <aou@eecs.berkeley.edu>
+>Cc: Alexandre Ghiti <alex@ghiti.fr>
+>Cc: "David S. Miller" <davem@davemloft.net>
+>Cc: Andreas Larsson <andreas@gaisler.com>
+>Signed-off-by: David Hildenbrand <david@redhat.com>
+
+Reviewed-by: Wei Yang <richard.weiyang@gmail.com>
+
+>---
+> mm/Kconfig | 3 +--
+> 1 file changed, 1 insertion(+), 2 deletions(-)
+>
+>diff --git a/mm/Kconfig b/mm/Kconfig
+>index 4108bcd967848..330d0e698ef96 100644
+>--- a/mm/Kconfig
+>+++ b/mm/Kconfig
+>@@ -439,9 +439,8 @@ config SPARSEMEM_VMEMMAP_ENABLE
+> 	bool
+> 
+> config SPARSEMEM_VMEMMAP
+>-	bool "Sparse Memory virtual memmap"
+>+	def_bool y
+> 	depends on SPARSEMEM && SPARSEMEM_VMEMMAP_ENABLE
+>-	default y
+> 	help
+> 	  SPARSEMEM_VMEMMAP uses a virtually mapped memmap to optimise
+> 	  pfn_to_page and page_to_pfn operations.  This is the most
+>-- 
+>2.50.1
+>
+
+-- 
+Wei Yang
+Help you, Help me
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
