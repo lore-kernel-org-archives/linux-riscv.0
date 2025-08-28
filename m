@@ -4,114 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B3CCA0EFF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Aug 2025 23:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D6CCA0EFF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Aug 2025 00:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xh0X6l0eK090km6xunAixrSJilHBBxy9rD2h5eKAPqs=; b=IM5oYgVifFmcEj
-	kAAHN1Dtpr8LT+hMvfvOLIdJO2k6oddrwZJ5Dni33NHdiqK6TFMpyMP+8WsYp/1ioMaIi7grwJB52
-	BFoQUGp3HYhUzGFczjieXe5q+hAKiYI1t3wusl38N0f8SScjdwemLjWSDvb24cb7s9eTuJRxhjPA2
-	nweOzkF2BkE4X4EDVyEFwXARQPvYely16XsCq8bOKWxdrIEyaHrT/eb26GFK5TAr1SECBP3FLOpul
-	w+cZLK64VQK50L1L01hXbeJqV/1CnWEit0Cxt7JZg0A5iAU0Oqbmnl4G/40+FgzOlHsEMWRw6Qr+p
-	JiLcyHlXQ6Fj2X6CoZvg==;
+	List-Owner; bh=oCIKDpcz814QRFV32GQOGQAo3bkQurHO6bPKzYbn6do=; b=lsvx0gWSbr9Fll
+	jQLxiDw6kF6rxoGYHjXvbrYItHoZx6gMXqmEMGaRdP/jG9Il+HiTeUv6DX9uE0CNiNaHJXT6/R3EV
+	aw54ClH2FygJvUyIGaKqyl2lzomTxbXnHKH6w7hzomOYTa4hwFWmnhy7hZTdSk6fF74/Av7F+GWZ7
+	49esM+p56CxNYX9L+14mxn4aJwDwDovUHPTQeOGAhQRsTvjCaZsPEcKGf55NLYYWBIF7Y0od0ozYc
+	HQY7g7Y9+7kmbmHET2it3Lk5W6zfd4C1hQlUPBV1622Gn1mUnRyFXxk+2LcJ2kY9wxL9M2E3MWg85
+	19XmhLdsOoOtKX3QV18Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPUN-0000000HEse-1zWo;
-	Wed, 27 Aug 2025 23:23:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1urQ8Q-0000000HIz7-1XZy;
+	Thu, 28 Aug 2025 00:04:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOGP-0000000Gyd3-3p3p
+	id 1urQ5h-0000000HI86-1IB1
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 28 Aug 2025 00:02:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=kCYLCx+qR2vxxpcmuDTRXW8z6xS3j6g2rCWoMpSsv0A=; b=Ty1VfrdU8egIG/83BbD6eMYmZm
+	kPatndu6M1dKvY+eRMQeIwD5bbN6ZiiFtu4s5Py3ULSeehGUbh/JIY3GM5S4DB4hQ4GMcf7Zlitdf
+	kxA7q8XwzlnvkbEowYKTKOi2kjL7UU4/KDGhtiLAvpvqK4khG6sujCk6rFPwAL0CB44P90PqvuT7E
+	5HJt50YzUajZDP7M9J6xhhKxvIbqze6DAdSYBa2pUW1oW2k7SmAORaKIB3wznm85FE0Zq7zi95aAG
+	zqD8wD+indOGPe07UFQ9QpByRmP7O3WIG7HliwRxwHOu+YSDGtmTXe54m8XvWmZl+a+IkH3gkP7w+
+	NMwEhAng==;
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urQ5e-00000002YCE-07rH
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Aug 2025 22:05:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332305;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sdduxfP9sOW11CIIetzrq/g2aOdRCb5eN+kQk0XudUI=;
-	b=i+wE1QF9MhqX0fCHddDu6EfjihwZbjtfe4Q4JkSoo2ZGzU8ajU4BDITvB0REYbNZ1CXYve
-	nLnFjsyRznmlAK4l7H+rkcQ5mFmY+eW4KoWKSPPdoyaWOPhkiBq+2yCgl3Jcg59rDW8rcT
-	g568KSaxOQu8kLcUwU59O4985sdQzqU=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-417-EpEDj_iqOtyJ7pKJWv6ETA-1; Wed,
- 27 Aug 2025 18:04:58 -0400
-X-MC-Unique: EpEDj_iqOtyJ7pKJWv6ETA-1
-X-Mimecast-MFC-AGG-ID: EpEDj_iqOtyJ7pKJWv6ETA_1756332292
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 995B919541AC;
-	Wed, 27 Aug 2025 22:04:52 +0000 (UTC)
-Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CAF5B30001A1;
-	Wed, 27 Aug 2025 22:04:36 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v1 09/36] mm/mm_init: make memmap_init_compound() look more like prep_compound_page()
-Date: Thu, 28 Aug 2025 00:01:13 +0200
-Message-ID: <20250827220141.262669-10-david@redhat.com>
-In-Reply-To: <20250827220141.262669-1-david@redhat.com>
-References: <20250827220141.262669-1-david@redhat.com>
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+	Thu, 28 Aug 2025 00:02:07 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-771ff6f1020so741724b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Aug 2025 17:02:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1756339324; x=1756944124; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=kCYLCx+qR2vxxpcmuDTRXW8z6xS3j6g2rCWoMpSsv0A=;
+        b=ALoekYLQ1zSsBbsCI4X2sHy1pxVXOxETIXIFFhpioQKvYDvmCFzDmN8lPG+1zBwhNl
+         6Lu7ieDajY3gwO08lwFL/ilN7PCIYND7dZjYCCyoA5AR2VOOScFg25yKyDQyES4aM8Po
+         7lurfp/8QmcSkqSTD6Qz/Xyj8lVfk3FIlrb5hSMwpwAVA5LsAWPb2peytaVbPJA6wHu4
+         UW2aDSyeUiNPygKQmQzBGbOmJAUU9xHzRI1VwniVMShwUyRG5vmUxalz1CVLIPASmxio
+         w1XqItkhN9fDQIaoOQs/XpQUkNuQY3W411kxplqFHFleBfiKCIs7ZzazExzGe+2Qfpzc
+         cqrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756339324; x=1756944124;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kCYLCx+qR2vxxpcmuDTRXW8z6xS3j6g2rCWoMpSsv0A=;
+        b=a6ZHoIjqf3mU/iDE+upLK/mr2dHMXwt3y0tuyafozqdz8nb5Ma1609kUGXHUI/Uefc
+         bckBEGM/j8wqemrVWEVhL+c1CGya4UQkcezu82AisAXZlFp7b2MiqT95QtOvIKi+YG1+
+         4R07B0+/vZlRWAu/DosYSsgL+TDIyL9/ArgBmRRWm+p3QAygE0aWRPeZ2q2yaErS2Poa
+         iSwqI0M5EYWw2NQ1cWGMfONkZGoHfOAt8tuh2Vve7G9dnUAaL85mcbkiIHabVwtIM+4x
+         w3BYs0o+Hv8dWAdVk8fMP+MpaSJfwZSJAJiQBNbJaKdLxqe9U12K97IiNqfVXykMCNAk
+         PgtA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQNVcTeD2crdnQxFnFZJLNVYYO9QIOZce/Y2O74JRt9Cf0iUjVOLBkL7OwPPb+/8cGpor5NPRmLdyIJQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnvRnD6Ma2qeD+yu58QprCHGAF7p0Po0FSmnq6zQVF09ayRTCH
+	kW1ewPXYlVNS9rSqUDFgaN4MA7OXJMgTws63IZ2Dw4kBD2ZkrNWrkcb0quZWwgfibp5szBwaeTL
+	dWM+cXg==
+X-Google-Smtp-Source: AGHT+IHDUlpPfgfETOO31fD//wXWMymV5Mnw/Y+lifpogBKPY1IBHbcv76HZ+xFt3eQXYgFR8TyJX2ZK1/M=
+X-Received: from pfgs8.prod.google.com ([2002:a05:6a00:1788:b0:771:f315:17c4])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:a85:b0:76b:d8f7:d30b
+ with SMTP id d2e1a72fcca58-7702f9f4896mr22345026b3a.10.1756339323354; Wed, 27
+ Aug 2025 17:02:03 -0700 (PDT)
+Date: Wed, 27 Aug 2025 17:01:50 -0700
+In-Reply-To: <20250828000156.23389-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20250828000156.23389-1-seanjc@google.com>
+X-Mailer: git-send-email 2.51.0.268.g9569e192d0-goog
+Message-ID: <20250828000156.23389-2-seanjc@google.com>
+Subject: [PATCH v2 1/7] Drivers: hv: Handle NEED_RESCHED_LAZY before
+ transferring to guest
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
+	Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
+	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org, 
+	Nuno Das Neves <nunodasneves@linux.microsoft.com>, Mukesh R <mrathor@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150506_031360_5638AB35 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20250828_010206_268097_713661BB 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,66 +118,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Grepping for "prep_compound_page" leaves on clueless how devdax gets its
-compound pages initialized.
+Check for NEED_RESCHED_LAZY, not just NEED_RESCHED, prior to transferring
+control to a guest.  Failure to check for lazy resched can unnecessarily
+delay rescheduling until the next tick when using a lazy preemption model.
 
-Let's add a comment that might help finding this open-coded
-prep_compound_page() initialization more easily.
+Note, ideally both the checking and processing of TIF bits would be handled
+in common code, to avoid having to keep three separate paths synchronized,
+but defer such cleanups to the future to keep the fix as standalone as
+possible.
 
-Further, let's be less smart about the ordering of initialization and just
-perform the prep_compound_head() call after all tail pages were
-initialized: just like prep_compound_page() does.
-
-No need for a comment to describe the initialization order: again,
-just like prep_compound_page().
-
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Signed-off-by: David Hildenbrand <david@redhat.com>
+Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Cc: Mukesh R <mrathor@linux.microsoft.com>
+Fixes: 621191d709b1 ("Drivers: hv: Introduce mshv_root module to expose /dev/mshv to VMMs")
+Fixes: 64503b4f4468 ("Drivers: hv: Introduce mshv_vtl driver")
+Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- mm/mm_init.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+ drivers/hv/mshv_common.c    | 2 +-
+ drivers/hv/mshv_root_main.c | 3 ++-
+ drivers/hv/mshv_vtl_main.c  | 3 ++-
+ 3 files changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index 5c21b3af216b2..df614556741a4 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -1091,6 +1091,12 @@ static void __ref memmap_init_compound(struct page *head,
- 	unsigned long pfn, end_pfn = head_pfn + nr_pages;
- 	unsigned int order = pgmap->vmemmap_shift;
+diff --git a/drivers/hv/mshv_common.c b/drivers/hv/mshv_common.c
+index 6f227a8a5af7..eb3df3e296bb 100644
+--- a/drivers/hv/mshv_common.c
++++ b/drivers/hv/mshv_common.c
+@@ -151,7 +151,7 @@ int mshv_do_pre_guest_mode_work(ulong th_flags)
+ 	if (th_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
+ 		return -EINTR;
  
-+	/*
-+	 * We have to initialize the pages, including setting up page links.
-+	 * prep_compound_page() does not take care of that, so instead we
-+	 * open-code prep_compound_page() so we can take care of initializing
-+	 * the pages in the same go.
-+	 */
- 	__SetPageHead(head);
- 	for (pfn = head_pfn + 1; pfn < end_pfn; pfn++) {
- 		struct page *page = pfn_to_page(pfn);
-@@ -1098,15 +1104,8 @@ static void __ref memmap_init_compound(struct page *head,
- 		__init_zone_device_page(page, pfn, zone_idx, nid, pgmap);
- 		prep_compound_tail(head, pfn - head_pfn);
- 		set_page_count(page, 0);
--
--		/*
--		 * The first tail page stores important compound page info.
--		 * Call prep_compound_head() after the first tail page has
--		 * been initialized, to not have the data overwritten.
--		 */
--		if (pfn == head_pfn + 1)
--			prep_compound_head(head, order);
- 	}
-+	prep_compound_head(head, order);
- }
+-	if (th_flags & _TIF_NEED_RESCHED)
++	if (th_flags & (_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY))
+ 		schedule();
  
- void __ref memmap_init_zone_device(struct zone *zone,
+ 	if (th_flags & _TIF_NOTIFY_RESUME)
+diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+index 932932cb91ea..0d849f09160a 100644
+--- a/drivers/hv/mshv_root_main.c
++++ b/drivers/hv/mshv_root_main.c
+@@ -484,7 +484,8 @@ mshv_vp_wait_for_hv_kick(struct mshv_vp *vp)
+ static int mshv_pre_guest_mode_work(struct mshv_vp *vp)
+ {
+ 	const ulong work_flags = _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING |
+-				 _TIF_NEED_RESCHED  | _TIF_NOTIFY_RESUME;
++				 _TIF_NEED_RESCHED  | _TIF_NEED_RESCHED_LAZY |
++				 _TIF_NOTIFY_RESUME;
+ 	ulong th_flags;
+ 
+ 	th_flags = read_thread_flags();
+diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
+index dc6594ae03ad..12f5e77b7095 100644
+--- a/drivers/hv/mshv_vtl_main.c
++++ b/drivers/hv/mshv_vtl_main.c
+@@ -728,7 +728,8 @@ static int mshv_vtl_ioctl_return_to_lower_vtl(void)
+ 	preempt_disable();
+ 	for (;;) {
+ 		const unsigned long VTL0_WORK = _TIF_SIGPENDING | _TIF_NEED_RESCHED |
+-						_TIF_NOTIFY_RESUME | _TIF_NOTIFY_SIGNAL;
++						_TIF_NOTIFY_RESUME | _TIF_NOTIFY_SIGNAL |
++						_TIF_NEED_RESCHED_LAZY;
+ 		unsigned long ti_work;
+ 		u32 cancel;
+ 		unsigned long irq_flags;
 -- 
-2.50.1
+2.51.0.268.g9569e192d0-goog
 
 
 _______________________________________________
