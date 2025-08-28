@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CC2CA0EFF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Aug 2025 02:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22CA6CA0EED
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Aug 2025 03:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lhTF39Vdf4jHbRxxz/qFLV7tUh1i01lgRNVoh1oiBWk=; b=UVz82TUo2KJsqb
-	wUg1sdMNhCBEZ7Jb/Z72nL9F46DwfpH5/bmIWsxCcW+O210es1w3WOwahtP++ZAhIPEN/1JtFB5vB
-	6IBr/q3WCVpqVXt/ui1WbzIOo81Sp6Pduw8WAfmIMFpYa7Q/07wOYk+zvYSoPECOUqZje2sh58WJm
-	ccFTgDJtACPQgPvYlbhAm5IdQ7OFTf/ZFNa3bMjFAfmciJwFbIcIOcCRjgHr6n3f5gYi6jkUhhNAq
-	Il7nVHX7P9LgZYmpsThx2g+Y1vXLMvp9rtTQMSTXwobubENVUOCHbsP8D/H+9eJTWZtluhIAeLGm9
-	QV3SssKQJRWDV5fAgInw==;
+	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3hY1a0CKl8O9Nv4+TOu084YZNQKCX8P7q8CrJCi1dfQ=; b=EHoMuOSbwoCnAa
+	2MTTBglHWjY0p+U9PkmbP2uOiu339eQ/OvKA957z4lzxSeCgEqFrNdq/WKwLUZf3xCVfE6f5xP8S5
+	Z9no4gA0SqscIRJN43CU2U32HwodAbwbJAy8UAR6OW7Dw2ow4PnKDZ0JtcUwIG1meRtyA2NBILL4q
+	pLMrItWuBiI6wlCWo2A5/44nZdlH8JHHd4jpL3Zff/KneycBo3Vp6/K+CtXuBppz9w5ru7vRqvEz9
+	xzATGd3rDaqTFsDNhtVWKX4zNWT+50pwQrwHeA9AzX6MEUqoFM+86Kxm91YYDk9IiKZTQnq34yNtN
+	CjBbpVPKvvn5sTyfJ6fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urSX8-000000002DF-0mSY;
-	Thu, 28 Aug 2025 02:38:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1urT09-000000006Wp-1MCc;
+	Thu, 28 Aug 2025 03:08:37 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5l-0000000HIA6-3qoL
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 28 Aug 2025 00:02:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=vhbQgqknyAyVeKaXs8kP6grJ1hrwQUkSmJiE25IRpuQ=; b=YAYeHJjpTpJx4o2oNVJUFimcMT
-	XImbhVc0OPITvksqrBi7x8LRzPIc62xOq4YMnT+ZEwIK9OCa1tF1T3+0GhKK5Kuvp6utFJDUahgiF
-	Ixx6cvhP3Us4EOm8VQEY/q7fRbJEvwW5pwA+EwnRIkp2gziP8MCsW7V5yoFLhlOja9Z/aedcS+1Z7
-	WEuRhdFs8wRv1JpV1XaRqE/B1KbExqF72GiOIG/uDNmkSe93iOgs9sIjSl0WCinroShmbnG7aVERg
-	uvV+UHlGDX0DAsswxV6tHswNXiHhTZ1uDROyxHUWWz+S/2v5RyDy3t+A3yX0/WeeKIyCw/nTfqQVc
-	wVdi38PA==;
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5h-00000002YE2-1cKk
+	id 1urQ5a-0000000HI4y-3FSY
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Aug 2025 00:02:11 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-771e1451631so757003b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Aug 2025 17:02:08 -0700 (PDT)
+	Thu, 28 Aug 2025 00:02:04 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3275d2cb1cbso561290a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Aug 2025 17:02:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756339327; x=1756944127; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=vhbQgqknyAyVeKaXs8kP6grJ1hrwQUkSmJiE25IRpuQ=;
-        b=aLQsNc5VcQyFphTAsJy6ijoKrLolbsComEwb/wy+j+TUUH2UCLbtxQvVHijA+X9Xp+
-         PVVKwxorK4sjsqC5dwPx9EH/L6b686s67yzk9H/CRmjJ4sqDWIIEGquWxO+16UKD4EEo
-         TKU9sD54SAAn6Zw+dggPgGD5l/zEzZmljzpkTytFYsitAG4NzKtJgzv5zsmV8rlew97t
-         eSvqhJsxhBQAOQqWrivKQryeIIiyyZl1Neo8eRPSuG2M5XFvmoBMc/2wku287FbHfx6V
-         IMpASm5fUWgpDUDRtngZkcKQErVDjKov2LbHrMBXV7lbjUT0h5H4tgNGusTW9M4XSbYm
-         pFHA==
+        d=google.com; s=20230601; t=1756339322; x=1756944122; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=a1KBCmOkm9jj1CVFgQDrkKT5Cri9uMCD3k1Mkup3E5M=;
+        b=hqQobnjGFe7Rti+quNhvbaxu62g7cPUQPW94gTayChVrZ27MVgq/NUeLbh6JeIRUM9
+         NO1INGYeb1Gct09zMrsrmjA1frsxaZeaMPa04ahW8blKi9Uropzy0i+vw9oWFIqoTlvI
+         rHEGVmoEj2M+yel9Z+YZi0HwXwhaVV39JNvImn2aKl0mEPwvYFFtlkdLMWC2AX45DwgX
+         8F2yQyoMwt67hmWp5aXEJL4lw5Ko7UoHrBpfneOEe1FGekea6RKcBxxZLATMxsBWfMeA
+         XRfuyvy8H6ODx0xIkDJ3TbHV50XEhcJoo5g1t5TiwKZtRrV2wI2MNn+9mg3c8Ab7Imff
+         3wmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756339327; x=1756944127;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vhbQgqknyAyVeKaXs8kP6grJ1hrwQUkSmJiE25IRpuQ=;
-        b=gqeFQ9hAc6E82gUIlsnzyP5CSQps7qKYZEJVUp0kE1OebEyxsdrHvRXicoiQMQASJa
-         j6cV9YBtftJ0Q8vPxhx5Gq0GtVuc03d8XZ/pNzTNGV8TlpqvemnPrjqV2D4FHtHcDAh6
-         I3dR48lPGkp3Nhl4ZRgHIFAmKNcYIMsNeV+V4pyqMpZGa6dzQo4ZP23/4PC8oayM0ZCP
-         fuDhv59WwXewzTxdxH4ZchF+QH3FqqsxYpSxgxebfPGEpKknarVooz0IF9AJ/meuB+cH
-         B6oXQFWjVdq2TRki1AhCJotpF23ZTC2nnjs8doZxjAoaGUyJVilB+PwGstyuV8bCL0sr
-         q+5g==
-X-Forwarded-Encrypted: i=1; AJvYcCXTjmAH3oTzyQj1T2oWwRuI15A2viqlJwAxZGzjZtGwGIg//wwbEeOxnyfR0xteoeE1Dz0J24V0kM/PUA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAZMuyhw3GIx8Vxg0CU+aQIrGIpMWfwwyamTadgApk4lBz4OrU
-	6W+t5JVZYYbDSI2Hyzqzt0mHhnlQ7bgeFYnHdXCtVJbb9Vg0vF38M7tzzbOqX5P1gXFz1SWvV1a
-	Lzl0R1Q==
-X-Google-Smtp-Source: AGHT+IFSTSPK462uYm9CJ0EAHOKjQ8TiWstiYBGpgePwdPA6VvAffLDDZpu/ZHt6d1MsFofssMNf6pVc4TI=
-X-Received: from pfbdr10.prod.google.com ([2002:a05:6a00:4a8a:b0:772:a5a:298b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:4b46:b0:76e:885a:c1c9
- with SMTP id d2e1a72fcca58-7702fc24f39mr26347774b3a.27.1756339327187; Wed, 27
- Aug 2025 17:02:07 -0700 (PDT)
-Date: Wed, 27 Aug 2025 17:01:52 -0700
-In-Reply-To: <20250828000156.23389-1-seanjc@google.com>
+        d=1e100.net; s=20230601; t=1756339322; x=1756944122;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=a1KBCmOkm9jj1CVFgQDrkKT5Cri9uMCD3k1Mkup3E5M=;
+        b=Ut2HNuTjpUOo8RX/Pq6NroO3E7CW/keX7xO+UhmUVHhgw3EBPomxe1TxlQ2uu7Msmr
+         6BKxLEp/WIJP0ipzXJLiirBxlCmiarckx9k+QKTL/hmzWhmXXeli5MNXLUu429Q8B6Mi
+         losHEBaX2E2qM7O88hgc/LeXVFkgjbYWYV9Kuxqd1tr5RGsOwUB6UlexhaoOOlj1WDo7
+         x8wS9VXUgR0Dee7cDoQIlx3fEUFHlW4dM4L8Czd6lqwshxMpGz8qbbsmwcI4HqYYfjza
+         QvB0nwC93oflM9sNVn5SryHoRebBZJRhhpT44masP8x7cZ7GVEzEgxnSz2l4VlPC6u7/
+         pYdg==
+X-Forwarded-Encrypted: i=1; AJvYcCW2Dl6CANiMsH2k9xFqPPfjQwHeMtVdlU9k2zPZEaMYmqU4RQ2JQYHOTptw9LNjdPo+XJbYerw9tQCM3Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyD1c5iVJX3oxCRzoQHAFyr/8Q/5xWa3FVanHEWxVStR/rdtR7W
+	O/izXo7izRL8pjq6E7ZSNneyRm2JnDuLYETS2nNyiMIO/hwvhV+R0ejvwQ+ey5kR7PxddOcf3ap
+	Kug4FkQ==
+X-Google-Smtp-Source: AGHT+IF6kzCkrmSsnzkeC4ntTYmLEyMfD8fyiYTiSQm4IQpQL6BrLCB4IIHTXj0uI8vGzJiOm/SE6wuxA5g=
+X-Received: from pjbsv16.prod.google.com ([2002:a17:90b:5390:b0:325:4747:a99b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5627:b0:31e:ec58:62e2
+ with SMTP id 98e67ed59e1d1-32515eaafdcmr30552688a91.19.1756339321553; Wed, 27
+ Aug 2025 17:02:01 -0700 (PDT)
+Date: Wed, 27 Aug 2025 17:01:49 -0700
 Mime-Version: 1.0
-References: <20250828000156.23389-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.268.g9569e192d0-goog
-Message-ID: <20250828000156.23389-4-seanjc@google.com>
-Subject: [PATCH v2 3/7] Drivers: hv: Disable IRQs only after handling pending
- work before VTL return
+Message-ID: <20250828000156.23389-1-seanjc@google.com>
+Subject: [PATCH v2 0/7] Drivers: hv: Fix NEED_RESCHED_LAZY and use common APIs
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
@@ -105,8 +86,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org, 
 	Nuno Das Neves <nunodasneves@linux.microsoft.com>, Mukesh R <mrathor@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_010209_607788_B941C7AC 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20250827_170202_809471_6F792ACF 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,51 +105,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Swap the order of checking for TIF-based work and cancellation, and disable
-IRQs only after checking and processing TIF-based work; checking TIF with
-IRQs enabled is a-ok, e.g. IRQs and preemption _must_ be enabled before
-handling the pending work.
+Fix a bug where MSHV root partitions (and upper-level VTL code) don't honor
+NEED_RESCHED_LAZY, and then deduplicate the TIF related MSHV code by turning
+the "kvm" entry APIs into more generic "virt" APIs.
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- drivers/hv/mshv_vtl_main.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+This version is based on
 
-diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
-index aa09a76f0eff..4ca13c54c0a0 100644
---- a/drivers/hv/mshv_vtl_main.c
-+++ b/drivers/hv/mshv_vtl_main.c
-@@ -735,16 +735,8 @@ static int mshv_vtl_ioctl_return_to_lower_vtl(void)
- 		struct hv_vp_assist_page *hvp;
- 		int ret;
- 
--		local_irq_save(irq_flags);
--		if (READ_ONCE(mshv_vtl_this_run()->cancel)) {
--			local_irq_restore(irq_flags);
--			preempt_enable();
--			return -EINTR;
--		}
--
- 		ti_work = READ_ONCE(current_thread_info()->flags);
- 		if (unlikely(ti_work & VTL0_WORK)) {
--			local_irq_restore(irq_flags);
- 			preempt_enable();
- 			ret = mshv_do_pre_guest_mode_work(ti_work);
- 			if (ret)
-@@ -753,6 +745,13 @@ static int mshv_vtl_ioctl_return_to_lower_vtl(void)
- 			continue;
- 		}
- 
-+		local_irq_save(irq_flags);
-+		if (READ_ONCE(mshv_vtl_this_run()->cancel)) {
-+			local_irq_restore(irq_flags);
-+			preempt_enable();
-+			return -EINTR;
-+		}
-+
- 		mshv_vtl_return(&mshv_vtl_this_run()->cpu_context);
- 		local_irq_restore(irq_flags);
- 
+  git://git.kernel.org/pub/scm/linux/kernel/git/hyperv/linux.git hyperv-next
+
+in order to pickup the VTL changes that are queued for 6.18.  I also
+squashed the NEED_RESCHED_LAZY fixes for root and VTL modes into a single
+patch, as it should be easy/straightforward to drop the VTL change as needed
+if we want this in 6.17 or earlier.
+
+That effectively means the full series is dependent on the VTL changes being
+fully merged for 6.18.  But I think that's ok as it's really only the MSHV
+changes that have any urgency whatsoever, and I assume that Microsoft is
+the only user that truly cares about the MSHV root fix.  I.e. if the whole
+thing gets delayed, I think it's only the Hyper-V folks that are impacted.
+
+I have no preference what tree this goes through, or when, and can respin
+and/or split as needed.
+
+As with v1, the Hyper-V stuff and non-x86 architectures are compile-tested
+only.
+
+v2:
+ - Rebase on hyperv-next.
+ - Fix and converge the VTL code as well. [Peter, Nuno]
+
+v1: https://lore.kernel.org/all/20250825200622.3759571-1-seanjc@google.com
+
+
+Sean Christopherson (7):
+  Drivers: hv: Handle NEED_RESCHED_LAZY before transferring to guest
+  Drivers: hv: Disentangle VTL return cancellation from SIGPENDING
+  Drivers: hv: Disable IRQs only after handling pending work before VTL
+    return
+  entry/kvm: KVM: Move KVM details related to signal/-EINTR into KVM
+    proper
+  entry: Rename "kvm" entry code assets to "virt" to genericize APIs
+  Drivers: hv: Use common "entry virt" APIs to do work in root before
+    running guest
+  Drivers: hv: Use "entry virt" APIs to do work before returning to
+    lower VTL
+
+ MAINTAINERS                                 |  2 +-
+ arch/arm64/kvm/Kconfig                      |  2 +-
+ arch/arm64/kvm/arm.c                        |  3 +-
+ arch/loongarch/kvm/Kconfig                  |  2 +-
+ arch/loongarch/kvm/vcpu.c                   |  3 +-
+ arch/riscv/kvm/Kconfig                      |  2 +-
+ arch/riscv/kvm/vcpu.c                       |  3 +-
+ arch/x86/kvm/Kconfig                        |  2 +-
+ arch/x86/kvm/vmx/vmx.c                      |  1 -
+ arch/x86/kvm/x86.c                          |  3 +-
+ drivers/hv/Kconfig                          |  2 ++
+ drivers/hv/mshv.h                           |  2 --
+ drivers/hv/mshv_common.c                    | 22 ---------------
+ drivers/hv/mshv_root_main.c                 | 31 ++++-----------------
+ drivers/hv/mshv_vtl_main.c                  | 23 +++++++--------
+ include/linux/{entry-kvm.h => entry-virt.h} | 19 +++++--------
+ include/linux/kvm_host.h                    | 17 +++++++++--
+ include/linux/rcupdate.h                    |  2 +-
+ kernel/entry/Makefile                       |  2 +-
+ kernel/entry/{kvm.c => virt.c}              | 15 ++++------
+ kernel/rcu/tree.c                           |  6 ++--
+ virt/kvm/Kconfig                            |  2 +-
+ 22 files changed, 60 insertions(+), 106 deletions(-)
+ rename include/linux/{entry-kvm.h => entry-virt.h} (83%)
+ rename kernel/entry/{kvm.c => virt.c} (66%)
+
+
+base-commit: 03ac62a578566730ab3c320f289f7320798ee2e1
 -- 
 2.51.0.268.g9569e192d0-goog
 
