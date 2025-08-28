@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D6CCA0EFF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Aug 2025 00:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661C3CA0EFF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Aug 2025 00:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oCIKDpcz814QRFV32GQOGQAo3bkQurHO6bPKzYbn6do=; b=lsvx0gWSbr9Fll
-	jQLxiDw6kF6rxoGYHjXvbrYItHoZx6gMXqmEMGaRdP/jG9Il+HiTeUv6DX9uE0CNiNaHJXT6/R3EV
-	aw54ClH2FygJvUyIGaKqyl2lzomTxbXnHKH6w7hzomOYTa4hwFWmnhy7hZTdSk6fF74/Av7F+GWZ7
-	49esM+p56CxNYX9L+14mxn4aJwDwDovUHPTQeOGAhQRsTvjCaZsPEcKGf55NLYYWBIF7Y0od0ozYc
-	HQY7g7Y9+7kmbmHET2it3Lk5W6zfd4C1hQlUPBV1622Gn1mUnRyFXxk+2LcJ2kY9wxL9M2E3MWg85
-	19XmhLdsOoOtKX3QV18Q==;
+	List-Owner; bh=tl+jfWbW1FV/hD0oUobXYvk9gSOJurmOoIatmhOVe1k=; b=cnV43e9H80VuZn
+	OqFsQrfgui8NMKFIgKGUcpnQvK0fFMK97ttSG+AkbEf5GIKYRonXiDyj8aCw4iXpf4e/5sM1wRkVX
+	gM8o24h7oDTp8d2knMRZ1S53jj70hPs2FO9bjyDRrbqn+xYN/MxJYo3PDlr+uZS2GJvn+2m6kI8KS
+	UljwkJ+mO7cWdx+ucL4oteXTG649ZBs4OMwO3NGklzjon3Udkky0EH5HOc9Ip5DhVAQ7KeI3u0Xft
+	ht8c/whN6I5qrqFRgsT/OMKb71MhQAbqXF3LGrPb5Puwlu097lEDIEOVka8BFnbwngsKmTrq/h97g
+	IrYWtx/sr2v1y9bmOtNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ8Q-0000000HIz7-1XZy;
-	Thu, 28 Aug 2025 00:04:58 +0000
+	id 1urQDu-0000000HJvL-40ZS;
+	Thu, 28 Aug 2025 00:10:38 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5h-0000000HI86-1IB1
+	id 1urQ5j-0000000HI9E-10Wo
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 28 Aug 2025 00:02:09 +0000
+	Thu, 28 Aug 2025 00:02:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=kCYLCx+qR2vxxpcmuDTRXW8z6xS3j6g2rCWoMpSsv0A=; b=Ty1VfrdU8egIG/83BbD6eMYmZm
-	kPatndu6M1dKvY+eRMQeIwD5bbN6ZiiFtu4s5Py3ULSeehGUbh/JIY3GM5S4DB4hQ4GMcf7Zlitdf
-	kxA7q8XwzlnvkbEowYKTKOi2kjL7UU4/KDGhtiLAvpvqK4khG6sujCk6rFPwAL0CB44P90PqvuT7E
-	5HJt50YzUajZDP7M9J6xhhKxvIbqze6DAdSYBa2pUW1oW2k7SmAORaKIB3wznm85FE0Zq7zi95aAG
-	zqD8wD+indOGPe07UFQ9QpByRmP7O3WIG7HliwRxwHOu+YSDGtmTXe54m8XvWmZl+a+IkH3gkP7w+
-	NMwEhAng==;
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	bh=hDymskQNp6wG2uiiMHxVPzsL1nAJPxy4zRxFOrP95kA=; b=pAm0H7XF7u4HKP1z566m1V0QRL
+	dfDpreDj6N87VDQrRNAI6cRnobxSudpiKKiampSamT7FTdnpiqgGtnY1uJCjD+eTQYqv84wn6gmbs
+	1LUTGErcc6Y6vFH4vuPpPEYh7947lDBOaIILYaOcuAD3xpwRRlMEwuMUkMhpbbUm/hYC3xTrTFtOL
+	MiiOTdeWDZIguQb+mb6sLlSi2RawxTlyIDcdm0/Gnc8OYHlnCECvSVYjE8E3F2LUZiEi4rFmUv6nP
+	ojgBR7a7AoImFvVFDKIB6v6KQdkwRSRgQr1nOhMdxowXe6Kny4mHuAkvqDvfCiI0F01+IvBf5kzCA
+	47ZXhy6w==;
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5e-00000002YCE-07rH
+	id 1urQ5f-00000002YCZ-2LX6
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Aug 2025 00:02:07 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-771ff6f1020so741724b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Aug 2025 17:02:05 -0700 (PDT)
+	Thu, 28 Aug 2025 00:02:09 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-32752f91beaso435405a91.2
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Aug 2025 17:02:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756339324; x=1756944124; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1756339325; x=1756944125; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=kCYLCx+qR2vxxpcmuDTRXW8z6xS3j6g2rCWoMpSsv0A=;
-        b=ALoekYLQ1zSsBbsCI4X2sHy1pxVXOxETIXIFFhpioQKvYDvmCFzDmN8lPG+1zBwhNl
-         6Lu7ieDajY3gwO08lwFL/ilN7PCIYND7dZjYCCyoA5AR2VOOScFg25yKyDQyES4aM8Po
-         7lurfp/8QmcSkqSTD6Qz/Xyj8lVfk3FIlrb5hSMwpwAVA5LsAWPb2peytaVbPJA6wHu4
-         UW2aDSyeUiNPygKQmQzBGbOmJAUU9xHzRI1VwniVMShwUyRG5vmUxalz1CVLIPASmxio
-         w1XqItkhN9fDQIaoOQs/XpQUkNuQY3W411kxplqFHFleBfiKCIs7ZzazExzGe+2Qfpzc
-         cqrQ==
+        bh=hDymskQNp6wG2uiiMHxVPzsL1nAJPxy4zRxFOrP95kA=;
+        b=o7hTOiHnluikvfGx99oJUwa0flvaWnlcRgjtNC4abmgbkXLNDbhY7O2I8/ZPh5a3vI
+         3ZYlOLietdBf3ZLzNfy+W4hKvPZppyngs/He2W8z6SEXOqt//wH+UqmnXenONXvZLJGB
+         vdGBUjidibuLyb5P4W2b+dmmvV5EubG1pMqasagR0SMc6cEpFodHrZfdDENTrA//zDzv
+         Em3S5UXlEsd6FKljIzD96no+nLVh+Amt4rqKLV9MJQjUPOkObt8SKwpB7Nxov4xGbSIc
+         N/oVpaa6WGKTfDjrNGN5ZedST7YTN5BnVqFHGEX/gA+QKAudPfGOgFq4Mu41zeOuM/4k
+         A6eg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756339324; x=1756944124;
+        d=1e100.net; s=20230601; t=1756339325; x=1756944125;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kCYLCx+qR2vxxpcmuDTRXW8z6xS3j6g2rCWoMpSsv0A=;
-        b=a6ZHoIjqf3mU/iDE+upLK/mr2dHMXwt3y0tuyafozqdz8nb5Ma1609kUGXHUI/Uefc
-         bckBEGM/j8wqemrVWEVhL+c1CGya4UQkcezu82AisAXZlFp7b2MiqT95QtOvIKi+YG1+
-         4R07B0+/vZlRWAu/DosYSsgL+TDIyL9/ArgBmRRWm+p3QAygE0aWRPeZ2q2yaErS2Poa
-         iSwqI0M5EYWw2NQ1cWGMfONkZGoHfOAt8tuh2Vve7G9dnUAaL85mcbkiIHabVwtIM+4x
-         w3BYs0o+Hv8dWAdVk8fMP+MpaSJfwZSJAJiQBNbJaKdLxqe9U12K97IiNqfVXykMCNAk
-         PgtA==
-X-Forwarded-Encrypted: i=1; AJvYcCUQNVcTeD2crdnQxFnFZJLNVYYO9QIOZce/Y2O74JRt9Cf0iUjVOLBkL7OwPPb+/8cGpor5NPRmLdyIJQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnvRnD6Ma2qeD+yu58QprCHGAF7p0Po0FSmnq6zQVF09ayRTCH
-	kW1ewPXYlVNS9rSqUDFgaN4MA7OXJMgTws63IZ2Dw4kBD2ZkrNWrkcb0quZWwgfibp5szBwaeTL
-	dWM+cXg==
-X-Google-Smtp-Source: AGHT+IHDUlpPfgfETOO31fD//wXWMymV5Mnw/Y+lifpogBKPY1IBHbcv76HZ+xFt3eQXYgFR8TyJX2ZK1/M=
-X-Received: from pfgs8.prod.google.com ([2002:a05:6a00:1788:b0:771:f315:17c4])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:a85:b0:76b:d8f7:d30b
- with SMTP id d2e1a72fcca58-7702f9f4896mr22345026b3a.10.1756339323354; Wed, 27
- Aug 2025 17:02:03 -0700 (PDT)
-Date: Wed, 27 Aug 2025 17:01:50 -0700
+        bh=hDymskQNp6wG2uiiMHxVPzsL1nAJPxy4zRxFOrP95kA=;
+        b=O+RN5ZfQ5B3VXl+F9RWpBidsYaKOZpZaTBKBDkmHsE9MexL2iQR0BQR3/tL9gBe/RY
+         ylYm0buG4pc4ZATKXctu+yxFA/B8U34OB5IFNTkndIzv/Hkcq/Lbw13V0VaZLxVeZUpl
+         BiNpoFEICjplCTY3kvKhs+DMky3QNrJJHkM2l8QtZGWNKlMsAIlHH+dQRwcCAbXjDMwy
+         iaozFC34GhumeN1BN7nQJICIvkl9/0/6b91gAakIw7LJ276OURNplhkHe7y2NjQXewL8
+         3JQGSb400JoytbiNIiNZyXFmulV8CeICyPM8IjjzxihPKqzf4fKUW3iDH/g01sDvLF71
+         VNEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWly60AiB7On6lnUR1Awpmfq3fn/eCE3Prez8zzpZv99p6qD0UF2CLsrW74PcXuK6yDrNi2Dwczo+VU8A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSMsPfO4SKaIgwaxlSW8kKwGYJkVSis7yQmtW5DOYqfypHArRj
+	oH6qXitJED+Z+jy9iCyONrMunQROpc4Dkfyjn310iyOVlIUI+7x9EHbGid2GPsLCxo99L2/ILoa
+	eFa+7PA==
+X-Google-Smtp-Source: AGHT+IEpldWCysonYjdHETjodWyZtDlIBYcwDxX/6JZFBAIAnGNdK+zSnqMrfXxPLk2m5pFyKQhTG4/yaKw=
+X-Received: from pjj15.prod.google.com ([2002:a17:90b:554f:b0:325:833b:6f27])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:55c4:b0:327:aaeb:e814
+ with SMTP id 98e67ed59e1d1-327aaebf1b1mr940666a91.23.1756339325323; Wed, 27
+ Aug 2025 17:02:05 -0700 (PDT)
+Date: Wed, 27 Aug 2025 17:01:51 -0700
 In-Reply-To: <20250828000156.23389-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250828000156.23389-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.268.g9569e192d0-goog
-Message-ID: <20250828000156.23389-2-seanjc@google.com>
-Subject: [PATCH v2 1/7] Drivers: hv: Handle NEED_RESCHED_LAZY before
- transferring to guest
+Message-ID: <20250828000156.23389-3-seanjc@google.com>
+Subject: [PATCH v2 2/7] Drivers: hv: Disentangle VTL return cancellation from SIGPENDING
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
@@ -105,8 +104,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org, 
 	Nuno Das Neves <nunodasneves@linux.microsoft.com>, Mukesh R <mrathor@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_010206_268097_713661BB 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250828_010207_912950_C71A7AB0 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,67 +123,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Check for NEED_RESCHED_LAZY, not just NEED_RESCHED, prior to transferring
-control to a guest.  Failure to check for lazy resched can unnecessarily
-delay rescheduling until the next tick when using a lazy preemption model.
+Check for return to a lower VTL being cancelled separately from handling
+pending TIF-based work, as there is no need to immediately process pending
+work; the kernel will immediately exit to userspace (ignoring preemption)
+and handle the pending work at that time.
 
-Note, ideally both the checking and processing of TIF bits would be handled
-in common code, to avoid having to keep three separate paths synchronized,
-but defer such cleanups to the future to keep the fix as standalone as
-possible.
+Disentangling cancellation from the TIF-based work will allow switching to
+common virtualization APIs for detecting and processing pending work.
 
-Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Cc: Mukesh R <mrathor@linux.microsoft.com>
-Fixes: 621191d709b1 ("Drivers: hv: Introduce mshv_root module to expose /dev/mshv to VMMs")
-Fixes: 64503b4f4468 ("Drivers: hv: Introduce mshv_vtl driver")
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- drivers/hv/mshv_common.c    | 2 +-
- drivers/hv/mshv_root_main.c | 3 ++-
- drivers/hv/mshv_vtl_main.c  | 3 ++-
- 3 files changed, 5 insertions(+), 3 deletions(-)
+ drivers/hv/mshv_vtl_main.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/hv/mshv_common.c b/drivers/hv/mshv_common.c
-index 6f227a8a5af7..eb3df3e296bb 100644
---- a/drivers/hv/mshv_common.c
-+++ b/drivers/hv/mshv_common.c
-@@ -151,7 +151,7 @@ int mshv_do_pre_guest_mode_work(ulong th_flags)
- 	if (th_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
- 		return -EINTR;
- 
--	if (th_flags & _TIF_NEED_RESCHED)
-+	if (th_flags & (_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY))
- 		schedule();
- 
- 	if (th_flags & _TIF_NOTIFY_RESUME)
-diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
-index 932932cb91ea..0d849f09160a 100644
---- a/drivers/hv/mshv_root_main.c
-+++ b/drivers/hv/mshv_root_main.c
-@@ -484,7 +484,8 @@ mshv_vp_wait_for_hv_kick(struct mshv_vp *vp)
- static int mshv_pre_guest_mode_work(struct mshv_vp *vp)
- {
- 	const ulong work_flags = _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING |
--				 _TIF_NEED_RESCHED  | _TIF_NOTIFY_RESUME;
-+				 _TIF_NEED_RESCHED  | _TIF_NEED_RESCHED_LAZY |
-+				 _TIF_NOTIFY_RESUME;
- 	ulong th_flags;
- 
- 	th_flags = read_thread_flags();
 diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
-index dc6594ae03ad..12f5e77b7095 100644
+index 12f5e77b7095..aa09a76f0eff 100644
 --- a/drivers/hv/mshv_vtl_main.c
 +++ b/drivers/hv/mshv_vtl_main.c
-@@ -728,7 +728,8 @@ static int mshv_vtl_ioctl_return_to_lower_vtl(void)
- 	preempt_disable();
- 	for (;;) {
- 		const unsigned long VTL0_WORK = _TIF_SIGPENDING | _TIF_NEED_RESCHED |
--						_TIF_NOTIFY_RESUME | _TIF_NOTIFY_SIGNAL;
-+						_TIF_NOTIFY_RESUME | _TIF_NOTIFY_SIGNAL |
-+						_TIF_NEED_RESCHED_LAZY;
+@@ -731,19 +731,21 @@ static int mshv_vtl_ioctl_return_to_lower_vtl(void)
+ 						_TIF_NOTIFY_RESUME | _TIF_NOTIFY_SIGNAL |
+ 						_TIF_NEED_RESCHED_LAZY;
  		unsigned long ti_work;
- 		u32 cancel;
+-		u32 cancel;
  		unsigned long irq_flags;
+ 		struct hv_vp_assist_page *hvp;
+ 		int ret;
+ 
+ 		local_irq_save(irq_flags);
++		if (READ_ONCE(mshv_vtl_this_run()->cancel)) {
++			local_irq_restore(irq_flags);
++			preempt_enable();
++			return -EINTR;
++		}
++
+ 		ti_work = READ_ONCE(current_thread_info()->flags);
+-		cancel = READ_ONCE(mshv_vtl_this_run()->cancel);
+-		if (unlikely((ti_work & VTL0_WORK) || cancel)) {
++		if (unlikely(ti_work & VTL0_WORK)) {
+ 			local_irq_restore(irq_flags);
+ 			preempt_enable();
+-			if (cancel)
+-				ti_work |= _TIF_SIGPENDING;
+ 			ret = mshv_do_pre_guest_mode_work(ti_work);
+ 			if (ret)
+ 				return ret;
 -- 
 2.51.0.268.g9569e192d0-goog
 
