@@ -4,63 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B414ECA0FF9
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 16:08:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA150CA0FF0
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 16:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s4JU1b38t1WpxIOCeYDFHto7MFZtgf+N4Qs9TKevwXQ=; b=ox7bH7C1ImVYrB
-	hSPh5x5yOUHQuKN3rqDaehYXnuwoME5Yrsm5q1tYm4G3B982tP6AN5eifQxTMmbXkBdnPlNti0QaJ
-	w9wBlPejpFIePBvaBxKV5J+9VgMw4f6R/+g4czdt98MQsCdHI5xMAUk6+hAiNc6uCsGiN24Qc6JTd
-	sB2ornIKCxbK01F57YCxNlBxbWsZt8WvJpMEu473NwSoy7tgaW+yD+gST8BKYb/7Fiii4c8KNiVBT
-	+3QbCHjLtYt5UaZ7tVkX23wgderlfh6+zVvvwI3msz03zdsNDZIwlQvJVZWPxvuWiYb5v2sut9r3E
-	3cfxu+IrwTo1Yqa6eI2w==;
+	List-Owner; bh=2gVwH/YUrOi8KXVJsYmYvS6iUpfoMtdfJrraOJOUyx8=; b=GrLKO4HdlJIB8R
+	C2cjtDqcLgQ55XRM32IskJTM9Po6mv5RXVcYWYXEBGfp+1/FOaoD0JFsJ0kj9etAL0yyzqRauKpvz
+	lQjFY+vmZ/XTT4uXg02nefC38PeWoy0H76jycCEPLMul2d40wEc0OP4w/SXvkp3DT5hmQaZ8+8VNp
+	2XWyjcgs8V1LybpK+VyQt6IUF7bapSWZS7s2vyYra4oh1dJlPjaUvhNtHDpY2JZjPBv4yILFM1lgt
+	GyF7stWFEME0xaL/GSVQhh07i1EmueDUi2uIOt/SrCsNCcwrHYCYodVAa2W5qvKuqxRVevBRfxoWA
+	H1awlQo8pg7cJNxTm9jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1ea-00000006MAv-1J44;
-	Fri, 29 Aug 2025 16:08:40 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1us1ui-00000006O7e-2gDr;
+	Fri, 29 Aug 2025 16:25:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryNf-00000005gdn-0dr1;
-	Fri, 29 Aug 2025 12:39:00 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=YkygVJC1hWG78l5B3+g8GeLgMwmQKlA5pcxoQSofhBU=;
-	b=aar7IY4+lI/DBc+1LaGxJkTwDM6/lEehQFFvHCmlr94F1dLOz5jXQZJ3pcbSH1W3Vl9mx+izRikFRzs+kQtsUtywbh1FdC9jIv9EcJqcOM6oi1zX5Irjz70K1uSg6QkeknWVZ+lD8HNVLcdagshim9dAsmsapZRP5HIWv1oVbjM=
-Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPA
-	; Fri, 29 Aug 2025 14:38:33 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v6 3/5] ARM: dts: sunxi: add support for NetCube Systems Nagami SoM
-Date: Fri, 29 Aug 2025 14:37:56 +0200
-Message-Id: <20250829123800.1232645-4-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250829123800.1232645-1-lukas.schmid@netcube.li>
-References: <20250829123800.1232645-1-lukas.schmid@netcube.li>
+	id 1uryrY-00000005lED-35K0
+	for linux-riscv@lists.infradead.org;
+	Fri, 29 Aug 2025 13:09:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756472991;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=GMW9HLrWQaKZG+KlEEwhYfHDFt7S0jSgL0MHJQucZHQ=;
+	b=W77Nk43KwapZ/PN0ppI9OkDMdzLsFzdvdC/b/yuaZStPv6TCKRiXmhD2gEpACpEqlmSoKQ
+	fy9xiqvIe1vDK8ht/CfBha8BW6l+aSX7H/TeOc7MddY2QJvJrVVLKSezxtvsS8nnv4OHpT
+	nov6559jhkbkP27pl4yoFG8ggSJpcFc=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-17-uzqG3Ga7NeekUMgW8snTKA-1; Fri, 29 Aug 2025 09:09:50 -0400
+X-MC-Unique: uzqG3Ga7NeekUMgW8snTKA-1
+X-Mimecast-MFC-AGG-ID: uzqG3Ga7NeekUMgW8snTKA_1756472989
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3cf48ec9fc1so629674f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 06:09:49 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756472989; x=1757077789;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GMW9HLrWQaKZG+KlEEwhYfHDFt7S0jSgL0MHJQucZHQ=;
+        b=Uwk+2+egeSRlkH8NOqurSLk+Ery4Qtz27c12kmDXyy9kMr28as3MU3WnEyBWRtF+cQ
+         4wZHkGCKnHMY2HNzGAtRnkWHDJU65I/tTm2RsXAnrfMO0nczMisCQMATjP56TQFtgQUz
+         O8N71sPpziaS1ZrwElSlTOkeK8yWcz/dT/UJwWpAd17PT/wBvLz11gbXRb4UfTG9qzT6
+         /qetfVomlJZ8jFb/Smhp8CTO9u7SLePafXhTopm00f4UHvZQztc+23PZmIiaJwVytwZC
+         YBDdBz7ePWv8SjIwfLJ/s2r/PsC3JEo0u0P4/5cLgXaXvuD2Bq+2omEQLRoER1WgEFAA
+         Ulaw==
+X-Forwarded-Encrypted: i=1; AJvYcCXKeMVSR70fvY08DdJ3gFDzJ/a6Wf9rFUThvjT5CPQbMG92ssVEd6k5FOowd7Ll+Gt8bLa02+55SpdqGA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFGorvOZL4FICKbYvOJvpsfhV4/1rgThEtuRld7JPhVJOpitKw
+	/6Wn7Is5yTDXtUvQw3yLQZ99T+9xXzMA1ZrzfPK7MWPKvFAQO3/B0SLd/iVeJK2oi9WLR9Ctdb0
+	IlRM5rWjzqZ3XTY1ZPTwZiE48+4TuMSwqsC6vuSK+zpeU/3HoLbGi0hX5Dr6pdKB678zgTA==
+X-Gm-Gg: ASbGnctkBXebl2AzneohfeLJAbYupr5XzdFXoQdk6ts3gJfTFoMmwfLc/knw/s3Er7L
+	VXEprTOfmbhpbR4lDMOaOW56XrJaO9r/S9EZ/s39zxVqKyLw5H5zyL2ZF4Moc26CBh1Yd7B31vv
+	v5jeblTw/5JmPh+oSTEmUCZuzraL7r4j2pbzlhgfUA9OXsNKkZCt4ga+RLBABC6/rJ7tlht7pY+
+	qDzLGKwigOKYxT43jYzcIPxf5OeJwhU3DM28ubf0DdsqYIi0g5+18we0vDsuY7XZdrmf0wiNKl5
+	TeKybbxO1qxLc0Tr9u6skNJ4t7wmSG9B56AX922PBv+dZ1HN9bufR/KDM/MJ8GbMBRvQqClsIEX
+	QQH96yAP3IhfY/pfHaWBhw50b0OoPXSvwGZM69TVg9LPvhXc/due0BAqHBY8aSZem
+X-Received: by 2002:a05:6000:4023:b0:3d0:d6e6:5d96 with SMTP id ffacd0b85a97d-3d0d6e6642emr1463725f8f.38.1756472988509;
+        Fri, 29 Aug 2025 06:09:48 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE2EE1FdffCNgqV63lR4bEMYpCijk6Rt1WA7Ibu/9lrj3Iet7fHqrTgMv1xYGinJ39Wr3I/NQ==
+X-Received: by 2002:a05:6000:4023:b0:3d0:d6e6:5d96 with SMTP id ffacd0b85a97d-3d0d6e6642emr1463686f8f.38.1756472987991;
+        Fri, 29 Aug 2025 06:09:47 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f1d:100:4f8e:bb13:c3c7:f854? (p200300d82f1d01004f8ebb13c3c7f854.dip0.t-ipconnect.de. [2003:d8:2f1d:100:4f8e:bb13:c3c7:f854])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d12c90a01bsm906716f8f.31.2025.08.29.06.09.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 Aug 2025 06:09:47 -0700 (PDT)
+Message-ID: <4f6e66a1-1747-402e-8f1a-f6b7783fc2e5@redhat.com>
+Date: Fri, 29 Aug 2025 15:09:45 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 06/36] mm/page_alloc: reject unreasonable
+ folio/compound page sizes in alloc_contig_range_noprof()
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
+ SeongJae Park <sj@kernel.org>, Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-7-david@redhat.com>
+ <f195300e-42e2-4eaa-84c8-c37501c3339c@lucifer.local>
+ <547145e0-9b0e-40ca-8201-e94cc5d19356@redhat.com>
+ <34edaa0d-0d5f-4041-9a3d-fb5b2dd584e8@lucifer.local>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <34edaa0d-0d5f-4041-9a3d-fb5b2dd584e8@lucifer.local>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 8TVMr_fPrI8f88BBop37tZJtJcFXwc29WGclgcjiIW8_1756472989
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_053859_531831_4EDFBAD2 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250829_060952_855963_DCA659EF 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,291 +177,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-NetCube Systems Nagami SoM is a module based around the Allwinner T113s
-SoC. It includes the following features and interfaces:
+> 
+> It seems a bit arbitrary, like we open-code this (at risk of making a mistake)
+> in some places but not others.
 
-- 128MB DDR3 included in SoC
-- 10/100 Mbps Ethernet using LAN8720A phy
-- One USB-OTG interface
-- One USB-Host interface
-- One I2S interface with in and output support
-- Two CAN interfaces
-- ESP32 over SDIO
-- One SPI interface
-- I2C EEPROM for MAC address
-- One QWIIC I2C Interface with dedicated interrupt pin shared with EEPROM
-- One external I2C interface
-- SD interface for external SD-Card
+[...]
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 249 ++++++++++++++++++
- 1 file changed, 249 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
+>>
+>> One could argue that maybe one would want a order_to_pages() helper (that
+>> could use BIT() internally), but I am certainly not someone that would
+>> suggest that at this point ...  :)
+> 
+> I mean maybe.
+> 
+> Anyway as I said none of this is massively important, the open-coding here is
+> correct, just seems silly.
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-new file mode 100644
-index 000000000..9f35331ea
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-@@ -0,0 +1,249 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-t113s.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	model = "NetCube Systems Nagami SoM";
-+	compatible = "netcube,nagami", "allwinner,sun8i-t113s";
-+
-+	aliases {
-+		serial1 = &uart1; // ESP32 Bootloader UART
-+		serial3 = &uart3; // Console UART on Card Edge
-+		ethernet0 = &emac;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial3:115200n8";
-+	};
-+
-+	/* module wide 3.3V supply directly from the card edge */
-+	reg_vcc3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+
-+	/* SY8008 DC/DC regulator on the board, also supplying VDD-SYS */
-+	reg_vcc_core: regulator-core {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-core";
-+		regulator-min-microvolt = <880000>;
-+		regulator-max-microvolt = <880000>;
-+		vin-supply = <&reg_vcc3v3>;
-+	};
-+
-+	/* Reset of ESP32 */
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&pio 6 9 GPIO_ACTIVE_LOW>; /* PG9 */
-+		post-power-on-delay-ms = <1500>;
-+		power-off-delay-us = <200>;
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&reg_vcc_core>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&reg_vcc_core>;
-+};
-+
-+&dcxo {
-+	clock-frequency = <24000000>;
-+};
-+
-+&emac {
-+	nvmem-cells = <&eth0_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+	phy-handle = <&lan8720a>;
-+	phy-mode = "rmii";
-+	pinctrl-0 = <&rmii_pe_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Default I2C Interface on Card-Edge */
-+&i2c2 {
-+	pinctrl-0 = <&i2c2_pins>;
-+	pinctrl-names = "default";
-+	status = "disabled";
-+};
-+
-+/* Exposed as the QWIIC connector and used by the internal EEPROM */
-+&i2c3 {
-+	pinctrl-0 = <&i2c3_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	eeprom0: eeprom@50 {
-+		compatible = "atmel,24c02";		/* actually it's a 24AA02E48 */
-+		reg = <0x50>;
-+		pagesize = <16>;
-+		read-only;
-+		vcc-supply = <&reg_vcc3v3>;
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		eth0_macaddress: macaddress@fa {
-+			reg = <0xfa 0x06>;
-+		};
-+	};
-+};
-+
-+/* Default I2S Interface on Card-Edge */
-+&i2s1 {
-+	pinctrl-0 = <&i2s1_pins>, <&i2s1_din_pins>, <&i2s1_dout_pins>;
-+	pinctrl-names = "default";
-+	status = "disabled";
-+};
-+
-+/* Phy is on SoM. MDI signals pre-magentics are on the card edge */
-+&mdio {
-+	lan8720a: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0>;
-+	};
-+};
-+
-+/* Default SD Interface on Card-Edge */
-+&mmc0 {
-+	pinctrl-0 = <&mmc0_pins>;
-+	pinctrl-names = "default";
-+	status = "disabled";
-+};
-+
-+/* Connected to the on-board ESP32 */
-+&mmc1 {
-+	pinctrl-0 = <&mmc1_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	non-removable;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	status = "okay";
-+};
-+
-+/* Connected to the on-board eMMC */
-+&mmc2 {
-+	pinctrl-0 = <&mmc2_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc3v3>;
-+	vqmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_vcc3v3>;
-+	vcc-pc-supply = <&reg_vcc3v3>;
-+	vcc-pd-supply = <&reg_vcc3v3>;
-+	vcc-pe-supply = <&reg_vcc3v3>;
-+	vcc-pf-supply = <&reg_vcc3v3>;
-+	vcc-pg-supply = <&reg_vcc3v3>;
-+
-+	gpio-line-names = "", "", "", "", // PA
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "CAN0_TX", "CAN0_RX", // PB
-+					  "CAN1_TX", "CAN1_RX", "UART3_TX", "UART3_RX",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "eMMC_CLK", "eMMC_CMD", // PC
-+					  "eMMC_D2", "eMMC_D1", "eMMC_D0", "eMMC_D3",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "", // PD
-+					  "", "", "", "",
-+					  "", "USB_SEC_EN", "SPI1_CS", "SPI1_CLK",
-+					  "SPI1_MOSI", "SPI1_MISO", "SPI1_HOLD", "SPI1_WP",
-+					  "PD16", "", "", "",
-+					  "I2C2_SCL", "I2C2_SDA", "PD22", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "ETH_CRSDV", "ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
-+					  "ETH_TXD0", "ETH_TXD1", "ETH_TXEN", "",
-+					  "ETH_MDC", "ETH_MDIO", "QWIIC_nINT", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "SD_D1", "SD_D0", "SD_CLK", "SD_CLK", // PF
-+					  "SD_D3", "SD_D2", "PF6", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-+					  "ESP_D2", "ESP_D3", "UART1_TXD", "UART1_RXD",
-+					  "ESP_nBOOT", "ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-+					  "I2S1_WS", "I2S1_CLK", "I2S1_DIN0", "I2S1_DOUT0",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "";
-+
-+	usb0-enable-hog {
-+		gpio-hog;
-+		gpios = <4 9 GPIO_ACTIVE_HIGH>;
-+		line-name = "USB_SEC_EN";
-+		output-high;
-+	};
-+};
-+
-+/* Remove the unused CK pin from the pinctl as it is unconnected */
-+&rmii_pe_pins {
-+	pins = "PE0", "PE1", "PE2", "PE3", "PE4",
-+		   "PE5", "PE6", "PE8", "PE9";
-+};
-+
-+/* Default SPI Interface on Card-Edge */
-+&spi1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&spi1_pins>, <&spi1_hold_pin>, <&spi1_wp_pin>;
-+	pinctrl-names = "default";
-+	cs-gpios = <0>;
-+	status = "disabled";
-+};
-+
-+/* Connected to the Bootloader/Console of the ESP32 */
-+&uart1 {
-+	pinctrl-0 = <&uart1_pg6_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Console/Debug UART on Card-Edge */
-+&uart3 {
-+	pinctrl-0 = <&uart3_pb_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
+Maybe we really want a ORDER_PAGES() and PAGES_ORDER().
+
+But I mean, we also have PHYS_PFN() PFN_PHYS() and see how many "<< 
+PAGE_SIZE" etc we are using all over the place.
+
+> 
+>>
+>>>
+>>>> +
+>>>>    /*
+>>>>     * compound_nr() returns the number of pages in this potentially compound
+>>>>     * page.  compound_nr() can be called on a tail page, and is defined to
+>>>> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+>>>> index baead29b3e67b..426bc404b80cc 100644
+>>>> --- a/mm/page_alloc.c
+>>>> +++ b/mm/page_alloc.c
+>>>> @@ -6833,6 +6833,7 @@ static int __alloc_contig_verify_gfp_mask(gfp_t gfp_mask, gfp_t *gfp_cc_mask)
+>>>>    int alloc_contig_range_noprof(unsigned long start, unsigned long end,
+>>>>    			      acr_flags_t alloc_flags, gfp_t gfp_mask)
+> 
+> Funny btw th
+> 
+>>>>    {
+>>>> +	const unsigned int order = ilog2(end - start);
+>>>>    	unsigned long outer_start, outer_end;
+>>>>    	int ret = 0;
+>>>>
+>>>> @@ -6850,6 +6851,9 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
+>>>>    					    PB_ISOLATE_MODE_CMA_ALLOC :
+>>>>    					    PB_ISOLATE_MODE_OTHER;
+>>>>
+>>>> +	if (WARN_ON_ONCE((gfp_mask & __GFP_COMP) && order > MAX_FOLIO_ORDER))
+>>>> +		return -EINVAL;
+>>>
+>>> Possibly not worth it for a one off, but be nice to have this as a helper function, like:
+>>>
+>>> static bool is_valid_order(gfp_t gfp_mask, unsigned int order)
+>>> {
+>>> 	return !(gfp_mask & __GFP_COMP) || order <= MAX_FOLIO_ORDER;
+>>> }
+>>>
+>>> Then makes this:
+>>>
+>>> 	if (WARN_ON_ONCE(!is_valid_order(gfp_mask, order)))
+>>> 		return -EINVAL;
+>>>
+>>> Kinda self-documenting!
+>>
+>> I don't like it -- especially forwarding __GFP_COMP.
+>>
+>> is_valid_folio_order() to wrap the order check? Also not sure.
+> 
+> OK, it's not a big deal.
+> 
+> Can we have a comment explaining this though? As people might be confused
+> as to why we check this here and not elsewhere.
+
+I can add a comment.
+
 -- 
-2.39.5
+Cheers
 
+David / dhildenb
 
 
 _______________________________________________
