@@ -4,166 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AED8CA1000
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 12:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A1ECA0FF9
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 14:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u4+m1zTwJ/RskwNNajWwqP0MqnoYSCk9BT1LhvZYQl4=; b=ajslvwUD1B5Afo
-	Mf/4IAutuBZKtLRnPl6rReWFyTu4FrfumDO9y1hWCrRTCPwDtFLVaFwlZzZRbue72PuU1pS4nymUs
-	xj8WFHj62vAQmlhUwDBL8/K5o5387jnOunuEiGicLacCoP7HERTTb+cWySmlshdXEfM8sL4/aC4AM
-	vM+Min8uuiWqgKJB5MUxq/TwGpNoKAsGLBnYqjMupP5xOaIrf8ySnyLQi3CX5jj42H68jfZH56cRj
-	MYgnX8X+9DT9GB17xAJnkQW2o4bnuzrYAy4csjuq0gT2CriMswnwguUH0uhcRbIYBk2dnfixwzE54
-	93PhGhc0jvmZAiwN+uTQ==;
+	List-Owner; bh=nCDLzVPYVbMTiD/WINNvhAJwU3GsXq1q3jiXHZ6kvUg=; b=fNjXGwtVm/9wUJ
+	tY4YudFkrWi4dRryvZmRAiIJGh5iNugKFM7XFg6WJfD87FDWEKux7LyyJPoroNNhT/QPxjZ2X9Lul
+	LqyIFAkF1kb8gy9HUtGXNAkvg1OjK4BYnJGQEHPvsgX4Akq2wO1zCMGh5rrKw/QaPAXNSADZXilp9
+	Ny/A2Rd2+GWGAlYYeNPCNvpULSDeHjN0MWFjWGnUXHhGTXKSx4uXc1I51BzJJgHGG/Kt4iSEuVG9d
+	blX6I22EylBhFDoCr5WDh3ZWzC1XJ/++//8F+ylRionxxM5sEpaED3Ak5qx3XLaboRBsdlG2fQ7zI
+	s2iDc6XdXQGjvrxOUQmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryB0-00000005dv8-2uhr;
-	Fri, 29 Aug 2025 12:25:54 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1urzoD-00000005ybe-2C4A;
+	Fri, 29 Aug 2025 14:10:29 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urw46-00000005Gha-1UFz
+	id 1urwuL-00000005QkQ-0FAU
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Aug 2025 10:10:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756462237;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=utCrFA9SyGV3mLz3PcpHz6c/4tyzaXDXayD3hFRPQRM=;
-	b=gFe0ZLxmlCpduWAv8F77xhgVoOivN1/5lEnhepSp9e6PWV/A3vW/W2WmUIKDANKkw4E/RO
-	bDswA59OZf0zmYlFLzrCTREW50698dyPlfJLG/9r6n46Ro0VH1ir6VwQtY3JskfbkLD0TD
-	N6B73cGb0Ksk1NCywKJ8AkrWRsJNAjI=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-52-Az9uAqPAOxOS4OI7q03cDQ-1; Fri, 29 Aug 2025 06:10:35 -0400
-X-MC-Unique: Az9uAqPAOxOS4OI7q03cDQ-1
-X-Mimecast-MFC-AGG-ID: Az9uAqPAOxOS4OI7q03cDQ_1756462234
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3cef6debe96so560552f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 03:10:35 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756462234; x=1757067034;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=utCrFA9SyGV3mLz3PcpHz6c/4tyzaXDXayD3hFRPQRM=;
-        b=Mw53JE4r1FQjFrDwn1cnATX7BUbTt/UdIxBUANQmSTtjkW8JQ7rG2O7ic34dT99MvX
-         JUpzbJle8gyWFkGu9DyUO0hpnhpfRkW2cSF/6Icrg1ez7OM+lCz3NJTI23YnOzXR+Cv9
-         /8HPbB78QKJqDP0tt1mpeNvycu0awEFkMzqDLp2Nx0IlvOV/whtPVMUfz3uzt2YNtUQx
-         ZTqhDwQMl3YU1BFUq5n+GSp/bCaWjLb5DWExNX7Fvr6sz0Rv2efc+Aa+DM4T3Q98Gs/+
-         bVbmrlusFhr4Jf7Z5ze5/P0Dv2lNTcD4YqB7PrSjQyR+Rxb2q33uuSpWoYpWNmgrhDf1
-         fvrA==
-X-Forwarded-Encrypted: i=1; AJvYcCVO84WYH/QJR7P1GUPyzr9yi/umd9H0c6pgOQL4F2E+YZvi/E3HGd+UHyR43DaejAvbVNHacqFlhwImmw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEJam7BmKizEk0XXlC1sUJfad861u8fxDHayM7+eebGTLXxOke
-	airHyobzFVP68foAXx3zWvWwd7WWawH02bg6ri/8KW/0ZhcQG8DTuRD/oI/zx9RQ3Ya2m1cjvGz
-	/b0snpvVns0hM4zRcK0HVR4+YIhn7o9TEjESwy1b/fG+4I//wAPyUAT5Yl6OzJ8UZ7B+OLw==
-X-Gm-Gg: ASbGncsuruM3ONOg5k+KaG6FK+YuHhe9cXuFgdiLMnASEok7AqwUhO0kDVhGIkVAuQf
-	Q7acwVG5ljwHSc2eLvoG7bYTTxIPEkjSexgCWWuHuJgUpXNWGLxUvjkGnhmeSr7m0ipIdbAocsn
-	ewiyO9hVrTJlDkjbD4DlKU39J3M9anlGjrgYEhOxzTR14nNFWgCrUNw0Y0Bl5BbYsPZvKbDKqV4
-	+T6u+A0egJyDlWpQvD5RX38cquFMnHAvfh/WQJQCr5yLc4e4xcIlpPeaGGnSUa/bwRSZp1oUuOy
-	nU1dGKtO+TUSAp71i+lvYkYd200D7fq0qn4n0gYfBYikcJ6nieEWsoMe9HBk4/ZEeO8xFfAGtox
-	UzFGj9Q8gTrDkdryduySXjder2qUQ/vWhRw9SykHFuv7krT8dhy9HQZ0cws0vjSXu
-X-Received: by 2002:a05:6000:4011:b0:3d0:bec0:6c35 with SMTP id ffacd0b85a97d-3d0bec06f52mr1040107f8f.34.1756462233996;
-        Fri, 29 Aug 2025 03:10:33 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH5N+hXboXv1Pvz2Dg0jTDmYwZsPnkQwUsFPtQ8nUdHm9G3EJc3XR4ExkZX65hTeoyT3mXdJQ==
-X-Received: by 2002:a05:6000:4011:b0:3d0:bec0:6c35 with SMTP id ffacd0b85a97d-3d0bec06f52mr1040061f8f.34.1756462233448;
-        Fri, 29 Aug 2025 03:10:33 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f1d:100:4f8e:bb13:c3c7:f854? (p200300d82f1d01004f8ebb13c3c7f854.dip0.t-ipconnect.de. [2003:d8:2f1d:100:4f8e:bb13:c3c7:f854])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e8879cesm31221455e9.12.2025.08.29.03.10.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 29 Aug 2025 03:10:32 -0700 (PDT)
-Message-ID: <a9b2b570-dc81-43dd-b2f3-a82a8de37705@redhat.com>
-Date: Fri, 29 Aug 2025 12:10:30 +0200
+	Fri, 29 Aug 2025 11:04:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756465477; x=1788001477;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=MN1Il3XT7U/RcSriz2Tk4rsIzr1Tdk5cc/+Xb6ZDhtM=;
+  b=jtpc7IfnXv5HtsAZ0cwxjh2BfgTXfe/BcIbUAlUjV+p2VU8bylinaCC4
+   3X1SKOyoPH/JELkL6JNmjRglOoB3XhFJWu4/zOBHeDbGw61rNQOUwgVHV
+   wB7A+Pe+XH5fAiZ1HvWGHWzfg+rUK1o5Xu6/7zhNCGbKPLQL4rHhgpi+c
+   sI5HDakxlkcuSBfYB3WHxxHtsLfsRyCDgfR1XFFxv9JQEUtGjVZ694Gxt
+   reSYYEJqw5o/mYF+sNPo1eDBayWPkDNmlMWoDIeV3FNGnlfZ/8A4Lq9sh
+   y4PnNKnfFP6RGgB40A3bB/Cge3mu1uL4ctxzY72sznBjfsWXwAfpb6TaN
+   Q==;
+X-CSE-ConnectionGUID: MCeiy6WkQNCUoV5Revrevw==
+X-CSE-MsgGUID: MKts3SpLQXSUmMdQt/gJnw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11536"; a="57943830"
+X-IronPort-AV: E=Sophos;i="6.18,221,1751266800"; 
+   d="scan'208";a="57943830"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Aug 2025 04:04:35 -0700
+X-CSE-ConnectionGUID: wsY8eeOsTdabKwII9Rr7MA==
+X-CSE-MsgGUID: wmxIinv+ROSgUDAFQPOhmQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,221,1751266800"; 
+   d="scan'208";a="170739659"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa009.fm.intel.com with ESMTP; 29 Aug 2025 04:04:29 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1urwtz-000Udr-1z;
+	Fri, 29 Aug 2025 11:04:26 +0000
+Date: Fri, 29 Aug 2025 19:03:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alex Elder <elder@riscstar.com>, lee@kernel.org, lgirdwood@gmail.com,
+	broonie@kernel.org, alexandre.belloni@bootlin.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: Paul Gazzillo <paul@pgazz.com>,
+	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+	oe-kbuild-all@lists.linux.dev, mat.jonczyk@o2.pl, dlan@gentoo.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux.amoon@gmail.com, troymitchell988@gmail.com,
+	guodong@riscstar.com, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v13 2/7] mfd: simple-mfd-i2c: add SpacemiT P1 support
+Message-ID: <202508291833.SY2MmoZx-lkp@intel.com>
+References: <20250825172057.163883-3-elder@riscstar.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 10/36] mm: sanity-check maximum folio size in
- folio_set_order()
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
- Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
- netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
- Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
- virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
- wireguard@lists.zx2c4.com, x86@kernel.org
-References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-11-david@redhat.com>
- <f0c6e9f6-df09-4b10-9338-7bfe4aa46601@lucifer.local>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
- ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZoEEwEIAEQCGwMCF4ACGQEFCwkIBwICIgIG
- FQoJCAsCBBYCAwECHgcWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaJzangUJJlgIpAAKCRBN
- 3hD3AP+DWhAxD/9wcL0A+2rtaAmutaKTfxhTP0b4AAp1r/eLxjrbfbCCmh4pqzBhmSX/4z11
- opn2KqcOsueRF1t2ENLOWzQu3Roiny2HOU7DajqB4dm1BVMaXQya5ae2ghzlJN9SIoopTWlR
- 0Af3hPj5E2PYvQhlcqeoehKlBo9rROJv/rjmr2x0yOM8qeTroH/ZzNlCtJ56AsE6Tvl+r7cW
- 3x7/Jq5WvWeudKrhFh7/yQ7eRvHCjd9bBrZTlgAfiHmX9AnCCPRPpNGNedV9Yty2Jnxhfmbv
- Pw37LA/jef8zlCDyUh2KCU1xVEOWqg15o1RtTyGV1nXV2O/mfuQJud5vIgzBvHhypc3p6VZJ
- lEf8YmT+Ol5P7SfCs5/uGdWUYQEMqOlg6w9R4Pe8d+mk8KGvfE9/zTwGg0nRgKqlQXrWRERv
- cuEwQbridlPAoQHrFWtwpgYMXx2TaZ3sihcIPo9uU5eBs0rf4mOERY75SK+Ekayv2ucTfjxr
- Kf014py2aoRJHuvy85ee/zIyLmve5hngZTTe3Wg3TInT9UTFzTPhItam6dZ1xqdTGHZYGU0O
- otRHcwLGt470grdiob6PfVTXoHlBvkWRadMhSuG4RORCDpq89vu5QralFNIf3EysNohoFy2A
- LYg2/D53xbU/aa4DDzBb5b1Rkg/udO1gZocVQWrDh6I2K3+cCs7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <f0c6e9f6-df09-4b10-9338-7bfe4aa46601@lucifer.local>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: NdUy-DebwRGN59g9eHgh41mrWzZDJCFksPcF3Dh3AGM_1756462234
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <20250825172057.163883-3-elder@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_031038_460444_4EAA554F 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20250829_040437_110511_3B0304B8 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,60 +92,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28.08.25 17:00, Lorenzo Stoakes wrote:
-> On Thu, Aug 28, 2025 at 12:01:14AM +0200, David Hildenbrand wrote:
->> Let's sanity-check in folio_set_order() whether we would be trying to
->> create a folio with an order that would make it exceed MAX_FOLIO_ORDER.
->>
->> This will enable the check whenever a folio/compound page is initialized
->> through prepare_compound_head() / prepare_compound_page().
-> 
-> NIT: with CONFIG_DEBUG_VM set :)
+Hi Alex,
 
-Yes, will add that.
+kernel test robot noticed the following build warnings:
 
-> 
->>
->> Reviewed-by: Zi Yan <ziy@nvidia.com>
->> Signed-off-by: David Hildenbrand <david@redhat.com>
-> 
-> LGTM (apart from nit below), so:
-> 
-> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> 
->> ---
->>   mm/internal.h | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/mm/internal.h b/mm/internal.h
->> index 45da9ff5694f6..9b0129531d004 100644
->> --- a/mm/internal.h
->> +++ b/mm/internal.h
->> @@ -755,6 +755,7 @@ static inline void folio_set_order(struct folio *folio, unsigned int order)
->>   {
->>   	if (WARN_ON_ONCE(!order || !folio_test_large(folio)))
->>   		return;
->> +	VM_WARN_ON_ONCE(order > MAX_FOLIO_ORDER);
-> 
-> Given we have 'full-fat' WARN_ON*()'s above, maybe worth making this one too?
+[auto build test WARNING on 6c68f4c0a147c025ae0b25fab688c7c47964a02f]
 
-The idea is that if you reach this point here, previous such checks I 
-added failed. So this is the safety net, and for that VM_WARN_ON_ONCE() 
-is sufficient.
+url:    https://github.com/intel-lab-lkp/linux/commits/Alex-Elder/dt-bindings-mfd-add-support-the-SpacemiT-P1-PMIC/20250826-012424
+base:   6c68f4c0a147c025ae0b25fab688c7c47964a02f
+patch link:    https://lore.kernel.org/r/20250825172057.163883-3-elder%40riscstar.com
+patch subject: [PATCH v13 2/7] mfd: simple-mfd-i2c: add SpacemiT P1 support
+config: x86_64-kismet-CONFIG_I2C_K1-CONFIG_MFD_SPACEMIT_P1-0-0 (https://download.01.org/0day-ci/archive/20250829/202508291833.SY2MmoZx-lkp@intel.com/config)
+reproduce: (https://download.01.org/0day-ci/archive/20250829/202508291833.SY2MmoZx-lkp@intel.com/reproduce)
 
-I think we should rather convert the WARN_ON_ONCE to VM_WARN_ON_ONCE() 
-at some point, because no sane code should ever trigger that.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508291833.SY2MmoZx-lkp@intel.com/
+
+kismet warnings: (new ones prefixed by >>)
+>> kismet: WARNING: unmet direct dependencies detected for I2C_K1 when selected by MFD_SPACEMIT_P1
+   WARNING: unmet direct dependencies detected for I2C_K1
+     Depends on [n]: I2C [=y] && HAS_IOMEM [=y] && (ARCH_SPACEMIT || COMPILE_TEST [=y]) && OF [=n]
+     Selected by [y]:
+     - MFD_SPACEMIT_P1 [=y] && HAS_IOMEM [=y] && (ARCH_SPACEMIT || COMPILE_TEST [=y]) && I2C [=y]
 
 -- 
-Cheers
-
-David / dhildenb
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
