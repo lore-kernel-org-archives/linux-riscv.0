@@ -4,83 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A1ECA0FF9
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 14:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669B1CA0FF9
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 15:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nCDLzVPYVbMTiD/WINNvhAJwU3GsXq1q3jiXHZ6kvUg=; b=fNjXGwtVm/9wUJ
-	tY4YudFkrWi4dRryvZmRAiIJGh5iNugKFM7XFg6WJfD87FDWEKux7LyyJPoroNNhT/QPxjZ2X9Lul
-	LqyIFAkF1kb8gy9HUtGXNAkvg1OjK4BYnJGQEHPvsgX4Akq2wO1zCMGh5rrKw/QaPAXNSADZXilp9
-	Ny/A2Rd2+GWGAlYYeNPCNvpULSDeHjN0MWFjWGnUXHhGTXKSx4uXc1I51BzJJgHGG/Kt4iSEuVG9d
-	blX6I22EylBhFDoCr5WDh3ZWzC1XJ/++//8F+ylRionxxM5sEpaED3Ak5qx3XLaboRBsdlG2fQ7zI
-	s2iDc6XdXQGjvrxOUQmg==;
+	List-Owner; bh=rShXCLGM8a4ES+fWhk0tdq7azq7xjKYaIO2EyZx82KU=; b=WYTnqJXDN48Yxe
+	na9Df8SZ0T90o0MAsCl9RRtEDIEFdvhKKOp37ckUULVvubXqrc5F4x33yJohg8uD2T0OpqPnDrd4x
+	uThvfKSP7oLmc0LvGHkU7hYTerNOfZOGlEPmudfxY1IiB2me3ffwWebUCAm3T+cPnDYEEZ29rrqKj
+	60i5jywXabWJmQ800cBfkK9RouAu8ml81A4crrO4p3zQomNp7SSmqGdW81TkigJEJRiZKfyoGeQOU
+	WVKPoAYCdlsmjJzVtrn2PZpbvPZUcPeb9ZlbPsT29ie22AHVfoSCqtVWqTwtumShTFIQ3S/7VvzO2
+	Lgq5Ntj4VSn+xrvOZNbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urzoD-00000005ybe-2C4A;
-	Fri, 29 Aug 2025 14:10:29 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1us1GE-00000006FLe-1T3p;
+	Fri, 29 Aug 2025 15:43:30 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urwuL-00000005QkQ-0FAU
+	id 1urxjk-00000005YaM-0SVV
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Aug 2025 11:04:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756465477; x=1788001477;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=MN1Il3XT7U/RcSriz2Tk4rsIzr1Tdk5cc/+Xb6ZDhtM=;
-  b=jtpc7IfnXv5HtsAZ0cwxjh2BfgTXfe/BcIbUAlUjV+p2VU8bylinaCC4
-   3X1SKOyoPH/JELkL6JNmjRglOoB3XhFJWu4/zOBHeDbGw61rNQOUwgVHV
-   wB7A+Pe+XH5fAiZ1HvWGHWzfg+rUK1o5Xu6/7zhNCGbKPLQL4rHhgpi+c
-   sI5HDakxlkcuSBfYB3WHxxHtsLfsRyCDgfR1XFFxv9JQEUtGjVZ694Gxt
-   reSYYEJqw5o/mYF+sNPo1eDBayWPkDNmlMWoDIeV3FNGnlfZ/8A4Lq9sh
-   y4PnNKnfFP6RGgB40A3bB/Cge3mu1uL4ctxzY72sznBjfsWXwAfpb6TaN
-   Q==;
-X-CSE-ConnectionGUID: MCeiy6WkQNCUoV5Revrevw==
-X-CSE-MsgGUID: MKts3SpLQXSUmMdQt/gJnw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11536"; a="57943830"
-X-IronPort-AV: E=Sophos;i="6.18,221,1751266800"; 
-   d="scan'208";a="57943830"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Aug 2025 04:04:35 -0700
-X-CSE-ConnectionGUID: wsY8eeOsTdabKwII9Rr7MA==
-X-CSE-MsgGUID: wmxIinv+ROSgUDAFQPOhmQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,221,1751266800"; 
-   d="scan'208";a="170739659"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by fmviesa009.fm.intel.com with ESMTP; 29 Aug 2025 04:04:29 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1urwtz-000Udr-1z;
-	Fri, 29 Aug 2025 11:04:26 +0000
-Date: Fri, 29 Aug 2025 19:03:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alex Elder <elder@riscstar.com>, lee@kernel.org, lgirdwood@gmail.com,
-	broonie@kernel.org, alexandre.belloni@bootlin.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev, mat.jonczyk@o2.pl, dlan@gentoo.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux.amoon@gmail.com, troymitchell988@gmail.com,
-	guodong@riscstar.com, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v13 2/7] mfd: simple-mfd-i2c: add SpacemiT P1 support
-Message-ID: <202508291833.SY2MmoZx-lkp@intel.com>
-References: <20250825172057.163883-3-elder@riscstar.com>
+	Fri, 29 Aug 2025 11:57:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756468663;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=hoDokfG1MQmzSDgEaptCicCjaaQpWxY2iqh8txE4sWo=;
+	b=P6kelF9Ra3pyWWNY4aNhpsIzMjHdJY43Es7xuRJ8AZx9tk+ReoBwua2EB6hr+Hq22CWdhZ
+	1P2EqdSdyF84R/65VpMwT+7OVr/TXMGW0MgUNd8YnejLod1iehysdHq9Cy8TOKUskOo1YE
+	L/1LeLkVDSKIDLbBtS74BgU7df6NVKA=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-623-5M9l-S00N4Ck_ynSbRI9DA-1; Fri, 29 Aug 2025 07:57:27 -0400
+X-MC-Unique: 5M9l-S00N4Ck_ynSbRI9DA-1
+X-Mimecast-MFC-AGG-ID: 5M9l-S00N4Ck_ynSbRI9DA_1756468646
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45a1b0c5377so10329455e9.3
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 04:57:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756468646; x=1757073446;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hoDokfG1MQmzSDgEaptCicCjaaQpWxY2iqh8txE4sWo=;
+        b=X03SrIW+iKLA27trBq+lONbeSqo5n6Tn7B184NMuOf6buyZF8FZKWfuij3UGjrSHz8
+         nVlvxE5yEyu+eIF/veX6Uoy5+2fTnyFeixuAK2kUouej+w6F1FxLSi2ba2yx8pdbJyGz
+         swbzamqZPEmgYZS4XpwU0OnnMj+LRalAc0H3CzIYZQAS89oUBI3vvpyNPMezxBToia/3
+         MlHdmR2zC+99mdMcwnVlQNCUWI+Lerq6so/ROV6ynjL8PiqTDOgorMTkNhlqDRcNJ77C
+         Q5gC5BylQiqiPQwThVAb0AyX5QerKKVDykyxfMyxLO0P9K3VzhUyIZAVqzIIH2egHbHz
+         HNEA==
+X-Forwarded-Encrypted: i=1; AJvYcCVps9VET+P1jGro3lDvwetHDAJqLXARgcSfyH7sK6BBu0BWCvVurOMRIHtQLLPibvES0Imm1MUuxoqJJg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNdl3jjoMYhb3mhNzMFugrj6aNOfQBN/QxD7dEIt496q2fzFVr
+	wUJXhcyYrfcOaYELibGH13kTrf7TeOwSySs3s+17nb7JLz77/uCHd2Y8LaFGFqkZoDn6tMUh9DX
+	qP6BdUGGbObpewvHAci+yUgqm8WEZumKFaJIpATgTMdATxwtE/1lLlP6dyRCEcexqgDa/CA==
+X-Gm-Gg: ASbGncvVJbgqYDL7MkBYXGtZwWJddkA58hKVU6v4G0QGieQ6xkcrud08PzXri/D7cS9
+	4c9vjwU9Wpsv06aMdMVI9eKAKRclY66ibvbtmtwzjqRLsElz56AaXHwevzqN9kMF15rPhbmDZ69
+	ctCSuJsPwiNlwDZC4vlv95JbKi18NYE2V4FqgXGAp8Q9r5wt+wSD6wagb5aVQM+ptCWYdFbIBYq
+	tKTlTlzUoY/04Pr9LsO7bVnd8Ho3bzgPf4K01UZ6u3XgB6HejG6vU+QGMaYULXtXWnZQ3nmbefP
+	6I9Iit8S4uzgmROhcJB10QKfH60XxLZOYA4LM/Ywz1uE/J0u382D6ZcDC7w+72bMw0PdplSDN6b
+	BlYbiWe12Iw1JJXcLfGSr7WOjDhfnw9vMAk+zz1+4sU7/M6BQbnV9Dlxx+iXzRLU=
+X-Received: by 2002:a05:600c:348d:b0:45b:80ab:3359 with SMTP id 5b1f17b1804b1-45b80ab35acmr15394865e9.0.1756468645774;
+        Fri, 29 Aug 2025 04:57:25 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG95+220rsAfy23meKWNy4rnKbzYvRZ5zPoY4wdVrGBgRqoKPVywzJTjIuqBTuNai4wkDfQaw==
+X-Received: by 2002:a05:600c:348d:b0:45b:80ab:3359 with SMTP id 5b1f17b1804b1-45b80ab35acmr15394435e9.0.1756468645290;
+        Fri, 29 Aug 2025 04:57:25 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f1d:100:4f8e:bb13:c3c7:f854? (p200300d82f1d01004f8ebb13c3c7f854.dip0.t-ipconnect.de. [2003:d8:2f1d:100:4f8e:bb13:c3c7:f854])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6b99sm116739135e9.4.2025.08.29.04.57.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 Aug 2025 04:57:24 -0700 (PDT)
+Message-ID: <eff8badd-0ddd-4a5f-a2ef-0e3ded39687a@redhat.com>
+Date: Fri, 29 Aug 2025 13:57:22 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250825172057.163883-3-elder@riscstar.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 11/36] mm: limit folio/compound page sizes in
+ problematic kernel configs
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
+ "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+ Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+ Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
+ Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-12-david@redhat.com>
+ <baa1b6cf-2fde-4149-8cdf-4b54e2d7c60d@lucifer.local>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <baa1b6cf-2fde-4149-8cdf-4b54e2d7c60d@lucifer.local>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 6H-xbmuyfWXuZJJfGCq9pswU7Cj-WdXXURZJRX-wSns_1756468646
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_040437_110511_3B0304B8 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250829_045744_224247_7E0B1DC0 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,39 +175,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
+On 28.08.25 17:10, Lorenzo Stoakes wrote:
+> On Thu, Aug 28, 2025 at 12:01:15AM +0200, David Hildenbrand wrote:
+>> Let's limit the maximum folio size in problematic kernel config where
+>> the memmap is allocated per memory section (SPARSEMEM without
+>> SPARSEMEM_VMEMMAP) to a single memory section.
+>>
+>> Currently, only a single architectures supports ARCH_HAS_GIGANTIC_PAGE
+>> but not SPARSEMEM_VMEMMAP: sh.
+>>
+>> Fortunately, the biggest hugetlb size sh supports is 64 MiB
+>> (HUGETLB_PAGE_SIZE_64MB) and the section size is at least 64 MiB
+>> (SECTION_SIZE_BITS == 26), so their use case is not degraded.
+>>
+>> As folios and memory sections are naturally aligned to their order-2 size
+>> in memory, consequently a single folio can no longer span multiple memory
+>> sections on these problematic kernel configs.
+>>
+>> nth_page() is no longer required when operating within a single compound
+>> page / folio.
+>>
+>> Reviewed-by: Zi Yan <ziy@nvidia.com>
+>> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> Signed-off-by: David Hildenbrand <david@redhat.com>
+> 
+> Realy great comments, like this!
+> 
+> I wonder if we could have this be part of the first patch where you fiddle
+> with MAX_FOLIO_ORDER etc. but not a big deal.
 
-kernel test robot noticed the following build warnings:
+I think it belongs into this patch where we actually impose the 
+restrictions.
 
-[auto build test WARNING on 6c68f4c0a147c025ae0b25fab688c7c47964a02f]
+[...]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alex-Elder/dt-bindings-mfd-add-support-the-SpacemiT-P1-PMIC/20250826-012424
-base:   6c68f4c0a147c025ae0b25fab688c7c47964a02f
-patch link:    https://lore.kernel.org/r/20250825172057.163883-3-elder%40riscstar.com
-patch subject: [PATCH v13 2/7] mfd: simple-mfd-i2c: add SpacemiT P1 support
-config: x86_64-kismet-CONFIG_I2C_K1-CONFIG_MFD_SPACEMIT_P1-0-0 (https://download.01.org/0day-ci/archive/20250829/202508291833.SY2MmoZx-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20250829/202508291833.SY2MmoZx-lkp@intel.com/reproduce)
+>> +/*
+>> + * Only pages within a single memory section are guaranteed to be
+>> + * contiguous. By limiting folios to a single memory section, all folio
+>> + * pages are guaranteed to be contiguous.
+>> + */
+>> +#define MAX_FOLIO_ORDER		PFN_SECTION_SHIFT
+> 
+> Hmmm, was this implicit before somehow? I mean surely by the fact as you say
+> that physical contiguity would not otherwise be guaranteed :))
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508291833.SY2MmoZx-lkp@intel.com/
+Well, my patches until this point made sure that any attempt to use a 
+larger folio would fail in a way that we could spot now if there is any 
+offender.
 
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for I2C_K1 when selected by MFD_SPACEMIT_P1
-   WARNING: unmet direct dependencies detected for I2C_K1
-     Depends on [n]: I2C [=y] && HAS_IOMEM [=y] && (ARCH_SPACEMIT || COMPILE_TEST [=y]) && OF [=n]
-     Selected by [y]:
-     - MFD_SPACEMIT_P1 [=y] && HAS_IOMEM [=y] && (ARCH_SPACEMIT || COMPILE_TEST [=y]) && I2C [=y]
+That is why before this change, nth_page() was required within a folio.
+
+Hope that clarifies it, thanks!
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Cheers
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
