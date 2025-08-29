@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56A31CA0FF9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D7FCA1000
 	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 12:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=prQuQCIzDQ2YDyOmkdzL8m44mbtJ4c0VtKXu5OZeaZY=; b=R45mwhUoMLgrUl
-	664UpdeP7b8H40MVYH0mL8Jjs+8v1bLDRM5kA0CK3Hvcv+UZ1Gh+08qG38gqoX4kNAzyFyx+28CqV
-	THYaMPOCvhTW6CTKq516XMSiWo20E6YRttUlNVm2yq9dU5rr+MNoquQs95yl7hStjQHKUS5Te3ekE
-	WQfBLOgZdT3CgFoW8sddEs+ckHL/uracyA5nH9FlyRwi61UAcH4GwbfN3GxWVfToG7G8PqQAmn+1S
-	jRHTvch19QGpCfV7LlU1y/EovWh6WrO+fImjzOMNuE77++Jd9O6kVa8vjiVtpLVFyO8y42gxl/v+Z
-	kemMF3VHffv7+Wq5xKQQ==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ottCJOYXvevE9JrypeOXWlskztMlaQ8nypP5dWzaDHU=; b=iXj233s1zLPMZFLgE5u4CJq5SG
+	n6St3D4MSuoFsFpbSZvwivExJEatU0PwKz4diQBexxQWsAnQKaz9c5vWBxceD11gmLaMgiA885wIq
+	8HEBsIe9Cp7tXlUmPh5lCxboI+cYuuqOkDdWU/ct2tADP2I0atOdIPj7axpt1HAqGuePa0L5hE3OZ
+	0nufPvgyh+uqa//qHPfqVykmxafgyD4jAYJCf0yvg7JFQTKryFbOQEkGG6dmYBA00AWkjOiI611JP
+	VZLKL5dmn4bztf5qLyGb+nBtmUjF2i4hseT1bwVI6+x8zQbsRTckzOh/aq+1aWJLxj5YaFSQ1alBk
+	laGgoScg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryAu-00000005doo-2TsV;
-	Fri, 29 Aug 2025 12:25:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uryAr-00000005dlO-1pW1;
+	Fri, 29 Aug 2025 12:25:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urw05-00000005FpZ-1Akm
+	id 1urvsm-00000005Dzp-43ul
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Aug 2025 10:06:30 +0000
+	Fri, 29 Aug 2025 09:58:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756461988;
+	s=mimecast20190719; t=1756461536;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=lPHoMHV5vJS1QZV5L+lWiiTGuBUarel82A4quq5C180=;
-	b=X2NbUJL9bJHXuV7eFDPLEXzYckKovoNtSRH8sORqAv9vimX0X32VEDKOIBVPMznGdpXYoO
-	X57JAEYB0QsZo29AZTtUbuLEe8Zyt4Cpo2R9Zdb+zoqlazX3FyyctVla77iDrPmlBWzN4v
-	Mo1p3ap9YvAATSGfXbwpeewFXZTAAQE=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=CIYlE8yYA+z63gvbmepekc4lArepb/yuA3iZBVH5fy4=;
+	b=BHI1sHE9JIoI2E7++VDri7lR3hp9p789EDi3AFFHfnEbCS8kB/QWoF0Q1F7LGOCp8y6b5v
+	qH3iaPoV+mTotidGPnwn/s45fNOnxvoaxWIXR4KpTgvCaHBAppLgCtE5F8W2ONWt3dR4uy
+	yhqgaj2m/12PzZHhvIodIkZA+Sy7DNw=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-319-0hix3TheMFOAe2T11HRo3g-1; Fri, 29 Aug 2025 06:06:26 -0400
-X-MC-Unique: 0hix3TheMFOAe2T11HRo3g-1
-X-Mimecast-MFC-AGG-ID: 0hix3TheMFOAe2T11HRo3g_1756461985
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3ce7f782622so647345f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 03:06:25 -0700 (PDT)
+ us-mta-518-nJc9MAreODeZhn7mxRMNBw-1; Fri, 29 Aug 2025 05:58:54 -0400
+X-MC-Unique: nJc9MAreODeZhn7mxRMNBw-1
+X-Mimecast-MFC-AGG-ID: nJc9MAreODeZhn7mxRMNBw_1756461533
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3cf48eca078so484327f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 02:58:54 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756461985; x=1757066785;
+        d=1e100.net; s=20230601; t=1756461533; x=1757066333;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lPHoMHV5vJS1QZV5L+lWiiTGuBUarel82A4quq5C180=;
-        b=VP84YFes/4OPXJZHgs5LcFEO05/0oVhXh+R1PlD3mMJElgJmXFVnPxdzQFTnGPkQIN
-         CplEJvEtgFUiHkjQQFCtRnSpU4OdjGo2I/Ym6sQvSKTElZ2nyT/g6uod9CP9GjQJZpGr
-         hao/FUunjEqhfExXlVaIIjO3H086nPBhURrV2YlQQ0pkE/+KfISgMq3MvdbfaJA6QgzM
-         0Yujn1d56ZS2+c0NgDMJiJDOOII2N63bUgLY+WL9pXKk0yw27TgRmom4JmMfk37b6ppY
-         0yoYUMOTjTxXECe41fq67IxjXfqXas0TgwXtwBveLDWRhWKGF+rrztcB30v6chLWLXS7
-         62rA==
-X-Forwarded-Encrypted: i=1; AJvYcCXmZR/CIhlA6kgPezmbuk9n4SlVQb4wywqcmd+K00u6Xo6PDkAAfQB8dKcHeD8UZH42AqJjCozUrJRq9w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3ccdMtoBWYzQfBgyKbODKDVzdflTyFwnZ8y2opfgNislXjfaM
-	9XPlQ2D7jjhDgeP9LXVo3bDvms8ZaYv/EIGQk/PPDfSXnUhmlIu4cpO0kdq6Br3s1bG7VEaO1YH
-	KT85uS85vcDavMprN+8mxBrPJgw6WNo92D4qPIU7oFNkCibm1nLsdhbqQifcIQAflthAXFQ==
-X-Gm-Gg: ASbGnctOr92kz/2+NzYYpkP5HgIPPAeR92LXpsCr3yDw5hQVr3FUkeYle/UlR9gIUXu
-	DUhZO3aqsaFDklV7y6EnMNNK68QVg9n+1OE2GYdiIc469kiwSyJJDMBCAkSIwUecbN5WulBdL8B
-	7f45uoJn0HEmdjH1StShIfCqwXrQBF9ycdRvJJIs7bvf+PD5BprHdRoRY8RLarVwPP1F8NIFegb
-	ZhiXfEElbZUXdProzKUTG/Kz73HlHh9TDIyZ3UQ7j+Gkwm4fWpe/FaNPZ/ga0SBJH7LwwkBOJbI
-	2TLeTvyKdjCx8Lowj/djKIfuOPkxhSmT1BbwkElAQH+rTE8R+DswHoojRiMmhkVpaR26SVH48X4
-	stgQs0ZD40190+Ww4rijJcvVx1skdef0UXFrgj3gFOHTwHJfUHArr3KEhe9J0vmOV
-X-Received: by 2002:a05:6000:2082:b0:3ce:663a:c92f with SMTP id ffacd0b85a97d-3ce663af648mr3716838f8f.25.1756461984550;
-        Fri, 29 Aug 2025 03:06:24 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG+cEIb1Z4u6pTtqsfT89DbTAZZhLHMJCnkgKmDWXX/Q7MNQLWv1cM4WZiGdQoi1AW0dJ7LMQ==
-X-Received: by 2002:a05:6000:2082:b0:3ce:663a:c92f with SMTP id ffacd0b85a97d-3ce663af648mr3716770f8f.25.1756461983963;
-        Fri, 29 Aug 2025 03:06:23 -0700 (PDT)
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CIYlE8yYA+z63gvbmepekc4lArepb/yuA3iZBVH5fy4=;
+        b=J1inzuxxEWNGz+v5j53hMMTyl7O8JMe/UsUGUlDCi/wNQyqDS84EO2gOpow0JcH/5v
+         TMwSSPKeKUaYXiK/aESjjusDIK84f3LcAqc1GWfksfNSn1qENtZCphVueBk+cp+4LaXF
+         O5QvAbh3NJ3kM+nWuMZZb5FEsCSbzOrG8j7HQDtnX9cogJ554JXYPnVLkJysCkNGrdhg
+         6NQG1MBisVw6jVHx24UOvLcNfsVze2v5y9ZaxHHQvk6wPYvmaiQnk43zBfNsA+iQoV1k
+         2KpdVyAmwykPSLRfCv65EPl5xzodMR4B2oB6He++wlA6HSUpoKJnKuF7rFkVQDmzgaS2
+         az3A==
+X-Forwarded-Encrypted: i=1; AJvYcCXvfQgr3x0C5TsPL1jIi4diMNqVVU6R8ASvnBxNhuZ53KDGV6iPjAtV1Cgs0Ld5wgXpQXbWlg5r9cvR4w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAn2Y/5P+Uc/5EP3zsz5uKsSl/bOtx34HNM5xZaokHE39JW1AY
+	U+Rnau78EKyTGXW7fdZYmlTrj150KRA0FEbKxHNOTg85V6PQ5Am95ENswazmm+ZdL+TpGeVGkql
+	+qazsIZzGGZluYvAZ4AS9tcQCLiaf1ft0gc6Mp+gFejNGb6JHYCkK1/vMrP4/VORxbnzRdw==
+X-Gm-Gg: ASbGncsSPCHDF69o+8RPyz+MbFhQcb6uZ7XrRBcT1RF7yl7OyvOcU2YORtffSN+rje7
+	aZb9auY3M8XEa1a+82qVp7vn67N052yFdVrEOy9dj7GXHWcZJCbWdlfSU6kdBaLVPBYs2TwlnSR
+	BAsWO+FlA58QDg/blrjNF4vfaoUhimStO79Kz1FXo8ObD9Cc/jFO09HqSiYQE4Fi3Ko2HUsfZF6
+	0XY3mWjKizhdDcjN9isX02fQJX+vniKsh9fBhEJSC4wJpRH6I3Cml5b8VN20ZVc8+HyZEUJ0+PG
+	9hd5thtrEZMrl+VJ7sBHTM2H5ftUn+aUec5jCVEZlca3Ij5fwCuZ859VDK2lQi8UWFXdFwSgRfv
+	Q5lIfaFfz7ntvSxHCxoKdXOz/mItM/J9BBFS2rlBiN0P5mKVYvfD37sOITqSQs8Nn
+X-Received: by 2002:a05:600c:35d0:b0:45b:7f72:340 with SMTP id 5b1f17b1804b1-45b7f720599mr16993555e9.25.1756461532886;
+        Fri, 29 Aug 2025 02:58:52 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHP3EE2Ifsg5AHoStp93/zw+u97m2nZeBURa8lzMoGajSkuEytfaWCGtF8d2bBvl4JzWz9L2g==
+X-Received: by 2002:a05:600c:35d0:b0:45b:7f72:340 with SMTP id 5b1f17b1804b1-45b7f720599mr16993185e9.25.1756461532358;
+        Fri, 29 Aug 2025 02:58:52 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f1d:100:4f8e:bb13:c3c7:f854? (p200300d82f1d01004f8ebb13c3c7f854.dip0.t-ipconnect.de. [2003:d8:2f1d:100:4f8e:bb13:c3c7:f854])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b74950639sm85846585e9.17.2025.08.29.03.06.21
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7271cd01sm102235695e9.23.2025.08.29.02.58.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 29 Aug 2025 03:06:23 -0700 (PDT)
-Message-ID: <547145e0-9b0e-40ca-8201-e94cc5d19356@redhat.com>
-Date: Fri, 29 Aug 2025 12:06:21 +0200
+        Fri, 29 Aug 2025 02:58:51 -0700 (PDT)
+Message-ID: <6a2e2ba2-e5ea-4744-a66e-790216c1e762@redhat.com>
+Date: Fri, 29 Aug 2025 11:58:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v1 06/36] mm/page_alloc: reject unreasonable
  folio/compound page sizes in alloc_contig_range_noprof()
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
+To: "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
  SeongJae Park <sj@kernel.org>, Alexander Potapenko <glider@google.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
@@ -94,23 +93,22 @@ Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
  Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
  Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
  kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
  Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
  linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
  linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
- netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
- Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
- virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
- wireguard@lists.zx2c4.com, x86@kernel.org
+ linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+ Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+ Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
+ Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org
 References: <20250827220141.262669-1-david@redhat.com>
  <20250827220141.262669-7-david@redhat.com>
- <f195300e-42e2-4eaa-84c8-c37501c3339c@lucifer.local>
+ <3hpjmfa6p3onfdv4ma4nv2tdggvsyarh7m36aufy6hvwqtp2wd@2odohwxkl3rk>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -156,14 +154,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <f195300e-42e2-4eaa-84c8-c37501c3339c@lucifer.local>
+In-Reply-To: <3hpjmfa6p3onfdv4ma4nv2tdggvsyarh7m36aufy6hvwqtp2wd@2odohwxkl3rk>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 1DCUPKWyZiC3L3cSu-6FfENTQShGKSwpnH-YQVq-cXw_1756461985
+X-Mimecast-MFC-PROC-ID: BhPd84n4eMX624B7B5Cv_-0xvq-aXdN6-O22PKbjVM4_1756461533
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_030629_407133_2446F944 
-X-CRM114-Status: GOOD (  24.57  )
+X-CRM114-CacheID: sfid-20250829_025857_105720_BF414D25 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,8 +178,8 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28.08.25 16:37, Lorenzo Stoakes wrote:
-> On Thu, Aug 28, 2025 at 12:01:10AM +0200, David Hildenbrand wrote:
+On 29.08.25 02:33, Liam R. Howlett wrote:
+> * David Hildenbrand <david@redhat.com> [250827 18:04]:
 >> Let's reject them early, which in turn makes folio_alloc_gigantic() reject
 >> them properly.
 >>
@@ -192,9 +190,9 @@ On 28.08.25 16:37, Lorenzo Stoakes wrote:
 >> Acked-by: SeongJae Park <sj@kernel.org>
 >> Signed-off-by: David Hildenbrand <david@redhat.com>
 > 
-> Some nits, but overall LGTM so:
+> Nit below, but..
 > 
-> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> Reviewed-by: Liam R. Howlett <Liam.Howlett@oracle.com>
 > 
 >> ---
 >>   include/linux/mm.h | 6 ++++--
@@ -206,7 +204,7 @@ On 28.08.25 16:37, Lorenzo Stoakes wrote:
 >> --- a/include/linux/mm.h
 >> +++ b/include/linux/mm.h
 >> @@ -2055,11 +2055,13 @@ static inline long folio_nr_pages(const struct folio *folio)
->>
+>>   
 >>   /* Only hugetlbfs can allocate folios larger than MAX_ORDER */
 >>   #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
 >> -#define MAX_FOLIO_NR_PAGES	(1UL << PUD_ORDER)
@@ -215,22 +213,8 @@ On 28.08.25 16:37, Lorenzo Stoakes wrote:
 >> -#define MAX_FOLIO_NR_PAGES	MAX_ORDER_NR_PAGES
 >> +#define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
 >>   #endif
->>
+>>   
 >> +#define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
-> 
-> BIT()?
-
-I don't think we want to use BIT whenever we convert from order -> folio 
--- which is why we also don't do that in other code.
-
-BIT() is nice in the context of flags and bitmaps, but not really in the 
-context of converting orders to pages.
-
-One could argue that maybe one would want a order_to_pages() helper 
-(that could use BIT() internally), but I am certainly not someone that 
-would suggest that at this point ...  :)
-
-> 
 >> +
 >>   /*
 >>    * compound_nr() returns the number of pages in this potentially compound
@@ -246,35 +230,34 @@ would suggest that at this point ...  :)
 >> +	const unsigned int order = ilog2(end - start);
 >>   	unsigned long outer_start, outer_end;
 >>   	int ret = 0;
->>
+>>   
 >> @@ -6850,6 +6851,9 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
 >>   					    PB_ISOLATE_MODE_CMA_ALLOC :
 >>   					    PB_ISOLATE_MODE_OTHER;
->>
+>>   
 >> +	if (WARN_ON_ONCE((gfp_mask & __GFP_COMP) && order > MAX_FOLIO_ORDER))
 >> +		return -EINVAL;
+>> +
+>>   	gfp_mask = current_gfp_context(gfp_mask);
+>>   	if (__alloc_contig_verify_gfp_mask(gfp_mask, (gfp_t *)&cc.gfp_mask))
+>>   		return -EINVAL;
+>> @@ -6947,7 +6951,6 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
+>>   			free_contig_range(end, outer_end - end);
+>>   	} else if (start == outer_start && end == outer_end && is_power_of_2(end - start)) {
+>>   		struct page *head = pfn_to_page(start);
+>> -		int order = ilog2(end - start);
 > 
-> Possibly not worth it for a one off, but be nice to have this as a helper function, like:
-> 
-> static bool is_valid_order(gfp_t gfp_mask, unsigned int order)
-> {
-> 	return !(gfp_mask & __GFP_COMP) || order <= MAX_FOLIO_ORDER;
-> }
-> 
-> Then makes this:
-> 
-> 	if (WARN_ON_ONCE(!is_valid_order(gfp_mask, order)))
-> 		return -EINVAL;
-> 
-> Kinda self-documenting!
+> You have changed this from an int to a const unsigned int, which is
+> totally fine but it was left out of the change log.  
 
-I don't like it -- especially forwarding __GFP_COMP.
+Considered to trivial to document, but I can add a sentence about that.
 
-is_valid_folio_order() to wrap the order check? Also not sure.
+> Probably not really
+> worth mentioning but curious why the change to unsigned here?
 
-So I'll leave it as is I think.
+orders are always unsigned, like folio_order().
 
-Thanks for all the review!
+Thanks!
 
 -- 
 Cheers
