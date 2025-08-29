@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28B7CA0FFD
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 18:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9DACA1003
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 18:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u87CP3LEEg0MmHSEanyhB4A6A/B0zMO/fXpeV2UqMys=; b=pVuVUhzjj28gQK
-	Lxdwi1LXjIcidIZDk+XsER9OUOpUewar3ZoicPYGcW3chbyraeDiBo64m/EXSsWo2pfpzWquUQWjj
-	WeWeyI1o+MopQHhimhwc25kC9TjxxEM/VOjintKixV5SH7oxZXPtoJIU14GssGUIg1Vlhtur3i7fu
-	ytVeakMYQRYHRu/5abWMtVLbn/5+Cc6iLbNJJaiBVOc10bVSW2DHN4K9b7HIfAqi+a7mfvB9GYTBd
-	UDXYRU5nzc/T1FjTgmjIvmYePL3Pkxv5OzHJCZKPkqgNmHMSBmv9UScERM/Se+cOyQSqlcQ39Xy7u
-	Q7bjUg4hy0U5yu5b269w==;
+	List-Owner; bh=2Pj/cqHpVd3mHaNSj4tPsYjpmj96z4MMbDhSuJdJYZM=; b=fsYIW96iY3wLQe
+	7saApBaDYmy33Pea8mP4LgFGZzt5M2fWAy19AC633hsXb8YK71vPZ5pc1kS1nP4TwcOHWQj1wrmtA
+	TXKof+CJYL2OB9VfU6arKvzIrqOP6cUcdqkDftex4bkVxJ3cVTejq+4sZ1bFgzUmHUd3qBUFUV817
+	lZNdUWvOQRfgUJ8mCGKsTOESkyeUq+sZxge6ziSzFtP6aWEYVDOQvKvk+uFrRE5wInkLPJfFAXX8C
+	EiYyAo3/sPSNrpL9Ynj4z3zYyrHPom7tRvm7zX8FGVFea3YzHQogNLgQohtfgUan3IEtMoLtHFhh8
+	SUDwlRyPBFtd+d6Nt2uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us4Ah-00000006fi4-1HF0;
-	Fri, 29 Aug 2025 18:49:59 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1us4Aj-00000006fkv-31nj;
+	Fri, 29 Aug 2025 18:50:01 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us0Hx-0000000642t-0CfL
+	id 1us0Hz-0000000645T-0qRM
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Aug 2025 14:41:14 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7720f231174so1823679b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 07:41:13 -0700 (PDT)
+	Fri, 29 Aug 2025 14:41:16 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-771e987b4e6so1718093b3a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 07:41:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1756478472; x=1757083272; darn=lists.infradead.org;
+        d=rivosinc.com; s=google; t=1756478475; x=1757083275; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dxbAHn2gu8hPzgAv8AKJJWeRS0gDiHkMgaOyBvCoSlM=;
-        b=d2KMV8sdHhXY14CG5eEjrz40D985eO5IG389bQ1I6df4yEXFX0/0mrzbejrkyKBZpz
-         K+yBFoFNrIApckaiWJt9E7nnv2EzBbpCTnfw8XijJ4sKtrlvGuZ6zuB6DOVLestZ0e4D
-         5Q8IdDDMcaLS1LwFxjLHNn7eTHmw343yvAXTAotcEmjD7Qis/hTIJ7gD6YzRs10aCuuc
-         z3kuzMxVhDvS+Arf0to0ivvnbonmlidT+FJTJAV5hzk3hTOIoymXeEq/DfKyy5AS012N
-         OHz1OQqXoNwvMH9qiAUPA/PIlBtUSD1I5Lkd7090lVxNrfkjWQFEx811hhMY7cqJCLRu
-         jYeA==
+        bh=pJrFx3WCqf6VFVoWT85m6XL4XoNDn8hAld/4UFHpYgs=;
+        b=OFePEh0V3xPkBy1hgGqrfYg+fPI+dVQpm0zAj7zJD450mFlrBtXL4Eiw4IMVU6A4Hc
+         lh1q0jr1vytc+8/fmVSb04r6OLuXJv4opNrsRj2Id87Cy2eOVOXlvL+8zhEQsBNyw4kk
+         afeL/xrwPL2gqz9DHfRkDILC03+IiTySSM3Y55C9uMRFZ4opjlqXzRknX1MhNKtvWd7G
+         u2pM7KdQYh5LmSCQJxJmlfAexXXqLlSLLOwrqfxTrOWQ/XuYyI/rkKMk6urZ5B5XhAap
+         hKhMJ1b+LyJ1LkE9oHjx6l/WMdNDe1wNE/rA8TmqIYnwkOq4Rn0yZpfut8fcOjh0gtrg
+         nLKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756478472; x=1757083272;
+        d=1e100.net; s=20230601; t=1756478475; x=1757083275;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dxbAHn2gu8hPzgAv8AKJJWeRS0gDiHkMgaOyBvCoSlM=;
-        b=iKMzh5OsWvBHuEIAgU3HUkXo8imL5KALY7JACpFfqwotETHKTCCTNEZ6JJvrIWTi0Y
-         BMBnh0CIlCMO2NAhRmV4JruJPoAEBDXRbWKkOGDzIT5j8kGpadSGvCXKlyhs9aooSLZd
-         j/ctkueMLjq0JhdYcztCAbQr2Os007dQrfYokj0SU4Qn//+AmSJuzHIvjnJ+5VPRnmla
-         bAuJ+acNQjxUAU6bK6JQULxv3zKTeqHepFtg25Xk0JkRB3j2WWtYCdrrvSkAz8DMUuPF
-         R8IsHQwhatu7ukCxbpO87OJ3LR0BzyCKhH1QgNpGVVHAzZOZIWaNuBuX4hhF0dDtlZsH
-         ELYw==
-X-Gm-Message-State: AOJu0YxNEoTlBHW8/kYKAIelSOOY2UnXfh8Oi0LP8zWMsujIOhJ5IZ+R
-	dv1N9tvfwSMkxpUqfR9wWwhqQLMlTY0SrIBAd7EMlByEIrvZ9bCMNa1HlGsfpntJPQk=
-X-Gm-Gg: ASbGncsG1eTCJWyZ7qVC/OMN6/e4c5shZ9IoSAj82Wi+t2jlXXo/BAPRsbhv7mwkwNa
-	7z2d8AdvVlg/7rpz5aE+TftJTP8FTNvmbNt+hC3T0nEYU/p7vv+71qBqEjhagons+njIwa2SYLV
-	ZKQsTo/OZrt4KvDXFms6uKUpIClGmIk1GJgdYMkR3pm9HIztptpaiA9jB1A3wClQEVdtjZRQaZu
-	7fS0oCuGWkdEHCFXz8ByJY2rHSTXKMbkSU0VWNLu0gfBiLv2tpH6lucC27J4KpejVsIDMrgbXgu
-	Vt5enY1f1nvlxy3/74S+W6W788sePkX1kGp91gfoOH0C877/hTN+Bo6AZA8g4lYaTV/8b9REUyy
-	V6PJVMt/y8JzDTiT9dgrpn9bA/brU4stFpa6X8UrTSN6eyA==
-X-Google-Smtp-Source: AGHT+IEcRaNRwLVZvQ0+PFDpEZBl5TqywmCgn+6HMV79ElMQ8KBIAJHpCBhlQym1EiHDUaUbZ/iP1A==
-X-Received: by 2002:a05:6a20:6a26:b0:243:c36f:6a7c with SMTP id adf61e73a8af0-243c36f6f4dmr3879485637.18.1756478472441;
-        Fri, 29 Aug 2025 07:41:12 -0700 (PDT)
+        bh=pJrFx3WCqf6VFVoWT85m6XL4XoNDn8hAld/4UFHpYgs=;
+        b=sBp6e3O8p4F5Kr07gb9JoW9vlVXZQ7Kr6KaWceUizJ45pcrlk7mlWIgGVk8d9d2EvS
+         7ZQm528PAdSPomH3wyvaogfi6kZnSjOwaf9QDJ2igmNS/gOA98L7VNStsvh1Ex62qJjg
+         DZ0u/xQfpgZlKLhVe3Ykw4ProehlIvp5RQKwkQcJeWD6q0jNxtWLE9KCDVM6kBHfUWtj
+         Gzd/rfMVFmVl0VqSsgxD02eVlKKcQLOBXavvwSZIfGM6lfOL58p0WVL51I1JP7TskgH6
+         c4mRRsCURE4FgWTn2Ewdy6mFP6yXJjDM1fKmPrvx3mpRkYmEvwISms7xMbWh2JhOT+sp
+         Qa5A==
+X-Gm-Message-State: AOJu0YxdIOgRRLp61f8go9esaGXhZyLB6uGTlXaaF3YftLOFnthBBETh
+	OJ5IiioX3ET62ptWEdxmCEGHw351EA6H0KUDeXAYPOV+Gm0NtYzusbgsoj7L5AIMJ50=
+X-Gm-Gg: ASbGncvGlCgCe1aQR0a6n6ILTuxYkQhi2/BCwqxh8WP3zIX4RU0u/+CC+DXjCQVdugC
+	LfkyqRF9pHkmOxYp9sQg4JJmstPhEYsQb7wBIFhulp0Da4Ueh/G5ajFpwsgK4naGPtQQBL++O43
+	MdNAMQ1F9J+qy50FRHdqMVEyNhyGrSqySSWdnPEzBQBZJkeEMZ2lQ5Yc4HdzIF+jkLuQ58YPFo5
+	bxAReC8V2gCgaV7eHbzIK+ioubeeuAcijHm9gRapD71xXUiqXyUGUiUiMqpuhSzZ3AEfkJ++DCv
+	zemscnAn49HQ3KgUqJ8WPKOi16B8d7Eb2iklt2/BRx964hw0jfBJCAGle2BbHZTQEx8KEP2O/rP
+	jLoQBzFfAESn3zezdVTD1wlBRUw59LAOcupIxvUjEkQ6GMA==
+X-Google-Smtp-Source: AGHT+IE+tippTw8I5Rjqj8J4MuD+XFXMLrYSoKCBTNLNIx4D19MX2vzDRgyVPUrBIKEMjW6IJPF1lQ==
+X-Received: by 2002:a05:6a20:c127:b0:243:b8c8:a247 with SMTP id adf61e73a8af0-243b8c8a5b5mr5669681637.2.1756478474637;
+        Fri, 29 Aug 2025 07:41:14 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7722a4e1f86sm2560999b3a.72.2025.08.29.07.41.11
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7722a4e1f86sm2560999b3a.72.2025.08.29.07.41.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Aug 2025 07:41:11 -0700 (PDT)
+        Fri, 29 Aug 2025 07:41:14 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
-Date: Fri, 29 Aug 2025 07:41:05 -0700
-Subject: [PATCH v5 4/9] drivers/perf: riscv: Implement PMU event info
- function
+Date: Fri, 29 Aug 2025 07:41:07 -0700
+Subject: [PATCH v5 6/9] KVM: Add a helper function to check if a gpa is in
+ writable memselot
 MIME-Version: 1.0
-Message-Id: <20250829-pmu_event_info-v5-4-9dca26139a33@rivosinc.com>
+Message-Id: <20250829-pmu_event_info-v5-6-9dca26139a33@rivosinc.com>
 References: <20250829-pmu_event_info-v5-0-9dca26139a33@rivosinc.com>
 In-Reply-To: <20250829-pmu_event_info-v5-0-9dca26139a33@rivosinc.com>
 To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
@@ -83,11 +83,12 @@ To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
  Mayuresh Chitale <mchitale@ventanamicro.com>
 Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, Atish Patra <atishp@rivosinc.com>
+ kvm-riscv@lists.infradead.org, Atish Patra <atishp@rivosinc.com>, 
+ Sean Christopherson <seanjc@google.com>
 X-Mailer: b4 0.15-dev-50721
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_074113_197377_B45092D4 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20250829_074115_252826_A335530F 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,132 +105,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With the new SBI PMU event info function, we can query the availability
-of the all standard SBI PMU events at boot time with a single ecall.
-This improves the bootime by avoiding making an SBI call for each
-standard PMU event. Since this function is defined only in SBI v3.0,
-invoke this only if the underlying SBI implementation is v3.0 or higher.
+The arch specific code may need to know if a particular gpa is valid and
+writable for the shared memory between the host and the guest. Currently,
+there are few places where it is used in RISC-V implementation. Given the
+nature of the function it may be used for other architectures.
+Hence, a common helper function is added.
 
+Suggested-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/sbi.h |  9 ++++++
- drivers/perf/riscv_pmu_sbi.c | 69 ++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 78 insertions(+)
+ include/linux/kvm_host.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index b0c41ef56968..5ca7cebc13cc 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -136,6 +136,7 @@ enum sbi_ext_pmu_fid {
- 	SBI_EXT_PMU_COUNTER_FW_READ,
- 	SBI_EXT_PMU_COUNTER_FW_READ_HI,
- 	SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
-+	SBI_EXT_PMU_EVENT_GET_INFO,
- };
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 15656b7fba6c..eec5cbbcb4b3 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1892,6 +1892,14 @@ static inline bool kvm_is_gpa_in_memslot(struct kvm *kvm, gpa_t gpa)
+ 	return !kvm_is_error_hva(hva);
+ }
  
- union sbi_pmu_ctr_info {
-@@ -159,6 +160,14 @@ struct riscv_pmu_snapshot_data {
- 	u64 reserved[447];
- };
- 
-+struct riscv_pmu_event_info {
-+	u32 event_idx;
-+	u32 output;
-+	u64 event_data;
-+};
-+
-+#define RISCV_PMU_EVENT_INFO_OUTPUT_MASK 0x01
-+
- #define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(47, 0)
- #define RISCV_PMU_PLAT_FW_EVENT_MASK GENMASK_ULL(61, 0)
- /* SBI v3.0 allows extended hpmeventX width value */
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 7e984ab717c6..0800ade1d0d5 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -299,6 +299,66 @@ static struct sbi_pmu_event_data pmu_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
- 	},
- };
- 
-+static int pmu_sbi_check_event_info(void)
++static inline bool kvm_is_gpa_in_writable_memslot(struct kvm *kvm, gpa_t gpa)
 +{
-+	int num_events = ARRAY_SIZE(pmu_hw_event_map) + PERF_COUNT_HW_CACHE_MAX *
-+			 PERF_COUNT_HW_CACHE_OP_MAX * PERF_COUNT_HW_CACHE_RESULT_MAX;
-+	struct riscv_pmu_event_info *event_info_shmem;
-+	phys_addr_t base_addr;
-+	int i, j, k, result = 0, count = 0;
-+	struct sbiret ret;
++	bool writable;
++	unsigned long hva = gfn_to_hva_prot(kvm, gpa_to_gfn(gpa), &writable);
 +
-+	event_info_shmem = kcalloc(num_events, sizeof(*event_info_shmem), GFP_KERNEL);
-+	if (!event_info_shmem)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < ARRAY_SIZE(pmu_hw_event_map); i++)
-+		event_info_shmem[count++].event_idx = pmu_hw_event_map[i].event_idx;
-+
-+	for (i = 0; i < ARRAY_SIZE(pmu_cache_event_map); i++) {
-+		for (j = 0; j < ARRAY_SIZE(pmu_cache_event_map[i]); j++) {
-+			for (k = 0; k < ARRAY_SIZE(pmu_cache_event_map[i][j]); k++)
-+				event_info_shmem[count++].event_idx =
-+							pmu_cache_event_map[i][j][k].event_idx;
-+		}
-+	}
-+
-+	base_addr = __pa(event_info_shmem);
-+	if (IS_ENABLED(CONFIG_32BIT))
-+		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_EVENT_GET_INFO, lower_32_bits(base_addr),
-+				upper_32_bits(base_addr), count, 0, 0, 0);
-+	else
-+		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_EVENT_GET_INFO, base_addr, 0,
-+				count, 0, 0, 0);
-+	if (ret.error) {
-+		result = -EOPNOTSUPP;
-+		goto free_mem;
-+	}
-+
-+	for (i = 0; i < ARRAY_SIZE(pmu_hw_event_map); i++) {
-+		if (!(event_info_shmem[i].output & RISCV_PMU_EVENT_INFO_OUTPUT_MASK))
-+			pmu_hw_event_map[i].event_idx = -ENOENT;
-+	}
-+
-+	count = ARRAY_SIZE(pmu_hw_event_map);
-+
-+	for (i = 0; i < ARRAY_SIZE(pmu_cache_event_map); i++) {
-+		for (j = 0; j < ARRAY_SIZE(pmu_cache_event_map[i]); j++) {
-+			for (k = 0; k < ARRAY_SIZE(pmu_cache_event_map[i][j]); k++) {
-+				if (!(event_info_shmem[count].output &
-+				      RISCV_PMU_EVENT_INFO_OUTPUT_MASK))
-+					pmu_cache_event_map[i][j][k].event_idx = -ENOENT;
-+				count++;
-+			}
-+		}
-+	}
-+
-+free_mem:
-+	kfree(event_info_shmem);
-+
-+	return result;
++	return !kvm_is_error_hva(hva) && writable;
 +}
 +
- static void pmu_sbi_check_event(struct sbi_pmu_event_data *edata)
+ static inline void kvm_gpc_mark_dirty_in_slot(struct gfn_to_pfn_cache *gpc)
  {
- 	struct sbiret ret;
-@@ -316,6 +376,15 @@ static void pmu_sbi_check_event(struct sbi_pmu_event_data *edata)
- 
- static void pmu_sbi_check_std_events(struct work_struct *work)
- {
-+	int ret;
-+
-+	if (sbi_v3_available) {
-+		ret = pmu_sbi_check_event_info();
-+		if (ret)
-+			pr_err("pmu_sbi_check_event_info failed with error %d\n", ret);
-+		return;
-+	}
-+
- 	for (int i = 0; i < ARRAY_SIZE(pmu_hw_event_map); i++)
- 		pmu_sbi_check_event(&pmu_hw_event_map[i]);
- 
+ 	lockdep_assert_held(&gpc->lock);
 
 -- 
 2.43.0
