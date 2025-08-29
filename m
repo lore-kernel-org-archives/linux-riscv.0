@@ -4,237 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E362ECA0FF0
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 17:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B8BCA0FF0
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 18:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vnY2Ha82pw4BjBJaVxMXajJuyOMJ+cGipLwEV2eKwRU=; b=nEFWn464ewP/TP
-	Q8niAZK6QEd+lTB+hynln5gK9XzrHXAS50fffu8i3EzTyHjPDWCqPJQaPWumSGRSm7ohvb3Kf2maN
-	KmGrEvxFMP/fvcx6eIyy6owNEeZPVx4cjqFPRGdD73QFMPxYDjTCKAVCI0YJ6CY6eegRKyRY4NyJ8
-	rM72B7/WJgk5g+ZKqq/k35of3zDzcpdgj10Y8+95N7GXFnnbHafTDTKiI6QWY+8GW6J0sDs61DpTB
-	3yqAt2NBcvEbV1bmZNzsiZFp2JViZST3usxxHqxOe4ciTl29S4qI23Zu0hC2yVhxAIgBL2j6D7H8N
-	UkIN66xeSn5WVJ2Iyl6A==;
+	List-Owner; bh=+OvzeTDuO+mPegy+hr58FbAxzhBj2Qsiv6oqB9DLw6M=; b=ip0E5TmVkFalVh
+	MDpfpwBIy5+hUmc8HinskkyC3HQbK8lv84uaOuFC4utsu9C0bdZPmWoz1KYnnoAi1F7gYjZHvIwCt
+	9Rw9hE0MaOzjaGiL3E5CIA9OGq5ux9cSY7jhKF19+Ku9eY+poSpaLWB/o9QX2fhbXJhUL9aKj/ZKN
+	BQwnfLDVrJbcQRmZVXVbDTxA6benvrVCPBuwCwkpMNjJVALH1nXhnBK45Dx7AiHjiF4/rY23sNnYw
+	jJBw1Do7te8b42yjBn1fWR6+mugZxBrVYc+3OA1FffWTlnIjVVqqvYibrVxBwom6j6iS9jBgTpHEW
+	wX9szXWKc7ZEJ9o5ba5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2s3-00000006WgQ-08Sd;
-	Fri, 29 Aug 2025 17:26:39 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1us3se-00000006dSd-0yUu;
+	Fri, 29 Aug 2025 18:31:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us02E-000000060f0-2Owb;
-	Fri, 29 Aug 2025 14:24:59 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57TCtksT014769;
-	Fri, 29 Aug 2025 14:24:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=gZGfXDjbyb+OGF3VAj
-	ezv30Z9Vthn/0XzhQZTeuKsS0=; b=l3p29884uuI03vBX88YWABqTh6KGqczV85
-	Hd18eDi/29qctKgaSEsYP52CExC7qbDxs1WC0GNzrPOJM2ZTCWlDa/fFNEKtDIFH
-	lYEOIoFO0bmbbHqI3DDPI7J3dO3Pd8umBD7ENQjr8jBMsKxzVNzsDrAMSQcr0lXt
-	7Me6caAjssLNUauHCA+52x28xwXV3vN9eBXmelymH2qJirgfH/d7N8785/HQcSon
-	6JrJz47X6VDhgQU1RzG+LcWBoqkN7FIwjlOUhKYLRGR24VpANL+PXGL1jEmhC8LI
-	Et5SzWXJa1qfj3cn/qxaWN1HWpsA8pnJ/BI4ZqgApATdCV1NhTkg==
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 48q4e2aqus-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 Aug 2025 14:24:39 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 57TCY1xm004977;
-	Fri, 29 Aug 2025 14:24:38 GMT
-Received: from nam02-sn1-obe.outbound.protection.outlook.com (mail-sn1nam02on2064.outbound.protection.outlook.com [40.107.96.64])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 48q43dacuc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 Aug 2025 14:24:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o2Sw2zVb0Meb+WiQuUojbg21yXN6CAoNmRy3Onc/Dt5leXuauReVCUSoTEuDqE+KlyRTRfgmO8swTCy++i4DWzyR0Le6bVFEZgFbslBOUfQMo65Onag9t2kp2TyVl8d+nGQxl2PMqykr/8HJE7XMvuQKSLazu6QYVu40kek/0m7uDO1ruWIKOHBACrV414MMHtROkZ2v6lurCvzGeOHO42x4wrIErWLjaGCaTWqMbyLvq660xGraYxpj2BzCmNJhxXMkniC/1Yy2tpFy6Bg5jnXktVf2onoZxSZO5IsJkStWRqJZh2ZKqj1syk3BsX+QLZgtMKFamkd3rLOs275zxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gZGfXDjbyb+OGF3VAjezv30Z9Vthn/0XzhQZTeuKsS0=;
- b=ozewxpmTo8KK3episWScMRMswbDAXZHDkB0N15ktkAGfK9YUyPXeXjYQYaB53UBUI6oVs64XE8Tux1Q87KB8rsA2svGdvyD4/saPH82cZaRedIEBggFxIvcAQRmnfQphunnpAqlzH09BduacPH2DgmBhcd02L8x97qJaDhKhpq76ExA7sqoBqz9ucQaybfOUYf++PqSn4/cX9PNORbar1rmEwKTK5vvrSBlS0GCLcvMlwXUEI7ZbjOy5KeN4yU2Z219gmM8h2SQQFChrCvJQRj9KKujbqJbkiPQHBd9Mmahsv92f/lUnhpI1kSkFFlKBghR3ZuTpYcY4IyBgcmS5kQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gZGfXDjbyb+OGF3VAjezv30Z9Vthn/0XzhQZTeuKsS0=;
- b=SiMfdLO5nxDSBrKsKp8xkm4z3E61NoYSRWwJvd58biiCZZe2gtafCLMzSOcoCv4WlNQZDCET+1ArnAZU3dKUMVyBRcAkxVQ7SyKktOvtFnpjPzHhO/LzGna30IyyUerYb3U8NFQs158b4jpv5rLUbvf4rzlM1e6wLkrS8QGywtQ=
-Received: from PH0PR10MB5777.namprd10.prod.outlook.com (2603:10b6:510:128::16)
- by DM3PR10MB7970.namprd10.prod.outlook.com (2603:10b6:0:40::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.16; Fri, 29 Aug
- 2025 14:24:30 +0000
-Received: from PH0PR10MB5777.namprd10.prod.outlook.com
- ([fe80::75a8:21cc:f343:f68c]) by PH0PR10MB5777.namprd10.prod.outlook.com
- ([fe80::75a8:21cc:f343:f68c%5]) with mapi id 15.20.9052.019; Fri, 29 Aug 2025
- 14:24:30 +0000
-Date: Fri, 29 Aug 2025 10:24:10 -0400
-From: "Liam R. Howlett" <Liam.Howlett@oracle.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
-        Alexander Potapenko <glider@google.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Brendan Jackman <jackmanb@google.com>,
-        Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
-        Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
-        intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
-        io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-        Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-        John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
-        kvm@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>,
-        linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-        linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
-        linux-mmc@vger.kernel.org, linux-mm@kvack.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-scsi@vger.kernel.org,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Marco Elver <elver@google.com>,
-        Marek Szyprowski <m.szyprowski@samsung.com>,
-        Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
-        Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
-        Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
-        Robin Murphy <robin.murphy@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
-        virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-        wireguard@lists.zx2c4.com, x86@kernel.org
-Subject: Re: [PATCH v1 10/36] mm: sanity-check maximum folio size in
- folio_set_order()
-Message-ID: <fbfswjohgqohj32ibefqp22rz5xvbwiry6nxusgtjoxm6waqal@4mo4gske35eu>
-Mail-Followup-To: "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>, 
-	Alexander Potapenko <glider@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>, 
-	Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev, 
-	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>, 
-	Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com, 
-	kvm@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>, 
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org, 
-	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marco Elver <elver@google.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
-	Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>, 
-	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev, 
-	Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org
-References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-11-david@redhat.com>
-Content-Disposition: inline
-In-Reply-To: <20250827220141.262669-11-david@redhat.com>
-User-Agent: NeoMutt/20250510
-X-ClientProxiedBy: MW4PR02CA0024.namprd02.prod.outlook.com
- (2603:10b6:303:16d::9) To PH0PR10MB5777.namprd10.prod.outlook.com
- (2603:10b6:510:128::16)
+	id 1us0By-000000062yK-1UKd
+	for linux-riscv@lists.infradead.org;
+	Fri, 29 Aug 2025 14:35:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756478101;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=hfIlMYGAPM5qq+lZD1SPgFCFfaNMq7ewyyxdxPY6Oa8=;
+	b=IbB1cGCMu38CNmvTzJEmwIqSgETQGAnWYqjJi14z6gPZ1MWiBza2zQuD2C6dAuVRAHkvy6
+	JhKry0vxdorDHRzxqWYcbF7KVgfFBgUn0DMVxr++8dDTvqKNsUu22ag54/ZlTqXuwHMox2
+	+EDLn2c6sxQZDcbdaNLHoU8l6tuUTWM=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-222-kNtk9_P1PQSW2sSHgN6dzA-1; Fri, 29 Aug 2025 10:34:59 -0400
+X-MC-Unique: kNtk9_P1PQSW2sSHgN6dzA-1
+X-Mimecast-MFC-AGG-ID: kNtk9_P1PQSW2sSHgN6dzA_1756478098
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45a1b0071c1so10322205e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 07:34:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756478098; x=1757082898;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hfIlMYGAPM5qq+lZD1SPgFCFfaNMq7ewyyxdxPY6Oa8=;
+        b=Uc+Fw5o/lxcnpiHXotJ/a61QDY6cMc9puv+67JSmYPEgSA37friEkHiCku7ZXBZhEy
+         CDa0v5EDPMj6zeVxm0D70d64XVlY9JgMZHes2smBuEZ1Z2mLAwIHQhg92QnJwadr9LDM
+         osgNQz8fX7hST5RxfFJTIiZmYzMc7hA10G5aHFuJoqDfTLS7WVezg6PziFYyxDwGFif8
+         pgzO2GndwDmNiDg6nQBOXoCP9zjg3t6AoUo8RWZRp5sVF5daCHH733j5LAEhM4ePzfeR
+         2FslMGLjJ3g3/h6hBThumrEhs1px3+6Q8HetIc5V0So4TCRNuwVB9wBXMCpKBGLQJont
+         seSw==
+X-Forwarded-Encrypted: i=1; AJvYcCVmxaa55O8GejWtYQ16Hv+vRKlS5mgzSPzNgmdaW7IgF0W0XxRVwfHgkXdUZddfO3dD8jn+xk3keG9Cxg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyvHpRKuyzSq+AYaH1oMe/GYNboWFrDx+iQ9ps2td+soSMY5d7
+	Htsd0m5rHsFM+qznTFu2CbYhwtqsqilSV2ZzlvF+WrGGy/4x9d/YMGd1R+fAo4U0o01P12x/ZJO
+	tkyXj4YFaeL1kKEnX5l5acIQYtMraNW5igE7nyGYR6VNnghKEYdeE4QTafJZqxHXQVyho/A==
+X-Gm-Gg: ASbGncsHB/X0O2sw7dq2IUJE2OraZDO9OhzrHSE4kl6V1NTP1guD7vLBfNiNf1icTOq
+	p2mO2x4YLmeu3GyvLaE1zgmNsmvLZiqhKmglFaCF4ry6adnQkAC2IofCO/0aDTh6m9spHnzae+c
+	JEHnmTP45f9sxkXCpUnspJa0UN9n6NA/mWrX3NhEbzl1gvAl+dZ2DtsKTvQZCr9LLW6YQm/6Blj
+	2iQ+ZYZvFWV7ZWAteNP4kJ8vTZ0OMvyRtYuIz1DOpmHwqj6vY7+HhXfXMelSvMncbK3Em6c5sMW
+	AKgZH/lZWD4sCGxNjSC8OHsXGsZPLVFMhxayOPW0cxBsj6Khg/w3izzvcfvPdM6ExaQn34q9PRo
+	vWiv4kFlUPAoY+Wj22n9fAB7vcX5Yu1vTmCI16A9e2CxNd38ABW/6//pf/l9bUS0u
+X-Received: by 2002:a05:600c:198f:b0:459:db7b:988e with SMTP id 5b1f17b1804b1-45b517a0878mr226233805e9.13.1756478097743;
+        Fri, 29 Aug 2025 07:34:57 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG3hDIii8NDV0DOXAzXIiOEtkQMZGVVDdgA6IYT462PNDojHGD9AgX58jP+bTVewU8uKeROaQ==
+X-Received: by 2002:a05:600c:198f:b0:459:db7b:988e with SMTP id 5b1f17b1804b1-45b517a0878mr226233525e9.13.1756478097177;
+        Fri, 29 Aug 2025 07:34:57 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f1d:100:4f8e:bb13:c3c7:f854? (p200300d82f1d01004f8ebb13c3c7f854.dip0.t-ipconnect.de. [2003:d8:2f1d:100:4f8e:bb13:c3c7:f854])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0d32a2sm134907275e9.9.2025.08.29.07.34.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 Aug 2025 07:34:56 -0700 (PDT)
+Message-ID: <62fad23f-e8dc-4fd5-a82f-6419376465b5@redhat.com>
+Date: Fri, 29 Aug 2025 16:34:54 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR10MB5777:EE_|DM3PR10MB7970:EE_
-X-MS-Office365-Filtering-Correlation-Id: 52d091dc-a522-4740-ff5f-08dde707c46e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4wectUMaFmYqYWV+o1aiRksy3eIZ8zl56VzHcOsdfZmkM//I81/dN3a/dGNg?=
- =?us-ascii?Q?JoInkDJBHbyZg7Nut7egzdNdFErfc0LAec5ufzy2IBMa+T5SpCdMPqOLtURw?=
- =?us-ascii?Q?5zR01a6yApX7LRIxBWqvKwaCkA7TnFVmHJYiKiSEf+7tgdvRNsLBZwgoYibu?=
- =?us-ascii?Q?gh71rjQl0FHCPCVPOtFeRIaq3S5fnY4ltIw+A/QSgAA9Z53/EnaPVmBR7nEV?=
- =?us-ascii?Q?pCitbA2msNY4hAqmpSwsN2RPD1VT64qMUuqeex8TdkPJhck4ydQ+E8BTOEy6?=
- =?us-ascii?Q?iiQFM0Mv2inp5nIbi1/FoMIFXRrMjhX69A7D+y4bcJfWn0Jdt1jXsxq8HjUf?=
- =?us-ascii?Q?iLYW6FAckZiVUe7RTppZMZp1WioWtnJyPNwzfqt5SIqwYwEmuwQXMuNmFTI9?=
- =?us-ascii?Q?mpnWpRuTV9NIUBHu2RLlaIPRKZlVcvS7sJsYLlxKP7M6NwPd2mC/dnikC/3l?=
- =?us-ascii?Q?RAhjLVOx2YiupHMS3AXz8gkVVEo+EzQncHQqulW4iUqNh7gwEw+EKZP6Ugyd?=
- =?us-ascii?Q?9K6o+sTriY4t2wsEzzseW17gxZDhQgOurlaVW1Od4prL438Io+jwR/7iWLGa?=
- =?us-ascii?Q?hPkIcpw+RcC/pE3Ianvnk/5fXPjmVAdY8LHOjSg7Sl32DRZ+VTkqhyheoKY+?=
- =?us-ascii?Q?q5eix4EKUr3vNcrFwC7lYEmkeRZF/T/hykB9hrt+VjFQnAYzOcTqKGRTsY0L?=
- =?us-ascii?Q?twZu1apAmyOgbAz9bIOSykZthCWXFDxS9WSRQhvvH97sZOJNvltEQ03E/+5u?=
- =?us-ascii?Q?6ooUkzQYo2kE51I38Z6WEHq6+JqMAva9tl0aKZfVJ0ukIfqdzT3OWm4QGtN1?=
- =?us-ascii?Q?UqEuyFW5NxYIFVtbtfph/xPqRYGWvbvAqDe/y+YiBqYY/NsQgh67dPSn/dA/?=
- =?us-ascii?Q?N1auCk5kpzOWgFr/u4VqSAnkm6ObuR0IwnoKFwGzJP6zDTBuKNmKLwFgiK7k?=
- =?us-ascii?Q?s3CUKJOTcj0aLyTn23VScQoS2Db7wxi53+K/W3bEs/S6BYgh5sJMyA10lz86?=
- =?us-ascii?Q?Gp82M142mM9aEkOMAd7nc6LgvEli+HxA5mwulGXzo9vQO+dDNGit+WWOf36o?=
- =?us-ascii?Q?YLgMpvQyQ6FUxRHdVxUShvjG8PzWNOwp1Cs6fYuuLdRw+RknZDoG98MMi0t7?=
- =?us-ascii?Q?javnxRC3IOsUlFYBZLWe036kjPdUOWe+rjdzYtHCcltdEbV/37lNZP13D/UE?=
- =?us-ascii?Q?hsZE0lpqX9nw+d5xcoonqMp9q2E0z0PSDzITD+eZbhNHVfwfrynuGO6CzIbi?=
- =?us-ascii?Q?a2+irtuaTvSq9B/vHG5dby66bwq5r7NqoWPISME0p/V+Aap654lCYVZfZqNn?=
- =?us-ascii?Q?Hr2QZd3C8sEVBtG4uyrIAZ73uJid92I31gsU6l9jO3GqOap1isxrKEGpPXn/?=
- =?us-ascii?Q?2Z0t494ZKBwprGrF2MoUrJ1KH4byRPVtJxzOEvsiBwpSdouzdn3VzyYbs31/?=
- =?us-ascii?Q?toJK+jiCq44=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR10MB5777.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sdcCm/2E+uwce1L6BovuRZrZslHBsLQYyDlzqHgk+bhzschxXtWTe0S9bTl0?=
- =?us-ascii?Q?Vq9sl/hVQFlJxOufSbnGzTdXb/W2MP3xweLP9cTjDmyx9Kft09/caboC2Edn?=
- =?us-ascii?Q?lq9RUOJBYz+vxYP+GzN34sqkUMnsy8g3b64t++gguBbhBr0t+oj5r5sPZ3QK?=
- =?us-ascii?Q?z70dimOAmFUBTOsLr7PHUXLOdQ7QrcrbjK0tLV8YwQnrLxM+nIGA+9PSuL86?=
- =?us-ascii?Q?O5OR39ti6gCk6ffAyFjWDUieh8KilV/tUC/0yoebH6Lc9Cg7B5mnL4oKR+Vz?=
- =?us-ascii?Q?g71LlUrcVQ1+1LnkQT8e0Mj02iQSsBmSHCIPSeMCLz6iI+URcP164w68Wo+q?=
- =?us-ascii?Q?FyE91OEZI6Iga1sN8RG/BVOikwWgcplHyAjCatm+fdb5exmyFMiPYVOkwRsq?=
- =?us-ascii?Q?dDrove8aKAy8O1aAfClBYsBAxo/CmyHRHIvFM392DcGeuwFzOPdlummnXgkk?=
- =?us-ascii?Q?B0kAlwNdXCwQ1LD2MQ4ZsK7ayt7LdnZ9nZNz6DZXYoYuxbseSfx19R7Hby0E?=
- =?us-ascii?Q?RWlxyUGrWZ7tkd8Y5rx9/WJoMi063Dtsj+SjZpFyYY/AEvVOfyBVJnkkeVSI?=
- =?us-ascii?Q?djxn1sjnEup4KSEHGSAFWbJNoz91aVEnAoEW2WfHfOYDYPfBLw+1r74o/xQu?=
- =?us-ascii?Q?mxw0irhdpOE+ioLtwfqyQWSk7SPBaUqDdTdQzmaJDmpuqBUZfC+VwHRDOL6c?=
- =?us-ascii?Q?TiZQMH4SEoNDlY42UY8jnShl8kEO//zhHPC0FNSQS4FVGFPDvQB9/R7n75YX?=
- =?us-ascii?Q?U2prIEj/+mbbU5ve99hK7iMVLMnkANHF7TlF3+YdGIcx46CIO89OXbFnciQj?=
- =?us-ascii?Q?RynPJky1Lkbg8OWl6aXYOBuNGKjSPwCdLpcMkgCLqOPuLWJdVCkCq2WrpshR?=
- =?us-ascii?Q?Coqr4LGt1gucg7kt1MHLB4dKSG6aAOVOxJM5LBwdlPImFTxFAM48fHSkEmzl?=
- =?us-ascii?Q?wI/Yff4IHSV8BH7VkNRNOc/98lnv70vz8qAkjYG1qMcYRVkp6VgH9gFItX3J?=
- =?us-ascii?Q?Evnn/grhM0LoJnO/kp5NXgiJSB/kmOsMmkyf7S+HtHGuqsGO6uHwUH6Zvljm?=
- =?us-ascii?Q?CtNo8r6ivX9OqIdSeHmgk5s4/eLEgDdbhwLKsTAH3XhwwMa/wsq3gBVJNVcC?=
- =?us-ascii?Q?SiqT+Nx1TOPDZ+3E3hGYDcM64xcZdkpYTgChz4973mVWFlHf5HmajSFhZKcs?=
- =?us-ascii?Q?UT08KVGaCF1tYPNU7mbzztNmGj3LpNLfxKRFeuoRBu8spJWJ+DUs3f0a6JlC?=
- =?us-ascii?Q?bFbsqDQXfRFgtWSp/AShwCFC66tdsTDHi2f703x6aLJlsyFsBlMjznz4rclJ?=
- =?us-ascii?Q?5uUpJ/95X7KiUJiK/Kutmdx/jJ92446iMixe3YjeT9I0LvCE9pGE950qGAsw?=
- =?us-ascii?Q?wrNv16pjNT75E7hnhKbxvSTTZmPkr8EI7cD68stISvaoCn0LOTNaCP4m/u8V?=
- =?us-ascii?Q?ulsdUEVh0tR/ZL+7I0pajiIlmZHbTAb4XGqSV9qyysrjeN6EEomhLR65QgRk?=
- =?us-ascii?Q?ChVh70Vbrr7goiDcxItG4H5jiqsABl2UJXGg0iuq8QkBbZzrK5LIoXgCCxMu?=
- =?us-ascii?Q?UmSpmK+JMtSc3kRs6krZUxaIgSKB3xskHErLHl48dtBDgyLoEDeSXkZ5T8At?=
- =?us-ascii?Q?RQ=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: YBa8ZvktNmaxKQkTgGwQGQq1pr3JI8CoI3B6YDnR1oaupgeU6qzodXmOR+hawRlQRkgYcRUajBt8geNkyuC7ZlXiYwU+AuE1uJ7p3c1m5PFeg2MYbokPtL6Y/g/qXlmr00EBtVBUlyQ5ftVor9mlHFQ4LnMqBG4YKg4dDUlTYsXExEzibDR8gQn3W9h1Fw0Eem5nu4a3BzMr8cKJ0YrQkxUrTSZWzCzX9xPN1pe9MSMqeW6S9CXM9P/BWXJ4uMG5IoBqshZczVrjMmEdsLkt6NG+wne8cZAX3N9I17gkBpRf0dgxNhj+sDoCh8n3dmS9PqgyyCmIc/6kCjDkrMYhbW2T+ZM2vJunMT7La0rk+b9fIryxK8dO1G4Il4T9pAOypKYXemCUeiAW1xi6NFYObzHCloLUb6IYYeUMs6bF7xsOAX8/OMY2fO2qLzf5uzQReCU7Cwq3y0JyzMYJ15o3CxcuyfKSq29rfBuV4WiRwNyjScVS2WBCnz3EkputRNtihwRJOKDJVe4jmC7yJBJPhJfmkaz8hI4dpeXzym8mI8CoUqwRne7FUJGVZXjE1UZ8rp98jMMi6UKnryax3BoySr0pBjIpQEPyrGz8ptTcbZU=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 52d091dc-a522-4740-ff5f-08dde707c46e
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR10MB5777.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2025 14:24:30.4571
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LhZm1Iaek/a1MhLPzRXX5DlST8hrcFJdugqmzsj2cMZ5q5LnswYFMo9JoVjBOOjd5+EnuebgURU36lwlCCL22Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR10MB7970
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-29_05,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 bulkscore=0
- mlxlogscore=999 spamscore=0 suspectscore=0 malwarescore=0 mlxscore=0
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2508110000 definitions=main-2508290121
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAxNyBTYWx0ZWRfX6fyMu0StlB9j
- AVpkjLHIDVwe186EyDOTuv9VWa611XjG2z9qCA2jYQm5fyXRCEru/XoUCKGoiIps5Yirfd+3WlO
- hhbqE7Y2jKTwQZoM0duQeFgja/0oMdMf99gt0quDnWCFADihZ5cQJmQVoCVlMcmT+xvx7lab/QO
- jO4XIPPlxjvxE/37nxnOG0hmtEA2af5pJ3ogD50t2ideAsuE/NqfRPYFbs95k4Unsk7/7GoSmUX
- 6NJ66C7NPWPIGmT6Vz7M6ED2RRiBeecCi1yg/TWRJ5hS/c8qVutVuIzUcTS7MAjm5gMm/DfvMGT
- E09aWcLdKmX8CoZ7t0u+YFBOmYFtF5ISgam30b2WQVDonzEj7omJzrY6nI28vnFRrhnmjO2ccBI
- FLtNiono
-X-Proofpoint-ORIG-GUID: 9SMIN6-sVjjCbHbjwd4dIYLLyTe0Whk7
-X-Proofpoint-GUID: 9SMIN6-sVjjCbHbjwd4dIYLLyTe0Whk7
-X-Authority-Analysis: v=2.4 cv=IauHWXqa c=1 sm=1 tr=0 ts=68b1b827 b=1 cx=c_pps
- a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=2OwXVqhp2XgA:10 a=GoEa3M9JfhUA:10 a=20KFwNOVAAAA:8 a=Ikd4Dj_1AAAA:8
- a=yPCof4ZbAAAA:8 a=SJHYMh_qAkJed6OffD8A:9 a=CjuIK1q_8ugA:10
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 21/36] mm/cma: refuse handing out non-contiguous page
+ ranges
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: linux-kernel@vger.kernel.org, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-22-david@redhat.com>
+ <b772a0c0-6e09-4fa4-a113-fe5adf9c7fe0@lucifer.local>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
+ ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZoEEwEIAEQCGwMCF4ACGQEFCwkIBwICIgIG
+ FQoJCAsCBBYCAwECHgcWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaJzangUJJlgIpAAKCRBN
+ 3hD3AP+DWhAxD/9wcL0A+2rtaAmutaKTfxhTP0b4AAp1r/eLxjrbfbCCmh4pqzBhmSX/4z11
+ opn2KqcOsueRF1t2ENLOWzQu3Roiny2HOU7DajqB4dm1BVMaXQya5ae2ghzlJN9SIoopTWlR
+ 0Af3hPj5E2PYvQhlcqeoehKlBo9rROJv/rjmr2x0yOM8qeTroH/ZzNlCtJ56AsE6Tvl+r7cW
+ 3x7/Jq5WvWeudKrhFh7/yQ7eRvHCjd9bBrZTlgAfiHmX9AnCCPRPpNGNedV9Yty2Jnxhfmbv
+ Pw37LA/jef8zlCDyUh2KCU1xVEOWqg15o1RtTyGV1nXV2O/mfuQJud5vIgzBvHhypc3p6VZJ
+ lEf8YmT+Ol5P7SfCs5/uGdWUYQEMqOlg6w9R4Pe8d+mk8KGvfE9/zTwGg0nRgKqlQXrWRERv
+ cuEwQbridlPAoQHrFWtwpgYMXx2TaZ3sihcIPo9uU5eBs0rf4mOERY75SK+Ekayv2ucTfjxr
+ Kf014py2aoRJHuvy85ee/zIyLmve5hngZTTe3Wg3TInT9UTFzTPhItam6dZ1xqdTGHZYGU0O
+ otRHcwLGt470grdiob6PfVTXoHlBvkWRadMhSuG4RORCDpq89vu5QralFNIf3EysNohoFy2A
+ LYg2/D53xbU/aa4DDzBb5b1Rkg/udO1gZocVQWrDh6I2K3+cCs7BTQRVy5+RARAA59fefSDR
+ 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
+ VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
+ /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
+ iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
+ 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
+ zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
+ azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
+ FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
+ sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
+ 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
+ EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
+ IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
+ 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
+ Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
+ sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
+ yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
+ 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
+ r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
+ 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
+ CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
+ qIws/H2t
+In-Reply-To: <b772a0c0-6e09-4fa4-a113-fe5adf9c7fe0@lucifer.local>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: qBIM2cjVIGTH4RwzmKvQa-LOPb_7v-lfV-NFpYZwjRM_1756478098
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_072458_731834_41AAD9EF 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250829_073502_554094_6D711961 
+X-CRM114-Status: GOOD (  31.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -246,43 +175,293 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-* David Hildenbrand <david@redhat.com> [250827 18:05]:
-> Let's sanity-check in folio_set_order() whether we would be trying to
-> create a folio with an order that would make it exceed MAX_FOLIO_ORDER.
+On 28.08.25 19:28, Lorenzo Stoakes wrote:
+> On Thu, Aug 28, 2025 at 12:01:25AM +0200, David Hildenbrand wrote:
+>> Let's disallow handing out PFN ranges with non-contiguous pages, so we
+>> can remove the nth-page usage in __cma_alloc(), and so any callers don't
+>> have to worry about that either when wanting to blindly iterate pages.
+>>
+>> This is really only a problem in configs with SPARSEMEM but without
+>> SPARSEMEM_VMEMMAP, and only when we would cross memory sections in some
+>> cases.
 > 
-> This will enable the check whenever a folio/compound page is initialized
-> through prepare_compound_head() / prepare_compound_page().
-> 
-> Reviewed-by: Zi Yan <ziy@nvidia.com>
-> Signed-off-by: David Hildenbrand <david@redhat.com>
+> I'm guessing this is something that we don't need to worry about in
+> reality?
 
-Reviewed-by: Liam R. Howlett <Liam.Howlett@oracle.com>
+That my theory yes.
 
-> ---
->  mm/internal.h | 1 +
->  1 file changed, 1 insertion(+)
 > 
-> diff --git a/mm/internal.h b/mm/internal.h
-> index 45da9ff5694f6..9b0129531d004 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -755,6 +755,7 @@ static inline void folio_set_order(struct folio *folio, unsigned int order)
->  {
->  	if (WARN_ON_ONCE(!order || !folio_test_large(folio)))
->  		return;
-> +	VM_WARN_ON_ONCE(order > MAX_FOLIO_ORDER);
->  
->  	folio->_flags_1 = (folio->_flags_1 & ~0xffUL) | order;
->  #ifdef NR_PAGES_IN_LARGE_FOLIO
-> -- 
-> 2.50.1
+>>
+>> Will this cause harm? Probably not, because it's mostly 32bit that does
+>> not support SPARSEMEM_VMEMMAP. If this ever becomes a problem we could
+>> look into allocating the memmap for the memory sections spanned by a
+>> single CMA region in one go from memblock.
+>>
+>> Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
+>> Signed-off-by: David Hildenbrand <david@redhat.com>
+> 
+> LGTM other than refactoring point below.
+> 
+> CMA stuff looks fine afaict after staring at it for a while, on proviso
+> that handing out ranges within the same section is always going to be the
+> case.
+> 
+> Anyway overall,
+> 
+> LGTM, so:
+> 
+> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 > 
 > 
+>> ---
+>>   include/linux/mm.h |  6 ++++++
+>>   mm/cma.c           | 39 ++++++++++++++++++++++++---------------
+>>   mm/util.c          | 33 +++++++++++++++++++++++++++++++++
+>>   3 files changed, 63 insertions(+), 15 deletions(-)
+>>
+>> diff --git a/include/linux/mm.h b/include/linux/mm.h
+>> index f6880e3225c5c..2ca1eb2db63ec 100644
+>> --- a/include/linux/mm.h
+>> +++ b/include/linux/mm.h
+>> @@ -209,9 +209,15 @@ extern unsigned long sysctl_user_reserve_kbytes;
+>>   extern unsigned long sysctl_admin_reserve_kbytes;
+>>
+>>   #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
+>> +bool page_range_contiguous(const struct page *page, unsigned long nr_pages);
+>>   #define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
+>>   #else
+>>   #define nth_page(page,n) ((page) + (n))
+>> +static inline bool page_range_contiguous(const struct page *page,
+>> +		unsigned long nr_pages)
+>> +{
+>> +	return true;
+>> +}
+>>   #endif
+>>
+>>   /* to align the pointer to the (next) page boundary */
+>> diff --git a/mm/cma.c b/mm/cma.c
+>> index e56ec64d0567e..813e6dc7b0954 100644
+>> --- a/mm/cma.c
+>> +++ b/mm/cma.c
+>> @@ -780,10 +780,8 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
+>>   				unsigned long count, unsigned int align,
+>>   				struct page **pagep, gfp_t gfp)
+>>   {
+>> -	unsigned long mask, offset;
+>> -	unsigned long pfn = -1;
+>> -	unsigned long start = 0;
+>>   	unsigned long bitmap_maxno, bitmap_no, bitmap_count;
+>> +	unsigned long start, pfn, mask, offset;
+>>   	int ret = -EBUSY;
+>>   	struct page *page = NULL;
+>>
+>> @@ -795,7 +793,7 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
+>>   	if (bitmap_count > bitmap_maxno)
+>>   		goto out;
+>>
+>> -	for (;;) {
+>> +	for (start = 0; ; start = bitmap_no + mask + 1) {
+>>   		spin_lock_irq(&cma->lock);
+>>   		/*
+>>   		 * If the request is larger than the available number
+>> @@ -812,6 +810,22 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
+>>   			spin_unlock_irq(&cma->lock);
+>>   			break;
+>>   		}
+>> +
+>> +		pfn = cmr->base_pfn + (bitmap_no << cma->order_per_bit);
+>> +		page = pfn_to_page(pfn);
+>> +
+>> +		/*
+>> +		 * Do not hand out page ranges that are not contiguous, so
+>> +		 * callers can just iterate the pages without having to worry
+>> +		 * about these corner cases.
+>> +		 */
+>> +		if (!page_range_contiguous(page, count)) {
+>> +			spin_unlock_irq(&cma->lock);
+>> +			pr_warn_ratelimited("%s: %s: skipping incompatible area [0x%lx-0x%lx]",
+>> +					    __func__, cma->name, pfn, pfn + count - 1);
+>> +			continue;
+>> +		}
+>> +
+>>   		bitmap_set(cmr->bitmap, bitmap_no, bitmap_count);
+>>   		cma->available_count -= count;
+>>   		/*
+>> @@ -821,29 +835,24 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
+>>   		 */
+>>   		spin_unlock_irq(&cma->lock);
+>>
+>> -		pfn = cmr->base_pfn + (bitmap_no << cma->order_per_bit);
+>>   		mutex_lock(&cma->alloc_mutex);
+>>   		ret = alloc_contig_range(pfn, pfn + count, ACR_FLAGS_CMA, gfp);
+>>   		mutex_unlock(&cma->alloc_mutex);
+>> -		if (ret == 0) {
+>> -			page = pfn_to_page(pfn);
+>> +		if (!ret)
+>>   			break;
+>> -		}
+>>
+>>   		cma_clear_bitmap(cma, cmr, pfn, count);
+>>   		if (ret != -EBUSY)
+>>   			break;
+>>
+>>   		pr_debug("%s(): memory range at pfn 0x%lx %p is busy, retrying\n",
+>> -			 __func__, pfn, pfn_to_page(pfn));
+>> +			 __func__, pfn, page);
+>>
+>> -		trace_cma_alloc_busy_retry(cma->name, pfn, pfn_to_page(pfn),
+>> -					   count, align);
+>> -		/* try again with a bit different memory target */
+>> -		start = bitmap_no + mask + 1;
+>> +		trace_cma_alloc_busy_retry(cma->name, pfn, page, count, align);
+>>   	}
+>>   out:
+>> -	*pagep = page;
+>> +	if (!ret)
+>> +		*pagep = page;
+>>   	return ret;
+>>   }
+>>
+>> @@ -882,7 +891,7 @@ static struct page *__cma_alloc(struct cma *cma, unsigned long count,
+>>   	 */
+>>   	if (page) {
+>>   		for (i = 0; i < count; i++)
+>> -			page_kasan_tag_reset(nth_page(page, i));
+>> +			page_kasan_tag_reset(page + i);
+>>   	}
+>>
+>>   	if (ret && !(gfp & __GFP_NOWARN)) {
+>> diff --git a/mm/util.c b/mm/util.c
+>> index d235b74f7aff7..0bf349b19b652 100644
+>> --- a/mm/util.c
+>> +++ b/mm/util.c
+>> @@ -1280,4 +1280,37 @@ unsigned int folio_pte_batch(struct folio *folio, pte_t *ptep, pte_t pte,
+>>   {
+>>   	return folio_pte_batch_flags(folio, NULL, ptep, &pte, max_nr, 0);
+>>   }
+>> +
+>> +#if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
+>> +/**
+>> + * page_range_contiguous - test whether the page range is contiguous
+>> + * @page: the start of the page range.
+>> + * @nr_pages: the number of pages in the range.
+>> + *
+>> + * Test whether the page range is contiguous, such that they can be iterated
+>> + * naively, corresponding to iterating a contiguous PFN range.
+>> + *
+>> + * This function should primarily only be used for debug checks, or when
+>> + * working with page ranges that are not naturally contiguous (e.g., pages
+>> + * within a folio are).
+>> + *
+>> + * Returns true if contiguous, otherwise false.
+>> + */
+>> +bool page_range_contiguous(const struct page *page, unsigned long nr_pages)
+>> +{
+>> +	const unsigned long start_pfn = page_to_pfn(page);
+>> +	const unsigned long end_pfn = start_pfn + nr_pages;
+>> +	unsigned long pfn;
+>> +
+>> +	/*
+>> +	 * The memmap is allocated per memory section. We need to check
+>> +	 * each involved memory section once.
+>> +	 */
+>> +	for (pfn = ALIGN(start_pfn, PAGES_PER_SECTION);
+>> +	     pfn < end_pfn; pfn += PAGES_PER_SECTION)
+>> +		if (unlikely(page + (pfn - start_pfn) != pfn_to_page(pfn)))
+>> +			return false;
+> 
+> I find this pretty confusing, my test for this is how many times I have to read
+> the code to understand what it's doing :)
+> 
+> So we have something like:
+> 
+>    (pfn of page)
+>     start_pfn        pfn = align UP
+>          |                 |
+>          v                 v
+>   |         section        |
+>          <----------------->
+>            pfn - start_pfn
+> 
+> Then check page + (pfn - start_pfn) == pfn_to_page(pfn)
+> 
+> And loop such that:
+> 
+>    (pfn of page)
+>     start_pfn                                      pfn
+>          |                                          |
+>          v                                          v
+>   |         section        |         section        |
+>          <------------------------------------------>
+>                          pfn - start_pfn
+> 
+> Again check page + (pfn - start_pfn) == pfn_to_page(pfn)
+> 
+> And so on.
+> 
+> So the logic looks good, but it's just... that took me a hot second to
+> parse :)
+> 
+> I think a few simple fixups
+> 
+> bool page_range_contiguous(const struct page *page, unsigned long nr_pages)
+> {
+> 	const unsigned long start_pfn = page_to_pfn(page);
+> 	const unsigned long end_pfn = start_pfn + nr_pages;
+> 	/* The PFN of the start of the next section. */
+> 	unsigned long pfn = ALIGN(start_pfn, PAGES_PER_SECTION);
+> 	/* The page we'd expected to see if the range were contiguous. */
+> 	struct page *expected = page + (pfn - start_pfn);
+> 
+> 	/*
+> 	 * The memmap is allocated per memory section. We need to check
+> 	 * each involved memory section once.
+> 	 */
+> 	for (; pfn < end_pfn; pfn += PAGES_PER_SECTION, expected += PAGES_PER_SECTION)
+> 		if (unlikely(expected != pfn_to_page(pfn)))
+> 			return false;
+> 	return true;
+> }
+> 
+
+Hm, I prefer my variant, especially where the pfn is calculated in the for loop. Likely a
+matter of personal taste.
+
+But I can see why skipping the first section might be a surprise when not
+having the semantics of ALIGN() in the cache.
+
+So I'll add the following on top:
+
+diff --git a/mm/util.c b/mm/util.c
+index 0bf349b19b652..fbdb73aaf35fe 100644
+--- a/mm/util.c
++++ b/mm/util.c
+@@ -1303,8 +1303,10 @@ bool page_range_contiguous(const struct page *page, unsigned long nr_pages)
+         unsigned long pfn;
+  
+         /*
+-        * The memmap is allocated per memory section. We need to check
+-        * each involved memory section once.
++        * The memmap is allocated per memory section, so no need to check
++        * within the first section. However, we need to check each other
++        * spanned memory section once, making sure the first page in a
++        * section could similarly be reached by just iterating pages.
+          */
+         for (pfn = ALIGN(start_pfn, PAGES_PER_SECTION);
+              pfn < end_pfn; pfn += PAGES_PER_SECTION)
+
+Thanks!
+
+-- 
+Cheers
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
