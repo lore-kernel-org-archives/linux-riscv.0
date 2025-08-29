@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F4B7CA0FF0
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 15:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D703CA0FFD
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 15:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jz84NijghycY53PFpmfR1WnPSVDpE+Qmp320jwG8Wj0=; b=GQeCX1rk3IzOAi
-	1JhAkynkXDLaRGn4355somCLlXYBesB7eA//jAHzEN5u6D/zLzb6xql4AJ/FRtRT6d8lIqUavlRKh
-	G8+6XzHUrcmkin5AKtbGzmW/lBOIxNvjkPq9Jy2/cdGi6tvd/H4J3RpPu4PROT8HzFMPNZplmoAj9
-	+uYwnxaCHxmQaIiz3Mh/fDQ7KPbi7Lxnvcj41uWKxCNZBGGdjfAVtIdcA++HZCgDd1+98FD43HiXe
-	3RUGb8BIi96wXLoX+iG22UPtCLaTR5/5uK/WU4tLhBzNhmwle66C4ULnY4vbFTufG1hWdJ1UkumNb
-	KF3fMBT9ARkiAT4lbELA==;
+	List-Owner; bh=XTuXqCqN5CSkrHx2MzgLF+lP6Il8xHi7oml+OXIhNZs=; b=qKs1e9rvLJUzoW
+	vykthkcMbARBMfb1VKqsQK2vfXMA0JGlOdDN8oNL4xfjkPvGcVOk9fhQPK4ZGG1buCf0fRx85CqQJ
+	Zc3035jbYCE2sQN+GnZVXcD396gYb3RUmhxO2mSifZ9z+sNIDBKzyX9AEujrzUHJB1MK4Dmoo1A4R
+	ZpLtMB5NSHQxGcN6mlCT3GhjRpeV4jiqYvi+33ekCV7ke0DW0lt4geEul8WXSo5ODzrZgnp0F1YXB
+	3qEnfWt5UPmfJk5/wCScOVYlY3KEig4L64cyqSnTzfHAcVJ2GenQR907x02ZTx6l1D2DPw/a73R05
+	ohRM7ankl3g0aHEDpg8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1GJ-00000006FU4-1nt0;
-	Fri, 29 Aug 2025 15:43:35 +0000
+	id 1us1GL-00000006FWi-16zw;
+	Fri, 29 Aug 2025 15:43:37 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urxmg-00000005ZSA-1vn3
+	id 1urxo3-00000005ZqR-1Kjp
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Aug 2025 12:00:48 +0000
+	Fri, 29 Aug 2025 12:02:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756468845;
+	s=mimecast20190719; t=1756468930;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=WRODc3MDTNqLHIXQzOQ9QRmb2QGRyzsJAWu0HJ+lHgE=;
-	b=ZFhBCrBsuKThYsmda9YjgQueS10bMScbaRi1skeG1KwdbhHNoqOA6z8vA5HIwFw8Lw7bY7
-	dMFKLeBRNVumx/gl9jOSnOTQysvhekjzYLXqn0uUMhMxp84y07Q8dUYwaMfK1YEEyINoBq
-	wX3J2aOdWXTVODzaBXoFmcsm9k/t9iw=
+	bh=ZYQANwx9dP2TniNNzJzejSk0KLOlcIb4cHUahyjX99U=;
+	b=OX148GJvbJAZ98zeKqIKI7vLm2n1C0pNRkSjV4VFLocJGil/YP4434Ny0xJxRY0epjYcbI
+	MwEOmqVXYDeBhcVi1ZlnRhhwGhZRoUbuGXn/qtlM1NcUN3JwHhzaiu4BCGPSjjQvb7c5Oj
+	IzglX9ww1P1anISyWu8WYN/KC5q92lc=
 Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
  [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-378-D__c4oT9MtyuDQuDfwnaRg-1; Fri, 29 Aug 2025 08:00:44 -0400
-X-MC-Unique: D__c4oT9MtyuDQuDfwnaRg-1
-X-Mimecast-MFC-AGG-ID: D__c4oT9MtyuDQuDfwnaRg_1756468843
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3ccfd9063a0so687584f8f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 05:00:43 -0700 (PDT)
+ us-mta-518-bevMupboN3Ge-ed9v-FCCA-1; Fri, 29 Aug 2025 08:02:08 -0400
+X-MC-Unique: bevMupboN3Ge-ed9v-FCCA-1
+X-Mimecast-MFC-AGG-ID: bevMupboN3Ge-ed9v-FCCA_1756468927
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3c6ae25997cso1224665f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 05:02:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756468843; x=1757073643;
+        d=1e100.net; s=20230601; t=1756468927; x=1757073727;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=WRODc3MDTNqLHIXQzOQ9QRmb2QGRyzsJAWu0HJ+lHgE=;
-        b=gzPalBK+vi+eWQm4+pACAuXOWgxKr7UN2ORn6a5ebwCMk40FBuV9xLMhyJRzz3y6L8
-         A5vtZ9Lhza8nN87+okLxPA9HAE9gHn+GqglnnUVXnjPCtOUOyR/siJK9fmDpyLh+/nnA
-         OEIi2VTtW9HhEEEYZc4WxAPSMor8/58f4BdTzyhwPF9JFRNkFUAMsVEsc73Gxeljv3cD
-         GtP6YZiqJiXqvi9jICHXTtUsQU7jgge+R//4jKG+3uLEFU69QLvuG048wlg9ksAlrXvA
-         eMZX18EeQy7P4b3cym/cozqSGFSR06xQKm+vAkczgRoP0nzP6gCV8U6aTwIo6FIT7YCX
-         DViA==
-X-Forwarded-Encrypted: i=1; AJvYcCVMKX+nTBC3bZiiWEtAKnhpsMJJPky9Gu4r1z7g3rC91t3ezM8A2GAsbLfJGUHGEIFIEVjlne5Z2LgeaQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYwpaWlMxxUmp/+6EYKT3rK88sE5iZmNtXrKJtWo/Oa94iuUgH
-	g0jTlnhMF7BDmSMtIi3hfwdlWFYb+et374ORGfXI/8DwdkUtDdcRKJWeGMqC9Ms6ppH98xY+YH6
-	DqpVwlSdvKMJ1sdBw3ntAx8p/9bvuSx/UmmmHoYZyBPa1cFT5CE/ITWOFeZglED6mYpj+Ww==
-X-Gm-Gg: ASbGncu/kquDDiXNxhjZmM7mT/TzrqiCjqyUQTvTckUBP7QW3oc/j1qfren+vHRrdyg
-	9LNz0w0c02ZfIIh4HLDwJkVl0JeiozeCXVOutQVKkhyYPCaA7zniOWpdF+mzefuSJdtv9EaVTGw
-	NasUntsNzOPdW3Yx5FNw7Bn68fA14u/sO/gz3Gw1KUP23KeOwuNe5NerWhfEUtQlCejOtRhwjSB
-	pVysKpOAriJ6Hnvx0wzvvCFTJGp9F8fyfVna6XU7th58cg2MWwfZ4EtfcsSy5t+x5ZtH8BLEmEO
-	AYa+pDIPXhxjsXh8K77VeN7raHr93cqouqhgp1j/Jpk9UdL1pVtMRk0IXHqpmn+5WHnq4OvbeGo
-	DuixWfuEeygUga8hi6aHj6JnH6/fk/iLrfUQg8rrc2rGnulbdaEHodXZyTCXbcME=
-X-Received: by 2002:a05:6000:4382:b0:3c8:89e9:6ac0 with SMTP id ffacd0b85a97d-3c889e96e1dmr12052187f8f.3.1756468842714;
-        Fri, 29 Aug 2025 05:00:42 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGRdmd8Qo16pG8X+TFP/6YOZ+W4nkc8QhqQPHcWWiC5lStBhb4N+Shci4juwvPlMY9VjElJMQ==
-X-Received: by 2002:a05:6000:4382:b0:3c8:89e9:6ac0 with SMTP id ffacd0b85a97d-3c889e96e1dmr12052085f8f.3.1756468841352;
-        Fri, 29 Aug 2025 05:00:41 -0700 (PDT)
+        bh=ZYQANwx9dP2TniNNzJzejSk0KLOlcIb4cHUahyjX99U=;
+        b=QV3aLt7IP6wr/uOF6COm4cLU6mbMm98Y/RJpcR4Zrqh9mnqpFO4ihHxuCTFg0av5Wk
+         06SruPTv4jVjwqHbGjDlmpm9IJcujcOSoiLvc4BAcBnNOzk9kQ5q4HKXGK9QtSrRFKlt
+         ePF8oDs767TSs2jvGUQ/CHCrEOD/w4yJwfrodYWW/wnFo0sL4JEiHX+PCAFjDmqx+j6v
+         X98V8IiPdcBv3N2B3DQn6HKWncR4AoPf805tUV9Xr8KkJwP/Lsicj+zaIG0yInEontCM
+         kegW51qBkPfJcPbYID7i+MvYcJ2GUXXR9tvzBVljw1cdULu/iQJfbLS7LBwUCHmQqeqN
+         J6+g==
+X-Forwarded-Encrypted: i=1; AJvYcCXPZ4dsOZdJPQzBbMnEl0O4Z5hmli3dJL49CDHOvg/nUD4UvAOJXPTQ+ceuHMx87DCbqcom10nmM/jSQg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU7Pa8Oy34EGcozQ8HiAkr6ATNFvRwpnjpmagXL2FAb0vJzfC7
+	vzzdmNF+OIu2LauXZ74wv4MZh6YEiIodKCYB5ovbAxpfIDT1CSdkquWetYpEnC3tcYr/JR88CTh
+	H0E5YK1ylVT777djmOI1oCNEiFdAt5QI1EeqtpY2kuuohtlHKBrnde5RqK0idsY4ZRk/rAg==
+X-Gm-Gg: ASbGncsGesJbWS09zL4GKOWJh96xFSnewEXDKI5JirJd+DgIkv++9jLF0oTNM/TiqWZ
+	6o4jRUHfVVXVE1RRmpHJzb0Cqi7GcZJfYXww5QXuDnBB9bhsQwFhdxMEXjWQnTqdzweEE24oGLw
+	a0eyLhzUdGOJsmGkdLWYcOwrpQyVv7SCmm6/jyn/YiPaBudFrttxxzqQ3akzxtLNa3izAKM/Z8o
+	5B0PNJAf89lXu12tzl0HGdajkDYrt5zr7qDFV3WDQVqG8DRDOZl0oI3EF9ELEgPNghB0+sC42K0
+	l9yDQlTjwJQ8QbVSd7l3aXyZ8Kw9kd2T90HZcWxnxQuZYeW/RIASCTsj7SWgpd2J+O//aWshIZg
+	hAswzWJyLA7ykfe8SyTdX1bqhxLNaOKLqauGdIaxorZDNRaSeRdE9z1Kor/l5wDk=
+X-Received: by 2002:a5d:64ce:0:b0:3b7:7377:84c5 with SMTP id ffacd0b85a97d-3c5d7cb4888mr17563619f8f.0.1756468927087;
+        Fri, 29 Aug 2025 05:02:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH3QeYJZNPVWNTyOlFRY+fpxC5ixu9vVBtJrj04o0E7yCOrYXtrsrSGdQYXBgGHm6MDxKQL7A==
+X-Received: by 2002:a5d:64ce:0:b0:3b7:7377:84c5 with SMTP id ffacd0b85a97d-3c5d7cb4888mr17563581f8f.0.1756468926590;
+        Fri, 29 Aug 2025 05:02:06 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f1d:100:4f8e:bb13:c3c7:f854? (p200300d82f1d01004f8ebb13c3c7f854.dip0.t-ipconnect.de. [2003:d8:2f1d:100:4f8e:bb13:c3c7:f854])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf270fc0a8sm3118235f8f.7.2025.08.29.05.00.38
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33fb96ecsm3144067f8f.45.2025.08.29.05.02.02
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 29 Aug 2025 05:00:39 -0700 (PDT)
-Message-ID: <d0b06885-9f04-483f-a7e1-f197c8431491@redhat.com>
-Date: Fri, 29 Aug 2025 14:00:37 +0200
+        Fri, 29 Aug 2025 05:02:06 -0700 (PDT)
+Message-ID: <d2bc788e-abea-4453-86fa-daa68e280d52@redhat.com>
+Date: Fri, 29 Aug 2025 14:02:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 13/36] mm/hugetlb: cleanup
- hugetlb_folio_init_tail_vmemmap()
-To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v1 15/36] fs: hugetlbfs: remove nth_page() usage within
+ folio in adjust_range_hwpoison()
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
@@ -99,20 +99,17 @@ Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
  linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
  netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
  Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
  Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
  virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
  wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
 References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-14-david@redhat.com> <aLADXP89cp6hAq0q@kernel.org>
- <377449bd-3c06-4a09-8647-e41354e64b30@redhat.com>
- <aLAN7xS4WQsN6Hpm@kernel.org>
- <6880f125-803d-4eea-88ac-b67fdcc5995d@redhat.com>
- <aLAVUePBQuz9D89T@kernel.org>
+ <20250827220141.262669-16-david@redhat.com>
+ <1d74a0e2-51ff-462f-8f3c-75639fd21221@lucifer.local>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -158,14 +155,15 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <aLAVUePBQuz9D89T@kernel.org>
+In-Reply-To: <1d74a0e2-51ff-462f-8f3c-75639fd21221@lucifer.local>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: VouGpJRqd2uZdEsK0OugUcAexabPm7ncWgaSKFraWRg_1756468843
+X-Mimecast-MFC-PROC-ID: r0QgU1WHryb5q4_6meP-tJBhWhXgAs7BzSZGta9p4sI_1756468927
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_050046_580659_166E5580 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250829_050211_427756_C06472F2 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,39 +180,14 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28.08.25 10:37, Mike Rapoport wrote:
-> On Thu, Aug 28, 2025 at 10:18:23AM +0200, David Hildenbrand wrote:
->> On 28.08.25 10:06, Mike Rapoport wrote:
->>> On Thu, Aug 28, 2025 at 09:44:27AM +0200, David Hildenbrand wrote:
->>>> On 28.08.25 09:21, Mike Rapoport wrote:
->>>>> On Thu, Aug 28, 2025 at 12:01:17AM +0200, David Hildenbrand wrote:
->>>>>> +	/*
->>>>>> +	 * We mark all tail pages with memblock_reserved_mark_noinit(),
->>>>>> +	 * so these pages are completely uninitialized.
->>>>>
->>>>>                                 ^ not? ;-)
->>>>
->>>> Can you elaborate?
->>>
->>> Oh, sorry, I misread "uninitialized".
->>> Still, I'd phrase it as
->>>
->>> 	/*
->>> 	 * We marked all tail pages with memblock_reserved_mark_noinit(),
->>> 	 * so we must initialize them here.
->>> 	 */
->>
->> I prefer what I currently have, but thanks for the review.
+On 28.08.25 17:45, Lorenzo Stoakes wrote:
+> On Thu, Aug 28, 2025 at 12:01:19AM +0200, David Hildenbrand wrote:
+>> The nth_page() is not really required anymore, so let's remove it.
+>> While at it, cleanup and simplify the code a bit.
 > 
-> No strong feelings, feel free to add
-> 
-> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> 
+> Hm Not sure which bit is the cleanup? Was there meant to be more here or?
 
-I now have
-
-"As we marked all tail pages with memblock_reserved_mark_noinit(), we 
-must initialize them ourselves here."
+Thanks, leftover from the pre-split of this patch!
 
 -- 
 Cheers
