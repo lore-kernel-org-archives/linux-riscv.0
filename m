@@ -4,95 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CB2CA0FF9
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 19:38:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F4ECA0FF0
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 19:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rXka8AJU9U/53VY8Ka8kH4RSossONOKfYrocslPed04=; b=L/s+IGe/qmOv8I
-	3ZfmWovMVaNGVEthq/Q4s7Vn9jIOqZ3SJOqEXqKKkkPL2bGa3HtRN6li1b4ayRmhkZkq0kqPOehRU
-	MNXqskdvua8UEjBTqEsrbUPCnk9ves2x12qgkj4DCSKx9uWioZglUPyuGJsKQwmitYDIkWHn7cvGV
-	p8BXHgl2nV5GOr38h/Nd8zvCRCKazLPnpCRK/RYk7KpXZrkJ8CnYNXnrLwdkSpt2/O/Y5lAfzCImz
-	7Z1NyGUeek02NKzRqT7ULoMeVfMh2bneAX9W9cu6pShVZM7vbnV8zG6R14HAWT9CGxayXr2bHCvEQ
-	5oJEYNYxthjk1lqRpj5w==;
+	List-Owner; bh=EkEM7FMtGiCEN4P9j3uHWXpcSsx8UanrSsz+5xjKwQA=; b=M1vZQe9Fp3bQjq
+	BjE9Yc69PyWeH+Ka9ccuESxGmZVGfE8qJLLkWRZwZg0bmtP2qVKK2htZBi5Uq4zF78JkL1kmjLA6X
+	rn6sHaN1BETHC6PFcd1lEi8Mb2lsFsWRlgt7N8GL+Va7/gnQ0nb1OC/+BaL4Lh1dMq4yI+7pV04qN
+	f0wdz1cDiXzQHZvrxL/QcY+b7j7UF1mR9iDbxXA95a4ym8vDiEba7MFqA5ndm3PZ5MSK9CqON9Rri
+	v9kUIdH7msAGoOAHtQWcjFaHt6HjGQd+cxZuth7f4js8OpnIpbCur8eTPnY3RzzdMu6InQDlVH9AW
+	tjLkhchaRCAdyITZEK/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us4vN-00000006mcy-3mcB;
-	Fri, 29 Aug 2025 19:38:13 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1us51R-00000006nTe-1qzQ;
+	Fri, 29 Aug 2025 19:44:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2Me-00000006Sgn-20mH
+	id 1us2b8-00000006UZb-1uwr
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Aug 2025 16:54:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756486450;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MEXEQ52BMDj9IaYiI6bg5Gi6IB7kkAuqnXds+BbFlw8=;
-	b=IwjQeagR+BZyY9ZYG/0YK9S4mkaC+0fWqpx5GcZNLY/ELkjny90YsXjKh1om9fYtpIy1/B
-	5OK1sDIzxDq3wV/MHi38yIGHN2K+btvIwuIVmT8qB58x5UP4JcBZEPguqYKXp8qDijbDel
-	yD5VQXGiQrfF05E8U4BVhpnoT2xHStY=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-400-7v-ClGc-MmemEgyqoTeuGg-1; Fri, 29 Aug 2025 12:54:07 -0400
-X-MC-Unique: 7v-ClGc-MmemEgyqoTeuGg-1
-X-Mimecast-MFC-AGG-ID: 7v-ClGc-MmemEgyqoTeuGg_1756486446
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3ce3e098c48so1223680f8f.2
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 09:54:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756486446; x=1757091246;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MEXEQ52BMDj9IaYiI6bg5Gi6IB7kkAuqnXds+BbFlw8=;
-        b=sLjdOZxsKkzJMAmqS92E6uPwxxHaqLUzYPmur2+XwzQVP+KiEefwzQAhRQKguNWQfd
-         SmRKtE1yRyOdcibuN1BeceFHGnEZss8x2qZGOYtzGCIqBJW0DA5wlwzSTIailmN4BTc+
-         r8tHE6SS+wLaycYUiBXhxxX/45LZ01Mp3RVfgwlBENer6ZqM220+34lMmcL4gQBzzPvo
-         E0RD+WSNR+8VAfA4m42VyZC19x4fhQt/YgoT/OjYloQci28rjT/rOSjqbA7oflNi9wxd
-         ekzJ4LrPaCsQHJ/UOyt0ZbuKoFvjDk170pAao/CkgIDdQLsgH7wKt+41Dd1TZTYeB4H8
-         gQrw==
-X-Forwarded-Encrypted: i=1; AJvYcCVc7podaojkHGTOKZX60DannFIzeEfjUO27hfeqOHHpxwkKDE8MBv+IOJPaTPjESDV8lo894Nr77Sl/3A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKf919kYhUTog1dk5tEytCv9kJXhAC10HiSChSBhsu0jp6njnP
-	Uk0s2nMNy0d8iAOBbKv6I7HW7qSrQQj94HiSnsaH56m+ROE+m2+u/aozOtHUzS48q/upnG9SPX4
-	ofjCfvCnx2DEYG/HHmT/OcNWyydJrLc1JcBbeq7cnd7S+ozvg2sPucsE0Ubh9an7JqZQNRgtVnF
-	h1FLzflF54UuIfmchgvXd+eccbnwzcrbDzQEo/o7AdTnqS
-X-Gm-Gg: ASbGncvojL5gNfZoymrodz+Ru39EeHMYTEAXbZ+ZXDK/qM6FlnH3IjyN7mjWnuXlsqL
-	11k0xWpxh5KdIlMCFcjepp9horMdsXgRZFWnkXGwLjkok3PYLp46C7ACOGw4Hzj9/V+LRjuOWx8
-	FFWj5DV6gb6rIIPN+mI6fCsS/AfRNjk6wk5YGYmT4nZ1rbcnitEuYGvOo2BYd3F+sXgC59jUGan
-	nzFanT0m+uQS9iup7QDmFKa
-X-Received: by 2002:a05:6000:26cf:b0:3d0:affe:ed78 with SMTP id ffacd0b85a97d-3d0affef23dmr1993386f8f.48.1756486445950;
-        Fri, 29 Aug 2025 09:54:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFdPZurYZfRUBnVOaS3PNxkM1C7NRZdnWpueO3B3+j122HOFXUPtz6Qia0NiP/HNj/vT0GqByycZDJiM0JglWc=
-X-Received: by 2002:a05:6000:26cf:b0:3d0:affe:ed78 with SMTP id
- ffacd0b85a97d-3d0affef23dmr1993361f8f.48.1756486445512; Fri, 29 Aug 2025
- 09:54:05 -0700 (PDT)
+	Fri, 29 Aug 2025 17:09:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B9A48401D8;
+	Fri, 29 Aug 2025 17:09:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6458CC4CEF0;
+	Fri, 29 Aug 2025 17:09:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756487349;
+	bh=56oYVkzQdOaaG1U6yxaGN8Lu3r/EOnahdeDW9fIzYwE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VSEXp+IgddYsCVhWMe8z9Asc/AskDQHErNQqXfmokOxaefEPlJpNsEC/gYQhCU7hz
+	 tU28W7drZ6KyGM/eFkND/AeCBvfunQFhwuptoKa2V/nMG/Ngqj/xaAjbzO1Vg54J1a
+	 gbzwJXebk6kgmW+mgMe+XoUM2HPmqtEfR2OeTBtlYUQELLW+3bQ+vPn12nexmRC388
+	 1Vu86Xej/tdoqLuaN5FDjKDl0RfHMhgcibUfUU9Q2XwiL9tp17pzQmt89gbV/AtYfv
+	 Id73atSgBoE3oJBN7RVxXLTdcOKjaU/4mhf6W1Enfq8MdklfQZxzRTbrG37zv/NtaC
+	 Qvh3pjLLl2d1Q==
+Date: Fri, 29 Aug 2025 12:09:08 -0500
+From: Rob Herring <robh@kernel.org>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: kwilczynski@kernel.org, u.kleine-koenig@baylibre.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, arnd@arndb.de,
+	bwawrzyn@cisco.com, bhelgaas@google.com, unicorn_wang@outlook.com,
+	conor+dt@kernel.org, 18255117159@163.com, inochiama@gmail.com,
+	kishon@kernel.org, krzk+dt@kernel.org, lpieralisi@kernel.org,
+	mani@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
+	s-vadapalli@ti.com, tglx@linutronix.de, thomas.richard@bootlin.com,
+	sycamoremoon376@gmail.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org, sophgo@lists.linux.dev,
+	rabenda.cn@gmail.com, chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com
+Subject: Re: [PATCH 3/5] PCI: sg2042: Add Sophgo SG2042 PCIe driver
+Message-ID: <20250829170908.GA1016165-robh@kernel.org>
+References: <cover.1756344464.git.unicorn_wang@outlook.com>
+ <1df25b33f0ea90a81c34c18cadedd38526a30f01.1756344464.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
-References: <CAAhSdy0c5tScwHk8iLoF39dxFUSLg1RzST9=4EQ3C8KogvbM6w@mail.gmail.com>
-In-Reply-To: <CAAhSdy0c5tScwHk8iLoF39dxFUSLg1RzST9=4EQ3C8KogvbM6w@mail.gmail.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Fri, 29 Aug 2025 18:53:46 +0200
-X-Gm-Features: Ac12FXyqjT6P2FLFlcMv7sZgiRuRQCFuk8fcYFJD6RjPe2yyKjWPc-kMv7i27Zw
-Message-ID: <CABgObfa6b32FtpDwe-DDqHF_xx9vwePKj2CtN7wjG5s-pU2uMQ@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/riscv fixes for 6.17 take #1
-To: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@rivosinc.com>, 
-	Atish Patra <atish.patra@linux.dev>, Andrew Jones <ajones@ventanamicro.com>, 
-	KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: gY58oJfrLzaB8spRnG5ivDqdoFkfBZWN1mCbwxcod3I_1756486446
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <1df25b33f0ea90a81c34c18cadedd38526a30f01.1756344464.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_095412_583035_ED2D8097 
-X-CRM114-Status: UNSURE (   8.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250829_100910_542624_6D4EBA76 
+X-CRM114-Status: GOOD (  31.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,18 +78,217 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBBdWcgMjksIDIwMjUgYXQgMjowM+KAr1BNIEFudXAgUGF0ZWwgPGFudXBAYnJhaW5m
-YXVsdC5vcmc+IHdyb3RlOgo+Cj4gSGkgUGFvbG8sCj4KPiBXZSBoYXZlIHRocmVlIGZpeGVzIGZv
-ciB0aGUgNi4xNyBrZXJuZWwuIFR3byBvZiB0aGVzZSBhcmUKPiBjcml0aWNhbCBmaXhlcyBpbiBr
-dm1fcmlzY3ZfZ3N0YWdlX2lvcmVtYXAoKSBhbmQgc2V0dGluZwo+IHZsZW5iIHZpYSBPTkVfUkVH
-IHdoZXJlYXMgdGhlIHRoaXJkIG9uZSBpcyBhIHRyaXZpYWwgZml4Cj4gaW4gY29tbWVudHMgb2Yg
-a3ZtX3Jpc2N2X2NoZWNrX3ZjcHVfcmVxdWVzdHMoKS4KPgo+IFBsZWFzZSBwdWxsLgoKRG9uZSwg
-dGhhbmtzLgoKUGFvbG8KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On Thu, Aug 28, 2025 at 10:17:40AM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+> 
+> Add support for PCIe controller in SG2042 SoC. The controller
+> uses the Cadence PCIe core programmed by pcie-cadence*.c. The
+> PCIe controller will work in host mode only.
+> 
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ---
+>  drivers/pci/controller/cadence/Kconfig       |  12 ++
+>  drivers/pci/controller/cadence/Makefile      |   1 +
+>  drivers/pci/controller/cadence/pcie-sg2042.c | 134 +++++++++++++++++++
+>  3 files changed, 147 insertions(+)
+>  create mode 100644 drivers/pci/controller/cadence/pcie-sg2042.c
+> 
+> diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
+> index 666e16b6367f..b1f1941d5208 100644
+> --- a/drivers/pci/controller/cadence/Kconfig
+> +++ b/drivers/pci/controller/cadence/Kconfig
+> @@ -42,6 +42,17 @@ config PCIE_CADENCE_PLAT_EP
+>  	  endpoint mode. This PCIe controller may be embedded into many
+>  	  different vendors SoCs.
+>  
+> +config PCIE_SG2042
+> +	bool "Sophgo SG2042 PCIe controller (host mode)"
+> +	depends on ARCH_SOPHGO || COMPILE_TEST
+> +	depends on OF
+> +	depends on PCI_MSI
+> +	select PCIE_CADENCE_HOST
+> +	help
+> +	  Say Y here if you want to support the Sophgo SG2042 PCIe platform
+> +	  controller in host mode. Sophgo SG2042 PCIe controller uses Cadence
+> +	  PCIe core.
+> +
+>  config PCI_J721E
+>  	tristate
+>  	select PCIE_CADENCE_HOST if PCI_J721E_HOST != n
+> @@ -67,4 +78,5 @@ config PCI_J721E_EP
+>  	  Say Y here if you want to support the TI J721E PCIe platform
+>  	  controller in endpoint mode. TI J721E PCIe controller uses Cadence PCIe
+>  	  core.
+> +
+>  endmenu
+> diff --git a/drivers/pci/controller/cadence/Makefile b/drivers/pci/controller/cadence/Makefile
+> index 9bac5fb2f13d..4df4456d9539 100644
+> --- a/drivers/pci/controller/cadence/Makefile
+> +++ b/drivers/pci/controller/cadence/Makefile
+> @@ -4,3 +4,4 @@ obj-$(CONFIG_PCIE_CADENCE_HOST) += pcie-cadence-host.o
+>  obj-$(CONFIG_PCIE_CADENCE_EP) += pcie-cadence-ep.o
+>  obj-$(CONFIG_PCIE_CADENCE_PLAT) += pcie-cadence-plat.o
+>  obj-$(CONFIG_PCI_J721E) += pci-j721e.o
+> +obj-$(CONFIG_PCIE_SG2042) += pcie-sg2042.o
+> diff --git a/drivers/pci/controller/cadence/pcie-sg2042.c b/drivers/pci/controller/cadence/pcie-sg2042.c
+> new file mode 100644
+> index 000000000000..fe434dc2967e
+> --- /dev/null
+> +++ b/drivers/pci/controller/cadence/pcie-sg2042.c
+> @@ -0,0 +1,134 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * pcie-sg2042 - PCIe controller driver for Sophgo SG2042 SoC
+> + *
+> + * Copyright (C) 2025 Sophgo Technology Inc.
+> + * Copyright (C) 2025 Chen Wang <unicorn_wang@outlook.com>
+> + */
+> +
+> +#include <linux/kernel.h>
+> +#include <linux/of.h>
+
+Looks like you just need mod_devicetable.h instead.
+
+> +#include <linux/pci.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +
+> +#include "pcie-cadence.h"
+> +
+> +/*
+> + * SG2042 only support 4-byte aligned access, so for the rootbus (i.e. to read
+> + * the Root Port itself, read32 is required. For non-rootbus (i.e. to read
+> + * the PCIe peripheral registers, supports 1/2/4 byte aligned access, so
+> + * directly using read should be fine.
+> + *
+> + * The same is true for write.
+> + */
+> +static int sg2042_pcie_config_read(struct pci_bus *bus, unsigned int devfn,
+> +				   int where, int size, u32 *value)
+> +{
+> +	if (pci_is_root_bus(bus))
+
+You can have separate pci_ops for the root bus and child buses. Do that 
+and then sg2042_pcie_config_read() goes away. IIRC, there's examples in 
+the tree of your exact issue (root bus being 32-bit only).
+
+> +		return pci_generic_config_read32(bus, devfn, where, size,
+> +						 value);
+> +
+> +	return pci_generic_config_read(bus, devfn, where, size, value);
+> +}
+> +
+> +static int sg2042_pcie_config_write(struct pci_bus *bus, unsigned int devfn,
+> +				    int where, int size, u32 value)
+> +{
+> +	if (pci_is_root_bus(bus))
+> +		return pci_generic_config_write32(bus, devfn, where, size,
+> +						  value);
+> +
+> +	return pci_generic_config_write(bus, devfn, where, size, value);
+> +}
+> +
+> +static struct pci_ops sg2042_pcie_host_ops = {
+> +	.map_bus	= cdns_pci_map_bus,
+> +	.read		= sg2042_pcie_config_read,
+> +	.write		= sg2042_pcie_config_write,
+> +};
+> +
+> +static int sg2042_pcie_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct pci_host_bridge *bridge;
+> +	struct cdns_pcie *pcie;
+> +	struct cdns_pcie_rc *rc;
+> +	int ret;
+> +
+> +	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
+> +	if (!pcie)
+> +		return -ENOMEM;
+> +
+> +	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*rc));
+> +	if (!bridge) {
+> +		dev_err(dev, "Failed to alloc host bridge!\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	bridge->ops = &sg2042_pcie_host_ops;
+> +
+> +	rc = pci_host_bridge_priv(bridge);
+> +	pcie = &rc->pcie;
+> +	pcie->dev = dev;
+> +
+> +	platform_set_drvdata(pdev, pcie);
+> +
+> +	pm_runtime_enable(dev);
+> +
+> +	ret = pm_runtime_get_sync(dev);
+> +	if (ret < 0) {
+> +		dev_err(dev, "pm_runtime_get_sync failed\n");
+> +		goto err_get_sync;
+> +	}
+> +
+> +	ret = cdns_pcie_init_phy(dev, pcie);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to init phy!\n");
+> +		goto err_get_sync;
+> +	}
+> +
+> +	ret = cdns_pcie_host_setup(rc);
+> +	if (ret < 0) {
+> +		dev_err(dev, "Failed to setup host!\n");
+> +		goto err_host_setup;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_host_setup:
+> +	cdns_pcie_disable_phy(pcie);
+> +
+> +err_get_sync:
+> +	pm_runtime_put(dev);
+> +	pm_runtime_disable(dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static void sg2042_pcie_shutdown(struct platform_device *pdev)
+> +{
+> +	struct cdns_pcie *pcie = platform_get_drvdata(pdev);
+> +	struct device *dev = &pdev->dev;
+> +
+> +	cdns_pcie_disable_phy(pcie);
+> +
+> +	pm_runtime_put(dev);
+> +	pm_runtime_disable(dev);
+> +}
+> +
+> +static const struct of_device_id sg2042_pcie_of_match[] = {
+> +	{ .compatible = "sophgo,sg2042-pcie-host" },
+> +	{},
+> +};
+> +
+> +static struct platform_driver sg2042_pcie_driver = {
+> +	.driver = {
+> +		.name		= "sg2042-pcie",
+> +		.of_match_table	= sg2042_pcie_of_match,
+> +		.pm		= &cdns_pcie_pm_ops,
+> +	},
+> +	.probe		= sg2042_pcie_probe,
+> +	.shutdown	= sg2042_pcie_shutdown,
+> +};
+> +builtin_platform_driver(sg2042_pcie_driver);
+
+What prevents this from being a module?
+
+Rob
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
