@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA150CA0FF0
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 16:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C010DCA0FFD
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 16:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2gVwH/YUrOi8KXVJsYmYvS6iUpfoMtdfJrraOJOUyx8=; b=GrLKO4HdlJIB8R
-	C2cjtDqcLgQ55XRM32IskJTM9Po6mv5RXVcYWYXEBGfp+1/FOaoD0JFsJ0kj9etAL0yyzqRauKpvz
-	lQjFY+vmZ/XTT4uXg02nefC38PeWoy0H76jycCEPLMul2d40wEc0OP4w/SXvkp3DT5hmQaZ8+8VNp
-	2XWyjcgs8V1LybpK+VyQt6IUF7bapSWZS7s2vyYra4oh1dJlPjaUvhNtHDpY2JZjPBv4yILFM1lgt
-	GyF7stWFEME0xaL/GSVQhh07i1EmueDUi2uIOt/SrCsNCcwrHYCYodVAa2W5qvKuqxRVevBRfxoWA
-	H1awlQo8pg7cJNxTm9jQ==;
+	List-Owner; bh=KnT4FRdjZsD6gaa5FxB78yALQ06LDC7lFK5euVSfP54=; b=JoJljblHZPg5x5
+	2UrnqksVlfbtZm7I3ecmA0ut9jG2S9qKLmg+pG7SWCxo8y0mtpwFFIlPOlD59xgSPXvXf0W6nirY5
+	bal8o0AlHYRC8vdi4tMCfmquAghm3yKO1fTWKK35+C1bALuYKubCYKS2UxRUl3Jkdhl/92qFFIUTF
+	mkTivnRKQEmnzpQkfK0HQnYkPGH4ugbxTFhfNIcD6SLw3/Fz0AdhiBCQQWIj2pgWjwZg+99+jPUXs
+	74pHPVJeX/hefDoQ1QZemSoGDA+E2J5NGaVIyUiFIiHtH36G/m3csaAZKrFRFd5E359Aw3pH3tb3B
+	MIOB0qmmHQoszbgPnlnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1ui-00000006O7e-2gDr;
-	Fri, 29 Aug 2025 16:25:20 +0000
+	id 1us1xQ-00000006Ohs-3h3R;
+	Fri, 29 Aug 2025 16:28:08 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryrY-00000005lED-35K0
+	id 1urz3R-00000005o2N-0Rv6
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Aug 2025 13:09:54 +0000
+	Fri, 29 Aug 2025 13:22:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756472991;
+	s=mimecast20190719; t=1756473728;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=GMW9HLrWQaKZG+KlEEwhYfHDFt7S0jSgL0MHJQucZHQ=;
-	b=W77Nk43KwapZ/PN0ppI9OkDMdzLsFzdvdC/b/yuaZStPv6TCKRiXmhD2gEpACpEqlmSoKQ
-	fy9xiqvIe1vDK8ht/CfBha8BW6l+aSX7H/TeOc7MddY2QJvJrVVLKSezxtvsS8nnv4OHpT
-	nov6559jhkbkP27pl4yoFG8ggSJpcFc=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=aggFKTWIoz3JmsTS53UGUQwfpKwPCT7EHzMCjR4W6Kc=;
+	b=UuLQ56t9K9ET2MmcIeYyIW1ZImATJoQ1k+kHzh2cIgfahSMGcQJjlkQ3xqVpnEUZ0FSx2b
+	nMhJA3udtBaLTI2Sl89GB/+7soNOGPCYd0PMY1h1kprbkvVlwP2+SUEjHdz65j9Rr9kMQp
+	xRwI+bEvrE7xl8Jqfcsf9SsX5eHNwKg=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-17-uzqG3Ga7NeekUMgW8snTKA-1; Fri, 29 Aug 2025 09:09:50 -0400
-X-MC-Unique: uzqG3Ga7NeekUMgW8snTKA-1
-X-Mimecast-MFC-AGG-ID: uzqG3Ga7NeekUMgW8snTKA_1756472989
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3cf48ec9fc1so629674f8f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 06:09:49 -0700 (PDT)
+ us-mta-637-7B7aiGjxOQyhWkGJ6EVgtw-1; Fri, 29 Aug 2025 09:22:06 -0400
+X-MC-Unique: 7B7aiGjxOQyhWkGJ6EVgtw-1
+X-Mimecast-MFC-AGG-ID: 7B7aiGjxOQyhWkGJ6EVgtw_1756473726
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3c6ae25997cso1397811f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 06:22:06 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756472989; x=1757077789;
+        d=1e100.net; s=20230601; t=1756473725; x=1757078525;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=GMW9HLrWQaKZG+KlEEwhYfHDFt7S0jSgL0MHJQucZHQ=;
-        b=Uwk+2+egeSRlkH8NOqurSLk+Ery4Qtz27c12kmDXyy9kMr28as3MU3WnEyBWRtF+cQ
-         4wZHkGCKnHMY2HNzGAtRnkWHDJU65I/tTm2RsXAnrfMO0nczMisCQMATjP56TQFtgQUz
-         O8N71sPpziaS1ZrwElSlTOkeK8yWcz/dT/UJwWpAd17PT/wBvLz11gbXRb4UfTG9qzT6
-         /qetfVomlJZ8jFb/Smhp8CTO9u7SLePafXhTopm00f4UHvZQztc+23PZmIiaJwVytwZC
-         YBDdBz7ePWv8SjIwfLJ/s2r/PsC3JEo0u0P4/5cLgXaXvuD2Bq+2omEQLRoER1WgEFAA
-         Ulaw==
-X-Forwarded-Encrypted: i=1; AJvYcCXKeMVSR70fvY08DdJ3gFDzJ/a6Wf9rFUThvjT5CPQbMG92ssVEd6k5FOowd7Ll+Gt8bLa02+55SpdqGA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFGorvOZL4FICKbYvOJvpsfhV4/1rgThEtuRld7JPhVJOpitKw
-	/6Wn7Is5yTDXtUvQw3yLQZ99T+9xXzMA1ZrzfPK7MWPKvFAQO3/B0SLd/iVeJK2oi9WLR9Ctdb0
-	IlRM5rWjzqZ3XTY1ZPTwZiE48+4TuMSwqsC6vuSK+zpeU/3HoLbGi0hX5Dr6pdKB678zgTA==
-X-Gm-Gg: ASbGnctkBXebl2AzneohfeLJAbYupr5XzdFXoQdk6ts3gJfTFoMmwfLc/knw/s3Er7L
-	VXEprTOfmbhpbR4lDMOaOW56XrJaO9r/S9EZ/s39zxVqKyLw5H5zyL2ZF4Moc26CBh1Yd7B31vv
-	v5jeblTw/5JmPh+oSTEmUCZuzraL7r4j2pbzlhgfUA9OXsNKkZCt4ga+RLBABC6/rJ7tlht7pY+
-	qDzLGKwigOKYxT43jYzcIPxf5OeJwhU3DM28ubf0DdsqYIi0g5+18we0vDsuY7XZdrmf0wiNKl5
-	TeKybbxO1qxLc0Tr9u6skNJ4t7wmSG9B56AX922PBv+dZ1HN9bufR/KDM/MJ8GbMBRvQqClsIEX
-	QQH96yAP3IhfY/pfHaWBhw50b0OoPXSvwGZM69TVg9LPvhXc/due0BAqHBY8aSZem
-X-Received: by 2002:a05:6000:4023:b0:3d0:d6e6:5d96 with SMTP id ffacd0b85a97d-3d0d6e6642emr1463725f8f.38.1756472988509;
-        Fri, 29 Aug 2025 06:09:48 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE2EE1FdffCNgqV63lR4bEMYpCijk6Rt1WA7Ibu/9lrj3Iet7fHqrTgMv1xYGinJ39Wr3I/NQ==
-X-Received: by 2002:a05:6000:4023:b0:3d0:d6e6:5d96 with SMTP id ffacd0b85a97d-3d0d6e6642emr1463686f8f.38.1756472987991;
-        Fri, 29 Aug 2025 06:09:47 -0700 (PDT)
+        bh=aggFKTWIoz3JmsTS53UGUQwfpKwPCT7EHzMCjR4W6Kc=;
+        b=hJo7zlhDaVdp9RXC/xJ9xzV8XKzgYaAzzBwiWL6sGZ1w/hML6E4XRiUpCak4KcT2rL
+         Os6Dj1mqrRmloj4T85TNr/KyXEj0tBnnisbGFJeKzSWAGqYQGHGb4bubV0GhoOPVSyg5
+         5GRw9tjTEPJQKaz6QNnQ4aq4GKMkf2T7DcTOemDd4W28GikYfZSQLvTd9nQDuoQy0l/N
+         7Iem/HTCJG9moGYU8Yu10pXF4QXsRw6zrMd4EDXMi5l9l7M3LH5712D4MfyKOsDUcJtN
+         57kaKpdBk/9IT1kP7ktnqLZdqLL6f4/cFJO5tgsOhMDZO8sR7iaijJh0uSEySacL3wMA
+         KvjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4q8QfLspBbn/YprQ3Hn9+9jYSg47esWosBPg8gb8eS8rhXRMMJmVMQ2lttqG0LnkKwMUhjDIy9SGx7A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YytxxPMPv2jLuXQcSA0GG5XClMA+dicaeSkUcGMF9ggvJn8wnO8
+	KdDZHuPU5n371HIY52CEBf6KMR+E0L7Q601fOAbzCWV3jd++GnnWA+0Sumy8nvcGKGmVvLijUuE
+	yIFtwokMjg0uxipcn+PK0V6d6Zu9iEN0TfGKwU/GHgsrzXT3FXTTe5zasKwDbHxUIdWedPw==
+X-Gm-Gg: ASbGncswRIk0NLJOn2i5hXhiJHVk28DmufzpOllHfiYvwbmrh3HQgBCaHTBs6mpPGTj
+	q3FPd/KRks5AAonn9Y8HTGMTDnJuDV1y4B+WrunyfENnvXlYNxy0Zh7rDQgriLYib4ZO7JauLOT
+	KmbKoUmnY6xJOZLkd+HsVWp/vMaQsjFpAGn8qhv7gkH/jcOXPyggIJ3sxcJkk6gC8I2jg3X1JdA
+	HYtrfJS5ze08GkAga2lyyHucZEoBMX804PfP15hzOCUCZFx2bFUrKUOlOSKUBzBzgak2dk1bht7
+	g0u9gKHRSolHhgaJkeSMU4rQA0+ToDmi9vYQ12IKVB6WjKI6eoB7kPQwQbCMFlbojKKdYHy2Ybq
+	qquGROWTfMr/CTgO0MHbVTsX9gpuEfyb2xH599RA1HV9y3V1G8/WmW4fl/t8pzBQX
+X-Received: by 2002:a05:6000:2c0f:b0:3ca:a190:c473 with SMTP id ffacd0b85a97d-3caa190c6ecmr9849815f8f.4.1756473725372;
+        Fri, 29 Aug 2025 06:22:05 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGFfrTd/+15/bT4PGZswHLcvGvODyGQLUC+I3pIFqxdvqjEg2cDf44HeYcneQKTQcaMEr0KOA==
+X-Received: by 2002:a05:6000:2c0f:b0:3ca:a190:c473 with SMTP id ffacd0b85a97d-3caa190c6ecmr9849784f8f.4.1756473724881;
+        Fri, 29 Aug 2025 06:22:04 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f1d:100:4f8e:bb13:c3c7:f854? (p200300d82f1d01004f8ebb13c3c7f854.dip0.t-ipconnect.de. [2003:d8:2f1d:100:4f8e:bb13:c3c7:f854])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d12c90a01bsm906716f8f.31.2025.08.29.06.09.45
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33add483sm3368560f8f.37.2025.08.29.06.22.02
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 29 Aug 2025 06:09:47 -0700 (PDT)
-Message-ID: <4f6e66a1-1747-402e-8f1a-f6b7783fc2e5@redhat.com>
-Date: Fri, 29 Aug 2025 15:09:45 +0200
+        Fri, 29 Aug 2025 06:22:04 -0700 (PDT)
+Message-ID: <f7f9f535-0bbe-413a-84e4-fcb17a502a40@redhat.com>
+Date: Fri, 29 Aug 2025 15:22:01 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 06/36] mm/page_alloc: reject unreasonable
- folio/compound page sizes in alloc_contig_range_noprof()
+Subject: Re: [PATCH v1 16/36] fs: hugetlbfs: cleanup folio in
+ adjust_range_hwpoison()
 To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
- SeongJae Park <sj@kernel.org>, Alexander Potapenko <glider@google.com>,
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
  Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
@@ -107,12 +106,10 @@ Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
  Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
  Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
  virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
- wireguard@lists.zx2c4.com, x86@kernel.org
+ wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
 References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-7-david@redhat.com>
- <f195300e-42e2-4eaa-84c8-c37501c3339c@lucifer.local>
- <547145e0-9b0e-40ca-8201-e94cc5d19356@redhat.com>
- <34edaa0d-0d5f-4041-9a3d-fb5b2dd584e8@lucifer.local>
+ <20250827220141.262669-17-david@redhat.com>
+ <71cf3600-d9cf-4d16-951c-44582b46c0fa@lucifer.local>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -158,14 +155,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <34edaa0d-0d5f-4041-9a3d-fb5b2dd584e8@lucifer.local>
+In-Reply-To: <71cf3600-d9cf-4d16-951c-44582b46c0fa@lucifer.local>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 8TVMr_fPrI8f88BBop37tZJtJcFXwc29WGclgcjiIW8_1756472989
+X-Mimecast-MFC-PROC-ID: MkzWhxVSZFWoJ7BCSCDzH_4_k9-9wj06_B8Jj2fdqh0_1756473726
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_060952_855963_DCA659EF 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20250829_062209_225612_1492477C 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,80 +179,102 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+
 > 
-> It seems a bit arbitrary, like we open-code this (at risk of making a mistake)
-> in some places but not others.
+> Lord above.
+> 
+> Also semantics of 'if bytes == 0, then check first page anyway' which you do
+> capture.
 
-[...]
+Yeah, I think bytes == 0 would not make any sense, though. Staring 
+briefly at the single caller, that seems to be the case (bytes != 0).
 
+> 
+> OK think I have convinced myself this is right, so hopefully no deeply subtle
+> off-by-one issues here :P
+> 
+> Anyway, LGTM, so:
+> 
+> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> 
+>> ---
+>>   fs/hugetlbfs/inode.c | 33 +++++++++++----------------------
+>>   1 file changed, 11 insertions(+), 22 deletions(-)
 >>
->> One could argue that maybe one would want a order_to_pages() helper (that
->> could use BIT() internally), but I am certainly not someone that would
->> suggest that at this point ...  :)
-> 
-> I mean maybe.
-> 
-> Anyway as I said none of this is massively important, the open-coding here is
-> correct, just seems silly.
-
-Maybe we really want a ORDER_PAGES() and PAGES_ORDER().
-
-But I mean, we also have PHYS_PFN() PFN_PHYS() and see how many "<< 
-PAGE_SIZE" etc we are using all over the place.
-
-> 
+>> diff --git a/fs/hugetlbfs/inode.c b/fs/hugetlbfs/inode.c
+>> index c5a46d10afaa0..6ca1f6b45c1e5 100644
+>> --- a/fs/hugetlbfs/inode.c
+>> +++ b/fs/hugetlbfs/inode.c
+>> @@ -198,31 +198,20 @@ hugetlb_get_unmapped_area(struct file *file, unsigned long addr,
+>>   static size_t adjust_range_hwpoison(struct folio *folio, size_t offset,
+>>   		size_t bytes)
+>>   {
+>> -	struct page *page;
+>> -	size_t n = 0;
+>> -	size_t res = 0;
+>> -
+>> -	/* First page to start the loop. */
+>> -	page = folio_page(folio, offset / PAGE_SIZE);
+>> -	offset %= PAGE_SIZE;
+>> -	while (1) {
+>> -		if (is_raw_hwpoison_page_in_hugepage(page))
+>> -			break;
+>> +	struct page *page = folio_page(folio, offset / PAGE_SIZE);
+>> +	size_t safe_bytes;
+>> +
+>> +	if (is_raw_hwpoison_page_in_hugepage(page))
+>> +		return 0;
+>> +	/* Safe to read the remaining bytes in this page. */
+>> +	safe_bytes = PAGE_SIZE - (offset % PAGE_SIZE);
+>> +	page++;
 >>
->>>
->>>> +
->>>>    /*
->>>>     * compound_nr() returns the number of pages in this potentially compound
->>>>     * page.  compound_nr() can be called on a tail page, and is defined to
->>>> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
->>>> index baead29b3e67b..426bc404b80cc 100644
->>>> --- a/mm/page_alloc.c
->>>> +++ b/mm/page_alloc.c
->>>> @@ -6833,6 +6833,7 @@ static int __alloc_contig_verify_gfp_mask(gfp_t gfp_mask, gfp_t *gfp_cc_mask)
->>>>    int alloc_contig_range_noprof(unsigned long start, unsigned long end,
->>>>    			      acr_flags_t alloc_flags, gfp_t gfp_mask)
+>> -		/* Safe to read n bytes without touching HWPOISON subpage. */
+>> -		n = min(bytes, (size_t)PAGE_SIZE - offset);
+>> -		res += n;
+>> -		bytes -= n;
+>> -		if (!bytes || !n)
+>> +	for (; safe_bytes < bytes; safe_bytes += PAGE_SIZE, page++)
 > 
-> Funny btw th
+> OK this is quite subtle - so if safe_bytes == bytes, this means we've confirmed
+> that all requested bytes are safe.
 > 
->>>>    {
->>>> +	const unsigned int order = ilog2(end - start);
->>>>    	unsigned long outer_start, outer_end;
->>>>    	int ret = 0;
->>>>
->>>> @@ -6850,6 +6851,9 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
->>>>    					    PB_ISOLATE_MODE_CMA_ALLOC :
->>>>    					    PB_ISOLATE_MODE_OTHER;
->>>>
->>>> +	if (WARN_ON_ONCE((gfp_mask & __GFP_COMP) && order > MAX_FOLIO_ORDER))
->>>> +		return -EINVAL;
->>>
->>> Possibly not worth it for a one off, but be nice to have this as a helper function, like:
->>>
->>> static bool is_valid_order(gfp_t gfp_mask, unsigned int order)
->>> {
->>> 	return !(gfp_mask & __GFP_COMP) || order <= MAX_FOLIO_ORDER;
->>> }
->>>
->>> Then makes this:
->>>
->>> 	if (WARN_ON_ONCE(!is_valid_order(gfp_mask, order)))
->>> 		return -EINVAL;
->>>
->>> Kinda self-documenting!
->>
->> I don't like it -- especially forwarding __GFP_COMP.
->>
->> is_valid_folio_order() to wrap the order check? Also not sure.
+> So offset=0, bytes = 4096 would fail this (as safe_bytes == 4096).
 > 
-> OK, it's not a big deal.
+> Maybe worth putting something like:
 > 
-> Can we have a comment explaining this though? As people might be confused
-> as to why we check this here and not elsewhere.
+> 	/*
+> 	 * Now we check page-by-page in the folio to see if any bytes we don't
+> 	 * yet know to be safe are contained within posioned pages or not.
+> 	 */
+> 
+> Above the loop. Or something like this.
 
-I can add a comment.
+"Check each remaining page as long as we are not done yet."
+
+> 
+>> +		if (is_raw_hwpoison_page_in_hugepage(page))
+>>   			break;
+>> -		offset += n;
+>> -		if (offset == PAGE_SIZE) {
+>> -			page++;
+>> -			offset = 0;
+>> -		}
+>> -	}
+>>
+>> -	return res;
+>> +	return min(safe_bytes, bytes);
+> 
+> Yeah given above analysis this seems correct.
+> 
+> You must have torn your hair out over this :)
+
+I could resist the urge to clean that up, yes.
+
+I'll also drop the "The implementation borrows the iteration logic from 
+copy_page_to_iter*." part, because I suspect this comment no longer 
+makes sense.
+
+Thanks!
 
 -- 
 Cheers
