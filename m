@@ -4,87 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C010DCA0FFD
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 16:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A996CA0FF0
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Aug 2025 16:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KnT4FRdjZsD6gaa5FxB78yALQ06LDC7lFK5euVSfP54=; b=JoJljblHZPg5x5
-	2UrnqksVlfbtZm7I3ecmA0ut9jG2S9qKLmg+pG7SWCxo8y0mtpwFFIlPOlD59xgSPXvXf0W6nirY5
-	bal8o0AlHYRC8vdi4tMCfmquAghm3yKO1fTWKK35+C1bALuYKubCYKS2UxRUl3Jkdhl/92qFFIUTF
-	mkTivnRKQEmnzpQkfK0HQnYkPGH4ugbxTFhfNIcD6SLw3/Fz0AdhiBCQQWIj2pgWjwZg+99+jPUXs
-	74pHPVJeX/hefDoQ1QZemSoGDA+E2J5NGaVIyUiFIiHtH36G/m3csaAZKrFRFd5E359Aw3pH3tb3B
-	MIOB0qmmHQoszbgPnlnw==;
+	List-Owner; bh=W9Tau7JjtJy92yaLGHcTUBvQ/NzpGSNGonN32UTI4dA=; b=YGMEXvykZkSyUd
+	F51QXIm6DKxPNkx40mdf4GnMsR8PuIz2ZfYZyUwX7CBxIlG0qdAn7ofkqQDRm+74GX+5HSR3J1mTS
+	Bs+GHJB1T1wUEr5RCF8Fteu2j7itDy0VZ07xyQZ1ZO4ppDJRivK0wjrSPyhMi+mxL+xcRWs/W5bhY
+	5+HfozFqwuyVlwZJ6jpsSeBhST+aOaphzh7lTydkBATUW+TDjIF4lHR/8+d+eGS0S6BqtcNtO7Dhw
+	ygMNPenTFg4t6XXkUoaVaHXYpa6NmZhvFKkRSoNkBjBAlTHayxcx8xkMW3dFLKGKbdOkBNAx13S1v
+	DeKDn/NjO8wbe3l887+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1xQ-00000006Ohs-3h3R;
-	Fri, 29 Aug 2025 16:28:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1us2Au-00000006R32-2ZLI;
+	Fri, 29 Aug 2025 16:42:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urz3R-00000005o2N-0Rv6
+	id 1urzP6-00000005sWr-3ZdW
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 29 Aug 2025 13:44:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=qjuXMBMcmzq+emhjc+4nz3INVtnsR/3o1W/HmfSMpGo=; b=ZhyElNI7rZzl01LsvNVPOXoGUP
+	ijuA6QRnIJERKjx/fZe4KM+X9o4Uzno2WIRbOfN7A9HV507Ih8zwTE1TsAsXLkNPux5y2LOUW29vF
+	9+jquzQ29IldRuxZukQCSh79aPW/iFduDYWemBKAkNP3VuC8CItMwNpjFLh3K6HDjDxUI48GJ9DJq
+	ag9UHiO3tGKDCipMEow2Hq3nSzhpYffm1TLCTek6L0uDqfCqDmObiTcVJYCnsa9IKHG3bG7t/djv1
+	vJ5C2aPViIedHEtaFJOZ65Sy4kpxANtyM0T9t0vAo4nezU4SSWyzuosrMCf41PctAFetyfMTszAaW
+	pJK9/R1g==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urzP3-00000003A0M-1rtw
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Aug 2025 13:22:10 +0000
+	Fri, 29 Aug 2025 13:44:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756473728;
+	s=mimecast20190719; t=1756475068;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=aggFKTWIoz3JmsTS53UGUQwfpKwPCT7EHzMCjR4W6Kc=;
-	b=UuLQ56t9K9ET2MmcIeYyIW1ZImATJoQ1k+kHzh2cIgfahSMGcQJjlkQ3xqVpnEUZ0FSx2b
-	nMhJA3udtBaLTI2Sl89GB/+7soNOGPCYd0PMY1h1kprbkvVlwP2+SUEjHdz65j9Rr9kMQp
-	xRwI+bEvrE7xl8Jqfcsf9SsX5eHNwKg=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=qjuXMBMcmzq+emhjc+4nz3INVtnsR/3o1W/HmfSMpGo=;
+	b=aIJKDmAMelrvStixl+SC3Xnz+04kJ/dlQ8uJA9K1AfMIkP0ZAIvCf2uNM51nQZeqcdtvI+
+	R/TlTz+r4L2Pb5YrQRYGBc3BdJS8u2FfFy0niVMi/4mwHKT46jKJdqWehe6rjiCpkti+cA
+	kJsD+IchmXy6w4flnqZMBljtCx4wCtw=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756475068;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=qjuXMBMcmzq+emhjc+4nz3INVtnsR/3o1W/HmfSMpGo=;
+	b=aIJKDmAMelrvStixl+SC3Xnz+04kJ/dlQ8uJA9K1AfMIkP0ZAIvCf2uNM51nQZeqcdtvI+
+	R/TlTz+r4L2Pb5YrQRYGBc3BdJS8u2FfFy0niVMi/4mwHKT46jKJdqWehe6rjiCpkti+cA
+	kJsD+IchmXy6w4flnqZMBljtCx4wCtw=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-637-7B7aiGjxOQyhWkGJ6EVgtw-1; Fri, 29 Aug 2025 09:22:06 -0400
-X-MC-Unique: 7B7aiGjxOQyhWkGJ6EVgtw-1
-X-Mimecast-MFC-AGG-ID: 7B7aiGjxOQyhWkGJ6EVgtw_1756473726
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3c6ae25997cso1397811f8f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 06:22:06 -0700 (PDT)
+ us-mta-381-2c3Mx8h5M_SOVpHtsfNzKQ-1; Fri, 29 Aug 2025 09:44:26 -0400
+X-MC-Unique: 2c3Mx8h5M_SOVpHtsfNzKQ-1
+X-Mimecast-MFC-AGG-ID: 2c3Mx8h5M_SOVpHtsfNzKQ_1756475065
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3cceb92ea73so1232198f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Aug 2025 06:44:26 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756473725; x=1757078525;
+        d=1e100.net; s=20230601; t=1756475065; x=1757079865;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=aggFKTWIoz3JmsTS53UGUQwfpKwPCT7EHzMCjR4W6Kc=;
-        b=hJo7zlhDaVdp9RXC/xJ9xzV8XKzgYaAzzBwiWL6sGZ1w/hML6E4XRiUpCak4KcT2rL
-         Os6Dj1mqrRmloj4T85TNr/KyXEj0tBnnisbGFJeKzSWAGqYQGHGb4bubV0GhoOPVSyg5
-         5GRw9tjTEPJQKaz6QNnQ4aq4GKMkf2T7DcTOemDd4W28GikYfZSQLvTd9nQDuoQy0l/N
-         7Iem/HTCJG9moGYU8Yu10pXF4QXsRw6zrMd4EDXMi5l9l7M3LH5712D4MfyKOsDUcJtN
-         57kaKpdBk/9IT1kP7ktnqLZdqLL6f4/cFJO5tgsOhMDZO8sR7iaijJh0uSEySacL3wMA
-         KvjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV4q8QfLspBbn/YprQ3Hn9+9jYSg47esWosBPg8gb8eS8rhXRMMJmVMQ2lttqG0LnkKwMUhjDIy9SGx7A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YytxxPMPv2jLuXQcSA0GG5XClMA+dicaeSkUcGMF9ggvJn8wnO8
-	KdDZHuPU5n371HIY52CEBf6KMR+E0L7Q601fOAbzCWV3jd++GnnWA+0Sumy8nvcGKGmVvLijUuE
-	yIFtwokMjg0uxipcn+PK0V6d6Zu9iEN0TfGKwU/GHgsrzXT3FXTTe5zasKwDbHxUIdWedPw==
-X-Gm-Gg: ASbGncswRIk0NLJOn2i5hXhiJHVk28DmufzpOllHfiYvwbmrh3HQgBCaHTBs6mpPGTj
-	q3FPd/KRks5AAonn9Y8HTGMTDnJuDV1y4B+WrunyfENnvXlYNxy0Zh7rDQgriLYib4ZO7JauLOT
-	KmbKoUmnY6xJOZLkd+HsVWp/vMaQsjFpAGn8qhv7gkH/jcOXPyggIJ3sxcJkk6gC8I2jg3X1JdA
-	HYtrfJS5ze08GkAga2lyyHucZEoBMX804PfP15hzOCUCZFx2bFUrKUOlOSKUBzBzgak2dk1bht7
-	g0u9gKHRSolHhgaJkeSMU4rQA0+ToDmi9vYQ12IKVB6WjKI6eoB7kPQwQbCMFlbojKKdYHy2Ybq
-	qquGROWTfMr/CTgO0MHbVTsX9gpuEfyb2xH599RA1HV9y3V1G8/WmW4fl/t8pzBQX
-X-Received: by 2002:a05:6000:2c0f:b0:3ca:a190:c473 with SMTP id ffacd0b85a97d-3caa190c6ecmr9849815f8f.4.1756473725372;
-        Fri, 29 Aug 2025 06:22:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGFfrTd/+15/bT4PGZswHLcvGvODyGQLUC+I3pIFqxdvqjEg2cDf44HeYcneQKTQcaMEr0KOA==
-X-Received: by 2002:a05:6000:2c0f:b0:3ca:a190:c473 with SMTP id ffacd0b85a97d-3caa190c6ecmr9849784f8f.4.1756473724881;
-        Fri, 29 Aug 2025 06:22:04 -0700 (PDT)
+        bh=qjuXMBMcmzq+emhjc+4nz3INVtnsR/3o1W/HmfSMpGo=;
+        b=B4/H4DF7V6pBxTojuqUXF/bpB0TaPTPuB0KQKltj67T4Ut7eG7st8QtRkoaRFAss/Z
+         uTyo4dQIAQWYMhBqJ6Q9OrXo7zWIUgXLi8er2SyQ+RD9HZZQnNmO26u4scY1gSjPI+E+
+         8kK/iJlddBjn1UzVSsXylTiCemu4aLrmWTfMvA17lGGuVpztap1cpjdqIM+dny58QWRE
+         yHgJoeJFzKiqIGuhMAP992VQ4x/WltMSYIGRtahECeGIE5+H99VIjgnVmEW+H90m40Yv
+         9cAsQ8g4NgGiy/3D5SseVI8Vf01+YbYSJei30mUF4mwKTeNVf61h34nfLUdIKkGOXWJQ
+         rnbg==
+X-Forwarded-Encrypted: i=1; AJvYcCU57Hk2bZ6tTq022UVgvctMFlMKT2kwWJ/NobkomiAOWnf0g7wBdQzMkJnu+Hs+/1aBbQlmLpNdVlMPfA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPYuJs0YGZ8Ri0kypbIO/Zpa625MT/KAACp9z8XR/jXawXE6oV
+	toc+N3KxfW3VN75aGPUQ7jd5uthE2oldCNuwUcV1GnowzRtOaABBsI/mbOsnTBNY/d+OysWZxAO
+	QxgT7wd1ohB1+iAoTEUhv/Pjt2ER13YZG4KD9sImS8Cp9CjppjHplxyB7K/zGkPAE1hQKvw==
+X-Gm-Gg: ASbGncvlBihzi7GRlhP8gc/H8l9S74kcNVRRPGkizy5T0qljS+54y3IHD6bX3jwkdWb
+	Y5vuSV8gJ/NFi/nsFviA/fBX9jR3cg3+h5YFNcu0lTY6k+gDf7O7YjZxnfrdokOupP2BtJGM3hk
+	18T8f7kDZfjzUrBEXahAFFfoU2HiJndfTrv55upbdMxoDJS6pD4r+QJ74i9egSzkM0yVpULRdhp
+	vkx1uBky+7H3pUum7vpK86lB3ZIjJt/eX9YD1TMTFU8SdQtNS5/h0kbtqlM/Sn+tHABBE91oYSz
+	ueoX5J+jITKlx6sOHtbp+VZbcjShdPwlgloQyWctXP3wIVOd35PHRA+pPGRKI7hBJfatp0HSCNO
+	Ep1Wem4f/f1Z96DMaWFCdjF/X1aJnRCQG0MCntYNSkBtczmZFdpV/b2Lel5hWZhBG
+X-Received: by 2002:a05:6000:4383:b0:3b7:882c:790 with SMTP id ffacd0b85a97d-3c5dc73625cmr21478737f8f.37.1756475064955;
+        Fri, 29 Aug 2025 06:44:24 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE+LDG7SGqPVe42ftCg4HBC4EBVhYJgcuG7xRsE/56l9/NNaGo5xTMXjkE7lTdlBAQ5z49MkQ==
+X-Received: by 2002:a05:6000:4383:b0:3b7:882c:790 with SMTP id ffacd0b85a97d-3c5dc73625cmr21478675f8f.37.1756475064268;
+        Fri, 29 Aug 2025 06:44:24 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f1d:100:4f8e:bb13:c3c7:f854? (p200300d82f1d01004f8ebb13c3c7f854.dip0.t-ipconnect.de. [2003:d8:2f1d:100:4f8e:bb13:c3c7:f854])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33add483sm3368560f8f.37.2025.08.29.06.22.02
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f306c22sm121018675e9.13.2025.08.29.06.44.21
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 29 Aug 2025 06:22:04 -0700 (PDT)
-Message-ID: <f7f9f535-0bbe-413a-84e4-fcb17a502a40@redhat.com>
-Date: Fri, 29 Aug 2025 15:22:01 +0200
+        Fri, 29 Aug 2025 06:44:23 -0700 (PDT)
+Message-ID: <e877229a-ffd8-4459-a31b-ecabde28e07f@redhat.com>
+Date: Fri, 29 Aug 2025 15:44:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 16/36] fs: hugetlbfs: cleanup folio in
- adjust_range_hwpoison()
+Subject: Re: [PATCH v1 20/36] mips: mm: convert __flush_dcache_pages() to
+ __flush_dcache_folio_pages()
 To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+Cc: linux-kernel@vger.kernel.org,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Alexander Potapenko <glider@google.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
  Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
@@ -108,8 +135,10 @@ Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
  virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
  wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
 References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-17-david@redhat.com>
- <71cf3600-d9cf-4d16-951c-44582b46c0fa@lucifer.local>
+ <20250827220141.262669-21-david@redhat.com>
+ <ea74f0e3-bacf-449a-b7ad-213c74599df1@lucifer.local>
+ <2be7db96-2fa2-4348-837e-648124bd604f@redhat.com>
+ <549a60a6-25e2-48d5-b442-49404a857014@lucifer.local>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -155,14 +184,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <71cf3600-d9cf-4d16-951c-44582b46c0fa@lucifer.local>
+In-Reply-To: <549a60a6-25e2-48d5-b442-49404a857014@lucifer.local>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: MkzWhxVSZFWoJ7BCSCDzH_4_k9-9wj06_B8Jj2fdqh0_1756473726
+X-Mimecast-MFC-PROC-ID: fru1E5Fa5MDJQWJU62srC82zcesvuzQgUykDMrEGALc_1756475065
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_062209_225612_1492477C 
-X-CRM114-Status: GOOD (  22.79  )
+X-CRM114-CacheID: sfid-20250829_144429_925332_B11A828B 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,102 +208,44 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-> 
-> Lord above.
-> 
-> Also semantics of 'if bytes == 0, then check first page anyway' which you do
-> capture.
-
-Yeah, I think bytes == 0 would not make any sense, though. Staring 
-briefly at the single caller, that seems to be the case (bytes != 0).
-
-> 
-> OK think I have convinced myself this is right, so hopefully no deeply subtle
-> off-by-one issues here :P
-> 
-> Anyway, LGTM, so:
-> 
-> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> 
->> ---
->>   fs/hugetlbfs/inode.c | 33 +++++++++++----------------------
->>   1 file changed, 11 insertions(+), 22 deletions(-)
+On 29.08.25 14:51, Lorenzo Stoakes wrote:
+> On Thu, Aug 28, 2025 at 10:51:46PM +0200, David Hildenbrand wrote:
+>> On 28.08.25 18:57, Lorenzo Stoakes wrote:
+>>> On Thu, Aug 28, 2025 at 12:01:24AM +0200, David Hildenbrand wrote:
+>>>> Let's make it clearer that we are operating within a single folio by
+>>>> providing both the folio and the page.
+>>>>
+>>>> This implies that for flush_dcache_folio() we'll now avoid one more
+>>>> page->folio lookup, and that we can safely drop the "nth_page" usage.
+>>>>
+>>>> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+>>>> Signed-off-by: David Hildenbrand <david@redhat.com>
+>>>> ---
+>>>>    arch/mips/include/asm/cacheflush.h | 11 +++++++----
+>>>>    arch/mips/mm/cache.c               |  8 ++++----
+>>>>    2 files changed, 11 insertions(+), 8 deletions(-)
+>>>>
+>>>> diff --git a/arch/mips/include/asm/cacheflush.h b/arch/mips/include/asm/cacheflush.h
+>>>> index 5d283ef89d90d..8d79bfc687d21 100644
+>>>> --- a/arch/mips/include/asm/cacheflush.h
+>>>> +++ b/arch/mips/include/asm/cacheflush.h
+>>>> @@ -50,13 +50,14 @@ extern void (*flush_cache_mm)(struct mm_struct *mm);
+>>>>    extern void (*flush_cache_range)(struct vm_area_struct *vma,
+>>>>    	unsigned long start, unsigned long end);
+>>>>    extern void (*flush_cache_page)(struct vm_area_struct *vma, unsigned long page, unsigned long pfn);
+>>>> -extern void __flush_dcache_pages(struct page *page, unsigned int nr);
+>>>> +extern void __flush_dcache_folio_pages(struct folio *folio, struct page *page, unsigned int nr);
+>>>
+>>> NIT: Be good to drop the extern.
 >>
->> diff --git a/fs/hugetlbfs/inode.c b/fs/hugetlbfs/inode.c
->> index c5a46d10afaa0..6ca1f6b45c1e5 100644
->> --- a/fs/hugetlbfs/inode.c
->> +++ b/fs/hugetlbfs/inode.c
->> @@ -198,31 +198,20 @@ hugetlb_get_unmapped_area(struct file *file, unsigned long addr,
->>   static size_t adjust_range_hwpoison(struct folio *folio, size_t offset,
->>   		size_t bytes)
->>   {
->> -	struct page *page;
->> -	size_t n = 0;
->> -	size_t res = 0;
->> -
->> -	/* First page to start the loop. */
->> -	page = folio_page(folio, offset / PAGE_SIZE);
->> -	offset %= PAGE_SIZE;
->> -	while (1) {
->> -		if (is_raw_hwpoison_page_in_hugepage(page))
->> -			break;
->> +	struct page *page = folio_page(folio, offset / PAGE_SIZE);
->> +	size_t safe_bytes;
->> +
->> +	if (is_raw_hwpoison_page_in_hugepage(page))
->> +		return 0;
->> +	/* Safe to read the remaining bytes in this page. */
->> +	safe_bytes = PAGE_SIZE - (offset % PAGE_SIZE);
->> +	page++;
->>
->> -		/* Safe to read n bytes without touching HWPOISON subpage. */
->> -		n = min(bytes, (size_t)PAGE_SIZE - offset);
->> -		res += n;
->> -		bytes -= n;
->> -		if (!bytes || !n)
->> +	for (; safe_bytes < bytes; safe_bytes += PAGE_SIZE, page++)
+>> I think I'll leave the one in, though, someone should clean up all of them
+>> in one go.
 > 
-> OK this is quite subtle - so if safe_bytes == bytes, this means we've confirmed
-> that all requested bytes are safe.
+> This is how we always clean these up though, buuut to be fair that's in mm.
 > 
-> So offset=0, bytes = 4096 would fail this (as safe_bytes == 4096).
-> 
-> Maybe worth putting something like:
-> 
-> 	/*
-> 	 * Now we check page-by-page in the folio to see if any bytes we don't
-> 	 * yet know to be safe are contained within posioned pages or not.
-> 	 */
-> 
-> Above the loop. Or something like this.
 
-"Check each remaining page as long as we are not done yet."
-
-> 
->> +		if (is_raw_hwpoison_page_in_hugepage(page))
->>   			break;
->> -		offset += n;
->> -		if (offset == PAGE_SIZE) {
->> -			page++;
->> -			offset = 0;
->> -		}
->> -	}
->>
->> -	return res;
->> +	return min(safe_bytes, bytes);
-> 
-> Yeah given above analysis this seems correct.
-> 
-> You must have torn your hair out over this :)
-
-I could resist the urge to clean that up, yes.
-
-I'll also drop the "The implementation borrows the iteration logic from 
-copy_page_to_iter*." part, because I suspect this comment no longer 
-makes sense.
-
-Thanks!
+Well, okay, I'll make all the other functions jealous and blame it on 
+you! :P
 
 -- 
 Cheers
