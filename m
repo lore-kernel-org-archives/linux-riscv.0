@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F69CA0FFD
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Aug 2025 08:56:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEDFCA0FFD
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Aug 2025 09:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b0nYAokSYt2dyRFEujtLaRWgWj9AQXZZvAaOfHeR5sM=; b=YSU9n8/Ms/dgYt
-	kiT5FBk8fJmIxHmWIZzT1nCNwa9RbXL6cBLL6B0oIq2A0omzm+lv+2EZxSBVSzByIaO8TeLs10xUS
-	0aABtKD9byEja8xgXWKynxJfdXdYRzs56cAGtMtG4LQ2zWUZpbDwbN4+qBNfBFrkprGz1du+ZRY/D
-	cbHs/2GGHlxuW8OSLahkbpSQ46VPQ7WCoQidAoK1sN0jRECk1A/PYdYaVyX6Q+PaSslu7C3BMQxyF
-	t/zhqScR0rC3wvDKF1AQxNxTauMLa9kColx7H1BQYv1I29VFiOZeBaEZPgM+l1HFrz/GuM/K7nmlT
-	0ntUTx5aEE0M//F758Jg==;
+	List-Owner; bh=BAEX+ol42nplZ0QN8G/1um8RYGyGLQo/b1WtxY8i5PU=; b=Is3FBgRQiYXh2F
+	X1A/Wc/s+VU3OgkoyXHjHEEC7Tig8xFIgqFPdB1nD+B345NEcz1YVQGhHLL1fZsKcnYQGb3ogMXu6
+	t7Cl9R75ZQ+w0ugp2X+bUhZgvT1hwlclOxdNoxZqXZiZM6C2Y+nlIj3IzEr7qZ7T0d4kLF2p7QnbZ
+	BP5uqfQkym5fO/Om77/MH5WqvooIc4voGxMZDO3X17WV+RLKsnJTkzIoxJ+TDsbWGr5TPjr/1g9Lu
+	Wh7+/vKTxCnSZt62AuBzL+oxRjGPYEnKzE5f+cPxWHqFgln+3Hl6GmU9iHVgvOfC6/78YUqr2eA/s
+	4NRfGxf1eQ/GnPzySlUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usHNW-00000007dSV-28fG;
-	Sat, 30 Aug 2025 08:56:06 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1usIEM-00000007h2N-2PhN;
+	Sat, 30 Aug 2025 09:50:42 +0000
+Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usHIs-00000007cqM-1SYY;
-	Sat, 30 Aug 2025 08:51:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=XvJAs0oWctTv+IZjXYqOb/DT/digU3gWo9ZFZvSPVF4=; b=GuMcrSCSc2h6K85gbh7d/Dq9GZ
-	qdyNHDeRuMDOrQKt7Bo9CsxZu4fhi8uxonjr50DYybHV+WdJ7DHOoy71QzTrH5fU3B4gS3MrLLeJZ
-	1yb0tB9r6ZBYeK/9cTotchZKYSs9UNaevFwWoiFaYrA1kDvZB73V07IEjWM7icXmel06ejOyu5tRM
-	WEVmUV2x3M+JWaNqJjuInd5prsC/KbA4Dm0FGrf3ZmC4vszTKkk+/5RVJ8rZbwzjF/v6sclO9TSJ8
-	zA89ssT/UNPKwDgfBFykggaqbG5N2LfCnIeOoYXu2AZxIIqU3jrjVfeakPWp8OpxRJWoq6dq/+xUB
-	J8hgQp0Q==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1usH32-0017AV-0k;
-	Sat, 30 Aug 2025 16:50:53 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 30 Aug 2025 16:50:52 +0800
-Date: Sat, 30 Aug 2025 16:50:52 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
-	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-Subject: Re: [PATCH v1 32/36] crypto: remove nth_page() usage within SG entry
-Message-ID: <aLK7bP285OO83efR@gondor.apana.org.au>
-References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-33-david@redhat.com>
+	id 1usIBa-00000007gde-2XQL;
+	Sat, 30 Aug 2025 09:47:52 +0000
+dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
+	bh=IbrIg1eU413356pzs4YTMme/8HXkQ5PaIsuPZ7aPwhg=;
+	b=r/+mcEIt+b0AxqCo8gCeD75X1YXv11GbyIYuLdYV+umM9tNaIQAJJSAVopKt4Pzbbd82mnxEjnD8Hc3M0FfLbmmoVXupeZrWKJASkF17kwSBWWZCBBELZuFvtxMk7od4JKkMSHCDenhAz+5eXN/ow2Di/Awm13EGHfxPxjfXzVc=
+Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
+	by mail.netcube.li with ESMTPA
+	; Sat, 30 Aug 2025 11:47:33 +0200
+From: Lukas Schmid <lukas.schmid@netcube.li>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: Lukas Schmid <lukas.schmid@netcube.li>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v7 1/5] dt-bindings: arm: sunxi: Add NetCube Systems Nagami SoM and carrier board bindings
+Date: Sat, 30 Aug 2025 11:46:53 +0200
+Message-Id: <20250830094700.1715658-2-lukas.schmid@netcube.li>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250830094700.1715658-1-lukas.schmid@netcube.li>
+References: <20250830094700.1715658-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250827220141.262669-33-david@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_015118_395255_BAFC434D 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250830_024750_932427_368394A6 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,26 +79,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 12:01:36AM +0200, David Hildenbrand wrote:
-> It's no longer required to use nth_page() when iterating pages within a
-> single SG entry, so let's drop the nth_page() usage.
-> 
-> Cc: Herbert Xu <herbert@gondor.apana.org.au>
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  crypto/ahash.c               | 4 ++--
->  crypto/scompress.c           | 8 ++++----
->  include/crypto/scatterwalk.h | 4 ++--
->  3 files changed, 8 insertions(+), 8 deletions(-)
+The NetCube Systems Nagami is an System on Module base on the Allwinner
+T113s SoC. It is intended to be used in low cost devices which require
+simple layouts and low BOM cost.
 
-Acked-by: Herbert Xu <herbert@gondor.apana.org.au>
+The NetCube Systems Nagami Basic Carrier Board is a simple carrier for the
+Nagami SoM. It is intended to serve as a simple reference design for a
+custom implementation or just evaluating the module with other peripherals
 
-Thanks,
+The NetCube Systems Nagami Keypad Carrier is a custom board intended to
+fit a standard Ritto Intercom enclosure and provides a Keypad, NFC-Reader
+and Status-LED all controllable over Ethernet with PoE support.
+
+Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index 7807ea613258..50f08d8d22f6 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -599,6 +599,14 @@ properties:
+           - const: netcube,kumquat
+           - const: allwinner,sun8i-v3s
+ 
++      - description: NetCube Systems Nagami SoM based boards
++        items:
++          - enum:
++              - netcube,nagami-basic-carrier
++              - netcube,nagami-keypad-carrier
++          - const: netcube,nagami
++          - const: allwinner,sun8i-t113s
++
+       - description: NextThing Co. CHIP
+         items:
+           - const: nextthing,chip
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.39.5
+
+
 
 _______________________________________________
 linux-riscv mailing list
