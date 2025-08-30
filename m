@@ -4,47 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B864CA0FFD
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Aug 2025 12:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0917ACA0EFF
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Aug 2025 18:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
-	Subject:To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+3l9sJlzRFsMi3ng+JdJJhB2xcHZ1r9tCRoNHPydGbY=; b=ub8JCkZU5w3Xvi
-	dljHeehzBQBvRBBEoDib8rfCsq7Thcm5FsaXDR2w2MJndQz78htEaRQmr2dNa44Z8AHFC9M4Nfpfv
-	lKlmbDIvMxsVOz4u7rCXecq57+oiQT2lirDxlRJI8kL4DRS3/c5UyLeeGCjYj0ATEbK8GerIuDvJH
-	Asf07V7W9yhDvRFS/RfFBw6sPnnhPfRo3FUYnKUJyZYy3aPbV7SCmSaPACmCdbjsOP3hf/RLQyuWb
-	H4Hl+2XqiiPTQZlcebN3InLK/AOzF2yknanFKTvtZmXSQwPggF2FYFYmG9TEWP9+WdAIvWQHe2fEc
-	zKwXJUNbAp9hvbVSLw2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KDjgSjg0Ol9U5Gi/YjH5/3NVtEl3ip7HgLQmCLy6LyY=; b=uZB7yzwoQks5W6bNSogpBmMHqr
+	LRd76qab0G8TmdNSIK6tZIrEc8ar6PUOG2IPVGTM3t0o50RXS+U7+yrIKQtK7kM9LyRHEkl4PEB74
+	Ee/PbIM/pe84oF8XT04Q/K89eE8Kg3wlkr2/N80TaO3xs7JzDwm9ckcigZPKh2ydDU3vhLhosOwKX
+	oEXTPxGLxgrYhkcEpnccHxUS6HB05uQty3DiVXxBTu68CKIr2jdPen9gxt7VqOAzaQ6cY72mN6M8S
+	TAcN6QnZ8sJZv+x6TkyVy0rIC3xn7k0v1VIMV+63qYkF2p1cLS0vJz7w1mhvg0a7xjQU6raOn8TY8
+	HPfH0h0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usKdk-00000007rVB-0kS7;
-	Sat, 30 Aug 2025 12:25:04 +0000
-Received: from mx2.inter.hu ([88.99.86.175])
+	id 1usQ9F-00000008IFZ-41qE;
+	Sat, 30 Aug 2025 18:17:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usKdg-00000007rUb-3EHJ
+	id 1usQ9D-00000008IFT-3M1F
 	for linux-riscv@lists.infradead.org;
-	Sat, 30 Aug 2025 12:25:01 +0000
-Received: from mx2.inter.hu (localhost [127.0.0.1])
-	by mx2.inter.hu (Postfix) with ESMTP id A1309161ED6
-	for <linux-riscv@lists.infradead.org>; Sat, 30 Aug 2025 13:57:18 +0200 (CEST)
-Received: from [45.138.16.152] (unknown [45.138.16.152])
-	(Authenticated sender: vecseii@martonyi.hu)
-	by mx2.inter.hu (Postfix) with ESMTPSA id CEACA1810F2
-	for <linux-riscv@lists.infradead.org>; Sat, 30 Aug 2025 13:48:59 +0200 (CEST)
-From: vecseii@martonyi.hu
-To: linux-riscv@lists.infradead.org
-Subject: xls
-Date: 30 Aug 2025 04:48:59 -0700
-Message-ID: <20250830044859.DA1B2286F383D527@martonyi.hu>
+	Sat, 30 Aug 2025 18:17:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AC4FB60195;
+	Sat, 30 Aug 2025 18:17:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7416C4CEEB;
+	Sat, 30 Aug 2025 18:17:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756577874;
+	bh=AaXzJegL0LXpBu/wgNxuQEKB9cIewaGfi4OXtiQRdAQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MiVOjf9jOkGjHJZOn6cWeFjeGb4NmxamBHRvpC+vQZMjcf9cpohVByIZNvS2Iax/p
+	 FbXBosHi++OUrfdP5FDrXXKVrDh242WhB6R30jG+fg5V17Y29t6p0f7Tn85q0sEjye
+	 ziFFoxGWRvld4gBDfAXJzsCbIGS6fEy005WhyX8wFzgzN69F1sWoP48paqhYHoLVNY
+	 517v4PlIRFMhqdtvKJ76t7BmMay8AWn0FxcpIBBJnq0Sx1s7giQgyfgS5SXg2xWYNE
+	 HHwcIjTZ8W0AU4uXXb/b2XUgVTIPkf+UX6pcjtuGVfGEemTFhBc6Hx97/qJozukK+g
+	 yV8HsWhpcC3rQ==
+Date: Sat, 30 Aug 2025 19:17:48 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Asuna Yang <spriteovo@gmail.com>
+Cc: Jason Montleon <jmontleo@redhat.com>, Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: RISC-V: Re-enable GCC+Rust builds
+Message-ID: <20250830-cheesy-prone-ee5fae406c22@spud>
+References: <68496eed-b5a4-4739-8d84-dcc428a08e20@gmail.com>
 MIME-Version: 1.0
-X-Virus-Scanned: ClamAV using ClamSMTP
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_052500_966374_D71497C6 
-X-CRM114-Status: UNSURE (  -0.15  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <68496eed-b5a4-4739-8d84-dcc428a08e20@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,25 +74,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: info.superenalotto@gmail.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1837720719904575679=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-V2lyIGZyZXVlbiB1bnMsIElobmVuIG1pdHRlaWxlbiB6dSBrw7ZubmVuLCBkYXNzIFNpZSB6dSBk
-ZW4gCkdld2lubmVybiBkZXIgasO8bmdzdGVuIFN1cGVyRW5hbG90dG8tWmllaHVuZyBpbiBadXNh
-bW1lbmFyYmVpdCAKbWl0IExvdHRvMjQsIEV1cm9NaWxsaW9ucyB1bmQgUG93ZXJiYWxsIGdlaMO2
-cmVuLiBTaWUgaGFiZW4gZWluZW4gCmVpbm1hbGlnZW4gR2V3aW5uIHZvbiDigqwzLjg1MC4wMDAg
-IGluIGRlciB6d2VpdGVuIEdld2lubmtsYXNzZSAKZ2V3b25uZW4uIFVtIElocmVuIEdld2lubiBh
-Ynp1d2lja2Vsbiwgc2VuZGVuIFNpZSB1bnMgYml0dGUgCmZvbGdlbmRlIEluZm9ybWF0aW9uZW4g
-cGVyIEUtTWFpbDoKClZvbGxzdMOkbmRpZ2VyIE5hbWU6IExhbmQ6IFdvaG5hZHJlc3NlOiBBbHRl
-cjogR2VzY2hsZWNodDogQmVydWY6IApIYW5keW51bW1lcjogV2hhdHNBcHAtTnVtbWVyLgoKSW0g
-TmFtZW4gZGVyIE9ubGluZS1Mb3R0ZXJpZWFidGVpbHVuZ2VuIFN1cGVyRW5hbG90dG8sIApFdXJv
-TWlsbGlvbnMgdW5kIFBvd2VyYmFsbCBncmF0dWxpZXJlbiB3aXIgSWhuZW4gaGVyemxpY2ggenUg
-CklocmVtIEdld2lubi4KCk1pdCBmcmV1bmRsaWNoZW4gR3LDvMOfZW4KCkZyYXUgS2F0aGVyaW5l
-IEZlZGVyaWNvCkxlaXRlcmluIE9ubGluZS1aYWhsdW5nZW4gLyBWYWxpZGllcnVuZ3NtYW5hZ2Vy
-aW4KQ29kZS1OYWNocmljaHQ6IDczN0dIUzk4CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============1837720719904575679==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="PLgD4sybnROtocgd"
+Content-Disposition: inline
+
+
+--PLgD4sybnROtocgd
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, Aug 30, 2025 at 01:00:56PM +0800, Asuna Yang wrote:
+> I noticed that GCC+Rust builds for RISC-V were disabled about a year ago,=
+ as
+> discussed in
+> https://lore.kernel.org/all/20240917000848.720765-1-jmontleo@redhat.com/
+>=20
+> I'm a bit lost here. What are the main obstacles to re-enabling GCC builds
+> now?
+>=20
+> Conor said:
+> > Okay. Short term then is deny gcc + rust, longer term is allow it with =
+the
+> same caveats as the aforementioned mixed stuff.
+> "the same caveats" means detecting what specifically?
+
+There's "code" in the riscv Kconfig/Makefile that makes sure that the
+assembler has the same understanding of what extensions are enabled as
+the compiler. This is done by detecting which version of the tools are
+in use, and adjusting march etc as a result. See
+TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI for an example. When I wrote the
+comment you're citing, there was no "off the shelf" way to figure out
+the version of libclang in use to ensure that it has the same
+understanding of -march as the version of gcc being used on the c side
+does. For clang build, it's not a concern since it's almost certainly
+the exact same as the compiler building the c side.
+
+> We have a RISC-V PWM driver being written in Rust. Currently, GCC being
+> disabled for building the kernel with Rust for RISC-V is the primary bloc=
+ker
+> for including these drivers in RISC-V distros. Therefore, I'd like to push
+> forward and contribute to the re-enabling of GCC builds. Is there a more
+> detailed direction on what I can do here?
+
+Add the version of libclang as a Kconfig symbol, so that the kernel's
+build system can ensure that both sides are built using the same
+configuration. Off the top of my head, using a pre-17 libclang with a
+new gcc would require having zicsr in -march for the c side and it
+removed for rust. It's been a while (1 year+) since I fiddled with this
+though, so my recollection there could well be inaccurate.
+
+Cheers,
+Conor.
+
+--PLgD4sybnROtocgd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLNASAAKCRB4tDGHoIJi
+0vXYAQDgtR0RaOgK/BuuCweWdpp1h5+8Uf3iwmbxuqXRT+YFsgEAu3diokJiUzBm
+ruXnlci8jwoUePp9tM9YndTyCztULQk=
+=UFnw
+-----END PGP SIGNATURE-----
+
+--PLgD4sybnROtocgd--
+
+
+--===============1837720719904575679==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1837720719904575679==--
+
