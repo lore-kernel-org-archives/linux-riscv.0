@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29404CA0FF2
-	for <linux-riscv@archiver.kernel.org>; Sun, 31 Aug 2025 04:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D84AECA0FF2
+	for <linux-riscv@archiver.kernel.org>; Sun, 31 Aug 2025 16:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p5wsX1DcHheO6EX/Vw1/NYyP7yz2UmO6QlX19d5sf0g=; b=Y+TjaCP3ZoanwB
-	a4Lst2bNGECo2nxi/QifbM/l+UZGd1OhS7W2qV620VvrFRc1AfbxL4bftqCMbc3KZdXf6+Hx9Ci/7
-	zciAHX1nquTwjQOVTAdhGPXrVM8awBlGTDrvZzBZpg8YhrS43taPxG0QV7OmAykr3RdGyEMQm8KNC
-	t7ueeuEGwPhslkgUsKkIyu2p6SDdoR7Q56w1LiKqf+sKvsI+mWiTpN2Vi4V56p/ORezY0QgUMJj6m
-	Dttb/Gt1+iUOgPnCeCQ5dXX0bUCQc0TRpKIZtRjsKQXehN+ZF1yFFqmqeATP1A3YjX49B/WEeCC2s
-	d6P8IxshMw1PhYscx1Tw==;
+	List-Owner; bh=RgkKH86Z4V86IU27Gwyyv6GH8UHz8vOjHoHZBpOxO6w=; b=vy6dgXhylFkAlG
+	4sSCK6jBvn/P5CRBVuDC3WnBXzWx0Am9Z0rV+oWJo80Wif6jXZ36dWMyN1BzqphDUACG70VB884CA
+	6xSowB1OXAwT/9hOejhWbZyMHByU5z+ZCdZqrJxjkoRkty5Vt+wMLhZf1Ggzro1uqTt/YAuQC/0WG
+	NIsIGTk/nWL5U/6u+aKyUR8ALGkAK42rmkUkXL3+H7G5hMF6zfearh0W/zQ8T/jB1VsCUqnTQEIWn
+	Dk1MCt9kcpIQVnt+aVM0ZlLwBL1qoLiiLBkjuaNMIH08pWJ6Y43354Avgl3vkVEcqFm4AZJxZA6pJ
+	WYy3/2YxmIKgK+ogWccA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usZyY-00000009Gmc-39jR;
-	Sun, 31 Aug 2025 04:47:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uskwB-0000000APeT-0G3m;
+	Sun, 31 Aug 2025 16:29:51 +0000
+Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usZyX-00000009Gm5-3FNb
-	for linux-riscv@lists.infradead.org;
-	Sun, 31 Aug 2025 04:47:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7AEB8601A7;
-	Sun, 31 Aug 2025 04:47:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4A24C4CEED;
-	Sun, 31 Aug 2025 04:47:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756615652;
-	bh=6Xi0K/W1KlUqGgnI90gdjqSztDt8V0ZroZtXizA2odk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h78myz8E/Lpqgkb404MXDyQ/h2vz9IJzk7/Lt2Znqe2z85N0/RPULaLIFOYcqv0na
-	 +w7EGs1z14rGeD2aek2/SzcqxSAyeklS9eFRK3qDFVedB29fPEuRtWf0LsFJ5brZAn
-	 tqn5/CesHRJOLDD5LLq20N36zjSQpUzB1Y/bmqSFHtfvBnL5GLiQLbRIUSrhzfzWvA
-	 QXa2Be4BBwAiQq+ko+LdqTI/Yiv01Kf/6Uq2xORVlmjkgbOypgIf8K9x9vgRXV63pE
-	 fiFyrw8smWQCVJgueeXQSiR2dOHLL9o0kQk3jBMBWzOdlTfJ3tW5snqY44yf0sXZ09
-	 7cidFvqdI8GwA==
-Date: Sun, 31 Aug 2025 10:17:19 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: kwilczynski@kernel.org, u.kleine-koenig@baylibre.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, arnd@arndb.de, bwawrzyn@cisco.com, 
-	bhelgaas@google.com, unicorn_wang@outlook.com, conor+dt@kernel.org, 
-	18255117159@163.com, inochiama@gmail.com, kishon@kernel.org, krzk+dt@kernel.org, 
-	lpieralisi@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org, 
-	s-vadapalli@ti.com, tglx@linutronix.de, thomas.richard@bootlin.com, 
-	sycamoremoon376@gmail.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org, sophgo@lists.linux.dev, 
-	rabenda.cn@gmail.com, chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, 
-	fengchun.li@sophgo.com
-Subject: Re: [PATCH 1/5] dt-bindings: pci: Add Sophgo SG2042 PCIe host
-Message-ID: <qyr73crraruct5dgxfko75gv2mrrxxolkzqnu3bngfelcobgfa@wc4rrzfs27gp>
-References: <cover.1756344464.git.unicorn_wang@outlook.com>
- <c9362bb49e4d48647db85d85c06040de8f38cb83.1756344464.git.unicorn_wang@outlook.com>
+	id 1usktS-0000000APFW-1auy;
+	Sun, 31 Aug 2025 16:27:03 +0000
+dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
+	bh=6vBPt5pkIeHHB0xy+u4DAGDKlO2Aipv0iNisNJv/uBk=;
+	b=kXD+nTcr8UtWBjA3IltlqSGxwDXWhia5en+c6fBSmEX7c42NZgqVrYmfZg97w4h380l0FProScsbVJOv0qEY0vJXKHOhy9jCy26XQ/1PvmHg6YFkcb9F/pE8p4NeGMyPp/6WTKAk0q91ODYlLJK4oD0dISDFztV0a3JfOFchoek=
+Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
+	by mail.netcube.li with ESMTPA
+	; Sun, 31 Aug 2025 18:26:41 +0200
+From: Lukas Schmid <lukas.schmid@netcube.li>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: Lukas Schmid <lukas.schmid@netcube.li>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v8 2/5] riscv: dts: allwinner: d1s-t113: Add pinctrl's required by NetCube Systems Nagami SoM
+Date: Sun, 31 Aug 2025 18:25:31 +0200
+Message-Id: <20250831162536.2380589-3-lukas.schmid@netcube.li>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250831162536.2380589-1-lukas.schmid@netcube.li>
+References: <20250831162536.2380589-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <c9362bb49e4d48647db85d85c06040de8f38cb83.1756344464.git.unicorn_wang@outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250831_092702_704925_D72EA364 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +73,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBdWcgMjgsIDIwMjUgYXQgMTA6MTY6NTRBTSBHTVQsIENoZW4gV2FuZyB3cm90ZToK
-PiBGcm9tOiBDaGVuIFdhbmcgPHVuaWNvcm5fd2FuZ0BvdXRsb29rLmNvbT4KPiAKPiBBZGQgYmlu
-ZGluZyBmb3IgU29waGdvIFNHMjA0MiBQQ0llIGhvc3QgY29udHJvbGxlci4KPiAKPiBTaWduZWQt
-b2ZmLWJ5OiBDaGVuIFdhbmcgPHVuaWNvcm5fd2FuZ0BvdXRsb29rLmNvbT4KPiAtLS0KPiAgLi4u
-L2JpbmRpbmdzL3BjaS9zb3BoZ28sc2cyMDQyLXBjaWUtaG9zdC55YW1sIHwgNjYgKysrKysrKysr
-KysrKysrKysrKwo+ICAxIGZpbGUgY2hhbmdlZCwgNjYgaW5zZXJ0aW9ucygrKQo+ICBjcmVhdGUg
-bW9kZSAxMDA2NDQgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BjaS9zb3BoZ28s
-c2cyMDQyLXBjaWUtaG9zdC55YW1sCj4gCj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2
-aWNldHJlZS9iaW5kaW5ncy9wY2kvc29waGdvLHNnMjA0Mi1wY2llLWhvc3QueWFtbCBiL0RvY3Vt
-ZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9wY2kvc29waGdvLHNnMjA0Mi1wY2llLWhvc3Qu
-eWFtbAo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi4yY2NhM2Qx
-MTNkMTEKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
-bmRpbmdzL3BjaS9zb3BoZ28sc2cyMDQyLXBjaWUtaG9zdC55YW1sCj4gQEAgLTAsMCArMSw2NiBA
-QAo+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiAoR1BMLTIuMCBPUiBCU0QtMi1DbGF1c2Up
-Cj4gKyVZQU1MIDEuMgo+ICstLS0KPiArJGlkOiBodHRwOi8vZGV2aWNldHJlZS5vcmcvc2NoZW1h
-cy9wY2kvc29waGdvLHNnMjA0Mi1wY2llLWhvc3QueWFtbCMKPiArJHNjaGVtYTogaHR0cDovL2Rl
-dmljZXRyZWUub3JnL21ldGEtc2NoZW1hcy9jb3JlLnlhbWwjCj4gKwo+ICt0aXRsZTogU29waGdv
-IFNHMjA0MiBQQ0llIEhvc3QgKENhZGVuY2UgUENJZSBXcmFwcGVyKQo+ICsKPiArZGVzY3JpcHRp
-b246Cj4gKyAgU29waGdvIFNHMjA0MiBQQ0llIGhvc3QgY29udHJvbGxlciBpcyBiYXNlZCBvbiB0
-aGUgQ2FkZW5jZSBQQ0llIGNvcmUuCj4gKwo+ICttYWludGFpbmVyczoKPiArICAtIENoZW4gV2Fu
-ZyA8dW5pY29ybl93YW5nQG91dGxvb2suY29tPgo+ICsKPiArcHJvcGVydGllczoKPiArICBjb21w
-YXRpYmxlOgo+ICsgICAgY29uc3Q6IHNvcGhnbyxzZzIwNDItcGNpZS1ob3N0Cj4gKwo+ICsgIHJl
-ZzoKPiArICAgIG1heEl0ZW1zOiAyCj4gKwo+ICsgIHJlZy1uYW1lczoKPiArICAgIGl0ZW1zOgo+
-ICsgICAgICAtIGNvbnN0OiByZWcKPiArICAgICAgLSBjb25zdDogY2ZnCj4gKwo+ICsgIHZlbmRv
-ci1pZDoKPiArICAgIGNvbnN0OiAweDFmMWMKPiArCj4gKyAgZGV2aWNlLWlkOgo+ICsgICAgY29u
-c3Q6IDB4MjA0Mgo+ICsKPiArICBtc2ktcGFyZW50OiB0cnVlCj4gKwo+ICthbGxPZjoKPiArICAt
-ICRyZWY6IGNkbnMtcGNpZS1ob3N0LnlhbWwjCj4gKwo+ICtyZXF1aXJlZDoKPiArICAtIGNvbXBh
-dGlibGUKPiArICAtIHJlZwo+ICsgIC0gcmVnLW5hbWVzCj4gKyAgLSB2ZW5kb3ItaWQKPiArICAt
-IGRldmljZS1pZAoKV2h5IGFyZSB0aGVzZSBJRHMgJ3JlcXVpcmVkJz8gVGhlIGRlZmF1bHQgSURz
-IGFyZSBpbnZhbGlkPwoKLSBNYW5pCgotLSAK4K6u4K6j4K6/4K614K6j4K+N4K6j4K6p4K+NIOCu
-muCupOCuvuCumuCuv+CuteCuruCvjQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+Added the following pinctrl's used by the NetCube Systems Nagami SoM
+  * i2c2_pins
+  * i2c3_pins
+  * i2s1_pins, i2s1_din_pins, i2s1_dout_pins
+  * spi1_pins, spi1_hold_pin, spi1_wp_pin
+
+Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+---
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 48 +++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index e4175adb028da..c00996d6275c5 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -78,6 +78,36 @@ dsi_4lane_pins: dsi-4lane-pins {
+ 				function = "dsi";
+ 			};
+ 
++			/omit-if-no-ref/
++			i2c2_pins: i2c2-pins {
++				pins = "PD20", "PD21";
++				function = "i2c2";
++			};
++
++			/omit-if-no-ref/
++			i2c3_pins: i2c3-pins {
++				pins = "PG10", "PG11";
++				function = "i2c3";
++			};
++
++			/omit-if-no-ref/
++			i2s1_pins: i2s1-pins {
++				pins = "PG12", "PG13";
++				function = "i2s1";
++			};
++
++			/omit-if-no-ref/
++			i2s1_din_pins: i2s1-din-pins {
++				pins = "PG14";
++				function = "i2s1_din";
++			};
++
++			/omit-if-no-ref/
++			i2s1_dout_pins: i2s1-dout-pins {
++				pins = "PG15";
++				function = "i2s1_dout";
++			};
++
+ 			/omit-if-no-ref/
+ 			lcd_rgb666_pins: lcd-rgb666-pins {
+ 				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
+@@ -126,6 +156,24 @@ spi0_pins: spi0-pins {
+ 				function = "spi0";
+ 			};
+ 
++			/omit-if-no-ref/
++			spi1_pins: spi1-pins {
++				pins = "PD10", "PD11", "PD12", "PD13";
++				function = "spi1";
++			};
++
++			/omit-if-no-ref/
++			spi1_hold_pin: spi1-hold-pin {
++				pins = "PD14";
++				function = "spi1";
++			};
++
++			/omit-if-no-ref/
++			spi1_wp_pin: spi1-wp-pin {
++				pins = "PD15";
++				function = "spi1";
++			};
++
+ 			/omit-if-no-ref/
+ 			uart1_pg6_pins: uart1-pg6-pins {
+ 				pins = "PG6", "PG7";
+-- 
+2.39.5
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
