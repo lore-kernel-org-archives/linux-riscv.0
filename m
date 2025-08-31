@@ -4,63 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D17ACA1000
-	for <linux-riscv@archiver.kernel.org>; Sun, 31 Aug 2025 16:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13036CA0FE8
+	for <linux-riscv@archiver.kernel.org>; Sun, 31 Aug 2025 22:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6sP4MxYxvI7ohnE+D0OmXghQcflicf3nZT2je9GeSyU=; b=t1bapFa2uajiZn
-	p4bzhwcytnavtVfkl1S0jBLXz8gATmQTi5mqGsyf1chr6jRkdGe/xDScuCbSUTGN4/qbwUN//lNhZ
-	drjhKUGIBxEMPv81H9/qf44ZRL2D0bcHbdabGHnyLicLBQQE9loOVw+72kR/keha+4W4HV7HRzmrl
-	zf8bG6/imaY/1f5tbzOM45+XlnZPct3G9ox50eQY4NoqDqO17RzY3xUSHT+ub/vLwKTWKexT4L3mr
-	GqSehv7+2Jo3IkHu3XE9/Q6PNroPwulBIJFqE8lG1NQXEu4mClKoWLZxglnatv3qWtJucmsPeRCMJ
-	Lh9IcJsuxBjQWDpnJ3iA==;
+	List-Owner; bh=znvT3Ec0HtbUNxkRl4NJd6tbFz7K02WI/W23/VpkVR8=; b=MlSfaHXDuOIcc3
+	kvq6I6W7GH1iQWj6WfJlKrsz9j317cMbnHRAxNocZQdW6mZShoxEUKNL0xIEY5mENLDKg0Bab9F14
+	Bem4m4DYHEA8EfOafeEMgrB+lxFM6cvcftW3cvtJpxx2Q+GZBfZNeEnFvVs5kUPRCrDrY5rbkC+HO
+	3cJ+pdeTB3e5QL4AEm4V9boe5x8hRb53Fxz2NsXkl/+qZRPwMBVTT3ynjCDHR3YTDg08fswNRY3KV
+	VCSJSQBh0GpuImtLm2BIsr6Mi6xk9nfWKgvN4tNqdl97mBxBtUzF65jUZkcIP02j3kLnEPbLqV22B
+	6t3a6aRj/h5uwbj8ijTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usl9b-0000000AR7T-0Z0z;
-	Sun, 31 Aug 2025 16:43:43 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1usqon-0000000Am5t-04jE;
+	Sun, 31 Aug 2025 22:46:37 +0000
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usktb-0000000APIw-0gOS;
-	Sun, 31 Aug 2025 16:27:12 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=MBwE6Fz8jW8S6qRfZG7ebV4ExSgfdhPu/bVH7xzFbMs=;
-	b=dVqm6EOgySfINo9XZ2fj+dcVEnSLlAEQayqAFb4tk8q/RtlGJAzZJmhNQbHjhWQrpLeIVfkCeDtTDQYeE0C0aYvrf1g4hh0oTR8Am4YG3q+iQv5t9kR39qRD/GKqPwsLWmfLmZlcw/t0jCBUp7rRJ3zHEiSX9WTusInijCDMHNc=
-Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPA
-	; Sun, 31 Aug 2025 18:26:50 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v8 5/5] ARM: dts: sunxi: add support for NetCube Systems Nagami Keypad Carrier
-Date: Sun, 31 Aug 2025 18:25:34 +0200
-Message-Id: <20250831162536.2380589-6-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250831162536.2380589-1-lukas.schmid@netcube.li>
-References: <20250831162536.2380589-1-lukas.schmid@netcube.li>
+	id 1usqok-0000000Am5P-1iUi
+	for linux-riscv@lists.infradead.org;
+	Sun, 31 Aug 2025 22:46:36 +0000
+Received: from [192.168.2.54] (unknown [216.234.200.243])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id 6F16FB2200E7;
+	Mon,  1 Sep 2025 00:46:28 +0200 (CEST)
+Message-ID: <036589cf-3e78-42ea-9876-2a01acdbb598@freeshell.de>
+Date: Sun, 31 Aug 2025 15:46:26 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 4/4] riscv: dts: starfive: add Milk-V Mars CM Lite
+ system-on-module
+To: Hal Feng <hal.feng@linux.starfivetech.com>,
+ Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20250724094912.253723-1-e@freeshell.de>
+ <20250724094912.253723-5-e@freeshell.de>
+ <257702B5AE6EE65A+20bf1aab-7fa4-45ba-a8ae-d3aeb5f6e9d9@linux.starfivetech.com>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <257702B5AE6EE65A+20bf1aab-7fa4-45ba-a8ae-d3aeb5f6e9d9@linux.starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_092711_486965_6CBC27A9 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20250831_154634_633359_7F68155D 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,170 +70,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The NetCube Systems Nagami Keypad Carrier uses the Nagami SoM and contains
-a TCA8418 connected to a 4x4 matrix keypad. The I2C2 interface is connected
-to said TCA8418 and also a header for an PN532 NFC-Module. It also provides
-a pin-header for a bi-color status led. Ethernet with PoE support is
-available on a screwterminal after magnetics.
+On 8/20/25 19:40, Hal Feng wrote:
+> On 7/24/2025 5:48 PM, E Shattow wrote:
+>> Milk-V Mars CM Lite is a System-on-Module based on the Milk-V Mars CM
+>> without the onboard eMMC storage component populated and configured
+>> instead for SD3.0 Card Slot on that interface via 100-pin connector.
+>>
+>> Link to Milk-V Mars CM Lite schematics: https://github.com/milkv-mars/mars-files/tree/main/Mars-CM_Hardware_Schematices
+>> Link to StarFive JH7110 Technical Reference Manual: https://doc-en.rvspace.org/JH7110/TRM/index.html
+>> Link to Raspberry Pi CM4IO datasheet: https://datasheets.raspberrypi.com/cm4io/cm4io-datasheet.pdf
+>>
+>> Add the devicetree file to make use of StarFive JH7110 common supported
+>> features PMIC, EEPROM, UART, I2C, GPIO, PCIe, QSPI Flash, PWM, and
+>> Ethernet. Also configure the eMMC interface mmc0 for SD Card use and
+>> configure the common SD Card interface mmc1 for onboard SDIO BT+WiFi.
+>>
+>> Signed-off-by: E Shattow <e@freeshell.de>
+>> ---
+>>  arch/riscv/boot/dts/starfive/Makefile         |   1 +
+>>  .../dts/starfive/jh7110-milkv-marscm-lite.dts | 176 ++++++++++++++++++
+>>  2 files changed, 177 insertions(+)
+>>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
+>>
+>> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+>> index 79742617ddab..62b659f89ba7 100644
+>> --- a/arch/riscv/boot/dts/starfive/Makefile
+>> +++ b/arch/riscv/boot/dts/starfive/Makefile
+>> @@ -11,6 +11,7 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+>>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-deepcomputing-fml13v01.dtb
+>>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
+>>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-marscm-emmc.dtb
+>> +dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-marscm-lite.dtb
+>>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
+>>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+>>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
+>> new file mode 100644
+>> index 000000000000..e110146f0b76
+>> --- /dev/null
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-marscm-lite.dts
+>> @@ -0,0 +1,176 @@
+>> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+>> +/*
+>> + * Copyright (C) 2025 E Shattow <e@freeshell.de>
+>> + */
+>> +
+>> +/dts-v1/;
+>> +#include <dt-bindings/pinctrl/starfive,jh7110-pinctrl.h>
+>> +#include <dt-bindings/interrupt-controller/irq.h>
+>> +#include "jh7110-common.dtsi"
+> 
+> You can just include "jh7110-milkv-marscm-emmc.dts" instead of "jh7110-common.dtsi".
+> And then adding mmc0 changes will be enough.
+> 
+> Best regards,
+> Hal
+> 
+> ...
+> 
+>> +&mmc0 {
+>> +	bus-width = <4>;
+>> +	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
+>> +};
+>> +
+>> +&mmc0_pins {
+>> +	pwren-pins {
+>> +		pinmux = <GPIOMUX(22, GPOUT_HIGH,
+>> +				      GPOEN_ENABLE,
+>> +				      GPI_NONE)>;
+>> +	};
+>> +};
+>> +
+> ...
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- arch/arm/boot/dts/allwinner/Makefile          |   1 +
- ...8i-t113s-netcube-nagami-keypad-carrier.dts | 129 ++++++++++++++++++
- 2 files changed, 130 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
+Okay. I will refactor the series to create and use
+"jh7110-milkv-marscm.dtsi" common board include.
 
-diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index af287bb3231c8..a2137bbe22307 100644
---- a/arch/arm/boot/dts/allwinner/Makefile
-+++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -259,6 +259,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-s3-pinecube.dtb \
- 	sun8i-t113s-mangopi-mq-r-t113.dtb \
- 	sun8i-t113s-netcube-nagami-basic-carrier.dtb \
-+	sun8i-t113s-netcube-nagami-keypad-carrier.dtb \
- 	sun8i-t3-cqa3t-bv3.dtb \
- 	sun8i-v3-sl631-imx179.dtb \
- 	sun8i-v3s-anbernic-rg-nano.dtb \
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
-new file mode 100644
-index 0000000000000..048a6245684aa
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
-@@ -0,0 +1,129 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-t113s-netcube-nagami.dtsi"
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+
-+/ {
-+	model = "NetCube Systems Nagami Keypad Carrier Board";
-+	compatible = "netcube,nagami-keypad-carrier", "netcube,nagami",
-+				 "allwinner,sun8i-t113s";
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led_status_red: led-status-red {
-+			gpios = <&pio 3 16 GPIO_ACTIVE_HIGH>;  /* PD16 */
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_STATUS;
-+		};
-+
-+		led_status_green: led-status-green {
-+			gpios = <&pio 3 22 GPIO_ACTIVE_HIGH>;  /* PD22 */
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_STATUS;
-+		};
-+	};
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+
-+	tca8418: keypad@34 {
-+		compatible = "ti,tca8418";
-+		reg = <0x34>;
-+		interrupts-extended = <&pio 5 6 IRQ_TYPE_EDGE_FALLING>;  /* PF6 */
-+		linux,keymap = <MATRIX_KEY(0x03, 0x00, KEY_NUMERIC_A)
-+						MATRIX_KEY(0x03, 0x01, KEY_NUMERIC_1)
-+						MATRIX_KEY(0x03, 0x02, KEY_NUMERIC_2)
-+						MATRIX_KEY(0x03, 0x03, KEY_NUMERIC_3)
-+						MATRIX_KEY(0x02, 0x00, KEY_NUMERIC_B)
-+						MATRIX_KEY(0x02, 0x01, KEY_NUMERIC_4)
-+						MATRIX_KEY(0x02, 0x02, KEY_NUMERIC_5)
-+						MATRIX_KEY(0x02, 0x03, KEY_NUMERIC_6)
-+						MATRIX_KEY(0x01, 0x00, KEY_NUMERIC_C)
-+						MATRIX_KEY(0x01, 0x01, KEY_NUMERIC_7)
-+						MATRIX_KEY(0x01, 0x02, KEY_NUMERIC_8)
-+						MATRIX_KEY(0x01, 0x03, KEY_NUMERIC_9)
-+						MATRIX_KEY(0x00, 0x00, KEY_NUMERIC_D)
-+						MATRIX_KEY(0x00, 0x01, KEY_CLEAR)
-+						MATRIX_KEY(0x00, 0x02, KEY_NUMERIC_0)
-+						MATRIX_KEY(0x00, 0x03, KEY_OK)
-+		>;
-+		keypad,num-rows = <4>;
-+		keypad,num-columns = <4>;
-+	};
-+};
-+
-+&pio {
-+	gpio-line-names = "", "", "", "", // PA
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "", // PB
-+					  "", "", "UART3_TX", "UART3_RX",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "eMMC_CLK", "eMMC_CMD", // PC
-+					  "eMMC_D2", "eMMC_D1", "eMMC_D0", "eMMC_D3",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "", // PD
-+					  "", "", "", "",
-+					  "", "USB_SEC_EN", "", "",
-+					  "", "", "", "",
-+					  "LED_STATUS_RED", "", "", "",
-+					  "I2C2_SCL", "I2C2_SDA", "LED_STATUS_GREEN", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "ETH_CRSDV", "ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
-+					  "ETH_TXD0", "ETH_TXD1", "ETH_TXEN", "",
-+					  "ETH_MDC", "ETH_MDIO", "QWIIC_nINT", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "", // PF
-+					  "", "", "KEY_nINT", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-+					  "ESP_D2", "ESP_D3", "UART1_TXD", "UART1_RXD",
-+					  "ESP_nBOOT", "ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "";
-+};
-+
-+&usb_otg {
-+	dr_mode = "peripheral";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	status = "okay";
-+};
--- 
-2.39.5
-
-
+-E
 
 _______________________________________________
 linux-riscv mailing list
