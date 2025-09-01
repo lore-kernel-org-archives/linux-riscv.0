@@ -4,56 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 988DBCAC582
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 18:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B4EBCA101F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 18:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ic+waCzDoOryj6lGFyGWDNSaR/Q5mofKeA9KWCmbVsI=; b=E/Akd+QGmF9Lpe
-	kM1NvlJb8/7/xykKoHihLytB6P472rIYuhS8th/+BLU65H9COCsJKT7O6rKBdCEjdKBniE9bkQP/g
-	0q3k/ukfnEY3fWhIBTpFG4OLt+P+EuS27q4HnWjvk/Mqr04AwWq0bF+UaVSOhi9hGMyW1OJ/7WS5X
-	+Okyj0WoQyy2gbyVzRyqe5M9RGJqOqO2sardxdvY1MfiRCTKZvGKhUrcu2N9jXBbb4xqo57v8Mx6G
-	ddff9XLplvI6m/L4vB1ZPr608DLgGGmgi//y3182s9AYAKnfOoQflEoKnDAkb6/WzKQMT0sRKZWWI
-	vqjuHUdfiPfZswSI/SPg==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Szrwf9uOv+cNx5WQkm+rx5YJSc1t0pUENAG91NFCLcY=; b=M8MIzgG+XH3HBw
+	exvYsM5J1e2GyV6nIhrDT9AoLMSXD8SGQ4wIUbeNQWbeLardJgy9JQpB22cHPYvldobbHnI9u1dQP
+	PIfEmvYSHR1tHH+qh28drviF1jw2aFcenlqCyM+FZmAphdDzUS0jK4KBf6JmGdgEViFViBCV3ndfz
+	6uzYtC9Edk/TErwa8wx0GNiiTqwwQ79wxXvGh36DN4GBK+BdCeDoj3jfGHW6GU4vCAxr9wOaM1LvW
+	+GVFGQJkNXg2YHkRCGNCs7WsEYCo+t4HudZITtT8LCMEDbyi8c35CwOTll83W+u4tI/BDfqwMYQt5
+	TU37u5K3Ngh41QYE4SKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8JU-0000000Avmb-3hIk;
-	Fri, 12 Sep 2025 18:16:00 +0000
+	id 1ux8JV-0000000Avn2-39zQ;
+	Fri, 12 Sep 2025 18:16:01 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uomDF-0000000ETJg-0xOy;
-	Wed, 20 Aug 2025 17:03:01 +0000
+	id 1ut4J9-0000000Cdpl-09Xt;
+	Mon, 01 Sep 2025 13:10:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CCAA7601D7;
-	Wed, 20 Aug 2025 17:02:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A73AC113CF;
-	Wed, 20 Aug 2025 17:02:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 818B6601D9;
+	Mon,  1 Sep 2025 13:10:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 29F3DC4CEF4;
+	Mon,  1 Sep 2025 13:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755709379;
-	bh=Zv4ujPO3KQCQ/S/zZ+87yMEeTHGtDtwjmsw35eFBLPg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Dr1d03/ztQZzehnuA3pVpw7eG2apfzSIzXWZn4V8PSF/oxOnzaMyj6VZxDgQ3XY0C
-	 nca+A2IJDoLbxKo30R/YmbItPPf92i6LVVRW7LTdmYn+yLP3bLCTrV977h9BaHEtKx
-	 NXa2PCl2PJ+9sKMlIBp1C0l2xmBSHRNp1Ot+Slf6644+zsAzHmD5BYUvfwKZ1SqBPg
-	 b3bNilTK6GPtQRkA2c0x0ltTwqwessPnwFUwQuinpUV1sWYrBj8/SGJJQ8Wlda48Mw
-	 vcZIdxxAkqbQkwlZ9DlQZ/Zs8lvh3SMTfcqlJlRdXT5KDCZbCRFgNoX/rafdY4my5h
-	 Ujim+Xbb9lOhA==
-From: Vinod Koul <vkoul@kernel.org>
-To: linux-kernel@vger.kernel.org, 
- Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Mark Brown <broonie@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Alim Akhtar <alim.akhtar@samsung.com>, Andrea della Porta <andrea.porta@suse.com>, =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, Andy Shevchenko <andy@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, Avi Fishman <avifishman70@gmail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, Benjamin Fair <benjaminfair@google.com>, Bjorn Andersson <andersson@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, David Airlie <airlied@gmail.com>, David Lechner <dlechner@baylibre.com>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, Drew Fustini <fustini@kernel.org>, dri-devel@lists.freedesktop.org, Fabio Estevam <festevam@gmail.com>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>, Hans Verkuil <hverkuil@kernel.org>, =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, imx@lists.linux.dev, Iwona Winiarska <iwona.winiarska@intel.com>, Jaroslav Kysela <perex@perex.cz>, Jassi Brar <jassisinghbrar@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Jerome Brunet <jbrunet@baylibre.com>, Jonas Karlman <jonas@kwiboo.se>, Jonathan Cameron <jic23@kernel.org>, Kevin Hilman <khilman@baylibre.com>, Kishon Vijay Abraham I <kishon@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, linux-actions@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, linux-input@vger.kernel.org, linux-media@vger.kernel.org, linux-mmc@vger.kernel.org, linux-phy@lists.infradead.org, linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-rtc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, linux-sound@vger.kernel.org, linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, Liu Ying <victor.liu@nxp.com>, Lukasz Luba <lukasz.luba@arm.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Manivannan Sadhasivam <mani@kernel.org>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Maxime Ripard <mripard@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Miquel Raynal <miquel.raynal@bootlin.com>, Nancy Yuen <yuenn@google.com>, Neil Armstrong <neil.armstrong@linaro.org>, Nicolin Chen <nicoleotsuka@gmail.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, openbmc@lists.ozlabs.org, Patrick Venture <venture@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Philipp Zabel <p.zabel@pengutronix.de>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Robert Foss <rfoss@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Samuel Holland <samuel@sholland.org>, Sandy Huang <hjc@rock-chips.com>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Shengjiu Wang <shengjiu.wang@gmail.com>, Simona Vetter <simona@ffwll.ch>, Stephen Boyd <sboyd@kernel.org>, Takashi Iwai <tiwai@suse.com>, Tali Perry <tali.perry1@gmail.com>, Thomas Zimmermann <tzimmermann@suse.de>, Tomer Maimon <tmaimon77@gmail.com>, Ulf Hansson <ulf.hansson@linaro.org>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Vasily Khoruzhick <anarsoul@gmail.com>, Vladimir Zapolskiy <vz@mleia.com>, Xiubo Li <Xiubo.Lee@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>, Zhang Rui <rui.zhang@intel.com>
-In-Reply-To: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
-References: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
-Subject: Re: (subset) [PATCH 00/21] treewide: remove unneeded 'fast_io'
- parameter in regmap_config
-Message-Id: <175570934550.66459.15951444863822303407.b4-ty@kernel.org>
-Date: Wed, 20 Aug 2025 22:32:25 +0530
+	s=k20201202; t=1756732249;
+	bh=l+zEh4GN06CwujvuIj3y3Fd32BGM/P2y+zLD4+u7l7M=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=KQpP1hz3p7pySlQA+S80YSRFmx1/RZzMbVqgwb6DJ7FII9WAZ2aC0Vkb2bY2IPIgo
+	 5RCwWfOsqj6oH3/pX4lIDCuOOnNj9pXtQBn1tnrmIQEH+XVh9Y1PJP+hS509fIk0oM
+	 7NnEVi31nSQ/8MpxGe34E6NqS5meKjX8tV7J4kEDUQj4qbBrjxI9QxaHniIUyy3yEY
+	 gtjmo/KHVVgmCi45l9Q6BNFzV43IAWtjbRH902bx28dItj0RpqcveeXYME8ipfRIBt
+	 uCZQnUdWBrjyoriL6ICoig8e7WsKXoloqJHchCd36LnqZQtWt5aeK+UBbdVHOc8NTG
+	 YbdnooPnpDcUg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0481CCA1002;
+	Mon,  1 Sep 2025 13:10:49 +0000 (UTC)
+From: Simon Schuster via B4 Relay <devnull+schuster.simon.siemens-energy.com@kernel.org>
+Subject: [PATCH v2 0/4] nios2: Add architecture support for clone3
+Date: Mon, 01 Sep 2025 15:09:49 +0200
+Message-Id: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
 MIME-Version: 1.0
-X-Mailer: b4 0.13.0
-X-Mailman-Approved-At: Fri, 12 Sep 2025 11:15:59 -0700
+X-B4-Tracking: v=1; b=H4sIAB2btWgC/3WNzQqDMBCEX0Vy7pZkrT/05HsUD5quuqCJZEUq4
+ rs3Sq89fsPMN7sSCkyinsmuAq0s7F0EvCXKDo3rCfgdWaHGTJemBMdeEHiaR5rILWBH7yiFosM
+ MLeoy162K4zlQx59L/KojDyyLD9v1s5oz/SnR/FOuBjSYtsWHNkVa5E0lfBYEyFHot7v1k6qP4
+ /gCMZ8FFcUAAAA=
+X-Change-ID: 20250818-nios2-implement-clone3-7f252c20860b
+To: Dinh Nguyen <dinguyen@kernel.org>, 
+ Christian Brauner <brauner@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@redhat.com>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ Kees Cook <kees@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Guo Ren <guoren@kernel.org>, 
+ Oleg Nesterov <oleg@redhat.com>, Jens Axboe <axboe@kernel.dk>, 
+ Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
+ Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, 
+ =?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
+ Paul Moore <paul@paul-moore.com>, Serge Hallyn <sergeh@kernel.org>, 
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ John Johansen <john.johansen@canonical.com>, 
+ Stephen Smalley <stephen.smalley.work@gmail.com>, 
+ Ondrej Mosnacek <omosnace@redhat.com>, 
+ Kentaro Takeda <takedakn@nttdata.co.jp>, 
+ Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>, 
+ Richard Henderson <richard.henderson@linaro.org>, 
+ Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+ WANG Xuerui <kernel@xen0n.name>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Michal Simek <monstr@monstr.eu>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Jonas Bonn <jonas@southpole.se>, 
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+ Stafford Horne <shorne@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+ Andreas Larsson <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, 
+ Max Filippov <jcmvbkbc@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org, 
+ linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ cgroups@vger.kernel.org, linux-security-module@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, apparmor@lists.ubuntu.com, 
+ selinux@vger.kernel.org, linux-alpha@vger.kernel.org, 
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, 
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+ linux-um@lists.infradead.org, 
+ Simon Schuster <schuster.simon@siemens-energy.com>, stable@vger.kernel.org
+X-Mailer: b4 0.14.3-dev-2ce6c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756732247; l=6552;
+ i=schuster.simon@siemens-energy.com; s=20250818;
+ h=from:subject:message-id;
+ bh=l+zEh4GN06CwujvuIj3y3Fd32BGM/P2y+zLD4+u7l7M=;
+ b=GDpCexNrElu2yO/MxuDkpG+xctyQVH7o61ewBoPT3J8lEgMWXNxMsXtjVUaPsmeHSieQm4/hP
+ 49FpVyBe5rsBihPxAhRaNZH/1KUoHHYEsSlrwUEFI8iutPmfJs+jkNi
+X-Developer-Key: i=schuster.simon@siemens-energy.com; a=ed25519;
+ pk=PUhOMiSp43aSeRE1H41KApxYOluamBFFiMfKlBjocvo=
+X-Endpoint-Received: by B4 Relay for
+ schuster.simon@siemens-energy.com/20250818 with auth_id=495
+X-Original-From: Simon Schuster <schuster.simon@siemens-energy.com>
+X-Mailman-Approved-At: Fri, 12 Sep 2025 11:15:58 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,31 +161,159 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: schuster.simon@siemens-energy.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series adds support for the clone3 system call to the nios2
+architecture. This addresses the build-time warning "warning: clone3()
+entry point is missing, please fix" introduced in 505d66d1abfb9
+("clone3: drop __ARCH_WANT_SYS_CLONE3 macro"). The implementation passes
+the relevant clone3 tests of kselftest when applied on top of
+next-20250815:
 
-On Wed, 13 Aug 2025 18:14:46 +0200, Wolfram Sang wrote:
-> While working on a driver using regmap with MMIO, I wondered if I need
-> to set 'fast_io' in the config. Turned out I don't need to, so I added
-> documentation for it with commit ffc72771ff6e ("regmap: Annotate that
-> MMIO implies fast IO").
-> 
-> This series fixes the existing users in the tree which needlessly set
-> the flag. They have been found using this coccinelle script:
-> 
-> [...]
+	./run_kselftest.sh
+	TAP version 13
+	1..4
+	# selftests: clone3: clone3
+	ok 1 selftests: clone3: clone3
+	# selftests: clone3: clone3_clear_sighand
+	ok 2 selftests: clone3: clone3_clear_sighand
+	# selftests: clone3: clone3_set_tid
+	ok 3 selftests: clone3: clone3_set_tid
+	# selftests: clone3: clone3_cap_checkpoint_restore
+	ok 4 selftests: clone3: clone3_cap_checkpoint_restore
 
-Applied, thanks!
+The series also includes a small patch to kernel/fork.c that ensures
+that clone_flags are passed correctly on architectures where unsigned
+long is insufficient to store the u64 clone_flags. It is marked as a fix
+for stable backporting.
 
-[12/21] phy: remove unneeded 'fast_io' parameter in regmap_config
-        commit: e1e1e77f7df7cbee959ba024e5475907fe561c98
+As requested, in v2, this series now further tries to correct this type
+error throughout the whole code base. Thus, it now touches a larger
+number of subsystems and all architectures.
+
+Therefore, another test was performed for ARCH=x86_64 (as a
+representative for 64-bit architectures). Here, the series builds cleanly
+without warnings on defconfig with CONFIG_SECURITY_APPARMOR=y and
+CONFIG_SECURITY_TOMOYO=y (to compile-check the LSM-related changes).
+The build further successfully passes testing/selftests/clone3 (with the
+patch from 20241105062948.1037011-1-zhouyuhang1010@163.com to prepare
+clone3_cap_checkpoint_restore for compatibility with the newer libcap
+version on my system).
+
+Is there any option to further preflight check this patch series via
+lkp/KernelCI/etc. for a broader test across architectures, or is this
+degree of testing sufficient to eventually get the series merged?
+
+N.B.: The series is not checkpatch clean right now:
+ - include/linux/cred.h, include/linux/mnt_namespace.h:
+   function definition arguments without identifier name
+ - include/trace/events/task.h:
+   space prohibited after that open parenthesis
+
+I did not fix these warnings to keep my changes minimal and reviewable,
+as the issues persist throughout the files and they were not introduced
+by me; I only followed the existing code style and just replaced the
+types. If desired, I'd be happy to make the changes in a potential v3,
+though.
+
+Signed-off-by: Simon Schuster <schuster.simon@siemens-energy.com>
+---
+Changes in v2:
+- Introduce "Fixes:" and "Cc: stable@vger.kernel.org" where necessary
+- Factor out "Fixes:" when adapting the datatype of clone_flags for
+  easier backports
+- Fix additional instances where `unsigned long` clone_flags is used
+- Reword commit message to make it clearer that any 32-bit arch is
+  affected by this bug
+- Link to v1: https://lore.kernel.org/r/20250821-nios2-implement-clone3-v1-0-1bb24017376a@siemens-energy.com
+
+---
+Simon Schuster (4):
+      copy_sighand: Handle architectures where sizeof(unsigned long) < sizeof(u64)
+      copy_process: pass clone_flags as u64 across calltree
+      arch: copy_thread: pass clone_flags as u64
+      nios2: implement architecture-specific portion of sys_clone3
+
+ arch/alpha/kernel/process.c       |  2 +-
+ arch/arc/kernel/process.c         |  2 +-
+ arch/arm/kernel/process.c         |  2 +-
+ arch/arm64/kernel/process.c       |  2 +-
+ arch/csky/kernel/process.c        |  2 +-
+ arch/hexagon/kernel/process.c     |  2 +-
+ arch/loongarch/kernel/process.c   |  2 +-
+ arch/m68k/kernel/process.c        |  2 +-
+ arch/microblaze/kernel/process.c  |  2 +-
+ arch/mips/kernel/process.c        |  2 +-
+ arch/nios2/include/asm/syscalls.h |  1 +
+ arch/nios2/include/asm/unistd.h   |  2 --
+ arch/nios2/kernel/entry.S         |  6 ++++++
+ arch/nios2/kernel/process.c       |  2 +-
+ arch/nios2/kernel/syscall_table.c |  1 +
+ arch/openrisc/kernel/process.c    |  2 +-
+ arch/parisc/kernel/process.c      |  2 +-
+ arch/powerpc/kernel/process.c     |  2 +-
+ arch/riscv/kernel/process.c       |  2 +-
+ arch/s390/kernel/process.c        |  2 +-
+ arch/sh/kernel/process_32.c       |  2 +-
+ arch/sparc/kernel/process_32.c    |  2 +-
+ arch/sparc/kernel/process_64.c    |  2 +-
+ arch/um/kernel/process.c          |  2 +-
+ arch/x86/include/asm/fpu/sched.h  |  2 +-
+ arch/x86/include/asm/shstk.h      |  4 ++--
+ arch/x86/kernel/fpu/core.c        |  2 +-
+ arch/x86/kernel/process.c         |  2 +-
+ arch/x86/kernel/shstk.c           |  2 +-
+ arch/xtensa/kernel/process.c      |  2 +-
+ block/blk-ioc.c                   |  2 +-
+ fs/namespace.c                    |  2 +-
+ include/linux/cgroup.h            |  4 ++--
+ include/linux/cred.h              |  2 +-
+ include/linux/iocontext.h         |  6 +++---
+ include/linux/ipc_namespace.h     |  4 ++--
+ include/linux/lsm_hook_defs.h     |  2 +-
+ include/linux/mnt_namespace.h     |  2 +-
+ include/linux/nsproxy.h           |  2 +-
+ include/linux/pid_namespace.h     |  4 ++--
+ include/linux/rseq.h              |  4 ++--
+ include/linux/sched/task.h        |  2 +-
+ include/linux/security.h          |  4 ++--
+ include/linux/sem.h               |  4 ++--
+ include/linux/time_namespace.h    |  4 ++--
+ include/linux/uprobes.h           |  4 ++--
+ include/linux/user_events.h       |  4 ++--
+ include/linux/utsname.h           |  4 ++--
+ include/net/net_namespace.h       |  4 ++--
+ include/trace/events/task.h       |  6 +++---
+ ipc/namespace.c                   |  2 +-
+ ipc/sem.c                         |  2 +-
+ kernel/cgroup/namespace.c         |  2 +-
+ kernel/cred.c                     |  2 +-
+ kernel/events/uprobes.c           |  2 +-
+ kernel/fork.c                     | 10 +++++-----
+ kernel/nsproxy.c                  |  4 ++--
+ kernel/pid_namespace.c            |  2 +-
+ kernel/sched/core.c               |  4 ++--
+ kernel/sched/fair.c               |  2 +-
+ kernel/sched/sched.h              |  4 ++--
+ kernel/time/namespace.c           |  2 +-
+ kernel/utsname.c                  |  2 +-
+ net/core/net_namespace.c          |  2 +-
+ security/apparmor/lsm.c           |  2 +-
+ security/security.c               |  2 +-
+ security/selinux/hooks.c          |  2 +-
+ security/tomoyo/tomoyo.c          |  2 +-
+ 68 files changed, 95 insertions(+), 89 deletions(-)
+---
+base-commit: 1357b2649c026b51353c84ddd32bc963e8999603
+change-id: 20250818-nios2-implement-clone3-7f252c20860b
 
 Best regards,
 -- 
-~Vinod
+Simon Schuster <schuster.simon@siemens-energy.com>
 
 
 
