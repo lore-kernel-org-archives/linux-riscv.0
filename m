@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B08E7CA0FF0
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 18:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 255C2CA1007
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 18:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ymGVR6cEorIpqTQl+6IWLYeHeJITqh6IGrCmrcyRsYw=; b=KX+w9AqAXvHE22
-	pE6O4GQDVwkPmJMuzo51vhzQvm2ALvl4OyKdS71i3DhqvIHBeffzoxeSL2ud/5KZXgHMfR4x7eHLO
-	BlVpZwhbvxvGpE+XqqejJ7zOMPpxy8QBmlC6T9KyQWclnkIC5qQuMMSYp9jEcrKNjGx1Bjb6RMf3N
-	TVqY0nzU7eYAJrzlELkZtCFwH03MLr+ywZMHNBZwXeEj/vZlJmvwtDvNrC6mgcNa3ke41ZlOIWh/o
-	ChNbkN7no4YgP15ht6YVvxmhntETNPCcjqSzeUpUWCx+HOJnBel0D7zN3DIQyDWZCQ6Wb3MwNju1P
-	OIxT+F7dx65un6tOvCSw==;
+	List-Owner; bh=N31ZzcT12c8kvPWFH6sO6RBiRmjhXK6Up7aIE/QrzRE=; b=XsKd1VAeBDEKKu
+	WE7tRPee6RbBHJW1obwC2cxWz5AWoO/rine7MepnjtXuhd8qF5V7ZrSltFtR9lL7yQLRiIlX/3S2F
+	rjJaIz+wcwLjeQ+fA9qZ+slN3zSufc1uXoUca2qEHHxjtiWW5w00YyMGHkFWkh6lEzQwDP1g6OfgM
+	ZCpXNzVGZVIN2+B0QEZqKuEcBREOMKdvfm/5DsJ8bGm4KrTBU/jcDe0O2/yt5fKTGPymgYr3BiTuL
+	dBtcGm3aFoNR3vQWPiJiu8ANysMe2GHXCf+zSa9GiiXuJAUA2I2Um1f/Gra8+iuIY7qQZdpfdtsfy
+	CGx2LiuxjDKQjGgR+XWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut9Mz-0000000DaAd-3JlD;
-	Mon, 01 Sep 2025 18:35:09 +0000
+	id 1ut9N0-0000000DaAu-20ZJ;
+	Mon, 01 Sep 2025 18:35:10 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut69A-0000000CyhD-0e4d
+	id 1ut69N-0000000CyjC-0vqe
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 15:08:41 +0000
+	Mon, 01 Sep 2025 15:08:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739319;
+	s=mimecast20190719; t=1756739332;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=q7z1hEbmTMnNJugBbqE6gV6TDdcPzbGR+eC0MU5uXl8=;
-	b=YrcTqMEfQAchG+DDA0rUrmhCDctrbW+uYBjjGz9CRHo/7Bap4UtXR0kTPn2eobKd+2g++s
-	rgU+r4LKUi8ItSEMgmHZ2Qa5PJNRn0gVfqmuqs2qL7J9bJ9KXNHcKDDpKR5pjGyW141OhN
-	Ab12nL5nuMC0QyuBFelcnZM7fOMWjmw=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=h1YA5SEzriG6DwRMDjDKDzhTIS6PJdzeBsQAf3ehrUM=;
+	b=OAG/+N5QrtnneOEeHiE5boXYiTqQvypXHnBcn8ut+aQUd8Ya2fJzr5mpPHKJ2gy2CojIoM
+	lOoj6xmrvyfvG/vLUNfBRXk+Zr8ZnlWC3tLp+v/kHCy6AnQk7eQ02oASeR8TY5T/JsAY/Y
+	tI6THdBAfDLfnwzc5Ica3zUQlZyqlDE=
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-495-YP3xofrJN8yNNz_Gl_acQw-1; Mon,
- 01 Sep 2025 11:08:34 -0400
-X-MC-Unique: YP3xofrJN8yNNz_Gl_acQw-1
-X-Mimecast-MFC-AGG-ID: YP3xofrJN8yNNz_Gl_acQw_1756739309
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-155-r4d3g8gTOkynYA1ac-wgQg-1; Mon,
+ 01 Sep 2025 11:08:49 -0400
+X-MC-Unique: r4d3g8gTOkynYA1ac-wgQg-1
+X-Mimecast-MFC-AGG-ID: r4d3g8gTOkynYA1ac-wgQg_1756739323
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 44870180028C;
-	Mon,  1 Sep 2025 15:08:29 +0000 (UTC)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B11E01956089;
+	Mon,  1 Sep 2025 15:08:43 +0000 (UTC)
 Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B085118003FC;
-	Mon,  1 Sep 2025 15:08:14 +0000 (UTC)
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D5D1C18003FC;
+	Mon,  1 Sep 2025 15:08:29 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
@@ -102,16 +102,16 @@ Cc: David Hildenbrand <david@redhat.com>,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org
-Subject: [PATCH v2 15/37] fs: hugetlbfs: remove nth_page() usage within folio in adjust_range_hwpoison()
-Date: Mon,  1 Sep 2025 17:03:36 +0200
-Message-ID: <20250901150359.867252-16-david@redhat.com>
+Subject: [PATCH v2 16/37] fs: hugetlbfs: cleanup folio in adjust_range_hwpoison()
+Date: Mon,  1 Sep 2025 17:03:37 +0200
+Message-ID: <20250901150359.867252-17-david@redhat.com>
 In-Reply-To: <20250901150359.867252-1-david@redhat.com>
 References: <20250901150359.867252-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_080840_263257_771BEB0E 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20250901_080853_330423_370AF66B 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,28 +128,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The nth_page() is not really required anymore, so let's remove it.
+Let's cleanup and simplify the function a bit.
 
 Reviewed-by: Zi Yan <ziy@nvidia.com>
 Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- fs/hugetlbfs/inode.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ fs/hugetlbfs/inode.c | 36 ++++++++++++------------------------
+ 1 file changed, 12 insertions(+), 24 deletions(-)
 
 diff --git a/fs/hugetlbfs/inode.c b/fs/hugetlbfs/inode.c
-index 34d496a2b7de6..c5a46d10afaa0 100644
+index c5a46d10afaa0..3cfdf4091001f 100644
 --- a/fs/hugetlbfs/inode.c
 +++ b/fs/hugetlbfs/inode.c
-@@ -217,7 +217,7 @@ static size_t adjust_range_hwpoison(struct folio *folio, size_t offset,
+@@ -192,37 +192,25 @@ hugetlb_get_unmapped_area(struct file *file, unsigned long addr,
+  * Someone wants to read @bytes from a HWPOISON hugetlb @folio from @offset.
+  * Returns the maximum number of bytes one can read without touching the 1st raw
+  * HWPOISON page.
+- *
+- * The implementation borrows the iteration logic from copy_page_to_iter*.
+  */
+ static size_t adjust_range_hwpoison(struct folio *folio, size_t offset,
+ 		size_t bytes)
+ {
+-	struct page *page;
+-	size_t n = 0;
+-	size_t res = 0;
+-
+-	/* First page to start the loop. */
+-	page = folio_page(folio, offset / PAGE_SIZE);
+-	offset %= PAGE_SIZE;
+-	while (1) {
+-		if (is_raw_hwpoison_page_in_hugepage(page))
+-			break;
++	struct page *page = folio_page(folio, offset / PAGE_SIZE);
++	size_t safe_bytes;
++
++	if (is_raw_hwpoison_page_in_hugepage(page))
++		return 0;
++	/* Safe to read the remaining bytes in this page. */
++	safe_bytes = PAGE_SIZE - (offset % PAGE_SIZE);
++	page++;
+ 
+-		/* Safe to read n bytes without touching HWPOISON subpage. */
+-		n = min(bytes, (size_t)PAGE_SIZE - offset);
+-		res += n;
+-		bytes -= n;
+-		if (!bytes || !n)
++	/* Check each remaining page as long as we are not done yet. */
++	for (; safe_bytes < bytes; safe_bytes += PAGE_SIZE, page++)
++		if (is_raw_hwpoison_page_in_hugepage(page))
  			break;
- 		offset += n;
- 		if (offset == PAGE_SIZE) {
--			page = nth_page(page, 1);
-+			page++;
- 			offset = 0;
- 		}
- 	}
+-		offset += n;
+-		if (offset == PAGE_SIZE) {
+-			page++;
+-			offset = 0;
+-		}
+-	}
+ 
+-	return res;
++	return min(safe_bytes, bytes);
+ }
+ 
+ /*
 -- 
 2.50.1
 
