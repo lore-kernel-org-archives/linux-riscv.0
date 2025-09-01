@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DF0CA0FF0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80580CA1000
 	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 18:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,55 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VGutd3Urz0Ebfgtf9Hoz/b+gLshhnBPpDXbVswmiIvA=; b=MCGq3qODSrJvRX
-	59hS1rgTlYSDgEwyWgzbAnh4Kb1bffRHMMMkYbnpTLZ5kxsZ8tCqwOWl9y665i2acWNihROlxBlOy
-	ogVd3dIVMKG9ZboZXd52xmSV9mnBQIuWWBcYjCkqg+g4BfmerxJZJGti4F5f8Yl6gr6gTNSR1fJ5+
-	/qiWkswSOqNG623nJvBWQcxjXhTcPtbwdhcYBk6mNwkcG727Hi0H39FhdmMnqeB3wOD2aactYHjaD
-	OoRj3CFKJ2r7ERCjjC1rB8X5E8fLdtO7Oe2Fj9cjEYFTSjUtk280MebiCBjnaucls6LAvWuaG9Uq6
-	m1CJW18OFHknpcjOQRfQ==;
+	List-Owner; bh=MqkIJxnH1V37Arot0zSY+v0v7TPnpj+csfSFF3RBlwk=; b=2PDhzYKWwUFuhe
+	a/UsrpMR32v7F4NOVWDFZhR9C9kQU20NsalZ7fCCOudRf5Ju22SdTvg2hXBzv4Z2V8GLH7VAhZDic
+	Bq26oVhZy6UeXaN7IsPgWLSYtj0oC40sY/pdsSoM493St3I4k2yEADaAcpZ5wxfbfP39g037sDyeK
+	ZsSycYY8MjtzmBZH3YlxkvliH43K80B1nQheK9FLaCCem4CmDC7orpkdcE8/XmEgOg9PdKmBhrOtu
+	OiDuhLRIzWj6uyE+rWNSt4utdw3A8TI52XlXXccELczRaFPT+CXmfW6ieGMqaIIxPBnZOvC9Pw8GW
+	OltYSrhHB1tTHE1lQyJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut8yv-0000000DWyz-3rlD;
-	Mon, 01 Sep 2025 18:10:17 +0000
+	id 1ut8yt-0000000DWy3-1KlU;
+	Mon, 01 Sep 2025 18:10:15 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut674-0000000Cy5K-00NA
+	id 1ut660-0000000CxrG-1mE1
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 15:06:31 +0000
+	Mon, 01 Sep 2025 15:05:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739189;
+	s=mimecast20190719; t=1756739123;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=NTgr/pqX3UqVNNKIBPC5IiEd0D/dsfuHo0zqlHJEFcE=;
-	b=eA747Ep2cF4HPCLTUtI5YTDsPmguX2kDtowiYtA1+C0NNGTJJHlQGkP8MBAdWjAn3u+dVc
-	z+SV7BrjDunLhdf1dADs2TMwqiPbH515TfslMqD+7az58uayEqrOc72J27Q0aiN/VHtJa8
-	pP0MrKS4iXnp2GDi4QqLLL0xTjDxdhM=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=lga6UMMa0aQahAKpa9DbBvj6lFfUW2++fx2DNoNdxSA=;
+	b=Ogvw1atm2rGzLpOMg6a9elXEgulCD+Pr6gURnrrJFuqdifMgJEZYicMkaWzkxoCknFF2qn
+	wN2cO7dVYvQedfpjGJV8rvoOx9ZxhWP+M/lxMNRzDRWbT2vWZWDUUcT5zIZJnebPmlNQBd
+	idx+B173d+5DC8gEhbX4TQVBchPrvkA=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-441-LWOuJP0QNQig9xOBt6uhiw-1; Mon,
- 01 Sep 2025 11:06:25 -0400
-X-MC-Unique: LWOuJP0QNQig9xOBt6uhiw-1
-X-Mimecast-MFC-AGG-ID: LWOuJP0QNQig9xOBt6uhiw_1756739180
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-357-kjaS4mfWPCWoOwPIngtDKg-1; Mon,
+ 01 Sep 2025 11:05:17 -0400
+X-MC-Unique: kjaS4mfWPCWoOwPIngtDKg-1
+X-Mimecast-MFC-AGG-ID: kjaS4mfWPCWoOwPIngtDKg_1756739112
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 330D5195608A;
-	Mon,  1 Sep 2025 15:06:17 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9E3B8180028C;
+	Mon,  1 Sep 2025 15:05:11 +0000 (UTC)
 Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 344B51800280;
-	Mon,  1 Sep 2025 15:06:01 +0000 (UTC)
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 418001800447;
+	Mon,  1 Sep 2025 15:04:56 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
-	Zi Yan <ziy@nvidia.com>,
-	SeongJae Park <sj@kernel.org>,
-	Wei Yang <richard.weiyang@gmail.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
 	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Will Deacon <will@kernel.org>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -92,7 +92,6 @@ Cc: David Hildenbrand <david@redhat.com>,
 	Marco Elver <elver@google.com>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
 	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
 	Muchun Song <muchun.song@linux.dev>,
 	netdev@vger.kernel.org,
 	Oscar Salvador <osalvador@suse.de>,
@@ -103,17 +102,18 @@ Cc: David Hildenbrand <david@redhat.com>,
 	virtualization@lists.linux.dev,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
-	x86@kernel.org
-Subject: [PATCH v2 06/37] mm/page_alloc: reject unreasonable folio/compound page sizes in alloc_contig_range_noprof()
-Date: Mon,  1 Sep 2025 17:03:27 +0200
-Message-ID: <20250901150359.867252-7-david@redhat.com>
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH v2 02/37] arm64: Kconfig: drop superfluous "select SPARSEMEM_VMEMMAP"
+Date: Mon,  1 Sep 2025 17:03:23 +0200
+Message-ID: <20250901150359.867252-3-david@redhat.com>
 In-Reply-To: <20250901150359.867252-1-david@redhat.com>
 References: <20250901150359.867252-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_080630_117005_5BAD1E8A 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20250901_080524_529929_1F2BE856 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,80 +130,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's reject them early, which in turn makes folio_alloc_gigantic() reject
-them properly.
+Now handled by the core automatically once SPARSEMEM_VMEMMAP_ENABLE
+is selected.
 
-To avoid converting from order to nr_pages, let's just add MAX_FOLIO_ORDER
-and calculate MAX_FOLIO_NR_PAGES based on that.
-
-While at it, let's just make the order a "const unsigned order".
-
-Reviewed-by: Zi Yan <ziy@nvidia.com>
-Acked-by: SeongJae Park <sj@kernel.org>
-Reviewed-by: Wei Yang <richard.weiyang@gmail.com>
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 Reviewed-by: Liam R. Howlett <Liam.Howlett@oracle.com>
+Cc: Will Deacon <will@kernel.org>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- include/linux/mm.h |  6 ++++--
- mm/page_alloc.c    | 10 +++++++++-
- 2 files changed, 13 insertions(+), 3 deletions(-)
+ arch/arm64/Kconfig | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 00c8a54127d37..77737cbf2216a 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -2055,11 +2055,13 @@ static inline long folio_nr_pages(const struct folio *folio)
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index e9bbfacc35a64..b1d1f2ff2493b 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1570,7 +1570,6 @@ source "kernel/Kconfig.hz"
+ config ARCH_SPARSEMEM_ENABLE
+ 	def_bool y
+ 	select SPARSEMEM_VMEMMAP_ENABLE
+-	select SPARSEMEM_VMEMMAP
  
- /* Only hugetlbfs can allocate folios larger than MAX_ORDER */
- #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
--#define MAX_FOLIO_NR_PAGES	(1UL << PUD_ORDER)
-+#define MAX_FOLIO_ORDER		PUD_ORDER
- #else
--#define MAX_FOLIO_NR_PAGES	MAX_ORDER_NR_PAGES
-+#define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
- #endif
- 
-+#define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
-+
- /*
-  * compound_nr() returns the number of pages in this potentially compound
-  * page.  compound_nr() can be called on a tail page, and is defined to
-diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 27ea4c7acd158..7e96c69a06ccb 100644
---- a/mm/page_alloc.c
-+++ b/mm/page_alloc.c
-@@ -6841,6 +6841,7 @@ static int __alloc_contig_verify_gfp_mask(gfp_t gfp_mask, gfp_t *gfp_cc_mask)
- int alloc_contig_range_noprof(unsigned long start, unsigned long end,
- 			      acr_flags_t alloc_flags, gfp_t gfp_mask)
- {
-+	const unsigned int order = ilog2(end - start);
- 	unsigned long outer_start, outer_end;
- 	int ret = 0;
- 
-@@ -6858,6 +6859,14 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
- 					    PB_ISOLATE_MODE_CMA_ALLOC :
- 					    PB_ISOLATE_MODE_OTHER;
- 
-+	/*
-+	 * In contrast to the buddy, we allow for orders here that exceed
-+	 * MAX_PAGE_ORDER, so we must manually make sure that we are not
-+	 * exceeding the maximum folio order.
-+	 */
-+	if (WARN_ON_ONCE((gfp_mask & __GFP_COMP) && order > MAX_FOLIO_ORDER))
-+		return -EINVAL;
-+
- 	gfp_mask = current_gfp_context(gfp_mask);
- 	if (__alloc_contig_verify_gfp_mask(gfp_mask, (gfp_t *)&cc.gfp_mask))
- 		return -EINVAL;
-@@ -6955,7 +6964,6 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
- 			free_contig_range(end, outer_end - end);
- 	} else if (start == outer_start && end == outer_end && is_power_of_2(end - start)) {
- 		struct page *head = pfn_to_page(start);
--		int order = ilog2(end - start);
- 
- 		check_new_pages(head, order);
- 		prep_new_page(head, order, gfp_mask, 0);
+ config HW_PERF_EVENTS
+ 	def_bool y
 -- 
 2.50.1
 
