@@ -4,70 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DB2CA0FFF
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 17:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E361CCA0FFF
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 17:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nNnNjSB54ybWCheKyLW8Kv7jJsw9GkxNbmrbVpFmASU=; b=hECoNBZ0QXv6sR
-	na02KL/dR9DSlKtzELztp2pqnQsq7xcoMws/8F3NMH8uIdEH7mwgbQ40MFuFr9AdMe/L2qittK1Nz
-	DDxJKc4S2DxXbePkqDThZrTLv4XEEWCIQbVojHuBa3/ux9RqVg9ahJICUnbPqwvGqA/8AHyC3ecfo
-	9woDp4cMbkts4m6ELjB7B9NmQgWYh/0B9ABdmdKXT+hrw0fy/TzVOv2OC0C7M68U2GM4S2AEPY+9u
-	j3eq7pMbPQnzyxbq9+cZ1eLl6jwc2EEdT8kNC62RjNYCSIYhnjlpUoGzCMhLayXpcvahjRCWUFGrU
-	YCrqMdCSa4JY+ycCkZOA==;
+	List-Owner; bh=QFJ0NgeaBqm+ySPNKAbjL5OIm2vDR894mrjtMt2BDvw=; b=Pkek6wAzhf607t
+	+3nLHoETTPUSMmiKXB9kLaSAMkIbAqEWk1GbIYRX2Rm5A9Bt2yM0CCfj/y5/PZnvJj8l+e51wZSBH
+	9VVhILefDWcHsiwjCdoozDx1ENtptGWdx85VHSShsNAsHKI8zhDAct0wG/5gs6xGSHxy1rnbMJrKU
+	XN1cZQhaF/5luQHyzjz7QoP+5miZruOiO0nQSRMghGad3lDSnkaovLj2sb4RIeDWQJsS4iEFbd0fT
+	0QKzQbZGhiDC1qGOafMOgRwsRoOVXMQTI//QkDsZTrajilBweEafjwi3vHCZPIvGnSnoYiERG8X0i
+	W4Inv2mgmnlnrpHwfulw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut7wW-0000000DO96-0nrq;
-	Mon, 01 Sep 2025 17:03:44 +0000
-Received: from m16.mail.126.com ([220.197.31.8])
+	id 1ut7zE-0000000DOmJ-1I6D;
+	Mon, 01 Sep 2025 17:06:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4il-0000000Ci0T-3YgW
+	id 1ut4kH-0000000CiIO-3Vto
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 01 Sep 2025 13:38:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=WYwpi82W7VIihj8uBfuL+qMQaHX4FplKNy0RIRsXcCU=; b=qFPZaRxkdFPtlydnl/rN502yjz
+	Ev4KY8NsoYDZnuGy1cQn/4zgE583eNEq6TkHCgMd1/GCEgOvB4HxaXcOK6LPyCGd4E30mvQQjjDat
+	EDwrjE0m9O3kVxBiVepOmyu2iecSgqRwgOF3MJjI/15GjSKB7It8c1s3ua5ll0E0Ij0dfjLPl6vDG
+	XkwIRdXqNWU9DGHiQqzhcB+4sRvjxUa4ChhuWkwezQh5vRjOjPSWbfTakXGmnlXBwGCnx/0BzyWDY
+	QhDtqahGtDeNvSYd1GWG5Dkm9tKUXYcoElLybLFsVgqNf6/FXKFpwTQlQu4Nh4YMQtpAwOSpLXCGV
+	dQ982sWQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut4kE-00000003jsc-2rjI
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 13:37:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=NF
-	pR6ok6bqJwalFjFmoTWIfA/y6t00m5bKO/H591X14=; b=PQoAnWOcEmcr5FztZw
-	WcLAX/jkwamLGx35GgA2v48m0SmYsd162pfiixVcy8Ps2+B9Bhu5DMeGKJNQXk2/
-	dj8LOcsaQFFqjpTzfWR1moIdZQ0/PzZHl+Aeu9XqsgEqbCPF0ZBAOYgO2X3dAXqG
-	XHkR0bzlfP0XtsIsttuK6FZow=
-Received: from nilq-virtual-machine.. (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wDn72JdobVo9G7cAA--.40462S2;
-	Mon, 01 Sep 2025 21:36:31 +0800 (CST)
-From: niliqiang <ni_liqiang@126.com>
-To: zong.li@sifive.com
-Cc: aou@eecs.berkeley.edu,
-	iommu@lists.linux.dev,
-	jgg@ziepe.ca,
-	joro@8bytes.org,
-	kevin.tian@intel.com,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robin.murphy@arm.com,
-	tjeznach@rivosinc.com,
-	will@kernel.org,
-	chenruisust@gmail.com
-Subject: Re: [RFC PATCH v2 00/10] RISC-V IOMMU HPM and nested IOMMU support
-Date: Mon,  1 Sep 2025 21:36:29 +0800
-Message-Id: <20250901133629.87310-1-ni_liqiang@126.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240614142156.29420-3-zong.li@sifive.com>
-References: <20240614142156.29420-3-zong.li@sifive.com>
+	Mon, 01 Sep 2025 13:38:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756733928;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=WYwpi82W7VIihj8uBfuL+qMQaHX4FplKNy0RIRsXcCU=;
+	b=YRG/ThSg+vf5ZEJ0hj2j8TYCJ4er4FkTLnR1/gq83+s3TxcBZqDhnQySUgR9xO7vhHDhmn
+	AbEZAOz+jBQGdZPcNm63wz97VnaIYBcnnpqiseo6iNrP2L37bjQm+cU2EoXTCjAktb+2t8
+	l5LNVEYzkIPyOgP7qjr6/Xdz8/W0Js4=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756733929;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=WYwpi82W7VIihj8uBfuL+qMQaHX4FplKNy0RIRsXcCU=;
+	b=Ak46UonehMniajiTrRMr6wCXxaH61dDahe/bdZBz+kZ9v7Of+5h2gWW8tsR77s8+GkY7m/
+	hsY9BWVh9EzwO3+Qbclt8eHnoDvlL7mv88QAXrkKuTPVAV3qBLntjBv7lnQM8Oemw+b7kK
+	MmOL0IhEV1NTTJxQOuREdyAexfOFw/Q=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-604-dQpN9aVtMH-cMouGWVaZLw-1; Mon, 01 Sep 2025 09:38:47 -0400
+X-MC-Unique: dQpN9aVtMH-cMouGWVaZLw-1
+X-Mimecast-MFC-AGG-ID: dQpN9aVtMH-cMouGWVaZLw_1756733926
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3cceb92ea73so2518207f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 06:38:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756733926; x=1757338726;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WYwpi82W7VIihj8uBfuL+qMQaHX4FplKNy0RIRsXcCU=;
+        b=DvX1wtXEEgZpdLOoWV6xZQXXuxixXxlzglbE/BmuHPVuMsvUY5u/RXcGqCFQJk0EUr
+         n7Ge1BuqIzIy4Ir87cQsSo5usgS4lwYJ6yrNHWtSyPcHtrtgKQRIQrNdd6apnvQt6qVp
+         mmTGPEaHu2t37jmn9g3DXck6xoeJlQey+tDp7mrQ7tFPYNYGUqi0kRUZjrxoPZTNX3V0
+         B/MNe/XNEUhW/D+gaWOEh3GqLf1W1PZ6o3n0OilZqCiJIUOxu/7jgGTHGQTvUeKA6/K7
+         3aFrie4q6f+VnOlY8l2Oh+06gpxNbA+n411blO3enaLLYdzPtoTGrQzraQ71CqIzGRv6
+         po2g==
+X-Forwarded-Encrypted: i=1; AJvYcCUQdQ8MDlTpzEgOVrdKMCg5uJYlVHTqYoMy6+1F0K56RldV5xAqJcJQ6/kqaAh8ic+aM770/gPh3f4hCw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YykXabGIjzn2Grv39hLWts7JuyDLX1hAN3C5dBwHyh2bry/FY3e
+	b2dLflr2jJ1FA357UXNFvpgwMY72SVdkRR0+oiQupe0Nz7BQE08klQFOI4MEFHnhq8dgU5+HOwL
+	oACfYxEN00EfwqBOD6mW1vHcz8tnrTqJEpVw6Vjsrd8DA/J062xKvjV+WL6YOVuI4Oh4Tzw==
+X-Gm-Gg: ASbGncsboYsSVS8qCCoq9RWbju7FP5UPiqu2USiJ4JXxWEYZp/OfTPG7W3B3+GOcdFg
+	nnMzVUa1915C2cRqmkp3Gxg/gHWMTdtIb4arZzt02zgLcQiM7mDrx3CL8tzG1xBe8h97uwjkUo4
+	pDqQRZa6ZVXGQhofi3D7eXAWzZJVtHGaQ7/5a76Jy//HFU+qeq+3mrQ6WLV1Rl/jAvwc1d/Nnjh
+	MmTg6J4CqEM+0LWYK2pzQVxLHwrEzAXXhOQMEmyoBwJ3VLUZpPynpVbW+OdS3oMJHle1n+2nzgw
+	NPtryHOelFtTzyKzVtTXHbw63Z8IqOaV6sKlPSfsmCx2hTzYI6kqI6sIZEbzDPQoRsiXwWMqAtq
+	zec0N9HydGbSiZY3YClx8X09yWZ0qSn61W3XDNRWzoBX5dGaG6Sfj+4enoZa5Jf11G7k=
+X-Received: by 2002:a05:6000:2102:b0:3d3:8711:d934 with SMTP id ffacd0b85a97d-3d38711dcc7mr3315113f8f.14.1756733925988;
+        Mon, 01 Sep 2025 06:38:45 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF3DliMw41VU4hxaIWHMLNG+OBiPKQ08qUXWAlqHFXtcpv953/vrh5P5rTJMXfl1jn2z2RQzw==
+X-Received: by 2002:a05:6000:2102:b0:3d3:8711:d934 with SMTP id ffacd0b85a97d-3d38711dcc7mr3315078f8f.14.1756733925456;
+        Mon, 01 Sep 2025 06:38:45 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f37:2b00:948c:dd9f:29c8:73f4? (p200300d82f372b00948cdd9f29c873f4.dip0.t-ipconnect.de. [2003:d8:2f37:2b00:948c:dd9f:29c8:73f4])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d21a80c723sm10359081f8f.9.2025.09.01.06.38.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Sep 2025 06:38:45 -0700 (PDT)
+Message-ID: <48ee3dd0-9af3-4513-aef2-25e185cce349@redhat.com>
+Date: Mon, 1 Sep 2025 15:38:42 +0200
 MIME-Version: 1.0
-X-CM-TRANSID: _____wDn72JdobVo9G7cAA--.40462S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZFW8CFWftF13tryxuw13twb_yoW5GF1DpF
-	Z8CrZIkr18JryxJ3W3J3W8CrZ0qan2kFWYvF1fC398Xw4UKrWUWF1DG3yFyrn8GrWDA3W2
-	qa1Y9FsxCF15trJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UY9aPUUUUU=
-X-Originating-IP: [111.162.127.71]
-X-CM-SenderInfo: xqlbzxxtld0wa6rslhhfrp/1tbiJAW25WiuVI1HCQABsi
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] copy_process: pass clone_flags as u64 across
+ calltree
+To: schuster.simon@siemens-energy.com, Dinh Nguyen <dinguyen@kernel.org>,
+ Christian Brauner <brauner@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ cgroups@vger.kernel.org, linux-security-module@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, apparmor@lists.ubuntu.com,
+ selinux@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org
+References: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
+ <20250901-nios2-implement-clone3-v2-2-53fcf5577d57@siemens-energy.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20250901-nios2-implement-clone3-v2-2-53fcf5577d57@siemens-energy.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Ed81lUBfD6Oync2w13-bL3R2vccMH8Zpdy8Gv4VbQ74_1756733926
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_063720_251021_AFAACB04 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20250901_143851_019768_B8E1DB6F 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,86 +194,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Zong
-
-Fri, 14 Jun 2024 22:21:48 +0800, Zong Li <zong.li@sifive.com> wrote:
-
-> This patch initialize the pmu stuff and uninitialize it when driver
-> removing. The interrupt handling is also provided, this handler need to
-> be primary handler instead of thread function, because pt_regs is empty
-> when threading the IRQ, but pt_regs is necessary by perf_event_overflow.
->
-> Signed-off-by: Zong Li <zong.li@sifive.com>
+On 01.09.25 15:09, Simon Schuster via B4 Relay wrote:
+> From: Simon Schuster <schuster.simon@siemens-energy.com>
+> 
+> With the introduction of clone3 in commit 7f192e3cd316 ("fork: add
+> clone3") the effective bit width of clone_flags on all architectures was
+> increased from 32-bit to 64-bit, with a new type of u64 for the flags.
+> However, for most consumers of clone_flags the interface was not
+> changed from the previous type of unsigned long.
+> 
+> While this works fine as long as none of the new 64-bit flag bits
+> (CLONE_CLEAR_SIGHAND and CLONE_INTO_CGROUP) are evaluated, this is still
+> undesirable in terms of the principle of least surprise.
+> 
+> Thus, this commit fixes all relevant interfaces of callees to
+> sys_clone3/copy_process (excluding the architecture-specific
+> copy_thread) to consistently pass clone_flags as u64, so that
+> no truncation to 32-bit integers occurs on 32-bit architectures.
+> 
+> Signed-off-by: Simon Schuster <schuster.simon@siemens-energy.com>
+> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 > ---
->  drivers/iommu/riscv/iommu.c | 65 +++++++++++++++++++++++++++++++++++++
->  1 file changed, 65 insertions(+)
->
-> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-> index 8b6a64c1ad8d..1716b2251f38 100644
-> --- a/drivers/iommu/riscv/iommu.c
-> +++ b/drivers/iommu/riscv/iommu.c
-> @@ -540,6 +540,62 @@ static irqreturn_t riscv_iommu_fltq_process(int irq, void *data)
->   return IRQ_HANDLED;
->  }
->  
-> +/*
-> + * IOMMU Hardware performance monitor
-> + */
-> +
-> +/* HPM interrupt primary handler */
-> +static irqreturn_t riscv_iommu_hpm_irq_handler(int irq, void *dev_id)
-> +{
-> + struct riscv_iommu_device *iommu = (struct riscv_iommu_device *)dev_id;
-> +
-> + /* Process pmu irq */
-> + riscv_iommu_pmu_handle_irq(&iommu->pmu);
-> +
-> + /* Clear performance monitoring interrupt pending */
-> + riscv_iommu_writel(iommu, RISCV_IOMMU_REG_IPSR, RISCV_IOMMU_IPSR_PMIP);
-> +
-> + return IRQ_HANDLED;
-> +}
-> +
-> +/* HPM initialization */
-> +static int riscv_iommu_hpm_enable(struct riscv_iommu_device *iommu)
-> +{
-> + int rc;
-> +
-> + if (!(iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM))
-> +     return 0;
-> +
-> + /*
-> +  * pt_regs is empty when threading the IRQ, but pt_regs is necessary
-> +  * by perf_event_overflow. Use primary handler instead of thread
-> +  * function for PM IRQ.
-> +  *
-> +  * Set the IRQF_ONESHOT flag because this IRQ might be shared with
-> +  * other threaded IRQs by other queues.
-> +  */
-> + rc = devm_request_irq(iommu->dev,
-> +               iommu->irqs[riscv_iommu_queue_vec(iommu, RISCV_IOMMU_IPSR_PMIP)],
-> +               riscv_iommu_hpm_irq_handler, IRQF_ONESHOT | IRQF_SHARED, NULL, iommu);
-> + if (rc)
-> +     return rc;
-> +
-> + return riscv_iommu_pmu_init(&iommu->pmu, iommu->reg, dev_name(iommu->dev));
-> +}
-> +
+>   block/blk-ioc.c                | 2 +-
+>   fs/namespace.c                 | 2 +-
+>   include/linux/cgroup.h         | 4 ++--
+>   include/linux/cred.h           | 2 +-
+>   include/linux/iocontext.h      | 6 +++---
+>   include/linux/ipc_namespace.h  | 4 ++--
+>   include/linux/lsm_hook_defs.h  | 2 +-
+>   include/linux/mnt_namespace.h  | 2 +-
+>   include/linux/nsproxy.h        | 2 +-
+>   include/linux/pid_namespace.h  | 4 ++--
+>   include/linux/rseq.h           | 4 ++--
+>   include/linux/sched/task.h     | 2 +-
+>   include/linux/security.h       | 4 ++--
+>   include/linux/sem.h            | 4 ++--
+>   include/linux/time_namespace.h | 4 ++--
+>   include/linux/uprobes.h        | 4 ++--
+>   include/linux/user_events.h    | 4 ++--
+>   include/linux/utsname.h        | 4 ++--
+>   include/net/net_namespace.h    | 4 ++--
+>   include/trace/events/task.h    | 6 +++---
+>   ipc/namespace.c                | 2 +-
+>   ipc/sem.c                      | 2 +-
+>   kernel/cgroup/namespace.c      | 2 +-
+>   kernel/cred.c                  | 2 +-
+>   kernel/events/uprobes.c        | 2 +-
+>   kernel/fork.c                  | 8 ++++----
+>   kernel/nsproxy.c               | 4 ++--
+>   kernel/pid_namespace.c         | 2 +-
+>   kernel/sched/core.c            | 4 ++--
+>   kernel/sched/fair.c            | 2 +-
+>   kernel/sched/sched.h           | 4 ++--
+>   kernel/time/namespace.c        | 2 +-
+>   kernel/utsname.c               | 2 +-
+>   net/core/net_namespace.c       | 2 +-
+>   security/apparmor/lsm.c        | 2 +-
+>   security/security.c            | 2 +-
+>   security/selinux/hooks.c       | 2 +-
+>   security/tomoyo/tomoyo.c       | 2 +-
+>   38 files changed, 59 insertions(+), 59 deletions(-)
+> 
+> diff --git a/block/blk-ioc.c b/block/blk-ioc.c
+> index 9fda3906e5f5..d15918d7fabb 100644
+> --- a/block/blk-ioc.c
 
-What are the benefits of initializing the iommu-pmu driver in the iommu driver? 
+(adjust To: list)
 
-It might be better for the RISC-V IOMMU PMU driver to be loaded as a separate module, as this would allow greater flexibility since different vendors may need to add custom events.
+Hopefully we caught most of them. The ones not called "clone_flags" are 
+a bit nasty.
 
-Also, I'm not quite clear on how custom events should be added if the RISC-V iommu-pmu is placed within the iommu driver.
+We could have split of some changes (e.g., trace event), but likely not 
+worth  it.
 
+Thanks!
 
-Best regards,
-Liqiang
+Acked-by: David Hildenbrand <david@redhat.com>
+
+-- 
+Cheers
+
+David / dhildenb
 
 
 _______________________________________________
