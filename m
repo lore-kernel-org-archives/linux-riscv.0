@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA34CA0FFD
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 08:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D6BACA0FFF
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 08:01:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OuNN9/5Jp9D1G2LeLNWwusjgh7esI+bv3nPgDxHweKQ=; b=z6G04yi3zyllY9
-	a0yjP/K62HRle8/Gr69+G9HwllEtYDSgPFojdOK6A5BgDW2pOueqepcZ1cebgNkfLrdtGeKDhufJn
-	/G+ZFkSQMb/xWtjHFCd6uOQOmXvsJXCmRxwmIFdrwgtHuofD0Cv/sdHYgkWeVpIvVIIxmXo/Ysr8N
-	4CEVlbVj1j3/YoGYYBBywzio3fNUfY+FRezxiQ6Hm4rk0tAq8poScb07obcXUym4OBtHNhTKJEQFm
-	+ujKAhQJtm6BsUfQt5i2jvexApbGvuSnH8hLaRJGfFtkBJ/2Xds987qWdnEVMqm+2v7++VdOwGOJY
-	LYZRx577se4uTg/waMhA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qO7x+bFmwNf0sx3+TFqDivumiV6USuSQ8KOOwx/lKXk=; b=kddeC68Rb77HlL
+	XcnvLWOsrphMKFoVUUM14OH8q5nF1HxtVHyGiKUowwSvyAz7O8dMjZ27556MYfyTL5Gmz1wvZCPvp
+	oxI1MUckJHnAcMehTNMS35Slcjcvt0JJjQLJFHRFe6uKXtTvHpnQqaPgvxBL8PQ7xkN+xxjG2Igb6
+	vmH+BKzKusg/IB0wFyCERTiXB+Io0bpO45nwQ5mHu5K2AHCOcy8XfhepjG2EPJynpvBn3b4dqxFNc
+	IuLW4aVG9rOGlghNqOWoE/sLLAeZqJAl8soC/JT2NgMolEkWbSlP5KE7lD+5X+1WWPVehZlHuVAQZ
+	nLuC8jNUnysOaTGtKo5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uszU3-0000000BVwd-2RJg;
-	Mon, 01 Sep 2025 08:01:47 +0000
+	id 1uszU7-0000000BW1E-3LVh;
+	Mon, 01 Sep 2025 08:01:51 +0000
 Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usz58-0000000BSHE-3omO;
-	Mon, 01 Sep 2025 07:36:03 +0000
-Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-2445826fd9dso49031965ad.3;
-        Mon, 01 Sep 2025 00:36:01 -0700 (PDT)
+	id 1usz5S-0000000BSMI-1M66;
+	Mon, 01 Sep 2025 07:36:23 +0000
+Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-24457f581aeso36687675ad.0;
+        Mon, 01 Sep 2025 00:36:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756712161; x=1757316961; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=L0ePC0WzColXkaFbBrk+Z/IecQrL5Wt4AmBIdBx+2Qg=;
-        b=DaiW8EXkyFByZhVcthX1D8Lg2t3Ko8gaBs6Bz7txOLBYdylFqA/W8z+uzjYjzJ4hxH
-         who45lb/EQs84SxWTgDrjle9rcRTx2waw19KDopQmYo4RoN4JSMv5szKewXMcE/9qB7y
-         S9WUUe4WCLKCTfIbqEeXCjIkX6OkAvzQAZm+FpEVI85CXIN212rIFXr2Rk7RAT+H9TfG
-         CuG+cMMglwLmGQ8Bq+5/IiAu8rasTBs4prXUMYipM6CtlwDfEn/vmKFoOStvq67128DU
-         aUwO1FuoM6BA9AoNIdLoVun4d1cGX9orfPcH4RooaoWq19Nq5RznPcB1hpq5tu7mqiSt
-         MzEg==
+        d=gmail.com; s=20230601; t=1756712182; x=1757316982; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lI7sqxzwAb6+8qpfDyLKKtJ7Me1UGv0S+1RIHhygZjU=;
+        b=V4wpFG/jCY9ceMxQiFSkHGtDsBgKs1/gyqCR+9w4gj1sZh9JOb2t8wvDK2Lt6l12sh
+         hhsCKGOanELBqvuNPcPa8q3beAHRkGFcm74KuSSkC/BSwp5imn0Unl2ioWW9wPTXYIiQ
+         SKqbbFcDd1fbyHCz21nfDI1zNV7QNxeyJyiO8OtnKeGwjv3lMpax5bridys6PEm1Pye6
+         zjDM8FDIxkJZ+2kpoZwGYX6KjVjaADsCx7xNRy8/gpPbD9MAwiY62Zxvb982uqcBM+fB
+         waLhaU+1+Ay+GaYPV1XvydvqTj2nAuDh2jJa+V59ffViJdAf+QO2aY/EFGTBUO3XPqE7
+         IsqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756712161; x=1757316961;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=L0ePC0WzColXkaFbBrk+Z/IecQrL5Wt4AmBIdBx+2Qg=;
-        b=HEmJpvj/9gHWMJtm+81qPdyZRPS7sT3B/56ogFnDVJdtAmzVxSdz7fQzgBTkX02qaC
-         X0voTqS3crpUaj3WviBcrh7Z4VlfshSC69M4lbGIspXp1aYDs+happf2BMJqgY6EqwZz
-         TzanOYjKSlIqeBkQ9tsmKdq8NmBeVcgJHSdVvLanF+6T7t5zyFdTAgEEgyn9027GmsqB
-         wMheZ2U5cppgOhNhEwweHgKN9uBByd7RzMgd4EnloLJxcgIU3e5BQhJdXELib6SZJBKd
-         H4A0L1bAQ3v88bsmFiBYChCcm3JliF1I1oBt+lzdbZrUHUimMdSz2Ft6cUSOkJqrH9Ri
-         6n6g==
-X-Forwarded-Encrypted: i=1; AJvYcCXRcSORURwze9k2iepfvO9gctfSSlXr+mUfenouaRQQPNPusW/4JF70S9QpCk/UZX30cN6kYyRTxtw=@lists.infradead.org, AJvYcCXa/ThTms8TCLGbB/7oENSFhHqT7ThHRkV08KBduNQ6jYGIjGwlTAQ5iQZ2xIVbUfb1UliPQD1X+pFxXKQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxfetwf/Yrcvf27jeK+eSpCrLfpPudjRsCME7jTvJChtYeu41/R
-	SYW4nSoWGCVccZxcN0bvUvbemlyx0AsEdD8ROvR4k/9MZjA0RU78GswA
-X-Gm-Gg: ASbGncvv8PcIeq/gkfejXLfOt9b1htiOD4pXFwIl5Rjymah1a6rEwlgsaxNteMFqQTH
-	8bSzqL8LknNPgVzGKJSxQImm5trVxxBtfhaOGGNH5KPhQaWJENzBvwfH3B6XahaQSNp6JXm8JNj
-	uDqT9Y4Wo8xDz97KWugzUv56ZOsLXOYlRzAQmmvhoCa2Dn5e7RjXJsB8pikS3pdhLrMNRU/NHij
-	MhW2HyJKhllTUyezqMn+XAOWRDYp05ISGkLKAfeRrSWKv8DlKxqOhVisJySe7udQ3M20lxRzDDt
-	OWy3UtyFFT3QT8dnm6kOKJMxClBUu15VqkoYRbQ2HoygCp72sXuwGlrlpO7rFovIKg6L8cl5AVL
-	95gixH3B31Jg2BL6PVfs9yOalzfZSxQw=
-X-Google-Smtp-Source: AGHT+IHCC7OUu97GWMAOQYi+hndVB3qfPEyGEt/pCflpkaED9w8c03pQ0ntMhKZbeOTUw6gDQtgfvw==
-X-Received: by 2002:a17:903:2c06:b0:246:cfc5:1b61 with SMTP id d9443c01a7336-24944b15b97mr87894275ad.55.1756712161144;
-        Mon, 01 Sep 2025 00:36:01 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756712182; x=1757316982;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lI7sqxzwAb6+8qpfDyLKKtJ7Me1UGv0S+1RIHhygZjU=;
+        b=WpWOP2OwCV56jx50wVQKTUA8uxyBixtwKIayhON7+B7c/iKq8nBmA9ozd3g3fw5Lza
+         vo6IiPt4hflWp7hYPjJpq4mu3iYiQ6+XK2M4SZHzvCmo9hfyU7CFbZlgYvAdyI1Q78Dt
+         XYV5pfyK53a/ztbAZYmkz1RsalmeyUwQIrJNenihmzPTzCVg2l3RT6PHuArdtG8UvUEh
+         GR+PrVNLJk5DAxQFadyb1Rw+cxEBe75qg5S+DS9kijWV8PptQeDvh5ckIDhpTuy4wHPU
+         NyFtxckRTNMIPgWq4SIO4pDVvw86UFl2ilBeeA/gnIsixb0TrAqfxOi+TsW00b7XSv11
+         sbKA==
+X-Forwarded-Encrypted: i=1; AJvYcCUTkIauBZRZ5WiLoM0HQ4s1/5ZuW7J7l7vXDXaN26nQVH5Wu8Onl9S22DG9rjUqaB6t/EbOPsZdK0839dA=@lists.infradead.org, AJvYcCUlWTrsrQyZHhUUG8mqrRvW4dgfpOTFTkB0BMu1kulwkuNhQAVSxkHZh+DDj8d6+lXHS6WLsJkSEPg=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBUjyEWxeAMm/Fyske22+wbeDsDdLyM8kuGaev1NPEusKo9GBj
+	m77s0rqtWUBD/OhVUsigfe1mpvRNbb0wCei99Z3Dhyb5LffssJGldJcL
+X-Gm-Gg: ASbGncvGhLJ/0/3U5u5+8PYbJxhwO0Ik0DjLfdMO2cKMbHgCi4s5S8kt7xxaYla08Ux
+	r05q1Ed+gs+7KL02MyIXS7hjC/NYLbQ2wFFuntkN4fz7jsPyQohypz6PFIMlfHFYbBI1jqrijTT
+	7uVXmIVnfGtWvCO+WQqlXuIRfnL2laYo23TFCZLDGDGVmrY+oTlr0oOuEzGlfh33yVb2Edd7F8m
+	1J6O+seE41xlyKBwqBR5wB21p7SVSkIRvvmG9/jAAbGXvjos96f/4YNKunTbHbS3qmDAcER6qLY
+	pgwEGt38dDOkzWpq7rpVnAde7AWs2+hs5U9NGZ675k4UnXPRM0YWXy9IBMRHv50qDlU35hnJvJt
+	eV94Gaw8Xh/Ktn91s7HmS
+X-Google-Smtp-Source: AGHT+IH+dCQY4Kqqb6suPsSi0/Emx7fwwdzdMp+EJ6/IyH5dxTgGWWtb0vd7ZMANbaRLjtbZGTJDPw==
+X-Received: by 2002:a17:902:ef52:b0:248:dddf:e3f0 with SMTP id d9443c01a7336-24944a4faf4mr88999825ad.19.1756712181651;
+        Mon, 01 Sep 2025 00:36:21 -0700 (PDT)
 Received: from days-ASUSLaptop.lan ([2406:8dc0:6008:46::])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24903737b05sm95867045ad.49.2025.09.01.00.35.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24903737b05sm95867045ad.49.2025.09.01.00.36.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 00:36:00 -0700 (PDT)
+        Mon, 01 Sep 2025 00:36:21 -0700 (PDT)
 From: dayss1224@gmail.com
 To: pbonzini@redhat.com,
 	shuah@kernel.org,
@@ -81,15 +82,18 @@ Cc: atish.patra@linux.dev,
 	linux-kernel@vger.kernel.org,
 	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
+	Quan Zhou <zhouquan@iscas.ac.cn>,
 	Dong Yang <dayss1224@gmail.com>
-Subject: [PATCH v3 0/3] KVM: riscv: selftests: Enable supported test cases
-Date: Mon,  1 Sep 2025 15:35:48 +0800
-Message-Id: <cover.1756710918.git.dayss1224@gmail.com>
+Subject: [PATCH v3 3/3] KVM: riscv: selftests: Add common supported test cases
+Date: Mon,  1 Sep 2025 15:35:51 +0800
+Message-Id: <c447f18115b27562cd65863645e41a5ef89bd37b.1756710918.git.dayss1224@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1756710918.git.dayss1224@gmail.com>
+References: <cover.1756710918.git.dayss1224@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_003602_948771_1B5CD68C 
-X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-CacheID: sfid-20250901_003622_360170_9CE2EF93 
+X-CRM114-Status: UNSURE (   7.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,35 +111,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Dong Yang <dayss1224@gmail.com>
+From: Quan Zhou <zhouquan@iscas.ac.cn>
 
-Add supported KVM test cases and fix the compilation dependencies.
+Some common KVM test cases are supported on riscv now as following:
+
+    access_tracking_perf_test
+    dirty_log_perf_test
+    memslot_modification_stress_test
+    memslot_perf_test
+    mmu_stress_test
+    rseq_test
+
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Dong Yang <dayss1224@gmail.com>
 ---
-Changes in v3:
-- Reorder patches to fix build dependencies
-- Sort common supported test cases alphabetically
-- Move ucall_common.h include from common header to specific source files
+ tools/testing/selftests/kvm/Makefile.kvm | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Changes in v2:
-- Delete some repeat KVM test cases on riscv
-- Add missing headers to fix the build for new RISC-V KVM selftests
-
-Dong Yang (1):
-  KVM: riscv: selftests: Add missing headers for new testcases
-
-Quan Zhou (2):
-  KVM: riscv: selftests: Use the existing RISCV_FENCE macro in
-    `rseq-riscv.h`
-  KVM: riscv: selftests: Add common supported test cases
-
- tools/testing/selftests/kvm/Makefile.kvm                    | 6 ++++++
- tools/testing/selftests/kvm/access_tracking_perf_test.c     | 1 +
- tools/testing/selftests/kvm/include/riscv/processor.h       | 1 +
- .../selftests/kvm/memslot_modification_stress_test.c        | 1 +
- tools/testing/selftests/kvm/memslot_perf_test.c             | 1 +
- tools/testing/selftests/rseq/rseq-riscv.h                   | 3 +--
- 6 files changed, 11 insertions(+), 2 deletions(-)
-
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index f6fe7a07a0a2..88613a851cc1 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -195,9 +195,15 @@ TEST_GEN_PROGS_s390 += rseq_test
+ TEST_GEN_PROGS_riscv = $(TEST_GEN_PROGS_COMMON)
+ TEST_GEN_PROGS_riscv += riscv/sbi_pmu_test
+ TEST_GEN_PROGS_riscv += riscv/ebreak_test
++TEST_GEN_PROGS_riscv += access_tracking_perf_test
+ TEST_GEN_PROGS_riscv += arch_timer
+ TEST_GEN_PROGS_riscv += coalesced_io_test
++TEST_GEN_PROGS_riscv += dirty_log_perf_test
+ TEST_GEN_PROGS_riscv += get-reg-list
++TEST_GEN_PROGS_riscv += memslot_modification_stress_test
++TEST_GEN_PROGS_riscv += memslot_perf_test
++TEST_GEN_PROGS_riscv += mmu_stress_test
++TEST_GEN_PROGS_riscv += rseq_test
+ TEST_GEN_PROGS_riscv += steal_time
+ 
+ TEST_GEN_PROGS_loongarch += coalesced_io_test
 -- 
 2.34.1
 
