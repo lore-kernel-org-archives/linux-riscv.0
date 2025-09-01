@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 256F0CA1002
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 23:18:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49EEDCA100C
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 23:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xz+Si38hwajGqDkpYGJXueU+2rVz0IIRqCbkoXK/GtQ=; b=XuseV17p+8lluf+AGnkN9kqTKD
-	rICHM6jOeh8N6mwngBBwDp3kYYzJPB2VEfMwSZLFq66wTGEtT2qKg6wlxYW78aGcXxc8hhYA4NtO/
-	82dCxhPheqMbZLEz5RyIDdLkAlvcs5c9g+46IyiuVlrgIXMCya0lpP0WhhhU2GWTEdBT/lPXUJgFr
-	YAFqNjKZwp65h2NKg7CT5/KSxQX2r2G7djJpzQPnmlMZKTJr0gxFJjn1wS0N7eS1iCs27XmzbmiAN
-	w4iEoHnWe9zFJa2OPqWSaXFFqqCcBYhuPzIg7ht5a9RX/xa9eX0t1fIvyTTjDcLPss44EeqhJANSQ
-	J+U2Yd1A==;
+	bh=tfke6hRmiDYsj+ROouCCb6S2SVudBFIm0UAPW1X+k/M=; b=epfj0zlPgqJ005//6va96kLiKy
+	Er8G/tLJJv1BtGwiVrkZwGHh6KZ4Thxz0I8VMPU9xqfPXMVgDU8socWyXexawxQziBVhyNbilh7mw
+	+zb7h7IfpyM2lW5P9Y1DFQjIt3wf/hn1ILE8gPUi+XAWptNPQKMsTTdMrChOEHWHAQsyRJyV0WNm9
+	KF50NvobiUTuck4F0uLGfE74q/m2edScM9Sg3iXmGoHwQHzbwq9d6+WlxaNliwfH3WCqva5u8+AjQ
+	HJkPGmR22dyqfcjZLQ0MGgSu9JEQ04MjBkTdYusxcXkG3MLcKmfzt7OALg87wcMnizl0ZwRWCTOuy
+	nP04h4+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDn5-0000000EHw5-2Z4Z;
-	Mon, 01 Sep 2025 23:18:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1utDn9-0000000EI1U-3wSg;
+	Mon, 01 Sep 2025 23:18:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut8t1-0000000DWQs-2ZAz
+	id 1ut9Wb-0000000DbFn-2sO1
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 18:04:11 +0000
+	Mon, 01 Sep 2025 18:45:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D6C660008;
-	Mon,  1 Sep 2025 18:04:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D458BC4CEF0;
-	Mon,  1 Sep 2025 18:04:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B190600BB;
+	Mon,  1 Sep 2025 18:45:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACAB8C4CEF1;
+	Mon,  1 Sep 2025 18:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756749850;
-	bh=zwinHe94I7iecJbYreV9AeCekiR8vSs0p/EGqzcbmSM=;
+	s=k20201202; t=1756752304;
+	bh=1YzNMjZhCaQIrNSILETW5/3BwbAqQWDiIS97qg9unZo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W8vBZal7hXzzlZUAWTMkKxHucjp2VdjAU+JtfizvGhtZGZFphi7ziCNUwK4f/Xwcr
-	 votHbQnovjd3W5nZyFZSa11jbxO1TWSILI7+Wg0X132JpN8beB/UG6RoGHbEJdR+ay
-	 pNax/0uPNDbV9Bb0kDP+gy6It3z583Z80+XnQO0pOlDQ3dqRsFC3xhyzh0wXc/0pnh
-	 RnqEqPYR5LG3JV0961Y3xmkCEkgKxvVHFxr8XwLFI+zPXkRBcycLEmb7PVmkvU9/Q1
-	 CaXyG+ZbxEZY+OskNmXge1r/IZnGmZQKWdtIfJNhoz4H2MFukovLQ203QXTu5vZePs
-	 mPqM4a930966g==
-Date: Mon, 1 Sep 2025 19:04:04 +0100
+	b=oL/2IfJjMvOf9hTAxls37Ft8Y2ur6mM+BzZoaakI2vPs3ciMLlU3/jRe//wfy07C9
+	 6s3TO1SxB6u6Gi63CHjkFbRoVd+Evo/VxFqPRAIj3XF8aMhww+cbyn+GHJVsZt0DsA
+	 ToPS1G147E+4WKaURLiy2th8hnZtAF7zMm/8/43Fw88P5npLandSfw3+xLiuiJQ3Xs
+	 ZJBRp5Pjy9/4yJKkCFm1iJJ+FaMkAB2Q0Xe86moJ/0DvuIsSBJxflBK1EHSahw+dM+
+	 acRVjW17njVaRjM6i402t0bMIbbY95A8ecV4vBHpStnAS65n4NdxOTqssMoYokVjXV
+	 tnHHGTWt88peg==
+Date: Mon, 1 Sep 2025 19:44:59 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Asuna <spriteovo@gmail.com>
-Cc: Jason Montleon <jmontleo@redhat.com>, Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: RISC-V: Re-enable GCC+Rust builds
-Message-ID: <20250901-unseemly-blimp-a74e3c77e780@spud>
-References: <68496eed-b5a4-4739-8d84-dcc428a08e20@gmail.com>
- <20250830-cheesy-prone-ee5fae406c22@spud>
- <20250901-lasso-kabob-de32b8fcede8@spud>
- <b1734c45-42ec-46c7-9d4c-2677044aacab@gmail.com>
+To: Xu Lu <luxu.kernel@bytedance.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, ajones@ventanamicro.com, brs@rivosinc.com,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, apw@canonical.com, joe@perches.com
+Subject: Re: [PATCH 2/4] dt-bindings: riscv: Add Zalasr ISA extension
+ description
+Message-ID: <20250901-caravan-traps-9fb18046b458@spud>
+References: <20250901113022.3812-1-luxu.kernel@bytedance.com>
+ <20250901113022.3812-3-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
-In-Reply-To: <b1734c45-42ec-46c7-9d4c-2677044aacab@gmail.com>
+In-Reply-To: <20250901113022.3812-3-luxu.kernel@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,85 +68,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1292557205266438722=="
+Content-Type: multipart/mixed; boundary="===============8698758972910098748=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1292557205266438722==
+--===============8698758972910098748==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="AkOtiGMp+3MnnVkq"
+	protocol="application/pgp-signature"; boundary="AL80nCar+VMsEAi6"
 Content-Disposition: inline
 
 
---AkOtiGMp+3MnnVkq
+--AL80nCar+VMsEAi6
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Sep 02, 2025 at 01:19:42AM +0800, Asuna wrote:
-> > For example, there's a check in the riscv Kconfig menu to see if
-> > stack-protector-guard=3Dtls can be used via a cc-option check. If that
-> > check passes with gcc as the compiler that option will be passed to the
-> > rust side of the build, where llvm might not support it.
-> If I understand correctly, the `-mstack-protector-guard` option is already
-> always filtered out by `bindgen_skip_c_flags` in `rust/Makefile`, regardl=
-ess
-> of architecture. Therefore, we don't need to do anything more, right?
-
-That particular one might be a problem not because of
--mstack-protector-guard itself, but rather three options get added at
-once:
-	$(eval KBUILD_CFLAGS +=3D -mstack-protector-guard=3Dtls		  \
-				-mstack-protector-guard-reg=3Dtp		  \
-				-mstack-protector-guard-offset=3D$(shell	  \
-			awk '{if ($$2 =3D=3D "TSK_STACK_CANARY") print $$3;}' \
-				$(objtree)/include/generated/asm-offsets.h))
-and the other ones might be responsible for the error.
-Similarly, something like -Wno-unterminated-string-initialization could
-cause a problem if gcc supports it but not libclang.
-
-I was doing some debugging today of another problem, and was able to
-trigger both of those errors with llvm-21 and libclang-19, so they
-definitely have the potential to be problems if there's a mismatch - I
-just don't know how many of those issues affect a mixed build with rustc
-and the gnu tools, mixing llvm and libclang versions already produces
-a warning about it being a Bad IdeaTM (a warning that I think should be
-an error).
-
-> > Similarly, turning on an extension like Zacas via a cc-option check
-> > could pass for gcc but not be usable when passed to the rust side,
-> > causing errors.
-> That makes sense. I might need to check the version of libclang for each
-> extension that passes the cc-option check for GCC to ensure it supports
-> them.
+On Mon, Sep 01, 2025 at 07:30:20PM +0800, Xu Lu wrote:
+> Add description for the Zalasr ISA extension
 >=20
-> > These sorts of things should be prevented via Kconfig, not show up as
-> > confusing build errors.
-> I'm working on a patch, and intend to output an error message in
-> `arch/riscv/Makefile` then exit 1 when detecting an incompatible
-> gcc+libclang mix in use.
+> Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+> ---
+>  Documentation/devicetree/bindings/riscv/extensions.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index ede6a58ccf534..6b8c21807a2da 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -248,6 +248,11 @@ properties:
+>              ratified at commit e87412e621f1 ("integrate Zaamo and Zalrsc=
+ text
+>              (#1304)") of the unprivileged ISA specification.
+> =20
+> +        - const: zalasr
 
-I think you're mostly better off catching that sort of thing in Kconfig,
-where possible and just make incompatible mixes invalid. What's actually
-incompatible is likely going to depend heavily on what options are
-enabled.
+This is out of order, no? zalrsc would come after zalasr.
 
---AkOtiGMp+3MnnVkq
+> +          description: |
+> +            The standard Zalasr extension for load-acquire/store-release=
+ as frozen
+> +            at commit 194f0094 ("Version 0.9 for freeze") of riscv-zalas=
+r.
+> +
+>          - const: zawrs
+>            description: |
+>              The Zawrs extension for entering a low-power state or for tr=
+apping
+> --=20
+> 2.20.1
+>=20
+
+--AL80nCar+VMsEAi6
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLXgFAAKCRB4tDGHoIJi
-0vCjAP9XpUu0gZJFGClhFW08NaPGYzrYfD/xehn63LD+qZ9tGAD+MdqLLUS+oZBD
-s1T033qGogkbVo+ABtc/Vm35qcP+EQ4=
-=IQ1t
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLXpqwAKCRB4tDGHoIJi
+0q1rAQDS6x9A+kKZpKJrIw66WhCpCrIK6vSliB+s3BMy2XB/bQEA+HyP69er2SfV
+sZscX5NUIunelfCqwxnNr3TQUCvIFwc=
+=w3HQ
 -----END PGP SIGNATURE-----
 
---AkOtiGMp+3MnnVkq--
+--AL80nCar+VMsEAi6--
 
 
---===============1292557205266438722==
+--===============8698758972910098748==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -166,5 +145,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1292557205266438722==--
+--===============8698758972910098748==--
 
