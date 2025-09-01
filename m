@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D5FCA0FFD
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 12:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C205BCA1006
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 13:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
-	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8YrDin+lhiJi2fiFwz8CuNX1qYwoFC6hQ4fhrgVAZMI=; b=GlG03Nf24+N5bl
-	LK4GgSRXLa4nuWuHCBmzWcDmhKploseRCrZcDnpPZ96qnFonWsOLY3rfzg+F7eg+TthLE3Zt5WHGJ
-	2KXtePlxAojPc1Sg4nVv3tVBI7Gbckkok2GWfdf9P40FTI69PjUFXAR+M3tY1eixPlgZmq7wxOet7
-	MUkLuse71mXC68kNnNxF2kKiY+u5xO8z+TU+1mp6VYv/kLdki11jMdVLK+aC2tp0SQZvDlcfVS3YE
-	ldrC57NWsFUaVF8YY8sgO+OdAxCzFRjor3m44WKWWAl1C5gFa+VX0uCeDYs65F5a7SCsb2q+i+d00
-	WWftxFC1Tqd+IIeVfvlw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=U1UM1wIUZy6KanuR/RBZslyEhkgEZq68RBYl/UWtmiI=; b=XV3VCaSQ33Cfz1
+	U676NFuDrRAHz6/+XXxyu7cnpqz3xfpluXg9R/jjXzvvnXyToGMaJ49BUjfXgem8IojHVd1lGJ0xl
+	MJsRmO4OWRiaChPXAUt9mfThEKcu3CBcs1i3p14cfvOWRqrklocXiwxXWlmC63DhykC5WATVJ0LNB
+	gnSOmDcYhVsDNdgl0Pv+ShirnZQ67J/WbESc2ZPqsMlQEXDAmKvAFJmyvLTgh6qi+GiGkIG6TAjiE
+	TTcMF7ieoiAZhAc63qqhzKTQkLB0mGt/TGy6k8u/mzHGikUciC97oORmJyRr3qbmhHDXsV0JpBX/y
+	V6w9S5pK4k0WpqWqVbSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3pE-0000000CYPH-2nuP;
-	Mon, 01 Sep 2025 12:39:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ut4DU-0000000CciR-0kP4;
+	Mon, 01 Sep 2025 13:05:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut1wE-0000000BvqD-1oIY
+	id 1ut2LU-0000000BzUN-1FYt
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 10:39:03 +0000
+	Mon, 01 Sep 2025 11:05:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B180642B5E;
-	Mon,  1 Sep 2025 10:39:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 895A3C4CEF0;
-	Mon,  1 Sep 2025 10:39:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C291F41A4A;
+	Mon,  1 Sep 2025 11:05:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3668CC4CEF0;
+	Mon,  1 Sep 2025 11:05:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756723141;
-	bh=8W/KvuCWW+VFgsRBhS/FkFyPyLH/40RCuzTQ8qOpBOw=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=SrwD6VPLeE/ueJkU+9lgvCJ25j9Vg1ZBq1gwhit32inttqtAr66hopVvz1lxFcGbe
-	 WgnkrQmdliL5pXezv7A41GXEjVIvtIsi3/OFZFTLBypb3jHiATSarKz7AYrOfhAc2j
-	 R02qvVO+hEuKks1wldn0ZS89FoNGmpxtge9oU9gTpkf7p/fHP/ZB0SqWcIk3KRSPSh
-	 5rxMkDpmWLHFtu1uDasxVXw+Tr2Js3vdHMAvt5hAQNMg8oUA7KObnD+EBsMLF6pput
-	 sg/Ca2HAuT0KTCpYs7RFLuOK1oy5D4xXRt0iGR1j/rC3P38TL8wfAU+rczIUigSzz8
-	 SOq1UX9UUBtXg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 77B87CA1002;
-	Mon,  1 Sep 2025 10:39:01 +0000 (UTC)
-From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Mon, 01 Sep 2025 12:38:14 +0200
-Subject: [PATCH v3] riscv: Use Zalrsc extension to implement atomic
- functions
+	s=k20201202; t=1756724707;
+	bh=SZ65yBZC7lEGa0Ak3OsvShyUfq6wluR5gsaWqbe1c/Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=c+d3JVqRFLTcr+GcqArPycExsPnuBk7OOd/FD14wcF/IffTcuAtRVm9C3zk9knRDX
+	 es4eAOokPlSO0PwB8ptjiy3Y6+oxDrruSPXISGnuSc534SCANX5XMgsArmNOXG87Js
+	 3pQCWtAirCdnnuZHagDl3dEuOH5DMbNtpeeFsm2otXRrYl9te1ES4zD9LL5KPc1EvE
+	 HeBTmVMsvcmfiIu5zQlJW3wOgBJTakB26RwvEXNzMNm5zOpR8m3XukYahMD3dG4AL9
+	 XYF8G9CMC+puk3/XZTAqNsR1smmwQndbF3FYRDJAVlIA1DL6+6wqyGIHQCP6AYeD6M
+	 e0RNSa2ubPTQA==
+From: Conor Dooley <conor@kernel.org>
+To: sboyd@kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Gabriel FERNANDEZ <gabriel.fernandez@foss.st.com>
+Subject: [PATCH v4 3/9] soc: microchip: add mfd drivers for two syscon regions on PolarFire SoC
+Date: Mon,  1 Sep 2025 12:04:15 +0100
+Message-ID: <20250901-contempt-smelting-04aa3b08e112@spud>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250901-rigid-sacrifice-0039c6e6234e@spud>
+References: <20250901-rigid-sacrifice-0039c6e6234e@spud>
 MIME-Version: 1.0
-Message-Id: <20250901-p8700-zalrsc-v3-1-ec64fabbe093@htecgroup.com>
-X-B4-Tracking: v=1; b=H4sIAJV3tWgC/zXMQQ6CMBCF4auQWTuklEorK+9hXFSYwkSgZGqMk
- XB3q4mrl2/x/g0SCVOCtthA6MmJ45JRHwroRr8MhNxng1b6qGxlcHVWKXz7SVKHoXYncyOjetV
- AvqxCgV+/3OWaHSTO+BiF/D9iKp1D7rtl3VhtsUIvfPdTPA+z56ns4gz7/gEadHmnmQAAAA==
-X-Change-ID: 20250714-p8700-zalrsc-f3894be40d06
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Will Deacon <will@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Boqun Feng <boqun.feng@gmail.com>, 
- Mark Rutland <mark.rutland@arm.com>, Yury Norov <yury.norov@gmail.com>, 
- Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
- Charlie Jenkins <charlie@rivosinc.com>, Conor Dooley <conor@kernel.org>, 
- Jessica Clarke <jrtc27@jrtc27.com>, 
- Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Chao-ying Fu <cfu@mips.com>, Aleksandar Rikalo <arikalo@gmail.com>, 
- Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756723140; l=19816;
- i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=M7fbSkXz/yn8nlKypMSIOu5iE6Pv03bLnBbMzMfzAn4=;
- b=Xzxy18LcxUl9LRpvzfhczHyBP1V3j1p054uwFTUrqJlvA4QTJA6wtlWhKy1Eb5jh/jl6FtBgz
- J0VqM1BC+uMDZFsHm2vhqjXZy/E26iJVgU2gVVFKfITmKKYN6YqUalB
-X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
- pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
-X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
- with auth_id=476
-X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4881; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=bgb+aKhoXPSoMWSoLjwng00La7ffwhWTF00zqjwBdl8=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDBlba9fO7gh3ddph23c3TfhF/LMFdlOnRJ/9HtMfKXfmQ 6eH/H2ujlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzkfzMjw6mlej66P6O5vr59 MUexuur+synHfecu8biXvJNtkdNj3euMDKfzpZj5JictKlt3JN3k4ce8fwk3lDUi2cQtDj+6evp hGhsA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_033902_528668_EA70537F 
-X-CRM114-Status: GOOD (  15.72  )
+X-CRM114-CacheID: sfid-20250901_040508_380064_47B255B0 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,590 +85,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: aleksa.paunovic@htecgroup.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chao-ying Fu <cfu@mips.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Use only LR/SC instructions to implement atomic functions.
+The control-scb and mss-top-sysreg regions on PolarFire SoC both fulfill
+multiple purposes. The former is used for mailbox functions in addition
+to the temperature & voltage sensor while the latter is used for clocks,
+resets, interrupt muxing and pinctrl.
 
-Add config ERRATA_MIPS_P8700_AMO_ZALRSC.
-
-Signed-off-by: Chao-ying Fu <cfu@mips.com>
-Signed-off-by: Aleksandar Rikalo <arikalo@gmail.com>
-Co-developed-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-This patch depends on [1], which implements errata support for the MIPS p8700.
+ drivers/soc/microchip/Kconfig               | 13 ++++++
+ drivers/soc/microchip/Makefile              |  1 +
+ drivers/soc/microchip/mpfs-control-scb.c    | 45 +++++++++++++++++++
+ drivers/soc/microchip/mpfs-mss-top-sysreg.c | 48 +++++++++++++++++++++
+ 4 files changed, 107 insertions(+)
+ create mode 100644 drivers/soc/microchip/mpfs-control-scb.c
+ create mode 100644 drivers/soc/microchip/mpfs-mss-top-sysreg.c
 
-Changes in v3:
-- Use alternatives to replace AMO instructions with LR/SC
-- Rebase on Alexandre Ghiti's "for-next" branch.
-- Link to v2: https://lore.kernel.org/linux-riscv/20241225082412.36727-1-arikalo@gmail.com/
-
-[1] https://lore.kernel.org/linux-riscv/20250724-p8700-pause-v5-0-a6cbbe1c3412@htecgroup.com/
----
- arch/riscv/Kconfig.errata                    |  11 ++
- arch/riscv/errata/mips/errata.c              |  13 +-
- arch/riscv/include/asm/atomic.h              |  29 ++--
- arch/riscv/include/asm/bitops.h              |  28 ++--
- arch/riscv/include/asm/cmpxchg.h             |   9 +-
- arch/riscv/include/asm/errata_list.h         | 215 +++++++++++++++++++++++++++
- arch/riscv/include/asm/errata_list_vendors.h |   3 +-
- arch/riscv/include/asm/futex.h               |  41 ++---
- arch/riscv/kernel/entry.S                    |  10 +-
- 9 files changed, 291 insertions(+), 68 deletions(-)
-
-diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-index ac64123433e717d3cd4a6d107f1328d27297f9cc..d0bbdbc4fb753e83432c094d58075a3ec17bb43d 100644
---- a/arch/riscv/Kconfig.errata
-+++ b/arch/riscv/Kconfig.errata
-@@ -44,6 +44,17 @@ config ERRATA_MIPS_P8700_PAUSE_OPCODE
+diff --git a/drivers/soc/microchip/Kconfig b/drivers/soc/microchip/Kconfig
+index 19f4b576f822b..31d188311e05f 100644
+--- a/drivers/soc/microchip/Kconfig
++++ b/drivers/soc/microchip/Kconfig
+@@ -9,3 +9,16 @@ config POLARFIRE_SOC_SYS_CTRL
+ 	  module will be called mpfs_system_controller.
  
- 	   If you are not using the P8700 processor, say n.
- 
-+config ERRATA_MIPS_P8700_AMO_ZALRSC
-+	bool "Replace AMO instructions with LR/SC on MIPS P8700"
-+	depends on ERRATA_MIPS && 64BIT
-+	default n
+ 	  If unsure, say N.
++
++config POLARFIRE_SOC_SYSCONS
++	bool "PolarFire SoC (MPFS) syscon drivers"
++	default y
++	depends on ARCH_MICROCHIP
++	select MFD_CORE
 +	help
-+	   The MIPS P8700 does not implement the full A extension,
-+	   implementing only Zalrsc. Enabling this will replace
-+	   all AMO instructions with LR/SC instructions on the P8700.
++	  These drivers add support for the syscons on PolarFire SoC (MPFS).
++	  Without these drivers core parts of the kernel such as clocks
++	  and resets will not function correctly.
 +
-+	   If you are not using the P8700 processor, say n.
++	  If unsure, and on a PolarFire SoC, say y.
 +
- config ERRATA_SIFIVE
- 	bool "SiFive errata"
- 	depends on RISCV_ALTERNATIVE
-diff --git a/arch/riscv/errata/mips/errata.c b/arch/riscv/errata/mips/errata.c
-index e984a8152208c34690f89d8101571b097485c360..08c5efd58bf242d3831957f91f6338ef49f61238 100644
---- a/arch/riscv/errata/mips/errata.c
-+++ b/arch/riscv/errata/mips/errata.c
-@@ -23,13 +23,22 @@ static inline bool errata_probe_pause(void)
- 	return true;
- }
- 
--static u32 mips_errata_probe(void)
-+static inline bool errata_probe_zalrsc(unsigned long archid)
+diff --git a/drivers/soc/microchip/Makefile b/drivers/soc/microchip/Makefile
+index 14489919fe4b3..1a3a1594b089b 100644
+--- a/drivers/soc/microchip/Makefile
++++ b/drivers/soc/microchip/Makefile
+@@ -1 +1,2 @@
+ obj-$(CONFIG_POLARFIRE_SOC_SYS_CTRL)	+= mpfs-sys-controller.o
++obj-$(CONFIG_POLARFIRE_SOC_SYSCONS)	+= mpfs-control-scb.o mpfs-mss-top-sysreg.o
+diff --git a/drivers/soc/microchip/mpfs-control-scb.c b/drivers/soc/microchip/mpfs-control-scb.c
+new file mode 100644
+index 0000000000000..d1a8e79c232e3
+--- /dev/null
++++ b/drivers/soc/microchip/mpfs-control-scb.c
+@@ -0,0 +1,45 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/array_size.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/mfd/core.h>
++#include <linux/mfd/syscon.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++
++static const struct mfd_cell mpfs_control_scb_devs[] = {
++	{ .name = "mpfs-tvs", },
++};
++
++static int mpfs_control_scb_probe(struct platform_device *pdev)
 +{
-+	return archid == 0x8000000000000201;
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	ret = mfd_add_devices(dev, PLATFORM_DEVID_NONE, mpfs_control_scb_devs,
++			      1, NULL, 0, NULL);
++	if (ret)
++		return ret;
++
++	return 0;
 +}
 +
-+static u32 mips_errata_probe(unsigned long archid)
- {
- 	u32 cpu_req_errata = 0;
- 
- 	if (errata_probe_pause())
- 		cpu_req_errata |= BIT(ERRATA_MIPS_P8700_PAUSE_OPCODE);
- 
-+	if (errata_probe_zalrsc(archid))
-+		cpu_req_errata |= BIT(ERRATA_MIPS_P8700_ZALRSC);
++static const struct of_device_id mpfs_control_scb_of_match[] = {
++	{.compatible = "microchip,mpfs-control-scb", },
++	{},
++};
++MODULE_DEVICE_TABLE(of, mpfs_control_scb_of_match);
 +
++static struct platform_driver mpfs_control_scb_driver = {
++	.driver = {
++		.name = "mpfs-control-scb",
++		.of_match_table = mpfs_control_scb_of_match,
++	},
++	.probe = mpfs_control_scb_probe,
++};
++module_platform_driver(mpfs_control_scb_driver);
 +
- 	return cpu_req_errata;
- }
- 
-@@ -38,7 +47,7 @@ void mips_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 			    unsigned int stage)
- {
- 	struct alt_entry *alt;
--	u32 cpu_req_errata = mips_errata_probe();
-+	u32 cpu_req_errata = mips_errata_probe(archid);
- 	u32 tmp;
- 
- 	BUILD_BUG_ON(ERRATA_MIPS_NUMBER >= RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
-diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-index 5b96c2f61adb596caf8ee6355d4ee86dbc19903b..fadfbc30ac1a93786bfd32c3980d256361cc1e95 100644
---- a/arch/riscv/include/asm/atomic.h
-+++ b/arch/riscv/include/asm/atomic.h
-@@ -54,12 +54,9 @@ static __always_inline void arch_atomic64_set(atomic64_t *v, s64 i)
- static __always_inline							\
- void arch_atomic##prefix##_##op(c_type i, atomic##prefix##_t *v)	\
- {									\
--	__asm__ __volatile__ (						\
--		"	amo" #asm_op "." #asm_type " zero, %1, %0"	\
--		: "+A" (v->counter)					\
--		: "r" (I)						\
--		: "memory");						\
--}									\
-+	register __maybe_unused c_type ret, temp;			\
-+	ALT_ATOMIC_OP(asm_op, I, asm_type, v, ret, temp);		\
-+}
- 
- #ifdef CONFIG_GENERIC_ATOMIC64
- #define ATOMIC_OPS(op, asm_op, I)					\
-@@ -89,24 +86,16 @@ static __always_inline							\
- c_type arch_atomic##prefix##_fetch_##op##_relaxed(c_type i,		\
- 					     atomic##prefix##_t *v)	\
- {									\
--	register c_type ret;						\
--	__asm__ __volatile__ (						\
--		"	amo" #asm_op "." #asm_type " %1, %2, %0"	\
--		: "+A" (v->counter), "=r" (ret)				\
--		: "r" (I)						\
--		: "memory");						\
-+	register __maybe_unused c_type ret, temp;			\
-+	ALT_ATOMIC_FETCH_OP_RELAXED(asm_op, I, asm_type, v, ret, temp);	\
- 	return ret;							\
- }									\
- static __always_inline							\
- c_type arch_atomic##prefix##_fetch_##op(c_type i, atomic##prefix##_t *v)	\
--{									\
--	register c_type ret;						\
--	__asm__ __volatile__ (						\
--		"	amo" #asm_op "." #asm_type ".aqrl  %1, %2, %0"	\
--		: "+A" (v->counter), "=r" (ret)				\
--		: "r" (I)						\
--		: "memory");						\
--	return ret;							\
-+{										\
-+	register __maybe_unused c_type ret, temp;				\
-+	ALT_ATOMIC_FETCH_OP(asm_op, I, asm_type, v, ret, temp);			\
-+	return ret;								\
- }
- 
- #define ATOMIC_OP_RETURN(op, asm_op, c_op, I, asm_type, c_type, prefix)	\
-diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
-index d59310f74c2ba70caeb7b9b0e9221882117583f5..02955d3d573d92ffca7beb4b75f039df056cd6ec 100644
---- a/arch/riscv/include/asm/bitops.h
-+++ b/arch/riscv/include/asm/bitops.h
-@@ -187,30 +187,27 @@ static __always_inline int variable_fls(unsigned int x)
- 
- #if (BITS_PER_LONG == 64)
- #define __AMO(op)	"amo" #op ".d"
-+#define __LR	"lr.d"
-+#define __SC	"sc.d"
- #elif (BITS_PER_LONG == 32)
- #define __AMO(op)	"amo" #op ".w"
-+#define __LR	"lr.w"
-+#define __SC	"sc.w"
- #else
- #error "Unexpected BITS_PER_LONG"
- #endif
- 
- #define __test_and_op_bit_ord(op, mod, nr, addr, ord)		\
- ({								\
--	unsigned long __res, __mask;				\
-+	__maybe_unused unsigned long __res, __mask, __temp;				\
- 	__mask = BIT_MASK(nr);					\
--	__asm__ __volatile__ (					\
--		__AMO(op) #ord " %0, %2, %1"			\
--		: "=r" (__res), "+A" (addr[BIT_WORD(nr)])	\
--		: "r" (mod(__mask))				\
--		: "memory");					\
-+	ALT_TEST_AND_OP_BIT_ORD(op, mod, nr, addr, ord, __res, __mask, __temp);	 \
- 	((__res & __mask) != 0);				\
- })
- 
- #define __op_bit_ord(op, mod, nr, addr, ord)			\
--	__asm__ __volatile__ (					\
--		__AMO(op) #ord " zero, %1, %0"			\
--		: "+A" (addr[BIT_WORD(nr)])			\
--		: "r" (mod(BIT_MASK(nr)))			\
--		: "memory");
-+	__maybe_unused unsigned long __res, __temp;				\
-+	ALT_OP_BIT_ORD(op, mod, nr, addr, ord, __res, __temp);
- 
- #define __test_and_op_bit(op, mod, nr, addr) 			\
- 	__test_and_op_bit_ord(op, mod, nr, addr, .aqrl)
-@@ -354,12 +351,9 @@ static __always_inline void arch___clear_bit_unlock(
- static __always_inline bool arch_xor_unlock_is_negative_byte(unsigned long mask,
- 		volatile unsigned long *addr)
- {
--	unsigned long res;
--	__asm__ __volatile__ (
--		__AMO(xor) ".rl %0, %2, %1"
--		: "=r" (res), "+A" (*addr)
--		: "r" (__NOP(mask))
--		: "memory");
-+	__maybe_unused unsigned long res, temp;
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
++MODULE_DESCRIPTION("PolarFire SoC control scb driver");
+diff --git a/drivers/soc/microchip/mpfs-mss-top-sysreg.c b/drivers/soc/microchip/mpfs-mss-top-sysreg.c
+new file mode 100644
+index 0000000000000..9b2e7b84cdba2
+--- /dev/null
++++ b/drivers/soc/microchip/mpfs-mss-top-sysreg.c
+@@ -0,0 +1,48 @@
++// SPDX-License-Identifier: GPL-2.0
 +
-+	ALT_ARCH_XOR_UNLOCK(mask, addr, res, temp);
- 	return (res & BIT(7)) != 0;
- }
- 
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 80bd52363c68690f33bfd54e0cc40399cd60b57b..290745a03d06062714716491668178f37670f85c 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -56,13 +56,8 @@
- 
- #define __arch_xchg(sfx, prepend, append, r, p, n)			\
- ({									\
--	__asm__ __volatile__ (						\
--		prepend							\
--		"	amoswap" sfx " %0, %2, %1\n"			\
--		append							\
--		: "=r" (r), "+A" (*(p))					\
--		: "r" (n)						\
--		: "memory");						\
-+	__typeof__(*(__ptr)) __maybe_unused temp;					\
-+	ALT_ARCH_XCHG(sfx, prepend, append, r, p, n, temp);	\
- })
- 
- #define _arch_xchg(ptr, new, sc_sfx, swap_sfx, prepend,			\
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 6694b5ccdcf85cfe7e767ea4de981b34f2b17b04..481af503e88f4917e54d016b5d875593c016818e 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -25,6 +25,7 @@ ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),			\
- 	    __stringify(RISCV_PTR sifive_cip_453_page_fault_trp),	\
- 	    SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,			\
- 	    CONFIG_ERRATA_SIFIVE_CIP_453)
++#include <linux/array_size.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/mfd/core.h>
++#include <linux/mfd/syscon.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
 +
- #else /* !__ASSEMBLER__ */
- 
- #define ALT_SFENCE_VMA_ASID(asid)					\
-@@ -53,6 +54,220 @@ asm(ALTERNATIVE(	\
- 	: /* no inputs */	\
- 	: "memory")
- 
-+#ifdef CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC
-+#define ALT_ATOMIC_OP(asm_op, I, asm_type, v, ret, temp)		\
-+asm(ALTERNATIVE(							\
-+		"	amo" #asm_op "." #asm_type " zero, %3, %0\n"	\
-+		__nops(3),						\
-+		"1:	lr." #asm_type " %1, %0\n"			\
-+		"	" #asm_op " %2, %1, %3\n"			\
-+		"	sc." #asm_type " %2, %2, %0\n"			\
-+		"	bnez %2, 1b\n",					\
-+		MIPS_VENDOR_ID,						\
-+		ERRATA_MIPS_P8700_ZALRSC,				\
-+		CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC)			\
-+	: "+A" (v->counter), "=&r" (ret), "=&r" (temp)			\
-+	: "r" (I)							\
-+	: "memory")
++static const struct mfd_cell mpfs_mss_top_sysreg_devs[] = {
++	{ .name = "mpfs-reset", },
++};
 +
-+#define ALT_ATOMIC_FETCH_OP_RELAXED(asm_op, I, asm_type, v, ret, temp)	\
-+asm(ALTERNATIVE(							\
-+		"	amo" #asm_op "." #asm_type " %1, %3, %0\n"	\
-+		__nops(3),						\
-+		"1:	lr." #asm_type " %1, %0\n"			\
-+		"	" #asm_op " %2, %1, %3\n"			\
-+		"	sc." #asm_type " %2, %2, %0\n"			\
-+		"	bnez %2, 1b\n",					\
-+		MIPS_VENDOR_ID,						\
-+		ERRATA_MIPS_P8700_ZALRSC,				\
-+		CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC)			\
-+	: "+A" (v->counter), "=&r" (ret), "=&r" (temp)			\
-+	: "r" (I)							\
-+	: "memory")
++static int mpfs_mss_top_sysreg_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	int ret;
 +
-+#define ALT_ATOMIC_FETCH_OP(asm_op, I, asm_type, v, ret, temp)		\
-+asm(ALTERNATIVE(							\
-+		"	amo" #asm_op "." #asm_type ".aqrl  %1, %3, %0\n"\
-+		__nops(3),						\
-+		"1:	lr." #asm_type ".aqrl %1, %0\n"			\
-+		"	" #asm_op " %2, %1, %3\n"			\
-+		"	sc." #asm_type ".aqrl %2, %2, %0\n"		\
-+		"	bnez %2, 1b\n",					\
-+		MIPS_VENDOR_ID,						\
-+		ERRATA_MIPS_P8700_ZALRSC,				\
-+		CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC)			\
-+	: "+A" (v->counter), "=&r" (ret), "=&r" (temp)			\
-+	: "r" (I)							\
-+	: "memory")
-+/* BITOPS.h */
-+#define ALT_TEST_AND_OP_BIT_ORD(op, mod, nr, addr, ord, __res, __mask, __temp)	\
-+asm(ALTERNATIVE(								\
-+		__AMO(op) #ord " zero, %3, %1\n"				\
-+		__nops(3),							\
-+		"1: " __LR #ord " %0, %1\n"					\
-+		#op " %2, %0, %3\n"						\
-+		__SC #ord " %2, %2, %1\n"					\
-+		"bnez %2, 1b\n",						\
-+		MIPS_VENDOR_ID,							\
-+		ERRATA_MIPS_P8700_ZALRSC,					\
-+		CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC)				\
-+	: "=&r" (__res), "+A" (addr[BIT_WORD(nr)]), "=&r" (__temp)		\
-+	: "r" (mod(__mask))							\
-+	: "memory")
++	ret = mfd_add_devices(dev, PLATFORM_DEVID_NONE, mpfs_mss_top_sysreg_devs,
++			      1, NULL, 0, NULL);
++	if (ret)
++		return ret;
 +
-+#define ALT_OP_BIT_ORD(op, mod, nr, addr, ord, __res, __temp)		\
-+asm(ALTERNATIVE(							\
-+		__AMO(op) #ord " zero, %3, %1\n"			\
-+		__nops(3),						\
-+		"1: " __LR #ord " %0, %1\n"				\
-+		#op " %2, %0, %3\n"					\
-+		__SC #ord " %2, %2, %1\n"				\
-+		"bnez %2, 1b\n",					\
-+		MIPS_VENDOR_ID,						\
-+		ERRATA_MIPS_P8700_ZALRSC,				\
-+		CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC)			\
-+	: "=&r" (__res), "+A" (addr[BIT_WORD(nr)]), "=&r" (__temp)	\
-+	: "r" (mod(BIT_MASK(nr)))					\
-+	: "memory")
++	if (devm_of_platform_populate(dev))
++		dev_err(dev, "Error populating children\n");
 +
-+#define ALT_ARCH_XOR_UNLOCK(mask, addr, __res, __temp)	\
-+asm(ALTERNATIVE(					\
-+		__AMO(xor) ".rl %0, %3, %1\n"		\
-+		__nops(3),				\
-+		"1: " __LR ".rl %0, %1\n"		\
-+		"xor %2, %0, %3\n"			\
-+		__SC ".rl %2, %2, %1\n"			\
-+		"bnez %2, 1b\n",			\
-+		MIPS_VENDOR_ID,				\
-+		ERRATA_MIPS_P8700_ZALRSC,		\
-+		CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC)	\
-+	: "=&r" (__res), "+A" (*addr), "=&r" (__temp)	\
-+	: "r" (__NOP(mask))				\
-+	: "memory")
-+
-+#define ALT_ARCH_XCHG(sfx, prepend, append, r, p, n, temp)	\
-+asm(ALTERNATIVE(						\
-+		prepend						\
-+		"	amoswap" sfx " %0, %3, %1\n"		\
-+	    __nops(2)						\
-+		append,						\
-+		prepend						\
-+		"1:	lr" sfx " %0, %1\n"			\
-+		"	sc" sfx " %2, %3, %1\n"			\
-+		"	bnez %2, 1b\n"				\
-+		append,						\
-+		MIPS_VENDOR_ID,					\
-+		ERRATA_MIPS_P8700_ZALRSC,			\
-+		CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC)		\
-+	: "=&r" (r), "+A" (*(p)), "=&r" (temp)			\
-+	: "r" (n)						\
-+	: "memory")
-+
-+/* FUTEX.H */
-+#define ALT_FUTEX_ATOMIC_OP(insn, ret, oldval, uaddr, oparg, temp)	\
-+asm(ALTERNATIVE(							\
-+		"1: amo" #insn ".w.aqrl %[ov],%z[op],%[u]\n"		\
-+		__nops(3)						\
-+		"2:\n"							\
-+		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %[r]),			\
-+		"1:	lr.w.aqrl %[ov], %[u]\n"			\
-+		"	" #insn" %[t], %[ov], %z[op]\n"			\
-+		"	sc.w.aqrl %[t], %[t], %[u]\n"			\
-+		"	bnez %[t], 1b\n"				\
-+		"2:\n"							\
-+		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %[r]),			\
-+		MIPS_VENDOR_ID,						\
-+		ERRATA_MIPS_P8700_ZALRSC,				\
-+		CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC)			\
-+	: [r] "+r" (ret), [ov] "=&r" (oldval),				\
-+	  [t] "=&r" (temp), [u] "+m" (*uaddr)				\
-+	: [op] "Jr" (oparg)						\
-+	: "memory")
-+
-+#define ALT_FUTEX_ATOMIC_SWAP(ret, oldval, uaddr, oparg, temp)	\
-+asm(ALTERNATIVE(						\
-+		"1: amoswap.w.aqrl %[ov],%z[op],%[u]\n"		\
-+		__nops(3)					\
-+		"2:\n"						\
-+		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %[r]),		\
-+		"1:	lr.w.aqrl %[ov], %[u]\n"		\
-+		"	mv %[t], %z[op]\n"			\
-+		"	sc.w.aqrl %[t], %[t], %[u]\n"		\
-+		"	bnez %[t], 1b\n"			\
-+		"2:\n"						\
-+		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %[r]),		\
-+		MIPS_VENDOR_ID,					\
-+		ERRATA_MIPS_P8700_ZALRSC,			\
-+		CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC)		\
-+	: [r] "+r" (ret), [ov] "=&r" (oldval),			\
-+	  [t] "=&r" (temp), [u] "+m" (*uaddr)			\
-+	: [op] "Jr" (oparg)					\
-+	: "memory")
-+
-+#else
-+#define ALT_ATOMIC_OP(asm_op, I, asm_type, v, ret, temp)	\
-+asm("amo" #asm_op "." #asm_type " zero, %1, %0"			\
-+	: "+A" (v->counter)					\
-+	: "r" (I)						\
-+	: "memory")
-+
-+#define ALT_ATOMIC_FETCH_OP_RELAXED(asm_op, I, asm_type, v, ret, temp)	\
-+asm("amo" #asm_op "." #asm_type " %1, %2, %0"				\
-+	: "+A" (v->counter), "=r" (ret)					\
-+	: "r" (I)							\
-+	: "memory")
-+
-+#define ALT_ATOMIC_FETCH_OP(asm_op, I, asm_type, v, ret, temp)	\
-+asm("amo" #asm_op "." #asm_type ".aqrl %1, %2, %0"		\
-+	: "+A" (v->counter), "=r" (ret)				\
-+	: "r" (I)						\
-+	: "memory")
-+
-+#define ALT_TEST_AND_OP_BIT_ORD(op, mod, nr, addr, ord, __res, __mask, __temp)	\
-+asm(__AMO(op) #ord " %0, %2, %1"						\
-+	: "=r" (__res), "+A" (addr[BIT_WORD(nr)])				\
-+	: "r" (mod(__mask))							\
-+	: "memory")
-+
-+#define ALT_OP_BIT_ORD(op, mod, nr, addr, ord, __res, __temp)	\
-+asm(__AMO(op) #ord " zero, %1, %0"				\
-+	: "+A" (addr[BIT_WORD(nr)])				\
-+	: "r" (mod(BIT_MASK(nr)))				\
-+	: "memory")
-+
-+#define ALT_ARCH_XOR_UNLOCK(mask, addr, __res, __temp)	\
-+asm(__AMO(xor) ".rl %0, %2, %1"				\
-+	: "=r" (res), "+A" (*addr)			\
-+	: "r" (__NOP(mask))				\
-+	: "memory")
-+
-+#define ALT_ARCH_XCHG(sfx, prepend, append, r, p, n, temp)	\
-+asm(prepend							\
-+	"	amoswap" sfx " %0, %2, %1\n"			\
-+	append							\
-+	: "=r" (r), "+A" (*(p))					\
-+	: "r" (n)						\
-+	: "memory")
-+
-+#define ALT_FUTEX_ATOMIC_OP(insn, ret, oldval, uaddr, oparg, temp)	\
-+asm("1: amo" #insn ".w.aqrl %[ov],%z[op],%[u]\n"			\
-+	"2:\n"								\
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %[r])				\
-+	: [r] "+r" (ret), [ov] "=&r" (oldval),				\
-+	  [u] "+m" (*uaddr)						\
-+	: [op] "Jr" (oparg)						\
-+	: "memory")
-+
-+#define ALT_FUTEX_ATOMIC_SWAP(ret, oldval, uaddr, oparg, temp)  \
-+asm("1: amoswap.w.aqrl %[ov],%z[op],%[u]\n"			\
-+	"2:\n"							\
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %[r])			\
-+	: [r] "+r" (ret), [ov] "=&r" (oldval),			\
-+	  [u] "+m" (*uaddr)					\
-+	: [op] "Jr" (oparg)					\
-+	: "memory")
-+#endif
-+
- /*
-  * _val is marked as "will be overwritten", so need to set it to 0
-  * in the default case.
-diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
-index 9739a70ed69984ba4fc5f51a4967a58c4b02613a..193b930374d6fce99e6e73d749fd3a84151ed304 100644
---- a/arch/riscv/include/asm/errata_list_vendors.h
-+++ b/arch/riscv/include/asm/errata_list_vendors.h
-@@ -24,7 +24,8 @@
- 
- #ifdef CONFIG_ERRATA_MIPS
- #define	ERRATA_MIPS_P8700_PAUSE_OPCODE 0
--#define	ERRATA_MIPS_NUMBER 1
-+#define	ERRATA_MIPS_P8700_ZALRSC 1
-+#define	ERRATA_MIPS_NUMBER 2
- #endif
- 
- #endif
-diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
-index 90c86b115e008a1fb08f3da64382fb4a64d9cc2f..0d64f312f0f495f443306e36a0d487e2456343b0 100644
---- a/arch/riscv/include/asm/futex.h
-+++ b/arch/riscv/include/asm/futex.h
-@@ -12,6 +12,7 @@
- #include <linux/errno.h>
- #include <asm/asm.h>
- #include <asm/asm-extable.h>
-+#include <asm/errata_list.h>
- 
- /* We don't even really need the extable code, but for now keep it simple */
- #ifndef CONFIG_MMU
-@@ -19,48 +20,48 @@
- #define __disable_user_access()		do { } while (0)
- #endif
- 
--#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)	\
-+#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg, temp)	\
- {								\
- 	__enable_user_access();					\
--	__asm__ __volatile__ (					\
--	"1:	" insn "				\n"	\
--	"2:						\n"	\
--	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %[r])			\
--	: [r] "+r" (ret), [ov] "=&r" (oldval),			\
--	  [u] "+m" (*uaddr)					\
--	: [op] "Jr" (oparg)					\
--	: "memory");						\
-+	ALT_FUTEX_ATOMIC_OP(insn, ret, oldval, uaddr, oparg, temp);	\
- 	__disable_user_access();				\
- }
- 
-+#define __futex_atomic_swap(ret, oldval, uaddr, oparg, temp)	\
-+{	\
-+	__enable_user_access();					\
-+	ALT_FUTEX_ATOMIC_SWAP(ret, oldval, uaddr, oparg, temp);	\
-+	__disable_user_access();				\
++	return 0;
 +}
 +
++static const struct of_device_id mpfs_mss_top_sysreg_of_match[] = {
++	{.compatible = "microchip,mpfs-mss-top-sysreg", },
++	{},
++};
++MODULE_DEVICE_TABLE(of, mpfs_mss_top_sysreg_of_match);
 +
- static inline int
- arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *uaddr)
- {
--	int oldval = 0, ret = 0;
-+	int __maybe_unused oldval = 0, ret = 0, temp = 0;
- 
- 	if (!access_ok(uaddr, sizeof(u32)))
- 		return -EFAULT;
- 
- 	switch (op) {
- 	case FUTEX_OP_SET:
--		__futex_atomic_op("amoswap.w.aqrl %[ov],%z[op],%[u]",
--				  ret, oldval, uaddr, oparg);
-+		__futex_atomic_swap(ret, oldval, uaddr, oparg, temp);
- 		break;
- 	case FUTEX_OP_ADD:
--		__futex_atomic_op("amoadd.w.aqrl %[ov],%z[op],%[u]",
--				  ret, oldval, uaddr, oparg);
-+		__futex_atomic_op(add,
-+				  ret, oldval, uaddr, oparg, temp);
- 		break;
- 	case FUTEX_OP_OR:
--		__futex_atomic_op("amoor.w.aqrl %[ov],%z[op],%[u]",
--				  ret, oldval, uaddr, oparg);
-+		__futex_atomic_op(or,
-+				  ret, oldval, uaddr, oparg, temp);
- 		break;
- 	case FUTEX_OP_ANDN:
--		__futex_atomic_op("amoand.w.aqrl %[ov],%z[op],%[u]",
--				  ret, oldval, uaddr, ~oparg);
-+		__futex_atomic_op(and,
-+				  ret, oldval, uaddr, oparg, temp);
- 		break;
- 	case FUTEX_OP_XOR:
--		__futex_atomic_op("amoxor.w.aqrl %[ov],%z[op],%[u]",
--				  ret, oldval, uaddr, oparg);
-+		__futex_atomic_op(xor,
-+				  ret, oldval, uaddr, oparg, temp);
- 		break;
- 	default:
- 		ret = -ENOSYS;
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 3a0ec6fd595691c873717ae1e6af5b3ed9854ca2..708cabd896fb86139eeeff27c4ae73d8c79f0ece 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -72,7 +72,15 @@
- 	beq	a2, zero, .Lnew_vmalloc_restore_context
- 
- 	/* Atomically reset the current cpu bit in new_vmalloc */
--	amoxor.d	a0, a1, (a0)
-+	ALTERNATIVE("amoxor.d a0, a1, (a0);	\
-+				.rept 3; nop; .endr;",
-+				"1: lr.d a2, (a0);	\
-+				xor a2, a2, a1;	\
-+				sc.d a2, a2, (a0);	\
-+				bnez a2, 1b;",
-+				MIPS_VENDOR_ID,
-+				ERRATA_MIPS_P8700_ZALRSC,
-+            CONFIG_ERRATA_MIPS_P8700_AMO_ZALRSC)
- 
- 	/* Only emit a sfence.vma if the uarch caches invalid entries */
- 	ALTERNATIVE("sfence.vma", "nop", 0, RISCV_ISA_EXT_SVVPTC, 1)
-
----
-base-commit: 7d4f659c32a309415078b0bca122fbb26a1e4df5
-change-id: 20250714-p8700-zalrsc-f3894be40d06
-
-Best regards,
++static struct platform_driver mpfs_mss_top_sysreg_driver = {
++	.driver = {
++		.name = "mpfs-mss-top-sysreg",
++		.of_match_table = mpfs_mss_top_sysreg_of_match,
++	},
++	.probe = mpfs_mss_top_sysreg_probe,
++};
++module_platform_driver(mpfs_mss_top_sysreg_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
++MODULE_DESCRIPTION("PolarFire SoC mss top sysreg driver");
 -- 
-Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-
+2.47.2
 
 
 _______________________________________________
