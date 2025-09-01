@@ -4,91 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7FE3CA1002
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 13:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AA7CA0FF0
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 17:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f9aStgU2kys7Av76VbqFkm6yLNlBEXegBMtM5oM9rtE=; b=iElj4yqJ0diIAa
-	pzsR+3y/I159fcPxK18FFh8Dke+1zjU+A/w03W7i1MD/0gNrG+eLXfSnSlSehpHPMhNz+zEfOIEk5
-	CaYUc4xmZppOHdx/vDcJj3uj0YVuNoTP+hyADFJSjPNckbGUE+IgV2/5/pWk/9EE7eP7MT2Uvv+5S
-	DVHhwd+HbbmxzdEAhId7mHdxE60vrk7ZG3RbpcY8SXogKou+dJc81chGLVeWZc0Uw6IDVTxHqs5Ca
-	aX4UDCo2VnD5VmaIFcocsfZpQ/QQ8nVMy0SxPwmyvDHb8sNZZIA74d4cPSWx8xzCuudNbiY3KAQ6b
-	qK5klRIBPrE5tTJrbeOw==;
+	List-Owner; bh=ySBWq/D3iHXwSgKbR5zRtFvgXyzy891NGHpkZKFTpwk=; b=psa+89B2gZA5rm
+	Qn1gke7SAI9yPVNepVNwBF0ETSqV63b3Nc5rZFz7d0RLmDFuWU2WVeVmSETipWrQw7eHDAh2zkyQG
+	GuYI68En4Yye8eqNkFMWXGJh9oYyyXlzh0Yhh7PV/esZaO+KCP/NGuGYKARkcqBJGBANkxo1W415C
+	hDjaSK0FpWcRtobBA75M807HhhQ9seKXaK7ykNi6JWgftOLGlWVWhhP4NKONm1wOZXaC4SVK8MaXF
+	up7JEu6X1KDRv2KSNHrZ+mNERNHM2XPd98Qp5yY5+HDDxFIHxr404ZB94pH5rRC7/0ubfEWRvHqJH
+	IozjDbpH25ihHA2eA0Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4ud-0000000CkMe-2WdJ;
-	Mon, 01 Sep 2025 13:49:35 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1ut7tp-0000000DNDw-30uF;
+	Mon, 01 Sep 2025 17:00:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut2v8-0000000C5he-3WFO
+	id 1ut4Ww-0000000Cg3F-3pKf
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 11:41:59 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-24a95f9420aso13783255ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 04:41:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1756726918; x=1757331718; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8yoam2Ed8JJCs5sRbaWgfuw9sP/krLyryxA9VsbblUg=;
-        b=RFD6MZb1xFF/U/V4I+S6H5viGaQwo+wUP+FtnkCXbHMtr3DXmlCFQzoDI8+0Q3/nhW
-         l3QN3cc0YGtftH6/odda2mpIhFjL4BWRuKPhhwJxz6MY/1QWOaQvReHunsgsvsjPNzia
-         L7AOyjNlvKcfW0qDEjLnve7BMJeN+nnHwFV9vhq6HOCKvz9gp3uPRDm65DzAF6XHjcCB
-         NhE+WVryGgTaTHaNdtm4q+It12uj1aXiJwby6Ccb0eIJ7l8H+NOMX6TxiVLMtHmwVSLB
-         lpzptp5aXOymihvv5MB3/eLgYSbzCVn9eEqOukSwAom5Zhi+lDME8CeA+QzhXFd2alS4
-         b1Cw==
+	Mon, 01 Sep 2025 13:25:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756733106;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=;
+	b=NHQOl1ZwFxLB8evLMxbJ90x+Zw1HjQgiZv7mxBxUj+IOOOrDHZowUmhyUeYniBUZZnt7wc
+	ROmESOmX/zsY6dACNpvegw2Q00A4W73eoRBMi6zRcfEdxHaQvw54r0TcKidJlCFTxYiMTq
+	7Xhh2t+JjgSJoHDg4OMfmT9ZZt36/IE=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-153-LFnzD07-PMybRR1ELigoNw-1; Mon, 01 Sep 2025 09:25:03 -0400
+X-MC-Unique: LFnzD07-PMybRR1ELigoNw-1
+X-Mimecast-MFC-AGG-ID: LFnzD07-PMybRR1ELigoNw_1756733102
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-45b87bc6869so12350155e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 06:25:02 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756726918; x=1757331718;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8yoam2Ed8JJCs5sRbaWgfuw9sP/krLyryxA9VsbblUg=;
-        b=RYPQ3iRxlPBWrKu66eB84cyZmhpZBA1hvUjc5N8/6EA07RJ2cb/+SypSqnN4lchVUd
-         6uCOhd+xlAN3XfNUP9OGFksraUZZyllJ5MhJ2rUBZES4AePyaPl1wa9Glhg55ZsnL+BS
-         /eOIWK2oPlOm39kjOBhb0iSo5cTnodSpat49XgqM4Wx9bVDR9imVJ9flyG9yVFNYTvBB
-         fANhy7EsNDD7Hqv2vLItA+aD3cuV2SJFzfsQpKPPoXVcEdZvFwcZJxUJ/5iIeqVSRGs/
-         bZgeyiDxJgwvckUryqm+hWAHLrjM6NxtyKxOxgWCvbo/NznSh0/gq+9OtDPrQxZnoDiC
-         gDkA==
-X-Gm-Message-State: AOJu0YynOnFCSW2nWVFspPaymGDa/sHWhSw9KjQPBMOd4+Q34kUO+BXU
-	OuJ+7NUR34+kypOqasZtsBb9k51FPygy9J6TJTa4MiWVCJLb6eTa578QNsF8fPP6ZZs=
-X-Gm-Gg: ASbGncvaPrbQwZw58L02W09I7FFKJuAnpr4IX7xzwbTbYZPa1xH8AEbDOrltA+mJBih
-	QK3dpPabQRtfX6hopJ7yeGFPBORAtcVCBkcNgPBWFFXO/FWyD8l5bHcKN6MxZyCclVc+MabUXRr
-	hrIUSPApNvRsmzuqet7giYratKzoAr/Qh9HzXC81KKX3QazOdXJety/iiMC9bfk4ZKezHpk38O7
-	x+l+WttA2Jn0WqSbA7Vixje/R4xHohzTMbKVb/R1vm9vRyzcrMQl2X0GsqWlI7jrIIovaoB6gON
-	hskJ+3pcrk24pl1at89YkT1vwH76jyZ8/QP+48LcGHii2ASoCmqm8lpqB2Efcqs/fAb905Aj7n2
-	4WPYCTx962gv61vAbeIZ77vfWCA/jFWq3q/Ud6ztDlVXtpuq1HHYMXFcJO4xK6mPdLqMkogmchE
-	yT3s+kzNMVUwP7+76aarYQ7361V2Wnwp3aDqSt1EZk+2kA3azR6xglMw==
-X-Google-Smtp-Source: AGHT+IH9HacVdhhrlYWDJB9ao9Cj7vL+SYgn/KxsSVzOs5trPZW7TKzXPjSrbltXooT+Y+1VomhKUA==
-X-Received: by 2002:a17:902:f64a:b0:24a:9475:3dcb with SMTP id d9443c01a7336-24a9475437cmr75175655ad.37.1756726917967;
-        Mon, 01 Sep 2025 04:41:57 -0700 (PDT)
-Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-249066e042asm103147055ad.146.2025.09.01.04.41.54
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 01 Sep 2025 04:41:57 -0700 (PDT)
-From: Xu Lu <luxu.kernel@bytedance.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	apw@canonical.com,
-	joe@perches.com,
-	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH RESEND 2/2] riscv: mm: Clear cpu in mm_cpumask after local_flush_tlb_all_asid
-Date: Mon,  1 Sep 2025 19:41:41 +0800
-Message-Id: <20250901114141.5438-3-luxu.kernel@bytedance.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250901114141.5438-1-luxu.kernel@bytedance.com>
-References: <20250901114141.5438-1-luxu.kernel@bytedance.com>
+        d=1e100.net; s=20230601; t=1756733102; x=1757337902;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=;
+        b=unXLnC4YY2IDqr6cDBAn8/e8jkffz8X75grMAFqNvOOOqb4/vH1521ajiTEeORIHq8
+         eH6bBK3h1t8AMDWLFC77/aJqAz0YAftnAV7mMjHLirTbLLgRPrEZOpNGr5WzJpeDYp/2
+         1zbVt1HKOYD2P4mks+Q7QsIL4OxlsXi8QR+CGMUcHsf5O9rA2hCGyqdPNJmTPvIcWuZZ
+         xq65/uosS7uPaTH2jN4l21Uej7BXbj+SXIQySlG5cE7JRtB+/stIlyS9OZXOkO1xujwe
+         0pbipKK5VxD2KnnVIeSDEgyFvG32zVao0S5ev4RNy3OZmPbgIxSscjfEqHMb8tvFav9B
+         x5kg==
+X-Forwarded-Encrypted: i=1; AJvYcCUMeoNrX/gh4kYT+rX5ZsC5AJGVz2LvQFVkxjZYVf+kVZyR4Lqzhk/Pa1gjAORdD97MHrETHDcdBtZ5ZQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRskxx02LVJUj8s3pJUfi7yxWjXWgV5q9WNWijgVQN6LhDATid
+	BaZb//0hVn/IxfttwhTypN63/zY18CgJwZqpKRufEpJJA5rjsB1/vPJ3Yj1jCotOxRfj1xPICbG
+	ifMrvCWd3KIi7X2TVuQy95CxiQymR7Mz1xrMzwgq6lXAHCSkHuWDxQxYkoXjika5RD6bwnA==
+X-Gm-Gg: ASbGncudgowt2gdLlq159s0Xs8WrD8cJSfqQlVSqwaCJP05VfPFX5BnEfKfQNL/FXi9
+	fx0R30xPPcHJzKJpivV9DdD8KaiVqdPtLwrzFmmgFapEsaDisbJ6hAPbXn3ft/ak9Ibbn+ywkZq
+	lMxQ8HSz0e1ELTt/QekzJuBnCMR2EMhk+In6bujok7XrAM3HzbfS/yMsX91aQarp5mMCd6hgX1b
+	CyifITaos8B5aqQdtxDwLua1S9D0sgiaG40GWrQkKsVxRZ91R4ZM3jtCNip4oV8fjmTPK3Kn6HB
+	2voxTNdIPhf9i602GeLTtbk19XnGl1VMgVZf7vtR+ei+lfiFZxhGjc0F7e8dXSeK7hRnDvWLuZ0
+	NGlDLMWBmyiz4E6I9FTVyrUi91rRrsrv9ceIJAcpYC1Dm099Mr2OZPnES6jouXKMiO8E=
+X-Received: by 2002:a05:600c:1c98:b0:45b:8cee:580a with SMTP id 5b1f17b1804b1-45b8cee5b84mr29479235e9.35.1756733101659;
+        Mon, 01 Sep 2025 06:25:01 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFn4DAGKD4/hR6ptaEjNoxJNELsNDQWoqjaZ80cydfGU/2h/6IoyZcnqEvOz4BgFx0o138wIQ==
+X-Received: by 2002:a05:600c:1c98:b0:45b:8cee:580a with SMTP id 5b1f17b1804b1-45b8cee5b84mr29478885e9.35.1756733101175;
+        Mon, 01 Sep 2025 06:25:01 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f37:2b00:948c:dd9f:29c8:73f4? (p200300d82f372b00948cdd9f29c873f4.dip0.t-ipconnect.de. [2003:d8:2f37:2b00:948c:dd9f:29c8:73f4])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6dc1sm239218725e9.1.2025.09.01.06.24.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Sep 2025 06:25:00 -0700 (PDT)
+Message-ID: <94ec640b-76cd-478e-9ee7-ff8597d1fafc@redhat.com>
+Date: Mon, 1 Sep 2025 15:24:59 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] copy_sighand: Handle architectures where
+ sizeof(unsigned long) < sizeof(u64)
+To: schuster.simon@siemens-energy.com, Dinh Nguyen <dinguyen@kernel.org>,
+ Christian Brauner <brauner@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ cgroups@vger.kernel.org, linux-security-module@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, apparmor@lists.ubuntu.com,
+ selinux@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, stable@vger.kernel.org
+References: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
+ <20250901-nios2-implement-clone3-v2-1-53fcf5577d57@siemens-energy.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20250901-nios2-implement-clone3-v2-1-53fcf5577d57@siemens-energy.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: bDcchaf1iyFmktMBRokZ7kz8tBrA_2SMQaai7HjHNcs_1756733102
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_044158_878382_568B4E3D 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20250901_062507_032584_E120E005 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,137 +169,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Clear corresponding bit of current cpu in mm_cpumask after executing
-local_flush_tlb_all_asid().
+On 01.09.25 15:09, Simon Schuster via B4 Relay wrote:
+> From: Simon Schuster <schuster.simon@siemens-energy.com>
+> 
+> With the introduction of clone3 in commit 7f192e3cd316 ("fork: add
+> clone3") the effective bit width of clone_flags on all architectures was
+> increased from 32-bit to 64-bit. However, the signature of the copy_*
+> helper functions (e.g., copy_sighand) used by copy_process was not
+> adapted.
+> 
+> As such, they truncate the flags on any 32-bit architectures that
+> supports clone3 (arc, arm, csky, m68k, microblaze, mips32, openrisc,
+> parisc32, powerpc32, riscv32, x86-32 and xtensa).
+> 
+> For copy_sighand with CLONE_CLEAR_SIGHAND being an actual u64
+> constant, this triggers an observable bug in kernel selftest
+> clone3_clear_sighand:
+> 
+>          if (clone_flags & CLONE_CLEAR_SIGHAND)
+> 
+> in function copy_sighand within fork.c will always fail given:
+> 
+>          unsigned long /* == uint32_t */ clone_flags
+>          #define CLONE_CLEAR_SIGHAND 0x100000000ULL
+> 
+> This commit fixes the bug by always passing clone_flags to copy_sighand
+> via their declared u64 type, invariant of architecture-dependent integer
+> sizes.
+> 
+> Fixes: b612e5df4587 ("clone3: add CLONE_CLEAR_SIGHAND")
+> Cc: stable@vger.kernel.org # linux-5.5+
+> Signed-off-by: Simon Schuster <schuster.simon@siemens-energy.com>
+> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> ---
 
-This reduces the number of IPI due to tlb flush:
+(stripping To list)
 
-* ltp - mmapstress01
-Before: ~98k
-After: 268
+Acked-by: David Hildenbrand <david@redhat.com>
 
-Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
----
- arch/riscv/mm/tlbflush.c | 41 ++++++++++++++++++++++++----------------
- 1 file changed, 25 insertions(+), 16 deletions(-)
-
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 962db300a1665..571358f385879 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -17,7 +17,8 @@
-  */
- unsigned long tlb_flush_all_threshold __read_mostly = 64;
- 
--static void local_flush_tlb_range_threshold_asid(unsigned long start,
-+static void local_flush_tlb_range_threshold_asid(struct mm_struct *mm,
-+						 unsigned long start,
- 						 unsigned long size,
- 						 unsigned long stride,
- 						 unsigned long asid)
-@@ -27,6 +28,8 @@ static void local_flush_tlb_range_threshold_asid(unsigned long start,
- 
- 	if (nr_ptes_in_range > tlb_flush_all_threshold) {
- 		local_flush_tlb_all_asid(asid);
-+		if (mm && mm != current->active_mm)
-+			cpumask_clear_cpu(raw_smp_processor_id(), mm_cpumask(mm));
- 		return;
- 	}
- 
-@@ -46,21 +49,28 @@ static void local_flush_tlb_range_threshold_asid(unsigned long start,
- 	}
- }
- 
--static inline void local_flush_tlb_range_asid(unsigned long start,
--		unsigned long size, unsigned long stride, unsigned long asid)
-+static inline void local_flush_tlb_range_mm(struct mm_struct *mm,
-+					    unsigned long start,
-+					    unsigned long size,
-+					    unsigned long stride)
- {
--	if (size <= stride)
-+	unsigned long asid = get_mm_asid(mm);
-+
-+	if (size <= stride) {
- 		local_flush_tlb_page_asid(start, asid);
--	else if (size == FLUSH_TLB_MAX_SIZE)
-+	} else if (size == FLUSH_TLB_MAX_SIZE) {
- 		local_flush_tlb_all_asid(asid);
--	else
--		local_flush_tlb_range_threshold_asid(start, size, stride, asid);
-+		if (mm && mm != current->active_mm)
-+			cpumask_clear_cpu(raw_smp_processor_id(), mm_cpumask(mm));
-+	} else {
-+		local_flush_tlb_range_threshold_asid(mm, start, size, stride, asid);
-+	}
- }
- 
- /* Flush a range of kernel pages without broadcasting */
- void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
- {
--	local_flush_tlb_range_asid(start, end - start, PAGE_SIZE, FLUSH_TLB_NO_ASID);
-+	local_flush_tlb_range_mm(NULL, start, end - start, PAGE_SIZE);
- }
- 
- static void __ipi_flush_tlb_all(void *info)
-@@ -79,17 +89,17 @@ void flush_tlb_all(void)
- }
- 
- struct flush_tlb_range_data {
--	unsigned long asid;
-+	struct mm_struct *mm;
- 	unsigned long start;
- 	unsigned long size;
- 	unsigned long stride;
- };
- 
--static void __ipi_flush_tlb_range_asid(void *info)
-+static void __ipi_flush_tlb_range_mm(void *info)
- {
- 	struct flush_tlb_range_data *d = info;
- 
--	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
-+	local_flush_tlb_range_mm(d->mm, d->start, d->size, d->stride);
- }
- 
- static void __flush_tlb_range(struct mm_struct *mm,
-@@ -97,7 +107,6 @@ static void __flush_tlb_range(struct mm_struct *mm,
- 			      unsigned long start, unsigned long size,
- 			      unsigned long stride)
- {
--	unsigned long asid = get_mm_asid(mm);
- 	unsigned int cpu;
- 
- 	if (cpumask_empty(cmask))
-@@ -107,17 +116,17 @@ static void __flush_tlb_range(struct mm_struct *mm,
- 
- 	/* Check if the TLB flush needs to be sent to other CPUs. */
- 	if (cpumask_any_but(cmask, cpu) >= nr_cpu_ids) {
--		local_flush_tlb_range_asid(start, size, stride, asid);
-+		local_flush_tlb_range_mm(mm, start, size, stride);
- 	} else if (riscv_use_sbi_for_rfence()) {
--		sbi_remote_sfence_vma_asid(cmask, start, size, asid);
-+		sbi_remote_sfence_vma_asid(cmask, start, size, get_mm_asid(mm));
- 	} else {
- 		struct flush_tlb_range_data ftd;
- 
--		ftd.asid = asid;
-+		ftd.mm = mm;
- 		ftd.start = start;
- 		ftd.size = size;
- 		ftd.stride = stride;
--		on_each_cpu_mask(cmask, __ipi_flush_tlb_range_asid, &ftd, 1);
-+		on_each_cpu_mask(cmask, __ipi_flush_tlb_range_mm, &ftd, 1);
- 	}
- 
- 	put_cpu();
 -- 
-2.20.1
+Cheers
+
+David / dhildenb
 
 
 _______________________________________________
