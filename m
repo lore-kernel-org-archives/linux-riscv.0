@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84579CA0FF0
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 18:24:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5E5CA0FF0
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 18:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cihmxzPgz18SbBgJB/45ze/HBlBTsePN0SCYsrUEFQU=; b=1iYljrLAjzr5UO
-	adnWMlll+epg5PIg7w8sC9Pcb6b6z/geVEm+yx/BiRbXX1LtW2OfqZ+MnfE+/10xbRmX2s0G5Z5in
-	Ris94r3KfNZp48rmq1S+QYsjREMKX+P2HSNfyrN7hkZ/96iJpGcVMHSjpQsVUkL1h7bpDE+htj9ZV
-	+k/5JXbA8hU5P++Tk9xw06FPCUtw7DsFshVs8TjnNd25QObIUw8EQDfJp7qKa75XLR4LmMlIjd6VL
-	EGdQIqZzDXYLLFB16rb426xkuRs7bi37iTa0u/M4ZkQDcawCyt+1Qhl8j8wO3/MupWhFOShabxQat
-	CLEj3YEggDiCjaQjMiOQ==;
+	List-Owner; bh=0dWEwXi2vEsn8NXnSdtarPCuCyCL5qjyGvX+H9pSepQ=; b=tqRH318lMmw2/Q
+	GgY9M9y7d7hS5nZokJLdWzp6RwOgsoMjOKWWm62fhjM1FmhxqN2gySpvNholsYIJXqm+n9vLvTq1B
+	h1S90P5mt+fH1wpaIEd223i3Np/FtWuDbslxIjaPzpxuZ8mbcLFPu/KWuFcpOHpAYb5Cnn60WX7J2
+	6BPtPxMjjDTUr037gLaflMbKvJBOjibgjfIcMsm6VQj8z6HHqz1RGyCBz1eV77X6nFsL291IWsR1E
+	T/SNz6DZQtuOmPJNEwaiVejgVDLXWIx80Yy1BBqRv1YwFMuQah0fifsHfJ6Vorxd+iPHg3t4bk7AP
+	hlohfu/gS0bnRrImsflA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut9CH-0000000DYwY-1oWx;
-	Mon, 01 Sep 2025 18:24:05 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ut9KI-0000000DZpv-1Fyi;
+	Mon, 01 Sep 2025 18:32:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut68Q-0000000CyXF-1yKZ
+	id 1ut68x-0000000Cyek-2WxQ
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 01 Sep 2025 15:08:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=OnikdlkxszJnxILYw/0FQIsaidg40vxq0JvbNkA4kBo=; b=hhbPp76n7mQUep4WPDoOZg8SsW
+	9BSfA2H/oIyJUOffm9q70bEI6ZBPndYxCSqqAMsFCdotjPj1Z7PRaOIyz8OsNF4Zp9UiTcxNaDwMh
+	Ohd8cM4vDukN1MIPx6OJf5Tf2cdGtuGqYdQJk93JxOR3AGREguSxjLsvUP+Tqm9FfC3SUuge6hl0j
+	fAEizfTAc0bspzVh9r7gpSj7kOPAwW87xFd+Gy0ttTKr+4ZzAZWOZm1I532S/KAxWKCetHY0VPG5X
+	fgxgG+qAQZt+MZGeZnXUt62ZT30pvUVsuHng564SjOv8lmDtYp54VJa6vWKx8mrB4XKU0Nz09yLzn
+	nCzKGnMw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut68u-00000003mk7-1gQQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 15:07:55 +0000
+	Mon, 01 Sep 2025 15:08:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739273;
+	s=mimecast20190719; t=1756739303;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=1NuKSd2ef5HwYax7pwu6yf7kwVuEbI8vaAEgix6O8kQ=;
-	b=ZQJpyQObUJxaWjXo5fzeC3w0N+8D6/nsIxTjJ1w7t+5E4pgA2ufMn3gyf9YsgTjYQe8nz+
-	laddLrcwVi5jYbLqiX+9MyVogN+ZhmXYda2eRgkxXKaTnmH5/pYlF8AqEM3QbQPVOWC7RG
-	Hpxh/rKkLJGfrUFrhlSpMsCtggGOZ2M=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=OnikdlkxszJnxILYw/0FQIsaidg40vxq0JvbNkA4kBo=;
+	b=WspHoA+unVeThoF5pbgAXyklgxmrhEcIcdYVxX5tkvOLIvrQSYC+73sPsnhONHTwYZxiDK
+	Ob1gliukQeJQ/pOx3JPS1zYIJc/vd5xRS5H6ejbGCp4rUvkkF4hwdV8XCul5xb2uIHKgBu
+	TvUzwlbi9RY2b3SydnGtvAAoX6Sf49A=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756739303;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OnikdlkxszJnxILYw/0FQIsaidg40vxq0JvbNkA4kBo=;
+	b=WspHoA+unVeThoF5pbgAXyklgxmrhEcIcdYVxX5tkvOLIvrQSYC+73sPsnhONHTwYZxiDK
+	Ob1gliukQeJQ/pOx3JPS1zYIJc/vd5xRS5H6ejbGCp4rUvkkF4hwdV8XCul5xb2uIHKgBu
+	TvUzwlbi9RY2b3SydnGtvAAoX6Sf49A=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-319-WXE1NSHDPjahq0Msave6uA-1; Mon,
- 01 Sep 2025 11:07:49 -0400
-X-MC-Unique: WXE1NSHDPjahq0Msave6uA-1
-X-Mimecast-MFC-AGG-ID: WXE1NSHDPjahq0Msave6uA_1756739264
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-66-OMQKCEc3PTWsL06WnC7hMA-1; Mon,
+ 01 Sep 2025 11:08:19 -0400
+X-MC-Unique: OMQKCEc3PTWsL06WnC7hMA-1
+X-Mimecast-MFC-AGG-ID: OMQKCEc3PTWsL06WnC7hMA_1756739294
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 34D8B195609E;
-	Mon,  1 Sep 2025 15:07:44 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 41CE81800446;
+	Mon,  1 Sep 2025 15:08:14 +0000 (UTC)
 Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D513D18003FC;
-	Mon,  1 Sep 2025 15:07:29 +0000 (UTC)
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A308A18003FC;
+	Mon,  1 Sep 2025 15:07:59 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
-	Zi Yan <ziy@nvidia.com>,
-	Wei Yang <richard.weiyang@gmail.com>,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -75,7 +99,6 @@ Cc: David Hildenbrand <david@redhat.com>,
 	John Hubbard <jhubbard@nvidia.com>,
 	kasan-dev@googlegroups.com,
 	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-arm-kernel@axis.com,
 	linux-arm-kernel@lists.infradead.org,
@@ -102,17 +125,18 @@ Cc: David Hildenbrand <david@redhat.com>,
 	virtualization@lists.linux.dev,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
-	x86@kernel.org
-Subject: [PATCH v2 12/37] mm: simplify folio_page() and folio_page_idx()
-Date: Mon,  1 Sep 2025 17:03:33 +0200
-Message-ID: <20250901150359.867252-13-david@redhat.com>
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH v2 14/37] mm/mm/percpu-km: drop nth_page() usage within single allocation
+Date: Mon,  1 Sep 2025 17:03:35 +0200
+Message-ID: <20250901150359.867252-15-david@redhat.com>
 In-Reply-To: <20250901150359.867252-1-david@redhat.com>
 References: <20250901150359.867252-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_080754_578530_D2800EA7 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20250901_160824_775148_747253A1 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,74 +153,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that a single folio/compound page can no longer span memory sections
-in problematic kernel configurations, we can stop using nth_page() in
-folio_page() and folio_page_idx().
+We're allocating a higher-order page from the buddy. For these pages
+(that are guaranteed to not exceed a single memory section) there is no
+need to use nth_page().
 
-While at it, turn both macros into static inline functions and add
-kernel doc for folio_page_idx().
-
-Reviewed-by: Zi Yan <ziy@nvidia.com>
-Reviewed-by: Wei Yang <richard.weiyang@gmail.com>
 Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Acked-by: Liam R. Howlett <Liam.Howlett@oracle.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- include/linux/mm.h         | 16 ++++++++++++++--
- include/linux/page-flags.h |  5 ++++-
- 2 files changed, 18 insertions(+), 3 deletions(-)
+ mm/percpu-km.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 2dee79fa2efcf..f6880e3225c5c 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -210,10 +210,8 @@ extern unsigned long sysctl_admin_reserve_kbytes;
+diff --git a/mm/percpu-km.c b/mm/percpu-km.c
+index fe31aa19db81a..4efa74a495cb6 100644
+--- a/mm/percpu-km.c
++++ b/mm/percpu-km.c
+@@ -69,7 +69,7 @@ static struct pcpu_chunk *pcpu_create_chunk(gfp_t gfp)
+ 	}
  
- #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
- #define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
--#define folio_page_idx(folio, p)	(page_to_pfn(p) - folio_pfn(folio))
- #else
- #define nth_page(page,n) ((page) + (n))
--#define folio_page_idx(folio, p)	((p) - &(folio)->page)
- #endif
+ 	for (i = 0; i < nr_pages; i++)
+-		pcpu_set_page_chunk(nth_page(pages, i), chunk);
++		pcpu_set_page_chunk(pages + i, chunk);
  
- /* to align the pointer to the (next) page boundary */
-@@ -225,6 +223,20 @@ extern unsigned long sysctl_admin_reserve_kbytes;
- /* test whether an address (unsigned long or pointer) is aligned to PAGE_SIZE */
- #define PAGE_ALIGNED(addr)	IS_ALIGNED((unsigned long)(addr), PAGE_SIZE)
- 
-+/**
-+ * folio_page_idx - Return the number of a page in a folio.
-+ * @folio: The folio.
-+ * @page: The folio page.
-+ *
-+ * This function expects that the page is actually part of the folio.
-+ * The returned number is relative to the start of the folio.
-+ */
-+static inline unsigned long folio_page_idx(const struct folio *folio,
-+		const struct page *page)
-+{
-+	return page - &folio->page;
-+}
-+
- static inline struct folio *lru_to_folio(struct list_head *head)
- {
- 	return list_entry((head)->prev, struct folio, lru);
-diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
-index 5ee6ffbdbf831..faf17ca211b4f 100644
---- a/include/linux/page-flags.h
-+++ b/include/linux/page-flags.h
-@@ -316,7 +316,10 @@ static __always_inline unsigned long _compound_head(const struct page *page)
-  * check that the page number lies within @folio; the caller is presumed
-  * to have a reference to the page.
-  */
--#define folio_page(folio, n)	nth_page(&(folio)->page, n)
-+static inline struct page *folio_page(struct folio *folio, unsigned long n)
-+{
-+	return &folio->page + n;
-+}
- 
- static __always_inline int PageTail(const struct page *page)
- {
+ 	chunk->data = pages;
+ 	chunk->base_addr = page_address(pages);
 -- 
 2.50.1
 
