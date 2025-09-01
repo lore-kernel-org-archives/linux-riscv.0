@@ -4,114 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006D0CA1007
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE144CA1007
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 23:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GfKbiZXKOCINPVwTmUZKktUAhUwbBoIBU/p3AqEWEps=; b=EaLNP/9Esee/4+
-	JRbnSpBNOIOd6QGyrb7UM1wvz2J+fFQwlMaaymmwiQ9FphfOKtcEuUmEdvH6EkzU20gy9ZfXKG65k
-	QvK5gUSKv5ipIoM6BdRo/UeAXLgUJ1YJ64PPWxQRTVke51mUHPLb6buroLD476HFj7TCRrKsD5bRQ
-	1Ioz1wEag+kUrzYEf25/fjj6F0X9mr4t/voPUHIl+/g/sz7XPPyZAoiJlN6erfD2h/O91ckhPgxzX
-	SdShAOtAaVwHntPxHOFQTRmfifmnhpmCRC5Jz1yWFiP5j4hFUK845ogZopiIHkS0XJ7Mpxksi+fBX
-	tbdxivEO4zfqBTO0szxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:MIME-Version:
+	Date:Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=076QCawV5s3xXCC15p6blp4mrB+8W8jFtP9nZZc7c9U=; b=j6cXr5gMJEm7hbStNkkAkIDiql
+	m06FgNgz6D5LIBcHWvgGls/9IbW+nLcTzDzuc7xjOqQjkWQyqWvktLBBgF3DuDyxmcDRmaWXMOQEA
+	w4YDPj64aeW1SkiHNHr9oDdbwUmemlR/QKtk5XK7TZnEUY51FIs9nk9Cla2+j4UMz7f+pQU/KAucz
+	yg8vQa9Lf/6WGyWNMdQ/X1jFoY4qIC5ozXoLE4G4T7TCf4g+2y/FiHx0KHJCx0kDfvg8C+SBvz3ng
+	mxnrBQnjjuVyz6vuYsMZH9oOk57q9+g9D4A+Q1PRvI7SE0addsYnjN9xBDjfaLRfVfFE8/ISomgDi
+	M7v4elTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDgs-0000000EDmg-1yRn;
-	Mon, 01 Sep 2025 23:11:58 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1utDmv-0000000EHld-2Exr;
+	Mon, 01 Sep 2025 23:18:13 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6EG-0000000D1cd-1Yp6
+	id 1ut8C7-0000000DRJG-3Hyf
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 15:13:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739635;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jkEShtyZMAsDf/J3X4vsiABth2SEec0fiHHSpv4k9x8=;
-	b=WKXsh5P+H1qNTNZkPhx7SE/4NliaZ1lT4nEt0Y0cMkzZyM3PV1gZejAZu7eWSvGAkh9orm
-	fW8JkbHKDzxzXxE7fSS/525xgxAsEwgNFS6v820IWoV0Amddm3faXwi7CoiMBAkUEV7oq5
-	hu01y0ahMtIqckWvZxipvCWfQIXMuEk=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-1-o2-TD6CtMRuqF-LwyESxUQ-1; Mon,
- 01 Sep 2025 11:13:51 -0400
-X-MC-Unique: o2-TD6CtMRuqF-LwyESxUQ-1
-X-Mimecast-MFC-AGG-ID: o2-TD6CtMRuqF-LwyESxUQ_1756739625
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4DA9F1800561;
-	Mon,  1 Sep 2025 15:13:45 +0000 (UTC)
-Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CF9891800447;
-	Mon,  1 Sep 2025 15:13:30 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	Marco Elver <elver@google.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Alexander Potapenko <glider@google.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v2 35/37] kfence: drop nth_page() usage
-Date: Mon,  1 Sep 2025 17:03:56 +0200
-Message-ID: <20250901150359.867252-36-david@redhat.com>
-In-Reply-To: <20250901150359.867252-1-david@redhat.com>
-References: <20250901150359.867252-1-david@redhat.com>
+	Mon, 01 Sep 2025 17:19:52 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e96ee32f86bso3939102276.0
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 10:19:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756747190; x=1757351990; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=MCdLhHwAOZzd1sHfXyw7j9lNMlwcIlkxo40u1/PlOt8=;
+        b=DxkaFHx7bcYJYgmWEpL7spmOMKLrEjqkxNjHogQGbW6jn82EKap0MMVu2khfCsj3Mz
+         z8lpa0vfEJg4sgJ0XLPxI4pIZCrKLMKwQ9yretAjuqtB06jTXZAiO0Qh0ycbF25uwRKn
+         MAnZlANgSwjeTMioWHhw/lkIkulDdkWh9CvmiEWj0jpYTo5vzBq0d7EQmSGUi9yZKi/g
+         kil5IXWTg2DBwLMBaxuTG085pAbInzW1bmsFgVpsNBKcjdgCDK3jCkC4Se6f+JWSAz+I
+         AHer8AojzIcjb48lFuWI21bAE+6ldMebDIIVvg5GMi1IchrikkRj6H2/Q6TpviI4Z1q6
+         kbSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756747190; x=1757351990;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MCdLhHwAOZzd1sHfXyw7j9lNMlwcIlkxo40u1/PlOt8=;
+        b=Xb54sDbeM4vcLcb5NF5H0Bwpy9G9nxpHUyR/RNpIwTdgBwuvK3B7wo0ylfCVlYqlUd
+         NX7O4eRB+ZgvD2J3YYemFlKci5xa2bu8CSPUJVJV9h0g3v7Lb8Nvi0p781KBvSCxgg8t
+         3cdpCM3Rog0KXmx/qiDBlxh9Aq7xGz7IEtO6YHnbPfbif4SixVqQ/Jki0VUeP2jTpiJC
+         0QiUD7HdlsQ/LTEeJpoJNYWwUYBvblm8ov9FnW1UW/CBPkRpweDPOyiucIPWYObOEo0j
+         juLo/9bhGqxIuYCgL/M0PYpl38KfrqzxwYV2L5qiXyuWHwkuq55LGaagwirT2HUAtNbK
+         S+BQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXa9pZkTPpw1oaMUqTxdtPdZ4khhPPyGrz9hzxkxPugQd3UsjMhKo6z9iCLKf6uOzcde81/w8j/g3d3xQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywb4Nrc3iZf96RQJAjZnaL6eKJeXy15fCUOnl/kiUG6IL3GCH9p
+	MnUKLfYMwWXzrCcQKR3DYbmr258z7ZFr9BOE0ZZkS1Fk6JXdc4Ka/t4M
+X-Gm-Gg: ASbGncvKze4eSWckjNbQIQmqLPl/u6yHKS00RsBmW5diSwla3MO3om58vQ7JgMrTHht
+	PNDwDhtmAO0OxF4GK0yKSoBS3kc7RrCFeaMf3SdjWu5D6a9C5VLqbW4BXtIWHqEfmee3pdBt2On
+	ITYj3wVNJwSyB0ejz3dHvC79OEz2PjwIcu9HhL9ulE/sj0aKkz4FNtiL8apyDKd3JZmHOfUaUJh
+	dURgpT3I7T23ELx78H6WK9LfEnsldKSFK62V3TlFcAwB92Gw6n2y6cAeCyIofWgPG9KqxixhOse
+	oH9Ebe2Et746nrus3dUNidZXzRpIdrrRbP585EmCwZyS7ZRPNKw2Gv6zSLZL4fBk76UxQVn/xBj
+	db3iryAtkGLZD1Ne1D/TfwN4kyBqixkCr3jK9nqqekbOJ6sVP1150
+X-Google-Smtp-Source: AGHT+IEZ8EMPkHUraaN8N2Ftj2JKXXwZhHK6AIOPsA7PriSSOqQ557kpQqGWlv3cm91Il3PyctomLQ==
+X-Received: by 2002:a05:6902:1204:b0:e96:dc00:300f with SMTP id 3f1490d57ef6-e98a581bf26mr7108819276.30.1756747189693;
+        Mon, 01 Sep 2025 10:19:49 -0700 (PDT)
+Received: from [192.168.1.209] (74.211.99.176.16clouds.com. [74.211.99.176])
+        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e98ac466a13sm2171372276.14.2025.09.01.10.19.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Sep 2025 10:19:49 -0700 (PDT)
+From: Asuna <spriteovo@gmail.com>
+X-Google-Original-From: Asuna <SpriteOvO@gmail.com>
+Message-ID: <b1734c45-42ec-46c7-9d4c-2677044aacab@gmail.com>
+Date: Tue, 2 Sep 2025 01:19:42 +0800
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+User-Agent: Mozilla Thunderbird
+Subject: Re: RISC-V: Re-enable GCC+Rust builds
+To: Conor Dooley <conor@kernel.org>
+Cc: Jason Montleon <jmontleo@redhat.com>, Miguel Ojeda <ojeda@kernel.org>,
+ Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, rust-for-linux@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <68496eed-b5a4-4739-8d84-dcc428a08e20@gmail.com>
+ <20250830-cheesy-prone-ee5fae406c22@spud>
+ <20250901-lasso-kabob-de32b8fcede8@spud>
+Content-Language: en-US
+In-Reply-To: <20250901-lasso-kabob-de32b8fcede8@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_081356_504801_0A975739 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20250901_101951_842047_FE186089 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,86 +106,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We want to get rid of nth_page(), and kfence init code is the last user.
+> For example, there's a check in the riscv Kconfig menu to see if 
+> stack-protector-guard=tls can be used via a cc-option check. If that 
+> check passes with gcc as the compiler that option will be passed to 
+> the rust side of the build, where llvm might not support it.
+If I understand correctly, the `-mstack-protector-guard` option is 
+already always filtered out by `bindgen_skip_c_flags` in 
+`rust/Makefile`, regardless of architecture. Therefore, we don't need to 
+do anything more, right?
 
-Unfortunately, we might actually walk a PFN range where the pages are
-not contiguous, because we might be allocating an area from memblock
-that could span memory sections in problematic kernel configs (SPARSEMEM
-without SPARSEMEM_VMEMMAP).
+> Similarly, turning on an extension like Zacas via a cc-option check 
+> could pass for gcc but not be usable when passed to the rust side, 
+> causing errors.
+That makes sense. I might need to check the version of libclang for each 
+extension that passes the cc-option check for GCC to ensure it supports 
+them.
 
-We could check whether the page range is contiguous
-using page_range_contiguous() and failing kfence init, or making kfence
-incompatible these problemtic kernel configs.
-
-Let's keep it simple and simply use pfn_to_page() by iterating PFNs.
-
-Reviewed-by: Marco Elver <elver@google.com>
-Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Alexander Potapenko <glider@google.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- mm/kfence/core.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
-
-diff --git a/mm/kfence/core.c b/mm/kfence/core.c
-index 0ed3be100963a..727c20c94ac59 100644
---- a/mm/kfence/core.c
-+++ b/mm/kfence/core.c
-@@ -594,15 +594,14 @@ static void rcu_guarded_free(struct rcu_head *h)
-  */
- static unsigned long kfence_init_pool(void)
- {
--	unsigned long addr;
--	struct page *pages;
-+	unsigned long addr, start_pfn;
- 	int i;
- 
- 	if (!arch_kfence_init_pool())
- 		return (unsigned long)__kfence_pool;
- 
- 	addr = (unsigned long)__kfence_pool;
--	pages = virt_to_page(__kfence_pool);
-+	start_pfn = PHYS_PFN(virt_to_phys(__kfence_pool));
- 
- 	/*
- 	 * Set up object pages: they must have PGTY_slab set to avoid freeing
-@@ -613,11 +612,12 @@ static unsigned long kfence_init_pool(void)
- 	 * enters __slab_free() slow-path.
- 	 */
- 	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
--		struct slab *slab = page_slab(nth_page(pages, i));
-+		struct slab *slab;
- 
- 		if (!i || (i % 2))
- 			continue;
- 
-+		slab = page_slab(pfn_to_page(start_pfn + i));
- 		__folio_set_slab(slab_folio(slab));
- #ifdef CONFIG_MEMCG
- 		slab->obj_exts = (unsigned long)&kfence_metadata_init[i / 2 - 1].obj_exts |
-@@ -665,10 +665,12 @@ static unsigned long kfence_init_pool(void)
- 
- reset_slab:
- 	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
--		struct slab *slab = page_slab(nth_page(pages, i));
-+		struct slab *slab;
- 
- 		if (!i || (i % 2))
- 			continue;
-+
-+		slab = page_slab(pfn_to_page(start_pfn + i));
- #ifdef CONFIG_MEMCG
- 		slab->obj_exts = 0;
- #endif
--- 
-2.50.1
-
+> These sorts of things should be prevented via Kconfig, not show up as 
+> confusing build errors.
+I'm working on a patch, and intend to output an error message in 
+`arch/riscv/Makefile` then exit 1 when detecting an incompatible 
+gcc+libclang mix in use.
 
 _______________________________________________
 linux-riscv mailing list
