@@ -4,167 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68D80CA1006
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 13:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E830FCA1000
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 13:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0j4HSSQ62s4bQ03I5ZMpx1YIiwPOnTC/H+0dd53RHF4=; b=4D3GSyGucwURIq
-	HsmG9YFLDhGwIusTvsYNgry6Ko3Wp0oCOivaAxF9MC5MqfE0UbqDARAUd6bue4EZOrfHbA9v4Q0sM
-	FynrJ2LqoAeA4HwNKCzi4seB3sMM25/oO3pWAFQuAWOKJX/aeuizu3rGaz2H6ZUSUhDQ91L0CIWAx
-	ZKllLmhzxKuy4GjIoci6zlSdH63xO3ZsDjG0vkAC/m87zDsXXj4Iw39I43kHnfi40VyuDVXi3FFsg
-	PySbH4WlhXghrxW1BmJlR4XifzMq2dYD2LVNrxMmb+oJrQ0whhHUzgoGDo910uO4TmIQcFvTfvY1R
-	XjkO3rKkOeM8/f0KxkbQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=El0bmzYzM7vNB9uw1OuABU+Es2KayafFkdvyYYwKIRY=; b=JqW1FO7+sG+S6w
+	jI400evo5Gd87Wg9Zb/SU6529QG7Q/b0MHS278VT0ps7B3d+jEvfvYBYu/j5Ku/2+DW4fARN8LHuK
+	qGHFypysLbRXkYkpaq/ObMCXHuG55Gfu7dTaRa2guetpsp1L+syI087CVi02STlOQ6Vfqvi3LgqeD
+	zE8V0CqWdShfURXCvSSXzjcMJEfaxZUIPbgYc9RdF8AXDu04OoWP79H/FqkJCwwBX2alzIzvKs0+D
+	WbVsrfpRoFdK54ep1oKA5rOV/doYj/KrJRsKa6/wRSOy20aKBWQA69PvFsFkhT2Y0n76P34zXInrc
+	5bYcGorYu6HDk40HORDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4uY-0000000CkFY-3J9p;
-	Mon, 01 Sep 2025 13:49:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ut4ub-0000000CkIp-1MUY;
+	Mon, 01 Sep 2025 13:49:33 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut2oc-0000000C4WV-23de
+	id 1ut2v0-0000000C5gH-3uc9
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 11:35:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756726513;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=89QceRiDVJR9qzpuoMtjZ42nHjE3zxx93/plzyge73k=;
-	b=H2ZFeXnbwOEiBSquTo1yIzdbRvJgKBB65T7dsrUMOR64HgJZiWplclHDWwMP7ZOTLN4+DI
-	M+IADCEpSQzuf5NGS0Xt1DEIS6GFlHL4UdN0ogtmlD4PJ/gOOT9XaJjUrlJ6da5GET9uc2
-	tMFaUbREIYg1Pfg2OpGyfe9g+czPvOk=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-362-VY7kPWwXPLuRH5ZkD1s9CQ-1; Mon, 01 Sep 2025 07:35:10 -0400
-X-MC-Unique: VY7kPWwXPLuRH5ZkD1s9CQ-1
-X-Mimecast-MFC-AGG-ID: VY7kPWwXPLuRH5ZkD1s9CQ_1756726509
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45b7265febdso29179865e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 04:35:10 -0700 (PDT)
+	Mon, 01 Sep 2025 11:41:52 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2489acda3bbso33763425ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 04:41:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1756726910; x=1757331710; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9UG+lvIiNfEGRGKGGi3uQF0nMgFjeuxKOjdv0x36fKk=;
+        b=TJCYd+GHhiuglYv7JIv9zzHifooVestfQpTw03T43P8QyVNyLFGm3rNQ+DhieTgjVo
+         +JQybxQ3PHaF2hLApNnqZxZDxa7oUfdyxQR8m3zuCerv8V36vXLbiRSKY6UG+2aGwaJo
+         Imrkoh0t/bdjROKszKS8BnlKl+CHudcZadD1c6qZeZ8TVzBwqrmp4y2irjBXjPENPgOv
+         1I8hY00gfJ8SnxVKMxQuMa/zs7FhY63fg/hN6q2odXKuBVF0EZiQWZqIY6FPlCSplcJK
+         aSVeYwImKV2p9a8r5LlpTazag3sPaVRlNlqfenAWxigC0xsg1ASbm0ATXJ5JzkRgyVKH
+         AefQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756726509; x=1757331309;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1756726910; x=1757331710;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=89QceRiDVJR9qzpuoMtjZ42nHjE3zxx93/plzyge73k=;
-        b=CSZLA8KdNuVXwE6eLFukBSBOhRSUQGnV1TSOoGsarXVzLVOwZbb3gxRS8rPIJtyoNl
-         Q4cakvdxpWEA6x4ujOduRUPBJ83bIvN3wBauqgXUfX9LScnPi5t4NFtYGvzi7kugLagU
-         kXFihe4Dabv4tt3D3jNZ3O+FYFujn//YvHe+1fJs76fljYmXycm9aDjX1zBUHezdK3s9
-         1k4qlg7vF6Ru1ccXRgmWttTZiehzao0Jnnjf+9OoXbJiafqYWEClcbDxCo/HM/uCb1rE
-         CRhOb1g2QzY4IqDPwwxGvNFLkX4eY5Nqd+ZfWrqyJ3XN48ZAvDn68YXgMCwQNHHkEnJ3
-         6zdg==
-X-Forwarded-Encrypted: i=1; AJvYcCW7hqCnx6mJofKpB/3F9QP1CdJsT2+IhKQDyH9YQQhFrCGrJo03YcxLI1Ss1esEQvIfMn7Q1gzFZDL7SQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/djYUe0SEx+cUPDScM60L/clvEabKZTj4U2DicRmYQWoKQ7qw
-	LAjHsQIS0Z4AqgPRBrD49GCf+SdpUkGUFGxT4+TplagX6W12OnAaGhDBLBGBcbOBHVaEtUQS4Fc
-	1H2it//TB7psDTy6zmNJmO0A5kwi4FeKfgYo9nSEA+MXBlogroHK5rI0wYC7Ld98laFbOMQ==
-X-Gm-Gg: ASbGnctximfkPlcq12t7NIuDRb61VbclJFBZF+6UIRpqwwhR0SJ+2At/YuKYf+kYZCQ
-	oXHY5S7XIkdMDR4RsWsIf6xjCOOQEWuJl+e5mQch+QP7dvhRjUAkQV6T+fT6mopMS2eCS64dwsz
-	r3AjGayHOrs88BYguYZ+xPWQHLTX8JCVV4oJhseP6UbpMxvRE3hAhQIjt7N6WvrKFvvpWFArW+9
-	efMb1szAOoJBDsKIgGp9IDnYmhBeF4c/iANpKsPpL3uMfMb68bBdiyAFuWX8wdCZ5Y1xpRzX9sb
-	1qCE1AbBeWvkYYhMbnk/Qop9f64udz7NiBNxjB/LAbRstr/apqygFW+t3vrzM9xHaR7EpHYuhyi
-	qBp6yJxOvrZV886dt0fd8kBeQJBgVCsLJ5ua5cOwSMrrRHi7uBiXdDhvpI93DSiv/Wts=
-X-Received: by 2002:a5d:5f8c:0:b0:3cf:5f17:f350 with SMTP id ffacd0b85a97d-3d1b16f0165mr6056394f8f.18.1756726508807;
-        Mon, 01 Sep 2025 04:35:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE0RKJ8MgbrMGxtF+aataA+fh1iSiigcyDX0AK/3/6NRoLPIE0BwSmxJshAaTyrpOEmePBJCw==
-X-Received: by 2002:a5d:5f8c:0:b0:3cf:5f17:f350 with SMTP id ffacd0b85a97d-3d1b16f0165mr6056350f8f.18.1756726508320;
-        Mon, 01 Sep 2025 04:35:08 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f37:2b00:948c:dd9f:29c8:73f4? (p200300d82f372b00948cdd9f29c873f4.dip0.t-ipconnect.de. [2003:d8:2f37:2b00:948c:dd9f:29c8:73f4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6fe5sm233831875e9.5.2025.09.01.04.35.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Sep 2025 04:35:07 -0700 (PDT)
-Message-ID: <44072455-fc68-430d-ad38-0b9ce6a10b8d@redhat.com>
-Date: Mon, 1 Sep 2025 13:35:05 +0200
+        bh=9UG+lvIiNfEGRGKGGi3uQF0nMgFjeuxKOjdv0x36fKk=;
+        b=aPvhHaJm88UWc6vFuNHifR0Md9eygKL8GU5BFj1IfhCC2yFof5V+f0qbHi5GKxks5B
+         peGhQ5uogtSMjHi0p4LuJ2eoYSLzlGUWfPBhkeMHQv48VHZ7kCE71h1iGz6HsLLC+pJc
+         UvUR26tFOFYlkfo/ikJXIPejnNmYECZrSdREntntyzSjSWDNyXZ+z8QOnZBY4ChepIeh
+         zTVp4VBsCUNlj4sWvCEQ/Z3RezdCwZj6w/PBY5r698DUqbJlnDEx0JRKxFUnl/l0okfk
+         Fz3d5jUJy5pSHRpkEOvzF7Dl+HmNfN0WlbRMd+9btoHgRKzJ8V70doJg8ZB827Pb8jW4
+         RKAA==
+X-Gm-Message-State: AOJu0YyWhMhVyWBvNTc90HqzlLVn5wStzx/++UxBxgSHdDZSUClk4zc1
+	shjQrG5DmaVQVdTHWE4NKXvD6ESUxAfmbF34H9TFFl6bD2ZtFQjZN9u9iLAoN7K0qp26iSy3doT
+	9OaX9ICc=
+X-Gm-Gg: ASbGncthrQLtONq2sDrKQmTuD/6obpTijAWC+GavGGPfJv8bpx82UH7QFlb9vaYyYiL
+	iPtdH4PCWTkept39RDYf4x6y0SYxSjiq7Tey9mWaLApfN0gXQLG3wEMsJCdI6qPvKV6qxagiHIf
+	/PyI5Y1FsBfbs+wmWrfW7FAG9/mvE7uLz3/nTg4dKotTstVEysYIvVTOS5GaJXRZqasznF2ucj1
+	b0OUyAoom7/O9ESwotjS2jRaYIKUs7CwRRZSR2NGbAOMeSTR48+2qAsEjtN0cGbTtlgeldU+5Ci
+	Ey33pxME1XQMBk9UVZHvlB7ZbFdsQfTlRu7g2QOuJ4pJXo+kA6mqgW1Hxa50yJsmaJ3yP3Lu3jr
+	6IPt+hyuNj8Piku13I9obUVfyxL46YU74cK/4tLZHneZBU4ZSxr9TahX4UZsX04LlzweS7AhfEL
+	aA+lhHvZZIqyhBkLQ8oobm9RugxGZDXGaTMkcK4Ln7kjQ=
+X-Google-Smtp-Source: AGHT+IFq81D08oCFEiAMHWfG42pjL//afZ3n6oV63VBN6ou4vT7wjYbmjcFWINr8zZdT5opJWhPK7Q==
+X-Received: by 2002:a17:902:f64a:b0:24a:9105:d020 with SMTP id d9443c01a7336-24a9105d719mr59364105ad.51.1756726909672;
+        Mon, 01 Sep 2025 04:41:49 -0700 (PDT)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-249066e042asm103147055ad.146.2025.09.01.04.41.45
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 01 Sep 2025 04:41:49 -0700 (PDT)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	apw@canonical.com,
+	joe@perches.com,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH RESEND 0/2] riscv: mm: Some optimizations for tlb flush
+Date: Mon,  1 Sep 2025 19:41:39 +0800
+Message-Id: <20250901114141.5438-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 18/36] mm/gup: drop nth_page() usage within folio when
- recording subpages
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
- netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
- Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
- virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
- wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-19-david@redhat.com>
- <c0dadc4f-6415-4818-a319-e3e15ff47a24@lucifer.local>
- <632fea32-28aa-4993-9eff-99fc291c64f2@redhat.com>
- <8a26ae97-9a78-4db5-be98-9c1f6e4fb403@lucifer.local>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <8a26ae97-9a78-4db5-be98-9c1f6e4fb403@lucifer.local>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ARYLJy1GTTd5Qbd1t5DacNUovyN8CL6R9Q3g9jF_KOw_1756726509
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_043514_601527_1E723853 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20250901_044150_974207_4314A4AA 
+X-CRM114-Status: UNSURE (   5.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,114 +99,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->>
->>
->> The nice thing is that we only record pages in the array if they actually passed our tests.
-> 
-> Yeah that's nice actually.
-> 
-> This is fine (not the meme :P)
+Some optimizations for tlb flush on RISC-V smp:
+1. Apply Svinval in update_mmu_cache() to avoid flushing irrelevant tlb
+entries.
+2. Clear bit of current cpu in mm_cpumask after local_flush_tlb_all_asid()
+to avoid potential IPIs in the future.
 
-:D
+We saw the number of IPI reduced from ~98k to 268 on mmapstress01
+benchmark.
 
-> 
-> So yes let's do this!
+Some false positive spacing error happens during patch checking. Thus I
+CCed maintainers of checkpatch.pl as well.
 
-That leaves us with the following on top of this patch:
+Xu Lu (2):
+  riscv: mm: Apply svinval in update_mmu_cache()
+  riscv: mm: Clear cpu in mm_cpumask after local_flush_tlb_all_asid
 
- From 4533c6e3590cab0c53e81045624d5949e0ad9015 Mon Sep 17 00:00:00 2001
-From: David Hildenbrand <david@redhat.com>
-Date: Fri, 29 Aug 2025 15:41:45 +0200
-Subject: [PATCH] mm/gup: remove record_subpages()
-
-We can just cleanup the code by calculating the #refs earlier,
-so we can just inline what remains of record_subpages().
-
-Calculate the number of references/pages ahead of times, and record them
-only once all our tests passed.
-
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
-  mm/gup.c | 25 ++++++++-----------------
-  1 file changed, 8 insertions(+), 17 deletions(-)
-
-diff --git a/mm/gup.c b/mm/gup.c
-index 89ca0813791ab..5a72a135ec70b 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -484,19 +484,6 @@ static inline void mm_set_has_pinned_flag(struct mm_struct *mm)
-  #ifdef CONFIG_MMU
-  
-  #ifdef CONFIG_HAVE_GUP_FAST
--static int record_subpages(struct page *page, unsigned long sz,
--			   unsigned long addr, unsigned long end,
--			   struct page **pages)
--{
--	int nr;
--
--	page += (addr & (sz - 1)) >> PAGE_SHIFT;
--	for (nr = 0; addr != end; nr++, addr += PAGE_SIZE)
--		pages[nr] = page++;
--
--	return nr;
--}
--
-  /**
-   * try_grab_folio_fast() - Attempt to get or pin a folio in fast path.
-   * @page:  pointer to page to be grabbed
-@@ -2963,8 +2950,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
-  	if (pmd_special(orig))
-  		return 0;
-  
--	page = pmd_page(orig);
--	refs = record_subpages(page, PMD_SIZE, addr, end, pages + *nr);
-+	refs = (end - addr) >> PAGE_SHIFT;
-+	page = pmd_page(orig) + ((addr & ~PMD_MASK) >> PAGE_SHIFT);
-  
-  	folio = try_grab_folio_fast(page, refs, flags);
-  	if (!folio)
-@@ -2985,6 +2972,8 @@ static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
-  	}
-  
-  	*nr += refs;
-+	for (; refs; refs--)
-+		*(pages++) = page++;
-  	folio_set_referenced(folio);
-  	return 1;
-  }
-@@ -3003,8 +2992,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
-  	if (pud_special(orig))
-  		return 0;
-  
--	page = pud_page(orig);
--	refs = record_subpages(page, PUD_SIZE, addr, end, pages + *nr);
-+	refs = (end - addr) >> PAGE_SHIFT;
-+	page = pud_page(orig) + ((addr & ~PUD_MASK) >> PAGE_SHIFT);
-  
-  	folio = try_grab_folio_fast(page, refs, flags);
-  	if (!folio)
-@@ -3026,6 +3015,8 @@ static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
-  	}
-  
-  	*nr += refs;
-+	for (; refs; refs--)
-+		*(pages++) = page++;
-  	folio_set_referenced(folio);
-  	return 1;
-  }
--- 
-2.50.1
-
+ arch/riscv/include/asm/pgtable.h  | 16 +++++++-
+ arch/riscv/include/asm/tlbflush.h | 23 +++++++++++
+ arch/riscv/mm/tlbflush.c          | 64 ++++++++++++-------------------
+ 3 files changed, 63 insertions(+), 40 deletions(-)
 
 -- 
-Cheers
-
-David / dhildenb
+2.20.1
 
 
 _______________________________________________
