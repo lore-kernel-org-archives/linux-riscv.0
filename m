@@ -4,96 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09EF1CA0FFF
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 17:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14D6CA0FFF
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 17:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/gdT0iYM3HMbpNIgliFzppBmoglthxaudeQTl4ee2dU=; b=XsY/8W+ZK+rhiY
-	21ow7hYOfBB+LpJzbp8Fyh8yW+KH1Q0qWFZ59mjrSEnU0zO9PHmsOsE69VyPJgTmfqdCEb2rSiqsr
-	rCdCCgR9IjxLJxxuIsIpoqr38+mxZiHN8uOeXdSgbIEat9d8ZJmbz4+I9Fn7DjbCZFdUKfNDoW/44
-	MVXtPmu9zaE6hLy7UqxzdrVPM2OZNJ2ZWbCCdWVq+ctvW00fKkjxzhMZquQEaSVVSgofNagV1oBZz
-	rjVg/AbsUEvJjmJ8AAVGVYMnMthTT74UqmoGKy8qr0iL7yvbgRqgu9MjJCw5FLx15DV384TeARnXJ
-	f0VTCsZcepm7szhbV+uA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vZjq4E/cWtkhzUky4/wGmdXCB25uCcHCjFUKh3lgfEc=; b=cf/tD/8qNP6B0oRlr4GND733uE
+	/rDucEp44ZMdqyf/u8oxfgXxoy/LzKIkHgG1hmIlKeXvQfo11I8lfBf5rzspwD2qpFzC5ZbKUhePe
+	kC71XCqC1c0Ub9AwZQXxm8tqw8OCoMaTMbdlj/GKarmSYbp+wIeizrdnE2dOcRhK0VSiBbP9Kwqvp
+	I47dN9UG7DNr++I0MCqFr6zlX55n6tZWEg7M2OosuyfTk7Na2eDKJ5SDNDQ8ElqL/QAV2vhQDzpJd
+	cFoeoLJ9B9lXk6ao7LgxAuvE9FpViaZTFRzz4KpuTi1+vKe4pCmdsboxBLQ9EGmG2KgiPrueh283q
+	gbb30KRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut87K-0000000DQiX-1OID;
-	Mon, 01 Sep 2025 17:14:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ut8Kg-0000000DSSh-40ed;
+	Mon, 01 Sep 2025 17:28:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4zW-0000000CmQ2-3mY7
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 01 Sep 2025 13:54:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Ozw0O54FHk+TR7i9YrzO3JawV9UWD7KG8XrbYOvortQ=; b=Dxp8JVJVcNMtaTxIQjQb7TDnf8
-	oG9eX0TYDAVdUXPNdll8+YLHKKTyEn+DGTDOhMidbMpa8HLJ0l6R5P1EhiOLZGrfg650CkjMDNOet
-	Ttp32t1rwIU3hAl7I45M7xp6tck1SROhM9HfuRNhPJSw/VPMrEgTkgCOv8SG6V8jcRdIYwI4rl34P
-	PJMdhhUBAf/m4w5aUsohnZMsCLNDofwZ/YeoAyXKM3TxN+NootRv+XgymcnDS7v91XJT1EjxPQCcS
-	FSDyMAIVl8/1y9ZinmarPNWMgIk2upLZRot5Zo5/99sNEThYp8DiRPxIjSJeuLkl/LJh4uPyY08S3
-	8mZm3jMQ==;
-Received: from m.syntacore.com ([178.249.69.228])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4zT-00000003kP8-2OPX
+	id 1ut5D4-0000000Co98-04oq
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 13:54:37 +0000
-Received: from MRN-SC-KSMG-01.corp.syntacore.com (localhost [127.0.0.1])
-	by m.syntacore.com (Postfix) with ESMTP id 0FFE71A0004;
-	Mon,  1 Sep 2025 13:54:31 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 m.syntacore.com 0FFE71A0004
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=syntacore.com; s=m;
-	t=1756734871; bh=Ozw0O54FHk+TR7i9YrzO3JawV9UWD7KG8XrbYOvortQ=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=peyNlvWFhWIz1gS25XmRT+Gl87AHdP2bmsj7MxlSrvVwy0Hw2XYGoSh1GMIoRvZ5C
-	 VCHoSk4RDu3pZzD6he2aBgueonopmlK7H8M4R66UiNdl60h9xk9b3JRFOhyyhCz/VL
-	 UHG0iX8oYOSp5MK5/MgGQp+AVR5jRUrCu4y2eRyRFk1nFu+ph4ayO1Amp5LY2TMxfo
-	 /OHlpSgFPnq8PsDKeDReiv4K8STUDGC7L17urcTh+doMyuqZQY+Sc7wWfwzw0WooOl
-	 jPDi6uLMVuWwg1JwtD8CNEduS9boa+Y4pnatDgl3sdCm7Pzx2YHNtMjN5vqsrQbof8
-	 QgwW/n2bUoqeA==
-Received: from S-SC-EXCH-01.corp.syntacore.com (mail.syntacore.com [10.76.202.20])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by m.syntacore.com (Postfix) with ESMTPS;
-	Mon,  1 Sep 2025 13:54:28 +0000 (UTC)
-Received: from localhost (10.30.18.228) by S-SC-EXCH-01.corp.syntacore.com
- (10.76.202.20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 1 Sep
- 2025 16:54:21 +0300
-From: Svetlana Parfenova <svetlana.parfenova@syntacore.com>
-To: <linux-fsdevel@vger.kernel.org>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<alex@ghiti.f>, <viro@zeniv.linux.org.uk>, <brauner@kernel.org>,
-	<jack@suse.cz>, <kees@kernel.org>, <akpm@linux-foundation.org>,
-	<david@redhat.com>, <lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>,
-	<vbabka@suse.cz>, <rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>,
-	<svetlana.parfenova@syntacore.com>
-Subject: [RFC RESEND v3] binfmt_elf: preserve original ELF e_flags for core dumps
-Date: Mon, 1 Sep 2025 20:53:50 +0700
-Message-ID: <20250901135350.619485-1-svetlana.parfenova@syntacore.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250806161814.607668-1-svetlana.parfenova@syntacore.com>
-References: <20250806161814.607668-1-svetlana.parfenova@syntacore.com>
+	Mon, 01 Sep 2025 14:08:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 397DF601D9;
+	Mon,  1 Sep 2025 14:08:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7648BC4CEF0;
+	Mon,  1 Sep 2025 14:08:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756735716;
+	bh=OzrZGhKo/ziOjxea3LbChAg6YdR7N5Q5yFK9R2DNJh4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F36Mm7TAG2ZXqQS5iz0To3BlcsCl3TjF2sTAsYJb1ofTvk6fKWhIqUkPGqY8bvxwe
+	 0pa/3fgbu7dNrXFPkHyvqO9BXvhqfgvmvhiAsMyYFMTy7WyN418oHko3iuJbgypFE4
+	 FogGFZaNorIQlh5buUNME03E1M/zzshJ6tS41bflbC+eocpkm9f6kazHPowy1R6SeU
+	 PLq4BkXJxy+yzMWRkltpXs2zqBrUsFOXCRiJaeh0FF/1SmrHv6/tQKt9v8ZIg7XuLC
+	 ZvFRI9lr/m+RjO71djzSSwGhgqrSYPVsIcaSaXSWIm/U9Jrc3KeWeiscsxwArnI9tF
+	 7/6QlalL2NScA==
+Date: Mon, 1 Sep 2025 15:08:31 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Asuna Yang <spriteovo@gmail.com>
+Cc: Jason Montleon <jmontleo@redhat.com>, Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: RISC-V: Re-enable GCC+Rust builds
+Message-ID: <20250901-lasso-kabob-de32b8fcede8@spud>
+References: <68496eed-b5a4-4739-8d84-dcc428a08e20@gmail.com>
+ <20250830-cheesy-prone-ee5fae406c22@spud>
 MIME-Version: 1.0
-X-Originating-IP: [10.30.18.228]
-X-ClientProxiedBy: S-SC-EXCH-01.corp.syntacore.com (10.76.202.20) To
- S-SC-EXCH-01.corp.syntacore.com (10.76.202.20)
-X-KSMG-AntiPhishing: not scanned, disabled by settings
-X-KSMG-AntiSpam-Interceptor-Info: not scanned
-X-KSMG-AntiSpam-Status: not scanned, disabled by settings
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.1.8310, bases: 2025/09/01 12:41:00 #27718494
-X-KSMG-AntiVirus-Status: NotDetected, skipped
-X-KSMG-LinksScanning: NotDetected
-X-KSMG-Message-Action: skipped
-X-KSMG-Rule-ID: 5
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_145435_821813_381CD73B 
-X-CRM114-Status: GOOD (  22.36  )
+In-Reply-To: <20250830-cheesy-prone-ee5fae406c22@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,176 +75,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8586429601023951527=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some architectures, such as RISC-V, use the ELF e_flags field to encode
-ABI-specific information (e.g., ISA extensions, fpu support). Debuggers
-like GDB rely on these flags in core dumps to correctly interpret
-optional register sets. If the flags are missing or incorrect, GDB may
-warn and ignore valid data, for example:
 
-    warning: Unexpected size of section '.reg2/213' in core file.
+--===============8586429601023951527==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="OdIo6g+XUcHBw6vM"
+Content-Disposition: inline
 
-This can prevent access to fpu or other architecture-specific registers
-even when they were dumped.
 
-Save the e_flags field during ELF binary loading (in load_elf_binary())
-into the mm_struct, and later retrieve it during core dump generation
-(in fill_note_info()). Kconfig option CONFIG_ARCH_HAS_ELF_CORE_EFLAGS
-is introduced for architectures that require this behaviour.
+--OdIo6g+XUcHBw6vM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Svetlana Parfenova <svetlana.parfenova@syntacore.com>
----
-Changes in v3:
- - Introduce CONFIG_ARCH_HAS_ELF_CORE_EFLAGS Kconfig option instead of
-   arch-specific ELF_CORE_USE_PROCESS_EFLAGS define.
- - Add helper functions to set/get e_flags in mm_struct.
- - Wrap saved_e_flags field of mm_struct with
-   #ifdef CONFIG_ARCH_HAS_ELF_CORE_EFLAGS.
+On Sat, Aug 30, 2025 at 07:17:48PM +0100, Conor Dooley wrote:
+> On Sat, Aug 30, 2025 at 01:00:56PM +0800, Asuna Yang wrote:
+> > I noticed that GCC+Rust builds for RISC-V were disabled about a year ag=
+o, as
+> > discussed in
+> > https://lore.kernel.org/all/20240917000848.720765-1-jmontleo@redhat.com/
+> >=20
+> > I'm a bit lost here. What are the main obstacles to re-enabling GCC bui=
+lds
+> > now?
+> >=20
+> > Conor said:
+> > > Okay. Short term then is deny gcc + rust, longer term is allow it wit=
+h the
+> > same caveats as the aforementioned mixed stuff.
+> > "the same caveats" means detecting what specifically?
+>=20
+> There's "code" in the riscv Kconfig/Makefile that makes sure that the
+> assembler has the same understanding of what extensions are enabled as
+> the compiler. This is done by detecting which version of the tools are
+> in use, and adjusting march etc as a result. See
+> TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI for an example. When I wrote the
+> comment you're citing, there was no "off the shelf" way to figure out
+> the version of libclang in use to ensure that it has the same
+> understanding of -march as the version of gcc being used on the c side
+> does. For clang build, it's not a concern since it's almost certainly
+> the exact same as the compiler building the c side.
+>=20
+> > We have a RISC-V PWM driver being written in Rust. Currently, GCC being
+> > disabled for building the kernel with Rust for RISC-V is the primary bl=
+ocker
+> > for including these drivers in RISC-V distros. Therefore, I'd like to p=
+ush
+> > forward and contribute to the re-enabling of GCC builds. Is there a more
+> > detailed direction on what I can do here?
+>=20
+> Add the version of libclang as a Kconfig symbol, so that the kernel's
+> build system can ensure that both sides are built using the same
+> configuration. Off the top of my head, using a pre-17 libclang with a
+> new gcc would require having zicsr in -march for the c side and it
+> removed for rust. It's been a while (1 year+) since I fiddled with this
+> though, so my recollection there could well be inaccurate.
 
-Changes in v2:
- - Remove usage of Kconfig option.
- - Add an architecture-optional macro to set process e_flags. Enabled
-   by defining ELF_CORE_USE_PROCESS_EFLAGS. Defaults to no-op if not
-   used.
+Hmm, while I think of it, there's some other things that are problematic
+that are not currently checked but would have to be. For example,
+there's a check in the riscv Kconfig menu to see if
+stack-protector-guard=3Dtls can be used via a cc-option check. If that
+check passes with gcc as the compiler that option will be passed to the
+rust side of the build, where llvm might not support it.
+Similarly, turning on an extension like Zacas via a cc-option check could
+pass for gcc but not be usable when passed to the rust side, causing
+errors. These sorts of things should be prevented via Kconfig, not show
+up as confusing build errors.
 
- arch/riscv/Kconfig       |  1 +
- fs/Kconfig.binfmt        |  9 +++++++++
- fs/binfmt_elf.c          | 40 ++++++++++++++++++++++++++++++++++------
- include/linux/mm_types.h |  5 +++++
- 4 files changed, 49 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a4b233a0659e..1bef00208bdd 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -224,6 +224,7 @@ config RISCV
- 	select VDSO_GETRANDOM if HAVE_GENERIC_VDSO
- 	select USER_STACKTRACE_SUPPORT
- 	select ZONE_DMA32 if 64BIT
-+	select ARCH_HAS_ELF_CORE_EFLAGS
- 
- config RUSTC_SUPPORTS_RISCV
- 	def_bool y
-diff --git a/fs/Kconfig.binfmt b/fs/Kconfig.binfmt
-index bd2f530e5740..1949e25c7741 100644
---- a/fs/Kconfig.binfmt
-+++ b/fs/Kconfig.binfmt
-@@ -184,4 +184,13 @@ config EXEC_KUNIT_TEST
- 	  This builds the exec KUnit tests, which tests boundary conditions
- 	  of various aspects of the exec internals.
- 
-+config ARCH_HAS_ELF_CORE_EFLAGS
-+	bool
-+	depends on BINFMT_ELF && ELF_CORE
-+	default n
-+	help
-+	  Select this option if the architecture makes use of the e_flags
-+	  field in the ELF header to store ABI or other architecture-specific
-+	  information that should be preserved in core dumps.
-+
- endmenu
-diff --git a/fs/binfmt_elf.c b/fs/binfmt_elf.c
-index 4aacf9c9cc2d..e4653bb99946 100644
---- a/fs/binfmt_elf.c
-+++ b/fs/binfmt_elf.c
-@@ -103,6 +103,21 @@ static struct linux_binfmt elf_format = {
- 
- #define BAD_ADDR(x) (unlikely((unsigned long)(x) >= TASK_SIZE))
- 
-+static inline void elf_coredump_set_mm_eflags(struct mm_struct *mm, u32 flags)
-+{
-+#ifdef CONFIG_ARCH_HAS_ELF_CORE_EFLAGS
-+	mm->saved_e_flags = flags;
-+#endif
-+}
-+
-+static inline u32 elf_coredump_get_mm_eflags(struct mm_struct *mm, u32 flags)
-+{
-+#ifdef CONFIG_ARCH_HAS_ELF_CORE_EFLAGS
-+	flags = mm->saved_e_flags;
-+#endif
-+	return flags;
-+}
-+
- /*
-  * We need to explicitly zero any trailing portion of the page that follows
-  * p_filesz when it ends before the page ends (e.g. bss), otherwise this
-@@ -1290,6 +1305,8 @@ static int load_elf_binary(struct linux_binprm *bprm)
- 	mm->end_data = end_data;
- 	mm->start_stack = bprm->p;
- 
-+	elf_coredump_set_mm_eflags(mm, elf_ex->e_flags);
-+
- 	/**
- 	 * DOC: "brk" handling
- 	 *
-@@ -1804,6 +1821,8 @@ static int fill_note_info(struct elfhdr *elf, int phdrs,
- 	struct elf_thread_core_info *t;
- 	struct elf_prpsinfo *psinfo;
- 	struct core_thread *ct;
-+	u16 machine;
-+	u32 flags;
- 
- 	psinfo = kmalloc(sizeof(*psinfo), GFP_KERNEL);
- 	if (!psinfo)
-@@ -1831,17 +1850,26 @@ static int fill_note_info(struct elfhdr *elf, int phdrs,
- 		return 0;
- 	}
- 
--	/*
--	 * Initialize the ELF file header.
--	 */
--	fill_elf_header(elf, phdrs,
--			view->e_machine, view->e_flags);
-+	machine = view->e_machine;
-+	flags = view->e_flags;
- #else
- 	view = NULL;
- 	info->thread_notes = 2;
--	fill_elf_header(elf, phdrs, ELF_ARCH, ELF_CORE_EFLAGS);
-+	machine = ELF_ARCH;
-+	flags = ELF_CORE_EFLAGS;
- #endif
- 
-+	/*
-+	 * Override ELF e_flags with value taken from process,
-+	 * if arch needs that.
-+	 */
-+	flags = elf_coredump_get_mm_eflags(dump_task->mm, flags);
-+
-+	/*
-+	 * Initialize the ELF file header.
-+	 */
-+	fill_elf_header(elf, phdrs, machine, flags);
-+
- 	/*
- 	 * Allocate a structure for each thread.
- 	 */
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index 08bc2442db93..04a2857f12f2 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -1102,6 +1102,11 @@ struct mm_struct {
- 
- 		unsigned long saved_auxv[AT_VECTOR_SIZE]; /* for /proc/PID/auxv */
- 
-+#ifdef CONFIG_ARCH_HAS_ELF_CORE_EFLAGS
-+		/* the ABI-related flags from the ELF header. Used for core dump */
-+		unsigned long saved_e_flags;
-+#endif
-+
- 		struct percpu_counter rss_stat[NR_MM_COUNTERS];
- 
- 		struct linux_binfmt *binfmt;
--- 
-2.51.0
+--OdIo6g+XUcHBw6vM
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLWo3AAKCRB4tDGHoIJi
+0uC6AQCE+OLBYrLOFf+asyXURIHL6RWs7lgeAYlu+2yTHkHJ4gD+PaXpb+dmGhrF
+EJv4oLQmRVAC2xUCUy+a0Iy+/t+IRgc=
+=tQwP
+-----END PGP SIGNATURE-----
+
+--OdIo6g+XUcHBw6vM--
+
+
+--===============8586429601023951527==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8586429601023951527==--
+
