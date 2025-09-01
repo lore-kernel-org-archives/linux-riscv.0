@@ -4,94 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ECB1CAC592
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 18:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F25CAC582
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 18:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jz7umMRC23IRc7l/cS1pHOACZoEU2okIuUSOxCbBySs=; b=y+spumOhH0cHaX
-	K1MC2FVLNx5iRgECy52ENh2hEGcFapYXyQ86zJQJliem+SfSmOoolCemqcd5wD6qpJPZlfwTwq8cu
-	zljB+FueNpJ8S8ONEAwfBtzAOeSRrGjl9HfT7uTsXhlmbISx5ZNqKJ74c6NC98T/dIIyGBN41HWtU
-	oa+6I8P8YPE8v9pJDRGa3iI2ITp+eJTey8i1q8h1zq9mbYgOjEbUcO3+6oKs1hA5KH4qYr9GQMG7W
-	xCgQJgupfp5z0K9XYwJsYF+tySXosMy2r/JdU2gielowAWMZA4Cq7JxoFuzdRBhtPygWrXAwLUITk
-	ItRORfCbaI1E8Th8grNg==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ky39cI3MK1bqCH/f2xOi7KAMtfxUoF1f/HP1aQF8m+Y=; b=2Nhrr79AVlbeku
+	Uyt5ZhpDNT6I8k5cdcO/uOGuxF2YsteBG8BMOAJ3TH2lk+0XgBcRZ2b6TviL+mRnOYNd+hubgnQkB
+	j2Rg6q+CRXRmSo8Jbnw9Lr18ZbzG8jsz6H7Rwp/agRX8ETLbaq9GNv2A3tQgWEACwf7/VQ/6CtYAE
+	slIIvNLQfkTkYJk9WFgFJRPf4VXCqatzU6DIKK7YJaATR22aQQTa1B70ySBSL7CVYOa7B3tpbHFZx
+	dti1lb+6Jpm/F/+PW5y2rXevoIwM2i37zH/LOShmSB8NhsUPFAv1vyGs0G2cCmVMDDp/VKUfZOo41
+	YnVF6bLNfrX6VadKndlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8JV-0000000Avmk-0j7a;
-	Fri, 12 Sep 2025 18:16:01 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1ux8JW-0000000Avoy-3S1C;
+	Fri, 12 Sep 2025 18:16:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYf6-00000008LHL-3Kv7;
-	Mon, 25 Aug 2025 14:59:11 +0000
-Received: from ROG (unknown [118.251.178.216])
-	by APP-05 (Coremail) with SMTP id zQCowABX6lopeqxooi0eDw--.61332S2;
-	Mon, 25 Aug 2025 22:58:51 +0800 (CST)
-From: <pincheng.plct@isrc.iscas.ac.cn>
-To: <inochiama@gmail.com>
-Cc: <ajones@ventanamicro.com>,
-	<alex@ghiti.fr>,
-	<anup@brainfault.org>,
-	<aou@eecs.berkeley.edu>,
-	<charlie@rivosinc.com>,
-	<cleger@rivosinc.com>,
-	<conor+dt@kernel.org>,
-	<cuiyunhui@bytedance.com>,
-	<cyan.yang@sifive.com>,
-	<devicetree@vger.kernel.org>,
-	<jesse@rivosinc.com>,
-	<krzk+dt@kernel.org>,
-	<kvm-riscv@lists.infradead.org>,
-	<kvm@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>,
-	<mikisabate@gmail.com>,
-	<namcao@linutronix.de>,
-	<palmer@dabbelt.com>,
-	<parri.andrea@gmail.com>,
-	<paul.walmsley@sifive.com>,
-	<pbonzini@redhat.com>,
-	<pincheng.plct@isrc.iscas.ac.cn>,
-	<robh@kernel.org>,
-	<samuel.holland@sifive.com>,
-	<shuah@kernel.org>,
-	<thomas.weissschuh@linutronix.de>,
-	<yikming2222@gmail.com>,
-	<yongxuan.wang@sifive.com>
-Subject: Re: [PATCH v1 RESEND 1/5] dt-bidings: riscv: add Zilsd and Zclsd extension descriptions
-Date: Mon, 25 Aug 2025 22:58:49 +0800
-Message-ID: <001e01dc15d0$c4842e10$4d8c8a30$@isrc.iscas.ac.cn>
+	id 1ut4JA-0000000CdqV-1maS;
+	Mon, 01 Sep 2025 13:10:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 29B39601F2;
+	Mon,  1 Sep 2025 13:10:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8DCC2C2BCB4;
+	Mon,  1 Sep 2025 13:10:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756732249;
+	bh=bn11Mcm9rcT+MQQ0Xp201gsG19m4YqCNUtE/9w0wOKQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=KRZi3sS9oPatGmfq2hHozBvMYdfgtjqHP1O+4MZw4/W8FlW7VF6WwhhBhP8gEUdr6
+	 kDPZQSF5ohlsPOwQhgAE1+Wk5UB9+ElpMclkA5GVsgxNbWhX+7et5sGWktdFTwvAK2
+	 A/qgST9yyRvOAjwZRVt1dH+cIr4hrQIIbJ0JrA5uByNUPwoOn8T8Sott9iBCClOY+s
+	 MwhzTvqSmWrwkaOFxUQdxJVuOHazoI6Yc033Fo3Lu8JjJ12XSnw2Uf67bntnAvM0xA
+	 eO5W+0zeQcGO4jiXKuN2Vw7x9S9NUkeJiMMze1z5n2vM4z6XPFk8uxLpiruWmqyFwh
+	 Q+/2eVXQgxpzg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 697A5CA1007;
+	Mon,  1 Sep 2025 13:10:49 +0000 (UTC)
+From: Simon Schuster via B4 Relay <devnull+schuster.simon.siemens-energy.com@kernel.org>
+Date: Mon, 01 Sep 2025 15:09:52 +0200
+Subject: [PATCH v2 3/4] arch: copy_thread: pass clone_flags as u64
 MIME-Version: 1.0
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AdwV0HURyytbkCJFT0CWNFw9272t/g==
-Content-Language: zh-cn
-X-CM-TRANSID: zQCowABX6lopeqxooi0eDw--.61332S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAr4Uur48KryUtFWxWFW8Crg_yoW5Kry8pa
-	97GF4UGF98XryfW3s7Kw48uay5Ga1kGr1fCFsrt34xKFW5Ar10qFW2y3WYqw18Jr4IkF4j
-	vr42gr1vq3sxArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9E14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWUuVWrJwAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwAKzVCY07xG64k0F24lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr4
-	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
-	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26rWY6r4UJwCIc40Y0x0EwIxGrwCI42IY6xIIjx
-	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
-	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
-	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sREb4S5UUUUU==
-X-Originating-IP: [118.251.178.216]
-X-CM-SenderInfo: pslquxhhqjh1xofwqxxvufhxpvfd2hldfou0/
-X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_075909_231136_7A303DF3 
-X-CRM114-Status: GOOD (  20.57  )
+Message-Id: <20250901-nios2-implement-clone3-v2-3-53fcf5577d57@siemens-energy.com>
+References: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
+In-Reply-To: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
+To: Dinh Nguyen <dinguyen@kernel.org>, 
+ Christian Brauner <brauner@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@redhat.com>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ Kees Cook <kees@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Guo Ren <guoren@kernel.org>, 
+ Oleg Nesterov <oleg@redhat.com>, Jens Axboe <axboe@kernel.dk>, 
+ Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
+ Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, 
+ =?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
+ Paul Moore <paul@paul-moore.com>, Serge Hallyn <sergeh@kernel.org>, 
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ John Johansen <john.johansen@canonical.com>, 
+ Stephen Smalley <stephen.smalley.work@gmail.com>, 
+ Ondrej Mosnacek <omosnace@redhat.com>, 
+ Kentaro Takeda <takedakn@nttdata.co.jp>, 
+ Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>, 
+ Richard Henderson <richard.henderson@linaro.org>, 
+ Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+ WANG Xuerui <kernel@xen0n.name>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Michal Simek <monstr@monstr.eu>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Jonas Bonn <jonas@southpole.se>, 
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+ Stafford Horne <shorne@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+ Andreas Larsson <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, 
+ Max Filippov <jcmvbkbc@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org, 
+ linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ cgroups@vger.kernel.org, linux-security-module@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, apparmor@lists.ubuntu.com, 
+ selinux@vger.kernel.org, linux-alpha@vger.kernel.org, 
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, 
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+ linux-um@lists.infradead.org, 
+ Simon Schuster <schuster.simon@siemens-energy.com>
+X-Mailer: b4 0.14.3-dev-2ce6c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756732247; l=16540;
+ i=schuster.simon@siemens-energy.com; s=20250818;
+ h=from:subject:message-id;
+ bh=Y3a/SqNexPbCaZWJBpdYeJq+/IM8XgQTim9rBfKHiaA=;
+ b=UjI5dxbF8m/bKhCNWgu/x71TjwpiyMXHU3gmg9s7/nOiVWKAXB66aimoxuWTlDPPa26oUbNcf
+ kv5epNY+XY6CCqxvFt/3W0br9TEi4ANevDDyK0PBDev3N7SAYA7IWjA
+X-Developer-Key: i=schuster.simon@siemens-energy.com; a=ed25519;
+ pk=PUhOMiSp43aSeRE1H41KApxYOluamBFFiMfKlBjocvo=
+X-Endpoint-Received: by B4 Relay for
+ schuster.simon@siemens-energy.com/20250818 with auth_id=495
+X-Original-From: Simon Schuster <schuster.simon@siemens-energy.com>
 X-Mailman-Approved-At: Fri, 12 Sep 2025 11:15:58 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,102 +158,410 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: schuster.simon@siemens-energy.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> -----Original Message-----
-> From: Inochi Amaoto <inochiama@gmail.com>
-> Sent: Saturday, August 23, 2025 6:35 AM
-> To: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>;
-> paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
-> alex@ghiti.fr; robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> anup@brainfault.org; pbonzini@redhat.com; shuah@kernel.org;
-> cyan.yang@sifive.com; cleger@rivosinc.com; charlie@rivosinc.com;
-> cuiyunhui@bytedance.com; samuel.holland@sifive.com;
-> namcao@linutronix.de; jesse@rivosinc.com; inochiama@gmail.com;
-> yongxuan.wang@sifive.com; ajones@ventanamicro.com;
-> parri.andrea@gmail.com; mikisabate@gmail.com; yikming2222@gmail.com;
-> thomas.weissschuh@linutronix.de
-> Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org;
-> linux-doc@vger.kernel.org; devicetree@vger.kernel.org; kvm@vger.kernel.org;
-> kvm-riscv@lists.infradead.org; linux-kselftest@vger.kernel.org
-> Subject: Re: [PATCH v1 RESEND 1/5] dt-bidings: riscv: add Zilsd and Zclsd
-> extension descriptions
-> 
-> On Thu, Aug 21, 2025 at 10:01:27PM +0800, Pincheng Wang wrote:
-> > Add descriptions for the Zilsd (Load/Store pair instructions) and
-> > Zclsd (Compressed Load/Store pair instructions) ISA extensions which
-> > were ratified in commit f88abf1 ("Integrating load/store pair for RV32
-> > with the main manual") of the riscv-isa-manual.
-> >
-> > Signed-off-by: Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>
-> > ---
-> >  .../devicetree/bindings/riscv/extensions.yaml | 39
-> > +++++++++++++++++++
-> >  1 file changed, 39 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > index ede6a58ccf53..d72ffe8f6fa7 100644
-> > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > @@ -366,6 +366,20 @@ properties:
-> >              guarantee on LR/SC sequences, as ratified in commit
-> b1d806605f87
-> >              ("Updated to ratified state.") of the riscv profiles
-> specification.
-> >
-> > +        - const: zilsd
-> > +          description:
-> > +            The standard Zilsd extension which provides support for
-> aligned
-> > +            register-pair load and store operations in 32-bit instruction
-> > +            encodings, as ratified in commit f88abf1 ("Integrating
-> > +            load/store pair for RV32 with the main manual") of
-> riscv-isa-manual.
-> > +
-> > +        - const: zclsd
-> > +          description:
-> > +            The Zclsd extension implements the compressed (16-bit)
-> version of the
-> > +            Load/Store Pair for RV32. As with Zilsd, this extension was
-> ratified
-> > +            in commit f88abf1 ("Integrating load/store pair for RV32 with
-> the
-> > +            main manual") of riscv-isa-manual.
-> > +
-> >          - const: zk
-> >            description:
-> >              The standard Zk Standard Scalar cryptography extension as
-> > ratified @@ -847,6 +861,16 @@ properties:
-> >              anyOf:
-> >                - const: v
-> >                - const: zve32x
-> 
-> > +      # Zclsd depends on Zilsd and Zca
-> > +      - if:
-> > +          contains:
-> > +            anyOf:
-> > +              - const: zclsd
-> > +        then:
-> > +          contains:
-> > +            anyOf:
-> > +              - const: zilsd
-> > +              - const: zca
-> >
-> 
-> Should be allOf? I see the comment says "Zclsd" requires both "Zilsd"
-> and "Zca".
-> 
-> Regards,
-> Inochi
+From: Simon Schuster <schuster.simon@siemens-energy.com>
 
-You're absolutely right, thank you for catching this. Since Zclsd depends on both Zilsd and Zca, the condition should use allOf to correctly enforce the conjunction. I'll fix this in next revision.
+With the introduction of clone3 in commit 7f192e3cd316 ("fork: add
+clone3") the effective bit width of clone_flags on all architectures was
+increased from 32-bit to 64-bit, with a new type of u64 for the flags.
+However, for most consumers of clone_flags the interface was not
+changed from the previous type of unsigned long.
 
-Best regards,
-Pincheng Wang
+While this works fine as long as none of the new 64-bit flag bits
+(CLONE_CLEAR_SIGHAND and CLONE_INTO_CGROUP) are evaluated, this is still
+undesirable in terms of the principle of least surprise.
+
+Thus, this commit fixes all relevant interfaces of the copy_thread
+function that is called from copy_process to consistently pass
+clone_flags as u64, so that no truncation to 32-bit integers occurs on
+32-bit architectures.
+
+Signed-off-by: Simon Schuster <schuster.simon@siemens-energy.com>
+---
+ arch/alpha/kernel/process.c      | 2 +-
+ arch/arc/kernel/process.c        | 2 +-
+ arch/arm/kernel/process.c        | 2 +-
+ arch/arm64/kernel/process.c      | 2 +-
+ arch/csky/kernel/process.c       | 2 +-
+ arch/hexagon/kernel/process.c    | 2 +-
+ arch/loongarch/kernel/process.c  | 2 +-
+ arch/m68k/kernel/process.c       | 2 +-
+ arch/microblaze/kernel/process.c | 2 +-
+ arch/mips/kernel/process.c       | 2 +-
+ arch/nios2/kernel/process.c      | 2 +-
+ arch/openrisc/kernel/process.c   | 2 +-
+ arch/parisc/kernel/process.c     | 2 +-
+ arch/powerpc/kernel/process.c    | 2 +-
+ arch/riscv/kernel/process.c      | 2 +-
+ arch/s390/kernel/process.c       | 2 +-
+ arch/sh/kernel/process_32.c      | 2 +-
+ arch/sparc/kernel/process_32.c   | 2 +-
+ arch/sparc/kernel/process_64.c   | 2 +-
+ arch/um/kernel/process.c         | 2 +-
+ arch/x86/include/asm/fpu/sched.h | 2 +-
+ arch/x86/include/asm/shstk.h     | 4 ++--
+ arch/x86/kernel/fpu/core.c       | 2 +-
+ arch/x86/kernel/process.c        | 2 +-
+ arch/x86/kernel/shstk.c          | 2 +-
+ arch/xtensa/kernel/process.c     | 2 +-
+ 26 files changed, 27 insertions(+), 27 deletions(-)
+
+diff --git a/arch/alpha/kernel/process.c b/arch/alpha/kernel/process.c
+index 582d96548385..06522451f018 100644
+--- a/arch/alpha/kernel/process.c
++++ b/arch/alpha/kernel/process.c
+@@ -231,7 +231,7 @@ flush_thread(void)
+  */
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	extern void ret_from_fork(void);
+diff --git a/arch/arc/kernel/process.c b/arch/arc/kernel/process.c
+index 186ceab661eb..8166d0908713 100644
+--- a/arch/arc/kernel/process.c
++++ b/arch/arc/kernel/process.c
+@@ -166,7 +166,7 @@ asmlinkage void ret_from_fork(void);
+  */
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct pt_regs *c_regs;        /* child's pt_regs */
+diff --git a/arch/arm/kernel/process.c b/arch/arm/kernel/process.c
+index e16ed102960c..d7aa95225c70 100644
+--- a/arch/arm/kernel/process.c
++++ b/arch/arm/kernel/process.c
+@@ -234,7 +234,7 @@ asmlinkage void ret_from_fork(void) __asm__("ret_from_fork");
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long stack_start = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct thread_info *thread = task_thread_info(p);
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 96482a1412c6..fba7ca102a8c 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -409,7 +409,7 @@ asmlinkage void ret_from_fork(void) asm("ret_from_fork");
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long stack_start = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct pt_regs *childregs = task_pt_regs(p);
+diff --git a/arch/csky/kernel/process.c b/arch/csky/kernel/process.c
+index 0c6e4b17fe00..a7a90340042a 100644
+--- a/arch/csky/kernel/process.c
++++ b/arch/csky/kernel/process.c
+@@ -32,7 +32,7 @@ void flush_thread(void){}
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct switch_stack *childstack;
+diff --git a/arch/hexagon/kernel/process.c b/arch/hexagon/kernel/process.c
+index 2a77bfd75694..15b4992bfa29 100644
+--- a/arch/hexagon/kernel/process.c
++++ b/arch/hexagon/kernel/process.c
+@@ -52,7 +52,7 @@ void arch_cpu_idle(void)
+  */
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct thread_info *ti = task_thread_info(p);
+diff --git a/arch/loongarch/kernel/process.c b/arch/loongarch/kernel/process.c
+index 3582f591bab2..efd9edf65603 100644
+--- a/arch/loongarch/kernel/process.c
++++ b/arch/loongarch/kernel/process.c
+@@ -167,7 +167,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 	unsigned long childksp;
+ 	unsigned long tls = args->tls;
+ 	unsigned long usp = args->stack;
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	struct pt_regs *childregs, *regs = current_pt_regs();
+ 
+ 	childksp = (unsigned long)task_stack_page(p) + THREAD_SIZE;
+diff --git a/arch/m68k/kernel/process.c b/arch/m68k/kernel/process.c
+index fda7eac23f87..f5a07a70e938 100644
+--- a/arch/m68k/kernel/process.c
++++ b/arch/m68k/kernel/process.c
+@@ -141,7 +141,7 @@ asmlinkage int m68k_clone3(struct pt_regs *regs)
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct fork_frame {
+diff --git a/arch/microblaze/kernel/process.c b/arch/microblaze/kernel/process.c
+index 56342e11442d..6cbf642d7b80 100644
+--- a/arch/microblaze/kernel/process.c
++++ b/arch/microblaze/kernel/process.c
+@@ -54,7 +54,7 @@ void flush_thread(void)
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct pt_regs *childregs = task_pt_regs(p);
+diff --git a/arch/mips/kernel/process.c b/arch/mips/kernel/process.c
+index 02aa6a04a21d..29191fa1801e 100644
+--- a/arch/mips/kernel/process.c
++++ b/arch/mips/kernel/process.c
+@@ -107,7 +107,7 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+  */
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct thread_info *ti = task_thread_info(p);
+diff --git a/arch/nios2/kernel/process.c b/arch/nios2/kernel/process.c
+index f84021303f6a..151404139085 100644
+--- a/arch/nios2/kernel/process.c
++++ b/arch/nios2/kernel/process.c
+@@ -101,7 +101,7 @@ void flush_thread(void)
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct pt_regs *childregs = task_pt_regs(p);
+diff --git a/arch/openrisc/kernel/process.c b/arch/openrisc/kernel/process.c
+index eef99fee2110..73ffb9fa3118 100644
+--- a/arch/openrisc/kernel/process.c
++++ b/arch/openrisc/kernel/process.c
+@@ -165,7 +165,7 @@ extern asmlinkage void ret_from_fork(void);
+ int
+ copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct pt_regs *userregs;
+diff --git a/arch/parisc/kernel/process.c b/arch/parisc/kernel/process.c
+index ed93bd8c1545..e64ab5d2a40d 100644
+--- a/arch/parisc/kernel/process.c
++++ b/arch/parisc/kernel/process.c
+@@ -201,7 +201,7 @@ arch_initcall(parisc_idle_init);
+ int
+ copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct pt_regs *cregs = &(p->thread.regs);
+diff --git a/arch/powerpc/kernel/process.c b/arch/powerpc/kernel/process.c
+index 855e09886503..eb23966ac0a9 100644
+--- a/arch/powerpc/kernel/process.c
++++ b/arch/powerpc/kernel/process.c
+@@ -1805,7 +1805,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 			f = ret_from_kernel_user_thread;
+ 		} else {
+ 			struct pt_regs *regs = current_pt_regs();
+-			unsigned long clone_flags = args->flags;
++			u64 clone_flags = args->flags;
+ 			unsigned long usp = args->stack;
+ 
+ 			/* Copy registers */
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index a0a40889d79a..31a392993cb4 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -223,7 +223,7 @@ asmlinkage void ret_from_fork_user(struct pt_regs *regs)
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct pt_regs *childregs = task_pt_regs(p);
+diff --git a/arch/s390/kernel/process.c b/arch/s390/kernel/process.c
+index f55f09cda6f8..b107dbca4ed7 100644
+--- a/arch/s390/kernel/process.c
++++ b/arch/s390/kernel/process.c
+@@ -106,7 +106,7 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long new_stackp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct fake_frame
+diff --git a/arch/sh/kernel/process_32.c b/arch/sh/kernel/process_32.c
+index 92b6649d4929..62f753a85b89 100644
+--- a/arch/sh/kernel/process_32.c
++++ b/arch/sh/kernel/process_32.c
+@@ -89,7 +89,7 @@ asmlinkage void ret_from_kernel_thread(void);
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct thread_info *ti = task_thread_info(p);
+diff --git a/arch/sparc/kernel/process_32.c b/arch/sparc/kernel/process_32.c
+index 9c7c662cb565..5a28c0e91bf1 100644
+--- a/arch/sparc/kernel/process_32.c
++++ b/arch/sparc/kernel/process_32.c
+@@ -260,7 +260,7 @@ extern void ret_from_kernel_thread(void);
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long sp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct thread_info *ti = task_thread_info(p);
+diff --git a/arch/sparc/kernel/process_64.c b/arch/sparc/kernel/process_64.c
+index 529adfecd58c..25781923788a 100644
+--- a/arch/sparc/kernel/process_64.c
++++ b/arch/sparc/kernel/process_64.c
+@@ -567,7 +567,7 @@ void fault_in_user_windows(struct pt_regs *regs)
+  */
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long sp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct thread_info *t = task_thread_info(p);
+diff --git a/arch/um/kernel/process.c b/arch/um/kernel/process.c
+index 1be644de9e41..9c9c66dc45f0 100644
+--- a/arch/um/kernel/process.c
++++ b/arch/um/kernel/process.c
+@@ -143,7 +143,7 @@ static void fork_handler(void)
+ 
+ int copy_thread(struct task_struct * p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long sp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	void (*handler)(void);
+diff --git a/arch/x86/include/asm/fpu/sched.h b/arch/x86/include/asm/fpu/sched.h
+index c060549c6c94..89004f4ca208 100644
+--- a/arch/x86/include/asm/fpu/sched.h
++++ b/arch/x86/include/asm/fpu/sched.h
+@@ -11,7 +11,7 @@
+ 
+ extern void save_fpregs_to_fpstate(struct fpu *fpu);
+ extern void fpu__drop(struct task_struct *tsk);
+-extern int  fpu_clone(struct task_struct *dst, unsigned long clone_flags, bool minimal,
++extern int  fpu_clone(struct task_struct *dst, u64 clone_flags, bool minimal,
+ 		      unsigned long shstk_addr);
+ extern void fpu_flush_thread(void);
+ 
+diff --git a/arch/x86/include/asm/shstk.h b/arch/x86/include/asm/shstk.h
+index ba6f2fe43848..0f50e0125943 100644
+--- a/arch/x86/include/asm/shstk.h
++++ b/arch/x86/include/asm/shstk.h
+@@ -16,7 +16,7 @@ struct thread_shstk {
+ 
+ long shstk_prctl(struct task_struct *task, int option, unsigned long arg2);
+ void reset_thread_features(void);
+-unsigned long shstk_alloc_thread_stack(struct task_struct *p, unsigned long clone_flags,
++unsigned long shstk_alloc_thread_stack(struct task_struct *p, u64 clone_flags,
+ 				       unsigned long stack_size);
+ void shstk_free(struct task_struct *p);
+ int setup_signal_shadow_stack(struct ksignal *ksig);
+@@ -28,7 +28,7 @@ static inline long shstk_prctl(struct task_struct *task, int option,
+ 			       unsigned long arg2) { return -EINVAL; }
+ static inline void reset_thread_features(void) {}
+ static inline unsigned long shstk_alloc_thread_stack(struct task_struct *p,
+-						     unsigned long clone_flags,
++						     u64 clone_flags,
+ 						     unsigned long stack_size) { return 0; }
+ static inline void shstk_free(struct task_struct *p) {}
+ static inline int setup_signal_shadow_stack(struct ksignal *ksig) { return 0; }
+diff --git a/arch/x86/kernel/fpu/core.c b/arch/x86/kernel/fpu/core.c
+index aefd412a23dc..1f71cc135e9a 100644
+--- a/arch/x86/kernel/fpu/core.c
++++ b/arch/x86/kernel/fpu/core.c
+@@ -631,7 +631,7 @@ static int update_fpu_shstk(struct task_struct *dst, unsigned long ssp)
+ }
+ 
+ /* Clone current's FPU state on fork */
+-int fpu_clone(struct task_struct *dst, unsigned long clone_flags, bool minimal,
++int fpu_clone(struct task_struct *dst, u64 clone_flags, bool minimal,
+ 	      unsigned long ssp)
+ {
+ 	/*
+diff --git a/arch/x86/kernel/process.c b/arch/x86/kernel/process.c
+index 1b7960cf6eb0..e3a3987b0c4f 100644
+--- a/arch/x86/kernel/process.c
++++ b/arch/x86/kernel/process.c
+@@ -159,7 +159,7 @@ __visible void ret_from_fork(struct task_struct *prev, struct pt_regs *regs,
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long sp = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct inactive_task_frame *frame;
+diff --git a/arch/x86/kernel/shstk.c b/arch/x86/kernel/shstk.c
+index 2ddf23387c7e..5eba6c5a6775 100644
+--- a/arch/x86/kernel/shstk.c
++++ b/arch/x86/kernel/shstk.c
+@@ -191,7 +191,7 @@ void reset_thread_features(void)
+ 	current->thread.features_locked = 0;
+ }
+ 
+-unsigned long shstk_alloc_thread_stack(struct task_struct *tsk, unsigned long clone_flags,
++unsigned long shstk_alloc_thread_stack(struct task_struct *tsk, u64 clone_flags,
+ 				       unsigned long stack_size)
+ {
+ 	struct thread_shstk *shstk = &tsk->thread.shstk;
+diff --git a/arch/xtensa/kernel/process.c b/arch/xtensa/kernel/process.c
+index 7bd66677f7b6..94d43f44be13 100644
+--- a/arch/xtensa/kernel/process.c
++++ b/arch/xtensa/kernel/process.c
+@@ -267,7 +267,7 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+ 
+ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ {
+-	unsigned long clone_flags = args->flags;
++	u64 clone_flags = args->flags;
+ 	unsigned long usp_thread_fn = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct pt_regs *childregs = task_pt_regs(p);
+
+-- 
+2.39.5
+
 
 
 _______________________________________________
