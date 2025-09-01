@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BEC0CA1011
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A67D6CA100D
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3omo2/Msq4337kYduj+ovRVjssZlVJ0RpvEpP3Gn3sQ=; b=wSmrdOjGFl7OTg
-	5CoiK8BwBGYLg800TLk3+MqF4RD424/gpR0HSBTmhNavTmj3nR2su1sLmZmGl0eqeU/i0jysI3lUH
-	NothjuRrL76kaflcX/X7/akLhMqjEkGEkioUZ5beOnqQzxkMTCuR6j/acgKAHCxqUfljxSFB3z1lc
-	Ho273e1nBLv+8dtPjpshtWYzLNzWyQC3lVMzVDICqo7c/WCRS2j4VFDnHdLnyJEFm095AaYOm7Xh9
-	Vk2zZ6aAki2pHfAm2117wY3931PK+GvZc2IIvEau+nFy+CVmKnfI+F/nZeUzR4NS3rZ7NZS7kAa9Y
-	fue4KGHQji8egugx0I2w==;
+	List-Owner; bh=XUwvCzg7HMREtIy9akGuBhE7HwS1hOpiA1h4j4wwbPQ=; b=h/M6pQsRrpEQ6i
+	nm5JGGThQ2+sXA1cqI8N8moY0ybF8GIg1x5TNs8Ht4YUofAucZwNRnRhxqUiGPHVZmWVUcwJtoseA
+	xleuGhj+3UhlO2eAZ4LAhq7sr3MzCDAENGqiq70uRDYk9BXZrYRimHap24XDBtgpsh/hY/PrcATvX
+	k+z+oFm0Moc26CYuwmCo4uujhD2Y4aB7yqJ9gtvnvLhQH5SwHIVxuZlr331I8UyoX9O9rPektySbJ
+	ofO+XlxkiYSRsSJgaNqvbb2FkeZyxFtj+EP8mwOwv8ZHJW2esJEFXKQtlL0YKCzuge+1PE5QwQK58
+	svt1+65wKF1tpHDtXmNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDgo-0000000EDkO-21tT;
-	Mon, 01 Sep 2025 23:11:54 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1utDgr-0000000EDlc-1PSu;
+	Mon, 01 Sep 2025 23:11:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut69d-0000000Cyqp-2fSN
+	id 1ut6Dz-0000000D1WP-1PHK
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 15:09:10 +0000
+	Mon, 01 Sep 2025 15:13:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739348;
+	s=mimecast20190719; t=1756739618;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=28W0TjP7quFSAyZF0qsh8B2KkVopKfPNU5v7Cs/5Ym0=;
-	b=J/9jvbTk5VLxiumgC/sn3gRJqrfKQgcnxYrfDtWbLoYw8uKxQeOPD4gI+3y6xkCtoSU2pa
-	tDqGKCSLHVgv6JMo6f5c/Nd2/0bV7siLsxrQ090+gLz4b12uMVOBwZycSW++Bi8iujcLN8
-	mxDhTRvYBxkNIG3+BJkufZqVZNdD18w=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=kPHmZzTajGoiIu4Pb16cc/zxagZSiNHTxiRnREwqsAY=;
+	b=PZYQAclMa9O33BJ0b5fGUBIXonyJORLVhEyERoZxNYpsnNB/ggnM7fGI2P/8cefNLcktYZ
+	nS8UZO4C5kP4LbpXKWUTKFo8V3Mew1PckyXSqtVlMnO2J6/zcPYW4z8yZZr1416YBYSeIi
+	qFPv5UlHnWop96CFkYVoqZOomKnu1w0=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-367-Xnh8yLGcPFel-NQdQHGKhw-1; Mon,
- 01 Sep 2025 11:09:04 -0400
-X-MC-Unique: Xnh8yLGcPFel-NQdQHGKhw-1
-X-Mimecast-MFC-AGG-ID: Xnh8yLGcPFel-NQdQHGKhw_1756739339
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-626-GrEIet-nN5GvzvRvynVS6A-1; Mon,
+ 01 Sep 2025 11:13:35 -0400
+X-MC-Unique: GrEIet-nN5GvzvRvynVS6A-1
+X-Mimecast-MFC-AGG-ID: GrEIet-nN5GvzvRvynVS6A_1756739610
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2E757195608B;
-	Mon,  1 Sep 2025 15:08:59 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5BC2F18004A7;
+	Mon,  1 Sep 2025 15:13:30 +0000 (UTC)
 Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4EC2D1800447;
-	Mon,  1 Sep 2025 15:08:44 +0000 (UTC)
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8D7A81800447;
+	Mon,  1 Sep 2025 15:13:15 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -74,6 +73,7 @@ Cc: David Hildenbrand <david@redhat.com>,
 	John Hubbard <jhubbard@nvidia.com>,
 	kasan-dev@googlegroups.com,
 	kvm@vger.kernel.org,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-arm-kernel@axis.com,
 	linux-arm-kernel@lists.infradead.org,
@@ -102,16 +102,16 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v2 17/37] mm/pagewalk: drop nth_page() usage within folio in folio_walk_start()
-Date: Mon,  1 Sep 2025 17:03:38 +0200
-Message-ID: <20250901150359.867252-18-david@redhat.com>
+Subject: [PATCH v2 34/37] mm/gup: drop nth_page() usage in unpin_user_page_range_dirty_lock()
+Date: Mon,  1 Sep 2025 17:03:55 +0200
+Message-ID: <20250901150359.867252-35-david@redhat.com>
 In-Reply-To: <20250901150359.867252-1-david@redhat.com>
 References: <20250901150359.867252-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_080909_742922_9C836081 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250901_081339_438831_D62D5325 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,29 +128,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It's no longer required to use nth_page() within a folio, so let's just
-drop the nth_page() in folio_walk_start().
+There is the concern that unpin_user_page_range_dirty_lock() might do
+some weird merging of PFN ranges -- either now or in the future -- such
+that PFN range is contiguous but the page range might not be.
+
+Let's sanity-check for that and drop the nth_page() usage.
 
 Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Reviewed-by: Liam R. Howlett <Liam.Howlett@oracle.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/pagewalk.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ mm/gup.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-index c6753d370ff4e..9e4225e5fcf5c 100644
---- a/mm/pagewalk.c
-+++ b/mm/pagewalk.c
-@@ -1004,7 +1004,7 @@ struct folio *folio_walk_start(struct folio_walk *fw,
- found:
- 	if (expose_page)
- 		/* Note: Offset from the mapped page, not the folio start. */
--		fw->page = nth_page(page, (addr & (entry_size - 1)) >> PAGE_SHIFT);
-+		fw->page = page + ((addr & (entry_size - 1)) >> PAGE_SHIFT);
- 	else
- 		fw->page = NULL;
- 	fw->ptl = ptl;
+diff --git a/mm/gup.c b/mm/gup.c
+index f0f4d1a68e094..010fe56f6e132 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -237,7 +237,7 @@ void folio_add_pin(struct folio *folio)
+ static inline struct folio *gup_folio_range_next(struct page *start,
+ 		unsigned long npages, unsigned long i, unsigned int *ntails)
+ {
+-	struct page *next = nth_page(start, i);
++	struct page *next = start + i;
+ 	struct folio *folio = page_folio(next);
+ 	unsigned int nr = 1;
+ 
+@@ -342,6 +342,10 @@ EXPORT_SYMBOL(unpin_user_pages_dirty_lock);
+  * "gup-pinned page range" refers to a range of pages that has had one of the
+  * pin_user_pages() variants called on that page.
+  *
++ * The page range must be truly physically contiguous: the page range
++ * corresponds to a contiguous PFN range and all pages can be iterated
++ * naturally.
++ *
+  * For the page ranges defined by [page .. page+npages], make that range (or
+  * its head pages, if a compound page) dirty, if @make_dirty is true, and if the
+  * page range was previously listed as clean.
+@@ -359,6 +363,8 @@ void unpin_user_page_range_dirty_lock(struct page *page, unsigned long npages,
+ 	struct folio *folio;
+ 	unsigned int nr;
+ 
++	VM_WARN_ON_ONCE(!page_range_contiguous(page, npages));
++
+ 	for (i = 0; i < npages; i += nr) {
+ 		folio = gup_folio_range_next(page, npages, i, &nr);
+ 		if (make_dirty && !folio_test_dirty(folio)) {
 -- 
 2.50.1
 
