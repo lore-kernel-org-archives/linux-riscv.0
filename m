@@ -4,117 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48621CAC597
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEF8CAC59D
 	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 18:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=yvq+W/ecqdZTTRAqLL0LN7t6iFT6D6Tr5/OSTrLqAyE=; b=QE9Dhof8P/s/KlK50cB3YK1Rrj
-	3QDOKrRJrU7xjuZdS56tL13TeCK64HKbSgXKhrsijVETAZXtts318/O0e4HsTz20NcIC18GgenyUK
-	BSFnwHBxoujAIjU/PMCyOmHGQ7pehX4CIrQLXX4Ag7waCu7Jh3TGoLl7EVFHn/2wSiPWFfSnrBiWf
-	gASZ9Ok+6B1gIk8P89iWLHs7kd/y6n2klbQXcR7qDQ3DXriIaoKXioB/uTmJeyClokSp/6Pe4Xc0x
-	Wq/YU0Zl+b+VF/2oPtYG9V7MA2ljiv72wLCpclT++RJpWGlTUbUozEpVB1yhA5r3JYGMIGP+oP1iH
-	J3OZ69YQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JWi3YpgiqPJq+x7Zan5oHZYw8X6tZS5tSkKAeyfk0hE=; b=pVsrzYicrFjpCF
+	Wd/RccIO0NQTlQqOYjMwz6PA23qu33aMl7ZJvrDwityE3oiirXCgiDhTVSKoTN0kXvvJuTQPDc9Se
+	cbbvN5dnrFOurzDqOKIIvuOGSlRQBBz6ebpBTNgCknkuzjju0ttoJJIqvc2bKI/kkoDyVHti+hIYD
+	3nxOkYEf2Nc1VhOyRIuHj/+tqatgkh0Jswd6MJrp4DSLsfJ72cK0Ld8B/h2/MSXz95hxyH6IvfXJR
+	N6ZxVDli939o6ysQPEq1yDU/prIJbzjdLZqy29oUZfIl4mFDFbQT5jvCPo/NxkApFgIIXO3UtFZIj
+	+GO8hAs+0QwqJncNHeMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8JX-0000000Avq9-3iAP;
-	Fri, 12 Sep 2025 18:16:03 +0000
-Received: from flow-b2-smtp.messagingengine.com ([202.12.124.137])
+	id 1ux8JZ-0000000Avrn-0tqv;
+	Fri, 12 Sep 2025 18:16:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4S1-0000000CfHz-21A9;
-	Mon, 01 Sep 2025 13:20:02 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailflow.stl.internal (Postfix) with ESMTP id A6FC21300863;
-	Mon,  1 Sep 2025 09:19:56 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Mon, 01 Sep 2025 09:19:57 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1756732796;
-	 x=1756739996; bh=Mw8Cn4/OCWn4lPhhW5QgwqsK4SmxabwHi0TRYO6VF1s=; b=
-	tLTVNY7szoigfD1bdhldSITh7Kox+Ycn17T1yGQFuN7jiGG9Sp2E3OoIEgt4BlYR
-	rNhkEYaaTwW9AY8m/x59u8SKCEV8qlVaBwXQvzGnzQoPzBL4TjVy5CdpcL+u+JqB
-	KmJ3jHWtf+GNS20ntReqncPg5QMylzMw0aOyUz8qs6cq7e90TqtTjq8VaJiUu84j
-	0Hbrt3spucncVfrk667VYr7pw5WfvWM/7x1uij9C9tbA0VlIJi04Xfi/PwUtHZjH
-	tp2QLWr1i5c0AXIenHSE0ClgWTuzdKOBvYNRbC8MWhIAWUeC6kCgPRh8m9F4uMyi
-	KzWTcNLbW1JaPQ2Aw11NKg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1756732796; x=
-	1756739996; bh=Mw8Cn4/OCWn4lPhhW5QgwqsK4SmxabwHi0TRYO6VF1s=; b=I
-	zqfGdUJTZYsd9+VQGEkI1q4f285SfJOyQUijCL8E0cG2BY7oScLcaHaB4U4dSd6C
-	amMI/0oCv9Bb0UfFnGfGYioT9dMJyeughesxg0Wy1rdEh8SQOGdyCUffECW6u3Ik
-	7Yt199ahGI90eOSQbbYW4SeXGJc3EXxwFehYo9jcgKLtOkWvo9SKPtZekLd+KcYs
-	Z/Fffj6kergS+JKtkBMxaKu8MQZtZradNzWqlU+a2WBOqFRrht0dAWPgSu3etycz
-	k7O/f+D6scJuUcbaLBYenYfBxURlHHBUlfglvq526uItPCjL8pAUcIHJOR7e07hM
-	zb1rPxkwOSlF3dLiDllTQ==
-X-ME-Sender: <xms:d521aOf13Zr5ThFIjcbvwdTTV2pPmE198UZ83DSiYsB0vWHFjqexWQ>
-    <xme:d521aINZWaZx6d4hdtzCY3ReTpNDHMXU4y76p-zL9tbADaAIKToEoWjoFLEFK0nJN
-    uZjL5twG3OOu4Cx9a0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduledvvdeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohephedtpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehvghhuphhtrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfi
-    hilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeigkeeisehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopehlihhnuhigqdhmmheskhhvrggtkhdrohhrghdprhgtphhtthhope
-    gurghlihgrsheslhhisggtrdhorhhgpdhrtghpthhtoheprhhitghhrghrugdrhhgvnhgu
-    vghrshhonheslhhinhgrrhhordhorhhgpdhrtghpthhtohepvhhinhgtvghnthdrghhuih
-    htthhotheslhhinhgrrhhordhorhhgpdhrtghpthhtoheprghnnhgrqdhmrghrihgrsehl
-    ihhnuhhtrhhonhhigidruggvpdhrtghpthhtohepthhglhigsehlihhnuhhtrhhonhhigi
-    druggv
-X-ME-Proxy: <xmx:d521aFWUjfBNEEbfvfRsOXSgs_xr9RfZnAPjyB2Gss4aiPQVe79b8A>
-    <xmx:d521aOB9sbKqEptN3OSwQ4xRQk_xYmG1ZydhuFGxz43PvXYNa2Ks1g>
-    <xmx:d521aHACv2QrtY793xhqmmRyjqkD5ZVdMHOozOYGDyCY3vyLPOZbWQ>
-    <xmx:d521aMbQNOQ3kj5F7xBftwDq3uTM_HtOBAYus1Iszp-XmI0rzGHioA>
-    <xmx:fJ21aLW9J1hdKeVm-quvjTtf5v_yEVzzCp7GK-rbIpJMpKdzZjrbFv0P>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 76793700065; Mon,  1 Sep 2025 09:19:51 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: AngmsHLdt4H3
-Date: Mon, 01 Sep 2025 15:19:31 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "schuster.simon@siemens-energy.com" <schuster.simon@siemens-energy.com>, "Dinh Nguyen" <dinguyen@kernel.org>, "Christian Brauner" <brauner@kernel.org>, "Andrew Morton" <akpm@linux-foundation.org>, "David Hildenbrand" <david@redhat.com>, "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, "Vlastimil Babka" <vbabka@suse.cz>, "Mike Rapoport" <rppt@kernel.org>, "Suren Baghdasaryan" <surenb@google.com>, "Michal Hocko" <mhocko@suse.com>, "Ingo Molnar" <mingo@redhat.com>, "Peter Zijlstra" <peterz@infradead.org>, "Juri Lelli" <juri.lelli@redhat.com>, "Vincent Guittot" <vincent.guittot@linaro.org>, "Dietmar Eggemann" <dietmar.eggemann@arm.com>, "Steven Rostedt" <rostedt@goodmis.org>, "Benjamin Segall" <bsegall@google.com>, "Mel Gorman" <mgorman@suse.de>, "Valentin Schneider" <vschneid@redhat.com>, "Kees Cook" <kees@kernel.org>, "Paul Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, guoren <guoren@kernel.org>, "Oleg Nesterov" <oleg@redhat.com>, "Jens Axboe" <axboe@kernel.dk>, "Alexander Viro" <viro@zeniv.linux.org.uk>, "Jan Kara" <jack@suse.cz>, "Tejun Heo" <tj@kernel.org>, "Johannes Weiner" <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, "Paul Moore" <paul@paul-moore.com>, "Serge Hallyn" <sergeh@kernel.org>, "James Morris" <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, "Anna-Maria Gleixner" <anna-maria@linutronix.de>, "Frederic Weisbecker" <frederic@kernel.org>, "Thomas Gleixner" <tglx@linutronix.de>, "Masami Hiramatsu" <mhiramat@kernel.org>, "David S . Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>, "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>, "Arnaldo Carvalho de Melo" <acme@kernel.org>, "Namhyung Kim" <namhyung@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>, "Alexander Shishkin" <alexander.shishkin@linux.intel.com>, "Jiri Olsa" <jolsa@kernel.org>, "Ian Rogers" <irogers@google.com>, "Adrian Hunter" <adrian.hunter@intel.com>, "John Johansen" <john.johansen@canonical.com>, "Stephen Smalley" <stephen.smalley.work@gmail.com>, "Ondrej Mosnacek" <omosnace@redhat.com>, "Kentaro Takeda" <takedakn@nttdata.co.jp>, "Tetsuo Handa" <penguin-kernel@i-love.sakura.ne.jp>, "Richard Henderson" <richard.henderson@linaro.org>, "Matt Turner" <mattst88@gmail.com>, "Vineet Gupta" <vgupta@kernel.org>, "Russell King" <linux@armlinux.org.uk>, "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Brian Cain" <bcain@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>, "Geert Uytterhoeven" <geert@linux-m68k.org>, "Michal Simek" <monstr@monstr.eu>, "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>, "Jonas Bonn" <jonas@southpole.se>, "Stefan Kristiansson" <stefan.kristiansson@saunalahti.fi>, "Stafford Horne" <shorne@gmail.com>, "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, "Helge Deller" <deller@gmx.de>, "Madhavan Srinivasan" <maddy@linux.ibm.com>, "Michael Ellerman" <mpe@ellerman.id.au>, "Nicholas Piggin" <npiggin@gmail.com>, "Christophe Leroy" <christophe.leroy@csgroup.eu>, "Heiko Carstens" <hca@linux.ibm.com>, "Vasily Gorbik" <gor@linux.ibm.com>, "Alexander Gordeev" <agordeev@linux.ibm.com>, "Christian Borntraeger" <borntraeger@linux.ibm.com>, "Sven Schnelle" <svens@linux.ibm.com>, "Yoshinori Sato" <ysato@users.sourceforge.jp>, "Rich Felker" <dalias@libc.org>, "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, "Andreas Larsson" <andreas@gaisler.com>, "Richard Weinberger" <richard@nod.at>, "Anton Ivanov" <anton.ivanov@cambridgegreys.com>, "Johannes Berg" <johannes@sipsolutions.net>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, "Chris Zankel" <chris@zankel.net>, "Max Filippov" <jcmvbkbc@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- cgroups@vger.kernel.org, linux-security-module@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, Netdev <netdev@vger.kernel.org>,
- linux-perf-users@vger.kernel.org, apparmor@lists.ubuntu.com,
- selinux@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- stable@vger.kernel.org
-Message-Id: <13f8ca46-92f0-47bb-a046-165402122a44@app.fastmail.com>
-In-Reply-To: <20250901-nios2-implement-clone3-v2-1-53fcf5577d57@siemens-energy.com>
+	id 1ut4mE-0000000Cigt-0cqb;
+	Mon, 01 Sep 2025 13:40:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 63DB2601D6;
+	Mon,  1 Sep 2025 13:40:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C596BC4CEF0;
+	Mon,  1 Sep 2025 13:40:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756734053;
+	bh=Vu1T9oeflFwwseH4UwYLoCDw2rg5tyF7d+uoYsIwX14=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XWheIfvndLQvsXjP9U9awyBD8J03c71fo0eZYwRkAVaSegGnB6M8yAG84hKFTZ6pZ
+	 WXUaILTjS2ome/lQZpmjWti4uXFiuyVUrpb9MBiadk9IDgWiqsTu18BgRH0di+kN+h
+	 LhDkQjUzZNb6xENCZSOEF3wUqwM8kDc47n+sPCWgnRb4uQtSbYTCcKsSPLQDxajL6l
+	 8PCIX1xJqXAxtHfu/yVArx49jdplr7KtB0xl0XPUm7rKpZaxJekitWoIygF9KUi4LH
+	 2uqg/WgQVetTvdXYGzfVDRG1BiHpS1CgspIql52DpnP1dj2X6wrwoCXbq5RLo6BYf+
+	 T+aIQ2gltLbOg==
+Date: Mon, 1 Sep 2025 15:40:26 +0200
+From: Christian Brauner <brauner@kernel.org>
+To: schuster.simon@siemens-energy.com
+Cc: Dinh Nguyen <dinguyen@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Kees Cook <kees@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Guo Ren <guoren@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Jens Axboe <axboe@kernel.dk>, Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>, Paul Moore <paul@paul-moore.com>, Serge Hallyn <sergeh@kernel.org>, James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Masami Hiramatsu <mhiramat@kernel.org>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, John Johansen <john.johansen@canonical.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Ondrej Mosnacek <omosnace@redhat.com>, Kentaro Takeda <takedakn@nttdata.co.jp>, Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>, Richard Henderson <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Jonas Bonn <jonas@southpole.se>, Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Andreas Larsson <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org, linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org, cgroups@vger.kernel.org, linux-security-module@vger.kernel.org, linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ apparmor@lists.ubuntu.com, selinux@vger.kernel.org, linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-um@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] nios2: Add architecture support for clone3
+Message-ID: <20250901-lammfell-kaninchen-c160a69e6b36@brauner>
 References: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
- <20250901-nios2-implement-clone3-v2-1-53fcf5577d57@siemens-energy.com>
-Subject: Re: [PATCH v2 1/4] copy_sighand: Handle architectures where sizeof(unsigned
- long) < sizeof(u64)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_062001_663254_1D441ADC 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
 X-Mailman-Approved-At: Fri, 12 Sep 2025 11:15:58 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,18 +69,163 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 1, 2025, at 15:09, Simon Schuster via B4 Relay wrote:
+On Mon, Sep 01, 2025 at 03:09:49PM +0200, Simon Schuster via B4 Relay wrote:
+> This series adds support for the clone3 system call to the nios2
+> architecture. This addresses the build-time warning "warning: clone3()
 
-> This commit fixes the bug by always passing clone_flags to copy_sighand
-> via their declared u64 type, invariant of architecture-dependent integer
-> sizes.
->
-> Fixes: b612e5df4587 ("clone3: add CLONE_CLEAR_SIGHAND")
-> Cc: stable@vger.kernel.org # linux-5.5+
+I did not expect that to happen or matter but fine.
+
+> entry point is missing, please fix" introduced in 505d66d1abfb9
+> ("clone3: drop __ARCH_WANT_SYS_CLONE3 macro"). The implementation passes
+> the relevant clone3 tests of kselftest when applied on top of
+> next-20250815:
+> 
+> 	./run_kselftest.sh
+> 	TAP version 13
+> 	1..4
+> 	# selftests: clone3: clone3
+> 	ok 1 selftests: clone3: clone3
+> 	# selftests: clone3: clone3_clear_sighand
+> 	ok 2 selftests: clone3: clone3_clear_sighand
+> 	# selftests: clone3: clone3_set_tid
+> 	ok 3 selftests: clone3: clone3_set_tid
+> 	# selftests: clone3: clone3_cap_checkpoint_restore
+> 	ok 4 selftests: clone3: clone3_cap_checkpoint_restore
+> 
+> The series also includes a small patch to kernel/fork.c that ensures
+> that clone_flags are passed correctly on architectures where unsigned
+> long is insufficient to store the u64 clone_flags. It is marked as a fix
+> for stable backporting.
+> 
+> As requested, in v2, this series now further tries to correct this type
+> error throughout the whole code base. Thus, it now touches a larger
+> number of subsystems and all architectures.
+
+I've reworked copy_thread()/copy_thread_tls() a few years ago but I
+don't remember why I didn't switch to a u64 for them. Probably because
+only CLONE_VM and CLONE_SETTLS mattered. Thanks for doing that.
+
+> Therefore, another test was performed for ARCH=x86_64 (as a
+> representative for 64-bit architectures). Here, the series builds cleanly
+> without warnings on defconfig with CONFIG_SECURITY_APPARMOR=y and
+> CONFIG_SECURITY_TOMOYO=y (to compile-check the LSM-related changes).
+> The build further successfully passes testing/selftests/clone3 (with the
+> patch from 20241105062948.1037011-1-zhouyuhang1010@163.com to prepare
+> clone3_cap_checkpoint_restore for compatibility with the newer libcap
+> version on my system).
+> 
+> Is there any option to further preflight check this patch series via
+> lkp/KernelCI/etc. for a broader test across architectures, or is this
+> degree of testing sufficient to eventually get the series merged?
+> 
+> N.B.: The series is not checkpatch clean right now:
+>  - include/linux/cred.h, include/linux/mnt_namespace.h:
+>    function definition arguments without identifier name
+>  - include/trace/events/task.h:
+>    space prohibited after that open parenthesis
+> 
+> I did not fix these warnings to keep my changes minimal and reviewable,
+> as the issues persist throughout the files and they were not introduced
+> by me; I only followed the existing code style and just replaced the
+> types. If desired, I'd be happy to make the changes in a potential v3,
+> though.
+> 
 > Signed-off-by: Simon Schuster <schuster.simon@siemens-energy.com>
-> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> Changes in v2:
+> - Introduce "Fixes:" and "Cc: stable@vger.kernel.org" where necessary
+> - Factor out "Fixes:" when adapting the datatype of clone_flags for
+>   easier backports
+> - Fix additional instances where `unsigned long` clone_flags is used
+> - Reword commit message to make it clearer that any 32-bit arch is
+>   affected by this bug
+> - Link to v1: https://lore.kernel.org/r/20250821-nios2-implement-clone3-v1-0-1bb24017376a@siemens-energy.com
+> 
+> ---
+> Simon Schuster (4):
+>       copy_sighand: Handle architectures where sizeof(unsigned long) < sizeof(u64)
+>       copy_process: pass clone_flags as u64 across calltree
+>       arch: copy_thread: pass clone_flags as u64
+>       nios2: implement architecture-specific portion of sys_clone3
+> 
+>  arch/alpha/kernel/process.c       |  2 +-
+>  arch/arc/kernel/process.c         |  2 +-
+>  arch/arm/kernel/process.c         |  2 +-
+>  arch/arm64/kernel/process.c       |  2 +-
+>  arch/csky/kernel/process.c        |  2 +-
+>  arch/hexagon/kernel/process.c     |  2 +-
+>  arch/loongarch/kernel/process.c   |  2 +-
+>  arch/m68k/kernel/process.c        |  2 +-
+>  arch/microblaze/kernel/process.c  |  2 +-
+>  arch/mips/kernel/process.c        |  2 +-
+>  arch/nios2/include/asm/syscalls.h |  1 +
+>  arch/nios2/include/asm/unistd.h   |  2 --
+>  arch/nios2/kernel/entry.S         |  6 ++++++
+>  arch/nios2/kernel/process.c       |  2 +-
+>  arch/nios2/kernel/syscall_table.c |  1 +
+>  arch/openrisc/kernel/process.c    |  2 +-
+>  arch/parisc/kernel/process.c      |  2 +-
+>  arch/powerpc/kernel/process.c     |  2 +-
+>  arch/riscv/kernel/process.c       |  2 +-
+>  arch/s390/kernel/process.c        |  2 +-
+>  arch/sh/kernel/process_32.c       |  2 +-
+>  arch/sparc/kernel/process_32.c    |  2 +-
+>  arch/sparc/kernel/process_64.c    |  2 +-
+>  arch/um/kernel/process.c          |  2 +-
+>  arch/x86/include/asm/fpu/sched.h  |  2 +-
+>  arch/x86/include/asm/shstk.h      |  4 ++--
+>  arch/x86/kernel/fpu/core.c        |  2 +-
+>  arch/x86/kernel/process.c         |  2 +-
+>  arch/x86/kernel/shstk.c           |  2 +-
+>  arch/xtensa/kernel/process.c      |  2 +-
+>  block/blk-ioc.c                   |  2 +-
+>  fs/namespace.c                    |  2 +-
+>  include/linux/cgroup.h            |  4 ++--
+>  include/linux/cred.h              |  2 +-
+>  include/linux/iocontext.h         |  6 +++---
+>  include/linux/ipc_namespace.h     |  4 ++--
+>  include/linux/lsm_hook_defs.h     |  2 +-
+>  include/linux/mnt_namespace.h     |  2 +-
+>  include/linux/nsproxy.h           |  2 +-
+>  include/linux/pid_namespace.h     |  4 ++--
+>  include/linux/rseq.h              |  4 ++--
+>  include/linux/sched/task.h        |  2 +-
+>  include/linux/security.h          |  4 ++--
+>  include/linux/sem.h               |  4 ++--
+>  include/linux/time_namespace.h    |  4 ++--
+>  include/linux/uprobes.h           |  4 ++--
+>  include/linux/user_events.h       |  4 ++--
+>  include/linux/utsname.h           |  4 ++--
+>  include/net/net_namespace.h       |  4 ++--
+>  include/trace/events/task.h       |  6 +++---
+>  ipc/namespace.c                   |  2 +-
+>  ipc/sem.c                         |  2 +-
+>  kernel/cgroup/namespace.c         |  2 +-
+>  kernel/cred.c                     |  2 +-
+>  kernel/events/uprobes.c           |  2 +-
+>  kernel/fork.c                     | 10 +++++-----
+>  kernel/nsproxy.c                  |  4 ++--
+>  kernel/pid_namespace.c            |  2 +-
+>  kernel/sched/core.c               |  4 ++--
+>  kernel/sched/fair.c               |  2 +-
+>  kernel/sched/sched.h              |  4 ++--
+>  kernel/time/namespace.c           |  2 +-
+>  kernel/utsname.c                  |  2 +-
+>  net/core/net_namespace.c          |  2 +-
+>  security/apparmor/lsm.c           |  2 +-
+>  security/security.c               |  2 +-
+>  security/selinux/hooks.c          |  2 +-
+>  security/tomoyo/tomoyo.c          |  2 +-
+>  68 files changed, 95 insertions(+), 89 deletions(-)
+> ---
+> base-commit: 1357b2649c026b51353c84ddd32bc963e8999603
+> change-id: 20250818-nios2-implement-clone3-7f252c20860b
+> 
+> Best regards,
+> -- 
+> Simon Schuster <schuster.simon@siemens-energy.com>
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
