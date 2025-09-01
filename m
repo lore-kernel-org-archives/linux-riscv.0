@@ -4,66 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14D6CA0FFF
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 17:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EDFDCA0FF0
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 18:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vZjq4E/cWtkhzUky4/wGmdXCB25uCcHCjFUKh3lgfEc=; b=cf/tD/8qNP6B0oRlr4GND733uE
-	/rDucEp44ZMdqyf/u8oxfgXxoy/LzKIkHgG1hmIlKeXvQfo11I8lfBf5rzspwD2qpFzC5ZbKUhePe
-	kC71XCqC1c0Ub9AwZQXxm8tqw8OCoMaTMbdlj/GKarmSYbp+wIeizrdnE2dOcRhK0VSiBbP9Kwqvp
-	I47dN9UG7DNr++I0MCqFr6zlX55n6tZWEg7M2OosuyfTk7Na2eDKJ5SDNDQ8ElqL/QAV2vhQDzpJd
-	cFoeoLJ9B9lXk6ao7LgxAuvE9FpViaZTFRzz4KpuTi1+vKe4pCmdsboxBLQ9EGmG2KgiPrueh283q
-	gbb30KRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jZgrXo1Zc5PQFay6lHtxYjOS+E8q182nLf3jK8MxhR0=; b=aQF8YTTCcKWgXo
+	7/mRLfoKzrAQUtMnZpOD0I4IHOuhyPbcGVqwZm/g6ooPYcS4zRPdiXkT6TBLaA6Ye/4DBCZpjQKUi
+	bpcanqRjy2URGofsOLMmG2ZivwqYiQlbA2uTu4OLVCl+xc+eTbGV3UPIrMpBBog1/Ya9iZaX1zzsX
+	/Dr1+vlrsHj8/zlhUjhTPLsoIerpOKPYxb3H6lc47/UJHks/a31+3m28lGDCXye1EW3YQmujHO7GA
+	I1IaOERJ0ibahAEJavwEvL9xmlhyH4x34x//eAHglrrjs0Vaza4IsDEY4x41qNhWnqUAYnUDMF4fM
+	xIWF/Lor23Uc5iJ6Jd5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut8Kg-0000000DSSh-40ed;
-	Mon, 01 Sep 2025 17:28:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ut8yv-0000000DWya-17A3;
+	Mon, 01 Sep 2025 18:10:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5D4-0000000Co98-04oq
+	id 1ut66i-0000000Cxzh-3nid
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 14:08:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 397DF601D9;
-	Mon,  1 Sep 2025 14:08:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7648BC4CEF0;
-	Mon,  1 Sep 2025 14:08:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756735716;
-	bh=OzrZGhKo/ziOjxea3LbChAg6YdR7N5Q5yFK9R2DNJh4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F36Mm7TAG2ZXqQS5iz0To3BlcsCl3TjF2sTAsYJb1ofTvk6fKWhIqUkPGqY8bvxwe
-	 0pa/3fgbu7dNrXFPkHyvqO9BXvhqfgvmvhiAsMyYFMTy7WyN418oHko3iuJbgypFE4
-	 FogGFZaNorIQlh5buUNME03E1M/zzshJ6tS41bflbC+eocpkm9f6kazHPowy1R6SeU
-	 PLq4BkXJxy+yzMWRkltpXs2zqBrUsFOXCRiJaeh0FF/1SmrHv6/tQKt9v8ZIg7XuLC
-	 ZvFRI9lr/m+RjO71djzSSwGhgqrSYPVsIcaSaXSWIm/U9Jrc3KeWeiscsxwArnI9tF
-	 7/6QlalL2NScA==
-Date: Mon, 1 Sep 2025 15:08:31 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Asuna Yang <spriteovo@gmail.com>
-Cc: Jason Montleon <jmontleo@redhat.com>, Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: RISC-V: Re-enable GCC+Rust builds
-Message-ID: <20250901-lasso-kabob-de32b8fcede8@spud>
-References: <68496eed-b5a4-4739-8d84-dcc428a08e20@gmail.com>
- <20250830-cheesy-prone-ee5fae406c22@spud>
+	Mon, 01 Sep 2025 15:06:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756739168;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cLXaFnsvcEZ3Dj9TJuBmn3z/jlqr9HdUmmd8IA3Df2I=;
+	b=MgE+zqqy5G/BkuIFc2fp3Ge/gQ+MGnGz3XAP2oJuCGJqSt8WRaRgO6z4Ec3J7UjgFAZRgH
+	SZpR4Rz8sXW3Hix37lfU2FoggVNzOI+/wezJ5yI3Ld5sDeVPThd63wnFZVNr4rVml7GK7k
+	RnU/Bo9jusEKVZe6OyQcoTyk//Bd3oc=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-643-vn9FlFaVPyW1oPG7gsT7bA-1; Mon,
+ 01 Sep 2025 11:06:06 -0400
+X-MC-Unique: vn9FlFaVPyW1oPG7gsT7bA-1
+X-Mimecast-MFC-AGG-ID: vn9FlFaVPyW1oPG7gsT7bA_1756739161
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9823C19560B2;
+	Mon,  1 Sep 2025 15:06:01 +0000 (UTC)
+Received: from t14s.fritz.box (unknown [10.22.88.45])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id F13EE18003FC;
+	Mon,  1 Sep 2025 15:05:45 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: David Hildenbrand <david@redhat.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>,
+	Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	iommu@lists.linux.dev,
+	io-uring@vger.kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev,
+	Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com,
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH v2 05/37] wireguard: selftests: remove CONFIG_SPARSEMEM_VMEMMAP=y from qemu kernel config
+Date: Mon,  1 Sep 2025 17:03:26 +0200
+Message-ID: <20250901150359.867252-6-david@redhat.com>
+In-Reply-To: <20250901150359.867252-1-david@redhat.com>
+References: <20250901150359.867252-1-david@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <20250830-cheesy-prone-ee5fae406c22@spud>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250901_080609_013881_4FA7300E 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,101 +125,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8586429601023951527=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+It's no longer user-selectable (and the default was already "y"), so
+let's just drop it.
 
---===============8586429601023951527==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OdIo6g+XUcHBw6vM"
-Content-Disposition: inline
+It was never really relevant to the wireguard selftests either way.
 
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Reviewed-by: Liam R. Howlett <Liam.Howlett@oracle.com>
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: Shuah Khan <shuah@kernel.org>
+Signed-off-by: David Hildenbrand <david@redhat.com>
+---
+ tools/testing/selftests/wireguard/qemu/kernel.config | 1 -
+ 1 file changed, 1 deletion(-)
 
---OdIo6g+XUcHBw6vM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/tools/testing/selftests/wireguard/qemu/kernel.config b/tools/testing/selftests/wireguard/qemu/kernel.config
+index 0a5381717e9f4..1149289f4b30f 100644
+--- a/tools/testing/selftests/wireguard/qemu/kernel.config
++++ b/tools/testing/selftests/wireguard/qemu/kernel.config
+@@ -48,7 +48,6 @@ CONFIG_JUMP_LABEL=y
+ CONFIG_FUTEX=y
+ CONFIG_SHMEM=y
+ CONFIG_SLUB=y
+-CONFIG_SPARSEMEM_VMEMMAP=y
+ CONFIG_SMP=y
+ CONFIG_SCHED_SMT=y
+ CONFIG_SCHED_MC=y
+-- 
+2.50.1
 
-On Sat, Aug 30, 2025 at 07:17:48PM +0100, Conor Dooley wrote:
-> On Sat, Aug 30, 2025 at 01:00:56PM +0800, Asuna Yang wrote:
-> > I noticed that GCC+Rust builds for RISC-V were disabled about a year ag=
-o, as
-> > discussed in
-> > https://lore.kernel.org/all/20240917000848.720765-1-jmontleo@redhat.com/
-> >=20
-> > I'm a bit lost here. What are the main obstacles to re-enabling GCC bui=
-lds
-> > now?
-> >=20
-> > Conor said:
-> > > Okay. Short term then is deny gcc + rust, longer term is allow it wit=
-h the
-> > same caveats as the aforementioned mixed stuff.
-> > "the same caveats" means detecting what specifically?
->=20
-> There's "code" in the riscv Kconfig/Makefile that makes sure that the
-> assembler has the same understanding of what extensions are enabled as
-> the compiler. This is done by detecting which version of the tools are
-> in use, and adjusting march etc as a result. See
-> TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI for an example. When I wrote the
-> comment you're citing, there was no "off the shelf" way to figure out
-> the version of libclang in use to ensure that it has the same
-> understanding of -march as the version of gcc being used on the c side
-> does. For clang build, it's not a concern since it's almost certainly
-> the exact same as the compiler building the c side.
->=20
-> > We have a RISC-V PWM driver being written in Rust. Currently, GCC being
-> > disabled for building the kernel with Rust for RISC-V is the primary bl=
-ocker
-> > for including these drivers in RISC-V distros. Therefore, I'd like to p=
-ush
-> > forward and contribute to the re-enabling of GCC builds. Is there a more
-> > detailed direction on what I can do here?
->=20
-> Add the version of libclang as a Kconfig symbol, so that the kernel's
-> build system can ensure that both sides are built using the same
-> configuration. Off the top of my head, using a pre-17 libclang with a
-> new gcc would require having zicsr in -march for the c side and it
-> removed for rust. It's been a while (1 year+) since I fiddled with this
-> though, so my recollection there could well be inaccurate.
-
-Hmm, while I think of it, there's some other things that are problematic
-that are not currently checked but would have to be. For example,
-there's a check in the riscv Kconfig menu to see if
-stack-protector-guard=3Dtls can be used via a cc-option check. If that
-check passes with gcc as the compiler that option will be passed to the
-rust side of the build, where llvm might not support it.
-Similarly, turning on an extension like Zacas via a cc-option check could
-pass for gcc but not be usable when passed to the rust side, causing
-errors. These sorts of things should be prevented via Kconfig, not show
-up as confusing build errors.
-
-
---OdIo6g+XUcHBw6vM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLWo3AAKCRB4tDGHoIJi
-0uC6AQCE+OLBYrLOFf+asyXURIHL6RWs7lgeAYlu+2yTHkHJ4gD+PaXpb+dmGhrF
-EJv4oLQmRVAC2xUCUy+a0Iy+/t+IRgc=
-=tQwP
------END PGP SIGNATURE-----
-
---OdIo6g+XUcHBw6vM--
-
-
---===============8586429601023951527==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8586429601023951527==--
-
