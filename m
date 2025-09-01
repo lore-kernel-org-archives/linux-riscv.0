@@ -4,78 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2AACCA1005
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 13:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68922CA1002
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 13:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:
+	References:In-Reply-To:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C6d0R4DPxn5QJvSXSbMpQ8kn8v56bAxVFxj5dbg8GFE=; b=P1Uz/0MryzKTA6
-	N/Nx31nwTrL1QO1X7xZ0PzuDGA2frsS+9qL+YjPVCQ5dAeVEgCa2Galnbwbld+MaWLne0E0QDtKf6
-	0GSK3Vnmacewm1ioscqn/Ws37STmx1ZR3zZcR3l36Sccavh6UkXySO7QR3QvNznzImqQmyjErg7qr
-	eeXSbVEQ6WZNR+94OfVOLJQ8zU2u71rlHiB3/01phkTw2lsDGqvmhZN/6VayeBGBHDJEWu+4g9+OS
-	wZuBD8UksNglaqkmMakS31/aMxa4rF9F0BVvY5D/ttcTrPGO+mBh0MMLKVIov0/L+0Aws5TaSTIIQ
-	q93VkmTq/zYR+dKwMM3w==;
+	List-Owner; bh=oMLlKS0yWAGXQXsFdKU9Ly1GcIYSQcR4rrzHrXkHTQI=; b=Wk/V73PwY2JMyS
+	EghiayjnopHZRfB0HhYOnOn+D+7YiMVKTc8xQnP/wcyjRNYoum79fKe1vgmGf64MKDGy8jDdpY2PR
+	zrzqWQU4NjMdBHt3hd+C1xe1Q39XPBY8pi/UdA3f60dgaxpkoLdEUASHyksxCQTWje2h18asqju/f
+	z+meAYkNB0f5ILTkRzIo6TkB55z2f06r0IVJGG6gwEiShOhINrNMC6IHofk0tzQF1zHI5QjFRMNxW
+	F8zw8pIBAB1g41lXDmkthNOdW9buLkqtkx/g9CKxZohISZwtysgMcDzRcTovITXjkT9Z5oWwTSswt
+	AXupjNOJNO/qVQ8YdRDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4DS-0000000Ccho-3YR3;
-	Mon, 01 Sep 2025 13:04:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ut4uO-0000000Ck73-31bu;
+	Mon, 01 Sep 2025 13:49:20 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut2LN-0000000BzQn-2W62
+	id 1ut2U0-0000000C1j6-1quW
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 11:05:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A051B44F1E;
-	Mon,  1 Sep 2025 11:04:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF20CC4CEF4;
-	Mon,  1 Sep 2025 11:04:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756724699;
-	bh=jECQWUPeqYIp+kYy0qMp+mxlsYrMNhCp3lRCnaD5i0o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AfWQ9sjzOXKkzgqnkTBQAdhVnJYC42z1ZpCbvzM6Ofdj71q+CKR4qzih3qMObRcqK
-	 2EjhcTUaN3J93IPSS1pp1Wi+z88E56LFeyOHwuHMEla8MP7CrWYXoiKlQUL7JGX9GE
-	 S0lpQmaavEZpx41L0ByTP8Tz9y5/zHuTQec39Us9ocDGA1Xo5dtFAZArV06AM6IwgS
-	 FD02yt4WO/1F7ze2Roly+MB7PVH8vEAvAoC+KgR/PK9TxsWr1u2cdnpFryHEFOB+j0
-	 fBN7IAQ1lQ8DSxOmalTnrt8aK4haCMCerEReBB9dzzHZVnnEt9v0sl6FrrD3cR9BeW
-	 57XhFajTAsWMQ==
-From: Conor Dooley <conor@kernel.org>
-To: sboyd@kernel.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Gabriel FERNANDEZ <gabriel.fernandez@foss.st.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v4 1/9] dt-bindings: mfd: syscon document the control-scb syscon on PolarFire SoC
-Date: Mon,  1 Sep 2025 12:04:13 +0100
-Message-ID: <20250901-shorten-yahoo-223aeaecd290@spud>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250901-rigid-sacrifice-0039c6e6234e@spud>
-References: <20250901-rigid-sacrifice-0039c6e6234e@spud>
+	Mon, 01 Sep 2025 11:13:57 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 581ApSHi2099410;
+	Mon, 1 Sep 2025 12:13:33 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=t
+	AFEklxgsmVWSK/QKd8QoRpUQX6Iez4Vk2aeQzBVMZM=; b=tBCPJPoXg/b9Anwmt
+	FcW+Hj7snDC1F3fWqCcnfInrA5R3ui0B2LCeDfyySeDDR7kQcV+xZRa8p2Mh0NCm
+	9lsKQRDmTGTkuo/+VLHfnZBgI7cAzGwYj/24Jumw+A+/LIIKrEXGmaVeYameEZu/
+	pEAb5ertMAapQ+l4syswTmP2qo0ecIDRUHrU4Nu7pvG9acvYXN0Ob4asi6de7MDC
+	/I8D3Dr5IVXgJeGzstRrS2gg+c3++JflcOby5/EGIEugS5t1QS7Ph4xBh0qhhruy
+	qu+lAU/ysnshlZ4t6E6BLjHaI8kUPbe+6mGQrAehmBYttv9pwmom0XmBBspE1Rx2
+	c95DQ==
+Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 48uqjpsq2k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Mon, 01 Sep 2025 12:13:33 +0100 (BST)
+Received: from
+ 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+ (172.25.8.78) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.57; Mon, 1 Sep 2025 12:13:32 +0100
+From: Matt Coster <matt.coster@imgtec.com>
+To: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Bartosz Golaszewski <brgl@bgdev.pl>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Frank Binns <frank.binns@imgtec.com>,
+        "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard
+	<mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Paul Walmsley
+	<paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Ulf Hansson
+	<ulf.hansson@linaro.org>,
+        Marek Szyprowski <m.szyprowski@samsung.com>,
+        "Drew
+ Fustini" <fustini@kernel.org>,
+        Michal Wilczynski <m.wilczynski@samsung.com>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+        <dri-devel@lists.freedesktop.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,
+        Bartosz Golaszewski
+	<bartosz.golaszewski@linaro.org>
+In-Reply-To: <20250822-apr_14_for_sending-v13-0-af656f7cc6c3@samsung.com>
+References: <CGME20250821222019eucas1p1d429a24720a0fa07928a5e8b364b728a@eucas1p1.samsung.com>
+ <20250822-apr_14_for_sending-v13-0-af656f7cc6c3@samsung.com>
+Subject: Re: (subset) [PATCH v13 0/4] Add TH1520 GPU support with power
+ sequencing
+Message-ID: <175672521205.30950.2944854121832397083.b4-ty@imgtec.com>
+Date: Mon, 1 Sep 2025 12:13:32 +0100
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1505; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=5rg4qG6+r0Tz8RYgLEQxmEix629uHarZjM4QelP6QtY=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDBlba9ceDjmisSn0m1FVy/3tt/Un8UrKr/j4d4ooV3PWg l+NsyoFOkpZGMS4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjARBm9Ghjcx7eELJzgLlW/+ dJNDVVdPO7D7uZxLxe//VhOnCqVe+szwV/p59wtRNY+mH61y13XP6EtxvSx+WHD2QkxYbdeHhKn WjAA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-Mailer: b4 0.14.2
+X-Originating-IP: [172.25.8.78]
+X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTAxMDExOSBTYWx0ZWRfX0r3PDOJ35OAn
+ 8WU46pj//wREe7b09TNlb6UbD5ABvOgswiwkQWqd1+reRHoD96EPWz9r8jJF7y9aCzqq3Tcvibv
+ v4Vs1oqbS+RbcaGB5v+WB8enIF4POvgaqpn9a6T+OzReVirnyQSWyslL1QhPGYb00KrRyQihvEe
+ C88jUxxlb4b7MjSf50FwYr6HvzaCXotwzHZWTzzutGApkIrDX+8Jh+z3qDqWvAieMio33pgG+A3
+ UtFzL6lH/w1KOGEjsih5ZI0wY/WluGjPBHwXK68DRt0USqGv+OQRwjoULPtrSslD6r4v67oFJX+
+ WoC20St4TQ8vgaxUoYOFIawfh854MB0/aAkEwbAw9qB1wBu51wtLvc8NVZK3Ls=
+X-Authority-Analysis: v=2.4 cv=VL3dn8PX c=1 sm=1 tr=0 ts=68b57fdd cx=c_pps
+ a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
+ a=frXF02aS0WsA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=r_1tXGB3AAAA:8
+ a=Iq_RHiLCETW0UDbuoI8A:9 a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-ORIG-GUID: HHQ6d2eOQoef4UfDWeIyZTD88_rHX_E9
+X-Proofpoint-GUID: HHQ6d2eOQoef4UfDWeIyZTD88_rHX_E9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_040501_695028_545A14F9 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250901_041356_740964_82BC6EC6 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,45 +127,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-The "control-scb" region, contains the "tvs" temperature and voltage
-sensors and the control/status registers for the system controller's
-mailbox. The mailbox has a dedicated node, so there's no need for a
-child node describing it, looking the syscon up by compatible is
-sufficient.
+On Fri, 22 Aug 2025 00:20:14 +0200, Michal Wilczynski wrote:
+> This patch series introduces support for the Imagination IMG BXM-4-64
+> GPU found on the T-HEAD TH1520 SoC. A key aspect of this support is
+> managing the GPU's complex power-up and power-down sequence, which
+> involves multiple clocks and resets.
+> 
+> The TH1520 GPU requires a specific sequence to be followed for its
+> clocks and resets to ensure correct operation. Initial discussions and
+> an earlier version of this series explored managing this via the generic
+> power domain (genpd) framework. However, following further discussions
+> with kernel maintainers [1], the approach has been reworked to utilize
+> the dedicated power sequencing (pwrseq) framework.
+> 
+> [...]
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-v2:
-add the control-scb syscon here too, since it doesn't have any children.
----
- Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Applied, thanks!
 
-diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-index 27672adeb1fed..d18be50dd7127 100644
---- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-+++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-@@ -90,6 +90,7 @@ select:
-           - mediatek,mt8173-pctl-a-syscfg
-           - mediatek,mt8365-syscfg
-           - microchip,lan966x-cpu-syscon
-+          - microchip,mpfs-control-scb
-           - microchip,mpfs-sysreg-scb
-           - microchip,sam9x60-sfr
-           - microchip,sama7d65-ddr3phy
-@@ -197,6 +198,7 @@ properties:
-           - mediatek,mt8365-infracfg-nao
-           - mediatek,mt8365-syscfg
-           - microchip,lan966x-cpu-syscon
-+          - microchip,mpfs-control-scb
-           - microchip,mpfs-sysreg-scb
-           - microchip,sam9x60-sfr
-           - microchip,sama7d65-ddr3phy
+[1/4] drm/imagination: Use pwrseq for TH1520 GPU power management
+      commit: e38e8391f30b41c5a24bb46dc6ef4161921e782d
+[2/4] dt-bindings: gpu: img,powervr-rogue: Add TH1520 GPU support
+      commit: 337ebfda8a4f2627bf52e200cacf6f3a2f5ccf48
+[4/4] drm/imagination: Enable PowerVR driver for RISC-V
+      commit: 6b53cf48d9339c75fa51927b0a67d8a6751066bd
+
+Best regards,
 -- 
-2.47.2
+Matt Coster <matt.coster@imgtec.com>
 
 
 _______________________________________________
