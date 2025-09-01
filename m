@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93D4CA0FFD
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 13:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1849CA1009
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 13:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qFVI15eiltlFGxRzX5YgFC2HFGKYuR6Ff51Eqn9rPjU=; b=aDwwJjFu5ifrNF
-	a/DImaON2qMKyXSAQWBZ+IgsLhjOHdOxigjXRuE8TZGRJVDTgAvYHX7wePi4v1yZTY/G3TEH0JX7+
-	C5z6oRRKSPi1HqbcWPk1F7roy0JFVuw+PBrpuDzLkGDzkE9WuF47eARQYGaKBFQ0wFnHaAKGl8xUP
-	K/O5H7xHcumYXILOCRZ6lplybbmzAoly9PkA5Tzl7+vaXmKjxv5p53vmnmbFLGC7+PKbkQ1rrJZdF
-	61YgKgplYWgVOm5brOxzYu0MvC187N6JCkHYJphME+wMM/2akkDvKzmxmsvBIaRzCn0xl4swLk9kj
-	bi7VM2QdvyobKvQRLfRA==;
+	List-Owner; bh=OHWyjOvQyoJ03clCz0MOPP7YQrAB4mvk2lJtb5xVr1c=; b=PJ1zXAfrzSf1IV
+	C67OoUos0p7ObLaOx9bC1Y4GytHguIss3gx5TtM1Kg7Nrmwt91YOTmwrpl8m++SPmXBSRy1I4EGQB
+	1aK2DmCT3EYc2YBXyJ5tUypZOx5sapcjUnXm06ac85qgKYd6jI9YyrRw79QWfzhRv9OtKeQ5+0nOL
+	f9cCNwmTcvr1ewXnF0JToF0DARTdofme6rmyK3sBr3Mq9ZmC1vW9gpiWnKD8Dj5jNOBmTEivHP1oL
+	7mHFwMt4iwSUXVS5DOz/sroan10S9EczpnEijQzEAsM9nLJeEHfDehLucFgewiFstudoNhSmNac/W
+	6NCRBLzHa1On534JMKGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4DV-0000000Cck0-2JmJ;
-	Mon, 01 Sep 2025 13:05:01 +0000
+	id 1ut4DX-0000000CclB-03vn;
+	Mon, 01 Sep 2025 13:05:03 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut2Lb-0000000BzWr-3F3s
+	id 1ut2Lj-0000000BzZg-2Mi4
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 11:05:16 +0000
+	Mon, 01 Sep 2025 11:05:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8232644E8D;
-	Mon,  1 Sep 2025 11:05:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA8F0C4CEF4;
-	Mon,  1 Sep 2025 11:05:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4254440875;
+	Mon,  1 Sep 2025 11:05:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA85EC4CEF0;
+	Mon,  1 Sep 2025 11:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756724715;
-	bh=fQK9+TNjOMxzSGZmUzRv58YbqcykvxbEivMK+1aMTn0=;
+	s=k20201202; t=1756724723;
+	bh=/bWgOgtt0HzeQRBAs3E1w5tDhjdTqd+bV+sPH7F9rBw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=efgIlOcAI2kQOApbNt+qj1Jyf/++Vs+a1C1c4TpD/3JwgkW0e66UnxmhtmkW4Xv4r
-	 8Cy+aBiWGg3flujNmmEJmFSw+VaAyvI1jNH5xT61K3+rJ0s7n/mthq+4V1yziulHpV
-	 G3gwbhhlLdVS/39WRhOWcDIFdm6hBUqEPeYnmlHkPgUY7h+ocqHaf7WHNhOisf83rM
-	 EUVqMf26lYscHxGuUYpm1tLXDcPHADNam7KBHmdJfRvMYAPDLSq8ypvtUEpapWiGoD
-	 KUdrXBHEdXsdDdb5Qs5jaWgtszZyYJpbiNWqwg4FPrVHGMboidxybGP8Ls97ayZW1d
-	 t7Q2KPVcINQyQ==
+	b=eK5Y+H+t1oKMS8lkhYn362IaCBVBAXW1KwIgY0NxRWD/xGfSo3RxuAkHIoRDf6QSm
+	 kG3aSPJyIddFeOUkHGdkGXio3b/BGONbeCbVfcjhBepDDQobEsnPg3++184bj9tB4D
+	 naR5BrZH+g5vsaioPx3gj07qi/2UeNlXVxvlmF4FDSRX91VB+G44fdyB4FZO3av5Z9
+	 E7WuFwGuz43WTLtjL7tsbp+UVXMyY5CYsEy12fHpQgA7lgoRGvz+YIpN4a/jbVuscu
+	 gfmqgTtKmtiYJFgaJ1g3FwLfle7jObCrao37JhApuh1u3yiiBQYQ938+0Wa8mtnFNh
+	 pDAu8YRt0R7aA==
 From: Conor Dooley <conor@kernel.org>
 To: sboyd@kernel.org
 Cc: conor@kernel.org,
@@ -62,18 +62,18 @@ Cc: conor@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Gabriel FERNANDEZ <gabriel.fernandez@foss.st.com>
-Subject: [PATCH v4 5/9] dt-bindings: clk: microchip: mpfs: remove first reg region
-Date: Mon,  1 Sep 2025 12:04:17 +0100
-Message-ID: <20250901-properly-banister-ccf27886c8e6@spud>
+Subject: [PATCH v4 7/9] riscv: dts: microchip: convert clock and reset to use syscon
+Date: Mon,  1 Sep 2025 12:04:19 +0100
+Message-ID: <20250901-famine-turf-deaa34bba81c@spud>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250901-rigid-sacrifice-0039c6e6234e@spud>
 References: <20250901-rigid-sacrifice-0039c6e6234e@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3161; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=TTW8V6IURt0fNsC7kk6IUVDimqCXtE9Vfhk8Glza/xk=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDBlba9ex+L08wxr2YGfkncVTAi0qzyT//jbp7zfmvZ/uJ 0zW+mjW0VHKwiDGxSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJ1H9mZNi9/5B1//PXk7Tn zmqqmaESb1zmYs0147OXsks07/p8vycM/8ylMv7O/VL/vdvNd3PGkY5Tm2a6VMgc0px1t1lGhbN pMRMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2218; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=N5M81SbyiMqeqad2gOqNt4lbslX9WNFs88VS2tWTGE4=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDBlba9eZHj6bnvZS9rhEr1gMx7P8xZ83md5S4IvcsXR6i 6tQbHlNRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZyr5zhf8inLLtloRN052jO jDT4Ou36KcYGO5b5l/bta3/0e7LUpwWMDM3HxdZ/NigX+Pq5n9uzQH+6x78+uc0/r53myEyzMDU JZgAA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_040515_857622_7B80147A 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20250901_040523_641376_208BCC2D 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,78 +92,69 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The first reg region in this binding is not exclusively for clocks, as
-evidenced by the dual role of this device as a reset controller at
-present. The first region is however better described by a simple-mfd
-syscon, but this would have require a significant re-write of the
-devicetree for the platform, so the easy way out was chosen when reset
-support was first introduced. The region doesn't just contain clock and
-reset registers, it also contains pinctrl and interrupt controller
-functionality, so drop the region from the clock binding so that it can
-be described instead by a simple-mfd syscon rather than propagate this
-incorrect description of the hardware to the new pic64gx SoC.
+The "subblock" clocks and reset registers on PolarFire SoC are located
+in the mss-top-sysreg region, alongside pinctrl and interrupt control
+functionality. Re-write the devicetree to describe the sys explicitly,
+as its own node, rather than as a region of the clock node.
+Correspondingly, the phandles to the reset controller must be updated to
+the new provider. The drivers will continue to support the old way of
+doing things.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/clock/microchip,mpfs-clkcfg.yaml | 36 +++++++++++--------
- 1 file changed, 22 insertions(+), 14 deletions(-)
+ arch/riscv/boot/dts/microchip/mpfs.dtsi | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
-index e4e1c31267d2a..ee4f31596d978 100644
---- a/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
-+++ b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
-@@ -22,16 +22,23 @@ properties:
-     const: microchip,mpfs-clkcfg
+diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+index f9d6bf08e7170..5c2963e269b83 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+@@ -251,11 +251,9 @@ pdma: dma-controller@3000000 {
+ 			#dma-cells = <1>;
+ 		};
  
-   reg:
--    items:
--      - description: |
--          clock config registers:
--          These registers contain enable, reset & divider tables for the, cpu,
--          axi, ahb and rtc/mtimer reference clocks as well as enable and reset
--          for the peripheral clocks.
--      - description: |
--          mss pll dri registers:
--          Block of registers responsible for dynamic reconfiguration of the mss
--          pll
-+    oneOf:
-+      - items:
-+          - description: |
-+              clock config registers:
-+              These registers contain enable, reset & divider tables for the, cpu,
-+              axi, ahb and rtc/mtimer reference clocks as well as enable and reset
-+              for the peripheral clocks.
-+          - description: |
-+              mss pll dri registers:
-+              Block of registers responsible for dynamic reconfiguration of the mss
-+              pll
-+        deprecated: true
-+      - items:
-+          - description: |
-+              mss pll dri registers:
-+              Block of registers responsible for dynamic reconfiguration of the mss
-+              pll
+-		clkcfg: clkcfg@20002000 {
+-			compatible = "microchip,mpfs-clkcfg";
+-			reg = <0x0 0x20002000 0x0 0x1000>, <0x0 0x3E001000 0x0 0x1000>;
+-			clocks = <&refclk>;
+-			#clock-cells = <1>;
++		mss_top_sysreg: syscon@20002000 {
++			compatible = "microchip,mpfs-mss-top-sysreg", "syscon", "simple-mfd";
++			reg = <0x0 0x20002000 0x0 0x1000>;
+ 			#reset-cells = <1>;
+ 		};
  
-   clocks:
-     maxItems: 1
-@@ -69,11 +76,12 @@ examples:
-   - |
-     #include <dt-bindings/clock/microchip,mpfs-clock.h>
-     soc {
--            #address-cells = <2>;
--            #size-cells = <2>;
--            clkcfg: clock-controller@20002000 {
-+            #address-cells = <1>;
-+            #size-cells = <1>;
+@@ -452,7 +450,7 @@ mac0: ethernet@20110000 {
+ 			local-mac-address = [00 00 00 00 00 00];
+ 			clocks = <&clkcfg CLK_MAC0>, <&clkcfg CLK_AHB>;
+ 			clock-names = "pclk", "hclk";
+-			resets = <&clkcfg CLK_MAC0>;
++			resets = <&mss_top_sysreg CLK_MAC0>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -466,7 +464,7 @@ mac1: ethernet@20112000 {
+ 			local-mac-address = [00 00 00 00 00 00];
+ 			clocks = <&clkcfg CLK_MAC1>, <&clkcfg CLK_AHB>;
+ 			clock-names = "pclk", "hclk";
+-			resets = <&clkcfg CLK_MAC1>;
++			resets = <&mss_top_sysreg CLK_MAC1>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -550,5 +548,12 @@ syscontroller_qspi: spi@37020100 {
+ 			clocks = <&scbclk>;
+ 			status = "disabled";
+ 		};
 +
-+            clkcfg: clock-controller@3E001000 {
-                 compatible = "microchip,mpfs-clkcfg";
--                reg = <0x0 0x20002000 0x0 0x1000>, <0x0 0x3E001000 0x0 0x1000>;
-+                reg = <0x3E001000 0x1000>;
-                 clocks = <&ref>;
-                 #clock-cells = <1>;
-         };
++		clkcfg: clkcfg@3e001000 {
++			compatible = "microchip,mpfs-clkcfg";
++			reg = <0x0 0x3e001000 0x0 0x1000>;
++			clocks = <&refclk>;
++			#clock-cells = <1>;
++		};
+ 	};
+ };
 -- 
 2.47.2
 
