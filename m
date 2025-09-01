@@ -4,159 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B62CA1007
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 17:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09EF1CA0FFF
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 17:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mBASsFAb+m10scASv+kcmu5jDkeHEBEVEm1Amf8R3Qo=; b=OBdUOcrAmOF7sU
-	ocKA6ADJxwaxEiPVaTrNwX8qI9bDe8PU6AJKoPKuiWdUh8V8DcOrHQhVAdthe8/BcTWNI0PbWGmHA
-	B8SRLTzxZJo93MBRQIOSprLFRRQrDdEiB+MnlahOLe+YNYsgp2c4eHpDfSh32igNiS6THYfq5au6M
-	TTHvA1GOHB8fUFIGwD6yPsNlzisWE5MSSYHJs4Nclm2JX7X7rek+d4/6JWAlUy2bep6WxB3Y6/fA2
-	yBYVqK6huM4OQ2I88KVma9BNdlivm/4QW7wSxdqs93J324r4Zvxc5F7jxsegDgaYgKIgzQTL8CZgP
-	H70wxYf3hCYgbIZ6UAjA==;
+	List-Owner; bh=/gdT0iYM3HMbpNIgliFzppBmoglthxaudeQTl4ee2dU=; b=XsY/8W+ZK+rhiY
+	21ow7hYOfBB+LpJzbp8Fyh8yW+KH1Q0qWFZ59mjrSEnU0zO9PHmsOsE69VyPJgTmfqdCEb2rSiqsr
+	rCdCCgR9IjxLJxxuIsIpoqr38+mxZiHN8uOeXdSgbIEat9d8ZJmbz4+I9Fn7DjbCZFdUKfNDoW/44
+	MVXtPmu9zaE6hLy7UqxzdrVPM2OZNJ2ZWbCCdWVq+ctvW00fKkjxzhMZquQEaSVVSgofNagV1oBZz
+	rjVg/AbsUEvJjmJ8AAVGVYMnMthTT74UqmoGKy8qr0iL7yvbgRqgu9MjJCw5FLx15DV384TeARnXJ
+	f0VTCsZcepm7szhbV+uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut7zF-0000000DOnw-2amG;
-	Mon, 01 Sep 2025 17:06:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ut87K-0000000DQiX-1OID;
+	Mon, 01 Sep 2025 17:14:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4lD-0000000CiV6-2eA9
+	id 1ut4zW-0000000CmQ2-3mY7
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 01 Sep 2025 13:54:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Ozw0O54FHk+TR7i9YrzO3JawV9UWD7KG8XrbYOvortQ=; b=Dxp8JVJVcNMtaTxIQjQb7TDnf8
+	oG9eX0TYDAVdUXPNdll8+YLHKKTyEn+DGTDOhMidbMpa8HLJ0l6R5P1EhiOLZGrfg650CkjMDNOet
+	Ttp32t1rwIU3hAl7I45M7xp6tck1SROhM9HfuRNhPJSw/VPMrEgTkgCOv8SG6V8jcRdIYwI4rl34P
+	PJMdhhUBAf/m4w5aUsohnZMsCLNDofwZ/YeoAyXKM3TxN+NootRv+XgymcnDS7v91XJT1EjxPQCcS
+	FSDyMAIVl8/1y9ZinmarPNWMgIk2upLZRot5Zo5/99sNEThYp8DiRPxIjSJeuLkl/LJh4uPyY08S3
+	8mZm3jMQ==;
+Received: from m.syntacore.com ([178.249.69.228])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut4zT-00000003kP8-2OPX
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 13:39:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756733990;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=H3id/gOofLyuF/iZzklWJhNUkAhzxEH18RZFHORTa7Q=;
-	b=S5nrA4z35c09AVrVMVEYu9HROB7xDPqxipPRCtLU2RLNkXz+1KIXCCKshj3n0TwBOxomej
-	D+kkFksgwX8R/ca4sDAxtdTsMPIRuvMS+6d4M2vR9CZ7nrghls21sF2uj/FrusTg4CHEMb
-	NQcpCfyya+y1t0mWbjeTAvoAptPX9DI=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-22-fixk1SymMOmCjWQ7ZvQjyg-1; Mon, 01 Sep 2025 09:39:48 -0400
-X-MC-Unique: fixk1SymMOmCjWQ7ZvQjyg-1
-X-Mimecast-MFC-AGG-ID: fixk1SymMOmCjWQ7ZvQjyg_1756733987
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-45b7265febdso29963255e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 06:39:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756733987; x=1757338787;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=H3id/gOofLyuF/iZzklWJhNUkAhzxEH18RZFHORTa7Q=;
-        b=Uv4Ic3nhjJ2bGvSBH1MRy/izRYW4LiQdgR7muQtt9ga18AxRNtlPvq8O5L+fex7ygu
-         ERKXZBiMsnzKw8pxzCmh0iT4g7313iNwgcmPyM5xdHaS0VKdPyRp2fUCIfubdkhN4KKG
-         ewwqkpmhZN9U/8RrnKGbS5QoIw9slPX67JStMnjPuHwXs1Azx9kfxraBCCdVVpAhE0jL
-         3sg8BNHUyUPDZOiGmUBDQegZBfgk+YdMM6kt9htfuG2txOignk6U2WawxOgVGqN8dDfy
-         aiHIyg58QLfCONWcRZf2u8VkwAZjtwhVp0uunPlWpFUBjo6WYiIxp4j4MqPtbBqXy0TZ
-         hV8g==
-X-Forwarded-Encrypted: i=1; AJvYcCW6Lh0odDKV7vO3ae9n5VrpARrtg4FP4TDv855BgAWhXTryTaHvhowBPGz5QyMEqZqgCg4iDINYPvZYvQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJHMeWiqu6gt97d7lSsdqZEzfx1fOr8WH5bhCDRdzfp4DhH9HF
-	fZML3Ay1XyYdQ530RPkKjQ88CohmVw4tX3VokDib/MyL2WxW/YsLK2sOUosb8kWUQoL9Ixov8oa
-	ZqEGRjfmPDjlSK1rdfJiUJFnt2P69C03zJsPwFsOWox7KVh0IPJfKiGnOSbajuYFsztawCg==
-X-Gm-Gg: ASbGnctuyY/63SMwJ6cq2bQVi+anR2SiKzwScNBbc9jWOlzZiPFqIVijGpfjOgD6JWl
-	78NyWs4jdrcdYablnrQI79lOpbvA6inm2KXvEW5Qu8gtYIHoDM5U8f8KTRxhDUflc5MMxBtO6H2
-	zGrHkCGhkPus3JGPIwK96cdGHtbGVh2of9D9rQa7C7MBZeQRuTg+iEthAVwCWAWVX7GHmxGDxi7
-	b2wo1Cef9X2HVci7mK2yTkwryxNW8ibxRzjUM6hUIz479anp8PpA7AWH7LAyFqM7x8pD99RbYEM
-	Jc9mHiaz+TV98pleBvSyQfe1rMMZkO7qWFmhggDBM76OB8FOXAMdmr0X0FLxKuE7IEy7Nwyt5nF
-	xxemvuYIicqGvCZuSTwpd+TNBJAvvlX3Yf4RHsxPV2hks7Fq8+01Aucous5zois4lP2w=
-X-Received: by 2002:a05:6000:659:10b0:3d2:633f:d02e with SMTP id ffacd0b85a97d-3d2634f1711mr4945710f8f.2.1756733987314;
-        Mon, 01 Sep 2025 06:39:47 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF16bYB/CPbtI8bBu7Fukc9/QEkuztuZV5dc0Mxq3hfWjQ0mUxmJtka4Y09bvawf1aVKd4/5g==
-X-Received: by 2002:a05:6000:659:10b0:3d2:633f:d02e with SMTP id ffacd0b85a97d-3d2634f1711mr4945678f8f.2.1756733986750;
-        Mon, 01 Sep 2025 06:39:46 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f37:2b00:948c:dd9f:29c8:73f4? (p200300d82f372b00948cdd9f29c873f4.dip0.t-ipconnect.de. [2003:d8:2f37:2b00:948c:dd9f:29c8:73f4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6fe5sm238421945e9.5.2025.09.01.06.39.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Sep 2025 06:39:46 -0700 (PDT)
-Message-ID: <72558e21-2ebf-448a-a93a-3d1a3181a592@redhat.com>
-Date: Mon, 1 Sep 2025 15:39:44 +0200
+	Mon, 01 Sep 2025 13:54:37 +0000
+Received: from MRN-SC-KSMG-01.corp.syntacore.com (localhost [127.0.0.1])
+	by m.syntacore.com (Postfix) with ESMTP id 0FFE71A0004;
+	Mon,  1 Sep 2025 13:54:31 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 m.syntacore.com 0FFE71A0004
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=syntacore.com; s=m;
+	t=1756734871; bh=Ozw0O54FHk+TR7i9YrzO3JawV9UWD7KG8XrbYOvortQ=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
+	b=peyNlvWFhWIz1gS25XmRT+Gl87AHdP2bmsj7MxlSrvVwy0Hw2XYGoSh1GMIoRvZ5C
+	 VCHoSk4RDu3pZzD6he2aBgueonopmlK7H8M4R66UiNdl60h9xk9b3JRFOhyyhCz/VL
+	 UHG0iX8oYOSp5MK5/MgGQp+AVR5jRUrCu4y2eRyRFk1nFu+ph4ayO1Amp5LY2TMxfo
+	 /OHlpSgFPnq8PsDKeDReiv4K8STUDGC7L17urcTh+doMyuqZQY+Sc7wWfwzw0WooOl
+	 jPDi6uLMVuWwg1JwtD8CNEduS9boa+Y4pnatDgl3sdCm7Pzx2YHNtMjN5vqsrQbof8
+	 QgwW/n2bUoqeA==
+Received: from S-SC-EXCH-01.corp.syntacore.com (mail.syntacore.com [10.76.202.20])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by m.syntacore.com (Postfix) with ESMTPS;
+	Mon,  1 Sep 2025 13:54:28 +0000 (UTC)
+Received: from localhost (10.30.18.228) by S-SC-EXCH-01.corp.syntacore.com
+ (10.76.202.20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 1 Sep
+ 2025 16:54:21 +0300
+From: Svetlana Parfenova <svetlana.parfenova@syntacore.com>
+To: <linux-fsdevel@vger.kernel.org>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<alex@ghiti.f>, <viro@zeniv.linux.org.uk>, <brauner@kernel.org>,
+	<jack@suse.cz>, <kees@kernel.org>, <akpm@linux-foundation.org>,
+	<david@redhat.com>, <lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>,
+	<vbabka@suse.cz>, <rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>,
+	<svetlana.parfenova@syntacore.com>
+Subject: [RFC RESEND v3] binfmt_elf: preserve original ELF e_flags for core dumps
+Date: Mon, 1 Sep 2025 20:53:50 +0700
+Message-ID: <20250901135350.619485-1-svetlana.parfenova@syntacore.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250806161814.607668-1-svetlana.parfenova@syntacore.com>
+References: <20250806161814.607668-1-svetlana.parfenova@syntacore.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] arch: copy_thread: pass clone_flags as u64
-To: schuster.simon@siemens-energy.com, Dinh Nguyen <dinguyen@kernel.org>,
- Christian Brauner <brauner@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Andrew Morton <akpm@linux-foundation.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
- <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- cgroups@vger.kernel.org, linux-security-module@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-perf-users@vger.kernel.org, apparmor@lists.ubuntu.com,
- selinux@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org
-References: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
- <20250901-nios2-implement-clone3-v2-3-53fcf5577d57@siemens-energy.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20250901-nios2-implement-clone3-v2-3-53fcf5577d57@siemens-energy.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 7GabDd5ejYf__MwHibPnCIVk3n2rDWDJ3gtQg7wNl0g_1756733987
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+X-Originating-IP: [10.30.18.228]
+X-ClientProxiedBy: S-SC-EXCH-01.corp.syntacore.com (10.76.202.20) To
+ S-SC-EXCH-01.corp.syntacore.com (10.76.202.20)
+X-KSMG-AntiPhishing: not scanned, disabled by settings
+X-KSMG-AntiSpam-Interceptor-Info: not scanned
+X-KSMG-AntiSpam-Status: not scanned, disabled by settings
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.1.8310, bases: 2025/09/01 12:41:00 #27718494
+X-KSMG-AntiVirus-Status: NotDetected, skipped
+X-KSMG-LinksScanning: NotDetected
+X-KSMG-Message-Action: skipped
+X-KSMG-Rule-ID: 5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_063951_736624_2EE2DEF8 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20250901_145435_821813_381CD73B 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,70 +105,173 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 01.09.25 15:09, Simon Schuster via B4 Relay wrote:
-> From: Simon Schuster <schuster.simon@siemens-energy.com>
-> 
-> With the introduction of clone3 in commit 7f192e3cd316 ("fork: add
-> clone3") the effective bit width of clone_flags on all architectures was
-> increased from 32-bit to 64-bit, with a new type of u64 for the flags.
-> However, for most consumers of clone_flags the interface was not
-> changed from the previous type of unsigned long.
-> 
-> While this works fine as long as none of the new 64-bit flag bits
-> (CLONE_CLEAR_SIGHAND and CLONE_INTO_CGROUP) are evaluated, this is still
-> undesirable in terms of the principle of least surprise.
-> 
-> Thus, this commit fixes all relevant interfaces of the copy_thread
-> function that is called from copy_process to consistently pass
-> clone_flags as u64, so that no truncation to 32-bit integers occurs on
-> 32-bit architectures.
-> 
-> Signed-off-by: Simon Schuster <schuster.simon@siemens-energy.com>
-> ---
->   arch/alpha/kernel/process.c      | 2 +-
->   arch/arc/kernel/process.c        | 2 +-
->   arch/arm/kernel/process.c        | 2 +-
->   arch/arm64/kernel/process.c      | 2 +-
->   arch/csky/kernel/process.c       | 2 +-
->   arch/hexagon/kernel/process.c    | 2 +-
->   arch/loongarch/kernel/process.c  | 2 +-
->   arch/m68k/kernel/process.c       | 2 +-
->   arch/microblaze/kernel/process.c | 2 +-
->   arch/mips/kernel/process.c       | 2 +-
->   arch/nios2/kernel/process.c      | 2 +-
->   arch/openrisc/kernel/process.c   | 2 +-
->   arch/parisc/kernel/process.c     | 2 +-
->   arch/powerpc/kernel/process.c    | 2 +-
->   arch/riscv/kernel/process.c      | 2 +-
->   arch/s390/kernel/process.c       | 2 +-
->   arch/sh/kernel/process_32.c      | 2 +-
->   arch/sparc/kernel/process_32.c   | 2 +-
->   arch/sparc/kernel/process_64.c   | 2 +-
->   arch/um/kernel/process.c         | 2 +-
->   arch/x86/include/asm/fpu/sched.h | 2 +-
->   arch/x86/include/asm/shstk.h     | 4 ++--
->   arch/x86/kernel/fpu/core.c       | 2 +-
->   arch/x86/kernel/process.c        | 2 +-
->   arch/x86/kernel/shstk.c          | 2 +-
->   arch/xtensa/kernel/process.c     | 2 +-
->   26 files changed, 27 insertions(+), 27 deletions(-)
-> 
+Some architectures, such as RISC-V, use the ELF e_flags field to encode
+ABI-specific information (e.g., ISA extensions, fpu support). Debuggers
+like GDB rely on these flags in core dumps to correctly interpret
+optional register sets. If the flags are missing or incorrect, GDB may
+warn and ignore valid data, for example:
 
-(Adjust To: list)
+    warning: Unexpected size of section '.reg2/213' in core file.
 
-Thanks!
+This can prevent access to fpu or other architecture-specific registers
+even when they were dumped.
 
-Acked-by: David Hildenbrand <david@redhat.com>
+Save the e_flags field during ELF binary loading (in load_elf_binary())
+into the mm_struct, and later retrieve it during core dump generation
+(in fill_note_info()). Kconfig option CONFIG_ARCH_HAS_ELF_CORE_EFLAGS
+is introduced for architectures that require this behaviour.
 
+Signed-off-by: Svetlana Parfenova <svetlana.parfenova@syntacore.com>
+---
+Changes in v3:
+ - Introduce CONFIG_ARCH_HAS_ELF_CORE_EFLAGS Kconfig option instead of
+   arch-specific ELF_CORE_USE_PROCESS_EFLAGS define.
+ - Add helper functions to set/get e_flags in mm_struct.
+ - Wrap saved_e_flags field of mm_struct with
+   #ifdef CONFIG_ARCH_HAS_ELF_CORE_EFLAGS.
+
+Changes in v2:
+ - Remove usage of Kconfig option.
+ - Add an architecture-optional macro to set process e_flags. Enabled
+   by defining ELF_CORE_USE_PROCESS_EFLAGS. Defaults to no-op if not
+   used.
+
+ arch/riscv/Kconfig       |  1 +
+ fs/Kconfig.binfmt        |  9 +++++++++
+ fs/binfmt_elf.c          | 40 ++++++++++++++++++++++++++++++++++------
+ include/linux/mm_types.h |  5 +++++
+ 4 files changed, 49 insertions(+), 6 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a4b233a0659e..1bef00208bdd 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -224,6 +224,7 @@ config RISCV
+ 	select VDSO_GETRANDOM if HAVE_GENERIC_VDSO
+ 	select USER_STACKTRACE_SUPPORT
+ 	select ZONE_DMA32 if 64BIT
++	select ARCH_HAS_ELF_CORE_EFLAGS
+ 
+ config RUSTC_SUPPORTS_RISCV
+ 	def_bool y
+diff --git a/fs/Kconfig.binfmt b/fs/Kconfig.binfmt
+index bd2f530e5740..1949e25c7741 100644
+--- a/fs/Kconfig.binfmt
++++ b/fs/Kconfig.binfmt
+@@ -184,4 +184,13 @@ config EXEC_KUNIT_TEST
+ 	  This builds the exec KUnit tests, which tests boundary conditions
+ 	  of various aspects of the exec internals.
+ 
++config ARCH_HAS_ELF_CORE_EFLAGS
++	bool
++	depends on BINFMT_ELF && ELF_CORE
++	default n
++	help
++	  Select this option if the architecture makes use of the e_flags
++	  field in the ELF header to store ABI or other architecture-specific
++	  information that should be preserved in core dumps.
++
+ endmenu
+diff --git a/fs/binfmt_elf.c b/fs/binfmt_elf.c
+index 4aacf9c9cc2d..e4653bb99946 100644
+--- a/fs/binfmt_elf.c
++++ b/fs/binfmt_elf.c
+@@ -103,6 +103,21 @@ static struct linux_binfmt elf_format = {
+ 
+ #define BAD_ADDR(x) (unlikely((unsigned long)(x) >= TASK_SIZE))
+ 
++static inline void elf_coredump_set_mm_eflags(struct mm_struct *mm, u32 flags)
++{
++#ifdef CONFIG_ARCH_HAS_ELF_CORE_EFLAGS
++	mm->saved_e_flags = flags;
++#endif
++}
++
++static inline u32 elf_coredump_get_mm_eflags(struct mm_struct *mm, u32 flags)
++{
++#ifdef CONFIG_ARCH_HAS_ELF_CORE_EFLAGS
++	flags = mm->saved_e_flags;
++#endif
++	return flags;
++}
++
+ /*
+  * We need to explicitly zero any trailing portion of the page that follows
+  * p_filesz when it ends before the page ends (e.g. bss), otherwise this
+@@ -1290,6 +1305,8 @@ static int load_elf_binary(struct linux_binprm *bprm)
+ 	mm->end_data = end_data;
+ 	mm->start_stack = bprm->p;
+ 
++	elf_coredump_set_mm_eflags(mm, elf_ex->e_flags);
++
+ 	/**
+ 	 * DOC: "brk" handling
+ 	 *
+@@ -1804,6 +1821,8 @@ static int fill_note_info(struct elfhdr *elf, int phdrs,
+ 	struct elf_thread_core_info *t;
+ 	struct elf_prpsinfo *psinfo;
+ 	struct core_thread *ct;
++	u16 machine;
++	u32 flags;
+ 
+ 	psinfo = kmalloc(sizeof(*psinfo), GFP_KERNEL);
+ 	if (!psinfo)
+@@ -1831,17 +1850,26 @@ static int fill_note_info(struct elfhdr *elf, int phdrs,
+ 		return 0;
+ 	}
+ 
+-	/*
+-	 * Initialize the ELF file header.
+-	 */
+-	fill_elf_header(elf, phdrs,
+-			view->e_machine, view->e_flags);
++	machine = view->e_machine;
++	flags = view->e_flags;
+ #else
+ 	view = NULL;
+ 	info->thread_notes = 2;
+-	fill_elf_header(elf, phdrs, ELF_ARCH, ELF_CORE_EFLAGS);
++	machine = ELF_ARCH;
++	flags = ELF_CORE_EFLAGS;
+ #endif
+ 
++	/*
++	 * Override ELF e_flags with value taken from process,
++	 * if arch needs that.
++	 */
++	flags = elf_coredump_get_mm_eflags(dump_task->mm, flags);
++
++	/*
++	 * Initialize the ELF file header.
++	 */
++	fill_elf_header(elf, phdrs, machine, flags);
++
+ 	/*
+ 	 * Allocate a structure for each thread.
+ 	 */
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+index 08bc2442db93..04a2857f12f2 100644
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
+@@ -1102,6 +1102,11 @@ struct mm_struct {
+ 
+ 		unsigned long saved_auxv[AT_VECTOR_SIZE]; /* for /proc/PID/auxv */
+ 
++#ifdef CONFIG_ARCH_HAS_ELF_CORE_EFLAGS
++		/* the ABI-related flags from the ELF header. Used for core dump */
++		unsigned long saved_e_flags;
++#endif
++
+ 		struct percpu_counter rss_stat[NR_MM_COUNTERS];
+ 
+ 		struct linux_binfmt *binfmt;
 -- 
-Cheers
-
-David / dhildenb
+2.51.0
 
 
 _______________________________________________
