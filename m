@@ -4,82 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 767FDCA1007
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 23:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1856CA1007
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 00:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LnujMvFSJYqp8QQ2+/yIImyVw+zKgoWK7nVkwriW4a4=; b=rpGkB3VFzzMUzGxR9wG/T12d2B
-	OJKI8vfV0nX8P8UnMjaJ0bhDuYM4iuRQE0RVVC/OwlNhWZ7k2WaW8BpztJt1crXunokypy3LJfXGE
-	DGvR6dGHOfS9sfVDAdb0v7Az7hR66ERTMEhE3ROOyqBuLyFWX2GuFt6ndVcCM1+xZS7UlvvNe1FLO
-	9RywfRdM3UwmOMjfGQB6+OWqr8p+D/Vv0AVcn0d/lRiBx4AXNDtxZfvJug8ElcQPvf7uN7krwfizG
-	S0r4i4bZuzgPGq/3TfvwJThmuDdUDhQO7Aj1IqCEx8NXrGuwiFJlci1QM6OZJ+YK0PgV6BrrDonrg
-	JpzgpJ5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lMGtqry4gRklIWmBaZao+2LAQzj1skKMxJjUUOFw2Oo=; b=Q4Xnii+WokqDP3
+	a7qk3Us9BxoTBlTCcCgCeU41rgUHtqZQewXSfTJiywkRu/Jko+lh+8SaB9M8Y+68pVXZWYDjiUd1y
+	pzL49tXwA0nwie2veX/XUF92JGwPyJb/hWmMKTWy3f0kPpPSvaByeQPepvs7rEhW052nYurL49D6Y
+	degJzNgXWQvzt0F74IVXS8A+VHo/mZDPf75jS98cUF6dwaShpMUM+Ioi0EsZAggu//3DWjWOhLLts
+	gS4VKTDZHCwi5NBeH/zweDbWQwWqv7ZLxMGypmNvFQJpubXWo0rVgrZN8kIrfSLfNhN+GHqu8vrMn
+	w8S2etDMSmbIsODjDtbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDnf-0000000EIvg-1mfv;
-	Mon, 01 Sep 2025 23:18:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utFHL-0000000EaGl-1w3B;
+	Tue, 02 Sep 2025 00:53:43 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utBX4-0000000DsRE-2LjE
+	id 1utCp5-0000000E5Xd-3Ic2
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 20:53:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AC894600BB;
-	Mon,  1 Sep 2025 20:53:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8BD1C4CEF0;
-	Mon,  1 Sep 2025 20:53:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756760021;
-	bh=EmEPDFeBBJxotEJAdRweNgxFgd00ZCenQukoIPB92JE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cax/6wFl529KhgAtAeHnm/zGOt1M5B4Q5BqFpnj3fSmO5hLNcDbTPz8cBvcYAn1Je
-	 2uWy3w6ZLKjjkxqi4U6cM/tSmmOPw6V40BxCcB126yzz4m1KNY0uSPtvFU53FKcaXm
-	 O6vgKrRWpqExHgEefovwHz7RX/tfE/YiDzXPlANfSj95b/zr8fumVQ9l7JK4BpPzvo
-	 0tIA8oBykMQnbDP3flII/mK0bBNFg8voQT1sI0QqNXe9r6Sv0dBCOst9sbbbsDXfUX
-	 2RXwWZWt5Gi/6ucV+OuSONPU1oX/ZUzZh41bx31FaMqc4YIP+xGk7VP09AwYjSrbvC
-	 OzqhBe2kcR9NQ==
-Date: Mon, 1 Sep 2025 13:53:27 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Matt Coster <Matt.Coster@imgtec.com>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Frank Binns <Frank.Binns@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
-Subject: Re: [PATCH v13 3/4] riscv: dts: thead: th1520: Add IMG BXM-4-64 GPU
- node
-Message-ID: <aLYHx6NgfLovbBAG@gen8>
-References: <20250822-apr_14_for_sending-v13-0-af656f7cc6c3@samsung.com>
- <CGME20250821222023eucas1p1805feda41e485de76c2981beb8b9102d@eucas1p1.samsung.com>
- <20250822-apr_14_for_sending-v13-3-af656f7cc6c3@samsung.com>
- <aKjWiU4fQw3k77GR@x1>
- <aK-BwY8c-OR_WqNk@thelio>
- <aLDQjq9U_mDvMTJo@gen8>
- <a329ff82-ca79-41ac-b61e-e843103f55a6@imgtec.com>
+	Mon, 01 Sep 2025 22:16:25 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-76e1fc69f86so4321186b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 15:16:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756764983; x=1757369783; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=erf0LGr1RXc9Ic0frfV15S6ddZ5bAby40+1+C+q1TDE=;
+        b=HDcoB/BoQX3pjy+T1hNsQeAcmDsrjES80i4boGU4Beicd8BhSHSBAI+N9z/b4jJpJS
+         z1hnMlFDvfqz6DmwRgzULHgOXITE77FKmxz+skAHiFRPEGGWa8vr44tkb78ZwMnl5JFQ
+         ex6DZgirFbzMIEpDMW1876+LYllqPViIVHcdXf0ZCBstLz7JMeVSO6r1/06rjaz4mqVn
+         pYGn3HfRrldi/Mn0Vbo4oZu4Snj0rT/jF349e/X6pE0tD22hghk1K1QHLjD2NHye5fYo
+         YifUZeuPDTfNRBrpedrWDz9YTmlsEXwlFV2R6m3CBv+YbtRExCKmE0mRFGBdpFjpkWpX
+         eQiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756764983; x=1757369783;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=erf0LGr1RXc9Ic0frfV15S6ddZ5bAby40+1+C+q1TDE=;
+        b=UB02+r/SKpdx1rE9YKob+g9LRCuoGHeEEbk7t4T4KTTa8Uekmi2gWfrQyUZ8SCuWSQ
+         ZQK8OwTaYUpBDyrZ9U3WJMPIHvv0sizptvAS5jFxJG9Z/V6wKsjvzJ167GP2MJtGsw31
+         tfDlfVFHjrt7OmyktGJlXN5r4zGRpRpYlWek/8X1oy46GxNj0ZETpVWSTszMRTGaCa4C
+         Vzz2p+Tq4x1aInXAOBeZNb8p8pMnVJhKhFybOrCRrS2nLAFN8pZSabRDZe3KYA84uC+u
+         3OSSd1di4M7LhcTjILNA1Dnyk160TZ27aqxaZ6bVtybz7XLQYRPsVd7SriyTwaFOq+P4
+         kzDg==
+X-Forwarded-Encrypted: i=1; AJvYcCWYsKQTwcD0ok5lB7gLrXhEsYt3vduIHfBSNc8dRhl/f2S1m9/51UU7cvlKl2V+qPxsXK64R0OaToBAKA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywv4Wo2XoMR+XSS1Kt+ADagUDPbIOv3FQ+9+WHBW9JF9Dptd9tl
+	Uew8Uo2ob9VCXXQ98HS0cZaueof+iw4XKv/igIfvqcTJWI0JEglOoI1Q
+X-Gm-Gg: ASbGncvpjsrgVAQ6/7YJFiTdgmdrAqY8fTEkoooOJhUsUE1ZzH3HDwem2zZ7B+86ir1
+	MlxXzKzFxScCKusIB3VhL7P3PiBMUbRsYRvyZGn6hZqOOMNvRehtQovngrG6TvA+aEehekpDkiV
+	PIWxuKs94fxRWAKkRTDrIOa/fPO4JkvwGdcF+uaDlE0UubBnS9i9P1BKAkeguigTRAEewfcuJDo
+	j2PS/5fqheCCUhorPj0iwqmcfIln5sSTHB2h85z1xFnbMlQ2qtLJg/1tCptTUt4IfoW2g7jBjbc
+	hbPyubeu4B8m2mRwO37QEQrTA50hCvYJfPvsnXME3Q7w0+7EZcpC4bqQuO9aC5kNxB9NjhXTjiJ
+	l4XO2g0IEKFznFvGRXjxl0Q==
+X-Google-Smtp-Source: AGHT+IFWF0I/dXBzxrh9+lgnjxp+4hm9yfWG/1QG0n322Ke/LdJEyJO54HHlRnJIo9PFXfBtS2k73w==
+X-Received: by 2002:a05:6a20:7490:b0:243:7379:53a9 with SMTP id adf61e73a8af0-243d50948b2mr13602559637.9.1756764982262;
+        Mon, 01 Sep 2025 15:16:22 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-b4e7989b53dsm7071350a12.29.2025.09.01.15.16.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Sep 2025 15:16:21 -0700 (PDT)
+Date: Tue, 2 Sep 2025 06:16:15 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen Wang <unicornxw@gmail.com>, u.kleine-koenig@baylibre.com, 
+	aou@eecs.berkeley.edu, unicorn_wang@outlook.com, conor+dt@kernel.org, 
+	inochiama@gmail.com, krzk+dt@kernel.org, looong.bin@gmail.com, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, robh@kernel.org, tglx@linutronix.de, sycamoremoon376@gmail.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	sophgo@lists.linux.dev
+Subject: Re: [PATCH v2 0/3] irqchip/sg2042-msi: Set irq type according to DT
+ configuration
+Message-ID: <k3blxflvwicykiqv4eo6hx2notcp76rdf72oe37wkkkcq4ookr@fyydrsjv3r6z>
+References: <cover.1756169460.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <a329ff82-ca79-41ac-b61e-e843103f55a6@imgtec.com>
+Content-Disposition: inline
+In-Reply-To: <cover.1756169460.git.unicorn_wang@outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250901_151623_841320_00669F7B 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,63 +97,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5815854572717195125=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Aug 26, 2025 at 09:09:13AM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+> 
+> The original MSI interrupt type was hard-coded, which was not a good idea.
+> Now it is changed to read the device tree configuration and then set the
+> interrupt type.
+> 
+> This patchset is based on irq/drivers branch of tip.
+> 
+> ---
+> 
+> Changes in v2:
+>   The patch series is based on irq/drivers branch of tip.
+> 
+>   Reverted the change to obtain params of "msi-ranges"; it's better not to
+>   assume the value of "#interrupt-cells" is 2, even though it's known to be
+>   the case. Thanks to Inochi for the comments.
+> 
+> Changes in v1:
+>   The patch series is based on irq/drivers branch of tip. You can simply review
+>   or test the patches at the link [1].
+> 
+> Link: https://lore.kernel.org/linux-riscv/cover.1756103516.git.unicorn_wang@outlook.com/ [1]
+> ---
+> 
+> Chen Wang (3):
+>   irqchip/sg2042-msi: Set irq type according to DT configuration
+>   riscv: sophgo: dts: sg2042: change msi irq type to
+>     IRQ_TYPE_EDGE_RISING
+>   riscv: sophgo: dts: sg2044: change msi irq type to
+>     IRQ_TYPE_EDGE_RISING
+> 
+>  arch/riscv/boot/dts/sophgo/sg2042.dtsi | 2 +-
+>  arch/riscv/boot/dts/sophgo/sg2044.dtsi | 2 +-
+>  drivers/irqchip/irq-sg2042-msi.c       | 7 +++++--
+>  3 files changed, 7 insertions(+), 4 deletions(-)
+> 
+> 
+> base-commit: 8ff1c16c753e293c3ba20583cb64f81ea7b9a451
+> -- 
+> 2.34.1
+> 
 
---===============5815854572717195125==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gSZ+C/ozphYAjkpf"
-Content-Disposition: inline
-
-
---gSZ+C/ozphYAjkpf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Sep 01, 2025 at 11:16:18AM +0000, Matt Coster wrote:
-> Hi Drew,
->=20
-> Apologies for the delay, I was on holiday last week.
->=20
-> I've just applied the non-dts patches to drm-misc-next [1], would you
-> mind re-adding the dts patch to thead-dt-for-next?
-
-Thanks for the update.
-
-I've now pushed the dts patch back to thead-dt-for-next:
-
-[3/4] riscv: dts: thead: th1520: Add IMG BXM-4-64 GPU node
-      commit: 5052d5cf1359e9057ec311788c12997406fdb2fc
-
--Drew
-
---gSZ+C/ozphYAjkpf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCaLYHnQAKCRDb7CzD2Six
-DFx1AQDhO4oxK/8VUlhe2hYNiss5b+vRMU1sBAHKoo06bhapNQEAj2PyvDIqT8IF
-nKIS+EVxulnWrJ7yeHXsijpV3oST8wM=
-=NHPw
------END PGP SIGNATURE-----
-
---gSZ+C/ozphYAjkpf--
-
-
---===============5815854572717195125==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Tested-by: Inochi Amaoto <inochiama@gmail.com> # Sophgo SRD3-10
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5815854572717195125==--
-
