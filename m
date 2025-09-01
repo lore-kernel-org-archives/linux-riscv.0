@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F683CA0FF0
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 18:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9181CA1007
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 18:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ybRFFlVHWskpOOb3xmoWw8HIjLF3vg2NZv502s0RSpg=; b=3H0/GRtLYaf1vR
-	/9NrMN6/jiyTHyzSPmI9CqlNDh4o9vzQva9YAGhlvmqlAGCysWtOxY82rLYGNwU8b8E+dEapyJGkc
-	oWDA651Zva30tFHrSLjnUUxR4Nvbg0QbZUFu2bbc3IJUlPi3aNETD/PtmfvUJpO5IRo4OIH/a8Aat
-	DsBoV+ftbZzCb0H5Jiqh8DgmP+tnXQawNUxUfKiA/PCidrZtS1FwYR944xV/OUjrPzr0oXjSCF45g
-	/QX0QaVsI2dYNmpn9SPnxf7WPwPhZEIMDQm3s4wP0ZmmZJtWzMQbXKqElbtSLUsA/eUKMVUXHsQTu
-	uHrN6Rhj1QtijZPlICew==;
+	List-Owner; bh=oiAfrF1kVT/Mtqs+AAx2xmCq2/0aHvBzN1MjAMdYAw8=; b=kK4aVnSNdeyx9X
+	V+ElBnd+Y8zQV+SA5rlUHcyIy/QGxmvTJoTeM/+siwztN493IVTqstcPw8w7lgZqJxRHIl1sQeLCL
+	qsEy75EV4oOxlu93YS7JMaWj+sqTkXkBAUWxfwE3In6iufxfo9Q6h4wN0LNpsTgr6O3CT5EU/5enq
+	d43E01K6Uv+RMiXH+uFw1xSmcrHW2WE7VpZSatgkDg0YdwKLpSasswldOMLVAxE+zG4JK6bCvRZAh
+	bJrE2K1uNP28HUPED/m5KoIWyWbIlnJm7rxJkLgQ+xOgeJxUND5tqrngDfs7U5mha0b1hZcNhKlwx
+	5zuTyhQnNe1cA1nE1V5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut8yu-0000000DWyL-2al9;
-	Mon, 01 Sep 2025 18:10:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ut8ys-0000000DWxu-2x9W;
+	Mon, 01 Sep 2025 18:10:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut66e-0000000Cxyy-3DES
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 01 Sep 2025 15:06:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=u9ikJfv6RMgWpDoO/PrbRDajESXjomPX0LKmeM4ApTo=; b=GneHlBSjfgfOAL/mcuIJeKv1Pn
-	3YaZIlU29J/5pNP8A7c6VP7CbKBE3DBls17CGiXIoUrG9blTZ1QMyMruiQbRdXlI77VUeqTWYvoJ7
-	FWMkCNjI/FyvkLIb4qP3sgWTefAOFJfc1ExbwcneXyx1Z9DroUFGBG9Nlc5IfyQME1WV1qa8WjrId
-	mbWw/mOtKQjUmKSE3ejofi7dxs6Q3gOBixefxA3YLiyZ+lnJggMRPFzpJDrUg1z6AQeRy1CJ0DfdU
-	7UxolYbfw0V6cvFscc08YwKEy0nv86RiLRrHCDxwF8VXtQ7tx1n7ouEWri9R5bvtgW6KGtUPkcVmX
-	BO+AWvmg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut66a-00000003mYk-3FqT
+	id 1ut65g-0000000Cxjd-27xz
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 15:06:03 +0000
+	Mon, 01 Sep 2025 15:05:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739159;
+	s=mimecast20190719; t=1756739103;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=u9ikJfv6RMgWpDoO/PrbRDajESXjomPX0LKmeM4ApTo=;
-	b=IdRGZnNjvmh75HHvkYWg4VzdLqcPY4TBrL/wQcTZWekuF9qHxgbtXtpLhIw+bUEL6mpbnh
-	WXO41V1hpP4026cLgHu/UI9FH2TKBbvGcgB+xF86Niu/TQAoh1aH1tMDJKK/2z2r976ZHx
-	lA2mrw/ymcT+btMQ596y6/ZZDsSauY8=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739159;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u9ikJfv6RMgWpDoO/PrbRDajESXjomPX0LKmeM4ApTo=;
-	b=IdRGZnNjvmh75HHvkYWg4VzdLqcPY4TBrL/wQcTZWekuF9qHxgbtXtpLhIw+bUEL6mpbnh
-	WXO41V1hpP4026cLgHu/UI9FH2TKBbvGcgB+xF86Niu/TQAoh1aH1tMDJKK/2z2r976ZHx
-	lA2mrw/ymcT+btMQ596y6/ZZDsSauY8=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=OLi4fM0QNdibiBA1k/MTnIMFu1+uGtd+Ar5TgdqnEIc=;
+	b=gpt7txwlUZu2pv/mYda7tudzKe0m4DIhm/Tlwvto3nynMRJ6iuCasx9UMHSEn+gBzOGDRg
+	kzceN24khuCE30I6s2F1/sBloEbZFutHCBZFHhU2u0XhF+oBmBWsNfE5LJE34bpS8H97Yt
+	BmIhd/q66vlBEMeWl+1dIwvZxMWObKw=
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-321-BCH8lRQHM2i3AvlSIjWhRg-1; Mon,
- 01 Sep 2025 11:05:54 -0400
-X-MC-Unique: BCH8lRQHM2i3AvlSIjWhRg-1
-X-Mimecast-MFC-AGG-ID: BCH8lRQHM2i3AvlSIjWhRg_1756739146
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-596-SnJjvg_JMVyx55RP_RE7oQ-1; Mon,
+ 01 Sep 2025 11:05:02 -0400
+X-MC-Unique: SnJjvg_JMVyx55RP_RE7oQ-1
+X-Mimecast-MFC-AGG-ID: SnJjvg_JMVyx55RP_RE7oQ_1756739097
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6BF1118003FC;
-	Mon,  1 Sep 2025 15:05:45 +0000 (UTC)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BEDFD19560B1;
+	Mon,  1 Sep 2025 15:04:55 +0000 (UTC)
 Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0BD8C1800447;
-	Mon,  1 Sep 2025 15:05:28 +0000 (UTC)
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1702E1800297;
+	Mon,  1 Sep 2025 15:04:35 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
+	Zi Yan <ziy@nvidia.com>,
 	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
+	SeongJae Park <sj@kernel.org>,
+	Wei Yang <richard.weiyang@gmail.com>,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
 	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -129,18 +115,17 @@ Cc: David Hildenbrand <david@redhat.com>,
 	virtualization@lists.linux.dev,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v2 04/37] x86/Kconfig: drop superfluous "select SPARSEMEM_VMEMMAP"
-Date: Mon,  1 Sep 2025 17:03:25 +0200
-Message-ID: <20250901150359.867252-5-david@redhat.com>
+	x86@kernel.org
+Subject: [PATCH v2 01/37] mm: stop making SPARSEMEM_VMEMMAP user-selectable
+Date: Mon,  1 Sep 2025 17:03:22 +0200
+Message-ID: <20250901150359.867252-2-david@redhat.com>
 In-Reply-To: <20250901150359.867252-1-david@redhat.com>
 References: <20250901150359.867252-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_160601_041924_E87E4E13 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20250901_080504_611832_3508242D 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,33 +142,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now handled by the core automatically once SPARSEMEM_VMEMMAP_ENABLE
-is selected.
+In an ideal world, we wouldn't have to deal with SPARSEMEM without
+SPARSEMEM_VMEMMAP, but in particular for 32bit SPARSEMEM_VMEMMAP is
+considered too costly and consequently not supported.
 
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
+However, if an architecture does support SPARSEMEM with
+SPARSEMEM_VMEMMAP, let's forbid the user to disable VMEMMAP: just
+like we already do for arm64, s390 and x86.
+
+So if SPARSEMEM_VMEMMAP is supported, don't allow to use SPARSEMEM without
+SPARSEMEM_VMEMMAP.
+
+This implies that the option to not use SPARSEMEM_VMEMMAP will now be
+gone for loongarch, powerpc, riscv and sparc. All architectures only
+enable SPARSEMEM_VMEMMAP with 64bit support, so there should not really
+be a big downside to using the VMEMMAP (quite the contrary).
+
+This is a preparation for not supporting
+
+(1) folio sizes that exceed a single memory section
+(2) CMA allocations of non-contiguous page ranges
+
+in SPARSEMEM without SPARSEMEM_VMEMMAP configs, whereby we
+want to limit possible impact as much as possible (e.g., gigantic hugetlb
+page allocations suddenly fails).
+
+Acked-by: Zi Yan <ziy@nvidia.com>
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Acked-by: SeongJae Park <sj@kernel.org>
+Reviewed-by: Wei Yang <richard.weiyang@gmail.com>
 Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 Reviewed-by: Liam R. Howlett <Liam.Howlett@oracle.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Borislav Petkov <bp@alien8.de>
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: WANG Xuerui <kernel@xen0n.name>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Andreas Larsson <andreas@gaisler.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- arch/x86/Kconfig | 1 -
- 1 file changed, 1 deletion(-)
+ mm/Kconfig | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 58d890fe2100e..e431d1c06fecd 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -1552,7 +1552,6 @@ config ARCH_SPARSEMEM_ENABLE
- 	def_bool y
- 	select SPARSEMEM_STATIC if X86_32
- 	select SPARSEMEM_VMEMMAP_ENABLE if X86_64
--	select SPARSEMEM_VMEMMAP if X86_64
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 4108bcd967848..330d0e698ef96 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -439,9 +439,8 @@ config SPARSEMEM_VMEMMAP_ENABLE
+ 	bool
  
- config ARCH_SPARSEMEM_DEFAULT
- 	def_bool X86_64 || (NUMA && X86_32)
+ config SPARSEMEM_VMEMMAP
+-	bool "Sparse Memory virtual memmap"
++	def_bool y
+ 	depends on SPARSEMEM && SPARSEMEM_VMEMMAP_ENABLE
+-	default y
+ 	help
+ 	  SPARSEMEM_VMEMMAP uses a virtually mapped memmap to optimise
+ 	  pfn_to_page and page_to_pfn operations.  This is the most
 -- 
 2.50.1
 
