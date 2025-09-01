@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E7FCA0FF0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E20B6CA100C
 	for <linux-riscv@archiver.kernel.org>; Mon,  1 Sep 2025 13:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,64 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N1f71ftdVKhum7jM54lCXCcG9rs0o2TvvlTSu8ZsDrA=; b=fuwPKpSALdZogh
-	jP0Uvjz+8ubQsg31Lk0JuRM6TZJtuOgHdz4xexOi87GTaBTiCvURAMRYCyRQVVFza1YSLoGasFWYu
-	fRkkDlxFujHQEp2/ZUvL76YrXJRVDZdAwmn6s4fEuPP76x5viIf9kTaIFKhLPygr1juAZ/keirLwP
-	+aUVYp4Czfj/iJZLzQvDk+UOdsRK7FemlUBJq2pZazLhm6wqzk0pXxbhAhkTbM/ynGdzJ6zqAxorU
-	rEFvnYbtQvmpzMVjwqu//HfuMt6MGkuIQAjrsdejUsFjWLxq0OM7DBJ5YDlEoHstm3ABezmHYphE2
-	sSN019GwnnZa228M3P9g==;
+	List-Owner; bh=gei1bS/lWmQDAGJ3t5VViVYrPII6VIDnv3HBNpab0HA=; b=zkI1ypg9gGpk0n
+	w+UilY+WxMB+hqWXdrrUXa6wLXQsAtgK3MAfDO+q5aDBGm7lvQ2RZXIuz3MH0ovjRGjt+t7Ew+xus
+	sr0na1FojKoIpfAeKcz8dNAK2KWBnOvZB6hvIufCEkhVERbXLnyFK9N1KDrQjj2lDzl5Dsax+RI+s
+	IDaqSCXn0/3HhrAdDhZulcexdhlLLOq5WyyHs7ZUeGEjTJpqxAZu1xIJFkFpUpITv0sc38bWTI8BI
+	3V8XYdhhzye2WgZHff1zoJkuZrZQWJE1/Edz5ygj1Ouy9yeSAk2TLgErLNStkuvRjbZDSaU/vV9qx
+	w2LBkQE+ktWAsyyFfWAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4uW-0000000CkDP-2iL8;
-	Mon, 01 Sep 2025 13:49:28 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1ut4uV-0000000CkCN-15xw;
+	Mon, 01 Sep 2025 13:49:27 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut2kU-0000000C3wx-0wgY
+	id 1ut2kI-0000000C3st-1rdN
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 11:30:59 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7722c8d2694so2279209b3a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 04:30:58 -0700 (PDT)
+	Mon, 01 Sep 2025 11:30:48 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-77251d7cca6so882420b3a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 04:30:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1756726257; x=1757331057; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1756726246; x=1757331046; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=KsWJ8LfQ5pRsnjiKNBF8VnH1ORJpnctEr1VaNmcMPZo=;
-        b=DuFATm6LHUWwdlpM2ArOA50fFGHzQVHLvIWrkCqO1HIFPkgFFjfeZFIx9Lwm6tmgkB
-         7jdyKuUNYI0L6pjC46/cPTWS7axgzlP9+ng/+5IGdslP9yx9tcwB6t6MUti22kLWpO22
-         eM/ASFWGaPykxLG+InLUoJzEBCMSAQfqNGXhi4rD4zOSm8XgBevAZPvYoLDoT5YI9EPy
-         Qwf7uICQYBNTo/769rHAggLlMqTAkXi6fyBIiqRPgRZ+n8GjIH+MrFbtpzjROl/ct0Ha
-         GpEqzx2fquoHNGC6Wt8IfiQdyTZsZQ+/YNT9mm4vqaG57OQcYdSkNbdCTSbnWXcyT4s3
-         UZXw==
+        bh=PM7ZOBxbXaYL3polB/sK+4dHFDAVqr3gYjlAgyAuBEQ=;
+        b=c56LkjN+W/vdxpO8msA+di11RHpoyvmcO2U3jNV+7d6zioJVcPdBL2WYnYLZNJqtxD
+         4bD6JSHgwjUVvG5KQLnwBqC82QYCPhqyzXDA4O3NxI2EPHilkwLoH0iC7L0ay6KSmZ8P
+         hIMhcRXrkTxD5aExRC5ZzNVcAX3M200RJOuEGOupzkWBmjXZZf71HHiEtzmmwkFbOtFs
+         Sbtv16E/yYi8Vjl9GXxGepIrOufjZfjrdh5Rgv//P2hFzSQ3y+JIEm2Z4QC+WShfnqg7
+         wuCpuLyZUTMV2sOOYl2gLt31jb3B5kSvnz0/uzzB5EHs2qNRkknGQAMQUAOy/DvTy6zf
+         BB/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756726257; x=1757331057;
+        d=1e100.net; s=20230601; t=1756726246; x=1757331046;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=KsWJ8LfQ5pRsnjiKNBF8VnH1ORJpnctEr1VaNmcMPZo=;
-        b=S7IVCzBq9IuN09GKWoz6QzIACthOxP5VdXCbdSNCTK7pLyofniYz5Yp7CMuQtolOfV
-         JJs585hvvYNrikPA5UyQWxDYX8u6LHv6mnkofCRlxsrs9Wx4KTD3Y3LTB31SvDt9XOQc
-         LX/2xmL64ATMZ9xL0Na3kq82nJvU4OZ1VqEHpAAhw79Df0FJWQ8ncCyYzprBWpEiY2xn
-         cmGyDwjvbgF+P+lIMlnJsSzoCVuaMOJ/rCLyrmkUrQqu2/LglG6cwoyQtNuNhTF+pRrh
-         qKgIXAJrrbvlo0wYPyMlBW5yi5g/D09zma2zT29elwqZinh3ifj5FlnRF7l3cWMlNZkN
-         rQZA==
-X-Forwarded-Encrypted: i=1; AJvYcCXecuivJzckuCJ3RLOfs/A9Jv3VvMHflMHbbma1C2l1oLxklHOQBRc6WxCTy5w/6iKV0Cc2jqZ8REiWaw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXYybwBLGMaCudjfOZ/CwCxRyUi8NtJ7S7cm/+M6dv7FKULb8l
-	J61BuPU8j5Nz7sxfFNuYTig6xcMBpzEo3LjiqFW82Bez9VASyHSgmkICbxFw3wYuqv8=
-X-Gm-Gg: ASbGnctrmbDs5SlvG8h5FiKxTtoZ7tJrqjOYHmN0u7+82+7pMpfurPnsBLTmO18C8EQ
-	TsbHbnCi0L5SK7xoIIxePslju64gcLxZIHT9KYe9oDdiWPX57TumyRumSSxZWI6WUf03qfjqj2z
-	Y5W7/4Fkx+A4KKkKiJZ561QvbcMZ0X488vrt84CWA8QspUj4eWuI6dPOPngqUbzAm51ih0jdGSu
-	9F1UxGXAi7twyXMRj7k4et+siw72fMs7SvKMogfIJ2nD3fP/jzvo9P7XApzZOKgB1bpWq4tAXNc
-	B3bbJLdIXOj13YYQChLcxtEiLSgL+Uz0MiQEunrpNDOvITEsaZnpOtS1jETMgwAfB4iZ7JhzVWK
-	h7gWyXnMRIe8nhKLdza15Kh16Ew/3upKnm4MaXl6zCAX0sbM6dORnL5n3mG3hKZNp94mVG1cdKg
-	wWX+eJdaSAtwMOegooLwf1LxPBQ/s9WfJigatEizrgxIk=
-X-Google-Smtp-Source: AGHT+IHAP/HpWJz43wjzWV1AMfyaEGlxWi3s5h5cxx1rxnhDpNmQHxPjIrGV0BRKPAD8DAepB/KmuQ==
-X-Received: by 2002:a05:6a20:394b:b0:243:a251:cf51 with SMTP id adf61e73a8af0-243d6f87714mr10685440637.54.1756726257360;
-        Mon, 01 Sep 2025 04:30:57 -0700 (PDT)
+        bh=PM7ZOBxbXaYL3polB/sK+4dHFDAVqr3gYjlAgyAuBEQ=;
+        b=AIDYPhurl7OMKkXrdOtEn8JXTQhclGirlCnyNBfajkl7crxErria9FoGWydpcntew+
+         aGE8RATptUFgDPnYuV3dX/vc1Rfi522AS7s6RkWDet5BlgsrrFc9pe0qIfNxeMv9XmbD
+         Ltb8zY6YIg9C87zRxShqYLCD399IIU2erL0fbj9F5R4PXWNooMgRSYpu8bdoqbFP6CfN
+         YWDm/2OuE3tucwLlv75kmwgqc8TCqQhg2Txi0AdMBCjQQiNYYbnaWNQeo5dAEO9EI/J8
+         a39xtBR3qdSjOOOGfzbsoUCLhdfhw/y9p5FSWSdN1HYVwd6ayS5HkWQ7i/ohEEXYw8S7
+         IBYw==
+X-Forwarded-Encrypted: i=1; AJvYcCVDdzFT5imuByT2AyYQ2v80IsgK46bwnNJnp7/uqBpx1tYQ/QCZn+6NS4G62kLC86OfbotoUi5GeszxQQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3bZjXzUQiscxE8LXtGkP03KXb2TVzmZsO1M2lkJ7joMvgP8yB
+	CX7ByPLn5A0E6QSwupQct6u9+yrp86pH91aCg47UPbLUKIymJo1oYWDb4oOTinLzp5U=
+X-Gm-Gg: ASbGnctAxioo4+9SBv5PrHLl28ytCHuBc9aCFWUCfStvj9ugTY6M580/4FT6nIg7pEg
+	8AUFInDR9BnHSrPK2T4VZiVyzYFtGsxcn/xTIfIjxYc7tbUvKfLBNTndrAZXEQw9WOYUOWBlx9M
+	5oOOW0wWYr3VgyXE+xGGpQVPwSCYgB+iW63NO2gDDlLW4kzodQZ82eBGKZbNWgTZVFPKk18FREZ
+	S587AV/wf/PBpvghCnPJR1O+ElF/iWbuN18qhEGKkXH6QsoN9CRIzC18d/CgvpmqgSDrL2nVw4u
+	TmkPzU6N3ymLLKFoDdNEWevjWletXt8ugQATZM8I2o09aAIG0jiKsJUTfe49bFC0DnteTlkNqLg
+	FMqlVp2H/eZYV86G9/G2F2ZeOKVEzXcVg3QYSQhFx4Q4dmWpchoCyF6X+pCLRn46dzrJgAZkcOQ
+	hTUzyQlJcuMT9JD3dXStpmdXfiigevZwCoorVn2uWPsn3QQ6NwTmOddLHIqcSx/m6U
+X-Google-Smtp-Source: AGHT+IHvewUVfv5QStAVuopdslXVnLmKdfTffBO/yLK1Zcu3D+UIlnEHf0YO2HWkB4oXA6WwHzKOog==
+X-Received: by 2002:a05:6a21:3396:b0:243:c217:512e with SMTP id adf61e73a8af0-243d6dd1431mr10269229637.7.1756726245635;
+        Mon, 01 Sep 2025 04:30:45 -0700 (PDT)
 Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7725ad1e9afsm2911441b3a.11.2025.09.01.04.30.51
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7725ad1e9afsm2911441b3a.11.2025.09.01.04.30.40
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 01 Sep 2025 04:30:57 -0700 (PDT)
+        Mon, 01 Sep 2025 04:30:45 -0700 (PDT)
 From: Xu Lu <luxu.kernel@bytedance.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -86,16 +86,16 @@ Cc: devicetree@vger.kernel.org,
 	apw@canonical.com,
 	joe@perches.com,
 	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH 4/4] riscv: Use Zalasr for smp_load_acquire/smp_store_release
-Date: Mon,  1 Sep 2025 19:30:22 +0800
-Message-Id: <20250901113022.3812-5-luxu.kernel@bytedance.com>
+Subject: [PATCH 2/4] dt-bindings: riscv: Add Zalasr ISA extension description
+Date: Mon,  1 Sep 2025 19:30:20 +0800
+Message-Id: <20250901113022.3812-3-luxu.kernel@bytedance.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20250901113022.3812-1-luxu.kernel@bytedance.com>
 References: <20250901113022.3812-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_043058_280163_A18F824F 
-X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-CacheID: sfid-20250901_043046_482995_ACA9689F 
+X-CRM114-Status: UNSURE (   7.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,106 +113,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace fence instructions with Zalasr instructions during acquire or
-release operations.
+Add description for the Zalasr ISA extension
 
 Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
- arch/riscv/include/asm/barrier.h | 79 +++++++++++++++++++++++++++-----
- 1 file changed, 68 insertions(+), 11 deletions(-)
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
-index b8c5726d86acb..b1d2a9a85256d 100644
---- a/arch/riscv/include/asm/barrier.h
-+++ b/arch/riscv/include/asm/barrier.h
-@@ -51,19 +51,76 @@
-  */
- #define smp_mb__after_spinlock()	RISCV_FENCE(iorw, iorw)
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index ede6a58ccf534..6b8c21807a2da 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -248,6 +248,11 @@ properties:
+             ratified at commit e87412e621f1 ("integrate Zaamo and Zalrsc text
+             (#1304)") of the unprivileged ISA specification.
  
--#define __smp_store_release(p, v)					\
--do {									\
--	compiletime_assert_atomic_type(*p);				\
--	RISCV_FENCE(rw, w);						\
--	WRITE_ONCE(*p, v);						\
-+extern void __bad_size_call_parameter(void);
++        - const: zalasr
++          description: |
++            The standard Zalasr extension for load-acquire/store-release as frozen
++            at commit 194f0094 ("Version 0.9 for freeze") of riscv-zalasr.
 +
-+#define __smp_store_release(p, v)						\
-+do {										\
-+	compiletime_assert_atomic_type(*p);					\
-+	switch (sizeof(*p)) {							\
-+	case 1:									\
-+		asm volatile(ALTERNATIVE("fence rw, w;\t\nsb %0, 0(%1)\t\n",	\
-+					 SB_RL(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : : "r" (v), "r" (p) : "memory");	\
-+		break;								\
-+	case 2:									\
-+		asm volatile(ALTERNATIVE("fence rw, w;\t\nsh %0, 0(%1)\t\n",	\
-+					 SH_RL(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : : "r" (v), "r" (p) : "memory");	\
-+		break;								\
-+	case 4:									\
-+		asm volatile(ALTERNATIVE("fence rw, w;\t\nsw %0, 0(%1)\t\n",	\
-+					 SW_RL(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : : "r" (v), "r" (p) : "memory");	\
-+		break;								\
-+	case 8:									\
-+		asm volatile(ALTERNATIVE("fence rw, w;\t\nsd %0, 0(%1)\t\n",	\
-+					 SD_RL(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : : "r" (v), "r" (p) : "memory");	\
-+		break;								\
-+	default:								\
-+		__bad_size_call_parameter();					\
-+		break;								\
-+	}									\
- } while (0)
- 
--#define __smp_load_acquire(p)						\
--({									\
--	typeof(*p) ___p1 = READ_ONCE(*p);				\
--	compiletime_assert_atomic_type(*p);				\
--	RISCV_FENCE(r, rw);						\
--	___p1;								\
-+#define __smp_load_acquire(p)							\
-+({										\
-+	TYPEOF_UNQUAL(*p) val;							\
-+	compiletime_assert_atomic_type(*p);					\
-+	switch (sizeof(*p)) {							\
-+	case 1:									\
-+		asm volatile(ALTERNATIVE("lb %0, 0(%1)\t\nfence r, rw\t\n",	\
-+					 LB_AQ(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : "=r" (val) : "r" (p) : "memory");	\
-+		break;								\
-+	case 2:									\
-+		asm volatile(ALTERNATIVE("lh %0, 0(%1)\t\nfence r, rw\t\n",	\
-+					 LH_AQ(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : "=r" (val) : "r" (p) : "memory");	\
-+		break;								\
-+	case 4:									\
-+		asm volatile(ALTERNATIVE("lw %0, 0(%1)\t\nfence r, rw\t\n",	\
-+					 LW_AQ(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : "=r" (val) : "r" (p) : "memory");	\
-+		break;								\
-+	case 8:									\
-+		asm volatile(ALTERNATIVE("ld %0, 0(%1)\t\nfence r, rw\t\n",	\
-+					 LD_AQ(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : "=r" (val) : "r" (p) : "memory");	\
-+		break;								\
-+	default:								\
-+		__bad_size_call_parameter();					\
-+		break;								\
-+	}									\
-+	val;									\
- })
- 
- #ifdef CONFIG_RISCV_ISA_ZAWRS
+         - const: zawrs
+           description: |
+             The Zawrs extension for entering a low-power state or for trapping
 -- 
 2.20.1
 
