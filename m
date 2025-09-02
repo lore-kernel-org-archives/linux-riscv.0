@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5E2CA1007
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 01:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80DC8CA1002
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 01:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EJOwzQVCEAQ7rQF7PgXl1KP+Jl4HRS0zKdFp+CTw6/k=; b=DFV1RnMxYr1d7H
-	ErKzlplWQOmG+QTUVYBxctC+GvGWHdjtzC+BsXL08dKKA003bZMmZ7kWW5Z6bGcXXT6q4gx/bASDA
-	JR8DD5P83/whnOXoPvwSv/1WUQCfV0jbBsKdX2ASiUFnHw1BZmXaQDPn/wQ1O92k42RpGWhaiBc2z
-	18WxKHrjEv/U/xAmC96G5YB5ChUHr2qkGumZvgKTK/uMvXi4V6G7F6KLkYXjIZLrKeqASkIOWLv6d
-	rCppe2zLX4jkvhR+5ByvUq3P9kJNfamocnPnEc1jVAS75nEwPpX+ww9A5lTNwyETYCKqQSuwnPSfk
-	kg/eT5zBMXBPTQt+X1bQ==;
+	List-Owner; bh=J8/Ul/mnHFviKPhWt24FaFAdzfrHwFlt7ivc8mzVPik=; b=kEBkdbO9wApL10
+	CFrzDeSA02ud0d+6zgAQ9lpq9iGiub1TbQpPAYMb0hoKdAMnl2i4IUIpBezP7gHbDpGJVD1TG2Fpv
+	JqNR5spyXhW91juidJdaIY7V/cBLHbMfDqcgR4GxHUwoj6zzfjkLvLfvLPwYNsaI8KzDSUrdK8I+r
+	LL9jLDoereFOIJXYNH/EyMXKWNMrghqfQIfhUFquyeTwKe65LO8pMhWI5iAzmFjdb9uHVMZ2dw30c
+	cA1KXrrplg0fKN/yyuJjLlscTtJEProSHn7Jr6jJOTNXa6BO3RL1rSbtJzd+FgRnzTypfsT3Dgr79
+	BtLNKFEh3NZZNrUDxCVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utFy7-0000000Eiuy-0EaO;
-	Tue, 02 Sep 2025 01:37:55 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1utG0h-0000000EjMq-3imF;
+	Tue, 02 Sep 2025 01:40:35 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utFy4-0000000Eitt-1FXI
+	id 1utG0f-0000000EjEz-2qLY
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Sep 2025 01:37:54 +0000
+	Tue, 02 Sep 2025 01:40:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1756777014;
-	bh=nuRp5/zQbJKjGxE1cWeR4IjPYVb/g7agSx6QBm8LKbg=;
+	s=mxsw2412; t=1756777189;
+	bh=Wx6uFFrlOYm1QT1WpGuIUZOo6tC3AIX9NR1xVvEN+A0=;
 	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=Vixr30gjKGG07ECjsjGCb4Rwh0ZDLlhEpWMgOQj+Z+bxW4aVWLrjx4z2O8xfWyxe0
-	 dyI5OWnb5i0gQ0xSNXgyTElxnC+RrG7t6gXCAuqYcpK/nHI8JlSW6Z3ih8wiLbZN3v
-	 OmG04mPhPib3qbNa4Fd3l6ohmE7w0P7p5fs53eDg=
-X-QQ-mid: esmtpgz12t1756777004te7029297
-X-QQ-Originating-IP: jhVh9wIS09zFuhXA6omcYkmjiTPVmGhmq1VO4+ZOsYM=
+	b=wyS7bbF/5ngMZJsCNh6GJqibAtoDnt+jULiUPL5JUSqh87OfSYXTraJBe6L5Id7uk
+	 6xDa/UDwM47trUZizPuSHMI25v0/TexfJanWZfk0Oi1tGzRX6eaRh394Yb8KV/GqYx
+	 SXOiPD8cVJLeDC+rwzauYlF0vCAlKtis5ydVqo/c=
+X-QQ-mid: zesmtpgz1t1756777182t6b1f51f6
+X-QQ-Originating-IP: hnb0EBq5kdR38t0NCC6tWx42nt3/po6TjNAAMjiMEw4=
 Received: from = ( [14.123.255.17])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 02 Sep 2025 09:36:42 +0800 (CST)
+	id ; Tue, 02 Sep 2025 09:39:40 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11881375477750079152
-EX-QQ-RecipientCnt: 15
-Date: Tue, 2 Sep 2025 09:36:42 +0800
+X-BIZMAIL-ID: 7662810495034026138
+EX-QQ-RecipientCnt: 16
+Date: Tue, 2 Sep 2025 09:39:40 +0800
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Rob Herring <robh@kernel.org>,
+To: Mark Brown <broonie@kernel.org>,
 	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
 	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
 	Philipp Zabel <p.zabel@pengutronix.de>, linux-sound@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] ASoC: dt-bindings: Add bindings for SpacemiT K1
-Message-ID: <B3CE2A46D0298344+aLZKKpVSf2bRx2pb@LT-Guozexi>
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Jinmei Wei <weijinmei@linux.spacemit.com>
+Subject: Re: [PATCH v2 2/2] ASoC: spacemit: add i2s support for K1 SoC
+Message-ID: <C855339EB347C5D6+aLZK3D678QUDB8hA@LT-Guozexi>
 References: <20250828-k1-i2s-v2-0-09e7b40f002c@linux.spacemit.com>
- <20250828-k1-i2s-v2-1-09e7b40f002c@linux.spacemit.com>
- <20250829171624.GA1027608-robh@kernel.org>
+ <20250828-k1-i2s-v2-2-09e7b40f002c@linux.spacemit.com>
+ <aLAbk_0emidBCJBn@finisterre.sirena.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250829171624.GA1027608-robh@kernel.org>
+In-Reply-To: <aLAbk_0emidBCJBn@finisterre.sirena.org.uk>
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: OatzRg8pHEjpa0orEIunAAVH763SGn8t1V1DNIbbtl2J2HxXqy8ZZyLU
-	MTY1Cj77XoznZWOhwfU7dwqEwGV0NJE7MLNmT1nxw1kLOb+25lWPexCYB7hLLwVdcotS71g
-	gbTtQws0/Fw1o4PJwAzAVlhnp8C419Dn0268ZrYCEYZV8dqmWPOE+Q8oESqwoRhsjofoxXb
-	71FXBwhacnNhAfsYi/l6mVc3tTs6Iy8K7dBhXBqV5xIjpVZ/OCibNcjNl2A/j0+VtD8ewnY
-	NDi8as/y5XNCZ1TvLey8whHvfj8ieBVDjmFUI0RraIb2KNEXjt6n/5SXF2Trrj2F3vGLjvd
-	B7gwk4FDMZziHDE0JtM0tMjiBgTfG2tcG6wvdHmGYxaZ6/45p7pK01hp9aOgzaBBWOvHLVU
-	NQWncePo0KOUwURkzMR6LYtrhj4Ph+av+pc3Hu0N1v0YNRhelZQgAqoindwQei15Eji5uSy
-	n5Vavcw86Qih6Y7eD8XtK5iNpj5meTo3hp6HfKRTqLeT4EcaYNLdiGqmOVWdr9FwC4p6uU0
-	AXAk16otgPlBjaK/ZZvwTmi9MiUH1SY9HgSSBi4tiEVmO3/6/nNzAQTTPnwl75XvFIT6H1g
-	AfN9c2IohJNzJfmCxXLl5Nw70KcHZ+Sr0iaHePIT1i8aHAumi+045R8FQZNp33o+srMa6hs
-	gC9KDK5NrC0SzwKA1qJgNpHpBrum0JmBlXVqcYBY/2F5mrIZ1vn0cm6FXIjKQ95w2V4gHEt
-	w2Tp9xpa0GssgFE821byoDrngweVOvCNn8rYmFXAXWx3atLPMYUiq09pjYWub+vGPfGcumO
-	/g6EIkCwumOklNWCVoWGoyeBKovT66X5cLyeV9P01Sz1WsdIk8S/IkffSpJkahNPSx9y8PR
-	Ku8bStyNBHU93melLy6ecCo2KIPjySdCSVMLs2i9nWfthWgylX5e0rJRDJSfjLMGU1TXP8h
-	Pr1V4bB3owwNR54IbOjY5+RTKlbVxYCYTAT0Qld2JZuaE5/8Wizso3jU5HEpIRped2xHkoF
-	sKB7dSbYFiWPkTPf5q
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: OSUW9vQLVhiZ7WW+uZZjtQFz++ZsfmwhSi2kQzzCdtf93NABFspHbAHe
+	Ft+CDeMgys9wMIP1zjKbh/1wu+UQ1azcgeJmIRGwZBZEV+yF3XZTM9eeruaO3jR0yN8HFUw
+	RCY28ql0AfzX8Rl9XFD6YtoUuTZQPS5XBEV6nw/wPewmYIrKsUk5Zh5uD4nKQdFFHhnywi5
+	Pnsi/S3d7+wNt1qdoJr1vvR2H5GcMfIWKlvlagECO97Pk3w4Y6Hu0jJ3RgTZ2AS7zUlkX2O
+	MXpgddJoAl+F7FoI5r+yPLSLNk2xUoPuVaNfGTATkCHeje+2LsQu+KTgZq7q0pDoZdE4BnF
+	z3fdBpJdLFtC0WfCXEF367vZs9tbjTH1g5gcPU9gAhPQesH+OqOBf9VB65OtZb1y4H9qQ6v
+	PIEAKc0/9j+Mv6yk2amVYgkRmptIjcEuNE9KBeZb98MACzvRPRTC9Lgkk5Za7W9DKuGnTo8
+	zCLIfQ3ysSfhN1hfm/1SCnoOWnJSLz1ShDDD1DzwlU0A7HtaLdWtmr9+1a3y9qLEXJ6/LoT
+	MF/13eJIbqCqXjyrgW4F1naaORUTD2mPj24exJEBMXEhSuCCuDrW87T/ToKY6OsXugDVezq
+	XXMGwRLZanPC/jOwtWzWPvxE1SdPfPo8NHgLRMIisXN/fJnRr6lqcWWwU4jiMcJwmLBuFte
+	SmlGqErdzW/GlzTeXTKNyvgmKqsZpq3J9QHgBajeu7RxrRr+lFTGtbi+DfDAXaKpWSB27xm
+	8+EZRN9jcgmLj+RDXJfln8fnMzpgTqMoTgreo2LERRMFmCBa0VAYZO6jDFqVyc9WsCVN5lI
+	QC6z7kWF79Z111atkP5p9ZlGp5ETDy6pcJZXWWkm6/AcZVOgNbBIGDC5IvHMjN3k6pFLjGs
+	sYdpRdZxtJwew8wD4iTxP8lBUZQbfPWVktXrUZW0ZF+g81t81mb8814lGD9gIIaTF3v2OiN
+	qViL83Qd6pm8TP9KmwF8br/d0au7s61xY2PzfHUshQJUXH4Yc5F0VALKYJXcBdiizUkBSvs
+	s9jEx3BXpnsG8pbD2A011hBLlWcJ3IxlKAjNOXeSJMEvrEj5I4
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_183752_893221_8E80EF1D 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20250901_184034_162862_61D3203C 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,87 +102,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 12:16:24PM -0500, Rob Herring wrote:
-> On Thu, Aug 28, 2025 at 11:37:32AM +0800, Troy Mitchell wrote:
-> > Add dt-binding for the i2s driver of SpacemiT's K1 SoC.
-> > 
-> > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> > ---
-> >  .../devicetree/bindings/sound/spacemit,k1-i2s.yaml | 88 ++++++++++++++++++++++
-> >  1 file changed, 88 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml b/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..042001c38ed8d434889183831e44289ea9c5aef2
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
-[...]
-> > +  dmas:
-> > +    minItems: 1
-> > +    maxItems: 2
-> > +
-> > +  dma-names:
-> > +    oneOf:
-> > +      - const: rx
-> > +      - items:
-> > +          - const: tx
-> > +          - const: rx
+On Thu, Aug 28, 2025 at 11:04:19AM +0200, Mark Brown wrote:
+> On Thu, Aug 28, 2025 at 11:37:33AM +0800, Troy Mitchell wrote:
 > 
-> If tx is optional, wouldn't this be simpler:
+> > +	switch (fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
+> > +	case SND_SOC_DAIFMT_DSP_A:
+> > +	case SND_SOC_DAIFMT_DSP_B:
+> > +		cpu_dai->driver->playback.channels_min = 1;
+> > +		cpu_dai->driver->playback.channels_max = 1;
 > 
-> minItems: 1
-> items:
->   - const: rx
->   - const: tx
+> > +	if ((fmt & SND_SOC_DAIFMT_FORMAT_MASK) == SND_SOC_DAIFMT_DSP_A)
+> > +		sspsp_val |= SSPSP_FSRT;
 > 
-Thanks! I will simplify this in the next version
+> It's weird and confusing that this isn't part of the above switch case.
+Thanks! I'll change it.
+> 
+> > +static void spacemit_i2s_remove(struct platform_device *pdev)
+> > +{
+> > +	/* resources auto-freed by devm_ */
+> > +}
+> 
+> If this can be empty remove it.
+Yes, I will remove it in the next version.
 
-                - Troy
-> 
-> > +
-> > +  resets:
-> > +    maxItems: 1
-> > +
-> > +  port:
-> > +    $ref: audio-graph-port.yaml#
-> > +    unevaluatedProperties: false
-> > +
-> > +  "#sound-dai-cells":
-> > +    const: 0
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - clock-names
-> > +  - dmas
-> > +  - dma-names
-> > +  - resets
-> > +  - "#sound-dai-cells"
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/spacemit,k1-syscon.h>
-> > +    i2s@d4026000 {
-> > +      compatible = "spacemit,k1-i2s";
-> > +      reg = <0xd4026000 0x30>;
-> > +      clocks = <&syscon_mpmu CLK_I2S_SYSCLK>,
-> > +               <&syscon_mpmu CLK_I2S_BCLK>,
-> > +               <&syscon_apbc CLK_SSPA0_BUS>,
-> > +               <&syscon_apbc CLK_SSPA0>;
-> > +      clock-names = "sysclk", "bclk", "bus", "func";
-> > +      dmas = <&pdma0 21>, <&pdma0 22>;
-> > +      dma-names = "tx", "rx";
-> > +      resets = <&syscon_apbc RESET_SSPA0>;
-> > +      #sound-dai-cells = <0>;
-> > +    };
-> > 
-> > -- 
-> > 2.50.1
-> > 
-> 
+Best regards,
+Troy
+
 
 _______________________________________________
 linux-riscv mailing list
