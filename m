@@ -4,100 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71021CA1009
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 21:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E2A2CA1007
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 22:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZuARkrPlWBIMoA85seFbMZRwFuSlP5SPM9USX4rRSlQ=; b=oDG1xltFSqpCEw
-	al/k4J59DpYBNyMxYGydET8nQ6mDlFLNQe92rOuhaKcHtD9lV3oVIiYkMjPKnj7XGa9b6MpgvAXxe
-	PbEN4iOu0AmFL04QbWM/ciNldECDLeCWmh880C8q7vMheAi5NOGsx2ZLzMJCpepIQoveFadx9XQbC
-	xgTRW9m0wHX3BNCEbIWcywnFYOpcxlWdkfvTmcxxuvtpZvh5RI5ZTJ6ERSOlwG5deKAF1GOmf2Yy0
-	FKk0HGmby/8MJTPa8jyMi9TnXXoF96FSimiEKlz740Gi8QGArU0aGm8BVPBvVU93iDOqnn4SOTV7A
-	Iqvp0QG5ElC1VYf9nnLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7drwRyh71gc5YJ8d3vQddOYkOA1CKLE6zr3W81Ir6ds=; b=C47eOdqNYlQQQtsi4Lfx2/UE70
+	GG2dhlutKX5BMF++aRf/SUGyF8JFqBtHuklT2CIxSH3TwfmVFu7iasJ3S3Kx53vsECwtOkYE7m2Lp
+	sG9GYwaHeFymiK8Xv/QPp96H8N3H+wT24QZqbcFRvrxPv+RhIxVWchQm21bR/3AqlosUIhdKtobw7
+	X85y+AwTsOk0QDFUlCFKT31E+hvPD+uOZTpX1C94HusEIWp8jzpn18s2RMFmqzJOGWhxhhFUH++zt
+	zCdag8L0LwKu0C0bdUUIzUowsNcAx798mgxT0lq4sWPVhRXyqvyLTdTXmIPaz6D5FBDSnl54u4mIN
+	Hb+kl4ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYo3-00000002DB4-25m8;
-	Tue, 02 Sep 2025 21:44:47 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1utZwk-00000002UY7-12L6;
+	Tue, 02 Sep 2025 22:57:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utUQV-000000016Ga-31Ym
+	id 1utU1z-00000000zrB-0k5Q
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Sep 2025 17:04:13 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7724cacc32bso2127162b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Sep 2025 10:04:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1756832649; x=1757437449; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=n7Rb+Gc4bzsX0WrGoFt7okZVsdi4ux/eNHzNp2DsalU=;
-        b=Hy4q1AaJGVtZC2x9ORqm5TsiEg2Z4rR5q5trOwuc5tz1rY7bM7QNGS1cr27w4m06mg
-         7FDxK+Xlkh0j/bACNlIjz/AMsy9qC5OmOX2LxJxu/1a+h51k/j/6X53cHIODAsBZlU/p
-         3VjyiYYLjDxB37ZvY4mAz+2/5/vvwvXFrl3I0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756832649; x=1757437449;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n7Rb+Gc4bzsX0WrGoFt7okZVsdi4ux/eNHzNp2DsalU=;
-        b=nTHnPf4vXUu6YSV+CmaPtEeU5lDp9fSOkMiJEiz8qOIDBjvpJQlp1FVxkXhlfLAb27
-         pSUCUttypsP+xDAZNG/lkEVkSbsP5Hb7MZrEwnswZcLIIRCRAxFnaPBvIyNgEhNPbg0/
-         D0PqcPtq3haKMC91kqC8MW5tZ6csnHNtXLpdx78c0wIhN3ziNfDXd2Tb70c8tznXeAvU
-         uhB2n668B010s7fp0cq0X4DLeCjkP8JKeHR4h3ffPoabu+0TihaofYRjklBAS671fHgL
-         Fp2WDiYgxhCoVhX9yP4HNfB0ckKFFs56MReW6CUwwSj1IRLvCo0h8AG7ZkGetf7LP9kQ
-         BoWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVu4yDDojackD6+H/ms360lEntFjxJ+8ijI+HQg2GnspEkFIH0Qpd0X2b+KgWb4vKvpmM8Qgzbo2fT9bg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAy7zceBBwSW7Z7lOACtRgCUEGyHYVqRskdQiPfYp5m2Siygrz
-	3kJIeD/pWOikNnw265epqOYXLhKzOf9/KmEOOurmE9zPKEsq/6ogdmiNT6eqdtCGcWEVsrL0cJs
-	JMcs=
-X-Gm-Gg: ASbGnctLpew3paXHvHLnwXIuFLIDAuGK09Un815RJh9o2A3U7Nn0wDNvtFNRBgAEQ+Z
-	ORYlCYMINFDi0BDlZrowBf9VxCt31L+kFwkuLdSuiJXbMEh/oz4x5pJq1o6mTOADLJCxXkATdD7
-	MQH3ZQdRMKy9XE8QlM10gLSMok5Veyzr3i+uImq4/mcRuI8hz3E0ULkW3MaxsmIyXrLMnqhBC8V
-	1vUJ5emotKM6iFw9CJNZezXeomFycb1y7CF/963H5/G2DQKiOSpqKBikCTsKyxoMCwe07Y0C/f0
-	cJZypZrZJqIsA9PK0994HVbgtH0IqBR9DLvtQQBFMSQ1gHJc8HdybruCQI9V5aqNyvC2KPXC80m
-	IS/Uu83G+UgvcF48hh7/3gxB1NXl86Obxg7KjPNrniirWovWFUlc39BmH/x1gFWRO5Q==
-X-Google-Smtp-Source: AGHT+IFcVJjaNyDi2EUcpUQXWYM1A59y8Jcl8DKUJ3NZjRauTpRn4LIjQtr2Z5Lnh95tdmDRODySOQ==
-X-Received: by 2002:a17:902:ecc6:b0:249:338d:b002 with SMTP id d9443c01a7336-24944873458mr168165665ad.2.1756832649471;
-        Tue, 02 Sep 2025 10:04:09 -0700 (PDT)
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com. [209.85.210.178])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-249065899f3sm134914145ad.113.2025.09.02.10.04.07
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Sep 2025 10:04:07 -0700 (PDT)
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-7704f3c46ceso4725616b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Sep 2025 10:04:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW/fx6ChvfHT5t/6+0XJOlBRlxexaj+r/n+c2dQi0fAvq5i8l8cJryeYTMas93b78zqIqwgcfPKhkSacg==@lists.infradead.org
-X-Received: by 2002:a17:903:384b:b0:240:84b:a11a with SMTP id
- d9443c01a7336-249448f24abmr161721465ad.17.1756832646700; Tue, 02 Sep 2025
- 10:04:06 -0700 (PDT)
+	Tue, 02 Sep 2025 16:38:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 073C341A85;
+	Tue,  2 Sep 2025 16:38:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E8D2C4CEED;
+	Tue,  2 Sep 2025 16:38:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756831129;
+	bh=SOwG/JggJkNLJ7PLQmoB7+r3ga5C1jVReif7jB291cU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MLeTeQSbDbxWwofKraRIxLA8TMJY5DKSbNCb8FZ0IBY5QNkB7ozq2DS9yJTzz2rQc
+	 KVPqViua/jWAMzHNFiggZ4v0O61XyT1DTX4u04muwo3mJOqvKg/4CALoypYOv9pK/H
+	 CcwCo2mcfgna2YoDzpOyF1VBnZRWXWczviWsgRgLu0CK4SXt5m0AiVUp0oSYssKQgi
+	 3mLTRtRHYy6z4n76zByagohFvyZwLZaoViuNCvZNNUW7qRFfeizqDjacRYF336wja1
+	 gxODHHYjQ/7Xrvcsw8keMoWTzyvo51anIGHeoZgCMmLve//mRX01I+WIQle9WbdKPX
+	 yOM4HPNkGNtng==
+Date: Tue, 2 Sep 2025 17:38:44 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Valentina.FernandezAlanis@microchip.com, Conor.Dooley@microchip.com,
+	Daire.McNamara@microchip.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, robh@kernel.org, krzk+dt@kernel.org,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v1 5/5] riscv: dts: microchip: add a device tree for
+ Discovery Kit
+Message-ID: <20250902-crucial-hankering-193be936a139@spud>
+References: <20250825161952.3902672-1-valentina.fernandezalanis@microchip.com>
+ <20250825161952.3902672-6-valentina.fernandezalanis@microchip.com>
+ <2b1eb8fd-2a64-4745-ad93-abc53d240b69@kernel.org>
+ <bb5b0d71-41b1-48a0-82fc-bdb362cc3db1@microchip.com>
+ <0d90eeb4-e6ac-459c-a6b1-26368f102e0e@kernel.org>
+ <20250902-affair-scrambler-2771df16372e@spud>
+ <677aad27-66b9-4c4f-8fbe-6b9aabcd375a@kernel.org>
 MIME-Version: 1.0
-References: <20250827100959.83023-1-cuiyunhui@bytedance.com>
- <20250827100959.83023-2-cuiyunhui@bytedance.com> <CAD=FV=WiZ5=4Ck3G2gme=ey6uYQhi-3Wo32DpLj9P53wxGCojw@mail.gmail.com>
- <CAEEQ3wmBvevbkP8XmwR0_q_1QWQsie5g0UUxTFm6ovS1m41pEQ@mail.gmail.com>
-In-Reply-To: <CAEEQ3wmBvevbkP8XmwR0_q_1QWQsie5g0UUxTFm6ovS1m41pEQ@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Tue, 2 Sep 2025 10:03:55 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=UzUCPtwuQRFR0SkAkh63MbzMefxNYmiOBxCemL3P_+EQ@mail.gmail.com>
-X-Gm-Features: Ac12FXykSrYm05H2zP7oRG7JrK-8ugSYBV29nSAU-8Tvd7BMAeSBbf3oz6aTBn8
-Message-ID: <CAD=FV=UzUCPtwuQRFR0SkAkh63MbzMefxNYmiOBxCemL3P_+EQ@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH 1/2] watchdog: refactor watchdog_hld functionality
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, 
-	mark.rutland@arm.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, catalin.marinas@arm.com, 
-	masahiroy@kernel.org, suzuki.poulose@arm.com, maz@kernel.org, 
-	zhanjie9@hisilicon.com, yangyicong@hisilicon.com, mingo@kernel.org, 
-	lihuafei1@huawei.com, akpm@linux-foundation.org, jpoimboe@kernel.org, 
-	rppt@kernel.org, kees@kernel.org, thomas.weissschuh@linutronix.de
+In-Reply-To: <677aad27-66b9-4c4f-8fbe-6b9aabcd375a@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_100411_787017_58C73DD5 
-X-CRM114-Status: GOOD (  21.09  )
+X-CRM114-CacheID: sfid-20250902_093851_233530_5047467B 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +77,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3457984158521811266=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiBTdW4sIEF1ZyAzMSwgMjAyNSBhdCAxMDo1N+KAr1BNIHl1bmh1aSBjdWkgPGN1aXl1
-bmh1aUBieXRlZGFuY2UuY29tPiB3cm90ZToKPgo+IEhpIERvdWcsCj4KPiBPbiBTYXQsIEF1ZyAz
-MCwgMjAyNSBhdCA1OjM04oCvQU0gRG91ZyBBbmRlcnNvbiA8ZGlhbmRlcnNAY2hyb21pdW0ub3Jn
-PiB3cm90ZToKPiA+Cj4gPiBIaSwKPiA+Cj4gPiBPbiBXZWQsIEF1ZyAyNywgMjAyNSBhdCAzOjEw
-4oCvQU0gWXVuaHVpIEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+IHdyb3RlOgo+ID4gPgo+
-ID4gPiBNb3ZlIHdhdGNoZG9nX2hsZC5jIHRvIGtlcm5lbC8sIGFuZCByZW5hbWUgYXJtX3BtdV9p
-cnFfaXNfbm1pKCkKPiA+ID4gdG8gYXJjaF9wbXVfaXJxX2lzX25taSgpIGZvciBjcm9zcy1hcmNo
-IHJldXNhYmlsaXR5Lgo+ID4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBZdW5odWkgQ3VpIDxjdWl5
-dW5odWlAYnl0ZWRhbmNlLmNvbT4KPiA+ID4gLS0tCj4gPiA+ICBhcmNoL2FybTY0L2tlcm5lbC9N
-YWtlZmlsZSAgICAgICAgICAgICAgICAgICB8IDEgLQo+ID4gPiAgZHJpdmVycy9wZXJmL2FybV9w
-bXUuYyAgICAgICAgICAgICAgICAgICAgICAgfCAyICstCj4gPiA+ICBpbmNsdWRlL2xpbnV4L25t
-aS5oICAgICAgICAgICAgICAgICAgICAgICAgICB8IDEgKwo+ID4gPiAgaW5jbHVkZS9saW51eC9w
-ZXJmL2FybV9wbXUuaCAgICAgICAgICAgICAgICAgfCAyIC0tCj4gPiA+ICBrZXJuZWwvTWFrZWZp
-bGUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IDIgKy0KPiA+ID4gIHthcmNoL2FybTY0
-L2tlcm5lbCA9PiBrZXJuZWx9L3dhdGNoZG9nX2hsZC5jIHwgOCArKysrKystLQo+ID4gPiAgNiBm
-aWxlcyBjaGFuZ2VkLCA5IGluc2VydGlvbnMoKyksIDcgZGVsZXRpb25zKC0pCj4gPiA+ICByZW5h
-bWUge2FyY2gvYXJtNjQva2VybmVsID0+IGtlcm5lbH0vd2F0Y2hkb2dfaGxkLmMgKDk3JSkKPiA+
-Cj4gPiBJJ20gbm90IGEgaHVnZSBmYW4gb2YgdGhlIHBlcmYgaGFyZGxvY2t1cCBkZXRlY3RvciBh
-bmQgSU1PIHdlIHNob3VsZAo+ID4gbWF5YmUganVzdCBkZWxldGUgaXQuIFRodXMgc3ByZWFkaW5n
-IGl0IHRvIHN1cHBvcnQgYSBuZXcgYXJjaGl0ZWN0dXJlCj4gPiBpc24ndCBteSBmYXZvcml0ZSB0
-aGluZyB0byBkby4gQ2FuJ3QgeW91IHVzZSB0aGUgYnVkZHkgaGFyZGxvY2t1cAo+ID4gZGV0ZWN0
-b3I/Cj4KPiBXaHkgaXMgdGhlcmUgYSBwbGFuIHRvIHJlbW92ZSBDT05GSUdfSEFSRExPQ0tVUF9E
-RVRFQ1RPUl9QRVJGPyBDb3VsZAo+IHlvdSBleHBsYWluIHRoZSBzcGVjaWZpYyByZWFzb25zPyBJ
-cyB0aGUgY29tbXVuaXR5J3MgZnV0dXJlIHBsYW4gdG8KPiBmYXZvciBDT05GSUdfSEFSRExPQ0tV
-UF9ERVRFQ1RPUl9CVUREWT8KCkkgZG9uJ3QgdGhpbmsgdGhlcmUgYXJlIGFueSBjb25jcmV0ZSBw
-bGFucywgYnV0IHRoZXJlIHdhcyBzb21lIGRpc2N1c3Npb24gaGVyZToKCmh0dHBzOi8vbG9yZS5r
-ZXJuZWwub3JnL2FsbC9DQUQ9RlY9V1dVaUNpNmJaQ3NfZ3NlRnBERFdOa3VKTW9MNlhDZnRFbzZX
-N3E2alJDa2dAbWFpbC5nbWFpbC5jb20vCgotRG91ZwoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============3457984158521811266==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="cfy5KQiTquK7clHG"
+Content-Disposition: inline
+
+
+--cfy5KQiTquK7clHG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Sep 02, 2025 at 03:47:56PM +0200, Krzysztof Kozlowski wrote:
+> On 02/09/2025 10:31, Conor Dooley wrote:
+> > On Tue, Sep 02, 2025 at 08:22:02AM +0200, Krzysztof Kozlowski wrote:
+> >=20
+> >>>>> +     refclk_ccc: cccrefclk {
+> >>>>
+> >>>> Please use name for all fixed clocks which matches current format
+> >>>> recommendation: 'clock-<freq>' (see also the pattern in the binding =
+for
+> >>>> any other options).
+> >>>>
+> >>>> https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.g=
+it/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
+> >>> The fabric dtsi describes elements configured by the FPGA bitstream.=
+=20
+> >>> This node is named as such because the Clock Conditioner Circuit CCC'=
+s=20
+> >>> reference clock source is set by the FPGA bitstream, while its freque=
+ncy=20
+> >>> is determined by an on-board oscillator.
+> >>>
+> >>> Hope this clarifies the rationale behind the node name.
+> >> No, because there is no style naming clocks like this. Neither proper
+> >> suffix, nor prefix. Use standard naming.
+> >=20
+> > So you want all fixed frequency clocks to be named "clk-foo" when
+> > "clk-<freq>" is not suitable? Fine if you do, but I didn't realise that
+> > it was required and haven't been keeping an eye out for it.
+>=20
+> Recommended is to just use consistent suffixes or prefixes. Binding asks
+> for "clock-" so that's what I propose to use here.
+
+Okay, I'll keep that in mind.=20
+
+--cfy5KQiTquK7clHG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaLcdlAAKCRB4tDGHoIJi
+0naiAQCA8RkE9d4x3vSDRj7Kp9DvNgViBknLJEn4NtKmLmp/LgD/QsstMwVI9pFE
+OMOYdXSwcCVahsURInTVKGD8lpIeqgk=
+=xt6D
+-----END PGP SIGNATURE-----
+
+--cfy5KQiTquK7clHG--
+
+
+--===============3457984158521811266==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3457984158521811266==--
+
