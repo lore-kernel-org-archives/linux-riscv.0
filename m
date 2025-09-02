@@ -4,64 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D9CCCA1005
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 19:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E10CA1007
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 19:12:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NVaH6Hax2phsEuwztSsO10ZgqSqXeDRFv6Y2qh8VBI0=; b=URQVuSqnYDbTol
-	+hg9bIu3JlOl0a1elzVgb47iXTm7+VbwfEWixEwv9bBn/b0iUziYaEHdS3Yv7KMB0zyF3YZ4TtSTZ
-	4CzCz51R9ylkFeFxJZhH+sH80sRkAaFYATVRBUv9YeEpII9GINmXlRedOhvUbWMOEbB3iGucGn2Up
-	HZ75Xh2EC+mJq0qXo2/GH9/u5EwLeFiO1nPqGw0IMAKGbZn6wxbeEv6p5ecXB/YIVqvIQSo5tM2hi
-	RcrGBV4Bcug79OdVuWndE2LW1+TizRIGO1+NmwW+e7Gc+O++KNnJEVIOrQDuGGahx/hvXt5qSDAgF
-	l395jVCbh22EKdeD4SXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:Subject:References:To:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QmaSbZZO5VoH9WNHGHKFuvbaL3JkCT3KcdxJUGxABPs=; b=kniS28gA1xB5V0p4N+ahq/Jd7p
+	F93qzV9lzOggi6vsNoxqptUCGQKAyLtNfaVLTBHn/PjMWJIXi+9+71HS+/Oz5tDiLhw5JN008M5h5
+	0VViUOROOUHGxhNh8TVIb0YJ5WZ0nb/KZkOpLc6/23x1Xlwt1/sNwRJWRs+8k4MXlrJFu6hE6FBQ3
+	avMamYoAhVcgFuG1AIJMul8Sh4D9I5tLQeS3/CQld68TIAgkWFoT/i03F9qjknoXlMDPeWo04mstD
+	Agtb3U453jtcZf7HO8lG7lmFUxboLaIFEKBiq2Oil+1T5AK0UJzeUSGFmCg/I7oBgYPyT/7mJceED
+	lhAgtUqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWQ8-00000001cw5-35hx;
-	Tue, 02 Sep 2025 19:11:56 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1utWQT-00000001dNg-1UaC;
+	Tue, 02 Sep 2025 19:12:17 +0000
+Received: from mail-francecentralazolkn190130003.outbound.protection.outlook.com ([2a01:111:f403:d20a::3] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utRVp-00000000CVr-0VS1
+	id 1utRn5-00000000IRk-46XB
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Sep 2025 13:57:30 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1utRVS-0007q2-Gg; Tue, 02 Sep 2025 15:57:06 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1utRVO-003P16-30;
-	Tue, 02 Sep 2025 15:57:02 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1utRVO-000Rg9-2b;
-	Tue, 02 Sep 2025 15:57:02 +0200
-Message-ID: <705de60088f72c1ed575d92e8c4f4b90989385c5.camel@pengutronix.de>
-Subject: Re: [PATCH 1/4] dt-bindings: reset: thead,th1520-reset: Add
- controllers for more subsys
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Yao Zi <ziyao@disroot.org>
-Date: Tue, 02 Sep 2025 15:57:02 +0200
-In-Reply-To: <75cafd7e-02a5-41d1-9daf-24bef20dab82@kernel.org>
-References: <20250901042320.22865-1-ziyao@disroot.org>
-	 <20250901042320.22865-2-ziyao@disroot.org>
-	 <20250902-peach-jackal-of-judgment-8aee13@kuoka> <aLazFzq2l7s66IqS@pie>
-	 <75cafd7e-02a5-41d1-9daf-24bef20dab82@kernel.org>
-User-Agent: Evolution 3.46.4-2 
+	Tue, 02 Sep 2025 14:15:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dJF6t/wAp2VIUXHixfVwdhg1CQiZlWiEJQuMc6a6YIQRhM83iuFnP8mwxUJQJSslHbbqv8Izmb/Jqk4o2FGBv1xedu9jccwOu/x5kkdRaGzw2STchUt7LySGJx6SgbGyfM+SZqkgFCEe74ng5+rGbb98wFJWYADGNF4xi8FyVzaastGCWiCGAfLyvVQ3cs2j+4QzQUthrljDNHLfuB7HdCbWJzGoWOA92Ex7A4/LfTvgZeNsVsZwXDPsOsoABEmrB0Xyb5n+0Xf5LEsTqHjiGMINm3aT66Z/OY4t7Odv03D0QHYz8lwf9ubvbj+1g5Cka8QqMWV6fAv1LMrLVe+sTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CcpIKHrSvPxpxbRKbu8SqXeXF0u+GIjSftD4ow3iOPQ=;
+ b=OqOdctYv+FDHced2+Ga7rK1NiM49Ncf3xnHNKxiqwLBCwoc+4iSM8cBl7zVwiDvWautvKdLmt1jlIgQ3AWyRdLJwsQmYZ9V8egI/fYOFF9+74k40fNpl4uTWGW3wvqJtJP1N/Khke+jDrqu+vqEYqdD4uP/M3WSiun9kP9xrA5gQfI5rmfaXJefmZ1N6oLyEyxTCNB6RSWWUPFY6IlSUARQaO02kH/1VFfK5qcStFkM80dUFmyHaCP89riSZ1yT5AIymZc72aMM82EiGtNt6SJqbipdq6AvE4vcynIqakgbpwM8rGylY80PwXRb4h+3sUEIAzjkPQIAzsoImJZeDLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CcpIKHrSvPxpxbRKbu8SqXeXF0u+GIjSftD4ow3iOPQ=;
+ b=nAJqWt1bbudplIw/qUZweyPHGYOJ57MROWZoDfO2EHGoJnWN/7jLS/BDVmfVTfD3lsXybdinm50Oos2nKpGsu0WeJa/J7JS18c36pnLDS8OhwPHu6bDTkEZyVMk/waYheHfzPICo+MzdtfHIlxO/did4Pd5AkYsCVGQSHVqIg45OelcbGv1BUnjiNLUtJnbz1inPaNajfokiaKgbXeewcSU/vWmcp+IuuZHGSvzIa3DY3z5e+M1MiV1sGiGhN59OeTfa7zf/ibgvDTgX+cY+kkTGbwXSYcxx5gnOIg+3AWCYP4m5wjCMGIOx1iJIj2QPJ99nquBIz2jnofKrTkrwJg==
+Received: from AM7P189MB1009.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:175::17)
+ by GV1P189MB2105.EURP189.PROD.OUTLOOK.COM (2603:10a6:150:55::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.21; Tue, 2 Sep
+ 2025 14:15:10 +0000
+Received: from AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ ([fe80::5756:694d:1641:3b13]) by AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ ([fe80::5756:694d:1641:3b13%4]) with mapi id 15.20.9073.026; Tue, 2 Sep 2025
+ 14:15:10 +0000
+Message-ID: <AM7P189MB100965809B3DE48A90A15415E306A@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
+Date: Tue, 2 Sep 2025 16:15:08 +0200
+User-Agent: Mozilla Thunderbird
+To: ziyao@disroot.org
+References: <20250901042320.22865-4-ziyao@disroot.org>
+Subject: Re: [PATCH 3/4] reset: th1520: Support reset controllers in more
+ subsystems
+Content-Language: en-US
+From: Maud Spierings <maud_spierings@hotmail.com>
+In-Reply-To: <20250901042320.22865-4-ziyao@disroot.org>
+X-ClientProxiedBy: AS4PR10CA0005.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5dc::13) To AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:175::17)
+X-Microsoft-Original-Message-ID: <ab815bcc-bdbe-4c71-a1c7-1ad8759ce7df@hotmail.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7P189MB1009:EE_|GV1P189MB2105:EE_
+X-MS-Office365-Filtering-Correlation-Id: 151407a4-f457-4a73-4b4c-08ddea2b1fd6
+X-MS-Exchange-SLBlob-MailProps: quCBMN2EvO+pPRgpcRKeMpPKDEKjvqeWrSn0pGK4vxwdhlYYbzhtZ2eZRcvcWsa0JV2eVPiUX8p4PrErY70MQu63/QGd24Mx70h1h2qf8kdEE/xpjxqUKyOiR1LEKY+s0XoYINJTwa+Ff4i8XMmyOgwTZkpxXZKKvuKyoTN1AnDZU9oy9lmsdI07cvHsUCgOMX/s+bXEHng9cqdeqIKnZfA8tJl5gj5hX4dNerSMUG5ANvzbQM0n3eaJjDPC1HtEzNxMqe4/iYwt4WhUfQ3lUzDeru0dYKe+gEWyItmtW0eCa8Ien+YnCM5EQXXIKH2WYYdFFS1prLexu991RPrtPjxAloTaHcgMRkrpxsJDopr8wuKzFh8ByUJhNIWhNKjbN/JrVd2UUbQHqGtSQw1scZFvuWN8Trg+2bzQTWa060YsWi4MNC1oDqwbFNXuWHmQkBKEJ2vo967pKRw2+0Jw/FE7+SFQL2AM3K8OtrCS8JIqZ1QkME4kGF4VRGlSgBrJ/RNicZsA9D6efn8+rMCXJrbJ7GV71dNhctlxELlalG4PdMnX5N6HM//Iru9+mUjT6xdUENHBG77hlruRJUaYF9X+5tRPeX3+afUgbxsnYb5Xs+ozV/ezAS1G1oVtnnRfkfn2ebYJUhSKOiwOe/yFYCL8YgVZjmjRs1fuNgU7rGik92S6dh7z8OoCsJFyDPHqJFPwtkLEdxkVfI2G6Fzepg==
+X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|461199028|21061999006|23021999003|15080799012|19110799012|8060799015|6090799003|440099028|40105399003|3412199025;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZGZIK0k0eGZmT09TcXFqUGFBYy84SVJQaU5oVmpXVUNURjVleUpHc2gyVmNG?=
+ =?utf-8?B?WllIYllObGdWS3pqT0N2Y3d5MHNEVzhjdDdxcWFVeERRMzZRRnVBTndJK1hS?=
+ =?utf-8?B?VmN5VDAvSytFd0kvRkVQV0lYZnpERitNWEV1Y0I0QkhLd1lpbG9WUFpWNVpy?=
+ =?utf-8?B?NnpQdTcyZkxBTkovNHlBOW5hZ0pjb3hhY2hHQkxtN29xUUduN2xTUmNEbEhI?=
+ =?utf-8?B?SmVFZ1R3SVRqZG5iczdwUU1mWVZTTTNyWnpleFNVRFprU0doMTJRL0xZTmRM?=
+ =?utf-8?B?ZkFWS2J0ODF0MUM4OVRFdVBnaEx1RzZIbjl5eVdIV2RVcXJCSmlJQnNGb014?=
+ =?utf-8?B?S0RRU2lLbTVwOVdBdkhVUlJuT0UzYlZrWk5qRkdwN0d5MDU4QXpsaWdxZjhQ?=
+ =?utf-8?B?Rit1Q0I2alM4dExQcTBmUFZEbm9zbFZQZzNybGdMaDh0QW1QUDB5amFZdmFu?=
+ =?utf-8?B?NjR3YTdRYWpBd1NoWVFlaTBhNllQbUUxa2xnTU9ocjM5bmloMzFLSVNHbVgw?=
+ =?utf-8?B?WTJrTXBNRnMyMzVab1RKekwwcmZ6RGljZnJYU2RPVVdkY0tkTHBaTWhjVTZT?=
+ =?utf-8?B?c3BlOCtwODZRWkYrN2ErM3RNZ1dFMEdwZFpsRHc2eXpSV1R3eitGcVltdDVL?=
+ =?utf-8?B?VHpXY1VFS3hVOG82QWNyTlZOV2pZWjJianhWN3JhVFoxNThXZFR4WXY1RXhR?=
+ =?utf-8?B?YTE1V2RIejJJeXIwVXNNOFhoVDN5SFhIVmVqSDdOeWN2UDJqZDV5aDQvczY1?=
+ =?utf-8?B?NlZVK3FaYW1BbzZBa0UvYmdGd2xiUkNyUVZ1N3J0Ylp4ZEJ5QWhtaDdmN3dU?=
+ =?utf-8?B?SkQ4a2VBQmsvRFdBRzNFeHJlbi9DNjh0ODhHVEhad3lDNmFvUzhZc1puMUtZ?=
+ =?utf-8?B?STNONjAwRG5WVXNIQks4WWVyd21WcFJhcXFka1FnZ1dmZWdVa2tYZHdFNE4y?=
+ =?utf-8?B?S0xZOWNnNVk2STYyS0VySlBNZ2Y2WDdRVzFSb0I4cnRYSERDT3BoK0laNUdH?=
+ =?utf-8?B?emdyOWU5aG9QSStPdmhtZXNPdTJPQ0VSY1pOclFUaTQxWEhXWjVHcDRjbkpW?=
+ =?utf-8?B?cUN2YjRMVmVEa1hJVUdCa1NhUjdQaXo0NFZER0laRGpEdVNwMU5JZnFKdkwr?=
+ =?utf-8?B?Y2NjV2txcS9CanZyQUVEUUViMG9STFBmTmRtMDNjblRkTGsyUHdOSXVqSjJn?=
+ =?utf-8?B?UGNJWjlxOUduejJFYWxSdmg2MHFCOEVNWXltMW1jNGhFZzRWdzhTNkNycWRK?=
+ =?utf-8?B?NmYva0k1cFZBV0xTU28xZFFlTE0rOUhLZlVnOXg1eXFBZjZld0YveUxmeks5?=
+ =?utf-8?B?SWkzcy9XOWl1Zk0wV0c4SHNzVllUdEpiOXcyT2JaRmhWc2NpRVRJWkdQR2lP?=
+ =?utf-8?B?UEl1dEpXZjcrU3lxOTVMaW51citIWm9yNFM0b05uQVRBV1B0SGF5UHU0T2xj?=
+ =?utf-8?B?WXdOMmFXajEwZTRBZlV1OUNUcTk5RXlkbTNmYTBYZkRTSi9zd3QxZGlDakNi?=
+ =?utf-8?B?Qjd2M2E5aGlpdXNCMkY2Mm9vY2pvMUF5amhPMVZCd1VSb1FzNVVWU1V6dWtN?=
+ =?utf-8?B?THp2cTZ1L0o1TWdMME95L1NNL0IxTzhQTDhENGRvZDZoWllUNmZpTXhHVmhw?=
+ =?utf-8?B?MHA4OGx4TU0rajJsOU01WlNBTC9DRHc9PQ==?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QW80YmN0TXBPZzRPZC9ZTVJCMVdzZWFwblJvNmN4M094aTlVSkxkbnU1ZURK?=
+ =?utf-8?B?ZHFtRjBlaHQ4QUZ1UU1Jd1Z5WVhUWmdUY1ZBZzNLcDIzWVo0SDFablc0TVhP?=
+ =?utf-8?B?aWdZaW04dmVReVo4RCtiQm5wSTR0bDFFOERoUU5qVGFqMEg2dHhOL2tPRmg4?=
+ =?utf-8?B?cjVsckhWZzJiOGpDVHFxNDBRUnliVnkxeHhneHoyUGozcHpmV21NZWc2VnZ1?=
+ =?utf-8?B?NmZUN2Y5azFUV2hUVmIvQ1VhY0p5OVYrWWNPRFVKNFNoNDQwNlVyUDNWbG9q?=
+ =?utf-8?B?QUdwUW1iRmpwcVY5Q1pSaTEzTDRiVFVpWk5ZWkQ3RGk3KzNWN2pXWGEwd09M?=
+ =?utf-8?B?Vk1XcHBNL0lmQmwvb3FzMlZOSzZyWkhLbzhtUWZtWkVzNjltZXhmRUNUb0ND?=
+ =?utf-8?B?NC9PNXc4cTkwck0wU3p6OG9lTmdFaWM3L3k0VUFPR1VoZ0tvZ1IxdTNnU1BB?=
+ =?utf-8?B?U2g2cXZ0NmEwZEp0bUFYUCtIVldCYmI2alc4dVdQZWlTa0c0ZysvdmJrNmlS?=
+ =?utf-8?B?R0lsSlJMeTNaUGs2c2VLSGRBV25Ma28wcUNSU0hMbDJ3L2t1N05SbExGaVdt?=
+ =?utf-8?B?TG8rWXcrdzA1M2w5aC96OGVNSzVvb0xsZlBXd0ZBY21iRXRNS1g3YVVWVkJV?=
+ =?utf-8?B?OENIZ1FOaDNleldQbUtzZW5HTDFkWmVhNWt1aTRwUVNMRi9DUENsN2JvZFoz?=
+ =?utf-8?B?VnE5WTVXQ3NiT2R0WmxjdXgwTDVJQUZjdnhIWHV2c25PQ0NuL3MwYktqYmZT?=
+ =?utf-8?B?YjgvcjJnVExqc285cFhZVmdWaFFnKzA3NmFhNC9Wd3FiR0QyREpQczU3R3JG?=
+ =?utf-8?B?TmpjemtSV2liSEZ6TmxpWnJYcDdpMVlBYkpiT3hnRk1EZjhsMUxuUEFUdExV?=
+ =?utf-8?B?TUhWdlRHRUNQSHo3RzJCR09WbmhNOGlRaGlaMU9vMmNOcXUvSHpzWlgxSU5i?=
+ =?utf-8?B?c085ZTRMQVpMejRod3gxbndjZXV2UnJpRHlxMjFNaVJVUWVpL1hMT3RCL0wx?=
+ =?utf-8?B?d0RMR3k1MmNaVHBxcnNKNFFqQlJPdm9WVm5XbFFQZW9WZ0U4YVlqaXNYMWt5?=
+ =?utf-8?B?NUFCZktCa2NqbHpqekZ2bVA2S0VGYUtpbUpKb0RNUTY1Ym1CeE5qOWdKL2dm?=
+ =?utf-8?B?Zkc1dlBHT1M2MmEweEJrQnYrNG4vU0NHTUNZeTVTMWhRcFl2Q283NVAyUjRU?=
+ =?utf-8?B?d1FTVndsaDY3aE1aSjhuSkNzTFRWc2VHVnpSaFdGUmhVcHhjdjFjM2pLMXFE?=
+ =?utf-8?B?SkZ5OUUxeStDNWZyaSsvUTBBWkdPMFZyd1NPanRVMGhHYWZYVTZwK2picGpE?=
+ =?utf-8?B?cHliMFppTzczTTh3UzE0SGVUaGxaQjhoQi9EVGdqcG90cXhVZlU3VDFvOVRx?=
+ =?utf-8?B?RXZ3TXRzVHRDWTRxNm9UQUdrOHR0eVdzMXZFNTlHMXQzd2l6SEoxb0Zhc3hQ?=
+ =?utf-8?B?ayt6alFNUko2Tk1LSEpaM3lsQ3ZzeTMrUDU3TlhMVHVFbHFaeGVKVWhtdnJT?=
+ =?utf-8?B?K3VlQnl2ZDhRNDJwa3k4ekFvYTdKbllyMSs0V05NSHNuQUJ1RnhjZHVqU0JO?=
+ =?utf-8?B?U2dJZ21rV21XWXQxQyticWJ5VW1lTXFNUEloTlNYNUl2MkJmRzJpcWY4c0xR?=
+ =?utf-8?B?eHhZYmFFVkxxNjFQeE40ZkV1OXBQRFlVSmViOEl6L0VQL1lKYnZuNU0vNEdP?=
+ =?utf-8?B?Mk1Xd1lSaHpEdTA0M0FTTjMyL3Z4ZjJSaHgxNDZpbVdpRldWc0huTjQxZDhD?=
+ =?utf-8?Q?rff7wTRxezEwNpLtuJ8HDZ3HvHmMneYF4BPoLMf?=
+X-OriginatorOrg: sct-15-20-8534-20-msonline-outlook-2ef4d.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 151407a4-f457-4a73-4b4c-08ddea2b1fd6
+X-MS-Exchange-CrossTenant-AuthSource: AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 14:15:10.2446
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1P189MB2105
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_065729_158139_CB22E6F1 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20250902_071520_033547_D7084855 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,56 +155,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Drew Fustini <fustini@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Michal Wilczynski <m.wilczynski@samsung.com>, Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, Han Gao <gaohan@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: robh@kernel.org, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr, fustini@kernel.org, gaohan@iscas.ac.cn, rabenda.cn@gmail.com, linux-kernel@vger.kernel.org, palmer@dabbelt.com, guoren@kernel.org, p.zabel@pengutronix.de, paul.walmsley@sifive.com, m.wilczynski@samsung.com, krzk+dt@kernel.org, linux-riscv@lists.infradead.org, wefu@redhat.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Di, 2025-09-02 at 15:44 +0200, Krzysztof Kozlowski wrote:
-> On 02/09/2025 11:04, Yao Zi wrote:
-> > On Tue, Sep 02, 2025 at 10:27:53AM +0200, Krzysztof Kozlowski wrote:
-> > > On Mon, Sep 01, 2025 at 04:23:17AM +0000, Yao Zi wrote:
-> > > > +/* VO Subsystem */
-> > > >  #define TH1520_RESET_ID_GPU		0
-> > > >  #define TH1520_RESET_ID_GPU_CLKGEN	1
-> > > > -#define TH1520_RESET_ID_NPU		2
-> > > > -#define TH1520_RESET_ID_WDT0		3
-> > > > -#define TH1520_RESET_ID_WDT1		4
-> > > 
-> > > This is ABI break and deserves explanation and its own patchset.
-> > 
-> > The registers in control of TH1520_RESET_ID_{NPU,WDT0,WDT1} don't belong
-> > to the VO reset controller (documented as "thead,th1520-reset"), and
-> > thus cannot be implemented by it. They're in fact AP subsystem resets,
-> > which gets supported in Linux with this series.
-> > 
-> > Is it okay for you to separate a patch to delete these wrong IDs and add
-> > them back for the AP reset controller latter? Anyway, I should have
-> > provided more information about these three resets. Thanks for catching
-> > this.
+Hi Yao,
+
+> Introduce reset controllers for AP, MISC, VI, VP and DSP subsystems and
+> add their reset signal mappings.
 > 
-> So feels like separate patch dropping these resets with above explanation.
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
 
-They happen to be reintroduced with exactly the same values, just for
-the AP subsystem reset controller:
+/* snip */
 
-+/* AP Subsystem */
-+#define TH1520_RESET_ID_BROM			0
-+#define TH1520_RESET_ID_C910_TOP		1
-+#define TH1520_RESET_ID_NPU			2
-+#define TH1520_RESET_ID_WDT0			3
-+#define TH1520_RESET_ID_WDT1			4
-[...]
-+/* VO Subsystem */
- #define TH1520_RESET_ID_GPU		0
- #define TH1520_RESET_ID_GPU_CLKGEN	1
--#define TH1520_RESET_ID_NPU		2
--#define TH1520_RESET_ID_WDT0		3
--#define TH1520_RESET_ID_WDT1		4
+>  static const struct of_device_id th1520_reset_match[] = {
+> +	{ .compatible = "thead,th1520-reset-ap", .data = &th1520_ap_reset_data },
+> +	{ .compatible = "thead,th1520-reset-misc", .data = &th1520_misc_reset_data },
+> +	{ .compatible = "thead,th1520-reset-vi", .data = &th1520_vi_reset_data },
+>  	{ .compatible = "thead,th1520-reset", .data = &th1520_reset_data },
+> +	{ .compatible = "thead,th1520-reset-vp", .data = &th1520_vp_reset_data },
+> +	{ .compatible = "thead,th1520-reset-dsp", .data = &th1520_dsp_reset_data },
 
-regards
-Philipp
+I believe these should be alphabetically sorted on compatible name.
+
+>  	{ /* sentinel */ }
+>  };
+>  MODULE_DEVICE_TABLE(of, th1520_reset_match);
+> -- 
+> 2.50.1
+
+Kind regards,
+Maud
 
 _______________________________________________
 linux-riscv mailing list
