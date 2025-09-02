@@ -4,73 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04FBDCA100C
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 08:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9673CA1009
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 08:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UPd0a75Q3gbXmHV/X4aFRHkjipi/gXBPTnB2d9oMHIY=; b=k0MfcrJOXZuylG
-	c8PHZGy7TWW+IB9t632WIah2PNc1flOorV411PTTKHAsafCfzTYcCjatO5IDvkbq3Hk5PwLC8bYsP
-	wgJvdVzOaZ2z6GLc8DDR4DGeythwPQYTRdhKCmWS5wpYne60VyPi1PedBC696ZxVu7//tzdWi7+eZ
-	I2zF0vLZZVCSUPolUkTJ93N4m4f1CFLlCo7qn4J3VlyZz+Rn7jSEGYFHoklzc+8c9m6LeEoHlGkMv
-	hK6QyBaBm4CWKHHuZ4LjEhHowbFuurWYUo+jmZwq7cixTWrX3VpFlmJmBze06MfjDOUeRXp18FZZo
-	gKw8Q05IWPmUOoC7s5WQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:Message-ID:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=S+tv53HaxZ2DVapwIztuwRL0OR2V1Cx3SpBgFDaIs0w=; b=p5pbmBSzhf21We
+	J5qLGh9cOwMbsRWh6YSdsAlPMR4IARypSTJrjp/WyjgGtwnloYUmswpBQLE7+CsAaFF3UzELfzyFV
+	6gTbSV1tg4QR4+l75DyqJVJZXbhfWbP9aboM+jP3hF1knS+au/fvbz2XeKnCGS9EKs+vekFbDs3dn
+	nu+j8BfzFLUBYciHe4dYty+Tx9irnCsAgYF3JM+dncDXGXwQmdhnMD5S6/M3RDz+P0AB7ggpsQfBJ
+	c3ocTepWaHvXr/aG15bAAG7KItHiDC//VSLkBa4r/dAw4MUY1gG1+RiEslTDu3cJVJolLLp7K1t1C
+	zv3PkHVhnGyaKjBAhtGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utM5Z-0000000Fwp5-3Lpq;
-	Tue, 02 Sep 2025 08:10:01 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1utMZP-0000000G7JG-27fu;
+	Tue, 02 Sep 2025 08:40:51 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utLsl-0000000FrYM-2nkU
+	id 1utM2y-0000000Fvnx-0Jot
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Sep 2025 07:56:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1756799808; x=1788335808;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=9KGyJP3LK1ZL09XdXf4HfRGf+ddPpA8Rj5qXmoNg/yY=;
-  b=Kfkoiq+BgXb6F6YuwjAh1r0/gUQ9MwYh+kWWb9ST4/qGYLJzjJXMpTDX
-   FSBKnlQ7IyoXL7f4fLc9uyccXY4moU5Yd4BtsHfdjB5xiqAl4/gs8PIKQ
-   tNHJQaUvBFIEscBjmlJePNE7rNHKaHfIA6KtRI/BWuPHx+qTJpZpfuKu1
-   whShTAwOFiQYDxutROQc/s61z2nQwDgD54ua6Lb9ggw2vjSsEkHaSp7C0
-   Cd6NggBTNZn02enFz6bWQ9VOFKfqvksJmLIKVq+7OfeX3twJBFg9jECRJ
-   qaupB/dt4aZzYxyTSMFwuCaWyT+IeLQ9w9YSbESjaj9JJZ3Hb85Gx0m5z
-   g==;
-X-CSE-ConnectionGUID: I0e7JmeXSliqGe+ljgjh1Q==
-X-CSE-MsgGUID: IEx/DkbGRSK6X41AU2uX1A==
-X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
-   d="scan'208";a="45916750"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Sep 2025 00:56:46 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 2 Sep 2025 00:56:21 -0700
-Received: from valentina.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Tue, 2 Sep 2025 00:56:19 -0700
-From: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
-To: <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
-	<valentina.fernandezalanis@microchip.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-Subject: [PATCH v2 5/5] riscv: dts: microchip: add a device tree for Discovery Kit
-Date: Tue, 2 Sep 2025 08:55:48 +0100
-Message-ID: <20250902075548.1967613-6-valentina.fernandezalanis@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250902075548.1967613-1-valentina.fernandezalanis@microchip.com>
-References: <20250902075548.1967613-1-valentina.fernandezalanis@microchip.com>
+	Tue, 02 Sep 2025 08:07:21 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6EAAC439DF;
+	Tue,  2 Sep 2025 08:07:17 +0000 (UTC)
+Message-ID: <905a306b-6a92-4335-b31d-51802f7845af@ghiti.fr>
+Date: Tue, 2 Sep 2025 10:07:16 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+From: Alexandre Ghiti <alex@ghiti.fr>
+Subject: [GIT PULL] RISC-V Fixes for 6.17-rc5
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduleegheduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfvhffutgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepveevveelleeggeehjeeitdefgeegtefftdekkeetvdfggffhfeegkeehgeekieegnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepudekhedrvddufedrudehgedrudegieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedukeehrddvudefrdduheegrddugeeipdhhvghloheplgdutddrudegrddtrddvngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedvpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_005647_749324_5C44D3D8 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20250902_010720_263876_A76E790D 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,308 +57,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a minimal device tree for the Microchip PolarFire SoC Discovery Kit.
-The Discovery Kit is a cost-optimized board based on PolarFire SoC
-MPFS095T and features:
-
-- 1 GB DDR4x16
-- 1x Gigabit Ethernet
-- 3x UARTs
-- Raspberry Pi connector
-- mikroBus connector
-- microSD card connector
-
-Link: https://www.microchip.com/en-us/development-tool/mpfs-disco-kit
-Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
----
- arch/riscv/boot/dts/microchip/Makefile        |   1 +
- .../dts/microchip/mpfs-disco-kit-fabric.dtsi  |  58 ++++++
- .../boot/dts/microchip/mpfs-disco-kit.dts     | 190 ++++++++++++++++++
- 3 files changed, 249 insertions(+)
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-disco-kit-fabric.dtsi
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts
-
-diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
-index 1e2f4e41bf0d..345ed7a48cc1 100644
---- a/arch/riscv/boot/dts/microchip/Makefile
-+++ b/arch/riscv/boot/dts/microchip/Makefile
-@@ -1,5 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-beaglev-fire.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-disco-kit.dtb
- dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-icicle-kit.dtb
- dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-icicle-kit-prod.dtb
- dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-m100pfsevp.dtb
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-disco-kit-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-disco-kit-fabric.dtsi
-new file mode 100644
-index 000000000000..03900e634fe2
---- /dev/null
-+++ b/arch/riscv/boot/dts/microchip/mpfs-disco-kit-fabric.dtsi
-@@ -0,0 +1,58 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/* Copyright (c) 2020-2025 Microchip Technology Inc */
-+
-+/ {
-+	core_pwm0: pwm@40000000 {
-+		compatible = "microchip,corepwm-rtl-v4";
-+		reg = <0x0 0x40000000 0x0 0xF0>;
-+		microchip,sync-update-mask = /bits/ 32 <0>;
-+		#pwm-cells = <3>;
-+		clocks = <&ccc_sw CLK_CCC_PLL0_OUT3>;
-+		status = "disabled";
-+	};
-+
-+	i2c2: i2c@40000200 {
-+		compatible = "microchip,corei2c-rtl-v7";
-+		reg = <0x0 0x40000200 0x0 0x100>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		clocks = <&ccc_sw CLK_CCC_PLL0_OUT3>;
-+		interrupt-parent = <&plic>;
-+		interrupts = <122>;
-+		clock-frequency = <100000>;
-+		status = "disabled";
-+	};
-+
-+	ihc: mailbox {
-+		compatible = "microchip,sbi-ipc";
-+		interrupt-parent = <&plic>;
-+		interrupts = <180>, <179>, <178>, <177>;
-+		interrupt-names = "hart-1", "hart-2", "hart-3", "hart-4";
-+		#mbox-cells = <1>;
-+		status = "disabled";
-+	};
-+
-+	mailbox@50000000 {
-+		compatible = "microchip,miv-ihc-rtl-v2";
-+		reg = <0x0 0x50000000 0x0 0x1c000>;
-+		interrupt-parent = <&plic>;
-+		interrupts = <180>, <179>, <178>, <177>;
-+		interrupt-names = "hart-1", "hart-2", "hart-3", "hart-4";
-+		#mbox-cells = <1>;
-+		microchip,ihc-chan-disabled-mask = /bits/ 16 <0>;
-+		status = "disabled";
-+	};
-+
-+	refclk_ccc: cccrefclk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+};
-+
-+&ccc_sw {
-+	clocks = <&refclk_ccc>, <&refclk_ccc>, <&refclk_ccc>, <&refclk_ccc>,
-+		 <&refclk_ccc>, <&refclk_ccc>;
-+	clock-names = "pll0_ref0", "pll0_ref1", "pll1_ref0", "pll1_ref1",
-+		      "dll0_ref", "dll1_ref";
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts
-new file mode 100644
-index 000000000000..c068b9bb5bfd
---- /dev/null
-+++ b/arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts
-@@ -0,0 +1,190 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/* Copyright (c) 2020-2025 Microchip Technology Inc */
-+
-+/dts-v1/;
-+
-+#include "mpfs.dtsi"
-+#include "mpfs-disco-kit-fabric.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
-+
-+/ {
-+	model = "Microchip PolarFire-SoC Discovery Kit";
-+	compatible = "microchip,mpfs-disco-kit-reference-rtl-v2507",
-+		     "microchip,mpfs-disco-kit",
-+		     "microchip,mpfs";
-+
-+	aliases {
-+		ethernet0 = &mac0;
-+		serial4 = &mmuart4;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial4:115200n8";
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-1 {
-+			gpios = <&gpio2 17 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_AMBER>;
-+			label = "led1";
-+		};
-+
-+		led-2 {
-+			gpios = <&gpio2 18 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_RED>;
-+			label = "led2";
-+		};
-+
-+		led-3 {
-+			gpios = <&gpio2 19 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_AMBER>;
-+			label = "led3";
-+		};
-+
-+		led-4 {
-+			gpios = <&gpio2 20 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_RED>;
-+			label = "led4";
-+		};
-+
-+		led-5 {
-+			gpios = <&gpio2 21 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_AMBER>;
-+			label = "led5";
-+		};
-+
-+		led-6 {
-+			gpios = <&gpio2 22 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_RED>;
-+			label = "led6";
-+		};
-+
-+		led-7 {
-+			gpios = <&gpio2 23 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_AMBER>;
-+			label = "led7";
-+		};
-+
-+		led-8 {
-+			gpios = <&gpio1 9 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_RED>;
-+			label = "led8";
-+		};
-+	};
-+
-+	ddrc_cache_lo: memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x0 0x40000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		hss_payload: region@bfc00000 {
-+			reg = <0x0 0xbfc00000 0x0 0x400000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&core_pwm0 {
-+	status = "okay";
-+};
-+
-+&gpio1 {
-+	interrupts = <27>, <28>, <29>, <30>,
-+		     <31>, <32>, <33>, <47>,
-+		     <35>, <36>, <37>, <38>,
-+		     <39>, <40>, <41>, <42>,
-+		     <43>, <44>, <45>, <46>,
-+		     <47>, <48>, <49>, <50>;
-+	status = "okay";
-+};
-+
-+&gpio2 {
-+	interrupts = <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>;
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+};
-+
-+&ihc {
-+	status = "okay";
-+};
-+
-+&mac0 {
-+	phy-mode = "sgmii";
-+	phy-handle = <&phy0>;
-+	status = "okay";
-+
-+	phy0: ethernet-phy@b {
-+		reg = <0xb>;
-+	};
-+};
-+
-+&mbox {
-+	status = "okay";
-+};
-+
-+&mmc {
-+	bus-width = <4>;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	cap-mmc-highspeed;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	no-1-8-v;
-+	status = "okay";
-+};
-+
-+&mmuart1 {
-+	status = "okay";
-+};
-+
-+&mmuart4 {
-+	status = "okay";
-+};
-+
-+&refclk {
-+	clock-frequency = <125000000>;
-+};
-+
-+&refclk_ccc {
-+	clock-frequency = <50000000>;
-+};
-+
-+&rtc {
-+	status = "okay";
-+};
-+
-+&spi0 {
-+	status = "okay";
-+};
-+
-+&spi1 {
-+	status = "okay";
-+};
-+
-+&syscontroller {
-+	status = "okay";
-+};
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIGZvbGxvd2luZyBjaGFuZ2VzIHNpbmNlIGNvbW1pdCBiMzIwNzg5ZDY4ODNjYzAwYWM3OGNl
+ODNiY2NiZmU3ZWQ1OGFmY2YwOgoKIMKgIExpbnV4IDYuMTctcmM0ICgyMDI1LTA4LTMxIDE1OjMz
+OjA3IC0wNzAwKQoKYXJlIGF2YWlsYWJsZSBpbiB0aGUgR2l0IHJlcG9zaXRvcnkgYXQ6CgogwqAg
+Z2l0Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2FsZXhnaGl0aS9s
+aW51eCAKdGFncy9yaXNjdi1maXhlcy02LjE3LXJjNQoKZm9yIHlvdSB0byBmZXRjaCBjaGFuZ2Vz
+IHVwIHRvIDFmYTAwZjNkZWFjYWZlMjAyZWJhNjg4N2RlYmE3NGVhNjQwMmM4ODM6CgogwqAgcmlz
+Y3Y6IFVzZSBhbiBhdG9taWMgeGNoZyBpbiBwdWRwX2h1Z2VfZ2V0X2FuZF9jbGVhcigpICgyMDI1
+LTA5LTAyIAowNzozNDoyMSArMDAwMCkKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KcmlzY3YgZml4ZXMgZm9yIDYuMTctcmM1
+CgotIEEgZml4IGZvciBhIGxpbmsgZXJyb3IgYnkgZGlzYWJsaW5nIExUTyBvbiBtZWRsb3cgY29k
+ZSBtb2RlbAotIDQgZml4ZXMgd2hlcmUgd2UgdXNlZCB4bGVuLWJpdHMgd2lkZSBsb2FkcyBvbiAz
+Mi1iaXQgdmFsdWVzCi0gQSBmaXggaW4gdXNlciBhY2Nlc3Mgcm91dGluZXMgd2hlcmUgd2Ugc2hv
+dWxkIGhhdmUgd3JpdHRlbiB0aGUgc2l6ZSBvZiAKdGhlIGRlc3RpbmF0aW9uLCBub3QgdGhlIHNp
+emUgb2YgdGhlIHNvdXJjZSwgd2hpY2ggYXBwZWFyZWQgaW4gZ2xpYmMgCnRlc3RzdWl0ZQotIEEg
+Zml4IGluIEFDUEkgcmlzY3YgY3NyIHJlYWQgcm91dGluZXMgd2hlcmUgdGhlIGVycm9yIGNvZGUg
+d2FzIGluY29ycmVjdAotIEEgZml4IGZvciBUSFAgUFVEIHRvIHByZXZlbnQgcmV0dXJuaW5nIGFu
+IG9sZCBwdGUgdmFsdWUKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KQWxleGFuZHJlIEdoaXRpICgxKToKIMKgIMKgIMKgIHJp
+c2N2OiBVc2UgYW4gYXRvbWljIHhjaGcgaW4gcHVkcF9odWdlX2dldF9hbmRfY2xlYXIoKQoKQW51
+cCBQYXRlbCAoMSk6CiDCoCDCoCDCoCBBQ1BJOiBSSVNDLVY6IEZpeCBGRkhfQ1BQQ19DU1IgZXJy
+b3IgaGFuZGxpbmcKCkF1cmVsaWVuIEphcm5vICgxKToKIMKgIMKgIMKgIHJpc2N2OiB1YWNjZXNz
+OiBmaXggX19wdXRfdXNlcl9ub2NoZWNrIGZvciB1bmFsaWduZWQgYWNjZXNzZXMKCk5hdGhhbiBD
+aGFuY2VsbG9yICgxKToKIMKgIMKgIMKgIHJpc2N2OiBPbmx5IGFsbG93IExUTyB3aXRoIENNT0RF
+TF9NRURBTlkKClJhZGltIEtyxI1tw6HFmSAoNCk6CiDCoCDCoCDCoCByaXNjdjogdXNlIGx3IHdo
+ZW4gcmVhZGluZyBpbnQgY3B1IGluIG5ld192bWFsbG9jX2NoZWNrCiDCoCDCoCDCoCByaXNjdjog
+dXNlIGx3IHdoZW4gcmVhZGluZyBpbnQgY3B1IGluIGFzbV9wZXJfY3B1CiDCoCDCoCDCoCByaXNj
+diwgYnBmOiB1c2UgbHcgd2hlbiByZWFkaW5nIGludCBjcHUgaW4gQlBGX01PVjY0X1BFUkNQVV9S
+RUcKIMKgIMKgIMKgIHJpc2N2LCBicGY6IHVzZSBsdyB3aGVuIHJlYWRpbmcgaW50IGNwdSBpbiBi
+cGZfZ2V0X3NtcF9wcm9jZXNzb3JfaWQKCiDCoGFyY2gvcmlzY3YvS2NvbmZpZ8KgIMKgIMKgIMKg
+IMKgIMKgIMKgIMKgfMKgIDIgKy0KIMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hc20uaMKgIMKg
+IMKgfMKgIDIgKy0KIMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmggfCAxMSArKysr
+KysrKysrKwogwqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3VhY2Nlc3MuaCB8wqAgMiArLQogwqBh
+cmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TwqAgwqAgwqAgwqAgfMKgIDIgKy0KIMKgYXJjaC9yaXNj
+di9uZXQvYnBmX2ppdF9jb21wNjQuY8KgIHzCoCA0ICsrLS0KIMKgZHJpdmVycy9hY3BpL3Jpc2N2
+L2NwcGMuY8KgIMKgIMKgIMKgIHzCoCA0ICsrLS0KIMKgNyBmaWxlcyBjaGFuZ2VkLCAxOSBpbnNl
+cnRpb25zKCspLCA4IGRlbGV0aW9ucygtKQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
