@@ -4,99 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E635CA1007
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 04:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2F7CA0FFE
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 05:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N1f71ftdVKhum7jM54lCXCcG9rs0o2TvvlTSu8ZsDrA=; b=WYXGYJd3bnZjue
-	rhEQSaXVFV5kIjXqTKf8svYIAImTFK89k+V+79bEUVTTd9j7PWNkoS0Yp5HIK/JoR+6pDWCNtIiDo
-	Yf/hN7D/l4hqZ/lkZ0+yQIPsSkAaEIS23X75+c8+4Uot+TC0k923GjBg3vMRR0S0GAjFuEcmaVSLo
-	FAVXEFaGt5Ef0AEWA8gotNP2rw/W4jDXrlOy3jiuJp+dy+4vBLSKWP+tG8H3EWYdCnfP57YJoe+F8
-	3G8l5Sur73PE45SfFOlQ3FWg7hV3KV8B2iWlHicLJNlbv48/tQa8WtbMbwINw5OOgmjTv7bYasCUN
-	7laUjxtioMB2S5C+5bZA==;
+	List-Owner; bh=tXVsQXky2KP8+OX5dUD74o1e0dZeY7Ce8V/K0LL3koE=; b=QJ9N8jKnWtJq+2
+	3FXdlR8SG5PIenFFCkSkCEVFrN8N+uI2G/0ZZOFP63mmdpG9OfKWKO6UY9XQlWlBAHDqhf//TyKDp
+	ycew0Vif5B+wKjvYbuiZpUynYXkBGnq6bS0Pq2peu4ksxzL3nZb2BaqXhFjApiIeotq57azxC3ZXa
+	64mjm2aMBymt++r9F6qqf3IDT2DQGNvW4O2WU6u2tRGB6vzg8skywRl/U80iAm2GZuRY/c7aqTw/9
+	2aKnHLct4f2HqZ1sie1EjOuNh9dT7AgGT9HDKvdi84sZaWAkUwteno7Gy1JQK38q+IR14sQdkXCMI
+	6ULk0ZaPgSDoV+/1ZGLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utIZw-0000000FChB-2Tas;
-	Tue, 02 Sep 2025 04:25:08 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1utJLP-0000000FI26-1VYR;
+	Tue, 02 Sep 2025 05:14:11 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utIZu-0000000FCfK-05Ej
+	id 1utJLM-0000000FI1M-1Nuv
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Sep 2025 04:25:07 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-327ceef65afso4909164a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 21:25:05 -0700 (PDT)
+	Tue, 02 Sep 2025 05:14:09 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b4c9a6d3fc7so2788357a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Sep 2025 22:14:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1756787105; x=1757391905; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1756790047; x=1757394847; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KsWJ8LfQ5pRsnjiKNBF8VnH1ORJpnctEr1VaNmcMPZo=;
-        b=dtS9s3DsIKY0YInrK8DQgfG/OTlFFj8QNiREOQ3Kmyq6/3vI5jZRduwQmf+uOdOXRd
-         cPZdlFHKYEArTpJLlx2n0QYAIh0k8WE9oXxUb9y/IRm2pDV7sfDYy711jl4anOLfOFCC
-         mq/m1gaPsbQT7HqDLeiEixZUOfQ7gnxjCf8PCRlTq0wdimaRxE15017UGFh/eSETZCDj
-         mZrPwOHdXCEwonkIoq23ZExTnYsXtaZ3fielR7HGmfrWkhw5LJEk7a+KTgAqVZGwSMmv
-         118DLAaIzq5qx9SvbpILbZxM483CT7DlT9TEDAHaOPLxMCMJ7ztYtEtp9tig8DvY0hvj
-         qJzQ==
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mbpx4ScsQnybdTO3kp2Rfx+rkLjFhStVTs6nr7auk/0=;
+        b=FRCdIWGMvtCDdwF47ek4NjRXlaItR0InNUM7F4tbNNOKUXuNaqnjSLtWhTkMKl4FmR
+         hKnSbYwMjWAw6/NTenBTcR8ujxrlJApZJLGIwZ54Lyt/V930avHZTUuMSuFguWv77rEK
+         CmS6jNf4raacUA8SyKWccNdHHEk8Q1o8iYh1FJqtkRxylOYWEs+sFNOPNki+P9NIo0pQ
+         XeEStrLNoMGsF6KRjGwi9xe6VyracM21VOGQYCSUyOKZwAfduF7+G/ryD/MxlzcDce4u
+         8R+f/Xo1IQV2bq4lucxGQ2oGo9sElBOf/6Sq4yPIBnmWHe9vqSoV3d1dNrel+4INexxS
+         DJUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756787105; x=1757391905;
+        d=1e100.net; s=20230601; t=1756790047; x=1757394847;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=KsWJ8LfQ5pRsnjiKNBF8VnH1ORJpnctEr1VaNmcMPZo=;
-        b=OpEXC+BOe2o7gOOOxDxzjB8LfWSl6k9tWVbzHqPXtHIdJEHRXbThbJF+nX1YauLaxz
-         AFlROKdb1s6swvvMhsGdplnlcHYtPKzY0KJIRiBk9KWLpTLzBdcY1s4d+pDtZPmf2Nzb
-         3Kdw5z0ANu9g5IDEVGEb1My/dKKtGct0gJOBclJk+rlgYbNkqanR3g9jR+zyI66NZoaW
-         e9qPNF0zDu8osoW+ePHDMtPNB+PdqB0S6yPnOvLu4YJ88QhR7wSga4Nsr8FHY/2QLXyW
-         WIidVcfY4VEVcviMRIswDHzZE8nD1YFYj3f64k2k6VR/s12UdA8YffQtwzIKmbQgZAzz
-         o6lg==
-X-Forwarded-Encrypted: i=1; AJvYcCUAtANp4MwC6lIyhWctqF5WUlUZtWzrzGy4GqoVFoo5fouQqnj7DWhJYVOL5cmn6elXuH7tWdcMVe+ciQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzrOAikHz2zL7+9gZe2uLVCTt6UX/OHW4UIYmf2xo9moj/C/z1
-	FHLQk0pMvxh1dVr23YZePC3PHzct4oHfTRweL+5kaK+RTAVWKr+p7++2iNVjupO1mm0=
-X-Gm-Gg: ASbGncuaR0j4OM04SMz1TOzYCOLl/1KWvBX/80w9jWrGRHKO7eLjuS8as4scavbyqe3
-	sHwW1O4CEqloGc94tGNhOktXaMbVF8Kty9IqdNFU9QXoQz214LTm8Wjau7zgPCgGibJGNnp3B9s
-	5q3gxv3d8IRyBe+acCAPrgdGOuvFbZYl4X2kALZ11RJH1Wxwsn5l6TPIP2W4JfvtlFR0WcESOb+
-	YI1s2298nHMECDacQQINtokN/qL5EXCk08rHieXHnuvNfgNxzBqjRhwo0loDPvfyRqH/V6u6QKj
-	Mtuk0/son1EVbbns+LJ5X86SAgKlQdnhEF+0Ozz3mu2jA9dOTLxb1dB33ZywbeChiow6i6G5iKh
-	gU7bor+bOyFyzZLR1F3IMbes1WPgOZOB4HedwJ9Cwy7XFf0Oo1yRTB61209iXK5t6f2MTrNjmSG
-	E4k6luJSUFkA7V7ivQyArdi15whfUmQ54hQuYKJmENS9M=
-X-Google-Smtp-Source: AGHT+IE5ILaPlbdaJvy0lHhCLMkEi7dV07tKF7N1W6t5v1Wvwl43pItJx8N4YHBrAE+BIEHm1Y1uhQ==
-X-Received: by 2002:a17:90a:d40b:b0:327:a04b:aac with SMTP id 98e67ed59e1d1-328156be03emr14100705a91.24.1756787105177;
-        Mon, 01 Sep 2025 21:25:05 -0700 (PDT)
-Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-327e21d14a8sm12216706a91.2.2025.09.01.21.24.59
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 01 Sep 2025 21:25:04 -0700 (PDT)
-From: Xu Lu <luxu.kernel@bytedance.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	ajones@ventanamicro.com,
-	brs@rivosinc.com
-Cc: devicetree@vger.kernel.org,
+        bh=mbpx4ScsQnybdTO3kp2Rfx+rkLjFhStVTs6nr7auk/0=;
+        b=v7/loYTzLqRgNBK03BsZkgYFCQpCnWo0IqCZIyqdOpegKUrEaCAMbQ5as25Mr8JKKm
+         lpCmMX7EYAwGRRv1lpO6+j+EbKWhAR88bsEuBOCvP4C+unrSJzO6H/CDzce3t/qfHpiI
+         WtfGUn9QG6bQkZu0T4v2kkfLNzUX6C0oAJQarcDEogKoIt7AvE39uDzgWz6z9VgNFfPU
+         sUe57bVjPWyWBRiaI4MOS2hSexag0diKmYXye+HYrZ3BwjuY5PkmA7qXLv2LkKxgGbmQ
+         Qoc78WMFYCZzw40Iv8W1OJojaElLjYNlODq6vOXbcB/piRnQN76onvEcy5XrptZeJ846
+         7/QA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQs+KnzB/Dqd/fUCVRpSJPGipE4qYckOxEEPuEWzZ/71zRKN29hUpa7CJyyq+gwnBdKKtu4UFg4Y9hlw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGpFaLZ3Cj8NJNVrodKv2lmGipmLPs/o/E18D853pj+BVOW8+J
+	Ep200K9Bq1TrS1k07QLcOKFXT86sHzHureak5H5KN1wsdaWx8JAculno
+X-Gm-Gg: ASbGncsSnubn56R6V8ngFsItw4wR3lD8SxjMjINjXWHO14jtbOebCYpoxSbDgAAe8e4
+	HFBDkay9RivqOEbzA2mNt9+83g9oupVw1n6cGFtPoLDNwjuyYhnPCkxgZ5ZragYizZaS5ZsBxF2
+	MU9Ui/prf0CdzDbicctB44NtkDXb745XRoW1jinh2MfTw8xuYSaVowOBw5a1DTBXPMh20U9ZhbF
+	6Gu7Wq+7TUwk2re7Qqncc09AwvRWMz0cU55k+GWNcS33ExqpyoAvWGv0CIKFekytOi76SuG4mG2
+	xTazy7YP1aiz9gQGzQNxfB3biA88/FHKFWJGHQyknJVRKzCb9kwwjQNYLIr3GgfQYrpfhTXOSii
+	1fKIaeIYfjx5YKI0=
+X-Google-Smtp-Source: AGHT+IFuHo6l2ig5Wjql4h2AooDEhFl0y/v3XlO3IRwDflHdbmC2N/qlZXzQe6jvCKxQiC2fHzN2PQ==
+X-Received: by 2002:a17:902:c950:b0:24b:1585:6363 with SMTP id d9443c01a7336-24b158565c2mr11578025ad.8.1756790047255;
+        Mon, 01 Sep 2025 22:14:07 -0700 (PDT)
+Received: from gmail.com ([223.166.87.143])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24905da479asm117731845ad.73.2025.09.01.22.13.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Sep 2025 22:14:06 -0700 (PDT)
+From: Qingfang Deng <dqfext@gmail.com>
+To: Jesse Taube <jesse@rivosinc.com>,
 	linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Kees Cook <kees@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang Kan" <kan.liang@linux.intel.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Himanshu Chauhan <hchauhan@ventanamicro.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	Evan Green <evan@rivosinc.com>,
+	WangYuli <wangyuli@uniontech.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Nam Cao <namcao@linutronix.de>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	Joel Granados <joel.granados@kernel.org>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Celeste Liu <coelacanthushex@gmail.com>,
+	Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
+	Nylon Chen <nylon.chen@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
 	linux-kernel@vger.kernel.org,
-	apw@canonical.com,
-	joe@perches.com,
-	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH v2 4/4] riscv: Use Zalasr for smp_load_acquire/smp_store_release
-Date: Tue,  2 Sep 2025 12:24:32 +0800
-Message-Id: <20250902042432.78960-5-luxu.kernel@bytedance.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250902042432.78960-1-luxu.kernel@bytedance.com>
-References: <20250902042432.78960-1-luxu.kernel@bytedance.com>
+	linux-mm@kvack.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Joel Stanley <joel@jms.id.au>
+Subject: Re: [PATCH 4/8] riscv: Introduce support for hardware break/watchpoints
+Date: Tue,  2 Sep 2025 13:13:12 +0800
+Message-ID: <20250822174715.1269138-5-jesse@rivosinc.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250822174715.1269138-5-jesse@rivosinc.com>
+References: <20250822174715.1269138-1-jesse@rivosinc.com> <20250822174715.1269138-5-jesse@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_212506_052523_7FBD9143 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250901_221408_370879_13078DB1 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,110 +148,44 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
+Message-ID: <20250902051312._y2w5xTYZZbJG8-xQH5-XpNCMGxFfisAIeBqp7efGN0@z>
 
-Replace fence instructions with Zalasr instructions during acquire or
-release operations.
+Hi Jesse and Charlie,
 
-Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
----
- arch/riscv/include/asm/barrier.h | 79 +++++++++++++++++++++++++++-----
- 1 file changed, 68 insertions(+), 11 deletions(-)
+On Fri, 22 Aug 2025 10:47:11 -0700, Jesse Taube <jesse@rivosinc.com> wrote:
+> +static int arch_smp_setup_sbi_shmem(unsigned int cpu)
+> +{
+> +	union sbi_dbtr_shmem_entry *dbtr_shmem;
+> +	unsigned long shmem_pa;
+> +	struct sbiret ret;
+> +	int rc;
+> +
+> +	dbtr_shmem = per_cpu_ptr(&sbi_dbtr_shmem, cpu);
+> +	if (!dbtr_shmem) {
+> +		pr_err("Invalid per-cpu shared memory for debug triggers\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	shmem_pa = virt_to_phys(dbtr_shmem);
+> +
+> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_SETUP_SHMEM,
+> +			SBI_SHMEM_LO(shmem_pa), SBI_SHMEM_HI(shmem_pa), 0, 0, 0, 0);
+> +	if (ret.error) {
+> +		pr_warn("%s: failed to setup shared memory. error: %ld\n", __func__, ret.error);
+> +		return sbi_err_map_linux_errno(ret.error);
+> +	}
+> +
+> +	pr_debug("CPU %d: HW Breakpoint shared memory registered.\n", cpu);
+> +
+> +	return rc;
 
-diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
-index b8c5726d86acb..b1d2a9a85256d 100644
---- a/arch/riscv/include/asm/barrier.h
-+++ b/arch/riscv/include/asm/barrier.h
-@@ -51,19 +51,76 @@
-  */
- #define smp_mb__after_spinlock()	RISCV_FENCE(iorw, iorw)
- 
--#define __smp_store_release(p, v)					\
--do {									\
--	compiletime_assert_atomic_type(*p);				\
--	RISCV_FENCE(rw, w);						\
--	WRITE_ONCE(*p, v);						\
-+extern void __bad_size_call_parameter(void);
-+
-+#define __smp_store_release(p, v)						\
-+do {										\
-+	compiletime_assert_atomic_type(*p);					\
-+	switch (sizeof(*p)) {							\
-+	case 1:									\
-+		asm volatile(ALTERNATIVE("fence rw, w;\t\nsb %0, 0(%1)\t\n",	\
-+					 SB_RL(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : : "r" (v), "r" (p) : "memory");	\
-+		break;								\
-+	case 2:									\
-+		asm volatile(ALTERNATIVE("fence rw, w;\t\nsh %0, 0(%1)\t\n",	\
-+					 SH_RL(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : : "r" (v), "r" (p) : "memory");	\
-+		break;								\
-+	case 4:									\
-+		asm volatile(ALTERNATIVE("fence rw, w;\t\nsw %0, 0(%1)\t\n",	\
-+					 SW_RL(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : : "r" (v), "r" (p) : "memory");	\
-+		break;								\
-+	case 8:									\
-+		asm volatile(ALTERNATIVE("fence rw, w;\t\nsd %0, 0(%1)\t\n",	\
-+					 SD_RL(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : : "r" (v), "r" (p) : "memory");	\
-+		break;								\
-+	default:								\
-+		__bad_size_call_parameter();					\
-+		break;								\
-+	}									\
- } while (0)
- 
--#define __smp_load_acquire(p)						\
--({									\
--	typeof(*p) ___p1 = READ_ONCE(*p);				\
--	compiletime_assert_atomic_type(*p);				\
--	RISCV_FENCE(r, rw);						\
--	___p1;								\
-+#define __smp_load_acquire(p)							\
-+({										\
-+	TYPEOF_UNQUAL(*p) val;							\
-+	compiletime_assert_atomic_type(*p);					\
-+	switch (sizeof(*p)) {							\
-+	case 1:									\
-+		asm volatile(ALTERNATIVE("lb %0, 0(%1)\t\nfence r, rw\t\n",	\
-+					 LB_AQ(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : "=r" (val) : "r" (p) : "memory");	\
-+		break;								\
-+	case 2:									\
-+		asm volatile(ALTERNATIVE("lh %0, 0(%1)\t\nfence r, rw\t\n",	\
-+					 LH_AQ(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : "=r" (val) : "r" (p) : "memory");	\
-+		break;								\
-+	case 4:									\
-+		asm volatile(ALTERNATIVE("lw %0, 0(%1)\t\nfence r, rw\t\n",	\
-+					 LW_AQ(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : "=r" (val) : "r" (p) : "memory");	\
-+		break;								\
-+	case 8:									\
-+		asm volatile(ALTERNATIVE("ld %0, 0(%1)\t\nfence r, rw\t\n",	\
-+					 LD_AQ(%0, %1) "\t\nnop\t\n",		\
-+					 0, RISCV_ISA_EXT_ZALASR, 1)		\
-+					 : "=r" (val) : "r" (p) : "memory");	\
-+		break;								\
-+	default:								\
-+		__bad_size_call_parameter();					\
-+		break;								\
-+	}									\
-+	val;									\
- })
- 
- #ifdef CONFIG_RISCV_ISA_ZAWRS
--- 
-2.20.1
+rc is uninitialized.
+You may remove the variable and just return 0 here.
 
+> +}
+
+Regards,
+Qingfang
 
 _______________________________________________
 linux-riscv mailing list
