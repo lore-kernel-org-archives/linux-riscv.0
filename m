@@ -4,54 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD751CA1005
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 06:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18EFCA0FFE
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Sep 2025 08:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/Ayc7pgmaIPPcy85IKuEq17Lca48uwujVfP61786gcw=; b=t3tLsgHAljseib
-	lWHN8aQXhIURgIB+S0WPz7hC6K+2L7SiZFKJwhfSr5BfZAX5Hy50gaZHj2aAcywcTeyimDtwOeVxp
-	y7GaIuu+YqAdMnoFd6Nme9vnhB7jwHtLdU63yIyVBSrlXJlYqqI1H5fM5Aqm5kEFYMNGsGLSoyUFU
-	OdwC5eFeQSFo4ZLuQqAMdxMhBlf/xXjlcV2gW9m4t/ZSwZ/SwNeVpTkrubItuOfUhuj3gZ+Z7ZwnY
-	DYLuCMDTvif9vfAlcDEDmVqrI0FYXtFpivBKpSZyQqUvMW7EyEhn4jv3zGxQGTx8qjplzPRKpLOwW
-	EKkSwazfTi+NWICm+poA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JFN8hwElZPCjdLXaFLZJO0c1td42py0PiQw7HpHNzVQ=; b=cfT2zhkbagn3GX
+	bWPsZZ3OXIuIiEjgQpn6aSU1ewEgcjKBckiG9rOzO0xIlPSGeeMjf7d1+fJCqtAzlMPGwyX2KoTLM
+	qjO1SaDivZfKTUUYLp30A/V1KSP5mx52Ut2568XjjOL37+DFhcrRmQwvYcN2rE95IJKiUEVuTEJwu
+	LgdWZrwLv/aduZj+73jImg/sGm2WB33xgtFPpSOOudGaNvEwklem+rkZaR63Lsy2EAcrAyLbM8gli
+	3FyvXP0SCpDMtx4SySrnDg+z301PnaYTM2x7AzhMv+VYsJ+G5k4TcztoaFEwIgTuEkNIUeiApeS2D
+	PHMRL5Hcc6tgDWw88WFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utKyB-0000000FdU1-1uLc;
-	Tue, 02 Sep 2025 06:58:19 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1utLxP-0000000FtOK-17dK;
+	Tue, 02 Sep 2025 08:01:35 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utKvX-0000000Fcvb-2OlS
+	id 1utLsP-0000000FrNS-2Uus
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Sep 2025 06:55:37 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 4AA281F74D;
-	Tue,  2 Sep 2025 06:55:26 +0000 (UTC)
-Message-ID: <aad3213b-1dcd-4619-9719-fa4585012cc8@ghiti.fr>
-Date: Tue, 2 Sep 2025 08:55:24 +0200
+	Tue, 02 Sep 2025 07:56:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1756799785; x=1788335785;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=EC93Sb135F1xNZElTaZSyyXghE/horvxRlKCzCtaL/g=;
+  b=eIqzuUdaJBxqGJGd5Dbv3fu5oCZ89l8vwMiPatjxp0+ORXxjDGPd35by
+   Lz4Zt24/7vfMvxAvHJHwug4WZNZHAyLhsCL+ols4SRjM0xDbkKLa/0v52
+   aTq54loO7gey8VwtTVI95aOTwulSlgFZQEkQRB1BIlyj7hkXa0rWceN+d
+   VpB0lfzz/oL4/Sv/dX3FV5dOljFEn6S4UyL5wF+Fd4u1kre9OjFs1yTdq
+   MY4BD7UvOxfZizHGLttnIyAegxDpDg9B+7X+Jv5yHdKHSX0Ho5kBLMV/A
+   7PTrGVl6KhhrCep3FaTayrOcN1dtpImWjsqIK859OCX07kMmP7g1KsUKz
+   w==;
+X-CSE-ConnectionGUID: Oo81X4TNRaaQSutmf5DBgg==
+X-CSE-MsgGUID: AbNInbwWREO2jvUj5x6Z8g==
+X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
+   d="scan'208";a="46488625"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Sep 2025 00:56:24 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 2 Sep 2025 00:56:08 -0700
+Received: from valentina.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Tue, 2 Sep 2025 00:56:06 -0700
+From: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+To: <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<valentina.fernandezalanis@microchip.com>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>
+Subject: [PATCH v2 0/5] Icicle Kit with prod device and Discovery Kit support
+Date: Tue, 2 Sep 2025 08:55:43 +0100
+Message-ID: <20250902075548.1967613-1-valentina.fernandezalanis@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: cacheinfo: init cache levels via fetch_cache_info
- when SMP disabled
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: liu.xuemei1@zte.com.cn, paul.walmsley@sifive.com
-Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, spersvold@gmail.com,
- sudeep.holla@arm.com, mikisabate@gmail.com, robh@kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250814092936030rQLylo3a7HXUWKIniqFy1@zte.com.cn>
- <91570387-4da1-4b26-a274-bed1c59ef12f@ghiti.fr>
-Content-Language: en-US
-In-Reply-To: <91570387-4da1-4b26-a274-bed1c59ef12f@ghiti.fr>
-X-GND-State: clean
-X-GND-Score: 0
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduleegfeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecunecujfgurhepkfffgggfuffhvfevfhgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepledtffekgeffleehkedvgfelleefffetjeegueffgeeilefgvdfhteetueejgeeknecuffhomhgrihhnpehinhhfrhgruggvrggurdhorhhgnecukfhppedukeehrddvudefrdduheegrddugeeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudekhedrvddufedrudehgedrudegiedphhgvlhhopegluddtrddugedrtddrvdgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtoheplhhiuhdrgihuvghmvghiudesiihtvgdrtghomhdrtghnpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehsphgvrhhsvhholhgusehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhuuggvvghprdhhohhll
- hgrsegrrhhmrdgtohhmpdhrtghpthhtohepmhhikhhishgrsggrthgvsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_235535_830661_3EB2B8E8 
-X-CRM114-Status: GOOD (  38.23  )
+X-CRM114-CacheID: sfid-20250902_005625_865132_98096C89 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,122 +80,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSmVzc2ljYSwKCk9uIDgvMTQvMjUgMTA6MTYsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPiBI
-aSBKZXNzaWNhLAo+Cj4gT24gOC8xNC8yNSAwMzoyOSwgbGl1Lnh1ZW1laTFAenRlLmNvbS5jbiB3
-cm90ZToKPj4KPj4gSGkgQWxleCwKPj4KPj4KPj4gPj4gSGkgSmVzc2ljYSwKPj4KPj4gPj4KPj4K
-Pj4gPj4gT24gOC8xLzI1IDAzOjMyLCBsaXUueHVlbWVpMUB6dGUuY29tLmNuIHdyb3RlOgo+Pgo+
-PiA+Pj4KPj4KPj4gPj4+IE9uIDcvMzEvMjUgMjE6MjksIGFsZXhAZ2hpdGkuZnIgd3JvdGU6Cj4+
-Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+IEZyb206IEplc3NpY2EgTGl1IDxsaXUueHVlbWVpMUB6dGUu
-Y29tLmNuPgo+Pgo+PiA+Pj4KPj4KPj4gPj4+ID4gPgo+Pgo+PiA+Pj4KPj4KPj4gPj4+ID4gPiBB
-cyBkZXNjcmliZWQgaW4gY29tbWl0IDE4NDVkMzgxZjI4MCAoInJpc2N2OiBjYWNoZWluZm86IEFk
-ZCBiYWNrCj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+IGluaXRfY2FjaGVfbGV2ZWwoKSBmdW5jdGlv
-biIpLCB3aGVuIENPTkZJR19TTVAgaXMgdW5kZWZpbmVkLCB0aGUKPj4KPj4gPj4+IGNhY2hlCj4+
-Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+IGhpZXJhcmNoeSBkZXRlY3Rpb24gbmVlZHMgdG8gYmUgcGVy
-Zm9ybWVkIHRocm91Z2ggdGhlCj4+Cj4+ID4+PiBpbml0X2NhY2hlX2xldmVsKCksCj4+Cj4+ID4+
-Pgo+Pgo+PiA+Pj4gPiA+IHdoZXJlYXMgd2hlbiBDT05GSUdfU01QIGlzIGRlZmluZWQsIHRoaXMg
-ZGV0ZWN0aW9uIGlzIGhhbmRsZWQKPj4KPj4gPj4+IGR1cmluZyB0aGUKPj4KPj4gPj4+Cj4+Cj4+
-ID4+PiA+ID4gaW5pdF9jcHVfdG9wb2xvZ3koKSBwcm9jZXNzLgo+Pgo+PiA+Pj4KPj4KPj4gPj4+
-ID4gPgo+Pgo+PiA+Pj4KPj4KPj4gPj4+ID4gPiBGdXJ0aGVybW9yZSwgd2hpbGUgY29tbWl0IDY2
-MzgxZDM2NzcxZSAoIlJJU0MtVjogU2VsZWN0IEFDUEkgCj4+IFBQVFQKPj4KPj4gPj4+IGRyaXZl
-cnMiKQo+Pgo+PiA+Pj4KPj4KPj4gPj4+ID4gPiBlbmFibGVzIGNhY2hlIGluZm9ybWF0aW9uIHJl
-dHJpZXZhbCB0aHJvdWdoIHRoZSBBQ1BJIFBQVFQgCj4+IHRhYmxlLCB0aGUKPj4KPj4gPj4+Cj4+
-Cj4+ID4+PiA+ID4gaW5pdF9vZl9jYWNoZV9sZXZlbCgpIGNhbGxlZCB3aXRoaW4gaW5pdF9jYWNo
-ZV9sZXZlbCgpIGNhbm5vdAo+Pgo+PiA+Pj4gc3VwcG9ydCBjYWNoZQo+Pgo+PiA+Pj4KPj4KPj4g
-Pj4+ID4gPiBoaWVyYXJjaHkgZGV0ZWN0aW9uIHRocm91Z2ggQUNQSSBQUFRULiBUaGVyZWZvcmUs
-IHdoZW4gCj4+IENPTkZJR19TTVAgaXMKPj4KPj4gPj4+Cj4+Cj4+ID4+PiA+ID4gdW5kZWZpbmVk
-LCB3ZSBkaXJlY3RseSBpbnZva2UgdGhlIGZldGNoX2NhY2hlX2luZm8gZnVuY3Rpb24gdG8KPj4K
-Pj4gPj4+IGluaXRpYWxpemUKPj4KPj4gPj4+Cj4+Cj4+ID4+PiA+ID4gdGhlIGNhY2hlIGxldmVs
-cy4KPj4KPj4gPj4+Cj4+Cj4+ID4+PiA+ID4KPj4KPj4gPj4+Cj4+Cj4+ID4+PiA+ID4gU2lnbmVk
-LW9mZi1ieTogSmVzc2ljYSBMaXUgPGxpdS54dWVtZWkxQHp0ZS5jb20uY24+Cj4+Cj4+ID4+Pgo+
-Pgo+PiA+Pj4gPiA+IC0tLQo+Pgo+PiA+Pj4KPj4KPj4gPj4+ID4gPsKgIMKgYXJjaC9yaXNjdi9r
-ZXJuZWwvY2FjaGVpbmZvLmMgfCA2ICsrKysrLQo+Pgo+PiA+Pj4KPj4KPj4gPj4+ID4gPsKgIMKg
-MSBmaWxlIGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+Pgo+PiA+Pj4K
-Pj4KPj4gPj4+ID4gPgo+Pgo+PiA+Pj4KPj4KPj4gPj4+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9y
-aXNjdi9rZXJuZWwvY2FjaGVpbmZvLmMKPj4KPj4gPj4+IGIvYXJjaC9yaXNjdi9rZXJuZWwvY2Fj
-aGVpbmZvLmMKPj4KPj4gPj4+Cj4+Cj4+ID4+PiA+ID4gaW5kZXggMjZiMDg1ZGJkZDA3Li5mODFj
-YTk2M2QxNzcgMTAwNjQ0Cj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+IC0tLSBhL2FyY2gvcmlzY3Yv
-a2VybmVsL2NhY2hlaW5mby5jCj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+ICsrKyBiL2FyY2gvcmlz
-Y3Yva2VybmVsL2NhY2hlaW5mby5jCj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+IEBAIC03Myw3ICs3
-MywxMSBAQCBzdGF0aWMgdm9pZCBjaV9sZWFmX2luaXQoc3RydWN0IGNhY2hlaW5mbwo+Pgo+PiA+
-Pj4gKnRoaXNfbGVhZiwKPj4KPj4gPj4+Cj4+Cj4+ID4+PiA+ID4KPj4KPj4gPj4+Cj4+Cj4+ID4+
-PiA+ID7CoCDCoGludCBpbml0X2NhY2hlX2xldmVsKHVuc2lnbmVkIGludCBjcHUpCj4+Cj4+ID4+
-Pgo+Pgo+PiA+Pj4gPiA+wqAgwqB7Cj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+IC3CoCDCoCByZXR1
-cm4gaW5pdF9vZl9jYWNoZV9sZXZlbChjcHUpOwo+Pgo+PiA+Pj4KPj4KPj4gPj4+ID4gPiArI2lm
-ZGVmIENPTkZJR19TTVAKPj4KPj4gPj4+Cj4+Cj4+ID4+PiA+ID4gK8KgIMKgIHJldHVybiAwOwo+
-Pgo+PiA+Pj4KPj4KPj4gPj4+ID4gPiArI2VuZGlmCj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+ICsK
-Pj4KPj4gPj4+Cj4+Cj4+ID4+PiA+ID4gK8KgIMKgIHJldHVybiBmZXRjaF9jYWNoZV9pbmZvKGNw
-dSk7Cj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+wqAgwqB9Cj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+
-Cj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiA+wqAgwqBpbnQgcG9wdWxhdGVfY2FjaGVfbGVhdmVzKHVu
-c2lnbmVkIGludCBjcHUpCj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPgo+Pgo+PiA+Pj4KPj4KPj4gPj4+
-ID4KPj4KPj4gPj4+Cj4+Cj4+ID4+PiA+IElzIHRoZSBjdXJyZW50IGJlaGF2aW91ciB3cm9uZyBv
-ciBqdXN0IHJlZHVuZGFudD8gSWYgd3JvbmcsIAo+PiBJJ2xsIGFkZCBhCj4+Cj4+ID4+Pgo+Pgo+
-PiA+Pj4gPiBGaXhlcyB0YWcgdG8gYmFja3BvcnQsIG90aGVyd2lzZSBJIHdvbid0Lgo+Pgo+PiA+
-Pj4KPj4KPj4gPj4+ID4KPj4KPj4gPj4+Cj4+Cj4+ID4+PiA+IFRoYW5rcywKPj4KPj4gPj4+Cj4+
-Cj4+ID4+PiA+Cj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gPiBBbGV4Cj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4K
-Pj4KPj4gPj4+IEhpIEFsZXgsCj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4KPj4KPj4gPj4+IFRoZSBjdXJy
-ZW50IGJlaGF2aW9yIGlzIGFjdHVhbGx5IHdyb25nIHdoZW4gdXNpbmcgQUNQSSBvbiAKPj4gIUNP
-TkZJR19TTVAKPj4KPj4gPj4+Cj4+Cj4+ID4+PiBzeXN0ZW1zLiBUaGUgb3JpZ2luYWwgaW5pdF9v
-Zl9jYWNoZV9sZXZlbCgpIGNhbm5vdCBkZXRlY3QgY2FjaGUKPj4KPj4gPj4+IGhpZXJhcmNoeQo+
-Pgo+PiA+Pj4KPj4KPj4gPj4+IHRocm91Z2ggQUNQSSBQUFRUIHRhYmxlLCB3aGljaCBtZWFucyBj
-YWNoZSBpbmZvcm1hdGlvbiB3b3VsZCBiZSAKPj4gbWlzc2luZwo+Pgo+PiA+Pj4KPj4KPj4gPj4+
-IGluIHRoaXMgY29uZmlndXJhdGlvbi4KPj4KPj4gPj4+Cj4+Cj4+ID4+Pgo+Pgo+PiA+Pj4gVGhl
-IHBhdGNoIGZpeGVzIHRoaXMgYnkgZGlyZWN0bHkgY2FsbGluZyBmZXRjaF9jYWNoZV9pbmZvKCkg
-d2hlbgo+Pgo+PiA+Pj4KPj4KPj4gPj4+IENPTkZJR19TTVAgaXMgdW5kZWZpbmVkLCB3aGljaCBw
-cm9wZXJseSBoYW5kbGVzIGJvdGggRFQgYW5kIEFDUEkgCj4+IGNhc2VzLi4KPj4KPj4gPj4+Cj4+
-Cj4+ID4+Pgo+Pgo+PiA+Pj4gU28geWVzLCBpdCB3b3VsZCBiZSBhcHByb3ByaWF0ZSB0byBhZGQg
-YSBGaXhlcyB0YWcuIFRoZSBjb21taXQgYmVpbmcKPj4KPj4gPj4+Cj4+Cj4+ID4+PiBmaXhlZCBp
-cyAxODQ1ZDM4MWYyODAgKCJyaXNjdjogY2FjaGVpbmZvOiBBZGQgYmFjayAKPj4gaW5pdF9jYWNo
-ZV9sZXZlbCgpCj4+Cj4+ID4+PiBmdW5jdGlvbiIpLgo+Pgo+PiA+Pj4KPj4KPj4gPj4+Cj4+Cj4+
-ID4+PiBQbGVhc2UgbGV0IG1lIGtub3cgaWYgeW91IG5lZWQgYW55IGFkZGl0aW9uYWwgaW5mb3Jt
-YXRpb24uCj4+Cj4+ID4+Pgo+Pgo+PiA+Pgo+Pgo+PiA+PiBJJ20gYWJvdXQgdG8gc2VuZCBteSBm
-aXJzdCBQUiBmb3IgNi4xNyBzbyBJJ2xsIGRlbGF5IG1lcmdpbmcgdGhpcyBvbmUKPj4KPj4gPj4g
-Zm9yIHRoZSBmaXJzdCByYy4KPj4KPj4gPgo+Pgo+PiA+Cj4+Cj4+ID5TbyBJIHRvb2sgdGhlIHRp
-bWUgdGhpcyBtb3JuaW5nIHRvIGxvb2sgaW50byB0aGlzLCBhbmQgSSBkb24ndCByZWFsbHkKPj4K
-Pj4gPmxpa2UgdGhlIGRpZmZlcmVudCB0cmVhdG1lbnQgZm9yIHNtcCwgY2FuJ3Qgd2UganVzdCBt
-b3ZlCj4+Cj4+ID5pbml0X2NwdV90b3BvbG9neSgpIGNhbGwgdG8gc2V0dXBfYXJjaCgpIChvciBl
-bHNlKSBmb3IgYm90aCAhc21wIGFuZCAKPj4gc21wPwo+Pgo+PiA+Cj4+Cj4+ID5UaGFua3MsCj4+
-Cj4+ID4KPj4KPj4gPkFsZXgKPj4KPj4KPj4gVGhhbmsgeW91IGZvciB5b3VyIGZlZWRiYWNrIGFu
-ZCBzdWdnZXN0aW9uLiBJIHVuZGVyc3RhbmQgeW91ciBkZXNpcmUKPj4KPj4gdG8gaGF2ZSBhIHVu
-aWZpZWQgYXBwcm9hY2ggZm9yIGJvdGggU01QIGFuZCAhU01QLiBIb3dldmVyLCBhZnRlcgo+Pgo+
-PiBjYXJlZnVsIGNvbnNpZGVyYXRpb24sIEkgc3RpbGwgYmVsaWV2ZSB0aGF0IGhhbmRsaW5nIHRo
-ZW0gc2VwYXJhdGVseQo+Pgo+PiBpcyB0aGUgbW9yZSBhcHByb3ByaWF0ZSBzb2x1dGlvbi4KPj4K
-Pj4KPj4gVGhlIGN1cnJlbnQgbWV0aG9kIG9mIG9idGFpbmluZyBjYWNoZSBpbmZvcm1hdGlvbiBp
-bgo+Pgo+PiBgaW5pdF9jcHVfdG9wb2xvZ3koKWAgaXMgc3BlY2lmaWMgdG8gUklTQy1WIGFuZCBB
-Uk02NC4gSWYgd2UgbW92ZQo+Pgo+PiBgaW5pdF9jcHVfdG9wb2xvZ3koKWAgdG8gY292ZXIgYm90
-aCBTTVAgYW5kICFTTVAsIGl0IG1heSByZXF1aXJlCj4+Cj4+IG1vZGlmeWluZyB0aGUgZ2VuZXJp
-YyBib290IHNlcXVlbmNlLiBUaGlzIGNvdWxkIGluYWR2ZXJ0ZW50bHkgYWZmZWN0Cj4+Cj4+IG90
-aGVyIGFyY2hpdGVjdHVyZXMgdGhhdCBkbyBub3QgcmVseSBvbiBgaW5pdF9jcHVfdG9wb2xvZ3ko
-KWAgZm9yCj4+Cj4+IGNhY2hlIGluaXRpYWxpemF0aW9uLCBsZWFkaW5nIHRvIHBvdGVudGlhbCBy
-ZWdyZXNzaW9ucyBhbmQgbWFpbnRlbmFuY2UKPj4KPj4gaXNzdWVzLgo+Pgo+Pgo+PiBUaGUgYHNl
-dHVwX2FyY2goKWAgZnVuY3Rpb24gaXMgY2FsbGVkIGVhcmx5IGluIHRoZSBib290IHByb2Nlc3Ms
-Cj4+Cj4+IGFuZCBhdCB0aGlzIHN0YWdlLCB0aGUgQUNQSSBzdWJzeXN0ZW0gaGFzIG5vdCBiZWVu
-IGZ1bGx5IGluaXRpYWxpemVkLgo+Pgo+PiBTcGVjaWZpY2FsbHksIHRoZSBBQ1BJIHRhYmxlcyAo
-aW5jbHVkaW5nIFBQVFQpIGFyZSBub3QgeWV0IHBhcnNlZC4KPj4KPj4gVGhlcmVmb3JlLCBpZiB3
-ZSBjYWxsIGBpbml0X2NwdV90b3BvbG9neSgpYCBmcm9tIGBzZXR1cF9hcmNoKClgLCBpdAo+Pgo+
-PiB3b3VsZCBub3QgYmUgYWJsZSB0byByZXRyaWV2ZSBjYWNoZSBpbmZvcm1hdGlvbiBmcm9tIHRo
-ZSBBQ1BJIFBQVFQgCj4+IHRhYmxlLgo+Pgo+Pgo+PiBJIGhvcGUgdGhpcyBjbGFyaWZpZXMgbXkg
-dHJhaW4gb2YgdGhvdWdodC4gSSdtIG9wZW4gdG8gZnVydGhlciAKPj4gZGlzY3Vzc2lvbiBhbmQK
-Pj4KPj4gYWx0ZXJuYXRpdmUgc3VnZ2VzdGlvbnMgdGhhdCBjYW4gYWRkcmVzcyB0aGUgaXNzdWUg
-cHJvcGVybHkuCj4+Cj4KPiBUbyBtZSBpdCBkb2VzIG5vdCBtYWtlIHNlbnNlIHRvIHJldHJpZXZl
-IHRoZSBjYWNoZSBpbmZvIGF0IDIgZGlmZmVyZW50IAo+IHBvaW50cyBpbiB0aW1lIGlmIHRoZSBz
-eXN0ZW0gaXMgc21wIG9yIG5vdC4gSSBzdGlsbCB0aGluayB3ZSBzaG91bGQgCj4gZmluZCBhIGNv
-bW1vbiBwbGFjZSB3aGVyZSBpbml0X2NwdV90b3BvbG9neSgpIGNhbiBiZSBjYWxsZWQgZm9yIGJv
-dGggCj4gc21wIGFuZCB1cCwgc2V0dXBfYXJjaCgpIGNvdWxkIG5vdCBiZSB0aGUgcmlnaHQgcGxh
-Y2UgZm9yIHRoZSByZWFzb25zIAo+IHlvdSBnYXZlLCBidXQgd2UganVzdCBuZWVkIHRvIGZpbmQg
-dGhlIHJpZ2h0IG9uZSA6KQo+Cj4gVGhhbmtzIGZvciB3b3JraW5nIG9uIHRoaXMsCgoKSSBkb24n
-dCBtZWFuIHRvIHByZXNzdXJlIHlvdSwgSSBrbm93IGl0J3MgdGhlIGVuZCBvZiBzdW1tZXIgYW5k
-IHBlb3BsZSAKYXJlIHN0aWxsIG9uIHZhY2F0aW9ucyBvciBqdXN0IGJhY2sgZnJvbSB2YWNhdGlv
-bi4KCkkganVzdCB3YW50ZWQgdG8ga25vdyBpZiB5b3UgaGFkIHRpbWUgdG8gbG9vayBpbnRvIHdo
-YXQgSSBhc2tlZCBhYm92ZT8KClRoYW5rcywKCkFsZXgKCgo+Cj4gQWxleAo+Cj4KPj4KPj4gQmVz
-dCByZWdhcmRzLAo+Pgo+PiBKZXNzaWNhCj4+Cj4+Cj4+Cj4+Cj4+Cj4+Cj4KPiBfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi all,
+
+With the introduction of the Icicle Kit with the production device
+(MPFS250T) to the market, it's necessary to distinguish it from the
+engineering sample (-es) variant. This is because engineering samples
+cannot write to flash from the MSS, as noted in the PolarFire SoC
+FPGA ES errata.
+
+This series adds a common board DTSI for the Icicle Kit, containing
+hardware shared by both the engineering sample and production
+versions, as well as a DTS for each Icicle Kit variant.
+
+The last two patches add support for the PolarFire SoC Discovery Kit
+board.
+
+Changes since v1:
+ - fix order of properties in mailbox nodes
+ - drop redundant status property from ddrc_cache nodes
+ - fix lowecase hex in reserved memory regions
+
+Thanks,
+Valentina
+
+Valentina Fernandez (5):
+  riscv: dts: microchip: add common board dtsi for icicle kit variants
+  dt-bindings: riscv: microchip: document icicle kit with production
+    device
+  riscv: dts: microchip: add icicle kit with production device
+  dt-bindings: riscv: microchip: document Discovery Kit
+  riscv: dts: microchip: add a device tree for Discovery Kit
+
+ .../devicetree/bindings/riscv/microchip.yaml  |  13 +
+ arch/riscv/boot/dts/microchip/Makefile        |   2 +
+ .../dts/microchip/mpfs-disco-kit-fabric.dtsi  |  58 ++++
+ .../boot/dts/microchip/mpfs-disco-kit.dts     | 190 +++++++++++++
+ .../dts/microchip/mpfs-icicle-kit-common.dtsi | 249 ++++++++++++++++++
+ .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |  23 +-
+ .../dts/microchip/mpfs-icicle-kit-prod.dts    |  23 ++
+ .../boot/dts/microchip/mpfs-icicle-kit.dts    | 244 +----------------
+ 8 files changed, 558 insertions(+), 244 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-disco-kit-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-disco-kit.dts
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
