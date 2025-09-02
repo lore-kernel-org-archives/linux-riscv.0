@@ -4,166 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37770CAC594
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 18:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23823CA101F
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Sep 2025 18:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YfHlKFOpb2G1RnTWw16g+sEBG6yIiIy+Sawusc1lsoA=; b=R/H+YX64QCp18y
-	8+bIP4dkqS9FcSdGP/8iDtBtqDUVfRk0pO1ixVTVAmxk21i/2BwZR9+i4t/q7VXy+pbkpFpFjH7GB
-	OS6Hx8Ljzcz5lAnw9GiuCQ/E9hPCAZ7YwrIz7zMoIu9ix9D4iQlOZ0sgTSzqV0N1aFjy8tYNkRviY
-	oVRoJIhVy63hL5kU5Rtuv361D3Ch+EpsUqVtpTknr7wZF2LyOxn/BXwq3ThX+U/IgIruZvPROiOuk
-	YQHnYMa08UcrBY6RFBVUDDnac27bgb85xl2f5btbjj+QIieKSX5G4A/CJF1FhBQSE3PDyK3oEEJOE
-	Zm7vE6SekQGu6BfZyENQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XXmZvCtTe+azVl0uY1MiKlDaMZhaXl68UTUwL2uVYnk=; b=F+ziqqeVJL1qLm
+	WKrUSnv1qS1l4JXKKKLw5KdLrsbaXfULY4dGdajDaQsmFdcEAd3kmFFS0n0WT+Vc/CPTO4F9w1Nle
+	gwU/pJuh5c+s02AJVmxIE9IsqToiJxMmTbBdyiz4z1awxby0muM24MziTruUVFlPJvr+njBPPob8G
+	Gwr/E5GVq8u78zskpF7lGsESINaT/h+WbZ4KDyte6//UD0hSno0a1doms1BS+ZZHSr1w+qsjVlF0s
+	ic3l7MSVB1K0DAABziXfbVQOfLKr2w9U8+C97qQ3/3HyunO2Mh8XaGn8PqG9colRzoFpFWVKgkf6q
+	Cav/H6DC91I7Ta7mfhLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ux8Jc-0000000Avue-2JVT;
-	Fri, 12 Sep 2025 18:16:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ux8Jc-0000000Avw1-3n6B;
+	Fri, 12 Sep 2025 18:16:09 +0000
+Received: from smtp-out3.simply.com ([94.231.106.210])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut65O-0000000CxgG-2Rox
-	for linux-riscv@lists.infradead.org;
-	Mon, 01 Sep 2025 15:04:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739085;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SbnyxtTKWg5jwngdRmLUxKAOmyXBjry9r+xRsqsuR80=;
-	b=cwXtXgggZoxtu4kD0fTsq40RnaupAL5pPq5yFlxxQhQ8DtiZOgXMOrHoSk/6/KjusR1e3u
-	fw6EmnvSXUWcTafwERwwi0nQLPr1Ehvw8Vq3w2XeLtCGAp+P4SW+urgk3t4hy0u8KMWrZk
-	IxfoZ9U05Uaa7+WvFNdrquv8YM1F4kE=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-368-unA3zFKCN2Gvpj1lbt3JzA-1; Mon,
- 01 Sep 2025 11:04:42 -0400
-X-MC-Unique: unA3zFKCN2Gvpj1lbt3JzA-1
-X-Mimecast-MFC-AGG-ID: unA3zFKCN2Gvpj1lbt3JzA_1756739077
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	id 1utL2a-0000000FeVN-1jyM;
+	Tue, 02 Sep 2025 07:02:54 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by smtp.simply.com (Simply.com) with ESMTP id 4cGGsM6JC5z1DPkm;
+	Tue,  2 Sep 2025 09:02:47 +0200 (CEST)
+Received: from [192.168.0.25] (h-98-128-223-123.NA.cust.bahnhof.se [98.128.223.123])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 871361956096;
-	Mon,  1 Sep 2025 15:04:35 +0000 (UTC)
-Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C99171800447;
-	Mon,  1 Sep 2025 15:04:00 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	John Hubbard <jhubbard@nvidia.com>,
-	Peter Xu <peterx@redhat.com>,
-	Alexander Potapenko <glider@google.com>,
-	Marco Elver <elver@google.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Brendan Jackman <jackmanb@google.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Zi Yan <ziy@nvidia.com>,
-	Dennis Zhou <dennis@kernel.org>,
-	Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@gentwo.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	linux-mmc@vger.kernel.org,
-	linux-arm-kernel@axis.com,
-	linux-scsi@vger.kernel.org,
-	kvm@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	linux-mm@kvack.org,
-	io-uring@vger.kernel.org,
-	iommu@lists.linux.dev,
-	kasan-dev@googlegroups.com,
-	wireguard@lists.zx2c4.com,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Alex Dubov <oakad@yahoo.com>,
-	Alex Williamson <alex.williamson@redhat.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Brett Creeley <brett.creeley@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Airlie <airlied@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Doug Gilbert <dgilbert@interlog.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Lars Persson <lars.persson@axis.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Maxim Levitsky <maximlevitsky@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Niklas Cassel <cassel@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Pavel Begunkov <asml.silence@gmail.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	SeongJae Park <sj@kernel.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Wei Yang <richard.weiyang@gmail.com>,
-	Will Deacon <will@kernel.org>,
-	Yishai Hadas <yishaih@nvidia.com>
-Subject: [PATCH v2 00/37] mm: remove nth_page()
-Date: Mon,  1 Sep 2025 17:03:21 +0200
-Message-ID: <20250901150359.867252-1-david@redhat.com>
+	(Client did not present a certificate)
+	by smtp.simply.com (Simply.com) with ESMTPSA id 4cGGsH2GP0z1FXjK;
+	Tue,  2 Sep 2025 09:02:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gaisler.com;
+	s=simplycom2; t=1756796567;
+	bh=h7e86hl0UV9Yd9fEU7lHS/lq+4/qNkF5NKsTGqMW0Gs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=XV9R3DCgzqtpsDdLU5B6YmrRSDSwOb/e+RN3Y/eiKzfpmARJpEfk4rM3nFZX0bFUT
+	 Cgk+F60Qfnp/lcw23nKISESK50dxfqXIzcv7lABAQzI+QL2HTB89cK9os+EVA7PGjD
+	 2JhF3WzYfsb9MEQHgbmUEpzjWOe7UaJDN1f3QJPTIjlP5MtBhYOcxRaj/x5aIgyAIx
+	 VylpL5fKm3LmJNVO1eTnB/fXzhohsODH/8iwc5vr/F7Q+FJODNFYRjy3a+H0jjVZXA
+	 zhn5kjjNaRe2tU3x5rK51dkv4aqaegmt92utDpWIUQsQcnBLirXe5OB9CcfJT7NVBK
+	 WwxEwsTBW60LQ==
+Message-ID: <f2371539-cd4e-4d70-9576-4bb1c677104c@gaisler.com>
+Date: Tue, 2 Sep 2025 09:02:41 +0200
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] arch: copy_thread: pass clone_flags as u64
+To: schuster.simon@siemens-energy.com, Dinh Nguyen <dinguyen@kernel.org>,
+ Christian Brauner <brauner@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ Kees Cook <kees@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Guo Ren <guoren@kernel.org>,
+ Oleg Nesterov <oleg@redhat.com>, Jens Axboe <axboe@kernel.dk>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>,
+ Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+ =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Paul Moore <paul@paul-moore.com>, Serge Hallyn <sergeh@kernel.org>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
+ Anna-Maria Behnsen <anna-maria@linutronix.de>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Masami Hiramatsu
+ <mhiramat@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ John Johansen <john.johansen@canonical.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ Ondrej Mosnacek <omosnace@redhat.com>,
+ Kentaro Takeda <takedakn@nttdata.co.jp>,
+ Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ cgroups@vger.kernel.org, linux-security-module@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, apparmor@lists.ubuntu.com,
+ selinux@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org
+References: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
+ <20250901-nios2-implement-clone3-v2-3-53fcf5577d57@siemens-energy.com>
+Content-Language: en-US
+From: Andreas Larsson <andreas@gaisler.com>
+In-Reply-To: <20250901-nios2-implement-clone3-v2-3-53fcf5577d57@siemens-energy.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_080446_771762_2A5A0D3E 
-X-CRM114-Status: GOOD (  21.28  )
-X-Mailman-Approved-At: Fri, 12 Sep 2025 11:15:59 -0700
+X-CRM114-CacheID: sfid-20250902_000252_880322_94F57D56 
+X-CRM114-Status: GOOD (  17.78  )
+X-Mailman-Approved-At: Fri, 12 Sep 2025 11:15:58 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,258 +156,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is based on mm-unstable.
+On 2025-09-01 15:09, Simon Schuster via B4 Relay wrote:
+> From: Simon Schuster <schuster.simon@siemens-energy.com>
+> 
+> With the introduction of clone3 in commit 7f192e3cd316 ("fork: add
+> clone3") the effective bit width of clone_flags on all architectures was
+> increased from 32-bit to 64-bit, with a new type of u64 for the flags.
+> However, for most consumers of clone_flags the interface was not
+> changed from the previous type of unsigned long.
+> 
+> While this works fine as long as none of the new 64-bit flag bits
+> (CLONE_CLEAR_SIGHAND and CLONE_INTO_CGROUP) are evaluated, this is still
+> undesirable in terms of the principle of least surprise.
+> 
+> Thus, this commit fixes all relevant interfaces of the copy_thread
+> function that is called from copy_process to consistently pass
+> clone_flags as u64, so that no truncation to 32-bit integers occurs on
+> 32-bit architectures.
+> 
+> Signed-off-by: Simon Schuster <schuster.simon@siemens-energy.com>
+> ---
 
-I will only CC non-MM folks on the cover letter and the respective patch
-to not flood too many inboxes (the lists receive all patches).
+Thanks for this and for the whole series! Needed foundation for a
+sparc32 clone3 implementation as well.
 
---
+>  arch/sparc/kernel/process_32.c   | 2 +-
+>  arch/sparc/kernel/process_64.c   | 2 +-
 
-As discussed recently with Linus, nth_page() is just nasty and we would
-like to remove it.
+Acked-by: Andreas Larsson <andreas@gaisler.com> # sparc
 
-To recap, the reason we currently need nth_page() within a folio is because
-on some kernel configs (SPARSEMEM without SPARSEMEM_VMEMMAP), the
-memmap is allocated per memory section.
-
-While buddy allocations cannot cross memory section boundaries, hugetlb
-and dax folios can.
-
-So crossing a memory section means that "page++" could do the wrong thing.
-Instead, nth_page() on these problematic configs always goes from
-page->pfn, to the go from (++pfn)->page, which is rather nasty.
-
-Likely, many people have no idea when nth_page() is required and when
-it might be dropped.
-
-We refer to such problematic PFN ranges and "non-contiguous pages".
-If we only deal with "contiguous pages", there is not need for nth_page().
-
-Besides that "obvious" folio case, we might end up using nth_page()
-within CMA allocations (again, could span memory sections), and in
-one corner case (kfence) when processing memblock allocations (again,
-could span memory sections).
-
-So let's handle all that, add sanity checks, and remove nth_page().
-
-Patch #1 -> #5   : stop making SPARSEMEM_VMEMMAP user-selectable + cleanups
-Patch #6 -> #13  : disallow folios to have non-contiguous pages
-Patch #14 -> #20 : remove nth_page() usage within folios
-Patch #22        : disallow CMA allocations of non-contiguous pages
-Patch #23 -> #33 : sanity+check + remove nth_page() usage within SG entry
-Patch #34        : sanity-check + remove nth_page() usage in
-                   unpin_user_page_range_dirty_lock()
-Patch #35        : remove nth_page() in kfence
-Patch #36        : adjust stale comment regarding nth_page
-Patch #37        : mm: remove nth_page()
-
-A lot of this is inspired from the discussion at [1] between Linus, Jason
-and me, so cudos to them.
-
-[1] https://lore.kernel.org/all/CAHk-=wiCYfNp4AJLBORU-c7ZyRBUp66W2-Et6cdQ4REx-GyQ_A@mail.gmail.com/T/#u
-
-v1 -> v2:
-* "fs: hugetlbfs: cleanup folio in adjust_range_hwpoison()"
- -> Add comment for loop and remove comment of function regarding
-    copy_page_to_iter().
-* Various smaller patch description tweaks I am not going to list for my
-  sanity
-* "mips: mm: convert __flush_dcache_pages() to
-  __flush_dcache_folio_pages()"
- -> Fix flush_dcache_page()
- -> Drop "extern"
-* "mm/gup: remove record_subpages()"
- -> Added
-* "mm/hugetlb: check for unreasonable folio sizes when registering hstate"
- -> Refine comment
-* "mm/cma: refuse handing out non-contiguous page ranges"
- -> Add comment above loop
-* "mm/page_alloc: reject unreasonable folio/compound page sizes in
-   alloc_contig_range_noprof()"
- -> Added comment above check
-* "mm/gup: drop nth_page() usage in unpin_user_page_range_dirty_lock()"
- -> Refined comment
-
-RFC -> v1:
-* "wireguard: selftests: remove CONFIG_SPARSEMEM_VMEMMAP=y from qemu kernel
-   config"
- -> Mention that it was never really relevant for the test
-* "mm/mm_init: make memmap_init_compound() look more like
-   prep_compound_page()"
- -> Mention the setup of page links
-* "mm: limit folio/compound page sizes in problematic kernel configs"
- -> Improve comment for PUD handling, mentioning hugetlb and dax
-* "mm: simplify folio_page() and folio_page_idx()"
- -> Call variable "n"
-* "mm/hugetlb: cleanup hugetlb_folio_init_tail_vmemmap()"
- -> Keep __init_single_page() and refer to the usage of
-    memblock_reserved_mark_noinit()
-* "fs: hugetlbfs: cleanup folio in adjust_range_hwpoison()"
-* "fs: hugetlbfs: remove nth_page() usage within folio in
-   adjust_range_hwpoison()"
- -> Separate nth_page() removal from cleanups
- -> Further improve cleanups
-* "io_uring/zcrx: remove nth_page() usage within folio"
- -> Keep the io_copy_cache for now and limit to nth_page() removal
-* "mm/gup: drop nth_page() usage within folio when recording subpages"
- -> Cleanup record_subpages as bit
-* "mm/cma: refuse handing out non-contiguous page ranges"
- -> Replace another instance of "pfn_to_page(pfn)" where we already have
-    the page
-* "scatterlist: disallow non-contigous page ranges in a single SG entry"
- -> We have to EXPORT the symbol. I thought about moving it to mm_inline.h,
-    but I really don't want to include that in include/linux/scatterlist.h
-* "ata: libata-eh: drop nth_page() usage within SG entry"
-* "mspro_block: drop nth_page() usage within SG entry"
-* "memstick: drop nth_page() usage within SG entry"
-* "mmc: drop nth_page() usage within SG entry"
- -> Keep PAGE_SHIFT
-* "scsi: scsi_lib: drop nth_page() usage within SG entry"
-* "scsi: sg: drop nth_page() usage within SG entry"
- -> Split patches, Keep PAGE_SHIFT
-* "crypto: remove nth_page() usage within SG entry"
- -> Keep PAGE_SHIFT
-* "kfence: drop nth_page() usage"
- -> Keep modifying i and use "start_pfn" only instead
-
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>
-Cc: Vlastimil Babka <vbabka@suse.cz>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: Suren Baghdasaryan <surenb@google.com>
-Cc: Michal Hocko <mhocko@suse.com>
-Cc: Jens Axboe <axboe@kernel.dk>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Robin Murphy <robin.murphy@arm.com>
-Cc: John Hubbard <jhubbard@nvidia.com>
-Cc: Peter Xu <peterx@redhat.com>
-Cc: Alexander Potapenko <glider@google.com>
-Cc: Marco Elver <elver@google.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>
-Cc: Brendan Jackman <jackmanb@google.com>
-Cc: Johannes Weiner <hannes@cmpxchg.org>
-Cc: Zi Yan <ziy@nvidia.com>
-Cc: Dennis Zhou <dennis@kernel.org>
-Cc: Tejun Heo <tj@kernel.org>
-Cc: Christoph Lameter <cl@gentwo.org>
-Cc: Muchun Song <muchun.song@linux.dev>
-Cc: Oscar Salvador <osalvador@suse.de>
-Cc: x86@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-mips@vger.kernel.org
-Cc: linux-s390@vger.kernel.org
-Cc: linux-crypto@vger.kernel.org
-Cc: linux-ide@vger.kernel.org
-Cc: intel-gfx@lists.freedesktop.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-mmc@vger.kernel.org
-Cc: linux-arm-kernel@axis.com
-Cc: linux-scsi@vger.kernel.org
-Cc: kvm@vger.kernel.org
-Cc: virtualization@lists.linux.dev
-Cc: linux-mm@kvack.org
-Cc: io-uring@vger.kernel.org
-Cc: iommu@lists.linux.dev
-Cc: kasan-dev@googlegroups.com
-Cc: wireguard@lists.zx2c4.com
-Cc: netdev@vger.kernel.org
-Cc: linux-kselftest@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org
-
-David Hildenbrand (37):
-  mm: stop making SPARSEMEM_VMEMMAP user-selectable
-  arm64: Kconfig: drop superfluous "select SPARSEMEM_VMEMMAP"
-  s390/Kconfig: drop superfluous "select SPARSEMEM_VMEMMAP"
-  x86/Kconfig: drop superfluous "select SPARSEMEM_VMEMMAP"
-  wireguard: selftests: remove CONFIG_SPARSEMEM_VMEMMAP=y from qemu
-    kernel config
-  mm/page_alloc: reject unreasonable folio/compound page sizes in
-    alloc_contig_range_noprof()
-  mm/memremap: reject unreasonable folio/compound page sizes in
-    memremap_pages()
-  mm/hugetlb: check for unreasonable folio sizes when registering hstate
-  mm/mm_init: make memmap_init_compound() look more like
-    prep_compound_page()
-  mm: sanity-check maximum folio size in folio_set_order()
-  mm: limit folio/compound page sizes in problematic kernel configs
-  mm: simplify folio_page() and folio_page_idx()
-  mm/hugetlb: cleanup hugetlb_folio_init_tail_vmemmap()
-  mm/mm/percpu-km: drop nth_page() usage within single allocation
-  fs: hugetlbfs: remove nth_page() usage within folio in
-    adjust_range_hwpoison()
-  fs: hugetlbfs: cleanup folio in adjust_range_hwpoison()
-  mm/pagewalk: drop nth_page() usage within folio in folio_walk_start()
-  mm/gup: drop nth_page() usage within folio when recording subpages
-  mm/gup: remove record_subpages()
-  io_uring/zcrx: remove nth_page() usage within folio
-  mips: mm: convert __flush_dcache_pages() to
-    __flush_dcache_folio_pages()
-  mm/cma: refuse handing out non-contiguous page ranges
-  dma-remap: drop nth_page() in dma_common_contiguous_remap()
-  scatterlist: disallow non-contigous page ranges in a single SG entry
-  ata: libata-sff: drop nth_page() usage within SG entry
-  drm/i915/gem: drop nth_page() usage within SG entry
-  mspro_block: drop nth_page() usage within SG entry
-  memstick: drop nth_page() usage within SG entry
-  mmc: drop nth_page() usage within SG entry
-  scsi: scsi_lib: drop nth_page() usage within SG entry
-  scsi: sg: drop nth_page() usage within SG entry
-  vfio/pci: drop nth_page() usage within SG entry
-  crypto: remove nth_page() usage within SG entry
-  mm/gup: drop nth_page() usage in unpin_user_page_range_dirty_lock()
-  kfence: drop nth_page() usage
-  block: update comment of "struct bio_vec" regarding nth_page()
-  mm: remove nth_page()
-
- arch/arm64/Kconfig                            |  1 -
- arch/mips/include/asm/cacheflush.h            | 11 +++--
- arch/mips/mm/cache.c                          |  8 ++--
- arch/s390/Kconfig                             |  1 -
- arch/x86/Kconfig                              |  1 -
- crypto/ahash.c                                |  4 +-
- crypto/scompress.c                            |  8 ++--
- drivers/ata/libata-sff.c                      |  6 +--
- drivers/gpu/drm/i915/gem/i915_gem_pages.c     |  2 +-
- drivers/memstick/core/mspro_block.c           |  3 +-
- drivers/memstick/host/jmb38x_ms.c             |  3 +-
- drivers/memstick/host/tifm_ms.c               |  3 +-
- drivers/mmc/host/tifm_sd.c                    |  4 +-
- drivers/mmc/host/usdhi6rol0.c                 |  4 +-
- drivers/scsi/scsi_lib.c                       |  3 +-
- drivers/scsi/sg.c                             |  3 +-
- drivers/vfio/pci/pds/lm.c                     |  3 +-
- drivers/vfio/pci/virtio/migrate.c             |  3 +-
- fs/hugetlbfs/inode.c                          | 36 +++++---------
- include/crypto/scatterwalk.h                  |  4 +-
- include/linux/bvec.h                          |  7 +--
- include/linux/mm.h                            | 48 +++++++++++++++----
- include/linux/page-flags.h                    |  5 +-
- include/linux/scatterlist.h                   |  3 +-
- io_uring/zcrx.c                               |  4 +-
- kernel/dma/remap.c                            |  2 +-
- mm/Kconfig                                    |  3 +-
- mm/cma.c                                      | 39 +++++++++------
- mm/gup.c                                      | 36 +++++++-------
- mm/hugetlb.c                                  | 22 +++++----
- mm/internal.h                                 |  1 +
- mm/kfence/core.c                              | 12 +++--
- mm/memremap.c                                 |  3 ++
- mm/mm_init.c                                  | 15 +++---
- mm/page_alloc.c                               | 10 +++-
- mm/pagewalk.c                                 |  2 +-
- mm/percpu-km.c                                |  2 +-
- mm/util.c                                     | 36 ++++++++++++++
- tools/testing/scatterlist/linux/mm.h          |  1 -
- .../selftests/wireguard/qemu/kernel.config    |  1 -
- 40 files changed, 217 insertions(+), 146 deletions(-)
-
-
-base-commit: b73c6f2b5712809f5f386780ac46d1d78c31b2e6
--- 
-2.50.1
+Cheers,
+Andreas
 
 
 _______________________________________________
