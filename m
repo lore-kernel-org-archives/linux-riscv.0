@@ -4,99 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147C2CA1010
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Sep 2025 22:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E748CCA1010
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Sep 2025 22:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ix74ueIQmRfu6zxhBJX61DlkOgcY64aN2QV6Qys3SYU=; b=rGO8So/t++nwzA
-	72XrExuhXCNo+oFMcT9xyCmDC3ljymHUvFG7JLH5F/2SYPVst4kuSFMInl3novZTFb0aWUkhlMcC9
-	kiesYrWPQ5HPcukXv3ivCv4K98HrD2rr00o0lM/03zxaDMOCaM8RKXdEK85C0UPDefHFcEpNMOaSa
-	mm1XI+V4TzhslRc65X+WQPgiVuuu/lNxXUsmAM4K70wFHBqRSHZbn3/YlhlRt1zXWa9qwEKvSUOPR
-	g8h5mfP/Gc7XmjKzNiyfePitfyNy0eho2fQ4sRs3HHCnMVLiwD44wnckD6S+AJ0V4SrfV8u4xjxvD
-	RgFkKMlU1kK0snzn/3eg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OjPHuc6wa3pvOeXvL/dlMZnHa8JHvNSY6s/q6X1rVyc=; b=P0CWYjQF+/rHML
+	mP8SVhfA2MJtgOiEyr//UMvpva77lRbBDxYXF8iA/gS6xwnFsfGmXQ92uAiLe5eC0Uf9zPTbUUfb/
+	OQ/uLkY1hDJVLjiKn92UoIEcWmkmwziYmbAbxhPEGgpXGxgrcY5xZFItl5a+i0pGlPye7IPaMlzOJ
+	RKVzL36jMRBJIuLm4mIQqVV+r/QRfCgLMxqfo+bIGKrZ65UmfMGCXU7Wv5s5L1CFctgcF+FZ4q1SQ
+	Ux8S3bY41DAdf2gSf3aMAiWRlfDMrBCzjJBhH58+ZILUG/7OfGb6EFITBjlFCWSJA0u7Dac3mAphx
+	+dTK7126WSPm5AWTBHkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utwFs-00000007p2z-0zN2;
-	Wed, 03 Sep 2025 22:47:04 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1utwIY-00000007pbE-0wDC;
+	Wed, 03 Sep 2025 22:49:50 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utsc2-00000007Mcp-0dzX
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Sep 2025 18:53:43 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-45b7d497ab9so2784845e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Sep 2025 11:53:41 -0700 (PDT)
+	id 1utshi-00000007NTd-33ms;
+	Wed, 03 Sep 2025 18:59:36 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-24456ce0b96so2498285ad.0;
+        Wed, 03 Sep 2025 11:59:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1756925620; x=1757530420; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AquE8JHU3wpKOnx9hZ4dVcOYBLYMLbey8qkeKp2ZqhQ=;
-        b=AQ2fpTIg2+kSYRljeBz1ongxtNc1s0quZczBrpwAp+/bRGLcqhwmKFRurHrtAJRT+D
-         5f0Dyp80eHGkh5cUi07I+z0l0HQxWxlRuwVXpk8Kg/o1mjpRviZI+nXnBPvV4m9smV/g
-         O6KUo4FrDL6BPHYiVhEeNtyE9LhMVECJzsefO0lcO1FA/u/zbkArTrybsYHpQdq1zLM8
-         VAhTTWiMM4eznf5irf1TBfegcaxTUL2As8+J18YnMJHMkaKCQQ0doUNQbZ3epOWEMALM
-         RScsg7jYMkV9ImhwR1a8O2PeGrIKUoM6oEdttn8WNKHWaebhJP3+5oPovEBfDNsbyZph
-         vBww==
+        d=gmail.com; s=20230601; t=1756925974; x=1757530774; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qZy30c40uMQ+C5mAmU5IprjDTVrN2KgzxusGEfWx0IE=;
+        b=jh92BI87VrKXzyWMtAfTheh1SO0RtWUdXQzfKTeVQZpMvqXPsgF1mgjVqxD2lvMajQ
+         8R/GmnjUGWCOinbKmMJShGKg7Xxn+x4Usn44lgk6/1k83OCUr+j5JPw/okPxxFr9brKl
+         pZJo9MGapaTZ6FRg/OHmqQIXgMcS9fWFDcC9Yl7i7dQNiM4w0nuEugEv4PKSn56iZI6O
+         j8HA0Cy19UYLKkRHIpGIow3tl+RWmPcTGMymyOz1mcbQCoIDJzY0ctOFdlOOIUn3qSiW
+         WhZK8GxwyRcr4rcbb14sqmWa9N9ZPSilgzTBf6aLAlGjBiV2mfnUKYKi0wySL8kyyQQY
+         A2vA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756925620; x=1757530420;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AquE8JHU3wpKOnx9hZ4dVcOYBLYMLbey8qkeKp2ZqhQ=;
-        b=FRzosHTYdyYIZXo4stadVDzoTLS5QSm3yQYtQCk3S8IUeXAGxop/wfwIRr9uI3FfdV
-         wK93jXLDAtm+DeLd5jgG0zqwrfgLy5oLXRAzQcnXU29dZGoXa7iqNuVKor28NWlWtHuE
-         QgGXJzL+H85E/eqZHdJM9rMuMNlOgRu4Rfj6gDRvkfLnjo2wgEEuWusXC1nGODx1mC6U
-         KTvEjfG1A48dc+E1dUkS4/8XWke+oQiGg2eBOXFTJj0Dsuu1yoLGXRIYy2i30oaF3Rjb
-         GWj5DmMbpvsy4pVf3GWJ9UqN1XGmYW7hh/b9bT72hxcA1ZyLBN1KROG1M3cdcUXl5z+H
-         gc4Q==
-X-Gm-Message-State: AOJu0YwC1ZC/EC6tyfmVoCDuRfv7XnuclZfZbYpIoXhM/9RrANMO0+OD
-	dSFcJN65O0+UT0qQTCmIibLe20BGufzOrURbv6XxlQ16/bdAS4KHYp0MjVeYXIb90JuR5wIN43i
-	+/nLA
-X-Gm-Gg: ASbGncsACMfmAMlc6jkkd/9sR/GU5FxCnHiUbtMa6uKsTZsizzyuV2s5FrX4wSM0yGR
-	DF0IEJJjw1OWY3B3vYc0UdpEqjEvLr940wRIicHkTFCQnieUOeHiGUvo9o3AFYa1Wlo4fE+Gk+S
-	fc9eM98sPOLN/Bcx8BIbelxgIdhHnYSpvxHK+Ej7nEIJjknCtWsXYLPojer5u3G3Gkw6wZVJsl/
-	3YaaMsraEFKZEcZlCuJ/e9JnA2tKWJuC3NzSiTUlsXn/t8caWcYaE4uboeEMgVUNpnufsJcX8Xb
-	dnnsu5aMPS0crR4FlN7nVpGrZTB5CwUJ8bGKzGKiO8qi8h54hg/IEBlvV0ft8YH2megVvYvk8Wf
-	bvENeNbFcvvvNSoLelMTvJdM8xrPXo3qy9LZQ2ZbJ9Ne0Qi5nDUTJOeHbiiZ/saxe9K0Kimd204
-	a9WY+0
-X-Google-Smtp-Source: AGHT+IERl6smvjSqMpuCaH/LYojC/JM0ih8kKGx0MImSuDXXr6hrLMvQiHu6Ro0U1pMEYuo7OfIbrQ==
-X-Received: by 2002:a05:600c:4f8f:b0:456:f1e:205c with SMTP id 5b1f17b1804b1-45b85550704mr136866395e9.4.1756925620576;
-        Wed, 03 Sep 2025 11:53:40 -0700 (PDT)
-Received: from alexghiti.eu.rivosinc.com (alexghiti.eu.rivosinc.com. [141.95.202.232])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d690f2edf1sm13920647f8f.16.2025.09.03.11.53.40
+        d=1e100.net; s=20230601; t=1756925974; x=1757530774;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qZy30c40uMQ+C5mAmU5IprjDTVrN2KgzxusGEfWx0IE=;
+        b=SHbN2Dia5hYrb85pri5k+ytAiK3+frpST7pW0I/nEWjxgPgvaSuyMOAGHTCZuLe871
+         BM8XcbjOY9ZAGLEBXP2diwSP3dY3ZDaimWFY8fgRmKnkqK9cMB16yUi6SLsx3lcasoHq
+         AHVetniGkGpvAc8Q30eIghS961cwwGxmdJZixu+zZ0KNwrEli8Jlkj1LP2TF9xKLJifp
+         W1BosE+PdIrZa6pIca/UXDu61RB8WsE7nhAsj7mCvsM/rxOaSomuwAx3kZN50aRzK3qV
+         UhM9OeksYmTGOc8Wki+I+Hyam1bgnWKK+xr42SlOGl56/ZYHywgfvm93TPi7Mbqw1OXN
+         Yl0A==
+X-Forwarded-Encrypted: i=1; AJvYcCWxFrV9JKOveRqUQ56h8GUK6d9tDPnGJgqjtFsXlCX92dhOJn9Jv9ah6kNIedYM9Iy8+he6/sthA4VFJnvJapG5@lists.infradead.org, AJvYcCXcgl34SUSDD7flCH7uhiwirEgw7vTElKXi+dPgM4gfUmHi2QK+dUD6IaIb7sDPgCyYjdjVXCCNp2pcr9U=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxej3aAZoBAXcel9QS/NxuJXvbLLkSTKvktcRSBGloHorwpM8g9
+	py4TqVMuVP7+Fdx+fOEeXjvd+AhWyOjX7Si7fnUHtSBNkYLZgTvBQfvN
+X-Gm-Gg: ASbGnctHnKNpwad2dXAPZoY4rUHMsLTkCRGlCedcZDNvA6JRyKW4ynTmIGw2xL86Mnv
+	y9RSRxajqjkYZcwXhY+2//rx0DXH5kMQrQ4pRfAqZc7wvhe6Vu+8LDMJDbydOYYTZTZ08kwxLPI
+	8ZZrngmEZCbkpPsTvomgO6yW+IVpXm0b0IZoDCKPyZC+EbYP0GOvABUzxbmoLJdzGmShVfRQiIx
+	vburShaOK6647T6wfV+g40AFadu8aRHMP1c4I/GcC+5T9oPq0bOOGYW9csRm5eVRJ6VMFVfV40A
+	Di41yiCH71qkUOjhQzgInh0ogQp4bdkIwZZOY/AodS2liU2TDIihtIeSekHZPp1pmvt4klQpmf+
+	cRLo9Pc7/cyJtSwBYGSciqmp7THJvtFhWbc44j/0ryXbgc3acUsQmuA==
+X-Google-Smtp-Source: AGHT+IGc1hOCFlrmhtuYXy2RF4eOcL1ED3xkJpQYquvPOenW1RGNO8PJflQF3KtC2IpnrJ0auNPnsg==
+X-Received: by 2002:a17:902:f642:b0:234:986c:66cf with SMTP id d9443c01a7336-24944ac387bmr203183595ad.16.1756925973872;
+        Wed, 03 Sep 2025 11:59:33 -0700 (PDT)
+Received: from fedora (c-67-164-59-41.hsd1.ca.comcast.net. [67.164.59.41])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-249065ab343sm169403475ad.126.2025.09.03.11.59.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 11:53:40 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Wed, 03 Sep 2025 18:53:08 +0000
-Subject: [PATCH 1/2] riscv: Fix sparse warning in __get_user_error()
+        Wed, 03 Sep 2025 11:59:33 -0700 (PDT)
+From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-block@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Justin Sanders <justin@coraid.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	David Hildenbrand <david@redhat.com>
+Subject: [PATCH v3 0/7] Cleanup free_pages() misuse
+Date: Wed,  3 Sep 2025 11:59:14 -0700
+Message-ID: <20250903185921.1785167-1-vishal.moola@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Message-Id: <20250903-dev-alex-sparse_warnings_v1-v1-1-7e6350beb700@rivosinc.com>
-References: <20250903-dev-alex-sparse_warnings_v1-v1-0-7e6350beb700@rivosinc.com>
-In-Reply-To: <20250903-dev-alex-sparse_warnings_v1-v1-0-7e6350beb700@rivosinc.com>
-To: kernel test robot <lkp@intel.com>, Al Viro <viro@zeniv.linux.org.uk>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Cyril Bur <cyrilbur@tenstorrent.com>, 
- Jisheng Zhang <jszhang@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alexandre Ghiti <alexghiti@rivosinc.com>, stable@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1106;
- i=alexghiti@rivosinc.com; h=from:subject:message-id;
- bh=tb01GjZKeVYDMqeiQU+MbdxDJ+LoCTMzjQNhhcNJEgk=;
- b=owGbwMvMwCGWYr9pz6TW912Mp9WSGDJ29G3SnJAmn34r1vLZRsOeyyGHZpo9PH76uxIva6PxS
- 96P+1d7dJSyMIhxMMiKKbIomCd0tdifrZ/959J7mDmsTCBDGLg4BWAibocZ/kcbd8yp174kdHxF
- 6sf3i4o/3NqR2Hv9xkQ9ebk5od7bdN0Y/gd3lPq5tRpbKH/3+XHc/Xu55pram/3feFas3LDyk63
- JcX4A
-X-Developer-Key: i=alexghiti@rivosinc.com; a=openpgp;
- fpr=DC049C97114ED82152FE79A783E4BA75438E93E3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_115342_303113_3E556B4F 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20250903_115934_803229_9DEEDBB3 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,38 +116,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We used to assign 0 to x without an appropriate cast which results in
-sparse complaining when x is a pointer:
+free_pages() is supposed to be called when we only have a virtual address.
+__free_pages() is supposed to be called when we have a page.
 
->> block/ioctl.c:72:39: sparse: sparse: Using plain integer as NULL pointer
+There are a number of callers that use page_address() to get a page's
+virtual address then call free_pages() on it when they should just call
+__free_pages() directly.
 
-So fix this by casting 0 to the correct type of x.
+Add kernel-docs for free_pages() to help callers better understand which
+function they should be calling, and replace the obvious cases of
+misuse.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202508062321.gHv4kvuY-lkp@intel.com/
-Fixes: f6bff7827a48 ("riscv: uaccess: use 'asm_goto_output' for get_user()")
-Cc: stable@vger.kernel.org
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/include/asm/uaccess.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+-----------------
+Based on mm-new, I intend to have all of these taken through the mm tree.
 
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 22e3f52a763d1c0350e8185225e4c99aac3fc549..551e7490737effb2c238e6a4db50293ece7c9df9 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -209,7 +209,7 @@ do {									\
- 		err = 0;						\
- 		break;							\
- __gu_failed:								\
--		x = 0;							\
-+		x = (__typeof__(x))0;					\
- 		err = -EFAULT;						\
- } while (0)
- 
+I've split the patches into separate subsystems to make it easier to
+resolve conflicts, but there aren't any functional changes.
+
+v3:
+  - Collect some Reviewed-by Tags
+  - Replace remaining free_page() calls in patch 7 (all other patches
+    are unchanged from v2)
+  - Add all appropriate mailing lists that were missing from v2
+
+v2:
+  - Reference __get_free_pages() instead of alloc_pages() in the
+  free_pages() kernel-doc
+  - Get some Reviewed-by tags
+  - cc the subsystem maintainers related to specific patches
+
+Vishal Moola (Oracle) (7):
+  mm/page_alloc: Add kernel-docs for free_pages()
+  aoe: Stop calling page_address() in free_page()
+  x86: Stop calling page_address() in free_pages()
+  riscv: Stop calling page_address() in free_pages()
+  powerpc: Stop calling page_address() in free_pages()
+  arm64: Stop calling page_address() in free_pages()
+  virtio_balloon: Stop calling page_address() in free_pages()
+
+ arch/arm64/mm/mmu.c                      | 2 +-
+ arch/powerpc/mm/book3s64/radix_pgtable.c | 2 +-
+ arch/riscv/mm/init.c                     | 4 ++--
+ arch/x86/mm/init_64.c                    | 2 +-
+ arch/x86/platform/efi/memmap.c           | 2 +-
+ drivers/block/aoe/aoecmd.c               | 2 +-
+ drivers/virtio/virtio_balloon.c          | 8 +++-----
+ mm/page_alloc.c                          | 9 +++++++++
+ 8 files changed, 19 insertions(+), 12 deletions(-)
 
 -- 
-2.34.1
+2.51.0
 
 
 _______________________________________________
