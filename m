@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51387CA1016
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 02:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 203C7CA1018
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 02:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V4pzJcf4vhFPY8J7vuyZmQkVmeNUgyxWm/ZW+5AMqRI=; b=jS4kuoqNduMlSl
-	FP/MJ6hJE1yBhUvnRHJuabmKXQ4em/0cyE7XWbr3MhBS/6qfzG4BnG2dbvjUaJ2OF6Qykswwul577
-	AOsnAzR3gh6X3kyfFX+XG+JzDx7ZhyIYvKVzZMqGf0rKr+NGaDkLy5xl5FJ5iHo1cEQ1Ry3Y/qohr
-	BENo6e8ZXQi6fiXZ4BuF3fYoShwu/Jx59bgyoiE3L8IBfUERtEvF915eW7D708IWHbv75QmEaT/RV
-	nLOa9n/rIHUh4oOSeL+2Z8WB1fh9BpFMHoV292c32K67Ax2YGqpMQFb502oYVgZ/3rTpc33x2xbzj
-	CkO6hsK64cPN1DcHFqvQ==;
+	List-Owner; bh=CoMTEWvsORZdPPyVcnqJu4byqWAPuR6fw/tvDk28avY=; b=W9R7QswxacwkXf
+	0nzS/ANfFbDU9YvqCplonYM72oKhFdAU1kAyy5O1s6DiMRTVUGOu9OjwCtCULX63C/NgjWXHq55oH
+	DoDRCwKCjRxl+KYUaQcqGPy2JUwGZNxslZMZ84IxsTViAbj75tHf/cgbFOQG3oFuZFCMmnYwGu2Js
+	hnG7IV4tzxiITzR2ND2q2wnZJ5wL1F5yu2sZV6fVM3KGDhgtTcPHxhD3DGk8aPTivnXXrASVhkbkK
+	6dVraDTQMe90NzYj/knt9NcA8IxU9B2VlOW7sHH+bxGUhJZB4D27+3xCgfrSvTZOnsC2XxU/TQGgz
+	bz82QUIJUkcUTWAfecdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utzQQ-00000008Dxj-3lrs;
-	Thu, 04 Sep 2025 02:10:10 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1utzQT-00000008E0x-2uFo;
+	Thu, 04 Sep 2025 02:10:13 +0000
+Received: from aposti.net ([185.119.170.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utsht-00000007NbU-2VJp;
-	Wed, 03 Sep 2025 18:59:47 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-248ff68356aso8762985ad.1;
-        Wed, 03 Sep 2025 11:59:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756925985; x=1757530785; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FA6weTM8vdilC/EIGooLzDUuRuJzTtRM53Ib1Pd9QnA=;
-        b=gWFzQBY/5hIJt5Ng3bypy/i7Wueu1i2BiUAQbmkUTFOMnZjAa23thVOx0bXN+aaQyp
-         /cBlzw/iMMmH27Vdt5m2/VY9Y1yiiI1YlsdR9lW9X+T8YWXK6R5cG86Ya0MeKuQCm88V
-         m8+VR/e3Nhr8tGkPVFuuuMCqe+4AnHTscsN2PWsDGX7LNBAGqEMUCn1ncIhFmAyNBhbK
-         yjKNby2qvCFteeys05eP5L4J0lIkOfeFCBFVU3yRHfMs5L+xSz/9d/xZyuRKQ6SM4jKD
-         CDw/4wISq8peIoZAtalSPyyKyI+aXz3dUiJ0v1LYqRir8d0OHRUSnhLScEpWvT+JZwY3
-         3gDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756925985; x=1757530785;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FA6weTM8vdilC/EIGooLzDUuRuJzTtRM53Ib1Pd9QnA=;
-        b=Z86z91YTV0REwgcXT7ZAeX9vYGUAOFpEdgvUVojqQs2XhpQy4oI/jT/52XKduQqJwD
-         12mjl9K4nV8fm/3AQPFPv8Z4Roqs4gkqFxjrtD8T46oU0U0DULG1jkWZO2ntH3SgQvdm
-         iJbtwMpxD5GCgJts72aOLirBAAWg8NKU//aM4wQUkdB6rAcSIDMw02YiouAus0J9SE8h
-         iRV3RgfBPdnNl/VMRnnOSNZmOHcbSWLUaT6uvdc6dgZ+LLK/uPMAkn868afSLtSkxRff
-         mgmZwcc3A96ZtVGVkOKv9KE8/GX6Ic2wdU219Q/VXjlpLF/2ZGCSn6R9Iga07G8nb0wT
-         tLGA==
-X-Forwarded-Encrypted: i=1; AJvYcCVjGcat+84cvphJza9fjxOsLnsiFxCyjR68o+B0G0FVYmsfMaBdoXgzvcAyad4TgLs6iWIIyOgZMW3GlcY=@lists.infradead.org, AJvYcCXzwoZ/ukyDaL3nHgenFgXo8y102OqHHAjYQw7Q9SVqNGtUnB+wmW6GjbVzMGfjgYMp5VuD6y24XweGJGTyd9yv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/BfFGriRM3NILbF27WbHMC+OArTkRD7/crSLXCbRmtMSz5xsO
-	dfrxOv+Z0Qzp6iw95Q2s0adBojsv8+CfmmzDWG/VkazDK7/0MtmAuiR6
-X-Gm-Gg: ASbGncscbjHuSL0eGI6IKtb3UalTyE4Qe9r3iYMMBzjZd2XXD8PHwFNQVnvLSUsoJAm
-	cSHIpUQg7J/8Q0EJfu0bs44GZrsholJZXQpZbTMOKxxHFvejuzRDPyMS1k0jKEbE7l/VyYc6vqz
-	MFdVwgFNEWSJ+g9eBZdbvEt5lSqRiIY68gpMyCOKHUxHULVAB/zfck/LJs/ZoyoLmQ0AB95KR+H
-	7o0ARrg80swp62smrJkErNePXS2aBSDJfM/2lA2UYYISjpSAw3Pa5wF9aur2MGfv7vRptP6x3LQ
-	oCmmfgsv1l9TJr856wM3adVvE/WD2NzXLrnDHBRV2lyd9FxMD/wnoGCwGYX49mW6SZMe5Bn26eh
-	zO5l0dNBB6zHJICqY9/JE3xNFGlZNTCNmERZkIRlrCA9Cb9FBKVRWUpLZ+kWejc3f
-X-Google-Smtp-Source: AGHT+IFoYEL3/2HJDWoKxsFsnkPmdjG5vBre6hTTnok3nMNP8kBMsMcFaEho42lHd4bWFQ52X19GJA==
-X-Received: by 2002:a17:902:d489:b0:240:5bf7:97ac with SMTP id d9443c01a7336-2493ef50b32mr219143675ad.16.1756925984962;
-        Wed, 03 Sep 2025 11:59:44 -0700 (PDT)
-Received: from fedora (c-67-164-59-41.hsd1.ca.comcast.net. [67.164.59.41])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-249065ab343sm169403475ad.126.2025.09.03.11.59.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 11:59:44 -0700 (PDT)
-From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-block@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH v3 6/7] arm64: Stop calling page_address() in free_pages()
-Date: Wed,  3 Sep 2025 11:59:20 -0700
-Message-ID: <20250903185921.1785167-7-vishal.moola@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250903185921.1785167-1-vishal.moola@gmail.com>
-References: <20250903185921.1785167-1-vishal.moola@gmail.com>
+	id 1utt25-00000007RW4-1y71;
+	Wed, 03 Sep 2025 19:20:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
+	s=mail; t=1756927235;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=c+ZgGU/Y7ymCGJS4a8iBSCEwRU68y0Cdd3gwtYGpdv4=;
+	b=Z0xvlH/ECfsC59swm4ATc7moQPplDnhXIzmBF4X35r6pJmnBDDeoU1Ie5Ab1yxhe+1ln8W
+	GcUQb2ZLGdW9NnPudS1kvJ3oXxwi39axE8bJQYRDLCQpq4QuYcwKIMP6MOFv74jzcnlQqN
+	tMc5uO4lOOAAr/7RBg88uyXzuq33+zQ=
+Message-ID: <f19aa842d210bf4cd3d7abf03ea7323f9e52df75.camel@crapouillou.net>
+Subject: Re: [PATCH 024/114] clk: ingenic: x1000-cgu: convert from
+ round_rate() to determine_rate()
+From: Paul Cercueil <paul@crapouillou.net>
+To: bmasney@redhat.com, Michael Turquette <mturquette@baylibre.com>, Stephen
+ Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	sophgo@lists.linux.dev, linux-mips@vger.kernel.org, imx@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, patches@opensource.cirrus.com, 
+	linux-actions@lists.infradead.org, asahi@lists.linux.dev, 
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev
+Date: Wed, 03 Sep 2025 21:20:32 +0200
+In-Reply-To: <20250811-clk-for-stephen-round-rate-v1-24-b3bf97b038dc@redhat.com>
+References: <20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com>
+	 <20250811-clk-for-stephen-round-rate-v1-24-b3bf97b038dc@redhat.com>
+Autocrypt: addr=paul@crapouillou.net; prefer-encrypt=mutual;
+ keydata=mQENBF0KhcEBCADkfmrzdTOp/gFOMQX0QwKE2WgeCJiHPWkpEuPH81/HB2dpjPZNW03ZM
+ LQfECbbaEkdbN4YnPfXgcc1uBe5mwOAPV1MBlaZcEt4M67iYQwSNrP7maPS3IaQJ18ES8JJ5Uf5Uz
+ FZaUawgH+oipYGW+v31cX6L3k+dGsPRM0Pyo0sQt52fsopNPZ9iag0iY7dGNuKenaEqkYNjwEgTtN
+ z8dt6s3hMpHIKZFL3OhAGi88wF/21isv0zkF4J0wlf9gYUTEEY3Eulx80PTVqGIcHZzfavlWIdzhe
+ +rxHTDGVwseR2Y1WjgFGQ2F+vXetAB8NEeygXee+i9nY5qt9c07m8mzjABEBAAG0JFBhdWwgQ2VyY
+ 3VlaWwgPHBhdWxAY3JhcG91aWxsb3UubmV0PokBTgQTAQoAOBYhBNdHYd8OeCBwpMuVxnPua9InSr
+ 1BBQJdCoXBAhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEHPua9InSr1BgvIH/0kLyrI3V0f
+ 33a6D3BJwc1grbygPVYGuC5l5eMnAI+rDmLR19E2yvibRpgUc87NmPEQPpbbtAZt8On/2WZoE5OIP
+ dlId/AHNpdgAtGXo0ZX4LGeVPjxjdkbrKVHxbcdcnY+zzaFglpbVSvp76pxqgVg8PgxkAAeeJV+ET
+ 4t0823Gz2HzCL/6JZhvKAEtHVulOWoBh368SYdolp1TSfORWmHzvQiCCCA+j0cMkYVGzIQzEQhX7U
+ rf9N/nhU5/SGLFEi9DcBfXoGzhyQyLXflhJtKm3XGB1K/pPulbKaPcKAl6rIDWPuFpHkSbmZ9r4KF
+ lBwgAhlGy6nqP7O3u7q23hRU=
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_115945_634663_BAA984F1 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250903_122037_672439_B9B8E006 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,38 +83,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-free_pages() should be used when we only have a virtual address. We
-should call __free_pages() directly on our page instead.
-
-Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
----
- arch/arm64/mm/mmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 34e5d78af076..e14a75d0dbd3 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -843,7 +843,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
- 		vmem_altmap_free(altmap, size >> PAGE_SHIFT);
- 	} else {
- 		WARN_ON(PageReserved(page));
--		free_pages((unsigned long)page_address(page), get_order(size));
-+		__free_pages(page, get_order(size));
- 	}
- }
- 
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TGUgbHVuZGkgMTEgYW/Du3QgMjAyNSDDoCAxMToxOCAtMDQwMCwgQnJpYW4gTWFzbmV5IHZpYSBC
+NCBSZWxheSBhCsOpY3JpdMKgOgo+IEZyb206IEJyaWFuIE1hc25leSA8Ym1hc25leUByZWRoYXQu
+Y29tPgo+IAo+IFRoZSByb3VuZF9yYXRlKCkgY2xrIG9wcyBpcyBkZXByZWNhdGVkLCBzbyBtaWdy
+YXRlIHRoaXMgZHJpdmVyIGZyb20KPiByb3VuZF9yYXRlKCkgdG8gZGV0ZXJtaW5lX3JhdGUoKSB1
+c2luZyB0aGUgQ29jY2luZWxsZSBzZW1hbnRpYyBwYXRjaAo+IG9uIHRoZSBjb3ZlciBsZXR0ZXIg
+b2YgdGhpcyBzZXJpZXMuCj4gCj4gU2lnbmVkLW9mZi1ieTogQnJpYW4gTWFzbmV5IDxibWFzbmV5
+QHJlZGhhdC5jb20+CgpSZXZpZXdlZC1ieTogUGF1bCBDZXJjdWVpbCA8cGF1bEBjcmFwb3VpbGxv
+dS5uZXQ+CgpDaGVlcnMsCi1QYXVsCgo+IC0tLQo+IMKgZHJpdmVycy9jbGsvaW5nZW5pYy94MTAw
+MC1jZ3UuYyB8IDE5ICsrKysrKysrKystLS0tLS0tLS0KPiDCoDEgZmlsZSBjaGFuZ2VkLCAxMCBp
+bnNlcnRpb25zKCspLCA5IGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Ns
+ay9pbmdlbmljL3gxMDAwLWNndS5jCj4gYi9kcml2ZXJzL2Nsay9pbmdlbmljL3gxMDAwLWNndS5j
+Cj4gaW5kZXgKPiBmZWIwM2VlZDRmZThjOGY2MTdlZjk4MjU0YTUyMmQ3MmQ0NTJhYzE3Li5kODA4
+ODZjYWYzOTMzMDlhMGM5MDhjMDZmYjUKPiBhYThiNTlhY2VkMTI3IDEwMDY0NAo+IC0tLSBhL2Ry
+aXZlcnMvY2xrL2luZ2VuaWMveDEwMDAtY2d1LmMKPiArKysgYi9kcml2ZXJzL2Nsay9pbmdlbmlj
+L3gxMDAwLWNndS5jCj4gQEAgLTg0LDE2ICs4NCwxNyBAQCBzdGF0aWMgdW5zaWduZWQgbG9uZwo+
+IHgxMDAwX290Z19waHlfcmVjYWxjX3JhdGUoc3RydWN0IGNsa19odyAqaHcsCj4gwqAJcmV0dXJu
+IHBhcmVudF9yYXRlOwo+IMKgfQo+IMKgCj4gLXN0YXRpYyBsb25nIHgxMDAwX290Z19waHlfcm91
+bmRfcmF0ZShzdHJ1Y3QgY2xrX2h3ICpodywgdW5zaWduZWQKPiBsb25nIHJlcV9yYXRlLAo+IC0J
+CQkJwqDCoMKgwqDCoCB1bnNpZ25lZCBsb25nICpwYXJlbnRfcmF0ZSkKPiArc3RhdGljIGludCB4
+MTAwMF9vdGdfcGh5X2RldGVybWluZV9yYXRlKHN0cnVjdCBjbGtfaHcgKmh3LAo+ICsJCQkJCXN0
+cnVjdCBjbGtfcmF0ZV9yZXF1ZXN0Cj4gKnJlcSkKPiDCoHsKPiAtCWlmIChyZXFfcmF0ZSA8IDE4
+MDAwMDAwKQo+IC0JCXJldHVybiAxMjAwMDAwMDsKPiAtCj4gLQlpZiAocmVxX3JhdGUgPCAzNjAw
+MDAwMCkKPiAtCQlyZXR1cm4gMjQwMDAwMDA7Cj4gKwlpZiAocmVxLT5yYXRlIDwgMTgwMDAwMDAp
+Cj4gKwkJcmVxLT5yYXRlID0gMTIwMDAwMDA7Cj4gKwllbHNlIGlmIChyZXEtPnJhdGUgPCAzNjAw
+MDAwMCkKPiArCQlyZXEtPnJhdGUgPSAyNDAwMDAwMDsKPiArCWVsc2UKPiArCQlyZXEtPnJhdGUg
+PSA0ODAwMDAwMDsKPiDCoAo+IC0JcmV0dXJuIDQ4MDAwMDAwOwo+ICsJcmV0dXJuIDA7Cj4gwqB9
+Cj4gwqAKPiDCoHN0YXRpYyBpbnQgeDEwMDBfb3RnX3BoeV9zZXRfcmF0ZShzdHJ1Y3QgY2xrX2h3
+ICpodywgdW5zaWduZWQgbG9uZwo+IHJlcV9yYXRlLAo+IEBAIC0xNjEsNyArMTYyLDcgQEAgc3Rh
+dGljIGludCB4MTAwMF91c2JfcGh5X2lzX2VuYWJsZWQoc3RydWN0IGNsa19odwo+ICpodykKPiDC
+oAo+IMKgc3RhdGljIGNvbnN0IHN0cnVjdCBjbGtfb3BzIHgxMDAwX290Z19waHlfb3BzID0gewo+
+IMKgCS5yZWNhbGNfcmF0ZSA9IHgxMDAwX290Z19waHlfcmVjYWxjX3JhdGUsCj4gLQkucm91bmRf
+cmF0ZSA9IHgxMDAwX290Z19waHlfcm91bmRfcmF0ZSwKPiArCS5kZXRlcm1pbmVfcmF0ZSA9IHgx
+MDAwX290Z19waHlfZGV0ZXJtaW5lX3JhdGUsCj4gwqAJLnNldF9yYXRlID0geDEwMDBfb3RnX3Bo
+eV9zZXRfcmF0ZSwKPiDCoAo+IMKgCS5lbmFibGUJCT0geDEwMDBfdXNiX3BoeV9lbmFibGUsCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
