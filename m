@@ -4,102 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83608CA1015
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 02:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51387CA1016
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Sep 2025 02:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xMTG4dGVUyWrI3/RjfsozzxGHYqwjD9/GDeBwt4v90s=; b=V1ha2ZZvU+Nwwi
-	6hpHqdKN/5CwvtFhcbRa8o2nq9ZDrib/HBgGLRBzCd7SeEnVy1lASDfAJCO/pB0f+cFabHYAgA3w9
-	luVl/c2Sx9enFw18oHIvUE7d4xSNW4XssXo1HEKA64Az40zGkkyV7kZ/a0Ck0xSAAxIFrNS4LIy7k
-	9UxVzYMln3cpnGURJjh4zf0q7fcsy5VmRcg7cw+SbYzE96IydS6jg1nqibsDiCBpdQ/E8oZNGqm+E
-	xceH3mIPnVI3Yqy+XQmr3+fgniDEx3BAOtrNXzp06r9Oaz75z4ZSdHmhlG7AKkf4rREZr8OhrCJn/
-	D142y3Jj78y64rqnaa6w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=V4pzJcf4vhFPY8J7vuyZmQkVmeNUgyxWm/ZW+5AMqRI=; b=jS4kuoqNduMlSl
+	FP/MJ6hJE1yBhUvnRHJuabmKXQ4em/0cyE7XWbr3MhBS/6qfzG4BnG2dbvjUaJ2OF6Qykswwul577
+	AOsnAzR3gh6X3kyfFX+XG+JzDx7ZhyIYvKVzZMqGf0rKr+NGaDkLy5xl5FJ5iHo1cEQ1Ry3Y/qohr
+	BENo6e8ZXQi6fiXZ4BuF3fYoShwu/Jx59bgyoiE3L8IBfUERtEvF915eW7D708IWHbv75QmEaT/RV
+	nLOa9n/rIHUh4oOSeL+2Z8WB1fh9BpFMHoV292c32K67Ax2YGqpMQFb502oYVgZ/3rTpc33x2xbzj
+	CkO6hsK64cPN1DcHFqvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utzQK-00000008DrW-1zYW;
-	Thu, 04 Sep 2025 02:10:04 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1utzQQ-00000008Dxj-3lrs;
+	Thu, 04 Sep 2025 02:10:10 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uttZN-00000007UwQ-0tqV
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Sep 2025 19:55:02 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45cb6428c46so909935e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Sep 2025 12:55:00 -0700 (PDT)
+	id 1utsht-00000007NbU-2VJp;
+	Wed, 03 Sep 2025 18:59:47 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-248ff68356aso8762985ad.1;
+        Wed, 03 Sep 2025 11:59:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1756929298; x=1757534098; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WemNBSJgvSeExxk4SwgXWO6xPmX/LP/uVncZJ5kxq9E=;
-        b=ZG30pz6bNCGbtudII/w52gSa3AujmXUtEaMV3+XJY1kLYwE+o/cIwjdXRtbpbJTJ3M
-         Viqi0koBL00IUh1BkCODwvdlkSS/UuhGpdH7Uh+OfjzovLeyrB6omxuJ+FPhPwiItFt4
-         k8LWGus+NEMd7Z3wpc7G5FwMLsVgWt84Wa1Aw3eBFswyHy6tR4UDQED4MYLpYsdi43MD
-         dwQR21Md9rVKZv0mKra7rvUzxQLucJ/yHEku1kQKQNNdegp+9GsFj9j/u0dyXMOmygHW
-         et4vBsi+JrWZUrmdUuRidOvIAeeB0Y6bi1C7xJAUK0cFWtFzSJZeW1p0by+h8bCmWUGx
-         VrLw==
+        d=gmail.com; s=20230601; t=1756925985; x=1757530785; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FA6weTM8vdilC/EIGooLzDUuRuJzTtRM53Ib1Pd9QnA=;
+        b=gWFzQBY/5hIJt5Ng3bypy/i7Wueu1i2BiUAQbmkUTFOMnZjAa23thVOx0bXN+aaQyp
+         /cBlzw/iMMmH27Vdt5m2/VY9Y1yiiI1YlsdR9lW9X+T8YWXK6R5cG86Ya0MeKuQCm88V
+         m8+VR/e3Nhr8tGkPVFuuuMCqe+4AnHTscsN2PWsDGX7LNBAGqEMUCn1ncIhFmAyNBhbK
+         yjKNby2qvCFteeys05eP5L4J0lIkOfeFCBFVU3yRHfMs5L+xSz/9d/xZyuRKQ6SM4jKD
+         CDw/4wISq8peIoZAtalSPyyKyI+aXz3dUiJ0v1LYqRir8d0OHRUSnhLScEpWvT+JZwY3
+         3gDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756929298; x=1757534098;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WemNBSJgvSeExxk4SwgXWO6xPmX/LP/uVncZJ5kxq9E=;
-        b=ck/0vxFSLYip0LNYKgdOBqYcEcIJkQL/U34Z2HZmRBuUl/zBE+KwVZu0kNbHJBmmj3
-         +0zOqSD1xrnFy5LMs5P6mE/iWaWE57Decycm1zTNcHsKDSx7tsijmbQwLEGvrIWXpvC5
-         7bO31Jhv0mlu9JlTptmFwrsa9NQCjaNn1oZNRtIcW4oROB1TahDY2Q7UbUJseh9OF7hx
-         dh/dGOlZmNXy3eERkOWx8gCwr/VGH3I2ogBsjm4ScizvLRb/jgwraR9eRnQAdMthPFvl
-         1vccDC2Uc6tG0En6BOVduyi+Uifk56soeGho0cFiNGapM/+SW6442G5pHhUXWkCjHahL
-         z/UA==
-X-Forwarded-Encrypted: i=1; AJvYcCXErV1SMEH0HYhIwVDRtEhrz0YdAffFek8zrS1U5YTPC9uUZ3RFNcy1qqgxhIyRQ6ZQRF+ZNJ013N5vrQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1HMUHyV3AQGCz7eqEmkZEZzEjMVgRbP7u/8Iq0Qc16wnNq6lg
-	QXa0T3Aw6YugavdlXSEyepvFaYoTKW0qgHJYdi9LSiLTfkwb9HNXz4DEEs8gY0dfd2w=
-X-Gm-Gg: ASbGncv1pu3HnHgQYqUR3gqVGXQP40UQlM43z1T1fPzOzw6ESDT7I7SclTlgaPyRoRy
-	s9rbQsQ0BvxFaIQyBg8JRywTHRl/bSejVB4+CxTbuiuT6dV1HuEHqNRJDxE6pGzu2IDTvgpSs7v
-	o8I6rqmv+sKGRGULUtAtRwyoEPbpDwcsMJw+iLEer+aVUDGQovpJQzM2MsNh7p9aHDyWMDVxhpM
-	wFFtBCqJFWXrYFa1iSgrErzRh/cX6fz/Yif3Vb6++q/PxFOmE9wyM4WGwwMDPHVYgQEDXxoCoYS
-	acgE3vGgBurVDm1rlNKv6kosmcIj7oXlSTxKCE99fc15nHN23IyeQ+YVBynDDObQ9NiqNs+sCPu
-	9NX2mnUh7tGVRbTAYGyMQTeCnW/p05hS+EytoQt5H2SBJkp7fz4bYLLk7As4RvgbtwbXtBPeeE3
-	KM3Tlg
-X-Google-Smtp-Source: AGHT+IFJLqX9lWt48uvYEkJALLRR5ugjPDz4Bm8zdqTvK5mO3zXyFw6a/hUpgKW7TWri5+ZASWKjNQ==
-X-Received: by 2002:a05:600c:3153:b0:458:bda4:43df with SMTP id 5b1f17b1804b1-45b85570996mr172993485e9.17.1756929298246;
-        Wed, 03 Sep 2025 12:54:58 -0700 (PDT)
-Received: from alexghiti.eu.rivosinc.com (alexghiti.eu.rivosinc.com. [141.95.202.232])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d95df59e50sm9504812f8f.23.2025.09.03.12.54.57
+        d=1e100.net; s=20230601; t=1756925985; x=1757530785;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FA6weTM8vdilC/EIGooLzDUuRuJzTtRM53Ib1Pd9QnA=;
+        b=Z86z91YTV0REwgcXT7ZAeX9vYGUAOFpEdgvUVojqQs2XhpQy4oI/jT/52XKduQqJwD
+         12mjl9K4nV8fm/3AQPFPv8Z4Roqs4gkqFxjrtD8T46oU0U0DULG1jkWZO2ntH3SgQvdm
+         iJbtwMpxD5GCgJts72aOLirBAAWg8NKU//aM4wQUkdB6rAcSIDMw02YiouAus0J9SE8h
+         iRV3RgfBPdnNl/VMRnnOSNZmOHcbSWLUaT6uvdc6dgZ+LLK/uPMAkn868afSLtSkxRff
+         mgmZwcc3A96ZtVGVkOKv9KE8/GX6Ic2wdU219Q/VXjlpLF/2ZGCSn6R9Iga07G8nb0wT
+         tLGA==
+X-Forwarded-Encrypted: i=1; AJvYcCVjGcat+84cvphJza9fjxOsLnsiFxCyjR68o+B0G0FVYmsfMaBdoXgzvcAyad4TgLs6iWIIyOgZMW3GlcY=@lists.infradead.org, AJvYcCXzwoZ/ukyDaL3nHgenFgXo8y102OqHHAjYQw7Q9SVqNGtUnB+wmW6GjbVzMGfjgYMp5VuD6y24XweGJGTyd9yv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/BfFGriRM3NILbF27WbHMC+OArTkRD7/crSLXCbRmtMSz5xsO
+	dfrxOv+Z0Qzp6iw95Q2s0adBojsv8+CfmmzDWG/VkazDK7/0MtmAuiR6
+X-Gm-Gg: ASbGncscbjHuSL0eGI6IKtb3UalTyE4Qe9r3iYMMBzjZd2XXD8PHwFNQVnvLSUsoJAm
+	cSHIpUQg7J/8Q0EJfu0bs44GZrsholJZXQpZbTMOKxxHFvejuzRDPyMS1k0jKEbE7l/VyYc6vqz
+	MFdVwgFNEWSJ+g9eBZdbvEt5lSqRiIY68gpMyCOKHUxHULVAB/zfck/LJs/ZoyoLmQ0AB95KR+H
+	7o0ARrg80swp62smrJkErNePXS2aBSDJfM/2lA2UYYISjpSAw3Pa5wF9aur2MGfv7vRptP6x3LQ
+	oCmmfgsv1l9TJr856wM3adVvE/WD2NzXLrnDHBRV2lyd9FxMD/wnoGCwGYX49mW6SZMe5Bn26eh
+	zO5l0dNBB6zHJICqY9/JE3xNFGlZNTCNmERZkIRlrCA9Cb9FBKVRWUpLZ+kWejc3f
+X-Google-Smtp-Source: AGHT+IFoYEL3/2HJDWoKxsFsnkPmdjG5vBre6hTTnok3nMNP8kBMsMcFaEho42lHd4bWFQ52X19GJA==
+X-Received: by 2002:a17:902:d489:b0:240:5bf7:97ac with SMTP id d9443c01a7336-2493ef50b32mr219143675ad.16.1756925984962;
+        Wed, 03 Sep 2025 11:59:44 -0700 (PDT)
+Received: from fedora (c-67-164-59-41.hsd1.ca.comcast.net. [67.164.59.41])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-249065ab343sm169403475ad.126.2025.09.03.11.59.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 12:54:57 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Wed, 03 Sep 2025 19:54:29 +0000
-Subject: [PATCH RFC] riscv: Do not handle break traps from kernel as nmi
+        Wed, 03 Sep 2025 11:59:44 -0700 (PDT)
+From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-block@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v3 6/7] arm64: Stop calling page_address() in free_pages()
+Date: Wed,  3 Sep 2025 11:59:20 -0700
+Message-ID: <20250903185921.1785167-7-vishal.moola@gmail.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250903185921.1785167-1-vishal.moola@gmail.com>
+References: <20250903185921.1785167-1-vishal.moola@gmail.com>
 MIME-Version: 1.0
-Message-Id: <20250903-dev-alex-break_nmi_v1-v1-1-4a3d81c29598@rivosinc.com>
-X-B4-Tracking: v=1; b=H4sIAPScuGgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDSwNj3ZTUMt3EnNQK3aSi1MTs+LzczPgyQ11T82RTYyPDNONUCwMloN6
- CotS0zAqwudFKQW7OSrG1tQDR4C8EbAAAAA==
-X-Change-ID: 20250903-dev-alex-break_nmi_v1-57c5321f3e80
-To: Peter Zijlstra <peterz@infradead.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Guo Ren <guoren@kernel.org>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Alexandre Ghiti <alexghiti@rivosinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1916;
- i=alexghiti@rivosinc.com; h=from:subject:message-id;
- bh=ep2ByU6Sp3PUGleU/SkPJKB1vnJZEKwUxxPzvfc2zHY=;
- b=owGbwMvMwCGWYr9pz6TW912Mp9WSGDJ2zOUQju2NeZLt/efBtlSDKNmvc3VLoqScb2v/XMt29
- an+IY39HaUsDGIcDLJiiiwK5gldLfZn62f/ufQeZg4rE8gQBi5OAZhItxPD/zq+v5/fzr6bXrSu
- ZMPx6vftCVu/bNnvsdBf8ceyozc26KUx/M99/HGOKsOcDa2nZq0prmblyUi9l8nxo1j6aJNWYvK
- bZi4A
-X-Developer-Key: i=alexghiti@rivosinc.com; a=openpgp;
- fpr=DC049C97114ED82152FE79A783E4BA75438E93E3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_125501_313106_BBD41355 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20250903_115945_634663_BAA984F1 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,55 +107,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kprobe has been broken on riscv for quite some time. There is an attempt
-[1] to fix that which actually works. This patch works because it enables
-ARCH_HAVE_NMI_SAFE_CMPXCHG and that makes the ring buffer allocation
-succeed when handling a kprobe because we handle *all* kprobes in nmi
-context. We do so because Peter advised us to treat all kernel traps as
-nmi [2].
+free_pages() should be used when we only have a virtual address. We
+should call __free_pages() directly on our page instead.
 
-But that does not seem right for kprobe handling, so instead, treat
-break traps from kernel as non-nmi.
-
-Link: https://lore.kernel.org/linux-riscv/20250711090443.1688404-1-pulehui@huaweicloud.com/ [1]
-Link: https://lore.kernel.org/linux-riscv/20250422094419.GC14170@noisy.programming.kicks-ass.net/ [2]
-Fixes: f0bddf50586d ("riscv: entry: Convert to generic entry")
-Cc: stable@vger.kernel.org
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 ---
-This is clearly an RFC and this is likely not the right way to go, it is
-just a way to trigger a discussion about if handling kprobes in an nmi 
-context is the right way or not.
----
- arch/riscv/kernel/traps.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/mm/mmu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 80230de167def3c33db5bc190347ec5f87dbb6e3..90f36bb9b12d4ba0db0f084f87899156e3c7dc6f 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -315,11 +315,11 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
- 		local_irq_disable();
- 		irqentry_exit_to_user_mode(regs);
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 34e5d78af076..e14a75d0dbd3 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -843,7 +843,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+ 		vmem_altmap_free(altmap, size >> PAGE_SHIFT);
  	} else {
--		irqentry_state_t state = irqentry_nmi_enter(regs);
-+		irqentry_state_t state = irqentry_enter(regs);
- 
- 		handle_break(regs);
- 
--		irqentry_nmi_exit(regs, state);
-+		irqentry_exit(regs, state);
+ 		WARN_ON(PageReserved(page));
+-		free_pages((unsigned long)page_address(page), get_order(size));
++		__free_pages(page, get_order(size));
  	}
  }
  
-
----
-base-commit: ae9a687664d965b13eeab276111b2f97dd02e090
-change-id: 20250903-dev-alex-break_nmi_v1-57c5321f3e80
-
-Best regards,
 -- 
-Alexandre Ghiti <alexghiti@rivosinc.com>
+2.51.0
 
 
 _______________________________________________
