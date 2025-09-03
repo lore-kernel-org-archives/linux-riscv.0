@@ -4,100 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3821CCA1012
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Sep 2025 22:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E57CA1012
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Sep 2025 22:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:MIME-Version:
-	Date:Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SpDGVaBqyaF8s4mfBiQZeVtWLngK3QHRhtV77UHWcSk=; b=fSDmk9fav2dYmmL5WRqLltOgB8
-	BDwutdRyGBlEaePXvihwHbJ1Cw0FTw/WtK2b3foxMqbOyQ9VBuXYfdQTgHOFYxn+vW3wf4hBb6bJd
-	13x2wI11cxRHx7rb4SyY0TJAMd2AHVcRXjBcQGJy4gG/aFLLlM22fBr2Y9pkBSNytWui++jCA2LUS
-	DeZRnjCxhoOLm0xEYzxL1HXN3/JTzfg5B+OtNISNPLKWl+sE2kFQdBMhOJ8/EdPoZWyqM/stjosPm
-	QRzI2lK2B+J7r63JQEtYvHiWhetJPTyhE7GNGJJQXhcrSS0mAml+b1ADluc38AimWb+jSKfaOgwuo
-	NLY933sg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EYLNw/z9lpyMaY5p6bkamA36GxiGJvD/TGpkUGuERns=; b=yzrtbV3lL5rL5F
+	Ie5gWOWiaX3ybsZnYfnolQ0Jcx+y8o8KVUCPW+8UVN86neUS5VaWPjgF7AtyMuBTgsHJIJzum5YIV
+	rjF5HpNX69ciZ6a7K4NBDO58xNSQovGQja2czwTC1NxZfxiEpsaTQK/7HY+KQ/yJfUU8t9GPVcdyU
+	rUTErkrbbWVhU2RMNqCOFVsvgvtwnxCuUeV7fP5loH2DsrsR8iTKOYURf++BarHjDz7opgd74qGlr
+	b3LD8vzCdljMgPNF/H+MbLGuTEJfYZI3VoTX265DYUVCVkMtlWMa8KUWuzzlIt91zGTColOWkzZUF
+	GYwNvanrLYHkhFmlSIxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utwFr-00000007p2n-0DEQ;
+	id 1utwFr-00000007p2u-2dQF;
 	Wed, 03 Sep 2025 22:47:03 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utsau-00000007MMj-1X8Z
+	id 1utsc2-00000007McY-0SrS
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Sep 2025 18:52:33 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e9d5e41c670so318014276.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Sep 2025 11:52:32 -0700 (PDT)
+	Wed, 03 Sep 2025 18:53:43 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3ce4ed7a73fso165833f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Sep 2025 11:53:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756925551; x=1757530351; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=R45Z6oHkqk9vLqGO1gKSQohHaDkoJML+nxrSOmhsoQo=;
-        b=jtR5QblBaOU6A+0g5YhOYX2T50xicCPV7WFVVCXEgH0Q7XtaHnP9QkG1T0Lyk7DnOh
-         xggK7gzl30JdzeM8VZ+vi5xvYCoSdyqz6lTGEu+FMWmg9+xXxIaSKNXbfjvXR4xLezQ5
-         F/iu048Z//96FvrMZSxanslKD6A3US+fK0X7QnfbUiNRw3UAnPshlF72ng9YZ1s3fXN3
-         wCVjWQlx0vnMzk8g3BO4ovJ+rN28SP2yRBD7WRTYvnMr1mH/Pkgrw8JLiHCkPgYsBMFA
-         Oys3Yn2i+UdqKk6dP5Jxk6LikSFa3M+Mb+oGJtDZqT6jP4wQxV6eZWg2lLSL/mRB71C2
-         NNZw==
+        d=rivosinc.com; s=google; t=1756925620; x=1757530420; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dY74Q/u3Ru6+r/HyEqSFai1CTbjcPGijqxMV611+B5w=;
+        b=eiHqPH7EywG3a6j3am5ZbLGYDYwcKNvrBlE4CayrSv37FfJwdqpIMXmkH1wXYkl5Fq
+         DklMiusFhAnA+gtFHcvXmo+vPiriIzODrBpukjIvYb8TDyEyvhKDTGWZEL7n5WbEuPMl
+         R+dY0tRbjFS6EQ/ai5zRwfKx3h2IQQaSBsC5hait0DQcLdF4smERMLB69z+TMdoMlRF/
+         Uj/MqCAEZpDJhRCNi4P40LpmNuZjWfx0n9r9xDj1RSD0T9W6j7PlSL5qZKtmD8ymsX4x
+         uZZAexGLw5coa35hse7QjUcMH67mVtqZ6w/Zle/oMbFaJF7Knj55FjxTWleaEKBipbzF
+         S17Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756925551; x=1757530351;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=R45Z6oHkqk9vLqGO1gKSQohHaDkoJML+nxrSOmhsoQo=;
-        b=LUyAYjMybt8NrsI1DJXrufy7ETCks83Be4+ORHUAsYIrm8hmCj6A/QHy3yahRCcSCD
-         2jJDihkTLDH9ZrPcfUB/5sDqMkuYBG8lgalb+FVxOXBm4nW33QtWsB6a7k2uyP42/pyH
-         IiVx7AS7Eiaq9NYauQVrLuPsJ+juxdkpPCNjWhsDjackYlLtzJI/IVNQcKppn2YQkm1e
-         izAzQI0aT9/dyPraGa6kZWJTZlOWTVPBwOTbhC6x4dI+rLCSMj8/0pShdgiA1bnVAw16
-         TdyUklwBwcHfsWG5ecfGgXmnlYsu1NcM0hG98tBVCKnnTQ+CKn55HtyLp8aOwEzZ47D+
-         wfTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVhjD8uJp7CX4H1VixK8/F8nyTnF0efS+8/nCuWpClKpfEyh3fM1wDblombdVyJOdWi8ZipkR3UpgeDDg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyegQCTfZEA2bFf1Sirc6Cs/0JzKcLwPIlUIhIP3mFPGsLQXzgr
-	adHVQHTz8uGVDvbkvo2NEsULi6XsXqtI2Gwo5YxEBy8TSguk3X1vdIvR
-X-Gm-Gg: ASbGncueXFNBGd7hGbUp0fZy3t1oQQ8iQ2vHcNgiaTQvKJfBabFti2IwIxtH/XDCVPe
-	/r3uHAlXGw+8y3CHdaRov+py+7SG9trgYa0bGt847xMgOFylIyzkmZUkHihSFAG5CbL3zMIZqjX
-	/3QHXloHJ6mr5L4HygdGioiRr46NeBCasZnD+MPSWpFh5PL9B9EPVhW9j8FZtpd/GQlkTM/DTVv
-	E66Gq6b6B1D8mcum48i6mH2GbpzH5XEeB8K0anv0x3T5VbqgUUbNTH3IuD4s6SpHPPvBuLqz+6D
-	NTkLttPcKKjiYl8qBO/YiS2Tm7guzgRI7xxIXk+No/GWquyGXApWDQ5TJedzgLg4Fu6y/XU0CCU
-	3q5fLT9LzeIUN5Mszj4ej6jZwDe4R+W3cmsRs/QcACusai538npUFDdOsH4obSGAtmEw3lgP+OQ
-	==
-X-Google-Smtp-Source: AGHT+IGGJ3lccUdFjxKgtxsg6hLk40u6IHOHPrfODmWKQdLrprwqhBbQ6G7wrrbEZrD2Pm6WCLN69w==
-X-Received: by 2002:a25:ba88:0:b0:e93:2d7c:96f2 with SMTP id 3f1490d57ef6-e98a5827ccbmr15628917276.24.1756925550645;
-        Wed, 03 Sep 2025 11:52:30 -0700 (PDT)
-Received: from [192.168.1.209] (74.211.99.176.16clouds.com. [74.211.99.176])
-        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e9bbe05debbsm1669701276.21.2025.09.03.11.52.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Sep 2025 11:52:30 -0700 (PDT)
-From: Asuna <spriteovo@gmail.com>
-X-Google-Original-From: Asuna <SpriteOvO@gmail.com>
-Message-ID: <9de3673c-3b1c-4838-a5fe-e8877a1c3ace@gmail.com>
-Date: Thu, 4 Sep 2025 02:52:24 +0800
+        d=1e100.net; s=20230601; t=1756925620; x=1757530420;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dY74Q/u3Ru6+r/HyEqSFai1CTbjcPGijqxMV611+B5w=;
+        b=P0h/SkpqCBCwpVmIc2RqHyEClHbfGqf63bQbUCygiuPVfPYEzrZjnkuCHVERtUadBx
+         PzLGaRqAZK2411fxDiQhGD/ZEsaGpkeiaMDe56v2MK/5vdaog+qqDPksD34X9Kkp2nA4
+         3m8cGDpphig1nqUsPKqHhVmPcNW3xcclQ6Vl4AgMiwG+LVzBS1h9MHLgvQbNRCv3RtTG
+         aIJO3ZxdfFz+9FhKDGuJiNLMyjQ+nvW2yO91K6W53cvFIThHcwg+5kydsUCvAJCwlPYe
+         E46KAuEm42w+lMNExMzT/jaeeKsc4S48bPYvBoYl7CXD4/Mb6DKQR0MFo9Lkfs44n1ZX
+         bQFg==
+X-Gm-Message-State: AOJu0Yy9a+ETMM1w9fBBauFON/HMmcOxD9Fl2Q7/mX8I5koHlBO1bCbb
+	zRvL0dVic+cWgv8GJp3SAtKnT9Kzdw6cYqxS303jPjYjtKL3sBTHMUrbzHDT7Y5cv0s=
+X-Gm-Gg: ASbGncu0Eh+ZTIvCzAbqFy3zsa6H+YRhQpZIwpuCgK//ceEQkX7eebHpBl1/FpcEtuj
+	mmvrl/V1LNz7CGO8oF00A3loiHz4fM3yGQfxFArYJaf/r7TRbac5IddcXJP8f/kuko3Rm3iy5MO
+	9X0EfhPFDdPzdbyB7rZNghofZgjJVh8ACMSosRSZnPorTlWaqzaJ9+dr68yZ9GmnKBc0w1pmJVO
+	GIP26PiztgmwrBKWpGgWTMO+5ZU2tlXaWPp/ap3IP+WbsVUYMUIb9aLIKLxiqBad47xtD3S4j26
+	Sj+npv04qllI3w+usLrGJ1/Oc2NrWk5EEspJ6+qkN1wbzvtgMRZojg7imRK/UWd1uJIpLbnwu14
+	P+tdA9mb6eh/Cmsm1uZXtpG0jggUrapuXaS1hDFvi/mvp5NhEewZF9OLy1s7qJZzvhVJRMdrpdw
+	bFCjUB
+X-Google-Smtp-Source: AGHT+IF8a0A0l2XFuegks2zhsw3pv5dzYkgXtxgGCif7IKK2HfLokVKOJojcWFNnAOtt5tRuZbv6XA==
+X-Received: by 2002:a05:6000:2c0e:b0:3e0:3a67:b361 with SMTP id ffacd0b85a97d-3e03a67b52dmr664526f8f.42.1756925619939;
+        Wed, 03 Sep 2025 11:53:39 -0700 (PDT)
+Received: from alexghiti.eu.rivosinc.com (alexghiti.eu.rivosinc.com. [141.95.202.232])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d690f2edf1sm13920647f8f.16.2025.09.03.11.53.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Sep 2025 11:53:39 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH 0/2] Fix riscv sparse warnings
+Date: Wed, 03 Sep 2025 18:53:07 +0000
+Message-Id: <20250903-dev-alex-sparse_warnings_v1-v1-0-7e6350beb700@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: RISC-V: Re-enable GCC+Rust builds
-To: Conor Dooley <conor@kernel.org>
-Cc: Jason Montleon <jmontleo@redhat.com>, Miguel Ojeda <ojeda@kernel.org>,
- Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <68496eed-b5a4-4739-8d84-dcc428a08e20@gmail.com>
- <20250830-cheesy-prone-ee5fae406c22@spud>
- <20250901-lasso-kabob-de32b8fcede8@spud>
- <b1734c45-42ec-46c7-9d4c-2677044aacab@gmail.com>
- <20250901-unseemly-blimp-a74e3c77e780@spud>
-Content-Language: en-US
-In-Reply-To: <20250901-unseemly-blimp-a74e3c77e780@spud>
+X-B4-Tracking: v=1; b=H4sIAJOOuGgC/x3MQQqDQAwF0KtI1g2MTruoVylFUudrAzKVBKaCe
+ HcHl2/zdnKYwqlvdjIUdf3livbW0PiVPIM1VVMXukd4hsgJhWXBxr6KOYa/WNY8+1Baxvi5S4x
+ RppSoDqth0u3aX+/jOAHjxIWWbQAAAA==
+X-Change-ID: 20250903-dev-alex-sparse_warnings_v1-ecb4a333afdd
+To: kernel test robot <lkp@intel.com>, Al Viro <viro@zeniv.linux.org.uk>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Cyril Bur <cyrilbur@tenstorrent.com>, 
+ Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Alexandre Ghiti <alexghiti@rivosinc.com>, stable@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=554; i=alexghiti@rivosinc.com;
+ h=from:subject:message-id; bh=pxMPTepE/BoV6j6uiZYi/9vKVoScEgdWT2VjiTnZE+k=;
+ b=owGbwMvMwCGWYr9pz6TW912Mp9WSGDJ29K2SvbPoyTSBe8LrL58UOm4tx17NMX95TNS2E9Msn
+ 8btk7yr11HKwiDGwSArpsiiYJ7Q1WJ/tn72n0vvYeawMoEMYeDiFICJ7HzNyHDwbGbwq6C87MyT
+ HNcbHkbm5Xg4lM/w2uwv9nbqyi6G50KMDNPXR897KrR9yalubrF5cmq3H3zmNVoSbLO26H/pI93
+ NYkwA
+X-Developer-Key: i=alexghiti@rivosinc.com; a=openpgp;
+ fpr=DC049C97114ED82152FE79A783E4BA75438E93E3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_115232_410646_8B0CEEFF 
-X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-CacheID: sfid-20250903_115342_302894_D133CE9F 
+X-CRM114-Status: UNSURE (   6.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,29 +108,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-(I apologize if anyone gets this email twice, the first time I 
-mistakenly sent it as HTML and it was rejected by mailing lists)
+This series simply fixes 2 recently introduced sparse warnings.
 
-> Similarly, something like -Wno-unterminated-string-initialization could
-> cause a problem if gcc supports it but not libclang.
-And the -Wno-unterminated-string-initialization is not supposed to be a 
-problem either, today I noticed that in rust/Makefile there is:
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+Alexandre Ghiti (2):
+      riscv: Fix sparse warning in __get_user_error()
+      riscv: Fix sparse warning about different address spaces
 
-    # All warnings are inhibited since GCC builds are very experimental,
-    # many GCC warnings are not supported by Clang, they may only appear in
-    # some configurations, with new GCC versions, etc.
-    bindgen_extra_c_flags = -w --target=$(BINDGEN_TARGET)
+ arch/riscv/include/asm/uaccess.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+---
+base-commit: ae9a687664d965b13eeab276111b2f97dd02e090
+change-id: 20250903-dev-alex-sparse_warnings_v1-ecb4a333afdd
 
-The -w flag inhibits all warnings, even though Clang may not recognize 
-it. I was not able to reproduce any errors related to this.
+Best regards,
+-- 
+Alexandre Ghiti <alexghiti@rivosinc.com>
 
-I have a patch ready and will send it later. Please let me know if I'm 
-missing something there. Thanks.
 
 _______________________________________________
 linux-riscv mailing list
