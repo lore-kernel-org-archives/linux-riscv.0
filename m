@@ -4,94 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61918CA1014
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Sep 2025 19:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3821CCA1012
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Sep 2025 22:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bX3iqwppfyko5GyFN2QB1/2hvxNorkf0vrs969ulvKU=; b=rZ6lpf/2Vi1ruK
-	aGPn27nCCoC8K79VMLeuZ5yVDCfz3yBvD7cnY/j64Nx43ibVuOqGGIiHrbunvFbVXl9aP7PzBF4rT
-	X1iDlTNrPDAzgeyqLAnggjkr8p09bMpgIYaOi3AUt18h7z1e+EweVp1M81JN0LZzP9wf5xuoKh0ml
-	O1pmUG9A2Sp5ZjY6D0ufNvGBb29RULY/9Bl3huY2B5auXhcp9IdGs0MzWCagvnugSwx+U/TLqJthy
-	pBmzIb8ovXGL/qjdVPY2pFHwblEqY3/9o2yjj8NXbDDK9UvAyerUXyWgVYuTKTv8b46t4tlD0Vg1H
-	k8+gYYJVGSOJ8/6AiQfA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:MIME-Version:
+	Date:Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SpDGVaBqyaF8s4mfBiQZeVtWLngK3QHRhtV77UHWcSk=; b=fSDmk9fav2dYmmL5WRqLltOgB8
+	BDwutdRyGBlEaePXvihwHbJ1Cw0FTw/WtK2b3foxMqbOyQ9VBuXYfdQTgHOFYxn+vW3wf4hBb6bJd
+	13x2wI11cxRHx7rb4SyY0TJAMd2AHVcRXjBcQGJy4gG/aFLLlM22fBr2Y9pkBSNytWui++jCA2LUS
+	DeZRnjCxhoOLm0xEYzxL1HXN3/JTzfg5B+OtNISNPLKWl+sE2kFQdBMhOJ8/EdPoZWyqM/stjosPm
+	QRzI2lK2B+J7r63JQEtYvHiWhetJPTyhE7GNGJJQXhcrSS0mAml+b1ADluc38AimWb+jSKfaOgwuo
+	NLY933sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uttZ6-00000007UdJ-1Vok;
-	Wed, 03 Sep 2025 19:54:44 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1utwFr-00000007p2n-0DEQ;
+	Wed, 03 Sep 2025 22:47:03 +0000
+Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utosK-00000006o27-17Wf
+	id 1utsau-00000007MMj-1X8Z
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Sep 2025 14:54:17 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3d19699240dso716596f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Sep 2025 07:54:15 -0700 (PDT)
+	Wed, 03 Sep 2025 18:52:33 +0000
+Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e9d5e41c670so318014276.0
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Sep 2025 11:52:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=hammernet-be.20230601.gappssmtp.com; s=20230601; t=1756911254; x=1757516054; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KfRoqQl7bTrgAdolwwez1LaewcASB4l+oYGwiyVhGj4=;
-        b=yNqt6cEeNvOOu3a8jOR+4pO5b3D8GHpfW3+f5uDzyotdVx/fU2GjLnkEDM0egiwNXD
-         /0dukwDSWpO4PCEpBD3Yrxk1oXKPKDHUCstTLew1VDyqeNxFxhsVeHiz434orOrShQZQ
-         ARqeq4R648vi1Ki9YiBy4J+ITeR9pRXASHWMeWnvRRY9YzEit9Z4VUrEMLq5K/IyG+4m
-         li7FLrRjLvBcxmObVSu00jVtDTY9TPmgjDo4DRtJrivc48dVzpN38ie5gSpiF6jVj21O
-         /GJaa4cEDi4nd/Eh0MXiKijO6qOx8Cx5vHrN3F14ia9Ao2tEHscK80diuPJ95RUU4Bhl
-         UAdw==
+        d=gmail.com; s=20230601; t=1756925551; x=1757530351; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=R45Z6oHkqk9vLqGO1gKSQohHaDkoJML+nxrSOmhsoQo=;
+        b=jtR5QblBaOU6A+0g5YhOYX2T50xicCPV7WFVVCXEgH0Q7XtaHnP9QkG1T0Lyk7DnOh
+         xggK7gzl30JdzeM8VZ+vi5xvYCoSdyqz6lTGEu+FMWmg9+xXxIaSKNXbfjvXR4xLezQ5
+         F/iu048Z//96FvrMZSxanslKD6A3US+fK0X7QnfbUiNRw3UAnPshlF72ng9YZ1s3fXN3
+         wCVjWQlx0vnMzk8g3BO4ovJ+rN28SP2yRBD7WRTYvnMr1mH/Pkgrw8JLiHCkPgYsBMFA
+         Oys3Yn2i+UdqKk6dP5Jxk6LikSFa3M+Mb+oGJtDZqT6jP4wQxV6eZWg2lLSL/mRB71C2
+         NNZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756911254; x=1757516054;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KfRoqQl7bTrgAdolwwez1LaewcASB4l+oYGwiyVhGj4=;
-        b=gZqqfL8ZUHRnIu6SAocxqsEFgvVZYwGajaxXCbN7/PnX2VQtViaCEuzzbMd3byfPdY
-         Ml+v40HwY7eGEzkNV58qVd5KOpjjV33vEKU5W8Gxg9tWTYexIhlaDkEZ+VZMQpyHmefc
-         Xxn1wPR6DZApxe2j/nGM32GFixY1QI+oq+lCPM5+EGSL8+t3cQyp30RcUpZEJxdQUnm6
-         Lh+laYFc+VpomGtf3Wrx0r3DUHE8Z5lhGoNQhMWcONVTDrH0P+/3om+E+Nx7t/Nzdu7S
-         TQEpJSBt4Ps5trGJ5Xc1+nw9hPHd585/fZsA16hZmgzlPH2Jt5sie0RSJTSWBQmv5VkP
-         C1xQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUkm9bbzG3t95TdoutIwxT1qxtAgCPSJAlKZe6+MCPKMjDu5PI9kYM2V83e/WlVU25miAYKUH/kxtLOwg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlyDK08UuswDhN4smut1thtEDxzthiSl2eDpQEgKuaiw2mI9MT
-	5ZDiZDL9EX1nAEoUr2uXIVgkT/YxdnhBRyCuC9OorYBP0f0t92+iVQJQkriyd9CbSiw=
-X-Gm-Gg: ASbGncsaoOwa8dfhlEbJC/ZDne2Jf31jeSSwUfYLwZyl1Y50HiRBymYMzYd68yfKG0/
-	jOYjUyt42BvxsCnYOf8CxXruHP5Vk6gWif2q6lvYahMzmxPaRvGZwE5/w3fc5lgkHaS+S7Xi+Jh
-	ybZmawEsG5xjeAwr1QshV44Ucc8hnbvDlKJ5kp1TvIjw12ei4Tu4rW5op6LB13sqxVtRUYT6j69
-	e3g/+KY3Rt9mYUTYS4ztHzA8qPlmsrk3gkW88aEQx3/Ab9uGRNnIPwFUxKvX7iJvXmb56/sf/2k
-	1sAJy1VxwE2BJKHH41PufouoqnRuDY5qc5D9oFgUgCW0kqb0l9eveMKlgl4hlSV0qN0QOkBjscw
-	S9TsulVs+XO2NOdYNyMlk0ZqtWWn4ZoFWCcpX5SRAZ0P7q4CL39Ujt6FWyYMLlreuP+lnuw==
-X-Google-Smtp-Source: AGHT+IFKlUEKzOojQldM0O3QUhp1WqFQrJMW4YyIwO+SE1fmwBD/U9KH7gat3RRaNFqT/jHFuMp31A==
-X-Received: by 2002:a05:6000:1ac8:b0:3c7:244:a4be with SMTP id ffacd0b85a97d-3d1dd04e24bmr13949477f8f.10.1756911254206;
-        Wed, 03 Sep 2025 07:54:14 -0700 (PDT)
-Received: from pop-os.telenet.be ([2a02:1807:2a00:3400:7e45:593:64fd:6612])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3dc1cd4a7d2sm4087175f8f.33.2025.09.03.07.54.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 07:54:13 -0700 (PDT)
-From: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-To: dlan@gentoo.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: skhan@linuxfoundation.org,
-	linux-kernel-mentees@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
-Subject: [PATCH] riscv: dts: spacemit: add UART pinctrl combinations
-Date: Wed,  3 Sep 2025 16:53:34 +0200
-Message-ID: <20250903145334.425633-1-hendrik.hamerlinck@hammernet.be>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20230601; t=1756925551; x=1757530351;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=R45Z6oHkqk9vLqGO1gKSQohHaDkoJML+nxrSOmhsoQo=;
+        b=LUyAYjMybt8NrsI1DJXrufy7ETCks83Be4+ORHUAsYIrm8hmCj6A/QHy3yahRCcSCD
+         2jJDihkTLDH9ZrPcfUB/5sDqMkuYBG8lgalb+FVxOXBm4nW33QtWsB6a7k2uyP42/pyH
+         IiVx7AS7Eiaq9NYauQVrLuPsJ+juxdkpPCNjWhsDjackYlLtzJI/IVNQcKppn2YQkm1e
+         izAzQI0aT9/dyPraGa6kZWJTZlOWTVPBwOTbhC6x4dI+rLCSMj8/0pShdgiA1bnVAw16
+         TdyUklwBwcHfsWG5ecfGgXmnlYsu1NcM0hG98tBVCKnnTQ+CKn55HtyLp8aOwEzZ47D+
+         wfTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVhjD8uJp7CX4H1VixK8/F8nyTnF0efS+8/nCuWpClKpfEyh3fM1wDblombdVyJOdWi8ZipkR3UpgeDDg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyegQCTfZEA2bFf1Sirc6Cs/0JzKcLwPIlUIhIP3mFPGsLQXzgr
+	adHVQHTz8uGVDvbkvo2NEsULi6XsXqtI2Gwo5YxEBy8TSguk3X1vdIvR
+X-Gm-Gg: ASbGncueXFNBGd7hGbUp0fZy3t1oQQ8iQ2vHcNgiaTQvKJfBabFti2IwIxtH/XDCVPe
+	/r3uHAlXGw+8y3CHdaRov+py+7SG9trgYa0bGt847xMgOFylIyzkmZUkHihSFAG5CbL3zMIZqjX
+	/3QHXloHJ6mr5L4HygdGioiRr46NeBCasZnD+MPSWpFh5PL9B9EPVhW9j8FZtpd/GQlkTM/DTVv
+	E66Gq6b6B1D8mcum48i6mH2GbpzH5XEeB8K0anv0x3T5VbqgUUbNTH3IuD4s6SpHPPvBuLqz+6D
+	NTkLttPcKKjiYl8qBO/YiS2Tm7guzgRI7xxIXk+No/GWquyGXApWDQ5TJedzgLg4Fu6y/XU0CCU
+	3q5fLT9LzeIUN5Mszj4ej6jZwDe4R+W3cmsRs/QcACusai538npUFDdOsH4obSGAtmEw3lgP+OQ
+	==
+X-Google-Smtp-Source: AGHT+IGGJ3lccUdFjxKgtxsg6hLk40u6IHOHPrfODmWKQdLrprwqhBbQ6G7wrrbEZrD2Pm6WCLN69w==
+X-Received: by 2002:a25:ba88:0:b0:e93:2d7c:96f2 with SMTP id 3f1490d57ef6-e98a5827ccbmr15628917276.24.1756925550645;
+        Wed, 03 Sep 2025 11:52:30 -0700 (PDT)
+Received: from [192.168.1.209] (74.211.99.176.16clouds.com. [74.211.99.176])
+        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e9bbe05debbsm1669701276.21.2025.09.03.11.52.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 Sep 2025 11:52:30 -0700 (PDT)
+From: Asuna <spriteovo@gmail.com>
+X-Google-Original-From: Asuna <SpriteOvO@gmail.com>
+Message-ID: <9de3673c-3b1c-4838-a5fe-e8877a1c3ace@gmail.com>
+Date: Thu, 4 Sep 2025 02:52:24 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: RISC-V: Re-enable GCC+Rust builds
+To: Conor Dooley <conor@kernel.org>
+Cc: Jason Montleon <jmontleo@redhat.com>, Miguel Ojeda <ojeda@kernel.org>,
+ Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, rust-for-linux@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <68496eed-b5a4-4739-8d84-dcc428a08e20@gmail.com>
+ <20250830-cheesy-prone-ee5fae406c22@spud>
+ <20250901-lasso-kabob-de32b8fcede8@spud>
+ <b1734c45-42ec-46c7-9d4c-2677044aacab@gmail.com>
+ <20250901-unseemly-blimp-a74e3c77e780@spud>
+Content-Language: en-US
+In-Reply-To: <20250901-unseemly-blimp-a74e3c77e780@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_075416_435792_E9501D9F 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20250903_115232_410646_8B0CEEFF 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,372 +110,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds UART pinctrl configurations based on the SoC datasheet and the
-downstream Bianbu Linux tree. The drive strength values were taken from
-the downstream implementation, which uses medium drive strength.
+(I apologize if anyone gets this email twice, the first time I 
+mistakenly sent it as HTML and it was rejected by mailing lists)
 
-For convenience, the board DTS files have been updated to include all
-UART instances with their possible pinmux options in a disabled state.
+> Similarly, something like -Wno-unterminated-string-initialization could
+> cause a problem if gcc supports it but not libclang.
+And the -Wno-unterminated-string-initialization is not supposed to be a 
+problem either, today I noticed that in rust/Makefile there is:
 
-Tested this locally on both Orange Pi RV2 and Banana Pi BPI-F3 boards. 
+    # All warnings are inhibited since GCC builds are very experimental,
+    # many GCC warnings are not supported by Clang, they may only appear in
+    # some configurations, with new GCC versions, etc.
+    bindgen_extra_c_flags = -w --target=$(BINDGEN_TARGET)
 
-Signed-off-by: Hendrik Hamerlinck <hendrik.hamerlinck@hammernet.be>
----
- .../boot/dts/spacemit/k1-bananapi-f3.dts      |  18 ++
- .../boot/dts/spacemit/k1-orangepi-rv2.dts     |  18 ++
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  | 276 +++++++++++++++++-
- 3 files changed, 309 insertions(+), 3 deletions(-)
+The -w flag inhibits all warnings, even though Clang may not recognize 
+it. I was not able to reproduce any errors related to this.
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 6013be258542..661d47d1ce9e 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -49,3 +49,21 @@ &uart0 {
- 	pinctrl-0 = <&uart0_2_cfg>;
- 	status = "okay";
- };
-+
-+&uart5 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart5_3_cfg>;
-+	status = "disabled";
-+};
-+
-+&uart8 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart8_2_cfg>;
-+	status = "disabled";
-+};
-+
-+&uart9 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart9_2_cfg>;
-+	status = "disabled";
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-index 337240ebb7b7..dc45b75b1ad4 100644
---- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-@@ -38,3 +38,21 @@ &uart0 {
- 	pinctrl-0 = <&uart0_2_cfg>;
- 	status = "okay";
- };
-+
-+&uart5 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart5_3_cfg>;
-+	status = "disabled";
-+};
-+
-+&uart8 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart8_2_cfg>;
-+	status = "disabled";
-+};
-+
-+&uart9 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart9_2_cfg>;
-+	status = "disabled";
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-index 381055737422..43425530b5bf 100644
---- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-@@ -11,12 +11,282 @@
- #define K1_GPIO(x)	(x / 32) (x % 32)
- 
- &pinctrl {
-+	uart0_0_cfg: uart0-0-cfg {
-+		uart0-0-pins {
-+			pinmux = <K1_PADCONF(104, 3)>,	/* uart0_txd */
-+				 <K1_PADCONF(105, 3)>;	/* uart0_rxd */
-+			power-source = <3300>;
-+			bias-pull-up;
-+			drive-strength = <19>;
-+		};
-+	};
-+
-+	uart0_1_cfg: uart0-1-cfg {
-+		uart0-1-pins {
-+			pinmux = <K1_PADCONF(108, 1)>,	/* uart0_txd */
-+				 <K1_PADCONF(80, 3)>;	/* uart0_rxd */
-+			power-source = <3300>;
-+			bias-pull-up;
-+			drive-strength = <19>;
-+		};
-+	};
-+
- 	uart0_2_cfg: uart0-2-cfg {
- 		uart0-2-pins {
--			pinmux = <K1_PADCONF(68, 2)>,
--				 <K1_PADCONF(69, 2)>;
-+			pinmux = <K1_PADCONF(68, 2)>,	/* uart0_txd */
-+				 <K1_PADCONF(69, 2)>;	/* uart0_rxd */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
- 
--			bias-pull-up = <0>;
-+	uart2_0_cfg: uart2-0-cfg {
-+		uart2-0-pins {
-+			pinmux = <K1_PADCONF(21, 1)>,	/* uart2_txd */
-+				 <K1_PADCONF(22, 1)>,	/* uart2_rxd */
-+				 <K1_PADCONF(23, 1)>,	/* uart2_cts */
-+				 <K1_PADCONF(24, 1)>;	/* uart2_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart3_0_cfg: uart3-0-cfg {
-+		uart3-0-pins {
-+			pinmux = <K1_PADCONF(81, 2)>,	/* uart3_txd */
-+				 <K1_PADCONF(82, 2)>,	/* uart3_rxd */
-+				 <K1_PADCONF(83, 2)>,	/* uart3_cts */
-+				 <K1_PADCONF(84, 2)>;	/* uart3_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart3_1_cfg: uart3-1-cfg {
-+		uart3-1-pins {
-+			pinmux = <K1_PADCONF(18, 2)>,	/* uart3_txd */
-+				 <K1_PADCONF(19, 2)>,	/* uart3_rxd */
-+				 <K1_PADCONF(20, 2)>,	/* uart3_cts */
-+				 <K1_PADCONF(21, 2)>;	/* uart3_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart3_2_cfg: uart3-2-cfg {
-+		uart3-2-pins {
-+			pinmux = <K1_PADCONF(53, 4)>,	/* uart3_txd */
-+				 <K1_PADCONF(54, 4)>,	/* uart3_rxd */
-+				 <K1_PADCONF(55, 4)>,	/* uart3_cts */
-+				 <K1_PADCONF(56, 4)>;	/* uart3_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart4_0_cfg: uart4-0-cfg {
-+		uart4-0-pins {
-+			pinmux = <K1_PADCONF(100, 4)>,	/* uart4_txd */
-+				 <K1_PADCONF(101, 4)>;	/* uart4_rxd */
-+			power-source = <3300>;
-+			bias-pull-up;
-+			drive-strength = <19>;
-+		};
-+	};
-+
-+	uart4_1_cfg: uart4-1-cfg {
-+		uart4-1-pins {
-+			pinmux = <K1_PADCONF(81, 3)>,	/* uart4_cts */
-+				 <K1_PADCONF(82, 3)>,	/* uart4_rts */
-+				 <K1_PADCONF(83, 3)>,	/* uart4_txd */
-+				 <K1_PADCONF(84, 3)>;	/* uart4_rxd */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart4_2_cfg: uart4-2-cfg {
-+		uart4-2-pins {
-+			pinmux = <K1_PADCONF(23, 2)>,	/* uart4_txd */
-+				 <K1_PADCONF(24, 2)>;	/* uart4_rxd */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart4_3_cfg: uart4-3-cfg {
-+		uart4-3-pins {
-+			pinmux = <K1_PADCONF(33, 2)>,	/* uart4_txd */
-+				 <K1_PADCONF(34, 2)>,	/* uart4_rxd */
-+				 <K1_PADCONF(35, 2)>,	/* uart4_cts */
-+				 <K1_PADCONF(36, 2)>;	/* uart4_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart4_4_cfg: uart4-4-cfg {
-+		uart4-4-pins {
-+			pinmux = <K1_PADCONF(111, 4)>,	/* uart4_txd */
-+				 <K1_PADCONF(112, 4)>,	/* uart4_rxd */
-+				 <K1_PADCONF(113, 4)>,	/* uart4_cts */
-+				 <K1_PADCONF(114, 4)>;	/* uart4_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart5_0_cfg: uart5-0-cfg {
-+		uart5-0-pins {
-+			pinmux = <K1_PADCONF(102, 3)>,	/* uart5_txd */
-+				 <K1_PADCONF(103, 3)>;	/* uart5_rxd */
-+			power-source = <3300>;
-+			bias-pull-up;
-+			drive-strength = <19>;
-+		};
-+	};
-+
-+	uart5_1_cfg: uart5-1-cfg {
-+		uart5-1-pins {
-+			pinmux = <K1_PADCONF(25, 2)>,	/* uart5_txd */
-+				 <K1_PADCONF(26, 2)>,	/* uart5_rxd */
-+				 <K1_PADCONF(27, 2)>,	/* uart5_cts */
-+				 <K1_PADCONF(28, 2)>;	/* uart5_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart5_2_cfg: uart5-2-cfg {
-+		uart5-2-pins {
-+			pinmux = <K1_PADCONF(42, 2)>,	/* uart5_txd */
-+				 <K1_PADCONF(43, 2)>,	/* uart5_rxd */
-+				 <K1_PADCONF(44, 2)>,	/* uart5_cts */
-+				 <K1_PADCONF(45, 2)>;	/* uart5_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart5_3_cfg: uart5-3-cfg {
-+		uart5-3-pins {
-+			pinmux = <K1_PADCONF(70, 4)>,	/* uart5_txd */
-+				 <K1_PADCONF(71, 4)>,	/* uart5_rxd */
-+				 <K1_PADCONF(72, 4)>,	/* uart5_cts */
-+				 <K1_PADCONF(73, 4)>;	/* uart5_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart6_0_cfg: uart6-0-cfg {
-+		uart6-0-pins {
-+			pinmux = <K1_PADCONF(85, 2)>,	/* uart6_cts */
-+				 <K1_PADCONF(86, 2)>,	/* uart6_txd */
-+				 <K1_PADCONF(87, 2)>,	/* uart6_rxd */
-+				 <K1_PADCONF(90, 2)>;	/* uart6_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart6_1_cfg: uart6-1-cfg {
-+		uart6-1-pins {
-+			pinmux = <K1_PADCONF(0, 2)>,	/* uart6_txd */
-+				 <K1_PADCONF(1, 2)>,	/* uart6_rxd */
-+				 <K1_PADCONF(2, 2)>,	/* uart6_cts */
-+				 <K1_PADCONF(3, 2)>;	/* uart6_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart6_2_cfg: uart6-2-cfg {
-+		uart6-2-pins {
-+			pinmux = <K1_PADCONF(56, 2)>,	/* uart6_txd */
-+				 <K1_PADCONF(57, 2)>;	/* uart6_rxd */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart7_0_cfg: uart7-0-cfg {
-+		uart7-0-pins {
-+			pinmux = <K1_PADCONF(88, 2)>,	/* uart7_txd */
-+				 <K1_PADCONF(89, 2)>;	/* uart7_rxd */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart7_1_cfg: uart7-1-cfg {
-+		uart7-1-pins {
-+			pinmux = <K1_PADCONF(4, 2)>,	/* uart7_txd */
-+				 <K1_PADCONF(5, 2)>,	/* uart7_rxd */
-+				 <K1_PADCONF(6, 2)>,	/* uart7_cts */
-+				 <K1_PADCONF(7, 2)>;	/* uart7_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart8_0_cfg: uart8-0-cfg {
-+		uart8-0-pins {
-+			pinmux = <K1_PADCONF(82, 4)>,	/* uart8_txd */
-+				 <K1_PADCONF(83, 4)>;	/* uart8_rxd */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart8_1_cfg: uart8-1-cfg {
-+		uart8-1-pins {
-+			pinmux = <K1_PADCONF(8, 2)>,	/* uart8_txd */
-+				 <K1_PADCONF(9, 2)>,	/* uart8_rxd */
-+				 <K1_PADCONF(10, 2)>,	/* uart8_cts */
-+				 <K1_PADCONF(11, 2)>;	/* uart8_rts */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart8_2_cfg: uart8-2-cfg {
-+		uart8-2-pins {
-+			pinmux = <K1_PADCONF(75, 4)>,	/* uart8_txd */
-+				 <K1_PADCONF(76, 4)>,	/* uart8_rxd */
-+				 <K1_PADCONF(77, 4)>,	/* uart8_cts */
-+				 <K1_PADCONF(78, 4)>;	/* uart8_rts */
-+			power-source = <3300>;
-+			bias-pull-up;
-+			drive-strength = <19>;
-+		};
-+	};
-+
-+	uart9_0_cfg: uart9-0-cfg {
-+		uart9-0-pins {
-+			pinmux = <K1_PADCONF(12, 2)>,	/* uart9_txd */
-+				 <K1_PADCONF(13, 2)>;	/* uart9_rxd */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart9_1_cfg: uart9-1-cfg {
-+		uart9-1-pins {
-+			pinmux = <K1_PADCONF(110, 3)>,	/* uart9_cts */
-+				 <K1_PADCONF(115, 3)>,	/* uart9_rts */
-+				 <K1_PADCONF(116, 3)>,	/* uart9_txd */
-+				 <K1_PADCONF(117, 3)>;	/* uart9_rxd */
-+			bias-pull-up;
-+			drive-strength = <32>;
-+		};
-+	};
-+
-+	uart9_2_cfg: uart9-2-cfg {
-+		uart9-2-pins {
-+			pinmux = <K1_PADCONF(72, 2)>,	/* uart9_txd */
-+				 <K1_PADCONF(73, 2)>;	/* uart9_rxd */
-+			bias-pull-up;
- 			drive-strength = <32>;
- 		};
- 	};
--- 
-2.43.0
-
+I have a patch ready and will send it later. Please let me know if I'm 
+missing something there. Thanks.
 
 _______________________________________________
 linux-riscv mailing list
