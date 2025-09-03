@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD27ECA1016
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DD6CA1010
 	for <linux-riscv@archiver.kernel.org>; Wed,  3 Sep 2025 23:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6vVCW0b749JqxG9O5FaqKGJzUM/BkjkCMJuvTL0PY1w=; b=rqilIVB52zhNLx
-	YC3zQ8Z5rAw2KTOk/RPM2WTtFrhMtZASdnOTbpdafY0qI65q6f+GAoyURVdaCU63iXV/s4Ehhtdec
-	jIYwXwaBE1tPM4TOm0TY32iPE2CqH9xZU2ZE3VJooyipIws9xnbIAX8karqUTTmJSs7EpJITcypYo
-	74pVak9+SzJVBUpFOdKH/EBg/RdlL0NQp/BiOpVFq+cDov44t+Rkn1CXHRIPX4d5X+y5MXVfNXVw0
-	1GyCbcLcp9gHXOhmaPsak7GcnoGL21z4bBK3L0NCMvcq69URgxivA+zz+Jm5FGuR7nUTTAvacGB+s
-	FJcgX/Li3zFVweNf4xcw==;
+	List-Owner; bh=hSDdWh97r74VPjPfamFGsoChLYWDATnetSHKtLYjdL0=; b=mpQkQ6mqffZOeO
+	uATDXolyy8XCzYJ0HZ+1BDM39QKa1oNKkk6bHizc+jQCxgrz4dx/kETtIABQGE23B4KdgnszoEaw5
+	qPnZwVipTlxCVuj9JUfvJB9d5sKSC+xlMMh6lYQhKCKzghN4/JjdLP0FhDi2oxNAo4XnU7GEr/VaC
+	2D9rKy/zECZojcCdBpdCDS9GnydcmvwV+vYFAHlBhvPLF66cU9AE/d6k/o0B0K21G0no0zeN0xF35
+	/ldrwxd1yH6N6h+zk4TdHUG8fnR5mNzkBtDx4wljAKipZxOKiONA0qsQZSi23j0W8QA4z8fyxadX9
+	LALjox3niKqNrIbNjrsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utwe4-00000007sXB-13mR;
-	Wed, 03 Sep 2025 23:12:04 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1utwe3-00000007sWu-2iff;
+	Wed, 03 Sep 2025 23:12:03 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utsqe-00000007PRd-46Kh
+	id 1utsqb-00000007PQu-3vsJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Sep 2025 19:08:50 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-55f6abcd26bso1640144e87.1
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Sep 2025 12:08:48 -0700 (PDT)
+	Wed, 03 Sep 2025 19:08:47 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-560880bb751so159618e87.3
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Sep 2025 12:08:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756926527; x=1757531327; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1756926524; x=1757531324; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YuqW8s/GrQuCxdo+FagO/ZJ3gDLQBEgzobOP4r3w3ko=;
-        b=IRWhW7X+UgScVFyRqRiGSKJkMFO//DU3Td5ecmT2vgA3uh9YMn2LGECAGzqi0JDNfI
-         wPrwrb+Ylk6InSmfyNvNChjeAmW16fQTs7L65L4X/KEeXyDtdCxwDd/i296XV+INxZ80
-         XL/eQUfIRVTLnMEaoYSSvTn7KaMmIFWMNy5Ug7J3hAdwi0S8fwcpzN0CoIaN4HZaXo0i
-         fw7JIEHqm+x0cpvOH/CRb30RZpLEkKj7Ru2as9W/rEfpu8vWoVWEPkIanFch7BB/Uf/t
-         4sudhodeCGnS/2rJN7XMp3mAKzgSkV+E23n86x3nrGELeD92HRiH4wX/6IWF120ytYpp
-         xzKQ==
+        bh=FoAHxsHKD0ewEF953K31aGSSXT9m0xMjrB8ov1qgJGk=;
+        b=Q3cMVumNhaV1hVC9kCxQw6wA5d7HA37RuU2wG9E0Gsqy0QCSZHa8lI43Li4QOn1eE3
+         O4txj1yIxc0X7v2ha+gUyttHNroEk2bXrYU2vrdswdXQ2BC5IcqUb2nEb/6XrIlqXIA6
+         wCw3aWKVTKdU1UjcQooNtYbPYVgU3fybkdJSz02VIQreRkN8/VcDw3OaFNfVN3kWUJ8O
+         qIdne8T/oObiE4LKjALtfBQVQV2Xw/nr3HOyObCPkUDN+CELiFUCRrWock10IA14/xu5
+         l4GHk2FBimRWWAci5kl/49/L92UzJ1xRoXnDEhh/CezGdWwFYvMMpg7CmNu2icFIKZxd
+         4ivg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756926527; x=1757531327;
+        d=1e100.net; s=20230601; t=1756926524; x=1757531324;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YuqW8s/GrQuCxdo+FagO/ZJ3gDLQBEgzobOP4r3w3ko=;
-        b=hAHs3c5B+TTambBKTHwYJQiOwDSrVPj1ps0dm8DKyp1kEkP42EeYb6TzQI3PdO53GA
-         G4CNXYcYUJKuLKy4dFvkBJaElknyryhlaVtSycjuFZkoQ6nCOWq56kGu+IASvyEFQ62A
-         4jRm4cfiv+6/hgbIhZCRPgRZEa079/De3ed31uoFKn1XFydGej3lSXXUiSw6H1Fxjb9q
-         s6C07nNdEG/k36WKURLaRIj/Dh+ViYI3jBBCad941oseQsBPKsojh0zG/tmWFxnZkshH
-         jbIKYg85UrVUI60l/mYqOd2yjNZ2F5yrMrqZRr7Bsk3GblNViJHdr3vX9xheDHNdp/yD
-         FS1g==
-X-Forwarded-Encrypted: i=1; AJvYcCXxLoWsFjgi1l5ItNVYXoKF61YRrTnpIvWAmXXGUZtMztp0qujS03koMmG2joAayP1X27cQ86P+Oa6ioA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiOAnVFgYgosb2XbmmAHvq5vBd2MPq+v6GLKd946hYXLFW/W/w
-	DjYqoUI1fRTJKmH9wFT9hxPfVx4ggOR8VsmONSaOXOEeaeuz8TEyk9Ye
-X-Gm-Gg: ASbGncvq2gmnxR2o4JxBhAql2tmk567rxYUSDegh94QMXQHbvR4Pq10TWpmBhiwanjJ
-	JwBCzME7MGu0HVcB9QEnlgl7dHrsMkjnk04krPw72c4ZIffYGA7kpO9T6F0MMJ14yup8eMeFHhO
-	hVqQzbZ0dR06/8MhdLLKP8qi9TEk+olQ4oBQA7uRfq30Qs4VcNweMaWpUFEXZ/4zvMoV2LDNdQk
-	d9iFe4GgKqBURbpwbXopNJCeJtp3O2gkxtcE677vCjgLmG1FKOBKCpKdROE2XrUgJhFVkbYa71L
-	GjGUZscqdYFPQW/6bEmS0aIkKWXvEtlmsSfr8VAnqxRHqzaiBIPmIbtn324TBmJyeCE0H5FUZ3a
-	hrlj8PZ0t7oxyc2s=
-X-Google-Smtp-Source: AGHT+IGeLOsgTzLKAVqJ8opF2BGock8RjsxhwYT3ip3FdcviWEaHSKrolQW6jrN3tbOJ9N1o46sMgQ==
-X-Received: by 2002:ac2:5f72:0:b0:55f:552c:f731 with SMTP id 2adb3069b0e04-55f6f6b4c11mr3572097e87.7.1756926526560;
-        Wed, 03 Sep 2025 12:08:46 -0700 (PDT)
+        bh=FoAHxsHKD0ewEF953K31aGSSXT9m0xMjrB8ov1qgJGk=;
+        b=Q5u85V6ZVqmnvF4TDsZwsGPDG8omFcGUPcjSOdGxCctvGefJ49uaFIMPo1EokTXnO0
+         Rn93DoI3qwZaL0ktycXy7Fz4XprnABHq9gmSEC7dWArn9HTPZYA+hVUNXVdkPZoaSzJy
+         0Te2rk6nGOdku4iOVMukuMrcEwm6URck1PPzEAIAZSPWIg6oMXgIE25Qgi20hrP3jgu/
+         GIupJ5fNblxyPit676IRhHauBskMxYJSWXeBm4HSDSiaPrGK7JwRhMSqTgXk361VVy6s
+         ULzpmhaomEfsUINDImlem77lj8SFybRN3TscdgcH0LvDozoVCKtuwE3k+763mYKaGAfg
+         G5uQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXkfpJU53q1iX0KE2IXt8/Ifv+zUsJaU0aEGzctAai000c9VC038Kv8Vtz7jGDcYyTbZWsPEze2oC0znQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyifHcwcZUZGKqWlndc1P/w6362Hjo5UuHadtl8b/oijekOFhcU
+	Rw5BaMW8zEedCvLH+yMRTxE6nLZ9F8kMT7dDW+rnGM9Krfln+vR0GZOQYR7j3OHcSi9135U+
+X-Gm-Gg: ASbGncvdZxi5eYp/MofsA12N2N2zcTx31jcCsvfWhWstsJjkGzqHqYmrTnUZwsy5CUN
+	8r+BcSt+LP4D4MzAVmrqp/HN6szo4rFpPmEWsOx//6SeISvpEcg/ECBmjjmFX4AduUeHgRLspX+
+	9khu8Qlbug1SXcw/pstokYhLdD3JMRBnSlB8j8dqUwkEy4SbE5mqCrwovdoFWQPcoxRQa3zNy6y
+	mov43p5IEKBm0d531/izR2V9mVAx5nefXj1mgnlg75IA561iJ5tSt4rx9/5VpwHO2iWta1jx7Jr
+	cQ9vsPSItCDmBj/ni0dqY2LN0EEzE7k2JRiN7bKr4lmDo611ukOAuix7a8LesViNkKZvtfFhldM
+	vhnI3ND7vfFtlPG0=
+X-Google-Smtp-Source: AGHT+IFGniFr4sXUdZW4Hd3B3FQYb7lgWC7FzZ4XugfWmKkHW/Gq3xd+KncZDUCMR1HaX/EQsrKUug==
+X-Received: by 2002:a05:6512:61c8:20b0:560:8a08:910d with SMTP id 2adb3069b0e04-5608a0892damr881661e87.14.1756926523348;
+        Wed, 03 Sep 2025 12:08:43 -0700 (PDT)
 Received: from minun.felixc.at ([2a01:4f9:6b:1cc4::2])
-        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-5608abccc75sm704484e87.62.2025.09.03.12.08.45
+        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-5608abccc75sm704484e87.62.2025.09.03.12.08.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 12:08:46 -0700 (PDT)
+        Wed, 03 Sep 2025 12:08:42 -0700 (PDT)
 From: Asuna Yang <spriteovo@gmail.com>
 X-Google-Original-From: Asuna Yang <SpriteOvO@gmail.com>
 To: Conor Dooley <conor@kernel.org>,
@@ -94,13 +94,13 @@ To: Conor Dooley <conor@kernel.org>,
 	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>,
-	Tejun Heo <tj@kernel.org>,
 	Kees Cook <kees@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Matthew Maurer <mmaurer@google.com>,
 	Jeff Xu <jeffxu@chromium.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
 	Jan Hendrik Farr <kernel@jfarr.cc>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
 	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
 	Christian Brauner <brauner@kernel.org>,
 	Brian Gerst <brgerst@gmail.com>
@@ -110,17 +110,16 @@ Cc: linux-doc@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	llvm@lists.linux.dev,
 	Asuna Yang <SpriteOvO@gmail.com>
-Subject: [PATCH 2/2] RISC-V: re-enable gcc + rust builds
-Date: Wed,  3 Sep 2025 21:07:57 +0200
-Message-ID: <20250903190806.2604757-2-SpriteOvO@gmail.com>
+Subject: [PATCH 1/2] rust: get the version of libclang used by bindgen in a separate script
+Date: Wed,  3 Sep 2025 21:07:56 +0200
+Message-ID: <20250903190806.2604757-1-SpriteOvO@gmail.com>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250903190806.2604757-1-SpriteOvO@gmail.com>
+In-Reply-To: <20250830-cheesy-prone-ee5fae406c22@spud>
 References: <20250830-cheesy-prone-ee5fae406c22@spud>
- <20250903190806.2604757-1-SpriteOvO@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_120849_023190_EA2DF29C 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20250903_120846_041028_42FA3BA6 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,202 +136,320 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 33549fcf37ec ("RISC-V: disallow gcc + rust builds") disabled GCC
-+ Rust builds for RISC-V due to differences in extension handling
-compared to LLVM.
-
-Add a Kconfig non-visible symbol to ensure that all important RISC-V
-specific flags that will be used by GCC can be correctly recognized by
-Rust bindgen's libclang, otherwise config HAVE_RUST will not be
-selected.
+Decouple the code for getting the version of libclang used by Rust
+bindgen from rust_is_available.sh into a separate script so that we can
+define a symbol for the version in Kconfig that will be used for
+checking in subsequent patches.
 
 Signed-off-by: Asuna Yang <SpriteOvO@gmail.com>
 ---
- Documentation/rust/arch-support.rst |  2 +-
- arch/riscv/Kconfig                  | 62 ++++++++++++++++++++++++++++-
- rust/Makefile                       |  7 +++-
- 3 files changed, 68 insertions(+), 3 deletions(-)
+ init/Kconfig                                  |  6 ++
+ rust/Makefile                                 |  2 +-
+ scripts/Kconfig.include                       |  1 +
+ ...lang.h => rust-bindgen-libclang-version.h} |  0
+ scripts/rust-bindgen-libclang-version.sh      | 94 +++++++++++++++++++
+ scripts/rust_is_available.sh                  | 58 +++---------
+ scripts/rust_is_available_test.py             | 22 ++---
+ 7 files changed, 125 insertions(+), 58 deletions(-)
+ rename scripts/{rust_is_available_bindgen_libclang.h => rust-bindgen-libclang-version.h} (100%)
+ create mode 100755 scripts/rust-bindgen-libclang-version.sh
 
-diff --git a/Documentation/rust/arch-support.rst b/Documentation/rust/arch-support.rst
-index 6e6a515d0899..5282e0e174e8 100644
---- a/Documentation/rust/arch-support.rst
-+++ b/Documentation/rust/arch-support.rst
-@@ -18,7 +18,7 @@ Architecture   Level of support  Constraints
- ``arm``        Maintained        ARMv7 Little Endian only.
- ``arm64``      Maintained        Little Endian only.
- ``loongarch``  Maintained        \-
--``riscv``      Maintained        ``riscv64`` and LLVM/Clang only.
-+``riscv``      Maintained        ``riscv64`` only.
- ``um``         Maintained        \-
- ``x86``        Maintained        ``x86_64`` only.
- =============  ================  ==============================================
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 1c5544401530..d7f421e0f429 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -195,7 +195,7 @@ config RISCV
- 	select HAVE_REGS_AND_STACK_ACCESS_API
- 	select HAVE_RETHOOK if !XIP_KERNEL
- 	select HAVE_RSEQ
--	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && CC_IS_CLANG
-+	select HAVE_RUST if RUSTC_SUPPORTS_RISCV && RUST_BINDGEN_LIBCLANG_RECOGNIZES_FLAGS
- 	select HAVE_SAMPLE_FTRACE_DIRECT
- 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
- 	select HAVE_STACKPROTECTOR
-@@ -236,6 +236,27 @@ config RUSTC_SUPPORTS_RISCV
- 	# -Zsanitizer=shadow-call-stack flag.
- 	depends on !SHADOW_CALL_STACK || RUSTC_VERSION >= 108200
+diff --git a/init/Kconfig b/init/Kconfig
+index 666783eb50ab..322af2ba76cd 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -82,6 +82,12 @@ config RUSTC_LLVM_VERSION
+ 	int
+ 	default $(rustc-llvm-version)
  
-+config RUST_BINDGEN_LIBCLANG_RECOGNIZES_FLAGS
-+	def_bool y
-+	depends on RUST_BINDGEN_LIBCLANG_RECOGNIZES_V
-+	depends on RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZABHA
-+	depends on RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZACAS
-+	depends on RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZBA
-+	depends on RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZBB
-+	depends on RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZBC
-+	depends on RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZBKB
-+	depends on RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZICSR_ZIFENCEI
++config RUST_BINDGEN_LIBCLANG_VERSION
++	int
++	default $(rustc-bindgen-libclang-version)
 +	help
-+	  Rust bindgen currently relies on libclang as backend. When a mixed build is
-+	  performed (building C code with GCC), GCC flags will be passed to libclang.
-+	  However, not all GCC flags are recognized by Clang, so most of the
-+	  incompatible flags have been filtered out in rust/Makefile.
++	  This is the version of `libclang` used by the Rust bindings generator.
 +
-+	  For RISC-V, GCC and Clang are not at the same pace of implementing extensions.
-+	  This config ensures that all important RISC-V specific flags that will be
-+	  used by GCC can be correctly recognized by Rust bindgen's libclang, otherwise
-+	  config HAVE_RUST will not be selected.
-+
- config CLANG_SUPPORTS_DYNAMIC_FTRACE
- 	def_bool CC_IS_CLANG
- 	# https://github.com/ClangBuiltLinux/linux/issues/1817
-@@ -634,6 +655,11 @@ config TOOLCHAIN_HAS_V
- 	depends on LLD_VERSION >= 140000 || LD_VERSION >= 23800
- 	depends on AS_HAS_OPTION_ARCH
- 
-+config RUST_BINDGEN_LIBCLANG_RECOGNIZES_V
-+	def_bool y
-+	# https://github.com/llvm/llvm-project/commit/e6de53b4de4aecca4ac892500a0907805896ed27
-+	depends on !TOOLCHAIN_HAS_V || RUST_BINDGEN_LIBCLANG_VERSION >= 140000
-+
- config RISCV_ISA_V
- 	bool "Vector extension support"
- 	depends on TOOLCHAIN_HAS_V
-@@ -698,6 +724,11 @@ config TOOLCHAIN_HAS_ZABHA
- 	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zabha)
- 	depends on AS_HAS_OPTION_ARCH
- 
-+config RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZABHA
-+	def_bool y
-+	# https://github.com/llvm/llvm-project/commit/6b7444964a8d028989beee554a1f5c61d16a1cac
-+	depends on !TOOLCHAIN_HAS_ZABHA || RUST_BINDGEN_LIBCLANG_VERSION >= 190100
-+
- config RISCV_ISA_ZABHA
- 	bool "Zabha extension support for atomic byte/halfword operations"
- 	depends on TOOLCHAIN_HAS_ZABHA
-@@ -716,6 +747,11 @@ config TOOLCHAIN_HAS_ZACAS
- 	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zacas)
- 	depends on AS_HAS_OPTION_ARCH
- 
-+config RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZACAS
-+	def_bool y
-+	# https://github.com/llvm/llvm-project/commit/614aeda93b2225c6eb42b00ba189ba7ca2585c60
-+	depends on !TOOLCHAIN_HAS_ZACAS || RUST_BINDGEN_LIBCLANG_VERSION >= 200100
-+
- config RISCV_ISA_ZACAS
- 	bool "Zacas extension support for atomic CAS"
- 	depends on TOOLCHAIN_HAS_ZACAS
-@@ -735,6 +771,11 @@ config TOOLCHAIN_HAS_ZBB
- 	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
- 	depends on AS_HAS_OPTION_ARCH
- 
-+config RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZBB
-+	def_bool y
-+	# https://github.com/llvm/llvm-project/commit/33d008b169f3c813a4a45da220d0952f795ac477
-+	depends on !TOOLCHAIN_HAS_ZBB || RUST_BINDGEN_LIBCLANG_VERSION >= 140000
-+
- # This symbol indicates that the toolchain supports all v1.0 vector crypto
- # extensions, including Zvk*, Zvbb, and Zvbc.  LLVM added all of these at once.
- # binutils added all except Zvkb, then added Zvkb.  So we just check for Zvkb.
-@@ -750,6 +791,11 @@ config TOOLCHAIN_HAS_ZBA
- 	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
- 	depends on AS_HAS_OPTION_ARCH
- 
-+config RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZBA
-+	def_bool y
-+	# https://github.com/llvm/llvm-project/commit/33d008b169f3c813a4a45da220d0952f795ac477
-+	depends on !TOOLCHAIN_HAS_ZBA || RUST_BINDGEN_LIBCLANG_VERSION >= 140000
-+
- config RISCV_ISA_ZBA
- 	bool "Zba extension support for bit manipulation instructions"
- 	default y
-@@ -785,6 +831,11 @@ config TOOLCHAIN_HAS_ZBC
- 	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
- 	depends on AS_HAS_OPTION_ARCH
- 
-+config RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZBC
-+	def_bool y
-+	# https://github.com/llvm/llvm-project/commit/33d008b169f3c813a4a45da220d0952f795ac477
-+	depends on !TOOLCHAIN_HAS_ZBC || RUST_BINDGEN_LIBCLANG_VERSION >= 140000
-+
- config RISCV_ISA_ZBC
- 	bool "Zbc extension support for carry-less multiplication instructions"
- 	depends on TOOLCHAIN_HAS_ZBC
-@@ -808,6 +859,11 @@ config TOOLCHAIN_HAS_ZBKB
- 	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
- 	depends on AS_HAS_OPTION_ARCH
- 
-+config RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZBKB
-+	def_bool y
-+	# https://github.com/llvm/llvm-project/commit/7ee1c162cc53d37f717f9a138276ad64fa6863bc
-+	depends on !TOOLCHAIN_HAS_ZBKB || RUST_BINDGEN_LIBCLANG_VERSION >= 140000
-+
- config RISCV_ISA_ZBKB
- 	bool "Zbkb extension support for bit manipulation instructions"
- 	depends on TOOLCHAIN_HAS_ZBKB
-@@ -894,6 +950,10 @@ config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
- 	  versions of clang and GCC to be passed to GAS, which has the same result
- 	  as passing zicsr and zifencei to -march.
- 
-+config RUST_BINDGEN_LIBCLANG_RECOGNIZES_ZICSR_ZIFENCEI
-+	def_bool y
-+	depends on TOOLCHAIN_NEEDS_OLD_ISA_SPEC || (TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI && RUST_BINDGEN_LIBCLANG_VERSION >= 170000)
-+
- config FPU
- 	bool "FPU support"
- 	default y
+ config CC_CAN_LINK
+ 	bool
+ 	default $(success,$(srctree)/scripts/cc-can-link.sh $(CC) $(CLANG_FLAGS) $(USERCFLAGS) $(USERLDFLAGS) $(m64-flag)) if 64BIT
 diff --git a/rust/Makefile b/rust/Makefile
-index 34d0429d50fd..7b1055c98146 100644
+index 115b63b7d1e3..34d0429d50fd 100644
 --- a/rust/Makefile
 +++ b/rust/Makefile
-@@ -277,20 +277,25 @@ bindgen_skip_c_flags := -mno-fp-ret-in-387 -mpreferred-stack-boundary=% \
- 	-fno-inline-functions-called-once -fsanitize=bounds-strict \
- 	-fstrict-flex-arrays=% -fmin-function-alignment=% \
- 	-fzero-init-padding-bits=% -mno-fdpic \
--	--param=% --param asan-%
-+	--param=% --param asan-% -mno-riscv-attribute
+@@ -300,7 +300,7 @@ bindgen_extra_c_flags = -w --target=$(BINDGEN_TARGET)
+ # https://github.com/llvm/llvm-project/issues/44842
+ # https://github.com/llvm/llvm-project/blob/llvmorg-16.0.0-rc2/clang/docs/ReleaseNotes.rst#deprecated-compiler-flags
+ ifdef CONFIG_INIT_STACK_ALL_ZERO
+-libclang_maj_ver=$(shell $(BINDGEN) $(srctree)/scripts/rust_is_available_bindgen_libclang.h 2>&1 | sed -ne 's/.*clang version \([0-9]*\).*/\1/p')
++libclang_maj_ver=$(shell $(srctree)/scripts/rust-bindgen-libclang-version.sh --with-non-canonical $(BINDGEN) | sed -ne '2s/\([0-9]*\).*/\1/p')
+ ifeq ($(shell expr $(libclang_maj_ver) \< 16), 1)
+ bindgen_extra_c_flags += -enable-trivial-auto-var-init-zero-knowing-it-will-be-removed-from-clang
+ endif
+diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+index 33193ca6e803..68df1fed69a1 100644
+--- a/scripts/Kconfig.include
++++ b/scripts/Kconfig.include
+@@ -67,6 +67,7 @@ m64-flag := $(cc-option-bit,-m64)
  
- # Derived from `scripts/Makefile.clang`.
- BINDGEN_TARGET_x86	:= x86_64-linux-gnu
- BINDGEN_TARGET_arm64	:= aarch64-linux-gnu
- BINDGEN_TARGET_arm	:= arm-linux-gnueabi
- BINDGEN_TARGET_loongarch	:= loongarch64-linux-gnusf
-+BINDGEN_TARGET_riscv	:= riscv64-linux-gnu
- BINDGEN_TARGET_um	:= $(BINDGEN_TARGET_$(SUBARCH))
- BINDGEN_TARGET		:= $(BINDGEN_TARGET_$(SRCARCH))
+ rustc-version := $(shell,$(srctree)/scripts/rustc-version.sh $(RUSTC))
+ rustc-llvm-version := $(shell,$(srctree)/scripts/rustc-llvm-version.sh $(RUSTC))
++rustc-bindgen-libclang-version := $(shell,$(srctree)/scripts/rust-bindgen-libclang-version.sh $(BINDGEN) 2>/dev/null)
  
-+ifeq ($(BINDGEN_TARGET),)
-+$(error add '--target=' option to rust/Makefile)
-+else
- # All warnings are inhibited since GCC builds are very experimental,
- # many GCC warnings are not supported by Clang, they may only appear in
- # some configurations, with new GCC versions, etc.
- bindgen_extra_c_flags = -w --target=$(BINDGEN_TARGET)
-+endif
+ # $(rustc-option,<flag>)
+ # Return y if the Rust compiler supports <flag>, n otherwise
+diff --git a/scripts/rust_is_available_bindgen_libclang.h b/scripts/rust-bindgen-libclang-version.h
+similarity index 100%
+rename from scripts/rust_is_available_bindgen_libclang.h
+rename to scripts/rust-bindgen-libclang-version.h
+diff --git a/scripts/rust-bindgen-libclang-version.sh b/scripts/rust-bindgen-libclang-version.sh
+new file mode 100755
+index 000000000000..45485d0f95c8
+--- /dev/null
++++ b/scripts/rust-bindgen-libclang-version.sh
+@@ -0,0 +1,94 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++#
++# Print the version of `libclang` used by the Rust bindings generator in a 5 or 6-digit form,
++# and a non-canonical form if `--with-non-canonical` option is specified.
++# Also, perform the minimum version check.
++
++set -e
++
++# If the script fails, print 0 to stdout as the version output.
++trap 'if [ $? -ne 0 ]; then echo 0; fi' EXIT
++
++while [ $# -gt 0 ]; do
++	case "$1" in
++	--with-non-canonical)
++		with_non_canonical=1
++		;;
++	-*)
++		echo >&2 "Unknown option: $1"
++		exit 1
++		;;
++	*)
++		break
++		;;
++	esac
++	shift
++done
++
++get_bindgen_libclang_version()
++{
++	# Invoke `bindgen` to get the `libclang` version found by `bindgen`. This step
++	# may already fail if, for instance, `libclang` is not found, thus inform the
++	# user in such a case.
++	output=$( \
++		LC_ALL=C "$@" $(dirname $0)/rust-bindgen-libclang-version.h 2>&1 >/dev/null
++	) || code=$?
++	if [ -n "$code" ]; then
++		echo >&2 "***"
++		echo >&2 "*** Running '$@' to check the libclang version (used by the Rust"
++		echo >&2 "*** bindings generator) failed with code $code. This may be caused by"
++		echo >&2 "*** a failure to locate libclang. See output and docs below for details:"
++		echo >&2 "***"
++		echo >&2 "$output"
++		echo >&2 "***"
++		exit 1
++	fi
++
++	# Unlike other version checks, note that this one does not necessarily appear
++	# in the first line of the output, thus no `sed` address is provided.
++	version=$( \
++		echo "$output" \
++			| sed -nE 's:.*clang version ([0-9]+\.[0-9]+\.[0-9]+).*:\1:p'
++	)
++	if [ -z "$version" ]; then
++		echo >&2 "***"
++		echo >&2 "*** Running '$@' to check the libclang version (used by the Rust"
++		echo >&2 "*** bindings generator) did not return an expected output. See output"
++		echo >&2 "*** and docs below for details:"
++		echo >&2 "***"
++		echo >&2 "$output"
++		echo >&2 "***"
++		exit 1
++	fi
++	echo "$version"
++}
++
++# Convert the version string x.y.z to a canonical 5 or 6-digit form.
++get_canonical_version()
++{
++	IFS=.
++	set -- $1
++	echo $((10000 * $1 + 100 * $2 + $3))
++}
++
++min_tool_version=$(dirname $0)/min-tool-version.sh
++
++version=$(get_bindgen_libclang_version "$@")
++min_version=$($min_tool_version llvm)
++cversion=$(get_canonical_version $version)
++min_cversion=$(get_canonical_version $min_version)
++
++if [ "$cversion" -lt "$min_cversion" ]; then
++	echo >&2 "***"
++	echo >&2 "*** libclang (used by the Rust bindings generator '$@') is too old."
++	echo >&2 "***   Your version:    $version"
++	echo >&2 "***   Minimum version: $min_version"
++	echo >&2 "***"
++	exit 1
++fi
++
++echo "$cversion"
++if [ -n "$with_non_canonical" ]; then
++	echo "$version"
++fi
+diff --git a/scripts/rust_is_available.sh b/scripts/rust_is_available.sh
+index d2323de0692c..ccbd5efe9498 100755
+--- a/scripts/rust_is_available.sh
++++ b/scripts/rust_is_available.sh
+@@ -179,55 +179,21 @@ fi
  
- # Auto variable zero-initialization requires an additional special option with
- # clang that is going to be removed sometime in the future (likely in
+ # Check that the `libclang` used by the Rust bindings generator is suitable.
+ #
+-# In order to do that, first invoke `bindgen` to get the `libclang` version
+-# found by `bindgen`. This step may already fail if, for instance, `libclang`
+-# is not found, thus inform the user in such a case.
+-bindgen_libclang_output=$( \
+-	LC_ALL=C "$BINDGEN" $(dirname $0)/rust_is_available_bindgen_libclang.h 2>&1 >/dev/null
+-) || bindgen_libclang_code=$?
+-if [ -n "$bindgen_libclang_code" ]; then
+-	echo >&2 "***"
+-	echo >&2 "*** Running '$BINDGEN' to check the libclang version (used by the Rust"
+-	echo >&2 "*** bindings generator) failed with code $bindgen_libclang_code. This may be caused by"
+-	echo >&2 "*** a failure to locate libclang. See output and docs below for details:"
+-	echo >&2 "***"
+-	echo >&2 "$bindgen_libclang_output"
+-	echo >&2 "***"
+-	exit 1
+-fi
+-
+-# `bindgen` returned successfully, thus use the output to check that the version
+-# of the `libclang` found by the Rust bindings generator is suitable.
+-#
+-# Unlike other version checks, note that this one does not necessarily appear
+-# in the first line of the output, thus no `sed` address is provided.
+-bindgen_libclang_version=$( \
+-	echo "$bindgen_libclang_output" \
+-		| sed -nE 's:.*clang version ([0-9]+\.[0-9]+\.[0-9]+).*:\1:p'
+-)
+-if [ -z "$bindgen_libclang_version" ]; then
+-	echo >&2 "***"
+-	echo >&2 "*** Running '$BINDGEN' to check the libclang version (used by the Rust"
+-	echo >&2 "*** bindings generator) did not return an expected output. See output"
+-	echo >&2 "*** and docs below for details:"
+-	echo >&2 "***"
+-	echo >&2 "$bindgen_libclang_output"
+-	echo >&2 "***"
+-	exit 1
+-fi
+-bindgen_libclang_min_version=$($min_tool_version llvm)
+-bindgen_libclang_cversion=$(get_canonical_version $bindgen_libclang_version)
+-bindgen_libclang_min_cversion=$(get_canonical_version $bindgen_libclang_min_version)
+-if [ "$bindgen_libclang_cversion" -lt "$bindgen_libclang_min_cversion" ]; then
+-	echo >&2 "***"
+-	echo >&2 "*** libclang (used by the Rust bindings generator '$BINDGEN') is too old."
+-	echo >&2 "***   Your version:    $bindgen_libclang_version"
+-	echo >&2 "***   Minimum version: $bindgen_libclang_min_version"
+-	echo >&2 "***"
++# Get the version, and the minimum version check will be performed internally.
++bindgen_libclang_version_output=$( \
++	$(dirname $0)/rust-bindgen-libclang-version.sh --with-non-canonical $BINDGEN
++) || bindgen_libclang_version_code=$?
++if [ -n "$bindgen_libclang_version_code" ]; then
++	# Detailed error messages have already been output in the script we just called.
+ 	exit 1
+ fi
+ 
+-if [ "$bindgen_libclang_cversion" -ge 1900100 ] &&
++# Getting the version successfully, thus use the output to check that the
++# version of the `libclang` found by the Rust bindings generator is suitable.
++readarray -t bindgen_libclang_version_array <<<"$bindgen_libclang_version_output"
++bindgen_libclang_version=${bindgen_libclang_version_array[1]}
++bindgen_libclang_cversion=${bindgen_libclang_version_array[0]}
++if [ "$bindgen_libclang_cversion" -ge 190100 ] &&
+ 	[ "$rust_bindings_generator_cversion" -lt 6905 ]; then
+ 	# Distributions may have patched the issue (e.g. Debian did).
+ 	if ! "$BINDGEN" $(dirname $0)/rust_is_available_bindgen_libclang_concat.h | grep -q foofoo; then
+diff --git a/scripts/rust_is_available_test.py b/scripts/rust_is_available_test.py
+index 4fcc319dea84..b7265e2691cf 100755
+--- a/scripts/rust_is_available_test.py
++++ b/scripts/rust_is_available_test.py
+@@ -72,7 +72,7 @@ else:
+ 
+         return cls.generate_executable(f"""#!/usr/bin/env python3
+ import sys
+-if "rust_is_available_bindgen_libclang.h" in " ".join(sys.argv):
++if "rust-bindgen-libclang-version.h" in " ".join(sys.argv):
+     {libclang_case}
+ elif "rust_is_available_bindgen_0_66.h" in " ".join(sys.argv):
+     {version_0_66_case}
+@@ -113,7 +113,7 @@ else:
+ 
+         cls.bindgen_default_bindgen_version_stdout = f"bindgen {cls.bindgen_default_version}"
+         cls.bindgen_default_bindgen_libclang_failure_exit_code = 42
+-        cls.bindgen_default_bindgen_libclang_stderr = f"scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version {cls.llvm_default_version} [-W#pragma-messages], err: false"
++        cls.bindgen_default_bindgen_libclang_stderr = f"scripts/rust-bindgen-libclang-version.h:2:9: warning: clang version {cls.llvm_default_version} [-W#pragma-messages], err: false"
+ 
+         cls.default_rustc = cls.generate_rustc(f"rustc {cls.rustc_default_version}")
+         cls.default_bindgen =  cls.generate_bindgen(cls.bindgen_default_bindgen_version_stdout, cls.bindgen_default_bindgen_libclang_stderr)
+@@ -265,13 +265,13 @@ else:
+         self.assertIn(f"bindings generator) failed with code {self.bindgen_default_bindgen_libclang_failure_exit_code}. This may be caused by", result.stderr)
+ 
+     def test_bindgen_libclang_unexpected_version(self):
+-        bindgen = self.generate_bindgen_libclang("scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version unexpected [-W#pragma-messages], err: false")
++        bindgen = self.generate_bindgen_libclang("scripts/rust-bindgen-libclang-version.h:2:9: warning: clang version unexpected [-W#pragma-messages], err: false")
+         result = self.run_script(self.Expected.FAILURE, { "BINDGEN": bindgen })
+         self.assertIn(f"Running '{bindgen}' to check the libclang version (used by the Rust", result.stderr)
+         self.assertIn("bindings generator) did not return an expected output. See output", result.stderr)
+ 
+     def test_bindgen_libclang_old_version(self):
+-        bindgen = self.generate_bindgen_libclang("scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version 10.0.0 [-W#pragma-messages], err: false")
++        bindgen = self.generate_bindgen_libclang("scripts/rust-bindgen-libclang-version.h:2:9: warning: clang version 10.0.0 [-W#pragma-messages], err: false")
+         result = self.run_script(self.Expected.FAILURE, { "BINDGEN": bindgen })
+         self.assertIn(f"libclang (used by the Rust bindings generator '{bindgen}') is too old.", result.stderr)
+ 
+@@ -291,7 +291,7 @@ else:
+         ):
+             with self.subTest(bindgen_version=bindgen_version, libclang_version=libclang_version):
+                 cc = self.generate_clang(f"clang version {libclang_version}")
+-                libclang_stderr = f"scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version {libclang_version} [-W#pragma-messages], err: false"
++                libclang_stderr = f"scripts/rust-bindgen-libclang-version.h:2:9: warning: clang version {libclang_version} [-W#pragma-messages], err: false"
+                 bindgen = self.generate_bindgen(f"bindgen {bindgen_version}", libclang_stderr)
+                 result = self.run_script(expected_not_patched, { "BINDGEN": bindgen, "CC": cc })
+                 if expected_not_patched == self.Expected.SUCCESS_WITH_WARNINGS:
+@@ -301,7 +301,7 @@ else:
+                 result = self.run_script(self.Expected.SUCCESS, { "BINDGEN": bindgen, "CC": cc })
+ 
+     def test_clang_matches_bindgen_libclang_different_bindgen(self):
+-        bindgen = self.generate_bindgen_libclang("scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version 999.0.0 [-W#pragma-messages], err: false")
++        bindgen = self.generate_bindgen_libclang("scripts/rust-bindgen-libclang-version.h:2:9: warning: clang version 999.0.0 [-W#pragma-messages], err: false")
+         result = self.run_script(self.Expected.SUCCESS_WITH_WARNINGS, { "BINDGEN": bindgen })
+         self.assertIn("version does not match Clang's. This may be a problem.", result.stderr)
+ 
+@@ -352,16 +352,16 @@ InstalledDir: /usr/bin
+ 
+     def test_success_bindgen_libclang(self):
+         for stderr in (
+-            f"scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version {self.llvm_default_version} (https://github.com/llvm/llvm-project.git 4a2c05b05ed07f1f620e94f6524a8b4b2760a0b1) [-W#pragma-messages], err: false",
+-            f"/home/jd/Documents/dev/kernel-module-flake/linux-6.1/outputs/dev/lib/modules/6.1.0-development/source/scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version {self.llvm_default_version}  [-W#pragma-messages], err: false",
+-            f"scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version {self.llvm_default_version} (Fedora 13.0.0-3.fc35) [-W#pragma-messages], err: false",
++            f"scripts/rust-bindgen-libclang-version.h:2:9: warning: clang version {self.llvm_default_version} (https://github.com/llvm/llvm-project.git 4a2c05b05ed07f1f620e94f6524a8b4b2760a0b1) [-W#pragma-messages], err: false",
++            f"/home/jd/Documents/dev/kernel-module-flake/linux-6.1/outputs/dev/lib/modules/6.1.0-development/source/scripts/rust-bindgen-libclang-version.h:2:9: warning: clang version {self.llvm_default_version}  [-W#pragma-messages], err: false",
++            f"scripts/rust-bindgen-libclang-version.h:2:9: warning: clang version {self.llvm_default_version} (Fedora 13.0.0-3.fc35) [-W#pragma-messages], err: false",
+             f"""
+ /nix/store/dsd5gz46hdbdk2rfdimqddhq6m8m8fqs-bash-5.1-p16/bin/bash: warning: setlocale: LC_ALL: cannot change locale (c)
+-scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version {self.llvm_default_version}  [-W#pragma-messages], err: false
++scripts/rust-bindgen-libclang-version.h:2:9: warning: clang version {self.llvm_default_version}  [-W#pragma-messages], err: false
+ """,
+             f"""
+ /nix/store/dsd5gz46hdbdk2rfdimqddhq6m8m8fqs-bash-5.1.0-p16/bin/bash: warning: setlocale: LC_ALL: cannot change locale (c)
+-/home/jd/Documents/dev/kernel-module-flake/linux-6.1/outputs/dev/lib/modules/6.1.0-development/source/scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version {self.llvm_default_version} (Fedora 13.0.0-3.fc35) [-W#pragma-messages], err: false
++/home/jd/Documents/dev/kernel-module-flake/linux-6.1/outputs/dev/lib/modules/6.1.0-development/source/scripts/rust-bindgen-libclang-version.h:2:9: warning: clang version {self.llvm_default_version} (Fedora 13.0.0-3.fc35) [-W#pragma-messages], err: false
+ """
+         ):
+             with self.subTest(stderr=stderr):
 -- 
 2.51.0
 
